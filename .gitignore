@@ -1,5 +1,4 @@
 config/database.yml
-config/solr.yml
 config/*.sphinx.conf
 config/s3_credentials.yml
 *~
