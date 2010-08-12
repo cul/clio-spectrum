@@ -4,6 +4,8 @@ development:
     url: http://testcat.cul.columbia.edu:8983/solr-1.4/newbooks_dev
 test: &TEST
     url: http://127.0.0.1:8983/solr
+development_jetty:
+    url: http://127.0.0.1:8983/solr
 taft_pass:
     url: http://testcat.cul.columbia.edu:8983/solr-1.4/newbooks_test
 cucumber:

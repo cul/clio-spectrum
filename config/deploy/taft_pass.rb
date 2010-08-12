@@ -1,4 +1,4 @@
-set :rails_env, "taft_pass"
+set :rails_env, "pass_test"
 set :application, "newbooks_test"
 set :domain,      "taft.cul.columbia.edu"
 set :deploy_to,   "/opt/passenger/#{application}/"
