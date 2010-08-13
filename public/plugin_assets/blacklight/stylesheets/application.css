@@ -218,8 +218,6 @@ Search Parameters
 #appliedQueries,
 #appliedFilters{}
 #appliedParams h3 {position:relative;padding:5px 5px 5px 23px; margin:0 0 3px 0;background:#fff7e5; border:1px solid #e0d9ca; overflow:visible; /*font:normal normal normal 15px/15px helvetica, arial, sans-serif; */ color: #555;}
-#appliedParams a#feedLink {display:inline; position:static; text-decoration: none}
-#appliedParams a#feedLink img {position:static; padding-left: 5px; padding-top: 1px;}
 #appliedParams img {position:absolute; left:5px; bottom:-8px; z-index:5;}
 ul#appliedFiltersList,
 	ul#appliedQueriesList,
