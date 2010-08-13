@@ -38,6 +38,7 @@ Blacklight.configure(:shared) do |config|
         "lc_b4cutter_facet",
         "language_facet",
         "pub_date",
+        "location_facet",
         "subject_era_facet",
         "subject_geo_facet",
         "subject_topic_facet"]
@@ -90,11 +91,13 @@ Blacklight.configure(:shared) do |config|
       "language_facet",
       "lc_1letter_facet",
       "subject_geo_facet",
-      "subject_era_facet"
+      "subject_era_facet",
+      "location_facet"
     ],
     :labels => {
       "format"              => "Format",
       "pub_date"            => "Publication Year",
+      "location_facet"      => "Location",
       "subject_topic_facet" => "Topic",
       "language_facet"      => "Language",
       "lc_1letter_facet"    => "Call Number",
@@ -125,7 +128,8 @@ Blacklight.configure(:shared) do |config|
       "language_facet",
       "published_display",
       "published_vern_display",
-      "lc_callnum_display"
+      "lc_callnum_display",
+      "location_display"
     ],
     :labels => {
       "title_display"           => "Title:",
@@ -158,6 +162,8 @@ Blacklight.configure(:shared) do |config|
       "published_display",
       "published_vern_display",
       "lc_callnum_display",
+      "clio_id_display",
+      "location_display",
       "isbn_t"
     ],
     :labels => {
@@ -175,7 +181,8 @@ Blacklight.configure(:shared) do |config|
       "published_display"       => "Published:",
       "published_vern_display"  => "Published:",
       "lc_callnum_display"      => "Call number:",
-      "isbn_t"                  => "ISBN:"
+      "isbn_t"                  => "ISBN:",
+      "location_display"        => "Location:"
     }
   }
 
