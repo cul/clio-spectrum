@@ -4,6 +4,7 @@ config/s3_credentials.yml
 *~
 *.cache
 *.log
+*.log.*
 *.pid
 tmp/**/*
 private/**
