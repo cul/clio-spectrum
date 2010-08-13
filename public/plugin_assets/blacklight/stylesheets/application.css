@@ -233,6 +233,8 @@ ul#appliedFiltersList,
 .appliedFilter span.first span.filterValue{border:0;}
 #appliedParams a:link{text-decoration:underline;}
 #appliedParams a:hover{}
+#appliedParams a#feedLink{display:inline;}
+#appliedParams a#feedLink img {padding-top:1px;vertical-align:bottom;padding-left: 5px; position:static;}
 #appliedParams a#startOverLink{display:block; position:absolute; top:50%; right:0px; margin-top:-12px; padding:0 10px 3px 15px; line-height:22px; text-decoration:none; color:#fff; background:url(../images/start_over.gif) no-repeat center center;}
 #appliedParams a#startOverLink:hover{background-color:none;}
 #appliedParams a#startOverLink span{display:none;}
