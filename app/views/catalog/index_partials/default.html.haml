@@ -1,0 +1,8 @@
+# default partial to display solr document fields in catalog index view
+
+%dl.defList
+  - if document.get "author_display"
+    %dt Author:
+    %dd= h document.get("author_display")
+
+
