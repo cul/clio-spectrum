@@ -106,7 +106,7 @@
     <field name="subject_topic_facet" type="string" indexed="true" stored="true" multiValued="true" />
     <field name="subject_era_facet" type="string" indexed="true" stored="true" multiValued="true" />
     <field name="subject_geo_facet" type="string" indexed="true" stored="true" multiValued="true" />
-    <field name="location_facet" type="string" indexed="true" stored="true" multiValued="false" />
+    <field name="location_facet" type="string" indexed="true" stored="true" multiValued="true" />
     <!-- pub_date is used for facet and display so it must be indexed and stored -->
     <field name="pub_date" type="string" indexed="true" stored="true" multiValued="true"/>
 
