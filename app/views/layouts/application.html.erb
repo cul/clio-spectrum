@@ -11,10 +11,12 @@
     
     <%= render_head_content %>
 
+    <%= stylesheet_link_tag "application" %> 
+    <%= javascript_include_tag "application" %>
     <% javascript_tag do  -%>
       <%= yield(:jstemplates) %>
     <% end -%>
-    <%= stylesheet_link_tag "application" %> 
+    
   </head>
   <% if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil? %>
     <body onload="$('input#q').focus();">

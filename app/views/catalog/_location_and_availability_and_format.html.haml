@@ -11,14 +11,7 @@
 - unless (locations = document["location_display"].listify.reject { |l| l == "Online" }).empty?
   - content_for :jstemplates do
     :plain
-      $(document).ready(function() {
-        $.getJSON('#{url_for(:controller => :backend, :action => "opac_holdings_data", :bibid => document["id"])}', function(data) {
-        for (key in data.holdingsId) {
-          selector = "img.availability.holding_" + key;  
-          $(selector).attr("src","images/icons/"+data.holdingsId[key]+".png");
-        }
-        });
-      });
+        update_holdings_info('#{url_for(:controller => :backend, :action => "opac_holdings_data", :bibid => document["id"])}');
   %dt At the Library:
   %dd
     - locations.each_with_index do |location, i|
