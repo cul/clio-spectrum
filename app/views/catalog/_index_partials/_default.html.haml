@@ -1,0 +1,32 @@
+/i default partial to display solr document fields in catalog index view
+
+%dl.defList
+  - if (author = document.get "author_display")
+    %dt Author:
+    %dd= h author
+
+  - if (pub_date = document.get "pub_date")
+    %dt Published:
+    %dd= h pub_date.listify.join(" , ")
+
+  - if (urls =  document.get("url_fulltext_display"))
+    %dt Online:
+    %dd
+      - urls.listify.each do |url_blob|
+        - url_blob.split(",").each do |url|
+          %div= link_to url, url
+
+  - unless (locations = document.get("location_display").listify.reject { |l| l == "Online" }).empty?
+    %dt At the Library:
+    - locations.each_with_index do |location, i|
+      %dd
+        = location
+        >>
+        = document.get("location_call_number_display").listify[i]
+
+  = document.inspect
+
+  - if (format = document.get("format"))
+    %dt Format:
+    %dd= h format
+

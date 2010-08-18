@@ -140,7 +140,9 @@ Blacklight.configure(:shared) do |config|
       "language_facet"          => "Language:",
       "published_display"       => "Published:",
       "published_vern_display"  => "Published:",
-      "lc_callnum_display"      => "Call number:"
+      "clio_id_display"         => "Clio ID:",
+      "lc_callnum_display"      => "Call number:",
+      "location_display"        => "Location:"
     }
   }
 
@@ -180,6 +182,7 @@ Blacklight.configure(:shared) do |config|
       "language_facet"          => "Language:",
       "published_display"       => "Published:",
       "published_vern_display"  => "Published:",
+      "clio_id_display"         => "Clio ID:",
       "lc_callnum_display"      => "Call number:",
       "isbn_t"                  => "ISBN:",
       "location_display"        => "Location:"
