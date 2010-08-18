@@ -9,23 +9,7 @@
     %dt Published:
     %dd= h pub_date.listify.join(" , ")
 
-  - if (urls =  document.get("url_fulltext_display"))
-    %dt Online:
-    %dd
-      - urls.listify.each do |url_blob|
-        - url_blob.split(",").each do |url|
-          %div= link_to url, url
+  = render :partial => "location_and_availability_and_format", :locals => {:document => document}
 
-  - unless (locations = document.get("location_display").listify.reject { |l| l == "Online" }).empty?
-    %dt At the Library:
-    - locations.each_with_index do |location, i|
-      %dd
-        = location
-        >>
-        = document.get("location_call_number_display").listify[i]
-  
-  
-  - if (format = document.get("format"))
-    %dt Format:
-    %dd= h format
+
 

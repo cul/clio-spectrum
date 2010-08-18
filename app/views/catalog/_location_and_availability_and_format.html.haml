@@ -1,0 +1,38 @@
+- if (urls =  document.get("url_fulltext_display"))
+  %dt Online:
+  %dd
+    - urls.listify.each do |url_blob|
+      - url_blob.split(",").each do |url|
+        %div
+          = image_tag("icons/noncirc.png", :class => :availability)
+          = link_to url, url
+
+
+- unless (locations = document["location_display"].listify.reject { |l| l == "Online" }).empty?
+  - content_for :jstemplates do
+    :plain
+      $(document).ready(function() {
+        $.getJSON('#{url_for(:controller => :backend, :action => "opac_holdings_data", :bibid => document["id"])}', function(data) {
+        for (key in data.holdingsId) {
+          selector = "img.availability.holding_" + key;  
+          $(selector).attr("src","images/icons/"+data.holdingsId[key]+".png");
+        }
+        });
+      });
+  %dt At the Library:
+  %dd
+    - locations.each_with_index do |location, i|
+      - holdings_id = "holding_" + (document["location_holdings_id_display"].listify[i] || document["location_holdings_id_display"].first).to_s
+      %div
+        = image_tag("icons/unknown.png", :class => "availability " + holdings_id)
+        = location
+        >>
+        = document["location_call_number_display"].listify[i] || document["location_call_number_display"].first
+
+
+- if (format = document.get("format"))
+  %dt Format:
+  %dd
+    %div
+      %img.format=image_tag("icons/#{h(format).downcase}.png")
+      = h format
