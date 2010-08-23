@@ -9,9 +9,8 @@
 
 
 - unless (locations = document["location_display"].listify.reject { |l| l == "Online" }).empty?
-  - content_for :jstemplates do
-    :plain
-        update_holdings_info('#{url_for(:controller => :backend, :action => "opac_holdings_data", :bibid => document["id"])}');
+  - @holdings_to_check ||= []
+  - @holdings_to_check << document["id"]
   %dt At the Library:
   %dd
     - locations.each_with_index do |location, i|
