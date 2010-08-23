@@ -27,5 +27,5 @@
   %dt Format:
   %dd
     %div
-      =image_tag("icons/#{h(format).downcase}.png", :class => "format")
+      =image_tag("icons/#{h(format).parameterize.to_s}.png", :class => "format")
       = h format
