@@ -16,7 +16,7 @@ class BackendController < ApplicationController
       begin
         any_available = false
 
-        logger.info("retrieving #{holdings_url}?bidId=#{bibid}")
+        logger.info("retrieving #{holdings_url}?bibId=#{bibid}")
         xml = Nokogiri::XML(hc.get_content(holdings_url, :bibId => bibid))
         logger.debug(Time.now-start)
         xml.root.add_namespace_definition("hol", "http://www.endinfosys.com/Voyager/holdings")
