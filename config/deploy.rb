@@ -12,12 +12,14 @@ set :use_sudo, false
 namespace :deploy do
   desc "Restart Application"
   task :restart, :roles => :app do
+    run "mkdir -p #{current_path}/tmp/cookies"
     run "touch #{current_path}/tmp/restart.txt"
   end
 
   task :symlink_shared do
     run "ln -nfs #{deploy_to}shared/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{deploy_to}shared/app_config.yml #{release_path}/config/app_config.yml"
+   
   end
 
 end
