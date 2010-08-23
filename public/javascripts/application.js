@@ -6,7 +6,7 @@ function update_holdings_info(url) {
     $.getJSON(url, function(data) {
       for (key in data.holdingsId) {
         selector = "img.availability.holding_" + key;  
-        $(selector).attr("src","images/icons/"+data.holdingsId[key]+".png");
+        $(selector).attr("src", RAILS_ROOT + "/images/icons/"+data.holdingsId[key]+".png");
       }
     });
   });
