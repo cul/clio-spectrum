@@ -9,8 +9,6 @@
 
 
 - unless (locations = document["location_display"].listify.reject { |l| l == "Online" }).empty?
-  - @holdings_to_check ||= []
-  - @holdings_to_check << document["id"]
   %dt At the Library:
   %dd
     - locations.each_with_index do |location, i|
