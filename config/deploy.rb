@@ -9,6 +9,8 @@ set :repository,  "git@github.com:tastyhat/cul-blacklight-new_books.git"
 set :application, "newbooks"
 set :use_sudo, false
 
+set :branch, configuration[:branch] if configuration[:branch]
+
 namespace :deploy do
   desc "Restart Application"
   task :restart, :roles => :app do
