@@ -32,7 +32,7 @@
   <% holdings_to_check = @document_list.listify.reject { |d| d["location_display"].listify.reject { |l| l == "Online" }.empty? }.collect { |d| d["id"] } %> 
   <% content_for :jstemplates do -%>
     $(document).ready ( function () {
-        update_holdings_info('<%=url_for(:controller => :backend, :action => "opac_holdings_data")%>', [<%= @holdings_to_check.join(",")%>])
+        update_holdings_info('<%=url_for(:controller => :backend, :action => "opac_holdings_data")%>', [<%= holdings_to_check.join(",")%>])
     }); 
     
   <% end -%>
