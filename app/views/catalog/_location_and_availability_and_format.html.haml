@@ -11,7 +11,7 @@
 - unless (locations = document["location_display"].listify.reject { |l| l == "Online" }).empty?
   - content_for :jstemplates do
     :plain
-        update_holdings_info('#{url_for(:controller => :backend, :action => "opac_holdings_data", :bibid => document["id"])}');
+        update_holdings_info('#{url_for(:controller => :backend, :action => "opac_holdings_data", :bibId => document["id"])}');
   %dt At the Library:
   %dd
     - locations.each_with_index do |location, i|
