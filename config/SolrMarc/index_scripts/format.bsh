@@ -101,6 +101,7 @@ public Set getFormat(Record record)
     else if (f_000.startsWith("P"))		result.add("Kit");
     else if (f_000.startsWith("R"))		result.add("PhysicalObject");
     else if (f_000.startsWith("T"))		result.add("Manuscript");
+    else if (f_000.startsWith("V"))   result.add("Video");
     else if (f_000.startsWith("A"))
     {
     	if (f_000.equals("AM"))			
