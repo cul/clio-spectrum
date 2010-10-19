@@ -15,6 +15,7 @@ Rails::Initializer.run do |config|
   config.gem 'httpclient'
   config.gem "nokogiri"
   config.gem "haml"
+  config.gem "unicode"
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.

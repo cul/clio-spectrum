@@ -20,7 +20,13 @@ module Blacklight::SolrHelper
   # When a request for a single solr document by id
   # is not successful, raise this:
   class InvalidSolrID < RuntimeError; end
-
+  
+  def self.included(mod)
+    if mod.respond_to?(:helper_method)
+      mod.helper_method(:facet_limit_hash)
+      mod.helper_method(:facet_limit_for)
+    end
+  end
   # A helper method used for generating solr LocalParams, put quotes
   # around the term unless it's a bare-word. Escape internal quotes
   # if needed. 
@@ -51,26 +57,25 @@ module Blacklight::SolrHelper
   #
   # Incoming parameter :f is mapped to :fq solr parameter.
   def solr_search_params(extra_controller_params={})
+    solr_parameters = {}
+    
+  
     # Order of precedence for all the places solr params can come from,
     # start lowest, and keep over-riding with higher. 
     ####
-    # Start with general defaults from BL config.
-    # TODO -- remove :facets
-    # when are we passing in "facets" here? just for tests? -- no, always.  
-    #   Bess prefers to pass in the desired facets this way.  
-    #   Naomi prefers it as part of the Solr request handler
-    # ** we need to be consistent about what is getting passed in:
-    # ** -- solr params or controller params that need to be mapped?
-    #   jrochkind 28-dec-09 likes it the way it is, where facets can be part
-    #   of the solr request handler OR in Blacklight. If you don't want them
-    #   in blacklight, just leave don't fill out the config.
-    ####
-    solr_parameters = {
-      :qt => Blacklight.config[:default_qt],
-      :facets => Blacklight.config[:facet][:field_names].clone,
-      :per_page => (Blacklight.config[:index][:num_per_page] rescue "10")
-    }
-
+    # Start with general defaults from BL config. Need to use custom
+    # merge to dup values, to avoid later mutating the original by mistake.
+    if Blacklight.config[:default_solr_params]
+      Blacklight.config[:default_solr_params].each_pair do |key, value|
+        solr_parameters[key] = case value
+                                 when Hash then value.dup
+                                 when Array then value.dup
+                                 else value
+                               end
+      end
+    end
+    
+    
     
     ###
     # Merge in search field configured values, if present, over-writing general
@@ -96,6 +101,14 @@ module Blacklight::SolrHelper
     [:q].each do |key|
       solr_parameters[key] = params[key] if params[key]
     end
+    # pass through any facet fields from request params["facet.field"] to
+    # solr params. Used by Stanford for it's "faux hierarchical facets".
+    if params.has_key?("facet.field")
+      solr_parameters[:"facet.field"] ||= []
+      solr_parameters[:"facet.field"].concat( [params["facet.field"]].flatten ).uniq!
+    end
+      
+    
         
     # qt is handled different for legacy reasons; qt in HTTP param can not
     # over-ride qt from search_field_def defaults, it's only used if there
@@ -104,27 +117,13 @@ module Blacklight::SolrHelper
       solr_parameters[:qt] = params[:qt]
     end
     
-    # add any facet fields params["facet.field"] that aren't already included
-    #  for example, if a selected facet value means a *new* facet is desired
-    #   (Stanford is doing faux "hierarchical" facets this way;  the 
-    #    hierarchical facet code for SOLR isn't fully baked yet and won't be
-    #    included until Solr 1.5)
-    if params.has_key?("facet.field")
-      params["facet.field"].each do |ff|
-        if !solr_parameters[:facets].include?(ff)
-          solr_parameters[:facets] << ff
-        end
-      end
-    end
-
-    
     ###
     # Merge in any values from extra_params argument. It doesn't seem like
     # we should have to take a slice of just certain keys, but legacy code
     # seems to put arguments in here that aren't really expected to turn
     # into solr params. 
     ###
-    solr_parameters.deep_merge!(extra_controller_params.slice(:qt, :q, :facets,  :page, :per_page, :phrase_filters, :f, :fq, :fl, :sort, :qf, :df )   )
+    solr_parameters.deep_merge!(extra_controller_params.slice(:qt, :q, :facets,  :page, :per_page, :phrase_filters, :f, :fq, :fl, :sort, :qf, :df ).symbolize_keys   )
 
 
 
@@ -154,12 +153,10 @@ module Blacklight::SolrHelper
     end
 
     # Facet 'more' limits. Add +1 to any configured facets limits,
-    # also include 'nil' default limit.
-    if ( default_limit = facet_limit_for(nil))
-      solr_parameters[:"facet.limit"] = (default_limit + 1)                                 
-    end
-    facet_limit_hash.each_pair do |field_name, limit|
-      next if field_name.nil? # skip the 'default' key      
+    facet_limit_hash.each_key do |field_name|
+      next if field_name.nil? # skip the 'default' key
+      next unless (limit = facet_limit_for(field_name))
+
       solr_parameters[:"f.#{field_name}.facet.limit"] = (limit + 1)
     end
 
@@ -227,6 +224,21 @@ module Blacklight::SolrHelper
     [solr_response, document]
   end
   
+  # given a field name and array of values, get the matching SOLR documents
+  def get_solr_response_for_field_values(field, values, extra_controller_params={})
+    value_str = "(\"" + values.to_a.join("\" OR \"") + "\")"
+    solr_params = {
+      :qt => "standard",   # need boolean for OR
+      :q => "#{field}:#{value_str}",
+      'fl' => "*",
+      'facet' => 'false',
+      'spellcheck' => 'false'
+    }
+    solr_response = Blacklight.solr.find( self.solr_search_params(solr_params.merge(extra_controller_params)) )
+    document_list = solr_response.docs.collect{|doc| SolrDocument.new(doc) }
+    [solr_response,document_list]
+  end
+  
   # returns a params hash for a single facet field solr query.
   # used primary by the get_facet_pagination method.
   # Looks up Facet Paginator request params from current request
@@ -241,7 +253,7 @@ module Blacklight::SolrHelper
     solr_params = solr_search_params(extra_controller_params)
     
     # Now override with our specific things for fetching facet values
-    solr_params[:facets] = {:fields => facet_field}
+    solr_params[:"facet.field"] = facet_field
 
     # Need to set as f.facet_field.facet.limit to make sure we
     # override any field-specific default in the solr request handler. 
@@ -264,8 +276,9 @@ module Blacklight::SolrHelper
   # used to paginate through a single facet field's values
   # /catalog/facet/language_facet
   def get_facet_pagination(facet_field, extra_controller_params={})
+    
     solr_params = solr_facet_params(facet_field, extra_controller_params)
-
+    
     # Make the solr call
     response = Blacklight.solr.find(solr_params)
 
@@ -280,10 +293,13 @@ module Blacklight::SolrHelper
 
     
     # Actually create the paginator!
+    # NOTE: The sniffing of the proper sort from the solr response is not
+    # currently tested for, tricky to figure out how to test, since the
+    # default setup we test against doesn't use this feature. 
     return     Blacklight::Solr::FacetPaginator.new(response.facets.first.items, 
       :offset => solr_params['facet.offset'], 
       :limit => limit,
-      :sort => response["responseHeader"]["params"]["facet.sort"]
+      :sort => response["responseHeader"]["params"]["f.#{facet_field}.facet.sort"] || response["responseHeader"]["params"]["facet.sort"]
     )
   end
   
@@ -293,10 +309,11 @@ module Blacklight::SolrHelper
   def get_single_doc_via_search(extra_controller_params={})
     solr_params = solr_search_params(extra_controller_params)
     solr_params[:per_page] = 1
+    solr_params[:rows] = 1
     solr_params[:fl] = '*'
     Blacklight.solr.find(solr_params).docs.first
   end
-  
+    
   # returns a solr params hash
   # if field is nil, the value is fetched from Blacklight.config[:index][:show_link]
   # the :fl (solr param) is set to the "field" value.
@@ -320,5 +337,42 @@ module Blacklight::SolrHelper
     a = [solr_params[:q]]
     a << response.docs.map {|doc| doc[solr_params[:fl]].to_s }
   end
+  
+  
+  
+  # Look up facet limit for given facet_field. Will look at config, and
+  # if config is 'true' will look up from Solr @response if available. If
+  # no limit is avaialble, returns nil. Used from #solr_search_params
+  # to supply f.fieldname.facet.limit values in solr request (no @response
+  # available), and used in display (with @response available) to create
+  # a facet paginator with the right limit. 
+  def facet_limit_for(facet_field)
+    limits_hash = facet_limit_hash
+    return nil unless limits_hash
+        
+    limit = limits_hash[facet_field]
+
+    if ( limit == true && @response && 
+         @response["responseHeader"] && 
+         @response["responseHeader"]["params"])
+     limit =
+       @response["responseHeader"]["params"]["f.#{facet_field}.facet.limit"] || 
+       @response["responseHeader"]["params"]["facet.limit"]
+       limit = (limit.to_i() -1) if limit
+       limit = nil if limit == -2 # -1-1==-2, unlimited. 
+    elsif limit == true
+      limit = nil
+    end
+
+    return limit
+  end
+
+  # Returns complete hash of key=facet_field, value=limit.
+  # Used by SolrHelper#solr_search_params to add limits to solr
+  # request for all configured facet limits.
+  def facet_limit_hash
+    Blacklight.config[:facet][:limits]           
+  end
+  
   
 end
