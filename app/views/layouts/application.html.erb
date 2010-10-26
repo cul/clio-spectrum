@@ -15,9 +15,7 @@
     <%= javascript_include_tag "application" %>
     <%= javascript_tag "var RAILS_ROOT = '#{ActionController::Base.relative_url_root}';" %>
     
-    <% javascript_tag do  -%>
-      <%= yield(:jstemplates) %>
-    <% end -%>
+    <%= yield(:jstemplates) %>
     
   </head>
   <% if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil? %>

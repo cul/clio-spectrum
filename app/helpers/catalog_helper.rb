@@ -1,5 +1,16 @@
 module CatalogHelper
 
+  SHORTER_LOCATIONS = {
+    "Temporarily unavailable. Try Borrow Direct or ILL" => "Temporarily Unavailable",
+    "Butler Stacks (Enter at the Butler Circulation Desk)" => "Butler Stacks"
+  }
+
+  def shorten_location(location)
+    SHORTER_LOCATIONS[location.strip] || location
+
+  end
+
+
   #
   # Displays the "showing X through Y of N" message. Not sure
   # why that's called "page_entries_info". Not entirely sure

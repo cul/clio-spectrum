@@ -15,3 +15,20 @@ function update_holdings_info(url,bibids) {
     }
   });
 }
+
+function update_book_jackets(url, docs) {
+  docstring ='?'
+
+  for (i in docs) {
+    docstring += "isbns[]=" + docs[i] + "&";
+  }
+
+  $.getJSON(url + docstring, function(data) {
+    
+    for (key in data) {
+      selector = "img.bookjacket.isbn_" + key;
+      $(selector).attr("src", data[key]);
+
+    }
+  });
+}
