@@ -1,18 +1,28 @@
 #documents
-  - @response.docs.each_with_index do |document,counter|
-    .document
+  - if params[:view] == "grid"
+    .grid_view.yui-gb
+      
+      - @response.docs.each_with_index do |document,counter|
+        .grid_document.yui-u{:class => ("first" if counter % 3 == 0)}
+          = link_to_document document, :label=>document_show_link_field, :counter => (counter + 1 + @response.params[:start].to_i)
+          
+        
+  - else
 
-      .yui-ge.documentHeader
-        .yui-u.first
-          %h3.index_title
-            = (counter + 1 + @response.params[:start].to_i).to_s + "."
-            = link_to_document document, :label=>document_show_link_field, :counter => (counter + 1 + @response.params[:start].to_i)
-        .yui-u.documentFunctions
-          = render :partial=>'bookmark_control', :locals=>{:document=>document}
-          = render :partial=>'folder_control', :locals =>{:document=> document, :display =>'button'}
-        
-        
-      = render_document_partial document, :index
+    - @response.docs.each_with_index do |document,counter|
+      .document
+
+        .yui-ge.documentHeader
+          .yui-u.first
+            %h3.index_title
+              = (counter + 1 + @response.params[:start].to_i).to_s + "."
+              = link_to_document document, :label=>document_show_link_field, :counter => (counter + 1 + @response.params[:start].to_i)
+          .yui-u.documentFunctions
+            = render :partial=>'bookmark_control', :locals=>{:document=>document}
+            = render :partial=>'folder_control', :locals =>{:document=> document, :display =>'button'}
+          
+          
+        = render_document_partial document, :index
 
 - holdings_to_check = @document_list.listify.reject { |d| d["location_display"].listify.reject { |l| l == "Online" }.empty? }.collect { |d| d["id"] } 
 - isbns_to_check = @document_list.listify.collect { |d| d["isbn_t"] }.compact.flatten.uniq 
