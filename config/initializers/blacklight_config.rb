@@ -35,7 +35,7 @@ Blacklight.configure(:shared) do |config|
   
   config[:default_solr_params] = {
     :qt => "search",
-    :per_page => 10 
+    :per_page => 15 
   }
   
   
