@@ -10,6 +10,11 @@ module CatalogHelper
 
   end
 
+  def build_fake_cover(document)
+    book_label = (document["title_display"].to_s.abbreviate(60))
+    content_tag(:div, content_tag(:div, book_label, :class => "fake_label"), :class => "fake_cover")
+
+  end
 
   #
   # Displays the "showing X through Y of N" message. Not sure

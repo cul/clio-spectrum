@@ -1,7 +1,7 @@
 production:
     url: http://testcat.cul.columbia.edu:8983/solr-1.4/newbooks_prod
 development:
-    url: http://testcat.cul.columbia.edu:8983/solr-1.4/newbooks_dev
+    url: http://127.0.0.1:8983/solr
 test: &TEST
     url: http://127.0.0.1:8983/solr
 development_jetty:

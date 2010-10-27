@@ -3,9 +3,17 @@
     .grid_view.yui-gb
       
       - @response.docs.each_with_index do |document,counter|
-        .grid_document.yui-u{:class => ("first" if counter % 3 == 0)}
-          = link_to_document document, :label=>document_show_link_field, :counter => (counter + 1 + @response.params[:start].to_i)
-          
+        - counter_start = counter + 1 + @response.params[:start].to_i
+        .document_gallery.yui-u{:class => ("first" if counter % 3 == 0)}
+          .covers
+            = link_to_document document, :label=> build_fake_cover(document), :counter => counter_start
+          .info
+            .title
+              = link_to_document document, :label => document["title_display"].to_s.abbreviate(60), :counter => counter_start
+            
+            .grid_availability
+              = render :partial => "availability", :locals => {:document => document, :view => params[:view] }
+           
         
   - else
 
@@ -20,7 +28,7 @@
           .yui-u.documentFunctions
             = render :partial=>'bookmark_control', :locals=>{:document=>document}
             = render :partial=>'folder_control', :locals =>{:document=> document, :display =>'button'}
-          
+            
           
         = render_document_partial document, :index
 

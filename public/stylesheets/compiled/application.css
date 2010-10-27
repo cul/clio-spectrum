@@ -1,0 +1,98 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 6, ../../../app/stylesheets/application.sass */
+.grid_view {
+  background: white;
+}
+/* line 9, ../../../app/stylesheets/application.sass */
+.grid_view .document_gallery {
+  margin-bottom: 3em;
+}
+/* line 12, ../../../app/stylesheets/application.sass */
+.grid_view .document_gallery .fake_cover {
+  margin: 3px 10% 0 15%;
+  height: 125px;
+  width: 100px;
+  border: 1px solid #cccccc;
+  position: relative;
+  background-color: #eeeeee;
+  overflow: hidden;
+}
+/* line 21, ../../../app/stylesheets/application.sass */
+.grid_view .document_gallery .fake_label {
+  text-align: center;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  position: absolute;
+  top: 21px;
+  left: 7px;
+  right: 7px;
+  padding: 7px 0;
+  color: #333333;
+}
+/* line 32, ../../../app/stylesheets/application.sass */
+.grid_view .document_gallery .info {
+  margin: 3px 0.5em 0 0.5em;
+  height: 7em;
+  position: relative;
+  overflow: hidden;
+}
+/* line 38, ../../../app/stylesheets/application.sass */
+.grid_view .document_gallery .info .title {
+  font-weight: bold;
+  min-height: 3em;
+  margin-bottom: 1em;
+}
+
+/* line 44, ../../../app/stylesheets/application.sass */
+dl.defList_in_grid {
+  overflow: auto;
+  padding: 0.5em 0;
+}
+/* line 48, ../../../app/stylesheets/application.sass */
+dl.defList_in_grid dt {
+  float: left;
+  text-align: right;
+  width: 20%;
+  clear: both;
+  color: #888888;
+  margin: 0;
+  padding: 2px 1em 2px 0px;
+}
+/* line 57, ../../../app/stylesheets/application.sass */
+dl.defList_in_grid dd {
+  float: left;
+  text-align: left;
+  margin: 0;
+  padding: 2px 0;
+}
+
+/* line 63, ../../../app/stylesheets/application.sass */
+img.bookjacket {
+  float: right;
+  height: 80px;
+  width: 52px;
+  padding: 1em;
+}
+
+/* line 69, ../../../app/stylesheets/application.sass */
+a#feedLink {
+  display: inline;
+  text-decoration: none;
+  border-bottom: none;
+}
+/* line 75, ../../../app/stylesheets/application.sass */
+a#feedLink img {
+  position: static;
+  padding-left: 3px;
+}
+
+/* line 81, ../../../app/stylesheets/application.sass */
+h1.site_title {
+  background: transparent url("../../images/clio_beta.jpg") no-repeat top left;
+  margin: 0 0 0 1em;
+  height: 30px;
+  width: 120px;
+}
