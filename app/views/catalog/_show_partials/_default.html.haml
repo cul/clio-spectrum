@@ -1,0 +1,51 @@
+- id = id
+
+.yui-gc
+  .yui-u.first
+    %dl.defList_in_grid
+      - document_show_fields.each do |solr_fname|
+        - if values = document[solr_fname]
+          %dt= document_show_field_labels[solr_fname]
+          %dd= values.listify.join("<br/>")
+
+
+  .yui-u
+    %h4 Place Request:
+    %ul
+      %li= link_to "Place a Recall/Hold", clio_recall_path(document["clio_id_display"])
+      %li= link_to "Borrow Direct", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0012"
+      %li= link_to "ILL / Document Delivery", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0014"
+      %li= link_to "Inter-Campus Delivery", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0013"
+      %li= link_to "In-Process Request", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0002"
+
+    %h4 Actions:
+    %ul
+      %li Print
+      - if (@document.respond_to?(:export_as_mla_citation_txt) || @document.respond_to?(:export_as_apa_citation_txt))
+        %li.cite
+          = link_to "Cite This", citation_catalog_path(:id => id), {:id => "citeLink", :name => "citation", :class => "lightboxLink"}
+
+      - if @document.export_formats.keys.include?(:refworks_marc_txt)
+        %li.refworks
+          =link_to "Export to RefWorks", refworks_export_url(@document)
+      - if @document.export_formats.keys.include?(:endnote)
+        %li.endnote
+          =link_to "Export to EndNote", catalog_path(id, :format => "endnote")
+
+      - if @document.respond_to?(:to_marc)
+        %li.email
+          =link_to "Email This", email_catalog_path(:id => id), {:id => "emailLink", :name => "email", :class => "lightboxLink"}
+        
+        %li.sms
+          =link_to "SMS This", sms_catalog_path(:id => id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}
+        %li.librarian_view
+          =link_to "Librarian View", librarian_view_catalog_path(id), {:id => "librarianLink", :name => "librarian_view", :class => "lightboxLink" }
+
+
+    %h4 Help:
+    %ul
+      %li= link_to "Ask a Librarian", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0031"
+      %li= link_to "Item Not On Shelf?", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0055"
+      %li= link_to "E-Resource Problem", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0006"
+      %li= link_to "Recommend A Title", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0004"
+        

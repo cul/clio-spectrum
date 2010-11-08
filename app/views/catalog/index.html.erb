@@ -12,9 +12,9 @@
 	<%= render 'constraints', :localized_params=>params %>
   
   <div class="pageEntriesInfo">
-    <%= page_entries_info @response.docs, :entry_name=>'item' %>
     <%=link_to "Start&nbsp;over&thinsp;", catalog_index_path, :id=>"startOverLink" %>
     <%= render "change_view" %>
+    <%= page_entries_info @response.docs, :entry_name=>'item' %>
   </div>
   
 	<%= render 'sort_and_per_page' %>

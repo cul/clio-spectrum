@@ -59,8 +59,10 @@ function update_book_jackets(url, docs) {
     
     for (key in data) {
       selector = "img.bookjacket.isbn_" + key;
+      
       $(selector).attr("src", data[key]);
-
+      $(selector).parents(".google_cover").show();
+      $(selector).parents(".covers").children("a").hide();
     }
   });
 }

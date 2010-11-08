@@ -153,12 +153,12 @@ Blacklight.configure(:shared) do |config|
   #   The ordering of the field names is the order of the display 
   config[:show_fields] = {
     :field_names => [
+      "author_display",
+      "author_vern_display",
       "title_display",
       "title_vern_display",
       "subtitle_display",
       "subtitle_vern_display",
-      "author_display",
-      "author_vern_display",
       "format",
       "url_fulltext_display",
       "url_suppl_display",
@@ -167,8 +167,6 @@ Blacklight.configure(:shared) do |config|
       "published_display",
       "published_vern_display",
       "lc_callnum_display",
-      "clio_id_display",
-      "location_display",
       "isbn_t"
     ],
     :labels => {
@@ -185,10 +183,8 @@ Blacklight.configure(:shared) do |config|
       "language_facet"          => "Language:",
       "published_display"       => "Published:",
       "published_vern_display"  => "Published:",
-      "clio_id_display"         => "Clio ID:",
       "lc_callnum_display"      => "Call number:",
       "isbn_t"                  => "ISBN:",
-      "location_display"        => "Location:"
     }
   }
 

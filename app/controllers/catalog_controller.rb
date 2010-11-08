@@ -1,5 +1,6 @@
 class CatalogController < ApplicationController
 
+  layout "no_sidebar", :only => [:show]
   include Blacklight::SolrHelper
 
   before_filter :search_session, :history_session
