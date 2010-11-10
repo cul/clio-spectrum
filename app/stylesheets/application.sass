@@ -14,22 +14,45 @@
 .pageEntriesInfo
   :padding-right 150px
 
+#show_folder_control
+  :margin-top 1em
+  .addFolder, .deleteFolder
+    :float none
+    
+
+#show_cover
+  :float left
+  :padding-right 1.5em
+
+.cover_with_jacket
+  :margin 3px 10% 0 15%
+  :height 125px
+  :width 100px
+  :border 1px solid #CCCCCC
+  :position relative
+  :background-color #EEEEEE
+  :overflow hidden
+
+  .bookjacket
+    :width 100px
+    :height 125px
+
+  .fake_label
+    :text-align  center
+    :border-top 1px solid #CCCCCC
+    :border-bottom 1px solid #CCCCCC
+    :position absolute
+    :top 21px
+    :left 7px
+    :right 7px
+    :padding 7px 0
+    :color #333333
+
 .grid_view
   :background white
 
   .document_gallery
     :margin-bottom 3em
-
-    .bookjacket
-      
-    .cover
-      :margin 3px 10% 0 15%
-      :height 125px
-      :width 100px
-      :border 1px solid #CCCCCC
-      :position relative
-      :background-color #EEEEEE
-      :overflow hidden
 
     .google_cover
       :display none      
@@ -39,16 +62,6 @@
       :width 100px
       :padding 0
 
-    .fake_label
-      :text-align  center
-      :border-top 1px solid #CCCCCC
-      :border-bottom 1px solid #CCCCCC
-      :position absolute
-      :top 21px
-      :left 7px
-      :right 7px
-      :padding 7px 0
-      :color #333333
     
     .info
       :margin 3px .5em 0 .5em
@@ -81,11 +94,13 @@ dl.defList_in_grid
     :margin 0
     :padding 2px 0
 
-img.bookjacket
+
+img.bookjacket.list_view
   :float right
   :height 80px
   :width 52px
   :padding 1em
+
 
 a#feedLink
   :display inline

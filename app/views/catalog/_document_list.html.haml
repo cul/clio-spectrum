@@ -5,9 +5,10 @@
       - @response.docs.each_with_index do |document,counter|
         - counter_start = counter + 1 + @response.params[:start].to_i
         .document_gallery.yui-u{:class => ("first" if counter % 3 == 0)}
-          .covers
-            = link_to_document document, :label=> build_fake_cover(document), :counter => counter_start
-            .cover.google_cover
+          .cover_with_jacket
+            .fake_cover
+              = link_to_document document, :label=> build_fake_cover(document), :counter => counter_start
+            .cover
               = link_to_document document, :label => image_tag("spacer.png", :class => "grid_bookjacket bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_i.to_s}.join(" ")), :counter => counter_start
 
  

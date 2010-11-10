@@ -58,11 +58,13 @@ function update_book_jackets(url, docs) {
   $.getJSON(url + docstring, function(data) {
     
     for (key in data) {
-      selector = "img.bookjacket.isbn_" + key;
+      selector = $("img.bookjacket.isbn_" + key);
       
-      $(selector).attr("src", data[key]);
-      $(selector).parents(".google_cover").show();
-      $(selector).parents(".covers").children("a").hide();
+      if (selector.length > 0) {
+        selector.attr("src", data[key]);
+        selector.parents(".google_cover").show();
+        selector.parents(".cover_with_jacket").children(".fake_cover").hide();
+      }
     }
   });
 }

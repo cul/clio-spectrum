@@ -1,6 +1,4 @@
 class CatalogController < ApplicationController
-
-  layout "no_sidebar", :only => [:show]
   include Blacklight::SolrHelper
 
   before_filter :search_session, :history_session
@@ -49,6 +47,8 @@ class CatalogController < ApplicationController
       end
       
     end
+    
+    render :layout => "no_sidebar"
   end
   
   # updates the search counter (allows the show view to paginate)

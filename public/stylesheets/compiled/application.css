@@ -18,15 +18,22 @@
 }
 
 /* line 17, ../../../app/stylesheets/application.sass */
-.grid_view {
-  background: white;
+#show_folder_control {
+  margin-top: 1em;
 }
-/* line 20, ../../../app/stylesheets/application.sass */
-.grid_view .document_gallery {
-  margin-bottom: 3em;
+/* line 19, ../../../app/stylesheets/application.sass */
+#show_folder_control .addFolder, #show_folder_control .deleteFolder {
+  float: none;
 }
-/* line 25, ../../../app/stylesheets/application.sass */
-.grid_view .document_gallery .cover {
+
+/* line 23, ../../../app/stylesheets/application.sass */
+#show_cover {
+  float: left;
+  padding-right: 1.5em;
+}
+
+/* line 27, ../../../app/stylesheets/application.sass */
+.cover_with_jacket {
   margin: 3px 10% 0 15%;
   height: 125px;
   width: 100px;
@@ -35,18 +42,13 @@
   background-color: #eeeeee;
   overflow: hidden;
 }
-/* line 34, ../../../app/stylesheets/application.sass */
-.grid_view .document_gallery .google_cover {
-  display: none;
-}
-/* line 37, ../../../app/stylesheets/application.sass */
-.grid_view .document_gallery .grid_bookjacket {
-  height: 125px;
+/* line 36, ../../../app/stylesheets/application.sass */
+.cover_with_jacket .bookjacket {
   width: 100px;
-  padding: 0;
+  height: 125px;
 }
-/* line 42, ../../../app/stylesheets/application.sass */
-.grid_view .document_gallery .fake_label {
+/* line 40, ../../../app/stylesheets/application.sass */
+.cover_with_jacket .fake_label {
   text-align: center;
   border-top: 1px solid #cccccc;
   border-bottom: 1px solid #cccccc;
@@ -57,26 +59,45 @@
   padding: 7px 0;
   color: #333333;
 }
-/* line 53, ../../../app/stylesheets/application.sass */
+
+/* line 51, ../../../app/stylesheets/application.sass */
+.grid_view {
+  background: white;
+}
+/* line 54, ../../../app/stylesheets/application.sass */
+.grid_view .document_gallery {
+  margin-bottom: 3em;
+}
+/* line 57, ../../../app/stylesheets/application.sass */
+.grid_view .document_gallery .google_cover {
+  display: none;
+}
+/* line 60, ../../../app/stylesheets/application.sass */
+.grid_view .document_gallery .grid_bookjacket {
+  height: 125px;
+  width: 100px;
+  padding: 0;
+}
+/* line 66, ../../../app/stylesheets/application.sass */
 .grid_view .document_gallery .info {
   margin: 3px 0.5em 0 0.5em;
   height: 7em;
   position: relative;
   overflow: hidden;
 }
-/* line 59, ../../../app/stylesheets/application.sass */
+/* line 72, ../../../app/stylesheets/application.sass */
 .grid_view .document_gallery .info .title {
   font-weight: bold;
   min-height: 3em;
   margin-bottom: 1em;
 }
 
-/* line 65, ../../../app/stylesheets/application.sass */
+/* line 78, ../../../app/stylesheets/application.sass */
 dl.defList_in_grid {
   overflow: auto;
   padding: 0.5em 0;
 }
-/* line 69, ../../../app/stylesheets/application.sass */
+/* line 82, ../../../app/stylesheets/application.sass */
 dl.defList_in_grid dt {
   float: left;
   text-align: right;
@@ -86,7 +107,7 @@ dl.defList_in_grid dt {
   margin: 0;
   padding: 2px 1em 2px 0px;
 }
-/* line 78, ../../../app/stylesheets/application.sass */
+/* line 91, ../../../app/stylesheets/application.sass */
 dl.defList_in_grid dd {
   float: left;
   text-align: left;
@@ -94,27 +115,27 @@ dl.defList_in_grid dd {
   padding: 2px 0;
 }
 
-/* line 84, ../../../app/stylesheets/application.sass */
-img.bookjacket {
+/* line 98, ../../../app/stylesheets/application.sass */
+img.bookjacket.list_view {
   float: right;
   height: 80px;
   width: 52px;
   padding: 1em;
 }
 
-/* line 90, ../../../app/stylesheets/application.sass */
+/* line 105, ../../../app/stylesheets/application.sass */
 a#feedLink {
   display: inline;
   text-decoration: none;
   border-bottom: none;
 }
-/* line 96, ../../../app/stylesheets/application.sass */
+/* line 111, ../../../app/stylesheets/application.sass */
 a#feedLink img {
   position: static;
   padding-left: 3px;
 }
 
-/* line 102, ../../../app/stylesheets/application.sass */
+/* line 117, ../../../app/stylesheets/application.sass */
 h1.site_title {
   background: transparent url("../../images/clio_beta.jpg") no-repeat top left;
   margin: 0 0 0 1em;
