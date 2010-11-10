@@ -18,9 +18,10 @@
           %dd= values.listify.join("<br/>")
     
     #holdings
-      #holdings_title Holdings:
-      #location_guide
-        =link_to "(Location Guide)", "http://www.columbia.edu/cu/lweb/help/clio/location_guide.html"
+      #holdings_header
+        #holdings_title Holdings:
+        #location_guide
+          =link_to "(Location Guide)", "http://www.columbia.edu/cu/lweb/help/clio/location_guide.html"
 
       - holdings = Voyager.opac_holdings_data(document["clio_id_display"]).values.first
 
@@ -34,7 +35,11 @@
               #{image_tag(holding.image_for_display)}
               #{holding.location_name}
             .status
-              #{holding.status_for_display}
+              - if holding.location_name.strip =="Online"
+                - document[:url_fulltext_display].each do |url|
+                  %div= link_to url.abbreviate(70), url
+              - else
+                #{holding.status_for_display}
 
 
 

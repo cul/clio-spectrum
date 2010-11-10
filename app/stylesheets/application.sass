@@ -19,6 +19,13 @@
   .addFolder, .deleteFolder
     :float none
 
+#show_previousNextDocument
+  .previous_next
+    :margin-top .5em
+  .back_to_catalog
+    :float right
+.show_start_over
+  :float right
 
 a.folder_link_submit
   :border-bottom none
@@ -32,18 +39,21 @@ a.folder_link_submit
 
   .holding
     :padding .5em .5em .5em 1em
-  .holding1
-    :background-color #eee
+  .holding0
+    :background-color #f6f6f6
 
-  #holdings_title
-    :font-weight bold
-    :font-size 1.25em
-    :display inline
+  #holdings_header
+    :padding-bottom 1em
+    #holdings_title
+      :font-weight bold
+      :font-size 1.25em
+      :display inline
+      :padding-bottom 1em
 
 
-  #location_guide
-    :padding-left .5em
-    :display inline
+    #location_guide
+      :padding-left .5em
+      :display inline
 
   .call_number
     :float right

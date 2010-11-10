@@ -1,0 +1,12 @@
+#appliedParams
+  .yui-gc
+    .yui-u.first
+      %h3.label You searched for:
+      = render_constraints(localized_params)
+    .yui-u
+      .show_start_over
+        = link_to "Start&nbsp;over&thinsp;", catalog_index_path 
+
+      =item_page_entry_info.gsub(" from your search.","")
+
+      =render "show_previous_next_doc"

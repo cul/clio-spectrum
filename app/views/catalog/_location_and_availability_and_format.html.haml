@@ -5,7 +5,7 @@
       - url_blob.split(",").each do |url|
         %div
           = image_tag("icons/noncirc.png", :class => :availability)
-          = link_to url, url
+          = link_to url.abbreviate(50), url
 
 
 - unless (locations = document["location_display"].listify.reject { |l| l == "Online" }).empty? || document["location_holdings_id_display"].nil?

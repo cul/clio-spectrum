@@ -1,0 +1,7 @@
+- if @previous_document || @next_document 
+  #show_previousNextDocument
+    .back_to_catalog= link_back_to_catalog
+    .previous_next
+      = link_to_previous_document(@previous_document)
+      = "&nbsp;" if @previous_document && @next_document
+      = link_to_next_document(@next_document)	

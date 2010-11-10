@@ -4,16 +4,6 @@
 .show
   = render 'show_constraints', :localized_params=>session[:search] 
 
-.pageEntriesInfo
-  
-  = item_page_entry_info 
-  =link_to "Start&nbsp;over&thinsp;", catalog_index_path, :id=>"startOverLink" 
-
-= render 'previous_next_doc' 
-
-
--  sidebar_items << capture do 
-  %p= link_back_to_catalog 
   
 
 #document
