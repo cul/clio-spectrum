@@ -16,6 +16,20 @@ module CatalogHelper
 
   end
 
+  def folder_link(document)
+    size = "22x22"
+    if item_in_folder?(document[:id])
+      text = "Remove from folder"
+      img = image_tag("icons/24-book-blue-remove.png", :size => size)
+    else
+      text = "Add to folder"
+      img = image_tag("icons/24-book-blue-add.png", :size => size)
+    end
+
+    img + content_tag(:span, text, :class => "folder_link_text")
+  end
+
+      
   #
   # Displays the "showing X through Y of N" message. Not sure
   # why that's called "page_entries_info". Not entirely sure

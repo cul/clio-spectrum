@@ -2,9 +2,10 @@
 - extra_head_content << render_link_rel_alternates 
 
 .show
-  = render 'constraints', :localized_params=>session[:search] 
+  = render 'show_constraints', :localized_params=>session[:search] 
 
 .pageEntriesInfo
+  
   = item_page_entry_info 
   =link_to "Start&nbsp;over&thinsp;", catalog_index_path, :id=>"startOverLink" 
 

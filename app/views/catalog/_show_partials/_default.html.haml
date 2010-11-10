@@ -16,7 +16,30 @@
         - if values = document[solr_fname]
           %dt= document_show_field_labels[solr_fname]
           %dd= values.listify.join("<br/>")
+    
+    #holdings
+      #holdings_title Holdings:
+      #location_guide
+        =link_to "(Location Guide)", "http://www.columbia.edu/cu/lweb/help/clio/location_guide.html"
+
+      - holdings = Voyager.opac_holdings_data(document["clio_id_display"]).values.first
+
+      - if holdings.empty?
+        No holdings data at this time.
+      - else
+        -holdings.each_with_index do |holding, i|
+          .holding{:class => "holding#{i % 2}"}
+            .call_number= holding.call_number
+            .location
+              #{image_tag(holding.image_for_display)}
+              #{holding.location_name}
+            .status
+              #{holding.status_for_display}
+
+
+
   .yui-u
+
 
     %h4 Place Request:
     %ul

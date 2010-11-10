@@ -2,7 +2,6 @@ class BackendController < ApplicationController
   def opac_holdings_data
     start = Time.now
 
-    holdings_url = "http://bearberry.cc.columbia.edu:7014/vxws/GetHoldingsService"
     results = Hash.arbitrary_depth
     
     bibids = params["bibid"].listify
