@@ -1,0 +1,37 @@
+<% if params[:q].blank? and params[:f].blank? and params[:search_field].blank? %>
+	<%# if there are no input/search related params, display the "home" partial -%>
+	<%= render 'home' %>
+<% else %>
+
+	<% @page_title = application_name + " Search Results" %>
+
+	<%= render :partial => 'search_form' %>
+	
+	<%= render :partial => 'did_you_mean' %>
+
+	<%= render 'constraints', :localized_params=>params %>
+  
+  <div class="pageEntriesInfo">
+    <%=link_to "Start&nbsp;over&thinsp;", catalog_index_path, :id=>"startOverLink" %>
+    <%= render "change_view" %>
+    <%= page_entries_info @response.docs, :entry_name=>'item' %>
+  </div>
+  
+	<%= render 'sort_and_per_page' %>
+  
+  <%= render 'results_pagination' %>
+  
+
+	<%= render :partial=>'document_list' %>
+
+	<% sidebar_items << capture do %>
+	  <%= render :partial=>'facets' %>
+	<% end %>
+
+  <%= render 'results_pagination' %>
+
+
+	<%= render :partial=>'solr_request' %>
+
+<% end %>
+

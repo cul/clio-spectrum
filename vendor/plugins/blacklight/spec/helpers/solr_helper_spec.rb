@@ -21,6 +21,8 @@ class MockSolrHelperContainer
   def facet_limit_hash
     @facet_limits ||= {}
   end
+  
+  
 end
 
 
@@ -81,10 +83,10 @@ describe 'Blacklight::SolrHelper' do
         @produced_params[:per_page].should == 10
       end
       it 'should have default facet fields' do
-        @produced_params[:facets][:fields].should == Blacklight.config[:facet][:field_names]
+        @produced_params[:"facet.field"].should == Blacklight.config[:default_solr_params][:"facet.field"]
       end
       it 'should not use the exact facet array from config defaults' do
-        @produced_params[:facets][:fields].should_not be_equal(Blacklight.config[:facet][:field_names])
+        @produced_params[:"facet.field"].should_not be_equal(Blacklight.config[:facet][:field_names])
       end
       it "should have default qt"  do
         @produced_params[:qt].should == "search"
@@ -103,6 +105,18 @@ describe 'Blacklight::SolrHelper' do
       end
     end
 
+    describe "for request params also passed in as argument" do
+      before do
+        @req_params = HashWithIndifferentAccess.new({:q => "some query"})
+        params = @req_params
+      end
+      it "should only have one 'q' key, as symbol" do
+        solr_params = @solr_helper.solr_search_params( @req_params )
+        solr_params.keys.should include(:q)
+        solr_params.keys.should_not include("q")
+      end
+    end
+
 
     describe "for one facet, no query" do
       it "should have proper solr parameters" do
@@ -111,7 +125,7 @@ describe 'Blacklight::SolrHelper' do
 
         params[:q].should be_blank
         params["spellcheck.q"].should be_blank
-        params[:facets][:fields].should == Blacklight.config[:facet][:field_names]
+        params[:"facet.field"].should == Blacklight.config[:default_solr_params][:"facet.field"]
 
         @single_facet.each_value do |value|
           params[:fq].should include("{!raw f=#{@single_facet.keys[0]}}#{value}")
@@ -145,20 +159,41 @@ describe 'Blacklight::SolrHelper' do
       end
     end
 
-    describe "for a field search in request parameters" do
-      it 'should look up qt from field definition' do
+    describe "solr parameters for a field search from config (subject)" do
+      before do
+        @solr_params = @solr_helper.solr_search_params( @subject_search_params )
+      end
+      it "should look up qt from field definition" do
+        @solr_params[:qt].should == "search"
+      end
+      it "should not include weird keys not in field definition" do
+        @solr_params[:phrase_filters].should be_nil
+        @solr_params[:fq].should be_nil
+        @solr_params[:commit].should be_nil
+        @solr_params[:action].should be_nil
+        @solr_params[:controller].should be_nil
+      end
+      it "should include proper 'q', possibly with LocalParams" do
+        @solr_params[:q].should match(/(\{[^}]+\})?( *)?wome/)
+      end
+      it "should include spellcheck.q, without LocalParams" do
+        @solr_params["spellcheck.q"].should == "wome"
+      end
+      it "should include facet.field from default_solr_params" do
+        @solr_params[:"facet.field"].should == Blacklight.config[:default_solr_params][:"facet.field"]
+      end
+      it "should include spellcheck.dictionary from field def solr_parameters" do
+        @solr_params[:"spellcheck.dictionary"].should == "subject"
+      end
+      it "should add on :solr_local_parameters using Solr LocalParams style" do
         params = @solr_helper.solr_search_params( @subject_search_params )
 
-        params[:qt].should == "subject_search"
-        params[:phrase_filters].should be_nil
-        params[:fq].should be_nil
-
-        params[:q].should == "wome"
-        params["spellcheck.q"].should == params[:q]
-        params[:facets][:fields].should == Blacklight.config[:facet][:field_names]
-        params[:commit].should be_nil
-        params[:action].should be_nil
-        params[:controller].should be_nil
+        #q == "{!pf=$subject_pf $qf=subject_qf} wome", make sure
+        #the LocalParams are really there
+        params[:q] =~ /^\{!([^}]+)\}/
+        key_value_pairs = $1.split(" ")
+        key_value_pairs.should include("pf=$subject_pf")
+        key_value_pairs.should include("qf=$subject_qf")
       end
     end
     describe "overriding of qt parameter" do
@@ -199,6 +234,7 @@ describe 'Blacklight::SolrHelper' do
       describe "should respect proper precedence of settings, " do
         before do
           @produced_params = @solr_helper_with_params.solr_search_params(:sort => "extra_params_sort")
+          1+1
         end
 
 
@@ -207,7 +243,7 @@ describe 'Blacklight::SolrHelper' do
         end
 
         it "should fall through to BL general defaults for qt not otherwise specified " do
-          @produced_params[:qt].should == Blacklight.config[:default_qt]
+          @produced_params[:qt].should == Blacklight.config[:default_solr_params][:qt]
         end
 
         it "should take per_page from search field definition where specified" do
@@ -219,7 +255,7 @@ describe 'Blacklight::SolrHelper' do
         end
 
         it "should add in extra facet.field from params" do
-          @produced_params[:facets][:fields].should include("extra_facet")
+          @produced_params[:"facet.field"].should include("extra_facet")
         end
 
         it "should Overwrite request params sort with extra_params sort" do
@@ -289,8 +325,7 @@ describe 'Blacklight::SolrHelper' do
       @generated_solr_facet_params[:rows].should == 0
     end
     it 'sets facets requested to facet_field argument' do
-      @generated_solr_facet_params[:facets].should be_kind_of(Hash)
-      @generated_solr_facet_params[:facets][:fields].should == @facet_field
+      @generated_solr_facet_params["facet.field".to_sym].should == @facet_field
     end
     it 'defaults offset to 0' do
       @generated_solr_facet_params['facet.offset'].should == 0
@@ -324,7 +359,7 @@ describe 'Blacklight::SolrHelper' do
       solr_search_params.each_pair do |key, value|
         # The specific params used for fetching the facet list we
         # don't care about.
-        next if [:facets, :rows, 'facet.limit', 'facet.offset', 'facet.sort'].include?(key)
+        next if [:facets, "facet.field".to_sym, :rows, 'facet.limit', 'facet.offset', 'facet.sort'].include?(key)
         # Everything else should match
         solr_facet_params[key].should == value
       end
@@ -335,21 +370,16 @@ describe 'Blacklight::SolrHelper' do
     before(:all) do
        @solr_helper = MockSolrHelperContainer.new
        @solr_helper.params = {:search_field => "test_field", :q => "test query"}
-       @solr_helper.facet_limits = {nil => 20, :subject_facet => 10}
+       @solr_helper.facet_limits = {:some_facet => nil, :subject_facet => 10}
        @generated_params = @solr_helper.solr_search_params
      end
 
-     it "should include default limit+1 as facet.limit" do
-       @generated_params[:"facet.limit"].should == (@solr_helper.facet_limit_for(nil) + 1)
+     it "should include specifically configged facet limits +1" do
+        @generated_params[:"f.subject_facet.facet.limit"].should == 11      
      end
-     it "should include specifically configged facet limits" do
-      @solr_helper.facet_limit_hash.each_pair do |facet_field, limit|
-        next if facet_field.nil? # skip default nil key
-        @generated_params[:"f.#{facet_field}.facet.limit"].should == (limit +1)
-      end
-     end
-     it "should not include a facet limit for the 'nil' key in hash" do
-        @generated_params.should_not have_key(:"f..facet.limit")
+     it "should not include a facet limit for a nil key in hash" do
+        @generated_params.should_not have_key(:"f.some_facet.facet.limit")
+        @generated_params.should_not have_key(:"facet.limit")
      end
    end
    describe "get_facet_pagination" do
@@ -510,9 +540,9 @@ describe 'Blacklight::SolrHelper' do
     it 'should have more than one facet' do
       @facets.size.should > 1
     end
-    it 'should have all facets specified in initializer' do
-      @facets.each do |facet|
-        Blacklight.config[:facet][:field_names].should include(facet.name)
+    it 'should have all facets specified in initializer' do      
+      Blacklight.config[:default_solr_params][:"facet.field"].each do |field|
+        @facets.find {|f| f.name == field}.should_not be_nil        
       end
     end
     it 'should have at least one value for each facet' do
@@ -550,7 +580,7 @@ describe 'Blacklight::SolrHelper' do
     it 'should have number of results (per page) set in initializer, by default' do
       (solr_response, document_list) = @solr_helper.get_search_results(:q => @all_docs_query)
       solr_response.docs.size.should == document_list.size
-      solr_response.docs.size.should == Blacklight.config[:index][:num_per_page]
+      solr_response.docs.size.should == Blacklight.config[:default_solr_params][:per_page]
     end
 
     it 'should get number of results per page requested' do
@@ -563,7 +593,7 @@ describe 'Blacklight::SolrHelper' do
     it 'should skip appropriate number of results when requested - default per page' do
       page = 3
       (solr_response2, document_list2) = @solr_helper.get_search_results(:q => @all_docs_query, :page => page)
-      solr_response2.params[:start].to_i.should ==  Blacklight.config[:index][:num_per_page] * (page-1)
+      solr_response2.params[:start].to_i.should ==  Blacklight.config[:default_solr_params][:per_page] * (page-1)
     end
     it 'should skip appropriate number of results when requested - non-default per page' do
       page = 3
@@ -698,17 +728,17 @@ describe 'Blacklight::SolrHelper' do
     end
 
     it "title search results for just-poor-enough query term should have spelling suggestions" do
-      (solr_response, document_list) = @solr_helper.get_search_results({:q => 'yehudiyam', :qt => 'title_search'})
+      (solr_response, document_list) = @solr_helper.get_search_results({:q => 'yehudiyam', :qt => 'search', :"spellcheck.dictionary" => "title"})
       solr_response.spelling.words.should include('yehudiyim')
     end
 
     it "author search results for just-poor-enough-query term should have spelling suggestions" do
-      (solr_response, document_list) = @solr_helper.get_search_results({:q => 'shirma', :qt => 'author_search'})
+      (solr_response, document_list) = @solr_helper.get_search_results({:q => 'shirma', :qt => 'search', :"spellcheck.dictionary" => "author"})
       solr_response.spelling.words.should include('sharma')
     end
 
     it "subject search results for just-poor-enough-query term should have spelling suggestions" do
-      (solr_response, document_list) = @solr_helper.get_search_results({:q => 'wome', :qt => 'subject_search'})
+      (solr_response, document_list) = @solr_helper.get_search_results({:q => 'wome', :qt => 'search', :"spellcheck.dictionary" => "subject"})
       solr_response.spelling.words.should include('women')
     end
 
@@ -718,6 +748,30 @@ describe 'Blacklight::SolrHelper' do
     end
 
   end
+
+  describe "facet_limit_for" do
+    include Blacklight::SolrHelper
+    it "should return specified value for facet_field specified" do
+      facet_limit_for("subject_facet").should == Blacklight.config[:facet][:limits]["subject_facet"]
+    end
+    it "facet_limit_hash should return hash with key being facet_field and value being configured limit" do
+      facet_limit_hash.should == Blacklight.config[:facet][:limits]
+    end    
+    describe "for 'true' configured values" do
+      it "should return nil if no @response available" do
+        facet_limit_for("some_field").should be_nil
+      end
+      it "should get from @response facet.limit if available" do
+        @response = {"responseHeader" => {"params" => {"facet.limit" => 11}}}
+        facet_limit_for("language_facet").should == 10
+      end
+      it "should get from specific field in @response if available" do
+        @response = {"responseHeader" => {"params" => {"facet.limit" => 11,"f.language_facet.facet.limit" => 16}}}
+        facet_limit_for("language_facet").should == 15
+      end
+    end
+  end
+
 
 # TODO:  more complex queries!  phrases, offset into search results, non-latin, boosting(?)
 #  search within query building (?)

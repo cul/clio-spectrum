@@ -1,9 +1,9 @@
 /* Global */
 html {background: #707070;}
 
-body {background: url('../images/bg.png') repeat-x top left; font: 0.7em Verdana, "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif; line-height: 1.4; color:#333; margin: 0px; padding: 15px;}
+body {background: url('../images/bg.png') repeat-x top left; font: 0.7em Verdana, "Lucida Grande", "Lucida Sans Unicode", "Arial Unicode MS", Arial, sans-serif; line-height: 1.4; color:#333; margin: 0px; padding: 15px;}
 
-select,input,button,textarea {font: 1em Verdana, "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;}
+select,input,button,textarea {font: 1em Verdana, "Lucida Grande", "Lucida Sans Unicode", "Arial Unicode MS", Arial, sans-serif;}
 
 strong {font-weight: bold;}
 input {padding: .1em;}
@@ -17,28 +17,25 @@ hr {border:none; height:1px; background-color:#ccc;}
 .clear-both {clear: both;}
 .topDottedBorder {border-top: 1px dotted #ccc;}
 .bottomDottedBorder{border-bottom: 1px dotted #ccc;}
-.formElement {font: 8pt Verdana, Arial, sans-serif;}
+.formElement {font: 8pt Verdana, "Arial Unicode MS", Arial, sans-serif;}
 
 /* Links */
 a:link, a:visited, a:active {border-bottom: 1px dotted #aaa; color: #2e4f81; text-decoration: none;}
 a:hover {color: #029;}
 
 /* Header Container Layout */
-#hd {margin: 0em 2em 0 2em; padding: 2em 0 2em 0; border-bottom: 1px dotted #ccc;}
+#hd {margin: 0em 2em 0 2em; padding: 2em 0 2em 0; }
 #hd .yui-g {text-align: right;}
 #hd .yui-g .first {text-align: left;}
-.yui-t2 {background: #fff url('../images/border.png') repeat-x top left; border-bottom: 2px solid #555; margin: 0px auto;}
+#doc, #doc2, #doc3, #doc4 {background: #fff url('../images/border.png') repeat-x top left; border-bottom: 2px solid #555; margin: 0px auto;}
 /* border-top: 10px solid #548cd8; -moz-border-top-colors: #548cd8 #5188d3 #4e84d0 #4b81cd #497dc9 #457ac6 #4376c2 #4173be #3e71bc #3d6fba; */
-#doc1, #doc2, #doc1, #doc4 {width: 920px;}
 
 /* Body Container Layout */
 #bd {padding: 0 2em 2em 2em;}
-#yui-main {position: relative; width: 875px;}
-.yui-t2 #yui-main .yui-b {border-left: 1px dotted #ccc; padding: 2em 0 2em 2em; position: relative; margin-left: 200px;}
+.yui-t1 #yui-main .yui-b, .yui-t2 #yui-main .yui-b, .yui-t3 #yui-main .yui-b {border-left: 1px dotted #ccc; padding: 1em 0 2em 2em; position: relative;}
 
 /* Left Sidebar Layout */
-.yui-t2 .yui-b {float:left; width:180px;}
-.yui-t2 .yui-b p {padding-top: 2em;}
+.sidebar p {padding-top: 2em;}
 
 /* Top Banner */
 h1.site_title {background: transparent url('../images/logo.png') no-repeat top left; margin: 2em 0px 0px 1em; height: 35px; width: 120px;}
@@ -48,11 +45,21 @@ h1.site_title a:link, h1.site_title a:visited, h1.site_title a:hover, h1.site_ti
 h2.search {margin:0; display:inline;}
 
 /* Search Box */
-#search {position: absolute; top: -2.5em; left: 0; text-align: left; font-size: 120%;}
+#search  {
+  text-align: left; 
+  font-size: 120%;
+  border: 1px solid #AAAAAA;
+  border-radius: 4px 4px 0 0;  
+  -moz-border-radius: 4px 4px 0 0;
+  -webkit-border-radius: 4px 4px 0 0;
+  padding: 0.66em;
+}
 #search #q {width: 200px;}
 #search .submit {padding: 0px 0.25em; margin: 0 0.5em; text-transform: capitalize;}
 #search h2 {display: none;}
 #search hr {display: none; margin:1em 0; margin-top: 2em;}
+
+
 
 /* Content */
 table.zebra .zebra_stripe, ul.zebra .zebra_stripe {background-color: #F1F5FA;}
@@ -68,12 +75,47 @@ th, td {border: 0;}
 #facets li a.remove {color: #666;}
 #facets span.selected {color: green;}
 #facets li.more_facets_link {text-align: right;}
-ul.facet_extended_list { margin:0;}
+ul.facet_extended_list { margin:0; clear: both; margin: 1.5em 0 1.5em 0;}
 ul.facet_extended_list li {list-style:none; margin: 0.5em 0;}
 .facet_extended_list {text-align: left;} /* for our ajaxy dialog to make sure we're overriding the yui global text-align: center */
-.facet_extended_list .sort_options {text-align: right}
+.facet_extended_list .sort_options {
+  text-align: right
+}
+.facet_extended_list .prev_next_links { float: left; }
 
-
+/* jquery-ui-like buttonsets, but without actually using jquery-ui */
+.facet_extended_list .sort_options .az, .facet_extended_list .sort_options .numeric, .facet_extended_list .next_page, .facet_extended_list .prev_page {
+  display: inline-block;
+  background: #F6F6F6;  
+  border: 1px solid #CCCCCC;
+  padding: 0.2em 1em;
+  font-weight: bold;
+}
+.facet_extended_list .next_page, .facet_extended_list .sort_options .numeric {
+  border-radius: 0 4px 4px 0;
+  -moz-border-radius: 0 4px 4px 0;
+  -webkit-border-radius: 0 4px 4px 0;
+}
+.facet_extended_list .prev_page, .facet_extended_list .sort_options .az {
+  border-radius: 4px 0 0 4px;
+  -moz-border-radius: 4px 0 0 4px;
+  -webkit-border-radius: 4px 0 0 4px;
+}
+.facet_extended_list .prev_next_links .disabled {
+  background: none;
+  color: gray;
+  font-weight: normal;
+}
+.facet_extended_list .sort_options .disabled {
+  /* in this case disabled really means selected */
+  background-color: #E2EDFE;
+  border:1px solid #C4DAFE;
+}
+.facet_extended_list .sort_options a:hover, .facet_extended_list .prev_next_links a:hover {
+  border: 1px solid #999999; 
+  background: #dadada;  
+  color: #212121; 
+}
 
 /* Solr Query */
 .solrQuery {padding: .5em; margin: 2em; background-color:#eee; border: 1px dotted #ccc; font-size:90%;}
@@ -81,25 +123,126 @@ ul.facet_extended_list li {list-style:none; margin: 0.5em 0;}
 /* Page Navigation */
 .constraints {margin: 0px; padding: 0px;}
 
-.pagination {text-align:right; padding-top: 1em; margin-bottom:.5em;}
-.pagination h2 {display: none;}
-#results_text {display: none;}
-.pagination a, .pagination span {padding: 0px 5px; border: 0px;}
-.pagination .prev_page, .pagination .next_page {display:none;}
-.prev_next_links .prev_page, .prev_next_links .next_page {display:inline;}
-.prev_next_links {float:left;}
-#previousNextDocument {margin:5px 0;}
+.pagination {
+  padding: 0.66em;
+  background-color:#F0F0F0;
+  border-style: solid;
+  border-color: #AAAAAA;
+  border-width: 0 1px 1px 1px;  
+  border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  -webkit-border-radius: 0 0 4px 4px;
+  position: relative; /* to allow abs positioning of buttons inside */
+  line-height: 2em;
+}
 
-#sortAndPerPage {background-color: #eee;}
+.pagination h2 {display: none;}
+
+.pagination .prev_page {
+  position: absolute;
+  left: 0;
+  margin-left: 0.66em;
+  border-bottom: none;  
+}
+.pagination .next_page {
+  position: absolute;
+  right: 0;
+  margin-right: 0.66em;
+  border-bottom: none;
+  
+}
+#results_text {display: none;}
+
+
+.page_links a, .page_links span {
+  margin-right:0.2em;
+  padding:0.2em 0.5em;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.page_links .next_page, .page_links .prev_page {
+  /* we show these seperately, but can't get will_paginate to suppress
+  them entirely. */
+  display: none;
+}
+
+.page_links span.current {
+background:none repeat scroll 0 0 #2E4F81;
+border:1px solid #2E4F81;
+color:white;
+font-weight:bold;
+}
+.pagination span.disabled {
+    color: #999;
+}
+
+.pagination a {
+  /* leave room so when we show the box on hover, it won't nudge
+     everything all over the place. */
+  border: 1px solid transparent;  
+}
+.pagination a:hover, .pagination a:focus {
+  border:1px solid #000033;
+  text-decoration:none;
+}
+
+.page_links {
+  /* centering, taking account of absolutely positioned right/left buttons*/  
+  margin-right: 8em;
+  margin-left: 8em;
+  text-align: center;
+}
+
+.pageEntriesInfo {
+  background-color:#F0F0F0;
+  border-style: solid;
+  border-color: #AAAAAA;
+  border-width: 1px 1px 0 1px;
+  -moz-border-radius:4px 4px 0 0;
+  border-radius:4px 4px 0 0;
+  -webkit-border-radius:4px 4px 0 0;
+  padding: 0.66em;
+  position:relative; /* so the absolutely positioned startOverLink does right */
+  text-align: center;
+}
+
+#startOverLink{display:block; position:absolute; top:50%; right:0.66em; margin-top:-12px; padding:0 7px 3px 12px; line-height:22px; text-decoration:none; color:#fff; background:url(../images/start_over.gif) no-repeat center center; border-bottom: none;}
+
+
+#sortAndPerPage {
+  background-color: #F0F0F0;
+  padding: 0.66em;
+  border-style: solid;
+  border-color: #AAAAAA;
+  border-width: 0 1px 1px 1px;
+}
+#sortAndPerPage label {
+  font-weight: normal;
+}
+
+#previousNextDocument { /* on item detail page, under paging info */
+  padding: 0.66em;
+  background-color: #F0F0F0;
+  border: 1px solid #AAAAAA;
+  -moz-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+  -webkit-border-radius: 0 0 4px 4px;
+  margin-bottom: 1.5em;
+  overflow: auto; /* to make it expand to hold floated children */
+}
+
+#previousNextDocument .next {
+  float: right;
+}
 
 /* Search Results */
 .document {padding: 0.5em 0 0 0; background-color: #fff; border-bottom: 1px dotted #ccc;}
 
-#documents {background-color: #eee; color: #333; width: 650px;}
+#documents {background-color: #eee; color: #333; margin-top: 1.5em; margin-bottom: 1.5em; }
 #documents .documentHeader {background-color: #fff; padding: 0px;}
 #documents .documentHeader .documentFunctions {text-align:right;}
 #documents .per_page {padding-right: 5px;}
-#documents #results_label {margin-left: 5px;}
 
 /* Result List (http://www.quirksmode.org/css/clearing.html) */
 h3.index_title {clear: both; margin: 0px; padding: 0px; width: 460px;}
@@ -111,6 +254,7 @@ dl.defList dd {float: left; text-align: left; margin: 0; padding: 2px 0; width: 
 
 /* Individual Result Listing */
 #document h1 {margin: 0px; padding: 0px 0px 1em 0px;}
+#document .deleteFolder, #document .addFolder {float:right;}
 #marc_view {padding:5px; text-align:left;}
 #marc_view .ind1, #marc_view .ind2 {padding:0 5px; display:inline;}
 #marc_view .tag_ind {float:left;}
@@ -153,16 +297,21 @@ form div.row label {float:left; width:120px; text-align:right; margin-right: .5e
 form div.row {clear:both; margin-bottom:.5em;}
 form div.row.submit {margin-left:130px;}
 form.per_page {float:right;}
-h2#results_label {font-size:100%;}
-h2#results_label, form.sort {display:inline;}
+form.sort {display:inline;}
 textarea {width:30em; height:15em;}
 
 .fieldWithErrors {display:inline;}
 .fieldWithErrors label {color:darkred;}
 
 /* Show Tools */
-ul.tools {margin: 0px; padding: 0px; text-align:right;}
+ul.tools {margin: 0px; padding: 0px;}
 ul.tools li {display: inline; margin: 0 10px;}
+
+/* Folder Tools */
+ul.folderTools {float:left;list-style-type: none; margin: 0 0 10px; padding:0;}
+ul.folderTools li {float:left; padding:0 20px 0 0;}
+ul.folderTools li.refworks form input.submit{display:none;}
+
 
 /* Lightbox */
 .lightboxTitle {background-color: #cccccc; width: 100%; color: black;}
@@ -194,18 +343,17 @@ ul.tools li {display: inline; margin: 0 10px;}
 	html {background: #fff;}
 	body {background: none; padding: 0px;}
 	#hd {margin: 0; padding: 0 0 2em 0;}
-	.yui-t2 {background: none; border: 0px; margin: 0px;}
-	.first {margin: 2em 0px 0px 0px;}
-	#doc1, #doc2, #doc1, #doc4 {width: 100%; margin: 0; padding: 0;}
+	.yui-u.first {margin: 2em 0px 0px 0px;}
+	#doc, #doc2, #doc1, #doc4 {width: 100%; margin: 0; padding: 0; background: none; border: 0px;}
 	#bd {padding: 0;}
 	#yui-main {position: relative; width: 100%;}
-	.yui-t2 #yui-main .yui-b {border-left: 1px dotted #ccc; padding: 2em 0 2em 1em; position: relative; margin-left: 150px;}
-	.yui-t2 .yui-b {float: none; width: 130px;}
-	.yui-t2 .yui-b p {padding-top: 2em;}
+	#yui-main .yui-b {border-left: 1px dotted #ccc; padding: 2em 0 2em 1em; position: relative; margin-left: 150px;}
+	.yui-b {float: none; width: 130px;}
+	.yui-b p {padding-top: 2em;}
 	#facets {padding: 1em 0 0 0;}
 	.solrQuery {display: none;}
 	/* IE 6 Adjustments */
-	* html .yui-t2 #yui-main .yui-b {position: absolute; top: 0px; left: 0px;}
+	* html #yui-main .yui-b {position: absolute; top: 0px; left: 0px;}
 	* html #search {position: absolute; top: -4em; left: 1em;}
 	* html #documents {width: 75%;}
 }
@@ -214,27 +362,84 @@ ul.tools li {display: inline; margin: 0 10px;}
 /* ========================
 Search Parameters
 ======================== */
-#appliedParams{margin-bottom:0 !important;}
-#appliedQueries,
-#appliedFilters{}
-#appliedParams h3 {position:relative;padding:5px 5px 5px 23px; margin:0 0 3px 0;background:#fff7e5; border:1px solid #e0d9ca; overflow:visible; /*font:normal normal normal 15px/15px helvetica, arial, sans-serif; */ color: #555;}
-#appliedParams img {position:absolute; left:5px; bottom:-8px; z-index:5;}
-ul#appliedFiltersList,
-	ul#appliedQueriesList,
-	ul#appliedFiltersList li,
-	ul#appliedQueriesList li{list-style:none;margin:0;padding:0;display:inline;}
-.appliedFilter {display:block; position:relative; overflow:visible; position:relative; background:#e2edfe; padding:5px 5px 5px 25px; margin-bottom:3px; border:1px solid #c4dafe;}
-#appliedParams div {position:relative; padding:10px; background:#c9d484;}
-.appliedFilter .btnRemove{display:block;position:absolute; z-index:5; right:0px; top:0; width:32px;height:100%; background:url(../images/remove.gif) no-repeat center center; border-left:1px solid #d0daea;}
-.appliedFilter span {}
-.appliedFilter span.first{}
-.appliedFilter span.first span{position:relative; }
-.appliedFilter span.first span.filterName{display:inline;border:0;}
-.appliedFilter span.first span.filterValue{border:0;}
-#appliedParams a:link{text-decoration:underline;}
-#appliedParams a:hover{}
-#appliedParams a#startOverLink{display:block; position:absolute; top:50%; right:0px; margin-top:-12px; padding:0 10px 3px 15px; line-height:22px; text-decoration:none; color:#fff; background:url(../images/start_over.gif) no-repeat center center;}
-#appliedParams a#startOverLink:hover{background-color:none;}
-#appliedParams a#startOverLink span{display:none;}
-.appliedFilter .queryName, .appliedFilter .filterName {padding-right:14px; background:url(../images/separator.gif) no-repeat right center;}
+  /* current search criteria are rendered right under search box, and appear
+   as part of same section. */
+#appliedParams {
+  background-color: #F0F0F0;
+  border-right: 1px solid #AAAAAA;
+  border-left: 1px solid #AAAAAA;
+  border-bottom: 1px solid #AAAAAA;
+  padding: 1em 0.66em 0em 1em;
+  border-radius:0 0 4px 4px;  
+  -moz-border-radius:0 0 4px 4px;
+  -webkit-border-radius:0 0 4px 4px;
+  margin-bottom: 1.5em;
+}
 
+#appliedParams .label {
+  /* just here for screen-readers, attributes copied from Jquery-ui 
+     .ui-helper-hidden-accessible */
+  position: absolute;
+  left: -100000000px;
+}
+
+/* but don't hide it on show page, where there is no actual search box. */
+.show #appliedParams .label {
+  position: static;
+  margin-top: 0;
+}
+.show #appliedParams {
+  /* it's the top, give it a top border with corners */
+  border-top: 1px solid #AAAAAA;
+  border-radius:4px 4px 4px 4px;  
+  -moz-border-radius:4px 4px 4px 4px;
+  -webkit-border-radius:4px 4px 4px 4px;
+}
+
+.appliedFilter {
+  position: relative;
+  display:inline-block;
+  padding:3px 3px 3px 1.5em; 
+  margin-bottom: 0.66em;
+  margin-right: 0.33em;
+  background:#e2edfe;  
+  border:1px solid #c4dafe;
+  -moz-border-radius:15px 15px 15px 15px;
+  -webkit-border-radius:15px 15px 15px 15px;
+  border-radius: 15px 15px 15px 15px;
+}
+.appliedFilter .btnRemove{
+  display:block;
+  position:absolute; 
+  z-index:5; 
+  right:0px; 
+  top:0; 
+  width:32px;
+  height:100%; 
+  background:url(../images/remove.gif) no-repeat center center; 
+  border-left:1px solid #d0daea;
+  border-bottom: none;
+  text-indent:-99999px; /* text there for screen readers, hidden visually */
+  outline: none; /* the screen reader text indent above will make weird outlines on link clicking, unless we turn em off. */
+}
+.appliedFilter .btnRemove:active, .appliedFilter .btnRemove:focus {
+  /* we took outline away above; add a border instead, for accesibility
+     so someone tabbing to the link knows what link is active */
+  border: 1px dotted #FFD27A;
+}
+
+.appliedFilter .queryName, .appliedFilter .filterName {
+  /* ">" image */ 
+  padding-right:14px; 
+  background:url(../images/separator.gif) no-repeat right center;
+}
+
+.filterValue {
+  padding-right:37px; /* leave room for close button */ 
+}
+
+
+
+
+
+.hide {display:none}

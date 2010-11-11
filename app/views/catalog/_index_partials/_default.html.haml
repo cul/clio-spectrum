@@ -1,15 +1,22 @@
 /i default partial to display solr document fields in catalog index view
 
-%dl.defList
-  - if (author = document.get "author_display")
-    %dt Author:
-    %dd= h author
+.yui-ge
+  .yui-u.first
+    %dl.defList_in_grid
+      - if (author = document.get "author_display")
+        %dt Author:
+        %dd= h author
 
-  - if (pub_date = document.get "pub_date")
-    %dt Published:
-    %dd= h pub_date.listify.join(" , ")
+      - if (pub_date = document.get "pub_date")
+        %dt Published:
+        %dd= h pub_date.listify.join(" , ")
 
-  = render :partial => "location_and_availability_and_format", :locals => {:document => document}
+      = render :partial => "/catalog/location_and_availability_and_format", :locals => {:document => document}
+  .yui-u
+    =image_tag("spacer.png", :class => "list_view bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_i.to_s}.join(" "))
+
+      
+
 
 
 

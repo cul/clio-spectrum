@@ -1,0 +1,24 @@
+- @page_title = "#{document_show_html_title} - #{application_name}"
+- extra_head_content << render_link_rel_alternates 
+
+.show
+  = render 'show_constraints', :localized_params=>session[:search] 
+
+  
+
+#document
+  %div{:id => "doc_#{@document[:id]}"}
+    .yui-gc 
+      .yui-u.first
+        = render_document_heading 
+      .yui-u
+        #show_folder_control
+          = render :partial=>'folder_control', :locals=>{:document=>@document} 
+    .document
+      = render_document_partial @document, :show 
+
+= render :partial=>'solr_request' 
+
+
+- if @document.respond_to?(:export_as_openurl_ctx_kev) 
+  .ZE988{:title => "#{@document.export_as_openurl_ctx_kev(document_partial_name(@document))}"}

@@ -1,0 +1,208 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 6, ../../../app/stylesheets/application.sass */
+.change_view {
+  float: left;
+}
+
+/* line 9, ../../../app/stylesheets/application.sass */
+#startOverLink {
+  padding-top: 1px;
+}
+
+/* line 14, ../../../app/stylesheets/application.sass */
+.pageEntriesInfo {
+  padding-right: 150px;
+}
+
+/* line 17, ../../../app/stylesheets/application.sass */
+#show_folder_control {
+  margin-top: 1em;
+}
+/* line 19, ../../../app/stylesheets/application.sass */
+#show_folder_control .addFolder, #show_folder_control .deleteFolder {
+  float: none;
+}
+
+/* line 23, ../../../app/stylesheets/application.sass */
+#show_previousNextDocument .previous_next {
+  margin-top: 0.5em;
+}
+
+/* line 25, ../../../app/stylesheets/application.sass */
+.back_to_catalog {
+  float: right;
+}
+
+/* line 27, ../../../app/stylesheets/application.sass */
+.show_start_over {
+  float: right;
+}
+
+/* line 30, ../../../app/stylesheets/application.sass */
+a.folder_link_submit {
+  border-bottom: none;
+}
+/* line 33, ../../../app/stylesheets/application.sass */
+a.folder_link_submit span.folder_link_text {
+  padding-left: 2px;
+  border-bottom: 1px dotted #aaaaaa;
+}
+
+/* line 36, ../../../app/stylesheets/application.sass */
+#holdings {
+  clear: both;
+  margin-top: 2em;
+}
+/* line 40, ../../../app/stylesheets/application.sass */
+#holdings .holding {
+  padding: 0.5em 0.5em 0.5em 1em;
+}
+/* line 42, ../../../app/stylesheets/application.sass */
+#holdings .holding0 {
+  background-color: #f6f6f6;
+}
+/* line 45, ../../../app/stylesheets/application.sass */
+#holdings #holdings_header {
+  padding-bottom: 1em;
+}
+/* line 47, ../../../app/stylesheets/application.sass */
+#holdings #holdings_header #holdings_title {
+  font-weight: bold;
+  font-size: 1.25em;
+  display: inline;
+  padding-bottom: 1em;
+}
+/* line 54, ../../../app/stylesheets/application.sass */
+#holdings #holdings_header #location_guide {
+  padding-left: 0.5em;
+  display: inline;
+}
+/* line 58, ../../../app/stylesheets/application.sass */
+#holdings .call_number {
+  float: right;
+}
+/* line 61, ../../../app/stylesheets/application.sass */
+#holdings .status {
+  padding-left: 2em;
+  font-style: italic;
+}
+
+/* line 65, ../../../app/stylesheets/application.sass */
+#show_cover {
+  float: left;
+  padding-right: 1.5em;
+}
+
+/* line 69, ../../../app/stylesheets/application.sass */
+.cover_with_jacket {
+  margin: 3px 10% 0 15%;
+  height: 125px;
+  width: 100px;
+  border: 1px solid #cccccc;
+  position: relative;
+  background-color: #eeeeee;
+  overflow: hidden;
+}
+/* line 78, ../../../app/stylesheets/application.sass */
+.cover_with_jacket .bookjacket {
+  width: 100px;
+  height: 125px;
+}
+/* line 82, ../../../app/stylesheets/application.sass */
+.cover_with_jacket .fake_label {
+  text-align: center;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  position: absolute;
+  top: 21px;
+  left: 7px;
+  right: 7px;
+  padding: 7px 0;
+  color: #333333;
+}
+
+/* line 93, ../../../app/stylesheets/application.sass */
+.grid_view {
+  background: white;
+}
+/* line 96, ../../../app/stylesheets/application.sass */
+.grid_view .document_gallery {
+  margin-bottom: 3em;
+}
+/* line 99, ../../../app/stylesheets/application.sass */
+.grid_view .document_gallery .google_cover {
+  display: none;
+}
+/* line 102, ../../../app/stylesheets/application.sass */
+.grid_view .document_gallery .grid_bookjacket {
+  height: 125px;
+  width: 100px;
+  padding: 0;
+}
+/* line 108, ../../../app/stylesheets/application.sass */
+.grid_view .document_gallery .info {
+  margin: 3px 0.5em 0 0.5em;
+  height: 7em;
+  position: relative;
+  overflow: hidden;
+}
+/* line 114, ../../../app/stylesheets/application.sass */
+.grid_view .document_gallery .info .title {
+  font-weight: bold;
+  min-height: 3em;
+  margin-bottom: 1em;
+}
+
+/* line 120, ../../../app/stylesheets/application.sass */
+dl.defList_in_grid {
+  overflow: auto;
+  padding: 0.5em 0;
+}
+/* line 124, ../../../app/stylesheets/application.sass */
+dl.defList_in_grid dt {
+  float: left;
+  text-align: right;
+  width: 20%;
+  clear: both;
+  color: #888888;
+  margin: 0;
+  padding: 2px 1em 2px 0px;
+}
+/* line 133, ../../../app/stylesheets/application.sass */
+dl.defList_in_grid dd {
+  float: left;
+  text-align: left;
+  margin: 0;
+  padding: 2px 0;
+}
+
+/* line 140, ../../../app/stylesheets/application.sass */
+img.bookjacket.list_view {
+  float: right;
+  height: 80px;
+  width: 52px;
+  padding: 1em;
+}
+
+/* line 147, ../../../app/stylesheets/application.sass */
+a#feedLink {
+  display: inline;
+  text-decoration: none;
+  border-bottom: none;
+}
+/* line 153, ../../../app/stylesheets/application.sass */
+a#feedLink img {
+  position: static;
+  padding-left: 3px;
+}
+
+/* line 159, ../../../app/stylesheets/application.sass */
+h1.site_title {
+  background: transparent url("../../images/clio_beta.jpg") no-repeat top left;
+  margin: 0 0 0 1em;
+  height: 30px;
+  width: 120px;
+}

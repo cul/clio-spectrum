@@ -11,13 +11,11 @@
     
     <%= render_head_content %>
 
-    <%= stylesheet_link_tag "application" %> 
+    <%= stylesheet_link_tag "compiled/application" %> 
     <%= javascript_include_tag "application" %>
     <%= javascript_tag "var RAILS_ROOT = '#{ActionController::Base.relative_url_root}';" %>
     
-    <% javascript_tag do  -%>
-      <%= yield(:jstemplates) %>
-    <% end -%>
+    <%= yield(:jstemplates) %>
     
   </head>
   <% if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil? %>
@@ -33,7 +31,7 @@
             <h1 class="site_title"><%= link_to application_name, root_path %><%= (params[:controller] == "catalog" and !params[:id]) ? "<span id='results_text'>Search Results</span>" : "" %></h1>
           </div>
           <div class="yui-u">
-            <%= render :partial=>'/user_util_links' %>
+            <%= render :partial => "/user_util_links" %>
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@ class Object
     end
       
   end
-  
+
   # returns a sorted list of methods that are unique to an object compared to some other object
   # compares to Object by default
   def interesting_methods(compare_to = Object)

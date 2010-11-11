@@ -1,0 +1,48 @@
+#documents
+  - if params[:view] == "grid"
+    .grid_view.yui-gb
+      
+      - @response.docs.each_with_index do |document,counter|
+        - counter_start = counter + 1 + @response.params[:start].to_i
+        .document_gallery.yui-u{:class => ("first" if counter % 3 == 0)}
+          .cover_with_jacket
+            .fake_cover
+              = link_to_document document, :label=> build_fake_cover(document), :counter => counter_start
+            .cover
+              = link_to_document document, :label => image_tag("spacer.png", :class => "grid_bookjacket bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_i.to_s}.join(" ")), :counter => counter_start
+
+ 
+          .info
+            .title
+              = link_to_document document, :label => document["title_display"].to_s.abbreviate(60), :counter => counter_start
+            
+            .grid_availability
+              = render :partial => "availability", :locals => {:document => document, :view => params[:view] }
+           
+        
+  - else
+
+    - @response.docs.each_with_index do |document,counter|
+      .document
+
+        .yui-ge.documentHeader
+          .yui-u.first
+            %h3.index_title
+              = (counter + 1 + @response.params[:start].to_i).to_s + "."
+              = link_to_document document, :label=>document_show_link_field, :counter => (counter + 1 + @response.params[:start].to_i)
+          .yui-u.documentFunctions
+            = render :partial=>'bookmark_control', :locals=>{:document=>document}
+            = render :partial=>'folder_control', :locals =>{:document=> document, :display =>'button'}
+            
+          
+        = render_document_partial document, :index
+
+- holdings_to_check = @document_list.listify.reject { |d| d["location_display"].listify.reject { |l| l == "Online" }.empty? }.collect { |d| d["id"] } 
+- isbns_to_check = @document_list.listify.collect { |d| d["isbn_t"] }.compact.flatten.uniq 
+- content_for :jstemplates do 
+  :javascript
+    
+    $(document).ready ( function () {
+    update_book_jackets('#{url_for(:controller => :backend, :action => "retrieve_book_jackets")}', [#{isbns_to_check.join(',')}]); 
+        update_holdings_info('#{url_for(:controller => :backend, :action => "opac_holdings_data")}', [#{ holdings_to_check.join(",")}])
+    }); 

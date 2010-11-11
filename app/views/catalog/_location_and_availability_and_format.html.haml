@@ -5,17 +5,18 @@
       - url_blob.split(",").each do |url|
         %div
           = image_tag("icons/noncirc.png", :class => :availability)
-          = link_to url, url
+          = link_to url.abbreviate(50), url
 
 
-- unless (locations = document["location_display"].listify.reject { |l| l == "Online" }).empty?
+- unless (locations = document["location_display"].listify.reject { |l| l == "Online" }).empty? || document["location_holdings_id_display"].nil?
   %dt At the Library:
   %dd
+   
     - locations.each_with_index do |location, i|
-      - holdings_id = "holding_" + (document["location_holdings_id_display"].listify[i] || document["location_holdings_id_display"].first).to_s
+      - holdings_id = "holding_" + (document["location_holdings_id_display"].listify[i] || document["location_holdings_id_display"].first).to_s if document["location_holdings_id_display"]
       %div
         = image_tag("icons/unknown.png", :class => "availability " + holdings_id)
-        = location
+        = shorten_location(location)
         >>
         = document["location_call_number_display"].listify[i] || document["location_call_number_display"].first
 

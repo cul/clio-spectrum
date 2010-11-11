@@ -3,11 +3,14 @@
 # Specifies gem version of Rails to use when vendor/rails is not present
 RAILS_GEM_VERSION = '2.3.8' unless defined? RAILS_GEM_VERSION
 
-require "lib/james_monkeys"
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 require File.join(File.dirname(__FILE__), '../vendor/plugins/blacklight/vendor/plugins/engines/boot')
+
+require "lib/james_monkeys"
+require "lib/voyager"
+require "lib/google_books"
 
 Rails::Initializer.run do |config|
   config.plugin_paths += ["#{RAILS_ROOT}/vendor/plugins/blacklight/vendor/plugins"]
@@ -15,6 +18,8 @@ Rails::Initializer.run do |config|
   config.gem 'httpclient'
   config.gem "nokogiri"
   config.gem "haml"
+  config.gem "unicode"
+  config.gem "compass", :version => ">= 0.10.5"
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.

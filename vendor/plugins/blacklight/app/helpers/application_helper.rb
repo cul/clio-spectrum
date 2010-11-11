@@ -182,6 +182,11 @@ module ApplicationHelper
     @document[Blacklight.config[:show][:html_title]]
   end
   
+  # Used in citation view for displaying the title
+  def citation_title(document)
+    document[Blacklight.config[:show][:html_title]]
+  end
+  
   # Used in the document_list partial (search view) for building a select element
   def sort_fields
     Blacklight.config[:sort_fields]
@@ -242,16 +247,23 @@ module ApplicationHelper
   # options consist of:
   # :suppress_link => true # do not make it a link, used for an already selected value for instance
   def render_facet_value(facet_solr_field, item, options ={})    
-    link_to_unless(options[:suppress_link], item.value, add_facet_params_and_redirect(facet_solr_field, item.value), :class=>"facet_select") + " (" + format_num(item.hits) + ")" 
+    link_to_unless(options[:suppress_link], item.value, add_facet_params_and_redirect(facet_solr_field, item.value), :class=>"facet_select label") + " " + render_facet_count(item.hits)
   end
 
   # Standard display of a SELECTED facet value, no link, special span
   # with class, and 'remove' button.
   def render_selected_facet_value(facet_solr_field, item)
-    '<span class="selected">' +
+    '<span class="selected label">' +
     render_facet_value(facet_solr_field, item, :suppress_link => true) +
     '</span>' +
-    ' [' + link_to("remove", remove_facet_params(facet_solr_field, item.value, params), :class=>"remove") + ']'
+    link_to("[remove]", remove_facet_params(facet_solr_field, item.value, params), :class=>"remove")
+  end
+
+  # Renders a count value for facet limits. Can be over-ridden locally
+  # to change style, for instance not use parens. And can be called
+  # by plugins to get consistent display. 
+  def render_facet_count(num)
+    content_tag("span",  "(" + format_num(num) + ")", :class => "count") 
   end
   
   # adds the value and/or field to params[:f]
@@ -338,8 +350,8 @@ module ApplicationHelper
   # link_to_document(doc, :label=>'VIEW', :counter => 3)
   # Use the catalog_path RESTful route to create a link to the show page for a specific item. 
   # catalog_path accepts a HashWithIndifferentAccess object. The solr query params are stored in the session,
-  # so we only need the +counter+ param here.
-  def link_to_document(doc, opts={:label=>Blacklight.config[:index][:show_link].to_sym, :counter => nil})
+  # so we only need the +counter+ param here. We also need to know if we are viewing to document as part of search results.
+  def link_to_document(doc, opts={:label=>Blacklight.config[:index][:show_link].to_sym, :counter => nil, :results_view => true})
     label = case opts[:label]
     when Symbol
       doc.get(opts[:label])
@@ -348,13 +360,13 @@ module ApplicationHelper
     else
       raise 'Invalid label argument'
     end
-    link_to_with_data(label, catalog_path(doc[:id]), {:method => :put, :data => {:counter => opts[:counter]}})
+    link_to_with_data(label, catalog_path(doc[:id]), {:method => :put, :class => label.parameterize, :data => {:counter => opts[:counter], :results_view => opts[:results_view]}})
   end
 
   # link_back_to_catalog(:label=>'Back to Search')
   # Create a link back to the index screen, keeping the user's facet, query and paging choices intact by using session.
   def link_back_to_catalog(opts={:label=>'Back to Search'})
-    query_params = session[:search].dup || {}
+    query_params = session[:search] ? session[:search].dup : {}
     query_params.delete :counter
     query_params.delete :total
     link_url = catalog_index_path(query_params)
@@ -382,12 +394,12 @@ module ApplicationHelper
 
   def link_to_previous_document(previous_document)
     return if previous_document == nil
-    link_to_document previous_document, :label=>'< Previous', :counter => session[:search][:counter].to_i - 1
+    link_to_document previous_document, :label=>'« Previous', :counter => session[:search][:counter].to_i - 1
   end
 
   def link_to_next_document(next_document)
     return if next_document == nil
-    link_to_document next_document, :label=>'Next >', :counter => session[:search][:counter].to_i + 1
+    link_to_document next_document, :label=>'Next »', :counter => session[:search][:counter].to_i + 1
   end
 
   # Use case, you want to render an html partial from an XML (say, atom)
@@ -474,5 +486,34 @@ module ApplicationHelper
     end
     submit_function << "f.submit();"
   end
+  
+  # determines if the given document id is in the folder
+  def item_in_folder?(doc_id)
+    session[:folder_document_ids] && session[:folder_document_ids].include?(doc_id) ? true : false
+  end
+  
+  # puts together a collection of documents into one refworks export string
+  def render_refworks_texts(documents)
+    val = ''
+    documents.each do |doc|
+      if doc.respond_to?(:to_marc)
+        val += doc.export_as_refworks_marc_txt + "\n"
+      end
+    end
+    val
+  end
+  
+  # puts together a collection of documents into one endnote export string
+  def render_endnote_texts(documents)
+    val = ''
+    documents.each do |doc|
+      if doc.respond_to?(:to_marc)
+        val += doc.export_as_endnote + "\n"
+      end
+    end
+    val
+  end
+  
+  
   
 end
