@@ -30,8 +30,9 @@
 #show_previousNextDocument .previous_next {
   margin-top: 0.5em;
 }
+
 /* line 25, ../../../app/stylesheets/application.sass */
-#show_previousNextDocument .back_to_catalog {
+.back_to_catalog {
   float: right;
 }
 

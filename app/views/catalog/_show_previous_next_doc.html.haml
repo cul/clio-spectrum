@@ -1,6 +1,8 @@
 - if @previous_document || @next_document 
   #show_previousNextDocument
-    .back_to_catalog= link_back_to_catalog
+
+    .show_start_over
+      = link_to "Start&nbsp;over&thinsp;", catalog_index_path 
     .previous_next
       = link_to_previous_document(@previous_document)
       = "&nbsp;" if @previous_document && @next_document

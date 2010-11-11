@@ -10,6 +10,7 @@ require File.join(File.dirname(__FILE__), '../vendor/plugins/blacklight/vendor/p
 
 require "lib/james_monkeys"
 require "lib/voyager"
+require "lib/google_books"
 
 Rails::Initializer.run do |config|
   config.plugin_paths += ["#{RAILS_ROOT}/vendor/plugins/blacklight/vendor/plugins"]

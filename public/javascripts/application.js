@@ -41,9 +41,9 @@ function update_holdings_info(url,bibids) {
   }
   
   $.getJSON(url + bibidstring, function(data) {
-    for (key in data.holdingsId) {
+    for (key in data) {
       selector = "img.availability.holding_" + key;  
-      $(selector).attr("src", RAILS_ROOT + "/images/icons/"+data.holdingsId[key]+".png");
+      $(selector).attr("src", RAILS_ROOT + "/images/"+data[key]);
     }
   });
 }

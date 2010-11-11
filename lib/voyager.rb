@@ -67,7 +67,7 @@ module Voyager
     end
 
     def is_available?
-      @statuses.collect(&:first).include?("1")
+      @statuses.collect(&:first).include?("1") && !@location_name.include?("Temporarily unavailable.")
     end
 
     def status_for_display
