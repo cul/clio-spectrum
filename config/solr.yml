@@ -1,5 +1,5 @@
 production:
-    url: http://testcat.cul.columbia.edu:8983/solr-1.4/newbooks_prod
+    url: http://testcat.cul.columbia.edu:8983/solr-1.5/newbooks_prod
 development:
     url: http://127.0.0.1:8983/solr
 test: &TEST
@@ -7,6 +7,6 @@ test: &TEST
 development_jetty:
     url: http://127.0.0.1:8983/solr
 taft_pass:
-    url: http://testcat.cul.columbia.edu:8983/solr-1.4/newbooks_test
+    url: http://testcat.cul.columbia.edu:8983/solr-1.5/newbooks_test
 cucumber:
     <<: *TEST
