@@ -37,12 +37,6 @@
           
         = render_document_partial document, :index
 
-- holdings_to_check = @document_list.listify.reject { |d| d["location_display"].listify.reject { |l| l == "Online" }.empty? }.collect { |d| d["id"] } 
-- isbns_to_check = @document_list.listify.collect { |d| d["isbn_t"] }.compact.flatten.uniq 
-- content_for :jstemplates do 
-  :javascript
-    
-    $(document).ready ( function () {
-    update_book_jackets('#{url_for(:controller => :backend, :action => "retrieve_book_jackets")}', [#{isbns_to_check.join(',')}]); 
-        update_holdings_info('#{url_for(:controller => :backend, :action => "opac_holdings_data")}', [#{ holdings_to_check.join(",")}])
-    }); 
+
+
+= render :partial => "google_books_check", :locals => {:documents => @response.docs.listify }

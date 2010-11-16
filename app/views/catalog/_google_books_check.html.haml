@@ -1,0 +1,22 @@
+
+
+- holdings_to_check = @document_list.listify.reject { |d| d["location_display"].listify.reject { |l| l == "Online" }.empty? }.collect { |d| d["id"] } 
+- holdings_to_check = []
+- isbns_to_check = @document_list.listify.collect { |d| d["isbn_t"] }.compact.flatten.uniq 
+
+- content_for :jstemplates do 
+  :javascript
+
+
+    api_url ="http://books.google.com/books?jscmd=viewapi&bibkeys=#{isbns_to_check.join(",")}";
+
+    document.write(unescape("%3Cscript src=" + api_url + " type='text/javascript'%3E%3C/script%3E"));
+    
+    $(document).ready ( function () {
+      
+    update_book_jackets(_GBSBookInfo);
+    
+    
+    update_holdings_info('#{url_for(:controller => :backend, :action => "opac_holdings_data")}', [#{ holdings_to_check.join(",")}])
+    }); 
+

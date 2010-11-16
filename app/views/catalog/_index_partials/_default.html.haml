@@ -13,7 +13,7 @@
 
       = render :partial => "/catalog/location_and_availability_and_format", :locals => {:document => document}
   .yui-u
-    =image_tag("spacer.png", :class => "list_view bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_i.to_s}.join(" "))
+    =image_tag("spacer.png", :class => "list_view bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))
 
       
 

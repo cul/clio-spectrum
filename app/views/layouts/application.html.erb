@@ -12,9 +12,10 @@
     <%= render_head_content %>
 
     <%= stylesheet_link_tag "compiled/application" %> 
-    <%= javascript_include_tag "application" %>
-    <%= javascript_tag "var RAILS_ROOT = '#{ActionController::Base.relative_url_root}';" %>
     
+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_tag "var RAILS_ROOT = '#{ActionController::Base.relative_url_root}'; google.load('books','0');" %>
     <%= yield(:jstemplates) %>
     
   </head>
