@@ -48,12 +48,13 @@ function update_holdings_info(url,bibids) {
   });
 }
 
-function update_book_jackets(data) {
-  for (key in data) {
-    selector = $("img.bookjacket.isbn_" + key);
+function update_book_jackets(isbns, data) {
+  for (index in isbns) {
+    isbn = isbns[index];
+    selector = $("img.bookjacket[src*='/images/spacer.png'].isbn_" + isbn);
     
-    if (selector.length > 0) {
-      selector.attr("src", data[key]["thumbnail_url"]);
+    if (selector.length > 0 && data[isbn]) {
+      selector.attr("src", data[isbn]["thumbnail_url"]);
       selector.parents(".google_cover").show();
       selector.parents(".cover_with_jacket").children(".fake_cover").hide();
     }

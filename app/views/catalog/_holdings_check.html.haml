@@ -1,0 +1,9 @@
+- holdings_to_check = documents.reject { |d| d["location_display"].listify.reject { |l| l == "Online" }.empty? }.collect { |d| d["id"] } 
+
+- holdings_to_check.first.listify.each do |holding|
+  - content_for :jstemplates do
+    :javascript
+      $(document).ready ( function () {
+        / update_holdings_info('#{url_for(:controller => :backend, :action => "opac_holdings_data")}', [#{h(holding)}]);
+        retrieve_holdings_info(holding);
+      });
