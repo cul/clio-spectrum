@@ -31,6 +31,7 @@ a.folder_link_submit
   :border-bottom none
 
   span.folder_link_text
+    :vertical-align 20%
     :padding-left 2px
     :border-bottom 1px dotted #AAA
 #holdings
@@ -63,32 +64,54 @@ a.folder_link_submit
     :font-style italic
 
 #show_cover
+  :display none
   :float left
-  :padding-right 1.5em
+  :margin-left 2em
+  :margin-right 2em
 
-.cover_with_jacket
-  :margin 3px 10% 0 15%
+
+.gbs_preview
+  :display none
+  :padding-top 1em
+  :padding-bottom 2em
+  :text-align center
+  
+  a
+    :border-bottom none
+
+li.gbs_info
+  :display none
+
+.book_cover
+  :margin-left auto
+  :margin-right auto
+
+.gbs_thumbnail
+
+
+
+
+.grid_cover
   :height 125px
-  :width 100px
-  :border 1px solid #CCCCCC
+  :width 90px
   :position relative
-  :background-color #EEEEEE
   :overflow hidden
+  :border 1px solid #CCCCCC
+  :background-color #EEEEEE
 
-  .bookjacket
-    :width 100px
-    :height 125px
+.fake_cover
+  :text-align  center
+  :border-top 1px solid #CCCCCC
+  :border-bottom 1px solid #CCCCCC
+  :position absolute
+  :top 21px
+  :left 7px
+  :right 7px
+  :padding 7px 0
+  :color #333333
 
-  .fake_label
-    :text-align  center
-    :border-top 1px solid #CCCCCC
-    :border-bottom 1px solid #CCCCCC
-    :position absolute
-    :top 21px
-    :left 7px
-    :right 7px
-    :padding 7px 0
-    :color #333333
+.gbs_cover 
+  :display none
 
 .grid_view
   :background white
@@ -96,12 +119,11 @@ a.folder_link_submit
   .document_gallery
     :margin-bottom 3em
 
-    .google_cover
-      :display none      
+
 
     .grid_bookjacket
       :height 125px
-      :width 100px
+      :width 90px
       :padding 0
 
     

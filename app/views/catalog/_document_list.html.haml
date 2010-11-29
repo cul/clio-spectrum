@@ -5,11 +5,10 @@
       - @response.docs.each_with_index do |document,counter|
         - counter_start = counter + 1 + @response.params[:start].to_i
         .document_gallery.yui-u{:class => ("first" if counter % 3 == 0)}
-          .cover_with_jacket
-            .fake_cover
-              = link_to_document document, :label=> build_fake_cover(document), :counter => counter_start
-            .cover
-              = link_to_document document, :label => image_tag("spacer.png", :class => "grid_bookjacket bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_i.to_s}.join(" ")), :counter => counter_start
+          .book_cover.grid_cover
+            = link_to_document document, :label=> build_fake_cover(document), :counter => counter_start
+            .gbs_cover
+              .gbs_thumbnail= link_to_document document, :label => image_tag("spacer.png", :class => "grid_bookjacket bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" ")), :counter => counter_start
 
  
           .info
@@ -39,6 +38,6 @@
 
 
 
-= render :partial => "google_books_check", :locals => {:documents => @response.docs.listify }
+= render :partial => "google_books_check", :locals => {:documents => @response.docs }
 
-= render :partial => "holdings_check", :locals => {:documents => @response.docs.listify}
+= render :partial => "holdings_check", :locals => {:documents => @response.docs}

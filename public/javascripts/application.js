@@ -52,11 +52,30 @@ function update_book_jackets(isbns, data) {
   for (index in isbns) {
     isbn = isbns[index];
     selector = $("img.bookjacket[src*='/images/spacer.png'].isbn_" + isbn);
+    isbn_data = data[isbn]
+    console.log("updating book jackets for " + isbn);
+    if (selector.length > 0 && isbn_data) {
     
-    if (selector.length > 0 && data[isbn]) {
-      selector.attr("src", data[isbn]["thumbnail_url"]);
-      selector.parents(".google_cover").show();
-      selector.parents(".cover_with_jacket").children(".fake_cover").hide();
+      
+      selector.parents("#show_cover").show();
+      gbs_cover = selector.parents(".gbs_cover");
+      
+      if (isbn_data["thumbnail_url"]) {
+        selector.attr("src", isbn_data["thumbnail_url"].replace(/zoom\=5/,"zoom=1"));
+        selector.parents(".book_cover").find(".fake_cover").hide();
+        gbs_cover.show();
+      }
+
+
+
+      $("li.gbs_info").show()
+      $("a.gbs_info_link").attr("href", isbn_data["info_url"]);
+
+      if (isbn_data["preview"] != "noview") {
+        gbs_cover.children(".gbs_preview").show();
+        gbs_cover.find(".gbs_preview_link").attr("href", isbn_data["preview_url"]);
+      }
+      
     }
   }
 

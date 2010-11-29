@@ -35,8 +35,9 @@ class CatalogController < ApplicationController
   # get single document from the solr index
   def show
     @response, @document = get_solr_response_for_doc_id
+    # @document[:google_books_info] = GoogleBooks.retrieve_book_info(@document)[@document]
 
-    
+
     respond_to do |format|
       format.html {setup_next_and_previous_documents}
       

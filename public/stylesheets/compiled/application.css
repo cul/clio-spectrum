@@ -47,72 +47,93 @@ a.folder_link_submit {
 }
 /* line 33, ../../../app/stylesheets/application.sass */
 a.folder_link_submit span.folder_link_text {
+  vertical-align: 20%;
   padding-left: 2px;
   border-bottom: 1px dotted #aaaaaa;
 }
 
-/* line 36, ../../../app/stylesheets/application.sass */
+/* line 37, ../../../app/stylesheets/application.sass */
 #holdings {
   clear: both;
   margin-top: 2em;
 }
-/* line 40, ../../../app/stylesheets/application.sass */
+/* line 41, ../../../app/stylesheets/application.sass */
 #holdings .holding {
   padding: 0.5em 0.5em 0.5em 1em;
 }
-/* line 42, ../../../app/stylesheets/application.sass */
+/* line 43, ../../../app/stylesheets/application.sass */
 #holdings .holding0 {
   background-color: #f6f6f6;
 }
-/* line 45, ../../../app/stylesheets/application.sass */
+/* line 46, ../../../app/stylesheets/application.sass */
 #holdings #holdings_header {
   padding-bottom: 1em;
 }
-/* line 47, ../../../app/stylesheets/application.sass */
+/* line 48, ../../../app/stylesheets/application.sass */
 #holdings #holdings_header #holdings_title {
   font-weight: bold;
   font-size: 1.25em;
   display: inline;
   padding-bottom: 1em;
 }
-/* line 54, ../../../app/stylesheets/application.sass */
+/* line 55, ../../../app/stylesheets/application.sass */
 #holdings #holdings_header #location_guide {
   padding-left: 0.5em;
   display: inline;
 }
-/* line 58, ../../../app/stylesheets/application.sass */
+/* line 59, ../../../app/stylesheets/application.sass */
 #holdings .call_number {
   float: right;
 }
-/* line 61, ../../../app/stylesheets/application.sass */
+/* line 62, ../../../app/stylesheets/application.sass */
 #holdings .status {
   padding-left: 2em;
   font-style: italic;
 }
 
-/* line 65, ../../../app/stylesheets/application.sass */
+/* line 66, ../../../app/stylesheets/application.sass */
 #show_cover {
+  display: none;
   float: left;
-  padding-right: 1.5em;
+  margin-left: 2em;
+  margin-right: 2em;
 }
 
-/* line 69, ../../../app/stylesheets/application.sass */
-.cover_with_jacket {
-  margin: 3px 10% 0 15%;
-  height: 125px;
-  width: 100px;
-  border: 1px solid #cccccc;
-  position: relative;
-  background-color: #eeeeee;
-  overflow: hidden;
+/* line 73, ../../../app/stylesheets/application.sass */
+.gbs_preview {
+  display: none;
+  padding-top: 1em;
+  padding-bottom: 2em;
+  text-align: center;
 }
-/* line 78, ../../../app/stylesheets/application.sass */
-.cover_with_jacket .bookjacket {
-  width: 100px;
-  height: 125px;
+/* line 79, ../../../app/stylesheets/application.sass */
+.gbs_preview a {
+  border-bottom: none;
 }
+
 /* line 82, ../../../app/stylesheets/application.sass */
-.cover_with_jacket .fake_label {
+li.gbs_info {
+  display: none;
+}
+
+/* line 85, ../../../app/stylesheets/application.sass */
+.book_cover {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 94, ../../../app/stylesheets/application.sass */
+.grid_cover {
+  height: 125px;
+  width: 90px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #cccccc;
+  background-color: #eeeeee;
+}
+
+/* line 102, ../../../app/stylesheets/application.sass */
+.fake_cover {
   text-align: center;
   border-top: 1px solid #cccccc;
   border-bottom: 1px solid #cccccc;
@@ -124,44 +145,45 @@ a.folder_link_submit span.folder_link_text {
   color: #333333;
 }
 
-/* line 93, ../../../app/stylesheets/application.sass */
+/* line 113, ../../../app/stylesheets/application.sass */
+.gbs_cover {
+  display: none;
+}
+
+/* line 116, ../../../app/stylesheets/application.sass */
 .grid_view {
   background: white;
 }
-/* line 96, ../../../app/stylesheets/application.sass */
+/* line 119, ../../../app/stylesheets/application.sass */
 .grid_view .document_gallery {
   margin-bottom: 3em;
 }
-/* line 99, ../../../app/stylesheets/application.sass */
-.grid_view .document_gallery .google_cover {
-  display: none;
-}
-/* line 102, ../../../app/stylesheets/application.sass */
+/* line 124, ../../../app/stylesheets/application.sass */
 .grid_view .document_gallery .grid_bookjacket {
   height: 125px;
-  width: 100px;
+  width: 90px;
   padding: 0;
 }
-/* line 108, ../../../app/stylesheets/application.sass */
+/* line 130, ../../../app/stylesheets/application.sass */
 .grid_view .document_gallery .info {
   margin: 3px 0.5em 0 0.5em;
   height: 7em;
   position: relative;
   overflow: hidden;
 }
-/* line 114, ../../../app/stylesheets/application.sass */
+/* line 136, ../../../app/stylesheets/application.sass */
 .grid_view .document_gallery .info .title {
   font-weight: bold;
   min-height: 3em;
   margin-bottom: 1em;
 }
 
-/* line 120, ../../../app/stylesheets/application.sass */
+/* line 142, ../../../app/stylesheets/application.sass */
 dl.defList_in_grid {
   overflow: auto;
   padding: 0.5em 0;
 }
-/* line 124, ../../../app/stylesheets/application.sass */
+/* line 146, ../../../app/stylesheets/application.sass */
 dl.defList_in_grid dt {
   float: left;
   text-align: right;
@@ -171,7 +193,7 @@ dl.defList_in_grid dt {
   margin: 0;
   padding: 2px 1em 2px 0px;
 }
-/* line 133, ../../../app/stylesheets/application.sass */
+/* line 155, ../../../app/stylesheets/application.sass */
 dl.defList_in_grid dd {
   float: left;
   text-align: left;
@@ -179,7 +201,7 @@ dl.defList_in_grid dd {
   padding: 2px 0;
 }
 
-/* line 140, ../../../app/stylesheets/application.sass */
+/* line 162, ../../../app/stylesheets/application.sass */
 img.bookjacket.list_view {
   float: right;
   height: 80px;
@@ -187,19 +209,19 @@ img.bookjacket.list_view {
   padding: 1em;
 }
 
-/* line 147, ../../../app/stylesheets/application.sass */
+/* line 169, ../../../app/stylesheets/application.sass */
 a#feedLink {
   display: inline;
   text-decoration: none;
   border-bottom: none;
 }
-/* line 153, ../../../app/stylesheets/application.sass */
+/* line 175, ../../../app/stylesheets/application.sass */
 a#feedLink img {
   position: static;
   padding-left: 3px;
 }
 
-/* line 159, ../../../app/stylesheets/application.sass */
+/* line 181, ../../../app/stylesheets/application.sass */
 h1.site_title {
   background: transparent url("../../images/clio_beta.jpg") no-repeat top left;
   margin: 0 0 0 1em;

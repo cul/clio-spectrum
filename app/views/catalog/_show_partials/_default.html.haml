@@ -2,15 +2,14 @@
 
 .yui-gc
   .yui-u.first
-    - if @document["isbn_t"]
-      #show_cover
-        = render :partial => "bookjacket_with_cover", :locals => {:document => document}
-      - content_for :jstemplates do 
-        :javascript
-          
-          $(document).ready ( function () {
-          update_book_jackets('#{url_for(:controller => :backend, :action => "retrieve_book_jackets")}', [#{@document["isbn_t"].join(',')}]); 
-          }); 
+
+    #show_cover.book_cover
+      .fake_cover=build_fake_cover(document)
+      .gbs_cover
+        .gbs_thumbnail
+          = image_tag("spacer.png", :class => "bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))
+        .gbs_preview= link_to image_tag("gb_preview.png"), "http://books.google.com", :class => "gbs_preview_link"
+        
     %dl.defList_in_grid
       - document_show_fields.each do |solr_fname|
         - if values = document[solr_fname]
@@ -56,6 +55,7 @@
 
     %h4 Actions:
     %ul
+      
       %li Print
       - if (@document.respond_to?(:export_as_mla_citation_txt) || @document.respond_to?(:export_as_apa_citation_txt))
         %li.cite
@@ -76,7 +76,7 @@
           =link_to "SMS This", sms_catalog_path(:id => id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}
         %li.librarian_view
           =link_to "Librarian View", librarian_view_catalog_path(id), {:id => "librarianLink", :name => "librarian_view", :class => "lightboxLink" }
-
+        %li.gbs_info= link_to "More Info at Google Books", "http://books.google.com", :class => "gbs_info_link"
 
     %h4 Help:
     %ul

@@ -1,11 +1,34 @@
 module GoogleBooks
-  def self.retrieve_book_info(isbns)
-    results = []
+  GOOGLE_BOOKS_URL = "http://books.google.com/books?jscmd=viewapi&bibkeys="
+  COOKIE_STORE = RAILS_ROOT + "/tmp/cookies/holding_cookies.dat"
 
-    http_client_with_cookies do |hc|
+  def self.retrieve_book_info(*documents)
+    results = {}
+    isbns = documents.collect { |d| d["isbn_t"] }.compact.flatten.uniq
 
+    retrieve_url = GOOGLE_BOOKS_URL + isbns.join(",")
+
+    begin
+      http_client_with_cookies do |hc|
+        var_gbs = hc.get_content(retrieve_url).gsub("var _GBSBookInfo = ","").gsub(/;$/,"")
+
+        
+        api_results = JSON.parse(var_gbs)
+
+        documents.each do |document|
+          document["isbn_t"].listify.each do |isbn|
+            if api_results[isbn]
+              results[document] = api_results[isbn]
+              break
+            end
+          end
+        end
+
+      end
+    rescue
     end
 
+    return results
   end
 
   private

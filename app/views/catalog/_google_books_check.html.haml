@@ -1,4 +1,4 @@
-- isbns_to_check = documents.collect { |d| d["isbn_t"] }.compact.flatten.uniq 
+- isbns_to_check = documents.listify.collect { |d| d["isbn_t"] }.compact.flatten.uniq 
 
 
 - content_for :jstemplates do 

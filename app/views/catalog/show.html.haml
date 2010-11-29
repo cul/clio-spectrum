@@ -14,10 +14,14 @@
       .yui-u
         #show_folder_control
           = render :partial=>'folder_control', :locals=>{:document=>@document} 
+          
     .document
       = render_document_partial @document, :show 
 
 = render :partial=>'solr_request' 
+
+
+= render :partial => "google_books_check", :locals => {:documents => @document }
 
 
 - if @document.respond_to?(:export_as_openurl_ctx_kev) 
