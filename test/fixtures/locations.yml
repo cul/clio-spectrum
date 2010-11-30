@@ -1,0 +1,11 @@
+one:
+  name: MyString
+  found_in: MyText
+  library_id: 1
+  has_info: false
+
+two:
+  name: MyString
+  found_in: MyText
+  library_id: 1
+  has_info: false

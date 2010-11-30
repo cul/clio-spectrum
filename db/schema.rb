@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090529161304) do
+ActiveRecord::Schema.define(:version => 20101130172511) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id",     :null => false
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(:version => 20090529161304) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "locations", :force => true do |t|
+    t.string   "name"
+    t.text     "found_in"
+    t.integer  "library_id"
+    t.boolean  "has_info",   :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "locations", ["library_id"], :name => "index_locations_on_library_id"
+  add_index "locations", ["name"], :name => "index_locations_on_name"
 
   create_table "searches", :force => true do |t|
     t.text     "query_params"
