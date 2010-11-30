@@ -2,7 +2,12 @@
 
 .yui-ge
   .yui-u.first
-    %dl.defList_in_grid
+
+    %dl.defList_in_grid.index_grid
+      - if (subtitle = document.get("subtitle_display"))
+        %dt Subtitle:
+        %dd= h subtitle
+
       - if (author = document.get "author_display")
         %dt Author:
         %dd= h author
