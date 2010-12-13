@@ -13,8 +13,8 @@
     %br
     = f.text_field :library_id
   %p
-    = f.label :has_info
+    = f.label :category
     %br
-    = f.check_box :has_info
+    = f.select(:category, Location::CATEGORIES)
   %p
     = f.submit

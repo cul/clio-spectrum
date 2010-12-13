@@ -1,4 +1,6 @@
-class LocationsController < ApplicationController
+class Admin::LocationsController < ApplicationController
+  layout "no_sidebar"
+
   def index
     @locations = Location.all
   end

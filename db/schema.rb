@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101130172511) do
+ActiveRecord::Schema.define(:version => 20101213160031) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id",     :null => false
@@ -21,17 +21,40 @@ ActiveRecord::Schema.define(:version => 20101130172511) do
     t.datetime "updated_at"
   end
 
+  create_table "libraries", :force => true do |t|
+    t.string   "hours_db_code", :null => false
+    t.string   "name"
+    t.text     "comment"
+    t.text     "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "libraries", ["hours_db_code"], :name => "index_libraries_on_hours_db_code"
+
   create_table "locations", :force => true do |t|
     t.string   "name"
     t.text     "found_in"
     t.integer  "library_id"
-    t.boolean  "has_info",   :default => true
+    t.string   "category",   :limit => 10
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "locations", ["library_id"], :name => "index_locations_on_library_id"
   add_index "locations", ["name"], :name => "index_locations_on_name"
+
+  create_table "options", :force => true do |t|
+    t.integer  "entity_id"
+    t.string   "entity_type",      :limit => 30
+    t.string   "association_type", :limit => 30
+    t.string   "name",                           :null => false
+    t.text     "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "options", ["entity_type", "entity_id", "association_type", "name"], :name => "entity_association_name"
 
   create_table "searches", :force => true do |t|
     t.text     "query_params"

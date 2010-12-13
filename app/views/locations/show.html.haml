@@ -1,0 +1,6 @@
+- unless @location
+  #location_detail
+    %h2 @location.name
+
+- else
+  No location information for #{h(params[:id])}

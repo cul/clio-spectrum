@@ -1,2 +1,2 @@
-module LocationsHelper
+module Admin::LocationsHelper
 end

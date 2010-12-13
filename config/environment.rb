@@ -20,6 +20,7 @@ Rails::Initializer.run do |config|
   config.gem "haml"
   config.gem "unicode"
   config.gem "compass", :version => ">= 0.10.5"
+  config.gem "has_options", :version => ">= 0.4.0"
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
