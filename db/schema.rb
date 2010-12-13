@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101213160031) do
+ActiveRecord::Schema.define(:version => 20101213191638) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id",     :null => false
@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(:version => 20101213160031) do
   end
 
   add_index "libraries", ["hours_db_code"], :name => "index_libraries_on_hours_db_code"
+
+  create_table "library_hours", :force => true do |t|
+    t.integer  "library_id", :null => false
+    t.date     "date",       :null => false
+    t.datetime "open"
+    t.datetime "close"
+    t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "library_hours", ["library_id", "date"], :name => "index_library_hours_on_library_id_and_date"
 
   create_table "locations", :force => true do |t|
     t.string   "name"
