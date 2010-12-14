@@ -3,8 +3,8 @@ class CreateLibraryHours < ActiveRecord::Migration
     create_table :library_hours do |t|
       t.integer :library_id, :null => false
       t.date :date, :null => false
-      t.datetime :open
-      t.datetime :close
+      t.datetime :opens
+      t.datetime :closes
       t.text :note
 
       t.timestamps

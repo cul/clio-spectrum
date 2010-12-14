@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(:version => 20101213191638) do
   create_table "library_hours", :force => true do |t|
     t.integer  "library_id", :null => false
     t.date     "date",       :null => false
-    t.datetime "open"
-    t.datetime "close"
+    t.datetime "opens"
+    t.datetime "closes"
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"

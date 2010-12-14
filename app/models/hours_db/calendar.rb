@@ -18,8 +18,8 @@ class HoursDb::Calendar < ActiveRecord::Base
     {
       :library_id => library.library.id,
       :date => cal_date,
-      :open => open,
-      :close => close,
+      :opens => open,
+      :closes => close,
       :note => day_notes
     }
 

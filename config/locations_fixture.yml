@@ -1,0 +1,469 @@
+--- 
+- :library_code: butler
+  :links: 
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: African Studies
+  :found_in: |-
+    African Studies Reading Room
+    607 Butler Library
+- :library_code: butler
+  :links: 
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Ancient/Medieval
+  :found_in: |-
+    Ancient/Medieval Reading Room
+    603 Butler Library
+- :library_code: avery
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/avery/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
+    Floorplans: http://www.columbia.edu/cu/lweb/indiv/avery/floor.html
+  :category: physical
+  :location: Avery
+  :found_in: |-
+    Avery Architectural & Fine Arts Library
+    
+    Avery Hall
+- :library_code: barnard
+  :links: 
+    Home Page: http://www.barnard.columbia.edu/library/
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionC.html
+    Stacks Guide: http://www.barnard.edu/library/stacks.html
+    Floor Plan: http://www.barnard.edu/library/maps.html
+  :category: physical
+  :location: Barnard
+  :found_in: |-
+    Barnard College Library
+    
+    Lehman Hall
+- :links: 
+    Home Page: http://www.barnard.edu/bcrw/
+  :category: physical
+  :location: Barnard Center For Research On Women
+  :found_in: |-
+    Barnard Center For Research On Women
+    
+    101 Barnard Hall
+- :library_code: burke
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/burke/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionA.html
+    Location Guide: http://www.columbia.edu/cu/lweb/img/assets/5435/Location%20guide_May05.pdf
+  :category: physical
+  :location: Burke
+  :found_in: |-
+    Union Theological Seminary, Burke Library
+    
+    3041 Broadway @ 121st Street
+- :library_code: business
+  :links: 
+    Stacks Map: http://www.columbia.edu/cu/lweb/indiv/business/floor2.html
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/business/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionD.html
+  :category: physical
+  :location: Business
+  :found_in: |-
+    Business & Economics Library
+    
+    130 Uris
+- :library_code: butler
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/butler/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+    Call Number Guide: http://www.columbia.edu/cu/lweb/img/assets/4214/Butler%20Stacks.pdf
+  :category: physical
+  :location: Butler
+  :found_in: |-
+    Butler Library
+    
+    535 West 114th Street
+- :library_code: bmc
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/bmc/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Butler Media
+  :found_in: |-
+    Butler Media Center
+    
+    208B Butler Library
+- :library_code: pmrr
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/pmrr/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Butler Microforms
+  :found_in: |-
+    Butler Periodicals & Microforms Reading Room
+    
+    401 Butler Library
+- :library_code: pmrr
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/pmrr/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Butler Periodicals
+  :found_in: |-
+    Butler Periodicals & Microforms Reading Room
+    
+    401 Butler Library
+- :library_code: butlref
+  :links: 
+    Guides: http://www.columbia.edu/cu/lweb/indiv/butlref/genguide.html
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/butlref/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Butler Reference
+  :found_in: |-
+    Butler Reference
+    
+    301 Butler Library
+- :library_code: butlres
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/butlres/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Butler Reserves
+  :found_in: |-
+    Butler Reserves
+    
+    208 Butler Library
+- :library_code: butler
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/butlcirc/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+    Call Number Guide: http://www.columbia.edu/cu/lweb/img/assets/4214/Butler%20Stacks.pdf
+  :category: physical
+  :location: Butler Stacks
+  :found_in: |-
+    Butler Circulation
+    
+    3rd Floor Butler Library
+- :library_code: chemistryref
+  :links: {}
+
+  :category: physical
+  :location: Chemistry Reference
+  :found_in: "Ask at Mathematics and Science Library Circulation Desk\n\
+    \xC2\xA0"
+- :links: 
+    Home Page: mailto:klg39@columbia.edu
+  :category: no_location
+  :location: Dakhla Library
+  :found_in: |-
+    Dakhla Oasis, Egypt.
+    Not available on campus. Contact Karen Green klg39@columbia.edu with any questions.
+- :library_code: butler
+  :links: 
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Early Modern/Modern Europe
+  :found_in: |-
+    Early Modern/Modern Europe Reading Room
+    504 Butler Library
+- :library_code: east asian
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/eastasian/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
+  :category: physical
+  :location: East Asian
+  :found_in: |-
+    Starr East Asian Library
+    
+    300 Kent Hall
+- :library_code: butler
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/ets/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Electronic Text Service
+  :found_in: |-
+    Electronic Text Service
+    
+    305 Butler Library
+- :library_code: eng
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/eng/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionD.html
+  :category: physical
+  :location: Engineering
+  :found_in: |-
+    Engineering Library
+    
+    422 Mudd
+- :library_code: geology
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/geology/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionD.html
+  :category: physical
+  :location: Geology
+  :found_in: |-
+    Geology Library
+    
+    601 Schermerhorn
+- :library_code: geosci
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/geosci/index.html
+  :category: physical
+  :location: Geoscience
+  :found_in: |-
+    Geoscience Library, Lamont-Doherty
+    
+    Palisades, NY
+- :library_code: hsl
+  :links: 
+    Home Page: http://library.cpmc.columbia.edu/hsl/
+    Guide: http://library.cpmc.columbia.edu/hsl/tour/ll.html
+  :category: physical
+  :location: Health Sciences
+  :found_in: |-
+    Health Sciences Library
+    
+    701 West 168th Street
+- :links: {}
+
+  :category: no_location
+  :location: Health Sciences Web
+  :found_in: |-
+    Electronic Resource.
+    Look for "Online Link" in record.
+- :library_code: butler
+  :links: 
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Islamic Studies
+  :found_in: |-
+    Islamic Studies Reading Room
+    602 Butler Library
+- :library_code: jour
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/jour/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Journalism
+  :found_in: |-
+    Journalism Library
+    
+    203 Journalism
+- :library_code: butler
+  :links: 
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Latin American Studies
+  :found_in: |-
+    Latin American Studies Reading Room
+    503 Butler Library
+- :library_code: lehman
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/lehman/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
+    Floorplans: http://www.columbia.edu/cu/lweb/indiv/lehman/floor.html
+  :category: physical
+  :location: Lehman
+  :found_in: |-
+    Lehman Social Sciences Library
+    
+    300 International Affairs
+- :library_code: eds
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/dssc/eds/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
+  :category: physical
+  :location: Lehman Electronic Data Service
+  :found_in: |-
+    Electronic Data Service
+    
+    215 International Affairs
+- :library_code: lehman
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/maps/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
+  :category: physical
+  :location: Lehman Map Room
+  :found_in: |-
+    Lehman Map Room
+    
+    300 International Affairs
+- :library_code: lehsuite
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/lehsuite/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
+  :category: physical
+  :location: Lehman Suite
+  :found_in: |-
+    Lehman Suite
+    
+    406 International Affairs
+- :library_code: lehman
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/usgd/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
+  :category: physical
+  :location: Lehman US Government Documents
+  :found_in: |-
+    US Government Documents
+    
+    300 International Affairs
+- :links: {}
+
+  :category: no_location
+  :location: LibraryWeb
+  :found_in: |-
+    Electronic Resource.
+    Look for "Online Link" in record.
+- :library_code: mathsci
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/mathsci/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
+  :category: physical
+  :location: Math-Science
+  :found_in: |-
+    Mathematics/Science Library
+    
+    303 Mathematics
+- :library_code: mathsci
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/mathsci/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
+  :category: physical
+  :location: Mathematics
+  :found_in: |-
+    Mathematics/Science Library
+    
+    303 Mathematics
+- :library_code: butler
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/under/index.html
+    Shelving Guide: http://www.columbia.edu/cu/lweb/indiv/under/floor.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Milstein
+  :found_in: |-
+    Milstein Library (Undergraduate Library)
+    
+    Butler Library Rooms on the 2nd, 3rd & 4th floors
+- :library_code: butler
+  :links: 
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Modern & Comparative Studies
+  :found_in: |-
+    Modern & Comparative Studies Reading Room
+    504 Butler Library
+- :library_code: butler
+  :links: 
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Moral & Political Theory
+  :found_in: |-
+    Moral & Political Theory Reading Room
+    504 Butler Library
+- :library_code: music
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/music/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
+  :category: physical
+  :location: Music
+  :found_in: |-
+    Music & Arts Library
+    
+    701 Dodge
+- :links: 
+    Home Page: http://nyspi.org/library/
+  :category: physical
+  :location: NYS Psychiatric Institute
+  :found_in: |-
+    NYS Psychiatric Institute Library
+    
+    1051 Riverside Drive at 168th StreetContact library for availability of items. Call (212) 543-5675.
+- :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/offsite/index.html
+  :category: no_location
+  :location: Offsite
+  :found_in: |-
+    Offsite Shelving Facility (ReCap)
+    
+    Use green "Get From Offsite" link in record to retrieve itemsNon-affiliates please contact LIO for access, lio@columbia.edu or (212) 854-7309
+- :library_code: butler
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/oral/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Oral History
+  :found_in: |-
+    Oral History Research Office
+    
+    801 Butler Library
+- :links: 
+    Home Page: http://www.nyp.org/columbiaortho/about/dep_rus.html?name1=Russell+Hibbs+Memorial+Library&type1=2Active
+  :category: physical
+  :location: Orthopaedic Surgery
+  :found_in: |-
+    Russell A. Hibbs Memorial Library
+    
+    622 W 168th Street - PH11-1139
+- :library_code: butler
+  :links: 
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Papyrus & Epigraphy
+  :found_in: |-
+    Papyrus & Epigraphy
+    604 Butler Library
+- :library_code: rbml
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/rbml/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Rare Book
+  :found_in: |-
+    Rare Book & Manuscript Library
+    
+    6th Floor East, Butler Library
+- :library_code: Science
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/mathsci/index.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
+  :category: physical
+  :location: Science
+  :found_in: |-
+    Mathematics/Science Library
+    
+    303 Mathematics
+- :library_code: socwk
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/socwk/index.html
+  :category: physical
+  :location: Social Work
+  :found_in: |-
+    Social Work Library
+    
+    1255 Amsterdam Avenue @ 122nd Street
+- :library_code: butler
+  :links: 
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: South Asian Studies
+  :found_in: |-
+    South Asian Studies Reading Room
+    601 Butler Library
+- :library_code: butler
+  :links: 
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: US History & Literature
+  :found_in: |-
+    US History & Literature Reading Room
+    502 Butler Library
+- :library_code: uarchives
+  :links: 
+    Home Page: http://www.columbia.edu/cu/lweb/indiv/uarchives/
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
+  :category: physical
+  :location: University Archives
+  :found_in: |-
+    Columbia University Archives
+    
+    6th Floor East, Butler Library

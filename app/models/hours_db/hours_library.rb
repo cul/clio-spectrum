@@ -10,7 +10,7 @@ class HoursDb::HoursLibrary < ActiveRecord::Base
   end
 
 
-  def self.sync_all!(startdate = Date.yesterday, days_to_add = 30)
+  def self.sync_all!(startdate = Date.yesterday, days_to_add = 31)
     enddate = startdate + days_to_add.days
 
     self.find(:all).each do |hl| 
