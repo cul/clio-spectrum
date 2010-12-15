@@ -5,8 +5,8 @@ class Location < ActiveRecord::Base
 
   has_options :association_name => :links
 
-  def is_open
-    library ? library.is_open : false
+  def is_open?(check_at = Datetime.now)
+    library ? library.is_open?(check_at) : false
   end
 
   def self.match_location_text(location = nil)

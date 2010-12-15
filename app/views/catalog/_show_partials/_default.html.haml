@@ -33,11 +33,18 @@
               $(".location_display").colorbox({transition:'none',scrolling:false});
             });
         -holdings.each_with_index do |holding, i|
+          - location = Location.match_location_text(holding.location_name)
           .holding{:class => "holding#{i % 2}"}
             .call_number= holding.call_number
             .location
               #{image_tag(holding.image_for_display)}
-              %a.location_display{:href => location_display_path(holding.location_name)}=holding.location_name
+              - if location && location.category == "physical"
+                - check_at = DateTime.now + (params[:add_hours] || 0).to_i.hours
+                - unless location.is_open?(check_at)
+                  = image_tag("clock_closed.png", :alt => "Closed. Click Library for more hours information", :size => "16x16", :class=> "closed_icon")
+                %a.location_display{:href => location_display_path(holding.location_name)}=holding.location_name
+              - else
+                = holding.location_name
             .status
               - if holding.location_name.strip =="Online"
                 - document[:url_fulltext_display].each do |url|
