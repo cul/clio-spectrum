@@ -7,7 +7,7 @@ class Library < ActiveRecord::Base
     hours.find(:all, :conditions => ["library_hours.date BETWEEN ? and ?", startdate.to_date, enddate.to_date]).sort { |x,y| x.date <=> y.date }
   end
 
-  def is_open?(check_at)
+  def is_open?(check_at = Datetime.now)
     hours_res = hours.find_by_date(check_at.to_date)
     
     hours_res ? hours_res.opens <= check_at && check_at <= hours_res.closes : false

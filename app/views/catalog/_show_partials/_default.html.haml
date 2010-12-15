@@ -27,12 +27,17 @@
       - if holdings.empty?
         No holdings data at this time.
       - else
+        -content_for :jstemplates do
+          :javascript
+            $(document).ready(function() {
+              $(".location_display").colorbox({transition:'none',scrolling:false});
+            });
         -holdings.each_with_index do |holding, i|
           .holding{:class => "holding#{i % 2}"}
             .call_number= holding.call_number
             .location
               #{image_tag(holding.image_for_display)}
-              #{holding.location_name}
+              %a.location_display{:href => location_display_path(holding.location_name)}=holding.location_name
             .status
               - if holding.location_name.strip =="Online"
                 - document[:url_fulltext_display].each do |url|

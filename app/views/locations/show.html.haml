@@ -1,6 +1,38 @@
-- unless @location
-  #location_detail
-    %h2 @location.name
+.location_popup
+  - if @location
+    .header= @library ? @library.name : @location.name
 
-- else
-  No location information for #{h(params[:id])}
+    .location_sidebar
+      .links
+        %ul
+          - @links.each do |link|
+            %li= link_to link.name, link.value
+
+      .section_header 
+        Hours:
+        .hours_link
+          (
+          = link_to "Full Hours Info", "http://www.columbia.edu/cu/lweb/services/hours/index.html?library=#{h(@library.hours_db_code)}"
+          )
+      - @hours.each do |hour|
+        - today_class = hour.date == Date.today ? "today" : nil
+        .day_listing{:class => alternating_line }
+          .weekday= hour.to_day_of_week
+          .hours
+            = hour.to_opens_closes
+          .hours_note= hour.note.to_s
+    .section_header Located at:
+    .found_in= @location.found_in.sub(/\n+/,"<br/>")
+    = map_image_tag(@map_url, 400, 350)
+
+
+
+    
+
+
+
+        
+
+    
+  - else
+    %h2 No location information for #{h(params[:id])}

@@ -2,111 +2,184 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 6, ../../../app/stylesheets/application.sass */
+/* line 17, ../../../app/stylesheets/application.sass */
 html.blank_layout {
   background: white;
 }
 
-/* line 9, ../../../app/stylesheets/application.sass */
+/* line 20, ../../../app/stylesheets/application.sass */
 body.blank_layout {
   background: white;
 }
 
-/* line 13, ../../../app/stylesheets/application.sass */
+/* line 24, ../../../app/stylesheets/application.sass */
+.location_popup {
+  width: 600px;
+  text-align: left;
+  font-size: 1.2em;
+}
+/* line 29, ../../../app/stylesheets/application.sass */
+.location_popup .comment {
+  padding-bottom: 1em;
+}
+/* line 32, ../../../app/stylesheets/application.sass */
+.location_popup .header {
+  padding-left: 0.5em;
+  background-color: #cccccc;
+  font-size: 1.5em;
+  color: white;
+  margin-bottom: 1em;
+}
+/* line 39, ../../../app/stylesheets/application.sass */
+.location_popup .section_header {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+/* line 43, ../../../app/stylesheets/application.sass */
+.location_popup .hours_link {
+  display: inline;
+  font-size: 0.75em;
+}
+/* line 49, ../../../app/stylesheets/application.sass */
+.location_popup .links .link {
+  display: inline;
+  padding: 0 0.1em 0 0.1em;
+}
+/* line 54, ../../../app/stylesheets/application.sass */
+.location_popup .location_sidebar {
+  float: right;
+  margin-left: 2em;
+}
+/* line 10, ../../../app/stylesheets/application.sass */
+.location_popup .location_sidebar .even {
+  background-color: #ffffff;
+}
+/* line 12, ../../../app/stylesheets/application.sass */
+.location_popup .location_sidebar .odd {
+  background-color: #f0f0f0;
+}
+/* line 60, ../../../app/stylesheets/application.sass */
+.location_popup .day_listing {
+  padding: 0.3em 0 0.3em;
+}
+/* line 63, ../../../app/stylesheets/application.sass */
+.location_popup .day_listing .weekday {
+  float: left;
+  padding-left: 5px;
+  width: 60px;
+}
+/* line 68, ../../../app/stylesheets/application.sass */
+.location_popup .day_listing .hours {
+  text-align: left;
+  width: 100px;
+  margin-left: 60px;
+}
+/* line 73, ../../../app/stylesheets/application.sass */
+.location_popup .day_listing .hours_note {
+  padding-left: 0.5em;
+  clear: both;
+  font-style: italic;
+}
+/* line 78, ../../../app/stylesheets/application.sass */
+.location_popup .map {
+  margin-top: 1em;
+}
+
+/* line 83, ../../../app/stylesheets/application.sass */
 dl.defList_in_grid.index_grid dd {
   width: 320px;
 }
 
-/* line 17, ../../../app/stylesheets/application.sass */
+/* line 87, ../../../app/stylesheets/application.sass */
 .change_view {
   float: left;
 }
 
-/* line 20, ../../../app/stylesheets/application.sass */
+/* line 90, ../../../app/stylesheets/application.sass */
 #startOverLink {
   padding-top: 1px;
 }
 
-/* line 25, ../../../app/stylesheets/application.sass */
+/* line 95, ../../../app/stylesheets/application.sass */
 .pageEntriesInfo {
   padding-right: 150px;
 }
 
-/* line 28, ../../../app/stylesheets/application.sass */
+/* line 98, ../../../app/stylesheets/application.sass */
 #show_folder_control {
   margin-top: 1em;
 }
-/* line 30, ../../../app/stylesheets/application.sass */
+/* line 100, ../../../app/stylesheets/application.sass */
 #show_folder_control .addFolder, #show_folder_control .deleteFolder {
   float: none;
 }
 
-/* line 34, ../../../app/stylesheets/application.sass */
+/* line 104, ../../../app/stylesheets/application.sass */
 #show_previousNextDocument .previous_next {
   margin-top: 0.5em;
 }
 
-/* line 36, ../../../app/stylesheets/application.sass */
+/* line 106, ../../../app/stylesheets/application.sass */
 .back_to_catalog {
   float: right;
 }
 
-/* line 38, ../../../app/stylesheets/application.sass */
+/* line 108, ../../../app/stylesheets/application.sass */
 .show_start_over {
   float: right;
 }
 
-/* line 41, ../../../app/stylesheets/application.sass */
+/* line 111, ../../../app/stylesheets/application.sass */
 a.folder_link_submit {
   border-bottom: none;
 }
-/* line 44, ../../../app/stylesheets/application.sass */
+/* line 114, ../../../app/stylesheets/application.sass */
 a.folder_link_submit span.folder_link_text {
   vertical-align: 20%;
   padding-left: 2px;
   border-bottom: 1px dotted #aaaaaa;
 }
 
-/* line 48, ../../../app/stylesheets/application.sass */
+/* line 118, ../../../app/stylesheets/application.sass */
 #holdings {
   clear: both;
   margin-top: 2em;
 }
-/* line 52, ../../../app/stylesheets/application.sass */
+/* line 122, ../../../app/stylesheets/application.sass */
 #holdings .holding {
   padding: 0.5em 0.5em 0.5em 1em;
 }
-/* line 54, ../../../app/stylesheets/application.sass */
+/* line 124, ../../../app/stylesheets/application.sass */
 #holdings .holding0 {
   background-color: #f6f6f6;
 }
-/* line 57, ../../../app/stylesheets/application.sass */
+/* line 127, ../../../app/stylesheets/application.sass */
 #holdings #holdings_header {
   padding-bottom: 1em;
 }
-/* line 59, ../../../app/stylesheets/application.sass */
+/* line 129, ../../../app/stylesheets/application.sass */
 #holdings #holdings_header #holdings_title {
   font-weight: bold;
   font-size: 1.25em;
   display: inline;
   padding-bottom: 1em;
 }
-/* line 66, ../../../app/stylesheets/application.sass */
+/* line 136, ../../../app/stylesheets/application.sass */
 #holdings #holdings_header #location_guide {
   padding-left: 0.5em;
   display: inline;
 }
-/* line 70, ../../../app/stylesheets/application.sass */
+/* line 140, ../../../app/stylesheets/application.sass */
 #holdings .call_number {
   float: right;
 }
-/* line 73, ../../../app/stylesheets/application.sass */
+/* line 143, ../../../app/stylesheets/application.sass */
 #holdings .status {
   padding-left: 2em;
   font-style: italic;
 }
 
-/* line 77, ../../../app/stylesheets/application.sass */
+/* line 147, ../../../app/stylesheets/application.sass */
 #show_cover {
   display: none;
   float: left;
@@ -114,30 +187,30 @@ a.folder_link_submit span.folder_link_text {
   margin-right: 2em;
 }
 
-/* line 84, ../../../app/stylesheets/application.sass */
+/* line 154, ../../../app/stylesheets/application.sass */
 .gbs_preview {
   display: none;
   padding-top: 1em;
   padding-bottom: 2em;
   text-align: center;
 }
-/* line 90, ../../../app/stylesheets/application.sass */
+/* line 160, ../../../app/stylesheets/application.sass */
 .gbs_preview a {
   border-bottom: none;
 }
 
-/* line 93, ../../../app/stylesheets/application.sass */
+/* line 163, ../../../app/stylesheets/application.sass */
 li.gbs_info {
   display: none;
 }
 
-/* line 96, ../../../app/stylesheets/application.sass */
+/* line 166, ../../../app/stylesheets/application.sass */
 .book_cover {
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 105, ../../../app/stylesheets/application.sass */
+/* line 175, ../../../app/stylesheets/application.sass */
 .grid_cover {
   height: 125px;
   width: 90px;
@@ -147,7 +220,7 @@ li.gbs_info {
   background-color: #eeeeee;
 }
 
-/* line 113, ../../../app/stylesheets/application.sass */
+/* line 183, ../../../app/stylesheets/application.sass */
 .fake_cover {
   text-align: center;
   border-top: 1px solid #cccccc;
@@ -160,45 +233,45 @@ li.gbs_info {
   color: #333333;
 }
 
-/* line 124, ../../../app/stylesheets/application.sass */
+/* line 194, ../../../app/stylesheets/application.sass */
 .gbs_cover {
   display: none;
 }
 
-/* line 127, ../../../app/stylesheets/application.sass */
+/* line 197, ../../../app/stylesheets/application.sass */
 .grid_view {
   background: white;
 }
-/* line 130, ../../../app/stylesheets/application.sass */
+/* line 200, ../../../app/stylesheets/application.sass */
 .grid_view .document_gallery {
   margin-bottom: 3em;
 }
-/* line 135, ../../../app/stylesheets/application.sass */
+/* line 205, ../../../app/stylesheets/application.sass */
 .grid_view .document_gallery .grid_bookjacket {
   height: 125px;
   width: 90px;
   padding: 0;
 }
-/* line 141, ../../../app/stylesheets/application.sass */
+/* line 211, ../../../app/stylesheets/application.sass */
 .grid_view .document_gallery .info {
   margin: 3px 0.5em 0 0.5em;
   height: 7em;
   position: relative;
   overflow: hidden;
 }
-/* line 147, ../../../app/stylesheets/application.sass */
+/* line 217, ../../../app/stylesheets/application.sass */
 .grid_view .document_gallery .info .title {
   font-weight: bold;
   min-height: 3em;
   margin-bottom: 1em;
 }
 
-/* line 153, ../../../app/stylesheets/application.sass */
+/* line 223, ../../../app/stylesheets/application.sass */
 dl.defList_in_grid {
   overflow: auto;
   padding: 0.5em 0;
 }
-/* line 157, ../../../app/stylesheets/application.sass */
+/* line 227, ../../../app/stylesheets/application.sass */
 dl.defList_in_grid dt {
   float: left;
   text-align: right;
@@ -208,7 +281,7 @@ dl.defList_in_grid dt {
   margin: 0;
   padding: 2px 1em 2px 0px;
 }
-/* line 166, ../../../app/stylesheets/application.sass */
+/* line 236, ../../../app/stylesheets/application.sass */
 dl.defList_in_grid dd {
   float: left;
   text-align: left;
@@ -216,7 +289,7 @@ dl.defList_in_grid dd {
   padding: 2px 0;
 }
 
-/* line 173, ../../../app/stylesheets/application.sass */
+/* line 243, ../../../app/stylesheets/application.sass */
 img.bookjacket.list_view {
   float: right;
   height: 80px;
@@ -224,19 +297,19 @@ img.bookjacket.list_view {
   padding: 1em;
 }
 
-/* line 180, ../../../app/stylesheets/application.sass */
+/* line 250, ../../../app/stylesheets/application.sass */
 a#feedLink {
   display: inline;
   text-decoration: none;
   border-bottom: none;
 }
-/* line 186, ../../../app/stylesheets/application.sass */
+/* line 256, ../../../app/stylesheets/application.sass */
 a#feedLink img {
   position: static;
   padding-left: 3px;
 }
 
-/* line 192, ../../../app/stylesheets/application.sass */
+/* line 262, ../../../app/stylesheets/application.sass */
 h1.site_title {
   background: transparent url("../../images/clio_beta.jpg") no-repeat top left;
   margin: 0 0 0 1em;

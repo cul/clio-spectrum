@@ -1,6 +1,7 @@
 --- 
 - :library_code: butler
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: African Studies
@@ -9,6 +10,7 @@
     607 Butler Library
 - :library_code: butler
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Ancient/Medieval
@@ -17,6 +19,7 @@
     603 Butler Library
 - :library_code: avery
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/avery/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
     Floorplans: http://www.columbia.edu/cu/lweb/indiv/avery/floor.html
@@ -28,6 +31,7 @@
     Avery Hall
 - :library_code: barnard
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionC.gif
     Home Page: http://www.barnard.columbia.edu/library/
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionC.html
     Stacks Guide: http://www.barnard.edu/library/stacks.html
@@ -48,6 +52,7 @@
     101 Barnard Hall
 - :library_code: burke
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionA.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/burke/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionA.html
     Location Guide: http://www.columbia.edu/cu/lweb/img/assets/5435/Location%20guide_May05.pdf
@@ -60,6 +65,7 @@
 - :library_code: business
   :links: 
     Stacks Map: http://www.columbia.edu/cu/lweb/indiv/business/floor2.html
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionD.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/business/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionD.html
   :category: physical
@@ -70,6 +76,7 @@
     130 Uris
 - :library_code: butler
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/butler/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
     Call Number Guide: http://www.columbia.edu/cu/lweb/img/assets/4214/Butler%20Stacks.pdf
@@ -81,6 +88,7 @@
     535 West 114th Street
 - :library_code: bmc
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/bmc/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
@@ -91,6 +99,7 @@
     208B Butler Library
 - :library_code: pmrr
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/pmrr/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
@@ -101,6 +110,7 @@
     401 Butler Library
 - :library_code: pmrr
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/pmrr/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
@@ -111,6 +121,7 @@
     401 Butler Library
 - :library_code: butlref
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Guides: http://www.columbia.edu/cu/lweb/indiv/butlref/genguide.html
     Home Page: http://www.columbia.edu/cu/lweb/indiv/butlref/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
@@ -122,6 +133,7 @@
     301 Butler Library
 - :library_code: butlres
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/butlres/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
@@ -132,6 +144,7 @@
     208 Butler Library
 - :library_code: butler
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/butlcirc/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
     Call Number Guide: http://www.columbia.edu/cu/lweb/img/assets/4214/Butler%20Stacks.pdf
@@ -157,6 +170,7 @@
     Not available on campus. Contact Karen Green klg39@columbia.edu with any questions.
 - :library_code: butler
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Early Modern/Modern Europe
@@ -165,6 +179,7 @@
     504 Butler Library
 - :library_code: east asian
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/eastasian/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
   :category: physical
@@ -175,6 +190,7 @@
     300 Kent Hall
 - :library_code: butler
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/ets/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
@@ -185,6 +201,7 @@
     305 Butler Library
 - :library_code: eng
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionD.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/eng/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionD.html
   :category: physical
@@ -195,6 +212,7 @@
     422 Mudd
 - :library_code: geology
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionD.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/geology/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionD.html
   :category: physical
@@ -231,6 +249,7 @@
     Look for "Online Link" in record.
 - :library_code: butler
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Islamic Studies
@@ -239,6 +258,7 @@
     602 Butler Library
 - :library_code: jour
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/jour/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
@@ -249,6 +269,7 @@
     203 Journalism
 - :library_code: butler
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Latin American Studies
@@ -257,6 +278,7 @@
     503 Butler Library
 - :library_code: lehman
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionF.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/lehman/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
     Floorplans: http://www.columbia.edu/cu/lweb/indiv/lehman/floor.html
@@ -268,6 +290,7 @@
     300 International Affairs
 - :library_code: eds
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionF.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/dssc/eds/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
   :category: physical
@@ -278,6 +301,7 @@
     215 International Affairs
 - :library_code: lehman
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionF.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/maps/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
   :category: physical
@@ -288,6 +312,7 @@
     300 International Affairs
 - :library_code: lehsuite
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionF.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/lehsuite/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
   :category: physical
@@ -298,6 +323,7 @@
     406 International Affairs
 - :library_code: lehman
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionF.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/usgd/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
   :category: physical
@@ -315,6 +341,7 @@
     Look for "Online Link" in record.
 - :library_code: mathsci
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/mathsci/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
   :category: physical
@@ -325,6 +352,7 @@
     303 Mathematics
 - :library_code: mathsci
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/mathsci/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
   :category: physical
@@ -335,6 +363,7 @@
     303 Mathematics
 - :library_code: butler
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/under/index.html
     Shelving Guide: http://www.columbia.edu/cu/lweb/indiv/under/floor.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
@@ -346,6 +375,7 @@
     Butler Library Rooms on the 2nd, 3rd & 4th floors
 - :library_code: butler
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Modern & Comparative Studies
@@ -354,6 +384,7 @@
     504 Butler Library
 - :library_code: butler
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Moral & Political Theory
@@ -362,6 +393,7 @@
     504 Butler Library
 - :library_code: music
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/music/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
   :category: physical
@@ -388,6 +420,7 @@
     Use green "Get From Offsite" link in record to retrieve itemsNon-affiliates please contact LIO for access, lio@columbia.edu or (212) 854-7309
 - :library_code: butler
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/oral/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
@@ -406,6 +439,7 @@
     622 W 168th Street - PH11-1139
 - :library_code: butler
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Papyrus & Epigraphy
@@ -414,6 +448,7 @@
     604 Butler Library
 - :library_code: rbml
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/rbml/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
@@ -424,6 +459,7 @@
     6th Floor East, Butler Library
 - :library_code: Science
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/mathsci/index.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
   :category: physical
@@ -443,6 +479,7 @@
     1255 Amsterdam Avenue @ 122nd Street
 - :library_code: butler
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: South Asian Studies
@@ -451,6 +488,7 @@
     601 Butler Library
 - :library_code: butler
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: US History & Literature
@@ -459,6 +497,7 @@
     502 Butler Library
 - :library_code: uarchives
   :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
     Home Page: http://www.columbia.edu/cu/lweb/indiv/uarchives/
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
   :category: physical

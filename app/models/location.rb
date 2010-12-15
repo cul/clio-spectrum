@@ -5,9 +5,12 @@ class Location < ActiveRecord::Base
 
   has_options :association_name => :links
 
+  def is_open
+    library ? library.is_open : false
+  end
 
   def self.match_location_text(location = nil)
-    matches = self.find(:all, :conditions => ["? LIKE CONCAT(locations.name, '%')", location])
+    matches = self.find(:all, :conditions => ["? LIKE CONCAT(locations.name, '%')", location], :include => :library)
     max_length = matches.collect { |m| m.name.length }.max
     matches.detect { |m| m.name.length == max_length }
     
@@ -20,7 +23,13 @@ class Location < ActiveRecord::Base
     fixture.each do |location_hash|
       library = Library.find_by_hours_db_code(location_hash[:library_code]) if location_hash[:library_code]
       
-      location = Location.create(:name => location_hash[:location], :found_in => location_hash[:found_in], :category => location_hash[:category], :library_id => (library.nil? ? nil : library.id))
+      location = Location.create(
+        :name => location_hash[:location], 
+        :found_in => location_hash[:found_in], 
+        :category => location_hash[:category], 
+        :library_id => (library.nil? ? nil : library.id)
+      )
+
       if location
       
         location_hash[:links].each_pair do |name, url|

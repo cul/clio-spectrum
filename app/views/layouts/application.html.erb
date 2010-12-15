@@ -15,6 +15,8 @@
     
     <script src="https://www.google.com/jsapi" type="text/javascript"></script>
     <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag "colorbox/colorbox" %> 
+    <%= javascript_include_tag "jquery.colorbox-min" %>
     <%= javascript_tag "var RAILS_ROOT = '#{ActionController::Base.relative_url_root}'; google.load('books','0');" %>
     <%= yield(:jstemplates) %>
     

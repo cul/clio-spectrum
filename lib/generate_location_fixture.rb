@@ -85,8 +85,14 @@ rows.each do |row|
   end
 
   result[:links]["Home Page"] = cells[1].at_css("a").attributes["href"].value if cells[1].at_css("a")
-  result[:links]["Map"] = cells[2].at_css("a").attributes["href"].value if cells[2].at_css("a")
-  
+  if cells[2].at_css("a")
+    map = cells[2].at_css("a").attributes["href"].value 
+    result[:links]["Map"] = map
+    if map.include?("http://www.columbia.edu/cu/lweb/services/maps/section")
+      result[:links]["Map URL"] = map.gsub("lweb", "lweb/data").gsub("maps","maps/images").gsub(".html",".gif")
+    end
+  end
+
   cells[3].css("a").each do |node|
     result[:links][node.text] = node.attributes["href"].value
   end

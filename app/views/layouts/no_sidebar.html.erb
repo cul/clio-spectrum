@@ -12,7 +12,9 @@
     <%= render_head_content %>
 
     <%= stylesheet_link_tag "compiled/application" %> 
+    <%= stylesheet_link_tag "colorbox/colorbox" %> 
     <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "jquery.colorbox-min" %>
     <%= javascript_tag "var RAILS_ROOT = '#{ActionController::Base.relative_url_root}';" %>
     
     <%= yield(:jstemplates) %>
