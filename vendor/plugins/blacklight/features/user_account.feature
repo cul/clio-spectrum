@@ -62,3 +62,47 @@ Feature: User Account
     When I follow "user1"
     Then I should be on the user profile page
     And I should see a stylesheet
+    
+  Scenario: Link to Profile not logged in
+    When I go to the user profile page
+    Then I should see "Please log in to view your profile"
+    # for some reason does not work:
+    # Then I should be on the login page
+  
+  Scenario: Login with referer
+    Given user with login "user1" and email "user1@foo.com" and password "password"
+    And I am on the document page for id 2007020969
+    When I follow "Login"
+    When I fill in "Login" with "user1"
+    When I fill in "Password" with "password"
+    And I press "Login"
+    Then I should see "Welcome user1!"
+    And I should be on the document page for id 2007020969
+
+  Scenario: Login should not redirect when the referer is the login page itself
+    Given user with login "user1" and email "user1@foo.com" and password "password"
+    And I am on the login page
+    When I follow "Login"
+    When I fill in "Login" with "user1"
+    When I fill in "Password" with "password"
+    And I press "Login"
+    Then I should see "Welcome user1!"
+    And I should be on the home page
+
+  
+  Scenario: Logout with referer
+    Given I am logged in as "user1"
+    And I am on the document page for id 2007020969
+    When I follow "Log Out"
+    Then I should see "You have successfully logged out."
+    And I should be on the document page for id 2007020969
+
+  Scenario: Logout with a protected referer
+    Given I am logged in as "user1"
+    And I am on the user profile page
+    When I follow "Log Out"
+    ## for some reason does not work:
+    # Then I should be on the home page
+
+    
+

@@ -1,6 +1,11 @@
 /* Global */
 html {background: #707070;}
 
+/* yui-grids sets text-align:center on body, which ends up centering
+   text in our jquery ui dialogs, which we don't actually want, it was
+   an accident. */
+.ui-dialog-content { text-align: left; }
+
 body {background: url('../images/bg.png') repeat-x top left; font: 0.7em Verdana, "Lucida Grande", "Lucida Sans Unicode", "Arial Unicode MS", Arial, sans-serif; line-height: 1.4; color:#333; margin: 0px; padding: 15px;}
 
 select,input,button,textarea {font: 1em Verdana, "Lucida Grande", "Lucida Sans Unicode", "Arial Unicode MS", Arial, sans-serif;}
@@ -328,10 +333,10 @@ ul.folderTools li.refworks form input.submit{display:none;}
 
 #login form {margin-bottom:1em;}
 
-.error, .notice, .errorExplanation {background-color:lightyellow; padding:1em; margin-bottom:1em; border:solid 1px #CDC;}
-.error, .notice {font-size: 1.5em;}
-.error, .errorExplanation {color: #C30;}
-.notice {color: #060;}
+.error, .notice, .errorExplanation { padding:1em; margin-bottom:1em;}
+.error, .notice { }
+.error, .errorExplanation { }
+.notice { }
 
 /* IE 6 Adjustments */
 * html #hd .yui-g .yui-u {margin-top: -5em;}
@@ -443,3 +448,7 @@ Search Parameters
 
 
 .hide {display:none}
+
+/* local implementations may define styles for open + closed "twiddles", e.g. disclosure triangles */ 
+.twiddle { }
+.twiddle-open { }

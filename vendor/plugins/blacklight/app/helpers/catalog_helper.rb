@@ -50,4 +50,15 @@ module CatalogHelper
     "http://www.refworks.com/express/expressimport.asp?vendor=#{CGI.escape(application_name)}&filter=MARC%20Format&encoding=65001&url=#{CGI.escape(catalog_path(document[:id], :format => 'refworks_marc_txt', :only_path => false))}"        
   end
   
+  def render_document_class(document = @document)
+   'blacklight-' + document.get(Blacklight.config[:index][:record_display_type]).parameterize rescue nil
+  end
+
+  def render_document_sidebar_partial(document = @document)
+    render :partial => 'show_sidebar'
+  end
+
+  def has_search_parameters?
+    !params[:q].blank? or !params[:f].blank? or !params[:search_field].blank?
+  end
 end

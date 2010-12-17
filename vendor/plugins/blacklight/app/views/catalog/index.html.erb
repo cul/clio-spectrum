@@ -1,4 +1,4 @@
-<% if params[:q].blank? and params[:f].blank? and params[:search_field].blank? %>
+<% unless has_search_parameters? %>
 	<%# if there are no input/search related params, display the "home" partial -%>
 	<%= render 'home' %>
 <% else %>
@@ -14,7 +14,6 @@
   <div class="pageEntriesInfo">
     <%= page_entries_info @response.docs, :entry_name=>'item' %>
     <%=link_to "Start&nbsp;over&thinsp;", catalog_index_path, :id=>"startOverLink" %>
-    <%= render "change_view" %>
   </div>
   
 	<%= render 'sort_and_per_page' %>
@@ -22,7 +21,7 @@
   <%= render 'results_pagination' %>
   
 
-	<%= render :partial=>'document_list' %>
+	<%= render_document_list_partial %>
 
 	<% sidebar_items << capture do %>
 	  <%= render :partial=>'facets' %>

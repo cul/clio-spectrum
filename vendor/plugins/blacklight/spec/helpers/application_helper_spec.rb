@@ -204,13 +204,65 @@ describe ApplicationHelper do
     end
    end
 
+   describe "render body class" do
+      it "should include a serialization of the current controller name" do
+        @controller = mock("controller")
+        @controller.should_receive(:controller_name).any_number_of_times.and_return("123456")
+        @controller.should_receive(:action_name).any_number_of_times.and_return("abcdef")
+
+	render_body_class.split(' ').should include('blacklight-123456')
+      end
+
+      it "should include a serialization of the current action name" do
+        @controller = mock("controller")
+        @controller.should_receive(:controller_name).any_number_of_times.and_return("123456")
+        @controller.should_receive(:action_name).any_number_of_times.and_return("abcdef")
+
+	render_body_class.split(' ').should include('blacklight-123456-abcdef')
+      end
+   end
    
-   
+   describe "document_heading" do
+     it "should consist of the show heading field when available" do
+      @document = SolrDocument.new(Blacklight.config[:show][:heading] => "A Fake Document")
+
+      document_heading.should == "A Fake Document"
+     end
+
+     it "should fallback on the document id if no title is available" do
+       @document = SolrDocument.new(:id => '123456')
+       document_heading.should == '123456'
+     end
+   end
+
    describe "render_document_heading" do
      it "should consist of #document_heading wrapped in a <h1>" do
       @document = SolrDocument.new(Blacklight.config[:show][:heading] => "A Fake Document")
 
       render_document_heading.should have_tag("h1", :text => document_heading, :count => 1)
+     end
+   end
+
+   describe "link_to_document" do
+     it "should consist of the document title wrapped in a <a>" do
+      data = {'id'=>'123456','title_display'=>['654321'] }
+      @document = SolrDocument.new(data)
+      link_to_document(@document, { :label => :title_display }).should have_tag("a", :text => '654321', :count => 1)
+     end
+     it "should accept and return a string label" do
+      data = {'id'=>'123456','title_display'=>['654321'] }
+      @document = SolrDocument.new(data)
+      link_to_document(@document, { :label => "title_display" }).should have_tag("a", :text => 'title_display', :count => 1)
+     end
+     it "should accept and return a Proc" do
+      data = {'id'=>'123456','title_display'=>['654321'] }
+      @document = SolrDocument.new(data)
+      link_to_document(@document, { :label => Proc.new { |doc, opts| doc.get(:id) + ": " + doc.get(:title_display) } }).should have_tag("a", :text => '123456: 654321', :count => 1)
+     end
+     it "should return id when label is missing" do
+      data = {'id'=>'123456'}
+      @document = SolrDocument.new(data)
+      link_to_document(@document, { :label => :title_display }).should have_tag("a", :text => '123456', :count => 1)
      end
    end
 
@@ -352,5 +404,13 @@ describe ApplicationHelper do
     
   end
   
-  
+  describe "convenience methods" do
+    it "should handle the case where we don't have a spellmax set in the config" do
+      spell_check_max.should == 5
+      sm = Blacklight.config[:spell_max]
+      Blacklight.config[:spell_max] = nil
+      spell_check_max.should == 0
+      Blacklight.config[:spell_max] = sm
+    end
+  end
 end
