@@ -13,8 +13,15 @@
     %dl.defList_in_grid
       - document_show_fields.each do |solr_fname|
         - if values = document[solr_fname]
-          %dt= document_show_field_labels[solr_fname]
-          %dd= values.listify.join("<br/>")
+          - if solr_fname == "author_display"
+            %dt= document_show_field_labels[solr_fname]
+            %dd
+              - values.each do |value|
+                = link_to value, url_for(:controller => "catalog", :action => "index", :q => h(value), :search_field => "author", :commit => "search")
+          - else
+
+            %dt= document_show_field_labels[solr_fname]
+            %dd= values.listify.join("<br/>")
     
     #holdings
       #holdings_header
