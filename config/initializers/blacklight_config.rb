@@ -83,8 +83,9 @@ Blacklight.configure(:shared) do |config|
       "language_facet",
       "lc_1letter_facet",
       "subject_geo_facet",
-      "subject_era_facet"
-    ]),
+      "subject_era_facet",
+      "location_facet"
+  ]),
     :labels => {
       "format"              => "Format",
       "pub_date"            => "Publication Year",
@@ -92,7 +93,8 @@ Blacklight.configure(:shared) do |config|
       "language_facet"      => "Language",
       "lc_1letter_facet"    => "Call Number",
       "subject_era_facet"   => "Era",
-      "subject_geo_facet"   => "Region"
+      "subject_geo_facet"   => "Region",
+      "location_facet" => "Location"
     },
     # Setting a limit will trigger Blacklight's 'more' facet values link.
     # * If left unset, then all facet values returned by solr will be displayed.
