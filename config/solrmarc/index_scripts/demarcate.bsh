@@ -15,7 +15,7 @@ org.solrmarc.index.SolrIndexer indexer = null;
 
 Set demarcateAcquistionDate(Record record)
 {
-    Set result = new LinkedHashSet();
+    LinkedHashSet result = new LinkedHashSet();
 
     String val = indexer.getFirstFieldVal(record, "991a");
 
@@ -39,15 +39,19 @@ Set demarcateAcquistionDate(Record record)
       Calendar acq = Calendar.getInstance();
       acq.set(year,month,day);
 
-      if (one_week_ago.before(acq))
-        result.add("Last Week");
 
-      if (one_month_ago.before(acq))
-        result.add("Last Month");
 
-      if (three_months_ago.before(acq))
+      if (three_months_ago.before(acq)) {
         result.add("Last Three Months");
+      }
 
+      if (one_month_ago.before(acq)) {
+        result.add("Last Month");
+      }
+
+      if (one_week_ago.before(acq)) {
+        result.add("Last Week");
+      }
     }
 
 
