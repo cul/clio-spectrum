@@ -50,11 +50,13 @@ function update_holdings_info(bibids) {
 function update_book_jackets(isbns, data) {
   for (index in isbns) {
     isbn = isbns[index];
-    selector = $("img.bookjacket[src*='/images/spacer.png'].isbn_" + isbn);
+    selector = $("img.bookjacket[src*='images/spacer.png'].isbn_" + isbn);
     isbn_data = data[isbn];
+    console.log(data);
+    console.log(isbn_data);
+    console.log(selector.length);
     if (selector.length > 0 && isbn_data) {
     
-      
       selector.parents("#show_cover").show();
       gbs_cover = selector.parents(".gbs_cover");
       

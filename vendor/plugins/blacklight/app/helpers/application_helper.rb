@@ -396,9 +396,9 @@ module ApplicationHelper
   
   def render_document_index_label doc, opts
     label = nil
-    label ||= doc.get(opts[:label]) if opts[:label].instance_of? Symbol
-    label ||= opts[:label] if opts[:label].instance_of? String
-    label ||= opts[:label].call(doc, opts) if opts[:label].instance_of? Proc
+    label ||= doc.get(opts[:label]) if opts[:label].kind_of? Symbol
+    label ||= opts[:label] if opts[:label].kind_of? String
+    label ||= opts[:label].call(doc, opts) if opts[:label].kind_of? Proc
     label ||= doc.id
   end
 

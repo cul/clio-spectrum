@@ -13,21 +13,26 @@ body.blank_layout {
 }
 
 /* line 23, ../../../app/stylesheets/application.sass */
+#hd {
+  padding: 2em 0em;
+}
+
+/* line 25, ../../../app/stylesheets/application.sass */
 .closed_icon {
   vertical-align: bottom;
 }
 
-/* line 27, ../../../app/stylesheets/application.sass */
+/* line 29, ../../../app/stylesheets/application.sass */
 .location_popup {
   width: 600px;
   text-align: left;
   font-size: 1.2em;
 }
-/* line 32, ../../../app/stylesheets/application.sass */
+/* line 34, ../../../app/stylesheets/application.sass */
 .location_popup .comment {
   padding-bottom: 1em;
 }
-/* line 35, ../../../app/stylesheets/application.sass */
+/* line 37, ../../../app/stylesheets/application.sass */
 .location_popup .header {
   padding-left: 0.5em;
   background-color: #cccccc;
@@ -35,22 +40,22 @@ body.blank_layout {
   color: white;
   margin-bottom: 1em;
 }
-/* line 42, ../../../app/stylesheets/application.sass */
+/* line 44, ../../../app/stylesheets/application.sass */
 .location_popup .section_header {
   font-size: 1.2em;
   margin-bottom: 0.5em;
 }
-/* line 46, ../../../app/stylesheets/application.sass */
+/* line 48, ../../../app/stylesheets/application.sass */
 .location_popup .hours_link {
   display: inline;
   font-size: 0.75em;
 }
-/* line 52, ../../../app/stylesheets/application.sass */
+/* line 54, ../../../app/stylesheets/application.sass */
 .location_popup .links .link {
   display: inline;
   padding: 0 0.1em 0 0.1em;
 }
-/* line 57, ../../../app/stylesheets/application.sass */
+/* line 59, ../../../app/stylesheets/application.sass */
 .location_popup .location_sidebar {
   float: right;
   margin-left: 2em;
@@ -63,128 +68,128 @@ body.blank_layout {
 .location_popup .location_sidebar .odd {
   background-color: #f0f0f0;
 }
-/* line 63, ../../../app/stylesheets/application.sass */
+/* line 65, ../../../app/stylesheets/application.sass */
 .location_popup .day_listing {
   padding: 0.3em 0 0.3em;
 }
-/* line 66, ../../../app/stylesheets/application.sass */
+/* line 68, ../../../app/stylesheets/application.sass */
 .location_popup .day_listing .weekday {
   float: left;
   padding-left: 5px;
   width: 60px;
 }
-/* line 71, ../../../app/stylesheets/application.sass */
+/* line 73, ../../../app/stylesheets/application.sass */
 .location_popup .day_listing .hours {
   text-align: left;
   width: 100px;
   margin-left: 60px;
 }
-/* line 76, ../../../app/stylesheets/application.sass */
+/* line 78, ../../../app/stylesheets/application.sass */
 .location_popup .day_listing .hours_note {
   padding-left: 0.5em;
   clear: both;
   font-style: italic;
 }
-/* line 81, ../../../app/stylesheets/application.sass */
+/* line 83, ../../../app/stylesheets/application.sass */
 .location_popup .map {
   margin-top: 1em;
 }
 
-/* line 86, ../../../app/stylesheets/application.sass */
+/* line 88, ../../../app/stylesheets/application.sass */
 dl.defList_in_grid.index_grid dd {
   width: 320px;
 }
 
-/* line 90, ../../../app/stylesheets/application.sass */
+/* line 92, ../../../app/stylesheets/application.sass */
 .change_view {
   float: left;
 }
 
-/* line 93, ../../../app/stylesheets/application.sass */
+/* line 95, ../../../app/stylesheets/application.sass */
 #startOverLink {
   padding-top: 1px;
 }
 
-/* line 98, ../../../app/stylesheets/application.sass */
+/* line 100, ../../../app/stylesheets/application.sass */
 .pageEntriesInfo {
   padding-right: 150px;
 }
 
-/* line 101, ../../../app/stylesheets/application.sass */
+/* line 103, ../../../app/stylesheets/application.sass */
 #show_folder_control {
   margin-top: 1em;
 }
-/* line 103, ../../../app/stylesheets/application.sass */
+/* line 105, ../../../app/stylesheets/application.sass */
 #show_folder_control .addFolder, #show_folder_control .deleteFolder {
   float: none;
 }
 
-/* line 107, ../../../app/stylesheets/application.sass */
+/* line 109, ../../../app/stylesheets/application.sass */
 #show_previousNextDocument .previous_next {
   margin-top: 0.5em;
 }
 
-/* line 109, ../../../app/stylesheets/application.sass */
+/* line 111, ../../../app/stylesheets/application.sass */
 .back_to_catalog {
   float: right;
 }
 
-/* line 111, ../../../app/stylesheets/application.sass */
+/* line 113, ../../../app/stylesheets/application.sass */
 .show_start_over {
   float: right;
 }
 
-/* line 114, ../../../app/stylesheets/application.sass */
+/* line 116, ../../../app/stylesheets/application.sass */
 a.folder_link_submit {
   border-bottom: none;
 }
-/* line 117, ../../../app/stylesheets/application.sass */
+/* line 119, ../../../app/stylesheets/application.sass */
 a.folder_link_submit span.folder_link_text {
   vertical-align: 20%;
   padding-left: 2px;
   border-bottom: 1px dotted #aaaaaa;
 }
 
-/* line 121, ../../../app/stylesheets/application.sass */
+/* line 123, ../../../app/stylesheets/application.sass */
 #holdings {
   clear: both;
   margin-top: 2em;
 }
-/* line 125, ../../../app/stylesheets/application.sass */
+/* line 127, ../../../app/stylesheets/application.sass */
 #holdings .holding {
   padding: 0.5em 0.5em 0.5em 1em;
 }
-/* line 127, ../../../app/stylesheets/application.sass */
+/* line 129, ../../../app/stylesheets/application.sass */
 #holdings .holding0 {
   background-color: #f6f6f6;
 }
-/* line 130, ../../../app/stylesheets/application.sass */
+/* line 132, ../../../app/stylesheets/application.sass */
 #holdings #holdings_header {
   padding-bottom: 1em;
 }
-/* line 132, ../../../app/stylesheets/application.sass */
+/* line 134, ../../../app/stylesheets/application.sass */
 #holdings #holdings_header #holdings_title {
   font-weight: bold;
   font-size: 1.25em;
   display: inline;
   padding-bottom: 1em;
 }
-/* line 139, ../../../app/stylesheets/application.sass */
+/* line 141, ../../../app/stylesheets/application.sass */
 #holdings #holdings_header #location_guide {
   padding-left: 0.5em;
   display: inline;
 }
-/* line 143, ../../../app/stylesheets/application.sass */
+/* line 145, ../../../app/stylesheets/application.sass */
 #holdings .call_number {
   float: right;
 }
-/* line 146, ../../../app/stylesheets/application.sass */
+/* line 148, ../../../app/stylesheets/application.sass */
 #holdings .status {
   padding-left: 2em;
   font-style: italic;
 }
 
-/* line 150, ../../../app/stylesheets/application.sass */
+/* line 152, ../../../app/stylesheets/application.sass */
 #show_cover {
   display: none;
   float: left;
@@ -192,30 +197,30 @@ a.folder_link_submit span.folder_link_text {
   margin-right: 2em;
 }
 
-/* line 157, ../../../app/stylesheets/application.sass */
+/* line 159, ../../../app/stylesheets/application.sass */
 .gbs_preview {
   display: none;
   padding-top: 1em;
   padding-bottom: 2em;
   text-align: center;
 }
-/* line 163, ../../../app/stylesheets/application.sass */
+/* line 165, ../../../app/stylesheets/application.sass */
 .gbs_preview a {
   border-bottom: none;
 }
 
-/* line 166, ../../../app/stylesheets/application.sass */
+/* line 168, ../../../app/stylesheets/application.sass */
 li.gbs_info {
   display: none;
 }
 
-/* line 169, ../../../app/stylesheets/application.sass */
+/* line 171, ../../../app/stylesheets/application.sass */
 .book_cover {
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 178, ../../../app/stylesheets/application.sass */
+/* line 180, ../../../app/stylesheets/application.sass */
 .grid_cover {
   height: 125px;
   width: 90px;
@@ -225,7 +230,7 @@ li.gbs_info {
   background-color: #eeeeee;
 }
 
-/* line 186, ../../../app/stylesheets/application.sass */
+/* line 188, ../../../app/stylesheets/application.sass */
 .fake_cover {
   text-align: center;
   border-top: 1px solid #cccccc;
@@ -238,45 +243,45 @@ li.gbs_info {
   color: #333333;
 }
 
-/* line 197, ../../../app/stylesheets/application.sass */
+/* line 199, ../../../app/stylesheets/application.sass */
 .gbs_cover {
   display: none;
 }
 
-/* line 200, ../../../app/stylesheets/application.sass */
+/* line 202, ../../../app/stylesheets/application.sass */
 .grid_view {
   background: white;
 }
-/* line 203, ../../../app/stylesheets/application.sass */
+/* line 205, ../../../app/stylesheets/application.sass */
 .grid_view .document_gallery {
   margin-bottom: 3em;
 }
-/* line 208, ../../../app/stylesheets/application.sass */
+/* line 210, ../../../app/stylesheets/application.sass */
 .grid_view .document_gallery .grid_bookjacket {
   height: 125px;
   width: 90px;
   padding: 0;
 }
-/* line 214, ../../../app/stylesheets/application.sass */
+/* line 216, ../../../app/stylesheets/application.sass */
 .grid_view .document_gallery .info {
   margin: 3px 0.5em 0 0.5em;
   height: 7em;
   position: relative;
   overflow: hidden;
 }
-/* line 220, ../../../app/stylesheets/application.sass */
+/* line 222, ../../../app/stylesheets/application.sass */
 .grid_view .document_gallery .info .title {
   font-weight: bold;
   min-height: 3em;
   margin-bottom: 1em;
 }
 
-/* line 226, ../../../app/stylesheets/application.sass */
+/* line 228, ../../../app/stylesheets/application.sass */
 dl.defList_in_grid {
   overflow: auto;
   padding: 0.5em 0;
 }
-/* line 230, ../../../app/stylesheets/application.sass */
+/* line 232, ../../../app/stylesheets/application.sass */
 dl.defList_in_grid dt {
   float: left;
   text-align: right;
@@ -286,7 +291,7 @@ dl.defList_in_grid dt {
   margin: 0;
   padding: 2px 1em 2px 0px;
 }
-/* line 239, ../../../app/stylesheets/application.sass */
+/* line 241, ../../../app/stylesheets/application.sass */
 dl.defList_in_grid dd {
   float: left;
   text-align: left;
@@ -294,7 +299,7 @@ dl.defList_in_grid dd {
   padding: 2px 0;
 }
 
-/* line 246, ../../../app/stylesheets/application.sass */
+/* line 248, ../../../app/stylesheets/application.sass */
 img.bookjacket.list_view {
   float: right;
   height: 80px;
@@ -302,22 +307,22 @@ img.bookjacket.list_view {
   padding: 1em;
 }
 
-/* line 253, ../../../app/stylesheets/application.sass */
+/* line 255, ../../../app/stylesheets/application.sass */
 a#feedLink {
   display: inline;
   text-decoration: none;
   border-bottom: none;
 }
-/* line 259, ../../../app/stylesheets/application.sass */
+/* line 261, ../../../app/stylesheets/application.sass */
 a#feedLink img {
   position: static;
   padding-left: 3px;
 }
 
-/* line 265, ../../../app/stylesheets/application.sass */
+/* line 267, ../../../app/stylesheets/application.sass */
 h1.site_title {
-  background: transparent url("../../images/clio_beta.jpg") no-repeat top left;
-  margin: 0 0 0 1em;
-  height: 30px;
-  width: 120px;
+  background: transparent url("../../images/clio-new-books.png") no-repeat top left;
+  margin: 0 0 0 0em;
+  height: 50px;
+  width: 218px;
 }
