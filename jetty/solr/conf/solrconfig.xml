@@ -253,7 +253,7 @@
       <str name="facet.field">subject_era_facet</str>
       <str name="facet.field">subject_geo_facet</str>
       <str name="facet.field">subject_topic_facet</str>
-      
+      <str name="f.pub_date.facet.sort">index</str> 
       <str name="spellcheck">true</str>
       <str name="spellcheck.dictionary">default</str>
       <str name="spellcheck.onlyMorePopular">true</str>

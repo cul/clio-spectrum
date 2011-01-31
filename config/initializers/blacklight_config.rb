@@ -108,8 +108,14 @@ Blacklight.configure(:shared) do |config|
     # sniffing requires solr requests to be made with "echoParams=all", for
     # app code to actually have it echo'd back to see it.     
     :limits => {
-      "subject_facet" => 20,
-      "language_facet" => true
+      "subject_topic_facet" => 10,
+      "pub_date" => 10,
+      "format" => 10,
+
+      "language_facet" => 10,
+      "lc_1letter_facet" => 10,
+      "subject_era_facet" => 10,
+      "subject_geo_facet" => 10
     }
   }
 
