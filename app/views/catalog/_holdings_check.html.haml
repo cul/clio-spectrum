@@ -1,17 +1,8 @@
 - holdings_to_check = documents.listify.reject { |d| d["location_display"].listify.reject { |l| l == "Online" }.empty? }.collect { |d| d["id"] } 
 
-- if true
-  - holdings_to_check.each do |holding|
-    - content_for :jstemplates do
-      :javascript
-        $(document).ready ( function () {
-          update_holdings_info('#{url_for(:controller => :backend, :action => "opac_holdings_data")}', [#{h(holding)}]);
-        });
+- content_for :jstemplates do
+  :javascript
+    $(document).ready ( function () {
+      update_holdings_info([#{holdings_to_check.join(",")}]);
 
--else
-  - content_for :jstemplates do
-    :javascript
-      $(document).ready ( function () {
-        update_holdings_info('#{url_for(:controller => :backend, :action => "opac_holdings_data")}', [#{holdings_to_check.join(",")}]);
-
-      });
+    });

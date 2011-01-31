@@ -1,0 +1,45 @@
+- sidebar_items << capture do
+  %p= link_back_to_catalog
+
+%h1 Folder
+
+- unless @documents.empty?
+  .pageEntriesInfo
+  = render "catalog/sort_and_per_page"
+  = render "catalog/results_pagination"
+
+  .tools
+    %ul.folderTools
+      %li.cite
+        = link_to "Cite", citation_catalog_path(:id => @documents.collect{|doc| doc.get(:id)}), {:id => 'citeLink', :name => 'citation', :class => 'lightboxLink'}
+      %li.refworks
+        = render :partial => 'catalog/refworks_form', :locals => {:documents=>@documents} 
+      %li.endnote 
+        = link_to "Export to EndNote", endnote_catalog_path(:id => @documents.collect {|doc| doc.get(:id)}, :format => 'endnote')
+      %li.email
+        = link_to "Email", email_catalog_path(:id => @documents.collect {|doc| doc.get(:id)}), :class=>"lightboxLink" 
+      %li.sms 
+        = link_to "SMS", sms_catalog_path(:id => @documents.collect {|doc| doc.get(:id)}), :class=>"lightboxLink" 
+      - if current_user 
+        %li= render :partial=>'catalog/bookmark_form', :locals=>{:documents=>@documents} 
+      %li
+        = link_to "Clear Folder", clear_folder_path, :method => :delete 
+
+#documents
+  - @documents.each_with_index do |document, i| 
+    / container for a single doc 
+    .document
+      / header bar for doc items in index view -
+      .documentHeader.yui-g
+        .yui-u.documentFunctions
+          .in_folder
+            = render :partial=>'catalog/folder_control', :locals=>{:document=>document} 
+        .yui-u
+          %h3.index_title
+            = i + 1 + @response.params[:start].to_i
+            = "."
+            = link_to_document document, :label => document_show_link_field, :results_view => false
+      
+      = render_document_partial document, :index 
+      - if document.respond_to?(:export_as_openurl_ctx_kev) 
+        %span.Z3988{:title => document.export_as_openurl_ctx_kev(document_partial_name(document))}

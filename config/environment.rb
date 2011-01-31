@@ -9,7 +9,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 require File.join(File.dirname(__FILE__), '../vendor/plugins/blacklight/vendor/plugins/engines/boot')
 
 require "lib/james_monkeys"
-require "lib/voyager"
+require "lib/voyager_holding"
 require "lib/google_books"
 
 Rails::Initializer.run do |config|
