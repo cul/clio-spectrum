@@ -78,7 +78,7 @@ Blacklight.configure(:shared) do |config|
   config[:facet] = {
     :field_names => (facet_fields = [
       "format",
-      "pub_date",
+      "acq_date_facet",
       "subject_topic_facet",
       "language_facet",
       "lc_1letter_facet",
@@ -88,7 +88,7 @@ Blacklight.configure(:shared) do |config|
   ]),
     :labels => {
       "format"              => "Format",
-      "pub_date"            => "Publication Year",
+      "acq_date_facet"            => "Acquisition Date",
       "subject_topic_facet" => "Topic",
       "language_facet"      => "Language",
       "lc_1letter_facet"    => "Call Number",
@@ -110,8 +110,13 @@ Blacklight.configure(:shared) do |config|
     # sniffing requires solr requests to be made with "echoParams=all", for
     # app code to actually have it echo'd back to see it.     
     :limits => {
-      "subject_facet" => 20,
-      "language_facet" => true
+      "subject_topic_facet" => 10,
+      "format" => 10,
+
+      "language_facet" => 10,
+      "lc_1letter_facet" => 10,
+      "subject_era_facet" => 10,
+      "subject_geo_facet" => 10
     }
   }
 
