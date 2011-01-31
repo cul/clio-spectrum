@@ -1,18 +1,4 @@
 class BackendController < ApplicationController
-  def opac_holdings_data
-    
-    results = {}
-    
-    Voyager.opac_holdings_data(*params["bibid"].listify).each_pair do |bibid, holdings|
-      holdings.each do |holding|
-        results[holding.holding_id] = holding.image_for_display  
-      end
-    end
-
-
-    render :json => results
-  
-  end
 
   def retrieve_book_jackets
     isbns = params["isbns"].listify

@@ -40,7 +40,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.clio_recall 'backend/clio_recall/:id', :controller => :backend, :action => :clio_recall
 
-  map.location_display "locations/show/:id", :controller => :locations, :action => :show
+  map.location_display "locations/show/:id", :id => /.*/, :controller => :locations, :action => :show
 
   map.namespace :admin do |admin|
     admin.resources :locations, :name_prefix => ""
