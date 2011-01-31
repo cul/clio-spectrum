@@ -12,16 +12,16 @@ $(document).ready(function() {
         $.post(form.attr("action") + '?id=' + form.children("input[name=id]").attr("value"), function(data) {
           var title = form.attr("title");
           var folder_num, notice_text, new_form_action, new_button_text
-          if(form.attr("action") == "/folder/destroy") {
+          if(form.attr("action") == "folder/destroy") {
             folder_num = parseInt($("#folder_number").text()) - 1;
             notice_text = title + " removed from your folder."
-            new_form_action = "/folder";
-            new_button_text = '<img alt="Add to Folder" height="22" src="/images/icons/24-book-blue-add.png" width="22" /><span class="folder_link_text">Add to folder</span>';
+            new_form_action = "folder";
+            new_button_text = '<img alt="Add to Folder" height="22" src="images/icons/24-book-blue-add.png" width="22" /><span class="folder_link_text">Add to folder</span>';
           }else{
             folder_num = parseInt($("#folder_number").text()) + 1
             notice_text = title + " added to your folder.";
-            new_form_action = "/folder/destroy";
-            new_button_text = '<img alt="Remove from Folder" height="22" src="/images/icons/24-book-blue-remove.png" width="22" /><span class="folder_link_text">Remove from folder</span>';
+            new_form_action = "folder/destroy";
+            new_button_text = '<img alt="Remove from Folder" height="22" src="images/icons/24-book-blue-remove.png" width="22" /><span class="folder_link_text">Remove from folder</span>';
           }
           $("#folder_number").text(folder_num);
           form.attr("action",new_form_action);
