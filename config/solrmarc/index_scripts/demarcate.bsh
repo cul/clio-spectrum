@@ -26,26 +26,25 @@ Set demarcateAcquistionDate(Record record)
     
     Calendar one_month_ago = Calendar.getInstance();
     one_month_ago.add(Calendar.MONTH, -1);
-    
+
     Calendar three_months_ago = Calendar.getInstance();
     three_months_ago.add(Calendar.MONTH, -3);
 
     if (val != null && val.length() == 8)
     {
       year = Integer.parseInt(val.substring(0,4));
-      month = Integer.parseInt(val.substring(4,5)) - 1;
-      day = Integer.parseInt(val.substring(6,7));
+      month = Integer.parseInt(val.substring(4,6));
+      day = Integer.parseInt(val.substring(6,8));
 
       Calendar acq = Calendar.getInstance();
-      acq.set(year,month,day);
-
+      acq.set(year,month,day);      
 
 
       if (three_months_ago.before(acq)) {
-        result.add("Last Three Months");
+        result.add("Last 3 Months");
       }
-
       if (one_month_ago.before(acq)) {
+        
         result.add("Last Month");
       }
 

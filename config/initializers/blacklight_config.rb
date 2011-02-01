@@ -110,7 +110,7 @@ Blacklight.configure(:shared) do |config|
     :limits => {
       "subject_topic_facet" => 10,
       "format" => 10,
-
+      "acq_date" => 10,
       "language_facet" => 10,
       "lc_1letter_facet" => 10,
       "subject_era_facet" => 10,
