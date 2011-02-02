@@ -116,7 +116,8 @@ Blacklight.configure(:shared) do |config|
       "language_facet" => 10,
       "lc_1letter_facet" => 10,
       "subject_era_facet" => 10,
-      "subject_geo_facet" => 10
+      "subject_geo_facet" => 10,
+      "location_facet" => 10
     }
   }
 
