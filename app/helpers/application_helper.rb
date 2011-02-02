@@ -1,6 +1,10 @@
 require 'vendor/plugins/blacklight/app/helpers/application_helper.rb'
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  def application_name
+    "CLIO New Arrivals"
+  end
+  
   def alternating_line(id="default")
     @alternating_line ||= Hash.new("odd")
     @alternating_line[id] = @alternating_line[id] == "even" ? "odd" : "even"
