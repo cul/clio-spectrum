@@ -24,7 +24,7 @@ module Blacklight::Routes
       # /catalog/:id/availability
       :member=>{:image=>:get, :status=>:get, :availability=>:get, :librarian_view=>:get},
       # /catalog/map
-      :collection => {:map => :get, :opensearch=>:get, :citation=>:get, :email=>:get, :sms=>:get, :endnote=>:get, :send_email_record=>:post}
+      :collection => {:map => :get, :opensearch=>:get, :print => :get, :citation=>:get, :email=>:get, :sms=>:get, :endnote=>:get, :send_email_record=>:post}
     )
     
 

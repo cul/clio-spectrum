@@ -8,14 +8,18 @@
   = render "catalog/sort_and_per_page"
   = render "catalog/results_pagination"
 
-  .tools
+  .folder_toolbar
     %ul.folderTools
-      %li.cite
-        = link_to "Cite", citation_catalog_path(:id => @documents.collect{|doc| doc.get(:id)}), {:id => 'citeLink', :name => 'citation', :class => 'lightboxLink'}
-      %li.refworks
-        = render :partial => 'catalog/refworks_form', :locals => {:documents=>@documents} 
-      %li.endnote 
-        = link_to "Export to EndNote", endnote_catalog_path(:id => @documents.collect {|doc| doc.get(:id)}, :format => 'endnote')
+      
+      /%li.cite
+      /= link_to "Cite", citation_catalog_path(:id => @documents.collect{|doc| doc.get(:id)}), {:id => 'citeLink', :name => 'citation', :class => 'lightboxLink'}
+      /%li.refworks
+      /  = render :partial => 'catalog/refworks_form', :locals => {:documents=>@documents} 
+      /%li.endnote 
+      /  = link_to "Export to EndNote", endnote_catalog_path(:id => @documents.collect {|doc| doc.get(:id)}, :format => 'endnote')
+      %li.print
+        = link_to "Print", print_catalog_path(:id => @documents.collect {|doc| doc.get(:id)})
+      
       %li.email
         = link_to "Email", email_catalog_path(:id => @documents.collect {|doc| doc.get(:id)}), :class=>"lightboxLink" 
       %li.sms 
