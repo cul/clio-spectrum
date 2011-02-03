@@ -12,3 +12,5 @@ taft_test:
     url: http://testcat.cul.columbia.edu:8983/solr-1.5/newbooks_test
 cucumber:
     <<: *TEST
+rameau_prod:
+    url: http://macana.cul.columbia.edu:8080/solr-1.5/newbooks
