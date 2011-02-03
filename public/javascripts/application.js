@@ -34,7 +34,7 @@ $(document).ready(function() {
 });
 
 function update_holdings_info(bibids) {
- url = 'http://ldpdmac01.cul.columbia.edu:3100/holdings/fetch/' + bibids.join("/");
+ url = 'http://rossini.cul.columbia.edu/holdings/fetch/' + bibids.join("/");
 
   $.getJSON(url, function(data) {
     for (bib in data) {
