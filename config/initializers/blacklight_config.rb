@@ -173,7 +173,8 @@ Blacklight.configure(:shared) do |config|
       "published_display",
       "published_vern_display",
       "lc_callnum_display",
-      "isbn_t"
+      "isbn_t",
+      "subject_topic_facet"
     ],
     :labels => {
       "title_display"           => "Title:",
@@ -189,6 +190,7 @@ Blacklight.configure(:shared) do |config|
       "published_vern_display"  => "Published:",
       "lc_callnum_display"      => "Call number:",
       "isbn_t"                  => "ISBN:",
+      "subject_topic_facet"     => "Topics:"
     }
   }
 
