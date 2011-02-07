@@ -92,7 +92,6 @@ Blacklight.configure(:shared) do |config|
       "subject_topic_facet" => "Topic",
       "language_facet"      => "Language",
       "lc_1letter_facet"    => "Call Number",
-      "lc_2letter_facet"    => "Full Call:",
       "subject_era_facet"   => "Era",
       "subject_geo_facet"   => "Region",
       "location_facet" => "Location"
@@ -116,7 +115,6 @@ Blacklight.configure(:shared) do |config|
       "acq_date" => 10,
       "language_facet" => 10,
       "lc_1letter_facet" => 26,
-      "lc_2letter_facet" => 26,
       "subject_era_facet" => 10,
       "subject_geo_facet" => 10,
       "location_facet" => 10
