@@ -236,6 +236,8 @@
         acq_date_facet,
         title_display,
         title_vern_display,
+        url_detail,
+        url_detail_note, 
         subject_topic_facet,
         subject_geo_facet,
         subject_era_facet,

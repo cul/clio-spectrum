@@ -1,11 +1,12 @@
-- if (urls =  document.get("url_fulltext_display"))
+
+
+- if (urls =  document["url_fulltext_display"])
   %dt Online:
   %dd
-    - urls.listify.each do |url_blob|
-      - url_blob.split(",").each do |url|
-        %div
-          = image_tag("icons/noncirc.png", :class => :availability)
-          = link_to url.abbreviate(50), url
+    - urls.listify.each_with_index do |url,i|
+      %div
+        = image_tag("icons/noncirc.png", :class => :availability)
+        = link_to online_link_title(document, i), url
 
 
 - unless (locations = document["location_display"].listify.reject { |l| l == "Online" }).empty? || document["location_holdings_id_display"].nil?

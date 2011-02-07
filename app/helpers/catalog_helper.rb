@@ -16,6 +16,20 @@ module CatalogHelper
 
   end
 
+  def online_link_title(document, index)
+    title = ""
+
+    if (detail = document["url_detail"].listify[index])
+      note = document["url_detail_note"].listify[index]
+      title = detail
+      title += " " + note if note
+    else
+      title = document["url_fulltext_display"].listify[index].to_s.abbreviate(50)
+    end
+
+    return auto_add_empty_spaces(h(title))
+  end
+
   def folder_link(document)
     size = "22x22"
     if item_in_folder?(document[:id])

@@ -61,8 +61,8 @@
                 = holding["location_name"]
             .status
               - if holding["location_name"].strip =="Online"
-                - document[:url_fulltext_display].each do |url|
-                  %div= link_to url.abbreviate(70), url
+                - document[:url_fulltext_display].each_with_index do |url,i|
+                  %div= link_to online_link_title(document, i), url
               - else
                 #{holding["status_for_display"]}
 

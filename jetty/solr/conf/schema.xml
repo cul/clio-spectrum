@@ -112,6 +112,10 @@
     <field name="acq_date" type="string" stored="true"/>
     <field name="acq_date_facet" type="string" indexed="true" stored="true" multiValued="true" />
 
+    <field name="url_detail_note" type="string" indexed="false" stored="true" multiValued="true"/>
+    <field name="url_detail" type="string" indexed="false" stored="true" multiValued="true"/>
+
+
     <!-- format is used for facet, display, and choosing which partial to use for the show view, so it must be stored and indexed -->
     <field name="format" type="string" indexed="true" stored="true"/>
 
