@@ -11,7 +11,7 @@ class HoursDb::Calendar < ActiveRecord::Base
 
 
   def close
-    cal_close.nil? ? nil : cal_date + cal_close.hour.hours
+    cal_close.nil? ? nil : cal_date + (cal_close.hour.hours == 0 ? 24 : cal_close.hour.hours)
   end
 
   def to_new_books_fmt
