@@ -19,10 +19,8 @@ module CatalogHelper
   def online_link_title(document, index)
     title = ""
 
-    if (detail = document["url_detail"].listify[index])
-      note = document["url_detail_note"].listify[index]
-      title = detail
-      title += " " + note if note
+    if (detail = document["url_detail"].listify[index]) || (note = document["url_detail_note"].listify[index])
+      title = [detail, note].compact.join(" ")
     else
       title = document["url_fulltext_display"].listify[index].to_s.abbreviate(50)
     end
