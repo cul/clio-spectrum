@@ -4,7 +4,6 @@
   .yui-u.first
 
     #show_cover.book_cover
-      .fake_cover=build_fake_cover(document)
       .gbs_cover
         .gbs_thumbnail
           = image_tag("spacer.png", :class => "bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))
