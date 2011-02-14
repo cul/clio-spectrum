@@ -9,14 +9,17 @@
     <link href="<%= url_for :controller=>'catalog',:action => 'opensearch', :format => 'xml', :only_path => false %>" title="<%= application_name%>" type="application/opensearchdescription+xml" rel="search"/>
     
     <%= render_head_content %>
-
+    <%= stylesheet_link_tag "/contactable/contactable" %>
     <%= stylesheet_link_tag "compiled/application" %> 
-    
+     
     <script src="https://www.google.com/jsapi" type="text/javascript"></script>
     <%= javascript_include_tag "application" %>
     <%= stylesheet_link_tag "colorbox/colorbox" %> 
     <%= javascript_include_tag "jquery.colorbox-min" %>
-    <%= javascript_tag "var RAILS_ROOT = '#{ActionController::Base.relative_url_root}'; google.load('books','0');" %>
+    <%= javascript_tag "var RAILS_ROOT = '#{ActionController::Base.relative_url_root}'; google.load('books','0'); $(function() {$('#contact').contactable({});});" %>
+    <%= javascript_include_tag "/contactable/jquery.validate.pack.js" %>
+    <%= javascript_include_tag "/contactable/jquery.contactable.js" %>
+    <%= javascript_tag "$(function(){ $('#contact').contactable({ subject: 'A Feedback Message'});});" %>
     <%= yield(:jstemplates) %>
     
   </head>
@@ -24,7 +27,8 @@
     <body onload="$('input#q').focus();">
   <% else %>
     <body>
-  <% end %>
+    <% end %>
+
 	  <div id="doc4" class="yui-t2">
 	    
 	    <div id="hd">
@@ -32,6 +36,7 @@
           <div class="yui-u first">
             <h1 class="site_title"><%= link_to application_name, root_path %><%= (params[:controller] == "catalog" and !params[:id]) ? "<span id='results_text'>Search Results</span>" : "" %></h1>
           </div>
+    
           <div class="yui-u">
             <%= render :partial => "/user_util_links" %>
           </div>
@@ -54,6 +59,9 @@
 	    <div id="ft"><%= @footer %></div>
 	    
 	  </div>
+
+    <%= render :partial => "/feedback_form" %>
+
   </body>
   
 </html>
