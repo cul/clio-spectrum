@@ -1,7 +1,9 @@
-#{@params["name"]} / #{@params["email"]}  on #{ENV['RAILS_ENV']} New Arrivals v#{RELEASE_STAMP}
- 
-At #{DateTime.now.to_formatted_s(:long)} on page:
+#{@params["name"]} (#{@params["email"]}) for New Arrivals v#{RELEASE_STAMP} [#{ENV["RAILS_ENV"]}] 
+:plain 
+
+at #{DateTime.now.to_formatted_s(:long)} on page:
 #{@params["page"]}
- 
+:plain
+
 #{@params["comment"]}
 

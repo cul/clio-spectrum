@@ -1,10 +1,16 @@
 class BackendController < ApplicationController
 
   def feedback_mail
-    FeedbackNotifier.deliver_send_feedback(params)
     session[:feedback_form_name] = params["name"]
     session[:feedback_form_email] = params["email"]
-    render :text => "success"
+    begin
+      FeedbackNotifier.deliver_send_feedback(params)
+  
+      render :text => "success"
+    rescue Exception => e
+      logger.info e.backtrace
+      render :text => "failure"
+    end
   end
 
   def retrieve_book_jackets
