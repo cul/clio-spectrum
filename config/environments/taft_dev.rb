@@ -22,6 +22,8 @@ config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
   :address => "localhost",
   :domain => "taft.cul.columbia.edu",
+  :username => "jws2135",
+  :password => "krd24ats",
   :port => 25
 }
 
