@@ -1,6 +1,47 @@
 #contact
+  #contactable
+  %form#contactForm(method="" action="")
+    #contact_loading
+    #contact_callback
+    .holder
+      %h2 Feedback for New Arrivals v#{RELEASE_STAMP}
+      
+      %p
+        %label(for='name')
+          Name
+          %span.red *
+        %br
+        %input.contact{:name=>'name', :value => session[:feedback_form_name]}
 
-- content_for :jstemplates do
-  :javascript 
-    = javascript_tag "$(function(){ $('#contact').contactable({ subject: 'A Feedback Message'});});" %>
+      %p
+        %label(for='email')
+          E-Mail
+          %span.red *
+        %br
+        %input.contact{:name => 'email', :value => session[:feedback_form_email]}
+
+      %p
+        %label(for='page')
+          Page You Were On
+        %br
+        %label
+          = request.url.to_s.abbreviate(50)
+        %input{:type => 'hidden', :name => 'page', :value => request.url}
+        
+        
+      %p
+        %label(for='comment')
+          Your Feedback
+          %span.red *
+        %br
+        %textarea#comment.comment(name='comment' rows='4' cols='30')
+
+
+      %p
+        %input.submit(type='submit' value='Send')
+
+
+
+
+    
 

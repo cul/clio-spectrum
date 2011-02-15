@@ -9,14 +9,13 @@
     <link href="<%= url_for :controller=>'catalog',:action => 'opensearch', :format => 'xml', :only_path => false %>" title="<%= application_name%>" type="application/opensearchdescription+xml" rel="search"/>
     
     <%= render_head_content %>
-    <%= stylesheet_link_tag "/contactable/contactable" %>
     <%= stylesheet_link_tag "compiled/application" %> 
      
     <script src="https://www.google.com/jsapi" type="text/javascript"></script>
     <%= javascript_include_tag "application" %>
     <%= stylesheet_link_tag "colorbox/colorbox" %> 
     <%= javascript_include_tag "jquery.colorbox-min" %>
-    <%= javascript_tag "var RAILS_ROOT = '#{ActionController::Base.relative_url_root}'; google.load('books','0'); $(function() {$('#contact').contactable({});});" %>
+    <%= javascript_tag "var RAILS_ROOT = '#{ActionController::Base.relative_url_root}'; google.load('books','0'); " %>
     <%= javascript_include_tag "/contactable/jquery.validate.pack.js" %>
     <%= javascript_include_tag "/contactable/jquery.contactable.js" %>
     <%= javascript_tag "$(function(){ $('#contact').contactable({ subject: 'A Feedback Message'});});" %>

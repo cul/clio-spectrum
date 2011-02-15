@@ -350,3 +350,139 @@ h1.site_title {
   height: 50px;
   width: 218px;
 }
+
+/* line 286, ../../../app/stylesheets/application.sass */
+#contactable {
+  background-image: url(../../images/contact.png);
+  color: white;
+  background-color: #333333;
+  cursor: pointer;
+  height: 102px;
+  left: 0;
+  margin-left: -5px;
+  *margin-left: -5px;
+  overflow: hidden;
+  position: fixed;
+  *position: absolute;
+  text-indent: -100000px;
+  top: 102px;
+  *margin-top: 10px;
+  width: 44px;
+  z-index: 100000;
+}
+
+/* line 307, ../../../app/stylesheets/application.sass */
+form#contactForm {
+  background-color: #333333;
+  border: 2px solid white;
+  color: white;
+  height: 555px;
+  left: 0;
+  margin-left: -400px;
+  *margin-left: -434px;
+  margin-top: -160px;
+  overflow: hidden;
+  padding-left: 30px;
+  position: fixed;
+  top: 200px;
+  width: 360px;
+  *width: 394px;
+  z-index: 99;
+}
+/* line 324, ../../../app/stylesheets/application.sass */
+form#contactForm p {
+  margin-bottom: 2em;
+}
+/* line 327, ../../../app/stylesheets/application.sass */
+form#contactForm input, form#contactForm textarea {
+  background: white none repeat scroll 0 0;
+  outline-style: none;
+  outline-width: medium;
+  width: 325px;
+  padding: 5px;
+  border: 1px solid #dfdfdf;
+  font-size: 1em;
+}
+/* line 336, ../../../app/stylesheets/application.sass */
+form#contactForm h2 {
+  padding-right: 1em;
+}
+/* line 338, ../../../app/stylesheets/application.sass */
+form#contactForm label {
+  color: white;
+}
+/* line 340, ../../../app/stylesheets/application.sass */
+form#contactForm .submit {
+  background: #f5410f none repeat scroll 0 0;
+  outline-style: none;
+  outline-width: medium;
+  width: 337px;
+  padding: 5px;
+  border: 3px solid #f52d0f;
+  outline-color: -moz-use-text-color;
+  font-size: 1em;
+  cursor: pointer;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-family: Helvetica;
+  margin-top: 10px;
+}
+/* line 355, ../../../app/stylesheets/application.sass */
+form#contactForm p {
+  width: 325px;
+  font-size: 0.9em;
+}
+
+/* line 359, ../../../app/stylesheets/application.sass */
+#contactForm .red {
+  color: #f5410f;
+}
+
+/* line 362, ../../../app/stylesheets/application.sass */
+#contact_overlay {
+  background-color: #666666;
+  display: none;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+/* line 374, ../../../app/stylesheets/application.sass */
+.error, #name.error, #email.error, #comment.error {
+  background-color: #edbe9c;
+}
+
+/* line 378, ../../../app/stylesheets/application.sass */
+form#contactForm label {
+  *margin-left: 20px;
+}
+/* line 380, ../../../app/stylesheets/application.sass */
+form#contactForm #contact_loading {
+  background: url(../../images/ajax-loader.gif) no-repeat;
+  width: 55px;
+  height: 55px;
+  margin: 100px auto;
+  display: none;
+}
+
+/* line 387, ../../../app/stylesheets/application.sass */
+#contact_callback {
+  font-size: 1.5em;
+  color: white;
+  width: 325px;
+  margin: 100px auto;
+  display: none;
+}
+
+/* line 394, ../../../app/stylesheets/application.sass */
+.holder {
+  margin: 0 auto;
+  *margin-left: 20px;
+  padding-top: 20px;
+}
