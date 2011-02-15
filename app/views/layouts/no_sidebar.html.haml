@@ -14,6 +14,7 @@
     = javascript_include_tag "/contactable/jquery.validate.pack.js"
     = javascript_include_tag "/contactable/jquery.contactable.js"
     = javascript_tag "$(function(){ $('#contact').contactable({ subject: 'A Feedback Message'});});"
+    = csrf_meta_tag
     = yield(:jstemplates)
     - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
   %body{:onload => onload}
