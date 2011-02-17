@@ -7,7 +7,8 @@ versions:
       - Added front page list of current features
 known_issues:
   - Many videos are displaying as format "unknown"
-
+  - Phrase searching does not work.
+  - Unicode searching does not work.
 upcoming:
   - Better email/SMS formatting
   - Print functionality
