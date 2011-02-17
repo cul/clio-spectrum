@@ -51,9 +51,11 @@ namespace :solr do
 
     Rake::Task["solr:marc:index"].reenable
     ENV["MARC_FILE"] = marc_file
-    Rake::Task["solr:marc:index"].invoke()
+    Rake::Task["solr:marc:index"].invoke
 
-    solr_delete_ids(solr_find_ids_by_timespan("*", time_start.utc.iso8601))
+    ids_to_delete = solr_find_ids_by_timespan("*", time_start.utc.iso8601)
+    puts ids_to_delete.length.to_s + " ids to delete"
+    solr_delete_ids(ids_to_delete)
   end
 
 
