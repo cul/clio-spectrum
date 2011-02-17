@@ -1,9 +1,9 @@
-#{@params["name"]} (#{@params["email"]}) for New Arrivals v#{RELEASE_STAMP} [#{ENV["RAILS_ENV"]}] 
-:plain 
-
-at #{DateTime.now.to_formatted_s(:long)} on page:
-#{@params["page"]}
+#{@params["name"]} (#{@params["email"]}) 
+Software: New Arrivals v#{RELEASE_STAMP} [#{ENV["RAILS_ENV"]}] 
+Page: #{@params["page"]}
 :plain
 
 #{@params["comment"]}
+:plain
 
+Browser: #{@params["user-agent"]}

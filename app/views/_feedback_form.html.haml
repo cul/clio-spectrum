@@ -27,7 +27,7 @@
         %label
           = request.url.to_s.abbreviate(50)
         %input{:type => 'hidden', :name => 'page', :value => request.url}
-        
+        %input{:type => "hidden", :name => "user-agent", :value => request.user_agent} 
         
       %p
         %label(for='comment')
