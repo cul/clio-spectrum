@@ -51,6 +51,10 @@ Rails::Initializer.run do |config|
     :secret => "341374jf209d23ud032jd09j3g28945jsdflkjsr8290334uf"
   }
 
+  config.logger = Logger.new(File.dirname(__FILE__) + "/../log/#{RAILS_ENV}.log") 
+  config.logger.formatter = Logger::Formatter.new
+
+
   # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
   # Run "rake -D time" for a list of tasks for finding time zone names.
   config.time_zone = 'Eastern Time (US & Canada)'

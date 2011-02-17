@@ -27,3 +27,4 @@ config.action_mailer.smtp_settings = {
   :password => "qbridge7engage"
 }
 
+config.logger.level = Logger::WARN

@@ -9,6 +9,7 @@ known_issues:
   - Many videos are displaying as format "unknown"
   - Phrase searching does not work.
   - Unicode searching does not work.
+  - Availability information can be occasionally slow.
 upcoming:
   - Better email/SMS formatting
   - Print functionality
