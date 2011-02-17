@@ -1,0 +1,14 @@
+versions:
+  - version: "2.1.6"
+    release_date: "Feb 17, 2011"
+    fixed: 
+      - Added browser detection to feedback form.
+      - Automatically ingest data feed every night.
+      - Added front page list of current features
+known_issues:
+  - Many videos are displaying as format "unknown"
+
+upcoming:
+  - Better email/SMS formatting
+  - Print functionality
+  - Addition of Publication Date / publisher 
