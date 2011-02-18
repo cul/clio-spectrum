@@ -1,4 +1,8 @@
 versions:
+  - version: "2.1.8"
+    release_date: "Feb 18,2011"
+    fixed:
+      - Cleaned up ingest process to not take up so much space.
   - version: "2.1.7"
     release_date: "Feb 18, 2011"
     fixed:

@@ -25,10 +25,17 @@ namespace :solr do
     end
 
     namespace :download do
-      desc "clear all downloads but latest"
-      # task :clear do
+      desc "cleanup all but last 3 extracts" 
+      task :cleanup do
+        to_keep = ENV["keep_extracts"] || 3
+        directories = Dir.entries("tmp/extracts").reject { |c| c =~ /^\D/}.collect { |d| "tmp/extracts/" + d}.sort_by { |d| File.stat(d).ctime }
+        
+        directories_to_remove = directories[0, [directories.length-3,0].max]
+      
+        puts_and_log(directories_to_remove.length.to_s + " directories to remove")
 
-      # end
+        directories_to_remove.each { |dir| FileUtils.rm_rf(dir) }
+      end
     end
 
     namespace :clear do 
@@ -51,6 +58,7 @@ namespace :solr do
 
     
   end
+
 
   desc "download and ingest latest newbooks file" 
   task :ingest => :environment do
@@ -92,6 +100,17 @@ namespace :solr do
     ids_to_delete = solr_find_ids_by_timespan("*", time_start.utc.iso8601)
     puts_and_log(ids_to_delete.length.to_s + " ids to delete")
     solr_delete_ids(ids_to_delete) unless ids_to_delete.empty?
+  
+  
+    begin
+      Rake::Task["solr:ingest:download:cleanup"].reenable
+      Rake::Task["solr:ingest:download:cleanup"].invoke
+      puts_and_log ("Cleanup succesful.")
+    rescue Exception => e
+      puts_and_log("Cleanup  task failed to " + e.message)
+      raise "Terminating due to failed cleanup task."
+    end
+  
   end
 
 
