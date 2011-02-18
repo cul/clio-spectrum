@@ -7,3 +7,4 @@ namespace :hours do
     RAILS_DEFAULT_LOGGER.info "#{LibraryHours.count} days of hour information available."
   end
 end
+

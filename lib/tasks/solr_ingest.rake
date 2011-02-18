@@ -55,12 +55,19 @@ namespace :solr do
 
     ids_to_delete = solr_find_ids_by_timespan("*", time_start.utc.iso8601)
     puts ids_to_delete.length.to_s + " ids to delete"
-    solr_delete_ids(ids_to_delete)
+    # solr_delete_ids(ids_to_delete)
   end
 
 
 end
 
+def log_and_put(msg, level = :info)
+  puts level.to_s + ": " + msg.to_s
+  if defined?(RAILS_DEFAULT_LOGGER)
+    RAILS_DEFAULT_LOGGER.send(level, msg)
+  end
+
+end
 
 def solr_find_ids_by_timespan(start, stop)
   Blacklight.solr.find(:fl => "id", :filters => {:timestamp => "[" + start + " TO " + stop+"]"}, :per_page => 100000000)["response"]["docs"].collect(&:id)
