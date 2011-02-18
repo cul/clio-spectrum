@@ -8,9 +8,17 @@ namespace :solr do
 
       timecode = DateTime.now.strftime("%y%m%d%H%M%S")
       final_dir_name = "tmp/extracts/" + timecode 
-      system("scp deployer@taft.cul.columbia.edu:/opt/dumps/newbooks* " + temp_dir_name + "/")
+      if system("scp deployer@taft.cul.columbia.edu:/opt/dumps/newbooks* " + temp_dir_name + "/")
+        puts_and_log("Download successful.", :debug)
+      else
+        puts_and_log("Download unsucessful")
+        raise "Download unsuccessful."
+      end
 
-      system("gunzip " + temp_dir_name + "/newbooks.mrc.gz")
+      
+      raise "gunzip unsuccessful" unless  system("gunzip " + temp_dir_name + "/newbooks.mrc.gz")
+        
+        
       FileUtils.rm_f(temp_dir_name + "/*.gz")
       FileUtils.mv(temp_dir_name , final_dir_name)
       FileUtils.ln_s(timecode, "tmp/extracts/latest", :force => true)
@@ -31,11 +39,12 @@ namespace :solr do
         stop = ENV["STOP_TIME"] || "NOW"
 
         ids = solr_find_ids_by_timespan(start, stop) 
-        puts "#{ids.length} found from #{start} TO #{stop}"
 
-        unless ENV["DRY_RUN"]
+        if ENV["DRY_RUN"]
+          puts_and_log "DRY RUN: #{ids.length} found from #{start} TO #{stop} would have been deleted"
+        else
           solr_delete_ids(ids)
-          puts "and deleted"
+          puts_and_log "#{ids.length} found from #{start} TO #{stop} deleted"
         end
       end
     end
@@ -45,23 +54,50 @@ namespace :solr do
 
   desc "download and ingest latest newbooks file" 
   task :ingest => :environment do
-    time_start = Time.now
-    Rake::Task["solr:ingest:download"].execute
-    marc_file = "tmp/extracts/latest/newbooks.mrc"
+    env = ENV["RAILS_ENV"] || "development" 
+    config_file = "config/SolrMarc/config-#{env}.properties"
 
-    Rake::Task["solr:marc:index"].reenable
+    if ENV["SKIP_CONFIG_CHECK"]
+      puts_and_log("skipping config check")
+    elsif File.exists?(config_file)
+      puts_and_log("found config file" + config_file)
+    else
+      puts_and_log("Did not find config file " + config_file)
+      raise ("Terminating due to missing config file.")
+    end
+
+
+    time_start = Time.now
+
+    begin
+      Rake::Task["solr:ingest:download"].execute
+      puts_and_log("Downloading successful.")
+    rescue Exception => e
+      puts_and_log("Download task failed to " + e.message)
+      raise "Terminating due to failed download task."
+    end
+
+    marc_file = "tmp/extracts/latest/newbooks.mrc"
     ENV["MARC_FILE"] = marc_file
-    Rake::Task["solr:marc:index"].invoke
+    
+    begin
+      Rake::Task["solr:marc:index"].reenable
+      Rake::Task["solr:marc:index"].invoke
+      puts_and_log ("Indexing succesful.")
+    rescue Exception => e
+      puts_and_log("Indexing  task failed to " + e.message)
+      raise "Terminating due to failed ingest task."
+    end
 
     ids_to_delete = solr_find_ids_by_timespan("*", time_start.utc.iso8601)
-    puts ids_to_delete.length.to_s + " ids to delete"
-    # solr_delete_ids(ids_to_delete)
+    puts_and_log(ids_to_delete.length.to_s + " ids to delete")
+    solr_delete_ids(ids_to_delete)
   end
 
 
 end
 
-def log_and_put(msg, level = :info)
+def puts_and_log(msg, level = :info)
   puts level.to_s + ": " + msg.to_s
   if defined?(RAILS_DEFAULT_LOGGER)
     RAILS_DEFAULT_LOGGER.send(level, msg)
