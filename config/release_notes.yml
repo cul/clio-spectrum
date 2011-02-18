@@ -1,4 +1,9 @@
 versions:
+  - version: "2.1.7"
+    release_date: "Feb 18, 2011"
+    fixed:
+      - Added more safeguards/logging for nightly update.
+      - Added last three versions to homepage.
   - version: "2.1.6"
     release_date: "Feb 17, 2011"
     fixed: 

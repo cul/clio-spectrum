@@ -91,7 +91,7 @@ namespace :solr do
 
     ids_to_delete = solr_find_ids_by_timespan("*", time_start.utc.iso8601)
     puts_and_log(ids_to_delete.length.to_s + " ids to delete")
-    solr_delete_ids(ids_to_delete)
+    solr_delete_ids(ids_to_delete) unless ids_to_delete.empty?
   end
 
 

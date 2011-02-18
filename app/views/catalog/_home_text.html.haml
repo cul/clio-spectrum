@@ -5,7 +5,7 @@
 
 - release_notes = YAML::load_file("config/release_notes.yml")
 
-- if (release = release_notes["versions"].first)
+- release_notes["versions"][0,2].each do |release|
   %h3 Version #{release["version"]} (#{release["release_date"]})
   %ul
     - release["fixed"].each do |fix|
