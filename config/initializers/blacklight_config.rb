@@ -140,8 +140,6 @@ Blacklight.configure(:shared) do |config|
       "author_vern_display",
       "format",
       "language_facet",
-      "published_display",
-      "published_vern_display",
       "lc_callnum_display",
       "location_display"
     ],
@@ -152,8 +150,6 @@ Blacklight.configure(:shared) do |config|
       "author_vern_display"     => "Author:",
       "format"                  => "Format:",
       "language_facet"          => "Language:",
-      "published_display"       => "Published:",
-      "published_vern_display"  => "Published:",
       "clio_id_display"         => "Clio ID:",
       "lc_callnum_display"      => "Call number:",
       "location_display"        => "Location:"
@@ -175,6 +171,7 @@ Blacklight.configure(:shared) do |config|
       "language_facet",
       "published_display",
       "published_vern_display",
+      "pub_date",
       "lc_callnum_display",
       "isbn_t",
       "subject_topic_facet"
@@ -191,6 +188,7 @@ Blacklight.configure(:shared) do |config|
       "language_facet"          => "Language:",
       "published_display"       => "Published:",
       "published_vern_display"  => "Published:",
+      "pub_date"                => "Publication Date: ",
       "lc_callnum_display"      => "Call number:",
       "isbn_t"                  => "ISBN:",
       "subject_topic_facet"     => "Topics:"
