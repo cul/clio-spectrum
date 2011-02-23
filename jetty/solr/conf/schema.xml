@@ -111,7 +111,7 @@
     <field name="pub_date" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="acq_date" type="string" stored="true"/>
     <field name="acq_date_facet" type="string" indexed="true" stored="true" multiValued="true" />
-
+    <field name="new_format" type="string" indexed="true" stored="true" multiValued="true"/> 
     <field name="url_detail_note" type="string" indexed="false" stored="true" multiValued="true"/>
     <field name="url_detail" type="string" indexed="false" stored="true" multiValued="true"/>
     
