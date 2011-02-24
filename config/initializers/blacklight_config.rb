@@ -52,9 +52,9 @@ Blacklight.configure(:shared) do |config|
   
   ##############################
   
+
   
-  config[:default_qt] = "search"
-  
+
 
   # solr field values given special treatment in the show (single result) view
   config[:show] = {
@@ -66,7 +66,6 @@ Blacklight.configure(:shared) do |config|
   # solr fld values given special treatment in the index (search results) view
   config[:index] = {
     :show_link => "title_display",
-    :num_per_page => 10,
     :record_display_type => "format"
   }
 
@@ -238,8 +237,7 @@ Blacklight.configure(:shared) do |config|
   config[:search_fields] << {
     :key =>'author',     
     :solr_parameters => {
-      :"spellcheck.dictionary" => "author", 
-      :"qt" => "author_search" 
+      :"spellcheck.dictionary" => "author" 
     },
     :solr_local_parameters => {
       :qf => "$author_qf",
