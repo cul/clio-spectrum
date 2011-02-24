@@ -238,7 +238,8 @@ Blacklight.configure(:shared) do |config|
   config[:search_fields] << {
     :key =>'author',     
     :solr_parameters => {
-      :"spellcheck.dictionary" => "author" 
+      :"spellcheck.dictionary" => "author", 
+      :"qt" => "author_search" 
     },
     :solr_local_parameters => {
       :qf => "$author_qf",

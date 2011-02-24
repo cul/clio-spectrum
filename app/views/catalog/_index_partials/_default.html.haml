@@ -12,10 +12,6 @@
         %dt Author:
         %dd= h author
 
-      - if (pub_date = document.get "pub_date")
-        %dt Published:
-        %dd= h pub_date.listify.join(" , ")
-
       = render :partial => "/catalog/location_and_availability_and_format", :locals => {:document => document}
   .yui-u
     =image_tag("spacer.png", :class => "list_view bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))
