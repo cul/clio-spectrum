@@ -34,10 +34,7 @@ class CatalogController < ApplicationController
   
   # get single document from the solr index
   def show
-    @response, @document = get_solr_response_for_doc_id
-    # @document[:google_books_info] = GoogleBooks.retrieve_book_info(@document)[@document]
-
-
+    @response, @document = get_solr_response_for_doc_id    
     respond_to do |format|
       format.html {setup_next_and_previous_documents}
       
@@ -50,7 +47,7 @@ class CatalogController < ApplicationController
       end
       
     end
-    
+  
     render :layout => "no_sidebar"
   end
   
@@ -103,11 +100,6 @@ class CatalogController < ApplicationController
   end
   # SMS action (this will only be accessed when the SMS link is clicked by a non javascript browser)
   def sms 
-    @response, @documents = get_solr_response_for_field_values("id",params[:id])
-  end
- 
-
-  def print 
     @response, @documents = get_solr_response_for_field_values("id",params[:id])
   end
   # grabs a bunch of documents to export to endnote

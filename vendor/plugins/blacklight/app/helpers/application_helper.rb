@@ -132,13 +132,21 @@ module ApplicationHelper
     return html
   end
 
+  def render_opensearch_response_metadata
+    render :partial => 'catalog/opensearch_response_metadata'
+  end
+
   def render_body_class
-    ['blacklight-' + @controller.controller_name, 'blacklight-' + [@controller.controller_name, @controller.action_name].join('-')].join " "
+    extra_body_classes.join " "
   end
   
   # collection of items to be rendered in the @sidebar
   def sidebar_items
     @sidebar_items ||= []
+  end
+
+  def extra_body_classes
+    @extra_body_classes ||= ['blacklight-' + @controller.controller_name, 'blacklight-' + [@controller.controller_name, @controller.action_name].join('-')]
   end
   
   #
@@ -167,8 +175,23 @@ module ApplicationHelper
     render :partial=>'catalog/document_list'
   end
 
-  def render_document_functions_partial document=@document, options={}
-    render :partial=>'catalog/document_functions', :locals => {:document => document }
+  
+  # Save function area for search results 'index' view, normally
+  # renders next to title. Includes just 'Folder' by default.
+  def render_index_doc_actions(document, options={})   
+    content_tag("div", :class=>"documentFunctions") do
+      "#{render(:partial => 'bookmark_control', :locals => {:document=> document}.merge(options))}
+       #{render(:partial => 'folder_control', :locals => {:document=> document}.merge(options))}"
+    end
+  end
+  
+  # Save function area for item detail 'show' view, normally
+  # renders next to title. By default includes 'Folder' and 'Bookmarks'
+  def render_show_doc_actions(document=@document, options={})
+    content_tag("div", :class=>"documentFunctions") do
+      "#{render(:partial => 'bookmark_control', :locals => {:document=> document}.merge(options))}
+       #{render(:partial => 'folder_control', :locals => {:document=> document}.merge(options))}"
+    end
   end
   
   # used in the catalog/_index_partials/_default view
@@ -396,9 +419,9 @@ module ApplicationHelper
   
   def render_document_index_label doc, opts
     label = nil
-    label ||= doc.get(opts[:label]) if opts[:label].kind_of? Symbol
-    label ||= opts[:label] if opts[:label].kind_of? String
-    label ||= opts[:label].call(doc, opts) if opts[:label].kind_of? Proc
+    label ||= doc.get(opts[:label]) if opts[:label].instance_of? Symbol
+    label ||= opts[:label] if opts[:label].instance_of? String
+    label ||= opts[:label].call(doc, opts) if opts[:label].instance_of? Proc
     label ||= doc.id
   end
 

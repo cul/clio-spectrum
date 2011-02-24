@@ -9,16 +9,17 @@ namespace :blacklight do
     cp_r Dir[from], to
   end
   
+  # task to clean out old, unsaved searches
+  # rake blacklight:delete_old_searches[days_old]
+  # example cron entry to delete searches older than 7 days at 2:00 AM every day: 
+  # 0 2 * * * cd /path/to/your/app && /path/to/rake blacklight:delete_old_searches[7] RAILS_ENV=your_env
+  task :delete_old_searches, :days_old, :needs => :environment do |t, args|
+    Search.delete_old_searches(args[:days_old].to_i)
+  end
+
 end
 
 # Rake tasks for Blacklight plugin
-
-desc "Runs db:migrate then spec for Cruise Control."
-task :ccspec => ["db:migrate:reset", "solr:spec"]
-
-desc "Runs db:migrate then features for Cruise Control."
-task :ccfeatures => ["db:migrate:reset", "solr:features"]
-
 
 # if you would like to see solr startup messages on STDERR
 # when starting solr test server during functional tests use:
@@ -56,4 +57,14 @@ namespace :solr do
     end
     raise "test failures: #{error}" if error
   end
+  
+  desc "Runs all features and specs"
+  task :all do
+    error = TestSolrServer.wrap(SOLR_PARAMS) do
+      Rake::Task["rake:spec"].invoke
+      Rake::Task["cucumber:all"].invoke
+    end
+    raise "test failures: #{error}" if error
+  end
+  
 end

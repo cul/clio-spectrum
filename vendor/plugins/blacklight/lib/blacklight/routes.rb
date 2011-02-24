@@ -3,7 +3,7 @@ module Blacklight::Routes
   def self.build map
     
     # Login, Logout, UserSessions
-    map.resource :user_sessions, :protocol => ((defined?(SSL_ENABLED) and SSL_ENABLED) ? 'https' : 'http')
+    map.resources :user_sessions, :protocol => ((defined?(SSL_ENABLED) and SSL_ENABLED) ? 'https' : 'http')
     map.login "login", :controller => "user_sessions", :action => "new"
     map.logout "logout", :controller => "user_sessions", :action => "destroy"
 
@@ -24,14 +24,14 @@ module Blacklight::Routes
       # /catalog/:id/availability
       :member=>{:image=>:get, :status=>:get, :availability=>:get, :librarian_view=>:get},
       # /catalog/map
-      :collection => {:map => :get, :opensearch=>:get, :print => :get, :citation=>:get, :email=>:get, :sms=>:get, :endnote=>:get, :send_email_record=>:post}
+      :collection => {:map => :get, :opensearch=>:get, :citation=>:get, :email=>:get, :sms=>:get, :endnote=>:get, :send_email_record=>:post}
     )
     
 
     map.feedback 'feedback', :controller=>'feedback', :action=>'show'
     map.feedback_complete 'feedback/complete', :controller=>'feedback', :action=>'complete'
     
-    map.resources :folder, :only => [:index, :create, :destroy], :collection => {:clear => :delete }
+    map.resources :folder, :only => [:index, :update, :destroy], :collection => {:clear => :delete }
     
   end
   

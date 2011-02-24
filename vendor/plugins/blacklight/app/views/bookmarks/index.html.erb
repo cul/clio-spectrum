@@ -9,31 +9,7 @@
   <h2>You have no bookmarks</h2>
   
 <%- else -%>
-
-
-  <% sidebar_items << capture do %>	  
-	  <h3>Search your Bookmarks</h3>
-	  <% form_tag bookmarks_path, :method=>:get do %>
-	    <%= text_field_tag 'q', params[:q] %>
-      <%= submit_tag 'find', :name=>:a %>
-		<% end %>
-	
-		<h3>Bookmark Tags</h3>
-	
-		<% @tags=current_user.bookmarks.tag_counts %>
-	
-		<% tag_cloud @tags, %w(tagCloud1 tagCloud2 tagCloud3 tagCloud4) do |tag, css_class| %>
-			<%= link_to h(tag.name), "#{collection_path}?tag=#{h(tag.name)}", :class=>css_class %>
-		<% end %>
-	
-	<% end %>
-	<% # END OF SIDEBAR CAPTURE -%>
   
-	<% if params[:tag] %>
-	  Showing "<%= h params[:tag] %>" tagged items.
-	  Show <%= link_to 'all', bookmarks_path %>.
-	<% end %>
-
 	<%= will_paginate(@bookmarks) %>
 
 	<div id="userBookmarks">
@@ -47,8 +23,7 @@
       <% @bookmarks.each do |bm| %>
     		<tr>
     		  <td><%= link_to h(bm.title), catalog_path(bm.document_id) %></td>
-    			<td><%= link_to 'edit', edit_bookmark_path(bm) %></td>
-    			<td><%= link_to 'remove', bookmark_path(bm), :method => :delete, :confirm => 'Remove this bookmark?' %></td>
+    			<td><%= link_to 'remove', bookmark_path(bm.document_id), :method => :delete, :confirm => 'Remove this bookmark?' %></td>
     		</tr>
     	<% end %>
   	</table>

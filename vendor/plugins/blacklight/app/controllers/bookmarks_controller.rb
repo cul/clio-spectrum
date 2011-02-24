@@ -1,59 +1,86 @@
+# note that while this is mostly restful routing, the #update and #destroy actions
+# take the Solr document ID as the :id, NOT the id of the actual Bookmark action. 
 class BookmarksController < ApplicationController
   
-  # see vendor/plugins/resource_controller/
-  resource_controller
-  
-   # acts_as_taggable_on_steroids plugin
-  helper TagsHelper
   
   before_filter :verify_user
   
-  # overrides the ResourceController collection method
-  # see vendor/plugins/resource_controller/
-  def collection
-    user_id = current_user ? current_user.id : nil
-    assocations = nil
-    conditions = ['user_id = ?', user_id]
-    if params[:a] == 'find' && ! params[:q].blank?
-      q = "%#{params[:q]}%"
-      conditions.first << ' AND (tags.name LIKE ? OR title LIKE ? OR notes LIKE ?)'
-      conditions += [q, q, q]
-      assocations = [:tags]
-    end
-    Bookmark.paginate_by_tag(params[:tag], :per_page => 8, :page => params[:page], :order => 'bookmarks.id ASC', :conditions => conditions, :include => assocations)
-  end
-  
-  update.wants.html { redirect_to :back }
-  
-  def create
-    success = true
-    @bookmarks = params[:bookmarks]
-    if @bookmarks.nil?
-      sucess = current_user.bookmarks.create(params[:bookmark])
+  # Beware, :id is the Solr document_id, not the actual Bookmark id.
+  # idempotent, as PUT is supposed to be. 
+  # you can also send a bookmark[title] param, which will be used for simplest case
+  # or fall through display of Bookmark in list. 
+  def update
+    bookmark = current_user.existing_bookmark_for(params[:id])
+    if bookmark
+      #update existing one with new values if present
+      bookmark.attributes = params[:bookmark] if params[:bookmark]
     else
-      @bookmarks.each do |key, bookmark|
-        success = false unless current_user.bookmarks.create(bookmark)
-      end
+      # create new one with values and document_id
+      bookmark = current_user.bookmarks.build(params[:bookmark].merge(:document_id => params[:id]))      
     end
-    if success
-      if @bookmarks.nil? || @bookmarks.size == 1
+    
+    success = bookmark.save
+    
+    unless request.xhr?
+      if bookmark.save
         flash[:notice] = "Successfully added bookmark."
       else
-        flash[:notice] = "Successfully added bookmarks."
+        flash[:error] = "Could not save bookmark."
       end
+      redirect_to :back
     else
-      flash[:error] = "There was a problem adding that bookmark."      
+      #ajaxy request doesn't need a redirect and shouldn't have flash set
+      render :text => "", :status => (success ? "200" : "500" )
+    end    
+  end
+
+  def index
+    @bookmarks = current_user.bookmarks.paginate :page => params[:page]
+  end
+
+  # For adding a single bookmark, suggest use PUT/#update to 
+  # /bookmarks/$docuemnt_id instead.
+  # But this method, accessed via POST to /bookmarks, can be used for
+  # creating multiple bookmarks at once, by posting with keys
+  # such as bookmarks[n][document_id], bookmarks[n][title]. 
+  # It can also be used for creating a single bookmark by including keys
+  # bookmark[title] and bookmark[document_id], but in that case #update
+  # is simpler. 
+  def create
+    @bookmarks = params[:bookmarks] || []
+    @bookmarks << params[:bookmark] if params[:bookmark]
+    
+    success = true
+    @bookmarks.each do |key, bookmark|
+      success = false unless current_user.bookmarks.create(bookmark)
     end
+    if @bookmarks.length > 0 && success
+      flash[:notice] = "Successfully added bookmarks."      
+    elsif @bookmarks.length > 0
+      flash[:error] = "There was a problem adding bookmarks"      
+    end
+    
     redirect_to :back
   end
   
+  # Beware, :id is the Solr document_id, not the actual Bookmark id.
+  # idempotent, as DELETE is supposed to be. 
   def destroy
-    if current_user.bookmarks.delete(Bookmark.find(params[:id]))
-      flash[:notice] = "Successfully removed that bookmark."
+    bookmark = current_user.existing_bookmark_for(params[:id])
+    
+    success = (!bookmark) || current_user.bookmarks.delete(bookmark)
+    
+    unless request.xhr?
+      if success
+        flash[:notice] = "Successfully removed bookmark."
+      else
+        flash[:error] = "Sorry, there was a problem removing the bookmark."
+      end 
+      redirect_to :back
     else
-      flash[:error] = "Couldn't remove that bookmark."
-    end
-    redirect_to :back
+      # ajaxy request needs no redirect and should not have flash set
+      render :text => "", :status => (success ? "200" : "500")
+    end        
   end
   
   def clear    

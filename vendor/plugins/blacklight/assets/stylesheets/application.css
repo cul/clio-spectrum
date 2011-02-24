@@ -241,25 +241,42 @@ font-weight:bold;
   float: right;
 }
 
+/* 'Document functions', Bookmark/Folder. Appear on both results/index and 
+   detail/show views. */
+.documentFunctions { float: right; margin-left: 1em; margin-bottom: 0.5em;}
+.documentFunctions .folder_toggle, .documentFunctions .bookmark_toggle { display: inline; }
+label.toggle_bookmark, label.toggle_folder {
+  /* the ajaxy checkbox for toggle */
+  display: inline-block;
+  min-width: 8.5em;
+  text-align: left;
+  font-weight: inherit;
+  color: inherit;
+}
+label.toggle_folder { min-width: 6em; }
+label.checked { font-weight: bold; }
+
+
 /* Search Results */
-.document {padding: 0.5em 0 0 0; background-color: #fff; border-bottom: 1px dotted #ccc;}
+.document {padding: 0.5em 0 0 0; background-color: #fff; border-bottom: 1px dotted #ccc; clear: both;}
 
 #documents {background-color: #eee; color: #333; margin-top: 1.5em; margin-bottom: 1.5em; }
 #documents .documentHeader {background-color: #fff; padding: 0px;}
-#documents .documentHeader .documentFunctions {text-align:right;}
+
+
 #documents .per_page {padding-right: 5px;}
 
 /* Result List (http://www.quirksmode.org/css/clearing.html) */
-h3.index_title {clear: both; margin: 0px; padding: 0px; width: 460px;}
+h3.index_title { margin: 0px; padding: 0px; }
 
 dl {margin: 0px; padding: 0px;}
-dl.defList {overflow: auto; padding: 0.5em 0;}
+dl.defList {overflow: auto; padding: 0.5em 0; clear: both}
 dl.defList dt {float:left; text-align: right; width: 20%; clear: both; color: #888; margin: 0; padding: 2px 1em 2px 0px;}
 dl.defList dd {float: left; text-align: left; margin: 0; padding: 2px 0; width: 450px;}
 
 /* Individual Result Listing */
+#document {margin-top: 1em;}
 #document h1 {margin: 0px; padding: 0px 0px 1em 0px;}
-#document .deleteFolder, #document .addFolder {float:right;}
 #marc_view {padding:5px; text-align:left;}
 #marc_view .ind1, #marc_view .ind2 {padding:0 5px; display:inline;}
 #marc_view .tag_ind {float:left;}
@@ -313,9 +330,25 @@ ul.tools {margin: 0px; padding: 0px;}
 ul.tools li {display: inline; margin: 0 10px;}
 
 /* Folder Tools */
-ul.folderTools {float:left;list-style-type: none; margin: 0 0 10px; padding:0;}
-ul.folderTools li {float:left; padding:0 20px 0 0;}
+ul.folderTools {
+    -moz-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
+    background-color: #F0F0F0;
+    border-color: #AAAAAA;
+    border-style: solid;
+    border-width: 0 1px 1px 1px;
+    margin: 0;
+    padding: 0.66em;
+}
+ul.folderTools li {
+  display: inline-block;
+  margin: 0 10px;
+}
+ul.folderTools li form { display: inline; }
 ul.folderTools li.refworks form input.submit{display:none;}
+/*ul.folderTools {float:left;list-style-type: none; margin: 0 0 10px; padding:0;}
+ul.folderTools li {float:left; padding:0 20px 0 0;}
+ul.folderTools li.refworks form input.submit{display:none;}*/
 
 
 /* Lightbox */
