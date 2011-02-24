@@ -1,4 +1,13 @@
 versions:
+  - version: "2.2.0"
+    release_date: "Feb 24,2011"
+    fixed:
+      - Upgraded blacklight to 2.7
+      - Reenabled functionality to search by author/title/subject
+      - Added publication date facet
+      - Added publication information
+      - Changed way of determining format
+      - Removed era facet 
   - version: "2.1.8"
     release_date: "Feb 18,2011"
     fixed:
