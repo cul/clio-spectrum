@@ -93,6 +93,8 @@
 
     <!-- these display fields are NOT multi-valued -->
     <field name="marc_display" type="string" indexed="false" stored="true" multiValued="false"/>
+    <field name="publisher_display" type="string" indexed="false" stored="true" multiValued="true"/>
+    <field name="publisher_vern_display" type="string" indexed="false" stored="true" multiValued="true"/>
     <field name="title_display" type="string" indexed="false" stored="true" multiValued="false"/>
     <field name="title_vern_display" type="string" indexed="false" stored="true" multiValued="false"/>
     <field name="subtitle_display" type="string" indexed="false" stored="true" multiValued="true"/>

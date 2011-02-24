@@ -345,6 +345,8 @@
         material_type_display, 
         published_display,
         published_vern_display,
+        publisher_display,
+        pbulisher_vern_display,
         pub_date,
         acq_date,
         title_display,
