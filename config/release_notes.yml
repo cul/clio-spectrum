@@ -3,6 +3,7 @@ versions:
     release_date: "Feb 25,2011"
     fixed:
       - Included publisher information
+      - Fixed phrase searching
   - version: "2.2.0"
     release_date: "Feb 24,2011"
     fixed:
@@ -28,11 +29,8 @@ versions:
       - Automatically ingest data feed every night.
       - Added front page list of current features
 known_issues:
-  - Many videos are displaying as format "unknown"
-  - Phrase searching does not work.
   - Unicode searching does not work.
   - Availability information can be occasionally slow.
 upcoming:
   - Better email/SMS formatting
   - Print functionality
-  - Addition of Publication Date / publisher 
