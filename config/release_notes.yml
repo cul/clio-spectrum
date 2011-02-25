@@ -1,4 +1,8 @@
 versions:
+  - version: "2.2.1"
+    release_date: "Feb 25,2011"
+    fixed:
+      - Included publisher information
   - version: "2.2.0"
     release_date: "Feb 24,2011"
     fixed:
