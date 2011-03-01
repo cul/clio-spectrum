@@ -1,4 +1,8 @@
 versions:
+  - version: "2.2.2"
+    release_date: "Mar 1, 2011"
+    fixed:
+      - Changed publisher to full 260 field.
   - version: "2.2.1"
     release_date: "Feb 25,2011"
     fixed:
