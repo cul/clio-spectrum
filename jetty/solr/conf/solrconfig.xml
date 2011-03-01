@@ -355,6 +355,7 @@
         subject_geo_facet,
         subject_era_facet,
         subtitle_display,
+        full_publisher_display,
         subtitle_vern_display,
         location_holdings_id_display,
         location_display,

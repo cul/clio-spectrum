@@ -1,6 +1,7 @@
 %dt Published:
 %dd
-  = document["pub_date"].to_s + ": " + document["publisher_display"].listify.join(", ").to_s
+  = document["full_publisher_display"].to_s
+
 
 
 - if (urls =  document["url_fulltext_display"])
