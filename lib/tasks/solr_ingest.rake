@@ -85,6 +85,16 @@ namespace :solr do
       raise "Terminating due to failed download task."
     end
 
+    begin
+      Rake::Task["solr:ingest:download:cleanup"].reenable
+      Rake::Task["solr:ingest:download:cleanup"].invoke
+      puts_and_log ("Cleanup succesful.")
+    rescue Exception => e
+      puts_and_log("Cleanup  task failed to " + e.message)
+      raise "Terminating due to failed cleanup task."
+    end
+
+
     marc_file = "tmp/extracts/latest/newbooks.mrc"
     ENV["MARC_FILE"] = marc_file
     
@@ -102,14 +112,6 @@ namespace :solr do
     solr_delete_ids(ids_to_delete) unless ids_to_delete.empty?
   
   
-    begin
-      Rake::Task["solr:ingest:download:cleanup"].reenable
-      Rake::Task["solr:ingest:download:cleanup"].invoke
-      puts_and_log ("Cleanup succesful.")
-    rescue Exception => e
-      puts_and_log("Cleanup  task failed to " + e.message)
-      raise "Terminating due to failed cleanup task."
-    end
   
   end
 
