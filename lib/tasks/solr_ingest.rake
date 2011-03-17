@@ -109,7 +109,12 @@ namespace :solr do
 
     ids_to_delete = solr_find_ids_by_timespan("*", time_start.utc.iso8601)
     puts_and_log(ids_to_delete.length.to_s + " ids to delete")
-    solr_delete_ids(ids_to_delete) unless ids_to_delete.empty?
+    begin
+      solr_delete_ids(ids_to_delete) unless ids_to_delete.empty?
+    rescue Exception => e
+      puts_and_log(" Deleting ids failed due to " + e.message)
+      raise "Terminating due e to failed delete task."
+    end
   
   
   
@@ -131,7 +136,10 @@ def solr_find_ids_by_timespan(start, stop)
 end
 
 def solr_delete_ids(ids)
-  Blacklight.solr.delete_by_id(ids)
-  Blacklight.solr.commit
-  Blacklight.solr.optimize
+  ids = ids.listify
+  unless (to_delete = ids.pop(500)).empty?
+    Blacklight.solr.delete_by_id(to_delete)
+    Blacklight.solr.commit
+    Blacklight.solr.optimize
+  end
 end
