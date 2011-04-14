@@ -24,10 +24,15 @@ Blacklight.configure(:shared) do |config|
   SolrDocument.use_extension( Blacklight::Solr::Document::Marc) do |document|
     document.key?( :marc_display  )
   end
+  # Email uses the semantic fiels mappings below to generate the body of an email.
+  SolrDocument.use_extension( Blacklight::Solr::Document::Email )
+  
+  # SMS uses the semantic fiels mappings below to generate the body of an SMS email.
+  SolrDocument.use_extension( Blacklight::Solr::Document::Sms )
 
   # DublinCore uses the semantic field mappings below to assemble an OAI-compliant Dublin Core document
   SolrDocument.use_extension( Blacklight::Solr::Document::DublinCore)
-    
+      
   # Semantic mappings of solr stored fields. Fields may be multi or
   # single valued. See Blacklight::Solr::Document::ExtendableClassMethods#field_semantics
   # and Blacklight::Solr::Document#to_semantic_values
@@ -35,7 +40,8 @@ Blacklight.configure(:shared) do |config|
   SolrDocument.field_semantics.merge!(    
     :title => "title_display",
     :author => "author_display",
-    :language => "language_facet"  
+    :language => "language_facet",
+    :format => "format"
   )
         
   
@@ -100,7 +106,7 @@ Blacklight.configure(:shared) do |config|
     # sniffing requires solr requests to be made with "echoParams=all", for
     # app code to actually have it echo'd back to see it.     
     :limits => {
-      "subject_facet" => 20,
+      "subject_topic_facet" => 20,
       "language_facet" => true
     }
   }
@@ -259,5 +265,13 @@ Blacklight.configure(:shared) do |config|
   # If there are more than this many search results, no spelling ("did you 
   # mean") suggestion is offered.
   config[:spell_max] = 5
+
+  # Add documents to the list of object formats that are supported for all objects.
+  # This parameter is a hash, identical to the Blacklight::Solr::Document#export_formats 
+  # output; keys are format short-names that can be exported. Hash includes:
+  #    :content-type => mime-content-type
+  config[:unapi] = {
+    'oai_dc_xml' => { :content_type => 'text/xml' } 
+  }
 end
 

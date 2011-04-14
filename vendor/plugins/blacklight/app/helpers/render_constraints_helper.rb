@@ -11,17 +11,17 @@ module RenderConstraintsHelper
   # Render actual constraints, not including header or footer
   # info. 
   def render_constraints(localized_params = params)
-    render_constraints_query(localized_params) + render_constraints_filters(localized_params)
+    (render_constraints_query(localized_params) + render_constraints_filters(localized_params)).html_safe
   end
   
   def render_constraints_query(localized_params = params)
     # So simple don't need a view template, we can just do it here.
     if (!localized_params[:q].blank?)
       label = 
-        if (params[:search_field] == Blacklight.default_search_field[:key] or params[:search_field].blank? )
+        if (localized_params[:search_field] == Blacklight.default_search_field[:key] or localized_params[:search_field].blank? )
           nil
         else
-          Blacklight.label_for_search_field(params[:search_field])
+          Blacklight.label_for_search_field(localized_params[:search_field])
         end
     
       render_constraint_element(label,
@@ -29,12 +29,12 @@ module RenderConstraintsHelper
             :classes => ["query"], 
             :remove => catalog_index_path(localized_params.merge(:q=>nil, :action=>'index')))
     else
-      ""
+      "".html_safe
     end
   end
 
   def render_constraints_filters(localized_params = params)
-     return "" unless localized_params[:f]
+     return "".html_safe unless localized_params[:f]
      content = ""
      localized_params[:f].each_pair do |facet,values|
         values.each do |val|
@@ -46,7 +46,7 @@ module RenderConstraintsHelper
 				end
      end 
 
-     return content    
+     return content.html_safe    
   end
 
   # Render a label/value constraint on the screen. Can be called
@@ -81,7 +81,7 @@ module RenderConstraintsHelper
   end
 
   def render_search_to_s_q(params)
-    return "" if params[:q].blank?
+    return "".html_safe if params[:q].blank?
     
     label = (params[:search_field] == Blacklight.default_search_field[:key]) ? 
       nil :
@@ -90,31 +90,31 @@ module RenderConstraintsHelper
     render_search_to_s_element(label , params[:q] )        
   end
   def render_search_to_s_filters(params)
-    return "" unless params[:f]
+    return "".html_safe unless params[:f]
 
     params[:f].collect do |facet_field, value_list|
       render_search_to_s_element(Blacklight.config[:facet][:labels][facet_field],
         value_list.collect do |value|
-          "<span class='filterValue'>#{h(value)}</span>"
-        end.join(" <span class='label'>and</span> "),
-        :escape_value => false
+          render_filter_value(value)
+        end.join(content_tag(:span, 'and', :class =>'label')).html_safe
       )    
-    end.join(" \n ")    
+    end.join(" \n ").html_safe    
   end
 
   # value can be Array, in which case elements are joined with
   # 'and'.   Pass in option :escape_value => false to pass in pre-rendered
   # html for value. key with escape_key if needed.  
   def render_search_to_s_element(key, value, options = {})
-    options[:escape_value] = true unless options.has_key?(:escape_value)
-    options[:escape_key] = true unless options.has_key?(:escape_key)
-    
-    key = h(key) if options[:escape_key]
-    value = h(value) if options[:escape_value]
-    
-     "<span class='constraint'>" +
-     (key.blank? ? "" : "<span class='filterName'>#{key}:</span>")  +
-     "<span class='filterValue'>#{value}</span></span>"
+    content_tag(:span, render_filter_name(key) + render_filter_value(value), :class => 'constraint')
+  end
+
+  def render_filter_name name
+    return "".html_safe if name.blank?
+    content_tag(:span, h(name) + ":", :class => 'filterName')
+  end
+
+  def render_filter_value value
+    content_tag(:span, h(value), :class => 'filterValue')
   end
   
 end

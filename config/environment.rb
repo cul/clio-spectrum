@@ -1,7 +1,7 @@
 # Be sure to restart your server when you modify this file
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.11' unless defined? RAILS_GEM_VERSION
 
 RELEASE_STAMP = '2.2.2'
 
@@ -15,11 +15,11 @@ require "lib/google_books"
 
 Rails::Initializer.run do |config|
   config.plugin_paths += ["#{RAILS_ROOT}/vendor/plugins/blacklight/vendor/plugins"]
-  config.gem 'authlogic', :version => '2.1.2'
   config.gem 'httpclient'
   config.gem "nokogiri"
   config.gem "haml"
   config.gem "unicode"
+  config.gem "rsolr"
   config.gem "compass", :version => ">= 0.10.5"
   config.gem "has_options", :version => ">= 0.4.0"
   # Settings in config/environments/* take precedence over those specified here.

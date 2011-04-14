@@ -16,13 +16,14 @@ class CatalogController < ApplicationController
   # When RSolr::RequestError is raised, the rsolr_request_error method is executed.
   # The index action will more than likely throw this one.
   # Example, when the standard query parser is used, and a user submits a "bad" query.
-  rescue_from RSolr::RequestError, :with => :rsolr_request_error
+  rescue_from RSolr::Error::Http, :with => :rsolr_request_error
   
   # get search results from the solr index
   def index
 
-    extra_head_content << '<link rel="alternate" type="application/rss+xml" title="RSS for results" href="'+ url_for(params.merge("format" => "rss")) + '">'
-    extra_head_content << '<link rel="alternate" type="application/atom+xml" title="Atom for results" href="'+ url_for(params.merge("format" => "atom")) + '">'
+    extra_head_content << @template.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => "RSS for results")
+    extra_head_content << @template.auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => "Atom for results")
+    extra_head_content << @template.auto_discovery_link_tag('application/xml', unapi_url, {:rel => 'unapi-server', :title => 'unAPI' })
     
     (@response, @document_list) = get_search_results
     @filters = params[:f] || []
@@ -35,6 +36,8 @@ class CatalogController < ApplicationController
   
   # get single document from the solr index
   def show
+    extra_head_content << @template.auto_discovery_link_tag('application/xml', unapi_url, {:rel => 'unapi-server', :title => 'unAPI' })
+
     @response, @document = get_solr_response_for_doc_id    
     respond_to do |format|
       format.html {setup_next_and_previous_documents}
@@ -47,6 +50,25 @@ class CatalogController < ApplicationController
         format.send(format_name.to_sym) { render :text => @document.export_as(format_name) }
       end
       
+    end
+  end
+
+  def unapi
+    @export_formats = Blacklight.config[:unapi] || {}
+    @format = params[:format]
+    if params[:id]
+      @response, @document = get_solr_response_for_doc_id
+      @export_formats = @document.export_formats
+    end
+
+    unless @format
+      render 'unapi.xml.builder', :layout => false and return
+    end
+
+    respond_to do |format|
+      format.all do
+        send_data @document.export_as(@format), :type => @document.export_formats[@format][:content_type], :disposition => 'inline' if @document.will_export_as @format
+      end
     end
   end
   
@@ -93,14 +115,65 @@ class CatalogController < ApplicationController
   def citation
     @response, @documents = get_solr_response_for_field_values("id",params[:id])
   end
-  # Email Action (this will only be accessed when the Email link is clicked by a non javascript browser)
+  
+  # Email Action (this will render the appropriate view on GET requests and process the form and send the email on POST requests)
   def email
     @response, @documents = get_solr_response_for_field_values("id",params[:id])
+    if request.post?
+      if params[:to]
+        from = request.host # host w/o port for From address (from address cannot have port#)
+        url_gen_params = {:host => request.host_with_port, :protocol => request.protocol}
+        
+        if params[:to].match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)
+          email = RecordMailer.create_email_record(@documents, {:to => params[:to], :message => params[:message]}, from, url_gen_params)
+        else
+          flash[:error] = "You must enter a valid email address"
+        end
+        RecordMailer.deliver(email) unless flash[:error]
+        redirect_to :back
+      else
+        flash[:error] = "You must enter a recipient in order to send this message"
+      end
+    end
   end
-  # SMS action (this will only be accessed when the SMS link is clicked by a non javascript browser)
+  
+  # SMS action (this will render the appropriate view on GET requests and process the form and send the email on POST requests)
   def sms 
     @response, @documents = get_solr_response_for_field_values("id",params[:id])
+    if request.post?
+      from = request.host # host w/o port for From address (from address cannot have port#)
+      url_gen_params = {:host => request.host_with_port, :protocol => request.protocol}
+      
+      if params[:to]
+        phone_num = params[:to].gsub(/[^\d]/, '')
+        unless params[:carrier].blank?
+          if phone_num.length != 10
+            flash[:error] = "You must enter a valid 10 digit phone number"
+          else
+            email = RecordMailer.create_sms_record(@documents, {:to => phone_num, :carrier => params[:carrier]}, from, url_gen_params)
+          end
+          RecordMailer.deliver(email) unless flash[:error]
+          redirect_to :back
+        else
+          flash[:error] = "You must select a carrier"
+        end
+      else
+        flash[:error] = "You must enter a recipient's phone number in order to send this message"
+      end
+      
+    end
   end
+  
+  # DEPRECATED backwards compatible method that will just redirect to the appropriate action.  It will return a 404 if a bad action is supplied (just in case).
+  def send_email_record
+    warn "[DEPRECATION] CatalogController#send_email_record is deprecated.  Please use the email or sms controller action instead."
+    if ["sms","email"].include?(params[:style])
+      redirect_to :action => params[:style] 
+    else
+      render :template => "public/404.html", :layout => false, :status => 404
+    end
+  end
+  
   # grabs a bunch of documents to export to endnote
   def endnote
     @response, @documents = get_solr_response_for_field_values("id",params[:id])
@@ -112,43 +185,6 @@ class CatalogController < ApplicationController
   def librarian_view
     @response, @document = get_solr_response_for_doc_id
   end
-  
-  # action for sending email.  This is meant to post from the form and to do processing
-  def send_email_record
-    @response, @documents = get_solr_response_for_field_values("id",params[:id])
-    if params[:to]
-      from = request.host # host w/o port for From address (from address cannot have port#)
-      host = request.host
-      host << ":#{request.port}" unless request.port.nil? # host w/ port for linking
-      case params[:style]
-        when 'sms'
-          if !params[:carrier].blank?
-            if params[:to].length != 10
-              flash[:error] = "You must enter a valid 10 digit phone number"
-            else
-              email = RecordMailer.create_sms_record(@documents, {:to => params[:to], :carrier => params[:carrier]}, from, host)
-            end
-          else
-            flash[:error] = "You must select a carrier"
-          end
-        when 'email'
-          if params[:to].match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)
-            email = RecordMailer.create_email_record(@documents, {:to => params[:to], :message => params[:message]}, from, host)
-          else
-            flash[:error] = "You must enter a valid email address"
-          end
-      end
-      RecordMailer.deliver(email) unless flash[:error]
-      if @documents.size == 1
-        redirect_to catalog_path(@documents.first[:id])
-      else
-        redirect_to folder_index_path
-      end
-    else
-      flash[:error] = "You must enter a recipient in order to send this message"
-    end
-  end
-
   
   protected
   

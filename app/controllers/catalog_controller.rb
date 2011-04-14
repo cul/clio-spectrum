@@ -1,3 +1,4 @@
+
 class CatalogController < ApplicationController
   include Blacklight::SolrHelper
 
