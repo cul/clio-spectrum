@@ -34,8 +34,7 @@
               = (counter + 1 + @response.params[:start].to_i).to_s + "."
               = link_to_document document, :label=>document_show_link_field, :counter => (counter + 1 + @response.params[:start].to_i)
           .yui-u.documentFunctions
-            = render :partial=>'bookmark_control', :locals=>{:document=>document}
-            = render :partial=>'folder_control', :locals =>{:document=> document, :display =>'button'}
+            = render_index_doc_actions document
             
           
         = render_document_partial document, :index

@@ -14,6 +14,7 @@
       .yui-u
         #show_folder_control
           = render :partial=>'folder_control', :locals=>{:document=>@document} 
+          -#= render_show_doc_actions @document 
           
     .document
       = render_document_partial @document, :show 

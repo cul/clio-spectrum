@@ -1,3 +1,3 @@
-module FolderHelper 
+module FolderHelper
   include CatalogHelper
 end

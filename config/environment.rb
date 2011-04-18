@@ -47,7 +47,7 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 
   config.action_controller.session = {
-    :session_key => "_clio_new_arrivals_session",
+    :key => "_clio_new_arrivals_session",
     :secret => "341374jf209d23ud032jd09j3g28945jsdflkjsr8290334uf"
   }
 
