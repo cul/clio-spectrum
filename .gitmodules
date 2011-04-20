@@ -2,3 +2,6 @@
 	path = vendor/plugins/blacklight
 	url = git@github.com:tastyhat/blacklight.git
   branch = compass
+[submodule "jetty"]
+	path = jetty
+	url = https://github.com/projectblacklight/blacklight-jetty
