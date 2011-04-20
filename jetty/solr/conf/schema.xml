@@ -245,10 +245,6 @@
     <field name="marc_display" type="string" indexed="false" stored="true" multiValued="false"/>
     <field name="title_display" type="string" indexed="false" stored="true" multiValued="false"/>
     <field name="title_vern_display" type="string" indexed="false" stored="true" multiValued="false"/>
-    <field name="subtitle_display" type="string" indexed="false" stored="true" multiValued="false"/>
-    <field name="subtitle_vern_display" type="string" indexed="false" stored="true" multiValued="false"/>
-    <field name="author_display" type="string" indexed="false" stored="true" multiValued="false"/>
-    <field name="author_vern_display" type="string" indexed="false" stored="true" multiValued="false"/>
 
     <!-- these fields are also used for display, so they must be stored -->
     <field name="isbn_t" type="text" indexed="true" stored="true" multiValued="true"/>
