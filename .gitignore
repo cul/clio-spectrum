@@ -20,4 +20,5 @@ jetty/solr/*data/*
 coverage/*
 db/*.sqlite3
 *.tmproj
+.rvmrc
 *.sw?

@@ -62,11 +62,11 @@ body.blank_layout {
 }
 /* line 10, ../../../app/stylesheets/application.sass */
 .location_popup .location_sidebar .even {
-  background-color: #ffffff;
+  background-color: "#ffffff";
 }
 /* line 12, ../../../app/stylesheets/application.sass */
 .location_popup .location_sidebar .odd {
-  background-color: #f0f0f0;
+  background-color: "#f0f0f0";
 }
 /* line 65, ../../../app/stylesheets/application.sass */
 .location_popup .day_listing {
