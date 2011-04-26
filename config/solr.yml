@@ -2,11 +2,11 @@ development:
     url: http://harding.cul.columbia.edu:8080/solr-1.5/na_experiment
 test: &TEST
     url: http://127.0.0.1:8983/solr
-pass_dev:
+passenger_dev:
     url: http://harding.cul.columbia.edu:8080/solr-1.5/na_experiment
-pass_test:
+passenger_test:
     url: http://harding.cul.columbia.edu:8080/solr-1.5/na_experiment
-pass_prod:
+passenger_prod:
     url: http://harding.cul.columbia.edu:8080/solr-1.5/na_experiment
 cucumber:
     <<: *TEST
