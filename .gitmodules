@@ -1,4 +1,4 @@
 [submodule "vendor/plugins/blacklight"]
-	path = vendor/plugins/blacklight
+  path = vendor/plugins/blacklight
   branch = master
   url = git@github.com:tastyhat/blacklight.git
