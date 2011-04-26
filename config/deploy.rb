@@ -7,6 +7,7 @@ default_run_options[:pty] = true
 
 set :scm, :git
 set :git_enable_submodules, 1
+set :deploy_via, :remote_cache
 set :repository,  "git@github.com:tastyhat/cul-blacklight-new_books.git"
 set :use_sudo, false
 
