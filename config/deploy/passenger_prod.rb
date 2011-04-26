@@ -1,9 +1,9 @@
-set :rails_env, "pass_prod"
+set :rails_env, "passenger_prod"
 set :application, "new_arrivals_prod"
 set :domain,      "brahms.cul.columbia.edu"
 set :deploy_to,   "/opt/passenger/#{application}/"
 set :user, "deployer"
-set :branch, @variables[:branch] || "brahms_prod"
+set :branch, @variables[:branch] || "passenger_prod"
 set :scm_passphrase, ""
 
 role :app, domain

@@ -1,10 +1,10 @@
 set :default_stage, "pass_dev"
-set :stages, %w(pass_dev pass_test pass_prod)
-set :application, "new_arrivals"
+set :stages, %w(passenger_dev passenger_test passenger_prod)
 
 require 'capistrano/ext/multistage'
 default_run_options[:pty] = true
 
+set :application, "new_arrivals"
 set :scm, :git
 set :git_enable_submodules, 1
 set :deploy_via, :remote_cache
