@@ -10,7 +10,7 @@
               .fake_label= link_to_document document, :label=> document["title_display"].to_s.abbreviate(40), :counter => counter_start
 
             .gbs_cover
-              .gbs_thumbnail= link_to_document document, :label => image_tag("spacer.png", :class => ("grid_bookjacket bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))), :counter => counter_start
+              .gbs_thumbnail= link_to image_tag("spacer.png", :class => ("grid_bookjacket bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))), {:controller => :catalog, :action => :show, :id => document.id}
 
        
           .info
@@ -34,7 +34,8 @@
               = (counter + 1 + @response.params[:start].to_i).to_s + "."
               = link_to_document document, :label=>document_show_link_field, :counter => (counter + 1 + @response.params[:start].to_i)
           .yui-u.documentFunctions
-            = render_index_doc_actions document
+            = render :partial=>'bookmark_control', :locals=>{:document=>document}
+            = render :partial=>'folder_control', :locals =>{:document=> document, :display =>'button'}
             
           
         = render_document_partial document, :index
@@ -44,3 +45,4 @@
 = render :partial => "google_books_check", :locals => {:documents => @response.docs }
 
 = render :partial => "holdings_check", :locals => {:documents => @response.docs}
+

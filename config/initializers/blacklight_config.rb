@@ -24,37 +24,36 @@ Blacklight.configure(:shared) do |config|
   SolrDocument.use_extension( Blacklight::Solr::Document::Marc) do |document|
     document.key?( :marc_display  )
   end
+  # Email uses the semantic fiels mappings below to generate the body of an email.
+  SolrDocument.use_extension( Blacklight::Solr::Document::Email )
+  
+  # SMS uses the semantic fiels mappings below to generate the body of an SMS email.
+  SolrDocument.use_extension( Blacklight::Solr::Document::Sms )
 
+  # DublinCore uses the semantic field mappings below to assemble an OAI-compliant Dublin Core document
+  SolrDocument.use_extension( Blacklight::Solr::Document::DublinCore)
+      
+  # Semantic mappings of solr stored fields. Fields may be multi or
+  # single valued. See Blacklight::Solr::Document::ExtendableClassMethods#field_semantics
+  # and Blacklight::Solr::Document#to_semantic_values
+  # Recommendation: Use field names from Dublin Core
   SolrDocument.field_semantics.merge!(    
     :title => "title_display",
     :author => "author_display",
-    :language => "language_facet"  
+    :language => "language_facet",
+    :format => "format"
   )
-
-
+        
   
+  ##############################
+
   config[:default_solr_params] = {
     :qt => "search",
     :per_page => 15 
   }
   
   
-
-  # Semantic mappings of solr stored fields. Fields may be multi or
-  # single valued. See Blacklight::Solr::Document::ExtendableClassMethods#field_semantics
-  # and Blacklight::Solr::Document#to_semantic_values
-  SolrDocument.field_semantics.merge!(    
-    :title => "title_display",
-    :author => "author_display",
-    :language => "language_facet"  
-  )
-        
   
-  ##############################
-  
-
-  
-
 
   # solr field values given special treatment in the show (single result) view
   config[:show] = {
@@ -83,7 +82,7 @@ Blacklight.configure(:shared) do |config|
       "language_facet",
       "lc_1letter_facet",
       "subject_geo_facet",
-      "location_facet"
+      "location_facet",
   ]),
     :labels => {
       "format"              => "Format",
@@ -93,7 +92,7 @@ Blacklight.configure(:shared) do |config|
       "language_facet"      => "Language",
       "lc_1letter_facet"    => "Call Number",
       "subject_geo_facet"   => "Region",
-      "location_facet" => "Location"
+      "location_facet" => "Location",
     },
     # Setting a limit will trigger Blacklight's 'more' facet values link.
     # * If left unset, then all facet values returned by solr will be displayed.
@@ -118,13 +117,10 @@ Blacklight.configure(:shared) do |config|
       "subject_geo_facet" => 10,
       "location_facet" => 10
     }
+    
+    
+    
   }
-
-  # Have BL send all facet field names to Solr, which has been the default
-  # previously. Simply remove these lines if you'd rather use Solr request
-  # handler defaults, or have no facets.
-  config[:default_solr_params] ||= {}
-  config[:default_solr_params][:"facet.field"] = facet_fields
 
   # solr fields to be displayed in the index (search results) view
   #   The ordering of the field names is the order of the display 
@@ -190,7 +186,8 @@ Blacklight.configure(:shared) do |config|
   }
 
 
-  
+
+
   # "fielded" search configuration. Used by pulldown among other places.
   # For supported keys in hash, see rdoc for Blacklight::SearchFields
   #
@@ -258,7 +255,6 @@ Blacklight.configure(:shared) do |config|
     }
   }
   
-  
   # "sort results by" select (pulldown)
   # label in pulldown is followed by the name of the SOLR field to sort by and
   # whether the sort is ascending or descending (it must be asc or desc
@@ -269,10 +265,17 @@ Blacklight.configure(:shared) do |config|
   config[:sort_fields] << ['year', 'pub_date_sort desc, title_sort asc']
   config[:sort_fields] << ['author', 'author_sort asc, title_sort asc']
   config[:sort_fields] << ['title', 'title_sort asc, pub_date_sort desc']
-
-
+  
   # If there are more than this many search results, no spelling ("did you 
   # mean") suggestion is offered.
   config[:spell_max] = 5
+
+  # Add documents to the list of object formats that are supported for all objects.
+  # This parameter is a hash, identical to the Blacklight::Solr::Document#export_formats 
+  # output; keys are format short-names that can be exported. Hash includes:
+  #    :content-type => mime-content-type
+  config[:unapi] = {
+    'oai_dc_xml' => { :content_type => 'text/xml' } 
+  }
 end
 

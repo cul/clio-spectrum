@@ -17,11 +17,15 @@ Rails::Initializer.run do |config|
   config.plugin_paths += ["#{RAILS_ROOT}/vendor/plugins/blacklight/vendor/plugins"]
   config.gem 'httpclient'
   config.gem "nokogiri"
-  config.gem "haml"
+  config.gem "haml", :version => '~> 3.1.0'
   config.gem "unicode"
-  config.gem "rsolr"
-  config.gem "compass", :version => ">= 0.10.5"
+  config.gem "rsolr", :version => '~> 1.0.0'
+  config.gem 'rsolr-ext', :version => '~> 1.0.0'
+  config.gem "compass", :version => "~> 0.11.0"
   config.gem "has_options", :version => ">= 0.4.0"
+  config.gem "mysql"  # for connecting to hours db
+
+
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
