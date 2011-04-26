@@ -1,12 +1,13 @@
-set :default_stage, "taft_dev"
-set :stages, %w(rameau_prod taft_dev taft_test)
+set :default_stage, "pass_dev"
+set :stages, %w(pass_dev pass_test pass_prod)
+set :application, "new_arrivals"
 
 require 'capistrano/ext/multistage'
 default_run_options[:pty] = true
 
 set :scm, :git
+set :git_enable_submodules, 1
 set :repository,  "git@github.com:tastyhat/cul-blacklight-new_books.git"
-set :application, "newbooks"
 set :use_sudo, false
 
 namespace :deploy do
@@ -21,6 +22,7 @@ namespace :deploy do
     run "ln -nfs #{deploy_to}shared/app_config.yml #{release_path}/config/app_config.yml"
    
   end
+
 
 end
 

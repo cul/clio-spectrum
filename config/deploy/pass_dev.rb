@@ -1,9 +1,9 @@
-set :rails_env, "taft_test"
-set :application, "newbooks_test"
-set :domain,      "taft.cul.columbia.edu"
+set :rails_env, "pass_dev"
+set :application, "new_arrivals_dev"
+set :domain,      "rowling.cul.columbia.edu"
 set :deploy_to,   "/opt/passenger/#{application}/"
 set :user, "deployer"
-set :branch, @variables[:branch] || "taft_test"
+set :branch, @variables[:branch] || "pass_dev"
 set :scm_passphrase, "Current user can full owner domains."
 
 role :app, domain
