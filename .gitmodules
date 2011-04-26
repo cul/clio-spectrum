@@ -2,3 +2,6 @@
 	path = vendor/plugins/blacklight
 	url = git@github.com:tastyhat/blacklight.git
   branch = compass
+[submodule "vendor/plugins/blacklight_facet_extras"]
+	path = vendor/plugins/blacklight_facet_extras
+	url = https://github.com/cbeer/blacklight_facet_extras.git

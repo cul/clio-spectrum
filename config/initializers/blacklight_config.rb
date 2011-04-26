@@ -83,8 +83,6 @@ Blacklight.configure(:shared) do |config|
       "lc_1letter_facet",
       "subject_geo_facet",
       "location_facet",
-      "timestamp_query",
-      "acq_query"
   ]),
     :labels => {
       "format"              => "Format",
@@ -95,7 +93,6 @@ Blacklight.configure(:shared) do |config|
       "lc_1letter_facet"    => "Call Number",
       "subject_geo_facet"   => "Region",
       "location_facet" => "Location",
-      "timestamp_query" => "Timestamp:"
     },
     # Setting a limit will trigger Blacklight's 'more' facet values link.
     # * If left unset, then all facet values returned by solr will be displayed.
@@ -119,15 +116,10 @@ Blacklight.configure(:shared) do |config|
       "lc_1letter_facet" => 26,
       "subject_geo_facet" => 10,
       "location_facet" => 10
-    },
-    :query => {
-"timestamp_query" => { 
-       'this week' => 'timestamp:[NOW-7DAY TO *]',
-       'this month' => 'timestamp:[NOW-1MONTH TO *]'
-     }
-    
-    
     }
+    
+    
+    
   }
 
   # solr fields to be displayed in the index (search results) view
