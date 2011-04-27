@@ -7,7 +7,7 @@ passenger_dev:
 passenger_test:
     url: http://harding.cul.columbia.edu:8080/solr-1.5/na_experiment
 passenger_prod:
-    url: http://harding.cul.columbia.edu:8080/solr-1.5/na_experiment
+    url: http://harding.cul.columbia.edu:8080/solr-1.5/na_master
 cucumber:
     <<: *TEST
 
