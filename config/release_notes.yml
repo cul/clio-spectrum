@@ -1,4 +1,9 @@
 versions:
+  - version: "2.4.1"
+    release_date: "Apr 28,2011"
+    fixed:
+      - Feedback form fixed.
+      - Location facet reenabled.
   - version: "2.4.0"
     release_date: "Apr 25,2011"
     fixed:

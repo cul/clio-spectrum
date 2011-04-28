@@ -5,8 +5,8 @@
     %title= h(@page_title || application_name)
     %link{:href => url_for(:controller=>'catalog',:action => 'opensearch'), :format => 'xml', :only_path => false, :rel => "search", :title => application_name, :type => "application/opensearchdescription+xml"}/
     = csrf_meta_tag
-    = javascript_include_tag "jquery_snippet.js"
     = render_head_content
+    = javascript_include_tag "jquery_snippet.js"
     = stylesheet_link_tag "compiled/application"
     %script{:src => "https://www.google.com/jsapi", :type => "text/javascript"}
     = javascript_include_tag "application"
