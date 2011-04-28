@@ -50,12 +50,8 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 
-  config.action_controller.session = {
-    :key => "_clio_new_arrivals_session",
-    :secret => "341374jf209d23ud032jd09j3g28945jsdflkjsr8290334uf"
-  }
 
-  config.logger = Logger.new(File.dirname(__FILE__) + "/../log/#{RAILS_ENV}.log") 
+  config.logger = Logger.new(File.join(Rails.root, 'log', "#{RAILS_ENV}.log")) 
   config.logger.formatter = Logger::Formatter.new
 
 

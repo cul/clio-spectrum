@@ -252,7 +252,9 @@
     <field name="subject_topic_facet" type="string" indexed="true" stored="true" multiValued="true" />
     <field name="subject_era_facet" type="string" indexed="true" stored="true" multiValued="true" />
     <field name="subject_geo_facet" type="string" indexed="true" stored="true" multiValued="true" />
-    <!-- pub_date is used for facet and display so it must be indexed and stored -->
+    <field name="location_facet" type="string" indexed="true" stored="true" multiValued="true" />
+
+<!-- pub_date is used for facet and display so it must be indexed and stored -->
     <field name="pub_date" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="acq_date" type="string" indexed="true" stored="true" />
     <!-- pub_date sort uses new trie-based int fields, which are recommended for any int and are displayable, sortable, and range-query-able. In addition,
@@ -334,4 +336,5 @@
   <copyField source="subject_addl_t" dest="opensearch_display"/>  
 
 </schema>
+
 

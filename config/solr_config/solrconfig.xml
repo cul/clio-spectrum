@@ -33,7 +33,7 @@
     -->
   <!-- <lib dir="../../contrib/clustering/lib/downloads/" /> -->
   
-  <dataDir>${solr.data.dir:./solr/data}</dataDir>
+  <dataDir>${solr.data.dir:/opt/solr-1.5/na_experiment/data}</dataDir>
   
   <!-- index time configurations -->
   <indexDefaults>
@@ -127,6 +127,7 @@
           <str name="facet.field">acq_date_facet</str>
           <str name="facet.field">subject_geo_facet</str>
           <str name="facet.field">subject_topic_facet</str>
+          <str name="facet.field">location_facet</str>
         </lst>
         <!-- query for single document to populate filter cache -->
         <lst>
@@ -173,6 +174,7 @@
           <str name="facet.field">acq_date_facet</str>
           <str name="facet.field">subject_geo_facet</str>
           <str name="facet.field">subject_topic_facet</str>
+          <str name="facet.field">location_facet</str>
         </lst>
         <!-- query for single document to populate filter cache -->
         <lst>
@@ -193,6 +195,7 @@
           <str name="facet.field">pub_date_facet</str>
           <str name="facet.field">subject_geo_facet</str>
           <str name="facet.field">subject_topic_facet</str>
+          <str name="facet.field">location_facet</str>
         </lst>
       </arr>
     </listener>
@@ -350,6 +353,7 @@
         subject_topic_facet,
         subject_geo_facet,
         subtitle_display,
+        location_facet,
         full_publisher_display,
         subtitle_vern_display,
         location_holdings_id_display,
@@ -374,6 +378,7 @@
       <str name="facet.field">subject_geo_facet</str>
       <str name="facet.field">subject_topic_facet</str>
       
+          <str name="facet.field">location_facet</str>
       <str name="spellcheck">true</str>
       <str name="spellcheck.dictionary">default</str>
       <str name="spellcheck.onlyMorePopular">true</str>
@@ -496,6 +501,7 @@
         subject_topic_facet,
         subject_geo_facet,
         acq_date_facet,
+        location_facet,
         subtitle_display,
         subtitle_vern_display,
         url_fulltext_display,
@@ -514,7 +520,7 @@
       <str name="facet.field">acq_date_facet</str>
       <str name="facet.field">subject_geo_facet</str>
       <str name="facet.field">subject_topic_facet</str>
-      
+      <str name="facet.field">location_facet</str> 
       <str name="spellcheck">true</str>
       <str name="spellcheck.dictionary">subject</str>
       <str name="spellcheck.onlyMorePopular">true</str>
@@ -581,4 +587,5 @@
   </requestHandler>
 
 </config>
+
 
