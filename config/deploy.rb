@@ -1,4 +1,4 @@
-set :default_stage, "pass_dev"
+set :default_stage, "passenger_dev"
 set :stages, %w(passenger_dev passenger_test passenger_prod)
 
 require 'capistrano/ext/multistage'

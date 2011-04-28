@@ -8,8 +8,6 @@ config.cache_classes = true
 # Log error messages when you accidentally call methods on nil.
 config.whiny_nils = true
 
-config.action_controller.relative_url_root = "/newbooks_dev"
-
 # Show full error reports and disable caching
 config.action_controller.consider_all_requests_local = true
 config.action_view.debug_rjs                         = true
