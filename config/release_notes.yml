@@ -1,4 +1,8 @@
 versions:
+  - version: "2.4.2"
+    release_date: "Apr 30,2011"
+    fixed:
+      - Google analytics added.  
   - version: "2.4.1"
     release_date: "Apr 28,2011"
     fixed:

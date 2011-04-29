@@ -1,23 +1,8 @@
 !!!
 %html{:xmlns => "http://www.w3.org/1999/xhtml"}
   %head
-    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
-    %title= h(@page_title || application_name)
-    %link{:href => url_for(:controller=>'catalog',:action => 'opensearch'), :format => 'xml', :only_path => false, :rel => "search", :title => application_name, :type => "application/opensearchdescription+xml"}/
-    = csrf_meta_tag
-    = render_head_content
-    = javascript_include_tag "jquery_snippet.js"
-    = stylesheet_link_tag "compiled/application"
-    %script{:src => "https://www.google.com/jsapi", :type => "text/javascript"}
-    = javascript_include_tag "application"
-    = stylesheet_link_tag "colorbox/colorbox"
-    = javascript_include_tag "jquery.colorbox-min"
-    = javascript_tag "var RAILS_ROOT = '#{ActionController::Base.relative_url_root}'; google.load('books','0'); "
-    = javascript_include_tag "/contactable/jquery.validate.pack.js"
-    = javascript_include_tag "/contactable/jquery.contactable.js"
-    = javascript_tag "$(function(){ $('#contact').contactable({ subject: 'A Feedback Message'});});"
-    = yield(:jstemplates)
-    - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
+    = render :partial => "/layouts/common_head"
+  - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
   %body{:onload => onload}
     #doc4.yui-t2
       #hd
