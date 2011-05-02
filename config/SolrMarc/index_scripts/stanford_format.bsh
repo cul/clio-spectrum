@@ -165,6 +165,10 @@ Set getFormats(Record record)
             break;
           case 'w':   // web site
             break;
+          case '|':  // vertical bar for brief serial records
+            resultSet.add("Journal/Periodical");
+            break;
+
         }
       }
     }
@@ -195,76 +199,53 @@ Set getFormats(Record record)
           resultSet.add("Journal/Periodical");
       }
     }
-    // if still nothing, see if 007/00s serial publication by default
-    else if ( ( resultSet.isEmpty() || resultSet.size() == 0 ) && leaderChar07 == 's') {
-      if (f008 != null) {
-        char c21 = ((ControlField) f008).getData().charAt(21);
-        switch (c21) {
-          case 'd':
-          case 'l':
-          case 'm':
-          case 'n':
-          case 'p':
-          case 'w': 
-            break;
-          case ' ':
-            // b4 2008-12-02 was: resultSet.add("Serial/Publication");
-            resultSet.add("Journal/Periodical");
+  }
+
+    Set values007 = indexer.getFieldList(record,"007");
+
+    for (String value007 : values007) {
+      if (value007.charAt(0) == 'c') {
+        resultSet.add("Online");
+      }
+
+
+
+    } 
+
+    // look for conference proceedings in 6xx
+    List dfList = record.getDataFields();
+    for (DataField df:dfList) {
+      if (df.getTag().startsWith("6")) {
+        List subList = Utils.getSubfieldStrings(df, 'x');
+        subList.addAll(Utils.getSubfieldStrings(df, 'v'));
+        for (String s : subList) {
+          if (s.toLowerCase().contains("congresses")) {
+            resultSet.remove("Journal/Periodical");
+            resultSet.add("Conference Proceedings");
+          }
         }
       }
     }
+
+    // thesis is determined by the presence of a 502 field.
+    LinkedHashSet dissNote = new LinkedHashSet();
+    dissNote.addAll(getSubfieldDataAsSet(record, "502", "a", " "));
+    if (!dissNote.isEmpty() || dissNote.size() != 0)
+      resultSet.add("Thesis");
+
+    // microfilm is determined by 245 subfield h containing "microform"
+    LinkedHashSet titleH = new LinkedHashSet();
+    titleH.addAll(getSubfieldDataAsSet(record, "245", "h", " "));       
+    // check the h subfield of the 245 field
+    if (Utils.setItemContains(titleH, "microform"))
+      resultSet.add("Microformat");
+
+
+    // if we still don't have a format, it's an "other"
+    if ( resultSet.isEmpty() || resultSet.size() == 0 )
+      resultSet.add("Other");
+    return resultSet;
   }
 
-  // look for conference proceedings in 6xx
-  List dfList = record.getDataFields();
-  for (DataField df:dfList) {
-    if (df.getTag().startsWith("6")) {
-      List subList = Utils.getSubfieldStrings(df, 'x');
-      subList.addAll(Utils.getSubfieldStrings(df, 'v'));
-      for (String s : subList) {
-        if (s.toLowerCase().contains("congresses")) {
-          resultSet.remove("Journal/Periodical");
-          resultSet.add("Conference Proceedings");
-        }
-      }
-    }
-  }
-
-  // thesis is determined by the presence of a 502 field.
-  LinkedHashSet dissNote = new LinkedHashSet();
-  dissNote.addAll(getSubfieldDataAsSet(record, "502", "a", " "));
-  if (!dissNote.isEmpty() || dissNote.size() != 0)
-    resultSet.add("Thesis");
-
-  // microfilm is determined by 245 subfield h containing "microform"
-  LinkedHashSet titleH = new LinkedHashSet();
-  titleH.addAll(getSubfieldDataAsSet(record, "245", "h", " "));       
-  // check the h subfield of the 245 field
-  if (Utils.setItemContains(titleH, "microform"))
-    resultSet.add("Microformat");
-
-  // check for format information from 999 ALPHANUM call numbers
-  List list999 = record.getVariableFields("999");
-  for (VariableField vf : list999) {
-    DataField df = (DataField) vf;
-    String scheme = getCallNumberSchemeFrom999(df);
-    if (scheme != null && scheme.equalsIgnoreCase("ALPHANUM")) {
-      String suba = Utils.getSubfieldData(df, 'a');
-      if (suba != null) {
-        suba = suba.trim();
-        if (suba.startsWith("MFILM"))
-          resultSet.add("Microformat");
-        else if (suba.startsWith("MCD"))
-          resultSet.add("Music - Recording");
-      }
-    }
-  }        
-
-  // if we still don't have a format, it's an "other"
-  if ( resultSet.isEmpty() || resultSet.size() == 0 )
-    resultSet.add("Other");
-  return resultSet;
-}
-
-// Format Method  --------------- End   -------------------------- Format Method
+  // Format Method  --------------- End   -------------------------- Format Method
 

@@ -2,40 +2,24 @@ namespace :solr do
   namespace :ingest do
     desc "download the latest extract from taft.cul"
     task :download  do
-      temp_dir_name = "tmp/extracts/raw"
-      FileUtils.rm_rf(temp_dir_name)
+      temp_dir_name = File.join(Rails.root, "tmp/extracts/")
+      temp_old_dir_name = File.join(Rails.root, "tmp/extracts_old/")
+      FileUtils.rm_rf(temp_old_dir_name)
+      FileUtils.mv(temp_dir_name, temp_old_dir_name)
       FileUtils.mkdir_p(temp_dir_name)
-
-      timecode = DateTime.now.strftime("%y%m%d%H%M%S")
-      final_dir_name = "tmp/extracts/" + timecode 
-      if system("scp deployer@taft.cul.columbia.edu:/opt/dumps/newbooks* " + temp_dir_name + "/")
-        puts_and_log("Download successful.", :debug)
+      if system("scp deployer@taft.cul.columbia.edu:/opt/dumps/newbooks* " + temp_dir_name)
+        puts_and_log("Download successful.", :info)
       else
-        puts_and_log("Download unsucessful")
-        raise "Download unsuccessful."
+        puts_and_log("Download unsucessful", :error, :raise => true)
       end
 
-      
-      raise "gunzip unsuccessful" unless  system("gunzip " + temp_dir_name + "/newbooks.mrc.gz")
-        
-        
-      FileUtils.rm_f(temp_dir_name + "/*.gz")
-      FileUtils.mv(temp_dir_name , final_dir_name)
-      FileUtils.ln_s(timecode, "tmp/extracts/latest", :force => true)
-    end
 
-    namespace :download do
-      desc "cleanup all but last 3 extracts" 
-      task :cleanup do
-        to_keep = ENV["keep_extracts"] || 3
-        directories = Dir.entries("tmp/extracts").reject { |c| c =~ /^\D/}.collect { |d| "tmp/extracts/" + d}.sort_by { |d| File.stat(d).ctime }
-        
-        directories_to_remove = directories[0, [directories.length-3,0].max]
-      
-        puts_and_log(directories_to_remove.length.to_s + " directories to remove")
+      if  system("gunzip " + temp_dir_name + "newbooks.mrc.gz")
+        puts_and_log("Gunzip successful", :info)
+      else
+        puts_and_log("Gunzip unsuccessful", :error, :raise => true)
+      end  
 
-        directories_to_remove.each { |dir| FileUtils.rm_rf(dir) }
-      end
     end
 
     namespace :clear do 
@@ -56,90 +40,97 @@ namespace :solr do
       end
     end
 
-    
+
+    desc "process deletes file"
+    task :deletes => :environment do
+      deletes_file = ENV["DELETES_FILE"] || File.join(Rails.root, "tmp", "extracts", "newbooks.deletes")
+
+      if File.exists?(deletes_file)
+        puts_and_log(deletes_file + " found.", :debug)
+      else
+        puts_and_log(deletes_file + " does not exist.", :error, :raise => true)
+      end
+
+
+      ids_to_delete = []
+
+      File.open(deletes_file, "r").each do |line|
+        ids_to_delete << line
+      end
+
+      ids_to_delete.uniq!
+
+      puts_and_log(ids_to_delete.length.to_s + " ids to delete.", :info)
+      begin
+        solr_delete_ids(ids_to_delete)
+        puts_and_log(ids_to_delete.length.to_s + " ids deleted (if in index)", :info)
+      rescue Exception => e
+        puts_and_log("delete error: " + e.inspect, :error, :raise => true)
+      end
+    end
   end
 
 
   desc "download and ingest latest newbooks file" 
   task :ingest => :environment do
-    env = ENV["RAILS_ENV"] || "development" 
-    config_file = "config/SolrMarc/config-#{env}.properties"
-
-    if ENV["SKIP_CONFIG_CHECK"]
-      puts_and_log("skipping config check")
-    elsif File.exists?(config_file)
-      puts_and_log("found config file" + config_file)
-    else
-      puts_and_log("Did not find config file " + config_file)
-      raise ("Terminating due to missing config file.")
-    end
-
-
-    time_start = Time.now
-
     begin
       Rake::Task["solr:ingest:download"].execute
       puts_and_log("Downloading successful.")
     rescue Exception => e
-      puts_and_log("Download task failed to " + e.message)
-      raise "Terminating due to failed download task."
+      puts_and_log("Download task failed to " + e.message, :raise => true)
     end
 
     begin
-      Rake::Task["solr:ingest:download:cleanup"].reenable
-      Rake::Task["solr:ingest:download:cleanup"].invoke
-      puts_and_log ("Cleanup succesful.")
+      Rake::Task["solr:ingest:deletes"].execute
+      puts_and_log("Deletes successful.")
     rescue Exception => e
-      puts_and_log("Cleanup  task failed to " + e.message)
-      raise "Terminating due to failed cleanup task."
+      puts_and_log("Deletes task failed to " + e.message)
     end
-
-
-    marc_file = "tmp/extracts/latest/newbooks.mrc"
-    ENV["MARC_FILE"] = marc_file
     
+    marc_file = "tmp/extracts/newbooks.mrc"
+    ENV["MARC_FILE"] = marc_file
+
     begin
       Rake::Task["solr:marc:index"].reenable
       Rake::Task["solr:marc:index"].invoke
       puts_and_log ("Indexing succesful.")
     rescue Exception => e
-      puts_and_log("Indexing  task failed to " + e.message)
+      puts_and_log("Indexing  task failed to " + e.message, :raise => true)
       raise "Terminating due to failed ingest task."
     end
 
-    ids_to_delete = solr_find_ids_by_timespan("*", time_start.utc.iso8601)
-    puts_and_log(ids_to_delete.length.to_s + " ids to delete")
-    begin
-      solr_delete_ids(ids_to_delete) unless ids_to_delete.empty?
-    rescue Exception => e
-      puts_and_log(" Deleting ids failed due to " + e.message)
-      raise "Terminating due e to failed delete task."
-    end
-  
-  
-  
   end
 
 
 end
 
-def puts_and_log(msg, level = :info)
+def puts_and_log(msg, level = :info, params = {})
   puts level.to_s + ": " + msg.to_s
+  unless @logger 
+    @logger = Logger.new(File.join(Rails.root, "log", "#{RAILS_ENV}_ingest.log"))
+    @logger.formatter = Logger::Formatter.new
+  end
+
   if defined?(RAILS_DEFAULT_LOGGER)
     RAILS_DEFAULT_LOGGER.send(level, msg)
   end
 
-end
+  @logger.send(level, msg)
 
-def solr_find_ids_by_timespan(start, stop)
-  Blacklight.solr.find(:fl => "id", :filters => {:timestamp => "[" + start + " TO " + stop+"]"}, :per_page => 100000000)["response"]["docs"].collect(&:id)
+  if params[:raise]
+    raise level.to_s + ": " + msg.to_s
+  end
+
 end
 
 def solr_delete_ids(ids)
   ids = ids.listify
-  unless (to_delete = ids.pop(500)).empty?
-    Blacklight.solr.delete_by_id(to_delete)
-    Blacklight.solr.commit
-    Blacklight.solr.optimize
-  end
+  puts_and_log(ids.length.to_s + " deleting", :debug)
+  Blacklight.solr.delete_by_id(ids)
+  
+  puts_and_log("Committing changes", :debug)
+  Blacklight.solr.commit
+  
+  puts_and_log("Optimizing index", :debug)
+  Blacklight.solr.optimize
 end
