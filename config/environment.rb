@@ -3,7 +3,7 @@
 # Specifies gem version of Rails to use when vendor/rails is not present
 RAILS_GEM_VERSION = '2.3.11' unless defined? RAILS_GEM_VERSION
 
-RELEASE_STAMP = '2.4.2'
+RELEASE_STAMP = '2.5.0'
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')

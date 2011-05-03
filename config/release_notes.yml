@@ -1,4 +1,10 @@
 versions:
+  - version: "2.5.0"
+    release_date: "May 3, 2011"
+    fixed:
+      - Librarian view fixed.
+      - Correctly classified more records as Online rather than other.
+      - Automated daily ingest enabled.
   - version: "2.4.2"
     release_date: "Apr 30,2011"
     fixed:
