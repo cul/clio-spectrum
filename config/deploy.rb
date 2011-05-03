@@ -21,8 +21,8 @@ namespace :deploy do
   task :symlink_shared do
     run "ln -nfs #{deploy_to}shared/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{deploy_to}shared/app_config.yml #{release_path}/config/app_config.yml"
-    FileUtils.mkdir_p("#{release_path}/tmp/extracts")
-    run "ln -nfs #{release_path}/tmp/extracts  #{deploy_to}shared/extracts "
+    FileUtils.mkdir_p("#{deploy_to}shared/extracts")
+    run "ln -nfs #{deploy_to}shared/extracts #{release_path}/tmp/extracts"
   end
 
 
