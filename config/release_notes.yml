@@ -5,6 +5,8 @@ versions:
       - Librarian view fixed.
       - Correctly classified more records as Online rather than other.
       - Automated daily ingest enabled.
+      - Fixed folders: can email/sms individual items and selected items
+      - Added printing view (currently does not look very good)
   - version: "2.4.2"
     release_date: "Apr 30,2011"
     fixed:
@@ -56,8 +58,9 @@ versions:
       - Added front page list of current features
 known_issues:
   - Availability information can be occasionally slow.
-  - Selected items functionality does not work.
   - Clicking on an item in grid view does not let you return to search.
 upcoming:
-  - Better email/SMS formatting
-  - Print functionality
+  - better title/subtitle handling
+  - more descriptive text for urls
+  - hierarchical call letter faceting
+  - advanced search
