@@ -2,10 +2,10 @@ namespace :solr do
   namespace :ingest do
     desc "download the latest extract from taft.cul"
     task :download  do
-      temp_dir_name = File.join(Rails.root, "tmp/extracts/current")
-      temp_old_dir_name = File.join(Rails.root, "tmp/extracts/old")
+      temp_dir_name = File.join(Rails.root, "tmp/extracts/current/")
+      temp_old_dir_name = File.join(Rails.root, "tmp/extracts/old/")
       FileUtils.rm_rf(temp_old_dir_name)
-      FileUtils.mv(temp_dir_name, temp_old_dir_name)
+      FileUtils.mv(temp_dir_name, temp_old_dir_name) if File.exists?(temp_dir_name)
       FileUtils.mkdir_p(temp_dir_name)
       if system("scp deployer@taft.cul.columbia.edu:/opt/dumps/newbooks* " + temp_dir_name)
         puts_and_log("Download successful.", :info)
@@ -73,19 +73,11 @@ namespace :solr do
 
   desc "download and ingest latest newbooks file" 
   task :ingest => :environment do
-    begin
       Rake::Task["solr:ingest:download"].execute
       puts_and_log("Downloading successful.")
-    rescue Exception => e
-      puts_and_log("Download task failed to " + e.message, :alarm => true)
-    end
 
-    begin
       Rake::Task["solr:ingest:deletes"].execute
       puts_and_log("Deletes successful.")
-    rescue Exception => e
-      puts_and_log("Deletes task failed to " + e.message, :alarm => true)
-    end
     
     marc_file = "tmp/extracts/current/newbooks.mrc"
     ENV["MARC_FILE"] = marc_file
@@ -95,7 +87,7 @@ namespace :solr do
       Rake::Task["solr:marc:index"].invoke
       puts_and_log ("Indexing succesful.")
     rescue Exception => e
-      puts_and_log("Indexing  task failed to " + e.message, :alarm => true)
+      puts_and_log("Indexing  task failed to " + e.message, :error, :alarm => true)
       raise "Terminating due to failed ingest task."
     end
 
