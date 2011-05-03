@@ -201,51 +201,51 @@ Set getFormats(Record record)
     }
   }
 
-    Set values007 = indexer.getFieldList(record,"007");
+  Set values007 = indexer.getFieldList(record,"007");
 
-    for (String value007 : values007) {
-      if (value007.charAt(0) == 'c') {
-        resultSet.add("Online");
-      }
+  for (String value007 : values007) {
+    if (value007.charAt(0) == 'c') {
+      resultSet.add("Online");
+    }
 
 
 
-    } 
+  } 
 
-    // look for conference proceedings in 6xx
-    List dfList = record.getDataFields();
-    for (DataField df:dfList) {
-      if (df.getTag().startsWith("6")) {
-        List subList = Utils.getSubfieldStrings(df, 'x');
-        subList.addAll(Utils.getSubfieldStrings(df, 'v'));
-        for (String s : subList) {
-          if (s.toLowerCase().contains("congresses")) {
-            resultSet.remove("Journal/Periodical");
-            resultSet.add("Conference Proceedings");
-          }
+  // look for conference proceedings in 6xx
+  List dfList = record.getDataFields();
+  for (DataField df:dfList) {
+    if (df.getTag().startsWith("6")) {
+      List subList = Utils.getSubfieldStrings(df, 'x');
+      subList.addAll(Utils.getSubfieldStrings(df, 'v'));
+      for (String s : subList) {
+        if (s.toLowerCase().contains("congresses")) {
+          resultSet.remove("Journal/Periodical");
+          resultSet.add("Conference Proceedings");
         }
       }
     }
-
-    // thesis is determined by the presence of a 502 field.
-    LinkedHashSet dissNote = new LinkedHashSet();
-    dissNote.addAll(getSubfieldDataAsSet(record, "502", "a", " "));
-    if (!dissNote.isEmpty() || dissNote.size() != 0)
-      resultSet.add("Thesis");
-
-    // microfilm is determined by 245 subfield h containing "microform"
-    LinkedHashSet titleH = new LinkedHashSet();
-    titleH.addAll(getSubfieldDataAsSet(record, "245", "h", " "));       
-    // check the h subfield of the 245 field
-    if (Utils.setItemContains(titleH, "microform"))
-      resultSet.add("Microformat");
-
-
-    // if we still don't have a format, it's an "other"
-    if ( resultSet.isEmpty() || resultSet.size() == 0 )
-      resultSet.add("Other");
-    return resultSet;
   }
 
-  // Format Method  --------------- End   -------------------------- Format Method
+  // thesis is determined by the presence of a 502 field.
+  LinkedHashSet dissNote = new LinkedHashSet();
+  dissNote.addAll(getSubfieldDataAsSet(record, "502", "a", " "));
+  if (!dissNote.isEmpty() || dissNote.size() != 0)
+    resultSet.add("Thesis");
+
+  // microfilm is determined by 245 subfield h containing "microform"
+  LinkedHashSet titleH = new LinkedHashSet();
+  titleH.addAll(getSubfieldDataAsSet(record, "245", "h", " "));       
+  // check the h subfield of the 245 field
+  if (Utils.setItemContains(titleH, "microform"))
+    resultSet.add("Microformat");
+
+
+  // if we still don't have a format, it's an "other"
+  if ( resultSet.isEmpty() || resultSet.size() == 0 )
+    resultSet.add("Other");
+  return resultSet;
+}
+
+// Format Method  --------------- End   -------------------------- Format Method
 

@@ -2,22 +2,22 @@ namespace :solr do
   namespace :ingest do
     desc "download the latest extract from taft.cul"
     task :download  do
-      temp_dir_name = File.join(Rails.root, "tmp/extracts/")
-      temp_old_dir_name = File.join(Rails.root, "tmp/extracts_old/")
+      temp_dir_name = File.join(Rails.root, "tmp/extracts/current")
+      temp_old_dir_name = File.join(Rails.root, "tmp/extracts/old")
       FileUtils.rm_rf(temp_old_dir_name)
       FileUtils.mv(temp_dir_name, temp_old_dir_name)
       FileUtils.mkdir_p(temp_dir_name)
       if system("scp deployer@taft.cul.columbia.edu:/opt/dumps/newbooks* " + temp_dir_name)
         puts_and_log("Download successful.", :info)
       else
-        puts_and_log("Download unsucessful", :error, :raise => true)
+        puts_and_log("Download unsucessful", :error, :alarm => true)
       end
 
 
       if  system("gunzip " + temp_dir_name + "newbooks.mrc.gz")
         puts_and_log("Gunzip successful", :info)
       else
-        puts_and_log("Gunzip unsuccessful", :error, :raise => true)
+        puts_and_log("Gunzip unsuccessful", :error, :alarm => true)
       end  
 
     end
@@ -43,12 +43,12 @@ namespace :solr do
 
     desc "process deletes file"
     task :deletes => :environment do
-      deletes_file = ENV["DELETES_FILE"] || File.join(Rails.root, "tmp", "extracts", "newbooks.deletes")
+      deletes_file = ENV["DELETES_FILE"] || File.join(Rails.root, "tmp", "extracts", "current", "newbooks.deletes")
 
       if File.exists?(deletes_file)
         puts_and_log(deletes_file + " found.", :debug)
       else
-        puts_and_log(deletes_file + " does not exist.", :error, :raise => true)
+        puts_and_log(deletes_file + " does not exist.", :error, :alarm => true)
       end
 
 
@@ -65,7 +65,7 @@ namespace :solr do
         solr_delete_ids(ids_to_delete)
         puts_and_log(ids_to_delete.length.to_s + " ids deleted (if in index)", :info)
       rescue Exception => e
-        puts_and_log("delete error: " + e.inspect, :error, :raise => true)
+        puts_and_log("delete error: " + e.inspect, :error, :alarm => true)
       end
     end
   end
@@ -77,17 +77,17 @@ namespace :solr do
       Rake::Task["solr:ingest:download"].execute
       puts_and_log("Downloading successful.")
     rescue Exception => e
-      puts_and_log("Download task failed to " + e.message, :raise => true)
+      puts_and_log("Download task failed to " + e.message, :alarm => true)
     end
 
     begin
       Rake::Task["solr:ingest:deletes"].execute
       puts_and_log("Deletes successful.")
     rescue Exception => e
-      puts_and_log("Deletes task failed to " + e.message)
+      puts_and_log("Deletes task failed to " + e.message, :alarm => true)
     end
     
-    marc_file = "tmp/extracts/newbooks.mrc"
+    marc_file = "tmp/extracts/current/newbooks.mrc"
     ENV["MARC_FILE"] = marc_file
 
     begin
@@ -95,7 +95,7 @@ namespace :solr do
       Rake::Task["solr:marc:index"].invoke
       puts_and_log ("Indexing succesful.")
     rescue Exception => e
-      puts_and_log("Indexing  task failed to " + e.message, :raise => true)
+      puts_and_log("Indexing  task failed to " + e.message, :alarm => true)
       raise "Terminating due to failed ingest task."
     end
 
@@ -105,7 +105,8 @@ namespace :solr do
 end
 
 def puts_and_log(msg, level = :info, params = {})
-  puts level.to_s + ": " + msg.to_s
+  full_msg = level.to_s + ": " + msg.to_s
+  puts full_msg
   unless @logger 
     @logger = Logger.new(File.join(Rails.root, "log", "#{RAILS_ENV}_ingest.log"))
     @logger.formatter = Logger::Formatter.new
@@ -117,20 +118,35 @@ def puts_and_log(msg, level = :info, params = {})
 
   @logger.send(level, msg)
 
-  if params[:raise]
-    raise level.to_s + ": " + msg.to_s
+  if params[:alarm]
+    if ENV["EMAIL_ON_ERROR"] == "TRUE"
+      IngestErrorNotifier.deliver_generic_error(:error => full_msg)
+    end
+    raise full_msg
   end
 
 end
 
 def solr_delete_ids(ids)
-  ids = ids.listify
-  puts_and_log(ids.length.to_s + " deleting", :debug)
-  Blacklight.solr.delete_by_id(ids)
-  
-  puts_and_log("Committing changes", :debug)
-  Blacklight.solr.commit
-  
-  puts_and_log("Optimizing index", :debug)
-  Blacklight.solr.optimize
+  retries = 5
+  begin
+    ids = ids.listify
+    puts_and_log(ids.length.to_s + " deleting", :debug)
+    Blacklight.solr.delete_by_id(ids)
+    
+    puts_and_log("Committing changes", :debug)
+    Blacklight.solr.commit
+    
+    puts_and_log("Optimizing index", :debug)
+    Blacklight.solr.optimize
+  rescue Timeout::Error
+    puts_and_log("Timed out!", :info)
+    if retries <= 0
+      puts_and_log("Out of retries, stopping delete process.", :error, :alarm => true)
+    end
+
+    puts_and_log("Trying again.", :info)
+    retries -= 1
+    retry
+  end
 end
