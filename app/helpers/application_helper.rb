@@ -20,4 +20,8 @@ module ApplicationHelper
     text.to_s.gsub(/([^\s-]{5})([^\s-]{5})/,'\1&#x200B;\2')
   end
 
+  # determines if the given document id is in the folder
+  def item_in_folder?(doc_id)
+    session[:folder_document_ids] && session[:folder_document_ids].include?(doc_id.listify.first) ? true : false
+  end
 end

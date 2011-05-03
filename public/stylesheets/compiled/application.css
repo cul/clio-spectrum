@@ -119,101 +119,100 @@ div.folder_toolbar {
 /* line 101, ../../../app/stylesheets/application.sass */
 ul.folderTools {
   display: block;
-  margin-left: 14em;
   float: none;
 }
-/* line 106, ../../../app/stylesheets/application.sass */
+/* line 105, ../../../app/stylesheets/application.sass */
 ul.folderTools li {
   float: none;
   list-style: none;
   display: inline;
 }
-/* line 110, ../../../app/stylesheets/application.sass */
+/* line 109, ../../../app/stylesheets/application.sass */
 ul.folderTools li form {
   display: inline;
 }
 
-/* line 112, ../../../app/stylesheets/application.sass */
+/* line 111, ../../../app/stylesheets/application.sass */
 .pageEntriesInfo {
   padding-right: 150px;
   padding-bottom: 0px;
 }
 
-/* line 115, ../../../app/stylesheets/application.sass */
+/* line 114, ../../../app/stylesheets/application.sass */
 #show_folder_control {
   margin-top: 1em;
 }
-/* line 117, ../../../app/stylesheets/application.sass */
+/* line 116, ../../../app/stylesheets/application.sass */
 #show_folder_control .addFolder, #show_folder_control .deleteFolder {
   float: none;
 }
 
-/* line 121, ../../../app/stylesheets/application.sass */
+/* line 120, ../../../app/stylesheets/application.sass */
 #show_previousNextDocument .previous_next {
   margin-top: 0.5em;
 }
 
-/* line 123, ../../../app/stylesheets/application.sass */
+/* line 122, ../../../app/stylesheets/application.sass */
 .back_to_catalog {
   float: right;
 }
 
-/* line 125, ../../../app/stylesheets/application.sass */
+/* line 124, ../../../app/stylesheets/application.sass */
 .show_start_over {
   float: right;
 }
 
-/* line 128, ../../../app/stylesheets/application.sass */
+/* line 127, ../../../app/stylesheets/application.sass */
 a.folder_link_submit {
   border-bottom: none;
 }
-/* line 131, ../../../app/stylesheets/application.sass */
+/* line 130, ../../../app/stylesheets/application.sass */
 a.folder_link_submit span.folder_link_text {
   vertical-align: 20%;
   padding-left: 2px;
   border-bottom: 1px dotted #aaaaaa;
 }
 
-/* line 135, ../../../app/stylesheets/application.sass */
+/* line 134, ../../../app/stylesheets/application.sass */
 #holdings {
   clear: both;
   margin-top: 2em;
 }
-/* line 139, ../../../app/stylesheets/application.sass */
+/* line 138, ../../../app/stylesheets/application.sass */
 #holdings .holding {
   padding: 0.5em 0.5em 0.5em 1em;
 }
-/* line 141, ../../../app/stylesheets/application.sass */
+/* line 140, ../../../app/stylesheets/application.sass */
 #holdings .holding0 {
   background-color: #f6f6f6;
 }
-/* line 144, ../../../app/stylesheets/application.sass */
+/* line 143, ../../../app/stylesheets/application.sass */
 #holdings #holdings_header {
   padding-bottom: 1em;
 }
-/* line 146, ../../../app/stylesheets/application.sass */
+/* line 145, ../../../app/stylesheets/application.sass */
 #holdings #holdings_header #holdings_title {
   font-weight: bold;
   font-size: 1.25em;
   display: inline;
   padding-bottom: 1em;
 }
-/* line 153, ../../../app/stylesheets/application.sass */
+/* line 152, ../../../app/stylesheets/application.sass */
 #holdings #holdings_header #location_guide {
   padding-left: 0.5em;
   display: inline;
 }
-/* line 157, ../../../app/stylesheets/application.sass */
+/* line 156, ../../../app/stylesheets/application.sass */
 #holdings .call_number {
   float: right;
 }
-/* line 160, ../../../app/stylesheets/application.sass */
+/* line 159, ../../../app/stylesheets/application.sass */
 #holdings .status {
   padding-left: 2em;
   font-style: italic;
 }
 
-/* line 164, ../../../app/stylesheets/application.sass */
+/* line 163, ../../../app/stylesheets/application.sass */
 #show_cover {
   display: none;
   float: left;
@@ -221,30 +220,30 @@ a.folder_link_submit span.folder_link_text {
   margin-right: 2em;
 }
 
-/* line 171, ../../../app/stylesheets/application.sass */
+/* line 170, ../../../app/stylesheets/application.sass */
 .gbs_preview {
   display: none;
   padding-top: 1em;
   padding-bottom: 2em;
   text-align: center;
 }
-/* line 177, ../../../app/stylesheets/application.sass */
+/* line 176, ../../../app/stylesheets/application.sass */
 .gbs_preview a {
   border-bottom: none;
 }
 
-/* line 180, ../../../app/stylesheets/application.sass */
+/* line 179, ../../../app/stylesheets/application.sass */
 li.gbs_info {
   display: none;
 }
 
-/* line 183, ../../../app/stylesheets/application.sass */
+/* line 182, ../../../app/stylesheets/application.sass */
 .book_cover {
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 192, ../../../app/stylesheets/application.sass */
+/* line 191, ../../../app/stylesheets/application.sass */
 .grid_cover {
   height: 125px;
   width: 90px;
@@ -254,7 +253,7 @@ li.gbs_info {
   background-color: #eeeeee;
 }
 
-/* line 200, ../../../app/stylesheets/application.sass */
+/* line 199, ../../../app/stylesheets/application.sass */
 .fake_cover {
   text-align: center;
   border-top: 1px solid #cccccc;
@@ -267,45 +266,45 @@ li.gbs_info {
   color: #333333;
 }
 
-/* line 211, ../../../app/stylesheets/application.sass */
+/* line 210, ../../../app/stylesheets/application.sass */
 .gbs_cover {
   display: none;
 }
 
-/* line 214, ../../../app/stylesheets/application.sass */
+/* line 213, ../../../app/stylesheets/application.sass */
 .grid_view {
   background: white;
 }
-/* line 217, ../../../app/stylesheets/application.sass */
+/* line 216, ../../../app/stylesheets/application.sass */
 .grid_view .document_gallery {
   margin-bottom: 3em;
 }
-/* line 222, ../../../app/stylesheets/application.sass */
+/* line 221, ../../../app/stylesheets/application.sass */
 .grid_view .document_gallery .grid_bookjacket {
   height: 125px;
   width: 90px;
   padding: 0;
 }
-/* line 228, ../../../app/stylesheets/application.sass */
+/* line 227, ../../../app/stylesheets/application.sass */
 .grid_view .document_gallery .info {
   margin: 3px 0.5em 0 0.5em;
   height: 7em;
   position: relative;
   overflow: hidden;
 }
-/* line 234, ../../../app/stylesheets/application.sass */
+/* line 233, ../../../app/stylesheets/application.sass */
 .grid_view .document_gallery .info .title {
   font-weight: bold;
   min-height: 3em;
   margin-bottom: 1em;
 }
 
-/* line 240, ../../../app/stylesheets/application.sass */
+/* line 239, ../../../app/stylesheets/application.sass */
 dl.defList_in_grid {
   overflow: auto;
   padding: 0.5em 0;
 }
-/* line 244, ../../../app/stylesheets/application.sass */
+/* line 243, ../../../app/stylesheets/application.sass */
 dl.defList_in_grid dt {
   float: left;
   text-align: right;
@@ -315,7 +314,7 @@ dl.defList_in_grid dt {
   margin: 0;
   padding: 2px 1em 2px 0px;
 }
-/* line 253, ../../../app/stylesheets/application.sass */
+/* line 252, ../../../app/stylesheets/application.sass */
 dl.defList_in_grid dd {
   float: left;
   text-align: left;
@@ -323,7 +322,7 @@ dl.defList_in_grid dd {
   padding: 2px 0;
 }
 
-/* line 260, ../../../app/stylesheets/application.sass */
+/* line 259, ../../../app/stylesheets/application.sass */
 img.bookjacket.list_view {
   float: right;
   height: 80px;
@@ -331,19 +330,19 @@ img.bookjacket.list_view {
   padding: 1em;
 }
 
-/* line 267, ../../../app/stylesheets/application.sass */
+/* line 266, ../../../app/stylesheets/application.sass */
 a#feedLink {
   display: inline;
   text-decoration: none;
   border-bottom: none;
 }
-/* line 273, ../../../app/stylesheets/application.sass */
+/* line 272, ../../../app/stylesheets/application.sass */
 a#feedLink img {
   position: static;
   padding-left: 3px;
 }
 
-/* line 279, ../../../app/stylesheets/application.sass */
+/* line 278, ../../../app/stylesheets/application.sass */
 h1.site_title {
   background: transparent url("../../images/clio-new-arrivals.png") no-repeat top left;
   margin: 0 0 0 0em;
@@ -351,7 +350,7 @@ h1.site_title {
   width: 218px;
 }
 
-/* line 286, ../../../app/stylesheets/application.sass */
+/* line 285, ../../../app/stylesheets/application.sass */
 #contactable {
   background-image: url(../../images/contact.png);
   color: white;
@@ -371,7 +370,7 @@ h1.site_title {
   z-index: 100000;
 }
 
-/* line 307, ../../../app/stylesheets/application.sass */
+/* line 306, ../../../app/stylesheets/application.sass */
 form#contactForm {
   background-color: #333333;
   border: 2px solid white;
@@ -389,11 +388,11 @@ form#contactForm {
   *width: 394px;
   z-index: 99;
 }
-/* line 324, ../../../app/stylesheets/application.sass */
+/* line 323, ../../../app/stylesheets/application.sass */
 form#contactForm p {
   margin-bottom: 2em;
 }
-/* line 327, ../../../app/stylesheets/application.sass */
+/* line 326, ../../../app/stylesheets/application.sass */
 form#contactForm input, form#contactForm textarea {
   background: white none repeat scroll 0 0;
   outline-style: none;
@@ -403,15 +402,15 @@ form#contactForm input, form#contactForm textarea {
   border: 1px solid #dfdfdf;
   font-size: 1em;
 }
-/* line 336, ../../../app/stylesheets/application.sass */
+/* line 335, ../../../app/stylesheets/application.sass */
 form#contactForm h2 {
   padding-right: 1em;
 }
-/* line 338, ../../../app/stylesheets/application.sass */
+/* line 337, ../../../app/stylesheets/application.sass */
 form#contactForm label {
   color: white;
 }
-/* line 340, ../../../app/stylesheets/application.sass */
+/* line 339, ../../../app/stylesheets/application.sass */
 form#contactForm .submit {
   background: #f5410f none repeat scroll 0 0;
   outline-style: none;
@@ -428,18 +427,18 @@ form#contactForm .submit {
   font-family: Helvetica;
   margin-top: 10px;
 }
-/* line 355, ../../../app/stylesheets/application.sass */
+/* line 354, ../../../app/stylesheets/application.sass */
 form#contactForm p {
   width: 325px;
   font-size: 0.9em;
 }
 
-/* line 359, ../../../app/stylesheets/application.sass */
+/* line 358, ../../../app/stylesheets/application.sass */
 #contactForm .red {
   color: #f5410f;
 }
 
-/* line 362, ../../../app/stylesheets/application.sass */
+/* line 361, ../../../app/stylesheets/application.sass */
 #contact_overlay {
   background-color: #666666;
   display: none;
@@ -453,16 +452,16 @@ form#contactForm p {
   z-index: 0;
 }
 
-/* line 374, ../../../app/stylesheets/application.sass */
+/* line 373, ../../../app/stylesheets/application.sass */
 .error, #name.error, #email.error, #comment.error {
   background-color: #edbe9c;
 }
 
-/* line 378, ../../../app/stylesheets/application.sass */
+/* line 377, ../../../app/stylesheets/application.sass */
 form#contactForm label {
   *margin-left: 20px;
 }
-/* line 380, ../../../app/stylesheets/application.sass */
+/* line 379, ../../../app/stylesheets/application.sass */
 form#contactForm #contact_loading {
   background: url(../../images/ajax-loader.gif) no-repeat;
   width: 55px;
@@ -471,7 +470,7 @@ form#contactForm #contact_loading {
   display: none;
 }
 
-/* line 387, ../../../app/stylesheets/application.sass */
+/* line 386, ../../../app/stylesheets/application.sass */
 #contact_callback {
   font-size: 1.5em;
   color: white;
@@ -480,7 +479,7 @@ form#contactForm #contact_loading {
   display: none;
 }
 
-/* line 394, ../../../app/stylesheets/application.sass */
+/* line 393, ../../../app/stylesheets/application.sass */
 .holder {
   margin: 0 auto;
   *margin-left: 20px;

@@ -24,18 +24,15 @@
            
         
   - else
+    - @document_list.each_with_index do |document,counter|
+      .document{:class => "#{render_document_class document}"}
+        .documentHeader
+          = render_index_doc_actions document
+          
+          %h3.index_title
+            = (counter + 1 + @response.params[:start].to_i).to_s + "."
+            = link_to_document document, :label=>document_show_link_field, :counter => (counter + 1 + @response.params[:start].to_i)
 
-    - @response.docs.each_with_index do |document,counter|
-      .document
-
-        .yui-ge.documentHeader
-          .yui-u.first
-            %h3.index_title
-              = (counter + 1 + @response.params[:start].to_i).to_s + "."
-              = link_to_document document, :label=>document_show_link_field, :counter => (counter + 1 + @response.params[:start].to_i)
-          .yui-u.documentFunctions
-            = render :partial=>'bookmark_control', :locals=>{:document=>document}
-            = render :partial=>'folder_control', :locals =>{:document=> document, :display =>'button'}
             
           
         = render_document_partial document, :index
