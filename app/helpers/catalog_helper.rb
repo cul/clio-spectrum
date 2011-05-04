@@ -16,7 +16,7 @@ module CatalogHelper
 
   end
 
-  def online_link_title(document, url)
+  def online_link_title(document, index)
     title = ""
 
     if (detail = document["url_detail"].listify[index]) || (note = document["url_detail_note"].listify[index])
