@@ -16,7 +16,7 @@ module CatalogHelper
 
   end
 
-  def online_link_title(document, index)
+  def online_link_title(document, url)
     title = ""
 
     if (detail = document["url_detail"].listify[index]) || (note = document["url_detail_note"].listify[index])
@@ -68,7 +68,7 @@ module CatalogHelper
       "Displaying #{entry_name.pluralize} <b>#{start_num} - #{end_num}</b> of <b>#{total_num}</b>"
     end
 
-    display_items += link_to(image_tag("rss-feed-icon-14x14.png"), catalog_index_path(params.merge(:format => "rss")), :id => "feedLink")
+    display_items += link_to(image_tag("rss-feed-icon-14x14.png"), catalog_index_path(params.merge(:format => "atom")), :id => "feedLink")
   end
 
 

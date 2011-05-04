@@ -1,4 +1,9 @@
 versions:
+  - version: "2.6.0"
+    release date: "May 10, 2011"
+    fixed:
+      - Added link back to CLIO record.
+      - Switched RSS feed to ATOM feed.
   - version: "2.5.0"
     release_date: "May 3, 2011"
     fixed:
