@@ -68,11 +68,13 @@
 
 
   .yui-u
-
+  
+    - clio_id = h(document["clio_id_display"])
+    - if clio_id
+      %p= link_to "Display in CLIO",url_for("http://clio.cul.columbia.edu:7018/vwebv/holdingsInfo?bibId=#{clio_id}")
 
     %h4 Place Request:
     %ul
-      - clio_id = h(document["clio_id_display"])
       - if HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + clio_id) == 1
         %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{h(document['clio_id_display'])}"
       %li= link_to "Place a Recall/Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?bibId=#{document["clio_id_display"]}"
