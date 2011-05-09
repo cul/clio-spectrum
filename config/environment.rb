@@ -51,8 +51,7 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 
 
-  config.logger = Logger.new(File.join(Rails.root, 'log', "#{RAILS_ENV}.log")) 
-  config.logger.formatter = Logger::Formatter.new
+  # config.logger = Logger.new(File.join(Rails.root, 'log', "#{RAILS_ENV}.log")) 
 
 
   # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.

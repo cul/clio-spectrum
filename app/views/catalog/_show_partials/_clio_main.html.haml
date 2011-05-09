@@ -1,0 +1,24 @@
+#show_cover.book_cover
+  .gbs_cover
+    .gbs_thumbnail
+      = image_tag("spacer.png", :class => "bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))
+    .gbs_preview= link_to image_tag("gb_preview.png"), "http://books.google.com", :class => "gbs_preview_link"
+    
+%dl.defList_in_grid
+  - document_show_fields.each do |solr_fname|
+    - if values = document[solr_fname]
+      %dt= document_show_field_labels[solr_fname]
+      - case solr_fname 
+      - when "author_display"
+        %dd
+          - values.each do |value|
+            = link_to value, url_for(:controller => "catalog", :action => "index", :q => h(value), :search_field => "author", :commit => "search")
+      - when "subject_topic_facet"
+        %dd
+          - values.listify.sort.each do |topic|
+            = link_to topic, {:controller => :catalog, :action => :index, "f[subject_topic_facet][]" => topic}
+            %br
+      - else
+
+        %dd= values.listify.join("<br/>")
+    

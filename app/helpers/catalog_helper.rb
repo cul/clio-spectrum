@@ -16,6 +16,20 @@ module CatalogHelper
 
   end
 
+  def build_holdings_hash(document)
+    results = Hash.new { |h,k| h[k] = []}
+
+    Holding.new(document["clio_id_display"]).fetch_from_opac!.results["holdings"].each_pair do |holding_id, holding_hash|
+      results[[holding_hash["location_name"],holding_hash["call_number"]]] << holding_hash
+    end
+
+    if document["url_fulltext_display"] && !results.keys.any? { |k| k.first.strip == "Online" }
+      results[["Online", "ONLINE"]] = [{"call_number" => "ONLINE", "status" => "noncirc", "location_name" => "Online"}]
+    end
+    results
+  end
+
+
   def online_link_title(document, index)
     title = ""
 
@@ -70,6 +84,5 @@ module CatalogHelper
 
     display_items += link_to(image_tag("rss-feed-icon-14x14.png"), catalog_index_path(params.merge(:format => "atom")), :id => "feedLink")
   end
-
 
 end
