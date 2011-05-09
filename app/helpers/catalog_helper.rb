@@ -29,6 +29,26 @@ module CatalogHelper
     results
   end
 
+  def online_link_hash(document)
+    links = []
+
+    document.to_marc.select { |f| f.tag == '856'}.each do |marc_url|
+      logger.debug(marc_url.inspect)
+      url = marc_url.subfields.find { |s| s.code == "u"} 
+      next unless url
+      url = url.value
+    
+      url_z = marc_url.subfields.find { |s| s.code == "z"}
+      url_3 = marc_url.subfields.find { |s| s.code == "3"}
+
+      title = "#{url_z.value if url_z} #{url_3.value if url_3}".strip
+      title = url if title.empty?
+
+      links << [title, url]
+    end
+
+    links.sort { |x,y| x.first <=> y.first }
+  end
 
   def online_link_title(document, index)
     title = ""
