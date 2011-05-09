@@ -133,7 +133,7 @@ class Holding
     hc = HTTPClient.new
 
     cookie_directory = File.dirname(COOKIE_STORE)
-    Dir.mkdir(cookie_directory) unless File.exists?(cookie_directory)
+    FileUtils.mkdir_p(cookie_directory)
 
     hc.set_cookie_store(COOKIE_STORE)
     yield hc
