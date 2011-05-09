@@ -18,6 +18,7 @@ Rails::Initializer.run do |config|
   config.gem 'httpclient'
   config.gem "nokogiri"
   config.gem "haml", :version => '~> 3.1.0'
+  config.gem "rubytree", :version => '= 0.5.2'
   config.gem "unicode"
   config.gem "rsolr", :version => '~> 1.0.0'
   config.gem 'rsolr-ext', :version => '~> 1.0.0'
