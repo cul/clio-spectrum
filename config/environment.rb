@@ -17,12 +17,11 @@ Rails::Initializer.run do |config|
   config.plugin_paths += ["#{RAILS_ROOT}/vendor/plugins/blacklight/vendor/plugins"]
   config.gem 'httpclient'
   config.gem "nokogiri"
-  config.gem "haml", :version => '~> 3.1.0'
-  config.gem "rubytree", :version => '= 0.5.2'
+  config.gem "haml", :version => '~> 3.1.1'
   config.gem "unicode"
   config.gem "rsolr", :version => '~> 1.0.0'
   config.gem 'rsolr-ext', :version => '~> 1.0.0'
-  config.gem "compass", :version => "~> 0.11.0"
+  config.gem "compass", :version => "~> 0.11.1"
   config.gem "has_options", :version => ">= 0.4.0"
   config.gem "mysql"  # for connecting to hours db
 
