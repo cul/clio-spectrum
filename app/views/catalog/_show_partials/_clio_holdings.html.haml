@@ -34,7 +34,7 @@
               = holding["location_name"]
           .status
             - if holding["location_name"].strip == "Online"
-              
+              = document["url_munged_display"].inspect
               - online_link_hash(document).each do |link|
                 - title, url = link
                 %div= link_to title.abbreviate(60), url

@@ -23,43 +23,35 @@ module CatalogHelper
       results[[holding_hash["location_name"],holding_hash["call_number"]]] << holding_hash
     end
 
-    if document["url_fulltext_display"] && !results.keys.any? { |k| k.first.strip == "Online" }
+    if document["url_munged_display"] && !results.keys.any? { |k| k.first.strip == "Online" }
       results[["Online", "ONLINE"]] = [{"call_number" => "ONLINE", "status" => "noncirc", "location_name" => "Online"}]
     end
     results
   end
 
+  URL_REGEX = Regexp.new('(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))')
+  
+
   def online_link_hash(document)
-    links = []
-
-    document.to_marc.select { |f| f.tag == '856'}.each do |marc_url|
-      logger.debug(marc_url.inspect)
-      url = marc_url.subfields.find { |s| s.code == "u"} 
-      next unless url
-      url = url.value
     
-      url_z = marc_url.subfields.find { |s| s.code == "z"}
-      url_3 = marc_url.subfields.find { |s| s.code == "3"}
-
-      title = "#{url_z.value if url_z} #{url_3.value if url_3}".strip
-      title = url if title.empty?
+    links = []
+    
+    document["url_munged_display"].listify.each do |url_munge|
+      url_parts = url_munge.split('~|Z|~').collect(&:strip)
+      title = url =  ""
+      if (url_index = url_parts.index { |part| part =~ URL_REGEX })
+        url = url_parts.delete_at(url_index)
+        title = url_parts.join(" ").to_s
+        title = url if title.empty?
+      else
+        title = "Bad URL: " + url_parts.join(" ")
+        url = ""
+      end
 
       links << [title, url]
     end
 
     links.sort { |x,y| x.first <=> y.first }
-  end
-
-  def online_link_title(document, index)
-    title = ""
-
-    if (detail = document["url_detail"].listify[index]) || (note = document["url_detail_note"].listify[index])
-      title = [detail, note].compact.join(" ")
-    else
-      title = document["url_fulltext_display"].listify[index].to_s.abbreviate(50)
-    end
-
-    return auto_add_empty_spaces(h(title))
   end
 
   def folder_link(document)

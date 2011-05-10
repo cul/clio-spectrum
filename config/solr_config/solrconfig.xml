@@ -359,10 +359,7 @@
         location_holdings_id_display,
         location_display,
         location_call_number_display, 
-        url_fulltext_display,
-        url_suppl_display,
-        url_detail_display,
-        url_detail_note_display
+        url_munged_display
       </str>
      
       <str name="facet">true</str>
@@ -504,8 +501,7 @@
         location_facet,
         subtitle_display,
         subtitle_vern_display,
-        url_fulltext_display,
-        url_suppl_display,
+        url_munged_display
       </str>
       
       <str name="facet">true</str>

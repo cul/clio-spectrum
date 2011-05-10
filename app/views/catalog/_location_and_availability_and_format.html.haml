@@ -2,15 +2,14 @@
 %dd
   = document["full_publisher_display"].to_s
 
-
-
-- if (urls =  document["url_fulltext_display"])
+- unless (urls =  online_link_hash(document)).empty?
   %dt Online:
   %dd
-    - urls.listify.each_with_index do |url,i|
+    - urls.each do |link|
       %div
         = image_tag("icons/noncirc.png", :class => :availability)
-        = link_to online_link_title(document, i), url
+        - title,url = link
+        = link_to title.abbreviate(60), url
 
 
 - unless (locations = document["location_display"].listify.reject { |l| l == "Online" }).empty? || document["location_holdings_id_display"].nil?

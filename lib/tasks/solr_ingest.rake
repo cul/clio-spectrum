@@ -22,21 +22,19 @@ namespace :solr do
 
     end
 
-    namespace :clear do 
 
-      desc "clear out solr for a date span"
-      task :timespan => :environment do
-        start = ENV["START_TIME"] || raise("Must specify START_TIME")
-        stop = ENV["STOP_TIME"] || "NOW"
+    desc "clear out solr for a date span"
+    task :clear => :environment do
+      start = ENV["START_TIME"] || "*"
+      stop = ENV["STOP_TIME"] || "NOW"
 
-        ids = solr_find_ids_by_timespan(start, stop) 
+      ids = solr_find_ids_by_timespan(start, stop) 
 
-        if ENV["DRY_RUN"]
-          puts_and_log "DRY RUN: #{ids.length} found from #{start} TO #{stop} would have been deleted"
-        else
-          solr_delete_ids(ids)
-          puts_and_log "#{ids.length} found from #{start} TO #{stop} deleted"
-        end
+      if ENV["DRY_RUN"]
+        puts_and_log "DRY RUN: #{ids.length} found from #{start} TO #{stop} would have been deleted"
+      else
+        solr_delete_ids(ids)
+        puts_and_log "#{ids.length} found from #{start} TO #{stop} deleted"
       end
     end
 
@@ -73,12 +71,12 @@ namespace :solr do
 
   desc "download and ingest latest newbooks file" 
   task :ingest => :environment do
-      Rake::Task["solr:ingest:download"].execute
-      puts_and_log("Downloading successful.")
+    Rake::Task["solr:ingest:download"].execute
+    puts_and_log("Downloading successful.")
 
-      Rake::Task["solr:ingest:deletes"].execute
-      puts_and_log("Deletes successful.")
-    
+    Rake::Task["solr:ingest:deletes"].execute
+    puts_and_log("Deletes successful.")
+
     marc_file = "tmp/extracts/current/newbooks.mrc"
     ENV["MARC_FILE"] = marc_file
 
@@ -95,6 +93,11 @@ namespace :solr do
 
 
 end
+
+def solr_find_ids_by_timespan(start, stop)
+  Blacklight.solr.find(:fl => "id", :filters => {:timestamp => "[" + start + " TO " + stop+"]"}, :per_page => 100000000)["response"]["docs"].collect(&:id)
+end
+
 
 def puts_and_log(msg, level = :info, params = {})
   full_msg = level.to_s + ": " + msg.to_s
@@ -125,10 +128,10 @@ def solr_delete_ids(ids)
     ids = ids.listify
     puts_and_log(ids.length.to_s + " deleting", :debug)
     Blacklight.solr.delete_by_id(ids)
-    
+
     puts_and_log("Committing changes", :debug)
     Blacklight.solr.commit
-    
+
     puts_and_log("Optimizing index", :debug)
     Blacklight.solr.optimize
   rescue Timeout::Error
