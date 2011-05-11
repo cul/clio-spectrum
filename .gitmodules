@@ -1,6 +1,3 @@
 [submodule "vendor/plugins/blacklight_advanced_search"]
 	path = vendor/plugins/blacklight_advanced_search
 	url = https://github.com/projectblacklight/blacklight_advanced_search.git
-[submodule "vendor/plugins/blacklight"]
-	path = vendor/plugins/blacklight
-	url = https://github.com/projectblacklight/blacklight.git
