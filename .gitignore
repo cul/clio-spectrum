@@ -24,4 +24,3 @@ db/*.sqlite3
 *.sw?
 .sass-cache/**/*
 public/stylesheets/compiled
-
