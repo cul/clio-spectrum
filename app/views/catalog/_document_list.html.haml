@@ -1,5 +1,29 @@
 #documents
-  = render :partial => 'document', :collection => @document_list, :as => :document
+  - if params[:view] == "grid"
+    .grid_view.yui-gb
+      
+      - @response.docs.each_with_index do |document,counter|
+        - counter_start = counter + 1 + @response.params[:start].to_i
+        .document_gallery.yui-u{:class => ("first" if counter % 3 == 0)}
+          .book_cover.grid_cover
+            .cover.fake_cover
+              .fake_label= link_to_document document, :label=> document["title_display"].to_s.abbreviate(40), :counter => counter_start
+
+            .gbs_cover
+              .gbs_thumbnail= link_to image_tag("spacer.png", :class => ("grid_bookjacket bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))), {:controller => :catalog, :action => :show, :id => document.id}
+
+       
+          .info
+            .title
+              
+              
+              = link_to_document document, :label => document["title_display"].to_s.abbreviate(40), :counter => counter_start
+            
+            .grid_availability
+              = render :partial => "availability", :locals => {:document => document, :view => params[:view] }
+           
+  - else 
+    = render :partial => 'document', :collection => @document_list, :as => :document
 
 
 
