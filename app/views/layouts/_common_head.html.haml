@@ -9,7 +9,7 @@
 = javascript_include_tag "application"
 = stylesheet_link_tag "colorbox/colorbox"
 = javascript_include_tag "jquery.colorbox-min"
-= javascript_tag "var RAILS_ROOT = '#{ActionController::Base.relative_url_root}'; google.load('books','0'); "
+= javascript_tag "var RAILS_ROOT = '#{ActionController::Base.config.relative_url_root}'; google.load('books','0'); "
 = javascript_include_tag "/contactable/jquery.validate.pack.js"
 = javascript_include_tag "/contactable/jquery.contactable.js"
 = javascript_tag "$(function(){ $('#contact').contactable({ subject: 'A Feedback Message'});});"

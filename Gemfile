@@ -15,7 +15,7 @@ gem 'capistrano'
 gem 'capistrano-ext'
 
 gem 'blacklight', :git => "https://github.com/projectblacklight/blacklight.git"
-
+gem 'has_options'
 gem 'httpclient'
 gem 'nokogiri'
 gem 'haml', '~> 3.1.1'

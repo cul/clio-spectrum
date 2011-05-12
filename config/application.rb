@@ -6,6 +6,12 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
+require "lib/james_monkeys"
+require "lib/google_books"
+require "lib/voyager_holding"
+
+RELEASE_STAMP = "2.7.0"
+
 module NewBooks
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

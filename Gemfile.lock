@@ -65,6 +65,7 @@ GEM
       abstract (>= 1.0.0)
     fssm (0.2.7)
     haml (3.1.1)
+    has_options (0.4.0)
     highline (1.6.1)
     hoe (2.9.4)
       rake (>= 0.8.7)
@@ -136,6 +137,7 @@ DEPENDENCIES
   compass (~> 0.11.1)
   devise
   haml (~> 3.1.1)
+  has_options
   httpclient
   mysql
   nokogiri

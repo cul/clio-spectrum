@@ -1,6 +1,6 @@
 module GoogleBooks
   GOOGLE_BOOKS_URL = "http://books.google.com/books?jscmd=viewapi&bibkeys="
-  COOKIE_STORE = RAILS_ROOT + "/tmp/cookies/holding_cookies.dat"
+  COOKIE_STORE = Rails.root.to_s + "/tmp/cookies/holding_cookies.dat"
 
   def self.retrieve_book_info(*documents)
     results = {}

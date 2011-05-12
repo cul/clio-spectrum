@@ -1,5 +1,5 @@
-module CatalogHelper
 
+module CulCatalogHelper
   SHORTER_LOCATIONS = {
     "Temporarily unavailable. Try Borrow Direct or ILL" => "Temporarily Unavailable",
     "Butler Stacks (Enter at the Butler Circulation Desk)" => "Butler Stacks"

@@ -1,41 +1,6 @@
 #documents
-  - if params[:view] == "grid"
-    .grid_view.yui-gb
-      
-      - @response.docs.each_with_index do |document,counter|
-        - counter_start = counter + 1 + @response.params[:start].to_i
-        .document_gallery.yui-u{:class => ("first" if counter % 3 == 0)}
-          .book_cover.grid_cover
-            .cover.fake_cover
-              .fake_label= link_to_document document, :label=> document["title_display"].to_s.abbreviate(40), :counter => counter_start
+  = render :partial => 'document', :collection => @document_list, :as => :document
 
-            .gbs_cover
-              .gbs_thumbnail= link_to image_tag("spacer.png", :class => ("grid_bookjacket bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))), {:controller => :catalog, :action => :show, :id => document.id}
-
-       
-          .info
-            .title
-              
-              
-              = link_to_document document, :label => document["title_display"].to_s.abbreviate(40), :counter => counter_start
-            
-            .grid_availability
-              = render :partial => "availability", :locals => {:document => document, :view => params[:view] }
-           
-        
-  - else
-    - @document_list.each_with_index do |document,counter|
-      .document{:class => "#{render_document_class document}"}
-        .documentHeader
-          = render_index_doc_actions document
-          
-          %h3.index_title
-            = (counter + 1 + @response.params[:start].to_i).to_s + "."
-            = link_to_document document, :label=>document_show_link_field, :counter => (counter + 1 + @response.params[:start].to_i)
-
-            
-          
-        = render_document_partial document, :index
 
 
 
