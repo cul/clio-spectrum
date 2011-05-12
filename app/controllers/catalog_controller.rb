@@ -1,6 +1,9 @@
-require_dependency 'vendor/plugins/blacklight/app/controllers/catalog_controller.rb' 
+require 'blacklight/catalog'
 
 class CatalogController < ApplicationController
+  include Blacklight::Catalog
+
+
   # get single document from the solr index
   def show
     extra_head_content << @template.auto_discovery_link_tag('application/xml', unapi_url, {:rel => 'unapi-server', :title => 'unAPI' })
