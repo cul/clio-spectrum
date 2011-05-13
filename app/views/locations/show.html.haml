@@ -22,7 +22,7 @@
             = hour.to_opens_closes
           .hours_note= hour.note.to_s
     .section_header Located at:
-    .found_in= @location.found_in.sub(/\n+/,"<br/>")
+    .found_in= @location.found_in.sub(/\n+/,"<br/>").html_safe
     = map_image_tag(@map_url, 400, 350)
 
 
