@@ -1,4 +1,8 @@
 versions:
+  - version: "2.7.0"
+    release_date: "May 13, 2011"
+    fixed:
+      - Updated to latest version of blacklight.
   - version: "2.6.0"
     release_date: "May 10, 2011"
     fixed:
