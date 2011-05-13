@@ -2,6 +2,9 @@ set :default_stage, "passenger_dev"
 set :stages, %w(passenger_dev passenger_test passenger_prod)
 
 require 'capistrano/ext/multistage'
+require 'bundler/capistrano'
+
+
 default_run_options[:pty] = true
 
 set :application, "new_arrivals"
