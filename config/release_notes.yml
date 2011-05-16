@@ -1,4 +1,8 @@
 versions:
+  - version: "2.8.0"
+    release_date: "May 23, 2011"
+    fixed:
+      - improved call number handling
   - version: "2.7.1"
     release_date: "May 13, 2011"
     fixed:
