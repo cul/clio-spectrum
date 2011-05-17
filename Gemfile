@@ -34,8 +34,7 @@ gem 'rubytree', '=0.5.2'
 # gem 'aws-s3', :require => 'aws/s3'
 
 group :development do
-  gem 'ruby-debug'
-  gem 'rails-footnotes'
+  gem 'rails-footnotes', '>= 3.7'
 end
 
 # Bundle gems for the local environment. Make sure to

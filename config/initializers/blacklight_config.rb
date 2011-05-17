@@ -49,13 +49,14 @@ Blacklight.configure(:shared) do |config|
   config[:facet] = {
     :field_names => (facet_fields = [
       "format",
+      "location_facet",
       "pub_date_facet",
       "acq_date_facet",
       "subject_topic_facet",
       "language_facet",
-      "lc_1letter_facet",
       "subject_geo_facet",
-      "location_facet",
+      "lc_1letter_facet",
+      "lc_2letter_facet"
   ]),
     :labels => {
       "format"              => "Format",
@@ -64,6 +65,7 @@ Blacklight.configure(:shared) do |config|
       "subject_topic_facet" => "Topic",
       "language_facet"      => "Language",
       "lc_1letter_facet"    => "Call Number",
+      "lc_2letter_facet"    => "Refine Call Number",
       "subject_geo_facet"   => "Region",
       "location_facet" => "Location",
     },
@@ -86,9 +88,10 @@ Blacklight.configure(:shared) do |config|
       "acq_date" => 10,
       "pub_date_facet" => 10,
       "language_facet" => 10,
-      "lc_1letter_facet" => 26,
       "subject_geo_facet" => 10,
-      "location_facet" => 10
+      "location_facet" => 10,
+      "lc_1letter_facet" => 26,
+      "lc_2letter_facet" => 26
     }
     
     

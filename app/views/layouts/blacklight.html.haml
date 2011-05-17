@@ -21,5 +21,8 @@
             = render :partial=>'/flash_msg'
             = yield
         .yui-b.sidebar= sidebar_items.join('').html_safe
-      #ft= @footer
+        
+      #ft
+        = @footer
+        #footnotes_holder
     = render :partial => "/feedback_form"
