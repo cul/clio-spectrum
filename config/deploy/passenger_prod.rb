@@ -3,7 +3,7 @@ set :application, "new_arrivals_prod"
 set :domain,      "rameau.cul.columbia.edu"
 set :deploy_to,   "/opt/passenger/#{application}/"
 set :user, "deployer"
-set :branch, @variables[:branch] || "passenger_prod"
+set :branch, @variables[:branch] || "master"
 set :scm_passphrase, ""
 
 role :app, domain

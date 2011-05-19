@@ -10,6 +10,11 @@ class CatalogController < ApplicationController
     extra_head_content << view_context.auto_discovery_link_tag(:unapi, unapi_url, {:type => 'application/xml',  :rel => 'unapi-server', :title => 'unAPI' })
     @response, @document = get_solr_response_for_doc_id    
 
+    unless @document
+      flash[:error] = "Item not found."
+      redirect_to root_path 
+    end
+
     respond_to do |format|
       format.html {setup_next_and_previous_documents; render :layout => "no_sidebar"}
 
