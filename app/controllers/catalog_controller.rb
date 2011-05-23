@@ -5,7 +5,6 @@ class CatalogController < ApplicationController
   include Blacklight::Catalog
 
 
-
   def show
     extra_head_content << view_context.auto_discovery_link_tag(:unapi, unapi_url, {:type => 'application/xml',  :rel => 'unapi-server', :title => 'unAPI' })
     @response, @document = get_solr_response_for_doc_id    

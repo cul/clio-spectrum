@@ -84,7 +84,7 @@ module CulCatalogHelper
   # what collection argument is supposed to duck-type too, but
   # an RSolr::Ext::Response works.  Perhaps it duck-types to something
   # from will_paginate?
-  def page_entries_info(collection, options = {})
+  def page_entries_info_with_rss(collection, options = {})
     start = collection.next_page == 2 ? 1 : collection.previous_page * collection.per_page + 1
     total_hits = @response.total
     start_num = format_num(start)

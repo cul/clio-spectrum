@@ -16,7 +16,7 @@
   
   <div class="pageEntriesInfo">
     <%= render "change_view" %>
-    <%= (page_entries_info @response.docs, :entry_name=>'item').html_safe %>
+    <%= (page_entries_info_with_rss @response.docs, :entry_name=>'item').html_safe %>
     <%=link_to "start over", catalog_index_path, :id=>"startOverLink" %>
   </div>
   
