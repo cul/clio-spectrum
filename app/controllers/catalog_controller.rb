@@ -24,6 +24,16 @@ class CatalogController < ApplicationController
     end
   end
 
+  # when a request for /catalog/BAD_SOLR_ID is made, this method is executed...
+  def invalid_solr_id_error
+    if Rails.env == "development"
+      render # will give us the stack trace
+    else
+      flash[:notice] = "Sorry, you have requested a record that doesn't exist."
+      redirect_to root_path
+    end
+
+  end
 
 end
 
