@@ -5,18 +5,11 @@
   - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
   %body{:onload => onload}
     #doc4
-      #hd
-        .yui-g
-          .yui-u.first
-            %h1.site_title
-              = link_to application_name, root_path
-              = (params[:controller] == "catalog" and !params[:id]) ? "<span id='results_text'>Search Results</span>" : ""
-          .yui-u
-            = render :partial => "/user_util_links"
+      = render :partial => "/header"
       #bd
         #yui-main
           .yui-b
             = render :partial=>'/flash_msg'
             = yield
-      #ft= @footer
+      = render :partial => "/footer"
     = render :partial => "/feedback_form"

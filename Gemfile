@@ -14,7 +14,7 @@ gem 'sqlite3'
 gem 'capistrano'
 gem 'capistrano-ext'
 
-gem 'blacklight', :git => "https://github.com/projectblacklight/blacklight.git"
+gem 'blacklight' 
 gem 'has_options'
 gem 'httpclient'
 gem 'nokogiri'

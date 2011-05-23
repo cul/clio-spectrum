@@ -6,15 +6,7 @@
   %body{:onload => onload}
     #trigger
     #doc4.yui-t2
-      #hd
-        .yui-g
-          .yui-u.first
-            %h1.site_title
-              = link_to application_name, "/"
-
-              = (params[:controller] == "catalog" and !params[:id]) ? "<span id='results_text'>Search Results</span>".html_safe : ""
-          .yui-u.user_util_links
-            = render :partial => "/user_util_links"
+      = render :partial => "/header"
       #bd
         #yui-main
           .yui-b
@@ -22,7 +14,5 @@
             = yield
         .yui-b.sidebar= sidebar_items.join('').html_safe
         
-      #ft
-        = @footer
-        #footnotes_holder
+      = render :partial => "/footer"
     = render :partial => "/feedback_form"

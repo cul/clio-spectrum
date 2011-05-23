@@ -1,0 +1,24 @@
+
+#hd
+  .clio_toolbar
+    .right_toolbar
+      = link_to "Borrow Direct", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0012", :target => "_blank"
+      |
+      = link_to "WorldCat", "http://www.columbia.edu/cgi-bin/cul/resolve?AMS7418", :target => "_blank"
+      |
+      = link_to "Place Requests", "http://clio.cul.columbia.edu:7018/recall.html", :target => "_blank"
+      |
+      = link_to "Other CU Catalogs", "http://clio.cul.columbia.edu:7018/"
+    = link_to "CU Home", "http://www.columbia.edu", :class => "cuCrown"
+    >
+    = link_to "Libraries Home", "http://library.columbia.edu"
+    >
+    = link_to "Back to Clio", "http://clio.cul.columbia.edu:7018/"
+  .yui-g
+    .yui-u.first
+      %h1.site_title
+        = link_to application_name, "/"
+
+        = (params[:controller] == "catalog" and !params[:id]) ? "<span id='results_text'>Search Results</span>".html_safe : ""
+    .yui-u.user_util_links
+      = render :partial => "/user_util_links"
