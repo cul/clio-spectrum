@@ -124,6 +124,20 @@ Blacklight.configure(:shared) do |config|
     }
   }
 
+  config[:show_templates] = {
+    :clio => [
+      {:title => "Title", :marc => "245", :subfields => "abnp"},
+      {:title => "Title", :solr => "title_vern_display"},
+      {:title => "Author", :solr => "author_display", :custom_proc => :author},
+      {:title => "Author", :solr => "author_vern_display", :custom_proc => :author},
+      {:title => "Format", :solr => "format"},
+      {:title => "Physical Description", :marc => "300", :subfields => :all},
+      {:title => "Language", :solr => "language_facet"},
+      {:title => "Published", :marc => "260", :subfields => :all},
+      {:title => "ISBN", :solr => "isbn_t"},
+      {:title => "Topics", :solr => "subject_topic_facet", :custom_proc => :topic}
+  ]
+  }
   # solr fields to be displayed in the show (single result) view
   #   The ordering of the field names is the order of the display 
   config[:show_fields] = {

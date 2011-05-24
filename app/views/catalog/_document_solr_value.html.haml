@@ -1,0 +1,4 @@
+- if values || (defined?(always_display) && always_display)
+  - formatted_values = values.listify.collect { |v| defined?(value_proc) ? value_proc.call(v) : v }.join("<br/>").html_safe
+  %dt= title
+  %dd= formatted_values

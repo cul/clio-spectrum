@@ -1,0 +1,17 @@
+- default_doc_proc = lambda { |v| v}
+- default_marc_proc = lambda { |v,subs| v.subfields.select { |sf| subs == :all || subs.include?(sf.code)}.collect(&:value).join(" ") }
+- custom_procs = {:author => (lambda { |v| link_to(v, url_for(:controller => "catalog", :action => "index", :q => v, :search_field => "author", :commit => "search"))}), :topic => (lambda { |v| link_to(v, url_for(:controller => :catalog, :action => :index, "f[subject_topic_facet][]" => v))})}
+
+- Blacklight.config[:show_templates][:clio].each do |item|
+  - values = nil
+  - if item.has_key?(:solr)
+    - values = document[item[:solr]].listify.collect { |v| (custom_procs[item[:custom_proc]] || default_doc_proc).call(v) }
+  - elsif item.has_key?(:marc)
+    - values = marc[item[:marc]].listify.collect { |v| (custom_procs[item[:custom_proc]] || default_marc_proc).call(v, item[:subfields]) }
+    
+    
+
+  - if !values.empty? || item[:always_display]
+    %dt= item[:title]
+    %dd= values.join("<br/>").html_safe
+
