@@ -10,7 +10,7 @@ require "lib/james_monkeys"
 require "lib/google_books"
 require "lib/voyager_holding"
 
-RELEASE_STAMP = "2.7.1"
+RELEASE_STAMP = "2.8.1"
 
 module NewBooks
   class Application < Rails::Application

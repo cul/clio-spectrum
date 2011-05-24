@@ -35,6 +35,7 @@ gem 'rubytree', '=0.5.2'
 
 group :development do
   gem 'rails-footnotes', '>= 3.7'
+  gem "rsolr-footnotes"
 end
 
 # Bundle gems for the local environment. Make sure to
