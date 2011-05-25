@@ -1,24 +1,6 @@
 %h2 Welcome to CLIO New Arrivals
 
-%p This is a beta version of a search/discovery platform for displaying new acquisitions by Columbia University Libraries. We welcome any feedback: please use the Feedback button on the left hand side of the page.
+%p This is a beta version of a search/discovery platform for displaying new acquisitions by Columbia University Libraries. 
 
+%p We welcome any feedback: please use the Feedback button on the left hand side of the page.
 
-- release_notes = YAML::load_file("config/release_notes.yml")
-
-- release_notes["versions"][0,2].each do |release|
-  %h3 Version #{release["version"]} (#{release["release_date"]})
-  %ul
-    - release["fixed"].each do |fix|
-      %li= fix
-
-
-%h3 Current Known Issues:
-%ul 
-  - release_notes["known_issues"].each do |known_issue|
-    %li= known_issue
-
-%h3 Upcoming Fixes:
-%ul
-  - release_notes["upcoming"].each do |upcoming|
-    %li= upcoming
-      
