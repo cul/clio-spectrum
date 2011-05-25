@@ -17,7 +17,7 @@
   .yui-g
     .yui-u.first
       %h1.site_title
-        = link_to application_name, "/"
+        = link_to application_name, root_url
 
         = (params[:controller] == "catalog" and !params[:id]) ? "<span id='results_text'>Search Results</span>".html_safe : ""
     .yui-u.user_util_links
