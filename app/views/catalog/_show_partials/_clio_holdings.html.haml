@@ -23,12 +23,12 @@
         - location = Location.match_location_text(holding["location_name"])
         .holding{:class => "holding#{i % 2}"}
           .call_number= holding["call_number"]
+          - if (location.library && hour = location.library.hours.find_by_date(Date.today))
+            .hours= hour.to_opens_closes
           .location
             #{image_tag("icons/" + holding["status"] + ".png")}
             - if location && location.category == "physical"
               - check_at = DateTime.now + (params[:add_hours] || 0).to_i.hours
-              - unless location.is_open?(check_at)
-                = image_tag("clock_closed.png", :alt => "Closed. Click Library for more hours information", :size => "16x16", :class=> "closed_icon")
               = link_to holding["location_name"], location_display_path(CGI.escape(holding["location_name"])), :class => :location_display
             - else
               = holding["location_name"]
