@@ -12,6 +12,7 @@
     
 
   - if !values.empty? || item[:always_display]
-    %dt= item[:title]
-    %dd= values.join("<br/>").html_safe
+    .show_value
+      .left_value #{item[:title]}:
+      .right_value= values.join("<br/>").html_safe
 
