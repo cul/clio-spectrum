@@ -23,7 +23,7 @@
         - location = Location.match_location_text(holding["location_name"])
         .holding{:class => "holding#{i % 2}"}
           .call_number= holding["call_number"]
-          - if (location.library && hour = location.library.hours.find_by_date(Date.today))
+          - if (location && location.library && hour = location.library.hours.find_by_date(Date.today))
             .hours= hour.to_opens_closes
           .location
             #{image_tag("icons/" + holding["status"] + ".png")}
