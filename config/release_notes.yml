@@ -1,4 +1,8 @@
 versions:
+  - version: "2.8.2"
+    release_date: "May 26, 2011"
+    fixed:
+      - added better spacing to emails
   - version: "2.8.1"
     release_date: "May 24, 2011"
     fixed:
