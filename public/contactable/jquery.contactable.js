@@ -74,7 +74,6 @@
 					$.post(RAILS_ROOT + "/backend/feedback_mail",$("#contactForm").serialize(),
 					function(data){
 						$('#contact_loading').css({display:'none'}); 
-		        console.log(data);
             if( data == 'success') {
 							$('#contact_callback').show().append(defaults.recievedMsg);
 							if(defaults.hideOnSubmit == true) {
