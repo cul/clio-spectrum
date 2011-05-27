@@ -11,9 +11,9 @@ class LibraryHours < ActiveRecord::Base
     result = ""
     if opens && closes
       result += (opens.min == 0 ? opens.strftime("%l") : opens.strftime("%l:%M")).strip
-      result += opens.strftime("%p") == "PM" ? "p" : "a"
+      result += opens.strftime("%p") == "PM" ? "pm" : "am"
       result += "-" + (closes.min == 0 ? closes.strftime("%l") : closes.strftime("%l:%M")).strip
-      result += closes.strftime("%p") == "PM" ? "p" : "a"
+      result += closes.strftime("%p") == "PM" ? "pm" : "am"
     else
       result = "CLOSED"
     end
