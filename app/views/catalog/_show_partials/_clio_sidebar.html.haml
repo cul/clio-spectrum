@@ -12,7 +12,7 @@
   %li= link_to "Inter-Campus Delivery", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0013"
   %li= link_to "In-Process / On Order", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?#{clio_id}"
   %li= link_to "Precataloging", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/precat?#{clio_id}"
-  - if HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + clio_id) == 1
+  - if HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + clio_id) == "1"
     %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{h(document['clio_id_display'])}"
 %h4 Actions:
 %ul
