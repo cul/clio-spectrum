@@ -20,7 +20,7 @@ jetty/solr/*data/*
 coverage/*
 db/*.sqlite3
 *.tmproj
-.rvmrc*
+*.rvmrc*
 *.sw?
 .sass-cache/**/*
 public/stylesheets/compiled

@@ -6,9 +6,9 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
-require "lib/james_monkeys"
-require "lib/google_books"
-require "lib/voyager_holding"
+require File.expand_path('../../lib/james_monkeys', __FILE__)
+require File.expand_path('../../lib/google_books', __FILE__)
+require File.expand_path('../../lib/voyager_holding', __FILE__)
 
 RELEASE_STAMP = "3.0.0rc2"
 

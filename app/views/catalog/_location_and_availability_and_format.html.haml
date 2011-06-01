@@ -1,6 +1,6 @@
 %dt Published:
 %dd
-  = document["full_publisher_display"].to_s
+  = document["full_publisher_display"].listify.join("").to_s
 
 - unless (urls =  online_link_hash(document)).empty?
   %dt Online:

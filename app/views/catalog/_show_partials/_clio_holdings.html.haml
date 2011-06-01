@@ -37,5 +37,5 @@
               - online_link_hash(document).each do |link|
                 - title, url = link
                 %div= link_to title.abbreviate(60), url
-            - else
+            - elsif holding.has_key?("status_for_display")
               #{holding["status_for_display"]}

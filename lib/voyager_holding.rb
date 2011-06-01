@@ -20,7 +20,7 @@ class Holding
 
     http_client do |hc|
       begin
-        xml = Nokogiri::XML(hc.get_content(HOLDINGS_URL, :bibId => bibid))
+        xml = Nokogiri::XML(hc.get_content(HOLDINGS_URL, :bibId => bibid.listify.join("&")))
       rescue
         @results= Hash.arbitrary_depth
         return self

@@ -1,3 +1,16 @@
+GIT
+  remote: https://github.com/projectblacklight/blacklight.git
+  revision: 04c13143c6d27b3251a7425dc47d1cd73c5ec3de
+  specs:
+    blacklight (3.0.0pre4)
+      marc (~> 0.4.3)
+      nokogiri (~> 1.5.0.beta.3)
+      rails (~> 3.0)
+      rsolr (~> 1.0)
+      rsolr-ext (~> 1.0)
+      unicode
+      will_paginate (~> 3.0.pre2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -28,16 +41,9 @@ GEM
       activemodel (= 3.0.7)
       activesupport (= 3.0.7)
     activesupport (3.0.7)
-    arel (2.0.9)
+    archive-tar-minitar (0.5.2)
+    arel (2.0.10)
     bcrypt-ruby (2.1.4)
-    blacklight (3.0.0pre4)
-      marc (~> 0.3)
-      nokogiri (~> 1.5.0.beta.3)
-      rails (~> 3.0)
-      rsolr (~> 1.0)
-      rsolr-ext (~> 1.0)
-      unicode
-      will_paginate (~> 3.0.pre2)
     builder (2.1.2)
     capistrano (2.6.0)
       highline
@@ -48,6 +54,7 @@ GEM
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
     chunky_png (1.2.0)
+    columnize (0.3.2)
     compass (0.11.1)
       chunky_png (~> 1.1)
       fssm (>= 0.2.7)
@@ -61,17 +68,19 @@ GEM
     fssm (0.2.7)
     haml (3.1.1)
     has_options (0.4.0)
-    highline (1.6.1)
+    highline (1.6.2)
     hoe (2.9.4)
       rake (>= 0.8.7)
     httpclient (2.2.0.2)
     i18n (0.5.0)
+    linecache19 (0.5.12)
+      ruby_core_source (>= 0.1.4)
     mail (2.2.19)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    marc (0.4.2)
+    marc (0.4.3)
     mime-types (1.16)
     mysql (2.8.1)
     net-scp (1.0.4)
@@ -84,7 +93,7 @@ GEM
     nokogiri (1.5.0.beta.4)
     orm_adapter (0.0.5)
     polyglot (0.3.1)
-    rack (1.2.2)
+    rack (1.2.3)
     rack-mount (0.6.14)
       rack (>= 1.0.0)
     rack-test (0.5.7)
@@ -97,26 +106,36 @@ GEM
       activesupport (= 3.0.7)
       bundler (~> 1.0)
       railties (= 3.0.7)
-    rails-footnotes (3.7.2)
+    rails-footnotes (3.7.4)
       rails (>= 3.0.0)
     railties (3.0.7)
       actionpack (= 3.0.7)
       activesupport (= 3.0.7)
       rake (>= 0.8.7)
       thor (~> 0.14.4)
-    rake (0.8.7)
-    rsolr (1.0.0)
+    rake (0.9.1)
+    rsolr (1.0.1)
       builder (>= 2.1.2)
-    rsolr-ext (1.0.0)
-      rsolr (>= 1.0.0)
-    rsolr-footnotes (0.0.1)
+    rsolr-ext (1.0.1)
+      rsolr (>= 1.0.1)
+    rsolr-footnotes (0.0.2)
       activesupport
       rails
       rails-footnotes
       rsolr
+    ruby-debug-base19 (0.11.25)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby_core_source (>= 0.1.4)
+    ruby-debug19 (0.11.6)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby-debug-base19 (>= 0.11.19)
+    ruby_core_source (0.1.5)
+      archive-tar-minitar (>= 0.5.2)
     rubytree (0.5.2)
       hoe (>= 1.3.0)
-    sass (3.1.1)
+    sass (3.1.2)
     sqlite3 (1.3.3)
     thor (0.14.6)
     treetop (1.4.9)
@@ -131,7 +150,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  blacklight
+  blacklight!
   capistrano
   capistrano-ext
   compass (~> 0.11.1)
@@ -144,6 +163,7 @@ DEPENDENCIES
   rails (= 3.0.7)
   rails-footnotes (>= 3.7)
   rsolr-footnotes
+  ruby-debug19
   rubytree (= 0.5.2)
   sqlite3
   unicode

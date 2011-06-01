@@ -7,7 +7,7 @@
         .document_gallery.yui-u{:class => ("first" if counter % 3 == 0)}
           .book_cover.grid_cover
             .cover.fake_cover
-              .fake_label= link_to_document document, :label=> document["title_display"].to_s.abbreviate(40), :counter => counter_start
+              .fake_label= link_to_document document, :label=> document["title_display"].listify.join("").to_s.abbreviate(40), :counter => counter_start
 
             .gbs_cover
               .gbs_thumbnail= link_to image_tag("spacer.png", :class => ("grid_bookjacket bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))), {:controller => :catalog, :action => :show, :id => document.id}
@@ -17,7 +17,7 @@
             .title
               
               
-              = link_to_document document, :label => document["title_display"].to_s.abbreviate(40), :counter => counter_start
+              = link_to_document document, :label => document["title_display"].listify.join("").to_s.abbreviate(40), :counter => counter_start
             
             .grid_availability
               = render :partial => "availability", :locals => {:document => document, :view => params[:view] }

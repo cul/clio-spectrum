@@ -1,4 +1,5 @@
-
+# encoding: UTF-8
+#
 module CulCatalogHelper
   def render_document_index_label doc, opts
     label = nil
@@ -28,7 +29,6 @@ module CulCatalogHelper
 
   def build_holdings_hash(document)
     results = Hash.new { |h,k| h[k] = []}
-
     Holding.new(document["clio_id_display"]).fetch_from_opac!.results["holdings"].each_pair do |holding_id, holding_hash|
       results[[holding_hash["location_name"],holding_hash["call_number"]]] << holding_hash
     end

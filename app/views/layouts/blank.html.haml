@@ -14,8 +14,7 @@
     = javascript_tag "var RAILS_ROOT = '#{ActionController::Base.relative_url_root}';"
 
     
-    - javascript_tag.each do
-      = yield(:jstemplates)
+    = yield(:jstemplates)
 
 
   %body.blank_layout

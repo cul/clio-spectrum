@@ -14,7 +14,7 @@ gem 'sqlite3'
 gem 'capistrano'
 gem 'capistrano-ext'
 
-gem 'blacklight' 
+gem 'blacklight',  :git => 'https://github.com/projectblacklight/blacklight.git'
 gem 'has_options'
 gem 'httpclient'
 gem 'nokogiri'
@@ -25,7 +25,6 @@ gem 'mysql'
 gem 'rubytree', '=0.5.2'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-# gem 'ruby-debug19', :require => 'ruby-debug'
 
 # Bundle the extra gems:
 # gem 'bj'
@@ -34,6 +33,7 @@ gem 'rubytree', '=0.5.2'
 # gem 'aws-s3', :require => 'aws/s3'
 
 group :development do
+  gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'rails-footnotes', '>= 3.7'
   gem "rsolr-footnotes"
 end
