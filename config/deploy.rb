@@ -1,5 +1,5 @@
-set :default_stage, "passenger_dev"
-set :stages, %w(passenger_dev passenger_test passenger_prod)
+set :default_stage, "na_dev"
+set :stages, %w(na_dev na_test na_prod)
 
 require 'capistrano/ext/multistage'
 require 'bundler/capistrano'

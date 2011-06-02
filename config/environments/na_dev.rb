@@ -1,5 +1,4 @@
 
-
 NewBooks::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -10,7 +9,6 @@ NewBooks::Application.configure do
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = false
-  config.action_view.debug_rjs             = false
   config.action_controller.perform_caching = true
 
   # Don't care if the mailer can't send
@@ -31,4 +29,3 @@ config.action_mailer.smtp_settings = {
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 end
-
