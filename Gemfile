@@ -1,5 +1,4 @@
 source 'http://rubygems.org'
-
 gem 'rails', '3.0.7'
 
 # Bundle edge Rails instead:
@@ -13,7 +12,6 @@ gem 'sqlite3'
 # Deploy with Capistrano
 gem 'capistrano'
 gem 'capistrano-ext'
-
 gem 'blacklight',  :git => 'https://github.com/projectblacklight/blacklight.git'
 gem 'has_options'
 gem 'httpclient'
@@ -32,11 +30,11 @@ gem 'rubytree', '=0.5.2'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
-group :development do
-  gem 'ruby-debug19', :require => 'ruby-debug'
-  gem 'rails-footnotes', '>= 3.7'
-  gem "rsolr-footnotes"
-end
+#group :development do
+  #gem 'ruby-debug19', :require => 'ruby-debug'
+  #gem 'rails-footnotes', '>= 3.7'
+  #gem "rsolr-footnotes"
+#end
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators

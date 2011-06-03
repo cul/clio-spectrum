@@ -27,7 +27,6 @@ namespace :solr do
     task :clear => :environment do
       start = ENV["START_TIME"] || "*"
       stop = ENV["STOP_TIME"] || "NOW"
-
       ids = solr_find_ids_by_timespan(start, stop) 
 
       if ENV["DRY_RUN"]
@@ -95,7 +94,7 @@ namespace :solr do
 end
 
 def solr_find_ids_by_timespan(start, stop)
-  Blacklight.solr.find(:fl => "id", :filters => {:timestamp => "[" + start + " TO " + stop+"]"}, :per_page => 100000000)["response"]["docs"].collect(&:id)
+  response = Blacklight.solr.find(:fl => "id", :filters => {:timestamp => "[" + start + " TO " + stop+"]"}, :per_page => 100000000)["response"]["docs"].collect(&:id).flatten
 end
 
 

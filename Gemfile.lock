@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/projectblacklight/blacklight.git
-  revision: 04c13143c6d27b3251a7425dc47d1cd73c5ec3de
+  revision: 7e00ece20942f237511dc4e3d5a7b8fe2b635cea
   specs:
     blacklight (3.0.0pre4)
       marc (~> 0.4.3)
@@ -10,6 +10,12 @@ GIT
       rsolr-ext (~> 1.0)
       unicode
       will_paginate (~> 3.0.pre2)
+
+PATH
+  remote: ~/code/rsolr
+  specs:
+    rsolr (1.0.1)
+      builder (>= 2.1.2)
 
 GEM
   remote: http://rubygems.org/
@@ -41,7 +47,6 @@ GEM
       activemodel (= 3.0.7)
       activesupport (= 3.0.7)
     activesupport (3.0.7)
-    archive-tar-minitar (0.5.2)
     arel (2.0.10)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
@@ -54,7 +59,6 @@ GEM
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
     chunky_png (1.2.0)
-    columnize (0.3.2)
     compass (0.11.1)
       chunky_png (~> 1.1)
       fssm (>= 0.2.7)
@@ -73,8 +77,6 @@ GEM
       rake (>= 0.8.7)
     httpclient (2.2.1)
     i18n (0.5.0)
-    linecache19 (0.5.12)
-      ruby_core_source (>= 0.1.4)
     mail (2.2.19)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -106,33 +108,14 @@ GEM
       activesupport (= 3.0.7)
       bundler (~> 1.0)
       railties (= 3.0.7)
-    rails-footnotes (3.7.4)
-      rails (>= 3.0.0)
     railties (3.0.7)
       actionpack (= 3.0.7)
       activesupport (= 3.0.7)
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.9.1)
-    rsolr (1.0.1)
-      builder (>= 2.1.2)
     rsolr-ext (1.0.1)
       rsolr (>= 1.0.1)
-    rsolr-footnotes (0.0.2)
-      activesupport
-      rails
-      rails-footnotes
-      rsolr
-    ruby-debug-base19 (0.11.25)
-      columnize (>= 0.3.1)
-      linecache19 (>= 0.5.11)
-      ruby_core_source (>= 0.1.4)
-    ruby-debug19 (0.11.6)
-      columnize (>= 0.3.1)
-      linecache19 (>= 0.5.11)
-      ruby-debug-base19 (>= 0.11.19)
-    ruby_core_source (0.1.5)
-      archive-tar-minitar (>= 0.5.2)
     rubytree (0.5.2)
       hoe (>= 1.3.0)
     sass (3.1.2)
@@ -161,9 +144,7 @@ DEPENDENCIES
   mysql
   nokogiri
   rails (= 3.0.7)
-  rails-footnotes (>= 3.7)
-  rsolr-footnotes
-  ruby-debug19
+  rsolr!
   rubytree (= 0.5.2)
   sqlite3
   unicode
