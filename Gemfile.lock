@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/projectblacklight/blacklight.git
-  revision: 7e00ece20942f237511dc4e3d5a7b8fe2b635cea
+  revision: 9d1be6bc5710b6b4739e55adadf08b9c32a73ff9
   specs:
     blacklight (3.0.0pre4)
       marc (~> 0.4.3)
@@ -10,12 +10,6 @@ GIT
       rsolr-ext (~> 1.0)
       unicode
       will_paginate (~> 3.0.pre2)
-
-PATH
-  remote: ~/code/rsolr
-  specs:
-    rsolr (1.0.1)
-      builder (>= 2.1.2)
 
 GEM
   remote: http://rubygems.org/
@@ -113,7 +107,9 @@ GEM
       activesupport (= 3.0.7)
       rake (>= 0.8.7)
       thor (~> 0.14.4)
-    rake (0.9.1)
+    rake (0.9.2)
+    rsolr (1.0.1)
+      builder (>= 2.1.2)
     rsolr-ext (1.0.1)
       rsolr (>= 1.0.1)
     rubytree (0.5.2)
@@ -144,7 +140,6 @@ DEPENDENCIES
   mysql
   nokogiri
   rails (= 3.0.7)
-  rsolr!
   rubytree (= 0.5.2)
   sqlite3
   unicode
