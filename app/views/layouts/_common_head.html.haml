@@ -15,7 +15,6 @@
 = javascript_tag "$(function(){ $('#contact').contactable({ subject: 'A Feedback Message'});});"
 = stylesheet_link_tag "compiled/print", :media => :print
 = yield(:jstemplates)
-- onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
 :javascript
 
   var _gaq = _gaq || [];
