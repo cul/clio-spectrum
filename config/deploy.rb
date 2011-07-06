@@ -11,7 +11,7 @@ set :application, "new_arrivals"
 set :scm, :git
 set :git_enable_submodules, 1
 set :deploy_via, :remote_cache
-set :repository,  "git@github.com:cul/cul-blacklight-new_books.git"
+set :repository,  "git@github.com:cul/clio-spectrum.git"
 set :use_sudo, false
 
 namespace :deploy do
