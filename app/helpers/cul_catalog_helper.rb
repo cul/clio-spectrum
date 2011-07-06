@@ -104,7 +104,9 @@ module CulCatalogHelper
       "Displaying #{entry_name.pluralize} <b>#{start_num} - #{end_num}</b> of <b>#{total_num}</b>"
     end
 
-    display_items += link_to(image_tag("rss-feed-icon-14x14.png"), catalog_index_path(params.merge(:format => "atom")), :id => "feedLink")
+    atom_url =  catalog_index_path(params.merge(:format => "atom")).gsub('[','%5B').gsub(']','%5D')
+
+    display_items += link_to(image_tag("rss-feed-icon-14x14.png"), atom_url,  :id => "feedLink")
   end
 
 end
