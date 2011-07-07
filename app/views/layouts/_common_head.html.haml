@@ -2,8 +2,13 @@
 %title= h(@page_title || application_name)
 -#%link{:href => opensearch_catalog_path, :rel => "search",  :title => application_name, :type => "application/opensearchdescription+xml"}/
 = csrf_meta_tag
-= render_head_content
+= stylesheet_link_tag "yui", :media => "all"
+= stylesheet_link_tag "jquery/ui-lightness/jquery-ui-1.8.1.custom.css", :media => "all"
+= stylesheet_link_tag "blacklight/blacklight", :media => "all"
+= javascript_include_tag "jquery-1.6.2.min"
+= javascript_include_tag "jquery-ui-1.8.1.custom.min"
 = javascript_include_tag "jquery_snippet.js"
+= javascript_include_tag "blacklight/blacklight"
 = stylesheet_link_tag "compiled/application"
 %script{:src => "https://www.google.com/jsapi", :type => "text/javascript"}
 = javascript_include_tag "application"
