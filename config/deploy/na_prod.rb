@@ -1,4 +1,4 @@
-set :rails_env, "passenger_prod"
+set :rails_env, "na_prod"
 set :application, "new_arrivals_prod"
 set :domain,      "rameau.cul.columbia.edu"
 set :deploy_to,   "/opt/passenger/#{application}/"

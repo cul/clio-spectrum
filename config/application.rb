@@ -10,7 +10,7 @@ require File.expand_path('../../lib/james_monkeys', __FILE__)
 require File.expand_path('../../lib/google_books', __FILE__)
 require File.expand_path('../../lib/voyager_holding', __FILE__)
 
-RELEASE_STAMP = "3.0.0rc2"
+RELEASE_STAMP = "3.0.1"
 
 module NewBooks
   class Application < Rails::Application
