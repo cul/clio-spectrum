@@ -1,4 +1,9 @@
 versions:
+  - version: "3.0.1"
+    release_date: "July 6, 2011"
+    fixed:
+      - changed RSS feed to not include brackets
+      - updated to blacklight 3.0 
   - version: "3.0.0rc2"
     release_date: "May 27, 2011"
     fixed:
