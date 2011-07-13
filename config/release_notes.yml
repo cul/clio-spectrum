@@ -1,4 +1,10 @@
 versions:
+  - version: "3.1.0"
+    release_date: "July 13, 2011"
+    fixed:
+      - added advanced search
+      - updated solr config
+      - added acquisition date sorting
   - version: "3.0.1"
     release_date: "July 6, 2011"
     fixed:

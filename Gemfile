@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-gem 'rails', '3.0.7'
+gem 'rails', '3.0.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -12,7 +12,7 @@ gem 'sqlite3'
 # Deploy with Capistrano
 gem 'capistrano'
 gem 'capistrano-ext'
-gem 'blacklight',  :git => 'https://github.com/projectblacklight/blacklight.git'
+gem 'blacklight'
 gem 'has_options'
 gem 'httpclient'
 gem 'nokogiri'
@@ -21,7 +21,7 @@ gem 'compass', '~>0.11.1'
 gem 'unicode'
 gem 'mysql'
 gem 'rubytree', '=0.5.2'
-
+gem 'blacklight_advanced_search'
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 
 # Bundle the extra gems:
