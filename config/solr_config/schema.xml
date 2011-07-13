@@ -4,7 +4,7 @@
     http://wiki.apache.org/solr/SchemaXml.  The page also has a link to an 
     extensively commented version of this file.
 -->
-<schema name="New Arrivals" version="0.9">
+<schema name="Spectrum" version="0.1">
   <!-- attribute "name" is the name of this schema and is only used for display purposes.
        Applications should change this to reflect the nature of the search collection.
        version="1.2" is Solr's version number for the schema syntax and semantics.  It should
@@ -244,23 +244,23 @@
     <!-- these display fields are NOT multi-valued -->
     <field name="marc_display" type="string" indexed="false" stored="true" multiValued="false"/>
 
+<!-- pub_date is used for facet and display so it must be indexed and stored -->
+    <field name="pub_date" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="acq_date" type="string" indexed="true" stored="true" />
     <!-- these fields are also used for display, so they must be stored -->
     <field name="isbn_t" type="text" indexed="true" stored="true" multiValued="true"/>
     <field name="language_facet" type="string" indexed="true" stored="true" multiValued="true" />
     <field name="subject_topic_facet" type="string" indexed="true" stored="true" multiValued="true" />
-    <field name="subject_era_facet" type="string" indexed="true" stored="true" multiValued="true" />
     <field name="subject_geo_facet" type="string" indexed="true" stored="true" multiValued="true" />
-    <field name="location_facet" type="string" indexed="true" stored="true" multiValued="true" />
 
-<!-- pub_date is used for facet and display so it must be indexed and stored -->
-    <field name="pub_date" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="acq_date" type="string" indexed="true" stored="true" />
+    <!-- pub_date is used for facet and display so it must be indexed and stored -->
     <!-- pub_date sort uses new trie-based int fields, which are recommended for any int and are displayable, sortable, and range-query-able. In addition,
     we use 'tint' for faster range-queries. -->
     <field name="pub_date_sort" type="tint" indexed="true" stored="true" multiValued="false"/>
+    <field name="acq_date_sort" type="tint" indexed="true" stored="true" multiValued="false"/>
   
     <!-- format is used for facet, display, and choosing which partial to use for the show view, so it must be stored and indexed -->
-    <field name="format" type="string" indexed="true" stored="true"/>
+    <field name="format" type="string" indexed="true" stored="true" multiValued="true"/>
 
     <dynamicField name="*_i"  type="int"    indexed="true"  stored="true"/>
     <dynamicField name="*_s"  type="string"  indexed="true"  stored="true" multiValued="true"/>
@@ -301,6 +301,7 @@
   <!-- sort fields -->
   <copyField source="pub_date" dest="pub_date_sort"/>
   
+  <copyField source="acq_date" dest="acq_date_sort"/>
 
   <!-- spellcheck fields -->
   <!-- default spell check;  should match fields for default request handler -->
@@ -334,5 +335,3 @@
   <copyField source="subject_addl_t" dest="opensearch_display"/>  
 
 </schema>
-
-

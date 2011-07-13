@@ -15,6 +15,7 @@ doc/api
 doc/app
 doc/plugins
 doc/*.dot
+jetty/
 jetty/logs/*
 jetty/solr/*data/*
 coverage/*
