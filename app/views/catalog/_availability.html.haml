@@ -1,5 +1,5 @@
 - limit = params[:view] == "grid" ? 1 : 3
-- if (limit >=0 && (urls =  document.get("url_fulltext_display")))
+- if (limit >=0 && (urls =  document["url_fulltext_display"]))
   - urls.listify.each do |url_blob|
     - url_blob.split(",").each do |url|
       - break if (limit -= 1) < 0

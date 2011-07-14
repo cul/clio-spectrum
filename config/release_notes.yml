@@ -1,4 +1,15 @@
 versions:
+  - version: "3.1.2"
+    release_date: "July 14, 2011"
+    fixed:
+      - html_safed pagination controls
+  - version: "3.1.1"
+    release_date: "July 14, 2011"
+    fixed:
+      - grid view fixed
+      - html_safed the page counts
+      - removed unicode warning.
+
   - version: "3.1.0"
     release_date: "July 13, 2011"
     fixed:

@@ -1,13 +1,13 @@
 development:
-    url: http://127.0.0.1:8983/solr
+    url: http://dirk.cul.columbia.edu:8080/solr-1.5/spectrum_experiment
 test: &TEST
     url: http://127.0.0.1:8983/solr
 na_dev:
-    url: http://dirk.cul.columbia.edu:8080/solr-1.5/na_experiment
+    url: http://harding.cul.columbia.edu:8080/solr-1.5/na_experiment
 na_test:
-    url: http://dirk.cul.columbia.edu:8080/solr-1.5/na_experiment
+    url: http://harding.cul.columbia.edu:8080/solr-1.5/na_experiment
 na_prod:
-    url: http://dirk.cul.columbia.edu:8080/solr-1.5/na_master
+    url: http://harding.cul.columbia.edu:8080/solr-1.5/na_master
 spectrum_dev:
     #url: http://hoover.cul.columbia.edu:8080/solr-1.5/spectrum_experiment
     url: http://dirk.cul.columbia.edu:8080/solr-1.5/spectrum_experiment

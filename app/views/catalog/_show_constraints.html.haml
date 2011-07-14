@@ -7,6 +7,6 @@
       .yui-u
 
         .back_to_catalog= link_back_to_catalog
-        =item_page_entry_info.gsub(" from your search.","")
+        =item_page_entry_info.gsub(" from your search.","").html_safe
 
         =render "show_previous_next_doc"

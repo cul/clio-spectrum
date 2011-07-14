@@ -6,7 +6,7 @@ module CulCatalogHelper
     label ||= doc.get(opts[:label]) if opts[:label].instance_of? Symbol
     label ||= opts[:label].call(doc, opts) if opts[:label].instance_of? Proc
     label ||= opts[:label] if opts[:label].is_a? String
-    label ||= doc.id
+    label ||= doc.get("id")
     label.listify.join(" ").to_s 
   end
 
