@@ -11,7 +11,7 @@ class RecordMailer < ActionMailer::Base
     else
       subject "Item records"
     end
-    from "clio.new.arrivals+noreply@gmail.com"
+    from APP_CONFIG[:email_address]
     body :documents => documents, :url_gen_params => url_gen_params, :message => details[:message]
   end
   

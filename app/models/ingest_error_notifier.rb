@@ -1,8 +1,8 @@
 class IngestErrorNotifier < ActionMailer::Base
   def generic_error(params = {})
-    from "clio.new.arrivals@gmail.com"
+    from APP_CONFIG[:email_address]
     subject "New Arrivals #{Rails.env} Ingest Error "
-    recipients "clio-new-arrivals-feedback@libraries.cul.columbia.edu"
+    recipients APP_CONFIG[:email_address]
     
     @params = params
 

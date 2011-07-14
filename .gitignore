@@ -1,4 +1,5 @@
 config/database.yml
+config/app_config.yml
 config/*.sphinx.conf
 config/s3_credentials.yml
 *~
@@ -24,4 +25,3 @@ db/*.sqlite3
 *.rvmrc*
 *.sw?
 .sass-cache/**/*
-public/stylesheets/compiled

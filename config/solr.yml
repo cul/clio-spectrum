@@ -9,7 +9,8 @@ na_test:
 na_prod:
     url: http://harding.cul.columbia.edu:8080/solr-1.5/na_master
 spectrum_dev:
-    #url: http://hoover.cul.columbia.edu:8080/solr-1.5/spectrum_experiment
+    url: http://dirk.cul.columbia.edu:8080/solr-1.5/spectrum_experiment
+spectrum_test:
     url: http://dirk.cul.columbia.edu:8080/solr-1.5/spectrum_experiment
 cucumber:
     <<: *TEST
