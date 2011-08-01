@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-gem 'rails', '3.0.9'
+gem 'rails', '3.1.0rc5'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -16,12 +16,21 @@ gem 'blacklight'
 gem 'has_options'
 gem 'httpclient'
 gem 'nokogiri'
-gem 'haml', '~> 3.1.1'
+gem 'haml'
 gem 'compass', '~>0.11.1'
 gem 'unicode'
 gem 'mysql'
 gem 'rubytree', '=0.5.2'
-gem 'blacklight_advanced_search'
+# gem 'blacklight_advanced_search',:git => 'https://github.com/projectblacklight/blacklight_advanced_search.git'
+
+gem 'sass'
+gem 'coffee-script'
+gem 'uglifier'
+gem 'jquery-rails'
+
+gem 'unicorn'
+
+
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 
 # Bundle the extra gems:
@@ -43,3 +52,11 @@ gem 'blacklight_advanced_search'
 #   gem 'webrat'
 # end
 gem "devise"
+
+group :development, :test do
+  gem "minitest", ">= 0"
+  gem "rcov", ">= 0"
+  gem "guard-minitest"
+  gem "mocha"
+  gem "growl"
+end
