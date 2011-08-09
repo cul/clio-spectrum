@@ -22,17 +22,18 @@
   </div>
   
 	<%= render 'sort_and_per_page' %>
-  
+  <div class="pagination_container">
         <%= render 'results_pagination' %>
-  
+      </div>
 	<%= render :partial => 'document_list' %>
 
 	<% sidebar_items << capture do %>
 	  <%= render :partial=>'facets' %>
 	<% end %>
 
+  <div class="pagination_container">
   <%= render 'results_pagination' %>
-
+</div>
 <% end %>
 
 

@@ -2,23 +2,13 @@
 %title= h(@page_title || application_name)
 -#%link{:href => opensearch_catalog_path, :rel => "search",  :title => application_name, :type => "application/opensearchdescription+xml"}/
 = csrf_meta_tag
-= stylesheet_link_tag "yui", :media => "all"
-= stylesheet_link_tag "jquery/ui-lightness/jquery-ui-1.8.1.custom.css", :media => "all"
-= stylesheet_link_tag "blacklight/blacklight", :media => "all"
-= javascript_include_tag "jquery-1.6.2.min"
-= javascript_include_tag "jquery-ui-1.8.1.custom.min"
-= javascript_include_tag "jquery_snippet.js"
-= javascript_include_tag "blacklight/blacklight"
-= stylesheet_link_tag "compiled/application"
 %script{:src => "https://www.google.com/jsapi", :type => "text/javascript"}
-= javascript_include_tag "application"
-= stylesheet_link_tag "colorbox/colorbox"
-= javascript_include_tag "jquery.colorbox-min"
 = javascript_tag "var RAILS_ROOT = '#{ActionController::Base.config.relative_url_root}'; google.load('books','0'); "
-= javascript_include_tag "/contactable/jquery.validate.pack.js"
-= javascript_include_tag "/contactable/jquery.contactable.js"
+= stylesheet_link_tag "application"
+= javascript_include_tag "application"
+= stylesheet_link_tag "/contactable/contactable"
 = javascript_tag "$(function(){ $('#contact').contactable({ subject: 'A Feedback Message'});});"
-= stylesheet_link_tag "compiled/print", :media => :print
+= stylesheet_link_tag "print", :media => :print
 = yield(:jstemplates)
 :javascript
 
@@ -30,5 +20,4 @@
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
   

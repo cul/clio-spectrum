@@ -1,8 +1,6 @@
 /i default partial to display solr document fields in catalog index view
-
-.yui-ge
-  .yui-u.first
-
+.document
+  .details
     %dl.defList_in_grid.index_grid
       - if (subtitle = document.get("subtitle_display"))
         %dt Subtitle:
@@ -13,7 +11,7 @@
         %dd=author.listify.join("")
 
       = render :partial => "/catalog/location_and_availability_and_format", :locals => {:document => document}
-  .yui-u
+  .doc_bookjacket
     =image_tag("spacer.png", :class => "list_view bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))
 
       

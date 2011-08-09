@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-gem 'rails', '3.1.0rc5'
+gem 'rails', '3.1.0.rc5'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -9,23 +9,30 @@ gem 'sqlite3'
 # Use unicorn as the web server
 # gem 'unicorn'
 
+gem 'blacklight', :path => "~/code/blacklight"
+gem 'json'
+
 # Deploy with Capistrano
 gem 'capistrano'
 gem 'capistrano-ext'
-gem 'blacklight'
+
 gem 'has_options'
 gem 'httpclient'
 gem 'nokogiri'
 gem 'haml'
-gem 'compass', '~>0.11.1'
 gem 'unicode'
 gem 'mysql'
 gem 'rubytree', '=0.5.2'
 # gem 'blacklight_advanced_search',:git => 'https://github.com/projectblacklight/blacklight_advanced_search.git'
 
-gem 'sass'
-gem 'coffee-script'
-gem 'uglifier'
+group :assets do
+  gem 'sass-rails', "~> 3.1.0.rc"
+  gem 'coffee-rails', "~> 3.1.0.rc"
+  gem 'uglifier'
+  gem 'compass', :git => 'git://github.com/chriseppstein/compass.git', :branch => 'rails31'
+
+end
+
 gem 'jquery-rails'
 
 gem 'unicorn'
@@ -53,8 +60,12 @@ gem 'unicorn'
 # end
 gem "devise"
 
-group :development, :test do
+group :test do
   gem "minitest", ">= 0"
+  gem "minitest-rails"
+  gem "mini_specunit"
+  gem "mini_backtrace"
+  gem "mini_shoulda"
   gem "rcov", ">= 0"
   gem "guard-minitest"
   gem "mocha"

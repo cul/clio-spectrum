@@ -4,13 +4,13 @@ require 'rails/all'
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env) if defined?(Bundler)
+Bundler.require *Rails.groups(:assets) if defined?(Bundler)
 
 require File.expand_path('../../lib/james_monkeys', __FILE__)
 require File.expand_path('../../lib/google_books', __FILE__)
 require File.expand_path('../../lib/voyager_holding', __FILE__)
 
-RELEASE_STAMP = "3.1.3"
+RELEASE_STAMP = "0.1.0"
 
 module NewBooks
   class Application < Rails::Application
@@ -44,5 +44,12 @@ module NewBooks
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    # Enable the asset pipeline
+    config.assets.enabled = true    
+    # Default SASS Configuration, check out https://github.com/rails/sass-rails for details
+    config.sass.line_comments = Rails.env.development?
+    config.sass.compress = !Rails.env.development?
+    
   end
 end

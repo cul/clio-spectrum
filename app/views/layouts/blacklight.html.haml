@@ -5,14 +5,14 @@
   - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
   %body{:onload => onload}
     #trigger
-    #doc4.yui-t2
+    #page
       = render :partial => "/header"
       #bd
-        #yui-main
-          .yui-b
+        #main
+          #main_container
             = render :partial=>'/flash_msg'
             = yield
-        .yui-b.sidebar= sidebar_items.join('').html_safe
-        
+        #sidebar= sidebar_items.join('').html_safe
+          
       = render :partial => "/footer"
     = render :partial => "/feedback_form"

@@ -3,6 +3,7 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
+@import "blacklight/partials/susy_framework"
 
 
 
@@ -19,14 +20,69 @@
   :margin-top 1em
   :font-weight bold
 
+.grid_view
+  +columns(19,19)
+  +omega(19)
 
-  
+  .document_gallery
+    +columns(6,19)
 
-.cuCrown
-  :background url(../../images/crown.w18h14.white.gif) no-repeat
-  :padding-left 22px
-  :margin-left 5px
-  
+    .first
+      +omega(19)
+
+
+#documents
+  +columns(19,19)
+  +omega(19)
+
+.document
+  +columns(19,19)
+  +omega(19)
+
+  .details
+    +columns(14,19)
+
+  .doc_bookjacket
+    +columns(4,19)
+    +omega(19)
+
+.pagination_container
+  +columns(19,19)
+  +omega(19)
+
+
+#applied_params_container
+  +columns(24,24)
+  +omega(24)
+
+  #appliedParams
+    +columns(24,24)
+    +omega(24)
+
+  #searched_for
+    +columns(12,24)
+
+  #search_navigation
+    +columns(12,24)
+    +omega(24)
+
+  #show_start_over
+    +columns(6,12)
+
+  #show_prev_next
+    +columns(6,12)
+    +omega(12)
+
+#document
+  +full
+
+  #clio_main_
+    +columns(18,24)
+
+  #clio_sidebar
+    +columns(6,24)
+    +omega
+
 body
   :background white 
   :font 0.75em "Lucida Grande", "Lucida Sans Unicode", Verdana, "Arial Unicode MS", Arial, sans-serif
@@ -38,7 +94,7 @@ html.blank_layout
 body.blank_layout
   :background white
 
-#doc,#doc2,#doc3,#doc4
+#page
   :background white
 
 html
@@ -46,16 +102,12 @@ html
   
 body
   :padding 0em
-#hd
-  :padding 0em 0em
-  :margin 0
 
-  .yui-g
-    :padding 15px 4px 15px 4px
+#hd   
+  :padding-top .5em
 
 #bd
   :min-height 400px
-  :padding 0 4px 2em 4px
 
 #intro-text
   :min-height 250px
@@ -166,6 +218,7 @@ ul.folderTools
 .pageEntriesInfo
   :padding-right 150px
   :padding-bottom 0px
+
 #show_folder_control
   :margin-top 1em
   .addFolder, .deleteFolder
