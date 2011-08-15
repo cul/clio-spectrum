@@ -8,8 +8,10 @@ GIT
       fssm (>= 0.2.7)
       sass (~> 3.1)
 
-PATH
-  remote: ~/code/blacklight
+GIT
+  remote: git://github.com/cul/blacklight.git
+  revision: ff660a86172edfc98a400b1b3dc7c8818abacc66
+  branch: rails_31
   specs:
     blacklight (3.1.0)
       kaminari

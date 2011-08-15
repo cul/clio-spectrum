@@ -1,0 +1,741 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 11, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.refine_call_number {
+  padding-left: 0.5em;
+}
+
+/* line 14, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.refine_call_title {
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+/* line 18, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.grid_view {
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 1.124%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+/* line 22, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.grid_view .document_gallery {
+  display: inline;
+  float: left;
+  width: 32.584%;
+  margin-right: 1.124%;
+}
+/* line 25, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.grid_view .document_gallery .first {
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+
+/* line 29, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#documents {
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 1.124%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+
+/* line 33, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.document {
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 1.124%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+/* line 37, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.document .details {
+  display: inline;
+  float: left;
+  width: 77.528%;
+  margin-right: 1.124%;
+}
+/* line 40, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.document .doc_bookjacket {
+  display: inline;
+  float: left;
+  width: 21.348%;
+  margin-right: 1.124%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+
+/* line 44, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.pagination_container {
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 1.124%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+
+/* line 49, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#applied_params_container {
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 0.84%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+/* line 53, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#applied_params_container #appliedParams {
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 0.84%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+/* line 57, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#applied_params_container #searched_for {
+  display: inline;
+  float: left;
+  width: 49.58%;
+  margin-right: 0.84%;
+}
+/* line 60, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#applied_params_container #search_navigation {
+  display: inline;
+  float: left;
+  width: 49.58%;
+  margin-right: 0.84%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+/* line 64, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#applied_params_container #show_start_over {
+  display: inline;
+  float: left;
+  width: 49.153%;
+  margin-right: 1.695%;
+}
+/* line 67, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#applied_params_container #show_prev_next {
+  display: inline;
+  float: left;
+  width: 49.153%;
+  margin-right: 1.695%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+
+/* line 71, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+body {
+  background: white;
+  font: 0.75em "Lucida Grande", "Lucida Sans Unicode", Verdana, "Arial Unicode MS", Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* line 76, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+html.blank_layout {
+  background: white;
+}
+
+/* line 79, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+body.blank_layout {
+  background: white;
+}
+
+/* line 82, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#page {
+  background: white;
+  border-bottom: none;
+}
+
+/* line 86, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+html {
+  background: white;
+}
+
+/* line 89, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+body {
+  padding: 0em;
+}
+
+/* line 92, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#hd {
+  padding-top: 0.5em;
+}
+
+/* line 95, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#bd {
+  min-height: 400px;
+}
+
+/* line 98, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#intro-text {
+  min-height: 250px;
+}
+
+/* line 101, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.clio_toolbar {
+  padding: 4px;
+  height: 22px;
+  background-color: #2d2a62;
+  color: white;
+}
+/* line 108, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.clio_toolbar a {
+  border-bottom: none;
+  color: white;
+}
+/* line 112, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.clio_toolbar .right_toolbar {
+  float: right;
+}
+
+/* line 116, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.closed_icon {
+  vertical-align: bottom;
+}
+
+/* line 120, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.location_popup {
+  width: 600px;
+  text-align: left;
+  font-size: 1.2em;
+}
+/* line 125, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.location_popup .comment {
+  padding-bottom: 1em;
+}
+/* line 128, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.location_popup .header {
+  padding-left: 0.5em;
+  background-color: #cccccc;
+  font-size: 1.5em;
+  color: white;
+  margin-bottom: 1em;
+}
+/* line 135, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.location_popup .section_header {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+/* line 139, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.location_popup .hours_link {
+  display: inline;
+  font-size: 0.75em;
+}
+/* line 145, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.location_popup .links .link {
+  display: inline;
+  padding: 0 0.1em 0 0.1em;
+}
+/* line 150, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.location_popup .location_sidebar {
+  float: right;
+  margin-left: 2em;
+}
+/* line 2, /Users/jamesws3/code/spectrum/app/assets/stylesheets/_local_mixes.css.sass */
+.location_popup .location_sidebar .even {
+  background-color: "#ffffff";
+}
+/* line 4, /Users/jamesws3/code/spectrum/app/assets/stylesheets/_local_mixes.css.sass */
+.location_popup .location_sidebar .odd {
+  background-color: "#f0f0f0";
+}
+/* line 156, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.location_popup .day_listing {
+  padding: 0.3em 0 0.3em;
+}
+/* line 159, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.location_popup .day_listing .weekday {
+  float: left;
+  padding-left: 5px;
+  width: 60px;
+}
+/* line 164, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.location_popup .day_listing .hours {
+  text-align: left;
+  width: 100px;
+  margin-left: 60px;
+}
+/* line 169, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.location_popup .day_listing .hours_note {
+  padding-left: 0.5em;
+  clear: both;
+  font-style: italic;
+}
+/* line 174, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.location_popup .map {
+  margin-top: 1em;
+}
+
+/* line 182, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.change_view {
+  float: left;
+}
+
+/* line 185, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#footnotes_debug {
+  background: white;
+}
+
+/* line 188, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#startOverLink {
+  padding-top: 5px;
+}
+
+/* line 191, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+div.folder_toolbar {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+/* line 194, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+ul.folderTools {
+  display: block;
+  float: none;
+}
+/* line 198, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+ul.folderTools li {
+  float: none;
+  list-style: none;
+  display: inline;
+}
+/* line 202, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+ul.folderTools li form {
+  display: inline;
+}
+
+/* line 204, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.pageEntriesInfo {
+  padding-right: 150px;
+  padding-bottom: 0px;
+}
+
+/* line 208, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#show_folder_control {
+  margin-top: 1em;
+}
+/* line 210, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#show_folder_control .addFolder, #show_folder_control .deleteFolder {
+  float: none;
+}
+
+/* line 214, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#show_previousNextDocument .previous_next {
+  margin-top: 0.5em;
+}
+
+/* line 216, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.back_to_catalog {
+  float: right;
+}
+
+/* line 218, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.show_start_over {
+  float: right;
+}
+
+/* line 221, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+a.folder_link_submit {
+  border-bottom: none;
+}
+/* line 224, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+a.folder_link_submit span.folder_link_text {
+  vertical-align: 20%;
+  padding-left: 2px;
+  border-bottom: 1px dotted #aaaaaa;
+}
+
+/* line 228, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#holdings {
+  clear: both;
+  margin-top: 2em;
+}
+/* line 232, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#holdings .holding {
+  padding: 0.5em 0.5em 0.5em 1em;
+}
+/* line 234, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#holdings .holding0 {
+  background-color: #f6f6f6;
+}
+/* line 237, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#holdings #holdings_header {
+  padding-bottom: 1em;
+}
+/* line 239, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#holdings #holdings_header #holdings_title {
+  font-weight: bold;
+  font-size: 1.25em;
+  display: inline;
+  padding-bottom: 1em;
+}
+/* line 246, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#holdings #holdings_header #location_guide {
+  padding-left: 0.5em;
+  display: inline;
+}
+/* line 250, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#holdings .hours {
+  float: right;
+  padding-right: 15px;
+}
+/* line 253, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#holdings .call_number {
+  float: right;
+}
+/* line 256, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#holdings .status {
+  padding-left: 2em;
+  font-style: italic;
+}
+
+/* line 260, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.show_value {
+  overflow: hidden;
+}
+/* line 262, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.show_value .left_value {
+  float: left;
+  color: #888888;
+  text-align: right;
+  width: 100px;
+  margin-bottom: -2000px;
+  padding: 0px 10px 2004px 0px;
+}
+/* line 271, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.show_value .right_value {
+  float: left;
+  width: 300px;
+  margin-bottom: -2000px;
+  padding-bottom: 2004px;
+}
+
+/* line 277, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#show_document {
+  overflow: hidden;
+}
+
+/* line 280, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#show_cover {
+  display: none;
+  float: left;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+/* line 287, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.gbs_preview {
+  display: none;
+  padding-top: 1em;
+  padding-bottom: 2em;
+  text-align: center;
+}
+/* line 293, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.gbs_preview a {
+  border-bottom: none;
+}
+
+/* line 296, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+li.gbs_info {
+  display: none;
+}
+
+/* line 299, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#show_cover.book_cover {
+  float: left;
+  width: 130px;
+  margin-bottom: -2000px;
+  padding-bottom: 2000px;
+}
+
+/* line 305, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.grid_cover.book_cover {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+}
+
+/* line 309, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.values {
+  float: left;
+  width: 410px;
+  margin-bottom: -2000px;
+  padding-bottom: 2000px;
+}
+
+/* line 317, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.grid_cover {
+  height: 125px;
+  width: 90px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #cccccc;
+  background-color: #eeeeee;
+}
+
+/* line 325, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.fake_cover {
+  text-align: center;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  position: absolute;
+  top: 21px;
+  left: 7px;
+  right: 7px;
+  padding: 7px 0;
+  color: #333333;
+}
+
+/* line 336, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.gbs_cover {
+  display: none;
+}
+
+/* line 339, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.grid_view {
+  background: white;
+}
+/* line 342, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.grid_view .document_gallery {
+  margin-bottom: 3em;
+}
+/* line 347, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.grid_view .document_gallery .grid_bookjacket {
+  height: 125px;
+  width: 90px;
+  padding: 0;
+}
+/* line 353, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.grid_view .document_gallery .info {
+  margin: 3px 0.5em 0 0.5em;
+  height: 7em;
+  position: relative;
+  overflow: hidden;
+}
+/* line 359, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.grid_view .document_gallery .info .title {
+  font-weight: bold;
+  min-height: 3em;
+  margin-bottom: 1em;
+}
+
+/* line 365, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+dl.defList_in_grid {
+  overflow: auto;
+  padding: 0.5em 0;
+}
+/* line 369, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+dl.defList_in_grid dt {
+  float: left;
+  text-align: right;
+  width: 20%;
+  clear: both;
+  color: #888888;
+  margin: 0;
+  padding: 2px 1em 2px 0px;
+}
+/* line 378, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+dl.defList_in_grid dd {
+  text-align: left;
+  margin: 0;
+  padding: 2px 0;
+}
+
+/* line 384, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+img.bookjacket.list_view {
+  float: right;
+  height: 80px;
+  width: 52px;
+  padding: 1em;
+}
+
+/* line 391, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+a#feedLink {
+  display: inline;
+  text-decoration: none;
+  border-bottom: none;
+}
+/* line 397, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+a#feedLink img {
+  position: static;
+  padding-left: 3px;
+}
+
+/* line 403, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+h1.site_title {
+  background: transparent url("../../images/clio-spectrum.png") no-repeat top left;
+  margin: 0 0 0 0em;
+  height: 50px;
+  width: 218px;
+}
+
+/* line 410, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#show_folder_control.documentFunctions {
+  float: none;
+  margin-left: 0em;
+  margin-top: 0.5em;
+}
+
+/* line 415, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#contactable {
+  background-image: url(../../images/contact.png);
+  color: white;
+  background-color: #333333;
+  cursor: pointer;
+  height: 102px;
+  left: 0;
+  margin-left: -5px;
+  *margin-left: -5px;
+  overflow: hidden;
+  position: fixed;
+  *position: absolute;
+  text-indent: -100000px;
+  top: 102px;
+  *margin-top: 10px;
+  width: 44px;
+  z-index: 100000;
+}
+
+/* line 436, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+form#contactForm {
+  background-color: #333333;
+  border: 2px solid white;
+  color: white;
+  height: 555px;
+  left: 0;
+  margin-left: -400px;
+  *margin-left: -434px;
+  margin-top: -160px;
+  overflow: hidden;
+  padding-left: 30px;
+  position: fixed;
+  top: 200px;
+  width: 360px;
+  *width: 394px;
+  z-index: 99;
+}
+/* line 453, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+form#contactForm p {
+  margin-bottom: 2em;
+}
+/* line 456, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+form#contactForm input, form#contactForm textarea {
+  background: white none repeat scroll 0 0;
+  outline-style: none;
+  outline-width: medium;
+  width: 325px;
+  padding: 5px;
+  border: 1px solid #dfdfdf;
+  font-size: 1em;
+}
+/* line 465, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+form#contactForm h2 {
+  padding-right: 1em;
+}
+/* line 467, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+form#contactForm label {
+  color: white;
+}
+/* line 469, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+form#contactForm .submit {
+  background: #f5410f none repeat scroll 0 0;
+  outline-style: none;
+  outline-width: medium;
+  width: 337px;
+  padding: 5px;
+  border: 3px solid #f52d0f;
+  outline-color: -moz-use-text-color;
+  font-size: 1em;
+  cursor: pointer;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-family: Helvetica;
+  margin-top: 10px;
+}
+/* line 484, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+form#contactForm p {
+  width: 325px;
+  font-size: 0.9em;
+}
+
+/* line 488, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#contactForm .red {
+  color: #f5410f;
+}
+
+/* line 491, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#contact_overlay {
+  background-color: #666666;
+  display: none;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+/* line 503, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.error, #name.error, #email.error, #comment.error {
+  background-color: #edbe9c;
+}
+
+/* line 507, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+form#contactForm label {
+  *margin-left: 20px;
+}
+/* line 509, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+form#contactForm #contact_loading {
+  background: url(../../images/ajax-loader.gif) no-repeat;
+  width: 55px;
+  height: 55px;
+  margin: 100px auto;
+  display: none;
+}
+
+/* line 516, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+#contact_callback {
+  font-size: 1.5em;
+  color: white;
+  width: 325px;
+  margin: 100px auto;
+  display: none;
+}
+
+/* line 523, /Users/jamesws3/code/spectrum/app/assets/stylesheets/screen/a_local_application.sass */
+.holder {
+  margin: 0 auto;
+  *margin-left: 20px;
+  padding-top: 20px;
+}
