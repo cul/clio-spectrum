@@ -1,8 +1,10 @@
 NewBooks::Application.routes.draw do
   Blacklight.add_routes(self)
   
-  root :to => "catalog#index"
-  
+  root :to => "search#index"
+ 
+  match 'search/', :to => "search#index", :as => :search_index
+
   devise_for :users
 
   match 'backend/clio_recall/:id', :to => "backend#clio_recall" , :as => :clio_recall

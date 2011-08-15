@@ -1,0 +1,9 @@
+/*
+ *= require_self
+ *
+ * Required by Blacklight
+ *= require 'jquery/ui-lightness/jquery-ui-1.8.1.custom.css'
+ *= require 'spectrum_theme'
+ *= require_tree ./screen
+*/
+

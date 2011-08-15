@@ -1,0 +1,11 @@
+.results_header
+  .category_title Library Web Results 
+  .results_link= link_to "(more options)", result[:url]
+
+- result[:docs].each do |doc|
+  .result{:class => alternating_line('result')}
+    .row
+      .result_title=link_to doc[:title].html_safe, doc[:url]
+    .row
+      .blockquote= doc[:summary].html_safe
+

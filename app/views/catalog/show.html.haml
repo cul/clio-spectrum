@@ -8,15 +8,10 @@
 
   #document{:class => render_document_class} 
     %div{:id => "doc_#{@document[:id]}i"}
-      .yui-gc 
-        .yui-u.first
-          = content_tag(:h1, document_heading.listify.join(""))
-        .yui-u
-          #show_folder_control.documentFunctions= render :partial => "folder_control",  :locals => {:document => @document}
+
             
       .document
         = render_document_partial @document, :show 
-      = render_document_unapi_microformat @document
 
 
   = render :partial => "google_books_check", :locals => {:documents => @document }

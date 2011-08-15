@@ -15,7 +15,7 @@ function update_holdings_info(bibids) {
 function update_book_jackets(isbns, data) {
   for (index in isbns) {
     isbn = isbns[index];
-    selector = $("img.bookjacket[src*='images/spacer.png'].isbn_" + isbn);
+    selector = $("img.bookjacket[src*='assets/spacer.png'].isbn_" + isbn);
     isbn_data = data[isbn];
     if (selector.length > 0 && isbn_data) {
     

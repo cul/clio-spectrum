@@ -1,0 +1,12 @@
+.results_header
+  .category_title Catalog Results 
+  .results_link=link_to "(more options)", result[:url]
+- result[:docs].each_with_index do |document, document_counter|
+  .result{:class => alternating_line("catalog")}
+    .row
+      .result_title= link_to document[document_show_link_field], {:controller => 'catalog', :action => 'show', :id => document.id, :counter => (document_counter + 1)}
+    = render :partial => "/catalog/index_details", :locals => {:document => document}
+
+
+
+= render :partial => "/catalog/holdings_check", :locals => {:documents => result[:docs]}

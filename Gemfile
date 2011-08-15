@@ -20,8 +20,10 @@ gem 'has_options'
 gem 'httpclient'
 gem 'nokogiri'
 gem 'haml'
+gem 'haml-rails'
 gem 'unicode'
 gem 'mysql'
+gem 'summon'
 gem 'rubytree', '=0.5.2'
 # gem 'blacklight_advanced_search',:git => 'https://github.com/projectblacklight/blacklight_advanced_search.git'
 
@@ -60,9 +62,12 @@ gem 'unicorn'
 # end
 gem "devise"
 
+group :test, :development do
+  gem "minitest-rails"
+end
+
 group :test do
   gem "minitest", ">= 0"
-  gem "minitest-rails"
   gem "mini_specunit"
   gem "mini_backtrace"
   gem "mini_shoulda"

@@ -1,0 +1,7 @@
+- unless @results.empty?
+  #aggregate_results{:class => "split_#{@results.length}"}
+    - @results.each_with_index do |result, i|
+      - category = result[:category]
+      - last_class = @results.length == i + 1 ?  "last" : ""
+      .result_set{:id => "results_#{category}", :class => last_class}
+        = render :partial => "result_set_#{category}", :locals => {:result => result }

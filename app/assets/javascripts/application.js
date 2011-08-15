@@ -4,11 +4,13 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-//= require jquery
+//= require jquery-1.6.2.min
 //= require jquery_ujs
-// Required by Blacklight
-//= require jquery-ui
+//= require jquery-ui-1.8.1.custom.min
+//
 //= require blacklight/blacklight          
-
+//= require blacklight_application
 //= require_tree .
+// Required by Blacklight
+
 

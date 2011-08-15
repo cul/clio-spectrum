@@ -1,0 +1,13 @@
+.results_header
+  .category_title Article Results 
+  .results_link= link_to "(more options)", result[:url]
+- result[:docs].documents.each do |doc|
+  .result{:class => alternating_line('articles')}
+    .row
+      .result_title= link_to doc.title.html_safe, 'http://rd8hp6du2b.search.serialssolutions.com/?' + doc.src['openUrl']
+    = add_row('Author', doc.src['Author'])
+    = add_row('Type', doc.content_type)
+    = add_row('Availability', doc.fulltext ? "Full Text Available" : "")
+    = add_row('Abstract', doc.abstract, :abbreviate => 100, :style => :blockquote)
+
+

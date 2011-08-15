@@ -3,15 +3,9 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-@import "blacklight/partials/susy_framework"
+@import "blacklight/susy_framework"
+@import "local_mixes"
 
-
-
-=alternating-line-colors($even_row_color, $odd_row_color)
-  .even
-    :background-color $even_row_color
-  .odd
-    :background-color $odd_row_color
 
 .refine_call_number
   :padding-left .5em
@@ -21,34 +15,34 @@
   :font-weight bold
 
 .grid_view
-  +columns(19,19)
-  +omega(19)
+  +columns(18,18)
+  +omega(18)
 
   .document_gallery
-    +columns(6,19)
+    +columns(6,18)
 
     .first
-      +omega(19)
+      +omega(18)
 
 
 #documents
-  +columns(19,19)
-  +omega(19)
+  +columns(18,18)
+  +omega(18)
 
 .document
-  +columns(19,19)
-  +omega(19)
+  +columns(18,18)
+  +omega(18)
 
   .details
-    +columns(14,19)
+    +columns(14,18)
 
   .doc_bookjacket
-    +columns(4,19)
-    +omega(19)
+    +columns(4,18)
+    +omega(18)
 
 .pagination_container
-  +columns(19,19)
-  +omega(19)
+  +columns(18,18)
+  +omega(18)
 
 
 #applied_params_container
@@ -73,16 +67,6 @@
     +columns(6,12)
     +omega(12)
 
-#document
-  +full
-
-  #clio_main_
-    +columns(18,24)
-
-  #clio_sidebar
-    +columns(6,24)
-    +omega
-
 body
   :background white 
   :font 0.75em "Lucida Grande", "Lucida Sans Unicode", Verdana, "Arial Unicode MS", Arial, sans-serif
@@ -96,6 +80,7 @@ body.blank_layout
 
 #page
   :background white
+  :border-bottom none
 
 html
   :background white

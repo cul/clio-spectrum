@@ -1,0 +1,125 @@
+
+@import "blacklight/susy_framework"
+@import "local_mixes"
+
+#hd.with_search
+  #logo_small
+    +columns(8,24)
+
+  #top_search_box
+    +columns(8,24)
+
+  #user_util_links
+    +columns(8,24)
+    +omega(24)
+
+#search_row
+  :padding-top .5em
+  :padding-bottom .5em
+
+  .q
+    :width 15em
+    :padding-right 2em
+
+#search_categories
+  label
+    :padding-right 1em
+
+.show
+  +columns(24,24)
+  +omega(24)
+  #clio_main
+    +columns(18,24)
+
+  #clio_sidebar
+    +columns(6,24)
+    +omega(24)
+
+.row
+  .label 
+    :text-align right
+    :color #777
+
+  .value_box
+    :padding-right .25em
+
+#aggregate_results.split_2
+  .result 
+    +columns(12,12)
+    +omega(12)
+
+  .row
+    +columns(12,12)
+    +omega(12)
+
+  .label
+    +columns(3,12)
+
+  .value
+    +columns(9,12)
+    +omega(12)
+    
+  .result_set
+    +columns(12,24)
+  
+#aggregate_results.split_3
+  .result
+    +columns(8,8)
+    +omega(12)
+
+  .row
+    +full(8)
+
+  .label
+    +columns(2,8)
+
+  .value
+    +columns(6,8)
+    +omega(8)
+    
+  .result_set
+    +columns(8,24)
+
+  .blockquote
+    :padding-top .5em
+    :font-style italic
+    +prefix(1,8)
+    +columns(7,8)
+
+#aggregate_results
+  +full(24)
+  :padding-top 2em
+
+  .result_set.last
+    +omega(24)
+
+
+.result_set
+  +alternating-line-colors(#fff, #f9f9f9)
+  .results_header
+    :padding-bottom 1em
+  .category_title
+    :padding-left .25em
+    :font-weight bold
+    :font-size 1.4em
+    :display inline
+  .results_link
+    :padding-left .5em
+    :display inline
+
+.result
+  :padding-bottom 1em
+
+  .row
+    :padding-bottom .5em
+
+    .result_title
+      :font-weight bold
+      :font-size 1.1em
+      :padding-left 1em
+      :padding-right .25em
+      :padding-top 1em
+      :padding-bottom .75em
+    
+    .availability
+      :padding-right .25em

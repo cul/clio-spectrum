@@ -23,4 +23,37 @@ module ApplicationHelper
   def item_in_folder?(doc_id)
     session[:folder_document_ids] && session[:folder_document_ids].include?(doc_id.listify.first) ? true : false
   end
+
+
+  def add_row(title, value, options = {})
+    options.reverse_merge!( {
+      :display_blank => false,
+      :display_only_first => false,
+      :join => "<br/>",
+      :abbreviate => nil,
+      :html_safe => true,
+      :style => :definition
+    })
+
+    values = value.listify
+    
+    values = values.collect { |txt| txt.to_s.abbreviate(options[:abbreviate]) } if options[:abbreviate]
+    value_txt = options[:display_only_first] ? values.first.to_s :  values.join(options[:join]).to_s
+    value_txt = value_txt.html_safe if options[:html_safe]  
+    result = ""
+    if options[:display_blank] || !value_txt.empty?
+      
+      result = content_tag(:div, :class => "row") do
+        if options[:style] == :definition
+         content_tag(:div, title.to_s, :class => "label") + content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "value")
+        elsif options[:style] == :blockquote
+          content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "blockquote")
+        end
+          
+      end
+
+    end
+
+    result
+  end
 end

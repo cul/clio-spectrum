@@ -1,0 +1,10 @@
+- if params[:controller] == "search"
+  = link_to "Catalog Search", catalog_index_path
+- else
+  = link_to "Quick Search", root_path
+  |
+  = link_to "Selected Items", folder_index_path  
+  (<span id='folder_number'>#{session[:folder_document_ids] ? session[:folder_document_ids].length : 0}</span>)
+  |
+  = link_to "Search History", search_history_path
+
