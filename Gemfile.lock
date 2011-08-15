@@ -67,22 +67,11 @@ GEM
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
     chunky_png (1.2.1)
-    coffee-rails (3.1.0.rc.5)
-      actionpack (~> 3.1.0.rc1)
-      coffee-script (>= 2.2.0)
-      railties (~> 3.1.0.rc1)
-      sprockets (>= 2.0.0.beta.9)
-    coffee-script (2.2.0)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.1.2)
     devise (1.4.2)
       bcrypt-ruby (~> 2.1.2)
       orm_adapter (~> 0.0.3)
       warden (~> 1.0.3)
     erubis (2.7.0)
-    execjs (1.2.4)
-      multi_json (~> 1.0)
     fssm (0.2.7)
     growl (1.0.3)
     guard (0.6.1)
@@ -194,9 +183,6 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
-    uglifier (1.0.1)
-      execjs (>= 0.3.0)
-      multi_json (>= 1.0.2)
     unicode (0.4.0)
     unicorn (4.0.1)
       kgio (~> 2.4)
@@ -212,7 +198,6 @@ DEPENDENCIES
   blacklight!
   capistrano
   capistrano-ext
-  coffee-rails (~> 3.1.0.rc)
   compass!
   devise
   growl
@@ -238,6 +223,5 @@ DEPENDENCIES
   sprockets (= 2.0.0.beta.13)
   sqlite3
   summon
-  uglifier
   unicode
   unicorn
