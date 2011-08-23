@@ -1,0 +1,72 @@
+Feature: Did You Mean (Stanford)
+  As a user
+  In order to find the resources I want
+  I want to get useful suggestions when I mistype or misspell queries
+  
+  Scenario: Single Word with Few Results, with Suggestion
+    Given a SOLR index with Stanford MARC data
+    When I am on the home page
+    And I fill in the search box with "kkvz"
+    And I press "search"
+    Then I should see "Did you mean"
+  
+  Scenario: Single Query with Two Words that Give Spelling Suggestions
+    Given a SOLR index with Stanford MARC data
+    When I am on the home page
+    And I fill in the search box with "kkvz xao"
+    And I press "search"
+    Then I should see "Did you mean"
+    And I should see ", or "
+  
+  Scenario: "french horn" Lowercase with Quotes Doesn't Need Suggestion
+    Given a SOLR index with Stanford MARC data
+    When I am on the home page
+    And I fill in the search box with "\"french horn\""
+    And I press "search"
+    Then I should not see "Did you mean"
+    And I should get at least 150 results
+    And I should get the same number of results as a search for "\"French Horn\""
+    And I should get fewer results than a search for "french horn"
+  
+  Scenario: Hebrew Vernacular Un-Word 
+    Given a SOLR index with Stanford MARC data
+    When I am on the home page
+    And I fill in the search box with "יהו"
+    And I press "search"
+    Then I should see "Did you mean"
+    
+  Scenario: Author Query Gets No Suggestion (no "near" author terms)
+    Given a SOLR index with Stanford MARC data
+    When I am on the home page
+    And I fill in the search box with "kkvz"
+    And I select "Author" from "search_field"
+    And I press "search"
+    Then I should not see "Did you mean"
+
+  Scenario: Author Query Gets Suggestion
+    Given a SOLR index with Stanford MARC data
+    When I am on the home page
+    And I fill in the search box with "aaaaaa"
+    And I select "Author" from "search_field"
+    And I press "search"
+    Then I should see "Did you mean"
+
+  Scenario: Title Query Gets Suggestion
+    Given a SOLR index with Stanford MARC data
+    When I am on the home page
+    And I fill in the search box with "kkvz"
+    And I select "Title" from "search_field"
+    And I press "search"
+    Then I should see "Did you mean"
+  
+  Scenario: Subject Query Gets Suggestion
+    Given a SOLR index with Stanford MARC data
+    When I am on the home page
+    And I fill in the search box with "kkvz"
+    And I select "Subject terms" from "search_field"
+    And I press "search"
+    Then I should see "Did you mean"
+
+  
+  
+  

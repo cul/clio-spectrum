@@ -1,0 +1,6 @@
+.results_header
+  .category_title HathiTrust eBooks 
+  .results_link= link_to "(more options)", result[:url]
+- result[:docs].documents.each do |document|
+  = render_document_view(document, :template => "aggregate", :format => "ebooks")
+

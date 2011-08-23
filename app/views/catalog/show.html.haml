@@ -1,18 +1,5 @@
 - @page_title = "#{document_show_html_title.listify.join("")} - #{application_name}"
 - extra_head_content << render_link_rel_alternates 
 
-.show
-  = render 'show_constraints', :localized_params=>session[:search] 
 
-  
-
-  #document{:class => render_document_class} 
-    %div{:id => "doc_#{@document[:id]}i"}
-
-            
-      .document
-        = render_document_partial @document, :show 
-
-
-  = render :partial => "google_books_check", :locals => {:documents => @document }
-
+= render :partial => "_display/catalog/show", :locals => {:document => @document }

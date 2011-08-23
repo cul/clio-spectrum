@@ -1,0 +1,99 @@
+@import "blacklight/susy_framework"
+@import "local_mixes"
+
+.document
+  +columns(18,18)
+  +omega(18)
+
+  .title
+    +columns(15,18)
+    font-size: 1.25em
+    font-weight: bold
+    padding-bottom: 1em
+  
+  .actions
+    +columns(3,18)
+    +omega(18)
+  
+  .details
+    +columns(15,18)
+    .row
+      +columns(15,15)
+      +omega(15)
+      :padding-bottom .25em
+
+      .label
+        +columns(2,15)
+        :text-align top
+
+      .value
+        +columns(13,15)
+        +omega(15)
+
+  .doc_bookjacket
+    +columns(3,18)
+    +omega(18)
+
+
+img.availability
+  :padding-right .25em
+
+.show
+  +columns(24,24)
+  +omega(24)
+
+  .main
+    +columns(18,24)
+
+    .row
+      +columns(18,18)
+      +omega(18)
+
+      .label
+        +columns(4,18)
+
+      .value 
+        +columns(14,18)
+        +omega(18)
+
+  .sidebar
+    +columns(6,24)
+    +omega(24)
+
+.holdings
+  :margin-top 2em
+  +columns(18,18)
+  +omega(18)
+  +alternating-line-colors(#fff,#f6f6f6)
+  
+  .header
+    :padding-bottom 1em
+    .title
+      :display inline
+      :font-size 1.22em
+
+    .location_guide
+      :display inline
+
+  .holding
+    +columns(18,18)
+    +omega(18)
+    :padding .25em 0 .25em 0
+
+    .call_number
+      +columns(4,18)
+
+    .location
+      +columns(10,18)
+
+    .hours
+      +columns(4,18)
+      +omega(18)
+      
+    .status
+      +prefix(1,18)
+      +columns(16,18)
+      +suffix(1,18)
+      +omega(18)
+
+      :font-style italic

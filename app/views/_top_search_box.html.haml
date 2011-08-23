@@ -8,6 +8,8 @@
       = label_tag(:categories, "Catalog")
       = check_box_tag "categories[]", "articles", params[:categories].include?("articles")
       = label_tag(:categories, "Articles")
+      = check_box_tag "categories[]", "ebooks", params[:categories].include?("ebooks")
+      = label_tag(:categories, "HathiTrust eBooks")
       = check_box_tag "categories[]", "lweb", params[:categories].include?("lweb")
       = label_tag(:categories, "Library Web")
 

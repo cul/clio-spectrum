@@ -1,0 +1,39 @@
+.holdings
+  .header
+    .title Holdings:
+    .location_guide
+      =link_to "(Location Guide)", "http://www.columbia.edu/cu/lweb/help/clio/location_guide.html"
+
+  - all_holdings = build_holdings_hash(document)
+  - if all_holdings.empty?
+    No holdings data at this time.
+  - else
+
+    -content_for :jstemplates do
+      :javascript
+        $(document).ready(function() {
+          $(".location_display").colorbox({transition:'none',scrolling:false});
+        });
+
+    - all_holdings.keys.sort.each do |holding_id|
+      - all_holdings[holding_id].each do |holding|
+        - location = Location.match_location_text(holding["location_name"])
+        .holding{:class => alternating_line}
+          .location
+            #{image_tag("icons/" + holding["status"] + ".png")}
+            - if location && location.category == "physical"
+              - check_at = DateTime.now + (params[:add_hours] || 0).to_i.hours
+              = link_to holding["location_name"], location_display_path(CGI.escape(holding["location_name"])), :class => :location_display
+            - else
+              = holding["location_name"]
+          .call_number= holding["call_number"]
+          .hours
+            - if (location && location.library && hour = location.library.hours.find_by_date(Date.today))
+              = hour.to_opens_closes
+          .status
+            - if holding["location_name"].strip == "Online"
+              - online_link_hash(document).each do |link|
+                - title, url = link
+                %div= link_to title.abbreviate(60), url
+            - elsif holding.has_key?("status_for_display")
+              #{holding["status_for_display"]}

@@ -63,16 +63,13 @@ gem 'unicorn'
 # end
 gem "devise"
 
-group :test, :development do
-  gem "minitest-rails"
-end
-
 group :test do
-  gem "minitest", ">= 0"
-  gem "mini_specunit"
-  gem "mini_backtrace"
-  gem "mini_shoulda"
+  gem "database_cleaner"
+  gem "capybara"
+  gem "launchy"
+  gem "rspec-rails"
   gem "rcov", ">= 0"
+  gem "cucumber-rails"
   gem "guard-minitest"
   gem "mocha"
   gem "growl"

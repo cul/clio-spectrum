@@ -1,0 +1,29 @@
+- marc = document.to_marc
+
+.main
+  .show_title
+    = content_tag(:h1, document_heading.listify.join(""))
+    .show_cover.book_cover
+      .gbs_cover
+        .gbs_thumbnail
+          = image_tag("spacer.png", :class => "bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))
+        .gbs_preview= link_to image_tag("gb_preview.png"), "http://books.google.com", :class => "gbs_preview_link"
+    .values
+      = add_row("Title", get_marc_values(marc, "245", "abnp"))
+      = add_row("Title", document["title_vern_display"])
+      = add_row("Author", generate_value_links(document["author_display"], :author))
+      = add_row("Author", generate_value_links(document["author_vern_display"], :author))
+      = add_row("Format", document["format"])
+      = add_row("Description", get_marc_values(marc, "300"))
+      = add_row("Language", document["language_facet"])
+      = add_row("Published", get_marc_values(marc, "260"))
+      = add_row("ISBN", document["isbn_t"])
+      = add_row("Topics", generate_value_links(document["subject_topic_facet"],:topic))
+      = add_row("Music", "It's music!")
+
+
+    
+  = render :partial => "_formats/clio/catalog_show_holdings", :locals => {:document => document }
+
+.sidebar
+  = render :partial => "_formats/clio/catalog_show_sidebar", :locals => {:document => document }
