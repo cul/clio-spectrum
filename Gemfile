@@ -27,6 +27,7 @@ gem 'haml-rails'
 gem 'unicode'
 gem 'mysql'
 gem 'summon'
+gem 'voyager_api'
 gem 'rubytree', '=0.5.2'
 # gem 'blacklight_advanced_search',:git => 'https://github.com/projectblacklight/blacklight_advanced_search.git'
 
