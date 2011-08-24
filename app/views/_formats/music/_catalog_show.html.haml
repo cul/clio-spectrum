@@ -9,7 +9,7 @@
           = image_tag("spacer.png", :class => "bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))
         .gbs_preview= link_to image_tag("gb_preview.png"), "http://books.google.com", :class => "gbs_preview_link"
     .values
-      = add_row("Title", get_marc_values(marc, "245", "abnp"))
+      = add_row("Title", get_marc_values(marc, "245"))
       = add_row("Title", document["title_vern_display"])
       = add_row("Author", generate_value_links(document["author_display"], :author))
       = add_row("Author", generate_value_links(document["author_vern_display"], :author))

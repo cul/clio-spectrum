@@ -70,7 +70,7 @@ module DisplayHelper
 
   def get_marc_values(marc, field, subfields = :all)
     marc[field].listify.collect do |v| 
-      v.subfields.select { |sf| subfields == :all || subfields.include?(sf.code) }.collect(&:value)
+      v.subfields.select { |sf| subfields == :all || subfields.include?(sf.code) }.collect(&:value).join(' ')
     end.flatten
   end
 
