@@ -9,10 +9,8 @@
     
 
     = javascript_tag "var RAILS_ROOT = '#{APP_CONFIG[:relative_url_root]}';"
-    = render_head_content
-    = stylesheet_link_tag "application"
+    = stylesheet_link_tag "screen"
     = javascript_include_tag "application"
-
     
     = yield(:jstemplates)
 
