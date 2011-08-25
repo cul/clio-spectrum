@@ -22,6 +22,12 @@
           = entry[:location_link]
         .call_number=entry[:call_number]
         .hours= entry[:hours]
+
+        - if entry[:location_name].strip == "Online"
+          - online_link_hash(document).each do |link|
+            - title, url = link
+            .status= link_to title.abbreviate(60), url
+
         - entry[:items].each_pair do |messages, details|
           .status
             = details[:image_link]
@@ -29,10 +35,3 @@
             - if details[:count] >1
               (#{details[:count]} copies)
 
-        -#.status=
-          -#- if record.location_name.strip == "Online"
-            -#- online_link_hash(document).each do |link|
-              -#- title, url = link
-              -#%div= link_to title.abbreviate(60), url
-          -#- elsif !record.item_status[:messages].empty?
-            -##{record.item_status[:messages].join("<br/>")}
