@@ -31,11 +31,11 @@ module DisplayHelper
   end 
 
   SOLR_FORMAT_LIST = {
-    "Music - Recording" => "music",
+    "Music - Recording" => "music_recording",
     "Music - Score" => "music"
   }
 
-  FORMAT_RANKINGS = ["music", "clio", "ebooks", "article", "lweb"]
+  FORMAT_RANKINGS = ["music_recording", "music", "clio", "ebooks", "article", "lweb"]
 
   def determine_formats(document, defaults = [])
     formats = defaults.listify
@@ -92,7 +92,7 @@ module DisplayHelper
             # sequence number from subfield 6
             seq = v.subfields.first.value[4..5]
             # lookup vernacular
-            marc['880'].listify.each do |t880|
+            marc.each_by_tag('880') do |t880|
               subflds = t880.subfields
               # sequesnce number match
               if (subflds.first.code == "6") && (subflds.first.value[4..5] == seq)
