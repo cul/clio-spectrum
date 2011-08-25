@@ -54,8 +54,8 @@ Blacklight.configure(:shared) do |config|
       "acq_date_facet",
       "language_facet",
       "subject_topic_facet",
-      "subject_era_facet",
       "subject_geo_facet",
+      "subject_era_facet",
       "lc_1letter_facet",
       "lc_2letter_facet"
   ]),
