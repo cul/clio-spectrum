@@ -52,8 +52,9 @@ Blacklight.configure(:shared) do |config|
       "location_facet",
       "pub_date_facet",
       "acq_date_facet",
-      "subject_topic_facet",
       "language_facet",
+      "subject_topic_facet",
+      "subject_era_facet",
       "subject_geo_facet",
       "lc_1letter_facet",
       "lc_2letter_facet"
@@ -66,7 +67,8 @@ Blacklight.configure(:shared) do |config|
       "language_facet"      => "Language",
       "lc_1letter_facet"    => "Call Number",
       "lc_2letter_facet"    => "Refine Call Number",
-      "subject_geo_facet"   => "Region",
+      "subject_geo_facet"   => "Topic (Region)",
+      "subject_era_facet"   => "Topic (Era)",
       "location_facet" => "Location",
     },
     # Setting a limit will trigger Blacklight's 'more' facet values link.
@@ -91,7 +93,8 @@ Blacklight.configure(:shared) do |config|
       "subject_geo_facet" => 10,
       "location_facet" => 10,
       "lc_1letter_facet" => 26,
-      "lc_2letter_facet" => 26
+      "lc_2letter_facet" => 26,
+      "subject_era_facet" => 10
     }
     
     
