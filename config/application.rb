@@ -4,7 +4,7 @@ require 'rails/all'
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require *Rails.groups(:assets) if defined?(Bundler)
+Bundler.require *Rails.groups(:assets => %w(development test))
 
 require File.expand_path('../../lib/james_monkeys', __FILE__)
 require File.expand_path('../../lib/google_books', __FILE__)

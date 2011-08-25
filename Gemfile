@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-gem 'rails', '3.1.0.rc5'
+gem 'rails', '3.1.0.rc6'
 
 gem 'sprockets', '2.0.0.beta.13'
 # Bundle edge Rails instead:
@@ -10,9 +10,9 @@ gem 'sqlite3'
 # Use unicorn as the web server
 # gem 'unicorn'
 
-#gem 'blacklight', :path => '~/code/blacklight'
+gem 'blacklight', :path => '~/code/blacklight'
 
-gem 'blacklight', :git => 'git://github.com/cul/blacklight.git' , :branch => 'rails_31'
+#gem 'blacklight', :git => 'git://github.com/cul/blacklight.git' , :branch => 'rails_31'
 gem 'json'
 
 # Deploy with Capistrano
@@ -32,7 +32,7 @@ gem 'rubytree', '=0.5.2'
 # gem 'blacklight_advanced_search',:git => 'https://github.com/projectblacklight/blacklight_advanced_search.git'
 
 group :assets do
-  gem 'sass-rails', "~> 3.1.0.rc"
+  gem 'sass-rails',:git => 'git://github.com/rails/sass-rails.git', :branch => '3-1-stable'
   gem 'compass', :git => 'git://github.com/chriseppstein/compass.git', :branch => 'rails31'
 
 end
