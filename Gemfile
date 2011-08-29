@@ -23,8 +23,8 @@ gem 'httpclient'
 gem 'nokogiri'
 gem 'haml'
 gem 'haml-rails'
+gem 'sass-rails', '3.1.0.rc.7'
 gem 'sass'
-gem 'sass-rails',:git => 'git://github.com/rails/sass-rails.git', :branch => '3-1-stable'
 gem 'unicode'
 gem 'mysql'
 gem 'summon'
@@ -33,7 +33,7 @@ gem 'rubytree', '=0.5.2'
 # gem 'blacklight_advanced_search',:git => 'https://github.com/projectblacklight/blacklight_advanced_search.git'
 
 group :assets do
-  gem 'sass-rails',:git => 'git://github.com/rails/sass-rails.git', :branch => '3-1-stable'
+  gem 'sass-rails', '3.1.0.rc.7'
   gem 'compass', :git => 'git://github.com/chriseppstein/compass.git', :branch => 'rails31'
 
 end
