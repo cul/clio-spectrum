@@ -9,17 +9,9 @@ GIT
       sass (~> 3.1)
 
 GIT
-  remote: git://github.com/rails/sass-rails.git
-  revision: fa76559e3e4808ee3b4b15f1fa6c8cc64a52d964
-  branch: 3-1-stable
-  specs:
-    sass-rails (3.1.0.rc.6)
-      actionpack (~> 3.1.0.rc6)
-      railties (~> 3.1.0.rc6)
-      sass (>= 3.1.4)
-
-PATH
-  remote: ~/code/blacklight
+  remote: git://github.com/cul/blacklight.git
+  revision: 7bd431bdc00d764f9c1102d2fdca7bc11dd92417
+  branch: rails_31
   specs:
     blacklight (3.1.0)
       kaminari
@@ -30,6 +22,16 @@ PATH
       rsolr-ext (~> 1.0)
       sass-rails (~> 3.1.0.rc)
       unicode
+
+GIT
+  remote: git://github.com/rails/sass-rails.git
+  revision: fa76559e3e4808ee3b4b15f1fa6c8cc64a52d964
+  branch: 3-1-stable
+  specs:
+    sass-rails (3.1.0.rc.6)
+      actionpack (~> 3.1.0.rc6)
+      railties (~> 3.1.0.rc6)
+      sass (>= 3.1.4)
 
 GEM
   remote: http://rubygems.org/
