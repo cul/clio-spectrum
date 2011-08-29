@@ -14,6 +14,36 @@ module DisplayHelper
 
   end
 
+  FORMAT_MAPPINGS = {
+    "Book" => "book",
+    "Online" =>"link",
+    "Computer File" => "computer-file",
+    "Sound Recording" => "non-musical-recording",
+    "Music - Score" => "musical-score",
+    "Music - Recording" => "musical-recording",
+    "Thesis" => "thesis",
+    "Microformat" => "microform",
+    "Journal/Periodical" => "journal",
+    "Conference Proceedings" => "conference",
+    "Video" => "video",
+    "Map/Globe" => "map-or-globe",
+    "Manuscript/Archive" => "manuscript",
+    "Newspaper" => "newspaper",
+    "Database" => "database",
+    "Image" => "image"
+  }
+
+
+  def formats_with_icons(document)
+    document['format'].listify.collect do |format|
+      if (icon = FORMAT_MAPPINGS[format])
+        image_tag("icons/#{icon}.png", :size => "16x16") + " #{format}"
+      else
+        format.to_s
+      end
+    end.join(", ").html_safe
+  end
+
   def render_documents(documents, options)
     partial = "/_display/#{options[:action]}/#{options[:view_style]}"
     render partial, { :documents => documents.listify}

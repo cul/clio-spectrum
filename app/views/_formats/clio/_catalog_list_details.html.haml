@@ -17,4 +17,4 @@
         %div
           = image_tag("icons/unknown.png", :class => "availability " + holdings_id) + shorten_location(location).strip
 
-= add_row('Format', document.get('format'))
+= add_row('Format', formats_with_icons(document))
