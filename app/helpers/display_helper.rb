@@ -53,6 +53,8 @@ module DisplayHelper
 
   def generate_value_links(values, category)
 
+    # search value the same as the display value
+
     values.listify.collect do |v|
       case category
       when :author
@@ -69,7 +71,30 @@ module DisplayHelper
     end
   end
 
-  def get_marc_values(marc, field, subfields = :all,  options = {})
+  def generate_value_links_2(values, category)
+
+    # search value differs from display value
+    # values is array of arrays; [display, search]
+
+    values.collect do |v|
+      
+      s = v.split("|DELIM|")
+      
+      case category
+      when :author
+        link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "author", :commit => "search"))
+      when :subject
+        link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "subject", :commit => "search"))
+      when :title
+        link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "title", :commit => "search"))
+
+      else
+        raise "invalid category specified for generate_value_links"
+      end
+    end
+  end
+
+  def get_marc_values(marc, tag, display_subfields = :all,  options = {})
     options.reverse_merge!({ :vernacular => true,
                               :subject => false,
                               :indicators => [:all, :all]
@@ -77,14 +102,14 @@ module DisplayHelper
       
     values = []
     ind1,ind2  = options[:indicators]
-    marc.each_by_tag(field) do |v| 
+    marc.each_by_tag(tag) do |v| 
       # test for indicators
       if (ind1 == :all || ind1.include?(v.indicator1)) && (ind2 == :all || ind2.include?(v.indicator2))
         
         if options[:subject]
-          values << format_subject_heading(v,subfields)
+          values << format_subject_heading(v,display_subfields)
         else
-          values << v.subfields.select { |sf| subfields == :all || subfields.include?(sf.code) }.collect(&:value).join(' ')
+          values << v.subfields.select { |sf| display_subfields == :all || display_subfields.include?(sf.code) }.collect(&:value).join(' ')
         end
       
         if options[:vernacular]
@@ -97,9 +122,9 @@ module DisplayHelper
               # sequesnce number match
               if (subflds.first.code == "6") && (subflds.first.value[4..5] == seq)
                 if options[:subject]
-                  values << format_subject_heading(t880,subfields)
+                  values << format_subject_heading(t880,display_subfields)
                 else
-                  values << subflds.select { |sf| subfields == :all || subfields.include?(sf.code) }.collect(&:value).join(' ')
+                  values << subflds.select { |sf| display_subfields == :all || display_subfields.include?(sf.code) }.collect(&:value).join(' ')
                 end
               end
             end
@@ -111,8 +136,46 @@ module DisplayHelper
     values
   end
 
-  def format_subject_heading(field,subfields)
-    subflds = field.subfields.select { |sf| subfields == :all || subfields.include?(sf.code) }
+  # for heading redirects: if search subfields are not the same as display subfields
+  def get_marc_values_2(marc, field, display_subfields = :all, search_subfields = :all, options = {})
+    options.reverse_merge!({ :vernacular => true,
+                              :indicators => [:all, :all]
+      })
+      
+    values = []
+    ind1,ind2  = options[:indicators]
+    marc.each_by_tag(field) do |fld| 
+      # test for indicators
+      if (ind1 == :all || ind1.include?(fld.indicator1)) && (ind2 == :all || ind2.include?(fld.indicator2))
+        
+        display = fld.subfields.select { |sf| display_subfields == :all || display_subfields.include?(sf.code) }.collect(&:value).join(' ')
+        search  = fld.subfields.select { |sf| search_subfields == :all || search_subfields.include?(sf.code) }.collect(&:value).join(' ')
+        values << display + "|DELIM|" + search
+      
+        if options[:vernacular]
+          if fld.subfields.first.code == "6"
+            # sequence number from subfield 6
+            seq = fld.subfields.first.value[4..5]
+            # lookup vernacular
+            marc.each_by_tag('880') do |t880|
+              subflds = t880.subfields
+              # sequesnce number match
+              if (subflds.first.code == "6") && (subflds.first.value[4..5] == seq)
+                display = subflds.select { |sf| display_subfields == :all || display_subfields.include?(sf.code) }.collect(&:value).join(' ')
+                search  = subflds.select { |sf| search_subfields == :all || search_subfields.include?(sf.code) }.collect(&:value).join(' ')
+                values << display + "|DELIM|" + search
+              end
+            end
+          end
+        end
+      end
+    end
+    
+    values
+  end
+
+  def format_subject_heading(field,display_subfields)
+    subflds = field.subfields.select { |sf| display_subfields == :all || display_subfields.include?(sf.code) }
     out = subflds.shift.value
     subflds.each do |s|
       if 'vxyz'.include?(s.code)
@@ -167,9 +230,9 @@ module DisplayHelper
     
     # only one of these will appear in a record
     
-    data = get_marc_values(marc, '100', 'abcdefgklnpqtu')
-    data = get_marc_values(marc, '110', 'abcdefgklnptu') if data.empty?
-    data = get_marc_values(marc, '111', 'acdefgklnpqtu') if data.empty?
+    data = get_marc_values_2(marc, '100', 'abcdefgklnpqtu', 'acqd')
+    data = get_marc_values_2(marc, '110', 'abcdefgklnptu', 'ab') if data.empty?
+    data = get_marc_values_2(marc, '111', 'acdefgklnpqtu', 'a') if data.empty?
     data
     
   end
@@ -177,9 +240,9 @@ module DisplayHelper
   def get_author_other(marc)
   
     data = []
-    data << get_marc_values(marc, '700', 'abcdefghlmnopqrstu')
-    data << get_marc_values(marc, '710', 'abcdefghklmnoprstu')
-    data << get_marc_values(marc, '711', 'acdefghklnpqstu')
+    data << get_marc_values_2(marc, '700', 'abcdefghlmnopqrstu', 'acqd')
+    data << get_marc_values_2(marc, '710', 'abcdefghklmnoprstu', 'ab')
+    data << get_marc_values_2(marc, '711', 'acdefghklnpqstu', 'a')
     data.flatten
     
   end
