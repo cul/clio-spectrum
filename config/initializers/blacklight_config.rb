@@ -49,6 +49,7 @@ Blacklight.configure(:shared) do |config|
   config[:facet] = {
     :field_names => (facet_fields = [
       "format",
+      "author_facet",
       "location_facet",
       "pub_date_facet",
       "acq_date_facet",
@@ -60,6 +61,7 @@ Blacklight.configure(:shared) do |config|
   ]),
     :labels => {
       "format"              => "Format",
+      "author_facet"        => "Author",
       "pub_date_facet"      => "Publication Date",
       "acq_date_facet"      => "Acquisition Date",
       "subject_topic_facet" => "Topic",
@@ -85,6 +87,7 @@ Blacklight.configure(:shared) do |config|
     :limits => {
       "subject_topic_facet" => 10,
       "format" => 20,
+      "author_facet" => 10,
       "acq_date" => 10,
       "pub_date_facet" => 10,
       "language_facet" => 10,
