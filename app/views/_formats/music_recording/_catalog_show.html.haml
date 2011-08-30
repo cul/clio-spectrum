@@ -16,7 +16,7 @@
       = add_row("Title", get_marc_values(marc, "245", "abcfghknps"))
       = add_row("Other Titles", get_title_other(marc))
       = add_row("Format", document["format"])
-      = add_row("Language", document["language_facet"])
+      = add_row("Language", document["language_facet"], options = {:join => '; '})
       = add_row("Edition", get_marc_values(marc, "250", "ab"))
       = add_row("Published", get_publisher(marc))
       = add_row("Description", get_description(marc))
