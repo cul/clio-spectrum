@@ -1,6 +1,13 @@
 module HoldingsHelper
 
-  def condense_holdings(holdings)
+  def condense_holdings(document_id)
+    holdings = nil
+    
+    begin 
+      holdings = Voyager::Holdings::Collection.new_from_opac(document_id)
+    rescue
+      return []
+    end
     entries = [] 
     holdings.records.each do |record|
       entry = entries.find { |entry| entry[:location_name] == record.location_name }

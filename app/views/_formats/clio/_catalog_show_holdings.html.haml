@@ -1,5 +1,4 @@
-- holdings = condense_holdings(Voyager::Holdings::Collection.new_from_opac(document["id"].first))
-
+- holdings = condense_holdings(document.get("id")) 
 .holdings
   .header
     .title Holdings:
