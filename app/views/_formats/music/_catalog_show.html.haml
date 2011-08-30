@@ -5,11 +5,7 @@
 .main
   .show_title
     = content_tag(:h1, document_heading.listify.join(""))
-    .show_cover.book_cover
-      .gbs_cover
-        .gbs_thumbnail
-          = image_tag("spacer.png", :class => "bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))
-        .gbs_preview= link_to image_tag("gb_preview.png"), "http://books.google.com", :class => "gbs_preview_link"
+
     .values
       = add_row("Composer", generate_value_links_2(get_author(marc), :author))
       = add_row("Uniform Title", get_title_uniform(marc))
@@ -28,6 +24,7 @@
       = add_row("Contents", get_marc_values(marc, "505", "agrtu"))
       = add_row("Publisher No.", get_marc_values(marc, "028", "ab"))
       = add_row("ISN", get_ISN(marc))
+
 
 
     

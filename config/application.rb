@@ -4,7 +4,7 @@ require 'rails/all'
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require *Rails.groups(:assets) if defined?(Bundler)
+Bundler.require *Rails.groups(:assets => %w(development test))
 
 require File.expand_path('../../lib/james_monkeys', __FILE__)
 require File.expand_path('../../lib/google_books', __FILE__)
@@ -41,7 +41,7 @@ module NewBooks
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
-
+    MARC::XMLReader.parser = MARC::XMLReader::USE_BEST_AVAILABLE
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
@@ -50,6 +50,6 @@ module NewBooks
     # Default SASS Configuration, check out https://github.com/rails/sass-rails for details
     config.sass.line_comments = Rails.env.development?
     config.sass.compress = !Rails.env.development?
-    
+
   end
 end

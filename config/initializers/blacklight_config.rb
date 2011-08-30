@@ -49,6 +49,7 @@ Blacklight.configure(:shared) do |config|
   config[:facet] = {
     :field_names => (facet_fields = [
       "format",
+      "author_facet",
       "location_facet",
       "pub_date_facet",
       "acq_date_facet",
@@ -61,6 +62,7 @@ Blacklight.configure(:shared) do |config|
   ]),
     :labels => {
       "format"              => "Format",
+      "author_facet"        => "Author",
       "pub_date_facet"      => "Publication Date",
       "acq_date_facet"      => "Acquisition Date",
       "subject_topic_facet" => "Topic",
@@ -87,6 +89,7 @@ Blacklight.configure(:shared) do |config|
     :limits => {
       "subject_topic_facet" => 10,
       "format" => 20,
+      "author_facet" => 10,
       "acq_date" => 10,
       "pub_date_facet" => 10,
       "language_facet" => 10,
@@ -241,11 +244,14 @@ Blacklight.configure(:shared) do |config|
   # label is key, solr field is value
   config[:sort_fields] ||= []
   config[:sort_fields] << ['relevance', 'score desc, pub_date_sort desc, title_sort asc']
-  config[:sort_fields] << ['acq date', 'acq_date_sort desc, title_sort asc']
-  config[:sort_fields] << ['year', 'pub_date_sort desc, title_sort asc']
-  config[:sort_fields] << ['author', 'author_sort asc, title_sort asc']
-  config[:sort_fields] << ['title', 'title_sort asc, pub_date_sort desc']
-  
+  config[:sort_fields] << ['Acquired Earliest', 'acq_date_sort asc, title_sort asc']
+  config[:sort_fields] << ['Acquired Latest', 'acq_date_sort desc, title_sort asc']
+  config[:sort_fields] << ['Published Earliest', 'pub_date_sort asc, title_sort asc']
+  config[:sort_fields] << ['Published Latest', 'pub_date_sort desc, title_sort asc']
+  config[:sort_fields] << ['Author A-Z', 'author_sort asc, title_sort asc']
+  config[:sort_fields] << ['Author Z-A', 'author_sort desc, title_sort asc']
+  config[:sort_fields] << ['Title A-Z', 'title_sort asc, pub_date_sort desc']
+  config[:sort_fields] << ['Title Z-A', 'title_sort desc, pub_date_sort desc']
   # If there are more than this many search results, no spelling ("did you 
   # mean") suggestion is offered.
   config[:spell_max] = 5

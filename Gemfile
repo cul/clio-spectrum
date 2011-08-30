@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
-gem 'rails', '3.1.0.rc5'
+gem 'rails', '3.1.0.rc6'
 
-gem 'sprockets', '2.0.0.beta.13'
+gem 'sprockets', '2.0.0.beta.15'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -9,7 +9,6 @@ gem 'sqlite3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
-
 #gem 'blacklight', :path => '~/code/blacklight'
 
 gem 'blacklight', :git => 'git://github.com/cul/blacklight.git' , :branch => 'rails_31'
@@ -24,14 +23,17 @@ gem 'httpclient'
 gem 'nokogiri'
 gem 'haml'
 gem 'haml-rails'
+gem 'sass-rails', '3.1.0.rc.7'
+gem 'sass'
 gem 'unicode'
 gem 'mysql'
 gem 'summon'
+gem 'voyager_api'
 gem 'rubytree', '=0.5.2'
 # gem 'blacklight_advanced_search',:git => 'https://github.com/projectblacklight/blacklight_advanced_search.git'
 
 group :assets do
-  gem 'sass-rails', "~> 3.1.0.rc"
+  gem 'sass-rails', '3.1.0.rc.7'
   gem 'compass', :git => 'git://github.com/chriseppstein/compass.git', :branch => 'rails31'
 
 end
