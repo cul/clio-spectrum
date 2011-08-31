@@ -129,6 +129,22 @@ module DisplayHelper
     end
   end
 
+  def generate_value_links_subject(values, category)
+
+    # search value the same as the display value
+    # quote first term of the search string and remove ' - '
+
+    values.listify.collect do |v|
+      
+      sub = v.split(" - ")
+      out = '"' + sub.shift + '" '
+      out += sub.join(" ") unless sub.empty?
+      
+      link_to(v, url_for(:controller => "catalog", :action => "index", :q => out, :search_field => "subject", :commit => "search"))
+
+    end
+  end
+
   def get_marc_values(marc, tag, display_subfields = :all,  options = {})
     options.reverse_merge!({ :vernacular => true,
                               :subject => false,

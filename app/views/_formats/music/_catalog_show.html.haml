@@ -18,7 +18,7 @@
       = add_row("Description", get_description(marc))
       = add_row("Series", generate_value_links_2(get_series(marc), :all))
       = add_row("Notes", get_notes(marc))
-      = add_row("Subjects", generate_value_links(get_subject_LC(marc), :subject))
+      = add_row("Subjects", generate_value_links_subject(get_subject_LC(marc), :subject))
       = add_row("Also Listed Under", generate_value_links_2(get_author_other(marc), :author))
       = add_row("Contents", get_marc_values(marc, "505", "agrtu"))
       = add_row("Publisher No.", get_marc_values(marc, "028", "ab"))
