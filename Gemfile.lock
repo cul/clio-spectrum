@@ -1,5 +1,7 @@
-PATH
-  remote: ~/code/blacklight
+GIT
+  remote: git://github.com/cul/blacklight.git
+  revision: 111b48b5f04afd0892e5e06e41d3099fb997e1bb
+  branch: rails_31
   specs:
     blacklight (3.1.0)
       compass (= 0.12.alpha.0)
