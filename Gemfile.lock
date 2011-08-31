@@ -1,23 +1,23 @@
 GIT
   remote: git://github.com/chriseppstein/compass.git
-  revision: f23bf58e8db84e17e6fab37cc73e5a539924cca0
+  revision: 22e2458b77519e8eb8463170c1a1fe4bab105f3e
   branch: rails31
   specs:
-    compass (0.12.0.alpha.0.f23bf58)
+    compass (0.12.0.alpha.0.22e2458)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
 
 GIT
   remote: git://github.com/cul/blacklight.git
-  revision: 7bd431bdc00d764f9c1102d2fdca7bc11dd92417
+  revision: a7165b668a2c8c72552da5c83b146ec2337b0c58
   branch: rails_31
   specs:
     blacklight (3.1.0)
       kaminari
       marc (~> 0.4.3)
       nokogiri (~> 1.5)
-      rails (= 3.1.0.rc6)
+      rails (= 3.1.0.rc8)
       rsolr (~> 1.0)
       rsolr-ext (~> 1.0)
       sass-rails (~> 3.1.0.rc)
@@ -26,38 +26,38 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    actionmailer (3.1.0.rc6)
-      actionpack (= 3.1.0.rc6)
+    actionmailer (3.1.0.rc8)
+      actionpack (= 3.1.0.rc8)
       mail (~> 2.3.0)
-    actionpack (3.1.0.rc6)
-      activemodel (= 3.1.0.rc6)
-      activesupport (= 3.1.0.rc6)
+    actionpack (3.1.0.rc8)
+      activemodel (= 3.1.0.rc8)
+      activesupport (= 3.1.0.rc8)
       builder (~> 3.0.0)
       erubis (~> 2.7.0)
       i18n (~> 0.6)
       rack (~> 1.3.2)
-      rack-cache (~> 1.0.2)
-      rack-mount (~> 0.8.1)
-      rack-test (~> 0.6.0)
-      sprockets (~> 2.0.0.beta.12)
-    activemodel (3.1.0.rc6)
-      activesupport (= 3.1.0.rc6)
-      bcrypt-ruby (~> 2.1.4)
+      rack-cache (~> 1.0.3)
+      rack-mount (~> 0.8.2)
+      rack-test (~> 0.6.1)
+      sprockets (~> 2.0.0.beta.15)
+    activemodel (3.1.0.rc8)
+      activesupport (= 3.1.0.rc8)
+      bcrypt-ruby (~> 3.0.0)
       builder (~> 3.0.0)
       i18n (~> 0.6)
-    activerecord (3.1.0.rc6)
-      activemodel (= 3.1.0.rc6)
-      activesupport (= 3.1.0.rc6)
+    activerecord (3.1.0.rc8)
+      activemodel (= 3.1.0.rc8)
+      activesupport (= 3.1.0.rc8)
       arel (~> 2.2.1)
       tzinfo (~> 0.3.29)
-    activeresource (3.1.0.rc6)
-      activemodel (= 3.1.0.rc6)
-      activesupport (= 3.1.0.rc6)
-    activesupport (3.1.0.rc6)
+    activeresource (3.1.0.rc8)
+      activemodel (= 3.1.0.rc8)
+      activesupport (= 3.1.0.rc8)
+    activesupport (3.1.0.rc8)
       multi_json (~> 1.0)
     addressable (2.2.6)
     arel (2.2.1)
-    bcrypt-ruby (2.1.4)
+    bcrypt-ruby (3.0.0)
     builder (3.0.0)
     capistrano (2.8.0)
       highline
@@ -88,8 +88,8 @@ GEM
       cucumber (~> 1.0.0)
       nokogiri (>= 1.4.6)
     database_cleaner (0.6.7)
-    devise (1.4.2)
-      bcrypt-ruby (~> 2.1.2)
+    devise (1.4.3)
+      bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
       warden (~> 1.0.3)
     diff-lcs (1.1.3)
@@ -154,17 +154,17 @@ GEM
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
-    rails (3.1.0.rc6)
-      actionmailer (= 3.1.0.rc6)
-      actionpack (= 3.1.0.rc6)
-      activerecord (= 3.1.0.rc6)
-      activeresource (= 3.1.0.rc6)
-      activesupport (= 3.1.0.rc6)
+    rails (3.1.0.rc8)
+      actionmailer (= 3.1.0.rc8)
+      actionpack (= 3.1.0.rc8)
+      activerecord (= 3.1.0.rc8)
+      activeresource (= 3.1.0.rc8)
+      activesupport (= 3.1.0.rc8)
       bundler (~> 1.0)
-      railties (= 3.1.0.rc6)
-    railties (3.1.0.rc6)
-      actionpack (= 3.1.0.rc6)
-      activesupport (= 3.1.0.rc6)
+      railties (= 3.1.0.rc8)
+    railties (3.1.0.rc8)
+      actionpack (= 3.1.0.rc8)
+      activesupport (= 3.1.0.rc8)
       rack-ssl (~> 1.3.2)
       rake (>= 0.8.7)
       rdoc (~> 3.4)
@@ -206,7 +206,7 @@ GEM
     sprockets (2.0.0.beta.15)
       hike (~> 1.2)
       rack (~> 1.0)
-      tilt (!= 1.3.0, ~> 1.1)
+      tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.4)
     summon (1.2.7)
       json (>= 1.2.0)
@@ -254,7 +254,7 @@ DEPENDENCIES
   mocha
   mysql
   nokogiri
-  rails (= 3.1.0.rc6)
+  rails (= 3.1.0.rc8)
   rcov
   rspec-rails
   rubytree (= 0.5.2)

@@ -1,8 +1,8 @@
 set :rails_env, "spectrum_dev"
 set :application, "spectrum_dev"
-set :domain,      "rowling.cul.columbia.edu"
-set :deploy_to,   "/opt/passenger/#{application}/"
-set :user, "deployer"
+set :domain,      "ldpdmac01.cul.columbia.edu"
+set :deploy_to,   "/Users/jamesws3/passenger/#{application}/"
+set :user, "jamesws3"
 set :branch, @variables[:branch] || "spectrum_dev"
 set :scm_passphrase, "Current user can full owner domains."
 

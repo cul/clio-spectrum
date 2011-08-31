@@ -33,7 +33,7 @@
     -->
   <!-- <lib dir="../../contrib/clustering/lib/downloads/" /> -->
   
-  <dataDir>${solr.data.dir:./solr/data}</dataDir>
+  <dataDir>${solr.data.dir:/opt/solr-1.5/spectrum_experiment/data}</dataDir>
   
   <!-- index time configurations -->
   <indexDefaults>
@@ -127,6 +127,9 @@
           <str name="facet.field">acq_date_facet</str>
           <str name="facet.field">subject_geo_facet</str>
           <str name="facet.field">subject_topic_facet</str>
+          <str name="facet.field">subject_era_facet</str>
+          <str name="facet.field">author_facet</str>
+
           <str name="facet.field">location_facet</str>
         </lst>
         <!-- query for single document to populate filter cache -->
@@ -149,6 +152,9 @@
           <str name="facet.field">subject_geo_facet</str>
           <str name="facet.field">subject_topic_facet</str>
           <str name="facet.field">location_facet</str>
+          <str name="facet.field">subject_era_facet</str>
+          <str name="facet.field">author_facet</str>
+
         </lst>
       </arr>
     </listener>
@@ -175,7 +181,11 @@
           <str name="facet.field">acq_date_facet</str>
           <str name="facet.field">subject_geo_facet</str>
           <str name="facet.field">subject_topic_facet</str>
+          <str name="facet.field">subject_era_facet</str>
           <str name="facet.field">location_facet</str>
+          <str name="facet.field">author_facet</str>
+
+
         </lst>
         <!-- query for single document to populate filter cache -->
         <lst>
@@ -196,7 +206,10 @@
           <str name="facet.field">acq_date_facet</str>
           <str name="facet.field">subject_geo_facet</str>
           <str name="facet.field">subject_topic_facet</str>
+          <str name="facet.field">subject_era_facet</str>
           <str name="facet.field">location_facet</str>
+          <str name="facet.field">author_facet</str>
+
         </lst>
       </arr>
     </listener>
@@ -353,6 +366,7 @@
         title_vern_display,
         subject_topic_facet,
         subject_geo_facet,
+	subject_era_facet,
         subtitle_display,
         location_facet,
         full_publisher_display,
@@ -360,7 +374,8 @@
         location_holdings_id_display,
         location_display,
         location_call_number_display, 
-        url_munged_display
+        url_munged_display,
+	author_facet
       </str>
      
       <str name="facet">true</str>
@@ -376,7 +391,9 @@
       <str name="facet.field">acq_date_facet</str>
       <str name="facet.field">subject_geo_facet</str>
       <str name="facet.field">subject_topic_facet</str>
+          <str name="facet.field">subject_era_facet</str>
       <str name="facet.field">location_facet</str>
+          <str name="facet.field">author_facet</str>
       
       <str name="spellcheck">true</str>
       <str name="spellcheck.dictionary">default</str>
@@ -504,7 +521,8 @@
         location_holdings_id_display,
         location_display,
         location_call_number_display, 
-        url_munged_display
+        url_munged_display,
+	author_facet
       </str>
       
       <str name="facet">true</str>
@@ -521,6 +539,8 @@
       <str name="facet.field">subject_geo_facet</str>
       <str name="facet.field">subject_topic_facet</str>
       <str name="facet.field">location_facet</str>
+      <str name="facet.field">subject_era_facet</str>
+          <str name="facet.field">author_facet</str>
       
       <str name="spellcheck">true</str>
       <str name="spellcheck.dictionary">subject</str>
