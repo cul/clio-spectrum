@@ -342,6 +342,18 @@ module DisplayHelper
     
   end
 
+  def get_notes_music_recording(marc)
+  
+    data = []
+    data << get_marc_values(marc, '254', 'a')
+    data << get_marc_values(marc, '500', 'a')
+    data << get_marc_values(marc, '508', 'a')
+    data << get_marc_values(marc, '518', 'a3')
+    data << get_marc_values(marc, '590', 'a')
+    data.flatten
+    
+  end
+
   def get_publisher(marc)
   
     data = []
@@ -357,11 +369,11 @@ module DisplayHelper
   def get_series(marc)
   
     data = []
-    data << get_marc_values(marc, '800', 'abcdefghklmnopqrstuv3')
-    data << get_marc_values(marc, '810', 'abcdefghklmnoprstuv3')
-    data << get_marc_values(marc, '811', 'acdefghklnpqstuv3')
-    data << get_marc_values(marc, '830', 'adfghklmnoprstv3')
-    data << get_marc_values(marc, '840', 'ahv')
+    data << get_marc_values_2(marc, '800', 'abcdefghklmnopqrstuv3', 'acqt')
+    data << get_marc_values_2(marc, '810', 'abcdefghklmnoprstuv3', 'abt')
+    data << get_marc_values_2(marc, '811', 'acdefghklnpqstuv3', 'at')
+    data << get_marc_values_2(marc, '830', 'adfghklmnoprstv3', 'a')
+    data << get_marc_values_2(marc, '840', 'ahv', 'a')
     data.flatten
     
   end
