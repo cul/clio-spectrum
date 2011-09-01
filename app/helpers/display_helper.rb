@@ -137,8 +137,8 @@ module DisplayHelper
     values.listify.collect do |v|
       
       sub = v.split(" - ")
-      out = '"' + sub.shift + '" '
-      out += sub.join(" ") unless sub.empty?
+      out = '"' + sub.shift + '"'
+      out += ' ' + sub.join(" ") unless sub.empty?
       
       link_to(v, url_for(:controller => "catalog", :action => "index", :q => out, :search_field => "subject", :commit => "search"))
 
