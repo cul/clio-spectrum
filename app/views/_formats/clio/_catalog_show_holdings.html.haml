@@ -16,7 +16,7 @@
         });
     - online_links = online_link_hash(document)
    
-    - holdings << {:location_link => "Online", :location_name => "Online"}  unless holdings.detect { |h| h[:location_name].strip == "Online"} 
+    - holdings << {:location_link => "Online", :location_name => "Online"} if !holdings.detect { |h| h[:location_name].strip == "Online"} && !holdings.empty?
     - holdings.each do |entry|
       .holding{:class => alternating_line}
         .location
