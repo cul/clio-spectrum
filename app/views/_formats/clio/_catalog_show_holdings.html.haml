@@ -2,14 +2,14 @@
 .holdings
   .header
     .title Holdings:
-    .location_guide=link_to "(Location Guide)", "http://www.columbia.edu/cu/lweb/help/clio/location_guide.html"
+    .location_guide=link_to "(Location Guide)", "http://library.columbia.edu/help/clio/location_guide.html"
 
 
   - if holdings.empty?
     No holdings data at this time.
   - else
 
-    -content_for :jstemplates do
+    - content_for :jstemplates do
       :javascript
         $(document).ready(function() {
           $(".location_display").colorbox({transition:'none',scrolling:false});
@@ -17,20 +17,19 @@
 
     - holdings.each do |entry|
       .holding{:class => alternating_line}
-        .location
-          = entry[:location_link]
-        .call_number=entry[:call_number]
+        .location= entry[:location_link]
+        .call_number= entry[:call_number]
         .hours= entry[:hours]
 
         - if entry[:location_name].strip == "Online"
           - online_link_hash(document).each do |link|
             - title, url = link
-            .status= link_to title.abbreviate(60), url
-
-        - entry[:items].each_pair do |messages, details|
-          .status
-            = details[:image_link]
-            = messages.join(", ")
-            - if details[:count] >1
-              (#{details[:count]} copies)
+            .status= link_to title, url
+        - else
+          - entry[:items].each_pair do |messages, details|
+            .status
+              = details[:image_link]
+              = messages.join(", ")
+              - if details[:count] >1
+                (#{details[:count]} copies)
 
