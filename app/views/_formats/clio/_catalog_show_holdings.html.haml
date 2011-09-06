@@ -14,7 +14,9 @@
         $(document).ready(function() {
           $(".location_display").colorbox({transition:'none',scrolling:false});
         });
-
+    - online_links = online_link_hash(document)
+   
+    - holdings << {:location_link => "Online", :location_name => "Online"}  unless holdings.detect { |h| h[:location_name].strip == "Online"} 
     - holdings.each do |entry|
       .holding{:class => alternating_line}
         .location
@@ -23,14 +25,16 @@
         .hours= entry[:hours]
 
         - if entry[:location_name].strip == "Online"
-          - online_link_hash(document).each do |link|
+          - online_links.each do |link|
             - title, url = link
-            .status= link_to title.abbreviate(60), url
-
-        - entry[:items].each_pair do |messages, details|
-          .status
-            = details[:image_link]
-            = messages.join(", ")
-            - if details[:count] >1
-              (#{details[:count]} copies)
+            .status
+              = image_tag("icons/online.png")
+              = link_to title.abbreviate(60), url
+        - else
+          - entry[:items].each_pair do |messages, details|
+            .status
+              = details[:image_link]
+              = messages.join(", ")
+              - if details[:count] >1
+                (#{details[:count]} copies)
 
