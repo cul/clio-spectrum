@@ -1,37 +1,28 @@
 GIT
-  remote: git://github.com/chriseppstein/compass.git
-  revision: 22e2458b77519e8eb8463170c1a1fe4bab105f3e
-  branch: rails31
-  specs:
-    compass (0.12.0.alpha.0.22e2458)
-      chunky_png (~> 1.2)
-      fssm (>= 0.2.7)
-      sass (~> 3.1)
-
-GIT
   remote: git://github.com/cul/blacklight.git
-  revision: a7165b668a2c8c72552da5c83b146ec2337b0c58
+  revision: 111b48b5f04afd0892e5e06e41d3099fb997e1bb
   branch: rails_31
   specs:
     blacklight (3.1.0)
+      compass (= 0.12.alpha.0)
       kaminari
       marc (~> 0.4.3)
       nokogiri (~> 1.5)
-      rails (= 3.1.0.rc8)
+      rails (= 3.1.0)
       rsolr (~> 1.0)
       rsolr-ext (~> 1.0)
-      sass-rails (~> 3.1.0.rc)
+      sass-rails (~> 3.1.0)
       unicode
 
 GEM
   remote: http://rubygems.org/
   specs:
-    actionmailer (3.1.0.rc8)
-      actionpack (= 3.1.0.rc8)
+    actionmailer (3.1.0)
+      actionpack (= 3.1.0)
       mail (~> 2.3.0)
-    actionpack (3.1.0.rc8)
-      activemodel (= 3.1.0.rc8)
-      activesupport (= 3.1.0.rc8)
+    actionpack (3.1.0)
+      activemodel (= 3.1.0)
+      activesupport (= 3.1.0)
       builder (~> 3.0.0)
       erubis (~> 2.7.0)
       i18n (~> 0.6)
@@ -39,21 +30,21 @@ GEM
       rack-cache (~> 1.0.3)
       rack-mount (~> 0.8.2)
       rack-test (~> 0.6.1)
-      sprockets (~> 2.0.0.beta.15)
-    activemodel (3.1.0.rc8)
-      activesupport (= 3.1.0.rc8)
+      sprockets (~> 2.0.0)
+    activemodel (3.1.0)
+      activesupport (= 3.1.0)
       bcrypt-ruby (~> 3.0.0)
       builder (~> 3.0.0)
       i18n (~> 0.6)
-    activerecord (3.1.0.rc8)
-      activemodel (= 3.1.0.rc8)
-      activesupport (= 3.1.0.rc8)
+    activerecord (3.1.0)
+      activemodel (= 3.1.0)
+      activesupport (= 3.1.0)
       arel (~> 2.2.1)
       tzinfo (~> 0.3.29)
-    activeresource (3.1.0.rc8)
-      activemodel (= 3.1.0.rc8)
-      activesupport (= 3.1.0.rc8)
-    activesupport (3.1.0.rc8)
+    activeresource (3.1.0)
+      activemodel (= 3.1.0)
+      activesupport (= 3.1.0)
+    activesupport (3.1.0)
       multi_json (~> 1.0)
     addressable (2.2.6)
     arel (2.2.1)
@@ -77,6 +68,10 @@ GEM
     childprocess (0.2.2)
       ffi (~> 1.0.6)
     chunky_png (1.2.1)
+    compass (0.12.alpha.0)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
     cucumber (1.0.2)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.2)
@@ -88,7 +83,7 @@ GEM
       cucumber (~> 1.0.0)
       nokogiri (>= 1.4.6)
     database_cleaner (0.6.7)
-    devise (1.4.3)
+    devise (1.4.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
       warden (~> 1.0.3)
@@ -119,8 +114,9 @@ GEM
     jquery-rails (1.0.13)
       railties (~> 3.0)
       thor (~> 0.14)
-    json (1.5.3)
-    json_pure (1.5.3)
+    json (1.5.4)
+    json_pure (1.5.4)
+      spruz (~> 0.2.8)
     kaminari (0.12.4)
       rails (>= 3.0.0)
     kgio (2.6.0)
@@ -148,23 +144,23 @@ GEM
     rack (1.3.2)
     rack-cache (1.0.3)
       rack (>= 0.4)
-    rack-mount (0.8.2)
+    rack-mount (0.8.3)
       rack (>= 1.0.0)
     rack-ssl (1.3.2)
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
-    rails (3.1.0.rc8)
-      actionmailer (= 3.1.0.rc8)
-      actionpack (= 3.1.0.rc8)
-      activerecord (= 3.1.0.rc8)
-      activeresource (= 3.1.0.rc8)
-      activesupport (= 3.1.0.rc8)
+    rails (3.1.0)
+      actionmailer (= 3.1.0)
+      actionpack (= 3.1.0)
+      activerecord (= 3.1.0)
+      activeresource (= 3.1.0)
+      activesupport (= 3.1.0)
       bundler (~> 1.0)
-      railties (= 3.1.0.rc8)
-    railties (3.1.0.rc8)
-      actionpack (= 3.1.0.rc8)
-      activesupport (= 3.1.0.rc8)
+      railties (= 3.1.0)
+    railties (3.1.0)
+      actionpack (= 3.1.0)
+      activesupport (= 3.1.0)
       rack-ssl (~> 1.3.2)
       rake (>= 0.8.7)
       rdoc (~> 3.4)
@@ -194,19 +190,20 @@ GEM
       hoe (>= 1.3.0)
     rubyzip (0.9.4)
     sass (3.1.7)
-    sass-rails (3.1.0.rc.7)
-      actionpack (~> 3.1.0.rc6)
-      railties (~> 3.1.0.rc6)
+    sass-rails (3.1.0)
+      actionpack (~> 3.1.0)
+      railties (~> 3.1.0)
       sass (>= 3.1.4)
     selenium-webdriver (2.5.0)
       childprocess (>= 0.2.1)
       ffi (>= 1.0.7)
       json_pure
       rubyzip
-    sprockets (2.0.0.beta.15)
+    sprockets (2.0.0)
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    spruz (0.2.13)
     sqlite3 (1.3.4)
     summon (1.2.7)
       json (>= 1.2.0)
@@ -238,7 +235,7 @@ DEPENDENCIES
   capistrano
   capistrano-ext
   capybara
-  compass!
+  compass (= 0.12.alpha.0)
   cucumber-rails
   database_cleaner
   devise
@@ -254,13 +251,13 @@ DEPENDENCIES
   mocha
   mysql
   nokogiri
-  rails (= 3.1.0.rc8)
+  rails (= 3.1.0)
   rcov
   rspec-rails
   rubytree (= 0.5.2)
   sass
-  sass-rails (= 3.1.0.rc.7)
-  sprockets (= 2.0.0.beta.15)
+  sass-rails (= 3.1.0)
+  sprockets
   sqlite3
   summon
   unicode

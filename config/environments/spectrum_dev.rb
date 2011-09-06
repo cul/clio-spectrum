@@ -10,6 +10,7 @@ NewBooks::Application.configure do
   # Show full error reports and disable caching
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
+  config.action_controller.asset_host = "/spectrum_dev/assets"
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
@@ -17,7 +18,7 @@ NewBooks::Application.configure do
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
   :address => "localhost",
-  :domain => "rowling.cc.columbia.edu",
+  :domain => "bronte.cc.columbia.edu",
   :port => "25"
 }
   # Print deprecation notices to the Rails logger

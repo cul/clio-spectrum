@@ -1,9 +1,8 @@
 source 'http://rubygems.org'
-gem 'rails', '3.1.0.rc8'
+gem 'rails', '3.1.0'
 
-gem 'sprockets', '2.0.0.beta.15'
+gem 'sprockets'
 # Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
 
@@ -23,7 +22,7 @@ gem 'httpclient'
 gem 'nokogiri'
 gem 'haml'
 gem 'haml-rails'
-gem 'sass-rails', '3.1.0.rc.7'
+gem 'sass-rails', '3.1.0'
 gem 'sass'
 gem 'unicode'
 gem 'mysql'
@@ -33,8 +32,8 @@ gem 'rubytree', '=0.5.2'
 # gem 'blacklight_advanced_search',:git => 'https://github.com/projectblacklight/blacklight_advanced_search.git'
 
 group :assets do
-  gem 'sass-rails', '3.1.0.rc.7'
-  gem 'compass', :git => 'git://github.com/chriseppstein/compass.git', :branch => 'rails31'
+  gem 'sass-rails', '3.1.0'
+  gem 'compass', '0.12.alpha.0'
 
 end
 
