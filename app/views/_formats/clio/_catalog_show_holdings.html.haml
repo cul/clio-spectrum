@@ -26,16 +26,21 @@
         - if entry[:location_name].strip == "Online"
           - online_links.each do |link|
             - title, url = link
-
             .status
               = image_tag("icons/online.png")
               = link_to title, url
 
         - else
-          - entry[:items].each_pair do |messages, details|
-            .status
-              = details[:image_link]
-              = messages.join(", ")
-              - if details[:count] >1
-                (#{details[:count]} copies)
+          - entry[:copies].each do |copy|
+            - if !copy[:temp_locations].nil?
+              - copy[:temp_locations].each do |t|
+                .status= t
+            - if !copy[:summary_holdings].nil?
+              .status= copy[:summary_holdings] 
+            - copy[:items].each_pair do |message, details|
+              .status
+                = details[:image_link]
+                = message
+                - if details[:count] >1
+                  (#{details[:count]} copies)
 
