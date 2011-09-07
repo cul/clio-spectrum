@@ -48,10 +48,10 @@ end
 Then /^I should get (at least|at most) (\d+) results?$/i do |comparator, comparison_num|
   number_of_records = get_number_of_results(page)
   case comparator
-    when "at least"
-      number_of_records.should >= comparison_num.to_i
-    when "at most"
-      number_of_records.should <= comparison_num.to_i
+  when "at least"
+    assert_operator number_of_records, :>=, comparison_num.to_i
+  when "at most"
+    assert_operator number_of_records, :<=, comparison_num.to_i
   end
 end
 
@@ -59,9 +59,9 @@ Then /^I should get (at least|at most) (\d+) total results?$/i do |comparator, c
   response.body =~ /(\d+) results?/
   case comparator
     when "at least"
-      $1.to_i.should >= comparison_num.to_i
+      assert_operator $1.to_i, :>=, comparison_num.to_i 
     when "at most"
-      $1.to_i.should <= comparison_num.to_i
+      assert_operator $1.to_i, :<=, comparison_num.to_i
   end
 end
 
@@ -134,7 +134,7 @@ Then /^I should get (the same number of|fewer|more) results (?:than|as) a(?:n?) 
   case comparator
     when "the same number of"
 #      get_num_results_for_query(query, search_field, phrase).should == i
-      get_num_results_for_query(query, search_field).should == i
+      assert_equal get_num_results_for_query(query, search_field).should, i
     when "fewer"
 #      get_num_results_for_query(query, search_field, phrase).should > i
       get_num_results_for_query(query, search_field).should > i
@@ -331,7 +331,9 @@ def get_facet_item_position(response, facet_item)
   end
   -1 # ckey not found in page of results
 end
+
 def get_number_of_results(response)
   # really odd way of getting number of docs.  This retuns an array of ODD/EVEN when found in a document class.  This returns the total number of documents
   page.all(:css, "div.document").length
 end
+

@@ -51,5 +51,6 @@ module NewBooks
     config.sass.line_comments = Rails.env.development?
     config.sass.compress = !Rails.env.development?
 
+
   end
 end
