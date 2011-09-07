@@ -68,10 +68,13 @@ group :test do
   gem "database_cleaner"
   gem "capybara"
   gem "launchy"
+  gem "minitest-rails"
   gem "rspec-rails"
   gem "rcov", ">= 0"
   gem "cucumber-rails"
+  gem "guard-cucumber"
   gem "guard-minitest"
+  gem "guard-rails"
   gem "mocha"
   gem "growl"
 end
