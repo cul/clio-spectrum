@@ -3,7 +3,6 @@ gem 'rails', '3.1.0'
 
 gem 'sprockets'
 # Bundle edge Rails instead:
-gem 'rack-cache'
 
 gem 'sqlite3'
 
