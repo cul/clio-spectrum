@@ -267,6 +267,7 @@ DEPENDENCIES
   mocha
   mysql
   nokogiri
+  rack-cache
   rails (= 3.1.0)
   rcov
   rspec-rails
