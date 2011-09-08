@@ -1,6 +1,6 @@
 set :rails_env, "spectrum_test"
 set :application, "spectrum_test"
-set :domain,      "rossini.cul.columbia.edu"
+set :domain,      "bronte.cul.columbia.edu"
 set :deploy_to,   "/opt/passenger/#{application}/"
 set :user, "deployer"
 set :branch, @variables[:branch] || "spectrum_test"
