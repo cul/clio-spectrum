@@ -9,9 +9,7 @@ module HoldingsHelper
       return []
     end
     
-    complexity = determine_complexity(holdings)
-    
-    if complexity == :simple
+    if determine_complexity(holdings) == :simple
       process_simple_holdings(holdings)
     else
       process_complex_holdings(holdings)
@@ -21,10 +19,18 @@ module HoldingsHelper
 
   def determine_complexity(holdings)
     
+    # holdings are complex if anything other than item_status has a value
+    
     complexity = :simple
     holdings.records.each do |record|
       if !record.summary_holdings.empty? ||
-          !record.temp_locations.empty?
+          !record.supplements.empty? ||
+          !record.indexes.empty? ||
+          !record.notes.empty? ||
+          !record.reproduction_note.empty? ||
+          !record.current_issues.empty? ||
+          !record.temp_locations.empty? ||
+          !record.orders.empty?
         complexity = :complex
       end
     end
@@ -35,8 +41,12 @@ module HoldingsHelper
 
   def process_simple_holdings(holdings)
     
+    # for simple holdings item statuses for all copies for a location are grouped together
+    # under each location
+    
     entries = [] 
     holdings.records.each do |record|
+      # test for location and call number
       entry = entries.find { |entry| entry[:location_name] == record.location_name && 
         entry[:call_number] == record.call_number}
 
@@ -87,9 +97,14 @@ module HoldingsHelper
 
   def process_complex_holdings(holdings)
     
+    # for complex holdings all available elements for each copy are collected together
+    # and grouped by location
+    
     entries = [] 
     holdings.records.each do |record|
-      entry = entries.find { |entry| entry[:location_name] == record.location_name }
+      # test for location and call number
+      entry = entries.find { |entry| entry[:location_name] == record.location_name && 
+        entry[:call_number] == record.call_number}
 
       unless entry
         location = Location.match_location_text(record.location_name)
@@ -115,6 +130,7 @@ module HoldingsHelper
         entries << entry
       end
 
+      # create out hash of elements for each copy and add to entry :copies array
       out = {}
 
       # process status messages
@@ -133,6 +149,36 @@ module HoldingsHelper
       end
       out[:items] = items
       
+      # current_issues
+      if !record.current_issues.empty?
+        out[:current_issues] = "Current Issues: " + record.current_issues.join('; ')
+      end
+
+      # indexes
+      if !record.indexes.empty?
+        out[:indexes] = "Indexes: " + record.indexes.join(' ')
+      end
+
+      # notes
+      if !record.notes.empty?
+        out[:notes] = "Notes: " + record.notes.join(' ')
+      end
+
+      # orders
+      if !record.orders.empty?
+        out[:orders] = "Order Information: " + record.orders.join('; ')
+      end
+
+      # reproduction note
+      if !record.reproduction_note.empty?
+        out[:reproduction_note] = record.reproduction_note
+      end
+
+      # supplements
+      if !record.supplements.empty?
+        out[:supplements] = "Supplements: " + record.supplements.join(' ')
+      end
+
       # summary holdings
       if !record.summary_holdings.empty?
         out[:summary_holdings] = "Library has: " + record.summary_holdings.join(' ')

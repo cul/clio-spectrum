@@ -17,7 +17,9 @@
     - online_links = online_link_hash(document)
    
     - holdings << {:location_link => "Online", :location_name => "Online"} if !holdings.detect { |h| h[:location_name].strip == "Online"} && !online_links.empty?
+
     - holdings.each do |entry|
+
       .holding{:class => alternating_line}
         .location= entry[:location_link]
         .call_number= entry[:call_number]
@@ -25,22 +27,36 @@
 
         - if entry[:location_name].strip == "Online"
           - online_links.each do |link|
-            - title, url = link
-            .status
-              = image_tag("icons/online.png")
-              = link_to title, url
+            .group
+              - title, url = link
+              .status
+                = image_tag("icons/online.png")
+                = link_to title, url
 
         - else
           - entry[:copies].each do |copy|
-            - if !copy[:temp_locations].nil?
-              - copy[:temp_locations].each do |t|
-                .status= t
-            - if !copy[:summary_holdings].nil?
-              .status= copy[:summary_holdings] 
-            - copy[:items].each_pair do |message, details|
-              .status
-                = details[:image_link]
-                = message
-                - if details[:count] >1
-                  (#{details[:count]} copies)
+            .group
+              - if !copy[:orders].nil?
+                .message= copy[:orders]
+              - if !copy[:temp_locations].nil?
+                - copy[:temp_locations].each do |t|
+                  .message= t
+              - if !copy[:summary_holdings].nil?
+                .message= copy[:summary_holdings] 
+              - if !copy[:supplements].nil?
+                .message= copy[:supplements]
+              - if !copy[:indexes].nil?
+                .message= copy[:indexes]
+              - if !copy[:notes].nil?
+                .message= copy[:notes] 
+              - if !copy[:reproduction_note].nil?
+                .message= copy[:reproduction_note]
+              - if !copy[:current_issues].nil?
+                .message= copy[:current_issues]
+              - copy[:items].each_pair do |message, details|
+                .status
+                  = details[:image_link]
+                  = message
+                  - if details[:count] >1
+                    (#{details[:count]} copies)
 
