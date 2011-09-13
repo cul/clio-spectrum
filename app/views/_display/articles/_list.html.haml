@@ -1,0 +1,6 @@
+
+- documents.each_with_index do |document,counter|
+  = render_document_view(document, :format => 'article', :template => 'article_list')
+
+
+= @search.query.to_hash.inspect

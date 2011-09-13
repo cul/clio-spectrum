@@ -43,11 +43,9 @@ class SearchController < ApplicationController
   def search_results_for(category, params)
     case category
     when 'articles'
-      summon = Summon::Service.new(APP_CONFIG[:summon])
-      summon.search('s.q' => params[:q], 's.ps' => 10)
+      SerialSolutions::SummonAPI.search('s.q' => params[:q], 's.ps' => 10)
     when 'ebooks'
-      summon = Summon::Service.new(APP_CONFIG[:summon])
-      summon.search('s.q' => params[:q], 's.ps' => 10, 's.fvf' => "ContentType,eBook")
+      SerialSolutions::SummonAPI.search('s.q' => params[:q], 's.ps' => 10, 's.fvf' => "ContentType,eBook")
     when 'catalog'
       params[:per_page] = 10
       solr_response, solr_results =  get_search_results
@@ -69,8 +67,9 @@ class SearchController < ApplicationController
   def search_url_for(category, params)
     case category
     when 'articles'
-      'http://columbia.summon.serialssolutions.com/search?s.cmd=addFacetValueFilters%28ContentType%2CNewspaper+Article%3At%29&spellcheck=true&x=0&y=0&s.q=' + CGI::escape(params[:q])
-      'http://columbia.summon.serialssolutions.com/search?s.cmd=addFacetValueFilters%28ContentType%2CNewspaper+Article%3At%29&spellcheck=true&x=0&y=0&s.fvf=ContentType,eBook&s.q=' + CGI::escape(params[:q])
+      article_search_path('s.q' => params['q'], :new_search => 'articles')
+    when 'ebooks'
+      article_search_path('s.q' => params['q'], :new_search => 'ebooks')
     when 'catalog'
       url_for(:controller => 'catalog', :action => 'index', :q => params['q'])
     when 'lweb'
