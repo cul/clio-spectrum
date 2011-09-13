@@ -1,14 +1,25 @@
 @import "blacklight/susy_framework"
 @import "local_mixes"
 
+.document.article_list
+  .details
+    +columns(18,18)
+  .row
+    +columns(18,18)
+    +omega(18)
+    .label
+      +columns(2,18)
+    .value
+      +columns(16,18)
+      +omega(18)
 .article_show
   +columns(24,24)
   +omega(24)
 
   .title
-    :padding-top 2em
+    :padding-top .5em
     :padding-left .5em
-    :padding-bottom 2em
+    :padding-bottom 1em
     :font-weight bold
     :font-size 1.5em
   .row
@@ -30,7 +41,7 @@
   .holdings
     +columns(12,24)
     +omega(24)
-    :margin-top 0em
+    :margin-top 2em
     :padding 1em 0 1em 0
     :background #f9f9f9
 
