@@ -1,4 +1,4 @@
 - @page_title = "#{@document.title} - #{application_name}"
 
 
-= render :partial => "_formats/article/article_show", :locals => {:document => @document }
+= render_document_view(@document, :template => "articles_show")

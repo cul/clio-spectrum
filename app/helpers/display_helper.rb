@@ -65,16 +65,29 @@ module DisplayHelper
     "Music - Score" => "music"
   }
 
-  FORMAT_RANKINGS = ["music_recording", "music", "clio", "ebooks", "article", "lweb"]
+  SUMMON_FORMAT_LIST = {
+    "Book" => "ebooks",
+    "Journal Article" => "article"
+  }
+
+  FORMAT_RANKINGS = ["music_recording", "music", "clio", "ebooks", "article","summon", "lweb"]
 
   def determine_formats(document, defaults = [])
     formats = defaults.listify
-    if document.kind_of?(SolrDocument)
+    case document
+    when SolrDocument
       formats << "clio"
 
       document["format"].each do |format|
         formats << SOLR_FORMAT_LIST[format] if SOLR_FORMAT_LIST[format]
       end
+    when Summon::Document
+      formats << "summon"
+      document.content_types.each do |format|
+        formats << SUMMON_FORMAT_LIST[format] if SUMMON_FORMAT_LIST[format]
+      end
+    when SerialSolutions::Link360
+      formats << "summon"
     end
 
     formats.sort { |x,y| FORMAT_RANKINGS.index(x) <=> FORMAT_RANKINGS.index(y) }

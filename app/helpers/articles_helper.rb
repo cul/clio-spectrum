@@ -13,7 +13,8 @@ module ArticlesHelper
     results << "Issue #{doc.issue}" if doc.issue
     results << "p. #{doc.start_page}" if doc.start_page 
 
-    results.join(", ")
+    result = results.join(", ") 
+    result.empty? ? nil : result
   end
 
   def process_summon_date(date)
