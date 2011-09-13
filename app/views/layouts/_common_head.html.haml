@@ -4,10 +4,9 @@
 = csrf_meta_tag
 %script{:src => "https://www.google.com/jsapi", :type => "text/javascript"}
 = javascript_tag "var RAILS_ROOT = '#{APP_CONFIG[:relative_url_root]}';"
-= stylesheet_link_tag "screen"
+= stylesheet_link_tag "application", :media => 'all'
 = stylesheet_link_tag "/contactable/contactable"
 = javascript_include_tag "application"
-= stylesheet_link_tag "print", :media => :print
 = javascript_tag "google.load('books','0')"
 = yield(:jstemplates)
 
