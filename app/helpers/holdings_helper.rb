@@ -150,42 +150,42 @@ module HoldingsHelper
       out[:items] = items
       
       # current_issues
-      if !record.current_issues.empty?
+      unless record.current_issues.empty?
         out[:current_issues] = "Current Issues: " + record.current_issues.join('; ')
       end
 
       # indexes
-      if !record.indexes.empty?
+      unless record.indexes.empty?
         out[:indexes] = "Indexes: " + record.indexes.join(' ')
       end
 
       # notes
-      if !record.notes.empty?
+      unless record.notes.empty?
         out[:notes] = "Notes: " + record.notes.join(' ')
       end
 
       # orders
-      if !record.orders.empty?
+      unless record.orders.empty?
         out[:orders] = "Order Information: " + record.orders.join('; ')
       end
 
       # reproduction note
-      if !record.reproduction_note.empty?
+      unless record.reproduction_note.empty?
         out[:reproduction_note] = record.reproduction_note
       end
 
       # supplements
-      if !record.supplements.empty?
+      unless record.supplements.empty?
         out[:supplements] = "Supplements: " + record.supplements.join(' ')
       end
 
       # summary holdings
-      if !record.summary_holdings.empty?
+      unless record.summary_holdings.empty?
         out[:summary_holdings] = "Library has: " + record.summary_holdings.join(' ')
       end
       
       # temp locations
-      if !record.temp_locations.empty?
+      unless record.temp_locations.empty?
         out[:temp_locations] = record.temp_locations
       end
       
