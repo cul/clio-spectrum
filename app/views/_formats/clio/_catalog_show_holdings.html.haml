@@ -2,39 +2,60 @@
 .holdings
   .header
     .title Holdings:
-    .location_guide=link_to "(Location Guide)", "http://www.columbia.edu/cu/lweb/help/clio/location_guide.html"
+    .location_guide=link_to "(Location Guide)", "http://library.columbia.edu/help/clio/location_guide.html"
 
 
   - if holdings.empty?
     No holdings data at this time.
   - else
 
-    -content_for :jstemplates do
+    - content_for :jstemplates do
       :javascript
         $(document).ready(function() {
           $(".location_display").colorbox({transition:'none',scrolling:false});
         });
     - online_links = online_link_hash(document)
    
-    - holdings << {:location_link => "Online", :location_name => "Online"} if !holdings.detect { |h| h[:location_name].strip == "Online"} && !holdings.empty?
+    - holdings << {:location_link => "Online", :location_name => "Online"} if !holdings.detect { |h| h[:location_name].strip == "Online"} && !online_links.empty?
+
     - holdings.each do |entry|
+
       .holding{:class => alternating_line}
-        .location
-          = entry[:location_link]
-        .call_number=entry[:call_number]
+        .location= entry[:location_link]
+        .call_number= entry[:call_number]
         .hours= entry[:hours]
 
         - if entry[:location_name].strip == "Online"
           - online_links.each do |link|
             - title, url = link
-            .status
+            .url_link
               = image_tag("icons/online.png")
-              = link_to title.abbreviate(60), url
+              = link_to title, url
+
         - else
-          - entry[:items].each_pair do |messages, details|
-            .status
-              = details[:image_link]
-              = messages.join(", ")
-              - if details[:count] >1
-                (#{details[:count]} copies)
+          - entry[:copies].each do |copy|
+            .group
+              - unless copy[:orders].nil?
+                .message= copy[:orders]
+              - unless copy[:temp_locations].nil?
+                - copy[:temp_locations].each do |t|
+                  .message= t
+              - unless copy[:summary_holdings].nil?
+                .message= copy[:summary_holdings] 
+              - unless copy[:supplements].nil?
+                .message= copy[:supplements]
+              - unless copy[:indexes].nil?
+                .message= copy[:indexes]
+              - unless copy[:notes].nil?
+                .message= copy[:notes] 
+              - unless copy[:reproduction_note].nil?
+                .message= copy[:reproduction_note]
+              - unless copy[:current_issues].nil?
+                .message= copy[:current_issues]
+              - copy[:items].each_pair do |message, details|
+                .status
+                  = details[:image_link]
+                  = message
+                  - if details[:count] >1
+                    (#{details[:count]} copies)
 

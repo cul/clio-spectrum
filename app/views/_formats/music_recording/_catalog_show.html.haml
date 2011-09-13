@@ -5,24 +5,25 @@
 .main
   .show_title
     = content_tag(:h1, document_heading.listify.join(""))
-  .values
-    = add_row("Composer / Performer", generate_value_links(get_author(marc), :author))
-    = add_row("Uniform Title", get_title_uniform(marc))
-    = add_row("Title", get_marc_values(marc, "245", "abcfghknps"))
-    = add_row("Other Titles", get_title_other(marc))
-    = add_row("Format", document["format"])
-    = add_row("Language", document["language_facet"])
-    = add_row("Edition", get_marc_values(marc, "250", "ab"))
-    = add_row("Published", get_publisher(marc))
-    = add_row("Description", get_description(marc))
-    = add_row("Series", get_series(marc))
-    = add_row("Performers", get_marc_values(marc, "511", "a", options = {:indicators => ["0", :all]}))
-    = add_row("Notes", get_notes(marc))
-    = add_row("Subjects", generate_value_links(get_subject_LC(marc), :subject))
-    = add_row("Also Listed Under", get_author_other(marc))
-    = add_row("Track List", get_marc_values(marc, "505", "agrtu"))
-    = add_row("Publisher No.", get_marc_values(marc, "028", "ab"))
-    = add_row("ISN", get_ISN(marc))
+
+    .values
+      = add_row("Composer / Performer", generate_value_links_2(get_author(marc), :author))
+      = add_row("Uniform Title", get_title_uniform(marc))
+      = add_row("Title", get_marc_values(marc, "245", "abcfghknps"))
+      = add_row("Other Titles", get_title_other(marc))
+      = add_row("Format", document["format"], options = {:join => ', '})
+      = add_row("Language", document["language_facet"], options = {:join => '; '})
+      = add_row("Edition", get_marc_values(marc, "250", "ab"))
+      = add_row("Published", get_publisher(marc))
+      = add_row("Description", get_description(marc))
+      = add_row("Series", generate_value_links_2(get_series(marc), :all))
+      = add_row("Performers", get_marc_values(marc, "511", "a", options = {:indicators => ["0", :all]}))
+      = add_row("Notes", get_notes_music_recording(marc))
+      = add_row("Subjects", generate_value_links_subject(get_subject_LC(marc), :subject))
+      = add_row("Also Listed Under", generate_value_links_2(get_author_other(marc), :author))
+      = add_row("Track List", get_marc_values(marc, "505", "agrtu"))
+      = add_row("Publisher No.", get_marc_values(marc, "028", "ab"))
+      = add_row("ISN", get_ISN(marc))
 
 
     
