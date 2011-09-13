@@ -7,6 +7,7 @@ NewBooks::Application.routes.draw do
 
   devise_for :users
 
+  match 'articles/show', :to => "articles#show", :as => :article_show
   match 'backend/clio_recall/:id', :to => "backend#clio_recall" , :as => :clio_recall
   match 'locations/show/:id', :id => /[^\/]+/, :to => "locations#show", :as => :location_display
   match 'backend/feedback_mail', :to => "backend#feedback_mail"

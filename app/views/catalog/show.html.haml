@@ -1,5 +1,5 @@
 - @page_title = "#{document_show_html_title.listify.join("")} - #{application_name}"
 - extra_head_content << render_link_rel_alternates 
 
+= render_document_view(document, :template => "article_show", :format => "article")
 
-= render :partial => "_display/catalog/show", :locals => {:document => @document }

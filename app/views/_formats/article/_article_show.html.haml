@@ -1,0 +1,27 @@
+.article_show
+  .title
+    = document.title
+    
+  .info
+    =add_row("Creator", document.creator)
+    =add_row("Source", document.source)
+    =add_row("Date", document.date)
+    
+    =add_row("Volume", document.volume)
+    =add_row("Issue", document.issue)
+    =add_row("Page", document.spage)
+    =add_row("ISSN", document.issns.collect { |i| "#{i[:type].to_s.capitalize}: #{i[:value]}"})
+
+  .holdings
+    
+    - if document.holdings.empty?
+      .holdings_title No holdings are available.
+    - else
+      .holdings_title Available from:
+      -document.holdings.each do |holding|
+        .holding
+          .resource
+            .resource_box= link_to holding[:database_name], holding[:urls]['source']
+          .links
+            = link_to("#{image_tag('icons/article.png')} Article".html_safe, holding[:urls]['article']) if holding[:urls]['article']
+            = link_to("#{image_tag('icons/journal.png')} Journal".html_safe, holding[:urls]['journal']) if holding[:urls]['journal']
