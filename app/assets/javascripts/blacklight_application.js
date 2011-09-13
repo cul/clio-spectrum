@@ -43,3 +43,8 @@ function update_book_jackets(isbns, data) {
 
 }
 
+$(document).ready(function() {
+  $('.facet_toggle').bind('click', function() {
+    window.location =  this.getAttribute('href');
+  });
+});

@@ -1,14 +1,15 @@
 //  main container for facets/limits menu 
 #facets.facets
   %h2 Limit your search
-  -#- facet_field_names.each do |solr_fname|
-    -#%div{:class => "facet_limit blacklight-#{solr_fname.parameterize}"}
-      -#- case solr_fname
-      -#- when "lc_1letter_facet"
-        -#= render :partial => "catalog/facet_call_letter", :locals => {:solr_field => solr_fname}
-      -#- when "lc_2letter_facet"
+  - @search.facets.each do |facet|
+    .facet_limit
+      %h3= facet.display_name
+      %ul
+        %span.selected
+        - facet.counts.reject { |c| c.negated? }.each do |item|
+          %li 
+            = facet_check_box(facet, item) 
+            #{item.value} (#{number_with_delimiter(item.count, :delimiter => ".")})
 
-      -#- else
-        -#= render_facet_limit(solr_fname)
 
 

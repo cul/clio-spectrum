@@ -20,4 +20,14 @@ module ArticlesHelper
   def process_summon_date(date)
     [date.day, date.month, date.year].compact.join("/")
   end
+
+  def facet_check_box(facet, item)
+    value = item.applied?
+    command = item.applied? ? item.remove_command : item.apply_command
+    check_box_tag("facet:#{item.value.underscore}", 'selected', value, :class => "facet_toggle", :href => url_with_command(command))
+  end
+
+  def url_with_command(command)
+    article_search_path(@search.query.to_hash.merge('s.cmd' => command))
+  end
 end
