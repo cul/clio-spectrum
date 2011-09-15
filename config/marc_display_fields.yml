@@ -105,7 +105,7 @@ notes:
         display: a3
     -   tag: 590
         display: a
-music_recording_notes:
+notes_music_recording:
     -   tag: 254
         display: a
     -   tag: 500
