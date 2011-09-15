@@ -34,14 +34,16 @@ edition:
     -   tag: 250
         display: ab
 ISN:
-    -   tag: 020
+    -   tag: '020'
         display: ac
-    -   tag: 022
+    -   tag: '022'
         display: a
-    -   tag: 024
+    -   tag: '024'
+        ind1: '0123478'
+        ind2: :all
         display: ac
 notes:
-    -   tag: 037
+    -   tag: '037'
         display: abcdefgh
     -   tag: 254
         display: a
@@ -133,7 +135,7 @@ publisher:
     -   tag: 362
         display: a
 publisher_no:
-    -   tag: 028
+    -   tag: '028'
         display: ab
 series:
     -   tag: 800
