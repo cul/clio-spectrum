@@ -98,28 +98,6 @@ module DisplayHelper
 
   def generate_value_links(values, category)
 
-    # search value the same as the display value
-
-    values.listify.collect do |v|
-      case category
-      when :all
-        link_to(v, url_for(:controller => "catalog", :action => "index", :q => v, :search_field => "all_fields", :commit => "search"))
-      when :author
-        link_to(v, url_for(:controller => "catalog", :action => "index", :q => v, :search_field => "author", :commit => "search"))
-      when :subject
-        link_to(v, url_for(:controller => "catalog", :action => "index", :q => v, :search_field => "subject", :commit => "search"))
-      when :title
-        link_to(v, url_for(:controller => "catalog", :action => "index", :q => v, :search_field => "title", :commit => "search"))
-      when :topic
-        link_to(v, url_for(:controller => :catalog, :action => :index, "f[subject_topic_facet][]" => v))
-      else
-        raise "invalid category specified for generate_value_links"
-      end
-    end
-  end
-
-  def generate_value_links_2(values, category)
-
     # search value differs from display value
     # display value DELIM search value
 
