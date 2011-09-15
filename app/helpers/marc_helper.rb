@@ -24,20 +24,20 @@ module MarcHelper
     out = []
     
     # loop through elements in the field group
-    config.each do |field_group|
+    config.each do |field|
       # set options
       options = {}
-      if field_group.has_key?('ind1') && field_group.has_key?('ind2')
-        options[:indicators] = [ field_group['ind1'], field_group['ind2'] ]
+      if field.has_key?('ind1') && field.has_key?('ind2')
+        options[:indicators] = [ field['ind1'], field['ind2'] ]
       end
-      if field_group.has_key?('search')
-        options[:search_subfields] = field_group['search']
+      if field.has_key?('search')
+        options[:search_subfields] = field['search']
       end
       if field_name.match(/^subject/)
         options[:subject] = true
       end
       # process marc tag
-      out << get_field_values(marc, field_group["tag"].to_s, field_group["display"], options)
+      out << get_field_values(marc, field["tag"].to_s, field["display"], options)
     end
     
     out.flatten
