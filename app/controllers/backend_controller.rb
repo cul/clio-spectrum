@@ -4,7 +4,7 @@ class BackendController < ApplicationController
     session[:feedback_form_name] = params["name"]
     session[:feedback_form_email] = params["email"]
     begin
-      FeedbackNotifier.deliver_send_feedback(params)
+      FeedbackNotifier.send_feedback(params).deliver
   
       render :text => "success"
     rescue Exception => e
