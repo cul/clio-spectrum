@@ -35,23 +35,12 @@
         - else
           - entry[:copies].each do |copy|
             .group
-              - unless copy[:orders].nil?
-                .message= copy[:orders]
               - unless copy[:temp_locations].nil?
                 - copy[:temp_locations].each do |t|
                   .message= t
-              - unless copy[:summary_holdings].nil?
-                .message= copy[:summary_holdings] 
-              - unless copy[:supplements].nil?
-                .message= copy[:supplements]
-              - unless copy[:indexes].nil?
-                .message= copy[:indexes]
-              - unless copy[:notes].nil?
-                .message= copy[:notes] 
-              - unless copy[:reproduction_note].nil?
-                .message= copy[:reproduction_note]
-              - unless copy[:current_issues].nil?
-                .message= copy[:current_issues]
+              - [:orders,:summary_holdings,:supplements,:indexes,:notes,:reproduction_note,:current_issues].each do |type|
+                - unless copy[type].nil?
+                  .message= copy[type]
               - copy[:items].each_pair do |message, details|
                 .status
                   = details[:image_link]
