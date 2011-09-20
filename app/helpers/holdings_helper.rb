@@ -78,10 +78,10 @@ module HoldingsHelper
 
       messages = record.item_status[:messages]
       messages.each do |message|
-        if entry[:copies][0][:items].has_key?(message)
-          entry[:copies][0][:items][message][:count] += 1
+        if entry[:copies].first[:items].has_key?(message)
+          entry[:copies].first[:items][message][:count] += 1
         else
-          entry[:copies][0][:items][message] = {
+          entry[:copies].first[:items][message] = {
             :status => record.item_status[:status],
             :image_link => image_tag("icons/" + record.item_status[:status] + ".png"),
             :count => 1
