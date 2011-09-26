@@ -1,6 +1,9 @@
 module HoldingsHelper
 
-  def condense_holdings(document_id)
+  def retrieve_holdings(document)
+    
+    document_id = document.get('id')
+    
     holdings = nil
     
     begin 
@@ -10,9 +13,9 @@ module HoldingsHelper
     end
     
     if determine_complexity(holdings) == :simple
-      process_simple_holdings(holdings)
+      process_simple_holdings(holdings,document_id)
     else
-      process_complex_holdings(holdings)
+      process_complex_holdings(holdings,document_id)
     end
     
   end
@@ -39,7 +42,7 @@ module HoldingsHelper
       
   end
 
-  def process_simple_holdings(holdings)
+  def process_simple_holdings(holdings,document_id)
     
     # for simple holdings item statuses for all copies for a location are grouped together
     # under each location
@@ -57,7 +60,8 @@ module HoldingsHelper
           :location_name => record.location_name,
           :call_number => record.call_number,
           :location => location,
-          :copies => [{:items => {}}]
+          :copies => [{:items => {}}],
+          :services => []
         }
 
         if location && location.category == "physical"
@@ -91,11 +95,13 @@ module HoldingsHelper
 
     end
 
+    determine_services(entries,document_id)
+
     entries
         
   end
 
-  def process_complex_holdings(holdings)
+  def process_complex_holdings(holdings,document_id)
     
     # for complex holdings all available elements for each copy are collected together
     # and grouped by location
@@ -113,7 +119,8 @@ module HoldingsHelper
           :location_name => record.location_name,
           :call_number => record.call_number,
           :location => location,
-          :copies => []
+          :copies => [],
+          :services => []
         }
 
         if location && location.category == "physical"
@@ -193,9 +200,131 @@ module HoldingsHelper
 
     end
     
+    determine_services(entries,document_id)
+
     entries
     
   end
 
+  def determine_services(entries,document_id)
+    
+    entries.each do |entry|
+      
+      next if entry[:location_name].match(/^Online/)
+      
+      status, messages = get_overall_status(entry[:copies])
+
+      if status == :available
+        # offsite
+        if entry[:location_name].match(/^Offsite/) &&
+            HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + document_id) == "1"
+          entry[:services] << 'offsite'
+        end
+        # precat
+        if entry[:location_name].match(/^Precat/)
+          entry[:services] << 'precat'
+        end
+      elsif status == :some_available
+        if entry[:location_name].match(/^Offsite/) &&
+            HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + document_id) == "1"
+          entry[:services] << 'offsite'
+        end         
+        services = scan_messages(messages)
+        entry[:services] += services unless services.empty?
+      elsif status == :none
+        entry[:services] << 'in_process' if entry[:call_number].match(/in process/i)
+      else 
+        services = scan_messages(messages)
+        entry[:services] += services unless services.empty?
+      end
+
+#      entry[:services] << messages
+
+    end
+    
+  end
+
+  def get_overall_status(copies)
+    
+    a = 0   # available
+    s = 0   # some available
+    n = 0   # not available
+    
+    messages = []
+    status = ''
+    
+    copies.each do |copy|
+      # on order / in process messages
+      messages << copy[:orders] unless copy[:orders].nil?
+      # statuses
+      copy[:items].each_pair do |message,details|
+        messages << message
+        a = 1 if details[:status] == 'available'
+        s = 2 if details[:status] == 'some_available'
+        n = 4 if details[:status] == 'not_available'
+      end
+    end
+    
+    #               |  some           |  not
+    # available (1) |  available (2)  |  available (4)    total (a+s+n)
+    # -----------------------------------------------------------------
+    #     Y               Y                 Y               7
+    #     Y               Y                 N               3
+    #     Y               N                 Y               5
+    #     Y               N                 N               1
+    #     N               Y                 Y               6
+    #     N               Y                 N               2
+    #     N               N                 Y               4
+    #     N               N                 N               0
+    #
+    # :available is returned if all items are available (1).
+    # :not_available is returned if everything is unavailable (4).
+    # :none is returned if there is no status (0).
+    # otherwise :some_available is returned:
+    # All status are checked; as long as something is available, even if
+    # there are some items check out, :some_available is returned.
+    # Messages are cleared out if there are any copies available.
+    #
+    # All of these distinction may not be needed.
+    
+    case a + s + n
+    when 0
+      status = :none
+    when 1
+      status = :available
+    when 3
+      status = :some_available
+      messages.clear
+    when 4
+      status = :not_available
+    when 5
+      status = :some_available
+      messages.clear
+    when 7
+      status = :some_available
+      messages.clear
+    else
+      status = :some_available
+    end
+
+    [status, messages]
+
+  end
+
+  def scan_messages(messages)
+    
+    out = []
+    messages.each do |message|
+      out << 'recall_hold' if message =~ /Recall/i
+      out << 'recall_hold' if message =~ /hold /
+      out << 'borrow_direct' if message =~ /Borrow/
+      out << 'ill' if message =~ /ILL/
+      out << 'in_process' if message =~ /In Process/
+    end
+    
+    out.uniq
+    
+  end
+  
 end
 
