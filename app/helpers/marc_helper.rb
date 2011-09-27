@@ -8,6 +8,7 @@ module MarcHelper
     raise "Field name not found in config/marc_display_fields.yml" unless config
     
     # field_name is a label used to identify a field group in the MARC_FIELDS hash
+    #     (maintained in config/marc_display_fields.yml)
     # field_name must begin "subject" for subject heading groups [by convention] so
     #    options[:subject] can be set correctly below
     #
@@ -18,7 +19,8 @@ module MarcHelper
     #     ind2        second indicator                  optional  default = :all
     #     display     subfield codes to display         optional  default = :all
     #     search      subfield codes to redirect on     optional  default = ''
-    # only keys that vary from the defaults need to be specified in MARC_FIELDS
+    # only keys that vary from the defaults need to be specified in MARC_FIELDS but
+    # ind1, ind2 must always be specified together
     #
     
     out = []
