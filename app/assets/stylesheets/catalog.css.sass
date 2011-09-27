@@ -91,6 +91,7 @@ img.availability
   .holding
     +columns(18,18)
     +omega(18)
+
     :padding .25em 0 .25em 0
 
     .call_number
@@ -110,22 +111,36 @@ img.availability
       +omega(18)
 
     .group
-      +columns(18,18)
+      +prefix(1,18)
+      +columns(16,18)
+      +suffix(1,18)
       +omega(18)
+
       :padding-bottom .5em
 
       .message
-        +prefix(1,18)
-        +columns(16,18)
-        +suffix(1,18)
-        +omega(18)
+
         :text-indent -2em
         :padding-left 2em
 
       .status
-        +prefix(1,18)
-        +columns(16,18)
-        +suffix(1,18)
-        +omega(18)
 
         :font-style italic
+
+    .services
+      +prefix(1,18)
+      +columns(16,18)
+      +suffix(1,18)
+      +omega(18)
+
+      :font-size .9em
+
+      .label
+
+        :display inline
+        :font-weight bold
+
+      .service
+
+        :display inline
+        :padding-left 2em

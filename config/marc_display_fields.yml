@@ -1,0 +1,199 @@
+author:
+    -   tag: 100
+        display: abcdefgklnpqtu
+        search: acq
+    -   tag: 110
+        display: abcdefgklnptu
+        search: ab
+    -   tag: 111
+        display: acdefgklnpqtu
+        search: a
+author_other:
+    -   tag: 700
+        display: abcdefghlmnopqrstu
+        search: acq
+    -   tag: 710
+        display: abcdefghklmnoprstu
+        search: ab
+    -   tag: 711
+        display: acdefghklnpqstu
+        search: a
+contents:
+    -   tag: 505
+        display: agrtu
+description:
+    -   tag: 300
+        display: abcefg3
+    -   tag: 305
+        display: abcdefmn
+    -   tag: 308
+        display: abcdef
+    -   tag: 340
+        display: abcdefhi
+edition:
+    -   tag: 250
+        display: ab
+ISN:
+    -   tag: '020'
+        display: ac
+    -   tag: '022'
+        display: a
+    -   tag: '024'
+        ind1: '0123478'
+        ind2: :all
+        display: ac
+notes:
+    -   tag: '037'
+        display: abcdefgh
+    -   tag: 254
+        display: a
+    -   tag: 307
+        display: ab
+    -   tag: 500
+        display: a
+    -   tag: 501
+        display: a
+    -   tag: 502
+        display: a
+    -   tag: 503
+        display: a
+    -   tag: 504
+        display: ab
+    -   tag: 508
+        display: a
+    -   tag: 513
+        display: ab
+    -   tag: 515
+        display: a
+    -   tag: 518
+        display: a3
+    -   tag: 521
+        display: ab3
+    -   tag: 522
+        display: a
+    -   tag: 523
+        display: ab
+    -   tag: 525
+        display: a
+    -   tag: 527
+        display: a
+    -   tag: 530
+        display: abcd3
+    -   tag: 534
+        display: abcefklmnopt
+    -   tag: 535
+        display: abcdg3
+    -   tag: 537
+        display: a
+    -   tag: 547
+        display: a
+    -   tag: 550
+        display: a
+    -   tag: 556
+        display: a
+    -   tag: 565
+        display: abcde3
+    -   tag: 567
+        display: a
+    -   tag: 580
+        display: a
+    -   tag: 581
+        display: a3
+    -   tag: 582
+        display: a
+    -   tag: 584
+        display: ab
+    -   tag: 586
+        display: a3
+    -   tag: 590
+        display: a
+notes_music_recording:
+    -   tag: 254
+        display: a
+    -   tag: 500
+        display: a
+    -   tag: 508
+        display: a
+    -   tag: 518
+        display: a3
+    -   tag: 590
+        display: a
+performers:
+    -   tag: 511
+        ind1: '0'
+        ind2: :all
+        display: a
+publisher:
+    -   tag: 260
+        display: abcefg3
+    -   tag: 261
+        display: abdef
+    -   tag: 262
+        display: abckl
+    -   tag: 270
+        display: abcdefghijklmnpqrz
+    -   tag: 362
+        display: a
+publisher_no:
+    -   tag: '028'
+        display: ab
+series:
+    -   tag: 800
+        display: abcdefghklmnopqrstuv3
+        search: acqt
+    -   tag: 810
+        display: abcdefghklmnoprstuv3
+        search: abt
+    -   tag: 811
+        display: acdefghklnpqstuv3
+        search: at
+    -   tag: 830
+        display: adfghklmnoprstv3
+        search: a
+    -   tag: 840
+        display: ahv
+        search: a
+subject_LC:
+    -   tag: 600
+        ind1: :all
+        ind2: '0'
+        display: abcdefghklmnopqrstuvxyz
+    -   tag: 610
+        ind1: :all
+        ind2: '0'
+        display: abcdefghklmnoqrstuvxyz
+    -   tag: 611
+        ind1: :all
+        ind2: '0'
+        display: acdefghklnpqstuvxyz
+    -   tag: 630
+        ind1: :all
+        ind2: '0'
+        display: adfghklmnoprstvxyz
+    -   tag: 650
+        ind1: :all
+        ind2: '0'
+        display: abcdvxyz
+    -   tag: 651
+        ind1: :all
+        ind2: '0'
+        display: avxyz
+title:
+    -   tag: 245
+        display: abcfghknps
+title_other:
+    -   tag: 246
+        display: abfghinp
+        ind1: '01'
+        ind2: ' 3'
+    -   tag: 247
+        display: abfghnp
+    -   tag: 730
+        display: adfghklmnoprst
+    -   tag: 740
+        display: ahnp
+title_uniform:
+    -   tag: 240
+        display: adfghklmnoprs
+    -   tag: 130
+        display: adfghklmnoprst
