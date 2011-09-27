@@ -8,6 +8,7 @@ config/s3_credentials.yml
 *.log.*
 *.pid
 tmp/**/*
+tmp/*
 private/**
 .DS_Store
 db/cstore/**

@@ -1,7 +1,9 @@
+= render :partial => "/_facets/facets", :locals => {:facets => @search.facets}
 //  main container for facets/limits menu 
 #facets.facets
   %h2 Limit your search
   - @search.facets.each do |facet|
+    = facet.class.inspect
     .facet_limit
       %h3= facet.display_name
       %ul
