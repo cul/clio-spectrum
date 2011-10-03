@@ -177,6 +177,8 @@ GEM
       activesupport (= 3.1.0)
       bundler (~> 1.0)
       railties (= 3.1.0)
+    rails-footnotes (3.7.4)
+      rails (>= 3.0.0)
     railties (3.1.0)
       actionpack (= 3.1.0)
       activesupport (= 3.1.0)
@@ -192,6 +194,11 @@ GEM
       builder (>= 2.1.2)
     rsolr-ext (1.0.3)
       rsolr (>= 1.0.2)
+    rsolr-footnotes (0.0.2)
+      activesupport
+      rails
+      rails-footnotes
+      rsolr
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
       rspec-expectations (~> 2.6.0)
@@ -274,7 +281,9 @@ DEPENDENCIES
   mysql
   nokogiri
   rails (= 3.1.0)
+  rails-footnotes (>= 3.7)
   rcov
+  rsolr-footnotes
   rspec-rails
   rubytree (= 0.5.2)
   sass
