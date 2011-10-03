@@ -6,25 +6,6 @@
 @import "blacklight/susy_framework"
 @import "local_mixes"
 
-#user_util_links
-  :text-align right
-
-.refine_call_number
-  :padding-left .5em
-
-.refine_call_title
-  :margin-top 1em
-  :font-weight bold
-
-.grid_view
-  +columns(18,18)
-  +omega(18)
-
-  .document_gallery
-    +columns(6,18)
-
-  .document_gallery.last
-    +omega(18)
 
 
 #documents
@@ -72,32 +53,6 @@
     +columns(5,10)
     +omega(10)
 
-body
-  :background white 
-  :font 0.75em "Lucida Grande", "Lucida Sans Unicode", Verdana, "Arial Unicode MS", Arial, sans-serif
-  :line-height 1.5
-
-html.blank_layout 
-  :background white
-
-body.blank_layout
-  :background white
-
-#page
-  :background white
-  :border-bottom none
-
-html
-  :background white
-  
-body
-  :padding 0em
-
-#hd   
-  :padding-top .5em
-
-#bd
-  :min-height 400px
 
 #intro-text
   :min-height 250px
@@ -111,67 +66,6 @@ body
       :padding-bottom .25em
 
 
-.location_popup
-  :width 600px
-  :text-align left
-  :font-size 1.2em
-
-  .comment
-    :padding-bottom 1em
-
-  .header
-    :padding-left .5em
-    :background-color #ccc
-    :font-size 1.5em
-    :color white
-    :margin-bottom 1em
-
-  .section_header
-    :font-size 1.2em
-    :margin-bottom .5em
-
-  .hours_link
-    :display inline
-
-    :font-size .75em
-
-  .links
-    .link
-      :display inline
-      :padding 0 .1em 0 .1em
-
-
-  .location_sidebar
-    :float right
-    :margin-left 2em
-    +alternating-line-colors('#ffffff','#f0f0f0')
-
-  
-  .day_listing
-    :padding .3em 0 .3em
-  
-    .weekday
-      :float left
-      :padding-left 5px
-      :width 60px
-      
-    .hours
-      :text-align left
-      :width 100px
-      :margin-left 60px
-
-    .hours_note
-      :padding-left .5em
-      :clear both
-      :font-style italic
-
-  .map
-    :margin-top 1em
-    
-
-dl.defList_in_grid.index_grid
-  
-
 
 .change_view
   :float left
@@ -182,27 +76,6 @@ dl.defList_in_grid.index_grid
 #startOverLink
   :padding-top 5px
 
-div.folder_toolbar
-  :margin-top 1em
-  :margin-bottom 1em
-ul.folderTools
-  :display block
-  :float none
-
-  li
-    :float none
-    :list-style none
-    :display inline 
-    form
-      :display inline
-.pageEntriesInfo
-  :padding-right 150px
-  :padding-bottom 0px
-
-#show_folder_control
-  :margin-top 1em
-  .addFolder, .deleteFolder
-    :float none
 
 #show_previousNextDocument
   .previous_next
@@ -233,13 +106,9 @@ a#feedLink
 
 
 h1.site_title
-  :background transparent asset_url('clio-spectrum.png',image) no-repeat top left
+  :background transparent asset_url('clio-beta.png',image) no-repeat top left
   :margin 0 0 0 0em
   :height 50px
   :width 218px
 
 
-#show_folder_control.documentFunctions
-  :float none
-  :margin-left 0em
-  :margin-top .5em
