@@ -19,7 +19,7 @@
 = render :partial => 'document_list', :locals => {:search => @search}
 
 - sidebar_items << capture do 
-  = render :partial => 'facets'
+  = render :partial => "/_facets/facets", :locals => {:facets => @search.facets}
 
 -#.pagination_container
 

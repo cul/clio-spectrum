@@ -9,8 +9,8 @@ module SerialSolutions
      
     
     DEFAULT_OPTIONS = {
-      'articles' =>  {'spellcheck' => true, 's.cmd' => 'addFacetValueFilters(ContentType, NewspaperArticle:t)', 's.ff' => ['ContentType,or','SubjectTerms,or','Language,or']},
-      'ebooks' => {'spellcheck' => true, 's.cmd' => 'addFacetValueFilters(ContentType, NewspaperArticle:t)', 's.fvf' => ['ContentType,eBook'], 's.ff' => ['ContentType,or,1,15','SubjectTerms,or,1,15','Language,or,1,15']}
+      'articles' =>  {'spellcheck' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)', 's.ff' => ['ContentType,or','SubjectTerms,or','Language,or']},
+      'ebooks' => {'spellcheck' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)', 's.fvf' => ['ContentType,eBook'], 's.ff' => ['ContentType,or,1,15','SubjectTerms,or,1,15','Language,or,1,15']}
         }
     def self.search_new(category, options = {})
       merged_options = options.reverse_update(DEFAULT_OPTIONS[category])

@@ -4,10 +4,30 @@
 @import "local_mixes"
 
 
+.activated_facets
+  :margin-bottom 1em
+
+.facet_action
+  :cursor pointer
+
 .facet_limit
   li
     img
+
       :vertical-align middle
     .facet_label
       :padding-left .5em
       :vertical-align middle
+    .facet_cancel
+      :padding-bottom .25em
+      :padding-left .25em
+
+  li.facet_selected
+    :padding-top .25em
+    :padding-bottom .25em
+    :background #f0fff0
+
+  li.facet_negated
+    :padding-top .25em
+    :padding-bottom .25em
+    :background #fff0f0

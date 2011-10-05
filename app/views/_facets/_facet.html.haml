@@ -3,9 +3,13 @@
   %h3= facet.label
   %ul
     %span.selected
-    - facet.items(:selected).each do |item|
-      = display_selected_facet(item)
-    
+    - unless facet.items(:selected, :negated).empty?
+      .activated_facets
+        - facet.items(:selected).each do |item|
+          = display_selected_facet(item)
+        
+        - facet.items(:negated).each do |item|
+          = display_negated_facet(item)
 
     - facet.items(:not_selected).each do |item|
       = display_not_selected_facet(item)

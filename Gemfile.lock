@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/cul/blacklight.git
-  revision: 9ae3eae099edfc1f6f384388cc41118051ceb53b
+  revision: cab9e0f18151bd8d65e129416ba730cb922b9e47
   branch: rails_31
   specs:
     blacklight (3.1.0)
@@ -83,9 +83,9 @@ GEM
       gherkin (~> 2.5.0)
       json (>= 1.4.6)
       term-ansicolor (>= 1.0.6)
-    cucumber-rails (1.0.6)
+    cucumber-rails (1.1.1)
       capybara (>= 1.1.1)
-      cucumber (>= 1.0.6)
+      cucumber (>= 1.1.0)
       nokogiri (>= 1.5.0)
     database_cleaner (0.6.7)
     devise (1.4.7)
@@ -99,11 +99,11 @@ GEM
     gherkin (2.5.1)
       json (>= 1.4.6)
     growl (1.0.3)
-    guard (0.7.0)
+    guard (0.8.4)
       thor (~> 0.14.6)
-    guard-cucumber (0.6.3)
+    guard-cucumber (0.7.2)
       cucumber (>= 0.10)
-      guard (>= 0.4.0)
+      guard (>= 0.8.3)
     guard-minitest (0.4.0)
       guard (~> 0.4)
     guard-rails (0.0.3)
@@ -138,7 +138,7 @@ GEM
     marc (0.4.3)
     metaclass (0.0.1)
     mime-types (1.16)
-    minitest (2.6.0)
+    minitest (2.6.1)
     minitest-rails (0.0.5)
       actionpack (~> 3.1.0.rc1)
       activesupport (~> 3.1.0.rc1)
@@ -160,7 +160,7 @@ GEM
     parslet (1.2.3)
       blankslate (~> 2.0)
     polyglot (0.3.2)
-    rack (1.3.3)
+    rack (1.3.4)
     rack-cache (1.0.3)
       rack (>= 0.4)
     rack-mount (0.8.3)
@@ -177,7 +177,7 @@ GEM
       activesupport (= 3.1.0)
       bundler (~> 1.0)
       railties (= 3.1.0)
-    rails-footnotes (3.7.4)
+    rails-footnotes (3.7.5)
       rails (>= 3.0.0)
     railties (3.1.0)
       actionpack (= 3.1.0)
@@ -215,7 +215,7 @@ GEM
     rubytree (0.5.2)
       hoe (>= 1.3.0)
     rubyzip (0.9.4)
-    sass (3.1.7)
+    sass (3.1.8)
     sass-rails (3.1.0)
       actionpack (~> 3.1.0)
       railties (~> 3.1.0)
@@ -225,7 +225,7 @@ GEM
       ffi (>= 1.0.7)
       json_pure
       rubyzip
-    sprockets (2.0.0)
+    sprockets (2.0.2)
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (!= 1.3.0, ~> 1.1)
@@ -238,7 +238,7 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.29)
+    tzinfo (0.3.30)
     unicode (0.4.0)
     unicorn (4.1.1)
       kgio (~> 2.4)
@@ -281,7 +281,7 @@ DEPENDENCIES
   mysql
   nokogiri
   rails (= 3.1.0)
-  rails-footnotes (>= 3.7)
+  rails-footnotes (>= 3.7.5)
   rcov
   rsolr-footnotes
   rspec-rails

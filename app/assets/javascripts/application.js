@@ -4,18 +4,12 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
+
 //= require jquery
+//= require jquery_ujs
+//= require jquery-ui
 //= require 'blacklight_advanced_search'
 
--1.6.2.min
-//= require jquery
-//= require 'blacklight_advanced_search'
-
-_ujs
-//= require jquery
-//= require 'blacklight_advanced_search'
-
--ui-1.8.1.custom.min
 //
 //= require blacklight/blacklight          
 //= require blacklight_application
