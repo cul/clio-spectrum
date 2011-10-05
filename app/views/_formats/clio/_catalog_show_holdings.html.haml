@@ -1,5 +1,5 @@
 - clio_id = h(document["clio_id_display"].first.to_s)
-- holdings = retrieve_holdings(document) 
+- holdings = retrieve_holdings(clio_id) 
 
 .holdings
   .header
@@ -42,8 +42,9 @@
               - [:orders,:summary_holdings,:supplements,:indexes,:notes,:reproduction_note,:current_issues].each do |type|
                 - unless copy[type].nil?
                   .message= copy[type]
-              - copy[:items].each_pair do |message, details|
+              - copy[:items].each do |item|
                 .status
+                  - message, details = item
                   = details[:image_link]
                   = message
                   - if details[:count] >1
@@ -57,9 +58,11 @@
                 .service= link_to "Precataloging", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/precat?#{clio_id}", :target => "_blank"
               - if entry[:services].include?('recall_hold')
                 .service= link_to "Recall/Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?bibId=#{clio_id}", :target => "_blank"
+              - if entry[:services].include?('on_order')
+                .service= link_to "On Order", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?#{clio_id}", :target => "_blank"
               - if entry[:services].include?('borrow_direct')
                 .service= link_to "Borrow Direct", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0012", :target => "_blank"
               - if entry[:services].include?('ill')
                 .service= link_to "ILL", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?#{clio_id}", :target => "_blank"
               - if entry[:services].include?('in_process')
-                .service= link_to "In Process / On Order", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?#{clio_id}", :target => "_blank"
+                .service= link_to "In Process", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?#{clio_id}", :target => "_blank"

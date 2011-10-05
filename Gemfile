@@ -27,7 +27,7 @@ gem 'sass'
 gem 'unicode'
 gem 'mysql'
 gem 'summon'
-gem 'voyager_api'
+gem 'voyager_api', :path => '~/worklib/voyager_api'
 gem 'rubytree', '=0.5.2'
 
 gem 'blacklight_advanced_search'
