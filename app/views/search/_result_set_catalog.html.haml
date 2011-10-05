@@ -1,6 +1,8 @@
 .results_header
   .category_title Catalog Results 
-  .results_link=link_to "(more options)", result[:url]
+  .results_link
+    = result[:total]
+    =link_to "(more options)", result[:url]
 - result[:docs].each_with_index do |document, document_counter|
   = render_document_view(document, :template => "aggregate", :format => "clio",:document_counter => document_counter)
 
