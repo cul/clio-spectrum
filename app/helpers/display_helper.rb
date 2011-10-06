@@ -109,7 +109,8 @@ module DisplayHelper
       when :all
         link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "all_fields", :commit => "search"))
       when :author
-        link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "author", :commit => "search"))
+#        link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "author", :commit => "search"))
+        link_to(s[0], url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => s[1]))
       when :subject
         link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "subject", :commit => "search"))
       when :title
