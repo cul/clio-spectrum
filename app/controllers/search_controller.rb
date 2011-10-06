@@ -1,6 +1,5 @@
 class SearchController < ApplicationController
   include Blacklight::Catalog
-  layout 'aggregate'
 
   CATEGORY_ORDER = %w{catalog articles ebooks lweb}
 

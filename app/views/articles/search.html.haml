@@ -4,7 +4,7 @@
 	
 -#= render :partial => 'did_you_mean' %>
 
--#= render 'constraints', :localized_params=>params %>
+= render '/_search/constraints', :localized_params=>params 
   
 -#.pageEntriesInfo
   -#= render "change_view" 
@@ -19,7 +19,7 @@
 = render :partial => 'document_list', :locals => {:search => @search}
 
 - sidebar_items << capture do 
-  = render :partial => "/_facets/facets", :locals => {:facets => @search.facets}
+  = render :partial => "/_search/facets", :locals => {:facets => @search.facets}
 
 -#.pagination_container
 

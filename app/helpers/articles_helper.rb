@@ -21,33 +21,4 @@ module ArticlesHelper
     [date.day, date.month, date.year].compact.join("/")
   end
 
-  def display_facet_label(item, value = :not_selected)
-    label = item[:label].to_s
-    label = "NOT " + label if value == :negated
-    label += " (#{number_with_delimiter(item[:count], :delimiter => ".")})" if value == :not_selected
-    content_tag(:span, "#{label}", :class => 'facet_label')
-  end
-  
-  def display_selected_facet(item)
-
-    content_tag(:li, image_tag("icons/facet_cancel.png",  :class => "facet_cancel facet_action", :size => "14x14", :href => facet_command(item, :remove)) + display_facet_label(item, :selected), :class => "facet_selected")
-
-  end
-
-  def display_negated_facet(item)
-
-    content_tag(:li, image_tag("icons/facet_cancel.png", :class => "facet_cancel facet_action", :size => "14x14", :href => facet_command(item, :remove)) + display_facet_label(item, :negated), :class => "facet_negated")
-
-  end
-  def display_not_selected_facet(item)
-
-    content_tag(:li, 
-                image_tag("icons/facet_plus.png", :class => "facet_plus facet_action", :size => "14x14", :href => facet_command(item, :select)) + 
-                image_tag("icons/facet_minus.png", :class => "facet_minus facet_action", :size => "14x14", :href => facet_command(item, :negate)) + 
-                display_facet_label(item, :not_selected), :class => "facet_not_selected")
-  end
-
-  def facet_command(item, command)
-    article_search_path(@search.query.to_hash.merge(item[:commands][command]))
-  end
 end
