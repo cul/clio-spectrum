@@ -39,26 +39,26 @@ class SearchController < ApplicationController
   def get_results_for_category(category)
     results = case category
     when 'articles'
-      search = SerialSolutions::SummonAPI.search('s.q' => params[:q], 's.ps' => 10)
+      summon = SerialSolutions::SummonAPI.new(:category => 'articles', :new_search => true, 's.q' => params[:q], 's.ps' => 10)
       
       {
-        :docs => search,
-        :count => search.record_count, 
-        :url => article_search_path('s.q' => params['q'], :new_search => 'articles')
+        :docs => summon.search,
+        :count => summon.search.record_count.to_i, 
+        :url => article_search_path(summon.search.query.to_hash)
       }
     when 'ebooks'
-      search = SerialSolutions::SummonAPI.search('s.q' => params[:q], 's.ps' => 10, 's.fvf' => "ContentType,eBook")
+      summon = SerialSolutions::SummonAPI.new(:category => 'ebooks', :new_search => true, 's.q' => params[:q], 's.ps' => 10)
       {
-        :docs => search,
-        :count => search.record_count,
-        :url => article_search_path('s.q' => params['q'], :new_search => 'ebooks')
+        :docs => summon.search,
+        :count => summon.search.record_count.to_i,
+        :url => article_search_path(summon.search.query.to_hash)
       }
     when 'catalog'
       params[:per_page] = 10
       solr_response, solr_results =  get_search_results
       {
         :docs => solr_results,
-        :count => solr_response[:total],
+        :count => solr_response['response']['numFound'].to_i,
         :url => url_for(:controller => 'catalog', :action => 'index', :q => params['q'])
       }
     when 'lweb'
@@ -75,7 +75,8 @@ class SearchController < ApplicationController
 
       {
         :docs => docs,
-        :count => search_result.css("M"),
+        :count => search_result.at_css("M").content.to_i,
+        
         :url =>  'http://search.columbia.edu/search?site=CUL_LibraryWeb&sitesearch=&as_dt=i&client=cul_libraryweb&proxystylesheet=cul_libraryweb&output=xml_no_dtd&ie=UTF-8&oe=UTF-8&filter=0&sort=date%3AD%3AL%3Adl&num=20&x=0&y=0&q=' +  CGI::escape(params[:q])
       }
 

@@ -5,12 +5,7 @@ class ArticlesController < ApplicationController
   
 
   def search
-    Footnotes::Notes::LogNote.log("test")
-    @search = if (category = params.delete('new_search'))
-      SerialSolutions::SummonAPI.search_new(category, params)
-    else
-      SerialSolutions::SummonAPI.search(params)
-    end
+    @summon = SerialSolutions::SummonAPI.new(params)
       
   end
   
