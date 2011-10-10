@@ -24,7 +24,7 @@
       = add_row("LCCN", display_marc_field(marc, 'LCCN'))
       = add_row("Publisher No.", display_marc_field(marc, 'publisher_no'))
       = add_row("Standard No.", display_marc_field(marc, 'standard_no'))
-      = add_row("Format", document["format"], options = {:join => ', '})
+      = add_row('Format', formats_with_icons(document))
 
 
     
