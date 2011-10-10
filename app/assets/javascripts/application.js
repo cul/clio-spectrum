@@ -5,15 +5,22 @@
 // the compiled file.
 //
 
-//= require jquery
+//= require jquery-1.6.2.min.js
 //= require jquery_ujs
 //= require jquery-ui
-//= require 'blacklight_advanced_search'
 
-//
+//= require blacklight_advanced_search
 //= require blacklight/blacklight          
 //= require blacklight_application
-//= require_tree .
+//= require articles
+//= require facets
+//= require jquery.contactable.min.js
+//= require contactable_snippet
+//= require jquery.colorbox-min
+//= require jquery.validate.pack
+//= require jquery_snippet
+//
+//= require google_analytics
 // Required by Blacklight
 
 

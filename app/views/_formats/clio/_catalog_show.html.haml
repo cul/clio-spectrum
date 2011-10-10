@@ -1,9 +1,9 @@
-- marc = document.to_marc
+= render :partial => "_formats/clio/catalog_show_toolbar", :locals => { :document => document }
 
-.main
-  .show_title
-    = content_tag(:h1, document_heading.listify.join(""))
-  .values
+- marc = document.to_marc
+.item_show
+  .info
+    .title= document_heading.listify.join("")
     = add_row("Author", generate_value_links(display_marc_field(marc, 'author'), :author))
     = add_row("Uniform Title", display_marc_field(marc, 'title_uniform'))
     = add_row("Title", display_marc_field(marc, 'title'))
@@ -29,5 +29,5 @@
   
   = render :partial => "_formats/clio/catalog_show_holdings", :locals => {:document => document }
 
-.sidebar
-  = render :partial => "_formats/clio/catalog_show_sidebar", :locals => {:document => document }
+-#.sidebar
+  -#= render :partial => "_formats/clio/catalog_show_sidebar", :locals => {:document => document }

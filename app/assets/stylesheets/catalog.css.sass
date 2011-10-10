@@ -1,6 +1,13 @@
 @import "blacklight/susy_framework"
 @import "local_mixes"
 
+#toolbar-container
+  +columns(24,24)
+  +omega(24)
+  :background #f1f1f1
+
+
+
 .document
   +columns(18,18)
   +omega(18)
@@ -74,47 +81,38 @@ img.availability
     +omega(24)
 
 .holdings
-  :margin-to 2em
-  +columns(18,18)
-  +omega(18)
-  +alternating-line-colors(#fff,#f6f6f6)
-  
-  .header
-    :padding-bottom 1em
-    .title
-      :display inline
-      :font-size 1.22em
 
-    .location_guide
-      :display inline
 
   .holding
-    +columns(18,18)
-    +omega(18)
-
-    :padding .25em 0 .25em 0
+    :margin-bottom 1.5em 
+    .location_box
+      +columns(10,12)
+      .location
+        :padding-left .5em
 
     .call_number
-      +columns(6,18)
+      +pad(1,1,12)
+      +columns(10,12)
+      +omega(12)
+      :padding-bottom .5em
 
-    .location
-      +columns(10,18)
 
     .hours
-      +columns(2,18)
-      +omega(18)
+      +columns(2,12)
+      +omega(12)
+
     
     .url_link
-      +prefix(1,18)
-      +columns(16,18)
-      +suffix(1,18)
-      +omega(18)
+      +prefix(1,12)
+      +columns(10,12)
+      +suffix(1,12)
+      +omega(12)
 
     .group
-      +prefix(1,18)
-      +columns(16,18)
-      +suffix(1,18)
-      +omega(18)
+      +prefix(1,12)
+      +columns(10,12)
+      +suffix(1,12)
+      +omega(12)
 
       :padding-bottom .5em
 
@@ -128,10 +126,10 @@ img.availability
         :font-style italic
 
     .services
-      +prefix(1,18)
-      +columns(16,18)
-      +suffix(1,18)
-      +omega(18)
+      +prefix(1,12)
+      +columns(10,12)
+      +suffix(1,12)
+      +omega(12)
 
       :font-size .9em
 
