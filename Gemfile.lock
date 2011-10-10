@@ -14,6 +14,13 @@ GIT
       sass-rails (~> 3.1.0)
       unicode
 
+PATH
+  remote: ~/worklib/voyager_api
+  specs:
+    voyager_api (0.1.2)
+      httpclient
+      nokogiri
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -244,9 +251,6 @@ GEM
       kgio (~> 2.4)
       rack
       raindrops (~> 0.6)
-    voyager_api (0.1.2)
-      httpclient
-      nokogiri
     warden (1.0.5)
       rack (>= 1.0)
     xpath (0.1.4)
@@ -294,4 +298,4 @@ DEPENDENCIES
   summon
   unicode
   unicorn
-  voyager_api
+  voyager_api!
