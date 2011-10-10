@@ -2,16 +2,18 @@ require 'blacklight/catalog'
 
 class ArticlesController < ApplicationController
   include Blacklight::Catalog
-  
+  layout "articles"
+
 
   def search
-    Footnotes::Notes::LogNote.log("test")
-    @search = if (category = params.delete('new_search'))
+    params.reverse_merge!( :refine_search => 'new', :category => 'articles' )
+    category = params.delete(:category)
+    @search = if (params.delete(:refine_search) == 'new')
+    
       SerialSolutions::SummonAPI.search_new(category, params)
     else
       SerialSolutions::SummonAPI.search(params)
     end
-      
   end
   
 

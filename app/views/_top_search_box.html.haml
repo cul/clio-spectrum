@@ -1,17 +1,27 @@
-#aggregate_search
-  = form_tag search_index_path, :method => :get do 
-    #search_row
-      = text_field_tag :q, params[:q], :class => "q" 
-      = submit_tag 'search', :class=>'submit'
-    #search_categories
-      = check_box_tag "categories[]", "catalog", params[:categories].include?("catalog")
-      = label_tag(:categories, "Catalog")
-      = check_box_tag "categories[]", "articles", params[:categories].include?("articles")
-      = label_tag(:categories, "Articles")
-      = check_box_tag "categories[]", "ebooks", params[:categories].include?("ebooks")
-      = label_tag(:categories, "HathiTrust eBooks")
-      = check_box_tag "categories[]", "lweb", params[:categories].include?("lweb")
-      = label_tag(:categories, "Library Web")
-
-
+- if controller.controller_name == 'search'
+  #aggregate_search
+    = form_tag search_index_path, :method => :get do 
+      #search_row
+        = text_field_tag :q, params[:q], :class => "q" 
+        = submit_tag 'search', :class=>'submit'
+      #search_categories
+        = check_box_tag "categories[]", "catalog", params[:categories].include?("catalog")
+        = label_tag(:categories, "Catalog")
+        = check_box_tag "categories[]", "articles", params[:categories].include?("articles")
+        = label_tag(:categories, "Articles")
+        = check_box_tag "categories[]", "ebooks", params[:categories].include?("ebooks")
+        = label_tag(:categories, "HathiTrust eBooks")
+        = check_box_tag "categories[]", "lweb", params[:categories].include?("lweb")
+        = label_tag(:categories, "Library Web")
+- else
+  #articles_search
+    = form_tag article_search_path, :method => :get do
+      #search_row
+        = text_field_tag :q, params[:q], :class => "q"
+        = submit_tag 'Search', :class => 'submit'
+      #search_categories
+        = radio_button_tag "refine_search", 'keep', params[:refine_search] == 'keep'
+        Keep search refinements
+        = radio_button_tag "refine_search", 'new', params[:refine_search] == 'new' || !params.has_key?(:refine_search)
+        New search
 

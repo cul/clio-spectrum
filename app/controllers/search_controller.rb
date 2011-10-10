@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   include Blacklight::Catalog
+  layout "aggregate"
 
   CATEGORY_ORDER = %w{catalog articles ebooks lweb}
 
@@ -43,14 +44,14 @@ class SearchController < ApplicationController
       {
         :docs => search,
         :count => search.record_count, 
-        :url => article_search_path('s.q' => params['q'], :new_search => 'articles')
+        :url => article_search_path('s.q' => params['q'], :category => 'articles')
       }
     when 'ebooks'
       search = SerialSolutions::SummonAPI.search('s.q' => params[:q], 's.ps' => 10, 's.fvf' => "ContentType,eBook")
       {
         :docs => search,
         :count => search.record_count,
-        :url => article_search_path('s.q' => params['q'], :new_search => 'ebooks')
+        :url => article_search_path('s.q' => params['q'], :category => 'ebooks')
       }
     when 'catalog'
       params[:per_page] = 10
