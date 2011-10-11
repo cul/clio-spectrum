@@ -1,23 +1,23 @@
 author:
     -   tag: 100
-        display: abcdefgklnpqtu
-        search: acq
+        display: abcdefgjklnpqtu
+        search: abcdq
     -   tag: 110
-        display: abcdefgklnptu
-        search: ab
+        display: abcdefgjklnpqtu
+        search: abcdefgjklnpqtu
     -   tag: 111
-        display: acdefgklnpqtu
-        search: a
+        display: acdefgjklnpqtu
+        search: acdefgjklnpqtu
 author_other:
     -   tag: 700
-        display: abcdefghlmnopqrstu
-        search: acq
+        display: abcdefghijklmnopqrstux
+        search: abcdq
     -   tag: 710
-        display: abcdefghklmnoprstu
-        search: ab
+        display: abcdefghiklmnoprstux
+        search: abcdefghiklmnoprstux
     -   tag: 711
-        display: acdefghklnpqstu
-        search: a
+        display: acdefghijklnpqstux
+        search: acdefghijklnpqstux
 contents:
     -   tag: 505
         display: agrtu

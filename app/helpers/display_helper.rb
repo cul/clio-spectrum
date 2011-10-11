@@ -101,7 +101,7 @@ module DisplayHelper
     # search value differs from display value
     # display value DELIM search value
 
-    values.collect do |v|
+    values.listify.collect do |v|
       
       s = v.split(DELIM)
       
@@ -109,7 +109,10 @@ module DisplayHelper
       when :all
         link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "all_fields", :commit => "search"))
       when :author
-        link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "author", :commit => "search"))
+#        link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "author", :commit => "search"))
+        # remove period from s[1] to match entries in author_facet using solrmarc removeTrailingPunc rule
+        s[1] = s[1].gsub(/\.$/,'') if s[1] =~ /\w{3}\.$/ || s[1] =~ /[\]\)]\.$/
+        link_to(s[0], url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => s[1]))
       when :subject
         link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "subject", :commit => "search"))
       when :title
