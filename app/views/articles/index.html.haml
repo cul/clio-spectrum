@@ -1,4 +1,4 @@
-- @page_title = application_name + " Search Results"
+- @page_title = application_name + " Article Search"
 
 -#= render :partial => 'search_form' %>
 	
@@ -16,7 +16,10 @@
 -#.pagination_container
   -#= render 'results_pagination' 
 
-= render :partial => 'document_list', :locals => {:search => @summon.search}
+.landing_text
+  %h1 Article Search
+
+  This is the article search for CLIO beta. It is powered by Summon.
 
 - sidebar_items << capture do 
   = render :partial => "/_search/facets", :locals => {:facets => @summon.search.facets}

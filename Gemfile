@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+gem 'rack', '1.3.3'
 gem 'rails', '3.1.0'
 
 gem 'sprockets'
@@ -27,11 +28,16 @@ gem 'sass'
 gem 'unicode'
 gem 'mysql'
 gem 'summon'
-gem 'voyager_api'
+# gem 'voyager_api', :path => '~/worklib/voyager_api'
+gem 'voyager_api', '>=0.2.0'
 gem 'rubytree', '=0.5.2'
 
 gem 'blacklight_advanced_search'
 
+group :development do
+  gem 'rails-footnotes', '>=3.7.5'
+  gem 'rsolr-footnotes'
+end
 
 #
 # gem 'blacklight_advanced_search',:git => 'https://github.com/projectblacklight/blacklight_advanced_search.git'

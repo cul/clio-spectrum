@@ -42,6 +42,15 @@ ISN:
         ind1: '0123478'
         ind2: :all
         display: ac
+ISBN:
+    -   tag: '020'
+        display: ac
+ISSN:
+    -   tag: '022'
+        display: a
+LCCN:
+    -   tag: '010'
+        display: a
 notes:
     -   tag: '037'
         display: abcdefgh
@@ -153,6 +162,11 @@ series:
     -   tag: 840
         display: ahv
         search: a
+standard_no:
+    -   tag: '024'
+        ind1: '0123478'
+        ind2: :all
+        display: ac
 subject_LC:
     -   tag: 600
         ind1: :all

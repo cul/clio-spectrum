@@ -1,2 +1,53 @@
+@import "blacklight/susy_framework"
+@import "local_mixes"
 
+body
+  :background white 
+  :font 0.75em "Lucida Grande", "Lucida Sans Unicode", Verdana, "Arial Unicode MS", Arial, sans-serif
+  :line-height 1.5
 
+html.blank_layout 
+  :background white
+
+body.blank_layout
+  :background white
+
+#page
+  :background white
+  :border-bottom none
+
+html
+  :background white
+  
+body
+  :padding 0em
+
+#hd   
+  :padding-top .5em
+
+#bd
+  :min-height 400px
+
+h1.site_title a
+  :height 50px
+  :width 218px
+
+#user_util_links
+  :text-align right
+
+.refine_call_number
+  :padding-left .5em
+
+.refine_call_title
+  :margin-top 1em
+  :font-weight bold
+
+.grid_view
+  +columns(18,18)
+  +omega(18)
+
+  .document_gallery
+    +columns(6,18)
+
+  .document_gallery.last
+    +omega(18)

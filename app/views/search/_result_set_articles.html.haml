@@ -1,6 +1,13 @@
 .results_header
-  .category_title Article Results 
-  .results_link= link_to "(more options)", result[:url]
+  .category_title Articles
+  .description
+    Articles, e-books, electronic resources
+  .search
+    - if result[:count].to_i == 0
+      No results found.
+    - else
+      #{number_with_delimiter(result[:count])} results 
+      = link_to "(see all)", result[:url]
 - result[:docs].documents.each do |doc|
   = render_document_view(doc, :template => "aggregate", :format => "article")
 

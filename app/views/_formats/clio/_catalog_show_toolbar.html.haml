@@ -1,0 +1,63 @@
+- clio_id = h(document["clio_id_display"].first.to_s)
+- id = document.get("id")
+
+- content_for :jstemplates do
+  :javascript
+    $(document).ready( function() { $("#show-toolbar").dropmenu(); });
+
+#toolbar-container
+  %ul#show-toolbar
+    -#%li.right
+      -#%div
+        -#= item_page_entry_info.gsub(" from your search.","").html_safe
+        -#= link_to "Start over", catalog_index_path 
+        -#= link_back_to_catalog
+
+        -#= link_to_previous_document(@previous_document)
+        -#= link_to_next_document(@next_document)	
+    %li= link_to "Print", "javascript:print()"
+    %li=link_to "Email", email_catalog_path(:id => id), {:id => "emailLink", :name => "email", :class => "lightboxLink"}
+    %li=link_to "SMS", sms_catalog_path(:id => id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}
+    %li.haschildren
+      =link_to "Citations", "#"
+      %ul.submenu
+        - any_cites = false
+        - if (@document.respond_to?(:export_as_mla_citation_txt) || @document.respond_to?(:export_as_apa_citation_txt))
+          - any_cites = true
+          %li= link_to "Cite This", citation_catalog_path(:id => id), {:id => "citeLink", :name => "citation", :class => "lightboxLink"}
+
+        - if @document.export_formats.keys.include?(:refworks_marc_txt)
+          %li=link_to "Export to RefWorks", refworks_export_url(@document)
+        - if @document.export_formats.keys.include?(:endnote)
+          %li=link_to "Export to EndNote", catalog_path(id, :format => "endnote")
+
+        - unless any_cites
+          %li=link_to "No citations available", "#"
+
+    %li.haschildren
+      =link_to "Display In...", "#"
+      %ul.submenu
+        - if clio_id
+          %li= link_to "Display in CLIO",url_for("http://clio.cul.columbia.edu:7018/vwebv/holdingsInfo?bibId=#{clio_id}")
+            
+        %li
+          =link_to "Librarian View", librarian_view_catalog_path(id), {:id => "librarianLink", :name => "librarian_view", :class => "lightboxLink" }
+    %li.haschildren
+      =link_to "Services", "#"
+      %ul.submenu
+        %li= link_to "Place a Recall/Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?bibId=#{clio_id}"
+        %li= link_to "Borrow Direct", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0012"
+        %li= link_to "ILL", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?#{clio_id}"
+        %li= link_to "Document Delivery", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0155"
+        %li= link_to "Inter-Campus Delivery", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0013"
+        %li= link_to "In-Process / On Order", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?#{clio_id}"
+        %li= link_to "Precataloging", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/precat?#{clio_id}"
+        - if HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + clio_id) == "1"
+          %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{h(document['clio_id_display'])}"
+    %li.haschildren.right.help
+      =link_to "Help", "#"
+      %ul.submenu
+        %li= link_to "Ask a Librarian", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0031"
+        %li= link_to "Item Not On Shelf?", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0055"
+        %li= link_to "E-Resource Problem", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0006"
+        %li= link_to "Recommend A Title", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0004"

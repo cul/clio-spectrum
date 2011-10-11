@@ -5,7 +5,8 @@ module LocationsHelper
     "http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionB.gif" => [550,302],
     "http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionD.gif" => [530,318],
     "http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionF.gif" => [250,500],
-    "http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif" => [530,335]
+    "http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif" => [530,335],
+    "http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif" => [530,318]
 
   }
   

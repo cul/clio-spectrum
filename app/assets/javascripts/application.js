@@ -4,22 +4,24 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-//= require jquery
-//= require 'blacklight_advanced_search'
 
--1.6.2.min
-//= require jquery
-//= require 'blacklight_advanced_search'
+//= require jquery-1.6.2.min.js
+//= require jquery_ujs
+//= require jquery-ui
 
-_ujs
-//= require jquery
-//= require 'blacklight_advanced_search'
-
--ui-1.8.1.custom.min
-//
+//= require blacklight_advanced_search
 //= require blacklight/blacklight          
 //= require blacklight_application
-//= require_tree .
+//= require articles
+//= require facets
+//= require jquery.contactable.min.js
+//= require contactable_snippet
+//= require jquery.colorbox-min
+//= require jquery.validate.pack
+//= require jquery.dropmenu.js
+//= require jquery_snippet
+//
+//= require google_analytics
 // Required by Blacklight
 
 

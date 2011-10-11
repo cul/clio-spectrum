@@ -2,6 +2,7 @@ config/database.yml
 config/app_config.yml
 config/*.sphinx.conf
 config/s3_credentials.yml
+config/initializers/computer_specific_config.rb
 *~
 *.cache
 *.log
