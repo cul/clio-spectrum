@@ -2,13 +2,17 @@
   .category_title Catalog
   .description
     Library books, videos, local resources
-  .search
-    - if result[:count] == 0
-      No results found.
-    - else
-      #{number_with_delimiter(result[:count])} results 
-      = link_to "(see all)", result[:url]
-- result[:docs].each_with_index do |document, document_counter|
-  = render_document_view(document, :template => "aggregate", :format => "clio",:document_counter => document_counter)
+  - unless result[:error]
+    .search
+      - if result[:count] == 0
+        No results found.
+      - else
+        #{number_with_delimiter(result[:count])} results 
+        = link_to "(see all)", result[:url]
+  - else
+    Error when searching. #{result[:message]}
+- unless result[:error]
+  - result[:docs].each_with_index do |document, document_counter|
+    = render_document_view(document, :template => "aggregate", :format => "clio",:document_counter => document_counter)
 
-= render :partial => "/catalog/holdings_check", :locals => {:documents => result[:docs]}
+  = render :partial => "/catalog/holdings_check", :locals => {:documents => result[:docs]}

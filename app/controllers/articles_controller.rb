@@ -6,13 +6,20 @@ class ArticlesController < ApplicationController
 
   def index
     @new_search = true
-    @summon = SerialSolutions::SummonAPI.new('new_search' => true, 'category' => 'articles')
-    
+    begin
+      @summon = SerialSolutions::SummonAPI.new('new_search' => true, 'category' => 'articles')
+    rescue
+      @error = true
+    end
   end
   def search
     @new_search = !params.has_key?('category') || (params['new_search'] && params['new_search'] != '')
     
-    @summon = SerialSolutions::SummonAPI.new(params)
+    begin
+      @summon = SerialSolutions::SummonAPI.new(params)
+    rescue
+      @error = true
+    end
   end
   
 

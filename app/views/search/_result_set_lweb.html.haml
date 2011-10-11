@@ -2,13 +2,17 @@
   .category_title Library Web
   .description
     Columbia Library Web Pages
-  .search
-    - if result[:count].to_i == 0
-      No results found.
-    - else
-      #{number_with_delimiter(result[:count])} results 
-      = link_to "(see all)", result[:url]
+  - unless result[:error]
+    .search
+      - if result[:count].to_i == 0
+        No results found.
+      - else
+        #{number_with_delimiter(result[:count])} results 
+        = link_to "(see all)", result[:url]
+  - else
+    Error when searching. #{result[:message]}
 
-- result[:docs].each do |document|
-  = render_document_view(document, :template => :aggregate, :format => 'lweb')
 
+- unless result[:error]
+  - result[:docs].each do |document|
+    = render_document_view(document, :template => :aggregate, :format => 'lweb')
