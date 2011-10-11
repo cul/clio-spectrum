@@ -1,5 +1,4 @@
 .results_header
-  .results_link= link_to "(more options)", result[:url]
   .category_title Library Web
   .description
     Columbia Library Web Pages
@@ -7,7 +6,8 @@
     - if result[:count].to_i == 0
       No results found.
     - else
-      Showing 1 to #{[10, result[:count]].min} of #{result[:count]}
+      #{number_with_delimiter(result[:count])} results 
+      = link_to "(see all)", result[:url]
 
 - result[:docs].each do |document|
   = render_document_view(document, :template => :aggregate, :format => 'lweb')

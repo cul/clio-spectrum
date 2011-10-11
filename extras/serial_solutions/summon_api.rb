@@ -11,16 +11,17 @@ module SerialSolutions
       'ebooks' => {'spellcheck' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)', 's.fvf' => ['ContentType,eBook'], 's.ff' => ['ContentType,or,1,15','SubjectTerms,or,1,15','Language,or,1,15']}
         }
         
-    def initialize(params = {}) 
-      @config = params.delete(:config) || APP_CONFIG[:summon]
+    def initialize(options = {}) 
+      @config = options.delete('config') || APP_CONFIG[:summon]
 
-      if params.delete(:new_search)
-        category = params.delete(:category) || 'articles'
-        params.reverse_update(DEFAULT_OPTIONS[category])
+      unless options.delete('new_search').to_s.empty?
+        category = options.delete('category') || 'articles'
+        options = DEFAULT_OPTIONS[category].merge('s.q' => options['s.q'])
       end
 
       @service = Summon::Service.new(@config)
-      @search = @service.search(params)
+      options.delete('utf8')
+      @search = @service.search(options)
       @query = @search.query
       @query_hash = @query.to_hash
     end

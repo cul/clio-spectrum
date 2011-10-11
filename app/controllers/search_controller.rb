@@ -40,7 +40,7 @@ class SearchController < ApplicationController
   def get_results_for_category(category)
     results = case category
     when 'articles'
-      summon = SerialSolutions::SummonAPI.new(:category => 'articles', :new_search => true, 's.q' => params[:q], 's.ps' => 10)
+      summon = SerialSolutions::SummonAPI.new('category' => 'articles', 'new_search' => true, 's.q' => params[:q], 's.ps' => 10)
       
       {
         :docs => summon.search,
@@ -48,7 +48,7 @@ class SearchController < ApplicationController
         :url => article_search_path(summon.search.query.to_hash)
       }
     when 'ebooks'
-      summon = SerialSolutions::SummonAPI.new(:category => 'ebooks', :new_search => true, 's.q' => params[:q], 's.ps' => 10)
+      summon = SerialSolutions::SummonAPI.new('category' => 'ebooks', 'new_search' => true, 's.q' => params[:q], 's.ps' => 10)
       {
         :docs => summon.search,
         :count => summon.search.record_count.to_i,

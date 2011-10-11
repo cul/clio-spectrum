@@ -15,13 +15,22 @@
         = label_tag(:categories, "Library Web")
 - else
   #articles_search
-    = form_tag article_search_path, :method => :get do
+    = form_tag article_search_path(), :method => :get do
+      = hidden_field_tag 'category', params['category'] || 'articles'
+      - @summon.search.query.to_hash.each_pair do |key,value|
+        - if value.kind_of?(Array)
+          - value.each do |subvalue|
+            = hidden_field_tag "#{key}[]", subvalue 
+        - else
+          = hidden_field_tag key, value
+
+
       #search_row
         = text_field_tag 's.q', params['s.q'], :class => "q"
         = submit_tag 'Search', :class => 'submit'
       #search_categories
-        = radio_button_tag "refine_search", 'keep', params[:refine_search] == 'keep'
+        = radio_button_tag "new_search", '', !@new_search 
         Keep search refinements
-        = radio_button_tag "refine_search", 'new', params[:refine_search] == 'new' || !params.has_key?(:refine_search)
+        = radio_button_tag "new_search", 'true', @new_search 
         New search
 
