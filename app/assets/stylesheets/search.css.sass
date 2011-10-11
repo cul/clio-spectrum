@@ -48,6 +48,13 @@
   .value_box
     :padding-right .25em
 
+#aggregate_results
+  .result
+    :height 15em
+
+.result_set
+  :margin-bottom 1em
+
 #aggregate_results.split_2
   .result 
     +columns(12,12)
@@ -101,6 +108,7 @@
   .result
     +columns(6,6)
     +omega(6)
+    :height 18em
 
   .row
     +full(6)
@@ -134,13 +142,15 @@
   .results_header
     :padding-bottom 1em
   .category_title
-    :padding-left .25em
     :font-weight bold
     :font-size 1.4em
     :display inline
   .results_link
-    :padding-left .5em
-    :display inline
+    :padding .5em 2em 0 0
+    :float right
+  .description
+    :font-style italic
+    :padding-bottom .5em
 
 .result
   :padding-bottom 1em

@@ -244,8 +244,10 @@ GEM
       kgio (~> 2.4)
       rack
       raindrops (~> 0.6)
-    voyager_api (0.1.2)
+    voyager_api (0.2.0)
+      activesupport
       httpclient
+      i18n
       nokogiri
     warden (1.0.5)
       rack (>= 1.0)
@@ -294,4 +296,4 @@ DEPENDENCIES
   summon
   unicode
   unicorn
-  voyager_api
+  voyager_api (>= 0.2.0)

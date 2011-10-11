@@ -17,7 +17,7 @@
   #articles_search
     = form_tag article_search_path, :method => :get do
       #search_row
-        = text_field_tag :q, params[:q], :class => "q"
+        = text_field_tag 's.q', params['s.q'], :class => "q"
         = submit_tag 'Search', :class => 'submit'
       #search_categories
         = radio_button_tag "refine_search", 'keep', params[:refine_search] == 'keep'

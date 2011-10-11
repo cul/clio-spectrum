@@ -1,0 +1,16 @@
+- content_for :jstemplates do
+  :javascript
+    $(document).ready( function() { $("#show-toolbar").dropmenu(); });
+
+#toolbar-container
+  %ul#show-toolbar
+    %li 
+      %a{:href => "#"}Home
+    %li.haschildren
+      %a{:href => "#"}Tutorials, Tutorials, Tutorials
+      %ul.submenu
+        %li
+          %a{:href => "#"} sub one
+        %li
+          %a{:href => "#"} sub two
+

@@ -6,14 +6,8 @@ class ArticlesController < ApplicationController
 
 
   def search
-    params.reverse_merge!( :refine_search => 'new', :category => 'articles' )
-    category = params.delete(:category)
-    @search = if (params.delete(:refine_search) == 'new')
-    
-      SerialSolutions::SummonAPI.search_new(category, params)
-    else
-      SerialSolutions::SummonAPI.search(params)
-    end
+    params = {:new_search => true, :category => 'articles'} if params.empty?
+    @summon = SerialSolutions::SummonAPI.new(params)
   end
   
 
