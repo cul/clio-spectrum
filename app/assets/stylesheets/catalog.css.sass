@@ -1,12 +1,22 @@
 @import "blacklight/susy_framework"
 @import "local_mixes"
 
-#toolbar-container
+#show-toolbar
+  :margin-top 1em
   +columns(24,24)
   +omega(24)
   :background #f1f1f1
 
-
+  li.right
+    :float right
+    :border-left 1px solid #ccc
+    ul li
+      :margin-left -100px
+#email_form
+  input[type=text]
+    :width 30em
+  textarea
+    :width 30em
 
 .document
   +columns(18,18)
