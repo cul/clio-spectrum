@@ -1,5 +1,26 @@
 module HoldingsHelper
 
+  SERVICE_ORDER = %w{offsite precat recall_hold on_order borrow_direct borrow_direct ill in_process}
+  # parameters: title, link, whether to append clio_id to link
+  SERVICES = {
+    'offsite' => ["Offsite", "http://www.columbia.edu/cgi-bin/cul/offsite2?", true],
+    'precat' => ["Precataloging", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/precat?", true],
+    'recall_hold' => ["Recall/Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?bibId=", true],
+    'on_order' => ["https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?", true],
+    'borrow_direct' => ["http://www.columbia.edu/cgi-bin/cul/resolve?lweb0012", false],
+    'ill' => ["https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?", true],
+    'in_process' => ["https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess", true]
+  } 
+
+  def service_links(services, clio_id, options = {})
+    services.select {|svc| SERVICE_ORDER.index(svc)}.sort_by { |svc| SERVICE_ORDER.index(svc) }.collect do |svc|
+      title, uri, add_clio_id = SERVICES[svc]
+      uri += clio_id.to_s if add_clio_id
+      link_to title, uri, options
+    end
+
+  end
+
   def retrieve_holdings(clio_id)
     
     holdings = nil

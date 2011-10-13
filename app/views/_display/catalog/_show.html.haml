@@ -1,7 +1,13 @@
 .show
   -#= render 'show_constraints', :localized_params=>session[:search] 
 
-  
-  = render_document_view(document, :template => "catalog_show", :format => "clio")
-  -#= render :partial => "google_books_check", :locals => {:documents => document }
+  = render :partial => "_formats/clio/catalog_show_toolbar", :locals => { :document => document }
+   
+  .item_show
+    .info
+      = render_document_view(document, :template => "catalog_show", :format => "clio")
+
+    = render :partial => "_formats/clio/catalog_show_holdings", :locals => {:document => document }
+    .clear-both
+    = render :partial => "google_books_check", :locals => {:documents => document }
 
