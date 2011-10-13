@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 gem 'rack', '1.3.3'
-gem 'rails', '3.1.0'
+gem 'rails', '3.1.1'
 
 gem 'sprockets'
 # Bundle edge Rails instead:
@@ -23,13 +23,13 @@ gem 'httpclient'
 gem 'nokogiri'
 gem 'haml'
 gem 'haml-rails'
-gem 'sass-rails', '3.1.0'
+gem 'sass-rails', '~>3.1.1'
 gem 'sass'
 gem 'unicode'
 gem 'mysql'
 gem 'summon'
 # gem 'voyager_api', :path => '~/worklib/voyager_api'
-gem 'voyager_api', '>=0.2.0'
+gem 'voyager_api', '>=0.2.2'
 gem 'rubytree', '=0.5.2'
 
 gem 'blacklight_advanced_search'
@@ -42,13 +42,14 @@ end
 #
 # gem 'blacklight_advanced_search',:git => 'https://github.com/projectblacklight/blacklight_advanced_search.git'
 
+gem 'jquery-rails'
+
 group :assets do
-  gem 'sass-rails', '3.1.0'
+  gem 'sass-rails', '~>3.1.1'
   gem 'compass', '0.12.alpha.0'
 
 end
 
-gem 'jquery-rails'
 
 gem 'unicorn'
 
