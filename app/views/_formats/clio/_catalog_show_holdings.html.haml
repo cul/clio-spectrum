@@ -66,3 +66,5 @@
                 .service= link_to "ILL", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?#{clio_id}", :target => "_blank"
               - if entry[:services].include?('in_process')
                 .service= link_to "In Process", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?#{clio_id}", :target => "_blank"
+              - if entry[:services].include?('doc_delivery')
+                .service= link_to "Document Delivery", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0155", :target => "_blank"
