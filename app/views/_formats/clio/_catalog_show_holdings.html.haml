@@ -1,56 +1,8 @@
 - clio_id = h(document["clio_id_display"].first.to_s)
-- holdings = retrieve_holdings(clio_id) 
 
 .holdings
   .holdings_title Available from:
 
-  - if holdings.empty?
-    No holdings data at this time.
-  - else
+  = render :partial => "/_formats/clio/catalog_show_holdings_online" , :locals => {:online_links => online_link_hash(document)}
 
-    - content_for :jstemplates do
-      :javascript
-        $(document).ready(function() {
-          $(".location_display").colorbox({transition:'none',scrolling:false});
-        });
-    - online_links = online_link_hash(document)
-   
-    - holdings << {:location_link => "Online", :location_name => "Online"} if !holdings.detect { |h| h[:location_name].strip == "Online"} && !online_links.empty?
-
-    - holdings.each do |entry|
-
-      .holding{:class => alternating_line}
-        .location_box
-          .location= entry[:location_link]
-        .hours= entry[:hours]
-
-        .call_number= entry[:call_number]
-
-        - if entry[:location_name].strip == "Online"
-          - online_links.each do |link|
-            - title, url = link
-            .url_link
-              = image_tag("icons/online.png")
-              = link_to title, url
-
-        - else
-          - entry[:copies].each do |copy|
-            .group
-              - unless copy[:temp_locations].nil?
-                - copy[:temp_locations].each do |t|
-                  .message= t
-              - [:orders,:summary_holdings,:supplements,:indexes,:notes,:reproduction_note,:current_issues].each do |type|
-                - unless copy[type].nil?
-                  .message= copy[type]
-              - copy[:items].each do |item|
-                .status
-                  - message, details = item
-                  = details[:image_link]
-                  = message
-                  - if details[:count] >1
-                    (#{details[:count]} copies)
-          - unless (svc_links = service_links(entry[:services], clio_id, :target => "_blank")).empty?
-            .services
-              .label= "Requests: "
-              - svc_links.each do |link|
-                .service= link
+  = render :partial => "/_formats/clio/catalog_show_holdings_display", :locals => {:clio_id => clio_id}

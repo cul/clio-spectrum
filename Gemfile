@@ -47,6 +47,7 @@ gem 'jquery-rails'
 
 group :assets do
   gem 'sass-rails', '~>3.1.1'
+  gem 'coffee-rails'
   gem 'compass', '0.12.alpha.0'
 
 end

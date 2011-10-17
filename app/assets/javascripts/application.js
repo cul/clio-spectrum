@@ -22,6 +22,7 @@
 //= require jquery_snippet
 //
 //= require google_analytics
+//= require_tree .
 // Required by Blacklight
 
 

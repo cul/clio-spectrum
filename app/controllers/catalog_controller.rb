@@ -5,10 +5,6 @@ class CatalogController < ApplicationController
   include Blacklight::Catalog
   include BlacklightHighlight::ControllerExtension
 
-  def holdings
-    holdings = HTTPClient.get_content("http://rossini.cul.columbia.edu/voyager_backend/holdings/retrieve/#{params[:id]}")
-    render :text => holdings
-  end
 
 
   def show

@@ -1,0 +1,10 @@
+- content_for :jstemplates do
+  :javascript
+    $(document).ready(function() {
+      $('#clio_holdings').load('/backend/holdings/#{clio_id}');
+    });
+
+
+#clio_holdings
+  =image_tag ("ajax-indicator.gif")
+  Loading holdings from CLIO.
