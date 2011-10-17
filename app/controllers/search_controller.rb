@@ -57,7 +57,7 @@ class SearchController < ApplicationController
                     :url => article_search_path(summon.search.query.to_hash)
                   }
                 when 'catalog'
-                  params[:per_page] = 10
+                  params[:per_page] = 15
                   solr_response, solr_results =  get_search_results
                   {
                     :docs => solr_results,
