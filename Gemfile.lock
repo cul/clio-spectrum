@@ -251,7 +251,7 @@ GEM
       kgio (~> 2.4)
       rack
       raindrops (~> 0.6)
-    voyager_api (0.2.2)
+    voyager_api (0.2.3)
       activesupport
       httpclient
       i18n
@@ -304,4 +304,4 @@ DEPENDENCIES
   summon
   unicode
   unicorn
-  voyager_api (>= 0.2.2)
+  voyager_api (>= 0.2.3)

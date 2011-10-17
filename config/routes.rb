@@ -7,6 +7,8 @@ NewBooks::Application.routes.draw do
 
   devise_for :users
 
+  match 'catalog/holdings/:id' => 'catalog#holdings', :as => 'catalog_holdings', :constraints => { :id => /.+/}
+
   match 'articles', :to => "articles#index"
   match 'articles/show', :to => "articles#show", :as => :article_show
   match 'articles/search', :to => "articles#search", :as => :article_search

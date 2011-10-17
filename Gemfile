@@ -29,7 +29,7 @@ gem 'unicode'
 gem 'mysql'
 gem 'summon'
 # gem 'voyager_api', :path => '~/worklib/voyager_api'
-gem 'voyager_api', '>=0.2.2'
+gem 'voyager_api', '>=0.2.3'
 gem 'rubytree', '=0.5.2'
 
 gem 'blacklight_advanced_search'
