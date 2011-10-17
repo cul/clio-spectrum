@@ -9,7 +9,8 @@ module HoldingsHelper
     'on_order' => ["https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?", true],
     'borrow_direct' => ["http://www.columbia.edu/cgi-bin/cul/resolve?lweb0012", false],
     'ill' => ["https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?", true],
-    'in_process' => ["https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess", true]
+    'in_process' => ["https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess", true],
+    'doc_delivery' => ["http://www.columbia.edu/cgi-bin/cul/resolve?lweb0155", false]
   } 
 
   def service_links(services, clio_id, options = {})
