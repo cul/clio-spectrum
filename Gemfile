@@ -77,6 +77,7 @@ gem 'unicorn'
 #   gem 'webrat'
 # end
 gem "devise"
+gem 'therubyracer'
 
 group :test do
   gem "database_cleaner"
