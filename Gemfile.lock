@@ -52,6 +52,11 @@ GEM
       blacklight
       parslet
       rails (~> 3.0)
+    blacklight_highlight (0.0.2)
+      blacklight
+      rails (~> 3.0)
+      rsolr
+      rsolr-ext
     blankslate (2.1.2.4)
     builder (3.0.0)
     capistrano (2.9.0)
@@ -262,6 +267,7 @@ PLATFORMS
 DEPENDENCIES
   blacklight!
   blacklight_advanced_search
+  blacklight_highlight
   capistrano
   capistrano-ext
   capybara

@@ -1,5 +1,5 @@
 #show-toolbar
-  background: #999
+  background: #F6F6FF
   float: left
   margin: 0px
   padding: 0px
@@ -12,25 +12,25 @@
     list-style: none
     position: relative
     span
-      background-color: #666666
+      width: 16px
+      height: 16px
+      background-image: asset_url("images/ui-icons_222222_256x240.png", image)
+      background-position: -64px -16px
+
       display: block
-      height: 5px
       position: absolute
-      right: 10px
-      top: 11px
-      width: 5px
+      right: 5px
+      top: 7px
     a
-      &:hover span
-        background-color: #0099FF
       padding: 6px 25px 6px 15px
       text-decoration: none
-      background-color: #F1F1F1
+      background-color: #F6F6FF
       border-right: 1px solid #CCCCCC
       color: #666666
     div
       padding: 6px 25px 6px 15px
       text-decoration: none
-      background-color: #F1F1F1
+      background-color: #F6F6FF
       border-right: 1px solid #CCCCCC
       color: #666666
     a:hover
@@ -42,7 +42,6 @@
       top: 100%
       padding: 0px
       margin: 0px
-      border-bottom: 1px solid #CCCCCC
   &.css-only li:hover >
     ul, div
       display: block
@@ -64,6 +63,7 @@
         display: block
         border-top: 1px solid #CCCCCC
         border-left: 1px solid #CCCCCC
+        border-bottom: 1px solid #CCCCCC
         &:hover
           background-color: #FFF
           font-weight: bold

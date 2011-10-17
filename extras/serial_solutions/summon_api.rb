@@ -11,7 +11,8 @@ module SerialSolutions
       'ebooks' => {'spellcheck' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)', 's.fvf' => ['ContentType,eBook'], 's.ff' => ['ContentType,or,1,15','SubjectTerms,or,1,15','Language,or,1,15']}
         }
         
-    def initialize(options = {}) 
+    def initialize(in_options = {}) 
+      options = in_options.clone
       @config = options.delete('config') || APP_CONFIG[:summon]
 
       unless options.delete('new_search').to_s.empty?
@@ -20,7 +21,16 @@ module SerialSolutions
       end
 
       @service = Summon::Service.new(@config)
-      options.delete('utf8')
+
+      #normalize strings to ISO-8859-1
+      #options.each_pair do |k,v| 
+        #if v.kind_of?(Array)
+          #options[k] = v.collect { |v| v.kind_of?(String) ? v.force_encoding("ISO-8859-1") : v  }
+        #else
+          #options[k] = v.kind_of?(String) ? v.force_encoding("ISO-8859-1") : v
+        #end
+      #end
+
       @search = @service.search(options)
       @query = @search.query
       @query_hash = @query.to_hash

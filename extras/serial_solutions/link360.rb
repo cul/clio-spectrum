@@ -14,7 +14,7 @@ module SerialSolutions
     private
 
     def parse_xml(xml)
-      content_or_nil = ->(node, css){  res = node.at_css(css); res ? res.content : nil }
+      content_or_nil = lambda { |node, css| res = node.at_css(css); res ? res.content : nil }
 
       @title = content_or_nil.call(xml, 'dc|title')
       @creator = content_or_nil.call(xml, 'dc|creator')

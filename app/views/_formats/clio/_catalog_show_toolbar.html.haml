@@ -15,11 +15,12 @@
 
         -#= link_to_previous_document(@previous_document)
         -#= link_to_next_document(@next_document)	
-    %li= link_to "Print", "javascript:print()"
+    %li
+      = link_to "Print", "javascript:print()"
     %li=link_to "Email", email_catalog_path(:id => id), {:id => "emailLink", :name => "email", :class => "lightboxLink"}
     %li=link_to "SMS", sms_catalog_path(:id => id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}
     %li.haschildren
-      =link_to "Citations", "#"
+      =link_to "Cite / Export", "#"
       %ul.submenu
         - any_cites = false
         - if (@document.respond_to?(:export_as_mla_citation_txt) || @document.respond_to?(:export_as_apa_citation_txt))

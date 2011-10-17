@@ -33,6 +33,7 @@ gem 'voyager_api', '>=0.2.2'
 gem 'rubytree', '=0.5.2'
 
 gem 'blacklight_advanced_search'
+gem 'blacklight_highlight'
 
 group :development do
   gem 'rails-footnotes', '>=3.7.5'
