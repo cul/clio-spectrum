@@ -6,11 +6,11 @@ module HoldingsHelper
     'offsite' => ["Offsite", "http://www.columbia.edu/cgi-bin/cul/offsite2?", true],
     'precat' => ["Precataloging", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/precat?", true],
     'recall_hold' => ["Recall/Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?bibId=", true],
-    'on_order' => ["https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?", true],
-    'borrow_direct' => ["http://www.columbia.edu/cgi-bin/cul/resolve?lweb0012", false],
-    'ill' => ["https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?", true],
-    'in_process' => ["https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess", true],
-    'doc_delivery' => ["http://www.columbia.edu/cgi-bin/cul/resolve?lweb0155", false]
+    'on_order' => ["On Order", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?", true],
+    'borrow_direct' => ['Borrow Direct', "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0012", false],
+    'ill' => ['ILL', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?", true],
+    'in_process' => ['In Process', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess", true],
+    'doc_delivery' => ['Document Delivery', "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0155", false]
   } 
 
   def service_links(services, clio_id, options = {})

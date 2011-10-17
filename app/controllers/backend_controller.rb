@@ -4,7 +4,7 @@ class BackendController < ApplicationController
     @holdings = JSON.parse(HTTPClient.get_content("http://rossini.cul.columbia.edu/voyager_backend/holdings/retrieve/#{params[:id]}"))[params[:id]]
     @id = params[:id]
 
-    render :layout => 'blank'
+    render "backend/holdings", :layout => false
   end
 
   def feedback_mail
