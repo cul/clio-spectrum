@@ -1,7 +1,7 @@
 module ArticlesHelper
   def link_to_article(article, link_title = nil)
     link_title ||= article.title.html_safe
-    if article.fulltext
+    if article.fulltext || article.content_type.listify.include?("Journal Article")
 
       link_to link_title, article_show_path(:openurl => article.src['openUrl'])
     else
