@@ -1,7 +1,12 @@
 module ArticlesHelper
   def link_to_article(article, link_title = nil)
     link_title ||= article.title.html_safe
-    link_to link_title, article_show_path(:openurl => article.src['openUrl'])
+    if article.fulltext
+
+      link_to link_title, article_show_path(:openurl => article.src['openUrl'])
+    else
+      link_to link_title, article.url
+    end
   end
 
   def get_article_citation(doc)

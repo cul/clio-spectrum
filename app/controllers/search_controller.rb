@@ -31,7 +31,7 @@ class SearchController < ApplicationController
       end
     end
 
-    params['categories'] ||= ['catalog', 'articles','lweb'] unless params.has_key?('q')
+    params['categories'] ||= ['catalog', 'articles'] unless params.has_key?('q')
     params['categories'] ||= []
   end
 
@@ -78,7 +78,7 @@ class SearchController < ApplicationController
 
                   {
                     :docs => docs,
-                    :count => search_result.at_css("M").content.to_i,
+                    :count => (search_result.at_css("M") ? search_result.at_css("M").content.to_i : 0),
 
                     :url =>  'http://search.columbia.edu/search?site=CUL_LibraryWeb&sitesearch=&as_dt=i&client=cul_libraryweb&proxystylesheet=cul_libraryweb&output=xml_no_dtd&ie=UTF-8&oe=UTF-8&filter=0&sort=date%3AD%3AL%3Adl&num=20&x=0&y=0&q=' +  CGI::escape(params[:q])
                   }
