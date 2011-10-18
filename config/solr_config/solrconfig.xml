@@ -1,4 +1,4 @@
-ceh?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!--  
     For information on how to customize this file, please see
     http://wiki.apache.org/solr/SolrConfigXml. The page also has a link to 
@@ -129,6 +129,7 @@ ceh?xml version="1.0" encoding="UTF-8" ?>
           <str name="facet.field">subject_topic_facet</str>
           <str name="facet.field">subject_era_facet</str>
           <str name="facet.field">author_facet</str>
+		    <str name="facet.field">source_facet</str>
 
           <str name="facet.field">location_facet</str>
         </lst>
@@ -154,6 +155,7 @@ ceh?xml version="1.0" encoding="UTF-8" ?>
           <str name="facet.field">location_facet</str>
           <str name="facet.field">subject_era_facet</str>
           <str name="facet.field">author_facet</str>
+		    <str name="facet.field">source_facet</str>
 
         </lst>
       </arr>
@@ -184,6 +186,7 @@ ceh?xml version="1.0" encoding="UTF-8" ?>
           <str name="facet.field">subject_era_facet</str>
           <str name="facet.field">location_facet</str>
           <str name="facet.field">author_facet</str>
+		    <str name="facet.field">source_facet</str>
 
 
         </lst>
@@ -209,6 +212,7 @@ ceh?xml version="1.0" encoding="UTF-8" ?>
           <str name="facet.field">subject_era_facet</str>
           <str name="facet.field">location_facet</str>
           <str name="facet.field">author_facet</str>
+		    <str name="facet.field">source_facet</str>
 
         </lst>
       </arr>
@@ -375,7 +379,8 @@ ceh?xml version="1.0" encoding="UTF-8" ?>
         location_display,
         location_call_number_display, 
         url_munged_display,
-	author_facet
+	author_facet,
+	source_display
       </str>
      
       <str name="facet">true</str>
@@ -394,6 +399,7 @@ ceh?xml version="1.0" encoding="UTF-8" ?>
           <str name="facet.field">subject_era_facet</str>
       <str name="facet.field">location_facet</str>
           <str name="facet.field">author_facet</str>
+		    <str name="facet.field">source_facet</str>
       
       <str name="spellcheck">true</str>
       <str name="spellcheck.dictionary">default</str>
@@ -522,7 +528,8 @@ ceh?xml version="1.0" encoding="UTF-8" ?>
         location_display,
         location_call_number_display, 
         url_munged_display,
-	author_facet
+	author_facet,
+	source_display
       </str>
       
       <str name="facet">true</str>
@@ -541,7 +548,8 @@ ceh?xml version="1.0" encoding="UTF-8" ?>
       <str name="facet.field">location_facet</str>
       <str name="facet.field">subject_era_facet</str>
           <str name="facet.field">author_facet</str>
-      
+      	    <str name="facet.field">source_facet</str>
+	
       <str name="spellcheck">true</str>
       <str name="spellcheck.dictionary">subject</str>
       <str name="spellcheck.onlyMorePopular">true</str>

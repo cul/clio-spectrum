@@ -70,14 +70,17 @@ module DisplayHelper
     "Journal Article" => "article"
   }
 
-  FORMAT_RANKINGS = ["music_recording", "music", "clio", "ebooks", "article","summon", "lweb"]
+  FORMAT_RANKINGS = ["database", "music_recording", "music", "clio", "ebooks", "article","summon", "lweb"]
 
   def determine_formats(document, defaults = [])
     formats = defaults.listify
     case document
     when SolrDocument
       formats << "clio"
-
+      
+      if !document["source_display"].nil? && document["source_display"].include?("database")
+        formats << "database"
+      end
       document["format"].each do |format|
         formats << SOLR_FORMAT_LIST[format] if SOLR_FORMAT_LIST[format]
       end

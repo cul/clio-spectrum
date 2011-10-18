@@ -1,0 +1,14 @@
+/ container for a single doc 
+.document{:class => render_document_class(document) }
+    
+  .title= link_to_document document, :label=>document_show_link_field, :counter => counter
+
+  .actions= render :partial => 'folder_control', :locals => {:document => document} 
+      
+  / main container for doc partial view 
+
+  .details
+    = render :partial => "/_formats/database/catalog_list_details", :locals => {:document => document}
+  
+  .doc_bookjacket
+    =image_tag("spacer.png", :class => "list_view bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))
