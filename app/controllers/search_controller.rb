@@ -31,7 +31,7 @@ class SearchController < ApplicationController
       end
     end
 
-    params['categories'] ||= ['catalog', 'articles','ebooks'] unless params.has_key?('q')
+    params['categories'] ||= ['catalog', 'articles','lweb'] unless params.has_key?('q')
     params['categories'] ||= []
   end
 
