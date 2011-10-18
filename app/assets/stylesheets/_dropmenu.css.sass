@@ -1,4 +1,4 @@
-#show-toolbar
+.dropmenu
   background: #F6F6FF
   float: left
   margin: 0px
@@ -50,7 +50,7 @@
       float: none
       a
         float: none
-      _display: inline
+        display: inline
       /* for IE6
     > div
       width: 200px
@@ -71,6 +71,31 @@
         top: 0px
         left: 100%
 
+
+#header_help ul.dropmenu
+  :float right
+  :background #ffffff
+  :border none
+
+  li
+    a
+      :background #fff
+      :border none
+      :padding-right 5px
+
+    ul li
+      :margin-left -55px
+      :border 1px solid #CCC
+
+  li.help
+    :vertical-align middle
+    help_title
+      :display inline
+      :font-size 2.0em
+      :vertical-align 25%
+      :padding-left .25em
+    span
+      :display none
 /* Submenu
 
 /* Sub submenu

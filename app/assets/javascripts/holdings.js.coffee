@@ -1,5 +1,6 @@
 $(document).ready ->
   attach_location_colorboxes()
+  $(".dropmenu").dropmenu()
 
 
 attach_location_colorboxes = ->

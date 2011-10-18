@@ -1,12 +1,8 @@
 - clio_id = h(document["clio_id_display"].first.to_s)
 - id = document.get("id")
 
-- content_for :jstemplates do
-  :javascript
-    $(document).ready( function() { $("#show-toolbar").dropmenu(); });
-
 #toolbar-container
-  %ul#show-toolbar
+  %ul#show-toolbar.dropmenu
     -#%li.right
       -#%div
         -#= item_page_entry_info.gsub(" from your search.","").html_safe
@@ -55,10 +51,3 @@
         %li= link_to "Precataloging", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/precat?#{clio_id}"
         - if HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + clio_id) == "1"
           %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{h(document['clio_id_display'])}"
-    %li.haschildren.right.help
-      =link_to "Help", "#"
-      %ul.submenu
-        %li= link_to "Ask a Librarian", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0031"
-        %li= link_to "Item Not On Shelf?", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0055"
-        %li= link_to "E-Resource Problem", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0006"
-        %li= link_to "Recommend A Title", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0004"
