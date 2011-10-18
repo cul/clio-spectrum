@@ -10,5 +10,5 @@
     Loading holdings from CLIO.
     %span.holding_spinner=image_tag ("ajax-indicator.gif")
   .holdings_error
-    Unable to load. 
+    Unable to load.
     = link_to "Retry?", "#", :onclick => "javascript:load_clio_holdings(#{h(clio_id)});"
