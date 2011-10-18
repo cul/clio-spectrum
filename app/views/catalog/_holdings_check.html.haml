@@ -3,6 +3,7 @@
 - content_for :jstemplates do
   :javascript
     $(document).ready ( function () {
-      update_holdings_info([#{holdings_to_check.join(",")}]);
+      retrieve_holdings([#{holdings_to_check.join(",")}]);
+      
 
-    });
+    })

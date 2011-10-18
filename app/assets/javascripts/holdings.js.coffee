@@ -25,3 +25,16 @@ root.load_clio_holdings = (id) ->
     error: (data) ->
         $("span.holding_spinner").hide()
         $('#clio_holdings .holdings_error').show()
+
+root.retrieve_holdings = (bibids) ->
+  url = 'http://rossini.cul.columbia.edu/voyager_backend/holdings/retrieve/' + bibids.join('/');
+  
+
+  $.getJSON url, (data) -> 
+    for bib, holdings of data
+      for i, holding of data[bib].condensed_holdings_full
+        for j, holding_id of holding.holding_id
+          selector = "img.availability.holding_" + holding_id
+          $(selector).attr("src", "/assets/icons/"+holding.status+".png")
+
+
