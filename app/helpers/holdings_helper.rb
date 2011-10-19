@@ -1,6 +1,6 @@
 module HoldingsHelper
 
-  SERVICE_ORDER = %w{offsite precat recall_hold on_order borrow_direct borrow_direct ill in_process}
+  SERVICE_ORDER = %w{offsite precat recall_hold on_order borrow_direct borrow_direct ill in_process doc_delivery}
   # parameters: title, link, whether to append clio_id to link
   SERVICES = {
     'offsite' => ["Offsite", "http://www.columbia.edu/cgi-bin/cul/offsite2?", true],
