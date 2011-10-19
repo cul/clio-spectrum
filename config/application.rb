@@ -4,7 +4,9 @@ require 'rails/all'
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require *Rails.groups(:assets => %w(development test spectrum_dev spectrum_test))
+if defined?(Bundler)
+  Bundler.require *Rails.groups(:assets => %w(development test))
+end
 
 require File.expand_path('../../lib/james_monkeys', __FILE__)
 require File.expand_path('../../lib/google_books', __FILE__)
@@ -48,9 +50,7 @@ module NewBooks
     # Enable the asset pipeline
     config.assets.enabled = true    
     # Default SASS Configuration, check out https://github.com/rails/sass-rails for details
-    config.sass.line_comments = Rails.env.development?
-    config.sass.compress = !Rails.env.development?
 
-
+    config.assets.version = RELEASE_STAMP
   end
 end

@@ -28,8 +28,14 @@ namespace :deploy do
     run "ln -nfs #{deploy_to}shared/extracts #{release_path}/tmp/extracts"
   end
 
+  desc "Compile asets"
+  task :assets do
+    run "cd #{release_path}; RAILS_ENV=#{rails_env} bundle exec rake assets:precompile"
+  end
 
 end
 
 
+
 after 'deploy:update_code', 'deploy:symlink_shared'
+before "deploy:symlink", "deploy:assets"
