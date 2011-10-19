@@ -17,6 +17,7 @@ NewBooks::Application.configure do
   config.assets.compress = false
   config.assets.debug = true
 
+  config.assets.digest = false
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false

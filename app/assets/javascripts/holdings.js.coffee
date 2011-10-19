@@ -11,7 +11,6 @@ attach_location_colorboxes = ->
 
 root = exports ? this
 root.load_clio_holdings = (id) -> 
-
   $("span.holding_spinner").show
   $("#clio_holdings .holdings_error").hide
 
