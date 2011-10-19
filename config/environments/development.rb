@@ -15,7 +15,7 @@ NewBooks::Application.configure do
   config.action_controller.perform_caching = false
 
   config.assets.compress = false
-  config.assets.debug = true
+  config.assets.debug = false
 
   config.assets.digest = false
 
