@@ -13271,7 +13271,6 @@ $(document).ready(function() {
   };
   root = typeof exports !== "undefined" && exports !== null ? exports : this;
   root.load_clio_holdings = function(id) {
-    alert('yay');
     $("span.holding_spinner").show;
     $("#clio_holdings .holdings_error").hide;
     return $.ajax({
