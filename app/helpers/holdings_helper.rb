@@ -5,7 +5,7 @@ module HoldingsHelper
     holdings = nil
     
     begin 
-      holdings = Voyager::Holdings::Collection.new_from_opac(clio_id).to_hash(:output_type => :condensed)
+      holdings = Voyager::Holdings::Collection.new_from_opac(clio_id,nil,"http://bearberry.cc.columbia.edu:7014/vxws/GetHoldingsService").to_hash(:output_type => :condensed)
     rescue
       return []
     end
