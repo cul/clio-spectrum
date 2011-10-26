@@ -1,16 +1,25 @@
 require 'blacklight/catalog'
 
 class ArticlesController < ApplicationController
-  include Blacklight::Catalog
-  
+  layout "articles"
 
-  def search
-    @search = if (category = params.delete('new_search'))
-      SerialSolutions::SummonAPI.search_new(category, params)
-    else
-      SerialSolutions::SummonAPI.search(params)
+
+  def index
+    @new_search = true
+    begin
+      @summon = SerialSolutions::SummonAPI.new('new_search' => true, 'category' => 'articles')
+    rescue
+      @error = true
     end
-      
+  end
+  def search
+    @new_search = !params.has_key?('category') || (params['new_search'] && params['new_search'] != '')
+    
+    begin
+      @summon = SerialSolutions::SummonAPI.new(params)
+    rescue
+      @error = true
+    end
   end
   
 

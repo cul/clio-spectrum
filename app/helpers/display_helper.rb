@@ -70,14 +70,17 @@ module DisplayHelper
     "Journal Article" => "article"
   }
 
-  FORMAT_RANKINGS = ["music_recording", "music", "clio", "ebooks", "article","summon", "lweb"]
+  FORMAT_RANKINGS = ["database", "music_recording", "music", "clio", "ebooks", "article","summon", "lweb"]
 
   def determine_formats(document, defaults = [])
     formats = defaults.listify
     case document
     when SolrDocument
       formats << "clio"
-
+      
+      if !document["source_display"].nil? && document["source_display"].include?("database")
+        formats << "database"
+      end
       document["format"].each do |format|
         formats << SOLR_FORMAT_LIST[format] if SOLR_FORMAT_LIST[format]
       end
@@ -152,6 +155,9 @@ module DisplayHelper
     values = value.listify
 
     values = values.collect { |txt| txt.to_s.abbreviate(options[:abbreviate]) } if options[:abbreviate]
+
+    values = values.collect(&:html_safe) if options[:html_safe]
+
     value_txt = if options[:display_only_first] 
                   values.first.to_s 
                 elsif options[:join]
@@ -160,13 +166,13 @@ module DisplayHelper
                   values.collect { |v| content_tag(:div, v.to_s, :class => "entry") }.join("")
                 end
 
-    value_txt = value_txt.html_safe if options[:html_safe]  
+    value_txt = value_txt.html_safe if options[:html_safe]
     result = ""
     if options[:display_blank] || !value_txt.empty?
 
       result = content_tag(:div, :class => "row") do
         if options[:style] == :definition
-          content_tag(:div, title.to_s, :class => "label") + content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "value")
+          content_tag(:div, title.to_s.html_safe, :class => "label") + content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "value")
         elsif options[:style] == :blockquote
           content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "blockquote")
         end

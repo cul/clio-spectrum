@@ -1,0 +1,12 @@
+#header_help
+  %ul.dropmenu
+    %li.haschildren.right.help
+
+      =link_to image_tag("QuestionMark.png", :size => "38x38", :class => "help_question") + content_tag(:help_title, "Help", :class => "help_title"), "http://library.columbia.edu/help.html"
+      %ul.submenu
+        %li= link_to "Ask a Librarian", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0031"
+        %li= link_to "Item Not On Shelf?", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0055"
+        %li= link_to "E-Resource Problem", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0006"
+        %li= link_to "Recommend A Title", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0004"
+
+

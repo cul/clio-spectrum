@@ -1,4 +1,4 @@
-.article_show
+.item_show
     
   .info
     .title= document.title
@@ -6,12 +6,13 @@
     =add_row("Source", document.source)
     =add_row("Date", document.date)
     
+    =add_row("ISSN", document.issns.collect { |i| "#{i[:type].to_s.capitalize}: #{i[:value]}"})
+
     =add_row("Volume", document.volume)
     =add_row("Issue", document.issue)
     =add_row("Page", document.spage)
-    =add_row("ISSN", document.issns.collect { |i| "#{i[:type].to_s.capitalize}: #{i[:value]}"})
 
-  .holdings
+  .holdings.article
     
     - if document.holdings.empty?
       .holdings_title No holdings are available.

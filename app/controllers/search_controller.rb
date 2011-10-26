@@ -22,11 +22,7 @@ class SearchController < ApplicationController
           redirect_to search_url_for(active_categories.first, params)
         else
           @results= active_categories.collect do |category|
-            {
-              :category => category,
-              :url => search_url_for(category, params),
-              :docs => search_results_for(category, params)
-            }
+            get_results_for_category(category)
           end
 
         end
@@ -34,35 +30,68 @@ class SearchController < ApplicationController
 
       end
     end
-    
-    params['categories'] ||= ['catalog', 'articles','ebooks'] unless params.has_key?('q')
+
+    params['categories'] ||= ['catalog', 'articles'] unless params.has_key?('q')
     params['categories'] ||= []
   end
+
   private
 
-  def search_results_for(category, params)
-    case category
-    when 'articles'
-      SerialSolutions::SummonAPI.search('s.q' => params[:q], 's.ps' => 10)
-    when 'ebooks'
-      SerialSolutions::SummonAPI.search('s.q' => params[:q], 's.ps' => 10, 's.fvf' => "ContentType,eBook")
-    when 'catalog'
-      params[:per_page] = 10
-      solr_response, solr_results =  get_search_results
-      solr_results
-    when 'lweb'
-      search_result = Nokogiri::XML(HTTPClient.new.get_content(search_url_for('lweb_xml', params)))
+  def get_results_for_category(category)
 
-      search_result.css("R").collect do |xml_node|
-        content_or_nil = lambda { |node| node ? node.content : nil }
-        { 
-          :url => content_or_nil.call(xml_node.at_css('UE')),
-          :title => content_or_nil.call(xml_node.at_css('T')),
-          :summary => content_or_nil.call(xml_node.at_css('S'))
-        }
-      end
+    begin
+      results = case category
+                when 'articles'
+                  summon = SerialSolutions::SummonAPI.new('category' => 'articles', 'new_search' => true, 's.q' => params[:q], 's.ps' => 10)
+
+                  {
+                    :docs => summon.search,
+                    :count => summon.search.record_count.to_i, 
+                    :url => article_search_path(summon.search.query.to_hash)
+                  }
+                when 'ebooks'
+                  summon = SerialSolutions::SummonAPI.new('category' => 'ebooks', 'new_search' => true, 's.q' => params[:q], 's.ps' => 10)
+                  {
+                    :docs => summon.search,
+                    :count => summon.search.record_count.to_i,
+                    :url => article_search_path(summon.search.query.to_hash)
+                  }
+                when 'catalog'
+                  params[:per_page] = 15
+                  solr_response, solr_results =  get_search_results
+                  {
+                    :docs => solr_results,
+                    :count => solr_response['response']['numFound'].to_i,
+                    :url => url_for(:controller => 'catalog', :action => 'index', :q => params['q'])
+                  }
+                when 'lweb'
+                  search_result = Nokogiri::XML(HTTPClient.new.get_content('http://search.columbia.edu/search?site=CUL_LibraryWeb&sitesearch=&as_dt=i&client=cul_libraryweb&output=xml&ie=UTF-8&oe=UTF-8&filter=0&sort=date%3AD%3AL%3Adl&num=10&x=0&y=0&q=' +  CGI::escape(params[:q])))
+
+                  docs = search_result.css("R").collect do |xml_node|
+                    content_or_nil = lambda { |node| node ? node.content : nil }
+                    { 
+                      :url => content_or_nil.call(xml_node.at_css('UE')),
+                      :title => content_or_nil.call(xml_node.at_css('T')),
+                      :summary => content_or_nil.call(xml_node.at_css('S'))
+                    }
+                  end
+
+                  {
+                    :docs => docs,
+                    :count => (search_result.at_css("M") ? search_result.at_css("M").content.to_i : 0),
+
+                    :url =>  'http://search.columbia.edu/search?site=CUL_LibraryWeb&sitesearch=&as_dt=i&client=cul_libraryweb&proxystylesheet=cul_libraryweb&output=xml_no_dtd&ie=UTF-8&oe=UTF-8&filter=0&sort=date%3AD%3AL%3Adl&num=20&x=0&y=0&q=' +  CGI::escape(params[:q])
+                  }
+
+                end
+    rescue Exception => e
+      results = { :error => true, :message => e.message, :docs => [] }
     end
+
+    results.merge(:category => category)
+
   end
+
 
   def search_url_for(category, params)
     case category

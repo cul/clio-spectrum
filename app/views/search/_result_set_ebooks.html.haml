@@ -1,6 +1,20 @@
 .results_header
-  .category_title HathiTrust eBooks 
-  .results_link= link_to "(more options)", result[:url]
-- result[:docs].documents.each do |document|
-  = render_document_view(document, :template => "aggregate", :format => "ebooks")
+  .category_title Hathitrust eBooks 
+  .description
+    Repository of digitzed books
+  - unless result[:error]
+    .search
+      - if result[:count].to_i == 0
+        No results found.
+      - else
+        #{number_with_delimiter(result[:count])} results 
+        = link_to "(see all)", result[:url]
+
+  - else
+    %p Error when searching. #{result[:message]}
+    %p Unicode searches do not currently work.
+
+- unless result[:error]
+  - result[:docs].documents.each do |document|
+    = render_document_view(document, :template => "aggregate", :format => "ebooks")
 

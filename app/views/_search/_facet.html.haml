@@ -1,0 +1,10 @@
+
+.facet_limit
+  %h3= facet.label
+  %ul
+    %span.selected
+    - unless facet.items(:selected, :negated).empty?
+      .activated_facets
+        = display_facet_items(facet, :selected)
+        = display_facet_items(facet, :negated)
+    = display_facet_items(facet, :not_selected)

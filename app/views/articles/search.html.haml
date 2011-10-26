@@ -1,29 +1,34 @@
 - @page_title = application_name + " Search Results"
 
--#= render :partial => 'search_form' %>
-	
--#= render :partial => 'did_you_mean' %>
+- if @error
+  .landing_text
+    This search has returned an error. Right now, the Summon API is having trouble with unicode searches. We are currently working on this with Serial Solutions. If you did not do a search involving unicode, please use the feedback button to report your problem
+    
+- else
+  -#= render :partial => 'search_form' %>
+    
+  -#= render :partial => 'did_you_mean' %>
 
--#= render 'constraints', :localized_params=>params %>
-  
--#.pageEntriesInfo
-  -#= render "change_view" 
-  -#= render_pagination_info @response, :entry_name=>'item'
-  -#= link_to(image_tag("rss-feed-icon-14x14.png"), catalog_index_path(params.merge(:format => "atom")).gsub('[','%5B').gsub(']','%5D'),:id => "feedLink") 
-  -#=link_to "start over", catalog_index_path, :id=>"startOverLink" 
-  
--#= render 'sort_and_per_page'
--#.pagination_container
-  -#= render 'results_pagination' 
+  = render '/_search/constraints', :localized_params=>params 
+    
+  -#.pageEntriesInfo
+    -#= render "change_view" 
+    -#= render_pagination_info @response, :entry_name=>'item'
+    -#= link_to(image_tag("rss-feed-icon-14x14.png"), catalog_index_path(params.merge(:format => "atom")).gsub('[','%5B').gsub(']','%5D'),:id => "feedLink") 
+    -#=link_to "start over", catalog_index_path, :id=>"startOverLink" 
+    
+  -#= render 'sort_and_per_page'
+  -#.pagination_container
+    -#= render 'results_pagination' 
 
-= render :partial => 'document_list', :locals => {:search => @search}
+  = render :partial => 'document_list', :locals => {:search => @summon.search}
 
-- sidebar_items << capture do 
-  = render :partial => 'facets'
+  - sidebar_items << capture do 
+    = render :partial => "/_search/facets", :locals => {:facets => @summon.search.facets}
 
--#.pagination_container
+  -#.pagination_container
 
-  -#= render 'results_pagination' %>
+    -#= render 'results_pagination' %>
 
 
 

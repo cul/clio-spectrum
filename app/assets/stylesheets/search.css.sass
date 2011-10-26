@@ -2,6 +2,11 @@
 @import "blacklight/susy_framework"
 @import "local_mixes"
 
+.value
+  h
+    :font-style italic
+    :background-color #fff68f
+
 #hd.with_search
   #logo_small
     +columns(8,24)
@@ -43,6 +48,17 @@
   .value_box
     :padding-right .25em
 
+#aggregate_results
+  .result
+    :height 15em
+
+  .blockquote
+    :font-style italic
+    :padding .5em 1em 0 1em
+
+.result_set
+  :margin-bottom 1em
+
 #aggregate_results.split_2
   .result 
     +columns(12,12)
@@ -62,11 +78,6 @@
   .result_set
     +columns(12,24)
   
-  .blockquote
-    :padding-top .5em
-    :font-style italic
-    +prefix(1,12)
-    +columns(11,12)
 
 #aggregate_results.split_3
   .result
@@ -86,16 +97,12 @@
   .result_set
     +columns(8,24)
 
-  .blockquote
-    :padding-top .5em
-    :font-style italic
-    +prefix(1,8)
-    +columns(7,8)
 
 #aggregate_results.split_4
   .result
     +columns(6,6)
     +omega(6)
+    :height 18em
 
   .row
     +full(6)
@@ -110,11 +117,6 @@
   .result_set
     +columns(6,24)
 
-  .blockquote
-    :padding-top .5em
-    :font-style italic
-    +prefix(1,6)
-    +columns(5,6)
     
 #aggregate_results
   +full(24)
@@ -129,13 +131,15 @@
   .results_header
     :padding-bottom 1em
   .category_title
-    :padding-left .25em
     :font-weight bold
     :font-size 1.4em
     :display inline
   .results_link
-    :padding-left .5em
-    :display inline
+    :padding .5em 2em 0 0
+    :float right
+  .description
+    :font-style italic
+    :padding-bottom .5em
 
 .result
   :padding-bottom 1em

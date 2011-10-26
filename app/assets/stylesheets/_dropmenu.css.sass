@@ -1,0 +1,101 @@
+.dropmenu
+  background: #F6F6FF
+  float: left
+  margin: 0px
+  padding: 0px
+  border: 1px solid #CCCCCC
+  border-right: none
+  li
+    a
+      float: left
+    float: left
+    list-style: none
+    position: relative
+    span
+      width: 16px
+      height: 16px
+      background-image: asset_url("images/ui-icons_222222_256x240.png", image)
+      background-position: -64px -16px
+
+      display: block
+      position: absolute
+      right: 5px
+      top: 7px
+    a
+      padding: 6px 25px 6px 15px
+      text-decoration: none
+      background-color: #F6F6FF
+      border-right: 1px solid #CCCCCC
+      color: #666666
+    div
+      padding: 6px 25px 6px 15px
+      text-decoration: none
+      background-color: #F6F6FF
+      border-right: 1px solid #CCCCCC
+      color: #666666
+    a:hover
+      background: #D6D6D6
+    ul, > div
+      display: none
+      position: absolute
+      left: 0
+      top: 100%
+      padding: 0px
+      margin: 0px
+  &.css-only li:hover >
+    ul, div
+      display: block
+  li
+    ul li
+      float: none
+      a
+        float: none
+        display: inline
+      /* for IE6
+    > div
+      width: 200px
+      border-top: 1px solid #CCCCCC
+      border-left: 1px solid #CCCCCC
+      padding: 15px
+    ul li
+      a
+        width: 150px
+        display: block
+        border-top: 1px solid #CCCCCC
+        border-left: 1px solid #CCCCCC
+        border-bottom: 1px solid #CCCCCC
+        &:hover
+          background-color: #FFF
+          font-weight: bold
+      ul, > div
+        top: 0px
+        left: 100%
+
+
+#header_help ul.dropmenu
+  :float right
+  :background #ffffff
+  :border none
+
+  li
+    a
+      :background #fff
+      :border none
+      :padding-right 5px
+
+    ul li
+      :margin-left -55px
+      :border 1px solid #CCC
+
+  li.help
+    :vertical-align middle
+    help_title
+      :display inline
+      :font-size 2.0em
+      :vertical-align 25%
+      :padding-left .25em
+    span
+      :display none
+/* Submenu
+
+/* Sub submenu

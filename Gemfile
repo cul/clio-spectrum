@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
-gem 'rails', '3.1.0'
+gem 'rack', '1.3.3'
+gem 'rails', '3.1.1'
 
 gem 'sprockets'
 # Bundle edge Rails instead:
@@ -22,7 +23,7 @@ gem 'httpclient'
 gem 'nokogiri'
 gem 'haml'
 gem 'haml-rails'
-gem 'sass-rails', '3.1.0'
+gem 'sass-rails', '~>3.1.1'
 gem 'sass'
 gem 'unicode'
 gem 'mysql'
@@ -32,22 +33,26 @@ gem 'voyager_api', '>=0.2.3'
 gem 'rubytree', '=0.5.2'
 
 gem 'blacklight_advanced_search'
+gem 'blacklight_highlight'
 
 group :development do
-  gem 'rails-footnotes', '>= 3.7'
+  gem 'rails-footnotes', '>=3.7.5'
   gem 'rsolr-footnotes'
 end
 
 #
 # gem 'blacklight_advanced_search',:git => 'https://github.com/projectblacklight/blacklight_advanced_search.git'
 
+gem 'jquery-rails'
+
 group :assets do
-  gem 'sass-rails', '3.1.0'
+  gem 'sass-rails', '~>3.1.1'
+  gem 'coffee-rails'
   gem 'compass', '0.12.alpha.0'
+  gem 'uglifier'
 
 end
 
-gem 'jquery-rails'
 
 gem 'unicorn'
 
@@ -73,6 +78,7 @@ gem 'unicorn'
 #   gem 'webrat'
 # end
 gem "devise"
+gem 'therubyracer'
 
 group :test do
   gem "database_cleaner"
