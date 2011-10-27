@@ -1,0 +1,10 @@
+- active ||= ""
+- sources = [ {:title => "Quicksearch", :url => {:controller => "search"}}, {:title => "Catalog", :url => {:controller => "catalog"}}]
+- sidebar_items << capture do
+
+  %ul#datasources
+    - sources.each do |item_hash|
+      - selected_class = (active == item_hash[:title] ? "selected" : "") 
+      %li.source
+
+        %a{:href => item_hash[:url], :url => url_for(item_hash[:url]), :class => selected_class }= item_hash[:title]

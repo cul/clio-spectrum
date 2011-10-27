@@ -1,3 +1,5 @@
+= render :partial => "_search/datasources", :locals => {:active => 'Quicksearch'}
+
 - unless @results.empty?
   #aggregate_results{:class => "split_#{@results.length}"}
     - @results.each_with_index do |result, i|

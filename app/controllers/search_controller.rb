@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   include Blacklight::Catalog
-  layout 'aggregate'
+  layout 'quicksearch'
 
   CATEGORY_ORDER = %w{catalog articles ebooks lweb}
 
@@ -31,7 +31,7 @@ class SearchController < ApplicationController
       end
     end
 
-    params['categories'] ||= ['catalog', 'articles'] unless params.has_key?('q')
+    params['categories'] ||= ['catalog', 'articles', 'lweb'] unless params.has_key?('q')
     params['categories'] ||= []
   end
 
