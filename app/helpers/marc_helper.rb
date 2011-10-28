@@ -35,6 +35,9 @@ module MarcHelper
       if field.has_key?('search')
         options[:search_subfields] = field['search']
       end
+      if field.has_key?('split')
+        options[:split] = field['split']
+      end
       if field_name.match(/^subject/)
         options[:subject] = true
       end
@@ -50,7 +53,8 @@ module MarcHelper
     options.reverse_merge!({  :vernacular => true,
                               :search_subfields => '',
                               :subject => false,
-                              :indicators => [:all, :all] })
+                              :indicators => [:all, :all],
+                              :split => nil })
     # get options
     ind1,ind2  = options[:indicators]
     search_subfields = options[:search_subfields]
@@ -71,16 +75,17 @@ module MarcHelper
           search = select_subfields(field, search_subfields)
           display += DELIM + search
         end
-        values << display
+        options[:split] ? values << display.split(options[:split]) : values << display
         
         # get matching script field if there is a subfield 6
         if options[:vernacular] && field.subfields.first.code == "6"
-          values << process_vernacular(marc, field, display_subfields, search_subfields, options[:subject])
+          display = process_vernacular(marc, field, display_subfields, search_subfields, options[:subject])
+          options[:split] ? values << display.split(options[:split]) : values << display
         end
       end
     end
     
-    values
+    values.flatten
   
   end
   

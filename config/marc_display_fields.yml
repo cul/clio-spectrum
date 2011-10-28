@@ -21,6 +21,7 @@ author_other:
 contents:
     -   tag: 505
         display: agrtu
+        split: ' -- '
 description:
     -   tag: 300
         display: abcefg3
