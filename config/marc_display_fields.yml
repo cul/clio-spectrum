@@ -149,19 +149,15 @@ publisher_no:
 series:
     -   tag: 800
         display: abcdefghklmnopqrstuv3
-        search: acqt
     -   tag: 810
         display: abcdefghklmnoprstuv3
-        search: abt
     -   tag: 811
         display: acdefghklnpqstuv3
-        search: at
     -   tag: 830
         display: adfghklmnoprstv3
         search: a
     -   tag: 840
         display: ahv
-        search: a
 standard_no:
     -   tag: '024'
         ind1: '0123478'
@@ -191,6 +187,31 @@ subject_LC:
     -   tag: 651
         ind1: :all
         ind2: '0'
+        display: avxyz
+subject_mesh:
+    -   tag: 600
+        ind1: :all
+        ind2: '2'
+        display: abcdefghklmnopqrstuvxyz
+    -   tag: 610
+        ind1: :all
+        ind2: '2'
+        display: abcdefghklmnoqrstuvxyz
+    -   tag: 611
+        ind1: :all
+        ind2: '2'
+        display: acdefghklnpqstuvxyz
+    -   tag: 630
+        ind1: :all
+        ind2: '2'
+        display: adfghklmnoprstvxyz
+    -   tag: 650
+        ind1: :all
+        ind2: '2'
+        display: abcdvxyz
+    -   tag: 651
+        ind1: :all
+        ind2: '2'
         display: avxyz
 title:
     -   tag: 245
