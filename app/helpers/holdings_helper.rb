@@ -19,7 +19,6 @@ module HoldingsHelper
       uri += clio_id.to_s if add_clio_id
       link_to title, uri, options
     end
-
   end
 
 

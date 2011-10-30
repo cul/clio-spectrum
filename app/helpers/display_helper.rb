@@ -104,42 +104,95 @@ module DisplayHelper
     # search value differs from display value
     # display value DELIM search value
 
-    values.listify.collect do |v|
+    out = []
+
+    values.listify.each do |v|
       
       s = v.split(DELIM)
       
+      unless s.length == 2
+        out << v
+        next
+      end
+      
       case category
       when :all
-        link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "all_fields", :commit => "search"))
+        q = '"' + s[1] + '"'
+        out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "all_fields", :commit => "search"))
       when :author
 #        link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "author", :commit => "search"))
         # remove period from s[1] to match entries in author_facet using solrmarc removeTrailingPunc rule
         s[1] = s[1].gsub(/\.$/,'') if s[1] =~ /\w{3}\.$/ || s[1] =~ /[\]\)]\.$/
-        link_to(s[0], url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => s[1]))
+        out << link_to(s[0], url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => s[1]))
       when :subject
-        link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "subject", :commit => "search"))
+        out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "subject", :commit => "search"))
       when :title
-        link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "title", :commit => "search"))
+        out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "title", :commit => "search"))
       else
         raise "invalid category specified for generate_value_links"
       end
     end
+    out
   end
 
-  def generate_value_links_subject(values, category)
+  # def generate_value_links_subject(values)
+  # 
+  #   # search value the same as the display value
+  #   # quote first term of the search string and remove ' - '
+  # 
+  #   values.listify.collect do |v|
+  #     
+  #     sub = v.split(" - ")
+  #     out = '"' + sub.shift + '"'
+  #     out += ' ' + sub.join(" ") unless sub.empty?
+  #     
+  #     link_to(v, url_for(:controller => "catalog", :action => "index", :q => out, :search_field => "subject", :commit => "search"))
+  # 
+  #   end
+  # end
+
+  def generate_value_links_subject(values)
 
     # search value the same as the display value
-    # quote first term of the search string and remove ' - '
+    # but chained to create a series of searches that is increasingly narrower
+    # esample: a - b - c
+    # link display   search
+    #   a             "a"
+    #   b             "a b"
+    #   c             "a b c"
 
-    values.listify.collect do |v|
+    values.listify.collect do |value|
       
-      sub = v.split(" - ")
-      out = '"' + sub.shift + '"'
-      out += ' ' + sub.join(" ") unless sub.empty?
+      searches = []
+      subheads = value.split(" - ")
+      first = subheads.shift
+      display = first
+      search = first
+      title = first
       
-      link_to(v, url_for(:controller => "catalog", :action => "index", :q => out, :search_field => "subject", :commit => "search"))
-
+      searches << build_subject_url(display, search, title)
+      
+      unless subheads.empty?
+        subheads.each do |subhead|
+          display = subhead
+          search += ' ' + subhead
+          title += ' - ' + subhead
+          searches << build_subject_url(display, search, title)
+        end
+      end
+                                            
+      searches.join(' - ')
+                                            
     end
+  end
+
+  def build_subject_url(display, search, title)
+    link_to(display, url_for(:controller => "catalog", 
+                              :action => "index", 
+                              :q => '"' + search + '"', 
+                              :search_field => "subject", 
+                              :commit => "search"),
+                              :title => title)
   end
 
   def add_row(title, value, options = {})

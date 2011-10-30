@@ -1,7 +1,6 @@
 -# music_recording
 - marc = document.to_marc
 .title= document_heading.listify.join("")
-
 = add_row("Composer / Performer", generate_value_links(display_marc_field( marc, 'author'),:author))
 = add_row("Uniform Title", display_marc_field(marc, 'title_uniform'))
 = add_row("Title", display_marc_field(marc, 'title'))
@@ -12,7 +11,7 @@
 = add_row("Series", generate_value_links(display_marc_field(marc, 'series'), :all))
 = add_row("Performers", display_marc_field(marc, 'performers'))
 = add_row("Notes", display_marc_field(marc, 'notes_music_recording'))
-= add_row("Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_LC'), :subject))
+= add_row("Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_LC')))
 = add_row("Also Listed Under", generate_value_links(display_marc_field(marc, 'author_other'), :author))
 = add_row("Track List", display_marc_field(marc, 'contents'))
 = add_row("Language", document["language_facet"], options = {:join => '; '})
