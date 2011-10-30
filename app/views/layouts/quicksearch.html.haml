@@ -1,0 +1,19 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml", :lang => "en"}
+  %head
+    = render :partial => "/layouts/common_head"
+  - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
+  %body{:onload => onload}
+    #trigger
+    #page
+      = render :partial => "/header_with_search"
+      #bd
+        #main
+          #main_container
+            = render :partial=>'/flash_msg'
+            = yield
+
+        #sidebar= sidebar_items.join('').html_safe
+        .clear-both  
+      = render :partial => "/footer"
+    = render :partial => "/feedback_form"
