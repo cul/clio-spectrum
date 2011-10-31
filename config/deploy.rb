@@ -1,5 +1,5 @@
 set :default_stage, "na_dev"
-set :stages, %w(na_dev na_test na_prod spectrum_dev spectrum_test)
+set :stages, %w(na_dev na_test na_prod spectrum_dev spectrum_test spectrum_prod)
 
 require 'capistrano/ext/multistage'
 require 'bundler/capistrano'

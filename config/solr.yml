@@ -12,6 +12,8 @@ spectrum_dev:
     url: http://dirk.cul.columbia.edu:8080/solr-1.5/spectrum_experiment
 spectrum_test:
     url: http://dirk.cul.columbia.edu:8080/solr-1.5/spectrum_experiment
+spectrum_prod:
+    url: http://dirk.cul.columbia.edu:8080/solr-1.5/spectrum_experiment
 cucumber:
     <<: *TEST
 
