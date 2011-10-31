@@ -20,6 +20,8 @@
         -#= link_to_previous_document(@previous_document)
         -#= link_to_next_document(@next_document)	
     %li
+      = link_to "Start Over", catalog_index_path
+    %li
       = link_to "Print", "javascript:print()"
     %li=link_to "Email", email_catalog_path(:id => id), {:id => "emailLink", :name => "email", :class => "lightboxLink"}
     %li=link_to "SMS", sms_catalog_path(:id => id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}

@@ -18,6 +18,8 @@ ul#datasources
     a.selected
       :color #596A90
 
+  
+
   li.hover
     :background #f6f6f6
 
@@ -64,7 +66,7 @@ ul#datasources
   +columns(4,24)
 
 
-#quicksearch
+.two_lopsided
   +columns(20,20)
   +omega(20)
   :padding 1em 0 1em 0
@@ -79,7 +81,7 @@ ul#datasources
     :font-style italic
     :padding .5em 1em 0 1em
 
-  #catalog_results
+  .main_results
     +columns(12,20)
 
     .result 
@@ -102,7 +104,7 @@ ul#datasources
       +columns(12,12)
       +omega(12)
 
-  #side_results
+  .side_results
     +columns(8,20)
     +omega(20)
       

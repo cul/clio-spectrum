@@ -1,11 +1,12 @@
 = render :partial => "_search/datasources", :locals => {:active => 'Quicksearch'}
 
 - unless @results.empty?
-  #quicksearch
-    #catalog_results.result_set
-      = render :partial => "result_set_catalog", :locals => {:result => @results['catalog'] , :count => 10}
+  #quicksearch.two_lopsided
+    .main_results
+      .result_set
+        = render :partial => "result_set_catalog", :locals => {:result => @results['catalog'] , :count => 10}
 
-    #side_results
+    .side_results
       .result_set
         = render :partial => "result_set_articles", :locals => {:result => @results['articles'] , :count => 3}
 
