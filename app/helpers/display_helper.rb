@@ -117,8 +117,7 @@ module DisplayHelper
       
       case category
       when :all
-        q = '"' + s[1] + '"'
-        out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "all_fields", :commit => "search"))
+        out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "all_fields", :commit => "search"))
       when :author
 #        link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "author", :commit => "search"))
         # remove period from s[1] to match entries in author_facet using solrmarc removeTrailingPunc rule
@@ -127,7 +126,8 @@ module DisplayHelper
       when :subject
         out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "subject", :commit => "search"))
       when :title
-        out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "title", :commit => "search"))
+        q = '"' + s[1] + '"'
+        out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "title", :commit => "search"))
       else
         raise "invalid category specified for generate_value_links"
       end
@@ -181,7 +181,7 @@ module DisplayHelper
         end
       end
                                             
-      searches.join(' - ')
+      searches.join(' > ')
                                             
     end
   end
