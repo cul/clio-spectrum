@@ -21,8 +21,10 @@ class SearchController < ApplicationController
         when 1
           redirect_to search_url_for(active_categories.first, params)
         else
-          @results= active_categories.collect do |category|
-            get_results_for_category(category)
+          @results= {}
+         
+          active_categories.each do |category|
+            @results[category] = get_results_for_category(category)
           end
 
         end

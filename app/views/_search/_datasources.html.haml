@@ -1,5 +1,5 @@
 - active ||= ""
-- sources = [ {:title => "Quicksearch", :url => {:controller => "search"}}, {:title => "Catalog", :url => {:controller => "catalog"}}]
+- sources = [ {:title => "Quicksearch", :url => {:controller => "search"}}, {:title => "Catalog", :url => {:controller => "catalog"}}, {:title => "Articles", :url => {:controller => "articles"}}]
 - sidebar_items << capture do
 
   %ul#datasources
@@ -7,4 +7,5 @@
       - selected_class = (active == item_hash[:title] ? "selected" : "") 
       %li.source
 
-        %a{:href => item_hash[:url], :url => url_for(item_hash[:url]), :class => selected_class }= item_hash[:title]
+        = link_to item_hash[:title], item_hash[:url] , :class => selected_class
+

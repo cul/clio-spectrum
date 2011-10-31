@@ -2,11 +2,19 @@
 @import "blacklight/susy_framework"
 @import "local_mixes"
 
-#datasources
+ul#datasources
+  :margin .4em 0 2em 0
+
+
   li
     :list-style none
-    :padding .5em
-    :font-size 1.5em
+    :padding .5em 0 .5em 0
+    :font-size 1.4em
+
+    a
+      :border-bottom none
+    a.selected
+      :font-weight bold
 
 .value
   h
@@ -32,6 +40,75 @@
     :width 15em
     :padding-right 2em
 
+#main_with_sources
+  +columns(20,24)
+  +omega(24)
+
+#sources
+  +columns(4,24)
+
+
+#quicksearch
+  +columns(20,20)
+  +omega(20)
+  :padding 1em 0 1em 0
+
+  .result_set
+    :margin-bottom 2em
+
+  .result_title
+
+
+  .blockquote
+    :font-style italic
+    :padding .5em 1em 0 1em
+
+  #catalog_results
+    +columns(12,20)
+
+    .result 
+      :background-color #fff
+      +columns(12,12)
+      +omega(12)
+
+    .row
+      +columns(12,12)
+      +omega(12)
+
+    .label
+      +columns(2,12)
+
+    .value
+      +columns(10,12)
+      +omega(12)
+      
+    .result_set 
+      +columns(12,12)
+      +omega(12)
+
+  #side_results
+    +columns(8,20)
+    +omega(20)
+      
+    .result
+      :background-color #fff
+      +columns(8,8)
+      +omega(8)
+
+    .row
+      +full(8)
+
+    .label
+      +columns(2,8)
+
+    .value
+      +columns(6,8)
+      +omega(8)
+      
+
+    .result_set 
+      +columns(8,8)
+      +omega(8)
 #search_categories
   label
     :padding-right 1em
@@ -54,74 +131,18 @@
   .value_box
     :padding-right .25em
 
-#aggregate_results
-  .result
-    :height 15em
 
-  .blockquote
-    :font-style italic
-    :padding .5em 1em 0 1em
-
-.result_set
-  :margin-bottom 1em
 
 #aggregate_results.split_2
-  .result 
-    +columns(12,12)
-    +omega(12)
-
-  .row
-    +columns(12,12)
-    +omega(12)
-
-  .label
-    +columns(3,12)
-
-  .value
-    +columns(9,12)
-    +omega(12)
     
   .result_set
     +columns(12,24)
   
 
 #aggregate_results.split_3
-  .result
-    +columns(8,8)
-    +omega(8)
-
-  .row
-    +full(8)
-
-  .label
-    +columns(2,8)
-
-  .value
-    +columns(6,8)
-    +omega(8)
-    
-  .result_set
-    +columns(8,24)
 
 
 #aggregate_results.split_4
-  .result
-    +columns(6,6)
-    +omega(6)
-    :height 18em
-
-  .row
-    +full(6)
-
-  .label
-    +columns(2,6)
-
-  .value
-    +columns(4,6)
-    +omega(6)
-    
-  .result_set
-    +columns(6,24)
 
     
 #aggregate_results
@@ -156,7 +177,6 @@
     .result_title
       :font-weight bold
       :font-size 1.1em
-      :padding-left 1em
       :padding-right .25em
       :padding-top 1em
       :padding-bottom .75em

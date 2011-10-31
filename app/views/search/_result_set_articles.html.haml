@@ -1,3 +1,4 @@
+- docs = defined?(count) ? result[:docs].documents[0,count] : result[:docs].documents
 .results_header
   .category_title Articles
   .description
@@ -14,6 +15,6 @@
     %p Unicode searches do not currently work.
 
 - unless result[:error]
-  - result[:docs].documents.each do |doc|
+  - docs.each do |doc|
     = render_document_view(doc, :template => "aggregate", :format => "article")
 
