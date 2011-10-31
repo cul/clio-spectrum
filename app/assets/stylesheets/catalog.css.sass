@@ -1,10 +1,26 @@
 @import "blacklight/susy_framework"
 @import "local_mixes"
 
-#show-toolbar
-  :margin-top 1em
+#toolbar-container
   +columns(24,24)
   +omega(24)
+  :margin-top 1em
+  :background-color #F6F6FF
+
+
+  #navigation
+    :float right
+    :padding 6px 0px 6px 15px
+
+    div
+      :display inline
+      :padding-right .75em
+    .previous
+      :margin-right .75em
+    .next
+      :margin-right .75em
+#show-toolbar
+
 
   li.right.help
     ul li

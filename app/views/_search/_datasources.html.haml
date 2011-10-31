@@ -3,9 +3,14 @@
 - sidebar_items << capture do
 
   %ul#datasources
+    %li.title Sources
     - sources.each do |item_hash|
-      - selected_class = (active == item_hash[:title] ? "selected" : "") 
       %li.source
 
-        = link_to item_hash[:title], item_hash[:url] , :class => selected_class
-
+        - if active == item_hash[:title]
+          - url = "#"
+          - options = {:class => "selected"}
+        - else
+          - url = item_hash[:url]
+          - options = {:q => params[:q]}
+        = link_to item_hash[:title], url , options

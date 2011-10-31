@@ -1,6 +1,10 @@
 $(document).ready ->
   attach_location_colorboxes()
   $(".dropmenu").dropmenu()
+  $("ul#datasources li").hover(
+    -> $(this).addClass('hover')
+    -> $(this).removeClass('hover')
+  )
 
 
 attach_location_colorboxes = ->

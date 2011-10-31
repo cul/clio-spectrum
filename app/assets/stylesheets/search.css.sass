@@ -8,13 +8,25 @@ ul#datasources
 
   li
     :list-style none
-    :padding .5em 0 .5em 0
-    :font-size 1.4em
-
+    :padding .5em 0 .5em .2em
+    :font-size 1.1em
+    :background #fff
+  
     a
       :border-bottom none
+      :color #000
     a.selected
-      :font-weight bold
+      :color #596A90
+
+  li.hover
+    :background #f6f6f6
+
+
+
+  li.title
+    :font-size 1.4em
+    :font-weight bold
+    :color #002556
 
 .value
   h
@@ -33,13 +45,17 @@ ul#datasources
     +omega(24)
 
 #search_row
-  :padding-top .5em
-  :padding-bottom .5em
+  :padding-top 1em
+  :padding-bottom 1em
 
   .q
-    :width 15em
-    :padding-right 2em
+    :font-size 1.4em
+    :width 17em
+    :margin-right .5em
 
+  .submit
+    :font-size 1.4em
+    :padding .25em .5em .25em .5em
 #main_with_sources
   +columns(20,24)
   +omega(24)

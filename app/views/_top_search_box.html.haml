@@ -1,16 +1,12 @@
 - if controller.controller_name == 'search'
   #aggregate_search
     = form_tag search_index_path, :method => :get do 
+      = hidden_field_tag 'categories[]', 'catalog'
+      = hidden_field_tag 'categories[]', 'articles'
+      = hidden_field_tag 'categories[]', 'lweb'
       #search_row
         = text_field_tag :q, params[:q], :class => "q" 
-        = submit_tag 'search', :class=>'submit'
-      #search_categories
-        = check_box_tag "categories[]", "catalog", params[:categories].include?("catalog")
-        = label_tag(:categories, "Catalog")
-        = check_box_tag "categories[]", "articles", params[:categories].include?("articles")
-        = label_tag(:categories, "Articles")
-        = check_box_tag "categories[]", "lweb", params[:categories].include?("lweb")
-        = label_tag(:categories, "Library Web")
+        %button{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'Search'} Search
 - else
   #articles_search
     = form_tag article_search_path(), :method => :get do
@@ -27,7 +23,7 @@
       #search_row
         = text_field_tag 's.q', params['s.q'], :class => "q"
         = submit_tag 'Search', :class => 'submit'
-      #search_categories
+      -##search_categories
         = radio_button_tag "new_search", '', !@new_search 
         Keep search refinements
         = radio_button_tag "new_search", 'true', @new_search 

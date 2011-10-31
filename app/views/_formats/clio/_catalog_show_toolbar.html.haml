@@ -2,6 +2,14 @@
 - id = document.get("id")
 
 #toolbar-container
+  #navigation
+    - if @previous_document || @next_document 
+      #search_info
+        = link_back_to_catalog.gsub("Back to Search", "Your Search:").html_safe
+        = item_page_entry_info.gsub("Showing item ", "").gsub(" from your search.","").html_safe
+
+      = link_to_previous_document(@previous_document)
+      = link_to_next_document(@next_document)	
   %ul#show-toolbar.dropmenu
     -#%li.right
       -#%div
