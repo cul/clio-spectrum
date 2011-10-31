@@ -1,4 +1,5 @@
 - @page_title = application_name + " Article Search"
+= render :partial => "/_search/datasources", :locals => {:active => 'Articles'}
 - if @error
   .landing_text
     This search has returned an error. Right now, the Summon API is having trouble with unicode searches. We are currently working on this with Serial Solutions. If you did not do a search involving unicode, please use the feedback button to report your problem

@@ -6,31 +6,30 @@ class SearchController < ApplicationController
 
   def index
     @results = []
+    params['categories'] ||= ['catalog', 'articles', 'lweb']
 
-    if params['commit']
-      if params[:q].to_s.strip.empty?
-        flash[:error] = "You cannot search with an empty string."
+    if params['q'].to_s.strip.empty? 
+      flash[:error] = "You cannot search with an empty string." if params['commit']
+    else
+      active_categories = CATEGORY_ORDER.select { |cat| params['categories'].listify.include?(cat) }
+
+
+
+      case active_categories.length 
+      when 0
+        flash[:error] = "You must select a category to search."
+      when 1
+        redirect_to search_url_for(active_categories.first, params)
       else
-        active_categories = CATEGORY_ORDER.select { |cat| params['categories'].listify.include?(cat) }
-
-
-
-        case active_categories.length 
-        when 0
-          flash[:error] = "You must select a category to search."
-        when 1
-          redirect_to search_url_for(active_categories.first, params)
-        else
-          @results= {}
-         
-          active_categories.each do |category|
-            @results[category] = get_results_for_category(category)
-          end
-
+        @results= {}
+       
+        active_categories.each do |category|
+          @results[category] = get_results_for_category(category)
         end
 
-
       end
+
+
     end
 
     params['categories'] ||= ['catalog', 'articles', 'lweb'] unless params.has_key?('q')

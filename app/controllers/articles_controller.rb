@@ -1,7 +1,7 @@
 require 'blacklight/catalog'
 
 class ArticlesController < ApplicationController
-  layout "articles"
+  layout "quicksearch"
 
 
   def index
@@ -14,7 +14,6 @@ class ArticlesController < ApplicationController
   end
   def search
     @new_search = !params.has_key?('category') || (params['new_search'] && params['new_search'] != '')
-    
     begin
       @summon = SerialSolutions::SummonAPI.new(params)
     rescue

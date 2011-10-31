@@ -5,7 +5,7 @@ class CatalogController < ApplicationController
   include Blacklight::Catalog
   include BlacklightHighlight::ControllerExtension
 
-
+  layout "quicksearch"
 
   def show
     @response, @document = get_solr_response_for_doc_id    

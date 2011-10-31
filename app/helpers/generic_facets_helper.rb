@@ -6,9 +6,19 @@ module GenericFacetsHelper
 
   def display_facet_item_label(item, value = :not_selected)
     label = item[:label].to_s
+    if value == :not_selected
+      label = content_tag(:a, label, :href => facet_item_command(item, :select), :class => "facet_plus facet_action").html_safe
+    end
     label = "NOT " + label if value == :negated
-    label += " (#{number_with_delimiter(item[:count], :delimiter => ".")})" if value == :not_selected
-    content_tag(:span, "#{label}", :class => 'facet_label')
+    if value == :not_selected
+      if item[:count].to_i >= 1000000
+        label += " (#{item[:count].to_i/1000000}M)"
+      else
+        label += " (#{number_with_delimiter(item[:count], :delimiter => ".")})" 
+      end
+    end
+
+    content_tag(:span, "#{label}".html_safe, :class => 'facet_label')
   end
 
   def display_facet_item(item)
@@ -20,8 +30,6 @@ module GenericFacetsHelper
     when :not_selected
 
       content_tag(:li, 
-                  image_tag("icons/facet_plus.png", :class => "facet_plus facet_action", :size => "14x14", :href => facet_item_command(item, :select)) + 
-                  image_tag("icons/facet_minus.png", :class => "facet_minus facet_action", :size => "14x14", :href => facet_item_command(item, :negate)) + 
                   display_facet_item_label(item, :not_selected), :class => "facet_not_selected")
     end
   end

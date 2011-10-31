@@ -1,5 +1,5 @@
 - active ||= ""
-- sources = [ {:title => "Quicksearch", :url => {:controller => "search"}}, {:title => "Catalog", :url => {:controller => "catalog"}}, {:title => "Articles", :url => {:controller => "articles"}}]
+- sources = [ {:title => "Quicksearch", :url => {:controller => "search"}}, {:title => "Catalog", :url => {:controller => "catalog"}}, {:title => "Articles", :url => {:controller => "articles", :action => "index"}}]
 - sidebar_items << capture do
 
   %ul#datasources
@@ -11,6 +11,8 @@
           - url = "#"
           - options = {:class => "selected"}
         - else
-          - url = item_hash[:url]
-          - options = {:q => params[:q]}
+          - if item_hash[:title] == "Articles" && !params['q'].to_s.empty?
+            - url = {:controller => "articles", :action => "search",  'new_search' => true, 's.q' => params['q']}
+          - else
+            - url = item_hash[:url].merge(:q => params['q'])
         = link_to item_hash[:title], url , options

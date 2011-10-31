@@ -9,6 +9,7 @@ NewBooks::Application.routes.draw do
 
   match 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
 
+  match 'lweb', :to => 'search#index', :as => :lweb_search, :defaults => {:categories => ['lweb']}
   match 'articles', :to => "articles#index"
   match 'articles/show', :to => "articles#show", :as => :article_show
   match 'articles/search', :to => "articles#search", :as => :article_search
