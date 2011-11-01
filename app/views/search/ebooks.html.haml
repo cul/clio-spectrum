@@ -1,0 +1,13 @@
+
+= render :partial => "/_search/datasources", :locals => {:active => 'eBooks'}
+
+- unless @results.empty?
+  #quicksearch.two_equal
+    .result_set
+      = render :partial => "result_set_catalog_ebooks", :locals => {:result => @results['catalog_ebooks']}
+    .result_set.last
+      = render :partial => "result_set_ebooks", :locals => {:result => @results['ebooks']}
+- else
+  #intro_text
+    %h2 eBooks search
+    %p The eBooks datasource searches our local catalog and the Summon article search for ebooks.

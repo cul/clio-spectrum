@@ -52,13 +52,19 @@ ul#datasources
   :padding-top 1.75em
   :padding-bottom 1em
 
+  .search_field
+    :font-size 1.2em
+    :padding 0 .25em 0em .25em
+    
+
   .q
+    :padding-left .25em
     :font-size 1.4em
     :width 17em
     :margin-right .5em
 
   .submit
-    :font-size 1.4em
+    :font-size 1.2em
     :padding .25em .5em .25em .5em
 #main_with_sources
   +columns(18,24)
@@ -67,6 +73,39 @@ ul#datasources
 #sources
   +columns(6,24)
 
+.two_equal
+  +columns(18,18)
+  +omega(18)
+  :padding 1em 0 1em 0
+
+  .result_set
+    +columns(9,18)
+
+    .result 
+      :background-color #fff
+      +columns(9,9)
+      +omega(9)
+
+    .row
+      +columns(9,9)
+      +omega(9)
+
+    .label
+      +columns(2,9)
+
+    .value
+      +columns(7,9)
+      +omega(9)
+      
+
+    &.last
+      +omega(18)
+
+.pageEntriesInfo.non_catalog
+  :padding 1em 0 .5em 
+  :border-bottom 1px solid #ccc
+  :margin-left auto
+  :margin-right auto
 
 .two_lopsided
   +columns(18,18)

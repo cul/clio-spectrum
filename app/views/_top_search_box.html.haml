@@ -1,13 +1,23 @@
 - if controller.controller_name == 'search'
-  #aggregate_search
-    = form_tag search_index_path, :method => :get do 
-      - params['categories'].each do |category|
-        = hidden_field_tag 'categories[]', category
-      #search_row
-        = text_field_tag :q, params[:q], :class => "q" 
-        %button{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'Search'} Search
+  - if controller.action_name == 'ebooks'
+    #aggregate_search
+      = form_tag search_ebooks_path, :method => :get do 
+        - params['categories'].each do |category|
+          = hidden_field_tag 'categories[]', category
+        #search_row
+          = text_field_tag :q, params[:q], :class => "q" 
+          %button{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'Search'} Search
+  - else 
+    #aggregate_search
+      = form_tag search_index_path, :method => :get do 
+        - params['categories'].each do |category|
+          = hidden_field_tag 'categories[]', category
+        #search_row
+          = text_field_tag :q, params[:q], :class => "q" 
+          %button{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'Search'} Search
 - elsif controller.controller_name == 'catalog'
 
+  = render :partial => 'search_form' 
 - elsif controller.controller_name == 'articles'
   #articles_search
     = form_tag article_search_path(), :method => :get do

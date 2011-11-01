@@ -8,16 +8,16 @@ class ArticlesController < ApplicationController
     @new_search = true
     begin
       @summon = SerialSolutions::SummonAPI.new('new_search' => true, 'category' => 'articles')
-    rescue
-      @error = true
+    rescue Exception => e
+      @error = e.message
     end
   end
   def search
     @new_search = !params.has_key?('category') || (params['new_search'] && params['new_search'] != '')
     begin
       @summon = SerialSolutions::SummonAPI.new(params)
-    rescue
-      @error = true
+    rescue Exception => e
+      @error = e
     end
   end
   

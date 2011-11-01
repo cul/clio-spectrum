@@ -1,6 +1,7 @@
 
 module SerialSolutions
   class SummonAPI
+    include ActionView::Helpers::NumberHelper
     include Rails.application.routes.url_helpers
     Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
     
@@ -31,9 +32,37 @@ module SerialSolutions
         #end
       #end
 
+      options.delete('utf8')
       @search = @service.search(options)
       @query = @search.query
       @query_hash = @query.to_hash
+    end
+
+    def page
+      [1, @query_hash['s.pn'].to_i].max
+    end
+
+    def entries_info
+
+      if @search.record_count == 0
+        " "
+      else
+        start_num = [@search.record_count, [0, (page - 1)].max * page_size + 1].min
+        end_num = [@search.record_count, start_num + page_size].min
+        txt = "Displaying "
+        if end_num - start_num > 1
+          txt += "items #{number_with_delimiter(start_num)} - #{number_with_delimiter(end_num)} of #{number_with_delimiter(@search.record_count)}"
+        else
+          txt += "item #{number_with_delimiter(start_num)} - #{number_with_delimiter(end_num)} of #{number_with_delimiter(@search.record_count)}"
+        end
+
+        txt
+      end
+    end
+
+    def page_size
+      size = @query_hash['s.ps'].to_i 
+      size == 0 ? 15 : size
     end
 
     def previous_page
@@ -49,6 +78,9 @@ module SerialSolutions
       search_merge('s.pn' => new_page)
     end
 
+    def page_count
+      @search.page_count.to_i
+    end
     private
 
     def search_merge(params={})
