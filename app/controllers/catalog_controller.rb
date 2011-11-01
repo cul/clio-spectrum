@@ -5,7 +5,24 @@ class CatalogController < ApplicationController
   include Blacklight::Catalog
   include BlacklightHighlight::ControllerExtension
 
-  layout "quicksearch"
+  def index
+    
+    delete_or_assign_search_session_params
+    
+    extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => "RSS for results")
+    extra_head_content << view_context.auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => "Atom for results")
+    
+    (@response, @document_list) = get_search_results
+    @filters = params[:f] || []
+    search_session[:total] = @response.total unless @response.nil?
+    
+    respond_to do |format|
+      format.html { save_current_search_params; render :layout => 'quicksearch' }
+      format.rss  { render :layout => false }
+      format.atom { render :layout => false }
+    end
+  end
+  
 
   def show
     @response, @document = get_solr_response_for_doc_id    
