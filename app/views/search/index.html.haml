@@ -1,6 +1,8 @@
 = render :partial => "/_search/datasources", :locals => {:active => 'Quicksearch'}
 
-- unless @results.empty?
+- if @results.empty?
+  = render :partial => "_search/landing_pages"
+- else
   #quicksearch.two_lopsided
     .main_results
       .result_set
