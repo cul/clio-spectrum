@@ -1,0 +1,23 @@
+-# manuscript_archive
+
+- marc = document.to_marc
+.title= document_heading.listify.join("")
+= add_row("Author", generate_value_links(display_marc_field(marc, 'author'), :author))
+= add_row("Uniform Title", display_marc_field(marc, 'title_uniform'))
+= add_row("Title", display_marc_field(marc, 'title'))
+= add_row("In", display_marc_field(marc, 'in'))
+= add_row("Production", display_marc_field(marc, 'publisher'))
+= add_row("Description", display_marc_field(marc, 'description'))
+= add_row("Arrangement", display_marc_field(marc, 'arrangement'))
+= add_row("Finding Aid", display_marc_field(marc, 'finding_aid'))
+= add_row("Restrictions", display_marc_field(marc, 'restrictions'))
+= add_row("Biographical Note", display_marc_field(marc, 'biographical_historical_note'))
+= add_row("Contents", display_marc_field(marc, 'contents'))
+= add_row("Summary", display_marc_field(marc, 'summary'))
+= add_row("Notes", display_marc_field(marc, 'notes_manuscript_archive'))
+= add_row("Provenance", display_marc_field(marc, 'provenance'))
+= add_row("Other Titles", display_marc_field(marc, 'title_other'))
+= add_row("Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_LC')))
+= add_row("Medical Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_mesh')))
+= add_row("Also Listed Under", generate_value_links(display_marc_field(marc, 'author_other'), :author))
+= add_row('Format', formats_with_icons(document))

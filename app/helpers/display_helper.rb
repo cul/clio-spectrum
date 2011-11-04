@@ -62,7 +62,12 @@ module DisplayHelper
 
   SOLR_FORMAT_LIST = {
     "Music - Recording" => "music_recording",
-    "Music - Score" => "music"
+    "Music - Score" => "music",
+    "Journal/Periodical" => "serial",
+    "Manuscript/Archive" => "manuscript_archive",
+    "Newspaper" => "newspaper",
+    "Video" => "video",
+    "Map/Globe" => "map_globe"
   }
 
   SUMMON_FORMAT_LIST = {
@@ -70,7 +75,7 @@ module DisplayHelper
     "Journal Article" => "article"
   }
 
-  FORMAT_RANKINGS = ["database", "music_recording", "music", "clio", "ebooks", "article","summon", "lweb"]
+  FORMAT_RANKINGS = ["database", "map_globe", "manuscript_archive", "video", "music_recording", "music", "newspaper", "serial", "clio", "ebooks", "article", "summon", "lweb"]
 
   def determine_formats(document, defaults = [])
     formats = defaults.listify
