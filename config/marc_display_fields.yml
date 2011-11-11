@@ -3,21 +3,25 @@ absorbed:
         ind1: :all
         ind2: '5'
         display: abcdghkmnst
+        search: t
 absorbed_in_part:
     -   tag: 780
         ind1: :all
         ind2: '6'
         display: abcdghkmnst
+        search: t
 absorbed_by:
     -   tag: 785
         ind1: :all
         ind2: '4'
         display: abcdghkmnst
+        search: t
 absorbed_in_part_by:
     -   tag: 785
         ind1: :all
         ind2: '5'
         display: abcdghkmnst
+        search: t
 arrangement:
     -   tag: 351
         display: abc
@@ -54,6 +58,7 @@ changed_back_to:
         ind1: :all
         ind2: '8'
         display: abcdghkmnst
+        search: t
 contents:
     -   tag: 505
         display: agrtu
@@ -63,21 +68,25 @@ continued_by:
         ind1: :all
         ind2: '0'
         display: abcdghkmnst
+        search: t
 continued_in_part_by:
     -   tag: 785
         ind1: :all
         ind2: '1'
         display: abcdghkmnst
+        search: t
 continues:
     -   tag: 780
         ind1: :all
         ind2: '0'
         display: abcdghkmnst
+        search: t
 continues_in_part:
     -   tag: 780
         ind1: :all
         ind2: '1'
         display: abcdghkmnst
+        search: t
 credits:
     -   tag: 508
         display: a
@@ -103,6 +112,7 @@ formed_by_the_union_of:
         ind1: :all
         ind2: '4'
         display: abcdghkmnst
+        search: t
 frequency:
     -   tag: 310
         display: ab
@@ -151,11 +161,8 @@ merged_with_to_form:
         ind1: :all
         ind2: '7'
         display: abcdghkmnst
+        search: t
 notes:
-    -   tag: 254
-        display: a
-    -   tag: 307
-        display: ab
     -   tag: 500
         display: a
     -   tag: 501
@@ -170,8 +177,6 @@ notes:
         display: a
     -   tag: 513
         display: ab
-    -   tag: 515
-        display: a
     -   tag: 518
         display: a3
     -   tag: 521
@@ -210,6 +215,33 @@ notes:
         display: a
     -   tag: 584
         display: ab
+    -   tag: 586
+        display: a3
+    -   tag: 590
+        display: a
+notes_book:
+    -   tag: 500
+        display: a
+    -   tag: 501
+        display: a
+    -   tag: 502
+        display: a
+    -   tag: 503
+        display: a
+    -   tag: 504
+        display: ab
+    -   tag: 513
+        display: ab
+    -   tag: 521
+        display: ab3
+    -   tag: 522
+        display: a
+    -   tag: 525
+        display: a
+    -   tag: 530
+        display: abcd3
+    -   tag: 534
+        display: abcefklmnopt
     -   tag: 586
         display: a3
     -   tag: 590
@@ -340,6 +372,7 @@ separated_from:
         ind1: :all
         ind2: '7'
         display: abcdghkmnst
+        search: t
 series:
     -   tag: 800
         display: abcdefghklmnopqrstuv3
@@ -357,6 +390,7 @@ split_into:
         ind1: :all
         ind2: '6'
         display: abcdghkmnst
+        search: t
 standard_no:
     -   tag: '024'
         ind1: '0123478'
@@ -420,21 +454,25 @@ superseded_by:
         ind1: :all
         ind2: '2'
         display: abcdghkmnst
+        search: t
 superseded_in_part_by:
     -   tag: 785
         ind1: :all
         ind2: '3'
         display: abcdghkmnst
+        search: t
 supersedes:
     -   tag: 780
         ind1: :all
         ind2: '2'
         display: abcdghkmnst
+        search: t
 supersedes_in_part:
     -   tag: 780
         ind1: :all
         ind2: '3'
         display: abcdghkmnst
+        search: t
 system_details:
     -   tag: 538
         display: aiu
