@@ -62,7 +62,13 @@ module DisplayHelper
 
   SOLR_FORMAT_LIST = {
     "Music - Recording" => "music_recording",
-    "Music - Score" => "music"
+    "Music - Score" => "music",
+    "Journal/Periodical" => "serial",
+    "Manuscript/Archive" => "manuscript_archive",
+    "Newspaper" => "newspaper",
+    "Video" => "video",
+    "Map/Globe" => "map_globe",
+    "Book" => "book"
   }
 
   SUMMON_FORMAT_LIST = {
@@ -70,7 +76,7 @@ module DisplayHelper
     "Journal Article" => "article"
   }
 
-  FORMAT_RANKINGS = ["database", "music_recording", "music", "clio", "ebooks", "article","summon", "lweb"]
+  FORMAT_RANKINGS = ["database", "map_globe", "manuscript_archive", "video", "music_recording", "music", "newspaper", "serial", "book", "clio", "ebooks", "article", "summon", "lweb"]
 
   def determine_formats(document, defaults = [])
     formats = defaults.listify
@@ -117,7 +123,8 @@ module DisplayHelper
       
       case category
       when :all
-        out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "all_fields", :commit => "search"))
+        q = '"' + s[1] + '"'
+        out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "all_fields", :commit => "search"))
       when :author
 #        link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "author", :commit => "search"))
         # remove period from s[1] to match entries in author_facet using solrmarc removeTrailingPunc rule

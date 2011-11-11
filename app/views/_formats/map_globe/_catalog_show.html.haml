@@ -1,3 +1,4 @@
+-# map_globe
 - marc = document.to_marc
 .title= document_heading.listify.join("")
 = add_row("Author", generate_value_links(display_marc_field(marc, 'author'), :author))
@@ -6,14 +7,15 @@
 = add_row("Edition", display_marc_field(marc, 'edition'))
 = add_row("Published", display_marc_field(marc, 'publisher'))
 = add_row("Description", display_marc_field(marc, 'description'))
+= add_row("Map Format", display_marc_field(marc, 'map_format'))
+= add_row("Scale", display_marc_field(marc, 'scale'))
 = add_row("Series", generate_value_links(display_marc_field(marc, 'series'), :title))
-= add_row("System Details", display_marc_field(marc, 'system_details'))
 = add_row("Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_LC')))
 = add_row("Medical Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_mesh')))
 = add_row("Also Listed Under", generate_value_links(display_marc_field(marc, 'author_other'), :author))
 = add_row("Contents", display_marc_field(marc, 'contents'))
 = add_row("Other Titles", display_marc_field(marc, 'title_other'))
-= add_row("Notes", display_marc_field(marc, 'notes'))
+= add_row("Notes", display_marc_field(marc, 'notes_map_globe'))
 = add_row("Language", document["language_facet"], :join => '; ')
 = add_row("LCCN", display_marc_field(marc, 'LCCN'))
 = add_row("Publisher No.", display_marc_field(marc, 'publisher_no'))

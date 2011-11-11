@@ -1,3 +1,30 @@
+absorbed:
+    -   tag: 780
+        ind1: :all
+        ind2: '5'
+        display: abcdghkmnst
+        search: t
+absorbed_in_part:
+    -   tag: 780
+        ind1: :all
+        ind2: '6'
+        display: abcdghkmnst
+        search: t
+absorbed_by:
+    -   tag: 785
+        ind1: :all
+        ind2: '4'
+        display: abcdghkmnst
+        search: t
+absorbed_in_part_by:
+    -   tag: 785
+        ind1: :all
+        ind2: '5'
+        display: abcdghkmnst
+        search: t
+arrangement:
+    -   tag: 351
+        display: abc
 author:
     -   tag: 100
         display: abcdefgjklnpqtu
@@ -18,10 +45,51 @@ author_other:
     -   tag: 711
         display: acdefghijklnpqstux
         search: acdefghijklnpqstux
+biographical_historical_note:
+    -   tag: 545
+        display: ab
+cast:
+    -   tag: 511
+        ind1: '1'
+        ind2: :all
+        display: a
+changed_back_to:
+    -   tag: 785
+        ind1: :all
+        ind2: '8'
+        display: abcdghkmnst
+        search: t
 contents:
     -   tag: 505
         display: agrtu
         split: ' -- '
+continued_by:
+    -   tag: 785
+        ind1: :all
+        ind2: '0'
+        display: abcdghkmnst
+        search: t
+continued_in_part_by:
+    -   tag: 785
+        ind1: :all
+        ind2: '1'
+        display: abcdghkmnst
+        search: t
+continues:
+    -   tag: 780
+        ind1: :all
+        ind2: '0'
+        display: abcdghkmnst
+        search: t
+continues_in_part:
+    -   tag: 780
+        ind1: :all
+        ind2: '1'
+        display: abcdghkmnst
+        search: t
+credits:
+    -   tag: 508
+        display: a
 description:
     -   tag: 300
         display: abcefg3
@@ -34,6 +102,28 @@ description:
 edition:
     -   tag: 250
         display: ab
+finding_aid:
+    -   tag: 555
+        ind1: '0'
+        ind2: :all
+        display: abcdu3
+formed_by_the_union_of:
+    -   tag: 780
+        ind1: :all
+        ind2: '4'
+        display: abcdghkmnst
+        search: t
+frequency:
+    -   tag: 310
+        display: ab
+    -   tag: 321
+        display: ab
+in:
+    -   tag: 773
+        display: abdghkmnpqrstuxyz
+issues_published:
+    -   tag: 362
+        display: a
 ISN:
     -   tag: '020'
         display: ac
@@ -52,13 +142,27 @@ ISSN:
 LCCN:
     -   tag: '010'
         display: a
+language:
+    -   tag: 546
+        display: ab3
+map_format:
+    -   tag: 255
+        display: abcde
+    -   tag: 342
+        display: abcdefghijklnopqrstuvw
+    -   tag: 343
+        display: abcdefghi
+    -   tag: 352
+        display: abcdefgi
+    -   tag: 514
+        display: abcdefghijkm
+merged_with_to_form:
+    -   tag: 785
+        ind1: :all
+        ind2: '7'
+        display: abcdghkmnst
+        search: t
 notes:
-    -   tag: '037'
-        display: abcdefgh
-    -   tag: 254
-        display: a
-    -   tag: 307
-        display: ab
     -   tag: 500
         display: a
     -   tag: 501
@@ -73,8 +177,6 @@ notes:
         display: a
     -   tag: 513
         display: ab
-    -   tag: 515
-        display: a
     -   tag: 518
         display: a3
     -   tag: 521
@@ -117,6 +219,71 @@ notes:
         display: a3
     -   tag: 590
         display: a
+notes_book:
+    -   tag: 500
+        display: a
+    -   tag: 501
+        display: a
+    -   tag: 502
+        display: a
+    -   tag: 503
+        display: a
+    -   tag: 504
+        display: ab
+    -   tag: 513
+        display: ab
+    -   tag: 521
+        display: ab3
+    -   tag: 522
+        display: a
+    -   tag: 525
+        display: a
+    -   tag: 530
+        display: abcd3
+    -   tag: 534
+        display: abcefklmnopt
+    -   tag: 586
+        display: a3
+    -   tag: 590
+        display: a
+notes_manuscript_archive:
+    -   tag: 500
+        display: a
+    -   tag: 580
+        display: a
+    -   tag: 581
+        display: a3
+    -   tag: 586
+        display: a3
+    -   tag: 590
+        display: a
+notes_map_globe:
+    -   tag: 500
+        display: a
+    -   tag: 501
+        display: a
+    -   tag: 504
+        display: ab
+    -   tag: 515
+        display: a
+    -   tag: 521
+        display: ab3
+    -   tag: 522
+        display: a
+    -   tag: 525
+        display: a
+    -   tag: 530
+        display: abcd3
+    -   tag: 534
+        display: abcefklmnopt
+    -   tag: 580
+        display: a
+    -   tag: 581
+        display: a3
+    -   tag: 586
+        display: a3
+    -   tag: 590
+        display: a
 notes_music_recording:
     -   tag: 254
         display: a
@@ -128,11 +295,58 @@ notes_music_recording:
         display: a3
     -   tag: 590
         display: a
+notes_serial:
+    -   tag: 500
+        display: a
+    -   tag: 501
+        display: a
+    -   tag: 504
+        display: ab
+    -   tag: 515
+        display: a
+    -   tag: 521
+        display: ab3
+    -   tag: 525
+        display: a
+    -   tag: 530
+        display: abcd3
+    -   tag: 534
+        display: abcefklmnopt
+    -   tag: 535
+        display: abcdg3
+    -   tag: 547
+        display: a
+    -   tag: 550
+        display: a
+    -   tag: 580
+        display: a
+    -   tag: 590
+        display: a
+notes_video:
+    -   tag: 500
+        display: a
+    -   tag: 518
+        display: a3
+    -   tag: 521
+        display: ab3
+    -   tag: 530
+        display: abcd3
+    -   tag: 534
+        display: abcefklmnopt
+    -   tag: 550
+        display: a
+    -   tag: 586
+        display: a3
+    -   tag: 590
+        display: a
 performers:
     -   tag: 511
         ind1: '0'
         ind2: :all
         display: a
+provenance:
+    -   tag: 561
+        display: a3
 publisher:
     -   tag: 260
         display: abcefg3
@@ -142,11 +356,23 @@ publisher:
         display: abckl
     -   tag: 270
         display: abcdefghijklmnpqrz
-    -   tag: 362
-        display: a
 publisher_no:
     -   tag: '028'
         display: ab
+restrictions:
+    -   tag: 506
+        display: abcdeu3
+    -   tag: 540
+        display: abcdu3
+scale:
+    -   tag: 507
+        display: abce
+separated_from:
+    -   tag: 780
+        ind1: :all
+        ind2: '7'
+        display: abcdghkmnst
+        search: t
 series:
     -   tag: 800
         display: abcdefghklmnopqrstuv3
@@ -159,6 +385,12 @@ series:
         search: a
     -   tag: 840
         display: ahv
+split_into:
+    -   tag: 785
+        ind1: :all
+        ind2: '6'
+        display: abcdghkmnst
+        search: t
 standard_no:
     -   tag: '024'
         ind1: '0123478'
@@ -214,9 +446,59 @@ subject_mesh:
         ind1: :all
         ind2: '2'
         display: avxyz
+summary:
+    -   tag: 520
+        display: a
+superseded_by:
+    -   tag: 785
+        ind1: :all
+        ind2: '2'
+        display: abcdghkmnst
+        search: t
+superseded_in_part_by:
+    -   tag: 785
+        ind1: :all
+        ind2: '3'
+        display: abcdghkmnst
+        search: t
+supersedes:
+    -   tag: 780
+        ind1: :all
+        ind2: '2'
+        display: abcdghkmnst
+        search: t
+supersedes_in_part:
+    -   tag: 780
+        ind1: :all
+        ind2: '3'
+        display: abcdghkmnst
+        search: t
+system_details:
+    -   tag: 538
+        display: aiu
 title:
     -   tag: 245
         display: abcfghknps
+title_added:
+    -   tag: 246
+        ind1: '01'
+        ind2: '5'
+        display: abfghinp
+title_caption:
+    -   tag: 246
+        ind1: '01'
+        ind2: '6'
+        display: abfghinp
+title_cover:
+    -   tag: 246
+        ind1: '01'
+        ind2: '4'
+        display: abfghinp
+title_distinctive:
+    -   tag: 246
+        ind1: '01'
+        ind2: '2'
+        display: abfghinp
 title_other:
     -   tag: 246
         display: abfghinp
@@ -228,6 +510,21 @@ title_other:
         display: adfghklmnoprst
     -   tag: 740
         display: ahnp
+title_parallel:
+    -   tag: 246
+        ind1: '01'
+        ind2: '1'
+        display: abfghinp
+title_running:
+    -   tag: 246
+        ind1: '01'
+        ind2: '7'
+        display: abfghinp
+title_spine:
+    -   tag: 246
+        ind1: '01'
+        ind2: '8'
+        display: abfghinp
 title_uniform:
     -   tag: 240
         display: adfghklmnoprs

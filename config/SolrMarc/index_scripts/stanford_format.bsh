@@ -165,10 +165,12 @@ Set getFormats(Record record)
             break;
           case 'w':   // web site
             break;
+          case ' ':  // blank for other serial records (include with journals and periodicals)
+          	resultSet.add("Journal/Periodical");
+          	break;
           case '|':  // vertical bar for brief serial records
             resultSet.add("Journal/Periodical");
             break;
-
         }
       }
     }
@@ -197,6 +199,10 @@ Set getFormats(Record record)
           break;
         case ' ':
           resultSet.add("Journal/Periodical");
+          break;
+        case '|':
+          resultSet.add("Journal/Periodical");
+          break;
       }
     }
   }
@@ -204,12 +210,10 @@ Set getFormats(Record record)
   Set values007 = indexer.getFieldList(record,"007");
 
   for (String value007 : values007) {
-    if (value007.charAt(0) == 'c') {
+	// remote electronic resources
+    if (value007.charAt(0) == 'c' && value007.charAt(1) == 'r') {
       resultSet.add("Online");
     }
-
-
-
   } 
 
   // look for conference proceedings in 6xx

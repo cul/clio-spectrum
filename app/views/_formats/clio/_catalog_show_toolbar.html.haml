@@ -24,7 +24,8 @@
     %li
       = link_to "Print", "javascript:print()"
     %li=link_to "Email", email_catalog_path(:id => id), {:id => "emailLink", :name => "email", :class => "lightboxLink"}
-    %li=link_to "SMS", sms_catalog_path(:id => id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}
+    -# %li=link_to "SMS", sms_catalog_path(:id => id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}
+    %li=link_to "SMS", "http://www.columbia.edu/cgi-bin/cul/forms/Stext?#{clio_id}", :target => "_blank"
     %li.haschildren
       =link_to "Cite / Export", "#"
       %ul.submenu
@@ -45,19 +46,19 @@
       =link_to "Display In...", "#"
       %ul.submenu
         - if clio_id
-          %li= link_to "Display in CLIO",url_for("http://clio.cul.columbia.edu:7018/vwebv/holdingsInfo?bibId=#{clio_id}")
+          %li= link_to "Display in CLIO", "http://clio.cul.columbia.edu:7018/vwebv/holdingsInfo?bibId=#{clio_id}"
             
         %li
           =link_to "Librarian View", librarian_view_catalog_path(id), {:id => "librarianLink", :name => "librarian_view", :class => "lightboxLink" }
     %li.haschildren
       =link_to "Services", "#"
       %ul.submenu
-        %li= link_to "Place a Recall/Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?bibId=#{clio_id}"
-        %li= link_to "Borrow Direct", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0012"
-        %li= link_to "ILL", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?#{clio_id}"
-        %li= link_to "Document Delivery", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0155"
-        %li= link_to "Inter-Campus Delivery", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0013"
-        %li= link_to "In-Process / On Order", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?#{clio_id}"
-        %li= link_to "Precataloging", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/precat?#{clio_id}"
+        %li= link_to "Place a Recall/Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?bibId=#{clio_id}", :target => "_blank"
+        %li= link_to "Borrow Direct", "http://www.columbia.edu/cgi-bin/cul/forms/borrowdirect?#{clio_id}", :target => "_blank"
+        %li= link_to "ILL", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?#{clio_id}", :target => "_blank"
+        %li= link_to "Document Delivery", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0155", :target => "_blank"
+        %li= link_to "Inter-Campus Delivery", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0013", :target => "_blank"
+        %li= link_to "In-Process / On Order", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sinprocess?#{clio_id}", :target => "_blank"
+        %li= link_to "Precataloging", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sprecat?#{clio_id}", :target => "_blank"
         - if HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + clio_id) == "1"
-          %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{h(document['clio_id_display'])}"
+          %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{clio_id}", :target => "_blank"
