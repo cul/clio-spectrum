@@ -9,8 +9,9 @@ NewBooks::Application.routes.draw do
 
   match 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
 
+  match 'new_arrivals', :to => 'catalog#index', :as => :new_arrivals_index, :defaults => {:f => {"acq_date_facet"=>["Last 3 Months"]}} 
   match 'lweb', :to => 'search#index', :as => :lweb_search, :defaults => {:categories => ['lweb']}
-  match 'articles', :to => "articles#index"
+  match 'articles', :to => "articles#index", :as => :article_index
   match 'articles/show', :to => "articles#show", :as => :article_show
   match 'articles/search', :to => "articles#search", :as => :article_search
   match 'ebooks', :to => 'search#ebooks', :as => :search_ebooks
