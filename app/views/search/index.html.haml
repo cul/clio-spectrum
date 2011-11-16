@@ -1,4 +1,4 @@
-= render :partial => "/_search/datasources", :locals => {:active => 'Quicksearch'}
+- add_datasources(@active_source || 'Quicksearch')
 
 - if @results.empty?
   = render :partial => "_search/landing_pages"

@@ -6,6 +6,23 @@ $(document).ready ->
     -> $(this).removeClass('hover')
   )
 
+  $("#datasource_expand").click -> 
+    $(this).hide()
+    $("#expanded_datasources").slideDown()
+
+  $("#datasource_contract").click ->
+    $("#expanded_datasources").slideUp(
+      100
+      -> $("#datasource_expand").show()
+    )
+  
+
+  $("ul.landing li").click ->
+    $("ul.landing li a").removeClass('selected')
+    $(this).children('a').addClass('selected')
+    selector = "#landing_pages div.landing_page." + $(this).attr('source')
+    $('#landing_pages div.landing_page').hide()
+    $(selector).show()
 
 attach_location_colorboxes = ->
   $(".location_display").colorbox

@@ -1,7 +1,13 @@
 #encoding: UTF-8
 module DatasourcesHelper
-  SOURCES_ALWAYS_INCLUDED = ['Quicksearch', 'Articles', 'Catalog']
+  SOURCES_ALWAYS_INCLUDED = ['Quicksearch', 'Catalog', 'Articles']
   SOURCES_MINOR = ['eBooks', 'New Arrivals']
+
+  def datasource_landing_page(title, &block)
+    classes = ['landing_page', datasource_to_class(title)]
+    classes << 'selected' if title == @active_source
+    content_tag(:div, capture(&block), :class => classes.join(' '))
+  end
 
   def datasources_active_list(options = {})
     if options[:all_sources]
@@ -19,22 +25,40 @@ module DatasourcesHelper
     end
   end
 
-  def render_datasources(options = {})
-    options.reverse_merge!(:all_sources => false)
+  def add_datasources(active)
+    options = {
+      :active => active,
+      :query => params['q'] || params['s.q'] || ""
+    }
+    
+    options[:all_sources] = options[:query].to_s.empty?
 
-    result = []
+    result = [content_tag(:li, 'Sources', :class => 'title')]
 
-    datasources_active_list(options).each do |source|
-      result << datasource_link(source,options)
+    result |= datasources_active_list(options).collect { |src| datasource_link(src,options) }
+
+    unless (hidden_datasources = datasources_hidden_list(options)).empty?
+      result << content_tag(:li, link_to("More", "#"),  :id => "datasource_expand")
+
+      sub_results = hidden_datasources.collect { |src| datasource_link(src,options) }
+      
+      sub_results << content_tag(:li, link_to("Fewer", "#", :id => "datasource_contract"))
+      result << content_tag(:ul, sub_results.join('').html_safe, :id => 'expanded_datasources')
     end
 
-    result.join('').html_safe
+    landing_class = options[:all_sources] ? 'landing' : ''
+    sidebar_items << content_tag(:ul, result.join('').html_safe, :id => "datasources", :class => landing_class)
+  end
+
+  def datasource_to_class(source)
+    source.to_s.gsub(/ /, '_').underscore
   end
 
   def datasource_link(source, options)
-
-    classes = (source == options[:active] ? 'selected' : '')
-    query = options[:query].to_s
+    classes = []
+    classes << 'selected' if  source == options[:active]
+    classes << 'minor_source' if options[:minor]
+    query = options[:query]
 
     href = if query.empty?
       '#'
@@ -53,7 +77,7 @@ module DatasourcesHelper
       end
     end
 
-    content_tag(:li, link_to(source, href, :class => classes),  :source => source.underscore)
+    content_tag(:li, link_to(source, href, :class => classes.join(" ")),  :source => datasource_to_class(source))
 
   end
 
