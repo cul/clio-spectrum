@@ -30,6 +30,10 @@ $(document).ready ->
     $('#top_search_box .search_box').hide()
     $(search_box_select).show()
 
+  $(".tester").hover (
+    -> alert('yay')
+    -> alert('boo')
+  )
 
 attach_location_colorboxes = ->
   $(".location_display").colorbox
