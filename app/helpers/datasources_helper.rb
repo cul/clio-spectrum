@@ -3,10 +3,11 @@ module DatasourcesHelper
   SOURCES_ALWAYS_INCLUDED = ['Quicksearch', 'Catalog', 'Articles']
   SOURCES_MINOR = ['eBooks', 'New Arrivals']
 
-  def datasource_landing_page(title, &block)
-    classes = ['landing_page', datasource_to_class(title)]
+  def datasource_landing_page(title)
+    datasource = datasource_to_class(title)
+    classes = ['landing_page', datasource] 
     classes << 'selected' if title == @active_source
-    content_tag(:div, capture(&block), :class => classes.join(' '))
+    content_tag(:div, render(:partial => "/_search/landing_pages/#{datasource}"), :class => classes.join(' '))
   end
 
   def datasources_active_list(options = {})
@@ -56,9 +57,10 @@ module DatasourcesHelper
 
   def datasource_link(source, options)
     classes = []
-    classes << 'selected' if  source == options[:active]
     classes << 'minor_source' if options[:minor]
     query = options[:query]
+
+    li_classes = source == options[:active] ? "selected" : ""
 
     href = if query.empty?
       '#'
@@ -73,11 +75,11 @@ module DatasourcesHelper
       when 'eBooks'
         {:controller => 'search', :action => 'ebooks', :q => query}
       when 'New Arrivals'
-        {:controller => 'catalog', :action => 'index', :q => query, :f => {"acq_date_facet" => ["Last 3 Months"]}}
+        {:controller => 'catalog', :action => 'index', :q => query, :f => {"acq_date_facet" => ["Last 3 Months"]}, :active_source => 'New Arrivals'}
       end
     end
 
-    content_tag(:li, link_to(source, href, :class => classes.join(" ")),  :source => datasource_to_class(source))
+    content_tag(:li, link_to(source, href, :class => classes.join(" ")),  :source => datasource_to_class(source), :class => li_classes)
 
   end
 

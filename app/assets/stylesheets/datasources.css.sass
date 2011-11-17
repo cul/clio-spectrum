@@ -1,11 +1,11 @@
 @import "blacklight/susy_framework"
 @import "local_mixes"
 
-#landing_pages div
+.landing_page
   :display none
 
-#landing_pages div.selected
-  :display block
+  &.selected
+    :display block
 
 ul#datasources
   :margin .4em 4em 2em 0
@@ -20,10 +20,12 @@ ul#datasources
     a
       :border-bottom none
       :color #000
-    a.selected
-      :color #394AD0
 
-  
+  li.selected
+    :background-color #F9F9FF
+
+    a
+      :color #394AFF
 
   li.hover
     :background #f6f6f6

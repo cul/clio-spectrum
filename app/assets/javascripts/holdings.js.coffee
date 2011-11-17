@@ -18,12 +18,12 @@ $(document).ready ->
   
 
   $("ul.landing li").click ->
-    $("ul.landing li a").removeClass('selected')
-    $(this).children('a').addClass('selected')
+    $("ul.landing li").removeClass('selected')
+    $(this).addClass('selected')
     source = $(this).attr('source')
     
-    landing_selector = "#landing_pages div.landing_page." + source
-    $('#landing_pages div.landing_page').hide()
+    landing_selector = ".landing_page." + source
+    $('.landing_page').hide()
     $(landing_selector).show()
     
     search_box_select = "#top_search_box .search_box." + source

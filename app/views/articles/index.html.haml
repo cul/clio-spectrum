@@ -1,5 +1,5 @@
 - @page_title = application_name + " Article Search"
-= render :partial => "/_search/datasources", :locals => {:active => 'Articles'}
+- add_datasources('Articles')
 #intro_text
   %h2 Article Search
   - if @error
@@ -8,8 +8,7 @@
       
   - else
 
-
-    %p This is the article search for CLIO beta. It is powered by Summon.
+    = datasource_landing_page('Articles') 
 
     - sidebar_items << capture do 
       = render :partial => "/_search/facets", :locals => {:facets => @summon.search.facets}
