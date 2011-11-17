@@ -219,9 +219,9 @@ module DisplayHelper
     values = values.collect(&:html_safe) if options[:html_safe]
 
     value_txt = if options[:display_only_first] 
-                  values.first.to_s 
+                  content_tag(:div, values.first.to_s ,:class => 'entry')
                 elsif options[:join]
-                  values.join(options[:join]).to_s 
+                  content_tag(:div, values.join(options[:join]).to_s , :class => 'entry')
                 else
                   values.collect { |v| content_tag(:div, v.to_s, :class => "entry") }.join("")
                 end

@@ -17,6 +17,6 @@
       - locations.each_with_index do |location, i|
         - holdings_id = "holding_" + (document["location_holdings_id_display"].listify[i] || document["location_holdings_id_display"].first).to_s if document["location_holdings_id_display"]
         %div
-          = image_tag("icons/unknown.png", :class => "availability " + holdings_id) + shorten_location(location).strip
+          = image_tag("icons/unknown.png", :class => "availability " + holdings_id) + shorten_location(location).strip + " -- " + document["location_call_number_display"].listify[i]
 
 = add_row('Format', formats_with_icons(document))
