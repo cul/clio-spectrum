@@ -1,42 +1,62 @@
-- if controller.controller_name == 'search'
-  - if controller.action_name == 'ebooks'
-    #aggregate_search
-      = form_tag search_ebooks_path, :method => :get do 
-        - params['categories'].each do |category|
-          = hidden_field_tag 'categories[]', category
-        #search_row
-          = text_field_tag :q, params[:q], :class => "q" 
-          %button{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'Search'} Search
-  - else 
-    #aggregate_search
-      = form_tag search_index_path, :method => :get do 
-        - params['categories'].each do |category|
-          = hidden_field_tag 'categories[]', category
-        #search_row
-          = text_field_tag :q, params[:q], :class => "q" 
-          %button{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'Search'} Search
-- elsif controller.controller_name == 'catalog'
+= display_search_box('Quicksearch') do 
+  = form_tag search_index_path, :method => :get do 
+    - params['categories'].each do |category|
+      = hidden_field_tag 'categories[]', category
+    .search_row
+      = text_field_tag :q, params[:q], :class => "q" 
+      %button{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'Search'} QuickSearch
 
-  = render :partial => 'search_form' 
-- elsif controller.controller_name == 'articles'
-  #articles_search
-    = form_tag article_search_path(), :method => :get do
-      = hidden_field_tag 'category', params['category'] || 'articles'
-      - unless @error
+= display_search_box('eBooks') do 
+  = form_tag search_ebooks_path, :method => :get do 
+    - params['categories'].each do |category|
+      = hidden_field_tag 'categories[]', category
+    .search_row
+      = text_field_tag :q, params[:q], :class => "q" 
+      %button{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'Search'} Search eBooks
 
-        - @summon.search.query.to_hash.each_pair do |key,value|
-          - if value.kind_of?(Array)
-            - value.each do |subvalue|
-              = hidden_field_tag "#{key}[]", subvalue 
-          - else
-            = hidden_field_tag key, value
 
-      #search_row
-        = text_field_tag 's.q', params['s.q'], :class => "q"
-        %button{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'Search'} Search
+= display_search_box('Catalog') do
+  = form_tag catalog_index_path, :method => :get do
+    .search_row
+      = text_field_tag :q, params[:q], :class => "q"
+      = label_tag(:search_field, " in ") 
+      = select_tag(:search_field, options_for_select(search_fields, h(params[:search_field])), :title => "Targeted search options", :class=>"search_field") 
+      
+      = search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page]).html_safe         
+      
+      %button{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'search'} Search Catalog
+
+
+= display_search_box('Articles') do 
+  = form_tag article_search_path(), :method => :get do
+    = hidden_field_tag 'category', params['category'] || 'articles'
+    - unless @error || @summon.nil?
+
+      - @summon.search.query.to_hash.each_pair do |key,value|
+        - if value.kind_of?(Array)
+          - value.each do |subvalue|
+            = hidden_field_tag "#{key}[]", subvalue 
+        - else
+          = hidden_field_tag key, value
+
+    .search_row
+      = text_field_tag 's.q', params['s.q'], :class => "q"
+      %button{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'Search'} Search Articles
       -##search_categories
         = radio_button_tag "new_search", '', !@new_search 
         Keep search refinements
         = radio_button_tag "new_search", 'true', @new_search 
         New search
 
+= display_search_box('New Arrivals') do
+  = form_tag catalog_index_path, :method => :get do
+    .search_row
+      = text_field_tag :q, params[:q], :class => "q"
+      = hidden_field_tag "f[acq_date_facet][]" , "Last 3 Months"
+      = hidden_field_tag "active_source", "New Arrivals"
+      = label_tag(:search_field, " in ") 
+      = select_tag(:search_field, options_for_select(search_fields, h(params[:search_field])), :title => "Targeted search options", :class=>"search_field") 
+      
+      = search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page]).html_safe         
+      
+      %button{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'search'} Search Catalog

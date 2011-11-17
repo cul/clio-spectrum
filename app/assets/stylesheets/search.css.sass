@@ -18,7 +18,12 @@
     +columns(4,24)
     +omega(24)
 
-#search_row
+.search_box 
+  :display none
+
+  &.selected
+    :display block
+.search_row
   :padding-top 1.75em
   :padding-bottom 1em
 
@@ -138,9 +143,6 @@
     .result_set 
       +columns(6,6)
       +omega(6)
-#search_categories
-  label
-    :padding-right 1em
 
 .show
   +columns(24,24)

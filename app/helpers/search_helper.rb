@@ -1,5 +1,36 @@
 #encoding: UTF-8
 module SearchHelper
+  def show_all_search_boxes
+    controller.controller_name == 'search' && controller.action_name == 'index'
+  end
+
+  def active_search_box
+    con = controller.controller_name
+    act = controller.action_name
+
+    if show_all_search_boxes()
+      "Quicksearch"
+    elsif act == 'ebooks' || con == 'ebooks'
+      'eBooks'
+    elsif con == 'catalog'
+      'Catalog'
+    elsif con == 'articles'
+      'Articles'
+    elsif @active_source == 'New Arrrivals'
+      'New Arrivals'
+    end
+  end
+
+  def display_search_box(source, &block)
+    div_classes = ["search_box", datasource_to_class(source)]
+    div_classes << "selected" if active_search_box == source
+
+    if show_all_search_boxes || active_search_box == source
+      content_tag(:div, capture(&block), :class => div_classes.join(" "))
+    else
+      ""
+    end
+  end
 
   def previous_page(search)
     if search.page <= 1

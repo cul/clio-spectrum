@@ -20,9 +20,16 @@ $(document).ready ->
   $("ul.landing li").click ->
     $("ul.landing li a").removeClass('selected')
     $(this).children('a').addClass('selected')
-    selector = "#landing_pages div.landing_page." + $(this).attr('source')
+    source = $(this).attr('source')
+    
+    landing_selector = "#landing_pages div.landing_page." + source
     $('#landing_pages div.landing_page').hide()
-    $(selector).show()
+    $(landing_selector).show()
+    
+    search_box_select = "#top_search_box .search_box." + source
+    $('#top_search_box .search_box').hide()
+    $(search_box_select).show()
+
 
 attach_location_colorboxes = ->
   $(".location_display").colorbox

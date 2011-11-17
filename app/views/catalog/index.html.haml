@@ -1,4 +1,4 @@
-- add_datasources('Catalog')
+- add_datasources(params['active_source'] == 'New Arrivals' && params['f'] && params['f'].has_key?('acq_date_facet') ? 'New Arrivals' : 'Catalog')
 
 -  unless has_search_parameters? 
   = render 'home' 
