@@ -2,6 +2,13 @@
 module DatasourcesHelper
   SOURCES_ALWAYS_INCLUDED = ['Quicksearch', 'Catalog', 'Articles']
   SOURCES_MINOR = ['eBooks', 'New Arrivals']
+  
+  def add_all_datasource_landing_pages
+    (SOURCES_ALWAYS_INCLUDED | SOURCES_MINOR).collect do |source|
+      datasource_landing_page(source)
+    end.join('').html_safe
+  
+  end
 
   def datasource_landing_page(title)
     datasource = datasource_to_class(title)

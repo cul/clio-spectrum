@@ -1,12 +1,10 @@
-- active_source = params['active_source'] == 'New Arrivals' && params['f'] && params['f'].has_key?('acq_date_facet') ? 'New Arrivals' : 'Catalog'
+- @active_source = params['active_source'] == 'New Arrivals' && params['f'] && params['f'].has_key?('acq_date_facet') ? 'New Arrivals' : 'Catalog'
 
-- add_datasources(active_source)
+- add_datasources(@active_source)
 
-- sidebar_items << capture do 
-  = render :partial=>'facets' 
 
 -  unless has_search_parameters? 
-  = datasource_landing_page(active_source)
+  = add_all_datasource_landing_pages
 
 - else
 
@@ -31,6 +29,8 @@
 
   = render :partial => 'document_list' 
 
+  - sidebar_items << capture do 
+    = render :partial=>'facets' 
 
   .pagination_container
     = render 'results_pagination' 

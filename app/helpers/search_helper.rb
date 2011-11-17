@@ -1,7 +1,7 @@
 #encoding: UTF-8
 module SearchHelper
   def show_all_search_boxes
-    controller.controller_name == 'search' && controller.action_name == 'index'
+    (controller.controller_name == 'search' && controller.action_name == 'index') || (controller.controller_name == 'catalog' && controller.action_name == 'index')
   end
 
   def active_search_box

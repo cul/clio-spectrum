@@ -6,8 +6,8 @@ class SearchController < ApplicationController
 
   def index
     @results = []
-    params['categories'] ||= ['catalog', 'articles', 'lweb']
-    @active_source = 'Quicksearch'
+    params['categories'] = ['catalog', 'articles', 'lweb']
+    @active_source = params['active_source'] || 'Quicksearch'
 
     if params['q'].to_s.strip.empty? 
       flash[:error] = "You cannot search with an empty string." if params['commit']
@@ -30,8 +30,6 @@ class SearchController < ApplicationController
 
     end
 
-    params['categories'] ||= ['catalog', 'articles', 'lweb'] unless params.has_key?('q')
-    params['categories'] ||= []
   end
 
   def ebooks

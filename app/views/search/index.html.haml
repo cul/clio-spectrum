@@ -1,8 +1,7 @@
 - add_datasources(@active_source || 'Quicksearch')
 
 - if @results.empty?
-  - ["Quicksearch", "Catalog", "Articles", "eBooks", "New Arrivals"].each do |source|
-    = datasource_landing_page(source)
+  = add_all_datasource_landing_pages
 - else
   #quicksearch.two_lopsided
     .main_results
