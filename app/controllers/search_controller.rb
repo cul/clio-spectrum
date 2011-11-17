@@ -9,6 +9,8 @@ class SearchController < ApplicationController
     params['categories'] = ['catalog', 'articles', 'lweb']
     @active_source = params['active_source'] || 'Quicksearch'
 
+    raise('test') if params['throw_error']
+
     if params['q'].to_s.strip.empty? 
       flash[:error] = "You cannot search with an empty string." if params['commit']
     else

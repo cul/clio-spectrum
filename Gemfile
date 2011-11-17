@@ -35,6 +35,8 @@ gem 'rubytree', '=0.5.2'
 gem 'blacklight_advanced_search'
 gem 'blacklight_highlight'
 
+gem 'exception_notification'
+
 group :development do
   gem 'rails-footnotes', '>=3.7.5'
   gem 'rsolr-footnotes'

@@ -30,3 +30,9 @@ config.action_mailer.smtp_settings = {
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 end
+
+NewBooks::Application.config.middleware.use ExceptionNotifier,
+   :email_prefix => "[Whatever] ",
+   :sender_address => %{"notifier" <spectrum@libraries.cul.columbia.edu>},
+   :exception_recipients => %w{james.stuart@gmail.com},
+   :ignore_crawlers => %w{Googlebot bingbot}

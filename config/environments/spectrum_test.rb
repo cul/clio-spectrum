@@ -31,3 +31,5 @@ config.action_mailer.smtp_settings = {
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 end
+
+
