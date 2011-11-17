@@ -33,3 +33,8 @@ config.action_mailer.smtp_settings = {
 end
 
 
+NewBooks::Application.config.middleware.use ExceptionNotifier,
+   :email_prefix => "[Spectrum Test] ",
+   :sender_address => %{"notifier" <spectrum@libraries.cul.columbia.edu>},
+   :exception_recipients => %w{james.stuart+spectrum_test@gmail.com},
+   :ignore_crawlers => %w{Googlebot bingbot}
