@@ -36,7 +36,7 @@ module DisplayHelper
 
   def formats_with_icons(document)
     document['format'].listify.collect do |format|
-      if (icon = FORMAT_MAPPINGS[format])
+      if (icon = FORMAT_MAPPINGS[format] && @add_row_style != :text)
         image_tag("icons/#{icon}.png", :size => "16x16") + " #{format}"
       else
         format.to_s
@@ -55,9 +55,11 @@ module DisplayHelper
     formats = determine_formats(document, options.delete(:format))
 
     partial_list = formats.collect { |format| "/_formats/#{format}/#{template}"}
-    render_first_available_partial(partial_list, options.merge(:document => document))
+    @add_row_style = options[:style]
+    view = render_first_available_partial(partial_list, options.merge(:document => document))
+    @add_row_style = nil
 
-
+    return view
   end 
 
   SOLR_FORMAT_LIST = {
@@ -106,6 +108,7 @@ module DisplayHelper
   DELIM = "|DELIM|"
 
   def generate_value_links(values, category)
+    
 
     # search value differs from display value
     # display value DELIM search value
@@ -120,23 +123,30 @@ module DisplayHelper
         out << v
         next
       end
-      
-      case category
-      when :all
-        q = '"' + s[1] + '"'
-        out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "all_fields", :commit => "search"))
-      when :author
-#        link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "author", :commit => "search"))
-        # remove period from s[1] to match entries in author_facet using solrmarc removeTrailingPunc rule
-        s[1] = s[1].gsub(/\.$/,'') if s[1] =~ /\w{3}\.$/ || s[1] =~ /[\]\)]\.$/
-        out << link_to(s[0], url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => s[1]))
-      when :subject
-        out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "subject", :commit => "search"))
-      when :title
-        q = '"' + s[1] + '"'
-        out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "title", :commit => "search"))
+
+      # if displaying plain text, do not include links
+
+      if @add_row_style == :text
+        out << s[0]
       else
-        raise "invalid category specified for generate_value_links"
+      
+        case category
+        when :all
+          q = '"' + s[1] + '"'
+          out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "all_fields", :commit => "search"))
+        when :author
+  #        link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "author", :commit => "search"))
+          # remove period from s[1] to match entries in author_facet using solrmarc removeTrailingPunc rule
+          s[1] = s[1].gsub(/\.$/,'') if s[1] =~ /\w{3}\.$/ || s[1] =~ /[\]\)]\.$/
+          out << link_to(s[0], url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => s[1]))
+        when :subject
+          out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "subject", :commit => "search"))
+        when :title
+          q = '"' + s[1] + '"'
+          out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "title", :commit => "search"))
+        else
+          raise "invalid category specified for generate_value_links"
+        end
       end
     end
     out
@@ -209,39 +219,55 @@ module DisplayHelper
       :join => nil,
       :abbreviate => nil,
       :html_safe => true,
-      :style => :definition
+      :style => @add_row_style || :definition
     })
 
-    values = value.listify
+    value_txt = convert_values_to_text(value, options)
 
-    values = values.collect { |txt| txt.to_s.abbreviate(options[:abbreviate]) } if options[:abbreviate]
 
-    values = values.collect(&:html_safe) if options[:html_safe]
-
-    value_txt = if options[:display_only_first] 
-                  content_tag(:div, values.first.to_s ,:class => 'entry')
-                elsif options[:join]
-                  content_tag(:div, values.join(options[:join]).to_s , :class => 'entry')
-                else
-                  values.collect { |v| content_tag(:div, v.to_s, :class => "entry") }.join("")
-                end
-
-    value_txt = value_txt.html_safe if options[:html_safe]
     result = ""
     if options[:display_blank] || !value_txt.empty?
+      if options[:style] == :text
+        result = (title.to_s + ": " + value_txt.to_s + "\r\n").html_safe
+      else
 
-      result = content_tag(:div, :class => "row") do
-        if options[:style] == :definition
-          content_tag(:div, title.to_s.html_safe, :class => "label") + content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "value")
-        elsif options[:style] == :blockquote
-          content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "blockquote")
+        result = content_tag(:div, :class => "row") do
+          if options[:style] == :definition
+            content_tag(:div, title.to_s.html_safe, :class => "label") + content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "value")
+          elsif options[:style] == :blockquote
+            content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "blockquote")
+          end
         end
-
       end
 
     end
 
     result
   end
+
+  def convert_values_to_text(value, options = {})
     
+    values = value.listify
+
+    values = values.collect { |txt| txt.to_s.abbreviate(options[:abbreviate]) } if options[:abbreviate]
+
+    values = values.collect(&:html_safe) if options[:html_safe]
+    values = if options[:display_only_first] 
+      values.first.to_s.listify
+    elsif options[:join]
+      values.join(options[:join]).to_s.listify
+    else
+      values
+    end
+
+    value_txt = if options[:style] == :text
+      values.join("\r\n  ")
+    else
+      values.collect { |v| content_tag(:div, v, :class => 'entry') }.join('')
+    end
+
+    value_txt = value_txt.html_safe if options[:html_safe]
+
+    value_txt
+  end  
 end

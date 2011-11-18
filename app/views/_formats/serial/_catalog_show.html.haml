@@ -1,6 +1,5 @@
 -# serial (same as newspaper)
 - marc = document.to_marc
-.title= document_heading.listify.join("")
 = add_row("Author", generate_value_links(display_marc_field(marc, 'author'), :author))
 = add_row("Title", display_marc_field(marc, 'title'))
 = add_row("Parallel Title", display_marc_field(marc, 'title_parallel'))

@@ -1,6 +1,5 @@
 -# music (scores)
 - marc = document.to_marc
-.title= document_heading.listify.join("")
 = add_row("Composer", generate_value_links(display_marc_field(marc, 'author'), :author))
 = add_row("Uniform Title", display_marc_field(marc, 'title_uniform'))
 = add_row("Title", display_marc_field(marc, 'title'))

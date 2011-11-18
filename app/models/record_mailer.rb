@@ -1,6 +1,11 @@
 # -*- encoding : utf-8 -*-
 # Only works for documents with a #to_marc right now. 
 class RecordMailer < ActionMailer::Base
+  include ApplicationHelper
+  add_template_helper(ApplicationHelper)
+  add_template_helper(DisplayHelper)
+  add_template_helper(MarcHelper)
+  include DisplayHelper
   
   def email_record(documents, details, from_host, url_gen_params)
     #raise ArgumentError.new("RecordMailer#email_record only works with documents with a #to_marc") unless document.respond_to?(:to_marc)
