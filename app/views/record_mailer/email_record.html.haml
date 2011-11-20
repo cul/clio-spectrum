@@ -1,6 +1,9 @@
 - @documents.each do |document| 
 
   = render_document_view(document, :template => "catalog_show", :format => "clio", :style => :text).gsub(/^\s*[\r\n]+/,'')
+  - unless (online_links = online_link_hash(document)).empty?
+    Online:
+    #{online_links.collect { |link| "  #{link.first}: #{link.last}"}.join("\r\n  ")}
 
   URL: #{catalog_path(document[:id], {:only_path => false}.merge(@url_gen_params)) }
 
