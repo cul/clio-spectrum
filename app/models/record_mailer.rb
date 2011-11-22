@@ -21,7 +21,7 @@ class RecordMailer < ActionMailer::Base
     @message        = details[:message]
     @url_gen_params = url_gen_params
 
-    mail(:to => details[:to],  :from => "no-reply@" << from_host, :subject => subject)
+    mail(:to => details[:to],  :from => "no-reply@" << from_host, :subject => subject) 
   end
   
   def sms_record(documents, details, from_host, url_gen_params)
