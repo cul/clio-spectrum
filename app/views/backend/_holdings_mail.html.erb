@@ -4,7 +4,7 @@
 Holdings:
 
 <%- holdings.each do |entry| %>
-<%= "#{entry['location_link']} #{entry['hours']}" %>
+<%= "#{entry['location_name']} #{entry['hours']}" %>
   <%= entry['call_number'] %>
 <%- entry['copies'].each do |copy| %>
   <%- copy['temp_locations'].listify.each do |tl| %>

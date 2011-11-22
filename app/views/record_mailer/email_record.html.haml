@@ -1,7 +1,8 @@
-<pre>
+<pre style='font-family: 0.75em "Lucida Grande", "Lucida Sans Unicode", Verdana, "Arial Unicode MS", Arial, sans-serif'>
 - @documents.each do |document| 
   - id = document[:id]
-  = render_document_view(document, :template => "catalog_show", :format => "clio", :style => :text).gsub(/^\s*[\r\n]+/,'')
+  = document['title_display'].listify.join("\r\n") || document.id
+
   - unless (online_links = online_link_hash(document)).empty?
     #{' '}
     Online:
@@ -11,6 +12,9 @@
   - @holdings = JSON.parse(HTTPClient.get_content("http://rossini.cul.columbia.edu/voyager_backend/holdings/retrieve/#{id}"))[id]
   = render :partial => "/backend/holdings_mail"
   #{' '}
+  Details
+  #{' '}
+  = render_document_view(document, :template => "catalog_show", :format => "clio", :style => :text).gsub(/^\s*[\r\n]+/,'')
   URL: #{catalog_path(document[:id], {:only_path => false}.merge(@url_gen_params)) }
 
 

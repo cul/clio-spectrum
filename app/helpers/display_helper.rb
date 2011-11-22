@@ -198,7 +198,11 @@ module DisplayHelper
         end
       end
                                             
-      searches.join(' > ')
+      if @add_row_style == :text
+        searches.join(' - ')
+      else
+        searches.join(' > ')
+      end
                                             
     end
   end
