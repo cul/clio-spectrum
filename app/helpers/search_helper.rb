@@ -1,14 +1,14 @@
 #encoding: UTF-8
 module SearchHelper
   def show_all_search_boxes
-    (controller.controller_name == 'search' && controller.action_name == 'index') || (controller.controller_name == 'catalog' && controller.action_name == 'index')
+    (controller.controller_name == 'search' && controller.action_name == 'index') || (params['q'].to_s.empty?  && params['s.q'].to_s.empty? && params['commit'].to_s.empty?)
   end
 
   def active_search_box
     con = controller.controller_name
     act = controller.action_name
 
-    if show_all_search_boxes()
+    if con == 'search' && act == 'index'
       "Quicksearch"
     elsif act == 'ebooks' || con == 'ebooks'
       'eBooks'

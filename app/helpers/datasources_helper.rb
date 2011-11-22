@@ -3,6 +3,10 @@ module DatasourcesHelper
   SOURCES_ALWAYS_INCLUDED = ['Quicksearch', 'Catalog', 'Articles']
   SOURCES_MINOR = ['eBooks', 'New Arrivals']
   
+  def active_query?
+    !(params['q'].to_s.empty? && params['s.q'].to_s.empty? && params['commit'].to_s.empty?)
+  end
+  
   def add_all_datasource_landing_pages
     (SOURCES_ALWAYS_INCLUDED | SOURCES_MINOR).collect do |source|
       datasource_landing_page(source)
@@ -39,7 +43,7 @@ module DatasourcesHelper
       :query => params['q'] || params['s.q'] || ""
     }
     
-    options[:all_sources] = options[:query].to_s.empty?
+    options[:all_sources] = !active_query?
 
     result = [content_tag(:li, 'Sources', :class => 'title')]
 
@@ -69,7 +73,7 @@ module DatasourcesHelper
 
     li_classes = source == options[:active] ? "selected" : ""
 
-    href = if query.empty?
+    href = unless active_query?
       '#'
     else
       case source

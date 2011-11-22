@@ -13,9 +13,8 @@ Given /a SOLR index with Columbia MARC data/i do
 end
 
 # search query can have escaped quotes anywhere
-When /^I fill in the search box with "(.*?)"$/ do |query|
-  query.gsub!(/\\"/, '"')
-  fill_in(:q, :with => query)
+When /^I search (catalog|articles) with "([^\"]*?)"$/ do |source, query|
+  execute_query(source, query)
 end
 
 =begin
@@ -29,24 +28,31 @@ When /^I fill in the search box with "([^\"]*)"( as a phrase)?$/ do |query, phra
 end
 =end
 
+Then /^result (\d+) should include "(.*)"$/ do |index, text|
+  result = page.all("#documents .document").listify[index.to_i - 1]
+  assert result, "Result no #{index} not found"
+
+  assert result.text.include?(text), "#{result.text} does not include #{text}"
+end
+
 Then /^I should get results$/ do 
-  response.should have_selector("div.document")
+  page.should have_selector("div.document")
 end
 
 Then /^I should not get results$/ do 
-  response.should_not have_selector("div.document")
+  page.should_not have_selector("div.document")
 end
 
 Then /^I (should not|should) see a "(.*)" xml element$/ do |bool,elem|
   if bool == "should not"
-    response.should_not have_selector(elem)
+    page.should_not have_selector(elem)
   else
-    response.should have_selector(elem)
+    page.should have_selector(elem)
   end
 end
 
 Then /^I should get (at least|at most) (\d+) results?$/i do |comparator, comparison_num|
-  number_of_records = get_number_of_results(page)
+  number_of_records = get_number_of_results()
   case comparator
   when "at least"
     assert_operator number_of_records, :>=, comparison_num.to_i
@@ -123,24 +129,21 @@ Then /^I should get (the same number of|fewer|more) results (?:than|as) a(?:n?) 
     when "subject ", "Subject "
       search_field = "Subject terms"
     else
-      search_field = "Everything"
+      search_field = "All Fields"
   end  
-  response.body =~ /(\d+) results?/
-  if $1.nil?
-    i = get_number_of_results(response)
-  else
-    i = $1.to_i
-  end
+
+  i = get_number_of_results
+  
   case comparator
     when "the same number of"
 #      get_num_results_for_query(query, search_field, phrase).should == i
-      assert_equal get_num_results_for_query(query, search_field).should, i
+      assert_equal get_num_results_for_query('catalog', query, search_field).should, i
     when "fewer"
 #      get_num_results_for_query(query, search_field, phrase).should > i
-      get_num_results_for_query(query, search_field).should > i
+      get_num_results_for_query('catalog', query, search_field).should > i
     when "more"
 #      get_num_results_for_query(query, search_field, phrase).should < i
-      get_num_results_for_query(query, search_field).should < i
+      get_num_results_for_query('catalog', query, search_field).should < i
   end
 end
 
@@ -286,7 +289,8 @@ end
 
 # The below methods are private
 def get_position_in_result_page(response, ckey)
-  doc_link_ckeys = response.body.scan(/class="index_title".*<a.*href=.*\/view\/(\d+)"[^\d].*>/)
+  doc_link_ckeys = page.all(".title a").collect { |e| e['href'].to_s.scan(/\/catalog\/(\d+)/) }.flatten.compact
+
   doc_link_ckeys.each_with_index do |doc_link_ckey, num|
     if doc_link_ckey.to_s.match(/^#{ckey}$/) != nil
       return num
@@ -295,22 +299,22 @@ def get_position_in_result_page(response, ckey)
   -1 # ckey not found in page of results
 end
 
-#def get_num_results_for_query(query, query_type="Everything", phrase_search=nil) 
-def get_num_results_for_query(query, query_type="Everything") 
-  visit root_path
-#  if phrase_search != nil
-#    query = '"' + query + '"'
-#  end
-  query.gsub!(/\\"/, '"')
-  fill_in "q", :with => query
-  select query_type, :from => "search_field"
-  click_button "search"
-  response.body =~ /(\d+) results?/
-  if $1.nil?
-    get_number_of_results(response)
-  else
-    $1.to_i
+def execute_query(source, query, query_type = 'All Fields')
+  
+  within ".search_box.#{source}" do
+    fill_in("#{source}_q", :with => query.gsub(/\\"/, '"'))
+    if has_selector?(".search_box.#{source} select.search_field")
+      fill_in("select.search_field", :with => query_type.to_s)
+    end
+    click_button("Search")
   end
+end
+
+#def get_num_results_for_query(query, query_type="Everything", phrase_search=nil) 
+def get_num_results_for_query(source, query, query_type="All Fields") 
+  execute_query(source, query, query_type)
+
+  get_number_of_results()
 end
 
 def get_callnum_position_in_show_view(response, callnum)
@@ -322,7 +326,7 @@ def get_callnum_position_in_show_view(response, callnum)
   end
   -1 # ckey not found in page of results
 end
-def get_facet_item_position(response, facet_item)
+def get_facet_item_position(facet_item)
   doc_facets = response.body.scan(/<label for=".*">(.*)<\/label>/)
   doc_facets.each_with_index do |doc_facet, num|
     if doc_facet.to_s.match(/^#{facet_item}$/) != nil
@@ -332,8 +336,10 @@ def get_facet_item_position(response, facet_item)
   -1 # ckey not found in page of results
 end
 
-def get_number_of_results(response)
+def get_number_of_results
   # really odd way of getting number of docs.  This retuns an array of ODD/EVEN when found in a document class.  This returns the total number of documents
-  page.all(:css, "div.document").length
+  page.all("div.document").length
 end
+
+
 

@@ -115,7 +115,7 @@ module DisplayHelper
 
     out = []
 
-    values.listify.each do |v|
+    values.listify.select { |v| v.respond_to?(:split)}.each do |v|
       
       s = v.split(DELIM)
       

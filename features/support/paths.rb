@@ -13,6 +13,9 @@ module NavigationHelpers
 
     when /^the catalog page$/
       '/catalog'
+    
+    when /^the articles page$/
+      '/articles'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
