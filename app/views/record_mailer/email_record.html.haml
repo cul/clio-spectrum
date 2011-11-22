@@ -1,10 +1,15 @@
 - @documents.each do |document| 
-
+  - id = document[:id]
   = render_document_view(document, :template => "catalog_show", :format => "clio", :style => :text).gsub(/^\s*[\r\n]+/,'')
   - unless (online_links = online_link_hash(document)).empty?
+    #{' '}
     Online:
-    #{online_links.collect { |link| "  #{link.first}: #{link.last}"}.join("\r\n  ")}
-
+    #{' '}
+    - online_links.each do |link|
+      #{link.first}: #{link.last}
+  - @holdings = JSON.parse(HTTPClient.get_content("http://rossini.cul.columbia.edu/voyager_backend/holdings/retrieve/#{id}"))[id]
+  = render :partial => "/backend/holdings_mail"
+  #{' '}
   URL: #{catalog_path(document[:id], {:only_path => false}.merge(@url_gen_params)) }
 
 

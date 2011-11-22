@@ -36,7 +36,7 @@ module DisplayHelper
 
   def formats_with_icons(document)
     document['format'].listify.collect do |format|
-      if (icon = FORMAT_MAPPINGS[format] && @add_row_style != :text)
+      if (icon = FORMAT_MAPPINGS[format]) && @add_row_style != :text
         image_tag("icons/#{icon}.png", :size => "16x16") + " #{format}"
       else
         format.to_s
@@ -204,12 +204,16 @@ module DisplayHelper
   end
 
   def build_subject_url(display, search, title)
-    link_to(display, url_for(:controller => "catalog", 
+    if @add_row_style == :text
+      display
+    else
+      link_to(display, url_for(:controller => "catalog", 
                               :action => "index", 
                               :q => '"' + search + '"', 
                               :search_field => "subject", 
                               :commit => "search"),
                               :title => title)
+    end
   end
 
   def add_row(title, value, options = {})

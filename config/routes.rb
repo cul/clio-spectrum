@@ -8,6 +8,7 @@ NewBooks::Application.routes.draw do
   devise_for :users
 
   match 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
+  match 'backend/holdings_mail/:id' => 'backend#holdings_mail', :as => 'backend_holdings_mail'
 
   match 'new_arrivals', :to => 'catalog#index', :as => :new_arrivals_index, :defaults => {:sort => "acq_date_sort desc", :active_source => "New Arrivals", :f => {"acq_date_facet"=>["Last 3 Months"]}} 
   match 'lweb', :to => 'search#index', :as => :lweb_search, :defaults => {:categories => ['lweb']}
