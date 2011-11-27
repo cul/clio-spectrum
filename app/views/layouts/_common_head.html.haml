@@ -2,6 +2,7 @@
 %title= h(@page_title || application_name)
 -#%link{:href => opensearch_catalog_path, :rel => "search",  :title => application_name, :type => "application/opensearchdescription+xml"}/
 = csrf_meta_tag
+%link{:rel => "shortcut icon", :href => image_path("favicon-crown.png"), :type => "image/x-icon"}/
 %script{:src => "https://www.google.com/jsapi", :type => "text/javascript"}
 = javascript_tag "var RAILS_ROOT = '#{APP_CONFIG[:relative_url_root]}';"
 = stylesheet_link_tag "application", :media => 'all'

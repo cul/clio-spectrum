@@ -178,7 +178,7 @@ module DisplayHelper
     #   b             "a b"
     #   c             "a b c"
 
-    values.listify.collect do |value|
+    values.listify.select { |x| x.respond_to?(:split)}.collect do |value|
       
       searches = []
       subheads = value.split(" - ")
