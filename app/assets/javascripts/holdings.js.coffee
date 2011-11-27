@@ -17,19 +17,21 @@ $(document).ready ->
     )
   
 
-  $("ul.landing li").click ->
-    $("ul.landing li").removeClass('selected')
-    $(this).addClass('selected')
-    source = $(this).attr('source')
-    
-    landing_selector = ".landing_page." + source
-    $('.landing_page').hide()
-    $(landing_selector).show()
-    
-    search_box_select = "#top_search_box .search_box." + source
-    $('#top_search_box .search_box').hide()
-    $(search_box_select).show()
+  $(".datasource_link").click ->
+    change_datasource($(this).attr('source'))
 
+
+change_datasource = (source) ->
+  $("ul.landing li").removeClass('selected')
+  $("ul.landing li[source='" + source + "']").addClass('selected')
+
+  landing_selector = ".landing_page." + source
+  $('.landing_page').hide()
+  $(landing_selector).show()
+  
+  search_box_select = "#top_search_box .search_box." + source
+  $('#top_search_box .search_box').hide()
+  $(search_box_select).show()
 
 attach_location_colorboxes = ->
   $(".location_display").colorbox

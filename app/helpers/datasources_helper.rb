@@ -8,9 +8,11 @@ module DatasourcesHelper
   end
   
   def add_all_datasource_landing_pages
-    (SOURCES_ALWAYS_INCLUDED | SOURCES_MINOR).collect do |source|
-      datasource_landing_page(source)
-    end.join('').html_safe
+    content_tag('div', :class => 'landing_pages') do
+      (SOURCES_ALWAYS_INCLUDED | SOURCES_MINOR).collect do |source|
+        datasource_landing_page(source)
+      end.join('').html_safe
+    end
   
   end
 
@@ -47,12 +49,12 @@ module DatasourcesHelper
 
     result = [content_tag(:li, 'Sources', :class => 'title')]
 
-    result |= datasources_active_list(options).collect { |src| datasource_link(src,options) }
+    result |= datasources_active_list(options).collect { |src| datasource_item(src,options) }
 
     unless (hidden_datasources = datasources_hidden_list(options)).empty?
       result << content_tag(:li, link_to("More", "#"),  :id => "datasource_expand")
 
-      sub_results = hidden_datasources.collect { |src| datasource_link(src,options) }
+      sub_results = hidden_datasources.collect { |src| datasource_item(src,options) }
       
       sub_results << content_tag(:li, link_to("Fewer", "#", :id => "datasource_contract"))
       result << content_tag(:ul, sub_results.join('').html_safe, :id => 'expanded_datasources')
@@ -66,12 +68,13 @@ module DatasourcesHelper
     source.to_s.gsub(/ /, '_').underscore
   end
 
-  def datasource_link(source, options)
+  def datasource_item(source, options)
     classes = []
     classes << 'minor_source' if options[:minor]
     query = options[:query]
 
-    li_classes = source == options[:active] ? "selected" : ""
+    li_classes = %w{datasource_link}
+    li_classes << "selected" if source == options[:active]
 
     href = unless active_query?
       '#'
@@ -90,8 +93,16 @@ module DatasourcesHelper
       end
     end
 
-    content_tag(:li, link_to(source, href, :class => classes.join(" ")),  :source => datasource_to_class(source), :class => li_classes)
+    content_tag(:li, link_to(source, href, :class => classes.join(" ")),  :source => datasource_to_class(source), :class => li_classes.join(" "))
 
   end
 
+  def datasource_switch_link(title, source, *args)
+    options = args.extract_options!
+    options[:class] ||= ""
+    options[:class] += " datasource_link"
+    options[:source] = source
+
+    link_to title, "#", options
+  end
 end
