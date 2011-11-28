@@ -19,6 +19,8 @@ module MarcHelper
     #     ind2        second indicator                  optional  default = :all
     #     display     subfield codes to display         optional  default = :all
     #     search      subfield codes to redirect on     optional  default = ''
+    #     split       split value for breaking up       optional default = nil
+    #                   data in a field [e.g., contents]
     # only keys that vary from the defaults need to be specified in MARC_FIELDS but
     # ind1, ind2 must always be specified together
     #
