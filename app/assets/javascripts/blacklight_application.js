@@ -34,7 +34,7 @@ function update_book_jackets(isbns, data) {
       $("a.gbs_info_link").attr("href", isbn_data.info_url);
 
       if (isbn_data.preview != "noview") {
-        gbs_cover.children(".gbs_preview").show();
+        gbs_cover.find(".gbs_preview").show();
         gbs_cover.find(".gbs_preview_link").attr("href", isbn_data.preview_url);
       }
       
