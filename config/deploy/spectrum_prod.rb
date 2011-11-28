@@ -3,7 +3,6 @@ set :application, "spectrum_prod"
 set :domain,      "bruckner.cul.columbia.edu"
 set :deploy_to,   "/opt/passenger/#{application}/"
 set :user, "deployer"
-set :branch, @variables[:branch] || "spectrum_prod"
 set :scm_passphrase, "Current user can full owner domains."
 
 role :app, domain
