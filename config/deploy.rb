@@ -30,7 +30,7 @@ namespace :deploy do
     tag = Capistrano::CLI.ui.ask "Tag to add: [#{current_version}] "
     tag = current_version if tag.empty?
 
-    system("git tag -a #{tag} && git push origin --tags")
+    system("git tag -a #{tag} -m 'auto-tagged' && git push origin --tags")
   end
 
   desc "Restart Application"
