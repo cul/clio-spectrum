@@ -25,7 +25,9 @@
 = display_search_box('Articles') do 
   = form_tag article_search_path(), :method => :get do
     = hidden_field_tag 'category', params['category'] || 'articles'
-    - unless @error || @summon.nil?
+    - if @error || @summon.nil?
+      = hidden_field_tag "new_search", "articles"
+    - else
 
       - @summon.search.query.to_hash.each_pair do |key,value|
         - if value.kind_of?(Array)
