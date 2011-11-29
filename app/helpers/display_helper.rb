@@ -109,13 +109,12 @@ module DisplayHelper
 
   def generate_value_links(values, category)
     
-
-    # search value differs from display value
     # display value DELIM search value
 
     out = []
 
-    values.listify.select { |v| v.respond_to?(:split)}.each do |v|
+    values.listify.each do |v|
+#    values.listify.select { |v| v.respond_to?(:split)}.each do |v|
       
       s = v.split(DELIM)
       
@@ -178,7 +177,8 @@ module DisplayHelper
     #   b             "a b"
     #   c             "a b c"
 
-    values.listify.select { |x| x.respond_to?(:split)}.collect do |value|
+    values.listify.collect do |value|
+#    values.listify.select { |x| x.respond_to?(:split)}.collect do |value|
       
       searches = []
       subheads = value.split(" - ")
