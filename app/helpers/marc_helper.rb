@@ -94,6 +94,9 @@ module MarcHelper
       # sequesnce number match
       if (sub6.code == "6") && (sub6.value[4..5] == seq)
         display = process_field(t880, display_subfields, search_subfields, subject_option)
+        # if there is a search field defined, tag the entry
+        # currently used to suppress link for author redirection until we can get 880 authors into the author facet
+        display += DELIM + 't880' if display.match(/DELIM/)
         break
       end
     end

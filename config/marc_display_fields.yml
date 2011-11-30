@@ -62,7 +62,7 @@ changed_back_to:
 contents:
     -   tag: 505
         display: agrtu
-        split: ' -- '
+        split: '--'
 continued_by:
     -   tag: 785
         ind1: :all
