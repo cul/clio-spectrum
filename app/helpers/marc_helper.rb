@@ -19,6 +19,8 @@ module MarcHelper
     #     ind2        second indicator                  optional  default = :all
     #     display     subfield codes to display         optional  default = :all
     #     search      subfield codes to redirect on     optional  default = ''
+    #     split       split value for breaking up       optional default = nil
+    #                   data in a field [e.g., contents]
     # only keys that vary from the defaults need to be specified in MARC_FIELDS but
     # ind1, ind2 must always be specified together
     #
@@ -63,24 +65,16 @@ module MarcHelper
     marc.each_by_tag(tag) do |field|
       # test for indicators
       if (ind1 == :all || ind1.include?(field.indicator1)) && (ind2 == :all || ind2.include?(field.indicator2))
-        if options[:subject]
-          display = select_subfields_subject_heading(field,display_subfields)
-        else
-          display = select_subfields(field,display_subfields)
+        display = process_field(field, display_subfields, search_subfields, options[:subject])
+        unless display.empty?
+          options[:split] ? values << display.split(options[:split]) : values << display
         end
-        # field has search redirection
-        # NOTE: subject search redirection uses all subfields and is handled in generate_value_links_subject;
-        #       a subject heading should never use the following
-        unless search_subfields.empty?
-          search = select_subfields(field, search_subfields)
-          display += DELIM + search
-        end
-        options[:split] ? values << display.split(options[:split]) : values << display
-        
         # get matching script field if there is a subfield 6
         if options[:vernacular] && field.subfields.first.code == "6"
           display = process_vernacular(marc, field, display_subfields, search_subfields, options[:subject])
-          options[:split] ? values << display.split(options[:split]) : values << display
+          unless display.empty?
+            options[:split] ? values << display.split(options[:split]) : values << display
+          end
         end
       end
     end
@@ -88,55 +82,74 @@ module MarcHelper
     values.flatten
   
   end
-  
+
+  def process_vernacular(marc, field, display_subfields, search_subfields, subject_option)
+    
+    # sequence number from subfield 6
+    seq = field.subfields.first.value[4..5]
+    display = ''
+    # lookup vernacular
+    marc.each_by_tag('880') do |t880|
+      sub6 = t880.subfields.first
+      # sequesnce number match
+      if (sub6.code == "6") && (sub6.value[4..5] == seq)
+        display = process_field(t880, display_subfields, search_subfields, subject_option)
+        # if there is a search field defined, tag the entry
+        # currently used to suppress link for author redirection until we can get 880 authors into the author facet
+        display += DELIM + 't880' if display.match(/DELIM/)
+        break
+      end
+    end
+    display
+  end
+
+  def process_field(field, display_subfields, search_subfields, subject_option)
+    
+    if subject_option
+      display = select_subfields_subject_heading(field,display_subfields)
+    else
+      display = select_subfields(field,display_subfields)
+    end
+    # field has search redirection
+    # NOTE: subject search redirection uses all subfields and is handled in generate_value_links_subject;
+    #       a subject heading should never use the following
+    unless display.empty?
+      unless search_subfields.empty?
+        search = select_subfields(field, search_subfields)
+        display += DELIM + search
+      end
+    end
+    display
+
+  end
+
   def select_subfields(field, subfields_to_select)
     
+    value = ''
     subflds = field.subfields.select { |sf| subfields_to_select == :all || subfields_to_select.include?(sf.code) }
-    subflds.collect { |sf| sf.value}.join(' ')
+    unless subflds.empty?
+      value = subflds.collect { |sf| sf.value}.join(' ')
+    end
+    value
     
   end
 
   def select_subfields_subject_heading(field,subfields_to_select)
     
     # output subject headings with ' - ' preceeding subfields vxyz
-    
+    out = ''
     subflds = field.subfields.select { |sf| subfields_to_select == :all || subfields_to_select.include?(sf.code) }
-    out = subflds.shift.value
-    subflds.each do |s|
-      if 'vxyz'.include?(s.code)
-        out += ' - ' + s.value
-      else
-        out += ' ' + s.value
+    unless subflds.empty?
+      out = subflds.shift.value
+      subflds.each do |s|
+        if 'vxyz'.include?(s.code)
+          out += ' - ' + s.value
+        else
+          out += ' ' + s.value
+        end
       end
     end
     out
-  end
-
-  def process_vernacular(marc, field, display_subfields, search_subfields, subject_option)
-    
-    # sequence number from subfield 6
-    seq = field.subfields.first.value[4..5]
-    # lookup vernacular
-    marc.each_by_tag('880') do |t880|
-      sub6 = t880.subfields.first
-      # sequesnce number match
-      if (sub6.code == "6") && (sub6.value[4..5] == seq)
-        if subject_option
-          display = select_subfields_subject_heading(t880, display_subfields)
-        else
-          display = select_subfields(t880, display_subfields)
-        end
-        # field has search redirection
-        # NOTE: subject search redirection uses all subfields and is specially handled in generate_value_links_subject;
-        #       a subject heading should never use the following
-        unless search_subfields.empty?
-          search = select_subfields(t880, search_subfields)
-          display += DELIM + search
-        end
-        return display
-      end
-    end
-
   end
 
 end

@@ -109,17 +109,16 @@ module DisplayHelper
 
   def generate_value_links(values, category)
     
-
-    # search value differs from display value
-    # display value DELIM search value
+    # display_value DELIM search_value [DELIM t880_flag]
 
     out = []
 
-    values.listify.select { |v| v.respond_to?(:split)}.each do |v|
+    values.listify.each do |v|
+#    values.listify.select { |v| v.respond_to?(:split)}.each do |v|
       
       s = v.split(DELIM)
       
-      unless s.length == 2
+      unless s.length >= 2
         out << v
         next
       end
@@ -135,10 +134,17 @@ module DisplayHelper
           q = '"' + s[1] + '"'
           out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "all_fields", :commit => "search"))
         when :author
-  #        link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "author", :commit => "search"))
-          # remove period from s[1] to match entries in author_facet using solrmarc removeTrailingPunc rule
-          s[1] = s[1].gsub(/\.$/,'') if s[1] =~ /\w{3}\.$/ || s[1] =~ /[\]\)]\.$/
-          out << link_to(s[0], url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => s[1]))
+          # s[2] is not nil when data is from an 880 field (vernacular)
+          # temp workaround until we can get 880 authors into the author facet
+          if s[2]
+            # q = '"' + s[1] + '"'
+            # out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "author", :commit => "search"))
+            out << s[0]
+          else
+            # remove puntuation from s[1] to match entries in author_facet using solrmarc removeTrailingPunc rule
+            s[1] = s[1].gsub(/\.$/,'') if s[1] =~ /\w{3}\.$/ || s[1] =~ /[\]\)]\.$/
+            out << link_to(s[0], url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => s[1]))
+          end
         when :subject
           out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "subject", :commit => "search"))
         when :title
@@ -178,7 +184,8 @@ module DisplayHelper
     #   b             "a b"
     #   c             "a b c"
 
-    values.listify.select { |x| x.respond_to?(:split)}.collect do |value|
+    values.listify.collect do |value|
+#    values.listify.select { |x| x.respond_to?(:split)}.collect do |value|
       
       searches = []
       subheads = value.split(" - ")
