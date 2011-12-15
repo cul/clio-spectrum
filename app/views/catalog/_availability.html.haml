@@ -11,14 +11,25 @@
 
 
 
-- unless (locations = document["location_display"].listify.reject { |l| l == "Online" }).empty? || document["location_holdings_id_display"].nil?
-  - locations.each_with_index do |location, i|
+- unless (locations = document["location_call_number_id_display"].listify.reject { |l| l.match(/^Online/) }).empty?
+  - locations.each do |location|
     - break if (limit -= 1) < 0
-    - holdings_id = "holding_" + (document["location_holdings_id_display"].listify[i] || document["location_holdings_id_display"].first).to_s if document["location_holdings_id_display"]
+    - loc_display, hold_id = location.split('|DELIM|')
+    - holdings_id = "holding_" + hold_id.to_s
     %div
       = image_tag("icons/unknown.png", :class => "availability " + holdings_id)
-      = shorten_location(location)
-      %br
-      = document["location_call_number_display"].listify[i] || document["location_call_number_display"].first
+      = loc_display
+
+
+
+
+-#  - locations.each_with_index do |location, i|
+-#    - break if (limit -= 1) < 0
+-#    - holdings_id = "holding_" + (document["location_holdings_id_display"].listify[i] || document["location_holdings_id_display"].first).to_s if document["location_holdings_id_display"]
+-#    %div
+-#      = image_tag("icons/unknown.png", :class => "availability " + holdings_id)
+-#      = shorten_location(location)
+-#      %br
+-#      = document["location_call_number_display"].listify[i] || document["location_call_number_display"].first
 
 
