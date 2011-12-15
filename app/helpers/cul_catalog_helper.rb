@@ -21,6 +21,11 @@ module CulCatalogHelper
 
   end
 
+  def edit_loc_display(loc_display)
+    loc,call = loc_display.split(' >> ')
+    call ? shorten_location(loc) + ' >> ' + call : shorten_location(loc)
+  end
+
   def build_fake_cover(document)
     book_label = (document["title_display"].to_s.abbreviate(60))
     content_tag(:div, content_tag(:div, book_label, :class => "fake_label"), :class => "cover fake_cover")

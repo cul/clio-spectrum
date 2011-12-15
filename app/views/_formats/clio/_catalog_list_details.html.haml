@@ -18,7 +18,7 @@
         - loc_display, hold_id = location.split('|DELIM|')
         - holdings_id = "holding_" + hold_id.to_s
         %div
-          = image_tag("icons/unknown.png", :class => "availability " + holdings_id) + loc_display
+          = image_tag("icons/unknown.png", :class => "availability " + holdings_id) + edit_loc_display(loc_display)
 
 
 -#      - locations.each_with_index do |location, i|
