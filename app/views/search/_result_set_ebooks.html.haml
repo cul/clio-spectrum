@@ -10,7 +10,7 @@
         No results found.
       - else
         #{number_with_delimiter(result[:count])} results 
-        = link_to "(see all)", result[:url]
+        = link_to "(explore results)", result[:url]
 
   - else
     %p Error when searching. #{result[:message]}

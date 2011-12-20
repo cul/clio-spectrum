@@ -12,7 +12,7 @@ require File.expand_path('../../lib/james_monkeys', __FILE__)
 require File.expand_path('../../lib/google_books', __FILE__)
 require File.expand_path('../../lib/voyager_holding', __FILE__)
 
-RELEASE_STAMP = "3.2.5"
+RELEASE_STAMP = "3.2.6"
 
 module NewBooks
   class Application < Rails::Application
@@ -43,7 +43,6 @@ module NewBooks
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
-    MARC::XMLReader.parser = MARC::XMLReader::USE_BEST_AVAILABLE
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 

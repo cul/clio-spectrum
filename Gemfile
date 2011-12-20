@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
-gem 'rack', '1.3.3'
-gem 'rails', '3.1.1'
+gem 'rack', '1.3.5'
+gem 'rails', '3.1.2'
 
 gem 'sprockets'
 # Bundle edge Rails instead:
@@ -9,9 +9,8 @@ gem 'sqlite3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
-#gem 'blacklight', :path => '~/code/blacklight'
 
-gem 'blacklight', :git => 'git://github.com/cul/blacklight.git' , :branch => 'rails_31'
+gem 'blacklight'
 gem 'json'
 
 # Deploy with Capistrano
@@ -31,7 +30,6 @@ gem 'summon'
 # gem 'voyager_api', :path => '~/worklib/voyager_api'
 gem 'voyager_api', '>=0.2.3'
 gem 'rubytree', '=0.5.2'
-
 gem 'blacklight_advanced_search'
 gem 'blacklight_highlight'
 
@@ -50,7 +48,7 @@ gem 'jquery-rails'
 group :assets do
   gem 'sass-rails', '~>3.1.1'
   gem 'coffee-rails'
-  gem 'compass', '0.12.alpha.0'
+  gem 'compass', '0.12.alpha.2'
   gem 'uglifier'
 
 end

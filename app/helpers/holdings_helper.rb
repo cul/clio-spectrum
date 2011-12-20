@@ -22,6 +22,9 @@ module HoldingsHelper
   end
 
 
+  def process_online_title(title)
+    title.to_s.gsub(/^Full text available from /, '').gsub(/(\d{1,2})\/\d{1,2}(\/\d{4})/,'\1\2')  
+  end
 
   def add_display_elements(entries)
     
