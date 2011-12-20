@@ -13,7 +13,7 @@ spectrum_dev:
 spectrum_test:
     url: http://dirk.cul.columbia.edu:8080/solr-3.5/spectrum_test35
 spectrum_prod:
-    url: http://dirk.cul.columbia.edu:8080/solr-1.5/spectrum_experiment
+    url: http://dirk.cul.columbia.edu:8080/solr-3.5/spectrum_test35
 cucumber:
     <<: *TEST
 
