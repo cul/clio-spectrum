@@ -19,7 +19,6 @@
 //= require jquery.colorbox-min
 //= require jquery.validate.pack
 //= require jquery.dropmenu.js
-//= require jquery_snippet
 //
 //= require google_analytics
 //= require_tree .
