@@ -65,8 +65,8 @@ module CulCatalogHelper
 
       links << [title, url]
     end
-
-    links.sort { |x,y| x.first <=> y.first }
+    links
+#    links.sort { |x,y| x.first <=> y.first }
   end
 
   def folder_link(document)

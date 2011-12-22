@@ -1,4 +1,4 @@
-- holdings_to_check = documents.listify.reject { |d| d["location_call_number_id_display"].listify.reject { |l| l.split('|DELIM|').first.to_s == "Online" }.empty? }.collect { |d| d["id"] } 
+- holdings_to_check = documents.listify.reject { |d| d["location_call_number_id_display"].listify.reject { |l| l.split('|DELIM|').first.to_s.match(/^Online/) }.empty? }.collect { |d| d["id"] } 
 
 - content_for :jstemplates do
   :javascript
