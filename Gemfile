@@ -80,17 +80,22 @@ gem 'unicorn'
 gem "devise"
 gem 'therubyracer'
 
-group :test do
-  gem "database_cleaner"
-  gem "capybara"
-  gem "launchy"
-  gem "minitest-rails"
-  gem "rspec-rails"
-  gem "rcov", ">= 0"
-  gem "cucumber-rails"
-  gem "guard-cucumber"
-  gem "guard-minitest"
-  gem "guard-rails"
-  gem "mocha"
+group :test, :development do
+  gem 'rb-readline'
+  gem 'factory_girl_rails'
+  gem 'spork', '~>0.9.0.rc2'
+  gem 'guard'
+  gem 'guard-rails'
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'guard-cucumber'
+  gem 'cucumber'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'database_cleaner'
   gem "growl"
+  gem 'rb-fsevent'
+  gem 'ruby_gntp'
+  gem 'ruby-prof'
 end
