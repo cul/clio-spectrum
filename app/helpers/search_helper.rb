@@ -14,6 +14,8 @@ module SearchHelper
       'eBooks'
     elsif con == 'catalog'
       'Catalog'
+    elsif con == 'databases'
+      'Databases'
     elsif con == 'articles'
       'Articles'
     elsif @active_source == 'New Arrrivals'

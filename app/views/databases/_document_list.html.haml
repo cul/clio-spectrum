@@ -1,0 +1,6 @@
+#documents= render_documents(@document_list, :action => "catalog", :view_style => (params[:view] || "list"))
+
+= render :partial => "google_books_check", :locals => {:documents => @response.docs }
+
+= render :partial => "holdings_check", :locals => {:documents => @response.docs}
+

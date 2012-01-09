@@ -1,6 +1,7 @@
+
 require 'blacklight/catalog'
 
-class CatalogController < ApplicationController
+class DatabasesController < ApplicationController
 
   include Blacklight::Catalog
 
@@ -10,7 +11,8 @@ class CatalogController < ApplicationController
 
     config.default_solr_params = {
       :qt => "search",
-      :per_page => 15
+      :per_page => 15, 
+      :fq  => ['{!raw f=source_facet}database']
     }
 
 
@@ -117,9 +119,9 @@ class CatalogController < ApplicationController
     search_session[:total] = @response.total unless @response.nil?
 
     respond_to do |format|
-      format.html { save_current_search_params; render :layout => 'quicksearch' }
-      format.rss  { render :layout => false }
-      format.atom { render :layout => false }
+      format.html { save_current_search_params; render 'index', :layout => 'quicksearch'}
+      format.rss  { render 'index', :layout => false }
+      format.atom { render 'index', :layout => false }
     end
   end
 
@@ -128,7 +130,7 @@ class CatalogController < ApplicationController
     @response, @document = get_solr_response_for_doc_id    
 
     respond_to do |format|
-      format.html {setup_next_and_previous_documents; render :layout => "no_sidebar"}
+      format.html {setup_next_and_previous_documents; render 'show', :layout => "no_sidebar"}
 
       # Add all dynamically added (such as by document extensions)
       # export formats.
@@ -141,7 +143,7 @@ class CatalogController < ApplicationController
     end
   end
 
-  # when a request for /catalog/BAD_SOLR_ID is made, this method is executed...
+  # when a request for /BAD_SOLR_ID is made, this method is executed...
   def invalid_solr_id_error
     if Rails.env == "development"
       render # will give us the stack trace

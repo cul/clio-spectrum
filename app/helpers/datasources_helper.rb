@@ -1,7 +1,7 @@
 #encoding: UTF-8
 module DatasourcesHelper
   SOURCES_ALWAYS_INCLUDED = ['Quicksearch', 'Catalog', 'Articles']
-  SOURCES_MINOR = ['eBooks', 'New Arrivals']
+  SOURCES_MINOR = ['eBooks', 'New Arrivals', 'Databases']
   
   def active_query?
     !(params['q'].to_s.empty? && params['s.q'].to_s.empty? && params['commit'].to_s.empty?)
@@ -84,6 +84,8 @@ module DatasourcesHelper
         {:controller => 'search', :q => query}
       when 'Catalog'
         {:controller => 'catalog', :q => query}
+      when 'Databases'
+        {:controller => 'databases', :q => query}
       when 'Articles'
         {:controller => 'articles', :action => 'search', 'new_search' => true, 's.q' => query}
       when 'eBooks'

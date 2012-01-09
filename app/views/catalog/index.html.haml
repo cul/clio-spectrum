@@ -13,27 +13,27 @@
   - extra_head_content << render_opensearch_response_metadata.html_safe 
 
 
-  = render :partial => 'did_you_mean' 
+  = render :partial => 'catalog/did_you_mean' 
 
-  = render 'constraints', :localized_params=>params 
+  = render 'catalog/constraints', :localized_params=>params 
   
   .pageEntriesInfo
-    = render "change_view" 
+    = render "catalog/change_view" 
     = render_pagination_info @response, :entry_name=>'item' 
     = link_to(image_tag("rss-feed-icon-14x14.png"), catalog_index_path(params.merge(:format => "atom")).gsub('[','%5B').gsub(']','%5D'),:id => "feedLink") 
-    = link_to "start over", catalog_index_path, :id=>"startOverLink" 
+    = link_to "catalog/start over", catalog_index_path, :id=>"startOverLink" 
   
-  = render 'sort_and_per_page' 
+  = render 'catalog/sort_and_per_page' 
   .pagination_container
-    = render 'results_pagination' 
+    = render 'catalog/results_pagination' 
 
-  = render :partial => 'document_list' 
+  = render :partial => 'catalog/document_list' 
 
   - sidebar_items << capture do 
-    = render :partial=>'facets' 
+    = render :partial=>'catalog/facets' 
 
   .pagination_container
-    = render 'results_pagination' 
+    = render 'catalog/results_pagination' 
 
 
 

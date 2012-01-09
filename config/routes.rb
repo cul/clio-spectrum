@@ -5,6 +5,16 @@ NewBooks::Application.routes.draw do
  
   match 'search/', :to => "search#index", :as => :search_index
 
+  resources :databases, :only => [:index, :show, :update]
+  match 'databases/opensearch', :as => "opensearch_databases"
+  match 'databases/citation', :as => "citation_databases"
+  match 'databases/email', :as => "email_databases"
+  match 'databases/sms', :as => "sms_databases"
+  match 'databases/endnote', :as => "endnote_databases"
+  match 'databases/send_email_record', :as => "send_email_record_databases"
+  match "databases/facet/:id", :to => 'databases#facet', :as => 'databases_facet'
+  match 'databases/:id/librarian_view', :to => "databases#librarian_view", :as => "librarian_view_databases"
+  match 'databases/', :to => "databases#index", :as => 'databases_index'
   devise_for :users
 
   match 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
