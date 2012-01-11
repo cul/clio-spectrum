@@ -33,7 +33,7 @@ namespace :solr do
       end
 
 
-      if  system("gunzip " + temp_dir_name + "*.mrc.gz")
+      if  system("gunzip " + temp_dir_name + "*.gz")
         puts_and_log("Gunzip successful", :info)
       else
         puts_and_log("Gunzip unsuccessful", :error, :alarm => true)
@@ -47,7 +47,7 @@ namespace :solr do
     desc "process deletes file"
     task :deletes => :environment do
       extract = ["new_arrivals", "spectrum","spectrum_update", "databases"].find { |x| x == ENV["EXTRACT"] }
-      extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.deletes")) if extract
+      extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*delete*")) if extract
       files_to_read = (ENV["DELETES_FILE"] || extract_files).listify
 
       puts_and_log("No delete files found.", :info) if files_to_read.empty?
@@ -146,15 +146,13 @@ end
 def solr_delete_ids(ids)
   retries = 5
   begin
-    ids = ids.listify
+    ids = ids.listify.collect { |x| x.strip}
     puts_and_log(ids.length.to_s + " deleting", :debug)
     Blacklight.solr.delete_by_id(ids)
 
     puts_and_log("Committing changes", :debug)
     Blacklight.solr.commit
 
-    puts_and_log("Optimizing index", :debug)
-    Blacklight.solr.optimize
   rescue Timeout::Error
     puts_and_log("Timed out!", :info)
     if retries <= 0
