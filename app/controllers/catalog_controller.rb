@@ -7,13 +7,6 @@ class CatalogController < ApplicationController
 
   configure_blacklight do |config|
 
-    #if request.path =~ /^\/databases/
-    #else
-      config.default_solr_params = {
-        :qt => "search",
-        :per_page => 15
-      }
-    #end
 
 
     
@@ -173,6 +166,12 @@ class CatalogController < ApplicationController
           :qt => "search",
           :per_page => 15,
           :fq  => ['{!raw f=acq_date_facet}Last 3 Months']
+        }
+      when 'Catalog'
+
+        config.default_solr_params = {
+          :qt => "search",
+          :per_page => 15
         }
       end 
     end
