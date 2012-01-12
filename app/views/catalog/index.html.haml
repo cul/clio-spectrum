@@ -1,6 +1,4 @@
-- @active_source = params['active_source'] == 'New Arrivals' && params['f'] && params['f'].has_key?('acq_date_facet') ? 'New Arrivals' : 'Catalog'
 
-- add_datasources(@active_source)
 
 
 -  unless has_search_parameters? 
@@ -13,27 +11,27 @@
   - extra_head_content << render_opensearch_response_metadata.html_safe 
 
 
-  = render :partial => 'catalog/did_you_mean' 
+  = render :partial => 'did_you_mean' 
 
-  = render 'catalog/constraints', :localized_params=>params 
+  = render 'constraints', :localized_params=>params 
   
   .pageEntriesInfo
-    = render "catalog/change_view" 
+    = render "change_view" 
     = render_pagination_info @response, :entry_name=>'item' 
     = link_to(image_tag("rss-feed-icon-14x14.png"), catalog_index_path(params.merge(:format => "atom")).gsub('[','%5B').gsub(']','%5D'),:id => "feedLink") 
-    = link_to "catalog/start over", catalog_index_path, :id=>"startOverLink" 
+    = link_to "start over", catalog_index_path, :id=>"startOverLink" 
   
-  = render 'catalog/sort_and_per_page' 
+  = render 'sort_and_per_page' 
   .pagination_container
-    = render 'catalog/results_pagination' 
+    = render 'results_pagination' 
 
-  = render :partial => 'catalog/document_list' 
+  = render :partial => 'document_list' 
 
   - sidebar_items << capture do 
-    = render :partial=>'catalog/facets' 
+    = render :partial=>'facets' 
 
   .pagination_container
-    = render 'catalog/results_pagination' 
+    = render 'results_pagination' 
 
 
 

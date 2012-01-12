@@ -4,6 +4,7 @@
     = render :partial => "/layouts/common_head"
   - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
   %body{:onload => onload}
+    - add_datasources(@active_source)
     #trigger
     #page
       = render :partial => "/header"

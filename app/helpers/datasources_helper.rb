@@ -61,7 +61,7 @@ module DatasourcesHelper
     end
 
     landing_class = options[:all_sources] ? 'landing' : ''
-    sidebar_items << content_tag(:ul, result.join('').html_safe, :id => "datasources", :class => landing_class)
+    sidebar_items.unshift(content_tag(:ul, result.join('').html_safe, :id => "datasources", :class => landing_class))
   end
 
   def datasource_to_class(source)
@@ -85,13 +85,13 @@ module DatasourcesHelper
       when 'Catalog'
         {:controller => 'catalog', :q => query}
       when 'Databases'
-        {:controller => 'databases', :q => query}
+        databases_index_path(:q => query)
       when 'Articles'
         {:controller => 'articles', :action => 'search', 'new_search' => true, 's.q' => query}
       when 'eBooks'
         {:controller => 'search', :action => 'ebooks', :q => query}
       when 'New Arrivals'
-        {:controller => 'catalog', :action => 'index', :q => query, :f => {"acq_date_facet" => ["Last 3 Months"]}, :active_source => 'New Arrivals'}
+        new_arrivals_index_path(:q => query)
       end
     end
 

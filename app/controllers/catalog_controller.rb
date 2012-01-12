@@ -1,17 +1,19 @@
 require 'blacklight/catalog'
 
 class CatalogController < ApplicationController
+  before_filter :by_source_config
 
   include Blacklight::Catalog
 
   configure_blacklight do |config|
 
-
-
-    config.default_solr_params = {
-      :qt => "search",
-      :per_page => 15
-    }
+    #if request.path =~ /^\/databases/
+    #else
+      config.default_solr_params = {
+        :qt => "search",
+        :per_page => 15
+      }
+    #end
 
 
     
@@ -106,7 +108,6 @@ class CatalogController < ApplicationController
   end
 
   def index
-
     delete_or_assign_search_session_params
 
     extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => "RSS for results")
@@ -150,6 +151,31 @@ class CatalogController < ApplicationController
       redirect_to root_path
     end
 
+  end
+
+  private
+
+  def by_source_config
+    @active_source = determine_active_source
+
+    CatalogController.configure_blacklight do |config|
+      case @active_source
+      when 'Databases'
+
+        config.default_solr_params = {
+          :qt => "search",
+          :per_page => 15,
+          :fq  => ['{!raw f=source_facet}database']
+        }
+      when 'New Arrivals'
+
+        config.default_solr_params = {
+          :qt => "search",
+          :per_page => 15,
+          :fq  => ['{!raw f=acq_date_facet}Last 3 Months']
+        }
+      end 
+    end
   end
 
 end

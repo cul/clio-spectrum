@@ -5,22 +5,13 @@ NewBooks::Application.routes.draw do
  
   match 'search/', :to => "search#index", :as => :search_index
 
-  resources :databases, :only => [:index, :show, :update]
-  match 'databases/opensearch', :as => "opensearch_databases"
-  match 'databases/citation', :as => "citation_databases"
-  match 'databases/email', :as => "email_databases"
-  match 'databases/sms', :as => "sms_databases"
-  match 'databases/endnote', :as => "endnote_databases"
-  match 'databases/send_email_record', :as => "send_email_record_databases"
-  match "databases/facet/:id", :to => 'databases#facet', :as => 'databases_facet'
-  match 'databases/:id/librarian_view', :to => "databases#librarian_view", :as => "librarian_view_databases"
-  match 'databases/', :to => "databases#index", :as => 'databases_index'
   devise_for :users
 
+  match 'databases', :to => 'catalog#index', :as => :databases_index
   match 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
   match 'backend/holdings_mail/:id' => 'backend#holdings_mail', :as => 'backend_holdings_mail'
 
-  match 'new_arrivals', :to => 'catalog#index', :as => :new_arrivals_index, :defaults => {:sort => "acq_date_sort desc", :active_source => "New Arrivals", :f => {"acq_date_facet"=>["Last 3 Months"]}} 
+  match 'new_arrivals', :to => 'catalog#index', :as => :new_arrivals_index
   match 'lweb', :to => 'search#index', :as => :lweb_search, :defaults => {:categories => ['lweb']}
   match 'articles', :to => "articles#index", :as => :article_index
   match 'articles/show', :to => "articles#show", :as => :article_show

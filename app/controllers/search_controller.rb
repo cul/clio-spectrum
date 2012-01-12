@@ -7,7 +7,6 @@ class SearchController < ApplicationController
   def index
     @results = []
     params['categories'] = ['catalog', 'articles', 'lweb']
-    @active_source = params['active_source'] || 'Quicksearch'
 
     raise('test') if params['throw_error']
 
