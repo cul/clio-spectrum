@@ -1,6 +1,5 @@
 source 'http://rubygems.org'
-gem 'rack', '1.3.5'
-gem 'rails', '3.1.2'
+gem 'rails', '3.1.3'
 
 gem 'sprockets'
 # Bundle edge Rails instead:
@@ -10,7 +9,7 @@ gem 'sqlite3'
 # Use unicorn as the web server
 # gem 'unicorn'
 
-gem 'blacklight'
+gem 'blacklight', :path => "~/code/blacklight"
 gem 'json'
 
 # Deploy with Capistrano
