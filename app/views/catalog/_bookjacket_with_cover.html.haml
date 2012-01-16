@@ -1,7 +1,7 @@
 .cover_with_jacket
   = build_fake_cover(document)
   .google_cover
-    = link_to_document document, :label => image_tag("spacer.png", :class => "bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))
+    = link_to_source_document document, :label => image_tag("spacer.png", :class => "bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))
 .gbs_preview= link_to "View at Google Book Search"
 
 
