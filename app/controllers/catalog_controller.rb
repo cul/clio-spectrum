@@ -75,7 +75,7 @@ class CatalogController < ApplicationController
     @active_source = determine_active_source
 
     if @active_source == "Academic Commons"
-      Blacklight.solr = RSolr::Ext.connect(:url => "http://katana.cul.columbia.edu:8080/solr-1.5/ac2_test")
+      Blacklight.solr = RSolr::Ext.connect(:url => "http://katana.cul.columbia.edu:8080/solr-1.5/ac2_prod")
     else
       Blacklight.solr = RSolr::Ext.connect(Blacklight.solr_config)
     end
