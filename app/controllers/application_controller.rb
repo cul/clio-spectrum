@@ -18,6 +18,8 @@ class ApplicationController < ActionController::Base
       'Articles'
     when /^\/ebooks/
       'eBooks'
+    when /^\/academic_commons/
+      'Academic Commons'
     else
       params['active_source'] || 'Quicksearch'
     end

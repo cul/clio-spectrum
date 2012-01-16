@@ -11,6 +11,7 @@ NewBooks::Application.routes.draw do
   match 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
   match 'backend/holdings_mail/:id' => 'backend#holdings_mail', :as => 'backend_holdings_mail'
 
+  match 'academic_commons', :to => 'catalog#index', :as => :academic_commons_index
   match 'new_arrivals', :to => 'catalog#index', :as => :new_arrivals_index
   match 'lweb', :to => 'search#index', :as => :lweb_search, :defaults => {:categories => ['lweb']}
   match 'articles', :to => "articles#index", :as => :article_index

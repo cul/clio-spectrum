@@ -9,7 +9,7 @@ gem 'sqlite3'
 # Use unicorn as the web server
 # gem 'unicorn'
 
-gem 'blacklight', :path => "~/code/blacklight"
+gem 'blacklight'
 gem 'json'
 
 # Deploy with Capistrano
