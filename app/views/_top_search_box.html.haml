@@ -12,7 +12,7 @@
 
 
 = display_search_box('Catalog') do
-  = form_tag catalog_index_path, :method => :get do
+  = form_tag base_catalog_index_path, :method => :get do
     .search_row
       = text_field_tag :q, params[:q], :class => "q", :id => "catalog_q"
       = select_tag(:search_field, options_for_select(search_fields, h(params[:search_field])), :title => "Targeted search options", :class=>"search_field") 
@@ -66,7 +66,7 @@
       %button{:id => 'academic_commons_search', :type => 'submit', :class => 'submit', :name => 'commit', :value => 'search'} Search 
 
 = display_search_box('New Arrivals') do
-  = form_tag catalog_index_path, :method => :get do
+  = form_tag new_arrivals_index_path, :method => :get do
     .search_row
       = text_field_tag :q, params[:q], :class => "q", :id => "new_arrivals_q"
       = hidden_field_tag "f[acq_date_facet][]" , "Last 3 Months"

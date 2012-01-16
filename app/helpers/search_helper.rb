@@ -12,14 +12,8 @@ module SearchHelper
       "Quicksearch"
     elsif act == 'ebooks' || con == 'ebooks'
       'eBooks'
-    elsif con == 'catalog'
-      'Catalog'
-    elsif con == 'databases'
-      'Databases'
-    elsif con == 'articles'
-      'Articles'
-    elsif @active_source == 'New Arrrivals'
-      'New Arrivals'
+    else
+      @active_source
     end
   end
 
