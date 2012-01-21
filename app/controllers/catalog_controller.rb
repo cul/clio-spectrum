@@ -84,9 +84,10 @@ class CatalogController < ApplicationController
       when 'Databases'
 
         config.default_solr_params = {
+          :defType => "edismax",
           :qt => "search",
           :per_page => 15,
-          :fq  => ['{!raw f=source_facet}database']
+          :fq  => ['{!raw f=source_facet}database', '{!raw f=first_letter}e*']
         }
 
         default_catalog_config(config)
