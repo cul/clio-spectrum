@@ -78,10 +78,11 @@ module DisplayHelper
     "Journal Article" => "article"
   }
 
-  FORMAT_RANKINGS = ["database", "map_globe", "manuscript_archive", "video", "music_recording", "music", "newspaper", "serial", "book", "clio", "ebooks", "article", "summon", "lweb"]
+  FORMAT_RANKINGS = ["ac", "database", "map_globe", "manuscript_archive", "video", "music_recording", "music", "newspaper", "serial", "book", "clio", "ebooks", "article", "summon", "lweb"]
 
   def determine_formats(document, defaults = [])
     formats = defaults.listify
+    formats << "ac" if @active_source == "Academic Commons"
     case document
     when SolrDocument
       formats << "clio"
@@ -89,7 +90,7 @@ module DisplayHelper
       if !document["source_display"].nil? && document["source_display"].include?("database")
         formats << "database"
       end
-      document["format"].each do |format|
+      document["format"].listify.each do |format|
         formats << SOLR_FORMAT_LIST[format] if SOLR_FORMAT_LIST[format]
       end
     when Summon::Document
@@ -270,7 +271,7 @@ module DisplayHelper
     values = if options[:display_only_first] 
       values.first.to_s.listify
     elsif options[:join]
-      values.join(options[:join]).to_s.listify
+      values.join(options[:join]).to_s.listify.reject { |item| item.to_s.empty? }
     else
       values
     end

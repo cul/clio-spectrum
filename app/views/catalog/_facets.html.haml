@@ -5,10 +5,10 @@
     %div{:class => "facet_limit blacklight-#{solr_fname.parameterize}"}
       - case solr_fname
       - when "lc_1letter_facet"
-        = render :partial => "catalog/facet_call_letter", :locals => {:solr_field => solr_fname}
+        = fix_catalog_links(render(:partial => "catalog/facet_call_letter", :locals => {:solr_field => solr_fname}))
       - when "lc_2letter_facet"
 
       - else
-        = render_facet_limit(solr_fname)
+        = fix_catalog_links(render_facet_limit(solr_fname))
 
 

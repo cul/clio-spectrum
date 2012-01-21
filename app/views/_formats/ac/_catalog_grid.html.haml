@@ -1,0 +1,19 @@
+
+- fedora_id = document['id'].listify.first
+.document_gallery{:class => ("last" if counter % 3 == 0)}
+  .book_cover.grid_cover
+    .cover.fake_cover
+      .fake_label= link_to document.get('title_display'), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
+
+    .gbs_cover
+      .gbs_thumbnail= link_to image_tag("spacer.png", :class => ("grid_bookjacket bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
+
+
+
+  .info
+    .title
+      
+      
+      = link_to document.get('title_display'), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
+
+           

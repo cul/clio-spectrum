@@ -1,0 +1,16 @@
+/ container for a single doc 
+.document{:class => render_document_class(document) }
+    
+  - fedora_id = document['id'].listify.first
+  .fedora_title= link_to document.get('title_display'), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
+
+      
+  / main container for doc partial view 
+
+  .details
+    = add_row('Author', document['author_display'])
+    = add_row('Date', document['pub_date_facet'])
+    = add_row('Subject', document['subject_facet'], :join => ', ')
+    = add_row('Type', document['genre_facet'])
+    = add_row('Publisher', document['publisher'])
+    = add_row('Downloads', "<span class='fedora_#{fedora_id.gsub(':','')}'>Loading... " + image_tag("ajax-indicator.gif",:size => "12x12") + "</span>")
