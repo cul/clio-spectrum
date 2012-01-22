@@ -1,0 +1,27 @@
+import org.marc4j.marc.Record;
+import org.solrmarc.tools.Utils;
+
+// define the base level indexer so that its methods can be called from the script.
+// note that the SolrIndexer code will set this value before the script methods are called.
+org.solrmarc.index.SolrIndexer indexer = null;
+
+/**
+ * Determine Record Format(s)
+ *
+ * @param  Record          record
+ * @return Set     format of record
+ */
+
+public Set getFirstLetter(Record record)
+{
+    Set result = new LinkedHashSet();
+
+    Set title_245a = indexer.getFieldList(record, "245a");
+    for (String title : title_245a)
+    {
+        result.add(title.substring(0,1));
+        return result;
+    }
+
+    return result;
+}
