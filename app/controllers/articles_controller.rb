@@ -2,7 +2,8 @@ require 'blacklight/catalog'
 
 class ArticlesController < ApplicationController
   layout "quicksearch"
-
+  
+  include Blacklight::Catalog
 
   def index
     @new_search = true

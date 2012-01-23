@@ -87,10 +87,11 @@ class CatalogController < ApplicationController
           :defType => "edismax",
           :qt => "search",
           :per_page => 15,
-          :fq  => ['{!raw f=source_facet}database', '{!raw f=first_letter}e*']
+          :fq  => ['{!raw f=source_facet}database']
         }
 
         default_catalog_config(config)
+        config.add_facet_field 'title_first_facet', :label => "Starts With"
       when 'New Arrivals'
 
         config.default_solr_params = {
