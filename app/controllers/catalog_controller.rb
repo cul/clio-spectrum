@@ -194,16 +194,17 @@ class CatalogController < ApplicationController
    
 
     config.add_facet_field "format", :label => "Format", :limit => 20
-    config.add_facet_field "author_facet", :label => "Author", :limit => 10
     config.add_facet_field "pub_date_facet", :label => "Publication Date", :limit => 10
     config.add_facet_field "acq_date_facet", :label => "Acquisition Date", :limit => 10
+    config.add_facet_field "location_facet", :label => "Location", :limit => 10
+    config.add_facet_field "author_facet", :label => "Author", :limit => 10
     config.add_facet_field "subject_topic_facet", :label => "Topic", :limit => 10
+    config.add_facet_field "subject_geo_facet", :label => "Topic (Region)", :limit => 10
+    config.add_facet_field "subject_era_facet", :label => "Topic (Era)", :limit => 10
+    config.add_facet_field "subject_form_facet", :label => "Topic (Genre)", :limit => 10
     config.add_facet_field "language_facet", :label => "Language", :limit => 10 
     config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26
     config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
-    config.add_facet_field "subject_geo_facet", :label => "Topic (Region)", :limit => 10
-    config.add_facet_field "subject_era_facet", :label => "Topic (Era)", :limit => 10
-    config.add_facet_field "location_facet", :label => "Location", :limit => 10
 
     # Now we see how to over-ride Solr request handler defaults, in this
     # case for a BL "search field", which is really a dismax aggregate
