@@ -195,7 +195,7 @@ class CatalogController < ApplicationController
 
     config.add_facet_field "format", :label => "Format", :limit => 20
     config.add_facet_field "author_facet", :label => "Author", :limit => 10
-    config.add_facet_field "pub_date_facet", :label => "Publication Date", :limit => 10
+    config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 10, :range => true
     config.add_facet_field "acq_date_facet", :label => "Acquisition Date", :limit => 10
     config.add_facet_field "subject_topic_facet", :label => "Topic", :limit => 10
     config.add_facet_field "language_facet", :label => "Language", :limit => 10 

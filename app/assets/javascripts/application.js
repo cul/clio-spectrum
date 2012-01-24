@@ -19,7 +19,7 @@
 //= require jquery.colorbox-min
 //= require jquery.validate.pack
 //= require jquery.dropmenu.js
-//
+//= require blacklight_range_limit
 //= require google_analytics
 //= require_tree .
 // Required by Blacklight

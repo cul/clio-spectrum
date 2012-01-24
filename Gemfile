@@ -10,6 +10,7 @@ gem 'sqlite3'
 # gem 'unicorn'
 
 gem 'blacklight'
+gem 'blacklight_range_limit'
 gem 'json'
 
 # Deploy with Capistrano

@@ -51,6 +51,9 @@ GEM
       rails (~> 3.0)
       rsolr
       rsolr-ext
+    blacklight_range_limit (1.2.0)
+      blacklight (~> 3.2)
+      rails (~> 3.0)
     blankslate (2.1.2.4)
     builder (3.0.0)
     capistrano (2.9.0)
@@ -283,6 +286,7 @@ DEPENDENCIES
   blacklight
   blacklight_advanced_search
   blacklight_highlight
+  blacklight_range_limit
   capistrano
   capistrano-ext
   capybara
