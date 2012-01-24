@@ -1,15 +1,16 @@
 - @page_title = application_name + " Article Search"
 #intro_text
-  %h2 Article Search
   - if @error
     .landing_text
       This search has returned an error. Right now, the Summon API is having trouble with unicode searches. We are currently working on this with Serial Solutions. If you did not do a search involving unicode, please use the feedback button to report your problem
       
   - else
 
-    = datasource_landing_page('Articles') 
 
-    - sidebar_items << capture do 
-      = render :partial => "/_search/facets", :locals => {:facets => @summon.search.facets}
 
+    - if params.any? { |k,v| k.include?("s.") }
+      - sidebar_items << capture do 
+        = render :partial => "/_search/facets", :locals => {:facets => @summon.search.facets}
+    - else
+      = add_all_datasource_landing_pages
 
