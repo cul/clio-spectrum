@@ -10,7 +10,7 @@
 
 //= require 'flot/jquery.flot.js'
 //= require 'flot/jquery.flot.selection.js'
-//= require 'flot/excanvas.min.js'
+//= require 'flot/excanvas.js'
 //= require_tree './blacklight_range_limit'
 //= require blacklight_advanced_search
 //= require blacklight/blacklight          

@@ -23,7 +23,6 @@ config.action_mailer.smtp_settings = {
 }
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
-  config.assets.precompile = %w[float/excanvas.min.js]
   config.assets.compress = true
   config.assets.compile = false
   config.assets.digest = true
