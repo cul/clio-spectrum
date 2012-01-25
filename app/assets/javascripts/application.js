@@ -15,13 +15,15 @@
 //= require articles
 //= require facets
 //= require jquery.contactable.min.js
-//= require contactable_snippet
 //= require jquery.colorbox-min
 //= require jquery.validate.pack
 //= require jquery.dropmenu.js
-//= require blacklight_range_limit
 //= require google_analytics
-//= require_tree .
+//= require holdings
+//= require flot/jquery.flot.js
+//= require flot/jquery.flot.selection.js
+//= require blacklight_range_limit/range_limit_distro_facets.js
+//= require blacklight_range_limit/range_limit_slider.js
 // Required by Blacklight
 
 

@@ -1,0 +1,14 @@
+%ul
+  %span.selected
+  - paginator = Blacklight::Solr::FacetPaginator.new(display_facet.items,  :limit => facet_limit_for(solr_field))
+  - paginator.items.each do |item| 
+    %li
+      - if facet_in_params?( solr_field, item.value ) 
+        = render_selected_facet_value(solr_field, item)
+      - else 
+        = render_facet_value(solr_field, item)
+
+  - if(paginator.has_next?)
+    %li.more_facets_link
+      = link_to('See more »', params.merge(:id => solr_field, :action=>"facet"), :class => "more_facets_link")
+

@@ -193,7 +193,7 @@ class CatalogController < ApplicationController
     # solr fld values given special treatment in the index (search results) view
    
 
-    config.add_facet_field "format", :label => "Format", :limit => 3
+    config.add_facet_field "format", :label => "Format", :limit => 3, :start_closed => true
     config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => true
     config.add_facet_field "author_facet", :label => "Author", :limit => 3
     config.add_facet_field "acq_date_facet", :label => "Acquisition Date", :limit => 3
@@ -204,7 +204,7 @@ class CatalogController < ApplicationController
     config.add_facet_field "subject_era_facet", :label => "Topic (Era)", :limit => 3
     config.add_facet_field "subject_form_facet", :label => "Topic (Genre)", :limit => 3
     config.add_facet_field "language_facet", :label => "Language", :limit => 3
-    config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26
+    config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
     config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
 
     # Now we see how to over-ride Solr request handler defaults, in this

@@ -9,6 +9,6 @@
       - when "lc_2letter_facet"
 
       - else
-        = fix_catalog_links(render_facet_limit(solr_fname))
+        = fix_catalog_links(render_facet_partials([solr_fname]))
 
 

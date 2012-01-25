@@ -3,7 +3,7 @@
 - if display_facet && display_facet.items.length > 0 
   - if solr_field != "lc_2letter_facet"
     %h3= facet_field_labels[solr_field]
-    
+  .selected 
   %ul
     - paginator =   Blacklight::Solr::FacetPaginator.new(display_facet.items, :limit => facet_limit_for(solr_field) )
     - paginator.items.each do |item| 
