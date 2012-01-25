@@ -4,11 +4,14 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-
 //= require jquery-1.6.2.min.js
 //= require jquery_ujs
 //= require jquery-ui
 
+//= require 'flot/jquery.flot.js'
+//= require 'flot/jquery.flot.selection.js'
+//= require 'flot/excanvas.min.js'
+//= require_tree './blacklight_range_limit'
 //= require blacklight_advanced_search
 //= require blacklight/blacklight          
 //= require blacklight_application
@@ -20,10 +23,6 @@
 //= require jquery.dropmenu.js
 //= require google_analytics
 //= require holdings
-//= require flot/jquery.flot.js
-//= require flot/jquery.flot.selection.js
-//= require blacklight_range_limit/range_limit_distro_facets.js
-//= require blacklight_range_limit/range_limit_slider.js
 // Required by Blacklight
 
 
