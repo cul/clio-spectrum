@@ -1,5 +1,9 @@
 class SolrDocument 
 
+  def id
+    self[self.class.unique_key].listify.first
+  end
+
   include Blacklight::Solr::Document
   include BlacklightHighlight::SolrDocumentExtension
 
