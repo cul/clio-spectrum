@@ -8,10 +8,11 @@
 //= require jquery_ujs
 //= require jquery-ui
 
-//= require 'flot/jquery.flot.js'
-//= require 'flot/jquery.flot.selection.js'
-//= require 'flot/excanvas.js'
-//= require_tree './blacklight_range_limit'
+//= require flot/excanvas.min
+//= require flot/jquery.flot
+//= require flot/jquery.flot.selection
+//= require blacklight_range_limit/range_limit_distro_facets
+//= require blacklight_range_limit/range_limit_slider
 //= require blacklight_advanced_search
 //= require blacklight/blacklight          
 //= require blacklight_application

@@ -193,7 +193,7 @@ class CatalogController < ApplicationController
     # solr fld values given special treatment in the index (search results) view
    
 
-    config.add_facet_field "format", :label => "Format", :limit => 3, :start_closed => true
+    config.add_facet_field "format", :label => "Format", :limit => 3
     config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => true
     config.add_facet_field "author_facet", :label => "Author", :limit => 3
     config.add_facet_field "acq_date_facet", :label => "Acquisition Date", :limit => 3
