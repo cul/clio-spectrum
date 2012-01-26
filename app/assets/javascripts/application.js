@@ -26,4 +26,4 @@
 //= require blacklight_range_limit/range_limit_slider.js
 // Required by Blacklight
 
-
+//= require zzz_cliobeta_er_theme

@@ -6,6 +6,11 @@
   %body{:onload => onload}
     - add_datasources(@active_source)
     #trigger
+    #cu_top
+      #cu_inner
+        <a href="http://columbia.edu">CU Home</a> &gt; <a href="http://library.columbia.edu">Libraries Home</a> &gt; <a href="http://columbia.edu/clio">CLIO</a>
+        #cu_inner_right
+          something | something | something
     #page
       = render :partial => "/header_with_search"
       #bd
