@@ -79,5 +79,12 @@ module HoldingsHelper
     
   end
 
+  def extract_google_bibkeys(document)
+    
+#    document["isbn_t"]
+    ['OCLC:82011860']
+    
+  end
+
 end
 
