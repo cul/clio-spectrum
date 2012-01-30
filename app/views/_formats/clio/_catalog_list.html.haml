@@ -2,7 +2,6 @@
 .result.document{:class => render_document_class(document) }
     
   .title= link_to_source_document document, :label=>document_show_link_field, :counter => counter
-
       
   / main container for doc partial view 
 
@@ -11,3 +10,4 @@
   
   .doc_bookjacket
     =image_tag("spacer.png", :class => "list_view bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))
+
