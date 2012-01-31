@@ -81,9 +81,22 @@ module HoldingsHelper
 
   def extract_google_bibkeys(document)
     
-#    document["isbn_t"]
-    ['OCLC:82011860']
+    bibkeys = []
     
+    unless document["isbn_t"].nil?
+      bibkeys << document["isbn_t"]
+    end
+    
+    unless document["oclc_display"].nil?
+      bibkeys << document["oclc_display"].collect { |oclc| "OCLC:" + oclc.gsub(/^oc[mn]/,"") }.uniq
+    end
+    
+    unless document["lccn_display"].nil?
+      bibkeys << document["lccn_display"].collect { |lccn| "LCCN:" + lccn.gsub(/\s/,"").gsub(/\/.+$/,"") }
+    end
+    
+    bibkeys.flatten
+
   end
 
 end

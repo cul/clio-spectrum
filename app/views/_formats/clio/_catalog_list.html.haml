@@ -9,5 +9,5 @@
     = render :partial => "/_formats/clio/catalog_list_details", :locals => {:document => document}
   
   .doc_bookjacket
-    =image_tag("spacer.png", :class => "list_view bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))
+    =image_tag("spacer.png", :class => "list_view bookjacket " + extract_google_bibkeys(document).listify.collect { |x| "isbn_" + x.to_s.gsub(':','')}.join(" "))
 
