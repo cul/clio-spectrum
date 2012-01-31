@@ -85,22 +85,11 @@ class SearchController < ApplicationController
                       :url => url_for(:controller => 'catalog', :action => 'index', :q => params['q'])
                     }
                   when 'lweb'
-                    search_result = Nokogiri::XML(HTTPClient.new.get_content('http://search.columbia.edu/search?site=CUL_LibraryWeb&sitesearch=&as_dt=i&client=cul_libraryweb&output=xml&ie=UTF-8&oe=UTF-8&filter=0&sort=date%3AD%3AL%3Adl&num=10&x=0&y=0&q=' +  CGI::escape(params[:q])))
-
-                    docs = search_result.css("R").collect do |xml_node|
-                      content_or_nil = lambda { |node| node ? node.content : nil }
-                      { 
-                        :url => content_or_nil.call(xml_node.at_css('UE')),
-                        :title => content_or_nil.call(xml_node.at_css('T')),
-                        :summary => content_or_nil.call(xml_node.at_css('S'))
-                      }
-                    end
-
+                    @search = LibraryWeb::API.new(:q => params[:q])
                     {
-                      :docs => docs,
-                      :count => (search_result.at_css("M") ? search_result.at_css("M").content.to_i : 0),
-
-                      :url =>  'http://search.columbia.edu/search?site=CUL_LibraryWeb&sitesearch=&as_dt=i&client=cul_libraryweb&proxystylesheet=cul_libraryweb&output=xml_no_dtd&ie=UTF-8&oe=UTF-8&filter=0&sort=date%3AD%3AL%3Adl&num=20&x=0&y=0&q=' +  CGI::escape(params[:q])
+                      :docs => @search.docs,
+                      :count => @search.count, 
+                      :url => @search.search_url
                     }
 
                   end

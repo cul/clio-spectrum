@@ -1,0 +1,2 @@
+module LibraryWebHelper
+end

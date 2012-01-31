@@ -1,4 +1,6 @@
 NewBooks::Application.routes.draw do
+  get "library_web/index"
+
   Blacklight.add_routes(self)
   
   root :to => "search#index"
@@ -10,6 +12,7 @@ NewBooks::Application.routes.draw do
   match 'databases', :to => 'catalog#index', :as => :databases_index
   match 'databases/:id(.:format)', :to => 'catalog#show', :as => :databases_show
 
+  match 'library_web', :to => 'library_web#index', :as => :library_web_index
 
   match 'catalog', :to => 'catalog#index', :as => :base_catalog_index
 
