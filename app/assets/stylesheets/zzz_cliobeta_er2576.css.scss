@@ -1,10 +1,12 @@
-/* CLIObeta styles via er2576 */
+/* CLIObeta styles via er2576 
+ * temporary straight-css overrides (to be loaded last) for redesign until rewritten in SASS
+ */
 html { background:transparent!important; overflow-y:scroll; }
 body { background:#fff; }
 @font-face { font-family: 'Trajan Pro'; src: asset_url('TrajanPro-Regular.otf', images); font-weight: normal; font-style: normal; }
 @font-face { font-family: 'Trajan Pro Bold'; src: asset_url('TrajanPro-Bold.otf', images); font-weight: bold; font-style: normal; }
 #cu_top { background:#174785;height:30px; color:#ddd; font-size:10px; line-height:30px; }
-#cu_inner { width:920px!important; margin:0 auto!important; background: asset_url("crown-24x24.png", image) no-repeat left 1px!important; padding-right:0px!important; padding-left:28px!important; min-height:24px!important; }
+#cu_inner { width:940px!important; margin:0 auto!important; background: asset_url("crown-24x24.png", image) no-repeat left 1px!important; padding-right:0px!important; padding-left:28px!important; min-height:24px!important; }
 #cu_inner_right { float:right!important; padding-right:1px!important; }
 #cu_top a { color:#fff; text-decoration:none!important; border:0; }
 #cu_top a:hover { text-decoration:underline!important; border:0; }
@@ -23,7 +25,7 @@ body { background:#fff; }
 #top_search_box input.q:focus, #quicksearch_q:focus, #top_search_box input.q:hover, #quicksesarch_q:hover { border-color:#111 !important; }
 #top_search_box input::-webkit-input-placeholder {color:#ccc!important;}
 #top_search_box input:-moz-placeholder {color:#ccc!important;}
-#sources { background:/*#759ac4*/transparent; width:185px!important; height:100%; margin-right:0px!important; }
+#sources { background:transparent; width:185px!important; height:100%; margin-right:0px!important; }
 #logo_small { width:175px!important; margin-right:10px!important; }
 #main_with_sources { float:left!important; border:1px solid #aaa; width:765px!important; padding:4px!important; }
 #main_with_sources .landing_page .title { padding-top:0.4em!important; font-family: "Trajan Pro Bold", "TrajanProBold", "TrajanPro-Bold", serif; font-weight:bold; font-size:135%; }
@@ -34,17 +36,17 @@ body { background:#fff; }
 .results_header .category_title { font-family: "Trajan Pro Bold", "TrajanProBold", "TrajanPro-Bold", serif; font-weight:bold; display:block; margin-bottom:6px; }
 .result .row { line-height:1!important; }
 #datasources { margin-right:0!important; }
-#datasources li { background:inherit!important; color:#111!important; padding-left:4px!important; }
-#datasources li.datasource_link:hover { background:rgba(180,180,255,0.2)!important; }
+#datasources li { background:inherit!important; color:#111!important; padding-left:6px!important; }
+#datasources li.datasource_link:hover { background:rgba(180,180,180,0.2)!important; }
 #datasources li a { color:#111!important; display:inline-block;width:100%; }
 #datasources li.title { font-weight:bold!important; font-size:16px!important; text-transform:lowercase; font-variant:small-caps; color:#888!important; }
 #datasources li.selected { background:#e3e8f1!important; }
-#datasources li.selected { border-left:2px solid gold!important; }
-#datasources li.selected a { margin-left:-2px!important; font-weight:bold; }
+#datasources li.selected { border-left:3px solid gold!important; }
+#datasources li.selected a { margin-left:-3px!important; font-weight:bold; }
 #sources #facets { padding:2px 0px; background:#fff; margin-top:0; border:0px solid #aaa; }
 #sources #facets h2 { padding-left:2px!important; margin-bottom:4px; background: rgba(255, 255, 255, 1.0); border:0px solid #ccc; border-left:0; border-right:0; font-size:16px!important; text-transform:lowercase; font-variant:small-caps; color:#888!important; }
 #sources #facets h3 { border-bottom:1px solid #fff; }
-#sources #facets > .facet_limit { padding:2px 4px 0 4px!important; margin-bottom: 8px!important; /*background: rgba(0, 0, 0, 0.02);*/ border:1px dotted #ccc;  border-right:0; }
+#sources #facets > .facet_limit { padding:2px 4px 0 4px!important; margin-bottom: 8px!important; border:1px dotted #ccc;  border-right:0; }
 #sources .facet_limit > .facet_limit { margin:0!important; padding:0!important; }
 #sources .facet_limit h3 { margin-top:6px!important; }
 #cul_footer { clear:both;margin:0 auto; border-top:0px solid #ddd; padding:4px 0px!important; color:#888; text-align:right; }
