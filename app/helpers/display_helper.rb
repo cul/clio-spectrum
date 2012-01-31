@@ -83,13 +83,11 @@ module DisplayHelper
   def determine_formats(document, defaults = [])
     formats = defaults.listify
     formats << "ac" if @active_source == "Academic Commons"
+    formats << "database" if @active_source == "Databases"
     case document
     when SolrDocument
       formats << "clio"
       
-      if !document["source_display"].nil? && document["source_display"].include?("database")
-        formats << "database"
-      end
       document["format"].listify.each do |format|
         formats << SOLR_FORMAT_LIST[format] if SOLR_FORMAT_LIST[format]
       end
