@@ -9,10 +9,16 @@
     :display block
 
 .landing_pages
-  +columns(12,18)
-  +pad(0,6,18)
+  +columns(18,18)
   +omega(18)
   :font-size 1.3em
+
+  .landing_main
+    +columns(12,18)
+
+  .landing_side
+    +columns(6,18)
+    +omega(18)
 
   .title
     :font-size 1.1em
