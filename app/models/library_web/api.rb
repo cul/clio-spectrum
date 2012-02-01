@@ -2,9 +2,9 @@ class LibraryWeb::API
   attr_reader :raw_xml, :docs, :page, :start, :count
   def initialize(params = {})
     
-    @q = params[:q] || raise("No query string specified")
-    @rows = (params[:rows] || 10).to_i
-    @page = (params[:page] || 1).to_i
+    @q = params['q'] || raise("No query string specified")
+    @rows = (params['rows'] || 10).to_i
+    @page = (params['page'] || 1).to_i
     @raw_xml = Nokogiri::XML(HTTPClient.new.get_content(search_url))
     @docs = @raw_xml.css("R").collect { |xml_node| LibraryWeb::Document.new(xml_node) }
     @count = @raw_xml.at_css("M") ? @raw_xml.at_css("M").content.to_i : 0

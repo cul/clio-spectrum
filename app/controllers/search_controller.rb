@@ -85,7 +85,7 @@ class SearchController < ApplicationController
                       :url => url_for(:controller => 'catalog', :action => 'index', :q => params['q'])
                     }
                   when 'lweb'
-                    @search = LibraryWeb::API.new(:q => params[:q])
+                    @search = LibraryWeb::API.new('q' => params['q'])
                     {
                       :docs => @search.docs,
                       :count => @search.count, 

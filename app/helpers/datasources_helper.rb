@@ -1,6 +1,6 @@
 #encoding: UTF-8
 module DatasourcesHelper
-  SOURCES_ALWAYS_INCLUDED = ['Quicksearch', 'Catalog', 'Articles', 'Academic Commons']
+  SOURCES_ALWAYS_INCLUDED = ['Quicksearch', 'Catalog', 'Articles', 'Academic Commons', 'Library Web']
   SOURCES_MINOR = ['eBooks', 'New Arrivals', 'Databases']
   
   def active_query?
@@ -94,6 +94,8 @@ module DatasourcesHelper
         new_arrivals_index_path(:q => query)
       when 'Academic Commons'
         academic_commons_index_path(:q => query)
+      when 'Library Web'
+        library_web_index_path(:q => query)
       end
     end
 

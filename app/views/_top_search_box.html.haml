@@ -55,6 +55,14 @@
       
       %button{:id => 'databases_search', :type => 'submit', :class => 'submit', :name => 'commit', :value => 'search'} Search 
 
+= display_search_box('Library Web') do
+  = form_tag library_web_index_path, :method => :get do
+    .search_row
+      = text_field_tag :q, params[:q], :class => "q", :id => "library_web_q"
+      
+      
+      %button{:id => 'library_web_search', :type => 'submit', :class => 'submit', :name => 'commit', :value => 'search'} Search 
+
 = display_search_box('Academic Commons') do
   = form_tag academic_commons_index_path, :method => :get do
     .search_row

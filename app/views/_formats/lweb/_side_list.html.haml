@@ -1,0 +1,5 @@
+
+.result{:class => alternating_line('lweb')}
+  .row
+    .result_title=link_to document.title.html_safe, :url => document.url
+  .blockquote= document.summary.html_safe
