@@ -27,8 +27,9 @@ body { background:#fff; }
 #top_search_box input:-moz-placeholder {color:#ccc!important;}
 #sources { background:transparent; width:185px!important; height:100%; margin-right:0px!important; }
 #logo_small { width:175px!important; margin-right:10px!important; }
-#main_with_sources { float:left!important; border:1px solid #aaa; width:765px!important; padding:4px!important; }
+#main_with_sources { float:left!important; border:1px solid #aaa; width:765px!important; min-height:420px!important; padding:4px!important; }
 #main_with_sources .landing_page .title { padding-top:0.4em!important; font-family: "Trajan Pro Bold", "TrajanProBold", "TrajanPro-Bold", serif; font-weight:bold; font-size:135%; }
+#main_with_sources .landing_side { }
 .two_lopsided { padding:0 10px; float:none; }
 .results_header { background:#e3e8f1; padding:15px 4px 6px 4px; line-height:1; border:1px solid #ccc; }
 .result { float:none!important; }
