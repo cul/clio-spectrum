@@ -13,15 +13,27 @@
   = render :partial => "/_search/landing_pages/footer"
 
 .landing_side
-  %p News blurb
+  .landing_side_inner
+    %h3 Latest News
 
-  %p
-    =link_to "Title of Link", "www.google.com"
-    Link description
+    %dl
+      %dt
+        =link_to "Title of Link", "www.google.com"
+        %dd
+          Link description
+      %dt
+        =link_to "Title of Link", "www.google.com"
+        %dd
+          Link description
 
-  %p
-    =link_to "Another Link", "www.google.com"
-    Link description
-  
+    %h3 Example Other Stuff
 
-
+    %dl
+      %dt
+        =link_to "Title of Link", "www.google.com"
+        %dd
+          Link description
+      %dt
+        =link_to "Title of Link", "www.google.com"
+        %dd
+          Link description
