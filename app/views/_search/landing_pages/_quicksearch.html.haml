@@ -1,15 +1,27 @@
-.title Quicksearch
+.landing_main
+  .title Quicksearch
 
-%p Quicksearch performs a combined search of:
-%ul 
-  %li Catalog (books, journals, online resources, dvds, etc.)
-  %li Articles (journal articles, ebooks, dissertations)
-  %li eBooks
-  %li Library website
+  %p Quicksearch performs a combined search of:
+  %ul 
+    %li Catalog (books, journals, online resources, dvds, etc.)
+    %li Articles (journal articles, ebooks, dissertations)
+    %li eBooks
+    %li Library website
 
-%p Select #{datasource_switch_link('Catalog','catalog')}, #{datasource_switch_link('Articles','articles')}, or #{datasource_switch_link('eBooks','ebooks')} to search each resource individually.
+  %p Select #{datasource_switch_link('Catalog','catalog')}, #{datasource_switch_link('Articles','articles')}, or #{datasource_switch_link('eBooks','ebooks')} to search each resource individually.
 
-= render :partial => "/_search/landing_pages/footer"
+  = render :partial => "/_search/landing_pages/footer"
 
+.landing_side
+  %p News blurb
+
+  %p
+    =link_to "Title of Link", "www.google.com"
+    Link description
+
+  %p
+    =link_to "Another Link", "www.google.com"
+    Link description
+  
 
 
