@@ -9,44 +9,24 @@
 
 #hd.with_search
   #logo_small
-    +columns(6,24)
+    +columns(5,24)
 
   #top_search_box
-    +columns(14,24)
+    +columns(15,24)
 
   #user_util_links
     +columns(4,24)
     +omega(24)
 
-.search_box 
-  :display none
 
-  &.selected
-    :display block
-.search_row
-  :padding-top 1.2em
-  :padding-bottom 1em
-
-  .search_field
-    :font-size 1.2em
-    :padding 0 .25em 0em .25em
-    
-
-  .q
-    :padding-left .25em
-    :font-size 1.4em
-    :width 17em
-    :margin-right .5em
-
-  .submit
-    :font-size 1.2em
-    :padding .25em .5em .25em .5em
 #main_with_sources
-  +columns(18,24)
+  +columns(19,24)
   +omega(24)
 
+  min-height: 420px
+
 #sources
-  +columns(6,24)
+  +columns(5,24)
 
 .two_equal
   +columns(18,18)
@@ -85,7 +65,7 @@
 .two_lopsided
   +columns(18,18)
   +omega(18)
-  :padding 1em 0 1em 0
+  :padding 0em 0 1em 0
 
   .result_set
     :margin-bottom 2em

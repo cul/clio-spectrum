@@ -6,11 +6,12 @@ body
   :font 0.75em "Lucida Grande", "Lucida Sans Unicode", Verdana, "Arial Unicode MS", Arial, sans-serif
   :line-height 1.5
 
-html.blank_layout 
-  :background white
+html 
+  :background transparent
+  :overflow-y scroll
 
-body.blank_layout
-  :background white
+body
+  :background #fff
 
 #page
   :background white
@@ -21,6 +22,32 @@ html
   
 body
   :padding 0em
+
+#cu_top
+  background: #174785
+  height: 30px
+  color: #ddd
+  font-size: 10px
+  line-height: 30px
+
+#cu_inner
+  margin: 0 auto
+  background: asset_url("crown-24x24.png", image) no-repeat left 1px 
+  padding-right: 0px
+  padding-left: 28px
+  min-height: 24px
+
+#cu_inner_right
+  float: right
+  padding-right: 1px
+
+#cu_top a
+  color: #fff
+  text-decoration: none
+  border: 0
+  &:hover
+    text-decoration: underline
+    border: 0
 
 #hd   
   :padding-top .5em
@@ -38,6 +65,15 @@ body
 .help_button
   :padding-top 5px
 
+#cul_footer
+  clear: both
+  margin: 0 auto
+  border-top: 0px solid #ddd
+  padding: 4px 0px
+  color: #888
+  text-align: right
+  p
+    padding: 1em 0
 
 
 

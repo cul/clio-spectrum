@@ -47,8 +47,8 @@ module DatasourcesHelper
     
     options[:all_sources] = !active_query?
 
-    result = [content_tag(:li, 'Sources', :class => 'title')]
-
+    result = []
+    #result << [content_tag(:li, 'Sources', :class => 'title')]
     result |= datasources_active_list(options).collect { |src| datasource_item(src,options) }
 
     unless (hidden_datasources = datasources_hidden_list(options)).empty?

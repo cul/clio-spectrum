@@ -9,31 +9,32 @@
     :display block
 
 .landing_pages
-  +columns(18,18)
-  +omega(18)
   :font-size 1.3em
+  +clearfix
 
   .landing_main
-    +columns(12,18)
+    +columns(13,18)
 
   .landing_side
-    +columns(6,18)
+    +columns(5,18)
     +omega(18)
 
   .landing_side_inner 
+    :background #fffdf6
     :font-size 0.9em
-    :padding 1em 0 1em .5em 
-    :border-left 1px dotted #aaa
+    :padding 0em 0 1em .5em 
+    :border 3px outset #eec700
     :padding-left 0.4em
 
   .landing_side_inner h3
     :color #777
     :margin 0
     :text-transform lowercase
+    :font-size 120%
     :font-variant small-caps
 
   .landing_side_inner dl
-    :font-size 0.8em 
+    :font-size 0.9em 
     :margin .5em 0 2em 0
 
   .landing_side_inner dt
@@ -43,42 +44,48 @@
     :color #8e8e8e
 
   .title
-    :font-size 1.1em
-    :font-weight bold
-    :padding 0.75em 0 0.5em 
+    font-family: "Trajan Pro Bold", "TrajanProBold", "TrajanPro-Bold", serif
+    font-weight: bold
+    font-size: 135%
+    :padding 0.25em 0 0.5em 
 
-ul#datasources
-  :margin .4em 4em 2em 0
-
-
+#datasources
+  :margin .4em 0em 2em 0
+  margin-right: 0
   li
     :list-style none
-    :padding .5em 0 .5em .2em
+    background: inherit
+    color: #111
     :font-size 1.1em
-    :background #fff
-  
+    :padding .5em 0 .5em 1em
+
+    &.datasource_link:hover
+      background: rgba(180, 180, 180, 0.2) asset_url("ds_pointer.png",image) no-repeat center right
     a
+      color: #111
+      display: inline-block
+      width: 100%
       :border-bottom none
-      :color #000
 
-  li.selected
-    :background-color #F9F9FF
+    &.title
+      font-weight: bold
+      font-size: 1.4em
+      text-transform: lowercase
+      font-variant: small-caps
+      color: #888
 
-    a
-      :color #394AFF
-
-  li.hover
-    :background #f6f6f6
-
-
-
-  li.title
-    :font-size 1.4em
-    :font-weight bold
-    :color #002556
+    &.selected
+      background: #e3e8f1 asset_url("ds_pointer.png",image) no-repeat center right
+      border-left: 3px solid gold
+      a
+        margin-left: -3px 
+        font-weight: bold
 
     &.hover
-      :background-color #fff
+      :background #f6f6f6 asset_url("ds_pointer.png",image) no-repeat center right
+
+
+
 
 ul#expanded_datasources
   :margin 0

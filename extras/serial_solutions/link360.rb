@@ -4,7 +4,7 @@ module SerialSolutions
     attr_reader :holdings
 
     def initialize(open_url, config = APP_CONFIG[:link360])
-      full_url =  APP_CONFIG[:link360][:open_url_prefix] + open_url
+      full_url =  APP_CONFIG[:link360][:open_url_prefix].to_s + open_url.to_s
       raw_xml = Nokogiri::XML(HTTPClient.new.get_content(full_url))
       @response = {}
       parse_xml(raw_xml)
