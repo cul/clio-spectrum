@@ -5,6 +5,8 @@
   - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
   %body{:onload => onload}
     - add_datasources(@active_source)
+    #trigger
+    = render :partial => "/top_navigation_bar"
     #page
       = render :partial => "/header_with_search"
       #bd

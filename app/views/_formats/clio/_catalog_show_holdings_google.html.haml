@@ -1,11 +1,9 @@
-
 #show_cover.gbs_cover
   .holding
-    - isbns = document["isbn_t"].listify.collect { |i| "isbn_#{i}"}.join(" ")
+    - isbns = extract_google_bibkeys(document).listify.collect { |i| "isbn_" + i.to_s.gsub(':','')}.join(" ")
     %img.bookjacket{:class => isbns, :src => image_path("spacer.png")}
     .google_title Google Books
     .gbs_info
       =link_to "More info at Google books", "http://books.google.com", :class => "gbs_info_link", :target => "_blank"
     .gbs_preview
       =link_to image_tag("gb_preview.png"), "#", :alt => "Gb_preview", :class => "gbs_preview_link", :target => "_blank"
-

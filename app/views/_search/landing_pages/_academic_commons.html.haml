@@ -1,6 +1,18 @@
 
-.title Academic Commons
+.landing_main
+  .title Academic Commons
 
-%p Academic Commons is Columbia University's digital repository where faculty, students, and staff of Columbia and its affiliate institutions can deposit the results of their scholarly work and research. Content in Academic Commons is freely available to the public.
+  %p Academic Commons is Columbia University's digital repository where faculty, students, and staff of Columbia and its affiliate institutions can deposit the results of their scholarly work and research. Content in Academic Commons is freely available to the public.
 
-= render :partial => "/_search/landing_pages/footer"
+
+.landing_side
+  .landing_side_inner
+    %dl
+      %dt
+        = link_to "Academic Commons Home", "http://academiccommons.columbia.edu"
+        %dd
+
+      %dt
+        = link_to "Self Deposit Page", "http://academiccommons.columbia.edu/deposit"
+        %dd
+          Contribute your own research to Academic Commons with one click!

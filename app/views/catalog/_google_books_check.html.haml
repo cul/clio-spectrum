@@ -1,4 +1,5 @@
-- isbns_to_check = documents.listify.collect { |d| d["isbn_t"] }.compact.flatten.uniq 
+-# isbns_to_check = documents.listify.collect { |d| d["isbn_t"] }.compact.flatten.uniq 
+- isbns_to_check = documents.listify.collect { |d| extract_google_bibkeys(d) }.compact.flatten.uniq 
 
 
 - content_for :jstemplates do 

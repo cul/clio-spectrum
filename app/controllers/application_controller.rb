@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
     when /^\/academic_commons/
       'Academic Commons'
     when /^\/library_web/
+      'Library Web'
     else
       params['active_source'] || 'Quicksearch'
     end
@@ -34,17 +35,15 @@ class ApplicationController < ActionController::Base
 
 
   private
+  def configure_search(source)
 
-  def by_source_config
-    @active_source = determine_active_source
-
-    if @active_source == "Academic Commons"
+    if source == "Academic Commons"
       Blacklight.solr = RSolr::Ext.connect(:url => "http://macana.cul.columbia.edu:8080/solr-1.5/ac2_prod")
     else
       Blacklight.solr = RSolr::Ext.connect(Blacklight.solr_config)
     end
     CatalogController.configure_blacklight do |config|
-      case @active_source
+      case source
       when 'Databases'
 
         config.default_solr_params = {
@@ -148,6 +147,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def by_source_config
+    @active_source = determine_active_source
+
+    configure_search(@active_source)
+  end
+
 
   def shared_catalog_config(config)
 
@@ -171,12 +176,12 @@ class ApplicationController < ActionController::Base
     config.add_facet_field "location_facet", :label => "Location", :limit => 3
     config.add_facet_field "author_facet", :label => "Author", :limit => 3
     config.add_facet_field "language_facet", :label => "Language", :limit => 3
-    config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
-    config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
     config.add_facet_field "subject_topic_facet", :label => "Topic", :limit => 3
     config.add_facet_field "subject_geo_facet", :label => "Topic (Region)", :limit => 3
     config.add_facet_field "subject_era_facet", :label => "Topic (Era)", :limit => 3
     config.add_facet_field "subject_form_facet", :label => "Topic (Genre)", :limit => 3
+    config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
+    config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
 
     # Now we see how to over-ride Solr request handler defaults, in this
     # case for a BL "search field", which is really a dismax aggregate

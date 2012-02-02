@@ -2,11 +2,11 @@ class SearchController < ApplicationController
   include Blacklight::Catalog
   layout 'quicksearch'
 
-  CATEGORY_ORDER = %w{catalog articles ebooks lweb catalog_ebooks}
+  CATEGORY_ORDER = %w{catalog articles academic_commons ebooks lweb catalog_ebooks}
 
   def index
     @results = []
-    params['categories'] = ['catalog', 'articles', 'lweb']
+    params['categories'] = ['catalog', 'academic_commons', 'articles', 'lweb']
 
     raise('test') if params['throw_error']
 
@@ -68,8 +68,10 @@ class SearchController < ApplicationController
                       :url => article_search_path(summon.search.query.to_hash)
                     }
                   when 'catalog_ebooks'
+                    configure_search('Catalog')
                     params[:per_page] = 15
                     params[:f] = {'format' => ['Book', 'Online']}
+
                     solr_response, solr_results =  get_search_results
                     {
                       :docs => solr_results,
@@ -77,12 +79,23 @@ class SearchController < ApplicationController
                       :url => url_for(:controller => 'catalog', :action => 'index', :q => params['q'], :f => {'format' => ['Book', 'Online']})
                     }
                   when 'catalog'
+                    configure_search('Catalog')
                     params[:per_page] = 15
                     solr_response, solr_results =  get_search_results
                     {
                       :docs => solr_results,
                       :count => solr_response['response']['numFound'].to_i,
                       :url => url_for(:controller => 'catalog', :action => 'index', :q => params['q'])
+                    }
+                  when 'academic_commons'
+                    configure_search('Academic Commons')
+                    params[:per_page] = 15
+
+                    solr_response, solr_results =  get_search_results
+                    {
+                      :docs => solr_results,
+                      :count => solr_response['response']['numFound'].to_i,
+                      :url => academic_commons_index_path(:q => params['q'])
                     }
                   when 'lweb'
                     @search = LibraryWeb::API.new('q' => params['q'])
@@ -115,6 +128,8 @@ class SearchController < ApplicationController
       url_for(:controller => 'catalog', :action => 'index', :q => params['q'])
     when 'catalog_ebooks'
       url_for(:controller => 'catalog', :action => 'index', :q => params['q'], :f => {'format' => ['Book', 'Online']})
+    when 'academic_commons'
+      academic_commons_index_path(:q => params['q'])
     when 'lweb'
       'http://search.columbia.edu/search?site=CUL_LibraryWeb&sitesearch=&as_dt=i&client=cul_libraryweb&proxystylesheet=cul_libraryweb&output=xml_no_dtd&ie=UTF-8&oe=UTF-8&filter=0&sort=date%3AD%3AL%3Adl&num=20&x=0&y=0&q=' +  CGI::escape(params[:q])
     when 'lweb_xml'

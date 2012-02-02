@@ -1,13 +1,3 @@
 #header_help
-  %ul.dropmenu
-    %li.haschildren.right.help
 
-      =link_to image_tag("help_button.png", :size => "100x32", :class => "help_button"), "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0031", :target => :blank
-      %ul.submenu
-        %li= link_to "Ask a Librarian", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0031" , :target => :blank
-        -if @document && @document.respond_to?(:"[]") && (clio_id = @document['clio_id_display'].first)
-          %li= link_to "Item Not On Shelf?", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Ssearch?#{clio_id}", :target => :blank
-        - else
-          %li= link_to "Item Not On Shelf?", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0055", :target => :blank
-        %li= link_to "E-Resource Problem?", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0006", :target => :blank
-        %li= link_to "Recommend A Title", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0004", :target => :blank
+  =link_to image_tag("help.png", :size => "98x33"), "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0031", :target => :blank, :id => "ask_a_librarian"

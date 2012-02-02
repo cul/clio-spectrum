@@ -1,14 +1,29 @@
-.title Article Search
+.landing_main
+  .title Article Search
 
-%p Articles search will perform a search for 
+  %p Articles search will perform a search of Summon for 
 
-%ul
-  %li journal articles
-  %li eBooks
-  %li newspapers
-  %li dissertations
-  %li other electronic resources
-  
-%p Following your initial search using the search box above, categories will appear on the left to help you refine your search.  Use those categories to focus your search by language, subject or format.
+  %ul
+    %li journal articles
+    %li eBooks
+    %li newspapers
+    %li dissertations
+    %li other electronic resources
 
-= render :partial => "/_search/landing_pages/footer"
+.landing_side
+  .landing_side_inner
+    %h3 Other Resources
+
+    %dl
+      %dt
+      %dd In case you can't find what you're looking for through Summon, try:
+
+    %dl
+      %dt= link_to "Google Scholar", "http://scholar.google.com/"
+      %dd
+
+    %dl
+      %dt= link_to "Subject Guides", "http://wwwapp.cc.columbia.edu/ldpd/rti/results?hl=1&ps=1&sb=1&ss=0&hpp=100000&hk=-1&rt=sg&qt=6&q="
+      %dd
+
+

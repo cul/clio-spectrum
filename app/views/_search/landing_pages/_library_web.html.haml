@@ -1,5 +1,19 @@
+.landing_main
 
-.title Library Web
+  .title Library Web
+
+  Search the #{link_to("Library Website", "http://libraryweb.columbia.edu")}, which contains information on the resources of the Columbia Libraries, as well as help on research, teaching, and other subjects.
 
 
-= render :partial => "/_search/landing_pages/footer"
+.landing_side
+  .landing_side_inner
+    %h3 Relevant Links
+
+    %dl
+      %dt
+        =link_to "Library Website", "http://libraryweb.columbia.edu"
+      %dd
+
+      %dt
+        =link_to "Columbia Spotlight", "http://blogs.cul.columbia.edu"
+      %dd Keep up to the date with what's happening at the Libraries.

@@ -1,5 +1,5 @@
 / container for a single doc 
-.document{:class => render_document_class(document) }
+.result.document{:class => render_document_class(document) }
     
   - fedora_id = document['id'].listify.first
   .fedora_title= link_to document.get('title_display'), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"

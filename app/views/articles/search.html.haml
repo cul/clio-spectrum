@@ -25,7 +25,7 @@
     -#= render 'results_pagination' 
 
   .pagination_container
-    = render :partial => '/_search/pagination'
+    = render :partial => '/_search/pagination', :locals => {:results => @summon}
 
   = render :partial => 'document_list', :locals => {:search => @summon.search}
 

@@ -1,10 +1,10 @@
 .pageEntriesInfo.non_catalog
-  = @summon.entries_info
+  = results.entries_info
 .pagination
   %h2 Results navigation
   %nav.pagination-container
-    =previous_page(@summon)
-    =next_page(@summon)
+    =previous_page(results)
+    =next_page(results)
     .page_links
-      = page_links(@summon)
+      = page_links(results)
       

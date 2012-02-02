@@ -6,6 +6,7 @@
   %body{:onload => onload}
     - add_datasources(@active_source)
     #trigger
+    = render :partial => "/top_navigation_bar"
     #page
       = render :partial => "/header"
       #bd
