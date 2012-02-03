@@ -22,6 +22,8 @@ class ApplicationController < ActionController::Base
       'Academic Commons'
     when /^\/library_web/
       'Library Web'
+    when /^\/archives/
+      'Archives'
     else
       params['active_source'] || 'Quicksearch'
     end
@@ -47,7 +49,6 @@ class ApplicationController < ActionController::Base
       when 'Databases'
 
         config.default_solr_params = {
-          :defType => "edismax",
           :qt => "search",
           :per_page => 15,
           :fq  => ['{!raw f=source_facet}database']
@@ -55,6 +56,15 @@ class ApplicationController < ActionController::Base
 
         shared_catalog_config(config)
         config.add_facet_field 'title_first_facet', :label => "Starts With"
+      when 'Archives'
+
+        config.default_solr_params = {
+          :qt => "search",
+          :per_page => 15,
+          :fq  => ['{!raw f=source_facet}archive']
+        }
+
+        shared_catalog_config(config)
       when 'New Arrivals'
 
         config.default_solr_params = {

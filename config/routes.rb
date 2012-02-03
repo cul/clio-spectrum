@@ -17,6 +17,7 @@ NewBooks::Application.routes.draw do
   match 'catalog', :to => 'catalog#index', :as => :base_catalog_index
 
   match 'academic_commons', :to => 'catalog#index', :as => :academic_commons_index
+  match 'archives', :to => 'catalog#index', :as =>  :archives_index
 
   match 'new_arrivals', :to => 'catalog#index', :as => :new_arrivals_index
   match 'new_arrivals/:id(.:format)', :to => 'catalog#show', :as => :new_arrivals_show
