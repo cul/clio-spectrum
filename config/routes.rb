@@ -1,10 +1,14 @@
 NewBooks::Application.routes.draw do
+  get "admin/ingest_log"
+
   get "library_web/index"
 
   Blacklight.add_routes(self)
   
   root :to => "search#index"
  
+  match 'admin/ingest_log', :to => "admin#ingest_log", :as => :admin_ingest_log
+
   match 'search/', :to => "search#index", :as => :search_index
 
   devise_for :users
