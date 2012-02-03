@@ -102,7 +102,7 @@ class SearchController < ApplicationController
                     {
                       :docs => @search.docs,
                       :count => @search.count, 
-                      :url => @search.search_url
+                      :url => library_web_index_path(:q => params['q'])
                     }
 
                   end
