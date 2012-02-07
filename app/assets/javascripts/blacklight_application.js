@@ -37,6 +37,12 @@ function update_book_jackets(isbns, data) {
       if (isbn_data.preview != "noview") {
         gbs_cover.find(".gbs_preview").show();
         gbs_cover.find(".gbs_preview_link").attr("href", isbn_data.preview_url);
+		if (isbn_data.preview == "partial") {
+			gbs_cover.find(".gbs_preview_partial").show();
+		}
+		if (isbn_data.preview == "full") {
+			gbs_cover.find(".gbs_preview_full").show();
+		}
       }
       
     }
