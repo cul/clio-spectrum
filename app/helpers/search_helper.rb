@@ -19,6 +19,7 @@ module SearchHelper
 
   def display_search_box(source, &block)
     div_classes = ["search_box", datasource_to_class(source)]
+    div_classes << "multi" if show_all_search_boxes
     div_classes << "selected" if active_search_box == source
 
     if show_all_search_boxes || active_search_box == source

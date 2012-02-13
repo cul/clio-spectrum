@@ -36,7 +36,7 @@ change_datasource = (source) ->
   $(landing_selector).show()
   
   search_box_select = "#top_search_box .search_box." + source
-  $('#top_search_box .search_box').hide()
+  $('#top_search_box .search_box.multi').hide()
   $(search_box_select).show()
 
 attach_location_colorboxes = ->
