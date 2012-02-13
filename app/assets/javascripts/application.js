@@ -21,6 +21,7 @@
 //= require jquery.contactable.min.js
 //= require jquery.colorbox-min
 //= require jquery.validate.pack
+//= require jquery.observe_field
 //= require jquery.dropmenu.js
 //= require google_analytics
 //= require holdings

@@ -22,6 +22,11 @@ $(document).ready ->
     change_datasource($(this).attr('source'))
 
 
+  $("#top_search_box .q").observe_field(.5, -> 
+    value = $(this).val()
+    $("#top_search_box .q").val(value)
+  )
+
 change_datasource = (source) ->
   $("ul.landing li").removeClass('selected')
   $("ul.landing li[source='" + source + "']").addClass('selected')
