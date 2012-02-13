@@ -3,7 +3,7 @@
 
   .holding{:class => alternating_line}
     .location_box
-      .location= entry['location_link']
+      .location= process_holdings_location(entry['location_link'])
     .hours= entry['hours']
 
     .call_number= entry['call_number']

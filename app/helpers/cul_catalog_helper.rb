@@ -37,7 +37,8 @@ module CulCatalogHelper
 
   SHORTER_LOCATIONS = {
     "Temporarily unavailable. Try Borrow Direct or ILL" => "Temporarily Unavailable",
-    "Butler Stacks (Enter at the Butler Circulation Desk)" => "Butler Stacks"
+    "Butler Stacks (Enter at the Butler Circulation Desk)" => "Butler Stacks",
+    "Offsite - Place Request for delivery within 2 business days" => "Offsite"
   }
 
   def shorten_location(location)
@@ -45,7 +46,7 @@ module CulCatalogHelper
 
   end
 
-  def edit_loc_display(loc_display)
+  def process_holdings_location(loc_display)
     loc,call = loc_display.split(' >> ')
     call ? shorten_location(loc) + ' >> ' + call : shorten_location(loc)
   end
