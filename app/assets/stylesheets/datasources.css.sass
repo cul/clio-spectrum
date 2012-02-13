@@ -76,15 +76,16 @@
       font-variant: small-caps
       color: #888
 
-    &.selected
+    &.hover
+      :background #f6f6f6 asset_url("ds_pointer.png",image) no-repeat center right
+
+    &.selected, &.selected.hover
       background: #e3e8f1 asset_url("ds_pointer.png",image) no-repeat center right
       border-left: 5px solid gold
       a
         margin-left: -3px 
         font-weight: bold
 
-    &.hover
-      :background #f6f6f6 asset_url("ds_pointer.png",image) no-repeat center right
 
 
 
