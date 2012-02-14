@@ -38,7 +38,16 @@ function update_book_jackets(isbns, data) {
         gbs_cover.find(".gbs_preview").show();
         gbs_cover.find(".gbs_preview_link").attr("href", isbn_data.preview_url);
         
-        gbs_cover.find(".gbs_search_form").attr("action", isbn_data.preview_url).show();
+        search_form = gbs_cover.find(".gbs_search_form");
+        search_form.show();
+        find_id = new RegExp("[&\?]id=([^&(.+)=]*)").exec(isbn_data.preview_url);
+        strip_querystring = new RegExp("^[^?]+").exec(isbn_data.preview_url);
+
+        if (find_id && strip_querystring) {
+          search_form.attr("action", strip_querystring[0]).show();
+          search_form.find("input[name=id]").attr("value", find_id[1]);
+         }
+                                                  
 		if (isbn_data.preview == "partial") {
 			gbs_cover.find(".gbs_preview_partial").show();
       
