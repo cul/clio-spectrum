@@ -77,7 +77,7 @@ gem 'unicorn'
 # group :development, :test do
 #   gem 'webrat'
 # end
-gem "devise"
+gem "devise", '1.5.3'
 gem 'therubyracer'
 
 group :test, :development do

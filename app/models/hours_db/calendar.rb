@@ -1,6 +1,6 @@
 class HoursDb::Calendar < ActiveRecord::Base
-  set_table_name "Calendar"
   establish_connection "hours_db_prod"
+  self.table_name = "Calendar"
 
   belongs_to :library, :class_name => "HoursDb::HoursLibrary", :primary_key => "lib_code", :foreign_key => "cal_library"
 
