@@ -7,3 +7,10 @@
       =link_to "More info at Google books", "http://books.google.com", :class => "gbs_info_link", :target => "_blank"
     .gbs_preview
       =link_to image_tag("gb_preview.png"), "#", :alt => "Gb_preview", :class => "gbs_preview_link", :target => "_blank"
+      .gbs_preview_partial
+        =link_to "Partial View", "#", :class => "gbs_preview_link", :target => "_blank"
+      .gbs_preview_full
+        =link_to "Full View", "#", :class => "gbs_preview_link", :target => "_blank"
+      = form_tag('http://far.away.com/form', :authenticity_token => false, :class => 'gbs_search_form') do
+        = text_field_tag 'q', nil, :placeholder => "Search in this book"
+        = submit_tag 'Search'

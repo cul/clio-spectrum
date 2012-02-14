@@ -1,10 +1,14 @@
 NewBooks::Application.routes.draw do
+  get "admin/ingest_log"
+
   get "library_web/index"
 
   Blacklight.add_routes(self)
   
   root :to => "search#index"
  
+  match 'admin/ingest_log', :to => "admin#ingest_log", :as => :admin_ingest_log
+
   match 'search/', :to => "search#index", :as => :search_index
 
   devise_for :users
@@ -17,6 +21,7 @@ NewBooks::Application.routes.draw do
   match 'catalog', :to => 'catalog#index', :as => :base_catalog_index
 
   match 'academic_commons', :to => 'catalog#index', :as => :academic_commons_index
+  match 'archives', :to => 'catalog#index', :as =>  :archives_index
 
   match 'new_arrivals', :to => 'catalog#index', :as => :new_arrivals_index
   match 'new_arrivals/:id(.:format)', :to => 'catalog#show', :as => :new_arrivals_show
