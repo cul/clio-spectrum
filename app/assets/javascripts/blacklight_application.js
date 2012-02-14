@@ -33,7 +33,6 @@ function update_book_jackets(isbns, data) {
 
       $("li.gbs_info").show();
       $("a.gbs_info_link").attr("href", isbn_data.info_url);
-      console.log(isbn_data);
       if (isbn_data.preview != "noview") {
         gbs_cover.find(".gbs_preview").show();
         gbs_cover.find(".gbs_preview_link").attr("href", isbn_data.preview_url);

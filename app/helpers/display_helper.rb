@@ -80,6 +80,22 @@ module DisplayHelper
 
   FORMAT_RANKINGS = ["ac", "database", "map_globe", "manuscript_archive", "video", "music_recording", "music", "newspaper", "serial", "book", "clio", "ebooks", "article", "summon", "lweb"]
 
+  def format_online_results(urls)
+    non_circ = image_tag("icons/noncirc.png", :class => :availability)
+    urls.collect { |link| non_circ + link_to(process_online_title(link.first).abbreviate(80), link.last) }
+  end
+
+  def format_location_results(locations)
+    locations.collect do |location|
+    
+      loc_display, hold_id = location.split('|DELIM|')
+      
+      holdings_id = "holding_" + hold_id.to_s
+      
+      image_tag("icons/unknown.png", :class => "availability " + holdings_id) + process_holdings_location(loc_display)
+    end
+  end
+
   def determine_formats(document, defaults = [])
     formats = defaults.listify
     formats << "ac" if @active_source == "Academic Commons"
@@ -233,6 +249,7 @@ module DisplayHelper
       :join => nil,
       :abbreviate => nil,
       :html_safe => true,
+      :expand => false,
       :style => @add_row_style || :definition
     })
 
@@ -277,7 +294,19 @@ module DisplayHelper
     value_txt = if options[:style] == :text
       values.join("\r\n  ")
     else
-      values.collect { |v| content_tag(:div, v, :class => 'entry') }.join('')
+      pre_values = values.collect { |v| content_tag(:div, v, :class => 'entry') }
+
+
+      if options[:expand] && values.length > 2
+        pre_values = [
+          pre_values.first,
+          content_tag(:div, link_to("#{values.length - 1} more &#x25BC;".html_safe, "#"), :class => 'entry expander'),
+          content_tag(:div, pre_values[1..-1].join('').html_safe, :class => 'expander_more')
+        ]
+
+      end
+      
+      pre_values.join('')
     end
 
     value_txt = value_txt.html_safe if options[:html_safe]

@@ -27,6 +27,12 @@ $(document).ready ->
     $("#top_search_box .q").val(value)
   )
 
+  $(".expander").click ->
+    $(this).hide()
+    $(this).parent().find(".expander_more").slideDown()
+    return false
+
+
 change_datasource = (source) ->
   $("ul.landing li").removeClass('selected')
   $("ul.landing li[source='" + source + "']").addClass('selected')
