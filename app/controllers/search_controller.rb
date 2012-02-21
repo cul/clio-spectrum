@@ -98,7 +98,7 @@ class SearchController < ApplicationController
                       :url => academic_commons_index_path(:q => params['q'])
                     }
                   when 'lweb'
-                    @search = LibraryWeb::API.new('q' => params['q'])
+                    @search = LibraryWeb::Api.new('q' => params['q'])
                     {
                       :docs => @search.docs,
                       :count => @search.count, 
