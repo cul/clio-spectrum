@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'spork'  
   
 Spork.prefork do  
@@ -19,12 +20,7 @@ Spork.prefork do
     config.use_transactional_fixtures = true
     config.include(MailerMacros)
     config.before(:each) { reset_email }
-    config.before(:each, :type => :request) do
-   Capybara.run_server = true 
-    Capybara.server_port = 3000 
-    Capybara.app_host = "http://localhost:#{Capybara.server_port}" 
-    end
-
+    Capybara.javascript_driver = :webkit
     config.treat_symbols_as_metadata_keys_with_true_values = true
     config.filter_run :focus => true
     config.run_all_when_everything_filtered = true
