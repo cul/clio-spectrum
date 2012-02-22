@@ -7,5 +7,5 @@ Feature: Database routing
  
   Scenario: performing a search
     When I search databases for "test"
-    And I click on the first result
+    And I click on the "1st" result
     Then the path should include "/databases" 

@@ -3,7 +3,7 @@ development:
 development_jetty:
     url: http://localhost:8983/solr
 test: &TEST
-    url: http://machete.cul.columbia.edu:8080/solr-1.5/spectrum_test
+    url: http://machete.cul.columbia.edu:8080/solr-3.5/spectrum_test35
 na_dev:
     url: http://harding.cul.columbia.edu:8080/solr-1.5/na_experiment
 na_test:

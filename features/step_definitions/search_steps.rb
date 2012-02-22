@@ -19,7 +19,17 @@ When /^(?:|I )search (?:|the )(.+) for "([^"]*)"$/ do |source, query|
   end
 end
 
-When /^I click on the first result$/  do
-  raise page.html.to_s.inspect
-  find('.result').click
+When /^I click on the "([^"]*)" result$/  do |id|
+  input_id = id.to_i - 1
+  results = all('.result')
+  if results[input_id]
+    results[input_id].click
+  else
+    raise "Result #{id} out of #{results.length} not found"
+  end
+end
+
+
+def click_on_result(id)
+
 end

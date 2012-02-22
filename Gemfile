@@ -1,16 +1,19 @@
 source 'http://rubygems.org'
 gem 'rails', '3.2.1'
 
-gem 'sprockets'
-# Bundle edge Rails instead:
-
+gem 'mysql2'
 gem 'sqlite3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
 
-gem 'blacklight'
+
+# gem 'blacklight'
+gem 'blacklight', :git => 'git://github.com/projectblacklight/blacklight.git'
 gem 'blacklight_range_limit'
+gem 'blacklight_advanced_search'
+gem 'blacklight_highlight'
+
 gem 'json'
 
 # Deploy with Capistrano
@@ -22,16 +25,12 @@ gem 'httpclient'
 gem 'nokogiri'
 gem 'haml'
 gem 'haml-rails'
-gem 'sass-rails', '>3.1.1'
 gem 'sass'
 gem 'unicode'
-gem 'mysql2'
 gem 'summon'
-# gem 'voyager_api', :path => '~/worklib/voyager_api'
+
 gem 'voyager_api', '>=0.2.3'
 gem 'rubytree', '=0.5.2'
-gem 'blacklight_advanced_search'
-gem 'blacklight_highlight'
 
 gem 'exception_notification'
 
@@ -46,15 +45,14 @@ end
 gem 'jquery-rails'
 
 group :assets do
-  gem 'sass-rails', '>3.1.1'
-  gem 'coffee-rails'
-  gem 'compass', '0.12.alpha.2'
-  gem 'uglifier'
+  gem 'sass-rails', '~>3.2.4'
+  gem 'coffee-rails', '~>3.2.2'
+  gem 'compass', '0.12.rc.1'
+  gem 'uglifier', '>=1.0.3'
 
 end
 
 
-gem 'unicorn'
 
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
@@ -79,11 +77,19 @@ gem 'unicorn'
 # end
 gem "devise", '1.5.3'
 gem 'therubyracer'
+group :test, :development do 
+  gem 'rspec-rails'
 
-group :test, :development do
+  gem "growl"
+  gem 'rb-fsevent'
+  gem 'ruby_gntp'
+  gem 'ruby-prof'
+end
+
+group :test do
   gem 'rb-readline'
   gem 'factory_girl_rails'
-  gem 'spork', '~>0.9.0.rc2'
+  gem 'spork', '~>1.0.0.rc2'
   gem 'guard'
   gem 'guard-rails'
   gem 'guard-rspec'
@@ -93,10 +99,7 @@ group :test, :development do
   gem 'cucumber-rails'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'capybara-webkit'
   gem 'launchy'
   gem 'database_cleaner'
-  gem "growl"
-  gem 'rb-fsevent'
-  gem 'ruby_gntp'
-  gem 'ruby-prof'
 end

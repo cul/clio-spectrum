@@ -7,7 +7,7 @@ class LibraryWebController < ApplicationController
 
   def index
     if params['q']
-      @results = LibraryWeb::API.new(params)
+      @results = LibraryWeb::Api.new(params)
     end
   end
 end

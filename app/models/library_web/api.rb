@@ -1,4 +1,4 @@
-class LibraryWeb::API
+class LibraryWeb::Api
   include ActionView::Helpers::NumberHelper
   include Rails.application.routes.url_helpers
   Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
