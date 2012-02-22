@@ -17,8 +17,6 @@ gem 'blacklight_highlight'
 gem 'json'
 
 # Deploy with Capistrano
-gem 'capistrano'
-gem 'capistrano-ext'
 
 gem 'has_options'
 gem 'httpclient'
@@ -77,6 +75,12 @@ end
 # end
 gem "devise", '1.5.3'
 gem 'therubyracer'
+group :development do
+
+  gem 'capistrano'
+  gem 'capistrano-ext'
+end
+
 group :test, :development do 
   gem 'rspec-rails'
 
