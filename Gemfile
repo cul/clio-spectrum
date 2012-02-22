@@ -24,6 +24,7 @@ gem 'nokogiri'
 gem 'haml'
 gem 'haml-rails'
 gem 'sass'
+gem 'sass-rails', '~>3.2.4'
 gem 'unicode'
 gem 'summon'
 
