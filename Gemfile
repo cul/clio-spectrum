@@ -7,7 +7,9 @@ gem 'sqlite3'
 # Use unicorn as the web server
 # gem 'unicorn'
 
-gem 'blacklight'
+
+# gem 'blacklight'
+gem 'blacklight', :git => 'git://github.com/projectblacklight/blacklight.git'
 gem 'blacklight_range_limit'
 gem 'blacklight_advanced_search'
 gem 'blacklight_highlight'
