@@ -44,73 +44,77 @@ class ApplicationController < ActionController::Base
     else
       Blacklight.solr = RSolr::Ext.connect(Blacklight.solr_config)
     end
-    CatalogController.configure_blacklight do |config|
-      case source
-      when 'Databases'
+    if source.in?('Quicksearch','eBooks')
+      SearchController.configure_blacklight do |config|
+
         default_catalog_config(config)
-
-        config.default_solr_params = {
-          :qt => "search",
-          :per_page => 15,
-          :fq  => ['{!raw f=source_facet}database']
-        }
-
-        config.add_facet_field 'title_first_facet', :label => "Starts With"
-
-      when 'Archives'
-        default_catalog_config(config, :display_fields, :search_fields, :sorts)
-
-        config.default_solr_params = {
-          :qt => "search",
-          :per_page => 15,
-          :fq  => ['{!raw f=source_facet}archive']
-        }
-        
-      when 'New Arrivals'
-        default_catalog_config(config)
-
-        config.default_solr_params = {
-          :qt => "search",
-          :per_page => 15,
-          :fq  => ['{!raw f=acq_date_facet}Last 3 Months']
-        }
-
-      when 'Catalog'
-        default_catalog_config(config)
-
-      when 'Quicksearch'
-        default_catalog_config(config)
-
-      when 'Academic Commons'
-        default_catalog_config(config, :solr_params, :search_fields)
-
-        config.show.html_title = "title_display"
-        config.show.heading = "title_display"
-        config.show.display_type = "format"
-
-        config.show.genre = "genre_facet"
-        config.show.author = "author_display"
-
-        config.index.show_link = "title_display"
-        config.index.record_display_type = "format"
-
-        config.add_facet_field 'author_facet', :label => 'Author'
-        config.add_facet_field 'department_facet', :label => 'Department'
-        config.add_facet_field 'subject_facet', :label => 'Subject'
-        config.add_facet_field 'pub_date_facet', :label => 'Publication Date',:range => true
-        config.add_facet_field 'genre_facet', :label => 'Content Type'
-        config.add_facet_field 'series_facet', :label => 'Series'
-
-        config.add_sort_field   'score desc, pub_date_sort desc, title_sort asc', :label => 'Relevance'
-        config.add_sort_field   'pub_date_sort asc, title_sort asc', :label => 'Published Earliest'
-        config.add_sort_field   'pub_date_sort desc, title_sort asc', :label => 'Published Latest'
-        config.add_sort_field   'author_sort asc, title_sort asc', :label => 'Author A-Z'
-        config.add_sort_field   'author_sort desc, title_sort asc', :label => 'Author Z-A'
-        config.add_sort_field  'title_sort asc, pub_date_sort desc', :label =>  'Title A-Z'
-        config.add_sort_field   'title_sort desc, pub_date_sort desc', :label => 'Title Z-A'
-
       end
+    else
+      CatalogController.configure_blacklight do |config|
+        case source
+        when 'Databases'
+          default_catalog_config(config)
 
+          config.default_solr_params = {
+            :qt => "search",
+            :per_page => 15,
+            :fq  => ['{!raw f=source_facet}database']
+          }
+
+          config.add_facet_field 'title_first_facet', :label => "Starts With"
+
+        when 'Archives'
+          default_catalog_config(config, :display_fields, :search_fields, :sorts)
+
+          config.default_solr_params = {
+            :qt => "search",
+            :per_page => 15,
+            :fq  => ['{!raw f=source_facet}archive']
+          }
+          
+        when 'New Arrivals'
+          default_catalog_config(config)
+
+          config.default_solr_params = {
+            :qt => "search",
+            :per_page => 15,
+            :fq  => ['{!raw f=acq_date_facet}Last 3 Months']
+          }
+
+        when 'Catalog'
+          default_catalog_config(config)
+
+
+        when 'Academic Commons'
+          default_catalog_config(config, :solr_params, :search_fields)
+
+          config.show.html_title = "title_display"
+          config.show.heading = "title_display"
+          config.show.display_type = "format"
+
+          config.show.genre = "genre_facet"
+          config.show.author = "author_display"
+
+          config.index.show_link = "title_display"
+          config.index.record_display_type = "format"
+
+          config.add_facet_field 'author_facet', :label => 'Author'
+          config.add_facet_field 'department_facet', :label => 'Department'
+          config.add_facet_field 'subject_facet', :label => 'Subject'
+          config.add_facet_field 'pub_date_facet', :label => 'Publication Date',:range => true
+          config.add_facet_field 'genre_facet', :label => 'Content Type'
+          config.add_facet_field 'series_facet', :label => 'Series'
+
+          config.add_sort_field   'score desc, pub_date_sort desc, title_sort asc', :label => 'Relevance'
+          config.add_sort_field   'pub_date_sort asc, title_sort asc', :label => 'Published Earliest'
+          config.add_sort_field   'pub_date_sort desc, title_sort asc', :label => 'Published Latest'
+          config.add_sort_field   'author_sort asc, title_sort asc', :label => 'Author A-Z'
+          config.add_sort_field   'author_sort desc, title_sort asc', :label => 'Author Z-A'
+          config.add_sort_field  'title_sort asc, pub_date_sort desc', :label =>  'Title A-Z'
+          config.add_sort_field   'title_sort desc, pub_date_sort desc', :label => 'Title Z-A'
+
+        end
+      end
     end
   end
 

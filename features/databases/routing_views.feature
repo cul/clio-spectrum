@@ -1,4 +1,4 @@
-@routing @wip
+@routing
 Feature: Database routing
   In order to replace the RTI database app with a blacklight instance
   As an end user, I need to be able to select a datasource to limit searches to databases
