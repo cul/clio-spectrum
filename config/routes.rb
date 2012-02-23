@@ -15,6 +15,7 @@ NewBooks::Application.routes.draw do
 
   match 'databases', :to => 'catalog#index', :as => :databases_index
   match 'databases/:id(.:format)', :to => 'catalog#show', :as => :databases_show
+  match 'databases/facet/:id(.format)', :to => 'catalog#facet', :as => :databases_facet
 
   match 'library_web', :to => 'library_web#index', :as => :library_web_index
 
@@ -23,9 +24,11 @@ NewBooks::Application.routes.draw do
   match 'academic_commons', :to => 'catalog#index', :as => :academic_commons_index
   match 'archives', :to => 'catalog#index', :as =>  :archives_index
   match 'archives/:id(.:format)', :to => 'catalog#show', :as => :archives_show
+  match 'archives/facet/:id(.format)', :to => 'catalog#facet', :as => :databases_facet
 
   match 'new_arrivals', :to => 'catalog#index', :as => :new_arrivals_index
   match 'new_arrivals/:id(.:format)', :to => 'catalog#show', :as => :new_arrivals_show
+  match 'new_arrivals/facet/:id(.format)', :to => 'catalog#facet', :as => :new_arrivals_facet
   
   match 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
   match 'backend/holdings_mail/:id' => 'backend#holdings_mail', :as => 'backend_holdings_mail'

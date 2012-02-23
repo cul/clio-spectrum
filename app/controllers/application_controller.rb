@@ -47,6 +47,7 @@ class ApplicationController < ActionController::Base
     CatalogController.configure_blacklight do |config|
       case source
       when 'Databases'
+        default_catalog_config(config)
 
         config.default_solr_params = {
           :qt => "search",
@@ -54,18 +55,19 @@ class ApplicationController < ActionController::Base
           :fq  => ['{!raw f=source_facet}database']
         }
 
-        shared_catalog_config(config)
         config.add_facet_field 'title_first_facet', :label => "Starts With"
+
       when 'Archives'
+        default_catalog_config(config, :display_fields, :search_fields, :sorts)
 
         config.default_solr_params = {
           :qt => "search",
           :per_page => 15,
           :fq  => ['{!raw f=source_facet}archive']
         }
-
-        shared_catalog_config(config)
+        
       when 'New Arrivals'
+        default_catalog_config(config)
 
         config.default_solr_params = {
           :qt => "search",
@@ -73,26 +75,14 @@ class ApplicationController < ActionController::Base
           :fq  => ['{!raw f=acq_date_facet}Last 3 Months']
         }
 
-        shared_catalog_config(config)
       when 'Catalog'
+        default_catalog_config(config)
 
-        config.default_solr_params = {
-          :qt => "search",
-          :per_page => 15
-        }
-        shared_catalog_config(config)
       when 'Quicksearch'
+        default_catalog_config(config)
 
-        config.default_solr_params = {
-          :qt => "search",
-          :per_page => 15
-        }
-        shared_catalog_config(config)
       when 'Academic Commons'
-        config.default_solr_params = {
-          :qt => "search",
-          :per_page => 15
-        }
+        default_catalog_config(config, :solr_params, :search_fields)
 
         config.show.html_title = "title_display"
         config.show.heading = "title_display"
@@ -118,39 +108,6 @@ class ApplicationController < ActionController::Base
         config.add_sort_field   'author_sort desc, title_sort asc', :label => 'Author Z-A'
         config.add_sort_field  'title_sort asc, pub_date_sort desc', :label =>  'Title A-Z'
         config.add_sort_field   'title_sort desc, pub_date_sort desc', :label => 'Title Z-A'
-        config.add_search_field('title') do |field|
-          # solr_parameters hash are sent to Solr as ordinary url query params. 
-          field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
-
-          # :solr_local_parameters will be sent using Solr LocalParams
-          # syntax, as eg {! qf=$title_qf }. This is neccesary to use
-          # Solr parameter de-referencing like $title_qf.
-          # See: http://wiki.apache.org/solr/LocalParams
-          field.solr_local_parameters = { 
-            :qf => '$title_qf',
-            :pf => '$title_pf'
-          }
-        end
-        
-        config.add_search_field('author') do |field|
-          field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
-          field.solr_local_parameters = { 
-            :qf => '$author_qf',
-            :pf => '$author_pf'
-          }
-        end
-        
-        ## Specifying a :qt only to show it's possible, and so our internal automated
-        ## tests can test it. In this case it's the same as 
-        ## config[:default_solr_parameters][:qt], so isn't actually neccesary. 
-        config.add_search_field('subject') do |field|
-          field.solr_parameters = { :'spellcheck.dictionary' => 'subject' }
-          field.qt = 'search'
-          field.solr_local_parameters = { 
-            :qf => '$subject_qf',
-            :pf => '$subject_pf'
-          }
-        end
 
       end
 
@@ -164,87 +121,93 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def shared_catalog_config(config)
+  def default_catalog_config(config, *elements)
+    elements = [:solr_params, :display_fields, :facets, :search_fields, :sorts] if elements.empty?
 
+    if elements.include?(:solr_params)
 
-    # solr field values given special treatment in the show (single result) view
-    config.show.html_title = "title_display"
-    config.show.heading = "title_display"
-    config.show.display_type = "format"
-
-    config.index.show_link = "title_display"
-    config.index.record_display_type = ''
-
-   
-    # solr fld values given special treatment in the index (search results) view
-   
-
-    config.add_facet_field "format", :label => "Format", :limit => 3
-    config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => true
-    config.add_facet_field "author_facet", :label => "Author", :limit => 3
-    config.add_facet_field "acq_date_facet", :label => "Acquisition Date", :limit => 3
-    config.add_facet_field "location_facet", :label => "Location", :limit => 3
-    config.add_facet_field "author_facet", :label => "Author", :limit => 3
-    config.add_facet_field "language_facet", :label => "Language", :limit => 3
-    config.add_facet_field "subject_topic_facet", :label => "Topic", :limit => 3
-    config.add_facet_field "subject_geo_facet", :label => "Topic (Region)", :limit => 3
-    config.add_facet_field "subject_era_facet", :label => "Topic (Era)", :limit => 3
-    config.add_facet_field "subject_form_facet", :label => "Topic (Genre)", :limit => 3
-    config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
-    config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
-
-    # Now we see how to over-ride Solr request handler defaults, in this
-    # case for a BL "search field", which is really a dismax aggregate
-    # of Solr search fields. 
-    
-    config.add_search_field('title') do |field|
-      # solr_parameters hash are sent to Solr as ordinary url query params. 
-      field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
-
-      # :solr_local_parameters will be sent using Solr LocalParams
-      # syntax, as eg {! qf=$title_qf }. This is neccesary to use
-      # Solr parameter de-referencing like $title_qf.
-      # See: http://wiki.apache.org/solr/LocalParams
-      field.solr_local_parameters = { 
-        :qf => '$title_qf',
-        :pf => '$title_pf'
+      config.default_solr_params = {
+        :qt => "search",
+        :per_page => 15
       }
     end
-    
-    config.add_search_field('author') do |field|
-      field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
-      field.solr_local_parameters = { 
-        :qf => '$author_qf',
-        :pf => '$author_pf'
-      }
-    end
-    
-    ## Specifying a :qt only to show it's possible, and so our internal automated
-    ## tests can test it. In this case it's the same as 
-    ## config[:default_solr_parameters][:qt], so isn't actually neccesary. 
-    config.add_search_field('subject') do |field|
-      field.solr_parameters = { :'spellcheck.dictionary' => 'subject' }
-      field.qt = 'search'
-      field.solr_local_parameters = { 
-        :qf => '$subject_qf',
-        :pf => '$subject_pf'
-      }
+  
+    if elements.include?(:display_fields)
+      config.show.html_title = "title_display"
+      config.show.heading = "title_display"
+      config.show.display_type = "format"
+
+      config.index.show_link = "title_display"
+      config.index.record_display_type = ''
+
     end
 
-    # "sort results by" select (pulldown)
-    # label in pulldown is followed by the name of the SOLR field to sort by and
-    # whether the sort is ascending or descending (it must be asc or desc
-    # except in the relevancy case).
-    # label is key, solr field is value
-    config.add_sort_field   'score desc, pub_date_sort desc, title_sort asc', :label => 'Relevance'
-    config.add_sort_field  'acq_date_sort asc, title_sort asc', :label =>  'Acquired Earliest'
-    config.add_sort_field   'acq_date_sort desc, title_sort asc', :label => 'Acquired Latest'
-    config.add_sort_field   'pub_date_sort asc, title_sort asc', :label => 'Published Earliest'
-    config.add_sort_field   'pub_date_sort desc, title_sort asc', :label => 'Published Latest'
-    config.add_sort_field   'author_sort asc, title_sort asc', :label => 'Author A-Z'
-    config.add_sort_field   'author_sort desc, title_sort asc', :label => 'Author Z-A'
-    config.add_sort_field  'title_sort asc, pub_date_sort desc', :label =>  'Title A-Z'
-    config.add_sort_field   'title_sort desc, pub_date_sort desc', :label => 'Title Z-A'
+    if elements.include?(:facets)
+      config.add_facet_field "format", :label => "Format", :limit => 3
+      config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => true
+      config.add_facet_field "author_facet", :label => "Author", :limit => 3
+      config.add_facet_field "acq_date_facet", :label => "Acquisition Date", :limit => 3
+      config.add_facet_field "location_facet", :label => "Location", :limit => 3
+      config.add_facet_field "author_facet", :label => "Author", :limit => 3
+      config.add_facet_field "language_facet", :label => "Language", :limit => 3
+      config.add_facet_field "subject_topic_facet", :label => "Topic", :limit => 3
+      config.add_facet_field "subject_geo_facet", :label => "Topic (Region)", :limit => 3
+      config.add_facet_field "subject_era_facet", :label => "Topic (Era)", :limit => 3
+      config.add_facet_field "subject_form_facet", :label => "Topic (Genre)", :limit => 3
+      config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
+      config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
+    end
+
+    if elements.include?(:search_fields) 
+      config.add_search_field('title') do |field|
+        # solr_parameters hash are sent to Solr as ordinary url query params. 
+        field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
+
+        # :solr_local_parameters will be sent using Solr LocalParams
+        # syntax, as eg {! qf=$title_qf }. This is neccesary to use
+        # Solr parameter de-referencing like $title_qf.
+        # See: http://wiki.apache.org/solr/LocalParams
+        field.solr_local_parameters = { 
+          :qf => '$title_qf',
+          :pf => '$title_pf'
+        }
+      end
+      
+      config.add_search_field('author') do |field|
+        field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
+        field.solr_local_parameters = { 
+          :qf => '$author_qf',
+          :pf => '$author_pf'
+        }
+      end
+      
+      ## Specifying a :qt only to show it's possible, and so our internal automated
+      ## tests can test it. In this case it's the same as 
+      ## config[:default_solr_parameters][:qt], so isn't actually neccesary. 
+      config.add_search_field('subject') do |field|
+        field.solr_parameters = { :'spellcheck.dictionary' => 'subject' }
+        field.qt = 'search'
+        field.solr_local_parameters = { 
+          :qf => '$subject_qf',
+          :pf => '$subject_pf'
+        }
+      end
+
+    end
+
+
+    if elements.include?(:sorts)
+      config.add_sort_field   'score desc, pub_date_sort desc, title_sort asc', :label => 'Relevance'
+      config.add_sort_field  'acq_date_sort asc, title_sort asc', :label =>  'Acquired Earliest'
+      config.add_sort_field   'acq_date_sort desc, title_sort asc', :label => 'Acquired Latest'
+      config.add_sort_field   'pub_date_sort asc, title_sort asc', :label => 'Published Earliest'
+      config.add_sort_field   'pub_date_sort desc, title_sort asc', :label => 'Published Latest'
+      config.add_sort_field   'author_sort asc, title_sort asc', :label => 'Author A-Z'
+      config.add_sort_field   'author_sort desc, title_sort asc', :label => 'Author Z-A'
+      config.add_sort_field  'title_sort asc, pub_date_sort desc', :label =>  'Title A-Z'
+      config.add_sort_field   'title_sort desc, pub_date_sort desc', :label => 'Title Z-A'
+    end
+
   end
 end
 
