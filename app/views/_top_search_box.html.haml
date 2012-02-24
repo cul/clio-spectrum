@@ -1,7 +1,7 @@
 = display_search_box('Quicksearch') do 
   = form_tag search_index_path, :method => :get do 
     .search_row
-      = text_field_tag :q, params[:q], :class => "q", :id => "quicksearch_q", :placeholder => "(Combined Search)"
+      = text_field_tag :q, params[:q], :class => "q", :id => "quicksearch_q", :placeholder => "(Catalog, Articles, Academic Commons, Library Web Search)"
       %button{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'Search'} Search
 
 = display_search_box('eBooks') do 

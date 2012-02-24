@@ -15,7 +15,7 @@ When /^(?:|I )search (?:|the )"([^"]*)" for "([^"]*)"$/ do |source, query|
   when "new_arrivals", "new arrivals"
     visit new_arrivals_index_path(:q => query)
   when "articles"
-    visit articles_search_path('s.q' => query)
+    visit articles_search_path('s.q' => query, 'new_search' => true)
   end
 end
 
@@ -28,7 +28,8 @@ When /^looking at the "(\d*)[^"]*" result$/ do |id|
 end
 
 Then /^the title should include "([^"]*)"$/ do |title|
-  assert @active_result.find('.title a').text.include?(title)
+  found_title = @active_result.find('.title a').text
+  assert found_title.include?(title), "Title #{found_title} does not include #{title}"
 end
 
 Then /^the "([^"]*)" field should include "([^"]*)"$/ do |field, value|
@@ -37,7 +38,8 @@ Then /^the "([^"]*)" field should include "([^"]*)"$/ do |field, value|
   @active_result.all('.row').each do |row|
     if row.find('.label').text == field
       found = true
-      assert row.all('.entry').any? { |entry| entry.text.include?(value) }, "Field found, but #{value} was not in value."
+      entries = row.all('.entry').collect(&:text)
+      assert entries.any? { |entry| entry.include?(value) }, "Field found, but #{value} was not in #{entries.inspect}"
     end
   end
 

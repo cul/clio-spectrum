@@ -1,23 +1,41 @@
 module ArticlesHelper
   def link_to_article(article, link_title = nil)
     link_title ||= article.title.html_safe
+    
+    url = ""
+    
     if article.fulltext
-
-      link_to link_title, articles_show_path(:openurl => article.src['openUrl'])
+      #if article.content_types.include?("Audio Recording")
+      if is_music?(article)
+        url = URI.parse(article.url).to_s
+      else
+        url = articles_show_path(:openurl => article.src['openUrl'])
+      end
     else
-      link_to link_title, URI.parse(article.url).to_s
+      url = URI.parse(article.url).to_s
     end
+
+    link_to link_title, url
   end
 
   def get_article_type(doc)
     txt = doc.content_types.join(", ")
+    
     if doc.fulltext
-      txt += ": Full Text Available"
+      if is_music?(doc)
+        txt += ": " + link_to_article(doc, "Available Online")
+      else
+        txt += ": " + link_to_article(doc, "Full Text Available")
+      end
     elsif txt.include?("Journal Article")
-      txt += ": Citation Online"
+      txt += ": " + link_to_article(doc, "Citation Online")
     end
 
     return txt
+  end
+
+  def is_music?(doc)
+    !(doc.content_types & ["Audio Recording", "Music Recording"]).empty?
   end
 
   def get_article_citation(doc)

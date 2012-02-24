@@ -18,5 +18,17 @@ Feature: Correct 360link routing
     And the "Format" field should include "Journal"
     And the "Format" field should include "Citation"
     And the link should not be local
-    #When I click on the "1st" result
-    #Then the url should include "webofknowledge.com"
+
+  Scenario: Alexander Street Press Audio Recording
+    When I search "articles" for "Herbert Halpert new york city collection"
+    And looking at the "1st" result
+    Then the "Format" field should include "Audio Recording"
+    And the "Format" field should include "Available Online"
+    And the link should not be local
+
+  Scenario: Music recordings 
+    When I search "articles" for "mahler symphony neeme gothenburg seppo"
+    And looking at the "1st" result
+    Then the "Format" field should include "Music Recording"
+    And the "Format" field should include "Available Online"
+    And the link should not be local
