@@ -38,7 +38,8 @@ module CulCatalogHelper
   SHORTER_LOCATIONS = {
     "Temporarily unavailable. Try Borrow Direct or ILL" => "Temporarily Unavailable",
     "Butler Stacks (Enter at the Butler Circulation Desk)" => "Butler Stacks",
-    "Offsite - Place Request for delivery within 2 business days" => "Offsite"
+    "Offsite - Place Request for delivery within 2 business days" => "Offsite",
+    "Offsite (Non-Circ) Request for delivery in 2 business days" => "Offsite (Non-Circ)"
   }
 
   def shorten_location(location)
@@ -50,6 +51,7 @@ module CulCatalogHelper
     loc,call = loc_display.split(' >> ')
     call ? shorten_location(loc) + ' >> ' + call : shorten_location(loc)
   end
+
 
   def build_fake_cover(document)
     book_label = (document["title_display"].to_s.abbreviate(60))
