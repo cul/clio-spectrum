@@ -1,4 +1,4 @@
-@wip @summon @articles @360link
+@summon @articles @360link
 Feature: Correct 360link routing
   In order to send users to the right resource
   CLIO should intelligently determine whether to send a user

@@ -3,7 +3,20 @@ class ApplicationController < ActionController::Base
    include Blacklight::Controller
   # Please be sure to impelement current_user and user_session. Blacklight depends on 
   # these methods in order to perform user specific actions. 
+  before_filter :trigger_debug_mode
   before_filter :by_source_config
+
+  def trigger_debug_mode
+    if params['debug_mode'] == 'on'
+      @debug_mode = true
+    elsif params['debug_mode'] == 'off'
+      @debug_mode = false
+    end
+    params.delete('debug_mode')
+    @debug_mode ||= session['debug_mode']
+    @debug_mode ||= false
+    session['debug_mode'] = @debug_mode
+  end
 
   
   def determine_active_source
