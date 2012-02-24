@@ -24,7 +24,7 @@ NewBooks::Application.routes.draw do
   match 'academic_commons', :to => 'catalog#index', :as => :academic_commons_index
   match 'archives', :to => 'catalog#index', :as =>  :archives_index
   match 'archives/:id(.:format)', :to => 'catalog#show', :as => :archives_show
-  match 'archives/facet/:id(.format)', :to => 'catalog#facet', :as => :databases_facet
+  match 'archives/facet/:id(.format)', :to => 'catalog#facet', :as => :archives_facet
 
   match 'new_arrivals', :to => 'catalog#index', :as => :new_arrivals_index
   match 'new_arrivals/:id(.:format)', :to => 'catalog#show', :as => :new_arrivals_show
@@ -37,9 +37,9 @@ NewBooks::Application.routes.draw do
 
   match 'lweb', :to => 'search#index', :as => :lweb_search, :defaults => {:categories => ['lweb']}
 
-  match 'articles', :to => "articles#index", :as => :article_index
-  match 'articles/show', :to => "articles#show", :as => :article_show
-  match 'articles/search', :to => "articles#search", :as => :article_search
+  match 'articles', :to => "articles#index", :as => :articles_index
+  match 'articles/show', :to => "articles#show", :as => :articles_show
+  match 'articles/search', :to => "articles#search", :as => :articles_search
 
   match 'ebooks', :to => 'search#ebooks', :as => :search_ebooks
 

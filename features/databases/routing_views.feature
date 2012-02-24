@@ -6,6 +6,6 @@ Feature: Database routing
   link to database urls
  
   Scenario: performing a search
-    When I search databases for "test"
+    When I search "databases" for "test"
     And I click on the "1st" result
     Then the path should include "/databases" 

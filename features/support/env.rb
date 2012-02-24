@@ -17,6 +17,7 @@ Spork.prefork do
   # steps to use the XPath syntax.
   Capybara.default_selector = :css
 
+  Capybara.javascript_driver = :webkit
 end
  
 Spork.each_run do

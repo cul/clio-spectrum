@@ -11,12 +11,12 @@ class SummonQuery
 
   def previous_page
     new_page = [@query['s.pn'].to_i - 1, 1].max
-    article_search_path(@query.merge('s.pn' => new_page))
+    articles_search_path(@query.merge('s.pn' => new_page))
   end
 
   def next_page
     new_page = [@query['s.pn'].to_i - 1, 1].max
-    article_search_path(@query.merge('s.pn' => new_page))
+    articles_search_path(@query.merge('s.pn' => new_page))
   end
 
 

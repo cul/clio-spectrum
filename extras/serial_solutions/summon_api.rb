@@ -84,7 +84,7 @@ module SerialSolutions
     private
 
     def search_merge(params={})
-      article_search_path(@query_hash.merge(params))
+      articles_search_path(@query_hash.merge(params))
     end
   end
 end

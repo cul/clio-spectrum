@@ -42,6 +42,6 @@ module GenericFacetsHelper
   end
 
   def facet_item_command(item, command)
-    article_search_path(@summon.search.query.to_hash.merge(item[:commands][command]))
+    articles_search_path(@summon.search.query.to_hash.merge(item[:commands][command]))
   end
 end

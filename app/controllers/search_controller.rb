@@ -58,14 +58,14 @@ class SearchController < ApplicationController
                     {
                       :docs => summon.search,
                       :count => summon.search.record_count.to_i, 
-                      :url => article_search_path(summon.search.query.to_hash)
+                      :url => articles_search_path(summon.search.query.to_hash)
                     }
                   when 'ebooks'
                     summon = SerialSolutions::SummonAPI.new('category' => 'ebooks', 'new_search' => true, 's.q' => params[:q], 's.ps' => 10)
                     {
                       :docs => summon.search,
                       :count => summon.search.record_count.to_i,
-                      :url => article_search_path(summon.search.query.to_hash)
+                      :url => articles_search_path(summon.search.query.to_hash)
                     }
                   when 'catalog_ebooks'
                     configure_search('Catalog')
@@ -121,9 +121,9 @@ class SearchController < ApplicationController
   def search_url_for(category, params)
     case category
     when 'articles'
-      article_search_path('s.q' => params['q'], :new_search => 'articles')
+      articles_search_path('s.q' => params['q'], :new_search => 'articles')
     when 'ebooks'
-      article_search_path('s.q' => params['q'], :new_search => 'ebooks')
+      articles_search_path('s.q' => params['q'], :new_search => 'ebooks')
     when 'catalog'
       url_for(:controller => 'catalog', :action => 'index', :q => params['q'])
     when 'catalog_ebooks'

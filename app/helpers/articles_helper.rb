@@ -1,12 +1,23 @@
 module ArticlesHelper
   def link_to_article(article, link_title = nil)
     link_title ||= article.title.html_safe
-    if article.fulltext || article.content_type.listify.include?("Journal Article")
+    if article.fulltext
 
-      link_to link_title, article_show_path(:openurl => article.src['openUrl'])
+      link_to link_title, articles_show_path(:openurl => article.src['openUrl'])
     else
-      link_to link_title, article.url
+      link_to link_title, URI.parse(article.url).to_s
     end
+  end
+
+  def get_article_type(doc)
+    txt = doc.content_types.join(", ")
+    if doc.fulltext
+      txt += ": Full Text Available"
+    elsif txt.include?("Journal Article")
+      txt += ": Citation Online"
+    end
+
+    return txt
   end
 
   def get_article_citation(doc)

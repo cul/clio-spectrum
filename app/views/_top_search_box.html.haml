@@ -23,7 +23,7 @@
 
 
 = display_search_box('Articles') do 
-  = form_tag article_search_path(), :method => :get do
+  = form_tag articles_search_path(), :method => :get do
     = hidden_field_tag 'category', params['category'] || 'articles'
     - if @error || @summon.nil?
       = hidden_field_tag "new_search", "articles"

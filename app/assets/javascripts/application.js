@@ -17,7 +17,6 @@
 //= require blacklight/blacklight          
 //= require blacklight_application
 //= require articles
-//= require facets
 //= require jquery.contactable.min.js
 //= require jquery.colorbox-min
 //= require jquery.validate.pack
@@ -27,4 +26,3 @@
 //= require holdings
 // Required by Blacklight
 
-//= require zzz_cliobeta_er_theme

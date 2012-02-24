@@ -15,6 +15,10 @@ Then /^the path should include "([^"]+)"$/ do |path_snippet|
   assert current_path.include?(path_snippet)
 end
 
+Then /^the url should include "([^"]+)"$/ do |url_snippet|
+  assert current_url.include?(url_snippet), "#{current_url} does not include #{url_snippet}"
+end
+
 Then /^(?:|I )should be on (.+)$/ do |page_name|
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should  
