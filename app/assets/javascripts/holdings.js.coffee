@@ -22,7 +22,7 @@ $(document).ready ->
     change_datasource($(this).attr('source'))
 
 
-  $("#top_search_box .q").observe_field(.5, -> 
+  $("#top_search_box .q").observe_field(.25, -> 
       if $(this).is(":visible")
         value = $(this).val()
         $("#top_search_box .q:hidden").val(value)
