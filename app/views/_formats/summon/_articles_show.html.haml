@@ -21,7 +21,6 @@
       -document.holdings.each do |holding|
         .holding
           .resource
-            .resource_box= link_to holding[:database_name], holding[:urls]['source']
+            .resource_box= holding[:database_name]
           .links
-            = link_to("#{image_tag('icons/article.png')} Article".html_safe, holding[:urls]['article']) if holding[:urls]['article']
-            = link_to("#{image_tag('icons/journal.png')} Journal".html_safe, holding[:urls]['journal']) if holding[:urls]['journal']
+            = display_article_holdings_links(holding)

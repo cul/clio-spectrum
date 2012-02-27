@@ -27,6 +27,10 @@ When /^looking at the "(\d*)[^"]*" result$/ do |id|
   @active_result = find_result(id)
 end
 
+When /^I look at the item level view$/ do
+  @active_result = page.find('.item_show')
+end
+
 Then /^the title should include "([^"]*)"$/ do |title|
   found_title = @active_result.find('.title a').text
   assert found_title.include?(title), "Title #{found_title} does not include #{title}"
@@ -35,16 +39,15 @@ end
 Then /^the "([^"]*)" field should include "([^"]*)"$/ do |field, value|
   found = false
 
-  @active_result.all('.row').each do |row|
-    if row.find('.label').text == field
-      found = true
-      entries = row.all('.entry').collect(&:text)
-      assert entries.any? { |entry| entry.include?(value) }, "Field found, but #{value} was not in #{entries.inspect}"
-    end
+  if active_field = find_field(@active_result,field)
+    entries = active_field.all('.entry').collect(&:text)
+    assert entries.any? { |entry| entry.include?(value) }, "Field found, but #{value} was not in #{entries.inspect}"
+  else
+    raise "Row with field name #{field} not found"
   end
-
-  assert found, "Row with field name #{field} not found"
 end
+
+
 
 Then /^the link should be local$/ do 
   href = @active_result.find('.title a')['href']
@@ -56,8 +59,16 @@ Then /^the link should not be local$/ do
   assert !(href =~ /^\//), "#{href} is local"
 end
 
-def find_result(id)
-  return find(".result:nth-of-type(#{id.to_i})")
+And /^the holdings have the database "([^"]*)" with links "([^"]*)"$/ do |database, link_text|
+  links = link_text.split(",").collect(&:strip)
+  holdings = @active_result.all(".holding")
+
+  holding = holdings.detect { |h| h.find(".resource_box").text.include?(database) }
+  
+  assert holding, "Database #{database} not found in holding."
+
+  holding_links = holding.all(".links a").collect { |node| node.text.strip }
+  holding_links.should include(*links)
+
+
 end
-
-

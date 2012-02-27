@@ -18,6 +18,26 @@ module ArticlesHelper
     link_to link_title, url
   end
 
+
+  ARTICLE_HOLDING_ICONS = {
+    'book' => 'icons/book.png',
+    'article' => 'icons/article.png',
+    'journal' => 'icons/journal.png',
+    'source' => 'icons/database.png'
+  }
+
+  def display_article_holdings_links(holding)
+    holding[:urls].keys.sort.collect do |source|
+      url = holding[:urls][source]
+      title = source.humanize
+      icon = ARTICLE_HOLDING_ICONS[source]
+      title = "#{image_tag(icon)} ".html_safe + title if icon
+
+      link_to(title, url)
+    end.join("").html_safe
+    
+  end
+
   def get_article_type(doc)
     txt = doc.content_types.join(", ")
     
