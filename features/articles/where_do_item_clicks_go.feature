@@ -32,3 +32,10 @@ Feature: Correct 360link routing
     Then the "Format" field should include "Music Recording"
     And the "Format" field should include "Available Online"
     And the link should not be local
+
+  Scenario: Reference
+    When I search "articles" for "test"
+    And looking at the "1st" result
+    Then the "Format" field should include "Reference"
+    And the "Format" field should include "Available Online"
+    And the link should not be local

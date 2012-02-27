@@ -2,18 +2,21 @@ module ArticlesHelper
   def link_to_article(article, link_title = nil)
     link_title ||= article.title.html_safe
     
-    url = ""
     
+
     if article.fulltext
       #if article.content_types.include?("Audio Recording")
       if is_music?(article)
         url = URI.parse(article.url).to_s
+      elsif article.content_types.include?("Reference")
+        url = URI.parse(article.uri).to_s
       else
         url = articles_show_path(:openurl => article.src['openUrl'])
       end
     else
       url = URI.parse(article.url).to_s
     end
+
 
     link_to link_title, url
   end
@@ -42,7 +45,7 @@ module ArticlesHelper
     txt = doc.content_types.join(", ")
     
     if doc.fulltext
-      if is_music?(doc)
+      if is_music?(doc) || doc.content_types.include?("Reference")
         txt += ": " + link_to_article(doc, "Available Online")
       else
         txt += ": " + link_to_article(doc, "Full Text Available")
