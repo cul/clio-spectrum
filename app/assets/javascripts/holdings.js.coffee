@@ -23,8 +23,9 @@ $(document).ready ->
 
 
   $("#top_search_box .q").observe_field(.5, -> 
-      value = $(this).val()
-      $("#top_search_box .q:hidden").val(value)
+      if $(this).is(":visible")
+        value = $(this).val()
+        $("#top_search_box .q:hidden").val(value)
     
   )
 
