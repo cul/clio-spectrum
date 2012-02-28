@@ -14,11 +14,6 @@ class CatalogController < ApplicationController
 
 
 
-    config.add_search_field 'all_fields', :label => 'All Fields'
-    
-    # If there are more than this many search results, no spelling ("did you 
-    # mean") suggestion is offered.
-    config.spell_max = 5
 
   end
 
@@ -27,6 +22,7 @@ class CatalogController < ApplicationController
 
     extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => "RSS for results")
     extra_head_content << view_context.auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => "Atom for results")
+    params['extra_solr_source'] = @active_datasource
 
     (@response, @document_list) = get_search_results
     @filters = params[:f] || []

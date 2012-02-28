@@ -4,7 +4,7 @@ module DatasourcesHelper
   SOURCES_MINOR = ['Archives', 'Databases', 'eBooks', 'New Arrivals']
   
   def active_query?
-    !(params['q'].to_s.empty? && params['s.q'].to_s.empty? && params['commit'].to_s.empty?)
+    !(params['q'].to_s.empty? && params.keys.all? { |k| !k.include?('s.') } && params['f'].to_s.empty? && params['commit'].to_s.empty?)
   end
   
   def add_all_datasource_landing_pages

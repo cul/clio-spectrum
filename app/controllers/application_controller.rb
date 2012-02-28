@@ -60,13 +60,18 @@ class ApplicationController < ActionController::Base
     if source.in?('Quicksearch','eBooks')
       SearchController.configure_blacklight do |config|
 
+        config.add_search_field 'all_fields', :label => 'All Fields'
+    
+        config.spell_max = 0
         default_catalog_config(config)
       end
     else
       CatalogController.configure_blacklight do |config|
+        config.add_search_field 'all_fields', :label => 'All Fields'
+
         case source
         when 'Databases'
-          default_catalog_config(config)
+          default_catalog_config(config, :display_fields, :sorts)
 
           config.default_solr_params = {
             :qt => "search",
@@ -74,6 +79,13 @@ class ApplicationController < ActionController::Base
             :fq  => ['{!raw f=source_facet}database']
           }
 
+          config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
+          config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
+          config.add_facet_field "language_facet", :label => "Language", :limit => 3
+          config.add_facet_field "subject_topic_facet", :label => "Topic", :limit => 3
+          config.add_facet_field "subject_geo_facet", :label => "Topic (Region)", :limit => 3
+          config.add_facet_field "subject_era_facet", :label => "Topic (Era)", :limit => 3
+          config.add_facet_field "subject_form_facet", :label => "Topic (Genre)", :limit => 3
           config.add_facet_field 'title_first_facet', :label => "Starts With"
 
         when 'Archives'
@@ -85,6 +97,20 @@ class ApplicationController < ActionController::Base
             :fq  => ['{!raw f=source_facet}archive']
           }
           
+          config.add_facet_field "format", :label => "Format", :limit => 3
+          config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => true
+          config.add_facet_field "author_facet", :label => "Author", :limit => 3
+          config.add_facet_field "repository_facet", :label => "Repository", :limit => 3
+          config.add_facet_field "location_facet", :label => "Location", :limit => 3
+          config.add_facet_field "author_facet", :label => "Author", :limit => 3
+          config.add_facet_field "language_facet", :label => "Language", :limit => 3
+          config.add_facet_field "subject_topic_facet", :label => "Topic", :limit => 3
+          config.add_facet_field "subject_geo_facet", :label => "Topic (Region)", :limit => 3
+          config.add_facet_field "subject_era_facet", :label => "Topic (Era)", :limit => 3
+          config.add_facet_field "subject_form_facet", :label => "Topic (Genre)", :limit => 3
+          config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
+          config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
+
         when 'New Arrivals'
           default_catalog_config(config)
 

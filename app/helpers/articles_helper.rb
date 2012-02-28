@@ -29,6 +29,31 @@ module ArticlesHelper
     'source' => 'icons/database.png'
   }
 
+
+  def generate_ill_link(document)
+    base = "https://www1.columbia.edu/sec-cgi-bin/cul/illiad/testref360?"
+    epage = params['openurl'].to_s.scan(/rft.epage.(\d+)/)
+    epage = epage ? epage.first.first : ""
+    link_params = {
+      'Volume' => document.volume,
+      'Issue' => document.issue,
+      'Source' => 'info:sid/summon.serialssolutions.com (Via CLIO Beta)',
+      'Author' => document.creator,
+      'Article' => document.title,
+      'Genre' => 'article',
+      'Pages' => "#{document.spage}-#{epage}",
+      'Journal' => document.source,
+      'LoanTitle' => document.source,
+      'Date' => document.date,
+      'ISSN' => document.issns.first.to_s
+    }
+
+   (base + link_params.to_query).html_safe
+    
+  end
+
+
+
   def display_article_holdings_links(holding)
     holding[:urls].keys.sort.collect do |source|
       url = holding[:urls][source]
