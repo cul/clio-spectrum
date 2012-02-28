@@ -33,7 +33,8 @@ module ArticlesHelper
   def generate_ill_link(document)
     base = "https://www1.columbia.edu/sec-cgi-bin/cul/illiad/testref360?"
     epage = params['openurl'].to_s.scan(/rft.epage.(\d+)/)
-    epage = epage ? epage.first.first : ""
+    epage = epage && epage.first && epage.first.first ? epage.first.first : ""
+    issn = document.issns && documents.issns.first ? documents.issns.first.to_s : ""
     link_params = {
       'Volume' => document.volume,
       'Issue' => document.issue,
@@ -45,7 +46,7 @@ module ArticlesHelper
       'Journal' => document.source,
       'LoanTitle' => document.source,
       'Date' => document.date,
-      'ISSN' => document.issns.first.to_s
+      'ISSN' => issn 
     }
 
    (base + link_params.to_query).html_safe
