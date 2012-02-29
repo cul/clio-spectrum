@@ -53,7 +53,7 @@ class ApplicationController < ActionController::Base
   def configure_search(source)
 
     if source == "Academic Commons"
-      Blacklight.solr = RSolr::Ext.connect(:url => "http://macana.cul.columbia.edu:8080/solr-1.5/ac2_prod")
+      Blacklight.solr = RSolr::Ext.connect(:url => APP_CONFIG[:ac2_solr_url])
     else
       Blacklight.solr = RSolr::Ext.connect(Blacklight.solr_config)
     end
