@@ -11,11 +11,18 @@ class ApplicationController < ActionController::Base
       @debug_mode = true
     elsif params['debug_mode'] == 'off'
       @debug_mode = false
+    else
+      @debug_mode ||= session['debug_mode'] || false
     end
     params.delete('debug_mode')
-    @debug_mode ||= session['debug_mode']
-    @debug_mode ||= false
     session['debug_mode'] = @debug_mode
+    @debug_entries = Hash.arbitrary_depth
+
+    default_debug
+  end
+
+  def default_debug
+    @debug_entries['params'] =params
   end
 
   

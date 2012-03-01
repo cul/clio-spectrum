@@ -34,7 +34,7 @@ module ArticlesHelper
     base = "https://www1.columbia.edu/sec-cgi-bin/cul/illiad/testref360?"
     epage = params['openurl'].to_s.scan(/rft.epage.(\d+)/)
     epage = epage && epage.first && epage.first.first ? epage.first.first : ""
-    issn = document.issns && document.issns.first ? document.issns.first.to_s : ""
+    issn = document.issns && document.issns.first ? document.issns.first[:value].to_s : ""
     link_params = {
       'Volume' => document.volume,
       'Issue' => document.issue,

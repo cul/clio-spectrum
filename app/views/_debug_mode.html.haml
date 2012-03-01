@@ -1,0 +1,22 @@
+- if @debug_mode
+  .debug_instruction
+    Debug mode is on. 
+    - turn_off_link = request.fullpath.gsub(/.debug_mode=(on|off)/,'')
+    - turn_off_link = turn_off_link.include?("?") ? turn_off_link + "&debug_mode=off" : turn_off_link + "?debug_mode=off" 
+    Turn it #{link_to "off", turn_off_link}
+  .debug_entries
+    - @debug_entries.each do |key, values|
+      - values = values.listify
+      .row
+        .label= key
+        .value
+          .value_box
+            - values.each do |value|
+              - value_text = value.kind_of?(String) ? value : value.inspect
+              - if value.to_s =~ /^http/
+                .entry= link_to value_text, value_text
+              - elsif value.kind_of?(Hash)
+                - value.each_pair do |k,v|
+                  .entry #{k.inspect} => #{v.inspect}
+              - else
+                .entry= value_text

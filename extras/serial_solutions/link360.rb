@@ -1,12 +1,13 @@
 module SerialSolutions
   class Link360
+    attr_reader :request_url
     attr_reader :title, :creator, :source, :date, :issns, :volume, :issue, :spage
     attr_reader :holdings
 
     def initialize(open_url, config = APP_CONFIG[:link360])
-      full_url =  APP_CONFIG[:link360][:open_url_prefix].to_s + open_url.to_s
-      Rails.logger.info "[360LINK] Request: #{full_url}"
-      raw_xml = Nokogiri::XML(HTTPClient.new.get_content(full_url))
+      @request_url =  APP_CONFIG[:link360][:open_url_prefix].to_s + open_url.to_s
+      Rails.logger.info "[360LINK] Request: #{@request_url}"
+      raw_xml = Nokogiri::XML(HTTPClient.new.get_content(@request_url))
       @response = {}
       parse_xml(raw_xml)
 

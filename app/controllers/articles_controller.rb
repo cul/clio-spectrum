@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
 
   def show
     @document = SerialSolutions::Link360.new(params[:openurl])
-
+    @debug_entries['Link360'] = @document.request_url
     render "show", :layout => "no_sidebar"
   end
 
