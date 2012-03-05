@@ -2,19 +2,11 @@ module ArticlesHelper
   def link_to_article(article, link_title = nil)
     link_title ||= article.title.html_safe
     
-    
-
-    if article.fulltext
-      #if article.content_types.include?("Audio Recording")
-      if is_music?(article)
-        url = URI.parse(article.url).to_s
-      elsif article.content_types.include?("Reference")
-        url = URI.parse(article.uri).to_s
-      else
-        url = articles_show_path(:openurl => article.src['openUrl'])
-      end
+    url = '' 
+    if article.fulltext && article.content_types.include?('Journal Article')
+      url = articles_show_path(:openurl => article.src['openUrl'])
     else
-      url = URI.parse(article.url).to_s
+      url = article.link
     end
 
 
@@ -56,7 +48,7 @@ module ArticlesHelper
 
 
   def display_article_holdings_links(holding)
-    holding[:urls].keys.sort.collect do |source|
+    holding[:urls].keys.reject { |k| k == 'issue' }.sort.collect do |source|
       url = holding[:urls][source]
       title = source.humanize
       icon = ARTICLE_HOLDING_ICONS[source]
