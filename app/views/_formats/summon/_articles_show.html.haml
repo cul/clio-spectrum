@@ -39,18 +39,11 @@
       .links
         = link_to "Interlibrary Loan", generate_ill_link(document)
 
+    .holding.additional
+      .resource
+        .resource_box
+          Can't Find It?
+      .links
+        = link_to "Ask a Librarian", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0031"
+        = link_to "Report an E-Resource Problem", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0006" 
 
-    .holdings_title.additional Additional Options:
-    .holding.additional
-      .resource
-        .resource_box
-          Search CLIO:
-      .links
-        = link_to "By Title", catalog_index_path(:q => document.title, 'source_override' => 'catalog')
-        = link_to "By ISSN", catalog_index_path(:q => document.issns.first[:value].gsub('-',''), 'source_override' => 'catalog') if document.issns.first
-    .holding.additional
-      .resource
-        .resource_box
-          Request it via:
-      .links
-        = link_to "Interlibrary Loan", generate_ill_link(document)
