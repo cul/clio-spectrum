@@ -297,11 +297,12 @@ module DisplayHelper
       pre_values = values.collect { |v| content_tag(:div, v, :class => 'entry') }
 
 
-      if options[:expand] && values.length > 2
+      if options[:expand] && values.length > 3
         pre_values = [
-          pre_values.first,
-          content_tag(:div, link_to("#{values.length - 1} more &#x25BC;".html_safe, "#"), :class => 'entry expander'),
-          content_tag(:div, pre_values[1..-1].join('').html_safe, :class => 'expander_more')
+          pre_values[0],
+          pre_values[1],
+          content_tag(:div, link_to("#{values.length - 2} more &#x25BC;".html_safe, "#"), :class => 'entry expander'),
+          content_tag(:div, pre_values[2..-1].join('').html_safe, :class => 'expander_more')
         ]
 
       end
