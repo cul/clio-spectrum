@@ -26,10 +26,6 @@
 %ul
   
   %li #{link_to "Print", "javascript:print()"}
-  - if (@document.respond_to?(:export_as_mla_citation_txt) || @document.respond_to?(:export_as_apa_citation_txt))
-    %li.cite
-      = link_to "Cite This", citation_catalog_path(:id => id), {:id => "citeLink", :name => "citation", :class => "lightboxLink"}
-
   - if @document.export_formats.keys.include?(:refworks_marc_txt)
     %li.refworks
       =link_to "Export to RefWorks", refworks_export_url(@document)
