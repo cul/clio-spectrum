@@ -13,7 +13,6 @@
 //= require flot/jquery.flot.selection
 //= require blacklight_range_limit/range_limit_distro_facets
 //= require blacklight_range_limit/range_limit_slider
-//= require blacklight_advanced_search
 //= require blacklight/blacklight          
 //= require blacklight_application
 //= require articles

@@ -1,0 +1,2 @@
+module AdvancedHelper
+end

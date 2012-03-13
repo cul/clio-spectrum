@@ -1,0 +1,2 @@
+class AdvancedController < ApplicationController
+end
