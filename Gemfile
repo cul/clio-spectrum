@@ -11,7 +11,6 @@ gem 'sqlite3'
 # gem 'blacklight'
 gem 'blacklight', :git => 'git://github.com/projectblacklight/blacklight.git'
 gem 'blacklight_range_limit'
-gem 'blacklight_advanced_search'
 gem 'blacklight_highlight'
 
 gem 'json'
