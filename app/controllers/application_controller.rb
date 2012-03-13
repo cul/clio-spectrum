@@ -73,7 +73,7 @@ class ApplicationController < ActionController::Base
         default_catalog_config(config)
       end
     else
-      CatalogController.configure_blacklight do |config|
+      self.blacklight_config = Blacklight::Configuration.new do |config|
         config.add_search_field 'all_fields', :label => 'All Fields'
 
         case source

@@ -7,7 +7,7 @@ Feature: Correct 360link routing
   Scenario: Proquest search
     When I search "articles" for "transference Ojibwe"
     And looking at the "1st" result 
-    Then the title should include "Ojibwe into English contexts"
+    Then the title should include "Ojibwe into English Contexts"
     And the "Format" field should include "Full Text Available"
     And the link should be local
 
@@ -34,7 +34,7 @@ Feature: Correct 360link routing
     And the link should not be local
 
   Scenario: Reference
-    When I search "articles" for "test"
+    When I search "articles" for "integer sequences online encyclopedia"
     And looking at the "1st" result
     Then the "Format" field should include "Reference"
     And the "Format" field should include "Available Online"

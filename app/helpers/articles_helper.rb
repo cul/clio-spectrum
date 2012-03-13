@@ -3,7 +3,7 @@ module ArticlesHelper
     link_title ||= article.title.html_safe
     
     url = '' 
-    if article.fulltext && article.content_types.include?('Journal Article')
+    if article.fulltext && !(article.content_types & ['Journal Article','Book', 'eBook']).empty?
       url = articles_show_path(:openurl => article.src['openUrl'])
     else
       url = article.link

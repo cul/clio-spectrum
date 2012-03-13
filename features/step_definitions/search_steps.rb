@@ -33,7 +33,7 @@ end
 
 Then /^the title should include "([^"]*)"$/ do |title|
   found_title = @active_result.find('.title a').text
-  assert found_title.include?(title), "Title #{found_title} does not include #{title}"
+  assert found_title.downcase.include?(title.to_s.downcase), "Title #{found_title} does not include #{title}"
 end
 
 Then /^the "([^"]*)" field should include "([^"]*)"$/ do |field, value|
@@ -41,7 +41,7 @@ Then /^the "([^"]*)" field should include "([^"]*)"$/ do |field, value|
 
   if active_field = find_field(@active_result,field)
     entries = active_field.all('.entry').collect(&:text)
-    assert entries.any? { |entry| entry.include?(value) }, "Field found, but #{value} was not in #{entries.inspect}"
+    assert entries.any? { |entry| entry.downcase.include?(value.to_s.downcase) }, "Field found, but #{value} was not in #{entries.inspect}"
   else
     raise "Row with field name #{field} not found"
   end
