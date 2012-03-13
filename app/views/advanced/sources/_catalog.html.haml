@@ -1,0 +1,17 @@
+.component.advanced_search
+  .title Catalog Advanced Search
+
+
+  = form_tag advanced_search_path(:source => @active_source) do 
+    .section Search by field:
+
+    .row
+      .label All fields:
+      .value= text_field_tag 'field[all_fields]', '', :class => 'field_search'
+    .row
+      .label Author:
+      .value= text_field_tag 'field[author]', '', :class => 'field_search'
+
+
+  .search_tips
+

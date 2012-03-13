@@ -27,7 +27,8 @@ class ApplicationController < ActionController::Base
 
   
   def determine_active_source
-    @active_source = case request.path 
+    path_minus_advanced = request.path.to_s.gsub(/^\/advanced/, '')
+    @active_source = case path_minus_advanced 
     when /^\/databases/
       'Databases'
     when /^\/new_arrivals/
