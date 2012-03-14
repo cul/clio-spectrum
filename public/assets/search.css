@@ -1,0 +1,355 @@
+/* line 6, ../../app/assets/stylesheets/search.css.sass */
+.value h {
+  font-style: italic;
+  background-color: #fff68f;
+}
+
+/* line 11, ../../app/assets/stylesheets/search.css.sass */
+#hd.with_search #logo_small {
+  display: inline;
+  float: left;
+  width: 20.168%;
+  margin-right: 0.84%;
+}
+/* line 14, ../../app/assets/stylesheets/search.css.sass */
+#hd.with_search #top_search_box {
+  display: inline;
+  float: left;
+  width: 62.185%;
+  margin-right: 0.84%;
+}
+/* line 17, ../../app/assets/stylesheets/search.css.sass */
+#hd.with_search #user_util_links {
+  display: inline;
+  float: left;
+  width: 15.966%;
+  margin-right: 0.84%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+
+/* line 22, ../../app/assets/stylesheets/search.css.sass */
+#main_with_sources {
+  display: inline;
+  float: left;
+  width: 78.992%;
+  margin-right: 0.84%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+  min-height: 420px;
+}
+
+/* line 28, ../../app/assets/stylesheets/search.css.sass */
+#sources {
+  display: inline;
+  float: left;
+  width: 20.168%;
+  margin-right: 0.84%;
+}
+
+/* line 31, ../../app/assets/stylesheets/search.css.sass */
+.two_equal {
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 1.124%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+  padding: 1em 0 1em 0;
+}
+/* line 36, ../../app/assets/stylesheets/search.css.sass */
+.two_equal .result_set {
+  display: inline;
+  float: left;
+  width: 49.438%;
+  margin-right: 1.124%;
+}
+/* line 39, ../../app/assets/stylesheets/search.css.sass */
+.two_equal .result_set .result {
+  background-color: white;
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 2.273%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+/* line 44, ../../app/assets/stylesheets/search.css.sass */
+.two_equal .result_set .row {
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 2.273%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+/* line 48, ../../app/assets/stylesheets/search.css.sass */
+.two_equal .result_set .label {
+  display: inline;
+  float: left;
+  width: 20.455%;
+  margin-right: 2.273%;
+}
+/* line 51, ../../app/assets/stylesheets/search.css.sass */
+.two_equal .result_set .value {
+  display: inline;
+  float: left;
+  width: 77.273%;
+  margin-right: 2.273%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+/* line 56, ../../app/assets/stylesheets/search.css.sass */
+.two_equal .result_set.last {
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+
+/* line 59, ../../app/assets/stylesheets/search.css.sass */
+.pageEntriesInfo.non_catalog {
+  padding: 1em 0 0.5em;
+  border-bottom: 1px solid #cccccc;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 65, ../../app/assets/stylesheets/search.css.sass */
+.two_lopsided {
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 1.124%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+  padding: 0em 0 1em 0;
+}
+/* line 70, ../../app/assets/stylesheets/search.css.sass */
+.two_lopsided .result_set {
+  margin-bottom: 2em;
+}
+/* line 76, ../../app/assets/stylesheets/search.css.sass */
+.two_lopsided .blockquote {
+  font-style: italic;
+  padding: 0.5em 1em 0 1em;
+}
+/* line 80, ../../app/assets/stylesheets/search.css.sass */
+.two_lopsided .main_results {
+  display: inline;
+  float: left;
+  width: 55.056%;
+  margin-right: 1.124%;
+}
+/* line 83, ../../app/assets/stylesheets/search.css.sass */
+.two_lopsided .main_results .result {
+  background-color: white;
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 2.041%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+/* line 88, ../../app/assets/stylesheets/search.css.sass */
+.two_lopsided .main_results .row {
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 2.041%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+/* line 92, ../../app/assets/stylesheets/search.css.sass */
+.two_lopsided .main_results .label {
+  display: inline;
+  float: left;
+  width: 18.367%;
+  margin-right: 2.041%;
+}
+/* line 95, ../../app/assets/stylesheets/search.css.sass */
+.two_lopsided .main_results .value {
+  display: inline;
+  float: left;
+  width: 79.592%;
+  margin-right: 2.041%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+/* line 99, ../../app/assets/stylesheets/search.css.sass */
+.two_lopsided .main_results .result_set {
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 2.041%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+/* line 103, ../../app/assets/stylesheets/search.css.sass */
+.two_lopsided .side_results {
+  display: inline;
+  float: left;
+  width: 43.82%;
+  margin-right: 1.124%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+/* line 107, ../../app/assets/stylesheets/search.css.sass */
+.two_lopsided .side_results .result {
+  background-color: white;
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 2.564%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+/* line 112, ../../app/assets/stylesheets/search.css.sass */
+.two_lopsided .side_results .row {
+  clear: both;
+}
+/* line 115, ../../app/assets/stylesheets/search.css.sass */
+.two_lopsided .side_results .label {
+  display: inline;
+  float: left;
+  width: 23.077%;
+  margin-right: 2.564%;
+}
+/* line 118, ../../app/assets/stylesheets/search.css.sass */
+.two_lopsided .side_results .value {
+  display: inline;
+  float: left;
+  width: 74.359%;
+  margin-right: 2.564%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+/* line 123, ../../app/assets/stylesheets/search.css.sass */
+.two_lopsided .side_results .result_set {
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 2.564%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+
+/* line 127, ../../app/assets/stylesheets/search.css.sass */
+.show {
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 0.84%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+/* line 130, ../../app/assets/stylesheets/search.css.sass */
+.show #clio_main {
+  display: inline;
+  float: left;
+  width: 74.79%;
+  margin-right: 0.84%;
+}
+/* line 133, ../../app/assets/stylesheets/search.css.sass */
+.show #clio_sidebar {
+  display: inline;
+  float: left;
+  width: 24.37%;
+  margin-right: 0.84%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+
+/* line 138, ../../app/assets/stylesheets/search.css.sass */
+.row .label {
+  text-align: right;
+  color: #777777;
+}
+/* line 142, ../../app/assets/stylesheets/search.css.sass */
+.row .value_box {
+  padding-right: 0.25em;
+}
+
+/* line 2, ../../app/assets/stylesheets/_local_mixes.css.sass */
+.result_set .even {
+  background-color: white;
+}
+/* line 4, ../../app/assets/stylesheets/_local_mixes.css.sass */
+.result_set .odd {
+  background-color: #f9f9f9;
+}
+/* line 150, ../../app/assets/stylesheets/search.css.sass */
+.result_set .results_header {
+  padding-bottom: 1em;
+}
+/* line 152, ../../app/assets/stylesheets/search.css.sass */
+.result_set .category_title {
+  font-weight: bold;
+  font-size: 1.4em;
+  display: inline;
+}
+/* line 156, ../../app/assets/stylesheets/search.css.sass */
+.result_set .results_link {
+  padding: 0.5em 2em 0 0;
+  float: right;
+}
+/* line 159, ../../app/assets/stylesheets/search.css.sass */
+.result_set .description {
+  font-style: italic;
+  padding-bottom: 0.5em;
+}
+
+/* line 163, ../../app/assets/stylesheets/search.css.sass */
+.result {
+  padding-bottom: 1em;
+}
+/* line 166, ../../app/assets/stylesheets/search.css.sass */
+.result .row {
+  padding-bottom: 0.5em;
+}
+/* line 169, ../../app/assets/stylesheets/search.css.sass */
+.result .row .result_title {
+  font-weight: bold;
+  font-size: 1.1em;
+  padding-right: 0.25em;
+  padding-top: 1em;
+  padding-bottom: 0.75em;
+}
+/* line 176, ../../app/assets/stylesheets/search.css.sass */
+.result .row .availability {
+  padding-right: 0.25em;
+}

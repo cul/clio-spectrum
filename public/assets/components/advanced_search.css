@@ -1,0 +1,7 @@
+/* line 8, ../../../app/assets/stylesheets/components/advanced_search.css.sass */
+.component.advanced_search .title {
+  font-family: "Trajan Pro Bold", "TrajanProBold", "TrajanPro-Bold", serif;
+  font-weight: bold;
+  font-size: 135%;
+  padding: 0.25em 0 0.5em;
+}

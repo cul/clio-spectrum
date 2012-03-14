@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-gem 'rails', '3.2.1'
+gem 'rails', '3.2.2'
 
 gem 'mysql2'
 gem 'sqlite3'
@@ -41,9 +41,9 @@ gem 'jquery-rails'
 group :assets do
   gem 'sass-rails', '~>3.2.4'
   gem 'coffee-rails', '~>3.2.2'
-  gem 'compass', '0.12.rc.1'
+  gem 'compass-rails', '~>1.0.0'
   gem 'uglifier', '>=1.0.3'
-
+  gem 'compass-susy-plugin', '>=0.9.0'
 end
 
 

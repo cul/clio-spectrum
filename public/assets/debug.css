@@ -1,0 +1,47 @@
+/* line 4, ../../app/assets/stylesheets/debug.css.sass */
+.debug_instruction {
+  padding: 1em;
+  background: #f6f6f6;
+}
+
+/* line 8, ../../app/assets/stylesheets/debug.css.sass */
+.debug_entries {
+  padding-top: 1em;
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 0.84%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+/* line 13, ../../app/assets/stylesheets/debug.css.sass */
+.debug_entries .row {
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 0.84%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+/* line 17, ../../app/assets/stylesheets/debug.css.sass */
+.debug_entries .label {
+  display: inline;
+  float: left;
+  width: 7.563%;
+  margin-right: 0.84%;
+}
+/* line 20, ../../app/assets/stylesheets/debug.css.sass */
+.debug_entries .value {
+  display: inline;
+  float: left;
+  width: 91.597%;
+  margin-right: 0.84%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}

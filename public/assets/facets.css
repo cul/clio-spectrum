@@ -1,0 +1,105 @@
+/* line 7, ../../app/assets/stylesheets/facets.css.sass */
+.activated_facets {
+  margin-bottom: 1em;
+}
+
+/* line 10, ../../app/assets/stylesheets/facets.css.sass */
+.facet_action {
+  cursor: pointer;
+}
+
+/* line 13, ../../app/assets/stylesheets/facets.css.sass */
+.facet_limit {
+  padding-right: 1em;
+  margin-bottom: 1em;
+}
+/* line 19, ../../app/assets/stylesheets/facets.css.sass */
+.facet_limit li img {
+  vertical-align: middle;
+}
+/* line 22, ../../app/assets/stylesheets/facets.css.sass */
+.facet_limit li .facet_label {
+  padding-left: 0em;
+  vertical-align: middle;
+}
+/* line 25, ../../app/assets/stylesheets/facets.css.sass */
+.facet_limit li .facet_cancel {
+  padding-bottom: 0.25em;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+}
+/* line 30, ../../app/assets/stylesheets/facets.css.sass */
+.facet_limit li.facet_selected {
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  background: #f0fff0;
+}
+/* line 35, ../../app/assets/stylesheets/facets.css.sass */
+.facet_limit li.facet_negated {
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  background: #fff0f0;
+}
+
+/* line 43, ../../app/assets/stylesheets/facets.css.sass */
+#facets {
+  padding: 0px 0px;
+  background: white;
+  margin-top: 0;
+  border: 0px solid #aaaaaa;
+}
+/* line 50, ../../app/assets/stylesheets/facets.css.sass */
+#facets li a.remove {
+  margin-left: 0.25em;
+}
+/* line 53, ../../app/assets/stylesheets/facets.css.sass */
+#facets li.more_facets_link {
+  padding-top: 0.5em;
+}
+/* line 56, ../../app/assets/stylesheets/facets.css.sass */
+#facets ul, #facets h3 + div {
+  border-bottom: none;
+}
+/* line 59, ../../app/assets/stylesheets/facets.css.sass */
+#facets h2 {
+  padding-left: 2px;
+  margin-bottom: 4px;
+  background: white;
+  border: 0px solid #cccccc;
+  border-left: 0;
+  border-right: 0;
+  font-size: 16px;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  color: #888888;
+}
+/* line 70, ../../app/assets/stylesheets/facets.css.sass */
+#facets h3 {
+  font-size: 1.1em;
+  font-weight: bold;
+  border-bottom: 1px solid white;
+}
+/* line 74, ../../app/assets/stylesheets/facets.css.sass */
+#facets > .facet_limit {
+  padding: 2px 4px 0 0px;
+}
+
+/* line 78, ../../app/assets/stylesheets/facets.css.sass */
+.facet_limit > .facet_limit {
+  margin: 0;
+  padding: 0;
+}
+/* line 81, ../../app/assets/stylesheets/facets.css.sass */
+.facet_limit h3 {
+  margin-top: 6px;
+}
+
+/* line 85, ../../app/assets/stylesheets/facets.css.sass */
+.range_limit .range.slider_js {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+/* line 88, ../../app/assets/stylesheets/facets.css.sass */
+.range_limit a.load_distribution {
+  display: none;
+}

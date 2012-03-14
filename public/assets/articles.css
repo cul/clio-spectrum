@@ -1,0 +1,90 @@
+/* line 5, ../../app/assets/stylesheets/articles.css.sass */
+#hd.articles_search #logo_small {
+  display: inline;
+  float: left;
+  width: 24.37%;
+  margin-right: 0.84%;
+}
+/* line 7, ../../app/assets/stylesheets/articles.css.sass */
+#hd.articles_search #top_search_box {
+  display: inline;
+  float: left;
+  width: 74.79%;
+  margin-right: 0.84%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+
+/* line 11, ../../app/assets/stylesheets/articles.css.sass */
+.landing_text {
+  padding-top: 0.5em;
+}
+
+/* line 16, ../../app/assets/stylesheets/articles.css.sass */
+.holdings.article .holding {
+  margin-bottom: 0.75em;
+}
+
+/* line 20, ../../app/assets/stylesheets/articles.css.sass */
+.document.article_list .details {
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 1.124%;
+}
+/* line 22, ../../app/assets/stylesheets/articles.css.sass */
+.document.article_list .row {
+  display: inline;
+  float: left;
+  width: 100%;
+  margin-right: 1.124%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+/* line 25, ../../app/assets/stylesheets/articles.css.sass */
+.document.article_list .row .label {
+  display: inline;
+  float: left;
+  width: 10.112%;
+  margin-right: 1.124%;
+}
+/* line 27, ../../app/assets/stylesheets/articles.css.sass */
+.document.article_list .row .value {
+  display: inline;
+  float: left;
+  width: 88.764%;
+  margin-right: 1.124%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+}
+
+/* line 32, ../../app/assets/stylesheets/articles.css.sass */
+.holdings_title.additional {
+  padding-top: 1em;
+}
+
+/* line 35, ../../app/assets/stylesheets/articles.css.sass */
+.item_show .holdings .holding.additional .resource {
+  display: inline;
+  float: left;
+  width: 23.729%;
+  margin-right: 1.695%;
+}
+/* line 37, ../../app/assets/stylesheets/articles.css.sass */
+.item_show .holdings .holding.additional .links {
+  display: inline;
+  float: left;
+  width: 74.576%;
+  margin-right: 1.695%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+  text-align: left;
+}
