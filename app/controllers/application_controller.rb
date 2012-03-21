@@ -66,7 +66,7 @@ class ApplicationController < ActionController::Base
       Blacklight.solr = RSolr::Ext.connect(Blacklight.solr_config)
     end
     if source.in?('Quicksearch','eBooks')
-      SearchController.configure_blacklight do |config|
+      self.configure_blacklight = Blacklight::Configuration.new do |config|
 
         config.add_search_field 'all_fields', :label => 'All Fields'
     
@@ -90,10 +90,10 @@ class ApplicationController < ActionController::Base
           config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
           config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
           config.add_facet_field "language_facet", :label => "Language", :limit => 3
-          config.add_facet_field "subject_topic_facet", :label => "Topic", :limit => 3
-          config.add_facet_field "subject_geo_facet", :label => "Topic (Region)", :limit => 3
-          config.add_facet_field "subject_era_facet", :label => "Topic (Era)", :limit => 3
-          config.add_facet_field "subject_form_facet", :label => "Topic (Genre)", :limit => 3
+          config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 3
+          config.add_facet_field "subject_geo_facet", :label => "Subject (Region)", :limit => 3
+          config.add_facet_field "subject_era_facet", :label => "Subject (Era)", :limit => 3
+          config.add_facet_field "subject_form_facet", :label => "Subject (Genre)", :limit => 3
           config.add_facet_field 'title_first_facet', :label => "Starts With"
 
         when 'Archives'
@@ -112,10 +112,10 @@ class ApplicationController < ActionController::Base
           config.add_facet_field "location_facet", :label => "Location", :limit => 3
           config.add_facet_field "author_facet", :label => "Author", :limit => 3
           config.add_facet_field "language_facet", :label => "Language", :limit => 3
-          config.add_facet_field "subject_topic_facet", :label => "Topic", :limit => 3
-          config.add_facet_field "subject_geo_facet", :label => "Topic (Region)", :limit => 3
-          config.add_facet_field "subject_era_facet", :label => "Topic (Era)", :limit => 3
-          config.add_facet_field "subject_form_facet", :label => "Topic (Genre)", :limit => 3
+          config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 3
+          config.add_facet_field "subject_geo_facet", :label => "Subject (Region)", :limit => 3
+          config.add_facet_field "subject_era_facet", :label => "Subject (Era)", :limit => 3
+          config.add_facet_field "subject_form_facet", :label => "Subject (Genre)", :limit => 3
           config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
           config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
 
@@ -201,10 +201,10 @@ class ApplicationController < ActionController::Base
       config.add_facet_field "location_facet", :label => "Location", :limit => 3
       config.add_facet_field "author_facet", :label => "Author", :limit => 3
       config.add_facet_field "language_facet", :label => "Language", :limit => 3
-      config.add_facet_field "subject_topic_facet", :label => "Topic", :limit => 3
-      config.add_facet_field "subject_geo_facet", :label => "Topic (Region)", :limit => 3
-      config.add_facet_field "subject_era_facet", :label => "Topic (Era)", :limit => 3
-      config.add_facet_field "subject_form_facet", :label => "Topic (Genre)", :limit => 3
+      config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 3
+      config.add_facet_field "subject_geo_facet", :label => "Subject (Region)", :limit => 3
+      config.add_facet_field "subject_era_facet", :label => "Subject (Era)", :limit => 3
+      config.add_facet_field "subject_form_facet", :label => "Subject (Genre)", :limit => 3
       config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
       config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
     end
