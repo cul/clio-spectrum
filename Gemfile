@@ -9,7 +9,7 @@ gem 'sqlite3'
 
 
 # gem 'blacklight'
-gem 'blacklight'
+gem 'blacklight', '>= 3.3.0'
 gem 'blacklight_range_limit'
 gem 'blacklight_highlight'
 
