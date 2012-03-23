@@ -1,31 +1,29 @@
 .landing_main
-  .title Article Search
+  .title Articles
 
-  %p Articles search will perform a search of Summon for 
+  %p Search a database of mostly full text:
 
   %ul
     %li journal articles
-    %li eBooks
-    %li newspapers
+    %li e-books & e-book chapters
+    %li newspaper articles
     %li dissertations
     %li other electronic resources
 
 .landing_side
   .landing_side_inner
+    
+    %h3 Guide
+    .item
+      =link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/articles-guide/", :target => "_blank"
+    
     %h3 Other Resources
 
     .item
-      .note In case you can't find what you're looking for through Summon, try:
-
-    .item= link_to "EBSCOhost Databases", "http://www.columbia.edu/cgi-bin/cul/resolve?clio6329559"
-
-    .item
-      = link_to "ProQuest", "http://www.columbia.edu/cgi-bin/cul/resolve?clio8557099"
-
-    .item
-      = link_to "Scopus", "http://www.columbia.edu/cgi-bin/cul/resolve?clio6273999"
-    .item
-      = link_to "Google Scholar", "http://www.columbia.edu/cgi-bin/cul/resolve?clio5119262"
-
-    .item
-      = link_to "Subject Guides", "http://wwwapp.cc.columbia.edu/ldpd/rti/results?hl=1&ps=1&sb=1&ss=0&hpp=100000&hk=-1&rt=sg&qt=6&q="
+      .note If you can't find what you're looking for, try:
+      %ul
+        %li=link_to "EBSCOhost Databases", "http://www.columbia.edu/cgi-bin/cul/resolve?clio6329559"
+        %li=link_to "ProQuest", "http://www.columbia.edu/cgi-bin/cul/resolve?clio8557099"
+        %li=link_to "Scopus", "http://www.columbia.edu/cgi-bin/cul/resolve?clio6273999"
+        %li=link_to "Google Scholar", "http://www.columbia.edu/cgi-bin/cul/resolve?clio5119262"
+        %li=link_to "Subject Guides", "http://wwwapp.cc.columbia.edu/ldpd/rti/results?hl=1&ps=1&sb=1&ss=0&hpp=100000&hk=-1&rt=sg&qt=6&q="

@@ -2,10 +2,26 @@
 
   .title Catalog
 
-  %p Search the Columbia University Libraries' Catalog which contains over 9 million items, including:
+  %p Search the Columbia University Libraries Catalog, with over 7 million records for:
   %ul
     %li books
-    %li journals
     %li online resources
-    %li dvds
-    %li ebooks
+    %li journals & newspapers
+    %li conference proceedings
+    %li sound recordings & scores
+    %li videos
+    %li archival collections & oral history transcripts
+    %li online databases
+    %li maps & images
+
+.landing_side
+  .landing_side_inner
+    %h3 Guide
+    .item
+      =link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/catalog-guide/", :target => "_blank"
+      
+    %h3 Related Links
+    .item
+      =link_to "CLIO", "http://www.columbia.edu/cgi-bin/cul/resolve?clio"
+    .item
+      =link_to "WorldCat", "http://www.columbia.edu/cgi-bin/cul/resolve?AMS7418"

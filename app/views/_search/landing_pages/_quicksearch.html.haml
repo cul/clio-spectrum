@@ -3,12 +3,12 @@
 
   %p Quicksearch performs a combined search of:
   %ul 
-    %li Catalog (books, journals, online resources, dvds, etc.)
-    %li Articles (journal articles, ebooks, dissertations)
+    %li Catalog (books, journals, online resources, videos, and more)
+    %li Articles (journal articles, e-books, dissertations, and more)
     %li Academic Commons (digital repository of Columbia research)
     %li Library website
 
-  %p Select #{datasource_switch_link('Catalog','catalog')}, #{datasource_switch_link('Articles','articles')}, or #{datasource_switch_link('Academic Commons','academic_commons')} to search each resource individually.
+  %p Select #{datasource_switch_link('Catalog','catalog')}, #{datasource_switch_link('Articles','articles')}, or #{datasource_switch_link('Academic Commons','academic_commons')} to search each resource separately.
 
 
 .landing_side
@@ -16,20 +16,21 @@
     %h3 Latest News
 
     .item
-      Redesign launched
+      Welcome to CLIO Beta!
       .note
-        Our first major redesign has begun. Please let us know your feedback!
+        This is our first public release. Please let us know your feedback!
 
-    %h3 
-      CLIO Beta Blog
+    %h3 Guide
+    .item
+      =link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/quicksearch-guide/", :target => "_blank"
 
-
-
+    %h3 CLIO beta Blog
     .item
       .note
-        Learn more about our new search portal 
-        =link_to "here", "https://blogs.cul.columbia.edu/cliobeta/"
+        Consult the 
+        =link_to "CLIO Beta Blog ", "https://blogs.cul.columbia.edu/cliobeta/"
+        for more information
         %ul
-          %li= link_to "FAQ", "https://blogs.cul.columbia.edu/cliobeta/faq"
+          %li=link_to "FAQ", "https://blogs.cul.columbia.edu/cliobeta/faq"
           %li=link_to "Known Issues", "https://blogs.cul.columbia.edu/cliobeta/known-issues"
           %li=link_to "Release Notes", "https://blogs.cul.columbia.edu/cliobeta/release-notes"
