@@ -14,12 +14,6 @@ module ArticlesHelper
   end
 
 
-  ARTICLE_HOLDING_ICONS = {
-    'book' => 'icons/book.png',
-    'article' => 'icons/article.png',
-    'journal' => 'icons/journal.png',
-    'source' => 'icons/database.png'
-  }
 
 
   def generate_ill_link(document)
@@ -45,16 +39,27 @@ module ArticlesHelper
     
   end
 
+  ARTICLE_HOLDING_ICONS = {
+    'book' => 'icons/book.png',
+    'article' => 'icons/article.png',
+    'journal' => 'icons/journal.png',
+    'source' => 'icons/database.png',
+    'volume' => 'icons/volume.png'
+  }
 
+  ARTICLE_HOLDING_NAMES = {
+  }
+
+  ARTICLE_HOLDING_LINK_ORDER = %w{book article journal volume source}
 
   def display_article_holdings_links(holding)
-    holding[:urls].keys.reject { |k| k == 'issue' }.sort.collect do |source|
+    holding[:urls].keys.reject { |k| k == 'issue' }.sort_by { |x| ARTICLE_HOLDING_LINK_ORDER.index(x) }.collect do |source|
       url = holding[:urls][source]
-      title = source.humanize
+      title = ARTICLE_HOLDING_NAMES[source] || source.humanize
       icon = ARTICLE_HOLDING_ICONS[source]
-      title = "#{image_tag(icon)} ".html_safe + title if icon
+      title = content_tag(:span, "#{image_tag(icon)} ".html_safe + title, :class => "article_holding").html_safe if icon
 
-      link_to(title, url)
+      link_to(title, url, :target => "_blank")
     end.join("").html_safe
     
   end

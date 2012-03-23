@@ -27,14 +27,6 @@
     = hidden_field_tag 'category', params['category'] || 'articles'
     - if @error || @summon.nil?
       = hidden_field_tag "new_search", "articles"
-    - else
-
-      - @summon.search.query.to_hash.each_pair do |key,value|
-        - if value.kind_of?(Array)
-          - value.each do |subvalue|
-            = hidden_field_tag "#{key}[]", subvalue 
-        - else
-          = hidden_field_tag key, value
 
     .search_row
       = text_field_tag 's.q', params['s.q'], :class => "q", :id => "articles_q", :placeholder => "(Articles Search)"

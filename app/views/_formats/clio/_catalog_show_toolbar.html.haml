@@ -28,16 +28,15 @@
     -# %li=link_to "SMS", sms_catalog_path(:id => id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}
     %li=link_to "SMS", "http://www.columbia.edu/cgi-bin/cul/forms/Stext?#{clio_id}", :target => "_blank"
     %li.haschildren
-      =link_to "Cite / Export", "#"
+      =link_to "Export", "#"
       %ul.submenu
         - any_cites = false
-        - if (@document.respond_to?(:export_as_mla_citation_txt) || @document.respond_to?(:export_as_apa_citation_txt))
-          - any_cites = true
-          %li= link_to "Cite This", citation_catalog_path(:id => id), {:id => "citeLink", :name => "citation", :class => "lightboxLink"}
 
         - if @document.export_formats.keys.include?(:refworks_marc_txt)
+          -any_cites = true
           %li=link_to "Export to RefWorks", refworks_export_url(@document)
         - if @document.export_formats.keys.include?(:endnote)
+          -any_cites = true
           %li=link_to "Export to EndNote", catalog_path(id, :format => "endnote")
 
         - unless any_cites

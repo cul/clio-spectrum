@@ -66,7 +66,7 @@ class ApplicationController < ActionController::Base
       Blacklight.solr = RSolr::Ext.connect(Blacklight.solr_config)
     end
     if source.in?('Quicksearch','eBooks')
-      self.configure_blacklight = Blacklight::Configuration.new do |config|
+      self.blacklight_config = Blacklight::Configuration.new do |config|
 
         config.add_search_field 'all_fields', :label => 'All Fields'
     
