@@ -9,7 +9,8 @@ gem 'sqlite3'
 
 
 # gem 'blacklight'
-gem 'blacklight', '>= 3.3.0'
+#gem 'blacklight', '>= 3.3.0'
+gem 'blacklight', :git => 'git://github.com/projectblacklight/blacklight.git', :branch => 'compiled_assets_fix'
 gem 'blacklight_range_limit'
 gem 'blacklight_highlight'
 
