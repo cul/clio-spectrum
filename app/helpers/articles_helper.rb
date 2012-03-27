@@ -4,7 +4,11 @@ module ArticlesHelper
     
     url = '' 
     if article.fulltext && !(article.content_types & ['Journal Article','Book', 'eBook']).empty?
-      url = articles_show_path(:openurl => article.src['openUrl'])
+      if article.content_types.include?('eBook') && article.uri.include?('hdl.handle.net')
+        url = article.link
+      else
+        url = articles_show_path(:openurl => article.src['openUrl'])
+      end
     else
       url = article.link
     end
