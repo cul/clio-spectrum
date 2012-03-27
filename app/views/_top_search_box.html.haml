@@ -25,8 +25,7 @@
 = display_search_box('Articles') do 
   = form_tag articles_search_path(), :method => :get do
     = hidden_field_tag 'category', params['category'] || 'articles'
-    - if @error || @summon.nil?
-      = hidden_field_tag "new_search", "articles"
+    = hidden_field_tag "new_search", "articles"
 
     .search_row
       = text_field_tag 's.q', params['s.q'], :class => "q", :id => "articles_q", :placeholder => "(Articles Search)"

@@ -1,10 +1,15 @@
 module ArticlesHelper
+  EBOOKS_TO_LINK_FOLLOW = [
+    'hdl.handle.net',
+    'hathitrust.org'
+  ]
+
   def link_to_article(article, link_title = nil)
     link_title ||= article.title.html_safe
     
     url = '' 
     if article.fulltext && !(article.content_types & ['Journal Article','Book', 'eBook']).empty?
-      if article.content_types.include?('eBook') && article.uri.to_s.include?('hdl.handle.net')
+      if article.content_types.include?('eBook') && EBOOKS_TO_LINK_FOLLOW.any? { |eb| article.uri.to_s.include?(eb) }
         url = article.link
       else
         url = articles_show_path(:openurl => article.src['openUrl'])

@@ -17,7 +17,6 @@ Spork.prefork do
 
   RSpec.configure do |config|
     config.mock_with :rspec
-    config.use_transactional_fixtures = true
     config.include(MailerMacros)
     config.before(:each) { reset_email }
     Capybara.javascript_driver = :webkit

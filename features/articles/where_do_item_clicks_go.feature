@@ -3,7 +3,13 @@ Feature: Correct 360link routing
   In order to send users to the right resource
   CLIO should intelligently determine whether to send a user
   to an item-level e-link view, or directly to a resource
- 
+
+  Scenario: Hathitrust search
+    When I search "articles" for "theory practice mental hygiene notter"
+    And looking at the "1st" result
+    Then the title should include "The theory and practice of hygiene"
+    And the link should not be local
+  
   Scenario: Proquest search
     When I search "articles" for "transference Ojibwe"
     And looking at the "1st" result 
