@@ -1,0 +1,47 @@
+$(function () {
+  
+	// all links get tracked
+  $('a').click(function () {
+		// tell analytics to save event
+		try {
+      var identifier = BlacklightGoogleAnalytics.this_or_parent_id($(this));  
+      // for facets we make the action the facet heading
+      if (identifier === 'facets') {
+        var action = $(this).parents("div:first").find("h3:first").text();
+      } else {
+        var action = 'clicked';
+      }      
+      var label = ($(this).text() || $(this).children('img:first').attr('alt'));
+			_gaq.push(['_trackEvent', identifier, action, label]);
+		} catch (err) {
+      BlacklightGoogleAnalytics.console_log_error(err, [identifier, action, label]);
+    }
+    BlacklightGoogleAnalytics.pause();		
+	}); 
+  
+  $('input,select').click(function(){
+    try {
+      var identifier = BlacklightGoogleAnalytics.this_or_parent_id($(this));  
+      var action = 'clicked';
+      var label = $(this).val();
+      _gaq.push(['_trackEvent', identifier, action, label]);
+    } catch (err){
+      BlacklightGoogleAnalytics.console_log_error(err, [identifier, action, label]);
+    }
+    BlacklightGoogleAnalytics.pause();
+  });
+ 
+  
+  //facet expand/collapse
+  $('#facets h3').live('click', function(){
+    var label = $(this).text();
+    var heading_values = ['facets', 'collapse_expand', label];
+    try{
+      _gaq.push(['_trackEvent'].concat(heading_values));
+    } catch(err) {  
+      BlacklightGoogleAnalytics.console_log_error(err, heading_values);
+    }
+  });
+    
+  
+});

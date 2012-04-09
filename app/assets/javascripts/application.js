@@ -25,3 +25,6 @@
 //= require holdings
 // Required by Blacklight
 
+
+//= require blacklight_google_analytics
+//= require google_analytics

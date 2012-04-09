@@ -41,6 +41,7 @@ GEM
       rsolr-ext (~> 1.0.3)
       sass-rails (~> 3.1)
       unicode
+    blacklight_google_analytics (0.0.1.pre2)
     blacklight_highlight (0.1.0)
       blacklight (~> 3.2)
       rails (~> 3.0)
@@ -269,6 +270,7 @@ PLATFORMS
 
 DEPENDENCIES
   blacklight
+  blacklight_google_analytics
   blacklight_highlight
   blacklight_range_limit
   capistrano

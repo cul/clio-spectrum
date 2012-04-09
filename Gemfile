@@ -12,7 +12,7 @@ gem 'sqlite3'
 gem 'blacklight'
 gem 'blacklight_range_limit'
 gem 'blacklight_highlight'
-
+gem 'blacklight_google_analytics'
 gem 'json'
 
 # Deploy with Capistrano
