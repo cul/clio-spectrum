@@ -1,17 +1,13 @@
 $(function () {
   
 	// all links get tracked
-  $('a').click(function () {
+  $('.search_box button.submit').click(function () {
 		// tell analytics to save event
 		try {
       var identifier = BlacklightGoogleAnalytics.this_or_parent_id($(this));  
       // for facets we make the action the facet heading
-      if (identifier === 'facets') {
-        var action = $(this).parents("div:first").find("h3:first").text();
-      } else {
-        var action = 'clicked';
-      }      
-      var label = ($(this).text() || $(this).children('img:first').attr('alt'));
+      var action = 'search';
+      var label = ($(this).parent.children('input.q').text();
 			_gaq.push(['_trackEvent', identifier, action, label]);
 		} catch (err) {
       BlacklightGoogleAnalytics.console_log_error(err, [identifier, action, label]);
