@@ -22,9 +22,9 @@
 //= require jquery.observe_field
 //= require jquery.dropmenu.js
 //= require google_analytics
+//= require search_tracking
 //= require holdings
 // Required by Blacklight
 
 
 //= require blacklight_google_analytics
-//= require google_analytics
