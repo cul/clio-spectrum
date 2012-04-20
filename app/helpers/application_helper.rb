@@ -24,5 +24,12 @@ module ApplicationHelper
     session[:folder_document_ids] && session[:folder_document_ids].include?(doc_id.listify.first) ? true : false
   end
 
+  def determine_search_params
+    if params['action'] = 'show' 
+      return session['search']
+    else
+      return params
+    end
+  end
 
 end

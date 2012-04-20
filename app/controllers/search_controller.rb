@@ -6,6 +6,8 @@ class SearchController < ApplicationController
 
   def index
     @results = []
+    session['search'] = params
+    session['search']['s.q'] = params['q'] if params['q'] 
     params['categories'] = ['catalog', 'academic_commons', 'articles', 'lweb']
 
     raise('test') if params['throw_error']
@@ -34,6 +36,8 @@ class SearchController < ApplicationController
   end
 
   def ebooks
+    session['search'] = params
+    session['search']['s.q'] = params['q'] if params['q']
     params['categories'] = ['catalog_ebooks', 'ebooks']
 
     @results = {}
