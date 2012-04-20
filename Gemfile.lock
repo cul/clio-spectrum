@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/projectblacklight/blacklight.git
+  revision: b4ed6fe2fa84d4ae237cfd49a0a9193be4e1c6bb
+  branch: compiled_assets_fix
+  specs:
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -165,7 +171,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     marc (0.4.4)
-    mime-types (1.17.2)
+    mime-types (1.18)
     multi_json (1.1.0)
     mysql2 (0.3.11)
     net-scp (1.0.4)
@@ -228,7 +234,7 @@ GEM
       hoe (>= 1.3.0)
     rubyzip (0.9.6.1)
     sass (3.1.15)
-    sass-rails (3.2.4)
+    sass-rails (3.2.5)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
@@ -272,7 +278,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  blacklight
+  blacklight!
   blacklight_google_analytics
   blacklight_highlight
   blacklight_range_limit

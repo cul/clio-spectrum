@@ -1,0 +1,14 @@
+
+/* Grid parameters */
+/* changing total cols is not recommended unless you're going to redo blacklight/_layout.css.sass */
+$total-cols: 24;
+
+/* But the widths are changeable to px, em. */
+$col-width: 2.5em; 
+$gutter-width: .8em; 
+$side-gutter-width: 2em; 
+
+@import "blacklight/grids/susy_grid";
+@import 'blacklight/blacklight_base'
+
+

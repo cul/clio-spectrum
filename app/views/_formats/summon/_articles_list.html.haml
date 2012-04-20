@@ -9,6 +9,11 @@
     = add_row('Citation', get_article_citation(document))
     = add_row('Format', get_article_type(document))
 
+    - if @debug_mode
+      =add_row("Fulltext", document.fulltext.to_s)
+      =add_row("URI", link_to(document.uri, document.uri))
+      =add_row("URL", link_to(document.url, document.url)) unless document.url.to_s.empty?
+      =add_row("Link", link_to(document.link, document.link))
       
   / main container for doc partial view 
 
