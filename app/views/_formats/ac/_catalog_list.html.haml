@@ -2,7 +2,7 @@
 .result.document{:class => render_document_class(document) }
     
   - fedora_id = document['id'].listify.first
-  .fedora_title= link_to document.get('title_display'), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
+  .fedora_title.title= link_to document.get('title_display'), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
 
       
   / main container for doc partial view 

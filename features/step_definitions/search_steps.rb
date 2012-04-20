@@ -4,6 +4,8 @@ require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "pat
 
 When /^(?:|I )search (?:|the )"([^"]*)" for "([^"]*)"$/ do |source, query| 
   case source
+  when "academic commons"
+    visit academic_commons_index_path(:q => query)
   when "catalog"
     visit catalog_index_path(:q => query)
   when "databases"

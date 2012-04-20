@@ -11,13 +11,6 @@ Feature: Correct 360link routing
     And the "Format" field should include "Full Text Available"
     And the link should be local
 
-  Scenario: Citation only
-    When I search "articles" for "amazonia petit p"
-    And looking at the "1st" result
-    Then the title should include "Amazonia"
-    And the "Format" field should include "Journal"
-    And the "Format" field should include "Citation"
-    And the link should not be local
 
   Scenario: Alexander Street Press Audio Recording
     When I search "articles" for "Herbert Halpert new york city collection"

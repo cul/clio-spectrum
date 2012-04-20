@@ -24,6 +24,9 @@ NewBooks::Application.routes.draw do
   match 'advanced/:source(.:format)', :to => 'advanced#search', :as => :advanced_search
 
   match 'academic_commons', :to => 'catalog#index', :as => :academic_commons_index
+  match 'academic_commons/range_limit(.:format)', :to => 'catalog#range_limit', :as => :academic_range_limit
+
+
   match 'archives', :to => 'catalog#index', :as =>  :archives_index
   match 'archives/:id(.:format)', :to => 'catalog#show', :as => :archives_show
   match 'archives/facet/:id(.format)', :to => 'catalog#facet', :as => :archives_facet

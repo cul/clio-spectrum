@@ -29,12 +29,12 @@
 
   = render :partial => 'document_list', :locals => {:search => @summon.search}
 
+  .pagination_container
+    = render :partial => '/_search/pagination', :locals => {:results => @summon}
+
   - sidebar_items << capture do 
     = render :partial => "/_search/facets", :locals => {:facets => @summon.search.facets}
 
-  -#.pagination_container
-
-    -#= render 'results_pagination' %>
 
 
 
