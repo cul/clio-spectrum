@@ -13,6 +13,7 @@ gem 'blacklight'
 gem 'blacklight_range_limit'
 gem 'blacklight_highlight'
 gem 'blacklight_google_analytics'
+gem 'blacklight_unapi'
 gem 'json'
 
 # Deploy with Capistrano

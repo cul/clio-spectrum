@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
 
   def default_debug
     @debug_entries['params'] =params
+    @debug_entries['session'] = session
   end
 
   
@@ -96,6 +97,9 @@ class ApplicationController < ActionController::Base
             config.add_facet_field "subject_era_facet", :label => "Subject (Era)", :limit => 3
             config.add_facet_field "subject_form_facet", :label => "Subject (Genre)", :limit => 3
             config.add_facet_field 'title_first_facet', :label => "Starts With"
+            config[:unapi] = {
+              'oai_dc_xml' => { :content_type => 'text/xml' }
+            }
 
           when 'Archives'
             default_catalog_config(config, :display_fields, :search_fields, :sorts)

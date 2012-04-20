@@ -4,6 +4,8 @@ class CatalogController < ApplicationController
   before_filter :by_source_config
 
   include Blacklight::Catalog
+  include BlacklightUnapi::ControllerExtension
+
 
   def index
 
