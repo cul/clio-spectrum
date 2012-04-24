@@ -178,6 +178,7 @@ GEM
     net-ssh (2.3.0)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
+    newrelic_rpm (3.3.4.1)
     nokogiri (1.5.2)
     orm_adapter (0.0.7)
     polyglot (0.3.3)
@@ -308,6 +309,7 @@ DEPENDENCIES
   json
   launchy
   mysql2
+  newrelic_rpm
   nokogiri
   rails (= 3.2.2)
   rb-fsevent
