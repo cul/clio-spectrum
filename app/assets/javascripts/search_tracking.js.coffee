@@ -20,7 +20,7 @@ $ ->
       identifier = 'document_click'
       action = 'title'
       label = $(this).attr('data-counter')
-      _gaq.push(['_trackEvent', identifier, action, label])
+      _gaq.push(['_trackEvent', identifier, action, 'item', label])
 
     catch err
       BlacklightGoogleAnalytics.console_log_error(err, [identifier, action, label])
