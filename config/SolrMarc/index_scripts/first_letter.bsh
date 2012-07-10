@@ -19,8 +19,15 @@ public Set getFirstLetter(Record record)
     Set title_245a = indexer.getFieldList(record, "245a");
     for (String title : title_245a)
     {
-        result.add(title.substring(0,1));
+        if (title.length() > 0) { 
+          if (Character.isDigit(title.charAt(0))) {
+            result.add("0-9");
+          } else {
+            result.add(title.substring(0,1));
+          }
+        }
         return result;
+      
     }
 
     return result;

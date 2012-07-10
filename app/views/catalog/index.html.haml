@@ -20,8 +20,13 @@
     = link_to "start over", catalog_index_path, :id=>"startOverLink" 
   
   = render 'sort_and_per_page' 
+
+
   .pagination_container
     = render 'results_pagination' 
+
+  - if @active_source == "Databases"
+    .on_search= render :partial => "/_display/databases/a_to_z"
 
   = render :partial => 'document_list' 
 

@@ -1,0 +1,9 @@
+- letters = ["0-9"] | ("A".."Z").to_a
+
+
+
+.a_to_z.databases.on_search
+  .label List by title:
+  .links
+    - letters.each do |letter|
+      = link_to letter, databases_index_path('f[title_first_facet][]' => letter, 'sort' => 'title_sort asc')
