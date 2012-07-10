@@ -38,6 +38,10 @@ class ApplicationController < ActionController::Base
       'Catalog'
     when /^\/articles/
       'Articles'
+    when /^\/ejournals/
+      'eJournals'
+    when /^\/dissertations/
+      'Dissertations'
     when /^\/ebooks/
       'eBooks'
     when /^\/academic_commons/
@@ -67,7 +71,7 @@ class ApplicationController < ActionController::Base
       Blacklight.solr = RSolr::Ext.connect(Blacklight.solr_config)
     end
     if self.respond_to?(:blacklight_config)
-      if source.in?('Quicksearch','eBooks')
+      if source.in?('Quicksearch','eBooks','Dissertations')
         self.blacklight_config = Blacklight::Configuration.new do |config|
 
           config.add_search_field 'all_fields', :label => 'All Fields'
@@ -80,6 +84,25 @@ class ApplicationController < ActionController::Base
           config.add_search_field 'all_fields', :label => 'All Fields'
 
           case source
+          when 'eJournals'
+            default_catalog_config(config, :display_fields, :sorts)
+
+            config.default_solr_params = {
+              :qt => "search",
+              :per_page => 15,
+              :fq  => ['{!raw f=source_facet}database']
+            }
+
+            config.add_facet_field "language_facet", :label => "Language", :limit => 3
+            config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 3
+            config.add_facet_field "subject_geo_facet", :label => "Subject (Region)", :limit => 3
+            config.add_facet_field "subject_era_facet", :label => "Subject (Era)", :limit => 3
+            config.add_facet_field "subject_form_facet", :label => "Subject (Genre)", :limit => 3
+            config.add_facet_field 'title_first_facet', :label => "Starts With"
+            config[:unapi] = {
+              'oai_dc_xml' => { :content_type => 'text/xml' }
+            }
+
           when 'Databases'
             default_catalog_config(config, :display_fields, :sorts)
 

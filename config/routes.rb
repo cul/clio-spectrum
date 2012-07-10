@@ -17,6 +17,10 @@ NewBooks::Application.routes.draw do
   match 'databases/:id(.:format)', :to => 'catalog#show', :as => :databases_show
   match 'databases/facet/:id(.format)', :to => 'catalog#facet', :as => :databases_facet
 
+  match 'ejournals', :to => 'catalog#index', :as => :ejournals_index
+  match 'ejournals/:id(.:format)', :to => 'catalog#show', :as => :ejournals_show
+  match 'ejournals/facet/:id(.format)', :to => 'catalog#facet', :as => :ejournals_facet
+
   match 'library_web', :to => 'library_web#index', :as => :library_web_index
 
   match 'catalog', :to => 'catalog#index', :as => :base_catalog_index
@@ -47,6 +51,8 @@ NewBooks::Application.routes.draw do
   match 'articles/search', :to => "articles#search", :as => :articles_search
 
   match 'ebooks', :to => 'search#ebooks', :as => :search_ebooks
+
+  match 'dissertations', :to => 'search#dissertations', :as => :search_dissertations
 
   match 'locations/show/:id', :id => /[^\/]+/, :to => "locations#show", :as => :location_display
 

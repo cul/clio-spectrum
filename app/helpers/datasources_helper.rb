@@ -1,7 +1,7 @@
 #encoding: UTF-8
 module DatasourcesHelper
   SOURCES_ALWAYS_INCLUDED = ['Quicksearch', 'Catalog', 'Articles', 'Academic Commons', 'Library Web']
-  SOURCES_MINOR = ['Archives', 'Databases', 'eBooks', 'New Arrivals']
+  SOURCES_MINOR = ['Archives', 'Databases', 'Dissertations', 'eBooks', 'eJournals', 'New Arrivals']
   
   def active_query?
     !(params['q'].to_s.empty? && params.keys.all? { |k| !k.include?('s.') } && params['f'].to_s.empty? && params['commit'].to_s.empty?)
