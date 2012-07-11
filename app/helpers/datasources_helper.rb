@@ -1,7 +1,7 @@
 #encoding: UTF-8
 module DatasourcesHelper
   SOURCES_ALWAYS_INCLUDED = ['Quicksearch', 'Catalog', 'Articles', 'Academic Commons', 'Library Web']
-  SOURCES_MINOR = ['Archives', 'Databases', 'eBooks', 'New Arrivals']
+  SOURCES_MINOR = ['Archives', 'Databases', 'Dissertations', 'eBooks', 'eJournals', 'New Arrivals']
   
   def active_query?
     !(params['q'].to_s.empty? && params.keys.all? { |k| !k.include?('s.') } && params['f'].to_s.empty? && params['commit'].to_s.empty?)
@@ -68,6 +68,14 @@ module DatasourcesHelper
     source.to_s.gsub(/ /, '_').underscore
   end
 
+  def datasource_to_facet(source)
+    if source == "eJournals"
+      'ejournals'
+    else 
+      datasource_to_class(source)
+    end
+  end
+
   def datasource_item(source, options)
     classes = []
     classes << 'minor_source' if options[:minor]
@@ -88,8 +96,12 @@ module DatasourcesHelper
         databases_index_path(:q => query)
       when 'Articles'
         {:controller => 'articles', :action => 'search', 'new_search' => true, 's.q' => query}
+      when 'eJournals'
+        ejournals_index_path(:q => query)
       when 'eBooks'
         {:controller => 'search', :action => 'ebooks', :q => query}
+      when 'Dissertations'
+        {:controller => 'search', :action => 'dissertations', :q => query}
       when 'New Arrivals'
         new_arrivals_index_path(:q => query)
       when 'Academic Commons'
