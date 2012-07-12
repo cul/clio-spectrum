@@ -2,7 +2,7 @@ class SearchController < ApplicationController
   include Blacklight::Catalog
   layout 'quicksearch'
 
-  CATEGORY_ORDER = %w{catalog articles academic_commons ebooks lweb catalog_ebooks}
+  CATEGORY_ORDER = %w{catalog articles academic_commons ebooks lweb catalog_ebooks catalog_dissertations articles_dissertations ac_dissertations}
 
   def index
     @results = []
@@ -35,6 +35,20 @@ class SearchController < ApplicationController
 
   end
 
+  def dissertations 
+    session['search'] = params
+    session['search']['s.q'] = params['q'] if params['q']
+    params['categories'] = ['catalog_dissertations', 'articles_dissertations', 'ac_dissertations']
+
+    @results = {}
+    if params['q'].to_s.strip.empty? 
+      flash[:error] = "You cannot search with an empty string." if params['commit']
+    else
+      @results = get_results(params['categories'])
+
+    end
+  end
+
   def ebooks
     session['search'] = params
     session['search']['s.q'] = params['q'] if params['q']
@@ -56,6 +70,14 @@ class SearchController < ApplicationController
     categories.listify.each do |category|
       begin
         results = case category
+                  when 'articles_dissertations'
+                    summon = SerialSolutions::SummonAPI.new('category' => 'articles', 'new_search' => true, 's.fvf' => 'ContentType,Dissertation/Thesis', 's.q' => params[:q], 's.ps' => 5)
+
+                    {
+                      :docs => summon.search,
+                      :count => summon.search.record_count.to_i, 
+                      :url => articles_search_path(summon.search.query.to_hash)
+                    }
                   when 'articles'
                     summon = SerialSolutions::SummonAPI.new('category' => 'articles', 'new_search' => true, 's.q' => params[:q], 's.ps' => 10)
 
@@ -82,6 +104,18 @@ class SearchController < ApplicationController
                       :count => solr_response['response']['numFound'].to_i,
                       :url => url_for(:controller => 'catalog', :action => 'index', :q => params['q'], :f => {'format' => ['Book', 'Online']})
                     }
+                  when 'catalog_dissertations'
+
+                    configure_search('Catalog')
+                    params[:per_page] = 15
+                    params[:f] = {'format' => ['Thesis']}
+                    raise params.inspect
+                    solr_response, solr_results =  get_search_results
+                    {
+                      :docs => solr_results,
+                      :count => solr_response['response']['numFound'].to_i,
+                      :url => url_for(:controller => 'catalog', :action => 'index', :q => params['q'], :f => {'format' => ['Thesis']})
+                    }
                   when 'catalog'
                     configure_search('Catalog')
                     params[:per_page] = 15
@@ -101,6 +135,20 @@ class SearchController < ApplicationController
                       :count => solr_response['response']['numFound'].to_i,
                       :url => academic_commons_index_path(:q => params['q'])
                     }
+                  when 'ac_dissertations'
+                    ac_params = []
+                    configure_search('Academic Commons')
+                    ac_params[:per_page] = 3
+                    ac_params[:genre_facet] = ['Dissertations']
+                    ac_params[:q] = params['q']
+                    solr_acd_response, solr_acd_results =  get_search_results(ac_params)
+                    {
+                      :docs => solr_acd_results,
+                      :count => solr_acd_response['response']['numFound'].to_i,
+                      :url => academic_commons_index_path(:q => params['q'], :f => {'genre_facet' => ['Dissertations']})
+                      
+                    }
+                    raise solr_acd_response.inspect 
                   when 'lweb'
                     @search = LibraryWeb::Api.new('q' => params['q'])
                     {

@@ -1,0 +1,10 @@
+
+- unless @results.empty?
+  #quicksearch.two_equal
+    .result_set
+      = render :partial => "result_set_catalog_dissertations", :locals => {:result => @results['catalog_dissertations']}
+    .result_set.last
+      = render :partial => "result_set_articles_dissertations", :locals => {:result => @results['articles_dissertations']}
+      = render :partial => "result_set_ac_dissertations", :locals => {:result => @results['ac_dissertations']}
+- else
+  = datasource_landing_page('Dissertations')
