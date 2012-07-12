@@ -27,6 +27,7 @@ config.action_mailer.smtp_settings = {
   config.assets.compress = true
   config.assets.compile = false
   config.assets.digest = true
+  config.assets.debug = false
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
