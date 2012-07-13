@@ -9,8 +9,8 @@ gem 'sqlite3'
 
 
 # gem 'blacklight'
-#gem 'blacklight', '>= 3.3.0'
-gem 'blacklight'
+gem 'blacklight', :path => "~/code/blacklight"
+#gem 'blacklight'
 gem 'blacklight_range_limit'
 gem 'blacklight_highlight'
 gem 'blacklight_google_analytics'
@@ -75,13 +75,15 @@ gem "devise", '1.5.3'
 gem 'therubyracer'
 group :development do
 
+  gem 'linecache19', '0.5.13'
+  gem 'ruby-debug-base19', '0.11.26'
+  gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'capistrano'
   gem 'capistrano-ext'
 end
 
 group :test, :development do 
   gem 'rspec-rails'
-
   gem "growl"
   gem 'rb-fsevent'
   gem 'ruby_gntp'

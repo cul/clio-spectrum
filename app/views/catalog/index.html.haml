@@ -1,15 +1,14 @@
 
 
-
 -  unless has_search_parameters? 
   = add_all_datasource_landing_pages
 
 - else
 
   - @page_title = application_name + " Search Results" 
+  - session['search'][:active_source] = @active_source
 
   - extra_head_content << render_opensearch_response_metadata.html_safe 
-
 
   = fix_catalog_links(render('constraints', :localized_params=>params ))
   

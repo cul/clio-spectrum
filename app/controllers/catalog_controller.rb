@@ -22,12 +22,27 @@ class CatalogController < ApplicationController
       format.rss  { render :layout => false }
       format.atom { render :layout => false }
     end
+
+    
   end
 
+  # updates the search counter (allows the show view to paginate)
+  def update
+    adjust_for_results_view
+    session[:search][:counter] = params[:counter]
+    case @active_source
+    when 'Databases'
+      redirect_to databases_show_path
+    when 'eJournals'
+      redirect_to ejournals_show_path
+    else
+
+      redirect_to :action => "show"
+    end
+  end
 
   def show
     @response, @document = get_solr_response_for_doc_id    
-
     respond_to do |format|
       format.html {setup_next_and_previous_documents; render :layout => "no_sidebar"}
 

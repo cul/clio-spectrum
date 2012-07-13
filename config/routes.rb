@@ -14,12 +14,14 @@ NewBooks::Application.routes.draw do
   devise_for :users
 
   match 'databases', :to => 'catalog#index', :as => :databases_index
-  match 'databases/:id(.:format)', :to => 'catalog#show', :as => :databases_show
+  match 'databases/:id(.:format)', :via => [:get], :to => 'catalog#show', :as => :databases_show
   match 'databases/facet/:id(.format)', :to => 'catalog#facet', :as => :databases_facet
+  match 'databases/:id(.:format)', :via => [:put], :to => 'catalog#update', :as => :databases_update
 
   match 'ejournals', :to => 'catalog#index', :as => :ejournals_index
-  match 'ejournals/:id(.:format)', :to => 'catalog#show', :as => :ejournals_show
+  match 'ejournals/:id(.:format)', :via => [:get], :to => 'catalog#show', :as => :ejournals_show
   match 'ejournals/facet/:id(.format)', :to => 'catalog#facet', :as => :ejournals_facet
+  match 'ejournals/:id(.:format)', :via => [:put], :to => 'catalog#update', :as => :ejournals_update
 
   match 'library_web', :to => 'library_web#index', :as => :library_web_index
 

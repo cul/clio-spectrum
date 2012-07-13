@@ -28,30 +28,34 @@ class ApplicationController < ActionController::Base
 
   
   def determine_active_source
-    path_minus_advanced = request.path.to_s.gsub(/^\/advanced/, '')
-    @active_source = case path_minus_advanced 
-    when /^\/databases/
-      'Databases'
-    when /^\/new_arrivals/
-      'New Arrivals'
-    when /^\/catalog/
-      'Catalog'
-    when /^\/articles/
-      'Articles'
-    when /^\/ejournals/
-      'eJournals'
-    when /^\/dissertations/
-      'Dissertations'
-    when /^\/ebooks/
-      'eBooks'
-    when /^\/academic_commons/
-      'Academic Commons'
-    when /^\/library_web/
-      'Library Web'
-    when /^\/archives/
-      'Archives'
+    if params['active_source']
+      @active_source = params['active_source']
     else
-      params['active_source'] || 'Quicksearch'
+      path_minus_advanced = request.path.to_s.gsub(/^\/advanced/, '')
+      @active_source = case path_minus_advanced 
+      when /^\/databases/
+        'Databases'
+      when /^\/new_arrivals/
+        'New Arrivals'
+      when /^\/catalog/
+        'Catalog'
+      when /^\/articles/
+        'Articles'
+      when /^\/ejournals/
+        'eJournals'
+      when /^\/dissertations/
+        'Dissertations'
+      when /^\/ebooks/
+        'eBooks'
+      when /^\/academic_commons/
+        'Academic Commons'
+      when /^\/library_web/
+        'Library Web'
+      when /^\/archives/
+        'Archives'
+      else
+        params['active_source'] || 'Quicksearch'
+      end
     end
   end
 
@@ -90,7 +94,7 @@ class ApplicationController < ActionController::Base
             config.default_solr_params = {
               :qt => "search",
               :per_page => 15,
-              :fq  => ['{!raw f=source_facet}database']
+              :fq  => ['{!raw f=source_facet}ejournal']
             }
 
             config.add_facet_field "language_facet", :label => "Language", :limit => 3
@@ -196,7 +200,6 @@ class ApplicationController < ActionController::Base
 
   def by_source_config
     @active_source = determine_active_source
-
     configure_search(@active_source)
   end
 
@@ -228,7 +231,6 @@ class ApplicationController < ActionController::Base
       config.add_facet_field "author_facet", :label => "Author", :limit => 3
       config.add_facet_field "acq_date_facet", :label => "Acquisition Date", :limit => 3
       config.add_facet_field "location_facet", :label => "Location", :limit => 3
-      config.add_facet_field "author_facet", :label => "Author", :limit => 3
       config.add_facet_field "language_facet", :label => "Language", :limit => 3
       config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 3
       config.add_facet_field "subject_geo_facet", :label => "Subject (Region)", :limit => 3

@@ -5,11 +5,11 @@
   #navigation
     - if @previous_document || @next_document 
       #search_info
-        %span.back_to_results= link_back_to_catalog.gsub("Back to Search", "&#0171; Back to Results").html_safe
+        %span.back_to_results= fix_catalog_links(link_back_to_catalog.gsub("Back to Search", "&#0171; Back to Results")).html_safe
         = item_page_entry_info.gsub("Showing item ", "#").gsub(" from your search.","").html_safe
-        = link_to_previous_document(@previous_document)
+        = fix_catalog_links(link_to_previous_document(@previous_document))
 
-        = link_to_next_document(@next_document)	
+        = fix_catalog_links(link_to_next_document(@next_document)	)
      
   %ul#show-toolbar.dropmenu
     -#%li.right

@@ -5,7 +5,7 @@ module CulCatalogHelper
   def link_to_source_document(doc, opts={:label=>nil, :counter => nil, :results_view => true})
     label ||= blacklight_config.index.show_link.to_sym
     label = render_document_index_label doc, opts
-    source = datasource_to_class(@active_source)
+    source = datasource_to_facet(@active_source)
 
     url = "/#{source}/#{doc['id'].listify.first.to_s}"
     link_to label, url, :'data-counter' => opts[:counter]
