@@ -71,7 +71,7 @@ class SearchController < ApplicationController
       begin
         results = case category
                   when 'articles_dissertations'
-                    summon = SerialSolutions::SummonAPI.new('category' => 'articles', 'new_search' => true, 's.fvf' => 'ContentType,Dissertation/Thesis', 's.q' => params[:q], 's.ps' => 5)
+                    summon = SerialSolutions::SummonAPI.new('category' => 'articles', 'new_search' => true, 's.fvf' => 'ContentType,Dissertation/Thesis', 's.q' => params[:q], 's.ps' => 3)
 
                     {
                       :docs => summon.search,
@@ -97,7 +97,7 @@ class SearchController < ApplicationController
                     configure_search('Catalog')
                     params[:per_page] = 15
                     params[:f] = {'format' => ['Book', 'Online']}
-
+                  
                     solr_response, solr_results =  get_search_results
                     {
                       :docs => solr_results,
@@ -109,7 +109,6 @@ class SearchController < ApplicationController
                     configure_search('Catalog')
                     params[:per_page] = 15
                     params[:f] = {'format' => ['Thesis']}
-                    raise params.inspect
                     solr_response, solr_results =  get_search_results
                     {
                       :docs => solr_results,
@@ -136,19 +135,17 @@ class SearchController < ApplicationController
                       :url => academic_commons_index_path(:q => params['q'])
                     }
                   when 'ac_dissertations'
-                    ac_params = []
                     configure_search('Academic Commons')
-                    ac_params[:per_page] = 3
-                    ac_params[:genre_facet] = ['Dissertations']
-                    ac_params[:q] = params['q']
-                    solr_acd_response, solr_acd_results =  get_search_results(ac_params)
+                    params[:per_page] = 3
+                    params[:genre_facet] = ['Dissertations']
+                    params[:f] = {'genre_facet' => ['Dissertations']}
+                    solr_acd_response, solr_acd_results =  get_search_results(params)
                     {
                       :docs => solr_acd_results,
                       :count => solr_acd_response['response']['numFound'].to_i,
                       :url => academic_commons_index_path(:q => params['q'], :f => {'genre_facet' => ['Dissertations']})
                       
                     }
-                    raise solr_acd_response.inspect 
                   when 'lweb'
                     @search = LibraryWeb::Api.new('q' => params['q'])
                     {
