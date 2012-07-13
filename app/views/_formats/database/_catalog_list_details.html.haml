@@ -2,6 +2,7 @@
 = add_row('Subtitle', document.get("subtitle_display"),:abbreviate => 100)
 = add_row('Author', document.get("author_display"))
 = add_row('Published', document.get("full_publisher_display"))
+= add_row('Summary', document.get("database_summary_display"), :expand_to => document.get('summary_display'))
 - unless (urls =  online_link_hash(document)).empty?
   - non_circ = image_tag("icons/noncirc.png", :class => :availability)
   - urls = urls.collect { |link| non_circ + link_to(link.first.abbreviate(60), link.last) }
@@ -19,4 +20,3 @@
         %div
           = image_tag("icons/unknown.png", :class => "availability " + holdings_id) + shorten_location(location).strip
 
-= add_row('Format', formats_with_icons(document))

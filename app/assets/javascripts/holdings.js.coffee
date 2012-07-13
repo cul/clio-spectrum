@@ -31,7 +31,7 @@ $(document).ready ->
 
   $(".expander").click ->
     $(this).hide()
-    $(this).parent().find(".expander_more").slideDown()
+    $(this).parent().find(".expander_more").show()
     return false
 
 

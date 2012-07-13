@@ -297,6 +297,7 @@ module DisplayHelper
       pre_values = values.collect { |v| content_tag(:div, v, :class => 'entry') }
 
 
+
       if options[:expand] && values.length > 3
         pre_values = [
           pre_values[0],
@@ -306,9 +307,17 @@ module DisplayHelper
         ]
 
       end
-      
-      pre_values.join('')
+
+      pre_text = pre_values.join('')
+      if options[:expand_to]
+        pre_text += content_tag(:div, link_to(" more &#x25BC;".html_safe, "#"), :class => 'entry expander')
+        pre_text += content_tag(:div, options[:expand_to].html_safe, :class => 'expander_more')
+      end
+
+      pre_text
+    
     end
+
 
     value_txt = value_txt.html_safe if options[:html_safe]
 
