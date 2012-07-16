@@ -6,6 +6,8 @@ NewBooks::Application.routes.draw do
   Blacklight.add_routes(self)
   
   root :to => "search#index"
+
+  DeviseWind.add_routes(self)
  
   match 'admin/ingest_log', :to => "admin#ingest_log", :as => :admin_ingest_log
 

@@ -34,7 +34,9 @@ gem 'rubytree', '=0.5.2'
 
 gem 'exception_notification'
 
-
+gem 'devise'
+gem 'devise-encryptable'
+gem 'devise_wind'
 #
 # gem 'blacklight_advanced_search',:git => 'https://github.com/projectblacklight/blacklight_advanced_search.git'
 
@@ -71,7 +73,6 @@ end
 # group :development, :test do
 #   gem 'webrat'
 # end
-gem "devise", '1.5.3'
 gem 'therubyracer'
 group :development do
 
