@@ -18,7 +18,7 @@ gem 'blacklight_unapi'
 gem 'json'
 
 # Deploy with Capistrano
-
+gem 'newrelic_rpm'
 gem 'has_options'
 gem 'httpclient'
 gem 'nokogiri'

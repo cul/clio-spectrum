@@ -1,4 +1,5 @@
 .document_gallery{:class => ("last" if counter % 3 == 0)}
+  %abbr.unapi-id{:title => document[:id]}
   .book_cover.grid_cover
     .cover.fake_cover
       .fake_label= link_to_source_document document, :label=> document["title_display"].listify.join("").to_s.abbreviate(40), :counter => counter

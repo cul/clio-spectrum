@@ -1,4 +1,5 @@
 .result{:class => alternating_line("catalog")}
+  %abbr.unapi-id{:title => document[:id]}
   .row
     .result_title= link_to document["title_display"].listify.first.to_s, {:controller => 'catalog', :action => 'show', :id => document.id, :counter => (document_counter + 1)}
   = render :partial => "/_formats/clio/catalog_list_details", :locals => {:document => document}
