@@ -187,6 +187,7 @@ GEM
     mime-types (1.19)
     multi_json (1.3.6)
     mysql2 (0.3.11)
+    net-ldap (0.3.1)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -340,6 +341,7 @@ DEPENDENCIES
   launchy
   linecache19 (= 0.5.13)
   mysql2
+  net-ldap
   newrelic_rpm
   nokogiri
   rails (= 3.2.3)

@@ -60,10 +60,6 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def current_user
-
-
-  end
 
 
   private

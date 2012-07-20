@@ -33,6 +33,7 @@ gem 'voyager_api', '>=0.2.3'
 gem 'rubytree', '=0.5.2'
 
 gem 'exception_notification'
+gem 'net-ldap'
 
 gem 'devise'
 gem 'devise-encryptable'

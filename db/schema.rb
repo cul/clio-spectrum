@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120716182701) do
+ActiveRecord::Schema.define(:version => 20120718165239) do
+
+  create_table "admin_database_alerts", :force => true do |t|
+    t.integer  "clio_id"
+    t.integer  "author_id"
+    t.boolean  "active"
+    t.text     "message"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id",     :null => false
@@ -20,6 +29,15 @@ ActiveRecord::Schema.define(:version => 20120716182701) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "user_type"
+  end
+
+  create_table "database_alerts", :force => true do |t|
+    t.integer  "clio_id"
+    t.integer  "author_id"
+    t.boolean  "active"
+    t.text     "message"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "libraries", :force => true do |t|
@@ -105,6 +123,7 @@ ActiveRecord::Schema.define(:version => 20120716182701) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "password_salt"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,6 +1,10 @@
 #cu_top
   #cu_inner_right
-    = link_to 'Course Reserves', 'http://www.columbia.edu/cgi-bin/cul/resolve?lweb0182'
+    - if current_user
+      #{current_user.name} (#{current_user.login})
+      = link_to "Logout", destroy_user_session_path, :method => :delete 
+    - else 
+      = link_to "Login", new_user_session_path
   #cu_inner
     = link_to "CU Home", "http://columbia.edu" 
     >

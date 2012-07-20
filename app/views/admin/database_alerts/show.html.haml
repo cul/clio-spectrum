@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Clio:
+  = @admin_database_alert.clio_id
+%p
+  %b Author:
+  = @admin_database_alert.author_id
+%p
+  %b Active:
+  = @admin_database_alert.active
+%p
+  %b Message:
+  = @admin_database_alert.message
+
+= link_to 'Edit', edit_admin_database_alert_path(@admin_database_alert)
+\|
+= link_to 'Back', admin_database_alerts_path

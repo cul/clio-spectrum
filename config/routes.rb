@@ -1,4 +1,5 @@
 NewBooks::Application.routes.draw do
+
   get "admin/ingest_log"
 
   get "library_web/index"
@@ -62,6 +63,9 @@ NewBooks::Application.routes.draw do
 
   match 'welcome/versions', :to => "welcome#versions"
 
+  scope "/admin" do
+    resources :database_alerts
+  end
   namespace :admin do
     resources :locations
   end
