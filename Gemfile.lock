@@ -53,8 +53,8 @@ GEM
       blacklight (~> 3.2)
       jquery-rails
       rails (~> 3.0)
-    blacklight_unapi (0.0.2)
-      blacklight
+    blacklight_unapi (0.0.3)
+      blacklight (> 3.2)
       rails (~> 3.0)
     builder (3.0.0)
     capistrano (2.12.0)
@@ -310,7 +310,7 @@ DEPENDENCIES
   blacklight_google_analytics
   blacklight_highlight
   blacklight_range_limit
-  blacklight_unapi
+  blacklight_unapi (>= 0.0.3)
   capistrano
   capistrano-ext
   capybara

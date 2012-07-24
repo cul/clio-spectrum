@@ -1,3 +1,4 @@
+EXTRACTS =  ["new_arrivals", "ejournals", "spectrum", "spectrum_update", "spectrum_special", "databases"]
 namespace :solr do
   desc "clear out solr for a date span"
   task :clear => :environment do
@@ -17,7 +18,7 @@ namespace :solr do
 
     desc "download the latest extract from taft.cul"
     task :download  do
-      extract = ["new_arrivals", "spectrum", "spectrum_update", "spectrum_special", "databases"].find { |x| x == ENV["EXTRACT"] }
+      extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
       puts_and_log("Extract not specified", :error, :alarm => true) unless extract
 
       temp_dir_name = File.join(Rails.root, "tmp/extracts/#{extract}/current/")
@@ -46,7 +47,7 @@ namespace :solr do
 
     desc "process deletes file"
     task :deletes => :environment do
-      extract = ["new_arrivals", "spectrum","spectrum_update", "spectrum_special", "databases"].find { |x| x == ENV["EXTRACT"] }
+      extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
       extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*delete*")) if extract
       files_to_read = (ENV["DELETES_FILE"] || extract_files).listify
 
@@ -79,7 +80,7 @@ namespace :solr do
 
     desc "ingest latest marc records"
     task :ingest => :environment do
-      extract = ["new_arrivals", "spectrum", "spectrum_update", "spectrum_special", "databases"].find { |x| x == ENV["EXTRACT"] }
+      extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
       extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.mrc")) if extract
       files_to_read = (ENV["INGEST_FILE"] || extract_files).listify
 

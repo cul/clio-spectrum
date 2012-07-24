@@ -9,7 +9,8 @@ module SerialSolutions
 
     DEFAULT_OPTIONS = {
       'articles' =>  {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)', 's.ff' => ['ContentType,or','SubjectTerms,or','Language,or']},
-      'ebooks' => {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)', 's.fvf' => ['ContentType,eBook'], 's.ff' => ['ContentType,or,1,15','SubjectTerms,or,1,15','Language,or,1,15']}
+      'ebooks' => {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)', 's.fvf' => ['ContentType,eBook'], 's.ff' => ['ContentType,or,1,15','SubjectTerms,or,1,15','Language,or,1,15']},
+      'dissertations' => {'spellcheck' => true, 's.ho' => true, 's.fvf' => ['ContentType,Dissertation'], 's.ff' => ['ContentType,or,1,15','SubjectTerms,or,1,15','Language,or,1,15']}
         }
         
     def initialize(in_options = {}) 

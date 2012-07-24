@@ -71,7 +71,7 @@ class SearchController < ApplicationController
       begin
         results = case category
                   when 'articles_dissertations'
-                    summon = SerialSolutions::SummonAPI.new('category' => 'articles', 'new_search' => true, 's.fvf' => 'ContentType,Dissertation/Thesis', 's.q' => params[:q], 's.ps' => 3)
+                    summon = SerialSolutions::SummonAPI.new('category' => 'dissertations', 'new_search' => true,  's.q' => params[:q])
 
                     {
                       :docs => summon.search,

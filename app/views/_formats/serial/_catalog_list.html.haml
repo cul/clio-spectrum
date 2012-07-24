@@ -1,0 +1,14 @@
+/ container for a single doc 
+.document.result{:class => render_document_class(document) }
+    
+  %abbr.unapi-id{:title => document[:id]}
+    .title= link_to_source_document document, :label=>document_show_link_field, :counter => counter, :label => document.get("title_display")
+
+      
+  / main container for doc partial view 
+
+  .details
+    = render :partial => "/_formats/serial/catalog_list_details", :locals => {:document => document}
+  
+  .doc_bookjacket
+    =image_tag("spacer.png", :class => "list_view bookjacket " + document["isbn_t"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))
