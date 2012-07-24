@@ -3,8 +3,9 @@
   #quicksearch.two_equal
     .result_set
       = render :partial => "result_set_catalog_dissertations", :locals => {:result => @results['catalog_dissertations'], :count => 10}
-    .result_set.last
+    .result_set.last.condensed
       = render :partial => "result_set_articles_dissertations", :locals => {:result => @results['articles_dissertations'], :count => 3}
+    .result_set.last.condensed
       = render :partial => "result_set_ac_dissertations", :locals => {:result => @results['ac_dissertations'], :count => 3}
 - else
   = datasource_landing_page('Dissertations')

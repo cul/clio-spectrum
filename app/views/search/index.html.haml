@@ -8,11 +8,11 @@
         = render :partial => "result_set_catalog", :locals => {:result => @results['catalog'] , :count => 10}
 
     .side_results
-      .result_set
+      .result_set.condensed
         = render :partial => "result_set_articles", :locals => {:result => @results['articles'] , :count => 3}
 
-      .result_set
+      .result_set.condensed
         = render :partial => "result_set_academic_commons", :locals => {:result => @results['academic_commons'] , :count => 3}
 
-      .result_set
+      .result_set.condensed
         = render :partial => "result_set_lweb", :locals => {:result => @results['lweb'] , :count => 3}

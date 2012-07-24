@@ -36,6 +36,7 @@
   .result_set
     +columns(9,18)
 
+
     .result 
       :background-color #fff
       +columns(9,9)
@@ -79,6 +80,7 @@
 
   .main_results
     +columns(10,18)
+
 
     .result 
       :background-color #fff
@@ -134,6 +136,11 @@
     +columns(6,24)
     +omega(24)
 
+
+
+.result_header
+  :clear both
+
 .row
   .label 
     :text-align right
@@ -142,8 +149,37 @@
   .value_box
     :padding-right .25em
 
+.result_set
+  :margin-bottom 1em
 
 
+.result_set.condensed
+
+  .result
+    :padding-bottom .25em
+
+  .row
+    :padding-bottom 0em
+
+  .result_title
+    :padding-top .5em
+    :padding-bottom .25em
+
+.results_header
+  background: #e3e8f1
+  padding: 10px 4px 6px 4px
+  line-height: 1
+  border: 1px solid #ccc
+
+
+.result_title
+  padding-left: 3px!important
+
+.results_header .category_title
+  font-family: "Trajan Pro Bold", "TrajanProBold", "TrajanPro-Bold", serif
+  font-weight: bold
+  display: block
+  margin-bottom: 6px
 
 .result_set
   +alternating-line-colors(#fff, #f9f9f9)
@@ -194,4 +230,4 @@
     :clear both
     :float left
     :margin-top 1.5em
-    :font-size 1.2em
+    efont-size 1.2em

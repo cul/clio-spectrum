@@ -1,19 +1,20 @@
 - result[:docs] = result[:docs][0,count] if defined?(count)
-.results_header
-  .category_title Catalog Dissertations
-  .description
-    Dissertations, Thesises from Columbia's Catalog
+.results
+  .results_header
+    .category_title Catalog Dissertations
+    .description
+      Dissertations, Thesises from Columbia's Catalog
+    - unless result[:error]
+      .search
+        - if result[:count] == 0
+          No results found.
+        - else
+          #{number_with_delimiter(result[:count])} results 
+          = link_to "(explore results)", result[:url]
+    - else
+      Error when searching. #{result[:message]}
   - unless result[:error]
-    .search
-      - if result[:count] == 0
-        No results found.
-      - else
-        #{number_with_delimiter(result[:count])} results 
-        = link_to "(explore results)", result[:url]
-  - else
-    Error when searching. #{result[:message]}
-- unless result[:error]
-  - result[:docs].each_with_index do |document, document_counter|
-    = render_document_view(document, :template => "aggregate", :format => "clio",:document_counter => document_counter)
+    - result[:docs].each_with_index do |document, document_counter|
+      = render_document_view(document, :template => "aggregate", :format => "clio",:document_counter => document_counter)
 
-  = render :partial => "/catalog/holdings_check", :locals => {:documents => result[:docs]}
+    = render :partial => "/catalog/holdings_check", :locals => {:documents => result[:docs]}
