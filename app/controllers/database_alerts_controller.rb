@@ -1,5 +1,7 @@
 class DatabaseAlertsController < ApplicationController
 
+  check_authorization
+
   before_filter :authenticate_user!
   layout 'no_sidebar_no_search'
 
@@ -8,7 +10,7 @@ class DatabaseAlertsController < ApplicationController
   # GET /database_alerts
   # GET /database_alerts.json
   def index
-
+    authorize! :manage, DatabaseAlert
 
     respond_to do |format|
       format.html # index.html.erb

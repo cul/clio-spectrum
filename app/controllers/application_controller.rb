@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
   before_filter :trigger_debug_mode
   before_filter :by_source_config
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
+
+
   def trigger_debug_mode
     if params['debug_mode'] == 'on'
       @debug_mode = true

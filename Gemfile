@@ -28,6 +28,7 @@ gem 'sass'
 gem 'sass-rails', '~>3.2.4'
 gem 'unicode'
 gem 'summon'
+gem 'cancan'
 
 gem 'voyager_api', '>=0.2.3'
 gem 'rubytree', '=0.5.2'
