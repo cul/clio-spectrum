@@ -1,10 +1,13 @@
 %h1 Maintain database_alerts
 
-#database_alerts_search
-  = form_tag database_alerts_path, :method => :get do
-    = text_field_tag :search, params[:search], :placeholder => "Enter databases titles here"
-    = submit_tag "Search", :name => nil
+#database_alerts_maintain
+  #search_box
+    %form
+      = text_field_tag :search, params[:search], :placeholder => "Enter databases titles here"
+      %button.btn Search
 
 
 
-#results= params[:search]
+  #results
+    #result_title
+  

@@ -1,7 +1,4 @@
 $(document).ready ->
-  $('#database_alerts_search').submit ->
-    $.getJSON('/admin/database_alerts', this.serializeArray())
-    return false
     
   $('#contact').contactable( subject: 'A Feedback Message')
   attach_location_colorboxes()

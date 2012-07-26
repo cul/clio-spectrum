@@ -5,4 +5,7 @@ class DatabaseAlert < ActiveRecord::Base
 
   validates :author_id, :presence => true
   validates :message, :presence => true
+  validates :clio_id, :uniqueness => true, :presence => true
+
+
 end

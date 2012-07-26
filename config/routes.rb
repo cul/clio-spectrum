@@ -64,7 +64,8 @@ NewBooks::Application.routes.draw do
   match 'welcome/versions', :to => "welcome#versions"
 
   scope "/admin" do
-    resources :database_alerts
+    match 'database_alerts/retrieve', :to => 'database_alerts#retrieve', :as => :database_alerts_retrieve
+    resources :database_alerts, :except => ['edit']
   end
   namespace :admin do
     resources :locations

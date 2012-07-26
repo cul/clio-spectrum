@@ -24,6 +24,7 @@
 //= require google_analytics
 //= require search_tracking
 //= require holdings
+//= require database_alerts
 // Required by Blacklight
 
 
