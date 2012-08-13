@@ -13,7 +13,8 @@ $(document).ready ->
       for database in data
         id_prefix = 'alerts[' + database.clio_id + ']'
 
-        result = $('<div/>', class: 'result')
+
+        result = $('<form/>', action: '/admin/database_alerts', method: 'post') 
         result.append(
           $('<input/>', {type: 'hidden', name: 'database_alert[clio_id]', value: database.clio_id}), 
           $('<div/>', {class: 'title', text: database.title}), 
@@ -23,21 +24,21 @@ $(document).ready ->
           )
         )
 
+          
         if database.alerts 
           alert = database.alerts.database_alert
           updated = new Date(alert.updated_at)
           result.append($('<textarea/>', {name: 'database_alert[message]', text: alert.message}))
-
-          result.append($('<span/>', text: 'Updated by ' + alert.author.first_name + " " + alert.author.last_name + " at " + updated.toDateString()))
-          result.append($('<button/>', class: 'btn-small', value: 'Update', text: 'Update'))
-          result.append($('<button/>', class: 'btn-small btn-danger', value: 'Delete', text: 'Delete'))
-          result.append($('<span/>', class: ''))
+          result.append($('<div/>', text: 'Alert created by ' + alert.author.first_name + " " + alert.author.last_name + " at " + updated.toDateString()))
+          result.append($('<button/>', class: 'btn-small', value: 'Update', text: 'Update'),
+            $('<button/>', class: 'btn-small btn-danger', value: 'Delete', text: 'Delete'))
         else
-          result.append($('<textarea/>', {name: 'database_alert[message]'}))
+          result.append($('<textarea/>', {name: 'database_alert[message]', placeholder: 'Enter an alert to display on this record'}))
+          result.append($('<div/>').append(
+            $('<button/>', class: 'btn-small', value: 'Create', text: 'Create')))
 
-          result = $('<form/>', action: '/admin/database_alerts', method: 'post').append(result) 
-          result.append($('<button/>', class: 'btn-small', value: 'Create', text: 'Create'))
 
+        result = $('<div/>', class: 'result').append(result)
 
         results.append(result)
 
