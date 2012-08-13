@@ -1,5 +1,6 @@
 - marc = document.to_marc
 
+= add_row(image_tag('warning-icon.png', :size => "37x27"), document.get("database_restrictions_display"))
 = add_row("Summary", document.get("database_summary_display"))
 = add_row("Details", document.get("summary_display"))
 = add_row("Author", generate_value_links(display_marc_field(marc, 'author'), :author))
