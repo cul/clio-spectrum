@@ -15,6 +15,7 @@ class CatalogController < ApplicationController
     params['extra_solr_source'] = @active_datasource
 
     (@response, @document_list) = get_search_results
+    add_alerts_to_documents(@document_list)
     @filters = params[:f] || []
 
     respond_to do |format|
@@ -43,6 +44,8 @@ class CatalogController < ApplicationController
 
   def show
     @response, @document = get_solr_response_for_doc_id    
+    add_alerts_to_documents(@document)
+
     respond_to do |format|
       format.html {setup_next_and_previous_documents; render :layout => "no_sidebar"}
 
@@ -68,6 +71,13 @@ class CatalogController < ApplicationController
 
   end
 
+  private
 
+  def add_alerts_to_documents(documents)
+    DatabaseAlert.find_all_by_clio_id(Array.wrap(documents).collect(&:id)).each do |alert|
+      document = documents.detect { |doc| doc.id.to_s == alert.clio_id.to_s }
+      document["database_alert"] = alert.message
+    end
+  end
 end
 
