@@ -4,7 +4,7 @@ module GoogleBooks
 
   def self.retrieve_book_info(*documents)
     results = {}
-    isbns = documents.collect { |d| d["isbn_t"] }.compact.flatten.uniq
+    isbns = documents.collect { |d| d["isbn_txt"] }.compact.flatten.uniq
 
     retrieve_url = GOOGLE_BOOKS_URL + isbns.join(",")
 
@@ -16,7 +16,7 @@ module GoogleBooks
         api_results = JSON.parse(var_gbs)
 
         documents.each do |document|
-          document["isbn_t"].listify.each do |isbn|
+          document["isbn_txt"].listify.each do |isbn|
             if api_results[isbn]
               results[document] = api_results[isbn]
               break

@@ -83,8 +83,8 @@ module HoldingsHelper
     
     bibkeys = []
     
-    unless document["isbn_t"].nil?
-      bibkeys << document["isbn_t"]
+    unless document["isbn_txt"].nil?
+      bibkeys << document["isbn_txt"]
     end
     
     unless document["oclc_display"].nil?
