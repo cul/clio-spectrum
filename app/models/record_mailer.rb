@@ -7,7 +7,7 @@ class RecordMailer < ActionMailer::Base
   add_template_helper(CulCatalogHelper)
   add_template_helper(HoldingsHelper)
   
-  def email_record(documents, details, from_host, url_gen_params)
+  def email_record(documents, details, url_gen_params)
     #raise ArgumentError.new("RecordMailer#email_record only works with documents with a #to_marc") unless document.respond_to?(:to_marc)
     
     if documents.size == 1
@@ -23,7 +23,7 @@ class RecordMailer < ActionMailer::Base
     mail(:to => details[:to],  :from => "no-reply@" << from_host, :subject => subject) 
   end
   
-  def sms_record(documents, details, from_host, url_gen_params)
+  def sms_record(documents, details, url_gen_params)
     if sms_mapping[details[:carrier]]
       to = "#{details[:to]}@#{sms_mapping[details[:carrier]]}"
     end
