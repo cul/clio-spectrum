@@ -42,6 +42,7 @@ namespace :deploy do
   task :symlink_shared do
     run "ln -nfs #{deploy_to}shared/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{deploy_to}shared/app_config.yml #{release_path}/config/app_config.yml"
+    run "ln -nfs #{deploy_to}shared/solr.yml #{release_path}/config/solr.yml"
     run "mkdir -p #{deploy_to}shared/extracts"
     run "ln -nfs #{deploy_to}shared/extracts #{release_path}/tmp/extracts"
   end
