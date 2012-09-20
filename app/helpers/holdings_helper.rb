@@ -10,7 +10,7 @@ module HoldingsHelper
     'borrow_direct' => ['Borrow Direct', "http://www.columbia.edu/cgi-bin/cul/borrowdirect?", true],
     'ill' => ['ILL', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?", true],
     'in_process' => ['In Process', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sinprocess?", true],
-    'doc_delivery' => ['Document Delivery', "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0155", false]
+    'doc_delivery' => ['Document Delivery', " https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?", true]
   } 
 
   def service_links(services, clio_id, options = {})

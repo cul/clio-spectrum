@@ -177,7 +177,6 @@ class ApplicationController < ActionController::Base
             config.add_facet_field "author_facet", :label => "Author", :limit => 3
             config.add_facet_field "repository_facet", :label => "Repository", :limit => 3
             config.add_facet_field "location_facet", :label => "Location", :limit => 3
-            config.add_facet_field "author_facet", :label => "Author", :limit => 3
             config.add_facet_field "language_facet", :label => "Language", :limit => 3
             config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 3
             config.add_facet_field "subject_geo_facet", :label => "Subject (Region)", :limit => 3
