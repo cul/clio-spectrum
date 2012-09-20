@@ -17,6 +17,11 @@
                 .entry= link_to value_text, value_text
               - elsif value.kind_of?(Hash)
                 - value.each_pair do |k,v|
-                  .entry #{k.inspect} => #{v.inspect}
+                  -if v.to_s =~ /^http/
+                    .entry
+                      #{k.inspect.to_s.abbreviate(50) + " => "}
+                      = link_to v.to_s, v.to_s
+                  -else
+                    .entry #{k.inspect} => #{v.inspect}
               - else
                 .entry= value_text

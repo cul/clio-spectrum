@@ -98,7 +98,7 @@ class SearchController < ApplicationController
                     params[:per_page] = 15
                     params[:f] = {'format' => ['Book', 'Online']}
                   
-                    solr_response, solr_results =  get_search_results
+                    solr_response, solr_results =  get_and_debug_search_results
                     {
                       :docs => solr_results,
                       :count => solr_response['response']['numFound'].to_i,
@@ -109,7 +109,7 @@ class SearchController < ApplicationController
                     configure_search('Catalog')
                     params[:per_page] = 15
                     params[:f] = {'format' => ['Thesis']}
-                    solr_response, solr_results =  get_search_results
+                    solr_response, solr_results =  get_and_debug_search_results
                     {
                       :docs => solr_results,
                       :count => solr_response['response']['numFound'].to_i,
@@ -118,7 +118,7 @@ class SearchController < ApplicationController
                   when 'catalog'
                     configure_search('Catalog')
                     params[:per_page] = 15
-                    solr_response, solr_results =  get_search_results
+                    solr_response, solr_results =  get_and_debug_search_results
                     {
                       :docs => solr_results,
                       :count => solr_response['response']['numFound'].to_i,
@@ -128,7 +128,7 @@ class SearchController < ApplicationController
                     configure_search('Academic Commons')
                     params[:per_page] = 15
 
-                    solr_response, solr_results =  get_search_results
+                    solr_response, solr_results =  get_and_debug_search_results
                     {
                       :docs => solr_results,
                       :count => solr_response['response']['numFound'].to_i,
@@ -139,7 +139,7 @@ class SearchController < ApplicationController
                     params[:per_page] = 3
                     params[:genre_facet] = ['Dissertations']
                     params[:f] = {'genre_facet' => ['Dissertations']}
-                    solr_acd_response, solr_acd_results =  get_search_results(params)
+                    solr_acd_response, solr_acd_results =  get_and_debug_search_results(params)
                     {
                       :docs => solr_acd_results,
                       :count => solr_acd_response['response']['numFound'].to_i,

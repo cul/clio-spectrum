@@ -14,7 +14,7 @@ class CatalogController < ApplicationController
     extra_head_content << view_context.auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => "Atom for results")
     params['extra_solr_source'] = @active_datasource
 
-    (@response, @document_list) = get_search_results
+    (@response, @document_list) = get_and_debug_search_results
     add_alerts_to_documents(@document_list)
     @filters = params[:f] || []
 

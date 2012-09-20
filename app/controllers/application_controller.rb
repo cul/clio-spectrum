@@ -5,13 +5,46 @@ class ApplicationController < ActionController::Base
   # these methods in order to perform user specific actions. 
   before_filter :trigger_debug_mode
   before_filter :by_source_config
-
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
 
 
+  def get_and_debug_search_results
+    if @debug_mode
+      results = nil
+
+      debug_results = lambda do |*args|       
+        @debug_entries['solr'] = [] if @debug_entries['solr'] == {}
+        event =   ActiveSupport::Notifications::Event.new(*args)
+
+        hashed_event = {
+          params: event.payload[:params],
+          uri: event.payload[:uri].to_s,
+          debug_uri: event.payload[:uri].to_s.gsub('wt=ruby&',"")+"&debugQuery=true",
+          duration: event.duration 
+
+        }
+
+        @debug_entries['solr'] << hashed_event
+      end
+
+      ActiveSupport::Notifications.subscribed(debug_results, "execute.rsolr_client") do |*args|
+        results = get_search_results
+      end
+      
+      return results
+    else
+      get_search_results
+
+    end
+  end
+
+
   def trigger_debug_mode
+    RSolr::Client.send(:include, RSolr::Ext::Notifications)
+    RSolr::Client.enable_notifications!
+
     if params['debug_mode'] == 'on'
       @debug_mode = true
     elsif params['debug_mode'] == 'off'
@@ -87,6 +120,7 @@ class ApplicationController < ActionController::Base
       else
         self.blacklight_config = Blacklight::Configuration.new do |config|
           config.add_search_field 'all_fields', :label => 'All Fields'
+          config.document_solr_request_handler = "document"
 
           case source
           when 'eJournals'

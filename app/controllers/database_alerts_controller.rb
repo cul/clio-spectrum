@@ -29,7 +29,7 @@ class DatabaseAlertsController < ApplicationController
     if params['search']
       params['q'] = params['search']
       configure_search('Databases')
-      response, document_list = get_search_results
+      response, document_list = get_and_debug_search_results
       alerts = DatabaseAlert.includes(:author).where(:clio_id => document_list.collect(&:id)) 
       docs = document_list.collect do |document|
         {
