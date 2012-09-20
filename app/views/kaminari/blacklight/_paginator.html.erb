@@ -11,8 +11,7 @@
     <%= prev_page_tag %>
     <%= next_page_tag  %>
     <div class="page_links">
-    <% options = @window_options.merge(@options) %>
-<% [1.upto(options[:left]).to_a, (options[:num_pages] - options[:right] + 1).upto(options[:num_pages]).to_a, (options[:current_page] - options[:window] - 1).upto(options[:current_page] + options[:window] + 1).to_a].flatten.uniq.sort.reject { |x| x < 1 or x > options[:num_pages] }.map { |i| Kaminari::Helpers::Paginator::PageProxy.new(options, i, @last) }.each do |page| -%>
+    <% each_relevant_page do |page| -%>
       <% if page.left_outer? || page.right_outer? || page.inside_window? -%>
         <%= page_tag page %>
       <% elsif !page.was_truncated? -%>
@@ -22,4 +21,3 @@
   </div>
   </nav>
 <% end -%>
-
