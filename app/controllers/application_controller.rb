@@ -149,12 +149,16 @@ class ApplicationController < ActionController::Base
             }
 
           when 'Databases'
-            default_catalog_config(config, :display_fields, :sorts)
+            default_catalog_config(config, :display_fields)
 
             config.default_solr_params = {
               :qt => "search",
               :per_page => 15,
               :fq  => ['{!raw f=source_facet}database']
+            }
+
+            config[:unapi] = {
+              'oai_dc_xml' => { :content_type => 'text/xml' }
             }
 
             config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
@@ -168,6 +172,7 @@ class ApplicationController < ActionController::Base
             config[:unapi] = {
               'oai_dc_xml' => { :content_type => 'text/xml' }
             }
+
 
           when 'Archives'
             default_catalog_config(config, :display_fields, :search_fields, :sorts)
@@ -192,13 +197,33 @@ class ApplicationController < ActionController::Base
             config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
 
           when 'New Arrivals'
-            default_catalog_config(config)
+            default_catalog_config(config, :display_fields, :search_fields, :sorts)
 
             config.default_solr_params = {
               :qt => "search",
               :per_page => 15,
-              :fq  => ['{!raw f=acq_date_facet}Last 3 Months']
+              :fq  => ["acq_dt:[#{(Time.now - 6.months).utc.iso8601} TO *]"]
             }
+
+
+            config.add_facet_field "format", :label => "Format", :limit => 3
+            config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => true
+            config.add_facet_field "author_facet", :label => "Author", :limit => 3
+            config.add_facet_field 'acq_dt', :label => 'Acquisition Date', :query => {
+       :week_1 => { :label => 'within 1 Week', :fq => "acq_dt:[#{(Time.now - 1.weeks).utc.iso8601} TO *]" },
+       :month_1 => { :label => 'within 1 Month', :fq => "acq_dt:[#{(Time.now - 1.months).utc.iso8601} TO *]" },
+       :month_3 => { :label => 'within 3 Months', :fq => "acq_dt:[#{(Time.now - 3.months).utc.iso8601} TO *]" },
+       
+       :months_6 => { :label => 'within 6 Months', :fq => "acq_dt:[#{(Time.now - 6.months).utc.iso8601} TO *]" },
+    }      
+            config.add_facet_field "location_facet", :label => "Location", :limit => 3
+            config.add_facet_field "language_facet", :label => "Language", :limit => 3
+            config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 3
+            config.add_facet_field "subject_geo_facet", :label => "Subject (Region)", :limit => 3
+            config.add_facet_field "subject_era_facet", :label => "Subject (Era)", :limit => 3
+            config.add_facet_field "subject_form_facet", :label => "Subject (Genre)", :limit => 3
+            config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
+            config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
 
           when 'Catalog'
             default_catalog_config(config)
@@ -233,6 +258,9 @@ class ApplicationController < ActionController::Base
             config.add_sort_field   'title_sort desc, pub_date_sort desc', :label => 'Title Z-A'
 
           end
+
+          config.add_facet_fields_to_solr_request!
+
         end
       end
     end
@@ -269,7 +297,13 @@ class ApplicationController < ActionController::Base
       config.add_facet_field "format", :label => "Format", :limit => 3
       config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => true
       config.add_facet_field "author_facet", :label => "Author", :limit => 3
-      config.add_facet_field "acq_date_facet", :label => "Acquisition Date", :limit => 3
+      config.add_facet_field 'acq_dt', :label => 'Acquisition Date', :query => {
+       :month_1 => { :label => 'within 1 Month', :fq => "acq_dt:[#{(Time.now - 1.months).utc.iso8601} TO *]" },
+       :months_6 => { :label => 'within 6 Months', :fq => "acq_dt:[#{(Time.now - 6.months).utc.iso8601} TO *]" },
+
+       :years_1 => { :label => 'within 1 Years', :fq => "acq_dt:[#{(Time.now - 1.years).utc.iso8601} TO *]" },
+       :years_5 => { :label => 'within 5 Years', :fq => "acq_dt:[#{(Time.now - 5.years).utc.iso8601 } TO *]" }
+    }      
       config.add_facet_field "location_facet", :label => "Location", :limit => 3
       config.add_facet_field "language_facet", :label => "Language", :limit => 3
       config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 3
