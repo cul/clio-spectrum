@@ -4,6 +4,8 @@ NewBooks::Application.routes.draw do
 
   get "library_web/index"
 
+  get "test_notification_error", :to => "application#test_notification_error"
+
   Blacklight.add_routes(self)
   
   root :to => "search#index"

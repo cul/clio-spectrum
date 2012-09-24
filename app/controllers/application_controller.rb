@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
   end
 
 
+  def test_notification_error
+    raise "test"
+  end
+
   def get_and_debug_search_results(user_params = params || {}, extra_controller_params = {})
     if @debug_mode
       results = nil
@@ -332,7 +336,7 @@ class ApplicationController < ActionController::Base
   protected
   def log_additional_data
     request.env["exception_notifier.url"] = {
-      url: request.url
+      url: "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
     }
   end
 
