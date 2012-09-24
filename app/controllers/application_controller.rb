@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   # these methods in order to perform user specific actions. 
   before_filter :trigger_debug_mode
   before_filter :by_source_config
+  before_filter :log_additional_data
+
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
@@ -325,5 +327,14 @@ class ApplicationController < ActionController::Base
     end
 
   end
+
+
+  protected
+  def log_additional_data
+    request.env["exception_notifier.url"] = {
+      url: request.url
+    }
+  end
+
 end
 
