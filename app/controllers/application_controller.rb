@@ -215,6 +215,7 @@ class ApplicationController < ActionController::Base
        :month_3 => { :label => 'within 3 Months', :fq => "acq_dt:[#{(Time.now - 3.months).utc.iso8601} TO *]" },
        
        :months_6 => { :label => 'within 6 Months', :fq => "acq_dt:[#{(Time.now - 6.months).utc.iso8601} TO *]" },
+
     }      
             config.add_facet_field "location_facet", :label => "Location", :limit => 3
             config.add_facet_field "language_facet", :label => "Language", :limit => 3
@@ -302,7 +303,7 @@ class ApplicationController < ActionController::Base
        :months_6 => { :label => 'within 6 Months', :fq => "acq_dt:[#{(Time.now - 6.months).utc.iso8601} TO *]" },
 
        :years_1 => { :label => 'within 1 Years', :fq => "acq_dt:[#{(Time.now - 1.years).utc.iso8601} TO *]" },
-       :years_5 => { :label => 'within 5 Years', :fq => "acq_dt:[#{(Time.now - 5.years).utc.iso8601 } TO *]" }
+       :years_2 => { :label => 'within 2 Years', :fq => "acq_dt:[#{(Time.now - 2.years).utc.iso8601 } TO *]" }
     }      
       config.add_facet_field "location_facet", :label => "Location", :limit => 3
       config.add_facet_field "language_facet", :label => "Language", :limit => 3
@@ -354,8 +355,8 @@ class ApplicationController < ActionController::Base
 
     if elements.include?(:sorts)
       config.add_sort_field   'score desc, pub_date_sort desc, title_sort asc', :label => 'Relevance'
-      config.add_sort_field  'acq_date_sort asc, title_sort asc', :label =>  'Acquired Earliest'
-      config.add_sort_field   'acq_date_sort desc, title_sort asc', :label => 'Acquired Latest'
+      config.add_sort_field  'acq_dt asc, title_sort asc', :label =>  'Acquired Earliest'
+      config.add_sort_field   'acq_dt desc, title_sort asc', :label => 'Acquired Latest'
       config.add_sort_field   'pub_date_sort asc, title_sort asc', :label => 'Published Earliest'
       config.add_sort_field   'pub_date_sort desc, title_sort asc', :label => 'Published Latest'
       config.add_sort_field   'author_sort asc, title_sort asc', :label => 'Author A-Z'
