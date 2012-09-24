@@ -157,6 +157,7 @@ class SearchController < ApplicationController
                   end
       rescue Exception => e
         results = { :error => true, :message => e.message, :docs => [] }
+    
       end
 
       results.merge(:category => category)

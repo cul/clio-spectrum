@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def get_and_debug_search_results
+  def get_and_debug_search_results(user_params = params || {}, extra_controller_params = {})
     if @debug_mode
       results = nil
 
@@ -32,12 +32,12 @@ class ApplicationController < ActionController::Base
       end
 
       ActiveSupport::Notifications.subscribed(debug_results, "execute.rsolr_client") do |*args|
-        results = get_search_results
+        results = get_search_results(user_params, extra_controller_params)
       end
       
       return results
     else
-      get_search_results
+      get_search_results(user_params, extra_controller_params)
 
     end
   end
