@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 gem 'rails', '3.2.8'
 
-gem 'mysql2'
+#gem 'mysql'
 gem 'sqlite3'
 
 # Use unicorn as the web server
@@ -17,6 +17,9 @@ gem 'blacklight_google_analytics'
 gem 'blacklight_unapi', ">= 0.0.3" 
 gem 'json'
 
+gem 'voyager_oracle_api', :path => "~/code/voyager_oracle_api"
+
+
 # Deploy with Capistrano
 gem 'newrelic_rpm'
 gem 'has_options'
@@ -30,7 +33,7 @@ gem 'unicode'
 gem 'summon'
 gem 'cancan'
 
-gem 'voyager_api', '>=0.2.3'
+#gem 'voyager_api', '>=0.2.3'
 gem 'rubytree', '=0.5.2'
 
 gem 'exception_notification'
@@ -78,9 +81,9 @@ end
 gem 'therubyracer'
 group :development do
 
-  gem 'linecache19', '0.5.13'
-  gem 'ruby-debug-base19', '0.11.26'
-  gem 'ruby-debug19', :require => 'ruby-debug'
+  #gem 'linecache19', '0.5.13'
+  #gem 'ruby-debug-base19', '0.11.26'
+  #gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'capistrano'
   gem 'capistrano-ext'
 end

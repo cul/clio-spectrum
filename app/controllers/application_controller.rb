@@ -11,7 +11,20 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, :alert => exception.message
   end
 
+  def look_up_clio_holdings(documents)
+    puts (start = Time.now.to_f)
+    clio_docs = documents.select { |d| d.get('clio_id_display')}
+    
+    unless clio_docs.empty? 
+      holdings = Voyager::Request.simple_holdings_check(*clio_docs.collect { |cd| cd.get('clio_id_display')})
+      clio_docs.each do |cd|
+        cd['clio_holdings'] = holdings[cd.get('clio_id_display')]
+      end
+    end
 
+    puts (Time.now.to_f - start)
+
+  end
   def test_notification_error
     raise "test"
   end

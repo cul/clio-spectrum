@@ -16,6 +16,8 @@ class CatalogController < ApplicationController
 
     (@response, @document_list) = get_and_debug_search_results
     add_alerts_to_documents(@document_list)
+    #check_holdings
+    look_up_clio_holdings(@document_list)
     @filters = params[:f] || []
 
     respond_to do |format|

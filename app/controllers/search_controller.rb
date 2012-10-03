@@ -99,6 +99,7 @@ class SearchController < ApplicationController
                     params[:f] = {'format' => ['Book', 'Online']}
                   
                     solr_response, solr_results =  get_and_debug_search_results
+                    look_up_clio_holdings(solr_results)
                     {
                       :docs => solr_results,
                       :count => solr_response['response']['numFound'].to_i,
@@ -110,6 +111,7 @@ class SearchController < ApplicationController
                     params[:per_page] = 15
                     params[:f] = {'format' => ['Thesis']}
                     solr_response, solr_results =  get_and_debug_search_results
+                    look_up_clio_holdings(solr_results)
                     {
                       :docs => solr_results,
                       :count => solr_response['response']['numFound'].to_i,
@@ -119,6 +121,7 @@ class SearchController < ApplicationController
                     configure_search('Catalog')
                     params[:per_page] = 15
                     solr_response, solr_results =  get_and_debug_search_results
+                    look_up_clio_holdings(solr_results)
                     {
                       :docs => solr_results,
                       :count => solr_response['response']['numFound'].to_i,

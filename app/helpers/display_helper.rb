@@ -85,14 +85,18 @@ module DisplayHelper
     urls.collect { |link| non_circ + link_to(process_online_title(link.first).abbreviate(80), link.last) }
   end
 
-  def format_location_results(locations)
+  def format_location_results(locations, document)
     locations.collect do |location|
     
       loc_display, hold_id = location.split('|DELIM|')
-      
-      holdings_id = "holding_" + hold_id.to_s
-      
-      image_tag("icons/unknown.png", :class => "availability " + holdings_id) + process_holdings_location(loc_display)
+      clio_holding = "unknown"
+
+      if document.get('clio_holdings') 
+        status = document['clio_holdings']['statuses'][hold_id.to_s]
+        clio_holding = status if status
+      end
+
+      image_tag("icons/#{clio_holding}.png", :class => "availability") + process_holdings_location(loc_display)
     end
   end
 
