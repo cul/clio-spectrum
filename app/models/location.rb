@@ -11,7 +11,14 @@ class Location < ActiveRecord::Base
 
   def self.match_location_text(location = nil)
     logger.debug("looking for " + location)
-    matches = self.find(:all, :conditions => ["? LIKE CONCAT(locations.name, '%')", location], :include => :library)
+    if ActiveRecord::Base.connection.instance_of?(ActiveRecord::ConnectionAdapters::MysqlAdapter)
+    
+      matches = self.find(:all, :conditions => ["? LIKE CONCAT(locations.name, '%')", location], :include => :library)
+    else
+      matches = self.find(:all, :conditions => ["? LIKE locations.name || '%'", location], :include => :library)
+
+    end
+
     max_length = matches.collect { |m| m.name.length }.max
     matches.detect { |m| m.name.length == max_length }
     

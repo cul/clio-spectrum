@@ -19,7 +19,7 @@ gem 'json'
 
 #gem 'voyager_oracle_api', :path => "~/code/voyager_oracle_api"
 
-gem 'voyager_oracle_api', ">= 0.3.2"
+gem 'voyager_oracle_api', ">= 0.3.4"
 
 
 # Deploy with Capistrano
