@@ -17,7 +17,9 @@ gem 'blacklight_google_analytics'
 gem 'blacklight_unapi', ">= 0.0.3" 
 gem 'json'
 
-gem 'voyager_oracle_api', :path => "~/code/voyager_oracle_api"
+#gem 'voyager_oracle_api', :path => "~/code/voyager_oracle_api"
+
+gem 'voyager_oracle_api', ">= 0.3.1"
 
 
 # Deploy with Capistrano
