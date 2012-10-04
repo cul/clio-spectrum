@@ -277,11 +277,12 @@ GEM
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     unicode (0.4.3)
-    voyager_oracle_api (0.3.2)
+    voyager_oracle_api (0.3.4)
       activesupport
       activesupport
       i18n
       json
+      marc
       ruby-oci8
     warden (1.2.1)
       rack (>= 1.0)
@@ -345,4 +346,4 @@ DEPENDENCIES
   therubyracer
   uglifier (>= 1.0.3)
   unicode
-  voyager_oracle_api (>= 0.3.2)
+  voyager_oracle_api (>= 0.3.4)
