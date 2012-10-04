@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 gem 'rails', '3.2.8'
 
-#gem 'mysql'
+gem 'mysql2'
 gem 'sqlite3'
 
 # Use unicorn as the web server
@@ -19,7 +19,7 @@ gem 'json'
 
 #gem 'voyager_oracle_api', :path => "~/code/voyager_oracle_api"
 
-gem 'voyager_oracle_api', ">= 0.3.1"
+gem 'voyager_oracle_api', ">= 0.3.2"
 
 
 # Deploy with Capistrano
