@@ -11,7 +11,7 @@ class Location < ActiveRecord::Base
 
   def self.match_location_text(location = nil)
     logger.debug("looking for " + location)
-    if ActiveRecord::Base.connection.instance_of?(ActiveRecord::ConnectionAdapters::MysqlAdapter)
+    if self.connection.adapter_name.downcase.include?("mysql")
     
       matches = self.find(:all, :conditions => ["? LIKE CONCAT(locations.name, '%')", location], :include => :library)
     else
