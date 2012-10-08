@@ -27,16 +27,14 @@ class ApplicationController < ActionController::Base
   def get_and_debug_search_results(user_params = params || {}, extra_controller_params = {})
     if @debug_mode
       results = nil
+      extra_controller_params.merge!('debugQuery' => 'true')
 
       debug_results = lambda do |*args|       
         @debug_entries['solr'] = [] if @debug_entries['solr'] == {}
         event =   ActiveSupport::Notifications::Event.new(*args)
 
         hashed_event = {
-          params: event.payload[:params],
-          uri: event.payload[:uri].to_s,
-          debug_uri: event.payload[:uri].to_s.gsub('wt=ruby&',"")+"&debugQuery=true",
-          duration: event.duration 
+          debug_uri: event.payload[:uri].to_s.gsub('wt=ruby&',"wt=xml&")+"&debugQuery=true",
 
         }
 
@@ -44,7 +42,15 @@ class ApplicationController < ActionController::Base
       end
 
       ActiveSupport::Notifications.subscribed(debug_results, "execute.rsolr_client") do |*args|
-        results = get_search_results(user_params, extra_controller_params)
+        results  = get_search_results(user_params, extra_controller_params)
+        @debug_entries['solr'] = []  if @debug_entries['solr'] == {}
+        hashed_event = {
+          timing: results.first['debug']['timing'],
+          parsedquery: results.first['debug']['parsedquery'].to_s,
+          params: results.first['params']
+        }
+        
+        @debug_entries['solr'] << hashed_event
       end
       
       return results
@@ -59,7 +65,9 @@ class ApplicationController < ActionController::Base
     RSolr::Client.send(:include, RSolr::Ext::Notifications)
     RSolr::Client.enable_notifications!
 
+
     if params['debug_mode'] == 'on'
+
       @debug_mode = true
     elsif params['debug_mode'] == 'off'
       @debug_mode = false
@@ -68,6 +76,12 @@ class ApplicationController < ActionController::Base
     end
     params.delete('debug_mode')
     session['debug_mode'] = @debug_mode
+
+    unless current_user && current_user.login.in?("jws2135")
+      session['debug_mode'] == "off"
+      @debug_mode = false
+    end
+
     @debug_entries = Hash.arbitrary_depth
 
     default_debug
