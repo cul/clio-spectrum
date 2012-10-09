@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
 
         }
 
-        @debug_entries['solr'] << hashed_event
+        @debug_entries['solr'] << hashed_event if current_user && current_user.login.in?("jws2135")
       end
 
       ActiveSupport::Notifications.subscribed(debug_results, "execute.rsolr_client") do |*args|
@@ -77,7 +77,7 @@ class ApplicationController < ActionController::Base
     params.delete('debug_mode')
     session['debug_mode'] = @debug_mode
 
-    unless current_user && current_user.login.in?("jws2135")
+    unless current_user 
       session['debug_mode'] == "off"
       @debug_mode = false
     end
