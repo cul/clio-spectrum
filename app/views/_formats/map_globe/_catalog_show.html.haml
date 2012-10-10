@@ -22,3 +22,4 @@
 = add_row("ISSN", display_marc_field(marc, 'ISSN'))
 = add_row("Standard No.", display_marc_field(marc, 'standard_no'))
 = add_row('Format', formats_with_icons(document))
+= add_row('Acquired On', Date.parse(document.get('acq_dt')).to_formatted_s(:long)) if document.get('acq_dt')

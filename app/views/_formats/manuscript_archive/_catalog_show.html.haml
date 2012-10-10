@@ -20,3 +20,4 @@
 = add_row("Also Listed Under", generate_value_links(display_marc_field(marc, 'author_other'), :author))
 = add_row("Other Titles", display_marc_field(marc, 'title_other'))
 = add_row('Format', formats_with_icons(document))
+= add_row('Acquired On', Date.parse(document.get('acq_dt')).to_formatted_s(:long)) if document.get('acq_dt')

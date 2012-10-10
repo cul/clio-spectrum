@@ -13,7 +13,7 @@ gem 'sqlite3'
 
 # gem 'blacklight'
 #gem 'blacklight', :path => "~/code/blacklight"
-gem 'blacklight'
+gem 'blacklight', :git => "git://github.com/projectblacklight/blacklight.git"
 gem 'blacklight_range_limit'
 gem 'blacklight_highlight'
 gem 'blacklight_google_analytics'

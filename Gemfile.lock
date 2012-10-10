@@ -1,3 +1,19 @@
+GIT
+  remote: git://github.com/projectblacklight/blacklight.git
+  revision: 03cdfafe8f083f9c1fd346778f14c5739f183517
+  specs:
+    blacklight (3.5.0)
+      compass-rails (~> 1.0.0)
+      compass-susy-plugin (>= 0.9.0)
+      kaminari (~> 0.13)
+      marc (>= 0.4.3, < 1.1)
+      nokogiri (~> 1.5)
+      rails (~> 3.1)
+      rsolr (~> 1.0.6)
+      rsolr-ext (~> 1.0.3)
+      sass-rails
+      unicode
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -31,17 +47,6 @@ GEM
     addressable (2.3.2)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
-    blacklight (3.6.1.1)
-      compass-rails (~> 1.0.0)
-      compass-susy-plugin (>= 0.9.0)
-      kaminari (~> 0.13)
-      marc (>= 0.4.3, < 1.1)
-      nokogiri (~> 1.5)
-      rails (~> 3.1)
-      rsolr (~> 1.0.6)
-      rsolr-ext (~> 1.0.3)
-      sass-rails
-      unicode
     blacklight_google_analytics (0.0.1.pre3)
     blacklight_highlight (0.1.0)
       blacklight (~> 3.2)
@@ -293,7 +298,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  blacklight
+  blacklight!
   blacklight_google_analytics
   blacklight_highlight
   blacklight_range_limit

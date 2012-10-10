@@ -1,7 +1,8 @@
 //  main container for facets/limits menu 
 #facets.facets
   %h2 Limit your search
-  - facet_field_names.reject { |name| facet = @response.facet_by_field_name(name); facet.nil? || facet.items.empty? }.each do |solr_fname|
+  
+  - facet_field_names.reject { |name| facet = facet_by_field_name(name); facet.nil? || facet.items.empty? }.each do |solr_fname|
     -
     %div{:class => "facet_limit blacklight-#{solr_fname.parameterize}"}
       - case solr_fname
