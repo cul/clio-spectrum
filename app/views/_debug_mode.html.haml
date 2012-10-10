@@ -14,13 +14,13 @@
             - values.each do |value|
               - value_text = value.kind_of?(String) ? value : value.inspect
               - if value.to_s =~ /^http/
-                .entry= link_to value_text, value_text
+                .entry= link_to value_text, value_text, :target => :blank
               - elsif value.kind_of?(Hash)
                 - value.each_pair do |k,v|
                   -if v.to_s =~ /^http/
                     .entry
                       #{k.inspect.to_s.abbreviate(50) + " => "}
-                      = link_to v.to_s, v.to_s
+                      = link_to v.to_s, v.to_s, :target => :blank
                   -else
                     .entry #{k.inspect} => #{v.inspect}
               - else
