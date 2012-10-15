@@ -183,13 +183,13 @@ class ApplicationController < ActionController::Base
               'oai_dc_xml' => { :content_type => 'text/xml' }
             }
 
-            config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
-            config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
             config.add_facet_field "language_facet", :label => "Language", :limit => 3
             config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 3
             config.add_facet_field "subject_geo_facet", :label => "Subject (Region)", :limit => 3
             config.add_facet_field "subject_era_facet", :label => "Subject (Era)", :limit => 3
             config.add_facet_field "subject_form_facet", :label => "Subject (Genre)", :limit => 3
+            config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
+            config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
             config.add_facet_field 'title_first_facet', :label => "Starts With"
             config[:unapi] = {
               'oai_dc_xml' => { :content_type => 'text/xml' }
@@ -206,8 +206,8 @@ class ApplicationController < ActionController::Base
             }
             
             config.add_facet_field "format", :label => "Format", :limit => 3
-            config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => true
             config.add_facet_field "author_facet", :label => "Author", :limit => 3
+            config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => true
             config.add_facet_field "repository_facet", :label => "Repository", :limit => 3
             config.add_facet_field "location_facet", :label => "Location", :limit => 3
             config.add_facet_field "language_facet", :label => "Language", :limit => 3
@@ -228,9 +228,6 @@ class ApplicationController < ActionController::Base
             }
 
 
-            config.add_facet_field "format", :label => "Format", :limit => 3
-            config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => true
-            config.add_facet_field "author_facet", :label => "Author", :limit => 3
             config.add_facet_field 'acq_dt', :label => 'Acquisition Date', :query => {
        :week_1 => { :label => 'within 1 Week', :fq => "acq_dt:[#{(Time.now - 1.weeks).utc.iso8601} TO *]" },
        :month_1 => { :label => 'within 1 Month', :fq => "acq_dt:[#{(Time.now - 1.months).utc.iso8601} TO *]" },
@@ -239,6 +236,9 @@ class ApplicationController < ActionController::Base
        :months_6 => { :label => 'within 6 Months', :fq => "acq_dt:[#{(Time.now - 6.months).utc.iso8601} TO *]" },
 
     }      
+            config.add_facet_field "format", :label => "Format", :limit => 3
+            config.add_facet_field "author_facet", :label => "Author", :limit => 3
+            config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => true
             config.add_facet_field "location_facet", :label => "Location", :limit => 3
             config.add_facet_field "language_facet", :label => "Language", :limit => 3
             config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 3
@@ -266,9 +266,9 @@ class ApplicationController < ActionController::Base
             config.index.record_display_type = "format"
 
             config.add_facet_field 'author_facet', :label => 'Author'
+            config.add_facet_field 'pub_date_facet', :label => 'Publication Date',:range => true
             config.add_facet_field 'department_facet', :label => 'Department'
             config.add_facet_field 'subject_facet', :label => 'Subject'
-            config.add_facet_field 'pub_date_facet', :label => 'Publication Date',:range => true
             config.add_facet_field 'genre_facet', :label => 'Content Type'
             config.add_facet_field 'series_facet', :label => 'Series'
 
@@ -318,8 +318,8 @@ class ApplicationController < ActionController::Base
 
     if elements.include?(:facets)
       config.add_facet_field "format", :label => "Format", :limit => 3
-      config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => true
       config.add_facet_field "author_facet", :label => "Author", :limit => 3
+      config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => true
       config.add_facet_field 'acq_dt', :label => 'Acquisition Date', :query => {
        :month_1 => { :label => 'within 1 Month', :fq => "acq_dt:[#{(Time.now - 1.months).utc.iso8601} TO *]" },
        :months_6 => { :label => 'within 6 Months', :fq => "acq_dt:[#{(Time.now - 6.months).utc.iso8601} TO *]" },
