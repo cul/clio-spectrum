@@ -26,7 +26,7 @@ gem 'voyager_oracle_api', ">= 0.3.5"
 
 
 # Deploy with Capistrano
-gem 'newrelic_rpm'
+#gem 'newrelic_rpm'
 gem 'has_options'
 gem 'httpclient'
 gem 'nokogiri'
