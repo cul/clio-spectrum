@@ -64,6 +64,7 @@ NewBooks::Application.routes.draw do
   match 'locations/show/:id', :id => /[^\/]+/, :to => "locations#show", :as => :location_display
 
   match 'welcome/versions', :to => "welcome#versions"
+  match 'search/show', :to => "search#show"
 
   scope "/admin" do
     match 'database_alerts/retrieve', :to => 'database_alerts#retrieve', :as => :database_alerts_retrieve

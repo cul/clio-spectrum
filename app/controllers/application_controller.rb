@@ -338,6 +338,7 @@ class ApplicationController < ActionController::Base
     end
 
     if elements.include?(:search_fields) 
+
       config.add_search_field('title') do |field|
         # solr_parameters hash are sent to Solr as ordinary url query params. 
         field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
@@ -352,6 +353,20 @@ class ApplicationController < ActionController::Base
         }
       end
       
+      config.add_search_field('journal_title') do |field|
+        # solr_parameters hash are sent to Solr as ordinary url query params. 
+        field.solr_parameters = { :'spellcheck.dictionary' => 'title', :fq => ['format:Journal\/Periodical'] }
+
+        # :solr_local_parameters will be sent using Solr LocalParams
+        # syntax, as eg {! qf=$title_qf }. This is neccesary to use
+        # Solr parameter de-referencing like $title_qf.
+        # See: http://wiki.apache.org/solr/LocalParams
+        field.solr_local_parameters = { 
+          :qf => '$title_qf',
+          :pf => '$title_pf'
+        }
+      end
+
       config.add_search_field('author') do |field|
         field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
         field.solr_local_parameters = { 
