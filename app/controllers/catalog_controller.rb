@@ -3,6 +3,7 @@ require 'blacklight/catalog'
 class CatalogController < ApplicationController
   before_filter :by_source_config
 
+  include Blacklight::Controller
   include Blacklight::Catalog
   include BlacklightUnapi::ControllerExtension
 

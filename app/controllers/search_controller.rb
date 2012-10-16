@@ -1,4 +1,5 @@
 class SearchController < ApplicationController
+  include Blacklight::Controller
   include Blacklight::Catalog
   layout 'quicksearch'
 
