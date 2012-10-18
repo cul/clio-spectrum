@@ -282,7 +282,7 @@ GEM
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     unicode (0.4.3)
-    voyager_oracle_api (0.3.5)
+    voyager_oracle_api (1.0.0)
       activesupport
       activesupport
       i18n
@@ -350,4 +350,4 @@ DEPENDENCIES
   therubyracer
   uglifier (>= 1.0.3)
   unicode
-  voyager_oracle_api (>= 0.3.5)
+  voyager_oracle_api (>= 1.0.0)
