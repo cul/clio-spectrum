@@ -12,8 +12,8 @@ gem 'sqlite3'
 
 
 # gem 'blacklight'
-#gem 'blacklight', :path => "~/code/blacklight"
-gem 'blacklight', :git => "git://github.com/projectblacklight/blacklight.git"
+gem 'blacklight', :path => "~/code/blacklight"
+#gem 'blacklight', :git => "git://github.com/projectblacklight/blacklight.git", :branch => "bootstrap"
 gem 'blacklight_range_limit', ">= 1.2.3"
 gem 'blacklight_highlight'
 gem 'blacklight_google_analytics'
@@ -58,6 +58,7 @@ group :assets do
   gem 'compass-rails', '~>1.0.0'
   gem 'uglifier', '>=1.0.3'
   gem 'compass-susy-plugin', '>=0.9.0'
+  gem 'bootstrap-sass', '~>2.1.0'
 end
 
 
