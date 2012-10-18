@@ -3,29 +3,24 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-@import "susy"
 @import "local_mixes"
 
 
 
 #documents
-  +columns(18,18)
-  +omega(18)
+  +makeColumn(9)
 
 .document
-  +columns(18,18)
-  +omega(18)
+  +makeRow
 
   .details
-    +columns(14,18)
+    +makeColumn(7)
 
   .doc_bookjacket
-    +columns(4,18)
-    +omega(18)
+    +makeColumn(2)
 
 .pagination_container
-  +columns(18,18)
-  +omega(18)
+  +makeColumn(9)
 
 #appliedParams
   :background #fff

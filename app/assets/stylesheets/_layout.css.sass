@@ -1,4 +1,3 @@
-@import "susy"
 @import "local_mixes"
 
 body
@@ -10,18 +9,10 @@ html
   :background transparent
   :overflow-y scroll
 
-body
-  :background #fff
 
 #page
   :background white
   :border-bottom none
-
-html
-  :background white
-  
-body
-  :padding 0em
 
 #cu_top
   background: #174785
@@ -55,12 +46,30 @@ body
 
 #bd
   :min-height 400px
+  :clear both
 
-#sidebar
-  +columns(6,24)
 
-#main
-  +columns(18,24)
+#sources
+  //+grid-fluid-span(2)
+#main_with_sources
+  //+grid-fluid-span(10)
+
+.two_equal
+  :padding 1em 0 1em 0
+
+  .result_set
+
+
+    .result 
+      :background-color #fff
+
+    .row
+
+    .label
+    .value
+      
+
+    &.last
 
 .help_button
   :padding-top 5px
@@ -92,11 +101,8 @@ h1.site_title a
   :font-weight bold
 
 .grid_view
-  +columns(18,18)
-  +omega(18)
+  +makeColumn(9)
 
   .document_gallery
-    +columns(6,18)
+    +makeColumn(3)
 
-  .document_gallery.last
-    +omega(18)

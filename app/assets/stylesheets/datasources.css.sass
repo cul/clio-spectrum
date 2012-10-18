@@ -1,4 +1,3 @@
-@import "susy"
 @import "local_mixes"
 
 .landing_page
@@ -13,17 +12,15 @@
   +clearfix
 
   .landing_across
-    +columns(18,18)
-    +omega(18)
+    +makeColumn(9)
 
 
 
   .landing_main
-    +columns(13,18)
+    +makeColumn(6)
 
   .landing_side
-    +columns(5,18)
-    +omega(18)
+    +makeColumn(3)
 
   .landing_side_inner 
     :background #fffcf0

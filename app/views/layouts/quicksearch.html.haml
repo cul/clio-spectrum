@@ -8,11 +8,11 @@
     - add_datasources(@active_source)
     #trigger
     = render :partial => "/top_navigation_bar"
-    #page
+    #page.container-fluid
       = render :partial => "/header_with_search"
-      #bd
-        #sources= sidebar_items.join('').html_safe
-        #main_with_sources
+      #bd.row-fluid
+        #sources.span3= sidebar_items.join('').html_safe
+        #main_with_sources.span9
         
           = render :partial=>'/flash_msg'
           = yield

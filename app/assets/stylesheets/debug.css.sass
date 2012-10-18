@@ -1,4 +1,3 @@
-@import "susy"
 @import "local_mixes"
 
 .debug_instruction
@@ -7,17 +6,13 @@
 
 .debug_entries
   :padding-top 1em
-  +columns(24,24)
-  +omega(24)
+  +makeColumn(12)
 
   .row
-    +columns(24,24)
-    +omega(24)
+    +makeRow
 
   .label
-    +columns(2,24)
+    +makeColumn(1)
     
   .value
-    +columns(22,24)
-    +omega(24)
-    
+    +makeColumn(11)

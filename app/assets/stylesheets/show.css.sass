@@ -1,4 +1,3 @@
-@import "susy"
 @import "local_mixes"
 
 .ui-widget 
@@ -6,8 +5,6 @@
     :outline none
 
 .item_show
-  +columns(24,24)
-  +omega(24)
 
   .title
     :padding-top .5em
@@ -16,32 +13,22 @@
     :font-weight bold
     :font-size 1.5em
   .row
-    +columns(12,12)
-    +omega(12)
     :padding-bottom .5em
 
   .label
-    +columns(3,12)
   
   .value
-    +columns(9,12)
-    +omega(12)
 
   .info
-    +columns(12,24)
     :padding-top 1em
   
   
   .holdings
-    +columns(12,24)
-    +omega(24)
     :margin-top 2em
     :padding 1em 0 1em 0
     :background #f6f6ff
 
     .holding
-      +columns(12,12)
-      +omega(12)
 
     .holdings_title
       :font-weight bold
@@ -49,14 +36,11 @@
       :padding-left .5em
       :padding-bottom .5em
     .resource
-      +columns(6,12)
       
     .resource_box
       :padding-left .5em
 
     .links
-      +columns(6,12)
-      +omega(12)
       :text-align right
 
       a

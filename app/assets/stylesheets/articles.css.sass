@@ -1,12 +1,10 @@
-@import "susy"
 @import "local_mixes"
 
 #hd.articles_search
   #logo_small
-    +columns(6,24)
+    +makeColumn(3)
   #top_search_box
-    +columns(18,24)
-    +omega(24)
+    +makeColumn(9)
 
 .landing_text
   :padding-top .5em
@@ -19,23 +17,20 @@
 
 .document.article_list
   .details
-    +columns(18,18)
+    +makeColumn(9)
   .row
-    +columns(18,18)
-    +omega(18)
+    +makeColumn(9)
     .label
-      +columns(2,18)
+      +makeColumn(1)
     .value
-      +columns(16,18)
-      +omega(18)
+      +makeColumn(8)
 
 
 .holdings_title.additional
   :padding-top 1em
 .item_show .holdings .holding.additional
   .resource
-    +columns(3,12)
+    +makeColumn(1)
   .links
-    +columns(9,12)
-    +omega(12)
+    +makeColumn(5)
     :text-align left

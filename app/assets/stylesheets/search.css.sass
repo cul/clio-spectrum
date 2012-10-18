@@ -1,5 +1,3 @@
-
-@import "susy"
 @import "local_mixes"
 
 .value
@@ -9,53 +7,16 @@
 
 #hd.with_search
   #logo_small
-    +columns(5,24)
+    +makeColumn(3)
 
   #top_search_box
-    +columns(15,24)
+    +makeColumn(7)
 
   #user_util_links
-    +columns(4,24)
-    +omega(24)
+    +makeColumn(2)
 
 
-#main_with_sources
-  +columns(19,24)
-  +omega(24)
 
-  min-height: 420px
-
-#sources
-  +columns(5,24)
-
-.two_equal
-  +columns(18,18)
-  +omega(18)
-  :padding 1em 0 1em 0
-
-  .result_set
-    +columns(9,18)
-
-
-    .result 
-      :background-color #fff
-      +columns(9,9)
-      +omega(9)
-
-    .row
-      +columns(9,9)
-      +omega(9)
-
-    .label
-      +columns(2,9)
-
-    .value
-      +columns(7,9)
-      +omega(9)
-      
-
-    &.last
-      +omega(18)
 
 .pageEntriesInfo.non_catalog
   :padding 1em 0 .5em 
@@ -64,8 +25,6 @@
   :margin-right auto
 
 .two_lopsided
-  +columns(18,18)
-  +omega(18)
   :padding 0em 0 1em 0
 
   .result_set
@@ -79,62 +38,37 @@
     :padding .5em 1em 0 1em
 
   .main_results
-    +columns(10,18)
 
 
     .result 
       :background-color #fff
-      +columns(10,10)
-      +omega(10)
 
     .row
-      +columns(10,10)
-      +omega(10)
 
     .label
-      +columns(2,10)
-
+    
     .value
-      +columns(8,10)
-      +omega(10)
       
     .result_set 
-      +columns(10,10)
-      +omega(10)
 
   .side_results
-    +columns(8,18)
-    +omega(18)
       
     .result
       :background-color #fff
-      +columns(8,8)
-      +omega(8)
 
     .row
-      +full(8)
 
     .label
-      +columns(2,8)
 
     .value
-      +columns(6,8)
-      +omega(8)
       
 
     .result_set 
-      +columns(8,8)
-      +omega(8)
 
 .show
-  +columns(24,24)
-  +omega(24)
   #clio_main
-    +columns(18,24)
 
   #clio_sidebar
-    +columns(6,24)
-    +omega(24)
 
 
 

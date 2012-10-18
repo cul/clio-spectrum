@@ -48,17 +48,18 @@ gem 'devise'
 gem 'devise-encryptable'
 gem 'devise_wind'
 #
-# gem 'blacklight_advanced_search',:git => 'https://github.com/projectblacklight/blacklight_advanced_search.git'
+# gem 'blacklight_advanced_search',:git => 'https://github.com/projectblacklight/blacklight_advanced_search.git
+
+gem 'compass-rails'
 
 gem 'jquery-rails'
 
 group :assets do
   gem 'sass-rails', '~>3.2.4'
   gem 'coffee-rails', '~>3.2.2'
-  gem 'compass-rails', '~>1.0.0'
   gem 'uglifier', '>=1.0.3'
-  gem 'compass-susy-plugin', '>=0.9.0'
   gem 'bootstrap-sass', '~>2.1.0'
+  gem 'compass-rails'
 end
 
 
