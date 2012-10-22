@@ -3,7 +3,7 @@ class SearchController < ApplicationController
   include Blacklight::Catalog
   layout 'quicksearch'
 
-  CATEGORY_ORDER = %w{catalog articles academic_commons ebooks lweb catalog_ebooks catalog_dissertations articles_dissertations ac_dissertations}
+  CATEGORY_ORDER = %w{catalog articles_journals articles academic_commons ebooks ejournals lweb catalog_ebooks catalog_ejournals catalog_dissertations articles_dissertations ac_dissertations}
 
   def index
     @results = []
@@ -34,6 +34,21 @@ class SearchController < ApplicationController
 
     end
 
+  end
+
+  def articles_journals
+    
+    session['search'] = params
+    session['search']['s.q'] = params['q'] if params['q']
+    params['categories'] = ['articles', 'catalog_ejournals']
+
+    @results = {}
+    if params['q'].to_s.strip.empty? 
+      flash[:error] = "You cannot search with an empty string." if params['commit']
+    else
+      @results = get_results(params['categories'])
+
+    end
   end
 
   def dissertations 
@@ -105,6 +120,18 @@ class SearchController < ApplicationController
                       :docs => solr_results,
                       :count => solr_response['response']['numFound'].to_i,
                       :url => url_for(:controller => 'catalog', :action => 'index', :q => params['q'], :f => {'format' => ['Book', 'Online']})
+                    }
+                  when 'catalog_ejournals'
+
+                    configure_search('Catalog')
+                    params[:per_page] = 15
+                    params[:f] = {'source_facet' => ['ejournal']}
+                    solr_response, solr_results =  get_and_debug_search_results
+                    look_up_clio_holdings(solr_results)
+                    {
+                      :docs => solr_results,
+                      :count => solr_response['response']['numFound'].to_i,
+                      :url => url_for(:controller => 'catalog', :action => 'index', :q => params['q'], :f => {'source_facet' => ['ejournal']})
                     }
                   when 'catalog_dissertations'
 

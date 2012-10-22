@@ -104,6 +104,8 @@ class ApplicationController < ActionController::Base
       @active_source = case path_minus_advanced 
       when /^\/databases/
         'Databases'
+      when /^\/articles_journals/
+        'Articles & Journals'
       when /^\/new_arrivals/
         'New Arrivals'
       when /^\/catalog/
@@ -140,7 +142,7 @@ class ApplicationController < ActionController::Base
       Blacklight.solr = RSolr::Ext.connect(Blacklight.solr_config)
     end
     if self.respond_to?(:blacklight_config)
-      if source.in?('Quicksearch','eBooks','Dissertations')
+      if source.in?('Quicksearch','eBooks','Dissertations','Articles & Journals')
         self.blacklight_config = Blacklight::Configuration.new do |config|
 
           config.add_search_field 'all_fields', :label => 'All Fields'

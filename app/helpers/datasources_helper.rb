@@ -1,15 +1,23 @@
 #encoding: UTF-8
 module DatasourcesHelper
-  SOURCES_ALWAYS_INCLUDED = ['Quicksearch', 'Catalog', 'Articles', 'Academic Commons', 'Library Web']
+  SOURCES_ALWAYS_INCLUDED = ['Quicksearch', 'Catalog', 'Articles & Journals', 'Academic Commons', 'Library Web']
   SOURCES_MINOR = ['Archives', 'Databases', 'Dissertations', 'eBooks', 'eJournals', 'New Arrivals']
+  SOURCES_NO_FACETS = ['Quicksearch', 'Articles & Journals', 'Dissertations', 'eBooks', 'Library Web']
+  SOURCES_HIDDEN = ['Articles', 'eJournals']
   
-  def active_query?
+
+  def all_datasources
+    SOURCES_ALWAYS_INCLUDED | SOURCES_MINOR | SOURCES_HIDDEN
+  end
+
+  def active_query?()
     !(params['q'].to_s.empty? && params.keys.all? { |k| !k.include?('s.') } && params['f'].to_s.empty? && params['commit'].to_s.empty?)
+
   end
   
   def add_all_datasource_landing_pages
     content_tag('div', :class => 'landing_pages') do
-      (SOURCES_ALWAYS_INCLUDED | SOURCES_MINOR).collect do |source|
+      all_datasources.collect do |source|
         datasource_landing_page(source)
       end.join('').html_safe
     end
@@ -25,9 +33,9 @@ module DatasourcesHelper
 
   def datasources_active_list(options = {})
     if options[:all_sources]
-      SOURCES_ALWAYS_INCLUDED | SOURCES_MINOR 
+      all_datasources
     else
-      SOURCES_ALWAYS_INCLUDED | SOURCES_MINOR.select { |s| s == options[:active] }
+      all_datasources.select { |s| s == options[:active] }
     end
   end
 
@@ -45,7 +53,7 @@ module DatasourcesHelper
       :query => params['q'] || params['s.q'] || ""
     }
     
-    options[:all_sources] = !active_query?
+    options[:all_sources] = !active_query? || SOURCES_NO_FACETS.include?(active)
 
     result = []
     #result << [content_tag(:li, 'Sources', :class => 'title')]
@@ -65,7 +73,7 @@ module DatasourcesHelper
   end
 
   def datasource_to_class(source)
-    source.to_s.gsub(/ /, '_').underscore
+    source.to_s.gsub(/ & /,'_').gsub(/ /, '_').underscore
   end
 
   def datasource_to_facet(source)
@@ -84,7 +92,7 @@ module DatasourcesHelper
     li_classes = %w{datasource_link}
     li_classes << "selected" if source == options[:active]
 
-    href = unless active_query?
+    href = unless active_query?()
       '#'
     else
       case source
@@ -94,6 +102,8 @@ module DatasourcesHelper
         {:controller => 'catalog', :q => query}
       when 'Databases'
         databases_index_path(:q => query)
+      when 'Articles & Journals'
+        {:controller => 'search', :action => 'articles_journals', :q => query}
       when 'Articles'
         {:controller => 'articles', :action => 'search', 'new_search' => true, 's.q' => query}
       when 'eJournals'
