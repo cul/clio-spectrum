@@ -10,6 +10,8 @@
     %li Image, sound and video collections
     %li Subject help guides
 
+    
+
 
 .landing_side
   .landing_side_inner
@@ -26,3 +28,19 @@
 
 .landing_across
   = render :partial => "/_display/databases/a_to_z"
+
+  - database_browse = YAML.load(File.read(Rails.root.to_s + "/config/database_browse.yml"))
+  - hilcc_codes = database_browse['hilcc'].invert
+  %br
+  = form_tag databases_index_path do 
+    %br
+    .label Browse by subject:
+    = select_tag 'f[database_hilcc_facet][]', options_for_select(hilcc_codes.keys.sort.each  { |k| [k, hilcc_codes[k]] })
+    = submit_tag "Browse"
+
+  - resource_codes = database_browse['resource_types'].invert
+  = form_tag databases_index_path do 
+    %br
+    .label Browse by subject:
+    = select_tag 'f[database_resource_type_facet][]', options_for_select(resource_codes.keys.sort.each  { |k| [k, resource_codes[k]] })
+    = submit_tag "Browse"

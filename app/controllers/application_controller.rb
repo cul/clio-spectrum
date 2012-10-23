@@ -189,6 +189,8 @@ class ApplicationController < ActionController::Base
             }
 
             config.add_facet_field "language_facet", :label => "Language", :limit => 3
+            config.add_facet_field "database_hilcc_facet", :label => "Subject (HILCC)", :limit => 3
+            config.add_facet_field "database_resource_type_facet", :label => "Resource Type", :limit => 3
             config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 3
             config.add_facet_field "subject_geo_facet", :label => "Subject (Region)", :limit => 3
             config.add_facet_field "subject_era_facet", :label => "Subject (Era)", :limit => 3
