@@ -122,6 +122,8 @@ class ApplicationController < ActionController::Base
         'Academic Commons'
       when /^\/library_web/
         'Library Web'
+      when /^\/newspapers/
+        'Newspapers'
       when /^\/archives/
         'Archives'
       else

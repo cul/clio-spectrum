@@ -5,6 +5,12 @@
       = text_field_tag :q, search_params[:q], :class => "q", :id => "quicksearch_q", :placeholder => "(Catalog, Articles, Academic Commons, Library Web Search)"
       %button{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'Search'} Search
 
+= display_search_box('Newspapers') do 
+  = form_tag search_newspapers_path, :method => :get do 
+    .search_row
+      = text_field_tag :q, search_params[:q], :class => "q", :id => "newspapers", :placeholder => "Search Newspapers Articles & Electronic Databases"
+      %button{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'Search'} Search
+
 = display_search_box('Articles & Journals') do 
   = form_tag search_articles_journals_path, :method => :get do 
     .search_row

@@ -35,7 +35,7 @@ module DatasourcesHelper
     if options[:all_sources]
       SOURCES_ALWAYS_INCLUDED | SOURCES_MINOR
     else
-      (SOURCES_ALWAYS_INCLUDED | SOURCES_MINOR).select { |s| s == options[:active] }
+      SOURCES_ALWAYS_INCLUDED | SOURCES_MINOR.select { |s| s == options[:active] }
     end
   end
 
