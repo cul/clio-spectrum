@@ -17,11 +17,11 @@ Set translate_HILCC_code(Record record)
 {
   LinkedHashSet result = new LinkedHashSet();
 
-  String val = indexer.getFirstFieldVal(record, "967a");
 
+  Set values = indexer.getFieldList(record, "967a");
   
 
-  if (val != null)
+  for (String val : values)
   {
     switch (val) {
       case "1219": result.add("Arts, Architecture & Applied Arts");
@@ -63,10 +63,10 @@ Set translate_resource_type(Record record)
 {
   LinkedHashSet result = new LinkedHashSet();
 
-  String val = indexer.getFirstFieldVal(record, "966a");
+  Set values = indexer.getFieldList(record, "966a");
+  
 
-
-  if (val != null)
+  for (String val : values)
   {
     switch (val) {
       case "ar": result.add("Archival Catalogs");
