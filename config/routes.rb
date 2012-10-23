@@ -18,6 +18,8 @@ NewBooks::Application.routes.draw do
 
   devise_for :users
 
+
+
   match 'databases', :to => 'catalog#index', :as => :databases_index
   match 'databases/:id(.:format)', :via => [:get], :to => 'catalog#show', :as => :databases_show
   match 'databases/facet/:id(.format)', :to => 'catalog#facet', :as => :databases_facet
@@ -60,6 +62,8 @@ NewBooks::Application.routes.draw do
   match 'ebooks', :to => 'search#ebooks', :as => :search_ebooks
 
   match 'dissertations', :to => 'search#dissertations', :as => :search_dissertations
+  match 'articles_journals', :to => 'search#articles_journals', :as => :search_articles_journals
+  match 'newspapers', :to => 'search#newspapers', :as => :search_newspapers
 
   match 'locations/show/:id', :id => /[^\/]+/, :to => "locations#show", :as => :location_display
 

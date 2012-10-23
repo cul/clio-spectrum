@@ -1,0 +1,9 @@
+
+- if @results.empty?
+  = add_all_datasource_landing_pages
+- else
+  #quicksearch.two_equal
+    .result_set
+      = render :partial => "result_set_articles_newspapers", :locals => {:result => @results['articles_newspapers'], :count => 10}
+    .result_set.last
+      = render :partial => "result_set_catalog_databases", :locals => {:result => @results['catalog_databases'], :count => 10}

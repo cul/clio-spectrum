@@ -3,7 +3,7 @@ class SearchController < ApplicationController
   include Blacklight::Catalog
   layout 'quicksearch'
 
-  CATEGORY_ORDER = %w{catalog articles academic_commons ebooks lweb catalog_ebooks catalog_dissertations articles_dissertations ac_dissertations}
+  CATEGORY_ORDER = %w{catalog articles_journals articles academic_commons ebooks ejournals lweb catalog_ebooks catalog_ejournals catalog_dissertations articles_dissertations articles_newspapers ac_dissertations}
 
   def index
     @results = []
@@ -34,6 +34,36 @@ class SearchController < ApplicationController
 
     end
 
+  end
+
+  def newspapers
+    
+    session['search'] = params
+    session['search']['s.q'] = params['q'] if params['q']
+    params['categories'] = ['articles_newspapers', 'catalog_databases']
+
+    @results = {}
+    if params['q'].to_s.strip.empty? 
+      flash[:error] = "You cannot search with an empty string." if params['commit']
+    else
+      @results = get_results(params['categories'])
+
+    end
+  end
+
+  def articles_journals
+    
+    session['search'] = params
+    session['search']['s.q'] = params['q'] if params['q']
+    params['categories'] = ['articles', 'catalog_ejournals']
+
+    @results = {}
+    if params['q'].to_s.strip.empty? 
+      flash[:error] = "You cannot search with an empty string." if params['commit']
+    else
+      @results = get_results(params['categories'])
+
+    end
   end
 
   def dissertations 
@@ -87,6 +117,14 @@ class SearchController < ApplicationController
                       :count => summon.search.record_count.to_i, 
                       :url => articles_search_path(summon.search.query.to_hash)
                     }
+                  when 'articles_newspapers'
+                    summon = SerialSolutions::SummonAPI.new('category' => 'newspapers', 'new_search' => true, 's.q' => params[:q], 's.ps' => 10)
+
+                    {
+                      :docs => summon.search,
+                      :count => summon.search.record_count.to_i, 
+                      :url => articles_search_path(summon.search.query.to_hash)
+                    }
                   when 'ebooks'
                     summon = SerialSolutions::SummonAPI.new('category' => 'ebooks', 'new_search' => true, 's.q' => params[:q], 's.ps' => 10)
                     {
@@ -105,6 +143,30 @@ class SearchController < ApplicationController
                       :docs => solr_results,
                       :count => solr_response['response']['numFound'].to_i,
                       :url => url_for(:controller => 'catalog', :action => 'index', :q => params['q'], :f => {'format' => ['Book', 'Online']})
+                    }
+                  when 'catalog_databases'
+
+                    configure_search('Catalog')
+                    params[:per_page] = 15
+                    params[:f] = {'source_facet' => ['database']}
+                    solr_response, solr_results =  get_and_debug_search_results
+                    look_up_clio_holdings(solr_results)
+                    {
+                      :docs => solr_results,
+                      :count => solr_response['response']['numFound'].to_i,
+                      :url => url_for(:controller => 'catalog', :action => 'index', :q => params['q'], :f => {'source_facet' => ['database']})
+                    }
+                  when 'catalog_ejournals'
+
+                    configure_search('Catalog')
+                    params[:per_page] = 15
+                    params[:f] = {'source_facet' => ['ejournal']}
+                    solr_response, solr_results =  get_and_debug_search_results
+                    look_up_clio_holdings(solr_results)
+                    {
+                      :docs => solr_results,
+                      :count => solr_response['response']['numFound'].to_i,
+                      :url => url_for(:controller => 'catalog', :action => 'index', :q => params['q'], :f => {'source_facet' => ['ejournal']})
                     }
                   when 'catalog_dissertations'
 

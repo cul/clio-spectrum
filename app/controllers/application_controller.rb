@@ -104,6 +104,8 @@ class ApplicationController < ActionController::Base
       @active_source = case path_minus_advanced 
       when /^\/databases/
         'Databases'
+      when /^\/articles_journals/
+        'Articles & Journals'
       when /^\/new_arrivals/
         'New Arrivals'
       when /^\/catalog/
@@ -120,6 +122,8 @@ class ApplicationController < ActionController::Base
         'Academic Commons'
       when /^\/library_web/
         'Library Web'
+      when /^\/newspapers/
+        'Newspapers'
       when /^\/archives/
         'Archives'
       else
@@ -140,7 +144,7 @@ class ApplicationController < ActionController::Base
       Blacklight.solr = RSolr::Ext.connect(Blacklight.solr_config)
     end
     if self.respond_to?(:blacklight_config)
-      if source.in?('Quicksearch','eBooks','Dissertations')
+      if source.in?('Quicksearch','eBooks','Dissertations','Articles & Journals')
         self.blacklight_config = Blacklight::Configuration.new do |config|
 
           config.add_search_field 'all_fields', :label => 'All Fields'
@@ -187,6 +191,8 @@ class ApplicationController < ActionController::Base
             }
 
             config.add_facet_field "language_facet", :label => "Language", :limit => 3
+            config.add_facet_field "database_hilcc_facet", :label => "Subject (HILCC)", :limit => 3
+            config.add_facet_field "database_resource_type_facet", :label => "Resource Type", :limit => 3
             config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 3
             config.add_facet_field "subject_geo_facet", :label => "Subject (Region)", :limit => 3
             config.add_facet_field "subject_era_facet", :label => "Subject (Era)", :limit => 3
