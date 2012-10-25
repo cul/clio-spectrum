@@ -25,10 +25,10 @@ NewBooks::Application.routes.draw do
   match 'databases/facet/:id(.format)', :to => 'catalog#facet', :as => :databases_facet
   match 'databases/:id(.:format)', :via => [:put], :to => 'catalog#update', :as => :databases_update
 
-  match 'ejournals', :to => 'catalog#index', :as => :ejournals_index
-  match 'ejournals/:id(.:format)', :via => [:get], :to => 'catalog#show', :as => :ejournals_show
-  match 'ejournals/facet/:id(.format)', :to => 'catalog#facet', :as => :ejournals_facet
-  match 'ejournals/:id(.:format)', :via => [:put], :to => 'catalog#update', :as => :ejournals_update
+  match 'journals', :to => 'catalog#index', :as => :journals_index
+  match 'journals/:id(.:format)', :via => [:get], :to => 'catalog#show', :as => :journals_show
+  match 'journals/facet/:id(.format)', :to => 'catalog#facet', :as => :journals_facet
+  match 'journals/:id(.:format)', :via => [:put], :to => 'catalog#update', :as => :journals_update
 
   match 'library_web', :to => 'library_web#index', :as => :library_web_index
 
@@ -59,11 +59,10 @@ NewBooks::Application.routes.draw do
   match 'articles/show', :to => "articles#show", :as => :articles_show
   match 'articles/search', :to => "articles#search", :as => :articles_search
 
-  match 'ebooks', :to => 'search#ebooks', :as => :search_ebooks
+  match 'ebooks', :to => 'search#ebooks', :as => :ebooks_index
 
-  match 'dissertations', :to => 'search#dissertations', :as => :search_dissertations
-  match 'articles_journals', :to => 'search#articles_journals', :as => :search_articles_journals
-  match 'newspapers', :to => 'search#newspapers', :as => :search_newspapers
+  match 'dissertations', :to => 'search#dissertations', :as => :dissertations_index
+  match 'newspapers', :to => 'search#newspapers', :as => :newspapers_index
 
   match 'locations/show/:id', :id => /[^\/]+/, :to => "locations#show", :as => :location_display
 

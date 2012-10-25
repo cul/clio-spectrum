@@ -1,0 +1,106 @@
+:datasources:
+  :quicksearch:
+    :name: Quicksearch
+    :no_facets: true
+    :search_box:
+      :route: search_index_path
+      :placeholder: Search Catalog, Articles, Academic Commons, Library Web 
+  :newspapers:
+    :name: Newspapers
+    :no_facets: true
+    :search_box:
+      :route: newspapers_index_path
+      :placeholder: Search Newspapers
+  :articles:
+    :name: Articles
+    :search_box:
+      :route: articles_index_path
+      :placeholder: Search Articles
+      :search_type: summon
+  :ebooks:
+    :name: eBooks
+    :no_facets: true
+    :search_box:
+      :route: ebooks_index_path
+      :placeholder: Search eBooks 
+  :dissertations:
+    :name: Dissertations
+    :no_facets: true
+    :search_box:
+      :route: dissertations_index_path
+      :placeholder: Search Dissertations
+  :catalog:
+    :name: Catalog
+    :search_box:
+      :route: catalog_index_path
+      :placeholder: Search Catalog
+      :search_type: blacklight
+      :search_fields:
+        all_fields: All Fields
+        title: Title
+        journal_title: Journal Title
+        author: Author
+        subject: Subject
+  :archives:
+    :name: Archives
+    :search_box:
+      :route: archives_index_path
+      :placeholder: Search Archives
+      :search_type: blacklight
+  :databases:
+    :name: Databases
+    :search_box:
+      :route: databases_index_path 
+      :placeholder: Search Databases
+      :search_type: blacklight
+  :journal_titles:
+    :name: Journal Titles
+    :search_box:
+      :route: journals_index_path
+      :placeholder: Search Journal Titles
+      :search_type: blacklight
+  :library_web:
+    :name: Library Web
+    :no_facets: true
+    :search_box:
+      :route: library_web_index_path
+      :placeholder: Search Library Web
+  :academic_commons:
+    :name: Academic Commons
+    :search_box:
+      :route: academic_commons_index_path
+      :placeholder: Search Academic Commons
+      :search_type: blacklight
+      :search_fields:
+        all_fields: All Fields
+        title: Title
+        journal_title: Journal Title
+        author: Author
+        subject: Subject
+  :new_arrivals:
+    :name: New Arrivals
+    :search_box:
+      :route: new_arrivals_index_path
+      :placeholder: New Arrivals
+      :search_type: blacklight
+      :search_fields:
+        all_fields: All Fields
+        title: Title
+        journal_title: Journal Title
+        mauthor: Author
+        subject: Subject
+:datasource_bar:
+  :major_sources:
+    - :quicksearch:
+    - :catalog:
+    - :articles:
+    - :journals:
+    - :databases:
+    - :academic_commons:
+  :minor_sources:
+    - :archives:
+    - :dissertations:
+    - :ebooks:
+    - :new_arrivals:
+    - :newspapers:
+

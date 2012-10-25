@@ -17,6 +17,46 @@ module SearchHelper
     end
   end
 
+  def display_search_form(source, options = {})
+    
+    source_class = datasource_to_class(source)
+
+    search_params = determine_search_params 
+    div_classes = ["search_box", source_class]
+    div_classes << "multi" if show_all_search_boxes
+    div_classes << "selected" if active_search_box == source
+    
+
+    result = "".html_safe
+    if show_all_search_boxes || active_search_box == source
+      result += text_field_tag(:q, search_params[:q], class: "", id: "#{source_class}_q", placeholder: options[:placeholder])
+      result += content_tag(:button, 'Search', type: "submit", class: "btn", name: 'commit', value: 'Search')
+
+      if options[:search_type] == "blacklight"
+        result += search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page, :categories]).html_safe         
+        if options[:search_fields].kind_of?(Hash) 
+          result += select_tag(:search_field, options_for_select(options[:search_fields].invert, h(search_params[:search_field])), :title => "Targeted search options", :class=>"") 
+        end
+      elsif options[:search_type] == "summon"
+        
+          hidden_field_tag 'category', search_params['category'] || 'articles'
+          hidden_field_tag "new_search", "articles"
+      end
+
+      result = content_tag(:div, result, class: 'search_row', escape: false)
+      raise "no route in #{source_class} " unless options[:route]
+      result = content_tag(:form, result, :'accept-charset' => 'UTF-8', :class=> "form-inline", :action => self.send(options[:route]), :method => 'get')
+      result = content_tag(:div, result, :class => div_classes.join(" "))
+
+
+      
+
+    end
+
+    return result
+  end
+
+
   def display_search_box(source, &block)
     div_classes = ["search_box", datasource_to_class(source)]
     div_classes << "multi" if show_all_search_boxes
