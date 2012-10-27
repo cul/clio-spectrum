@@ -268,7 +268,7 @@ module DisplayHelper
 
         result = content_tag(:div, :class => "row") do
           if options[:style] == :definition
-            content_tag(:div, title.to_s.html_safe, :class => "label") + content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "value")
+            content_tag(:div, title.to_s.html_safe, :class => "field") + content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "value")
           elsif options[:style] == :blockquote
             content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "blockquote")
           end

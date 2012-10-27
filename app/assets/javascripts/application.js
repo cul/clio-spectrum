@@ -20,11 +20,11 @@
 //= require jquery.colorbox-min
 //= require jquery.validate.pack
 //= require jquery.observe_field
-//= require jquery.dropmenu.js
 //= require google_analytics
 //= require search_tracking
 //= require holdings
 //= require database_alerts
+//= require dropdown_select
 // Required by Blacklight
 
 

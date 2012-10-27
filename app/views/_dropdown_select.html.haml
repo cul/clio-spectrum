@@ -1,0 +1,9 @@
+%div.dropdown.dropdown_select_tag
+  %btn.btn.add-on.dropdown-toggle
+    = dropdown_default
+    %span.caret
+  %ul.dropdown-menu
+    - field_options.each do |name, value|
+      %li
+        %a(href="#" data-value=value)= name
+  = select_tag(name, options_for_select(field_options, field_default), select_options)

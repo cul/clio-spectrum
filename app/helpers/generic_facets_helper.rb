@@ -4,7 +4,7 @@ module GenericFacetsHelper
   end
 
   def fix_catalog_links(text)
-    text.to_s.gsub('/catalog',"/#{datasource_to_facet(@active_source)}").html_safe
+    text.to_s.gsub('/catalog',"/#{@active_source}").html_safe
   end
 
   def display_facet_item_label(item, value = :not_selected)

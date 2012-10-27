@@ -5,7 +5,7 @@ module CucumberHelpers
   end
 
   def find_field(node, field_name)
-   node.all('.row').detect { |row|  row.find('.label').text == field_name }
+   node.all('.row').detect { |row|  row.find('.field').text == field_name }
   end
 
 end

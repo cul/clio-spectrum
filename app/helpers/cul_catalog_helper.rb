@@ -5,16 +5,15 @@ module CulCatalogHelper
   def link_to_source_document(doc, opts={:label=>nil, :counter => nil, :results_view => true})
     label ||= blacklight_config.index.show_link.to_sym
     label = render_document_index_label doc, opts
-    source = datasource_to_facet(@active_source)
 
-    url = "/#{source}/#{doc['id'].listify.first.to_s}"
+    url = "/#{@active_source}/#{doc['id'].listify.first.to_s}"
     link_to label, url, :'data-counter' => opts[:counter]
 
 
   end
   def catalog_index_path(options = {})
     filtered_options = options.reject { |k,v| k.in?('controller', 'action','source_override') }
-    source = options['source_override'] || datasource_to_class(@active_source)
+    source = options['source_override'] || @active_source
 
     "/#{source}?#{filtered_options.to_query}"
 
@@ -22,7 +21,7 @@ module CulCatalogHelper
 
   def active_source_path(options = {})
     url_params = options.reject { |k,v| k.in?('controller', 'action') }.to_query
-    "/#{datasource_to_class(@active_source)}?#{url_params}" 
+    "/#{@active_source}?#{url_params}" 
   end
 
   def render_document_index_label doc, opts

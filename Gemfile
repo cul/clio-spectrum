@@ -1,9 +1,6 @@
 source 'http://rubygems.org'
 gem 'rails', '3.2.8'
 
-group :spectrum_dev, :spectrum_test, :spectrum_prod do
-  gem 'mysql2'
-end
 
 gem 'sqlite3'
 

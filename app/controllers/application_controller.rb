@@ -103,31 +103,29 @@ class ApplicationController < ActionController::Base
       path_minus_advanced = request.path.to_s.gsub(/^\/advanced/, '')
       @active_source = case path_minus_advanced 
       when /^\/databases/
-        'Databases'
-      when /^\/articles_journals/
-        'Articles & Journals'
+        'databases'
       when /^\/new_arrivals/
-        'New Arrivals'
+        'new_arrivals'
       when /^\/catalog/
-        'Catalog'
+        'catalog'
       when /^\/articles/
-        'Articles'
+        'articles'
       when /^\/ejournals/
-        'eJournals'
+        'ejournals'
       when /^\/dissertations/
-        'Dissertations'
+        'dissertations'
       when /^\/ebooks/
-        'eBooks'
+        'ebooks'
       when /^\/academic_commons/
-        'Academic Commons'
+        'academic_commons'
       when /^\/library_web/
-        'Library Web'
+        'library_web'
       when /^\/newspapers/
-        'Newspapers'
+        'newspapers'
       when /^\/archives/
-        'Archives'
+        'archives'
       else
-        params['active_source'] || 'Quicksearch'
+        params['active_source'] || 'quicksearch'
       end
     end
   end
@@ -138,13 +136,13 @@ class ApplicationController < ActionController::Base
   private
   def configure_search(source)
 
-    if source == "Academic Commons"
+    if source == "academic_commons"
       Blacklight.solr = RSolr::Ext.connect(:url => APP_CONFIG[:ac2_solr_url])
     else
       Blacklight.solr = RSolr::Ext.connect(Blacklight.solr_config)
     end
     if self.respond_to?(:blacklight_config)
-      if source.in?('Quicksearch','eBooks','Dissertations','Articles & Journals')
+      if source.in?('quicksearch','ebooks','dissertations')
         self.blacklight_config = Blacklight::Configuration.new do |config|
 
           config.add_search_field 'all_fields', :label => 'All Fields'
@@ -158,7 +156,7 @@ class ApplicationController < ActionController::Base
           config.document_solr_request_handler = "document"
 
           case source
-          when 'eJournals'
+          when 'journals'
             default_catalog_config(config, :display_fields, :sorts)
 
             config.default_solr_params = {
@@ -177,7 +175,7 @@ class ApplicationController < ActionController::Base
               'oai_dc_xml' => { :content_type => 'text/xml' }
             }
 
-          when 'Databases'
+          when 'databases'
             default_catalog_config(config, :display_fields)
 
             config.default_solr_params = {
@@ -205,7 +203,7 @@ class ApplicationController < ActionController::Base
             }
 
 
-          when 'Archives'
+          when 'archives'
             default_catalog_config(config, :display_fields, :search_fields, :sorts)
 
             config.default_solr_params = {
@@ -227,7 +225,7 @@ class ApplicationController < ActionController::Base
             config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
             config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
 
-          when 'New Arrivals'
+          when 'new_arrivals'
             default_catalog_config(config, :display_fields, :search_fields, :sorts)
 
             config.default_solr_params = {
@@ -257,11 +255,11 @@ class ApplicationController < ActionController::Base
             config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
             config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
 
-          when 'Catalog'
+          when 'catalog'
             default_catalog_config(config)
 
 
-          when 'Academic Commons'
+          when 'academic_commons'
             default_catalog_config(config, :solr_params, :search_fields)
 
             config.show.html_title = "title_display"

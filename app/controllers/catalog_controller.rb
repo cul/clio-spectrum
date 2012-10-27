@@ -35,10 +35,10 @@ class CatalogController < ApplicationController
     adjust_for_results_view
     session[:search][:counter] = params[:counter]
     case @active_source
-    when 'Databases'
+    when 'databases'
       redirect_to databases_show_path
-    when 'eJournals'
-      redirect_to ejournals_show_path
+    when 'journals'
+      redirect_to journals_show_path
     else
 
       redirect_to :action => "show"
