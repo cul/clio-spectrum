@@ -51,10 +51,10 @@ module DatasourcesHelper
       :query => params['q'] || params['s.q'] || ""
     }
     
+
     options[:all_sources] = !active_query? || DATASOURCES_CONFIG['datasources'][active]['no_facets']
 
     result = []
-    #result << [content_tag(:li, 'Sources', :class => 'title')]
     result |= datasources_active_list(options).collect { |src| datasource_item(src,options) }
 
     unless (hidden_datasources = datasources_hidden_list(options)).empty?

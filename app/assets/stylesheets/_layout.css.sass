@@ -1,23 +1,23 @@
 @import "local_mixes"
 
 body
-  :background white 
   :font 0.75em "Lucida Grande", "Lucida Sans Unicode", Verdana, "Arial Unicode MS", Arial, sans-serif
-  :padding-top 0em
+  :padding-top 0
+  :background white
 
 html 
-  :background transparent
-  :overflow-y scroll
-
 
 #page
-  :background white
   :border-bottom none
 
+@media only screen and (min-width:768px) 
+  #hd
+    :padding-top 1em
 
 #hd   
-  :padding-top .5em
   :padding-bottom 1em
+
+ 
 
 #bd
   :min-height 400px

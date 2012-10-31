@@ -1,24 +1,23 @@
-#clio-nav-bar.container
-  .navbar.navbar-static-top
-    .navbar-inner
+.navbar.navbar-static-top
+  .navbar-inner
+    %ul.nav
+      %li
+        %a.visible-phone.brand_title(href=root_path) CLIO
+        %a.hidden-phone.brand_title(href="http://library.columbia.edu") Libraries Home
+    .pull-right
       %ul.nav
+        %li.dropdown
+          - if current_user
+            %a(href="#" class="dropdown-toggle" data-toggle="dropdown")
+              %div{:style => "display:inline-block"}
+                %span.visible-phone #{current_user.login}
+                %span.hidden-phone #{current_user.name} (#{current_user.login})
+                %span.caret
+            %ul.dropdown-menu
+              %li= link_to "Logout", destroy_user_session_path, :method => :delete 
+          - else
+            = link_to "Login", new_user_session_path
+        %li.divider-vertical
+        
         %li
-          %a.visible-phone.brand_title(href=root_path) CLIO
-          %a.hidden-phone.brand_title(href="http://library.columbia.edu") Libraries Home
-      .pull-right
-        %ul.nav
-          %li.dropdown
-            - if current_user
-              %a(href="#" class="dropdown-toggle" data-toggle="dropdown")
-                %div{:style => "display:inline-block"}
-                  %span.visible-phone #{current_user.login}
-                  %span.hidden-phone #{current_user.name} (#{current_user.login})
-                  %span.caret
-              %ul.dropdown-menu
-                %li= link_to "Logout", destroy_user_session_path, :method => :delete 
-            - else
-              = link_to "Login", new_user_session_path
-          %li.divider-vertical
-          
-          %li
-            %a(href="#") Help
+          %a.help-button(href="#") Help

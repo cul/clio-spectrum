@@ -1,3 +1,4 @@
+= render :partial => "/datasources_dropdown"
 - search_params = determine_search_params
 - DATASOURCES_CONFIG['datasources'].each_pair do |source, source_details|
   = display_search_form(source, source_details['search_box'])

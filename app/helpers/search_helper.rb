@@ -43,7 +43,6 @@ module SearchHelper
       has_options = (options['search_type'] == "blacklight" ? "search_q with_options" : "search_q without_options")
 
       result += text_field_tag(:q, search_params[:q], class: has_options, id: "#{source}_q", placeholder: options['placeholder'])
-      result += content_tag(:button, '<i class="icon-search icon-white"></i> <span class="visible-desktop">Search</span>'.html_safe, type: "submit", class: "btn btn-primary", name: 'commit', value: 'Search')
 
       if options['search_type'] == "blacklight"
         result += search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page, :categories]).html_safe         
@@ -55,6 +54,7 @@ module SearchHelper
           hidden_field_tag 'category', search_params['category'] || 'articles'
           hidden_field_tag "new_search", "articles"
       end
+      result += content_tag(:button, '<i class="icon-search icon-white"></i> <span class="visible-desktop">Search</span>'.html_safe, type: "submit", class: "btn btn-primary", name: 'commit', value: 'Search')
 
       result = content_tag(:div, result, class: 'search_row input-append', escape: false)
       raise "no route in #{source} " unless options['route']

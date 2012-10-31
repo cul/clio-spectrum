@@ -11,7 +11,7 @@
     #page.container-fluid
       = render :partial => "/header_with_search"
       #bd.row-fluid
-        #sources.span3= sidebar_items.join('').html_safe
+        #sources.hidden-phone.span3= sidebar_items.join('').html_safe
         #main_with_sources.span9
           .row-fluid
         
@@ -19,4 +19,5 @@
             = yield
 
         .clear-both  
+      = sidebar_items.join('').html_safe
       = render :partial => "/footer"

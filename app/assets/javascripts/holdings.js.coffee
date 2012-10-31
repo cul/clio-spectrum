@@ -16,7 +16,7 @@ $(document).ready ->
     )
   
 
-  $(".datasource_link").click ->
+  $(".datasource_link,.datasource_drop_link").click ->
     change_datasource($(this).attr('source'))
 
 
