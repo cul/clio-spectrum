@@ -12,11 +12,10 @@
       = render :partial => "/header_with_search"
       #bd.row-fluid
         #sources.span3= sidebar_items.join('').html_safe
-        #main_with_sources.span9
+        #main_with_sources
         
-          = render :partial=>'/flash_msg'
+          = render :partial=>'/layouts/messages'
           = yield
 
         .clear-both  
       = render :partial => "/footer"
-    = render :partial => "/feedback_form"

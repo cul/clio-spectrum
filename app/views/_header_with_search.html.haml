@@ -1,11 +1,9 @@
 
-#hd.with_search.row-fluid
-  .logo.span3
-    clio beta
+#hd.row-fluid
+  .logo.span3.hidden-phone
+    CLIO Beta
     -#= (params[:controller] == "catalog" and !params[:id]) ? "<span id='results_text'>Search Results</span>".html_safe : ""
-  #top_search_box.span7
+  #top_search_box.span9
     = render :partial => "/top_search_box"
 
-  #user_util_links.span2
-    = render :partial => "/header_help"
 

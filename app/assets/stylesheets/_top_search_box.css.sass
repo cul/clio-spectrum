@@ -6,7 +6,23 @@
     :display block
 
 .dropdown-menu a
-  :font-size 14px
+
+.search_q
+  &.without_options
+    :width 25em
+
+  &.with_options
+    :width 19em
+
+@media (max-width: 480px) 
+  .search_q
+    &.without_options 
+      :width 15em
+    &.with_options
+      :width 9em
+
+.search_options
+  :width 6em
 div.dropdown_select_tag
   :display inline
 

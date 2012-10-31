@@ -40,13 +40,15 @@ module SearchHelper
 
     result = "".html_safe
     if show_all_search_boxes || active_search_box == source
-      result += text_field_tag(:q, search_params[:q], class: "", id: "#{source}_q", placeholder: options['placeholder'])
-      result += content_tag(:button, '<i class="icon-search icon-white"></i> Search'.html_safe, type: "submit", class: "btn btn-primary", name: 'commit', value: 'Search')
+      has_options = (options['search_type'] == "blacklight" ? "search_q with_options" : "search_q without_options")
+
+      result += text_field_tag(:q, search_params[:q], class: has_options, id: "#{source}_q", placeholder: options['placeholder'])
+      result += content_tag(:button, '<i class="icon-search icon-white"></i> <span class="visible-desktop">Search</span>'.html_safe, type: "submit", class: "btn btn-primary", name: 'commit', value: 'Search')
 
       if options['search_type'] == "blacklight"
         result += search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page, :categories]).html_safe         
         if options['search_fields'].kind_of?(Hash) 
-          result += dropdown_with_select_tag(:search_field, options['search_fields'].invert, h(search_params[:search_field]), :title => "Targeted search options", :class=>"") 
+          result += dropdown_with_select_tag(:search_field, options['search_fields'].invert, h(search_params[:search_field]), :title => "Targeted search options", :class=>"search_options") 
         end
       elsif options['search_type'] == "summon"
           

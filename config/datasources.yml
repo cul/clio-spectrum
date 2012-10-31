@@ -4,36 +4,36 @@ datasources:
     no_facets: true
     search_box:
       route: search_index_path
-      placeholder: Search Catalog, Articles, Academic Commons, Library Web 
+      placeholder: Catalog, Articles, Academic Commons, Library Web 
   newspapers:
     name: Newspapers
     no_facets: true
     search_box:
       route: newspapers_index_path
-      placeholder: Search Newspapers
+      placeholder: Newspapers
   articles:
     name: Articles
     search_box:
       route: articles_index_path
-      placeholder: Search Articles
+      placeholder: Articles
       search_type: summon
   ebooks:
     name: eBooks
     no_facets: true
     search_box:
       route: ebooks_index_path
-      placeholder: Search eBooks 
+      placeholder: eBooks 
   dissertations:
     name: Dissertations
     no_facets: true
     search_box:
       route: dissertations_index_path
-      placeholder: Search Dissertations
+      placeholder: Dissertations
   catalog:
     name: Catalog
     search_box:
       route: catalog_index_path
-      placeholder: Search Catalog
+      placeholder: Catalog
       search_type: blacklight
       search_fields:
         all_fields: All Fields
@@ -45,31 +45,31 @@ datasources:
     name: Archives
     search_box:
       route: archives_index_path
-      placeholder: Search Archives
+      placeholder: Archives
       search_type: blacklight
   databases:
     name: Databases
     search_box:
       route: databases_index_path 
-      placeholder: Search Databases
+      placeholder: Databases
       search_type: blacklight
   journals:
     name: Journal Titles
     search_box:
       route: journals_index_path
-      placeholder: Search Journal Titles
+      placeholder: Journal Titles
       search_type: blacklight
   library_web:
     name: Library Web
     no_facets: true
     search_box:
       route: library_web_index_path
-      placeholder: Search Library Web
+      placeholder: Library Web
   academic_commons:
     name: Academic Commons
     search_box:
       route: academic_commons_index_path
-      placeholder: Search Academic Commons
+      placeholder: Academic Commons
       search_type: blacklight
       search_fields:
         all_fields: All Fields
