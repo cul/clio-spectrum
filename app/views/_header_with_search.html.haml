@@ -3,10 +3,9 @@
   .logo.span3
     clio beta
     -#= (params[:controller] == "catalog" and !params[:id]) ? "<span id='results_text'>Search Results</span>".html_safe : ""
-  #top_search_box.span6
+  #top_search_box.span7
     = render :partial => "/top_search_box"
 
   #user_util_links.span2
     = render :partial => "/header_help"
 
-  .clear-both
