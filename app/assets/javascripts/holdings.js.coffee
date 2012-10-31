@@ -1,7 +1,5 @@
 $(document).ready ->
     
-  $('#contact').contactable( subject: 'A Feedback Message')
-  attach_location_colorboxes()
   $("ul#datasources li, #toolbar-container .box").hover(
     -> $(this).addClass('hover')
     -> $(this).removeClass('hover')

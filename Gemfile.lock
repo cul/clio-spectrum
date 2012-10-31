@@ -58,7 +58,7 @@ GEM
     blacklight_unapi (0.0.3)
       blacklight (> 3.2)
       rails (~> 3.0)
-    bootstrap-sass (2.1.0.1)
+    bootstrap-sass (2.1.1.0)
     builder (3.0.3)
     cancan (1.6.8)
     capistrano (2.13.4)

@@ -3,7 +3,6 @@
 body
   :background white 
   :font 0.75em "Lucida Grande", "Lucida Sans Unicode", Verdana, "Arial Unicode MS", Arial, sans-serif
-  :line-height 1.5
   :padding-top 0em
 
 html 
@@ -15,31 +14,6 @@ html
   :background white
   :border-bottom none
 
-#cu_top
-  background: #174785
-  height: 30px
-  color: #ddd
-  font-size: 10px
-  line-height: 30px
-
-#cu_inner
-  margin: 0 auto
-  background: asset_url("crown-24x24.png", image) no-repeat left 1px 
-  padding-right: 0px
-  padding-left: 28px
-  min-height: 24px
-
-#cu_inner_right
-  float: right
-  padding-right: 10px
-
-#cu_top a
-  color: #fff
-  text-decoration: none
-  border: 0
-  &:hover
-    text-decoration: underline
-    border: 0
 
 #hd   
   :padding-top .5em
@@ -49,12 +23,12 @@ html
   :min-height 400px
   :clear both
 
-
+#footer
+  :min-height 1em
 #sources
-  //+grid-fluid-span(2)
-#main_with_sources
-  //+grid-fluid-span(10)
 
+#main_with_sources
+  @extend .span9
 .two_equal
   :padding 1em 0 1em 0
 
@@ -100,10 +74,4 @@ h1.site_title a
 .refine_call_title
   :margin-top 1em
   :font-weight bold
-
-.grid_view
-  +makeColumn(9)
-
-  .document_gallery
-    +makeColumn(3)
 

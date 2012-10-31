@@ -16,8 +16,6 @@
 //= require blacklight/blacklight          
 //= require blacklight_application
 //= require articles
-//= require jquery.contactable.min.js
-//= require jquery.colorbox-min
 //= require jquery.validate.pack
 //= require jquery.observe_field
 //= require google_analytics

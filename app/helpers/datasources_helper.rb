@@ -66,7 +66,7 @@ module DatasourcesHelper
       result << content_tag(:ul, sub_results.join('').html_safe, :id => 'expanded_datasources')
     end
 
-    landing_class = options[:all_sources] ? 'landing' : ''
+    landing_class = options[:all_sources] ? 'landing datasource_list' : 'datasource_list'
     sidebar_items.unshift(content_tag(:ul, result.join('').html_safe, :id => "datasources", :class => landing_class))
   end
 

@@ -1,3 +1,4 @@
+@import "bootstrap-responsive"
 
 .search_box 
   :display none
@@ -21,16 +22,21 @@
     &.with_options
       :width 9em
 
+
+
+.datasource_list
+  @extend .hidden-phone
+
+
 .search_options
   :width 6em
-div.dropdown_select_tag
+.dropdown_select_tag
   :display inline
 
-  btn
+  btn.add-on.dropdown-toggle
     :display inline-block !important
+    +border-radius(0 4px 4px 0)
 
   .dropdown-toggle
     :display none
   
-  ul.dropdown-menu
-    :margin-top 16px
