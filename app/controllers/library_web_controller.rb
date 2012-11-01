@@ -1,5 +1,3 @@
-require 'blacklight/catalog'
-
 class LibraryWebController < ApplicationController
   layout "quicksearch"
   
@@ -11,5 +9,7 @@ class LibraryWebController < ApplicationController
     if params['q']
       @results = LibraryWeb::Api.new(params)
     end
+
+    render :layout => "quicksearch"
   end
 end

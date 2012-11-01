@@ -112,8 +112,8 @@ class ApplicationController < ActionController::Base
         'catalog'
       when /^\/articles/
         'articles'
-      when /^\/ejournals/
-        'ejournals'
+      when /^\/journals/
+        'journals'
       when /^\/dissertations/
         'dissertations'
       when /^\/ebooks/
@@ -180,6 +180,7 @@ class ApplicationController < ActionController::Base
           when 'databases'
             default_catalog_config(config, :display_fields)
 
+
             config.default_solr_params = {
               :qt => "search",
               :per_page => 10,
@@ -200,6 +201,7 @@ class ApplicationController < ActionController::Base
             config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
             config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
             config.add_facet_field 'title_first_facet', :label => "Starts With"
+            config.add_sort_field   'score desc, pub_date_sort desc, title_sort asc', :label => 'relevance'
             config[:unapi] = {
               'oai_dc_xml' => { :content_type => 'text/xml' }
             }
@@ -281,7 +283,7 @@ class ApplicationController < ActionController::Base
             config.add_facet_field 'genre_facet', :label => 'Content Type'
             config.add_facet_field 'series_facet', :label => 'Series'
 
-            config.add_sort_field   'score desc, pub_date_sort desc, title_sort asc', :label => 'Relevance'
+            config.add_sort_field   'score desc, pub_date_sort desc, title_sort asc', :label => 'relevance'
             config.add_sort_field   'pub_date_sort asc, title_sort asc', :label => 'Published Earliest'
             config.add_sort_field   'pub_date_sort desc, title_sort asc', :label => 'Published Latest'
             config.add_sort_field   'author_sort asc, title_sort asc', :label => 'Author A-Z'
