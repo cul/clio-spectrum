@@ -20,4 +20,6 @@
         %li.divider-vertical
         
         %li
-          %a.help-button(href="#") Help
+          %a.help-button(data-toggle="modal" data-target="#helpModal" href="#helpModal") Help
+
+= render :partial => "/help_modal"

@@ -15,6 +15,7 @@
 //= require blacklight_range_limit/range_limit_slider
 //= require blacklight/blacklight          
 //= require blacklight_application
+//= require bootstrap-tab
 //= require articles
 //= require jquery.validate.pack
 //= require jquery.observe_field

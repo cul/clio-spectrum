@@ -14,6 +14,7 @@ $(document).ready ->
       100
       -> $("#datasource_expand").show()
     )
+ 
   
 
   $(".datasource_link,.datasource_drop_link").click ->
@@ -27,6 +28,27 @@ $(document).ready ->
         $("#top_search_box .q:hidden").val(value)
     
   )
+
+  $(".return-to-index").attr('style', "display: none")
+
+  $("#select_a_help_issue a").click (e) ->
+    e.preventDefault();
+    $(this).tab('show');
+    $(".return-to-index").show()
+    $("#select_a_help_issue").hide()
+
+  $(".return-to-index btn.submit").click ->
+    $(this).html = "Sending..."
+    form = $(this).parents('form')
+    $.post '/backend/feedback_mail', form.serialize(), () -> 
+      $('#helptab_content .tab-pane.active').hide()
+      $('#success_message').show().delay(1000)
+      $('#helpModal').modal(show: 'false')
+
+  $(".return-to-index btn.return").click ->
+    $(".return-to-index").hide()
+    $("#helptab_content .tab-pane.active").removeClass('active')
+    $("#select_a_help_issue").show()
 
   $(".expander").click ->
     $(this).hide()
