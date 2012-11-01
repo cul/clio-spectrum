@@ -1,17 +1,20 @@
+-# coding: UTF-8
 !!!
-%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+%html{:xmlns => "http://www.w3.org/1999/xhtml", :lang => "en"}
   %head
     = render :partial => "/layouts/common_head"
   - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
   %body{:onload => onload}
+    - add_datasources(@active_source)
     #trigger
     = render :partial => "/top_navigation_bar"
-    #page
+    #page.container-fluid
       = render :partial => "/header_with_search"
-      #bd
-        #main_no_sidebar
-          = render :partial=>'/flash_msg'
+      #bd.row-fluid
+        .row-fluid
+      
+          = render :partial=>'/layouts/messages'
           = yield
-        .clear-both
+
+        .clear-both  
       = render :partial => "/footer"
-    = render :partial => "/feedback_form"

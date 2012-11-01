@@ -32,7 +32,7 @@ datasources:
   catalog:
     name: Catalog
     search_box:
-      route: catalog_index_path
+      route: base_catalog_index_path
       placeholder: Catalog
       search_type: blacklight
       search_fields:
