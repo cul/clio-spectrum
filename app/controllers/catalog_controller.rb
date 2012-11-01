@@ -5,6 +5,7 @@ class CatalogController < ApplicationController
 
   include Blacklight::Controller
   include Blacklight::Catalog
+  include Blacklight::Configurable
   include BlacklightUnapi::ControllerExtension
 
 

@@ -1,6 +1,8 @@
 class SearchController < ApplicationController
   include Blacklight::Controller
   include Blacklight::Catalog
+  include Blacklight::Configurable
+  include BlacklightRangeLimit::ControllerOverride
   layout 'quicksearch'
 
   CATEGORY_ORDER = %w{catalog articles_journals articles academic_commons ebooks ejournals lweb catalog_ebooks catalog_ejournals catalog_dissertations articles_dissertations articles_newspapers ac_dissertations}
@@ -133,7 +135,7 @@ class SearchController < ApplicationController
                       :url => articles_search_path(summon.search.query.to_hash)
                     }
                   when 'catalog_ebooks'
-                    configure_search('Catalog')
+                    configure_search('catalog')
                     params[:per_page] = 15
                     params[:f] = {'format' => ['Book', 'Online']}
                   
@@ -146,7 +148,7 @@ class SearchController < ApplicationController
                     }
                   when 'catalog_databases'
 
-                    configure_search('Catalog')
+                    configure_search('catalog')
                     params[:per_page] = 15
                     params[:f] = {'source_facet' => ['database']}
                     solr_response, solr_results =  get_and_debug_search_results
@@ -158,7 +160,7 @@ class SearchController < ApplicationController
                     }
                   when 'catalog_ejournals'
 
-                    configure_search('Catalog')
+                    configure_search('catalog')
                     params[:per_page] = 15
                     params[:f] = {'source_facet' => ['ejournal']}
                     solr_response, solr_results =  get_and_debug_search_results
@@ -170,7 +172,7 @@ class SearchController < ApplicationController
                     }
                   when 'catalog_dissertations'
 
-                    configure_search('Catalog')
+                    configure_search('catalog')
                     params[:per_page] = 15
                     params[:f] = {'format' => ['Thesis']}
                     solr_response, solr_results =  get_and_debug_search_results
@@ -181,7 +183,7 @@ class SearchController < ApplicationController
                       :url => url_for(:controller => 'catalog', :action => 'index', :q => params['q'], :f => {'format' => ['Thesis']})
                     }
                   when 'catalog'
-                    configure_search('Catalog')
+                    configure_search('catalog')
                     params[:per_page] = 15
                     solr_response, solr_results =  get_and_debug_search_results
                     look_up_clio_holdings(solr_results)
@@ -191,7 +193,7 @@ class SearchController < ApplicationController
                       :url => url_for(:controller => 'catalog', :action => 'index', :q => params['q'])
                     }
                   when 'academic_commons'
-                    configure_search('Academic Commons')
+                    configure_search('academic_commons')
                     params[:per_page] = 15
 
                     solr_response, solr_results =  get_and_debug_search_results
@@ -201,7 +203,7 @@ class SearchController < ApplicationController
                       :url => academic_commons_index_path(:q => params['q'])
                     }
                   when 'ac_dissertations'
-                    configure_search('Academic Commons')
+                    configure_search('academic_commons')
                     params[:per_page] = 3
                     params[:genre_facet] = ['Dissertations']
                     params[:f] = {'genre_facet' => ['Dissertations']}

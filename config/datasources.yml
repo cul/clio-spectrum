@@ -97,6 +97,7 @@ datasource_bar:
     - journals
     - databases
     - academic_commons
+    - library_web
   minor_sources:
     - archives
     - dissertations

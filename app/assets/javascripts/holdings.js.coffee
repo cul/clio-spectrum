@@ -32,6 +32,21 @@ $(document).ready ->
     $(this).parent().find(".expander_more").show()
     return false
 
+  bind_dropdown_selects()
+
+
+bind_dropdown_selects = (source) ->
+  $(".dropdown_select_tag").each ->
+    $(this).find('ul.dropdown-menu a').click ->
+      selection = $(this).attr('data-value')
+      selection_key = $(this).text()
+
+      dropdown_root = $(this).parents(".dropdown_select_tag")
+      $(dropdown_root).find('.dropdown-toggle').html(selection_key + ' <span class="caret"/>')
+      console.log($(dropdown_root).find('select').val())
+      $(dropdown_root).find('select').val(selection)
+      console.log($(dropdown_root).find('select').val())
+
 
 change_datasource = (source) ->
   $("ul.landing li").removeClass('selected')

@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   # Adds a few additional behaviors into the application controller 
-   include Blacklight::Configurable
+  include Blacklight::Controller
+  include Blacklight::Catalog
+  include Blacklight::Configurable
   # Please be sure to impelement current_user and user_session. Blacklight depends on 
   # these methods in order to perform user specific actions. 
   before_filter :trigger_debug_mode
@@ -290,6 +292,7 @@ class ApplicationController < ActionController::Base
           end
 
           config.add_facet_fields_to_solr_request!
+
 
         end
       end
