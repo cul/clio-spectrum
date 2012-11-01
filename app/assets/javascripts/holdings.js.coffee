@@ -18,6 +18,7 @@ $(document).ready ->
 
   $(".datasource_link,.datasource_drop_link").click ->
     change_datasource($(this).attr('source'))
+    #$("#mobile_datasource_select").val($(this).attr('source'))
 
 
   $("#top_search_box .q").observe_field(.25, -> 
@@ -34,6 +35,14 @@ $(document).ready ->
 
   bind_dropdown_selects()
 
+  $("#mobile_datasource_select").change ->
+    select = '#datasources li[source="' + $(this).val() + '"] a'
+    datasource_href= $(select).attr('href')
+
+    if datasource_href == '#'
+      change_datasource($(this).val())
+    else
+      window.location = datasource_href
 
 bind_dropdown_selects = (source) ->
   $(".dropdown_select_tag").each ->
@@ -60,10 +69,6 @@ change_datasource = (source) ->
   $('#top_search_box .search_box.multi').hide()
   $(search_box_select).show()
 
-attach_location_colorboxes = ->
-  $(".location_display").colorbox
-    transition: 'none'
-    scrolling: false
 
 
 root = exports ? this
@@ -76,7 +81,6 @@ root.load_clio_holdings = (id) ->
 
     success: (data) ->
         $('#clio_holdings').html(data)
-        attach_location_colorboxes()
 
     error: (data) ->
         $("span.holding_spinner").hide()

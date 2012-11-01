@@ -1,5 +1,5 @@
-.datasource_select
-  Search
+.sidenav.source_select
   - datasource_names = datasource_list(:all).collect { |source| [DATASOURCES_CONFIG['datasources'][source]['name'], source] }
-  =select_tag :datasource, options_for_select(datasource_names, @active_source)
-  for
+  =select_tag :mobile_datasource_select, options_for_select(datasource_names, @active_source) 
+  %h4 
+    Source
