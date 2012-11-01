@@ -30,27 +30,11 @@
     .result 
       :background-color #fff
 
-    .row
-
-    .label
-    
-    .value
-      
-    .result_set 
-
   .side_results
       
     .result
       :background-color #fff
 
-    .row
-
-    .label
-
-    .value
-      
-
-    .result_set 
 
 .show
   #clio_main
@@ -60,34 +44,40 @@
 
 
 .result_header
+  +clearfix
   :clear both
 
-.row
+.result 
+  +clearfix
+
+.document-row
+  :clear left
   .field 
     :float left
     :width 6em
     :padding-right 0.5em
-    :text-align right
     :color #777
+    :min-height 1em !important
 
-  .value_box
+
+  .value
+    :float left
     :padding-right .25em
+    :min-height 1em !important
+    :padding-bottom .25em
 
+
+.doc_bookjacket
+  @extend .hidden-phone
+
+@media (min-width:768px)
+  .document-row
+    .field
+      :text-align right
 .result_set
   :margin-bottom 1em
 
 
-.result_set.condensed
-
-  .result
-    :padding-bottom .25em
-
-  .row
-    :padding-bottom 0em
-
-  .result_title
-    :padding-top .5em
-    :padding-bottom .25em
 
 .results_header
   background: #e3e8f1
@@ -123,8 +113,8 @@
 .result
   :padding-bottom 1em
 
-  .row
-    :padding-bottom .5em
+  .document-row
+    :padding-bottom 0.25em
 
     .result_title
       :font-weight bold

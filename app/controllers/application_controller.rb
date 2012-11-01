@@ -163,7 +163,7 @@ class ApplicationController < ActionController::Base
 
             config.default_solr_params = {
               :qt => "search",
-              :per_page => 15,
+              :per_page => 10,
               :fq  => ['{!raw f=source_facet}ejournal']
             }
 
@@ -182,7 +182,7 @@ class ApplicationController < ActionController::Base
 
             config.default_solr_params = {
               :qt => "search",
-              :per_page => 15,
+              :per_page => 10,
               :fq  => ['{!raw f=source_facet}database']
             }
 
@@ -210,7 +210,7 @@ class ApplicationController < ActionController::Base
 
             config.default_solr_params = {
               :qt => "search",
-              :per_page => 15,
+              :per_page => 10,
               :fq  => ['{!raw f=source_facet}archive']
             }
             
@@ -232,7 +232,7 @@ class ApplicationController < ActionController::Base
 
             config.default_solr_params = {
               :qt => "search",
-              :per_page => 15,
+              :per_page => 10,
               :fq  => ["acq_dt:[#{(Time.now - 6.months).utc.iso8601} TO *]"]
             }
 
@@ -312,7 +312,7 @@ class ApplicationController < ActionController::Base
 
       config.default_solr_params = {
         :qt => "search",
-        :per_page => 15
+        :per_page => 10
       }
     end
   
@@ -327,7 +327,7 @@ class ApplicationController < ActionController::Base
     end
 
     if elements.include?(:facets)
-      config.add_facet_field "format", :label => "Format", :limit => 3
+      config.add_facet_field "format", :label => "Format", :limit => 3, :open => true
       config.add_facet_field "author_facet", :label => "Author", :limit => 3
       config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => true
       config.add_facet_field 'acq_dt', :label => 'Acquisition Date', :query => {
@@ -343,7 +343,7 @@ class ApplicationController < ActionController::Base
       config.add_facet_field "subject_geo_facet", :label => "Subject (Region)", :limit => 3
       config.add_facet_field "subject_era_facet", :label => "Subject (Era)", :limit => 3
       config.add_facet_field "subject_form_facet", :label => "Subject (Genre)", :limit => 3
-      config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
+      config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26
       config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
     end
 

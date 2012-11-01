@@ -1,6 +1,6 @@
 
 .facet_limit
-  %h3.twiddle= facet.label
+  %h5.twiddle= facet.label
   - no_selected_items = facet.items(:selected, :negated).empty?
   - style = no_selected_items ? "display: none;" : nil
   %ul{:style => style}

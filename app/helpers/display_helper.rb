@@ -254,10 +254,12 @@ module DisplayHelper
       :abbreviate => nil,
       :html_safe => true,
       :expand => false,
-      :style => @add_row_style || :definition
+      :style => @add_row_style || :definition,
+      :spans => [2,10]
     })
 
     value_txt = convert_values_to_text(value, options)
+    spans = options[:spans]
 
 
     result = ""
@@ -266,9 +268,9 @@ module DisplayHelper
         result = (title.to_s + ": " + value_txt.to_s + "\r\n").html_safe
       else
 
-        result = content_tag(:div, :class => "row") do
+        result = content_tag(:div, :class => "document-row") do
           if options[:style] == :definition
-            content_tag(:div, title.to_s.html_safe, :class => "field") + content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "value")
+            content_tag(:div, title.to_s.html_safe, :class => "field span#{spans.first}") + content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "value span#{spans.last}")
           elsif options[:style] == :blockquote
             content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "blockquote")
           end

@@ -1,0 +1,22 @@
+- display_facet = @response.facets.detect {|f| f.name == solr_field} 
+
+- refine_call_number = false
+- paginator =   Blacklight::Solr::FacetPaginator.new(display_facet.items, :limit => facet_limit_for(solr_field) )
+- paginator.items.each do |item| 
+  %li
+    - if facet_in_params?( solr_field, item.value ) 
+      = render_selected_facet_value(solr_field, item)
+      - refine_call_number = solr_field == "lc_1letter_facet"
+    - else
+      = render_facet_value(solr_field, item)
+    
+    - if(paginator.has_next?)  
+      .more_facets_link
+        = link_to('more »', params.merge(:id => solr_field, :action=>"facet"), :class => "more_facets_link")
+          
+   
+
+- if refine_call_number 
+  .refine_call_number
+    .refine_call_title Refine Call Number
+    = render :partial => "catalog/facet_call_letter_value", :locals => {:solr_field => "lc_2letter_facet"}

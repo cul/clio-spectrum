@@ -1,4 +1,2 @@
 - if paginate_params(@response).num_pages > 1 
-  .pagination
-    %h2 Results navigation 
-    = fix_catalog_links(paginate_rsolr_response(@response, :outer_window => 2, :theme => 'blacklight'))
+  .pagination= paginate_rsolr_response @response, :outer_window => 2, :theme => 'blacklight' 

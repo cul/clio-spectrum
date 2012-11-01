@@ -1,3 +1,5 @@
-.facet_limit.selected{:class => "blacklight-#{facet_field.field.parameterize}"}
-  %h3.twiddle.twiddle-open= facet_field.label
+.facet_limit{:class => "blacklight-#{facet_field.field.parameterize}"}
+  %h5
+    =facet_field.label
+    %i.icon-chevron
   = yield

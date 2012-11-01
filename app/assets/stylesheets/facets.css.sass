@@ -1,15 +1,11 @@
 @import "local_mixes"
 
 
-.activated_facets
-  :margin-bottom 1em
 
 .facet_action
   :cursor pointer
 
 .facet_limit
-  :padding-right 1em
-  :margin-bottom 1em
 
 
   li
@@ -38,49 +34,22 @@
   display:block
 
 #facets
-  padding: 0px 0px
-  background: #fff
-  margin-top: 0
-  border: 0px solid #aaa
 
-  li
-    a.remove
-      :margin-left .25em
 
-  li.more_facets_link
-    :padding-top .5em
-
-  ul, h3 + div
-    border-bottom: none
-
-  h2
-    padding-left: 2px
-    margin-bottom: 4px
-    background: rgba(255, 255, 255, 1)
-    border: 0px solid #ccc
-    border-left: 0
-    border-right: 0
-    font-size: 16px
-    text-transform: lowercase
-    font-variant: small-caps
-    color: #888
-  h3
-    :font-size 1.1em
-    :font-weight bold
-    border-bottom: 1px solid #fff
-  > .facet_limit
-    padding: 2px 4px 0 0px
-
-.facet_limit
-  > .facet_limit
-    margin: 0
-    padding: 0
-  h3
-    margin-top: 6px
 
 .range_limit
-  .range.slider_js
-    :margin-left 6px
-    :margin-right 6px
-  a.load_distribution
+  .current
+    :padding-left 1em
+  .profile
     :display none
+
+  form
+    :padding-left 1em
+
+    .ui-state-default
+      :line-height 23px
+      :vertical-align top
+
+.refine_call_title
+  :margin-top 1em
+  :font-weight bold

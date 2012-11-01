@@ -7,15 +7,14 @@
     - add_datasources(@active_source)
     #trigger
     = render :partial => "/top_navigation_bar"
-    #page
+    #page.container-fluid
       = render :partial => "/header"
-      #bd
-        #main
-          #main_container
+      #bd.row-fluid
+        #sidebar.hidden-phone.span3= sidebar_items.join('').html_safe
+        #main.span9
+          .row-fluid
             = render :partial=>'/flash_msg'
             = yield
 
-        #sidebar= sidebar_items.join('').html_safe
         .clear-both  
       = render :partial => "/footer"
-    = render :partial => "/feedback_form"
