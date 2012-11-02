@@ -27,3 +27,46 @@ ul.help-items
         :width 320px
     .control-text
       :width 320px
+
+
+@media (max-width: 480px) 
+  .modal 
+    height: 500px
+    position: fixed
+    overflow-y: scroll
+    -webkit-overflow-scrolling: touch
+  
+  .modal.fade.in
+    top: 5px
+  
+  .modal-body
+    /* Increase the max height of the modal body to try & avoid both it,
+     * and the modal container having scroll bars which results in odd behavior */ 
+    max-height: 2400px 
+    
+
+
+/* Now adjust the height so it handles various screen sizes & orientations */
+/* You could make this as granular as you like, or have it more granular at common screen sizes
+ * but it should start at the height we set on .modal (i.e. 500px) & work down */
+@media (max-width: 480px) and (max-height: 500px)
+  .modal 
+    height: 450px
+@media (max-width: 480px) and (max-height: 450px)
+  .modal 
+    height: 400px
+@media (max-width: 480px) and (max-height: 400px)
+  .modal 
+    height: 350px
+@media (max-width: 480px) and (max-height: 350px)
+  .modal 
+    height: 300px
+@media (max-width: 480px) and (max-height: 300px)
+  .modal 
+    height: 250px
+@media (max-width: 480px) and (max-height: 250px)
+  .modal 
+    height: 200px
+@media (max-width: 480px) and (max-height: 200px)
+  .modal 
+    height: 150px
