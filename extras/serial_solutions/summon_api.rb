@@ -16,7 +16,7 @@ module SerialSolutions
         
     def initialize(in_options = {}) 
       options = in_options.clone
-      @config = options.delete('config') || APP_CONFIG[:summon]
+      @config = options.delete('config') || APP_CONFIG['summon']
 
       unless options.delete('new_search').to_s.empty?
         category = options.delete('category') || 'articles'

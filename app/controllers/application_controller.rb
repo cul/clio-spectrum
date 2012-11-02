@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     
     begin
       unless clio_docs.empty? 
-        holdings = Voyager::Request.simple_holdings_check(connection_details: APP_CONFIG[:oracle_connection_details] , bibids: clio_docs.collect { |cd| cd.get('clio_id_display')})
+        holdings = Voyager::Request.simple_holdings_check(connection_details: APP_CONFIG['voyager_connection']['oracle'], bibids: clio_docs.collect { |cd| cd.get('clio_id_display')})
         clio_docs.each do |cd|
           cd['clio_holdings'] = holdings[cd.get('clio_id_display')]
         end
@@ -139,7 +139,7 @@ class ApplicationController < ActionController::Base
   def configure_search(source)
 
     if source == "academic_commons"
-      Blacklight.solr = RSolr::Ext.connect(:url => APP_CONFIG[:ac2_solr_url])
+      Blacklight.solr = RSolr::Ext.connect(:url => APP_CONFIG['ac2_solr_url'])
     else
       Blacklight.solr = RSolr::Ext.connect(Blacklight.solr_config)
     end

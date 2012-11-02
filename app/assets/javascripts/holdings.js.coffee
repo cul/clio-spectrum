@@ -143,4 +143,3 @@ root.retrieve_holdings = (bibids) ->
           selector = "img.availability.holding_" + holding_id
           $(selector).attr("src", "/assets/icons/"+holding.status+".png")
 
-

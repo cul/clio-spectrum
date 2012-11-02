@@ -19,7 +19,8 @@ gem 'json'
 
 #gem 'voyager_oracle_api', :path => "~/code/voyager_oracle_api"
 
-gem 'voyager_oracle_api', ">= 1.0.0"
+gem 'voyager_oracle_api', ">= 1.1.0"
+gem 'restful_voyage', :path => "~/code/restful_voyage"
 
 
 # Deploy with Capistrano

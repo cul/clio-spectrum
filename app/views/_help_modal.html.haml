@@ -22,7 +22,7 @@
 
         = form_tag '', :class => 'form-horizontal' do
           = hidden_field_tag :version, RELEASE_STAMP
-          = hidden_field_tag :product, APP_CONFIG[:application_name]
+          = hidden_field_tag :product, APP_CONFIG['application_name']
           = hidden_field_tag :page, request.url
           = hidden_field_tag :user_agent, request.user_agent
           .control-group

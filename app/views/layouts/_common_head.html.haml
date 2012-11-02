@@ -6,7 +6,7 @@
 %link{:rel => 'unapi-server', :title => 'unAPI', :type => 'application/xml', :href => unapi_url}
 %script{:src => "https://www.google.com/jsapi", :type => "text/javascript"}
 
-= javascript_tag "var RAILS_ROOT = '#{APP_CONFIG[:relative_url_root]}';"
+= javascript_tag "var RAILS_ROOT = '#{APP_CONFIG['relative_url_root']}';"
 = stylesheet_link_tag "application", :media => 'all'
 = javascript_include_tag "application"
 = javascript_tag "google.load('books','0')"

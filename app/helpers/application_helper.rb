@@ -1,7 +1,7 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   def application_name
-    APP_CONFIG[:application_name].to_s
+    APP_CONFIG['application_name'].to_s
   end
 
   def alternating_line(id="default")

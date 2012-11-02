@@ -12,6 +12,18 @@ PATH
       sass-rails
       unicode
 
+PATH
+  remote: ~/code/restful_voyage
+  specs:
+    restful_voyage (0.1.0)
+      activesupport
+      httpclient
+      i18n
+      json
+      nokogiri
+      ruby-oci8
+      voyager_oracle_api (>= 1.1.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -284,7 +296,7 @@ GEM
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     unicode (0.4.3)
-    voyager_oracle_api (1.0.0)
+    voyager_oracle_api (1.1.0)
       activesupport
       activesupport
       i18n
@@ -339,6 +351,7 @@ DEPENDENCIES
   rails (= 3.2.8)
   rb-fsevent
   rb-readline
+  restful_voyage!
   rspec-rails
   ruby-prof
   ruby_gntp
@@ -352,4 +365,4 @@ DEPENDENCIES
   thin
   uglifier (>= 1.0.3)
   unicode
-  voyager_oracle_api (>= 1.0.0)
+  voyager_oracle_api (>= 1.1.0)
