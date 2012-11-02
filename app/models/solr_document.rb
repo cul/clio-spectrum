@@ -5,7 +5,6 @@ class SolrDocument
   end
 
   include Blacklight::Solr::Document
-  include BlacklightHighlight::SolrDocumentExtension
 
   
   # The following shows how to setup this blacklight document to display marc documents

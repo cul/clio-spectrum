@@ -139,9 +139,9 @@ class ApplicationController < ActionController::Base
   def configure_search(source)
 
     if source == "academic_commons"
-      Blacklight.solr = RSolr::Ext.connect(:url => APP_CONFIG['ac2_solr_url'])
+      Blacklight.solr = RSolr.connect(:url => APP_CONFIG['ac2_solr_url'])
     else
-      Blacklight.solr = RSolr::Ext.connect(Blacklight.solr_config)
+      Blacklight.solr = RSolr.connect(Blacklight.solr_config)
     end
     if self.respond_to?(:blacklight_config)
       if source.in?('quicksearch','ebooks','dissertations')

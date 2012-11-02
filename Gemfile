@@ -9,10 +9,9 @@ gem 'sqlite3'
 
 
 # gem 'blacklight'
-gem 'blacklight', :path => "~/code/blacklight"
-#gem 'blacklight', :git => "git://github.com/projectblacklight/blacklight.git", :branch => "bootstrap"
-gem 'blacklight_range_limit', ">= 1.2.3"
-gem 'blacklight_highlight'
+gem 'blacklight', :git => "git://github.com/projectblacklight/blacklight.git", :branch => "master"
+gem 'blacklight_range_limit', :path => "~/code/blacklight_range_limit"
+#gem 'blacklight_highlight', :path => "~/code/blacklight_highlight"
 gem 'blacklight_google_analytics'
 gem 'blacklight_unapi', ">= 0.0.3" 
 gem 'json'

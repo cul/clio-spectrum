@@ -1,16 +1,25 @@
-PATH
-  remote: ~/code/blacklight
+GIT
+  remote: git://github.com/projectblacklight/blacklight.git
+  revision: 67a777cb033e6ce8cbccd49c076c3390cd637e3a
+  branch: master
   specs:
-    blacklight (3.7.2)
+    blacklight (4.0.0.pre1)
       bootstrap-sass (~> 2.1.0)
       kaminari (~> 0.13)
       marc (>= 0.4.3, < 1.1)
       nokogiri (~> 1.5)
       rails (~> 3.1)
       rsolr (~> 1.0.6)
-      rsolr-ext (~> 1.0.3)
       sass-rails
       unicode
+
+PATH
+  remote: ~/code/blacklight_range_limit
+  specs:
+    blacklight_range_limit (1.2.3)
+      blacklight (>= 4.0.0.pre1)
+      jquery-rails
+      rails (~> 3.0)
 
 PATH
   remote: ~/code/restful_voyage
@@ -58,15 +67,6 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     blacklight_google_analytics (0.0.1.pre3)
-    blacklight_highlight (0.1.0)
-      blacklight (~> 3.2)
-      rails (~> 3.0)
-      rsolr
-      rsolr-ext
-    blacklight_range_limit (1.2.3)
-      blacklight (~> 3.2)
-      jquery-rails
-      rails (~> 3.0)
     blacklight_unapi (0.0.3)
       blacklight (> 3.2)
       rails (~> 3.0)
@@ -240,8 +240,6 @@ GEM
       json (~> 1.4)
     rsolr (1.0.8)
       builder (>= 2.1.2)
-    rsolr-ext (1.0.3)
-      rsolr (>= 1.0.2)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
       rspec-expectations (~> 2.11.0)
@@ -314,8 +312,7 @@ PLATFORMS
 DEPENDENCIES
   blacklight!
   blacklight_google_analytics
-  blacklight_highlight
-  blacklight_range_limit (>= 1.2.3)
+  blacklight_range_limit!
   blacklight_unapi (>= 0.0.3)
   bootstrap-sass (~> 2.1.0)
   cancan

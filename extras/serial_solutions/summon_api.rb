@@ -25,7 +25,7 @@ module SerialSolutions
 
 
       @config.merge!(:url => 'http://api.summon.serialssolutions.com/2.0.0')
-
+      @config.symbolize_keys!
       Rails.logger.info "[SUMMON] config: #{@config.inspect}"
 
       @service = Summon::Service.new(@config)
