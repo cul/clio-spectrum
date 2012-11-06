@@ -146,6 +146,10 @@ class ApplicationController < ActionController::Base
     if self.respond_to?(:blacklight_config)
       if source.in?('quicksearch','ebooks','dissertations')
         self.blacklight_config = Blacklight::Configuration.new do |config|
+          config.default_solr_params = {
+            :qt => 'search',
+            :rows => 10
+          }
 
           config.add_search_field 'all_fields', :label => 'All Fields'
       
@@ -154,6 +158,11 @@ class ApplicationController < ActionController::Base
         end
       else
         self.blacklight_config = Blacklight::Configuration.new do |config|
+          config.default_solr_params = {
+            :qt => 'search',
+            :rows => 10
+          }
+
           config.add_search_field 'all_fields', :label => 'All Fields'
           config.document_solr_request_handler = "document"
 

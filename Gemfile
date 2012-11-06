@@ -8,8 +8,8 @@ gem 'sqlite3'
 # gem 'unicorn'
 
 
-# gem 'blacklight'
-gem 'blacklight', :git => "git://github.com/projectblacklight/blacklight.git", :branch => "master"
+ gem 'blacklight', :path => "~/code/blacklight"
+#gem 'blacklight', :git => "git://github.com/projectblacklight/blacklight.git", :branch => "master"
 gem 'blacklight_range_limit', :path => "~/code/blacklight_range_limit"
 #gem 'blacklight_highlight', :path => "~/code/blacklight_highlight"
 gem 'blacklight_google_analytics'
