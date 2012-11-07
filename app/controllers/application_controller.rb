@@ -226,7 +226,7 @@ class ApplicationController < ActionController::Base
             }
             
             config.add_facet_field "format", :label => "Format", :limit => 3, :open => true
-            config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => true
+            config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false }
             config.add_facet_field "author_facet", :label => "Author", :limit => 3
             config.add_facet_field "repository_facet", :label => "Repository", :limit => 5
             config.add_facet_field "location_facet", :label => "Location", :limit => 5
@@ -338,7 +338,7 @@ class ApplicationController < ActionController::Base
 
     if elements.include?(:facets)
       config.add_facet_field "format", :label => "Format", :limit => 5, :open => true
-      config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => true
+      config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false }
       config.add_facet_field "author_facet", :label => "Author", :limit => 5
       config.add_facet_field 'acq_dt', :label => 'Acquisition Date', :query => {
        :week_1 => { :label => 'within 1 Week', :fq => "acq_dt:[#{(Time.now - 1.weeks).utc.iso8601} TO *]" },
