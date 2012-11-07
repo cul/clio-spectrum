@@ -6,25 +6,24 @@
 //
 //= require jquery-1.8.2.min.js
 //= require jquery_ujs
-//= require jquery-ui
 
 //= require flot/excanvas.min
 //= require flot/jquery.flot
 //= require flot/jquery.flot.selection
 //= require blacklight_range_limit/range_limit_distro_facets
 //= require blacklight_range_limit/range_limit_slider
-//= require blacklight/blacklight          
-//= require blacklight_application
 //= require bootstrap-tab
+//= require blacklight/blacklight
+//= require blacklight_application
 //= require articles
-//= require jquery.validate.pack
 //= require jquery.observe_field
 //= require google_analytics
 //= require search_tracking
-//= require holdings
+//= require application_smoothness
 //= require database_alerts
 //= require dropdown_select
-// Required by Blacklight
-
-
 //= require blacklight_google_analytics
+
+
+//= require holdings
+//= require old_holdings

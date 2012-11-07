@@ -1,5 +1,8 @@
-- flash.each do |name, msg|
-  - if msg.is_a?(String)
-    .alert(class="alert-#{name == :notice ? "success" : "error"}")
-      %a.close(data-dismiss="alert") &#215;
-      = content_tag :div, msg, :id => "flash_#{name}"
+#main-flashes
+  .flash_messages
+    - [:success, :notice, :error, :alert].each do |type| 
+      - alert_class = type == :notice ? 'info' : type 
+      - if flash[type] 
+        .alert{ :class => "alert-#{alert_class}"}
+          = flash[type]
+          %a.close{:"data-dismiss" => "alert", :href => "#"} x

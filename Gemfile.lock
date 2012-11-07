@@ -6,7 +6,7 @@ PATH
       kaminari (~> 0.13)
       marc (>= 0.4.3, < 1.1)
       nokogiri (~> 1.5)
-      rails (~> 3.1)
+      rails (~> 3.2)
       rsolr (~> 1.0.6)
       sass-rails
       unicode

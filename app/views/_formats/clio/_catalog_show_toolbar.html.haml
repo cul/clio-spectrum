@@ -21,7 +21,7 @@
       %li
         = link_to "Print", "javascript:print()"
       %li=link_to "Email", email_catalog_path(:id => id), {:id => "emailLink", :name => "email", :class => "lightboxLink"}
-      %li=link_to "SMS", "http://www.columbia.edu/cgi-bin/cul/forms/Stext?#{clio_id}", :target => "_blank"
+      %li=link_to "SMS", sms_catalog_path(:id => id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}  
       %li.dropdown
         =link_to "Export <span class='caret'>".html_safe, "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown"
         %ul.dropdown-menu
