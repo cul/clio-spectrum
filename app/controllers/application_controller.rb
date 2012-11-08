@@ -253,10 +253,10 @@ class ApplicationController < ActionController::Base
        :month_1 => { :label => 'within 1 Month', :fq => "acq_dt:[#{(Time.now - 1.months).utc.iso8601} TO *]" },
        :months_6 => { :label => 'within 6 Months', :fq => "acq_dt:[#{(Time.now - 6.months).utc.iso8601} TO *]" },
 
-       :years_1 => { :label => 'within 1 Years', :fq => "acq_dt:[#{(Time.now - 1.years).utc.iso8601} TO *]" },
+       :years_1 => { :label => 'within 1 Year', :fq => "acq_dt:[#{(Time.now - 1.years).utc.iso8601} TO *]" },
     }      
             config.add_facet_field "format", :label => "Format", :limit => 5, :open => true
-            config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => true
+            config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false}
             config.add_facet_field "author_facet", :label => "Author", :limit => 5
             config.add_facet_field "location_facet", :label => "Location", :limit => 5
             config.add_facet_field "language_facet", :label => "Language", :limit => 5
@@ -285,7 +285,7 @@ class ApplicationController < ActionController::Base
             config.index.record_display_type = "format"
 
             config.add_facet_field 'author_facet', :label => 'Author', :open => true, :limit => 5
-            config.add_facet_field 'pub_date_facet', :label => 'Publication Date',:range => true
+            config.add_facet_field "pub_date_facet", :label => "Publication Date", :limit => 3, :range => {:segments => false }
             config.add_facet_field 'department_facet', :label => 'Department', :limit => 5
             config.add_facet_field 'subject_facet', :label => 'Subject', :limit => 10
             config.add_facet_field 'genre_facet', :label => 'Content Type', :limit => 10
@@ -338,14 +338,14 @@ class ApplicationController < ActionController::Base
 
     if elements.include?(:facets)
       config.add_facet_field "format", :label => "Format", :limit => 5, :open => true
-      config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false }
+      config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false}
       config.add_facet_field "author_facet", :label => "Author", :limit => 5
       config.add_facet_field 'acq_dt', :label => 'Acquisition Date', :query => {
        :week_1 => { :label => 'within 1 Week', :fq => "acq_dt:[#{(Time.now - 1.weeks).utc.iso8601} TO *]" },
        :month_1 => { :label => 'within 1 Month', :fq => "acq_dt:[#{(Time.now - 1.months).utc.iso8601} TO *]" },
        :months_6 => { :label => 'within 6 Months', :fq => "acq_dt:[#{(Time.now - 6.months).utc.iso8601} TO *]" },
 
-       :years_1 => { :label => 'within 1 Years', :fq => "acq_dt:[#{(Time.now - 1.years).utc.iso8601} TO *]" },
+       :years_1 => { :label => 'within 1 Year', :fq => "acq_dt:[#{(Time.now - 1.years).utc.iso8601} TO *]" },
     }      
       config.add_facet_field "location_facet", :label => "Location", :limit => 5
       config.add_facet_field "language_facet", :label => "Language", :limit => 5

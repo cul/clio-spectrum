@@ -14,10 +14,18 @@
                 %span.hidden-phone #{current_user.name} (#{current_user.login})
                 %span.caret
             %ul.dropdown-menu
-              %li= link_to "My Account", patron_index_path
+              %li= link_to "Library Account", "http://clio.cul.columbia.edu:7018/vwebv/myAccount"
+              %li= link_to "Library Account (BETA)", patron_index_path
               %li= link_to "Logout", destroy_user_session_path, :method => :delete 
           - else
-            = link_to "Login", new_user_session_path
+
+            %a(href="#" class="dropdown-toggle" data-toggle="dropdown")
+              %div{:style => "display:inline-block"}
+                My Account
+                %span.caret
+            %ul.dropdown-menu
+              %li= link_to "Library Account", "http://clio.cul.columbia.edu:7018/vwebv/myAccount"
+              %li= link_to "Login", new_user_session_path
         %li.divider-vertical
         
         %li
