@@ -1,20 +1,5 @@
-- result[:docs] = result[:docs][0,count] if defined?(count)
+- docs = result[:docs][0,count] if defined?(count)
 .results
-  .results_header
-    .category_title Catalog
-    .description
-      Library books, videos, local resources
-    - unless result[:error]
-      .search
-        - if result[:count] == 0
-          No results found.
-        - else
-          #{number_with_delimiter(result[:count])} results 
-          = link_to "(explore results)", result[:url]
-    - else
-      Error when searching. #{result[:message]}
-  - unless result[:error]
-    - result[:docs].each_with_index do |document, document_counter|
-      = render_document_view(document, :template => "aggregate", :format => "clio",:document_counter => document_counter)
-
-    = render :partial => "/catalog/holdings_check", :locals => {:documents => result[:docs]}
+  = render partial: "result_header", locals: {result: result, title: "Catalog", description: "Catalog contains library, books, videos, local resources"}
+  = render partial: "result_docs", locals: {result: result, docs: docs,  render_opts: {template: 'aggregate', format: 'clio'}, row_opts: {spans: [3,9]} }
+  = render :partial => "/catalog/holdings_check", :locals => {:documents => result[:docs]}

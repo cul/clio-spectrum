@@ -1,0 +1,54 @@
+layouts:
+  quicksearch:
+    style: lopsided_two_column
+    columns:
+      - width: 6
+        searches:
+          - source: catalog
+            count: 10
+            row_opts:
+              spans: [3,9] 
+      - width: 6
+        searches:
+          - source: articles
+            count: 3
+            row_opts:
+              spans: [3,9] 
+          - source: academic_commons
+            count: 3
+            row_opts:
+              spans: [3,9]
+
+          - source: library_web
+            count: 3
+            row_opts:
+              spans: [3,9]
+sources:
+  catalog:
+    title: Catalog
+    description: Contains library, books, videos, local resources
+    holdings_check: true
+    render_options:
+      template: aggregate
+      format: clio
+  articles:
+    title: Articles
+    description: Contains articles, eBooks, electronic resources
+    render_options:
+      template: aggregate
+      format: article
+  academic_commons:
+    title: Academic Commons
+    description: Digital Repository of Research 
+    render_options:
+      template: aggregate
+      format: ac
+  library_web:
+    title: Library Web
+    description: Searches the library web site
+    render_options:
+      template: aggregate
+      format: lweb
+    
+    
+

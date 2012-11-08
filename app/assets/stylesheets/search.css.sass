@@ -11,41 +11,14 @@
   :margin-left auto
   :margin-right auto
 
-.two_lopsided
-  :padding 0em 0 1em 0
-
-  .result_set
-    :margin-bottom 2em
-
-  .result_title
 
 
-  .blockquote
-    :font-style italic
-    :padding .5em 1em 0 1em
+.value_box
+  :word-wrap break-word
 
-  .main_results
+.field
+  :word-wrap break-word
 
-
-    .result 
-      :background-color #fff
-
-  .side_results
-      
-    .result
-      :background-color #fff
-
-
-.show
-  #clio_main
-
-  #clio_sidebar
-
-
-
-.result_header
-  +clearfix
-  :clear both
 
 .result 
   +clearfix
@@ -80,51 +53,41 @@
 
 
 .results_header
-  background: #e3e8f1
+  +clearfix
+  background: #F0F3FF
+  +border-radius(3px)
   padding: 10px 4px 6px 4px
   line-height: 1
   border: 1px solid #ccc
+  color: #2855A2
+
+  .category_title
+    :font-weight bold
+    :float left
 
 
-.result_title
-  padding-left: 3px!important
+  .result_count
+    :float right
+    :padding-top 7px
 
-.results_header .category_title
-  font-family: "Trajan Pro Bold", "TrajanProBold", "TrajanPro-Bold", serif
-  font-weight: bold
-  display: block
-  margin-bottom: 6px
+    a
+      font-weight: 550
+      color: #5388CC
 
 .result_set
   +alternating-line-colors(#fff, #f9f9f9)
-  .results_header
-    :padding-bottom 1em
-  .category_title
-    :font-weight bold
-    :font-size 1.4em
-    :display inline
-  .results_link
-    :padding .5em 2em 0 0
-    :float right
-  .description
-    :font-style italic
-    :padding-bottom .5em
 
 .result
-  :padding-bottom 1em
+  :padding 0.5em
 
-  .document-row
-    :padding-bottom 0.25em
-
-    .result_title
-      :font-weight bold
-      :font-size 1.1em
-      :padding-right .25em
-      :padding-top 1em
-      :padding-bottom .75em
+  .result_title
+    :font-weight bold
+    :font-size 1.1em
+    :padding-top .5em
+    :padding-bottom .5em
     
-    .availability
-      :padding-right .25em
+  .availability
+    :padding-right .25em
 
 .a_to_z
   .label

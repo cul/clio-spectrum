@@ -1,0 +1,9 @@
+.results_header
+  .category_title 
+    #{title}
+    - if defined?(description)
+      %a.source-info.btn.btn-link{:href => '#', :rel => 'popover', :'data-placement' => 'bottom', :'data-content' => description}
+        %i.icon-info-sign
+  - if result[:count].to_i > 0
+    .result_count
+      = link_to "All results"

@@ -2,8 +2,7 @@
 .result
   %abbr.unapi-id{:title => document[:id]}
   - fedora_id = document['id'].listify.first
-  .row
-    .result_title= link_to document.get('title_display'), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
+  .result_title= link_to document.get('title_display'), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
 
       
   / main container for doc partial view 

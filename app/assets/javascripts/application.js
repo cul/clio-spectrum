@@ -13,6 +13,8 @@
 //= require blacklight_range_limit/range_limit_distro_facets
 //= require blacklight_range_limit/range_limit_slider
 //= require bootstrap-tab
+//= require bootstrap-tooltip
+//= require bootstrap-popover
 //= require blacklight/blacklight
 //= require blacklight_application
 //= require articles

@@ -1,6 +1,8 @@
 NewBooks::Application.routes.draw do
 
 
+  get "spectrum/search"
+
   get "admin/ingest_log"
 
   get "library_web/index"
@@ -14,6 +16,10 @@ NewBooks::Application.routes.draw do
   DeviseWind.add_routes(self)
  
   match 'admin/ingest_log', :to => "admin#ingest_log", :as => :admin_ingest_log
+
+  match 'spectrum/search', :to => "spectrum#search"
+
+  #match 'quicksearch/', :to => 'spectrum#search', :as => :quicksearch_index, :defaults => {:layout => 'quicksearch'}
 
   match 'search/', :to => "search#index", :as => :search_index
   match "patron", :to => "patron#index", :as => :patron_index

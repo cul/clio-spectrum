@@ -1,5 +1,4 @@
 
 .result{:class => alternating_line('lweb')}
-  .row
-    .result_title=link_to document.title.to_s.html_safe, document.url.listify.first.to_s.html_safe
+  .result_title=link_to document.title.to_s.html_safe, document.url.listify.first.to_s.html_safe
   .blockquote= document.summary.html_safe

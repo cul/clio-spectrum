@@ -1,6 +1,5 @@
 .result{:class => alternating_line}
-  .row
-    .result_title= link_to_article document
+  .result_title= link_to_article document
   = add_row('Author', document.src['Author'].listify.collect(&:html_safe))
   = add_row('Citation', get_article_citation(document))
   = add_row('Format', get_article_type(document))

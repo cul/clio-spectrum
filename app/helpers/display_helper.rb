@@ -51,6 +51,7 @@ module DisplayHelper
   end
 
   def render_document_view(document, options = {})
+    options.symbolize_keys!
     template = options.delete(:template) || raise("Must specify template")
     formats = determine_formats(document, options.delete(:format))
 
@@ -247,6 +248,7 @@ module DisplayHelper
   end
 
   def add_row(title, value, options = {})
+    options.reverse_merge!(@add_row_options) if @add_row_options.kind_of?(Hash)
     options.reverse_merge!( {
       :display_blank => false,
       :display_only_first => false,
@@ -257,6 +259,7 @@ module DisplayHelper
       :style => @add_row_style || :definition,
       :spans => [2,10]
     })
+
 
     value_txt = convert_values_to_text(value, options)
     spans = options[:spans]
