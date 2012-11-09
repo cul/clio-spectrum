@@ -88,21 +88,21 @@ module DatasourcesHelper
     else
       case source
       when 'quicksearch'
-        {:controller => 'search', :q => query}
+        quicksearch_index_path(:q => query)
       when 'catalog'
-        {:controller => 'catalog', :q => query}
+        base_catalog_index_path(:q => query)
       when 'databases'
         databases_index_path(:q => query)
       when 'articles'
-        {:controller => 'articles', :action => 'search', 'new_search' => true, 's.q' => query}
+        articles_index_path('s.q' => query, 'new_search' => true)
       when 'journals'
         journals_index_path(:q => query)
       when 'ebooks'
-        {:controller => 'search', :action => 'ebooks', :q => query}
+        ebooks_index_path(:q => query)
       when 'dissertations'
-        {:controller => 'search', :action => 'dissertations', :q => query}
+        dissertations_index_path(:q => query)
       when 'newspapers'
-        {:controller => 'search', :action => 'newspapers', :q => query}
+        newspapers_index_path(:q => query)
       when 'new_arrivals'
         new_arrivals_index_path(:q => query)
       when 'academic_commons'

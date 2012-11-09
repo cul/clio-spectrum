@@ -1,6 +1,6 @@
 #documents= render_documents(@document_list, :action => "catalog", :view_style => (params[:view] || "list"))
 
-- if @active_source == "Academic Commons"
+- if @active_source == "academic_commons"
   = render :partial => "fedora_resources_check", :locals => {:documents => @response.docs }
 -else
   = render :partial => "google_books_check", :locals => {:documents => @response.docs }

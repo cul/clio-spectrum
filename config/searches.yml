@@ -1,6 +1,5 @@
 layouts:
   quicksearch:
-    style: lopsided_two_column
     columns:
       - width: 6
         searches:
@@ -23,6 +22,52 @@ layouts:
             count: 3
             row_opts:
               spans: [3,9]
+  newspapers:
+    columns:
+      - width: 6
+        searches:
+          - source: articles_newspapers
+            count: 10
+            row_opts:
+              spans: [3,9] 
+      - width: 6
+        searches:
+          - source: catalog_databases
+            count: 10
+            row_opts:
+              spans: [3,9] 
+  dissertations:
+    columns:
+      - width: 6
+        searches:
+          - source: catalog_dissertations
+            count: 10
+            row_opts:
+              spans: [3,9] 
+      - width: 6
+        searches:
+          - source: articles_dissertations
+            count: 3
+            row_opts:
+              spans: [3,9] 
+          - source: ac_dissertations 
+            count: 3
+            row_opts:
+              spans: [3,9] 
+  ebooks:
+    columns:
+      - width: 6
+        searches:
+          - source: catalog_ebooks 
+            count: 10
+            row_opts:
+              spans: [3,9] 
+      - width: 6
+        searches:
+          - source: ebooks 
+            count: 10
+            row_opts:
+              spans: [3,9] 
 sources:
   catalog:
     title: Catalog
@@ -49,6 +94,55 @@ sources:
     render_options:
       template: aggregate
       format: lweb
+  ac_dissertations:
+    title: Academic Commons
+    description: Dissertations from Columbia's Digital Repository
+    render_options:
+      template: aggregate
+      format: ac
+  articles_dissertations:
+    title: Summon
+    description: Dissertations from Columbia's Articles Database
+    render_options:
+      template: aggregate
+      format: articles
+  articles_newspapers:
+    title: Newspaper Articles
+    description: Full text newspaper articles from Summon
+    render_options:
+      template: aggregate
+      format: article
+  catalog_databases:
+    title: Databases
+    description: Electronic resources
+    render_options:
+      template: aggregate
+      format: clio
+  catalog_dissertations:
+    title: Catalog
+    description: Dissertations, Thesises from Columbia's Catalog
+    render_options:
+      template: aggregate
+      format: clio
+  catalog_ebooks:
+    title: Catalog
+    description: eBooks from Catalog
+    render_options:
+      template: aggregate
+      format: clio
+  catalog_ejournals:
+    title: Journal Titles
+    description: Electronic Journals Held By Columbia
+    render_options:
+      template: aggregate
+      format: ac
+  ebooks:
+    title: Summon
+    description: eBooks from Summon's repository of digitzed books
+    render_options:
+      template: aggregate
+      format: ebooks
+    
     
     
 

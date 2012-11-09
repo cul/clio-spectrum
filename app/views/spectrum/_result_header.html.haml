@@ -6,4 +6,4 @@
         %i.icon-info-sign
   - if result[:count].to_i > 0
     .result_count
-      = link_to "All results"
+      = link_to "All <span class='visible-desktop'>#{number_with_delimiter(result[:count])}</span> results".html_safe, result[:url]

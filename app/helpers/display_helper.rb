@@ -79,7 +79,7 @@ module DisplayHelper
     "Journal Article" => "article"
   }
 
-  FORMAT_RANKINGS = ["ac", "database", "map_globe", "manuscript_archive", "video", "music_recording", "music", "newspaper", "serial", "book", "clio", "ebooks", "article", "summon", "lweb"]
+  FORMAT_RANKINGS = ["ac", "database", "map_globe", "manuscript_archive", "video", "music_recording", "music", "newspaper", "serial", "book", "clio", "ebooks", "article", "articles", "summon", "lweb"]
 
   def format_online_results(urls)
     non_circ = image_tag("icons/noncirc.png", :class => :availability)
@@ -103,8 +103,8 @@ module DisplayHelper
 
   def determine_formats(document, defaults = [])
     formats = defaults.listify
-    formats << "ac" if @active_source == "Academic Commons"
-    formats << "database" if @active_source == "Databases"
+    formats << "ac" if @active_source == "academic_commons"
+    formats << "database" if @active_source == "databases"
     case document
     when SolrDocument
       formats << "clio"
@@ -121,7 +121,11 @@ module DisplayHelper
       formats << "summon"
     end
 
-    formats.sort { |x,y| FORMAT_RANKINGS.index(x) <=> FORMAT_RANKINGS.index(y) }
+    begin
+      formats.sort { |x,y| FORMAT_RANKINGS.index(x) <=> FORMAT_RANKINGS.index(y) }
+    rescue
+      raise formats.inspect
+    end
   end
 
   # for segregating search values from display values

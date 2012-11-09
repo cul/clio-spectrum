@@ -3,7 +3,7 @@ datasources:
     name: Quicksearch
     no_facets: true
     search_box:
-      route: search_index_path
+      route: quicksearch_index_path
       placeholder: Catalog, Articles, Academic Commons, Library Web 
   newspapers:
     name: Newspapers

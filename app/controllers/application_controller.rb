@@ -248,7 +248,7 @@ class ApplicationController < ActionController::Base
             }
 
 
-      config.add_facet_field 'acq_dt', :label => 'Acquisition Date', :query => {
+      config.add_facet_field 'acq_dt', :label => 'Acquisition Date', :open => true, :query => {
        :week_1 => { :label => 'within 1 Week', :fq => "acq_dt:[#{(Time.now - 1.weeks).utc.iso8601} TO *]" },
        :month_1 => { :label => 'within 1 Month', :fq => "acq_dt:[#{(Time.now - 1.months).utc.iso8601} TO *]" },
        :months_6 => { :label => 'within 6 Months', :fq => "acq_dt:[#{(Time.now - 6.months).utc.iso8601} TO *]" },

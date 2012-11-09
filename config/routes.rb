@@ -17,9 +17,8 @@ NewBooks::Application.routes.draw do
  
   match 'admin/ingest_log', :to => "admin#ingest_log", :as => :admin_ingest_log
 
-  match 'spectrum/search', :to => "spectrum#search"
 
-  #match 'quicksearch/', :to => 'spectrum#search', :as => :quicksearch_index, :defaults => {:layout => 'quicksearch'}
+  match 'quicksearch/', :to => 'spectrum#search', :as => :quicksearch_index, :defaults => {:layout => 'quicksearch'}
 
   match 'search/', :to => "search#index", :as => :search_index
   match "patron", :to => "patron#index", :as => :patron_index
@@ -62,21 +61,21 @@ NewBooks::Application.routes.draw do
   match 'backend/clio_recall/:id', :to => "backend#clio_recall" , :as => :clio_recall
   match 'backend/feedback_mail', :to => "backend#feedback_mail"
 
+
   match 'lweb', :to => 'search#index', :as => :lweb_search, :defaults => {:categories => ['lweb']}
 
   match 'articles', :to => "articles#index", :as => :articles_index
   match 'articles/show', :to => "articles#show", :as => :articles_show
   match 'articles/search', :to => "articles#search", :as => :articles_search
 
-  match 'ebooks', :to => 'search#ebooks', :as => :ebooks_index
+  match 'ebooks', :to => 'spectrum#search', :as => :ebooks_index, :defaults => {:layout => 'ebooks'}
 
-  match 'dissertations', :to => 'search#dissertations', :as => :dissertations_index
-  match 'newspapers', :to => 'search#newspapers', :as => :newspapers_index
+  match 'dissertations', :to => 'spectrum#search', :as => :dissertations_index, :defaults => {:layout => 'dissertations'}
+  match 'newspapers', :to => 'spectrum#search', :as => :newspapers_index, :defaults => {:layout => 'newspapers'}
 
   match 'locations/show/:id', :id => /[^\/]+/, :to => "locations#show", :as => :location_display
 
   match 'welcome/versions', :to => "welcome#versions"
-  match 'search/show', :to => "search#show"
 
   scope "/admin" do
     match 'database_alerts/retrieve', :to => 'database_alerts#retrieve', :as => :database_alerts_retrieve
