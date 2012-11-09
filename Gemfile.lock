@@ -1,4 +1,18 @@
 GIT
+  remote: git://github.com/cul/restful_voyage.git
+  revision: 4f46cc80c453090dbd93234541b0914ddbfbe86c
+  branch: master
+  specs:
+    restful_voyage (0.1.0)
+      activesupport
+      httpclient
+      i18n
+      json
+      nokogiri
+      ruby-oci8
+      voyager_oracle_api (>= 1.1.0)
+
+GIT
   remote: git://github.com/projectblacklight/blacklight.git
   revision: 247e552160c41796e57c0a67424f939724eb5795
   branch: master
@@ -22,18 +36,6 @@ GIT
       blacklight (>= 4.0.0.pre1)
       jquery-rails
       rails (~> 3.2)
-
-PATH
-  remote: ~/code/restful_voyage
-  specs:
-    restful_voyage (0.1.0)
-      activesupport
-      httpclient
-      i18n
-      json
-      nokogiri
-      ruby-oci8
-      voyager_oracle_api (>= 1.1.0)
 
 GEM
   remote: http://rubygems.org/
