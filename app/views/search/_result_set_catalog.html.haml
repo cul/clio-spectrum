@@ -1,5 +1,0 @@
-- docs = result[:docs][0,count] if defined?(count)
-.results
-  = render partial: "result_header", locals: {result: result, title: "Catalog", description: "Catalog contains library, books, videos, local resources"}
-  = render partial: "result_docs", locals: {result: result, docs: docs,  render_opts: {template: 'aggregate', format: 'clio'}, row_opts: {spans: [3,9]} }
-  = render :partial => "/catalog/holdings_check", :locals => {:documents => result[:docs]}

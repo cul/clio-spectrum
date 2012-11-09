@@ -12,8 +12,8 @@
     #page.container-fluid
       = render :partial => "/header_with_search"
       #bd.row-fluid
-        #sources.span3= sidebar_items.join('').html_safe
-        #main_with_sources.span9
+        #sources{:class => sidebar_span}= sidebar_items.join('').html_safe
+        #main_with_sources{:class => main_span}
           .row-fluid
         
             = render :partial=>'/layouts/messages'

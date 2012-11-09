@@ -5,6 +5,7 @@ layouts:
         searches:
           - source: catalog
             count: 10
+            display_footer: true
             row_opts:
               spans: [3,9] 
       - width: 6
@@ -28,12 +29,14 @@ layouts:
         searches:
           - source: articles_newspapers
             count: 10
+            display_footer: true
             row_opts:
               spans: [3,9] 
       - width: 6
         searches:
           - source: catalog_databases
             count: 10
+            display_footer: true
             row_opts:
               spans: [3,9] 
   dissertations:
@@ -42,6 +45,7 @@ layouts:
         searches:
           - source: catalog_dissertations
             count: 10
+            display_footer: true
             row_opts:
               spans: [3,9] 
       - width: 6
@@ -60,12 +64,14 @@ layouts:
         searches:
           - source: catalog_ebooks 
             count: 10
+            display_footer: true
             row_opts:
               spans: [3,9] 
       - width: 6
         searches:
           - source: ebooks 
             count: 10
+            display_footer: true
             row_opts:
               spans: [3,9] 
 sources:

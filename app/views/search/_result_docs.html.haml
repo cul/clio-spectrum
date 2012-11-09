@@ -1,9 +1,0 @@
-- if result[:error]
-  .result_error Error when searching. #{result[:message]}
-- else
-  - @add_row_options = row_opts if row_opts.kind_of?(Hash)
-
-  - docs.each_with_index do |doc, doc_index|
-    = render_document_view(doc, render_opts.merge(document_counter: doc_index ))
-
-

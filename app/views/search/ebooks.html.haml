@@ -1,9 +1,0 @@
-
-- unless @results.empty?
-  #quicksearch.two_equal
-    .result_set
-      = render :partial => "result_set_catalog_ebooks", :locals => {:result => @results['catalog_ebooks']}
-    .result_set.last
-      = render :partial => "result_set_ebooks", :locals => {:result => @results['ebooks']}
-- else
-  = datasource_landing_page('eBooks')

@@ -1,5 +1,0 @@
-- docs = result[:docs].respond_to?(:documents) ? result[:docs].documents : []
-- docs = docs[0,count] if defined?(count) 
-.results
-  = render partial: "result_header", locals: {result: result, title: "Articles", description: "Articles, e-books, electronic resources"}
-  = render partial: "result_docs", locals: {result: result, docs: docs, render_opts: {template: 'aggregate', format: 'article'}, row_opts: {spans: [4,8]} }

@@ -11,7 +11,7 @@ NewBooks::Application.routes.draw do
 
   Blacklight.add_routes(self)
   
-  root :to => "search#index"
+  root :to => "spectrum#search", :defaults => {:layout => 'quicksearch'}
 
   DeviseWind.add_routes(self)
  
@@ -20,7 +20,6 @@ NewBooks::Application.routes.draw do
 
   match 'quicksearch/', :to => 'spectrum#search', :as => :quicksearch_index, :defaults => {:layout => 'quicksearch'}
 
-  match 'search/', :to => "search#index", :as => :search_index
   match "patron", :to => "patron#index", :as => :patron_index
 
   devise_for :users

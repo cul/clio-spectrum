@@ -51,8 +51,8 @@ module DatasourcesHelper
       :query => params['q'] || params['s.q'] || ""
     }
     
-
-    options[:all_sources] = !active_query? || DATASOURCES_CONFIG['datasources'][active]['no_facets']
+    has_facets = source_has_facets?(active)
+    options[:all_sources] = !active_query? || !has_facets
 
     result = []
     result |= datasources_active_list(options).collect { |src| datasource_item(src,options) }
@@ -67,10 +67,23 @@ module DatasourcesHelper
     end
 
     landing_class = options[:all_sources] ? 'landing datasource_list' : 'datasource_list'
+    landing_class += " no_facets" unless has_facets
     sidebar_items.unshift(content_tag(:ul, result.join('').html_safe, :id => "datasources", :class => landing_class))
   end
 
+  def sidebar_span(source = @active_source)
+    source_has_facets?(source) ? "span3" : "span2"
+  end
 
+  def main_span(source = @active_source)
+    source_has_facets?(source) ? "span9" : "span10"
+  end
+
+
+  def source_has_facets?(source = @active_source)
+    !DATASOURCES_CONFIG['datasources'][source]['no_facets'] 
+
+  end
 
   def datasource_item(source, options)
     classes = []
