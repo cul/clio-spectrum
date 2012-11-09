@@ -17,6 +17,10 @@ module SearchHelper
     end
   end
 
+  def search_render_options(search, source)
+    {'template' => @search_style}.merge(source['render_options'] || {}).merge(search['render_options'] || {})
+
+  end
   def dropdown_with_select_tag(name, field_options, field_default = nil, *html_args)
 
     dropdown_options = html_args.extract_options!

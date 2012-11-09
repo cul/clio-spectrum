@@ -1,7 +1,7 @@
 module SpectrumHelper
 
   def get_column_classes(column)
-    "span#{column['width']}"
+    "result_column span#{column['width']}"
   end
 
   def truncated_doc_list(result, count)

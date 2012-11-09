@@ -37,7 +37,7 @@ NewBooks::Application.routes.draw do
   match 'journals/facet/:id(.format)', :to => 'catalog#facet', :as => :journals_facet
   match 'journals/:id(.:format)', :via => [:put], :to => 'catalog#update', :as => :journals_update
 
-  match 'library_web', :to => 'library_web#index', :as => :library_web_index
+  match 'library_web', :to => 'spectrum#search', :as => :library_web_index, :defaults => {:layout => 'library_web'}
 
   match 'catalog', :to => 'catalog#index', :as => :base_catalog_index
 

@@ -17,6 +17,7 @@ class SpectrumController < ApplicationController
     elsif @search_layout.nil?
       flash[:error] = "Invalid layout selected."
     else
+      @search_style = @search_layout['style']
       params['categories'] = @search_layout['columns'].collect { |col| col['searches'].collect { |item| item['source'] }}.flatten
 
       @results = get_results(params['categories'])
