@@ -7,10 +7,10 @@ class LibraryWeb::Api
     @params = params
     @q = params['q'] || raise("No query string specified")
     @rows = (params['rows'] || 10).to_i
+    @start = (params['start'] || 0).to_i
     @raw_xml = Nokogiri::XML(HTTPClient.new.get_content(search_url))
     @docs = @raw_xml.css("R").collect { |xml_node| LibraryWeb::Document.new(xml_node) }
     @count = @raw_xml.at_css("M") ? @raw_xml.at_css("M").content.to_i : 0
-    @start = (params['start'] || 0).to_i
   end
 
   def page

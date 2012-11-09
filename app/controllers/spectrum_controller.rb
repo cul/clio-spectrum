@@ -153,7 +153,7 @@ class SpectrumController < ApplicationController
                       
                     }
                   when 'library_web'
-                    @search = LibraryWeb::Api.new('q' => params['q'])
+                    @search = LibraryWeb::Api.new('q' => params['q'], 'start' => params['start'].to_i)
                     {
                       :result => solr_response,
                       :docs => @search.docs,

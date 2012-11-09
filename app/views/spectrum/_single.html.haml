@@ -1,1 +1,11 @@
-Single
+.row-fluid
+  - @search_layout['columns'].each do |column|
+    %div.result_column
+      - column['searches'].each do |search|
+        - result = @results[search['source']]
+        - source = SEARCHES_CONFIG['sources'][search['source']]
+        - doc_list = truncated_doc_list(result, search['count'])
+        .result_set
+          = render :partial => '/spectrum/single/constraints', :locals => {:result => result}
+          - doc_list = truncated_doc_list(result, 10)
+          = render partial: "/spectrum/single/result_docs", locals: {result: result, docs: doc_list, render_opts: search_render_options(search, source), row_opts: search['row_opts']}

@@ -1,0 +1,27 @@
+.well.well-constraints
+  %span.constraints-label You searched for:
+
+  = link_to "Start Over", library_web_index_path, :class => "catalog_startOverLink", :id => "startOverLink"
+  %span.appliedFilter.constraint.query
+    %span.filterValue=params['q']
+    = link_to  "Remove constraint test", library_web_index_path, :alt => "remove", :class => "btnRemove imgReplace"
+
+#sortAndPerPage.well
+  - previous_needed = params['start'].to_i > 0 
+  - next_needed = params['start'].to_i + result[:docs].length < result[:count].to_i 
+  - previous_string = "\u00ab Previous"
+  - span_string = " | <b>#{params['start'].to_i + 1}</b> - <b>#{params['start'].to_i + result[:docs].length}</b> of <b>#{result[:count]}</b> | ".html_safe
+  - next_string = "Next \u00bb"
+  - if previous_needed
+    =link_to previous_string, library_web_index_path(q: params['q'], start: [params['start'].to_i - 10, 0].max)
+  - else
+    %span.disabled= previous_string
+  = span_string
+  - if next_needed
+    =link_to next_string, library_web_index_path(q: params['q'], start: params['start'].to_i + 10)
+  - else
+    %span.disabled= next_string
+
+  
+
+
