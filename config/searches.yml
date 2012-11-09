@@ -1,5 +1,10 @@
 layouts:
+  lweb:
+    style: single
+    source: catalog
+    count: 10
   quicksearch:
+    style: aggregate
     columns:
       - width: 6
         searches:
@@ -24,6 +29,7 @@ layouts:
             row_opts:
               spans: [3,9]
   newspapers:
+    style: aggregate
     columns:
       - width: 6
         searches:
@@ -40,6 +46,7 @@ layouts:
             row_opts:
               spans: [3,9] 
   dissertations:
+    style: aggregate
     columns:
       - width: 6
         searches:
@@ -59,6 +66,7 @@ layouts:
             row_opts:
               spans: [3,9] 
   ebooks:
+    style: aggregate
     columns:
       - width: 6
         searches:

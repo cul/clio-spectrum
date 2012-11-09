@@ -2,16 +2,4 @@
 - if @results.empty?
   = add_all_datasource_landing_pages
 - else
-  .row-fluid
-    - @search_layout['columns'].each do |column|
-      %div{:class => get_column_classes(column)}
-        - column['searches'].each do |search|
-          - result = @results[search['source']]
-          - source = SEARCHES_CONFIG['sources'][search['source']]
-          - doc_list = truncated_doc_list(result, search['count'])
-          .result_set
-            = render partial: "result_header", locals: {result: result, title: source['title'], description: source['description']}
-            = render partial: "result_docs", locals: {result: result, docs: doc_list, render_opts: source['render_options'], row_opts: search['row_opts']}
-            - if source['holdings_check']
-
-              = render :partial => "/catalog/holdings_check", :locals => {:documents => result[:docs]}
+  = render :partial => "/spectrum/#{@search_layout['style']}"
