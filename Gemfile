@@ -17,7 +17,7 @@ gem 'json'
 
 #gem 'voyager_oracle_api', :path => "~/code/voyager_oracle_api"
 
-gem 'voyager_oracle_api', ">= 1.1.0"
+gem 'voyager_oracle_api', ">= 1.1.1"
 gem 'restful_voyage', :git => "git://github.com/cul/restful_voyage.git", :branch => "master"
 
 group :clio_dev, :clio_test, :clio_prod do
