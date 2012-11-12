@@ -29,5 +29,5 @@ end
 
 Spork.each_run do
   FactoryGirl.reload
-  NewBooks::Application.reload_routes!
+  Clio::Application.reload_routes!
 end

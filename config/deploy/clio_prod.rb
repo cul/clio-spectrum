@@ -1,5 +1,5 @@
-set :rails_env, "spectrum_prod"
-set :application, "spectrum_prod"
+set :rails_env, "clio_prod"
+set :application, "clio_prod"
 set :domain,      "bruckner.cul.columbia.edu"
 set :deploy_to,   "/opt/passenger/#{application}/"
 set :user, "deployer"

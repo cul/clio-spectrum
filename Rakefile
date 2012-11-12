@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-NewBooks::Application.load_tasks
+Clio::Application.load_tasks

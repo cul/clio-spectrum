@@ -1,4 +1,4 @@
-NewBooks::Application.routes.draw do
+Clio::Application.routes.draw do
 
 
   get "spectrum/search"

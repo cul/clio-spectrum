@@ -20,7 +20,10 @@ gem 'json'
 gem 'voyager_oracle_api', ">= 1.1.0"
 gem 'restful_voyage', :git => "git://github.com/cul/restful_voyage.git", :branch => "master"
 
-gem 'mysql2'
+group :clio_dev, :clio_test, :clio_prod do
+  gem 'mysql2'
+end
+
 
 # Deploy with Capistrano
 #gem 'newrelic_rpm'

@@ -210,23 +210,25 @@ test:
   # unit, functional or integration tests or the like.
   monitor_mode: false
 
-spectrum_prod:
+clio_prod:
   <<: *default_settings
   monitor_mode: true
 # Turn on the agent in production for 24x7 monitoring.  New Relic
 # testing shows an average performance impact of < 5 ms per
 # transaction, so you can leave this on all the time without
 # incurring any user-visible performance degradation.
-spectrum_test:
+#
+#
+clio_test:
   <<: *default_settings
   monitor_mode: true
-  app_name: CLIOBeta Test
+  app_name: CLIO Test
 
 # Many applications have a staging environment which behaves
 # identically to production.  Support for that environment is provided
 # here.  By default, the staging environment has the agent turned on.
-spectrum_dev:
+clio_dev:
   <<: *default_settings
   monitor_mode: true
-  app_name: CLIOBeta Dev
+  app_name: CLIO Dev
 

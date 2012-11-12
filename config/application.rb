@@ -14,7 +14,7 @@ require File.expand_path('../../lib/rsolr_notifications', __FILE__)
 require File.expand_path('../../lib/voyager_holding', __FILE__)
 RELEASE_STAMP = IO.read("VERSION").strip
 
-module NewBooks
+module Clio
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

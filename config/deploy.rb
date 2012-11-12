@@ -1,5 +1,5 @@
-set :default_stage, "spectrum_dev"
-set :stages, %w(na_dev na_test na_prod spectrum_dev spectrum_test spectrum_prod)
+set :default_stage, "clio_dev"
+set :stages, %w(clio_dev clio_test clio_prod)
 
 require 'capistrano/ext/multistage'
 require 'bundler/capistrano'
@@ -7,7 +7,7 @@ require 'date'
 
 default_run_options[:pty] = true
 
-set :application, "spectrum"
+set :application, "clio"
 set :branch do
   default_tag = `git tag`.split("\n").last
 

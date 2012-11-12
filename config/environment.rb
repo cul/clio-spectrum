@@ -2,5 +2,5 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
-NewBooks::Application.initialize!
+Clio::Application.initialize!
 
