@@ -1,5 +1,5 @@
 
-NewBooks::Application.configure do
+Clio::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   config.cache_classes = true
@@ -34,7 +34,7 @@ config.action_mailer.smtp_settings = {
 end
 
 
-NewBooks::Application.config.middleware.use ExceptionNotifier,
+Clio::Application.config.middleware.use ExceptionNotifier,
    :email_prefix => "[Clio Test] ",
    :sender_address => %{"notifier" <spectrum@libraries.cul.columbia.edu>},
    :exception_recipients => %w{james.stuart+spectrum_test@gmail.com},
