@@ -1,6 +1,8 @@
 Clio::Application.routes.draw do
 
 
+  resources :database_alerts
+
   get "spectrum/search"
 
   get "admin/ingest_log"
@@ -76,10 +78,6 @@ Clio::Application.routes.draw do
 
   match 'welcome/versions', :to => "welcome#versions"
 
-  scope "/admin" do
-    match 'database_alerts/retrieve', :to => 'database_alerts#retrieve', :as => :database_alerts_retrieve
-    resources :database_alerts, :except => ['edit']
-  end
   namespace :admin do
     resources :locations
   end

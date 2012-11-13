@@ -1,13 +1,17 @@
-%h1 Maintain database_alerts
+%h1 Listing database_alerts
 
-#database_alerts_maintain
-  #search_box
-    %form
-      = text_field_tag :search, params[:search], :placeholder => "Enter databases titles here"
-      %button.btn Search
+%table
+  %tr
+    %th
+    %th
+    %th
 
+  - @database_alerts.each do |database_alert|
+    %tr
+      %td= link_to 'Show', database_alert
+      %td= link_to 'Edit', edit_database_alert_path(database_alert)
+      %td= link_to 'Destroy', database_alert, method: :delete, data: { confirm: 'Are you sure?' }
 
+%br
 
-  #results
-    #result_title
-  
+= link_to 'New Database alert', new_database_alert_path

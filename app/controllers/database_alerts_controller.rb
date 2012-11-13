@@ -1,53 +1,13 @@
 class DatabaseAlertsController < ApplicationController
-
-  include Blacklight::Catalog
-  
-  check_authorization
-  load_and_authorize_resource
-
-  before_filter :authenticate_user!
-  layout 'no_sidebar_no_search'
-
-  
-
   # GET /database_alerts
   # GET /database_alerts.json
   def index
-    authorize! :manage, DatabaseAlert
+    @database_alerts = DatabaseAlert.all
 
-    
     respond_to do |format|
       format.html # index.html.erb
+      format.json { render json: @database_alerts }
     end
-  end
-
-  def retrieve
-      authorize! :manage, DatabaseAlert
-
-    docs = []
-    
-    if params['search']
-      params['q'] = params['search']
-      configure_search('Databases')
-      response, document_list = get_and_debug_search_results
-      alerts = DatabaseAlert.includes(:author).where(:clio_id => document_list.collect(&:id)) 
-      docs = document_list.collect do |document|
-        {
-          clio_id: document.id,
-          title: document.get('title_display'),
-          url: document.get('url_munged_display'),
-          summary: document.get('database_summary_display'),
-          extended_summary: document.get('summary_display'),
-          alerts: alerts.detect { |alert| alert.clio_id.to_s == document.id }.as_json(:include => :author)
-
-          
-        }
-      end
-
-
-    end
-
-    render json: docs
   end
 
   # GET /database_alerts/1
@@ -56,7 +16,7 @@ class DatabaseAlertsController < ApplicationController
     @database_alert = DatabaseAlert.find(params[:id])
 
     respond_to do |format|
-      format.html { redirect_to database_alerts_path }
+      format.html # show.html.erb
       format.json { render json: @database_alert }
     end
   end
@@ -80,10 +40,7 @@ class DatabaseAlertsController < ApplicationController
   # POST /database_alerts
   # POST /database_alerts.json
   def create
-    authorize! :manage, DatabaseAlert
     @database_alert = DatabaseAlert.new(params[:database_alert])
-    @database_alert.author = current_user
-    @database_alert.active = true
 
     respond_to do |format|
       if @database_alert.save
