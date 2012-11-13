@@ -7,7 +7,7 @@ class Ability
     user || User.new
 
     if DATABASE_ADMINS.include?(user.login)
-      can :manage, DatabaseAlert
+      can :manage, ItemAlert
     end
   end
 end

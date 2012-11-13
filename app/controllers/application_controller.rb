@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   include Blacklight::Configurable
   # Please be sure to impelement current_user and user_session. Blacklight depends on 
   # these methods in order to perform user specific actions. 
+  check_authorization
+  skip_authorization_check
+
   before_filter :trigger_debug_mode
   before_filter :by_source_config
   before_filter :log_additional_data

@@ -1,7 +1,8 @@
 Clio::Application.routes.draw do
 
 
-  resources :database_alerts
+  resources :item_alerts
+
 
   get "spectrum/search"
 

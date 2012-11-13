@@ -77,10 +77,15 @@ class CatalogController < ApplicationController
 
   private
 
-  def add_alerts_to_documents(documents)
-    DatabaseAlert.find_all_by_clio_id(Array.wrap(documents).collect(&:id)).each do |alert|
-      document = documents.detect { |doc| doc.id.to_s == alert.clio_id.to_s }
-      document["database_alert"] = alert.message
+  def add_alerts_to_documents(documents, only_active = true)
+    documents = Array.wrap(documents)
+    query = ItemAlert.where(:source => 'catalog', :item_key=> Array.wrap(documents).collect(&:id)).includes(:author)
+    query = query.where("(start_date IS NULL OR start_date > ?) and (end_date IS NULL OR end_date < ?)", DateTime.now, DateTime.now) if only_active == true
+
+    query.each do |alert| 
+      document = documents.detect { |doc| doc.get('id').to_s == alert.item_key.to_s }
+      document["_item_alerts"] ||= []
+      document["_item_alerts"] << alert
     end
   end
 end

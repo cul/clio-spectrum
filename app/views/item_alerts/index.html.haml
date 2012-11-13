@@ -1,0 +1,31 @@
+%h1 Listing item_alerts
+
+%table
+  %tr
+    %th Source
+    %th Item key
+    %th Alert type
+    %th Author
+    %th Start date
+    %th End date
+    %th Message
+    %th
+    %th
+    %th
+
+  - @item_alerts.each do |item_alert|
+    %tr
+      %td= item_alert.source
+      %td= item_alert.item_key
+      %td= item_alert.alert_type
+      %td= item_alert.author_id
+      %td= item_alert.start_date
+      %td= item_alert.end_date
+      %td= item_alert.message
+      %td= link_to 'Show', item_alert
+      %td= link_to 'Edit', edit_item_alert_path(item_alert)
+      %td= link_to 'Destroy', item_alert, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Item alert', new_item_alert_path

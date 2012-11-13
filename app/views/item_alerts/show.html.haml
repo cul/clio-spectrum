@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Source:
+  = @item_alert.source
+%p
+  %b Item key:
+  = @item_alert.item_key
+%p
+  %b Alert type:
+  = @item_alert.alert_type
+%p
+  %b Author:
+  = @item_alert.author_id
+%p
+  %b Start date:
+  = @item_alert.start_date
+%p
+  %b End date:
+  = @item_alert.end_date
+%p
+  %b Message:
+  = @item_alert.message
+
+= link_to 'Edit', edit_item_alert_path(@item_alert)
+\|
+= link_to 'Back', item_alerts_path

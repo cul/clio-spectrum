@@ -15,6 +15,7 @@
 //= require bootstrap-tab
 //= require bootstrap-tooltip
 //= require bootstrap-popover
+//= require bootstrap-datepicker
 //= require blacklight/blacklight
 //= require blacklight_application
 //= require articles
@@ -22,7 +23,7 @@
 //= require google_analytics
 //= require search_tracking
 //= require application_smoothness
-//= require database_alerts
+//= require item_alerts
 //= require dropdown_select
 //= require blacklight_google_analytics
 

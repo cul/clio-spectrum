@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120718165239) do
+ActiveRecord::Schema.define(:version => 20121113211955) do
 
   create_table "admin_database_alerts", :force => true do |t|
     t.integer  "clio_id"
@@ -31,20 +31,20 @@ ActiveRecord::Schema.define(:version => 20120718165239) do
     t.string   "user_type"
   end
 
-  create_table "database_alerts", :force => true do |t|
+  create_table "item_alerts", :force => true do |t|
     t.string   "source",     :null => false
-    t.string   "item_id",    :null => false
+    t.string   "item_key",   :null => false
     t.string   "alert_type", :null => false
     t.integer  "author_id"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.text     "message"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "database_alerts", ["source", "item_id"], :name => "index_database_alerts_on_source_and_item_id"
-  add_index "database_alerts", ["start_time", "end_time"], :name => "index_database_alerts_on_start_time_and_end_time"
+  add_index "item_alerts", ["source", "item_key"], :name => "index_item_alerts_on_source_and_item_key"
+  add_index "item_alerts", ["start_date", "end_date"], :name => "index_item_alerts_on_start_date_and_end_date"
 
   create_table "libraries", :force => true do |t|
     t.string   "hours_db_code", :null => false
