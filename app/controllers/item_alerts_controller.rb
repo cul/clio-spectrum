@@ -3,7 +3,7 @@ class ItemAlertsController < ApplicationController
   load_and_authorize_resource
 
   before_filter :authenticate_user!
-  layout 'no_sidebar_no_search'
+  layout 'no_sidebar'
 
   # GET /item_alerts
   # GET /item_alerts.json
@@ -27,6 +27,13 @@ class ItemAlertsController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @item_alert }
     end
+  end
+
+  def show_table_row
+    authorize! :read, @item_alert
+    @item_alert = ItemAlert.find(params[:id])
+
+    render :layout => false
   end
 
   # GET /item_alerts/new

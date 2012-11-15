@@ -1,0 +1,13 @@
+
+%tr{:class => alert_status(item_alert), :'data-id' => item_alert.id}
+  %td= ItemAlert::ALERT_TYPES[item_alert.alert_type.to_s.to_sym]
+  %td= item_alert.author
+  %td= render_alert_duration(item_alert)
+  %td= item_alert.message
+  %td.action_column
+    %btn.btn-small.btn.edit-item{:"data-modify" => item_alert_path(item_alert)}
+      %i.icon-edit
+      Edit
+    %btn.btn-small.btn.delete-item{:"data-delete" => item_alert_path(item_alert)}
+      %i.icon-trash
+      Delete

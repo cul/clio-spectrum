@@ -1,11 +1,14 @@
+- remote = defined?(remote) ? remote : false
 = form_for item_alert, :html => {:class => "form-horizontal"} do |f|
-  - if item_alert.errors.any?
-    .alert
-      %btn.close{:type => "button", :"data-dismiss" => "alert"} x
-      = "#{pluralize(@item_alert.errors.count, "error")} prohibited this item_alert from being saved:"
-      %ul
-        - item_alert.errors.full_messages.each do |msg|
-          %li= msg
+  .alerts
+    - if item_alert.errors.any?
+      .alert
+        %btn.close{:type => "button", :"data-dismiss" => "alert"} x
+        = "#{pluralize(@item_alert.errors.count, "error")} prohibited this item_alert from being saved:"
+        %ul
+          - item_alert.errors.full_messages.each do |msg|
+            %li= msg
+  
   - if item_alert.source
     = f.hidden_field :source
   - else
@@ -31,13 +34,13 @@
   .control-group
     %label.control-label{:for => "start_date"} Start Date:
     .controls
-      = f.text_field(:start_date, :"data-datepicker-format"=> "mm/dd/yyyy hh:ii", :placeholder => "Leave blank to start immediately")
+      = f.text_field(:start_date, :"data-datepicker-format"=> "yyyy-mm-dd hh:ii", :placeholder => "Leave blank to start immediately")
 
 
   .control-group
     %label.control-label{:for => "end_date"} End Date:
     .controls
-      = f.text_field(:end_date, :"data-datepicker-format"=> "mm/dd/yyyy hh:ii", :placeholder =>"Leave blank to run indefinitely" )
+      = f.text_field(:end_date, :"data-datepicker-format"=> "yyyy-mm-dd hh:ii", :placeholder =>"Leave blank to run indefinitely" )
 
   .control-group
     %label.control-label{:for => "message"} Message

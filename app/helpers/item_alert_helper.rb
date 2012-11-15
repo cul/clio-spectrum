@@ -1,4 +1,18 @@
 module ItemAlertHelper
+  def alert_status(alert)
+    if alert.start_date && alert.start_date > DateTime.now
+      "info"
+    else
+      if alert.end_date.nil? || alert.end_date > (DateTime.now + 3.days)
+        "success"
+      elsif alert.end_date > DateTime.now
+        "warning"
+      else
+        "error"
+      end
+    end
+  end
+
   def render_alert_duration(alert)
     if alert.start_date.nil? 
       if alert.end_date.nil?

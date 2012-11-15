@@ -1,6 +1,5 @@
 
 
-
 root = exports ? this
 root.load_clio_holdings = (id) -> 
   $("span.holding_spinner").show

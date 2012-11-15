@@ -1,27 +1,25 @@
 - if can?(:manage, ItemAlert)
   #show_alert_management
+    %h3 Manage Item Alerts
 
-    - if Array.wrap(document["_item_alerts"]).empty?
-      %h3 No alerts for this item currently exist.
+    %table.table#current_alerts
 
-    - else
-      %table.table-striped
-
-        %tr
-          %th Alert Type
-          %th Author
-          %th Duration
-          %th Message
-        - document["_item_alerts"].each do |alert|
-          %tr
-            %td= ItemAlert::ALERT_TYPES[alert.alert_type.to_s.to_sym]
-            %td= alert.author
-            %td= render_alert_duration(alert)
-            %td= alert.message
-
-    
-    %p The end
+      %tr
+        %th Alert Type
+        %th Author
+        %th Duration
+        %th.message_column Message
+        %th.action_column 
+          - document["_item_alerts"].keys.sort.collect { |alert_type| document["_item_alerts"][alert_type]}.flatten.each do |alert|
+            = render :partial => "/item_alerts/show_table_row", :locals => {:item_alert => alert}
+      %tr.add_row
+        %td.info{:colspan => 4} 
+          %btn.btn.add_row_button
+            %i.icon-plus
+            Add Row
 
     #create_alert
       - item_alert = ItemAlert.new('source' => 'catalog', :author_id => current_user.id, 'item_key' => document.get('id') )
-      = render :partial => "/item_alerts/form", :locals => {:item_alert => item_alert}
+      = render :partial => "/item_alerts/form", :locals => {:item_alert => item_alert, :remote => true}
+
+

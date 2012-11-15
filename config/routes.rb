@@ -3,7 +3,7 @@ Clio::Application.routes.draw do
 
   resources :item_alerts
 
-
+  match "item_alerts/:id/show_table_row(.:format)", :to => "item_alerts#show_table_row", :as => :item_alert_show_table_row
   get "spectrum/search"
 
   get "admin/ingest_log"

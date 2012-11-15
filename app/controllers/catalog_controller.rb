@@ -77,15 +77,15 @@ class CatalogController < ApplicationController
 
   private
 
-  def add_alerts_to_documents(documents, only_active = true)
+  def add_alerts_to_documents(documents)
     documents = Array.wrap(documents)
     query = ItemAlert.where(:source => 'catalog', :item_key=> Array.wrap(documents).collect(&:id)).includes(:author)
-    query = query.where("(start_date IS NULL OR start_date > ?) and (end_date IS NULL OR end_date < ?)", DateTime.now, DateTime.now) if only_active == true
 
     query.each do |alert| 
       document = documents.detect { |doc| doc.get('id').to_s == alert.item_key.to_s }
-      document["_item_alerts"] ||= []
-      document["_item_alerts"] << alert
+      document["_item_alerts"] ||= {}
+      document["_item_alerts"][alert.alert_type] ||= []
+      document["_item_alerts"][alert.alert_type] << alert
     end
   end
 end

@@ -1,5 +1,5 @@
 class Admin::LocationsController < ApplicationController
-  layout "no_sidebar_no_search"
+  layout "no_sidebar"
 
   def index
     @locations = Location.all

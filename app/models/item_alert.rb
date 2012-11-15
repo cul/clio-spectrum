@@ -7,7 +7,6 @@ class ItemAlert < ActiveRecord::Base
   validates :message, :presence => true
   validates :source, :presence => true
   validates :item_key, :presence => true
-  validates_uniqueness_of :item_key, :scope => [:source, :alert_type]
 
   ALERT_TYPES = { 
     access_requirements: 'Access Requirements',
@@ -17,5 +16,10 @@ class ItemAlert < ActiveRecord::Base
     related_resources: 'Related Resources'
   }
 
+
+  def active?
+    (start_date.nil? || start_date < DateTime.now()) && (end_date.nil? || end_date > DateTime.now)
+
+  end
 
 end
