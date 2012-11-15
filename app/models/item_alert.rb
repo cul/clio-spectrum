@@ -9,11 +9,11 @@ class ItemAlert < ActiveRecord::Base
   validates :item_key, :presence => true
 
   ALERT_TYPES = { 
-    access_requirements: 'Access Requirements',
-    alert: 'Alert',
-    alternate_connect: 'Alternate Connect',
-    e_link_enabled: 'E-Link Enabled',
-    related_resources: 'Related Resources'
+    'access_requirements' => 'Access Requirements',
+    'alert' =>  'Alert',
+    'alternate_connect' => 'Alternate Connect',
+    'e_link_enabled' =>  'E-Link Enabled',
+    'related_resources' => 'Related Resources'
   }
 
 

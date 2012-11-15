@@ -1,6 +1,6 @@
 
 %tr{:class => alert_status(item_alert), :'data-id' => item_alert.id}
-  %td= ItemAlert::ALERT_TYPES[item_alert.alert_type.to_s.to_sym]
+  %td= ItemAlert::ALERT_TYPES[item_alert.alert_type.to_s]
   %td= item_alert.author
   %td= render_alert_duration(item_alert)
   %td= item_alert.message
