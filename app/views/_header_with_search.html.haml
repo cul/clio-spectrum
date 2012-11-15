@@ -1,7 +1,7 @@
 
 #hd.row-fluid
   .logo.hidden-phone{:class => sidebar_span}
-    = link_to "CLIO", root_path
+    = link_to "CLIO", root_path, :class => "nav_title"
     -#= (params[:controller] == "catalog" and !params[:id]) ? "<span id='results_text'>Search Results</span>".html_safe : ""
   #top_search_box{:class => main_span}
     = render :partial => "/top_search_box"
