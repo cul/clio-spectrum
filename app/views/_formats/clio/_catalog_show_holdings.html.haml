@@ -1,7 +1,7 @@
 - clio_id = h(document["clio_id_display"].first.to_s)
 
 .holdings
-  .holdings_title Available from:
+  %h5 Available from:
 
   
   = render :partial => "/_formats/clio/catalog_show_holdings_online" , :locals => {:online_links => online_link_hash(document)}
