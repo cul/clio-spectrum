@@ -351,10 +351,3 @@
 
 }( window.jQuery );
 
-$(function() {
-	$("input[data-datepicker-format]").datepicker({
-		weekStart: 1,
-		days: ["S","M","T","W","T","F","S"],
-		months: ["January","February","March","April","May","June","July","August","September","October","November","December"]
-	});
-});

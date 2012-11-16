@@ -52,6 +52,11 @@ class ItemAlertsController < ApplicationController
   def edit
     @item_alert = ItemAlert.find(params[:id])
     authorize! :edit, @item_alert
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.js { render :layout => false }
+    end
   end
 
   # POST /item_alerts

@@ -16,7 +16,7 @@ module ItemAlertHelper
   def render_alert_duration(alert)
     if alert.start_date.nil? 
       if alert.end_date.nil?
-        "Always Visible"
+        "Forever"
       else
         if alert.end_date > DateTime.now()
           "Ends #{alert.end_date.to_formatted_s(:short)}"

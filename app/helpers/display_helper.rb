@@ -295,7 +295,11 @@ module DisplayHelper
 
     values = values.collect { |txt| txt.to_s.abbreviate(options[:abbreviate]) } if options[:abbreviate]
 
-    values = values.collect(&:html_safe) if options[:html_safe]
+    if options[:html_safe]
+      values = values.collect(&:html_safe) 
+    else
+      values = values.collect { |v| h(v) }.collect(&:html_safe)
+    end
     values = if options[:display_only_first] 
       values.first.to_s.listify
     elsif options[:join]
@@ -332,7 +336,7 @@ module DisplayHelper
     end
 
 
-    value_txt = value_txt.html_safe if options[:html_safe]
+    value_txt = value_txt.html_safe 
 
     value_txt
   end  

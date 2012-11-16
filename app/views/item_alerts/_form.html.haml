@@ -23,7 +23,7 @@
       %label.control-label{:for => "item_key"} Item Key:
       .controls
         = f.text_field(:item_key)
-  - item_alert.author_id ||= current_user.id
+  - item_alert.author_id = current_user.id
   = f.hidden_field :author_id
 
   .control-group
@@ -34,13 +34,13 @@
   .control-group
     %label.control-label{:for => "start_date"} Start Date:
     .controls
-      = f.text_field(:start_date, :"data-datepicker-format"=> "yyyy-mm-dd hh:ii", :placeholder => "Leave blank to start immediately")
+      = text_field_tag 'item_alert[start_date]', item_alert.start_date.nil? ? "" : item_alert.start_date.strftime("%F %H:%M"), :"data-datepicker-format"=> "yyyy-mm-dd hh:ii", :placeholder => "Leave blank to start immediately"
 
 
   .control-group
     %label.control-label{:for => "end_date"} End Date:
     .controls
-      = f.text_field(:end_date, :"data-datepicker-format"=> "yyyy-mm-dd hh:ii", :placeholder =>"Leave blank to run indefinitely" )
+      = text_field_tag 'item_alert[end_date]', item_alert.end_date.nil? ? "" : item_alert.end_date.strftime("%F %H:%M"), :"data-datepicker-format"=> "yyyy-mm-dd hh:ii", :placeholder =>"Leave blank to run indefinitely" 
 
   .control-group
     %label.control-label{:for => "message"} Message

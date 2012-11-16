@@ -12,7 +12,7 @@ class ItemAlert < ActiveRecord::Base
     'access_requirements' => 'Access Requirements',
     'alert' =>  'Alert',
     'alternate_connect' => 'Alternate Connect',
-    'elink_enabled' =>  'E-Link Enabled',
+    'elink_enabled' =>  'eLink Enabled',
     'related_resources' => 'Related Resources'
   }
 

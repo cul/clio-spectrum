@@ -1,7 +1,1 @@
-%h1 Editing item_alert
-
-= render :partial => 'form', :locals => {'item_alert' => @item_alert }
-
-= link_to 'Show', @item_alert
-\|
-= link_to 'Back', item_alerts_path
+= render :partial => 'form', :locals => {:item_alert => @item_alert, :remote => true}

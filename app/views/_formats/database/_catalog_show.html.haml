@@ -1,6 +1,6 @@
 - marc = document.to_marc
 
-= add_row(image_tag('warning-icon.png', :size => "37x27"), document.get("database_restrictions_display"))
+= add_row("Alert", document.get("database_restrictions_display"))
 = add_row("Summary", document.get("database_summary_display"))
 = add_row("Details", document.get("summary_display"))
 = add_row("Author", generate_value_links(display_marc_field(marc, 'author'), :author))
@@ -24,6 +24,7 @@
 = add_row('Format', formats_with_icons(document))
 = add_row('Acquired On', Date.parse(document.get('acq_dt')).to_formatted_s(:long)) if document.get('acq_dt')
 = add_row('Restricted', document.get("database_restrictions_display"))
-- document.get("_item_alerts").each do |alert_type, alerts|
-  = add_row(ItemAlert::ALERT_TYPES[alert_type], alerts.select { |alert| alert.active? }.collect(&:message))
+- if document.get("_item_alerts").kind_of?(Hash)
+  - document.get("_item_alerts").each do |alert_type, alerts|
+    = add_row(ItemAlert::ALERT_TYPES[alert_type], alerts.select { |alert| alert.active? }.collect(&:message), options = {:html_safe => false})
 
