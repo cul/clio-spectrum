@@ -103,7 +103,7 @@ class ApplicationController < ActionController::Base
   
   def determine_active_source
     if params['active_source']
-      @active_source = params['active_source']
+      @active_source = params['active_source'].underscore
     else
       path_minus_advanced = request.path.to_s.gsub(/^\/advanced/, '')
       @active_source = case path_minus_advanced 

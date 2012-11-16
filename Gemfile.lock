@@ -14,10 +14,10 @@ GIT
 
 GIT
   remote: git://github.com/projectblacklight/blacklight.git
-  revision: c4af30f3d625131c894525f0640d52195c86f49f
+  revision: 1f7edc4a0f5a2f47284ef0ae286768c26f32fab7
   branch: master
   specs:
-    blacklight (4.0.0.pre3)
+    blacklight (4.0.0.pre5)
       bootstrap-sass (~> 2.1.0)
       kaminari (~> 0.13)
       marc (>= 0.4.3, < 1.1)
@@ -25,7 +25,6 @@ GIT
       rails (~> 3.2)
       rsolr (~> 1.0.6)
       sass-rails
-      unicode
 
 GIT
   remote: git://github.com/projectblacklight/blacklight_range_limit.git

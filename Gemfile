@@ -9,6 +9,7 @@ gem 'sqlite3'
 
 
 gem 'blacklight', :git => "git://github.com/projectblacklight/blacklight.git", :branch => "master"
+ #gem 'blacklight', :path => "~/code/blacklight"
 #gem 'blacklight_range_limit', :path => "~/code/blacklight_range_limit"
 gem 'blacklight_range_limit', :git => "git://github.com/projectblacklight/blacklight_range_limit.git", :branch => "bootstrap"
 gem 'blacklight_google_analytics'
