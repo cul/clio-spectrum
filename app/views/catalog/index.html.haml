@@ -22,7 +22,7 @@
   - sidebar_items << capture do 
     = render :partial=>'facets' 
 
-  = render 'results_pagination' 
+  = fix_catalog_links(render('results_pagination'))
 
 
 
