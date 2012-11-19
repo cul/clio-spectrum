@@ -2,7 +2,6 @@
  *= require_self
  *
  * Required by Blacklight
- *= require 'jquery/ui-lightness/jquery-ui-1.8.1.custom.css'
  *= require 'blacklight/blacklight'
  *= require_tree .
 

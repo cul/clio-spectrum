@@ -72,11 +72,11 @@ module DatasourcesHelper
   end
 
   def sidebar_span(source = @active_source)
-    source_has_facets?(source) ? "span3" : "span2"
+    source_has_facets?(source) ? "span3" : "span2_5"
   end
 
   def main_span(source = @active_source)
-    source_has_facets?(source) ? "span9" : "span10"
+    source_has_facets?(source) ? "span9" : "span9_5"
   end
 
 
