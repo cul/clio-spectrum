@@ -1,8 +1,8 @@
 class CreateItemAlerts < ActiveRecord::Migration
   def change
     create_table :item_alerts do |t|
-      t.string :source, :null => false
-      t.string :item_key, :null => false
+      t.string :source, :null => false, :limit => 20
+      t.string :item_key, :null => false, :limit => 32
       t.string :alert_type, :null => false
       t.integer :author_id
       t.datetime :start_date
