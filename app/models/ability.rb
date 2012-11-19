@@ -1,12 +1,12 @@
 class Ability
   include CanCan::Ability
 
-  DATABASE_ADMINS = %w{jws2135}
 
   def initialize(user)
     user || User.new
 
-    if DATABASE_ADMINS.include?(user.login)
+
+    if user.has_role?('item_alerts', 'manage') 
       can :manage, ItemAlert
     end
   end

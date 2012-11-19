@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
   before_create :set_personal_info_via_ldap
   
 
+  def has_role?(area, role, admin_okay = true)
+    self.login.in?(PERMISSIONS_CONFIG[area][role]) || (admin_okay && self.login.in?(PERMISSIONS_CONFIG['site']['manage']))
+  end
 
   def to_s
     email

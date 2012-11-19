@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
 
         }
 
-        @debug_entries['solr'] << hashed_event if current_user && current_user.login.in?("jws2135", "sam119")
+        @debug_entries['solr'] << hashed_event if current_user && current_user.has_role?('site', 'admin')
       end
 
       ActiveSupport::Notifications.subscribed(debug_results, "execute.rsolr_client") do |*args|

@@ -9,6 +9,7 @@ rescue
   APP_CONFIG = {}
 end
 
+  PERMISSIONS_CONFIG = YAML.load(File.read(Rails.root.to_s + "/config/permissions.yml"))
   DATASOURCES_CONFIG = YAML.load(File.read(Rails.root.to_s + "/config/datasources.yml"))
   SEARCHES_CONFIG = YAML.load(File.read(Rails.root.to_s + "/config/searches.yml"))
   raw_config = File.read(Rails.root.to_s + "/config/marc_display_fields.yml")
