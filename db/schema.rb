@@ -31,16 +31,25 @@ ActiveRecord::Schema.define(:version => 20121113211955) do
     t.string   "user_type"
   end
 
+  create_table "database_alerts", :force => true do |t|
+    t.integer  "clio_id"
+    t.integer  "author_id"
+    t.boolean  "active"
+    t.text     "message"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "item_alerts", :force => true do |t|
-    t.string   "source",     :null => false
-    t.string   "item_key",   :null => false
-    t.string   "alert_type", :null => false
+    t.string   "source",     :limit => 20, :null => false
+    t.string   "item_key",   :limit => 32, :null => false
+    t.string   "alert_type",               :null => false
     t.integer  "author_id"
     t.datetime "start_date"
     t.datetime "end_date"
     t.text     "message"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   add_index "item_alerts", ["source", "item_key"], :name => "index_item_alerts_on_source_and_item_key"
