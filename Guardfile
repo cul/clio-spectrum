@@ -4,6 +4,7 @@
 
 guard 'rails', :port => 3030 do
   watch('Gemfile.lock')
+  watch('tmp/restart.txt')
   watch(%r{^(config|lib)/.*})
 end
 

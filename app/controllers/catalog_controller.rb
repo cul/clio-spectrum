@@ -16,7 +16,7 @@ class CatalogController < ApplicationController
     extra_head_content << view_context.auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => "Atom for results")
     params['extra_solr_source'] = @active_datasource
 
-    (@response, @document_list) = get_and_debug_search_results
+    (@response, @document_list) = blacklight_search(params)
     add_alerts_to_documents(@document_list)
     #check_holdings
     look_up_clio_holdings(@document_list)

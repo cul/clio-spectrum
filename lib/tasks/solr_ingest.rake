@@ -1,4 +1,5 @@
 EXTRACTS =  ["new_arrivals", "ejournals", "spectrum", "spectrum_update", "spectrum_special", "databases"]
+
 namespace :solr do
   desc "clear out solr for a date span"
   task :clear => :environment do

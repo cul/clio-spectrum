@@ -54,13 +54,13 @@ datasources:
       placeholder: Databases
       search_type: blacklight
   journals:
-    name: Journal Titles
+    name: eJournal Titles
     search_box:
       route: journals_index_path
-      placeholder: Journal Titles
+      placeholder: eJournal Titles
       search_type: blacklight
   library_web:
-    name: Library Web
+    name: Library Website
     no_facets: true
     search_box:
       route: library_web_index_path
