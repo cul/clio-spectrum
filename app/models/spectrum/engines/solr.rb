@@ -61,7 +61,7 @@ module Spectrum
 
       end
 
-      return @response, @results
+      return self
     end
 
 

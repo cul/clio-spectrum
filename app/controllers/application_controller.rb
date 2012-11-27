@@ -21,8 +21,8 @@ class ApplicationController < ActionController::Base
     options[:source] = @active_source unless options[:source]
     options[:debug_mode] = @debug_mode
     engine = Spectrum::Engines::Solr.new(options)
-    resp, results = engine.search
-    return resp, results
+    engine.search
+    return engine.response, engine.results
 
   end
 
