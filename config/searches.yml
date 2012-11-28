@@ -1,4 +1,10 @@
 layouts:
+  articles:
+    style: articles
+    columns:
+      - searches:
+          - source: articles 
+            count: 10
   library_web:
     style: single
     columns:

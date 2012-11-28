@@ -31,39 +31,40 @@ class SpectrumController < ApplicationController
       begin
         results = case category
                   when 'articles_dissertations'
-                    summon = SerialSolutions::SummonAPI.new('category' => 'dissertations', 'new_search' => true,  's.q' => params[:q])
+                    summon = Spectrum::Engines::Summon.new('source' => 'dissertations', 'new_search' => true, 's.q' => params['q'], 's.ps' => 10).search
 
                     {
-                      :result => summon.search,
-                      :docs => summon.search.respond_to?(:documents) ? summon.search.documents : [],
-                      :count => summon.search.record_count.to_i, 
-                      :url => articles_search_path(summon.search.query.to_hash)
+                      :result => summon,
+                      :docs => summon.results,
+                      :count => summon.response.record_count.to_i, 
+                      :url => articles_search_path(summon.response.query.to_hash)
                     }
                   when 'articles'
-                    summon = SerialSolutions::SummonAPI.new('category' => 'articles', 'new_search' => true, 's.q' => params[:q], 's.ps' => 10)
+                    summon = Spectrum::Engines::Summon.new('source' => 'articles', 'new_search' => true, 's.q' => params['q'], 's.ps' => 10).search
 
                     {
-                      :result => summon.search,
-                      :docs => summon.search.respond_to?(:documents) ? summon.search.documents : [],
-                      :count => summon.search.record_count.to_i, 
-                      :url => articles_search_path(summon.search.query.to_hash)
+                      :result => summon,
+                      :docs => summon.results,
+                      :count => summon.response.record_count.to_i, 
+                      :url => articles_search_path(summon.response.query.to_hash)
                     }
                   when 'articles_newspapers'
-                    summon = SerialSolutions::SummonAPI.new('category' => 'newspapers', 'new_search' => true, 's.q' => params[:q], 's.ps' => 10)
+                    summon = Spectrum::Engines::Summon.new('source' => 'newspapers', 'new_search' => true, 's.q' => params['q'], 's.ps' => 10).search
 
                     {
-                      :result => summon.search,
-                      :docs => summon.search.respond_to?(:documents) ? summon.search.documents : [],
-                      :count => summon.search.record_count.to_i, 
-                      :url => articles_search_path(summon.search.query.to_hash)
+                      :result => summon,
+                      :docs => summon.results,
+                      :count => summon.response.record_count.to_i, 
+                      :url => articles_search_path(summon.response.query.to_hash)
                     }
                   when 'ebooks'
-                    summon = SerialSolutions::SummonAPI.new('category' => 'ebooks', 'new_search' => true, 's.q' => params[:q], 's.ps' => 10)
+                    summon = Spectrum::Engines::Summon.new('source' => 'ebooks', 'new_search' => true, 's.q' => params['q'], 's.ps' => 10).search
+
                     {
-                      :result => summon.search,
-                      :docs => summon.search.respond_to?(:documents) ? summon.search.documents : [],
-                      :count => summon.search.record_count.to_i,
-                      :url => articles_search_path(summon.search.query.to_hash)
+                      :result => summon,
+                      :docs => summon.results,
+                      :count => summon.response.record_count.to_i, 
+                      :url => articles_search_path(summon.response.query.to_hash)
                     }
                   when 'catalog_ebooks'
                     params[:per_page] = 15
