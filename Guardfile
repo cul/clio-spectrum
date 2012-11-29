@@ -28,7 +28,7 @@ end
 
 
 
-guard 'rspec', :cli => "--drb --format progress --fail-fast", :all_after_pass => false do
+guard 'rspec', :cli => "--drb --format progress ", :all_after_pass => false do
   # Capybara request specs
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
   watch(%r{^spec/.+_spec\.rb$})

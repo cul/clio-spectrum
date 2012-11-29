@@ -11,10 +11,18 @@ class SpectrumController < ApplicationController
 
     @search_layout = SEARCHES_CONFIG['layouts'][params['layout']]
 
-    @search_style = @search_layout['style']
-    categories =  @search_layout['columns'].collect { |col| col['searches'].collect { |item| item['source'] }}.flatten
+      if params['q'].to_s.strip.empty? && params['s.q'].to_s.strip.empty?
+        flash[:error] = "You cannot search with an empty string." if params['commit']
+      elsif @search_layout.nil?
+        flash[:error] = "No search layout specified"
+        redirect_to root_path
+      else
+        @search_style = @search_layout['style']
+        categories =  @search_layout['columns'].collect { |col| col['searches'].collect { |item| item['source'] }}.flatten
 
-    @results = get_results(categories)
+        @results = get_results(categories)
+
+      end
   end
   private
 
