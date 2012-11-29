@@ -18,7 +18,9 @@ module SearchHelper
   end
 
   def search_render_options(search, source)
-    {'template' => @search_style}.merge(source['render_options'] || {}).merge(search['render_options'] || {})
+    opts ={'template' => @search_style}.merge(source['render_options'] || {}).merge(search['render_options'] || {})
+    opts['count'] = search['count'].to_i if search['count']
+    opts
 
   end
   def dropdown_with_select_tag(name, field_options, field_default = nil, *html_args)

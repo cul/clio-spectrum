@@ -1,9 +1,17 @@
-- if result[:error]
-  .result_error Error when searching. #{result[:message]}
-- else
+- if result.successful?
   - @add_row_options = row_opts.symbolize_keys! if row_opts.kind_of?(Hash)
 
-  - docs.each_with_index do |doc, doc_index|
-    = render_document_view(doc, render_opts.merge(document_counter: doc_index ))
+  - truncated_documents = render_opts['count'] ? result.documents[0,render_opts['count']] : result.documents
+  - if truncated_documents.empty? 
+    .result_empty 
+      %h5 No results found.
+  - else
+    - truncated_documents.each_with_index do |doc, doc_index|
+      = render_document_view(doc, render_opts.merge(document_counter: doc_index ))
 
+  - if render_opts['check_fedora']
+    = render partial: "/catalog/fedora_resources_check", locals: {documents: truncated_documents}
+
+- else
+  .result_error Error when searching. #{result.errors}
 

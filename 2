@@ -1,0 +1,100 @@
+class SpectrumController < ApplicationController
+  include Blacklight::Controller
+  include Blacklight::Catalog
+  include Blacklight::Configurable
+  include BlacklightRangeLimit::ControllerOverride
+  layout 'quicksearch'
+
+  def search
+    @results = []
+    session['search'] = params
+
+    @search_layout = SEARCHES_CONFIG['layouts'][params['layout']]
+
+    @search_style = @search_layout['style']
+    categories =  @search_layout['columns'].collect { |col| col['searches'].collect { |item| item['source'] }}.flatten
+
+    @results = get_results(categories)
+  end
+  private
+
+  def fix_articles_params(param_list)
+    if param_list['q']
+      param_list['s.q'] ||= param_list['q']
+      session['search']['s.q'] = params['q'] 
+      param_list['new_search'] = true
+      param_list.delete('q')
+
+    end
+
+    param_list
+    
+  end
+
+  def get_results(categories)
+    @result_hash = {}
+
+    categories.listify.each do |category|
+      fixed_params = Marshal.load(Marshal.dump(params))
+      %w{layout commit source controller action}.each { |param_name| fixed_params.delete(param_name) }
+
+      results = case category
+        when 'articles_dissertations'
+          fixed_params['source'] = 'dissertations'
+          fixed_params = fix_articles_params(fixed_params)
+
+          Spectrum::Engines::Summon.new(fixed_params)
+
+        when 'articles'
+          fixed_params['source'] = 'articles'
+          fixed_params = fix_articles_params(fixed_params)
+          Spectrum::Engines::Summon.new(fixed_params)
+
+        when 'articles_newspapers'
+          fixed_params['source'] = 'newspapers'
+          fixed_params = fix_articles_params(fixed_params)
+          Spectrum::Engines::Summon.new(fixed_params)
+
+        when 'ebooks'
+          fixed_params['source'] = 'ebooks'
+          fixed_params = fix_articles_params(fixed_params)
+          Spectrum::Engines::Summon.new(fixed_params)
+
+        when 'catalog_ebooks'
+          fixed_params['source'] = 'ebooks'
+          blacklight_search(fixed_params)
+
+        when 'catalog_databases'
+          fixed_params['source'] = 'databases'
+          blacklight_search(fixed_params)
+
+        when 'catalog_ejournals'
+          fixed_params['source'] = 'journals'
+          blacklight_search(fixed_params)
+
+        when 'catalog_dissertations'
+          fixed_params['source'] = 'dissertations'
+          blacklight_search(fixed_params)
+
+        when 'catalog'
+          fixed_params['source'] = 'catalog'
+          blacklight_search(fixed_params)
+
+        when 'academic_commons'
+          fixed_params['source'] = 'academic_commons'
+          blacklight_search(fixed_params)
+
+        when 'ac_dissertations'
+          fixed_params['source'] = 'ac_dissertations'
+          blacklight_search(fixed_params)
+
+        when 'library_web'
+          Spectrum::Engines::GoogleAppliance.new(fixed_params)
+        end
+
+      @result_hash[category] = results
+    end
+
+    @result_hash
+  end
+end

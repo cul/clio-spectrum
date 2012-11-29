@@ -4,12 +4,8 @@
       - column['searches'].each do |search|
         - result = @results[search['source']]
         - source = SEARCHES_CONFIG['sources'][search['source']]
-        - doc_list = truncated_doc_list(result, search['count'])
         .result_set
           = render partial: "/spectrum/aggregate/result_header", locals: {result: result, title: source['title'], description: source['description']}
-          = render partial: "/spectrum/aggregate/result_docs", locals: {result: result, docs: doc_list, render_opts: search_render_options(search, source), row_opts: search['row_opts']}
+          = render partial: "/spectrum/aggregate/result_docs", locals: {result: result, render_opts: search_render_options(search, source), row_opts: search['row_opts']}
           - if search['display_footer']
             = render partial: "/spectrum/aggregate/result_footer", locals: {result: result}
-          - if source['holdings_check']
-
-            = render :partial => "/catalog/holdings_check", :locals => {:documents => result[:docs]}

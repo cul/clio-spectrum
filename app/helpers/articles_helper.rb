@@ -5,7 +5,9 @@ module ArticlesHelper
   ]
 
   def link_to_article(article, link_title = nil)
+
     link_title ||= article.title.html_safe
+    return link_to(link_title, article.link)
     
     url = '' 
     if article.fulltext && !(article.content_types & ['Journal Article','Book', 'eBook']).empty?
