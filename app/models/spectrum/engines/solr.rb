@@ -5,7 +5,7 @@ module Spectrum
     include Blacklight::Configurable
     include Blacklight::SolrHelper
 
-    attr_reader :source, :response, :results, :debug_mode
+    attr_reader :source, :response, :results, :debug_mode, :solr_url
     attr_accessor :params
 
     def initialize(options = {})
@@ -13,7 +13,11 @@ module Spectrum
       @debug_mode = options.delete(:debug_mode) || false
       @debug_entries = Hash.arbitrary_depth
 
-      Blacklight.solr = Solr.generate_rsolr(@source)
+      # allow pass-in url
+      @solr_url = options.delete(:solr_url)
+
+      # Blacklight.solr = Solr.generate_rsolr(@source)
+      Blacklight.solr = Solr.generate_rsolr(@source, @solr_url)
       @config =  Solr.generate_config(@source)
       @params = options
     end
@@ -67,9 +71,11 @@ module Spectrum
 
     private
 
-    def self.generate_rsolr(source)
+    def self.generate_rsolr(source, solr_url = nil)
       if source == "academic_commons"
         RSolr.connect(:url => APP_CONFIG['ac2_solr_url'])
+      elsif (solr_url)
+        RSolr.connect(:url => solr_url)
       else
         RSolr.connect(Blacklight.solr_config) 
       end

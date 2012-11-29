@@ -91,6 +91,7 @@ namespace :solr do
           ENV["MARC_FILE"] = file
           Rake::Task["solr:marc:index:work"].reenable
           Rake::Task["solr:marc:index:work"].invoke
+# Rake::Task["solr:marc:index:info"].invoke
           puts_and_log ("Indexing succesful.")
         rescue Exception => e
           puts_and_log("Indexing  task failed to " + e.message, :error, :alarm => true)
