@@ -17,12 +17,18 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def blacklight_search(options = {})
-    options[:source] = @active_source unless options[:source]
-    options[:debug_mode] = @debug_mode
+  def blacklight_search(sent_options = {})
+    options = sent_options.deep_clone
+    options['source'] = @active_source unless options['source']
+    options['debug_mode'] = @debug_mode
     engine = Spectrum::Engines::Solr.new(options)
-    engine.search
-    return engine.response, engine.results
+    if engine.successful?
+      look_up_clio_holdings(engine.documents)
+      add_alerts_to_documents(@document_list)
+    end
+    @debug_entries ||= {}
+    @debug_entries = @debug_entries.recursive_merge(engine.debug_entries)
+    return engine
 
   end
 
@@ -37,7 +43,6 @@ class ApplicationController < ActionController::Base
         end
       end
     rescue Exception => e
-    
     end
 
   end
@@ -67,7 +72,10 @@ class ApplicationController < ActionController::Base
 
     @debug_entries = Hash.arbitrary_depth
 
+    @current_user = current_user
+
     default_debug
+
   end
 
   def default_debug
@@ -135,5 +143,16 @@ class ApplicationController < ActionController::Base
     }
   end
 
+  def add_alerts_to_documents(documents)
+    documents = Array.wrap(documents)
+    query = ItemAlert.where(:source => 'catalog', :item_key=> Array.wrap(documents).collect(&:id)).includes(:author)
+
+    query.each do |alert| 
+      document = documents.detect { |doc| doc.get('id').to_s == alert.item_key.to_s }
+      document["_item_alerts"] ||= {}
+      document["_item_alerts"][alert.alert_type] ||= []
+      document["_item_alerts"][alert.alert_type] << alert
+    end
+  end
 end
 

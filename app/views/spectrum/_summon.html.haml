@@ -6,7 +6,7 @@
         - if result.successful?
           - source = SEARCHES_CONFIG['sources'][search['source']]
           .result_set
-            = render partial: '/spectrum/single/constraints', locals: {result: result}
-            = render partial: "/spectrum/single/result_docs", locals: {result: result, render_opts: search_render_options(search, source), row_opts: search['row_opts']} 
+            = render partial: '/spectrum/summon/constraints', locals: {result: result}
+            = render partial: "/spectrum/summon/result_docs", locals: {result: result, render_opts: search_render_options(search, source), row_opts: search['row_opts']} 
         - else
           .result_error Error when searching: #{result.errors}

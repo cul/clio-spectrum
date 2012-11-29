@@ -1,10 +1,9 @@
 layouts:
   articles:
-    style: articles
+    style: summon
     columns:
       - searches:
           - source: articles 
-            count: 10
   library_web:
     style: single
     columns:
@@ -107,6 +106,7 @@ sources:
     description: Digital Repository of Research 
     render_options:
       format: ac
+      check_fedora: true
   library_web:
     title: Library Web
     description: Searches the library web site
@@ -117,11 +117,12 @@ sources:
     description: Dissertations from Columbia's Digital Repository
     render_options:
       format: ac
+      check_fedora: true
   articles_dissertations:
     title: Summon
     description: Dissertations from Columbia's Articles Database
     render_options:
-      format: articles
+      format: article
   articles_newspapers:
     title: Newspaper Articles
     description: Full text newspaper articles from Summon
@@ -146,7 +147,7 @@ sources:
     title: Journal Titles
     description: Electronic Journals Held By Columbia
     render_options:
-      format: ac
+      format: clio 
   ebooks:
     title: Summon
     description: eBooks from Summon's repository of digitzed books

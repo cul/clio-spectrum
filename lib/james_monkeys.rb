@@ -63,7 +63,23 @@ class Hash
     values.select{|v| v.is_a? Hash}.each{|h| h.recursive_symbolize_keys!}
     self
   end
-  
+
+  def deep_clone
+    JSON.load(JSON.dump(self))
+  end
+
+  def recursive_merge(hash = nil)
+    return self unless hash.is_a?(Hash)
+    base = self
+    hash.each do |key, v|
+      if base[key].is_a?(Hash) && hash[key].is_a?(Hash)
+        base[key].recursive_merge(hash[key])
+      else
+        base[key]= hash[key]
+      end
+    end
+    base
+  end
 end
 
 

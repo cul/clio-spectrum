@@ -28,23 +28,23 @@ describe 'Spectrum::Engines::Summon' do
 
   describe 'basic articles search' do
     before(:all) do
-      @sum = Spectrum::Engines::Summon.new('source' => 'articles', 's.q' => 'hardnose dictator', 'new_search' => true).search
+      @sum = Spectrum::Engines::Summon.new('source' => 'articles', 's.q' => 'hardnose dictator', 'new_search' => true)
 
 
     end
 
     it 'should find results' do
-      @sum.results.should_not be_empty
+      @sum.documents.should_not be_empty
     end
 
     it 'should find a matching title result' do
-      @sum.results.first.title.should include('Hardnose')
+      @sum.documents.first.title.should include('Hardnose')
     end
 
     it 'should not include newspaper articles' do
-      @sum.response.query.facet_value_filters.should be_any { |f| f.negated? && f.value == "Newspaper Article" }
-      @sum.results.each do |res|
-        res.content_type.should_not == 'Newspaper Article'
+      @sum.search.query.facet_value_filters.should be_any { |f| f.negated? && f.value == "Newspaper Article" }
+      @sum.documents.each do |doc|
+        doc.content_type.should_not == 'Newspaper Article'
       end 
 
     end

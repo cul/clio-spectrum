@@ -27,9 +27,6 @@ Clio::Application.routes.draw do
 
   devise_for :users
 
-
-
-
   match 'databases', :to => 'catalog#index', :as => :databases_index
   match 'databases/:id(.:format)', :via => [:get], :to => 'catalog#show', :as => :databases_show
   match 'databases/facet/:id(.format)', :to => 'catalog#facet', :as => :databases_facet
@@ -66,9 +63,8 @@ Clio::Application.routes.draw do
 
   match 'lweb', :to => 'search#index', :as => :lweb_search, :defaults => {:categories => ['lweb']}
 
-  match 'articles', :to => "articles#index", :as => :articles_index
+  match 'articles', :to => "spectrum#search", :as => :articles_index, :defaults => {:layout => 'articles'}
   match 'articles/show', :to => "articles#show", :as => :articles_show
-  match 'articles/search', :to => "articles#search", :as => :articles_search
 
   match 'ebooks', :to => 'spectrum#search', :as => :ebooks_index, :defaults => {:layout => 'ebooks'}
 

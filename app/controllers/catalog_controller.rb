@@ -14,12 +14,11 @@ class CatalogController < ApplicationController
 
     extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => "RSS for results")
     extra_head_content << view_context.auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => "Atom for results")
-    params['extra_solr_source'] = @active_datasource
 
-    (@response, @document_list) = blacklight_search(params)
-    add_alerts_to_documents(@document_list)
-    #check_holdings
-    look_up_clio_holdings(@document_list)
+    engine = blacklight_search(params)
+    @response = engine.search
+    @document_list = engine.documents
+
     @filters = params[:f] || []
 
     respond_to do |format|
@@ -77,16 +76,5 @@ class CatalogController < ApplicationController
 
   private
 
-  def add_alerts_to_documents(documents)
-    documents = Array.wrap(documents)
-    query = ItemAlert.where(:source => 'catalog', :item_key=> Array.wrap(documents).collect(&:id)).includes(:author)
-
-    query.each do |alert| 
-      document = documents.detect { |doc| doc.get('id').to_s == alert.item_key.to_s }
-      document["_item_alerts"] ||= {}
-      document["_item_alerts"][alert.alert_type] ||= []
-      document["_item_alerts"][alert.alert_type] << alert
-    end
-  end
 end
 
