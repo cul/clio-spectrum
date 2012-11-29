@@ -129,7 +129,7 @@ module Spectrum
 
           config.default_solr_params = {
             :qt => "search",
-            :per_page => 10
+            :rows => 10
           }
         end
       
@@ -261,14 +261,14 @@ module Spectrum
               default_catalog_config(config, :display_fields, :facets, :search_fields, :sorts)
               config.default_solr_params = {
                 :qt => "search",
-                :per_page => 15,
+                :rows => 15,
                 :fq  => ['{!raw f=format}Book', '{!raw f=format}Online']
               }
             when 'catalog_dissertations'
               default_catalog_config(config, :display_fields, :facets, :search_fields, :sorts)
               config.default_solr_params = {
                 :qt => "search",
-                :per_page => 15,
+                :rows => 15,
                 :fq  => ['{!raw f=format}Thesis']
               }
             when 'journals'
@@ -276,7 +276,7 @@ module Spectrum
 
               config.default_solr_params = {
                 :qt => "search",
-                :per_page => 10,
+                :rows => 10,
                 :fq  => ['{!raw f=source_facet}ejournal']
               }
 
@@ -296,7 +296,7 @@ module Spectrum
 
               config.default_solr_params = {
                 :qt => "search",
-                :per_page => 10,
+                :rows => 10,
                 :fq  => ['{!raw f=source_facet}database']
               }
 
@@ -325,7 +325,7 @@ module Spectrum
 
               config.default_solr_params = {
                 :qt => "search",
-                :per_page => 10,
+                :rows => 10,
                 :fq  => ['{!raw f=source_facet}archive']
               }
               
@@ -347,7 +347,7 @@ module Spectrum
 
               config.default_solr_params = {
                 :qt => "search",
-                :per_page => 10,
+                :rows => 10,
                 :fq  => ["acq_dt:[#{(Time.now - 6.months).utc.iso8601} TO *]"]
               }
 

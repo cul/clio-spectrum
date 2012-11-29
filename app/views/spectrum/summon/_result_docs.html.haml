@@ -1,7 +1,7 @@
 - @add_row_options = row_opts.symbolize_keys! if row_opts.kind_of?(Hash)
 
 - truncated_documents = render_opts['count'] ? result.documents[0,render_opts['count']] : result.documents
-- result.documents.each_with_index do |doc, doc_index|
+- truncated_documents.each_with_index do |doc, doc_index|
   = render_document_view(doc, render_opts.merge(document_counter: doc_index ))
 
 

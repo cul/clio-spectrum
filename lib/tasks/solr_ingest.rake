@@ -1,4 +1,4 @@
-EXTRACTS =  ["new_arrivals", "ejournals", "spectrum", "spectrum_update", "spectrum_special", "databases"]
+EXTRACTS =  ["new_arrivals", "ejournals", "spectrum", "spectrum_update", "spectrum_special", "databases", "spectrum_subset"]
 
 namespace :solr do
   desc "clear out solr for a date span"
@@ -118,7 +118,7 @@ namespace :solr do
 end
 
 def solr_find_ids_by_timespan(start, stop)
-  response = Blacklight.solr.find(:fl => "id", :filters => {:timestamp => "[" + start + " TO " + stop+"]"}, :per_page => 100000000)["response"]["docs"].collect(&:id).flatten
+  response = Blacklight.solr.find(:fl => "id", :filters => {:timestamp => "[" + start + " TO " + stop+"]"}, :rows => 100000000)["response"]["docs"].collect(&:id).flatten
 end
 
 

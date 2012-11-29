@@ -15,3 +15,5 @@ end
   raw_config = File.read(Rails.root.to_s + "/config/marc_display_fields.yml")
   marc_config = YAML.load(raw_config)
   MARC_FIELDS = marc_config
+
+  SOLR_CONFIG = YAML.load(File.read(Rails.root.to_s + "/config/solr.yml"))
