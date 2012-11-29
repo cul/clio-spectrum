@@ -35,6 +35,11 @@ module Spectrum
 
       end
 
+
+      def results
+        documents
+      end
+
       def search_path
         @search_url || by_source_search_link(@params)
       end

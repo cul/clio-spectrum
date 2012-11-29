@@ -24,6 +24,10 @@ module Spectrum
         end
       end
 
+      def results
+        documents
+      end
+
       def search_path
         @search_url || library_web_index_path(@params)
       end
