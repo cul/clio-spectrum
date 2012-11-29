@@ -82,7 +82,7 @@ module Spectrum
 
         config.default_solr_params = {
           :qt => "search",
-          :per_page => 10
+          :rows => 10
         }
       end
     
@@ -215,7 +215,7 @@ module Spectrum
 
             config.default_solr_params = {
               :qt => "search",
-              :per_page => 10,
+              :rows => 10,
               :fq  => ['{!raw f=source_facet}ejournal']
             }
 
@@ -235,7 +235,7 @@ module Spectrum
 
             config.default_solr_params = {
               :qt => "search",
-              :per_page => 10,
+              :rows => 10,
               :fq  => ['{!raw f=source_facet}database']
             }
 
@@ -264,7 +264,7 @@ module Spectrum
 
             config.default_solr_params = {
               :qt => "search",
-              :per_page => 10,
+              :rows => 10,
               :fq  => ['{!raw f=source_facet}archive']
             }
             
@@ -286,7 +286,7 @@ module Spectrum
 
             config.default_solr_params = {
               :qt => "search",
-              :per_page => 10,
+              :rows => 10,
               :fq  => ["acq_dt:[#{(Time.now - 6.months).utc.iso8601} TO *]"]
             }
 

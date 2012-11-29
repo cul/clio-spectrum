@@ -4,7 +4,7 @@ module Spectrum
 
       def initialize(params)
         configure_search('catalog')
-        params['per_page'] = 15
+        params['rows'] = 15
         params['q'] = query
 
         @docs = solr_results,
