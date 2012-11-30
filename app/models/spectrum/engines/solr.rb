@@ -20,7 +20,9 @@ module Spectrum
         @current_user = options.delete(:current_user)
         @search_url = options.delete('search_url')
 
-        Blacklight.solr = Solr.generate_rsolr(@source)
+        # allow pass-in override solr url
+        @solr_url = options.delete('solr_url')
+        Blacklight.solr = Solr.generate_rsolr(@source, @solr_url)
         @config =  Solr.generate_config(@source)
         @params = options
         @params.symbolize_keys!
@@ -33,52 +35,7 @@ module Spectrum
           @errors = e.message
         end
 
-<<<<<<< HEAD
-    include Blacklight::Configurable
-    include Blacklight::SolrHelper
-
-    attr_reader :source, :response, :results, :debug_mode, :solr_url
-    attr_accessor :params
-
-    def initialize(options = {})
-      @source = options.delete(:source) || raise('Must specify source')
-      @debug_mode = options.delete(:debug_mode) || false
-      @debug_entries = Hash.arbitrary_depth
-
-      # allow pass-in url
-      @solr_url = options.delete(:solr_url)
-
-      # Blacklight.solr = Solr.generate_rsolr(@source)
-      Blacklight.solr = Solr.generate_rsolr(@source, @solr_url)
-      @config =  Solr.generate_config(@source)
-      @params = options
-    end
-
-
-    def blacklight_config
-      @config
-    end
-
-    def blacklight_config=(config)
-      @config = config
-    end
-
-    def search(extra_controller_params = {})
-
-      if @debug_mode
-        extra_controller_params.merge!('debugQuery' => 'true')
-
-          debug_results = lambda do |*args|       
-            @debug_entries['solr'] = [] if @debug_entries['solr'] == {}
-            event =   ActiveSupport::Notifications::Event.new(*args)
-
-            hashed_event = {
-              debug_uri: event.payload[:uri].to_s.gsub('wt=ruby&',"wt=xml&")+"&debugQuery=true",
-
-            }
-=======
       end
->>>>>>> b019750d3274b23112c560838905783c8b3222aa
 
 
       def results
@@ -101,18 +58,8 @@ module Spectrum
         @config = config
       end
 
-<<<<<<< HEAD
-    def self.generate_rsolr(source, solr_url = nil)
-      if source == "academic_commons"
-        RSolr.connect(:url => APP_CONFIG['ac2_solr_url'])
-      elsif (solr_url)
-        RSolr.connect(:url => solr_url)
-      else
-        RSolr.connect(Blacklight.solr_config) 
-=======
       def successful?
         @errors.nil?
->>>>>>> b019750d3274b23112c560838905783c8b3222aa
       end
 
 
@@ -134,13 +81,6 @@ module Spectrum
           archives_index_path(params)
         end
 
-<<<<<<< HEAD
-        config.default_solr_params = {
-          :qt => "search",
-          :rows => 10
-        }
-=======
->>>>>>> b019750d3274b23112c560838905783c8b3222aa
       end
 
       def perform_search()
@@ -181,9 +121,11 @@ module Spectrum
         return self
       end
 
-      def self.generate_rsolr(source)
+      def self.generate_rsolr(source, solr_url = nil)
         if source.in?("academic_commons", "ac_dissertations")
           RSolr.connect(:url => APP_CONFIG['ac2_solr_url'])
+        elsif (solr_url)
+          RSolr.connect(:url => solr_url)
         else
           RSolr.connect(Blacklight.solr_config) 
         end
@@ -233,17 +175,9 @@ module Spectrum
 
         if elements.include?(:search_fields) 
 
-<<<<<<< HEAD
-            config.default_solr_params = {
-              :qt => "search",
-              :rows => 10,
-              :fq  => ['{!raw f=source_facet}ejournal']
-            }
-=======
           config.add_search_field('title') do |field|
             # solr_parameters hash are sent to Solr as ordinary url query params. 
             field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
->>>>>>> b019750d3274b23112c560838905783c8b3222aa
 
             # :solr_local_parameters will be sent using Solr LocalParams
             # syntax, as eg {! qf=$title_qf }. This is neccesary to use
@@ -291,14 +225,6 @@ module Spectrum
 
         end
 
-<<<<<<< HEAD
-            config.default_solr_params = {
-              :qt => "search",
-              :rows => 10,
-              :fq  => ['{!raw f=source_facet}database']
-            }
-=======
->>>>>>> b019750d3274b23112c560838905783c8b3222aa
 
         if elements.include?(:sorts)
           config.add_sort_field   'score desc, pub_date_sort desc, title_sort asc', :label => 'Relevance'
@@ -320,14 +246,8 @@ module Spectrum
         if source.in?('quicksearch','ebooks','dissertations')
           self.blacklight_config = Blacklight::Configuration.new do |config|
             config.default_solr_params = {
-<<<<<<< HEAD
-              :qt => "search",
-              :rows => 10,
-              :fq  => ['{!raw f=source_facet}archive']
-=======
               :qt => 'search',
               :rows => 10
->>>>>>> b019750d3274b23112c560838905783c8b3222aa
             }
 
             config.add_search_field 'all_fields', :label => 'All Fields'
@@ -338,14 +258,8 @@ module Spectrum
         else
           self.blacklight_config = Blacklight::Configuration.new do |config|
             config.default_solr_params = {
-<<<<<<< HEAD
-              :qt => "search",
-              :rows => 10,
-              :fq  => ["acq_dt:[#{(Time.now - 6.months).utc.iso8601} TO *]"]
-=======
               :qt => 'search',
               :rows => 10
->>>>>>> b019750d3274b23112c560838905783c8b3222aa
             }
 
             config.add_search_field 'all_fields', :label => 'All Fields'
