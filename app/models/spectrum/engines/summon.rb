@@ -57,8 +57,8 @@ module Spectrum
       def current_sort_name
         if @search.query.sort.nil?
           "Relevance"
-        elsif @search.query.field_name == "PublicationDate"
-          if @search.query.sort_order == "desc"
+        elsif @search.query.sort.field_name == "PublicationDate"
+          if @search.query.sort.sort_order == "desc"
             "Published Latest"
           else
             "Published Earliest"
@@ -71,11 +71,11 @@ module Spectrum
       def constraints_with_links
         constraints = []
         @search.query.text_queries.each do |q|
-          constraints << [q['textQuery'], by_source_search_remove(q['removeCommand'])]
+          constraints << [q['textQuery'], by_source_search_cmd(q['removeCommand'])]
         end
         @search.query.facet_value_filters.each do |fvf|
           facet_text = "#{fvf.negated? ? "NOT " : ""}#{fvf.field_name.titleize}: #{fvf.value}"
-          constraints << [facet_text, by_source_search_remove(fvf.remove_command)]
+          constraints << [facet_text, by_source_search_cmd(fvf.remove_command)]
         end
         constraints
       end
@@ -88,6 +88,13 @@ module Spectrum
         ]
       end
 
+      def page_size_with_links
+        [10,20,50,100].collect do |page_size|
+          [by_source_search_cmd("setPageSize(#{page_size})"), page_size]
+        end
+
+      end
+  
       def successful?
         @errors.nil?
       end
@@ -118,7 +125,7 @@ module Spectrum
       end
 
       def set_page_path(page_num)
-        by_source_search_cmd('s.pn' => [total_pages, [page_num, 1].max].min)
+        by_source_search_modify('s.pn' => [total_pages, [page_num, 1].max].min)
       end
 
       def page_size
@@ -153,10 +160,10 @@ module Spectrum
       private
   
 
-      def by_source_search_remove(cmdText)
-        by_source_search_cmd('s.cmd' => cmdText)
+      def by_source_search_cmd(cmdText)
+        by_source_search_modify('s.cmd' => cmdText)
       end
-      def by_source_search_cmd(cmd = {})
+      def by_source_search_modify(cmd = {})
         by_source_search_link(@search.query.to_hash.merge(cmd))
       end
 
