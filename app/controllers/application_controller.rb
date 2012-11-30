@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
     options = sent_options.deep_clone
     options['source'] = @active_source unless options['source']
     options['debug_mode'] = @debug_mode
+    options['current_user'] = current_user
     engine = Spectrum::Engines::Solr.new(options)
     if engine.successful?
       look_up_clio_holdings(engine.documents)
