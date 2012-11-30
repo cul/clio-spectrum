@@ -6,23 +6,23 @@
   - @page_title = application_name + " Search Results" 
   - session['search'][:active_source] = @active_source
 
-  - extra_head_content << render_opensearch_response_metadata.html_safe 
 
-  = fix_catalog_links(render('constraints', :localized_params=>params ))
-  
-  = fix_catalog_links(render('sort_and_per_page'))
+  - unless @response.nil?
+    = fix_catalog_links(render('constraints', :localized_params=>params ))
+    
+    = fix_catalog_links(render('sort_and_per_page'))
 
 
 
-  - if @active_source == "databases"
-    .on_search= render :partial => "/_display/databases/a_to_z"
+    - if @active_source == "databases"
+      .on_search= render :partial => "/_display/databases/a_to_z"
 
-  = render :partial => 'document_list' 
+    = render :partial => 'document_list' 
 
-  - sidebar_items << capture do 
-    = render :partial=>'facets' 
+    - sidebar_items << capture do 
+      = render :partial=>'facets' 
 
-  = fix_catalog_links(render('results_pagination'))
+    = fix_catalog_links(render('results_pagination'))
 
 
 

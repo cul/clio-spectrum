@@ -241,6 +241,7 @@ module Spectrum
 
         if source.in?('quicksearch','ebooks','dissertations')
           self.blacklight_config = Blacklight::Configuration.new do |config|
+            default_catalog_config(config)
             config.default_solr_params = {
               :qt => 'search',
               :rows => 10
@@ -249,7 +250,6 @@ module Spectrum
             config.add_search_field 'all_fields', :label => 'All Fields'
         
             config.spell_max = 0
-            default_catalog_config(config)
           end
         else
           self.blacklight_config = Blacklight::Configuration.new do |config|

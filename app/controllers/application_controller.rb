@@ -24,6 +24,8 @@ class ApplicationController < ActionController::Base
     options['current_user'] = current_user
     engine = Spectrum::Engines::Solr.new(options)
     if engine.successful?
+      @response = engine.search
+      @results = engine.documents
       look_up_clio_holdings(engine.documents)
       add_alerts_to_documents(@document_list)
     end

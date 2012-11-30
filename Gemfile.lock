@@ -13,20 +13,6 @@ GIT
       voyager_oracle_api (>= 1.1.0)
 
 GIT
-  remote: git://github.com/projectblacklight/blacklight.git
-  revision: 3459300217d522ab0f904c652092734836dbea0f
-  branch: master
-  specs:
-    blacklight (4.0.0.pre7)
-      bootstrap-sass (~> 2.1.0)
-      kaminari (~> 0.13)
-      marc (>= 0.4.3, < 1.1)
-      nokogiri (~> 1.5)
-      rails (~> 3.2)
-      rsolr (~> 1.0.6)
-      sass-rails
-
-GIT
   remote: git://github.com/projectblacklight/blacklight_range_limit.git
   revision: 629fbe0714051150861d6cb8a2c9ccc1a0ff5ee5
   branch: bootstrap
@@ -35,6 +21,18 @@ GIT
       blacklight (>= 4.0.0.pre1)
       jquery-rails
       rails (~> 3.2)
+
+PATH
+  remote: ~/code/blacklight
+  specs:
+    blacklight (4.0.0)
+      bootstrap-sass (~> 2.1.0)
+      kaminari (~> 0.13)
+      marc (>= 0.4.3, < 1.1)
+      nokogiri (~> 1.5)
+      rails (~> 3.2)
+      rsolr (~> 1.0.6)
+      sass-rails
 
 GEM
   remote: http://rubygems.org/
