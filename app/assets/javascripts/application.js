@@ -17,6 +17,7 @@
 //= require bootstrap-popover
 //= require bootstrap-datepicker
 //= require blacklight/blacklight
+//= require bootstrap-dropdown
 //= require blacklight_application
 //= require articles
 //= require jquery.observe_field
