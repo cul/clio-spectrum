@@ -11,13 +11,13 @@ module Spectrum
       attr_reader :source, :documents, :search, :errors, :debug_mode, :debug_entries
       attr_accessor :params
 
-      def initialize(options = {})
-        options = options.deep_clone
+      def initialize(original_options = {})
+        options = original_options.to_hash.deep_clone
         @source = options.delete('source') || raise('Must specify source')
         options.delete(:source)
         @debug_mode = options.delete(:debug_mode) || options.delete('debug_mode') || false
         @debug_entries = Hash.arbitrary_depth
-        @current_user = options.delete(:current_user)
+        @current_user = options.delete('current_user')
         @search_url = options.delete('search_url')
 
         # allow pass-in override solr url
