@@ -13,7 +13,7 @@ module Spectrum
 
       def initialize(original_options = {})
         options = original_options.to_hash.deep_clone
-        @source = options.delete('source') || raise('Must specify source')
+        @source = options.delete('source') || options.delete(:source) || raise('Must specify source')
         options.delete(:source)
         @debug_mode = options.delete(:debug_mode) || options.delete('debug_mode') || false
         @debug_entries = Hash.arbitrary_depth
