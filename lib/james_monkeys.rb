@@ -65,7 +65,7 @@ class Hash
   end
 
   def deep_clone
-    JSON.load(JSON.dump(self))
+    Marshal.load(Marshal.dump(self))
   end
 
   def recursive_merge(hash = nil)
