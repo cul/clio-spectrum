@@ -1,6 +1,7 @@
 layouts:
   articles:
     style: summon
+    has_facets: true
     columns:
       - searches:
           - source: articles 

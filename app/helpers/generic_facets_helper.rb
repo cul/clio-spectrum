@@ -12,7 +12,7 @@ module GenericFacetsHelper
     if value == :not_selected
       label = content_tag(:a, label, :href => facet_item_command(item, :select), :class => "facet_plus facet_action").html_safe
     end
-    label = "NOT " + label if value == :negated
+    label = "Not " + label if value == :negated
     if value == :not_selected
       if item[:count].to_i >= 1000000
         label += " (#{item[:count].to_i/1000000}M)"

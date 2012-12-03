@@ -63,6 +63,8 @@ module Spectrum
 
       private
 
+
+
       def by_source_search_link(params = {})
         case @source
         when 'catalog'
