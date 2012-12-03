@@ -7,8 +7,9 @@ datasources:
       placeholder: Catalog, Articles, Academic Commons, Library Web 
   newspapers:
     name: Newspapers
-    no_facets: true
     search_box:
+      search_type: summon
+      search_category: newspapers
       route: newspapers_index_path
       placeholder: Newspapers
   articles:
@@ -17,6 +18,7 @@ datasources:
       route: articles_index_path
       placeholder: Articles
       search_type: summon
+      search_category: articles
   ebooks:
     name: eBooks
     no_facets: true

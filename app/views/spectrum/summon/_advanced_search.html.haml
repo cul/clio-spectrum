@@ -1,0 +1,36 @@
+.well
+  = form_tag path, :class => "form-horizontal", :method => "GET" do 
+    = hidden_field_tag :new_search, "true"
+    .control-group
+      .control-label Keywords:
+      .controls
+        = text_field_tag "s.q", params['s.q'], :title => "Query", :id => "query", :class => 'input-xlarge'
+
+    .control-group
+      .control-label Author:
+      .controls
+        = text_field_tag "s.fq[AuthorCombined]", params['s.fq'] && params['s.fq']['AuthorCombined'],  :title => "Author", :id => "author", :class => 'input-xlarge'
+
+    .control-group
+      .control-label Title:
+      .controls
+        = text_field_tag "s.fq[TitleCombined]", params['s.fq'] && params['s.fq']['TitleCombined'], :title => "Title", :id => "title", :class => 'input-xlarge'
+
+    .control-group
+      .control-label ISBN:
+      .controls
+        = text_field_tag "s.fq[ISBN]", params['s.fq'] && params['s.fq']['ISBN'],  :title => "ISBN", :id => "isbn", :class => 'input-medium'
+
+    .control-group
+      .control-label ISSN:
+      .controls
+        = text_field_tag "s.fq[ISSN]", params['s.fq'] && params['s.fq']['ISSN'],  :title => "ISSN", :id => "issn", :class => 'input-medium'
+
+
+
+    .control-group
+      .controls
+        %button.btn.btn-primary{:name => "commit", :type => "submit", :value => "Search"}
+          %i.icon-search.icon-white
+          %span.visible-desktop Search
+

@@ -33,6 +33,18 @@ module Spectrum
         @params.merge!(options)
         @params.delete('utf8')
 
+        @params['s.cmd'] ||= ''
+        @params['s.q'] ||= ''
+        @params['s.fq'] ||= ''
+
+        if @params['s.fq'].kind_of?(Hash)
+          new_fq = []
+          @params['s.fq'].each_pair do |name, value|
+            new_fq << "#{name}:#{value}" unless value.to_s.empty?
+          end
+          @params['s.fq'] = new_fq
+        end
+
         @errors = nil
         begin 
           @service = ::Summon::Service.new(@config)
@@ -123,10 +135,15 @@ module Spectrum
         end
       end
 
+
       def constraints_with_links
         constraints = []
         @search.query.text_queries.each do |q|
           constraints << [q['textQuery'], by_source_search_cmd(q['removeCommand'])]
+        end
+        @search.query.text_filters.each do |q|
+          filter_text = q['textFilter'].to_s.sub(/^([^\:]+)Combined:/,'\1:').sub(':', ': ')
+          constraints << [filter_text, by_source_search_cmd(q['removeCommand'])]
         end
         @search.query.facet_value_filters.each do |fvf|
           facet_text = "#{fvf.negated? ? "Not " : ""}#{fvf.field_name.titleize}: #{fvf.value}"
