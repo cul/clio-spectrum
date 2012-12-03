@@ -37,22 +37,11 @@ layouts:
             row_opts:
               spans: [3,9]
   newspapers:
-    style: aggregate
+    style: summon
+    has_facets: true
     columns:
-      - width: 6
-        searches:
-          - source: articles_newspapers
-            count: 10
-            display_footer: true
-            row_opts:
-              spans: [3,9] 
-      - width: 6
-        searches:
-          - source: catalog_databases
-            count: 10
-            display_footer: true
-            row_opts:
-              spans: [3,9] 
+      - searches:
+          - source: articles_newspapers 
   dissertations:
     style: aggregate
     columns:
