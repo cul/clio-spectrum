@@ -146,8 +146,10 @@ module Spectrum
           constraints << [filter_text, by_source_search_cmd(q['removeCommand'])]
         end
         @search.query.facet_value_filters.each do |fvf|
-          facet_text = "#{fvf.negated? ? "Not " : ""}#{fvf.field_name.titleize}: #{fvf.value}"
-          constraints << [facet_text, by_source_search_cmd(fvf.remove_command)]
+          unless fvf.field_name.titleize.in?("Is Scholarly", "Is Full Text")
+            facet_text = "#{fvf.negated? ? "Not " : ""}#{fvf.field_name.titleize}: #{fvf.value}"
+            constraints << [facet_text, by_source_search_cmd(fvf.remove_command)]
+          end
         end
         @search.query.range_filters.each do |rf|
           facet_text = "#{rf.field_name.titleize}: #{rf.range.min_value}-#{rf.range.max_value}"

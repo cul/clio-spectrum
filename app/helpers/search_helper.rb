@@ -62,7 +62,7 @@ module SearchHelper
       end
       result += content_tag(:button, '<i class="icon-search icon-white"></i> <span class="visible-desktop">Search</span>'.html_safe, type: "submit", class: "btn btn-primary", name: 'commit', value: 'Search')
       if options['search_type'] == "summon"
-        result += content_tag(:button, "More Options", :class => "btn btn-link advanced_search_toggle")
+        result += content_tag(:a, "More Options", :class => "btn btn-link advanced_search_toggle", :href => "#")
       end
       result = content_tag(:div, result, class: 'search_row input-append', escape: false)
       raise "no route in #{source} " unless options['route']

@@ -1,4 +1,4 @@
-.well
+.well.advanced_search_well.span12
   = form_tag path, :class => "form-horizontal", :method => "GET" do 
     = hidden_field_tag :new_search, "true"
     .control-group
@@ -33,4 +33,8 @@
         %button.btn.btn-primary{:name => "commit", :type => "submit", :value => "Search"}
           %i.icon-search.icon-white
           %span.visible-desktop Search
+
+    .control-group
+      .controls
+        =link_to "Less Options", "#", :class => "btn btn-link advanced_search_toggle"
 
