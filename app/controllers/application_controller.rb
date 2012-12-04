@@ -17,6 +17,15 @@ class ApplicationController < ActionController::Base
   end
 
 
+  def set_user_option
+    if current_user
+      session[:options] ||= {}
+      session[:options][params['name']] = params['value']
+      render :json => {:success => "Option set."}
+    else
+      render :json => {:error => "No current user."}
+    end
+  end
   def blacklight_search(sent_options = {})
     options = sent_options.deep_clone
     options['source'] = @active_source unless options['source']

@@ -27,6 +27,7 @@
 //= require item_alerts
 //= require dropdown_select
 //= require blacklight_google_analytics
+//= require spectrum
 
 
 //= require holdings

@@ -1,6 +1,9 @@
 # encoding: UTF-8
 #
 module CulCatalogHelper
+  def expand_all_facets?
+    session['options'] && session['options']['always_expand_facets'] == 'true'
+  end
 
   def link_to_source_document(doc, opts={:label=>nil, :counter => nil, :results_view => true})
     label ||= blacklight_config.index.show_link.to_sym
