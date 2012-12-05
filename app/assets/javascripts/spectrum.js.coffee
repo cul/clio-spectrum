@@ -5,6 +5,8 @@
 
 
 $ -> 
+  $('.toggle_all.contract').parents("#facets").find('.range_limit').show()
+  $('.toggle_all.contract').parents("#facets").find('ul').show()
   $('.toggle_all').click (e) ->
     e.preventDefault()
     expand = $(this).hasClass('expand')
