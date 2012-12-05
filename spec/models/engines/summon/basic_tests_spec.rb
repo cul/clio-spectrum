@@ -7,7 +7,7 @@ describe 'Spectrum::Engines::Summon' do
 
       sum = Spectrum::Engines::Summon.new()
       sum.source.should be_nil
-      sum.params.should_not have_key('s.cmd')
+      sum.params.should_not have_key('s.ff')
 
     end
 
@@ -15,12 +15,12 @@ describe 'Spectrum::Engines::Summon' do
       # should not load in options unless it's a new search
       sum = Spectrum::Engines::Summon.new('source' => 'articles')
       sum.source.should == 'articles'
-      sum.params.should_not have_key('s.cmd')
+      sum.params.should_not have_key('s.ff')
 
       # should load in options with a new search
       sum = Spectrum::Engines::Summon.new('source' => 'articles', 'new_search' => true)
       sum.source.should == 'articles'
-      sum.params.should have_key('s.cmd')
+      sum.params.should have_key('s.ff')
       
       
     end
