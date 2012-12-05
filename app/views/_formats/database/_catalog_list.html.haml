@@ -2,7 +2,7 @@
 .document.result{:class => render_document_class(document) }
     
   %abbr.unapi-id{:title => document[:id]}
-  .title= link_to_source_document document, :label=>document_show_link_field, :counter => counter
+  .title= link_to_source_document document, :label=> document_full_title(document),  :counter => counter
 
       
   / main container for doc partial view 

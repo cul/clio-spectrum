@@ -1,6 +1,6 @@
 
 = add_row('Title', document.get("title_vern_display"),:abbreviate => 100)
-= add_row('Subtitle', [document.get("subtitle_display"),document.get("subtitle_vern_display")].compact,:abbreviate => 100)
+= add_row('Subtitle', document.get("subtitle_vern_display"),:abbreviate => 100)
 = add_row('Author', [document.get("author_display"),document.get("author_vern_display")].compact)
 = add_row('Published', document.get("full_publisher_display"))
 - is_aggregate = controller.controller_name == "search" 
