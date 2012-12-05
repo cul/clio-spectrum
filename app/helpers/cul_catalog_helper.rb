@@ -56,7 +56,7 @@ module CulCatalogHelper
 
 
   def document_full_title(document)
-    (Array.wrap(document['title_display']) | Array.wrap(document.get('subtitle_display'))).join(" ")
+    [document.get('title_display') , document.get('subtitle_display')].reject { |txt| txt.to_s.strip.empty? }.join(": ")
   end
   def build_fake_cover(document)
     book_label = (document["title_display"].to_s.abbreviate(60))
