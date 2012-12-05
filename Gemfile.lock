@@ -12,6 +12,20 @@ GIT
       ruby-oci8
       voyager_oracle_api (>= 1.1.0)
 
+GIT
+  remote: git://github.com/projectblacklight/blacklight.git
+  revision: 36c71e61e9bb46034c1531fc115d00add0e2691a
+  branch: master
+  specs:
+    blacklight (4.0.0)
+      bootstrap-sass (~> 2.2.0)
+      kaminari (~> 0.13)
+      marc (>= 0.4.3, < 1.1)
+      nokogiri (~> 1.5)
+      rails (~> 3.2)
+      rsolr (~> 1.0.6)
+      sass-rails
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -45,14 +59,6 @@ GEM
     addressable (2.3.2)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
-    blacklight (4.0.0)
-      bootstrap-sass (~> 2.1.0)
-      kaminari (~> 0.13)
-      marc (>= 0.4.3, < 1.1)
-      nokogiri (~> 1.5)
-      rails (~> 3.2)
-      rsolr (~> 1.0.6)
-      sass-rails
     blacklight_google_analytics (0.0.1.pre3)
     blacklight_range_limit (2.0.0)
       blacklight (~> 4.0)
@@ -61,7 +67,8 @@ GEM
     blacklight_unapi (0.0.3)
       blacklight (> 3.2)
       rails (~> 3.0)
-    bootstrap-sass (2.1.1.0)
+    bootstrap-sass (2.2.1.1)
+      sass (~> 3.2)
     builder (3.0.4)
     cancan (1.6.8)
     capistrano (2.13.5)
@@ -173,7 +180,6 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.1.2)
       addressable (~> 2.3)
-    libv8 (3.3.10.4)
     libwebsocket (0.1.6.1)
       websocket
     listen (0.6.0)
@@ -274,8 +280,6 @@ GEM
     summon (2.0.5)
       json
     sys-proctable (0.9.2)
-    therubyracer (0.10.2)
-      libv8 (~> 3.3.10)
     thin (1.5.0)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -321,7 +325,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  blacklight (~> 4.0.0)
+  blacklight!
   blacklight_google_analytics
   blacklight_range_limit (~> 2.0.0)
   blacklight_unapi (>= 0.0.3)
@@ -367,7 +371,6 @@ DEPENDENCIES
   spork (~> 1.0.0.rc2)
   sqlite3
   summon
-  therubyracer
   thin
   uglifier (>= 1.0.3)
   unicode

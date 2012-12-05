@@ -7,9 +7,9 @@ gem 'sqlite3'
 # Use unicorn as the web server
 # gem 'unicorn'
 
-
-#gem 'blacklight', :git => "git://github.com/projectblacklight/blacklight.git", :branch => "master"
- gem 'blacklight', "~> 4.0.0" 
+gem 'blacklight', :git => 'git://github.com/projectblacklight/blacklight.git', :branch => 'master'
+# gem 'blacklight', :path => "~/code/blacklight"
+# gem 'blacklight', "~> 4.0.0" 
 gem 'blacklight_range_limit', "~> 2.0.0" 
 gem 'blacklight_google_analytics'
 gem 'blacklight_unapi', ">= 0.0.3" 
@@ -85,7 +85,6 @@ end
 # group :development, :test do
 #   gem 'webrat'
 # end
-gem 'therubyracer'
 group :development do
   gem 'thin'
   #gem 'linecache19', '0.5.13'

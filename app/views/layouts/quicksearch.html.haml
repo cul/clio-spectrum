@@ -5,7 +5,6 @@
     = render :partial => "/layouts/common_head"
   - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
   %body{:onload => onload}
-    #ajax-modal.modal.hide.fade{:tabindex => -1}
     - add_datasources(@active_source)
     #trigger
     = render :partial => "/top_navigation_bar"
@@ -21,3 +20,4 @@
 
         .clear-both  
       = render :partial => "/footer"
+    #ajax-modal.modal.hide.fade{:tabindex => -1}
