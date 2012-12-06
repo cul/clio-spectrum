@@ -3,6 +3,7 @@
  *
  * Required by Blacklight
  *= require 'blacklight'
+ *= require 'ldpd_toolkit'
  *= require_tree .
 
 
