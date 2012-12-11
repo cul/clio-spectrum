@@ -1,5 +1,5 @@
-/****************************************** 
- * CUL LWeb styles and Bootstrap overrides 
+/******************************************
+ * CUL LWeb styles and Bootstrap overrides
  * er2576 - LDPD
  ******************************************/
 @font-face {
@@ -9,7 +9,7 @@
 @font-face {
   font-family: 'TrajanProRegular';
   src: asset-url('trajanpro-regular-webfont.eot', font);
-  src: asset-url('../fonts/trajanpro-regular-webfont.eot?#iefix', font) format('embedded-opentype'), asset-url('trajanpro-regular-webfont.woff', font) format('woff'), asset-url('trajanpro-regular-webfont.ttf',font) format('truetype'), asset-url('trajanpro-regular-webfont.svg#TrajanProRegular', font) format('svg');
+  src: asset-url('trajanpro-regular-webfont.eot?#iefix', font) format('embedded-opentype'), asset-url('trajanpro-regular-webfont.woff', font) format('woff'), asset-url('trajanpro-regular-webfont.ttf', font) format('truetype'), asset-url('trajanpro-regular-webfont.svg#TrajanProRegular', font) format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -49,10 +49,10 @@ h6 {
   background-image: -webkit-linear-gradient(top, #779bc3, #75aadb);
   background-image: -o-linear-gradient(top, #779bc3, #75aadb);
   background-image: linear-gradient(top, #779bc3, #75aadb);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#779bc3', endColorstr='#75aadb', GradientType=0);
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#779bc3', endColorstr='#75aadb', GradientType=0);
 }
 .navbar ul.menu-dropdown {
-  background-color: #002baa !important;
+  background-color: #002baa;
   border: 1px solid #222222;
   margin-top: -3px;
 }
@@ -70,7 +70,7 @@ h6 {
 .navbar ul.nav {
   margin-top: 1px;
 }
-#topnavbar.navbar ul.nav > li > a {
+.navbar ul.nav > li > a {
   color: #dddddd;
   text-shadow: none;
 }
@@ -169,9 +169,9 @@ a.thumbnail:hover {
   margin-left: 0px;
   margin-right: 18px;
   height: 38px;
-  -moz-transform: skewX(-25deg);
-  -webkit-transform: skewX(-25deg);
-  transform: skewX(-25deg);
+  -moz-transform: skewx(-25deg);
+  -webkit-transform: skewx(-25deg);
+  transform: skewx(-25deg);
 }
 #cul_top .dropdown-menu {
   -moz-border-radius: 0 0 4px 4px;
@@ -191,12 +191,12 @@ a.thumbnail:hover {
   margin-left: 0px;
   margin-right: 18px;
   height: 38px;
-  -moz-transform: skewX(-25deg);
-  -moz-transform: skewX(0);
-  -webkit-transform: skewX(-25deg);
-  -webkit-transform: skewX(0);
-  transform: skewX(-25deg);
-  transform: skewX(0);
+  -moz-transform: skewx(-25deg);
+  -moz-transform: skewx(0);
+  -webkit-transform: skewx(-25deg);
+  -webkit-transform: skewx(0);
+  transform: skewx(-25deg);
+  transform: skewx(0);
   padding-right: 10px;
 }
 #cul_top-nosearch #user_profile {
@@ -236,9 +236,9 @@ a.thumbnail:hover {
   margin-top: -1px;
   height: 39px;
   padding-left: 0px;
-  -moz-transform: skewX(25deg);
-  -webkit-transform: skewX(25deg);
-  transform: skewX(25deg);
+  -moz-transform: skewx(25deg);
+  -webkit-transform: skewx(25deg);
+  transform: skewx(25deg);
 }
 #crowndown-nosearch {
   background: #002b7f;
@@ -255,12 +255,12 @@ a.thumbnail:hover {
   margin-top: -1px;
   height: 39px;
   padding-left: 0px;
-  -moz-transform: skewX(25deg);
-  -moz-transform: skewX(0);
-  -webkit-transform: skewX(25deg);
-  -webkit-transform: skewX(0);
-  transform: skewX(25deg);
-  transform: skewX(0);
+  -moz-transform: skewx(25deg);
+  -moz-transform: skewx(0);
+  -webkit-transform: skewx(25deg);
+  -webkit-transform: skewx(0);
+  transform: skewx(25deg);
+  transform: skewx(0);
 }
 #crowndown li.menu,
 #crowndown-nosearch li.menu {
@@ -341,6 +341,7 @@ a.thumbnail:hover {
   width: 1px;
 }
 #culnav-right {
+  display: none;
   float: right !important;
   text-align: center;
   font-size: 11px;
@@ -363,6 +364,9 @@ ul#culnav-main > li > a {
   padding-bottom: 0;
   color: #777777;
   text-shadow: none;
+}
+ul#culnav-main > li > a i {
+  margin-top: -2px;
 }
 ul#culnav-main > li > a b {
   line-height: 1em;
@@ -436,6 +440,7 @@ ul#culnav-main > li > a b {
 }
 #topbarformdiv #clio_source_button {
   height: 18px;
+  line-height: 18px;
   line-height: 18px;
   font-size: 11px;
   text-decoration: none;
@@ -655,6 +660,14 @@ ul#culnav-main > li > a b {
 #cul_top-right {
   margin-top: -2px;
 }
+#cul_top-right > li > a {
+  margin-top: 1px;
+  color: #eeeeee;
+  text-shadow: 1px 1px 2px #002b7f;
+}
+#topnav-collapse #cul_top-right > li > ul.menu-dropdown {
+  background-color: #eee;
+}
 #user_profile_tablet a.dropdown-toggle {
   padding: 4px 6px;
 }
@@ -705,7 +718,7 @@ a.submitss i {
 #spotlight {
   margin-right: -20px;
 }
-#spotlight img {
+#spotlight img.spotlight {
   width: 100%;
 }
 #main .well {
@@ -762,11 +775,11 @@ a.submitss i {
 .hero-splash img {
   width: 100%;
 }
-#homeCarousel {
+.cul-carousel {
   border: 1px solid #bbbbbb;
   padding: 5px;
 }
-#homeCarousel .carousel-inner .item img {
+.cul-carousel .carousel-inner .item img {
   width: 100%;
 }
 .hero-carousel {
@@ -955,7 +968,7 @@ a.nodec {
   border-radius: 0;
 }
 /* end lessify */
-/* 
+/*
  * LWeb RESPONSIVE styles and Bootstrap overrides
  */
 @media (max-width: 480px) {
@@ -1001,8 +1014,8 @@ a.nodec {
   #crowndown,
   #cul_top-nosearch,
   #crowndown-nosearch {
-    -webkit-transform: skewX(0);
-    transform: skewX(0);
+    -webkit-transform: skewx(0);
+    transform: skewx(0);
     background: transparent;
     width: 100%;
     display: none;
@@ -1142,8 +1155,8 @@ a.nodec {
   #crowndown,
   #cul_top-nosearch,
   #crowndown-nosearch {
-    -webkit-transform: skewX(0);
-    transform: skewX(0);
+    -webkit-transform: skewx(0);
+    transform: skewx(0);
     background: transparent;
     width: 100%;
     display: none;
@@ -1183,8 +1196,8 @@ a.nodec {
   #crowndown,
   #cul_top-nosearch,
   #crowndown-nosearch {
-    -webkit-transform: skewX(0);
-    transform: skewX(0);
+    -webkit-transform: skewx(0);
+    transform: skewx(0);
     background: transparent;
     width: 100%;
     display: none;
@@ -1234,6 +1247,58 @@ a.nodec {
   #home_form_submit_label a.submitss:before {
     content: 'Go ';
   }
+  #culnav {
+    /*
+        .open > .dropdown-menu > li {
+          -webkit-column-break-inside:avoid;
+          -moz-column-break-inside:avoid;
+          -o-column-break-inside:avoid;
+          -ms-column-break-inside:avoid;
+          column-break-inside:avoid;
+      }
+  */
+  
+  }
+  #culnav .navbar-inner {
+    position: relative;
+  }
+  #culnav #culnav-main {
+    position: static;
+  }
+  #culnav #culnav-main .open > .dropdown-menu:before,
+  #culnav #culnav-main .open > .dropdown-menu:after {
+    display: none;
+    visibility: hidden;
+  }
+  #culnav #culnav-main ul.dropdown-menu > li ul > li > a {
+    line-height: 1.2em;
+    padding-left: 0;
+    margin-left: 0;
+    white-space: normal;
+  }
+  #culnav .dropdown {
+    position: static;
+  }
+  #culnav .open > a.dropdown-toggle {
+    color: #002b7f;
+  }
+  #culnav .open > .dropdown-menu {
+    background-color: #f6f9fb;
+    position: absolute;
+    top: 30px;
+    left: -11px;
+    padding-right: 30px;
+    display: block;
+    width: 100%;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    -o-column-count: 3;
+    column-count: 3;
+  }
 }
 @media (min-width: 1200px) {
   #top_form_submit {
@@ -1259,4 +1324,3 @@ a.nodec {
     display: block;
   }
 }
-
