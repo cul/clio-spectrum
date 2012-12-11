@@ -11,6 +11,7 @@ class CatalogController < ApplicationController
 
   def index
 
+    params['commit'] ||= 'Search' if params['q'] == ""
 
     extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => "RSS for results")
     extra_head_content << view_context.auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => "Atom for results")

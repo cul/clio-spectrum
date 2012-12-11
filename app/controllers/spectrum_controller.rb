@@ -11,7 +11,7 @@ class SpectrumController < ApplicationController
 
     @search_layout = SEARCHES_CONFIG['layouts'][params['layout']]
 
-      if params['q'].to_s.strip.empty? && params['s.q'].to_s.strip.empty? && params['s.fq'].nil?
+      if params['q'].nil? && params['s.q'].nil?
         flash[:error] = "You cannot search with an empty string." if params['commit']
       elsif @search_layout.nil?
         flash[:error] = "No search layout specified"

@@ -13,21 +13,30 @@ html
 @media only screen and (min-width:768px) 
   #hd
     :padding-top 1em
-    :padding-bottom 1em
+    :padding-bottom 0.5em
 
-@media only screen and (min-width:481px)
-  #hd
 
 .clear-both
   +clearfix
   :clear both
+
+.search_logo
+  :padding-top 3px
+a.search_bar_logo
+  :font-family TrajanProRegular, trajan, serif
+  :font-weight bold
+  :font-size 150%
+  :color #33C
+
+  &:hover
+    :text-decoration none
 
 .row-fluid
   .span2_5
     width: 18.39362% !important
 
   .span9_5
-    width: 78.87872% !important
+    width: 76.87872% !important
 
 #bd
   :min-height 400px

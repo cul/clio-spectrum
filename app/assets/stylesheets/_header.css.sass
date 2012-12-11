@@ -21,22 +21,28 @@
 
 #topnavbar.navbar
 
+#hd
+  :margin-top 44px
+
+
 a.brand_title
   :padding-left 0 !important
 
 a.help-button
   :padding-right 0 !important
 
-.cul_logo
-  :float left
-  :width 320px
+@media (min-width: 1200px) 
+  .topbarlogo 
+    font-size: 100%
+  
+
+
+.row-fluid
+
 
 .clio_logo
   :float left
   :width 100px
-
-.right_hand_menu
-  :display block
 
 .navbar #topnavbar ul.nav > li > a 
   color: white
@@ -61,10 +67,6 @@ a.clio_logo
   font-weight: normal
   letter-spacing: 1px
   text-shadow: 1px 1px 3px #222222
-
-.nav_title
-  :font-size 1.50em
-  :color #33C !important
 
 .landing_page
   :display none
