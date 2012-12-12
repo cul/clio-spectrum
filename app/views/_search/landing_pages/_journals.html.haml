@@ -1,16 +1,24 @@
 .landing_main.span8
-  .title Journal Titles
+  .title E-journal Titles
 
-  %p Journal Titles is a search of electronic journals we have rights to.
+  %p Search e-journal titles and descriptions.
+  -#%p To find an e-journal by ISSN, enclose
+  %p If you don't find the e-journal you need, try a journal title search in the #{datasource_switch_link('catalog', 'catalog')}
 
+
+  %p Looking for our old e-journals search? Try the (e-journals portal)
+  %p To find journal articles by title or subject, try our #{datasource_switch_link('articles', 'articles')} search or #{link_to 'Google Scholar', 'http://scholar.google.com/'}
 
 .landing_side.span4
-  .landing_side_inner
-    %h3 Help
+  .well.sidebar-nav
+    .nav
+      %ul.nav.nav-list
+        %li.nav-header Guide 
+        %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/ejournals-guide/", :target => "_blank"
+        %li.divider
 
-    .item
-      = link_to "How do I connect from off-campus?", "http://library.columbia.edu/content/libraryweb/services/faq/eresources/eresources_offcampus.html"
+      %ul.nav.nav-list
+        %li.nav-header Related Links
+        %li= link_to "Google Scholar", "http://scholar.google.com/"
+        %li= link_to "Citation Finder", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0049"
 
-    %h3 Guide
-    .item
-      =link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/databases-guide/", :target => "_blank"

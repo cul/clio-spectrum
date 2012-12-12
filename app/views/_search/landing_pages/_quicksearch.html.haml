@@ -3,34 +3,19 @@
 
   %p Quicksearch performs a combined search of:
   %ul 
-    %li Catalog (books, journals, online resources, videos, and more)
-    %li Articles (journal articles, e-books, dissertations, and more)
-    %li Academic Commons (digital repository of Columbia research)
-    %li Library website
-
-  %p Select #{datasource_switch_link('Catalog','catalog')}, #{datasource_switch_link('Articles','articles')}, or #{datasource_switch_link('Academic Commons','academic_commons')} to search each resource separately.
-
+    %li #{datasource_switch_link('Catalog', 'catalog')} (books, journals, online resources, videos, and more)
+    %li #{datasource_switch_link('Articles', 'articles')} (journal articles, e-books, dissertations, and more)
+    %li #{datasource_switch_link('Academic Commons', 'academic_commons')} (digital repository of Columbia research)
+    %li #{datasource_switch_link('Library website', 'library_web')}
 
 .landing_side.span4
-  .landing_side_inner
-    %h3 Latest News
+  .well.sidebar-nav
+    .nav
+      %ul.nav.nav-list
+        %li.nav-header Guide 
+        %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/quicksearch-guide/", :target => "_blank"
+        %li.divider
 
-    .item
-      Welcome to CLIO Beta!
-      .note
-        This is our first public release. Please let us know your feedback!
-
-    %h3 Guide
-    .item
-      =link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/quicksearch-guide/", :target => "_blank"
-
-    %h3 CLIO beta Blog
-    .item
-      .note
-        Consult the 
-        =link_to "CLIO Beta Blog ", "https://blogs.cul.columbia.edu/cliobeta/"
-        for more information
-        %ul
-          %li=link_to "FAQ", "https://blogs.cul.columbia.edu/cliobeta/faq"
-          %li=link_to "Known Issues", "https://blogs.cul.columbia.edu/cliobeta/known-issues"
-          %li=link_to "Release Notes", "https://blogs.cul.columbia.edu/cliobeta/release-notes"
+      %ul.nav.nav-list
+        %li.nav-header Related Links
+        %li=link_to "CLIO Beta Blog ", "https://blogs.cul.columbia.edu/cliobeta/"

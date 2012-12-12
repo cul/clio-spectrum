@@ -20,7 +20,7 @@ datasources:
       search_type: summon
       search_category: articles
   ebooks:
-    name: eBooks
+    name: E-books
     no_facets: true
     search_box:
       route: ebooks_index_path
@@ -56,7 +56,7 @@ datasources:
       placeholder: Databases
       search_type: blacklight
   journals:
-    name: eJournal Titles
+    name: E-journal Titles
     search_box:
       route: journals_index_path
       placeholder: eJournal Titles
