@@ -899,17 +899,17 @@
       <str name="facet.field">acq_date_facet</str>
       <str name="facet.field">subject_geo_facet</str>
       <str name="facet.field">subject_topic_facet</str>
-          <str name="facet.field">subject_era_facet</str>
+      <str name="facet.field">subject_era_facet</str>
       <str name="facet.field">location_facet</str>
-          <str name="facet.field">author_facet</str>
-        <str name="facet.field">source_facet</str>
+      <str name="facet.field">author_facet</str>
+      <str name="facet.field">source_facet</str>
        
-       <str name="spellcheck">true</str>
+       <!-- <str name="spellcheck">true</str>
        <str name="spellcheck.dictionary">default</str>
        <str name="spellcheck.onlyMorePopular">true</str>
        <str name="spellcheck.extendedResults">true</str>
        <str name="spellcheck.collate">false</str>
-       <str name="spellcheck.count">5</str>
+       <str name="spellcheck.count">5</str> -->
 
      </lst>
     

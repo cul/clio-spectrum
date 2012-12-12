@@ -20,7 +20,9 @@ module Spectrum
         @current_user = options.delete('current_user')
         @search_url = options.delete('search_url')
 
-        Blacklight.solr = Solr.generate_rsolr(@source)
+        # allow pass-in override solr url
+        @solr_url = options.delete('solr_url')
+        Blacklight.solr = Solr.generate_rsolr(@source, @solr_url)
         @config =  Solr.generate_config(@source)
         @params = options
         @params.symbolize_keys!
@@ -121,9 +123,11 @@ module Spectrum
         return self
       end
 
-      def self.generate_rsolr(source)
+      def self.generate_rsolr(source, solr_url = nil)
         if source.in?("academic_commons", "ac_dissertations")
           RSolr.connect(:url => APP_CONFIG['ac2_solr_url'])
+        elsif (solr_url)
+          RSolr.connect(:url => solr_url)
         else
           RSolr.connect(Blacklight.solr_config) 
         end

@@ -1,0 +1,5 @@
+\&amp; => and
+&amp; => and
+\&amp\; => and
+& => and
+aaafoo => pixar
