@@ -458,20 +458,19 @@
            autowarmCount - the number of entries to prepopulate from
                and old cache.  
       -->
-    <filterCache class="solr.FastLRUCache"
-                 size="512"
-                 initialSize="512"
-                 autowarmCount="0"/>
-
+	<!--
+    <filterCache class="solr.FastLRUCache" size="512" initialSize="512" autowarmCount="0"/>
+      -->
+    <filterCache class="solr.FastLRUCache" size="10000" initialSize="1000" autowarmCount="0"/>
     <!-- Query Result Cache
          
          Caches results of searches - ordered lists of document ids
          (DocList) based on a query, a sort, and the range of documents requested.  
       -->
-    <queryResultCache class="solr.LRUCache"
-                     size="512"
-                     initialSize="512"
-                     autowarmCount="0"/>
+    <!--
+    <queryResultCache class="solr.LRUCache" size="512" initialSize="512" autowarmCount="0"/>
+      -->
+    <queryResultCache class="solr.LRUCache" size="10000" initialSize="1000" autowarmCount="0"/>
    
     <!-- Document Cache
 
@@ -479,10 +478,10 @@
          document).  Since Lucene internal document ids are transient,
          this cache will not be autowarmed.  
       -->
-    <documentCache class="solr.LRUCache"
-                   size="512"
-                   initialSize="512"
-                   autowarmCount="0"/>
+    <!--
+    <documentCache class="solr.LRUCache" size="512" initialSize="512" autowarmCount="0"/>
+      -->
+    <documentCache class="solr.LRUCache" size="10000" initialSize="1000" autowarmCount="0"/>
     
     <!-- Field Value Cache
          
@@ -750,7 +749,7 @@
        <str name="defType">edismax</str>
        <str name="echoParams">explicit</str>
        <int name="rows">10</int>
-         <str name="q.alt">*:*</str>
+       <str name="q.alt">*:*</str>
        <str name="mm">6&lt;90%</str>
 
 
@@ -776,7 +775,7 @@
          subject_addl_txt^50
          title_series_unstem_search^25
          title_series_txt^10
-	 id^5
+         id^5
          isbn_txt
          text
        </str>
@@ -801,7 +800,6 @@
          subject_addl_txt^500
          title_series_unstem_search^250
          title_series_txt^100
-	 id^50
          text^10
        </str>
        <str name="author_qf">
@@ -918,13 +916,14 @@
       <str name="facet.field">author_facet</str>
       <str name="facet.field">source_facet</str>
 
+<!--
       <str name="spellcheck">true</str>
       <str name="spellcheck.dictionary">default</str>
       <str name="spellcheck.onlyMorePopular">true</str>
       <str name="spellcheck.extendedResults">true</str>
       <str name="spellcheck.collate">false</str>
       <str name="spellcheck.count">5</str>
-
+ -->
      </lst>
     
 

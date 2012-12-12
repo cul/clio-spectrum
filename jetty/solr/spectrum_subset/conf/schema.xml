@@ -174,8 +174,9 @@
    <dynamicField name="*_display" type="string" indexed="false" stored="true" multiValued="true" />
    <dynamicField name="*_facet" type="string" indexed="true" stored="false" multiValued="true" />
    <dynamicField name="*_sort" type="alphaOnlySort" indexed="true" stored="false" multiValued="false" />
-   <dynamicField name="*_unstem_search" type="text_general" indexed="true" stored="false" multiValued="true" />
-   <dynamicField name="*spell" type="text_general" indexed="true" stored="false" multiValued="true" />
+   <dynamicField name="*_unstem_search" type="text_general_unstem" indexed="true" stored="false" multiValued="true" />
+
+   <!-- <dynamicField name="*spell" type="text_general" indexed="true" stored="false" multiValued="true" /> -->
 
 
    <!-- uncomment the following to ignore any fields that don't already match an existing 
@@ -233,21 +234,21 @@
    <!-- spellcheck fields -->
    <!-- default spell check;  should match fields for default request handler -->
    <!-- it won't work with a copy of a copy field -->
-   <copyField source="*_txt" dest="spell"/>
-   <copyField source="*_facet" dest="spell"/>
+   <!-- <copyField source="*_txt" dest="spell"/>
+   <copyField source="*_facet" dest="spell"/> -->
    <!-- title spell check;  should match fields for title request handler -->
-   <copyField source="title_txt" dest="title_spell"/>
+   <!-- <copyField source="title_txt" dest="title_spell"/>
    <copyField source="subtitle_txt" dest="title_spell"/>
    <copyField source="addl_titles_txt" dest="title_spell"/>
    <copyField source="title_added_entry_txt" dest="title_spell"/>
-   <copyField source="title_series_txt" dest="title_spell"/>
+   <copyField source="title_series_txt" dest="title_spell"/> -->
    <!-- author spell check; should match fields for author request handler -->
-   <copyField source="author_txt" dest="author_spell"/>
-   <copyField source="author_addl_txt" dest="author_spell"/>
+   <!-- <copyField source="author_txt" dest="author_spell"/>
+   <copyField source="author_addl_txt" dest="author_spell"/> -->
    <!-- subject spell check; should match fields for subject request handler -->
-   <copyField source="subject_topic_facet" dest="subject_spell"/>
+   <!-- <copyField source="subject_topic_facet" dest="subject_spell"/>
    <copyField source="subject_txt" dest="subject_spell"/>
-   <copyField source="subject_addl_txt" dest="subject_spell"/>  
+   <copyField source="subject_addl_txt" dest="subject_spell"/>   -->
    
    <!-- OpenSearch query field should match request handler search fields -->
    <copyField source="title_txt" dest="opensearch_display"/>
@@ -410,6 +411,7 @@
       </analyzer>
     </fieldType>
 
+	<!-- Stemmed, for flexible english-language matching (a.k.a., "text_stem") -->
     <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100">
       <analyzer type="index">
         <tokenizer class="solr.WhitespaceTokenizerFactory"/>
@@ -441,6 +443,34 @@
         <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
       </analyzer>
     </fieldType>
+
+
+    <!-- Analyzed Text, no Stemming or Synonyms (a.k.a., "text_exact") -->
+    <fieldtype name="text_general_unstem" class="solr.TextField" positionIncrementGap="100" autoGeneratePhraseQueries="true">
+      <analyzer>
+        <tokenizer class="solr.WhitespaceTokenizerFactory" />
+        <filter class="solr.ICUFoldingFilterFactory"/>  <!-- NFKC, case folding, diacritics removed -->
+        <filter class="solr.WordDelimiterFilterFactory"
+          splitOnCaseChange="1" generateWordParts="1" catenateWords="1"
+          splitOnNumerics="0" generateNumberParts="1" catenateNumbers="1"
+          catenateAll="0" preserveOriginal="0" stemEnglishPossessive="0" />
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory" />
+      </analyzer>
+    </fieldtype>
+
+    <!-- Support "sounds-like" matching -->
+    <fieldtype name="text_phonetic" class="solr.TextField" positionIncrementGap="100" autoGeneratePhraseQueries="true">
+      <analyzer>
+        <tokenizer class="solr.WhitespaceTokenizerFactory" />
+        <filter class="solr.ICUFoldingFilterFactory"/>  <!-- NFKC, case folding, diacritics removed -->
+        <filter class="solr.WordDelimiterFilterFactory"
+          splitOnCaseChange="1" generateWordParts="1" catenateWords="1"
+          splitOnNumerics="0" generateNumberParts="1" catenateNumbers="1"
+          catenateAll="0" preserveOriginal="0" stemEnglishPossessive="0" />
+        <filter class="solr.DoubleMetaphoneFilterFactory" inject="false"/>
+      </analyzer>
+    </fieldtype>
+
 
 <!--
     <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100">
