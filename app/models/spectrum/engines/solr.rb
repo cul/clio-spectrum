@@ -104,6 +104,7 @@ module Spectrum
             end
 
             ActiveSupport::Notifications.subscribed(debug_results, "execute.rsolr_client") do |*args|
+              
               @search, @documents = get_search_results(@params, extra_controller_params)
               @debug_entries['solr'] = []  if @debug_entries['solr'] == {}
               hashed_event = {
@@ -315,7 +316,7 @@ module Spectrum
                 'oai_dc_xml' => { :content_type => 'text/xml' }
               }
 
-              config.add_facet_field "database_hilcc_facet", :label => "Subject (HILCC)", :limit => 5, :open => true
+              config.add_facet_field "database_hilcc_facet", :label => "Discipline", :limit => 5, :open => true
               config.add_facet_field "database_resource_type_facet", :label => "Resource Type", :limit => 5
               config.add_facet_field "language_facet", :label => "Language", :limit => 5
               config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 10

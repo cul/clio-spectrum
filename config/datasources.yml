@@ -20,11 +20,11 @@ datasources:
       search_type: summon
       search_category: articles
   ebooks:
-    name: E-books
+    name: E-Books
     no_facets: true
     search_box:
       route: ebooks_index_path
-      placeholder: eBooks 
+      placeholder: E-Books 
   dissertations:
     name: Dissertations
     no_facets: true
@@ -56,13 +56,13 @@ datasources:
       placeholder: Databases
       search_type: blacklight
   journals:
-    name: E-journal Titles
+    name: E-Journal Titles
     search_box:
       route: journals_index_path
-      placeholder: eJournal Titles
+      placeholder: E-Journal Titles
       search_type: blacklight
   library_web:
-    name: Library Website
+    name: Library Web site
     no_facets: true
     search_box:
       route: library_web_index_path
