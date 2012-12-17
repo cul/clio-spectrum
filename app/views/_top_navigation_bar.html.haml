@@ -61,8 +61,24 @@
 
                 .span8
                   %ul#cul_top-right.nav.pull-right
-                    %li.dropdown.menu
-                      %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087"} My Library Account
+                    - if current_user
+                      %li.dropdown.menu
+                        %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#"}
+                          %span.visible-phone #{current_user.login}
+                          %span.hidden-phone #{current_user.name} (#{current_user.login})
+                          %b.caret
+                        %ul.dropdown-menu.menu-dropdown
+                          %li= link_to "Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087"
+                          %li= link_to "Logout", destroy_user_session_path, :method => :delete 
+                    - else
+                      %li.dropdown.menu
+                        %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#"}
+                          My Account
+                          %b.caret
+                        %ul.dropdown-menu.menu-dropdown
+                          %li= link_to "Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087"
+                          %li= link_to "Login", new_user_session_path
+                    
                     %li.dropdown.menu
                       %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087"} Feedback 
                     %li.dropdown.menu
