@@ -1,3 +1,4 @@
+= render :partial => "/help_modal"
 %header
   %h1.hide CUL - Header
   #topnavbar.navbar.navbar-fixed-top
@@ -7,14 +8,14 @@
           %nav
             #cul_top-nosearch.span12
               .row-fluid
-                .span4
+                .span12
                   %ul#crowndown-nosearch.nav.pull-left
                     %li.dropdown.menu
                       %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#", :title => "Links @ Columbia"}
-                        %img{:alt => "CU", :src => "../img/crown-bts-24x24.png"}
-                          %span.topbarlogo
-                            Columbia University Libraries
-                            %b.caret
+                        %span.topbarlogo
+                          %span.visible-phone CLIO
+                          %span.hidden-phone Columbia University Libraries
+                          %b.caret
                       %ul.dropdown-menu.menu-dropdown
                         %li
                           %a{:href => "http://columbia.edu"} Columbia University - Home
@@ -57,10 +58,7 @@
                           %a{:href => "#", :title => ""} News & Events
                         %li
                           %a{:href => "#", :title => ""} Suggestions/Feedback
-
-
-                .span8
-                  %ul#cul_top-right.nav.pull-right
+                  %ul.nav.pull-right
                     - if current_user
                       %li.dropdown.menu
                         %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#"}
@@ -79,27 +77,5 @@
                           %li= link_to "Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087"
                           %li= link_to "Login", new_user_session_path
                     
-                    %li.dropdown.menu
-                      %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087"} Feedback 
-                    %li.dropdown.menu
-                      %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#"}
-                        Help
-                        %b.caret
-                      %ul.dropdown-menu.menu-dropdown
-                        %li
-                          %a{:href => "#"} Clio Help
-                        %li
-                          %a{:href => "#"} FAQ
-                        %li
-                          %a{:href => "#"} Libraries Web site Help
-                        %li
-                          %a{:href => "#"} Research Help
-                        %li
-                          %a{:href => "#"} Report A Problem
-                          %ul
-                            %li
-                              %a{:href => "#"} E-Resource Problem Report
-                            %li
-                              %a{:href => "#"} Suggestions & Comments
-                        %li
-                          %a{:href => "#"} Site Index
+                      %li
+                        %a.help-button(data-toggle="modal" href="#helpModal") Feedback / Help

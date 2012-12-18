@@ -1,11 +1,5 @@
 @import "local_mixes"
 
-@media only screen and (max-width:767px) 
-
-  .navbar.navbar-static-top
-    :padding-bottom 1em
-
-
 .navbar a.brand
   :background none
 
@@ -19,13 +13,28 @@
   .divider-vertical
     :margin 0 9px 1px 9px !important
 
+@media (max-width: 767px)
+  .navbar
+    .divider-vertical
+      :margin 0 9px 1px 9px !important
+
+@media (max-width: 480px)
+  background:image
+  .navbar .nav > li > a.dropdown-toggle
+    :padding-left 5px
+    :padding-right 5px
+
+#crowndown-nosearch.nav.pull-left
+
 #topnavbar.navbar
+  #crowndown a.menu, #crowndown-nosearch a.menu
+    :background-image none
+    :padding-left 5px
+    :margin-left 12px
   .nav
     li.dropdown.open > .dropdown-toggle
       :background-color #20A1E2
 
-#hd
-  :margin-top 44px
 
 
 a.brand_title
@@ -34,10 +43,6 @@ a.brand_title
 a.help-button
   :padding-right 0 !important
 
-@media (min-width: 1200px) 
-  .topbarlogo 
-    font-size: 100%
-  
 
 
 .row-fluid
@@ -136,10 +141,16 @@ a.clio_logo
       :color #8e8e8e
 
 
-
 .datasource_spacer
   :min-height 1em
 
+@media (max-width: 767px)
+  .navbar-fixed-top .navbar-inner
+    padding: 0 !important
+
+@media (min-width:768px) and (max-width: 979px)
+  .navbar-fixed-top .navbar-inner
+    padding: 0 5px 5px 5px !important
 
 #datasources
   :margin 0em 0em 2em 0
