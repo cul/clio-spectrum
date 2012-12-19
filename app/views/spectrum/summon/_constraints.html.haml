@@ -7,9 +7,9 @@
   = link_to "Start Over", result.start_over_link, :class => "catalog_startOverLink", :id => "startOverLink"
   - result.constraints_with_links.each do |text, link|
 
-    %span.appliedFilter.constraint.query
-      %span.filterValue=text
-      =link_to "Remove #{text}", link, :alt => "remove", :class => "btnRemove imgReplace"
+    .search-constraint.btn-group
+      %button.btn{:disabled => 'true'}=text
+      %button.btn=link_to "x", link, :alt => "remove", :class => "btnRemove imgReplace"
 
 #sortAndPerPage.well
   - previous_string = "\u00ab Previous"
