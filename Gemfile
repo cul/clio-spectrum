@@ -24,7 +24,7 @@ group :clio_dev, :clio_test, :clio_prod do
   gem 'mysql2'
 end
 
-
+gem 'therubyracer', '0.10.2'
 # Deploy with Capistrano
 #gem 'newrelic_rpm'
 gem 'has_options'
