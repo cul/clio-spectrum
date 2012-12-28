@@ -36,7 +36,7 @@
       %div
         = form_tag databases_index_path, :method => 'get', :class => 'form-inline' do 
           %div
-            .browse_label Browse by subject:
+            .browse_label Browse by discipline:
             = select_tag 'f[database_hilcc_facet][]', options_for_select(hilcc_codes.keys.sort.each  { |k| [k, hilcc_codes[k]] })
             %button.btn{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'search'} Browse
 
