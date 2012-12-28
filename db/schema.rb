@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20121113211955) do
 
-  create_table "admin_database_alerts", :force => true do |t|
-    t.integer  "clio_id"
-    t.integer  "author_id"
-    t.boolean  "active"
-    t.text     "message"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id",     :null => false
     t.string   "document_id"
@@ -29,15 +20,6 @@ ActiveRecord::Schema.define(:version => 20121113211955) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "user_type"
-  end
-
-  create_table "database_alerts", :force => true do |t|
-    t.integer  "clio_id"
-    t.integer  "author_id"
-    t.boolean  "active"
-    t.text     "message"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "item_alerts", :force => true do |t|
