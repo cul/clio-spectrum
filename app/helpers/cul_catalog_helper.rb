@@ -97,6 +97,14 @@ module CulCatalogHelper
 
       links << [title, url]
     end
+    
+    # remove google links if more than one exists
+
+    if links.select { |link| link.first.to_s.strip == "Google" }.length > 1
+      links.reject! { |link| link.first.to_s.strip == "Google" }
+    end
+
+
     links
 #    links.sort { |x,y| x.first <=> y.first }
   end
