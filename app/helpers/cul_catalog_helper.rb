@@ -51,7 +51,7 @@ module CulCatalogHelper
 
   def process_holdings_location(loc_display)
     loc,call = loc_display.split(' >> ')
-    call ? "#{shorten_location(loc)} >> ".html_safe + content_tag(:span, call, class: 'call_number')  : shorten_location(loc)
+    call ? "#{h(shorten_location(loc))} >> ".html_safe + content_tag(:span, call, class: 'call_number')  : shorten_location(loc)
   end
 
 
