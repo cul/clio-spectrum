@@ -26,12 +26,21 @@ a.search_bar_logo
   &:hover
     :text-decoration none
 
-.row-fluid
-  .span2_5
-    width: 18.39362% !important
+@media (max-width: 767px)
+  .row-fluid
+    .span2_5
+      :width 100% !important
 
-  .span9_5
-    width: 76.87872% !important
+    .span9_5
+      :width 100% !important
+
+@media (min-width: 768px)
+  .row-fluid
+    .span2_5
+      width: 18.39362% !important
+
+    .span9_5
+      width: 76.87872% !important
 
 #bd
   :min-height 400px
