@@ -28,7 +28,7 @@ Set translate_HILCC_code(Record record)
         break;
       case "1044": result.add("Business & Economics");
         break;
-      case "1066": result.add("Engineering & Applied Sciences");
+      case "1006": result.add("Engineering & Applied Sciences");
         break;
       case "1299": result.add("General");
         break;

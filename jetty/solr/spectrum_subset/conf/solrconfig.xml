@@ -461,7 +461,7 @@
 	<!--
     <filterCache class="solr.FastLRUCache" size="512" initialSize="512" autowarmCount="0"/>
       -->
-    <filterCache class="solr.FastLRUCache" size="10000" initialSize="1000" autowarmCount="0"/>
+    <filterCache class="solr.FastLRUCache" size="20000" initialSize="10000" autowarmCount="1000"/>
     <!-- Query Result Cache
          
          Caches results of searches - ordered lists of document ids
@@ -470,7 +470,7 @@
     <!--
     <queryResultCache class="solr.LRUCache" size="512" initialSize="512" autowarmCount="0"/>
       -->
-    <queryResultCache class="solr.LRUCache" size="10000" initialSize="1000" autowarmCount="0"/>
+    <queryResultCache class="solr.LRUCache" size="10000" initialSize="1000" autowarmCount="1000"/>
    
     <!-- Document Cache
 
@@ -481,7 +481,7 @@
     <!--
     <documentCache class="solr.LRUCache" size="512" initialSize="512" autowarmCount="0"/>
       -->
-    <documentCache class="solr.LRUCache" size="10000" initialSize="1000" autowarmCount="0"/>
+    <documentCache class="solr.LRUCache" size="50000" initialSize="25000" autowarmCount="0"/>
     
     <!-- Field Value Cache
          
@@ -490,11 +490,9 @@
          even if not configured here.
       -->
     <!--
-       <fieldValueCache class="solr.FastLRUCache"
-                        size="512"
-                        autowarmCount="128"
-                        showItems="32" />
+       <fieldValueCache class="solr.FastLRUCache" size="512" autowarmCount="128" showItems="32" />
       -->
+    <fieldValueCache class="solr.FastLRUCache" size="512" autowarmCount="128" showItems="32" />
 
     <!-- Custom Cache
 
@@ -552,7 +550,7 @@
         then documents 0 through 49 will be collected and cached.  Any further
         requests in that range can be satisfied via the cache.  
      -->
-   <queryResultWindowSize>20</queryResultWindowSize>
+   <queryResultWindowSize>100</queryResultWindowSize>
 
    <!-- Maximum number of documents to cache for any entry in the
         queryResultCache. 
@@ -601,7 +599,7 @@
          warming searcher and use it.  If "false" then all requests
          will block until the first searcher is done warming.
       -->
-    <useColdSearcher>false</useColdSearcher>
+    <useColdSearcher>true</useColdSearcher>
 
     <!-- Max Warming Searchers
          
@@ -751,8 +749,7 @@
        <int name="rows">10</int>
        <str name="q.alt">*:*</str>
        <str name="mm">6&lt;90%</str>
-
-
+       <bool name="lowercaseOperators">false</bool>
 
    <str name="qf">
          title_unstem_search^100000
@@ -763,23 +760,26 @@
          title_addl_txt^2500
          title_added_entry_unstem_search^1500
          title_added_entry_txt^1250
-         <!-- subject_topic_unstem_search^1000 -->
          subject_unstem_search^750
-         <!-- subject_topic_facet^625 -->
          subject_txt^500
-         author_unstem_search^250
-         author_addl_unstem_search^250
-         author_txt^100
-         author_addl_txt^50
+         author_unstem_search^25000
+         author_addl_unstem_search^25000
+         author_txt^10000
+         author_addl_txt^5000
          subject_addl_unstem_search^250
          subject_addl_txt^50
          title_series_unstem_search^25
          title_series_txt^10
          id^5
          isbn_txt
+         issn_txt
+         lccn_txt
+         oclc_txt
+         location_call_number_id_txt
          text
        </str>
        <str name="pf">
+         title_starts_with^1000000
          title_unstem_search^1000000
          subtitle_unstem_search^500000
          title_txt^250000
@@ -788,18 +788,21 @@
          title_addl_txt^25000
          title_added_entry_unstem_search^15000
          title_added_entry_txt^12500
-         <!-- subject_topic_unstem_search^10000 -->
          subject_unstem_search^7500
-         <!-- subject_topic_facet^6250 -->
          subject_txt^5000
-         author_unstem_search^2500
-         author_addl_unstem_search^2500
-         author_txt^1000
-         author_addl_txt^500
+         author_unstem_search^250000
+         author_addl_unstem_search^250000
+         author_txt^100000
+         author_addl_txt^50000
          subject_addl_unstem_search^2500
          subject_addl_txt^500
          title_series_unstem_search^250
          title_series_txt^100
+         isbn_txt^10
+         issn_txt^10
+         lccn_txt^10
+         oclc_txt^10
+         location_call_number_id_txt^10
          text^10
        </str>
        <str name="author_qf">
@@ -900,11 +903,15 @@
       <str name="facet.mincount">1</str>
       <str name="facet.limit">10</str>
       <str name="facet.field">format</str>
+      <str name="f.format.facet.method">enum</str>
       <str name="facet.field">lc_1letter_facet</str>
       <str name="f.lc_1letter_facet.facet.sort">index</str>
+      <str name="f.lc_1letter_facet.facet.method">enum</str>
       <str name="facet.field">lc_2letter_facet</str>
       <str name="f.lc_2letter_facet.facet.sort">index</str>
+      <str name="f.lc_2letter_facet.facet.method">enum</str>
       <str name="facet.field">language_facet</str>
+      <str name="f.language_facet.facet.method">enum</str>
       <str name="facet.field">pub_date_sort</str>
       <str name="facet.field">subject_geo_facet</str>
       <str name="facet.field">subject_topic_facet</str>
@@ -913,6 +920,7 @@
       <str name="facet.field">database_hilcc_facet</str>
       <str name="facet.field">database_resource_type_facet</str>
       <str name="facet.field">location_facet</str>
+      <str name="f.location_facet.facet.method">enum</str>
       <str name="facet.field">author_facet</str>
       <str name="facet.field">source_facet</str>
 
@@ -1209,12 +1217,20 @@
        </lst>
      </requestHandler>
     -->
+     <requestHandler name="/replication" class="solr.ReplicationHandler" >
+       <lst name="master">
+         <str name="replicateAfter">commit</str>
+         <str name="replicateAfter">startup</str>
+         <str name="confFiles">protwords.txt,stemdict.txt,stopwords_punctuation.txt,synonyms.txt</str>
+       </lst>
+     </requestHandler>
+
     
     <!-- Solr Replication for SolrCloud Recovery
     
          This is the config need for SolrCloud's recovery replication.
-    -->
   <requestHandler name="/replication" class="solr.ReplicationHandler" startup="lazy" /> 
+    -->
 
 
   <!-- Search Components
