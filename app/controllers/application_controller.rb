@@ -17,6 +17,11 @@ class ApplicationController < ActionController::Base
   end
 
 
+  def set_user_option
+    session[:options] ||= {}
+    session[:options][params['name']] = params['value']
+    render :json => {:success => "Option set."}
+  end
   def blacklight_search(sent_options = {})
     options = sent_options.deep_clone
     options['source'] = @active_source unless options['source']
@@ -24,6 +29,8 @@ class ApplicationController < ActionController::Base
     options['current_user'] = current_user
     engine = Spectrum::Engines::Solr.new(options)
     if engine.successful?
+      @response = engine.search
+      @results = engine.documents
       look_up_clio_holdings(engine.documents)
       add_alerts_to_documents(@document_list)
     end

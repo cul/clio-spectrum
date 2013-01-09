@@ -1,22 +1,32 @@
 //  main container for facets/limits menu 
-#facets.facets.sidenav
-  %h4(data-toggle="collapse" data-target=".facets-collapse")
-    %a.btn.btn-navbar
-      %span.icon-bar
-      %span.icon-bar
-    Limit Your Search
+- unless @document_list.nil? || @document_list.empty?
+  #facets.facets.sidenav
+    %h4(data-toggle="collapse" data-target=".facets-collapse")
+      - if expand_all_facets?
+        %a.btn.btn-small.toggle_all.contract{:href => "#"} Contract All 
+      - else
+        %a.btn.btn-small.toggle_all.expand{:href => "#"} Expand All 
+      %a.btn.btn-navbar
+        %span.icon-bar
+        %span.icon-bar
+      Refine 
 
-  .facets-collapse
-  
-    - facet_field_names.reject { |name| facet = facet_by_field_name(name); facet.nil? || facet.items.empty? }.each do |solr_fname|
-      
-      %div{:class => "facet_limit blacklight-#{solr_fname.parameterize}"}
-        - case solr_fname
-        - when "lc_1letter_facet"
-          = fix_catalog_links(render(:partial => "catalog/facet_call_letter", :locals => {:solr_field => solr_fname}))
-        - when "lc_2letter_facet", "title_first_facet"
+    .facets-collapse
+      .facet_limit.expand_all_option{:class => (expand_all_facets? ? "" : "hide")}
+        .facet_limit
+          %h5
+            = check_box_tag 'expand_all_facets', "1", expand_all_facets?, :class => "toggle_expand_all_option" 
+            Always Expand Facets?
+    
+      - facet_field_names.reject { |name| facet = facet_by_field_name(name); facet.nil? || facet.items.empty? }.each do |solr_fname|
+        
+        %div{:class => "facet_limit blacklight-#{solr_fname.parameterize}"}
+          - case solr_fname
+          - when "lc_1letter_facet"
+            = fix_catalog_links(render(:partial => "catalog/facet_call_letter", :locals => {:solr_field => solr_fname}))
+          - when "lc_2letter_facet", "title_first_facet"
 
-        - else
-          = fix_catalog_links(render_facet_partials([solr_fname]))
+          - else
+            = fix_catalog_links(render_facet_partials([solr_fname]))
 
 

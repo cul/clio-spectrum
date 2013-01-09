@@ -1,7 +1,7 @@
 - marc = document.to_marc
 
 = add_row("Alert", document.get("database_restrictions_display"))
-= add_row("Summary", document.get("database_summary_display"))
+= add_row("DB Summary", document.get("database_summary_display"))
 = add_row("Details", document.get("summary_display"))
 = add_row("Author", generate_value_links(display_marc_field(marc, 'author'), :author))
 = add_row("Uniform Title", display_marc_field(marc, 'title_uniform'))
@@ -12,6 +12,7 @@
 = add_row("Series", generate_value_links(display_marc_field(marc, 'series'), :all))
 = add_row("Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_LC')))
 = add_row("Also Listed Under", generate_value_links(display_marc_field(marc, 'author_other'), :author))
+= add_row("Summary", display_marc_field(marc, 'summary'))
 = add_row("Contents", display_marc_field(marc, 'contents'))
 = add_row("Other Titles", display_marc_field(marc, 'title_other'))
 = add_row("Notes", display_marc_field(marc, 'notes'))

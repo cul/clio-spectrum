@@ -2,7 +2,6 @@
 
 body
   :font 0.75em "Lucida Grande", "Lucida Sans Unicode", Verdana, "Arial Unicode MS", Arial, sans-serif
-  :padding-top 0
   :background white
 
 html 
@@ -10,24 +9,38 @@ html
 #page
   :border-bottom none
 
-@media only screen and (min-width:768px) 
-  #hd
-    :padding-top 1em
-    :padding-bottom 1em
 
-@media only screen and (min-width:481px)
-  #hd
 
 .clear-both
   +clearfix
   :clear both
 
-.row-fluid
-  .span2_5
-    width: 18.39362% !important
+.search_logo
+  :padding-top 5px
+a.search_bar_logo
+  :font-family TrajanProRegular, trajan, serif
+  :font-weight bold
+  :font-size 200%
+  :color #33C
 
-  .span9_5
-    width: 78.87872% !important
+  &:hover
+    :text-decoration none
+
+@media (max-width: 767px)
+  .row-fluid
+    .span2_5
+      :width 100% !important
+
+    .span9_5
+      :width 100% !important
+
+@media (min-width: 768px)
+  .row-fluid
+    .span2_5
+      width: 18.39362% !important
+
+    .span9_5
+      width: 76.87872% !important
 
 #bd
   :min-height 400px

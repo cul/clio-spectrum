@@ -1,20 +1,13 @@
 .landing_main.span8
   .title New Arrivals
 
-  %p Search the catalog for material acquired in the last three months. Results include:
-  %ul
-    %li books
-    %li online resources
-    %li journals & newspapers
-    %li conference proceedings
-    %li sound recordings & scores
-    %li videos
-    %li archival collections & oral history transcripts
-    %li online databases
-    %li maps & images
-
+  %p Searches the catalog for titles ordered or received in the past six months.  Refine your search by library location, format, language, date of publication, date of acquisition, subjects, or call number.  Press "search" without entering any search terms to browse the full database. 
+  
 .landing_side.span4
-  .landing_side_inner
-    %h3 Guide
-    .item
-      =link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/new-arrivals-guide/", :target => "_blank"
+  .well.sidebar-nav
+    .nav
+      %ul.nav.nav-list
+        %li.nav-header Guide 
+        %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/new-arrivals-guide/", :target => "_blank"
+        %li.divider
+

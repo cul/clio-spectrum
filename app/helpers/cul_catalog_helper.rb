@@ -1,6 +1,9 @@
 # encoding: UTF-8
 #
 module CulCatalogHelper
+  def expand_all_facets?
+    session['options'] && session['options']['always_expand_facets'] == 'true'
+  end
 
   def link_to_source_document(doc, opts={:label=>nil, :counter => nil, :results_view => true})
     label ||= blacklight_config.index.show_link.to_sym
@@ -48,10 +51,13 @@ module CulCatalogHelper
 
   def process_holdings_location(loc_display)
     loc,call = loc_display.split(' >> ')
-    call ? "#{shorten_location(loc)} >> ".html_safe + content_tag(:span, call, class: 'call_number')  : shorten_location(loc)
+    call ? "#{h(shorten_location(loc))} >> ".html_safe + content_tag(:span, call, class: 'call_number')  : shorten_location(loc)
   end
 
 
+  def document_full_title(document)
+    [document.get('title_display') , document.get('subtitle_display')].reject { |txt| txt.to_s.strip.empty? }.join(": ")
+  end
   def build_fake_cover(document)
     book_label = (document["title_display"].to_s.abbreviate(60))
     content_tag(:div, content_tag(:div, book_label, :class => "fake_label"), :class => "cover fake_cover")
@@ -91,6 +97,14 @@ module CulCatalogHelper
 
       links << [title, url]
     end
+    
+    # remove google links if more than one exists
+
+    if links.select { |link| link.first.to_s.strip == "Google" }.length > 1
+      links.reject! { |link| link.first.to_s.strip == "Google" }
+    end
+
+
     links
 #    links.sort { |x,y| x.first <=> y.first }
   end

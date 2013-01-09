@@ -11,13 +11,14 @@ class SpectrumController < ApplicationController
 
     @search_layout = SEARCHES_CONFIG['layouts'][params['layout']]
 
-      if params['q'].to_s.strip.empty? && params['s.q'].to_s.strip.empty?
+      if params['q'].nil? && params['s.q'].nil? || (params['q'].to_s.empty? && @active_source == 'library_web')
         flash[:error] = "You cannot search with an empty string." if params['commit']
       elsif @search_layout.nil?
         flash[:error] = "No search layout specified"
         redirect_to root_path
       else
         @search_style = @search_layout['style']
+        @has_facets = @search_layout['has_facets']
         categories =  @search_layout['columns'].collect { |col| col['searches'].collect { |item| item['source'] }}.flatten
 
         @results = get_results(categories)
@@ -31,6 +32,12 @@ class SpectrumController < ApplicationController
       param_list['s.q'] ||= param_list['q']
       session['search']['s.q'] = param_list['q'] 
       param_list['new_search'] = true
+      param_list.delete('q')
+
+    end
+
+    if param_list['pub_date']
+      param_list['s.cmd'] = "setRangeFilter(PublicationDate,#{param_list['pub_date']['min_value']}:#{param_list['pub_date']['max_value']})"
       param_list.delete('q')
 
     end

@@ -1,4 +1,3 @@
-
 $('.dropdown-toggle').dropdown()
 $(document).ready ->
   $('.dropdown_select_tag').each (index,container) ->

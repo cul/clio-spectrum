@@ -1,17 +1,42 @@
 @import "local_mixes"
 
-@media only screen and (max-width:767px) 
-  .navbar-inner
-    :margin-right -40px
+.navbar a.brand
+  :background none
 
-  .navbar.navbar-static-top
-    :padding-bottom 1em
+.toggle_expand_all_option
+  :margin 0  !important
+
 .navbar-inner
   :width auto
+
 
 .navbar
   .divider-vertical
     :margin 0 9px 1px 9px !important
+
+@media (max-width: 767px)
+  .navbar
+    .divider-vertical
+      :margin 0 9px 1px 9px !important
+
+@media (max-width: 480px)
+  background:image
+  .navbar .nav > li > a.dropdown-toggle
+    :padding-left 5px
+    :padding-right 5px
+
+#crowndown-nosearch.nav.pull-left
+
+#topnavbar.navbar
+  #crowndown a.menu, #crowndown-nosearch a.menu
+    :background-image none
+    :padding-left 5px
+    :margin-left 12px
+  .nav
+    li.dropdown.open > .dropdown-toggle
+      :background-color #20A1E2
+
+
 
 a.brand_title
   :padding-left 0 !important
@@ -19,9 +44,38 @@ a.brand_title
 a.help-button
   :padding-right 0 !important
 
-.nav_title
-  :font-size 1.50em
-  :color #33C !important
+
+
+.row-fluid
+
+
+.clio_logo
+  :float left
+  :width 100px
+
+.navbar #topnavbar ul.nav > li > a 
+  color: white
+  text-shadow: none
+
+.navbar
+//header
+  //:background-color #174785 !important 
+
+//#topnavbar
+  //.navbar .fill
+    //border-bottom: 1px solid #174785
+  //#navbar-container
+    //:background-color #174785 !important 
+
+a.clio_logo
+  margin-top: 2px
+  padding-top: 10px
+  color: #ffffff
+  font-size: 22px
+  font-family: TrajanProRegular, trajan, georgia, serif
+  font-weight: normal
+  letter-spacing: 1px
+  text-shadow: 1px 1px 3px #222222
 
 .landing_page
   :display none
@@ -45,33 +99,39 @@ a.help-button
     :width 10em
     :margin-right 20px
     :margin-top 6px
+.well.sidebar-nav
+  :padding 8px 0
+  :border-color #bbb
 .landing_pages
   :padding-bottom 1em
-  :font-size 1.3em
   +clearfix
 
+  .landing_main.with_advanced
+    :margin-left 0
+  .landing_across
+    :font-size 110%
   .landing_main
+    :font-size 110%
     :padding-bottom 1em
 
+  .title
+    :padding-top 8px
+    :font-weight bold
+    :font-size 150%
+    :margin-bottom 1em
   .landing_side
     :padding-bottom 1em
 
+
+  .sidebar-nav
+    :background-color #f6f9fb
   .landing_side_inner 
     :background #fffcf0
-    :font-size 0.9em
     :padding 0em 0 1em .5em 
     :border 1px solid gold
     :padding-left 0.4em
 
-    h3
-      :color #777
-      :margin 0
-      :text-transform lowercase
-      :font-size 120%
-      :font-variant small-caps
-
     .item
-      :font-size 0.9em 
       :margin .5em .5em .5em .5em
       :font-weight bold
       :min-height 3em
@@ -81,15 +141,17 @@ a.help-button
       :font-weight normal
       :color #8e8e8e
 
-  .title
-    font-weight: bold
-    font-size: 135%
-    :padding 0.25em 0 0.5em 
-
 
 .datasource_spacer
   :min-height 1em
 
+@media (max-width: 767px)
+  .navbar-fixed-top .navbar-inner
+    padding: 0 !important
+
+@media (min-width:768px) and (max-width: 979px)
+  .navbar-fixed-top .navbar-inner
+    padding: 0 5px 5px 5px !important
 
 #datasources
   :margin 0em 0em 2em 0

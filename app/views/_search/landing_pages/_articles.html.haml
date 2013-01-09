@@ -1,29 +1,32 @@
-.landing_main.span8
+= render partial: "/spectrum/summon/advanced_search", locals: {path: articles_index_path()}
+
+.landing_main.with_advanced.span8
+  .advanced_search 
   .title Articles
 
-  %p Search a database of mostly full text:
+  %p Searches a large database of mostly full-text journal articles.
 
+  %p For scholarly articles in the:
   %ul
-    %li journal articles
-    %li e-books & e-book chapters
-    %li newspaper articles
-    %li dissertations
-    %li other electronic resources
+    %li Humanities and social sciences, try #{link_to 'Ebscohost Research Databases', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio6329559'}
+    %li Sciences, try #{link_to 'Web of Science', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio2054244'} or #{link_to 'Scopus', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio6273999'}
+
+  %p Use #{datasource_switch_link('Databases', 'database')} to browse all of our databases by subject.
+
+  %p To see a list of resources by subject, consult our subject guides.
 
 .landing_side.span4
-  .landing_side_inner
-    
-    %h3 Guide
-    .item
-      =link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/articles-guide/", :target => "_blank"
-    
-    %h3 Other Resources
+  .well.sidebar-nav
+    .nav
+      %ul.nav.nav-list
+        %li.nav-header Guide 
+        %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/articles-guide/", :target => "_blank"
+        %li.divider
 
-    .item
-      .note If you can't find what you're looking for, try:
-      %ul
-        %li=link_to "EBSCOhost Databases", "http://www.columbia.edu/cgi-bin/cul/resolve?clio6329559"
-        %li=link_to "ProQuest", "http://www.columbia.edu/cgi-bin/cul/resolve?clio8557099"
-        %li=link_to "Scopus", "http://www.columbia.edu/cgi-bin/cul/resolve?clio6273999"
-        %li=link_to "Google Scholar", "http://www.columbia.edu/cgi-bin/cul/resolve?clio5119262"
-        %li=link_to "Subject Guides", "http://wwwapp.cc.columbia.edu/ldpd/rti/results?hl=1&ps=1&sb=1&ss=0&hpp=100000&hk=-1&rt=sg&qt=6&q="
+      %ul.nav.nav-list
+        %li.nav-header Related Links
+        %li=link_to "Google Scholar", "http://scholar.google.com/"
+        %li=link_to "PMID Search", "http://www.columbia.edu/cgi-bin/cul/resolve?clio4373446"
+        %li=link_to "DOI Search", "http://dx.doi.org/"
+        %li=link_to "ArXiv ID Search", "http://arxiv.org/"
+        %li=link_to "Citation Finder", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0049"

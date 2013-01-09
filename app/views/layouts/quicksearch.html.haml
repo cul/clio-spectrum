@@ -5,11 +5,11 @@
     = render :partial => "/layouts/common_head"
   - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
   %body{:onload => onload}
-    #ajax-modal.modal.hide.fade{:tabindex => -1}
     - add_datasources(@active_source)
     #trigger
     = render :partial => "/top_navigation_bar"
     #page.container-fluid
+
       = render :partial => "/header_with_search"
       #bd.row-fluid
         #sources{:class => sidebar_span}= sidebar_items.join('').html_safe
@@ -21,3 +21,4 @@
 
         .clear-both  
       = render :partial => "/footer"
+    #ajax-modal.modal.hide.fade{:tabindex => -1}

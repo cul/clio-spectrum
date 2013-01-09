@@ -167,6 +167,7 @@ module DisplayHelper
           else
             # remove puntuation from s[1] to match entries in author_facet using solrmarc removeTrailingPunc rule
             s[1] = s[1].gsub(/\.$/,'') if s[1] =~ /\w{3}\.$/ || s[1] =~ /[\]\)]\.$/
+            s[1] = s[1].gsub(/,$/,'')
             out << link_to(s[0], url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => s[1]))
           end
         when :subject

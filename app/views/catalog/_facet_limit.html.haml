@@ -1,7 +1,7 @@
 %ul
   - config = facet_configuration_for_field(solr_field)
 
-  - if config && config.respond_to?(:open) && config.open == true 
+  - if (config && config.respond_to?(:open) && config.open == true) || expand_all_facets?
     %span.selected
   
   - paginator = Blacklight::Solr::FacetPaginator.new(display_facet.items,  :limit => facet_limit_for(solr_field))

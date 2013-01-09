@@ -81,7 +81,7 @@ module DatasourcesHelper
 
 
   def source_has_facets?(source = @active_source)
-    !DATASOURCES_CONFIG['datasources'][source]['no_facets'] 
+    @has_facets || !DATASOURCES_CONFIG['datasources'][source]['no_facets'] 
 
   end
 

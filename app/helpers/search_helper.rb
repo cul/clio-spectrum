@@ -46,7 +46,7 @@ module SearchHelper
 
     result = "".html_safe
     if show_all_search_boxes || active_search_box == source
-      has_options = (options['search_type'] == "blacklight" ? "search_q with_options" : "search_q without_options")
+      has_options = (options['search_type'].in?("blacklight","summon") ? "search_q with_options" : "search_q without_options")
 
       result += text_field_tag(:q, search_params[:q], class: has_options, id: "#{source}_q", placeholder: options['placeholder'])
 
@@ -57,11 +57,13 @@ module SearchHelper
         end
       elsif options['search_type'] == "summon"
           
-          hidden_field_tag 'category', search_params['category'] || 'articles'
-          hidden_field_tag "new_search", "articles"
+          hidden_field_tag 'category', options['search_category'] || 'articles'
+          hidden_field_tag "new_search", "true"
       end
       result += content_tag(:button, '<i class="icon-search icon-white"></i> <span class="visible-desktop">Search</span>'.html_safe, type: "submit", class: "btn btn-primary", name: 'commit', value: 'Search')
-
+      if options['search_type'] == "summon"
+        result += content_tag(:a, "More Options", :class => "btn btn-link advanced_search_toggle", :href => "#")
+      end
       result = content_tag(:div, result, class: 'search_row input-append', escape: false)
       raise "no route in #{source} " unless options['route']
       result = content_tag(:form, result, :'accept-charset' => 'UTF-8', :class=> "form-inline", :action => self.send(options['route']), :method => 'get')

@@ -1,22 +1,36 @@
 .landing_main.span8
   .title Archives
 
-  %p Search descriptions and finding aids for more than 3,500 archival collections in six Columbia University Libraries repositories. 
-  
+  %p This searches catalog records for archival collections in six repositories:
+  %ul 
+    %li=link_to "Avery Library, Department of Drawing & Archives", "http://archivesportal.cul.columbia.edu/repository.php?r=nnc-a"
+    %li=link_to "Burke Library Archives at Union Theological Seminary", "http://archivesportal.cul.columbia.edu/repository.php?r=nnc-ut"
+    %li=link_to "Columbia University Archives", "http://archivesportal.cul.columbia.edu/repository.php?r=nnc-ua"
+    %li=link_to "Health Sciences Library Archives & Special Collections", "http://archivesportal.cul.columbia.edu/repository.php?r=nnc-m"
+    %li=link_to "Rare Book & Manuscript Library", "http://archivesportal.cul.columbia.edu/repository.php?r=nnc-rb"
+    %li=link_to "Starr East Asian Library Rare Books & Special Collections", "http://archivesportal.cul.columbia.edu/repository.php?r=nnc-ea"
+
   %p Archival collections include personal papers, institutional records, corporate archives, architectural drawings, printed ephemera, realia, and many other types of content.
 
+  %p This source searches:
+  %ul
+    %li finding aids
+    %li collection descriptions
+    %li available digital content, such as online exhibits and images
+
+
 .landing_side.span4
-  .landing_side_inner
-  
-    %h3 Guide
-    
-    .item
-      =link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/archives-guide/", :target => "_blank"
-      
-    %h3 Archives Links
-    .item
-      = link_to "Portal Main Page", "http://archivesportal.cul.columbia.edu"
-      
-    .item
-      = link_to "Contact Info", "http://archivesportal.cul.columbia.edu/contact.php"
-      .note Get your questions answered, or make an appointment to use the collection.
+  .well.sidebar-nav
+    .nav
+      %ul.nav.nav-list
+        %li.nav-header Guide 
+        %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/archives-guide/", :target => "_blank"
+        %li.divider
+
+      %ul.nav.nav-list
+        %li.nav-header Related Links
+        %li=link_to "Contact Information", "http://archivesportal.cul.columbia.edu/contact.php"
+        %li=link_to "Center for Human Rights Documentation & Research", "http://library.columbia.edu/indiv/humanrights.html"
+        %li=link_to "Columbia Center for Oral History", "http://library.columbia.edu/indiv/ccoh.html"
+        %li=link_to "Human Rights Web Archive", "http://hrwa.cul.columbia.edu/"
+        %li=link_to "Oral History Research Office Interviews Portal", "http://oralhistoryportal.cul.columbia.edu/"

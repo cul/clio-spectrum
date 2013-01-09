@@ -2,21 +2,21 @@
 .landing_main.span8
   .title Academic Commons
 
-  %p Academic Commons is Columbia University's digital repository where faculty, students, and staff of Columbia and its affiliate institutions can deposit the results of their scholarly work and research. Content in Academic Commons is freely available to the public.
-
+  %p Search over 8000 documents in Columbia University's digital repository, where faculty, students, and staff of Columbia and its affiliate institutions can deposit the results of their scholarly work and research. 
+  %ul
+    %li For content by department: Try #{link_to 'Browse Academic Commons Content', 'http://academiccommons.columbia.edu/catalog/browse/departments'}
+    %li For content by subject: Try #{link_to 'Academic Commons Content by Subject', 'http://academiccommons.columbia.edu/catalog/browse/subjects'}
 
 .landing_side.span4
-  .landing_side_inner
-    %h3 Guide
-    .item
-      =link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/academic-commons-guide/", :target => "_blank"
-      
-    %h3 Related Links
-      
-    .item
-      =link_to "Academic Commons Home", "http://academiccommons.columbia.edu"
+  .well.sidebar-nav
+    .nav
+      %ul.nav.nav-list
+        %li.nav-header Guide 
+        %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/academic-commons-guide/", :target => "_blank"
+        %li.divider
 
-    .item
-      =link_to "Self Deposit Page", "http://academiccommons.columbia.edu/deposit"
-      .note
-        Contribute your own research to Academic Commons with one click!
+      %ul.nav.nav-list
+        %li.nav-header Related Links
+        %li= link_to "Academic Commons Home", "http://academiccommons.columbia.edu"
+        %li= link_to "Self Deposit Page", "http://academiccommons.columbia.edu/deposit"
+        %li= link_to "Frequently Asked Questions", "http://support.academiccommons.columbia.edu/"

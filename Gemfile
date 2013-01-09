@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 
 
 gem 'sqlite3'
@@ -7,11 +7,10 @@ gem 'sqlite3'
 # Use unicorn as the web server
 # gem 'unicorn'
 
-
-gem 'blacklight', :git => "git://github.com/projectblacklight/blacklight.git", :branch => "master"
- #gem 'blacklight', :path => "~/code/blacklight"
-#gem 'blacklight_range_limit', :path => "~/code/blacklight_range_limit"
-gem 'blacklight_range_limit', :git => "git://github.com/projectblacklight/blacklight_range_limit.git", :branch => "bootstrap"
+gem 'blacklight', :git => 'git://github.com/projectblacklight/blacklight.git', :branch => 'master'
+# gem 'blacklight', :path => "~/code/blacklight"
+# gem 'blacklight', "~> 4.0.0" 
+gem 'blacklight_range_limit', "~> 2.0.0" 
 gem 'blacklight_google_analytics'
 gem 'blacklight_unapi', ">= 0.0.3" 
 gem 'json'
@@ -25,7 +24,7 @@ group :clio_dev, :clio_test, :clio_prod do
   gem 'mysql2'
 end
 
-
+gem 'therubyracer', '0.10.2'
 # Deploy with Capistrano
 #gem 'newrelic_rpm'
 gem 'has_options'
@@ -86,7 +85,6 @@ end
 # group :development, :test do
 #   gem 'webrat'
 # end
-gem 'therubyracer'
 group :development do
   gem 'thin'
   #gem 'linecache19', '0.5.13'

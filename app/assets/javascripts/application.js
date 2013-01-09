@@ -17,6 +17,7 @@
 //= require bootstrap-popover
 //= require bootstrap-datepicker
 //= require blacklight/blacklight
+//= require bootstrap-dropdown
 //= require blacklight_application
 //= require articles
 //= require jquery.observe_field
@@ -26,6 +27,7 @@
 //= require item_alerts
 //= require dropdown_select
 //= require blacklight_google_analytics
+//= require spectrum
 
 
 //= require holdings

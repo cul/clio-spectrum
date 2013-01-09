@@ -1,23 +1,21 @@
 .landing_main.span8
 
-  .title Library Web
+  .title Library Web site
 
-  Search the #{link_to("Library Website", "http://library.columbia.edu")}, which contains information on the resources of the Columbia Libraries, as well as help on research, teaching, and other subjects.
+  %p Searches the #{link_to("Library Web site", "http://library.columbia.edu")}, which contains information on the resources of the Columbia Libraries, as well as help on research, teaching, and other subjects.
+  %ul
+    %li For a subject librarian: consult the #{link_to("Librarian Subject Specialists", "http://library.columbia.edu/services/askalibrarian/subject_specialists.html")}
 
 
 .landing_side.span4
-  .landing_side_inner
-  
-    %h3 Guide
-    
-    .item
-      =link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/library-web-guide/", :target => "_blank"
-  
-    %h3 Related Links
+  .well.sidebar-nav
+    .nav
+      %ul.nav.nav-list
+        %li.nav-header Guide 
+        %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/library-web-guide/", :target => "_blank"
+        %li.divider
 
-    .item
-      =link_to "Library Website", "http://library.columbia.edu"
-
-    .item
-      =link_to "Columbia Spotlight", "http://blogs.cul.columbia.edu/spotlights"
-      .note Keep up to the date with what's happening at the Libraries.
+      %ul.nav.nav-list
+        %li.nav-header Related Links
+        %li=link_to "Library Web site", "http://library.columbia.edu"
+        %li=link_to "Columbia Spotlight", "http://blogs.cul.columbia.edu/spotlights"

@@ -1,33 +1,38 @@
-.landing_main.span8
-  .title Newspapers
+.row-fluid
+  = render partial: "/spectrum/summon/advanced_search", locals: {path: newspapers_index_path()}
+.row-fluid
+  .landing_main.span8
+    .title Newspapers
+    %p Searches a vast full-text database of mostly U.S. newspaper articles.
 
-  %p Columbia offers two main resources for finding newspapers. The above search searches both of them.
+    %p To find a specific article, type article title in the search box above.
 
-  %p Looking for a specific article? Columbia has access to Summon, which provides a full-text index of almost three hundred million newspaper articles. Queries will search the full text of the newspaper article. 
+    %p To browse a specific newspaper, Type the newspaper name in the #{datasource_switch_link('Catalog', 'catalog')}.
 
-  %p In addition, we have electronic databases which offer full archives for many newspapers. If you are looking to browse a specific newspaper, or time period of newspapers, this can often be the best choice.
+    %p To find articles in a specific newspapers or published in a specific city:
+    %ul
+      %li For US newspapers from the 1990s on: #{link_to 'ProQuest', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio6270029'}
+      %li For US newspapers before 1990s: #{link_to 'ProQuest Historial Newspapers', 'http://www.columbia.edu/cgi-bin/cul/resolve?AUN8518'}, #{link_to "America's Historical Newspapers", 'http://www.columbia.edu/cgi-bin/cul/resolve?clio4403555'}, and #{link_to "Access Newspaper Archive", 'http://www.columbia.edu/cgi-bin/cul/resolve?clio7931419'}
+      %li For international newspapers: #{link_to 'Factiva', 'http://www.columbia.edu/cgi-bin/cul/resolve?AUQ3920'}
 
-  %p Some of the best databases are:
-  %ul
-    %li Proquest
-    %li ReadRI
     
+  .landing_side.span4
+    .well.sidebar-nav
+      .nav
+        %ul.nav.nav-list
+          %li.nav-header Guide 
+          %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/newspapers-guide/", :target => "_blank"
+          %li.divider
 
-.landing_side.span4
-  .landing_side_inner
-    
-    %h3 Guide
-    .item
-      =link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/articles-guide/", :target => "_blank"
-    
-    %h3 Other Resources
+        %ul.nav.nav-list
+          %li.nav-header Recent US Newspapers
+          %li #{link_to 'ProQuest', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio6270029'}
+          %li.divider
+          %li.nav-header Historical US Newspapers
+          %li #{link_to 'ProQuest Historial Newspapers', 'http://www.columbia.edu/cgi-bin/cul/resolve?AUN8518'}
+          %li #{link_to "America's Historical Newspapers", 'http://www.columbia.edu/cgi-bin/cul/resolve?clio4403555'}
+          %li #{link_to "Access Newspaper Archive", 'http://www.columbia.edu/cgi-bin/cul/resolve?clio7931419'}
+          %li.divider
+          %li.nav-header International newspapers
+          %li #{link_to 'Factiva', 'http://www.columbia.edu/cgi-bin/cul/resolve?AUQ3920'}
 
-    .item
-      .note  Other resources for finding newspapers:
-
-      %ul
-        %li=link_to "EBSCOhost Databases", "http://www.columbia.edu/cgi-bin/cul/resolve?clio6329559"
-        %li=link_to "ProQuest", "http://www.columbia.edu/cgi-bin/cul/resolve?clio8557099"
-        %li=link_to "Scopus", "http://www.columbia.edu/cgi-bin/cul/resolve?clio6273999"
-        %li=link_to "Google Scholar", "http://www.columbia.edu/cgi-bin/cul/resolve?clio5119262"
-        %li=link_to "Subject Guides", "http://wwwapp.cc.columbia.edu/ldpd/rti/results?hl=1&ps=1&sb=1&ss=0&hpp=100000&hk=-1&rt=sg&qt=6&q="

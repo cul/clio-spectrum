@@ -1,49 +1,48 @@
-.landing_main.span8
-  .title Databases
+.row-fluid
+  .landing_main.span8
+    .title Databases
 
-  %p Databases content includes:
-  %ul
-    %li Archives and manuscripts
-    %li Articles, conference Papers, dissertations, and theses
-    %li Data, GIS, government documents, and statistics
-    %li eBook collections
-    %li Image, sound and video collections
-    %li Subject help guides
+    %p Databases content includes:
+    %ul
+      %li Archives and manuscripts
+      %li Articles, conference Papers, dissertations, and theses
+      %li E-book collections
+      %li Government documents and statistics 
+      %li Image, sound and video collections
+      %li Subject help guides
 
-    
+    %p If you can't find what you're looking for, try #{datasource_switch_link 'Articles', 'articles'}
 
 
-.landing_side.span4
-  .landing_side_inner
-    %h3 Help
+  .landing_side.span4
+    .well.sidebar-nav
+      .nav
+        %ul.nav.nav-list
+          %li.nav-header Guide 
+          %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/databases-guide/", :target => "_blank"
+          %li.divider
 
-    .item
-      = link_to "How do I connect from off-campus?", "http://library.columbia.edu/content/libraryweb/services/faq/eresources/eresources_offcampus.html"
-    .item
-      = link_to "Report a Problem", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0006"
+        %ul.nav.nav-list
+          %li.nav-header Related Links
+          %li= link_to "Report a Problem", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0006"
 
-    %h3 Guide
-    .item
-      =link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/databases-guide/", :target => "_blank"
+.row-fluid
+  .landing_across.span12
+    = render :partial => "/_display/databases/a_to_z"
 
-.landing_across.span12
-  = render :partial => "/_display/databases/a_to_z"
-
-  - database_browse = YAML.load(File.read(Rails.root.to_s + "/config/database_browse.yml"))
-  - hilcc_codes = database_browse['hilcc'].invert
-  %div
-    %br
-    = form_tag databases_index_path do 
+    - database_browse = YAML.load(File.read(Rails.root.to_s + "/config/database_browse.yml"))
+    - hilcc_codes = database_browse['hilcc'].invert
+    .databases_browse_by
       %div
-        %br
-        Browse by subject:
-        = select_tag 'f[database_hilcc_facet][]', options_for_select(hilcc_codes.keys.sort.each  { |k| [k, hilcc_codes[k]] })
-        = submit_tag "Browse"
+        = form_tag databases_index_path, :method => 'get', :class => 'form-inline' do 
+          %div
+            .browse_label Browse by discipline:
+            = select_tag 'f[database_hilcc_facet][]', options_for_select(hilcc_codes.keys.sort.each  { |k| [k, hilcc_codes[k]] })
+            %button.btn{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'search'} Browse
 
-    - resource_codes = database_browse['resource_types'].invert
-    = form_tag databases_index_path do 
-      %div
-        %br
-        Browse by resource type:
-        = select_tag 'f[database_resource_type_facet][]', options_for_select(resource_codes.keys.sort.each  { |k| [k, resource_codes[k]] })
-        = submit_tag "Browse"
+        - resource_codes = database_browse['resource_types'].invert
+        = form_tag databases_index_path, :method => 'get', :class => 'form-inline' do 
+          %div
+            .browse_label Browse by resource type:
+            = select_tag 'f[database_resource_type_facet][]', options_for_select(resource_codes.keys.sort.each  { |k| [k, resource_codes[k]] })
+            %button.btn{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'search'} Browse
