@@ -43,7 +43,6 @@ Clio::Application.routes.draw do
 
   match 'catalog', :to => 'catalog#index', :as => :base_catalog_index
 
-  match 'advanced/:source(.:format)', :to => 'advanced#search', :as => :advanced_search
 
   match 'academic_commons', :to => 'catalog#index', :as => :academic_commons_index
   match 'academic_commons/range_limit(.:format)', :to => 'catalog#range_limit', :as => :academic_range_limit

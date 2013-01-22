@@ -12,10 +12,8 @@ GIT
       ruby-oci8
       voyager_oracle_api (>= 1.1.0)
 
-GIT
-  remote: git://github.com/projectblacklight/blacklight.git
-  revision: 92f61abd4ebe5e3c10e3f6460335ef825dab0f69
-  branch: master
+PATH
+  remote: ~/code/blacklight
   specs:
     blacklight (4.0.1)
       bootstrap-sass (~> 2.2.0)

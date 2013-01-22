@@ -6,7 +6,7 @@ module Spectrum
       Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
 
       include Blacklight::Configurable
-      include Blacklight::SolrHelper
+      include LocalSolrHelperExtension
 
       attr_reader :source, :documents, :search, :errors, :debug_mode, :debug_entries
       attr_accessor :params

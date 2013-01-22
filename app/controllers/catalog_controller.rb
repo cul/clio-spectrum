@@ -3,14 +3,12 @@ require 'blacklight/catalog'
 class CatalogController < ApplicationController
   before_filter :by_source_config
 
-  include Blacklight::Controller
   include Blacklight::Catalog
+  include LocalSolrHelperExtension
   include Blacklight::Configurable
   include BlacklightUnapi::ControllerExtension
 
-
   def index
-
     if params['q'] == ""
       params['commit'] ||= "Search"
       params['search_field'] ||= 'all_fields'
@@ -78,7 +76,17 @@ class CatalogController < ApplicationController
 
   end
 
-  private
+  # displays values and pagination links for a single facet field
+  def facet
+    @pagination = get_facet_pagination(params[:id], params)
+
+    respond_to do |format|
+      format.html 
+      format.js { render :layout => false }
+    end
+  end
+
+
 
 end
 

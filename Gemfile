@@ -7,8 +7,8 @@ gem 'sqlite3'
 # Use unicorn as the web server
 # gem 'unicorn'
 
-gem 'blacklight', :git => 'git://github.com/projectblacklight/blacklight.git', :branch => 'master'
-# gem 'blacklight', :path => "~/code/blacklight"
+#gem 'blacklight', :git => 'git://github.com/projectblacklight/blacklight.git', :branch => 'master'
+ gem 'blacklight', :path => "~/code/blacklight"
 # gem 'blacklight', "~> 4.0.0" 
 gem 'blacklight_range_limit', "~> 2.0.0" 
 gem 'blacklight_google_analytics'
