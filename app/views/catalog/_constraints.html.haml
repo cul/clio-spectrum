@@ -1,0 +1,19 @@
+- if query_has_constraints? 
+  #appliedParams.constraints-container
+    %span.constraints-label= t('blacklight.search.filters.title') 
+    = link_to t('blacklight.search.start_over'), url_for(:action=>'index'), :class => "catalog_startOverLink", :id=>"startOverLink" 
+    - if @query.multiple_queries?
+      %span.dropdown
+        %ul.css-dropdown
+          %li.btn.btn-link
+            #{@query.query_operator_label}
+            %span.caret
+            %ul
+              - @query.query_operator_change_links.each do |label, link|
+                %li= link_to label, link
+    - @query.queries.each do |field_key,field|
+      #{field[:label]}: #{field[:value]}
+      =link_to content_tag(:i, '', :class => 'icon-remove'), field[:remove]
+
+    -#= render_advanced_constraints(params)
+

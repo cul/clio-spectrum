@@ -11,7 +11,10 @@ module Spectrum
       attr_reader :source, :documents, :search, :errors, :debug_mode, :debug_entries
       attr_accessor :params
 
+
+
       def initialize(original_options = {})
+        solr_search_params_logic << :add_advanced_search_to_solr
         options = original_options.to_hash.deep_clone
         @source = options.delete('source') || options.delete(:source) || raise('Must specify source')
         options.delete(:source)
@@ -180,6 +183,7 @@ module Spectrum
 
           config.add_search_field('title') do |field|
             # solr_parameters hash are sent to Solr as ordinary url query params. 
+            field.show_in_dropdown = true
             field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
 
             # :solr_local_parameters will be sent using Solr LocalParams
@@ -194,6 +198,7 @@ module Spectrum
           
           config.add_search_field('journal_title') do |field|
             # solr_parameters hash are sent to Solr as ordinary url query params. 
+            field.show_in_dropdown = true
             field.solr_parameters = { :'spellcheck.dictionary' => 'title', :fq => ['format:Journal\/Periodical'] }
 
             # :solr_local_parameters will be sent using Solr LocalParams
@@ -207,6 +212,7 @@ module Spectrum
           end
 
           config.add_search_field('author') do |field|
+            field.show_in_dropdown = true
             field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
             field.solr_local_parameters = { 
               :qf => '$author_qf',
@@ -218,6 +224,7 @@ module Spectrum
           ## tests can test it. In this case it's the same as 
           ## config[:default_solr_parameters][:qt], so isn't actually neccesary. 
           config.add_search_field('subject') do |field|
+            field.show_in_dropdown = true
             field.solr_parameters = { :'spellcheck.dictionary' => 'subject' }
             field.qt = 'search'
             field.solr_local_parameters = { 

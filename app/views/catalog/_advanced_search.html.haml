@@ -1,0 +1,21 @@
+
+.advanced_search
+  .well.advanced_search_well.span12
+    = form_tag catalog_index_path, :class => "form-horizontal", :method => "GET" do
+      = standard_hidden_keys_for_search
+      .title
+        Search for records matching 
+        = select_tag :advanced_operator, options_for_select([["all", "AND"], ["any", 'OR']], params['advanced_operator'] || 'AND' ), :class => "input-mini"
+        of the following:
+      = hidden_field_tag 'search_field', 'advanced'
+      - blacklight_config.search_fields.each do |field_key, field|
+        .control-group
+          .control-label= field.label
+          .controls= text_field_tag "advanced[#{field_key}]", find_advanced_value(field_key), :title => field.label, :id => field_key, :class => 'input-xlarge'
+
+
+      .control-group
+        .controls
+          %button.btn.btn-primary{:name => "commit", :type => "submit", :value => "Search"}
+            %i.icon-search.icon-white
+            %span.visible-desktop Search

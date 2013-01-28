@@ -2,7 +2,47 @@ module LocalSolrHelperExtension
   extend ActiveSupport::Concern
   include Blacklight::SolrHelper
 
+  def is_advanced_search?(req_params = params)
+    req_params[:search_field] == 'advanced' && req_params[:advanced].kind_of?(Hash)
 
+  end
+
+  def advanced_search_operator(req_params = params)
+    advanced_operator = req_params[:advanced_operator] || "AND"
+  end
+
+  def advanced_search_queries(req_params = params)
+    if req_params[:advanced].kind_of?(Hash)
+      req_params[:advanced].reject { |k,v| v.to_s.empty? }
+    else
+      {}
+    end
+  end
+
+  def add_advanced_search_to_solr(solr_parameters, req_params = params)
+    if is_advanced_search?(req_params)
+      solr_parameters[:qt] = req_params[:qt] if req_params[:qt]
+
+      
+      advanced_q = advanced_search_queries(req_params).collect do |field_name, value|
+        search_field_def = search_field_def_for_key(field_name)
+
+        if (search_field_def && hash = search_field_def.solr_local_parameters)
+          local_params = hash.collect do |key, val|
+            key.to_s + "=" + solr_param_quote(val, :quote => "'")
+          end.join(" ")
+          "_query_:\"{!edismax #{local_params}}#{value}\""
+        else
+          value.to_s
+        end
+        
+      end
+
+
+      solr_parameters[:q] = advanced_q.join(" #{advanced_search_operator(req_params)} ")
+  
+    end
+  end
 
     ##
     # Convert a facet/value pair into a solr fq parameter
@@ -35,4 +75,7 @@ module LocalSolrHelperExtension
 
 
     end
+
+    
+
 end

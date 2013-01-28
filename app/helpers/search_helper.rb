@@ -51,7 +51,7 @@ module SearchHelper
       result += text_field_tag(:q, search_params[:q], class: has_options, id: "#{source}_q", placeholder: options['placeholder'])
 
       if options['search_type'] == "blacklight"
-        result += search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page, :categories]).html_safe         
+        result += standard_hidden_keys_for_search 
         if options['search_fields'].kind_of?(Hash) 
           result += dropdown_with_select_tag(:search_field, options['search_fields'].invert, h(search_params[:search_field]), :title => "Targeted search options", :class=>"search_options") 
         end
@@ -61,7 +61,7 @@ module SearchHelper
           hidden_field_tag "new_search", "true"
       end
       result += content_tag(:button, '<i class="icon-search icon-white"></i> <span class="visible-desktop">Search</span>'.html_safe, type: "submit", class: "btn btn-primary", name: 'commit', value: 'Search')
-      if options['search_type'] == "summon"
+      if options['search_type'].in?("summon", "blacklight")
         result += content_tag(:a, "More Options", :class => "btn btn-link advanced_search_toggle", :href => "#")
       end
       result = content_tag(:div, result, class: 'search_row input-append', escape: false)

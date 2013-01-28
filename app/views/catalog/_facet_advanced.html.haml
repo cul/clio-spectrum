@@ -4,6 +4,14 @@
 
 .modal-body
   .facet_extended_list
+    .selected_facets
+      Include a result if it matches all of the following:
+      %ul
+        - selected_values_for_facet(params[:id]).each do |value|
+          %li= value
+        - selected_negative_values_for_facet(params[:id]).each do |value|
+          %li= value
+
     %ul.facet_extended_list
       - @pagination.items.each do |item| 
         %li
@@ -24,5 +32,6 @@
             
 .modal-footer
   .facet_pagination_bottom
-    = render :partial => 'facet_pagination'
-
+    .pull-right
+      %a.btn{:"data-dismiss" => 'modal', :href => "#"} Cancel
+      %a.btn{:href => "#"} Submit
