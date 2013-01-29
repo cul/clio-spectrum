@@ -1,19 +1,46 @@
-- if query_has_constraints? 
+- if @query.has_constraints?
   #appliedParams.constraints-container
     %span.constraints-label= t('blacklight.search.filters.title') 
     = link_to t('blacklight.search.start_over'), url_for(:action=>'index'), :class => "catalog_startOverLink", :id=>"startOverLink" 
-    - if @query.multiple_queries?
-      %span.dropdown
-        %ul.css-dropdown
-          %li.btn.btn-link
-            #{@query.query_operator_label}
-            %span.caret
-            %ul
-              - @query.query_operator_change_links.each do |label, link|
-                %li= link_to label, link
-    - @query.queries.each do |field_key,field|
-      #{field[:label]}: #{field[:value]}
-      =link_to content_tag(:i, '', :class => 'icon-remove'), field[:remove]
+    %div.queries
+      - if @query.multiple_queries?
+        %span.dropdown
+          %ul.css-dropdown
+            %li.btn.btn-link
+              #{@query.query_operator_label}
+              %span.caret
+              %ul
+                - @query.query_operator_change_links.each do |label, link|
+                  %li= link_to label, link
+      - @query.queries.each do |field_key,field|
+        #{field[:label]}: #{field[:value]}
+        =link_to content_tag(:i, '', :class => 'icon-remove'), field[:remove]
+
+
+    %div.filters
+      - @query.filters.each_pair do |filter_key, filter|
+        #{filter[:label]}:
+        - if filter[:values].length > 1
+          %span.dropdown
+            %ul.css-dropdown
+              %li.btn.btn-link
+                #{filter[:operator_label]}
+                %span.caret
+                %ul
+                  - filter[:operator_change_links].each do |label, link|
+                    %li= link_to label, link
+
+        - filter[:values].each do |value|
+          %span.dropdown
+            %ul.css-dropdown
+              %li.btn.btn-link
+                #{value[:invert_label]}
+                %span.caret
+                %ul
+                  - value[:invert_links].each do |label, link|
+                    %li= link_to label, link
+          = value[:label]
+          =link_to content_tag(:i, '', :class => 'icon-remove'), value[:remove]
+
 
     -#= render_advanced_constraints(params)
-

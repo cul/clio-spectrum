@@ -5,6 +5,7 @@ module Spectrum
       Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
       include AdvancedHelper
       include LocalSolrHelperExtension
+      include Blacklight::FacetsHelperBehavior
 
       attr_reader :params, :queries, :filters, :query_operator
 
@@ -16,6 +17,16 @@ module Spectrum
 
       
       end
+
+      def blacklight_config
+        @config
+      end
+
+      def has_constraints?
+        !(@filters.empty? && @queries.empty?)
+      end
+
+
 
       def query_operator_label
         @query_operator == "AND" ? "All Of" : "Any Of"
@@ -42,8 +53,97 @@ module Spectrum
 
       private
 
+      def is_inverted?(facet_field)
+        facet_field =~ /^-/
+      end
+
+      def inverted_facet_field(facet_field)
+        is_inverted?(facet_field) ? facet_field.gsub(/^-/, "") : "-#{facet_field}"
+      end
+
+      def invert_facet_value(facet_field, value)
+        new_params = @params.deep_clone
+        new_params.delete(:page)
+
+        Blacklight::Solr::FacetPaginator.request_keys.values.each do |paginator_key| 
+          new_params.delete(paginator_key)
+        end
+
+        new_params.delete(:id)
+
+        new_params[:action] = "index"
+        new_params = remove_facet_params(facet_field, value, new_params)
+        new_params = add_facet_params(inverted_facet_field(facet_field), value, new_params)
+        new_params
+      
+      end
+
+      def facet_value_invert_links(facet_field,value)
+        
+        if  is_inverted?(facet_field)
+          [
+            ["Is Not", "#"],
+            ["Is", catalog_index_path(invert_facet_value(facet_field, value))]
+          ]
+        else
+          [
+            ["Is", "#"],
+            ["Is Not", catalog_index_path(invert_facet_value(facet_field, value))]
+          ]
+        end
+      end
+
+      def facet_operator_change_links(raw_facet_field)
+        if facet_operator(raw_facet_field) == "AND"
+          [
+            ["All Of", "#"],
+            ["Any Of", catalog_index_path(change_params_and_redirect({:f_operator => {raw_facet_field => 'OR'}}, @params))]
+          ]
+        else
+          [
+            ["All Of", catalog_index_path(change_params_and_redirect({:f_operator => {raw_facet_field => 'AND'}}, @params))],
+            ["Any Of", "#"] 
+          ]
+          
+        end
+      end
+
+      def facet_operator(raw_facet_field)
+        (@params[:f_operator] && @params[:f_operator][raw_facet_field]) || "AND"
+      end
+  
+      def facet_operator_label(raw_facet_field)
+        facet_operator(raw_facet_field) == "AND" ? "All Of" : "Any Of"
+      end
+
       def parse_filters
         @filters = HashWithIndifferentAccess.new()
+        (@params[:f] || {}).each_pair do |facet_field, values|
+          base_facet_field = facet_field.gsub(/^-/,'').to_s
+
+          unless @filters.has_key?(base_facet_field)
+            @filters[base_facet_field] = {
+              operator: facet_operator(base_facet_field),
+              operator_label: facet_operator_label(base_facet_field),
+              operator_change_links: facet_operator_change_links(base_facet_field),
+              values: [],
+              label: @config.facet_fields[base_facet_field.to_s].label || facet_field
+
+            }
+
+          end
+
+          
+          values.each do |value|
+            @filters[base_facet_field][:values] << {
+              invert_label: is_inverted?(facet_field) ? "Is Not" : "Is",
+              label: value,
+              remove: remove_facet_params(facet_field, value, @params),
+              invert_links: facet_value_invert_links(facet_field, value) 
+
+            }
+          end
+        end
       end
 
       def parse_queries

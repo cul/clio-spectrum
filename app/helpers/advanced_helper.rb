@@ -15,7 +15,6 @@ module AdvancedHelper
     new_params
   end
 
-
   def standard_hidden_keys_for_search
     search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page, :categories, :advanced_operator, :advanced]).html_safe         
   end
