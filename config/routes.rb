@@ -1,6 +1,7 @@
 Clio::Application.routes.draw do
 
 
+  match 'catalog/advanced', :to => 'catalog#index', :as => :catalog_advanced, :defaults => {:q => '', :show_advanced => 'true'}
   resources :item_alerts
 
   match "item_alerts/:id/show_table_row(.:format)", :to => "item_alerts#show_table_row", :as => :item_alert_show_table_row

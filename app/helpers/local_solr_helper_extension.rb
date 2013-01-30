@@ -93,6 +93,33 @@ module LocalSolrHelperExtension
       results
     end
 
+  # copies the current params (or whatever is passed in as the 3rd arg)
+  # removes the field value from params[:f]
+  # removes the field if there are no more values in params[:f][field]
+  # removes additional params (page, id, etc..)
+  def remove_facet_params(field, item, source_params=params)
+    if item.respond_to? :field
+      field = item.field
+    end
+
+    value = facet_value_for_facet_item(item)
+
+    p = source_params.dup
+    # need to dup the facet values too,
+    # if the values aren't dup'd, then the values
+    # from the session will get remove in the show view...
+    p[:f] = (p[:f] || {}).dup
+    p[:f][field] = (p[:f][field] || []).dup
+    p.delete :page
+    p.delete :id
+    p.delete :counter
+    p.delete :commit
+    p[:f][field] = p[:f][field] - [value]
+    p[:f].delete(field) if p[:f][field].size == 0
+    p
+  end
+    
+
 
     def individual_facet_value_to_fq_string(facet_field, value, operator ="AND")
       facet_config = blacklight_config.facet_fields[facet_field]
@@ -104,10 +131,15 @@ module LocalSolrHelperExtension
       prefix = ""
       prefix = "{!#{local_params.join(" ")}}" unless local_params.empty?
 
+      double_slash = '\\\\'
+      escaped_quote = '\"'
+
+      subbed_value = '"' + value.gsub("\\", double_slash).gsub('"', escaped_quote) + '"'
+
 
       fq = case
         when facet_field  =~ /^-/ || operator == "OR"
-          "#{facet_field}:#{value}"
+          "#{facet_field}:#{subbed_value}"
         when (facet_config and facet_config.query)
           facet_config.query[value][:fq]
         when (facet_config and facet_config.date),

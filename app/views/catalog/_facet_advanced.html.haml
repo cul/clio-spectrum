@@ -5,29 +5,18 @@
 .modal-body
   .facet_extended_list
     .selected_facets
-      Include a result if it matches all of the following:
-      %ul
-        - selected_values_for_facet(params[:id]).each do |value|
-          %li= value
-        - selected_negative_values_for_facet(params[:id]).each do |value|
-          %li= value
 
     %ul.facet_extended_list
+      - selected_negative_values_for_facet(params[:id]).each do |value|
+        %li 
+          NOT #{value}
+          = link_to content_tag(:i, '', class: 'icon-remove'), catalog_index_path(remove_facet_params("-#{params[:id]}", value, params)), :class => 'remove'
       - @pagination.items.each do |item| 
         %li
           - if facet_in_params?( params[:id], item.value ) 
-            = render_selected_facet_value(params[:id], item) 
+            = render_selected_facet_value_on_facet(params[:id], item) 
           - else
-            %div.facet_line
-              %span.facet_select 
-                = item.label
-              %span.actions
-                %a.btn.btn-small.btn-success{:href => "#"} 
-                  %i.icon-plus-sign.icon-white
-                %a.btn.btn-small.btn-danger{:href => "#"} 
-                  %i.icon-minus-sign.icon-white
-                  Exclude
-              %span.count= item.hits
+            = render_facet_value(params[:id], item)
 
             
 .modal-footer

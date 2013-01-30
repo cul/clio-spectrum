@@ -16,7 +16,7 @@ module AdvancedHelper
   end
 
   def standard_hidden_keys_for_search
-    search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page, :categories, :advanced_operator, :advanced]).html_safe         
+    search_as_hidden_fields(:omit_keys => [:q, :show_advanced, :search_field, :qt, :page, :categories, :advanced_operator, :advanced]).html_safe         
   end
 
   def selected_values_for_facet(facet, localized_parms = params)
@@ -33,4 +33,14 @@ module AdvancedHelper
     (localized_params['advanced'] && localized_params['advanced'][field_name]) || (search_field_name && localized_params['search_field'] == search_field_name && localized_params[:q]) || ""
   end
 
+
+  # Standard display of a SELECTED facet value, no link, special span
+  # with class, and 'remove' button.
+  def render_selected_facet_value_on_facet(facet_solr_field, item)
+    
+    #Updated class for Bootstrap Blacklight 
+    content_tag(:span, render_facet_value(facet_solr_field, item, :suppress_link => true), :class => "selected") +
+      link_to(content_tag(:i, '', :class => "icon-remove") +  content_tag(:span, '[remove]', :class => 'hide-text'), catalog_index_path(remove_facet_params(facet_solr_field, item, params)), :class=>"remove")
+  end
+  
 end

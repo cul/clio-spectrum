@@ -28,6 +28,7 @@ class SpectrumController < ApplicationController
   private
 
   def fix_articles_params(param_list)
+    param_list['authorized'] = @user_characteristics[:authorized] 
     if param_list['q']
       param_list['s.q'] ||= param_list['q']
       session['search']['s.q'] = param_list['q'] 

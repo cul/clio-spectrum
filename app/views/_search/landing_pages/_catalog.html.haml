@@ -1,5 +1,7 @@
 .landing_main.span8
 
+  = fix_catalog_links(render('/catalog/advanced_search', :localized_params => params))
+
   .title Catalog
 
   %p Search Columbia's catalog of over 7 million items for:

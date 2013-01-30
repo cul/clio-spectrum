@@ -5,8 +5,28 @@
 
 @import "local_mixes"
 
+.constraint-box
+  :margin 5px 
+  :width auto
+  :background-color #f0f3ff
+  :padding 10px 4px 6px 4px
+  +border-radius(3px)
+  :border 1px solid #cccccc
+  :color #2855a2
 
+  ul.css-dropdown
+    li
+      :padding-left 2px
+      :padding-right 2px
+      ul
+        :z-index 5000
 
+  .inner-dropdown
+    +border-radius(2px)
+    :padding 3px
+    :border 1px solid #cccccc
+    :margin-right 3px
+    :margin-left 3px
 
 #appliedParams
 
@@ -30,6 +50,7 @@
   :background white
 
 #startOverLink
+  :padding-left 1em
   :padding-top 5px
 
 
