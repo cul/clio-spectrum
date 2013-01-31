@@ -21,6 +21,4 @@
             
 .modal-footer
   .facet_pagination_bottom
-    .pull-right
-      %a.btn{:"data-dismiss" => 'modal', :href => "#"} Cancel
-      %a.btn{:href => "#"} Submit
+    = render :partial => "facet_pagination"

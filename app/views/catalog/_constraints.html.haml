@@ -14,8 +14,12 @@
                   - @query.query_operator_change_links.each do |label, link|
                     %li= link_to label, link
         - @query.queries.each do |field_key,field|
-          %span.inner-dropdown
-            #{field[:label]}: #{field[:value]}
+          - span_class = @query.multiple_queries? ? "inner-dropdown" : ""
+          %span{:class => span_class}
+            - if !@query.multiple_queries? && field[:label] == "All Fields"
+              #{field[:value]}
+            - else
+              #{field[:label]}: #{field[:value]}
             =link_to content_tag(:i, '', :class => 'icon-remove'), field[:remove]
 
 
@@ -33,7 +37,8 @@
                     %li= link_to label, link
 
         - filter[:values].each do |value|
-          %span.inner-dropdown
+          - span_class = filter[:values].length > 1 ? "inner-dropdown" : ""
+          %span{:class => span_class}
             %span.dropdown
               %ul.css-dropdown
                 %li

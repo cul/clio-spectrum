@@ -14,12 +14,21 @@
   :border 1px solid #cccccc
   :color #2855a2
 
+  .dropdown
+    span.caret
+      :margin-left 0 
+
   ul.css-dropdown
     li
       :padding-left 2px
       :padding-right 2px
       ul
         :z-index 5000
+
+    li.hovering, li:hover
+      ul
+        :width 70px
+
 
   .inner-dropdown
     +border-radius(2px)
