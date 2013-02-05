@@ -1,6 +1,45 @@
 @import "local_mixes"
 
 
+.constraint-box
+  :display inline-block
+  :margin 3px 5px 3px 5px
+  :width auto
+  :background-color #f0f3ff
+  :padding 9px 4px 9px 4px
+  +border-radius(3px)
+  :border 1px solid #ccccff
+  :color #2855a2
+
+  &.with-dropdown
+    :padding 10px 4px 4px 4px
+
+  .dropdown
+    span.caret
+      :margin-left 0 
+
+  ul.css-dropdown
+    li
+      :padding-left 2px
+      :padding-right 2px
+      ul
+        :z-index 5000
+
+    li.hovering, li:hover
+      ul
+        :width 70px
+
+
+  .inner-dropdown
+    +border-radius(2px)
+    :padding 3px
+    :border 1px solid #ccccff
+    :margin-right 3px
+    :margin-left 3px
+
+  .chrome-fix
+    :display inline-block
+    :width 1px
 
 .facet_action
   :cursor pointer

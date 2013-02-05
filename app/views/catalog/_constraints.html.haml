@@ -3,7 +3,9 @@
     %span.constraints-label= t('blacklight.search.filters.title') 
     = link_to t('blacklight.search.start_over'), url_for(:action=>'index'), :class => "catalog_startOverLink", :id=>"startOverLink" 
     - unless @query.queries.empty?
-      %div.constraint-box
+      - constraint_class = @query.multiple_queries? ? "with-dropdown" : ""
+        
+      %div.constraint-box{:class => constraint_class}
         - if @query.multiple_queries?
           %span.dropdown
             %ul.css-dropdown
@@ -21,10 +23,11 @@
             - else
               #{field[:label]}: #{field[:value]}
             =link_to content_tag(:i, '', :class => 'icon-remove'), field[:remove]
-
+        %span.chrome-fix
+          
 
     - @query.filters.each_pair do |filter_key, filter|
-      %div.constraint-box
+      %div.constraint-box.with-dropdown
         #{filter[:label]}:
         - if filter[:values].length > 1
           %span.dropdown
@@ -49,6 +52,6 @@
                       %li= link_to label, link
             = value[:label]
             =link_to content_tag(:i, '', :class => 'icon-remove'), value[:remove]
-
+          %span.chrome-fix
 
     -#= render_advanced_constraints(params)

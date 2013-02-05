@@ -1,4 +1,8 @@
 @import "local_mixes"
+
+
+#startOverLink.catalog_startOverLink
+  :padding-top 1em
 .databases_browse_by
   +clearfix
   :clear both
@@ -44,8 +48,18 @@
   h4
     :padding-top 0.5em
     :min-height 1.5em
-#appliedParams
+#appliedParams.constraints-container, .well.well-constraints
   +clearfix
+  :background-color #fff
+  :border none
+  :box-shadow none
+  :padding 0
+
+.advanced_search_well
+  .title
+    :font-weight bold
+    :font-size 1.1em
+    :padding-bottom 0.5em
 
 #toolbar-container
   :margin-top 1em
