@@ -21,6 +21,7 @@ Clio::Application.routes.draw do
  
   match 'admin/ingest_log', :to => "admin#ingest_log", :as => :admin_ingest_log
 
+  match 'catalog', :to => 'catalog#index', :as => :base_catalog_index
 
   match 'quicksearch/', :to => 'spectrum#search', :as => :quicksearch_index, :defaults => {:layout => 'quicksearch'}
 
@@ -42,7 +43,6 @@ Clio::Application.routes.draw do
 
   match 'library_web', :to => 'spectrum#search', :as => :library_web_index, :defaults => {:layout => 'library_web'}
 
-  match 'catalog', :to => 'catalog#index', :as => :base_catalog_index
 
 
   match 'academic_commons', :to => 'catalog#index', :as => :academic_commons_index
