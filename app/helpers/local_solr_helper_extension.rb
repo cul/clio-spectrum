@@ -1,6 +1,7 @@
 module LocalSolrHelperExtension
   extend ActiveSupport::Concern
   include Blacklight::SolrHelper
+  include BlacklightRangeLimit::SegmentCalculation
 
   def is_advanced_search?(req_params = params)
     req_params[:search_field] == 'advanced' && req_params[:advanced].kind_of?(Hash)
@@ -18,6 +19,71 @@ module LocalSolrHelperExtension
       {}
     end
   end
+
+
+    # Returns range config hash for named solr field. Returns false
+    # if not configured. Returns hash even if configured to 'true'
+    # for consistency. 
+    def range_config(solr_field)    
+      field = blacklight_config.facet_fields[solr_field]
+      return false unless field.range
+
+      config = field.range
+      config = {} if config === true
+
+      config
+    end
+  
+      
+    # Method added to solr_search_params_logic to fetch
+    # proper things for date ranges. 
+    def add_range_limit_params(solr_params, req_params)    
+       ranged_facet_configs = 
+         blacklight_config.facet_fields.select { |key, config| config.range } 
+       # In ruby 1.8, hash.select returns an array of pairs, in ruby 1.9
+       # it returns a hash. Turn it into a hash either way.  
+       ranged_facet_configs = Hash[ ranged_facet_configs ] unless ranged_facet_configs.kind_of?(Hash)
+
+       
+       ranged_facet_configs.each_pair do |solr_field, config|
+        solr_params["stats"] = "true"
+        solr_params["stats.field"] ||= []
+        solr_params["stats.field"] << solr_field    
+      
+        hash =  req_params[:range] && req_params[:range][solr_field] ?
+          req_params[:range][solr_field] :
+          {}
+
+          
+        if !hash["missing"].blank?
+          # missing specified in request params
+          solr_params[:fq] ||= []
+          solr_params[:fq] << "-#{solr_field}:[* TO *]"
+          
+        elsif !(hash["begin"].blank? && hash["end"].blank?)
+          # specified in request params, begin and/or end, might just have one
+          start = hash["begin"].blank? ? "*" : hash["begin"]
+          finish = hash["end"].blank? ? "*" : hash["end"]
+  
+          solr_params[:fq] ||= []
+          solr_params[:fq] << "#{solr_field}: [#{start} TO #{finish}]"
+          
+          if (config.segments != false && start != "*" && finish != "*")
+            # Add in our calculated segments, can only do with both boundaries.
+            add_range_segments_to_solr!(solr_params, solr_field, start.to_i, finish.to_i)
+          end
+          
+        elsif (config.segments != false &&
+               boundaries = config.assumed_boundaries)
+          # assumed_boundaries in config
+          add_range_segments_to_solr!(solr_params, solr_field, boundaries[0], boundaries[1])
+        end
+      end
+      
+      return solr_params
+    end
+  
+
 
   def add_advanced_search_to_solr(solr_parameters, req_params = params)
     if is_advanced_search?(req_params)
@@ -71,6 +137,7 @@ module LocalSolrHelperExtension
           solr_parameters[:fq] |= facet_value_to_fq_string(facet_key, values, excluded_values, operator)
         end
       end
+
     end
 
     def facet_value_to_fq_string(facet_field, values = [], excluded_values = [], operator ="AND")
@@ -92,6 +159,20 @@ module LocalSolrHelperExtension
 
       results
     end
+
+  def remove_range_params(range_key, source_params=params)
+    p = source_params.deep_clone
+    # need to dup the facet values too,
+    # if the values aren't dup'd, then the values
+    # from the session will get remove in the show view...
+    p.delete :page
+    p.delete :id
+    p.delete :counter
+    p.delete :commit
+    p[:range] && p[:range].delete(range_key)
+    p
+
+  end
 
   # copies the current params (or whatever is passed in as the 3rd arg)
   # removes the field value from params[:f]

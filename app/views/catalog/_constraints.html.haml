@@ -54,4 +54,10 @@
             =link_to content_tag(:i, '', :class => 'icon-remove'), value[:remove]
           %span.chrome-fix
 
+    - @query.ranges.each_pair do |range_key, range|
+      %div.constraint-box
+        #{range[:label]}: #{range[:value]} 
+        =link_to content_tag(:i, '', :class => 'icon-remove'), range[:remove]
+
+
     -#= render_advanced_constraints(params)

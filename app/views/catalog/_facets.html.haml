@@ -3,9 +3,9 @@
   #facets.facets.sidenav
     %h4(data-toggle="collapse" data-target=".facets-collapse")
       - if expand_all_facets?
-        %a.btn.btn-small.toggle_all.contract{:href => "#"} Contract All 
+        %a.btn.btn-small.toggle_all.contract.hidden-phone{:href => "#"} Contract All 
       - else
-        %a.btn.btn-small.toggle_all.expand{:href => "#"} Expand All 
+        %a.btn.btn-small.toggle_all.expand.hidden-phone{:href => "#"} Expand All 
       %a.btn.btn-navbar
         %span.icon-bar
         %span.icon-bar

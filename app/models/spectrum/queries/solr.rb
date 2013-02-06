@@ -7,13 +7,14 @@ module Spectrum
       include LocalSolrHelperExtension
       include Blacklight::FacetsHelperBehavior
 
-      attr_reader :params, :queries, :filters, :query_operator
+      attr_reader :params, :queries, :filters, :ranges, :query_operator
 
       def initialize(reg_params, blacklight_config)
         @params = reg_params || HashWithIndifferentAccess.new()
         @config = blacklight_config
         parse_queries
         parse_filters
+        parse_ranges
 
       
       end
@@ -23,7 +24,7 @@ module Spectrum
       end
 
       def has_constraints?
-        !(@filters.empty? && @queries.empty?)
+        !(@filters.empty? && @queries.empty? && @ranges.empty?)
       end
 
 
@@ -188,6 +189,24 @@ module Spectrum
         end
         
         @query_operator = @params[:advanced_operator] || "AND"
+      end
+
+      def parse_ranges
+        @ranges = HashWithIndifferentAccess.new()
+
+        (@params[:range] || {}).each_pair do |range_key, range|
+          @ranges[range_key] = {
+
+              label: @config.facet_fields[range_key].label || range_key,
+              value: "#{range['begin']} to #{range['end']}",
+              remove: remove_range_params(range_key, @params)
+              
+            }
+
+
+
+        end
+
       end
 
     end

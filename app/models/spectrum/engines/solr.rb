@@ -15,6 +15,8 @@ module Spectrum
 
       def initialize(original_options = {})
         solr_search_params_logic << :add_advanced_search_to_solr
+        solr_search_params_logic << :add_range_limit_params
+
         options = original_options.to_hash.deep_clone
         @source = options.delete('source') || options.delete(:source) || raise('Must specify source')
         options.delete(:source)
@@ -414,7 +416,7 @@ module Spectrum
               config.index.record_display_type = "format"
 
               config.add_facet_field 'author_facet', :label => 'Author', :open => true, :limit => 5
-              config.add_facet_field "pub_date_facet", :label => "Publication Date", :limit => 3, :range => {:segments => false }
+              config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false }
               config.add_facet_field 'department_facet', :label => 'Department', :limit => 5
               config.add_facet_field 'subject_facet', :label => 'Subject', :limit => 10
               config.add_facet_field 'genre_facet', :label => 'Content Type', :limit => 10
@@ -442,7 +444,7 @@ module Spectrum
               config.index.record_display_type = "format"
 
               config.add_facet_field 'author_facet', :label => 'Author', :open => true, :limit => 5
-              config.add_facet_field "pub_date_facet", :label => "Publication Date", :limit => 3, :range => {:segments => false }
+              config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false }
               config.add_facet_field 'department_facet', :label => 'Department', :limit => 5
               config.add_facet_field 'subject_facet', :label => 'Subject', :limit => 10
               config.add_facet_field 'genre_facet', :label => 'Content Type', :limit => 10

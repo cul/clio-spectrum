@@ -17,6 +17,7 @@ class CatalogController < ApplicationController
     end
 
     solr_search_params_logic << :add_advanced_search_to_solr
+    solr_search_params_logic << :add_range_limit_params
     @query = Spectrum::Queries::Solr.new(params, self.blacklight_config)
 
     extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => "RSS for results")
