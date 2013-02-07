@@ -336,6 +336,8 @@ module Spectrum
               config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
               config.add_facet_field 'title_first_facet', :label => "Starts With"
               config.add_sort_field   'score desc, pub_date_sort desc, title_sort asc', :label => 'relevance'
+              config.add_sort_field  'title_sort asc, pub_date_sort desc', :label =>  'Title A-Z'
+              config.add_sort_field   'title_sort desc, pub_date_sort desc', :label => 'Title Z-A'
               config[:unapi] = {
                 'oai_dc_xml' => { :content_type => 'text/xml' }
               }
