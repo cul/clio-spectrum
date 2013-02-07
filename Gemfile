@@ -8,9 +8,9 @@ gem 'sqlite3'
 # gem 'unicorn'
 
 gem 'blacklight', :git => 'git://github.com/projectblacklight/blacklight.git', :branch => 'master'
-# gem 'blacklight', :path => "~/code/blacklight"
-# gem 'blacklight', "~> 4.0.0" 
-gem 'blacklight_range_limit', "~> 2.0.0" 
+ #gem 'blacklight', :path => "~/code/blacklight"
+ gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
+#gem 'blacklight_range_limit', "~> 2.0.0" 
 gem 'blacklight_google_analytics'
 gem 'blacklight_unapi', ">= 0.0.3" 
 gem 'json'
@@ -48,7 +48,6 @@ gem 'devise'
 gem 'devise-encryptable'
 gem 'devise_wind'
 #
-# gem 'blacklight_advanced_search',:git => 'https://github.com/projectblacklight/blacklight_advanced_search.git
 
 gem 'compass-rails'
 

@@ -1,6 +1,7 @@
 Clio::Application.routes.draw do
 
 
+  match 'catalog/advanced', :to => 'catalog#index', :as => :catalog_advanced, :defaults => {:q => '', :show_advanced => 'true'}
   resources :item_alerts
 
   match "item_alerts/:id/show_table_row(.:format)", :to => "item_alerts#show_table_row", :as => :item_alert_show_table_row
@@ -20,6 +21,7 @@ Clio::Application.routes.draw do
  
   match 'admin/ingest_log', :to => "admin#ingest_log", :as => :admin_ingest_log
 
+  match 'catalog', :to => 'catalog#index', :as => :base_catalog_index
 
   match 'quicksearch/', :to => 'spectrum#search', :as => :quicksearch_index, :defaults => {:layout => 'quicksearch'}
 
@@ -41,9 +43,7 @@ Clio::Application.routes.draw do
 
   match 'library_web', :to => 'spectrum#search', :as => :library_web_index, :defaults => {:layout => 'library_web'}
 
-  match 'catalog', :to => 'catalog#index', :as => :base_catalog_index
 
-  match 'advanced/:source(.:format)', :to => 'advanced#search', :as => :advanced_search
 
   match 'academic_commons', :to => 'catalog#index', :as => :academic_commons_index
   match 'academic_commons/range_limit(.:format)', :to => 'catalog#range_limit', :as => :academic_range_limit

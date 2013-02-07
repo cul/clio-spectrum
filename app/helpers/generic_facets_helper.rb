@@ -3,8 +3,8 @@ module GenericFacetsHelper
     Blacklight::Solr::FacetPaginator.new(facet[:items], :limit => facet[:limit])
   end
 
-  def fix_catalog_links(text)
-    text.to_s.gsub('/catalog',"/#{@active_source}").html_safe
+  def fix_catalog_links(text, source = @active_source)
+    text.to_s.gsub('/catalog',"/#{source}").html_safe
   end
 
   def display_facet_item_label(item, value = :not_selected)

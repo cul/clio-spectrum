@@ -37,6 +37,8 @@ module Spectrum
         @params['s.q'] ||= ''
         @params['s.fq'] ||= ''
 
+        @params['s.role'] = options.delete('authorized') ? 'authenticated' : ''
+
         if @params['s.fq'].kind_of?(Hash)
           new_fq = []
           @params['s.fq'].each_pair do |name, value|

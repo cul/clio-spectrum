@@ -3,18 +3,22 @@ require 'blacklight/catalog'
 class CatalogController < ApplicationController
   before_filter :by_source_config
 
-  include Blacklight::Controller
+  include LocalSolrHelperExtension
   include Blacklight::Catalog
   include Blacklight::Configurable
   include BlacklightUnapi::ControllerExtension
 
 
-  def index
 
+  def index
     if params['q'] == ""
       params['commit'] ||= "Search"
       params['search_field'] ||= 'all_fields'
     end
+
+    solr_search_params_logic << :add_advanced_search_to_solr
+    solr_search_params_logic << :add_range_limit_params
+    @query = Spectrum::Queries::Solr.new(params, self.blacklight_config)
 
     extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => "RSS for results")
     extra_head_content << view_context.auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => "Atom for results")
@@ -51,6 +55,7 @@ class CatalogController < ApplicationController
 
   def show
     @response, @document = get_solr_response_for_doc_id    
+    @query = Spectrum::Queries::Solr.new(params, self.blacklight_config)
     add_alerts_to_documents(@document)
 
     respond_to do |format|
@@ -78,7 +83,17 @@ class CatalogController < ApplicationController
 
   end
 
-  private
+  # displays values and pagination links for a single facet field
+  def facet
+    @pagination = get_facet_pagination(params[:id], params)
+
+    respond_to do |format|
+      format.html 
+      format.js { render :layout => false }
+    end
+  end
+
+
 
 end
 

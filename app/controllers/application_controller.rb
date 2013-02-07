@@ -11,17 +11,29 @@ class ApplicationController < ActionController::Base
   before_filter :trigger_debug_mode
   before_filter :by_source_config
   before_filter :log_additional_data
+  before_filter :set_user_characteristics
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
 
 
+  def set_user_characteristics
+    @user_characteristics = 
+      { 
+        :ip => request.remote_ip,
+        :on_campus => User.on_campus?(request.remote_ip),
+       :authorized => !current_user.nil? || User.on_campus?(request.remote_ip)
+    } 
+    @debug_entries[:user_characteristics] = @user_characteristics
+  end
+
   def set_user_option
     session[:options] ||= {}
     session[:options][params['name']] = params['value']
     render :json => {:success => "Option set."}
   end
+
   def blacklight_search(sent_options = {})
     options = sent_options.deep_clone
     options['source'] = @active_source unless options['source']

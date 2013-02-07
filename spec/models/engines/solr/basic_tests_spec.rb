@@ -16,7 +16,6 @@ describe 'Spectrum::Engines::Solr' do
     end
 
     it 'should return that number of results' do
-      pending('until rows param works again')
       eng = Spectrum::Engines::Solr.new('source' => 'catalog', :q => 'Smith', :search_field => 'all_fields', :rows => @result_count, 'solr_url' => solr_url)
       eng.results.should_not be_empty
       eng.results.size.should equal(@result_count)
@@ -62,7 +61,7 @@ describe 'Spectrum::Engines::Solr' do
   # NEXT-415
   describe 'searches for "New Yorker" in Journals' do
     it 'should find "The New Yorker" as the first result' do
-      # pending('revamp to how stopwords and/or phrases are handled')
+       pending('revamp to how stopwords and/or phrases are handled')
       eng = Spectrum::Engines::Solr.new(:source => 'journals', :q => 'New Yorker', :search_field => 'all_fields', 'solr_url' => solr_url)
       eng.results.should_not be_empty
       # puts eng.solr_search_params\

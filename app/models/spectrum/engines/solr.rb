@@ -6,12 +6,17 @@ module Spectrum
       Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
 
       include Blacklight::Configurable
-      include Blacklight::SolrHelper
+      include LocalSolrHelperExtension
 
       attr_reader :source, :documents, :search, :errors, :debug_mode, :debug_entries
       attr_accessor :params
 
+
+
       def initialize(original_options = {})
+        solr_search_params_logic << :add_advanced_search_to_solr
+        solr_search_params_logic << :add_range_limit_params
+
         options = original_options.to_hash.deep_clone
         @source = options.delete('source') || options.delete(:source) || raise('Must specify source')
         options.delete(:source)
@@ -180,6 +185,7 @@ module Spectrum
 
           config.add_search_field('title') do |field|
             # solr_parameters hash are sent to Solr as ordinary url query params. 
+            field.show_in_dropdown = true
             field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
 
             # :solr_local_parameters will be sent using Solr LocalParams
@@ -194,6 +200,7 @@ module Spectrum
           
           config.add_search_field('journal_title') do |field|
             # solr_parameters hash are sent to Solr as ordinary url query params. 
+            field.show_in_dropdown = true
             field.solr_parameters = { :'spellcheck.dictionary' => 'title', :fq => ['format:Journal\/Periodical'] }
 
             # :solr_local_parameters will be sent using Solr LocalParams
@@ -207,6 +214,7 @@ module Spectrum
           end
 
           config.add_search_field('author') do |field|
+            field.show_in_dropdown = true
             field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
             field.solr_local_parameters = { 
               :qf => '$author_qf',
@@ -218,6 +226,7 @@ module Spectrum
           ## tests can test it. In this case it's the same as 
           ## config[:default_solr_parameters][:qt], so isn't actually neccesary. 
           config.add_search_field('subject') do |field|
+            field.show_in_dropdown = true
             field.solr_parameters = { :'spellcheck.dictionary' => 'subject' }
             field.qt = 'search'
             field.solr_local_parameters = { 
@@ -407,7 +416,7 @@ module Spectrum
               config.index.record_display_type = "format"
 
               config.add_facet_field 'author_facet', :label => 'Author', :open => true, :limit => 5
-              config.add_facet_field "pub_date_facet", :label => "Publication Date", :limit => 3, :range => {:segments => false }
+              config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false }
               config.add_facet_field 'department_facet', :label => 'Department', :limit => 5
               config.add_facet_field 'subject_facet', :label => 'Subject', :limit => 10
               config.add_facet_field 'genre_facet', :label => 'Content Type', :limit => 10
@@ -435,7 +444,7 @@ module Spectrum
               config.index.record_display_type = "format"
 
               config.add_facet_field 'author_facet', :label => 'Author', :open => true, :limit => 5
-              config.add_facet_field "pub_date_facet", :label => "Publication Date", :limit => 3, :range => {:segments => false }
+              config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false }
               config.add_facet_field 'department_facet', :label => 'Department', :limit => 5
               config.add_facet_field 'subject_facet', :label => 'Subject', :limit => 10
               config.add_facet_field 'genre_facet', :label => 'Content Type', :limit => 10
