@@ -23,10 +23,10 @@ $(document).ready ->
     #$("#mobile_datasource_select").val($(this).attr('source'))
 
 
-  $("#top_search_box .q").observe_field(.25, -> 
+  $("#top_search_box .search_q").observe_field(.25, -> 
       if $(this).is(":visible")
         value = $(this).val()
-        $("#top_search_box .q:hidden").val(value)
+        $("#top_search_box .search_q:hidden").val(value)
     
   )
 
