@@ -75,14 +75,19 @@ bind_dropdown_selects = (source) ->
 
       dropdown_root = $(this).parents(".dropdown_select_tag")
       $(dropdown_root).find('.dropdown-toggle').html(selection_key + ' <span class="caret"/>')
-      console.log($(dropdown_root).find('select').val())
       $(dropdown_root).find('select').val(selection)
-      console.log($(dropdown_root).find('select').val())
+
+window.onpopstate = (event) ->
+  if event.state.source
+    change_datasource(event.state.source)
+
+
 
 
 change_datasource = (source) ->
   $("ul.landing li").removeClass('selected')
   $("ul.landing li[source='" + source + "']").addClass('selected')
+  history.pushState?({source: source}, '',source + "#")
 
   landing_selector = ".landing_page." + source
   $('.landing_page').hide()
