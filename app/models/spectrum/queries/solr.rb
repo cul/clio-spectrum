@@ -96,13 +96,17 @@ module Spectrum
 
       def facet_operator_change_links(raw_facet_field)
         if facet_operator(raw_facet_field) == "AND"
+          new_facet_operators = (@params[:f_operator] || {}).dup
+          new_facet_operators[raw_facet_field] = 'OR'
           [
             ["All Of", "#"],
-            ["Any Of", catalog_index_path(change_params_and_redirect({:f_operator => {raw_facet_field => 'OR'}}, @params))]
+            ["Any Of", catalog_index_path(change_params_and_redirect({:f_operator => new_facet_operators}, @params))]
           ]
         else
+          new_facet_operators = (@params[:f_operator] || {}).dup
+          new_facet_operators[raw_facet_field] = 'AND'
           [
-            ["All Of", catalog_index_path(change_params_and_redirect({:f_operator => {raw_facet_field => 'AND'}}, @params))],
+            ["All Of", catalog_index_path(change_params_and_redirect({:f_operator => new_facet_operators}, @params))],
             ["Any Of", "#"] 
           ]
           
