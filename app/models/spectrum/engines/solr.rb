@@ -404,7 +404,7 @@ module Spectrum
               config.default_solr_params = {
                 :qt => "search",
                 :rows => 10,
-                :genre_facet => ['Dissertations']
+                :fq => ['{!raw f=genre_facet}Dissertations']
               }
 
               config.show.html_title = "title_display"
