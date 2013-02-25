@@ -11,9 +11,13 @@
     #page.container-fluid
       = render :partial => "/header"
       #bd.row-fluid
-        #sidebar.hidden-phone.span3= sidebar_items.join('').html_safe
+        .sidebar
+          .search_logo.hidden-phone
+            = link_to "CLIO", root_path, :class => "nav_title search_bar_logo"
+          .hidden-phone.span3= sidebar_items.join('').html_safe
         #main.span9
           .row-fluid
+            = display_search_boxes(@active_source)
             = render :partial=>'/flash_msg'
             = yield
 

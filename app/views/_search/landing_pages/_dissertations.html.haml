@@ -1,20 +1,24 @@
-.landing_main.span8
-  .title Dissertations
+= display_search_boxes('dissertations')
 
-  %p This search brings together dissertations from the library catalog and Academic Commons, the vast majority of which were produced by graduates of Columbia University and its affiliates, onto a single results page. 
-  %p It also searches a broader set of electronic resources via Summon, providing access to a large number of dissertations and theses from beyond Columbia.
-  %p For current Columbia graduate students looking to learn more about the dissertation submission process, please visit the Web site for the #{link_to "Graduate School of Arts & Sciences' Dissertation Office", "http://gsas.columbia.edu/dissertations"}.
+.row-fluid
+  
+  .landing_main.span8
+    .title Dissertations
+
+    %p This search brings together dissertations from the library catalog and Academic Commons, the vast majority of which were produced by graduates of Columbia University and its affiliates, onto a single results page. 
+    %p It also searches a broader set of electronic resources via Summon, providing access to a large number of dissertations and theses from beyond Columbia.
+    %p For current Columbia graduate students looking to learn more about the dissertation submission process, please visit the Web site for the #{link_to "Graduate School of Arts & Sciences' Dissertation Office", "http://gsas.columbia.edu/dissertations"}.
 
 
-.landing_side.span4
-  .well.sidebar-nav
-    .nav
-      %ul.nav.nav-list
-        %li.nav-header Guide 
-        %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/dissertations-guide/", :target => "_blank"
-        %li.divider
+  .landing_side.span4
+    .well.sidebar-nav
+      .nav
+        %ul.nav.nav-list
+          %li.nav-header Guide 
+          %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/dissertations-guide/", :target => "_blank"
+          %li.divider
 
-      %ul.nav.nav-list
-        %li.nav-header Related Links
-        %li=link_to "ProQuest Dissertations & Theses Database", "http://cliobeta.columbia.edu/databases/2554991"
+        %ul.nav.nav-list
+          %li.nav-header Related Links
+          %li=link_to "ProQuest Dissertations & Theses Database", "http://cliobeta.columbia.edu/databases/2554991"
 

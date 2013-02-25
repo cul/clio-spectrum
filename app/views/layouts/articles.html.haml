@@ -13,6 +13,7 @@
       #bd
         #main
           #main_container
+            = display_search_boxes(@active_source)
             = render :partial=>'/flash_msg'
             = yield
         #sidebar= sidebar_items.join('').html_safe
