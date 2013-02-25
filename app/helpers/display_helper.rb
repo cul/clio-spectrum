@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module DisplayHelper
 
   def render_first_available_partial(partials, options)
@@ -142,6 +144,7 @@ module DisplayHelper
       
       s = v.split(DELIM)
       
+      # no link value
       unless s.length >= 2
         out << v
         next
@@ -166,8 +169,9 @@ module DisplayHelper
             out << s[0]
           else
             # remove puntuation from s[1] to match entries in author_facet using solrmarc removeTrailingPunc rule
-            s[1] = s[1].gsub(/\.$/,'') if s[1] =~ /\w{3}\.$/ || s[1] =~ /[\]\)]\.$/
-            s[1] = s[1].gsub(/,$/,'')
+#            s[1] = s[1].gsub(/\.$/,'') if s[1] =~ /\w{3}\.$/ || s[1] =~ /[\]\)]\.$/
+#            s[1] = s[1].gsub(/,$/,'')
+            s[1] = remove_punctuation(s[1])
             out << link_to(s[0], url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => s[1]))
           end
         when :subject
@@ -181,6 +185,45 @@ module DisplayHelper
       end
     end
     out
+  end
+
+  def remove_punctuation(value)
+    
+    # matches edit from SolrMARC removeTrailingPunc method: Utils.cleanData
+    #
+    # Removes trailing characters (space, comma, slash, semicolon, colon) and
+    #  trailing period if it is preceded by at least three (two?) letters
+    
+    curr = value
+    prev = ''
+    
+    while curr != prev
+      prev = curr
+      curr = curr.strip
+      
+      curr = curr.gsub(/\s*[,\/;:]$/,'')
+      
+      if curr =~ /\.$/
+        if curr =~ /[JS]r\.$/
+          # don't strip period off Jr. or Sr.
+        elsif curr =~ /\w\w\.$/
+          curr = curr.chop
+        elsif curr =~ /\p{L}\p{L}\.$/
+          curr = curr.chop
+          # IsCombiningDiacriticalMarks is not supported in Ruby; using weaker formulation
+          # elsif curr =~ /\w\p{IsCombiningDiacriticalMarks}?\w\p{IsCombiningDiacriticalMarks}?\.$/
+          #  curr = curr.chop
+        elsif curr =~ /\w\W?\w\W?\.$/
+          curr = curr.chop
+        elsif curr =~ /\p{Punct}\.$/
+          curr = curr.chop
+        end
+      end
+      
+    end
+    
+    curr
+    
   end
 
   # def generate_value_links_subject(values)
