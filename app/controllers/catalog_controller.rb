@@ -19,7 +19,7 @@ class CatalogController < ApplicationController
     solr_search_params_logic << :add_advanced_search_to_solr
     solr_search_params_logic << :add_range_limit_params
     @query = Spectrum::Queries::Solr.new(params, self.blacklight_config)
-
+    @show_landing_pages = (params[:q].blank? && params[:f].blank? && params[:search_field].blank?)
     extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => "RSS for results")
     extra_head_content << view_context.auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => "Atom for results")
 
