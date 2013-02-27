@@ -47,6 +47,7 @@ Clio::Application.routes.draw do
 
   match 'academic_commons', :to => 'catalog#index', :as => :academic_commons_index
   match 'academic_commons/range_limit(.:format)', :to => 'catalog#range_limit', :as => :academic_range_limit
+  match 'academic_commons/facet/:id(.format)', :to => 'catalog#facet', :as => :academic_commons_facet
 
 
   match 'archives', :to => 'catalog#index', :as =>  :archives_index

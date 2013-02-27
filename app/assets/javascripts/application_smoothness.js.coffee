@@ -23,10 +23,10 @@ $(document).ready ->
     #$("#mobile_datasource_select").val($(this).attr('source'))
 
 
-  $("#top_search_box .q").observe_field(.25, -> 
+  $("#top_search_box .search_q").observe_field(.25, -> 
       if $(this).is(":visible")
         value = $(this).val()
-        $("#top_search_box .q:hidden").val(value)
+        $("#top_search_box .search_q:hidden").val(value)
     
   )
 
@@ -75,14 +75,19 @@ bind_dropdown_selects = (source) ->
 
       dropdown_root = $(this).parents(".dropdown_select_tag")
       $(dropdown_root).find('.dropdown-toggle').html(selection_key + ' <span class="caret"/>')
-      console.log($(dropdown_root).find('select').val())
       $(dropdown_root).find('select').val(selection)
-      console.log($(dropdown_root).find('select').val())
+
+window.onpopstate = (event) ->
+  if event.state.source
+    change_datasource(event.state.source)
+
+
 
 
 change_datasource = (source) ->
   $("ul.landing li").removeClass('selected')
   $("ul.landing li[source='" + source + "']").addClass('selected')
+  history.pushState?({source: source}, '',source + "#")
 
   landing_selector = ".landing_page." + source
   $('.landing_page').hide()

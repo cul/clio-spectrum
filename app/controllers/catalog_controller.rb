@@ -55,6 +55,8 @@ class CatalogController < ApplicationController
 
   def show
     @response, @document = get_solr_response_for_doc_id    
+    solr_search_params_logic << :add_advanced_search_to_solr
+    solr_search_params_logic << :add_range_limit_params
     @query = Spectrum::Queries::Solr.new(params, self.blacklight_config)
     add_alerts_to_documents(@document)
 
