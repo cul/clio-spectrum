@@ -26,7 +26,7 @@ end
 
 gem 'therubyracer', '0.10.2'
 # Deploy with Capistrano
-#gem 'newrelic_rpm'
+gem 'newrelic_rpm'
 gem 'has_options'
 gem 'httpclient'
 gem 'nokogiri'
