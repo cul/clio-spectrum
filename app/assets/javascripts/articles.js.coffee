@@ -4,6 +4,8 @@ $ ->
 
   if $('span.show_advanced_search').length == 0
     $('.advanced_search').hide()
+  else
+    $('.basic_search').hide()
 
   $('.advanced_search_toggle').click ->
     parent = $(this).parents('.search_boxes')

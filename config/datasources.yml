@@ -51,6 +51,11 @@ datasources:
       route: archives_index_path
       placeholder: Archives
       search_type: blacklight
+      search_fields:
+        all_fields: All Fields
+        title: Title
+        author: Author
+        subject: Subject
   databases:
     name: Databases
     search_box:
@@ -58,6 +63,11 @@ datasources:
       route: databases_index_path 
       placeholder: Databases
       search_type: blacklight
+      search_fields:
+        all_fields: All Fields
+        title: Title
+        author: Author
+        subject: Subject
   journals:
     name: E-Journal Titles
     search_box:
@@ -65,6 +75,11 @@ datasources:
       route: journals_index_path
       placeholder: E-Journal Titles
       search_type: blacklight
+      search_fields:
+        all_fields: All Fields
+        title: Title
+        author: Author
+        subject: Subject
   library_web:
     name: Library Web site
     no_facets: true

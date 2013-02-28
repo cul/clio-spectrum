@@ -41,7 +41,7 @@ module SearchHelper
 
   def display_advanced_search(source)
     options = DATASOURCES_CONFIG['datasources'][source]['search_box'] || {}
-    
+    blacklight_config = Spectrum::Engines::Solr.generate_config(source)
     if options['search_type'] == "blacklight" && options['advanced'] == true
       fix_catalog_links(render('/catalog/advanced_search', :localized_params => params), source)
     end

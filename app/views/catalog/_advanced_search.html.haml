@@ -1,7 +1,7 @@
 
 .advanced_search
   .span12
-    - if params[:show_advanced]
+    - if params[:show_advanced] || (params[:adv].kind_of?(Hash) && !params[:adv].empty?)
       %span.show_advanced_search
     = form_tag base_catalog_index_path, :class => "form-horizontal", :method => "GET" do
       = standard_hidden_keys_for_search
