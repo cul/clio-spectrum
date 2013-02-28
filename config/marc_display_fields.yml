@@ -398,6 +398,11 @@ standard_no:
         ind1: '0123478'
         ind2: :all
         display: ac
+subject_genre:
+    -   tag: 655
+        ind1: :all
+        ind2: :all
+        display: abcvxyz
 subject_LC:
     -   tag: 600
         ind1: :all
