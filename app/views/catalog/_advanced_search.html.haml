@@ -6,20 +6,19 @@
     = form_tag base_catalog_index_path, :class => "form-horizontal", :method => "GET" do
       = standard_hidden_keys_for_search
       .title
-        Search for records matching 
+        Match 
         = select_tag :advanced_operator, options_for_select([["all", "AND"], ["any", 'OR']], params['advanced_operator'] || 'AND' ), :class => "input-mini"
-        of the following:
+        of the following criteria:
+        %button.btn.advanced_search_button.btn-primary{:name => "commit", :type => "submit", :value => "Search"}
+          %i.icon-search.icon-white
+          %span.visible-desktop Search
+        =link_to "Basic Search", "#", class: "btn btn-link advanced_search_toggle"
       = hidden_field_tag 'search_field', 'advanced'
-      - blacklight_config.search_fields.each do |field_key, field|
-        .control-group
-          .control-label= field.label
-          .controls= text_field_tag "advanced[#{field_key}]", find_advanced_value(field_key), :title => field.label, :id => field_key, :class => 'input-xlarge'
-
-
       .control-group
-        .controls
-          %button.btn.btn-primary{:name => "commit", :type => "submit", :value => "Search"}
-            %i.icon-search.icon-white
-            %span.visible-desktop Search
+        - (1..5).each do |i|
+          .advanced_search_row
+            = advanced_field_select_option(blacklight_config, i)
+            = advanced_field_text_field(blacklight_config, i)
 
-          =link_to "Basic Search", "#", class: "btn btn-link advanced_search_toggle"
+
+

@@ -4,7 +4,7 @@ module LocalSolrHelperExtension
   include BlacklightRangeLimit::SegmentCalculation
 
   def is_advanced_search?(req_params = params)
-    req_params[:search_field] == 'advanced' && req_params[:advanced].kind_of?(Hash)
+    req_params[:search_field] == 'advanced' && req_params[:adv].kind_of?(Hash)
 
   end
 
@@ -13,8 +13,12 @@ module LocalSolrHelperExtension
   end
 
   def advanced_search_queries(req_params = params)
-    if req_params[:advanced].kind_of?(Hash)
-      req_params[:advanced].reject { |k,v| v.to_s.empty? }
+    if req_params[:adv].kind_of?(Hash)
+      advanced_queries = []
+      req_params[:adv].each_pair do |i, attrs|
+        advanced_queries << [attrs['field'], attrs['value']]
+      end
+      advanced_queries
     else
       {}
     end
@@ -89,8 +93,10 @@ module LocalSolrHelperExtension
     if is_advanced_search?(req_params)
       solr_parameters[:qt] = req_params[:qt] if req_params[:qt]
 
-      
-      advanced_q = advanced_search_queries(req_params).collect do |field_name, value|
+      advanced_q = advanced_search_queries(req_params).collect  do |query|
+        field_name, value = *query
+
+
         search_field_def = search_field_def_for_key(field_name)
 
         if (search_field_def && hash = search_field_def.solr_local_parameters)
