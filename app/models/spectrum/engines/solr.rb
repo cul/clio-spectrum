@@ -76,7 +76,20 @@ module Spectrum
         case @source
         when 'catalog'
           catalog_index_path(params)
-        when 'academic_commons', 'ac_dissertations'
+        when 'catalog_ebooks'
+          params['f'] ||= {}
+          params['f']['format'] = ['Book', 'Online']
+          catalog_index_path(params)
+
+        when 'catalog_dissertations'
+          params['f'] ||= {}
+          params['f']['format'] = ['Thesis']
+          catalog_index_path(params)
+        when 'academic_commons'
+          academic_commons_index_path(params)
+        when "ac_dissertations"
+          params['f'] ||= {} 
+          params['f']['genre_facet'] = ['Dissertations']
           academic_commons_index_path(params)
         when 'journals'
           journals_index_path(params)
