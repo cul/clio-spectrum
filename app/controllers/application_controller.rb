@@ -12,11 +12,25 @@ class ApplicationController < ActionController::Base
   before_filter :by_source_config
   before_filter :log_additional_data
   before_filter :set_user_characteristics
+  before_filter :condense_advanced_search_params
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
 
+  def condense_advanced_search_params
+    new_hash = {}
+    counter = 1
+    (params['adv'] || {}).each_pair do |i, attrs|
+
+      if attrs && !attrs['field'].to_s.empty? && !attrs['value'].to_s.empty?
+        new_hash[counter.to_s] = attrs
+        counter += 1
+      end
+    end
+    params['adv'] = new_hash
+
+  end
 
   def set_user_characteristics
     @user_characteristics = 

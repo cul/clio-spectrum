@@ -23,10 +23,10 @@ $(document).ready ->
     #$("#mobile_datasource_select").val($(this).attr('source'))
 
 
-  $("#top_search_box .search_q").observe_field(.25, -> 
+  $(".basic_search .search_q").observe_field(.25, -> 
       if $(this).is(":visible")
         value = $(this).val()
-        $("#top_search_box .search_q:hidden").val(value)
+        $(".basic_search .search_q:hidden").val(value)
     
   )
 
@@ -93,6 +93,6 @@ change_datasource = (source) ->
   $('.landing_page').hide()
   $(landing_selector).show()
   
-  search_box_select = "#top_search_box .search_box." + source
-  $('#top_search_box .search_box.multi').hide()
+  search_box_select = ".basic_search .search_box." + source
+  $('.basic_search .search_box.multi').hide()
   $(search_box_select).show()

@@ -152,18 +152,20 @@ module Spectrum
       end
 
       def parse_queries
-        @queries = HashWithIndifferentAccess.new()
+        @queries = [] 
         
         if @params[:search_field] == "advanced"
-          (@params[:advanced] || {}).each do |field, value|
+          (@params['adv'] || {}).each_pair  do |i, attrs|
+            field, value = attrs['field'], attrs['value']
             unless value.to_s.empty?
               remove_params = @params.deep_clone
               remove_params[:action] = 'index'
-              remove_params[:advanced][field] = nil
+              remove_params[:adv][i] = nil
               remove_params.delete(:page)
               remove_params.delete(:id)
 
-              @queries[field.to_s] = {
+              @queries << {
+                :field => field, 
                 :value => value,
                 :remove => catalog_index_path(remove_params)
               }
@@ -180,15 +182,16 @@ module Spectrum
             remove_params.delete(:page)
             remove_params.delete(:id)
             field = @params[:search_field] || "all_fields"
-            @queries[field] = {:value => @params[:q], :remove => catalog_index_path(remove_params)}
+            @queries = [{:field => field, :value => @params[:q], :remove => catalog_index_path(remove_params)}]
           end
         end
       
-        @queries.keys.each do |field_key|
+        @queries.each do |query|
+          field_key = query[:field]
           if search_field = @config.search_fields[field_key]
-            @queries[field_key][:label] = search_field.label
+            query[:label] = search_field.label
           else
-            @queries[field_key][:label] = field_key
+            query[:label] = field_key
           end
         end
         

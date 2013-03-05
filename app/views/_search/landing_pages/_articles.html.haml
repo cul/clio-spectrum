@@ -1,32 +1,33 @@
-= render partial: "/spectrum/summon/advanced_search", locals: {path: articles_index_path()}
+= display_search_boxes('articles')
 
-.landing_main.with_advanced.span8
-  .advanced_search 
-  .title Articles
+.row-fluid
+  .landing_main.span8
+    .advanced_search 
+    .title Articles
 
-  %p Searches a large database of mostly full-text journal articles.
+    %p Searches a large database of mostly full-text journal articles.
 
-  %p For scholarly articles in the:
-  %ul
-    %li Humanities and social sciences, try #{link_to 'Ebscohost Research Databases', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio6329559'}
-    %li Sciences, try #{link_to 'Web of Science', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio2054244'} or #{link_to 'Scopus', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio6273999'}
+    %p For scholarly articles in the:
+    %ul
+      %li Humanities and social sciences, try #{link_to 'Ebscohost Research Databases', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio6329559'}
+      %li Sciences, try #{link_to 'Web of Science', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio2054244'} or #{link_to 'Scopus', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio6273999'}
 
-  %p Use #{datasource_switch_link('Databases', 'database')} to browse all of our databases by subject.
+    %p Use #{datasource_switch_link('Databases', 'database')} to browse all of our databases by subject.
 
-  %p To see a list of resources by subject, consult our subject guides.
+    %p To see a list of resources by subject, consult our subject guides.
 
-.landing_side.span4
-  .well.sidebar-nav
-    .nav
-      %ul.nav.nav-list
-        %li.nav-header Guide 
-        %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/articles-guide/", :target => "_blank"
-        %li.divider
+  .landing_side.span4
+    .well.sidebar-nav
+      .nav
+        %ul.nav.nav-list
+          %li.nav-header Guide 
+          %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/articles-guide/", :target => "_blank"
+          %li.divider
 
-      %ul.nav.nav-list
-        %li.nav-header Related Links
-        %li=link_to "Google Scholar", "http://scholar.google.com/"
-        %li=link_to "PMID Search", "http://www.columbia.edu/cgi-bin/cul/resolve?clio4373446"
-        %li=link_to "DOI Search", "http://dx.doi.org/"
-        %li=link_to "ArXiv ID Search", "http://arxiv.org/"
-        %li=link_to "Citation Finder", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0049"
+        %ul.nav.nav-list
+          %li.nav-header Related Links
+          %li=link_to "Google Scholar", "http://scholar.google.com/"
+          %li=link_to "PMID Search", "http://www.columbia.edu/cgi-bin/cul/resolve?clio4373446"
+          %li=link_to "DOI Search", "http://dx.doi.org/"
+          %li=link_to "ArXiv ID Search", "http://arxiv.org/"
+          %li=link_to "Citation Finder", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0049"
