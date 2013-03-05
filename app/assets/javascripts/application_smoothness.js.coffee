@@ -32,23 +32,26 @@ $(document).ready ->
 
   $(".return-to-index").attr('style', "display: none")
 
-  $("#select_a_help_issue a").click (e) ->
+  $("#select_a_help_issue a[data-toggle=tab]").click (e) ->
     e.preventDefault();
     $(this).tab('show');
     $(".return-to-index").show()
     $("#select_a_help_issue").hide()
 
   $(".return-to-index btn.submit").click ->
-    $(this).html = "Sending..."
     form = $(this).parents('form')
-    $.post '/backend/feedback_mail', form.serialize(), () -> 
-      $('#helptab_content .tab-pane.active').hide()
-      $('#success_message').show().delay(1000)
-      $('#helpModal').modal(show: 'false')
+    $.post form.attr('data-target'), form.serialize(), () -> 
+      $(".return-to-index btn.return").click()
+      $("#helptab_content .tab-pane.active").removeClass('active')
+      $("#select_a_help_issue li").removeClass('active')
+      $(form).find('.clear-on-submit').val('')
+      $('#helpModal .modal-header .close').click()
+    
 
   $(".return-to-index btn.return").click ->
     $(".return-to-index").hide()
     $("#helptab_content .tab-pane.active").removeClass('active')
+    $("#select_a_help_issue li").removeClass('active')
     $("#select_a_help_issue").show()
 
   $(".expander").click ->
@@ -78,7 +81,7 @@ bind_dropdown_selects = (source) ->
       $(dropdown_root).find('select').val(selection)
 
 window.onpopstate = (event) ->
-  if event.state.source
+  if event.state && event.state.source
     change_datasource(event.state.source)
 
 

@@ -12,15 +12,18 @@
         %li
           %a(href="#helptab_feedback" data-toggle="tab") I have problems on / feedback about this website.
         %li
-          %a(href="#helptab_ask_a_librarian" data-toggle="tab") I need to ask a librarian something.
+          %a(href="https://library.columbia.edu/requestit/missing/form.html") I can't find a book on the shelves.
         %li
-          %a(href="#helptab_report_problem" data-toggle="tab") I've found a problem with a resource / book.
-    
+          %a(href="http://preview-library.cul.columbia.edu/content/libraryweb/research/askalibrarian.html") I need to ask a librarian something.
+        %li
+          %a(href="https://library.columbia.edu/content/librarywebsecure/requestit/problem/form.html") I've found a problem with an electronic resource.
+        %li
+          %a(href="https://library.columbia.edu/requestit/missing/form.html") I can't find a book on the shelves.
     #helptab_content.tab-content
       #helptab_feedback.tab-pane 
         %h4.text-info Problems / Feedback 
 
-        = form_tag '', :class => 'form-horizontal' do
+        = form_tag '', :class => 'form-horizontal', :'data-target' => '/backend/feedback_mail' do
           = hidden_field_tag :version, RELEASE_STAMP
           = hidden_field_tag :product, APP_CONFIG['application_name']
           = hidden_field_tag :page, request.url
@@ -41,7 +44,7 @@
           .control-group
             %label.control-label(for="email") Message
             .controls
-              = text_area_tag :message, "", :rows => 4, :cols => 60
+              = text_area_tag :message, "", :rows => 4, :cols => 60, :class => 'clear-on-submit'
           .return-to-index
             %btn.btn.btn-info.return Return To Help Index
             %btn.btn.btn-primary.submit(type="submit" data-loading-text="Sending #{image_tag("ajax-loader.gif")}") Send

@@ -14,7 +14,9 @@
                       %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#", :title => "Links @ Columbia"}
                         %span.topbarlogo
                           %span.visible-phone CLIO
-                          %span.hidden-phone Columbia University Libraries
+                          %span.hidden-phone 
+                            =image_tag "ldpd-toolkit/crown-bts-24x24.png", :alt => "CU"
+                            Columbia University Libraries
                           %b.caret
                       %ul.dropdown-menu.menu-dropdown
                         %li
@@ -70,11 +72,15 @@
                     - else
                       %li.dropdown.menu
                         %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#"}
-                          My Account
-                          %b.caret
+                          %span.hidden-phone
+                            My Library Account
+                            %b.caret
+                          %span.visible-phone
+                            My Account
+                            %b.caret
                         %ul.dropdown-menu.menu-dropdown
                           %li= link_to "Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087"
                           %li= link_to "Login", new_user_session_path
                     
                     %li.hidden-phone
-                      %a.help-button(data-toggle="modal" href="#helpModal") Feedback / Help
+                      %a.help-button(data-toggle="modal" href="#helpModal") Help
