@@ -164,6 +164,17 @@ module Spectrum
           end
         end
           
+        if fields.include?('title_start')
+          config.add_search_field('title_start') do |field|
+            field.show_in_dropdown = true
+            field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
+            field.solr_local_parameters = { 
+              :qf => '$title_start_qf',
+              :pf => '$title_start_pf'
+            }
+          end
+        end
+
         if fields.include?('journal_title')
           config.add_search_field('journal_title') do |field|
             field.show_in_dropdown = true
@@ -242,7 +253,7 @@ module Spectrum
         end
 
         if elements.include?(:search_fields) 
-          add_search_fields(config, 'title', 'journal_title', 'author', 'subject')
+          add_search_fields(config, 'title', 'title_start', 'journal_title', 'author', 'subject')
 
         end
 
