@@ -27,6 +27,6 @@
               (#{details['count']} copies)
     - unless (svc_links = service_links(entry['services'], @id, :target => "_blank")).empty?
       .services
-        .label= "Request: "
+        %span= "Request: "
         - svc_links.each do |link|
           .service= link
