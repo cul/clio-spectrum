@@ -23,32 +23,35 @@ $(document).ready ->
     #$("#mobile_datasource_select").val($(this).attr('source'))
 
 
-  $("#top_search_box .q").observe_field(.25, -> 
+  $(".basic_search .search_q").observe_field(.25, -> 
       if $(this).is(":visible")
         value = $(this).val()
-        $("#top_search_box .q:hidden").val(value)
+        $(".basic_search .search_q:hidden").val(value)
     
   )
 
   $(".return-to-index").attr('style', "display: none")
 
-  $("#select_a_help_issue a").click (e) ->
+  $("#select_a_help_issue a[data-toggle=tab]").click (e) ->
     e.preventDefault();
     $(this).tab('show');
     $(".return-to-index").show()
     $("#select_a_help_issue").hide()
 
   $(".return-to-index btn.submit").click ->
-    $(this).html = "Sending..."
     form = $(this).parents('form')
-    $.post '/backend/feedback_mail', form.serialize(), () -> 
-      $('#helptab_content .tab-pane.active').hide()
-      $('#success_message').show().delay(1000)
-      $('#helpModal').modal(show: 'false')
+    $.post form.attr('data-target'), form.serialize(), () -> 
+      $(".return-to-index btn.return").click()
+      $("#helptab_content .tab-pane.active").removeClass('active')
+      $("#select_a_help_issue li").removeClass('active')
+      $(form).find('.clear-on-submit').val('')
+      $('#helpModal .modal-header .close').click()
+    
 
   $(".return-to-index btn.return").click ->
     $(".return-to-index").hide()
     $("#helptab_content .tab-pane.active").removeClass('active')
+    $("#select_a_help_issue li").removeClass('active')
     $("#select_a_help_issue").show()
 
   $(".expander").click ->
@@ -75,19 +78,24 @@ bind_dropdown_selects = (source) ->
 
       dropdown_root = $(this).parents(".dropdown_select_tag")
       $(dropdown_root).find('.dropdown-toggle').html(selection_key + ' <span class="caret"/>')
-      console.log($(dropdown_root).find('select').val())
       $(dropdown_root).find('select').val(selection)
-      console.log($(dropdown_root).find('select').val())
+
+window.onpopstate = (event) ->
+  if event.state && event.state.source
+    change_datasource(event.state.source)
+
+
 
 
 change_datasource = (source) ->
   $("ul.landing li").removeClass('selected')
   $("ul.landing li[source='" + source + "']").addClass('selected')
+  history.pushState?({source: source}, '',source + "#")
 
   landing_selector = ".landing_page." + source
   $('.landing_page').hide()
   $(landing_selector).show()
   
-  search_box_select = "#top_search_box .search_box." + source
-  $('#top_search_box .search_box.multi').hide()
+  search_box_select = ".basic_search .search_box." + source
+  $('.basic_search .search_box.multi').hide()
   $(search_box_select).show()

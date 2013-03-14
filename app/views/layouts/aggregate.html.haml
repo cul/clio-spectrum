@@ -12,6 +12,7 @@
       = render :partial => "/header_with_search"
       #bd
         #main_no_sidebar
+          = display_search_boxes(@active_source)
           = render :partial=>'/flash_msg'
           = yield
         .clear-both

@@ -35,8 +35,20 @@ module SearchHelper
 
   end
 
-  def display_search_form(source, options = {})
-    
+  def display_search_boxes(source)
+    render(:partial => "/_search/search_box", :locals => {source: source})
+  end
+
+  def display_advanced_search(source)
+    options = DATASOURCES_CONFIG['datasources'][source]['search_box'] || {}
+    blacklight_config = Spectrum::Engines::Solr.generate_config(source)
+    if options['search_type'] == "blacklight" && options['advanced'] == true
+      fix_catalog_links(render('/catalog/advanced_search', :localized_params => params), source)
+    end
+  end
+
+  def display_search_form(source)
+    options = DATASOURCES_CONFIG['datasources'][source]['search_box'] || {}
 
     search_params = determine_search_params 
     div_classes = ["search_box", source]
@@ -61,8 +73,8 @@ module SearchHelper
           hidden_field_tag "new_search", "true"
       end
       result += content_tag(:button, '<i class="icon-search icon-white"></i> <span class="visible-desktop">Search</span>'.html_safe, type: "submit", class: "btn btn-primary", name: 'commit', value: 'Search')
-      if options['search_type'].in?("summon", "blacklight")
-        result += content_tag(:a, "More Options", :class => "btn btn-link advanced_search_toggle", :href => "#")
+      if options['search_type'].in?("summon", "blacklight") && options['advanced']
+        result += content_tag(:a, "Advanced Search", :class => "btn btn-link advanced_search_toggle", :href => "#")
       end
       result = content_tag(:div, result, class: 'search_row input-append', escape: false)
       raise "no route in #{source} " unless options['route']

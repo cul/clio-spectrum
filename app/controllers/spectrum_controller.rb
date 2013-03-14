@@ -24,6 +24,8 @@ class SpectrumController < ApplicationController
         @results = get_results(categories)
 
       end
+
+    @show_landing_pages = true if @results.empty?
   end
   private
 

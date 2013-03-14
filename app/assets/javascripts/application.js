@@ -24,6 +24,7 @@
 //= require google_analytics
 //= require search_tracking
 //= require application_smoothness
+//= require modal_manager_override
 //= require item_alerts
 //= require dropdown_select
 //= require blacklight_google_analytics

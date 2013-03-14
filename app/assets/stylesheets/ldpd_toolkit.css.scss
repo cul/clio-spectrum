@@ -269,7 +269,8 @@ a.thumbnail:hover {
 }
 #crowndown a.menu,
 #crowndown-nosearch a.menu {
-  background: transparent image-url('ldpd-toolkit/crown-bts-24x24.png') no-repeat 4px 22%;
+  background: transparent image-url('ldpd-toolkit/crown-bts-24x24.png') no-repeat 22%;
+  background-position: 4px 4px;
   padding-right: 4px;
   padding-left: 34px;
   font-size: 110%;
