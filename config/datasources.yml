@@ -44,7 +44,13 @@ datasources:
         journal_title: Journal Title
         author: Author
         subject: Subject
+        form_genre: Form\/Genre
+        publication_place: Publiation Place
         publisher: Publisher
+        publication_year: Publication Year
+        isbn: 'ISBN'
+        issn: ISSN
+        call_number: Call Number
   archives:
     name: Archives
     search_box:
