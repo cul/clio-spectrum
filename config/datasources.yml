@@ -44,6 +44,7 @@ datasources:
         journal_title: Journal Title
         author: Author
         subject: Subject
+        publisher: Publisher
   archives:
     name: Archives
     search_box:

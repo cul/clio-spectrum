@@ -197,6 +197,18 @@ module Spectrum
             }
           end
         end
+        
+        if fields.include?('publisher')
+          config.add_search_field('publisher') do |field|
+            field.show_in_dropdown = true
+            field.qt = 'search'
+            field.solr_local_parameters = { 
+              :qf => 'pub_name_txt',
+              :pf => 'pub_name_txt'
+            }
+          end
+        end
+        
       end
 
       def self.default_catalog_config(config, *elements)
@@ -242,7 +254,7 @@ module Spectrum
         end
 
         if elements.include?(:search_fields) 
-          add_search_fields(config, 'title', 'journal_title', 'author', 'subject')
+          add_search_fields(config, 'title', 'journal_title', 'author', 'subject', 'publisher')
 
         end
 
