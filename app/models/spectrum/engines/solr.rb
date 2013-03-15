@@ -208,6 +208,84 @@ module Spectrum
             }
           end
         end
+        
+        if fields.include?('form_genre')
+          config.add_search_field('form_genre') do |field|
+            field.show_in_dropdown = true
+            field.qt = 'search'
+            field.solr_local_parameters = { 
+              :qf => 'subject_form_txt',
+              :pf => 'subject_form_txt'
+            }
+          end
+        end
+
+        if fields.include?('publication_place')
+          config.add_search_field('publication_place') do |field|
+            field.show_in_dropdown = true
+            field.qt = 'search'
+            field.solr_local_parameters = { 
+              :qf => 'pub_place_txt',
+              :pf => 'pub_place_txt'
+            }
+          end
+        end
+        
+        if fields.include?('publisher')
+          config.add_search_field('publisher') do |field|
+            field.show_in_dropdown = true
+            field.qt = 'search'
+            field.solr_local_parameters = { 
+              :qf => 'pub_name_txt',
+              :pf => 'pub_name_txt'
+            }
+          end
+        end
+        
+        if fields.include?('publication_year')
+          config.add_search_field('publication_year') do |field|
+            field.show_in_dropdown = true
+            field.qt = 'search'
+            field.solr_local_parameters = { 
+              :qf => 'pub_year_txt',
+              :pf => 'pub_year_txt'
+            }
+          end
+        end
+        
+        if fields.include?('isbn')
+          config.add_search_field('isbn') do |field|
+            field.show_in_dropdown = true
+            field.qt = 'search'
+            field.solr_local_parameters = { 
+              :qf => 'isbn_txt',
+              :pf => 'isbn_txt'
+            }
+          end
+        end
+        
+        if fields.include?('issn')
+          config.add_search_field('issn') do |field|
+            field.show_in_dropdown = true
+            field.qt = 'search'
+            field.solr_local_parameters = { 
+              :qf => 'issn_txt',
+              :pf => 'issn_txt'
+            }
+          end
+        end
+        
+        if fields.include?('call_number')
+          config.add_search_field('call_number') do |field|
+            field.show_in_dropdown = true
+            field.qt = 'search'
+            field.solr_local_parameters = { 
+              :qf => 'location_call_number_txt',
+              :pf => 'location_call_number_txt'
+            }
+          end
+        end
+        
       end
 
       def self.default_catalog_config(config, *elements)
@@ -253,8 +331,7 @@ module Spectrum
         end
 
         if elements.include?(:search_fields) 
-          add_search_fields(config, 'title', 'title_start', 'journal_title', 'author', 'subject')
-
+          add_search_fields(config, 'title', 'journal_title', 'author', 'subject', 'form_genre', 'publication_place', 'publisher', 'publication_year', 'isbn', 'issn', 'call_number')
         end
 
 

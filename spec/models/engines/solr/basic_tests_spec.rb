@@ -4,8 +4,8 @@ require 'spec_helper'
 describe 'Spectrum::Engines::Solr' do
 
   solr_url = nil
-  # solr_url = SOLR_CONFIG['test']
-  solr_url = SOLR_CONFIG['spectrum_subset']['url']
+  solr_url = SOLR_CONFIG['test']['url']
+  # solr_url = SOLR_CONFIG['spectrum_subset']['url']
 
   
   # INTERFACE TESTING
@@ -15,8 +15,13 @@ describe 'Spectrum::Engines::Solr' do
       @result_count = 42
     end
 
-    it 'should return that number of results' do
+    it 'should return that number of results', :focus => true do
       eng = Spectrum::Engines::Solr.new('source' => 'catalog', :q => 'Smith', :search_field => 'all_fields', :rows => @result_count, 'solr_url' => solr_url)
+      
+# puts eng
+# puts eng.inspect
+# puts eng.results      
+      
       eng.results.should_not be_empty
       eng.results.size.should equal(@result_count)
     end
@@ -26,7 +31,7 @@ describe 'Spectrum::Engines::Solr' do
   # QUERY TESTING
   
   describe 'for searches with diacritics' do
-    it 'should find an author with diacritics' do
+    it 'should find an author with diacritics', :focus => true do
       # eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'turk edebiyatinda', :search_field => 'author', 'solr_url' => solr_url)
       eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'turk edebiyatinda', :search_field => 'author', 'solr_url' => solr_url)
       eng.results.should_not be_empty
@@ -38,7 +43,7 @@ describe 'Spectrum::Engines::Solr' do
   
   # NEXT-178 - child does not stem to children
   describe 'searches for "child autobiography..." in Catalog' do
-    it 'should find "autobiographies of children" ' do
+    it 'should find "autobiographies of children" ', :focus => true do
       # pending('revamp to how stopwords and/or phrases are handled')
       eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'child autobiography asian north american', :search_field => 'all_fields', 'solr_url' => solr_url)
       # puts eng.solr_search_params
@@ -50,7 +55,7 @@ describe 'Spectrum::Engines::Solr' do
 
   # NEXT-389 - "Debt: The first 5,000 years"
   describe 'search for "debt the first 5000 years" in Catalog' do
-    it 'should find "Debt: The first 5,000 years" ' do
+    it 'should find "Debt: The first 5,000 years" ', :focus => true do
       eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'debt the first 5000 years', :search_field => 'all_fields', 'solr_url' => solr_url)
       eng.results.should_not be_empty
       eng.results.first.get('title_display').should match(/Debt/)
@@ -60,7 +65,7 @@ describe 'Spectrum::Engines::Solr' do
   
   # NEXT-415
   describe 'searches for "New Yorker" in Journals' do
-    it 'should find "The New Yorker" as the first result' do
+    it 'should find "The New Yorker" as the first result', :focus => true do
        pending('revamp to how stopwords and/or phrases are handled')
       eng = Spectrum::Engines::Solr.new(:source => 'journals', :q => 'New Yorker', :search_field => 'all_fields', 'solr_url' => solr_url)
       eng.results.should_not be_empty
@@ -73,7 +78,7 @@ describe 'Spectrum::Engines::Solr' do
   
   # NEXT-429
   describe 'catalog all-field searches with embedded space-colon-space' do
-    it 'should return search results' do
+    it 'should return search results', :focus => true do
       # pending('revamp to how colon searches are handled')
       # pending('until gary reruns subset extract')
       eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'Clemens Krauss : Denk Display', :search_field => 'all_fields', 'solr_url' => solr_url)
@@ -89,8 +94,7 @@ describe 'Spectrum::Engines::Solr' do
       @result_count = 30
     end
 
-    it 'should return full-phrase title/author matches before split-field matches' do
-      pending('until rows param works again')
+    it 'should return full-phrase title/author matches before split-field matches', :focus => true do
       eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'Judith Butler', :search_field => 'all_fields', :rows => @result_count, 'solr_url' => solr_url)
       eng.results.should_not be_empty
       # eng.results.size.should equal(@result_count)
@@ -102,7 +106,7 @@ describe 'Spectrum::Engines::Solr' do
   
   # NEXT-478
   describe 'search for "Nature"' do
-    it 'should return matches on "Nature" before "Naturalization"' do
+    it 'should return matches on "Nature" before "Naturalization"', :focus => true do
       eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'nature', :search_field => 'all_fields', 'solr_url' => solr_url)
       
       # puts "XXXXXXXXXXXX   results.size: #{eng.results.size.to_s}"
@@ -127,28 +131,37 @@ describe 'Spectrum::Engines::Solr' do
   
   # NEXT-514
   describe 'search for "women physics" in catalog' do
-    it 'should return exact matches before stemmed terms' do
-      eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'women physics', :search_field => 'all_fields', 'solr_url' => solr_url)
+    it 'should return exact matches before stemmed terms', :focus => true do
+      eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'women physics', :search_field => 'all_fields', 'solr_url' => solr_url, :rows => 100)
       
       # puts "XXXXXXXXXXXX   results.size: #{eng.results.size.to_s}"
-      found_physical = false
+      
+      found_unstemmed = false
+      
       eng.results.each do |result|
         # puts "--"
         # puts result.get('title_display') || 'emtpy-title'
         # puts result.get('subtitle_display') || 'emtpy-subtitle'
-        if (result.get('title_display') && result.get('title_display').match(/physical/i))
-          found_physical = true
+        
+        found_text = result.get('title_display').to_s + " " + result.get('subtitle_display').to_s
+        puts found_text
+        
+        if (found_unstemmed == false \
+            && ( ! found_text.match(/physics/i) || ! found_text.match(/women/i) )
+            )
+            puts "setting unstemmed to true for: " + found_text
+            found_unstemmed = true
         end
-        if (result.get('subtitle_display') && result.get('subtitle_display').match(/physical/i))
-          found_physical = true
+
+        # If I've found any unstemmed, I should not then later see the terms verbatim
+        if (found_unstemmed == true)
+          result.get('title_display').to_s.should_not match(/women.*physics/i)
+          result.get('title_display').to_s.should_not match(/physics.*women/i)
+          result.get('subtitle_display').to_s.should_not match(/women.*physics/i)
+          result.get('subtitle_display').to_s.should_not match(/physics.*women/i)
         end
         
-        if (found_physical && result.get('title_display')) 
-          result.get('title_display').should_not match(/physics/i)
-        end
-        if (found_physical && result.get('subtitle_display')) 
-          result.get('subtitle_display').should_not match(/physics/i)
-        end
+            
       end
     end
   end
