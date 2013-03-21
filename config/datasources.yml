@@ -43,12 +43,14 @@ datasources:
         title: Title
         journal_title: Journal Title
         author: Author
+        series_title: Series
+        title_starts_with: Left Anchored Title
         subject: Subject
-        form_genre: Form\/Genre
+        form_genre: Form/Genre
         publication_place: Publiation Place
         publisher: Publisher
         publication_year: Publication Year
-        isbn: 'ISBN'
+        isbn: ISBN
         issn: ISSN
         call_number: Call Number
   archives:

@@ -185,6 +185,26 @@ module Spectrum
             }
           end
         end
+        
+        if fields.include?('series_title')
+          config.add_search_field('series_title') do |field|
+            field.show_in_dropdown = true
+            field.solr_local_parameters = { 
+              :qf => 'title_series_txt',
+              :pf => 'title_series_txt'
+            }
+          end
+        end
+
+        if fields.include?('title_starts_with')
+          config.add_search_field('title_starts_with') do |field|
+            field.show_in_dropdown = true
+            field.solr_local_parameters = { 
+              :qf => 'title_starts_with',
+              :pf => 'title_starts_with'
+            }
+          end
+        end
 
         if fields.include?('author')
           config.add_search_field('author') do |field|
@@ -331,7 +351,7 @@ module Spectrum
         end
 
         if elements.include?(:search_fields) 
-          add_search_fields(config, 'title', 'journal_title', 'author', 'subject', 'form_genre', 'publication_place', 'publisher', 'publication_year', 'isbn', 'issn', 'call_number')
+          add_search_fields(config, 'title', 'journal_title', 'series_title', 'title_starts_with', 'author', 'subject', 'form_genre', 'publication_place', 'publisher', 'publication_year', 'isbn', 'issn', 'call_number')
         end
 
 

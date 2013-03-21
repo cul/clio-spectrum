@@ -25,11 +25,18 @@ class SolrDocument
   # single valued. See Blacklight::Solr::Document::ExtendableClassMethods#field_semantics
   # and Blacklight::Solr::Document#to_semantic_values
   # Recommendation: Use field names from Dublin Core
+ 
+#  these are the DC fields you can play with... 
+#  :contributor, :coverage, :creator, :date, :description, :format, :identifier, :language, :publisher, :relation, :rights, :source, :subject, :title, :type
+  
   use_extension( Blacklight::Solr::Document::DublinCore)    
   field_semantics.merge!(    
+                         # :identifier => "id",  # suggested mapping is ISBN or ISSN
                          :title => "title_display",
-                         :author => "author_display",
+                         :contributor => "author_display",
+                         :publisher => "full_publisher_display",
                          :language => "language_facet",
-                         :format => "format"
+                         :format => "format",
+                         :date => "pub_date_facet"
                          )
 end
