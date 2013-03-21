@@ -5,7 +5,7 @@
       .fake_label= link_to_source_document document, :label=> document["title_display"].listify.join("").to_s.abbreviate(40), :counter => counter
 
     .gbs_cover
-      .gbs_thumbnail= link_to image_tag("spacer.png", :class => ("grid_bookjacket bookjacket " + document["isbn_txt"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))), {:controller => :catalog, :action => :show, :id => document["id"]}
+      .gbs_thumbnail= link_to image_tag("spacer.png", :class => ("grid_bookjacket bookjacket " + document["isbn_display"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))), {:controller => :catalog, :action => :show, :id => document["id"]}
 
 
   .info

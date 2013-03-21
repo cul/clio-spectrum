@@ -95,6 +95,9 @@ describe 'Spectrum::Engines::Solr' do
     end
 
     it 'should return full-phrase title/author matches before split-field matches', :focus => true do
+      
+      pending('call-number / location issues')
+      
       eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'Judith Butler', :search_field => 'all_fields', :rows => @result_count, 'solr_url' => solr_url)
       eng.results.should_not be_empty
       # eng.results.size.should equal(@result_count)
@@ -132,6 +135,9 @@ describe 'Spectrum::Engines::Solr' do
   # NEXT-514
   describe 'search for "women physics" in catalog' do
     it 'should return exact matches before stemmed terms', :focus => true do
+      
+      pending('clarity of desired behavior')
+      
       eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'women physics', :search_field => 'all_fields', 'solr_url' => solr_url, :rows => 100)
       
       # puts "XXXXXXXXXXXX   results.size: #{eng.results.size.to_s}"

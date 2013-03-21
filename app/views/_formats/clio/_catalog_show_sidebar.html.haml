@@ -4,7 +4,7 @@
 .show_cover.book_cover
   .gbs_cover
     .gbs_thumbnail
-      = image_tag("spacer.png", :class => "bookjacket " + document["isbn_txt"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))
+      = image_tag("spacer.png", :class => "bookjacket " + document["isbn_display"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))
     .gbs_preview= link_to image_tag("gb_preview.png"), "http://books.google.com", :class => "gbs_preview_link"
 
 - if clio_id
