@@ -100,18 +100,23 @@ module LocalSolrHelperExtension
         search_field_def = search_field_def_for_key(field_name)
 
         if (search_field_def && hash = search_field_def.solr_local_parameters)
-          force_phrase_search = false  # searches for "starts_with" fields need search string to be quoted
+          force_phrase_search = false  # searches for "starts_with" field will need to be quoted
           local_params = hash.collect do |key, val|
             if (val == 'title_starts_with') 
               force_phrase_search = true
             end
             key.to_s + "=" + solr_param_quote(val, :quote => "'")
           end.join(" ")
-          if (force_phrase_search)
-            "_query_:\"{!dismax #{local_params}}\\\"#{value}\\\"\""
-          else
-            "_query_:\"{!dismax #{local_params}}#{value}\""
+          
+          # if they submitted a quoted value, escape their quotes for them
+          if (value.include? '"')
+            value.gsub!(/"/, '\"')
+          elsif (force_phrase_search)
+            value = "\\\"#{value}\\\""
           end
+          
+          "_query_:\"{!dismax #{local_params}}#{value}\""
+                    
         else
           value.to_s
         end
