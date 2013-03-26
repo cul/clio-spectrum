@@ -167,6 +167,7 @@ module Spectrum
         if fields.include?('title_start')
           config.add_search_field('title_start') do |field|
             field.show_in_dropdown = true
+            field.label = 'Left Anchored Title'
             field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
             field.solr_local_parameters = { 
               :qf => '$title_start_qf',
@@ -189,6 +190,7 @@ module Spectrum
         if fields.include?('series_title')
           config.add_search_field('series_title') do |field|
             field.show_in_dropdown = true
+            field.label = 'Series'
             field.solr_local_parameters = { 
               :qf => 'title_series_txt',
               :pf => 'title_series_txt'
@@ -233,6 +235,7 @@ module Spectrum
           config.add_search_field('form_genre') do |field|
             field.show_in_dropdown = true
             field.qt = 'search'
+            field.label = 'Form/Genre'
             field.solr_local_parameters = { 
               :qf => 'subject_form_txt',
               :pf => 'subject_form_txt'
@@ -277,6 +280,7 @@ module Spectrum
           config.add_search_field('isbn') do |field|
             field.show_in_dropdown = true
             field.qt = 'search'
+            field.label = 'ISBN'
             field.solr_local_parameters = { 
               :qf => 'isbn_txt',
               :pf => 'isbn_txt'
@@ -288,6 +292,7 @@ module Spectrum
           config.add_search_field('issn') do |field|
             field.show_in_dropdown = true
             field.qt = 'search'
+            field.label = 'ISSN'
             field.solr_local_parameters = { 
               :qf => 'issn_txt',
               :pf => 'issn_txt'
