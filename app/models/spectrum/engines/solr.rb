@@ -27,8 +27,8 @@ module Spectrum
 
         # allow pass-in override solr url
         @solr_url = options.delete('solr_url')
-        Blacklight.solr = Solr.generate_rsolr(@source, @solr_url)
-        @config =  Solr.generate_config(@source)
+        blacklight_solr
+        blacklight_solr_config
         @params = options
         @params.symbolize_keys!
         Rails.logger.info "[Spectrum][Solr] source: #{@source} params: #{@params}"
@@ -40,6 +40,15 @@ module Spectrum
           @errors = e.message
         end
 
+      end
+
+      def blacklight_solr
+        @solr ||= Solr.generate_rsolr(@source, @solr_url)
+
+      end
+
+      def blacklight_solr_config
+        @config ||= Solr.generate_config(@source)
       end
 
 
@@ -148,7 +157,7 @@ module Spectrum
         elsif (solr_url)
           RSolr.connect(:url => solr_url)
         else
-          RSolr.connect(Blacklight.solr_config) 
+          RSolr.connect(  Blacklight.solr_config) 
         end
       end
 

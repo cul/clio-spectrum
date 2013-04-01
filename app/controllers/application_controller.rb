@@ -152,20 +152,26 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def blacklight_solr(source = @active_source)
+    if self.respond_to?(:blacklight_config) 
+      Spectrum::Engines::Solr.generate_rsolr(source) 
+    end
+  end
+
+  def blacklight_config(source = @active_source)
+    if self.respond_to?(:blacklight_config) 
+      Spectrum::Engines::Solr.generate_config(source)
+    end
+
+  end
 
 
 
   private
-  def configure_search(source)
-    if self.respond_to?(:blacklight_config) 
-      Blacklight.solr = Spectrum::Engines::Solr.generate_rsolr(source) 
-      self.blacklight_config = Spectrum::Engines::Solr.generate_config(source)
-    end
-  end
+
 
   def by_source_config
     @active_source = determine_active_source
-    configure_search(@active_source)
   end
 
 

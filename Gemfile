@@ -7,7 +7,7 @@ gem 'sqlite3'
 # Use unicorn as the web server
 # gem 'unicorn'
 
-gem 'blacklight', :git => 'git://github.com/projectblacklight/blacklight.git', :branch => 'master'
+gem 'blacklight'
  #gem 'blacklight', :path => "~/code/blacklight"
  gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
 #gem 'blacklight_range_limit', "~> 2.0.0" 
@@ -102,7 +102,6 @@ group :test, :development do
 end
 
 group :test do
-  gem 'rb-readline'
   gem 'factory_girl_rails'
   gem 'spork', '~>1.0.0.rc2'
   gem 'guard'
