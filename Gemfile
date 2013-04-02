@@ -7,15 +7,12 @@ gem 'sqlite3'
 # Use unicorn as the web server
 # gem 'unicorn'
 
-gem 'blacklight'
- #gem 'blacklight', :path => "~/code/blacklight"
+gem 'blacklight', '>= 4.2.0'
  gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
-#gem 'blacklight_range_limit', "~> 2.0.0" 
 gem 'blacklight_google_analytics'
 gem 'blacklight_unapi', ">= 0.0.3" 
 gem 'json'
 
-#gem 'voyager_oracle_api', :path => "~/code/voyager_oracle_api"
 
 gem 'voyager_oracle_api', ">= 1.1.1"
 gem 'restful_voyage', :git => "git://github.com/cul/restful_voyage.git", :branch => "master"

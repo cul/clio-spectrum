@@ -1,4 +1,0 @@
-.grid_view
-  
-  - documents.each_with_index do |document,counter|
-    = render_document_view(document, :format => 'clio', :template => 'catalog_grid', :counter => counter + 1 + @response.params[:start].to_i)

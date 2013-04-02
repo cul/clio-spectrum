@@ -1,10 +1,11 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+$ ->
+
+  $(".expander").click ->
+    $(this).hide()
+    $(this).parent().find(".expander_more").show()
+    return false
 
 
-
-$ -> 
   $('.toggle_all.contract').parents("#facets").find('.range_limit').show()
   $('.toggle_all.contract').parents("#facets").find('ul').show()
   $('.toggle_all').click (e) ->
@@ -29,4 +30,5 @@ $ ->
       $.get('/set_user_option?name=always_expand_facets&value=true')
     else
       $.get('/set_user_option?name=always_expand_facets&value=false')
+
 

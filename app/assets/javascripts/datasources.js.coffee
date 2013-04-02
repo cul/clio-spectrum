@@ -1,6 +1,4 @@
-
-$(document).ready ->
-    
+$ ->
   $("ul#datasources li, #toolbar-container .box").hover(
     -> $(this).addClass('hover')
     -> $(this).removeClass('hover')
@@ -29,37 +27,9 @@ $(document).ready ->
         $(".basic_search .search_q:hidden").val(value)
     
   )
-
-  $(".return-to-index").attr('style', "display: none")
-
-  $("#select_a_help_issue a[data-toggle=tab]").click (e) ->
-    e.preventDefault();
-    $(this).tab('show');
-    $(".return-to-index").show()
-    $("#select_a_help_issue").hide()
-
-  $(".return-to-index btn.submit").click ->
-    form = $(this).parents('form')
-    $.post form.attr('data-target'), form.serialize(), () -> 
-      $(".return-to-index btn.return").click()
-      $("#helptab_content .tab-pane.active").removeClass('active')
-      $("#select_a_help_issue li").removeClass('active')
-      $(form).find('.clear-on-submit').val('')
-      $('#helpModal .modal-header .close').click()
-    
-
-  $(".return-to-index btn.return").click ->
-    $(".return-to-index").hide()
-    $("#helptab_content .tab-pane.active").removeClass('active')
-    $("#select_a_help_issue li").removeClass('active')
-    $("#select_a_help_issue").show()
-
-  $(".expander").click ->
-    $(this).hide()
-    $(this).parent().find(".expander_more").show()
-    return false
-
+  
   bind_dropdown_selects()
+
 
   $("#mobile_datasource_select").change ->
     select = '#datasources li[source="' + $(this).val() + '"] a'

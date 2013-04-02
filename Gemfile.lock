@@ -304,7 +304,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  blacklight
+  blacklight (>= 4.2.0)
   blacklight_google_analytics
   blacklight_range_limit!
   blacklight_unapi (>= 0.0.3)

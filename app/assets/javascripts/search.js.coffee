@@ -1,0 +1,3 @@
+$ ->
+  $("a[rel='popover']").popover()
+

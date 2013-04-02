@@ -1,4 +1,4 @@
-module FacetsHelper
+module CulFacetsHelper
   def render_filter_element(facet, values, localized_params)
     is_negative = (facet =~ /^-/) ? "NOT " : ""
     proper_facet_name = facet.gsub(/^-/, "")
