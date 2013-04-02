@@ -1,27 +1,10 @@
 # encoding: UTF-8
 #
 module CulCatalogHelper
-
-  def render_filter_element(facet, values, localized_params)
-    is_negative = (facet =~ /^-/) ? "NOT " : ""
-    proper_facet_name = facet.gsub(/^-/, "")
-
-    facet_config = facet_configuration_for_field(proper_facet_name)
-
-    values.map do |val|
-
-      render_constraint_element( facet_field_labels[proper_facet_name],
-                  is_negative + facet_display_value(proper_facet_name, val), 
-                  :remove => url_for(remove_facet_params(facet, val, localized_params)),
-                  :classes => ["filter", "filter-" + proper_facet_name.parameterize] 
-                ) + "\n"                 					            
-    end
-    
+  def fix_catalog_links(text, source = @active_source)
+    text.to_s.gsub('/catalog',"/#{source}").html_safe
   end
 
-  def expand_all_facets?
-    session['options'] && session['options']['always_expand_facets'] == 'true'
-  end
 
   def link_to_source_document(doc, opts={:label=>nil, :counter => nil, :results_view => true})
     label ||= blacklight_config.index.show_link.to_sym
@@ -55,23 +38,6 @@ module CulCatalogHelper
   end
 
 
-  SHORTER_LOCATIONS = {
-    "Temporarily unavailable. Try Borrow Direct or ILL" => "Temporarily Unavailable",
-    "Butler Stacks (Enter at the Butler Circulation Desk)" => "Butler Stacks",
-    "Offsite - Place Request for delivery within 2 business days" => "Offsite",
-    "Offsite (Non-Circ) Request for delivery in 2 business days" => "Offsite (Non-Circ)"
-  }
-
-  def shorten_location(location)
-    SHORTER_LOCATIONS[location.strip] || location
-
-  end
-
-  def process_holdings_location(loc_display)
-    loc,call = loc_display.split(' >> ')
-    call ? "#{h(shorten_location(loc))} >> ".html_safe + content_tag(:span, call, class: 'call_number')  : shorten_location(loc)
-  end
-
 
   def document_full_title(document)
     [document.get('title_display') , document.get('subtitle_display')].reject { |txt| txt.to_s.strip.empty? }.join(": ")
@@ -82,50 +48,7 @@ module CulCatalogHelper
 
   end
 
-  def build_holdings_hash(document)
-    results = Hash.new { |h,k| h[k] = []}
-    Holding.new(document["clio_id_display"]).fetch_from_opac!.results["holdings"].each_pair do |holding_id, holding_hash|
-      results[[holding_hash["location_name"],holding_hash["call_number"]]] << holding_hash
-    end
 
-    if document["url_munged_display"] && !results.keys.any? { |k| k.first.strip == "Online" }
-      results[["Online", "ONLINE"]] = [{"call_number" => "ONLINE", "status" => "noncirc", "location_name" => "Online"}]
-    end
-    results
-  end
-
-  URL_REGEX = Regexp.new('(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))')
-  
-
-  def online_link_hash(document)
-    
-    links = []
-    
-    document["url_munged_display"].listify.each do |url_munge|
-      url_parts = url_munge.split('~|Z|~').collect(&:strip)
-      title = url =  ""
-      if (url_index = url_parts.index { |part| part =~ URL_REGEX })
-        url = url_parts.delete_at(url_index)
-        title = url_parts.join(" ").to_s
-        title = url if title.empty?
-      else
-        title = "Bad URL: " + url_parts.join(" ")
-        url = ""
-      end
-
-      links << [title, url]
-    end
-    
-    # remove google links if more than one exists
-
-    if links.select { |link| link.first.to_s.strip == "Google" }.length > 1
-      links.reject! { |link| link.first.to_s.strip == "Google" }
-    end
-
-
-    links
-#    links.sort { |x,y| x.first <=> y.first }
-  end
 
   def folder_link(document)
     size = "22x22"
