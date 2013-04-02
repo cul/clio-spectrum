@@ -2,6 +2,13 @@
  * CUL LWeb styles and Bootstrap overrides
  * er2576 - LDPD
  ******************************************/
+#feedback_dialog
+{
+    border-radius:5px;
+    border:3px solid #BBBBBB;
+}
+
+
 @font-face {
   font-family: trajanprobold;
   src: asset-url('TrajanPro-Bold.otf', font);

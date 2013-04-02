@@ -22,6 +22,7 @@
 //= require modal_manager_override
 //= require item_alerts
 //= require dropdown_select
+//= require ldpd_feedback
 //= require articles
 //= require advanced
 //= require search
