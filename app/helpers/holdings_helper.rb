@@ -62,10 +62,11 @@ module HoldingsHelper
   end
 
 
-  SERVICE_ORDER = %w{offsite precat recall_hold on_order borrow_direct borrow_direct ill in_process doc_delivery}
+  SERVICE_ORDER = %w{offsite spec_coll precat recall_hold on_order borrow_direct ill in_process doc_delivery}
   # parameters: title, link, whether to append clio_id to link
   SERVICES = {
     'offsite' => ["Offsite", "http://www.columbia.edu/cgi-bin/cul/offsite2?", true],
+    'spec_coll' => ["Special Collections", "http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey=", true],
     'precat' => ["Precataloging", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sprecat?", true],
     'recall_hold' => ["Recall/Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?bibId=", true],
     'on_order' => ["On Order", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sinprocess?", true],
