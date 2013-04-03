@@ -96,13 +96,12 @@ describe 'Spectrum::Engines::Solr' do
 
     it 'should return full-phrase title/author matches before split-field matches', :focus => true do
       
-      pending('call-number / location issues')
       
       eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'Judith Butler', :search_field => 'all_fields', :rows => @result_count, 'solr_url' => solr_url)
       eng.results.should_not be_empty
       # eng.results.size.should equal(@result_count)
       eng.results.each do |result|
-        result.should contain_in_fields("Judith Butler", 'title_display', 'subtitle_display', 'author_display')
+        result.should contain_in_fields(["Butler, Judith", "Judith Butler"], 'title_display', 'subtitle_display', 'author_display') 
       end
     end
   end

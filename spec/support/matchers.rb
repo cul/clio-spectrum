@@ -1,10 +1,8 @@
 
 RSpec::Matchers.define :contain_in_fields do |target, *field_list|
   match do |doc|
-    field_list.reduce(false) do |determination, field_name|
-      target_as_regexp = Regexp.new( target.gsub(/ +/, '.*') )
-      determination = determination or target_as_regexp.match( doc.get(field_name) )
-    end
+    targets = Array.wrap(target).collect { |t| Regexp.new( t.gsub(/ +/, '.*')) }
+    field_list.any? { |field_name| targets.any? { |t| t.match( doc.get(field_name)) } }
   end
   
   failure_message_for_should do |doc|
