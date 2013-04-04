@@ -76,7 +76,6 @@ Clio::Application.routes.draw do
 
   match 'locations/show/:id', :id => /[^\/]+/, :to => "locations#show", :as => :location_display
 
-  match 'welcome/versions', :to => "welcome#versions"
 
   namespace :admin do
     resources :locations

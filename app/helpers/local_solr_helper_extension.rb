@@ -52,7 +52,7 @@ module LocalSolrHelperExtension
        ranged_facet_configs.each_pair do |solr_field, config|
         solr_params["stats"] = "true"
         solr_params["stats.field"] ||= []
-        solr_params["stats.field"] << solr_field    
+        solr_params["stats.field"] << solr_field unless solr_params["stats.field"].include?(solr_field)
       
         hash =  req_params[:range] && req_params[:range][solr_field] ?
           req_params[:range][solr_field] :
