@@ -1,3 +1,4 @@
+# encoding: utf-8
 module HoldingsHelper
   def build_holdings_hash(document)
     results = Hash.new { |h,k| h[k] = []}
