@@ -81,7 +81,8 @@ gem 'newrelic_rpm'
 #   gem 'webrat'
 # end
 group :development do
-  gem 'thin'
+  gem 'hooves'
+  gem 'unicorn'
   #gem 'linecache19', '0.5.13'
   #gem 'ruby-debug-base19', '0.11.26'
   #gem 'ruby-debug19', :require => 'ruby-debug'

@@ -63,6 +63,8 @@ Clio::Application.routes.draw do
   match 'backend/clio_recall/:id', :to => "backend#clio_recall" , :as => :clio_recall
   match 'backend/feedback_mail', :to => "backend#feedback_mail"
 
+  match 'spectrum/fetch/:layout/:datasource', :to => "spectrum#fetch", :as => "spectrum_fetch"
+
 
   match 'lweb', :to => 'search#index', :as => :lweb_search, :defaults => {:categories => ['lweb']}
 

@@ -3,9 +3,16 @@
     %div{:class => get_column_classes(column)}
       - column['searches'].each do |search|
         - result = @results[search['source']]
-        - source = SEARCHES_CONFIG['sources'][search['source']]
-        .result_set
-          = render partial: "/spectrum/aggregate/result_header", locals: {result: result, title: source['title'], description: source['description']}
-          = render partial: "/spectrum/aggregate/result_docs", locals: {result: result, render_opts: search_render_options(search, source), row_opts: search['row_opts']}
-          - if search['display_footer']
-            = render partial: "/spectrum/aggregate/result_footer", locals: {result: result}
+        - if result
+          - source = SEARCHES_CONFIG['sources'][search['source']]
+          - if @fetch_action
+            .result_set
+              = render partial: "/spectrum/aggregate/result_header", locals: {result: result, title: source['title'], description: source['description']}
+              = render partial: "/spectrum/aggregate/result_docs", locals: {result: result, render_opts: search_render_options(search, source), row_opts: search['row_opts']}
+              - if search['display_footer']
+                = render partial: "/spectrum/aggregate/result_footer", locals: {result: result}
+          - else
+            .result_set.async_result_set{:"data-result-set" => spectrum_fetch_path(params.except(:controller, :action).merge(:datasource => search['source'] ))}
+              = render partial: "/spectrum/aggregate/result_header_async", locals: {result: result, title: source['title'], description: source['description']}
+              .loading_block
+                Loading
