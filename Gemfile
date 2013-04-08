@@ -57,7 +57,7 @@ group :assets do
   gem 'compass-rails'
 end
 
-
+gem 'newrelic_rpm'
 
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)

@@ -17,8 +17,8 @@ Clio::Application.routes.draw do
   
   root :to => "spectrum#search", :defaults => {:layout => 'quicksearch'}
 
-  DeviseWind.add_routes(self)
- 
+  devise_for :users, :controllers => {:sessions => 'sessions'}
+
   match 'admin/ingest_log', :to => "admin#ingest_log", :as => :admin_ingest_log
 
   match 'catalog', :to => 'catalog#index', :as => :base_catalog_index
