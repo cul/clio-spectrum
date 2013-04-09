@@ -23,6 +23,7 @@ jetty/
 coverage/*
 db/*.sqlite3
 *.tmproj
+*.ruby-version*
 *.rvmrc*
 *.sw?
 .sass-cache/**/*

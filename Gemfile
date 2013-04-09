@@ -55,6 +55,7 @@ group :assets do
   gem 'uglifier', '>=1.0.3'
   gem 'bootstrap-sass', '~>2.1'
   gem 'compass-rails'
+  gem 'iced-rails'
 end
 
 gem 'newrelic_rpm'
@@ -82,6 +83,7 @@ gem 'newrelic_rpm'
 # end
 group :development do
   gem 'hooves'
+  gem 'guard-unicorn'
   gem 'unicorn'
   #gem 'linecache19', '0.5.13'
   #gem 'ruby-debug-base19', '0.11.26'
@@ -102,7 +104,6 @@ group :test do
   gem 'factory_girl_rails'
   gem 'spork', '~>1.0.0.rc2'
   gem 'guard'
-  gem 'guard-rails'
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'rspec-rails'

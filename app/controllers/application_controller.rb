@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   check_authorization
   skip_authorization_check
 
+  before_filter :trigger_async_mode
   before_filter :trigger_debug_mode
   before_filter :by_source_config
   before_filter :log_additional_data
@@ -81,6 +82,13 @@ class ApplicationController < ActionController::Base
 
   end
 
+  def trigger_async_mode
+    if params.delete('async_off') == 'true'
+      session[:async_off] = true
+    elsif params.delete('async_on') == 'true'
+      session[:async_off] = nil
+    end
+  end
 
 
   def trigger_debug_mode

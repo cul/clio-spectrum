@@ -21,7 +21,10 @@ class SpectrumController < ApplicationController
         @has_facets = @search_layout['has_facets']
         categories =  @search_layout['columns'].collect { |col| col['searches'].collect { |item| item['source'] }}.flatten
 
-        if @search_style == 'aggregate'
+        @action_has_async = true if @search_style == 'aggregate'
+
+        if @search_style == 'aggregate' && !session[:async_off]
+          @action_has_async = true
           @results = {}
           categories.each { |source| @results[source] = {} }
         else

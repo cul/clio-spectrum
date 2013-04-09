@@ -18,7 +18,6 @@
 //= require bootstrap-datepicker
 //= require blacklight/blacklight
 //= require bootstrap-dropdown
-//= require spin.min.js
 //= require jquery.observe_field
 //= require modal_manager_override
 //= require item_alerts

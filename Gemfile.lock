@@ -141,8 +141,6 @@ GEM
       lumberjack (>= 1.0.2)
       pry (>= 0.9.10)
       thor (>= 0.14.6)
-    guard-rails (0.4.1)
-      guard (>= 0.2.2)
     guard-rspec (2.5.2)
       guard (>= 1.1)
       rspec (~> 2.11)
@@ -150,6 +148,8 @@ GEM
       childprocess (>= 0.2.3)
       guard (>= 1.1)
       spork (>= 0.8.4)
+    guard-unicorn (0.0.8)
+      guard (>= 1.1)
     haml (4.0.1)
       tilt
     haml-rails (0.4)
@@ -166,6 +166,13 @@ GEM
       unicorn (> 0)
     httpclient (2.3.3)
     i18n (0.6.1)
+    iced-coffee-script (2.2.0)
+      execjs
+      iced-coffee-script-source
+    iced-coffee-script-source (1.2.0o)
+    iced-rails (0.0.2)
+      iced-coffee-script
+      rails (~> 3.2.11)
     journey (1.0.4)
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
@@ -328,14 +335,15 @@ DEPENDENCIES
   factory_girl_rails
   growl
   guard
-  guard-rails
   guard-rspec
   guard-spork
+  guard-unicorn
   haml
   haml-rails
   has_options
   hooves
   httpclient
+  iced-rails
   jquery-rails
   json
   launchy

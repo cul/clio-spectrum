@@ -1,0 +1,14 @@
+.async_options
+  - if @action_has_async 
+    - if session[:async_off]
+      .async_change.turn_async_on
+        You have loading results dynamically turned off.
+        Click
+        = link_to "here", request.fullpath.gsub(/(&|\?)async_(on|off)=true/,'') + "&async_on=true"
+        to turn it back on.
+    - else
+      .async_change.turn_async_off
+        This page attempts to load results dynamically. If this is not working.
+        Click
+        = link_to "here", request.fullpath.gsub(/(&|\?)async_(on|off)=true/,'') + "&async_off=true"
+        to turn it off.
