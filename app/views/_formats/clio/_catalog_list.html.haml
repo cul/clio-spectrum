@@ -1,5 +1,5 @@
 / container for a single doc 
-.result.document{:class => render_document_class(document) }
+.result.document{class: render_document_class(document), source: 'catalog', item_id: document.get(:id), google_ids: extract_google_bibkeys(document).join(",")}
     
   %abbr.unapi-id{:title => document[:id]}
   .title= link_to_source_document document, :label=> document_full_title(document), :counter => counter

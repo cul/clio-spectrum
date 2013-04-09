@@ -9,8 +9,6 @@
     - truncated_documents.each_with_index do |doc, doc_index|
       = render_document_view(doc, render_opts.merge(document_counter: doc_index ))
 
-  - if render_opts['check_fedora']
-    = render partial: "/catalog/fedora_resources_check", locals: {documents: truncated_documents}
 
 - else
   .result_error Error when searching. #{result.errors}

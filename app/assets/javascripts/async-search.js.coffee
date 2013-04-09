@@ -7,5 +7,6 @@ $ ->
     url = result_set.attr('data-result-set')
     $.get(url, (data) ->
       result_set.html(data)
+      after_document_load(result_set)
     )
   

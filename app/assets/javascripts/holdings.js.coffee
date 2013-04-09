@@ -1,6 +1,28 @@
-
-
 root = exports ? this
+
+root.after_document_load = (element) ->
+  fedora_items = []
+  catalog_items = []
+  google_items = []
+  $(element).find('.result').each ->
+    res = $(this)
+    source = res.attr('source')
+    item = res.attr('item_id')
+
+    if source == 'academic_commons'
+      fedora_items.push(item)
+    else if source == 'catalog'
+      catalog_items.push(item)
+      google_items.push.apply(google_items, res.attr('google_ids').split(","))
+
+  if fedora_items.length
+    retrieve_fedora_resources(fedora_items)
+   
+
+  #console.log?(catalog_items)
+  #console.log?(google_items)
+
+
 root.load_clio_holdings = (id) -> 
   $("span.holding_spinner").show
   $("#clio_holdings .holdings_error").hide
@@ -52,13 +74,6 @@ root.retrieve_holdings = (bibids) ->
 
 
 
-root.update_holdings_info = (bibids) ->
-  url = "http://rossini.cul.columbia.edu/voyager_backend/holdings/fetch/" + bibids.join("/")
-  $.getJSON url, (data) ->
-    for bib of data
-      for holding of data[bib].holdings
-        selector = "img.availability.holding_" + holding
-        $(selector).attr "src", RAILS_ROOT + "/images/icons/" + data[bib].holdings[holding].status + ".png"
 
 root.update_book_jackets = (isbns, data) ->
   for index of isbns
@@ -95,4 +110,7 @@ root.update_book_jackets = (isbns, data) ->
         
         gbs_cover.find(".gbs_preview_partial").show()  if isbn_data.preview is "partial"
         gbs_cover.find(".gbs_preview_full").show()  if isbn_data.preview is "full"
+
+$ -> 
+  after_document_load($('#page'))
 
