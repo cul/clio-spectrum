@@ -162,13 +162,15 @@ class ApplicationController < ActionController::Base
 
   def blacklight_solr(source = @active_source)
     if self.respond_to?(:blacklight_config) 
-      Spectrum::Engines::Solr.generate_rsolr(source) 
+      @blacklight_solrs ||= {}
+      @blacklight_solrs[source] || (@blacklight_solrs[source] = Spectrum::Engines::Solr.generate_rsolr(source))
     end
   end
 
   def blacklight_config(source = @active_source)
     if self.respond_to?(:blacklight_config) 
-      Spectrum::Engines::Solr.generate_config(source)
+      @blacklight_configs ||= {}
+      @blacklight_configs[source] || (@blacklight_configs[source] = Spectrum::Engines::Solr.generate_config(source))
     end
 
   end
