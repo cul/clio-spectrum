@@ -9,7 +9,6 @@
   - unless @response.nil? 
     - unless(params[:show_advanced] && params[:q].to_s.empty? && params[:f].nil?)
       = fix_catalog_links(render('constraints', :localized_params=>params ))
-      = raise "test"
       
       = fix_catalog_links(render('sort_and_per_page'))
 
