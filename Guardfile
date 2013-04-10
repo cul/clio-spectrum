@@ -1,10 +1,4 @@
 
-guard :unicorn, :daemonize => true, :port => 3030 do
-  watch('Gemfile.lock')
-  watch('tmp/restart.txt')
-  watch(%r{^(config|lib)/.*})
-end
-
 
 
 
@@ -58,3 +52,10 @@ end
 # * :daemonize (default is true) - should the Unicorn server start daemonized?
 # * :config_file (default is "config/unicorn.rb") - the path to the unicorn file
 # * :pid_file (default is "tmp/pids/unicorn.pid") - the path to the unicorn pid file
+
+guard 'rails', :port => 3030 do
+  watch('Gemfile.lock')
+  watch('tmp/restart.txt')
+  watch(%r{^(config|lib)/.*})
+end
+

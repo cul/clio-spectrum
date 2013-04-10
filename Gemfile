@@ -83,13 +83,16 @@ gem 'newrelic_rpm'
 # end
 group :development do
   gem 'hooves'
-  gem 'guard-unicorn'
+  gem 'guard-rails'
   gem 'unicorn'
   #gem 'linecache19', '0.5.13'
   #gem 'ruby-debug-base19', '0.11.26'
   #gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'capistrano'
   gem 'capistrano-ext'
+  gem 'quiet_assets'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test, :development do 
