@@ -5,6 +5,7 @@ gem 'sqlite3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
+gem 'thin'
 
 gem 'blacklight', '>= 4.2.0'
  gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
