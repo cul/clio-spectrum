@@ -18,6 +18,8 @@ root.after_document_load = (element) ->
   if fedora_items.length
     retrieve_fedora_resources(fedora_items)
    
+  if catalog_items
+    retrieve_holdings(catalog_items)
 
   #console.log?(catalog_items)
   #console.log?(google_items)
@@ -62,15 +64,14 @@ root.retrieve_fedora_resources = (fedora_ids) ->
 
 
 root.retrieve_holdings = (bibids) ->
-  url = 'http://rossini.cul.columbia.edu/voyager_backend/holdings/retrieve/' + bibids.join('/');
+  url = 'http://rossini.cul.columbia.edu/voyager_backend/holdings/status/' + bibids.join('/');
   
 
   $.getJSON url, (data) -> 
     for bib, holdings of data
-      for i, holding of data[bib].condensed_holdings_full
-        for j, holding_id of holding.holding_id
-          selector = "img.availability.holding_" + holding_id
-          $(selector).attr("src", "/assets/icons/"+holding.status+".png")
+      for holding_id, status of data[bib].statuses
+        selector = "img.availability.holding_" + holding_id
+        $(selector).attr("src", "/assets/icons/"+ status+".png")
 
 
 

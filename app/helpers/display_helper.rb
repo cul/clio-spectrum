@@ -99,7 +99,7 @@ module DisplayHelper
         clio_holding = status if status
       end
 
-      image_tag("icons/#{clio_holding}.png", :class => "availability") + process_holdings_location(loc_display)
+      image_tag("icons/#{clio_holding}.png", :class => "availability holding_#{hold_id}") + process_holdings_location(loc_display)
     end
   end
 

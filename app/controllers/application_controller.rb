@@ -69,15 +69,19 @@ class ApplicationController < ActionController::Base
 
   def look_up_clio_holdings(documents)
     clio_docs = documents.select { |d| d.get('clio_id_display')}
-    
-    begin
-      unless clio_docs.empty? 
-        holdings = Voyager::Request.simple_holdings_check(connection_details: APP_CONFIG['voyager_connection']['oracle'], bibids: clio_docs.collect { |cd| cd.get('clio_id_display')})
-        clio_docs.each do |cd|
-          cd['clio_holdings'] = holdings[cd.get('clio_id_display')]
+
+    if session[:async_off]
+      begin
+        unless clio_docs.empty? 
+          holdings = Voyager::Request.simple_holdings_check(connection_details: APP_CONFIG['voyager_connection']['oracle'], bibids: clio_docs.collect { |cd| cd.get('clio_id_display')})
+          clio_docs.each do |cd|
+            cd['clio_holdings'] = holdings[cd.get('clio_id_display')]
+
+          end
+
         end
+      rescue Exception => e
       end
-    rescue Exception => e
     end
 
   end
