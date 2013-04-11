@@ -8,16 +8,30 @@ class ApplicationController < ActionController::Base
   check_authorization
   skip_authorization_check
 
+  before_filter :apply_random_q
   before_filter :trigger_async_mode
   before_filter :trigger_debug_mode
   before_filter :by_source_config
   before_filter :log_additional_data
   before_filter :set_user_characteristics
   before_filter :condense_advanced_search_params
-
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
+
+  def apply_random_q
+    if params[:random_q]
+      start = Time.now
+      chosen_line = nil
+      line_to_pick = rand(11917)
+      File.foreach(File.join(Rails.root.to_s, "config", "opac_searches_sorted.txt")).each_with_index do |line, number|
+        chosen_line = line if number == line_to_pick
+      end
+      params['q'] = chosen_line
+      params['s.q'] = chosen_line
+    end
+  end
+
 
   def condense_advanced_search_params
     new_hash = {}
