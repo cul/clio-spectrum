@@ -1,8 +1,11 @@
-jQuery(function() {
+$(document).ready(function() {
 
-    LWEB.setupFeedbackDialog();
 
     $('.feedback-popup').bind('click', function(){
+        if(!LWEB.feedbackDialogIsSetup) {
+          LWEB.setupFeedbackDialog();
+          LWEB.feedbackDialogIsSetup = true;
+        }
         LWEB.showFeedbackDialog();
         return false;
     });
@@ -29,6 +32,7 @@ jQuery(function() {
 
 var LWEB = {};
 
+LWEB.feedbackDialogIsSetup = false;
 LWEB.feedbackDialogIsVisible = false;
 
 LWEB.setupFeedbackDialog = function() {
