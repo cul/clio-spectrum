@@ -4,6 +4,7 @@
   %head
     = render :partial => "/layouts/common_head"
   - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
+  - search_params = determine_search_params
   %body{:onload => onload}
     - add_datasources(@active_source)
     #trigger
@@ -12,9 +13,15 @@
 
       = render :partial => "/header_with_search"
       #bd.row-fluid
-        #sources{:class => sidebar_span}= sidebar_items.join('').html_safe
+        .sidebar{:class => sidebar_span}
+          .search_logo.hidden-phone
+            = link_to "CLIO", root_path, :class => "nav_title search_bar_logo"
+          #sources
+            = sidebar_items.join('').html_safe
         #main_with_sources{:class => main_span}
           .row-fluid
+            - unless @show_landing_pages
+              = display_search_boxes(@active_source)
         
             = render :partial=>'/layouts/messages'
             = yield

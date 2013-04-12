@@ -37,30 +37,58 @@ datasources:
       route: base_catalog_index_path
       placeholder: Catalog
       search_type: blacklight
+      advanced: true
       search_fields:
         all_fields: All Fields
         title: Title
         journal_title: Journal Title
         author: Author
+        series_title: Series
+        title_starts_with: Left Anchored Title
         subject: Subject
+        form_genre: Form/Genre
+        publication_place: Publiation Place
+        publisher: Publisher
+        publication_year: Publication Year
+        isbn: ISBN
+        issn: ISSN
+        call_number: Call Number
   archives:
     name: Archives
     search_box:
+      advanced: true
       route: archives_index_path
       placeholder: Archives
       search_type: blacklight
+      search_fields:
+        all_fields: All Fields
+        title: Title
+        author: Author
+        subject: Subject
   databases:
     name: Databases
     search_box:
+      advanced: true
       route: databases_index_path 
       placeholder: Databases
       search_type: blacklight
+      search_fields:
+        all_fields: All Fields
+        title: Title
+        author: Author
+        subject: Subject
   journals:
     name: E-Journal Titles
     search_box:
+      advanced: true
       route: journals_index_path
       placeholder: E-Journal Titles
       search_type: blacklight
+      search_fields:
+        all_fields: All Fields
+        title: Title
+        author: Author
+        subject: Subject
   library_web:
     name: Library Web site
     no_facets: true
@@ -84,6 +112,7 @@ datasources:
     search_box:
       route: new_arrivals_index_path
       placeholder: New Arrivals
+      advanced: true
       search_type: blacklight
       search_fields:
         all_fields: All Fields

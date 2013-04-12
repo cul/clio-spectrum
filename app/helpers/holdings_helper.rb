@@ -1,9 +1,73 @@
+# encoding: utf-8
 module HoldingsHelper
+  def build_holdings_hash(document)
+    results = Hash.new { |h,k| h[k] = []}
+    Holding.new(document["clio_id_display"]).fetch_from_opac!.results["holdings"].each_pair do |holding_id, holding_hash|
+      results[[holding_hash["location_name"],holding_hash["call_number"]]] << holding_hash
+    end
 
-  SERVICE_ORDER = %w{offsite precat recall_hold on_order borrow_direct borrow_direct ill in_process doc_delivery}
+    if document["url_munged_display"] && !results.keys.any? { |k| k.first.strip == "Online" }
+      results[["Online", "ONLINE"]] = [{"call_number" => "ONLINE", "status" => "noncirc", "location_name" => "Online"}]
+    end
+    results
+  end
+
+  SHORTER_LOCATIONS = {
+    "Temporarily unavailable. Try Borrow Direct or ILL" => "Temporarily Unavailable",
+    "Butler Stacks (Enter at the Butler Circulation Desk)" => "Butler Stacks",
+    "Offsite - Place Request for delivery within 2 business days" => "Offsite",
+    "Offsite (Non-Circ) Request for delivery in 2 business days" => "Offsite (Non-Circ)"
+  }
+
+  def shorten_location(location)
+    SHORTER_LOCATIONS[location.strip] || location
+
+  end
+
+  def process_holdings_location(loc_display)
+    loc,call = loc_display.split(' >> ')
+    call ? "#{h(shorten_location(loc))} >> ".html_safe + content_tag(:span, call, class: 'call_number')  : shorten_location(loc)
+  end
+
+  URL_REGEX = Regexp.new('(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))')
+  
+
+  def online_link_hash(document)
+    
+    links = []
+    
+    document["url_munged_display"].listify.each do |url_munge|
+      url_parts = url_munge.split('~|Z|~').collect(&:strip)
+      title = url =  ""
+      if (url_index = url_parts.index { |part| part =~ URL_REGEX })
+        url = url_parts.delete_at(url_index)
+        title = url_parts.join(" ").to_s
+        title = url if title.empty?
+      else
+        title = "Bad URL: " + url_parts.join(" ")
+        url = ""
+      end
+
+      links << [title, url]
+    end
+    
+    # remove google links if more than one exists
+
+    if links.select { |link| link.first.to_s.strip == "Google" }.length > 1
+      links.reject! { |link| link.first.to_s.strip == "Google" }
+    end
+
+
+    links
+#    links.sort { |x,y| x.first <=> y.first }
+  end
+
+
+  SERVICE_ORDER = %w{offsite spec_coll precat recall_hold on_order borrow_direct ill in_process doc_delivery}
   # parameters: title, link, whether to append clio_id to link
   SERVICES = {
     'offsite' => ["Offsite", "http://www.columbia.edu/cgi-bin/cul/offsite2?", true],
+    'spec_coll' => ["Special Collections", "http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey=", true],
     'precat' => ["Precataloging", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sprecat?", true],
     'recall_hold' => ["Recall/Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?bibId=", true],
     'on_order' => ["On Order", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sinprocess?", true],
@@ -83,19 +147,19 @@ module HoldingsHelper
     
     bibkeys = []
     
-    unless document["isbn_txt"].nil?
-      bibkeys << document["isbn_txt"]
+    unless document["isbn_display"].nil?
+      bibkeys << Array.wrap(document["isbn_display"]).collect { |isbn| "isbn:" + isbn}.uniq
     end
     
     unless document["oclc_display"].nil?
-      bibkeys << document["oclc_display"].collect { |oclc| "OCLC:" + oclc.gsub(/^oc[mn]/,"") }.uniq
+      bibkeys << document["oclc_display"].collect { |oclc| "oclc:" + oclc.gsub(/^oc[mn]/,"") }.uniq
     end
     
     unless document["lccn_display"].nil?
-      bibkeys << document["lccn_display"].collect { |lccn| "LCCN:" + lccn.gsub(/\s/,"").gsub(/\/.+$/,"") }
+      bibkeys << document["lccn_display"].collect { |lccn| "lccn:" + lccn.gsub(/\s/,"").gsub(/\/.+$/,"") }
     end
     
-    bibkeys.flatten
+    bibkeys.flatten.compact
 
   end
 

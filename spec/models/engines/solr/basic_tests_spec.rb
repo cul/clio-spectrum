@@ -4,8 +4,8 @@ require 'spec_helper'
 describe 'Spectrum::Engines::Solr' do
 
   solr_url = nil
-  # solr_url = SOLR_CONFIG['test']
-  solr_url = SOLR_CONFIG['spectrum_subset']['url']
+  solr_url = SOLR_CONFIG['test']['url']
+  # solr_url = SOLR_CONFIG['spectrum_subset']['url']
 
   
   # INTERFACE TESTING
@@ -16,8 +16,12 @@ describe 'Spectrum::Engines::Solr' do
     end
 
     it 'should return that number of results' do
-      pending('until rows param works again')
       eng = Spectrum::Engines::Solr.new('source' => 'catalog', :q => 'Smith', :search_field => 'all_fields', :rows => @result_count, 'solr_url' => solr_url)
+      
+# puts eng
+# puts eng.inspect
+# puts eng.results      
+      
       eng.results.should_not be_empty
       eng.results.size.should equal(@result_count)
     end
@@ -62,7 +66,7 @@ describe 'Spectrum::Engines::Solr' do
   # NEXT-415
   describe 'searches for "New Yorker" in Journals' do
     it 'should find "The New Yorker" as the first result' do
-      # pending('revamp to how stopwords and/or phrases are handled')
+       pending('revamp to how stopwords and/or phrases are handled')
       eng = Spectrum::Engines::Solr.new(:source => 'journals', :q => 'New Yorker', :search_field => 'all_fields', 'solr_url' => solr_url)
       eng.results.should_not be_empty
       # puts eng.solr_search_params\
@@ -87,16 +91,17 @@ describe 'Spectrum::Engines::Solr' do
   # NEXT-452
   describe 'catalog all-field searches for Judith Butler' do
     before(:each) do
-      @result_count = 30
+       
     end
 
     it 'should return full-phrase title/author matches before split-field matches' do
-      pending('until rows param works again')
+      
+      
       eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'Judith Butler', :search_field => 'all_fields', :rows => @result_count, 'solr_url' => solr_url)
       eng.results.should_not be_empty
       # eng.results.size.should equal(@result_count)
       eng.results.each do |result|
-        result.should contain_in_fields("Judith Butler", 'title_display', 'subtitle_display', 'author_display')
+        result.should contain_in_fields(["Butler, Judith", "Judith Butler"], 'title_display', 'subtitle_display', 'author_display') 
       end
     end
   end
@@ -129,27 +134,39 @@ describe 'Spectrum::Engines::Solr' do
   # NEXT-514
   describe 'search for "women physics" in catalog' do
     it 'should return exact matches before stemmed terms' do
-      eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'women physics', :search_field => 'all_fields', 'solr_url' => solr_url)
+      
+      pending('clarity of desired behavior')
+      
+      eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'women physics', :search_field => 'all_fields', 'solr_url' => solr_url, :rows => 100)
       
       # puts "XXXXXXXXXXXX   results.size: #{eng.results.size.to_s}"
-      found_physical = false
+      
+      found_unstemmed = false
+      
       eng.results.each do |result|
         # puts "--"
         # puts result.get('title_display') || 'emtpy-title'
         # puts result.get('subtitle_display') || 'emtpy-subtitle'
-        if (result.get('title_display') && result.get('title_display').match(/physical/i))
-          found_physical = true
+        
+        found_text = result.get('title_display').to_s + " " + result.get('subtitle_display').to_s
+        puts found_text
+        
+        if (found_unstemmed == false \
+            && ( ! found_text.match(/physics/i) || ! found_text.match(/women/i) )
+            )
+            puts "setting unstemmed to true for: " + found_text
+            found_unstemmed = true
         end
-        if (result.get('subtitle_display') && result.get('subtitle_display').match(/physical/i))
-          found_physical = true
+
+        # If I've found any unstemmed, I should not then later see the terms verbatim
+        if (found_unstemmed == true)
+          result.get('title_display').to_s.should_not match(/women.*physics/i)
+          result.get('title_display').to_s.should_not match(/physics.*women/i)
+          result.get('subtitle_display').to_s.should_not match(/women.*physics/i)
+          result.get('subtitle_display').to_s.should_not match(/physics.*women/i)
         end
         
-        if (found_physical && result.get('title_display')) 
-          result.get('title_display').should_not match(/physics/i)
-        end
-        if (found_physical && result.get('subtitle_display')) 
-          result.get('subtitle_display').should_not match(/physics/i)
-        end
+            
       end
     end
   end
@@ -157,7 +174,7 @@ describe 'Spectrum::Engines::Solr' do
   
 #   # NEXT-525
 #    describe 'catalog search for "illustrations 2012" in butler stacks' do
-#      it 'should not return duplicate results', :focus => true do
+#      it 'should not return duplicate results' do
 #        eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'illustrations 2012', :search_field => 'all_fields', :fq => 'location_facet:Butler+Stacks' , 'solr_url' => solr_url)
 #        
 #        # 'f[location_facet][]' => 'Butler+Stacks'

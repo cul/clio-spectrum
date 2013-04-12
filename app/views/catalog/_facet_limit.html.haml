@@ -3,6 +3,16 @@
 
   - if (config && config.respond_to?(:open) && config.open == true) || expand_all_facets?
     %span.selected
+
+
+  - if params[:f_operator] && params[:f_operator][solr_field] == "OR"
+    .or_operator Any of:
+  - excluded_solr_field = "-#{solr_field}"
+  - Array.wrap(params['f'] && params['f'][excluded_solr_field]).each do |value|
+    %li
+      %span.selected
+        NOT #{value}
+        = link_to content_tag(:i, '', :class => "icon-remove") + content_tag(:span, '[remove]', :class => 'hide-text'), remove_facet_params(excluded_solr_field, value, params)
   
   - paginator = Blacklight::Solr::FacetPaginator.new(display_facet.items,  :limit => facet_limit_for(solr_field))
   - paginator.items.each do |item| 

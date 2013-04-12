@@ -1,0 +1,63 @@
+- if @query.has_constraints?
+  #appliedParams.constraints-container
+    %span.constraints-label= t('blacklight.search.filters.title') 
+    = link_to t('blacklight.search.start_over'), url_for(:action=>'index'), :class => "catalog_startOverLink", :id=>"startOverLink" 
+    - unless @query.queries.empty?
+      - constraint_class = @query.multiple_queries? ? "with-dropdown" : ""
+        
+      %div.constraint-box{:class => constraint_class}
+        - if @query.multiple_queries?
+          %span.dropdown
+            %ul.css-dropdown
+              %li
+                #{@query.query_operator_label}
+                %span.caret
+                %ul
+                  - @query.query_operator_change_links.each do |label, link|
+                    %li= link_to label, link
+        - @query.queries.each do |query|
+          - span_class = @query.multiple_queries? ? "inner-dropdown" : ""
+          %span{:class => span_class}
+            - if !@query.multiple_queries? && query[:label] == "All Fields"
+              #{query[:value]}
+            - else
+              #{query[:label]}: #{query[:value]}
+            =link_to content_tag(:i, '', :class => 'icon-remove'), query[:remove]
+        %span.chrome-fix
+          
+
+    - @query.filters.each_pair do |filter_key, filter|
+      %div.constraint-box.with-dropdown
+        #{filter[:label]}:
+        - if filter[:values].length > 1
+          %span.dropdown
+            %ul.css-dropdown
+              %li
+                #{filter[:operator_label]}
+                %span.caret
+                %ul
+                  - filter[:operator_change_links].each do |label, link|
+                    %li= link_to label, link
+
+        - filter[:values].each do |value|
+          - span_class = filter[:values].length > 1 ? "inner-dropdown" : ""
+          %span{:class => span_class}
+            %span.dropdown
+              %ul.css-dropdown
+                %li
+                  #{value[:invert_label]}
+                  %span.caret
+                  %ul
+                    - value[:invert_links].each do |label, link|
+                      %li= link_to label, link
+            = value[:label]
+            =link_to content_tag(:i, '', :class => 'icon-remove'), value[:remove]
+          %span.chrome-fix
+
+    - @query.ranges.each_pair do |range_key, range|
+      %div.constraint-box
+        #{range[:label]}: #{range[:value]} 
+        =link_to content_tag(:i, '', :class => 'icon-remove'), range[:remove]
+
+
+    -#= render_advanced_constraints(params)

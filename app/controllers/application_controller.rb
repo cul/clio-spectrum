@@ -8,20 +8,61 @@ class ApplicationController < ActionController::Base
   check_authorization
   skip_authorization_check
 
+  before_filter :apply_random_q
+  before_filter :trigger_async_mode
   before_filter :trigger_debug_mode
   before_filter :by_source_config
   before_filter :log_additional_data
-
+  before_filter :set_user_characteristics
+  before_filter :condense_advanced_search_params
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
 
+  def apply_random_q
+    if params[:random_q]
+      start = Time.now
+      chosen_line = nil
+      line_to_pick = rand(11917)
+      File.foreach(File.join(Rails.root.to_s, "config", "opac_searches_sorted.txt")).each_with_index do |line, number|
+        chosen_line = line if number == line_to_pick
+      end
+      params['q'] = chosen_line
+      params['s.q'] = chosen_line
+    end
+  end
+
+
+  def condense_advanced_search_params
+    new_hash = {}
+    counter = 1
+    (params['adv'] || {}).each_pair do |i, attrs|
+
+      if attrs && !attrs['field'].to_s.empty? && !attrs['value'].to_s.empty?
+        new_hash[counter.to_s] = attrs
+        counter += 1
+      end
+    end
+    params['adv'] = new_hash
+
+  end
+
+  def set_user_characteristics
+    @user_characteristics = 
+      { 
+        :ip => request.remote_ip,
+        :on_campus => User.on_campus?(request.remote_ip),
+       :authorized => !current_user.nil? || User.on_campus?(request.remote_ip)
+    } 
+    @debug_entries[:user_characteristics] = @user_characteristics
+  end
 
   def set_user_option
     session[:options] ||= {}
     session[:options][params['name']] = params['value']
     render :json => {:success => "Option set."}
   end
+
   def blacklight_search(sent_options = {})
     options = sent_options.deep_clone
     options['source'] = @active_source unless options['source']
@@ -42,19 +83,30 @@ class ApplicationController < ActionController::Base
 
   def look_up_clio_holdings(documents)
     clio_docs = documents.select { |d| d.get('clio_id_display')}
-    
-    begin
-      unless clio_docs.empty? 
-        holdings = Voyager::Request.simple_holdings_check(connection_details: APP_CONFIG['voyager_connection']['oracle'], bibids: clio_docs.collect { |cd| cd.get('clio_id_display')})
-        clio_docs.each do |cd|
-          cd['clio_holdings'] = holdings[cd.get('clio_id_display')]
+
+    if session[:async_off]
+      begin
+        unless clio_docs.empty? 
+          holdings = Voyager::Request.simple_holdings_check(connection_details: APP_CONFIG['voyager_connection']['oracle'], bibids: clio_docs.collect { |cd| cd.get('clio_id_display')})
+          clio_docs.each do |cd|
+            cd['clio_holdings'] = holdings[cd.get('clio_id_display')]
+
+          end
+
         end
+      rescue Exception => e
       end
-    rescue Exception => e
     end
 
   end
 
+  def trigger_async_mode
+    if params.delete('async_off') == 'true'
+      session[:async_off] = true
+    elsif params.delete('async_on') == 'true'
+      session[:async_off] = nil
+    end
+  end
 
 
   def trigger_debug_mode
@@ -126,20 +178,28 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def blacklight_solr(source = @active_source)
+    if self.respond_to?(:blacklight_config) 
+      @blacklight_solrs ||= {}
+      @blacklight_solrs[source] || (@blacklight_solrs[source] = Spectrum::Engines::Solr.generate_rsolr(source))
+    end
+  end
+
+  def blacklight_config(source = @active_source)
+    if self.respond_to?(:blacklight_config) 
+      @blacklight_configs ||= {}
+      @blacklight_configs[source] || (@blacklight_configs[source] = Spectrum::Engines::Solr.generate_config(source))
+    end
+
+  end
 
 
 
   private
-  def configure_search(source)
-    if self.respond_to?(:blacklight_config) 
-      Blacklight.solr = Spectrum::Engines::Solr.generate_rsolr(source) 
-      self.blacklight_config = Spectrum::Engines::Solr.generate_config(source)
-    end
-  end
+
 
   def by_source_config
     @active_source = determine_active_source
-    configure_search(@active_source)
   end
 
 

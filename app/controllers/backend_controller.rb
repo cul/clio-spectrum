@@ -15,18 +15,6 @@ class BackendController < ApplicationController
     render "backend/_holdings_mail", :layout => false
   end
 
-  def feedback_mail
-    session[:feedback_form_name] = params["name"]
-    session[:feedback_form_email] = params["email"]
-    begin
-      FeedbackNotifier.send_feedback(params).deliver
-  
-      render :text => "success"
-    rescue Exception => e
-      logger.info e.backtrace
-      render :text => "failure"
-    end
-  end
 
   def retrieve_book_jackets
     isbns = params["isbns"].listify

@@ -2,6 +2,13 @@
  * CUL LWeb styles and Bootstrap overrides
  * er2576 - LDPD
  ******************************************/
+#feedback_dialog
+{
+    border-radius:5px;
+    border:3px solid #BBBBBB;
+}
+
+
 @font-face {
   font-family: trajanprobold;
   src: asset-url('TrajanPro-Bold.otf', font);
@@ -269,7 +276,8 @@ a.thumbnail:hover {
 }
 #crowndown a.menu,
 #crowndown-nosearch a.menu {
-  background: transparent image-url('ldpd-toolkit/crown-bts-24x24.png') no-repeat 4px 22%;
+  background: transparent image-url('ldpd-toolkit/crown-bts-24x24.png') no-repeat 22%;
+  background-position: 4px 4px;
   padding-right: 4px;
   padding-left: 34px;
   font-size: 110%;

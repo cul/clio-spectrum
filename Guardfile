@@ -2,15 +2,6 @@
 
 
 
-guard 'rails', :port => 3030 do
-  watch('Gemfile.lock')
-  watch('tmp/restart.txt')
-  watch(%r{^(config|lib)/.*})
-end
-
-
-
-
 
 guard 'spork',:rspec_env => { 'RAILS_ENV' => 'test' } do
   watch('config/application.rb')
@@ -21,7 +12,6 @@ guard 'spork',:rspec_env => { 'RAILS_ENV' => 'test' } do
   watch('Gemfile.lock')
   watch('spec/spec_helper.rb') { :rspec }
   watch('test/test_helper.rb') { :test_unit }
-  watch(%r{features/support/}) { :cucumber }
 end
 
 
@@ -51,4 +41,21 @@ guard 'rspec', :cli => "--drb --format progress ", :all_after_pass => false do
   watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$})   { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance' }
 end
 
+
+
+## Sample template for guard-unicorn
+#
+# Usage:
+#     guard :unicorn, <options hash>
+#
+# Possible options:
+# * :daemonize (default is true) - should the Unicorn server start daemonized?
+# * :config_file (default is "config/unicorn.rb") - the path to the unicorn file
+# * :pid_file (default is "tmp/pids/unicorn.pid") - the path to the unicorn pid file
+
+guard 'rails', :port => 3030 do
+  watch('Gemfile.lock')
+  watch('tmp/restart.txt')
+  watch(%r{^(config|lib)/.*})
+end
 

@@ -1,38 +1,42 @@
-.landing_main.span8
+= display_search_boxes('catalog')
 
-  .title Catalog
-
-  %p Search Columbia's catalog of over 7 million items for:
-  %ul
-    %li books
-    %li journals and newspaper titles
-    %li audio and video recordings
-    %li scores
-    %li archival collections
-    %li databases
-    %li government documents
-    %li maps and atlases
-
-  %p From the results page, refine your search by any combination of format, publication date, author, library location, language, subject, acquisition date, or call number.  To view these options before searching, enter a blank search.
-
-  %p To find individual articles, try our #{datasource_switch_link('articles', 'articles')} or #{datasource_switch_link('newspapers', 'newspapers')} search
+.row-fluid
+  .landing_main.span8
 
 
-.landing_side.span4
-  .well.sidebar-nav
-    .nav
-      %ul.nav.nav-list
-        %li.nav-header Guide 
-        %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/catalog-guide/", :target => "_blank"
-        %li.divider
+    .title Catalog
 
-      %ul.nav.nav-list
-        %li.nav-header Other Useful Catalogs 
-        %li= link_to "Course Reserves", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0182"
-        %li= link_to "CLIO Legacy Catalog", "http://clio.cul.columbia.edu:7018/vwebv/searchBasic?sk=CLIO"
-        %li= link_to "WorldCat", "http://www.columbia.edu/cgi-bin/cul/resolve?AMS7418"
-        %li= link_to "Borrow Direct", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0097"
-        %li= link_to "Law Library Catalog", "http://www.columbia.edu/cgi-bin/cul/resolve?AMS8587"
-        %li= link_to "Teachers College Catalog", "http://www.columbia.edu/cgi-bin/cul/resolve?AMS8580"
-        %li= link_to('Spatial Data Catalog', 'http://gis.columbia.edu/data.html')
-        %li= link_to('Numeric Data Catalog', 'http://www.columbia.edu/cgi-bin/cul/resolve?APZ9144')
+    %p Search Columbia's catalog of over 7 million items for:
+    %ul
+      %li books
+      %li journals and newspaper titles
+      %li audio and video recordings
+      %li scores
+      %li archival collections
+      %li databases
+      %li government documents
+      %li maps and atlases
+
+    %p From the results page, refine your search by any combination of format, publication date, author, library location, language, subject, acquisition date, or call number.  To view these options before searching, enter a blank search.
+
+    %p To find individual articles, try our #{datasource_switch_link('articles', 'articles')} or #{datasource_switch_link('newspapers', 'newspapers')} search
+
+
+  .landing_side.span4
+    .well.sidebar-nav
+      .nav
+        %ul.nav.nav-list
+          %li.nav-header Guide 
+          %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/catalog-guide/", :target => "_blank"
+          %li.divider
+
+        %ul.nav.nav-list
+          %li.nav-header Other Useful Catalogs 
+          %li= link_to "Course Reserves", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0182"
+          %li= link_to "CLIO Legacy Catalog", "http://clio.cul.columbia.edu:7018/vwebv/searchBasic?sk=CLIO"
+          %li= link_to "WorldCat", "http://www.columbia.edu/cgi-bin/cul/resolve?AMS7418"
+          %li= link_to "Borrow Direct", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0097"
+          %li= link_to "Law Library Catalog", "http://www.columbia.edu/cgi-bin/cul/resolve?AMS8587"
+          %li= link_to "Teachers College Catalog", "http://www.columbia.edu/cgi-bin/cul/resolve?AMS8580"
+          %li= link_to('Spatial Data Catalog', 'http://gis.columbia.edu/data.html')
+          %li= link_to('Numeric Data Catalog', 'http://www.columbia.edu/cgi-bin/cul/resolve?APZ9144')

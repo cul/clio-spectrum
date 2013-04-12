@@ -1,4 +1,4 @@
-EXTRACTS =  ["new_arrivals", "ejournals", "spectrum", "spectrum_update", "spectrum_special", "databases", "spectrum_subset"]
+EXTRACTS =  ["new_arrivals", "ejournals", "spectrum", "spectrum_update", "spectrum_update_cummulative", "databases", "spectrum_subset", "spectrum_auth"]
 
 namespace :solr do
   desc "clear out solr for a date span"

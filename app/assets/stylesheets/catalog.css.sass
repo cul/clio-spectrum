@@ -1,4 +1,12 @@
 @import "local_mixes"
+.paginate-compact
+  :display inline-block
+  :margin-top 0.25em
+a.rss-feed
+  :margin-left 0.25em
+
+#startOverLink.catalog_startOverLink
+  :padding-top 1em
 .databases_browse_by
   +clearfix
   :clear both
@@ -13,7 +21,8 @@
 
   .search_q
     :position inherit
-
+.advanced_search_button
+  :margin-left 1em
 
 .static-this
   :position static
@@ -21,6 +30,9 @@
   :padding-top 3px
   :padding-bottom 3px
   
+.modal.fade.in
+  :position absolute
+
 @media (min-width: 769px) and (max-width:979px)
   .modal.fade.in
     top: 20% !important
@@ -44,8 +56,21 @@
   h4
     :padding-top 0.5em
     :min-height 1.5em
-#appliedParams
+#appliedParams.constraints-container, .well.well-constraints
   +clearfix
+  :background-color #fff
+  :border none
+  :box-shadow none
+  :padding 0
+
+.advanced_search_row
+  :padding-bottom 0.5em
+
+.advanced_search
+  .title
+    :font-weight bold
+    :font-size 1.1em
+    :padding-bottom 0.5em
 
 #toolbar-container
   :margin-top 1em

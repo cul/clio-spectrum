@@ -2,6 +2,9 @@
 Clio::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  # less logging
+  config.log_level = :warn
+
   config.cache_classes = true
 
   # Log error messages when you accidentally call methods on nil.
@@ -36,5 +39,5 @@ end
 Clio::Application.config.middleware.use ExceptionNotifier,
    :email_prefix => "[Clio Prod] ",
    :sender_address => %{"notifier" <spectrum@libraries.cul.columbia.edu>},
-   :exception_recipients => %w{james.stuart+spectrum_prod@gmail.com},
+   :exception_recipients => %w{marquis@columbia.edu},
    :ignore_crawlers => %w{Googlebot bingbot}

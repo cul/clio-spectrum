@@ -1,37 +1,37 @@
-.landing_main.span8
-  .title Quicksearch
+= display_search_boxes('quicksearch')
 
-  %p Quicksearch performs a combined search of:
-  %ul 
-    %li #{datasource_switch_link('Catalog', 'catalog')} (books, journals, online resources, videos, and more)
-    %li #{datasource_switch_link('Articles', 'articles')} (journal articles, e-books, dissertations, and more)
-    %li #{datasource_switch_link('Academic Commons', 'academic_commons')} (digital repository of Columbia research)
-    %li #{datasource_switch_link('Library website', 'library_web')}
-
-.landing_side.span4
-  .well.sidebar-nav
-    .nav
-      %ul.nav.nav-list
-        %li.nav-header Guide 
-        %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/quicksearch-guide/", :target => "_blank"
-        %li.divider
-
-      %ul.nav.nav-list
-        %li.nav-header Related Links
-        %li=link_to "CLIO Beta Blog ", "https://blogs.cul.columbia.edu/cliobeta/"
 .row-fluid
-  .landing_across.span12
-    .title CLIO News
-    %p We're working on CLIO as fast as we can. Here's an idea what we're working on:
-    %h5 Known issues:
-    %ul
-      %li Help not fully implemented yet. 
-      %li Publication date facet does not work.
-      %li Upper left navigation bar interacts weirdly with search bar at narrow resolutions.
-      %li Holdings on item-level page is slow (will improve with Voyager 8 launch)
+  .landing_main.span8
+    .title Quicksearch
 
-
-    %h5 Upcoming features (for January):
+    %p Quicksearch performs a combined search of:
     %ul 
-      %li Advanced Search
-      %li Saved Items/Bookbag
+      %li #{datasource_switch_link('Catalog', 'catalog')} (books, journals, online resources, videos, and more)
+      %li #{datasource_switch_link('Articles', 'articles')} (journal articles, e-books, dissertations, and more)
+      %li #{datasource_switch_link('Academic Commons', 'academic_commons')} (digital repository of Columbia research)
+      %li #{datasource_switch_link('Library website', 'library_web')}
+
+  .landing_side.span4
+    .well.sidebar-nav
+      .nav
+        %ul.nav.nav-list
+          %li.nav-header Guide 
+          %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/quicksearch-guide/", :target => "_blank"
+          %li.divider
+
+        %ul.nav.nav-list
+          %li.nav-header Related Links
+          %li=link_to "CLIO Beta Blog ", "https://blogs.cul.columbia.edu/cliobeta/"
+.row-fluid
+  -#.landing_across.span12
+    -#.title CLIO News
+    -#%p We're working on CLIO as fast as we can. Here's an idea what we're working on:
+    -#%h5 Known issues:
+    -#%ul
+      -#%li Help not fully implemented yet. 
+      -#%li Upper left navigation bar interacts weirdly with search bar at narrow resolutions.
+
+
+    -#%h5 Upcoming features (for January):
+    -#%ul 
+      -#%li Saved Items/Bookbag

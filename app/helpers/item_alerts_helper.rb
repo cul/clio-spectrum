@@ -1,2 +1,0 @@
-module ItemAlertsHelper
-end

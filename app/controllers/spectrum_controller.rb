@@ -21,13 +21,49 @@ class SpectrumController < ApplicationController
         @has_facets = @search_layout['has_facets']
         categories =  @search_layout['columns'].collect { |col| col['searches'].collect { |item| item['source'] }}.flatten
 
-        @results = get_results(categories)
+        @action_has_async = true if @search_style == 'aggregate'
+
+        if @search_style == 'aggregate' && !session[:async_off]
+          @action_has_async = true
+          @results = {}
+          categories.each { |source| @results[source] = {} }
+        else
+
+          @results = get_results(categories)
+        end
 
       end
+
+    @show_landing_pages = true if @results.empty?
   end
+
+
+  def fetch
+
+    @search_layout = SEARCHES_CONFIG['layouts'][params[:layout]]
+    
+    @datasource = params[:datasource]
+
+    if @search_layout.nil?
+      render :text => "Search layout invalid."
+    else
+      @fetch_action = true
+      @search_style = @search_layout['style']
+      @has_facets = @search_layout['has_facets']
+      categories =  @search_layout['columns'].collect { |col| col['searches'].collect { |item| item['source'] }}.flatten.select { |source| source == @datasource }
+
+      @results = get_results(categories)
+      render 'fetch', layout: 'js_return'
+
+    end
+
+
+  end
+
   private
 
   def fix_articles_params(param_list)
+    param_list['authorized'] = @user_characteristics[:authorized] 
     if param_list['q']
       param_list['s.q'] ||= param_list['q']
       session['search']['s.q'] = param_list['q'] 

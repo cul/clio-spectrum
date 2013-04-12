@@ -1,6 +1,31 @@
-
-
 root = exports ? this
+
+root.after_document_load = (element) ->
+  $("a[rel='popover']").popover()
+  fedora_items = []
+  catalog_items = []
+  google_items = []
+  $(element).find('.result').each ->
+    res = $(this)
+    source = res.attr('source')
+    item = res.attr('item_id')
+
+    if source == 'academic_commons'
+      fedora_items.push(item)
+    else if source == 'catalog'
+      catalog_items.push(item)
+      google_items.push.apply(google_items, res.attr('google_ids').split(","))
+
+  if fedora_items.length
+    retrieve_fedora_resources(fedora_items)
+   
+  if catalog_items.length
+    retrieve_holdings(catalog_items)
+   
+  if google_items.length
+    retrieve_google_jackets(google_items)
+
+
 root.load_clio_holdings = (id) -> 
   $("span.holding_spinner").show
   $("#clio_holdings .holdings_error").hide
@@ -40,13 +65,83 @@ root.retrieve_fedora_resources = (fedora_ids) ->
 
 
 root.retrieve_holdings = (bibids) ->
-  url = 'http://rossini.cul.columbia.edu/voyager_backend/holdings/retrieve/' + bibids.join('/');
+  url = 'http://rossini.cul.columbia.edu/voyager_backend/holdings/status/' + bibids.join('/');
   
 
   $.getJSON url, (data) -> 
     for bib, holdings of data
-      for i, holding of data[bib].condensed_holdings_full
-        for j, holding_id of holding.holding_id
-          selector = "img.availability.holding_" + holding_id
-          $(selector).attr("src", "/assets/icons/"+holding.status+".png")
+      for holding_id, status of data[bib].statuses
+        selector = "img.availability.holding_" + holding_id
+        $(selector).attr("src", "/assets/icons/"+ status+".png")
+
+
+
+
+root.update_book_jackets = (isbns, data) ->
+  for index of isbns
+    isbn = isbns[index]
+    isbn_name = isbn.replace(/:/, "")
+    selector = $("img.bookjacket[src*='assets/spacer'].id_" + isbn_name)
+    isbn_data = data[isbn]
+
+    if selector.length > 0 and isbn_data
+      selector.parents("#show_cover").show()
+      gbs_cover = selector.parents(".gbs_cover")
+    
+      if isbn_data.thumbnail_url
+        selector.attr "src", isbn_data.thumbnail_url.replace(/zoom\=5/, "zoom=1")
+        selector.parents(".book_cover").find(".fake_cover").hide()
+        gbs_cover.show()
+      
+      $("li.gbs_info").show()
+      $("a.gbs_info_link").attr "href", isbn_data.info_url
+      
+      unless isbn_data.preview is "noview"
+        gbs_cover.find(".gbs_preview").show()
+        gbs_cover.find(".gbs_preview_link").attr "href", isbn_data.preview_url
+      
+        search_form = gbs_cover.find(".gbs_search_form")
+        search_form.show()
+        
+        find_id = new RegExp("[&?]id=([^&(.+)=]*)").exec(isbn_data.preview_url)
+        strip_querystring = new RegExp("^[^?]+").exec(isbn_data.preview_url)
+        
+        if find_id and strip_querystring
+          search_form.attr("action", strip_querystring[0]).show()
+          search_form.find("input[name=id]").attr "value", find_id[1]
+        
+        gbs_cover.find(".gbs_preview_partial").show()  if isbn_data.preview is "partial"
+        gbs_cover.find(".gbs_preview_full").show()  if isbn_data.preview is "full"
+
+root.retrieve_google_jackets = (ids) ->
+  isbns = []
+  for id in ids
+    if id.indexOf('isbn') != -1
+      isbns.push(id)
+
+
+  if isbns.length
+    base_url = "https://www.googleapis.com/books/v1/volumes?q=" + isbns.join(" OR ")
+    $.getJSON(base_url, (data) -> 
+      for item in data.items
+        foundId = false
+        for indId in item.volumeInfo.industryIdentifiers
+          if isbns.indexOf('isbn:' + indId.identifier) != -1
+            foundId = true
+
+
+
+        if foundId && item.volumeInfo.imageLinks
+          thumbnail = item.volumeInfo.imageLinks.thumbnail
+          for indId in item.volumeInfo.industryIdentifiers
+            $('img.bookjacket.id_isbn' + indId.identifier).attr('src', thumbnail)
+          
+    )
+  
+
+
+
+$ -> 
+  after_document_load($('#page'))
+
 

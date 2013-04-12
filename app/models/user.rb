@@ -1,3 +1,5 @@
+require 'ipaddr'
+
 class User < ActiveRecord::Base
   include Devise::Models::DatabaseAuthenticatable
 
@@ -18,6 +20,15 @@ class User < ActiveRecord::Base
   before_validation(:generate_password, :on => :create) 
   before_create :set_personal_info_via_ldap
   
+
+  COLUMBIA_IP_RANGES = ["128.59.0.0/16", "129.236.0.0/16", "156.111.0.0/16", "156.145.0.0/16", "160.39.0.0/16", "129.12.82.0/24", "192.5.43.0/24", (IPAddr.new("207.10.136.0/24")...IPAddr.new("207.10.144.0/24")), "209.2.47.0/24", (IPAddr.new("209.2.48.0/24")...IPAddr.new("209.2.52.0/24")), "209.2.185.0/24", (IPAddr.new("209.2.208.0/24")...IPAddr.new("209.2.224.0/24")), (IPAddr.new("209.2.224.0/24")...IPAddr.new("209.2.240.0/24")), "127.0.0.1"]
+
+
+  def self.on_campus?(ip_addr)
+    COLUMBIA_IP_RANGES.any? { |ir| ir.kind_of?(Range) ? ir.include?(ip_addr) : IPAddr.new(ir) === ip_addr }
+  end
+
+
 
   def has_role?(area, role, admin_okay = true)
     self.login.in?(PERMISSIONS_CONFIG[area][role]) || (admin_okay && self.login.in?(PERMISSIONS_CONFIG['site']['manage']))

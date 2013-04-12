@@ -1,24 +1,27 @@
-.landing_main.span8
-  .title E-Journal Titles
+= display_search_boxes('journals')
 
-  %p Search e-journal titles and descriptions.
-  -#%p To find an e-journal by ISSN, enclose
-  %p If you don't find the e-journal you need, try a journal title search in the #{datasource_switch_link('catalog', 'catalog')}
+.row-fluid
+  .landing_main.span8
+    .title E-Journal Titles
+
+    %p Search e-journal titles and descriptions.
+    -#%p To find an e-journal by ISSN, enclose
+    %p If you don't find the e-journal you need, try a journal title search in the #{datasource_switch_link('catalog', 'catalog')}
 
 
-  %p Looking for our old e-journals search? Try the (e-journals portal)
-  %p To find journal articles by title or subject, try our #{datasource_switch_link('articles', 'articles')} search or #{link_to 'Google Scholar', 'http://scholar.google.com/'}
+    %p Looking for our old e-journals search? Try the (e-journals portal)
+    %p To find journal articles by title or subject, try our #{datasource_switch_link('articles', 'articles')} search or #{link_to 'Google Scholar', 'http://scholar.google.com/'}
 
-.landing_side.span4
-  .well.sidebar-nav
-    .nav
-      %ul.nav.nav-list
-        %li.nav-header Guide 
-        %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/ejournals-guide/", :target => "_blank"
-        %li.divider
+  .landing_side.span4
+    .well.sidebar-nav
+      .nav
+        %ul.nav.nav-list
+          %li.nav-header Guide 
+          %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/ejournals-guide/", :target => "_blank"
+          %li.divider
 
-      %ul.nav.nav-list
-        %li.nav-header Related Links
-        %li= link_to "Google Scholar", "http://scholar.google.com/"
-        %li= link_to "Citation Finder", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0049"
+        %ul.nav.nav-list
+          %li.nav-header Related Links
+          %li= link_to "Google Scholar", "http://scholar.google.com/"
+          %li= link_to "Citation Finder", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0049"
 

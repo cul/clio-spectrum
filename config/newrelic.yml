@@ -3,9 +3,9 @@
 # Ruby, Java, .NET, PHP, and Python applications with deep visibility and low overhead.
 # For more information, visit www.newrelic.com.
 #
-# Generated April 24, 2012
+# Generated February 07, 2013
 #
-# This configuration file is custom generated for Columbia University_3
+# This configuration file is custom generated for Columbia University_9
 
 # Here are the settings that are common to all environments:
 common: &default_settings
@@ -14,6 +14,7 @@ common: &default_settings
   # You must specify the license key associated with your New Relic
   # account.  This key binds your Agent's data to your account in the
   # New Relic service.
+#  license_key: '0f8e5fe10efab9b6352f2dafddb2ff63f822acc5'
   license_key: '5fd04c22863877d4d20a21a4a4a90d6f05002e48'
   
   # Agent Enabled (Ruby/Rails Only)
@@ -33,7 +34,7 @@ common: &default_settings
   # "All UI" then specify a semicolon-separated list of up to three
   # distinct names.  If you comment this out, it defaults to the 
   # capitalized RAILS_ENV (i.e., Production, Staging, etc)
-  app_name: CLIOBeta 
+  app_name: CLIObeta
 
   # When "true", the agent collects performance data about your 
   # application and reports this data to the New Relic service at
@@ -69,17 +70,6 @@ common: &default_settings
   # use a non-blocking lookup, so in a worst case, if you have DNS
   # problems, your app may block indefinitely.
   # verify_certificate: true
-  
-  # Set your application's Apdex threshold value with the 'apdex_t'
-  # setting, in seconds. The apdex_t value determines the buckets used
-  # to compute your overall Apdex score. 
-  # Requests that take less than apdex_t seconds to process will be
-  # classified as Satisfying transactions; more than apdex_t seconds
-  # as Tolerating transactions; and more than four times the apdex_t
-  # value as Frustrating transactions. 
-  # For more about the Apdex standard, see
-  # http://newrelic.com/docs/general/apdex
-  apdex_t: 0.5
 
   # Proxy settings for connecting to the New Relic server.
   #
@@ -90,6 +80,13 @@ common: &default_settings
   # proxy_port: 8080
   # proxy_user:
   # proxy_pass:
+
+  # The agent can optionally log all data it sends to New Relic servers to a
+  # separate log file for human inspection and auditing purposes. To enable this
+  # feature, change 'enabled' below to true.
+  # See: https://newrelic.com/docs/ruby/audit-log
+  audit_log:
+    enabled: false
 
   # Tells transaction tracer and error collector (when enabled)
   # whether or not to capture HTTP params.  When true, frameworks can
@@ -192,7 +189,7 @@ development:
   # 'enabled').
   # NOTE: for initial evaluation purposes, you may want to temporarily 
   # turn agent communication on in development mode.
-  monitor_mode: false
+  monitor_mode: true
 
   # Rails Only - when running in Developer Mode, the New Relic Agent will 
   # present performance information on the last 100 transactions you have
@@ -210,25 +207,24 @@ test:
   # unit, functional or integration tests or the like.
   monitor_mode: false
 
-clio_prod:
+clio_dev:
   <<: *default_settings
   monitor_mode: true
+  app_name: CLIOBeta Dev
+
 # Turn on the agent in production for 24x7 monitoring.  New Relic
 # testing shows an average performance impact of < 5 ms per
 # transaction, so you can leave this on all the time without
 # incurring any user-visible performance degradation.
-#
-#
 clio_test:
   <<: *default_settings
   monitor_mode: true
-  app_name: CLIO Test
+  app_name: CLIOBeta Test
 
 # Many applications have a staging environment which behaves
 # identically to production.  Support for that environment is provided
 # here.  By default, the staging environment has the agent turned on.
-clio_dev:
+clio_prod:
   <<: *default_settings
   monitor_mode: true
-  app_name: CLIO Dev
-
+  app_name: CLIOBeta Prod

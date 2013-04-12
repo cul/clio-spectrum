@@ -1,21 +1,18 @@
 source 'http://rubygems.org'
-gem 'rails', '3.2.11'
-
+gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
+gem 'thin'
 
-gem 'blacklight', :git => 'git://github.com/projectblacklight/blacklight.git', :branch => 'master'
-# gem 'blacklight', :path => "~/code/blacklight"
-# gem 'blacklight', "~> 4.0.0" 
-gem 'blacklight_range_limit', "~> 2.0.0" 
+gem 'blacklight', '>= 4.2.0'
+ gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
 gem 'blacklight_google_analytics'
 gem 'blacklight_unapi', ">= 0.0.3" 
 gem 'json'
 
-#gem 'voyager_oracle_api', :path => "~/code/voyager_oracle_api"
 
 gem 'voyager_oracle_api', ">= 1.1.1"
 gem 'restful_voyage', :git => "git://github.com/cul/restful_voyage.git", :branch => "master"
@@ -48,7 +45,6 @@ gem 'devise'
 gem 'devise-encryptable'
 gem 'devise_wind'
 #
-# gem 'blacklight_advanced_search',:git => 'https://github.com/projectblacklight/blacklight_advanced_search.git
 
 gem 'compass-rails'
 
@@ -60,9 +56,10 @@ group :assets do
   gem 'uglifier', '>=1.0.3'
   gem 'bootstrap-sass', '~>2.1'
   gem 'compass-rails'
+  gem 'iced-rails'
 end
 
-
+gem 'newrelic_rpm'
 
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
@@ -86,12 +83,17 @@ end
 #   gem 'webrat'
 # end
 group :development do
-  gem 'thin'
+  gem 'hooves'
+  gem 'guard-rails'
+  gem 'unicorn'
   #gem 'linecache19', '0.5.13'
   #gem 'ruby-debug-base19', '0.11.26'
   #gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'capistrano'
   gem 'capistrano-ext'
+  gem 'quiet_assets'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test, :development do 
@@ -103,11 +105,9 @@ group :test, :development do
 end
 
 group :test do
-  gem 'rb-readline'
   gem 'factory_girl_rails'
   gem 'spork', '~>1.0.0.rc2'
   gem 'guard'
-  gem 'guard-rails'
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'rspec-rails'

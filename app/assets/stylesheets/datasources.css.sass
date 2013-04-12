@@ -1,0 +1,52 @@
+
+#datasources
+  :margin 0em 0em 2em 0
+  margin-right: 0
+  li
+    :list-style none
+    background: inherit
+    color: #111
+    :font-size 1.1em
+    :padding .5em 1em .5em .75em
+
+    &.datasource_link:hover
+
+    a
+      color: #111
+      display: inline-block
+      width: 100%
+      :border-bottom none
+
+    &.title
+      font-weight: bold
+      font-size: 1.4em
+      text-transform: lowercase
+      font-variant: small-caps
+      color: #888
+
+    &.hover
+      :background #f0f0f0 asset_url("ds_pointer.png",image) no-repeat center right
+
+    &.selected, &.selected.hover
+      background: #e3e8f1 asset_url("ds_pointer.png",image) no-repeat center right
+      border-left: 5px solid gold
+      a
+        margin-left: -3px 
+        font-weight: bold
+
+    &.subsource
+      margin-left: 1.5em
+
+    a:hover
+      :text-decoration none
+
+.datasource_select
+  @extend .visible-phone
+  :padding-bottom 1em
+
+  select
+    :width 12em
+
+ul#expanded_datasources
+  :margin 0
+  :display none

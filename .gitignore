@@ -19,13 +19,11 @@ doc/api
 doc/app
 doc/plugins
 doc/*.dot
-#jetty/
-jetty/logs/*
-jetty/solr/*data/*
-jetty/solr/*/data
+jetty/
 coverage/*
 db/*.sqlite3
 *.tmproj
+*.ruby-version*
 *.rvmrc*
 *.sw?
 .sass-cache/**/*

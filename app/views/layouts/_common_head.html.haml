@@ -4,12 +4,9 @@
 = csrf_meta_tag
 %link{:rel => "shortcut icon", :href => image_path("favicon-crown.png"), :type => "image/x-icon"}/
 %link{:rel => 'unapi-server', :title => 'unAPI', :type => 'application/xml', :href => unapi_url}
-%script{:src => "https://www.google.com/jsapi", :type => "text/javascript"}
 
-= javascript_tag "var RAILS_ROOT = '#{APP_CONFIG['relative_url_root']}';"
 = stylesheet_link_tag "application", :media => 'all'
 = javascript_include_tag "application"
-= javascript_tag "google.load('books','0')"
 = yield(:jstemplates)
 - if BlacklightGoogleAnalytics.web_property_id 
   :javascript

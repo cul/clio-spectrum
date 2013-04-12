@@ -1,5 +1,5 @@
 / container for a single doc 
-.document.result{:class => render_document_class(document) }
+.result.document{class: render_document_class(document), source: 'catalog', item_id: document.get(:id), google_ids: extract_google_bibkeys(document).join(",")}
     
   %abbr.unapi-id{:title => document[:id]}
   .title= link_to_source_document document, :label=> document_full_title(document),  :counter => counter
@@ -11,4 +11,4 @@
     = render :partial => "/_formats/database/catalog_list_details", :locals => {:document => document}
   
   .doc_bookjacket
-    =image_tag("spacer.png", :class => "list_view bookjacket " + document["isbn_txt"].listify.collect { |x| "isbn_" + x.to_s}.join(" "))
+    =image_tag("spacer.png", :class => "list_view bookjacket " + document["isbn_display"].listify.collect { |x| "id_" + x.to_s}.join(" "))

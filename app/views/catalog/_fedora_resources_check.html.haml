@@ -1,9 +1,0 @@
-- ids_to_check = documents.listify.collect { |doc| "'#{doc['id'].listify.first.to_s}'" }
-
-- content_for :jstemplates do
-  :javascript
-    $(document).ready ( function () {
-      retrieve_fedora_resources([#{ids_to_check.join(",")}]);
-      
-
-    })

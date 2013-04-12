@@ -1,80 +1,104 @@
-= render :partial => "/help_modal"
-%header
-  %h1.hide CUL - Header
-  #topnavbar.navbar.navbar-fixed-top
-    .navbar-inner.fill
-      #navbar-container.container-fluid
-        .row-fluid
-          %nav
-            #cul_top-nosearch.span12
-              .row-fluid
-                .span12
-                  %ul#crowndown-nosearch.nav.pull-left
-                    %li.dropdown.menu
-                      %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#", :title => "Links @ Columbia"}
-                        %span.topbarlogo
-                          %span.visible-phone CLIO
-                          %span.hidden-phone Columbia University Libraries
-                          %b.caret
-                      %ul.dropdown-menu.menu-dropdown
-                        %li
-                          %a{:href => "http://columbia.edu"} Columbia University - Home
-                        %li
-                          %a{:href => "http://library.columbia.edu"} Libraries - Home
-                        %li.divider
-                        %li
-                          %a{:href => "http://hours.library.columbia.edu/"}
-                            %i.icon-time.icon-white
-                            Library Hours
-                        %li
-                          %a{:href => "http://library.columbia.edu/services/askalibrarian.html"}
-                            %i.icon-question-sign.icon-white
-                            Ask a Librarian
-                        %li
-                          %a{:href => "https://alumni-friends.library.columbia.edu/"}
-                            %i.icon-heart.icon-white
-                            Alumni & Friends
-                        %li
-                          %a{:href => "http://library.columbia.edu/services/jobs.html"}
-                            %i.icon-briefcase.icon-white
-                            Job Seekers
-                        %li
-                          %a{:href => "http://library.columbia.edu/services/lio/access.html"}
-                            %i.icon-plane.icon-white
-                            Visitors
-                        %li.divider
-                        %li
-                          %a{:href => "http://library.columbia.edu/services/faq.html"}
-                            %i.icon-info-sign.icon-white
-                            FAQ
-                        %li
-                          %a{:href => "http://library.columbia.edu/help.html"}
-                            %i.icon-flag.icon-white
-                            Help
-                        %li.divider
-                        %li
-                          %a{:href => "http://library.columbia.edu/help/suggestions.html", :title => ""} Suggestions/Feedback
-                  %ul.nav.pull-right
-                    - if current_user
+- cache("top_navigation_bar_#{current_user}") do
+  %header
+    %h1.hide CUL - Header
+    #topnavbar.navbar.navbar-fixed-top
+      .navbar-inner.fill
+        #navbar-container.container-fluid
+          .row-fluid
+            %nav
+              #cul_top-nosearch.span12
+                .row-fluid
+                  .span12
+                    %ul#crowndown-nosearch.nav.pull-left
                       %li.dropdown.menu
-                        %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#"}
-                          %span.visible-phone 
-                            #{current_user.login}
-                            %b.caret
-                          %span.hidden-phone 
-                            #{current_user.name} (#{current_user.login})
+                        %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#", :title => "Links @ Columbia"}
+                          %span.topbarlogo
+                            %span.visible-phone CLIO
+                            %span.hidden-phone 
+                              =image_tag "ldpd-toolkit/crown-bts-24x24.png", :alt => "CU"
+                              Columbia University Libraries
                             %b.caret
                         %ul.dropdown-menu.menu-dropdown
-                          %li= link_to "Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087"
-                          %li= link_to "Logout", destroy_user_session_path, :method => :delete 
-                    - else
+                          %li
+                            %a{:href => "http://columbia.edu"} Columbia University - Home
+                          %li
+                            %a{:href => "http://library.columbia.edu"} Libraries - Home
+                          %li.divider
+                          %li
+                            %a{:href => "http://hours.library.columbia.edu/"}
+                              %i.icon-time.icon-white
+                              Library Hours
+                          %li
+                            %a{:href => "http://library.columbia.edu/services/askalibrarian.html"}
+                              %i.icon-question-sign.icon-white
+                              Ask a Librarian
+                          %li
+                            %a{:href => "https://alumni-friends.library.columbia.edu/"}
+                              %i.icon-heart.icon-white
+                              Alumni & Friends
+                          %li
+                            %a{:href => "http://library.columbia.edu/services/jobs.html"}
+                              %i.icon-briefcase.icon-white
+                              Job Seekers
+                          %li
+                            %a{:href => "http://library.columbia.edu/services/lio/access.html"}
+                              %i.icon-plane.icon-white
+                              Visitors
+                          %li.divider
+                          %li
+                            %a{:href => "http://library.columbia.edu/services/faq.html"}
+                              %i.icon-info-sign.icon-white
+                              FAQ
+                          %li
+                            %a{:href => "http://library.columbia.edu/help.html"}
+                              %i.icon-flag.icon-white
+                              Help
+                          %li.divider
+                          %li
+                            %a{:href => "http://library.columbia.edu/help/suggestions.html", :title => ""} Suggestions/Feedback
+                    %ul.nav.pull-right
+                      - if current_user
+                        %li.dropdown.menu
+                          %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#"}
+                            %span.visible-phone 
+                              #{current_user.login}
+                              %b.caret
+                            %span.hidden-phone 
+                              #{current_user.name} (#{current_user.login})
+                              %b.caret
+                          %ul.dropdown-menu.menu-dropdown
+                            %li= link_to "Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087"
+                            %li= link_to "Logout", destroy_user_session_path, :method => :delete 
+                      - else
+                        %li.dropdown.menu
+                          %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#"}
+                            %span.hidden-phone
+                              My Library Account
+                              %b.caret
+                            %span.visible-phone
+                              My Account
+                              %b.caret
+                          %ul.dropdown-menu.menu-dropdown
+                            %li= link_to "Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087"
+                            %li= link_to "Login", new_user_session_path
+                      
                       %li.dropdown.menu
-                        %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#"}
-                          My Account
+                        %a.dropdown-toggle.menu(data-toggle="dropdown" href="#")
+                          Help
                           %b.caret
                         %ul.dropdown-menu.menu-dropdown
-                          %li= link_to "Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087"
-                          %li= link_to "Login", new_user_session_path
-                    
-                    %li.hidden-phone
-                      %a.help-button(data-toggle="modal" href="#helpModal") Feedback / Help
+                          %li
+                            %a{href: 'http://preview-library.cul.columbia.edu/content/libraryweb/help/faq.html'} FAQ
+                          %li
+                            %a{href: 'http://preview-library.cul.columbia.edu/content/libraryweb/help/using-this-site.html'} Website Help
+                          %li
+                            %a{href: 'http://preview-library.cul.columbia.edu/content/libraryweb/research/help.html'} Research Help
+                          %li
+                            %a{href: 'http://preview-library.cul.columbia.edu/content/libraryweb/find/clio.html'} CLIO Help
+                          %li
+                            %a{href: 'http://www.columbia.edu/cgi-bin/cul/resolve?lweb0006'} Report E-Resource Problems
+                          %li
+                            %a{href: '#', class: 'feedback-popup'} Suggestions & Feedback
+                          %li
+                            %a{href: 'http://preview-library.cul.columbia.edu/content/libraryweb/site-index.html'} Site Index
+
