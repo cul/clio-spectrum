@@ -1,6 +1,7 @@
 root = exports ? this
 
 root.after_document_load = (element) ->
+  $("a[rel='popover']").popover()
   fedora_items = []
   catalog_items = []
   google_items = []
@@ -20,9 +21,9 @@ root.after_document_load = (element) ->
    
   if catalog_items.length
     retrieve_holdings(catalog_items)
-
-  #console.log?(catalog_items)
-  #console.log?(google_items)
+   
+  if google_items.length
+    retrieve_google_jackets(google_items)
 
 
 root.load_clio_holdings = (id) -> 
@@ -80,7 +81,7 @@ root.update_book_jackets = (isbns, data) ->
   for index of isbns
     isbn = isbns[index]
     isbn_name = isbn.replace(/:/, "")
-    selector = $("img.bookjacket[src*='assets/spacer'].isbn_" + isbn_name)
+    selector = $("img.bookjacket[src*='assets/spacer'].id_" + isbn_name)
     isbn_data = data[isbn]
 
     if selector.length > 0 and isbn_data
@@ -112,6 +113,35 @@ root.update_book_jackets = (isbns, data) ->
         gbs_cover.find(".gbs_preview_partial").show()  if isbn_data.preview is "partial"
         gbs_cover.find(".gbs_preview_full").show()  if isbn_data.preview is "full"
 
+root.retrieve_google_jackets = (ids) ->
+  isbns = []
+  for id in ids
+    if id.indexOf('isbn') != -1
+      isbns.push(id)
+
+
+  if isbns.length
+    base_url = "https://www.googleapis.com/books/v1/volumes?q=" + isbns.join(" OR ")
+    $.getJSON(base_url, (data) -> 
+      for item in data.items
+        foundId = false
+        for indId in item.volumeInfo.industryIdentifiers
+          if isbns.indexOf('isbn:' + indId.identifier) != -1
+            foundId = true
+
+
+
+        if foundId && item.volumeInfo.imageLinks
+          thumbnail = item.volumeInfo.imageLinks.thumbnail
+          for indId in item.volumeInfo.industryIdentifiers
+            $('img.bookjacket.id_isbn' + indId.identifier).attr('src', thumbnail)
+          
+    )
+  
+
+
+
 $ -> 
   after_document_load($('#page'))
+
 

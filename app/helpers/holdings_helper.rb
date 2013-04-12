@@ -147,19 +147,19 @@ module HoldingsHelper
     
     bibkeys = []
     
-    unless document["isbn_display"].nil?
-      bibkeys << document["isbn_display"]
+    unless document["isbn_txt"].nil?
+      bibkeys << Array.wrap(document["isbn_txt"]).collect { |isbn| "isbn:" + isbn}.uniq
     end
     
     unless document["oclc_display"].nil?
-      bibkeys << document["oclc_display"].collect { |oclc| "OCLC:" + oclc.gsub(/^oc[mn]/,"") }.uniq
+      bibkeys << document["oclc_display"].collect { |oclc| "oclc:" + oclc.gsub(/^oc[mn]/,"") }.uniq
     end
     
     unless document["lccn_display"].nil?
-      bibkeys << document["lccn_display"].collect { |lccn| "LCCN:" + lccn.gsub(/\s/,"").gsub(/\/.+$/,"") }
+      bibkeys << document["lccn_display"].collect { |lccn| "lccn:" + lccn.gsub(/\s/,"").gsub(/\/.+$/,"") }
     end
     
-    bibkeys.flatten
+    bibkeys.flatten.compact
 
   end
 
