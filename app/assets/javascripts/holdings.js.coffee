@@ -18,7 +18,7 @@ root.after_document_load = (element) ->
   if fedora_items.length
     retrieve_fedora_resources(fedora_items)
    
-  if catalog_items
+  if catalog_items.length
     retrieve_holdings(catalog_items)
 
   #console.log?(catalog_items)
