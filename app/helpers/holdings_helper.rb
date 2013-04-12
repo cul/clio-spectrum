@@ -147,8 +147,8 @@ module HoldingsHelper
     
     bibkeys = []
     
-    unless document["isbn_txt"].nil?
-      bibkeys << Array.wrap(document["isbn_txt"]).collect { |isbn| "isbn:" + isbn}.uniq
+    unless document["isbn_display"].nil?
+      bibkeys << Array.wrap(document["isbn_display"]).collect { |isbn| "isbn:" + isbn}.uniq
     end
     
     unless document["oclc_display"].nil?
