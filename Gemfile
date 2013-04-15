@@ -14,8 +14,8 @@ gem 'blacklight_unapi', ">= 0.0.3"
 gem 'json'
 
 gem 'voyager_oracle_api', ">= 1.1.1"
-gem 'restful_voyage', :path => "~/code/restful_voyage"
-#gem 'restful_voyage', :git => "git://github.com/cul/restful_voyage.git", :branch => "master"
+#gem 'restful_voyage', :path => "~/code/restful_voyage"
+gem 'restful_voyage', :git => "git://github.com/cul/restful_voyage.git", :branch => "master"
 gem 'nori'
 
 
