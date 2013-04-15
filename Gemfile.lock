@@ -1,7 +1,15 @@
 GIT
-  remote: git://github.com/cul/restful_voyage.git
-  revision: 4f46cc80c453090dbd93234541b0914ddbfbe86c
+  remote: git://github.com/projectblacklight/blacklight_range_limit.git
+  revision: e617529a68f06ec84bb1866d71930376cd75bc0a
   branch: master
+  specs:
+    blacklight_range_limit (2.0.1)
+      blacklight (~> 4.0)
+      jquery-rails
+      rails (~> 3.0)
+
+PATH
+  remote: ~/code/restful_voyage
   specs:
     restful_voyage (0.1.0)
       activesupport
@@ -11,16 +19,6 @@ GIT
       nokogiri
       ruby-oci8
       voyager_oracle_api (>= 1.1.0)
-
-GIT
-  remote: git://github.com/projectblacklight/blacklight_range_limit.git
-  revision: e617529a68f06ec84bb1866d71930376cd75bc0a
-  branch: master
-  specs:
-    blacklight_range_limit (2.0.1)
-      blacklight (~> 4.0)
-      jquery-rails
-      rails (~> 3.0)
 
 GEM
   remote: http://rubygems.org/
@@ -213,6 +211,7 @@ GEM
       net-ssh (>= 2.6.5)
     newrelic_rpm (3.6.0.83)
     nokogiri (1.5.9)
+    nori (2.0.4)
     orm_adapter (0.4.0)
     polyglot (0.3.3)
     pry (0.9.12)
@@ -359,6 +358,7 @@ DEPENDENCIES
   net-ldap
   newrelic_rpm
   nokogiri
+  nori
   quiet_assets
   rails (= 3.2.13)
   rb-fsevent
