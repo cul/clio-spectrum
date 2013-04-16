@@ -1,5 +1,5 @@
 set :default_stage, "clio_dev"
-set :stages, %w(clio_dev clio_test clio_prod)
+set :stages, %w(clio_dev clio_test clio_prod clio_new_prod)
 
 require 'capistrano/ext/multistage'
 require 'bundler/capistrano'

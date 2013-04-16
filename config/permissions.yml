@@ -2,6 +2,7 @@ site:
   manage:
     - jws2135
     - sam119
+    - gb8
 
 item_alerts:
   manage:
