@@ -1,6 +1,13 @@
 require 'spec_helper'
 
-describe "All of the datasources should successfully display results" do
+describe "All datasource labels should display on home-page" do
+  it "including Library Web site" do
+    visit root_path
+    find('#datasources').should have_text("Library Web site")
+  end
+end
+
+describe "All of the datasources should successfully display results", :js => true do
   it "including quicksearch" do
     visit quicksearch_index_path('q' => 'test')
     page.should have_css(".result_set", :count => 4)
