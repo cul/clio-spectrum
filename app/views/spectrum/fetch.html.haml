@@ -5,7 +5,7 @@
     - if result
       - source = SEARCHES_CONFIG['sources'][search['source']]
 
-      .result_set
+      .nested_result_set
         = render partial: "/spectrum/aggregate/result_header", locals: {result: result, title: source['title'], description: source['description']}
         = render partial: "/spectrum/aggregate/result_docs", locals: {result: result, render_opts: search_render_options(search, source), row_opts: search['row_opts']}
         - if search['display_footer']

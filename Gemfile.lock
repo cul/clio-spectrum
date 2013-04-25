@@ -84,12 +84,13 @@ GEM
       net-ssh-gateway (>= 1.1.0)
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
-    capybara (2.1.0)
+    capybara (2.0.3)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
-      xpath (~> 2.0)
+      selenium-webdriver (~> 2.0)
+      xpath (~> 1.0.0)
     capybara-webkit (0.14.2)
       capybara (~> 2.0, >= 2.0.2)
       json
@@ -200,7 +201,7 @@ GEM
       treetop (~> 1.4.8)
     marc (0.5.0)
     method_source (0.8.1)
-    mime-types (1.22)
+    mime-types (1.23)
     multi_json (1.7.2)
     mysql2 (0.3.11)
     net-ldap (0.3.1)
@@ -270,11 +271,17 @@ GEM
     ruby_gntp (0.3.4)
     rubytree (0.5.2)
       hoe (>= 1.3.0)
+    rubyzip (0.9.9)
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    selenium-webdriver (2.32.1)
+      childprocess (>= 0.2.5)
+      multi_json (~> 1.0)
+      rubyzip
+      websocket (~> 1.0.4)
     slop (3.4.4)
     spork (1.0.0rc3)
     sprockets (2.2.2)
@@ -314,7 +321,8 @@ GEM
       ruby-oci8
     warden (1.2.1)
       rack (>= 1.0)
-    xpath (2.0.0)
+    websocket (1.0.7)
+    xpath (1.0.0)
       nokogiri (~> 1.3)
 
 PLATFORMS
@@ -331,7 +339,7 @@ DEPENDENCIES
   cancan
   capistrano
   capistrano-ext
-  capybara
+  capybara (= 2.0.3)
   capybara-webkit
   coffee-rails (~> 3.2.2)
   compass-rails
