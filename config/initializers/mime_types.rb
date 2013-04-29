@@ -1,4 +1,5 @@
-# Be sure to restart your server when you modify this file.Mime::Type.register_alias "text/plain", :refworks_marc_txt
+# Be sure to restart your server when you modify this file.
+# Mime::Type.register_alias "text/plain", :refworks_marc_txt
 Mime::Type.register_alias "text/plain", :openurl_kev
 Mime::Type.register "application/x-endnote-refer", :endnote
 Mime::Type.register "application/marc", :marc
