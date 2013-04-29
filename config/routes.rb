@@ -17,6 +17,7 @@ Clio::Application.routes.draw do
   
   root :to => "spectrum#search", :defaults => {:layout => 'quicksearch'}
 
+
   devise_for :users, :controllers => {:sessions => 'sessions'}
 
   match 'admin/ingest_log', :to => "admin#ingest_log", :as => :admin_ingest_log
@@ -77,6 +78,9 @@ Clio::Application.routes.draw do
   match 'newspapers', :to => 'spectrum#search', :as => :newspapers_index, :defaults => {:layout => 'newspapers'}
 
   match 'locations/show/:id', :id => /[^\/]+/, :to => "locations#show", :as => :location_display
+
+  # this catches certain broken sessions, when somehow controller == spectrum and action == show 
+  match 'spectrum/show', :to => "spectrum#search", :defaults => {:layout => 'quicksearch'}
 
 
   namespace :admin do
