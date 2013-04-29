@@ -5,7 +5,10 @@
 
     .title
       %h4= document_heading.listify.join("")
-   
+  
+    / COinS
+    %span.Z3988{ :title => document.export_as_openurl_ctx_kev(document_partial_name(@document)) } 
+
   .row-fluid
     .info.span6
       = render_document_view(document, :template => "catalog_show", :format => "clio")
