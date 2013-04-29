@@ -384,4 +384,40 @@ module DisplayHelper
 
     value_txt
   end  
+  
+  
+  # Exports CUL Academic Commons SolrDocument as an OpenURL KEV 
+  # (key-encoded value) query string.
+  # For use to create COinS, among other things. COinS are
+  # for Zotero, among other things. 
+  def ac_to_openurl_ctx_kev(document)  
+    fields = []
+    
+    fields.push( 'ctx_ver=Z39.88-2004' )
+    fields.push( 'rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
+    
+    document[ :id ].each do |id|
+      document_url= 'http://academiccommons.columbia.edu/catalog/' + id
+      fields.push("rft_id=#{ CGI::escape(document_url) }")
+    end
+
+    document[ :author_facet ].each do |author|
+      fields.push("rft.au=#{ CGI::escape(author) }")
+    end
+
+    document[ :title_display ].each do |title|
+      fields.push("rft.atitle=#{ CGI::escape(title) }")
+    end
+    
+    document[ :publisher ] && document[ :publisher ].each do |publisher|
+      fields.push("rft.pub=#{ CGI::escape(publisher) }")
+    end
+    
+    document[ :pub_date_facet ].each do |pub_date_facet|
+      fields.push("rft.date=#{ CGI::escape(pub_date_facet) }")
+    end
+
+    return fields.join('&')
+  end
+  
 end
