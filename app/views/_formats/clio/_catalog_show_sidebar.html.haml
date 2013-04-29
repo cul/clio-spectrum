@@ -26,9 +26,9 @@
 %ul
   
   %li #{link_to "Print", "javascript:print()"}
-  - if @document.export_formats.keys.include?(:refworks_marc_txt)
-    %li.refworks
-      =link_to "Export to RefWorks", refworks_export_url(@document)
+  /- if @document.export_formats.keys.include?(:refworks_marc_txt)
+  /  %li.refworks
+  /    =link_to "Export to RefWorks", refworks_export_url(@document)
   - if @document.export_formats.keys.include?(:endnote)
     %li.endnote
       =link_to "Export to EndNote", catalog_path(id, :format => "endnote")
