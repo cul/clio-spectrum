@@ -62,6 +62,21 @@ describe 'Spectrum::Engines::Solr' do
       eng.results.first.get('subtitle_display').should match(/the first 5,000 years/)
     end
   end
+
+  # NEXT-404 - "Wildcarding MARC fields (960) does not appear to work"
+  # 2165B   - 1868 records ()
+  # 2165BAP -  444 records
+  # 2165B*  - 2125 records
+  describe 'search for "2165B*" in Catalog' do
+    it 'should find more than 2165B or 2165BAP alone' do
+      eng_b = Spectrum::Engines::Solr.new(:source => 'catalog', :q => '2165B', :search_field => 'all_fields', 'solr_url' => solr_url)
+      eng_bap = Spectrum::Engines::Solr.new(:source => 'catalog', :q => '2165BAP', :search_field => 'all_fields', 'solr_url' => solr_url)
+      eng_wildcard = Spectrum::Engines::Solr.new(:source => 'catalog', :q => '2165B*', :search_field => 'all_fields', 'solr_url' => solr_url)
+      eng_wildcard.total_items.should be > eng_b.total_items
+      eng_wildcard.total_items.should be > eng_bap.total_items
+    end
+  end
+
   
   # NEXT-415
   describe 'searches for "New Yorker" in Journals' do
