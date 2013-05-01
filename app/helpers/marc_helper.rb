@@ -114,9 +114,16 @@ module MarcHelper
     # NOTE: subject search redirection uses all subfields and is handled in generate_value_links_subject;
     #       a subject heading should never use the following
     unless display.empty?
+      
+      # HTML-escape all MARC data retrieved for display purposes
+      display = CGI::escapeHTML(display)
+      
       unless search_subfields.empty?
         search = select_subfields(field, search_subfields)
-        display += DELIM + search
+
+        # The display field is html-escaped. the search data should be as-is.
+        # Combine carefully to avoid rails auto-escaping.
+        display = raw("#{display}#{DELIM}#{search}")
       end
     end
     display
