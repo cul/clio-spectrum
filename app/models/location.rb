@@ -10,12 +10,14 @@ class Location < ActiveRecord::Base
   end
 
   def self.match_location_text(location = nil)
+    # location comes from URL, and so will be escaped (e.g., spaces will be '+')
+    unescaped_location = CGI::unescape(location) 
     logger.debug("looking for " + location)
     if self.connection.adapter_name.downcase.include?("mysql")
     
-      matches = self.find(:all, :conditions => ["? LIKE CONCAT(locations.name, '%')", location], :include => :library)
+      matches = self.find(:all, :conditions => ["? LIKE CONCAT(locations.name, '%')", unescaped_location], :include => :library)
     else
-      matches = self.find(:all, :conditions => ["? LIKE locations.name || '%'", location], :include => :library)
+      matches = self.find(:all, :conditions => ["? LIKE locations.name || '%'", unescaped_location], :include => :library)
 
     end
 
