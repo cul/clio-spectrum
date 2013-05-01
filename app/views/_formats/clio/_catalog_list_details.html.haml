@@ -1,11 +1,11 @@
 
 - if session[:search][:adv] && session[:search][:adv].values.index{ |x| x["field"] == "series_title"  }
-  = add_row('Series Title', document.get("title_series_display", :abbreviate => 100))
+  = add_row('Series Title', document.get("title_series_display"), :html_safe => false)
 
-= add_row('Title', document.get("title_vern_display"),:abbreviate => 100)
-= add_row('Subtitle', document.get("subtitle_vern_display"),:abbreviate => 100)
-= add_row('Author', [document.get("author_display"),document.get("author_vern_display")].compact)
-= add_row('Published', document.get("full_publisher_display"))
+= add_row('Title', document.get("title_vern_display"),:abbreviate => 100, :html_safe => false)
+= add_row('Subtitle', document.get("subtitle_vern_display"),:abbreviate => 100, :html_safe => false)
+= add_row('Author', [document.get("author_display"),document.get("author_vern_display")].compact, :html_safe => false)
+= add_row('Published', document.get("full_publisher_display"), :html_safe => false)
 - is_aggregate = controller.controller_name == "search" 
 = add_row('Online', format_online_results(online_link_hash(document)), :expand => is_aggregate)
 
