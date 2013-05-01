@@ -142,10 +142,16 @@ module DisplayHelper
     values.listify.each do |v|
 #    values.listify.select { |v| v.respond_to?(:split)}.each do |v|
       
-      s = v.split(DELIM)
+      # s = v.split(DELIM)
+      display_value, search_value, t880_indicator = v.split(DELIM)
+      
+      # the display value has already been made html-escaped by MarcHelper.
+      # mark it as html-safe to avoid double-encoding
+      display_value = display_value.html_safe  
       
       # no link value
-      unless s.length >= 2
+      # unless s.length >= 2
+      unless search_value
         out << v
         next
       end
@@ -153,32 +159,44 @@ module DisplayHelper
       # if displaying plain text, do not include links
 
       if @add_row_style == :text
-        out << s[0]
+        # out << s[0]
+        out << display_value
       else
       
         case category
         when :all
-          q = '"' + s[1] + '"'
-          out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "all_fields", :commit => "search"))
+          # q = '"' + s[1] + '"'
+          # out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "all_fields", :commit => "search"))
+          q = '"' + search_value + '"'
+          out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "all_fields", :commit => "search"))
         when :author
           # s[2] is not nil when data is from an 880 field (vernacular)
           # temp workaround until we can get 880 authors into the author facet
-          if s[2]
+          # if s[2]
+          if t880_indicator
             # q = '"' + s[1] + '"'
             # out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "author", :commit => "search"))
-            out << s[0]
+            # out << s[0]
+            out << display_value
+
           else
             # remove puntuation from s[1] to match entries in author_facet using solrmarc removeTrailingPunc rule
 #            s[1] = s[1].gsub(/\.$/,'') if s[1] =~ /\w{3}\.$/ || s[1] =~ /[\]\)]\.$/
 #            s[1] = s[1].gsub(/,$/,'')
-            s[1] = remove_punctuation(s[1])
-            out << link_to(s[0], url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => s[1]))
+# s[1] = remove_punctuation(s[1])
+            search_value = remove_punctuation(search_value)
+            
+            # out << link_to(s[0].html_safe, url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => s[1]))
+            out << link_to(display_value, url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => search_value))
           end
         when :subject
-          out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "subject", :commit => "search"))
+          # out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "subject", :commit => "search"))
+          out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => search_value, :search_field => "subject", :commit => "search"))
         when :title
-          q = '"' + s[1] + '"'
-          out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "title", :commit => "search"))
+          # q = '"' + s[1] + '"'
+          # out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "title", :commit => "search"))
+          q = '"' + search_value + '"'
+          out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "title", :commit => "search"))
         else
           raise "invalid category specified for generate_value_links"
         end
@@ -283,6 +301,11 @@ module DisplayHelper
   end
 
   def build_subject_url(display, search, title)
+    
+    display = display.html_safe
+
+    search = CGI::unescapeHTML(search)
+    
     if @add_row_style == :text
       display
     else
