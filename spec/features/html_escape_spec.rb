@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Special HTML characters in MARC data should be escaped", :focus => true do
+describe "Special HTML characters in MARC data should be escaped" do
   
   # NEXT-658
   # The Voyager record 6315882 (Auszug aus dem Lager), has
@@ -27,7 +27,6 @@ describe "Special HTML characters in MARC data should be escaped", :focus => tru
     # the quotes should be correctly handled in both the link label and target URL
     page.should have_link('Graduiertenkolleg "Mediale Historiographien."', :href=>"/catalog?f%5Bauthor_facet%5D%5B%5D=Graduiertenkolleg+%22Mediale+Historiographien.%22")
   end
-
-
+  
 end
 
