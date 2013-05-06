@@ -29,7 +29,7 @@
   .control-group
     %label.control-label{:for => "alert_type"} Alert Type:
     .controls
-      = f.select(:alert_type, options_for_select(ItemAlert::ALERT_TYPES.invert))
+      = f.select(:alert_type, options_for_select(ItemAlert::ALERT_TYPES.invert, item_alert.alert_type.nil? ? "alert" : item_alert.alert_type))
 
   .control-group
     %label.control-label{:for => "start_date"} Start Date:
