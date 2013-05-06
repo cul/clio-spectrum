@@ -13,6 +13,26 @@
     .info.span6
       = render_document_view(document, :template => "catalog_show", :format => "clio")
 
+    -# Database Notes and Alerts
+    -# html_safe true, so that ERC can embed HTML links in their alert msgs
+    - if document.get("_active_item_alert_count") > 0
+      .span6.well
+        -# "alert" alerts
+        - document.get("_item_alerts")[:alert].each do | alert |
+          - if alert.active?
+            .span12.alert_alert
+              = alert[:message]
+
+        -# "access requirements" alerts
+        - document.get("_item_alerts")[:access_requirements].each do | alert |
+          - if alert.active?
+            = add_row(ItemAlert::ALERT_TYPES['access_requirements'], alert[:message], options = {:html_safe => true}) 
+
+        -# "Related Resources" alerts
+        - document.get("_item_alerts")[:related_resources].each do | alert |
+          - if alert.active?
+            = add_row(ItemAlert::ALERT_TYPES['related_resources'], alert[:message], options = {:html_safe => true}) 
+
     .span6.well
       = render :partial => "_formats/clio/catalog_show_holdings", :locals => {:document => document }
     .clear-both

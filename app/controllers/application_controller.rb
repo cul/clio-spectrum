@@ -218,8 +218,14 @@ class ApplicationController < ActionController::Base
     query.each do |alert| 
       document = documents.detect { |doc| doc.get('id').to_s == alert.item_key.to_s }
       document["_item_alerts"] ||= {}
-      document["_item_alerts"][alert.alert_type] ||= []
+      document["_active_item_alert_count"] ||= 0
+      ItemAlert::ALERT_TYPES.each do |alert_type, name|
+        document["_item_alerts"][alert_type] ||= []
+      end
       document["_item_alerts"][alert.alert_type] << alert
+      if alert.active?
+        document["_active_item_alert_count"] += 1
+      end
     end
   end
 end
