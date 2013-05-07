@@ -15,7 +15,7 @@
 
     -# Database Notes and Alerts
     -# html_safe true, so that ERC can embed HTML links in their alert msgs
-    - if document.get("_active_item_alert_count") > 0
+    - if document.get("_active_item_alert_count") && document.get("_active_item_alert_count") > 0
       .span6.well
         -# "alert" alerts
         - document.get("_item_alerts")[:alert].each do | alert |
