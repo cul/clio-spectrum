@@ -5,14 +5,14 @@ class Facet
     case source
     when Summon::Facet
       parse_summon(source, options)
-      
+
     end
-  end 
+  end
 
   def items(*select)
     select ||= [:all]
-    @items.select { |i| select.include?(:all) || select.include?(i[:status]) }.sort do |x,y| 
-      sort = y[:count] <=> x[:count] 
+    @items.select { |i| select.include?(:all) || select.include?(i[:status]) }.sort do |x,y|
+      sort = y[:count] <=> x[:count]
       sort == 0 ? x[:label] <=> y[:label] : sort
     end
   end
@@ -46,9 +46,9 @@ class Facet
 
 
     result[:count] = item.count.to_i
-    result[:label] = item.value 
+    result[:label] = item.value
 
     result
   end
-  
+
 end

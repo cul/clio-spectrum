@@ -8,7 +8,7 @@ class ItemAlert < ActiveRecord::Base
   validates :source, :presence => true
   validates :item_key, :presence => true
 
-  ALERT_TYPES = { 
+  ALERT_TYPES = {
     'access_requirements' => 'Access Requirements',
     'alert' =>  'Alert',
     'alternate_connect' => 'Alternate Connect',

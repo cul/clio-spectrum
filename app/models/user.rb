@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :wind_authenticatable, :encryptable, :authentication_keys => [:login] 
+  devise :wind_authenticatable, :encryptable, :authentication_keys => [:login]
   wind_host "wind.columbia.edu"
   wind_service "culscv"
   # Setup accessible (or protected) attributes for your model
@@ -15,11 +15,11 @@ class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :login
 
   validates :login, :uniqueness => true, :presence => true
- 
-  before_validation(:default_email, :on => :create) 
-  before_validation(:generate_password, :on => :create) 
+
+  before_validation(:default_email, :on => :create)
+  before_validation(:generate_password, :on => :create)
   before_create :set_personal_info_via_ldap
-  
+
 
   COLUMBIA_IP_RANGES = ["128.59.0.0/16", "129.236.0.0/16", "156.111.0.0/16", "156.145.0.0/16", "160.39.0.0/16", "129.12.82.0/24", "192.5.43.0/24", (IPAddr.new("207.10.136.0/24")...IPAddr.new("207.10.144.0/24")), "209.2.47.0/24", (IPAddr.new("209.2.48.0/24")...IPAddr.new("209.2.52.0/24")), "209.2.185.0/24", (IPAddr.new("209.2.208.0/24")...IPAddr.new("209.2.224.0/24")), (IPAddr.new("209.2.224.0/24")...IPAddr.new("209.2.240.0/24")), "127.0.0.1"]
 
@@ -37,9 +37,9 @@ class User < ActiveRecord::Base
   def to_s
     email
   end
-  
+
   def name
-    [first_name, last_name].join(" ") 
+    [first_name, last_name].join(" ")
   end
   def default_email
     login = self.send User.wind_login_field
@@ -54,12 +54,12 @@ class User < ActiveRecord::Base
     mail = "#{login}@columbia.edu"
     self.email = mail
   end
-  
-    
+
+
   def generate_password
     self.password = SecureRandom.base64(8)
   end
-  
+
   def set_personal_info_via_ldap
     if wind_login
       entry = Net::LDAP.new({:host => "ldap.columbia.edu", :port => 389}).search(:base => "o=Columbia University, c=US", :filter => Net::LDAP::Filter.eq("uid", wind_login)) || []

@@ -8,7 +8,7 @@ module ApplicationHelper
     @alternating_line ||= Hash.new("odd")
     @alternating_line[id] = @alternating_line[id] == "even" ? "odd" : "even"
   end
-  
+
 
   def alternating_bit(id="default")
     @alternating_bits ||= Hash.new(1)
@@ -25,7 +25,7 @@ module ApplicationHelper
   end
 
   def determine_search_params
-    if params['action'] = 'show' 
+    if params['action'] = 'show'
       return session['search'] || {}
     else
       return params

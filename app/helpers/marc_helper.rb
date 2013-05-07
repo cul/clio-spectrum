@@ -4,9 +4,9 @@ module MarcHelper
 
   def display_marc_field(marc, field_name)
     config = MARC_FIELDS[field_name]
-    
+
     raise "Field name not found in config/marc_display_fields.yml" unless config
-    
+
     # field_name is a label used to identify a field group in the MARC_FIELDS hash
     #     (maintained in config/marc_display_fields.yml)
     # field_name must begin "subject" for subject heading groups [by convention] so
@@ -24,9 +24,9 @@ module MarcHelper
     # only keys that vary from the defaults need to be specified in MARC_FIELDS but
     # ind1, ind2 must always be specified together
     #
-    
+
     out = []
-    
+
     # loop through elements in the field group
     config.each do |field|
       # set options
@@ -46,9 +46,9 @@ module MarcHelper
       # process marc tag
       out << get_field_values(marc, field["tag"].to_s, field["display"], options)
     end
-    
+
     out.flatten
-    
+
   end
 
   def get_field_values(marc, tag, display_subfields = :all, options = {})
@@ -78,13 +78,13 @@ module MarcHelper
         end
       end
     end
-    
+
     values.flatten
-  
+
   end
 
   def process_vernacular(marc, field, display_subfields, search_subfields, subject_option)
-    
+
     # sequence number from subfield 6
     seq = field.subfields.first.value[4..5]
     display = ''
@@ -104,7 +104,7 @@ module MarcHelper
   end
 
   def process_field(field, display_subfields, search_subfields, subject_option)
-    
+
     if subject_option
       display = select_subfields_subject_heading(field,display_subfields)
     else
@@ -114,10 +114,10 @@ module MarcHelper
     # NOTE: subject search redirection uses all subfields and is handled in generate_value_links_subject;
     #       a subject heading should never use the following
     unless display.empty?
-      
+
       # HTML-escape all MARC data retrieved for display purposes
       display = CGI::escapeHTML(display)
-      
+
       unless search_subfields.empty?
         search = select_subfields(field, search_subfields)
 
@@ -131,18 +131,18 @@ module MarcHelper
   end
 
   def select_subfields(field, subfields_to_select)
-    
+
     value = ''
     subflds = field.subfields.select { |sf| subfields_to_select == :all || subfields_to_select.include?(sf.code) }
     unless subflds.empty?
       value = subflds.collect { |sf| sf.value}.join(' ')
     end
     value
-    
+
   end
 
   def select_subfields_subject_heading(field,subfields_to_select)
-    
+
     # output subject headings with ' - ' preceeding subfields vxyz
     out = ''
     subflds = field.subfields.select { |sf| subfields_to_select == :all || subfields_to_select.include?(sf.code) }

@@ -2,7 +2,7 @@ require 'blacklight/catalog'
 
 class ArticlesController < ApplicationController
   layout "quicksearch"
-  
+
   include Blacklight::Controller
   include Blacklight::Catalog
 
@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
       @error = e
     end
   end
-  
+
 
   def show
     @document = SerialSolutions::Link360.new(params[:openurl])

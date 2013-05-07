@@ -1,6 +1,6 @@
 class LibraryWebController < ApplicationController
   layout "quicksearch"
-  
+
   include Blacklight::Controller
   include Blacklight::Catalog
 

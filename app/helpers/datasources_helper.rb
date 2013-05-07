@@ -1,6 +1,6 @@
 #encoding: UTF-8
 module DatasourcesHelper
-  
+
 
   def datasource_list(category = :all)
     results = []
@@ -13,19 +13,19 @@ module DatasourcesHelper
     !(params['q'].to_s.empty? && params.keys.all? { |k| !k.include?('s.') } && params['f'].to_s.empty? && params['commit'].to_s.empty?)
 
   end
-  
+
   def add_all_datasource_landing_pages
     content_tag('div', :class => 'landing_pages') do
       datasource_list(:all).collect do |source|
         datasource_landing_page(source)
       end.join('').html_safe
     end
-  
+
   end
 
   def datasource_landing_page(source)
-    classes = ['landing_page', source] 
-    classes << 'selected' if source == @active_source 
+    classes = ['landing_page', source]
+    classes << 'selected' if source == @active_source
     content_tag(:div, render(:partial => "/_search/landing_pages/#{source}"), :class => classes.join(' '))
   end
 
@@ -50,7 +50,7 @@ module DatasourcesHelper
       :active => active,
       :query => params['q'] || params['s.q'] || ""
     }
-    
+
     has_facets = source_has_facets?(active)
     options[:all_sources] = !active_query? || !has_facets
 
@@ -61,7 +61,7 @@ module DatasourcesHelper
       result << content_tag(:li, link_to("More", "#"),  :id => "datasource_expand")
 
       sub_results = hidden_datasources.collect { |src| datasource_item(src,options) }
-      
+
       sub_results << content_tag(:li, link_to("Fewer", "#", :id => "datasource_contract"))
       result << content_tag(:ul, sub_results.join('').html_safe, :id => 'expanded_datasources')
     end

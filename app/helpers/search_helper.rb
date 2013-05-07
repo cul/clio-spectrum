@@ -29,9 +29,9 @@ module SearchHelper
 
     dropdown_default = field_options.invert[field_default] || field_options.keys.first
     select_options = dropdown_options.delete(:select_options) || {}
-    
+
     result = render(:partial => "/dropdown_select", :locals => { name: name, field_options: field_options, dropdown_options: dropdown_options, field_default: field_default, dropdown_default: dropdown_default, select_options: select_options })
-    
+
 
   end
 
@@ -50,11 +50,11 @@ module SearchHelper
   def display_search_form(source)
     options = DATASOURCES_CONFIG['datasources'][source]['search_box'] || {}
 
-    search_params = determine_search_params 
+    search_params = determine_search_params
     div_classes = ["search_box", source]
     div_classes << "multi" if show_all_search_boxes
     div_classes << "selected" if active_search_box == source
-    
+
 
     result = "".html_safe
     if show_all_search_boxes || active_search_box == source
@@ -63,12 +63,12 @@ module SearchHelper
       result += text_field_tag(:q, search_params[:q], class: has_options, id: "#{source}_q", placeholder: options['placeholder'])
 
       if options['search_type'] == "blacklight"
-        result += standard_hidden_keys_for_search 
-        if options['search_fields'].kind_of?(Hash) 
-          result += dropdown_with_select_tag(:search_field, options['search_fields'].invert, h(search_params[:search_field]), :title => "Targeted search options", :class=>"search_options") 
+        result += standard_hidden_keys_for_search
+        if options['search_fields'].kind_of?(Hash)
+          result += dropdown_with_select_tag(:search_field, options['search_fields'].invert, h(search_params[:search_field]), :title => "Targeted search options", :class=>"search_options")
         end
       elsif options['search_type'] == "summon"
-          
+
           hidden_field_tag 'category', options['search_category'] || 'articles'
           hidden_field_tag "new_search", "true"
       end
@@ -82,7 +82,7 @@ module SearchHelper
       result = content_tag(:div, result, :class => div_classes.join(" "))
 
 
-      
+
 
     end
 
@@ -123,14 +123,14 @@ module SearchHelper
     results = [1,2] + ((-5..5).collect { |i| search.page + i }) + [max_page - 1, max_page]
 
     results = results.reject { |i| i <= 0 || i > [search.page_count,20].min}.uniq.sort
-  
-    previous = 1 
+
+    previous = 1
     results.collect do |page|
       page_delimited = number_with_delimiter(page)
       result = if page == search.page
         content_tag('span', page_delimited, :class => 'page current')
       elsif page - previous > 1
-        content_tag('span', "...", :class => 'page gap') + 
+        content_tag('span', "...", :class => 'page gap') +
           content_tag('span', content_tag('a', page_delimited, :href => search.set_page(page)), :class => 'page')
       else
         content_tag('span', content_tag('a', page_delimited, :href => search.set_page(page)), :class => 'page')
@@ -140,6 +140,6 @@ module SearchHelper
       result
 
     end.join("").html_safe
-  
+
   end
 end

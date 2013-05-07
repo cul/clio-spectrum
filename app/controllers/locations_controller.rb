@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.match_location_text(params[:id])
-    if @location 
+    if @location
       @map_url = @location.find_link_value("Map URL")
       @library = @location.library
 
@@ -12,7 +12,7 @@ class LocationsController < ApplicationController
       end
 
       @links = @location.links.reject { |l| l.name == "Map URL" }
-  
+
     end
 
   end

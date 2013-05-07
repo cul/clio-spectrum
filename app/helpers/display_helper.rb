@@ -6,12 +6,12 @@ module DisplayHelper
     partials.each do |partial|
       begin
         return render(:partial => partial, :locals => options)
-      rescue ActionView::MissingTemplate 
+      rescue ActionView::MissingTemplate
         next
       end
     end
 
-    raise "No partials found from #{partials.inspect}" 
+    raise "No partials found from #{partials.inspect}"
 
 
   end
@@ -63,7 +63,7 @@ module DisplayHelper
     @add_row_style = nil
 
     return view
-  end 
+  end
 
   SOLR_FORMAT_LIST = {
     "Music - Recording" => "music_recording",
@@ -90,11 +90,11 @@ module DisplayHelper
 
   def format_location_results(locations, document)
     locations.collect do |location|
-    
+
       loc_display, hold_id = location.split('|DELIM|')
       clio_holding = "unknown"
 
-      if document.get('clio_holdings') 
+      if document.get('clio_holdings')
         status = document['clio_holdings']['statuses'][hold_id.to_s]
         clio_holding = status if status
       end
@@ -110,7 +110,7 @@ module DisplayHelper
     case document
     when SolrDocument
       formats << "clio"
-      
+
       document["format"].listify.each do |format|
         formats << SOLR_FORMAT_LIST[format] if SOLR_FORMAT_LIST[format]
       end
@@ -134,21 +134,21 @@ module DisplayHelper
   DELIM = "|DELIM|"
 
   def generate_value_links(values, category)
-    
+
     # display_value DELIM search_value [DELIM t880_flag]
 
     out = []
 
     values.listify.each do |v|
 #    values.listify.select { |v| v.respond_to?(:split)}.each do |v|
-      
+
       # s = v.split(DELIM)
       display_value, search_value, t880_indicator = v.split(DELIM)
-      
+
       # the display value has already been made html-escaped by MarcHelper.
       # mark it as html-safe to avoid double-encoding
-      display_value = display_value.html_safe  
-      
+      display_value = display_value.html_safe
+
       # no link value
       # unless s.length >= 2
       unless search_value
@@ -162,7 +162,7 @@ module DisplayHelper
         # out << s[0]
         out << display_value
       else
-      
+
         case category
         when :all
           # q = '"' + s[1] + '"'
@@ -185,7 +185,7 @@ module DisplayHelper
 #            s[1] = s[1].gsub(/,$/,'')
 # s[1] = remove_punctuation(s[1])
             search_value = remove_punctuation(search_value)
-            
+
             # out << link_to(s[0].html_safe, url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => s[1]))
             out << link_to(display_value, url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => search_value))
           end
@@ -206,21 +206,21 @@ module DisplayHelper
   end
 
   def remove_punctuation(value)
-    
+
     # matches edit from SolrMARC removeTrailingPunc method: Utils.cleanData
     #
     # Removes trailing characters (space, comma, slash, semicolon, colon) and
     #  trailing period if it is preceded by at least three (two?) letters
-    
+
     curr = value
     prev = ''
-    
+
     while curr != prev
       prev = curr
       curr = curr.strip
-      
+
       curr = curr.gsub(/\s*[,\/;:]$/,'')
-      
+
       if curr =~ /\.$/
         if curr =~ /[JS]r\.$/
           # don't strip period off Jr. or Sr.
@@ -237,26 +237,26 @@ module DisplayHelper
           curr = curr.chop
         end
       end
-      
+
     end
-    
+
     curr
-    
+
   end
 
   # def generate_value_links_subject(values)
-  # 
+  #
   #   # search value the same as the display value
   #   # quote first term of the search string and remove ' - '
-  # 
+  #
   #   values.listify.collect do |v|
-  #     
+  #
   #     sub = v.split(" - ")
   #     out = '"' + sub.shift + '"'
   #     out += ' ' + sub.join(" ") unless sub.empty?
-  #     
+  #
   #     link_to(v, url_for(:controller => "catalog", :action => "index", :q => out, :search_field => "subject", :commit => "search"))
-  # 
+  #
   #   end
   # end
 
@@ -272,16 +272,16 @@ module DisplayHelper
 
     values.listify.collect do |value|
 #    values.listify.select { |x| x.respond_to?(:split)}.collect do |value|
-      
+
       searches = []
       subheads = value.split(" - ")
       first = subheads.shift
       display = first
       search = first
       title = first
-      
+
       searches << build_subject_url(display, search, title)
-      
+
       unless subheads.empty?
         subheads.each do |subhead|
           display = subhead
@@ -290,29 +290,29 @@ module DisplayHelper
           searches << build_subject_url(display, search, title)
         end
       end
-                                            
+
       if @add_row_style == :text
         searches.join(' - ')
       else
         searches.join(' > ')
       end
-                                            
+
     end
   end
 
   def build_subject_url(display, search, title)
-    
+
     display = display.html_safe
 
     search = CGI::unescapeHTML(search)
-    
+
     if @add_row_style == :text
       display
     else
-      link_to(display, url_for(:controller => "catalog", 
-                              :action => "index", 
-                              :q => '"' + search + '"', 
-                              :search_field => "subject", 
+      link_to(display, url_for(:controller => "catalog",
+                              :action => "index",
+                              :q => '"' + search + '"',
+                              :search_field => "subject",
                               :commit => "search"),
                               :title => title)
     end
@@ -357,17 +357,17 @@ module DisplayHelper
   end
 
   def convert_values_to_text(value, options = {})
-    
+
     values = value.listify
 
     values = values.collect { |txt| txt.to_s.abbreviate(options[:abbreviate]) } if options[:abbreviate]
 
     if options[:html_safe]
-      values = values.collect(&:html_safe) 
+      values = values.collect(&:html_safe)
     else
       values = values.collect { |v| h(v) }.collect(&:html_safe)
     end
-    values = if options[:display_only_first] 
+    values = if options[:display_only_first]
       values.first.to_s.listify
     elsif options[:join]
       values.join(options[:join]).to_s.listify.reject { |item| item.to_s.empty? }
@@ -399,26 +399,26 @@ module DisplayHelper
       end
 
       pre_text
-    
+
     end
 
 
-    value_txt = value_txt.html_safe 
+    value_txt = value_txt.html_safe
 
     value_txt
-  end  
-  
-  
-  # Exports CUL Academic Commons SolrDocument as an OpenURL KEV 
+  end
+
+
+  # Exports CUL Academic Commons SolrDocument as an OpenURL KEV
   # (key-encoded value) query string.
   # For use to create COinS, among other things. COinS are
-  # for Zotero, among other things. 
-  def ac_to_openurl_ctx_kev(document)  
+  # for Zotero, among other things.
+  def ac_to_openurl_ctx_kev(document)
     fields = []
-    
+
     fields.push( 'ctx_ver=Z39.88-2004' )
     fields.push( 'rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
-    
+
     document[ :id ].each do |id|
       document_url= 'http://academiccommons.columbia.edu/catalog/' + id
       fields.push("rft_id=#{ CGI::escape(document_url) }")
@@ -431,16 +431,16 @@ module DisplayHelper
     document[ :title_display ].each do |title|
       fields.push("rft.atitle=#{ CGI::escape(title) }")
     end
-    
+
     document[ :publisher ] && document[ :publisher ].each do |publisher|
       fields.push("rft.pub=#{ CGI::escape(publisher) }")
     end
-    
+
     document[ :pub_date_facet ].each do |pub_date_facet|
       fields.push("rft.date=#{ CGI::escape(pub_date_facet) }")
     end
 
     return fields.join('&')
   end
-  
+
 end

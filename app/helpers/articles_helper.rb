@@ -8,8 +8,8 @@ module ArticlesHelper
 
     link_title ||= article.title.html_safe
     return link_to(link_title, article.link)
-    
-    url = '' 
+
+    url = ''
     if article.fulltext && !(article.content_types & ['Journal Article','Book', 'eBook']).empty?
       if article.content_types.include?('eBook') && EBOOKS_TO_LINK_FOLLOW.any? { |eb| article.uri.to_s.include?(eb) }
         url = article.link
@@ -43,11 +43,11 @@ module ArticlesHelper
       'Journal' => document.source,
       'LoanTitle' => document.source,
       'Date' => document.date,
-      'ISSN' => issn 
+      'ISSN' => issn
     }
 
    (base + link_params.to_query).html_safe
-    
+
   end
 
   ARTICLE_HOLDING_ICONS = {
@@ -72,12 +72,12 @@ module ArticlesHelper
 
       link_to(title, url, :target => "_blank")
     end.join("").html_safe
-    
+
   end
 
   def get_article_type(doc)
     txt = doc.content_types.join(", ")
-    
+
     if doc.fulltext
       if is_music?(doc) || doc.content_types.include?("Reference")
         txt += ": " + link_to_article(doc, "Available Online")

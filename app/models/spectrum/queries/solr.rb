@@ -16,7 +16,7 @@ module Spectrum
         parse_filters
         parse_ranges
 
-      
+
       end
 
       def blacklight_config
@@ -42,7 +42,7 @@ module Spectrum
         else
           [
             ["All Of", catalog_index_path(change_params_and_redirect({:advanced_operator => 'AND'}, @params))],
-            ["Any Of", "#"] 
+            ["Any Of", "#"]
           ]
         end
       end
@@ -66,7 +66,7 @@ module Spectrum
         new_params = @params.deep_clone
         new_params.delete(:page)
 
-        Blacklight::Solr::FacetPaginator.request_keys.values.each do |paginator_key| 
+        Blacklight::Solr::FacetPaginator.request_keys.values.each do |paginator_key|
           new_params.delete(paginator_key)
         end
 
@@ -76,11 +76,11 @@ module Spectrum
         new_params = remove_facet_params(facet_field, value, new_params)
         new_params = add_facet_params(inverted_facet_field(facet_field), value, new_params)
         new_params
-      
+
       end
 
       def facet_value_invert_links(facet_field,value)
-        
+
         if  is_inverted?(facet_field)
           [
             ["Is Not", "#"],
@@ -107,16 +107,16 @@ module Spectrum
           new_facet_operators[raw_facet_field] = 'AND'
           [
             ["All Of", catalog_index_path(change_params_and_redirect({:f_operator => new_facet_operators}, @params))],
-            ["Any Of", "#"] 
+            ["Any Of", "#"]
           ]
-          
+
         end
       end
 
       def facet_operator(raw_facet_field)
         (@params[:f_operator] && @params[:f_operator][raw_facet_field]) || "AND"
       end
-  
+
       def facet_operator_label(raw_facet_field)
         facet_operator(raw_facet_field) == "AND" ? "All Of" : "Any Of"
       end
@@ -138,13 +138,13 @@ module Spectrum
 
           end
 
-          
+
           values.each do |value|
             @filters[base_facet_field][:values] << {
               invert_label: is_inverted?(facet_field) ? "Is Not" : "Is",
               label: value,
               remove: remove_facet_params(facet_field, value, @params),
-              invert_links: facet_value_invert_links(facet_field, value) 
+              invert_links: facet_value_invert_links(facet_field, value)
 
             }
           end
@@ -152,8 +152,8 @@ module Spectrum
       end
 
       def parse_queries
-        @queries = [] 
-        
+        @queries = []
+
         if @params[:search_field] == "advanced"
           (@params['adv'] || {}).each_pair  do |i, attrs|
             field, value = attrs['field'], attrs['value']
@@ -165,14 +165,14 @@ module Spectrum
               remove_params.delete(:id)
 
               @queries << {
-                :field => field, 
+                :field => field,
                 :value => value,
                 :remove => catalog_index_path(remove_params)
               }
 
 
             end
-          
+
           end
         else
           unless @params[:q].to_s.empty?
@@ -185,7 +185,7 @@ module Spectrum
             @queries = [{:field => field, :value => @params[:q], :remove => catalog_index_path(remove_params)}]
           end
         end
-      
+
         @queries.each do |query|
           field_key = query[:field]
           if search_field = @config.search_fields[field_key]
@@ -194,7 +194,7 @@ module Spectrum
             query[:label] = field_key
           end
         end
-        
+
         @query_operator = @params[:advanced_operator] || "AND"
       end
 
@@ -207,7 +207,7 @@ module Spectrum
               label: @config.facet_fields[range_key].label || range_key,
               value: "#{range['begin']} to #{range['end']}",
               remove: remove_range_params(range_key, @params)
-              
+
             }
 
 

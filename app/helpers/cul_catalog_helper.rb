@@ -25,7 +25,7 @@ module CulCatalogHelper
 
   def active_source_path(options = {})
     url_params = options.reject { |k,v| k.in?('controller', 'action') }.to_query
-    "/#{@active_source}?#{url_params}" 
+    "/#{@active_source}?#{url_params}"
   end
 
   def render_document_index_label doc, opts
@@ -34,7 +34,7 @@ module CulCatalogHelper
     label ||= opts[:label].call(doc, opts) if opts[:label].instance_of? Proc
     label ||= opts[:label] if opts[:label].is_a? String
     label ||= doc.get("id")
-    label.listify.join(" ").to_s 
+    label.listify.join(" ").to_s
   end
 
 

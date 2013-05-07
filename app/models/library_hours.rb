@@ -10,7 +10,7 @@ class LibraryHours < ActiveRecord::Base
   def to_opens_closes
     result = ""
     if opens && closes
-      
+
       if opens.strftime("%l:%M%p") == "12:00PM"
         opens_display = "Noon"
       elsif opens.strftime("%l:%M%p") == "12:00AM"
@@ -19,7 +19,7 @@ class LibraryHours < ActiveRecord::Base
         opens_display = (opens.min == 0 ? opens.strftime("%l") : opens.strftime("%l:%M")).strip
         opens_display += opens.strftime("%p") == "PM" ? "pm" : "am"
       end
-      
+
       if closes.strftime("%l:%M%p") == "12:00PM"
         closes_display = "Noon"
       elsif closes.strftime("%l:%M%p") == "12:00AM"

@@ -34,7 +34,7 @@ class BackendController < ApplicationController
     rescue Exception => e
       logger.warn("exception retrieving google book search: #{e.message}")
     end
-    
+
     render :json => results
   end
 

@@ -97,7 +97,7 @@ module Spectrum
         when 'academic_commons'
           academic_commons_index_path(params)
         when "ac_dissertations"
-          params['f'] ||= {} 
+          params['f'] ||= {}
           params['f']['genre_facet'] = ['Dissertations']
           academic_commons_index_path(params)
         when 'journals'
@@ -118,7 +118,7 @@ module Spectrum
         if @debug_mode
           extra_controller_params.merge!('debugQuery' => 'true')
 
-            debug_results = lambda do |*args|       
+            debug_results = lambda do |*args|
               @debug_entries['solr'] = [] if @debug_entries['solr'] == {}
               event =   ActiveSupport::Notifications::Event.new(*args)
 
@@ -131,7 +131,7 @@ module Spectrum
             end
 
             ActiveSupport::Notifications.subscribed(debug_results, "execute.rsolr_client") do |*args|
-              
+
               @search, @documents = get_search_results(@params, extra_controller_params)
               @debug_entries['solr'] = []  if @debug_entries['solr'] == {}
               hashed_event = {
@@ -139,10 +139,10 @@ module Spectrum
                 parsedquery: @search['debug']['parsedquery'].to_s,
                 params: @search['params']
               }
-              
+
               @debug_entries['solr'] << hashed_event
             end
-            
+
           else
             @search, @documents = get_search_results(@params, extra_controller_params)
 
@@ -157,7 +157,7 @@ module Spectrum
         elsif (solr_url)
           RSolr.connect(:url => solr_url)
         else
-          RSolr.connect(  Blacklight.solr_config) 
+          RSolr.connect(  Blacklight.solr_config)
         end
       end
 
@@ -166,19 +166,19 @@ module Spectrum
           config.add_search_field('title') do |field|
             field.show_in_dropdown = true
             field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
-            field.solr_local_parameters = { 
+            field.solr_local_parameters = {
               :qf => '$title_qf',
               :pf => '$title_pf'
             }
           end
         end
-          
+
         if fields.include?('title_start')
           config.add_search_field('title_start') do |field|
             field.show_in_dropdown = true
             field.label = 'Left Anchored Title'
             field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
-            field.solr_local_parameters = { 
+            field.solr_local_parameters = {
               :qf => '$title_start_qf',
               :pf => '$title_start_pf'
             }
@@ -189,18 +189,18 @@ module Spectrum
           config.add_search_field('journal_title') do |field|
             field.show_in_dropdown = true
             field.solr_parameters = { :'spellcheck.dictionary' => 'title', :fq => ['format:Journal\/Periodical'] }
-            field.solr_local_parameters = { 
+            field.solr_local_parameters = {
               :qf => '$title_qf',
               :pf => '$title_pf'
             }
           end
         end
-        
+
         if fields.include?('series_title')
           config.add_search_field('series_title') do |field|
             field.show_in_dropdown = true
             field.label = 'Series'
-            field.solr_local_parameters = { 
+            field.solr_local_parameters = {
               :qf => 'title_series_txt',
               :pf => 'title_series_txt'
             }
@@ -210,7 +210,7 @@ module Spectrum
         if fields.include?('title_starts_with')
           config.add_search_field('title_starts_with') do |field|
             field.show_in_dropdown = true
-            field.solr_local_parameters = { 
+            field.solr_local_parameters = {
               :qf => 'title_starts_with',
               :pf => 'title_starts_with'
             }
@@ -221,31 +221,31 @@ module Spectrum
           config.add_search_field('author') do |field|
             field.show_in_dropdown = true
             field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
-            field.solr_local_parameters = { 
+            field.solr_local_parameters = {
               :qf => '$author_qf',
               :pf => '$author_pf'
             }
           end
         end
-          
+
         if fields.include?('subject')
           config.add_search_field('subject') do |field|
             field.show_in_dropdown = true
             field.solr_parameters = { :'spellcheck.dictionary' => 'subject' }
             field.qt = 'search'
-            field.solr_local_parameters = { 
+            field.solr_local_parameters = {
               :qf => '$subject_qf',
               :pf => '$subject_pf'
             }
           end
         end
-        
+
         if fields.include?('form_genre')
           config.add_search_field('form_genre') do |field|
             field.show_in_dropdown = true
             field.qt = 'search'
             field.label = 'Form/Genre'
-            field.solr_local_parameters = { 
+            field.solr_local_parameters = {
               :qf => 'subject_form_txt',
               :pf => 'subject_form_txt'
             }
@@ -256,70 +256,70 @@ module Spectrum
           config.add_search_field('publication_place') do |field|
             field.show_in_dropdown = true
             field.qt = 'search'
-            field.solr_local_parameters = { 
+            field.solr_local_parameters = {
               :qf => 'pub_place_txt',
               :pf => 'pub_place_txt'
             }
           end
         end
-        
+
         if fields.include?('publisher')
           config.add_search_field('publisher') do |field|
             field.show_in_dropdown = true
             field.qt = 'search'
-            field.solr_local_parameters = { 
+            field.solr_local_parameters = {
               :qf => 'pub_name_txt',
               :pf => 'pub_name_txt'
             }
           end
         end
-        
+
         if fields.include?('publication_year')
           config.add_search_field('publication_year') do |field|
             field.show_in_dropdown = true
             field.qt = 'search'
-            field.solr_local_parameters = { 
+            field.solr_local_parameters = {
               :qf => 'pub_year_txt',
               :pf => 'pub_year_txt'
             }
           end
         end
-        
+
         if fields.include?('isbn')
           config.add_search_field('isbn') do |field|
             field.show_in_dropdown = true
             field.qt = 'search'
             field.label = 'ISBN'
-            field.solr_local_parameters = { 
+            field.solr_local_parameters = {
               :qf => 'isbn_txt',
               :pf => 'isbn_txt'
             }
           end
         end
-        
+
         if fields.include?('issn')
           config.add_search_field('issn') do |field|
             field.show_in_dropdown = true
             field.qt = 'search'
             field.label = 'ISSN'
-            field.solr_local_parameters = { 
+            field.solr_local_parameters = {
               :qf => 'issn_txt',
               :pf => 'issn_txt'
             }
           end
         end
-        
+
         if fields.include?('call_number')
           config.add_search_field('call_number') do |field|
             field.show_in_dropdown = true
             field.qt = 'search'
-            field.solr_local_parameters = { 
+            field.solr_local_parameters = {
               :qf => 'location_call_number_txt',
               :pf => 'location_call_number_txt'
             }
           end
         end
-        
+
       end
 
       def self.default_catalog_config(config, *elements)
@@ -332,7 +332,7 @@ module Spectrum
             :rows => 10
           }
         end
-      
+
         if elements.include?(:display_fields)
           config.show.html_title = "title_display"
           config.show.heading = "title_display"
@@ -353,7 +353,7 @@ module Spectrum
            :months_6 => { :label => 'within 6 Months', :fq => "acq_dt:[#{(Date.today - 6.months).to_datetime.utc.to_solr_s} TO *]" },
 
            :years_1 => { :label => 'within 1 Year', :fq => "acq_dt:[#{(Date.today - 1.years).to_datetime.utc.to_solr_s} TO *]" },
-        }      
+        }
           config.add_facet_field "location_facet", :label => "Location", :limit => 5
           config.add_facet_field "language_facet", :label => "Language", :limit => 5
           config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 10
@@ -364,7 +364,7 @@ module Spectrum
           config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
         end
 
-        if elements.include?(:search_fields) 
+        if elements.include?(:search_fields)
           add_search_fields(config, 'title', 'journal_title', 'series_title', 'title_starts_with', 'author', 'subject', 'form_genre', 'publication_place', 'publisher', 'publication_year', 'isbn', 'issn', 'call_number')
         end
 
@@ -395,7 +395,7 @@ module Spectrum
             }
 
             config.add_search_field 'all_fields', :label => 'All Fields'
-        
+
             config.spell_max = 0
           end
         else
@@ -485,7 +485,7 @@ module Spectrum
                 :rows => 10,
                 :fq  => ['{!raw f=source_facet}archive']
               }
-              
+
               config.add_facet_field "format", :label => "Format", :limit => 3, :open => true
               config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false }
               config.add_facet_field "author_facet", :label => "Author", :limit => 3
@@ -516,7 +516,7 @@ module Spectrum
          :months_6 => { :label => 'within 6 Months', :fq => "acq_dt:[#{(Date.today - 6.months).to_datetime.utc.to_solr_s} TO *]" },
 
          :years_1 => { :label => 'within 1 Year', :fq => "acq_dt:[#{(Date.today - 1.years).to_datetime.utc.to_solr_s} TO *]" },
-      }      
+      }
               config.add_facet_field "format", :label => "Format", :limit => 5, :open => true
               config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false}
               config.add_facet_field "author_facet", :label => "Author", :limit => 5

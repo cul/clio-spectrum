@@ -12,13 +12,13 @@ module Spectrum
       'ebooks' => {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)', 's.fvf' => ['ContentType,eBook'], 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']},
       'dissertations' => {'spellcheck' => true, 's.ho' => true, 's.fvf' => ['ContentType,Dissertation'], 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']}
         }
-        
+
 
       attr_reader :source, :errors, :search
       attr_accessor :params
 
       def initialize(options = {})
-        @source = options.delete('source') || options.delete(:source) 
+        @source = options.delete('source') || options.delete(:source)
         @params = (@source && options.delete('new_search')) ? DEFAULT_PARAMS[@source] : {}
 
         @config = options.delete('config') || APP_CONFIG['summon']
@@ -48,7 +48,7 @@ module Spectrum
         end
 
         @errors = nil
-        begin 
+        begin
           @service = ::Summon::Service.new(@config)
 
           Rails.logger.info "[Spectrum][Summon] params: #{@params}"
@@ -66,16 +66,16 @@ module Spectrum
       def facets
         @search.facets.sort_by { |facet| (ind = FACET_ORDER.index(facet.field_name)) ? ind : 999 }
       end
-    
+
       def pre_facet_options_with_links()
         facet_options = []
-        
+
         is_full_text = facet_value('IsFullText') == 'true'
         is_full_cmd = !is_full_text ? "addFacetValueFilters(IsFullText, true)" : "removeFacetValueFilter(IsFullText,true)"
         facet_options << {
           style: :checkbox,
           value: is_full_text,
-          link: by_source_search_cmd(is_full_cmd), 
+          link: by_source_search_cmd(is_full_cmd),
           name: "Full text online only"
         }
 
@@ -84,7 +84,7 @@ module Spectrum
         facet_options << {
           style: :checkbox,
           value: is_scholarly,
-          link: by_source_search_cmd(is_scholarly_cmd), 
+          link: by_source_search_cmd(is_scholarly_cmd),
           name: "Scholarly publications only"
         }
 
@@ -95,8 +95,8 @@ module Spectrum
 
         facet_options << {
           style: :checkbox,
-          value: exclude_newspapers, 
-          link: by_source_search_cmd(exclude_cmd), 
+          value: exclude_newspapers,
+          link: by_source_search_cmd(exclude_cmd),
           name: "Exclude Newspaper Articles"
         }
 
@@ -105,7 +105,7 @@ module Spectrum
         facet_options << {
           style: :checkbox,
           value: all_holdings_only,
-          link: by_source_search_cmd("setHoldingsOnly(#{!all_holdings_only})"), 
+          link: by_source_search_cmd("setHoldingsOnly(#{!all_holdings_only})"),
           name: "Columbia's collection only"
         }
 
@@ -174,7 +174,7 @@ module Spectrum
         end
 
       end
-  
+
       def successful?
         @errors.nil?
       end
@@ -193,7 +193,7 @@ module Spectrum
       end
 
       def previous_page_path
-        set_page_path(current_page - 1) 
+        set_page_path(current_page - 1)
       end
 
       def next_page?
@@ -245,7 +245,7 @@ module Spectrum
       end
 
       private
-  
+
       def facet_value(field_name)
         fvf = @search.query.facet_value_filters.detect { |x| x.field_name == field_name }
         fvf ? fvf.value : nil

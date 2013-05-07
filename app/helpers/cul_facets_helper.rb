@@ -8,12 +8,12 @@ module CulFacetsHelper
     values.map do |val|
 
       render_constraint_element( facet_field_labels[proper_facet_name],
-                  is_negative + facet_display_value(proper_facet_name, val), 
+                  is_negative + facet_display_value(proper_facet_name, val),
                   :remove => url_for(remove_facet_params(facet, val, localized_params)),
-                  :classes => ["filter", "filter-" + proper_facet_name.parameterize] 
-                ) + "\n"                 					            
+                  :classes => ["filter", "filter-" + proper_facet_name.parameterize]
+                ) + "\n"                 					
     end
-    
+
   end
 
   def expand_all_facets?

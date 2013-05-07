@@ -41,7 +41,7 @@ class SpectrumController < ApplicationController
   def fetch
 
     @search_layout = SEARCHES_CONFIG['layouts'][params[:layout]]
-    
+
     @datasource = params[:datasource]
 
     if @search_layout.nil?
@@ -63,10 +63,10 @@ class SpectrumController < ApplicationController
   private
 
   def fix_articles_params(param_list)
-    param_list['authorized'] = @user_characteristics[:authorized] 
+    param_list['authorized'] = @user_characteristics[:authorized]
     if param_list['q']
       param_list['s.q'] ||= param_list['q']
-      session['search']['s.q'] = param_list['q'] 
+      session['search']['s.q'] = param_list['q']
       param_list['new_search'] = true
       param_list.delete('q')
 
@@ -79,14 +79,14 @@ class SpectrumController < ApplicationController
     end
 
     param_list
-    
+
   end
 
   def get_results(categories)
     @result_hash = {}
     new_params = params.to_hash
     categories.listify.each do |category|
-      
+
       fixed_params = new_params.deep_clone
       %w{layout commit source categories controller action}.each { |param_name| fixed_params.delete(param_name) }
       fixed_params.delete(:source)

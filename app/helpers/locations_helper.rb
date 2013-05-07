@@ -9,7 +9,7 @@ module LocationsHelper
     "http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif" => [530,318]
 
   }
-  
+
   def map_image_tag(map_url, max_height, max_width)
     return "" unless  map_url
     if (orig_size = MAP_IMAGE_SIZES[map_url])
@@ -25,8 +25,8 @@ module LocationsHelper
       size = height.to_s + "X" + width.to_s
       content_tag("div", image_tag(map_url, :height => height, :width => width), :class => "map")
     else
-      content_tag("div", image_tag(map_url), :class => "map") 
-    
+      content_tag("div", image_tag(map_url), :class => "map")
+
     end
 
   end

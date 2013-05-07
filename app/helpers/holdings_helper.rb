@@ -30,12 +30,12 @@ module HoldingsHelper
   end
 
   URL_REGEX = Regexp.new('(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))')
-  
+
 
   def online_link_hash(document)
-    
+
     links = []
-    
+
     document["url_munged_display"].listify.each do |url_munge|
       url_parts = url_munge.split('~|Z|~').collect(&:strip)
       title = url =  ""
@@ -50,7 +50,7 @@ module HoldingsHelper
 
       links << [title, url]
     end
-    
+
     # remove google links if more than one exists
 
     if links.select { |link| link.first.to_s.strip == "Google" }.length > 1
@@ -75,7 +75,7 @@ module HoldingsHelper
     'ill' => ['ILL', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?", true],
     'in_process' => ['In Process', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sinprocess?", true],
     'doc_delivery' => ['Document Delivery', " https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?", true]
-  } 
+  }
 
   def service_links(services, clio_id, options = {})
     services.select {|svc| SERVICE_ORDER.index(svc)}.sort_by { |svc| SERVICE_ORDER.index(svc) }.collect do |svc|
@@ -87,11 +87,11 @@ module HoldingsHelper
 
 
   def process_online_title(title)
-    title.to_s.gsub(/^Full text available from /, '').gsub(/(\d{1,2})\/\d{1,2}(\/\d{4})/,'\1\2')  
+    title.to_s.gsub(/^Full text available from /, '').gsub(/(\d{1,2})\/\d{1,2}(\/\d{4})/,'\1\2')
   end
 
   def add_display_elements(entries)
-    
+
     entries.each do |entry|
 
       # location links
@@ -107,7 +107,7 @@ module HoldingsHelper
 
       if location && location.library && (hours = location.library.hours.find_by_date(Date.today))
         entry['hours'] = hours.to_opens_closes
-      end        
+      end
 
       # add status icons
       entry['copies'].each do |copy|
@@ -127,7 +127,7 @@ module HoldingsHelper
   ITEM_STATUS_RANKING = ['available', 'some_available', 'not_available', 'none', 'online']
 
   def sort_item_statuses(entries)
-    
+
     entries.each do |entry|
       entry['copies'].each do |copy|
         items = copy['items']
@@ -140,25 +140,25 @@ module HoldingsHelper
     #     to:
     #       [[message, {:status => , :count => , etc.}], ...]
     # in order to preserve the sort order.
-    
+
   end
 
   def extract_google_bibkeys(document)
-    
+
     bibkeys = []
-    
+
     unless document["isbn_display"].nil?
       bibkeys << Array.wrap(document["isbn_display"]).collect { |isbn| "isbn:" + isbn}.uniq
     end
-    
+
     unless document["oclc_display"].nil?
       bibkeys << document["oclc_display"].collect { |oclc| "oclc:" + oclc.gsub(/^oc[mn]/,"") }.uniq
     end
-    
+
     unless document["lccn_display"].nil?
       bibkeys << document["lccn_display"].collect { |lccn| "lccn:" + lccn.gsub(/\s/,"").gsub(/\/.+$/,"") }
     end
-    
+
     bibkeys.flatten.compact
 
   end

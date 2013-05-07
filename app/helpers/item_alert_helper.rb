@@ -14,7 +14,7 @@ module ItemAlertHelper
   end
 
   def render_alert_duration(alert)
-    if alert.start_date.nil? 
+    if alert.start_date.nil?
       if alert.end_date.nil?
         "Forever"
       else

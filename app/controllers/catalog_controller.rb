@@ -35,7 +35,7 @@ class CatalogController < ApplicationController
       format.atom { render :layout => false }
     end
 
-    
+
   end
 
   # updates the search counter (allows the show view to paginate)
@@ -54,7 +54,7 @@ class CatalogController < ApplicationController
   end
 
   def show
-    @response, @document = get_solr_response_for_doc_id    
+    @response, @document = get_solr_response_for_doc_id
     solr_search_params_logic << :add_advanced_search_to_solr
     solr_search_params_logic << :add_range_limit_params
     @query = Spectrum::Queries::Solr.new(params, self.blacklight_config)
@@ -67,7 +67,7 @@ class CatalogController < ApplicationController
       # export formats.
       @document.export_formats.each_key do | format_name |
         # It's important that the argument to send be a symbol;
-        # if it's a string, it makes Rails unhappy for unclear reasons. 
+        # if it's a string, it makes Rails unhappy for unclear reasons.
         format.send(format_name.to_sym) { render :text => @document.export_as(format_name), :layout => false }
       end
 
@@ -90,7 +90,7 @@ class CatalogController < ApplicationController
     @pagination = get_facet_pagination(params[:id], params)
 
     respond_to do |format|
-      format.html 
+      format.html
       format.js { render :layout => false }
     end
   end

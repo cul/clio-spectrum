@@ -14,7 +14,7 @@ module Spectrum
         @search_url = options.delete('search_url')
         @errors = nil
         Rails.logger.info "[Spectrum][GoogleApp] params: #{search_url}"
-        begin 
+        begin
           @raw_xml = Nokogiri::XML(HTTPClient.new.get_content(search_url))
           @documents = @raw_xml.css("R").collect { |xml_node| LibraryWeb::Document.new(xml_node) }
           @count = @raw_xml.at_css("M") ? @raw_xml.at_css("M").content.to_i : 0
@@ -51,7 +51,7 @@ module Spectrum
       def end_item
         [@start + @rows, total_items].min
       end
-    
+
       def total_pages
         (total_items / @rows.to_f).ceil
       end

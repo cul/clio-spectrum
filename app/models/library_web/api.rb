@@ -23,7 +23,7 @@ class LibraryWeb::Api
     else
       start_num = @start + 1
       end_num = @start + @rows
-      
+
       txt = "Displaying "
       if end_num - start_num > 1
         txt += "items #{number_with_delimiter(start_num)} - #{number_with_delimiter(end_num)} of #{number_with_delimiter(@count)}"

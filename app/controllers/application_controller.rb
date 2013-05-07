@@ -1,10 +1,10 @@
 class ApplicationController < ActionController::Base
-  # Adds a few additional behaviors into the application controller 
+  # Adds a few additional behaviors into the application controller
   include Blacklight::Controller
   include Blacklight::Catalog
   include Blacklight::Configurable
-  # Please be sure to impelement current_user and user_session. Blacklight depends on 
-  # these methods in order to perform user specific actions. 
+  # Please be sure to impelement current_user and user_session. Blacklight depends on
+  # these methods in order to perform user specific actions.
   check_authorization
   skip_authorization_check
 
@@ -48,12 +48,12 @@ class ApplicationController < ActionController::Base
   end
 
   def set_user_characteristics
-    @user_characteristics = 
-      { 
+    @user_characteristics =
+      {
         :ip => request.remote_ip,
         :on_campus => User.on_campus?(request.remote_ip),
        :authorized => !current_user.nil? || User.on_campus?(request.remote_ip)
-    } 
+    }
     @debug_entries[:user_characteristics] = @user_characteristics
   end
 
@@ -86,7 +86,7 @@ class ApplicationController < ActionController::Base
 
     if session[:async_off]
       begin
-        unless clio_docs.empty? 
+        unless clio_docs.empty?
           holdings = Voyager::Request.simple_holdings_check(connection_details: APP_CONFIG['voyager_connection']['oracle'], bibids: clio_docs.collect { |cd| cd.get('clio_id_display')})
           clio_docs.each do |cd|
             cd['clio_holdings'] = holdings[cd.get('clio_id_display')]
@@ -125,7 +125,7 @@ class ApplicationController < ActionController::Base
     params.delete('debug_mode')
     session['debug_mode'] = @debug_mode
 
-    unless current_user 
+    unless current_user
       session['debug_mode'] == "off"
       @debug_mode = false
     end
@@ -143,13 +143,13 @@ class ApplicationController < ActionController::Base
     @debug_entries['session'] = session
   end
 
-  
+
   def determine_active_source
     if params['active_source']
       @active_source = params['active_source'].underscore
     else
       path_minus_advanced = request.path.to_s.gsub(/^\/advanced/, '')
-      @active_source = case path_minus_advanced 
+      @active_source = case path_minus_advanced
       when /^\/databases/
         'databases'
       when /^\/new_arrivals/
@@ -179,14 +179,14 @@ class ApplicationController < ActionController::Base
   end
 
   def blacklight_solr(source = @active_source)
-    if self.respond_to?(:blacklight_config) 
+    if self.respond_to?(:blacklight_config)
       @blacklight_solrs ||= {}
       @blacklight_solrs[source] || (@blacklight_solrs[source] = Spectrum::Engines::Solr.generate_rsolr(source))
     end
   end
 
   def blacklight_config(source = @active_source)
-    if self.respond_to?(:blacklight_config) 
+    if self.respond_to?(:blacklight_config)
       @blacklight_configs ||= {}
       @blacklight_configs[source] || (@blacklight_configs[source] = Spectrum::Engines::Solr.generate_config(source))
     end
@@ -215,7 +215,7 @@ class ApplicationController < ActionController::Base
     documents = Array.wrap(documents)
     query = ItemAlert.where(:source => 'catalog', :item_key=> Array.wrap(documents).collect(&:id)).includes(:author)
 
-    query.each do |alert| 
+    query.each do |alert|
       document = documents.detect { |doc| doc.get('id').to_s == alert.item_key.to_s }
       document["_item_alerts"] ||= {}
       document["_active_item_alert_count"] ||= 0
