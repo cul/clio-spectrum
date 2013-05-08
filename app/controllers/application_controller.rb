@@ -73,7 +73,7 @@ class ApplicationController < ActionController::Base
       @response = engine.search
       @results = engine.documents
       look_up_clio_holdings(engine.documents)
-      add_alerts_to_documents(@document_list)
+      add_alerts_to_documents(engine.documents)
     end
     @debug_entries ||= {}
     @debug_entries = @debug_entries.recursive_merge(engine.debug_entries)

@@ -1,5 +1,12 @@
+
+-# Database note/alerts of type "alert" show up w/out key, with special styling
+- if document.get("_active_item_alert_count") && document.get("_active_item_alert_count") > 0
+  - document.get("_item_alerts")[:alert].each do | alert |
+    - if alert.active?
+      .span12.alert_alert
+        = alert[:message]
+
 = add_row('Restricted', document.get("database_restrictions_display"))
--#= add_row('Alert', document.get("database_alert".collect { |alert| )
 = add_row('Author', document.get("author_display"))
 = add_row('Published', document.get("full_publisher_display"))
 = add_row('Summary', document.get("database_summary_display"), :expand_to => document.get('summary_display'))
