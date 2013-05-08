@@ -238,6 +238,9 @@ module LocalSolrHelperExtension
 
 
       fq = case
+        # If we somehow got here with an empty value, do not create a Solr fq clause 
+        when value == ''
+          ""
         when facet_field  =~ /^-/ || operator == "OR"
           "#{facet_field}:#{subbed_value}"
         when (facet_config and facet_config.query)
