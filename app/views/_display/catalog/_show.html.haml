@@ -21,7 +21,7 @@
         - document.get("_item_alerts")[:alert].each do | alert |
           - if alert.active?
             .span12.alert_alert
-              = alert[:message]
+              = alert[:message].html_safe
 
         -# "access requirements" alerts
         - document.get("_item_alerts")[:access_requirements].each do | alert |

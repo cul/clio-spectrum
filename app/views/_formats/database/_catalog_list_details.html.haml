@@ -4,7 +4,7 @@
   - document.get("_item_alerts")[:alert].each do | alert |
     - if alert.active?
       .span12.alert_alert
-        = alert[:message]
+        = alert[:message].html_safe
 
 = add_row('Restricted', document.get("database_restrictions_display"))
 = add_row('Author', document.get("author_display"))
