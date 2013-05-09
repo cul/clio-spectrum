@@ -11,9 +11,9 @@ class ItemAlert < ActiveRecord::Base
   ALERT_TYPES = {
     'access_requirements' => 'Access Requirements',
     'alert' =>  'Alert',
-    'alternate_connect' => 'Alternate Connect',
-    'elink_enabled' =>  'eLink Enabled',
-    'related_resources' => 'Related Resources'
+    # 'alternate_connect' => 'Alternate Connect',
+    # 'elink_enabled' =>  'eLink Enabled',
+    # 'related_resources' => 'Related Resources'
   }
 
 

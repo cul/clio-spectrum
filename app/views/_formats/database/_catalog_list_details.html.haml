@@ -4,9 +4,12 @@
   - document.get("_item_alerts")[:alert].each do | alert |
     - if alert.active?
       .span12.alert_alert
-        = alert[:message].html_safe
+        = "ALERT: #{alert[:message]}".html_safe
+  - document.get("_item_alerts")[:access_requirements].each do | access_requirement |
+    - if access_requirement.active?
+      = add_row('Access Requirements', access_requirement[:message])
 
-= add_row('Restricted', document.get("database_restrictions_display"))
+-# = add_row('Restricted', document.get("database_restrictions_display"))
 = add_row('Author', document.get("author_display"))
 = add_row('Published', document.get("full_publisher_display"))
 = add_row('Summary', document.get("database_summary_display"), :expand_to => document.get('summary_display'))

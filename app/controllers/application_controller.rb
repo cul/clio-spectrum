@@ -221,10 +221,12 @@ class ApplicationController < ActionController::Base
       document["_active_item_alert_count"] ||= 0
       ItemAlert::ALERT_TYPES.each do |alert_type, name|
         document["_item_alerts"][alert_type] ||= []
-      end
-      document["_item_alerts"][alert.alert_type] << alert
-      if alert.active?
-        document["_active_item_alert_count"] += 1
+        if alert_type == alert.alert_type
+          document["_item_alerts"][alert.alert_type] << alert
+          if alert.active?
+            document["_active_item_alert_count"] += 1
+          end
+        end
       end
     end
   end
