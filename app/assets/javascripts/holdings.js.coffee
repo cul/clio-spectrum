@@ -4,7 +4,7 @@ root.after_document_load = (element) ->
   $("a[rel='popover']").popover()
   fedora_items = []
   catalog_items = []
-  google_items = []
+  google_id_sets = []
   $(element).find('.result').each ->
     res = $(this)
     source = res.attr('source')
@@ -14,7 +14,10 @@ root.after_document_load = (element) ->
       fedora_items.push(item)
     else if source == 'catalog'
       catalog_items.push(item)
-      google_items.push.apply(google_items, res.attr('google_ids').split(","))
+      # a set of zero or more IDs (ISBN, OCLC, or LCCN)
+      google_id_set_csv = res.attr('google_ids')
+      if (google_id_set_csv)
+        google_id_sets.push(google_id_set_csv)
 
   if fedora_items.length
     retrieve_fedora_resources(fedora_items)
@@ -22,8 +25,8 @@ root.after_document_load = (element) ->
   if catalog_items.length
     retrieve_holdings(catalog_items)
    
-  if google_items.length
-    retrieve_google_jackets(google_items)
+  if google_id_sets.length
+    retrieve_google_jackets(google_id_sets)
 
 
 root.load_clio_holdings = (id) -> 
@@ -113,32 +116,48 @@ root.update_book_jackets = (isbns, data) ->
         gbs_cover.find(".gbs_preview_partial").show()  if isbn_data.preview is "partial"
         gbs_cover.find(".gbs_preview_full").show()  if isbn_data.preview is "full"
 
-root.retrieve_google_jackets = (ids) ->
-  isbns = []
-  for id in ids
-    if id.indexOf('isbn') != -1
-      isbns.push(id)
 
 
-  if isbns.length
-    base_url = "https://www.googleapis.com/books/v1/volumes?q=" + isbns.join(" OR ")
-    $.getJSON(base_url, (data) -> 
-      for item in data.items
-        foundId = false
-        for indId in item.volumeInfo.industryIdentifiers
-          if isbns.indexOf('isbn:' + indId.identifier) != -1
-            foundId = true
+root.retrieve_google_jackets = (google_id_sets) ->
+  # console.log("TOTAL NUMBER OF SETS: " + google_id_sets.length)
+  for google_id_set_csv in google_id_sets
+    start_index = 0
+    google_id_array = google_id_set_csv.split(",")
+    retrieve_google_jacket_for_single_item(google_id_array, start_index)
 
 
 
-        if foundId && item.volumeInfo.imageLinks
-          thumbnail = item.volumeInfo.imageLinks.thumbnail
-          for indId in item.volumeInfo.industryIdentifiers
-            $('img.bookjacket.id_isbn' + indId.identifier).attr('src', thumbnail)
-          
-    )
-  
+root.retrieve_google_jacket_for_single_item = (google_id_array, start_index) ->
+  if start_index >= google_id_array.length
+    return
 
+  current_search_id = google_id_array[start_index]
+
+  # http://productforums.google.com/forum/#!topic/books-api/qDXTGnveQkc
+  # https://www.googleapis.com/books/v1/volumes?&q=isbn:0-521-51937-3
+  # https://www.googleapis.com/books/v1/volumes?q=lccn:2006921508
+  # https://www.googleapis.com/books/v1/volumes?q=oclc:70850767
+  # Google Books account for spectrum-tech@libraries.cul.columbia.edu
+  # API Key: AIzaSyDSEgQqa-dByStBpuRHjrFOGQoonPYs2KU
+  base_url = "https://www.googleapis.com/books/v1/volumes?key=AIzaSyDSEgQqa-dByStBpuRHjrFOGQoonPYs2KU"
+  base_url = base_url + "&q=" + current_search_id
+
+  $.getJSON(base_url, (data) -> 
+    jacket_thumbnail_url = ''
+    if data && data.totalItems && data.totalItems > 0
+
+      for google_item in data.items
+        if google_item.volumeInfo.imageLinks
+          # console.log("FOUND=" + base_url)
+          jacket_thumbnail_url = google_item.volumeInfo.imageLinks.thumbnail
+          google_id_as_class = "id_" + current_search_id.replace(":","")
+          $('img.bookjacket.' + google_id_as_class).attr('src', jacket_thumbnail_url)
+          return
+    if !jacket_thumbnail_url
+      # console.log("UNFOUND for " + current_search_id)
+      # recursive call, moving along to next identifier in the set
+      retrieve_google_jacket_for_single_item(google_id_array, start_index + 1)
+  )
 
 
 $ -> 
