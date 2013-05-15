@@ -7,6 +7,14 @@
           - source = SEARCHES_CONFIG['sources'][search['source']]
           .result_set
             = render partial: '/spectrum/single/constraints', locals: {result: result}
-            = render partial: "/spectrum/single/result_docs", locals: {result: result, render_opts: search_render_options(search, source), row_opts: search['row_opts']} 
+
+            - if result.total_items == 0
+              = render partial: '/spectrum/single/no_results_blurb', locals: {result: result}
+            - else
+              = render partial: '/spectrum/single/sorting_paging', locals: {result: result}
+              = render partial: "/spectrum/single/result_docs", locals: {result: result, render_opts: search_render_options(search, source), row_opts: search['row_opts']} 
+              = render partial: '/spectrum/single/sorting_paging', locals: {result: result}
+
+
         - else
           .result_error Error when searching: #{result.errors}
