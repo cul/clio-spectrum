@@ -67,7 +67,7 @@
                               #{current_user.name} (#{current_user.login})
                               %b.caret
                           %ul.dropdown-menu.menu-dropdown
-                            %li= link_to "Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087"
+                            %li= link_to "Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087-1", :target => "_blank"
                             %li= link_to "Logout", destroy_user_session_path, :method => :delete 
                       - else
                         %li.dropdown.menu
@@ -79,7 +79,7 @@
                               My Account
                               %b.caret
                           %ul.dropdown-menu.menu-dropdown
-                            %li= link_to "Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087"
+                            %li= link_to "Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087-1", :target => "_blank"
                             %li= link_to "Login", new_user_session_path
                       
                       %li.dropdown.menu
