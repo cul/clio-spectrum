@@ -210,6 +210,7 @@ module Spectrum
         if fields.include?('title_starts_with')
           config.add_search_field('title_starts_with') do |field|
             field.show_in_dropdown = true
+            field.label = 'Left Anchored Title'
             field.solr_local_parameters = {
               :qf => 'title_starts_with',
               :pf => 'title_starts_with'

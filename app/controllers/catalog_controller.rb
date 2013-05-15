@@ -15,6 +15,14 @@ class CatalogController < ApplicationController
       params['commit'] ||= "Search"
       params['search_field'] ||= 'all_fields'
     end
+    
+    # clean up basic search params if necessary for specific search fields.
+    # [ advanced-param clean up happens in add_advanced_search_to_solr() ]
+    if params['search_field'] == 'title_starts_with'
+      # left-anchored-title must be searched as quoted phrase.
+      # remove any quotes the user put in, wrap in our own double-quotes
+      params['q'] = "\"#{ params['q'].gsub!(/"/,'') }\""
+    end
 
     solr_search_params_logic << :add_advanced_search_to_solr
     solr_search_params_logic << :add_range_limit_params
