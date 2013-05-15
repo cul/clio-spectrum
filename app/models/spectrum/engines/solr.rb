@@ -34,6 +34,7 @@ module Spectrum
         Rails.logger.info "[Spectrum][Solr] source: #{@source} params: #{@params}"
 
         begin
+          # here's the actual search, defined later in this engine
           perform_search
         rescue Exception => e
           Rails.logger.error "[Spectrum][Solr] error: #{e.message}"
@@ -124,6 +125,7 @@ module Spectrum
 
               hashed_event = {
                 debug_uri: event.payload[:uri].to_s.gsub('wt=ruby&',"wt=xml&")+"&debugQuery=true",
+                debug_uri_unescaped: CGI::unescape( event.payload[:uri].to_s.gsub('wt=ruby&',"wt=xml&")+"&debugQuery=true" ),
 
               }
 
@@ -144,12 +146,15 @@ module Spectrum
             end
 
           else
+            # use blacklight gem to run the actual search against Solr,
+            # call Blacklight::SolrHelper::get_search_results()
             @search, @documents = get_search_results(@params, extra_controller_params)
 
         end
 
         return self
       end
+
 
       def self.generate_rsolr(source, solr_url = nil)
         if source.in?("academic_commons", "ac_dissertations")
@@ -160,6 +165,7 @@ module Spectrum
           RSolr.connect(  Blacklight.solr_config)
         end
       end
+
 
       def self.add_search_fields(config, *fields)
         if fields.include?('title')
@@ -327,7 +333,6 @@ module Spectrum
         elements = [:solr_params, :display_fields, :facets, :search_fields, :sorts] if elements.empty?
 
         if elements.include?(:solr_params)
-
           config.default_solr_params = {
             :qt => "search",
             :rows => 10
@@ -341,7 +346,6 @@ module Spectrum
 
           config.index.show_link = "title_display"
           config.index.record_display_type = ''
-
         end
 
         if elements.include?(:facets)
@@ -355,7 +359,7 @@ module Spectrum
            :months_6 => { :label => 'within 6 Months', :fq => "acq_dt:[#{(Date.today - 6.months).to_datetime.utc.to_solr_s} TO *]" },
 
            :years_1 => { :label => 'within 1 Year', :fq => "acq_dt:[#{(Date.today - 1.years).to_datetime.utc.to_solr_s} TO *]" },
-        }
+          }
           config.add_facet_field "location_facet", :label => "Location", :limit => 5
           config.add_facet_field "language_facet", :label => "Language", :limit => 5
           config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 10
@@ -372,21 +376,21 @@ module Spectrum
 
 
         if elements.include?(:sorts)
-          config.add_sort_field   'score desc, pub_date_sort desc, title_sort asc', :label => 'Relevance'
-          config.add_sort_field  'acq_dt asc, title_sort asc', :label =>  'Acquired Earliest'
-          config.add_sort_field   'acq_dt desc, title_sort asc', :label => 'Acquired Latest'
-          config.add_sort_field   'pub_date_sort asc, title_sort asc', :label => 'Published Earliest'
-          config.add_sort_field   'pub_date_sort desc, title_sort asc', :label => 'Published Latest'
-          config.add_sort_field   'author_sort asc, title_sort asc', :label => 'Author A-Z'
-          config.add_sort_field   'author_sort desc, title_sort asc', :label => 'Author Z-A'
-          config.add_sort_field  'title_sort asc, pub_date_sort desc', :label =>  'Title A-Z'
-          config.add_sort_field   'title_sort desc, pub_date_sort desc', :label => 'Title Z-A'
+          config.add_sort_field 'score desc, pub_date_sort desc, title_sort asc', :label => 'Relevance'
+          config.add_sort_field 'acq_dt asc, title_sort asc', :label =>  'Acquired Earliest'
+          config.add_sort_field 'acq_dt desc, title_sort asc', :label => 'Acquired Latest'
+          config.add_sort_field 'pub_date_sort asc, title_sort asc', :label => 'Published Earliest'
+          config.add_sort_field 'pub_date_sort desc, title_sort asc', :label => 'Published Latest'
+          config.add_sort_field 'author_sort asc, title_sort asc', :label => 'Author A-Z'
+          config.add_sort_field 'author_sort desc, title_sort asc', :label => 'Author Z-A'
+          config.add_sort_field 'title_sort asc, pub_date_sort desc', :label =>  'Title A-Z'
+          config.add_sort_field 'title_sort desc, pub_date_sort desc', :label => 'Title Z-A'
         end
 
       end
 
-      def self.generate_config(source)
 
+      def self.generate_config(source)
 
         if source.in?('quicksearch','ebooks','dissertations')
           self.blacklight_config = Blacklight::Configuration.new do |config|
@@ -513,13 +517,12 @@ module Spectrum
               }
 
 
-        config.add_facet_field 'acq_dt', :label => 'Acquisition Date', :open => true, :query => {
-         :week_1 => { :label => 'within 1 Week', :fq => "acq_dt:[#{(Date.today - 1.weeks).to_datetime.utc.to_solr_s} TO *]" },
-         :month_1 => { :label => 'within 1 Month', :fq => "acq_dt:[#{(Date.today - 1.months).to_datetime.utc.to_solr_s} TO *]" },
-         :months_6 => { :label => 'within 6 Months', :fq => "acq_dt:[#{(Date.today - 6.months).to_datetime.utc.to_solr_s} TO *]" },
-
-         :years_1 => { :label => 'within 1 Year', :fq => "acq_dt:[#{(Date.today - 1.years).to_datetime.utc.to_solr_s} TO *]" },
-      }
+              config.add_facet_field 'acq_dt', :label => 'Acquisition Date', :open => true, :query => {
+                  :week_1 => { :label => 'within 1 Week', :fq => "acq_dt:[#{(Date.today - 1.weeks).to_datetime.utc.to_solr_s} TO *]" },
+                  :month_1 => { :label => 'within 1 Month', :fq => "acq_dt:[#{(Date.today - 1.months).to_datetime.utc.to_solr_s} TO *]" },
+                  :months_6 => { :label => 'within 6 Months', :fq => "acq_dt:[#{(Date.today - 6.months).to_datetime.utc.to_solr_s} TO *]" },
+                  :years_1 => { :label => 'within 1 Year', :fq => "acq_dt:[#{(Date.today - 1.years).to_datetime.utc.to_solr_s} TO *]" },
+              }
               config.add_facet_field "format", :label => "Format", :limit => 5, :open => true
               # NEXT-698 - :segments key is searched for at top, not within range
               config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false}, :segments => false
