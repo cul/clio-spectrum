@@ -48,16 +48,15 @@ module LocalSolrHelperExtension
        # it returns a hash. Turn it into a hash either way.
        ranged_facet_configs = Hash[ ranged_facet_configs ] unless ranged_facet_configs.kind_of?(Hash)
 
-
        ranged_facet_configs.each_pair do |solr_field, config|
         solr_params["stats"] = "true"
         solr_params["stats.field"] ||= []
-        solr_params["stats.field"] << solr_field unless solr_params["stats.field"].include?(solr_field)
+        solr_params["stats.field"] << solr_field unless
+            solr_params["stats.field"].include?(solr_field)
 
-        hash =  req_params[:range] && req_params[:range][solr_field] ?
-          req_params[:range][solr_field] :
-          {}
-
+        hash = req_params[:range] && req_params[:range][solr_field] ?
+                  req_params[:range][solr_field] :
+                  {}
 
         if !hash["missing"].blank?
           # missing specified in request params
@@ -68,9 +67,10 @@ module LocalSolrHelperExtension
           # specified in request params, begin and/or end, might just have one
           start = hash["begin"].blank? ? "*" : hash["begin"]
           finish = hash["end"].blank? ? "*" : hash["end"]
+          fq_value = "#{solr_field}: [#{start} TO #{finish}]"
 
           solr_params[:fq] ||= []
-          solr_params[:fq] << "#{solr_field}: [#{start} TO #{finish}]"
+          solr_params[:fq] << fq_value unless solr_params[:fq].include?(fq_value)
 
           if (config.segments != false && start != "*" && finish != "*")
             # Add in our calculated segments, can only do with both boundaries.
@@ -91,17 +91,18 @@ module LocalSolrHelperExtension
 
   def add_advanced_search_to_solr(solr_parameters, req_params = params)
     if is_advanced_search?(req_params)
+      
       solr_parameters[:qt] = req_params[:qt] if req_params[:qt]
 
       advanced_q = advanced_search_queries(req_params).collect  do |query|
         field_name, value = *query
 
-
         search_field_def = search_field_def_for_key(field_name)
 
         if (search_field_def && hash = search_field_def.solr_local_parameters)
-          force_phrase_search = false  # searches for "starts_with" field will need to be quoted
+          force_phrase_search = false  
           local_params = hash.collect do |key, val|
+            # searches for "starts_with" field will need to be quoted
             if (val == 'title_starts_with')
               force_phrase_search = true
             end

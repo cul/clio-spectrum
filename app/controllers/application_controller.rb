@@ -68,13 +68,18 @@ class ApplicationController < ActionController::Base
     options['source'] = @active_source unless options['source']
     options['debug_mode'] = @debug_mode
     options['current_user'] = current_user
+
+    # this new() actually runs the search.
+    # [ the Solr engine call perform_search() within it's initialize() ]
     engine = Spectrum::Engines::Solr.new(options)
+
     if engine.successful?
       @response = engine.search
       @results = engine.documents
       look_up_clio_holdings(engine.documents)
       add_alerts_to_documents(engine.documents)
     end
+    
     @debug_entries ||= {}
     @debug_entries = @debug_entries.recursive_merge(engine.debug_entries)
     return engine

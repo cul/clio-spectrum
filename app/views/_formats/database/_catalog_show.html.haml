@@ -25,8 +25,9 @@
 = add_row('Acquired On', Date.parse(document.get('acq_dt')).to_formatted_s(:long)) if document.get('acq_dt')
 = add_row('Restricted', document.get("database_restrictions_display"))
 
-/- if document.get("_item_alerts").kind_of?(Hash)
-/  - document.get("_item_alerts").each do |alert_type, alerts|
-/    = add_row(ItemAlert::ALERT_TYPES[alert_type], alerts.select { |alert| alert.active? }.collect(&:message), options = {:html_safe => true}) 
-/ html_safe true, so that ERC can embed HTML links in their alert msgs
+-#  The database note/alert display is moved to holdings partial
+-# - if document.get("_item_alerts").kind_of?(Hash)
+-#  - document.get("_item_alerts").each do |alert_type, alerts|
+-#    = add_row(ItemAlert::ALERT_TYPES[alert_type], alerts.select { |alert| alert.active? }.collect(&:message), options = {:html_safe => true}) 
+-# html_safe true, so that ERC can embed HTML links in their alert msgs
 

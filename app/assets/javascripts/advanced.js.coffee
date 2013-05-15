@@ -1,7 +1,8 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-$ -> 
+$ ->
+  # this span indicator is written into the HTML if an ADV search is in effect 
   if $('span.show_advanced_search').length == 0
     $('.advanced_search').hide()
   else

@@ -23,6 +23,8 @@ class CatalogController < ApplicationController
     extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => "RSS for results")
     extra_head_content << view_context.auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => "Atom for results")
 
+    # runs the blacklight_search from application_controller using the params, 
+    # returns the engine with embedded results
     engine = blacklight_search(params)
     @response = engine.search
     @document_list = engine.documents

@@ -47,9 +47,10 @@ module AdvancedHelper
     text_field_tag("adv[#{index}][value]",default_value,  :class => "advanced_search_value")
 
   end
+  
+  # builds the field select-tag for each Advanced Search field/value pair
   def advanced_field_select_option(blacklight_config, index, par = params)
     index = index.to_s
-
     field_list = blacklight_config.search_fields.collect do |field_key, field|
       [field.label, field_key]
     end

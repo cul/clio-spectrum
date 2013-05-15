@@ -15,8 +15,6 @@ module Spectrum
         parse_queries
         parse_filters
         parse_ranges
-
-
       end
 
       def blacklight_config
@@ -26,8 +24,6 @@ module Spectrum
       def has_constraints?
         !(@filters.empty? && @queries.empty? && @ranges.empty?)
       end
-
-
 
       def query_operator_label
         @query_operator == "AND" ? "All Of" : "Any Of"
@@ -76,11 +72,9 @@ module Spectrum
         new_params = remove_facet_params(facet_field, value, new_params)
         new_params = add_facet_params(inverted_facet_field(facet_field), value, new_params)
         new_params
-
       end
 
       def facet_value_invert_links(facet_field,value)
-
         if  is_inverted?(facet_field)
           [
             ["Is Not", "#"],
@@ -139,9 +133,7 @@ module Spectrum
               label: @config.facet_fields[base_facet_field.to_s].label || facet_field
 
             }
-
           end
-
 
           values.each do |value|
             @filters[base_facet_field][:values] << {
@@ -149,7 +141,6 @@ module Spectrum
               label: value,
               remove: remove_facet_params(facet_field, value, @params),
               invert_links: facet_value_invert_links(facet_field, value)
-
             }
           end
         end
@@ -173,8 +164,6 @@ module Spectrum
                 :value => value,
                 :remove => catalog_index_path(remove_params)
               }
-
-
             end
 
           end
@@ -207,17 +196,11 @@ module Spectrum
 
         (@params[:range] || {}).each_pair do |range_key, range|
           @ranges[range_key] = {
-
               label: @config.facet_fields[range_key].label || range_key,
               value: "#{range['begin']} to #{range['end']}",
               remove: remove_range_params(range_key, @params)
-
-            }
-
-
-
+          }
         end
-
       end
 
     end
