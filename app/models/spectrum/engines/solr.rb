@@ -345,7 +345,8 @@ module Spectrum
 
         if elements.include?(:facets)
           config.add_facet_field "format", :label => "Format", :limit => 5, :open => true
-          config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false}
+          # NEXT-698 - :segments key is searched for at top, not within range
+          config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false}, :segments => false
           config.add_facet_field "author_facet", :label => "Author", :limit => 5
           config.add_facet_field 'acq_dt', :label => 'Acquisition Date', :query => {
            :week_1 => { :label => 'within 1 Week', :fq => "acq_dt:[#{(Date.today - 1.weeks).to_datetime.utc.to_solr_s} TO *]" },
@@ -487,7 +488,8 @@ module Spectrum
               }
 
               config.add_facet_field "format", :label => "Format", :limit => 3, :open => true
-              config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false }
+              # NEXT-698 - :segments key is searched for at top, not within range
+              config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false }, :segments => false
               config.add_facet_field "author_facet", :label => "Author", :limit => 3
               config.add_facet_field "repository_facet", :label => "Repository", :limit => 5
               config.add_facet_field "location_facet", :label => "Location", :limit => 5
@@ -518,7 +520,8 @@ module Spectrum
          :years_1 => { :label => 'within 1 Year', :fq => "acq_dt:[#{(Date.today - 1.years).to_datetime.utc.to_solr_s} TO *]" },
       }
               config.add_facet_field "format", :label => "Format", :limit => 5, :open => true
-              config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false}
+              # NEXT-698 - :segments key is searched for at top, not within range
+              config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false}, :segments => false
               config.add_facet_field "author_facet", :label => "Author", :limit => 5
               config.add_facet_field "location_facet", :label => "Location", :limit => 5
               config.add_facet_field "language_facet", :label => "Language", :limit => 5
@@ -553,7 +556,8 @@ module Spectrum
               config.index.record_display_type = "format"
 
               config.add_facet_field 'author_facet', :label => 'Author', :open => true, :limit => 5
-              config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false }
+              # NEXT-698 - :segments key is searched for at top, not within range
+              config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false }, :segments => false
               config.add_facet_field 'department_facet', :label => 'Department', :limit => 5
               config.add_facet_field 'subject_facet', :label => 'Subject', :limit => 10
               config.add_facet_field 'genre_facet', :label => 'Content Type', :limit => 10
@@ -581,7 +585,7 @@ module Spectrum
               config.index.record_display_type = "format"
 
               config.add_facet_field 'author_facet', :label => 'Author', :open => true, :limit => 5
-              config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false }
+              config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false }, :segments => false
               config.add_facet_field 'department_facet', :label => 'Department', :limit => 5
               config.add_facet_field 'subject_facet', :label => 'Subject', :limit => 10
               config.add_facet_field 'genre_facet', :label => 'Content Type', :limit => 10
