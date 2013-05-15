@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe "All datasource labels should display on home-page" do
-  it "including Library Web site" do
+  it "including Libraries Website" do
     visit root_path
-    find('#datasources').should have_text("Library Web site")
+    find('#datasources').should have_text("Libraries Website")
   end
 end
 

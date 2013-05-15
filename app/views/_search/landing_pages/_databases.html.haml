@@ -7,7 +7,7 @@
     %p Databases content includes:
     %ul
       %li Archives and manuscripts
-      %li Articles, conference Papers, dissertations, and theses
+      %li Articles, conference papers, dissertations, and theses
       %li E-book collections
       %li Government documents and statistics 
       %li Image, sound and video collections
@@ -26,7 +26,35 @@
 
         %ul.nav.nav-list
           %li.nav-header Related Links
-          %li= link_to "Report a Problem", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0006"
+
+
+          / redundant w/center description text
+          /%li= link_to "Not sure where to start? Try Find Articles", 
+          /              "http://www.columbia.edu/cgi-bin/cul/resolve?findarticles"
+
+          / the elink icon doesn't really look good here, leave it out for now
+          / %li= link_to "How do I get to full-text? Use E-Link &nbsp; #{image_tag('elink.gif', :size => "60x18")}".html_safe, 
+          %li= link_to "How do I get to full-text? Use E-Link", 
+              "http://library.columbia.edu/help/howto/elink.html"
+
+          / This FAQ is obsolete with no replacement
+          /%li= link_to "How do I connect from off-campus?", 
+          /"http://library.columbia.edu/services/faq/eresources/eresources_offcampus.html"
+
+          %li= link_to "Subject help guides", 
+              "/databases?f[database_resource_type_facet][]=Subject+Guides"
+
+          %li= link_to "Mobile resources", 
+              "http://library.columbia.edu/eresources/mobile_resources.html"
+
+          %li= link_to "Report E-Resource Problems", 
+              "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0006"
+
+          / Not implemented
+          / %li= link_to "New databases", "http://library.columbia.edu"
+          / %li= link_to "My saved databases", "http://library.columbia.edu"
+          / %li= link_to "User voice help link once CERM has this working", "http://library.columbia.edu"
+
 
 .row-fluid
   .landing_across.span12
