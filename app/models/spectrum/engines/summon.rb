@@ -7,10 +7,15 @@ module Spectrum
       Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
 
       DEFAULT_PARAMS = {
+        
       'newspapers' =>  {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)', 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']},
+      
       'articles' =>  {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)', 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']},
-      'ebooks' => {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)', 's.fvf' => ['ContentType,eBook'], 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']},
+      
+      'ebooks' => {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(IsFullText, true)', 's.fvf' => ['ContentType,eBook'], 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']},
+      
       'dissertations' => {'spellcheck' => true, 's.ho' => true, 's.fvf' => ['ContentType,Dissertation'], 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']}
+      
         }
 
 
