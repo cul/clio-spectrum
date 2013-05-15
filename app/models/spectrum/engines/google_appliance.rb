@@ -58,7 +58,7 @@ module Spectrum
 
 
       def previous_page_path
-        search_merge('start' => [@start - @rows, 1].max)
+        search_merge('start' => [@start - @rows, 0].max)
       end
 
       def next_page?
