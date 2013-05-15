@@ -151,6 +151,10 @@ module HoldingsHelper
       bibkeys << Array.wrap(document["isbn_display"]).collect { |isbn| "isbn:" + isbn}.uniq
     end
 
+    unless document["issn_display"].nil?
+      bibkeys << Array.wrap(document["issn_display"]).collect { |issn| "issn:" + issn}.uniq
+    end
+
     unless document["oclc_display"].nil?
       bibkeys << document["oclc_display"].collect { |oclc| "oclc:" + oclc.gsub(/^oc[mn]/,"") }.uniq
     end
