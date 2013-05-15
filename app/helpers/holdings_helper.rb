@@ -143,7 +143,7 @@ module HoldingsHelper
 
   end
 
-  def extract_google_bibkeys(document)
+  def extract_standard_bibkeys(document)
 
     bibkeys = []
 
