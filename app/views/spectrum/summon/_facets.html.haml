@@ -27,7 +27,7 @@
         .facet_limit
           %h5.twiddle.twiddle-open
             = facet.display_name.titleize
-            %i.icon-chevron
+            %i.icon-turnbuckle
 
           %ul
             - if facet.has_applied_value? || facet.field_name == "ContentType_mfacet"
@@ -58,7 +58,7 @@
       .facet_limit
         %h5.twiddle.twiddle-open
           Publication Date
-          %i.icon-chevron
+          %i.icon-turnbuckle
 
         %ul
           - pub_range_filter = result.search.query.range_filters.detect { |rf| rf.field_name == "PublicationDate" }

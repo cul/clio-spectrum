@@ -3,7 +3,7 @@
 - if display_facet && display_facet.items.length > 0 
   %h5
     = facet_field_labels[solr_field]
-    %i.icon-chevron
+    %i.icon-turnbuckle
   %ul
     = render :partial => "catalog/facet_call_letter_value", :locals => {:solr_field => "lc_1letter_facet"}
    
