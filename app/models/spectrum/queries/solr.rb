@@ -124,6 +124,10 @@ module Spectrum
       def parse_filters
         @filters = HashWithIndifferentAccess.new()
         (@params[:f] || {}).each_pair do |facet_field, values|
+          
+          # don't process this filter if there are no values
+          next if values.join.empty?
+          
           base_facet_field = facet_field.gsub(/^-/,'').to_s
 
           unless @filters.has_key?(base_facet_field)

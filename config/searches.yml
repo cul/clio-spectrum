@@ -98,8 +98,8 @@ sources:
       format: ac
       check_fedora: true
   library_web:
-    title: Library Web
-    description: Searches the library web site
+    title: Libraries Website
+    description: Searches the libraries' website
     render_options:
       format: lweb
   ac_dissertations:

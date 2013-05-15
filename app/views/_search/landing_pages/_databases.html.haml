@@ -34,17 +34,19 @@
 
     - database_browse = YAML.load(File.read(Rails.root.to_s + "/config/database_browse.yml"))
     - hilcc_codes = database_browse['hilcc'].invert
+    - resource_codes = database_browse['resource_types'].invert
+
     .databases_browse_by
       %div
         = form_tag databases_index_path, :method => 'get', :class => 'form-inline' do 
           %div
             .browse_label Browse by discipline:
-            = select_tag 'f[database_hilcc_facet][]', options_for_select(hilcc_codes.keys.sort.each  { |k| [k, hilcc_codes[k]] })
-            %button.btn{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'search'} Browse
+            = select_tag 'f[database_hilcc_facet][]', options_for_select(hilcc_codes.keys.sort.each  { |k| [k, hilcc_codes[k]] }), :prompt => "All Disciplines"
 
-        - resource_codes = database_browse['resource_types'].invert
-        = form_tag databases_index_path, :method => 'get', :class => 'form-inline' do 
           %div
             .browse_label Browse by resource type:
-            = select_tag 'f[database_resource_type_facet][]', options_for_select(resource_codes.keys.sort.each  { |k| [k, resource_codes[k]] })
+            = select_tag 'f[database_resource_type_facet][]', options_for_select(resource_codes.keys.sort.each  { |k| [k, resource_codes[k]] }), :prompt => "All Resource Types"
+
+          %div
+            .browse_label
             %button.btn{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'search'} Browse
