@@ -90,11 +90,11 @@ datasources:
         author: Author
         subject: Subject
   library_web:
-    name: Library Web site
+    name: Libraries Website
     no_facets: true
     search_box:
       route: library_web_index_path
-      placeholder: Library Web
+      placeholder: Libraries Website
   academic_commons:
     name: Academic Commons
     search_box:

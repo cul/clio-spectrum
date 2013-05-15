@@ -73,7 +73,7 @@ class ApplicationController < ActionController::Base
       @response = engine.search
       @results = engine.documents
       look_up_clio_holdings(engine.documents)
-      add_alerts_to_documents(@document_list)
+      add_alerts_to_documents(engine.documents)
     end
     @debug_entries ||= {}
     @debug_entries = @debug_entries.recursive_merge(engine.debug_entries)
@@ -221,10 +221,12 @@ class ApplicationController < ActionController::Base
       document["_active_item_alert_count"] ||= 0
       ItemAlert::ALERT_TYPES.each do |alert_type, name|
         document["_item_alerts"][alert_type] ||= []
-      end
-      document["_item_alerts"][alert.alert_type] << alert
-      if alert.active?
-        document["_active_item_alert_count"] += 1
+        if alert_type == alert.alert_type
+          document["_item_alerts"][alert.alert_type] << alert
+          if alert.active?
+            document["_active_item_alert_count"] += 1
+          end
+        end
       end
     end
   end

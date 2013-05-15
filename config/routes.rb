@@ -83,6 +83,12 @@ Clio::Application.routes.draw do
   match 'spectrum/show', :to => "spectrum#search", :defaults => {:layout => 'quicksearch'}
 
 
+  # we get this from blacklight - but we need it to accept POST as well...
+  # email_catalog GET    /catalog/email(.:format)                       catalog#email
+  # sms_catalog GET    /catalog/sms(.:format)                         catalog#sms
+  match '/catalog/email(.:format)', :to => "catalog#email", :as => :email_catalog
+  match '/catalog/sms(.:format)', :to => "catalog#sms", :as => :sms_catalog
+
   namespace :admin do
     resources :locations
   end
