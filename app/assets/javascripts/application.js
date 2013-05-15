@@ -31,3 +31,5 @@
 //= require async-search
 
 //= require holdings
+
+//= require item_actions
