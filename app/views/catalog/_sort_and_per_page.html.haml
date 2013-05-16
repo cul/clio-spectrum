@@ -1,5 +1,5 @@
 - unless @document_list.nil? || @document_list.empty?
-  #sortAndPerPage
+  .sortAndPerPage
     = render :partial => "paginate_compact"  
     = link_to image_tag('rss-feed-icon-14x14.png', :size => "13x13"), catalog_index_path(params.merge(:format => 'atom')), :class => "rss-feed"
     = render :partial => 'sort_widget' 
