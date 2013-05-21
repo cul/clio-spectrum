@@ -58,11 +58,11 @@ module DatasourcesHelper
     result |= datasources_active_list(options).collect { |src| datasource_item(src,options) }
 
     unless (hidden_datasources = datasources_hidden_list(options)).empty?
-      result << content_tag(:li, link_to("More", "#"),  :id => "datasource_expand")
+      result << content_tag(:li, link_to("More...", "#"),  :id => "datasource_expand")
 
       sub_results = hidden_datasources.collect { |src| datasource_item(src,options) }
 
-      sub_results << content_tag(:li, link_to("Fewer", "#", :id => "datasource_contract"))
+      sub_results << content_tag(:li, link_to("Fewer...", "#"), :id => "datasource_contract")
       result << content_tag(:ul, sub_results.join('').html_safe, :id => 'expanded_datasources')
     end
 

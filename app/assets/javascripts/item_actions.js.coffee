@@ -18,3 +18,4 @@
 
 @OpenWindow = (url) ->
   window.open(url,'','left=200,top=200,width=650,height=700,scrollbars')
+  return false
