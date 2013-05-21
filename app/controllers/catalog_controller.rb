@@ -21,7 +21,8 @@ class CatalogController < ApplicationController
     if params['search_field'] == 'title_starts_with'
       # left-anchored-title must be searched as quoted phrase.
       # remove any quotes the user put in, wrap in our own double-quotes
-      params['q'] = "\"#{ params['q'].gsub!(/"/,'') }\""
+      params['q'].gsub!(/"/,'')
+      params['q'] = "\"#{ params['q'] }\""
     end
 
     solr_search_params_logic << :add_advanced_search_to_solr
