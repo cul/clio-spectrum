@@ -25,7 +25,9 @@
     - result.facets.reject { |ft| ft.empty?}.each do |facet|
       .facet_limit
         .facet_limit
-          %h5.twiddle.twiddle-open
+          -# NEXT-584 - facets open/close indictor wrong
+          -# %h5.twiddle.twiddle-open
+          %h5
             = facet.display_name.titleize
             %i.icon-turnbuckle
 
@@ -56,7 +58,9 @@
 
     .facet_limit
       .facet_limit
-        %h5.twiddle.twiddle-open
+        -# NEXT-584 - facets open/close indictor wrong
+        -# %h5.twiddle.twiddle-open
+        %h5
           Publication Date
           %i.icon-turnbuckle
 
