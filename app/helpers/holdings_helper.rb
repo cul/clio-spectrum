@@ -64,24 +64,51 @@ module HoldingsHelper
 
 
   SERVICE_ORDER = %w{offsite spec_coll precat recall_hold on_order borrow_direct ill in_process doc_delivery}
-  # parameters: title, link, whether to append clio_id to link
+  # # parameters: title, link, whether to append clio_id to link
+  # SERVICES = {
+  #   'offsite' => ["Offsite", "http://www.columbia.edu/cgi-bin/cul/offsite2?", true],
+  #   'spec_coll' => ["Special Collections", "http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey=", true],
+  #   'precat' => ["Precataloging", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sprecat?", true],
+  #   'recall_hold' => ["Recall/Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId=", true],
+  #   'on_order' => ["On Order", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sinprocess?", true],
+  #   'borrow_direct' => ['Borrow Direct', "http://www.columbia.edu/cgi-bin/cul/borrowdirect?", true],
+  #   'ill' => ['ILL', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?", true],
+  #   'in_process' => ['In Process', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sinprocess?", true],
+  #   'doc_delivery' => ['Document Delivery', " https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?", true]
+  # }
+  # 
+  # def service_links(services, clio_id, options = {})
+  #   services.select {|svc| SERVICE_ORDER.index(svc)}.sort_by { |svc| SERVICE_ORDER.index(svc) }.collect do |svc|
+  #     title, uri, add_clio_id = SERVICES[svc]
+  #     uri += clio_id.to_s if add_clio_id
+  #     link_to title, uri, options
+  #   end
+  # end
+
+  # parameters: title, link (url or javascript)
   SERVICES = {
-    'offsite' => ["Offsite", "http://www.columbia.edu/cgi-bin/cul/offsite2?", true],
-    'spec_coll' => ["Special Collections", "http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey=", true],
-    'precat' => ["Precataloging", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sprecat?", true],
-    'recall_hold' => ["Recall/Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId=", true],
-    'on_order' => ["On Order", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sinprocess?", true],
-    'borrow_direct' => ['Borrow Direct', "http://www.columbia.edu/cgi-bin/cul/borrowdirect?", true],
-    'ill' => ['ILL', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?", true],
-    'in_process' => ['In Process', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sinprocess?", true],
-    'doc_delivery' => ['Document Delivery', " https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?", true]
+    'offsite' => ["Offsite", "http://www.columbia.edu/cgi-bin/cul/offsite2?"],
+    'spec_coll' => ["Special Collections", "http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey="],
+    'precat' => ["Precataloging", "OpenPrecatRequest"],
+    'recall_hold' => ["Recall/Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId="],
+    'on_order' => ["On Order", "OpenInprocessRequest"],
+    'borrow_direct' => ['Borrow Direct', "http://www.columbia.edu/cgi-bin/cul/borrowdirect?"],
+    'ill' => ['ILL', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?"],
+    'in_process' => ['In Process', "OpenInprocessRequest"],
+    'doc_delivery' => ['Document Delivery', " https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?"]
   }
 
-  def service_links(services, clio_id, options = {})
+  def service_links(services, clio_id)
     services.select {|svc| SERVICE_ORDER.index(svc)}.sort_by { |svc| SERVICE_ORDER.index(svc) }.collect do |svc|
-      title, uri, add_clio_id = SERVICES[svc]
-      uri += clio_id.to_s if add_clio_id
-      link_to title, uri, options
+      title, link = SERVICES[svc]
+      bibid = clio_id.to_s
+      if link.match(/^http/)
+        link += bibid
+        link_to title, link, :target => "_blank"
+      else
+        jscript = "#{link}(#{bibid}); return false;"
+        link_to title, "#", :onclick => jscript
+      end
     end
   end
 
