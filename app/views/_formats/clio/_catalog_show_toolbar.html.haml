@@ -23,7 +23,7 @@
       %li=link_to "Email", email_catalog_path(:id => id), {:id => "emailLink", :name => "email", :class => "lightboxLink"}
       / %li=link_to "SMS-BLACKLIGHT", sms_catalog_path(:id => id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}  
 
-      %li=link_to "Send to Phone", "javascript:OpenTextMessage(#{id})"
+      %li=link_to "Send to Phone", "#", :onclick => "OpenTextMessage(#{id}); return false;"
 
       %li.dropdown
         =link_to "Export <span class='caret'>".html_safe, "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown"
@@ -56,7 +56,9 @@
           %li= link_to "ILL", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?#{clio_id}", :target => "_blank"
           %li= link_to "Document Delivery", " https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?#{clio_id}", :target => "_blank"
           %li= link_to "Inter-Campus Delivery", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0013", :target => "_blank"
-          %li= link_to "In-Process / On Order", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sinprocess?#{clio_id}", :target => "_blank"
-          %li= link_to "Precataloging", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sprecat?#{clio_id}", :target => "_blank"
+          %li= link_to "In-Process / On Order", "#", :onclick => "OpenInprocessRequest(#{clio_id}); return false;"
+          %li= link_to "Precataloging", "#", :onclick => "OpenPrecatRequest(#{clio_id}); return false;"
           - if HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + clio_id) == "1"
             %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{clio_id}", :target => "_blank"
+          %li= link_to "Item Not On Shelf?", "#", :onclick => "OpenSearchRequest(#{clio_id}); return false;"
+
