@@ -9,23 +9,24 @@
     - add_datasources(@active_source)
     #trigger
     = render :partial => "/top_navigation_bar"
-    #page.container-fluid
-
-      = render :partial => "/header_with_search"
-      #bd.row-fluid
-        .sidebar{:class => sidebar_span}
-          .search_logo.hidden-phone
-            = link_to "CLIO", root_path, :class => "nav_title search_bar_logo"
-          #sources
-            = sidebar_items.join('').html_safe
-        #main_with_sources{:class => main_span}
-          .row-fluid
-            - unless @show_landing_pages
-              = display_search_boxes(@active_source)
-        
-            = render :partial=>'/layouts/messages'
-            = yield
-
-        .clear-both  
-      = render :partial => "/footer"
-    #ajax-modal.modal.hide.fade{:tabindex => -1}
+    #outer-container.container-fluid
+      #page
+  
+        = render :partial => "/header_with_search"
+        #bd.row-fluid
+          .sidebar{:class => sidebar_span}
+            .search_logo.hidden-phone
+              = link_to "CLIO", root_path, :class => "nav_title search_bar_logo"
+            #sources
+              = sidebar_items.join('').html_safe
+          #main_with_sources{:class => main_span}
+            .row-fluid
+              - unless @show_landing_pages
+                = display_search_boxes(@active_source)
+          
+              = render :partial=>'/layouts/messages'
+              = yield
+  
+          .clear-both  
+        = render :partial => "/footer"
+      #ajax-modal.modal.hide.fade{:tabindex => -1}
