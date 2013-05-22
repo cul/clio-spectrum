@@ -15,6 +15,7 @@
 = add_row("Restrictions", display_marc_field(marc, 'restrictions'))
 = add_row("Notes", display_marc_field(marc, 'notes_manuscript_archive'))
 = add_row("Provenance", display_marc_field(marc, 'provenance'))
+= add_row("Constituent Items", display_marc_field(marc, 'constituent_items'))
 = add_row("Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_LC')))
 = add_row("Medical Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_mesh')))
 = add_row("Subjects (Genre)", generate_value_links_subject(display_marc_field(marc, 'subject_genre')))
