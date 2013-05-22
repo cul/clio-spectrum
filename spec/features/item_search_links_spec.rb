@@ -3,9 +3,9 @@
 require 'spec_helper'
 
 describe "Search links in item display should work", :focus => false do
-  
+
   it "including links with diacritics and trailing punctuation" do
-    
+
     pending "BROKEN UTF8 HANDLING"
     # visit this specific item
     visit catalog_path('10172954')
@@ -21,13 +21,13 @@ describe "Search links in item display should work", :focus => false do
 
     # click back, to the same item again.
     click_link('Mādhā qāla al-Imām al-Shaʻrāwī fī tafsīrihi ʻan taḥkīm al-sharīʻah wa-taṭbīqihā?')
-    
+
     # follow the "Author" linked name, should get to search results page
     page.should have_link('Shaʻrāwī, Muḥammad Mutawallī.', :href=>"/catalog?f%5Bauthor_facet%5D%5B%5D=Sha%CA%BBra%CC%84wi%CC%84%2C+Muh%CC%A3ammad+Mutawalli%CC%84")
     click_link('Shaʻrāwī, Muḥammad Mutawallī.')
-    
+
     page.should have_css('.result')
     page.should_not have_text('No results found')
   end
-  
+
 end

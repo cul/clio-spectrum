@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 #
-bind_datepickers = () -> 
+bind_datepickers = () ->
 	$("input[data-datepicker-format]").datepicker(
 		weekStart: 1
 		days: ["S","M","T","W","T","F","S"]
@@ -36,7 +36,7 @@ bind_alert_management_buttons = (alert_div) ->
         type: 'DELETE'
         dataType: 'json'
         success: (data, textStatus, jqXHR) ->
-          $(button).parents('tr').remove() 
+          $(button).parents('tr').remove()
       )
 
 bind_alert_management_form = (form) ->
@@ -61,7 +61,7 @@ bind_alert_management_form = (form) ->
 
           parent_div.fadeOut()
           add_row = $('#show_alert_management .add_row_button').parents('tr')
-          
+
           if row.length == 0
             form.find('input[type=text],textarea').each ->
               $(this).val('')
@@ -93,11 +93,11 @@ bind_alert_management_form = (form) ->
     return false
 
 $ ->
-  $('#show_alert_management .add_row_button').click -> 
+  $('#show_alert_management .add_row_button').click ->
     $('#create_alert').fadeIn()
     $(this).parents('tr').hide()
 
-        
+
 
   bind_alert_management_buttons('#show_alert_management')
   bind_alert_management_form($('#show_alert_management form'))

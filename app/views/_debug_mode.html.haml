@@ -1,8 +1,8 @@
 - if @debug_mode
   .debug_instruction
-    Debug mode is on. 
+    Debug mode is on.
     - turn_off_link = request.fullpath.gsub(/.debug_mode=(on|off)/,'')
-    - turn_off_link = turn_off_link.include?("?") ? turn_off_link + "&debug_mode=off" : turn_off_link + "?debug_mode=off" 
+    - turn_off_link = turn_off_link.include?("?") ? turn_off_link + "&debug_mode=off" : turn_off_link + "?debug_mode=off"
     Turn it #{link_to "off", turn_off_link}
   .debug_entries
     - @debug_entries.each do |key, values|

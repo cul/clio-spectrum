@@ -1,15 +1,15 @@
-/ container for a single doc 
+/ container for a single doc
 .result.document{class: render_document_class(document), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
-    
+
   %abbr.unapi-id{:title => document[:id]}
   .title= link_to_source_document document, :label=> document_full_title(document), :counter => counter
-      
-  / main container for doc partial view 
+
+  / main container for doc partial view
 
   .row-fluid
 
     .details.span10
       = render :partial => "/_formats/clio/catalog_list_details", :locals => {:document => document}
-  
+
     .doc_bookjacket.span2
       =image_tag("spacer.png", :class => "list_view bookjacket " + extract_standard_bibkeys(document).listify.collect { |x| "id_" + x.to_s.gsub(':','')}.join(" "))

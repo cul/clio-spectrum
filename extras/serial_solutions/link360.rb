@@ -34,7 +34,7 @@ module SerialSolutions
       @holdings = xml.css('ssopenurl|linkGroup').collect do |link_group|
         holding = link_group.at_css('ssopenurl|holdingData')
 
-        result = { 
+        result = {
           :start_date => content_or_nil.call(holding, 'ssopenurl|startDate'),
           :end_date => content_or_nil.call(holding, 'ssopenurl|endDate') || "present",
           :provider_id => content_or_nil.call(holding, 'ssopenurl|providerId'),

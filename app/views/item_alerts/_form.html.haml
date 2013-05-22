@@ -8,7 +8,7 @@
         %ul
           - item_alert.errors.full_messages.each do |msg|
             %li= msg
-  
+
   - if item_alert.source
     = f.hidden_field :source
   - else
@@ -40,7 +40,7 @@
   .control-group
     %label.control-label{:for => "end_date"} End Date:
     .controls
-      = text_field_tag 'item_alert[end_date]', item_alert.end_date.nil? ? "" : item_alert.end_date.strftime("%F %H:%M"), :"data-datepicker-format"=> "yyyy-mm-dd hh:ii", :placeholder =>"Leave blank to run indefinitely" 
+      = text_field_tag 'item_alert[end_date]', item_alert.end_date.nil? ? "" : item_alert.end_date.strftime("%F %H:%M"), :"data-datepicker-format"=> "yyyy-mm-dd hh:ii", :placeholder =>"Leave blank to run indefinitely"
 
   .control-group
     %label.control-label{:for => "message"} Message

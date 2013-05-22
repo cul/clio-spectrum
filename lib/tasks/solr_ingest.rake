@@ -5,7 +5,7 @@ namespace :solr do
   task :clear => :environment do
     start = ENV["START_TIME"] || "*"
     stop = ENV["STOP_TIME"] || "NOW"
-    ids = solr_find_ids_by_timespan(start, stop) 
+    ids = solr_find_ids_by_timespan(start, stop)
 
     if ENV["DRY_RUN"]
       puts_and_log "DRY RUN: #{ids.length} found from #{start} TO #{stop} would have been deleted"
@@ -39,7 +39,7 @@ namespace :solr do
         puts_and_log("Gunzip successful", :info)
       else
         puts_and_log("Gunzip unsuccessful", :error, :alarm => true)
-      end  
+      end
 
     end
 
@@ -100,7 +100,7 @@ namespace :solr do
       end
     end
 
-    desc "download and ingest latest files" 
+    desc "download and ingest latest files"
     task :process => :environment do
       Rake::Task["solr:extract:download"].execute
       puts_and_log("Downloading successful.")
@@ -126,7 +126,7 @@ end
 def puts_and_log(msg, level = :info, params = {})
   full_msg = level.to_s + ": " + msg.to_s
   puts full_msg
-  unless @logger 
+  unless @logger
     @logger = Logger.new(File.join(Rails.root, "log", "#{Rails.env}_ingest.log"))
     @logger.formatter = Logger::Formatter.new
   end

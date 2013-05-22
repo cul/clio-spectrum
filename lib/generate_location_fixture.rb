@@ -61,9 +61,9 @@ name_location_map = {
 results = []
 
 rows.each do |row|
-  
+
   next unless row.css("th").empty?
- 
+
   cells = row.css("td")
 
   result = {}
@@ -86,7 +86,7 @@ rows.each do |row|
 
   result[:links]["Home Page"] = cells[1].at_css("a").attributes["href"].value if cells[1].at_css("a")
   if cells[2].at_css("a")
-    map = cells[2].at_css("a").attributes["href"].value 
+    map = cells[2].at_css("a").attributes["href"].value
     result[:links]["Map"] = map
     if map.include?("http://www.columbia.edu/cu/lweb/services/maps/section")
       result[:links]["Map URL"] = map.gsub("lweb", "lweb/data").gsub("maps","maps/images").gsub(".html",".gif")

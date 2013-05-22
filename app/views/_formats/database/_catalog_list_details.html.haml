@@ -23,7 +23,7 @@
 - unless (locations = document["location_display"].listify.reject { |l| l == "Online" }).empty? || document["location_holdings_id_display"].nil?
   .row
     .label Location
-    .value 
+    .value
       - locations = locations.first.listify if controller.controller_name == "search"
       - locations.each_with_index do |location, i|
         - holdings_id = "holding_" + (document["location_holdings_id_display"].listify[i] || document["location_holdings_id_display"].first).to_s if document["location_holdings_id_display"]

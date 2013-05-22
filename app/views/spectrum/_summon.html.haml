@@ -12,7 +12,7 @@
               = render partial: '/spectrum/summon/no_results_blurb', locals: {result: result}
             - else
               = render partial: '/spectrum/summon/sorting_paging', locals: {result: result}
-              = render partial: "/spectrum/summon/result_docs", locals: {result: result, render_opts: search_render_options(search, source), row_opts: search['row_opts']} 
+              = render partial: "/spectrum/summon/result_docs", locals: {result: result, render_opts: search_render_options(search, source), row_opts: search['row_opts']}
               = render partial: '/spectrum/summon/sorting_paging', locals: {result: result}
 
             - sidebar_items << render(partial: "/spectrum/summon/facets", locals: {result: result})

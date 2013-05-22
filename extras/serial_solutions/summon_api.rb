@@ -4,7 +4,7 @@ module SerialSolutions
     include ActionView::Helpers::NumberHelper
     include Rails.application.routes.url_helpers
     Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
-    
+
     attr_reader :service, :search, :query
 
     DEFAULT_OPTIONS = {
@@ -13,8 +13,8 @@ module SerialSolutions
       'ebooks' => {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)', 's.fvf' => ['ContentType,eBook'], 's.ff' => ['ContentType,or,1,15','SubjectTerms,or,1,15','Language,or,1,15']},
       'dissertations' => {'spellcheck' => true, 's.ho' => true, 's.fvf' => ['ContentType,Dissertation'], 's.ff' => ['ContentType,or,1,15','SubjectTerms,or,1,15','Language,or,1,15']}
         }
-        
-    def initialize(in_options = {}) 
+
+    def initialize(in_options = {})
       options = in_options.clone
       @config = options.delete('config') || APP_CONFIG['summon']
 
@@ -31,7 +31,7 @@ module SerialSolutions
       @service = Summon::Service.new(@config)
 
       #normalize strings to ISO-8859-1
-      #options.each_pair do |k,v| 
+      #options.each_pair do |k,v|
         #if v.kind_of?(Array)
           #options[k] = v.collect { |v| v.kind_of?(String) ? v.force_encoding("ISO-8859-1") : v  }
         #else
@@ -68,7 +68,7 @@ module SerialSolutions
     end
 
     def page_size
-      size = @query_hash['s.ps'].to_i 
+      size = @query_hash['s.ps'].to_i
       size == 0 ? 15 : size
     end
 

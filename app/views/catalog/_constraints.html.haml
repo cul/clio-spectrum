@@ -1,10 +1,10 @@
 - if @query.has_constraints?
   #appliedParams.constraints-container
-    %span.constraints-label= t('blacklight.search.filters.title') 
-    = link_to t('blacklight.search.start_over'), url_for(:action=>'index'), :class => "catalog_startOverLink", :id=>"startOverLink" 
+    %span.constraints-label= t('blacklight.search.filters.title')
+    = link_to t('blacklight.search.start_over'), url_for(:action=>'index'), :class => "catalog_startOverLink", :id=>"startOverLink"
     - unless @query.queries.empty?
       - constraint_class = @query.multiple_queries? ? "with-dropdown" : ""
-        
+
       %div.constraint-box{:class => constraint_class}
         - if @query.multiple_queries?
           %span.dropdown
@@ -24,7 +24,7 @@
               #{query[:label]}: #{query[:value]}
             =link_to content_tag(:i, '', :class => 'icon-remove'), query[:remove]
         %span.chrome-fix
-          
+
 
     - @query.filters.each_pair do |filter_key, filter|
       %div.constraint-box.with-dropdown
@@ -56,7 +56,7 @@
 
     - @query.ranges.each_pair do |range_key, range|
       %div.constraint-box
-        #{range[:label]}: #{range[:value]} 
+        #{range[:label]}: #{range[:value]}
         =link_to content_tag(:i, '', :class => 'icon-remove'), range[:remove]
 
 

@@ -3,12 +3,12 @@ class Object
   # pure syntactic sugar, but we're diabetics over here.
   def in?(*args)
     collection = (args.length == 1 ? args.first : args)
-    collection ? collection.include?(self) : false 
+    collection ? collection.include?(self) : false
   end
-  
+
   alias_method :one_of?, :in?
-  
-  
+
+
   def listify(opts = {})
     case self
     when NilClass
@@ -18,7 +18,7 @@ class Object
     else
       [self]
     end
-      
+
   end
 
   # returns a sorted list of methods that are unique to an object compared to some other object
@@ -31,7 +31,7 @@ end
 
 class String
   # abbreviates strings to a fixed width, replacing the last few characters with padding
-  # "this is very very long".abbreviate(15, "...") => "this is very..."  
+  # "this is very very long".abbreviate(15, "...") => "this is very..."
   # "this is short".abbreviate(15, "...") => "this is short"
   def abbreviate(characters, padding = "...")
     if length > characters
@@ -50,7 +50,7 @@ end
 
 
 module Enumerable
-  # checks to see if any of the values in the enumerable are in 
+  # checks to see if any of the values in the enumerable are in
   # [3,2,4].any_in?(6,1,2) => true
   # [3,2,4].any_in?(5,6,7) => false
   def any_in?(*args)
@@ -63,7 +63,7 @@ class Hash
   def self.arbitrary_depth
     Hash.new(&(p=lambda{|h,k| h[k] = Hash.new(&p)}))
   end
-  
+
   def recursive_symbolize_keys!
     symbolize_keys!
     values.select{|v| v.is_a? Hash}.each{|h| h.recursive_symbolize_keys!}

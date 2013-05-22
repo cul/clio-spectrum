@@ -6,7 +6,7 @@
 = add_row('Subtitle', document.get("subtitle_vern_display"),:abbreviate => 100, :html_safe => false)
 = add_row('Author', [document.get("author_display"),document.get("author_vern_display")].compact, :html_safe => false)
 = add_row('Published', document.get("full_publisher_display"), :html_safe => false)
-- is_aggregate = controller.controller_name == "search" 
+- is_aggregate = controller.controller_name == "search"
 = add_row('Online', format_online_results(online_link_hash(document)), :expand => is_aggregate)
 
 
@@ -18,5 +18,5 @@
 
 
 - if @debug_mode  && @response && @response['debug'] && @response['debug']['explain'] && (score = @response['debug']['explain'][document.get('id').to_s])
-  = add_row('Score', score.gsub(/\n/,"").gsub(/\=.+$/,""), :expand_to => content_tag(:pre, score)) 
+  = add_row('Score', score.gsub(/\n/,"").gsub(/\=.+$/,""), :expand_to => content_tag(:pre, score))
 

@@ -102,9 +102,9 @@ module ArticlesHelper
     results << "ISSN: #{doc.issns.first}" unless doc.issns.empty?
     results << "Volume #{doc.volume.to_s}" if doc.volume
     results << "Issue #{doc.issue}" if doc.issue
-    results << "p. #{doc.start_page}" if doc.start_page 
+    results << "p. #{doc.start_page}" if doc.start_page
 
-    result = results.join(", ") 
+    result = results.join(", ")
     result.empty? ? nil : result
   end
 

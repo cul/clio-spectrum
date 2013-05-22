@@ -91,7 +91,7 @@ module LocalSolrHelperExtension
 
   def add_advanced_search_to_solr(solr_parameters, req_params = params)
     if is_advanced_search?(req_params)
-      
+
       solr_parameters[:qt] = req_params[:qt] if req_params[:qt]
 
       advanced_q = advanced_search_queries(req_params).collect  do |query|
@@ -100,7 +100,7 @@ module LocalSolrHelperExtension
         search_field_def = search_field_def_for_key(field_name)
 
         if (search_field_def && hash = search_field_def.solr_local_parameters)
-          force_phrase_search = false  
+          force_phrase_search = false
           local_params = hash.collect do |key, val|
             # searches for "starts_with" field will need to be quoted
             if (val == 'title_starts_with')
@@ -239,7 +239,7 @@ module LocalSolrHelperExtension
 
 
       fq = case
-        # If we somehow got here with an empty value, do not create a Solr fq clause 
+        # If we somehow got here with an empty value, do not create a Solr fq clause
         when value == ''
           ""
         when facet_field  =~ /^-/ || operator == "OR"

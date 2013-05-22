@@ -8,7 +8,7 @@
 = stylesheet_link_tag "application", :media => 'all'
 = javascript_include_tag "application"
 = yield(:jstemplates)
-- if BlacklightGoogleAnalytics.web_property_id 
+- if BlacklightGoogleAnalytics.web_property_id
   :javascript
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', '#{BlacklightGoogleAnalytics.web_property_id}']);
