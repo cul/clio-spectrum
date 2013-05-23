@@ -174,7 +174,8 @@ module Spectrum
       end
 
       def page_size_with_links
-        [10,20,50,100].collect do |page_size|
+        # [10,20,50,100].collect do |page_size|
+        [10,25,50].collect do |page_size|
           [by_source_search_cmd("setPageSize(#{page_size})"), page_size]
         end
 

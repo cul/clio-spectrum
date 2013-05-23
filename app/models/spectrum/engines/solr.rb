@@ -335,7 +335,7 @@ module Spectrum
         if elements.include?(:solr_params)
           config.default_solr_params = {
             :qt => "search",
-            :rows => 10
+            :rows => 25
           }
         end
 
@@ -349,42 +349,66 @@ module Spectrum
         end
 
         if elements.include?(:facets)
-          config.add_facet_field "format", :label => "Format", :limit => 5, :open => true
+          config.add_facet_field "format", 
+              :label => "Format", :limit => 5, :open => true
           # NEXT-698 - :segments key is searched for at top, not within range
-          config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false}, :segments => false
-          config.add_facet_field "author_facet", :label => "Author", :limit => 5
-          config.add_facet_field 'acq_dt', :label => 'Acquisition Date', :query => {
-           :week_1 => { :label => 'within 1 Week', :fq => "acq_dt:[#{(Date.today - 1.weeks).to_datetime.utc.to_solr_s} TO *]" },
-           :month_1 => { :label => 'within 1 Month', :fq => "acq_dt:[#{(Date.today - 1.months).to_datetime.utc.to_solr_s} TO *]" },
-           :months_6 => { :label => 'within 6 Months', :fq => "acq_dt:[#{(Date.today - 6.months).to_datetime.utc.to_solr_s} TO *]" },
-
-           :years_1 => { :label => 'within 1 Year', :fq => "acq_dt:[#{(Date.today - 1.years).to_datetime.utc.to_solr_s} TO *]" },
-          }
-          config.add_facet_field "location_facet", :label => "Location", :limit => 5
-          config.add_facet_field "language_facet", :label => "Language", :limit => 5
-          config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 10
-          config.add_facet_field "subject_geo_facet", :label => "Subject (Region)", :limit => 10
-          config.add_facet_field "subject_era_facet", :label => "Subject (Era)", :limit => 10
-          config.add_facet_field "subject_form_facet", :label => "Subject (Genre)", :limit => 10
-          config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26
-          config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
+          config.add_facet_field "pub_date_sort", 
+              :label => "Publication Date", :limit => 3, 
+              :range => {:segments => false}, :segments => false
+          config.add_facet_field "author_facet", 
+              :label => "Author", :limit => 5
+          config.add_facet_field 'acq_dt', 
+              :label => 'Acquisition Date', 
+              :query => {
+                :week_1 => { :label => 'within 1 Week', :fq => "acq_dt:[#{(Date.today - 1.weeks).to_datetime.utc.to_solr_s} TO *]" },
+                :month_1 => { :label => 'within 1 Month', :fq => "acq_dt:[#{(Date.today - 1.months).to_datetime.utc.to_solr_s} TO *]" },
+                :months_6 => { :label => 'within 6 Months', :fq => "acq_dt:[#{(Date.today - 6.months).to_datetime.utc.to_solr_s} TO *]" },
+                :years_1 => { :label => 'within 1 Year', :fq => "acq_dt:[#{(Date.today - 1.years).to_datetime.utc.to_solr_s} TO *]" },
+              }
+          config.add_facet_field "location_facet", 
+              :label => "Location", :limit => 5
+          config.add_facet_field "language_facet", 
+              :label => "Language", :limit => 5
+          config.add_facet_field "subject_topic_facet", 
+              :label => "Subject", :limit => 10
+          config.add_facet_field "subject_geo_facet", 
+              :label => "Subject (Region)", :limit => 10
+          config.add_facet_field "subject_era_facet", 
+              :label => "Subject (Era)", :limit => 10
+          config.add_facet_field "subject_form_facet", 
+              :label => "Subject (Genre)", :limit => 10
+          config.add_facet_field "lc_1letter_facet", 
+              :label => "Call Number", :limit => 26
+          config.add_facet_field "lc_2letter_facet", 
+              :label => "Refine Call Number", :limit => 26
         end
 
         if elements.include?(:search_fields)
-          add_search_fields(config, 'title', 'journal_title', 'series_title', 'title_starts_with', 'author', 'subject', 'form_genre', 'publication_place', 'publisher', 'publication_year', 'isbn', 'issn', 'call_number')
+          add_search_fields(config, 'title', 'journal_title', 'series_title',
+              'title_starts_with', 'author', 'subject', 'form_genre', 
+              'publication_place', 'publisher', 'publication_year', 
+              'isbn', 'issn', 'call_number')
         end
 
-
         if elements.include?(:sorts)
-          config.add_sort_field 'score desc, pub_date_sort desc, title_sort asc', :label => 'Relevance'
-          config.add_sort_field 'acq_dt asc, title_sort asc', :label =>  'Acquired Earliest'
-          config.add_sort_field 'acq_dt desc, title_sort asc', :label => 'Acquired Latest'
-          config.add_sort_field 'pub_date_sort asc, title_sort asc', :label => 'Published Earliest'
-          config.add_sort_field 'pub_date_sort desc, title_sort asc', :label => 'Published Latest'
-          config.add_sort_field 'author_sort asc, title_sort asc', :label => 'Author A-Z'
-          config.add_sort_field 'author_sort desc, title_sort asc', :label => 'Author Z-A'
-          config.add_sort_field 'title_sort asc, pub_date_sort desc', :label =>  'Title A-Z'
-          config.add_sort_field 'title_sort desc, pub_date_sort desc', :label => 'Title Z-A'
+          config.add_sort_field 'score desc, pub_date_sort desc, title_sort asc', 
+              :label => 'Relevance'
+          config.add_sort_field 'acq_dt asc, title_sort asc', 
+              :label => 'Acquired Earliest'
+          config.add_sort_field 'acq_dt desc, title_sort asc', 
+              :label => 'Acquired Latest'
+          config.add_sort_field 'pub_date_sort asc, title_sort asc', 
+              :label => 'Published Earliest'
+          config.add_sort_field 'pub_date_sort desc, title_sort asc', 
+              :label => 'Published Latest'
+          config.add_sort_field 'author_sort asc, title_sort asc', 
+              :label => 'Author A-Z'
+          config.add_sort_field 'author_sort desc, title_sort asc', 
+              :label => 'Author Z-A'
+          config.add_sort_field 'title_sort asc, pub_date_sort desc', 
+              :label => 'Title A-Z'
+          config.add_sort_field 'title_sort desc, pub_date_sort desc', 
+              :label => 'Title Z-A'
         end
 
       end
@@ -392,6 +416,7 @@ module Spectrum
 
       def self.generate_config(source)
 
+        # If we're in one of the hybrid-source bento-box searches....
         if source.in?('quicksearch','ebooks','dissertations')
           self.blacklight_config = Blacklight::Configuration.new do |config|
             default_catalog_config(config)
@@ -402,13 +427,15 @@ module Spectrum
 
             config.add_search_field 'all_fields', :label => 'All Fields'
 
+            config.per_page = [10,25,50,100]
             config.spell_max = 0
           end
+        # Else, we're in one of the single-source searches....  
         else
           self.blacklight_config = Blacklight::Configuration.new do |config|
             config.default_solr_params = {
               :qt => 'search',
-              :rows => 10
+              :rows => 25
             }
 
             config.add_search_field 'all_fields', :label => 'All Fields'
@@ -419,14 +446,14 @@ module Spectrum
               default_catalog_config(config, :display_fields, :facets, :search_fields, :sorts)
               config.default_solr_params = {
                 :qt => "search",
-                :rows => 15,
+                :rows => 25,
                 :fq  => ['{!raw f=format}Book', '{!raw f=format}Online']
               }
             when 'catalog_dissertations'
               default_catalog_config(config, :display_fields, :facets, :search_fields, :sorts)
               config.default_solr_params = {
                 :qt => "search",
-                :rows => 15,
+                :rows => 25,
                 :fq  => ['{!raw f=format}Thesis']
               }
             when 'journals'
@@ -434,17 +461,29 @@ module Spectrum
 
               config.default_solr_params = {
                 :qt => "search",
-                :rows => 10,
+                :rows => 25,
                 :fq  => ['{!raw f=source_facet}ejournal']
               }
 
-              config.add_facet_field "language_facet", :label => "Language", :limit => 5, :open => true
-              config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 10
-              config.add_facet_field "subject_geo_facet", :label => "Subject (Region)", :limit => 10
-              config.add_facet_field "subject_era_facet", :label => "Subject (Era)", :limit => 10
-              config.add_facet_field "subject_form_facet", :label => "Subject (Genre)", :limit => 10
-              config.add_facet_field 'title_first_facet', :label => "Starts With"
+              config.add_facet_field "language_facet", 
+                  :label => "Language", 
+                  :limit => 5, :open => true
+              config.add_facet_field "subject_topic_facet", 
+                  :label => "Subject", 
+                  :limit => 10
+              config.add_facet_field "subject_geo_facet", 
+                  :label => "Subject (Region)", 
+                  :limit => 10
+              config.add_facet_field "subject_era_facet", 
+                  :label => "Subject (Era)", 
+                  :limit => 10
+              config.add_facet_field "subject_form_facet", 
+                  :label => "Subject (Genre)", 
+                  :limit => 10
+              config.add_facet_field 'title_first_facet', 
+                  :label => "Starts With"
               add_search_fields(config, 'title',  'author', 'subject')
+
               config[:unapi] = {
                 'oai_dc_xml' => { :content_type => 'text/xml' }
               }
@@ -452,59 +491,82 @@ module Spectrum
             when 'databases'
               default_catalog_config(config, :display_fields)
 
-
               config.default_solr_params = {
                 :qt => "search",
-                :rows => 10,
+                :rows => 25,
                 :fq  => ['{!raw f=source_facet}database']
               }
 
-              config[:unapi] = {
-                'oai_dc_xml' => { :content_type => 'text/xml' }
-              }
+              config.add_facet_field "database_hilcc_facet", 
+                  :label => "Discipline", :limit => 5, :open => true
+              config.add_facet_field "database_resource_type_facet", 
+                  :label => "Resource Type", :limit => 5
+              config.add_facet_field "language_facet", 
+                  :label => "Language", :limit => 5
+              config.add_facet_field "subject_topic_facet", 
+                  :label => "Subject", :limit => 10
+              config.add_facet_field "subject_geo_facet", 
+                  :label => "Subject (Region)", :limit => 10
+              config.add_facet_field "subject_era_facet", 
+                  :label => "Subject (Era)", :limit => 10
+              config.add_facet_field "subject_form_facet", 
+                  :label => "Subject (Genre)", :limit => 10
+              config.add_facet_field "lc_1letter_facet", 
+                  :label => "Call Number", :limit => 26, :open => false
+              config.add_facet_field "lc_2letter_facet", 
+                  :label => "Refine Call Number", :limit => 26
+              config.add_facet_field 'title_first_facet', 
+                  :label => "Starts With"
 
-              config.add_facet_field "database_hilcc_facet", :label => "Discipline", :limit => 5, :open => true
-              config.add_facet_field "database_resource_type_facet", :label => "Resource Type", :limit => 5
-              config.add_facet_field "language_facet", :label => "Language", :limit => 5
-              config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 10
-              config.add_facet_field "subject_geo_facet", :label => "Subject (Region)", :limit => 10
-              config.add_facet_field "subject_era_facet", :label => "Subject (Era)", :limit => 10
-              config.add_facet_field "subject_form_facet", :label => "Subject (Genre)", :limit => 10
-              config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
-              config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
-              config.add_facet_field 'title_first_facet', :label => "Starts With"
-              config.add_sort_field   'score desc, pub_date_sort desc, title_sort asc', :label => 'relevance'
-              config.add_sort_field  'title_sort asc, pub_date_sort desc', :label =>  'Title A-Z'
-              config.add_sort_field   'title_sort desc, pub_date_sort desc', :label => 'Title Z-A'
+              config.add_sort_field 'score desc, pub_date_sort desc, title_sort asc', 
+                  :label => 'relevance'
+              config.add_sort_field 'title_sort asc, pub_date_sort desc', 
+                  :label =>  'Title A-Z'
+              config.add_sort_field 'title_sort desc, pub_date_sort desc', 
+                  :label => 'Title Z-A'
 
               add_search_fields(config, 'title',  'author', 'subject')
+              
               config[:unapi] = {
                 'oai_dc_xml' => { :content_type => 'text/xml' }
               }
-
 
             when 'archives'
               default_catalog_config(config, :display_fields,  :sorts)
 
               config.default_solr_params = {
                 :qt => "search",
-                :rows => 10,
+                :rows => 25,
                 :fq  => ['{!raw f=source_facet}archive']
               }
 
-              config.add_facet_field "format", :label => "Format", :limit => 3, :open => true
+              config.add_facet_field "format", 
+                  :label => "Format", :limit => 3, :open => true
               # NEXT-698 - :segments key is searched for at top, not within range
-              config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false }, :segments => false
-              config.add_facet_field "author_facet", :label => "Author", :limit => 3
-              config.add_facet_field "repository_facet", :label => "Repository", :limit => 5
-              config.add_facet_field "location_facet", :label => "Location", :limit => 5
-              config.add_facet_field "language_facet", :label => "Language", :limit => 5
-              config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 10
-              config.add_facet_field "subject_geo_facet", :label => "Subject (Region)", :limit => 10
-              config.add_facet_field "subject_era_facet", :label => "Subject (Era)", :limit => 10
-              config.add_facet_field "subject_form_facet", :label => "Subject (Genre)", :limit => 10
-              config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
-              config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
+              config.add_facet_field "pub_date_sort", 
+                  :label => "Publication Date", :limit => 3, 
+                  :range => {:segments => false }, :segments => false
+              config.add_facet_field "author_facet", 
+                  :label => "Author", :limit => 3
+              config.add_facet_field "repository_facet", 
+                  :label => "Repository", :limit => 5
+              config.add_facet_field "location_facet", 
+                  :label => "Location", :limit => 5
+              config.add_facet_field "language_facet", 
+                  :label => "Language", :limit => 5
+              config.add_facet_field "subject_topic_facet", 
+                  :label => "Subject", :limit => 10
+              config.add_facet_field "subject_geo_facet", 
+                  :label => "Subject (Region)", :limit => 10
+              config.add_facet_field "subject_era_facet", 
+                  :label => "Subject (Era)", :limit => 10
+              config.add_facet_field "subject_form_facet", 
+                  :label => "Subject (Genre)", :limit => 10
+              config.add_facet_field "lc_1letter_facet", 
+                  :label => "Call Number", :limit => 26, :open => false
+              config.add_facet_field "lc_2letter_facet", 
+                  :label => "Refine Call Number", :limit => 26
+                  
               add_search_fields(config, 'title',  'author', 'subject')
 
             when 'new_arrivals'
@@ -512,10 +574,9 @@ module Spectrum
 
               config.default_solr_params = {
                 :qt => "search",
-                :rows => 10,
+                :rows => 25,
                 :fq  => ["acq_dt:[#{(Date.today - 6.months).to_datetime.utc.to_solr_s} TO *]"]
               }
-
 
               config.add_facet_field 'acq_dt', :label => 'Acquisition Date', :open => true, :query => {
                   :week_1 => { :label => 'within 1 Week', :fq => "acq_dt:[#{(Date.today - 1.weeks).to_datetime.utc.to_solr_s} TO *]" },
@@ -525,27 +586,36 @@ module Spectrum
               }
               config.add_facet_field "format", :label => "Format", :limit => 5, :open => true
               # NEXT-698 - :segments key is searched for at top, not within range
-              config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false}, :segments => false
-              config.add_facet_field "author_facet", :label => "Author", :limit => 5
-              config.add_facet_field "location_facet", :label => "Location", :limit => 5
-              config.add_facet_field "language_facet", :label => "Language", :limit => 5
-              config.add_facet_field "subject_topic_facet", :label => "Subject", :limit => 10
-              config.add_facet_field "subject_geo_facet", :label => "Subject (Region)", :limit => 10
-              config.add_facet_field "subject_era_facet", :label => "Subject (Era)", :limit => 10
-              config.add_facet_field "subject_form_facet", :label => "Subject (Genre)", :limit => 10
-              config.add_facet_field "lc_1letter_facet", :label => "Call Number", :limit => 26, :open => false
-              config.add_facet_field "lc_2letter_facet", :label => "Refine Call Number", :limit => 26
+              config.add_facet_field "pub_date_sort", 
+                  :label => "Publication Date", :limit => 3, :range => {:segments => false}, :segments => false
+              config.add_facet_field "author_facet", 
+                  :label => "Author", :limit => 5
+              config.add_facet_field "location_facet", 
+                  :label => "Location", :limit => 5
+              config.add_facet_field "language_facet", 
+                  :label => "Language", :limit => 5
+              config.add_facet_field "subject_topic_facet", 
+                  :label => "Subject", :limit => 10
+              config.add_facet_field "subject_geo_facet", 
+                  :label => "Subject (Region)", :limit => 10
+              config.add_facet_field "subject_era_facet", 
+                  :label => "Subject (Era)", :limit => 10
+              config.add_facet_field "subject_form_facet", 
+                  :label => "Subject (Genre)", :limit => 10
+              config.add_facet_field "lc_1letter_facet", 
+                  :label => "Call Number", :limit => 26, :open => false
+              config.add_facet_field "lc_2letter_facet", 
+                  :label => "Refine Call Number", :limit => 26
 
             when 'catalog'
               default_catalog_config(config)
 
             when 'ac_dissertations'
-              default_catalog_config(config,:search_fields)
-
+              default_catalog_config(config, :search_fields)
 
               config.default_solr_params = {
                 :qt => "search",
-                :rows => 10,
+                :rows => 25,
                 :fq => ['{!raw f=genre_facet}Dissertations']
               }
 
@@ -559,21 +629,35 @@ module Spectrum
               config.index.show_link = "title_display"
               config.index.record_display_type = "format"
 
-              config.add_facet_field 'author_facet', :label => 'Author', :open => true, :limit => 5
+              config.add_facet_field 'author_facet', 
+                  :label => 'Author', :open => true, :limit => 5
               # NEXT-698 - :segments key is searched for at top, not within range
-              config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false }, :segments => false
-              config.add_facet_field 'department_facet', :label => 'Department', :limit => 5
-              config.add_facet_field 'subject_facet', :label => 'Subject', :limit => 10
-              config.add_facet_field 'genre_facet', :label => 'Content Type', :limit => 10
-              config.add_facet_field 'series_facet', :label => 'Series', :limit => 10
+              config.add_facet_field "pub_date_sort", 
+                  :label => "Publication Date", :limit => 3, 
+                  :range => {:segments => false }, :segments => false
+              config.add_facet_field 'department_facet', 
+                  :label => 'Department', :limit => 5
+              config.add_facet_field 'subject_facet', 
+                  :label => 'Subject', :limit => 10
+              config.add_facet_field 'genre_facet', 
+                  :label => 'Content Type', :limit => 10
+              config.add_facet_field 'series_facet', 
+                  :label => 'Series', :limit => 10
 
-              config.add_sort_field   'score desc, pub_date_sort desc, title_sort asc', :label => 'relevance'
-              config.add_sort_field   'pub_date_sort asc, title_sort asc', :label => 'Published Earliest'
-              config.add_sort_field   'pub_date_sort desc, title_sort asc', :label => 'Published Latest'
-              config.add_sort_field   'author_sort asc, title_sort asc', :label => 'Author A-Z'
-              config.add_sort_field   'author_sort desc, title_sort asc', :label => 'Author Z-A'
-              config.add_sort_field  'title_sort asc, pub_date_sort desc', :label =>  'Title A-Z'
-              config.add_sort_field   'title_sort desc, pub_date_sort desc', :label => 'Title Z-A'
+              config.add_sort_field 'score desc, pub_date_sort desc, title_sort asc', 
+                  :label => 'relevance'
+              config.add_sort_field 'pub_date_sort asc, title_sort asc', 
+                  :label => 'Published Earliest'
+              config.add_sort_field 'pub_date_sort desc, title_sort asc', 
+                  :label => 'Published Latest'
+              config.add_sort_field 'author_sort asc, title_sort asc', 
+                  :label => 'Author A-Z'
+              config.add_sort_field 'author_sort desc, title_sort asc', 
+                  :label => 'Author Z-A'
+              config.add_sort_field 'title_sort asc, pub_date_sort desc', 
+                  :label => 'Title A-Z'
+              config.add_sort_field 'title_sort desc, pub_date_sort desc', 
+                  :label => 'Title Z-A'
 
             when 'academic_commons'
               default_catalog_config(config, :solr_params, :search_fields)
@@ -588,31 +672,52 @@ module Spectrum
               config.index.show_link = "title_display"
               config.index.record_display_type = "format"
 
-              config.add_facet_field 'author_facet', :label => 'Author', :open => true, :limit => 5
-              config.add_facet_field "pub_date_sort", :label => "Publication Date", :limit => 3, :range => {:segments => false }, :segments => false
-              config.add_facet_field 'department_facet', :label => 'Department', :limit => 5
-              config.add_facet_field 'subject_facet', :label => 'Subject', :limit => 10
-              config.add_facet_field 'genre_facet', :label => 'Content Type', :limit => 10
-              config.add_facet_field 'series_facet', :label => 'Series', :limit => 10
+              config.add_facet_field 'author_facet', 
+                  :label => 'Author', :open => true, :limit => 5
+              config.add_facet_field "pub_date_sort", 
+                  :label => "Publication Date", :limit => 3, 
+                  :range => {:segments => false }, :segments => false
+              config.add_facet_field 'department_facet', 
+                  :label => 'Department', :limit => 5
+              config.add_facet_field 'subject_facet', 
+                  :label => 'Subject', :limit => 10
+              config.add_facet_field 'genre_facet', 
+                  :label => 'Content Type', :limit => 10
+              config.add_facet_field 'series_facet', 
+                  :label => 'Series', :limit => 10
 
-              config.add_sort_field   'score desc, pub_date_sort desc, title_sort asc', :label => 'relevance'
-              config.add_sort_field   'pub_date_sort asc, title_sort asc', :label => 'Published Earliest'
-              config.add_sort_field   'pub_date_sort desc, title_sort asc', :label => 'Published Latest'
-              config.add_sort_field   'author_sort asc, title_sort asc', :label => 'Author A-Z'
-              config.add_sort_field   'author_sort desc, title_sort asc', :label => 'Author Z-A'
-              config.add_sort_field  'title_sort asc, pub_date_sort desc', :label =>  'Title A-Z'
-              config.add_sort_field   'title_sort desc, pub_date_sort desc', :label => 'Title Z-A'
+              config.add_sort_field 'score desc, pub_date_sort desc, title_sort asc', 
+                  :label => 'relevance'
+              config.add_sort_field 'pub_date_sort asc, title_sort asc', 
+                  :label => 'Published Earliest'
+              config.add_sort_field 'pub_date_sort desc, title_sort asc', 
+                  :label => 'Published Latest'
+              config.add_sort_field 'author_sort asc, title_sort asc', 
+                  :label => 'Author A-Z'
+              config.add_sort_field 'author_sort desc, title_sort asc', 
+                  :label => 'Author Z-A'
+              config.add_sort_field 'title_sort asc, pub_date_sort desc', 
+                  :label => 'Title A-Z'
+              config.add_sort_field 'title_sort desc, pub_date_sort desc', 
+                  :label => 'Title Z-A'
 
-            end
+            end # case source
 
             config.add_facet_fields_to_solr_request!
 
+            # These apply to any config for any source
+            config.per_page = [10,25,50,100]
+            config.spell_max = 0
 
-          end
-        end
-      end
-    end
-  end
+          end # Blacklight::Configuration.new do
 
-end
+        end # if/else bento-box/single-source
+
+      end # self.generate_config
+      
+    end # class Solr
+
+  end # module Engines
+
+end # module Spectrum
 
