@@ -1,4 +1,4 @@
-#show_folder_control.documentFunctions= render :partial => "folder_control",  :locals => {:document => @document}
+#show_folder_control.documentFunctions= render "folder_control", :document => @document
 - clio_id = h(document["clio_id_display"].first.to_s)
 - id = document.get("id")
 .show_cover.book_cover

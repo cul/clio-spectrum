@@ -29,10 +29,10 @@
             = add_row(ItemAlert::ALERT_TYPES['access_requirements'], alert[:message], options = {:html_safe => true})
 
     .span6.well
-      = render :partial => "_formats/clio/catalog_show_holdings", :locals => {:document => document }
+      = render "_formats/clio/catalog_show_holdings", :document => document
     .clear-both
-      = render :partial => "google_books_check", :locals => {:documents => document }
+      = render "google_books_check", :documents => document
 
       - if @active_source == "databases" && can?(:manage, ItemAlert)
-        = render :partial => "/_formats/database/catalog_manage_alert", :locals => {:document => document }
+        = render "/_formats/database/catalog_manage_alert", :document => document
 

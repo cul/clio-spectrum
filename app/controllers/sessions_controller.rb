@@ -5,7 +5,7 @@ class SessionsController < Devise::SessionsController
   def new
     create
   end
-  
+
   def create
     expire_cache_for_user
     resource = warden.authenticate!(auth_options)

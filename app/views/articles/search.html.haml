@@ -8,11 +8,11 @@
     %p Error: #{@error}
 
 - else
-  -#= render :partial => 'search_form' %>
+  -#= render 'search_form' %>
 
-  -#= render :partial => 'did_you_mean' %>
+  -#= render 'did_you_mean' %>
 
-  = render '/_search/constraints', :localized_params=>params
+  = render '/_search/constraints', :localized_params => params
 
   -#.pageEntriesInfo
     -#= render "change_view"
@@ -25,15 +25,15 @@
     -#= render 'results_pagination'
 
   .pagination_container
-    = render :partial => '/_search/pagination', :locals => {:results => @summon}
+    = render '/_search/pagination', :results => @summon
 
-  = render :partial => 'document_list', :locals => {:search => @summon.search}
+  = render 'document_list', :search => @summon.search
 
   .pagination_container
-    = render :partial => '/_search/pagination', :locals => {:results => @summon}
+    = render '/_search/pagination', :results => @summon
 
   - sidebar_items << capture do
-    = render :partial => "/_search/facets", :locals => {:facets => @summon.search.facets}
+    = render "/_search/facets", :facets => @summon.search.facets
 
 
 

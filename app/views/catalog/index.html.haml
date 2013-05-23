@@ -15,11 +15,11 @@
 
 
 
-      = render :partial => 'document_list'
+      = render 'document_list'
       = fix_catalog_links(render('results_pagination'))
 
     - sidebar_items << capture do
-      = render :partial=>'facets'
+      = render 'facets'
 
 
 
