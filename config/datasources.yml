@@ -47,7 +47,7 @@ datasources:
         title_starts_with: Left Anchored Title
         subject: Subject
         form_genre: Form/Genre
-        publication_place: Publiation Place
+        publication_place: Publication Place
         publisher: Publisher
         publication_year: Publication Year
         isbn: ISBN
