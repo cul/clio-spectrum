@@ -482,7 +482,9 @@ module Spectrum
                   :limit => 10
               config.add_facet_field 'title_first_facet', 
                   :label => "Starts With"
-              add_search_fields(config, 'title',  'author', 'subject')
+                  
+              add_search_fields(config, 'journal_title', 'title_starts_with', 
+                                'subject', 'issn')
 
               config[:unapi] = {
                 'oai_dc_xml' => { :content_type => 'text/xml' }
