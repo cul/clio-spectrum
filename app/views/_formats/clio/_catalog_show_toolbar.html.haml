@@ -4,7 +4,7 @@
   .navbar-inner
     .pull-right
       .navbar-text
-        - if @previous_document || @next_document 
+        - if @previous_document || @next_document
           #search_info
             %span.back_to_results= fix_catalog_links(link_back_to_catalog.gsub("Back to Search", "&#0171; Back to Results")).html_safe
             |
@@ -16,12 +16,12 @@
             |
             = link_to "Start Over", catalog_index_path
     %ul.nav
-         
+
       %li
       %li
         = link_to "Print", "javascript:print()"
       %li=link_to "Email", email_catalog_path(:id => id), {:id => "emailLink", :name => "email", :class => "lightboxLink"}
-      / %li=link_to "SMS-BLACKLIGHT", sms_catalog_path(:id => id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}  
+      / %li=link_to "SMS-BLACKLIGHT", sms_catalog_path(:id => id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}
 
       %li=link_to "Send to Phone", "#", :onclick => "OpenTextMessage(#{id}); return false;"
 
@@ -45,7 +45,7 @@
         %ul.dropdown-menu
           - if clio_id
             %li= link_to "Display in CLIO", "http://clio.cul.columbia.edu:7018/vwebv/holdingsInfo?bibId=#{clio_id}"
-              
+
           %li
             =link_to "MARC View", librarian_view_catalog_path(id), {:id => "librarianLink", :name => "librarian_view", :class => "lightboxLink" }
       %li.dropdown

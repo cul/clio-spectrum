@@ -22,7 +22,7 @@ class BackendController < ApplicationController
   #   isbns = params["isbns"].listify
   #   results = {}
   #   hc = HTTPClient.new
-  # 
+  #
   #   begin
   #     isbns.each do |isbn|
   #       unless results[isbn]
@@ -36,7 +36,7 @@ class BackendController < ApplicationController
   #   rescue Exception => e
   #     logger.warn("exception retrieving google book search: #{e.message}")
   #   end
-  # 
+  #
   #   render :json => results
   # end
 

@@ -21,8 +21,8 @@ describe 'Spectrum::Engines::Summon' do
       sum = Spectrum::Engines::Summon.new('source' => 'articles', 'new_search' => true)
       sum.source.should == 'articles'
       sum.params.should have_key('s.ff')
-      
-      
+
+
     end
   end
 
@@ -45,7 +45,7 @@ describe 'Spectrum::Engines::Summon' do
       @sum.search.query.facet_value_filters.should be_any { |f| f.negated? && f.value == "Newspaper Article" }
       @sum.documents.each do |doc|
         doc.content_type.should_not == 'Newspaper Article'
-      end 
+      end
 
     end
   end

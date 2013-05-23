@@ -14,6 +14,15 @@
   - else
     %span.disabled= next_string
 
+  #sort-dropdown.dropdown.pull-right.hidden-phone
+    %ul.css-dropdown
+      %li.btn.btn-link
+        =link_to("Sort by #{result.current_sort_name}")
+        %span.caret
+        %ul
+          - result.sorts_with_links.each do |link, name|
+            %li= link_to "#{name}", link
+
   #per_page-dropdown.dropdown.pull-right.hidden-phone
     %ul.css-dropdown
       %li.btn.btn-link
@@ -23,11 +32,3 @@
           - result.page_size_with_links.each do |link, name|
             %li= link_to "#{name} #{content_tag(:span, 'per page', :class =>'hide-text')}".html_safe, link
 
-  #sort-dropdown.dropdown.pull-right.hidden-phone
-    %ul.css-dropdown
-      %li.btn.btn-link
-        =link_to("Sort by #{result.current_sort_name}")
-        %span.caret
-        %ul
-          - result.sorts_with_links.each do |link, name|
-            %li= link_to "#{name}", link

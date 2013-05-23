@@ -9,12 +9,12 @@
         %th Author
         %th Duration
         %th.message_column Message
-        %th.action_column 
+        %th.action_column
           - if document.get("_item_alerts")
             - document.get("_item_alerts").keys.sort.collect { |alert_type| document["_item_alerts"][alert_type]}.flatten.each do |alert|
               = render :partial => "/item_alerts/show_table_row", :locals => {:item_alert => alert}
       %tr.add_row
-        %td.info{:colspan => 5} 
+        %td.info{:colspan => 5}
           %btn.btn.add_row_button
             %i.icon-plus
             Add Alert

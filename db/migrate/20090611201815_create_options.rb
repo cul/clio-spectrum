@@ -8,10 +8,10 @@ class CreateOptions < ActiveRecord::Migration
       t.text :value
       t.timestamps
     end
-    
+
     add_index :options, [:entity_type, :entity_id, :association_type, :name], :name => "entity_association_name"
   end
-  
+
   def self.down
     drop_table :options
   end

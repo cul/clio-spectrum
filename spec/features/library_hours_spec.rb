@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Item Locations should show correct library hours", :js => true do
-  
+
   it "for Avery Drawings & Archives" do
     visit catalog_path('8277276')
     page.should have_text('Avery Drawings & Archives')

@@ -7,17 +7,16 @@ module Spectrum
       Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
 
       DEFAULT_PARAMS = {
-        
-      'newspapers' =>  {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)', 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']},
-      
-      'articles' =>  {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)', 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']},
-      
-      'ebooks' => {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(IsFullText, true)', 's.fvf' => ['ContentType,eBook'], 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']},
-      
-      'dissertations' => {'spellcheck' => true, 's.ho' => true, 's.fvf' => ['ContentType,Dissertation'], 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']}
-      
-        }
 
+      'newspapers' =>  {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)', 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']},
+
+      'articles' =>  {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)', 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']},
+
+      'ebooks' => {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(IsFullText, true)', 's.fvf' => ['ContentType,eBook'], 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']},
+
+      'dissertations' => {'spellcheck' => true, 's.ho' => true, 's.fvf' => ['ContentType,Dissertation'], 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']}
+
+        }
 
       attr_reader :source, :errors, :search
       attr_accessor :params
@@ -96,15 +95,12 @@ module Spectrum
         exclude_newspapers = @search.query.facet_value_filters.any? { |fvf| fvf.field_name == "ContentType" && fvf.value == "Newspaper Article" && fvf.negated? }
         exclude_cmd = !exclude_newspapers ? "addFacetValueFilters(ContentType, Newspaper Article:t)" : "removeFacetValueFilter(ContentType, Newspaper Article)"
 
-
-
         facet_options << {
           style: :checkbox,
           value: exclude_newspapers,
           link: by_source_search_cmd(exclude_cmd),
           name: "Exclude Newspaper Articles"
         }
-
 
         all_holdings_only = @search.query.holdings_only_enabled == true
         facet_options << {
@@ -138,10 +134,8 @@ module Spectrum
             "Published Earliest"
           end
 
-
         end
       end
-
 
       def constraints_with_links
         constraints = []
@@ -184,7 +178,6 @@ module Spectrum
       def successful?
         @errors.nil?
       end
-
 
       def documents
         @search.documents

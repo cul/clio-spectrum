@@ -7,7 +7,7 @@ describe 'Spectrum::Engines::Solr' do
   solr_url = SOLR_CONFIG['test']['url']
   # solr_url = SOLR_CONFIG['spectrum_subset']['url']
 
-  
+
   # INTERFACE TESTING
 
   describe 'Setting the result-count parameter' do
@@ -17,11 +17,11 @@ describe 'Spectrum::Engines::Solr' do
 
     it 'should return that number of results' do
       eng = Spectrum::Engines::Solr.new('source' => 'catalog', :q => 'Smith', :search_field => 'all_fields', :rows => @result_count, 'solr_url' => solr_url)
-      
+
 # puts eng
 # puts eng.inspect
-# puts eng.results      
-      
+# puts eng.results
+
       eng.results.should_not be_empty
       eng.results.size.should equal(@result_count)
     end
@@ -29,7 +29,7 @@ describe 'Spectrum::Engines::Solr' do
 
 
   # QUERY TESTING
-  
+
   describe 'for searches with diacritics' do
     it 'should find an author with diacritics' do
       # eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'turk edebiyatinda', :search_field => 'author', 'solr_url' => solr_url)
@@ -39,8 +39,8 @@ describe 'Spectrum::Engines::Solr' do
       eng.results.first.get('author_display').should include("Edebiyat\u0131nda")
     end
   end
-  
-  
+
+
   # NEXT-178 - child does not stem to children
   describe 'searches for "child autobiography..." in Catalog' do
     it 'should find "autobiographies of children" ' do
@@ -77,7 +77,7 @@ describe 'Spectrum::Engines::Solr' do
     end
   end
 
-  
+
   # NEXT-415
   describe 'searches for "New Yorker" in Journals' do
     it 'should find "The New Yorker" as the first result' do
@@ -89,8 +89,8 @@ describe 'Spectrum::Engines::Solr' do
       eng.results.first.get('title_display').should match(/The.New.Yorker/)
     end
   end
-  
-  
+
+
   # NEXT-429
   describe 'catalog all-field searches with embedded space-colon-space' do
     it 'should return search results' do
@@ -102,30 +102,30 @@ describe 'Spectrum::Engines::Solr' do
       eng.results.first.get('subtitle_display').should include('Denk Display')
     end
   end
-  
+
   # NEXT-452
   describe 'catalog all-field searches for Judith Butler' do
     before(:each) do
-       
+
     end
 
     it 'should return full-phrase title/author matches before split-field matches' do
-      
-      
+
+
       eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'Judith Butler', :search_field => 'all_fields', :rows => @result_count, 'solr_url' => solr_url)
       eng.results.should_not be_empty
       # eng.results.size.should equal(@result_count)
       eng.results.each do |result|
-        result.should contain_in_fields(["Butler, Judith", "Judith Butler"], 'title_display', 'subtitle_display', 'author_display') 
+        result.should contain_in_fields(["Butler, Judith", "Judith Butler"], 'title_display', 'subtitle_display', 'author_display')
       end
     end
   end
-  
+
   # NEXT-478
   describe 'search for "Nature"' do
     it 'should return matches on "Nature" before "Naturalization"' do
       eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'nature', :search_field => 'all_fields', 'solr_url' => solr_url)
-      
+
       # puts "XXXXXXXXXXXX   results.size: #{eng.results.size.to_s}"
       found_naturA = false
       eng.results.each do |result|
@@ -137,35 +137,35 @@ describe 'Spectrum::Engines::Solr' do
         end
 
         # after finding our first "natura*", there should be no more "nature" matches
-        if (found_naturA) 
+        if (found_naturA)
           result.get('title_display').should_not match(/naturE/i)
         end
       end
     end
   end
-  
-  
-  
+
+
+
   # NEXT-514
   describe 'search for "women physics" in catalog' do
     it 'should return exact matches before stemmed terms' do
-      
+
       pending('clarity of desired behavior')
-      
+
       eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'women physics', :search_field => 'all_fields', 'solr_url' => solr_url, :rows => 100)
-      
+
       # puts "XXXXXXXXXXXX   results.size: #{eng.results.size.to_s}"
-      
+
       found_unstemmed = false
-      
+
       eng.results.each do |result|
         # puts "--"
         # puts result.get('title_display') || 'emtpy-title'
         # puts result.get('subtitle_display') || 'emtpy-subtitle'
-        
+
         found_text = result.get('title_display').to_s + " " + result.get('subtitle_display').to_s
         puts found_text
-        
+
         if (found_unstemmed == false \
             && ( ! found_text.match(/physics/i) || ! found_text.match(/women/i) )
             )
@@ -180,21 +180,21 @@ describe 'Spectrum::Engines::Solr' do
           result.get('subtitle_display').to_s.should_not match(/women.*physics/i)
           result.get('subtitle_display').to_s.should_not match(/physics.*women/i)
         end
-        
-            
+
+
       end
     end
   end
-  
-  
+
+
 #   # NEXT-525
 #    describe 'catalog search for "illustrations 2012" in butler stacks' do
 #      it 'should not return duplicate results' do
 #        eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'illustrations 2012', :search_field => 'all_fields', :fq => 'location_facet:Butler+Stacks' , 'solr_url' => solr_url)
-#        
+#
 #        # 'f[location_facet][]' => 'Butler+Stacks'
 # puts eng.solr_search_params
-#       
+#
 #        foundBibList = Array.new
 # puts "XXXXXXXXXXXX   results.size: #{eng.results.size.to_s}"
 #        eng.results.each do |result|
@@ -205,8 +205,8 @@ describe 'Spectrum::Engines::Solr' do
 #        end
 #      end
 #    end
-   
-  
+
+
 end
 
 

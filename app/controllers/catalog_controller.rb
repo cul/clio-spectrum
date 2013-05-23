@@ -15,7 +15,7 @@ class CatalogController < ApplicationController
       params['commit'] ||= "Search"
       params['search_field'] ||= 'all_fields'
     end
-    
+
     # clean up basic search params if necessary for specific search fields.
     # [ advanced-param clean up happens in add_advanced_search_to_solr() ]
     if params['search_field'] == 'title_starts_with'
@@ -32,7 +32,7 @@ class CatalogController < ApplicationController
     extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => "RSS for results")
     extra_head_content << view_context.auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => "Atom for results")
 
-    # runs the blacklight_search from application_controller using the params, 
+    # runs the blacklight_search from application_controller using the params,
     # returns the engine with embedded results
     engine = blacklight_search(params)
     @response = engine.search

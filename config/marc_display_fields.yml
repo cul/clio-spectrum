@@ -59,6 +59,9 @@ changed_back_to:
         ind2: '8'
         display: abcdghkmnst
         search: t
+constituent_items:
+    -   tag: 789
+        display: 1livtncdpo
 contents:
     -   tag: 505
         display: agrtu
@@ -361,6 +364,9 @@ publisher:
 publisher_no:
     -   tag: '028'
         display: ab
+reproduction_note:
+    -   tag: 533
+        display: abcdefmn3
 restrictions:
     -   tag: 506
         display: abcdeu3

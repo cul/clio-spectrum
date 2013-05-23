@@ -17,11 +17,11 @@
             .search_logo.hidden-phone.span3
               = link_to "CLIO", root_path, :class => "nav_title search_bar_logo"
             .span9
-            
+
               = display_search_boxes(@active_source)
           .row-fluid
             = render :partial=>'/layouts/messages'
             = yield
-  
-          .clear-both  
+
+          .clear-both
         = render :partial => "/footer"

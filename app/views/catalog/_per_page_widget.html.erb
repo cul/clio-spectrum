@@ -4,7 +4,7 @@
     <li class="btn btn-link">
       <%= link_to("#{@response.rows} per page", "#") %> <span class="caret"></span>
       <ul>
-		<% 
+		<%
 		# we need these to compute the correct new_page_number, below
 		current_page = params_for_search[:page].to_i || 1
 		first_record_on_page = (@response.rows * (current_page - 1)) + 1

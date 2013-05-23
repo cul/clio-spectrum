@@ -76,7 +76,7 @@ module HoldingsHelper
   #   'in_process' => ['In Process', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sinprocess?", true],
   #   'doc_delivery' => ['Document Delivery', " https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?", true]
   # }
-  # 
+  #
   # def service_links(services, clio_id, options = {})
   #   services.select {|svc| SERVICE_ORDER.index(svc)}.sort_by { |svc| SERVICE_ORDER.index(svc) }.collect do |svc|
   #     title, uri, add_clio_id = SERVICES[svc]

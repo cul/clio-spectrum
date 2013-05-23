@@ -7,7 +7,7 @@
     = form_tag base_catalog_index_path, :class => "form-horizontal", :method => "GET" do
       = standard_hidden_keys_for_search
       .title
-        Match 
+        Match
         = select_tag :advanced_operator, options_for_select([["all", "AND"], ["any", 'OR']], params['advanced_operator'] || 'AND' ), :class => "input-mini"
         of the following criteria:
         %button.btn.advanced_search_button.btn-primary{:name => "commit", :type => "submit", :value => "Search"}

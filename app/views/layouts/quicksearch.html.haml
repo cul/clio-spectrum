@@ -11,7 +11,7 @@
     = render :partial => "/top_navigation_bar"
     #outer-container.container-fluid
       #page
-  
+
         = render :partial => "/header_with_search"
         #bd.row-fluid
           .sidebar{:class => sidebar_span}
@@ -23,10 +23,10 @@
             .row-fluid
               - unless @show_landing_pages
                 = display_search_boxes(@active_source)
-          
+
               = render :partial=>'/layouts/messages'
               = yield
-  
-          .clear-both  
+
+          .clear-both
         = render :partial => "/footer"
       #ajax-modal.modal.hide.fade{:tabindex => -1}

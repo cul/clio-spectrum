@@ -1,4 +1,4 @@
-#show_folder_control.documentFunctions= render :partial => "folder_control",  :locals => {:document => @document}
+#show_folder_control.documentFunctions= render "folder_control", :document => @document
 - clio_id = h(document["clio_id_display"].first.to_s)
 - id = document.get("id")
 .show_cover.book_cover
@@ -24,7 +24,7 @@
     %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{h(document['clio_id_display'])}"
 %h4 Actions:
 %ul
-  
+
   %li #{link_to "Print", "javascript:print()"}
   /- if @document.export_formats.keys.include?(:refworks_marc_txt)
   /  %li.refworks
@@ -36,7 +36,7 @@
   - if @document.respond_to?(:to_marc)
     %li.email
       =link_to "Email This", email_catalog_path(:id => id), {:id => "emailLink", :name => "email", :class => "lightboxLink"}
-    
+
     %li.sms
       =link_to "SMS This", sms_catalog_path(:id => id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}
     %li.librarian_view

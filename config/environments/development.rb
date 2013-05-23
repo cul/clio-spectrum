@@ -12,7 +12,7 @@ Clio::Application.configure do
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
-  config.action_controller.perform_caching = false 
+  config.action_controller.perform_caching = false
 
   config.assets.compress = false
   config.assets.debug = false
@@ -29,10 +29,10 @@ Clio::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 
-  # in development, rails should hand off emails to localhost's sendmail  
+  # in development, rails should hand off emails to localhost's sendmail
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  
+
 end
 

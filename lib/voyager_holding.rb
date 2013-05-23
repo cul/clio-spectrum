@@ -28,7 +28,7 @@ class Holding
 
 
       get_content = lambda { |node| node ? node.content : nil }
-      
+
       xml.root.add_namespace_definition("hol", "http://www.endinfosys.com/Voyager/holdings")
       xml.root.add_namespace_definition("mfhd", "http://www.endinfosys.com/Voyager/mfhd")
       xml.root.add_namespace_definition("item", "http://www.endinfosys.com/Voyager/item")
@@ -60,7 +60,7 @@ class Holding
     end
 
 
-    raw_data["status"] = true 
+    raw_data["status"] = true
     parse_raw_data!(raw_data)
 
     return self
@@ -86,7 +86,7 @@ class Holding
         end
       end
 
-      holding["status"] = statuses[holding["items"].collect { |i| statuses.index(i["status"]).to_i }.max.to_i]  
+      holding["status"] = statuses[holding["items"].collect { |i| statuses.index(i["status"]).to_i }.max.to_i]
     end
 
     @results = raw_data
@@ -120,7 +120,7 @@ class Holding
   private
 
   def http_client
-    if @http_client 
+    if @http_client
       yield @http_client
     else
       Holding.http_client_with_cookies do |hc|

@@ -47,7 +47,7 @@ module AdvancedHelper
     text_field_tag("adv[#{index}][value]",default_value,  :class => "advanced_search_value")
 
   end
-  
+
   # builds the field select-tag for each Advanced Search field/value pair
   def advanced_field_select_option(blacklight_config, index, par = params)
     index = index.to_s
@@ -57,9 +57,9 @@ module AdvancedHelper
 
     # omit the "select" message, just default to "any field"
     # field_list = [["Select a field...", ""]] | field_list
-    
-    default_value = params['adv'] && 
-                    params['adv'][index] && 
+
+    default_value = params['adv'] &&
+                    params['adv'][index] &&
                     (!params['adv'][index]['value'].to_s.empty? &&
                       params['adv'][index]['field'])
     select_tag("adv[#{index}][field]", options_for_select(field_list, default_value), :class => "advanced_search_field")

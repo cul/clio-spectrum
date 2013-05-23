@@ -14,7 +14,7 @@ Clio::Application.routes.draw do
   get "test_notification_error", :to => "application#test_notification_error"
 
   Blacklight.add_routes(self)
-  
+
   root :to => "spectrum#search", :defaults => {:layout => 'quicksearch'}
 
 
@@ -58,7 +58,7 @@ Clio::Application.routes.draw do
   match 'new_arrivals', :to => 'catalog#index', :as => :new_arrivals_index
   match 'new_arrivals/:id(.:format)', :to => 'catalog#show', :as => :new_arrivals_show
   match 'new_arrivals/facet/:id(.format)', :to => 'catalog#facet', :as => :new_arrivals_facet
-  
+
   match 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
   match 'backend/holdings_mail/:id' => 'backend#holdings_mail', :as => 'backend_holdings_mail'
   match 'backend/clio_recall/:id', :to => "backend#clio_recall" , :as => :clio_recall
@@ -79,7 +79,7 @@ Clio::Application.routes.draw do
 
   match 'locations/show/:id', :id => /[^\/]+/, :to => "locations#show", :as => :location_display
 
-  # this catches certain broken sessions, when somehow controller == spectrum and action == show 
+  # this catches certain broken sessions, when somehow controller == spectrum and action == show
   match 'spectrum/show', :to => "spectrum#search", :defaults => {:layout => 'quicksearch'}
 
 

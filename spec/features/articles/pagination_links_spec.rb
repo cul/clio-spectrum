@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "An articles search" do
 
-  it "will have a next link that links to articles" do 
+  it "will have a next link that links to articles" do
     visit articles_index_path('q' => 'test')
     page.should have_css('.sortAndPerPage a', :text => "Next")
     el = all('.sortAndPerPage a', :text => "Next").first
@@ -18,7 +18,7 @@ describe "An articles search" do
 
     all('.sortAndPerPage a', :text => "Next").first.click
 
-    
+
 
     page.should have_css('.sortAndPerPage a', :text => "Previous")
     page.should have_css('.sortAndPerPage a', :text => "Next")

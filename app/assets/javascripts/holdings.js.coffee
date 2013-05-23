@@ -22,10 +22,10 @@ root.after_document_load = (element) ->
 
   if fedora_items.length
     retrieve_fedora_resources(fedora_items)
-   
+
   if catalog_items.length
     retrieve_holdings(catalog_items)
-   
+
   if standard_id_sets.length
     retrieve_google_jackets(standard_id_sets)
 
@@ -33,7 +33,7 @@ root.after_document_load = (element) ->
     retrieve_hathi_links(standard_id_sets)
 
 
-root.load_clio_holdings = (id) -> 
+root.load_clio_holdings = (id) ->
   $("span.holding_spinner").show
   $("#clio_holdings .holdings_error").hide
 
@@ -73,9 +73,9 @@ root.retrieve_fedora_resources = (fedora_ids) ->
 
 root.retrieve_holdings = (bibids) ->
   url = 'http://rossini.cul.columbia.edu/voyager_backend/holdings/status/' + bibids.join('/');
-  
 
-  $.getJSON url, (data) -> 
+
+  $.getJSON url, (data) ->
     for bib, holdings of data
       for holding_id, status of data[bib].statuses
         selector = "img.availability.holding_" + holding_id
@@ -94,29 +94,29 @@ root.update_book_jackets = (isbns, data) ->
     if selector.length > 0 and isbn_data
       selector.parents("#show_cover").show()
       gbs_cover = selector.parents(".gbs_cover")
-    
+
       if isbn_data.thumbnail_url
         selector.attr "src", isbn_data.thumbnail_url.replace(/zoom\=5/, "zoom=1")
         selector.parents(".book_cover").find(".fake_cover").hide()
         gbs_cover.show()
-      
+
       $("li.gbs_info").show()
       $("a.gbs_info_link").attr "href", isbn_data.info_url
-      
+
       unless isbn_data.preview is "noview"
         gbs_cover.find(".gbs_preview").show()
         gbs_cover.find(".gbs_preview_link").attr "href", isbn_data.preview_url
-      
+
         search_form = gbs_cover.find(".gbs_search_form")
         search_form.show()
-        
+
         find_id = new RegExp("[&?]id=([^&(.+)=]*)").exec(isbn_data.preview_url)
         strip_querystring = new RegExp("^[^?]+").exec(isbn_data.preview_url)
-        
+
         if find_id and strip_querystring
           search_form.attr("action", strip_querystring[0]).show()
           search_form.find("input[name=id]").attr "value", find_id[1]
-        
+
         gbs_cover.find(".gbs_preview_partial").show()  if isbn_data.preview is "partial"
         gbs_cover.find(".gbs_preview_full").show()  if isbn_data.preview is "full"
 
@@ -150,7 +150,7 @@ root.retrieve_google_jacket_for_single_item = (standard_id_array, start_index) -
   base_url = "https://www.googleapis.com/books/v1/volumes?key=AIzaSyDSEgQqa-dByStBpuRHjrFOGQoonPYs2KU"
   base_url = base_url + "&q=" + current_search_id
 
-  $.getJSON(base_url, (data) -> 
+  $.getJSON(base_url, (data) ->
     jacket_thumbnail_url = ''
     if data && data.totalItems && data.totalItems > 0
 
@@ -187,13 +187,13 @@ root.retrieve_hathi_links_for_single_item = (standard_id_array, start_index) ->
   base_url = base_url + id_type + "/" + id_value + ".json"
   # not working yet.... XSS security errors...
   # console.log("BASE_URL="+base_url)
-  # $.getJSON(base_url, (data) -> 
+  # $.getJSON(base_url, (data) ->
   #   console.log(data)
   # )
 
 
 
-$ -> 
+$ ->
   after_document_load($('#page'))
 
 

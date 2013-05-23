@@ -3,7 +3,7 @@
   field_config = range_config(solr_field)
 -%>
 
-<div class="limit_content range_limit">  
+<div class="limit_content range_limit">
   <% if  params["range"] &&
          params["range"][solr_field] &&
          ( (! params["range"][solr_field]["begin"].blank?) ||
@@ -12,58 +12,58 @@
     <div class="current">
       <span class="selected"><%= range_display(solr_field) %></span> <span class="count">(<%= format_num(@response.total) %>)</span> <%= link_to content_tag(:i, '', :class => 'icon-remove').html_safe, remove_range_param(solr_field), :class=>"remove" %>
     </div>
-         
+
   <% end %>
 
-  <% unless params["range"] && params["range"][solr_field] && params["range"][solr_field]["missing"] %>  
+  <% unless params["range"] && params["range"][solr_field] && params["range"][solr_field]["missing"] %>
     <%= form_tag catalog_index_path, :method => :get, :class=>"range_limit subsection range_#{solr_field} form-inline" do %>
       <%= search_as_hidden_fields %>
-      
+
       <!-- we need to include a dummy search_field parameter if none exists,
            to trick blacklight into displaying actual search results instead
            of home page. Not a great solution, but easiest for now. -->
       <% unless params.has_key?(:search_field) %>
         <%= hidden_field_tag("search_field", "dummy_range") %>
       <% end %>
-      
+
       <%= render_range_input(solr_field, :begin) %> - <%= render_range_input(solr_field, :end) %>
       <button type="submit" name="commit" class="btn"><i class="icon-search"></i></button>
-    
+
     <% end %>
   <% end %>
-    
+
   <!-- no results profile if missing is selected -->
   <% unless params["range"] && params["range"][solr_field] && params["range"][solr_field]["missing"] %>
     <!-- you can hide this if you want, but it has to be on page if you want
          JS slider and calculated facets to show up, JS sniffs it. -->
     <div class="profile">
-    
+
         <% if (min = range_results_endpoint(solr_field, :min)) &&
               (max = range_results_endpoint(solr_field, :max)) %>
           <div class="range subsection <%= "slider_js" unless field_config[:slider_js] == false  %>">
             Current results range from <span class="min"><%= range_results_endpoint(solr_field, :min) %></span> to <span class="max"><%= range_results_endpoint(solr_field, :max) %></span>
           </div>
-          
+
           <% if field_config[:segments] != false %>
             <div class="distribution subsection <%= 'chart_js' unless field_config[:chart_js] == false %>">
               <!-- if  we already fetched segments from solr, display them
                    here. Otherwise, display a link to fetch them, which JS
                    will AJAX fetch.  -->
               <% if solr_range_queries_to_a(solr_field).length > 0 %>
-                    
+
                  <%= render(:partial => "blacklight_range_limit/range_segments", :locals => {:solr_field => solr_field}) %>
-                 
-              <% else %> 
+
+              <% else %>
                 <%= link_to('View distribution', params.merge(:action => 'range_limit', :range_field => solr_field, :range_start => min, :range_end => max), :class => "load_distribution") %>
               <% end %>
             </div>
-          <% end %>  
+          <% end %>
         <% end %>
-        
-        
-        
+
+
+
     </div>
   <% end %>
 </div>
- 
+
 
