@@ -612,7 +612,6 @@ module Spectrum
               config.add_facet_field "lc_2letter_facet", 
                   :label => "Refine Call Number", :limit => 26
 
-
             when 'ac_dissertations'
               default_catalog_config(config, :search_fields)
 
