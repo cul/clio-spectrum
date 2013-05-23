@@ -205,3 +205,32 @@ img.availability
         :display inline
         :padding-left 2em
 
+/*
+ *  COPY FROM CORE BLACKLIGHT
+ *
+ *  The below code copies directly from core blacklight,
+ *  allowing the sort-and-per-page box to be included multiple
+ *  times on the search results page, by using the
+ *  class .sortAndPerPage instead of the id #sortAndPerPage
+ *
+ *  Selected portions of _catalog.css.scss from blacklight have
+ *  been rewritten here in SASS, and need to be kept in sync.
+ *
+ */
+
+.sortAndPerPage
+  @extend .well
+
+.sortAndPerPage .dropdown-toggle
+  cursor: pointer
+
+.no-js .sortAndPerPage
+  @extend .clearfix
+  .dropdown-menu
+    background: none
+    box-shadow: none
+    border: none
+    position: relative
+    display: block
+    float: none
+

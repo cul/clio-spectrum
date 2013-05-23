@@ -8,7 +8,8 @@
     .gbs_preview= link_to image_tag("gb_preview.png"), "http://books.google.com", :class => "gbs_preview_link"
 
 - if clio_id
-  %p= link_to "Display in CLIO",url_for("http://clio.cul.columbia.edu:7018/vwebv/holdingsInfo?bibId=#{clio_id}")
+  %p= link_to "Display in CLIO Legacy",
+      url_for("http://clio.cul.columbia.edu:7018/vwebv/holdingsInfo?bibId=#{clio_id}")
 
 
 %h4 Place Request:

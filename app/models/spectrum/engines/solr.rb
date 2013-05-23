@@ -442,6 +442,9 @@ module Spectrum
             config.document_solr_request_handler = "document"
 
             case source
+            when 'catalog'
+              default_catalog_config(config)
+
             when 'catalog_ebooks'
               default_catalog_config(config, :display_fields, :facets, :search_fields, :sorts)
               config.default_solr_params = {
@@ -609,8 +612,6 @@ module Spectrum
               config.add_facet_field "lc_2letter_facet", 
                   :label => "Refine Call Number", :limit => 26
 
-            when 'catalog'
-              default_catalog_config(config)
 
             when 'ac_dissertations'
               default_catalog_config(config, :search_fields)

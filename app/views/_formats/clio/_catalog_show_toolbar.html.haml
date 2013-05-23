@@ -44,7 +44,7 @@
         =link_to "Display In <span class='caret'>".html_safe, "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown"
         %ul.dropdown-menu
           - if clio_id
-            %li= link_to "Display in CLIO", "http://clio.cul.columbia.edu:7018/vwebv/holdingsInfo?bibId=#{clio_id}"
+            %li= link_to "Display in CLIO Legacy", "http://clio.cul.columbia.edu:7018/vwebv/holdingsInfo?bibId=#{clio_id}"
 
           %li
             =link_to "MARC View", librarian_view_catalog_path(id), {:id => "librarianLink", :name => "librarian_view", :class => "lightboxLink" }
