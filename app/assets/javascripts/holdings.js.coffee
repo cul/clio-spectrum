@@ -147,8 +147,12 @@ root.retrieve_google_jacket_for_single_item = (standard_id_array, start_index) -
   # https://www.googleapis.com/books/v1/volumes?q=oclc:70850767
   # Google Books account for spectrum-tech@libraries.cul.columbia.edu
   # API Key: AIzaSyDSEgQqa-dByStBpuRHjrFOGQoonPYs2KU
-  base_url = "https://www.googleapis.com/books/v1/volumes?key=AIzaSyDSEgQqa-dByStBpuRHjrFOGQoonPYs2KU"
-  base_url = base_url + "&q=" + current_search_id
+  base_url = "https://www.googleapis.com/books/v1/volumes?"
+  base_url = base_url + "q=" + current_search_id.toUpperCase()
+
+  # use an API key for non-anonymous tracked usage... but only after our
+  # API key has been allocated a very large quota
+  #base_url = base_url + "&key=AIzaSyDSEgQqa-dByStBpuRHjrFOGQoonPYs2KU"
 
   $.getJSON(base_url, (data) ->
     jacket_thumbnail_url = ''
