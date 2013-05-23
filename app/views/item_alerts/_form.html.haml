@@ -29,18 +29,24 @@
   .control-group
     %label.control-label{:for => "alert_type"} Alert Type:
     .controls
-      = f.select(:alert_type, options_for_select(ItemAlert::ALERT_TYPES.invert, item_alert.alert_type.nil? ? "alert" : item_alert.alert_type))
+      = f.select(:alert_type, options_for_select(ItemAlert::ALERT_TYPES.invert, item_alert.alert_type? ? item_alert.alert_type : "alert"))
 
   .control-group
     %label.control-label{:for => "start_date"} Start Date:
     .controls
-      = text_field_tag 'item_alert[start_date]', item_alert.start_date.nil? ? "" : item_alert.start_date.strftime("%F %H:%M"), :"data-datepicker-format"=> "yyyy-mm-dd hh:ii", :placeholder => "Leave blank to start immediately"
+      = text_field_tag 'item_alert[start_date]',
+        item_alert.start_date? ?  item_alert.start_date.strftime("%F %H:%M") : "",
+        :"data-datepicker-format" => "yyyy-mm-dd hh:ii", 
+        :placeholder => "Leave blank to start immediately"
 
 
   .control-group
     %label.control-label{:for => "end_date"} End Date:
     .controls
-      = text_field_tag 'item_alert[end_date]', item_alert.end_date.nil? ? "" : item_alert.end_date.strftime("%F %H:%M"), :"data-datepicker-format"=> "yyyy-mm-dd hh:ii", :placeholder =>"Leave blank to run indefinitely"
+      = text_field_tag 'item_alert[end_date]', 
+        item_alert.end_date? ? item_alert.end_date.strftime("%F %H:%M") : "",
+        :"data-datepicker-format" => "yyyy-mm-dd hh:ii", 
+        :placeholder =>"Leave blank to run indefinitely"
 
   .control-group
     %label.control-label{:for => "message"} Message
