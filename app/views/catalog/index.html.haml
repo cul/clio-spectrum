@@ -12,10 +12,8 @@
 
       = fix_catalog_links(render('sort_and_per_page'))
 
-
-
-
       = render 'document_list'
+
       = fix_catalog_links(render('results_pagination'))
 
     - sidebar_items << capture do

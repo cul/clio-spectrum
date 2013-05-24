@@ -5,6 +5,12 @@
     = facet_field_labels[solr_field]
     %i.icon-turnbuckle
   %ul
+    - config = facet_configuration_for_field(solr_field)
+
+    - if (config && config.respond_to?(:open) && config.open == true) || expand_all_facets?
+      %span.selected
+
+
     = render :partial => "catalog/facet_call_letter_value", :locals => {:solr_field => "lc_1letter_facet"}
 
 
