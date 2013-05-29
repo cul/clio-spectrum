@@ -380,8 +380,6 @@ module DisplayHelper
     else
       pre_values = values.collect { |v| content_tag(:div, v, :class => 'entry') }
 
-
-
       if options[:expand] && values.length > 3
         pre_values = [
           pre_values[0],
@@ -394,17 +392,17 @@ module DisplayHelper
 
       pre_text = pre_values.join('')
       if options[:expand_to] && ! options[:expand_to].strip.empty?
-        pre_text += content_tag(:div, link_to(" more &#x25BC;".html_safe, "#"), :class => 'entry expander')
-        pre_text += content_tag(:div, options[:expand_to].html_safe, :class => 'expander_more')
+        pre_text += content_tag(:div, link_to(" more &#x25BC;".html_safe, "#"), 
+                                :class => 'entry expander')
+        pre_text += content_tag(:div, options[:expand_to].html_safe, 
+                                :class => 'expander_more')
       end
 
       pre_text
 
     end
 
-
     value_txt = value_txt.html_safe
-
     value_txt
   end
 
@@ -424,11 +422,11 @@ module DisplayHelper
       fields.push("rft_id=#{ CGI::escape(document_url) }")
     end
 
-    document[ :author_facet ].each do |author|
+    document[ :author_facet ] && document[ :author_facet ].each do |author|
       fields.push("rft.au=#{ CGI::escape(author) }")
     end
 
-    document[ :title_display ].each do |title|
+    document[ :title_display ] && document[ :title_display ].each do |title|
       fields.push("rft.atitle=#{ CGI::escape(title) }")
     end
 
@@ -436,7 +434,7 @@ module DisplayHelper
       fields.push("rft.pub=#{ CGI::escape(publisher) }")
     end
 
-    document[ :pub_date_facet ].each do |pub_date_facet|
+    document[ :pub_date_facet ] && document[ :pub_date_facet ].each do |pub_date_facet|
       fields.push("rft.date=#{ CGI::escape(pub_date_facet) }")
     end
 

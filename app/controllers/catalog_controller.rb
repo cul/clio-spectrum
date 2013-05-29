@@ -18,7 +18,7 @@ class CatalogController < ApplicationController
 
     # clean up basic search params if necessary for specific search fields.
     # [ advanced-param clean up happens in add_advanced_search_to_solr() ]
-    if params['search_field'] == 'title_starts_with'
+    if params['search_field'] == 'title_starts_with' && params['q']
       # left-anchored-title must be searched as quoted phrase.
       # remove any quotes the user put in, wrap in our own double-quotes
       params['q'].gsub!(/"/,'')

@@ -167,11 +167,14 @@ module Spectrum
       end
 
 
+      # Default config has already been created, now add in the field-scoped 
+      # config settings specific to each fielded search being offered
       def self.add_search_fields(config, *fields)
+        
         if fields.include?('title')
           config.add_search_field('title') do |field|
             field.show_in_dropdown = true
-            field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
+            # field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
             field.solr_local_parameters = {
               :qf => '$title_qf',
               :pf => '$title_pf'
@@ -183,7 +186,7 @@ module Spectrum
           config.add_search_field('title_start') do |field|
             field.show_in_dropdown = true
             field.label = 'Left Anchored Title'
-            field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
+            # field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
             field.solr_local_parameters = {
               :qf => '$title_start_qf',
               :pf => '$title_start_pf'
@@ -227,7 +230,7 @@ module Spectrum
         if fields.include?('author')
           config.add_search_field('author') do |field|
             field.show_in_dropdown = true
-            field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
+            # field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
             field.solr_local_parameters = {
               :qf => '$author_qf',
               :pf => '$author_pf'
@@ -238,7 +241,7 @@ module Spectrum
         if fields.include?('subject')
           config.add_search_field('subject') do |field|
             field.show_in_dropdown = true
-            field.solr_parameters = { :'spellcheck.dictionary' => 'subject' }
+            # field.solr_parameters = { :'spellcheck.dictionary' => 'subject' }
             field.qt = 'search'
             field.solr_local_parameters = {
               :qf => '$subject_qf',
@@ -329,6 +332,8 @@ module Spectrum
 
       end
 
+      # Supply default config values for the specified config keys (elements).
+      # By nothing is specified, supply defaults for ALL standard elements.
       def self.default_catalog_config(config, *elements)
         elements = [:solr_params, :display_fields, :facets, :search_fields, :sorts] if elements.empty?
 
@@ -433,11 +438,16 @@ module Spectrum
         # Else, we're in one of the single-source searches....  
         else
           self.blacklight_config = Blacklight::Configuration.new do |config|
+
             config.default_solr_params = {
               :qt => 'search',
               :rows => 25
             }
-
+            
+            # These apply to any config for any source
+            config.per_page = [10,25,50,100]
+            config.spell_max = 0
+            
             config.add_search_field 'all_fields', :label => 'All Fields'
             config.document_solr_request_handler = "document"
 
@@ -488,7 +498,6 @@ module Spectrum
                   
               add_search_fields(config, 'journal_title', 'title_starts_with', 
                                 'subject', 'issn')
-
               config[:unapi] = {
                 'oai_dc_xml' => { :content_type => 'text/xml' }
               }
@@ -707,9 +716,6 @@ module Spectrum
 
             config.add_facet_fields_to_solr_request!
 
-            # These apply to any config for any source
-            config.per_page = [10,25,50,100]
-            config.spell_max = 0
 
           end # Blacklight::Configuration.new do
 
