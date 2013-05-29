@@ -197,7 +197,22 @@ module Spectrum
         if fields.include?('journal_title')
           config.add_search_field('journal_title') do |field|
             field.show_in_dropdown = true
-            field.solr_parameters = { :'spellcheck.dictionary' => 'title', :fq => ['format:Journal\/Periodical'] }
+            # The field-specific solr_parameters defined here will 
+            # replace the source-specific default_solr_params when
+            # a search by this field is in effect.
+            field_fq = ['format:Journal\/Periodical']
+            # So - copy in any source-specific solr param values.
+            field_fq.push( config.default_solr_params[:fq] ) if
+                config.default_solr_params[:fq] 
+            
+            field.solr_parameters = { :fq => field_fq }
+            
+            # field.solr_parameters = { :fq => ['format:Journal\/Periodical'] }
+
+
+            # This fix does not work.  It refers to, instead of copying, the default.
+            # default_fq = config.default_solr_params[:fq] ||= []
+            # field.solr_parameters = {:fq => default_fq.push('format:Journal\/Periodical') }
             field.solr_local_parameters = {
               :qf => '$title_qf',
               :pf => '$title_pf'
@@ -221,8 +236,8 @@ module Spectrum
             field.show_in_dropdown = true
             field.label = 'Left Anchored Title'
             field.solr_local_parameters = {
-              :qf => 'title_starts_with',
-              :pf => 'title_starts_with'
+              :qf => '$title_start_qf',
+              :pf => '$title_start_pf'
             }
           end
         end
@@ -590,13 +605,17 @@ module Spectrum
               add_search_fields(config, 'title',  'author', 'subject')
 
             when 'new_arrivals'
-              default_catalog_config(config, :display_fields, :search_fields, :sorts)
-
+              # has to come before default_catalog_config(), because the 
+              # default search_fields define field-specific solr-params, 
+              # which need to read in source-default solr params
+              # (e.g., to merge fq values)
               config.default_solr_params = {
                 :qt => "search",
                 :rows => 25,
                 :fq  => ["acq_dt:[#{(Date.today - 6.months).to_datetime.utc.to_solr_s} TO *]"]
               }
+
+              default_catalog_config(config, :display_fields, :search_fields, :sorts)
 
               config.add_facet_field 'acq_dt', :label => 'Acquisition Date', :open => true, :query => {
                   :week_1 => { :label => 'within 1 Week', :fq => "acq_dt:[#{(Date.today - 1.weeks).to_datetime.utc.to_solr_s} TO *]" },

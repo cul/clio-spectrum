@@ -105,7 +105,6 @@ datasources:
       search_fields:
         all_fields: All Fields
         title: Title
-        journal_title: Journal Title
         author: Author
         subject: Subject
   new_arrivals:
