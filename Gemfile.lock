@@ -1,18 +1,4 @@
 GIT
-  remote: git://github.com/cul/restful_voyage.git
-  revision: 4f46cc80c453090dbd93234541b0914ddbfbe86c
-  branch: master
-  specs:
-    restful_voyage (0.1.0)
-      activesupport
-      httpclient
-      i18n
-      json
-      nokogiri
-      ruby-oci8
-      voyager_oracle_api (>= 1.1.0)
-
-GIT
   remote: git://github.com/projectblacklight/blacklight_range_limit.git
   revision: e617529a68f06ec84bb1866d71930376cd75bc0a
   branch: master
@@ -266,7 +252,6 @@ GEM
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
-    ruby-oci8 (2.1.5)
     ruby-prof (0.13.0)
     ruby_gntp (0.3.4)
     rubytree (0.5.2)
@@ -312,13 +297,6 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    voyager_oracle_api (1.1.1)
-      activesupport
-      activesupport
-      i18n
-      json
-      marc
-      ruby-oci8
     warden (1.2.1)
       rack (>= 1.0)
     websocket (1.0.7)
@@ -370,7 +348,6 @@ DEPENDENCIES
   quiet_assets
   rails (= 3.2.13)
   rb-fsevent
-  restful_voyage!
   rspec-rails
   ruby-prof
   ruby_gntp
@@ -385,4 +362,3 @@ DEPENDENCIES
   uglifier (>= 1.0.3)
   unicode
   unicorn
-  voyager_oracle_api (>= 1.1.1)

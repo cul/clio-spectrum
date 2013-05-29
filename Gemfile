@@ -13,9 +13,12 @@ gem 'blacklight_google_analytics'
 gem 'blacklight_unapi', ">= 0.0.3"
 gem 'json'
 
+# Called to produce status msgs. search result lists.
+# This could be native to clio-spectrum, or put into Voyager-back-end
+# gem 'voyager_oracle_api', ">= 1.1.1"
 
-gem 'voyager_oracle_api', ">= 1.1.1"
-gem 'restful_voyage', :git => "git://github.com/cul/restful_voyage.git", :branch => "master"
+# Would be use for Patron services, if we were to use native blacklight Patron svcs.
+# gem 'restful_voyage', :git => "git://github.com/cul/restful_voyage.git", :branch => "master"
 
 group :clio_dev, :clio_test, :clio_prod do
   gem 'mysql2'
@@ -27,15 +30,25 @@ gem 'therubyracer', '0.10.2'
 gem 'has_options'
 gem 'httpclient'
 gem 'nokogiri'
+
+# HTML replacement language
 gem 'haml'
 gem 'haml-rails'
+
+# CSS replacement language
 gem 'sass'
 gem 'sass-rails', '~>3.2.4'
+
 gem 'unicode'
 gem 'summon'
 gem 'cancan'
 
-#gem 'voyager_api', '>=0.2.3'
+# Talks to Voyager API directly, return XML-format for Spectrum use.
+# But, this is now used from within the Voyager-Backend application
+# (which is now named cul/clio_backend up at github), and so
+# this is no longer needed here within clio-spectrum.
+# gem 'voyager_api', '>=0.2.3'
+
 gem 'rubytree', '=0.5.2'
 
 gem 'exception_notification'
