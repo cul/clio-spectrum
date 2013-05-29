@@ -86,7 +86,7 @@ datasources:
       search_type: blacklight
       search_fields:
         all_fields: All Fields
-        journal_title: Journal Title
+        title: Title
         title_starts_with: Left Anchored Title
         subject: Subject
         issn: ISSN

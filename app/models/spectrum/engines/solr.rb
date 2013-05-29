@@ -478,6 +478,12 @@ module Spectrum
                 :fq  => ['{!raw f=source_facet}ejournal']
               }
 
+              # experiments only... remove for prod...
+              # this reveals that about 9K records with data-source E-Journals
+              # are NOT of ofrmat "Journal/Periodical"
+              # config.add_facet_field "format", 
+              #    :label => "Format", :limit => 5, :open => true
+
               config.add_facet_field "language_facet", 
                   :label => "Language", 
                   :limit => 5, :open => true
@@ -496,7 +502,7 @@ module Spectrum
               config.add_facet_field 'title_first_facet', 
                   :label => "Starts With"
                   
-              add_search_fields(config, 'journal_title', 'title_starts_with', 
+              add_search_fields(config, 'title', 'title_starts_with', 
                                 'subject', 'issn')
               config[:unapi] = {
                 'oai_dc_xml' => { :content_type => 'text/xml' }
