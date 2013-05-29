@@ -152,7 +152,7 @@ root.retrieve_google_jacket_for_single_item = (standard_id_array, start_index) -
 
   # use an API key for non-anonymous tracked usage... but only after our
   # API key has been allocated a very large quota
-  #base_url = base_url + "&key=AIzaSyDSEgQqa-dByStBpuRHjrFOGQoonPYs2KU"
+  base_url = base_url + "&key=AIzaSyDSEgQqa-dByStBpuRHjrFOGQoonPYs2KU"
 
   $.getJSON(base_url, (data) ->
     jacket_thumbnail_url = ''
