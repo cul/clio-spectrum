@@ -35,7 +35,7 @@ module ArticlesHelper
     link_params = {
       'Volume' => document.volume,
       'Issue' => document.issue,
-      'Source' => 'info:sid/summon.serialssolutions.com (Via CLIO Beta)',
+      'Source' => 'info:sid/summon.serialssolutions.com (Via CLIO)',
       'Author' => document.creator,
       'Article' => document.title,
       'Genre' => 'article',

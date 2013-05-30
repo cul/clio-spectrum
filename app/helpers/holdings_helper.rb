@@ -2,8 +2,9 @@
 module HoldingsHelper
   def build_holdings_hash(document)
     results = Hash.new { |h,k| h[k] = []}
-    Holding.new(document["clio_id_display"]).fetch_from_opac!.results["holdings"].each_pair do |holding_id, holding_hash|
-      results[[holding_hash["location_name"],holding_hash["call_number"]]] << holding_hash
+    Holding.new(document["clio_id_display"]).fetch_from_opac!.
+      results["holdings"].each_pair do |holding_id, holding_hash|
+          results[[holding_hash["location_name"],holding_hash["call_number"]]] << holding_hash
     end
 
     if document["url_munged_display"] && !results.keys.any? { |k| k.first.strip == "Online" }
@@ -21,7 +22,6 @@ module HoldingsHelper
 
   def shorten_location(location)
     SHORTER_LOCATIONS[location.strip] || location
-
   end
 
   def process_holdings_location(loc_display)
@@ -87,15 +87,24 @@ module HoldingsHelper
 
   # parameters: title, link (url or javascript)
   SERVICES = {
-    'offsite' => ["Offsite", "http://www.columbia.edu/cgi-bin/cul/offsite2?"],
-    'spec_coll' => ["Special Collections", "http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey="],
-    'precat' => ["Precataloging", "OpenPrecatRequest"],
-    'recall_hold' => ["Recall/Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId="],
-    'on_order' => ["On Order", "OpenInprocessRequest"],
-    'borrow_direct' => ['Borrow Direct', "http://www.columbia.edu/cgi-bin/cul/borrowdirect?"],
-    'ill' => ['ILL', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?"],
-    'in_process' => ['In Process', "OpenInprocessRequest"],
-    'doc_delivery' => ['Document Delivery', " https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?"]
+    'offsite' => ["Offsite", 
+        "http://www.columbia.edu/cgi-bin/cul/offsite2?"],
+    'spec_coll' => ["Special Collections", 
+        "http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey="],
+    'precat' => ["Precataloging", 
+        "OpenPrecatRequest"],
+    'recall_hold' => ["Recall/Hold", 
+        "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId="],
+    'on_order' => ["On Order", 
+        "OpenInprocessRequest"],
+    'borrow_direct' => ['Borrow Direct', 
+        "http://www.columbia.edu/cgi-bin/cul/borrowdirect?"],
+    'ill' => ['ILL', 
+        "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?"],
+    'in_process' => ['In Process', 
+        "OpenInprocessRequest"],
+    'doc_delivery' => ['Document Delivery', 
+        "https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?"]
   }
 
   def service_links(services, clio_id)
