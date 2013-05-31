@@ -114,7 +114,13 @@ module Spectrum
       def facet_operator_label(raw_facet_field)
         facet_operator(raw_facet_field) == "AND" ? "All Of" : "Any Of"
       end
-
+      
+      def facet_label(facet_field, base_facet_field)
+        @config.facet_fields[base_facet_field.to_s] &&
+          @config.facet_fields[base_facet_field.to_s].label ||
+          facet_field
+      end
+      
       def parse_filters
         @filters = HashWithIndifferentAccess.new()
         (@params[:f] || {}).each_pair do |facet_field, values|
@@ -130,8 +136,8 @@ module Spectrum
               operator_label: facet_operator_label(base_facet_field),
               operator_change_links: facet_operator_change_links(base_facet_field),
               values: [],
-              label: @config.facet_fields[base_facet_field.to_s].label || facet_field
-
+              # label: @config.facet_fields[base_facet_field.to_s].label || facet_field
+              label: facet_label(facet_field, base_facet_field)
             }
           end
 
