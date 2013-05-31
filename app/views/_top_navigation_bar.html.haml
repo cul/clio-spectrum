@@ -27,7 +27,7 @@
                             %a{:href => root_path} CLIO - Home
                           %li.divider
                           %li
-                            %a{:href => "http://clio.cul.columbia.edu:7018/vwebv/searchBasic?sk=CLIO", :target => "_blank"} CLIO Legacy
+                            %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?cliolegacy", :target => "_blank"} CLIO Legacy
                           %li
                             %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0182", :target => "_blank"} Course Reserves
                           %li
@@ -75,7 +75,6 @@
                               %b.caret
                           %ul.dropdown-menu.menu-dropdown
                             %li= link_to "Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087-1", :target => "_blank"
-                            %li= link_to "Login", new_user_session_path
 
                       %li.dropdown.menu
                         %a.dropdown-toggle.menu(data-toggle="dropdown" href="#")
@@ -96,4 +95,7 @@
                             %a{href: '#', class: 'feedback-popup'} Suggestions & Feedback
                           %li
                             %a{href: 'http://preview-library.cul.columbia.edu/content/libraryweb/site-index.html'} Site Index
+                          %li.divider
+                          %li= link_to "Staff Login", new_user_session_path
+
 
