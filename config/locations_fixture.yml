@@ -20,9 +20,9 @@
 - :library_code: avery
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
-    Home Page: http://library.columbia.edu/indiv/avery.html
+    Home Page: http://library.columbia.edu/locations/avery.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
-    Floorplans: http://library.columbia.edu/indiv/avery/floorplans.html
+    Floorplans: http://library.columbia.edu/locations/avery/floorplans.html
   :category: physical
   :location: Avery
   :found_in: |-
@@ -32,9 +32,9 @@
 - :library_code: averydr
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
-    Home Page: http://library.columbia.edu/indiv/avery/da.html
+    Home Page: http://library.columbia.edu/locations/avery/da.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
-    Floorplans: http://library.columbia.edu/indiv/avery/floorplans.html
+    Floorplans: http://library.columbia.edu/locations/avery/floorplans.html
   :category: physical
   :location: Avery Drawings
   :found_in: |-
@@ -44,9 +44,9 @@
 - :library_code: averycl
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
-    Home Page: http://library.columbia.edu/indiv/avery/classics.html
+    Home Page: http://library.columbia.edu/locations/avery/classics.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
-    Floorplans: http://library.columbia.edu/indiv/avery/floorplans.html
+    Floorplans: http://library.columbia.edu/locations/avery/floorplans.html
   :category: physical
   :location: Avery Classics
   :found_in: |-
@@ -77,7 +77,7 @@
 - :library_code: burke
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionA.gif
-    Home Page: http://library.columbia.edu/indiv/burke.html
+    Home Page: http://library.columbia.edu/locations/burke.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionA.html
     Location Guide: http://library.columbia.edu/content/dam/libraryweb/floorplans/burke_location_guide.pdf
   :category: physical
@@ -89,7 +89,7 @@
 - :library_code: business
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionD.gif
-    Home Page: http://library.columbia.edu/indiv/business.html
+    Home Page: http://library.columbia.edu/locations/business.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionD.html
     Floorplans: http://library.columbia.edu/content/dam/libraryweb/floorplans/business_floorplan.pdf
   :category: physical
@@ -101,7 +101,7 @@
 - :library_code: butler
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    Home Page: http://library.columbia.edu/indiv/butler.html
+    Home Page: http://library.columbia.edu/locations/butler.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
     Call Number Guide: http://library.columbia.edu/content/dam/libraryweb/libraries/butler/butler_stacks.pdf
   :category: physical
@@ -113,18 +113,18 @@
 - :library_code: bmc
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    Home Page: http://library.columbia.edu/indiv/bmc.html
+    Home Page: http://library.columbia.edu/locations/butler/media-services.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Butler Media
   :found_in: |-
-    Butler Media Center
+    Butler Media Services
     
     208B Butler Library
 - :library_code: pmrr
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    Home Page: http://library.columbia.edu/indiv/pmrr.html
+    Home Page: http://library.columbia.edu/locations/pmrr.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Butler Microforms
@@ -135,7 +135,7 @@
 - :library_code: pmrr
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    Home Page: http://library.columbia.edu/indiv/pmrr.html
+    Home Page: http://library.columbia.edu/locations/pmrr.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Butler Periodicals
@@ -146,8 +146,8 @@
 - :library_code: butlref
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    Guides: http://library.columbia.edu/indiv/butlref.html
-    Home Page: http://library.columbia.edu/indiv/butlref.html
+    Guides: http://library.columbia.edu/locations/butler-reference.html
+    Home Page: http://library.columbia.edu/locations/butler-reference.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Butler Reference
@@ -158,7 +158,7 @@
 - :library_code: butlres
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    Home Page: http://library.columbia.edu/indiv/butlres.html
+    Home Page: http://library.columbia.edu/locations/butler-reserves.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Butler Reserves
@@ -169,9 +169,10 @@
 - :library_code: butler
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    Home Page: http://library.columbia.edu/indiv/butlcirc.html
+    Home Page: http://library.columbia.edu/locations/butler-circulation.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
-    Call Number Guide: http://library.columbia.edu/content/dam/libraryweb/libraries/butler/butler_stacks.pdf
+    Floorplan: http://library.columbia.edu/locations/butler/floorplan.html
+    Call Number Guide: http://library.columbia.edu/content/dam/libraryweb/locations/butler/butler_stacks.pdf
   :category: physical
   :location: Butler Stacks
   :found_in: |-
@@ -204,7 +205,7 @@
 - :library_code: eastasian
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
-    Home Page: http://library.columbia.edu/indiv/eastasian.html
+    Home Page: http://library.columbia.edu/locations/eastasian.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
   :category: physical
   :location: East Asian
@@ -215,7 +216,7 @@
 - :library_code: butler
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    Home Page: http://library.columbia.edu/indiv/dhc.html
+    Home Page: http://library.columbia.edu/locations/dhc.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Electronic Text Service
@@ -226,7 +227,7 @@
 - :library_code: eng
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionD.gif
-    Home Page: http://library.columbia.edu/indiv/eng.html
+    Home Page: http://library.columbia.edu/locations/engineering.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionD.html
   :category: physical
   :location: Engineering
@@ -237,7 +238,7 @@
 - :library_code: geology
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionD.gif
-    Home Page: http://library.columbia.edu/indiv/geology.html
+    Home Page: http://library.columbia.edu/locations/geology.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionD.html
   :category: physical
   :location: Geology
@@ -247,7 +248,7 @@
     601 Schermerhorn
 - :library_code: geosci
   :links: 
-    Home Page: http://library.columbia.edu/indiv/geosci.html
+    Home Page: http://library.columbia.edu/locations/geoscience.html
   :category: physical
   :location: Geoscience
   :found_in: |-
@@ -283,7 +284,7 @@
 - :library_code: jour
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    Home Page: http://library.columbia.edu/indiv/jour.html
+    Home Page: http://library.columbia.edu/locations/journalism.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Journalism
@@ -303,9 +304,9 @@
 - :library_code: lehman
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionF.gif
-    Home Page: http://library.columbia.edu/indiv/lehman.html
+    Home Page: http://library.columbia.edu/locations/lehman.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
-    Floorplans: http://library.columbia.edu/indiv/lehman/floorplan.html
+    Floorplans: http://library.columbia.edu/locations/lehman/floorplan.html
   :category: physical
   :location: Lehman
   :found_in: |-
@@ -315,7 +316,7 @@
 - :library_code: eds
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionF.gif
-    Home Page: http://library.columbia.edu/indiv/dssc/data/service.html
+    Home Page: http://library.columbia.edu/locations/dssc/data/service.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
   :category: physical
   :location: Lehman Electronic Data Service
@@ -326,7 +327,7 @@
 - :library_code: lehman
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionF.gif
-    Home Page: http://library.columbia.edu/indiv/maps.html
+    Home Page: http://library.columbia.edu/locations/maps.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
   :category: physical
   :location: Lehman Map Room
@@ -337,7 +338,7 @@
 - :library_code: lehsuite
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionF.gif
-    Home Page: http://library.columbia.edu/indiv/rbml/units/lehman.html
+    Home Page: http://library.columbia.edu/locations/rbml/units/lehman.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
   :category: physical
   :location: Lehman Suite
@@ -348,7 +349,7 @@
 - :library_code: lehman
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionF.gif
-    Home Page: http://library.columbia.edu/indiv/usgd.html
+    Home Page: http://library.columbia.edu/locations/usgd.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
   :category: physical
   :location: Lehman US Government Documents
@@ -366,7 +367,7 @@
 - :library_code: mathsci
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
-    Home Page: http://library.columbia.edu/indiv/math.html
+    Home Page: http://library.columbia.edu/locations/math.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
   :category: physical
   :location: Math-Science
@@ -377,7 +378,7 @@
 - :library_code: mathsci
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
-    Home Page: http://library.columbia.edu/indiv/math.html
+    Home Page: http://library.columbia.edu/locations/math.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
   :category: physical
   :location: Mathematics
@@ -388,8 +389,8 @@
 - :library_code: butler24
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    Home Page: http://library.columbia.edu/indiv/undergrad.html
-    Shelving Guide: http://library.columbia.edu/indiv/undergrad/call_number_guide.html
+    Home Page: http://library.columbia.edu/locations/undergraduate.html
+    Shelving Guide: http://library.columbia.edu/locations/undergraduate/call_number_guide.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Milstein
@@ -418,7 +419,7 @@
 - :library_code: music
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
-    Home Page: http://library.columbia.edu/indiv/music.html
+    Home Page: http://library.columbia.edu/locations/music.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
   :category: physical
   :location: Music
@@ -435,7 +436,7 @@
     
     1051 Riverside Drive at 168th StreetContact library for availability of items. Call (212) 543-5675.
 - :links: 
-    Home Page: http://library.columbia.edu/requestit/off-site.html
+    Home Page: http://library.columbia.edu/find/request/off-site.html
   :category: no_location
   :location: Offsite
   :found_in: |-
@@ -445,7 +446,7 @@
 - :library_code: ohro
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    Home Page: http://library.columbia.edu/indiv/ccoh.html
+    Home Page: http://library.columbia.edu/locations/ccoh.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Oral History
@@ -454,7 +455,7 @@
     
     801 Butler Library
 - :links: 
-    Home Page: http://www.nyp.org/columbiaortho/about/dep_rus.html?name1=Russell+Hibbs+Memorial+Library&type1=2Active
+    Home Page: http://www.columbiaortho.org/departments/russell-hibbs-memorial-library
   :category: physical
   :location: Orthopaedic Surgery
   :found_in: |-
@@ -473,7 +474,7 @@
 - :library_code: rbml
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    Home Page: http://library.columbia.edu/indiv/rbml.html
+    Home Page: http://library.columbia.edu/locations/rbml.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Rare Book
@@ -484,7 +485,7 @@
 - :library_code: science
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
-    Home Page: http://library.columbia.edu/indiv/math.html
+    Home Page: http://library.columbia.edu/locations/math.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
   :category: physical
   :location: Science
@@ -494,7 +495,7 @@
     303 Mathematics
 - :library_code: socwk
   :links: 
-    Home Page: http://library.columbia.edu/indiv/socwk.html
+    Home Page: http://library.columbia.edu/locations/social-work.html
   :category: physical
   :location: Social Work
   :found_in: |-
@@ -522,7 +523,7 @@
 - :library_code: uarchives
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
-    Home Page: http://library.columbia.edu/indiv/uarchives.html
+    Home Page: http://library.columbia.edu/locations/cuarchives.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
   :category: physical
   :location: University Archives
