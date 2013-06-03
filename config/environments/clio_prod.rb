@@ -34,6 +34,14 @@ config.action_mailer.smtp_settings = {
   config.assets.digest = true
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+  
+  # BlacklightUnapi - quiet the extensive log entries:
+  # DEPRECATION WARNING: Passing a template handler in the template 
+  # name is deprecated. You can simply remove the handler name or 
+  # pass render :handlers => [:builder] instead.
+  #  
+  ActiveSupport::Deprecation.silenced = true
+  
 end
 
 Clio::Application.config.middleware.use ExceptionNotifier,

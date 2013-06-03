@@ -43,12 +43,13 @@ module HoldingsHelper
         url = url_parts.delete_at(url_index)
         title = url_parts.join(" ").to_s
         title = url if title.empty?
-      else
-        title = "Bad URL: " + url_parts.join(" ")
-        url = ""
+        links << [title, url]
+      # Actually, just ignore bad URLs, don't display in the interface
+      # else
+      #   title = "Bad URL: " + url_parts.join(" ")
+      #   url = ""
       end
 
-      links << [title, url]
     end
 
     # remove google links if more than one exists

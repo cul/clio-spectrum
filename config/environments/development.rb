@@ -33,6 +33,13 @@ Clio::Application.configure do
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
+  
+  # BlacklightUnapi - quiet the extensive log entries:
+  # DEPRECATION WARNING: Passing a template handler in the template 
+  # name is deprecated. You can simply remove the handler name or 
+  # pass render :handlers => [:builder] instead.
+  #  
+  # ActiveSupport::Deprecation.silenced = true
 
 end
 

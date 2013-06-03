@@ -3,6 +3,7 @@
 %title= h(@page_title || application_name)
 = csrf_meta_tag
 %link{:rel => "shortcut icon", :href => image_path("favicon-crown.png"), :type => "image/x-icon"}/
+%link{:rel => "apple-touch-icon", :href => image_path("apple-touch-icon-144x144.png"), :type => "image/x-icon"}/
 %link{:rel => 'unapi-server', :title => 'unAPI', :type => 'application/xml', :href => unapi_url}
 
 = stylesheet_link_tag "application", :media => 'all'

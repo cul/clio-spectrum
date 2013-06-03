@@ -141,6 +141,8 @@ class SpectrumController < ApplicationController
           blacklight_search(fixed_params)
 
         when 'library_web'
+          # GoogleAppliance engine can't handle absent q param
+          fixed_params['q'] ||= ''
           Spectrum::Engines::GoogleAppliance.new(fixed_params)
         end
 
