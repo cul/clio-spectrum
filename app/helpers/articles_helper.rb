@@ -10,8 +10,12 @@ module ArticlesHelper
     return link_to(link_title, article.link)
 
     url = ''
-    if article.fulltext && !(article.content_types & ['Journal Article','Book', 'eBook']).empty?
-      if article.content_types.include?('eBook') && EBOOKS_TO_LINK_FOLLOW.any? { |eb| article.uri.to_s.include?(eb) }
+    # If the article is a fulltext Journal Article, Book, or eBook...
+    if article.fulltext && 
+       !(article.content_types & ['Journal Article','Book', 'eBook']).empty?
+      # If the article is an eBook and it's URL is to handle.net or hathi... 
+      if article.content_types.include?('eBook') && 
+         EBOOKS_TO_LINK_FOLLOW.any? { |eb| article.uri.to_s.include?(eb) }
         url = article.link
       else
         url = articles_show_path(:openurl => article.src['openUrl'])
