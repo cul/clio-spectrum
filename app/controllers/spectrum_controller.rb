@@ -57,7 +57,13 @@ class SpectrumController < ApplicationController
 
     end
 
-
+  end
+  
+  def catch_404
+    unrouted_uri = request.fullpath
+    alert = "Invalid URL: #{unrouted_uri}"
+    logger.warn alert
+    redirect_to root_path, :alert => alert
   end
 
   private

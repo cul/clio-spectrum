@@ -8,6 +8,9 @@ if defined?(Bundler)
   Bundler.require *Rails.groups(:assets => %w(development test))
 end
 
+# a place for patches with no personal name attached...
+# require File.expand_path('../../lib/monkey_patches', __FILE__)
+
 require File.expand_path('../../lib/james_monkeys', __FILE__)
 require File.expand_path('../../lib/google_books', __FILE__)
 require File.expand_path('../../lib/rsolr_notifications', __FILE__)
@@ -54,5 +57,15 @@ module Clio
     # Default SASS Configuration, check out https://github.com/rails/sass-rails for details
 
     config.assets.version = RELEASE_STAMP
+    
+    # see https://github.com/vidibus/vidibus-routing_error
+    # This isn't great, since it doesn't tell us or them that anything
+    # untoward has occurred!
+    #
+    # Catch 404s
+    config.after_initialize do |app|
+      app.routes.append{match '*catch_unknown_routes', :to => 'spectrum#catch_404'}
+    end
+    
   end
 end
