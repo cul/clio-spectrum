@@ -33,3 +33,5 @@
 //= require holdings
 
 //= require item_actions
+
+//= require ie_warnings
