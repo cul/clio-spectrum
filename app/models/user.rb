@@ -37,6 +37,9 @@ class User < ActiveRecord::Base
 
 
   def self.on_campus?(ip_addr)
+    # check passed string against regexp from standard library
+    return false unless ip_addr =~ Resolv::IPv4::Regex
+    
     COLUMBIA_IP_RANGES.any? { |ir| 
       ir.kind_of?(Range) ? 
           ir.include?(ip_addr) : 
