@@ -48,7 +48,7 @@ root.load_clio_holdings = (id) ->
         $('#clio_holdings .holdings_error').show()
 
 root.retrieve_fedora_resources = (fedora_ids) ->
-  url = 'http://rossini.cul.columbia.edu/voyager_backend/fedora/resources/' + fedora_ids.join('/');
+  url = clio_backend_url + '/fedora/resources/' + fedora_ids.join('/');
 
   $.getJSON url, (data) ->
     for fedora_id, resources of data
@@ -72,7 +72,7 @@ root.retrieve_fedora_resources = (fedora_ids) ->
 
 
 root.retrieve_holdings = (bibids) ->
-  url = 'http://rossini.cul.columbia.edu/voyager_backend/holdings/status/' + bibids.join('/');
+  url = clio_backend_url + '/holdings/status/' + bibids.join('/');
 
 
   $.getJSON url, (data) ->

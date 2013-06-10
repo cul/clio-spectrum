@@ -22,4 +22,9 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 
+-# Pass Rails variables to Javascript via simple global assignment
+:javascript
+  clio_backend_url = "#{APP_CONFIG['clio_backend_url']}";
+
+
 

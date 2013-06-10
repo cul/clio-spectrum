@@ -1,7 +1,7 @@
 class BackendController < ApplicationController
 
   def holdings
-    @holdings = JSON.parse(HTTPClient.get_content("http://rossini.cul.columbia.edu/voyager_backend/holdings/retrieve/#{params[:id]}"))[params[:id]]
+    @holdings = JSON.parse(HTTPClient.get_content("#{APP_CONFIG['clio_backend_url']}/holdings/retrieve/#{params[:id]}"))[params[:id]]
     @id = params[:id]
 
     render "backend/holdings", :layout => false
@@ -9,7 +9,7 @@ class BackendController < ApplicationController
 
   def holdings_mail
 
-    @holdings = JSON.parse(HTTPClient.get_content("http://rossini.cul.columbia.edu/voyager_backend/holdings/retrieve/#{params[:id]}"))[params[:id]]
+    @holdings = JSON.parse(HTTPClient.get_content("#{APP_CONFIG['clio_backend_url']}/holdings/retrieve/#{params[:id]}"))[params[:id]]
     @id = params[:id]
 
     render "backend/_holdings_mail", :layout => false
