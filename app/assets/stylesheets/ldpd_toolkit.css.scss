@@ -385,7 +385,8 @@ ul#culnav-main > li > a b {
 .navbar-inner {
   padding-left: 10px;
   min-height: 28px;
-  background: #eeeeff;
+/* we never want this light-blue navbar in CLIO */
+/*  background: #eeeeff; */
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
