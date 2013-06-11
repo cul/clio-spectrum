@@ -59,7 +59,8 @@ gem 'devise-encryptable'
 gem 'devise_wind'
 #
 
-gem 'compass-rails'
+# marquis, 6/13 - unused?
+# gem 'compass-rails'
 
 gem 'jquery-rails'
 
@@ -68,7 +69,8 @@ group :assets do
   gem 'coffee-rails', '~>3.2.2'
   gem 'uglifier', '>=1.0.3'
   gem 'bootstrap-sass', '~>2.1'
-  gem 'compass-rails'
+  # marquis, 6/13 - unused?
+  # gem 'compass-rails'
   gem 'iced-rails'
 end
 
