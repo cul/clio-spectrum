@@ -12,7 +12,7 @@ describe "Item Locations should show correct library hours", :js => true do
     page.should have_link("Full Hours Info", :href=>"http://www.columbia.edu/cu/lweb/services/hours/index.html?library=averydr")
   end
 
-  it "for Avery Drawings & Archives" do
+  it "for Avery Classics" do
     visit catalog_path('565036')
     page.should have_text('Avery Classics')
     click_link('Avery Classics')
