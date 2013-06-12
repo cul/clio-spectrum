@@ -25,7 +25,14 @@ body {
   background: transparent url(ldpd-toolkit/crown-bts-24x24.png) no-repeat 4px 22% !important;
 }
 #topnavbar .navbar-inner {
-    padding: 0!important;
+  padding: 0!important;
+}
+.navbar-inner {
+  /* reinstate the Bootstrap white navbar, that LDPD had made shaddowy blue */
+  background-color: #f9f9f9;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
 }
 .navbar .topbarlogo #topbarslash {
   padding-left: .2em;
@@ -35,6 +42,10 @@ body {
   #outer-container {
     margin-top: -18px;
     border-top: 0;
+  }
+  /* reinstate the narrow-screen Bootstrap padding-top=0 that LDPD took away */
+  body {
+    padding-top: 0;	
   }
 }
 @media (max-width: 767px) {
