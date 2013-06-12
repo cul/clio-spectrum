@@ -48,11 +48,15 @@ class ApplicationController < ActionController::Base
   end
 
   def set_user_characteristics
+    
     @user_characteristics =
-      {
-        :ip => request.remote_ip,
-        :on_campus => User.on_campus?(request.remote_ip),
-       :authorized => !current_user.nil? || User.on_campus?(request.remote_ip)
+    {
+      # remote_ip gives back whatever's in X-Forwarded-For, which can
+      # be manipulated by the client.  use remote_addr instead.
+      # this will have to be revisited if/when clio lives behind a proxy.
+      :ip => request.remote_addr,
+      :on_campus => User.on_campus?(request.remote_addr),
+      :authorized => !current_user.nil? || User.on_campus?(request.remote_addr)
     }
     @debug_entries[:user_characteristics] = @user_characteristics
   end

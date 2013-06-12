@@ -66,6 +66,21 @@ module Clio
     config.after_initialize do |app|
       app.routes.append{match '*catch_unknown_routes', :to => 'spectrum#catch_404'}
     end
+
+
+    # After seeing some: ActionDispatch::RemoteIp::IpSpoofAttackError
+    # 1) this exception is not actually indicative of spoofing, just
+    #    malformed requests, which in themselves are nothing to worry
+    #    about, so disable the check.
+    # http://stackoverflow.com/questions/7887932
+    config.action_dispatch.ip_spoofing_check = false
+    # 2) but we actually are vulnerable to spoofing, in that if the request
+    #    simply has an X-Forwarded-for header, we trust that value instead
+    #    of the source IP when we do our User.on_campus? check.
+    #    we can always use remote_addr instead of remote_ip, or we can just
+    #    turn off the middleware that populates remote_ip.
+    # http://blog.gingerlime.com/2012/rails-ip-spoofing
+    config.middleware.delete ActionDispatch::RemoteIp
     
   end
 end
