@@ -5,6 +5,10 @@ Clio::Application.routes.draw do
 
 
   resources :lists
+  
+  match 'mylist/add/:id', :to => 'lists#add', :as => :mylist_add
+  match 'mylist/:login(/:name)', :to => 'lists#show', :as => :mylist
+  
 
 
   match 'catalog/advanced', :to => 'catalog#index', :as => :catalog_advanced, :defaults => {:q => '', :show_advanced => 'true'}

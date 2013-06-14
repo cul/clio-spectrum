@@ -13,6 +13,16 @@
   %b Permissions:
   = @list.permissions
 
+
+-# this is a core blacklight helper function that 
+-# iterates over @document_list, calling the relevant
+-# partial to display each.
+-# But, we'll probably want to replace this with a 
+-# MyList specific partial, with edit controls attached.
+= render_document_index
+
+%br
+
 = link_to 'Edit', edit_list_path(@list)
 \|
 = link_to 'Back', lists_path

@@ -1,5 +1,12 @@
+# require 'blacklight/catalog'
+
 class ListsController < ApplicationController
   layout "no_sidebar_no_search"
+
+  include LocalSolrHelperExtension
+  # include Blacklight::Catalog
+  # include Blacklight::Configurable
+  # include BlacklightUnapi::ControllerExtension
   
   
   # GET /lists
@@ -17,8 +24,18 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
+    
+    if params[:id]
+      @list = List.find(params[:id])
+    elsif params[:login] && params[:name]
+      @list = List.where(:created_by => params[:login], :name => params[:name]).first
+    elsif params[:login]
+      @list = List.where(:created_by => params[:login], :name => 'default').first
+    end
         
-    @list = List.find(params[:id])
+    list_item_keys = @list.list_items.collect {|list_item| list_item[:item_key]}
+    @response, @document_list = get_solr_response_for_field_values(SolrDocument.unique_key, list_item_keys)
+    
 
     respond_to do |format|
       format.html # show.html.erb
@@ -49,7 +66,6 @@ class ListsController < ApplicationController
     values = params[:list]
     values[:created_by] = current_user.login
     @list = List.new(values)
-    # @list = List.new(params[:list], :created_by => current_user.login)
 
     respond_to do |format|
       if @list.save
@@ -89,4 +105,20 @@ class ListsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # DELETE /lists/add/234/456/789
+  def add
+    default_list = List.where(:created_by => current_user.login, :name => 'default').first
+    unless default_list
+      default_list = List.new(:created_by => current_user.login, :name => 'default')
+      default_list.save
+    end
+    for item_key in params[:id].split('/') do
+      new_item = ListItem.new(:item_key => item_key, :list_id => default_list[:id])
+      new_item.save
+    end
+    
+    redirect_to :action => 'index'
+  end
+  
 end
