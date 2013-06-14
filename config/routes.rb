@@ -52,12 +52,18 @@ Clio::Application.routes.draw do
 
 
   match 'archives', :to => 'catalog#index', :as =>  :archives_index
-  match 'archives/:id(.:format)', :to => 'catalog#show', :as => :archives_show
+  match 'archives/:id(.:format)', :via => [:get], :to => 'catalog#show', :as => :archives_show
   match 'archives/facet/:id(.format)', :to => 'catalog#facet', :as => :archives_facet
+  match 'archives/:id(.:format)', :via => [:put], :to => 'catalog#update', :as => :archives_update
 
+
+  # NEXT-483 A user should be able to browse results using previous/next
+  # this requires GET ==> show, and POST ==> update, for reasons
+  # explained in the ticket.
   match 'new_arrivals', :to => 'catalog#index', :as => :new_arrivals_index
-  match 'new_arrivals/:id(.:format)', :to => 'catalog#show', :as => :new_arrivals_show
+  match 'new_arrivals/:id(.:format)', :via => [:get], :to => 'catalog#show', :as => :new_arrivals_show
   match 'new_arrivals/facet/:id(.format)', :to => 'catalog#facet', :as => :new_arrivals_facet
+  match 'new_arrivals/:id(.:format)', :via => [:put], :to => 'catalog#update', :as => :new_arrivals_update
 
   match 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
   match 'backend/holdings_mail/:id' => 'backend#holdings_mail', :as => 'backend_holdings_mail'
