@@ -1,0 +1,29 @@
+%h1 Your Saved Lists
+
+You have #{@lists.size} saved lists
+
+- if @lists and @lists.size > 0
+  %table
+    %tr
+      %th Name
+      %th Description
+      %th Created by
+      %th Permissions
+      %th
+      %th
+      %th
+
+    - @lists.each do |list|
+      %tr
+        %td= list.name
+        %td= list.description
+        %td= list.created_by
+        %td= list.permissions
+        %td= link_to 'Show', list
+        %td= link_to 'Edit', edit_list_path(list)
+        %td= link_to 'Destroy', list, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+%br
+
+= link_to 'New List', new_list_path

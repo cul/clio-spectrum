@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121113211955) do
+ActiveRecord::Schema.define(:version => 20130614173638) do
 
   create_table "admin_database_alerts", :force => true do |t|
     t.integer  "clio_id"
@@ -77,6 +77,23 @@ ActiveRecord::Schema.define(:version => 20121113211955) do
   end
 
   add_index "library_hours", ["library_id", "date"], :name => "index_library_hours_on_library_id_and_date"
+
+  create_table "list_items", :force => true do |t|
+    t.integer  "list_id"
+    t.string   "item_key"
+    t.integer  "sort_order"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "lists", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "created_by"
+    t.string   "permissions"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "locations", :force => true do |t|
     t.string   "name"

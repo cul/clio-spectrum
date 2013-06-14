@@ -9,14 +9,15 @@
     - add_datasources(@active_source)
     #trigger
     = render :partial => "/top_navigation_bar"
-    #page.container-fluid
-      = render :partial => "/header"
-      #bd.row-fluid
-        .row-fluid
+    #outer-container.container-fluid
+      #page.container-fluid
+        -# = render :partial => "/header"
+        #bd.row-fluid
+          .row-fluid
 
-          = render :partial=>'/layouts/messages'
-          = yield
+            = render :partial=>'/layouts/messages'
+            = yield
 
-        .clear-both
-      = render :partial => "/footer"
+          .clear-both
+        = render :partial => "/footer"
 

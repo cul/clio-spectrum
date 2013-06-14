@@ -1,0 +1,19 @@
+= form_for @list_item do |f|
+  - if @list_item.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@list_item.errors.count, "error")} prohibited this list_item from being saved:"
+      %ul
+        - @list_item.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :list_id
+    = f.number_field :list_id
+  .field
+    = f.label :item_key
+    = f.text_field :item_key
+  .field
+    = f.label :sort_order
+    = f.number_field :sort_order
+  .actions
+    = f.submit 'Save'
