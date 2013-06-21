@@ -18,7 +18,7 @@ require 'spec_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-describe ListsController do
+describe MyListsController do
 
   # This should return the minimal set of attributes required to create a valid
   # List. As you add validations to List, be sure to

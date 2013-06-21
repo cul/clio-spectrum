@@ -1,4 +1,4 @@
-class ListItemsController < ApplicationController
+class MyListItemsController < ApplicationController
   layout "no_sidebar_no_search"
   
   # GET /list_items

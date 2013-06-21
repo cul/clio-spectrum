@@ -1,0 +1,29 @@
+
+#actions-dropdown.dropdown.pull-right.hidden-phone
+  %ul.css-dropdown
+    %li.btn.btn-link
+      Selected Items...
+      %span.caret
+      %ul
+        %li= link_to "Send to Email", email_catalog_path(:id => 123), {:id => "emailLink", :name => "email", :class => "lightboxLink"}
+        %li= link_to "Send to Phone", "#"
+        %li= link_to "Export to EndNote", "#"
+        %li.divider
+        %li= link_to "Save to My List", "#", :onclick => "saveSelectedToMyList(); return false;"
+        %li.divider
+        %li= link_to "Select All Items", "#", :onclick => "selectAll(); return false;"
+        %li= link_to "Clear All Items", "#", :onclick => "deselectAll(); return false;"
+
+
+
+        = link_to "Print", "javascript:print()"
+      %li=link_to "Email", email_catalog_path(:id => id), {:id => "emailLink", :name => "email", :class => "lightboxLink"}
+
+
+      <li class="endnote">
+        <%= link_to t('blacklight.tools.endnote'), endnote_catalog_path(:sort=>params[:sort], :per_page=>params[:per_page], :id => @bookmarks.collect {|doc| doc.document_id}, :format => 'endnote'), {:class => 'btn'}%>
+      </li>
+
+      <li class="email">
+        <%= link_to t('blacklight.tools.email'), email_catalog_path(:sort=>params[:sort], :per_page=>params[:per_page], :id => @bookmarks.collect {|doc| doc.document_id}), :class=>"lightboxLink btn", :id => "emailLink" %>
+      </li>

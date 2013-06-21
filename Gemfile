@@ -57,9 +57,8 @@ gem 'net-ldap'
 gem 'devise'
 gem 'devise-encryptable'
 gem 'devise_wind'
-#
 
-# marquis, 6/13 - unused?
+# marquis, 6/13 - javascript framework - unused?
 # gem 'compass-rails'
 
 gem 'jquery-rails'
@@ -69,13 +68,17 @@ group :assets do
   gem 'coffee-rails', '~>3.2.2'
   gem 'uglifier', '>=1.0.3'
   gem 'bootstrap-sass', '~>2.1'
-  # marquis, 6/13 - unused?
+  # marquis, 6/13 - javascript framework - unused?
   # gem 'compass-rails'
-  gem 'iced-rails'
+  
+  # marquis, 6/13 - coffeescript extensions - unused?
+  # gem 'iced-rails'
 end
 
 gem 'newrelic_rpm'
 
+#  To build slugs for my-list URLs
+gem 'stringex'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 
@@ -98,9 +101,12 @@ gem 'newrelic_rpm'
 #   gem 'webrat'
 # end
 group :development do
-  gem 'hooves'
+  # marquis, 6/13 - currently, we're using thin for localhost development'
+  # gem 'unicorn'
+  # gem 'hooves'
+
   gem 'guard-rails'
-  gem 'unicorn'
+
   #gem 'linecache19', '0.5.13'
   #gem 'ruby-debug-base19', '0.11.26'
   #gem 'ruby-debug19', :require => 'ruby-debug'
@@ -113,9 +119,11 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
-  gem "growl"
+  # marquis, 6/13 - we're not using desktop growl, so don't load the gem
+  # gem "growl"
+  # ditto.  "growl notification transport protocol"
+  # gem 'ruby_gntp'
   gem 'rb-fsevent'
-  gem 'ruby_gntp'
   gem 'ruby-prof'
 end
 

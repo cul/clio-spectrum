@@ -62,6 +62,7 @@
                               #{current_user.name} (#{current_user.login})
                               %b.caret
                           %ul.dropdown-menu.menu-dropdown
+                            %li= link_to "My Saved List", mylist_path
                             %li= link_to "Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087-1", :target => "_blank"
                             %li= link_to "CLIO Legacy Saved List", "http://clio.cul.columbia.edu:7018/vwebv/myList", :target => "_blank"
                             %li= link_to "Logout", destroy_user_session_path, :method => :delete

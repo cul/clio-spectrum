@@ -1,13 +1,13 @@
 Clio::Application.routes.draw do
 
-
-  resources :list_items
-
-
-  resources :lists
+  # Don't use these - be explicit about what we support
+  # resources :my_list_items
+  # resources :my_lists
   
-  match 'mylist/add/:id', :to => 'lists#add', :as => :mylist_add
-  match 'mylist/:login(/:name)', :to => 'lists#show', :as => :mylist
+  match 'mylist/add/:item_key_list', :via => [:get], :to => 'my_lists#add', :as => :mylist_add
+  match 'mylist/add', :via => [:post], :to => 'my_lists#add', :as => :mylist_add
+
+  match 'mylist(/:owner(/:slug))', :to => 'my_lists#show', :as => :mylist
   
 
 

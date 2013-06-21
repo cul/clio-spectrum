@@ -1,0 +1,13 @@
+#actions-dropdown.dropdown
+  %ul.css-dropdown
+    %li.btn.btn-link
+      Move Selected Items...
+      %span.caret
+      %ul
+        %li
+          New List:
+        %li.divider
+        - @all_user_lists.each { |list|
+        %li 
+          = list.name
+        - }
