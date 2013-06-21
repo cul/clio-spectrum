@@ -35,6 +35,17 @@ $ ->
   request.fail (jqXHR, textStatus, errorThrown) -> flashMessage("error", "Save failed with " + textStatus + ": " + errorThrown)
 
 
+@saveSelectedToNamedList = (name) ->
+  item_key_list = getSelectedItemKeyList()
+
+  item_count = item_key_list.length || 0
+  success_message = item_count + " items saved to <a href='/mylist/sam119/' + name + '>name</a>"
+
+  # Ajax to actually save the items...
+  request = $.post '/mylist/add', {item_key_list, name}
+  request.done (data) -> flashMessage("success", success_message)
+  request.fail (jqXHR, textStatus, errorThrown) -> flashMessage("error", "Save failed with " + textStatus + ": " + errorThrown)
+
   
 
 # status is one of the Bootstrap alert statuses:  error, success
