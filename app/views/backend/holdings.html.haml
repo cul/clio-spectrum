@@ -21,10 +21,11 @@
         - copy['items'].each do |item|
           .status
             - message, details = item
-            = details['image_link']
-            = message
-            - if details['count'] >1
-              (#{details['count']} copies)
+            - unless message =~ /^Status unknown/
+              = details['image_link']
+              = message
+              - if details['count'] >1
+                (#{details['count']} copies)
     - unless (svc_links = service_links(entry['services'], @id)).empty?
       .services
         %span= "Request: "
