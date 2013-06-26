@@ -392,9 +392,9 @@ module DisplayHelper
 
       pre_text = pre_values.join('')
       if options[:expand_to] && ! options[:expand_to].strip.empty?
-        pre_text += content_tag(:div, link_to(" more &#x25BC;".html_safe, "#"), 
+        pre_text += content_tag(:div, link_to(" more &#x25BC;".html_safe, "#"),
                                 :class => 'entry expander')
-        pre_text += content_tag(:div, options[:expand_to].html_safe, 
+        pre_text += content_tag(:div, options[:expand_to].html_safe,
                                 :class => 'expander_more')
       end
 

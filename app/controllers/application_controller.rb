@@ -15,13 +15,13 @@ class ApplicationController < ActionController::Base
   before_filter :log_additional_data
   before_filter :set_user_characteristics
   before_filter :condense_advanced_search_params
-  
+
   # NEXT-537 - logging in should not redirect you to the root path
   # from the Devise how-to docs...
   # https://github.com/plataformatec/devise/wiki/
   # How-To:-Redirect-back-to-current-page-after-sign-in,-sign-out,-sign-up,-update
   after_filter :store_location
-    
+
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
@@ -55,7 +55,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_user_characteristics
-    
     @user_characteristics =
     {
       # remote_ip gives back whatever's in X-Forwarded-For, which can
@@ -230,10 +229,9 @@ class ApplicationController < ActionController::Base
 
   def store_location
     # store last url as long as it isn't a /users path
-    session[:previous_url] = request.fullpath unless 
+    session[:previous_url] = request.fullpath unless
       request.fullpath =~ /\/users/ or
       request.fullpath =~ /\/catalog\/unapi/
-      
   end
 
   def after_sign_in_path_for(resource)
@@ -243,7 +241,7 @@ class ApplicationController < ActionController::Base
 
 
   protected
-  
+
   def log_additional_data
     request.env["exception_notifier.url"] = {
       url: "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
@@ -270,7 +268,7 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-  
-  
+
+
 end
 

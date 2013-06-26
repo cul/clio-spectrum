@@ -14,8 +14,8 @@ class SolrDocument
     document.key?( :marc_display  )
   end
 
-  SolrDocument.use_extension( Blacklight::Solr::Document::Sms )
   # At Columbia, these are replaced by code within the record_mailer views
+  # # Email uses the semantic field mappings below to generate the body of an email.
   # SolrDocument.use_extension( Blacklight::Solr::Document::Email )
   # 
   # # SMS uses the semantic field mappings below to generate the body of an SMS email.

@@ -88,23 +88,23 @@ module HoldingsHelper
 
   # parameters: title, link (url or javascript)
   SERVICES = {
-    'offsite' => ["Offsite", 
+    'offsite' => ["Offsite",
         "http://www.columbia.edu/cgi-bin/cul/offsite2?"],
-    'spec_coll' => ["Special Collections", 
+    'spec_coll' => ["Special Collections",
         "http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey="],
-    'precat' => ["Precataloging", 
+    'precat' => ["Precataloging",
         "OpenPrecatRequest"],
-    'recall_hold' => ["Recall/Hold", 
+    'recall_hold' => ["Recall/Hold",
         "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId="],
-    'on_order' => ["On Order", 
+    'on_order' => ["On Order",
         "OpenInprocessRequest"],
-    'borrow_direct' => ['Borrow Direct', 
+    'borrow_direct' => ['Borrow Direct',
         "http://www.columbia.edu/cgi-bin/cul/borrowdirect?"],
-    'ill' => ['ILL', 
+    'ill' => ['ILL',
         "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?"],
-    'in_process' => ['In Process', 
+    'in_process' => ['In Process',
         "OpenInprocessRequest"],
-    'doc_delivery' => ['Document Delivery', 
+    'doc_delivery' => ['Document Delivery',
         "https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?"]
   }
 

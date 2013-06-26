@@ -109,16 +109,19 @@ class CatalogController < ApplicationController
 
   # NEXT-556 - send citation to more than one email address at a time
   # Override Blacklight core method, which limits to single email.
-  # So far, no changes beyond removing this validation.
-  
+  # --
+  # And now, since we've overridden this anyway, make some fixes.
   # Like, don't do Solr lookup on ID when generating form (AJAX GET),
   # only when sending emails (AJAX PUT)
+
   # Email Action (this will render the appropriate view on GET requests and process the form and send the email on POST requests)
   def email
+
+    # We got a post - that is, a submitted form, with a "To" - send the email!
     if request.post?
       if params[:to]
         url_gen_params = {:host => request.host_with_port, :protocol => request.protocol}
-        
+
         # if params[:to].match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)
         if params[:to].match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/)
           # Don't hit Solr until we actually need to fetch field data
@@ -133,12 +136,13 @@ class CatalogController < ApplicationController
       end
 
       unless flash[:error]
-        email.deliver 
+        email.deliver
         flash[:success] = "Email sent"
         redirect_to catalog_path(params['id']) unless request.xhr?
       end
     end
 
+    # This is supposed to catch the GET - return the HTML of the form
     unless !request.xhr? && flash[:success]
       respond_to do |format|
         format.js { render :layout => false }

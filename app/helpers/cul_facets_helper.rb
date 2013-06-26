@@ -11,7 +11,7 @@ module CulFacetsHelper
                   is_negative + facet_display_value(proper_facet_name, val),
                   :remove => url_for(remove_facet_params(facet, val, localized_params)),
                   :classes => ["filter", "filter-" + proper_facet_name.parameterize]
-                ) + "\n"                 					
+                ) + "\n"
     end
 
   end
