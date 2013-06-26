@@ -113,8 +113,11 @@ group :development do
   gem 'capistrano'
   gem 'capistrano-ext'
   gem 'quiet_assets'
+  
+# http://railscasts.com/episodes/402-better-errors-railspanel
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 group :test, :development do
