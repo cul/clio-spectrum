@@ -111,15 +111,19 @@ class CatalogController < ApplicationController
   # Override Blacklight core method, which limits to single email.
   # So far, no changes beyond removing this validation.
   
+  # Like, don't do Solr lookup on ID when generating form (AJAX GET),
+  # only when sending emails (AJAX PUT)
   # Email Action (this will render the appropriate view on GET requests and process the form and send the email on POST requests)
   def email
-    @response, @documents = get_solr_response_for_field_values(SolrDocument.unique_key,params[:id])
     if request.post?
       if params[:to]
         url_gen_params = {:host => request.host_with_port, :protocol => request.protocol}
         
         # if params[:to].match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)
         if params[:to].match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/)
+          # Don't hit Solr until we actually need to fetch field data
+          @response, @documents =
+            get_solr_response_for_field_values( SolrDocument.unique_key, params[:id] )
           email = RecordMailer.email_record(@documents, {:to => params[:to], :message => params[:message]}, url_gen_params)
         else
           flash[:error] = I18n.t('blacklight.email.errors.to.invalid', :to => params[:to])

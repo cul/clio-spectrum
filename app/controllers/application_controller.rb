@@ -87,8 +87,13 @@ class ApplicationController < ActionController::Base
     if engine.successful?
       @response = engine.search
       @results = engine.documents
-      look_up_clio_holdings(engine.documents)
-      add_alerts_to_documents(engine.documents)
+      if engine.total_items > 0
+        look_up_clio_holdings(engine.documents)
+        # Currently, item-alerts only show within the Databases data source
+        if @active_source.present? and @active_source == "databases"
+          add_alerts_to_documents(engine.documents)
+        end
+      end
     end
 
     @debug_entries ||= {}
@@ -247,6 +252,7 @@ class ApplicationController < ActionController::Base
 
   def add_alerts_to_documents(documents)
     documents = Array.wrap(documents)
+    return if documents.length == 0
     query = ItemAlert.where(:source => 'catalog', :item_key=> Array.wrap(documents).collect(&:id)).includes(:author)
 
     query.each do |alert|
