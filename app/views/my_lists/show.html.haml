@@ -1,44 +1,37 @@
 %p#notice= notice
 
-%h3
-  My List
 
-Below is the saved list 
-%b
-  #{@list.slug != "default" ? @list.slug : ""}
-for #{current_user.name} (#{current_user.login}).
-%br
-The URL for this list is:
-%ul
-  %li
-    %b 
-      = url_for(:only_path => false) + "/#{@list.owner}" + (@list.slug == "default" ? "" : "/#{@list.slug}")
+.row-fluid
 
-%br
-Items from this list can be emailed, texted, and exported, and also deleted or moved to another saved list.
-
-%h4
-  = @list.name unless @list.name == "default"
-%h5
-  = @list.description
-
-%br
-This list is: 
-%b
-  = @list.permissions
+  .mylist_control_panel.span3
+    = render 'mylist_control_panel'
 
 
-.sortAndPerPage
-  = render 'move_items'
-  = render 'actions_widget'
-  <!-- = render 'sort_widget' -->
+
+  .mylist_display_list.span9
+
+    %p.lead= get_list_name(@list)
+
+    %p= @list.description
+
+    %b URL:
+    = get_list_url(@list)
+    %span.label.label-info= @list.permissions
+
+    %br
+
+    .sortAndPerPage
+      = render 'move_items'
+      = render 'list_actions_widget'
+      <!-- = render 'sort_widget' -->
 
 
--# this is a core blacklight helper function that 
--# iterates over @document_list, calling the relevant
--# partial to display each.
--# But, we'll probably want to replace this with a 
--# MyList specific partial, with edit controls attached.
-= render_document_index
+    -# this is a core blacklight helper function that 
+    -# iterates over @document_list, calling the relevant
+    -# partial to display each.
+    -# But, we'll probably want to replace this with a 
+    -# MyList specific partial, with edit controls attached.
+
+    = render_document_index
 
 %br

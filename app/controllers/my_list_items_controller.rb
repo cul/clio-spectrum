@@ -1,6 +1,7 @@
 class MyListItemsController < ApplicationController
-  layout "no_sidebar_no_search"
-  
+  # layout "no_sidebar_no_search"
+  layout "mylist"
+
   # GET /list_items
   # GET /list_items.json
   def index

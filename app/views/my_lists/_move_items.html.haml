@@ -1,17 +1,22 @@
-#actions-dropdown.dropdown
-  %ul.css-dropdown
-    %li.btn.btn-link
-      Copy Selected Items...
-      %span.caret
-      %ul
-        %li
-          To New List:
-          %form
-            %input{:name => "name", :type => "text", :value => "", :id => 'new_list_name', :size => "10"}
-            %input{ :type => "submit", :onclick => "saveSelectedToNamedList( $('#new_list_name').val() ); return false;" }
-        %li.divider
-          To Existing List:
-        - @all_user_lists.each { |list|
-        %li= link_to list.name, "#", :onclick => "saveSelectedToNamedList('#{list.name}'); return false;"
 
-        - }
+
+#actions-dropdown.dropdown
+  %a.dropdown-toggle{'data-toggle' => "dropdown", :href => "#"}
+    Copy Selected Items...
+    %b.caret
+  %ul.dropdown-menu
+    %li.nav-header
+
+      To new list:
+
+      %form
+        %input{:name => "name", :type => "text", :value => "", :id => 'new_list_name', :style => "width:100px"}
+        %input.btn.btn-mini{ :type => "submit", :onclick => "saveSelectedToNamedList( $('#new_list_name').val() ); return false;" }
+
+    %li.divider
+    %li.nav-header
+      To existing list:
+    - @all_user_lists.each { |list|
+    %li= link_to list.name, "#", :onclick => "saveSelectedToNamedList('#{list.name}'); return false;"
+    - }
+

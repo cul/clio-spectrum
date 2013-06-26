@@ -2,7 +2,7 @@
   .sortAndPerPage
     = render "paginate_compact"
     = link_to image_tag('rss-feed-icon-14x14.png', :size => "13x13"), catalog_index_path(params.merge(:format => 'atom')), :class => "rss-feed"
-    = render 'actions_widget'
+    = render 'selections_widget'
     = render 'sort_widget'
     = render 'per_page_widget'
 - else

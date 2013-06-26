@@ -21,12 +21,24 @@ $ ->
 @deselectAll = () ->
   $("#documents").find('.item_select_checkbox').prop('checked', false).change()
 
-
+# rewrite the "this" link so that the only CGI params are the current
+# list of selected item keys
+@appendSelectedToURL = (a_element) ->
+  item_key_list = getSelectedItemKeyList()
+  if item_key_list.length == 0
+    flashMessage("notice", "No items selected") 
+    return false
+  item_keys_as_params = item_key_list.map ( item_key ) -> "id[]=" + item_key
+  item_key_param_list = item_keys_as_params.join('&')
+  _href = a_element.href.split("?")[0]
+  a_element.href = _href + '?' + item_key_param_list
+  return true
 
 @saveSelectedToMyList = () ->
   item_key_list = getSelectedItemKeyList()
 
   item_count = item_key_list.length || 0
+  return flashMessage("notice", "No items selected") if item_count == 0
   success_message = item_count + " items saved to <a href='/mylist'>My List</a>"
 
   # Ajax to actually save the items...
@@ -39,6 +51,8 @@ $ ->
   item_key_list = getSelectedItemKeyList()
 
   item_count = item_key_list.length || 0
+
+    
   success_message = item_count + " items saved to <a href='/mylist/sam119/' + name + '>name</a>"
 
   # Ajax to actually save the items...

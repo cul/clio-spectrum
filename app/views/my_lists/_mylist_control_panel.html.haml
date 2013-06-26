@@ -1,0 +1,27 @@
+%h3 Saved List
+
+for #{current_user.name} (#{current_user.login}).
+%br
+%br
+Items from this list can be emailed, printed, and exported.
+
+Logged-in users can copy items to their own lists.
+
+The owner can delete items from this list.
+
+%h4
+  = get_list_name(@list)
+%h5
+  = @list.description
+
+%br
+This list is: 
+%b
+  = @list.permissions
+
+%h5 All Saved Lists
+
+- @all_user_lists.each { |list|
+%p=# link_to get_list_name(list), get_list_url(list)
+- }
+
