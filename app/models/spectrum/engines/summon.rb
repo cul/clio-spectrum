@@ -8,13 +8,26 @@ module Spectrum
 
       DEFAULT_PARAMS = {
 
-      'newspapers' =>  {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)', 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']},
+        'newspapers' =>  {'spellcheck' => true, 's.ho' => true,
+          's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)',
+          's.ff' => ['ContentType,and,1,5', 'SubjectTerms,and,1,10', 'Language,and,1,5']
+          },
 
-      'articles' =>  {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)', 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']},
+        'articles' =>  {'spellcheck' => true, 's.ho' => true,
+          's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)',
+          's.ff' => ['ContentType,and,1,5', 'SubjectTerms,and,1,10', 'Language,and,1,5']
+          },
 
-      'ebooks' => {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(IsFullText, true)', 's.fvf' => ['ContentType,eBook'], 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']},
+        'ebooks' => {'spellcheck' => true, 's.ho' => true,
+          's.cmd' => 'addFacetValueFilters(IsFullText, true)',
+          's.fvf' => ['ContentType,eBook'],
+          's.ff' => ['ContentType,and,1,5', 'SubjectTerms,and,1,10', 'Language,and,1,5']
+          },
 
-      'dissertations' => {'spellcheck' => true, 's.ho' => true, 's.fvf' => ['ContentType,Dissertation'], 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']}
+        'dissertations' => {'spellcheck' => true, 's.ho' => true,
+          's.fvf' => ['ContentType,Dissertation'],
+          's.ff' => ['ContentType,and,1,5', 'SubjectTerms,and,1,10', 'Language,and,1,5']
+          }
 
         }
 
@@ -22,6 +35,7 @@ module Spectrum
       attr_accessor :params
 
       def initialize(options = {})
+        Rails.logger.info "[Spectrum][Summon] options: #{@options}"
         @source = options.delete('source') || options.delete(:source)
         @params = (@source && options.delete('new_search')) ? DEFAULT_PARAMS[@source] : {}
 
@@ -55,8 +69,10 @@ module Spectrum
         begin
           @service = ::Summon::Service.new(@config)
 
-          Rails.logger.info "[Spectrum][Summon] params: #{@params}"
+          Rails.logger.warn "[Spectrum][Summon] config: #{@config}"
+          Rails.logger.warn "[Spectrum][Summon] params: #{@params}"
 
+          ### THIS is the actual call to the Summon service to do the search
           @search = @service.search(@params)
 
         rescue Exception => e
@@ -198,7 +214,7 @@ module Spectrum
       def next_page?
         # Why was this 20-page limit in effect?
         # total_pages > current_page && 20 > current_page
-        
+
         # Summon API hard limit: only first 500 items will ever be returned.
         # Allow a next-page link if it's max item will be within this bound.
         page_size * (current_page + 1) <= 500

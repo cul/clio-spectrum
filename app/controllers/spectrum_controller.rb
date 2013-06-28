@@ -96,11 +96,12 @@ class SpectrumController < ApplicationController
       fixed_params = new_params.deep_clone
       %w{layout commit source categories controller action}.each { |param_name| fixed_params.delete(param_name) }
       fixed_params.delete(:source)
+
       results = case category
+
         when 'articles_dissertations'
           fixed_params['source'] = 'dissertations'
           fixed_params = fix_articles_params(fixed_params)
-
           Spectrum::Engines::Summon.new(fixed_params)
 
         when 'articles'

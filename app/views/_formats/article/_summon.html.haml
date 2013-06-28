@@ -1,8 +1,12 @@
 
 / container for a single doc
-.result.document.article_list
+.result.document.article_list{item_id: document.src['ID']}
 
-  .title= link_to_article document
+  .row-fluid
+    .title.span11= link_to_article document
+    .item_select.span1
+      = render :partial => '/my_lists/catalog_checkbox', :locals => {:item_id => document.src['ID']}
+
 
   .details
     = add_row('Author', document.src['Author'], :html_safe => true)
