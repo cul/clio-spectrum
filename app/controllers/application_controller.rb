@@ -227,6 +227,7 @@ class ApplicationController < ActionController::Base
     # store last url as long as it isn't a /users path
     session[:previous_url] = request.fullpath unless 
       request.fullpath =~ /\/users/ or
+      request.fullpath =~ /\/backend/ or
       request.fullpath =~ /\/catalog\/unapi/
       
   end
