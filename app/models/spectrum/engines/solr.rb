@@ -185,7 +185,7 @@ module Spectrum
         if fields.include?('title_start')
           config.add_search_field('title_start') do |field|
             field.show_in_dropdown = true
-            field.label = 'Left Anchored Title'
+            field.label = 'Title Begins With'
             # field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
             field.solr_local_parameters = {
               :qf => '$title_start_qf',
@@ -234,7 +234,7 @@ module Spectrum
         if fields.include?('title_starts_with')
           config.add_search_field('title_starts_with') do |field|
             field.show_in_dropdown = true
-            field.label = 'Left Anchored Title'
+            field.label = 'Title Begins With'
             field.solr_local_parameters = {
               :qf => '$title_start_qf',
               :pf => '$title_start_pf'

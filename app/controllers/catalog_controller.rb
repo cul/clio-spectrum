@@ -2,6 +2,9 @@ require 'blacklight/catalog'
 
 class CatalogController < ApplicationController
   before_filter :by_source_config
+  # use "prepend", or this comes AFTER included Blacklight filters,
+  # (and then un-processed params are stored to session[:search])
+  prepend_before_filter :preprocess_search_params
 
   include LocalSolrHelperExtension
   include Blacklight::Catalog
@@ -9,21 +12,16 @@ class CatalogController < ApplicationController
   include BlacklightUnapi::ControllerExtension
 
 
-
+  # When a catalog search is submitted, this is the 
+  # very first point of code that's hit
   def index
+    # very useful - shows the execution order of before filters
+    # logger.debug "#{   _process_action_callbacks.map(&:filter) }"
     if params['q'] == ""
       params['commit'] ||= "Search"
       params['search_field'] ||= 'all_fields'
     end
 
-    # clean up basic search params if necessary for specific search fields.
-    # [ advanced-param clean up happens in add_advanced_search_to_solr() ]
-    if params['search_field'] == 'title_starts_with' && params['q']
-      # left-anchored-title must be searched as quoted phrase.
-      # remove any quotes the user put in, wrap in our own double-quotes
-      params['q'].gsub!(/"/,'')
-      params['q'] = "\"#{ params['q'] }\""
-    end
 
     solr_search_params_logic << :add_advanced_search_to_solr
     solr_search_params_logic << :add_range_limit_params
@@ -129,7 +127,7 @@ class CatalogController < ApplicationController
       end
 
       unless flash[:error]
-        email.deliver 
+        email.deliver
         flash[:success] = "Email sent"
         redirect_to catalog_path(params['id']) unless request.xhr?
       end
@@ -143,7 +141,32 @@ class CatalogController < ApplicationController
     end
   end
 
+  def preprocess_search_params
+    # clean up any search params if necessary for specific search fields.
+    # only one case so far:  left-anchored-title must be searched as quoted phrase.
+    # escape any quotes the user put in, wrap in our own double-quotes
 
+    # 1) cleanup for basic searches
+    if params['search_field'] == 'title_starts_with' && params['q']
+      unless params['q'] =~ /^".*"$/
+        params['q'].gsub!(/"/, '\"')
+        params['q'] = "\"#{ params['q'] }\""
+      end
+    end
+
+    # 2) cleanup for advanced searches
+    if params['adv'] and params['adv'].kind_of?(Hash)
+      params['adv'].each do |rank, advanced_param|
+        if advanced_param['field'] == "title_starts_with"
+          unless advanced_param['value'] =~ /^".*"$/
+            advanced_param['value'].gsub!(/"/, '\"')
+            advanced_param['value'] = "\"#{ advanced_param['value'] }\""
+         end
+        end
+      end
+    end
+
+  end
 
 end
 
