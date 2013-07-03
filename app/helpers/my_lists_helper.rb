@@ -1,10 +1,11 @@
 module MyListsHelper
 
 
-def get_list_url(list)
-  url = mylist_path(:only_path => false) + "/" + current_user.login
-  url += "/#{list.slug}" unless list.is_default?
-  url
+def get_full_url(list)
+  root_path(:only_path => false).sub(/\/$/, '') + list.url
+  # url = mylist_path(:only_path => false) + "/" + current_user.login
+  # url += "/#{list.slug}" unless list.is_default?
+  # url
 end
 
 def get_list_name(list)
@@ -12,7 +13,21 @@ def get_list_name(list)
   return list.name
 end
 
-def get_summon_docs_for_id_values( id_array )
+
+def get_permissions_label(permissions)
+  case permissions
+    when "private"
+      html = "<span class='label label-info'>private</span>"
+    when "public"
+      html = "<span class='label label-warning'>public</span>"
+    else
+      raise "get_permissions_label: unexpected value: #{permission}"
+    end
+    html.html_safe
+end
+
+
+def get_summon_docs_for_id_values(id_array)
 
   @params = {
     'spellcheck' => true,
@@ -48,7 +63,8 @@ def get_summon_docs_for_id_values( id_array )
     @errors = e.message
   end
 
-  @search ? @search.documents : @search
+  # we choose to return empty list instead of nil
+  @search ? @search.documents : []
 end
 
 # # given a field name and array of values, get the matching SOLR documents

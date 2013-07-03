@@ -2,6 +2,7 @@ class CreateMyListItems < ActiveRecord::Migration
   def change
     create_table :my_list_items do |t|
       t.integer :my_list_id
+      t.string :item_source
       t.string :item_key
       t.integer :sort_order
 

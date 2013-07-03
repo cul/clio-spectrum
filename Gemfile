@@ -77,8 +77,11 @@ end
 
 gem 'newrelic_rpm'
 
-#  To build slugs for my-list URLs
+# To build slugs for my-list URLs
 gem 'stringex'
+
+# Allow recovery for deleted Saved Lists 
+gem 'paper_trail'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 

@@ -214,6 +214,56 @@ class ApplicationController < ActionController::Base
   end
 
 
+  # 7/13 - we'll need to send email from multiple datasources,
+  # so move this core function to application controller.
+  # (remove catalog-specific, solr-specific code???)
+
+  # NEXT-556 - send citation to more than one email address at a time
+  # Override Blacklight core method, which limits to single email.
+  # --
+  # And now, since we've overridden this anyway, make some fixes.
+  # Like, don't do Solr lookup on ID when generating form (AJAX GET),
+  # only when sending emails (AJAX PUT)
+
+  # Email Action (this will render the appropriate view on GET requests and process the form and send the email on POST requests)
+  def email
+
+    # We got a post - that is, a submitted form, with a "To" - send the email!
+    if request.post?
+      if params[:to]
+        url_gen_params = {:host => request.host_with_port, :protocol => request.protocol}
+
+        # if params[:to].match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)
+        if params[:to].match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/)
+          # Don't hit Solr until we actually need to fetch field data
+          @response, @documents =
+            get_solr_response_for_field_values( SolrDocument.unique_key, params[:id] )
+          email = RecordMailer.email_record(@documents, {:to => params[:to], :message => params[:message]}, url_gen_params)
+        else
+          flash[:error] = I18n.t('blacklight.email.errors.to.invalid', :to => params[:to])
+        end
+      else
+        flash[:error] = I18n.t('blacklight.email.errors.to.blank')
+      end
+
+      unless flash[:error]
+        email.deliver
+        flash[:success] = "Email sent"
+        redirect_to catalog_path(params['id']) unless request.xhr?
+      end
+    end
+
+    # This is supposed to catch the GET - return the HTML of the form
+    unless !request.xhr? && flash[:success]
+      respond_to do |format|
+        format.js { render :layout => false }
+        format.html
+      end
+    end
+  end
+
+
+
 
   private
 

@@ -2,6 +2,11 @@
 
 = render 'form'
 
-= link_to 'Show', @list
+= link_to 'Cancel Edit', @list.url
+
 \|
-= link_to 'Back', lists_path
+
+- if @list.is_default?
+  Default list - cannot delete
+- else
+  = link_to 'Destroy this list', @list, :method => :delete, :data => { :confirm => 'Are you sure you want to permanently delete this entire list?' }

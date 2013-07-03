@@ -5,7 +5,10 @@ class MyListsController < ApplicationController
   # layout "mylist"
   layout "no_sidebar"
 
+  include ApplicationHelper
+
   include LocalSolrHelperExtension
+  include MyListsHelper
   # include Blacklight::Catalog
   # include Blacklight::Configurable
   # include BlacklightUnapi::ControllerExtension
@@ -42,7 +45,6 @@ class MyListsController < ApplicationController
         :flash => { :error => "Login required to access Saved Lists" }
     end
 
-
     # logged-in users can see all their own lists.
     # loggin-in users can see anybody's public lists.
     # anonymous users can see anybody's public lists.
@@ -62,14 +64,30 @@ class MyListsController < ApplicationController
         :flash => { :error => "Cannot access list #{display_list}" }
     end
 
-    list_item_keys = @list.my_list_items.collect { |list_item|
-      list_item[:item_key]
-    }
-    @response, @document_list = get_solr_response_for_field_values(SolrDocument.unique_key, list_item_keys)
+    # We have a list to display.
+    # Turn the item-keys into full documents.
+    item_key_array = @list.my_list_items.order("updated_at").collect { |item| item.item_key }
+    @document_list = ids_to_documents( item_key_array )
 
-    @all_user_lists = []
-    if current_user.present?
-      @all_user_lists = MyList.where(:owner => current_user.login)
+    # catalog_item_keys = []
+    # articles_item_keys = []
+    # @list.my_list_items.each do |list_item|
+    #   catalog_item_keys.push list_item[:item_key] if
+    #     list_item[:item_source] == 'catalog'
+    #   articles_item_keys.push list_item[:item_key] if
+    #     list_item[:item_source] == 'articles'
+    # end
+    # 
+    # @response, @catalog_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_keys)
+    # 
+    # @article_document_list = get_summon_docs_for_id_values(articles_item_keys)
+    # 
+    # # merge the two document lists - in my_list_item order...
+
+    # The single-list "show" page will want to give a menu of all other lists
+    @all_current_user_lists = []
+    if current_user
+      @all_current_user_lists = MyList.where(:owner => current_user.login).order("slug")
     end
 
     respond_to do |format|
@@ -92,12 +110,27 @@ class MyListsController < ApplicationController
 
   # GET /lists/1/edit
   def edit
-    @list = List.find(params[:id])
+    if current_user.blank?
+      return redirect_to root_path,
+        :flash => { :error => "Login required to access Saved Lists" }
+    end
+
+    @list = MyList.find_by_owner_and_id(current_user.login, params[:id])
+    unless @list
+      return redirect_to root_path,
+        :flash => { :error => "Cannot access list" }
+    end
+
   end
 
   # POST /lists
   # POST /lists.json
   def create
+    if current_user.blank?
+      return redirect_to root_path,
+        :flash => { :error => "Login required to access Saved Lists" }
+    end
+
     values = params[:list]
     values[:created_by] = current_user.login
     @list = List.new(values)
@@ -116,11 +149,20 @@ class MyListsController < ApplicationController
   # PUT /lists/1
   # PUT /lists/1.json
   def update
-    @list = List.find(params[:id])
+    if current_user.blank?
+      return redirect_to root_path,
+        :flash => { :error => "Login required to access Saved Lists" }
+    end
+
+    @list = MyList.find_by_owner_and_id(current_user.login, params[:id])
+    unless @list
+      return redirect_to root_path,
+        :flash => { :error => "Cannot access list" }
+    end
 
     respond_to do |format|
-      if @list.update_attributes(params[:list])
-        format.html { redirect_to @list, notice: 'List was successfully updated.' }
+      if @list.update_attributes(params[:my_list])
+        format.html { redirect_to @list.url, notice: 'List was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -132,11 +174,21 @@ class MyListsController < ApplicationController
   # DELETE /lists/1
   # DELETE /lists/1.json
   def destroy
-    @list = List.find(params[:id])
+    if current_user.blank?
+      return redirect_to root_path,
+        :flash => { :error => "Login required to access Saved Lists" }
+    end
+
+    @list = MyList.find_by_owner_and_id(current_user.login, params[:id])
+    unless @list
+      return redirect_to root_path,
+        :flash => { :error => "Cannot access list" }
+    end
+
     @list.destroy
 
     respond_to do |format|
-      format.html { redirect_to lists_url }
+      format.html { redirect_to mylist_path }
       format.json { head :no_content }
     end
   end
@@ -169,9 +221,37 @@ class MyListsController < ApplicationController
 
       new_item = MyListItem.new(:item_key => item_key, :my_list_id => the_list[:id])
       new_item.save
+      the_list.touch
     end
 
     render :nothing => true, :status => :ok
+  end
+
+
+  # request = $.post '/mylist/remove', {item_key_list, list_id}
+  def remove
+    # You have to be logged in to use this feature
+    if current_user.blank?
+      render :nothing => true, :status => :unauthorized and return
+    end
+
+    # You have to own the list
+    @list = MyList.find_by_owner_and_id(current_user.login, params[:list_id])
+    unless @list
+      render :nothing => true, :status => :not_found and return
+    end
+
+    Array.wrap(params[:item_key_list]).each do |item_key|
+      list_item = MyListItem.find_by_item_key_and_my_list_id(item_key, @list.id)
+      if list_item.destroy
+        @list.touch
+      else
+        render :nothing => true, :status => :internal_server_error and return
+      end
+    end
+
+    render :nothing => true, :status => :ok
+
   end
 
 end

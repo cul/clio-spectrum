@@ -32,4 +32,40 @@ module ApplicationHelper
     end
   end
 
+  def ids_to_documents(id_array = [])
+    # First, split into per-source lists,
+    # (depend on Summon IDs to start with "FETCH"...)
+    catalog_item_ids = []
+    articles_item_ids = []
+    Array.wrap(id_array).each do |item_id|
+      if item_id.start_with?("FETCH")
+        articles_item_ids.push item_id
+      else
+        catalog_item_ids.push item_id
+      end
+    end
+
+    # Then, do two source-specific set-of-id lookups
+    response, catalog_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids)
+    article_document_list = get_summon_docs_for_id_values(articles_item_ids)
+
+    # Then, merge back, in original order
+    key_to_doc_hash = {}
+    catalog_document_list.each do |doc|
+      puts "======CATALOG DOC=====\n#{doc}\n==========="
+      key_to_doc_hash[ doc[:id] ] = doc
+    end
+    article_document_list.each do |doc|
+      puts "======ARTICLE DOC=====\n#{doc}\n==========="
+      key_to_doc_hash[ doc.id ] = doc
+    end
+    puts "=======KEYS========= #{key_to_doc_hash.keys}"
+
+    document_array = []
+    id_array.each do |id|
+      document_array.push key_to_doc_hash[id]
+    end
+    document_array
+  end
+
 end

@@ -187,6 +187,9 @@ GEM
     newrelic_rpm (3.6.0.83)
     nokogiri (1.5.9)
     orm_adapter (0.4.0)
+    paper_trail (2.7.2)
+      activerecord (~> 3.0)
+      railties (~> 3.0)
     polyglot (0.3.3)
     pry (0.9.12)
       coderay (~> 1.0.5)
@@ -325,6 +328,7 @@ DEPENDENCIES
   net-ldap
   newrelic_rpm
   nokogiri
+  paper_trail
   quiet_assets
   rails (= 3.2.13)
   rb-fsevent

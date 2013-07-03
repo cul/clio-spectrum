@@ -1,11 +1,11 @@
 
 / container for a single doc
-.result.document.article_list{item_id: document.src['ID']}
+.result.document.article_list{item_id: document.id}
 
   .row-fluid
     .title.span11= link_to_article document
     .item_select.span1
-      = render :partial => '/my_lists/catalog_checkbox', :locals => {:item_id => document.src['ID']}
+      = render :partial => '/my_lists/catalog_checkbox', :locals => {:item_id => document.id}
 
 
   .details
@@ -18,11 +18,11 @@
     %span.Z3988{ :title => document.src['openUrl'] }
 
     - if @debug_mode
-      =add_row("Fulltext", document.fulltext.to_s)
-      =add_row("URI", link_to(document.uri, document.uri))
-      =add_row("ID", document.src['ID'], :html_safe => true)
-      =add_row("URL", link_to(document.url, document.url)) unless document.url.to_s.empty?
-      =add_row("Link", link_to(document.link, document.link))
+      /=add_row("Fulltext", document.fulltext.to_s)
+      /=add_row("URI", link_to(document.uri, document.uri))
+      /=add_row("ID", document.src['ID'], :html_safe => true)
+      /=add_row("URL", link_to(document.url, document.url)) unless document.url.to_s.empty?
+      /=add_row("Link", link_to(document.link, document.link))
 
   / main container for doc partial view
 

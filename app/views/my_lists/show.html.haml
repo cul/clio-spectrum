@@ -1,5 +1,3 @@
-%p#notice= notice
-
 
 .row-fluid
 
@@ -10,28 +8,29 @@
 
   .mylist_display_list.span9
 
-    %p.lead= get_list_name(@list)
+    %p.lead= @list.display_name
 
     %p= @list.description
 
-    %b URL:
-    = get_list_url(@list)
-    %span.label.label-info= @list.permissions
+    .list_url_display
+      %strong URL:
+      %span.lead= get_full_url(@list)
+      = get_permissions_label(@list.permissions)
 
     %br
 
-    .sortAndPerPage
+    .sortAndPerPage.btn-toolbar
       = render 'move_items'
       = render 'list_actions_widget'
       <!-- = render 'sort_widget' -->
 
+    #documents
+      - @document_list.each do |document|
+        - if document.instance_of?(Summon::Document)
+          = render_document_view(document, :format => 'article', :template => 'summon')
+        - if document.instance_of?(SolrDocument)
+          = render_document_view(document, :format => 'clio', :template => 'catalog_list', :counter => nil)
 
-    -# this is a core blacklight helper function that 
-    -# iterates over @document_list, calling the relevant
-    -# partial to display each.
-    -# But, we'll probably want to replace this with a 
-    -# MyList specific partial, with edit controls attached.
+      -# - @catalog_document_list.each do |document|
+      -#   = render_document_view(document, :format => 'clio', :template => 'catalog_list', :counter => nil)
 
-    = render_document_index
-
-%br

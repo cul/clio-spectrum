@@ -1,7 +1,7 @@
 
 
-#actions-dropdown.dropdown
-  %a.dropdown-toggle{'data-toggle' => "dropdown", :href => "#"}
+#actions-dropdown.dropdown.btn-group
+  %a.btn.dropdown-toggle{'data-toggle' => "dropdown", :href => "#"}
     Copy Selected Items...
     %b.caret
   %ul.dropdown-menu
@@ -16,7 +16,7 @@
     %li.divider
     %li.nav-header
       To existing list:
-    - @all_user_lists.each { |list|
+    - @all_current_user_lists.each { |list|
     %li= link_to list.name, "#", :onclick => "saveSelectedToNamedList('#{list.name}'); return false;"
     - }
 

@@ -1,16 +1,16 @@
-#actions-dropdown.dropdown.pull-right.hidden-phone
-  %ul.css-dropdown
-    %li.btn.btn-link
-      Selected List Items...
-      %span.caret
-      %ul
-        %li= link_to "Send to Email", "#"
-        %li= link_to "Export to EndNote", "#"
-        %li.divider
-        %li= link_to "Remove from this List", "#", :onclick => "javascriptFunction(); return false;"
-        %li= link_to "Move to Another List", "#", :onclick => "javascriptFunction(); return false;"
-        %li= link_to "Copy to Another List", "#", :onclick => "javascriptFunction(); return false;"
-        %li.divider
-        %li= link_to "Select All Items", "#", :onclick => "selectAll(); return false;"
-        %li= link_to "Clear All Items", "#", :onclick => "deselectAll(); return false;"
+#actions-dropdown.dropdown.btn-group
+  %a.btn.dropdown-toggle{'data-toggle' => "dropdown", :href => "#"}
+    Selected List Items...
+    %b.caret
+  %ul.dropdown-menu
+    %li= link_to "Send to Email", email_catalog_path(), {:id => "emailLink", :name => "email", :class => "lightboxLink", :onclick => "return appendSelectedToURL(this);"}
+    %li= link_to "Export to EndNote", endnote_catalog_path(:format => 'endnote'), {:id => "endnoteLink", :onclick => "return appendSelectedToURL(this);"}
+
+    %li.divider
+    %li= link_to "Remove from this List", "#", :onclick => "removeSelectedFromList(#{@list.id}); return false;"
+    %li.divider
+    %li= link_to "Select All Items", "#", :onclick => "selectAll(); return false;"
+    %li= link_to "Clear All Items", "#", :onclick => "deselectAll(); return false;"
+
+
 

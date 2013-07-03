@@ -5,18 +5,30 @@
       %ul
         - @list.errors.full_messages.each do |msg|
           %li= msg
-
   .field
     = f.label :name
-    = f.text_field :name
+    - if @list.is_default?
+      %span.uneditable-input= @list.display_name
+      (Default list - cannot rename)
+    - else
+      = f.text_field :name
   .field
     = f.label :description
     = f.text_field :description
   .field
-    = f.label :created_by
-    = f.text_field :created_by
-  .field
     = f.label :permissions
-    = f.text_field :permissions
+
+    %label.radio.inline
+      = radio_button_tag 'my_list[permissions]', "private", (@list.permissions == "private")
+      = get_permissions_label("private")
+
+    %label.radio.inline
+      = radio_button_tag 'my_list[permissions]', "public", (@list.permissions == "public")
+      = get_permissions_label("public")
+
+
+
   .actions
+
+
     = f.submit 'Save'
