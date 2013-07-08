@@ -6,9 +6,11 @@ Clio::Application.routes.draw do
   match 'mylist/add/:item_key_list', :via => [:get], :to => 'my_lists#add', :as => :mylist_add
   match 'mylist/add', :via => [:post], :to => 'my_lists#add', :as => :mylist_add
   match 'mylist/remove', :via => [:post], :to => 'my_lists#remove', :as => :mylist_remove
+  match '/mylist/email(.:format)', :to => "my_lists#email", :as => :email_mylist
 
+  # These have to come LAST of the mylist paths
+  # They match any 2nd token as :owner, you'll never fallback to later routes
   match 'mylist(/:owner(/:slug))', :to => 'my_lists#show', :as => :mylist
-
   match 'mylist(/:owner(/:slug))/edit', :to => 'my_lists#edit', :as => :edit_mylist
 
 
