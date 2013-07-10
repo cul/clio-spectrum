@@ -6,10 +6,17 @@ class CatalogController < ApplicationController
   # (and then un-processed params are stored to session[:search])
   prepend_before_filter :preprocess_search_params
 
-  include LocalSolrHelperExtension
   include Blacklight::Catalog
   include Blacklight::Configurable
   include BlacklightUnapi::ControllerExtension
+
+  # explicitly position this in the ancestor chain - or the engine's
+  # injection will position it last (ergo, un-overridable)
+  include BlacklightRangeLimit::ControllerOverride
+
+  # load last, to override any BlackLight methods included above
+  # (BlacklightRangeLimit::ControllerOverride#add_range_limit_params)
+  include LocalSolrHelperExtension
 
 
   # When a catalog search is submitted, this is the 
