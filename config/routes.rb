@@ -1,5 +1,11 @@
 Clio::Application.routes.draw do
 
+  #  Use this section for ad-hoc routing overrides during localhost development
+  if Rails.env.development?
+    # such as... turn off unapi support, to simplify debugging?
+    # match '/catalog/unapi' => proc { [404, {}, ['']] }
+  end
+
 
   match 'catalog/advanced', :to => 'catalog#index', :as => :catalog_advanced, :defaults => {:q => '', :show_advanced => 'true'}
   resources :item_alerts

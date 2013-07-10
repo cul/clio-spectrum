@@ -14,8 +14,14 @@ module Spectrum
 
 
       def initialize(original_options = {})
-        solr_search_params_logic << :add_advanced_search_to_solr
-        solr_search_params_logic << :add_range_limit_params
+        # this "solr_search_params_logic" is used when querying via our Solr engine.
+        # queries using standard blacklight functions have their own config in CatalogController
+        unless solr_search_params_logic.include? :add_advanced_search_to_solr
+          solr_search_params_logic << :add_advanced_search_to_solr
+        end
+        unless solr_search_params_logic.include? :add_range_limit_params
+          solr_search_params_logic << :add_range_limit_params
+        end
 
         options = original_options.to_hash.deep_clone
         @source = options.delete('source') || options.delete(:source) || raise('Must specify source')

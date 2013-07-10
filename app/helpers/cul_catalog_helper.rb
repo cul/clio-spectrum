@@ -5,6 +5,24 @@ module CulCatalogHelper
     text.to_s.gsub('/catalog',"/#{source}").html_safe
   end
 
+  def build_link_back()
+    # 1) EITHER start basic - just go back to where we came from... even if 
+    # it was a link found on a web page or in search-engine results...
+    # link_back = request.referer.path
+    # 2) OR have no "back" support unless the below works:
+    link_back = nil
+    begin
+      # try the Blacklight approach of reconstituting session[:search] into
+      # a search-results-list URL...
+      link_back = link_back_to_catalog
+      # ...but this can easily fail in multi-page web interactions, so catch errors
+    rescue ActionController::RoutingError
+    end
+
+    # send back whatever we ended up with.
+    return link_back
+  end
+
 
   def link_to_source_document(doc, opts={:label=>nil, :counter => nil, :results_view => true})
     label ||= blacklight_config.index.show_link.to_sym

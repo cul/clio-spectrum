@@ -4,9 +4,12 @@
   .navbar-inner
     .pull-right
       .navbar-text
-        - if @previous_document || @next_document
+        - link_back = build_link_back()
+        -# if we're unable to build a link_back, then we've lost our search context,
+        -# don't show "Back to Search", or Next/Prev links - they would be invalid/broken.
+        - if link_back && (@previous_document || @next_document)
           #search_info
-            %span.back_to_results= fix_catalog_links(link_back_to_catalog.gsub("Back to Search", "&#0171; Back to Results")).html_safe
+            %span.back_to_results=  fix_catalog_links(link_back.gsub("Back to Search", "&#0171; Back to Results")).html_safe
             |
             - prev_doc = fix_catalog_links(link_to_previous_document(@previous_document))
             = prev_doc if prev_doc.include?("<a")
@@ -62,3 +65,4 @@
             %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{clio_id}", :target => "_blank"
           %li= link_to "Item Not On Shelf?", "#", :onclick => "OpenSearchRequest(#{clio_id}); return false;"
 
+ 

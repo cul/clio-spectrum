@@ -157,6 +157,9 @@ class ApplicationController < ActionController::Base
   def default_debug
     @debug_entries['params'] =params
     @debug_entries['session'] = session
+    # ENV is environment variables, but not the HTTP-related env variables
+    # @debug_entries['environment'] = ENV
+    @debug_entries['request.referer'] = request.referer
   end
 
 
@@ -209,6 +212,12 @@ class ApplicationController < ActionController::Base
 
   end
 
+  def catch_404
+    unrouted_uri = request.fullpath
+    alert = "Invalid URL: #{unrouted_uri}"
+    logger.warn alert
+    redirect_to root_path, :alert => alert
+  end
 
 
   private

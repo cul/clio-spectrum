@@ -5,6 +5,7 @@ class CatalogController < ApplicationController
   # use "prepend", or this comes AFTER included Blacklight filters,
   # (and then un-processed params are stored to session[:search])
   prepend_before_filter :preprocess_search_params
+  before_filter :add_custom_solr_search_params_logic
 
   include Blacklight::Catalog
   include Blacklight::Configurable
@@ -24,14 +25,14 @@ class CatalogController < ApplicationController
   def index
     # very useful - shows the execution order of before filters
     # logger.debug "#{   _process_action_callbacks.map(&:filter) }"
+
     if params['q'] == ""
       params['commit'] ||= "Search"
       params['search_field'] ||= 'all_fields'
     end
 
-
-    solr_search_params_logic << :add_advanced_search_to_solr
-    solr_search_params_logic << :add_range_limit_params
+    # solr_search_params_logic << :add_advanced_search_to_solr
+    # solr_search_params_logic << :add_range_limit_params
     @query = Spectrum::Queries::Solr.new(params, self.blacklight_config)
     @show_landing_pages = (params[:q].blank? && params[:f].blank? && params[:search_field].blank?)
     extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => "RSS for results")
@@ -71,13 +72,16 @@ class CatalogController < ApplicationController
 
   def show
     @response, @document = get_solr_response_for_doc_id
-    solr_search_params_logic << :add_advanced_search_to_solr
-    solr_search_params_logic << :add_range_limit_params
+    # solr_search_params_logic << :add_advanced_search_to_solr
+    # solr_search_params_logic << :add_range_limit_params
     @query = Spectrum::Queries::Solr.new(params, self.blacklight_config)
     add_alerts_to_documents(@document)
-
     respond_to do |format|
-      format.html {setup_next_and_previous_documents; render :layout => "no_sidebar"}
+      # require 'debugger'; debugger
+      format.html { 
+        setup_next_and_previous_documents;
+        render :layout => "no_sidebar"
+      }
 
       # Add all dynamically added (such as by document extensions)
       # export formats.
@@ -145,6 +149,17 @@ class CatalogController < ApplicationController
         format.js { render :layout => false }
         format.html
       end
+    end
+  end
+
+  def add_custom_solr_search_params_logic
+    # this "solr_search_params_logic" is used when querying using standard blacklight functions
+    # queries using our Solr engine have their own config in Spectrum::Engines::Solr
+    unless solr_search_params_logic.include? :add_advanced_search_to_solr
+      solr_search_params_logic << :add_advanced_search_to_solr
+    end
+    unless solr_search_params_logic.include? :add_range_limit_params
+      solr_search_params_logic << :add_range_limit_params
     end
   end
 

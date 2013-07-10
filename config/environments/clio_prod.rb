@@ -18,12 +18,12 @@ Clio::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
 
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {
-  :address => "localhost",
-  :domain => "bruckner.cc.columbia.edu",
-  :port => "25"
-}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "localhost",
+    :domain => "bruckner.cc.columbia.edu",
+    :port => "25"
+  }
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -34,14 +34,14 @@ config.action_mailer.smtp_settings = {
   config.assets.digest = true
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
-  
+
   # BlacklightUnapi - quiet the extensive log entries:
   # DEPRECATION WARNING: Passing a template handler in the template 
   # name is deprecated. You can simply remove the handler name or 
   # pass render :handlers => [:builder] instead.
   #  
   ActiveSupport::Deprecation.silenced = true
-  
+
 end
 
 Clio::Application.config.middleware.use ExceptionNotifier,

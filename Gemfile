@@ -109,6 +109,8 @@ group :development do
   gem 'quiet_assets'
   gem 'better_errors'
   gem 'binding_of_caller'
+  # port of ruby-debug that works on 1.9.2 and 1.9.3
+  gem 'debugger'
 end
 
 group :test, :development do
