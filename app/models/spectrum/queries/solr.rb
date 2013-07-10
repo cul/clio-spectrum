@@ -125,8 +125,9 @@ module Spectrum
         @filters = HashWithIndifferentAccess.new()
         (@params[:f] || {}).each_pair do |facet_field, values|
 
-          # don't process this filter if there are no values
-          next if values.join.empty?
+          # values has to be an array, and cannot be empty, or don't process this filter
+          next unless values.is_a? Array
+          next if values.nil? or (not values.is_a? Array) or values.join.empty?
 
           base_facet_field = facet_field.gsub(/^-/,'').to_s
 
