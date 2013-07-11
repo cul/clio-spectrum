@@ -11,7 +11,8 @@ class SpectrumController < ApplicationController
 
     @search_layout = SEARCHES_CONFIG['layouts'][params['layout']]
 
-      if params['q'].nil? && params['s.q'].nil? || (params['q'].to_s.empty? && @active_source == 'library_web')
+      if params['q'].nil? && params['s.q'].nil? ||
+            (params['q'].to_s.empty? && @active_source == 'library_web')
         flash[:error] = "You cannot search with an empty string." if params['commit']
       elsif @search_layout.nil?
         flash[:error] = "No search layout specified"
@@ -19,7 +20,9 @@ class SpectrumController < ApplicationController
       else
         @search_style = @search_layout['style']
         @has_facets = @search_layout['has_facets']
-        categories =  @search_layout['columns'].collect { |col| col['searches'].collect { |item| item['source'] }}.flatten
+        categories =  @search_layout['columns'].collect { |col|
+          col['searches'].collect { |item| item['source'] }
+        }.flatten
 
         @action_has_async = true if @search_style == 'aggregate'
 
@@ -50,7 +53,9 @@ class SpectrumController < ApplicationController
       @fetch_action = true
       @search_style = @search_layout['style']
       @has_facets = @search_layout['has_facets']
-      categories =  @search_layout['columns'].collect { |col| col['searches'].collect { |item| item['source'] }}.flatten.select { |source| source == @datasource }
+      categories =  @search_layout['columns'].collect { |col|
+        col['searches'].collect { |item| item['source'] }
+      }.flatten.select { |source| source == @datasource }
 
       @results = get_results(categories)
       render 'fetch', layout: 'js_return'

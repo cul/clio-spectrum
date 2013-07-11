@@ -34,6 +34,6 @@ end
 
 Clio::Application.config.middleware.use ExceptionNotifier,
    :email_prefix => "[Clio Dev] ",
-   :sender_address => %{"notifier" <spectrum@libraries.cul.columbia.edu>},
-   :exception_recipients => %w{marquis@columbia.edu},
+   :sender_address => %{"notifier" <spectrum-tech@libraries.cul.columbia.edu>},
+   :exception_recipients => %w{spectrum-tech@libraries.cul.columbia.edu},
    :ignore_crawlers => %w{Googlebot bingbot}

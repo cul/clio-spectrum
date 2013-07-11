@@ -36,8 +36,8 @@ Clio::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 
   # BlacklightUnapi - quiet the extensive log entries:
-  # DEPRECATION WARNING: Passing a template handler in the template 
-  # name is deprecated. You can simply remove the handler name or 
+  # DEPRECATION WARNING: Passing a template handler in the template
+  # name is deprecated. You can simply remove the handler name or
   # pass render :handlers => [:builder] instead.
   #  
   ActiveSupport::Deprecation.silenced = true

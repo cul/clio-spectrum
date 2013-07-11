@@ -42,6 +42,6 @@ class SessionsController < Devise::SessionsController
   def expire_cache_for_user
     expire_fragment("top_navigation_bar_#{current_user}") if current_user
   end
-  
+
 end
 

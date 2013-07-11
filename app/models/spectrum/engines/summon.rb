@@ -59,8 +59,8 @@ module Spectrum
 
           @search = @service.search(@params)
 
-        rescue Exception => e
-          Rails.logger.error "[Spectrum][Summon] error: #{e.message}"
+        rescue => e
+          Rails.logger.error "#{self.class}##{__method__} [Spectrum][Summon] error: #{e.message}"
           @errors = e.message
         end
       end
@@ -92,8 +92,14 @@ module Spectrum
           name: "Scholarly publications only"
         }
 
-        exclude_newspapers = @search.query.facet_value_filters.any? { |fvf| fvf.field_name == "ContentType" && fvf.value == "Newspaper Article" && fvf.negated? }
-        exclude_cmd = !exclude_newspapers ? "addFacetValueFilters(ContentType, Newspaper Article:t)" : "removeFacetValueFilter(ContentType, Newspaper Article)"
+        exclude_newspapers = @search.query.facet_value_filters.any? { |fvf|
+          fvf.field_name == "ContentType" &&
+          fvf.value == "Newspaper Article" &&
+          fvf.negated?
+        }
+        exclude_cmd = !exclude_newspapers ?
+              "addFacetValueFilters(ContentType, Newspaper Article:t)" :
+              "removeFacetValueFilter(ContentType, Newspaper Article)"
 
         facet_options << {
           style: :checkbox,
@@ -114,7 +120,10 @@ module Spectrum
       end
 
       def newspapers_excluded?()
-        @search.query.facet_value_filters.any? { |fvf| fvf.field_name == "ContentType" && fvf.value == "Newspaper Article" && fvf.negated? }
+        @search.query.facet_value_filters.any? { |fvf|
+          fvf.field_name == "ContentType" &&
+          fvf.value == "Newspaper Article" &&
+          fvf.negated? }
       end
 
       def results
@@ -198,7 +207,7 @@ module Spectrum
       def next_page?
         # Why was this 20-page limit in effect?
         # total_pages > current_page && 20 > current_page
-        
+
         # Summon API hard limit: only first 500 items will ever be returned.
         # Allow a next-page link if it's max item will be within this bound.
         page_size * (current_page + 1) <= 500
@@ -217,7 +226,13 @@ module Spectrum
       end
 
       def total_items
-        @search.record_count
+        # handle error condition when @search object is nil
+        if @search
+          @search.record_count
+        else
+          Rails.logger.error "[Spectrum][Summon] total_items called on null @search"
+          0
+        end
       end
 
       def start_item

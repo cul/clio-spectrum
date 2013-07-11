@@ -1,5 +1,5 @@
 %h1 New item_alert
 
-= render :partial => 'form', :locals => {:item_alert => @item_alert }
+= render 'form', :locals => {:item_alert => @item_alert }
 
 = link_to 'Back', item_alerts_path

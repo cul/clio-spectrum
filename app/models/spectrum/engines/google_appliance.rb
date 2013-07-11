@@ -13,13 +13,13 @@ module Spectrum
         @start = (options['start'] || 0).to_i
         @search_url = options.delete('search_url')
         @errors = nil
-        Rails.logger.info "[Spectrum][GoogleApp] params: #{search_url}"
+        Rails.logger.debug "[Spectrum][GoogleApp] params: #{search_url}"
         begin
           @raw_xml = Nokogiri::XML(HTTPClient.new.get_content(search_url))
           @documents = @raw_xml.css("R").collect { |xml_node| LibraryWeb::Document.new(xml_node) }
           @count = @raw_xml.at_css("M") ? @raw_xml.at_css("M").content.to_i : 0
-        rescue Exception => e
-          Rails.logger.error "[Spectrum][GoogleApp] error: #{e.message}"
+        rescue => e
+          Rails.logger.error "#{self.class}##{__method__} [Spectrum][GoogleApp] error: #{e.message}"
           @errors = e.message
         end
       end

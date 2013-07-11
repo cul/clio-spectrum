@@ -17,6 +17,7 @@ module CulCatalogHelper
       link_back = link_back_to_catalog
       # ...but this can easily fail in multi-page web interactions, so catch errors
     rescue ActionController::RoutingError
+      link_back = nil
     end
 
     # send back whatever we ended up with.
@@ -34,7 +35,9 @@ module CulCatalogHelper
 
   end
   def catalog_index_path(options = {})
-    filtered_options = options.reject { |k,v| k.in?('controller', 'action','source_override') }
+    filtered_options = options.reject { |k,v|
+      k.in?('controller', 'action','source_override')
+    }
     source = options['source_override'] || @active_source
 
     "/#{source}?#{filtered_options.to_query}"
@@ -58,11 +61,15 @@ module CulCatalogHelper
 
 
   def document_full_title(document)
-    [document.get('title_display') , document.get('subtitle_display')].reject { |txt| txt.to_s.strip.empty? }.join(": ")
+    [document.get('title_display') , document.get('subtitle_display')].reject { |txt|
+       txt.to_s.strip.empty?
+    }.join(": ")
   end
   def build_fake_cover(document)
     book_label = (document["title_display"].to_s.abbreviate(60))
-    content_tag(:div, content_tag(:div, book_label, :class => "fake_label"), :class => "cover fake_cover")
+    content_tag(:div,
+        content_tag(:div, book_label, :class => "fake_label"),
+        :class => "cover fake_cover")
 
   end
 

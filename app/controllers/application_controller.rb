@@ -15,13 +15,13 @@ class ApplicationController < ActionController::Base
   before_filter :log_additional_data
   before_filter :set_user_characteristics
   before_filter :condense_advanced_search_params
-  
+
   # NEXT-537 - logging in should not redirect you to the root path
   # from the Devise how-to docs...
   # https://github.com/plataformatec/devise/wiki/
   # How-To:-Redirect-back-to-current-page-after-sign-in,-sign-out,-sign-up,-update
   after_filter :store_location
-    
+
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
@@ -31,7 +31,8 @@ class ApplicationController < ActionController::Base
       start = Time.now
       chosen_line = nil
       line_to_pick = rand(11917)
-      File.foreach(File.join(Rails.root.to_s, "config", "opac_searches_sorted.txt")).each_with_index do |line, number|
+      input_file = File.join(Rails.root.to_s, "config", "opac_searches_sorted.txt")
+      File.foreach(input_file).each_with_index do |line, number|
         chosen_line = line if number == line_to_pick
       end
       params['q'] = chosen_line
@@ -55,7 +56,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_user_characteristics
-    
+
     @user_characteristics =
     {
       # remote_ip gives back whatever's in X-Forwarded-For, which can
@@ -103,14 +104,17 @@ class ApplicationController < ActionController::Base
     if session[:async_off]
       begin
         unless clio_docs.empty?
-          holdings = Voyager::Request.simple_holdings_check(connection_details: APP_CONFIG['voyager_connection']['oracle'], bibids: clio_docs.collect { |cd| cd.get('clio_id_display')})
+          holdings = Voyager::Request.simple_holdings_check(
+            connection_details: APP_CONFIG['voyager_connection']['oracle'],
+            bibids: clio_docs.collect { |cd| cd.get('clio_id_display')} )
           clio_docs.each do |cd|
             cd['clio_holdings'] = holdings[cd.get('clio_id_display')]
 
           end
 
         end
-      rescue Exception => e
+      rescue => e
+        logger.error "ApplicationController#look_up_clio_holdings exception: #{e}"
       end
     end
 
@@ -129,15 +133,14 @@ class ApplicationController < ActionController::Base
     RSolr::Client.send(:include, RSolr::Ext::Notifications)
     RSolr::Client.enable_notifications!
 
-
     if params['debug_mode'] == 'on'
-
       @debug_mode = true
     elsif params['debug_mode'] == 'off'
       @debug_mode = false
     else
       @debug_mode ||= session['debug_mode'] || false
     end
+
     params.delete('debug_mode')
     session['debug_mode'] = @debug_mode
 
@@ -146,15 +149,12 @@ class ApplicationController < ActionController::Base
       @debug_mode = false
     end
 
-    @debug_entries = Hash.arbitrary_depth
-
     @current_user = current_user
-
     default_debug
-
   end
 
   def default_debug
+    @debug_entries = Hash.arbitrary_depth
     @debug_entries['params'] =params
     @debug_entries['session'] = session
     # ENV is environment variables, but not the HTTP-related env variables
@@ -214,7 +214,7 @@ class ApplicationController < ActionController::Base
 
   def catch_404
     unrouted_uri = request.fullpath
-    alert = "Invalid URL: #{unrouted_uri}"
+    alert = "remote ip: #{request.remote_ip}   Invalid URL: #{unrouted_uri}"
     logger.warn alert
     redirect_to root_path, :alert => alert
   end
@@ -234,11 +234,10 @@ class ApplicationController < ActionController::Base
 
   def store_location
     # store last url as long as it isn't a /users path
-    session[:previous_url] = request.fullpath unless 
+    session[:previous_url] = request.fullpath unless
       request.fullpath =~ /\/users/ or
       request.fullpath =~ /\/backend/ or
       request.fullpath =~ /\/catalog\/unapi/
-      
   end
 
   def after_sign_in_path_for(resource)
@@ -248,7 +247,7 @@ class ApplicationController < ActionController::Base
 
 
   protected
-  
+
   def log_additional_data
     request.env["exception_notifier.url"] = {
       url: "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
@@ -274,7 +273,7 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-  
-  
+
+
 end
 

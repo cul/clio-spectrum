@@ -11,7 +11,7 @@ end
 # a place for patches with no personal name attached...
 # require File.expand_path('../../lib/monkey_patches', __FILE__)
 
-require File.expand_path('../../lib/james_monkeys', __FILE__)
+require File.expand_path('../../lib/monkey_patches', __FILE__)
 require File.expand_path('../../lib/google_books', __FILE__)
 require File.expand_path('../../lib/rsolr_notifications', __FILE__)
 require File.expand_path('../../lib/voyager_holding', __FILE__)
@@ -57,7 +57,7 @@ module Clio
     # Default SASS Configuration, check out https://github.com/rails/sass-rails for details
 
     config.assets.version = RELEASE_STAMP
-    
+
     # see https://github.com/vidibus/vidibus-routing_error
     # This isn't great, since it doesn't tell us or them that anything
     # untoward has occurred!
@@ -81,6 +81,6 @@ module Clio
     #    turn off the middleware that populates remote_ip.
     # http://blog.gingerlime.com/2012/rails-ip-spoofing
     config.middleware.delete ActionDispatch::RemoteIp
-    
+
   end
 end

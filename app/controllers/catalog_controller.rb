@@ -1,6 +1,8 @@
 require 'blacklight/catalog'
 
 class CatalogController < ApplicationController
+  layout "quicksearch"
+
   before_filter :by_source_config
   # use "prepend", or this comes AFTER included Blacklight filters,
   # (and then un-processed params are stored to session[:search])
@@ -35,8 +37,14 @@ class CatalogController < ApplicationController
     # solr_search_params_logic << :add_range_limit_params
     @query = Spectrum::Queries::Solr.new(params, self.blacklight_config)
     @show_landing_pages = (params[:q].blank? && params[:f].blank? && params[:search_field].blank?)
-    extra_head_content << view_context.auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => "RSS for results")
-    extra_head_content << view_context.auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => "Atom for results")
+    extra_head_content <<
+      view_context.auto_discovery_link_tag(
+        :rss,
+        url_for(params.merge(:format => 'rss')), :title => "RSS for results")
+    extra_head_content <<
+      view_context.auto_discovery_link_tag(
+        :atom,
+        url_for(params.merge(:format => 'atom')), :title => "Atom for results")
 
     # runs the blacklight_search from application_controller using the params,
     # returns the engine with embedded results
@@ -88,7 +96,10 @@ class CatalogController < ApplicationController
       @document.export_formats.each_key do | format_name |
         # It's important that the argument to send be a symbol;
         # if it's a string, it makes Rails unhappy for unclear reasons.
-        format.send(format_name.to_sym) { render :text => @document.export_as(format_name), :layout => false }
+        format.send(format_name.to_sym) { 
+          render :text => @document.export_as(format_name),
+          :layout => false
+        }
       end
 
     end
@@ -119,17 +130,23 @@ class CatalogController < ApplicationController
   # NEXT-556 - send citation to more than one email address at a time
   # Override Blacklight core method, which limits to single email.
   # So far, no changes beyond removing this validation.
-  
-  # Email Action (this will render the appropriate view on GET requests and process the form and send the email on POST requests)
+
+  # Email Action (this will render the appropriate view on GET requests and 
+  # process the form and send the email on POST requests)
   def email
     @response, @documents = get_solr_response_for_field_values(SolrDocument.unique_key,params[:id])
     if request.post?
       if params[:to]
-        url_gen_params = {:host => request.host_with_port, :protocol => request.protocol}
-        
+        url_gen_params = {
+          :host => request.host_with_port,
+          :protocol => request.protocol
+        }
+
         # if params[:to].match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)
         if params[:to].match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/)
-          email = RecordMailer.email_record(@documents, {:to => params[:to], :message => params[:message]}, url_gen_params)
+          email = RecordMailer.email_record(@documents,
+              {:to => params[:to], :message => params[:message]},
+              url_gen_params)
         else
           flash[:error] = I18n.t('blacklight.email.errors.to.invalid', :to => params[:to])
         end
@@ -153,7 +170,8 @@ class CatalogController < ApplicationController
   end
 
   def add_custom_solr_search_params_logic
-    # this "solr_search_params_logic" is used when querying using standard blacklight functions
+    # this "solr_search_params_logic" is used when querying using standard 
+    # blacklight functions
     # queries using our Solr engine have their own config in Spectrum::Engines::Solr
     unless solr_search_params_logic.include? :add_advanced_search_to_solr
       solr_search_params_logic << :add_advanced_search_to_solr
