@@ -18,5 +18,5 @@ class LibraryWebController < ApplicationController
   #   end
   # 
   #   render :layout => "quicksearch"
-  end
+  # end
 end
