@@ -3,7 +3,7 @@ class BackendController < ApplicationController
   def url_for_id(id = nil)
     "#{APP_CONFIG['clio_backend_url']}/holdings/retrieve/#{id}"
   end
-  
+
   def holdings_httpclient
     hc = HTTPClient.new()
     # The default is to wait 60/120 seconds - but we expect an instant response, 
@@ -17,10 +17,11 @@ class BackendController < ApplicationController
 
   def holdings
     @id = params[:id]
+    backend_url = url_for_id(@id)
     begin
-      @holdings = JSON.parse( holdings_httpclient.get_content(url_for_id(@id)) )[@id]
+      @holdings = JSON.parse( holdings_httpclient.get_content(backend_url) )[@id]
     rescue HTTPClient::BadResponseError => e
-      logger.error "#{self.class}##{__method__} HTTPClient::BadResponseError URL: #{url}  Exception: #{e}"
+      logger.error "#{self.class}##{__method__} HTTPClient::BadResponseError URL: #{backend_url}  Exception: #{e}"
       render nothing: true and return
     rescue HTTPClient::ReceiveTimeoutError => e
       logger.error "HTTPClient::ReceiveTimeoutError URL: #{url}"
