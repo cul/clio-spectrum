@@ -4,6 +4,6 @@
     - if defined?(description)
       %a.source-info.btn.btn-link{:href => '#', :rel => 'popover', :'data-placement' => 'bottom', :'data-content' => description}
         = image_tag('information_icon.png', :size => "20x20")
-  - if result.total_items.to_i > 0
+  - if result && result.total_items.to_i > 0
     .result_count
       = link_to "All <span class='visible-desktop'>#{number_with_delimiter(result.total_items)}</span> results".html_safe, result.search_path

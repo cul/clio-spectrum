@@ -60,7 +60,9 @@ module Spectrum
           @search = @service.search(@params)
 
         rescue => e
-          Rails.logger.error "#{self.class}##{__method__} [Spectrum][Summon] error: #{e.message}"
+          # We're getting 500 errors here - is that an internal server error
+          # on the Summon side of things?  Need to look into this more.
+          Rails.logger.error "#{self.class}##{__method__} error: #{e}"
           @errors = e.message
         end
       end

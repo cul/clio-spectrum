@@ -92,7 +92,9 @@ class SpectrumController < ApplicationController
     categories.listify.each do |category|
 
       fixed_params = new_params.deep_clone
-      %w{layout commit source categories controller action}.each { |param_name| fixed_params.delete(param_name) }
+      %w{layout commit source categories controller action}.each { |param_name|
+         fixed_params.delete(param_name)
+      }
       fixed_params.delete(:source)
       results = case category
         when 'articles_dissertations'
@@ -148,6 +150,9 @@ class SpectrumController < ApplicationController
           # GoogleAppliance engine can't handle absent q param
           fixed_params['q'] ||= ''
           Spectrum::Engines::GoogleAppliance.new(fixed_params)
+
+        else
+          raise Error.new("SpectrumController#get_results() unhandled category: '#{category}'")
         end
 
       @result_hash[category] = results
