@@ -1,7 +1,11 @@
+-# FORMATS/DATABASE
+
 / container for a single doc
 .result.document{class: render_document_class(document), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
-  %abbr.unapi-id{:title => document[:id]}
+  -# %abbr.unapi-id{:title => document[:id]}
+  <span class="Z3988" title="<%= @document.export_as_openurl_ctx_kev(document_partial_name(@document)) %>"></span>
+
   .title= link_to_source_document document, :label=> document_full_title(document),  :counter => counter
 
 

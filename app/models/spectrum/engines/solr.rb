@@ -519,9 +519,6 @@ module Spectrum
 
               add_search_fields(config, 'title', 'title_starts_with',
                                 'subject', 'issn')
-              config[:unapi] = {
-                'oai_dc_xml' => { :content_type => 'text/xml' }
-              }
 
             when 'databases'
               default_catalog_config(config, :display_fields)
@@ -562,9 +559,6 @@ module Spectrum
 
               add_search_fields(config, 'title',  'author', 'subject')
 
-              config[:unapi] = {
-                'oai_dc_xml' => { :content_type => 'text/xml' }
-              }
 
             when 'archives'
               default_catalog_config(config, :display_fields,  :sorts)

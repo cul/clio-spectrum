@@ -11,7 +11,6 @@ class MyListsController < ApplicationController
   include MyListsHelper
   # include Blacklight::Catalog
   # include Blacklight::Configurable
-  # include BlacklightUnapi::ControllerExtension
 
 
   # GET /lists

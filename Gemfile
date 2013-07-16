@@ -10,7 +10,11 @@ gem 'thin'
 gem 'blacklight', '>= 4.2.0'
 gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
 gem 'blacklight_google_analytics'
-gem 'blacklight_unapi', ">= 0.0.3"
+
+# Sorry, have to nix unapi.  Switch to COINS everywhere, so that
+# single page cross-datasource citation works (QuickSearch, Saved Lists) 
+# gem 'blacklight_unapi', ">= 0.0.3"
+
 gem 'json'
 
 # Called to produce status msgs. search result lists.
@@ -120,7 +124,8 @@ group :development do
 # http://railscasts.com/episodes/402-better-errors-railspanel
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'meta_request'
+  # is this what's slowing us down so much?
+  # gem 'meta_request'
 end
 
 group :test, :development do

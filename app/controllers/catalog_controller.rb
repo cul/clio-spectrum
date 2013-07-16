@@ -6,7 +6,7 @@ class CatalogController < ApplicationController
   include LocalSolrHelperExtension
   include Blacklight::Catalog
   include Blacklight::Configurable
-  include BlacklightUnapi::ControllerExtension
+  # include BlacklightUnapi::ControllerExtension
 
 
 
@@ -37,6 +37,8 @@ class CatalogController < ApplicationController
     engine = blacklight_search(params)
     @response = engine.search
     @document_list = engine.documents
+    Rails.logger.info "CatalogController::index() @document_list.first.class=#{@document_list.first.class}"
+
 
     @filters = params[:f] || []
 
@@ -66,6 +68,7 @@ class CatalogController < ApplicationController
 
   def show
     @response, @document = get_solr_response_for_doc_id
+    Rails.logger.info "CatalogController::show() @document.class=#{@document.class}"
     solr_search_params_logic << :add_advanced_search_to_solr
     solr_search_params_logic << :add_range_limit_params
     @query = Spectrum::Queries::Solr.new(params, self.blacklight_config)

@@ -406,6 +406,65 @@ module DisplayHelper
     value_txt
   end
 
+  # Exports CUL Catalog SolrDocument as an OpenURL KEV
+  # (key-encoded value) query string.
+  # For use to create COinS, among other things. COinS are
+  # for Zotero, among other things.
+  def catalog_to_openurl_ctx_kev(document)
+    return '' unless document
+    format = document[:format].first ||= 'book'
+
+    fields = []
+    fields.push( 'ctx_ver=Z39.88-2004' )
+
+    document[ :author_display ] && document[ :author_display ].each do |author|
+      fields.push("rft.au=#{ CGI::escape(author) }")
+    end
+
+    document[ :title_display ] && document[ :title_display ].each do |title|
+      fields.push("rft.title=#{ CGI::escape(title) }")
+    end
+
+    document[ :full_publisher_display ] && document[ :full_publisher_display ].each do |publisher|
+      fields.push("rft.pub=#{ CGI::escape(publisher) }")
+    end
+
+    document[ :pub_date_facet ] && document[ :pub_date_facet ].each do |pub_date_facet|
+      fields.push("rft.date=#{ CGI::escape(pub_date_facet) }")
+    end
+
+    document[ :isbn_display ] && document[ :isbn_display ].each do |isbn|
+      fields.push("rft.isbn=#{ CGI::escape(isbn) }")
+    end
+
+    if format =~ /journal/i
+      # JOURNAL-SPECIFIC FIELDS
+      fields.push( 'rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
+    else
+      # BOOK-SPECIFIC FIELDS
+      fields.push( 'rft_val_fmt=info:ofi/fmt:kev:mtx:book')
+    end
+
+    fields.push("rft.genre=#{ CGI::escape(format_to_rft_genre(format)) }")
+
+
+    return fields.join('&')
+  end
+
+  def format_to_rft_genre (format)
+    case format
+    when /journal/i
+      'article'
+    when /book/i
+      'book'
+    when /proceeding/i
+      'proceeding'
+    when /conference/i
+      'conference'
+    when /report/i
+      'report'
+    end
+  end
 
   # Exports CUL Academic Commons SolrDocument as an OpenURL KEV
   # (key-encoded value) query string.
