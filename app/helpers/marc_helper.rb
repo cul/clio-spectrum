@@ -159,4 +159,19 @@ module MarcHelper
     out
   end
 
+  def display_unlinked_880_field(marc)
+    
+    # build display of unlinked 880 fields
+    values = []
+    marc.each_by_tag('880') do |t880|
+      sub6 = t880.subfields.first
+      # sequesnce number match 00
+      if (sub6.code == "6") && (sub6.value[4..5] == '00')
+        display = process_field(t880, 'abcdefghijklmnopqrstuvwxyz', '', false)
+        values << display unless display.empty?
+      end
+    end
+    values.flatten
+  end
+
 end
