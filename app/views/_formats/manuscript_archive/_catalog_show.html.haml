@@ -14,6 +14,7 @@
 = add_row("Summary", display_marc_field(marc, 'summary'))
 = add_row("Restrictions", display_marc_field(marc, 'restrictions'))
 = add_row("Notes", display_marc_field(marc, 'notes_manuscript_archive'))
+= add_row("Other Information:", display_unlinked_880_field(marc))
 = add_row("Provenance", display_marc_field(marc, 'provenance'))
 = add_row("Constituent Items", display_marc_field(marc, 'constituent_items'))
 = add_row("Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_LC')))
