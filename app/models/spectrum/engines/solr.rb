@@ -445,13 +445,17 @@ module Spectrum
         # If we're in one of the hybrid-source bento-box searches....
         if source.in?('quicksearch','ebooks','dissertations')
           self.blacklight_config = Blacklight::Configuration.new do |config|
+
+            # Add the "All Fields" seach field first, then append all the other default searches
+            # NEXT-705 - "All Fields" should be default, and should be first option
+            config.add_search_field 'all_fields', :label => 'All Fields'
             default_catalog_config(config)
+
+            # override defaults to lower rows from 25 to 10 for bento-box searches
             config.default_solr_params = {
               :qt => 'search',
               :rows => 10
             }
-
-            config.add_search_field 'all_fields', :label => 'All Fields'
 
             config.per_page = [10,25,50,100]
             config.spell_max = 0
