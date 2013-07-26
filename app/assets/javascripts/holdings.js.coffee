@@ -1,7 +1,6 @@
 root = exports ? this
 
 root.after_document_load = (element) ->
-  #alert("foo")
   $("a[rel='popover']").popover()
   fedora_items = []
   catalog_items = []

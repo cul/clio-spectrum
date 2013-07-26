@@ -29,8 +29,6 @@ describe 'Spectrum::Engines::Summon' do
   describe 'basic articles search' do
     before(:all) do
       @sum = Spectrum::Engines::Summon.new('source' => 'articles', 's.q' => 'hardnose dictator', 'new_search' => true)
-
-
     end
 
     it 'should find results' do

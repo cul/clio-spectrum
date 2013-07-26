@@ -26,7 +26,6 @@ end
 
 gem 'therubyracer', '0.10.2'
 # Deploy with Capistrano
-#gem 'newrelic_rpm'
 gem 'has_options'
 gem 'httpclient'
 gem 'nokogiri'
@@ -69,12 +68,13 @@ group :assets do
   gem 'coffee-rails', '~>3.2.2'
   gem 'uglifier', '>=1.0.3'
   gem 'bootstrap-sass', '~>2.1'
+
   # marquis, 6/13 - unused?
   # gem 'compass-rails'
+
   gem 'iced-rails'
 end
 
-gem 'newrelic_rpm'
 
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
@@ -98,15 +98,20 @@ gem 'newrelic_rpm'
 #   gem 'webrat'
 # end
 group :development do
-  gem 'hooves'
   gem 'guard-rails'
-  gem 'unicorn'
+
+  # alternative webserver
+  # gem 'hooves'
+  # gem 'unicorn'
+
   #gem 'linecache19', '0.5.13'
   #gem 'ruby-debug-base19', '0.11.26'
   #gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'capistrano'
   gem 'capistrano-ext'
   gem 'quiet_assets'
+
+  # browser-based live debugger and REPL
   gem 'better_errors'
   gem 'binding_of_caller'
   # port of ruby-debug that works on 1.9.2 and 1.9.3
@@ -119,6 +124,10 @@ group :test, :development do
   gem 'rb-fsevent'
   gem 'ruby_gntp'
   gem 'ruby-prof'
+
+  # application monitoring tool - omit from prod for now
+  gem 'newrelic_rpm'
+
 end
 
 group :test do
@@ -127,10 +136,12 @@ group :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-spork'
-  gem 'rspec-rails'
   # gem 'capybara'
   gem 'capybara', '2.0.3'
   gem 'capybara-webkit'
   gem 'launchy'
   gem 'database_cleaner'
+
+  # code coverage
+  gem 'simplecov'
 end

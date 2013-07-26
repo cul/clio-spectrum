@@ -25,9 +25,10 @@ module Spectrum
         end
       end
 
-      def results
-        documents
-      end
+      # unused?
+      # def results
+      #   documents
+      # end
 
       def search_path
         @search_url || library_web_index_path(@params)
@@ -41,10 +42,6 @@ module Spectrum
         [[@q, library_web_index_path()]]
       end
 
-      def previous_page?
-        @start > 1
-      end
-
       def start_item
         [@start + 1, total_items].min
       end
@@ -53,31 +50,34 @@ module Spectrum
         [@start + @rows, total_items].min
       end
 
-      def total_pages
-        (total_items / @rows.to_f).ceil
-      end
+      # unused?
+      # def total_pages
+      #   (total_items / @rows.to_f).ceil
+      # end
 
+      # unused?
+      # def page_count
+      #   (@count / @rows) + 1
+      # end
 
-      def previous_page_path
-        search_merge('start' => [@start - @rows, 0].max)
-      end
 
       def next_page?
         end_item < total_items
-      end
-
-      def next_page_path
-        search_merge('start' => @start + @rows)
       end
 
       def previous_page?
         start_item > 1 && total_items > 1
       end
 
+      # unused?
+      # def previous_page?
+      #   @start > 1
+      # end
 
-      def page
-        (@start / @rows) + 1
-      end
+      # unused?
+      # def page
+      #   (@start / @rows) + 1
+      # end
 
       def successful?
         @errors.nil?
@@ -87,29 +87,35 @@ module Spectrum
         @count
       end
 
+      # unused?
+      # def page_size
+      #   @rows
+      # end
 
-      def page_size
-        @rows
-      end
 
-
-      def previous_page
+      def previous_page_path
         search_merge('start' => [@start - @rows, 0].max)
       end
 
-      def next_page
-        search_merge('start' => [@start + @rows, @count].min)
+      # unused?
+      # def previous_page
+      #   search_merge('start' => [@start - @rows, 0].max)
+      # end
+
+      def next_page_path
+        search_merge('start' => @start + @rows)
       end
 
+      # unused?
+      # def next_page
+      #   search_merge('start' => [@start + @rows, @count].min)
+      # end
 
-      def page_count
-        (@count / @rows) + 1
-      end
-
-      def set_page(page)
-        new_page = [[1, page.to_i].max, page_count].min
-        search_merge('start' => @rows * (new_page - 1))
-      end
+      # unused?
+      # def set_page(page)
+      #   new_page = [[1, page.to_i].max, page_count].min
+      #   search_merge('start' => @rows * (new_page - 1))
+      # end
 
       def search_url
         default_params = {
@@ -135,10 +141,10 @@ module Spectrum
 
       private
 
-
       def search_merge(params = {})
         library_web_index_path(@params.merge(params))
       end
+
     end
   end
 end

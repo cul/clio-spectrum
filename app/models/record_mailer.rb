@@ -5,7 +5,7 @@ class RecordMailer < ActionMailer::Base
   add_template_helper(DisplayHelper)
   add_template_helper(MarcHelper)
   add_template_helper(CulCatalogHelper)
-  add_template_helper(HoldingsHelper)
+  # add_template_helper(HoldingsHelper)
 
   def email_record(documents, details, url_gen_params)
     #raise ArgumentError.new("RecordMailer#email_record only works with documents with a #to_marc") unless document.respond_to?(:to_marc)
