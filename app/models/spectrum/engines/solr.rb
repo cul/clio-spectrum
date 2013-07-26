@@ -618,7 +618,9 @@ module Spectrum
               config.default_solr_params = {
                 :qt => "search",
                 :rows => 25,
-                :fq  => ["acq_dt:[#{(Date.today - 6.months).to_datetime.utc.to_solr_s} TO *]"]
+                # NEXT-845 - New Arrivals timeframe (6 month count == 1 year count)
+                # :fq  => ["acq_dt:[#{(Date.today - 6.months).to_datetime.utc.to_solr_s} TO *]"]
+                :fq  => ["acq_dt:[#{(Date.today - 1.year).to_datetime.utc.to_solr_s} TO *]"]
               }
 
               default_catalog_config(config, :display_fields, :search_fields, :sorts)
