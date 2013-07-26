@@ -113,7 +113,8 @@ module ArticlesHelper
   end
 
   def process_summon_date(date)
-    [date.day, date.month, date.year].compact.join("/")
+    # NEXT-598 - Articles date formatting - use MM/DD/YYYY
+    [date.month, date.day, date.year].compact.join("/")
   end
 
 end
