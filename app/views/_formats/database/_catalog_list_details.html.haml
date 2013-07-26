@@ -1,4 +1,6 @@
 
+-# CONTROLS HOW DATABASE RECORDS SHOW IN SEARCH RESULTS LIST
+
 -# Database note/alerts of type "alert" show up w/out key, with special styling
 - if document.get("_active_item_alert_count") && document.get("_active_item_alert_count") > 0
   - document.get("_item_alerts")[:alert].each do | alert |
@@ -7,7 +9,7 @@
         = "ALERT: #{alert[:message]}".html_safe
   - document.get("_item_alerts")[:access_requirements].each do | access_requirement |
     - if access_requirement.active?
-      = add_row('Access Requirements', access_requirement[:message])
+      = add_row('Access Requirements', access_requirement[:message], :spans => [3,9] )
 
 -# = add_row('Restricted', document.get("database_restrictions_display"))
 = add_row('Author', document.get("author_display"))

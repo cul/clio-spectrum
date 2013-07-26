@@ -1,4 +1,24 @@
-/* @import "local_mixes"
+/* @import "local_mixes" */
+
+// Just like .title from header.css.sass, but not so big
+.search_title
+  //:padding-top 8px
+  :font-weight bold
+  //:font-size 150%
+  :margin-bottom 1em
+
+.advanced_search_toggle
+  :font-weight normal
+
+//// to support debugging
+//.search_boxes
+//  :border 1px solid red
+//  //:background-color red
+//.basic_search
+//  :background-color green
+//.advanced_search
+//  :background-color orange
+
 
 .source-info
   :padding-top 0
@@ -57,7 +77,10 @@
   :clear left
   .field
     :float left
-    :width 6em
+    // NEXT-861 - "Access Requirements" word-break display issue
+    // Some field labels are too long for 6em.  Try 7em?
+    //:width 6em
+    :width 7em
     :padding-right 0.5em
     :color #777
     :min-height 1em !important
