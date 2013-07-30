@@ -34,7 +34,7 @@ common: &default_settings
   # "All UI" then specify a semicolon-separated list of up to three
   # distinct names.  If you comment this out, it defaults to the 
   # capitalized RAILS_ENV (i.e., Production, Staging, etc)
-  app_name: CLIObeta
+  app_name: CLIO
 
   # When "true", the agent collects performance data about your 
   # application and reports this data to the New Relic service at
@@ -190,6 +190,7 @@ development:
   # NOTE: for initial evaluation purposes, you may want to temporarily 
   # turn agent communication on in development mode.
   monitor_mode: true
+  app_name: CLIO localhost
 
   # Rails Only - when running in Developer Mode, the New Relic Agent will 
   # present performance information on the last 100 transactions you have
@@ -200,6 +201,7 @@ development:
   
   # Enable textmate links
   # textmate: true
+  
 
 test:
   <<: *default_settings
@@ -210,7 +212,7 @@ test:
 clio_dev:
   <<: *default_settings
   monitor_mode: true
-  app_name: CLIOBeta Dev
+  app_name: CLIO Dev
 
 # Turn on the agent in production for 24x7 monitoring.  New Relic
 # testing shows an average performance impact of < 5 ms per
@@ -219,7 +221,7 @@ clio_dev:
 clio_test:
   <<: *default_settings
   monitor_mode: true
-  app_name: CLIOBeta Test
+  app_name: CLIO Test
 
 # Many applications have a staging environment which behaves
 # identically to production.  Support for that environment is provided
@@ -227,4 +229,4 @@ clio_test:
 clio_prod:
   <<: *default_settings
   monitor_mode: true
-  app_name: CLIOBeta Prod
+  app_name: CLIO Prod

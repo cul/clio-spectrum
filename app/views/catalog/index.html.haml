@@ -7,14 +7,13 @@
   - session['search'][:active_source] = @active_source
 
   - unless @response.nil?
-    - unless(params[:show_advanced] && params[:q].to_s.empty? && params[:f].nil?)
-      = fix_catalog_links(render('constraints', :localized_params=>params ))
+    = fix_catalog_links(render('constraints', :localized_params=>params ))
 
-      = fix_catalog_links(render('sort_and_per_page'))
+    = fix_catalog_links(render('sort_and_per_page'))
 
-      = render 'document_list'
+    = render 'document_list'
 
-      = fix_catalog_links(render('results_pagination'))
+    = fix_catalog_links(render('results_pagination'))
 
     - sidebar_items << capture do
       = render 'facets'

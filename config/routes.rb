@@ -15,7 +15,7 @@ Clio::Application.routes.draw do
 
   get "admin/ingest_log"
 
-  get "library_web/index"
+  # get "library_web/index"  # obsolete, see library_web route to spectrum#search, below
 
   get "test_notification_error", :to => "application#test_notification_error"
 

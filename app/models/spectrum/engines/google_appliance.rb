@@ -14,7 +14,7 @@ module Spectrum
         @sitesearch = options['sitesearch'] || ''
         @search_url = options.delete('search_url')
         @errors = nil
-        Rails.logger.debug "[Spectrum][GoogleApp] params: #{search_url}"
+        # Rails.logger.debug "[Spectrum][GoogleApp] params: #{search_url}"
         begin
           @raw_xml = Nokogiri::XML(HTTPClient.new.get_content(search_url))
           @documents = @raw_xml.css("R").collect { |xml_node| LibraryWeb::Document.new(xml_node) }
