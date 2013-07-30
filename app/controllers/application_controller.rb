@@ -26,6 +26,17 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, :alert => exception.message
   end
 
+  rescue_from ActionView::MissingTemplate do |exception|
+    if request.format == "html"
+      redirect_to root_url, :alert => exception.message
+      return
+    end
+
+    Rails.logger.warn "request.format = #{request.format}"
+    Rails.logger.warn "#{exception}"
+    render nothing: true and return
+  end
+
   def apply_random_q
     if params[:random_q]
       start = Time.now
@@ -56,7 +67,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_user_characteristics
-
+raise
     @user_characteristics =
     {
       # remote_ip gives back whatever's in X-Forwarded-For, which can
@@ -243,7 +254,6 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     session[:previous_url] || root_path
   end
-
 
 
   protected
