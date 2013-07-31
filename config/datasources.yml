@@ -8,17 +8,33 @@ datasources:
   newspapers:
     name: Newspapers
     search_box:
-      search_type: summon
-      search_category: newspapers
       route: newspapers_index_path
       placeholder: Newspapers
+      search_type: summon
+      advanced: true
+      search_category: newspapers
+      search_fields:
+        s.q: Keywords
+        s.fq[AuthorCombined]: Author
+        s.fq[TitleCombined]: Title
+        s.fq[ISBN]: ISBN
+        s.fq[ISSN]: ISSN
   articles:
     name: Articles
     search_box:
       route: articles_index_path
       placeholder: Articles
       search_type: summon
+      advanced: true
       search_category: articles
+      search_fields:
+        s.q: Keywords
+        s.fq[AuthorCombined]: Author
+        s.fq[TitleCombined]: Title
+        # NEXT-581 - articles search by publication title
+        s.fq[PublicationTitle]: Publication Title
+        s.fq[ISBN]: ISBN
+        s.fq[ISSN]: ISSN
   ebooks:
     name: E-Books
     no_facets: true
