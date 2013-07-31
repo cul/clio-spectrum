@@ -6,26 +6,26 @@ require 'spec_helper'
 describe "Search links in item display should work", :focus => false do
 
   it "including links with diacritics and trailing punctuation" do
+    # setup UTF-8 Decomposed form string constants for our various targets
+    # the title:
+    mqis_decomposed = 'Mādhā qāla al-Imām al-Shaʻrāwī'.mb_chars.normalize(:d)
+    # the "also listed under" name:
+    mhmm_decomposed = 'Mazrūʻah, Ḥātim Muḥammad Manṣūr.'.mb_chars.normalize(:d)
+    # the author:
+    smm_decomposed = 'Shaʻrāwī, Muḥammad Mutawallī.'.mb_chars.normalize(:d)
 
-    pending "BROKEN UTF8 HANDLING"
     # visit this specific item
     visit catalog_path('10172954')
-    # page.save_and_open_page # debug
-    page.should have_text('Also Listed Under')
-    page.should have_text('Mu')
-    page.should have_content("Mu\u1E25ammad")
 
     # follow the "Also Listed Under" linked name, should get to search results page
-    page.should have_link("Mazrūʻah, Ḥātim Muḥammad Manṣūr.", :href=>"/catalog?f%5Bauthor_facet%5D%5B%5D=Mazru%CC%84%CA%BBah%2C+H%CC%A3a%CC%84tim+Muh%CC%A3ammad+Mans%CC%A3u%CC%84r")
-    click_link('Mazrūʻah, Ḥātim Muḥammad Manṣūr.')
+    click_link(mhmm_decomposed)
     page.should have_css(".result", :count => 1)
 
-    # click back, to the same item again.
-    click_link('Mādhā qāla al-Imām al-Shaʻrāwī fī tafsīrihi ʻan taḥkīm al-sharīʻah wa-taṭbīqihā?')
+    # click the title on the search-results page, snoudl get to the item-detail page again
+    click_link(mqis_decomposed)
 
-    # follow the "Author" linked name, should get to search results page
-    page.should have_link('Shaʻrāwī, Muḥammad Mutawallī.', :href=>"/catalog?f%5Bauthor_facet%5D%5B%5D=Sha%CA%BBra%CC%84wi%CC%84%2C+Muh%CC%A3ammad+Mutawalli%CC%84")
-    click_link('Shaʻrāwī, Muḥammad Mutawallī.')
+    # follow the "Author" linked name, should get to search results page, with many items
+    click_link(smm_decomposed)
 
     page.should have_css('.result')
     page.should_not have_text('No results found')

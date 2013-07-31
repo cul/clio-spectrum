@@ -119,11 +119,6 @@ group :development do
 end
 
 group :test, :development do
-  gem 'rspec-rails'
-  gem "growl"
-  gem 'rb-fsevent'
-  gem 'ruby_gntp'
-  gem 'ruby-prof'
 
   # application monitoring tool - omit from prod for now
   gem 'newrelic_rpm'
@@ -133,6 +128,7 @@ end
 group :test do
   gem 'factory_girl_rails'
   gem 'spork', '~>1.0.0.rc2'
+
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-spork'
@@ -141,6 +137,18 @@ group :test do
   gem 'capybara-webkit'
   gem 'launchy'
   gem 'database_cleaner'
+  # Mac OS X 10.8 (Mountain Lion) Notifications replace growl
+  # http://protips.maxmasnick.com/mountain-lion-notifications-with-guard
+  # gem "growl"
+  gem 'terminal-notifier-guard'
+
+  gem 'rspec-rails'
+
+  gem 'rb-fsevent'
+  # GNTP is Growl's protocol - turn off, since no more Growl
+  # gem 'ruby_gntp'
+  gem 'ruby-prof'
+
 
   # code coverage
   gem 'simplecov'

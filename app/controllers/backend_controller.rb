@@ -24,7 +24,7 @@ class BackendController < ApplicationController
       logger.error "#{self.class}##{__method__} HTTPClient::BadResponseError URL: #{backend_url}  Exception: #{e}"
       render nothing: true and return
     rescue HTTPClient::ReceiveTimeoutError => e
-      logger.error "HTTPClient::ReceiveTimeoutError URL: #{url}"
+      logger.error "HTTPClient::ReceiveTimeoutError URL: #{backend_url}"
       render nothing: true and return
     end
 

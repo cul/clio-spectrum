@@ -44,7 +44,6 @@ module Spectrum
         @params.merge!(SUMMON_FIXED_PARAMS)
 
         @config = options.delete('config') || APP_CONFIG['summon']
-        Rails.logger.debug "raw config=[#{@config.inspect}]"
 
         @config.merge!(:url => 'http://api.summon.serialssolutions.com/2.0.0')
         @config.symbolize_keys!
@@ -84,11 +83,9 @@ module Spectrum
           #   @config.merge!( :benchmark => bench)
           # end
 
-          Rails.logger.debug "final config=[#{@config.inspect}]"
           @service = ::Summon::Service.new(@config)
 
           Rails.logger.info "[Spectrum][Summon] params: #{@params}"
-          Rails.logger.debug "final params=[#{@params.inspect}]"
 
           @search = @service.search(@params)
 

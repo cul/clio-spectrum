@@ -67,7 +67,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_user_characteristics
-raise
     @user_characteristics =
     {
       # remote_ip gives back whatever's in X-Forwarded-For, which can
@@ -166,7 +165,7 @@ raise
 
   def default_debug
     @debug_entries = Hash.arbitrary_depth
-    @debug_entries['params'] =params
+    @debug_entries['params'] = params
     @debug_entries['session'] = session
     # ENV is environment variables, but not the HTTP-related env variables
     # @debug_entries['environment'] = ENV
