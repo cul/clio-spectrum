@@ -1,37 +1,70 @@
-.well.advanced_search_well.span12
-  = form_tag path, :class => "form-horizontal", :method => "GET" do
-    = hidden_field_tag :new_search, "true"
-    .control-group
-      .control-label Keywords:
-      .controls
-        = text_field_tag "s.q", params['s.q'], :title => "Query", :id => "query", :class => 'input-xlarge'
 
-    .control-group
-      .control-label Author:
-      .controls
-        = text_field_tag "s.fq[AuthorCombined]", params['s.fq'] && params['s.fq']['AuthorCombined'],  :title => "Author", :id => "author", :class => 'input-xlarge'
+-# ARTICLES (SUMMON) ADVANCED SEARCH PANEL
 
-    .control-group
-      .control-label Title:
-      .controls
-        = text_field_tag "s.fq[TitleCombined]", params['s.fq'] && params['s.fq']['TitleCombined'], :title => "Title", :id => "title", :class => 'input-xlarge'
+.advanced_search
 
-    .control-group
-      .control-label ISBN:
-      .controls
-        = text_field_tag "s.fq[ISBN]", params['s.fq'] && params['s.fq']['ISBN'],  :title => "ISBN", :id => "isbn", :class => 'input-medium'
+  .span12
+    -# Adding this magic <span> makes advanced_search show and basic_search hide
+    - if params[:search_field] == 'advanced'
+      %span.show_advanced_search
 
-    .control-group
-      .control-label ISSN:
-      .controls
-        = text_field_tag "s.fq[ISSN]", params['s.fq'] && params['s.fq']['ISSN'],  :title => "ISSN", :id => "issn", :class => 'input-medium'
+    = form_tag path, :class => "form-horizontal", :method => "GET" do
 
+      -# Pass through Summon facets, checkboxes, sort, paging, as hidden form variables
+      - if @results.kind_of?(Hash) && @results['articles'] && @results['articles'].search
+        - summon_query_as_hash = @results['articles'].search.query.to_hash
+        = summon_hidden_keys_for_search(summon_query_as_hash)
+      -# Map simple or advanced CGI params to default field values for form fields, below.
+      - field_values = build_articles_advanced_field_values_hash(params)
 
-
-    .control-group
-      .controls
-        %button.btn.btn-primary{:name => "commit", :type => "submit", :value => "Search"}
+      .search_title
+        Match all
+        of the following criteria:
+        %button.btn.advanced_search_button.btn-primary{:name => "commit", :type => "submit", :value => "Search"}
           %i.icon-search.icon-white
           %span.visible-desktop Search
+        =link_to "Basic Search", "#", class: "btn btn-link advanced_search_toggle"
+
+      -# = hidden_field_tag :new_search, "true"
+      = hidden_field_tag 'search_field', 'advanced'
+
+
+      .advanced_search_row
+        .control-label Keywords:
+        .controls
+          = text_field_tag "s.q", params['s.q'], :title => "Query", :id => "query", :class => 'input-xlarge'
+
+      .advanced_search_row
+        .control-label Author:
+        .controls
+          = text_field_tag "s.fq[AuthorCombined]", field_values['AuthorCombined'],  :title => "Author", :id => "author", :class => 'input-xlarge'
+
+      .advanced_search_row
+        .control-label Title:
+        .controls
+          = text_field_tag "s.fq[TitleCombined]", field_values['TitleCombined'], :title => "Title", :id => "title", :class => 'input-xlarge'
+
+      -# NEXT-581 - articles search by publication title
+      .advanced_search_row
+        .control-label Publication Title:
+        .controls
+          = text_field_tag "s.fq[PublicationTitle]",  field_values['PublicationTitle'], :title => "Publication Title", :id => "publicationtitle", :class => 'input-xlarge'
+
+      .advanced_search_row
+        .control-label ISBN:
+        .controls
+          = text_field_tag "s.fq[ISBN]", field_values['ISBN'],  :title => "ISBN", :id => "isbn", :class => 'input-medium'
+
+      .advanced_search_row
+        .control-label ISSN:
+        .controls
+          = text_field_tag "s.fq[ISSN]", field_values['ISSN'],  :title => "ISSN", :id => "issn", :class => 'input-medium'
+
+
+      .advanced_search_row
+        .controls
+          %button.btn.advanced_search_button.btn-primary{:name => "commit", :type => "submit", :value => "Search"}
+            %i.icon-search.icon-white
+            %span.visible-desktop Search
 
 

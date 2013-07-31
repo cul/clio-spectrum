@@ -6,30 +6,52 @@ module Spectrum
       include Rails.application.routes.url_helpers
       Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
 
-      DEFAULT_PARAMS = {
+      # These are ALWAYS in effect for Summon API queries
+      # s.ff - how many options to retrieve for each filter field
+      SUMMON_FIXED_PARAMS = {
+        'spellcheck' => true,
+        's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']
+      }.freeze
 
-      'newspapers' =>  {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)', 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']},
+      # These source-specific params are ONLY FOR NEW SEARCHES
+      SUMMON_DEFAULT_PARAMS = {
 
-      'articles' =>  {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)', 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']},
+        'newspapers' =>  {'s.ho' => true,
+                          's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)'}.freeze,
 
-      'ebooks' => {'spellcheck' => true, 's.ho' => true, 's.cmd' => 'addFacetValueFilters(IsFullText, true)', 's.fvf' => ['ContentType,eBook'], 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']},
+        'articles' =>  {'s.ho' => true,
+                        's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)'}.freeze,
 
-      'dissertations' => {'spellcheck' => true, 's.ho' => true, 's.fvf' => ['ContentType,Dissertation'], 's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']}
+        'ebooks' => { 's.ho' => true,
+                      's.cmd' => 'addFacetValueFilters(IsFullText, true)',
+                      's.fvf' => ['ContentType,eBook']}.freeze,
 
-        }
+        'dissertations' => { 's.ho' => true,
+                             's.fvf' => ['ContentType,Dissertation']}.freeze
+        }.freeze
+
 
       attr_reader :source, :errors, :search
       attr_accessor :params
 
+      # initialize() performs the actual API search, and 
+      # returns @search - a filled-in search structure, including query results.
+      # input "options" are the CGI-param inputs, while
+      # @params is a built-up parameters hash to pass to the Summon API
       def initialize(options = {})
         @source = options.delete('source') || options.delete(:source)
-        @params = (@source && options.delete('new_search')) ? DEFAULT_PARAMS[@source] : {}
+        @params = (@source && options.delete('new_search')) ? SUMMON_DEFAULT_PARAMS[@source].dup : {}
+        @params.merge!(SUMMON_FIXED_PARAMS)
 
         @config = options.delete('config') || APP_CONFIG['summon']
+        Rails.logger.debug "raw config=[#{@config.inspect}]"
+
         @config.merge!(:url => 'http://api.summon.serialssolutions.com/2.0.0')
         @config.symbolize_keys!
 
         @search_url = options.delete('search_url')
+
+        @search_field = options.delete('search_field') || ''
 
         @debug_mode = options.delete('debug_mode') || false
         @debug_entries = Hash.arbitrary_depth
@@ -43,6 +65,8 @@ module Spectrum
 
         @params['s.role'] = options.delete('authorized') ? 'authenticated' : ''
 
+        # process any Filter Query - turn Rails hash into array of
+        # key:value pairs for feeding to the Summon API
         if @params['s.fq'].kind_of?(Hash)
           new_fq = []
           @params['s.fq'].each_pair do |name, value|
@@ -53,11 +77,25 @@ module Spectrum
 
         @errors = nil
         begin
+          # do_benchmarking = false
+          # if do_benchmarking
+          #   require 'summon/benchmark'
+          #   bench = ::Summon::Benchmark.new()
+          #   @config.merge!( :benchmark => bench)
+          # end
+
+          Rails.logger.debug "final config=[#{@config.inspect}]"
           @service = ::Summon::Service.new(@config)
 
           Rails.logger.info "[Spectrum][Summon] params: #{@params}"
+          Rails.logger.debug "final params=[#{@params.inspect}]"
 
           @search = @service.search(@params)
+
+          # if do_benchmarking
+          #   bench.output
+          # end
+
 
         rescue => e
           # We're getting 500 errors here - is that an internal server error
@@ -67,15 +105,19 @@ module Spectrum
         end
       end
 
+
       FACET_ORDER = %w{ContentType_mfacet SubjectTerms_mfacet Language_s}
 
       def facets
         @search.facets.sort_by { |facet| (ind = FACET_ORDER.index(facet.field_name)) ? ind : 999 }
       end
 
+      # The "pre-facet-options" are the four checkboxes which precede the facets.
+      # Return array of ad-hoc structures, parsed by summon's facets partial
       def pre_facet_options_with_links()
         facet_options = []
 
+        # first checkbox, "Full text online only"
         is_full_text = facet_value('IsFullText') == 'true'
         is_full_cmd = !is_full_text ? "addFacetValueFilters(IsFullText, true)" : "removeFacetValueFilter(IsFullText,true)"
         facet_options << {
@@ -85,6 +127,7 @@ module Spectrum
           name: "Full text online only"
         }
 
+        # second checkbox, "Scholarly publications only"
         is_scholarly = facet_value('IsScholarly') == 'true'
         is_scholarly_cmd = !is_scholarly ? "addFacetValueFilters(IsScholarly, true)" : "removeFacetValueFilter(IsScholarly,true)"
         facet_options << {
@@ -94,6 +137,7 @@ module Spectrum
           name: "Scholarly publications only"
         }
 
+        # third checkbox, "Exclude Newspaper Articles"
         exclude_newspapers = @search.query.facet_value_filters.any? { |fvf|
           fvf.field_name == "ContentType" &&
           fvf.value == "Newspaper Article" &&
@@ -102,7 +146,6 @@ module Spectrum
         exclude_cmd = !exclude_newspapers ?
               "addFacetValueFilters(ContentType, Newspaper Article:t)" :
               "removeFacetValueFilter(ContentType, Newspaper Article)"
-
         facet_options << {
           style: :checkbox,
           value: exclude_newspapers,
@@ -110,6 +153,7 @@ module Spectrum
           name: "Exclude Newspaper Articles"
         }
 
+        # fourth checkbox, "Columbia's collection only"
         all_holdings_only = @search.query.holdings_only_enabled == true
         facet_options << {
           style: :checkbox,
@@ -121,6 +165,7 @@ module Spectrum
         facet_options
       end
 
+
       def newspapers_excluded?()
         @search.query.facet_value_filters.any? { |fvf|
           fvf.field_name == "ContentType" &&
@@ -128,12 +173,16 @@ module Spectrum
           fvf.negated? }
       end
 
+
       def results
         documents
       end
+
+
       def search_path
         @search_url || by_source_search_link(@params)
       end
+
 
       def current_sort_name
         if @search.query.sort.nil?
@@ -144,32 +193,51 @@ module Spectrum
           else
             "Published Earliest"
           end
-
         end
       end
 
+
+      # The "constraints" are the displayed, cancelable, search params (queries, facets, etc.)
+      # Return an array of ad-hoc structures, parsed by summon's constraints partial
       def constraints_with_links
         constraints = []
+# raise
+        # add in the basic search query
         @search.query.text_queries.each do |q|
           constraints << [q['textQuery'], by_source_search_cmd(q['removeCommand'])]
         end
+
+        # add in "filter queries" - each advanced search field
         @search.query.text_filters.each do |q|
-          filter_text = q['textFilter'].to_s.sub(/^([^\:]+)Combined:/,'\1:').sub(':', ': ')
+          filter_text = q['textFilter'].to_s.
+              # strip "Combined" off the back of labels (TitleCombined --> Title)
+              sub(/^([^\:]+)Combined:/,'\1:').
+              # NEXT-581 - articles search by publication title
+              # search for embedded capitals, insert a space (PublicationTitle --> Publication Title)
+              sub(/([a-z])([A-Z])/,'\1 \2').
+              sub(':', ': ')
           constraints << [filter_text, by_source_search_cmd(q['removeCommand'])]
         end
+
+        # add in Facet limits
         @search.query.facet_value_filters.each do |fvf|
           unless fvf.field_name.titleize.in?("Is Scholarly", "Is Full Text")
             facet_text = "#{fvf.negated? ? "Not " : ""}#{fvf.field_name.titleize}: #{fvf.value}"
             constraints << [facet_text, by_source_search_cmd(fvf.remove_command)]
           end
         end
+
+        # add in Range Filters
         @search.query.range_filters.each do |rf|
           facet_text = "#{rf.field_name.titleize}: #{rf.range.min_value}-#{rf.range.max_value}"
           constraints << [facet_text, by_source_search_cmd(rf.remove_command)]
         end
+
         constraints
       end
 
+
+      # List of sort options, turned into a drop-down in summon's sorting/paging partial
       def sorts_with_links
         [
           [by_source_search_cmd('setSortByRelevancy()'), "Relevance"],
@@ -178,33 +246,40 @@ module Spectrum
         ]
       end
 
+
+      # List of paging options, turned into a drop-down in summon's sorting/paging partial
       def page_size_with_links
         # [10,20,50,100].collect do |page_size|
         [10,25,50].collect do |page_size|
           [by_source_search_cmd("setPageSize(#{page_size})"), page_size]
         end
-
       end
+
 
       def successful?
         @errors.nil?
       end
 
+
       def documents
         @search.documents
       end
+
 
       def start_over_link
         by_source_search_link('new_search' => true)
       end
 
+
       def previous_page?
         current_page > 1 && total_pages > 1
       end
 
+
       def previous_page_path
         set_page_path(current_page - 1)
       end
+
 
       def next_page?
         # Why was this 20-page limit in effect?
@@ -215,17 +290,21 @@ module Spectrum
         page_size * (current_page + 1) <= 500
       end
 
+
       def next_page_path
         set_page_path(current_page + 1)
       end
+
 
       def set_page_path(page_num)
         by_source_search_modify('s.pn' => [total_pages, [page_num, 1].max].min)
       end
 
+
       def page_size
         @search.query.page_size.to_i
       end
+
 
       def total_items
         # handle error condition when @search object is nil
@@ -257,13 +336,22 @@ module Spectrum
         @search.query.page_size
       end
 
+
       def by_source_search_cmd(cmdText)
         by_source_search_modify('s.cmd' => cmdText)
       end
 
+
+      # Create a link based on the current @search query, but
+      # modified by whatever's passed in (facets, checkboxes, sort, paging),
+      # and by possible advanced-search indicator
       def by_source_search_modify(cmd = {})
-        by_source_search_link(@search.query.to_hash.merge(cmd))
+        params = @search.query.to_hash
+        params.merge!(cmd)
+        params.merge!( {'search_field' => 'advanced'} ) if @search_field == 'advanced'
+        by_source_search_link(params)
       end
+
 
       private
 
@@ -283,6 +371,7 @@ module Spectrum
           articles_index_path(params)
         end
       end
+
     end
   end
 end

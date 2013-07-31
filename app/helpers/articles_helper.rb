@@ -112,9 +112,74 @@ module ArticlesHelper
     result.empty? ? nil : result
   end
 
+  def get_article_authors(document)
+    return '' unless document.src and document.src['Author_xml']
+    ordered_authors = []
+    authors_to_show = 100  # some articles have hundreds of authors - only show first N
+    total_authors = document.src['Author_xml'].size
+    document.src['Author_xml'].each { |author|
+      ordered_authors.push author['fullname']
+      break if ordered_authors.size >= authors_to_show
+    }
+
+    ordered_authors = ordered_authors.join ', '
+    if ordered_authors.size >= authors_to_show
+      ordered_authors +=  "  (additional #{total_authors - authors_to_show} authors not shown)"
+    end
+
+  end
+
   def process_summon_date(date)
     # NEXT-598 - Articles date formatting - use MM/DD/YYYY
     [date.month, date.day, date.year].compact.join("/")
+  end
+
+
+  def summon_hidden_keys_for_search(summon_query_as_hash)
+    # based on Blacklight::HashAsHiddenFieldsHelperBehavior
+    hidden_fields = []
+    summon_query_as_hash.each do |name, value|
+      # skip the advanced search fields, we're sending them in un-hidden
+      next if name == 's.fq'
+
+      if value.is_a?(Array)
+        value.each do |v|
+          hidden_fields << hidden_field_tag("#{name}[]", v.to_s, :id => nil)
+        end
+      else
+        hidden_fields << hidden_field_tag(name, value.to_s, :id => nil)
+      end
+
+      # value = [value] if !value.is_a?(Array)
+      # value.each do |v|
+      #   hidden_fields << hidden_field_tag(name, v.to_s, :id => nil)
+      # end
+    end
+
+    hidden_fields.join("\n").html_safe
+  end
+
+
+  #  SIMPLE SEARCH:
+  #   "q"=>"nature"
+  #   "search_field"=>"s.fq[PublicationTitle]"
+  #   "s.q"=>""
+  #  ADVANCED SEARCH:
+  #  search_field=advanced
+  #   "s.q"=>""
+  #   "s.fq"=>{"AuthorCombined"=>"", "TitleCombined"=>"", 
+  #            "PublicationTitle"=>"nature", "ISBN"=>"", "ISSN"=>""}
+  def build_articles_advanced_field_values_hash(params)
+    hash = {}
+
+    if params['search_field'] == 'advanced'
+      params['s.fq'].each do |field, value|
+        hash[field] = value
+      end
+    elsif /s.fq\[(\w+)\]/ =~ params['search_field']
+      hash[$1] = params['q']
+    end
+    hash
   end
 
 end
