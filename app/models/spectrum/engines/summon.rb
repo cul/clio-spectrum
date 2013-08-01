@@ -16,17 +16,17 @@ module Spectrum
       # These source-specific params are ONLY FOR NEW SEARCHES
       SUMMON_DEFAULT_PARAMS = {
 
-        'newspapers' =>  {'s.ho' => true,
+        'newspapers' =>  {'s.ho' => 't',
                           's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)'}.freeze,
 
-        'articles' =>  {'s.ho' => true,
+        'articles' =>  {'s.ho' => 't',
                         's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)'}.freeze,
 
-        'ebooks' => { 's.ho' => true,
+        'ebooks' => { 's.ho' => 't',
                       's.cmd' => 'addFacetValueFilters(IsFullText, true)',
                       's.fvf' => ['ContentType,eBook']}.freeze,
 
-        'dissertations' => { 's.ho' => true,
+        'dissertations' => { 's.ho' => 't',
                              's.fvf' => ['ContentType,Dissertation']}.freeze
         }.freeze
 
