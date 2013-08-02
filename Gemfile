@@ -56,7 +56,10 @@ gem 'net-ldap'
 gem 'devise'
 gem 'devise-encryptable'
 gem 'devise_wind'
-#
+
+
+# application monitoring tool
+gem 'newrelic_rpm'
 
 # marquis, 6/13 - unused?
 # gem 'compass-rails'
@@ -120,8 +123,6 @@ end
 
 group :test, :development do
 
-  # application monitoring tool - omit from prod for now
-  gem 'newrelic_rpm'
 
 end
 
