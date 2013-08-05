@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe "The home page" do
   it "will keep the text in a box across different sources on the landing pages", :js => true do
-    pending('need to reimplement observer view across datasources')
     visit catalog_index_path
     fill_in 'catalog_q', :with => 'test'
     sleep 1

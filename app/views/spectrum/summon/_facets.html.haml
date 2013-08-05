@@ -21,7 +21,6 @@
               %span.option_name #{option[:name]}
 
 
-
     - result.facets.reject { |ft| ft.empty?}.each do |facet|
       .facet_limit
         .facet_limit
@@ -78,3 +77,5 @@
             #{"-"}
             = text_field_tag 'pub_date[max_value]', (pub_range_filter ? pub_range_filter.range.max_value : ""), :class => "input-mini"
             %button.btn.btn-submit{:name => 'submit', :value => 'commit', :type => 'submit'} Limit
+
+

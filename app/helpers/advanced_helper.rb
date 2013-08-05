@@ -16,7 +16,7 @@ module AdvancedHelper
   end
 
   def standard_hidden_keys_for_search
-    search_as_hidden_fields(:omit_keys => [:q, :show_advanced, :search_field, :qt, :page, :categories, :advanced_operator, :adv, :advanced]).html_safe
+    search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page, :categories, :advanced_operator, :adv, :advanced]).html_safe
   end
 
   def selected_values_for_facet(facet, localized_parms = params)
@@ -27,7 +27,6 @@ module AdvancedHelper
   def selected_negative_values_for_facet(facet, localized_params = params)
     Array.wrap(params[:f] && params[:f]["-#{facet}"])
   end
-
 
 
 
@@ -48,7 +47,7 @@ module AdvancedHelper
 
   end
 
-  # builds the field select-tag for each Advanced Search field/value pair
+  # builds the field select-tag for each Advanced Search field/value pair (for Catalog)
   def advanced_field_select_option(blacklight_config, index, par = params)
     index = index.to_s
     field_list = blacklight_config.search_fields.collect do |field_key, field|
@@ -62,7 +61,9 @@ module AdvancedHelper
                     params['adv'][index] &&
                     (!params['adv'][index]['value'].to_s.empty? &&
                       params['adv'][index]['field'])
+    default_value ||= 'all_fields'
     select_tag("adv[#{index}][field]", options_for_select(field_list, default_value), :class => "advanced_search_field")
   end
+
 end
 

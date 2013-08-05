@@ -71,7 +71,7 @@ Set translate_resource_type(Record record)
     switch (val) {
       case "ar": result.add("Archival Catalogs");
         break;
-      case "bc": result.add("eBook Collections");
+      case "bc": result.add("E-Book Collections");
         break;
       case "bi": result.add("Biographies");
         break;

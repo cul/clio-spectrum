@@ -1,5 +1,4 @@
 <%- # requires solr_config local passed in
-
   field_config = range_config(solr_field)
 -%>
 
@@ -22,9 +21,10 @@
       <!-- we need to include a dummy search_field parameter if none exists,
            to trick blacklight into displaying actual search results instead
            of home page. Not a great solution, but easiest for now. -->
-      <% unless params.has_key?(:search_field) %>
-        <%= hidden_field_tag("search_field", "dummy_range") %>
-      <% end %>
+      <!-- 7/13 - This is no longer needed with our locally rewritten Solr query logic -->
+      <% #unless params.has_key?(:search_field) %>
+        <% #= hidden_field_tag("search_field", "dummy_range") %>
+      <% #end %>
 
       <%= render_range_input(solr_field, :begin) %> - <%= render_range_input(solr_field, :end) %>
       <button type="submit" name="commit" class="btn"><i class="icon-search"></i></button>

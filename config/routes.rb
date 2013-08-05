@@ -13,6 +13,11 @@ Clio::Application.routes.draw do
   match 'mylist(/:owner(/:slug))', :to => 'my_lists#show', :as => :mylist
   match 'mylist(/:owner(/:slug))/edit', :to => 'my_lists#edit', :as => :edit_mylist
 
+  #  Use this section for ad-hoc routing overrides during localhost development
+  if Rails.env.development?
+    # such as... turn off unapi support, to simplify debugging?
+    # match '/catalog/unapi' => proc { [404, {}, ['']] }
+  end
 
 
   match 'catalog/advanced', :to => 'catalog#index', :as => :catalog_advanced, :defaults => {:q => '', :show_advanced => 'true'}
@@ -23,7 +28,7 @@ Clio::Application.routes.draw do
 
   get "admin/ingest_log"
 
-  get "library_web/index"
+  # get "library_web/index"  # obsolete, see library_web route to spectrum#search, below
 
   get "test_notification_error", :to => "application#test_notification_error"
 

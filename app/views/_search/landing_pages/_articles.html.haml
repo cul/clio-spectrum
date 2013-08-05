@@ -2,15 +2,16 @@
 
 .row-fluid
   .landing_main.span8
-    .advanced_search
+
     .title Articles
 
     %p Searches a large database of mostly full-text journal articles.
 
     %p For scholarly articles in the:
     %ul
-      %li Humanities and social sciences, try #{link_to 'Ebscohost Research Databases', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio6329559'} or #{link_to 'ProQuest', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio8557099'}
+      %li Humanities and Social Sciences, try #{link_to 'Ebscohost Research Databases', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio6329559'} or #{link_to 'ProQuest', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio8557099'}
       %li Sciences, try #{link_to 'Web of Science', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio2054244'} or #{link_to 'Scopus', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio6273999'}
+      %li 18<sup>th</sup> and 19<sup>th</sup> centuries, try #{link_to 'American Periodicals', 'http://www.columbia.edu/cgi-bin/cul/resolve?ARS2786'} or #{link_to 'British Periodicals', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio6022732'}
 
     %p Use #{datasource_switch_link('Databases', 'databases')} to browse all of our databases by subject.
 
@@ -32,8 +33,8 @@
 
         %ul.nav.nav-list
           %li.nav-header Related Links
-          %li=link_to "Google Scholar", "http://scholar.google.com/"
+          %li=link_to "Google Scholar", "http://www.columbia.edu/cgi-bin/cul/resolve?clio5119262"
           %li=link_to "PMID Search", "http://www.columbia.edu/cgi-bin/cul/resolve?clio4373446"
           %li=link_to "DOI Search", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0049"
-          %li=link_to "ArXiv ID Search", "http://arxiv.org/"
+          %li=link_to "arXiv ID Search", "http://arxiv.org/"
           %li=link_to "Citation Finder", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0049"

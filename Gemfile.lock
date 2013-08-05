@@ -87,9 +87,16 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    columnize (0.3.6)
     daemons (1.1.9)
     database_cleaner (0.9.1)
     debug_inspector (0.0.2)
+    debugger (1.6.1)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.2.3)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.2.3)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -246,6 +253,10 @@ GEM
       multi_json (~> 1.0)
       rubyzip
       websocket (~> 1.0.4)
+    simplecov (0.6.4)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.5.3)
+    simplecov-html (0.5.3)
     slop (3.4.4)
     spork (1.0.0rc3)
     sprockets (2.2.2)
@@ -257,6 +268,7 @@ GEM
     stringex (2.0.3)
     summon (2.0.5)
       json
+    terminal-notifier-guard (1.5.3)
     therubyracer (0.10.2)
       libv8 (~> 3.3.10)
     thin (1.5.1)
@@ -296,6 +308,7 @@ DEPENDENCIES
   capybara-webkit
   coffee-rails (~> 3.2.2)
   database_cleaner
+  debugger
   devise
   devise-encryptable
   devise_wind
@@ -325,10 +338,12 @@ DEPENDENCIES
   rubytree (= 0.5.2)
   sass
   sass-rails (~> 3.2.4)
+  simplecov
   spork (~> 1.0.0.rc2)
   sqlite3
   stringex
   summon
+  terminal-notifier-guard
   therubyracer (= 0.10.2)
   thin
   uglifier (>= 1.0.3)

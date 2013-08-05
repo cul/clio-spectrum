@@ -1,4 +1,5 @@
 module CulFacetsHelper
+
   def render_filter_element(facet, values, localized_params)
     is_negative = (facet =~ /^-/) ? "NOT " : ""
     proper_facet_name = facet.gsub(/^-/, "")
@@ -7,11 +8,12 @@ module CulFacetsHelper
 
     values.map do |val|
 
-      render_constraint_element( facet_field_labels[proper_facet_name],
-                  is_negative + facet_display_value(proper_facet_name, val),
-                  :remove => url_for(remove_facet_params(facet, val, localized_params)),
-                  :classes => ["filter", "filter-" + proper_facet_name.parameterize]
-                ) + "\n"
+      render_constraint_element(
+        facet_field_labels[proper_facet_name],
+        is_negative + facet_display_value(proper_facet_name, val),
+        :remove => url_for(remove_facet_params(facet, val, localized_params)),
+        :classes => ["filter", "filter-" + proper_facet_name.parameterize]
+      ) + "\n"
     end
 
   end

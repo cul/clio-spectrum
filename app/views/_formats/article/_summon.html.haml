@@ -9,7 +9,7 @@
 
 
   .details
-    = add_row('Author', document.src['Author'], :html_safe => true)
+    = add_row('Author', get_article_authors(document), :html_safe => true)
     = add_row('Citation', get_article_citation(document))
     = add_row('Format', get_article_type(document))
 
@@ -18,11 +18,13 @@
     %span.Z3988{ :title => document.src['openUrl'] }
 
     - if @debug_mode
-      /=add_row("Fulltext", document.fulltext.to_s)
-      /=add_row("URI", link_to(document.uri, document.uri))
-      /=add_row("ID", document.src['ID'], :html_safe => true)
-      /=add_row("URL", link_to(document.url, document.url)) unless document.url.to_s.empty?
-      /=add_row("Link", link_to(document.link, document.link))
+      =add_row("Fulltext", document.fulltext.to_s)
+      =add_row("URI", link_to(document.uri, document.uri))
+      =add_row("SRC-ID", document.src['ID'], :html_safe => true)
+      =add_row("URL", link_to(document.url, document.url)) unless document.url.to_s.empty?
+      =add_row("Link", link_to(document.link, document.link))
+      =add_row("ISBN", document.isbn)
+      -# =add_row("methods", document.interesting_methods.inspect)
 
   / main container for doc partial view
 

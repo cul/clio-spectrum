@@ -17,11 +17,6 @@ describe 'Spectrum::Engines::Solr' do
 
     it 'should return that number of results' do
       eng = Spectrum::Engines::Solr.new('source' => 'catalog', :q => 'Smith', :search_field => 'all_fields', :rows => @result_count, 'solr_url' => solr_url)
-
-# puts eng
-# puts eng.inspect
-# puts eng.results
-
       eng.results.should_not be_empty
       eng.results.size.should equal(@result_count)
     end
@@ -32,10 +27,8 @@ describe 'Spectrum::Engines::Solr' do
 
   describe 'for searches with diacritics' do
     it 'should find an author with diacritics' do
-      # eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'turk edebiyatinda', :search_field => 'author', 'solr_url' => solr_url)
       eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'turk edebiyatinda', :search_field => 'author', 'solr_url' => solr_url)
       eng.results.should_not be_empty
-      # puts eng.solr_search_params
       eng.results.first.get('author_display').should include("Edebiyat\u0131nda")
     end
   end

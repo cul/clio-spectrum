@@ -1,6 +1,10 @@
 Clio::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  # less logging - turn on/off as needed for local development
+  config.log_level = :debug
+  # config.log_level = :warn
+
   # In the development environment your application's code is reloaded on
   # every request.  This slows down response time but is perfect for development
   # since you don't have to restart the webserver when you make code changes.
@@ -34,11 +38,11 @@ Clio::Application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   # BlacklightUnapi - quiet the extensive log entries:
-  # DEPRECATION WARNING: Passing a template handler in the template 
-  # name is deprecated. You can simply remove the handler name or 
+  # DEPRECATION WARNING: Passing a template handler in the template
+  # name is deprecated. You can simply remove the handler name or
   # pass render :handlers => [:builder] instead.
   #  
-  # ActiveSupport::Deprecation.silenced = true
+  ActiveSupport::Deprecation.silenced = true
 
 end
 

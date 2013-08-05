@@ -4,16 +4,16 @@
   .landing_main.span8
     .title Databases
 
-    %p Databases content includes:
+    %p The Libraries provides access to more than 1,500 databases. Browse by resource type to locate:
     %ul
       %li Archives and manuscripts
       %li Articles, conference papers, dissertations, and theses
       %li E-book collections
       %li Government documents and statistics
       %li Image, sound and video collections
-      %li Subject help guides
+      %li Subject Guides
 
-    %p If you can't find what you're looking for, try #{datasource_switch_link 'Articles', 'articles'}
+    %p If you are looking for specific articles, try an #{datasource_switch_link 'Articles', 'articles'} search.
 
 
   .landing_side.span4
@@ -35,18 +35,21 @@
 
           / the elink icon doesn't really look good here, leave it out for now
           / %li= link_to "How do I get to full-text? Use E-Link &nbsp; #{image_tag('elink.gif', :size => "60x18")}".html_safe,
-          %li= link_to "How do I get to full-text? Use E-Link",
-              "http://library.columbia.edu/help/howto/elink.html"
+          / %li= link_to "How do I get to full-text? Use E-Link",
+          /     "http://library.columbia.edu/help/howto/elink.html"
 
           / This FAQ is obsolete with no replacement
           /%li= link_to "How do I connect from off-campus?",
           /"http://library.columbia.edu/services/faq/eresources/eresources_offcampus.html"
 
-          %li= link_to "Subject help guides",
-              "/databases?f[database_resource_type_facet][]=Subject+Guides"
+          / %li= link_to "Subject Guides",
+          /     "/databases?f[database_resource_type_facet][]=Subject+Guides"
 
-          %li= link_to "Mobile resources",
-              "http://library.columbia.edu/eresources/mobile_resources.html"
+          %li= link_to "Research Guides",
+              "http://library.columbia.edu/subject-guides.html"
+
+          / %li= link_to "Mobile resources",
+          /    "http://library.columbia.edu/eresources/mobile_resources.html"
 
           %li= link_to "Report E-Resource Problems",
               "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0006"

@@ -21,36 +21,20 @@ class User < ActiveRecord::Base
   before_create :set_personal_info_via_ldap
 
 
-  COLUMBIA_IP_RANGES = [
-    "128.59.0.0/16", "129.236.0.0/16", 
-    "156.111.0.0/16", "156.145.0.0/16", 
-    "160.39.0.0/16", "129.12.82.0/24",
-    "192.5.43.0/24",
-    (IPAddr.new("207.10.136.0/24")...IPAddr.new("207.10.144.0/24")), 
-    "209.2.47.0/24", 
-    (IPAddr.new("209.2.48.0/24")...IPAddr.new("209.2.52.0/24")), 
-    "209.2.185.0/24",
-    (IPAddr.new("209.2.208.0/24")...IPAddr.new("209.2.224.0/24")),
-    (IPAddr.new("209.2.224.0/24")...IPAddr.new("209.2.240.0/24")),
-    "127.0.0.1"
-  ]
-
-
   def self.on_campus?(ip_addr)
     # check passed string against regexp from standard library
     return false unless ip_addr =~ Resolv::IPv4::Regex
-    
-    COLUMBIA_IP_RANGES.any? { |ir| 
-      ir.kind_of?(Range) ? 
-          ir.include?(ip_addr) : 
-          IPAddr.new(ir) === ip_addr 
+
+    APP_CONFIG['COLUMBIA_IP_RANGES'].any? { |ir|
+      IPAddr.new(ir) === ip_addr
     }
   end
 
 
 
   def has_role?(area, role, admin_okay = true)
-    self.login.in?(PERMISSIONS_CONFIG[area][role]) || (admin_okay && self.login.in?(PERMISSIONS_CONFIG['site']['manage']))
+    self.login.in?(PERMISSIONS_CONFIG[area][role]) ||
+      (admin_okay && self.login.in?(PERMISSIONS_CONFIG['site']['manage']))
   end
 
   def to_s

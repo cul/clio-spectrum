@@ -1,6 +1,6 @@
 .result.document
-
-  .title= link_to document.title.html_safe, document.url.listify.first.html_safe
+  - display_title = document.title ||= File.basename(document.url.first)
+  .title= link_to display_title.html_safe, document.url.listify.first.html_safe
 
   .lweb_summary=document.summary.html_safe
 

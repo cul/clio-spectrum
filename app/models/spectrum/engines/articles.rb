@@ -2,7 +2,13 @@ module Spectrum
   module Engines
     class Articles < BaseEngine
 
-      # 6/13 - this is unused!!!
+      # UNUSED
+      # UNUSED
+      # UNUSED
+      # UNUSED
+      # UNUSED
+      # UNUSED
+
       # def initialize(params = {})
       # 
       #   summon = SerialSolutions::SummonAPI.new('category' => 'articles', 'new_search' => true, 's.q' => params['q'], 's.ps' => 10)

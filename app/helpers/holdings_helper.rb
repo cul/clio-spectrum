@@ -1,17 +1,28 @@
 # encoding: utf-8
 module HoldingsHelper
-  def build_holdings_hash(document)
-    results = Hash.new { |h,k| h[k] = []}
-    Holding.new(document["clio_id_display"]).fetch_from_opac!.
-      results["holdings"].each_pair do |holding_id, holding_hash|
-          results[[holding_hash["location_name"],holding_hash["call_number"]]] << holding_hash
-    end
 
-    if document["url_munged_display"] && !results.keys.any? { |k| k.first.strip == "Online" }
-      results[["Online", "ONLINE"]] = [{"call_number" => "ONLINE", "status" => "noncirc", "location_name" => "Online"}]
-    end
-    results
-  end
+### UNUSED 
+### UNUSED 
+### UNUSED 
+### UNUSED 
+### UNUSED 
+### UNUSED 
+### UNUSED 
+### UNUSED 
+### UNUSED 
+
+#   def build_holdings_hash(document)
+#     results = Hash.new { |h,k| h[k] = []}
+#     Holding.new(document["clio_id_display"]).fetch_from_opac!.
+#       results["holdings"].each_pair do |holding_id, holding_hash|
+#           results[[holding_hash["location_name"],holding_hash["call_number"]]] << holding_hash
+#     end
+# 
+#     if document["url_munged_display"] && !results.keys.any? { |k| k.first.strip == "Online" }
+#       results[["Online", "ONLINE"]] = [{"call_number" => "ONLINE", "status" => "noncirc", "location_name" => "Online"}]
+#     end
+#     results
+#   end
 
   SHORTER_LOCATIONS = {
     "Temporarily unavailable. Try Borrow Direct or ILL" => "Temporarily Unavailable",
@@ -29,7 +40,7 @@ module HoldingsHelper
     call ? "#{h(shorten_location(loc))} >> ".html_safe + content_tag(:span, call, class: 'call_number')  : shorten_location(loc)
   end
 
-  URL_REGEX = Regexp.new('(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))')
+ URL_REGEX = Regexp.new('(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))')
 
 
   def online_link_hash(document)

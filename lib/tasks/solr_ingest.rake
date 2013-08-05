@@ -69,7 +69,7 @@ namespace :solr do
           begin
             solr_delete_ids(ids_to_delete)
             puts_and_log(ids_to_delete.length.to_s + " ids deleted (if in index)", :info)
-          rescue Exception => e
+          rescue => e
             puts_and_log("delete error: " + e.inspect, :error, :alarm => true)
           end
 
@@ -93,7 +93,7 @@ namespace :solr do
           Rake::Task["solr:marc:index:work"].invoke
 # Rake::Task["solr:marc:index:info"].invoke
           puts_and_log ("Indexing succesful.")
-        rescue Exception => e
+        rescue => e
           puts_and_log("Indexing  task failed to " + e.message, :error, :alarm => true)
           raise "Terminating due to failed ingest task."
         end

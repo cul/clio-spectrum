@@ -13,7 +13,6 @@ module DisplayHelper
 
     raise "No partials found from #{partials.inspect}"
 
-
   end
 
   FORMAT_MAPPINGS = {
@@ -231,7 +230,7 @@ module DisplayHelper
           # IsCombiningDiacriticalMarks is not supported in Ruby; using weaker formulation
           # elsif curr =~ /\w\p{IsCombiningDiacriticalMarks}?\w\p{IsCombiningDiacriticalMarks}?\.$/
           #  curr = curr.chop
-        elsif curr =~ /\w\W?\w\W?\.$/
+        elsif curr =~ /\w[^a-zA-Z0-9 ]?\w[^a-zA-Z0-9 ]?\.$/
           curr = curr.chop
         elsif curr =~ /\p{Punct}\.$/
           curr = curr.chop

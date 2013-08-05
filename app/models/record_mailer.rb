@@ -5,11 +5,11 @@ class RecordMailer < ActionMailer::Base
   add_template_helper(DisplayHelper)
   add_template_helper(MarcHelper)
   add_template_helper(CulCatalogHelper)
-  add_template_helper(HoldingsHelper)
-  
+  # add_template_helper(HoldingsHelper)
+
   def email_record(documents, details, url_gen_params)
     #raise ArgumentError.new("RecordMailer#email_record only works with documents with a #to_marc") unless document.respond_to?(:to_marc)
-    
+
     if documents.size == 1
       subject = "Item Record: #{documents.first.to_semantic_values[:title].join(", ") rescue 'N/A'}"
     else
@@ -20,9 +20,9 @@ class RecordMailer < ActionMailer::Base
     @message        = details[:message]
     @url_gen_params = url_gen_params
 
-    mail(:to => details[:to],  :from => "no-reply@libraries.cul.columbia.edu", :subject => subject) 
+    mail(:to => details[:to],  :from => "no-reply@libraries.cul.columbia.edu", :subject => subject)
   end
-  
+
   def sms_record(documents, details, url_gen_params)
     if sms_mapping[details[:carrier]]
       to = "#{details[:to]}@#{sms_mapping[details[:carrier]]}"
@@ -34,7 +34,7 @@ class RecordMailer < ActionMailer::Base
   end
 
   protected
-  
+
   def sms_mapping
     {'virgin' => 'vmobl.com',
     'att' => 'txt.att.net',

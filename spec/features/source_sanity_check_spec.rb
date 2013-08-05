@@ -22,7 +22,6 @@ describe "All of the datasources should successfully display results", :js => tr
   end
 
   it "including articles" do
-    pending('need to reimplement articles')
     visit articles_index_path('q' => 'test')
     page.should have_css('.result')
   end
@@ -74,8 +73,6 @@ describe "All of the datasources should successfully display results", :js => tr
   end
 
   it "including the newspapers" do
-    pending('revamp of articles to redo newspapers page')
-    page.should have_css(".result_set", :count => 1)
     visit newspapers_index_path('q' => 'test')
     page.should have_css('.result')
   end

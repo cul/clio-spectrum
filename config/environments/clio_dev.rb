@@ -7,9 +7,13 @@ Clio::Application.configure do
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
 
-  # Show full error reports and disable caching
+  # if we consider them "local" we spew errors to the browser
   config.consider_all_requests_local       = false
+
+  # Do we want caching (page-, action-, fragment-) in this environment?
   config.action_controller.perform_caching = true
+  # Cache store details - disk or memory?  How big?  (50MB?)
+  config.cache_store = :memory_store, { size: 50000000 }
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
@@ -34,6 +38,6 @@ end
 
 Clio::Application.config.middleware.use ExceptionNotifier,
    :email_prefix => "[Clio Dev] ",
-   :sender_address => %{"notifier" <spectrum@libraries.cul.columbia.edu>},
-   :exception_recipients => %w{marquis@columbia.edu},
+   :sender_address => %{"notifier" <spectrum-tech@libraries.cul.columbia.edu>},
+   :exception_recipients => %w{spectrum-tech@libraries.cul.columbia.edu},
    :ignore_crawlers => %w{Googlebot bingbot}

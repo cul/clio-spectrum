@@ -114,19 +114,20 @@ module Spectrum
       def facet_operator_label(raw_facet_field)
         facet_operator(raw_facet_field) == "AND" ? "All Of" : "Any Of"
       end
-      
+
       def facet_label(facet_field, base_facet_field)
         @config.facet_fields[base_facet_field.to_s] &&
           @config.facet_fields[base_facet_field.to_s].label ||
           facet_field
       end
-      
+
       def parse_filters
         @filters = HashWithIndifferentAccess.new()
         (@params[:f] || {}).each_pair do |facet_field, values|
 
-          # don't process this filter if there are no values
-          next if values.join.empty?
+          # values has to be an array, and cannot be empty, or don't process this filter
+          next unless values.is_a? Array
+          next if values.nil? or (not values.is_a? Array) or values.join.empty?
 
           base_facet_field = facet_field.gsub(/^-/,'').to_s
 
@@ -201,6 +202,8 @@ module Spectrum
         @ranges = HashWithIndifferentAccess.new()
 
         (@params[:range] || {}).each_pair do |range_key, range|
+          # defend against bad input
+          next unless range_key and range and @config.facet_fields[range_key]
           @ranges[range_key] = {
               label: @config.facet_fields[range_key].label || range_key,
               value: "#{range['begin']} to #{range['end']}",

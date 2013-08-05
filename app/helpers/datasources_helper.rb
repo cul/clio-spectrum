@@ -55,7 +55,9 @@ module DatasourcesHelper
     options[:all_sources] = !active_query? || !has_facets
 
     result = []
-    result |= datasources_active_list(options).collect { |src| datasource_item(src,options) }
+    result |= datasources_active_list(options).collect { |src|
+      datasource_item(src,options)
+    }
 
     unless (hidden_datasources = datasources_hidden_list(options)).empty?
       result << content_tag(:li, link_to("More...", "#"),  :id => "datasource_expand")
@@ -128,7 +130,14 @@ module DatasourcesHelper
     end
 
     raise "no source data found for #{source}" unless DATASOURCES_CONFIG['datasources'][source]
-    content_tag(:li, link_to(DATASOURCES_CONFIG['datasources'][source]['name'], href, :class => classes.join(" ")),  :source => source, :class => li_classes.join(" "))
+    content_tag(:li,
+      link_to(DATASOURCES_CONFIG['datasources'][source]['name'],
+          href,
+          :class => classes.join(" ")
+      ),
+      :source => source,
+      :class => li_classes.join(" ")
+    )
 
 
 

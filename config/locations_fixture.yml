@@ -217,7 +217,7 @@
     Electronic Text Service
     
     305 Butler Library
-- :library_code: science-engineering
+- :library_code: engineering
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionD.gif
     Home Page: http://library.columbia.edu/locations/engineering.html
@@ -312,7 +312,7 @@
     Home Page: http://library.columbia.edu/locations/dssc/data/service.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
   :category: physical
-  :location: Lehman Electronic Data Service
+  :location: Lehman Data Service
   :found_in: |-
     Electronic Data Service
     
@@ -477,15 +477,15 @@
     6th Floor East, Butler Library
 - :library_code: science-engineering
   :links: 
-    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
-    Home Page: http://library.columbia.edu/locations/math.html
-    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionD.gif
+    Home Page: http://library.columbia.edu/locations/science-library.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionD.html
   :category: physical
   :location: Science
   :found_in: |-
-    Mathematics/Science Library
-    
-    303 Mathematics
+      401 Northwest Corner Building
+
+      550 West 120th Street
 - :library_code: social-work
   :links: 
     Home Page: http://library.columbia.edu/locations/social-work.html

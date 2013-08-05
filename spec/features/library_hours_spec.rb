@@ -1,6 +1,17 @@
 require 'spec_helper'
+require 'rake'
 
 describe "Item Locations should show correct library hours", :js => true do
+
+  # I'm not sure... do I ever have to re-run the Rake tasks as part of the rspec?
+  # before :all do
+  #   Location.clear_and_load_fixtures!
+  #   Rake.application.rake_require "tasks/solr_ingest"
+  #   Rake.application.rake_require "tasks/sync_hours"
+  #   Rake::Task.define_task(:environment)
+  #   Rake.application.invoke_task "hours:sync"
+  #   Location.clear_and_load_fixtures!
+  # end
 
   it "for Avery Drawings & Archives" do
     visit catalog_path('8277276')

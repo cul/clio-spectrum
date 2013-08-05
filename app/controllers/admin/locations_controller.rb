@@ -19,7 +19,7 @@ class Admin::LocationsController < ApplicationController
       flash[:notice] = "Successfully created location."
       redirect_to @location
     else
-      render :action => 'new'
+      render 'new'
     end
   end
 
@@ -33,7 +33,7 @@ class Admin::LocationsController < ApplicationController
       flash[:notice] = "Successfully updated location."
       redirect_to @location
     else
-      render :action => 'edit'
+      render 'edit'
     end
   end
 
