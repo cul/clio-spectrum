@@ -78,8 +78,6 @@ group :assets do
 
   # marquis, 6/13 - unused?
   # gem 'compass-rails'
-
-  gem 'iced-rails'
 end
 
 
@@ -136,8 +134,6 @@ end
 
 group :test, :development do
 
-
->>>>>>> develop
 end
 
 group :test do

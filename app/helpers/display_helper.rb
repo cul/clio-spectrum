@@ -462,6 +462,11 @@ module DisplayHelper
       'conference'
     when /report/i
       'report'
+    else
+      # http://ocoins.info/cobgbook.html
+      # "general document type to be used when available data elements
+      #  do not allow determination of a more specific document type"
+      'document'
     end
   end
 
