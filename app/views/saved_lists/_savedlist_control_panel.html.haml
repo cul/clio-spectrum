@@ -33,7 +33,7 @@ List owners can delete items from their own lists.
   %dd= @list.size
 
 - if current_user && current_user.login == @list.owner
-  %small=link_to "edit list details", edit_my_list_path(@list)
+  %small=link_to "edit list details", edit_saved_list_path(@list)
 
 %hr
 

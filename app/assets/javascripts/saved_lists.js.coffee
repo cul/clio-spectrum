@@ -34,12 +34,12 @@ $ ->
   a_element.href = _href + '?' + item_key_param_list
   return true
 
-@saveSelectedToMyList = () ->
+@saveSelectedToSavedList = () ->
   item_key_list = getSelectedItemKeyList()
 
   item_count = item_key_list.length || 0
   return flashMessage("notice", "No items selected") if item_count == 0
-  success_message = item_count + " items saved to <a href='/mylist'>My List</a>"
+  success_message = item_count + " items saved to <a href='/mylist'>Default List</a>"
 
   # Ajax to actually save the items...
   request = $.post '/mylist/add', {item_key_list}

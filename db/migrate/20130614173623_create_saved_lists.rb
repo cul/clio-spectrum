@@ -1,6 +1,6 @@
-class CreateMyLists < ActiveRecord::Migration
+class CreateSavedLists < ActiveRecord::Migration
   def change
-    create_table :my_lists do |t|
+    create_table :saved_lists do |t|
       t.string :owner, :null => false, :limit => 20
       t.string :name, :null => false, :limit => 200
       t.string :slug, :null => false, :limit => 200
@@ -11,8 +11,8 @@ class CreateMyLists < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :my_lists, [:owner, :slug], :unique => true, :name => "mylist_url"
-    add_index :my_lists, [:owner, :name], :unique => true, :name => "mylist_name"
+    add_index :saved_lists, [:owner, :slug], :unique => true, :name => "savedlist_url"
+    add_index :saved_lists, [:owner, :name], :unique => true, :name => "savedlist_name"
 
   end
 end

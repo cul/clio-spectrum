@@ -90,30 +90,6 @@ ActiveRecord::Schema.define(:version => 20130702170157) do
   add_index "locations", ["library_id"], :name => "index_locations_on_library_id"
   add_index "locations", ["name"], :name => "index_locations_on_name"
 
-  create_table "my_list_items", :force => true do |t|
-    t.integer  "my_list_id"
-    t.string   "item_key"
-    t.integer  "sort_order"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "my_list_items", ["my_list_id", "item_key"], :name => "index_my_list_items_on_my_list_id_and_item_key", :unique => true
-
-  create_table "my_lists", :force => true do |t|
-    t.string   "owner",                              :null => false
-    t.string   "name",                               :null => false
-    t.string   "slug",                               :null => false
-    t.string   "description", :default => ""
-    t.string   "sort_by"
-    t.string   "permissions", :default => "private"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
-  end
-
-  add_index "my_lists", ["owner", "name"], :name => "mylist_name", :unique => true
-  add_index "my_lists", ["owner", "slug"], :name => "mylist_url", :unique => true
-
   create_table "options", :force => true do |t|
     t.integer  "entity_id"
     t.string   "entity_type",      :limit => 30
@@ -125,6 +101,31 @@ ActiveRecord::Schema.define(:version => 20130702170157) do
   end
 
   add_index "options", ["entity_type", "entity_id", "association_type", "name"], :name => "entity_association_name"
+
+  create_table "saved_list_items", :force => true do |t|
+    t.integer  "saved_list_id"
+    t.string   "item_source"
+    t.string   "item_key",      :limit => 200
+    t.integer  "sort_order"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  add_index "saved_list_items", ["saved_list_id", "item_key"], :name => "index_saved_list_items_on_saved_list_id_and_item_key", :unique => true
+
+  create_table "saved_lists", :force => true do |t|
+    t.string   "owner",       :limit => 20,                         :null => false
+    t.string   "name",        :limit => 200,                        :null => false
+    t.string   "slug",        :limit => 200,                        :null => false
+    t.string   "description",                :default => ""
+    t.string   "sort_by"
+    t.string   "permissions",                :default => "private"
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
+  end
+
+  add_index "saved_lists", ["owner", "name"], :name => "savedlist_name", :unique => true
+  add_index "saved_lists", ["owner", "slug"], :name => "savedlist_url", :unique => true
 
   create_table "searches", :force => true do |t|
     t.text     "query_params"

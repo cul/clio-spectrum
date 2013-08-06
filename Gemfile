@@ -1,5 +1,8 @@
 source 'http://rubygems.org'
+
+# Can't move up to 4.0 series yet - blacklight_range_limit has dependency on 3
 gem 'rails', '3.2.13'
+# gem 'rails', '~> 4.0.0'
 
 gem 'sqlite3'
 
@@ -81,7 +84,7 @@ group :assets do
 end
 
 
-# To build slugs for my-list URLs
+# To build slugs for saved-list URLs
 gem 'stringex'
 
 # Allow recovery for deleted Saved Lists 

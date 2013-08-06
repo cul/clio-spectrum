@@ -1,14 +1,12 @@
 # require 'blacklight/catalog'
 
-class MyListsController < ApplicationController
-  # layout "no_sidebar_no_search"
-  # layout "mylist"
+class SavedListsController < ApplicationController
   layout "no_sidebar"
 
   include ApplicationHelper
 
   include LocalSolrHelperExtension
-  include MyListsHelper
+  include SavedListsHelper
   # include Blacklight::Catalog
   # include Blacklight::Configurable
 
@@ -49,10 +47,10 @@ class MyListsController < ApplicationController
     # anonymous users can see anybody's public lists.
     if current_user.present? and owner == current_user.login
       # find one of my own lists
-      @list = MyList.find_by_owner_and_slug(owner, slug)
+      @list = SavedList.find_by_owner_and_slug(owner, slug)
     else
       # find someone else's list
-      @list = MyList.find_by_owner_and_slug_and_permissions(owner, slug, "public")
+      @list = SavedList.find_by_owner_and_slug_and_permissions(owner, slug, "public")
     end
 
     if @list.blank?
@@ -65,12 +63,12 @@ class MyListsController < ApplicationController
 
     # We have a list to display.
     # Turn the item-keys into full documents.
-    item_key_array = @list.my_list_items.order("updated_at").collect { |item| item.item_key }
+    item_key_array = @list.saved_list_items.order("updated_at").collect { |item| item.item_key }
     @document_list = ids_to_documents( item_key_array )
 
     # catalog_item_keys = []
     # articles_item_keys = []
-    # @list.my_list_items.each do |list_item|
+    # @list.saved_list_items.each do |list_item|
     #   catalog_item_keys.push list_item[:item_key] if
     #     list_item[:item_source] == 'catalog'
     #   articles_item_keys.push list_item[:item_key] if
@@ -81,12 +79,12 @@ class MyListsController < ApplicationController
     # 
     # @article_document_list = get_summon_docs_for_id_values(articles_item_keys)
     # 
-    # # merge the two document lists - in my_list_item order...
+    # # merge the two document lists - in saved_list_item order...
 
     # The single-list "show" page will want to give a menu of all other lists
     @all_current_user_lists = []
     if current_user
-      @all_current_user_lists = MyList.where(:owner => current_user.login).order("slug")
+      @all_current_user_lists = SavedList.where(:owner => current_user.login).order("slug")
     end
 
     respond_to do |format|
@@ -114,7 +112,7 @@ class MyListsController < ApplicationController
         :flash => { :error => "Login required to access Saved Lists" }
     end
 
-    @list = MyList.find_by_owner_and_id(current_user.login, params[:id])
+    @list = SavedList.find_by_owner_and_id(current_user.login, params[:id])
     unless @list
       return redirect_to root_path,
         :flash => { :error => "Cannot access list" }
@@ -153,14 +151,14 @@ class MyListsController < ApplicationController
         :flash => { :error => "Login required to access Saved Lists" }
     end
 
-    @list = MyList.find_by_owner_and_id(current_user.login, params[:id])
+    @list = SavedList.find_by_owner_and_id(current_user.login, params[:id])
     unless @list
       return redirect_to root_path,
         :flash => { :error => "Cannot access list" }
     end
 
     respond_to do |format|
-      if @list.update_attributes(params[:my_list])
+      if @list.update_attributes(params[:saved_list])
         format.html { redirect_to @list.url, notice: 'List was successfully updated.' }
         format.json { head :no_content }
       else
@@ -178,7 +176,7 @@ class MyListsController < ApplicationController
         :flash => { :error => "Login required to access Saved Lists" }
     end
 
-    @list = MyList.find_by_owner_and_id(current_user.login, params[:id])
+    @list = SavedList.find_by_owner_and_id(current_user.login, params[:id])
     unless @list
       return redirect_to root_path,
         :flash => { :error => "Cannot access list" }
@@ -205,20 +203,20 @@ class MyListsController < ApplicationController
 
     list_name = params[:name] ||= "default"
 
-    the_list = MyList.where(:owner => current_user.login, :name => list_name).first
+    the_list = SavedList.where(:owner => current_user.login, :name => list_name).first
     unless the_list
-      the_list = MyList.new(:owner => current_user.login, :name => list_name)
+      the_list = SavedList.new(:owner => current_user.login, :name => list_name)
       the_list.save
     end
 # logger.warn "=========tl #{the_list.inspect}"
-    current_item_keys = the_list.my_list_items.map{ |item| item.item_key }
+    current_item_keys = the_list.saved_list_items.map{ |item| item.item_key }
 # logger.warn "=========cik #{current_item_keys.inspect}"
 
     for item_key in Array.wrap(params[:item_key_list]) do
       next if current_item_keys.include? item_key
 # logger.warn "=========ik #{item_key.inspect}"
 
-      new_item = MyListItem.new(:item_key => item_key, :my_list_id => the_list[:id])
+      new_item = SavedListItem.new(:item_key => item_key, :saved_list_id => the_list[:id])
       new_item.save
       the_list.touch
     end
@@ -235,13 +233,13 @@ class MyListsController < ApplicationController
     end
 
     # You have to own the list
-    @list = MyList.find_by_owner_and_id(current_user.login, params[:list_id])
+    @list = SavedList.find_by_owner_and_id(current_user.login, params[:list_id])
     unless @list
       render :nothing => true, :status => :not_found and return
     end
 
     Array.wrap(params[:item_key_list]).each do |item_key|
-      list_item = MyListItem.find_by_item_key_and_my_list_id(item_key, @list.id)
+      list_item = SavedListItem.find_by_item_key_and_saved_list_id(item_key, @list.id)
       if list_item.destroy
         @list.touch
       else

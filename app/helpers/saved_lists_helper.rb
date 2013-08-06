@@ -1,4 +1,4 @@
-module MyListsHelper
+module SavedListsHelper
 
 
 def get_full_url(list)
@@ -8,10 +8,11 @@ def get_full_url(list)
   # url
 end
 
-def get_list_name(list)
-  return "My List" if list.is_default?
-  return list.name
-end
+# Use model's get_display_name() instead
+# def get_list_name(list)
+#   return "My List" if list.is_default?
+#   return list.name
+# end
 
 
 def get_permissions_label(permissions)

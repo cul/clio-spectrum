@@ -28,7 +28,7 @@
 
       %li=link_to "Send to Phone", "#", :onclick => "OpenTextMessage(#{id}); return false;"
 
-      %li=link_to "Save to My List", mylist_add_path(id)
+      %li=link_to "Save to My List", savedlist_add_path(id)
 
       %li.dropdown
         =link_to "Export <span class='caret'></span>".html_safe, "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown"

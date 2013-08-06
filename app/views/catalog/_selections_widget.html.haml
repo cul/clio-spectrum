@@ -8,7 +8,7 @@
         %li= link_to "Send to Email", email_catalog_path(), {:id => "emailLink", :name => "email", :class => "lightboxLink", :onclick => "return appendSelectedToURL(this);"}
         %li= link_to "Export to EndNote", endnote_catalog_path(:format => 'endnote'), {:id => "endnoteLink", :onclick => "return appendSelectedToURL(this);"}
         %li.divider
-        %li= link_to "Save to My List", "#", :onclick => "saveSelectedToMyList(); return false;"
+        %li= link_to "Save to My List", "#", :onclick => "saveSelectedToSavedList(); return false;"
         %li.divider
         %li= link_to "Select All Items", "#", :onclick => "selectAll(); return false;"
         %li= link_to "Clear All Items", "#", :onclick => "deselectAll(); return false;"

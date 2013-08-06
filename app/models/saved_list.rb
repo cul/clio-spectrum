@@ -1,6 +1,6 @@
-class MyList < ActiveRecord::Base
+class SavedList < ActiveRecord::Base
   attr_accessible :owner, :name, :slug, :description, :sort_by, :permissions
-  has_many :my_list_items, :dependent => :destroy
+  has_many :saved_list_items, :dependent => :destroy
   has_paper_trail
 
   SERVICE_URL_PREFIX = "/mylist"
@@ -20,11 +20,11 @@ class MyList < ActiveRecord::Base
   end
 
   def size
-    my_list_items.size
+    saved_list_items.size
   end
 
   def display_name
-    return "My List" if is_default?
+    return "Default List" if is_default?
     return name
   end
 

@@ -3,7 +3,7 @@
     Selected List Items...
     %b.caret
   %ul.dropdown-menu
-    %li= link_to "Send to Email", email_mylist_path(), {:id => "emailLink", :name => "email", :class => "lightboxLink", :onclick => "return appendSelectedToURL(this);"}
+    %li= link_to "Send to Email", email_savedlist_path(), {:id => "emailLink", :name => "email", :class => "lightboxLink", :onclick => "return appendSelectedToURL(this);"}
     %li= link_to "Export to EndNote", endnote_catalog_path(:format => 'endnote'), {:id => "endnoteLink", :onclick => "return appendSelectedToURL(this);"}
 
     %li.divider

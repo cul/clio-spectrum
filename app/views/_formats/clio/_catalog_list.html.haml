@@ -8,8 +8,8 @@
       %span.Z3988{title: catalog_to_openurl_ctx_kev(document)}
       = link_to_source_document document, :label=> document_full_title(document), :counter => counter
     .item_select.span1
-      = #render :partial => '/my_lists/catalog_checkbox', :locals => {:document => document}
-      = render :partial => '/my_lists/catalog_checkbox', :locals => {:item_id => document[:id]}
+      = #render :partial => '/saved_lists/catalog_checkbox', :locals => {:document => document}
+      = render :partial => '/saved_lists/catalog_checkbox', :locals => {:item_id => document[:id]}
 
   / main container for doc partial view
 

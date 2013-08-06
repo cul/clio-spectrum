@@ -19,11 +19,11 @@
     = f.label :permissions
 
     %label.radio.inline
-      = radio_button_tag 'my_list[permissions]', "private", (@list.permissions == "private")
+      = radio_button_tag 'saved_list[permissions]', "private", (@list.permissions == "private")
       = get_permissions_label("private")
 
     %label.radio.inline
-      = radio_button_tag 'my_list[permissions]', "public", (@list.permissions == "public")
+      = radio_button_tag 'saved_list[permissions]', "public", (@list.permissions == "public")
       = get_permissions_label("public")
 
 
