@@ -135,7 +135,7 @@ class CatalogController < ApplicationController
 
   # Email Action (this will render the appropriate view on GET requests and 
   # process the form and send the email on POST requests)
-  def email
+  def OLD_email
     @response, @documents = get_solr_response_for_field_values(SolrDocument.unique_key,params[:id])
     if request.post?
       if params[:to]

@@ -338,6 +338,8 @@ module DisplayHelper
     result = ""
     if options[:display_blank] || !value_txt.empty?
       if options[:style] == :text
+        Rails.logger.debug "options=#{options.inspect}"
+        Rails.logger.debug "title/value_txt=#{title.inspect}/#{value_txt.inspect}"
         result = (title.to_s + ": " + value_txt.to_s + "\r\n").html_safe
       else
 

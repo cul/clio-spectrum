@@ -3,15 +3,15 @@ Clio::Application.routes.draw do
   # resources :saved_list_items
   resources :saved_lists
 
-  match 'mylist/add/:item_key_list', :via => [:get], :to => 'saved_lists#add', :as => :savedlist_add
-  match 'mylist/add', :via => [:post], :to => 'saved_lists#add', :as => :savedlist_add
-  match 'mylist/remove', :via => [:post], :to => 'saved_lists#remove', :as => :savedlist_remove
-  match '/mylist/email(.:format)', :to => "saved_lists#email", :as => :email_savedlist
+  match 'lists/add/:item_key_list', :via => [:get], :to => 'saved_lists#add', :as => :savedlist_add
+  match 'lists/add', :via => [:post], :to => 'saved_lists#add', :as => :savedlist_add
+  match 'lists/remove', :via => [:post], :to => 'saved_lists#remove', :as => :savedlist_remove
+  match '/lists/email(.:format)', :to => "saved_lists#email", :as => :email_savedlist
 
-  # These have to come LAST of the mylist paths
+  # These have to come LAST of the lists paths
   # They match any 2nd token as :owner, you'll never fallback to later routes
-  match 'mylist(/:owner(/:slug))', :to => 'saved_lists#show', :as => :mylist
-  match 'mylist(/:owner(/:slug))/edit', :to => 'saved_lists#edit', :as => :edit_mylist
+  match 'lists(/:owner(/:slug))', :to => 'saved_lists#show', :as => :lists
+  match 'lists(/:owner(/:slug))/edit', :to => 'saved_lists#edit', :as => :edit_lists
 
   #  Use this section for ad-hoc routing overrides during localhost development
   if Rails.env.development?

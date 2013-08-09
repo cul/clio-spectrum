@@ -3,10 +3,15 @@
 class SavedListsController < ApplicationController
   layout "no_sidebar"
 
-  include ApplicationHelper
+  # better to put the method in ApplicationController
+  # include ApplicationHelper
 
+  # Try to avoid using Helpers in Controllers...
+  # include SavedListsHelper
+
+  # Because we need "add_range_limit_params" when we lookup Solr records
   include LocalSolrHelperExtension
-  include SavedListsHelper
+
   # include Blacklight::Catalog
   # include Blacklight::Configurable
 
@@ -29,14 +34,14 @@ class SavedListsController < ApplicationController
 
     # Determine search parameters to locate the list
     owner = params[:owner]
-    slug  = params[:slug]  ||= "default"
+    slug  = params[:slug]  ||= SavedList::DEFAULT_LIST_SLUG
 
     # Default to your own lists, if you don't specify an owner
     if owner.blank? and current_user.present?
       owner = current_user.login
     end
 
-    # If request is for just "/mylist", then MUST be logged in
+    # If request is for just "/lists", then MUST be logged in
     if owner.blank? and current_user.blank?
       return redirect_to root_path,
         :flash => { :error => "Login required to access Saved Lists" }
@@ -48,38 +53,29 @@ class SavedListsController < ApplicationController
     if current_user.present? and owner == current_user.login
       # find one of my own lists
       @list = SavedList.find_by_owner_and_slug(owner, slug)
+      # Special-case: if we're trying to pull up the user's default list, 
+      # auto-create it for them.
+      if @list.blank? and slug == SavedList::DEFAULT_LIST_SLUG
+        @list = SavedList.new(:created_by => current_user.login,
+                              :owner => current_user.login,
+                              :name => SavedList::DEFAULT_LIST_NAME)
+        @list.save
+      end
     else
       # find someone else's list
       @list = SavedList.find_by_owner_and_slug_and_permissions(owner, slug, "public")
     end
 
     if @list.blank?
-      display_list = ''
-      display_list += "/#{params[:owner]}" if params[:owner].present?
-      display_list += "/#{params[:slug]}" if params[:slug].present?
+      display_list_name = "#{owner}/#{slug}"
       return redirect_to root_path,
-        :flash => { :error => "Cannot access list #{display_list}" }
+        :flash => { :error => "Cannot access list #{display_list_name}" }
     end
 
     # We have a list to display.
     # Turn the item-keys into full documents.
     item_key_array = @list.saved_list_items.order("updated_at").collect { |item| item.item_key }
     @document_list = ids_to_documents( item_key_array )
-
-    # catalog_item_keys = []
-    # articles_item_keys = []
-    # @list.saved_list_items.each do |list_item|
-    #   catalog_item_keys.push list_item[:item_key] if
-    #     list_item[:item_source] == 'catalog'
-    #   articles_item_keys.push list_item[:item_key] if
-    #     list_item[:item_source] == 'articles'
-    # end
-    # 
-    # @response, @catalog_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_keys)
-    # 
-    # @article_document_list = get_summon_docs_for_id_values(articles_item_keys)
-    # 
-    # # merge the two document lists - in saved_list_item order...
 
     # The single-list "show" page will want to give a menu of all other lists
     @all_current_user_lists = []
@@ -96,6 +92,7 @@ class SavedListsController < ApplicationController
   # GET /lists/new
   # GET /lists/new.json
   def new
+    raise "don't use this method!"
     # @list = List.new(:created_by => current_user.login)
     @list = List.new()
 
@@ -130,7 +127,7 @@ class SavedListsController < ApplicationController
 
     values = params[:list]
     values[:created_by] = current_user.login
-    @list = List.new(values)
+    @list = SavedList.new(values)
 
     respond_to do |format|
       if @list.save
@@ -185,7 +182,7 @@ class SavedListsController < ApplicationController
     @list.destroy
 
     respond_to do |format|
-      format.html { redirect_to mylist_path }
+      format.html { redirect_to lists_path }
       format.json { head :no_content }
     end
   end
@@ -201,11 +198,13 @@ class SavedListsController < ApplicationController
       render :nothing => true, :status => :unauthorized and return
     end
 
-    list_name = params[:name] ||= "default"
+    list_name = params[:name] ||= SavedList::DEFAULT_LIST_NAME
 
     the_list = SavedList.where(:owner => current_user.login, :name => list_name).first
     unless the_list
-      the_list = SavedList.new(:owner => current_user.login, :name => list_name)
+      the_list = SavedList.new(:created_by => current_user.login,
+                               :owner => current_user.login,
+                               :name => list_name)
       the_list.save
     end
 # logger.warn "=========tl #{the_list.inspect}"
@@ -225,7 +224,7 @@ class SavedListsController < ApplicationController
   end
 
 
-  # request = $.post '/mylist/remove', {item_key_list, list_id}
+  # request = $.post '/lists/remove', {item_key_list, list_id}
   def remove
     # You have to be logged in to use this feature
     if current_user.blank?

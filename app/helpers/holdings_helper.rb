@@ -46,6 +46,8 @@ module HoldingsHelper
   def online_link_hash(document)
 
     links = []
+    # If we were passed, e.g., a Summon document object
+    return links unless document.kind_of?(SolrDocument)
 
     document["url_munged_display"].listify.each do |url_munge|
       url_parts = url_munge.split('~|Z|~').collect(&:strip)

@@ -34,15 +34,15 @@ $ ->
   a_element.href = _href + '?' + item_key_param_list
   return true
 
-@saveSelectedToSavedList = () ->
+@XXXsaveSelectedToSavedList = () ->
   item_key_list = getSelectedItemKeyList()
 
   item_count = item_key_list.length || 0
   return flashMessage("notice", "No items selected") if item_count == 0
-  success_message = item_count + " items saved to <a href='/mylist'>Default List</a>"
+  success_message = item_count + " items saved to <a href='/lists'>Default List</a>"
 
   # Ajax to actually save the items...
-  request = $.post '/mylist/add', {item_key_list}
+  request = $.post '/lists/add', {item_key_list}
   request.done (data) -> flashMessage("success", success_message)
   request.fail (jqXHR, textStatus, errorThrown) -> flashMessage("error", "Save failed with " + textStatus + ": " + errorThrown)
 
@@ -53,7 +53,7 @@ $ ->
   success_message = item_count + " items saved to " + name
 
   # Ajax to actually save the items...
-  request = $.post '/mylist/add', {item_key_list, name}
+  request = $.post '/lists/add', {item_key_list, name}
   request.done (data) -> flashMessage("success", success_message)
   request.fail (jqXHR, textStatus, errorThrown) -> flashMessage("error", "Save failed with " + textStatus + ": " + errorThrown)
 
@@ -64,7 +64,7 @@ $ ->
   success_message = item_count + " items removed from list"
 
   # Ajax to actually remove the items...
-  request = $.post '/mylist/remove', {item_key_list, list_id}
+  request = $.post '/lists/remove', {item_key_list, list_id}
   request.done (data) -> flashMessage("success", success_message)
   request.fail (jqXHR, textStatus, errorThrown) -> flashMessage("error", "Item removal failed with " + textStatus + ": " + errorThrown)
   

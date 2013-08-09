@@ -126,7 +126,7 @@ module ArticlesHelper
     if ordered_authors.size >= authors_to_show
       ordered_authors +=  "  (additional #{total_authors - authors_to_show} authors not shown)"
     end
-
+    ordered_authors
   end
 
   def process_summon_date(date)

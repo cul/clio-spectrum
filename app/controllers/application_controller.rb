@@ -255,9 +255,11 @@ class ApplicationController < ActionController::Base
 
         # if params[:to].match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)
         if params[:to].match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/)
-          # Don't hit Solr until we actually need to fetch field data
-          @response, @documents =
-            get_solr_response_for_field_values( SolrDocument.unique_key, params[:id] )
+          # # Don't hit Solr until we actually need to fetch field data
+          # @response, @documents =
+          #   get_solr_response_for_field_values( SolrDocument.unique_key, params[:id] )
+          # Yes, but IDs may be Catalog Bib keys or Summon FETCH IDs...
+          @documents = ids_to_documents(params[:id])
           email = RecordMailer.email_record(@documents, {:to => params[:to], :message => params[:message]}, url_gen_params)
         else
           flash[:error] = I18n.t('blacklight.email.errors.to.invalid', :to => params[:to])
@@ -280,6 +282,87 @@ class ApplicationController < ActionController::Base
         format.html
       end
     end
+  end
+
+  def ids_to_documents(id_array = [])
+    document_array = []
+    return document_array unless id_array.kind_of?(Array)
+    return document_array if id_array.empty?
+
+    # First, split into per-source lists,
+    # (depend on Summon IDs to start with "FETCH"...)
+    catalog_item_ids = []
+    articles_item_ids = []
+    Array.wrap(id_array).each do |item_id|
+      if item_id.start_with?("FETCH")
+        articles_item_ids.push item_id
+      else
+        catalog_item_ids.push item_id
+      end
+    end
+
+    # Then, do two source-specific set-of-id lookups
+    extra_solr_params = {
+      :rows => catalog_item_ids.size
+    }
+    response, catalog_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids, extra_solr_params)
+    article_document_list = get_summon_docs_for_id_values(articles_item_ids)
+
+    # Then, merge back, in original order
+    key_to_doc_hash = {}
+    catalog_document_list.each do |doc|
+      key_to_doc_hash[ doc[:id] ] = doc
+    end
+    article_document_list.each do |doc|
+      key_to_doc_hash[ doc.id ] = doc
+    end
+
+    id_array.each do |id|
+      document_array.push key_to_doc_hash[id]
+    end
+    document_array
+  end
+
+
+
+  def get_summon_docs_for_id_values(id_array)
+
+    @params = {
+      'spellcheck' => true,
+      's.ho' => true,
+      # 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)',
+      # 's.ff' => ['ContentType,and,1,5', 'SubjectTerms,and,1,10', 'Language,and,1,5']
+    }
+
+    @config = APP_CONFIG['summon']
+    @config.merge!(:url => 'http://api.summon.serialssolutions.com/2.0.0')
+    @config.symbolize_keys!
+
+
+    @params['s.cmd'] ||= "setFetchIDs(#{id_array.join(',')})"
+
+
+    @params['s.q'] ||= ''
+    @params['s.fq'] ||= ''
+    @params['s.role'] ||= ''
+
+    @errors = nil
+    begin
+      @service = ::Summon::Service.new(@config)
+
+      Rails.logger.info "[Spectrum][Summon] config: #{@config}"
+      Rails.logger.info "[Spectrum][Summon] params: #{@params}"
+
+      ### THIS is the actual call to the Summon service to do the search
+      @search = @service.search(@params)
+
+    rescue Exception => e
+      Rails.logger.error "[Spectrum][Summon] error: #{e.message}"
+      @errors = e.message
+    end
+
+    # we choose to return empty list instead of nil
+    @search ? @search.documents : []
   end
 
 

@@ -14,6 +14,8 @@
   - else
     %span.disabled= next_string
 
+  = render '/catalog/selections_widget'
+
   #sort-dropdown.dropdown.pull-right.hidden-phone
     %ul.css-dropdown
       %li.btn.btn-link
@@ -32,6 +34,3 @@
           - result.page_size_with_links.each do |link, name|
             %li= link_to "#{name} #{content_tag(:span, 'per page', :class =>'hide-text')}".html_safe, link
 
-  XXX
-  = render '/catalog/selections_widget'
-  YYY

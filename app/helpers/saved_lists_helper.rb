@@ -3,7 +3,7 @@ module SavedListsHelper
 
 def get_full_url(list)
   root_path(:only_path => false).sub(/\/$/, '') + list.url
-  # url = mylist_path(:only_path => false) + "/" + current_user.login
+  # url = lists_path(:only_path => false) + "/" + current_user.login
   # url += "/#{list.slug}" unless list.is_default?
   # url
 end
@@ -28,45 +28,45 @@ def get_permissions_label(permissions)
 end
 
 
-def get_summon_docs_for_id_values(id_array)
-
-  @params = {
-    'spellcheck' => true,
-    's.ho' => true,
-    # 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)',
-    # 's.ff' => ['ContentType,and,1,5', 'SubjectTerms,and,1,10', 'Language,and,1,5']
-  }
-
-  @config = APP_CONFIG['summon']
-  @config.merge!(:url => 'http://api.summon.serialssolutions.com/2.0.0')
-  @config.symbolize_keys!
-
-
-  @params['s.cmd'] ||= "setFetchIDs(#{id_array.join(',')})"
-
-
-  @params['s.q'] ||= ''
-  @params['s.fq'] ||= ''
-  @params['s.role'] ||= ''
-
-  @errors = nil
-  begin
-    @service = ::Summon::Service.new(@config)
-
-    Rails.logger.info "[Spectrum][Summon] config: #{@config}"
-    Rails.logger.info "[Spectrum][Summon] params: #{@params}"
-
-    ### THIS is the actual call to the Summon service to do the search
-    @search = @service.search(@params)
-
-  rescue Exception => e
-    Rails.logger.error "[Spectrum][Summon] error: #{e.message}"
-    @errors = e.message
-  end
-
-  # we choose to return empty list instead of nil
-  @search ? @search.documents : []
-end
+# def get_summon_docs_for_id_values(id_array)
+# 
+#   @params = {
+#     'spellcheck' => true,
+#     's.ho' => true,
+#     # 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)',
+#     # 's.ff' => ['ContentType,and,1,5', 'SubjectTerms,and,1,10', 'Language,and,1,5']
+#   }
+# 
+#   @config = APP_CONFIG['summon']
+#   @config.merge!(:url => 'http://api.summon.serialssolutions.com/2.0.0')
+#   @config.symbolize_keys!
+# 
+# 
+#   @params['s.cmd'] ||= "setFetchIDs(#{id_array.join(',')})"
+# 
+# 
+#   @params['s.q'] ||= ''
+#   @params['s.fq'] ||= ''
+#   @params['s.role'] ||= ''
+# 
+#   @errors = nil
+#   begin
+#     @service = ::Summon::Service.new(@config)
+# 
+#     Rails.logger.info "[Spectrum][Summon] config: #{@config}"
+#     Rails.logger.info "[Spectrum][Summon] params: #{@params}"
+# 
+#     ### THIS is the actual call to the Summon service to do the search
+#     @search = @service.search(@params)
+# 
+#   rescue Exception => e
+#     Rails.logger.error "[Spectrum][Summon] error: #{e.message}"
+#     @errors = e.message
+#   end
+# 
+#   # we choose to return empty list instead of nil
+#   @search ? @search.documents : []
+# end
 
 # # given a field name and array of values, get the matching SOLR documents
 # def get_solr_response_for_field_values(field, values, extra_solr_params = {})
