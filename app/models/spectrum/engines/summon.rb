@@ -39,7 +39,7 @@ module Spectrum
       # input "options" are the CGI-param inputs, while
       # @params is a built-up parameters hash to pass to the Summon API
       def initialize(options = {})
-        Rails.logger.info "[Spectrum][Summon] options: #{@options}"
+        # Rails.logger.debug "initialize() options=#{options.inspect}"
         @source = options.delete('source') || options.delete(:source)
         @params = (@source && options.delete('new_search')) ? SUMMON_DEFAULT_PARAMS[@source].dup : {}
         @params.merge!(SUMMON_FIXED_PARAMS)
@@ -67,6 +67,9 @@ module Spectrum
 
         # process any Filter Query - turn Rails hash into array of
         # key:value pairs for feeding to the Summon API
+        # (see inverse transform in SpectrumController#searchf)
+        #  BEFORE: params[s.fq]={"AuthorCombined"=>"eric foner"}
+        #  AFTER:  params[s.fq]="AuthorCombined:eric foner"
         if @params['s.fq'].kind_of?(Hash)
           new_fq = []
           @params['s.fq'].each_pair do |name, value|
@@ -346,9 +349,18 @@ module Spectrum
       # modified by whatever's passed in (facets, checkboxes, sort, paging),
       # and by possible advanced-search indicator
       def by_source_search_modify(cmd = {})
+        # start with the query, directly extracted from the Summon object
+        # (which means "s.fq=AuthorCombined:eric+foner")
+        # Rails.logger.debug  "SQ=[#{@search.query.to_hash.inspect}]"
         params = @search.query.to_hash
+        # merge in whatever new command overlays current summonstate
         params.merge!(cmd)
-        params.merge!( {'search_field' => 'advanced'} ) if @search_field == 'advanced'
+        # raise
+        # add-in our CLIO interface-level params 
+        params.merge!( {'form' => @params['form']} ) if @params['form']
+        params.merge!( {'search_field' => @search_field} ) if @search_field
+        params.merge!( {'q' => @params['q']} ) if @params['q']
+        # pass along the built-up params to a source-specific URL builder
         by_source_search_link(params)
       end
 

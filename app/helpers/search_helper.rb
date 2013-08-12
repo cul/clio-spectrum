@@ -45,7 +45,8 @@ module SearchHelper
       return fix_catalog_links(render('/catalog/advanced_search', :localized_params => params), source)
     end
     if options['search_type'] == "summon" && options['advanced'] == true
-      return render '/spectrum/summon/advanced_search', path: @active_source == "articles" ? articles_index_path : newspapers_index_path
+      # Rails.logger.debug "display_advanced_search() source=[#{source}]"
+      return render '/spectrum/summon/advanced_search', source: source, path: source == "articles" ? articles_index_path : newspapers_index_path
     end
   end
 
@@ -76,8 +77,19 @@ module SearchHelper
         end
       elsif options['search_type'] == "summon"
         # insert hidden fields
-        result += hidden_field_tag 'category', options['search_category'] || 'articles'
-        result += hidden_field_tag "new_search", "true"
+        # If we're at the Quicksearch landing page, building search-forms that will be
+        # shown to the user via Javascript datasource switching, mark as "new_search"
+        if @active_source == 'quicksearch'
+          result += hidden_field_tag 'new_search', 'true'
+        end
+        result += hidden_field_tag 'source', @active_source || 'articles'
+        result += hidden_field_tag "form", "basic"
+        # Pass through Summon facets, checkboxes, sort, paging, as hidden form variables
+        # This needs to work for any data-source which is an instance of Summon:  Articles or Newspapers
+        if @results.kind_of?(Hash) && @results.values.first.instance_of?(Spectrum::Engines::Summon)
+          summon_query_as_hash = @results.values.first.search.query.to_hash
+          result += summon_hidden_keys_for_search(summon_query_as_hash)
+        end
         # insert drop-down
         result += dropdown_with_select_tag(:search_field, options['search_fields'].invert, h(search_params[:search_field]), :title => "Targeted search options", :class=>"search_options")
       end

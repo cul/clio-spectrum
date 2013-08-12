@@ -1,20 +1,32 @@
 
--# ARTICLES (SUMMON) ADVANCED SEARCH PANEL
+-# SUMMON ADVANCED SEARCH PANEL (ARTICLES or NEWSPAPERS)
 
 .advanced_search
 
   .span12
     -# Adding this magic <span> makes advanced_search show and basic_search hide
-    - if params[:search_field] == 'advanced'
+    - if params[:form] == 'advanced'
       %span.show_advanced_search
 
     = form_tag path, :class => "form-horizontal", :method => "GET" do
-
       -# Pass through Summon facets, checkboxes, sort, paging, as hidden form variables
-      - if @results.kind_of?(Hash) && @results['articles'] && @results['articles'].search
-        - summon_query_as_hash = @results['articles'].search.query.to_hash
+      -# This needs to work for any data-source which is an instance of Summon:  Articles or Newspapers
+      -# We're in ADV search here, so we know @results will have only a single result set
+      -# - if @results.kind_of?(Hash) && @results['articles'] && @results['articles'].search
+      -#   - summon_query_as_hash = @results['articles'].search.query.to_hash
+      -# - raise
+      - if @results.kind_of?(Hash) && @results.values.first.instance_of?(Spectrum::Engines::Summon)
+        -# But don't put s.fq as hidden fields, since they'll be un-hidden in this below form.
+        - summon_query_as_hash = @results.values.first.search.query.to_hash.except('s.fq')
         = summon_hidden_keys_for_search(summon_query_as_hash)
-      -# Map simple or advanced CGI params to default field values for form fields, below.
+
+      -# # If we're at the Quicksearch landing page, building search-forms that will be
+      -# # shown to the user via Javascript datasource switching, mark as "new_search"
+      - if @active_source == 'quicksearch'
+        = hidden_field_tag 'new_search', 'true'
+
+
+      -# Map CGI params to default field values for form fields, below.
       - field_values = build_articles_advanced_field_values_hash(params)
 
       .search_title
@@ -25,9 +37,8 @@
           %span.visible-desktop Search
         =link_to "Basic Search", "#", class: "btn btn-link advanced_search_toggle"
 
-      -# = hidden_field_tag :new_search, "true"
-      = hidden_field_tag 'search_field', 'advanced'
-
+      = hidden_field_tag 'form', 'advanced'
+      = hidden_field_tag 'source', source || 'articles'
 
       .advanced_search_row
         .control-label Keywords:
