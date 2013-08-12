@@ -353,8 +353,12 @@ module Spectrum
         params = @search.query.to_hash
         # merge in whatever new command overlays current summonstate
         params.merge!(cmd)
-        # add-in our interface-level params 
-        params.merge!( {'search_field' => 'advanced'} ) if @search_field == 'advanced'
+        # raise
+        # add-in our CLIO interface-level params 
+        params.merge!( {'form' => @params['form']} ) if @params['form']
+        params.merge!( {'search_field' => @search_field} ) if @search_field
+        params.merge!( {'q' => @params['q']} ) if @params['q']
+        # pass along the built-up params to a source-specific URL builder
         by_source_search_link(params)
       end
 
