@@ -139,8 +139,10 @@ module ArticlesHelper
     # based on Blacklight::HashAsHiddenFieldsHelperBehavior
     hidden_fields = []
     summon_query_as_hash.each do |name, value|
-      # skip the advanced search fields, we're sending them in un-hidden
-      next if name == 's.fq'
+
+      # this is moved to the caller's responsibility
+      # # skip the advanced search fields, we're sending them in un-hidden
+      # next if name == 's.fq'
 
       if value.is_a?(Array)
         value.each do |v|
@@ -172,11 +174,14 @@ module ArticlesHelper
   def build_articles_advanced_field_values_hash(params)
     hash = {}
 
-    if params['search_field'] == 'advanced'
+    if params['s.fq']
       params['s.fq'].each do |field, value|
+        # Rails.logger.debug "field/value=#{field}/#{value}"
         hash[field] = value
       end
-    elsif /s.fq\[(\w+)\]/ =~ params['search_field']
+    end
+
+    if /s.fq\[(\w+)\]/ =~ params['search_field']
       hash[$1] = params['q']
     end
     hash

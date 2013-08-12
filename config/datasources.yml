@@ -12,7 +12,7 @@ datasources:
       placeholder: Newspapers
       search_type: summon
       advanced: true
-      search_category: newspapers
+      # search_category: newspapers
       search_fields:
         s.q: Keywords
         s.fq[AuthorCombined]: Author
@@ -26,7 +26,7 @@ datasources:
       placeholder: Articles
       search_type: summon
       advanced: true
-      search_category: articles
+      # search_category: articles
       search_fields:
         s.q: Keywords
         s.fq[AuthorCombined]: Author

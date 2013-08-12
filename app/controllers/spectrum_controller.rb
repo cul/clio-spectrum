@@ -1,3 +1,15 @@
+# 
+# SpectrumController#search() - primary entry point
+#   - figures out the sources, then for each one calls:
+#     SpectrumController#get_results()
+#     - which for each source
+#       - fixes input parameters in a source-specific way,
+#       - calls either:  Spectrum::Engines::Summon.new(fixed_params)
+#       -           or:  blacklight_search(fixed_params)
+# 
+# SpectrumController#fetch() - alternative entry point
+#   - does the same thing, but for AJAX calls, returning JSON
+# 
 class SpectrumController < ApplicationController
   include Blacklight::Controller
   include Blacklight::Catalog
@@ -5,13 +17,20 @@ class SpectrumController < ApplicationController
   include BlacklightRangeLimit::ControllerOverride
   layout 'quicksearch'
 
+
+
   def search
     @results = []
 
-    # process any Filter Query - turn Summon API Array of key:value pairs into
+    # process any Filter Queries - turn Summon API Array of key:value pairs into
     # nested Rails hash (see inverse transform in Spectrum::Engines::Summon)
+    #  BEFORE: params[s.fq]="AuthorCombined:eric foner"
+    #  AFTER:  params[s.fq]={"AuthorCombined"=>"eric foner"}
+    # [This logic is here instead of fix_articles_params, because it needs to act
+    #  upon the true params object, not the cloned copy.]
     if params['s.fq'].kind_of?(Array) or params['s.fq'].kind_of?(String)
       new_fq = {}
+      key_value_array = []
       Array.wrap(params['s.fq']).each do |key_value|
         key_value_array  = key_value.split(':')
         new_fq[ key_value_array[0] ] = key_value_array[1] if key_value_array.size == 2
@@ -32,7 +51,7 @@ class SpectrumController < ApplicationController
       else
         @search_style = @search_layout['style']
         @has_facets = @search_layout['has_facets']
-        categories =  @search_layout['columns'].collect { |col|
+        sources =  @search_layout['columns'].collect { |col|
           col['searches'].collect { |item| item['source'] }
         }.flatten
 
@@ -41,9 +60,9 @@ class SpectrumController < ApplicationController
         if @search_style == 'aggregate' && !session[:async_off]
           @action_has_async = true
           @results = {}
-          categories.each { |source| @results[source] = {} }
+          sources.each { |source| @results[source] = {} }
         else
-          @results = get_results(categories)
+          @results = get_results(sources)
         end
 
       end
@@ -64,11 +83,11 @@ class SpectrumController < ApplicationController
       @fetch_action = true
       @search_style = @search_layout['style']
       @has_facets = @search_layout['has_facets']
-      categories =  @search_layout['columns'].collect { |col|
+      sources =  @search_layout['columns'].collect { |col|
         col['searches'].collect { |item| item['source'] }
       }.flatten.select { |source| source == @datasource }
 
-      @results = get_results(categories)
+      @results = get_results(sources)
       render 'fetch', layout: 'js_return'
 
     end
@@ -77,57 +96,62 @@ class SpectrumController < ApplicationController
 
   private
 
-  def fix_articles_params(param_list)
-    param_list['authorized'] = @user_characteristics[:authorized]
+  def fix_articles_params(params)
+    # Rails.logger.debug "fix_articles_params() in params=#{params.inspect}"
+
+    params['authorized'] = @user_characteristics[:authorized]
+
 
     # seeing a "q" param means a submit directly from the basic search box
+    # OR from a direct link
     # (instead of from a facet, or a sort/paginate link, or advanced search)
-    if param_list['q']
+    if params['q']
       # which search field was selected from the drop-down?  default s.q
-      search_field = param_list['search_field'] ||= 's.q'
-      search_value = param_list['q']
+      search_field = params['search_field'] ||= 's.q'
+      search_value = params['q']
 
       if search_field == 's.q'
-        param_list['s.q'] ||= search_value
-        session['search']['s.q'] = search_value
+        # move the CLIO-interface "q" to what Summon works with, "s.q"
+        params['s.q']            = params['q']
+        session['search']['s.q'] = params['q']
       else
         # the search field is a filter query (s.fq), e.g. "s.fq[TitleCombined]"
         h = Rack::Utils.parse_nested_query("#{search_field}=#{search_value}")
-        param_list.merge! h
+        params.merge! h
         # explicitly set base query s.q to emtpy string
-        param_list['s.q'] = ''
+        params['s.q'] = ''
         session['search']['s.q'] = ''
       end
 
-      param_list['new_search'] = true
-
-      param_list.delete('search_field')
-      param_list.delete('q')
-
+      # why knock these out?
+      # params.delete('search_field')
+      # params.delete('q')
     end
 
-    if param_list['pub_date']
-      param_list['s.cmd'] = "setRangeFilter(PublicationDate,#{param_list['pub_date']['min_value']}:#{param_list['pub_date']['max_value']})"
-      param_list.delete('q')
+    if params['pub_date']
+      params['s.cmd'] = "setRangeFilter(PublicationDate,#{params['pub_date']['min_value']}:#{params['pub_date']['max_value']})"
+      params.delete('q')
     end
 
-    param_list
+    # Rails.logger.debug "fix_articles_params() out params=#{params.inspect}"
+
+    params
 
   end
 
-  def get_results(categories)
+  def get_results(sources)
     @result_hash = {}
     new_params = params.to_hash
-    categories.listify.each do |category|
+    sources.listify.each do |source|
 
       fixed_params = new_params.deep_clone
-      %w{layout commit source categories controller action}.each { |param_name|
+      %w{layout commit source sources controller action}.each { |param_name|
          fixed_params.delete(param_name)
       }
       fixed_params.delete(:source)
       # "results" is not the search results, it's the engine object, in a
       # post-search-execution state.
-      results = case category
+      results = case source
         when 'articles_dissertations'
           fixed_params['source'] = 'dissertations'
           fixed_params = fix_articles_params(fixed_params)
@@ -182,10 +206,10 @@ class SpectrumController < ApplicationController
           Spectrum::Engines::GoogleAppliance.new(fixed_params)
 
         else
-          raise Error.new("SpectrumController#get_results() unhandled category: '#{category}'")
+          raise Error.new("SpectrumController#get_results() unhandled source: '#{source}'")
         end
 
-      @result_hash[category] = results
+      @result_hash[source] = results
     end
 
     @result_hash
