@@ -122,11 +122,11 @@ module ArticlesHelper
       break if ordered_authors.size >= authors_to_show
     }
 
-    ordered_authors = ordered_authors.join ', '
-    if ordered_authors.size >= authors_to_show
-      ordered_authors +=  "  (additional #{total_authors - authors_to_show} authors not shown)"
+    authors_display = ordered_authors.join ', '
+    if total_authors >= authors_to_show
+      authors_display +=  "  (additional #{total_authors - authors_to_show} authors not shown)"
     end
-
+    authors_display
   end
 
   def process_summon_date(date)
