@@ -5,7 +5,8 @@ Clio::Application.routes.draw do
 
   match 'lists/add/:item_key_list', :via => [:get], :to => 'saved_lists#add', :as => :savedlist_add
   match 'lists/add', :via => [:post], :to => 'saved_lists#add', :as => :savedlist_add
-  match 'lists/remove', :via => [:post], :to => 'saved_lists#remove', :as => :savedlist_remove
+  match 'lists/remove', :via => [:get], :to => 'saved_lists#remove', :as => :savedlist_remove
+  match 'lists/move', :via => [:get], :to => 'saved_lists#move', :as => :savedlist_move
   match '/lists/email(.:format)', :to => "saved_lists#email", :as => :email_savedlist
 
   # These have to come LAST of the lists paths

@@ -20,17 +20,14 @@
     %br
 
     .sortAndPerPage.btn-toolbar
-      = render 'move_items'
+      = render 'move_items', :list => @list
       = render 'list_actions_widget'
-      <!-- = render 'sort_widget' -->
 
-    #documents
+    #documents.saved_list_documents
       - @document_list.each do |document|
         - if document.instance_of?(Summon::Document)
+          -# - raise
           = render_document_view(document, :format => 'article', :template => 'summon')
         - if document.instance_of?(SolrDocument)
           = render_document_view(document, :format => 'clio', :template => 'catalog_list', :counter => nil)
-
-      -# - @catalog_document_list.each do |document|
-      -#   = render_document_view(document, :format => 'clio', :template => 'catalog_list', :counter => nil)
 

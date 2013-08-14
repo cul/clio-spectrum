@@ -1,4 +1,9 @@
+-# _formats /article/_summon_show.html.haml
+-# Used to generate text for Email - ok to be verbose
 - if document.authors.any?
   = add_row('Author', get_article_authors(document), :html_safe => true)
 = add_row('Citation', get_article_citation(document))
 = add_row('Format', get_article_type(document))
+- if document.abstract
+  \
+  = add_row('Abstract', document.abstract)

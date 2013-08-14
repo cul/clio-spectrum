@@ -182,7 +182,7 @@ class SavedListsController < ApplicationController
     @list.destroy
 
     respond_to do |format|
-      format.html { redirect_to lists_path }
+      format.html { redirect_to lists_path, notice: "List '#{v@list.name}' deleted." }
       format.json { head :no_content }
     end
   end
@@ -198,29 +198,82 @@ class SavedListsController < ApplicationController
       render :nothing => true, :status => :unauthorized and return
     end
 
+    unless params[:item_key_list]
+      render :nothing => true, :status => :bad_request and return
+    end
+
     list_name = params[:name] ||= SavedList::DEFAULT_LIST_NAME
 
-    the_list = SavedList.where(:owner => current_user.login, :name => list_name).first
-    unless the_list
-      the_list = SavedList.new(:created_by => current_user.login,
-                               :owner => current_user.login,
-                               :name => list_name)
-      the_list.save
+    @list = SavedList.where(:owner => current_user.login, :name => list_name).first
+    unless @list
+      @list = SavedList.new(:created_by => current_user.login,
+                           :owner => current_user.login,
+                           :name => list_name)
+      @list.save
     end
-# logger.warn "=========tl #{the_list.inspect}"
-    current_item_keys = the_list.saved_list_items.map{ |item| item.item_key }
-# logger.warn "=========cik #{current_item_keys.inspect}"
+    current_item_keys = @list.saved_list_items.map{ |item| item.item_key }
 
+    new_item_adds = 0
     for item_key in Array.wrap(params[:item_key_list]) do
       next if current_item_keys.include? item_key
-# logger.warn "=========ik #{item_key.inspect}"
 
-      new_item = SavedListItem.new(:item_key => item_key, :saved_list_id => the_list[:id])
+      new_item = SavedListItem.new(:item_key => item_key, :saved_list_id => @list[:id])
       new_item.save
-      the_list.touch
+      new_item_adds += 1
+      @list.touch
     end
 
-    render :nothing => true, :status => :ok
+    # render :nothing => true, :status => :ok
+    render :text => "#{new_item_adds} new items added to list #{view_context.link_to @list.name, @list.url}", :status => :ok
+  end
+
+
+  def move
+
+    # You have to be logged in to use this feature
+    if current_user.blank?
+      render :nothing => true, :status => :unauthorized and return
+    end
+
+    # To be sure about what we're doing, require the following params:
+    # from_list     -- the Name of the source list
+    # to_list       -- the Name of the destination list
+    # item_key_list -- an array of item keys (bib keys or Summon FETCH ids)
+    unless params[:from_list] && params[:to_list] && params[:item_key_list]
+      return redirect_to root_path,
+        :flash => { :error => "Invalid input parameters" }
+    end
+    if params[:from_list] == params[:to_list]
+      return redirect_to root_path,
+        :flash => { :error => "Invalid input parameters" }
+    end
+
+    # Fetch the source list, we'll need it's ID
+    @from_list = SavedList.where(:owner => current_user.login, :name => params[:from_list]).first
+
+
+    # Find - or create - a destination list with the "to_list" Name
+    @list = SavedList.where(:owner => current_user.login, :name => params[:to_list]).first
+    unless @list
+      @list = SavedList.new(:owner => current_user.login,
+                            :name => params[:to_list])
+      @list.save
+    end
+
+    # loop over the passed-in items, set their owning list to Named list
+    for item_key in Array.wrap(params[:item_key_list]) do
+      @item = SavedListItem.where(:saved_list_id => @from_list.id,
+                                  :item_key => item_key).first
+      unless @item
+        return redirect_to root_path,
+          :flash => { :error => "Item Key #{item_key} not found in #{params[:from_list]}" }
+      end
+      @item.saved_list_id = @list.id
+      @item.save
+    end
+
+    redirect_to @list.url, notice: "#{params[:item_key_list].size} items moved to list #{params[:to_list]}"
+
   end
 
 
@@ -228,25 +281,41 @@ class SavedListsController < ApplicationController
   def remove
     # You have to be logged in to use this feature
     if current_user.blank?
-      render :nothing => true, :status => :unauthorized and return
+      return redirect_to root_path,
+        :flash => { :error => "Login required to access Saved Lists" }
+      # render :nothing => true, :status => :unauthorized and return
+    end
+
+    unless params[:item_key_list]
+      return redirect_to root_path,
+        :flash => { :error => "Bad Request - no item keys passed" }
+      # render :nothing => true, :status => :bad_request and return
     end
 
     # You have to own the list
     @list = SavedList.find_by_owner_and_id(current_user.login, params[:list_id])
     unless @list
-      render :nothing => true, :status => :not_found and return
+      return redirect_to root_path,
+        :flash => { :error => "Cannot access list" }
+      # render :nothing => true, :status => :not_found and return
     end
 
     Array.wrap(params[:item_key_list]).each do |item_key|
       list_item = SavedListItem.find_by_item_key_and_saved_list_id(item_key, @list.id)
-      if list_item.destroy
+      if list_item && list_item.destroy
         @list.touch
       else
-        render :nothing => true, :status => :internal_server_error and return
+        return redirect_to root_path,
+          :flash => { :error => "Unexpected error removing list items" }
+        # render :nothing => true, :status => :internal_server_error and return
       end
     end
 
-    render :nothing => true, :status => :ok
+    # render :nothing => true, :status => :ok
+    respond_to do |format|
+      format.html { redirect_to @list.url, notice: "#{params[:item_key_list].size} items removed from list" }
+    end
+
 
   end
 

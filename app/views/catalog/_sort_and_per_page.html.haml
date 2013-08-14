@@ -2,7 +2,9 @@
   .sortAndPerPage
     = render "paginate_compact"
     = link_to image_tag('rss-feed-icon-14x14.png', :size => "13x13"), catalog_index_path(params.merge(:format => 'atom')), :class => "rss-feed"
-    = render 'selections_widget'
+    -# Allow "selections" for any Catalog-based data source, but NOT for Academic Commons
+    - if @active_source != 'academic_commons'
+      = render 'selections_widget'
     = render 'sort_widget'
     = render 'per_page_widget'
 - else
