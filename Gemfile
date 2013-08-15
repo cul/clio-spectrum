@@ -90,6 +90,10 @@ gem 'stringex'
 # Allow recovery for deleted Saved Lists 
 gem 'paper_trail'
 
+# https://github.com/kickstarter/rack-attack
+# A DSL for blocking & throttling abusive clients
+gem 'rack-attack'
+
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 
 # Bundle the extra gems:

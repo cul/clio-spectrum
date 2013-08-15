@@ -82,5 +82,7 @@ module Clio
     # http://blog.gingerlime.com/2012/rails-ip-spoofing
     config.middleware.delete ActionDispatch::RemoteIp
 
+    # "DSL for blocking & throttling abusive clients"
+    config.middleware.use Rack::Attack
   end
 end
