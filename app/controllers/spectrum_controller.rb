@@ -124,8 +124,11 @@ class SpectrumController < ApplicationController
       end
 
       # why knock these out?
+      # So that this isn't passed along in the built navigation URLs,
+      # which interferes when we try to "X" our keyword term.
+      params.delete('q')
+      # This we want to leave in (don't delete), so our selected field remains?
       # params.delete('search_field')
-      # params.delete('q')
     end
 
     if params['pub_date']

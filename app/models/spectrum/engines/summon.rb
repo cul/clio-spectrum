@@ -14,6 +14,7 @@ module Spectrum
       }.freeze
 
       # These source-specific params are ONLY FOR NEW SEARCHES
+      # s.ho=<boolean>     Holdings Only Parameter, a.k.a., "Columbia's collection only"
       SUMMON_DEFAULT_PARAMS = {
 
         'newspapers' =>  {'s.ho' => 't',
@@ -41,7 +42,17 @@ module Spectrum
       def initialize(options = {})
         # Rails.logger.debug "initialize() options=#{options.inspect}"
         @source = options.delete('source') || options.delete(:source)
-        @params = (@source && options.delete('new_search')) ? SUMMON_DEFAULT_PARAMS[@source].dup : {}
+        @params = {}
+        # These sources only come from bento-box aggregate searches, so enforce
+        # the source-specific params without requires 'new_search' CGI param
+        if @source && (@source == 'ebooks' || @source == 'dissertations')
+          @params = SUMMON_DEFAULT_PARAMS[@source].dup
+        # Otherwise, when source is Articles or Newspapers, we set source-specific default
+        # params only for new searches.  Subsequent searches may change these values.
+        elsif @source && options.delete('new_search')
+          @params = SUMMON_DEFAULT_PARAMS[@source].dup
+        end
+        # @params = (@source && options.delete('new_search')) ? SUMMON_DEFAULT_PARAMS[@source].dup : {}
         @params.merge!(SUMMON_FIXED_PARAMS)
 
         @config = options.delete('config') || APP_CONFIG['summon']

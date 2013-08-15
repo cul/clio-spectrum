@@ -7,7 +7,10 @@
   = link_to "Start Over", result.start_over_link, :class => "summon_startOverLink", :id => "startOverLink"
   - result.constraints_with_links.each do |text, link|
 
-    .search-constraint.btn-group
-      %button.btn{:disabled => 'true'}=text
-      %button.btn=link_to "x", link, :alt => "remove", :class => "btnRemove imgReplace"
+    %div.constraint-box
+      %span.filterValue
+        =text
+        =link_to content_tag(:i, '', :class => 'icon-remove'), link
+      %span.chrome-fix
+
 

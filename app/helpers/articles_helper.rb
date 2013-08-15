@@ -171,19 +171,45 @@ module ArticlesHelper
   #   "s.q"=>""
   #   "s.fq"=>{"AuthorCombined"=>"", "TitleCombined"=>"", 
   #            "PublicationTitle"=>"nature", "ISBN"=>"", "ISSN"=>""}
-  def build_articles_advanced_field_values_hash(params)
-    hash = {}
+  # ### ### This is based on CGI Params... but those are unrelible, as they
+  # ### ### dont' factor in constraint "Remove" commands.
+  # def build_articles_advanced_field_values_hash(params)
+  #   hash = {}
+  # 
+  #   if params['s.fq']
+  #     params['s.fq'].each do |field, value|
+  #       # Rails.logger.debug "field/value=#{field}/#{value}"
+  #       hash[field] = value
+  #     end
+  #   end
+  # 
+  #   # For:  
+  #   #   "q"=>"nature"
+  #   #   "search_field"=>"s.fq[PublicationTitle]"
+  #   # Set:
+  #   # 's.fq[PublicationTitle]' => 'nature'
+  #   if /s.fq\[(\w+)\]/ =~ params['search_field']
+  #     hash[$1] = params['q']
+  #   end
+  #   hash
+  # end
 
-    if params['s.fq']
-      params['s.fq'].each do |field, value|
+  # - field_values = build_articles_advanced_field_values_hash(summon_query_as_hash)
+  def build_articles_advanced_field_values_hash(summon_query_as_hash)
+    hash = {}
+# raise
+    if summon_query_as_hash['s.q']
+      hash['s.q'] = summon_query_as_hash['s.q']
+    end
+
+    if summon_query_as_hash['s.fq']
+      Array.wrap(summon_query_as_hash['s.fq']).each do | fq |
+        field, value = fq.split(':')
         # Rails.logger.debug "field/value=#{field}/#{value}"
         hash[field] = value
       end
     end
 
-    if /s.fq\[(\w+)\]/ =~ params['search_field']
-      hash[$1] = params['q']
-    end
     hash
   end
 

@@ -63,11 +63,16 @@ module SearchHelper
     if show_all_search_boxes || active_search_box == source
       has_options = (options['search_type'].in?("blacklight","summon") ? "search_q with_options" : "search_q without_options")
 
-      # basic search input box
+      # BASIC SEARCH INPUT BOX
+      summon_query_as_hash = {}
+      if @results.kind_of?(Hash) && @results.values.first.instance_of?(Spectrum::Engines::Summon)
+        summon_query_as_hash = @results.values.first.search.query.to_hash
+      end
       result += text_field_tag(:q,
-          search_params[:q] || search_params[:'s.q'],
+          search_params[:q] || summon_query_as_hash['s.q'] || '',
           class: has_options, id: "#{source}_q", placeholder: options['placeholder'])
 
+      ### for blacklight (catalog, academic commons)
       if options['search_type'] == "blacklight"
         # insert hidden fields
         result += standard_hidden_keys_for_search
@@ -75,6 +80,8 @@ module SearchHelper
         if options['search_fields'].kind_of?(Hash)
           result += dropdown_with_select_tag(:search_field, options['search_fields'].invert, h(search_params[:search_field]), :title => "Targeted search options", :class=>"search_options")
         end
+
+      ### for summon (articles, newspapers)
       elsif options['search_type'] == "summon"
         # insert hidden fields
         # If we're at the Quicksearch landing page, building search-forms that will be
@@ -84,12 +91,11 @@ module SearchHelper
         end
         result += hidden_field_tag 'source', @active_source || 'articles'
         result += hidden_field_tag "form", "basic"
+
         # Pass through Summon facets, checkboxes, sort, paging, as hidden form variables
-        # This needs to work for any data-source which is an instance of Summon:  Articles or Newspapers
-        if @results.kind_of?(Hash) && @results.values.first.instance_of?(Spectrum::Engines::Summon)
-          summon_query_as_hash = @results.values.first.search.query.to_hash
-          result += summon_hidden_keys_for_search(summon_query_as_hash)
-        end
+        # For any Summon data-source:  Articles or Newspapers
+        result += summon_hidden_keys_for_search(summon_query_as_hash.except('s.fq'))
+
         # insert drop-down
         result += dropdown_with_select_tag(:search_field, options['search_fields'].invert, h(search_params[:search_field]), :title => "Targeted search options", :class=>"search_options")
       end

@@ -15,19 +15,21 @@
       -# - if @results.kind_of?(Hash) && @results['articles'] && @results['articles'].search
       -#   - summon_query_as_hash = @results['articles'].search.query.to_hash
       -# - raise
+      - summon_query_as_hash = {}
       - if @results.kind_of?(Hash) && @results.values.first.instance_of?(Spectrum::Engines::Summon)
-        -# But don't put s.fq as hidden fields, since they'll be un-hidden in this below form.
-        - summon_query_as_hash = @results.values.first.search.query.to_hash.except('s.fq')
-        = summon_hidden_keys_for_search(summon_query_as_hash)
+        -# But don't put s.fq/s.q as hidden fields, since they'll be in the below form.
+        -# - raise
+        - summon_query_as_hash = @results.values.first.search.query.to_hash
+        = summon_hidden_keys_for_search(summon_query_as_hash.except('s.fq').except('s.q'))
 
       -# # If we're at the Quicksearch landing page, building search-forms that will be
       -# # shown to the user via Javascript datasource switching, mark as "new_search"
       - if @active_source == 'quicksearch'
         = hidden_field_tag 'new_search', 'true'
 
-
-      -# Map CGI params to default field values for form fields, below.
-      - field_values = build_articles_advanced_field_values_hash(params)
+      -# Map Summon Query Params to default field values for form fields, below.
+      -# (Not based on CGI params: they don't consider constraint "remove" cmds)
+      - field_values = build_articles_advanced_field_values_hash(summon_query_as_hash)
 
       .search_title
         Match all
@@ -43,7 +45,7 @@
       .advanced_search_row
         .control-label Keywords:
         .controls
-          = text_field_tag "s.q", params['s.q'], :title => "Query", :id => "query", :class => 'input-xlarge'
+          = text_field_tag "s.q", field_values['s.q'], :title => "Query", :id => "query", :class => 'input-xlarge'
 
       .advanced_search_row
         .control-label Author:
