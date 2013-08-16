@@ -17,6 +17,10 @@ require File.expand_path('../../lib/rsolr_notifications', __FILE__)
 # require File.expand_path('../../lib/voyager_holding', __FILE__)
 RELEASE_STAMP = IO.read("VERSION").strip
 
+# explicitly require, so that "config.middleware.use" works below during
+# capistrano's assets:precompile step
+require 'rack/attack'
+
 module Clio
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -83,6 +87,6 @@ module Clio
     config.middleware.delete ActionDispatch::RemoteIp
 
     # "DSL for blocking & throttling abusive clients"
-    config.middleware.use "Rack::Attack"
+    config.middleware.use Rack::Attack
   end
 end
