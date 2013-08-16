@@ -36,6 +36,10 @@ Clio::Application.configure do
   config.assets.compress = true
   config.assets.compile = false
   config.assets.digest = true
+
+  # "uninitialized constant Rack::Attack" when deploying production
+  config.assets.initialize_on_precompile = true
+
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 
