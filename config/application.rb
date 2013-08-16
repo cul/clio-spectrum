@@ -83,6 +83,6 @@ module Clio
     config.middleware.delete ActionDispatch::RemoteIp
 
     # "DSL for blocking & throttling abusive clients"
-    config.middleware.use Rack::Attack
+    config.middleware.use "Rack::Attack"
   end
 end
