@@ -100,8 +100,8 @@ module Spectrum
 
           @service = ::Summon::Service.new(@config)
 
-          Rails.logger.warn "[Spectrum][Summon] config: #{@config}"
-          Rails.logger.warn "[Spectrum][Summon] params: #{@params}"
+          Rails.logger.debug "[Spectrum][Summon] config: #{@config}"
+          Rails.logger.debug "[Spectrum][Summon] params: #{@params}"
 
           ### THIS is the actual call to the Summon service to do the search
           @search = @service.search(@params)
