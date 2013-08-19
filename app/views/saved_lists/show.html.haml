@@ -1,3 +1,4 @@
+-# SAVED_LISTS/SHOW - build the main dispaly page of Saved Lists
 
 .row-fluid
 
@@ -5,19 +6,22 @@
     = render 'savedlist_control_panel'
 
 
-
   .savedlist_display_list.span9
 
-    %p.lead= @list.display_name
+    .saved_list_header
+      %strong List:
+      %span.lead= @list.display_name
+
+      - if current_user && current_user.login == @list.owner
+        %span.saved_list_header=link_to "edit list details", edit_saved_list_path(@list)
 
     %p= @list.description
 
-    .list_url_display
+    .saved_list_header
       %strong URL:
       %span.lead= get_full_url(@list)
       = get_permissions_label(@list.permissions)
 
-    %br
 
     .sortAndPerPage.btn-toolbar
       = render 'move_items', :list => @list
@@ -29,5 +33,7 @@
           -# - raise
           = render_document_view(document, :format => 'article', :template => 'summon')
         - if document.instance_of?(SolrDocument)
-          = render_document_view(document, :format => 'clio', :template => 'catalog_list', :counter => nil)
+          -# Need to specify the source for these documents - the
+          -# current @active_source is not meaningful within lists
+          = render_document_view(document, :format => 'clio', :template => 'catalog_list', :counter => nil, :source=>'catalog')
 

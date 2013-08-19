@@ -1,14 +1,12 @@
 
+- link_text = "#{menu_list.display_name.abbreviate(20)} (#{menu_list.size})"
 
 .row-fluid
-- if menu_list == current_list
-  %b= menu_list.display_name
-- else
-  = link_to menu_list.display_name, menu_list.url
-
-.row-fluid
-  .span4
-    #{menu_list.size} items
+  .span8
+    - if menu_list == current_list
+      %b= link_text
+    - else
+      %b= link_to link_text, menu_list.url
   .span4.text-right
     #{get_permissions_label(menu_list.permissions)}
 

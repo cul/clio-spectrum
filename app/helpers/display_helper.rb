@@ -56,6 +56,9 @@ module DisplayHelper
     template = options.delete(:template) || raise("Must specify template")
     formats = determine_formats(document, options.delete(:format))
 
+    # Render based on @active_source -- unless an alternative is passed in
+    options[:source] ||= @active_source
+
     partial_list = formats.collect { |format| "/_formats/#{format}/#{template}"}
     @add_row_style = options[:style]
     view = render_first_available_partial(partial_list, options.merge(:document => document))
