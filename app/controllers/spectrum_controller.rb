@@ -42,7 +42,10 @@ class SpectrumController < ApplicationController
 
     @search_layout = SEARCHES_CONFIG['layouts'][params['layout']]
 
-      if params['q'].nil? && params['s.q'].nil? && params['s.fq'].nil? ||
+      # First, try to detect if we should go to the landing page.
+      # But... Facet-Only searches are still searches.
+      if params['q'].nil? && params['s.q'].nil? &&
+         params['s.fq'].nil? && params['s.ff'].nil? ||
             (params['q'].to_s.empty? && @active_source == 'library_web')
         flash[:error] = "You cannot search with an empty string." if params['commit']
       elsif @search_layout.nil?
