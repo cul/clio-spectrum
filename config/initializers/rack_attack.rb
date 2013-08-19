@@ -40,12 +40,12 @@ Rack::Attack.blacklist('block all Java User Agents') do |req|
 end
 
 # Rate-Limit to a certain number of requests per minute
-Rack::Attack.throttle('req/ip', :limit => APP_CONFIG['THROTTLE_LIMIT_PER_MINUTE'], :period => 1.minute) do |req|
+Rack::Attack.throttle('req/minute', :limit => APP_CONFIG['THROTTLE_LIMIT_PER_MINUTE'], :period => 1.minute) do |req|
   req.ip
 end
 
 # Rate-Limit to a certain number of requests per hour
-Rack::Attack.throttle('req/ip', :limit => APP_CONFIG['THROTTLE_LIMIT_PER_HOUR'], :period => 1.hour) do |req|
+Rack::Attack.throttle('req/hour', :limit => APP_CONFIG['THROTTLE_LIMIT_PER_HOUR'], :period => 1.hour) do |req|
   req.ip
 end
 
