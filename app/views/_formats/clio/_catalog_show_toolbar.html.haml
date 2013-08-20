@@ -28,7 +28,7 @@
 
       %li=link_to "Send to Phone", "#", :onclick => "OpenTextMessage(#{id}); return false;"
 
-      %li=link_to "Save to #{SavedList::DEFAULT_LIST_NAME}", "/lists/add/#{id}"
+      -# %li=link_to "Save to #{SavedList::DEFAULT_LIST_NAME}", "/lists/add/#{id}"
 
 
       %li= link_to "Save to #{SavedList::DEFAULT_LIST_NAME}", "#", :onclick => "saveBibToNamedList(#{id}, '#{SavedList::DEFAULT_LIST_NAME}'); return false;"

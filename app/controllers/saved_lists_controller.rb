@@ -1,6 +1,8 @@
 # require 'blacklight/catalog'
 
 class SavedListsController < ApplicationController
+  include ActionView::Helpers::TextHelper
+
   layout "no_sidebar"
 
   # better to put the method in ApplicationController
@@ -212,8 +214,8 @@ class SavedListsController < ApplicationController
     @list = SavedList.where(:owner => current_user.login, :name => list_name).first
     unless @list
       @list = SavedList.new(:created_by => current_user.login,
-                           :owner => current_user.login,
-                           :name => list_name)
+                            :owner => current_user.login,
+                            :name => list_name)
       @list.save
     end
     current_item_keys = @list.saved_list_items.map{ |item| item.item_key }
@@ -228,8 +230,16 @@ class SavedListsController < ApplicationController
       @list.touch
     end
 
+
+
+    # Special message if everything we were asked to add is already there
+    if new_item_adds == 0
+      render :text => "#{pluralize(params[:item_key_list].size, 'item')} already found in list #{view_context.link_to @list.name, @list.url}"
+      return
+    end
+
     # render :nothing => true, :status => :ok
-    render :text => "#{new_item_adds} new items added to list #{view_context.link_to @list.name, @list.url}", :status => :ok
+    render :text => "#{pluralize(params[:item_key_list].size, 'item')} added to list #{view_context.link_to @list.name, @list.url}", :status => :ok
   end
 
   # You MOVE your own items from list to list, 
@@ -259,12 +269,12 @@ class SavedListsController < ApplicationController
      # Fetch the source list, we'll need it's ID
      if params[:from_owner] == current_user.login
        # Our own list
-       @from_list = SavedList.where(:owner => current_user.login, :name => params[:from_list]).first
+       from_list = SavedList.where(:owner => current_user.login, :name => params[:from_list]).first
      else
        # Someone else's list - it must be public!
-       @from_list = SavedList.where(:owner        =>  params[:from_owner],
-                                    :name         =>  params[:from_list],
-                                    :permissions  =>  'public').first
+       from_list = SavedList.where(:owner        =>  params[:from_owner],
+                                   :name         =>  params[:from_list],
+                                   :permissions  =>  'public').first
      end
 
 
@@ -278,16 +288,16 @@ class SavedListsController < ApplicationController
 
      # loop over the passed-in items, COPYING THEM to NEW saved-list-items
      for item_key in Array.wrap(params[:item_key_list]) do
-       @item = SavedListItem.where(:saved_list_id => @from_list.id,
-                                   :item_key => item_key).first
-       unless @item
+       item = SavedListItem.where(:saved_list_id => from_list.id,
+                                  :item_key => item_key).first
+       unless item
          return redirect_to root_path,
            :flash => { :error => "Item Key #{item_key} not found in #{params[:from_list]}" }
        end
-       
-       @new_item = @item.clone
-       @new_item.saved_list_id = @list.id
-       @new_item.save
+
+       new_item = item.dup
+       new_item.saved_list_id = @list.id
+       new_item.save
      end
 
      redirect_to @list.url, notice: "#{params[:item_key_list].size} items moved to list #{view_context.link_to @list.name, @list.url}".html_safe
@@ -316,7 +326,7 @@ class SavedListsController < ApplicationController
         :flash => { :error => "Invalid input parameters - unspecified" }
     end
     # Can't copy from a list to itself
-    if params[:from_list] == params[:to_list] 
+    if params[:from_list] == params[:to_list]
       return redirect_to root_path,
         :flash => { :error => "Invalid input parameters - can't move list to itself" }
     end
@@ -339,14 +349,14 @@ class SavedListsController < ApplicationController
 
     # loop over the passed-in items, set their owning list to Named list
     for item_key in Array.wrap(params[:item_key_list]) do
-      @item = SavedListItem.where(:saved_list_id => @from_list.id,
+      item = SavedListItem.where(:saved_list_id => @from_list.id,
                                   :item_key => item_key).first
-      unless @item
+      unless item
         return redirect_to root_path,
           :flash => { :error => "Item Key #{item_key} not found in #{params[:from_list]}" }
       end
-      @item.saved_list_id = @list.id
-      @item.save
+      item.saved_list_id = @list.id
+      item.save
     end
 
     redirect_to @list.url, notice: "#{params[:item_key_list].size} items moved to list #{view_context.link_to @list.name, @list.url}".html_safe
