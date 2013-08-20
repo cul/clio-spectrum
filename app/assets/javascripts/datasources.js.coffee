@@ -4,7 +4,7 @@ $ ->
     -> $(this).removeClass('hover')
   )
 
-  $("#datasource_expand").click -> 
+  $("#datasource_expand").click ->
     $(this).hide()
     $("#expanded_datasources").slideDown()
 
@@ -13,21 +13,21 @@ $ ->
       100
       -> $("#datasource_expand").show()
     )
- 
-  
+
+
 
   $(".datasource_link,.datasource_drop_link").click ->
     change_datasource($(this).attr('source'))
     #$("#mobile_datasource_select").val($(this).attr('source'))
 
 
-  $(".basic_search .search_q").observe_field(.25, -> 
+  $(".basic_search .search_q").observe_field(.25, ->
       if $(this).is(":visible")
         value = $(this).val()
         $(".basic_search .search_q:hidden").val(value)
-    
+
   )
-  
+
   bind_dropdown_selects()
 
 
@@ -65,7 +65,7 @@ change_datasource = (source) ->
   landing_selector = ".landing_page." + source
   $('.landing_page').hide()
   $(landing_selector).show()
-  
+
   search_box_select = ".basic_search .search_box." + source
   $('.basic_search .search_box.multi').hide()
   $(search_box_select).show()

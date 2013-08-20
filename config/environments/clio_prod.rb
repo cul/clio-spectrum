@@ -10,20 +10,24 @@ Clio::Application.configure do
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
 
-  # Show full error reports and disable caching
+  # if we consider them "local" we spew errors to the browser
   config.consider_all_requests_local       = false
+
+  # Do we want caching (page-, action-, fragment-) in this environment?
   config.action_controller.perform_caching = true
+  # Cache store details - disk or memory?  How big?  (50MB?)
+  config.cache_store = :memory_store, { size: 50000000 }
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
-  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' 
+  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
 
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {
-  :address => "localhost",
-  :domain => "bruckner.cc.columbia.edu",
-  :port => "25"
-}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "localhost",
+    :domain => "bruckner.cc.columbia.edu",
+    :port => "25"
+  }
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -32,12 +36,21 @@ config.action_mailer.smtp_settings = {
   config.assets.compress = true
   config.assets.compile = false
   config.assets.digest = true
+
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+
+  # BlacklightUnapi - quiet the extensive log entries:
+  # DEPRECATION WARNING: Passing a template handler in the template
+  # name is deprecated. You can simply remove the handler name or
+  # pass render :handlers => [:builder] instead.
+  #
+  ActiveSupport::Deprecation.silenced = true
+
 end
 
 Clio::Application.config.middleware.use ExceptionNotifier,
    :email_prefix => "[Clio Prod] ",
-   :sender_address => %{"notifier" <spectrum@libraries.cul.columbia.edu>},
-   :exception_recipients => %w{marquis@columbia.edu},
+   :sender_address => %{"notifier" <spectrum-tech@libraries.cul.columbia.edu>},
+   :exception_recipients => %w{spectrum-tech@libraries.cul.columbia.edu},
    :ignore_crawlers => %w{Googlebot bingbot}

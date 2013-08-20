@@ -1,0 +1,36 @@
+
+.sortAndPerPage.well
+  - previous_string = "\u00ab Previous"
+  - if result.previous_page?
+    =link_to previous_string, result.previous_page_path
+  - else
+    %span.disabled= previous_string
+
+  %span#current_item_info= " | #{result.start_item} - #{result.end_item} of #{number_with_delimiter(result.total_items)} | "
+
+  - next_string = "Next \u00bb"
+  - if result.next_page?
+    =link_to next_string, result.next_page_path
+  - else
+    %span.disabled= next_string
+
+  = render '/catalog/selections_widget'
+
+  #sort-dropdown.dropdown.pull-right.hidden-phone
+    %ul.css-dropdown
+      %li.btn.btn-link
+        =link_to("Sort by #{result.current_sort_name}")
+        %span.caret
+        %ul
+          - result.sorts_with_links.each do |link, name|
+            %li= link_to "#{name}", link
+
+  #per_page-dropdown.dropdown.pull-right.hidden-phone
+    %ul.css-dropdown
+      %li.btn.btn-link
+        =link_to("#{result.page_size} per page")
+        %span.caret
+        %ul
+          - result.page_size_with_links.each do |link, name|
+            %li= link_to "#{name} #{content_tag(:span, 'per page', :class =>'hide-text')}".html_safe, link
+

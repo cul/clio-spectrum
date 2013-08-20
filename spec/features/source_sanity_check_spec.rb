@@ -1,6 +1,13 @@
 require 'spec_helper'
 
-describe "All of the datasources should successfully display results" do
+describe "All datasource labels should display on home-page" do
+  it "including Libraries Website" do
+    visit root_path
+    find('#datasources').should have_text("Libraries Website")
+  end
+end
+
+describe "All of the datasources should successfully display results", :js => true do
   it "including quicksearch" do
     visit quicksearch_index_path('q' => 'test')
     page.should have_css(".result_set", :count => 4)
@@ -15,7 +22,6 @@ describe "All of the datasources should successfully display results" do
   end
 
   it "including articles" do
-    pending('need to reimplement articles')
     visit articles_index_path('q' => 'test')
     page.should have_css('.result')
   end
@@ -67,8 +73,6 @@ describe "All of the datasources should successfully display results" do
   end
 
   it "including the newspapers" do
-    pending('revamp of articles to redo newspapers page')
-    page.should have_css(".result_set", :count => 1)
     visit newspapers_index_path('q' => 'test')
     page.should have_css('.result')
   end

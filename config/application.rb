@@ -8,11 +8,18 @@ if defined?(Bundler)
   Bundler.require *Rails.groups(:assets => %w(development test))
 end
 
-require File.expand_path('../../lib/james_monkeys', __FILE__)
+# a place for patches with no personal name attached...
+# require File.expand_path('../../lib/monkey_patches', __FILE__)
+
+require File.expand_path('../../lib/monkey_patches', __FILE__)
 require File.expand_path('../../lib/google_books', __FILE__)
 require File.expand_path('../../lib/rsolr_notifications', __FILE__)
-require File.expand_path('../../lib/voyager_holding', __FILE__)
+# require File.expand_path('../../lib/voyager_holding', __FILE__)
 RELEASE_STAMP = IO.read("VERSION").strip
+
+# explicitly require, so that "config.middleware.use" works below during
+# capistrano's assets:precompile step
+require 'rack/attack'
 
 module Clio
   class Application < Rails::Application
@@ -32,6 +39,7 @@ module Clio
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
+    config.time_zone = 'Eastern Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
      #config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
@@ -49,9 +57,36 @@ module Clio
 
 
     # Enable the asset pipeline
-    config.assets.enabled = true    
+    config.assets.enabled = true
     # Default SASS Configuration, check out https://github.com/rails/sass-rails for details
 
     config.assets.version = RELEASE_STAMP
+
+    # see https://github.com/vidibus/vidibus-routing_error
+    # This isn't great, since it doesn't tell us or them that anything
+    # untoward has occurred!
+    #
+    # Catch 404s
+    config.after_initialize do |app|
+      app.routes.append{match '*catch_unknown_routes', :to => 'application#catch_404'}
+    end
+
+
+    # After seeing some: ActionDispatch::RemoteIp::IpSpoofAttackError
+    # 1) this exception is not actually indicative of spoofing, just
+    #    malformed requests, which in themselves are nothing to worry
+    #    about, so disable the check.
+    # http://stackoverflow.com/questions/7887932
+    config.action_dispatch.ip_spoofing_check = false
+    # 2) but we actually are vulnerable to spoofing, in that if the request
+    #    simply has an X-Forwarded-for header, we trust that value instead
+    #    of the source IP when we do our User.on_campus? check.
+    #    we can always use remote_addr instead of remote_ip, or we can just
+    #    turn off the middleware that populates remote_ip.
+    # http://blog.gingerlime.com/2012/rails-ip-spoofing
+    config.middleware.delete ActionDispatch::RemoteIp
+
+    # "DSL for blocking & throttling abusive clients"
+    config.middleware.use Rack::Attack
   end
 end

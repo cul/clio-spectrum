@@ -1,0 +1,21 @@
+/*
+ *= require_self
+ *
+ * Required by Blacklight
+ *= require 'blacklight'
+
+ * this is LDPD's standard bundle of styles
+ *= require 'ldpd_toolkit'
+
+ * pull in any styles we see from this directory recursively downwards
+ *= require_tree .
+
+ * clio_last has specific overrides to the ldpd_toolkit styles
+ *= require 'clio_last'
+
+ *
+ * Used by blacklight_range_limit
+ *= require  'blacklight_range_limit'
+ *
+*/
+

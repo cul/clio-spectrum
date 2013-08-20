@@ -9,7 +9,7 @@ class Library < ActiveRecord::Base
 
   def is_open?(check_at = Datetime.now)
     hours_res = hours.find_by_date(check_at.to_date)
-    
+
     return false if hours_res.nil? || hours_res.opens.nil?
     hours_res ? (hours_res.opens <= check_at && check_at <= hours_res.closes) : false
 

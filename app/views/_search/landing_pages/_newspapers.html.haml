@@ -5,30 +5,30 @@
     .title Newspapers
     %p Searches a vast full-text database of mostly U.S. newspaper articles.
 
-    %p To find a specific article, type article title in the search box above.
+    %p To find a specific article, enter the article title in the search box above.
 
-    %p To browse a specific newspaper, Type the newspaper name in the #{datasource_switch_link('Catalog', 'catalog')}.
+    %p To browse a specific newspaper, enter the newspaper name in the #{datasource_switch_link('Catalog', 'catalog')} search box.
 
-    %p To find articles in a specific newspapers or published in a specific city:
+    %p To find articles in a specific newspaper or published in a specific city:
     %ul
       %li For US newspapers from the 1990s on: #{link_to 'ProQuest', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio6270029'}
       %li For US newspapers before 1990s: #{link_to 'ProQuest Historial Newspapers', 'http://www.columbia.edu/cgi-bin/cul/resolve?AUN8518'}, #{link_to "America's Historical Newspapers", 'http://www.columbia.edu/cgi-bin/cul/resolve?clio4403555'}, and #{link_to "Access Newspaper Archive", 'http://www.columbia.edu/cgi-bin/cul/resolve?clio7931419'}
       %li For international newspapers: #{link_to 'Factiva', 'http://www.columbia.edu/cgi-bin/cul/resolve?AUQ3920'}
 
-    
+
   .landing_side.span4
     .well.sidebar-nav
       .nav
         %ul.nav.nav-list
-          %li.nav-header Guide 
+          %li.nav-header Guide
           %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/newspapers-guide/", :target => "_blank"
           %li.divider
 
         %ul.nav.nav-list
-          %li.nav-header Recent US Newspapers
+          %li.nav-header Recent U.S. Newspapers
           %li #{link_to 'ProQuest', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio6270029'}
           %li.divider
-          %li.nav-header Historical US Newspapers
+          %li.nav-header Historical U.S. Newspapers
           %li #{link_to 'ProQuest Historial Newspapers', 'http://www.columbia.edu/cgi-bin/cul/resolve?AUN8518'}
           %li #{link_to "America's Historical Newspapers", 'http://www.columbia.edu/cgi-bin/cul/resolve?clio4403555'}
           %li #{link_to "Access Newspaper Archive", 'http://www.columbia.edu/cgi-bin/cul/resolve?clio7931419'}

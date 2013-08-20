@@ -1,16 +1,28 @@
 # encoding: utf-8
 module HoldingsHelper
-  def build_holdings_hash(document)
-    results = Hash.new { |h,k| h[k] = []}
-    Holding.new(document["clio_id_display"]).fetch_from_opac!.results["holdings"].each_pair do |holding_id, holding_hash|
-      results[[holding_hash["location_name"],holding_hash["call_number"]]] << holding_hash
-    end
 
-    if document["url_munged_display"] && !results.keys.any? { |k| k.first.strip == "Online" }
-      results[["Online", "ONLINE"]] = [{"call_number" => "ONLINE", "status" => "noncirc", "location_name" => "Online"}]
-    end
-    results
-  end
+### UNUSED
+### UNUSED
+### UNUSED
+### UNUSED
+### UNUSED
+### UNUSED
+### UNUSED
+### UNUSED
+### UNUSED
+
+#   def build_holdings_hash(document)
+#     results = Hash.new { |h,k| h[k] = []}
+#     Holding.new(document["clio_id_display"]).fetch_from_opac!.
+#       results["holdings"].each_pair do |holding_id, holding_hash|
+#           results[[holding_hash["location_name"],holding_hash["call_number"]]] << holding_hash
+#     end
+#
+#     if document["url_munged_display"] && !results.keys.any? { |k| k.first.strip == "Online" }
+#       results[["Online", "ONLINE"]] = [{"call_number" => "ONLINE", "status" => "noncirc", "location_name" => "Online"}]
+#     end
+#     results
+#   end
 
   SHORTER_LOCATIONS = {
     "Temporarily unavailable. Try Borrow Direct or ILL" => "Temporarily Unavailable",
@@ -21,7 +33,6 @@ module HoldingsHelper
 
   def shorten_location(location)
     SHORTER_LOCATIONS[location.strip] || location
-
   end
 
   def process_holdings_location(loc_display)
@@ -29,13 +40,15 @@ module HoldingsHelper
     call ? "#{h(shorten_location(loc))} >> ".html_safe + content_tag(:span, call, class: 'call_number')  : shorten_location(loc)
   end
 
-  URL_REGEX = Regexp.new('(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))')
-  
+ URL_REGEX = Regexp.new('(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))')
+
 
   def online_link_hash(document)
-    
+
     links = []
-    
+    # If we were passed, e.g., a Summon document object
+    return links unless document.kind_of?(SolrDocument)
+
     document["url_munged_display"].listify.each do |url_munge|
       url_parts = url_munge.split('~|Z|~').collect(&:strip)
       title = url =  ""
@@ -43,14 +56,15 @@ module HoldingsHelper
         url = url_parts.delete_at(url_index)
         title = url_parts.join(" ").to_s
         title = url if title.empty?
-      else
-        title = "Bad URL: " + url_parts.join(" ")
-        url = ""
+        links << [title, url]
+      # Actually, just ignore bad URLs, don't display in the interface
+      # else
+      #   title = "Bad URL: " + url_parts.join(" ")
+      #   url = ""
       end
 
-      links << [title, url]
     end
-    
+
     # remove google links if more than one exists
 
     if links.select { |link| link.first.to_s.strip == "Google" }.length > 1
@@ -64,34 +78,70 @@ module HoldingsHelper
 
 
   SERVICE_ORDER = %w{offsite spec_coll precat recall_hold on_order borrow_direct ill in_process doc_delivery}
-  # parameters: title, link, whether to append clio_id to link
-  SERVICES = {
-    'offsite' => ["Offsite", "http://www.columbia.edu/cgi-bin/cul/offsite2?", true],
-    'spec_coll' => ["Special Collections", "http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey=", true],
-    'precat' => ["Precataloging", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sprecat?", true],
-    'recall_hold' => ["Recall/Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?bibId=", true],
-    'on_order' => ["On Order", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sinprocess?", true],
-    'borrow_direct' => ['Borrow Direct', "http://www.columbia.edu/cgi-bin/cul/borrowdirect?", true],
-    'ill' => ['ILL', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?", true],
-    'in_process' => ['In Process', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sinprocess?", true],
-    'doc_delivery' => ['Document Delivery', " https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?", true]
-  } 
+  # # parameters: title, link, whether to append clio_id to link
+  # SERVICES = {
+  #   'offsite' => ["Offsite", "http://www.columbia.edu/cgi-bin/cul/offsite2?", true],
+  #   'spec_coll' => ["Special Collections", "http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey=", true],
+  #   'precat' => ["Precataloging", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sprecat?", true],
+  #   'recall_hold' => ["Recall/Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId=", true],
+  #   'on_order' => ["On Order", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sinprocess?", true],
+  #   'borrow_direct' => ['Borrow Direct', "http://www.columbia.edu/cgi-bin/cul/borrowdirect?", true],
+  #   'ill' => ['ILL', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?", true],
+  #   'in_process' => ['In Process', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sinprocess?", true],
+  #   'doc_delivery' => ['Document Delivery', " https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?", true]
+  # }
+  #
+  # def service_links(services, clio_id, options = {})
+  #   services.select {|svc| SERVICE_ORDER.index(svc)}.sort_by { |svc| SERVICE_ORDER.index(svc) }.collect do |svc|
+  #     title, uri, add_clio_id = SERVICES[svc]
+  #     uri += clio_id.to_s if add_clio_id
+  #     link_to title, uri, options
+  #   end
+  # end
 
-  def service_links(services, clio_id, options = {})
+  # parameters: title, link (url or javascript)
+  SERVICES = {
+    'offsite' => ["Offsite",
+        "http://www.columbia.edu/cgi-bin/cul/offsite2?"],
+    'spec_coll' => ["Special Collections",
+        "http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey="],
+    'precat' => ["Precataloging",
+        "OpenPrecatRequest"],
+    'recall_hold' => ["Recall/Hold",
+        "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId="],
+    'on_order' => ["On Order",
+        "OpenInprocessRequest"],
+    'borrow_direct' => ['Borrow Direct',
+        "http://www.columbia.edu/cgi-bin/cul/borrowdirect?"],
+    'ill' => ['ILL',
+        "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?"],
+    'in_process' => ['In Process',
+        "OpenInprocessRequest"],
+    'doc_delivery' => ['Document Delivery',
+        "https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?"]
+  }
+
+  def service_links(services, clio_id)
     services.select {|svc| SERVICE_ORDER.index(svc)}.sort_by { |svc| SERVICE_ORDER.index(svc) }.collect do |svc|
-      title, uri, add_clio_id = SERVICES[svc]
-      uri += clio_id.to_s if add_clio_id
-      link_to title, uri, options
+      title, link = SERVICES[svc]
+      bibid = clio_id.to_s
+      if link.match(/^http/)
+        link += bibid
+        link_to title, link, :target => "_blank"
+      else
+        jscript = "#{link}(#{bibid}); return false;"
+        link_to title, "#", :onclick => jscript
+      end
     end
   end
 
 
   def process_online_title(title)
-    title.to_s.gsub(/^Full text available from /, '').gsub(/(\d{1,2})\/\d{1,2}(\/\d{4})/,'\1\2')  
+    title.to_s.gsub(/^Full text available from /, '').gsub(/(\d{1,2})\/\d{1,2}(\/\d{4})/,'\1\2')
   end
 
   def add_display_elements(entries)
-    
+
     entries.each do |entry|
 
       # location links
@@ -107,7 +157,7 @@ module HoldingsHelper
 
       if location && location.library && (hours = location.library.hours.find_by_date(Date.today))
         entry['hours'] = hours.to_opens_closes
-      end        
+      end
 
       # add status icons
       entry['copies'].each do |copy|
@@ -127,7 +177,7 @@ module HoldingsHelper
   ITEM_STATUS_RANKING = ['available', 'some_available', 'not_available', 'none', 'online']
 
   def sort_item_statuses(entries)
-    
+
     entries.each do |entry|
       entry['copies'].each do |copy|
         items = copy['items']
@@ -140,25 +190,29 @@ module HoldingsHelper
     #     to:
     #       [[message, {:status => , :count => , etc.}], ...]
     # in order to preserve the sort order.
-    
+
   end
 
-  def extract_google_bibkeys(document)
-    
+  def extract_standard_bibkeys(document)
+
     bibkeys = []
-    
+
     unless document["isbn_display"].nil?
       bibkeys << Array.wrap(document["isbn_display"]).collect { |isbn| "isbn:" + isbn}.uniq
     end
-    
+
+    unless document["issn_display"].nil?
+      bibkeys << Array.wrap(document["issn_display"]).collect { |issn| "issn:" + issn}.uniq
+    end
+
     unless document["oclc_display"].nil?
       bibkeys << document["oclc_display"].collect { |oclc| "oclc:" + oclc.gsub(/^oc[mn]/,"") }.uniq
     end
-    
+
     unless document["lccn_display"].nil?
       bibkeys << document["lccn_display"].collect { |lccn| "lccn:" + lccn.gsub(/\s/,"").gsub(/\/.+$/,"") }
     end
-    
+
     bibkeys.flatten.compact
 
   end

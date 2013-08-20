@@ -14,91 +14,89 @@
                         %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#", :title => "Links @ Columbia"}
                           %span.topbarlogo
                             %span.visible-phone CLIO
-                            %span.hidden-phone 
+                            %span.hidden-phone
                               =image_tag "ldpd-toolkit/crown-bts-24x24.png", :alt => "CU"
-                              Columbia University Libraries
+                              Columbia University Libraries<span id="topbarslash">/</span>Information Services
                             %b.caret
                         %ul.dropdown-menu.menu-dropdown
                           %li
                             %a{:href => "http://columbia.edu"} Columbia University - Home
                           %li
                             %a{:href => "http://library.columbia.edu"} Libraries - Home
+                          %li
+                            %a{:href => root_path} CLIO - Home
                           %li.divider
                           %li
-                            %a{:href => "http://hours.library.columbia.edu/"}
-                              %i.icon-time.icon-white
-                              Library Hours
+                            %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?cliolegacy", :target => "_blank"} CLIO Legacy
                           %li
-                            %a{:href => "http://library.columbia.edu/services/askalibrarian.html"}
-                              %i.icon-question-sign.icon-white
-                              Ask a Librarian
+                            %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0182", :target => "_blank"} Course Reserves
                           %li
-                            %a{:href => "https://alumni-friends.library.columbia.edu/"}
-                              %i.icon-heart.icon-white
-                              Alumni & Friends
+                            %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0012", :target => "_blank"} Borrow Direct
                           %li
-                            %a{:href => "http://library.columbia.edu/services/jobs.html"}
-                              %i.icon-briefcase.icon-white
-                              Job Seekers
+                            %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0014", :target => "_blank"} ILL
                           %li
-                            %a{:href => "http://library.columbia.edu/services/lio/access.html"}
-                              %i.icon-plane.icon-white
-                              Visitors
+                            %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?AMS7418", :target => "_blank"} WorldCat
                           %li.divider
                           %li
-                            %a{:href => "http://library.columbia.edu/services/faq.html"}
-                              %i.icon-info-sign.icon-white
-                              FAQ
+                            %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?AMS8587", :target => "_blank"} Law Library Catalog
                           %li
-                            %a{:href => "http://library.columbia.edu/help.html"}
-                              %i.icon-flag.icon-white
-                              Help
+                            %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?AMS8580", :target => "_blank"} Teachers College Catalog
+                          %li
+                            %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?APZ9144", :target => "_blank"} Numeric Data Catalog
+                          %li
+                            %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?clio6269876", :target => "_blank"} Spatial Data Catalog
                           %li.divider
                           %li
-                            %a{:href => "http://library.columbia.edu/help/suggestions.html", :title => ""} Suggestions/Feedback
+                            %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0031", :target => "_blank"} Ask a Librarian
+                          %li
+                            %a{href: '#', class: 'feedback-popup'} Suggestions & Feedback
+
                     %ul.nav.pull-right
                       - if current_user
                         %li.dropdown.menu
                           %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#"}
-                            %span.visible-phone 
+                            %span.visible-phone
                               #{current_user.login}
                               %b.caret
-                            %span.hidden-phone 
+                            %span.hidden-phone
                               #{current_user.name} (#{current_user.login})
                               %b.caret
                           %ul.dropdown-menu.menu-dropdown
-                            %li= link_to "Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087"
-                            %li= link_to "Logout", destroy_user_session_path, :method => :delete 
+                            %li= link_to "Saved Lists", lists_path
+                            %li= link_to "Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087-1", :target => "_blank"
+                            %li= link_to "CLIO Legacy Saved List", "http://clio.cul.columbia.edu:7018/vwebv/myList", :target => "_blank"
+                            %li= link_to "Logout", destroy_user_session_path, :method => :delete
                       - else
                         %li.dropdown.menu
                           %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#"}
-                            %span.hidden-phone
+                            %span.hidden-phone.hidden-tablet
                               My Library Account
                               %b.caret
-                            %span.visible-phone
+                            %span.visible-phone.visible-tablet
                               My Account
                               %b.caret
                           %ul.dropdown-menu.menu-dropdown
-                            %li= link_to "Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087"
+                            %li= link_to "Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087-1", :target => "_blank"
+                            %li= link_to "CLIO Legacy Saved List", "http://clio.cul.columbia.edu:7018/vwebv/myList", :target => "_blank"
+                            %li.divider
                             %li= link_to "Login", new_user_session_path
-                      
+
                       %li.dropdown.menu
                         %a.dropdown-toggle.menu(data-toggle="dropdown" href="#")
                           Help
                           %b.caret
                         %ul.dropdown-menu.menu-dropdown
                           %li
-                            %a{href: 'http://preview-library.cul.columbia.edu/content/libraryweb/help/faq.html'} FAQ
+                            %a{href: 'http://library.columbia.edu/content/libraryweb/help/faq.html'} FAQ
                           %li
-                            %a{href: 'http://preview-library.cul.columbia.edu/content/libraryweb/help/using-this-site.html'} Website Help
+                            %a{href: 'http://library.columbia.edu/content/libraryweb/help/using-this-site.html'} Website Help
                           %li
-                            %a{href: 'http://preview-library.cul.columbia.edu/content/libraryweb/research/help.html'} Research Help
+                            %a{href: 'http://library.columbia.edu/content/libraryweb/research/help.html'} Research Help
                           %li
-                            %a{href: 'http://preview-library.cul.columbia.edu/content/libraryweb/find/clio.html'} CLIO Help
+                            %a{href: 'http://library.columbia.edu/content/libraryweb/find/clio.html'} CLIO Help
                           %li
                             %a{href: 'http://www.columbia.edu/cgi-bin/cul/resolve?lweb0006'} Report E-Resource Problems
                           %li
                             %a{href: '#', class: 'feedback-popup'} Suggestions & Feedback
-                          %li
-                            %a{href: 'http://preview-library.cul.columbia.edu/content/libraryweb/site-index.html'} Site Index
+
 

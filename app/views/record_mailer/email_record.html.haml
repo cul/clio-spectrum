@@ -1,23 +1,37 @@
 <pre style='font-family: 0.75em "Lucida Grande", "Lucida Sans Unicode", Verdana, "Arial Unicode MS", Arial, sans-serif'>
-- @documents.each do |document| 
-  - id = document[:id]
-  = document['title_display'].listify.join("\r\n") || document.id
+-  if @message
+  #{@message}
+  \
+- @documents.each_with_index do |document, index|
+  \------------------------------------------------------------
+  Item Record #{index + 1} of #{@documents.size}
+  \------------------------------------------------------------
+  -# # - id = document[:id]
+  -# = document['title_display'].listify.join("\r\n") || document.id
 
-  - unless (online_links = online_link_hash(document)).empty?
-    #{' '}
-    Online:
-    #{' '}
-    - online_links.each do |link|
-      #{link.first}: #{link.last}
-  - @holdings = JSON.parse(HTTPClient.get_content("http://rossini.cul.columbia.edu/voyager_backend/holdings/retrieve/#{id}"))[id]
-  = render :partial => "/backend/holdings_mail"
-  #{' '}
-  Details
-  #{' '}
-  = render_document_view(document, :template => "catalog_show", :format => "clio", :style => :text).gsub(/^\s*[\r\n]+/,'')
-  URL: #{catalog_path(document[:id], {:only_path => false}.merge(@url_gen_params)) }
+  -# EMAIL SUMMON / ARTICLE ITEM
+  - if document.kind_of?(Summon::Document)
+    = document.title
+    \
+    = render_document_view(document, :template => 'summon_show', :style => :text)
 
-
-
-Message: #{@message}
+  -# EMAIL SOLRDOCUMENT / CATALOG ITEM
+  - if document.kind_of?(SolrDocument)
+    = document['title_display'].listify.join("\r\n") || document.id
+    = "CLIO: " + catalog_path(document[:id], {:only_path => false}.merge(@url_gen_params))
+    \
+    - if (online_links = online_link_hash(document)).any?
+      Online:
+      - online_links.each do |link|
+        \    #{link.first}: #{link.last}
+      \
+    = render_document_view(document, :template => 'catalog_show', :style => :text)
+    - if (locations = document["location_call_number_id_display"].listify.reject { |l| l.match(/^Online/) }).any?
+      \
+      Location:
+      - locations.each do |location|
+        - location_display, hold_id = location.split('|DELIM|')
+        -# - bldg, callno = loc_display.split(/>>/)
+        \    #{location_display}
+  \
 </pre>

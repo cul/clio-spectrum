@@ -8,17 +8,33 @@ datasources:
   newspapers:
     name: Newspapers
     search_box:
-      search_type: summon
-      search_category: newspapers
       route: newspapers_index_path
       placeholder: Newspapers
+      search_type: summon
+      advanced: true
+      # search_category: newspapers
+      search_fields:
+        s.q: Keywords
+        s.fq[AuthorCombined]: Author
+        s.fq[TitleCombined]: Title
+        s.fq[ISBN]: ISBN
+        s.fq[ISSN]: ISSN
   articles:
     name: Articles
     search_box:
       route: articles_index_path
       placeholder: Articles
       search_type: summon
-      search_category: articles
+      advanced: true
+      # search_category: articles
+      search_fields:
+        s.q: Keywords
+        s.fq[AuthorCombined]: Author
+        s.fq[TitleCombined]: Title
+        # NEXT-581 - articles search by publication title
+        s.fq[PublicationTitle]: Publication Title
+        s.fq[ISBN]: ISBN
+        s.fq[ISSN]: ISSN
   ebooks:
     name: E-Books
     no_facets: true
@@ -44,10 +60,10 @@ datasources:
         journal_title: Journal Title
         author: Author
         series_title: Series
-        title_starts_with: Left Anchored Title
+        title_starts_with: Title Begins With
         subject: Subject
         form_genre: Form/Genre
-        publication_place: Publiation Place
+        publication_place: Publication Place
         publisher: Publisher
         publication_year: Publication Year
         isbn: ISBN
@@ -87,14 +103,15 @@ datasources:
       search_fields:
         all_fields: All Fields
         title: Title
-        author: Author
+        title_starts_with: Title Begins With
         subject: Subject
+        issn: ISSN
   library_web:
-    name: Library Web site
+    name: Libraries Website
     no_facets: true
     search_box:
       route: library_web_index_path
-      placeholder: Library Web
+      placeholder: Libraries Website
   academic_commons:
     name: Academic Commons
     search_box:
@@ -104,7 +121,6 @@ datasources:
       search_fields:
         all_fields: All Fields
         title: Title
-        journal_title: Journal Title
         author: Author
         subject: Subject
   new_arrivals:

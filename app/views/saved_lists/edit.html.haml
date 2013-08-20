@@ -1,0 +1,12 @@
+%h1 Editing list
+
+= render 'form'
+
+= link_to 'Cancel Edit', @list.url
+
+\|
+
+- if @list.is_default?
+  Default list - cannot delete
+- else
+  = link_to 'Destroy this list', @list, :method => :delete, :data => { :confirm => 'Are you sure you want to permanently delete this entire list?' }

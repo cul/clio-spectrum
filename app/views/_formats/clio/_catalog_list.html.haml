@@ -1,15 +1,25 @@
-/ container for a single doc 
-.result.document{class: render_document_class(document), source: 'catalog', item_id: document.get(:id), google_ids: extract_google_bibkeys(document).join(",")}
-    
-  %abbr.unapi-id{:title => document[:id]}
-  .title= link_to_source_document document, :label=> document_full_title(document), :counter => counter
-      
-  / main container for doc partial view 
+-# FORMATS/CLIO
+
+/ container for a single doc
+.result.document{class: render_document_class(document), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
+
+  .row-fluid
+    .title.span11
+      <!-- COinS -->
+      %span.Z3988{title: catalog_to_openurl_ctx_kev(document)}
+      -# - raise
+      = link_to_source_document document, :label=> document_full_title(document), :counter => counter, :source => source
+    .item_select.span1
+      = #render :partial => '/saved_lists/catalog_checkbox', :locals => {:document => document}
+      = render :partial => '/saved_lists/catalog_checkbox', :locals => {:item_id => document[:id]}
+
+  / main container for doc partial view
 
   .row-fluid
 
     .details.span10
       = render :partial => "/_formats/clio/catalog_list_details", :locals => {:document => document}
-  
+
     .doc_bookjacket.span2
-      =image_tag("spacer.png", :class => "list_view bookjacket " + extract_google_bibkeys(document).listify.collect { |x| "id_" + x.to_s.gsub(':','')}.join(" "))
+      =image_tag("spacer.png", :class => "list_view bookjacket " + extract_standard_bibkeys(document).listify.collect { |x| "id_" + x.to_s.gsub(':','')}.join(" "))
+

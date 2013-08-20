@@ -4,7 +4,7 @@
   .holding{:class => alternating_line}
     .location_box
       .location= process_holdings_location(entry['location_link']).html_safe
-    .hours= entry['hours']
+      .hours= entry['hours']
 
     .call_number= entry['call_number']
 
@@ -21,11 +21,12 @@
         - copy['items'].each do |item|
           .status
             - message, details = item
-            = details['image_link']
-            = message
-            - if details['count'] >1
-              (#{details['count']} copies)
-    - unless (svc_links = service_links(entry['services'], @id, :target => "_blank")).empty?
+            - unless message =~ /^Status unknown/
+              = details['image_link']
+              = message
+              - if details['count'] >1
+                (#{details['count']} copies)
+    - unless (svc_links = service_links(entry['services'], @id)).empty?
       .services
         %span= "Request: "
         - svc_links.each do |link|

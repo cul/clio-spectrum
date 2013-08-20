@@ -1,5 +1,20 @@
 .item_show
-    
+
+
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+
+
   .info
     .title= document.title
     =add_row("Creator", document.creator)
@@ -11,7 +26,7 @@
     =add_row("Issue", document.issue)
     =add_row("Page", document.spage)
   .holdings.article
-    
+
     - if document.holdings.empty?
       .holdings_title No holdings are available.
     - else
@@ -44,5 +59,5 @@
           Can't Find It?
       .links
         = link_to "Ask a Librarian", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0031"
-        = link_to "Report an E-Resource Problem", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0006" 
+        = link_to "Report an E-Resource Problem", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0006"
 

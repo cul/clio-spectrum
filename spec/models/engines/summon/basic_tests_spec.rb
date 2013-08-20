@@ -7,7 +7,11 @@ describe 'Spectrum::Engines::Summon' do
 
       sum = Spectrum::Engines::Summon.new()
       sum.source.should be_nil
-      sum.params.should_not have_key('s.ff')
+
+      # We always have our facets applied...
+      sum.params.should have_key('s.ff')
+      # but not yet our source-specifics...
+      sum.params.should_not have_key('s.ho')
 
     end
 
@@ -15,22 +19,25 @@ describe 'Spectrum::Engines::Summon' do
       # should not load in options unless it's a new search
       sum = Spectrum::Engines::Summon.new('source' => 'articles')
       sum.source.should == 'articles'
-      sum.params.should_not have_key('s.ff')
+      # should always have our facets applied...
+      sum.params.should have_key('s.ff')
+      # but not yet our source-specifics...
+      sum.params.should_not have_key('s.ho')
 
       # should load in options with a new search
       sum = Spectrum::Engines::Summon.new('source' => 'articles', 'new_search' => true)
       sum.source.should == 'articles'
+      # should have, as always, facets applied...
       sum.params.should have_key('s.ff')
-      
-      
+      # and finally also our source-specifics...
+      sum.params.should have_key('s.ho')
+
     end
   end
 
   describe 'basic articles search' do
     before(:all) do
       @sum = Spectrum::Engines::Summon.new('source' => 'articles', 's.q' => 'hardnose dictator', 'new_search' => true)
-
-
     end
 
     it 'should find results' do
@@ -45,7 +52,7 @@ describe 'Spectrum::Engines::Summon' do
       @sum.search.query.facet_value_filters.should be_any { |f| f.negated? && f.value == "Newspaper Article" }
       @sum.documents.each do |doc|
         doc.content_type.should_not == 'Newspaper Article'
-      end 
+      end
 
     end
   end

@@ -67,11 +67,17 @@ class ItemAlertsController < ApplicationController
 
     respond_to do |format|
       if @item_alert.save
-        format.html { redirect_to @item_alert, notice: 'Item alert was successfully created.' }
-        format.json { render json: @item_alert, status: :created, location: @item_alert }
+        format.html {
+          redirect_to @item_alert, notice: 'Item alert was successfully created.'
+        }
+        format.json {
+          render json: @item_alert, status: :created, location: @item_alert
+        }
       else
-        format.html { render action: "new" }
-        format.json { render json: @item_alert.errors, status: :unprocessable_entity }
+        format.html { render "new" }
+        format.json {
+          render json: @item_alert.errors, status: :unprocessable_entity
+        }
       end
     end
   end
@@ -84,11 +90,15 @@ class ItemAlertsController < ApplicationController
 
     respond_to do |format|
       if @item_alert.update_attributes(params[:item_alert])
-        format.html { redirect_to @item_alert, notice: 'Item alert was successfully updated.' }
+        format.html {
+          redirect_to @item_alert, notice: 'Item alert was successfully updated.'
+        }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @item_alert.errors, status: :unprocessable_entity }
+        format.html { render "edit" }
+        format.json {
+          render json: @item_alert.errors, status: :unprocessable_entity
+        }
       end
     end
   end

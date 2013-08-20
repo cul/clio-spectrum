@@ -3,7 +3,6 @@
 .row-fluid
   .landing_main.span8
 
-
     .title Catalog
 
     %p Search Columbia's catalog of over 7 million items for:
@@ -26,17 +25,27 @@
     .well.sidebar-nav
       .nav
         %ul.nav.nav-list
-          %li.nav-header Guide 
-          %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/catalog-guide/", :target => "_blank"
+          %li.nav-header Guide
+          %li=link_to 'Search Tips', 'https://blogs.cul.columbia.edu/cliobeta/guides/catalog-guide/', :target => '_blank'
+
           %li.divider
 
         %ul.nav.nav-list
-          %li.nav-header Other Useful Catalogs 
-          %li= link_to "Course Reserves", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0182"
-          %li= link_to "CLIO Legacy Catalog", "http://clio.cul.columbia.edu:7018/vwebv/searchBasic?sk=CLIO"
-          %li= link_to "WorldCat", "http://www.columbia.edu/cgi-bin/cul/resolve?AMS7418"
-          %li= link_to "Borrow Direct", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0097"
-          %li= link_to "Law Library Catalog", "http://www.columbia.edu/cgi-bin/cul/resolve?AMS8587"
-          %li= link_to "Teachers College Catalog", "http://www.columbia.edu/cgi-bin/cul/resolve?AMS8580"
-          %li= link_to('Spatial Data Catalog', 'http://gis.columbia.edu/data.html')
-          %li= link_to('Numeric Data Catalog', 'http://www.columbia.edu/cgi-bin/cul/resolve?APZ9144')
+          %li.nav-header Legacy Resource
+          %li= link_to 'CLIO Legacy', 'http://www.columbia.edu/cgi-bin/cul/resolve?cliolegacy'
+
+          %li.divider
+
+        %ul.nav.nav-list
+          %li.nav-header Other Useful Catalogs
+          %li= link_to 'Course Reserves', 'http://www.columbia.edu/cgi-bin/cul/resolve?lweb0182', :target => '_blank'
+          %li= link_to 'Borrow Direct', 'http://www.columbia.edu/cgi-bin/cul/resolve?lweb0012', :target => '_blank'
+          %li= link_to 'ILL', 'http://www.columbia.edu/cgi-bin/cul/resolve?lweb0014', :target => '_blank'
+          %li= link_to 'WorldCat', 'http://www.columbia.edu/cgi-bin/cul/resolve?AMS7418', :target => '_blank'
+          %li= link_to 'Law Library Catalog', 'http://www.columbia.edu/cgi-bin/cul/resolve?AMS8587', :target => '_blank'
+          %li= link_to 'Teachers College Catalog', 'http://www.columbia.edu/cgi-bin/cul/resolve?AMS8580', :target => '_blank'
+          %li= link_to 'Numeric Data Catalog', 'http://www.columbia.edu/cgi-bin/cul/resolve?APZ9144', :target => '_blank'
+          %li= link_to 'Spatial Data Catalog', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio6269876', :target => '_blank'
+
+
+

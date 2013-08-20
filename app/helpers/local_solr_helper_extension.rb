@@ -27,8 +27,8 @@ module LocalSolrHelperExtension
 
     # Returns range config hash for named solr field. Returns false
     # if not configured. Returns hash even if configured to 'true'
-    # for consistency. 
-    def range_config(solr_field)    
+    # for consistency.
+    def range_config(solr_field)
       field = blacklight_config.facet_fields[solr_field]
       return false unless field.range
 
@@ -37,112 +37,102 @@ module LocalSolrHelperExtension
 
       config
     end
-  
-      
+
+
     # Method added to solr_search_params_logic to fetch
-    # proper things for date ranges. 
-    def add_range_limit_params(solr_params, req_params)    
-       ranged_facet_configs = 
-         blacklight_config.facet_fields.select { |key, config| config.range } 
+    # proper things for date ranges.
+    def add_range_limit_params(solr_params, req_params)
+       ranged_facet_configs =
+         blacklight_config.facet_fields.select { |key, config| config.range }
        # In ruby 1.8, hash.select returns an array of pairs, in ruby 1.9
-       # it returns a hash. Turn it into a hash either way.  
+       # it returns a hash. Turn it into a hash either way.
        ranged_facet_configs = Hash[ ranged_facet_configs ] unless ranged_facet_configs.kind_of?(Hash)
 
-       
        ranged_facet_configs.each_pair do |solr_field, config|
         solr_params["stats"] = "true"
         solr_params["stats.field"] ||= []
-        solr_params["stats.field"] << solr_field unless solr_params["stats.field"].include?(solr_field)
-      
-        hash =  req_params[:range] && req_params[:range][solr_field] ?
-          req_params[:range][solr_field] :
-          {}
+        solr_params["stats.field"] << solr_field unless
+            solr_params["stats.field"].include?(solr_field)
 
-          
+        hash = req_params[:range] && req_params[:range][solr_field] ?
+                  req_params[:range][solr_field] :
+                  {}
+
         if !hash["missing"].blank?
           # missing specified in request params
           solr_params[:fq] ||= []
           solr_params[:fq] << "-#{solr_field}:[* TO *]"
-          
+
         elsif !(hash["begin"].blank? && hash["end"].blank?)
           # specified in request params, begin and/or end, might just have one
           start = hash["begin"].blank? ? "*" : hash["begin"]
           finish = hash["end"].blank? ? "*" : hash["end"]
-  
+          fq_value = "#{solr_field}: [#{start} TO #{finish}]"
+
           solr_params[:fq] ||= []
-          solr_params[:fq] << "#{solr_field}: [#{start} TO #{finish}]"
-          
+          solr_params[:fq] << fq_value unless solr_params[:fq].include?(fq_value)
+
           if (config.segments != false && start != "*" && finish != "*")
             # Add in our calculated segments, can only do with both boundaries.
             add_range_segments_to_solr!(solr_params, solr_field, start.to_i, finish.to_i)
           end
-          
+
         elsif (config.segments != false &&
                boundaries = config.assumed_boundaries)
           # assumed_boundaries in config
           add_range_segments_to_solr!(solr_params, solr_field, boundaries[0], boundaries[1])
         end
       end
-      
+
       return solr_params
     end
-  
+
 
 
   def add_advanced_search_to_solr(solr_parameters, req_params = params)
     if is_advanced_search?(req_params)
+
       solr_parameters[:qt] = req_params[:qt] if req_params[:qt]
 
       advanced_q = advanced_search_queries(req_params).collect  do |query|
         field_name, value = *query
 
-
         search_field_def = search_field_def_for_key(field_name)
 
         if (search_field_def && hash = search_field_def.solr_local_parameters)
-          force_phrase_search = false  # searches for "starts_with" field will need to be quoted
           local_params = hash.collect do |key, val|
-            if (val == 'title_starts_with') 
-              force_phrase_search = true
-            end
             key.to_s + "=" + solr_param_quote(val, :quote => "'")
           end.join(" ")
-          
+
           # if they submitted a quoted value, escape their quotes for them
-          if (value.include? '"')
-            value.gsub!(/"/, '\"')
-          elsif (force_phrase_search)
-            value = "\\\"#{value}\\\""
-          end
-          
-          "_query_:\"{!dismax #{local_params}}#{value}\""
-                    
+          "_query_:\"{!dismax #{local_params}}#{value.gsub(/"/, '\"')}\""
+
         else
           value.to_s
         end
-        
+
       end
 
 
       solr_parameters[:q] = advanced_q.join(" #{advanced_search_operator(req_params)} ")
-  
+
     end
   end
 
     ##
     # Add any existing facet limits, stored in app-level HTTP query
-    # as :f, to solr as appropriate :fq query. 
-    def add_facet_fq_to_solr(solr_parameters, user_params)   
+    # as :f, to solr as appropriate :fq query.
+    def add_facet_fq_to_solr(solr_parameters, user_params)
 
       # convert a String value into an Array
       if solr_parameters[:fq].is_a? String
         solr_parameters[:fq] = [solr_parameters[:fq]]
       end
 
-      # :fq, map from :f. 
+      # :fq, map from :f.
       if ( user_params[:f])
-        f_request_params = user_params[:f] 
-        
+        f_request_params = user_params[:f]
+
         solr_parameters[:fq] ||= []
 
         facet_list = f_request_params.keys.collect { |ff| ff.gsub(/^-/,'')}.uniq.sort
@@ -218,7 +208,7 @@ module LocalSolrHelperExtension
     p[:f].delete(field) if p[:f][field].size == 0
     p
   end
-    
+
 
 
     def individual_facet_value_to_fq_string(facet_field, value, operator ="AND")
@@ -238,6 +228,9 @@ module LocalSolrHelperExtension
 
 
       fq = case
+        # If we somehow got here with an empty value, do not create a Solr fq clause
+        when value == ''
+          ""
         when facet_field  =~ /^-/ || operator == "OR"
           "#{facet_field}:#{subbed_value}"
         when (facet_config and facet_config.query)
@@ -257,6 +250,6 @@ module LocalSolrHelperExtension
 
 
 
-    
+
 
 end

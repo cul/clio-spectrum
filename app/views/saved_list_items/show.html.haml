@@ -1,0 +1,28 @@
+%p#notice= notice
+
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+
+%p
+  %b List:
+  = @list_item.list_id
+%p
+  %b Item key:
+  = @list_item.item_key
+%p
+  %b Sort order:
+  = @list_item.sort_order
+
+= link_to 'Edit', edit_list_item_path(@list_item)
+\|
+= link_to 'Back', list_items_path

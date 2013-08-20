@@ -31,3 +31,8 @@
 //= require async-search
 
 //= require holdings
+
+//= require item_actions
+//= require saved_lists
+
+//= require ie_warnings

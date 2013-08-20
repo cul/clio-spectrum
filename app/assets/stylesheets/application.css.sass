@@ -1,0 +1,52 @@
+$baseLineHeight: 18px
+$baseFontSize: 13px
+
+@import "bootstrap"
+@import "bootstrap-responsive"
+
+=alternating-line-colors($even_row_color, $odd_row_color)
+  .even
+    :background-color $even_row_color
+  .odd
+    :background-color $odd_row_color
+
+// Used by blacklight
+@import "blacklight/blacklight"
+
+
+@import "ldpd_toolkit"
+
+
+
+// Used by blacklight_range_limit
+@import 'blacklight_range_limit'
+@import 'blacklight_range_limit/blacklight_range_limit'
+
+
+@import "help"
+@import "hours"
+@import "layout"
+@import "print"
+
+@import "a_local_application"
+@import "advanced_search"
+@import "articles"
+@import "book_cover"
+@import "catalog"
+@import "datepicker"
+@import "datasources"
+@import "debug"
+@import "facets"
+@import "header"
+@import "item_alerts"
+@import "redesign"
+@import "search"
+@import "show"
+@import "saved_lists"
+
+
+// clio_last has specific overrides to the ldpd_toolkit styles
+@import "clio_last"
+
+
+

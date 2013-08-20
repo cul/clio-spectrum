@@ -1,4 +1,4 @@
-#show_folder_control.documentFunctions= render :partial => "folder_control",  :locals => {:document => @document}
+#show_folder_control.documentFunctions= render "folder_control", :document => @document
 - clio_id = h(document["clio_id_display"].first.to_s)
 - id = document.get("id")
 .show_cover.book_cover
@@ -8,7 +8,8 @@
     .gbs_preview= link_to image_tag("gb_preview.png"), "http://books.google.com", :class => "gbs_preview_link"
 
 - if clio_id
-  %p= link_to "Display in CLIO",url_for("http://clio.cul.columbia.edu:7018/vwebv/holdingsInfo?bibId=#{clio_id}")
+  %p= link_to "Display in CLIO Legacy",
+      url_for("http://clio.cul.columbia.edu:7018/vwebv/holdingsInfo?bibId=#{clio_id}")
 
 
 %h4 Place Request:
@@ -24,11 +25,11 @@
     %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{h(document['clio_id_display'])}"
 %h4 Actions:
 %ul
-  
+
   %li #{link_to "Print", "javascript:print()"}
-  - if @document.export_formats.keys.include?(:refworks_marc_txt)
-    %li.refworks
-      =link_to "Export to RefWorks", refworks_export_url(@document)
+  /- if @document.export_formats.keys.include?(:refworks_marc_txt)
+  /  %li.refworks
+  /    =link_to "Export to RefWorks", refworks_export_url(@document)
   - if @document.export_formats.keys.include?(:endnote)
     %li.endnote
       =link_to "Export to EndNote", catalog_path(id, :format => "endnote")
@@ -36,7 +37,7 @@
   - if @document.respond_to?(:to_marc)
     %li.email
       =link_to "Email This", email_catalog_path(:id => id), {:id => "emailLink", :name => "email", :class => "lightboxLink"}
-    
+
     %li.sms
       =link_to "SMS This", sms_catalog_path(:id => id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}
     %li.librarian_view

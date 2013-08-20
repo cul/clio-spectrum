@@ -3,12 +3,12 @@
 %title= h(@page_title || application_name)
 = csrf_meta_tag
 %link{:rel => "shortcut icon", :href => image_path("favicon-crown.png"), :type => "image/x-icon"}/
-%link{:rel => 'unapi-server', :title => 'unAPI', :type => 'application/xml', :href => unapi_url}
+%link{:rel => "apple-touch-icon", :href => image_path("apple-touch-icon-144x144.png"), :type => "image/x-icon"}/
 
 = stylesheet_link_tag "application", :media => 'all'
 = javascript_include_tag "application"
 = yield(:jstemplates)
-- if BlacklightGoogleAnalytics.web_property_id 
+- if BlacklightGoogleAnalytics.web_property_id
   :javascript
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', '#{BlacklightGoogleAnalytics.web_property_id}']);
@@ -20,5 +20,10 @@
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
+
+-# Pass Rails variables to Javascript via simple global assignment
+:javascript
+  clio_backend_url = "#{APP_CONFIG['clio_backend_url']}";
+
 
 

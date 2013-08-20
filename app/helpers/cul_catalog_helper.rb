@@ -5,18 +5,39 @@ module CulCatalogHelper
     text.to_s.gsub('/catalog',"/#{source}").html_safe
   end
 
+  def build_link_back()
+    # 1) EITHER start basic - just go back to where we came from... even if
+    # it was a link found on a web page or in search-engine results...
+    # link_back = request.referer.path
+    # 2) OR have no "back" support unless the below works:
+    link_back = nil
+    begin
+      # try the Blacklight approach of reconstituting session[:search] into
+      # a search-results-list URL...
+      link_back = link_back_to_catalog
+      # ...but this can easily fail in multi-page web interactions, so catch errors
+    rescue ActionController::RoutingError
+      link_back = nil
+    end
 
-  def link_to_source_document(doc, opts={:label=>nil, :counter => nil, :results_view => true})
-    label ||= blacklight_config.index.show_link.to_sym
-    label = render_document_index_label doc, opts
-
-    url = "/#{@active_source}/#{doc['id'].listify.first.to_s}"
-    link_to label, url, :'data-counter' => opts[:counter]
-
-
+    # send back whatever we ended up with.
+    return link_back
   end
+
+
+  def link_to_source_document(doc, options={:label=>nil, :counter => nil, :results_view => true, :source=>nil})
+    label ||= blacklight_config.index.show_link.to_sym
+    label = render_document_index_label doc, options
+    source = options[:source] || @active_source
+
+    url = "/#{source}/#{doc['id'].listify.first.to_s}"
+    link_to label, url, :'data-counter' => options[:counter]
+  end
+
   def catalog_index_path(options = {})
-    filtered_options = options.reject { |k,v| k.in?('controller', 'action','source_override') }
+    filtered_options = options.reject { |k,v|
+      k.in?('controller', 'action','source_override')
+    }
     source = options['source_override'] || @active_source
 
     "/#{source}?#{filtered_options.to_query}"
@@ -25,7 +46,7 @@ module CulCatalogHelper
 
   def active_source_path(options = {})
     url_params = options.reject { |k,v| k.in?('controller', 'action') }.to_query
-    "/#{@active_source}?#{url_params}" 
+    "/#{@active_source}?#{url_params}"
   end
 
   def render_document_index_label doc, opts
@@ -34,17 +55,21 @@ module CulCatalogHelper
     label ||= opts[:label].call(doc, opts) if opts[:label].instance_of? Proc
     label ||= opts[:label] if opts[:label].is_a? String
     label ||= doc.get("id")
-    label.listify.join(" ").to_s 
+    label.listify.join(" ").to_s
   end
 
 
 
   def document_full_title(document)
-    [document.get('title_display') , document.get('subtitle_display')].reject { |txt| txt.to_s.strip.empty? }.join(": ")
+    [document.get('title_display') , document.get('subtitle_display')].reject { |txt|
+       txt.to_s.strip.empty?
+    }.join(": ")
   end
   def build_fake_cover(document)
     book_label = (document["title_display"].to_s.abbreviate(60))
-    content_tag(:div, content_tag(:div, book_label, :class => "fake_label"), :class => "cover fake_cover")
+    content_tag(:div,
+        content_tag(:div, book_label, :class => "fake_label"),
+        :class => "cover fake_cover")
 
   end
 

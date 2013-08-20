@@ -1,6 +1,6 @@
 class PatronController < ApplicationController
   include Blacklight::Catalog
-  
+
 
   before_filter :by_source_config
   before_filter :authenticate_user!

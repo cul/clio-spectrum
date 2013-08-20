@@ -15,6 +15,8 @@
 = add_row("Summary", display_marc_field(marc, 'summary'))
 = add_row("Other Titles", display_marc_field(marc, 'title_other'))
 = add_row("Notes", display_marc_field(marc, 'notes_book'))
+= add_row("Other Information:", display_unlinked_880_field(marc))
+= add_row("Reproduction Note", display_marc_field(marc, 'reproduction_note'))
 = add_row("Language", document["language_facet"], :join => '; ')
 = add_row("LCCN", display_marc_field(marc, 'LCCN'))
 = add_row("Publisher No.", display_marc_field(marc, 'publisher_no'))

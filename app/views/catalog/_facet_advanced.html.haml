@@ -8,17 +8,17 @@
 
     %ul.facet_extended_list
       - selected_negative_values_for_facet(params[:id]).each do |value|
-        %li 
+        %li
           NOT #{value}
           = link_to content_tag(:i, '', class: 'icon-remove'), catalog_index_path(remove_facet_params("-#{params[:id]}", value, params)), :class => 'remove'
-      - @pagination.items.each do |item| 
+      - @pagination.items.each do |item|
         %li
-          - if facet_in_params?( params[:id], item.value ) 
-            = render_selected_facet_value_on_facet(params[:id], item) 
+          - if facet_in_params?( params[:id], item.value )
+            = render_selected_facet_value_on_facet(params[:id], item)
           - else
             = render_facet_value(params[:id], item)
 
-            
+
 .modal-footer
   .facet_pagination_bottom
-    = render :partial => "facet_pagination"
+    = render "facet_pagination"

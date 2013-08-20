@@ -4,29 +4,61 @@
   .landing_main.span8
     .title Databases
 
-    %p Databases content includes:
+    %p The Libraries provides access to more than 1,500 databases. Browse by resource type to locate:
     %ul
       %li Archives and manuscripts
-      %li Articles, conference Papers, dissertations, and theses
+      %li Articles, conference papers, dissertations, and theses
       %li E-book collections
-      %li Government documents and statistics 
+      %li Government documents and statistics
       %li Image, sound and video collections
-      %li Subject help guides
+      %li Subject Guides
 
-    %p If you can't find what you're looking for, try #{datasource_switch_link 'Articles', 'articles'}
+    %p If you are looking for specific articles, try an #{datasource_switch_link 'Articles', 'articles'} search.
 
 
   .landing_side.span4
     .well.sidebar-nav
       .nav
         %ul.nav.nav-list
-          %li.nav-header Guide 
+          %li.nav-header Guide
           %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/databases-guide/", :target => "_blank"
           %li.divider
 
+
         %ul.nav.nav-list
           %li.nav-header Related Links
-          %li= link_to "Report a Problem", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0006"
+
+
+          / redundant w/center description text
+          /%li= link_to "Not sure where to start? Try Find Articles",
+          /              "http://www.columbia.edu/cgi-bin/cul/resolve?findarticles"
+
+          / the elink icon doesn't really look good here, leave it out for now
+          / %li= link_to "How do I get to full-text? Use E-Link &nbsp; #{image_tag('elink.gif', :size => "60x18")}".html_safe,
+          / %li= link_to "How do I get to full-text? Use E-Link",
+          /     "http://library.columbia.edu/help/howto/elink.html"
+
+          / This FAQ is obsolete with no replacement
+          /%li= link_to "How do I connect from off-campus?",
+          /"http://library.columbia.edu/services/faq/eresources/eresources_offcampus.html"
+
+          / %li= link_to "Subject Guides",
+          /     "/databases?f[database_resource_type_facet][]=Subject+Guides"
+
+          %li= link_to "Research Guides",
+              "http://library.columbia.edu/subject-guides.html"
+
+          / %li= link_to "Mobile resources",
+          /    "http://library.columbia.edu/eresources/mobile_resources.html"
+
+          %li= link_to "Report E-Resource Problems",
+              "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0006"
+
+          / Not implemented
+          / %li= link_to "New databases", "http://library.columbia.edu"
+          / %li= link_to "My saved databases", "http://library.columbia.edu"
+          / %li= link_to "User voice help link once CERM has this working", "http://library.columbia.edu"
+
 
 .row-fluid
   .landing_across.span12
@@ -34,17 +66,19 @@
 
     - database_browse = YAML.load(File.read(Rails.root.to_s + "/config/database_browse.yml"))
     - hilcc_codes = database_browse['hilcc'].invert
+    - resource_codes = database_browse['resource_types'].invert
+
     .databases_browse_by
       %div
-        = form_tag databases_index_path, :method => 'get', :class => 'form-inline' do 
+        = form_tag databases_index_path, :method => 'get', :class => 'form-inline' do
           %div
             .browse_label Browse by discipline:
-            = select_tag 'f[database_hilcc_facet][]', options_for_select(hilcc_codes.keys.sort.each  { |k| [k, hilcc_codes[k]] })
-            %button.btn{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'search'} Browse
+            = select_tag 'f[database_hilcc_facet][]', options_for_select(hilcc_codes.keys.sort.each  { |k| [k, hilcc_codes[k]] }), :prompt => "All Disciplines"
 
-        - resource_codes = database_browse['resource_types'].invert
-        = form_tag databases_index_path, :method => 'get', :class => 'form-inline' do 
           %div
             .browse_label Browse by resource type:
-            = select_tag 'f[database_resource_type_facet][]', options_for_select(resource_codes.keys.sort.each  { |k| [k, resource_codes[k]] })
+            = select_tag 'f[database_resource_type_facet][]', options_for_select(resource_codes.keys.sort.each  { |k| [k, resource_codes[k]] }), :prompt => "All Resource Types"
+
+          %div
+            .browse_label
             %button.btn{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'search'} Browse

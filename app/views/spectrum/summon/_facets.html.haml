@@ -9,25 +9,26 @@
   .facets-collapse
     .facet_limit
       .facet_limit
-        %h5.twiddle.twiddle-open 
+        %h5.twiddle.twiddle-open
           Search Options
-        
+
         %span.selected
-      
+
         %ul
           - result.pre_facet_options_with_links.each do |option|
             %div.search_option
               = check_box_tag 'option', 'yes', option[:value], :href => option[:link], :class => 'search_option_action'
               %span.option_name #{option[:name]}
 
-        
 
     - result.facets.reject { |ft| ft.empty?}.each do |facet|
       .facet_limit
         .facet_limit
-          %h5.twiddle.twiddle-open
+          -# NEXT-584 - facets open/close indictor wrong
+          -# %h5.twiddle.twiddle-open
+          %h5
             = facet.display_name.titleize
-            %i.icon-chevron
+            %i.icon-turnbuckle
 
           %ul
             - if facet.has_applied_value? || facet.field_name == "ContentType_mfacet"
@@ -39,38 +40,42 @@
                     %span.selected
                       Not #{item.value}
                       %span.count #{number_with_delimiter(item.count)}
-                    %a.remove{:href => result.by_source_search_cmd(item.remove_command)} 
+                    %a.remove{:href => result.by_source_search_cmd(item.remove_command)}
                       %i.icon-remove
-                    
+
                   - else
                     %span.selected
                       #{item.value}
                       %span.count #{number_with_delimiter(item.count)}
-                    %a.remove{:href => result.by_source_search_cmd(item.remove_command)} 
+                    %a.remove{:href => result.by_source_search_cmd(item.remove_command)}
                       %i.icon-remove
 
                 -else
                   %span
-                    %a.facet_select{:href => result.by_source_search_cmd(item.apply_command)} #{item.value} 
+                    %a.facet_select{:href => result.by_source_search_cmd(item.apply_command)} #{item.value}
                     %span.count #{number_with_delimiter(item.count)}
 
     .facet_limit
       .facet_limit
-        %h5.twiddle.twiddle-open
+        -# NEXT-584 - facets open/close indictor wrong
+        -# %h5.twiddle.twiddle-open
+        %h5
           Publication Date
-          %i.icon-chevron
+          %i.icon-turnbuckle
 
         %ul
           - pub_range_filter = result.search.query.range_filters.detect { |rf| rf.field_name == "PublicationDate" }
 
-          - if pub_range_filter 
+          - if pub_range_filter
             %span.selected
               #{pub_range_filter.field_name.titleize}: #{pub_range_filter.range.min_value}-#{pub_range_filter.range.max_value}
-            %a.remove{:href => result.by_source_search_cmd(pub_range_filter.remove_command)} 
+            %a.remove{:href => result.by_source_search_cmd(pub_range_filter.remove_command)}
               %i.icon-remove
 
-          = form_tag result.by_source_search_modify(), :class => 'form-inline range_limit_form' do 
+          = form_tag result.by_source_search_modify(), :class => 'form-inline range_limit_form' do
             = text_field_tag 'pub_date[min_value]', (pub_range_filter ? pub_range_filter.range.min_value : ""), :class => "input-mini"
             #{"-"}
             = text_field_tag 'pub_date[max_value]', (pub_range_filter ? pub_range_filter.range.max_value : ""), :class => "input-mini"
             %button.btn.btn-submit{:name => 'submit', :value => 'commit', :type => 'submit'} Limit
+
+

@@ -1,20 +1,33 @@
+/ SUMMON - ARTICLES OR NEWSPAPERS
+/ container for a single doc
+.result.document.article_list{item_id: document.id}
 
-/ container for a single doc 
-.result.document.article_list
-    
-  .title= link_to_article document 
+  .row-fluid
+    .title.span11= link_to_article document
+    .item_select.span1
+      = render :partial => '/saved_lists/catalog_checkbox', :locals => {:item_id => document.id}
+
 
   .details
-    = add_row('Author', document.src['Author'], :html_safe => true)
+    -# - raise
+    - if document.authors.any?
+      = add_row('Author', get_article_authors(document), :html_safe => true)
     = add_row('Citation', get_article_citation(document))
     = add_row('Format', get_article_type(document))
+
+
+    / COinS
+    %span.Z3988{ :title => document.src['openUrl'] }
 
     - if @debug_mode
       =add_row("Fulltext", document.fulltext.to_s)
       =add_row("URI", link_to(document.uri, document.uri))
+      =add_row("SRC-ID", document.src['ID'], :html_safe => true)
       =add_row("URL", link_to(document.url, document.url)) unless document.url.to_s.empty?
       =add_row("Link", link_to(document.link, document.link))
-      
-  / main container for doc partial view 
+      =add_row("ISBN", document.isbn)
+      -# =add_row("methods", document.interesting_methods.inspect)
 
-  
+  / main container for doc partial view
+
+

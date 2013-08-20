@@ -1,7 +1,6 @@
 - @page_title = "#{document_show_html_title.listify.join("")} - #{application_name}"
-- extra_head_content << render_link_rel_alternates 
+- extra_head_content << render_link_rel_alternates
 
 - @add_row_options = {:spans => [3,9]}
-%abbr.unapi-id{:title => params[:id]}
-= render :partial => "/_display/catalog/show", :locals => {:document =>  @document} 
+= render :partial => "/_display/catalog/show", :locals => {:document =>  @document}
 

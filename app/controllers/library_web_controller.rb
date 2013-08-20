@@ -1,15 +1,22 @@
 class LibraryWebController < ApplicationController
   layout "quicksearch"
-  
-  include Blacklight::Controller
-  include Blacklight::Catalog
 
-  def index
-    session['search'] = params
-    if params['q']
-      @results = LibraryWeb::Api.new(params)
-    end
+  # UNUSED
+  # UNUSED
+  # UNUSED
+  # UNUSED
+  # UNUSED
+  # UNUSED
 
-    render :layout => "quicksearch"
-  end
+  # include Blacklight::Controller
+  # include Blacklight::Catalog
+  #
+  # def index
+  #   session['search'] = params
+  #   if params['q']
+  #     @results = LibraryWeb::Api.new(params)
+  #   end
+  #
+  #   render :layout => "quicksearch"
+  # end
 end

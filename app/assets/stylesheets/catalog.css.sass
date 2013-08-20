@@ -1,4 +1,6 @@
-@import "local_mixes"
+/* @import "local_mixes"
+ */
+
 .paginate-compact
   :display inline-block
   :margin-top 0.25em
@@ -16,8 +18,10 @@ a.rss-feed
     :float left
     :margin-top 0.4em
     :width 13em
+  div
+    :padding-bottom 1em
 .search_row
-  :position inherit 
+  :position inherit
 
   .search_q
     :position inherit
@@ -29,7 +33,7 @@ a.rss-feed
 .search-constraint
   :padding-top 3px
   :padding-bottom 3px
-  
+
 .modal.fade.in
   :position absolute
 
@@ -56,6 +60,7 @@ a.rss-feed
   h4
     :padding-top 0.5em
     :min-height 1.5em
+
 #appliedParams.constraints-container, .well.well-constraints
   +clearfix
   :background-color #fff
@@ -79,10 +84,10 @@ a.rss-feed
   .box
     :padding 6px 15px 10px 15px
     :border 1px solid #ccc
-    
+
     &.hover
       background: #D6D6D6
-    
+
     a
       :border-bottom none
   #navigation
@@ -122,14 +127,14 @@ a.rss-feed
   .fedora_title
     font-size: 1.25em
     font-weight: bold
-    padding-bottom: 1em
+    padding-bottom: .5em
 
   .title
     font-size: 1.25em
     font-weight: bold
-    padding-bottom: 1em
-    padding-top: 1em
-  
+    padding-bottom: .5em
+    padding-top: .5em
+
 
 
 
@@ -154,7 +159,7 @@ img.availability
     .gbs_search_form
       :display none
   .main
-    
+
     .values
 
 
@@ -162,10 +167,12 @@ img.availability
 
 
   .holding
-    :margin-bottom 1.5em 
+    :margin-bottom 1.5em
     .location_box
-      .location
-        :padding-left .5em
+      :padding-left .5em
+      :padding-bottom .5em
+/*      .location
+ *       :padding-left .5em
 
     .call_number
       :padding-bottom .5em
@@ -173,7 +180,7 @@ img.availability
 
     .hours
 
-    
+
     .url_link
 
     .group
@@ -202,4 +209,33 @@ img.availability
 
         :display inline
         :padding-left 2em
+
+/*
+ *  COPY FROM CORE BLACKLIGHT
+ *
+ *  The below code copies directly from core blacklight,
+ *  allowing the sort-and-per-page box to be included multiple
+ *  times on the search results page, by using the
+ *  class .sortAndPerPage instead of the id #sortAndPerPage
+ *
+ *  Selected portions of _catalog.css.scss from blacklight have
+ *  been rewritten here in SASS, and need to be kept in sync.
+ *
+ */
+
+.sortAndPerPage
+  @extend .well
+
+.sortAndPerPage .dropdown-toggle
+  cursor: pointer
+
+.no-js .sortAndPerPage
+  @extend .clearfix
+  .dropdown-menu
+    background: none
+    box-shadow: none
+    border: none
+    position: relative
+    display: block
+    float: none
 

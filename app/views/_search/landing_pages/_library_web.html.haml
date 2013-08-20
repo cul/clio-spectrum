@@ -2,22 +2,27 @@
 .row-fluid
   .landing_main.span8
 
-    .title Library Web site
+    .title Libraries Website
 
-    %p Searches the #{link_to("Library Web site", "http://library.columbia.edu")}, which contains information on the resources of the Columbia Libraries, as well as help on research, teaching, and other subjects.
+    %p Searches the #{link_to("Libraries Website", "http://library.columbia.edu")}, which contains information about Columbia's Libraries, as well as library hours and locations, research help, teaching, and more.
+
+
     %ul
-      %li For a subject librarian: consult the #{link_to("Librarian Subject Specialists", "http://library.columbia.edu/services/askalibrarian/subject_specialists.html")}
+      %li For help: #{link_to("Ask a Librarian", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0031")}
+      %li For a subject librarian: consult the #{link_to("Librarian Subject Specialists", "http://library.columbia.edu/research/subject-specialists.html")}
 
 
   .landing_side.span4
     .well.sidebar-nav
       .nav
         %ul.nav.nav-list
-          %li.nav-header Guide 
+          %li.nav-header Guide
           %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/cliobeta/guides/library-web-guide/", :target => "_blank"
           %li.divider
 
         %ul.nav.nav-list
           %li.nav-header Related Links
-          %li=link_to "Library Web site", "http://library.columbia.edu"
-          %li=link_to "Columbia Spotlight", "http://blogs.cul.columbia.edu/spotlights"
+          %li=link_to "Libraries Website", "http://library.columbia.edu"
+          %li=link_to "Ask a Librarian", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0031"
+          %li=link_to "Columbia Libraries' Blog", "http://blogs.cul.columbia.edu/spotlights"
+          %li=link_to "Libraries' News & Events", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0039"
