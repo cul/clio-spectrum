@@ -182,7 +182,7 @@ class SavedListsController < ApplicationController
     @list.destroy
 
     respond_to do |format|
-      format.html { redirect_to lists_path, notice: "List '#{v@list.name}' deleted." }
+      format.html { redirect_to lists_path, notice: "List '#{@list.name}' deleted." }
       format.json { head :no_content }
     end
   end
@@ -195,14 +195,19 @@ class SavedListsController < ApplicationController
 
     # You have to be logged in to use this feature
     if current_user.blank?
-      render :nothing => true, :status => :unauthorized and return
+      render :text => 'Must be logged in to use this feature', :status => :unauthorized and return
+      # render :nothing => true, :status => :unauthorized and return
     end
 
     unless params[:item_key_list]
-      render :nothing => true, :status => :bad_request and return
+      render :text => 'Must specify items to be added', :status => :bad_request and return
+      # render :nothing => true, :status => :bad_request and return
     end
 
     list_name = params[:name] ||= SavedList::DEFAULT_LIST_NAME
+    if list_name.empty?
+      render :text => 'Cannot add to unnamed list', status: :unprocessable_entity and return
+    end
 
     @list = SavedList.where(:owner => current_user.login, :name => list_name).first
     unless @list
@@ -227,30 +232,102 @@ class SavedListsController < ApplicationController
     render :text => "#{new_item_adds} new items added to list #{view_context.link_to @list.name, @list.url}", :status => :ok
   end
 
+  # You MOVE your own items from list to list, 
+  # You COPY another user's items from their list to yours.
+  def copy
+    # You have to be logged in to use this feature
+     if current_user.blank?
+       return redirect_to root_path,
+         :flash => { :error => "You must be logged in to use this feature" }
+     end
 
+     # To be sure about what we're doing, require the following params:
+     # from_list     -- the Name of the source list
+     # to_list       -- the Name of the destination list
+     # item_key_list -- an array of item keys (bib keys or Summon FETCH ids)
+     unless params[:from_owner] && params[:from_list] && params[:to_list] && params[:item_key_list]
+       return redirect_to root_path,
+         :flash => { :error => "Invalid input parameters - unspecified" }
+     end
+     # Can't copy from a list to itself
+     if params[:from_list] == params[:to_list] &&
+        params[:from_owner] == current_user.login
+       return redirect_to root_path,
+         :flash => { :error => "Invalid input parameters - cannot copy a list to itself" }
+     end
+
+     # Fetch the source list, we'll need it's ID
+     if params[:from_owner] == current_user.login
+       # Our own list
+       @from_list = SavedList.where(:owner => current_user.login, :name => params[:from_list]).first
+     else
+       # Someone else's list - it must be public!
+       @from_list = SavedList.where(:owner        =>  params[:from_owner],
+                                    :name         =>  params[:from_list],
+                                    :permissions  =>  'public').first
+     end
+
+
+     # Find - or create - a destination list with the "to_list" Name
+     @list = SavedList.where(:owner => current_user.login, :name => params[:to_list]).first
+     unless @list
+       @list = SavedList.new(:owner => current_user.login,
+                             :name => params[:to_list])
+       @list.save
+     end
+
+     # loop over the passed-in items, COPYING THEM to NEW saved-list-items
+     for item_key in Array.wrap(params[:item_key_list]) do
+       @item = SavedListItem.where(:saved_list_id => @from_list.id,
+                                   :item_key => item_key).first
+       unless @item
+         return redirect_to root_path,
+           :flash => { :error => "Item Key #{item_key} not found in #{params[:from_list]}" }
+       end
+       
+       @new_item = @item.clone
+       @new_item.saved_list_id = @list.id
+       @new_item.save
+     end
+
+     redirect_to @list.url, notice: "#{params[:item_key_list].size} items moved to list #{view_context.link_to @list.name, @list.url}".html_safe
+
+  end
+
+
+  # You MOVE your own items from list to list, 
+  # You COPY another user's items from their list to yours.
   def move
 
     # You have to be logged in to use this feature
     if current_user.blank?
-      render :nothing => true, :status => :unauthorized and return
+      # render :text => "You must be logged in to use this feature", :status => :unauthorized and return
+      # render :nothing => true, :status => :unauthorized and return
+      return redirect_to root_path,
+        :flash => { :error => "You must be logged in to use this feature" }
     end
 
     # To be sure about what we're doing, require the following params:
     # from_list     -- the Name of the source list
     # to_list       -- the Name of the destination list
     # item_key_list -- an array of item keys (bib keys or Summon FETCH ids)
-    unless params[:from_list] && params[:to_list] && params[:item_key_list]
+    unless params[:from_owner] && params[:from_list] && params[:to_list] && params[:item_key_list]
       return redirect_to root_path,
-        :flash => { :error => "Invalid input parameters" }
+        :flash => { :error => "Invalid input parameters - unspecified" }
     end
-    if params[:from_list] == params[:to_list]
+    # Can't copy from a list to itself
+    if params[:from_list] == params[:to_list] 
       return redirect_to root_path,
-        :flash => { :error => "Invalid input parameters" }
+        :flash => { :error => "Invalid input parameters - can't move list to itself" }
+    end
+    # move() is ONLY for moving items between your own lists
+    if params[:from_owner] != current_user.login
+      return redirect_to root_path,
+        :flash => { :error => "Invalid input parameters - can only move your own items" }
     end
 
     # Fetch the source list, we'll need it's ID
     @from_list = SavedList.where(:owner => current_user.login, :name => params[:from_list]).first
-
 
     # Find - or create - a destination list with the "to_list" Name
     @list = SavedList.where(:owner => current_user.login, :name => params[:to_list]).first
@@ -272,8 +349,7 @@ class SavedListsController < ApplicationController
       @item.save
     end
 
-    redirect_to @list.url, notice: "#{params[:item_key_list].size} items moved to list #{params[:to_list]}"
-
+    redirect_to @list.url, notice: "#{params[:item_key_list].size} items moved to list #{view_context.link_to @list.name, @list.url}".html_safe
   end
 
 

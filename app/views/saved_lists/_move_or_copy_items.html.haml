@@ -1,0 +1,23 @@
+
+
+#actions-dropdown.dropdown.btn-group
+  %a.btn.dropdown-toggle{'data-toggle' => "dropdown", :href => "#"}
+    #{verb.capitalize} Selected Items...
+    %b.caret
+  %ul.dropdown-menu
+
+    %li.nav-header
+      To existing list:
+    - @all_current_user_lists.each { |other_list|
+    %li= link_to other_list.name, "#", :onclick => "#{verb}SelectedToNamedList('/lists/#{verb}', '#{@list.owner}', '#{list.name}', '#{other_list.name}'); return false;"
+    - }
+
+    %li.divider
+
+    %li.nav-header
+
+      To new list:
+
+      %form
+        %input{:name => "name", :type => "text", :value => "", :id => 'new_list_name', :style => "width:100px"}
+        %input.btn.btn-mini{ :type => "submit", :onclick => "if ( $('#new_list_name').val() != '') { moveSelectedToNamedList('/lists/#{verb}', '#{@list.owner}', '#{@list.name}', $('#new_list_name').val() ) }; return false;" }

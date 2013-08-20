@@ -51,25 +51,49 @@ $ ->
   if item_key_list.length == 0
     flashMessage("notice", "No items selected") 
     return false
-  item_count = item_key_list.length || 0
-  success_message = item_count + " items saved to " + name
+  # item_count = item_key_list.length || 0
+  # success_message = item_count + " items saved to " + name
+  saveItemListToNamedList(item_key_list, name)
 
+# Refactored into saveItemListToNamedList, below
+  # 
+  # # Ajax to actually save the items...
+  # request = $.post '/lists/add', {item_key_list, name}
+  # # request.done (data) -> flashMessage("success", success_message)
+  # request.done (data) -> flashMessage("success", data)
+  # request.fail (jqXHR, textStatus, errorThrown) -> flashMessage("error", "Save failed with " + textStatus + ": " + errorThrown)
+
+
+@saveBibToNamedList = (bib, name) ->
+  item_key_list = [bib]
+  saveItemListToNamedList(item_key_list, name)
+
+@saveItemListToNamedList = (item_key_list, name) ->
   # Ajax to actually save the items...
-  request = $.post '/lists/add', {item_key_list, name}
-  # request.done (data) -> flashMessage("success", success_message)
+  request = $.post '/lists/add', { item_key_list, name }
   request.done (data) -> flashMessage("success", data)
   request.fail (jqXHR, textStatus, errorThrown) -> flashMessage("error", "Save failed with " + textStatus + ": " + errorThrown)
 
+
 # Non-AJAX - move list of item-keys to named list,
 # bounce user to the new list view page
-@moveSelectedToNamedList = (savedlist_move_path, from_list, to_list) ->
+@moveSelectedToNamedList = (savedlist_move_path, from_owner, from_list, to_list) ->
   item_key_list = getSelectedItemKeyList()
   if item_key_list.length == 0
     flashMessage("notice", "No items selected") 
     return false
-  full_move_url = savedlist_move_path + "?from_list=" + from_list + "&to_list=" + to_list + "&" + $.param( { 'item_key_list': item_key_list } )
-  # alert(full_remove_url)
+  full_move_url = savedlist_move_path + "?from_owner=" + from_owner + "&from_list=" + from_list + "&to_list=" + to_list + "&" + $.param( { 'item_key_list': item_key_list } )
   window.location.href = full_move_url
+
+# Non-AJAX - copy list of item-keys to named list,
+# bounce user to the new list view page
+@copySelectedToNamedList = (savedlist_copy_path, from_owner, from_list, to_list) ->
+  item_key_list = getSelectedItemKeyList()
+  if item_key_list.length == 0
+    flashMessage("notice", "No items selected") 
+    return false
+  full_copy_url = savedlist_copy_path + "?from_owner=" + from_owner + "&from_list=" + from_list + "&to_list=" + to_list + "&" + $.param( { 'item_key_list': item_key_list } )
+  window.location.href = full_copy_url
 
 # Non-AJAX remove items from list
 @removeSelectedFromList = (savedlist_remove_path, list_id) ->
