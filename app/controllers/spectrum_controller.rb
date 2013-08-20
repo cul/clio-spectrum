@@ -1,4 +1,4 @@
-# 
+#
 # SpectrumController#search() - primary entry point
 #   - figures out the sources, then for each one calls:
 #     SpectrumController#get_results()
@@ -6,10 +6,10 @@
 #       - fixes input parameters in a source-specific way,
 #       - calls either:  Spectrum::Engines::Summon.new(fixed_params)
 #       -           or:  blacklight_search(fixed_params)
-# 
+#
 # SpectrumController#fetch() - alternative entry point
 #   - does the same thing, but for AJAX calls, returning JSON
-# 
+#
 class SpectrumController < ApplicationController
   include Blacklight::Controller
   include Blacklight::Catalog

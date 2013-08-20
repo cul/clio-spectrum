@@ -55,7 +55,7 @@ class SavedListsController < ApplicationController
     if current_user.present? and owner == current_user.login
       # find one of my own lists
       @list = SavedList.find_by_owner_and_slug(owner, slug)
-      # Special-case: if we're trying to pull up the user's default list, 
+      # Special-case: if we're trying to pull up the user's default list,
       # auto-create it for them.
       if @list.blank? and slug == SavedList::DEFAULT_LIST_SLUG
         @list = SavedList.new(:created_by => current_user.login,
@@ -242,7 +242,7 @@ class SavedListsController < ApplicationController
     render :text => "#{pluralize(params[:item_key_list].size, 'item')} added to list #{view_context.link_to @list.name, @list.url}", :status => :ok
   end
 
-  # You MOVE your own items from list to list, 
+  # You MOVE your own items from list to list,
   # You COPY another user's items from their list to yours.
   def copy
     # You have to be logged in to use this feature
@@ -305,7 +305,7 @@ class SavedListsController < ApplicationController
   end
 
 
-  # You MOVE your own items from list to list, 
+  # You MOVE your own items from list to list,
   # You COPY another user's items from their list to yours.
   def move
 

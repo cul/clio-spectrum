@@ -6,8 +6,8 @@ class BackendController < ApplicationController
 
   def holdings_httpclient
     hc = HTTPClient.new()
-    # The default is to wait 60/120 seconds - but we expect an instant response, 
-    # anything else means trouble, and we should give up immediately so as not 
+    # The default is to wait 60/120 seconds - but we expect an instant response,
+    # anything else means trouble, and we should give up immediately so as not
     # to not sit on resources.
     hc.connect_timeout = 5 # default 60
     hc.send_timeout    = 5 # default 120

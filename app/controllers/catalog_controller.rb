@@ -22,7 +22,7 @@ class CatalogController < ApplicationController
   include LocalSolrHelperExtension
 
 
-  # When a catalog search is submitted, this is the 
+  # When a catalog search is submitted, this is the
   # very first point of code that's hit
   def index
     # very useful - shows the execution order of before filters
@@ -88,7 +88,7 @@ class CatalogController < ApplicationController
     add_alerts_to_documents(@document)
     respond_to do |format|
       # require 'debugger'; debugger
-      format.html { 
+      format.html {
         setup_next_and_previous_documents;
         render :layout => "no_sidebar"
       }
@@ -98,7 +98,7 @@ class CatalogController < ApplicationController
       @document.export_formats.each_key do | format_name |
         # It's important that the argument to send be a symbol;
         # if it's a string, it makes Rails unhappy for unclear reasons.
-        format.send(format_name.to_sym) { 
+        format.send(format_name.to_sym) {
           render :text => @document.export_as(format_name),
           :layout => false
         }
@@ -133,7 +133,7 @@ class CatalogController < ApplicationController
   # Override Blacklight core method, which limits to single email.
   # So far, no changes beyond removing this validation.
 
-  # Email Action (this will render the appropriate view on GET requests and 
+  # Email Action (this will render the appropriate view on GET requests and
   # process the form and send the email on POST requests)
   def OLD_email
     @response, @documents = get_solr_response_for_field_values(SolrDocument.unique_key,params[:id])
@@ -172,7 +172,7 @@ class CatalogController < ApplicationController
   end
 
   def add_custom_solr_search_params_logic
-    # this "solr_search_params_logic" is used when querying using standard 
+    # this "solr_search_params_logic" is used when querying using standard
     # blacklight functions
     # queries using our Solr engine have their own config in Spectrum::Engines::Solr
     unless solr_search_params_logic.include? :add_advanced_search_to_solr

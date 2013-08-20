@@ -44,11 +44,11 @@ module ApplicationHelper
   #       catalog_item_ids.push item_id
   #     end
   #   end
-  # 
+  #
   #   # Then, do two source-specific set-of-id lookups
   #   response, catalog_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids)
   #   article_document_list = get_summon_docs_for_id_values(articles_item_ids)
-  # 
+  #
   #   # Then, merge back, in original order
   #   key_to_doc_hash = {}
   #   catalog_document_list.each do |doc|
@@ -60,7 +60,7 @@ module ApplicationHelper
   #     key_to_doc_hash[ doc.id ] = doc
   #   end
   #   puts "=======KEYS========= #{key_to_doc_hash.keys}"
-  # 
+  #
   #   document_array = []
   #   id_array.each do |id|
   #     document_array.push key_to_doc_hash[id]

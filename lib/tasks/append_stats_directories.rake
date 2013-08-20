@@ -1,12 +1,12 @@
 # lib/tasks/append_stats_directories.rake
 #
-# 
+#
 # Adding our test-code directories to be reported by the command:
 #   rake stats
-# 
+#
 # Our labels are not really very usefully descriptive, but at least
 # our code now gets counted.
-# 
+#
 # Some docs suggested that this would fail in production due to missing
 # rspec, but this seems to be working for us.
 

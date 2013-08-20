@@ -20,19 +20,19 @@ module SerialSolutions
     #   raise "THIS IS NOT USED????"
     #   options = in_options.clone
     #   @config = options.delete('config') || APP_CONFIG['summon']
-    # 
+    #
     #   unless options.delete('new_search').to_s.empty?
     #     category = options.delete('category') || 'articles'
     #     options = DEFAULT_OPTIONS[category].merge('s.q' => options['s.q'])
     #   end
-    # 
-    # 
+    #
+    #
     #   @config.merge!(:url => 'http://api.summon.serialssolutions.com/2.0.0')
     #   @config.symbolize_keys!
     #   Rails.logger.info "[SUMMON] config: #{@config.inspect}"
-    # 
+    #
     #   @service = Summon::Service.new(@config)
-    # 
+    #
     #   #normalize strings to ISO-8859-1
     #   #options.each_pair do |k,v|
     #     #if v.kind_of?(Array)
@@ -41,7 +41,7 @@ module SerialSolutions
     #       #options[k] = v.kind_of?(String) ? v.force_encoding("ISO-8859-1") : v
     #     #end
     #   #end
-    # 
+    #
     #   options.delete('utf8')
     #   @search = @service.search(options)
     #   @query = @search.query
@@ -52,9 +52,9 @@ module SerialSolutions
     # def page
     #   [1, @query_hash['s.pn'].to_i].max
     # end
-    # 
+    #
     # def entries_info
-    # 
+    #
     #   if @search.record_count == 0
     #     " "
     #   else
@@ -70,30 +70,30 @@ module SerialSolutions
     #     txt
     #   end
     # end
-    # 
+    #
     # def page_size
     #   size = @query_hash['s.ps'].to_i
     #   size == 0 ? 15 : size
     # end
-    # 
+    #
     # def previous_page
     #   set_page(@query_hash['s.pn'].to_i - 1)
     # end
-    # 
+    #
     # def next_page
     #   set_page(@query_hash['s.pn'].to_i + 1)
     # end
-    # 
+    #
     # def set_page(page)
     #   new_page = [[1, page.to_i].max, @search.page_count].min
     #   search_merge('s.pn' => new_page)
     # end
-    # 
+    #
     # def page_count
     #   @search.page_count.to_i
     # end
     # private
-    # 
+    #
     # def search_merge(params={})
     #   articles_search_path(@query_hash.merge(params))
     # end

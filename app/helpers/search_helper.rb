@@ -126,14 +126,14 @@ module SearchHelper
   #   div_classes = ["search_box", source]
   #   div_classes << "multi" if show_all_search_boxes
   #   div_classes << "selected" if active_search_box == source
-  # 
+  #
   #   if show_all_search_boxes || active_search_box == source
   #     content_tag(:div, capture(&block), :class => div_classes.join(" "))
   #   else
   #     ""
   #   end
   # end
-  # 
+  #
   # UNUSED ???
   # def previous_page(search)
   #   if search.page <= 1
@@ -142,7 +142,7 @@ module SearchHelper
   #     content_tag('span', content_tag('a', "« Previous", :href => search.previous_page), :class => "prev prev_page")
   #   end
   # end
-  # 
+  #
   # UNUSED ???
   # def next_page(search)
   #   if search.page >= search.page_count
@@ -151,14 +151,14 @@ module SearchHelper
   #     content_tag('span', content_tag('a', "Next »", :href => search.next_page), :class => "next next_page")
   #   end
   # end
-  # 
+  #
   # UNUSED ???
   # def page_links(search)
   #   max_page = [search.page_count, 20].min
   #   results = [1,2] + ((-5..5).collect { |i| search.page + i }) + [max_page - 1, max_page]
-  # 
+  #
   #   results = results.reject { |i| i <= 0 || i > [search.page_count,20].min}.uniq.sort
-  # 
+  #
   #   previous = 1
   #   results.collect do |page|
   #     page_delimited = number_with_delimiter(page)
@@ -170,12 +170,12 @@ module SearchHelper
   #     else
   #       content_tag('span', content_tag('a', page_delimited, :href => search.set_page(page)), :class => 'page')
   #     end
-  # 
+  #
   #     previous = page
   #     result
-  # 
+  #
   #   end.join("").html_safe
-  # 
+  #
   # end
 
 

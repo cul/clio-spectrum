@@ -35,7 +35,7 @@ module Spectrum
       attr_reader :source, :errors, :search
       attr_accessor :params
 
-      # initialize() performs the actual API search, and 
+      # initialize() performs the actual API search, and
       # returns @search - a filled-in search structure, including query results.
       # input "options" are the CGI-param inputs, while
       # @params is a built-up parameters hash to pass to the Summon API
@@ -367,7 +367,7 @@ module Spectrum
         # merge in whatever new command overlays current summonstate
         params.merge!(cmd)
         # raise
-        # add-in our CLIO interface-level params 
+        # add-in our CLIO interface-level params
         params.merge!( {'form' => @params['form']} ) if @params['form']
         params.merge!( {'search_field' => @search_field} ) if @search_field
         params.merge!( {'q' => @params['q']} ) if @params['q']

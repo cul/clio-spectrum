@@ -399,9 +399,9 @@ class ApplicationController < ActionController::Base
       request.fullpath =~ /\/lists\/add/ or
       request.fullpath =~ /\/lists\/move/ or
       request.fullpath =~ /\/lists\/remove/ or
-      request.fullpath =~ /\/lists\/email/
+      request.fullpath =~ /\/lists\/email/ or
       # /spectrum/fetch - loading subpanels of bento-box aggregate
-      request.fullpath =~ /\/spectrum/
+      request.fullpath =~ /\/spectrum/ or
       # old-style async ajax holdings lookups - obsolete?
       request.fullpath =~ /\/holdings/
   end

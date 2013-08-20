@@ -173,7 +173,7 @@ module Spectrum
       end
 
 
-      # Default config has already been created, now add in the field-scoped 
+      # Default config has already been created, now add in the field-scoped
       # config settings specific to each fielded search being offered
       def self.add_search_fields(config, *fields)
 
@@ -203,7 +203,7 @@ module Spectrum
         if fields.include?('journal_title')
           config.add_search_field('journal_title') do |field|
             field.show_in_dropdown = true
-            # The field-specific solr_parameters defined here will 
+            # The field-specific solr_parameters defined here will
             # replace the source-specific default_solr_params when
             # a search by this field is in effect.
             field_fq = ['format:Journal\/Periodical']
@@ -460,7 +460,7 @@ module Spectrum
             config.per_page = [10,25,50,100]
             config.spell_max = 0
           end
-        # Else, we're in one of the single-source searches....  
+        # Else, we're in one of the single-source searches....
         else
           self.blacklight_config = Blacklight::Configuration.new do |config|
 
@@ -506,7 +506,7 @@ module Spectrum
               # experiments only... remove for prod...
               # this reveals that about 9K records with data-source E-Journals
               # are NOT of ofrmat "Journal/Periodical"
-              # config.add_facet_field "format", 
+              # config.add_facet_field "format",
               #    :label => "Format", :limit => 5, :open => true
 
               config.add_facet_field "language_facet",
@@ -609,8 +609,8 @@ module Spectrum
               add_search_fields(config, 'title',  'author', 'subject')
 
             when 'new_arrivals'
-              # has to come before default_catalog_config(), because the 
-              # default search_fields define field-specific solr-params, 
+              # has to come before default_catalog_config(), because the
+              # default search_fields define field-specific solr-params,
               # which need to read in source-default solr params
               # (e.g., to merge fq values)
               config.default_solr_params = {

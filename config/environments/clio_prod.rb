@@ -44,7 +44,7 @@ Clio::Application.configure do
   # DEPRECATION WARNING: Passing a template handler in the template
   # name is deprecated. You can simply remove the handler name or
   # pass render :handlers => [:builder] instead.
-  #  
+  #
   ActiveSupport::Deprecation.silenced = true
 
 end

@@ -6,7 +6,7 @@ module CulCatalogHelper
   end
 
   def build_link_back()
-    # 1) EITHER start basic - just go back to where we came from... even if 
+    # 1) EITHER start basic - just go back to where we came from... even if
     # it was a link found on a web page or in search-engine results...
     # link_back = request.referer.path
     # 2) OR have no "back" support unless the below works:

@@ -160,7 +160,7 @@ module MarcHelper
   end
 
   def display_unlinked_880_field(marc)
-    
+
     # build display of unlinked 880 fields
     values = []
     marc.each_by_tag('880') do |t880|

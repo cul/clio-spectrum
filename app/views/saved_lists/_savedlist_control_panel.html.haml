@@ -10,7 +10,7 @@
 -# - if @list
 -#   -# Details for the list currently shown
 -#   %h5 Current List Details
--# 
+-#
 -#   %dl
 -#     %dt name
 -#     %dd= @list.display_name
@@ -27,10 +27,10 @@
 -#     %dd= @list.updated_at.strftime("%b %e, %Y %l:%M%P")
 -#     %dt number of items
 -#     %dd= @list.size
--# 
+-#
 -#   - if current_user && current_user.login == @list.owner
 -#     %small=link_to "edit list details", edit_saved_list_path(@list)
--# 
+-#
 -#   %hr
 
 

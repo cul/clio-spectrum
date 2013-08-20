@@ -13,7 +13,7 @@ module ArticlesHelper
     # If the article is a fulltext Journal Article, Book, or eBook...
     if article.fulltext &&
        !(article.content_types & ['Journal Article','Book', 'eBook']).empty?
-      # If the article is an eBook and it's URL is to handle.net or hathi... 
+      # If the article is an eBook and it's URL is to handle.net or hathi...
       if article.content_types.include?('eBook') &&
          EBOOKS_TO_LINK_FOLLOW.any? { |eb| article.uri.to_s.include?(eb) }
         url = article.link
@@ -169,21 +169,21 @@ module ArticlesHelper
   #  ADVANCED SEARCH:
   #  search_field=advanced
   #   "s.q"=>""
-  #   "s.fq"=>{"AuthorCombined"=>"", "TitleCombined"=>"", 
+  #   "s.fq"=>{"AuthorCombined"=>"", "TitleCombined"=>"",
   #            "PublicationTitle"=>"nature", "ISBN"=>"", "ISSN"=>""}
   # ### ### This is based on CGI Params... but those are unrelible, as they
   # ### ### dont' factor in constraint "Remove" commands.
   # def build_articles_advanced_field_values_hash(params)
   #   hash = {}
-  # 
+  #
   #   if params['s.fq']
   #     params['s.fq'].each do |field, value|
   #       # Rails.logger.debug "field/value=#{field}/#{value}"
   #       hash[field] = value
   #     end
   #   end
-  # 
-  #   # For:  
+  #
+  #   # For:
   #   #   "q"=>"nature"
   #   #   "search_field"=>"s.fq[PublicationTitle]"
   #   # Set:

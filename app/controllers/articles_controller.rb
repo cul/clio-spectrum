@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
   #   @new_search = true
   #   session['search'] = {}
   #   begin
-  #     @summon = SerialSolutions::SummonAPI.new('new_search' => true, 
+  #     @summon = SerialSolutions::SummonAPI.new('new_search' => true,
   #     'category' => 'articles')
   #   rescue => e
   #     @error = e.message
@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
   # end
   # def search
   #   session['search'] = params
-  #   @new_search = !params.has_key?('category') || 
+  #   @new_search = !params.has_key?('category') ||
   #     (params['new_search'] && params['new_search'] != '')
   #   begin
   #     @summon = SerialSolutions::SummonAPI.new(params)
@@ -37,12 +37,12 @@ class ArticlesController < ApplicationController
   #     logger.error "#{self.class}##{__method__} exception: #{@error}"
   #   end
   # end
-  # 
-  # 
+  #
+  #
   # def show
   #   @document = SerialSolutions::Link360.new(params[:openurl])
   #   @debug_entries['Link360'] = @document.request_url
   #   render "show", :layout => "no_sidebar"
   # end
-  # 
+  #
 end

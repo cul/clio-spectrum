@@ -36,14 +36,14 @@
     .controls
       = text_field_tag 'item_alert[start_date]',
         item_alert.start_date? ?  item_alert.start_date.strftime("%F %H:%M") : "",
-        :"data-datepicker-format" => "yyyy-mm-dd hh:ii", 
+        :"data-datepicker-format" => "yyyy-mm-dd hh:ii",
         :placeholder => "Leave blank to start immediately"
 
 
   .control-group
     %label.control-label{:for => "end_date"} End Date:
     .controls
-      = text_field_tag 'item_alert[end_date]', 
+      = text_field_tag 'item_alert[end_date]',
         item_alert.end_date? ? item_alert.end_date.strftime("%F %H:%M") : "",
         :"data-datepicker-format" => "yyyy-mm-dd hh:ii", 
         :placeholder =>"Leave blank to run indefinitely"

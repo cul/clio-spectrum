@@ -15,7 +15,7 @@ gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blackl
 gem 'blacklight_google_analytics'
 
 # Sorry, have to nix unapi.  Switch to COINS everywhere, so that
-# single page cross-datasource citation works (QuickSearch, Saved Lists) 
+# single page cross-datasource citation works (QuickSearch, Saved Lists)
 # gem 'blacklight_unapi', ">= 0.0.3"
 
 gem 'json'
@@ -87,7 +87,7 @@ end
 # To build slugs for saved-list URLs
 gem 'stringex'
 
-# Allow recovery for deleted Saved Lists 
+# Allow recovery for deleted Saved Lists
 gem 'paper_trail'
 
 # https://github.com/kickstarter/rack-attack
