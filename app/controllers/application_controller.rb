@@ -301,12 +301,19 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    # Then, do two source-specific set-of-id lookups
-    extra_solr_params = {
-      :rows => catalog_item_ids.size
-    }
-    response, catalog_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids, extra_solr_params)
-    article_document_list = get_summon_docs_for_id_values(articles_item_ids)
+    catalog_document_list = []
+    if catalog_item_ids.any?
+      # Then, do two source-specific set-of-id lookups
+      extra_solr_params = {
+        :rows => catalog_item_ids.size
+      }
+      response, catalog_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids, extra_solr_params)
+    end
+
+    article_document_list = []
+    if articles_item_ids.any?
+      article_document_list = get_summon_docs_for_id_values(articles_item_ids)
+    end
 
     # Then, merge back, in original order
     key_to_doc_hash = {}
@@ -326,6 +333,8 @@ class ApplicationController < ActionController::Base
 
 
   def get_summon_docs_for_id_values(id_array)
+    return [] unless id_array.kind_of?(Array)
+    return [] if id_array.empty?
 
     @params = {
       'spellcheck' => true,
@@ -360,7 +369,7 @@ class ApplicationController < ActionController::Base
       Rails.logger.error "[Spectrum][Summon] error: #{e.message}"
       @errors = e.message
     end
-
+# - raise
     # we choose to return empty list instead of nil
     @search ? @search.documents : []
   end
@@ -385,7 +394,16 @@ class ApplicationController < ActionController::Base
     session[:previous_url] = request.fullpath unless
       request.fullpath =~ /\/users/ or
       request.fullpath =~ /\/backend/ or
-      request.fullpath =~ /\/catalog\/unapi/
+      request.fullpath =~ /\/catalog\/unapi/ or
+      # exclude lists VERBS, but don't wildcare /lists or viewing will break
+      request.fullpath =~ /\/lists\/add/ or
+      request.fullpath =~ /\/lists\/move/ or
+      request.fullpath =~ /\/lists\/remove/ or
+      request.fullpath =~ /\/lists\/email/
+      # /spectrum/fetch - loading subpanels of bento-box aggregate
+      request.fullpath =~ /\/spectrum/
+      # old-style async ajax holdings lookups - obsolete?
+      request.fullpath =~ /\/holdings/
   end
 
   def after_sign_in_path_for(resource)

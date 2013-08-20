@@ -36,7 +36,7 @@ end
 # these are predominately phishing or spidering.  If we find examples of
 # legitimate use, we can fine-tune these rules.
 Rack::Attack.blacklist('block all Java User Agents') do |req|
-  req.user_agent.start_with?('Java/1.')
+  req.user_agent && req.user_agent.start_with?('Java/')
 end
 
 # Rate-Limit to a certain number of requests per minute

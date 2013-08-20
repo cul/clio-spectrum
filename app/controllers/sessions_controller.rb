@@ -10,6 +10,9 @@ class SessionsController < Devise::SessionsController
     expire_cache_for_user
     resource = warden.authenticate!(auth_options)
     set_flash_message(:notice, :signed_in) if is_navigational_format?
+    # set_flash_message(:error, :logout_warning1) if is_navigational_format?
+    # set_flash_message(:alert, :logout_warning2) if is_navigational_format?
+    # set_flash_message(:success, :logout_warning3) if is_navigational_format?
     sign_in(resource_name, resource)
     redirect_to after_sign_in_path_for(resource)
   end
