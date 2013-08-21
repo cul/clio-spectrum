@@ -117,7 +117,7 @@ module DatasourcesHelper
       when 'dissertations'
         dissertations_index_path(:q => query)
       when 'newspapers'
-        newspapers_index_path(:q => query)
+        newspapers_index_path(:q => query, 'new_search' => true)
       when 'new_arrivals'
         new_arrivals_index_path(:q => query)
       when 'academic_commons'
