@@ -54,10 +54,18 @@
 
 
     .sortAndPerPage.btn-toolbar
-      - if current_user.login == @list.owner
-        = render 'move_or_copy_items', :list => @list, :verb => 'move'
-      - elsif current_user
-        = render 'move_or_copy_items', :list => @list, :verb => 'copy'
+      -# - if current_user.login == @list.owner
+      -#   = render 'move_or_copy_items', :list => @list, :verb => 'move'
+      -# - elsif current_user
+      -#   = render 'move_or_copy_items', :list => @list, :verb => 'copy'
+      - if current_user
+        - if current_user.login == @list.owner
+          -# Owner can move items to a different list
+          = render 'move_or_copy_items', :list => @list, :verb => 'move'
+        - else
+          -# Non-Owners can copy items to their own lists
+          = render 'move_or_copy_items', :list => @list, :verb => 'copy'
+
       = render 'list_actions_widget'
 
     #documents.saved_list_documents

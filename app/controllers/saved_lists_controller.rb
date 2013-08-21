@@ -285,9 +285,13 @@ class SavedListsController < ApplicationController
                              :name => params[:to_list])
        @list.save
      end
+     # List of what items are already in the list - don't add something twice!
+     current_item_keys = @list.saved_list_items.map{ |item| item.item_key }
+
 
      # loop over the passed-in items, COPYING THEM to NEW saved-list-items
      for item_key in Array.wrap(params[:item_key_list]) do
+       next if current_item_keys.include? item_key
        item = SavedListItem.where(:saved_list_id => from_list.id,
                                   :item_key => item_key).first
        unless item
@@ -300,7 +304,7 @@ class SavedListsController < ApplicationController
        new_item.save
      end
 
-     redirect_to @list.url, notice: "#{params[:item_key_list].size} items moved to list #{view_context.link_to @list.name, @list.url}".html_safe
+     redirect_to @list.url, notice: "#{params[:item_key_list].size} items copied to list #{view_context.link_to @list.name, @list.url}".html_safe
 
   end
 
