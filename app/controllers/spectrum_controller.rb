@@ -111,6 +111,9 @@ class SpectrumController < ApplicationController
     if params['q']
       # which search field was selected from the drop-down?  default s.q
       search_field = params['search_field'] ||= 's.q'
+      # LibraryWeb QuickSearch will pass us "search_field=all_fields",
+      # which means to do a Summon search against 's.q'
+      search_field = 's.q' if search_field == 'all_fields'
       search_value = params['q']
 
       if search_field == 's.q'
