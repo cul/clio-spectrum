@@ -9,7 +9,7 @@
     %li.nav-header
       To existing list:
     - @all_current_user_lists.each { |other_list|
-      - if other_list.name != list.name
+      - if other_list.name != list.name || other_list.owner != list.owner
       %li= link_to other_list.name, "#", :onclick => "#{verb}SelectedToNamedList('/lists/#{verb}', '#{@list.owner}', '#{list.name}', '#{other_list.name}'); return false;"
     - }
 
