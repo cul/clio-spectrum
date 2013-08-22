@@ -104,6 +104,11 @@ class SpectrumController < ApplicationController
 
     params['authorized'] = @user_characteristics[:authorized]
 
+    # Article searches within QuickSearch should act as New searches
+    params['new_search'] = 'true' if @active_source == 'quicksearch'
+    # QuickSearch is only one of may possible Aggregates - so maybe this instead?
+    # params['new_search'] = 'true' if @search_style == 'aggregate'
+    # raise
 
     # seeing a "q" param means a submit directly from the basic search box
     # OR from a direct link
