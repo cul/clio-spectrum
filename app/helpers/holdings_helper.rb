@@ -107,7 +107,7 @@ module HoldingsHelper
         "http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey="],
     'precat' => ["Precataloging",
         "OpenPrecatRequest"],
-    'recall_hold' => ["Recall/Hold",
+    'recall_hold' => ["Recall / Hold",
         "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId="],
     'on_order' => ["On Order",
         "OpenInprocessRequest"],
@@ -117,7 +117,7 @@ module HoldingsHelper
         "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?"],
     'in_process' => ['In Process',
         "OpenInprocessRequest"],
-    'doc_delivery' => ['Document Delivery',
+    'doc_delivery' => ['Scan & Deliver',
         "https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?"]
   }
 
