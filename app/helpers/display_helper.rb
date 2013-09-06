@@ -485,24 +485,27 @@ module DisplayHelper
     fields.push( 'ctx_ver=Z39.88-2004' )
     fields.push( 'rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
 
-    document[ :id ].each do |id|
+    # Many fields used to be arrays on katana, but on macana appear to be strings?
+    # Defend ourselves by using Array.wrap() on everything.
+
+    Array.wrap(document[ :id ]).each do |id|
       document_url= 'http://academiccommons.columbia.edu/catalog/' + id
       fields.push("rft_id=#{ CGI::escape(document_url) }")
     end
 
-    document[ :author_facet ] && document[ :author_facet ].each do |author|
+    document[ :author_facet ] && Array.wrap(document[ :author_facet ]).each do |author|
       fields.push("rft.au=#{ CGI::escape(author) }")
     end
 
-    document[ :title_display ] && document[ :title_display ].each do |title|
+    document[ :title_display ] && Array.wrap(document[ :title_display ]).each do |title|
       fields.push("rft.atitle=#{ CGI::escape(title) }")
     end
 
-    document[ :publisher ] && document[ :publisher ].each do |publisher|
+    document[ :publisher ] && Array.wrap(document[ :publisher ]).each do |publisher|
       fields.push("rft.pub=#{ CGI::escape(publisher) }")
     end
 
-    document[ :pub_date_facet ] && document[ :pub_date_facet ].each do |pub_date_facet|
+    document[ :pub_date_facet ] && Array.wrap(document[ :pub_date_facet ]).each do |pub_date_facet|
       fields.push("rft.date=#{ CGI::escape(pub_date_facet) }")
     end
 
