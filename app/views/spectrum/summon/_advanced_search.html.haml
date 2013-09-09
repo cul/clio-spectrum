@@ -18,8 +18,10 @@
       - summon_query_as_hash = {}
       - if @results.kind_of?(Hash) && @results.values.first.instance_of?(Spectrum::Engines::Summon)
         -# But don't put s.fq/s.q as hidden fields, since they'll be in the below form.
-        -# - raise
-        - summon_query_as_hash = @results.values.first.search.query.to_hash
+        -# when summon fails, these may be nil
+        - if @results.values.first.search && @results.values.first.search.query
+          - summon_query_as_hash = @results.values.first.search.query.to_hash
+
         = summon_hidden_keys_for_search(summon_query_as_hash.except('s.fq').except('s.q'))
 
       -# # If we're at the Quicksearch landing page, building search-forms that will be
@@ -74,10 +76,10 @@
           = text_field_tag "s.fq[ISSN]", field_values['ISSN'],  :title => "ISSN", :id => "issn", :class => 'input-medium'
 
 
-      .advanced_search_row
-        .controls
-          %button.btn.advanced_search_button.btn-primary{:name => "commit", :type => "submit", :value => "Search"}
-            %i.icon-search.icon-white
-            %span.visible-desktop Search
+      -# .advanced_search_row
+      -#   .controls
+      -#     %button.btn.advanced_search_button.btn-primary{:name => "commit", :type => "submit", :value => "Search"}
+      -#       %i.icon-search.icon-white
+      -#       %span.visible-desktop Search
 
 

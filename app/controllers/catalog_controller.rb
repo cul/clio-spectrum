@@ -74,15 +74,22 @@ class CatalogController < ApplicationController
   def update
     adjust_for_results_view
     session[:search][:counter] = params[:counter]
+
+    # These alternate paths all come back through catalog controller,
+    # but this way we get things like the URL and @active_source correctly set.
     case @active_source
     when 'databases'
       redirect_to databases_show_path
     when 'journals'
       redirect_to journals_show_path
+    when 'archives'
+      redirect_to archives_show_path
+    when 'new_arrivals'
+      redirect_to new_arrivals_show_path
     else
-
       redirect_to :action => "show"
     end
+
   end
 
   def show
@@ -138,48 +145,50 @@ class CatalogController < ApplicationController
     end
   end
 
-
-  # NEXT-556 - send citation to more than one email address at a time
-  # Override Blacklight core method, which limits to single email.
-  # So far, no changes beyond removing this validation.
-
-  # Email Action (this will render the appropriate view on GET requests and
-  # process the form and send the email on POST requests)
-  def OLD_email
-    @response, @documents = get_solr_response_for_field_values(SolrDocument.unique_key,params[:id])
-    if request.post?
-      if params[:to]
-        url_gen_params = {
-          :host => request.host_with_port,
-          :protocol => request.protocol
-        }
-
-        # if params[:to].match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)
-        if params[:to].match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/)
-          email = RecordMailer.email_record(@documents,
-              {:to => params[:to], :message => params[:message]},
-              url_gen_params)
-        else
-          flash[:error] = I18n.t('blacklight.email.errors.to.invalid', :to => params[:to])
-        end
-      else
-        flash[:error] = I18n.t('blacklight.email.errors.to.blank')
-      end
-
-      unless flash[:error]
-        email.deliver
-        flash[:success] = "Email sent"
-        redirect_to catalog_path(params['id']) unless request.xhr?
-      end
-    end
-
-    unless !request.xhr? && flash[:success]
-      respond_to do |format|
-        format.js { render :layout => false }
-        format.html
-      end
-    end
-  end
+  # We're now emailing from within multiple classes, 
+  # and this has moved to ApplicationController
+  # 
+  # # NEXT-556 - send citation to more than one email address at a time
+  # # Override Blacklight core method, which limits to single email.
+  # # So far, no changes beyond removing this validation.
+  # 
+  # # Email Action (this will render the appropriate view on GET requests and
+  # # process the form and send the email on POST requests)
+  # def OLD_email
+  #   @response, @documents = get_solr_response_for_field_values(SolrDocument.unique_key,params[:id])
+  #   if request.post?
+  #     if params[:to]
+  #       url_gen_params = {
+  #         :host => request.host_with_port,
+  #         :protocol => request.protocol
+  #       }
+  # 
+  #       # if params[:to].match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)
+  #       if params[:to].match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/)
+  #         email = RecordMailer.email_record(@documents,
+  #             {:to => params[:to], :message => params[:message]},
+  #             url_gen_params)
+  #       else
+  #         flash[:error] = I18n.t('blacklight.email.errors.to.invalid', :to => params[:to])
+  #       end
+  #     else
+  #       flash[:error] = I18n.t('blacklight.email.errors.to.blank')
+  #     end
+  # 
+  #     unless flash[:error]
+  #       email.deliver
+  #       flash[:success] = "Email sent"
+  #       redirect_to catalog_path(params['id']) unless request.xhr?
+  #     end
+  #   end
+  # 
+  #   unless !request.xhr? && flash[:success]
+  #     respond_to do |format|
+  #       format.js { render :layout => false }
+  #       format.html
+  #     end
+  #   end
+  # end
 
   def add_custom_solr_search_params_logic
     # this "solr_search_params_logic" is used when querying using standard

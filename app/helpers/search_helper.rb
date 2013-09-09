@@ -19,7 +19,9 @@ module SearchHelper
 
 
   def search_render_options(search, source)
-    opts ={'template' => @search_style}.merge(source['render_options'] || {}).merge(search['render_options'] || {})
+    opts ={'template' => @search_style}.
+        merge(source['render_options'] || {}).
+        merge(search['render_options'] || {})
     opts['count'] = search['count'].to_i if search['count']
     opts
   end
@@ -66,7 +68,10 @@ module SearchHelper
       # BASIC SEARCH INPUT BOX
       summon_query_as_hash = {}
       if @results.kind_of?(Hash) && @results.values.first.instance_of?(Spectrum::Engines::Summon)
-        summon_query_as_hash = @results.values.first.search.query.to_hash
+        # when summon fails, these may be nil
+        if @results.values.first.search && @results.values.first.search.query
+          summon_query_as_hash = @results.values.first.search.query.to_hash
+        end
       end
       result += text_field_tag(:q,
           search_params[:q] || summon_query_as_hash['s.q'] || '',

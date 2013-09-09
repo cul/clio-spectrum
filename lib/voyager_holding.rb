@@ -2,7 +2,7 @@
 #
 #   HOLDINGS_URL = "http://vetiver.cc.columbia.edu:7014/vxws/GetHoldingsService"
 #   COOKIE_STORE = Rails.root.to_s + "/tmp/cookies/holding_cookies.dat"
-# 
+#
 #   attr_reader :bibid
 #   attr_accessor :results
 # 

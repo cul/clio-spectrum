@@ -66,7 +66,7 @@ module SerialSolutions
     #     else
     #       txt += "item #{number_with_delimiter(start_num)} - #{number_with_delimiter(end_num)} of #{number_with_delimiter(@search.record_count)}"
     #     end
-    # 
+    #
     #     txt
     #   end
     # end

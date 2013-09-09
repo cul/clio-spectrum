@@ -61,7 +61,7 @@ class SavedListsController < ApplicationController
         @list = SavedList.new(:created_by => current_user.login,
                               :owner => current_user.login,
                               :name => SavedList::DEFAULT_LIST_NAME)
-        @list.save
+        @list.save!
       end
     else
       # find someone else's list
@@ -216,7 +216,7 @@ class SavedListsController < ApplicationController
       @list = SavedList.new(:created_by => current_user.login,
                             :owner => current_user.login,
                             :name => list_name)
-      @list.save
+      @list.save!
     end
     current_item_keys = @list.saved_list_items.map{ |item| item.item_key }
 
@@ -225,7 +225,7 @@ class SavedListsController < ApplicationController
       next if current_item_keys.include? item_key
 
       new_item = SavedListItem.new(:item_key => item_key, :saved_list_id => @list[:id])
-      new_item.save
+      new_item.save!
       new_item_adds += 1
       @list.touch
     end
@@ -283,7 +283,7 @@ class SavedListsController < ApplicationController
      unless @list
        @list = SavedList.new(:owner => current_user.login,
                              :name => params[:to_list])
-       @list.save
+       @list.save!
      end
      # List of what items are already in the list - don't add something twice!
      current_item_keys = @list.saved_list_items.map{ |item| item.item_key }
@@ -301,7 +301,7 @@ class SavedListsController < ApplicationController
 
        new_item = item.dup
        new_item.saved_list_id = @list.id
-       new_item.save
+       new_item.save!
      end
 
      redirect_to @list.url, notice: "#{params[:item_key_list].size} items copied to list #{view_context.link_to @list.name, @list.url}".html_safe
@@ -348,7 +348,7 @@ class SavedListsController < ApplicationController
     unless @list
       @list = SavedList.new(:owner => current_user.login,
                             :name => params[:to_list])
-      @list.save
+      @list.save!
     end
 
     # loop over the passed-in items, set their owning list to Named list
@@ -360,7 +360,7 @@ class SavedListsController < ApplicationController
           :flash => { :error => "Item Key #{item_key} not found in #{params[:from_list]}" }
       end
       item.saved_list_id = @list.id
-      item.save
+      item.save!
     end
 
     redirect_to @list.url, notice: "#{params[:item_key_list].size} items moved to list #{view_context.link_to @list.name, @list.url}".html_safe

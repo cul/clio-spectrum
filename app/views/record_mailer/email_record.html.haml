@@ -25,7 +25,10 @@
       - online_links.each do |link|
         \    #{link.first}: #{link.last}
       \
-    = render_document_view(document, :template => 'catalog_show', :style => :text)
+    -# = render_document_view(document, :template => 'catalog_show', :style => :text)
+    - # Squeeze out consecutive newlines coming from add_row() on absent MARC fields
+    - # (Important for texty Emails!) - and re-mark as HTML-safe to avoid HTML double-escaping
+    = render_document_view(document, :template => 'catalog_show', :style => :text).squeeze("\n").html_safe
     - if (locations = document["location_call_number_id_display"].listify.reject { |l| l.match(/^Online/) }).any?
       \
       Location:
