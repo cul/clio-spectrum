@@ -166,7 +166,7 @@ class SpectrumController < ApplicationController
       # "results" is not the search results, it's the engine object, in a
       # post-search-execution state.
       results = case source
-        when 'articles_dissertations'
+        when 'dissertations'
           fixed_params['source'] = 'dissertations'
           fixed_params = fix_articles_params(fixed_params)
           Spectrum::Engines::Summon.new(fixed_params)
@@ -176,7 +176,7 @@ class SpectrumController < ApplicationController
           fixed_params = fix_articles_params(fixed_params)
           Spectrum::Engines::Summon.new(fixed_params)
 
-        when 'articles_newspapers'
+        when 'newspapers'
           fixed_params['source'] = 'newspapers'
           fixed_params = fix_articles_params(fixed_params)
           Spectrum::Engines::Summon.new(fixed_params)
@@ -190,11 +190,11 @@ class SpectrumController < ApplicationController
           fixed_params['source'] = 'catalog_ebooks'
           blacklight_search(fixed_params)
 
-        when 'catalog_databases'
+        when 'databases'
           fixed_params['source'] = 'databases'
           blacklight_search(fixed_params)
 
-        when 'catalog_ejournals'
+        when 'journals'
           fixed_params['source'] = 'journals'
           blacklight_search(fixed_params)
 

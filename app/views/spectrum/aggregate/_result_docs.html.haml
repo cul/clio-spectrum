@@ -11,5 +11,6 @@
 
 
 - else
-  .result_error Error when searching. #{result.errors}
+  .result_error
+    %h5 There was an error searching this datasource. (#{result.errors})
 

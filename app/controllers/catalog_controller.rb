@@ -56,8 +56,13 @@ class CatalogController < ApplicationController
 
     @filters = params[:f] || []
 
+    # reach into search config to find possible source-specific service alert warning
+    search_config = SEARCHES_CONFIG['sources'][@active_source]
+    warning = search_config ? search_config['warning'] : nil;
+
     respond_to do |format|
-      format.html { save_current_search_params; render :layout => 'quicksearch' }
+      format.html { save_current_search_params;
+                    render :locals => {:warning => warning}, :layout => 'quicksearch' }
       format.rss  { render :layout => false }
       format.atom { render :layout => false }
     end
@@ -86,11 +91,16 @@ class CatalogController < ApplicationController
     # solr_search_params_logic << :add_range_limit_params
     @query = Spectrum::Queries::Solr.new(params, self.blacklight_config)
     add_alerts_to_documents(@document)
+
+    # reach into search config to find possible source-specific service alert warning
+    search_config = SEARCHES_CONFIG['sources'][@active_source]
+    warning = search_config ? search_config['warning'] : nil;
+
     respond_to do |format|
       # require 'debugger'; debugger
       format.html {
         setup_next_and_previous_documents;
-        render :layout => "no_sidebar"
+        render :locals => { :warning => warning }, :layout => "no_sidebar"
       }
 
       # Add all dynamically added (such as by document extensions)

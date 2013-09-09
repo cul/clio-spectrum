@@ -26,7 +26,10 @@ module DatasourcesHelper
   def datasource_landing_page(source)
     classes = ['landing_page', source]
     classes << 'selected' if source == @active_source
-    content_tag(:div, render(:partial => "/_search/landing_pages/#{source}"), :class => classes.join(' '))
+    search_config = SEARCHES_CONFIG['sources'][source]
+    warning = search_config ? search_config['warning'] : nil;
+    content_tag(:div, render(:partial => "/_search/landing_pages/#{source}", :locals => {warning: warning}), :class => classes.join(' '))
+    # content_tag(:div, render(:partial => "/_search/landing_pages/#{source}"), :class => classes.join(' '))
   end
 
   def datasources_active_list(options = {})
@@ -152,4 +155,5 @@ module DatasourcesHelper
 
     link_to title, "#", options
   end
+
 end

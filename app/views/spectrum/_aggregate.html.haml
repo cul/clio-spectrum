@@ -6,6 +6,8 @@
         - result = @results[search['source']]
         - if result
           - source = SEARCHES_CONFIG['sources'][search['source']]
+          - warning = source ? source['warning'] : nil;
+
           - if session[:async_off]
             .result_set
             = render partial: "/spectrum/aggregate/result_header", locals: {result: result, title: source['title'], description: source['description']}
@@ -15,6 +17,8 @@
           - else
             .result_set.async_result_set{:"data-result-set" => spectrum_fetch_path(params.except(:controller, :action).merge(:datasource => search['source'] ))}
               = render partial: "/spectrum/aggregate/result_header_async", locals: {result: result, title: source['title'], description: source['description']}
+              = render partial: '/datasource_warning', locals: {warning: warning}
+
               .loading_block
                 Loading...
                 =image_tag('ajax-indicator.gif')
