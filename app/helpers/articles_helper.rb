@@ -88,7 +88,8 @@ module ArticlesHelper
       else
         txt += ": " + link_to_article(doc, "Full Text Available")
       end
-    elsif txt.include?("Journal Article")
+    # elsif txt.include?("Journal Article")
+    else
       txt += ": " + link_to_article(doc, "Citation Online")
     end
 
