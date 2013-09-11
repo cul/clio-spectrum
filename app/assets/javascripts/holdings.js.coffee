@@ -124,52 +124,75 @@ root.update_book_jackets = (isbns, data) ->
 root.retrieve_google_jackets = (standard_id_sets) ->
   # console.log("TOTAL NUMBER OF SETS: " + standard_id_sets.length)
   for standard_id_set_csv in standard_id_sets
-    start_index = 0
-    standard_id_array = standard_id_set_csv.split(",")
-    retrieve_google_jacket_for_single_item(standard_id_array, start_index)
+    # start_index = 0
+    # standard_id_array = standard_id_set_csv.split(",")
+    # retrieve_google_jacket_for_single_item(standard_id_array, start_index)
+    retrieve_google_jacket_for_single_item_v2(standard_id_set_csv)
 
 
-root.retrieve_google_jacket_for_single_item = (standard_id_array, start_index) ->
-  if start_index >= standard_id_array.length
-    return
+# root.retrieve_google_jacket_for_single_item = (standard_id_array, start_index) ->
+#   if start_index >= standard_id_array.length
+#     return
+# 
+#   current_search_id = standard_id_array[start_index]
+# 
+#   # Google does not process ISSNs - skip over these, if present
+#   if current_search_id.indexOf("issn") == 0
+#     retrieve_google_jacket_for_single_item(standard_id_array, start_index + 1)
+#     return
+# 
+#   # http://productforums.google.com/forum/#!topic/books-api/qDXTGnveQkc
+#   # https://www.googleapis.com/books/v1/volumes?&q=isbn:0-521-51937-3
+#   # https://www.googleapis.com/books/v1/volumes?q=lccn:2006921508
+#   # https://www.googleapis.com/books/v1/volumes?q=oclc:70850767
+#   # Google Books account for spectrum-tech@libraries.cul.columbia.edu
+#   # API Key: AIzaSyDSEgQqa-dByStBpuRHjrFOGQoonPYs2KU
+#   base_url = "https://www.googleapis.com/books/v1/volumes?"
+#   base_url = base_url + "q=" + current_search_id.toUpperCase()
+# 
+#   # use an API key for non-anonymous tracked usage... but only after our
+#   # API key has been allocated a very large quota
+#   base_url = base_url + "&key=AIzaSyDSEgQqa-dByStBpuRHjrFOGQoonPYs2KU"
+# 
+#   $.getJSON(base_url, (data) ->
+#     jacket_thumbnail_url = ''
+#     if data && data.totalItems && data.totalItems > 0
+# 
+#       for google_item in data.items
+#         if google_item.volumeInfo.imageLinks
+#           # console.log("FOUND=" + base_url)
+#           jacket_thumbnail_url = google_item.volumeInfo.imageLinks.thumbnail
+#           standard_id_as_class = "id_" + current_search_id.replace(":","")
+#           $('img.bookjacket.' + standard_id_as_class).attr('src', jacket_thumbnail_url)
+#           return
+#     if !jacket_thumbnail_url
+#       # console.log("UNFOUND for " + current_search_id)
+#       # recursive call, moving along to next identifier in the set
+#       retrieve_google_jacket_for_single_item(standard_id_array, start_index + 1)
+#   )
 
-  current_search_id = standard_id_array[start_index]
+root.retrieve_google_jacket_for_single_item_v2 = (standard_id_set_csv) ->
+  # cribbed from: http://stackoverflow.com/questions/3839966
+  # var tag = document.createElement("script");
+  # tag.src = 'somewhere_else.php?callback=foo';
+  # document.getElementsByTagName("head")[0].appendChild(tag);
+  books_url = "http://books.google.com/books";
+  api_url= books_url + "?jscmd=viewapi&bibkeys=" + standard_id_set_csv + "&callback=google_books_response_callback";
+  tag = document.createElement("script")
+  tag.src = api_url
+  document.getElementsByTagName("head")[0].appendChild(tag)
 
-  # Google does not process ISSNs - skip over these, if present
-  if current_search_id.indexOf("issn") == 0
-    retrieve_google_jacket_for_single_item(standard_id_array, start_index + 1)
-    return
+# parse the response JSON from books.google.com, to extract the
+# thumbnail URL to update the search results.
+# see: https://developers.google.com/books/docs/dynamic-links
+root.google_books_response_callback = (data) ->
+  for id, value_hash of data
+    id_as_class = "id_" + id.replace(":","")
+    if $('img.bookjacket.' + id_as_class) && value_hash.hasOwnProperty('thumbnail_url')
+      $('img.bookjacket.' + id_as_class).attr('src', value_hash.thumbnail_url)
+      return
 
-  # http://productforums.google.com/forum/#!topic/books-api/qDXTGnveQkc
-  # https://www.googleapis.com/books/v1/volumes?&q=isbn:0-521-51937-3
-  # https://www.googleapis.com/books/v1/volumes?q=lccn:2006921508
-  # https://www.googleapis.com/books/v1/volumes?q=oclc:70850767
-  # Google Books account for spectrum-tech@libraries.cul.columbia.edu
-  # API Key: AIzaSyDSEgQqa-dByStBpuRHjrFOGQoonPYs2KU
-  base_url = "https://www.googleapis.com/books/v1/volumes?"
-  base_url = base_url + "q=" + current_search_id.toUpperCase()
-
-  # use an API key for non-anonymous tracked usage... but only after our
-  # API key has been allocated a very large quota
-  base_url = base_url + "&key=AIzaSyDSEgQqa-dByStBpuRHjrFOGQoonPYs2KU"
-
-  $.getJSON(base_url, (data) ->
-    jacket_thumbnail_url = ''
-    if data && data.totalItems && data.totalItems > 0
-
-      for google_item in data.items
-        if google_item.volumeInfo.imageLinks
-          # console.log("FOUND=" + base_url)
-          jacket_thumbnail_url = google_item.volumeInfo.imageLinks.thumbnail
-          standard_id_as_class = "id_" + current_search_id.replace(":","")
-          $('img.bookjacket.' + standard_id_as_class).attr('src', jacket_thumbnail_url)
-          return
-    if !jacket_thumbnail_url
-      # console.log("UNFOUND for " + current_search_id)
-      # recursive call, moving along to next identifier in the set
-      retrieve_google_jacket_for_single_item(standard_id_array, start_index + 1)
-  )
-
+  
 
 root.retrieve_hathi_links = (standard_id_sets) ->
   # console.log("HATHI:  TOTAL NUMBER OF SETS: " + standard_id_sets.length)
