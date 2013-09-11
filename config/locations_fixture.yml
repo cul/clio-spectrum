@@ -189,10 +189,22 @@
     Home Page: http://library.columbia.edu/locations/butler-reference.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
-  :location: Butler Reference
+  :location: Butler Reference Desk
   :found_in: |-
     Butler Reference
     
+    301 Butler Library
+- :library_code: butler-24 
+  :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
+    Guides: http://library.columbia.edu/locations/butler-reference.html
+    Home Page: http://library.columbia.edu/locations/butler-reference.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Butler Reference
+  :found_in: |-
+    Butler Reference
+
     301 Butler Library
 - :library_code: butler-reserves
   :links: 
