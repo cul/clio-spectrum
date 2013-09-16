@@ -18,7 +18,7 @@
               = render partial: '/spectrum/summon/sorting_paging', locals: {result: result}
 
 
-            - sidebar_items << render(partial: "/spectrum/summon/facets", locals: {result: result})
+            - clio_sidebar_items << render(partial: "/spectrum/summon/facets", locals: {result: result})
         - else
           .result_error
             %h5 There was an error searching this datasource. (#{result.errors})

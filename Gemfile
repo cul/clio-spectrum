@@ -10,7 +10,7 @@ gem 'sqlite3'
 # gem 'unicorn'
 gem 'thin'
 
-gem 'blacklight', '~>4.2.0'
+gem 'blacklight', '~>4.3.0'
 gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
 gem 'blacklight_google_analytics'
 
