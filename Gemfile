@@ -6,8 +6,6 @@ gem 'rails', '3.2.14'
 
 gem 'sqlite3'
 
-# Use unicorn as the web server
-# gem 'unicorn'
 gem 'thin'
 
 gem 'blacklight', '~>4.3.0'
@@ -55,7 +53,8 @@ gem 'cancan'
 # this is no longer needed here within clio-spectrum.
 # gem 'voyager_api', '>=0.2.3'
 
-gem 'rubytree', '=0.5.2'
+# marquis, 9/13 - unused?
+# gem 'rubytree', '=0.5.2'
 
 gem 'exception_notification'
 gem 'net-ldap'
