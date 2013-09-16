@@ -1,7 +1,12 @@
 class BackendController < ApplicationController
 
   def url_for_id(id = nil)
-    "#{APP_CONFIG['clio_backend_url']}/holdings/retrieve/#{id}"
+    # raise
+    if clio_backend_url = APP_CONFIG['clio_backend_url']
+      return "#{clio_backend_url}/holdings/retrieve/#{id}"
+    else
+      raise "clio_backend_url not found in APP_CONFIG"
+    end
   end
 
   def holdings_httpclient
@@ -9,9 +14,9 @@ class BackendController < ApplicationController
     # The default is to wait 60/120 seconds - but we expect an instant response,
     # anything else means trouble, and we should give up immediately so as not
     # to not sit on resources.
-    hc.connect_timeout = 5 # default 60
-    hc.send_timeout    = 5 # default 120
-    hc.receive_timeout = 5 # default 60
+    hc.connect_timeout = 10 # default 60
+    hc.send_timeout    = 10 # default 120
+    hc.receive_timeout = 10 # default 60
     hc
   end
 
@@ -19,13 +24,16 @@ class BackendController < ApplicationController
     @id = params[:id]
     backend_url = url_for_id(@id)
     begin
-      @holdings = JSON.parse( holdings_httpclient.get_content(backend_url) )[@id]
+      json_holdings = holdings_httpclient.get_content(backend_url)
+      @holdings = JSON.parse( json_holdings )[@id]
     rescue HTTPClient::BadResponseError => e
       logger.error "#{self.class}##{__method__} HTTPClient::BadResponseError URL: #{backend_url}  Exception: #{e}"
       render nothing: true and return
     rescue HTTPClient::ReceiveTimeoutError => e
       logger.error "HTTPClient::ReceiveTimeoutError URL: #{backend_url}"
       render nothing: true and return
+    rescue => e
+      Rails.logger.error "BackendController error fetching holdings from #{backend_url}: #{e.message}"      
     end
 
     if @holdings.nil?

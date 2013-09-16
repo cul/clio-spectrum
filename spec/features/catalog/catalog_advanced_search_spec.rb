@@ -6,7 +6,9 @@ describe "Catalog Advanced Search" do
     visit root_path
     find('li.datasource_link[source=catalog]').click
     find('#catalog_q').should be_visible
-    find('.landing_page.catalog .advanced_search').should_not be_visible
+    # find('.landing_page.catalog .advanced_search').should_not be_visible
+    page.should have_no_selector('.landing_page.catalog .advanced_search')
+    
 
 
     find('.search_box.catalog .advanced_search_toggle').click

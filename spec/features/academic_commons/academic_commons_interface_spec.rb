@@ -13,8 +13,10 @@ describe "Academic Commons", :focus => false do
     within '.search_box.academic_commons' do
       find('#academic_commons_q').should be_visible
       fill_in 'q', :with => search_title_text
+      find('btn.dropdown-toggle').click()
       within '.dropdown-menu' do
-        find("a[data-value='title']").click()
+        # save_and_open_page()
+        click_link("Title")
       end
       find('button[type=submit]').click()
     end

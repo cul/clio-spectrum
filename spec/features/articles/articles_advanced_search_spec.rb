@@ -9,7 +9,8 @@ describe "Articles Search" do
     visit root_path
     find('li.datasource_link[source=articles]').click
     find('#articles_q').should be_visible
-    find('.landing_page.articles .advanced_search').should_not be_visible
+    page.should have_no_selector('.landing_page.articles .advanced_search')
+    # find('.landing_page.articles .advanced_search').should_not be_visible
 
 
     find('.search_box.articles .advanced_search_toggle').click
@@ -32,6 +33,7 @@ describe "Articles Search" do
     within '.search_box.articles' do
       find('#articles_q').should be_visible
       fill_in 'q', :with => "catmull, ed"
+      find('btn.dropdown-toggle').click()
       within '.dropdown-menu' do
         find("a[data-value='s.fq[AuthorCombined]']").click()
       end

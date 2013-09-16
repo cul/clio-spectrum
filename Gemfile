@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 # Can't move up to 4.0 series yet - blacklight_range_limit has dependency on 3
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.14'
 # gem 'rails', '~> 4.0.0'
 
 gem 'sqlite3'
@@ -10,7 +10,7 @@ gem 'sqlite3'
 # gem 'unicorn'
 gem 'thin'
 
-gem 'blacklight', '>= 4.2.0'
+gem 'blacklight', '~>4.2.0'
 gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
 gem 'blacklight_google_analytics'
 
@@ -150,9 +150,16 @@ group :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-spork'
-  # gem 'capybara'
-  gem 'capybara', '2.0.3'
+  
+  # pin to old version, or go with newest?
+  gem 'capybara'
+  # gem 'capybara', '2.0.3'
+  
+  # Which Capybara driver for JS support?
   gem 'capybara-webkit'
+  # dependent on localhost's browser configs
+  # gem 'selenium-webdriver'  
+  
   gem 'launchy'
   gem 'database_cleaner'
   # Mac OS X 10.8 (Mountain Lion) Notifications replace growl
@@ -160,7 +167,7 @@ group :test do
   # gem "growl"
   gem 'terminal-notifier-guard'
 
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>=2.14'
 
   gem 'rb-fsevent'
   # GNTP is Growl's protocol - turn off, since no more Growl
