@@ -364,7 +364,11 @@ module Spectrum
         # (which means "s.fq=AuthorCombined:eric+foner")
         # Rails.logger.debug  "SQ=[#{@search.query.to_hash.inspect}]"
         params = @search.query.to_hash
-        # merge in whatever new command overlays current summonstate
+        # NEXT-903 - ALWAYS reset to seeing page number 1.
+        # The only exception is the Next/Prev page links, which will
+        # reset s.pn via the passed input param cmd, below
+        params.merge!( { 's.pn' => 1 } )
+        # merge in whatever new command overlays current summon state
         params.merge!(cmd)
         # raise
         # add-in our CLIO interface-level params

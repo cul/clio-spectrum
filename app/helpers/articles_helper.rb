@@ -141,6 +141,11 @@ module ArticlesHelper
     hidden_fields = []
     summon_query_as_hash.each do |name, value|
 
+      # NEXT-903 - ALWAYS reset to page #1 whenever a summon search is submitted
+      if name == 's.pn'
+        value = 1
+      end
+
       # this is moved to the caller's responsibility
       # # skip the advanced search fields, we're sending them in un-hidden
       # next if name == 's.fq'
