@@ -444,9 +444,17 @@ module DisplayHelper
     if format =~ /journal/i
       # JOURNAL-SPECIFIC FIELDS
       fields.push( 'rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
+      # title is redundantly given as "atitle" for books
+      document[ :title_display ] && document[ :title_display ].each do |title|
+        fields.push("rft.atitle=#{ CGI::escape(title) }")
+      end
     else
       # BOOK-SPECIFIC FIELDS
       fields.push( 'rft_val_fmt=info:ofi/fmt:kev:mtx:book')
+      # title is redundantly given as "btitle" for books
+      document[ :title_display ] && document[ :title_display ].each do |title|
+        fields.push("rft.btitle=#{ CGI::escape(title) }")
+      end
     end
 
     fields.push("rft.genre=#{ CGI::escape(format_to_rft_genre(format)) }")
