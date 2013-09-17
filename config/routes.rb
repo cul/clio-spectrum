@@ -118,6 +118,8 @@ Clio::Application.routes.draw do
   match '/catalog/email(.:format)', :to => "catalog#email", :as => :email_catalog
   match '/catalog/sms(.:format)', :to => "catalog#sms", :as => :sms_catalog
 
+  match '/catalog/email(.:format)', :to => "catalog#email", :as => :email
+
   namespace :admin do
     resources :locations
   end

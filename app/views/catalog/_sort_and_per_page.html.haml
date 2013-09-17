@@ -1,12 +1,15 @@
+-# Whatever HTML comes back from this partial is "fixed" 
+-# by cul_catalog_helper#fix_catalog_links to point to @active_source
+
 - unless @document_list.nil? || @document_list.empty?
   .sortAndPerPage
-    = render "paginate_compact"
-    = link_to image_tag('rss-feed-icon-14x14.png', :size => "13x13"), catalog_index_path(params.merge(:format => 'atom')), :class => "rss-feed"
+    = fix_catalog_links(render "paginate_compact")
+    = fix_catalog_links(link_to image_tag('rss-feed-icon-14x14.png', :size => "13x13"), catalog_index_path(params.merge(:format => 'atom')), :class => "rss-feed")
     -# Allow "selections" for any Catalog-based data source, but NOT for Academic Commons
     - if @active_source != 'academic_commons'
       = render 'selections_widget'
-    = render 'sort_widget'
-    = render 'per_page_widget'
+    = fix_catalog_links(render 'sort_widget')
+    = fix_catalog_links(render 'per_page_widget')
 - else
   %h4 No results found for your search
 
