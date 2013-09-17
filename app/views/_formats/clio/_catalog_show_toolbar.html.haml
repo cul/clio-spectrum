@@ -69,8 +69,12 @@
           %li= link_to "Inter-Campus Delivery", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0013", :target => "_blank"
           %li= link_to "In-Process / On Order", "#", :onclick => "OpenInprocessRequest(#{clio_id}); return false;"
           %li= link_to "Precataloging", "#", :onclick => "OpenPrecatRequest(#{clio_id}); return false;"
-          - if HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + clio_id) == "1"
-            %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{clio_id}", :target => "_blank"
+
+          -# NewRelic shows that calling this CGI script is taking 4% of total server cpu.
+          -# Just show this for everyone.
+          -# if HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + clio_id) == "1"
+          %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{clio_id}", :target => "_blank"
+
           %li= link_to "Item Not On Shelf?", "#", :onclick => "OpenSearchRequest(#{clio_id}); return false;"
 
 
