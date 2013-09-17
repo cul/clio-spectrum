@@ -47,6 +47,8 @@ Clio::Application.routes.draw do
 
   match 'quicksearch/', :to => 'spectrum#search', :as => :quicksearch_index, :defaults => {:layout => 'quicksearch'}
 
+  match 'compare/', :to => 'spectrum#search', :as => :quicksearch_index, :defaults => {:layout => 'compare'}
+
   match "patron", :to => "patron#index", :as => :patron_index
 
   match '/set_user_option', :to => "application#set_user_option"

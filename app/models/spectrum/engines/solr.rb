@@ -165,6 +165,8 @@ module Spectrum
       def self.generate_rsolr(source, solr_url = nil)
         if source.in?("academic_commons", "ac_dissertations")
           RSolr.connect(:url => APP_CONFIG['ac2_solr_url'])
+        elsif source == "catalog_trial"
+          RSolr.connect(:url => APP_CONFIG['trial_solr_url'])
         elsif (solr_url)
           RSolr.connect(:url => solr_url)
         else

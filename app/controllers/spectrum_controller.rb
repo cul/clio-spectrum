@@ -83,6 +83,7 @@ class SpectrumController < ApplicationController
     if @search_layout.nil?
       render :text => "Search layout invalid."
     else
+      # raise4
       @fetch_action = true
       @search_style = @search_layout['style']
       @has_facets = @search_layout['has_facets']
@@ -219,8 +220,13 @@ class SpectrumController < ApplicationController
           fixed_params['q'] ||= ''
           Spectrum::Engines::GoogleAppliance.new(fixed_params)
 
+        when 'catalog_trial'
+          fixed_params['source'] = 'catalog_trial'
+          blacklight_search(fixed_params)
+
         else
-          raise Error.new("SpectrumController#get_results() unhandled source: '#{source}'")
+          # raise Error.new("SpectrumController#get_results() unhandled source: '#{source}'")
+          raise "SpectrumController#get_results() unhandled source: '#{source}'"
         end
 
       @result_hash[source] = results
