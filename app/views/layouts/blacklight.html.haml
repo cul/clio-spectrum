@@ -14,7 +14,7 @@
         .sidebar
           .search_logo.hidden-phone
             = link_to "CLIO", root_path, :class => "nav_title search_bar_logo"
-          .hidden-phone.span3= sidebar_items.join('').html_safe
+          .hidden-phone.span3= clio_sidebar_items.join('').html_safe
         #main.span9
           .row-fluid
             - unless @show_landing_pages

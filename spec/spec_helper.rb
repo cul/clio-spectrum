@@ -23,7 +23,21 @@ Spork.prefork do
     config.mock_with :rspec
     config.include(MailerMacros)
     config.before(:each) { reset_email }
+
+    # Specify an alternative JS driver if we want to avoid selinium
     Capybara.javascript_driver = :webkit
+    # Capybara.javascript_driver = :webkit_debug
+
+    # http://www.elabs.se/blog/60-introducing-capybara-2-1
+    # But try to rewrite our specs so that we don't have to change
+    # Capybara's default configuration settings.
+    # Capybara.configure do |config|
+      # config.match = :one
+      # config.exact_options = true
+      # config.ignore_hidden_elements = true
+      # config.visible_text_only = true
+    # end
+
     config.treat_symbols_as_metadata_keys_with_true_values = true
     config.filter_run :focus => true
     config.run_all_when_everything_filtered = true

@@ -32,7 +32,7 @@
   .pagination_container
     = render '/_search/pagination', :results => @summon
 
-  - sidebar_items << capture do
+  - clio_sidebar_items << capture do
     = render "/_search/facets", :facets => @summon.search.facets
 
 

@@ -32,6 +32,14 @@ module ApplicationHelper
     end
   end
 
+  # Copy functionality of BlackLight's sidebar_items, 
+  # new deprecated, over to CLIO-specific version
+  # collection of items to be rendered in the @sidebar
+  def clio_sidebar_items
+    @clio_sidebar_items ||= []
+  end
+
+
   # def ids_to_documents(id_array = [])
   #   # First, split into per-source lists,
   #   # (depend on Summon IDs to start with "FETCH"...)

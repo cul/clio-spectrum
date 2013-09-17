@@ -73,7 +73,7 @@ module DatasourcesHelper
 
     landing_class = options[:all_sources] ? 'landing datasource_list' : 'datasource_list'
     landing_class += " no_facets" unless has_facets
-    sidebar_items.unshift(content_tag(:ul, result.join('').html_safe, :id => "datasources", :class => landing_class))
+    clio_sidebar_items.unshift(content_tag(:ul, result.join('').html_safe, :id => "datasources", :class => landing_class))
   end
 
   def sidebar_span(source = @active_source)
