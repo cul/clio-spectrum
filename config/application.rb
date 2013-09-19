@@ -20,6 +20,7 @@ RELEASE_STAMP = IO.read("VERSION").strip
 # explicitly require, so that "config.middleware.use" works below during
 # capistrano's assets:precompile step
 require 'rack/attack'
+require 'rack/utf8_sanitizer'
 
 module Clio
   class Application < Rails::Application
