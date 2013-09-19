@@ -70,6 +70,10 @@ gem 'newrelic_rpm'
 # marquis, 6/13 - javascript framework - unused?
 # gem 'compass-rails'
 
+# "Rack middleware which cleans up invalid UTF8 characters"
+gem 'rack-utf8_sanitizer'
+
+
 gem 'jquery-rails'
 
 group :assets do

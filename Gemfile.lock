@@ -195,6 +195,8 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    rack-utf8_sanitizer (1.1.0)
+      rack (~> 1.0)
     rails (3.2.14)
       actionmailer (= 3.2.14)
       actionpack (= 3.2.14)
@@ -318,6 +320,7 @@ DEPENDENCIES
   paper_trail
   quiet_assets
   rack-attack
+  rack-utf8_sanitizer
   rails (= 3.2.14)
   rb-fsevent
   rspec-rails (>= 2.14)

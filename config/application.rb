@@ -86,7 +86,14 @@ module Clio
     # http://blog.gingerlime.com/2012/rails-ip-spoofing
     config.middleware.delete ActionDispatch::RemoteIp
 
+    # https://github.com/kickstarter/rack-attack
     # "DSL for blocking & throttling abusive clients"
     config.middleware.use Rack::Attack
+
+    # https://github.com/whitequark/rack-utf8_sanitizer
+    # Rack::UTF8Sanitizer is a Rack middleware which cleans up 
+    # invalid UTF8 characters in request URI and headers.
+    config.middleware.insert_before "Rack::Lock", Rack::UTF8Sanitizer
+
   end
 end
