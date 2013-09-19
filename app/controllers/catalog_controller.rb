@@ -51,8 +51,6 @@ class CatalogController < ApplicationController
     engine = blacklight_search(params)
     @response = engine.search
     @document_list = engine.documents
-    Rails.logger.debug "CatalogController::index() @document_list.first.class=#{@document_list.first.class}"
-
 
     @filters = params[:f] || []
 

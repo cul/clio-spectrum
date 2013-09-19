@@ -14,9 +14,10 @@ describe "Item Locations should show correct library hours", :js => true do
   # end
 
   it "for Avery Drawings & Archives" do
+    # puts catalog_path('8277276')
     visit catalog_path('8277276')
-    page.should have_text('Avery Drawings & Archives')
     # page.save_and_open_page # debug
+    page.should have_text('Avery Drawings & Archives')
     click_link('Avery Drawings & Archives - By appt. (Non-Circulating)')
     # page.save_and_open_page # debug
     page.should have_text('Avery Drawings & Archives')
