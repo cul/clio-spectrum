@@ -437,8 +437,8 @@ module DisplayHelper
       fields.push("rft.pub=#{ CGI::escape(publisher) }")
     end
 
-    document[ :pub_date_facet ] && document[ :pub_date_facet ].each do |pub_date_facet|
-      fields.push("rft.date=#{ CGI::escape(pub_date_facet) }")
+    document[ :pub_date_sort ] && document[ :pub_date_sort ].each do |pub_date_sort|
+      fields.push("rft.date=#{ CGI::escape(pub_date_sort) }")
     end
 
     document[ :isbn_display ] && document[ :isbn_display ].each do |isbn|
@@ -517,8 +517,8 @@ module DisplayHelper
       fields.push("rft.pub=#{ CGI::escape(publisher) }")
     end
 
-    document[ :pub_date_facet ] && Array.wrap(document[ :pub_date_facet ]).each do |pub_date_facet|
-      fields.push("rft.date=#{ CGI::escape(pub_date_facet) }")
+    document[ :pub_date_sort ] && Array.wrap(document[ :pub_date_sort ]).each do |pub_date_sort|
+      fields.push("rft.date=#{ CGI::escape(pub_date_sort) }")
     end
 
     return fields.join('&')
