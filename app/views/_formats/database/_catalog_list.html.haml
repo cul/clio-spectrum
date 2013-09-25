@@ -6,9 +6,10 @@
   .row-fluid
 
     .title.span11
-      <!-- COinS -->
-      %span.Z3988{title: catalog_to_openurl_ctx_kev(document)}
-      -# %span.Z3988{:title => document.export_as_openurl_ctx_kev(document_partial_name(document)).html_safe}
+      %span.coins_wrapper
+        <!-- COinS -->
+        %span.Z3988{title: catalog_to_openurl_ctx_kev(document)}
+        -# %span.Z3988{:title => document.export_as_openurl_ctx_kev(document_partial_name(document)).html_safe}
       = link_to_source_document document, :label=> document_full_title(document), :counter => counter
 
     .item_select.span1

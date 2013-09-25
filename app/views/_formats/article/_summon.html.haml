@@ -16,8 +16,9 @@
     = add_row('Format', get_article_type(document))
 
 
-    / COinS
-    %span.Z3988{ :title => document.src['openUrl'] }
+    %span.coins_wrapper
+      / COinS
+      %span.Z3988{ :title => document.src['openUrl'] }
 
     - if @debug_mode
       =add_row("Fulltext", document.fulltext.to_s)

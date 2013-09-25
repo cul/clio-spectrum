@@ -3,9 +3,10 @@
 / container for a single doc
 .result.document{class: render_document_class(document), source: 'academic_commons', item_id: document.get(:id)}
 
-  / COinS
-  / = add_row('OpenURL', ac_to_openurl_ctx_kev(document) ) / DEBUG
-  %span.Z3988{ :title => ac_to_openurl_ctx_kev(document) }
+  %span.coins_wrapper
+    / COinS
+    / = add_row('OpenURL', ac_to_openurl_ctx_kev(document) ) / DEBUG
+    %span.Z3988{ :title => ac_to_openurl_ctx_kev(document) }
 
   - fedora_id = document['id'].listify.first
   .fedora_title.title= link_to document.get('title_display'), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
