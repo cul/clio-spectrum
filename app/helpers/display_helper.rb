@@ -87,7 +87,11 @@ module DisplayHelper
 
   def format_online_results(urls)
     non_circ = image_tag("icons/noncirc.png", :class => :availability)
-    urls.collect { |link| non_circ + link_to(process_online_title(link.first).abbreviate(80), link.last) }
+    urls.collect { |link|
+      non_circ +
+      link_to(process_online_title(link[:title]).abbreviate(80), link[:url]) +
+      content_tag(:span, link[:note], class: 'url_link_note')
+    }
   end
 
   def format_location_results(locations, document)

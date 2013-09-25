@@ -50,25 +50,51 @@ module HoldingsHelper
     return links unless document.kind_of?(SolrDocument)
 
     document["url_munged_display"].listify.each do |url_munge|
-      url_parts = url_munge.split('~|Z|~').collect(&:strip)
-      title = url =  ""
-      if (url_index = url_parts.index { |part| part =~ URL_REGEX })
-        url = url_parts.delete_at(url_index)
-        title = url_parts.join(" ").to_s
-        title = url if title.empty?
-        links << [title, url]
-      # Actually, just ignore bad URLs, don't display in the interface
-      # else
-      #   title = "Bad URL: " + url_parts.join(" ")
-      #   url = ""
+
+      # See parsable_856s.bsh for the serialization code, which we here undo
+      delim = '|||'
+      url_parts = url_munge.split(delim).collect(&:strip)
+      ind2 = url_parts[0]
+      subfield3 = url_parts[1]
+      subfieldU = url_parts[2]
+      subfieldZ = url_parts[3]
+
+      # return empty links[] if the $u isn't a URL (bad input data)
+      return links unless subfieldU =~ URL_REGEX
+
+      title = "#{subfield3} #{subfieldZ}".strip
+      title = subfieldU unless title.length > 0
+      note  = case ind2
+        when '1'
+          " (version of resource)"
+        when '2'
+          " (related resource)"
+        else "" # omit note for ind2 == 0, the actual resource
       end
+      url   = subfieldU
+
+      # links << [title, note, url]   # as ARRAY
+      links << { :title => title, :note => note, :url => url }  # as HASH
+
+      # url_parts = url_munge.split('~|Z|~').collect(&:strip)
+      # title = url =  ""
+      # if (url_index = url_parts.index { |part| part =~ URL_REGEX })
+      #   url = url_parts.delete_at(url_index)
+      #   title = url_parts.join(" ").to_s
+      #   title = url if title.empty?
+      #   links << [title, url]
+      # # Actually, just ignore bad URLs, don't display in the interface
+      # # else
+      # #   title = "Bad URL: " + url_parts.join(" ")
+      # #   url = ""
+      # end
 
     end
 
     # remove google links if more than one exists
 
-    if links.select { |link| link.first.to_s.strip == "Google" }.length > 1
-      links.reject! { |link| link.first.to_s.strip == "Google" }
+    if links.select { |link| link[:title].to_s.strip == "Google" }.length > 1
+      links.reject! { |link| link[:title].to_s.strip == "Google" }
     end
 
 
