@@ -237,12 +237,15 @@ Set getFormats(Record record)
   if (!dissNote.isEmpty() || dissNote.size() != 0)
     resultSet.add("Thesis");
 
-  // microfilm is determined by 245 subfield h containing "microform"
+  // microfilm is determined by 542 subfield h containing "microform"
   LinkedHashSet titleH = new LinkedHashSet();
   titleH.addAll(getSubfieldDataAsSet(record, "245", "h", " "));       
   // check the h subfield of the 245 field
   if (Utils.setItemContains(titleH, "microform"))
     resultSet.add("Microformat");
+  // NEXT-619 - Add "Manuscript" facet (in addition to, not instead of, Book)
+  if (Utils.setItemContains(titleH, "manuscript"))
+    resultSet.add("Manuscript/Archive");
 
 
   // if we still don't have a format, it's an "other"

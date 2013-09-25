@@ -40,7 +40,25 @@ describe "Catalog Interface" do
     click_link('Introduction to high-energy astrophysics')
     page.should have_text("Table of contents (version of resource)")
     page.should have_text("Publisher description (related resource)")
+  end
 
+  # NEXT-619 - improvements to 'Manuscript' facet
+  it "Should find many Manuscripts for Call Number range X893", :js => true do
+    visit catalog_index_path('q' => 'X893')
+    within '.search_box.catalog' do
+      find('btn.dropdown-toggle').click()
+      within '.dropdown-menu' do
+        click_link("Call Number")
+      end
+      find('button[type=submit]').click()
+    end
+    within 'div.blacklight-format ul' do
+      click_link('Manuscript/Archive')
+    end
+    # exact count depends on default items-per-page, today, 25
+    page.should have_css('.result.document', :count => 25)
+    # matching "1", or "1N", or "1NN"...  the value today is actually 1504
+    page.should have_text('1 - 25 of 1')
   end
 
 end
