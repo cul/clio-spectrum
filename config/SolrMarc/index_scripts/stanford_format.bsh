@@ -158,6 +158,8 @@ Set getFormats(Record record)
             break;
           case 'n':
             resultSet.add("Newspaper");
+            // NEXT-713 - have "Journal" searches retreive newspapers
+            resultSet.add("Journal/Periodical");
             break;
           case 'p':
             // b4 2008-12-02 was: resultSet.add("Journal");
@@ -191,6 +193,8 @@ Set getFormats(Record record)
           break;
         case 'n':
           resultSet.add("Newspaper");
+          // NEXT-713 - have "Journal" searches retreive newspapers
+          resultSet.add("Journal/Periodical");
           break;
         case 'p':
           resultSet.add("Journal/Periodical");

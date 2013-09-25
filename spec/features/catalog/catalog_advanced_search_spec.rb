@@ -3,25 +3,28 @@ require 'spec_helper'
 describe "Catalog Advanced Search" do
 
   it "should be accessible from the home page", :js => true do
+    # NEXT-713, NEXT-891 - A Journal Title search should find Newspapers
+
+    # Use this string within the below test
+    search_text = 'Japan Times & Mail'
+
     visit root_path
     find('li.datasource_link[source=catalog]').click
     find('#catalog_q').should be_visible
-    # find('.landing_page.catalog .advanced_search').should_not be_visible
     page.should have_no_selector('.landing_page.catalog .advanced_search')
-    
-
 
     find('.search_box.catalog .advanced_search_toggle').click
     find('.landing_page.catalog .advanced_search').should be_visible
     within '.landing_page.catalog .advanced_search' do
       select('Journal Title', :from => 'adv_1_field')
-      fill_in 'adv_1_value', :with => "test"
-
+      fill_in 'adv_1_value', :with => search_text
       find('button[type=submit]').click()
-
     end
 
-    find(".constraint-box").should have_content('Journal Title')
+    find(".constraint-box").should have_content('Journal Title: ' + search_text)
+
+    # And the search results too
+    all('.result.document').first.should have_content(search_text)
 
   end
 
