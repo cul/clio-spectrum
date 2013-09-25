@@ -32,3 +32,24 @@ public Set getFirstLetter(Record record)
 
     return result;
 }
+
+public Set getFirstLetterOfTitle(Record record)
+{
+    Set result = new LinkedHashSet();
+
+    String title_sortable = indexer.getSortableTitle(record);
+
+    if (title_sortable == null)
+        return result;
+
+    if (title_sortable.length() > 0) {
+      if (Character.isDigit(title_sortable.charAt(0))) {
+        result.add("0-9");
+      } else {
+        String title_sortable_upper = title_sortable.toUpperCase();
+        result.add(title_sortable_upper.substring(0,1));
+      }
+    }
+
+    return result;
+}
