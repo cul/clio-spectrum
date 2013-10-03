@@ -28,8 +28,8 @@ root.after_document_load = (element) ->
   if standard_id_sets.length
     retrieve_google_jackets(standard_id_sets)
 
-  if standard_id_sets.length
-    retrieve_hathi_links(standard_id_sets)
+  # if standard_id_sets.length
+  #   retrieve_hathi_links(standard_id_sets)
 
 
 root.load_clio_holdings = (id) ->
@@ -194,29 +194,32 @@ root.google_books_response_callback = (data) ->
 
   
 
-root.retrieve_hathi_links = (standard_id_sets) ->
-  # console.log("HATHI:  TOTAL NUMBER OF SETS: " + standard_id_sets.length)
-  for standard_id_set_csv in standard_id_sets
-    start_index = 0
-    standard_id_array = standard_id_set_csv.split(",")
-    retrieve_hathi_links_for_single_item(standard_id_array, start_index)
 
-
-root.retrieve_hathi_links_for_single_item = (standard_id_array, start_index) ->
-  if start_index >= standard_id_array.length
-    return
-  current_search_id = standard_id_array[start_index]
-  type_value = current_search_id.split(":")
   id_type = type_value[0]
-  id_value = type_value[1]
   base_url = "http://catalog.hathitrust.org/api/volumes/brief/"
-  base_url = base_url + id_type + "/" + id_value + ".json"
-  # not working yet.... XSS security errors...
-  # console.log("BASE_URL="+base_url)
-  # $.getJSON(base_url, (data) ->
-  #   console.log(data)
-  # )
-
+# root.retrieve_hathi_links = (standard_id_sets) ->
+#   # console.log("HATHI:  TOTAL NUMBER OF SETS: " + standard_id_sets.length)
+#   for standard_id_set_csv in standard_id_sets
+#     start_index = 0
+#     standard_id_array = standard_id_set_csv.split(",")
+#     retrieve_hathi_links_for_single_item(standard_id_array, start_index)
+# 
+# 
+# root.retrieve_hathi_links_for_single_item = (standard_id_array, start_index) ->
+#   if start_index >= standard_id_array.length
+#     return
+#   current_search_id = standard_id_array[start_index]
+#   type_value = current_search_id.split(":")
+#   id_type = type_value[0]
+#   id_value = type_value[1]
+#   base_url = "http://catalog.hathitrust.org/api/volumes/brief/"
+#   base_url = base_url + id_type + "/" + id_value + ".json"
+#   # not working yet.... XSS security errors...
+#   # console.log("BASE_URL="+base_url)
+#   # $.getJSON(base_url, (data) ->
+#   #   console.log(data)
+#   # )
+# 
 
 
 $ ->

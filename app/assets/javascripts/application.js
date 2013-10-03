@@ -36,3 +36,5 @@
 //= require saved_lists
 
 //= require ie_warnings
+
+//= require hathi
