@@ -243,5 +243,30 @@ module HoldingsHelper
 
   end
 
+  # When bib records have a URL in their 856, they will have a holdings
+  # record with location Online but with NO URL DETAILS.
+  # These need to be detected, so that we can skip these holdings entries.
+  def holdings_online_without_url?(json_entry)
+
+    # Not an online holding if this are missing
+    return false if json_entry['location_name'] != 'Online'
+
+    # Shouldn't happen 
+    return false unless json_entry['copies']
+
+    found_url = false
+    json_entry['copies'].each do |copy|
+      found_url = true if copy['urls']
+    end
+
+    # If we found a URL block, this entry HAS a url
+    return false if found_url
+
+    # Only if we dropped down to here are we on an entry
+    # which is marked Online but is missing URL details.
+    return true
+
+  end
+
 end
 

@@ -78,7 +78,31 @@ describe "Catalog Interface" do
   end
 
 
+  # NEXT-931 - Online Links in Holdings (not in the Bib) should display
+  it "Online links from Bib or Holdings should show up within correct block", :js => true do
+    # visit this specific item
+    visit catalog_path('382300')
+
+    # within CLIO HOLDINGS, not the regular Online div...
+    # ...should see an 'Online' block
+    find('div#clio_holdings').
+      should have_content("Online")
+    # ...should see the specific URL...
+    find('div#clio_holdings').
+      should have_content("http://www.neighborhoodpreservationcenter.org/")
+
+    # And, contrariwise, other Avery Online material, which does not have
+    # an 856 URL in the Holdings record, should display 'Online' within the 
+    # visit this specific item
+    visit catalog_path('10099362')
+
+    # within ONLINE HOLDINGS, SHOULD see an 'Online' block
+    find('div#online_holdings').should have_content("Online")
+
+    # within CLIO HOLDINGS, should NOT see an 'Online' block
+    find('div#clio_holdings').should_not have_content("Online")
   end
+
 
 end
 
