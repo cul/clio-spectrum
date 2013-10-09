@@ -1,4 +1,6 @@
 -# DISPLAY/CATALOG/SHOW
+-# ALL item formats, all catalog-based datasources, use this partial to
+-# build their item-detail page.
 
 .show
   -#= render 'show_constraints', :localized_params=>session[:search]
@@ -17,6 +19,11 @@
 
       = render_document_view(document, :template => "catalog_show", :format => "clio")
 
+      -# NEXT-923 - for all formats, for all data-sources, include a stable
+      -# "Bookmark As" link to get back to this record.  Hardcode to prod CLIO URL.
+      - bookmark_as_url = "http://clio.columbia.edu/catalog/#{document.id}"
+      = add_row('Bookmark As', link_to(bookmark_as_url, bookmark_as_url) )
+
     -# Database Notes and Alerts
     -# html_safe true, so that ERC can embed HTML links in their alert msgs
     - if document.get("_active_item_alert_count") && document.get("_active_item_alert_count") > 0
@@ -31,6 +38,8 @@
         - document.get("_item_alerts")[:access_requirements].each do | alert |
           - if alert.active?
             = add_row(ItemAlert::ALERT_TYPES['access_requirements'], alert[:message], options = {:html_safe => true})
+
+
 
     .span6.well
       -# this partial renders, in turn, static html for holdings-online, 
