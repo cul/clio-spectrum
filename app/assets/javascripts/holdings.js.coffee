@@ -82,7 +82,8 @@ root.retrieve_holdings = (bibids) ->
 
 
 
-
+# Called from _google_books_check.html.haml, to update the
+# Google section of the single-item Holdings information.
 root.update_book_jackets = (isbns, data) ->
   for index of isbns
     isbn = isbns[index]
@@ -91,10 +92,13 @@ root.update_book_jackets = (isbns, data) ->
     isbn_data = data[isbn]
 
     if selector.length > 0 and isbn_data
-      selector.parents("#show_cover").show()
+      selector.parents("#google_holdings").show()
       gbs_cover = selector.parents(".gbs_cover")
 
       if isbn_data.thumbnail_url
+        # the img is height 0, to not interfere with other elements.
+        # reset to 'auto' before inserting GBS URL
+        selector.height('auto')
         selector.attr "src", isbn_data.thumbnail_url.replace(/zoom\=5/, "zoom=1")
         selector.parents(".book_cover").find(".fake_cover").hide()
         gbs_cover.show()
@@ -194,9 +198,6 @@ root.google_books_response_callback = (data) ->
 
   
 
-
-  id_type = type_value[0]
-  base_url = "http://catalog.hathitrust.org/api/volumes/brief/"
 # root.retrieve_hathi_links = (standard_id_sets) ->
 #   # console.log("HATHI:  TOTAL NUMBER OF SETS: " + standard_id_sets.length)
 #   for standard_id_set_csv in standard_id_sets

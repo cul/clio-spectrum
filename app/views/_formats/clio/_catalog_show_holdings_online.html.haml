@@ -1,10 +1,11 @@
 - unless online_links.empty?
-  .holding{:class => alternating_line}
-    .location_box
-      .location Online
+  #online_holdings
+    .holding{:class => alternating_line}
+      .location_box
+        .location Online
 
-    - online_links.each do |link|
-      .url_link
-        = image_tag("icons/online.png")
-        = link_to process_online_title(link[:title]), link[:url]
-        %span.url_link_note= link[:note]
+      - online_links.each do |link|
+        .url_link
+          = image_tag("icons/online.png")
+          = link_to process_online_title(link[:title]), link[:url]
+          %span.url_link_note= link[:note]

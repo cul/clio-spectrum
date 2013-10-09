@@ -33,8 +33,13 @@
             = add_row(ItemAlert::ALERT_TYPES['access_requirements'], alert[:message], options = {:html_safe => true})
 
     .span6.well
+      -# this partial renders, in turn, static html for holdings-online, 
+      -# holdings-display (Voyager), holdings-google, and holdings-hathi
       = render "_formats/clio/catalog_show_holdings", :document => document
+
     .clear-both
+      -# this partial inserts the javascript to fetch book data from Google,
+      -# and pass it to update_book_jackets() [defined in holdings.js]
       = render "google_books_check", :documents => document
 
       - if @active_source == "databases" && can?(:manage, ItemAlert)

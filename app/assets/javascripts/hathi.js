@@ -18,7 +18,7 @@ function parseResponse(bookInfo)
   // alert("YES:  parseResponse: " + bookInfo);
   // Actually, this is done in the CSS by default
   //  // Hide the row until we have something to display
-  // document.getElementById('hathiRow').style.display = 'none';
+  // document.getElementById('hathi_holdings').style.display = 'none';
 
   var hathiDiv = document.getElementById('hathidata');
 
@@ -79,10 +79,10 @@ function parseResponse(bookInfo)
 
 
   // now display row
-  // document.getElementById('hathiRow').style.display = '';
+  // document.getElementById('hathi_holdings').style.display = '';
   // document.getElementById('hathiBooks').style.display = 'block';
   // but in the jQuery way - it's so much easier
-  $('#hathiRow').show()
+  $('#hathi_holdings').show()
 
 }
 

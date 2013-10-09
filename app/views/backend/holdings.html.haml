@@ -1,5 +1,6 @@
 
 - add_display_elements(@holdings['condensed_holdings_full']).listify.reject { |x| x['location_name'].to_s.strip == "Online"}.each do |entry|
+-# Each 'entry' is one location (e.g., 'Avery', or 'Online')
 
   .holding{:class => alternating_line}
     .location_box
@@ -8,16 +9,22 @@
 
     .call_number= entry['call_number']
 
+    -# Each 'copy' is a group of 1-or-more equivalent items (same call num, etc.)
     - entry['copies'].each do |copy|
       .group
+        -# If there are any temp locations for this item, print them out
         - unless copy['temp_locations'].nil?
           - copy['temp_locations'].each do |t|
             .message= t
-        - ['orders','summary_holdings','supplements','indexes','notes','reproduction_note','current_issues','donor_info'].each do |type|
+        -# If there are any special notes, print them out
+        - ['orders', 'summary_holdings', 'supplements', 'indexes', 'notes', 
+	       'reproduction_note', 'current_issues', 'donor_info'].each do |type|
           - unless copy[type].nil?
             - message = copy[type]
             - message = message.gsub(/; /, '<br/>').html_safe if message =~ /^Current Issues:/
             .message=  message
+
+        -# Different 'items' with a 'copy' have varying statuses (Available, In-Transit, etc.)
         - copy['items'].each do |item|
           .status
             - message, details = item

@@ -61,19 +61,22 @@ describe "Catalog Interface" do
     page.should have_text('1 - 25 of 1')
   end
 
+
   # NEXT-640 - Records in CLIO should include links to Hathi Trust
   it "Should show Hathi Trust links, both 'Full view' and 'Limited'", :js => true do
     # visit this specific item
     visit catalog_path('3430925')
 
     # Should see the 'Full View' message in the Hathi Holdings box
-    find('#hathiRow .hathi_info #hathidata').should have_content("Full view")
+    find('#hathi_holdings .hathi_info #hathidata').should have_content("Full view")
 
     # visit this specific item
     visit catalog_path('70744')
 
     # Should see the 'Limited (search-only)' message in the Hathi Holdings box
-    find('#hathiRow .hathi_info #hathidata').should have_content("Limited (search-only)")
+    find('#hathi_holdings .hathi_info #hathidata').should have_content("Limited (search-only)")
+  end
+
 
   end
 

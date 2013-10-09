@@ -1,4 +1,4 @@
-#show_cover.gbs_cover
+#google_holdings.gbs_cover
   .holding
     - isbns = extract_standard_bibkeys(document).listify.collect { |i| "id_" + i.to_s.gsub(':','')}.join(" ")
     %img.bookjacket{:class => isbns, :src => image_path("spacer.png")}
