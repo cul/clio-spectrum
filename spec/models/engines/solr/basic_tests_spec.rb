@@ -35,10 +35,12 @@ describe 'Spectrum::Engines::Solr' do
 
 
   # NEXT-178 - child does not stem to children
-  describe 'searches for "child autobiography..." in Catalog' do
+  # 10/2013 - with Stemming now being disabled, turn this into a validation test of
+  # correct wildcard (child* ==> children)
+  describe 'searches for "child* autobiography..." in Catalog' do
     it 'should find "autobiographies of children" ' do
       # pending('revamp to how stopwords and/or phrases are handled')
-      eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'child autobiography asian north american', :search_field => 'all_fields', 'solr_url' => solr_url)
+      eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'child* autobiography asian north american honolulu', :search_field => 'all_fields', 'solr_url' => solr_url)
       # puts eng.solr_search_params
       eng.results.should_not be_empty
       # puts eng.results.first.get('title_display')

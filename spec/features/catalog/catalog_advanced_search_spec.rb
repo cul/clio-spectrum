@@ -23,8 +23,13 @@ describe "Catalog Advanced Search" do
 
     find(".constraint-box").should have_content('Journal Title: ' + search_text)
 
-    # And the search results too
-    all('.result.document').first.should have_content(search_text)
+    # And the search results too...
+    # (struggling to make a regexp work, to do case-insensitive match...)
+    # page.body.should match(%r{#{string}}i)
+    # page.find 'li.line-item', text: %r{Awesome Line Item}i 
+    # all('.result.document').first.should have_content(search_text)
+    # all('.result.document').first.should match(%r{#{search_text}}i)
+    all('.result.document').first.find 'a', text: %r{#{search_text}}i
 
   end
 
