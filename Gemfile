@@ -153,16 +153,16 @@ group :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-spork'
-  
+
   # pin to old version, or go with newest?
   gem 'capybara'
   # gem 'capybara', '2.0.3'
-  
+
   # Which Capybara driver for JS support?
   gem 'capybara-webkit'
   # dependent on localhost's browser configs
-  # gem 'selenium-webdriver'  
-  
+  # gem 'selenium-webdriver'
+
   gem 'launchy'
   gem 'database_cleaner'
   # Mac OS X 10.8 (Mountain Lion) Notifications replace growl

@@ -22,7 +22,7 @@
           - copy['temp_locations'].each do |t|
             .message= t
         -# If there are any special notes, print them out
-        - ['orders', 'summary_holdings', 'supplements', 'indexes', 'notes', 
+        - ['orders', 'summary_holdings', 'supplements', 'indexes', 'notes',
 	       'reproduction_note', 'current_issues', 'donor_info'].each do |type|
           - unless copy[type].nil?
             - message = copy[type]

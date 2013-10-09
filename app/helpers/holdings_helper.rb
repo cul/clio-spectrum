@@ -251,7 +251,7 @@ module HoldingsHelper
     # Not an online holding if this are missing
     return false if json_entry['location_name'] != 'Online'
 
-    # Shouldn't happen 
+    # Shouldn't happen
     return false unless json_entry['copies']
 
     found_url = false

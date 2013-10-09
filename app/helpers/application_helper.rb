@@ -32,7 +32,7 @@ module ApplicationHelper
     end
   end
 
-  # Copy functionality of BlackLight's sidebar_items, 
+  # Copy functionality of BlackLight's sidebar_items,
   # new deprecated, over to CLIO-specific version
   # collection of items to be rendered in the @sidebar
   def clio_sidebar_items

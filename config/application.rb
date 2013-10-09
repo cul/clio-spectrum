@@ -92,7 +92,7 @@ module Clio
     config.middleware.use Rack::Attack
 
     # https://github.com/whitequark/rack-utf8_sanitizer
-    # Rack::UTF8Sanitizer is a Rack middleware which cleans up 
+    # Rack::UTF8Sanitizer is a Rack middleware which cleans up
     # invalid UTF8 characters in request URI and headers.
     config.middleware.insert_before "Rack::Lock", Rack::UTF8Sanitizer
 

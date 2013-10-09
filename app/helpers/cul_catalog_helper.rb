@@ -75,7 +75,7 @@ module CulCatalogHelper
 
 
   # "Folders" has been removed
-  # 
+  #
   # def folder_link(document)
   #   size = "22x22"
   #   if item_in_folder?(document[:id])
@@ -85,7 +85,7 @@ module CulCatalogHelper
   #     text = "Add to folder"
   #     img = image_tag("icons/24-book-blue-add.png", :size => size)
   #   end
-  # 
+  #
   #   img + content_tag(:span, text, :class => "folder_link_text")
   # end
 

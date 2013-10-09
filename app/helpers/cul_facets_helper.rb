@@ -1,5 +1,7 @@
 module CulFacetsHelper
 
+  # Override core blacklight render_constraints_helper_behavior.rb
+  # module Blacklight::RenderConstraintsHelperBehavior#render_filter_element
   def render_filter_element(facet, values, localized_params)
     is_negative = (facet =~ /^-/) ? "NOT " : ""
     proper_facet_name = facet.gsub(/^-/, "")

@@ -211,7 +211,7 @@ module Spectrum
       end
 
 
-      # The "constraints" are the displayed, cancelable, search params 
+      # The "constraints" are the displayed, cancelable, search params
       # (currently applied queries, facets, etc.)
       # Return an array of ad-hoc structures, parsed by summon's constraints partial
       def constraints_with_links
