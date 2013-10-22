@@ -42,9 +42,9 @@ module Spectrum
         begin
           # here's the actual search, defined later in this engine
           perform_search
-        rescue => e
-          Rails.logger.error "#{self.class}##{__method__} [Spectrum][Solr] error: #{e.message}"
-          @errors = e.message
+        rescue => ex
+          Rails.logger.error "#{self.class}##{__method__} [Spectrum][Solr] error: #{ex.message}"
+          @errors = ex.message
         end
 
       end

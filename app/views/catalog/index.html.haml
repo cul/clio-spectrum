@@ -9,7 +9,7 @@
   - @page_title = application_name + " Search Results"
   - session['search'][:active_source] = @active_source
 
-  - unless @response.nil?
+  - unless response.nil?
     = fix_catalog_links(render('constraints', :localized_params=>params ))
 
     -# = fix_catalog_links(render('sort_and_per_page'))
@@ -17,7 +17,7 @@
 
     = render 'document_list'
 
-    = fix_catalog_links(render('results_pagination'))
+    = fix_catalog_links(render('results_pagination', :locals => {:reponse => response}))
 
     - clio_sidebar_items << capture do
       = render 'facets'

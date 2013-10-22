@@ -42,33 +42,33 @@ class SpectrumController < ApplicationController
 
     @search_layout = SEARCHES_CONFIG['layouts'][params['layout']]
 
-      # First, try to detect if we should go to the landing page.
-      # But... Facet-Only searches are still searches.
-      if params['q'].nil? && params['s.q'].nil? &&
-         params['s.fq'].nil? && params['s.ff'].nil? ||
-            (params['q'].to_s.empty? && @active_source == 'library_web')
-        flash[:error] = "You cannot search with an empty string." if params['commit']
-      elsif @search_layout.nil?
-        flash[:error] = "No search layout specified"
-        redirect_to root_path
+    # First, try to detect if we should go to the landing page.
+    # But... Facet-Only searches are still searches.
+    if params['q'].nil? && params['s.q'].nil? &&
+       params['s.fq'].nil? && params['s.ff'].nil? ||
+          (params['q'].to_s.empty? && @active_source == 'library_web')
+      flash[:error] = "You cannot search with an empty string." if params['commit']
+    elsif @search_layout.nil?
+      flash[:error] = "No search layout specified"
+      redirect_to root_path
+    else
+      @search_style = @search_layout['style']
+      @has_facets = @search_layout['has_facets']
+      sources =  @search_layout['columns'].collect { |col|
+        col['searches'].collect { |item| item['source'] }
+      }.flatten
+
+      @action_has_async = true if @search_style == 'aggregate'
+
+      if @search_style == 'aggregate' && !session[:async_off]
+        @action_has_async = true
+        @results = {}
+        sources.each { |source| @results[source] = {} }
       else
-        @search_style = @search_layout['style']
-        @has_facets = @search_layout['has_facets']
-        sources =  @search_layout['columns'].collect { |col|
-          col['searches'].collect { |item| item['source'] }
-        }.flatten
-
-        @action_has_async = true if @search_style == 'aggregate'
-
-        if @search_style == 'aggregate' && !session[:async_off]
-          @action_has_async = true
-          @results = {}
-          sources.each { |source| @results[source] = {} }
-        else
-          @results = get_results(sources)
-        end
-
+        @results = get_results(sources)
       end
+
+    end
 
     @show_landing_pages = true if @results.empty?
   end
@@ -109,27 +109,27 @@ class SpectrumController < ApplicationController
     params['new_search'] = 'true' if @active_source == 'quicksearch'
     # QuickSearch is only one of may possible Aggregates - so maybe this instead?
     # params['new_search'] = 'true' if @search_style == 'aggregate'
-    # raise
 
     # seeing a "q" param means a submit directly from the basic search box
     # OR from a direct link
     # (instead of from a facet, or a sort/paginate link, or advanced search)
-    if params['q']
+    q_param = params['q']
+    if q_param
       # which search field was selected from the drop-down?  default s.q
       search_field = params['search_field'] ||= 's.q'
       # LibraryWeb QuickSearch will pass us "search_field=all_fields",
       # which means to do a Summon search against 's.q'
       search_field = 's.q' if search_field == 'all_fields'
-      search_value = params['q']
 
       if search_field == 's.q'
+        # If s.q (default simple summon search)...
         # move the CLIO-interface "q" to what Summon works with, "s.q"
-        params['s.q']            = params['q']
-        session['search']['s.q'] = params['q']
+        params['s.q']            = q_param
+        session['search']['s.q'] = q_param
       else
-        # the search field is a filter query (s.fq), e.g. "s.fq[TitleCombined]"
-        h = Rack::Utils.parse_nested_query("#{search_field}=#{search_value}")
-        params.merge! h
+        # If the search field is a filter query (s.fq), e.g. "s.fq[TitleCombined]"...
+        hash = Rack::Utils.parse_nested_query("#{search_field}=#{q_param}")
+        params.merge! hash
         # explicitly set base query s.q to emtpy string
         params['s.q'] = ''
         session['search']['s.q'] = ''
@@ -145,13 +145,10 @@ class SpectrumController < ApplicationController
 
     if params['pub_date']
       params['s.cmd'] = "setRangeFilter(PublicationDate,#{params['pub_date']['min_value']}:#{params['pub_date']['max_value']})"
-      params.delete('q')
     end
 
     # Rails.logger.debug "fix_articles_params() out params=#{params.inspect}"
-
     params
-
   end
 
   def get_results(sources)

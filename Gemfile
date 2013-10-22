@@ -30,7 +30,6 @@ group :clio_dev, :clio_test, :clio_prod do
 end
 
 gem 'therubyracer', '0.10.2'
-# Deploy with Capistrano
 gem 'has_options'
 gem 'httpclient'
 gem 'nokogiri'
@@ -127,6 +126,8 @@ group :development do
   #gem 'linecache19', '0.5.13'
   #gem 'ruby-debug-base19', '0.11.26'
   #gem 'ruby-debug19', :require => 'ruby-debug'
+
+  # Deploy with Capistrano
   gem 'capistrano'
   gem 'capistrano-ext'
   gem 'quiet_assets'

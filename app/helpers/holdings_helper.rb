@@ -1,16 +1,7 @@
 # encoding: utf-8
 module HoldingsHelper
 
-### UNUSED
-### UNUSED
-### UNUSED
-### UNUSED
-### UNUSED
-### UNUSED
-### UNUSED
-### UNUSED
-### UNUSED
-
+# unused function
 #   def build_holdings_hash(document)
 #     results = Hash.new { |h,k| h[k] = []}
 #     Holding.new(document["clio_id_display"]).fetch_from_opac!.
@@ -25,22 +16,37 @@ module HoldingsHelper
 #   end
 
   SHORTER_LOCATIONS = {
-    "Temporarily unavailable. Try Borrow Direct or ILL" => "Temporarily Unavailable",
-    "Butler Stacks (Enter at the Butler Circulation Desk)" => "Butler Stacks",
-    "Offsite - Place Request for delivery within 2 business days" => "Offsite",
-    "Offsite (Non-Circ) Request for delivery in 2 business days" => "Offsite (Non-Circ)"
+    "Temporarily unavailable. Try Borrow Direct or ILL" =>
+        "Temporarily Unavailable",
+    "Butler Stacks (Enter at the Butler Circulation Desk)" =>
+        "Butler Stacks",
+    "Offsite - Place Request for delivery within 2 business days" =>
+        "Offsite",
+    "Offsite (Non-Circ) Request for delivery in 2 business days" =>
+        "Offsite (Non-Circ)"
   }
 
   def shorten_location(location)
     SHORTER_LOCATIONS[location.strip] || location
   end
 
+  # See NEXT-437 for discussion of presentation of call-number, location.
+  # Some folks want to remove the '>>' delimeter, but this is (as of 10/13) 
+  # still awaiting committee determination.
   def process_holdings_location(loc_display)
-    loc,call = loc_display.split(' >> ')
-    call ? "#{h(shorten_location(loc))} >> ".html_safe + content_tag(:span, call, class: 'call_number')  : shorten_location(loc)
+    loc, call = loc_display.split(' >> ')
+    output = "".html_safe
+    output << shorten_location(loc)  # append will html-escape content
+    if call
+      output << " >> "
+      output << content_tag(:span, call, class: 'call_number').html_safe
+    end
+    output
+
+    # old code:
+    # call ? "#{h(shorten_location(loc))} >> ".html_safe + content_tag(:span, call, class: 'call_number')  : shorten_location(loc)
   end
 
- URL_REGEX = Regexp.new('(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))')
 
 
   def online_link_hash(document)
@@ -60,7 +66,9 @@ module HoldingsHelper
       subfieldZ = url_parts[3]
 
       # return empty links[] if the $u isn't a URL (bad input data)
-      return links unless subfieldU =~ URL_REGEX
+      url_regex = Regexp.new('(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))')
+
+      return links unless subfieldU =~ url_regex
 
       title = "#{subfield3} #{subfieldZ}".strip
       title = subfieldU unless title.length > 0
@@ -167,7 +175,6 @@ module HoldingsHelper
   end
 
   def add_display_elements(entries)
-
     entries.each do |entry|
 
       # location links

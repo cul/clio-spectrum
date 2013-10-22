@@ -15,7 +15,7 @@
     .info.span6
       %span.coins_wrapper
         / COinS
-        %span.Z3988{ :title => document.export_as_openurl_ctx_kev(document_partial_name(@document)).html_safe }
+        %span.Z3988{ :title => document.export_as_openurl_ctx_kev(document_partial_name(document)).html_safe }
 
       = render_document_view(document, :template => "catalog_show", :format => "clio")
 

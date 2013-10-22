@@ -69,7 +69,7 @@ module Clio
     #
     # Catch 404s
     config.after_initialize do |app|
-      app.routes.append{match '*catch_unknown_routes', :to => 'application#catch_404'}
+      app.routes.append{match '*catch_unknown_routes', :to => 'application#catch_404s'}
     end
 
 

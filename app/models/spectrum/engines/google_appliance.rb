@@ -19,9 +19,9 @@ module Spectrum
           @raw_xml = Nokogiri::XML(HTTPClient.new.get_content(search_url))
           @documents = @raw_xml.css("R").collect { |xml_node| LibraryWeb::Document.new(xml_node) }
           @count = @raw_xml.at_css("M") ? @raw_xml.at_css("M").content.to_i : 0
-        rescue => e
-          Rails.logger.error "[Spectrum][GoogleApp] error: #{e.message}"
-          @errors = e.message
+        rescue => ex
+          Rails.logger.error "[Spectrum][GoogleApp] error: #{ex.message}"
+          @errors = ex.message
         end
       end
 

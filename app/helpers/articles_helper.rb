@@ -24,10 +24,8 @@ module ArticlesHelper
       url = article.link
     end
 
-
     link_to link_title, url
   end
-
 
 
 
@@ -35,7 +33,8 @@ module ArticlesHelper
     base = "https://www1.columbia.edu/sec-cgi-bin/cul/illiad/testref360?"
     epage = params['openurl'].to_s.scan(/rft.epage.(\d+)/)
     epage = epage && epage.first && epage.first.first ? epage.first.first : ""
-    issn = document.issns && document.issns.first ? document.issns.first[:value].to_s : ""
+    issns = document.issns
+    issn = issns && issns.first ? issns.first[:value].to_s : ""
     link_params = {
       'Volume' => document.volume,
       'Issue' => document.issue,
@@ -54,30 +53,38 @@ module ArticlesHelper
 
   end
 
-  ARTICLE_HOLDING_ICONS = {
-    'book' => 'icons/book.png',
-    'article' => 'icons/article.png',
-    'journal' => 'icons/journal.png',
-    'source' => 'icons/database.png',
-    'volume' => 'icons/volume.png'
-  }
-
-  ARTICLE_HOLDING_NAMES = {
-  }
-
-  ARTICLE_HOLDING_LINK_ORDER = %w{book article journal volume source}
-
-  def display_article_holdings_links(holding)
-    holding[:urls].keys.reject { |k| k == 'issue' }.sort_by { |x| ARTICLE_HOLDING_LINK_ORDER.index(x) }.collect do |source|
-      url = holding[:urls][source]
-      title = ARTICLE_HOLDING_NAMES[source] || source.humanize
-      icon = ARTICLE_HOLDING_ICONS[source]
-      title = content_tag(:span, "#{image_tag(icon)} ".html_safe + title, :class => "article_holding").html_safe if icon
-
-      link_to(title, url, :target => "_blank")
-    end.join("").html_safe
-
-  end
+  # No longer used - this was for the old partials,
+  # working against the Articles Controller
+  # 
+  # ARTICLE_HOLDING_ICONS = {
+  #   'book' => 'icons/book.png',
+  #   'article' => 'icons/article.png',
+  #   'journal' => 'icons/journal.png',
+  #   'source' => 'icons/database.png',
+  #   'volume' => 'icons/volume.png'
+  # }
+  # 
+  # ARTICLE_HOLDING_NAMES = {
+  # }
+  # 
+  # ARTICLE_HOLDING_LINK_ORDER = %w{book article journal volume source}
+  # 
+  # def display_article_holdings_links(holding)
+  #   holding[:urls].keys.reject { |key|
+  #     key == 'issue'
+  #   }.sort_by { |key|
+  #     ARTICLE_HOLDING_LINK_ORDER.index(key)
+  #   }.collect { |source|
+  #     url = holding[:urls][source]
+  #     title = ARTICLE_HOLDING_NAMES[source] || source.humanize
+  #     icon = ARTICLE_HOLDING_ICONS[source]
+  #     title = content_tag(:span, "#{image_tag(icon)} ".html_safe + title,
+  #                         :class => "article_holding").html_safe if icon
+  # 
+  #     link_to(title, url, :target => "_blank")
+  #   }.join("").html_safe
+  # 
+  # end
 
   def get_article_type(doc)
     txt = doc.content_types.join(", ")
@@ -151,8 +158,8 @@ module ArticlesHelper
       # next if name == 's.fq'
 
       if value.is_a?(Array)
-        value.each do |v|
-          hidden_fields << hidden_field_tag("#{name}[]", v.to_s, :id => nil)
+        value.each do |value_element|
+          hidden_fields << hidden_field_tag("#{name}[]", value_element.to_s, :id => nil)
         end
       else
         hidden_fields << hidden_field_tag(name, value.to_s, :id => nil)

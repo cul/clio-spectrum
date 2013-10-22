@@ -43,7 +43,7 @@
           /- if @document.export_formats.keys.include?(:refworks_marc_txt)
           /  -any_cites = true
           /  %li=link_to "Export to RefWorks", refworks_export_url(@document)
-          - if @document.export_formats.keys.include?(:endnote)
+          - if document.export_formats.keys.include?(:endnote)
             -any_cites = true
             %li=link_to "Export to EndNote", catalog_path(id, :format => "endnote")
 

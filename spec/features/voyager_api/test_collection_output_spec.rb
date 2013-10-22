@@ -11,7 +11,7 @@ describe "collection output tests", :js => true do
 
     visit catalog_path('1052500')
     within ('div#clio_holdings') do
-      page.should have_text('MICROFLM FN 41 Library has: v.1851:Sept.-2003:Dec.14, 2004:Jan.-2013:July 31')
+      page.should have_text('MICROFLM FN 41 Library has: v.1851:Sept.-2003:Dec.14, 2004:Jan.')
     end
 
   end

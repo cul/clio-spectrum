@@ -5,6 +5,7 @@ require 'rubygems'
 require 'spork'
 
 
+
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,
   # if you change any configuration or code from libraries loaded here, you'll
@@ -41,6 +42,12 @@ Spork.prefork do
     config.treat_symbols_as_metadata_keys_with_true_values = true
     config.filter_run :focus => true
     config.run_all_when_everything_filtered = true
+
+    # http://stackoverflow.com/questions/3333743
+    # factory_girl + rspec doesn't seem to roll back changes after each example
+    config.use_transactional_fixtures = true
+    config.use_instantiated_fixtures  = false
+
   end
 
 end

@@ -64,7 +64,8 @@ module MarcHelper
     values = []
     marc.each_by_tag(tag) do |field|
       # test for indicators
-      if (ind1 == :all || ind1.include?(field.indicator1)) && (ind2 == :all || ind2.include?(field.indicator2))
+      if (ind1 == :all || ind1.include?(field.indicator1)) &&
+         (ind2 == :all || ind2.include?(field.indicator2))
         display = process_field(field, display_subfields, search_subfields, options[:subject])
         unless display.empty?
           options[:split] ? values << display.split(options[:split]) : values << display

@@ -49,6 +49,30 @@ describe "Articles Search" do
 
     # And the search results too
     find('#documents').should have_content('Author Catmull, Ed')
+
+    # AND, add in some test related to pub-date sorting...
+
+    # page.save_and_open_page # debug
+
+    all('.sort-dropdown .css-dropdown').first.should have_content("Sort by Relevance")
+    all('.sort-dropdown .css-dropdown').first.hover
+    find_link('Relevance')
+    find_link('Published Latest')
+    find_link('Published Earliest').click
+
+    all('.sort-dropdown .css-dropdown').first.should have_content("Published Earliest")
+    all('.sort-dropdown .css-dropdown').first.hover
+    find_link('Relevance')
+    find_link('Published Earliest')
+    find_link('Published Latest').click
+
+    all('.sort-dropdown .css-dropdown').first.should have_content("Published Latest")
+    all('.sort-dropdown .css-dropdown').first.hover
+    find_link('Relevance')
+    find_link('Published Earliest')
+    find_link('Published Latest')
+
+
   end
 
 end
