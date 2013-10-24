@@ -53,8 +53,7 @@ describe "record tests", :js => true do
     visit catalog_path('6201975')
     within ('div#clio_holdings') do
       page.should have_link('Scan & Deliver',
-        :href => 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?6201975',
-        :count => 3 )
+        :href => 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?6201975')
     end
 
     visit catalog_path('6871895')
