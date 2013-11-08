@@ -1,10 +1,16 @@
-/* @import "local_mixes"
- */
 
+.teaser
+  :display none
+
+.item_select *
+  :margin 5px 5px
 
 .compact
   :border 1px solid #ccc
   :padding 2px
+
+  div
+    :padding 2px
 
 .paginate-compact
   :display inline-block
@@ -35,6 +41,7 @@ a.rss-feed
 
 .static-this
   :position static
+
 .search-constraint
   :padding-top 3px
   :padding-bottom 3px
@@ -72,6 +79,7 @@ a.rss-feed
   :border none
   :box-shadow none
   :padding 0
+  :margin-bottom 10px
 
 .advanced_search_row
   :padding-bottom 0.5em
@@ -95,6 +103,7 @@ a.rss-feed
 
     a
       :border-bottom none
+
   #navigation
     :float right
     :padding 6px 0px 6px 15px
@@ -132,13 +141,13 @@ a.rss-feed
   .fedora_title
     font-size: 1.25em
     font-weight: bold
-    padding-bottom: .5em
+    padding-bottom: 5px
 
   .title
     font-size: 1.25em
     font-weight: bold
-    padding-bottom: .5em
-    padding-top: .5em
+    padding-bottom: 5px
+    padding-top: 5px
 
 
 
@@ -225,6 +234,8 @@ img.availability
  *  times on the search results page, by using the
  *  class .sortAndPerPage instead of the id #sortAndPerPage
  *
+ *  10/13 - override, use .well-sm instead of .well to tighten display
+ *
  *  Selected portions of _catalog.css.scss from blacklight have
  *  been rewritten here in SASS, and need to be kept in sync.
  *
@@ -232,6 +243,8 @@ img.availability
 
 .sortAndPerPage
   @extend .well
+  @extend .well-small
+  margin-bottom: 10px
 
 .sortAndPerPage .dropdown-toggle
   cursor: pointer

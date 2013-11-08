@@ -12,15 +12,18 @@
   - unless @response.nil?
     = fix_catalog_links(render('constraints', :localized_params=>params ))
 
-    -# = fix_catalog_links(render('sort_and_per_page'))
-    = render('sort_and_per_page')
+    - if @document_list.nil? || @document_list.empty?
+      = render 'no_results_blurb'
+    - else
+      -# switch from blacklight-styling to Bootstrap nav-bar styling
+      -# = render('sort_and_per_page')
+      = render('index_toolbar')
 
-    = render 'document_list'
+      = render 'document_list'
+      = fix_catalog_links(render('results_pagination'))
 
-    = fix_catalog_links(render('results_pagination'))
-
-    - clio_sidebar_items << capture do
-      = render 'facets'
+      - clio_sidebar_items << capture do
+        = render 'facets'
 
 
 
