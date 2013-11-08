@@ -16,7 +16,7 @@ UNUSED
     = render :partial => '/_search/pagination', :locals => {:results => @results}
 
   #documents
-    = render_documents(@results.docs, :action => "library_web", :view_style => (params[:view] || "list"))
+    = render_documents(@results.docs, :action => "library_web", :viewstyle => (params[:view] || "list"))
 - else
 
   = add_all_datasource_landing_pages

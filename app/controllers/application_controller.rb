@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  helper_method :set_user_option, :get_user_option
+
   # Adds a few additional behaviors into the application controller
   include Blacklight::Controller
   include Blacklight::Catalog
@@ -79,11 +81,27 @@ class ApplicationController < ActionController::Base
     @debug_entries[:user_characteristics] = @user_characteristics
   end
 
-  def set_user_option
-    session[:options] ||= {}
-    session[:options][params['name']] = params['value']
+  def set_user_option_handler
+    # session[:options] ||= {}
+    # session[:options][params['name']] = params['value']
+    set_user_option(params['name'], params['value'])
     render :json => {:success => "Option set."}
   end
+
+  def set_user_option(name, value)
+    # create an options hash if it doesn't yet exist
+    session[:options] ||= {}
+    session[:options][name] = value
+  end
+
+  def get_user_option(name)
+    # create an options hash if it doesn't yet exist
+    session[:options] ||= {}
+    # return stored valuue - or nil if unset
+    return session[:options][name]
+  end
+
+
 
   def blacklight_search(sent_options = {})
     options = sent_options.deep_clone

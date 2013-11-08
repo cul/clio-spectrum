@@ -52,7 +52,7 @@ Clio::Application.routes.draw do
 
   match "patron", :to => "patron#index", :as => :patron_index
 
-  match '/set_user_option', :to => "application#set_user_option"
+  match '/set_user_option', :to => "application#set_user_option_handler"
 
   devise_for :users
 

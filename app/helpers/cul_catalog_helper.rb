@@ -65,13 +65,57 @@ module CulCatalogHelper
        txt.to_s.strip.empty?
     }.join(": ")
   end
+
   def build_fake_cover(document)
     book_label = (document["title_display"].to_s.abbreviate(60))
     content_tag(:div,
         content_tag(:div, book_label, :class => "fake_label"),
         :class => "cover fake_cover")
-
   end
+
+  def viewstyle_link(viewstyle, label)
+    if viewstyle != get_user_option('viewstyle')
+      content_tag(:a, label, :href => '#', :viewstyle => viewstyle, :class => "viewstyle_link" )
+    else
+      checkmark = content_tag("i", nil, :class => 'icon-ok')
+      content_tag(:a, (checkmark + " " + label), :href => '#', :viewstyle => viewstyle, :style => "padding-left: 2px;" )
+    end
+  end
+
+  # def get_view_options ()
+  #   # As of now, two kinds of views:  List (aka "Default") and Compact
+  #   list_label = 'Default View'.html_safe
+  #   compact_label = 'Compact View'.html_safe
+  # 
+  #   # Current-view is stored in session['options']['view'].
+  #   # Assume 'default' if unspecified.
+  #   # current_view = session['options'] && session['options']['view'] || 'default'
+  #   view = get_user_option('view') || 'list'
+  # 
+  #   # 'on' is a black check, 'off' is an invisible white check.
+  #   on  = content_tag("i", nil, :class => 'icon-ok').html_safe
+  #   off = content_tag("i", nil, :class => 'icon-ok invisible').html_safe
+  # 
+  #   # The non-selected view is a live link to switch views.
+  #   case view
+  #   when 'list'
+  #     default_option = content_tag(:span, (on + " " + list_label) )
+  #     compact_option = content_tag(:a, (off + " " + compact_label), :class => 'compact_view_link' )
+  # 
+  #   when 'compact'
+  #     default_option = content_tag(:a, (off + " " + list_label), :class => 'default_view_link'  )
+  #     compact_option = content_tag(:span, (on + " " + compact_label))
+  # 
+  #   else
+  #     raise "Unexpected view-type"
+  #   end
+  # 
+  # 
+  #   # Return array - view partial will use each as-is in the GUI
+  #   [ default_option, compact_option ]
+  #   # Rails.logger.error default_option.inspect
+  #   # [ default_option ]
+  # end
 
 
   # "Folders" has been removed

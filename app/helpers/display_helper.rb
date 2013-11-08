@@ -46,9 +46,10 @@ module DisplayHelper
   end
 
   def render_documents(documents, options)
-    partial = "/_display/#{options[:action]}/#{options[:view_style]}"
+    # Allow an optional viewstyle to override the default, "list"
+    viewstyle = options[:viewstyle] || 'list'
+    partial = "/_display/#{options[:action]}/#{viewstyle}"
     render partial, { :documents => documents.listify}
-
   end
 
   def render_document_view(document, options = {})
