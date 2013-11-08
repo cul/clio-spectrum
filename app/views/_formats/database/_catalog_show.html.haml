@@ -1,6 +1,8 @@
 - marc = document.to_marc
 
-= add_row("DB Summary", document.get("database_summary_display"))
+-# Per 10/1013 NER/Cataloging decision, eliminate the 969 DB Summary field,
+-# use only the standard MARC 520 full summary, below.
+-# = add_row("DB Summary", document.get("database_summary_display"))
 -# Redundant with 'Summary', below
 -# = add_row("Details", document.get("summary_display"))
 = add_row("Author", generate_value_links(display_marc_field(marc, 'author'), :author))
