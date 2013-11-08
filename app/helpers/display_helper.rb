@@ -376,6 +376,7 @@ module DisplayHelper
     else
       values = values.collect { |v| h(v) }.collect(&:html_safe)
     end
+
     values = if options[:display_only_first]
       values.first.to_s.listify
     elsif options[:join]
@@ -387,6 +388,27 @@ module DisplayHelper
     value_txt = if options[:style] == :text
       values.join("\r\n  ")
     else
+
+      # If the text is long enough, wrap the end of it within a 
+      # span, with a hide/show toggle.
+      # based on:  http://stackoverflow.com/questions/14940166
+      # based on:  http://jsfiddle.net/VNdmZ/4/
+      values = values.collect { |value|
+        value.strip!
+        teaser_length = options[:teaser].respond_to?(:to_i) ? options[:teaser].to_i : 100
+        breaking_space_index = value.index(' ', teaser_length)
+
+        # if we found an appropriate space character at which to break content...
+        if breaking_space_index
+          before = value[0, breaking_space_index]
+          after = value[breaking_space_index + 1 .. -1]
+          icon_i = content_tag(:i, nil, :class => 'icon-resize-full', :onclick => "toggle_teaser(this)")
+          value = "#{before} #{content_tag(:span, after, :class => 'teaser')} #{icon_i}".html_safe
+        else
+          value
+        end
+      } if options[:teaser]
+
       pre_values = values.collect { |v| content_tag(:div, v, :class => 'entry') }
 
       if options[:expand] && values.length > 3
@@ -396,7 +418,6 @@ module DisplayHelper
           content_tag(:div, link_to("#{values.length - 2} more &#x25BC;".html_safe, "#"), :class => 'entry expander'),
           content_tag(:div, pre_values[2..-1].join('').html_safe, :class => 'expander_more')
         ]
-
       end
 
       pre_text = pre_values.join('')
@@ -406,6 +427,7 @@ module DisplayHelper
         pre_text += content_tag(:div, options[:expand_to].html_safe,
                                 :class => 'expander_more')
       end
+
 
       pre_text
 
