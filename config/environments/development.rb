@@ -37,6 +37,7 @@ Clio::Application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 
+
   # UnAPI has been removed.
   # # BlacklightUnapi - quiet the extensive log entries:
   # # DEPRECATION WARNING: Passing a template handler in the template

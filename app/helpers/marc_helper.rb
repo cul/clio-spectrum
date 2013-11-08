@@ -69,8 +69,10 @@ module MarcHelper
         unless display.empty?
           options[:split] ? values << display.split(options[:split]) : values << display
         end
-        # get matching script field if there is a subfield 6
-        if options[:vernacular] && field.subfields.first.code == "6"
+        # get matching script field if there is a subfield 6 (watch for missing subfields)
+        if options[:vernacular] &&
+           field.subfields.first &&
+           field.subfields.first.code == "6"
           display = process_vernacular(marc, field, display_subfields, search_subfields, options[:subject])
           unless display.empty?
             options[:split] ? values << display.split(options[:split]) : values << display

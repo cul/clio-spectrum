@@ -83,7 +83,6 @@ class SpectrumController < ApplicationController
     if @search_layout.nil?
       render :text => "Search layout invalid."
     else
-      # raise4
       @fetch_action = true
       @search_style = @search_layout['style']
       @has_facets = @search_layout['has_facets']

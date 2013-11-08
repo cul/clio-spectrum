@@ -563,7 +563,7 @@ module Spectrum
                   :label => "Starts With"
 
               config.add_sort_field 'score desc, pub_date_sort desc, title_sort asc',
-                  :label => 'relevance'
+                  :label => 'Relevance'
               config.add_sort_field 'title_sort asc, pub_date_sort desc',
                   :label =>  'Title A-Z'
               config.add_sort_field 'title_sort desc, pub_date_sort desc',
