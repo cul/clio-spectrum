@@ -143,6 +143,9 @@ group :development do
 end
 
 group :test, :development do
+  # why in test and dev both instead of just test?  
+  # because is says to: https://github.com/rspec/rspec-rails
+  gem 'rspec-rails', '>=2.14'
 
 end
 
@@ -170,7 +173,6 @@ group :test do
   # gem "growl"
   gem 'terminal-notifier-guard'
 
-  gem 'rspec-rails', '>=2.14'
 
   gem 'rb-fsevent'
   # GNTP is Growl's protocol - turn off, since no more Growl
