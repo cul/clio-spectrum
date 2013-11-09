@@ -18,7 +18,7 @@ bind_alert_management_buttons = (alert_div) ->
       url: $(button).attr('data-modify')
       type: 'GET'
       dataType: 'script'
-      complete: (jqXHR, textStatus) ->
+      done: (jqXHR, textStatus) ->
         if jqXHR.statusText == "OK"
           new_row = $("<tr data-id='" + row.attr('data-id') + "'><td colspan='5'><div class='edit_form' data-id='" + row.attr('data-id') + "'>" + jqXHR.responseText + "</div></td></tr>")
           row.after(new_row)
@@ -35,7 +35,7 @@ bind_alert_management_buttons = (alert_div) ->
         url: $(button).attr('data-delete')
         type: 'DELETE'
         dataType: 'json'
-        success: (data, textStatus, jqXHR) ->
+        done: (data, textStatus, jqXHR) ->
           $(button).parents('tr').remove()
       )
 
@@ -49,7 +49,7 @@ bind_alert_management_form = (form) ->
       data: form.serialize()
       type: 'POST'
       dataType: 'json'
-      success: (data, textStatus, jqXHR) ->
+      done: (data, textStatus, jqXHR) ->
         item_id = parent_div.attr('data-id')
         if item_id == undefined
           response = JSON.parse(jqXHR.responseText)
@@ -75,7 +75,7 @@ bind_alert_management_form = (form) ->
           add_row.show()
 
         )
-      error: (data, textStatus, jqXHR) ->
+      fail: (data, textStatus, jqXHR) ->
         alerts = form.find('.alerts')
         alerts.empty()
 
