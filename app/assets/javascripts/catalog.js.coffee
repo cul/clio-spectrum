@@ -7,8 +7,8 @@ $ ->
 
   $(".viewstyle_link").click ->
     viewstyle = $(this).attr('viewstyle')    
-    $.get('/set_user_option?name=viewstyle&value=' + viewstyle)
-    location.reload()
+    $.get '/set_user_option?name=viewstyle&value=' + viewstyle, (data) ->
+      location.reload()
 
 
   $('.toggle_all.contract').parents("#facets").find('.range_limit').show()
