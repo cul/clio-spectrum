@@ -16,7 +16,7 @@
 
   = render '/catalog/selections_widget'
 
-  #sort-dropdown.dropdown.pull-right.hidden-phone
+  .sort-dropdown.dropdown.pull-right.hidden-phone
     %ul.css-dropdown
       %li.btn.btn-link
         =link_to("Sort by #{result.current_sort_name}")
@@ -25,7 +25,7 @@
           - result.sorts_with_links.each do |link, name|
             %li= link_to "#{name}", link
 
-  #per_page-dropdown.dropdown.pull-right.hidden-phone
+  .per_page-dropdown.dropdown.pull-right.hidden-phone
     %ul.css-dropdown
       %li.btn.btn-link
         =link_to("#{result.page_size} per page")

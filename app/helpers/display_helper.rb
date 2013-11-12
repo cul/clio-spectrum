@@ -84,14 +84,16 @@ module DisplayHelper
     "Journal Article" => "article"
   }
 
-  FORMAT_RANKINGS = ["ac", "database", "map_globe", "manuscript_archive", "video", "music_recording", "music", "newspaper", "serial", "book", "clio", "ebooks", "article", "articles", "summon", "lweb"]
+  FORMAT_RANKINGS = ["ac", "database", "map_globe", "manuscript_archive",
+    "video", "music_recording", "music", "newspaper", "serial", "book",
+    "clio", "ebooks", "article", "articles", "summon", "lweb" ]
 
   def format_online_results(urls)
-    non_circ = image_tag("icons/noncirc.png", :class => :availability)
+    non_circ_img = image_tag("icons/noncirc.png", :class => 'availability')
     urls.collect { |link|
-      non_circ +
+      non_circ_img +
       link_to(process_online_title(link[:title]).abbreviate(80), link[:url]) +
-      content_tag(:span, link[:note], class: 'url_link_note')
+      content_tag(:span, link[:note], :class => 'url_link_note')
     }
   end
 
@@ -106,7 +108,9 @@ module DisplayHelper
         clio_holding = status if status
       end
 
-      image_tag("icons/#{clio_holding}.png", :class => "availability holding_#{hold_id}") + process_holdings_location(loc_display)
+      image_tag("icons/#{clio_holding}.png",
+                :class => "availability holding_#{hold_id}") +
+        process_holdings_location(loc_display)
     end
   end
 
@@ -140,75 +144,72 @@ module DisplayHelper
   # for segregating search values from display values
   DELIM = "|DELIM|"
 
+  # generate_value_links() is used extensively throughout catalog show
+  # helpers, to build CLIO search links out of MARC values, for use on
+  # the item-detail pages.
   def generate_value_links(values, category)
-
-    # display_value DELIM search_value [DELIM t880_flag]
-
+    # out - an array of strings to be returned by this function,
+    # one per input value.
     out = []
 
     values.listify.each do |v|
-#    values.listify.select { |v| v.respond_to?(:split)}.each do |v|
 
-      # s = v.split(DELIM)
+      # Fields intended for for search links will have distinct
+      # display/search values delimited within the field.
       display_value, search_value, t880_indicator = v.split(DELIM)
 
-      # the display value has already been made html-escaped by MarcHelper.
-      # mark it as html-safe to avoid double-encoding
-      display_value = display_value.html_safe
-
-      # no link value
-      # unless s.length >= 2
+      # If the split didn't find us a search_value, this field was
+      # not setup for searching - return the value for display, no link.
       unless search_value
         out << v
         next
       end
 
-      # if displaying plain text, do not include links
+      # the display value has already been made html-escaped by MarcHelper.
+      # mark it as html-safe to avoid double-encoding
+      display_value = display_value.html_safe
 
+      # if we're displaying plain text, do not include links
       if @add_row_style == :text
-        # out << s[0]
         out << display_value
-      else
+        next
+      end
 
-        case category
-        when :all
-          # q = '"' + s[1] + '"'
-          # out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "all_fields", :commit => "search"))
+      case category
+
+      when :all
           q = '"' + search_value + '"'
           out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "all_fields", :commit => "search"))
-        when :author
-          # s[2] is not nil when data is from an 880 field (vernacular)
-          # temp workaround until we can get 880 authors into the author facet
-          # if s[2]
-          if t880_indicator
-            # q = '"' + s[1] + '"'
-            # out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "author", :commit => "search"))
-            # out << s[0]
-            out << display_value
 
-          else
-            # remove puntuation from s[1] to match entries in author_facet using solrmarc removeTrailingPunc rule
-#            s[1] = s[1].gsub(/\.$/,'') if s[1] =~ /\w{3}\.$/ || s[1] =~ /[\]\)]\.$/
-#            s[1] = s[1].gsub(/,$/,'')
-# s[1] = remove_punctuation(s[1])
-            search_value = remove_punctuation(search_value)
+      when :author
+        # t880_indicator is not nil when data is from an 880 field (vernacular)
+        # temp workaround until we can get 880 authors into the author facet
+        if t880_indicator
+          # q = '"' + search_value + '"'
+          # out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "author", :commit => "search"))
+          out << display_value
 
-            # out << link_to(s[0].html_safe, url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => s[1]))
-            out << link_to(display_value, url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => search_value))
-          end
-        when :subject
-          # out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => s[1], :search_field => "subject", :commit => "search"))
-          out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => search_value, :search_field => "subject", :commit => "search"))
-        when :title
-          # q = '"' + s[1] + '"'
-          # out << link_to(s[0], url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "title", :commit => "search"))
-          q = '"' + search_value + '"'
-          out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "title", :commit => "search"))
         else
-          raise "invalid category specified for generate_value_links"
+          # remove punctuation to match entries in author_facet 
+          # using solrmarc removeTrailingPunc rule
+          search_value = remove_punctuation(search_value)
+
+          out << link_to(display_value, url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => search_value))
         end
+
+      when :subject
+        out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => search_value, :search_field => "subject", :commit => "search"))
+
+      when :title
+        q = '"' + search_value + '"'
+        out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "title", :commit => "search"))
+
+      else
+        raise "invalid category specified for generate_value_links"
       end
+
     end
+
     out
   end
 

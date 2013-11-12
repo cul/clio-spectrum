@@ -1,3 +1,6 @@
+# The CatalogController supports all catalog-based datasources:
+#   Catalog, Databases, E-Journal Titles, etc.
+# This was originally based on the Blacklight CatalogController.
 require 'blacklight/catalog'
 
 class CatalogController < ApplicationController
@@ -33,10 +36,14 @@ class CatalogController < ApplicationController
       params['search_field'] ||= 'all_fields'
     end
 
+
     # solr_search_params_logic << :add_advanced_search_to_solr
     # solr_search_params_logic << :add_range_limit_params
     @query = Spectrum::Queries::Solr.new(params, self.blacklight_config)
-    @show_landing_pages = (params[:q].blank? && params[:f].blank? && params[:search_field].blank?)
+
+    @filters = params[:f] || []
+
+    @show_landing_pages = (params[:q].blank? && @filters.blank? && params[:search_field].blank?)
     extra_head_content <<
       view_context.auto_discovery_link_tag(
         :rss,
@@ -52,7 +59,6 @@ class CatalogController < ApplicationController
     @response = engine.search
     @document_list = engine.documents
 
-    @filters = params[:f] || []
 
     # reach into search config to find possible source-specific service alert warning
     search_config = SEARCHES_CONFIG['sources'][@active_source]
@@ -60,7 +66,8 @@ class CatalogController < ApplicationController
 
     respond_to do |format|
       format.html { save_current_search_params;
-                    render :locals => {:warning => warning}, :layout => 'quicksearch' }
+                    render :locals => {:warning => warning, :response => @response}, 
+                    :layout => 'quicksearch' }
       format.rss  { render :layout => false }
       format.atom { render :layout => false }
     end
@@ -208,12 +215,13 @@ class CatalogController < ApplicationController
     # clean up any search params if necessary for specific search fields.
     # only one case so far:  left-anchored-title must be searched as quoted phrase.
     # escape any quotes the user put in, wrap in our own double-quotes
+    q = params['q']
 
     # 1) cleanup for basic searches
-    if params['search_field'] == 'title_starts_with' && params['q']
-      unless params['q'] =~ /^".*"$/
-        params['q'].gsub!(/"/, '\"')
-        params['q'] = "\"#{ params['q'] }\""
+    if params['search_field'] == 'title_starts_with' && q
+      unless q =~ /^".*"$/
+        q.gsub!(/"/, '\"')
+        params['q'] = "\"#{ q }\""
       end
     end
 

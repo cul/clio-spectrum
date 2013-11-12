@@ -111,11 +111,11 @@ module Spectrum
           # end
 
 
-        rescue => e
+        rescue => ex
           # We're getting 500 errors here - is that an internal server error
           # on the Summon side of things?  Need to look into this more.
-          Rails.logger.error "#{self.class}##{__method__} error: #{e}"
-          @errors = e.message
+          Rails.logger.error "#{self.class}##{__method__} error: #{ex}"
+          @errors = ex.message
         end
       end
 
@@ -179,13 +179,13 @@ module Spectrum
         facet_options
       end
 
-
-      def newspapers_excluded?()
-        @search.query.facet_value_filters.any? { |fvf|
-          fvf.field_name == "ContentType" &&
-          fvf.value == "Newspaper Article" &&
-          fvf.negated? }
-      end
+      # unused?
+      # def newspapers_excluded?()
+      #   @search.query.facet_value_filters.any? { |fvf|
+      #     fvf.field_name == "ContentType" &&
+      #     fvf.value == "Newspaper Article" &&
+      #     fvf.negated? }
+      # end
 
 
       def results

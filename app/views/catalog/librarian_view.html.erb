@@ -1,3 +1,3 @@
 <%- if @document.respond_to?(:to_marc) -%>
-  <%= render "marc_view" %>
+  <%= render "marc_view", :locals => {:document => @document} %>
 <%- end -%>

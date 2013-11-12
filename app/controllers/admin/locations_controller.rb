@@ -1,4 +1,10 @@
+# Support the web-based administration of Location data - Libraries, their
+# names, URLs, corresponding Hours, etc.
+# 
+# 10/13 - this class is UNUSED
+# 
 class Admin::LocationsController < ApplicationController
+
   layout "no_sidebar"
 
   def index

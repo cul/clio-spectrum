@@ -1,3 +1,6 @@
+# Top level controller defining application-wide behaviors,
+# filters, authentication, methods used throughout multiple
+# classes, etc.
 class ApplicationController < ActionController::Base
   helper_method :set_user_option, :get_user_option
 
@@ -25,6 +28,8 @@ class ApplicationController < ActionController::Base
   after_filter :store_location
 
   rescue_from CanCan::AccessDenied do |exception|
+    # note - access denied gives a 302 redirect, not 403 forbidden.
+    # see https://github.com/ryanb/cancan/wiki/exception-handling
     redirect_to root_url, :alert => exception.message
   end
 
@@ -57,7 +62,7 @@ class ApplicationController < ActionController::Base
   def condense_advanced_search_params
     new_hash = {}
     counter = 1
-    (params['adv'] || {}).each_pair do |i, attrs|
+    (params['adv'] || {}).each_pair do |adv_field_number, attrs|
 
       if attrs && !attrs['field'].to_s.empty? && !attrs['value'].to_s.empty?
         new_hash[counter.to_s] = attrs
@@ -69,14 +74,18 @@ class ApplicationController < ActionController::Base
   end
 
   def set_user_characteristics
+    # remote_ip gives back whatever's in X-Forwarded-For, which can
+    # be manipulated by the client.  use remote_addr instead.
+    # this will have to be revisited if/when clio lives behind a proxy.
+    client_ip = request.remote_addr
+    is_on_campus = User.on_campus?(client_ip)
     @user_characteristics =
     {
-      # remote_ip gives back whatever's in X-Forwarded-For, which can
-      # be manipulated by the client.  use remote_addr instead.
-      # this will have to be revisited if/when clio lives behind a proxy.
-      :ip => request.remote_addr,
-      :on_campus => User.on_campus?(request.remote_addr),
-      :authorized => !current_user.nil? || User.on_campus?(request.remote_addr)
+      :ip => client_ip,
+      # This is only a placeholder for eventual 'authorized' rules.
+      # Nothing yet pays attention to this.
+      :on_campus => is_on_campus,
+      :authorized => !current_user.nil? || is_on_campus
     }
     @debug_entries[:user_characteristics] = @user_characteristics
   end
@@ -117,10 +126,10 @@ class ApplicationController < ActionController::Base
       @response = engine.search
       @results = engine.documents
       if engine.total_items > 0
-        look_up_clio_holdings(engine.documents)
+        look_up_clio_holdings(@results)
         # Currently, item-alerts only show within the Databases data source
         if @active_source.present? and @active_source == "databases"
-          add_alerts_to_documents(engine.documents)
+          add_alerts_to_documents(@results)
         end
       end
     end
@@ -132,23 +141,21 @@ class ApplicationController < ActionController::Base
   end
 
   def look_up_clio_holdings(documents)
-    clio_docs = documents.select { |d| d.get('clio_id_display')}
+    clio_docs = documents.select { |cd| cd.get('clio_id_display')}
+    return if clio_docs.empty?
 
-    if session[:async_off]
-      begin
-        unless clio_docs.empty?
-          holdings = Voyager::Request.simple_holdings_check(
-            connection_details: APP_CONFIG['voyager_connection']['oracle'],
-            bibids: clio_docs.collect { |cd| cd.get('clio_id_display')} )
-          clio_docs.each do |cd|
-            cd['clio_holdings'] = holdings[cd.get('clio_id_display')]
+    # If we're async, don't do holdings-lookup here.
+    return unless session[:async_off]
 
-          end
-
-        end
-      rescue => e
-        logger.error "ApplicationController#look_up_clio_holdings exception: #{e}"
+    begin
+      holdings = Voyager::Request.simple_holdings_check(
+        connection_details: APP_CONFIG['voyager_connection']['oracle'],
+        bibids: clio_docs.collect { |cd| cd.get('clio_id_display')} )
+      clio_docs.each do |cd|
+        cd['clio_holdings'] = holdings[cd.get('clio_id_display')]
       end
+    rescue => ex
+      logger.error "ApplicationController#look_up_clio_holdings exception: #{ex}"
     end
 
   end
@@ -166,21 +173,23 @@ class ApplicationController < ActionController::Base
     RSolr::Client.send(:include, RSolr::Ext::Notifications)
     RSolr::Client.enable_notifications!
 
-    if params['debug_mode'] == 'on'
+    params_debug_mode = params['debug_mode']
+
+    if params_debug_mode == 'on'
       @debug_mode = true
-    elsif params['debug_mode'] == 'off'
+    elsif params_debug_mode == 'off'
       @debug_mode = false
     else
       @debug_mode ||= session['debug_mode'] || false
     end
 
     params.delete('debug_mode')
-    session['debug_mode'] = @debug_mode
 
     unless current_user
-      session['debug_mode'] == "off"
       @debug_mode = false
     end
+
+    session['debug_mode'] = @debug_mode
 
     @current_user = current_user
     default_debug
@@ -197,8 +206,9 @@ class ApplicationController < ActionController::Base
 
 
   def determine_active_source
-    if params['active_source']
-      @active_source = params['active_source'].underscore
+    active_source_from_params = params['active_source']
+    if active_source_from_params
+      @active_source = active_source_from_params.underscore
     else
       path_minus_advanced = request.path.to_s.gsub(/^\/advanced/, '')
       @active_source = case path_minus_advanced
@@ -225,7 +235,7 @@ class ApplicationController < ActionController::Base
       when /^\/archives/
         'archives'
       else
-        params['active_source'] || 'quicksearch'
+        active_source_from_params || 'quicksearch'
       end
     end
   end
@@ -245,7 +255,7 @@ class ApplicationController < ActionController::Base
 
   end
 
-  def catch_404
+  def catch_404s
     unrouted_uri = request.fullpath
     alert = "remote ip: #{request.remote_ip}   Invalid URL: #{unrouted_uri}"
     logger.warn alert
@@ -265,22 +275,23 @@ class ApplicationController < ActionController::Base
 
   # Email Action (this will render the appropriate view on GET requests and process the form and send the email on POST requests)
   def email
+    mail_to = params[:to]
 
     # We got a post - that is, a submitted form, with a "To" - send the email!
     if request.post?
-      if params[:to]
+      if mail_to
         url_gen_params = {:host => request.host_with_port, :protocol => request.protocol}
 
         # if params[:to].match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)
-        if params[:to].match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/)
+        if mail_to.match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/)
           # # Don't hit Solr until we actually need to fetch field data
           # @response, @documents =
           #   get_solr_response_for_field_values( SolrDocument.unique_key, params[:id] )
           # Yes, but IDs may be Catalog Bib keys or Summon FETCH IDs...
           @documents = ids_to_documents(params[:id])
-          email = RecordMailer.email_record(@documents, {:to => params[:to], :message => params[:message]}, url_gen_params)
+          email = RecordMailer.email_record(@documents, {:to => mail_to, :message => params[:message]}, url_gen_params)
         else
-          flash[:error] = I18n.t('blacklight.email.errors.to.invalid', :to => params[:to])
+          flash[:error] = I18n.t('blacklight.email.errors.to.invalid', :to => mail_to)
         end
       else
         flash[:error] = I18n.t('blacklight.email.errors.to.blank')
@@ -377,17 +388,17 @@ class ApplicationController < ActionController::Base
     begin
       @service = ::Summon::Service.new(@config)
 
-      Rails.logger.info "[Spectrum][Summon] config: #{@config}"
-      Rails.logger.info "[Spectrum][Summon] params: #{@params}"
+      # Rails.logger.info "[Spectrum][Summon] config: #{@config}"
+      # Rails.logger.info "[Spectrum][Summon] params: #{@params}"
 
       ### THIS is the actual call to the Summon service to do the search
       @search = @service.search(@params)
 
-    rescue Exception => e
-      Rails.logger.error "[Spectrum][Summon] error: #{e.message}"
-      @errors = e.message
+    rescue => ex
+      # Rails.logger.error "[Spectrum][Summon] error: #{e.message}"
+      @errors = ex.message
     end
-# - raise
+
     # we choose to return empty list instead of nil
     @search ? @search.documents : []
   end
@@ -408,20 +419,22 @@ class ApplicationController < ActionController::Base
   # How-To:-Redirect-back-to-current-page-after-sign-in,-sign-out,-sign-up,-update
 
   def store_location
-    # store last url as long as it isn't a /users path
-    session[:previous_url] = request.fullpath unless
-      request.fullpath =~ /\/users/ or
-      request.fullpath =~ /\/backend/ or
-      request.fullpath =~ /\/catalog\/unapi/ or
+    fullpath = request.fullpath
+    # store this as the last-acccessed URL, except for exceptions...
+    session[:previous_url] = fullpath unless
+      # exclude /users paths, which reflect the login process
+      fullpath =~ /\/users/ or
+      fullpath =~ /\/backend/ or
+      fullpath =~ /\/catalog\/unapi/ or
       # exclude lists VERBS, but don't wildcare /lists or viewing will break
-      request.fullpath =~ /\/lists\/add/ or
-      request.fullpath =~ /\/lists\/move/ or
-      request.fullpath =~ /\/lists\/remove/ or
-      request.fullpath =~ /\/lists\/email/ or
+      fullpath =~ /\/lists\/add/ or
+      fullpath =~ /\/lists\/move/ or
+      fullpath =~ /\/lists\/remove/ or
+      fullpath =~ /\/lists\/email/ or
       # /spectrum/fetch - loading subpanels of bento-box aggregate
-      request.fullpath =~ /\/spectrum/ or
+      fullpath =~ /\/spectrum/ or
       # old-style async ajax holdings lookups - obsolete?
-      request.fullpath =~ /\/holdings/
+      fullpath =~ /\/holdings/
   end
 
   def after_sign_in_path_for(resource)
@@ -440,21 +453,41 @@ class ApplicationController < ActionController::Base
   def add_alerts_to_documents(documents)
     documents = Array.wrap(documents)
     return if documents.length == 0
-    query = ItemAlert.where(:source => 'catalog', :item_key=> Array.wrap(documents).collect(&:id)).includes(:author)
 
-    query.each do |alert|
-      document = documents.detect { |doc| doc.get('id').to_s == alert.item_key.to_s }
+    # fetch all alerts for current doc-set, in single query
+    alerts = ItemAlert.where(:source => 'catalog',
+                            :item_key=> documents.collect(&:id)).includes(:author)
+
+    # loop over fetched alerts, adding them in to their documents
+    alerts.each do |alert|
+      document = documents.detect { |doc|
+        doc.get('id').to_s == alert.item_key.to_s
+      }
       document["_item_alerts"] ||= {}
       document["_active_item_alert_count"] ||= 0
-      ItemAlert::ALERT_TYPES.each do |alert_type, name|
-        document["_item_alerts"][alert_type] ||= []
-        if alert_type == alert.alert_type
-          document["_item_alerts"][alert.alert_type] << alert
-          if alert.active?
-            document["_active_item_alert_count"] += 1
-          end
-        end
+
+      this_alert_type = alert.alert_type
+
+      # skip over no-longer-used alert types that may still be in the db table
+      next unless ItemAlert::ALERT_TYPES.has_key?(this_alert_type)
+
+      document["_item_alerts"][this_alert_type] ||= []
+      document["_item_alerts"][this_alert_type] << alert
+      if alert.active?
+        document["_active_item_alert_count"] += 1
       end
+
+
+      # ItemAlert::ALERT_TYPES.each do |alert_type, name|
+      #   document["_item_alerts"][alert_type] ||= []
+      #   if alert_type == alert.alert_type
+      #     document["_item_alerts"][alert.alert_type] << alert
+      #     if alert.active?
+      #       document["_active_item_alert_count"] += 1
+      #     end
+      #   end
+      # end
+
     end
   end
 

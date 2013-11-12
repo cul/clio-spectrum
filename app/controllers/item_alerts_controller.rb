@@ -1,3 +1,10 @@
+# ItemAlerts are messages about access-restrictions, outages, etc..
+# 
+# They are authored by a restricted set of authorized users, and are
+# attached to a particular item-id, with a start- and end- time.
+# 
+# The item-id does not have to be a Voyager ID.  Item Alerts are in
+# theory applicable to non-catalog datasources.
 class ItemAlertsController < ApplicationController
   check_authorization
   load_and_authorize_resource
@@ -20,8 +27,8 @@ class ItemAlertsController < ApplicationController
   # GET /item_alerts/1
   # GET /item_alerts/1.json
   def show
-    authorize! :read, @item_alert
-    @item_alert = ItemAlert.find(params[:id])
+    # authorize! :read, @item_alert
+    # @item_alert = ItemAlert.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

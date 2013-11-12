@@ -35,8 +35,8 @@ module CulCatalogHelper
   end
 
   def catalog_index_path(options = {})
-    filtered_options = options.reject { |k,v|
-      k.in?('controller', 'action','source_override')
+    filtered_options = options.reject { |key, value|
+      key.in?('controller', 'action', 'source_override')
     }
     source = options['source_override'] || @active_source
 
@@ -45,7 +45,10 @@ module CulCatalogHelper
   end
 
   def active_source_path(options = {})
-    url_params = options.reject { |k,v| k.in?('controller', 'action') }.to_query
+    url_params = options.reject { |key, value|
+      key.in?('controller', 'action')
+    }.to_query
+
     "/#{@active_source}?#{url_params}"
   end
 

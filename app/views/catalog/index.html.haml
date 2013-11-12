@@ -9,7 +9,7 @@
   - @page_title = application_name + " Search Results"
   - session['search'][:active_source] = @active_source
 
-  - unless @response.nil?
+  - unless response.nil?
     = fix_catalog_links(render('constraints', :localized_params=>params ))
 
     - if @document_list.nil? || @document_list.empty?

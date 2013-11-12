@@ -1,3 +1,5 @@
+# The previous incarnation of Summon integration used an Articles MVC.
+# This was moved to an engine-based approach.
 require 'blacklight/catalog'
 
 class ArticlesController < ApplicationController

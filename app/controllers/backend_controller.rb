@@ -1,3 +1,6 @@
+# The front-end makes AJAX calls back to the Backend controller to get 
+# holdings information.  The Backend Controller in turn makes calls to
+# a different web application, clio_backend, to get this data.
 class BackendController < ApplicationController
 
   def url_for_id(id = nil)
@@ -26,18 +29,18 @@ class BackendController < ApplicationController
     begin
       json_holdings = holdings_httpclient.get_content(backend_url)
       @holdings = JSON.parse( json_holdings )[@id]
-    rescue HTTPClient::BadResponseError => e
-      logger.error "#{self.class}##{__method__} HTTPClient::BadResponseError URL: #{backend_url}  Exception: #{e}"
+    rescue HTTPClient::BadResponseError => ex
+      logger.error "BackendController#holdings HTTPClient::BadResponseError URL: #{backend_url}  Exception: #{ex}"
       render nothing: true and return
-    rescue HTTPClient::ReceiveTimeoutError => e
+    rescue HTTPClient::ReceiveTimeoutError => ex
       logger.error "HTTPClient::ReceiveTimeoutError URL: #{backend_url}"
       render nothing: true and return
-    rescue => e
+    rescue => ex
       Rails.logger.error "BackendController error fetching holdings from #{backend_url}: #{e.message}"
     end
 
     if @holdings.nil?
-      logger.error "#{self.class}##{__method__} failed to fetch holdings for id: #{@id}"
+      logger.error "BackendController#holdings failed to fetch holdings for id: #{@id}"
       render nothing: true and return
     end
 
@@ -46,9 +49,10 @@ class BackendController < ApplicationController
   end
 
   def holdings_mail
-
-    @holdings = JSON.parse(HTTPClient.get_content("#{APP_CONFIG['clio_backend_url']}/holdings/retrieve/#{params[:id]}"))[params[:id]]
     @id = params[:id]
+
+    full_backend_url = "#{APP_CONFIG['clio_backend_url']}/holdings/retrieve/#{@id}"
+    @holdings = JSON.parse(HTTPClient.get_content(full_backend_url))[@id]
 
     render "backend/_holdings_mail", :layout => false
   end

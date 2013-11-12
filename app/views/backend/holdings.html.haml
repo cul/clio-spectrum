@@ -9,7 +9,10 @@
 
   .holding{:class => alternating_line}
     .location_box
-      .location= process_holdings_location(entry['location_link']).html_safe
+      -# process_holdings_location() augments call-numbers, and so
+      -# is pointless here.
+      -# .location= process_holdings_location(entry['location_link'])
+      .location= entry['location_link']
       .hours= entry['hours']
 
     .call_number= entry['call_number']

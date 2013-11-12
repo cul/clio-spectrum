@@ -105,6 +105,43 @@ describe "Catalog Interface" do
     find('div#clio_holdings').should_not have_content("Online")
   end
 
+  # Valid Voyager locations include angle-brackets.
+  # CLIO should escape these (NOT treat them like markup)
+  # NEXT-593, NEXT-928
+  it "Locations with embedded angle-brackets should work", :js => true do
+    target1 = 'Avery obituary index of architects and artists'
+    troublesome1 = 'Offsite <Avery> (Non-Circulating) Place Request for delivery'
+    target2 = 'Notes for the Breitenau room'
+    troublesome2 = 'Offsite <Fine Arts> (Non-Circ) Place Request for delivery'
+
+    # go to the search-results page..
+    visit catalog_index_path('q' => target1)
+
+    # should see the full location
+    find('#documents').should have_content(troublesome1)
+
+    # go to the item-detail page..
+    click_link(target1)
+
+    # within CLIO HOLDINGS, should get the full location data
+    find('div#clio_holdings').should have_content(troublesome1)
+
+    # And again, with slightly different sample...
+
+    # go to the search-results page..
+    visit catalog_index_path('q' => target2)
+
+    # should see the full location
+    find('#documents').should have_content(troublesome2)
+
+    # go to the item-detail page..
+    click_link(target2)
+
+    # within CLIO HOLDINGS, should get the full location data
+    find('div#clio_holdings').should have_content(troublesome2)
+
+
+  end
 
 end
 
