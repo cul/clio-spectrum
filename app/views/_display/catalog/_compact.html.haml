@@ -1,9 +1,24 @@
 
 - documents.each_with_index do |document,counter|
   - blacklight_counter = counter + 1 + @response.params[:start].to_i
-  .row-fluid.compact
-    .span4
-      %b= link_to_source_document document, :label=> document_full_title(document), :counter => blacklight_counter
-    .span4= document.get("author_display")
-    .span4= document.get("full_publisher_display")
+
+  .boxed_search_results
+    .row-fluid
+
+      .span4
+
+        %span.coins_wrapper
+          <!-- COinS -->
+          %span.Z3988{title: catalog_to_openurl_ctx_kev(document)}
+
+        .item_select
+          = render :partial => '/saved_lists/item_select_checkbox', :locals => {:item_id => document[:id]}
+
+        .item_select_allowance
+          %b= link_to_source_document document, :label=> document_full_title(document), :counter => blacklight_counter
+
+      .span4= document.get("author_display") || document.get("author_vern_display")
+
+      .span4= document.get("full_publisher_display")
+
 

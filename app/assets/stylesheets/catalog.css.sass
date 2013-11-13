@@ -1,4 +1,5 @@
 
+// Used for expand/collapse sections (e.g., DB Summaries)
 .teaser
   :display none
 
@@ -30,12 +31,10 @@
   :padding-top 30px
  
 
-.compact
-  :border 1px solid #ccc
-  :padding 2px
+// used for debugging
+.black
+  :border black 1px dashed
 
-  div
-    :padding 2px
 // the enclosing div
 .item_select
   :float left
@@ -56,14 +55,16 @@
 .item_select_allowance
   :padding-left 2em
 
-.paginate-compact
-  :display inline-block
-  :margin-top 0.25em
+.boxed_search_results
+  :border 1px solid #ccc
+  :padding 0.5em
+
 a.rss-feed
   :margin-left 0.25em
 
 #startOverLink.catalog_startOverLink
   :padding-top 1em
+
 .databases_browse_by
   +clearfix
   :clear both
@@ -75,11 +76,13 @@ a.rss-feed
     :width 13em
   div
     :padding-bottom 1em
+
 .search_row
   :position inherit
 
   .search_q
     :position inherit
+
 .advanced_search_button
   :margin-left 1em
 
@@ -102,6 +105,7 @@ a.rss-feed
 #show_toolbar ul.nav > li > a
   :padding-left 8px
   :padding-right 8px
+
 .toggle_all
   :float right
   :margin-top 0px

@@ -68,7 +68,9 @@ datasources:
     name: Catalog
     viewstyles: 
       list: Default View
+      table: Table View
       compact: Compact View
+    default_viewstyle: list
     search_box:
       route: base_catalog_index_path
       placeholder: Catalog

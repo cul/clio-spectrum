@@ -44,6 +44,7 @@ module CulCatalogHelper
 
   end
 
+
   def active_source_path(options = {})
     url_params = options.reject { |key, value|
       key.in?('controller', 'action')
@@ -51,6 +52,7 @@ module CulCatalogHelper
 
     "/#{@active_source}?#{url_params}"
   end
+
 
   def render_document_index_label doc, opts
     label = nil
@@ -62,12 +64,12 @@ module CulCatalogHelper
   end
 
 
-
   def document_full_title(document)
     [document.get('title_display') , document.get('subtitle_display')].reject { |txt|
        txt.to_s.strip.empty?
     }.join(": ")
   end
+
 
   def build_fake_cover(document)
     book_label = (document["title_display"].to_s.abbreviate(60))
@@ -76,65 +78,20 @@ module CulCatalogHelper
         :class => "cover fake_cover")
   end
 
+
   def viewstyle_link(viewstyle, label)
-    if viewstyle != get_user_option('viewstyle')
-      content_tag(:a, label, :href => '#', :viewstyle => viewstyle, :class => "viewstyle_link" )
-    else
+    current_viewstyle = get_browser_option('viewstyle') ||
+                        DATASOURCES_CONFIG['datasources'][@active_source]['default_viewstyle'] ||
+                        "list"
+
+    if viewstyle == current_viewstyle
       checkmark = content_tag("i", nil, :class => 'icon-ok')
-      content_tag(:a, (checkmark + " " + label), :href => '#', :viewstyle => viewstyle, :style => "padding-left: 2px;" )
+      content_tag(:a, (checkmark + " " + label), :href => '#', :style => "padding-left: 2px;" )
+    else
+      content_tag(:a, label, :href => '#', :viewstyle => viewstyle, :class => "viewstyle_link" )
     end
   end
 
-  # def get_view_options ()
-  #   # As of now, two kinds of views:  List (aka "Default") and Compact
-  #   list_label = 'Default View'.html_safe
-  #   compact_label = 'Compact View'.html_safe
-  # 
-  #   # Current-view is stored in session['options']['view'].
-  #   # Assume 'default' if unspecified.
-  #   # current_view = session['options'] && session['options']['view'] || 'default'
-  #   view = get_user_option('view') || 'list'
-  # 
-  #   # 'on' is a black check, 'off' is an invisible white check.
-  #   on  = content_tag("i", nil, :class => 'icon-ok').html_safe
-  #   off = content_tag("i", nil, :class => 'icon-ok invisible').html_safe
-  # 
-  #   # The non-selected view is a live link to switch views.
-  #   case view
-  #   when 'list'
-  #     default_option = content_tag(:span, (on + " " + list_label) )
-  #     compact_option = content_tag(:a, (off + " " + compact_label), :class => 'compact_view_link' )
-  # 
-  #   when 'compact'
-  #     default_option = content_tag(:a, (off + " " + list_label), :class => 'default_view_link'  )
-  #     compact_option = content_tag(:span, (on + " " + compact_label))
-  # 
-  #   else
-  #     raise "Unexpected view-type"
-  #   end
-  # 
-  # 
-  #   # Return array - view partial will use each as-is in the GUI
-  #   [ default_option, compact_option ]
-  #   # Rails.logger.error default_option.inspect
-  #   # [ default_option ]
-  # end
-
-
-  # "Folders" has been removed
-  #
-  # def folder_link(document)
-  #   size = "22x22"
-  #   if item_in_folder?(document[:id])
-  #     text = "Remove from folder"
-  #     img = image_tag("icons/24-book-blue-remove.png", :size => size)
-  #   else
-  #     text = "Add to folder"
-  #     img = image_tag("icons/24-book-blue-add.png", :size => size)
-  #   end
-  #
-  #   img + content_tag(:span, text, :class => "folder_link_text")
-  # end
 
 
 end

@@ -46,8 +46,24 @@ module DisplayHelper
   end
 
   def render_documents(documents, options)
-    # Allow an optional viewstyle to override the default, "list"
-    viewstyle = options[:viewstyle] || 'list'
+    current_viewstyle = get_browser_option('viewstyle') ||
+                        DATASOURCES_CONFIG['datasources'][@active_source]['default_viewstyle'] ||
+                        "list"
+
+    # Assume view-style is the configured default, or "list" if no default configured...
+    viewstyle = DATASOURCES_CONFIG['datasources'][@active_source]['default_viewstyle'] ||
+                "list"
+
+    # ... but if an alternative view-style option is set, 
+    # and if this data-source has a configuration which includes that view-style,
+    # then use it instead.
+    datasource_viewstyles = DATASOURCES_CONFIG['datasources'][@active_source]['viewstyles']
+    if (saved_viewstyle_option = get_browser_option('viewstyle')) &&
+       (datasource_viewstyles = DATASOURCES_CONFIG['datasources'][@active_source]['viewstyles']) &&
+       datasource_viewstyles.has_key?(saved_viewstyle_option)
+      viewstyle = saved_viewstyle_option
+    end
+
     partial = "/_display/#{options[:action]}/#{viewstyle}"
     render partial, { :documents => documents.listify}
   end
