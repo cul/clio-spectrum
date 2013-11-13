@@ -2,7 +2,7 @@
 # filters, authentication, methods used throughout multiple
 # classes, etc.
 class ApplicationController < ActionController::Base
-  helper_method :set_user_option, :get_user_option
+  helper_method :set_browser_option, :get_browser_option
 
   # Adds a few additional behaviors into the application controller
   include Blacklight::Controller
@@ -90,24 +90,38 @@ class ApplicationController < ActionController::Base
     @debug_entries[:user_characteristics] = @user_characteristics
   end
 
-  def set_user_option_handler
-    # session[:options] ||= {}
-    # session[:options][params['name']] = params['value']
-    set_user_option(params['name'], params['value'])
-    render :json => {:success => "Option set."}
+
+  def set_browser_option_handler
+    unless params.has_key?('name') && params.has_key?('value')
+      render :json => nil, :status => :bad_request and return
+    end
+
+    set_browser_option(params['name'], params['value'])
+    render json: nil, status: :ok
   end
 
-  def set_user_option(name, value)
-    # create an options hash if it doesn't yet exist
-    session[:options] ||= {}
-    session[:options][name] = value
+  def set_browser_option(name, value)
+    _clio_browser_options = YAML.load(cookies[:_clio_browser_options] || "{}")
+    _clio_browser_options[name] = value
+    cookies[:_clio_browser_options] = { :value => _clio_browser_options.to_yaml,
+                                        :expires => 1.year.from_now }
   end
 
-  def get_user_option(name)
-    # create an options hash if it doesn't yet exist
-    session[:options] ||= {}
-    # return stored valuue - or nil if unset
-    return session[:options][name]
+  def get_browser_option_handler
+    if params.has_key?('value') || ! params.has_key?('name')
+      render :json => nil, :status => :bad_request and return
+    end
+
+    if value = get_browser_option( params['name'] )
+      render :json => value, :status => :ok
+    else
+      render :json => nil, :status => :not_found
+    end
+  end
+
+  def get_browser_option(name)
+    _clio_browser_options = YAML.load(cookies[:_clio_browser_options] || "{}")
+    return _clio_browser_options[name]
   end
 
 

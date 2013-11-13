@@ -21,7 +21,7 @@ module CulFacetsHelper
   end
 
   def expand_all_facets?
-    session['options'] && session['options']['always_expand_facets'] == 'true'
+    get_browser_option('always_expand_facets') == 'true'
   end
 
 end
