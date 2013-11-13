@@ -3,11 +3,11 @@
 
 -# Database note/alerts of type "alert" show up w/out key, with special styling
 - if document.get("_active_item_alert_count") && document.get("_active_item_alert_count") > 0
-  - document.get("_item_alerts")[:alert].each do | alert |
+  - Array.wrap(document.get("_item_alerts")[:alert]).each do | alert |
     - if alert.active?
       .span12.alert_alert
         = "ALERT: #{alert[:message]}".html_safe
-  - document.get("_item_alerts")[:access_requirements].each do | access_requirement |
+  - Array.wrap(document.get("_item_alerts")[:access_requirements]).each do | access_requirement |
     - if access_requirement.active?
       = add_row('Access Requirements', access_requirement[:message], :spans => [3,9] )
 

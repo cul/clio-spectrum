@@ -468,39 +468,33 @@ class ApplicationController < ActionController::Base
     documents = Array.wrap(documents)
     return if documents.length == 0
 
+    # initialize
+    documents.each do |doc|
+      doc["_item_alerts"] = {}
+      ItemAlert::ALERT_TYPES.each do |alert_type, label|
+        doc["_item_alerts"][alert_type] = []
+      end
+    end
+
     # fetch all alerts for current doc-set, in single query
     alerts = ItemAlert.where(:source => 'catalog',
                             :item_key=> documents.collect(&:id)).includes(:author)
 
     # loop over fetched alerts, adding them in to their documents
     alerts.each do |alert|
-      document = documents.detect { |doc|
-        doc.get('id').to_s == alert.item_key.to_s
-      }
-      document["_item_alerts"] ||= {}
-      document["_active_item_alert_count"] ||= 0
-
       this_alert_type = alert.alert_type
 
       # skip over no-longer-used alert types that may still be in the db table
       next unless ItemAlert::ALERT_TYPES.has_key?(this_alert_type)
 
-      document["_item_alerts"][this_alert_type] ||= []
+      document = documents.detect { |doc|
+        doc.get('id').to_s == alert.item_key.to_s
+      }
+
       document["_item_alerts"][this_alert_type] << alert
-      if alert.active?
-        document["_active_item_alert_count"] += 1
-      end
 
-
-      # ItemAlert::ALERT_TYPES.each do |alert_type, name|
-      #   document["_item_alerts"][alert_type] ||= []
-      #   if alert_type == alert.alert_type
-      #     document["_item_alerts"][alert.alert_type] << alert
-      #     if alert.active?
-      #       document["_active_item_alert_count"] += 1
-      #     end
-      #   end
-      # end
+      document["_active_item_alert_count"] ||= 0
+      document["_active_item_alert_count"] += 1 if alert.active?
 
     end
   end
