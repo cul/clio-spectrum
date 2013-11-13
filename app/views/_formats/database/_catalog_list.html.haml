@@ -13,7 +13,7 @@
       = link_to_source_document document, :label=> document_full_title(document), :counter => counter
 
     .item_select.span1
-      = render :partial => '/saved_lists/catalog_checkbox', :locals => {:item_id => document[:id]}
+      = render :partial => '/saved_lists/item_select_checkbox', :locals => {:item_id => document[:id]}
 
   / main container for doc partial view
 

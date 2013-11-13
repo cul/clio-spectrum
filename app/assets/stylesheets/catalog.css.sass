@@ -2,8 +2,6 @@
 .teaser
   :display none
 
-.item_select *
-  :margin 5px 5px
 // Used for "Please Wait" messages (used for, e.g., AJAX loads)
 .busy
   :display none
@@ -38,6 +36,25 @@
 
   div
     :padding 2px
+// the enclosing div
+.item_select
+  :float left
+  :padding 0px 5px
+  :margin 0px !important
+
+// the form, the checkbox
+.item_select_form
+  :display inline
+  :padding 0px !important
+  :margin 0px !important
+
+.item_select_checkbox
+  :padding 0px !important
+  :margin 0px !important
+
+// used on the title following the checkbox
+.item_select_allowance
+  :padding-left 2em
 
 .paginate-compact
   :display inline-block
