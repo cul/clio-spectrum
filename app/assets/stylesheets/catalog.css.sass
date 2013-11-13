@@ -4,6 +4,33 @@
 
 .item_select *
   :margin 5px 5px
+// Used for "Please Wait" messages (used for, e.g., AJAX loads)
+.busy
+  :display none
+  :position fixed
+  :width 200px
+  :height 80px
+  :top 50%
+  :left 50%
+  :margin-top -40px
+  :margin-left -100px
+  :z-index 100
+  :background #e3e8f1
+  :border 3px #779bc3 outset
+  :padding 5px
+  :vertical-align middle
+
+.busy-image
+  :display block
+  :margin-left auto
+  :margin-right auto
+  :padding-top 10px
+
+.busy-text
+  :font-size 160%
+  :text-align center
+  :padding-top 30px
+ 
 
 .compact
   :border 1px solid #ccc

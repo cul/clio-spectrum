@@ -6,9 +6,11 @@ $ ->
     return false
 
   $(".viewstyle_link").click ->
+    $('.busy').show()
     viewstyle = $(this).attr('viewstyle')    
     $.get '/set_user_option?name=viewstyle&value=' + viewstyle, (data) ->
       location.reload()
+      $('.busy').hide()
 
 
   $('.toggle_all.contract').parents("#facets").find('.range_limit').show()

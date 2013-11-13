@@ -30,3 +30,12 @@
           .clear-both
         = render :partial => "/footer"
       #ajax-modal.modal.hide.fade{:tabindex => -1}
+
+      .busy.row-fluid
+        .span4
+          %img.busy-image{:src => image_path("ajax-loader.gif")}
+        .span8
+          .busy-text Updating...
+
+
+
