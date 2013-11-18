@@ -47,7 +47,27 @@ module HoldingsHelper
     # call ? "#{h(shorten_location(loc))} >> ".html_safe + content_tag(:span, call, class: 'call_number')  : shorten_location(loc)
   end
 
+  # Support for NEXT-113 - Do not make api request for online-only resources
+  def has_physical_holdings?(document)
+    # 'location' alone is only found in the 'location_facet' field, which is currently
+    # indexed but not stored, so I can't use it.
 
+    # Use the full 992b (location_call_number_id_display) and break it down redundantly here.
+    # examples:
+    #   Online >> EBOOKS|DELIM|13595275
+    #   Lehman >> MICFICHE Y 3.T 25:2 J 13/2|DELIM|10465654
+    #   Music Sound Recordings >> CD4384|DELIM|2653524
+    return false unless location_call_number_id = document[:location_call_number_id_display]
+
+    Array.wrap(location_call_number_id).each do |portmanteau|
+      location = portmanteau.partition(' >>').first
+      # If we find any location that's not Online, Yes, it's a physical holding
+      return true if location and location != 'Online'
+    end
+
+    # If we dropped down without finding a physical holding, No, we have none
+    return false
+  end
 
   def online_link_hash(document)
 

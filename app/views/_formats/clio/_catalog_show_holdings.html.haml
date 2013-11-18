@@ -6,7 +6,9 @@
 
   = render :partial => "/_formats/clio/catalog_show_holdings_online" , :locals => {:online_links => online_link_hash(document)}
 
-  = render :partial => "/_formats/clio/catalog_show_holdings_display", :locals => {:clio_id => clio_id}
+  -# NEXT-113 - Do not make api request for online-only resources
+  - if has_physical_holdings?(document)
+    = render :partial => "/_formats/clio/catalog_show_holdings_display", :locals => {:clio_id => clio_id}
 
   = render :partial => "/_formats/clio/catalog_show_holdings_google", :locals => {:document => document}
 
