@@ -18,17 +18,8 @@ UNUSED
     %p Error: #{@error}
 
 - else
-  -#= render 'search_form' %>
-
-  -#= render 'did_you_mean' %>
 
   = render '/_search/constraints', :localized_params => params
-
-  -#.pageEntriesInfo
-    -#= render "change_view"
-    -#= render_pagination_info @response, :entry_name=>'item'
-    -#= link_to(image_tag("rss-feed-icon-14x14.png"), catalog_index_path(params.merge(:format => "atom")).gsub('[','%5B').gsub(']','%5D'),:id => "feedLink")
-    -#=link_to "start over", catalog_index_path, :id=>"startOverLink"
 
   -#= render 'sort_and_per_page'
   -#.pagination_container

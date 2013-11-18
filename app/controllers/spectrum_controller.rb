@@ -216,10 +216,6 @@ class SpectrumController < ApplicationController
           fixed_params['q'] ||= ''
           Spectrum::Engines::GoogleAppliance.new(fixed_params)
 
-        when 'catalog_trial'
-          fixed_params['source'] = 'catalog_trial'
-          blacklight_search(fixed_params)
-
         else
           # raise Error.new("SpectrumController#get_results() unhandled source: '#{source}'")
           raise "SpectrumController#get_results() unhandled source: '#{source}'"

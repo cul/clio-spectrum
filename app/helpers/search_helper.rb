@@ -113,6 +113,7 @@ module SearchHelper
         result += content_tag(:a, "Advanced Search", :class => "btn btn-link advanced_search_toggle", :href => "#")
       end
 
+
       result = content_tag(:div, result, class: 'search_row input-append', escape: false)
 
       raise "no route in #{source} " unless options['route']

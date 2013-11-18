@@ -2,7 +2,8 @@
 - documents.each_with_index do |document,counter|
   - blacklight_counter = counter + 1 + @response.params[:start].to_i
 
-  .boxed_search_results
+  .boxed_search_results.result.document{source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
+
     .row-fluid
 
       .span4

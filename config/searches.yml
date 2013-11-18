@@ -79,23 +79,6 @@ layouts:
             display_footer: true
             row_opts:
               spans: [3,9]
-  compare:
-    style: aggregate
-    columns:
-      - width: 6
-        searches:
-          - source: catalog
-            count: 50
-            display_footer: true
-            row_opts:
-              spans: [3,9]
-      - width: 6
-        searches:
-          - source: catalog_trial
-            count: 50
-            display_footer: true
-            row_opts:
-              spans: [3,9]
 sources:
   quicksearch:
     warning: 
@@ -178,13 +161,5 @@ sources:
     warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.  eboo.
     render_options:
       format: ebooks
-  catalog_trial:
-    title: Trial Index
-    description: Catalog data using an alternative Solr Schema
-    warning: Experimental Index Configuration
-    render_options:
-      format: clio
-
-
 
 
