@@ -94,9 +94,13 @@ module LocalSolrHelperExtension
 
       solr_parameters[:qt] = req_params[:qt] if req_params[:qt]
 
-      advanced_q = advanced_search_queries(req_params).collect  do |query|
+      # NEXT-922 - Advanced search item pagination skips records from search-results list
+      # fix: skip over empty advanced-search fields (don't AND empty strings)
+      advanced_q = advanced_search_queries(req_params).reject do |query|
         field_name, value = *query
-
+        !value || (value.strip.length == 0)
+      end.collect do |query|
+        field_name, value = *query
         search_field_def = search_field_def_for_key(field_name)
 
         if (search_field_def && hash = search_field_def.solr_local_parameters)
@@ -112,6 +116,7 @@ module LocalSolrHelperExtension
         end
 
       end
+      Rails.logger.error "FINAL: #{advanced_q}"
 
 
       solr_parameters[:q] = advanced_q.join(" #{advanced_search_operator(req_params)} ")
