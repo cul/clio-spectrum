@@ -13,7 +13,7 @@
           %span.Z3988{title: catalog_to_openurl_ctx_kev(document)}
 
         .item_select
-          = render :partial => '/saved_lists/item_select_checkbox', :locals => {:item_id => document[:id]}
+          = render :partial => '/saved_lists/item_select_checkbox', :locals => {:item_id => document[:id], :counter => blacklight_counter}
 
         .item_select_allowance
           %b= link_to_source_document document, :label=> document_full_title(document), :counter => blacklight_counter
