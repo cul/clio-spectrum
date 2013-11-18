@@ -48,6 +48,14 @@ Spork.prefork do
     config.use_transactional_fixtures = true
     config.use_instantiated_fixtures  = false
 
+    # http://stackoverflow.com/questions/15307742
+    # http://stackoverflow.com/questions/14881011
+    # http://devblog.avdi.org/2012/08/31/configuring-database_cleaner
+    # rspec with Capybara with :js => true runs multiple threads against SQLlite,
+    # needs to run non-transactionally to avoid 
+    # "SQLite3::BusyException: database is locked"
+    config.use_transactional_fixtures = false
+
   end
 
 end

@@ -147,7 +147,6 @@ group :test, :development do
   # why in test and dev both instead of just test?  
   # because is says to: https://github.com/rspec/rspec-rails
   gem 'rspec-rails', '>=2.14'
-
 end
 
 group :test do

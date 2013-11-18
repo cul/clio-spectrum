@@ -6,9 +6,10 @@ require 'rake'
 
 Clio::Application.load_tasks
 
-# unnecessary?
-# require 'rspec/core/rake_task'
-# 
-# RSpec::Core::RakeTask.new(:spec)
 
-task :default  => :spec
+# Doing this lets us test by just typing "rake", but that also means
+# rake will re-initialize the test db every time.
+# This is annoying, since we need a library_hours table synced up with
+# production data to validate tests.  
+# So, omit this, run 'rspec' instead of 'rake'.
+# task :default  => :spec
