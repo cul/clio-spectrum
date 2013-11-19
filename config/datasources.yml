@@ -66,10 +66,10 @@ datasources:
 
   catalog:
     name: Catalog
-    viewstyles: 
+    viewstyles_DISABLED: 
       list: Default View
-      table: Alternate View A
-      compact: Alternate View B
+      compact: Compact View
+      spartan: Alternate View B
     default_viewstyle: list
     search_box:
       route: base_catalog_index_path
