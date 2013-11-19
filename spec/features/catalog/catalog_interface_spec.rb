@@ -102,7 +102,10 @@ describe "Catalog Interface" do
     find('div#online_holdings').should have_content("Online")
 
     # within CLIO HOLDINGS, should NOT see an 'Online' block
-    find('div#clio_holdings').should_not have_content("Online")
+    # find('div#clio_holdings').should_not have_content("Online")
+    # Now, Online-Only items no longer have any CLIO Holdings div at all!
+    page.should have_no_selector('div#clio_holdings')
+
   end
 
   # Valid Voyager locations include angle-brackets.

@@ -21,9 +21,11 @@ describe "record tests", :js => true do
     within ('div.location_box') do
       page.should have_text('Online')
     end
-    within ('div#clio_holdings') do
-      page.should_not have_text('Online')
-    end
+    # Online only, no clio-holdings div at all!
+    # within ('div#clio_holdings') do
+    #   page.should_not have_text('Online')
+    # end
+    page.should have_no_selector('div#clio_holdings')
   end
 
   it "test services offsite" do
