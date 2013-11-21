@@ -2,24 +2,35 @@
 - documents.each_with_index do |document,counter|
   - blacklight_counter = counter + 1 + @response.params[:start].to_i
 
+  
   .boxed_search_results.result.document{source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
     .row-fluid
 
-      .span4
-
+      .span4.no-bottom-space
         %span.coins_wrapper
           <!-- COinS -->
-          %span.Z3988{title: catalog_to_openurl_ctx_kev(document)}
-
-        .item_select
+          %span.xtighten.Z3988{title: catalog_to_openurl_ctx_kev(document)}
+        
+        .item_anchor
           = render :partial => '/saved_lists/item_select_checkbox', :locals => {:item_id => document[:id], :counter => blacklight_counter}
 
         .item_select_allowance
           %b= link_to_source_document document, :label=> document_full_title(document), :counter => blacklight_counter
 
-      .span4= document.get("author_display") || document.get("author_vern_display")
+      .span3.no-bottom-space= document.get("author_display") || document.get("author_vern_display")
 
-      .span4= document.get("full_publisher_display")
+      .span5.no-bottom-space= document.get("full_publisher_display")
+
+
+    .row-fluid
+      .span7.item_select_allowance.no-bottom-space
+        %small= holdings_compact(document)
+        -# - unless (online_holdings = online_link_hash(document)).empty?
+        -#   = format_online_results(online_holdings).join('<br>').html_safe + '<br>'.html_safe
+        -# - unless (locations = document["location_call_number_id_display"].listify.reject { |l| l.match(/^Online/) }).empty?
+        -#   = format_location_results(locations, document).join('<br>').html_safe
+      .span5.no-bottom-space
+        %small= formats_with_icons(document)
 
 

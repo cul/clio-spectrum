@@ -316,9 +316,6 @@ module Spectrum
       end
 
 
-      def page_size
-        @search.query.page_size.to_i
-      end
 
 
       def total_items
@@ -348,9 +345,8 @@ module Spectrum
       end
 
       def page_size
-        @search.query.page_size
+        @search.query.page_size.to_i
       end
-
 
       def by_source_search_cmd(cmdText)
         by_source_search_modify('s.cmd' => cmdText)

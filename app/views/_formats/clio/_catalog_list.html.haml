@@ -4,19 +4,17 @@
 .result.document{class: render_document_class(document), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
   .row-fluid
-
     .title.span12
 
       %span.coins_wrapper
         <!-- COinS -->
-        %span.Z3988{title: catalog_to_openurl_ctx_kev(document)}
+        %span.Z3988{:title => catalog_to_openurl_ctx_kev(document)}
 
-      .item_select
+      .item_anchor
         = render :partial => '/saved_lists/item_select_checkbox', :locals => {:item_id => document[:id], :counter => counter}
 
       .item_select_allowance
         = link_to_source_document document, :label=> document_full_title(document), :counter => counter, :source => source
-
 
   / main container for doc partial view
 

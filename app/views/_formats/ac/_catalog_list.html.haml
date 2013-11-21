@@ -3,13 +3,19 @@
 / container for a single doc
 .result.document{class: render_document_class(document), source: 'academic_commons', item_id: document.get(:id)}
 
-  %span.coins_wrapper
-    / COinS
-    / = add_row('OpenURL', ac_to_openurl_ctx_kev(document) ) / DEBUG
-    %span.Z3988{ :title => ac_to_openurl_ctx_kev(document) }
+  .row-fluid
+    .title.span12
 
-  - fedora_id = document['id'].listify.first
-  .fedora_title.title= link_to document.get('title_display'), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
+      %span.coins_wrapper
+        <!-- COinS -->
+        %span.Z3988{:title => ac_to_openurl_ctx_kev(document)}
+
+      .item_anchor
+        = render '/item_number', :counter => counter
+
+      .item_number_allowance
+        - fedora_id = document['id'].listify.first
+        = link_to document.get('title_display'), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
 
 
   / main container for doc partial view

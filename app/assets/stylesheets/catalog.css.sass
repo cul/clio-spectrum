@@ -1,4 +1,14 @@
 
+
+// Override Bootstrap's grey (color: #777777) with our body default
+.navbar-text
+  :color #505050
+
+.navbar-text .disabled
+  :color #999999
+
+
+
 // Used for expand/collapse sections (e.g., DB Summaries)
 .teaser
   :display none
@@ -35,8 +45,9 @@
 .black
   :border black 1px dashed
 
+
 // the enclosing div
-.item_select
+.item_anchor
   :float left
   :padding 0px 5px
   :margin 0px !important
@@ -57,11 +68,27 @@
 
 // used on the title following the checkbox
 .item_select_allowance
-  :padding-left 3em
+  :padding-left 3em !important
+
+// used on the title following the number
+.item_number_allowance
+  :padding-left 2em !important
+
+
+// used to justify "checked" menu-options (the currenly-selected option)
+.menu_checkmark_allowance
+  :padding-left 2px !important
 
 .boxed_search_results
   :border 1px solid #ccc
   :padding 0.5em
+
+// Use this if we want to take away the bootstrap default values of
+// bottom-padding form elements and setting a 28px min-height on all spans.
+// (e.g., to make the compact view yet more compact.)
+.no-bottom-space
+  :min-height 0px !important
+  :margin-bottom 2px !important
 
 a.rss-feed
   :margin-left 0.25em

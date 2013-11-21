@@ -1,5 +1,6 @@
 #
-# SpectrumController#search() - primary entry point
+# SpectrumController#search() - primary entry point for searches against
+# Summon or GoogleAppliance, or for any Aggregate searches
 #   - figures out the sources, then for each one calls:
 #     SpectrumController#get_results()
 #     - which for each source
@@ -98,6 +99,24 @@ class SpectrumController < ApplicationController
   end
 
   private
+
+  def fix_ga_params(params)
+
+    # items-per-page ("rows" param) should be a persisent browser setting
+    if params['rows'] && (params['rows'].to_i > 1)
+      # Store it, if passed
+      set_browser_option('ga_per_page', params['rows'])
+    else
+      # Retrieve and use previous value, if not passed
+      ga_per_page = get_browser_option('ga_per_page')
+      if ga_per_page && (ga_per_page.to_i > 1)
+        params['rows'] = ga_per_page
+      end
+    end
+
+    params
+
+  end
 
   def fix_articles_params(params)
     # Rails.logger.debug "fix_articles_params() in params=#{params.inspect}"
@@ -214,10 +233,10 @@ class SpectrumController < ApplicationController
         when 'library_web'
           # GoogleAppliance engine can't handle absent q param
           fixed_params['q'] ||= ''
+          fixed_params = fix_ga_params(fixed_params)
           Spectrum::Engines::GoogleAppliance.new(fixed_params)
 
         else
-          # raise Error.new("SpectrumController#get_results() unhandled source: '#{source}'")
           raise "SpectrumController#get_results() unhandled source: '#{source}'"
         end
 

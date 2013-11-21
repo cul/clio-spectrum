@@ -1,16 +1,51 @@
+-# 
+-# .sortAndPerPage.well
+-#   - previous_string = "\u00ab Previous"
+-#   - if result.previous_page?
+-#     =link_to previous_string, result.previous_page_path
+-#   - else
+-#     %span.disabled= previous_string
+-# 
+-#   %span#current_item_info= " | #{result.start_item} - #{result.end_item} of #{number_with_delimiter(result.total_items)} | "
+-# 
+-#   - next_string = "Next \u00bb"
+-#   - if result.next_page?
+-#     =link_to next_string, result.next_page_path
+-#   - else
+-#     %span.disabled= next_string
+-# 
 
-.sortAndPerPage.well
-  - previous_string = "\u00ab Previous"
-  - if result.previous_page?
-    =link_to previous_string, result.previous_page_path
-  - else
-    %span.disabled= previous_string
 
-  %span#current_item_info= " | #{result.start_item} - #{result.end_item} of #{number_with_delimiter(result.total_items)} | "
+.navbar
+  .navbar-inner
 
-  - next_string = "Next \u00bb"
-  - if result.next_page?
-    =link_to next_string, result.next_page_path
-  - else
-    %span.disabled= next_string
+    %ul.nav
+      %li.active
+        .navbar-text
+          - previous_string = "\u00ab Previous"
+          - if result.previous_page?
+            =link_to previous_string, result.previous_page_path
+          - else
+            %span.disabled= previous_string
+
+          %span#current_item_info= " | #{result.start_item} - #{result.end_item} of #{number_with_delimiter(result.total_items)} | "
+
+          - next_string = "Next \u00bb"
+          - if result.next_page?
+            =link_to next_string, result.next_page_path
+          - else
+            %span.disabled= next_string
+
+    %ul.nav.pull-right
+
+      %li.dropdown.hidden-phone
+
+        %a.dropdown-toggle{:href=>"#", :data=>{:toggle => "dropdown"}}
+          Display Options
+          %b.caret
+
+        %ul.dropdown-menu
+          - result.page_size_with_links.each do |link, name|
+            %li= link_to "#{name} #{content_tag(:span, 'per page', :class =>'hide-text')}".html_safe, link
+
 

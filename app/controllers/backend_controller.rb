@@ -48,14 +48,15 @@ class BackendController < ApplicationController
     render "backend/holdings", :layout => false
   end
 
-  def holdings_mail
-    @id = params[:id]
-
-    full_backend_url = "#{APP_CONFIG['clio_backend_url']}/holdings/retrieve/#{@id}"
-    @holdings = JSON.parse(HTTPClient.get_content(full_backend_url))[@id]
-
-    render "backend/_holdings_mail", :layout => false
-  end
+  # ??? mail to who?
+  # def holdings_mail
+  #   @id = params[:id]
+  # 
+  #   full_backend_url = "#{APP_CONFIG['clio_backend_url']}/holdings/retrieve/#{@id}"
+  #   @holdings = JSON.parse(HTTPClient.get_content(full_backend_url))[@id]
+  # 
+  #   render "backend/_holdings_mail", :layout => false
+  # end
 
   #
   # marquis, 5/2013 - obsolete?

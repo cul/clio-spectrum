@@ -363,8 +363,6 @@ module DisplayHelper
     result = ""
     if options[:display_blank] || !value_txt.empty?
       if options[:style] == :text
-        Rails.logger.debug "options=#{options.inspect}"
-        Rails.logger.debug "title/value_txt=#{title.inspect}/#{value_txt.inspect}"
         result = (title.to_s + ": " + value_txt.to_s + "\r\n").html_safe
       else
 
@@ -406,13 +404,13 @@ module DisplayHelper
       values.join("\r\n  ")
     else
 
-      # If the text is long enough, wrap the end of it within a 
-      # span, with a hide/show toggle.
+      # "Teaser" option - If the text is long enough, wrap the end of it
+      # within a span, with a hide/show toggle.
       # based on:  http://stackoverflow.com/questions/14940166
       # based on:  http://jsfiddle.net/VNdmZ/4/
       values = values.collect { |value|
         value.strip!
-        teaser_length = options[:teaser].respond_to?(:to_i) ? options[:teaser].to_i : 100
+        teaser_length = options[:teaser].respond_to?(:to_i) ? options[:teaser].to_i : 120
         breaking_space_index = value.index(' ', teaser_length)
 
         # if we found an appropriate space character at which to break content...

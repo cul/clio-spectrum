@@ -79,6 +79,48 @@ module CulCatalogHelper
   end
 
 
+  def holdings_compact(document)
+    online_holdings = format_online_results(online_link_hash(document))
+
+    locations = document["location_call_number_id_display"].listify.reject { |loc|
+      loc.match(/^Online/)
+    }
+    physical_holdings = format_location_results(locations, document)
+
+    all_holdings = online_holdings.concat(physical_holdings)
+
+    # if all_holdings.size <= 3
+    #   return all_holdings.join("\n<br>\n").html_safe
+    # end
+
+    # from display_helper, this conveniently lists all holdings if <= 3,
+    # or 2 holdings plus a clickable "N more" label to display the rest
+    return convert_values_to_text(all_holdings, :expand => true)
+
+  end
+
+  def per_page_link(per_page)
+    current_per_page = @response.rows || 25
+
+    # we need these to compute the correct new_page_number, below.
+    current_page = [params_for_search[:page].to_i, 1].max
+    first_record_on_page = (current_per_page * (current_page - 1)) + 1
+
+    # do the math such that the current 1st item is still in the set
+    new_page_number = (first_record_on_page / per_page).to_i + 1
+
+    label = "#{per_page} per page"
+    href = url_for(params_for_search.merge(:rows => per_page, :page => new_page_number))
+
+    if per_page == current_per_page
+      checkmark = content_tag("i", nil, :class => 'icon-ok')
+      content_tag(:a, (checkmark + " " + label), :href => '#', :class => "menu_checkmark_allowance" )
+    else
+      content_tag(:a, label, :href => href, :per_page => per_page, :class => "per_page_link" )
+    end
+
+  end
+
   def viewstyle_link(viewstyle, label)
     current_viewstyle = get_browser_option('viewstyle') ||
                         DATASOURCES_CONFIG['datasources'][@active_source]['default_viewstyle'] ||
@@ -86,7 +128,7 @@ module CulCatalogHelper
 
     if viewstyle == current_viewstyle
       checkmark = content_tag("i", nil, :class => 'icon-ok')
-      content_tag(:a, (checkmark + " " + label), :href => '#', :style => "padding-left: 2px;" )
+      content_tag(:a, (checkmark + " " + label), :href => '#', :class => "menu_checkmark_allowance" )
     else
       content_tag(:a, label, :href => '#', :viewstyle => viewstyle, :class => "viewstyle_link" )
     end

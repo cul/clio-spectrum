@@ -36,6 +36,18 @@ class CatalogController < ApplicationController
       params['search_field'] ||= 'all_fields'
     end
 
+    # items-per-page ("rows" param) should be a persisent browser setting
+    if params['rows'] && (params['rows'].to_i > 1)
+      # Store it, if passed
+      set_browser_option('catalog_per_page', params['rows'])
+    else
+      # Retrieve and use previous value, if not passed
+      catalog_per_page = get_browser_option('catalog_per_page')
+      if catalog_per_page && (catalog_per_page.to_i > 1)
+        params['rows'] = catalog_per_page
+      end
+    end
+
 
     # solr_search_params_logic << :add_advanced_search_to_solr
     # solr_search_params_logic << :add_range_limit_params

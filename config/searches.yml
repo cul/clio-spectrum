@@ -10,7 +10,8 @@ layouts:
     columns:
       - searches:
           - source: library_web 
-            count: 10
+            # let per-page (row count) be parameterized
+            # count: 10
   quicksearch:
     style: aggregate
     columns:
