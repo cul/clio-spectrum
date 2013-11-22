@@ -88,7 +88,7 @@ module Spectrum
           end
           @params['s.fq'] = new_fq
         end
-
+        
         @errors = nil
         begin
           # do_benchmarking = false
@@ -265,8 +265,11 @@ module Spectrum
       # List of paging options, turned into a drop-down in summon's sorting/paging partial
       def page_size_with_links
         # [10,20,50,100].collect do |page_size|
-        [10,25,50].collect do |page_size|
-          [by_source_search_cmd("setPageSize(#{page_size})"), page_size]
+        [10,25,50].collect do |per_page|
+          # No, don't do a COMMAND...
+          # [by_source_search_cmd("setPageSize(#{page_size})"), page_size]
+          # Just reset s.ps, it's much more transparent...
+          [ set_page_size(per_page), per_page ]
         end
       end
 
@@ -315,6 +318,9 @@ module Spectrum
         by_source_search_modify('s.pn' => [total_pages, [page_num, 1].max].min)
       end
 
+      def set_page_size(per_page)
+        by_source_search_modify('s.ps' => [(per_page || 10), 50].min)
+      end
 
 
 

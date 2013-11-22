@@ -29,8 +29,13 @@ group :clio_dev, :clio_test, :clio_prod do
   gem 'mysql2'
 end
 
-gem 'therubyracer', '0.10.2'
+# "Associates a hash of options wtih an ActiveRecord model"
+# Used for... apparently, just the list of links for each location?
+# locally developed - and no longer on github...
+# should try to eliminate at some point.
 gem 'has_options'
+
+gem 'therubyracer', '0.10.2'
 gem 'httpclient'
 gem 'nokogiri'
 

@@ -7,16 +7,18 @@
 
 RSpec.configure do |config|
 
-  config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-  end
+  # No, let whatever got in there remain in place.
+  # config.before(:suite) do
+  #   DatabaseCleaner.clean_with(:truncation)
+  # end
 
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction
   end
 
   config.before(:each, :js => true) do
-    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.strategy = :truncation, 
+            {:except => %w[locations libraries library_hours options]}
   end
 
   config.before(:each) do

@@ -54,25 +54,24 @@ describe "Articles Search" do
 
     # page.save_and_open_page # debug
 
-    all('.sort-dropdown .css-dropdown').first.should have_content("Sort by Relevance")
-    all('.sort-dropdown .css-dropdown').first.hover
+    first('.index_toolbar').should have_content("Sort by Relevance")
+    first(:link, 'Sort by Relevance').click
+
     find_link('Relevance')
     find_link('Published Latest')
     find_link('Published Earliest').click
 
-    all('.sort-dropdown .css-dropdown').first.should have_content("Published Earliest")
-    all('.sort-dropdown .css-dropdown').first.hover
+    first('.index_toolbar').should have_content("Published Earliest")
+    first(:link, 'Published Earliest').click
     find_link('Relevance')
     find_link('Published Earliest')
     find_link('Published Latest').click
 
-    all('.sort-dropdown .css-dropdown').first.should have_content("Published Latest")
-    all('.sort-dropdown .css-dropdown').first.hover
+    first('.index_toolbar').should have_content("Published Latest")
+    first(:link, 'Published Latest').click
     find_link('Relevance')
     find_link('Published Earliest')
     find_link('Published Latest')
-
-
   end
 
 end

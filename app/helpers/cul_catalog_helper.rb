@@ -99,7 +99,30 @@ module CulCatalogHelper
 
   end
 
-  def per_page_link(per_page)
+  def per_page_link(href, per_page, current_per_page)
+    label = "#{per_page} per page"
+  
+    if per_page == current_per_page
+      checkmark = content_tag("i", nil, :class => 'icon-ok')
+      content_tag(:a, (checkmark + " " + label), :href => '#', :class => "menu_checkmark_allowance" )
+    else
+      content_tag(:a, label, :href => href, :per_page => per_page, :class => "per_page_link" )
+    end
+  end
+
+  # def ga_per_page_link(href, per_page, current_per_page)
+  #   label = "#{per_page} per page"
+  # 
+  #   if per_page == current_per_page
+  #     checkmark = content_tag("i", nil, :class => 'icon-ok')
+  #     content_tag(:a, (checkmark + " " + label), :href => '#', :class => "menu_checkmark_allowance" )
+  #   else
+  #     content_tag(:a, label, :href => href, :per_page => per_page, :class => "per_page_link" )
+  #   end
+  # end
+  
+  
+  def catalog_per_page_link(per_page)
     current_per_page = @response.rows || 25
 
     # we need these to compute the correct new_page_number, below.
@@ -109,15 +132,18 @@ module CulCatalogHelper
     # do the math such that the current 1st item is still in the set
     new_page_number = (first_record_on_page / per_page).to_i + 1
 
-    label = "#{per_page} per page"
     href = url_for(params_for_search.merge(:rows => per_page, :page => new_page_number))
 
-    if per_page == current_per_page
-      checkmark = content_tag("i", nil, :class => 'icon-ok')
-      content_tag(:a, (checkmark + " " + label), :href => '#', :class => "menu_checkmark_allowance" )
-    else
-      content_tag(:a, label, :href => href, :per_page => per_page, :class => "per_page_link" )
-    end
+    per_page_link(href, per_page, current_per_page)
+    
+    # label = "#{per_page} per page"
+    # 
+    # if per_page == current_per_page
+    #   checkmark = content_tag("i", nil, :class => 'icon-ok')
+    #   content_tag(:a, (checkmark + " " + label), :href => '#', :class => "menu_checkmark_allowance" )
+    # else
+    #   content_tag(:a, label, :href => href, :per_page => per_page, :class => "per_page_link" )
+    # end
 
   end
 

@@ -16,7 +16,7 @@
 -# 
 
 
-.navbar
+.index_toolbar.navbar
   .navbar-inner
 
     %ul.nav
@@ -45,7 +45,8 @@
           %b.caret
 
         %ul.dropdown-menu
-          - result.page_size_with_links.each do |link, name|
-            %li= link_to "#{name} #{content_tag(:span, 'per page', :class =>'hide-text')}".html_safe, link
+          - result.page_size_with_links.each do |link, per_page|
+            %li= per_page_link(link, per_page, result.page_size)
+
 
 

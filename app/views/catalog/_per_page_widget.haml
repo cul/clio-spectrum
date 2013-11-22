@@ -7,7 +7,7 @@
 
   %ul.dropdown-menu
     -blacklight_config.per_page.each do |per_page|
-      %li= per_page_link(per_page)
+      %li= catalog_per_page_link(per_page)
 
     -if viewstyles = DATASOURCES_CONFIG['datasources'][@active_source]['viewstyles']
       %li.divider

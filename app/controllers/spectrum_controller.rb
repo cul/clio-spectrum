@@ -27,7 +27,7 @@ class SpectrumController < ApplicationController
     # nested Rails hash (see inverse transform in Spectrum::Engines::Summon)
     #  BEFORE: params[s.fq]="AuthorCombined:eric foner"
     #  AFTER:  params[s.fq]={"AuthorCombined"=>"eric foner"}
-    # [This logic is here instead of fix_articles_params, because it needs to act
+    # [This logic is here instead of fix_summon_params, because it needs to act
     #  upon the true params object, not the cloned copy.]
     if params['s.fq'].kind_of?(Array) or params['s.fq'].kind_of?(String)
       new_fq = {}
@@ -118,10 +118,25 @@ class SpectrumController < ApplicationController
 
   end
 
-  def fix_articles_params(params)
-    # Rails.logger.debug "fix_articles_params() in params=#{params.inspect}"
+  def fix_summon_params(params)
+    # Rails.logger.debug "fix_summon_params() in params=#{params.inspect}"
 
     params['authorized'] = @user_characteristics[:authorized]
+
+
+    # items-per-page (summon page size, s.ps, aka 'rows') should be 
+    # a persisent browser setting
+    if params['s.ps'] && (params['s.ps'].to_i > 1)
+      # Store it, if passed
+      set_browser_option('summon_per_page', params['s.ps'])
+    else
+      # Retrieve and use previous value, if not passed
+      summon_per_page = get_browser_option('summon_per_page')
+      if summon_per_page && (summon_per_page.to_i > 1)
+        params['s.ps'] = summon_per_page
+      end
+    end
+
 
     # Article searches within QuickSearch should act as New searches
     params['new_search'] = 'true' if @active_source == 'quicksearch'
@@ -165,7 +180,7 @@ class SpectrumController < ApplicationController
       params['s.cmd'] = "setRangeFilter(PublicationDate,#{params['pub_date']['min_value']}:#{params['pub_date']['max_value']})"
     end
 
-    # Rails.logger.debug "fix_articles_params() out params=#{params.inspect}"
+    # Rails.logger.debug "fix_summon_params() out params=#{params.inspect}"
     params
   end
 
@@ -184,22 +199,22 @@ class SpectrumController < ApplicationController
       results = case source
         when 'dissertations'
           fixed_params['source'] = 'dissertations'
-          fixed_params = fix_articles_params(fixed_params)
+          fixed_params = fix_summon_params(fixed_params)
           Spectrum::Engines::Summon.new(fixed_params)
 
         when 'articles'
           fixed_params['source'] = 'articles'
-          fixed_params = fix_articles_params(fixed_params)
+          fixed_params = fix_summon_params(fixed_params)
           Spectrum::Engines::Summon.new(fixed_params)
 
         when 'newspapers'
           fixed_params['source'] = 'newspapers'
-          fixed_params = fix_articles_params(fixed_params)
+          fixed_params = fix_summon_params(fixed_params)
           Spectrum::Engines::Summon.new(fixed_params)
 
         when 'ebooks'
           fixed_params['source'] = 'ebooks'
-          fixed_params = fix_articles_params(fixed_params)
+          fixed_params = fix_summon_params(fixed_params)
           Spectrum::Engines::Summon.new(fixed_params)
 
         when 'catalog_ebooks'

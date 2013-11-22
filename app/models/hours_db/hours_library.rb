@@ -22,14 +22,6 @@ class HoursDb::HoursLibrary < ActiveRecord::Base
       calendars.each do |calendar|
         library.hours.create(calendar.to_new_books_fmt)
       end
-
-
-
-
-
-
-
-
     end
 
   end

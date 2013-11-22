@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'rake'
+# require 'rake'
 
 describe "Item Locations should show correct library hours", :js => true do
 
@@ -29,6 +29,7 @@ describe "Item Locations should show correct library hours", :js => true do
     page.should have_text('Avery Classics')
     click_link('Avery Classics')
     page.should have_text('Avery Classics')
+    page.should have_link("Floorplans", :href=>"http://library.columbia.edu/locations/avery/floorplans.html")    
     page.should have_link("Full Hours Info", :href=>"http://www.columbia.edu/cu/lweb/services/hours/index.html?library=avery-classics")
   end
 
@@ -38,6 +39,7 @@ describe "Item Locations should show correct library hours", :js => true do
     page.should have_text('Oral History, 801 Butler')
     click_link('Oral History, 801 Butler')
     page.should have_text('Oral History')
+    # page.save_and_open_page # debug
     page.should have_link("Home Page", :href=>"http://library.columbia.edu/locations/ccoh.html")
     page.should have_link("Full Hours Info", :href=>"http://www.columbia.edu/cu/lweb/services/hours/index.html?library=ccoh")
   end
