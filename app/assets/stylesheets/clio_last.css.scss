@@ -59,15 +59,6 @@ body.blank_layout {
   }
 }
 
-/* Bootstrap prints out the href of every <A>, making the page
-   ugly with URLs.  
-   Disable this behavior.
- */
-@media print {
-  a[href]:after {
-    content: none !important;
-  }
-}
 
 
 

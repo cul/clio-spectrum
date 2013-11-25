@@ -1,4 +1,16 @@
 @media print
+
+
+  body
+    :background-color white !important
+    :font-size 70% !important
+
+  // Bootstrap prints out the href of every <A>, making the page
+  // ugly with URLs. Disable this behavior.
+  a[href]:after
+    :content none !important
+
+
   #hd
     :display none
 
@@ -23,9 +35,9 @@
   .bookjacket
     :display none
 
-  #bd .sidebar
-    :display none
-    :width 0
+  //#bd .sidebar
+  //  :display none
+  //  :width 0
 
   #show_toolbar
     :display none

@@ -14,7 +14,7 @@
 
         = render :partial => "/header_with_search"
         #bd.row-fluid
-          .sidebar{:class => sidebar_span}
+          .sidebar.hidden-print{:class => sidebar_span}
             .search_logo.hidden-phone
               = link_to "CLIO", root_path, :class => "nav_title search_bar_logo"
             #sources
