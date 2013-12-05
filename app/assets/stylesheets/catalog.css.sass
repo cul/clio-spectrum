@@ -69,11 +69,11 @@
   :padding 0px !important
   :margin 0px !important
 
-// used on the title following the checkbox
+// used on the title following the checkbox-plus-number
 .item_select_allowance
   :padding-left 3em !important
 
-// used on the title following the number
+// used on the title following the number-alone
 .item_number_allowance
   :padding-left 2em !important
 
@@ -83,8 +83,13 @@
   :padding-left 2px !important
 
 .boxed_search_results
-  :border 1px solid #ccc
+  :border-bottom 1px solid #ccc
+  :border-bottom-style dotted
   :padding 0.5em
+
+//div.boxed_search_results + div.boxed_search_results
+//  :border-top 0
+
 
 // Use this if we want to take away the bootstrap default values of
 // bottom-padding form elements and setting a 28px min-height on all spans.

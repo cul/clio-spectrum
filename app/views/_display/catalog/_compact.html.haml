@@ -10,13 +10,13 @@
       .span4.no-bottom-space
         %span.coins_wrapper
           <!-- COinS -->
-          %span.xtighten.Z3988{title: catalog_to_openurl_ctx_kev(document)}
+          %span.Z3988{title: catalog_to_openurl_ctx_kev(document)}
         
         .item_anchor
           = render :partial => '/saved_lists/item_select_checkbox', :locals => {:item_id => document[:id], :counter => blacklight_counter}
 
         .item_select_allowance
-          %b= link_to_source_document document, :label=> document_full_title(document), :counter => blacklight_counter
+          %b= link_to_source_document document, :label=> document_full_title(document).abbreviate(100), :counter => blacklight_counter
 
       .span3.no-bottom-space= document.get("author_display") || document.get("author_vern_display")
 
@@ -26,10 +26,6 @@
     .row-fluid
       .span7.item_select_allowance.no-bottom-space
         %small= holdings_compact(document)
-        -# - unless (online_holdings = online_link_hash(document)).empty?
-        -#   = format_online_results(online_holdings).join('<br>').html_safe + '<br>'.html_safe
-        -# - unless (locations = document["location_call_number_id_display"].listify.reject { |l| l.match(/^Online/) }).empty?
-        -#   = format_location_results(locations, document).join('<br>').html_safe
       .span5.no-bottom-space
         %small= formats_with_icons(document)
 
