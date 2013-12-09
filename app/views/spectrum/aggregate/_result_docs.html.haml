@@ -7,7 +7,7 @@
       %h5 No results found.
   - else
     - truncated_documents.each_with_index do |doc, doc_index|
-      = render_document_view(doc, render_opts.merge(document_counter: doc_index ))
+      = render_document_view(doc, render_opts.merge(counter: doc_index ))
 
 
 - else

@@ -1,4 +1,4 @@
 .result{class: alternating_line("catalog"), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document)}
-  .result_title= link_to document_full_title(document), {:controller => 'catalog', :action => 'show', :id => document.id, :counter => (document_counter + 1)}
+  .result_title= link_to document_full_title(document), {:controller => 'catalog', :action => 'show', :id => document.id, :counter => (counter + 1)}
   = render :partial => "/_formats/clio/catalog_list_details", :locals => {:document => document}
 

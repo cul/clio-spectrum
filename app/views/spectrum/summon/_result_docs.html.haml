@@ -2,7 +2,7 @@
 
 - truncated_documents = render_opts['count'] ? result.documents[0,render_opts['count']] : result.documents
 - truncated_documents.each_with_index do |doc, doc_index|
-  - document_counter = (result.page_size * (result.current_page - 1)) + (doc_index + 1)
-  = render_document_view(doc, render_opts.merge(document_counter: document_counter ))
+  - counter = (result.page_size * (result.current_page - 1)) + (doc_index + 1)
+  = render_document_view(doc, render_opts.merge(counter: counter ))
 
 
