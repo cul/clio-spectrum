@@ -224,38 +224,48 @@ class CatalogController < ApplicationController
   end
 
   def preprocess_search_params
-    # clean up any search params if necessary for specific search fields.
-    # only one case so far:  left-anchored-title must be searched as quoted phrase.
-    # escape any quotes the user put in, wrap in our own double-quotes
-    q = params['q']
+    # clean up any search params if necessary, possibly only for specific search fields.
+
+    # First Case:  left-anchored-title must be searched as quoted phrase.
+    # strip any quotes the user put in, wrap in our own double-quotes
+
     # Second Case:  remove question marks at ends of words/phrases
     # (searches like "what is calculus?" don't expect Solr wildcard treatment )
 
     # Third Case:  Remove hyphen from wildcarded phrase (foo-bar*  =>  foo bar*)
     # NEXT-421 - quicksearch, catalog, and databases search: african-american* fails
+
+
     # 1) cleanup for basic searches
-    if params['search_field'] == 'title_starts_with' && q
-      unless q =~ /^".*"$/
-        q.gsub!(/"/, '\"')
-        params['q'] = "\"#{ q }\""
+    if q = params['q']
+      if params['search_field'] == 'title_starts_with'
+        unless q =~ /^".*"$/
+          # q.gsub!(/"/, '\"')    # escape any double-quotes instead?
+          q.gsub!(/"/, '')    # strip any double-quotes
+          q = "\"#{ q }\""
+        end
       end
       q.gsub!(/\?\s+/, ' ')  # remove trailing question-marks
       q.gsub!(/\?$/, '')     # remove trailing question-marks (end of line)
       q.gsub!(/(\w+)-(\w+\*)/, '\1 \2')     # remove hyphen from wildcarded phrase
+      params['q'] = q
     end
 
     # 2) cleanup for advanced searches
     if params['adv'] and params['adv'].kind_of?(Hash)
       params['adv'].each do |rank, advanced_param|
+        val = advanced_param['value']
         if advanced_param['field'] == "title_starts_with"
-          unless advanced_param['value'] =~ /^".*"$/
-            advanced_param['value'].gsub!(/"/, '\"')
-            advanced_param['value'] = "\"#{ advanced_param['value'] }\""
+          unless val =~ /^".*"$/
+            # advanced_param['value'].gsub!(/"/, '\"')    # escape any double-quotes instead?
+            val.gsub!(/"/, '')    # strip any double-quotes
+            val = "\"#{ val }\""
          end
         end
         val.gsub!(/\?\s+/, ' ')  # remove trailing question-marks
         val.gsub!(/\?$/, '')  # remove trailing question-marks (end of line)
         val.gsub!(/(\w+)-(\w+\*)/, '\1 \2')     # remove hyphen from wildcarded phrase
+        advanced_param['value'] = val
       end
     end
 
