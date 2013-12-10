@@ -7,6 +7,7 @@ gem 'rails', '3.2.14'
 gem 'sqlite3'
 
 gem 'thin'
+# gem 'unicorn'
 
 gem 'blacklight', '~>4.3.0'
 gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
@@ -22,16 +23,16 @@ gem 'json'
 # This could be native to clio-spectrum, or put into Voyager-back-end
 # gem 'voyager_oracle_api', ">= 1.1.1"
 
-# Would be use for Patron services, if we were to use native blacklight Patron svcs.
+# Would be used for Patron services, if we were to use native Blacklight Patron services
 # gem 'restful_voyage', :git => "git://github.com/cul/restful_voyage.git", :branch => "master"
 
 group :clio_dev, :clio_test, :clio_prod do
   gem 'mysql2'
 end
 
-# "Associates a hash of options wtih an ActiveRecord model"
+# "Associates a hash of options with an ActiveRecord model"
 # Used for... apparently, just the list of links for each location?
-# locally developed - and no longer on github...
+# locally developed - and no longer on Github...
 # should try to eliminate at some point.
 gem 'has_options'
 
