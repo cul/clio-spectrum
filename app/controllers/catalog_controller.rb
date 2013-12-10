@@ -228,6 +228,8 @@ class CatalogController < ApplicationController
     # only one case so far:  left-anchored-title must be searched as quoted phrase.
     # escape any quotes the user put in, wrap in our own double-quotes
     q = params['q']
+    # Second Case:  remove question marks at ends of words/phrases
+    # (searches like "what is calculus?" don't expect Solr wildcard treatment )
 
     # 1) cleanup for basic searches
     if params['search_field'] == 'title_starts_with' && q
@@ -235,6 +237,8 @@ class CatalogController < ApplicationController
         q.gsub!(/"/, '\"')
         params['q'] = "\"#{ q }\""
       end
+      q.gsub!(/\?\s+/, ' ')  # remove trailing question-marks
+      q.gsub!(/\?$/, '')     # remove trailing question-marks (end of line)
     end
 
     # 2) cleanup for advanced searches
@@ -246,6 +250,8 @@ class CatalogController < ApplicationController
             advanced_param['value'] = "\"#{ advanced_param['value'] }\""
          end
         end
+        val.gsub!(/\?\s+/, ' ')  # remove trailing question-marks
+        val.gsub!(/\?$/, '')  # remove trailing question-marks (end of line)
       end
     end
 
