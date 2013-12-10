@@ -231,6 +231,8 @@ class CatalogController < ApplicationController
     # Second Case:  remove question marks at ends of words/phrases
     # (searches like "what is calculus?" don't expect Solr wildcard treatment )
 
+    # Third Case:  Remove hyphen from wildcarded phrase (foo-bar*  =>  foo bar*)
+    # NEXT-421 - quicksearch, catalog, and databases search: african-american* fails
     # 1) cleanup for basic searches
     if params['search_field'] == 'title_starts_with' && q
       unless q =~ /^".*"$/
@@ -239,6 +241,7 @@ class CatalogController < ApplicationController
       end
       q.gsub!(/\?\s+/, ' ')  # remove trailing question-marks
       q.gsub!(/\?$/, '')     # remove trailing question-marks (end of line)
+      q.gsub!(/(\w+)-(\w+\*)/, '\1 \2')     # remove hyphen from wildcarded phrase
     end
 
     # 2) cleanup for advanced searches
@@ -252,6 +255,7 @@ class CatalogController < ApplicationController
         end
         val.gsub!(/\?\s+/, ' ')  # remove trailing question-marks
         val.gsub!(/\?$/, '')  # remove trailing question-marks (end of line)
+        val.gsub!(/(\w+)-(\w+\*)/, '\1 \2')     # remove hyphen from wildcarded phrase
       end
     end
 
