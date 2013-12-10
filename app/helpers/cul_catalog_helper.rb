@@ -64,11 +64,11 @@ module CulCatalogHelper
   end
 
 
-  def document_full_title(document)
-    [document.get('title_display') , document.get('subtitle_display')].reject { |txt|
-       txt.to_s.strip.empty?
-    }.join(": ")
-  end
+  # def document_full_title(document)
+  #   [document.get('title_display') , document.get('subtitle_display')].reject { |txt|
+  #      txt.to_s.strip.empty?
+  #   }.join(": ")
+  # end
 
 
   def build_fake_cover(document)
