@@ -1,9 +1,8 @@
+-# CALLED TO DISPLAY EACH BIB IN STANDARD SEARCH RESULTS
 
 - if session[:search][:adv] && session[:search][:adv].values.index{ |x| x["field"] == "series_title"  }
   = add_row('Series Title', document.get("title_series_display"), :html_safe => false)
 
--# = add_row('Title', document.get("title_vern_display"),:abbreviate => 100, :html_safe => false)
--# = add_row('Subtitle', document.get("subtitle_vern_display"),:abbreviate => 100, :html_safe => false)
 = add_row('Title', document.get("title_vern_display"), :html_safe => false)
 
 = add_row('Author', [document.get("author_display"),document.get("author_vern_display")].compact, :html_safe => false)

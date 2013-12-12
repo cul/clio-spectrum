@@ -9,9 +9,6 @@
 
   .holding{:class => alternating_line}
     .location_box
-      -# process_holdings_location() augments call-numbers, and so
-      -# is pointless here.
-      -# .location= process_holdings_location(entry['location_link'])
       .location= entry['location_link']
       .hours= entry['hours']
 

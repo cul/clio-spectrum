@@ -42,9 +42,10 @@ module HoldingsHelper
     output
   end
 
-  # Support for NEXT-113 - Do not make api request for online-only resources
-  def has_physical_holdings?(document)
+  # Support for:
+  #   NEXT-113 - Do not make api request for online-only resources
   #   NEXT-961 - Incorporate Law records into CLIO
+  def has_loadable_holdings?(document)
     # 'location' alone is only found in the 'location_facet' field, which is currently
     # indexed but not stored, so I can't use it.
 
