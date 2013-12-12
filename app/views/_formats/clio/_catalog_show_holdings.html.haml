@@ -9,7 +9,11 @@
   -# NEXT-113 - Do not make api request for online-only resources
   - if has_physical_holdings?(document)
     = render :partial => "/_formats/clio/catalog_show_holdings_display", :locals => {:clio_id => clio_id}
+  -# NEXT-961 - Incorporate Law records into CLIO
 
   = render :partial => "/_formats/clio/catalog_show_holdings_google", :locals => {:document => document}
+  -# NEXT-961 - Incorporate Law records into CLIO
+  - if in_pegasus?(document)
+    = render "/_formats/clio/catalog_show_holdings_pegasus", :document => document
 
   = render :partial => "/_formats/clio/catalog_show_holdings_hathi", :locals => {:document => document}

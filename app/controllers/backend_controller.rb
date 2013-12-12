@@ -25,6 +25,12 @@ class BackendController < ApplicationController
 
   def holdings
     @id = params[:id]
+
+    unless @id.match(/^\d+$/)
+      logger.error "BackendController#holdings passed non-numeric id: #{@id}"
+      render nothing: true and return
+    end
+
     backend_url = url_for_id(@id)
     begin
       json_holdings = holdings_httpclient.get_content(backend_url)

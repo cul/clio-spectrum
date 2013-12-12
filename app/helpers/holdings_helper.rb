@@ -49,6 +49,7 @@ module HoldingsHelper
 
   # Support for NEXT-113 - Do not make api request for online-only resources
   def has_physical_holdings?(document)
+  #   NEXT-961 - Incorporate Law records into CLIO
     # 'location' alone is only found in the 'location_facet' field, which is currently
     # indexed but not stored, so I can't use it.
 
@@ -57,16 +58,40 @@ module HoldingsHelper
     #   Online >> EBOOKS|DELIM|13595275
     #   Lehman >> MICFICHE Y 3.T 25:2 J 13/2|DELIM|10465654
     #   Music Sound Recordings >> CD4384|DELIM|2653524
+    # Or, for Law:
+    #   Law >> JK1061 .B66 1992
     return false unless location_call_number_id = document[:location_call_number_id_display]
 
     Array.wrap(location_call_number_id).each do |portmanteau|
       location = portmanteau.partition(' >>').first
+      # This list of "Locations" are not available for live holdings lookups
+      return false if [ 'Law' ].include? location
       # If we find any location that's not Online, Yes, it's a physical holding
       return true if location and location != 'Online'
     end
 
     # If we dropped down without finding a physical holding, No, we have none
     return false
+  end
+
+  # Detect Law records, cataloged in Pegasus (http://pegasus.law.columbia.edu/)
+  def in_pegasus?(document)
+    # raise
+    # Document must have an id, which must be a "b" followed by a number...
+    return false unless document.id and document.id.match /^b\d{3,9}$/
+
+    # And, confirm that the Location is "Law"
+
+    # pull out the Location/call-number/holdings-id field...
+    return false unless location_call_number_id = document[:location_call_number_id_display]
+    # unpack, and confirm each occurrance ()
+    Array.wrap(location_call_number_id).each do |portmanteau|
+      location = portmanteau.partition(' >>').first
+      # If we find any location that's not Law, this is NOT pegasus
+      return false if location and location != 'Law'
+    end
+
+    return true
   end
 
   def online_link_hash(document)
@@ -176,6 +201,8 @@ module HoldingsHelper
   }
 
   def service_links(services, clio_id)
+    return [] unless services && clio_id
+
     services.select {|svc| SERVICE_ORDER.index(svc)}.sort_by { |svc| SERVICE_ORDER.index(svc) }.collect do |svc|
       title, link = SERVICES[svc]
       bibid = clio_id.to_s
@@ -192,6 +219,20 @@ module HoldingsHelper
 
   def process_online_title(title)
     title.to_s.gsub(/^Full text available from /, '').gsub(/(\d{1,2})\/\d{1,2}(\/\d{4})/,'\1\2')
+  end
+
+  # Create a holdings "Entry", mirroring the JSON returned from a backend holdings lookup,
+  # but with passed-in data
+  def create_dummy_entry(options = {})
+
+    entry = {
+      "location_name" => options[:location_name] ||= "Location",
+      "copies"        => []
+    }
+
+    entry["call_number"] = options[:call_number] if options[:call_number]
+
+    entry
   end
 
   def add_display_elements(entries)

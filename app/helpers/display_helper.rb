@@ -117,18 +117,45 @@ module DisplayHelper
     locations.collect do |location|
 
       loc_display, hold_id = location.split('|DELIM|')
-      clio_holding = "unknown"
 
-      if document.get('clio_holdings')
-        status = document['clio_holdings']['statuses'][hold_id.to_s]
-        clio_holding = status if status
-      end
+      # This was left-over from back when clio holdings were 
+      # available at page-load.  Now, clio holdings are ajax,
+      # so just leave the icon as none (blank) at load.
+      # 
+      # clio_holding = "unknown"
+      # 
+      # if document.get('clio_holdings')
+      #   status = document['clio_holdings']['statuses'][hold_id.to_s]
+      #   clio_holding = status if status
+      # end
 
-      image_tag("icons/#{clio_holding}.png",
+      # image_tag("icons/#{clio_holding}.png",
+      #           :class => "availability holding_#{hold_id}") +
+
+      image_tag("icons/none.png",
                 :class => "availability holding_#{hold_id}") +
-        process_holdings_location(loc_display)
+        process_holdings_location(loc_display) +
+        additional_location_note(document, location)
     end
   end
+
+  # Any additional special notes, for this document at this location?
+  def additional_location_note(document, location)
+    # Law records need a link back to their native catalog
+    if in_pegasus? document
+      return content_tag(:span, pegasus_item_link(document.id), :class => 'url_link_note')
+    end
+  end
+
+  def pegasus_item_link(id)
+    url = 'http://pegasus.law.columbia.edu'
+    if id
+      return link_to "Check Pegasus for current status", "#{url}/record=#{id}"
+    else
+      return link_to url, url
+    end
+  end
+
 
   def determine_formats(document, defaults = [])
     formats = defaults.listify

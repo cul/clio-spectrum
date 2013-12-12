@@ -101,7 +101,7 @@ module CulCatalogHelper
 
   def per_page_link(href, per_page, current_per_page)
     label = "#{per_page} per page"
-  
+
     if per_page == current_per_page
       checkmark = content_tag("i", nil, :class => 'icon-ok')
       content_tag(:a, (checkmark + " " + label), :href => '#', :class => "menu_checkmark_allowance" )
