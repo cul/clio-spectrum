@@ -44,7 +44,7 @@ describe 'Spectrum::Engines::Solr' do
       # puts eng.solr_search_params
       eng.results.should_not be_empty
       # puts eng.results.first.get('title_display')
-      eng.results.first.get('subtitle_display').should match(/reading Asian North American autobiographies of childhood/)
+      eng.results.first.get('title_display').should match(/reading Asian North American autobiographies of childhood/)
     end
   end
 
@@ -54,7 +54,7 @@ describe 'Spectrum::Engines::Solr' do
       eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'debt the first 5000 years', :search_field => 'all_fields', 'solr_url' => solr_url)
       eng.results.should_not be_empty
       eng.results.first.get('title_display').should match(/Debt/)
-      eng.results.first.get('subtitle_display').should match(/the first 5,000 years/)
+      eng.results.first.get('title_display').should match(/the first 5,000 years/)
     end
   end
 
@@ -76,11 +76,8 @@ describe 'Spectrum::Engines::Solr' do
   # NEXT-415
   describe 'searches for "New Yorker" in Journals' do
     it 'should find "The New Yorker" as the first result' do
-       pending('revamp to how stopwords and/or phrases are handled')
       eng = Spectrum::Engines::Solr.new(:source => 'journals', :q => 'New Yorker', :search_field => 'all_fields', 'solr_url' => solr_url)
       eng.results.should_not be_empty
-      # puts eng.solr_search_params\
-      # puts eng.results.first.get('title_display')
       eng.results.first.get('title_display').should match(/The.New.Yorker/)
     end
   end
@@ -94,7 +91,7 @@ describe 'Spectrum::Engines::Solr' do
       eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'Clemens Krauss : Denk Display', :search_field => 'all_fields', 'solr_url' => solr_url)
       eng.results.should_not be_empty
       eng.results.first.get('title_display').should include('Clemens Krauss')
-      eng.results.first.get('subtitle_display').should include('Denk Display')
+      eng.results.first.get('title_display').should include('Denk Display')
     end
   end
 
