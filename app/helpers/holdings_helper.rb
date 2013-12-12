@@ -30,21 +30,16 @@ module HoldingsHelper
     SHORTER_LOCATIONS[location.strip] || location
   end
 
-  # See NEXT-437 for discussion of presentation of call-number, location.
-  # Some folks want to remove the '>>' delimeter, but this is (as of 10/13) 
-  # still awaiting committee determination.
   def process_holdings_location(loc_display)
-    loc, call = loc_display.split(' >> ')
+    location, call_number = loc_display.split(' >> ')
     output = "".html_safe
-    output << shorten_location(loc)  # append will html-escape content
-    if call
-      output << " >> "
-      output << content_tag(:span, call, class: 'call_number').html_safe
+    output << shorten_location(location)  # append will html-escape content
+    if call_number
+      # NEXT-437 - remove the separator between location and call number
+      # output << " >> "
+      output << content_tag(:span, " #{call_number}", class: 'call_number').html_safe
     end
     output
-
-    # old code:
-    # call ? "#{h(shorten_location(loc))} >> ".html_safe + content_tag(:span, call, class: 'call_number')  : shorten_location(loc)
   end
 
   # Support for NEXT-113 - Do not make api request for online-only resources
