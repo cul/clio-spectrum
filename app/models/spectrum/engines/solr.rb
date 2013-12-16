@@ -539,7 +539,7 @@ module Spectrum
                 :fq  => ['{!raw f=source_facet}database']
               }
 
-              config.add_facet_field "database_hilcc_facet",
+              config.add_facet_field "database_discipline_facet",
                   :label => "Discipline", :limit => 5, :open => true
               config.add_facet_field "database_resource_type_facet",
                   :label => "Resource Type", :limit => 5

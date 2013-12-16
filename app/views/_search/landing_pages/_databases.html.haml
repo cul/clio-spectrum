@@ -67,7 +67,7 @@
     = render :partial => "/_display/databases/a_to_z"
 
     - database_browse = YAML.load(File.read(Rails.root.to_s + "/config/database_browse.yml"))
-    - hilcc_codes = database_browse['hilcc'].invert
+    - discipline_codes = database_browse['discipline'].invert
     - resource_codes = database_browse['resource_types'].invert
 
     .databases_browse_by
@@ -75,7 +75,7 @@
         = form_tag databases_index_path, :method => 'get', :class => 'form-inline' do
           %div
             .browse_label Browse by discipline:
-            = select_tag 'f[database_hilcc_facet][]', options_for_select(hilcc_codes.keys.sort.each  { |k| [k, hilcc_codes[k]] }), :prompt => "All Disciplines"
+            = select_tag 'f[database_discipline_facet][]', options_for_select(discipline_codes.keys.sort.each  { |k| [k, discipline_codes[k]] }), :prompt => "All Disciplines"
 
           %div
             .browse_label Browse by resource type:

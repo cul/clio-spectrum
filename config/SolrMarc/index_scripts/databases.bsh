@@ -12,7 +12,7 @@ org.solrmarc.index.SolrIndexer indexer = null;
 // https://wiki.cul.columbia.edu/display/cerm/RTI+Codes
 // 
 
-Set translate_HILCC_code(Record record)
+Set translate_DISCIPLINE_code(Record record)
 {
   LinkedHashSet result = new LinkedHashSet();
 

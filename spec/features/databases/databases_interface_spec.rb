@@ -40,8 +40,8 @@ describe "Databases", :focus => false do
       page.should have_text('Browse by discipline')
       page.should have_text('Browse by resource type')
 
-      find('select#f_database_hilcc_facet_', :text => "All Disciplines").click
-      select('Social Sciences', :from => 'f_database_hilcc_facet_')
+      find('select#f_database_discipline_facet_', :text => "All Disciplines").click
+      select('Social Sciences', :from => 'f_database_discipline_facet_')
 
       find('select#f_database_resource_type_facet_', :text => "All Resource Types").click
       select('Text Collections', :from => 'f_database_resource_type_facet_')
@@ -65,8 +65,8 @@ describe "Databases", :focus => false do
       page.should have_text('Browse by discipline')
       page.should have_text('Browse by resource type')
 
-      find('select#f_database_hilcc_facet_', :text => "All Disciplines").click
-      select('Sciences', :from => 'f_database_hilcc_facet_')
+      find('select#f_database_discipline_facet_', :text => "All Disciplines").click
+      select('Sciences', :from => 'f_database_discipline_facet_')
 
       find('select#f_database_resource_type_facet_', :text => "All Resource Types").click
       select('Music Scores', :from => 'f_database_resource_type_facet_')
