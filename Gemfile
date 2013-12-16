@@ -163,6 +163,9 @@ group :test do
   gem 'guard-rspec'
   gem 'guard-spork'
 
+  # Copy Stanford's approach to Solr relevancy testing
+  gem 'rspec-solr'
+
   # pin to old version, or go with newest?
   gem 'capybara'
   # gem 'capybara', '2.0.3'

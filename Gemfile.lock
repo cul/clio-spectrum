@@ -237,6 +237,8 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
+    rspec-solr (1.0.0)
+      rspec
     ruby-prof (0.13.0)
     sass (3.2.12)
     sass-rails (3.2.6)
@@ -324,6 +326,7 @@ DEPENDENCIES
   rails (= 3.2.14)
   rb-fsevent
   rspec-rails (>= 2.14)
+  rspec-solr
   ruby-prof
   sass
   sass-rails (~> 3.2.4)
