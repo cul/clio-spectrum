@@ -140,7 +140,9 @@ class ApplicationController < ActionController::Base
       @response = engine.search
       @results = engine.documents
       if engine.total_items > 0
-        look_up_clio_holdings(@results)
+        # No, leave this to happen via async AJAX onload
+        # look_up_clio_holdings(@results)
+
         # Currently, item-alerts only show within the Databases data source
         if @active_source.present? and @active_source == "databases"
           add_alerts_to_documents(@results)
@@ -154,25 +156,25 @@ class ApplicationController < ActionController::Base
 
   end
 
-  def look_up_clio_holdings(documents)
-    clio_docs = documents.select { |cd| cd.get('clio_id_display')}
-    return if clio_docs.empty?
-
-    # If we're async, don't do holdings-lookup here.
-    return unless session[:async_off]
-
-    begin
-      holdings = Voyager::Request.simple_holdings_check(
-        connection_details: APP_CONFIG['voyager_connection']['oracle'],
-        bibids: clio_docs.collect { |cd| cd.get('clio_id_display')} )
-      clio_docs.each do |cd|
-        cd['clio_holdings'] = holdings[cd.get('clio_id_display')]
-      end
-    rescue => ex
-      logger.error "ApplicationController#look_up_clio_holdings exception: #{ex}"
-    end
-
-  end
+  # def look_up_clio_holdings(documents)
+  #   clio_docs = documents.select { |cd| cd.get('clio_id_display')}
+  #   return if clio_docs.empty?
+  # 
+  #   # If we're async, don't do holdings-lookup here.
+  #   return unless session[:async_off]
+  # 
+  #   # begin
+  #   #   holdings = Voyager::Request.simple_holdings_check(
+  #   #     connection_details: APP_CONFIG['voyager_connection']['oracle'],
+  #   #     bibids: clio_docs.collect { |cd| cd.get('clio_id_display')} )
+  #   #   clio_docs.each do |cd|
+  #   #     cd['clio_holdings'] = holdings[cd.get('clio_id_display')]
+  #   #   end
+  #   # rescue => ex
+  #   #   logger.error "ApplicationController#look_up_clio_holdings exception: #{ex}"
+  #   # end
+  # 
+  # end
 
   def trigger_async_mode
     if params.delete('async_off') == 'true'

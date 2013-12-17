@@ -10,9 +10,12 @@ root.after_document_load = (element) ->
     source = res.attr('source')
     item = res.attr('item_id')
 
+    # alert("item:" + item)
+
     if source == 'academic_commons'
       fedora_items.push(item)
     else if source == 'catalog' && $.isNumeric(item)
+      # alert("numeric item:" + item)
       catalog_items.push(item)
       # a set of zero or more IDs (ISBN, OCLC, or LCCN)
       standard_id_set_csv = res.attr('standard_ids')

@@ -494,7 +494,7 @@ module DisplayHelper
       fields.push("rft.au=#{ CGI::escape(author) }")
     end
 
-    document[ :title_display ] && document[ :title_display ].each do |title|
+    document[ :title_display ] && Array.wrap(document[ :title_display ]).each do |title|
       fields.push("rft.title=#{ CGI::escape(title) }")
     end
 
@@ -515,14 +515,14 @@ module DisplayHelper
       # JOURNAL-SPECIFIC FIELDS
       fields.push( 'rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
       # title is redundantly given as "atitle" for books
-      document[ :title_display ] && document[ :title_display ].each do |title|
+      document[ :title_display ] && Array.wrap(document[ :title_display ]).each do |title|
         fields.push("rft.atitle=#{ CGI::escape(title) }")
       end
     else
       # BOOK-SPECIFIC FIELDS
       fields.push( 'rft_val_fmt=info:ofi/fmt:kev:mtx:book')
       # title is redundantly given as "btitle" for books
-      document[ :title_display ] && document[ :title_display ].each do |title|
+      document[ :title_display ] && Array.wrap(document[ :title_display ]).each do |title|
         fields.push("rft.btitle=#{ CGI::escape(title) }")
       end
     end

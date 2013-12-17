@@ -84,13 +84,13 @@ sources:
   quicksearch:
     warning: 
   archives:
-    warning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 5pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
+    warning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
   new_arrivals:
-    warning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 5pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
+    warning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
   catalog:
     title: Catalog
     description: Contains library, books, videos, local resources
-    warning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 5pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
+    warning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
     holdings_check: true
     render_options:
       format: clio
@@ -135,7 +135,7 @@ sources:
   databases:
     title: Databases
     description: Electronic resources
-    warning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 5pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
+    warning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
     render_options:
       format: clio
   catalog_dissertations:
@@ -153,7 +153,7 @@ sources:
   journals:
     title: Journal Titles
     description: Electronic Journals Held By Columbia
-    warning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 5pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
+    warning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
     render_options:
       format: clio 
   ebooks:

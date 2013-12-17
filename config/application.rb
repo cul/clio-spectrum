@@ -12,9 +12,7 @@ end
 # require File.expand_path('../../lib/monkey_patches', __FILE__)
 
 require File.expand_path('../../lib/monkey_patches', __FILE__)
-require File.expand_path('../../lib/google_books', __FILE__)
 require File.expand_path('../../lib/rsolr_notifications', __FILE__)
-# require File.expand_path('../../lib/voyager_holding', __FILE__)
 RELEASE_STAMP = IO.read("VERSION").strip
 
 # explicitly require, so that "config.middleware.use" works below during

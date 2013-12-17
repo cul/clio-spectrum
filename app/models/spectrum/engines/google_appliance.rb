@@ -25,11 +25,6 @@ module Spectrum
         end
       end
 
-      # unused?
-      # def results
-      #   documents
-      # end
-
       def current_page
         (@start.div @rows) + 1
       end
@@ -58,17 +53,6 @@ module Spectrum
         [@start + @rows, total_items].min
       end
 
-      # unused?
-      # def total_pages
-      #   (total_items / @rows.to_f).ceil
-      # end
-
-      # unused?
-      # def page_count
-      #   (@count / @rows) + 1
-      # end
-
-
       def next_page?
         end_item < total_items
       end
@@ -77,16 +61,6 @@ module Spectrum
         start_item > 1 && total_items > 1
       end
 
-      # unused?
-      # def previous_page?
-      #   @start > 1
-      # end
-
-      # unused?
-      # def page
-      #   (@start / @rows) + 1
-      # end
-
       def successful?
         @errors.nil?
       end
@@ -94,12 +68,6 @@ module Spectrum
       def total_items
         @count
       end
-
-      # unused?
-      # def page_size
-      #   @rows
-      # end
-
 
       def previous_page_path
         search_merge('start' => [@start - @rows, 0].max)
