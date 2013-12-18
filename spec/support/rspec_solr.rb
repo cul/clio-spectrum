@@ -35,6 +35,11 @@ end
 def solr_resp_ids_from_query(query)
   resp = solr_resp_doc_ids_only({'q'=> query})
 end
+def solr_resp_ids_from_journal_title_query(query)
+  solr_resp_doc_ids_only({'q'  => "{!qf=$title_qf pf=$title_pf}#{query}",
+                          'fq' => 'format:Journal/Periodical',
+                          'sort' => 'score desc, pub_date_sort desc' } )
+end
 
 # send a GET request to the default Solr request handler with the indicated query
 # @param query [String] the value of the 'q' param to be sent to Solr
@@ -60,6 +65,7 @@ end
 def solr_resp_ejournal_ids_only(solr_params)
   solr_response(solr_params.merge(doc_ids_only).merge(ejournal_titles))
 end
+
 
 # send a GET request to the default Solr request handler with the indicated Solr parameters
 # @param solr_params [Hash] the key/value pairs to be sent to Solr as HTTP parameters, in addition to 
@@ -196,7 +202,7 @@ end
 def solr_response(solr_params, req_handler='select')
   q_val = solr_params['q']
   if num_cjk_uni(q_val) == 0
-    RSpecSolr::SolrResponseHash.new(SOLR.send_and_receive(req_handler, {:method => :get, :params => solr_params.merge("testing"=>"sw_index_test")}))
+    RSpecSolr::SolrResponseHash.new(SOLR.send_and_receive(req_handler, {:method => :get, :params => solr_params.merge("testing"=>"clio_index_test")}))
   else
     # we have CJK - separate user query string out from local params
     if q_val =~ /\{(.*)\}(.*)/
@@ -219,7 +225,7 @@ def solr_response(solr_params, req_handler='select')
       solr_params['q'] = cjk_everything_q_arg q_val
     end
     RSpecSolr::SolrResponseHash.new(SOLR.send_and_receive(req_handler, {:method => :get,
-      :params => solr_params.merge("testing"=>"sw_index_test").merge(cjk_mm_qs_params(q_val))}))
+      :params => solr_params.merge("testing"=>"clio_index_test").merge(cjk_mm_qs_params(q_val))}))
   end # have CJK in query
 end
 
