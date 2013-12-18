@@ -39,7 +39,6 @@ describe 'Spectrum::Engines::Solr' do
   # correct wildcard (child* ==> children)
   describe 'searches for "child* autobiography..." in Catalog' do
     it 'should find "autobiographies of children" ' do
-      # pending('revamp to how stopwords and/or phrases are handled')
       eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'child* autobiography asian north american honolulu', :search_field => 'all_fields', 'solr_url' => solr_url)
       # puts eng.solr_search_params
       eng.results.should_not be_empty
@@ -86,8 +85,6 @@ describe 'Spectrum::Engines::Solr' do
   # NEXT-429
   describe 'catalog all-field searches with embedded space-colon-space' do
     it 'should return search results' do
-      # pending('revamp to how colon searches are handled')
-      # pending('until gary reruns subset extract')
       eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'Clemens Krauss : Denk Display', :search_field => 'all_fields', 'solr_url' => solr_url)
       eng.results.should_not be_empty
       eng.results.first.get('title_display').should include('Clemens Krauss')
