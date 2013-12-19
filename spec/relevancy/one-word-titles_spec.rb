@@ -76,6 +76,17 @@ describe 'Searching for one-word titles: ' do
     resp.should include("3384258").in_first(1).results
   end
 
+  it "JAMA" do
+    resp = solr_resp_ids_from_query('JAMA')
+    resp.should include("3429848").in_first(15).results
+
+    resp = solr_resp_ids_from_journal_title_query('JAMA')
+    resp.should include("3429848").in_first(1).results
+
+    resp = solr_resp_ejournal_ids_only({'q'=>'JAMA'})
+    resp.should include("3429848").in_first(1).results
+  end
+
 end
 
 describe 'Searching for other one-word titles: ' do
