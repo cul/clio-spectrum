@@ -4,6 +4,8 @@
   .landing_main.span8
     .title E-Books
 
+    = render partial: '/datasource_warning', locals: {warning: warning}
+
     %p This searches:
     %ul
       %li citations and some full text for our growing collection of recently published e-books

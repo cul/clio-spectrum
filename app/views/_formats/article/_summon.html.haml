@@ -3,9 +3,10 @@
 .result.document.article_list{item_id: document.id}
 
   .row-fluid
-    .title.span11= link_to_article document
-    .item_select.span1
-      = render :partial => '/saved_lists/catalog_checkbox', :locals => {:item_id => document.id}
+    .title.span12
+      .item_anchor
+        = render :partial => '/saved_lists/item_select_checkbox', :locals => {:item_id => document.id, :counter => counter ||= 0}
+      .item_select_allowance= link_to_article document
 
 
   .details
@@ -16,8 +17,9 @@
     = add_row('Format', get_article_type(document))
 
 
-    / COinS
-    %span.Z3988{ :title => document.src['openUrl'] }
+    %span.coins_wrapper
+      / COinS
+      %span.Z3988{ :title => document.src['openUrl'] }
 
     - if @debug_mode
       =add_row("Fulltext", document.fulltext.to_s)

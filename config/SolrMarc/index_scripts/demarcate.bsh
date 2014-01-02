@@ -17,7 +17,9 @@ Set demarcatePublicationDate(Record record)
 {
   LinkedHashSet result = new LinkedHashSet();
 
-  String val = indexer.getFirstFieldVal(record, "008");
+  String val_raw = indexer.getFirstFieldVal(record, "008");
+
+  String val = val_raw.replace('u', '0');
 
   Calendar today = Calendar.getInstance();
 

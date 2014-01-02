@@ -1,16 +1,7 @@
 # encoding: utf-8
 module HoldingsHelper
 
-### UNUSED
-### UNUSED
-### UNUSED
-### UNUSED
-### UNUSED
-### UNUSED
-### UNUSED
-### UNUSED
-### UNUSED
-
+# unused function
 #   def build_holdings_hash(document)
 #     results = Hash.new { |h,k| h[k] = []}
 #     Holding.new(document["clio_id_display"]).fetch_from_opac!.
@@ -25,10 +16,14 @@ module HoldingsHelper
 #   end
 
   SHORTER_LOCATIONS = {
-    "Temporarily unavailable. Try Borrow Direct or ILL" => "Temporarily Unavailable",
-    "Butler Stacks (Enter at the Butler Circulation Desk)" => "Butler Stacks",
-    "Offsite - Place Request for delivery within 2 business days" => "Offsite",
-    "Offsite (Non-Circ) Request for delivery in 2 business days" => "Offsite (Non-Circ)"
+    "Temporarily unavailable. Try Borrow Direct or ILL" =>
+        "Temporarily Unavailable",
+    "Butler Stacks (Enter at the Butler Circulation Desk)" =>
+        "Butler Stacks",
+    "Offsite - Place Request for delivery within 2 business days" =>
+        "Offsite",
+    "Offsite (Non-Circ) Request for delivery in 2 business days" =>
+        "Offsite (Non-Circ)"
   }
 
   def shorten_location(location)
@@ -36,12 +31,64 @@ module HoldingsHelper
   end
 
   def process_holdings_location(loc_display)
-    loc,call = loc_display.split(' >> ')
-    call ? "#{h(shorten_location(loc))} >> ".html_safe + content_tag(:span, call, class: 'call_number')  : shorten_location(loc)
+    location, call_number = loc_display.split(' >> ')
+    output = "".html_safe
+    output << shorten_location(location)  # append will html-escape content
+    if call_number
+      # NEXT-437 - remove the separator between location and call number
+      # output << " >> "
+      output << content_tag(:span, " #{call_number}", class: 'call_number').html_safe
+    end
+    output
   end
 
- URL_REGEX = Regexp.new('(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))')
+  # Support for:
+  #   NEXT-113 - Do not make api request for online-only resources
+  #   NEXT-961 - Incorporate Law records into CLIO
+  def has_loadable_holdings?(document)
+    # 'location' alone is only found in the 'location_facet' field, which is currently
+    # indexed but not stored, so I can't use it.
 
+    # Use the full 992b (location_call_number_id_display) and break it down redundantly here.
+    # examples:
+    #   Online >> EBOOKS|DELIM|13595275
+    #   Lehman >> MICFICHE Y 3.T 25:2 J 13/2|DELIM|10465654
+    #   Music Sound Recordings >> CD4384|DELIM|2653524
+    # Or, for Law:
+    #   Law >> JK1061 .B66 1992
+    return false unless location_call_number_id = document[:location_call_number_id_display]
+
+    Array.wrap(location_call_number_id).each do |portmanteau|
+      location = portmanteau.partition(' >>').first
+      # This list of "Locations" are not available for live holdings lookups
+      return false if [ 'Law' ].include? location
+      # If we find any location that's not Online, Yes, it's a physical holding
+      return true if location and location != 'Online'
+    end
+
+    # If we dropped down without finding a physical holding, No, we have none
+    return false
+  end
+
+  # Detect Law records, cataloged in Pegasus (http://pegasus.law.columbia.edu/)
+  def in_pegasus?(document)
+    # raise
+    # Document must have an id, which must be a "b" followed by a number...
+    return false unless document.id and document.id.match /^b\d{3,9}$/
+
+    # And, confirm that the Location is "Law"
+
+    # pull out the Location/call-number/holdings-id field...
+    return false unless location_call_number_id = document[:location_call_number_id_display]
+    # unpack, and confirm each occurrance ()
+    Array.wrap(location_call_number_id).each do |portmanteau|
+      location = portmanteau.partition(' >>').first
+      # If we find any location that's not Law, this is NOT pegasus
+      return false if location and location != 'Law'
+    end
+
+    return true
+  end
 
   def online_link_hash(document)
 
@@ -50,25 +97,53 @@ module HoldingsHelper
     return links unless document.kind_of?(SolrDocument)
 
     document["url_munged_display"].listify.each do |url_munge|
-      url_parts = url_munge.split('~|Z|~').collect(&:strip)
-      title = url =  ""
-      if (url_index = url_parts.index { |part| part =~ URL_REGEX })
-        url = url_parts.delete_at(url_index)
-        title = url_parts.join(" ").to_s
-        title = url if title.empty?
-        links << [title, url]
-      # Actually, just ignore bad URLs, don't display in the interface
-      # else
-      #   title = "Bad URL: " + url_parts.join(" ")
-      #   url = ""
+
+      # See parsable_856s.bsh for the serialization code, which we here undo
+      delim = '|||'
+      url_parts = url_munge.split(delim).collect(&:strip)
+      ind2 = url_parts[0]
+      subfield3 = url_parts[1]
+      subfieldU = url_parts[2]
+      subfieldZ = url_parts[3]
+
+      # return empty links[] if the $u isn't a URL (bad input data)
+      url_regex = Regexp.new('(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))')
+
+      return links unless subfieldU =~ url_regex
+
+      title = "#{subfield3} #{subfieldZ}".strip
+      title = subfieldU unless title.length > 0
+      note  = case ind2
+        when '1'
+          " (version of resource)"
+        when '2'
+          " (related resource)"
+        else "" # omit note for ind2 == 0, the actual resource
       end
+      url   = subfieldU
+
+      # links << [title, note, url]   # as ARRAY
+      links << { :title => title, :note => note, :url => url }  # as HASH
+
+      # url_parts = url_munge.split('~|Z|~').collect(&:strip)
+      # title = url =  ""
+      # if (url_index = url_parts.index { |part| part =~ URL_REGEX })
+      #   url = url_parts.delete_at(url_index)
+      #   title = url_parts.join(" ").to_s
+      #   title = url if title.empty?
+      #   links << [title, url]
+      # # Actually, just ignore bad URLs, don't display in the interface
+      # # else
+      # #   title = "Bad URL: " + url_parts.join(" ")
+      # #   url = ""
+      # end
 
     end
 
     # remove google links if more than one exists
 
-    if links.select { |link| link.first.to_s.strip == "Google" }.length > 1
-      links.reject! { |link| link.first.to_s.strip == "Google" }
+    if links.select { |link| link[:title].to_s.strip == "Google" }.length > 1
+      links.reject! { |link| link[:title].to_s.strip == "Google" }
     end
 
 
@@ -107,7 +182,7 @@ module HoldingsHelper
         "http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey="],
     'precat' => ["Precataloging",
         "OpenPrecatRequest"],
-    'recall_hold' => ["Recall/Hold",
+    'recall_hold' => ["Recall / Hold",
         "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId="],
     'on_order' => ["On Order",
         "OpenInprocessRequest"],
@@ -117,11 +192,13 @@ module HoldingsHelper
         "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?"],
     'in_process' => ['In Process',
         "OpenInprocessRequest"],
-    'doc_delivery' => ['Document Delivery',
+    'doc_delivery' => ['Scan & Deliver',
         "https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?"]
   }
 
   def service_links(services, clio_id)
+    return [] unless services && clio_id
+
     services.select {|svc| SERVICE_ORDER.index(svc)}.sort_by { |svc| SERVICE_ORDER.index(svc) }.collect do |svc|
       title, link = SERVICES[svc]
       bibid = clio_id.to_s
@@ -140,8 +217,21 @@ module HoldingsHelper
     title.to_s.gsub(/^Full text available from /, '').gsub(/(\d{1,2})\/\d{1,2}(\/\d{4})/,'\1\2')
   end
 
-  def add_display_elements(entries)
+  # Create a holdings "Entry", mirroring the JSON returned from a backend holdings lookup,
+  # but with passed-in data
+  def create_dummy_entry(options = {})
 
+    entry = {
+      "location_name" => options[:location_name] ||= "Location",
+      "copies"        => []
+    }
+
+    entry["call_number"] = options[:call_number] if options[:call_number]
+
+    entry
+  end
+
+  def add_display_elements(entries)
     entries.each do |entry|
 
       # location links
@@ -214,6 +304,31 @@ module HoldingsHelper
     end
 
     bibkeys.flatten.compact
+
+  end
+
+  # When bib records have a URL in their 856, they will have a holdings
+  # record with location Online but with NO URL DETAILS.
+  # These need to be detected, so that we can skip these holdings entries.
+  def holdings_online_without_url?(json_entry)
+
+    # Not an online holding if this are missing
+    return false if json_entry['location_name'] != 'Online'
+
+    # Shouldn't happen
+    return false unless json_entry['copies']
+
+    found_url = false
+    json_entry['copies'].each do |copy|
+      found_url = true if copy['urls']
+    end
+
+    # If we found a URL block, this entry HAS a url
+    return false if found_url
+
+    # Only if we dropped down to here are we on an entry
+    # which is marked Online but is missing URL details.
+    return true
 
   end
 

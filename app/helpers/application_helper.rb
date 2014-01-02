@@ -10,19 +10,21 @@ module ApplicationHelper
   end
 
 
-  def alternating_bit(id="default")
-    @alternating_bits ||= Hash.new(1)
-    @alternating_bits[id] = 1 - @alternating_bits[id]
-  end
+  # unused methods
 
-  def auto_add_empty_spaces(text)
-    text.to_s.gsub(/([^\s-]{5})([^\s-]{5})/,'\1&#x200B;\2')
-  end
+  # def alternating_bit(id="default")
+  #   @alternating_bits ||= Hash.new(1)
+  #   @alternating_bits[id] = 1 - @alternating_bits[id]
+  # end
 
-  # determines if the given document id is in the folder
-  def item_in_folder?(doc_id)
-    session[:folder_document_ids] && session[:folder_document_ids].include?(doc_id.listify.first) ? true : false
-  end
+  # def auto_add_empty_spaces(text)
+  #   text.to_s.gsub(/([^\s-]{5})([^\s-]{5})/,'\1&#x200B;\2')
+  # end
+
+  # # determines if the given document id is in the folder
+  # def item_in_folder?(doc_id)
+  #   session[:folder_document_ids] && session[:folder_document_ids].include?(doc_id.listify.first) ? true : false
+  # end
 
   def determine_search_params
     if params['action'] = 'show'
@@ -31,6 +33,14 @@ module ApplicationHelper
       return params
     end
   end
+
+  # Copy functionality of BlackLight's sidebar_items,
+  # new deprecated, over to CLIO-specific version
+  # collection of items to be rendered in the @sidebar
+  def clio_sidebar_items
+    @clio_sidebar_items ||= []
+  end
+
 
   # def ids_to_documents(id_array = [])
   #   # First, split into per-source lists,

@@ -1,78 +1,103 @@
 require 'spec_helper'
 
-describe "All datasource labels should display on home-page" do
-  it "including Libraries Website" do
+describe "Datasource Sanity", :js => true do
+
+  it "LWeb should be labeled 'Libraries Website'" do
     visit root_path
     find('#datasources').should have_text("Libraries Website")
   end
+
+  it "direct datasources links should go to correct datasource landing pages" do
+
+    visit '/quicksearch'
+    find('.landing_main .title').should have_text('Quicksearch')
+
+    visit '/catalog'
+    find('.landing_main .title').should have_text('Catalog')
+
+    visit '/articles'
+    find('.landing_main .title').should have_text('Articles')
+
+    visit '/journals'
+    find('.landing_main .title').should have_text('E-Journal Titles')
+
+    visit '/databases'
+    find('.landing_main .title').should have_text('Databases')
+
+    visit '/academic_commons'
+    find('.landing_main .title').should have_text('Academic Commons')
+
+    visit '/library_web'
+    find('.landing_main .title').should have_text('Libraries Website')
+
+    visit '/archives'
+    find('.landing_main .title').should have_text('Archives')
+
+    visit '/dissertations'
+    find('.landing_main .title').should have_text('Dissertations')
+
+    visit '/ebooks'
+    find('.landing_main .title').should have_text('E-Books')
+
+    visit '/new_arrivals'
+    find('.landing_main .title').should have_text('New Arrivals')
+
+    visit '/newspapers'
+    find('.landing_main .title').should have_text('Newspapers')
+
+  end
+
 end
 
-describe "All of the datasources should successfully display results", :js => true do
-  it "including quicksearch" do
+
+
+describe "Simple query should retrieve results ", :js => true do
+
+
+  it "within all datasources" do
+
     visit quicksearch_index_path('q' => 'test')
     page.should have_css(".result_set", :count => 4)
     all('.result_set').each do |result_set|
       result_set.should have_css('.result')
     end
-  end
 
-  it "including catalog" do
     visit catalog_index_path('q' => 'test')
     page.should have_css('.result')
-  end
 
-  it "including articles" do
     visit articles_index_path('q' => 'test')
     page.should have_css('.result')
-  end
 
-  it "including ejournals" do
     visit journals_index_path('q' => 'test')
     page.should have_css('.result')
-  end
 
-  it "including databases" do
     visit databases_index_path('q' => 'test')
     page.should have_css('.result')
-  end
 
-  it "including academic commons" do
     visit academic_commons_index_path('q' => 'test')
     page.should have_css('.result')
-  end
 
-  it "including the library web site" do
     visit library_web_index_path('q' => 'test')
     page.should have_css('.result')
-  end
 
-  it "including the archives" do
     visit archives_index_path('q' => 'test')
     page.should have_css('.result')
-  end
 
-  it "including the dissertations" do
     visit dissertations_index_path('q' => 'test')
     page.should have_css(".result_set", :count => 3)
     all('.result_set').each do |result_set|
       result_set.should have_css('.result')
     end
-  end
 
-  it "including the ebooks" do
     visit ebooks_index_path('q' => 'test')
     page.should have_css(".result_set", :count => 2)
     all('.result_set').each do |result_set|
       result_set.should have_css('.result')
     end
-  end
 
-  it "including the new arrivals" do
     visit new_arrivals_index_path('q' => 'test')
     page.should have_css('.result')
-  end
 
-  it "including the newspapers" do
     visit newspapers_index_path('q' => 'test')
     page.should have_css('.result')
   end

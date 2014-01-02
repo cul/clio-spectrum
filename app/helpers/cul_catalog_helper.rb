@@ -35,8 +35,8 @@ module CulCatalogHelper
   end
 
   def catalog_index_path(options = {})
-    filtered_options = options.reject { |k,v|
-      k.in?('controller', 'action','source_override')
+    filtered_options = options.reject { |key, value|
+      key.in?('controller', 'action', 'source_override')
     }
     source = options['source_override'] || @active_source
 
@@ -44,10 +44,15 @@ module CulCatalogHelper
 
   end
 
+
   def active_source_path(options = {})
-    url_params = options.reject { |k,v| k.in?('controller', 'action') }.to_query
+    url_params = options.reject { |key, value|
+      key.in?('controller', 'action')
+    }.to_query
+
     "/#{@active_source}?#{url_params}"
   end
+
 
   def render_document_index_label doc, opts
     label = nil
@@ -59,34 +64,102 @@ module CulCatalogHelper
   end
 
 
+  # def document_full_title(document)
+  #   [document.get('title_display') , document.get('subtitle_display')].reject { |txt|
+  #      txt.to_s.strip.empty?
+  #   }.join(": ")
+  # end
 
-  def document_full_title(document)
-    [document.get('title_display') , document.get('subtitle_display')].reject { |txt|
-       txt.to_s.strip.empty?
-    }.join(": ")
-  end
+
   def build_fake_cover(document)
     book_label = (document["title_display"].to_s.abbreviate(60))
     content_tag(:div,
         content_tag(:div, book_label, :class => "fake_label"),
         :class => "cover fake_cover")
-
   end
 
 
+  def holdings_compact(document)
+    online_holdings = format_online_results(online_link_hash(document))
 
-  def folder_link(document)
-    size = "22x22"
-    if item_in_folder?(document[:id])
-      text = "Remove from folder"
-      img = image_tag("icons/24-book-blue-remove.png", :size => size)
+    locations = document["location_call_number_id_display"].listify.reject { |loc|
+      loc.match(/^Online/)
+    }
+    physical_holdings = format_location_results(locations, document)
+
+    all_holdings = online_holdings.concat(physical_holdings)
+
+    # if all_holdings.size <= 3
+    #   return all_holdings.join("\n<br>\n").html_safe
+    # end
+
+    # from display_helper, this conveniently lists all holdings if <= 3,
+    # or 2 holdings plus a clickable "N more" label to display the rest
+    return convert_values_to_text(all_holdings, :expand => true)
+
+  end
+
+  def per_page_link(href, per_page, current_per_page)
+    label = "#{per_page} per page"
+
+    if per_page == current_per_page
+      checkmark = content_tag("i", nil, :class => 'icon-ok')
+      content_tag(:a, (checkmark + " " + label), :href => '#', :class => "menu_checkmark_allowance" )
     else
-      text = "Add to folder"
-      img = image_tag("icons/24-book-blue-add.png", :size => size)
+      content_tag(:a, label, :href => href, :per_page => per_page, :class => "per_page_link" )
     end
-
-    img + content_tag(:span, text, :class => "folder_link_text")
   end
+
+  # def ga_per_page_link(href, per_page, current_per_page)
+  #   label = "#{per_page} per page"
+  # 
+  #   if per_page == current_per_page
+  #     checkmark = content_tag("i", nil, :class => 'icon-ok')
+  #     content_tag(:a, (checkmark + " " + label), :href => '#', :class => "menu_checkmark_allowance" )
+  #   else
+  #     content_tag(:a, label, :href => href, :per_page => per_page, :class => "per_page_link" )
+  #   end
+  # end
+  
+  
+  def catalog_per_page_link(per_page)
+    current_per_page = @response.rows || 25
+
+    # we need these to compute the correct new_page_number, below.
+    current_page = [params_for_search[:page].to_i, 1].max
+    first_record_on_page = (current_per_page * (current_page - 1)) + 1
+
+    # do the math such that the current 1st item is still in the set
+    new_page_number = (first_record_on_page / per_page).to_i + 1
+
+    href = url_for(params_for_search.merge(:rows => per_page, :page => new_page_number))
+
+    per_page_link(href, per_page, current_per_page)
+    
+    # label = "#{per_page} per page"
+    # 
+    # if per_page == current_per_page
+    #   checkmark = content_tag("i", nil, :class => 'icon-ok')
+    #   content_tag(:a, (checkmark + " " + label), :href => '#', :class => "menu_checkmark_allowance" )
+    # else
+    #   content_tag(:a, label, :href => href, :per_page => per_page, :class => "per_page_link" )
+    # end
+
+  end
+
+  def viewstyle_link(viewstyle, label)
+    current_viewstyle = get_browser_option('viewstyle') ||
+                        DATASOURCES_CONFIG['datasources'][@active_source]['default_viewstyle'] ||
+                        "list"
+
+    if viewstyle == current_viewstyle
+      checkmark = content_tag("i", nil, :class => 'icon-ok')
+      content_tag(:a, (checkmark + " " + label), :href => '#', :class => "menu_checkmark_allowance" )
+    else
+      content_tag(:a, label, :href => '#', :viewstyle => viewstyle, :class => "viewstyle_link" )
+    end
+  end
+
 
 
 end

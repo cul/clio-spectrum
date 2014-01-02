@@ -1,23 +1,29 @@
+
 .row-fluid
+
   - @search_layout['columns'].each do |column|
     %div.result_column
       - column['searches'].each do |search|
         - result = @results[search['source']]
         - if result.successful?
           - source = SEARCHES_CONFIG['sources'][search['source']]
+          - warning = source ? source['warning'] : nil;
+          = render partial: '/datasource_warning', locals: {warning: warning}
+
           .result_set
             = render partial: '/spectrum/summon/constraints', locals: {result: result}
 
             - if result.total_items == 0
               = render partial: '/spectrum/summon/no_results_blurb', locals: {result: result}
             - else
-              = render partial: '/spectrum/summon/sorting_paging', locals: {result: result}
+
+              = render partial: '/spectrum/summon/index_toolbar', locals: {result: result}
               #documents= render partial: "/spectrum/summon/result_docs", locals: {result: result, render_opts: search_render_options(search, source), row_opts: search['row_opts']}
-              = render partial: '/spectrum/summon/sorting_paging', locals: {result: result}
+              = render partial: '/spectrum/summon/index_toolbar', locals: {result: result}
 
-
-            - sidebar_items << render(partial: "/spectrum/summon/facets", locals: {result: result})
+            - clio_sidebar_items << render(partial: "/spectrum/summon/facets", locals: {result: result})
         - else
-          .result_error Error when searching: #{result.errors}
+          .result_error
+            %h5 There was an error searching this datasource. (#{result.errors})
 
 

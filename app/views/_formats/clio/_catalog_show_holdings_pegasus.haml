@@ -1,0 +1,19 @@
+
+- if in_pegasus?(document)
+
+  -# re-use add_display_elements(), meant to process JSON backend holdings lookups,
+  -# as a short-cut to fetching location links and library hours
+  - clean_call_number = document[:location_call_number_id_display].first.sub(/.* >> /, '')
+  - dummy_entry = create_dummy_entry(:location_name => "Law Library", :call_number => clean_call_number )
+
+  - add_display_elements(  Array.wrap(dummy_entry)   ).listify.each do |entry|
+
+    .holding{:class => alternating_line}
+      .location_box
+        .location= entry['location_link']
+        .hours= entry['hours']
+
+      .call_number= entry['call_number']
+      .group
+        .status= pegasus_item_link(document.id)
+

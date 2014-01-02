@@ -64,13 +64,16 @@ module MarcHelper
     values = []
     marc.each_by_tag(tag) do |field|
       # test for indicators
-      if (ind1 == :all || ind1.include?(field.indicator1)) && (ind2 == :all || ind2.include?(field.indicator2))
+      if (ind1 == :all || ind1.include?(field.indicator1)) &&
+         (ind2 == :all || ind2.include?(field.indicator2))
         display = process_field(field, display_subfields, search_subfields, options[:subject])
         unless display.empty?
           options[:split] ? values << display.split(options[:split]) : values << display
         end
-        # get matching script field if there is a subfield 6
-        if options[:vernacular] && field.subfields.first.code == "6"
+        # get matching script field if there is a subfield 6 (watch for missing subfields)
+        if options[:vernacular] &&
+           field.subfields.first &&
+           field.subfields.first.code == "6"
           display = process_vernacular(marc, field, display_subfields, search_subfields, options[:subject])
           unless display.empty?
             options[:split] ? values << display.split(options[:split]) : values << display

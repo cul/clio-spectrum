@@ -80,7 +80,16 @@
     // NEXT-861 - "Access Requirements" word-break display issue
     // Some field labels are too long for 6em.  Try 7em?
     //:width 6em
-    :width 7em
+    // Why not back-away from a hard-coded width altogether, 
+    // and let the bootstrap spanX do what it's supposed to?
+    //:width 7em
+    // Avoiding setting width is pretty good, but long word still
+    // break oddly when screen gets really narrow.  
+    // We can prevent word-breaks with this:
+    :word-wrap normal
+    // but then the field-text overlaps with the value text.
+    // is this better?  It's kind of an edge case anyway.
+
     :padding-right 0.5em
     :color #777
     :min-height 1em !important
@@ -131,7 +140,7 @@
   +alternating-line-colors(#fff, #f9f9f9)
 
 .result
-  :padding-bottom .5em
+  :padding-bottom .1em
 
   .result_title
     :font-weight bold

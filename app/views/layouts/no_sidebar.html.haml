@@ -14,14 +14,22 @@
         = render :partial => "/header_with_search"
         #bd.row-fluid
           #bd_lede.row-fluid
+
             .search_logo.hidden-phone.span3
               = link_to "CLIO", root_path, :class => "nav_title search_bar_logo"
-            .span9
+            / div.search_logo end
 
+            .span9
               = display_search_boxes(@active_source)
+            / div.span9 end
+
+
           .row-fluid
             = render :partial=>'/layouts/messages'
             = yield
+          / div.row-fluid end
 
           .clear-both
+          / div.clear-both end
+
         = render :partial => "/footer"

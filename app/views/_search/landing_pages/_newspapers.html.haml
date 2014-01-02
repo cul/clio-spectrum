@@ -3,6 +3,9 @@
 .row-fluid
   .landing_main.span8
     .title Newspapers
+
+    = render partial: '/datasource_warning', locals: {warning: warning}
+
     %p Searches a vast full-text database of mostly U.S. newspaper articles.
 
     %p To find a specific article, enter the article title in the search box above.

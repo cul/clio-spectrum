@@ -28,28 +28,18 @@ Clio::Application.routes.draw do
   match "item_alerts/:id/show_table_row(.:format)", :to => "item_alerts#show_table_row", :as => :item_alert_show_table_row
   get "spectrum/search"
 
-  get "admin/ingest_log"
-
-  # get "library_web/index"  # obsolete, see library_web route to spectrum#search, below
-
-  get "test_notification_error", :to => "application#test_notification_error"
-
   Blacklight.add_routes(self)
 
   root :to => "spectrum#search", :defaults => {:layout => 'quicksearch'}
 
-
   devise_for :users, :controllers => {:sessions => 'sessions'}
-
-  match 'admin/ingest_log', :to => "admin#ingest_log", :as => :admin_ingest_log
 
   match 'catalog', :to => 'catalog#index', :as => :base_catalog_index
 
   match 'quicksearch/', :to => 'spectrum#search', :as => :quicksearch_index, :defaults => {:layout => 'quicksearch'}
 
-  match "patron", :to => "patron#index", :as => :patron_index
-
-  match '/set_user_option', :to => "application#set_user_option"
+  match 'set_browser_option', :to => "application#set_browser_option_handler"
+  match 'get_browser_option', :to => "application#get_browser_option_handler"
 
   devise_for :users
 
@@ -64,7 +54,6 @@ Clio::Application.routes.draw do
   match 'journals/:id(.:format)', :via => [:put], :to => 'catalog#update', :as => :journals_update
 
   match 'library_web', :to => 'spectrum#search', :as => :library_web_index, :defaults => {:layout => 'library_web'}
-
 
 
   match 'academic_commons', :to => 'catalog#index', :as => :academic_commons_index
@@ -87,20 +76,17 @@ Clio::Application.routes.draw do
   match 'new_arrivals/:id(.:format)', :via => [:put], :to => 'catalog#update', :as => :new_arrivals_update
 
   match 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
-  match 'backend/holdings_mail/:id' => 'backend#holdings_mail', :as => 'backend_holdings_mail'
-  match 'backend/clio_recall/:id', :to => "backend#clio_recall" , :as => :clio_recall
-  match 'backend/feedback_mail', :to => "backend#feedback_mail"
+  # unused
+  # match 'backend/holdings_mail/:id' => 'backend#holdings_mail', :as => 'backend_holdings_mail'
+  # match 'backend/clio_recall/:id', :to => "backend#clio_recall" , :as => :clio_recall
+  # match 'backend/feedback_mail', :to => "backend#feedback_mail"
 
   match 'spectrum/fetch/:layout/:datasource', :to => "spectrum#fetch", :as => "spectrum_fetch"
-
-
-  match 'lweb', :to => 'search#index', :as => :lweb_search, :defaults => {:categories => ['lweb']}
 
   match 'articles', :to => "spectrum#search", :as => :articles_index, :defaults => {:layout => 'articles'}
   match 'articles/show', :to => "articles#show", :as => :articles_show
 
   match 'ebooks', :to => 'spectrum#search', :as => :ebooks_index, :defaults => {:layout => 'ebooks'}
-
   match 'dissertations', :to => 'spectrum#search', :as => :dissertations_index, :defaults => {:layout => 'dissertations'}
   match 'newspapers', :to => 'spectrum#search', :as => :newspapers_index, :defaults => {:layout => 'newspapers'}
 
@@ -116,8 +102,11 @@ Clio::Application.routes.draw do
   match '/catalog/email(.:format)', :to => "catalog#email", :as => :email_catalog
   match '/catalog/sms(.:format)', :to => "catalog#sms", :as => :sms_catalog
 
-  namespace :admin do
-    resources :locations
-  end
+  match '/catalog/email(.:format)', :to => "catalog#email", :as => :email
+
+  # no, this was never implemented
+  # namespace :admin do
+  #   resources :locations
+  # end
 end
 

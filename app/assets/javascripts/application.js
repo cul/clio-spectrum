@@ -4,7 +4,7 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-//= require jquery-1.9.1.min.js
+//= require jquery-1.10.2.min.js
 //= require jquery_ujs
 
 //= require flot/excanvas.min
@@ -36,3 +36,10 @@
 //= require saved_lists
 
 //= require ie_warnings
+
+//= require hathi
+
+//= require display
+
+
+

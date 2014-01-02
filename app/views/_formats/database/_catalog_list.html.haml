@@ -3,16 +3,25 @@
 / container for a single doc
 .result.document{class: render_document_class(document), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
-  -# %abbr.unapi-id{:title => document[:id]}
-  <span class="Z3988" title="<%= @document.export_as_openurl_ctx_kev(document_partial_name(@document)) %>"></span>
+  .row-fluid
+    .title.span12
 
-  .title= link_to_source_document document, :label=> document_full_title(document),  :counter => counter
+      %span.coins_wrapper
+        <!-- COinS -->
+        %span.Z3988{title: catalog_to_openurl_ctx_kev(document)}
 
+      .item_anchor
+        = render :partial => '/saved_lists/item_select_checkbox', :locals => {:item_id => document[:id], :counter => counter}
+
+      .item_select_allowance
+        = link_to_source_document document, :label=> document.get('title_display'), :counter => counter
 
   / main container for doc partial view
 
-  .details.span10
-    = render :partial => "/_formats/database/catalog_list_details", :locals => {:document => document}
+  .row-fluid
 
-  .doc_bookjacket
-    =image_tag("spacer.png", :class => "list_view bookjacket " + document["isbn_display"].listify.collect { |x| "id_" + x.to_s}.join(" "))
+    .details.span10
+      = render :partial => "/_formats/database/catalog_list_details", :locals => {:document => document}
+
+    .doc_bookjacket.span2
+      =image_tag("spacer.png", :class => "list_view bookjacket " + document["isbn_display"].listify.collect { |x| "id_" + x.to_s}.join(" "))

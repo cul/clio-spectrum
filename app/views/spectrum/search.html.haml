@@ -1,6 +1,7 @@
 
 - if @results.empty?
-  - cache('all_landing_pages_no_results') do
-    = add_all_datasource_landing_pages
+  -# Caching at this level yields incorrect datasource landing pages
+  -# - cache('all_landing_pages_no_results') do
+  = add_all_datasource_landing_pages
 - else
   = render :partial => "/spectrum/#{@search_layout['style']}"

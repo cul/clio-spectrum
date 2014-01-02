@@ -38,6 +38,6 @@ class SolrDocument
                          :publisher => "full_publisher_display",
                          :language => "language_facet",
                          :format => "format",
-                         :date => "pub_date_facet"
+                         :date => "pub_date_sort"
                          )
 end

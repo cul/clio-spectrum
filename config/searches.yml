@@ -10,7 +10,8 @@ layouts:
     columns:
       - searches:
           - source: library_web 
-            count: 10
+            # let per-page (row count) be parameterized
+            # count: 10
   quicksearch:
     style: aggregate
     columns:
@@ -41,7 +42,7 @@ layouts:
     has_facets: true
     columns:
       - searches:
-          - source: articles_newspapers 
+          - source: newspapers 
   dissertations:
     style: aggregate
     columns:
@@ -54,7 +55,7 @@ layouts:
               spans: [3,9] 
       - width: 6
         searches:
-          - source: articles_dissertations
+          - source: dissertations
             count: 3
             row_opts:
               spans: [3,9] 
@@ -78,72 +79,88 @@ layouts:
             count: 10
             display_footer: true
             row_opts:
-              spans: [3,9] 
+              spans: [3,9]
 sources:
+  quicksearch:
+    warning: 
+  archives:
+    warning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
+  new_arrivals:
+    warning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
   catalog:
     title: Catalog
     description: Contains library, books, videos, local resources
+    warning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
     holdings_check: true
     render_options:
       format: clio
   articles:
     title: Articles
     description: Contains articles, eBooks, electronic resources
+    warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.
     render_options:
       format: article
   academic_commons:
     title: Academic Commons
     description: Digital Repository of Research 
+    warningXX:  Item Status unavailable due to system upgrades.  AC.
     render_options:
       format: ac
       check_fedora: true
   library_web:
     title: Libraries Website
     description: Searches the libraries' website
+    warningXX:  Item Status unavailable due to system upgrades.  LWEB.
     render_options:
       format: lweb
   ac_dissertations:
     title: Academic Commons
     description: Dissertations from Columbia's Digital Repository
+    warningXX:  Item Status unavailable due to system upgrades.  AC-DISS.
     render_options:
       format: ac
       check_fedora: true
-  articles_dissertations:
+  dissertations:
     title: Summon
     description: Dissertations from Columbia's Articles Database
+    warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.  ArtyDiss.
     render_options:
       format: article
-  articles_newspapers:
+  newspapers:
     title: Newspaper Articles
     description: Full text newspaper articles from Summon
+    warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.  ArtyNews.
     render_options:
       format: article
-  catalog_databases:
+  databases:
     title: Databases
     description: Electronic resources
+    warning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
     render_options:
       format: clio
   catalog_dissertations:
     title: Catalog
     description: Dissertations, Thesises from Columbia's Catalog
+    warningXX:  Item Status unavailable due to system upgrades.  CAT-DISS.
     render_options:
       format: clio
   catalog_ebooks:
     title: Catalog
     description: eBooks from Catalog
+    warningXX:  Item Status unavailable due to system upgrades.  CAT-EBOO.
     render_options:
       format: clio
-  catalog_ejournals:
+  journals:
     title: Journal Titles
     description: Electronic Journals Held By Columbia
+    warning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
     render_options:
       format: clio 
   ebooks:
     title: Summon
     description: eBooks from Summon's repository of digitzed books
+    warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.  eboo.
     render_options:
       format: ebooks
-    
-    
-    
+
 

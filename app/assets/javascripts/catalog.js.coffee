@@ -5,6 +5,20 @@ $ ->
     $(this).parent().find(".expander_more").show()
     return false
 
+  $(".viewstyle_link").click ->
+    $('.busy').show()
+    viewstyle = $(this).attr('viewstyle')    
+    request = $.get '/set_browser_option?name=viewstyle&value=' + viewstyle, cache: false
+    request.done (data, textStatus, jqXHR) -> 
+      # console.log "done. textStatus: " + textStatus
+      # pass "true" to force reload from server, instead of from cache
+      location.reload(true)
+    request.fail (jqXHR, textStatus, errorThrown) -> 
+      # console.log "fail. textStatus: " + textStatus + " / errorThrown: " + errorThrown
+      $('.busy').hide()
+    request.always (data_or_jqXHR, textStatus, jqXHR_or_errorThrown) -> 
+      # console.log "always.  textStatus: " + textStatus
+
 
   $('.toggle_all.contract').parents("#facets").find('.range_limit').show()
   $('.toggle_all.contract').parents("#facets").find('ul').show()
@@ -27,8 +41,8 @@ $ ->
 
   $('.toggle_expand_all_option').click ->
     if $(this).is(':checked')
-      $.get('/set_user_option?name=always_expand_facets&value=true')
+      $.get('/set_browser_option?name=always_expand_facets&value=true')
     else
-      $.get('/set_user_option?name=always_expand_facets&value=false')
+      $.get('/set_browser_option?name=always_expand_facets&value=false')
 
 

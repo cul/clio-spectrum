@@ -1,5 +1,7 @@
 module CulFacetsHelper
 
+  # Override core blacklight render_constraints_helper_behavior.rb
+  # module Blacklight::RenderConstraintsHelperBehavior#render_filter_element
   def render_filter_element(facet, values, localized_params)
     is_negative = (facet =~ /^-/) ? "NOT " : ""
     proper_facet_name = facet.gsub(/^-/, "")
@@ -19,7 +21,7 @@ module CulFacetsHelper
   end
 
   def expand_all_facets?
-    session['options'] && session['options']['always_expand_facets'] == 'true'
+    get_browser_option('always_expand_facets') == 'true'
   end
 
 end

@@ -1,8 +1,0 @@
-
-#hd.articles_search
-  #logo_small
-    %h1.site_title
-      = (params[:controller] == "catalog" and !params[:id]) ? "<span id='results_text'>Search Results</span>".html_safe : ""
-  #top_search_box
-    = render :partial => "/top_search_box"
-

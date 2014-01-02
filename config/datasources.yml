@@ -1,10 +1,23 @@
+# Configure Datasources.
+
+# First, define the data-sources themselves.
+# Each datasource has a "name", optionally a "no_facets" indicator, 
+# optionally a list of supported "viewstyles" (list, compact, grid?), and
+# a detailed configuration for it's "search_box"
+# 
+# Next, define the "datasource_bar", really the list
+# of datasources presented in the sidebar, divided
+# into "major" and "minor", to control display.
+# 
 datasources:
+
   quicksearch:
     name: Quicksearch
     no_facets: true
     search_box:
       route: quicksearch_index_path
       placeholder: Catalog, Articles, Academic Commons, Library Web 
+
   newspapers:
     name: Newspapers
     search_box:
@@ -19,6 +32,7 @@ datasources:
         s.fq[TitleCombined]: Title
         s.fq[ISBN]: ISBN
         s.fq[ISSN]: ISSN
+
   articles:
     name: Articles
     search_box:
@@ -35,20 +49,31 @@ datasources:
         s.fq[PublicationTitle]: Publication Title
         s.fq[ISBN]: ISBN
         s.fq[ISSN]: ISSN
+
   ebooks:
     name: E-Books
     no_facets: true
     search_box:
       route: ebooks_index_path
       placeholder: E-Books 
+
   dissertations:
     name: Dissertations
     no_facets: true
     search_box:
       route: dissertations_index_path
       placeholder: Dissertations
+
   catalog:
     name: Catalog
+    viewstyles: 
+      list: Standard View
+      compact: Compact View
+    viewstyles_DISABLED: 
+      list: Standard View
+      compact: Compact View
+      spartan: Title View
+    default_viewstyle: list
     search_box:
       route: base_catalog_index_path
       placeholder: Catalog
@@ -69,6 +94,7 @@ datasources:
         isbn: ISBN
         issn: ISSN
         call_number: Call Number
+
   archives:
     name: Archives
     search_box:
@@ -81,6 +107,7 @@ datasources:
         title: Title
         author: Author
         subject: Subject
+
   databases:
     name: Databases
     search_box:
@@ -93,6 +120,7 @@ datasources:
         title: Title
         author: Author
         subject: Subject
+
   journals:
     name: E-Journal Titles
     search_box:
@@ -106,12 +134,14 @@ datasources:
         title_starts_with: Title Begins With
         subject: Subject
         issn: ISSN
+
   library_web:
     name: Libraries Website
     no_facets: true
     search_box:
       route: library_web_index_path
       placeholder: Libraries Website
+
   academic_commons:
     name: Academic Commons
     search_box:
@@ -123,6 +153,7 @@ datasources:
         title: Title
         author: Author
         subject: Subject
+
   new_arrivals:
     name: New Arrivals
     search_box:
@@ -136,6 +167,8 @@ datasources:
         journal_title: Journal Title
         mauthor: Author
         subject: Subject
+
+
 datasource_bar:
   major_sources:
     - quicksearch

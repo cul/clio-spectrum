@@ -16,6 +16,10 @@
 body {
   background-color: #eeeeff !important;
 }
+/* on blank_layout, UNDO the 60px top navbar padding inserted by ldpd toolkit */
+body.blank_layout {
+  padding-top: 10px;
+}
 #outer-container {
   margin-left: 10px;
   margin-right: 20px;
@@ -55,15 +59,6 @@ body {
   }
 }
 
-/* Bootstrap prints out the href of every <A>, making the page
-   ugly with URLs.  
-   Disable this behavior.
- */
-@media print {
-  a[href]:after {
-    content: none !important;
-  }
-}
 
 
 

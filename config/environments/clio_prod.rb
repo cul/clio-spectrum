@@ -15,8 +15,10 @@ Clio::Application.configure do
 
   # Do we want caching (page-, action-, fragment-) in this environment?
   config.action_controller.perform_caching = true
-  # Cache store details - disk or memory?  How big?  (50MB?)
-  config.cache_store = :memory_store, { size: 50000000 }
+  # Cache store details - disk or memory?  How big?  (100MB?)
+  # (use number, because "100.megabytes" gives:  undefined method `megabytes'
+  #  see http://stackoverflow.com/questions/10200339)
+  config.cache_store = :memory_store, { size: 100000000 }
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
@@ -40,12 +42,13 @@ Clio::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 
-  # BlacklightUnapi - quiet the extensive log entries:
-  # DEPRECATION WARNING: Passing a template handler in the template
-  # name is deprecated. You can simply remove the handler name or
-  # pass render :handlers => [:builder] instead.
-  #
-  ActiveSupport::Deprecation.silenced = true
+  # UnAPI has been removed.
+  # # BlacklightUnapi - quiet the extensive log entries:
+  # # DEPRECATION WARNING: Passing a template handler in the template
+  # # name is deprecated. You can simply remove the handler name or
+  # # pass render :handlers => [:builder] instead.
+  # #
+  # ActiveSupport::Deprecation.silenced = true
 
 end
 

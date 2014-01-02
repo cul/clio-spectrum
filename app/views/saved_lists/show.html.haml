@@ -54,19 +54,30 @@
 
 
     .sortAndPerPage.btn-toolbar
-      - if current_user.login == @list.owner
-        = render 'move_or_copy_items', :list => @list, :verb => 'move'
-      - elsif current_user
-        = render 'move_or_copy_items', :list => @list, :verb => 'copy'
+      -# - if current_user.login == @list.owner
+      -#   = render 'move_or_copy_items', :list => @list, :verb => 'move'
+      -# - elsif current_user
+      -#   = render 'move_or_copy_items', :list => @list, :verb => 'copy'
+      - if current_user
+        - if current_user.login == @list.owner
+          -# Owner can move items to a different list
+          = render 'move_or_copy_items', :list => @list, :verb => 'move'
+        - else
+          -# Non-Owners can copy items to their own lists
+          = render 'move_or_copy_items', :list => @list, :verb => 'copy'
+
       = render 'list_actions_widget'
 
     #documents.saved_list_documents
+      - counter = 1
       - @document_list.each do |document|
         - if document.instance_of?(Summon::Document)
-          -# - raise
-          = render_document_view(document, :format => 'article', :template => 'summon')
+          = render_document_view(document, :format => 'article', :template => 'summon', :counter => counter)
+          - counter = counter + 1
         - if document.instance_of?(SolrDocument)
           -# Need to specify the source for these documents - the
           -# current @active_source is not meaningful within lists
-          = render_document_view(document, :format => 'clio', :template => 'catalog_list', :counter => nil, :source=>'catalog')
+          = render_document_view(document, :format => 'clio', :template => 'catalog_list', :counter => counter, :source=>'catalog')
+          - counter = counter + 1
+
 

@@ -26,7 +26,10 @@ module DatasourcesHelper
   def datasource_landing_page(source)
     classes = ['landing_page', source]
     classes << 'selected' if source == @active_source
-    content_tag(:div, render(:partial => "/_search/landing_pages/#{source}"), :class => classes.join(' '))
+    search_config = SEARCHES_CONFIG['sources'][source]
+    warning = search_config ? search_config['warning'] : nil;
+    content_tag(:div, render(:partial => "/_search/landing_pages/#{source}", :locals => {warning: warning}), :class => classes.join(' '))
+    # content_tag(:div, render(:partial => "/_search/landing_pages/#{source}"), :class => classes.join(' '))
   end
 
   def datasources_active_list(options = {})
@@ -70,7 +73,7 @@ module DatasourcesHelper
 
     landing_class = options[:all_sources] ? 'landing datasource_list' : 'datasource_list'
     landing_class += " no_facets" unless has_facets
-    sidebar_items.unshift(content_tag(:ul, result.join('').html_safe, :id => "datasources", :class => landing_class))
+    clio_sidebar_items.unshift(content_tag(:ul, result.join('').html_safe, :id => "datasources", :class => landing_class))
   end
 
   def sidebar_span(source = @active_source)
@@ -117,7 +120,7 @@ module DatasourcesHelper
       when 'dissertations'
         dissertations_index_path(:q => query)
       when 'newspapers'
-        newspapers_index_path(:q => query)
+        newspapers_index_path(:q => query, 'new_search' => true)
       when 'new_arrivals'
         new_arrivals_index_path(:q => query)
       when 'academic_commons'
@@ -152,4 +155,5 @@ module DatasourcesHelper
 
     link_to title, "#", options
   end
+
 end

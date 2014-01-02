@@ -1,14 +1,109 @@
-/* @import "local_mixes"
- */
 
-.paginate-compact
-  :display inline-block
-  :margin-top 0.25em
+
+// Override Bootstrap's grey (color: #777777) with our body default
+.navbar-text
+  :color #505050
+
+.navbar-text .disabled
+  :color #999999
+
+// Override Bootstrap's very wide spacing in our index_toolbar navs
+.index_toolbar.navbar .nav > li > a
+  :padding 11px 10px 11px
+
+
+// Used for expand/collapse sections (e.g., DB Summaries)
+.teaser
+  :display none
+
+// Used for "Please Wait" messages (used for, e.g., AJAX loads)
+.busy
+  :display none
+  :position fixed
+  :width 200px
+  :height 80px
+  :top 50%
+  :left 50%
+  :margin-top -40px
+  :margin-left -100px
+  :z-index 100
+  :background #e3e8f1
+  :border 3px #779bc3 outset
+  :padding 5px
+  :vertical-align middle
+
+.busy-image
+  :display block
+  :margin-left auto
+  :margin-right auto
+  :padding-top 10px
+
+.busy-text
+  :font-size 160%
+  :text-align center
+  :padding-top 30px
+ 
+
+// used for debugging
+.black
+  :border black 1px dashed
+
+
+// the enclosing div
+.item_anchor
+  :float left
+  :padding 0px 5px
+  :margin 0px !important
+
+// the form, the checkbox
+.item_select_form
+  :display inline
+  :padding 0px !important
+  :margin 0px !important
+
+//.item_select_label
+//  @extend small
+//  @extend muted
+
+.item_select_checkbox
+  :padding 0px !important
+  :margin 0px !important
+
+// used on the title following the checkbox-plus-number
+.item_select_allowance
+  :padding-left 3em !important
+
+// used on the title following the number-alone
+.item_number_allowance
+  :padding-left 2em !important
+
+
+// used to justify "checked" menu-options (the currenly-selected option)
+.menu_checkmark_allowance
+  :padding-left 2px !important
+
+.boxed_search_results
+  :border-bottom 1px solid #ccc
+  :border-bottom-style dotted
+  :padding 0.5em
+
+//div.boxed_search_results + div.boxed_search_results
+//  :border-top 0
+
+
+// Use this if we want to take away the bootstrap default values of
+// bottom-padding form elements and setting a 28px min-height on all spans.
+// (e.g., to make the compact view yet more compact.)
+.no-bottom-space
+  :min-height 0px !important
+  :margin-bottom 2px !important
+
 a.rss-feed
   :margin-left 0.25em
 
 #startOverLink.catalog_startOverLink
   :padding-top 1em
+
 .databases_browse_by
   +clearfix
   :clear both
@@ -20,16 +115,19 @@ a.rss-feed
     :width 13em
   div
     :padding-bottom 1em
+
 .search_row
   :position inherit
 
   .search_q
     :position inherit
+
 .advanced_search_button
   :margin-left 1em
 
 .static-this
   :position static
+
 .search-constraint
   :padding-top 3px
   :padding-bottom 3px
@@ -46,6 +144,7 @@ a.rss-feed
 #show_toolbar ul.nav > li > a
   :padding-left 8px
   :padding-right 8px
+
 .toggle_all
   :float right
   :margin-top 0px
@@ -67,6 +166,7 @@ a.rss-feed
   :border none
   :box-shadow none
   :padding 0
+  :margin-bottom 10px
 
 .advanced_search_row
   :padding-bottom 0.5em
@@ -90,6 +190,7 @@ a.rss-feed
 
     a
       :border-bottom none
+
   #navigation
     :float right
     :padding 6px 0px 6px 15px
@@ -127,25 +228,25 @@ a.rss-feed
   .fedora_title
     font-size: 1.25em
     font-weight: bold
-    padding-bottom: .5em
+    padding-bottom: 5px
 
   .title
     font-size: 1.25em
     font-weight: bold
-    padding-bottom: .5em
-    padding-top: .5em
+    padding-bottom: 5px
+    padding-top: 5px
 
 
 
 
 #clio_holdings
-
   .holdings_check
     :margin-left 1em
     :min-height 5em
   .holdings_error
     :color red
     :display none
+
 img.availability
   :padding-right .25em
 
@@ -162,53 +263,56 @@ img.availability
 
     .values
 
+.url_link_note
+  :font-style italic
+  :color #777777
+  :padding-left 10px
+
 
 .holdings
-
-
+  h5
+    :margin-top 0em
   .holding
     :margin-bottom 1.5em
+
     .location_box
-      :padding-left .5em
-      :padding-bottom .5em
-/*      .location
- *       :padding-left .5em
+      :padding-bottom 0em
 
     .call_number
-      :padding-bottom .5em
-
+      :padding-left 1.0em
+      :padding-bottom 0em
 
     .hours
 
-
     .url_link
+      :word-wrap break-word
+      :word-break break-all
+
 
     .group
-
-      :padding-bottom .5em
+      :padding-bottom 0em
+      :padding-left 1.0em
 
       .message
-
         :text-indent -2em
         :padding-left 2em
 
       .status
-
         :font-style italic
 
     .services
-
-      :font-size .9em
+      //:font-size .9em
 
       .label
-
         :display inline
         :font-weight bold
 
       .service
+        //:display inline
+        :padding-left 1.0em
 
-        :display inline
-        :padding-left 2em
+.coins_wrapper
+  :display none
 
 /*
  *  COPY FROM CORE BLACKLIGHT
@@ -218,6 +322,8 @@ img.availability
  *  times on the search results page, by using the
  *  class .sortAndPerPage instead of the id #sortAndPerPage
  *
+ *  10/13 - override, use .well-sm instead of .well to tighten display
+ *
  *  Selected portions of _catalog.css.scss from blacklight have
  *  been rewritten here in SASS, and need to be kept in sync.
  *
@@ -225,6 +331,8 @@ img.availability
 
 .sortAndPerPage
   @extend .well
+  @extend .well-small
+  margin-bottom: 10px
 
 .sortAndPerPage .dropdown-toggle
   cursor: pointer

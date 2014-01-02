@@ -88,7 +88,7 @@ module Spectrum
           end
           @params['s.fq'] = new_fq
         end
-
+        
         @errors = nil
         begin
           # do_benchmarking = false
@@ -111,11 +111,11 @@ module Spectrum
           # end
 
 
-        rescue => e
+        rescue => ex
           # We're getting 500 errors here - is that an internal server error
           # on the Summon side of things?  Need to look into this more.
-          Rails.logger.error "#{self.class}##{__method__} error: #{e}"
-          @errors = e.message
+          Rails.logger.error "#{self.class}##{__method__} error: #{ex}"
+          @errors = ex.message
         end
       end
 
@@ -179,13 +179,13 @@ module Spectrum
         facet_options
       end
 
-
-      def newspapers_excluded?()
-        @search.query.facet_value_filters.any? { |fvf|
-          fvf.field_name == "ContentType" &&
-          fvf.value == "Newspaper Article" &&
-          fvf.negated? }
-      end
+      # unused?
+      # def newspapers_excluded?()
+      #   @search.query.facet_value_filters.any? { |fvf|
+      #     fvf.field_name == "ContentType" &&
+      #     fvf.value == "Newspaper Article" &&
+      #     fvf.negated? }
+      # end
 
 
       def results
@@ -211,7 +211,8 @@ module Spectrum
       end
 
 
-      # The "constraints" are the displayed, cancelable, search params (queries, facets, etc.)
+      # The "constraints" are the displayed, cancelable, search params
+      # (currently applied queries, facets, etc.)
       # Return an array of ad-hoc structures, parsed by summon's constraints partial
       def constraints_with_links
         constraints = []
@@ -264,8 +265,11 @@ module Spectrum
       # List of paging options, turned into a drop-down in summon's sorting/paging partial
       def page_size_with_links
         # [10,20,50,100].collect do |page_size|
-        [10,25,50].collect do |page_size|
-          [by_source_search_cmd("setPageSize(#{page_size})"), page_size]
+        [10,25,50].collect do |per_page|
+          # No, don't do a COMMAND...
+          # [by_source_search_cmd("setPageSize(#{page_size})"), page_size]
+          # Just reset s.ps, it's much more transparent...
+          [ set_page_size(per_page), per_page ]
         end
       end
 
@@ -314,10 +318,10 @@ module Spectrum
         by_source_search_modify('s.pn' => [total_pages, [page_num, 1].max].min)
       end
 
-
-      def page_size
-        @search.query.page_size.to_i
+      def set_page_size(per_page)
+        by_source_search_modify('s.ps' => [(per_page || 10), 50].min)
       end
+
 
 
       def total_items
@@ -347,9 +351,8 @@ module Spectrum
       end
 
       def page_size
-        @search.query.page_size
+        @search.query.page_size.to_i
       end
-
 
       def by_source_search_cmd(cmdText)
         by_source_search_modify('s.cmd' => cmdText)
@@ -364,7 +367,11 @@ module Spectrum
         # (which means "s.fq=AuthorCombined:eric+foner")
         # Rails.logger.debug  "SQ=[#{@search.query.to_hash.inspect}]"
         params = @search.query.to_hash
-        # merge in whatever new command overlays current summonstate
+        # NEXT-903 - ALWAYS reset to seeing page number 1.
+        # The only exception is the Next/Prev page links, which will
+        # reset s.pn via the passed input param cmd, below
+        params.merge!( { 's.pn' => 1 } )
+        # merge in whatever new command overlays current summon state
         params.merge!(cmd)
         # raise
         # add-in our CLIO interface-level params

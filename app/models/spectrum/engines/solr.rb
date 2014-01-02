@@ -42,9 +42,9 @@ module Spectrum
         begin
           # here's the actual search, defined later in this engine
           perform_search
-        rescue => e
-          Rails.logger.error "#{self.class}##{__method__} [Spectrum][Solr] error: #{e.message}"
-          @errors = e.message
+        rescue => ex
+          Rails.logger.error "#{self.class}##{__method__} [Spectrum][Solr] error: #{ex.message}"
+          @errors = ex.message
         end
 
       end
@@ -539,7 +539,7 @@ module Spectrum
                 :fq  => ['{!raw f=source_facet}database']
               }
 
-              config.add_facet_field "database_hilcc_facet",
+              config.add_facet_field "database_discipline_facet",
                   :label => "Discipline", :limit => 5, :open => true
               config.add_facet_field "database_resource_type_facet",
                   :label => "Resource Type", :limit => 5
@@ -561,7 +561,7 @@ module Spectrum
                   :label => "Starts With"
 
               config.add_sort_field 'score desc, pub_date_sort desc, title_sort asc',
-                  :label => 'relevance'
+                  :label => 'Relevance'
               config.add_sort_field 'title_sort asc, pub_date_sort desc',
                   :label =>  'Title A-Z'
               config.add_sort_field 'title_sort desc, pub_date_sort desc',

@@ -66,6 +66,45 @@
     Barnard College Library
     
     Lehman Hall
+- :library_code: barnard-archives
+  :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionC.gif
+    Home Page: http://library.barnard.edu/
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionC.html
+    Floorplan: http://library.barnard.edu/using-library/floorplan
+    Stacks Guide: http://library.barnard.edu/find-books/stacks
+  :category: physical
+  :location: Barnard Archives
+  :found_in: |-
+    Barnard College Library
+
+    Lehman Hall
+- :library_code: barnard-archives
+  :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionC.gif
+    Home Page: http://library.barnard.edu/
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionC.html
+    Floorplan: http://library.barnard.edu/using-library/floorplan
+    Stacks Guide: http://library.barnard.edu/find-books/stacks
+  :category: physical
+  :location: Barnard Rare
+  :found_in: |-
+    Barnard College Library
+
+    Lehman Hall
+- :library_code: barnard-archives
+  :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionC.gif
+    Home Page: http://library.barnard.edu/
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionC.html
+    Floorplan: http://library.barnard.edu/using-library/floorplan
+    Stacks Guide: http://library.barnard.edu/find-books/stacks
+  :category: physical
+  :location: Barnard Special
+  :found_in: |-
+    Barnard College Library
+
+    Lehman Hall
 - :links: 
     Home Page: http://bcrw.barnard.edu/
   :category: physical
@@ -143,7 +182,19 @@
     Butler Periodicals & Microforms Reading Room
     
     401 Butler Library
-- :library_code: butler
+- :library_code: butler-reference
+  :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
+    Guides: http://library.columbia.edu/locations/butler-reference.html
+    Home Page: http://library.columbia.edu/locations/butler-reference.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Butler Reference Desk
+  :found_in: |-
+    Butler Reference
+    
+    301 Butler Library
+- :library_code: butler-24 
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Guides: http://library.columbia.edu/locations/butler-reference.html
@@ -153,7 +204,7 @@
   :location: Butler Reference
   :found_in: |-
     Butler Reference
-    
+
     301 Butler Library
 - :library_code: butler-reserves
   :links: 
@@ -206,7 +257,7 @@
     Starr East Asian Library
     
     300 Kent Hall
-- :library_code: butler
+- :library_code: dhc
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Home Page: http://library.columbia.edu/locations/dhc.html
@@ -515,12 +566,27 @@
     502 Butler Library
 - :library_code: rbml
   :links: 
-    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Home Page: http://library.columbia.edu/locations/cuarchives.html
-    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: University Archives
   :found_in: |-
     Columbia University Archives
     
     6th Floor East, Butler Library
+- :library_code: law
+  :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionF.gif
+    Home Page: http://web.law.columbia.edu/library
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
+  :category: physical
+  :location: Law
+  :found_in: |-
+    Arthur W. Diamond Law Library
+
+    Jerome Greene Hall, 3rd floor
+
+
+
+

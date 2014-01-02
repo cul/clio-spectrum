@@ -12,14 +12,13 @@ end
 # require File.expand_path('../../lib/monkey_patches', __FILE__)
 
 require File.expand_path('../../lib/monkey_patches', __FILE__)
-require File.expand_path('../../lib/google_books', __FILE__)
 require File.expand_path('../../lib/rsolr_notifications', __FILE__)
-# require File.expand_path('../../lib/voyager_holding', __FILE__)
 RELEASE_STAMP = IO.read("VERSION").strip
 
 # explicitly require, so that "config.middleware.use" works below during
 # capistrano's assets:precompile step
 require 'rack/attack'
+require 'rack/utf8_sanitizer'
 
 module Clio
   class Application < Rails::Application
@@ -68,7 +67,7 @@ module Clio
     #
     # Catch 404s
     config.after_initialize do |app|
-      app.routes.append{match '*catch_unknown_routes', :to => 'application#catch_404'}
+      app.routes.append{match '*catch_unknown_routes', :to => 'application#catch_404s'}
     end
 
 
@@ -86,7 +85,14 @@ module Clio
     # http://blog.gingerlime.com/2012/rails-ip-spoofing
     config.middleware.delete ActionDispatch::RemoteIp
 
+    # https://github.com/kickstarter/rack-attack
     # "DSL for blocking & throttling abusive clients"
     config.middleware.use Rack::Attack
+
+    # https://github.com/whitequark/rack-utf8_sanitizer
+    # Rack::UTF8Sanitizer is a Rack middleware which cleans up
+    # invalid UTF8 characters in request URI and headers.
+    config.middleware.insert_before "Rack::Lock", Rack::UTF8Sanitizer
+
   end
 end

@@ -1,33 +1,150 @@
 require 'spec_helper'
 
-# NEXT-705 - "All Fields" should be default, and should be first option
-describe "Catalog Advanced Search" do
-  it "should default to 'All Fields'", :js => true do
-    visit root_path
-    find('li.datasource_link[source=catalog]').click
+describe "Catalog Interface" do
 
-    find('.search_box.catalog .advanced_search_toggle').click
+  # NEXT-779 - Some 880 fields not showing up
+  it "Advanced Search should default to 'All Fields'", :js => true do
+    # visit this specific item
+    visit catalog_path('7814900')
 
-    find('.landing_page.catalog .advanced_search').should be_visible
+    # Find the 880 data for bib 7814900 within the info display
+    find('.info').should have_content("Other Information: Leaf 1 contains laws on the Torah reading")
+  end
 
-    within '.landing_page.catalog .advanced_search' do
 
-      # For each of our five advanced-search fields...
-      (1..5).each do |i|
-        select_id = "adv_#{i}_field"
-
-        # The select should exist, and "All Fields" should be selected
-        has_select?(select_id, :selected => 'All Fields').should == true
-
-        # "All Fields" should be the first option in the drop-down select menu
-        within("select#adv_1_field") do
-          first('option').text.should == "All Fields"
-        end
-
-      end
-
+  # NEXT-917 - Summary showing up twice for video records
+  it "Video Records should show Summary only once", :js => true do
+    visit catalog_index_path('q' => 'summary')
+    within 'div.blacklight-format ul' do
+      find('a.more_facets_link').click
+    end
+    within 'ul.facet_extended_list' do
+      click_link('Video')
     end
 
+    within all('.result.document').first do
+      all('a').first.click
+    end
+    page.should have_css('div.field', :text => 'Summary', :count => 1)
   end
+
+  # NEXT-551 - display 'version of resource' and 'related resource' notes
+  # this test is awefully tight - any cataloging/labeling change will break it.
+  it "Item Links should show 'version of resource' and 'related resource'", :js => true do
+    # on the search-results page
+    visit catalog_index_path('q' => 'Introduction to high-energy astrophysics stephan rosswog')
+    page.should have_text("Table of contents (version of resource)")
+    page.should have_text("Publisher description (related resource)")
+
+    # on the item-detail page
+    click_link('Introduction to high-energy astrophysics')
+    page.should have_text("Table of contents (version of resource)")
+    page.should have_text("Publisher description (related resource)")
+  end
+
+  # NEXT-619 - improvements to 'Manuscript' facet
+  it "Should find many Manuscripts for Call Number range X893", :js => true do
+    visit catalog_index_path('q' => 'X893')
+    within '.search_box.catalog' do
+      find('btn.dropdown-toggle').click()
+      within '.dropdown-menu' do
+        click_link("Call Number")
+      end
+      find('button[type=submit]').click()
+    end
+    within 'div.blacklight-format ul' do
+      click_link('Manuscript/Archive')
+    end
+    # exact count depends on default items-per-page, today, 25
+    page.should have_css('.result.document', :count => 25)
+    # matching "1", or "1N", or "1NN"...  the value today is actually 1504
+    page.should have_text('1 - 25 of 1')
+  end
+
+
+  # NEXT-640 - Records in CLIO should include links to Hathi Trust
+  #  Full View examples:  513297, 1862548, 2081553
+  #  Limited examples:  70744 (?), 4043762, 2517624
+  it "Should show Hathi Trust links, both 'Full view' and 'Limited'", :js => true do
+    # visit this specific item
+    visit catalog_path('513297')
+
+    # Should see the 'Full View' message in the Hathi Holdings box
+    find('#hathi_holdings .hathi_info #hathidata').should have_content("Full view")
+
+    # visit this specific item
+    visit catalog_path('4043762')
+
+    # Should see the 'Limited (search-only)' message in the Hathi Holdings box
+    find('#hathi_holdings .hathi_info #hathidata').should have_content("Limited (search-only)")
+  end
+
+
+  # NEXT-931 - Online Links in Holdings (not in the Bib) should display
+  it "Online links from Bib or Holdings should show up within correct block", :js => true do
+    # visit this specific item
+    visit catalog_path('382300')
+
+    # within CLIO HOLDINGS, not the regular Online div...
+    # ...should see an 'Online' block
+    find('div#clio_holdings').
+      should have_content("Online")
+    # ...should see the specific URL...
+    find('div#clio_holdings').
+      should have_content("http://www.neighborhoodpreservationcenter.org/")
+
+    # And, contrariwise, other Avery Online material, which does not have
+    # an 856 URL in the Holdings record, should display 'Online' within the 
+    # visit this specific item
+    visit catalog_path('10099362')
+
+    # within ONLINE HOLDINGS, SHOULD see an 'Online' block
+    find('div#online_holdings').should have_content("Online")
+
+    # within CLIO HOLDINGS, should NOT see an 'Online' block
+    # find('div#clio_holdings').should_not have_content("Online")
+    # Now, Online-Only items no longer have any CLIO Holdings div at all!
+    page.should have_no_selector('div#clio_holdings')
+
+  end
+
+  # Valid Voyager locations include angle-brackets.
+  # CLIO should escape these (NOT treat them like markup)
+  # NEXT-593, NEXT-928
+  it "Locations with embedded angle-brackets should work", :js => true do
+    target1 = 'Avery obituary index of architects and artists'
+    troublesome1 = 'Offsite <Avery> (Non-Circulating) Place Request for delivery'
+    target2 = 'Notes for the Breitenau room'
+    troublesome2 = 'Offsite <Fine Arts> (Non-Circ) Place Request for delivery'
+
+    # go to the search-results page..
+    visit catalog_index_path('q' => target1)
+
+    # should see the full location
+    find('#documents').should have_content(troublesome1)
+
+    # go to the item-detail page..
+    click_link(target1)
+
+    # within CLIO HOLDINGS, should get the full location data
+    find('div#clio_holdings').should have_content(troublesome1)
+
+    # And again, with slightly different sample...
+
+    # go to the search-results page..
+    visit catalog_index_path('q' => target2)
+
+    # should see the full location
+    find('#documents').should have_content(troublesome2)
+
+    # go to the item-detail page..
+    click_link(target2)
+
+    # within CLIO HOLDINGS, should get the full location data
+    find('div#clio_holdings').should have_content(troublesome2)
+
+
+  end
+
 end
 

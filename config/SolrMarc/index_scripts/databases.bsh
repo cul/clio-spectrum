@@ -6,14 +6,13 @@ import org.solrmarc.tools.Utils;
 // note that the SolrIndexer code will set this value before the script methods are called.
 org.solrmarc.index.SolrIndexer indexer = null;
 
-/**
- * Determine Record Format(s)
- *
- * @param  Record          record
- * @return Set     format of record
- */
+// 
+// For a list of these codes and documentation on CUL cataloging practice, see:
+// 
+// https://wiki.cul.columbia.edu/display/cerm/RTI+Codes
+// 
 
-Set translate_HILCC_code(Record record)
+Set translate_DISCIPLINE_code(Record record)
 {
   LinkedHashSet result = new LinkedHashSet();
 
@@ -58,7 +57,13 @@ Set translate_HILCC_code(Record record)
   return result;
 }
 
-
+// 
+// For a list of these codes and documentation on CUL cataloging practice, see:
+// 
+// http://www.columbia.edu/cu/libraries/inside/projects/eresources/rti_migration/resource_types.html
+//   and
+// https://wiki.cul.columbia.edu/display/cerm/RTI+Codes
+// 
 Set translate_resource_type(Record record)
 {
   LinkedHashSet result = new LinkedHashSet();

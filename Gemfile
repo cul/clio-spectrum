@@ -1,16 +1,15 @@
 source 'http://rubygems.org'
 
 # Can't move up to 4.0 series yet - blacklight_range_limit has dependency on 3
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.14'
 # gem 'rails', '~> 4.0.0'
 
 gem 'sqlite3'
 
-# Use unicorn as the web server
-# gem 'unicorn'
 gem 'thin'
+# gem 'unicorn'
 
-gem 'blacklight', '>= 4.2.0'
+gem 'blacklight', '~>4.3.0'
 gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
 gem 'blacklight_google_analytics'
 
@@ -24,16 +23,20 @@ gem 'json'
 # This could be native to clio-spectrum, or put into Voyager-back-end
 # gem 'voyager_oracle_api', ">= 1.1.1"
 
-# Would be use for Patron services, if we were to use native blacklight Patron svcs.
+# Would be used for Patron services, if we were to use native Blacklight Patron services
 # gem 'restful_voyage', :git => "git://github.com/cul/restful_voyage.git", :branch => "master"
 
 group :clio_dev, :clio_test, :clio_prod do
   gem 'mysql2'
 end
 
-gem 'therubyracer', '0.10.2'
-# Deploy with Capistrano
+# "Associates a hash of options with an ActiveRecord model"
+# Used for... apparently, just the list of links for each location?
+# locally developed - and no longer on Github...
+# should try to eliminate at some point.
 gem 'has_options'
+
+gem 'therubyracer', '0.10.2'
 gem 'httpclient'
 gem 'nokogiri'
 
@@ -55,7 +58,8 @@ gem 'cancan'
 # this is no longer needed here within clio-spectrum.
 # gem 'voyager_api', '>=0.2.3'
 
-gem 'rubytree', '=0.5.2'
+# marquis, 9/13 - unused?
+# gem 'rubytree', '=0.5.2'
 
 gem 'exception_notification'
 gem 'net-ldap'
@@ -70,6 +74,10 @@ gem 'newrelic_rpm'
 
 # marquis, 6/13 - javascript framework - unused?
 # gem 'compass-rails'
+
+# "Rack middleware which cleans up invalid UTF8 characters"
+gem 'rack-utf8_sanitizer'
+
 
 gem 'jquery-rails'
 
@@ -124,6 +132,8 @@ group :development do
   #gem 'linecache19', '0.5.13'
   #gem 'ruby-debug-base19', '0.11.26'
   #gem 'ruby-debug19', :require => 'ruby-debug'
+
+  # Deploy with Capistrano
   gem 'capistrano'
   gem 'capistrano-ext'
   gem 'quiet_assets'
@@ -140,7 +150,9 @@ group :development do
 end
 
 group :test, :development do
-
+  # why in test and dev both instead of just test?  
+  # because is says to: https://github.com/rspec/rspec-rails
+  gem 'rspec-rails', '>=2.14'
 end
 
 group :test do
@@ -150,9 +162,19 @@ group :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-spork'
-  # gem 'capybara'
-  gem 'capybara', '2.0.3'
+
+  # Copy Stanford's approach to Solr relevancy testing
+  gem 'rspec-solr'
+
+  # pin to old version, or go with newest?
+  gem 'capybara'
+  # gem 'capybara', '2.0.3'
+
+  # Which Capybara driver for JS support?
   gem 'capybara-webkit'
+  # dependent on localhost's browser configs
+  # gem 'selenium-webdriver'
+
   gem 'launchy'
   gem 'database_cleaner'
   # Mac OS X 10.8 (Mountain Lion) Notifications replace growl
@@ -160,7 +182,6 @@ group :test do
   # gem "growl"
   gem 'terminal-notifier-guard'
 
-  gem 'rspec-rails'
 
   gem 'rb-fsevent'
   # GNTP is Growl's protocol - turn off, since no more Growl
