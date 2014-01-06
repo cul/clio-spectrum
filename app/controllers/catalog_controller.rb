@@ -254,18 +254,19 @@ class CatalogController < ApplicationController
     # 2) cleanup for advanced searches
     if params['adv'] and params['adv'].kind_of?(Hash)
       params['adv'].each do |rank, advanced_param|
-        val = advanced_param['value']
-        if advanced_param['field'] == "title_starts_with"
-          unless val =~ /^".*"$/
-            # advanced_param['value'].gsub!(/"/, '\"')    # escape any double-quotes instead?
-            val.gsub!(/"/, '')    # strip any double-quotes
-            val = "\"#{ val }\""
-         end
+        if val = advanced_param['value']
+          if advanced_param['field'] == "title_starts_with"
+            unless val =~ /^".*"$/
+              # advanced_param['value'].gsub!(/"/, '\"')    # escape any double-quotes instead?
+              val.gsub!(/"/, '')    # strip any double-quotes
+              val = "\"#{ val }\""
+           end
+          end
+          val.gsub!(/\?\s+/, ' ')  # remove trailing question-marks
+          val.gsub!(/\?$/, '')  # remove trailing question-marks (end of line)
+          val.gsub!(/(\w+)-(\w+\*)/, '\1 \2')     # remove hyphen from wildcarded phrase
+          advanced_param['value'] = val
         end
-        val.gsub!(/\?\s+/, ' ')  # remove trailing question-marks
-        val.gsub!(/\?$/, '')  # remove trailing question-marks (end of line)
-        val.gsub!(/(\w+)-(\w+\*)/, '\1 \2')     # remove hyphen from wildcarded phrase
-        advanced_param['value'] = val
       end
     end
 
