@@ -14,9 +14,12 @@ root.after_document_load = (element) ->
 
     if source == 'academic_commons'
       fedora_items.push(item)
-    else if source == 'catalog' && $.isNumeric(item)
+    else if source == 'catalog'
       # alert("numeric item:" + item)
-      catalog_items.push(item)
+      # exclude Law records from the catalog holdings check
+      # (but leave them in standard_id_set_csv, for Google, et.al.)
+      if $.isNumeric(item)
+        catalog_items.push(item)
       # a set of zero or more IDs (ISBN, OCLC, or LCCN)
       standard_id_set_csv = res.attr('standard_ids')
       if (standard_id_set_csv)
