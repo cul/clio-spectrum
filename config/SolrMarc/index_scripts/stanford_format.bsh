@@ -128,7 +128,7 @@ Set getFormats(Record record)
       break;
     case 'm':
       // look for a in 008 field, char 26 (count starts at 0)
-      if (f008 != null && f008.find("^.*{26}a")) 
+      if (f008 != null && f008.find("^.{26}a")) 
         resultSet.add("Computer File");
       break;
     case 'o':  // instructional kit
