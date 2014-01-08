@@ -48,7 +48,7 @@ describe "Articles Search" do
     find(".well-constraints").should have_content('Author: catmull, ed')
 
     # And the search results too
-    find('#documents').should have_content('Author Catmull, Ed')
+    find('#documents').should have_content('Author Catmull')
 
     # AND, add in some test related to pub-date sorting...
 
