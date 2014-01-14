@@ -61,15 +61,18 @@ root.retrieve_fedora_resources = (fedora_ids) ->
       $(fedora_selector).html('')
       first_resource = true
 
+      # fix for NEXT-945 - Fedora non-PDF downloadable objects are given the PDF icon
+      fedora_icons = [ "pdf", "ppt", "doc", "mp3", "mp4"]
+
       for i, resource of resources
         first_resource = false
-        if resource['content_type'][0] && resource['content_type'][0] = "application/pdf"
-          resource_type = 'pdf'
-        else
-          resource_type = 'default'
-
-
-        txt = '<div class="entry"><img src="/assets/fedora_icons/' + resource_type + '.png" width="16" height="16"/> <a href="' + resource['download_path'] + '">' + resource['filename'] + '</a></div>'
+        icon = "default"
+        filename = resource['filename']
+        if filename && filename.length > 3
+          extension = filename.substr(filename.length - 3).toLowerCase()
+          if $.inArray(extension, fedora_icons) >= 0
+            icon = extension
+        txt = '<div class="entry"><img src="/assets/fedora_icons/' + icon + '.png" width="16" height="16"/> <a href="' + resource['download_path'] + '">' + resource['filename'] + '</a></div>'
         $(fedora_selector).append(txt)
 
       if first_resource
