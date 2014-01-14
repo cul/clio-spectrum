@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+# NEXT-330 - Single word journal titles continue to be a problem
+#   mentions "Brain, Science, Lancet"
 # NEXT-867 - The journal reproduction is not retrieved when searching for reproduction
 # and also:  Gut, Nature, Heart, Science, Neurology, Circulation
 describe 'Searching for one-word titles: ' do
@@ -85,6 +87,28 @@ describe 'Searching for one-word titles: ' do
 
     resp = solr_resp_ejournal_ids_only({'q'=>'JAMA'})
     resp.should include("3429848").in_first(1).results
+  end
+
+  it "Brain" do
+    resp = solr_resp_ids_from_query('Brain')
+    resp.should include("3398529").in_first(5).results
+
+    resp = solr_resp_ids_from_journal_title_query('Brain')
+    resp.should include("3398529").in_first(1).results
+
+    resp = solr_resp_ejournal_ids_only({'q'=>'Brain'})
+    resp.should include("3398529").in_first(1).results
+  end
+
+  it "Lancet" do
+    resp = solr_resp_ids_from_query('Lancet')
+    resp.should include("3429912").in_first(5).results
+
+    resp = solr_resp_ids_from_journal_title_query('Lancet')
+    resp.should include("3429912").in_first(3).results
+
+    resp = solr_resp_ejournal_ids_only({'q'=>'Lancet'})
+    resp.should include("3429912").in_first(2).results
   end
 
 end
