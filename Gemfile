@@ -36,7 +36,8 @@ end
 # should try to eliminate at some point.
 gem 'has_options'
 
-gem 'therubyracer', '0.10.2'
+# gem 'therubyracer', '0.10.2'
+gem 'therubyracer'
 gem 'httpclient'
 gem 'nokogiri'
 
@@ -46,7 +47,8 @@ gem 'haml-rails'
 
 # CSS replacement language
 gem 'sass'
-gem 'sass-rails', '~>3.2.4'
+# dup - also in the assets group, below
+# gem 'sass-rails', '~>3.2.4'
 
 gem 'unicode'
 gem 'summon'
@@ -82,10 +84,14 @@ gem 'rack-utf8_sanitizer'
 gem 'jquery-rails'
 
 group :assets do
-  gem 'sass-rails', '~>3.2.4'
-  gem 'coffee-rails', '~>3.2.2'
-  gem 'uglifier', '>=1.0.3'
-  gem 'bootstrap-sass', '~>2.1'
+  # gem 'sass-rails', '~>3.2.4'
+  # gem 'coffee-rails', '~>3.2.2'
+  # gem 'uglifier', '>=1.0.3'
+  # gem 'bootstrap-sass', '~>2.1'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+  gem 'bootstrap-sass'
 
   # marquis, 6/13 - unused?
   # gem 'compass-rails'
@@ -152,12 +158,14 @@ end
 group :test, :development do
   # why in test and dev both instead of just test?  
   # because is says to: https://github.com/rspec/rspec-rails
-  gem 'rspec-rails', '>=2.14'
+  # gem 'rspec-rails', '>=2.14'
+  gem 'rspec-rails'
 end
 
 group :test do
   gem 'factory_girl_rails'
-  gem 'spork', '~>1.0.0.rc2'
+  # gem 'spork', '~>1.0.0.rc2'
+  gem 'spork'
 
   gem 'guard'
   gem 'guard-rspec'
