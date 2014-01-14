@@ -140,7 +140,7 @@ group :development do
   #gem 'ruby-debug19', :require => 'ruby-debug'
 
   # Deploy with Capistrano
-  gem 'capistrano'
+  gem 'capistrano', '~>2'
   gem 'capistrano-ext'
   gem 'quiet_assets'
 
