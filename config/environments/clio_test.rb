@@ -41,8 +41,19 @@ config.action_mailer.smtp_settings = {
 end
 
 
-Clio::Application.config.middleware.use ExceptionNotifier,
+# Exception Notifier - Upgrading to 4.x version
+#   https://github.com/smartinez87/exception_notification/blob/master/README.md
+# Clio::Application.config.middleware.use ExceptionNotifier,
+#    :email_prefix => "[Clio Test] ",
+#    :sender_address => %{"notifier" <spectrum-tech@libraries.cul.columbia.edu>},
+#    :exception_recipients => %w{spectrum-tech@libraries.cul.columbia.edu},
+#    :ignore_crawlers => %w{Googlebot bingbot}
+
+Clio::Application.config.middleware.use ExceptionNotification::Rack,
+ :email => {
    :email_prefix => "[Clio Test] ",
    :sender_address => %{"notifier" <spectrum-tech@libraries.cul.columbia.edu>},
    :exception_recipients => %w{spectrum-tech@libraries.cul.columbia.edu},
    :ignore_crawlers => %w{Googlebot bingbot}
+ }
+
