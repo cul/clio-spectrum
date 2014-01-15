@@ -50,7 +50,7 @@ describe 'Searching for one-word titles: ' do
     resp.should include("3328066").in_first(10).results
 
     resp = solr_resp_ids_from_journal_title_query('Science')
-    resp.should include("3328066").in_first(4).results
+    resp.should include("3328066").in_first(5).results
 
     resp = solr_resp_ejournal_ids_only({'q'=>'Science'})
     resp.should include("3328066").in_first(2).results
