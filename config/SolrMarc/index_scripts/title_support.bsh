@@ -25,6 +25,8 @@ public String getFilingTitle(Record record)
 
 
   String title_245a = indexer.getFirstFieldVal(record, "245a");
+  if (title_245a == null)
+      return null;
 
   //Skip non-filing chars, if possible. 
   if ( title_245a.length() > nonFilingInt )  {
