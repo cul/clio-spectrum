@@ -1,6 +1,9 @@
 require 'simplecov'
 SimpleCov.start do
+  # don't do coverage of our testing code
   add_filter "/spec/"
+  # don't do coverage of our rake tasks
+  add_filter "/lib/tasks/"
 end
 
 require 'rubygems'

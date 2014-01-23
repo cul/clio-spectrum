@@ -1,12 +1,16 @@
 GIT
   remote: git://github.com/projectblacklight/blacklight_range_limit.git
-  revision: 9ab8e215a7e7078a6d24e35a284c9eef7b6d7dd8
-  branch: master
+  revision: 8d3aea7d766100f4e1f0fdcba8c0dbd668060ac4
   specs:
     blacklight_range_limit (2.0.1)
       blacklight (~> 4.0)
       jquery-rails
       rails (>= 3.0, <= 5.0)
+
+GIT
+  remote: git://github.com/whitequark/rack-utf8_sanitizer.git
+  revision: b3ca5bc8467ffc81f1b4b54c6587dbc453611466
+  specs:
 
 GEM
   remote: http://rubygems.org/
@@ -346,7 +350,7 @@ DEPENDENCIES
   paper_trail
   quiet_assets
   rack-attack
-  rack-utf8_sanitizer
+  rack-utf8_sanitizer!
   rails (~> 3.2)
   rb-fsevent
   rspec-rails

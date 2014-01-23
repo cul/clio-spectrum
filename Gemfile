@@ -18,8 +18,12 @@ gem 'sqlite3'
 gem 'thin'
 # gem 'unicorn'
 
+gem 'blacklight', '~>4.3.0'
+# gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
+gem 'blacklight_range_limit', :github => 'projectblacklight/blacklight_range_limit'
 
-gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
+
+
 gem 'blacklight_google_analytics'
 
 # Sorry, have to nix unapi.  Switch to COINS everywhere, so that
@@ -88,7 +92,13 @@ gem 'newrelic_rpm'
 # gem 'compass-rails'
 
 # "Rack middleware which cleans up invalid UTF8 characters"
-gem 'rack-utf8_sanitizer'
+# gem 'rack-utf8_sanitizer'
+# Use github master branch, to pick up a few new patches.
+# Maybe this will fix one of our outstanding issues:
+#    application#catch_404s (ArgumentError) "invalid %-encoding"
+# We also still have invalid %-encoding w/submitted form fields.
+# This is an open issue at rack-utf8_sanitizer.
+gem 'rack-utf8_sanitizer', :github => 'whitequark/rack-utf8_sanitizer'
 
 
 gem 'jquery-rails'
