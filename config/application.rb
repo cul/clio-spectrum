@@ -94,5 +94,15 @@ module Clio
     # invalid UTF8 characters in request URI and headers.
     config.middleware.insert_before "Rack::Lock", Rack::UTF8Sanitizer
 
+    # [deprecated] I18n.enforce_available_locales will default to true in the 
+    # future. If you really want to skip validation of your locale you can set
+    # I18n.enforce_available_locales = false to avoid this message.
+    # Good explanation here:
+    #   http://stackoverflow.com/questions/20361428
+    # config.i18n.enforce_available_locales = true
+    # or if one of your gem compete for pre-loading, use
+    I18n.config.enforce_available_locales = true
+
+
   end
 end

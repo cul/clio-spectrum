@@ -1,15 +1,24 @@
 source 'http://rubygems.org'
 
-# Can't move up to 4.0 series yet - blacklight_range_limit has dependency on 3
-gem 'rails', '3.2.14'
-# gem 'rails', '~> 4.0.0'
+# FIXED:  Can't move up to 4.0 series yet - blacklight_range_limit has dependency on 3
+# but, devise_wind still has Rails 3.2 dependencies.
+gem 'rails', '~> 3.2'
+# gem 'rails', '~> 4.0'
+
+gem 'blacklight', '~>4.3.0'
+# gem 'blacklight', '~>4'
+
+gem 'devise_wind'
+# Local copy relaxes rails version requirements (allows 4.x)
+# gem "devise_wind", :path => "/Users/marquis/src/devise_wind"
+
 
 gem 'sqlite3'
 
 gem 'thin'
 # gem 'unicorn'
 
-gem 'blacklight', '~>4.3.0'
+
 gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
 gem 'blacklight_google_analytics'
 
@@ -68,7 +77,8 @@ gem 'net-ldap'
 
 gem 'devise'
 gem 'devise-encryptable'
-gem 'devise_wind'
+
+
 
 
 # application monitoring tool
