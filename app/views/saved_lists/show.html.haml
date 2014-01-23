@@ -1,4 +1,4 @@
--# SAVED_LISTS/SHOW - build the main dispaly page of Saved Lists
+-# SAVED_LISTS/SHOW - build the main display page of Saved Lists
 
 .row-fluid
 
@@ -7,32 +7,32 @@
 
 
   .savedlist_display_list.span9
-
-    .row-fluid
-      .span2
-        %strong List Name:
-      .span10
-        %span.lead= @list.display_name
-        &nbsp; &nbsp;
-        - if current_user && current_user.login == @list.owner
-          %span.saved_list_header=link_to "edit list details", edit_saved_list_path(@list)
-        -# - else
-        -#   (owner: #{@list.owner})
-
-    - unless @list.description.empty?
+    .savedlist_header
       .row-fluid
         .span2
-          %strong Description:
+          %strong List Name:
         .span10
-          %span.lead= @list.description
+          %span.lead= @list.display_name
+          &nbsp; &nbsp;
+          - if current_user && current_user.login == @list.owner
+            %span=link_to "edit list details", edit_saved_list_path(@list)
+          -# - else
+          -#   (owner: #{@list.owner})
 
-    .row-fluid
-      .span2
-        %strong URL:
-      .span10
-        %span.lead= get_full_url(@list)
-        &nbsp; &nbsp;
-        = get_permissions_label(@list.permissions)
+      - unless @list.description.empty?
+        .row-fluid
+          .span2
+            %strong Description:
+          .span10
+            %span.lead= @list.description
+
+      .row-fluid
+        .span2
+          %strong URL:
+        .span10
+          %span.lead= get_full_url(@list)
+          &nbsp; &nbsp;
+          = get_permissions_label(@list.permissions)
 
     -# .saved_list_header
     -#   %span.saved_list_key

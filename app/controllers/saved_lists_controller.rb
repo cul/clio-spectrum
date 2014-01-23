@@ -5,30 +5,26 @@ class SavedListsController < ApplicationController
 
   layout "no_sidebar"
 
-  # better to put the method in ApplicationController
-  # include ApplicationHelper
-
-  # Try to avoid using Helpers in Controllers...
-  # include SavedListsHelper
-
   # Because we need "add_range_limit_params" when we lookup Solr records
   include LocalSolrHelperExtension
 
   # include Blacklight::Catalog
   # include Blacklight::Configurable
 
-
-  # GET /lists
-  # GET /lists.json
-  def index
-    # Default index, show only your own lists
-    @lists = List.where(:created_by => current_user.login)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @lists }
-    end
-  end
+# INDEX is never called.  routes.rb redirects '/lists/' to show.
+# Users are always viewing an active list, via show().
+# If no list ID is passed, the default list is shown.
+  # # GET /lists
+  # # GET /lists.json
+  # def index
+  #   # Default index, show only your own lists
+  #   @lists = List.where(:created_by => current_user.login)
+  # 
+  #   respond_to do |format|
+  #     format.html # index.html.erb
+  #     format.json { render json: @lists }
+  #   end
+  # end
 
   # GET /lists/1
   # GET /lists/1.json
@@ -91,18 +87,22 @@ class SavedListsController < ApplicationController
     end
   end
 
-  # GET /lists/new
-  # GET /lists/new.json
-  def new
-    raise "don't use this method!"
-    # @list = List.new(:created_by => current_user.login)
-    @list = List.new()
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @list }
-    end
-  end
+# Lists are not "New"'d explicitly.
+# Instead, items are added to a non-existant list name,
+# which will automatically create the new list.
+  # # GET /lists/new
+  # # GET /lists/new.json
+  # def new
+  #   raise "don't use this method!"
+  #   # @list = List.new(:created_by => current_user.login)
+  #   @list = List.new()
+  # 
+  #   respond_to do |format|
+  #     format.html # new.html.erb
+  #     format.json { render json: @list }
+  #   end
+  # end
 
   # GET /lists/1/edit
   def edit
@@ -119,28 +119,31 @@ class SavedListsController < ApplicationController
 
   end
 
-  # POST /lists
-  # POST /lists.json
-  def create
-    if current_user.blank?
-      return redirect_to root_path,
-        :flash => { :error => "Login required to access Saved Lists" }
-    end
-
-    values = params[:list]
-    values[:created_by] = current_user.login
-    @list = SavedList.new(values)
-
-    respond_to do |format|
-      if @list.save
-        format.html { redirect_to @list, notice: 'List was successfully created.' }
-        format.json { render json: @list, status: :created, location: @list }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+# Lists are not "Create"'d explicitly.
+# Instead, items are added to a non-existant list name,
+# which will automatically create the new list.
+  # # POST /lists
+  # # POST /lists.json
+  # def create
+  #   if current_user.blank?
+  #     return redirect_to root_path,
+  #       :flash => { :error => "Login required to access Saved Lists" }
+  #   end
+  # 
+  #   values = params[:list]
+  #   values[:created_by] = current_user.login
+  #   @list = SavedList.new(values)
+  # 
+  #   respond_to do |format|
+  #     if @list.save
+  #       format.html { redirect_to @list, notice: 'List was successfully created.' }
+  #       format.json { render json: @list, status: :created, location: @list }
+  #     else
+  #       format.html { render action: "new" }
+  #       format.json { render json: @list.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PUT /lists/1
   # PUT /lists/1.json
@@ -329,11 +332,17 @@ class SavedListsController < ApplicationController
       return redirect_to root_path,
         :flash => { :error => "Invalid input parameters - unspecified" }
     end
+    puts "========  from_owner [#{params[:from_owner]}]"
+    puts "========  from_list [#{params[:from_list]}]"
+    puts "========  to_list [#{params[:to_list]}]"
+    puts "========  item_key_list [#{params[:item_key_list]}]"
+
     # Can't copy from a list to itself
     if params[:from_list] == params[:to_list]
       return redirect_to root_path,
         :flash => { :error => "Invalid input parameters - can't move list to itself" }
     end
+
     # move() is ONLY for moving items between your own lists
     if params[:from_owner] != current_user.login
       return redirect_to root_path,
@@ -346,6 +355,7 @@ class SavedListsController < ApplicationController
     # Find - or create - a destination list with the "to_list" Name
     @list = SavedList.where(:owner => current_user.login, :name => params[:to_list]).first
     unless @list
+      puts "========  dest list [#{params[:to_list]}] does NOT yet exist, creating"
       @list = SavedList.new(:owner => current_user.login,
                             :name => params[:to_list])
       @list.save!
@@ -353,6 +363,7 @@ class SavedListsController < ApplicationController
 
     # loop over the passed-in items, set their owning list to Named list
     for item_key in Array.wrap(params[:item_key_list]) do
+      puts "========  item key [#{item_key}]"
       item = SavedListItem.where(:saved_list_id => @from_list.id,
                                   :item_key => item_key).first
       unless item

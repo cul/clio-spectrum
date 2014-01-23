@@ -84,7 +84,8 @@ Clio::Application.routes.draw do
   match 'spectrum/fetch/:layout/:datasource', :to => "spectrum#fetch", :as => "spectrum_fetch"
 
   match 'articles', :to => "spectrum#search", :as => :articles_index, :defaults => {:layout => 'articles'}
-  match 'articles/show', :to => "articles#show", :as => :articles_show
+  # there's no 'articles' controller, and no item-detail page for articles
+  # match 'articles/show', :to => "articles#show", :as => :articles_show
 
   match 'ebooks', :to => 'spectrum#search', :as => :ebooks_index, :defaults => {:layout => 'ebooks'}
   match 'dissertations', :to => 'spectrum#search', :as => :dissertations_index, :defaults => {:layout => 'dissertations'}

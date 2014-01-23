@@ -44,14 +44,14 @@ module CulCatalogHelper
 
   end
 
-
-  def active_source_path(options = {})
-    url_params = options.reject { |key, value|
-      key.in?('controller', 'action')
-    }.to_query
-
-    "/#{@active_source}?#{url_params}"
-  end
+# OLD CODE - nothing calls this anymore
+  # def active_source_path(options = {})
+  #   url_params = options.reject { |key, value|
+  #     key.in?('controller', 'action')
+  #   }.to_query
+  # 
+  #   "/#{@active_source}?#{url_params}"
+  # end
 
 
   def render_document_index_label doc, opts
@@ -71,12 +71,13 @@ module CulCatalogHelper
   # end
 
 
-  def build_fake_cover(document)
-    book_label = (document["title_display"].to_s.abbreviate(60))
-    content_tag(:div,
-        content_tag(:div, book_label, :class => "fake_label"),
-        :class => "cover fake_cover")
-  end
+# OLD CODE - called from a single partial, which is never invoked
+  # def build_fake_cover(document)
+  #   book_label = (document["title_display"].to_s.abbreviate(60))
+  #   content_tag(:div,
+  #       content_tag(:div, book_label, :class => "fake_label"),
+  #       :class => "cover fake_cover")
+  # end
 
 
   def holdings_compact(document)

@@ -4,18 +4,19 @@ module SearchHelper
     (controller.controller_name == 'search' && controller.action_name == 'index') || (params['q'].to_s.empty?  && params['s.q'].to_s.empty? && params['commit'].to_s.empty?)
   end
 
-  def active_search_box
-    con = controller.controller_name
-    act = controller.action_name
-
-    if con == 'search' && act == 'index'
-      "quicksearch"
-    elsif act == 'ebooks' || con == 'ebooks'
-      'ebooks'
-    else
-      @active_source
-    end
-  end
+  # 1/2014 - this is currently equivalent to @active_source alone
+  # def active_search_box
+  #   con = controller.controller_name
+  #   act = controller.action_name
+  # 
+  #   if con == 'search' && act == 'index'
+  #     "quicksearch"
+  #   elsif act == 'ebooks' || con == 'ebooks'
+  #     'ebooks'
+  #   else
+  #     @active_source
+  #   end
+  # end
 
 
   def search_render_options(search, source)
@@ -58,11 +59,11 @@ module SearchHelper
     search_params = determine_search_params
     div_classes = ["search_box", source]
     div_classes << "multi" if show_all_search_boxes
-    div_classes << "selected" if active_search_box == source
+    div_classes << "selected" if @active_source == source
 
 
     result = "".html_safe
-    if show_all_search_boxes || active_search_box == source
+    if show_all_search_boxes || @active_source == source
       has_options = (options['search_type'].in?("blacklight","summon") ? "search_q with_options" : "search_q without_options")
 
       # BASIC SEARCH INPUT BOX
