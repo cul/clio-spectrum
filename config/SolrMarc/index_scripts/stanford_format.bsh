@@ -156,7 +156,10 @@ Set getFormats(Record record)
           case 'l':   // updating looseleaf (ignore)
             break;
           case 'm':   // monographic series
-            resultSet.add("Book");
+            // NEXT-975 - Serial records coded as "monographic series."
+            // Monographic Series should be treated as 'Journal/Periodical', and not Book.
+            // resultSet.add("Book");
+            resultSet.add("Journal/Periodical");
             break;
           case 'n':
             resultSet.add("Newspaper");
