@@ -54,7 +54,7 @@ class SpectrumController < ApplicationController
       redirect_to root_path
     else
       @search_style = @search_layout['style']
-      @has_facets = @search_layout['has_facets']
+      # @has_facets = @search_layout['has_facets']
       sources =  @search_layout['columns'].collect { |col|
         col['searches'].collect { |item| item['source'] }
       }.flatten
@@ -76,7 +76,6 @@ class SpectrumController < ApplicationController
 
 
   def fetch
-
     @search_layout = SEARCHES_CONFIG['layouts'][params[:layout]]
 
     @datasource = params[:datasource]
@@ -86,15 +85,14 @@ class SpectrumController < ApplicationController
     else
       @fetch_action = true
       @search_style = @search_layout['style']
-      @has_facets = @search_layout['has_facets']
+      # @has_facets = @search_layout['has_facets']
       sources =  @search_layout['columns'].collect { |col|
         col['searches'].collect { |item| item['source'] }
       }.flatten.select { |source| source == @datasource }
 
       @results = get_results(sources)
       render 'fetch', layout: 'js_return'
-
-    end
+   end
 
   end
 

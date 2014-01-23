@@ -115,13 +115,13 @@ describe 'Searching for one-word titles: ' do
 
   it "Nation" do
     resp = solr_resp_ids_from_query('Nation')
-    resp.should include("3327456").in_first(5).results
+    resp.should include("3327456").in_first(7).results
 
     resp = solr_resp_ids_from_journal_title_query('Nation')
-    resp.should include("3327456").in_first(5).results
+    resp.should include("3327456").in_first(6).results
 
     resp = solr_resp_ejournal_ids_only({'q'=>'Nation'})
-    resp.should include("3327456").in_first(5).results
+    resp.should include("3327456").in_first(6).results
   end
 
 end

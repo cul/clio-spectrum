@@ -332,10 +332,10 @@ class SavedListsController < ApplicationController
       return redirect_to root_path,
         :flash => { :error => "Invalid input parameters - unspecified" }
     end
-    puts "========  from_owner [#{params[:from_owner]}]"
-    puts "========  from_list [#{params[:from_list]}]"
-    puts "========  to_list [#{params[:to_list]}]"
-    puts "========  item_key_list [#{params[:item_key_list]}]"
+    # puts "========  from_owner [#{params[:from_owner]}]"
+    # puts "========  from_list [#{params[:from_list]}]"
+    # puts "========  to_list [#{params[:to_list]}]"
+    # puts "========  item_key_list [#{params[:item_key_list]}]"
 
     # Can't copy from a list to itself
     if params[:from_list] == params[:to_list]
@@ -355,7 +355,7 @@ class SavedListsController < ApplicationController
     # Find - or create - a destination list with the "to_list" Name
     @list = SavedList.where(:owner => current_user.login, :name => params[:to_list]).first
     unless @list
-      puts "========  dest list [#{params[:to_list]}] does NOT yet exist, creating"
+      # puts "========  dest list [#{params[:to_list]}] does NOT yet exist, creating"
       @list = SavedList.new(:owner => current_user.login,
                             :name => params[:to_list])
       @list.save!
@@ -363,7 +363,7 @@ class SavedListsController < ApplicationController
 
     # loop over the passed-in items, set their owning list to Named list
     for item_key in Array.wrap(params[:item_key_list]) do
-      puts "========  item key [#{item_key}]"
+      # puts "========  item key [#{item_key}]"
       item = SavedListItem.where(:saved_list_id => @from_list.id,
                                   :item_key => item_key).first
       unless item

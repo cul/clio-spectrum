@@ -49,13 +49,15 @@ class CatalogController < ApplicationController
     end
 
 
-    # solr_search_params_logic << :add_advanced_search_to_solr
-    # solr_search_params_logic << :add_range_limit_params
+    # this does not execute a query - it only organizes query parameters
+    # conveniently for use by the view in echoing back to the user.
     @query = Spectrum::Queries::Solr.new(params, self.blacklight_config)
 
     @filters = params[:f] || []
 
+    # replicates has_search_parameters?() from blacklight's catalog_helper_behavior.rb
     @show_landing_pages = (params[:q].blank? && @filters.blank? && params[:search_field].blank?)
+
     extra_head_content <<
       view_context.auto_discovery_link_tag(
         :rss,
@@ -78,7 +80,7 @@ class CatalogController < ApplicationController
 
     respond_to do |format|
       format.html { save_current_search_params;
-                    render :locals => {:warning => warning, :response => @response}, 
+                    render :locals => {:warning => warning, :response => @response},
                     :layout => 'quicksearch' }
       format.rss  { render :layout => false }
       format.atom { render :layout => false }

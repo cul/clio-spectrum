@@ -10,8 +10,11 @@ module DatasourcesHelper
   end
 
   def active_query?()
-    !(params['q'].to_s.empty? && params.keys.all? { |k| !k.include?('s.') } && params['f'].to_s.empty? && params['commit'].to_s.empty?)
-
+    !( params['q'].to_s.empty? &&
+       params.keys.all? { |k| !k.include?('s.') } &&
+       params['f'].to_s.empty? &&
+       params['commit'].to_s.empty?
+    )
   end
 
   def add_all_datasource_landing_pages
@@ -40,6 +43,7 @@ module DatasourcesHelper
     end
   end
 
+  # Return a list of datasources which are "hidden" beneath the "More..." expander
   def datasources_hidden_list(options = {})
     if options[:all_sources]
       []
@@ -47,6 +51,7 @@ module DatasourcesHelper
        datasource_list(:minor).reject { |s| s == options[:active] }
     end
   end
+
 
   def add_datasources(active)
     options = {
@@ -76,6 +81,7 @@ module DatasourcesHelper
     clio_sidebar_items.unshift(content_tag(:ul, result.join('').html_safe, :id => "datasources", :class => landing_class))
   end
 
+
   def sidebar_span(source = @active_source)
     source_has_facets?(source) ? "span3" : "span2_5"
   end
@@ -85,17 +91,34 @@ module DatasourcesHelper
   end
 
 
+  # Will there be any facets shown for this datasource?
+  # No, if we're on the landing page, or if the datasource has no facets.
+  # Otherwise, yes.
   def source_has_facets?(source = @active_source)
-    (@has_facets || !DATASOURCES_CONFIG['datasources'][source]['no_facets'] && !@show_landing_pages)
+    # old mystery
+    # (@has_facets || !DATASOURCES_CONFIG['datasources'][source]['no_facets'] && !@show_landing_pages)
 
+    # mysterious
+    # return true if @has_facets
+
+    # No facets if we're showing the landing pages instead of query results
+    return false if @show_landing_pages
+
+    # No facets, if this datasource explicitly says so
+    return false if DATASOURCES_CONFIG['datasources'][source]['no_facets']
+
+    # Otherwise, always show the facets
+    return true
   end
 
+
+  # Build up the HTML of a datasource link, to be used along the left-side menu.
+  # Should be an <li>, with an <a href> inside it.
+  # The link should re-run the current search against the new data-source.
   def datasource_item(source, options)
     classes = []
     classes << 'minor_source' if options[:minor]
     query = options[:query]
-
-
 
     li_classes = %w{datasource_link}
     li_classes << "selected" if source == options[:active]
@@ -142,10 +165,8 @@ module DatasourcesHelper
       :class => li_classes.join(" ")
     )
 
-
-
-
   end
+
 
   def datasource_switch_link(title, source, *args)
     options = args.extract_options!

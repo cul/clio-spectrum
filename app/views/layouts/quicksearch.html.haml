@@ -6,13 +6,16 @@
   - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
   - search_params = determine_search_params
   %body{:onload => onload}
+
     - add_datasources(@active_source)
-    #trigger
+
+    -# #trigger
     = render :partial => "/top_navigation_bar"
     #outer-container.container-fluid
       #page
 
         = render :partial => "/header_with_search"
+
         #bd.row-fluid
           .sidebar.hidden-print{:class => sidebar_span}
             .search_logo.hidden-phone
@@ -28,9 +31,15 @@
               = yield
 
           .clear-both
+
         = render :partial => "/footer"
+
+      -# Used by Blacklight's lightbox dialog
       #ajax-modal.modal.hide.fade{:tabindex => -1}
 
+      -# "Busy" box, loaded hidden, made visible when user-triggered action
+      -# will take a few moments to load a new page.
+      -# Used by, e.g., NEXT-836 - Can't uncheck multiple options at the same time
       .busy.row-fluid
         .span4
           %img.busy-image{:src => image_path("ajax-loader.gif")}

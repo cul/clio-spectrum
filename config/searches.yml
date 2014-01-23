@@ -1,7 +1,8 @@
 layouts:
   articles:
     style: summon
-    has_facets: true
+    # obsolete
+    # has_facets: true
     columns:
       - searches:
           - source: articles 
@@ -39,7 +40,8 @@ layouts:
               spans: [3,9]
   newspapers:
     style: summon
-    has_facets: true
+    # obsolete
+    # has_facets: true
     columns:
       - searches:
           - source: newspapers 
