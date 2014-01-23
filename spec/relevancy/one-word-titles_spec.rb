@@ -2,6 +2,8 @@ require 'spec_helper'
 
 # NEXT-330 - Single word journal titles continue to be a problem
 #   mentions "Brain, Science, Lancet"
+# NEXT-745 - Relevancy ranking clarification
+#   mentions Lancet ("The Lancet"), Nation ("The Nation")
 # NEXT-867 - The journal reproduction is not retrieved when searching for reproduction
 # and also:  Gut, Nature, Heart, Science, Neurology, Circulation
 describe 'Searching for one-word titles: ' do
@@ -109,6 +111,17 @@ describe 'Searching for one-word titles: ' do
 
     resp = solr_resp_ejournal_ids_only({'q'=>'Lancet'})
     resp.should include("3429912").in_first(2).results
+  end
+
+  it "Nation" do
+    resp = solr_resp_ids_from_query('Nation')
+    resp.should include("3327456").in_first(5).results
+
+    resp = solr_resp_ids_from_journal_title_query('Nation')
+    resp.should include("3327456").in_first(5).results
+
+    resp = solr_resp_ejournal_ids_only({'q'=>'Nation'})
+    resp.should include("3327456").in_first(5).results
   end
 
 end
