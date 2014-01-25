@@ -7,7 +7,9 @@ describe "Articles Search" do
   # NEXT-793 - add Advanced Search to Articles, support Publication Title search
   it "should let you perform an advanced publication title search", :js => true do
     visit root_path
-    find('li.datasource_link[source=articles]').click
+    within('li.datasource_link[source="articles"]') do
+      click_link("Articles")
+    end
     find('#articles_q').should be_visible
     page.should have_no_selector('.landing_page.articles .advanced_search')
     # find('.landing_page.articles .advanced_search').should_not be_visible

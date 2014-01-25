@@ -32,9 +32,16 @@ describe "Databases", :focus => false do
 
   it "should search by pairs of Discipline/Resource-Type filters correctly" do
     visit root_path
-    # find('li.datasource_link[source=database]').click
-    find('li.datasource_link[source=databases]', :text => 'Databases').click
+    # We should now be on QUICKSEARCH page
+    find('.landing_main .title').should have_text('Quicksearch')
+    # page.save_and_open_page # debug
 
+    within('li.datasource_link[source="databases"]') do
+      click_link('Databases')
+    end
+    # We should now be on DATABASES page
+    find('.landing_main .title').should have_text('Databases')
+    
     # Databases landing page...
     within 'div.databases_browse_by' do
       page.should have_text('Browse by discipline')

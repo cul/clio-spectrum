@@ -1,6 +1,10 @@
 
 -  unless has_search_parameters?
-  = add_all_datasource_landing_pages
+
+  -# Switch from load-all/javascript-select to
+  -# load-active-only.  
+  -# = add_all_datasource_landing_pages
+  = datasource_landing_page(@active_source)
 
 - else
 

@@ -14,19 +14,30 @@ $ ->
       -> $("#datasource_expand").show()
     )
 
+# 
+#  DISABLE - this never worked well with the browser's
+#            back/forward buttons, so go back to normal
+#            page fetches for landing pages.
+# (see NEXT-978 - "Back" button broken in CLIO)
+# 
+  # # Fire-off Javascript-based switching between datasources
+  # $(".datasource_link").click ->
+  #   change_datasource($(this).attr('source'))
+  #   #$("#mobile_datasource_select").val($(this).attr('source'))
 
-  # Fire-off Javascript-based switching between datasources
-  $(".datasource_link,.datasource_drop_link").click ->
-    change_datasource($(this).attr('source'))
-    #$("#mobile_datasource_select").val($(this).attr('source'))
 
-
-  $(".basic_search .search_q").observe_field(.25, ->
-      if $(this).is(":visible")
-        value = $(this).val()
-        $(".basic_search .search_q:hidden").val(value)
-
-  )
+# This code copies the value entered in the visible basic-search-box
+# to all the hidden basic-search-boxes.
+# This is only relevant for Javascript-based datasource-switching.
+# When we use real href links to point to other datasources, we
+# build those links to include "q", if defined.
+# Note - text entered but not yet searched-upon used to transfer
+# between datasources.  This no longer works.  Does this matter?
+  # $(".basic_search .search_q").observe_field(.25, ->
+  #     if $(this).is(":visible")
+  #       value = $(this).val()
+  #       $(".basic_search .search_q:hidden").val(value)
+  # )
 
   bind_dropdown_selects()
 

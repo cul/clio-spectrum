@@ -17,22 +17,24 @@ module DatasourcesHelper
     )
   end
 
-  def add_all_datasource_landing_pages
-    content_tag('div', :class => 'landing_pages') do
-      datasource_list(:all).collect do |source|
-        datasource_landing_page(source)
-      end.join('').html_safe
-    end
-
-  end
+  # switch from loading all landing-pages/switching via javascript
+  # to loading only single-source landing-page, select with page-fetch
+  # def add_all_datasource_landing_pages
+  #   content_tag('div', :class => 'landing_pages') do
+  #     datasource_list(:all).collect do |source|
+  #       datasource_landing_page(source)
+  #     end.join('').html_safe
+  #   end
+  # end
 
   def datasource_landing_page(source)
-    classes = ['landing_page', source]
-    classes << 'selected' if source == @active_source
-    search_config = SEARCHES_CONFIG['sources'][source]
-    warning = search_config ? search_config['warning'] : nil;
-    content_tag(:div, render(:partial => "/_search/landing_pages/#{source}", :locals => {warning: warning}), :class => classes.join(' '))
-    # content_tag(:div, render(:partial => "/_search/landing_pages/#{source}"), :class => classes.join(' '))
+    content_tag('div', :class => 'landing_pages') do
+      classes = ['landing_page', source]
+      classes << 'selected' if source == @active_source
+      search_config = SEARCHES_CONFIG['sources'][source]
+      warning = search_config ? search_config['warning'] : nil;
+      content_tag(:div, render(:partial => "/_search/landing_pages/#{source}", :locals => {warning: warning}), :class => classes.join(' '))
+    end
   end
 
   def datasources_active_list(options = {})
@@ -125,7 +127,10 @@ module DatasourcesHelper
     li_classes << "subsource" if options[:subsource]
 
     href = unless active_query?()
-      '#'
+      # The "do-nothing" link
+      # '#'
+      # Link to source's landing page
+      "/#{source}"
     else
       case source
       when 'quicksearch'

@@ -9,7 +9,9 @@ describe "Catalog Advanced Search" do
     search_text = 'Japan Times & Mail'
 
     visit root_path
-    find('li.datasource_link[source=catalog]').click
+    within('li.datasource_link[source="catalog"]') do
+      click_link("Catalog")
+    end
     find('#catalog_q').should be_visible
     page.should have_no_selector('.landing_page.catalog .advanced_search')
 
@@ -36,7 +38,9 @@ describe "Catalog Advanced Search" do
   # NEXT-705 - "All Fields" should be default, and should be first option
   it "should default to 'All Fields'", :js => true do
     visit root_path
-    find('li.datasource_link[source=catalog]').click
+    within('li.datasource_link[source="catalog"]') do
+      click_link("Catalog")
+    end
 
     find('.search_box.catalog .advanced_search_toggle').click
 
@@ -68,7 +72,9 @@ describe "Catalog Advanced Search" do
     search_isbn = '978-1-4615-2974-3'
 
     visit root_path
-    find('li.datasource_link[source=catalog]').click
+    within('li.datasource_link[source="catalog"]') do
+      click_link("Catalog")
+    end
 
     find('.search_box.catalog .advanced_search_toggle').click
 
