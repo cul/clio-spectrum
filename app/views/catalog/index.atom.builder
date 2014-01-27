@@ -67,7 +67,9 @@ xml.feed("xmlns" => "http://www.w3.org/2005/Atom",
 
       with_format("html") do
         xml.summary "type" => "html" do
-	            xml.text! render_document_partial(doc, :index)
+              # hardcode a specific CLIO partial to create HTML atom summary
+              # xml.text! render_document_partial(doc, :index)
+              xml.text! render('/catalog/atom_summary', :document => doc)
         end
       end
 

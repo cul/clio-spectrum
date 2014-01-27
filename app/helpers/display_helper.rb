@@ -390,9 +390,12 @@ module DisplayHelper
     result = ""
     if options[:display_blank] || !value_txt.empty?
       if options[:style] == :text
-        result = (title.to_s + ": " + value_txt.to_s + "\r\n").html_safe
+        result = (title.to_s + ": " + value_txt.to_s + "\n").html_safe
+      elsif options[:style] == :dlist
+        # result = (title.to_s + ": " + value_txt.to_s + "\r\n").html_safe
+        result = content_tag(:dt, title.to_s) + "\n" +
+                 content_tag(:dd, value_txt.to_s)
       else
-
         result = content_tag(:div, :class => "document-row") do
           if options[:style] == :definition
             content_tag(:div, title.to_s.html_safe, :class => "field span#{spans.first}") + content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "value span#{spans.last}")
