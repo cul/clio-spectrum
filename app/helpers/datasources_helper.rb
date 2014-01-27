@@ -27,7 +27,8 @@ module DatasourcesHelper
   #   end
   # end
 
-  def datasource_landing_page(source)
+  # Output the HTML of a single landing page for the passed data-source
+  def datasource_landing_page(source = @active_source)
     content_tag('div', :class => 'landing_pages') do
       classes = ['landing_page', source]
       classes << 'selected' if source == @active_source
@@ -41,7 +42,8 @@ module DatasourcesHelper
     if options[:all_sources]
       datasource_list(:all)
     else
-      datasource_list(:major) | datasource_list(:minor).select { |s| s == options[:active] }
+      datasource_list(:major) |
+      datasource_list(:minor).select { |source| source == options[:active_source] }
     end
   end
 
@@ -50,29 +52,36 @@ module DatasourcesHelper
     if options[:all_sources]
       []
     else
-       datasource_list(:minor).reject { |s| s == options[:active] }
+       datasource_list(:minor).reject { |source| source == options[:active_source] }
     end
   end
 
-
-  def add_datasources(active)
+  # Called from several layouts to add the stack of datasources to the sidebar.
+  # Takes as arg the source to mark as active.
+  # Returns an HTML <UL> list of datasources
+  def add_datasources(active_source = @active_source)
     options = {
-      :active => active,
+      :active_source => active_source,
       :query => params['q'] || params['s.q'] || ""
     }
 
-    has_facets = source_has_facets?(active)
+    has_facets = source_has_facets?(active_source)
+    # Show all datasources when there's no current query, or 
+    # when we're in a datasource that doesn't have facets.
     options[:all_sources] = !active_query? || !has_facets
 
     result = []
     result |= datasources_active_list(options).collect { |src|
-      datasource_item(src,options)
+      single_datasource_list_item(src, options)
     }
 
+    # If there are hidden data-sources, gather them up wrapped w/ expand/contract links
     unless (hidden_datasources = datasources_hidden_list(options)).empty?
       result << content_tag(:li, link_to("More...", "#"),  :id => "datasource_expand")
 
-      sub_results = hidden_datasources.collect { |src| datasource_item(src,options) }
+      sub_results = hidden_datasources.collect { |src|
+        single_datasource_list_item(src, options)
+      }
 
       sub_results << content_tag(:li, link_to("Fewer...", "#"), :id => "datasource_contract")
       result << content_tag(:ul, sub_results.join('').html_safe, :id => 'expanded_datasources')
@@ -80,7 +89,9 @@ module DatasourcesHelper
 
     landing_class = options[:all_sources] ? 'landing datasource_list' : 'datasource_list'
     landing_class += " no_facets" unless has_facets
-    clio_sidebar_items.unshift(content_tag(:ul, result.join('').html_safe, :id => "datasources", :class => landing_class))
+    clio_sidebar_items.unshift(
+      content_tag(:ul, result.join('').html_safe, :id => "datasources", :class => landing_class)
+    )
   end
 
 
@@ -114,22 +125,24 @@ module DatasourcesHelper
   end
 
 
-  # Build up the HTML of a datasource link, to be used along the left-side menu.
+  # Build up the HTML of a single datasource link, to be used along the left-side menu.
   # Should be an <li>, with an <a href> inside it.
   # The link should re-run the current search against the new data-source.
-  def datasource_item(source, options)
+  def single_datasource_list_item(source, options)
     classes = []
     classes << 'minor_source' if options[:minor]
     query = options[:query]
 
     li_classes = %w{datasource_link}
-    li_classes << "selected" if source == options[:active]
+    li_classes << "selected" if source == options[:active_source]
     li_classes << "subsource" if options[:subsource]
 
-    href = unless active_query?()
-      # The "do-nothing" link
-      # '#'
-      # Link to source's landing page
+    # What parts of a query should we carry-over between data-sources?
+    # -- Any basic query term, yes, query it against the newly selected datasources
+    # -- Any facets?  Drop them, clear all filtering when switching datasources.
+    # NEXT-954 - Improve Landing Page access
+    href = if query.empty?
+      # Don't carry-over the null query, just link to new datasource's landing page
       "/#{source}"
     else
       case source
