@@ -51,6 +51,11 @@ module SearchHelper
       # Rails.logger.debug "display_advanced_search() source=[#{source}]"
       return render '/spectrum/summon/advanced_search', source: source, path: source == "articles" ? articles_index_path : newspapers_index_path
     end
+    # Add a special 'Start Over' link when a QuickSearch query is active
+    # NEXT-612 - Quick search page doesn't let you start over
+    if source == 'quicksearch' && params['q'].present?
+      return render '/quicksearch/start_over'
+    end
   end
 
   def display_search_form(source)
