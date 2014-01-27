@@ -19,8 +19,8 @@ gem 'thin'
 # gem 'unicorn'
 
 gem 'blacklight', '~>4.3.0'
-# gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
-gem 'blacklight_range_limit', :github => 'projectblacklight/blacklight_range_limit'
+gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
+# gem 'blacklight_range_limit', :github => 'projectblacklight/blacklight_range_limit'
 
 
 
@@ -98,7 +98,8 @@ gem 'newrelic_rpm'
 #    application#catch_404s (ArgumentError) "invalid %-encoding"
 # We also still have invalid %-encoding w/submitted form fields.
 # This is an open issue at rack-utf8_sanitizer.
-gem 'rack-utf8_sanitizer', :github => 'whitequark/rack-utf8_sanitizer'
+# gem 'rack-utf8_sanitizer', :github => 'whitequark/rack-utf8_sanitizer'
+gem 'rack-utf8_sanitizer', :git => 'git://github.com/whitequark/rack-utf8_sanitizer'
 
 
 gem 'jquery-rails'

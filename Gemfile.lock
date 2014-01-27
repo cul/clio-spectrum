@@ -1,14 +1,15 @@
 GIT
   remote: git://github.com/projectblacklight/blacklight_range_limit.git
-  revision: 8d3aea7d766100f4e1f0fdcba8c0dbd668060ac4
+  revision: 9fb2a8ee1d0169491a2096e20920b7035c91b812
+  branch: master
   specs:
     blacklight_range_limit (2.0.1)
       blacklight (~> 4.0)
       jquery-rails
-      rails (>= 3.0, <= 5.0)
+      rails (>= 3.0, < 5.0)
 
 GIT
-  remote: git://github.com/whitequark/rack-utf8_sanitizer.git
+  remote: git://github.com/whitequark/rack-utf8_sanitizer
   revision: b3ca5bc8467ffc81f1b4b54c6587dbc453611466
   specs:
     rack-utf8_sanitizer (1.1.0)
