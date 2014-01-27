@@ -58,20 +58,25 @@ class CatalogController < ApplicationController
     # replicates has_search_parameters?() from blacklight's catalog_helper_behavior.rb
     @show_landing_pages = (params[:q].blank? && @filters.blank? && params[:search_field].blank?)
 
-    extra_head_content <<
-      view_context.auto_discovery_link_tag(
-        :rss,
-        url_for(params.merge(:format => 'rss')), :title => "RSS for results")
-    extra_head_content <<
-      view_context.auto_discovery_link_tag(
-        :atom,
-        url_for(params.merge(:format => 'atom')), :title => "Atom for results")
+    # Only do the following if we have search parameters 
+    # (i.e., if show-landing-pages is false)
+    unless @show_landing_pages
 
-    # runs the blacklight_search from application_controller using the params,
-    # returns the engine with embedded results
-    engine = blacklight_search(params)
-    @response = engine.search
-    @document_list = engine.documents
+      extra_head_content <<
+        view_context.auto_discovery_link_tag(
+          :rss,
+          url_for(params.merge(:format => 'rss')), :title => "RSS for results")
+      extra_head_content <<
+        view_context.auto_discovery_link_tag(
+          :atom,
+          url_for(params.merge(:format => 'atom')), :title => "Atom for results")
+
+      # runs the blacklight_search from application_controller using the params,
+      # returns the engine with embedded results
+      engine = blacklight_search(params)
+      @response = engine.search
+      @document_list = engine.documents
+    end
 
 
     # reach into search config to find possible source-specific service alert warning
