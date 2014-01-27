@@ -11,6 +11,8 @@ GIT
   remote: git://github.com/whitequark/rack-utf8_sanitizer.git
   revision: b3ca5bc8467ffc81f1b4b54c6587dbc453611466
   specs:
+    rack-utf8_sanitizer (1.1.0)
+      rack (~> 1.0)
 
 GEM
   remote: http://rubygems.org/
@@ -216,8 +218,6 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    rack-utf8_sanitizer (1.1.0)
-      rack (~> 1.0)
     rails (3.2.16)
       actionmailer (= 3.2.16)
       actionpack (= 3.2.16)
