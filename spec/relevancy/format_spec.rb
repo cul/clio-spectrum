@@ -20,6 +20,15 @@ describe 'Format assignments for types of "Computer Files"' do
 
   end
 
+  it "Single format:  Other" do
+    bibList = [ 8617143 ]
+    bibList.each { |bib|
+      resp = solr_response({'q'=>"id:#{bib}", 'fl'=>'id,format', 'facet'=>false})
+      formatList = resp["response"]["docs"][0]["format"]
+      formatList.should == ['Other']
+    }
+  end
+
   it "Single format:  Computer File" do
     bibList = [ 2996414, 3041516, 3238417, 3359137 ]
     bibList.each { |bib|
@@ -30,7 +39,7 @@ describe 'Format assignments for types of "Computer Files"' do
   end
 
   it "Single format:  Computer Program" do
-    bibList = [ 519699, 519712, 620786, 705052, 742254, 959054, 1242420, 8617143 ]
+    bibList = [ 519699, 519712, 620786, 705052, 742254, 959054, 1242420 ]
     bibList.each { |bib|
       resp = solr_response({'q'=>"id:#{bib}", 'fl'=>'id,format', 'facet'=>false})
       formatList = resp["response"]["docs"][0]["format"]
