@@ -61,7 +61,6 @@ GEM
       rails (>= 3.2.6, < 5)
       rsolr (~> 1.0.6)
       sass-rails
-    blacklight_google_analytics (0.0.1.pre3)
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
     builder (3.0.4)
@@ -317,7 +316,6 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   blacklight (~> 4.3.0)
-  blacklight_google_analytics
   blacklight_range_limit!
   bootstrap-sass
   cancan

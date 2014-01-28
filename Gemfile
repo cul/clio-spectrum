@@ -23,9 +23,6 @@ gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blackl
 # gem 'blacklight_range_limit', :github => 'projectblacklight/blacklight_range_limit'
 
 
-
-gem 'blacklight_google_analytics'
-
 # Sorry, have to nix unapi.  Switch to COINS everywhere, so that
 # single page cross-datasource citation works (QuickSearch, Saved Lists)
 # gem 'blacklight_unapi', ">= 0.0.3"

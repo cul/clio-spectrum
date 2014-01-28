@@ -9,10 +9,8 @@ describe 'Prod Environment' do
 
     # should have correct production value
     Rails.env = 'clio_prod'
-    require File.join(Rails.root, "config/initializers/blacklight_google_analytics.rb")
+    require File.join(Rails.root, "config/initializers/google_analytics.rb")
     BlacklightGoogleAnalytics.web_property_id.should == 'UA-28923110-1'
-
-    
   end
 
 end
