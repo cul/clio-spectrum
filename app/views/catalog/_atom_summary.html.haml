@@ -12,10 +12,10 @@
 
 
 %dl
-  = add_row('Title', document.get("title_display"), :style => :dlist)
-  = add_row('Author', document.get("author_display"), :style => :dlist)
-  = add_row('Published', document.get("full_publisher_display"), :style => :dlist)
+  -# = add_row('Title', document.get("title_display"), :style => :dlist)
+  = add_row('Author:', document.get("author_display"), :style => :dlist)
+  = add_row('Published:', document.get("full_publisher_display"), :style => :dlist)
   - unless (locations = document["location_call_number_id_display"].listify.reject { |l| l.match(/^Online/) }).empty?
-    = add_row("Location", format_location_results(locations, document), :style => :dlist)
-  = add_row('Online', format_online_results(online_link_hash(document)), :style => :dlist)
+    = add_row('Location:', format_location_results(locations, document), :style => :dlist)
+  = add_row('Online:', format_online_results(online_link_hash(document)), :style => :dlist)
 
