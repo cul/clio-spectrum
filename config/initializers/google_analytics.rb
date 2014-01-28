@@ -1,5 +1,9 @@
+module GoogleAnalytics
+
 # Change to your Google Web id
-BlacklightGoogleAnalytics.web_property_id = case Rails.env.to_s
+# GoogleAnalytics.web_property_id = case Rails.env.to_s
+
+web_property_id = case Rails.env.to_s
 
 # PROD
 when 'clio_prod'
@@ -21,3 +25,4 @@ else
 
 end
 
+end
