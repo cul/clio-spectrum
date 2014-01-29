@@ -43,7 +43,7 @@ module SearchHelper
 
   def display_advanced_search(source)
     options = DATASOURCES_CONFIG['datasources'][source]['search_box'] || {}
-    blacklight_config = Spectrum::Engines::Solr.generate_config(source)
+    blacklight_config = Spectrum::SearchEngines::Solr.generate_config(source)
     if options['search_type'] == "blacklight" && options['advanced'] == true
       return fix_catalog_links(render('/catalog/advanced_search', :localized_params => params), source)
     end
@@ -73,7 +73,7 @@ module SearchHelper
 
       # BASIC SEARCH INPUT BOX
       summon_query_as_hash = {}
-      if @results.kind_of?(Hash) && @results.values.first.instance_of?(Spectrum::Engines::Summon)
+      if @results.kind_of?(Hash) && @results.values.first.instance_of?(Spectrum::SearchEngines::Summon)
         # when summon fails, these may be nil
         if @results.values.first.search && @results.values.first.search.query
           summon_query_as_hash = @results.values.first.search.query.to_hash

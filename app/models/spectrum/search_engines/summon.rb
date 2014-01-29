@@ -1,6 +1,6 @@
 
 module Spectrum
-  module Engines
+  module SearchEngines
     class Summon
       include ActionView::Helpers::NumberHelper
       include Rails.application.routes.url_helpers

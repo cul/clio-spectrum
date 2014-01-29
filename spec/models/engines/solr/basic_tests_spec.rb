@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'spec_helper'
 
-describe 'Spectrum::Engines::Solr' do
+describe 'Spectrum::SearchEngines::Solr' do
 
   solr_url = nil
   solr_url = SOLR_CONFIG['test']['url']
@@ -16,7 +16,7 @@ describe 'Spectrum::Engines::Solr' do
     end
 
     it 'should return that number of results' do
-      eng = Spectrum::Engines::Solr.new('source' => 'catalog', :q => 'Smith', :search_field => 'all_fields', :rows => @result_count, 'solr_url' => solr_url)
+      eng = Spectrum::SearchEngines::Solr.new('source' => 'catalog', :q => 'Smith', :search_field => 'all_fields', :rows => @result_count, 'solr_url' => solr_url)
       eng.results.should_not be_empty
       eng.results.size.should equal(@result_count)
     end
@@ -27,7 +27,7 @@ describe 'Spectrum::Engines::Solr' do
 
   describe 'for searches with diacritics' do
     it 'should find an author with diacritics' do
-      eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'turk edebiyatinda', :search_field => 'author', 'solr_url' => solr_url)
+      eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'turk edebiyatinda', :search_field => 'author', 'solr_url' => solr_url)
       eng.results.should_not be_empty
       eng.results.first.get('author_display').should include("Edebiyat\u0131nda")
     end
@@ -39,7 +39,7 @@ describe 'Spectrum::Engines::Solr' do
   # correct wildcard (child* ==> children)
   describe 'searches for "child* autobiography..." in Catalog' do
     it 'should find "autobiographies of children" ' do
-      eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'child* autobiography asian north american honolulu', :search_field => 'all_fields', 'solr_url' => solr_url)
+      eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'child* autobiography asian north american honolulu', :search_field => 'all_fields', 'solr_url' => solr_url)
       # puts eng.solr_search_params
       eng.results.should_not be_empty
       # puts eng.results.first.get('title_display')
@@ -50,7 +50,7 @@ describe 'Spectrum::Engines::Solr' do
   # NEXT-389 - "Debt: The first 5,000 years"
   describe 'search for "debt the first 5000 years" in Catalog' do
     it 'should find "Debt: The first 5,000 years" ' do
-      eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'debt the first 5000 years', :search_field => 'all_fields', 'solr_url' => solr_url)
+      eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'debt the first 5000 years', :search_field => 'all_fields', 'solr_url' => solr_url)
       eng.results.should_not be_empty
       eng.results.first.get('title_display').should match(/Debt/)
       eng.results.first.get('title_display').should match(/the first 5,000 years/)
@@ -63,9 +63,9 @@ describe 'Spectrum::Engines::Solr' do
   # 2165B*  - 2125 records
   describe 'search for "2165B*" in Catalog' do
     it 'should find more than 2165B or 2165BAP alone' do
-      eng_b = Spectrum::Engines::Solr.new(:source => 'catalog', :q => '2165B', :search_field => 'all_fields', 'solr_url' => solr_url)
-      eng_bap = Spectrum::Engines::Solr.new(:source => 'catalog', :q => '2165BAP', :search_field => 'all_fields', 'solr_url' => solr_url)
-      eng_wildcard = Spectrum::Engines::Solr.new(:source => 'catalog', :q => '2165B*', :search_field => 'all_fields', 'solr_url' => solr_url)
+      eng_b = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => '2165B', :search_field => 'all_fields', 'solr_url' => solr_url)
+      eng_bap = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => '2165BAP', :search_field => 'all_fields', 'solr_url' => solr_url)
+      eng_wildcard = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => '2165B*', :search_field => 'all_fields', 'solr_url' => solr_url)
       eng_wildcard.total_items.should be > eng_b.total_items
       eng_wildcard.total_items.should be > eng_bap.total_items
     end
@@ -75,7 +75,7 @@ describe 'Spectrum::Engines::Solr' do
   # NEXT-415
   describe 'searches for "New Yorker" in Journals' do
     it 'should find "The New Yorker" as the first result' do
-      eng = Spectrum::Engines::Solr.new(:source => 'journals', :q => 'New Yorker', :search_field => 'all_fields', 'solr_url' => solr_url)
+      eng = Spectrum::SearchEngines::Solr.new(:source => 'journals', :q => 'New Yorker', :search_field => 'all_fields', 'solr_url' => solr_url)
       eng.results.should_not be_empty
       eng.results.first.get('title_display').should match(/The.New.Yorker/)
     end
@@ -85,7 +85,7 @@ describe 'Spectrum::Engines::Solr' do
   # NEXT-429
   describe 'catalog all-field searches with embedded space-colon-space' do
     it 'should return search results' do
-      eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'Clemens Krauss : Denk Display', :search_field => 'all_fields', 'solr_url' => solr_url)
+      eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'Clemens Krauss : Denk Display', :search_field => 'all_fields', 'solr_url' => solr_url)
       eng.results.should_not be_empty
       eng.results.first.get('title_display').should include('Clemens Krauss')
       eng.results.first.get('title_display').should include('Denk Display')
@@ -101,7 +101,7 @@ describe 'Spectrum::Engines::Solr' do
     it 'should return full-phrase title/author matches before split-field matches' do
 
 
-      eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'Judith Butler', :search_field => 'all_fields', :rows => @result_count, 'solr_url' => solr_url)
+      eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'Judith Butler', :search_field => 'all_fields', :rows => @result_count, 'solr_url' => solr_url)
       eng.results.should_not be_empty
       # eng.results.size.should equal(@result_count)
       eng.results.each do |result|
@@ -113,7 +113,7 @@ describe 'Spectrum::Engines::Solr' do
   # NEXT-478
   describe 'search for "Nature"' do
     it 'should return matches on "Nature" before "Naturalization"' do
-      eng = Spectrum::Engines::Solr.new(:source => 'catalog', :q => 'nature', :search_field => 'all_fields', 'solr_url' => solr_url)
+      eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'nature', :search_field => 'all_fields', 'solr_url' => solr_url)
 
       # puts "XXXXXXXXXXXX   results.size: #{eng.results.size.to_s}"
       found_naturA = false

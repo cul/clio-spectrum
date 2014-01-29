@@ -73,9 +73,9 @@ class CatalogController < ApplicationController
 
       # runs the blacklight_search from application_controller using the params,
       # returns the engine with embedded results
-      engine = blacklight_search(params)
-      @response = engine.search
-      @document_list = engine.documents
+      search_engine = blacklight_search(params)
+      @response = search_engine.search
+      @document_list = search_engine.documents
     end
 
 
@@ -221,7 +221,7 @@ class CatalogController < ApplicationController
   def add_custom_solr_search_params_logic
     # this "solr_search_params_logic" is used when querying using standard
     # blacklight functions
-    # queries using our Solr engine have their own config in Spectrum::Engines::Solr
+    # queries using our Solr engine have their own config in Spectrum::SearchEngines::Solr
     unless solr_search_params_logic.include? :add_advanced_search_to_solr
       solr_search_params_logic << :add_advanced_search_to_solr
     end

@@ -16,7 +16,7 @@
       -#   - summon_query_as_hash = @results['articles'].search.query.to_hash
       -# - raise
       - summon_query_as_hash = {}
-      - if @results.kind_of?(Hash) && @results.values.first.instance_of?(Spectrum::Engines::Summon)
+      - if @results.kind_of?(Hash) && @results.values.first.instance_of?(Spectrum::SearchEngines::Summon)
         -# But don't put s.fq/s.q as hidden fields, since they'll be in the below form.
         -# when summon fails, these may be nil
         - if @results.values.first.search && @results.values.first.search.query

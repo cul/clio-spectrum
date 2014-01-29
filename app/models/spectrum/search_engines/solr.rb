@@ -1,5 +1,5 @@
 module Spectrum
-  module Engines
+  module SearchEngines
     class Solr
       include ActionView::Helpers::NumberHelper
       include Rails.application.routes.url_helpers
@@ -40,7 +40,7 @@ module Spectrum
         Rails.logger.info "[Spectrum][Solr] source: #{@source} params: #{@params}"
 
         begin
-          # here's the actual search, defined later in this engine
+          # here's the actual search, defined below
           perform_search
         rescue => ex
           Rails.logger.error "#{self.class}##{__method__} [Spectrum][Solr] error: #{ex.message}"
@@ -756,7 +756,7 @@ module Spectrum
 
     end # class Solr
 
-  end # module Engines
+  end # module SearchEngines
 
 end # module Spectrum
 
