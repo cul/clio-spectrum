@@ -18,7 +18,6 @@ gem 'sqlite3'
 gem 'thin'
 # gem 'unicorn'
 
-gem 'blacklight', '~>4.3.0'
 gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
 # gem 'blacklight_range_limit', :github => 'projectblacklight/blacklight_range_limit'
 
