@@ -13,6 +13,8 @@ gem 'devise_wind'
 # gem "devise_wind", :path => "/Users/marquis/src/devise_wind"
 
 
+gem 'clicktale', path: "lib/clicktale"
+
 gem 'sqlite3'
 
 gem 'thin'

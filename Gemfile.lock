@@ -15,6 +15,12 @@ GIT
     rack-utf8_sanitizer (1.1.0)
       rack (~> 1.0)
 
+PATH
+  remote: lib/clicktale
+  specs:
+    clicktale (0.1)
+      rails (~> 3.2.16)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -323,6 +329,7 @@ DEPENDENCIES
   capistrano-ext
   capybara
   capybara-webkit
+  clicktale!
   coffee-rails
   database_cleaner
   debugger

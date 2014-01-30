@@ -1,0 +1,98 @@
+module Clicktale
+  module Controller
+
+    def self.included(base)
+      # puts '=========== CCC'
+
+      base.class_eval do
+        @@clicktale_options = {}
+        around_filter :clicktaleize
+        helper_method :clicktale_enabled?
+        helper_method :clicktale_config
+        helper_method :clicktale_path
+        helper_method :clicktale_url
+      end
+      base.send(:extend, ClassMethods)
+    end
+
+    module ClassMethods
+      def clicktale(opts = {})
+        @@clicktale_options = opts
+      end
+    end
+
+    def clicktale(opts = {})
+      @clicktale_options = opts
+    end
+
+    def clicktaleize
+# puts '=========== DDD'
+      res = yield
+# puts "=========== clicktale_enabled?[#{clicktale_enabled?}]"
+# puts "=========== response.body.present?[#{response.body.present?}]"
+      if clicktale_enabled? && response.body.present?
+        body = response.body
+        top_regexp = clicktale_config[:insert_after] || /(\<body[^\>]*\>)/
+        bottom_regexp = clicktale_config[:insert_before] || /(\<\/body\>)/
+# puts "=========== top_regexp[#{top_regexp.inspect}]"
+# puts "=========== bottom_regexp[#{bottom_regexp.inspect}]"
+        # response.body.sub!(top_regexp) { |match| match + "\n" + clicktale_config[:top] }
+        # response.body.sub!(bottom_regexp) { |match| clicktale_bottom + "\n" + match }
+        body.sub!(top_regexp) { |match| match + "\n" + clicktale_config[:top] }
+        body.sub!(bottom_regexp) { |match| "\n\n" + clicktale_bottom + "\n\n" + match }
+# puts "=========== clicktale_config[:top][#{clicktale_config[:top]}]"
+# puts "=========== clicktale_bottom[#{clicktale_bottom}]"
+# puts "=========== body[#{body}] =============="
+# puts "=========== response.body[#{response.body}] =============="
+        response.body = body
+        cache_path = "/clicktale/#{clicktale_cache_token}"
+        cache_page(nil, cache_path)
+      end
+      res
+    end
+
+    def clicktale_enabled?
+      @clicktale_enabled ||= clicktale_config[:enabled] &&
+        request.format.try(:html?) &&
+        request.get? &&
+        !(request.path =~ /clicktale.*\.html$/) &&
+        cookie_enabled? &&
+        regexp_enabled?
+    end
+
+    def clicktale_config
+      @clicktale_config ||= Clicktale::CONFIG.merge(@@clicktale_options || {}).merge(@clicktale_options || {})
+    end
+
+    protected
+
+    def clicktale_bottom
+      clicktale_config[:bottom].gsub(/ClickTaleFetchFromURL/, clicktale_url)
+      # clicktale_config[:bottom].gsub!(/(if.*typeof.*ClickTale.*function)/, "\nvar ClickTaleFetchFrom='#{clicktale_url}';\n\\1")
+    end
+
+    def regexp_enabled?
+      clicktale_config[:do_not_replace].present? ? !(response.body =~ clicktale_config[:do_not_replace]) : true
+    end
+
+    def cookie_enabled?
+      if clicktale_config[:do_not_process_cookie_name].present?
+        cookies[clicktale_config[:do_not_process_cookie_name]] != clicktale_config[:do_not_process_cookie_value]
+      else
+        true
+      end
+    end
+
+    def clicktale_cache_token(extra = "")
+      @clicktale_cache_token ||= Digest::SHA1.hexdigest(Time.now.to_s.split(//).sort_by {rand}.join + extra)
+    end
+
+    def clicktale_path
+      @clicktale_path ||= "/clicktale/#{clicktale_cache_token}.html"
+    end
+
+    def clicktale_url
+      @clicktale_url ||= "#{request.protocol}#{request.host_with_port}#{clicktale_path}"
+    end
+  end
+end
