@@ -53,7 +53,7 @@ module Clicktale
 
     def clicktale_enabled?
       @clicktale_enabled ||= clicktale_config[:enabled] &&
-        clicktale_config[:CLICKTALE_PROJECT_CODE] &&
+        clicktale_config[:clicktale_project_code] &&
         request.format.try(:html?) &&
         request.get? &&
         !(request.path =~ /clicktale.*\.html$/) &&
@@ -70,7 +70,7 @@ module Clicktale
     def clicktale_bottom
       clicktale_config[:bottom].
         gsub(/CLICKTALE_FETCH_FROM_URL/, clicktale_url).
-        gsub(/CLICKTALE_PROJECT_CODE/, clicktale_config[:CLICKTALE_PROJECT_CODE] || 'none')
+        gsub(/CLICKTALE_PROJECT_CODE/, clicktale_config[:clicktale_project_code] || 'none')
       # clicktale_config[:bottom].gsub!(/(if.*typeof.*ClickTale.*function)/, "\nvar ClickTaleFetchFrom='#{clicktale_url}';\n\\1")
     end
 
