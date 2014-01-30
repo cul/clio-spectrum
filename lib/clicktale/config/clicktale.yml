@@ -45,9 +45,6 @@ default: &default
   do_not_process_cookie_name: "WRUID"
   do_not_process_cookie_value: 0
   
-production:
-  <<: *default
-  enabled: true
 
 development:
   <<: *default
@@ -56,3 +53,16 @@ development:
 test:
   <<: *default
   enabled: false
+
+clio_dev:
+  <<: *default
+  enabled: true
+
+clio_test:
+  <<: *default
+  enabled: true
+
+clio_prod:
+  <<: *default
+  enabled: true
+
