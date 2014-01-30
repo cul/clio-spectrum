@@ -11,31 +11,16 @@ default: &default
     <!-- ClickTale Bottom part -->
     <script type="text/javascript">
 
-      ClickTaleFetchFrom="ClickTaleFetchFromURL";     
+      ClickTaleFetchFrom="CLICKTALE_FETCH_FROM_URL";     
 
       document.write(unescape("%3Cscript%20src='"+
        (document.location.protocol=='https:'?
-       "https://clicktalecdn.sslcs.cdngc.net/www02/ptc/702c4f64-c74b-4576-82b3-cd6fc453355c.js":
-       "http://cdn.clicktale.net/www02/ptc/702c4f64-c74b-4576-82b3-cd6fc453355c.js")+
+       "https://clicktalecdn.sslcs.cdngc.net/www02/ptc/CLICKTALE_PROJECT_CODE.js":
+       "http://cdn.clicktale.net/www02/ptc/CLICKTALE_PROJECT_CODE.js")+
        "'%20type='text/javascript'%3E%3C/script%3E"));
 
     </script>
     <!-- ClickTale end of Bottom part -->
-
-  oldbottom: '<!-- ClickTale Bottom part -->
-    <div id="ClickTaleDiv" style="display: none;"></div>
-    <script type="text/javascript">
-    document.write(unescape("%3Cscript%20src=''"+
-     (document.location.protocol=="https:"?
-      "https://clicktale.pantherssl.com/":
-      "http://s.clicktale.net/")+
-     "WRc5.js''%20type=''text/javascript''%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-    var ClickTaleSSL=1;
-    if(typeof ClickTale=="function") ClickTale(<project_id>, <ratio>, <param>);
-    </script>
-    <!-- ClickTale end of Bottom part -->'
 
 
   #do_not_replace: !ruby/regexp /Not to record when this text is present on the page/i
@@ -56,13 +41,18 @@ test:
 
 clio_dev:
   <<: *default
+  clicktale_project_code:  702c4f64-c74b-4576-82b3-cd6fc453355c
   enabled: true
 
 clio_test:
   <<: *default
+  clicktale_project_code:  5db10c69-6fd3-4fc9-a517-c50632d2fe4f
   enabled: true
 
 clio_prod:
   <<: *default
+  clicktale_project_code:  7e9f9a20-18c7-4ea5-8e56-e0b79654a007
   enabled: true
+
+
 
