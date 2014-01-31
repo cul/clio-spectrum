@@ -42,7 +42,7 @@ body.blank_layout {
   padding-left: .2em;
   padding-right: .2em;
 }
-@media (max-width: 979px) {
+@media screen and (max-width: 979px) {
   #outer-container {
     margin-top: -18px;
     border-top: 0;
@@ -52,13 +52,12 @@ body.blank_layout {
     padding-top: 0;	
   }
 }
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
   #outer-container {
     margin-left: -10px;
     margin-right: -10px;
   }
 }
-
 
 
 
