@@ -366,6 +366,9 @@ publisher:
 publisher_no:
     -   tag: '028'
         display: ab
+related_to:
+    -   tag: 787
+        display: abcdghikmnorst
 reproduction_note:
     -   tag: 533
         display: abcdefmn3
