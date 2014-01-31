@@ -31,9 +31,9 @@ default: &default
   do_not_process_cookie_value: 0
   
 
-development:
-  <<: *default
-  enabled: true
+# development:
+#   <<: *default
+#   enabled: true
   
 test:
   <<: *default

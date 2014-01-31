@@ -1,9 +1,4 @@
-
-# require 'action_controller'
-# require 'action_view'
-
 require "clicktale/engine"
-
 require 'clicktale/controller'
 require 'clicktale/helper'
 
@@ -26,7 +21,7 @@ module Clicktale
     conffile = File.join(File.dirname(__FILE__)  + "/../config/clicktale.yml")
     conf = YAML.load(File.read(conffile))
 
-    CONFIG.merge!(conf[Rails.env])
+    CONFIG.merge!(conf[Rails.env]) if conf[Rails.env]
   rescue
     puts "*" * 50
     puts "#{conffile} can not be loaded:"

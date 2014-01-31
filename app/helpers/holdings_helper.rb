@@ -37,7 +37,7 @@ module HoldingsHelper
     if call_number
       # NEXT-437 - remove the separator between location and call number
       # output << " >> "
-      output << content_tag(:span, " #{call_number}", class: 'call_number').html_safe
+      output << content_tag(:span, " #{call_number} ", class: 'call_number').html_safe
     end
     output
   end
