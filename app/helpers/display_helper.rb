@@ -391,10 +391,9 @@ module DisplayHelper
     if options[:display_blank] || !value_txt.empty?
       if options[:style] == :text
         result = (title.to_s + ": " + value_txt.to_s + "\n").html_safe
-      elsif options[:style] == :dlist
-        # result = (title.to_s + ": " + value_txt.to_s + "\r\n").html_safe
-        result = content_tag(:dt, title.to_s) + "\n" +
-                 content_tag(:dd, value_txt.to_s)
+      # elsif options[:style] == :dlist
+      #   result = content_tag(:dt, title.to_s) + "\n" +
+      #            content_tag(:dd, value_txt.to_s)
       else
         result = content_tag(:div, :class => "document-row") do
           if options[:style] == :definition
