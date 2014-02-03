@@ -46,12 +46,13 @@ clio_dev:
 
 clio_test:
   <<: *default
-  clicktale_project_code:  5db10c69-6fd3-4fc9-a517-c50632d2fe4f
+  clicktale_project_code:  71269e13-938c-48ba-866c-0c3dda436068
   enabled: true
 
 clio_prod:
   <<: *default
-  clicktale_project_code:  7e9f9a20-18c7-4ea5-8e56-e0b79654a007
+  # clicktale_project_code:  7e9f9a20-18c7-4ea5-8e56-e0b79654a007
+  clicktale_project_code:    e25f0937-f6f7-4591-a3c2-caf812cfcb24
   enabled: true
 
 
