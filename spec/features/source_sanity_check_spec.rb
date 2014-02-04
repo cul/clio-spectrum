@@ -101,7 +101,7 @@ describe "Simple query should retrieve results ", :js => true do
     visit newspapers_index_path('q' => 'test')
     page.should have_css('.result')
   end
-  
+
 end
 
 describe "Switching between data-source should work", :js => true do
@@ -111,20 +111,20 @@ describe "Switching between data-source should work", :js => true do
     # page.save_and_open_page # debug
     # terminal newline submits form
     fill_in 'q', :with => "test\n"
-    
+
     page.should have_css(".result_set", :count => 4)
     all('.result_set').each do |result_set|
       result_set.should have_css('.result')
     end
     # page.save_and_open_page # debug
-    
+
     within('#datasources') do
       click_link("Catalog")
     end
     find('div.constraint-box').should have_text('test')
     page.should have_css('.result')
     all('#documents .result').first['source'].should eq 'catalog'
-      
+
 
     click_link("Articles")
     # find('input#articles_q').should have_text('test')
@@ -193,7 +193,7 @@ describe "Switching between data-source should work", :js => true do
     # all('#documents .result').first.should have_css('.article_list')
 
   end
-  
+
   # NEXT-978 - "Back" button broken in CLIO
   it 'should allow back/forward navigation' do
     visit root_path
@@ -203,7 +203,7 @@ describe "Switching between data-source should work", :js => true do
     end
     # page.save_and_open_page # debug
     find('.landing_main .title').should have_text('Catalog')
-    
+
     within('#datasources') do
       click_link("Articles")
     end
@@ -227,6 +227,6 @@ describe "Switching between data-source should work", :js => true do
     find('.landing_main .title').should have_text('Databases')
 
   end
-  
+
 end
 
