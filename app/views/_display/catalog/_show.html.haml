@@ -23,6 +23,10 @@
       - bookmark_as_url = "http://clio.columbia.edu/catalog/#{document.id}"
       = add_row('Bookmark As', link_to(bookmark_as_url, bookmark_as_url) )
 
+      -# On narrow screen (single-column of div.info, div.holdings), make sure 
+      -# div.info expands enough to prevent overlapping by the holdings box
+      .clear-both
+
     -# Database Notes and Alerts
     -# html_safe true, so that ERC can embed HTML links in their alert msgs
     - if document.get("_active_item_alert_count") && document.get("_active_item_alert_count") > 0
@@ -39,17 +43,16 @@
             = add_row(ItemAlert::ALERT_TYPES['access_requirements'], alert[:message], options = {:html_safe => true})
 
 
-
-    .span6.well.clear-both
+    .span6.well.holdings-container
       -# this partial renders, in turn, static html for holdings-online,
       -# holdings-display (Voyager), holdings-google, and holdings-hathi
       = render "_formats/clio/catalog_show_holdings", :document => document
 
-    .clear-both
-      -# this partial inserts the javascript to fetch book data from Google,
-      -# and pass it to update_book_jackets() [defined in holdings.js]
-      = render "google_books_check", :documents => document
+  .clear-both
+    -# this partial inserts the javascript to fetch book data from Google,
+    -# and pass it to update_book_jackets() [defined in holdings.js]
+    = render "google_books_check", :documents => document
 
-      - if @active_source == "databases" && can?(:manage, ItemAlert)
-        = render "/_formats/database/catalog_manage_alert", :document => document
+    - if @active_source == "databases" && can?(:manage, ItemAlert)
+      = render "/_formats/database/catalog_manage_alert", :document => document
 
