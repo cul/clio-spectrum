@@ -56,5 +56,25 @@ describe 'Spectrum::SearchEngines::Summon' do
 
     end
   end
+  
+  describe "Spectrum::SearchEngines::Summon Exception Handling" do
+
+    it 'should catch error when auth fails' do
+      APP_CONFIG['summon']['secret_key'] = 'BROKEN'
+      sum = Spectrum::SearchEngines::Summon.new('source' => 'articles', 's.q' => 'Dog')
+      sum.successful?.should be false
+      sum.errors.should == "401: Unauthorized"
+    end
+    
+    it 'methods should handle broken Summon @search object' do
+      APP_CONFIG['summon']['secret_key'] = 'BROKEN'
+      sum = Spectrum::SearchEngines::Summon.new('source' => 'articles', 's.q' => 'Dog')
+      sum.total_items.should == 0
+    end
+    
+    
+    
+  end
+  
 end
 

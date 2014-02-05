@@ -3,6 +3,47 @@ require 'spec_helper'
 
 describe "Articles Search" do
 
+  it "should support range facets", :js => true do
+    visit articles_index_path('s.q' => 'zebra')
+    # click_link 'Publication Date'  # oops, not a real link
+    find('.facet_limit h5', :text => 'Publication Date').click
+    fill_in 'pub_date_min_value',   :with => 1890
+    fill_in 'pub_date_max_value',   :with => 1910
+    click_button 'Limit'
+    # page.save_and_open_page # debug
+    page.all("#documents .result").count.should be >= 10
+    
+  end
+
+  
+  it "should support multi-field searching", :js => true do
+    visit root_path
+    within('.landing_page') do
+      click_link("Articles")
+    end
+    # within ('.search_box') do
+    click_link("Advanced Search")
+    # end
+
+
+    fill_in 'query',            :with => "economics"
+    fill_in 'author',           :with => "Stiglitz"
+    fill_in 'title',            :with => "Economics"
+    fill_in 'publicationtitle', :with => "Journal"
+
+    # find('button[type=submit]').click()
+    # click('Search')
+    click_button 'Search'
+
+
+    find(".well-constraints").should have_content('Author: Stiglitz')
+    find(".well-constraints").should have_content('Title: Economics')
+    find(".well-constraints").should have_content('Publication Title: Journal')
+    
+    page.all("#documents .result").count.should be >= 10
+    
+  end
+
   # NEXT-581 - Articles Advanced Search should include Publication Title search
   # NEXT-793 - add Advanced Search to Articles, support Publication Title search
   it "should let you perform an advanced publication title search", :js => true do

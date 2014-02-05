@@ -47,7 +47,7 @@ class SpectrumController < ApplicationController
     # But... Facet-Only searches are still searches.
     if params['q'].nil? && params['s.q'].nil? &&
        params['s.fq'].nil? && params['s.ff'].nil? ||
-          (params['q'].to_s.empty? && @active_source == 'library_web')
+      (params['q'].to_s.empty? && @active_source == 'library_web')
       flash[:error] = "You cannot search with an empty string." if params['commit']
     elsif @search_layout.nil?
       flash[:error] = "No search layout specified"

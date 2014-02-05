@@ -192,7 +192,8 @@ module DatasourcesHelper
     options[:class] += " datasource_link"
     options[:source] = source
 
-    link_to title, "#", options
+    # link_to title, "#", options
+    link_to title, source, options
   end
 
 end

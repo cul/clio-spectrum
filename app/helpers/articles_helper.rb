@@ -126,16 +126,18 @@ module ArticlesHelper
   def get_article_authors(document)
     return '' unless document.src and document.src['Author_xml']
     ordered_authors = []
-    authors_to_show = 100  # some articles have hundreds of authors - only show first N
+    authors_to_show = 50  # some articles have hundreds of authors - only show first N
     total_authors = document.src['Author_xml'].size
     document.src['Author_xml'].each { |author|
       ordered_authors.push author['fullname']
       break if ordered_authors.size >= authors_to_show
     }
-
     authors_display = ordered_authors.join ', '
     if total_authors >= authors_to_show
-      authors_display +=  "  (additional #{total_authors - authors_to_show} authors not shown)"
+      # 1/2014 - the Summon API (and native interface!) have changed, to only return
+      # the first 100 authors.  So we no longer have an accurate "total_authors" count.
+      # authors_display +=  "  (additional #{total_authors - authors_to_show} authors not shown)"
+      authors_display +=  "  (more...)"
     end
     authors_display
   end

@@ -10,7 +10,7 @@ module Spectrum
       # s.ff - how many options to retrieve for each filter field
       SUMMON_FIXED_PARAMS = {
         'spellcheck' => true,
-        's.ff' => ['ContentType,and,1,5','SubjectTerms,and,1,10','Language,and,1,5']
+        's.ff' => ['ContentType,and,1,10','SubjectTerms,and,1,10','Language,and,1,5']
       }.freeze
 
       # These source-specific params are ONLY FOR NEW SEARCHES
@@ -43,15 +43,18 @@ module Spectrum
         # Rails.logger.debug "initialize() options=#{options.inspect}"
         @source = options.delete('source') || options.delete(:source)
         @params = {}
+        
         # These sources only come from bento-box aggregate searches, so enforce
         # the source-specific params without requires 'new_search' CGI param
         if @source && (@source == 'ebooks' || @source == 'dissertations')
           @params = SUMMON_DEFAULT_PARAMS[@source].dup
+
         # Otherwise, when source is Articles or Newspapers, we set source-specific default
         # params only for new searches.  Subsequent searches may change these values.
         elsif @source && options.delete('new_search')
           @params = SUMMON_DEFAULT_PARAMS[@source].dup
         end
+        
         # @params = (@source && options.delete('new_search')) ? SUMMON_DEFAULT_PARAMS[@source].dup : {}
         @params.merge!(SUMMON_FIXED_PARAMS)
 
@@ -78,7 +81,7 @@ module Spectrum
 
         # process any Filter Query - turn Rails hash into array of
         # key:value pairs for feeding to the Summon API
-        # (see inverse transform in SpectrumController#searchf)
+        # (see inverse transform in SpectrumController#search)
         #  BEFORE: params[s.fq]={"AuthorCombined"=>"eric foner"}
         #  AFTER:  params[s.fq]="AuthorCombined:eric foner"
         if @params['s.fq'].kind_of?(Hash)
@@ -188,9 +191,11 @@ module Spectrum
       # end
 
 
-      def results
-        documents
-      end
+      # SpectrumController sets @results = search_engine.documents,
+      # does not expect a results() method
+      # def results
+      #   documents
+      # end
 
 
       def search_path

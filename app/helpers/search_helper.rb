@@ -95,11 +95,12 @@ module SearchHelper
       ### for summon (articles, newspapers)
       elsif options['search_type'] == "summon"
         # insert hidden fields
-        # If we're at the Quicksearch landing page, building search-forms that will be
-        # shown to the user via Javascript datasource switching, mark as "new_search"
-        if @active_source == 'quicksearch'
-          result += hidden_field_tag 'new_search', 'true'
-        end
+        # No longer applicable - we do Javascript datasource switching any longer.
+        # # If we're at the Quicksearch landing page, building search-forms that will be
+        # # shown to the user via Javascript datasource switching, mark as "new_search"
+        # if @active_source == 'quicksearch'
+        #   result += hidden_field_tag 'new_search', 'true'
+        # end
         result += hidden_field_tag 'source', @active_source || 'articles'
         result += hidden_field_tag "form", "basic"
 
