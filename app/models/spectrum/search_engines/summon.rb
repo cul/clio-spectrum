@@ -334,7 +334,9 @@ module Spectrum
         if @search
           @search.record_count
         else
-          Rails.logger.error "[Spectrum][Summon] total_items called on null @search"
+          # I don't need to log this - I'm reliably logging the search failure which
+          # led to this condition.
+          # Rails.logger.error "[Spectrum][Summon] total_items called on null @search"
           0
         end
       end

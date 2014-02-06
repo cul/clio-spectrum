@@ -12,7 +12,7 @@ gem 'devise_wind'
 # Local copy relaxes rails version requirements (allows 4.x)
 # gem "devise_wind", :path => "/Users/marquis/src/devise_wind"
 
-
+# Locally developed library code to interface with ClickTale analytics
 gem 'clicktale', path: "lib/clicktale"
 
 gem 'sqlite3'
@@ -71,9 +71,6 @@ gem 'cancan'
 # this is no longer needed here within clio-spectrum.
 # gem 'voyager_api', '>=0.2.3'
 
-# marquis, 9/13 - unused?
-# gem 'rubytree', '=0.5.2'
-
 gem 'exception_notification'
 gem 'net-ldap'
 
@@ -81,13 +78,9 @@ gem 'devise'
 gem 'devise-encryptable'
 
 
-
-
 # application monitoring tool
 gem 'newrelic_rpm'
 
-# marquis, 6/13 - javascript framework - unused?
-# gem 'compass-rails'
 
 # "Rack middleware which cleans up invalid UTF8 characters"
 # gem 'rack-utf8_sanitizer'

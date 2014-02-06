@@ -1,4 +1,6 @@
-- @page_title = "#{document_show_html_title.listify.join("")} - #{application_name}"
+
+- @page_title = "#{@document ? document_show_html_title.listify.join('') : ''} - #{application_name}"
+
 - extra_head_content << render_link_rel_alternates
 
 = render :partial => "/datasource_warning", :locals => {:warning => warning}
