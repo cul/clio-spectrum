@@ -143,17 +143,19 @@ module DisplayHelper
   def additional_location_note(document, location)
     # Law records need a link back to their native catalog
     if in_pegasus? document
-      return content_tag(:span, pegasus_item_link(document.id), :class => 'url_link_note')
+      return content_tag(:span, pegasus_item_link(document, "Search Results"), :class => 'url_link_note')
     end
   end
 
-  def pegasus_item_link(id)
+  def pegasus_item_link(document, context = @active_source)
     url = 'http://pegasus.law.columbia.edu'
-    if id
+    if document && document.id
       return link_to "Check Pegasus for current status", 
-                     "#{url}/record=#{id}",
+                     "#{url}/record=#{document.id}",
                      :class => 'linkout',
-                     :'data-category' => "Pegasus Link"
+                     :'data-ga-category' => "Pegasus Link",
+                     :'data-ga-action' => context,
+                     :'data-ga-label' => document.display_title
 # link_to label, url, :'data-counter' => options[:counter]
 # = link_to "CLIO", root_path, :class => "nav_title search_bar_logo"
 

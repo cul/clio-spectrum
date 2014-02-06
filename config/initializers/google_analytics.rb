@@ -20,10 +20,6 @@ GoogleAnalytics.web_property_id = case Rails.env.to_s
   when 'clio_dev'
     'UA-28923110-4'
 
-  # localhost development - send events under "CLIO Dev" profile
-  when 'development'
-    'UA-28923110-4'
-
   else
     nil
 end
