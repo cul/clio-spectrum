@@ -43,7 +43,8 @@ $(document).ready(function() {
       event.preventDefault(); // don't open the link yet
 
       // _gaq.push(["_trackEvent", category, action, label]); // create a custom event
-      _trackEvent(category, action, label)
+      // _trackEvent(category, action, label)
+      ga('send', 'event', category, action, label);
 
       setTimeout(function() { // now wait 300 milliseconds...
         window.open(href,(!target ? "_blank" : target)); // ...and open in new blank window
