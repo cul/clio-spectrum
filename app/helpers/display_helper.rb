@@ -150,12 +150,12 @@ module DisplayHelper
   def pegasus_item_link(document, context = @active_source)
     url = 'http://pegasus.law.columbia.edu'
     if document && document.id
-      return link_to "Check Pegasus for current status", 
+      return link_to "Check Pegasus for current status",
                      "#{url}/record=#{document.id}",
                      :class => 'linkout',
                      :'data-ga-category' => "Pegasus Link",
                      :'data-ga-action' => context,
-                     :'data-ga-label' => document.display_title
+                     :'data-ga-label' => document['title_display'] || document.id
 # link_to label, url, :'data-counter' => options[:counter]
 # = link_to "CLIO", root_path, :class => "nav_title search_bar_logo"
 
