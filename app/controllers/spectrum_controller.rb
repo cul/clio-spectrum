@@ -5,7 +5,7 @@
 #     SpectrumController#get_results()
 #     - which for each source
 #       - fixes input parameters in a source-specific way,
-#       - calls either:  Spectrum::Engines::Summon.new(fixed_params)
+#       - calls either:  Spectrum::SearchEngines::Summon.new(fixed_params)
 #       -           or:  blacklight_search(fixed_params)
 #
 # SpectrumController#fetch() - alternative entry point
@@ -24,7 +24,7 @@ class SpectrumController < ApplicationController
     @results = []
 
     # process any Filter Queries - turn Summon API Array of key:value pairs into
-    # nested Rails hash (see inverse transform in Spectrum::Engines::Summon)
+    # nested Rails hash (see inverse transform in Spectrum::SearchEngines::Summon)
     #  BEFORE: params[s.fq]="AuthorCombined:eric foner"
     #  AFTER:  params[s.fq]={"AuthorCombined"=>"eric foner"}
     # [This logic is here instead of fix_summon_params, because it needs to act
@@ -47,14 +47,14 @@ class SpectrumController < ApplicationController
     # But... Facet-Only searches are still searches.
     if params['q'].nil? && params['s.q'].nil? &&
        params['s.fq'].nil? && params['s.ff'].nil? ||
-          (params['q'].to_s.empty? && @active_source == 'library_web')
+      (params['q'].to_s.empty? && @active_source == 'library_web')
       flash[:error] = "You cannot search with an empty string." if params['commit']
     elsif @search_layout.nil?
       flash[:error] = "No search layout specified"
       redirect_to root_path
     else
       @search_style = @search_layout['style']
-      @has_facets = @search_layout['has_facets']
+      # @has_facets = @search_layout['has_facets']
       sources =  @search_layout['columns'].collect { |col|
         col['searches'].collect { |item| item['source'] }
       }.flatten
@@ -76,7 +76,6 @@ class SpectrumController < ApplicationController
 
 
   def fetch
-
     @search_layout = SEARCHES_CONFIG['layouts'][params[:layout]]
 
     @datasource = params[:datasource]
@@ -86,15 +85,14 @@ class SpectrumController < ApplicationController
     else
       @fetch_action = true
       @search_style = @search_layout['style']
-      @has_facets = @search_layout['has_facets']
+      # @has_facets = @search_layout['has_facets']
       sources =  @search_layout['columns'].collect { |col|
         col['searches'].collect { |item| item['source'] }
       }.flatten.select { |source| source == @datasource }
 
       @results = get_results(sources)
       render 'fetch', layout: 'js_return'
-
-    end
+   end
 
   end
 
@@ -194,28 +192,28 @@ class SpectrumController < ApplicationController
          fixed_params.delete(param_name)
       }
       fixed_params.delete(:source)
-      # "results" is not the search results, it's the engine object, in a
+      # "results" is not the search results, it's the Search Engine object, in a
       # post-search-execution state.
       results = case source
         when 'dissertations'
           fixed_params['source'] = 'dissertations'
           fixed_params = fix_summon_params(fixed_params)
-          Spectrum::Engines::Summon.new(fixed_params)
+          Spectrum::SearchEngines::Summon.new(fixed_params)
 
         when 'articles'
           fixed_params['source'] = 'articles'
           fixed_params = fix_summon_params(fixed_params)
-          Spectrum::Engines::Summon.new(fixed_params)
+          Spectrum::SearchEngines::Summon.new(fixed_params)
 
         when 'newspapers'
           fixed_params['source'] = 'newspapers'
           fixed_params = fix_summon_params(fixed_params)
-          Spectrum::Engines::Summon.new(fixed_params)
+          Spectrum::SearchEngines::Summon.new(fixed_params)
 
         when 'ebooks'
           fixed_params['source'] = 'ebooks'
           fixed_params = fix_summon_params(fixed_params)
-          Spectrum::Engines::Summon.new(fixed_params)
+          Spectrum::SearchEngines::Summon.new(fixed_params)
 
         when 'catalog_ebooks'
           fixed_params['source'] = 'catalog_ebooks'
@@ -246,10 +244,10 @@ class SpectrumController < ApplicationController
           blacklight_search(fixed_params)
 
         when 'library_web'
-          # GoogleAppliance engine can't handle absent q param
+          # GoogleAppliance search engine can't handle absent q param
           fixed_params['q'] ||= ''
           fixed_params = fix_ga_params(fixed_params)
-          Spectrum::Engines::GoogleAppliance.new(fixed_params)
+          Spectrum::SearchEngines::GoogleAppliance.new(fixed_params)
 
         else
           raise "SpectrumController#get_results() unhandled source: '#{source}'"

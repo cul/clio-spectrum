@@ -9,7 +9,9 @@ describe "Catalog Advanced Search" do
     search_text = 'Japan Times & Mail'
 
     visit root_path
-    find('li.datasource_link[source=catalog]').click
+    within('li.datasource_link[source="catalog"]') do
+      click_link("Catalog")
+    end
     find('#catalog_q').should be_visible
     page.should have_no_selector('.landing_page.catalog .advanced_search')
 
@@ -36,7 +38,9 @@ describe "Catalog Advanced Search" do
   # NEXT-705 - "All Fields" should be default, and should be first option
   it "should default to 'All Fields'", :js => true do
     visit root_path
-    find('li.datasource_link[source=catalog]').click
+    within('li.datasource_link[source="catalog"]') do
+      click_link("Catalog")
+    end
 
     find('.search_box.catalog .advanced_search_toggle').click
 
@@ -61,6 +65,38 @@ describe "Catalog Advanced Search" do
     end
 
   end
+
+  # Bug - Dismissing the last advanced-search field should WORK
+  # (CatalogController#preprocess_search_params:  undefined method `gsub!' for nil:NilClass)
+  it "should allow dismissing of final advanced fielded search param", :js => true do
+    search_isbn = '978-1-4615-2974-3'
+
+    visit root_path
+    within('li.datasource_link[source="catalog"]') do
+      click_link("Catalog")
+    end
+
+    find('.search_box.catalog .advanced_search_toggle').click
+
+    find('.landing_page.catalog .advanced_search').should be_visible
+
+    within '.landing_page.catalog .advanced_search' do
+      select('ISBN', :from => 'adv_1_field')
+      fill_in 'adv_1_value', :with => search_isbn
+      find('button[type=submit]').click()
+    end
+
+    find(".constraint-box").should have_content('ISBN: ' + search_isbn)
+
+    within '.constraint-box' do
+      find('i.icon-remove').click()
+    end
+
+    page.should have_css('.result.document')
+
+  end
+
+
 
 end
 

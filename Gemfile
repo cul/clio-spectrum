@@ -1,17 +1,28 @@
 source 'http://rubygems.org'
 
-# Can't move up to 4.0 series yet - blacklight_range_limit has dependency on 3
-gem 'rails', '3.2.14'
-# gem 'rails', '~> 4.0.0'
+# FIXED:  Can't move up to 4.0 series yet - blacklight_range_limit has dependency on 3
+# but, devise_wind still has Rails 3.2 dependencies.
+gem 'rails', '~> 3.2'
+# gem 'rails', '~> 4.0'
+
+gem 'blacklight', '~>4.3.0'
+# gem 'blacklight', '~>4'
+
+gem 'devise_wind'
+# Local copy relaxes rails version requirements (allows 4.x)
+# gem "devise_wind", :path => "/Users/marquis/src/devise_wind"
+
+# Locally developed library code to interface with ClickTale analytics
+gem 'clicktale', path: "lib/clicktale"
 
 gem 'sqlite3'
 
 gem 'thin'
 # gem 'unicorn'
 
-gem 'blacklight', '~>4.3.0'
 gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
-gem 'blacklight_google_analytics'
+# gem 'blacklight_range_limit', :github => 'projectblacklight/blacklight_range_limit'
+
 
 # Sorry, have to nix unapi.  Switch to COINS everywhere, so that
 # single page cross-datasource citation works (QuickSearch, Saved Lists)
@@ -36,7 +47,8 @@ end
 # should try to eliminate at some point.
 gem 'has_options'
 
-gem 'therubyracer', '0.10.2'
+# gem 'therubyracer', '0.10.2'
+gem 'therubyracer'
 gem 'httpclient'
 gem 'nokogiri'
 
@@ -46,7 +58,8 @@ gem 'haml-rails'
 
 # CSS replacement language
 gem 'sass'
-gem 'sass-rails', '~>3.2.4'
+# dup - also in the assets group, below
+# gem 'sass-rails', '~>3.2.4'
 
 gem 'unicode'
 gem 'summon'
@@ -58,34 +71,39 @@ gem 'cancan'
 # this is no longer needed here within clio-spectrum.
 # gem 'voyager_api', '>=0.2.3'
 
-# marquis, 9/13 - unused?
-# gem 'rubytree', '=0.5.2'
-
 gem 'exception_notification'
 gem 'net-ldap'
 
 gem 'devise'
 gem 'devise-encryptable'
-gem 'devise_wind'
 
 
 # application monitoring tool
 gem 'newrelic_rpm'
 
-# marquis, 6/13 - javascript framework - unused?
-# gem 'compass-rails'
 
 # "Rack middleware which cleans up invalid UTF8 characters"
-gem 'rack-utf8_sanitizer'
+# gem 'rack-utf8_sanitizer'
+# Use github master branch, to pick up a few new patches.
+# Maybe this will fix one of our outstanding issues:
+#    application#catch_404s (ArgumentError) "invalid %-encoding"
+# We also still have invalid %-encoding w/submitted form fields.
+# This is an open issue at rack-utf8_sanitizer.
+# gem 'rack-utf8_sanitizer', :github => 'whitequark/rack-utf8_sanitizer'
+gem 'rack-utf8_sanitizer', :git => 'git://github.com/whitequark/rack-utf8_sanitizer'
 
 
 gem 'jquery-rails'
 
 group :assets do
-  gem 'sass-rails', '~>3.2.4'
-  gem 'coffee-rails', '~>3.2.2'
-  gem 'uglifier', '>=1.0.3'
-  gem 'bootstrap-sass', '~>2.1'
+  # gem 'sass-rails', '~>3.2.4'
+  # gem 'coffee-rails', '~>3.2.2'
+  # gem 'uglifier', '>=1.0.3'
+  # gem 'bootstrap-sass', '~>2.1'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+  gem 'bootstrap-sass'
 
   # marquis, 6/13 - unused?
   # gem 'compass-rails'
@@ -134,7 +152,7 @@ group :development do
   #gem 'ruby-debug19', :require => 'ruby-debug'
 
   # Deploy with Capistrano
-  gem 'capistrano'
+  gem 'capistrano', '~>2'
   gem 'capistrano-ext'
   gem 'quiet_assets'
 
@@ -152,12 +170,14 @@ end
 group :test, :development do
   # why in test and dev both instead of just test?  
   # because is says to: https://github.com/rspec/rspec-rails
-  gem 'rspec-rails', '>=2.14'
+  # gem 'rspec-rails', '>=2.14'
+  gem 'rspec-rails'
 end
 
 group :test do
   gem 'factory_girl_rails'
-  gem 'spork', '~>1.0.0.rc2'
+  # gem 'spork', '~>1.0.0.rc2'
+  gem 'spork'
 
   gem 'guard'
   gem 'guard-rspec'

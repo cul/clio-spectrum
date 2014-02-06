@@ -4,18 +4,19 @@ module SearchHelper
     (controller.controller_name == 'search' && controller.action_name == 'index') || (params['q'].to_s.empty?  && params['s.q'].to_s.empty? && params['commit'].to_s.empty?)
   end
 
-  def active_search_box
-    con = controller.controller_name
-    act = controller.action_name
-
-    if con == 'search' && act == 'index'
-      "quicksearch"
-    elsif act == 'ebooks' || con == 'ebooks'
-      'ebooks'
-    else
-      @active_source
-    end
-  end
+  # 1/2014 - this is currently equivalent to @active_source alone
+  # def active_search_box
+  #   con = controller.controller_name
+  #   act = controller.action_name
+  # 
+  #   if con == 'search' && act == 'index'
+  #     "quicksearch"
+  #   elsif act == 'ebooks' || con == 'ebooks'
+  #     'ebooks'
+  #   else
+  #     @active_source
+  #   end
+  # end
 
 
   def search_render_options(search, source)
@@ -42,13 +43,18 @@ module SearchHelper
 
   def display_advanced_search(source)
     options = DATASOURCES_CONFIG['datasources'][source]['search_box'] || {}
-    blacklight_config = Spectrum::Engines::Solr.generate_config(source)
+    blacklight_config = Spectrum::SearchEngines::Solr.generate_config(source)
     if options['search_type'] == "blacklight" && options['advanced'] == true
       return fix_catalog_links(render('/catalog/advanced_search', :localized_params => params), source)
     end
     if options['search_type'] == "summon" && options['advanced'] == true
       # Rails.logger.debug "display_advanced_search() source=[#{source}]"
       return render '/spectrum/summon/advanced_search', source: source, path: source == "articles" ? articles_index_path : newspapers_index_path
+    end
+    # Add a special 'Start Over' link when a QuickSearch query is active
+    # NEXT-612 - Quick search page doesn't let you start over
+    if source == 'quicksearch' && params['q'].present?
+      return render '/quicksearch/start_over'
     end
   end
 
@@ -58,16 +64,16 @@ module SearchHelper
     search_params = determine_search_params
     div_classes = ["search_box", source]
     div_classes << "multi" if show_all_search_boxes
-    div_classes << "selected" if active_search_box == source
+    div_classes << "selected" if @active_source == source
 
 
     result = "".html_safe
-    if show_all_search_boxes || active_search_box == source
+    if show_all_search_boxes || @active_source == source
       has_options = (options['search_type'].in?("blacklight","summon") ? "search_q with_options" : "search_q without_options")
 
       # BASIC SEARCH INPUT BOX
       summon_query_as_hash = {}
-      if @results.kind_of?(Hash) && @results.values.first.instance_of?(Spectrum::Engines::Summon)
+      if @results.kind_of?(Hash) && @results.values.first.instance_of?(Spectrum::SearchEngines::Summon)
         # when summon fails, these may be nil
         if @results.values.first.search && @results.values.first.search.query
           summon_query_as_hash = @results.values.first.search.query.to_hash
@@ -89,11 +95,12 @@ module SearchHelper
       ### for summon (articles, newspapers)
       elsif options['search_type'] == "summon"
         # insert hidden fields
-        # If we're at the Quicksearch landing page, building search-forms that will be
-        # shown to the user via Javascript datasource switching, mark as "new_search"
-        if @active_source == 'quicksearch'
-          result += hidden_field_tag 'new_search', 'true'
-        end
+        # No longer applicable - we do Javascript datasource switching any longer.
+        # # If we're at the Quicksearch landing page, building search-forms that will be
+        # # shown to the user via Javascript datasource switching, mark as "new_search"
+        # if @active_source == 'quicksearch'
+        #   result += hidden_field_tag 'new_search', 'true'
+        # end
         result += hidden_field_tag 'source', @active_source || 'articles'
         result += hidden_field_tag "form", "basic"
 

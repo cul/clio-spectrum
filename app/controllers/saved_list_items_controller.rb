@@ -1,6 +1,7 @@
 class SavedListItemsController < ApplicationController
   # layout "no_sidebar_no_search"
-  layout "savedlist"
+  # layout "savedlist"
+  # ???
 
   # GET /list_items
   # GET /list_items.json

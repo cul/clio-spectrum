@@ -9,7 +9,10 @@ describe "Academic Commons", :focus => false do
 
   it "fielded search should work, link to AC website", :js => true do
     visit root_path
-    find('li.datasource_link[source=academic_commons]').click
+    within('li.datasource_link[source="academic_commons"]') do
+      click_link('Academic Commons')
+    end    
+    
     within '.search_box.academic_commons' do
       find('#academic_commons_q').should be_visible
       fill_in 'q', :with => search_title_text

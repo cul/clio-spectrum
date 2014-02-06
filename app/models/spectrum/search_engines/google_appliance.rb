@@ -1,5 +1,5 @@
 module Spectrum
-  module Engines
+  module SearchEngines
     class GoogleAppliance
       include ActionView::Helpers::NumberHelper
       include Rails.application.routes.url_helpers

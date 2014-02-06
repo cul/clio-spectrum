@@ -116,7 +116,7 @@ module LocalSolrHelperExtension
         end
 
       end
-      Rails.logger.error "FINAL: #{advanced_q}"
+      Rails.logger.debug "FINAL: #{advanced_q}"
 
 
       solr_parameters[:q] = advanced_q.join(" #{advanced_search_operator(req_params)} ")

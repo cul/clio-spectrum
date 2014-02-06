@@ -143,14 +143,22 @@ module DisplayHelper
   def additional_location_note(document, location)
     # Law records need a link back to their native catalog
     if in_pegasus? document
-      return content_tag(:span, pegasus_item_link(document.id), :class => 'url_link_note')
+      return content_tag(:span, pegasus_item_link(document, "Search Results"), :class => 'url_link_note')
     end
   end
 
-  def pegasus_item_link(id)
+  def pegasus_item_link(document, context = @active_source)
     url = 'http://pegasus.law.columbia.edu'
-    if id
-      return link_to "Check Pegasus for current status", "#{url}/record=#{id}"
+    if document && document.id
+      return link_to "Check Pegasus for current status",
+                     "#{url}/record=#{document.id}",
+                     :class => 'linkout',
+                     :'data-ga-category' => "Pegasus Link",
+                     :'data-ga-action' => context,
+                     :'data-ga-label' => document['title_display'] || document.id
+# link_to label, url, :'data-counter' => options[:counter]
+# = link_to "CLIO", root_path, :class => "nav_title search_bar_logo"
+
     else
       return link_to url, url
     end
@@ -390,9 +398,11 @@ module DisplayHelper
     result = ""
     if options[:display_blank] || !value_txt.empty?
       if options[:style] == :text
-        result = (title.to_s + ": " + value_txt.to_s + "\r\n").html_safe
+        result = (title.to_s + ": " + value_txt.to_s + "\n").html_safe
+      # elsif options[:style] == :dlist
+      #   result = content_tag(:dt, title.to_s) + "\n" +
+      #            content_tag(:dd, value_txt.to_s)
       else
-
         result = content_tag(:div, :class => "document-row") do
           if options[:style] == :definition
             content_tag(:div, title.to_s.html_safe, :class => "field span#{spans.first}") + content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "value span#{spans.last}")

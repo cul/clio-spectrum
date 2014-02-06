@@ -40,6 +40,7 @@ namespace :deploy do
   end
 
   task :symlink_shared do
+    run "ln -nfs #{deploy_to}shared/robots.txt #{release_path}/public/robots.txt"
     run "ln -nfs #{deploy_to}shared/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{deploy_to}shared/app_config.yml #{release_path}/config/app_config.yml"
     run "ln -nfs #{deploy_to}shared/solr.yml #{release_path}/config/solr.yml"

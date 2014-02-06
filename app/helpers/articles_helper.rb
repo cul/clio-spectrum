@@ -9,49 +9,52 @@ module ArticlesHelper
     link_title ||= article.title.html_safe
     return link_to(link_title, article.link)
 
-    url = ''
-    # If the article is a fulltext Journal Article, Book, or eBook...
-    if article.fulltext &&
-       !(article.content_types & ['Journal Article','Book', 'eBook']).empty?
-      # If the article is an eBook and it's URL is to handle.net or hathi...
-      if article.content_types.include?('eBook') &&
-         EBOOKS_TO_LINK_FOLLOW.any? { |eb| article.uri.to_s.include?(eb) }
-        url = article.link
-      else
-        url = articles_show_path(:openurl => article.src['openUrl'])
-      end
-    else
-      url = article.link
-    end
-
-    link_to link_title, url
+    # OLD CODE - back from when we had articles item-detail pages?
+    # url = ''
+    # # If the article is a fulltext Journal Article, Book, or eBook...
+    # if article.fulltext &&
+    #    !(article.content_types & ['Journal Article','Book', 'eBook']).empty?
+    #   # If the article is an eBook and it's URL is to handle.net or hathi...
+    #   if article.content_types.include?('eBook') &&
+    #      EBOOKS_TO_LINK_FOLLOW.any? { |eb| article.uri.to_s.include?(eb) }
+    #     url = article.link
+    #   else
+    #     url = articles_show_path(:openurl => article.src['openUrl'])
+    #   end
+    # else
+    #   url = article.link
+    # end
+    # 
+    # link_to link_title, url
   end
 
 
 
-  def generate_ill_link(document)
-    base = "https://www1.columbia.edu/sec-cgi-bin/cul/illiad/testref360?"
-    epage = params['openurl'].to_s.scan(/rft.epage.(\d+)/)
-    epage = epage && epage.first && epage.first.first ? epage.first.first : ""
-    issns = document.issns
-    issn = issns && issns.first ? issns.first[:value].to_s : ""
-    link_params = {
-      'Volume' => document.volume,
-      'Issue' => document.issue,
-      'Source' => 'info:sid/summon.serialssolutions.com (Via CLIO)',
-      'Author' => document.creator,
-      'Article' => document.title,
-      'Genre' => 'article',
-      'Pages' => "#{document.spage}-#{epage}",
-      'Journal' => document.source,
-      'LoanTitle' => document.source,
-      'Date' => document.date,
-      'ISSN' => issn
-    }
+# OLD CODE - nothing calls this
+  # def generate_ill_link(document)
+  #   base = "https://www1.columbia.edu/sec-cgi-bin/cul/illiad/testref360?"
+  #   epage = params['openurl'].to_s.scan(/rft.epage.(\d+)/)
+  #   epage = epage && epage.first && epage.first.first ? epage.first.first : ""
+  #   issns = document.issns
+  #   issn = issns && issns.first ? issns.first[:value].to_s : ""
+  #   link_params = {
+  #     'Volume' => document.volume,
+  #     'Issue' => document.issue,
+  #     'Source' => 'info:sid/summon.serialssolutions.com (Via CLIO)',
+  #     'Author' => document.creator,
+  #     'Article' => document.title,
+  #     'Genre' => 'article',
+  #     'Pages' => "#{document.spage}-#{epage}",
+  #     'Journal' => document.source,
+  #     'LoanTitle' => document.source,
+  #     'Date' => document.date,
+  #     'ISSN' => issn
+  #   }
+  # 
+  #  (base + link_params.to_query).html_safe
+  # end
 
-   (base + link_params.to_query).html_safe
 
-  end
 
   # No longer used - this was for the old partials,
   # working against the Articles Controller
@@ -123,16 +126,18 @@ module ArticlesHelper
   def get_article_authors(document)
     return '' unless document.src and document.src['Author_xml']
     ordered_authors = []
-    authors_to_show = 100  # some articles have hundreds of authors - only show first N
+    authors_to_show = 50  # some articles have hundreds of authors - only show first N
     total_authors = document.src['Author_xml'].size
     document.src['Author_xml'].each { |author|
       ordered_authors.push author['fullname']
       break if ordered_authors.size >= authors_to_show
     }
-
     authors_display = ordered_authors.join ', '
     if total_authors >= authors_to_show
-      authors_display +=  "  (additional #{total_authors - authors_to_show} authors not shown)"
+      # 1/2014 - the Summon API (and native interface!) have changed, to only return
+      # the first 100 authors.  So we no longer have an accurate "total_authors" count.
+      # authors_display +=  "  (additional #{total_authors - authors_to_show} authors not shown)"
+      authors_display +=  "  (more...)"
     end
     authors_display
   end

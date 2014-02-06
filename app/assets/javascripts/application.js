@@ -39,6 +39,8 @@
 
 //= require hathi
 
+//= require google_analytics
+
 //= require display
 
 

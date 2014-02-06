@@ -128,8 +128,10 @@ Set getFormats(Record record)
       break;
     case 'm':
       // look for a in 008 field, char 26 (count starts at 0)
-      if (f008 != null && f008.find("^.*{26}a")) 
+      if (f008 != null && f008.find("^.{26}a")) 
         resultSet.add("Computer File");
+      if (f008 != null && f008.find("^.{26}b"))
+        resultSet.add("Computer Program");
       break;
     case 'o':  // instructional kit
       resultSet.add("Other");
@@ -154,7 +156,10 @@ Set getFormats(Record record)
           case 'l':   // updating looseleaf (ignore)
             break;
           case 'm':   // monographic series
-            resultSet.add("Book");
+            // NEXT-975 - Serial records coded as "monographic series."
+            // Monographic Series should be treated as 'Journal/Periodical', and not Book.
+            // resultSet.add("Book");
+            resultSet.add("Journal/Periodical");
             break;
           case 'n':
             resultSet.add("Newspaper");

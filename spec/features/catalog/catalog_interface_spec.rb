@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Catalog Interface" do
 
   # NEXT-779 - Some 880 fields not showing up
-  it "Advanced Search should default to 'All Fields'", :js => true do
+  it "MARC 880 note field should display", :js => true do
     # visit this specific item
     visit catalog_path('7814900')
 
@@ -11,6 +11,14 @@ describe "Catalog Interface" do
     find('.info').should have_content("Other Information: Leaf 1 contains laws on the Torah reading")
   end
 
+  # NEXT-765 - MARC 787 field (Related To) not showing up
+  it "MARC 787 'Related To' field should display", :js => true do
+    # visit this specific item
+    visit catalog_path('7419929')
+
+    # Find the 787 data for bib 7419929
+    find('.info').should have_content("Related To Xia intelligenteArchitektur")
+  end
 
   # NEXT-917 - Summary showing up twice for video records
   it "Video Records should show Summary only once", :js => true do

@@ -26,15 +26,21 @@ module ItemAlertHelper
   def render_alert_duration(alert)
     right_now = DateTime.now()
     raw_start_date = alert.start_date
-    pretty_start_date = raw_start_date.to_formatted_s(:short)
     raw_end_date = alert.end_date
-    pretty_end_date = raw_end_date.to_formatted_s(:short)
+
+    Time::DATE_FORMATS[:item_alert] = '%m/%d/%Y %H:%M'
+    if raw_start_date
+      pretty_start_date = raw_start_date.to_formatted_s(:item_alert)
+    end
+    if raw_end_date
+      pretty_end_date = raw_end_date.to_formatted_s(:item_alert)
+    end
 
     if raw_start_date
       if raw_end_date
         "#{pretty_start_date} - #{pretty_end_date}"
       else
-        if raw_sart_date > right_now
+        if raw_start_date > right_now
           "Starts #{pretty_start_date}"
         else
           "Started #{pretty_start_date}"

@@ -134,12 +134,12 @@ class ApplicationController < ActionController::Base
 
     # this new() actually runs the search.
     # [ the Solr engine call perform_search() within it's initialize() ]
-    engine = Spectrum::Engines::Solr.new(options)
+    search_engine = Spectrum::SearchEngines::Solr.new(options)
 
-    if engine.successful?
-      @response = engine.search
-      @results = engine.documents
-      if engine.total_items > 0
+    if search_engine.successful?
+      @response = search_engine.search
+      @results = search_engine.documents
+      if search_engine.total_items > 0
         # No, leave this to happen via async AJAX onload
         # look_up_clio_holdings(@results)
 
@@ -151,8 +151,8 @@ class ApplicationController < ActionController::Base
     end
 
     @debug_entries ||= {}
-    @debug_entries = @debug_entries.recursive_merge(engine.debug_entries)
-    return engine
+    @debug_entries = @debug_entries.recursive_merge(search_engine.debug_entries)
+    return search_engine
 
   end
 
@@ -259,14 +259,14 @@ class ApplicationController < ActionController::Base
   def blacklight_solr(source = @active_source)
     if self.respond_to?(:blacklight_config)
       @blacklight_solrs ||= {}
-      @blacklight_solrs[source] || (@blacklight_solrs[source] = Spectrum::Engines::Solr.generate_rsolr(source))
+      @blacklight_solrs[source] || (@blacklight_solrs[source] = Spectrum::SearchEngines::Solr.generate_rsolr(source))
     end
   end
 
   def blacklight_config(source = @active_source)
     if self.respond_to?(:blacklight_config)
       @blacklight_configs ||= {}
-      @blacklight_configs[source] || (@blacklight_configs[source] = Spectrum::Engines::Solr.generate_config(source))
+      @blacklight_configs[source] || (@blacklight_configs[source] = Spectrum::SearchEngines::Solr.generate_config(source))
     end
 
   end

@@ -1,0 +1,41 @@
+import org.marc4j.marc.*;
+import org.solrmarc.tools.Utils;
+
+/* define the base level indexer so that its methods can be called from the script.
+ * note that the SolrIndexer code will set this value before the script methods are called.
+ */
+org.solrmarc.index.SolrIndexer indexer = null;
+
+public String getFilingTitle(Record record)
+{
+  // marc4j defines...
+  // getVariableFields(TAG) to return a List of matching datafields
+  // getVariableField(TAG) to return the FIRST-ENCOUNTERED datafield
+  DataField titleField = (DataField) record.getVariableField("245");
+  if (titleField == null) return null;
+
+  // getInd2AsInt() is a protected method in SolrIndexer.java
+  // int nonFilingInt = getInd2AsInt(titleField);
+  // here's what it actually does:
+  char ind2char = titleField.getIndicator2();
+  int nonFilingInt = 0;
+  if (Character.isDigit(ind2char))
+      nonFilingInt = Integer.valueOf(String.valueOf(ind2char));
+
+  String title_245a = indexer.getFirstFieldVal(record, "245a");
+  if (title_245a == null) return null;
+  if ( title_245a.length() == 0) return null;
+
+  //Skip non-filing chars, if possible. 
+  if ( title_245a.length() > nonFilingInt )  {
+    title_245a = title_245a.substring(nonFilingInt);          
+  }
+  
+  if ( title_245a.length() == 0) return null;
+  
+  return title_245a;
+}
+
+
+
+

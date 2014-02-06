@@ -27,7 +27,9 @@ module Clio
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-    config.autoload_paths += %W(#{config.root}/extras #{config.root}/lib)
+    # config.autoload_paths += %W(#{config.root}/extras #{config.root}/lib)
+    config.autoload_paths += %W(#{config.root}/lib)
+
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
@@ -92,7 +94,17 @@ module Clio
     # https://github.com/whitequark/rack-utf8_sanitizer
     # Rack::UTF8Sanitizer is a Rack middleware which cleans up
     # invalid UTF8 characters in request URI and headers.
-    config.middleware.insert_before "Rack::Lock", Rack::UTF8Sanitizer
+    config.middleware.insert_before "Rack::Runtime", Rack::UTF8Sanitizer
+
+    # [deprecated] I18n.enforce_available_locales will default to true in the 
+    # future. If you really want to skip validation of your locale you can set
+    # I18n.enforce_available_locales = false to avoid this message.
+    # Good explanation here:
+    #   http://stackoverflow.com/questions/20361428
+    # config.i18n.enforce_available_locales = true
+    # or if one of your gem compete for pre-loading, use
+    I18n.config.enforce_available_locales = true
+
 
   end
 end

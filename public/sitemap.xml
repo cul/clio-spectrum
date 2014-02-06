@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>http://clio.columbia.edu/</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/quicksearch</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/quicksearch?q=</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/catalog</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/catalog?q=</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/articles</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/articles?q=</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/journals</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/journals?q=</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/databases</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/databases?q=</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/academic_commons</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/academic_commons?q=</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/library_web</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/library_web?q=</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/archives</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/archives?q=</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/dissertations</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/dissertations?q=</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/ebooks</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/ebooks?q=</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/new_arrivals</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/new_arrivals?q=</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/newspapers</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/newspapers?q=</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/catalog/1234567</loc>
+</url>
+<url>
+  <loc>http://clio.columbia.edu/catalog/1234567/librarian_view</loc>
+</url>
+</urlset>

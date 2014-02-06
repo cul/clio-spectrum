@@ -1,16 +1,11 @@
 @media print
 
-
-  body
-    :background-color white !important
-    :font-size 70% !important
-
   // Bootstrap prints out the href of every <A>, making the page
   // ugly with URLs. Disable this behavior.
   a[href]:after
     :content none !important
 
-
+  // TURN OFF the following divs to not display when printed
   #hd
     :display none
 
@@ -20,24 +15,11 @@
   #ft
     :display none
 
-
-  #appliedParams
-    :border 2px solid black
-    :background-color 333
-
   .catalog_startOverLink
     :display none
 
-
   .gbs_preview_link
     :display none
-
-  .bookjacket
-    :display none
-
-  //#bd .sidebar
-  //  :display none
-  //  :width 0
 
   #show_toolbar
     :display none
@@ -45,25 +27,15 @@
   .documentFunctions
     :display none
 
-  .bookjacket
-    :height 80px
-
   #topnavbar
     :display none
-
-  .document
-    :padding-bottom 0.5em
-    :border none
-
-  #source_select
-    :display none  !important
 
   .folderTools
     :display none
 
   #search, div.search_boxes
     :display none !important
- 
+
   #bd_lede
     :display none  !important
 
@@ -79,12 +51,44 @@
   .pagination
     :display none
 
+  #source_select
+    :display none  !important
+
+  // ALTER the following for better display in printed output
+
+  body
+    :background-color white !important
+    :font-size 60% !important
+    :padding-top 10px
+    :padding-bottom 10px
+    :margin 5mm 5mm 5mm 5mm
+
+
+  #appliedParams
+    :border 2px solid black
+    :background-color 333
+
+  //.bookjacket
+  //  :display none
+
+  //#bd .sidebar
+  //  :display none
+  //  :width 0
+
+  .bookjacket
+    :height 80px
+
+  .document
+    :padding-bottom 0.5em
+    :border none
+
   .field
     :font-weight bold !important
     :text-align left !important
-
+  
   .value
     :clear both
+    :padding-left 5px
 
   dl.defList_in_grid dt
     :width 10em
@@ -94,3 +98,25 @@
     :display inline
     :padding-left 1em
     :margin-left 2em
+
+  #outer-container
+    :margin 0px  !important
+    :border-top-width 2px !important
+
+  div.info.span6
+    :float left !important
+    :width 48% !important
+
+  div.holdings-container.span6
+    :float left !important
+    :width 48% !important
+
+  div.document-row
+    :page-break-inside avoid
+
+  @page
+    :size auto
+    :margin 5mm 5mm 5mm 5mm
+
+
+

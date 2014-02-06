@@ -49,27 +49,34 @@ class CatalogController < ApplicationController
     end
 
 
-    # solr_search_params_logic << :add_advanced_search_to_solr
-    # solr_search_params_logic << :add_range_limit_params
+    # this does not execute a query - it only organizes query parameters
+    # conveniently for use by the view in echoing back to the user.
     @query = Spectrum::Queries::Solr.new(params, self.blacklight_config)
 
     @filters = params[:f] || []
 
+    # replicates has_search_parameters?() from blacklight's catalog_helper_behavior.rb
     @show_landing_pages = (params[:q].blank? && @filters.blank? && params[:search_field].blank?)
-    extra_head_content <<
-      view_context.auto_discovery_link_tag(
-        :rss,
-        url_for(params.merge(:format => 'rss')), :title => "RSS for results")
-    extra_head_content <<
-      view_context.auto_discovery_link_tag(
-        :atom,
-        url_for(params.merge(:format => 'atom')), :title => "Atom for results")
 
-    # runs the blacklight_search from application_controller using the params,
-    # returns the engine with embedded results
-    engine = blacklight_search(params)
-    @response = engine.search
-    @document_list = engine.documents
+    # Only do the following if we have search parameters 
+    # (i.e., if show-landing-pages is false)
+    unless @show_landing_pages
+
+      extra_head_content <<
+        view_context.auto_discovery_link_tag(
+          :rss,
+          url_for(params.merge(:format => 'rss')), :title => "RSS for results")
+      extra_head_content <<
+        view_context.auto_discovery_link_tag(
+          :atom,
+          url_for(params.merge(:format => 'atom')), :title => "Atom for results")
+
+      # runs the blacklight_search from application_controller using the params,
+      # returns the engine with embedded results
+      search_engine = blacklight_search(params)
+      @response = search_engine.search
+      @document_list = search_engine.documents
+    end
 
 
     # reach into search config to find possible source-specific service alert warning
@@ -78,7 +85,7 @@ class CatalogController < ApplicationController
 
     respond_to do |format|
       format.html { save_current_search_params;
-                    render :locals => {:warning => warning, :response => @response}, 
+                    render :locals => {:warning => warning, :response => @response},
                     :layout => 'quicksearch' }
       format.rss  { render :layout => false }
       format.atom { render :layout => false }
@@ -214,7 +221,7 @@ class CatalogController < ApplicationController
   def add_custom_solr_search_params_logic
     # this "solr_search_params_logic" is used when querying using standard
     # blacklight functions
-    # queries using our Solr engine have their own config in Spectrum::Engines::Solr
+    # queries using our Solr engine have their own config in Spectrum::SearchEngines::Solr
     unless solr_search_params_logic.include? :add_advanced_search_to_solr
       solr_search_params_logic << :add_advanced_search_to_solr
     end
@@ -254,18 +261,19 @@ class CatalogController < ApplicationController
     # 2) cleanup for advanced searches
     if params['adv'] and params['adv'].kind_of?(Hash)
       params['adv'].each do |rank, advanced_param|
-        val = advanced_param['value']
-        if advanced_param['field'] == "title_starts_with"
-          unless val =~ /^".*"$/
-            # advanced_param['value'].gsub!(/"/, '\"')    # escape any double-quotes instead?
-            val.gsub!(/"/, '')    # strip any double-quotes
-            val = "\"#{ val }\""
-         end
+        if val = advanced_param['value']
+          if advanced_param['field'] == "title_starts_with"
+            unless val =~ /^".*"$/
+              # advanced_param['value'].gsub!(/"/, '\"')    # escape any double-quotes instead?
+              val.gsub!(/"/, '')    # strip any double-quotes
+              val = "\"#{ val }\""
+           end
+          end
+          val.gsub!(/\?\s+/, ' ')  # remove trailing question-marks
+          val.gsub!(/\?$/, '')  # remove trailing question-marks (end of line)
+          val.gsub!(/(\w+)-(\w+\*)/, '\1 \2')     # remove hyphen from wildcarded phrase
+          advanced_param['value'] = val
         end
-        val.gsub!(/\?\s+/, ' ')  # remove trailing question-marks
-        val.gsub!(/\?$/, '')  # remove trailing question-marks (end of line)
-        val.gsub!(/(\w+)-(\w+\*)/, '\1 \2')     # remove hyphen from wildcarded phrase
-        advanced_param['value'] = val
       end
     end
 
