@@ -150,7 +150,13 @@ module DisplayHelper
   def pegasus_item_link(id)
     url = 'http://pegasus.law.columbia.edu'
     if id
-      return link_to "Check Pegasus for current status", "#{url}/record=#{id}"
+      return link_to "Check Pegasus for current status", 
+                     "#{url}/record=#{id}",
+                     :class => 'linkout',
+                     :'data-category' => "Pegasus Link"
+# link_to label, url, :'data-counter' => options[:counter]
+# = link_to "CLIO", root_path, :class => "nav_title search_bar_logo"
+
     else
       return link_to url, url
     end
