@@ -1,33 +1,28 @@
 
 -# CATALOG ADVANCED SEARCH PANEL
 
-.advanced_search
 
-  .span12
-    -# Adding this magic <span> makes advanced_search show and basic_search hide
-    - if params[:adv].kind_of?(Hash) && !params[:adv].empty?
-      %span.show_advanced_search
+.search_box{ :class => ("selected" if has_advanced_params?) }
+  = form_tag base_catalog_index_path, :class => "form-horizontal", :method => "GET" do
 
-    = form_tag base_catalog_index_path, :class => "form-horizontal", :method => "GET" do
+    = standard_hidden_keys_for_search
 
-      = standard_hidden_keys_for_search
+    .search_title
+      Match
+      = select_tag :advanced_operator, options_for_select([["all", "AND"], ["any", 'OR']], params['advanced_operator'] || 'AND' ), :class => "input-mini"
+      of the following criteria:
+      %button.btn.advanced_search_button.btn-primary{:name => "commit", :type => "submit", :value => "Search"}
+        %i.icon-search.icon-white
+        %span.visible-desktop Search
+      =link_to "Basic Search", "#", class: "btn btn-link advanced_search_toggle"
 
-      .search_title
-        Match
-        = select_tag :advanced_operator, options_for_select([["all", "AND"], ["any", 'OR']], params['advanced_operator'] || 'AND' ), :class => "input-mini"
-        of the following criteria:
-        %button.btn.advanced_search_button.btn-primary{:name => "commit", :type => "submit", :value => "Search"}
-          %i.icon-search.icon-white
-          %span.visible-desktop Search
-        =link_to "Basic Search", "#", class: "btn btn-link advanced_search_toggle"
+    = hidden_field_tag 'search_field', 'advanced'
 
-      = hidden_field_tag 'search_field', 'advanced'
-
-      .control-group
-        - (1..5).each do |i|
-          .advanced_search_row
-            = advanced_field_select_option(blacklight_config, i)
-            = advanced_field_text_field(blacklight_config, i)
+    .control-group
+      - (1..5).each do |i|
+        .advanced_search_row
+          = advanced_field_select_option(blacklight_config, i)
+          = advanced_field_text_field(blacklight_config, i)
 
 
 

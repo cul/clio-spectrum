@@ -41,7 +41,7 @@ module SearchHelper
   end
 
 
-  def display_advanced_search(source)
+  def display_advanced_search_form(source)
     options = DATASOURCES_CONFIG['datasources'][source]['search_box'] || {}
     blacklight_config = Spectrum::SearchEngines::Solr.generate_config(source)
     
@@ -56,14 +56,18 @@ module SearchHelper
 
   end
 
-  def display_search_form(source)
+  def display_basic_search_form(source)
     options = DATASOURCES_CONFIG['datasources'][source]['search_box'] || {}
 
     search_params = determine_search_params
     div_classes = ["search_box", source]
     div_classes << "multi" if show_all_search_boxes
-    div_classes << "selected" if @active_source == source
-
+    
+    # The "selected" search_box hide/show was built for 
+    # javascript-based datasource switching.  
+    # Repurpose for basic/advanced load state.
+    # div_classes << "selected" if @active_source == source
+    div_classes << "selected" unless has_advanced_params?
 
     result = "".html_safe
     if show_all_search_boxes || @active_source == source
