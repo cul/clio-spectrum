@@ -45,6 +45,7 @@ class SpectrumController < ApplicationController
 
     # First, try to detect if we should go to the landing page.
     # But... Facet-Only searches are still searches.
+    # (Compare logic from SearchHelper#has_search_parameters?)
     if params['q'].nil? && params['s.q'].nil? &&
        params['s.fq'].nil? && params['s.ff'].nil? ||
       (params['q'].to_s.empty? && @active_source == 'library_web')

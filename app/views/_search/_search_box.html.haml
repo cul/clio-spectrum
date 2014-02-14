@@ -5,3 +5,10 @@
         = display_search_form(source)
 
       = display_advanced_search(source)
+
+  / Start-Over link, only present during searching
+  .start_over.span3.text-right
+    - if has_search_parameters?
+      = display_start_over_link(source)
+
+

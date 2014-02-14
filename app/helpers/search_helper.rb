@@ -44,18 +44,16 @@ module SearchHelper
   def display_advanced_search(source)
     options = DATASOURCES_CONFIG['datasources'][source]['search_box'] || {}
     blacklight_config = Spectrum::SearchEngines::Solr.generate_config(source)
+    
     if options['search_type'] == "blacklight" && options['advanced'] == true
       return fix_catalog_links(render('/catalog/advanced_search', :localized_params => params), source)
     end
+
     if options['search_type'] == "summon" && options['advanced'] == true
       # Rails.logger.debug "display_advanced_search() source=[#{source}]"
       return render '/spectrum/summon/advanced_search', source: source, path: source == "articles" ? articles_index_path : newspapers_index_path
     end
-    # Add a special 'Start Over' link when a QuickSearch query is active
-    # NEXT-612 - Quick search page doesn't let you start over
-    if source == 'quicksearch' && params['q'].present?
-      return render '/quicksearch/start_over'
-    end
+
   end
 
   def display_search_form(source)
@@ -133,6 +131,60 @@ module SearchHelper
 
     return result
   end
+
+  # Override Blacklight's has_search_parameters to handle
+  # our additional datasources
+  def has_search_parameters?()
+    # Blacklight's logic, covers Catalog, AC, LWeb
+    return true if !params[:q].blank?
+    return true if !params[:f].blank?
+    return true if !params[:search_field].blank?
+
+    # Consider the empty-query to be an active search param as well.
+    # (just "q=", meaning, retrieve ALL documents of this datasource)
+    return true if params[:q]
+    
+    # Summon params are different...
+    return true if !params['s.q'].blank?
+    return true if !params['s.fq'].blank?
+    return true if !params['s.ff'].blank?
+
+    # No, we found no search parameters
+    return false
+  end
+  
+  def display_start_over_link(source)
+    link_to content_tag(:i, '', :class => "icon-refresh") + " Start Over", 
+            datasource_landing_page_path(source), 
+            :class => 'btn btn-link'
+  end
+  
+  # def search_box_style(search_box_type)
+  #   # ADVANCED - hide basic
+  #   if has_advanced_params?
+  #     { 'basic'     =>  'display: none;',
+  #       'advanced'  =>  'display: block;' 
+  #     }[search_box_type]
+  # 
+  #   else
+  #     { 'basic'     =>  'display: block;',
+  #       'advanced'  =>  'display: none;'
+  #     }[search_box_type]
+  #   end
+  # end
+  # 
+  # def get_search_display_styles()   
+  #   puts "=========== has_advanced_params=#{has_advanced_params?}"
+  #   if has_advanced_params?
+  #     puts "YES"
+  #     { 'basic'     =>  'display:none',
+  #       'advanced'  =>  'display:block' }
+  #   else
+  #     puts "NO"
+  #     { 'basic'     =>  'display:block',
+  #       'advanced'  =>  'display:none' }
+  #   end
+  # end
 
   # UNUSED ???
   # def display_search_box(source, &block)
