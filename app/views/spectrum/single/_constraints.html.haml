@@ -4,7 +4,6 @@
 .well.well-constraints
   %span.constraints-label You searched for:
 
-  = link_to "Start Over", result.start_over_link, :class => "single_startOverLink", :id => "startOverLink"
   - result.constraints_with_links.each do |text, link|
 
     %div.constraint-box

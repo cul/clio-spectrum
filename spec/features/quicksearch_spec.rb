@@ -19,8 +19,8 @@ describe "The home page" do
       result_set.should have_css('.result')
     end
 
-    find(".search_boxes").should have_content('Start Over')
-    within(".search_boxes") do
+    find(".landing_across").should have_text('Start Over')
+    within(".landing_across") do
       click_link("Start Over")
     end
 

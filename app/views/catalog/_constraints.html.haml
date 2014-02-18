@@ -1,9 +1,9 @@
--# CATALOG CONSTRAINTS
+-# CATALOG CONSTRAINTS - APPEARS ON TOP OF SEARCH RESULTS PAGE
 
 - if @query.has_constraints?
   #appliedParams.constraints-container
     %span.constraints-label= t('blacklight.search.filters.title')
-    = link_to t('blacklight.search.start_over'), url_for(:action=>'index'), :class => "catalog_startOverLink", :id=>"startOverLink"
+    -# = link_to t('blacklight.search.start_over'), url_for(:action=>'index'), :class => "catalog_startOverLink", :id=>"startOverLink"
     - unless @query.queries.empty?
       - constraint_class = @query.multiple_queries? ? "with-dropdown" : ""
 

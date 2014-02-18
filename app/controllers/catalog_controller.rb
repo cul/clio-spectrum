@@ -279,6 +279,14 @@ class CatalogController < ApplicationController
 
   end
 
+  # Override Blacklight's definition, to assign custom layout
+  def librarian_view
+    @response, @document = get_solr_response_for_doc_id
+    respond_to do |format|
+      format.html { render :layout => 'no_sidebar' }
+      format.js { render :layout => false }
+    end
+  end
 
 
 end

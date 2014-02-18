@@ -65,5 +65,15 @@ module AdvancedHelper
     select_tag("adv[#{index}][field]", options_for_select(field_list, default_value), :class => "advanced_search_field")
   end
 
+
+  def has_advanced_params?
+    # Catalog
+    return true if (params[:adv].kind_of?(Hash) and !params[:adv].empty?)
+    # Summon
+    return true if params[:form] == 'advanced'
+    # If we didn't detect any advanced search...
+    return false
+  end
+
 end
 
