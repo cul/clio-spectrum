@@ -52,5 +52,63 @@ $(document).ready(function() {
     });
   });
 
+  // $('.copy_tracker').bind({
+  //   copy : function() {
+  //     alert(this)
+  //   }
+  // });
+
+  // FAIL - too restrictive, doesn't ever really get triggered
+  $(".call_number").bind('copy', function() {
+    alert('copy call number only')
+    return false;
+  }); 
+
+
+  // GENERIC - DOCUMENT DETAILS COPIED
+  $("#documents .result").bind('copy', function() {
+    alert('copy single document details')
+    return false;
+  }); 
+
+  // FAIL - never seems to get called?
+  $("#documents").bind('copy', function() {
+    alert('copy multiple document details')
+    return false;
+  }); 
+
+
 });
+
+// $('.cak').bind({
+//   copy : function() {
+//     alert(this)
+//   }
+// });
+
+
+// Track copied content adapted from Onderweg & Tim Down by Robert Kingston - http://www.optimisationbeacon.com/
+// Get Selection Text function by Tim Down - http://stackoverflow.com/a/5379408/458627
+// function getSelectionText() {
+//     var e = "";
+//     if (window.getSelection) {
+//         e = window.getSelection().toString()
+//     } else if (document.selection && document.selection.type != "Control") {
+//         e = document.selection.createRange().text
+//     }
+//     return e
+// }
+// $(document.body).bind("copy cut paste", function (e) {
+//   var content = getSelectionText();
+//   var contentClean = content.substring(0, 499).replace(/\\(n|r\\n|r)/gm, "\\n "); // Represent new lines
+//   var length = content.length;
+//   alert(contentClean);
+//   // _gaq.push(['_trackEvent', 'clipboard', e.type+' location: '+document.location.pathname, contentClean, length, true]);
+// });
+
+// $('div.title').onClick(alert('click'));
+
+
+
+
 
