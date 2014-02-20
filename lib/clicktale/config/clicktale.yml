@@ -1,6 +1,6 @@
 default: &default
 
-  clicktale_project_code:  702c4f64-c74b-4576-82b3-cd6fc453355c
+  clicktale_project_code:  nil
 
   top: |
     <!-- ClickTale Top part -->

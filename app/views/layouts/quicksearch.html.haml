@@ -23,12 +23,11 @@
             #sources
               = clio_sidebar_items.join('').html_safe
           #main_with_sources{:class => main_span}
-            .row-fluid
-              - unless @show_landing_pages
-                = display_search_boxes(@active_source)
+            - unless @show_landing_pages
+              = display_search_boxes(@active_source)
 
-              = render :partial=>'/layouts/messages'
-              = yield
+            = render :partial=>'/layouts/messages'
+            = yield
 
           .clear-both
 

@@ -16,9 +16,10 @@ Clio::Application.configure do
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
-  config.action_controller.perform_caching = false
-# TURN ON TO TEST CLICKTALE
-  # config.action_controller.perform_caching = true
+
+  # Turn development caching on to test Caching, ClickTale, etc.
+  # config.action_controller.perform_caching = false
+  config.action_controller.perform_caching = true
 
   config.assets.compress = false
   config.assets.debug = false
