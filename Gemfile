@@ -15,10 +15,6 @@ gem 'devise_wind'
 # Locally developed library code to interface with ClickTale analytics
 gem 'clicktale', path: "lib/clicktale"
 
-gem 'sqlite3'
-
-gem 'thin'
-# gem 'unicorn'
 
 gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
 # gem 'blacklight_range_limit', :github => 'projectblacklight/blacklight_range_limit'
@@ -168,6 +164,13 @@ group :development do
 end
 
 group :test, :development do
+
+  gem 'sqlite3'
+
+  gem 'thin'
+  # gem 'unicorn'
+
+
   # why in test and dev both instead of just test?  
   # because is says to: https://github.com/rspec/rspec-rails
   # gem 'rspec-rails', '>=2.14'

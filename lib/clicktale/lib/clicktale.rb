@@ -1,19 +1,8 @@
-require "clicktale/engine"
+require 'rails'
+require 'clicktale/engine'
 require 'clicktale/controller'
-require 'clicktale/helper'
 
 module Clicktale
-
-# puts '=========== AAA'
-#   def self.init
-# #     ActionController::Base.send(:include, Clicktale::Controller)
-# #     ActionView::Base.send(:include, Clicktale::Helper)
-# # 
-# # raise
-# #     Rails.logger.debug "========= self.init"
-# 
-#   end
-# 
 
   CONFIG = HashWithIndifferentAccess.new
   begin

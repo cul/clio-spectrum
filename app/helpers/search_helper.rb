@@ -147,7 +147,7 @@ module SearchHelper
     # Consider the empty-query to be an active search param as well.
     # (just "q=", meaning, retrieve ALL documents of this datasource)
     return true if params[:q]
-    
+
     # Summon params are different...
     return true if !params['s.q'].blank?
     return true if !params['s.fq'].blank?
@@ -156,13 +156,13 @@ module SearchHelper
     # No, we found no search parameters
     return false
   end
-  
+
   def display_start_over_link(source)
-    link_to content_tag(:i, '', :class => "icon-refresh") + " Start Over", 
-            datasource_landing_page_path(source), 
+    link_to content_tag(:i, '', :class => "icon-backward") + " Start Over",
+            datasource_landing_page_path(source),
             :class => 'btn btn-link'
   end
-  
+
   # def search_box_style(search_box_type)
   #   # ADVANCED - hide basic
   #   if has_advanced_params?

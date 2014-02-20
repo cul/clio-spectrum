@@ -13,13 +13,16 @@ default: &default
     <!-- ClickTale Bottom part -->
     <script type="text/javascript">
 
-      ClickTaleFetchFrom="CLICKTALE_FETCH_FROM_URL";     
+      $(document).ready(function(){
 
-      document.write(unescape("%3Cscript%20src='"+
-       (document.location.protocol=='https:'?
-       "https://clicktalecdn.sslcs.cdngc.net/www02/ptc/CLICKTALE_PROJECT_CODE.js":
-       "http://cdn.clicktale.net/www02/ptc/CLICKTALE_PROJECT_CODE.js")+
-       "'%20type='text/javascript'%3E%3C/script%3E"));
+        ClickTaleFetchFrom="CLICKTALE_FETCH_FROM_URL";     
+
+        document.write(unescape("%3Cscript%20src='"+
+         (document.location.protocol=='https:'?
+         "https://clicktalecdn.sslcs.cdngc.net/www02/ptc/CLICKTALE_PROJECT_CODE.js":
+         "http://cdn.clicktale.net/www02/ptc/CLICKTALE_PROJECT_CODE.js")+
+         "'%20type='text/javascript'%3E%3C/script%3E"));
+      });
 
     </script>
     <!-- ClickTale end of Bottom part -->

@@ -28,10 +28,14 @@ module Clicktale
       # res = yield
       if clicktale_enabled? && response.body.present?
         body = response.body
+
+        # near the top, 
         top_regexp = clicktale_config[:insert_after] || /(\<body[^\>]*\>)/
-        bottom_regexp = clicktale_config[:insert_before] || /(\<\/body\>)/
         body.sub!(top_regexp) { |match| match + "\n" + clicktale_config[:top] }
+
+        bottom_regexp = clicktale_config[:insert_before] || /(\<\/body\>)/
         body.sub!(bottom_regexp) { |match| "\n\n" + clicktale_bottom + "\n\n" + match }
+
         response.body = body
         cache_path = "/clicktale/clicktale_#{clicktale_cache_token}"
         cache_page(nil, cache_path)
@@ -62,7 +66,7 @@ module Clicktale
     end
 
     def regexp_enabled?
-      clicktale_config[:do_not_replace].present? ? !(response.body =~ clicktale_config[:do_not_replace]) : true
+      clicktale_config[:do_not_record].present? ? !(response.body =~ clicktale_config[:do_not_record]) : true
     end
 
     def cookie_enabled?

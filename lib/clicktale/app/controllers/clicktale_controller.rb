@@ -3,14 +3,20 @@ require 'ipaddr'
 class ClicktaleController < ApplicationController
   def show
 
-    send_file(File.join(Rails.root, "public/clicktale", params[:filename] + ".html"), :type => :html, :disposition => "inline")
+    begin
+      # Only send back file to ip's in our approved list
+      if clicktale_config[:allowed_addresses] && ip_allowed?(request.remote_ip)
+        send_file(File.join(Rails.root, "public/clicktale", params[:filename] + ".html"), :type => :html, :disposition => "inline")
+      else
+        render :text => "Not Found", :status => 404
+      end
+    rescue ActionController::MissingFile => e
+      # This is fine, it means that clicktale.com tried to harvest a cached
+      # page from us, but we'd already removed it via housekeeping.
+      # The result is a single missed reading, which is perfectly ok.
+      render :text => "Not Found", :status => 404
+    end
 
-    # if clicktale_config[:allowed_addresses] && ip_allowed?(request.remote_ip)
-    #   send_file(File.join(Rails.root, "tmp/clicktale", params[:filename] + ".html"), :type => :html, :disposition => "inline")
-    # else
-    #   render :text => "Not Found", :status => 404
-    # end
-    
     # Clean up temp files
     # Fires only after ClickTale fetches, 
     # over-clearing just means a handful of samples go missing.
@@ -22,7 +28,7 @@ class ClicktaleController < ApplicationController
         Rails.logger.error "[ClickTale] exception raised during cleanup: #{e.message}"
       end
     end
-    
+
   end
 
   private
