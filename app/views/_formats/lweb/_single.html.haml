@@ -9,8 +9,13 @@
         = render '/item_number', :counter => counter
 
       .item_number_allowance
-        = link_to display_title.html_safe, document.url.listify.first.html_safe
-
+        = link_to display_title.html_safe, document.url.html_safe
+    
   .lweb_summary.item_select_allowance=document.summary.html_safe
+
+  - if document.mime
+    .lweb_dam_document.item_select_allowance
+      = dam_document_icon(document)
+      = dam_document_link(document)
 
 

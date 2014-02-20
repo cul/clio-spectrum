@@ -2,6 +2,36 @@
 
 module DisplayHelper
 
+  def get_column_classes(column)
+    "result_column span#{column['width']}"
+  end
+
+  MIME_MAPPINGS = {
+    'application/pdf'      =>   'pdf.png',
+    'application/msword'   =>   'doc.png',
+  }
+
+  def dam_document_icon(document)
+    return '' unless document.mime
+
+    if (mime_icon = MIME_MAPPINGS[document.mime])
+      return image_tag("format_icons/#{mime_icon}", :size => "20x20")
+    end
+
+    extension = document.url.sub(/.*\./, '')
+    if ['mp3', 'mp4'].include? extension
+      return image_tag("format_icons/#{extension}.png", :size => "20x20")
+    end
+
+  end
+
+  def dam_document_link(document)
+    return '' unless document and document.url
+    basename = document.url.sub(/.*\//, '')
+    return '' unless basename
+    link_to "#{basename}", document.url
+  end
+
   def render_first_available_partial(partials, options)
     partials.each do |partial|
       begin
