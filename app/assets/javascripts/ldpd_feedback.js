@@ -16,12 +16,6 @@ $(document).ready(function() {
         }
     });
 
-    $(window).resize(function(){
-        if(LWEB.feedbackDialogIsVisible) {
-            LWEB.centerFeedbackDialog();
-        }
-    });
-
     $(window).scroll(function(){
         if(LWEB.feedbackDialogIsVisible) {
             LWEB.centerFeedbackDialog();

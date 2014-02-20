@@ -454,7 +454,7 @@ module DisplayHelper
         if breaking_space_index
           before = value[0, breaking_space_index]
           after = value[breaking_space_index + 1 .. -1]
-          icon_i = content_tag(:i, nil, :class => 'icon-resize-full', :onclick => "toggle_teaser(this)")
+          icon_i = content_tag(:i, nil, :class => 'icon-resize-full toggle-teaser')
           value = "#{before} #{content_tag(:span, after, :class => 'teaser')} #{icon_i}".html_safe
         else
           value

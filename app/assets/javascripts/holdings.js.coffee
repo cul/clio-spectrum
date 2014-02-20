@@ -1,7 +1,12 @@
-root = exports ? this
 
-root.after_document_load = (element) ->
-  $("a[rel='popover']").popover()
+$ ->
+  async_lookup_item_details($('#page'))
+
+
+# async_lookup_item_details called here, on document-ready,
+# and also from async-search.js.coffee, once per panel in aggregates
+
+@async_lookup_item_details = (element) ->
   fedora_items = []
   catalog_items = []
   standard_id_sets = []
@@ -38,7 +43,7 @@ root.after_document_load = (element) ->
   #   retrieve_hathi_links(standard_id_sets)
 
 
-root.load_clio_holdings = (id) ->
+@load_clio_holdings = (id) ->
   $("span.holding_spinner").show
   $("#clio_holdings .holdings_error").hide
 
@@ -52,7 +57,7 @@ root.load_clio_holdings = (id) ->
         $("span.holding_spinner").hide()
         $('#clio_holdings .holdings_error').show()
 
-root.retrieve_fedora_resources = (fedora_ids) ->
+@retrieve_fedora_resources = (fedora_ids) ->
   url = clio_backend_url + '/fedora/resources/' + fedora_ids.join('/');
 
   $.getJSON url, (data) ->
@@ -79,7 +84,7 @@ root.retrieve_fedora_resources = (fedora_ids) ->
         $(fedora_selector).html('No downloads found for this item.')
 
 
-root.retrieve_holdings = (bibids) ->
+@retrieve_holdings = (bibids) ->
   url = clio_backend_url + '/holdings/status/' + bibids.join('/');
 
 
@@ -93,7 +98,7 @@ root.retrieve_holdings = (bibids) ->
 
 # Called from _google_books_check.html.haml, to update the
 # Google section of the single-item Holdings information.
-root.update_book_jackets = (isbns, data) ->
+@update_book_jackets = (isbns, data) ->
   for index of isbns
     isbn = isbns[index]
     isbn_name = isbn.replace(/:/, "")
@@ -134,7 +139,7 @@ root.update_book_jackets = (isbns, data) ->
 
 
 
-root.retrieve_google_jackets = (standard_id_sets) ->
+@retrieve_google_jackets = (standard_id_sets) ->
   # console.log("TOTAL NUMBER OF SETS: " + standard_id_sets.length)
   for standard_id_set_csv in standard_id_sets
     # start_index = 0
@@ -143,7 +148,7 @@ root.retrieve_google_jackets = (standard_id_sets) ->
     retrieve_google_jacket_for_single_item_v2(standard_id_set_csv)
 
 
-# root.retrieve_google_jacket_for_single_item = (standard_id_array, start_index) ->
+# @retrieve_google_jacket_for_single_item = (standard_id_array, start_index) ->
 #   if start_index >= standard_id_array.length
 #     return
 # 
@@ -184,7 +189,7 @@ root.retrieve_google_jackets = (standard_id_sets) ->
 #       retrieve_google_jacket_for_single_item(standard_id_array, start_index + 1)
 #   )
 
-root.retrieve_google_jacket_for_single_item_v2 = (standard_id_set_csv) ->
+@retrieve_google_jacket_for_single_item_v2 = (standard_id_set_csv) ->
   # cribbed from: http://stackoverflow.com/questions/3839966
   # var tag = document.createElement("script");
   # tag.src = 'somewhere_else.php?callback=foo';
@@ -198,7 +203,7 @@ root.retrieve_google_jacket_for_single_item_v2 = (standard_id_set_csv) ->
 # parse the response JSON from books.google.com, to extract the
 # thumbnail URL to update the search results.
 # see: https://developers.google.com/books/docs/dynamic-links
-root.google_books_response_callback = (data) ->
+@google_books_response_callback = (data) ->
   for id, value_hash of data
     id_as_class = "id_" + id.replace(":","")
     if $('img.bookjacket.' + id_as_class) && value_hash.hasOwnProperty('thumbnail_url')
@@ -207,7 +212,7 @@ root.google_books_response_callback = (data) ->
 
   
 
-# root.retrieve_hathi_links = (standard_id_sets) ->
+# @retrieve_hathi_links = (standard_id_sets) ->
 #   # console.log("HATHI:  TOTAL NUMBER OF SETS: " + standard_id_sets.length)
 #   for standard_id_set_csv in standard_id_sets
 #     start_index = 0
@@ -215,7 +220,7 @@ root.google_books_response_callback = (data) ->
 #     retrieve_hathi_links_for_single_item(standard_id_array, start_index)
 # 
 # 
-# root.retrieve_hathi_links_for_single_item = (standard_id_array, start_index) ->
+# @retrieve_hathi_links_for_single_item = (standard_id_array, start_index) ->
 #   if start_index >= standard_id_array.length
 #     return
 #   current_search_id = standard_id_array[start_index]
@@ -232,7 +237,5 @@ root.google_books_response_callback = (data) ->
 # 
 
 
-$ ->
-  after_document_load($('#page'))
 
 

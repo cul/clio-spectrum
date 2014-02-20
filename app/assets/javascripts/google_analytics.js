@@ -13,28 +13,33 @@
 // })();
 
 
-// UNIVERSAL TRACKING CODE FROM GA WEBSITE
-
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', google_analytics_web_property_id, 'columbia.edu');
-ga('send', 'pageview');
-
-
-// Click-Tracking as GA Events, based on:
-//   http://www.lunametrics.com/blog/2013/07/02/jquery-event-tracking
 
 $(document).ready(function() {
- 
+
+  // UNIVERSAL TRACKING CODE FROM GA WEBSITE
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', google_analytics_web_property_id, 'columbia.edu');
+  ga('send', 'pageview');
+
+
+
+
+  // Click-Tracking as GA Events, based on:
+  //   http://www.lunametrics.com/blog/2013/07/02/jquery-event-tracking
+
   $("a.linkout").each(function() {
     var href   = $(this).attr("href");
     var target = $(this).attr("target");
     var text   = $(this).text();
 
-    var category = $(this).data("ga-category") || "Outbound Link";
+    // The GA Category may be given at a higher DOM level,
+    // e.g., at the root of an html menu/list of links
+    var category = $(this).closest("data-ga-category").data("ga-category") || "Outbound Link";
     var action = $(this).data("ga-action") || "Click";
     var label = $(this).data("ga-label") || text;
 
@@ -80,11 +85,6 @@ $(document).ready(function() {
 
 });
 
-// $('.cak').bind({
-//   copy : function() {
-//     alert(this)
-//   }
-// });
 
 
 // Track copied content adapted from Onderweg & Tim Down by Robert Kingston - http://www.optimisationbeacon.com/

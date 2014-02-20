@@ -1,9 +1,23 @@
 $ ->
 
+  # enabled Bootstrap popovers (quicksearch source descriptions, etc.)
+  # see http://getbootstrap.com/2.3.2/javascript.html#popovers
+  $("a[rel='popover']").popover()
+
+
+  # Two different styles of dealing with long fields,
+  # both showing an initial subset of content, revealing
+  # full content on a click.
+
+  $(".toggle-teaser").click ->
+    $(this).toggleClass('icon-resize-small')
+    $(this).prev().toggle()
+
   $(".expander").click ->
     $(this).hide()
     $(this).parent().find(".expander_more").show()
     return false
+
 
   $(".viewstyle_link").click ->
     $('.busy').show()
@@ -44,5 +58,6 @@ $ ->
       $.get('/set_browser_option?name=always_expand_facets&value=true')
     else
       $.get('/set_browser_option?name=always_expand_facets&value=false')
+
 
 
