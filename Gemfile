@@ -33,6 +33,10 @@ gem 'json'
 # Would be used for Patron services, if we were to use native Blacklight Patron services
 # gem 'restful_voyage', :git => "git://github.com/cul/restful_voyage.git", :branch => "master"
 
+# Always include sqlite, deploy to all servers, so that we can use dummy databases
+#  for simplified rails environments used in index rake cronjobs
+gem 'sqlite3'
+
 group :clio_dev, :clio_test, :clio_prod do
   gem 'mysql2'
 end
@@ -165,7 +169,6 @@ end
 
 group :test, :development do
 
-  gem 'sqlite3'
 
   gem 'thin'
   # gem 'unicorn'
