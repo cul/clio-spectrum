@@ -1,3 +1,4 @@
+require 'rails'
 require 'ipaddr'
 
 class ClicktaleController < ApplicationController
@@ -32,6 +33,9 @@ class ClicktaleController < ApplicationController
       Rails.logger.debug "[ClickTale] found clicktale_file=[#{clicktale_file}]"
       begin
         File.delete(clicktale_file) if File.exist?(clicktale_file)
+        # Delete gzipped versions of Rails cache files, if present
+        zipfile = clicktale_file + ".gz"
+        File.delete(zipfile) if File.exist?(zipfile)
       rescue Exception => e
         Rails.logger.error "[ClickTale] exception raised during cleanup: #{e.message}"
       end

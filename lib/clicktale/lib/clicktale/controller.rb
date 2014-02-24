@@ -82,7 +82,7 @@ module Clicktale
     end
 
     def clicktale_path
-      @clicktale_path ||= "/clicktale/#{clicktale_cache_token}.html"
+      @clicktale_path ||= "/clicktale/clicktale_#{clicktale_cache_token}.html"
     end
 
     def clicktale_url
