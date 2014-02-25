@@ -37,7 +37,7 @@ default: &default
   #   and 50.97.162.64/26, and opening a network connection(normally port
   #   80/443) for the ClickTale bot from these IP's to the sites ports on 
   #   your server(eg. 8080).
-  allowed_addresses: "75.125.82.64/26,50.97.162.64/26"
+  allowed_addresses: "75.125.82.64/26,50.97.162.64/26,5.5.5.5"
   
   do_not_process_cookie_name: "WRUID"
   do_not_process_cookie_value: 0

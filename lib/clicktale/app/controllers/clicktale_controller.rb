@@ -4,14 +4,16 @@ require 'ipaddr'
 class ClicktaleController < ApplicationController
   def show
 
-    Rails.logger.debug "[ClickTale] params[:filename]=[#{params[:filename]}]..."
+    cache_token = params[:filename]
+    Rails.logger.debug "[ClickTale] Rails.root=[#{Rails.root}]..."
+    Rails.logger.debug "[ClickTale] cache_token=[#{cache_token}]..."
     Rails.logger.debug "[ClickTale] request.remote_ip=[#{request.remote_ip}]..."
 
     begin
       # Only send back file to ip's in our approved list
       if clicktale_config[:allowed_addresses] && ip_allowed?(request.remote_ip)
         Rails.logger.debug "[ClickTale] sending file..."
-        send_file(File.join(Rails.root, "public/clicktale", params[:filename] + ".html"), :type => :html, :disposition => "inline")
+        send_file(File.join(Rails.root, "public/clicktale", "clicktale_#{cache_token}.html"), :type => :html, :disposition => "inline")
       else
         Rails.logger.debug "[ClickTale] Not Found..."
         render :text => "Not Found", :status => 404
@@ -27,9 +29,10 @@ class ClicktaleController < ApplicationController
     # Clean up temp files
     # Fires only after ClickTale fetches, 
     # over-clearing just means a handful of samples go missing.
-    cache_dir = Rails.root + "/public/clicktale"
+    cache_dir = File.join(Rails.root, "public/clicktale")
     Rails.logger.debug "[ClickTale] scanning cache_dir=[#{cache_dir}]..."
-    Dir.glob(cache_dir + "/clicktale_*.html") do |clicktale_file|
+    # Find any cached html, except don't remove the file satisfying the current request
+    Dir.glob(cache_dir + "/clicktale_*.html").reject { |f| f.include?(cache_token) }.each do |clicktale_file|
       Rails.logger.debug "[ClickTale] found clicktale_file=[#{clicktale_file}]"
       begin
         File.delete(clicktale_file) if File.exist?(clicktale_file)
