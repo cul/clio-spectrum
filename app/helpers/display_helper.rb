@@ -180,7 +180,8 @@ module DisplayHelper
   def pegasus_item_link(document, context = @active_source)
     url = 'http://pegasus.law.columbia.edu'
     if document && document.id
-      return link_to "Check Pegasus for current status",
+      # NEXT-996 - Rename "Pegasus" link
+      return link_to "Check Law catalog for status",
                      "#{url}/record=#{document.id}",
                      :class => 'linkout',
                      :'data-ga-category' => "Pegasus Link",
