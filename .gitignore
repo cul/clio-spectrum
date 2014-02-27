@@ -27,3 +27,5 @@ db/*.sqlite3
 *.rvmrc*
 *.sw?
 .sass-cache/**/*
+public/clicktale
+
