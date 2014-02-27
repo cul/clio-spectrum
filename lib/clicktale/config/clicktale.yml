@@ -1,6 +1,6 @@
 default: &default
 
-  clicktale_project_code:  nil
+  clicktale_project_code:
 
   top: |
     <!-- ClickTale Top part -->

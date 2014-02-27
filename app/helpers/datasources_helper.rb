@@ -34,7 +34,12 @@ module DatasourcesHelper
       classes << 'selected' if source == @active_source
       search_config = SEARCHES_CONFIG['sources'][source]
       warning = search_config ? search_config['warning'] : nil;
-      content_tag(:div, render(:partial => "/_search/landing_pages/#{source}", :locals => {warning: warning}), :class => classes.join(' '))
+      content_tag(:div,
+                  render(:partial => "/_search/landing_pages/#{source}",
+                  :locals => {warning: warning}),
+                  :class => classes.join(' '),
+                  :data => {'ga-action' => 'Landing Page Click'}
+                  )
     end
   end
 

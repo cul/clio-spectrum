@@ -1,5 +1,5 @@
 - cache("top_navigation_bar_#{current_user}") do
-  %header
+  %header{:data => {'ga-action' => 'Top NavBar Click'} }
     %h1.hide CUL - Header
     #topnavbar.navbar.navbar-fixed-top
       .navbar-inner.fill

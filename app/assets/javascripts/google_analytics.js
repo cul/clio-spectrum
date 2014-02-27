@@ -23,7 +23,11 @@ $(document).ready(function() {
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', google_analytics_web_property_id, 'columbia.edu');
+  // Point our running instance to the appropriate GA property definition
+  // ga('create', google_analytics_web_property_id, 'columbia.edu');
+  // FOR LOCALHOST DEVELOPMENT USE THIS LINE INSTEAD
+  ga('create', google_analytics_web_property_id, 'none');
+
   ga('send', 'pageview');
 
 
@@ -31,17 +35,23 @@ $(document).ready(function() {
 
   // Click-Tracking as GA Events, based on:
   //   http://www.lunametrics.com/blog/2013/07/02/jquery-event-tracking
+  // Apply to all off-site <A> tags, based on:
+  //   http://www.electrictoolbox.com/jquery-open-offsite-links-new-window/
 
-  $("a.linkout").each(function() {
+  // $("a.linkout").each(function() {	
+  $('a[href]').filter( function() {return this.hostname && this.hostname !== location.hostname} ).each(function() {
     var href   = $(this).attr("href");
     var target = $(this).attr("target");
     var text   = $(this).text();
 
-    // The GA Category may be given at a higher DOM level,
-    // e.g., at the root of an html menu/list of links
-    var category = $(this).closest("data-ga-category").data("ga-category") || "Outbound Link";
-    var action = $(this).data("ga-action") || "Click";
+    // The GA Category/Action may be given at a higher DOM level,
+    // e.g., at the root of an html menu/list of links, or a container div,
+    var category = $(this).closest("[data-ga-category]").data("ga-category") || "Outbound Link";
+    var action = $(this).closest("[data-ga-action]").data("ga-action") || "Click";
+    // Should the GA label default to the text or the URL?
     var label = $(this).data("ga-label") || text;
+
+    console.log("found a.href text=["+text+"]")
 
     $(this).click(function(event) { // when someone clicks these links
 
@@ -50,6 +60,7 @@ $(document).ready(function() {
       // _gaq.push(["_trackEvent", category, action, label]); // create a custom event
       // _trackEvent(category, action, label)
       ga('send', 'event', category, action, label);
+      console.log("ga('send','event','"+category+"','"+action+"','"+label+"')")
 
       setTimeout(function() { // now wait 300 milliseconds...
         window.open(href,(!target ? "_blank" : target)); // ...and open in new blank window

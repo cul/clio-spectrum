@@ -20,6 +20,9 @@ GoogleAnalytics.web_property_id = case Rails.env.to_s
   when 'clio_dev'
     'UA-28923110-4'
 
+  when 'development'
+    'UA-28923110-4'
+
   else
     nil
 end

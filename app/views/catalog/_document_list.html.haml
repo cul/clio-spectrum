@@ -1,2 +1,4 @@
 
-#documents= render_documents(@document_list, :action => "catalog")
+#documents{:data => {'ga-action' => 'Search Results Click'} }
+  = render_documents(@document_list, :action => "catalog")
+

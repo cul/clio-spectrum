@@ -183,13 +183,9 @@ module DisplayHelper
       # NEXT-996 - Rename "Pegasus" link
       return link_to "Check Law catalog for status",
                      "#{url}/record=#{document.id}",
-                     :class => 'linkout',
                      :'data-ga-category' => "Pegasus Link",
                      :'data-ga-action' => context,
                      :'data-ga-label' => document['title_display'] || document.id
-# link_to label, url, :'data-counter' => options[:counter]
-# = link_to "CLIO", root_path, :class => "nav_title search_bar_logo"
-
     else
       return link_to url, url
     end
