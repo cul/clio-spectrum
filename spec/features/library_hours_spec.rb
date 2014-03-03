@@ -46,14 +46,16 @@ describe "Item Locations should show correct library hours", :js => true do
   end
 
 
-  it "for Oral History Research Office" do
-    visit catalog_path('4075929')
-    page.should have_text('Oral History, 801 Butler')
-    click_link('Oral History, 801 Butler')
-    page.should have_text('Oral History')
+  it "for Law" do
+    visit catalog_path('b402660')
+    page.should have_text('Law Library')
+    click_link('Law Library')
+    page.should have_text('Law Library')
+    page.should have_text('Arthur W. Diamond')
+    page.should have_text('Jerome Greene Hall')
     # page.save_and_open_page # debug
-    page.should have_link("Home Page", :href=>"http://library.columbia.edu/locations/ccoh.html")
-    page.should have_link("Full Hours Info", :href=>"http://www.columbia.edu/cu/lweb/services/hours/index.html?library=ccoh")
+    page.should have_link("Home Page", :href=>"http://web.law.columbia.edu/library")
+    page.should have_link("Full Hours Info", :href=>"http://www.columbia.edu/cu/lweb/services/hours/index.html?library=law")
   end
 
 end

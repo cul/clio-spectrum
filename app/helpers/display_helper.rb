@@ -9,6 +9,7 @@ module DisplayHelper
   MIME_MAPPINGS = {
     'application/pdf'      =>   'pdf.png',
     'application/msword'   =>   'doc.png',
+    'application/msexcel'  =>   'xls.png',
   }
 
   def dam_document_icon(document)
@@ -19,7 +20,7 @@ module DisplayHelper
     end
 
     extension = document.url.sub(/.*\./, '')
-    if ['mp3', 'mp4'].include? extension
+    if ['mp3', 'mp4', 'xlsx'].include? extension
       return image_tag("format_icons/#{extension}.png", :size => "20x20")
     end
 

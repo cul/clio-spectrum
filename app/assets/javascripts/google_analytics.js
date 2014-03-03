@@ -51,7 +51,7 @@ $(document).ready(function() {
     // Should the GA label default to the text or the URL?
     var label = $(this).data("ga-label") || text;
 
-    console.log("found a.href text=["+text+"]")
+    // console.log("found a.href text=["+text+"]")
 
     $(this).click(function(event) { // when someone clicks these links
 
@@ -60,7 +60,7 @@ $(document).ready(function() {
       // _gaq.push(["_trackEvent", category, action, label]); // create a custom event
       // _trackEvent(category, action, label)
       ga('send', 'event', category, action, label);
-      console.log("ga('send','event','"+category+"','"+action+"','"+label+"')")
+      // console.log("ga('send','event','"+category+"','"+action+"','"+label+"')")
 
       setTimeout(function() { // now wait 300 milliseconds...
         window.open(href,(!target ? "_blank" : target)); // ...and open in new blank window
@@ -68,56 +68,23 @@ $(document).ready(function() {
     });
   });
 
-  // $('.copy_tracker').bind({
-  //   copy : function() {
-  //     alert(this)
-  //   }
-  // });
 
-  // FAIL - too restrictive, doesn't ever really get triggered
-  $(".call_number").bind('copy', function() {
-    alert('copy call number only')
-    return false;
+  $(this).bind('copy', function() {
+    var selectedText = "";
+    if (window.getSelection) {
+        selectedText = window.getSelection().toString()
+    } else if (document.selection && document.selection.type != "Control") {
+        selectedText = document.selection.createRange().text
+    }
+    if (selectedText.length > 0) {
+      // console.log('copy event')
+      // What GA category/action/label do we want to log this event as?
+    }
+    return true;
   }); 
-
-
-  // GENERIC - DOCUMENT DETAILS COPIED
-  $("#documents .result").bind('copy', function() {
-    alert('copy single document details')
-    return false;
-  }); 
-
-  // FAIL - never seems to get called?
-  $("#documents").bind('copy', function() {
-    alert('copy multiple document details')
-    return false;
-  }); 
-
 
 });
 
-
-
-// Track copied content adapted from Onderweg & Tim Down by Robert Kingston - http://www.optimisationbeacon.com/
-// Get Selection Text function by Tim Down - http://stackoverflow.com/a/5379408/458627
-// function getSelectionText() {
-//     var e = "";
-//     if (window.getSelection) {
-//         e = window.getSelection().toString()
-//     } else if (document.selection && document.selection.type != "Control") {
-//         e = document.selection.createRange().text
-//     }
-//     return e
-// }
-// $(document.body).bind("copy cut paste", function (e) {
-//   var content = getSelectionText();
-//   var contentClean = content.substring(0, 499).replace(/\\(n|r\\n|r)/gm, "\\n "); // Represent new lines
-//   var length = content.length;
-//   alert(contentClean);
-//   // _gaq.push(['_trackEvent', 'clipboard', e.type+' location: '+document.location.pathname, contentClean, length, true]);
-// });
-
-// $('div.title').onClick(alert('click'));
 
 
 
