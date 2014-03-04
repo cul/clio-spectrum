@@ -88,11 +88,8 @@ module SearchHelper
       ### for blacklight (catalog, academic commons)
       if options['search_type'] == "blacklight"
 
-        # What hidden params do we want to insert for basic search?
-        # Maybe none?  This is also causing a mysterious problem with
-        # extra params being inserted (sort, f[] fields, etc.).
-        # # insert hidden fields
-        # result += standard_hidden_keys_for_search
+        # insert hidden fields
+        result += standard_hidden_keys_for_search
 
         # insert drop-down
         if options['search_fields'].kind_of?(Hash)
