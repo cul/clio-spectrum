@@ -150,9 +150,28 @@ describe "Catalog Interface" do
 
     # within CLIO HOLDINGS, should get the full location data
     find('div#clio_holdings').should have_content(troublesome2)
-
-
   end
-
 end
 
+# describe 'Catalog item view', :caching => true do
+# 
+#   it "supports an email function", :js => true do
+#     visit catalog_path(1234567)
+#     within '#show_toolbar' do
+#       click_link 'Email'
+#     end
+# 
+#     page.should have_css('.modal-scrollable .modal .modal-header')
+#     # puts find('.modal-header').text.inspect #.should have_text('Email Item(s)')
+#     find('.modal-header').should have_text('Email Item(s)')
+# 
+#     within '#email_form' do
+#       fill_in 'to', :with => 'delete@library.columbia.edu'
+#       fill_in 'message', :with => 'testing'
+#       find('button[type=submit]').click()
+#     end
+# 
+#   end
+# 
+# end
+# 

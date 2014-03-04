@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "CLIO LWeb interface" do
+describe "Libraries Website DAM search" do
 
   it "should show DAM filenames and format icons for XLS" do
     visit library_web_index_path('q' => 'dam sheet1 xlsx')
@@ -27,4 +27,42 @@ describe "CLIO LWeb interface" do
   end
 
 end
+
+
+describe "Libraries Website searches" do
+
+  it "should remember items-per-page" do
+
+    # SET initial page-size to 100 items
+    visit library_web_index_path('q' => 'room')
+    within all('.index_toolbar.navbar').first do
+      find('.dropdown-toggle', :text => 'Display Options').click
+      click_link 'Display Options'
+      click_link '100 per page'
+    end
+
+    # Confirm 100-items returned upon next search
+    visit library_web_index_path('q' => 'book')
+    within all('.index_toolbar.navbar').first do
+      find('#current_item_info').should have_text "1 - 100 of"
+    end
+
+    # SET page-size to new value, 25 items
+    within all('.index_toolbar.navbar').first do
+      find('.dropdown-toggle', :text => 'Display Options').click
+      click_link 'Display Options'
+      click_link '25 per page'
+    end
+
+    # Confirm 25-items returned upon next search
+    visit library_web_index_path('q' => 'library')
+    within all('.index_toolbar.navbar').first do
+      find('#current_item_info').should have_text "1 - 25 of"
+    end
+
+  end
+
+end
+
+
 

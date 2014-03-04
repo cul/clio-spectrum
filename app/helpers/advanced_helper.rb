@@ -19,10 +19,10 @@ module AdvancedHelper
     search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page, :categories, :advanced_operator, :adv, :advanced]).html_safe
   end
 
-  def selected_values_for_facet(facet, localized_parms = params)
-
-    Array.wrap(params[:f] && params[:f][facet])
-  end
+# Unused?
+#   def selected_values_for_facet(facet, localized_parms = params)
+#     Array.wrap(params[:f] && params[:f][facet])
+#   end
 
   def selected_negative_values_for_facet(facet, localized_params = params)
     Array.wrap(params[:f] && params[:f]["-#{facet}"])

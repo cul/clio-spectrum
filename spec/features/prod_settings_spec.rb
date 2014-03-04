@@ -13,7 +13,7 @@ describe 'Prod Environment' do
 
     Rails.env = 'development'
     load File.join(Rails.root, "config/initializers/google_analytics.rb")
-    GoogleAnalytics.web_property_id.should == nil
+    GoogleAnalytics.web_property_id.should == 'UA-28923110-4'
 
     Rails.env = 'clio_dev'
     load File.join(Rails.root, "config/initializers/google_analytics.rb")

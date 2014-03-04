@@ -125,7 +125,8 @@ class ApplicationController < ActionController::Base
   end
 
 
-
+  # Called from SpectrumController.get_results()
+  # and from CatalogController.index()
   def blacklight_search(sent_options = {})
     options = sent_options.deep_clone
     options['source'] = @active_source unless options['source']
@@ -143,7 +144,8 @@ class ApplicationController < ActionController::Base
         # No, leave this to happen via async AJAX onload
         # look_up_clio_holdings(@results)
 
-        # Currently, item-alerts only show within the Databases data source
+        # Currently, item-alerts only show within the Databases data source.
+        # Why?
         if @active_source.present? and @active_source == "databases"
           add_alerts_to_documents(@results)
         end

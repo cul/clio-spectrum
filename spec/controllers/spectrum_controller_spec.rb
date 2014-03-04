@@ -29,11 +29,18 @@ describe SpectrumController do
     end
   end
 
-  describe 'getting results from invalid source' do
-    it 'should error appropriately' do
-      SpectrumController#get_results(12)
-    end
-  end
+  # describe 'getting results from invalid source' do
+  #   it 'should error appropriately' do
+  #     SpectrumController#get_results(12)
+  #   end
+  # end
+
+
+  # it "should raise RuntimeError if invalid datasource passed" do
+  #   expect {
+  #     SpectrumController.get_results( ['NoSuchDatasource'] )
+  #   }.to raise_error(RuntimeError)
+  # end
 
 
 end

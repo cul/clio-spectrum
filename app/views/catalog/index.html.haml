@@ -24,6 +24,13 @@
       - clio_sidebar_items << capture do
         = render 'facets'
 
+  -# We shouldn't get errors, but if we do we need to let the user know.
+  -#  DO NOT display @errors, as it includes technical details such as 
+  -#  Solr URL, true file-paths, etc.
+  - if @errors
+    .alert.alert-error
+      Unexpected Error during search.
+      Please #{link_to "restart your search", datasource_landing_page_path(@active_source)}
 
 
 

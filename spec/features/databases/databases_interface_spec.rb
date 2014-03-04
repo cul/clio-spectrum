@@ -28,6 +28,27 @@ describe "Databases", :focus => false do
     page.should have_css('.result.document .title', :text => "The A", :minimum => 1)
     page.should have_css('.result.document .title', :text => "L'A", :minimum => 1)
 
+    within '#documents' do
+      click_link("Academic Commons")
+    end
+
+    find('#search_info').should have_text "Back to Results"
+    find('#search_info').should have_text "Previous"
+    find('#search_info').should have_text "Next"
+    find('#search_info').should have_text "Start Over"
+
+    page.should have_text "Previous title: DigitalCommons"
+    page.should have_text "Online http://www.columbia.edu/cgi-bin/cul/resolve?clio6662174"
+
+    within '#search_info' do
+      click_link "Previous"
+    end
+
+    within '#search_info' do
+      click_link "Back to Results"
+    end
+
+    find('.constraints-container').should have_text "You searched for: Starts With: Is A"
   end
 
   it "should search by pairs of Discipline/Resource-Type filters correctly" do
@@ -41,7 +62,7 @@ describe "Databases", :focus => false do
     end
     # We should now be on DATABASES page
     find('.landing_main .title').should have_text('Databases')
-    
+
     # Databases landing page...
     within 'div.databases_browse_by' do
       page.should have_text('Browse by discipline')

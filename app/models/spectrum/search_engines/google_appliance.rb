@@ -37,9 +37,9 @@ module Spectrum
         @search_url || library_web_index_path(@params)
       end
 
-      def start_over_link
-        library_web_index_path()
-      end
+      # def start_over_link
+      #   library_web_index_path()
+      # end
 
       def constraints_with_links
         [[@q, library_web_index_path()]]

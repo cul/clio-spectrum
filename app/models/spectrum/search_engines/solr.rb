@@ -12,7 +12,8 @@ module Spectrum
       attr_accessor :params
 
 
-
+      # Invoked when ApplicationController::blacklight_search() calls:
+      #     search_engine = Spectrum::SearchEngines::Solr.new(options)
       def initialize(original_options = {})
         # this "solr_search_params_logic" is used when querying via our Solr engine.
         # queries using standard blacklight functions have their own config in CatalogController
@@ -33,25 +34,25 @@ module Spectrum
 
         # allow pass-in override solr url
         @solr_url = options.delete('solr_url')
-        blacklight_solr
-        blacklight_solr_config
+        blacklight_solr()
+        blacklight_solr_config()
         @params = options
         @params.symbolize_keys!
         Rails.logger.info "[Spectrum][Solr] source: #{@source} params: #{@params}"
 
         begin
-          # here's the actual search, defined below
+          # here's the actual search, defined below in this file
           perform_search
         rescue => ex
           Rails.logger.error "#{self.class}##{__method__} [Spectrum][Solr] error: #{ex.message}"
           @errors = ex.message
+          raise ex
         end
 
       end
 
       def blacklight_solr
         @solr ||= Solr.generate_rsolr(@source, @solr_url)
-
       end
 
       def blacklight_solr_config

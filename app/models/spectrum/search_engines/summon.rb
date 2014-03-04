@@ -289,9 +289,9 @@ module Spectrum
       end
 
 
-      def start_over_link
-        by_source_search_link('new_search' => true)
-      end
+      # def start_over_link
+      #   by_source_search_link('new_search' => true)
+      # end
 
 
       def previous_page?

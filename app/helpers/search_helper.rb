@@ -62,7 +62,7 @@ module SearchHelper
     search_params = determine_search_params
     div_classes = ["search_box", source]
     div_classes << "multi" if show_all_search_boxes
-    
+
     # The "selected" search_box hide/show was built for 
     # javascript-based datasource switching.  
     # Repurpose for basic/advanced load state.
@@ -87,8 +87,13 @@ module SearchHelper
 
       ### for blacklight (catalog, academic commons)
       if options['search_type'] == "blacklight"
-        # insert hidden fields
-        result += standard_hidden_keys_for_search
+
+        # What hidden params do we want to insert for basic search?
+        # Maybe none?  This is also causing a mysterious problem with
+        # extra params being inserted (sort, f[] fields, etc.).
+        # # insert hidden fields
+        # result += standard_hidden_keys_for_search
+
         # insert drop-down
         if options['search_fields'].kind_of?(Hash)
           result += dropdown_with_select_tag(:search_field, options['search_fields'].invert, h(search_params[:search_field]), :title => "Targeted search options", :class=>"search_options")
@@ -157,7 +162,7 @@ module SearchHelper
     return false
   end
 
-  def display_start_over_link(source)
+  def display_start_over_link(source = @active_source)
     link_to content_tag(:i, '', :class => "icon-backward") + " Start Over",
             datasource_landing_page_path(source),
             :class => 'btn btn-link'
