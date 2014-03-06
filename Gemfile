@@ -65,6 +65,10 @@ gem 'unicode'
 gem 'summon'
 gem 'cancan'
 
+# RecordMailer uses partials that do fragment caching... but somehow
+# this just doesn't work in stock rails.
+gem 'caching_mailer'
+
 # Talks to Voyager API directly, return XML-format for Spectrum use.
 # But, this is now used from within the Voyager-Backend application
 # (which is now named cul/clio_backend up at github), and so
