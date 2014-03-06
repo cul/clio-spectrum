@@ -7,7 +7,7 @@
         = link_to "here", request.fullpath.gsub(/(&|\?)async_(on|off)=true/,'') + "&async_on=true"
         to turn it back on.
     - else
-      .async_change.turn_async_off
+      .async_change.turn_async_off.hidden
         This page attempts to load results dynamically. If this is not working.
         Click
         = link_to "here", request.fullpath.gsub(/(&|\?)async_(on|off)=true/,'') + "&async_off=true"

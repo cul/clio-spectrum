@@ -1,5 +1,5 @@
 - cache("top_navigation_bar_#{current_user}") do
-  %header
+  %header{:data => {'ga-action' => 'Top NavBar Click'} }
     %h1.hide CUL - Header
     #topnavbar.navbar.navbar-fixed-top
       .navbar-inner.fill
@@ -55,7 +55,7 @@
                       - if current_user
                         %li.dropdown.menu
                           %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#"}
-                            %span.visible-phone
+                            %span.visible-phone.clicktale_masked
                               #{current_user.login}
                               %b.caret
                             %span.hidden-phone
@@ -87,13 +87,15 @@
                           %b.caret
                         %ul.dropdown-menu.menu-dropdown
                           %li
+                            %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0031", :target => "_blank"} Ask a Librarian
+                          %li
+                            %a{href: 'https://blogs.cul.columbia.edu/clio'} CLIO Help
+                          %li
                             %a{href: 'http://library.columbia.edu/content/libraryweb/help/faq.html'} FAQ
                           %li
                             %a{href: 'http://library.columbia.edu/content/libraryweb/help/using-this-site.html'} Website Help
                           %li
                             %a{href: 'http://library.columbia.edu/content/libraryweb/research/help.html'} Research Help
-                          %li
-                            %a{href: 'http://library.columbia.edu/content/libraryweb/find/clio.html'} CLIO Help
                           %li
                             %a{href: 'http://www.columbia.edu/cgi-bin/cul/resolve?lweb0006'} Report E-Resource Problems
                           %li

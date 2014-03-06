@@ -1,8 +1,8 @@
 - clio_id = h(document["clio_id_display"].to_s)
 
-.holdings
-  %h5 Available from:
+.holdings{:data => {'ga-action' => 'Item Detail Click'} }
 
+  %h5 Available from:
 
   = render "/_formats/clio/catalog_show_holdings_online" , :online_links => online_link_hash(document)
 

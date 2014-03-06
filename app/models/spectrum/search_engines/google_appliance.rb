@@ -12,11 +12,12 @@ module Spectrum
         @rows = (options['rows'] || 10).to_i
         @start = (options['start'] || 0).to_i
         @sitesearch = options['sitesearch'] || ''
-        @search_url = options.delete('search_url')
+        @ga_url = options.delete('ga_url') || APP_CONFIG['google_appliance_url']
+        @search_url = build_search_url
         @errors = nil
-        Rails.logger.debug "[Spectrum][GoogleApp] params: #{search_url}"
+        Rails.logger.debug "[Spectrum][GoogleApp] params: #{@search_url}"
         begin
-          @raw_xml = Nokogiri::XML(HTTPClient.new.get_content(search_url))
+          @raw_xml = Nokogiri::XML(HTTPClient.new.get_content(@search_url))
           @documents = @raw_xml.css("R").collect { |xml_node| LibraryWeb::Document.new(xml_node) }
           @count = @raw_xml.at_css("M") ? @raw_xml.at_css("M").content.to_i : 0
         rescue => ex
@@ -37,9 +38,9 @@ module Spectrum
         @search_url || library_web_index_path(@params)
       end
 
-      def start_over_link
-        library_web_index_path()
-      end
+      # def start_over_link
+      #   library_web_index_path()
+      # end
 
       def constraints_with_links
         [[@q, library_web_index_path()]]
@@ -89,7 +90,7 @@ module Spectrum
       end
 
 
-      def search_url
+      def build_search_url
         default_params = {
           'site'    => 'CUL_LibraryWeb',
           'as_dt'   => 'i',
@@ -103,7 +104,8 @@ module Spectrum
           'y'       => '0',
         }
 
-        url = "http://search.columbia.edu/search?#{default_params.to_query}"
+        # url = "http://search.columbia.edu/search?#{default_params.to_query}"
+        url = "#{@ga_url}?#{default_params.to_query}"
         url += "&sitesearch=#{@sitesearch}"
         url += "&num=#{@rows}"
         url += "&start=#{@start}"

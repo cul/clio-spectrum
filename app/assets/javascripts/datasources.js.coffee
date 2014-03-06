@@ -4,6 +4,9 @@ $ ->
     -> $(this).removeClass('hover')
   )
 
+
+  # Toggle datasources list between partial and full
+
   $("#datasource_expand").click ->
     $(this).hide()
     $("#expanded_datasources").slideDown()
@@ -46,9 +49,11 @@ $ ->
     select = '#datasources li[source="' + $(this).val() + '"] a'
     datasource_href= $(select).attr('href')
 
-    if datasource_href == '#'
-      change_datasource($(this).val())
-    else
+    # if datasource_href == '#'
+    #   change_datasource($(this).val())
+    # else
+    if datasource_href != '#'
+      $('.busy').show()
       window.location = datasource_href
 
 bind_dropdown_selects = (source) ->
@@ -61,28 +66,28 @@ bind_dropdown_selects = (source) ->
       $(dropdown_root).find('.dropdown-toggle').html(selection_key + ' <span class="caret"/>')
       $(dropdown_root).find('select').val(selection)
 
-# Capture the browser's forward/backward events, 
-# send them to change_datasource()
-window.onpopstate = (event) ->
-  if event.state && event.state.source
-    change_datasource(event.state.source)
-
-
-
-# Javascript-based switching between datasources,
-# with attempted manipulation of the browser history
-change_datasource = (source) ->
-  $("ul.landing li").removeClass('selected')
-  $("ul.landing li[source='" + source + "']").addClass('selected')
-  history.pushState?({source: source}, '', source + "#")
-
-  landing_selector = ".landing_page." + source
-  $('.landing_page').hide()
-  $(landing_selector).show()
-
-  search_box_select = ".basic_search .search_box." + source
-  $('.basic_search .search_box.multi').hide()
-  $(search_box_select).show()
-
+# # Capture the browser's forward/backward events, 
+# # send them to change_datasource()
+# window.onpopstate = (event) ->
+#   if event.state && event.state.source
+#     change_datasource(event.state.source)
+# 
+# 
+# 
+# # Javascript-based switching between datasources,
+# # with attempted manipulation of the browser history
+# change_datasource = (source) ->
+#   $("ul.landing li").removeClass('selected')
+#   $("ul.landing li[source='" + source + "']").addClass('selected')
+#   history.pushState?({source: source}, '', source + "#")
+# 
+#   landing_selector = ".landing_page." + source
+#   $('.landing_page').hide()
+#   $(landing_selector).show()
+# 
+#   search_box_select = ".basic_search .search_box." + source
+#   $('.basic_search .search_box.multi').hide()
+#   $(search_box_select).show()
+# 
 
 

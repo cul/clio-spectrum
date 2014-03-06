@@ -1,7 +1,15 @@
-.row-fluid
-  .landing_across.span12
-    .search_boxes.span12
-      .basic_search{:class => 'span9'}
-        = display_search_form(source)
 
-      = display_advanced_search(source)
+.landing_across.row-fluid
+
+  .search_boxes.span9
+    .basic_search
+      = display_basic_search_form(source)
+    .advanced_search
+      = display_advanced_search_form(source)
+
+  / Start-Over link, only present during searching
+  .start_over.span3.text-right
+    - if has_search_parameters?
+      = display_start_over_link(source)
+
+

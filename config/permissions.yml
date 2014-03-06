@@ -2,6 +2,7 @@ site:
   manage:
     - gb8
     - sam119
+    - test_site_manager
 
 item_alerts:
   manage:

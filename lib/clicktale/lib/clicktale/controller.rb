@@ -2,11 +2,10 @@ module Clicktale
   module Controller
 
     def self.included(base)
-      # puts '=========== CCC'
-
       base.class_eval do
         @@clicktale_options = {}
-        around_filter :clicktaleize
+        # around_filter :clicktaleize
+        after_filter :clicktaleize
         helper_method :clicktale_enabled?
         helper_method :clicktale_config
         helper_method :clicktale_path
@@ -26,29 +25,22 @@ module Clicktale
     end
 
     def clicktaleize
-# puts '=========== DDD'
-      res = yield
-# puts "=========== clicktale_enabled?[#{clicktale_enabled?}]"
-# puts "=========== response.body.present?[#{response.body.present?}]"
+      # res = yield
       if clicktale_enabled? && response.body.present?
         body = response.body
+
+        # near the top, 
         top_regexp = clicktale_config[:insert_after] || /(\<body[^\>]*\>)/
-        bottom_regexp = clicktale_config[:insert_before] || /(\<\/body\>)/
-# puts "=========== top_regexp[#{top_regexp.inspect}]"
-# puts "=========== bottom_regexp[#{bottom_regexp.inspect}]"
-        # response.body.sub!(top_regexp) { |match| match + "\n" + clicktale_config[:top] }
-        # response.body.sub!(bottom_regexp) { |match| clicktale_bottom + "\n" + match }
         body.sub!(top_regexp) { |match| match + "\n" + clicktale_config[:top] }
+
+        bottom_regexp = clicktale_config[:insert_before] || /(\<\/body\>)/
         body.sub!(bottom_regexp) { |match| "\n\n" + clicktale_bottom + "\n\n" + match }
-# puts "=========== clicktale_config[:top][#{clicktale_config[:top]}]"
-# puts "=========== clicktale_bottom[#{clicktale_bottom}]"
-# puts "=========== body[#{body}] =============="
-# puts "=========== response.body[#{response.body}] =============="
+
         response.body = body
-        cache_path = "/clicktale/#{clicktale_cache_token}"
+        cache_path = "/clicktale/clicktale_#{clicktale_cache_token}"
         cache_page(nil, cache_path)
       end
-      res
+      # res
     end
 
     def clicktale_enabled?
@@ -71,11 +63,10 @@ module Clicktale
       clicktale_config[:bottom].
         gsub(/CLICKTALE_FETCH_FROM_URL/, clicktale_url).
         gsub(/CLICKTALE_PROJECT_CODE/, clicktale_config[:clicktale_project_code] || 'none')
-      # clicktale_config[:bottom].gsub!(/(if.*typeof.*ClickTale.*function)/, "\nvar ClickTaleFetchFrom='#{clicktale_url}';\n\\1")
     end
 
     def regexp_enabled?
-      clicktale_config[:do_not_replace].present? ? !(response.body =~ clicktale_config[:do_not_replace]) : true
+      clicktale_config[:do_not_record].present? ? !(response.body =~ clicktale_config[:do_not_record]) : true
     end
 
     def cookie_enabled?

@@ -43,3 +43,37 @@ describe "Summon Interface " do
 
 end
 
+describe "Summon searches" do
+
+  it "should remember items-per-page" do
+
+    # SET initial page-size to 50 items
+    visit articles_index_path('q' => 'frog')
+    within all('.index_toolbar.navbar').first do
+      find('.dropdown-toggle', :text => 'Display Options').click
+      click_link 'Display Options'
+      click_link '50 per page'
+    end
+
+    # Confirm 50-items returned upon next search
+    visit articles_index_path('q' => 'horse')
+    within all('.index_toolbar.navbar').first do
+      find('#current_item_info').should have_text "1 - 50 of"
+    end
+
+    # SET page-size to new value, 10 items
+    within all('.index_toolbar.navbar').first do
+      find('.dropdown-toggle', :text => 'Display Options').click
+      click_link 'Display Options'
+      click_link '10 per page'
+    end
+
+    # Confirm 10-items returned upon next search
+    visit articles_index_path('q' => 'pig')
+    within all('.index_toolbar.navbar').first do
+      find('#current_item_info').should have_text "1 - 10 of"
+    end
+
+  end
+
+end

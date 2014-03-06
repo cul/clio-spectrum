@@ -150,9 +150,116 @@ describe "Catalog Interface" do
 
     # within CLIO HOLDINGS, should get the full location data
     find('div#clio_holdings').should have_content(troublesome2)
+  end
 
+
+
+  it "supports alternative viewstyle options ('Standard' or 'Compact')", :js => true do
+    visit catalog_index_path('q' => "the'end")
+
+    click_link 'Display Options'
+    click_link 'Standard View'
+
+    all('.result.document').first.text.should match /Author.*Published.*Location/
+
+    click_link 'Display Options'
+    click_link 'Compact View'
+
+    all('.result.document').first.text.should_not match /Author/
+    all('.result.document').first.text.should_not match /Published/
+    all('.result.document').first.text.should_not match /Location/
+
+    click_link 'Display Options'
+    click_link 'Standard View'
+
+    all('.result.document').first.text.should match /Author.*Published.*Location/
+  end
+
+
+  it "supports an email function, directly" do
+    visit email_catalog_path(:id => 12345)
+
+    within '#email_form' do
+      fill_in 'to', :with => 'marquis@columbia.edu'
+      fill_in 'message', :with => 'testing'
+      find('button[type=submit]').click()
+    end
 
   end
 
+    it "supports an email function, via JS modal", :js => true do
+      visit catalog_path(1234)
+      within '#show_toolbar' do
+        click_link 'Email'
+      end
+
+      page.should have_css('.modal-scrollable .modal .modal-header')
+      find('.modal-header').should have_text('Email Item(s)')
+
+      within '#email_form' do
+        fill_in 'to', :with => 'marquis@columbia.edu'
+        fill_in 'message', :with => 'testing'
+        find('button[type=submit]').click()
+      end
+
+    end
+
+    it "supports a debug mode", :js => true, :xfocus => true do
+      visit catalog_index_path('q' => 'prim')
+
+      page.should_not have_css('div.debug_instruction')
+      page.should_not have_css('div.debug_entries')
+
+      visit catalog_index_path('q' => 'sneak', 'debug_mode' => 'on')
+      # save_and_open_page # debug
+
+      # We should still NOT have a debug session, since this only works for
+      # authenticated users who are in the admin group
+      page.should_not have_css('div.debug_instruction')
+      page.should_not have_css('div.debug_entries')
+
+      # Login as a site admin account....
+      @test_site_manager = FactoryGirl.create(:user, :login => 'test_site_manager')
+      feature_login @test_site_manager
+
+      visit catalog_index_path('q' => 'approved', 'debug_mode' => 'on')
+
+      page.should have_css('div.debug_instruction')
+      page.should have_css('div.debug_entries')
+      find('.debug_instruction').should have_text('Debug mode is on. Turn it off')
+      within('div.debug_instruction') do
+        click_link 'off'
+      end
+
+      # clicking "off" should reload the page automatically
+      page.should_not have_css('div.debug_instruction')
+      page.should_not have_css('div.debug_entries')
+
+    end
+
 end
 
+
+# email_catalog_path(:id => id)
+# describe 'Catalog item view', :caching => true do
+# 
+#   it "supports an email function", :js => true do
+#     visit catalog_path(1234567)
+#     within '#show_toolbar' do
+#       click_link 'Email'
+#     end
+# 
+#     page.should have_css('.modal-scrollable .modal .modal-header')
+#     # puts find('.modal-header').text.inspect #.should have_text('Email Item(s)')
+#     find('.modal-header').should have_text('Email Item(s)')
+# 
+#     within '#email_form' do
+#       fill_in 'to', :with => 'delete@library.columbia.edu'
+#       fill_in 'message', :with => 'testing'
+#       find('button[type=submit]').click()
+#     end
+# 
+#   end
+# 
+# end
+# 

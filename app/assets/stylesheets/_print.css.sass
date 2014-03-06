@@ -1,5 +1,8 @@
 @media print
 
+  @page
+    :margin 5cm
+
   // Bootstrap prints out the href of every <A>, making the page
   // ugly with URLs. Disable this behavior.
   a[href]:after
@@ -18,7 +21,10 @@
   .catalog_startOverLink
     :display none
 
-  .gbs_preview_link
+  .gbs_preview_link, .gbs_search_form
+    :display none !important
+
+  .gbs_search_form
     :display none
 
   #show_toolbar
@@ -54,41 +60,69 @@
   #source_select
     :display none  !important
 
+  .landing_across
+    :display none !important
+
+  #sort-dropdown, #actions-dropdown, #display-dropdown
+    :display none !important
+
+  .rss-feed
+    :display none
+  
+  #marc_download_links, #patron_view_link
+    :display none
+
   // ALTER the following for better display in printed output
 
   body
     :background-color white !important
     :font-size 60% !important
-    :padding-top 10px
-    :padding-bottom 10px
-    :margin 5mm 5mm 5mm 5mm
+    //:padding-top 10px
+    //:padding-bottom 10px
+    //:margin 5mm 5mm 5mm 5mm
+    :padding 0px
+    :margin 0px
+    :line-height normal
 
+  #main_with_sources
+    :width 95%
 
   #appliedParams
     :border 2px solid black
     :background-color 333
 
-  //.bookjacket
-  //  :display none
+  .doc_bookjacket
+    :display block !important
 
-  //#bd .sidebar
-  //  :display none
-  //  :width 0
+  img.bookjacket.list_view
+    :height auto
+    :padding 0px
 
-  .bookjacket
-    :height 80px
+  //.document
+  //  :padding-bottom 0.5em
+  //  :border none
 
-  .document
-    :padding-bottom 0.5em
+  .constraints-container, .constraint-box, .index_toolbar, .document
+    :padding 0px
+    :margin 0px
     :border none
 
   .field
     :font-weight bold !important
     :text-align left !important
+    :page-break-after avoid
   
-  .value
+  // On Item-Detail page, clear floats to make Lable/Value stack
+  div.info div div.value
     :clear both
     :padding-left 5px
+    :page-break-inside avoid
+
+  // On Search-Results page, don't clear, allow side-by-side label/value
+  div.details div div.value
+    :clear none
+    :page-break-inside avoid
+
 
   dl.defList_in_grid dt
     :width 10em
@@ -103,16 +137,79 @@
     :margin 0px  !important
     :border-top-width 2px !important
 
+  // Compact view is a bit too tiny to read...
+  .boxed_search_results
+    :font-size 120% !important
+
+  // Redo our responsive spans as percentile floats
+  // within the Compact results page
+  .boxed_search_results .row-fluid .span3
+    :width 24%
+    :float left
+
+  .boxed_search_results .row-fluid .span4
+    :width 30%
+    :float left
+
+  .boxed_search_results .row-fluid .span5
+    :width 40%
+    :float left
+
+  .boxed_search_results .row-fluid .span7
+    :width 57%
+    :float left
+
+
+
+  // Over-ride the responsiveness with percentage widths
+
+  // - For Search Results page
+
+  div.details.span10
+    :float left !important
+    :width 80% !important
+
+  div.field.span2
+    :float left !important
+    :width 15% !important
+    //:display inline-block !important
+    //:display inline !important
+
+  div.value.span10
+    :float left !important
+    :width 80% !important
+    //:display inline-block !important
+    //:display inline !important
+
+  .result.document
+    :page-break-inside avoid
+
+  .boxed_search_results.result.document
+    :border-bottom 1px solid #ccc
+    :border-bottom-style dotted
+    :padding-top 5px
+    :padding-bottom 5px
+
+  div.doc_bookjacket.span10
+    :float right !important
+    :width 10% !important
+
+  // - For Item Detail page
+
   div.info.span6
     :float left !important
-    :width 48% !important
+    :width 55% !important
 
   div.holdings-container.span6
-    :float left !important
-    :width 48% !important
+    :float right !important
+    :width 40% !important
+    :margin 5px
+    :padding 10px
 
   div.document-row
     :page-break-inside avoid
+    :padding 0px
+    :margin 0px
 
   @page
     :size auto

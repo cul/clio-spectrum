@@ -19,10 +19,10 @@ module AdvancedHelper
     search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page, :categories, :advanced_operator, :adv, :advanced]).html_safe
   end
 
-  def selected_values_for_facet(facet, localized_parms = params)
-
-    Array.wrap(params[:f] && params[:f][facet])
-  end
+# Unused?
+#   def selected_values_for_facet(facet, localized_parms = params)
+#     Array.wrap(params[:f] && params[:f][facet])
+#   end
 
   def selected_negative_values_for_facet(facet, localized_params = params)
     Array.wrap(params[:f] && params[:f]["-#{facet}"])
@@ -63,6 +63,16 @@ module AdvancedHelper
                       params['adv'][index]['field'])
     default_value ||= 'all_fields'
     select_tag("adv[#{index}][field]", options_for_select(field_list, default_value), :class => "advanced_search_field")
+  end
+
+
+  def has_advanced_params?
+    # Catalog
+    return true if (params[:adv].kind_of?(Hash) and !params[:adv].empty?)
+    # Summon
+    return true if params[:form] == 'advanced'
+    # If we didn't detect any advanced search...
+    return false
   end
 
 end

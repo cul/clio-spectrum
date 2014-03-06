@@ -7,26 +7,22 @@ require 'spec_helper'
 # 
 describe 'Prod Environment' do
 
-  it "Google Analytics setting" do
+  it "Google Analytics has correct per-environment setting" do
     # should start as nil
     GoogleAnalytics.web_property_id.should be_nil
 
-    # should have correct values per environment
     Rails.env = 'development'
     load File.join(Rails.root, "config/initializers/google_analytics.rb")
     GoogleAnalytics.web_property_id.should == 'UA-28923110-4'
 
-    # should have correct values per environment
     Rails.env = 'clio_dev'
     load File.join(Rails.root, "config/initializers/google_analytics.rb")
     GoogleAnalytics.web_property_id.should == 'UA-28923110-4'
 
-    # should have correct values per environment
     Rails.env = 'clio_test'
     load File.join(Rails.root, "config/initializers/google_analytics.rb")
     GoogleAnalytics.web_property_id.should == 'UA-28923110-3'
 
-    # should have correct values per environment
     Rails.env = 'clio_prod'
     load File.join(Rails.root, "config/initializers/google_analytics.rb")
     GoogleAnalytics.web_property_id.should == 'UA-28923110-1'

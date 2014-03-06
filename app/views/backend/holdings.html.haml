@@ -27,6 +27,9 @@
           - unless copy[type].nil?
             - message = copy[type]
             - message = message.gsub(/; /, '<br/>').html_safe if message =~ /^Current Issues:/
+            -# NEXT-1009 -Multiple 866 fields in the holding records
+            -# CLIO Backend will join multiple fields with this delimeter
+            - message = message.gsub(/ -- /, '<br/>').html_safe
             .message=  message
 
         -# Different 'items' with a 'copy' have varying statuses (Available, In-Transit, etc.)

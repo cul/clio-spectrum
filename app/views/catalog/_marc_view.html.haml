@@ -1,0 +1,27 @@
+
+%h3= "MARC View"
+
+#marc_view
+
+  .field
+    LEADER
+    = document.to_marc.leader
+
+  - fields = document.to_marc.find_all{|f| ('000'..'999') === f.tag }
+  - fields.each do |field|
+    .field
+      - if field.is_a?(MARC::ControlField)
+        .tag_ind
+          %span.tag= h(field.tag)
+          %span.control_field_values= h(field.value)
+      - else
+        .tag_ind
+          %span.tag= h(field.tag)
+          .ind1= !field.indicator1.blank? ? field.indicator1 : "&nbsp;&nbsp;".html_safe
+          .ind2= !field.indicator2.blank? ? field.indicator2 : "&nbsp;&nbsp;".html_safe
+        .subfields
+          - field.each do |sub|
+            %span.sub_code
+              %span.sub_code= h(sub.code)
+              = h(sub.value)
+

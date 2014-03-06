@@ -1,3 +1,25 @@
 
-- if @document.respond_to?(:to_marc)
-  =render "marc_view", :document => @document
+
+
+- @page_title = "#{@document ? document_show_html_title.listify.join('') : ''} - #{application_name}"
+
+
+= render "_formats/clio/catalog_show_toolbar", :document => @document
+
+
+.row-fluid
+
+  #marc_download_links.span6
+    %strong= "Download as:"
+    %span= link_to "MARCXML", catalog_path(@document.id, :format => "marcxml")
+    %span= link_to "MARC21", catalog_path(@document.id, :format => "marc")
+  #patron_view_link.span6
+    %strong.btn= link_to "Return to Patron View", catalog_path(@document.id)
+    
+
+
+= render "marc_view", :document => @document
+
+
+
+

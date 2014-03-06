@@ -15,10 +15,6 @@ gem 'devise_wind'
 # Locally developed library code to interface with ClickTale analytics
 gem 'clicktale', path: "lib/clicktale"
 
-gem 'sqlite3'
-
-gem 'thin'
-# gem 'unicorn'
 
 gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
 # gem 'blacklight_range_limit', :github => 'projectblacklight/blacklight_range_limit'
@@ -36,6 +32,10 @@ gem 'json'
 
 # Would be used for Patron services, if we were to use native Blacklight Patron services
 # gem 'restful_voyage', :git => "git://github.com/cul/restful_voyage.git", :branch => "master"
+
+# Always include sqlite, deploy to all servers, so that we can use dummy databases
+#  for simplified rails environments used in index rake cronjobs
+gem 'sqlite3'
 
 group :clio_dev, :clio_test, :clio_prod do
   gem 'mysql2'
@@ -64,6 +64,10 @@ gem 'sass'
 gem 'unicode'
 gem 'summon'
 gem 'cancan'
+
+# RecordMailer uses partials that do fragment caching... but somehow
+# this just doesn't work in stock rails.
+gem 'caching_mailer'
 
 # Talks to Voyager API directly, return XML-format for Spectrum use.
 # But, this is now used from within the Voyager-Backend application
@@ -165,9 +169,18 @@ group :development do
 
   # port of ruby-debug that works on 1.9.2 and 1.9.3
   gem 'debugger'
+
+  # "A fist full of code metrics"
+  gem 'metric_fu'
 end
 
 group :test, :development do
+
+
+  gem 'thin'
+  # gem 'unicorn'
+
+
   # why in test and dev both instead of just test?  
   # because is says to: https://github.com/rspec/rspec-rails
   # gem 'rspec-rails', '>=2.14'

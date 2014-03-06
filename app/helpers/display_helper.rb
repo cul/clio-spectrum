@@ -2,6 +2,37 @@
 
 module DisplayHelper
 
+  def get_column_classes(column)
+    "result_column span#{column['width']}"
+  end
+
+  MIME_MAPPINGS = {
+    'application/pdf'      =>   'pdf.png',
+    'application/msword'   =>   'doc.png',
+    'application/msexcel'  =>   'xls.png',
+  }
+
+  def dam_document_icon(document)
+    return '' unless document.mime
+
+    if (mime_icon = MIME_MAPPINGS[document.mime])
+      return image_tag("format_icons/#{mime_icon}", :size => "20x20")
+    end
+
+    extension = document.url.sub(/.*\./, '')
+    if ['mp3', 'mp4', 'xlsx'].include? extension
+      return image_tag("format_icons/#{extension}.png", :size => "20x20")
+    end
+
+  end
+
+  def dam_document_link(document)
+    return '' unless document and document.url
+    basename = document.url.sub(/.*\//, '')
+    return '' unless basename
+    link_to "#{basename}", document.url
+  end
+
   def render_first_available_partial(partials, options)
     partials.each do |partial|
       begin
@@ -150,15 +181,12 @@ module DisplayHelper
   def pegasus_item_link(document, context = @active_source)
     url = 'http://pegasus.law.columbia.edu'
     if document && document.id
-      return link_to "Check Pegasus for current status",
+      # NEXT-996 - Rename "Pegasus" link
+      return link_to "Check Law catalog for status",
                      "#{url}/record=#{document.id}",
-                     :class => 'linkout',
                      :'data-ga-category' => "Pegasus Link",
                      :'data-ga-action' => context,
                      :'data-ga-label' => document['title_display'] || document.id
-# link_to label, url, :'data-counter' => options[:counter]
-# = link_to "CLIO", root_path, :class => "nav_title search_bar_logo"
-
     else
       return link_to url, url
     end
@@ -185,11 +213,7 @@ module DisplayHelper
     #   formats << "summon"
     end
 
-    begin
-      formats.sort { |x,y| FORMAT_RANKINGS.index(x) <=> FORMAT_RANKINGS.index(y) }
-    rescue
-      raise formats.inspect
-    end
+    formats.sort { |x,y| FORMAT_RANKINGS.index(x) <=> FORMAT_RANKINGS.index(y) }
   end
 
   # for segregating search values from display values
@@ -248,8 +272,9 @@ module DisplayHelper
           out << link_to(display_value, url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => search_value))
         end
 
-      when :subject
-        out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => search_value, :search_field => "subject", :commit => "search"))
+      # Obsoleted, replaced by generate_value_links_subject(), defined below
+      # when :subject
+      #   out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => search_value, :search_field => "subject", :commit => "search"))
 
       when :title
         q = '"' + search_value + '"'
@@ -381,7 +406,8 @@ module DisplayHelper
     options.reverse_merge!(@add_row_options) if @add_row_options.kind_of?(Hash)
     options.reverse_merge!( {
       :display_blank => false,
-      :display_only_first => false,
+      # never used
+      # :display_only_first => false,
       :join => nil,
       :abbreviate => nil,
       :html_safe => true,
@@ -406,8 +432,11 @@ module DisplayHelper
         result = content_tag(:div, :class => "document-row") do
           if options[:style] == :definition
             content_tag(:div, title.to_s.html_safe, :class => "field span#{spans.first}") + content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "value span#{spans.last}")
-          elsif options[:style] == :blockquote
-            content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "blockquote")
+
+        # We don't use style=blockquote anywhere in our app
+          # elsif options[:style] == :blockquote
+          #   content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "blockquote")
+
           end
         end
       end
@@ -429,9 +458,11 @@ module DisplayHelper
       values = values.collect { |v| h(v) }.collect(&:html_safe)
     end
 
-    values = if options[:display_only_first]
-      values.first.to_s.listify
-    elsif options[:join]
+    # "display_only_first" never used
+    # values = if options[:display_only_first]
+    #   values.first.to_s.listify
+    # elsif options[:join]
+    if options[:join]
       values.join(options[:join]).to_s.listify.reject { |item| item.to_s.empty? }
     else
       values
@@ -454,7 +485,7 @@ module DisplayHelper
         if breaking_space_index
           before = value[0, breaking_space_index]
           after = value[breaking_space_index + 1 .. -1]
-          icon_i = content_tag(:i, nil, :class => 'icon-resize-full', :onclick => "toggle_teaser(this)")
+          icon_i = content_tag(:i, nil, :class => 'icon-resize-full toggle-teaser')
           value = "#{before} #{content_tag(:span, after, :class => 'teaser')} #{icon_i}".html_safe
         else
           value

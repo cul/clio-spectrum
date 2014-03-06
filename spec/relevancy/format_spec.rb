@@ -47,5 +47,17 @@ describe 'Format assignments for types of "Computer Files"' do
     }
   end
 
+end
 
+# NEXT-975 - Serial records coded as "monographic series."
+# Monographic Series should be treated as 'Journal/Periodical', and not Book.
+describe 'Format assignments for Monographic Series' do
+  it "Should have format Journal/Periodical" do
+    bibList = [ 130062, 774424, 2237522, 3948829 ]
+    bibList.each { |bib|
+      resp = solr_response({'q'=>"id:#{bib}", 'fl'=>'id,format', 'facet'=>false})
+      formatList = resp["response"]["docs"][0]["format"]
+      formatList.should == ['Journal/Periodical']
+    }
+  end
 end

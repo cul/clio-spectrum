@@ -71,11 +71,15 @@ class CatalogController < ApplicationController
           :atom,
           url_for(params.merge(:format => 'atom')), :title => "Atom for results")
 
-      # runs the blacklight_search from application_controller using the params,
+      # runs ApplicationController.blacklight_search() using the params,
       # returns the engine with embedded results
       search_engine = blacklight_search(params)
+
+      # These will only be set if the search was successful
       @response = search_engine.search
       @document_list = search_engine.documents
+      # If the search was not successful, there may be errors
+      @errors = search_engine.errors
     end
 
 
@@ -279,6 +283,14 @@ class CatalogController < ApplicationController
 
   end
 
+  # Override Blacklight's definition, to assign custom layout
+  def librarian_view
+    @response, @document = get_solr_response_for_doc_id
+    respond_to do |format|
+      format.html { render :layout => 'no_sidebar' }
+      format.js { render :layout => false }
+    end
+  end
 
 
 end

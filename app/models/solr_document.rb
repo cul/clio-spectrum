@@ -6,6 +6,9 @@ class SolrDocument
 
   include Blacklight::Solr::Document
 
+  def cache_key
+    "SolrDocument_#{self.id}_#{self['timestamp']}"
+  end
 
   # The following shows how to setup this blacklight document to display marc documents
   extension_parameters[:marc_source_field] = :marc_display
