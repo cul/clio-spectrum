@@ -169,6 +169,9 @@ group :development do
 
   # port of ruby-debug that works on 1.9.2 and 1.9.3
   gem 'debugger'
+
+  # "A fist full of code metrics"
+  gem 'metric_fu'
 end
 
 group :test, :development do
