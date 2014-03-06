@@ -43,29 +43,33 @@ default: &default
   do_not_process_cookie_value: 0
   
 
-development:
-  <<: *default
-  enabled: true
-  
-test:
-  <<: *default
-  enabled: false
+# development:
+#   <<: *default
+#   enabled: true
+#   
+# test:
+#   <<: *default
+#   enabled: false
+# 
+# clio_dev:
+#   <<: *default
+#   clicktale_project_code:  702c4f64-c74b-4576-82b3-cd6fc453355c
+#   enabled: true
+# 
+# clio_test:
+#   <<: *default
+#   clicktale_project_code:  71269e13-938c-48ba-866c-0c3dda436068
+#   enabled: true
 
-clio_dev:
-  <<: *default
-  clicktale_project_code:  702c4f64-c74b-4576-82b3-cd6fc453355c
-  enabled: true
+# DISABLE BETWEEN SAMPLING PERIODS
+# NewRelic shows our version of ClickTale integration to be taking 3.5% of
+# total execution time.  
 
-clio_test:
-  <<: *default
-  clicktale_project_code:  71269e13-938c-48ba-866c-0c3dda436068
-  enabled: true
-
-clio_prod:
-  <<: *default
-  # clicktale_project_code:  7e9f9a20-18c7-4ea5-8e56-e0b79654a007
-  clicktale_project_code:    e25f0937-f6f7-4591-a3c2-caf812cfcb24
-  enabled: true
+# clio_prod:
+#   <<: *default
+#   # clicktale_project_code:  7e9f9a20-18c7-4ea5-8e56-e0b79654a007
+#   clicktale_project_code:    e25f0937-f6f7-4591-a3c2-caf812cfcb24
+#   enabled: true
 
 
 
