@@ -213,11 +213,7 @@ module DisplayHelper
     #   formats << "summon"
     end
 
-    begin
-      formats.sort { |x,y| FORMAT_RANKINGS.index(x) <=> FORMAT_RANKINGS.index(y) }
-    rescue
-      raise formats.inspect
-    end
+    formats.sort { |x,y| FORMAT_RANKINGS.index(x) <=> FORMAT_RANKINGS.index(y) }
   end
 
   # for segregating search values from display values
@@ -276,8 +272,9 @@ module DisplayHelper
           out << link_to(display_value, url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => search_value))
         end
 
-      when :subject
-        out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => search_value, :search_field => "subject", :commit => "search"))
+      # Obsoleted, replaced by generate_value_links_subject(), defined below
+      # when :subject
+      #   out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => search_value, :search_field => "subject", :commit => "search"))
 
       when :title
         q = '"' + search_value + '"'
@@ -409,7 +406,8 @@ module DisplayHelper
     options.reverse_merge!(@add_row_options) if @add_row_options.kind_of?(Hash)
     options.reverse_merge!( {
       :display_blank => false,
-      :display_only_first => false,
+      # never used
+      # :display_only_first => false,
       :join => nil,
       :abbreviate => nil,
       :html_safe => true,
@@ -434,8 +432,11 @@ module DisplayHelper
         result = content_tag(:div, :class => "document-row") do
           if options[:style] == :definition
             content_tag(:div, title.to_s.html_safe, :class => "field span#{spans.first}") + content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "value span#{spans.last}")
-          elsif options[:style] == :blockquote
-            content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "blockquote")
+
+        # We don't use style=blockquote anywhere in our app
+          # elsif options[:style] == :blockquote
+          #   content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "blockquote")
+
           end
         end
       end
@@ -457,9 +458,11 @@ module DisplayHelper
       values = values.collect { |v| h(v) }.collect(&:html_safe)
     end
 
-    values = if options[:display_only_first]
-      values.first.to_s.listify
-    elsif options[:join]
+    # "display_only_first" never used
+    # values = if options[:display_only_first]
+    #   values.first.to_s.listify
+    # elsif options[:join]
+    if options[:join]
       values.join(options[:join]).to_s.listify.reject { |item| item.to_s.empty? }
     else
       values

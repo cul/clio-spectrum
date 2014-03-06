@@ -39,7 +39,7 @@ class ClicktaleController < ApplicationController
         # Delete gzipped versions of Rails cache files, if present
         zipfile = clicktale_file + ".gz"
         File.delete(zipfile) if File.exist?(zipfile)
-      rescue Exception => e
+      rescue => e
         Rails.logger.error "[ClickTale] exception raised during cleanup: #{e.message}"
       end
     end

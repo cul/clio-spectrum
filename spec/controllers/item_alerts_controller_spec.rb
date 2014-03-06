@@ -10,7 +10,7 @@ describe ItemAlertsController do
     end
 
     it "unpriv user cannot see index" do
-      login @unpriv_user
+      spec_login @unpriv_user
       get :index
       response.should_not be_success
       response.status.should be(302)
@@ -22,7 +22,7 @@ describe ItemAlertsController do
     end
 
     it "priv user can see index" do
-      login @priv_user
+      spec_login @priv_user
       get :index
       response.should be_success
       expect(response).to render_template("index")
@@ -34,44 +34,44 @@ describe ItemAlertsController do
       item_alert.active?.should be_true
 
       # Starts in the future - NOT ACTIVE
-      item_alert = FactoryGirl.create(:item_alert, 
+      item_alert = FactoryGirl.create(:item_alert,
           :start_date => '2050-01-01', :end_date => nil)
       item_alert.active?.should be_false
 
       # Starts in the past - ACTIVE
-      item_alert = FactoryGirl.create(:item_alert, 
+      item_alert = FactoryGirl.create(:item_alert,
           :start_date => '2000-01-01', :end_date => nil)
       item_alert.active?.should be_true
 
       # Ends in the past - NOT ACTIVE
-      item_alert = FactoryGirl.create(:item_alert, 
+      item_alert = FactoryGirl.create(:item_alert,
           :start_date => nil, :end_date => '2000-01-01')
       item_alert.active?.should be_false
 
       # Ends in the future - ACTIVE
-      item_alert = FactoryGirl.create(:item_alert, 
+      item_alert = FactoryGirl.create(:item_alert,
           :start_date => nil, :end_date => '2050-01-01')
       item_alert.active?.should be_true
 
       # No times set - ACTIVE
-      item_alert = FactoryGirl.create(:item_alert, 
+      item_alert = FactoryGirl.create(:item_alert,
           :start_date => nil, :end_date => nil)
       item_alert.active?.should be_true
 
       # From past to future - ACTIVE
-      item_alert = FactoryGirl.create(:item_alert, 
+      item_alert = FactoryGirl.create(:item_alert,
           :start_date => '2000-01-01', :end_date => '2050-01-01')
       item_alert.active?.should be_true
 
       # From future to past - NOT ACTIVE
-      item_alert = FactoryGirl.create(:item_alert, 
+      item_alert = FactoryGirl.create(:item_alert,
           :start_date => '2050-01-01', :end_date => '2000-01-01')
       item_alert.active?.should be_false
 
     end
 
     it "priv user can post new alert" do
-      login @priv_user
+      spec_login @priv_user
 
       # for priv, showing non-existant ID raises exception
       expect {
@@ -91,7 +91,7 @@ describe ItemAlertsController do
       get :new, :format => :html
       response.should be_success
       response.should render_template("new")
-      
+
 
       # Item Alerts should have author_id, message, source, and item_key.
       # Each of the following should be invalid (unprocessable_entity, 422)
@@ -147,7 +147,7 @@ describe ItemAlertsController do
       response.status.should be(302)
       response.should redirect_to(item_alert_path)
 
-      
+
       # finally, delete the alert
       delete :destroy, :id => item_alert['id'], :format => :json
       response.should be_success

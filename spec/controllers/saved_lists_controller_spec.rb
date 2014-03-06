@@ -26,7 +26,9 @@ describe SavedListsController do
 
   it "authenticated users can interact..." do
 
-    login @first_user
+    # use Devise::TestHelpers methods for Controller tests
+    # sign_in :user, @first_user
+    spec_login @first_user
 
     # Try to delete a non-existant list
     delete :destroy,  :id => 9999999

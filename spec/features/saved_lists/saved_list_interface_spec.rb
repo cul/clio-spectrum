@@ -5,11 +5,37 @@ include Warden::Test::Helpers
 describe "Saved List Interface" do
 
   before(:each) do
-    @first_user_name = 'annie111'
-    @user1 = FactoryGirl.create(:user, :login => @first_user_name)
-    @second_user_name = 'betty222'
-    @user2 = FactoryGirl.create(:user, :login => @second_user_name)
+    @autodidact = FactoryGirl.create(:user, :login => 'autodidact')
+    @blatteroon = FactoryGirl.create(:user, :login => 'blatteroon')
   end
+
+  it "Capybara should let us login and logout and login again", :xfocus => true do
+    # Not yet logged in - navbar shows un-authenticated message
+    visit catalog_index_path
+    find('#topnavbar').should have_text 'My Library Account'
+
+    # Login as the first user, verify the name shows in the nav bar
+    feature_login @autodidact
+
+    visit catalog_index_path
+    find('#topnavbar').should have_text @autodidact.login
+
+    # Logout - navbar shows un-authenticated message
+    feature_logout
+    visit catalog_index_path
+    find('#topnavbar').should have_text 'My Library Account'
+
+    # Login as the second user, verify the (second user's) name shows in the nav bar
+    feature_login @blatteroon
+    visit catalog_index_path
+    find('#topnavbar').should have_text @blatteroon.login
+
+    # Logout - navbar shows un-authenticated message
+    feature_logout
+    visit catalog_index_path
+    find('#topnavbar').should have_text 'My Library Account'
+  end
+
 
   it "should give no access to anonymous users" do
     visit '/lists'
@@ -19,14 +45,12 @@ describe "Saved List Interface" do
     visit '/saved_lists/1/edit'
     # page.save_and_open_page # debug
     page.should have_text('Login required to access Saved Lists')
-
-
   end
 
   it "should protect private lists and share public lists", :js => true, :XXfocus => true do
 
-    feature_login @user1
-    # valid_user_login @user1
+    # Use Warden::Test::Helpers for Feature testing
+    feature_login @autodidact
 
     # First, visit my Lists page.  Should see the default list, "Bookbag"
     visit '/lists'
@@ -45,7 +69,7 @@ describe "Saved List Interface" do
     visit '/lists'
     # page.save_and_open_page # debug
     page.should have_text('aardvark')
-    
+
     # Move all these items off to a different named list
     click_link('Selected List Items')
     click_link('Select All Items')
@@ -55,7 +79,7 @@ describe "Saved List Interface" do
       click_button('new_list_submit')
     end
     # page.save_and_open_page # debug
-    
+
     # We should be redirected to the new list, defaulting to private
     within('.savedlist_header') do
       page.should have_text('aardvark')
@@ -86,40 +110,41 @@ describe "Saved List Interface" do
     click_link('Selected Items')
     click_link('Save to Bookbag')
 
-    # valid_user_logout
+    # visit catalog_index_path()
+
     #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #
-    
     # # Login as a different user
-    # Rails.logger.debug("=========== LOGIN USER2 [#{@user2}]")
-    # # feature_login @user2
-    # valid_user_login @user2
-    # 
-    # Rails.logger.debug("=========== DONE")
+    #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #
+
+    feature_login @blatteroon
+    visit catalog_index_path()
+    # save_and_open_page
 
     # Try to visit a non-existant list
     visit "/lists/NoSuchUser/NoSuchList"
     page.should have_text('Cannot access list NoSuchUser/NoSuchList')
-    
-    # page.save_and_open_page # debug
-    
+
+    # save_and_open_page # debug
+
     # # Try to edit a non-existant list
     # visit '/saved_lists/9999999/edit'
     # page.should have_text('Cannot access list')
-    # 
+
     # # Try to visit the first user's public list
-    # visit "/lists/#{@first_user_name}/aardvark"
+    # visit "/lists/#{@audodidact.login}/aardvark"
     # within('.savedlist_header') do
     #   page.should have_text('aardvark')
     #   first('span.label', :text => 'public')
     # end
-    # 
+
     # # Try to visit the first user's private list
     # visit "/lists/#{@first_user_name}/bookbag"
     # page.should have_text("Cannot access list #{@first_user_name}/bookbag")
     # 
-        
+
 
   end
+
 
 end
 

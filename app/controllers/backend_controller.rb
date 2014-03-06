@@ -42,7 +42,8 @@ class BackendController < ApplicationController
       logger.error "HTTPClient::ReceiveTimeoutError URL: #{backend_url}"
       render nothing: true and return
     rescue => ex
-      Rails.logger.error "BackendController error fetching holdings from #{backend_url}: #{e.message}"
+      Rails.logger.error "BackendController error fetching holdings from #{backend_url}: #{ex.message}"
+      render nothing: true and return
     end
 
     if @holdings.nil?
