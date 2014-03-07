@@ -4,11 +4,14 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 
+// 3/2014, Switch to CDN:  https://github.com/kenn/jquery-rails-cdn
+// - Remove "require jquery" from application.js
+
 // jQuery - stay with 1.x series for now, for older IE support
 //# require jquery-1.10.2.min.js
-//= require jquery-1.11.0.min.js
+//# require jquery-1.11.0.min.js
 
-// Unobtrusive scripting support for jQuery - in use
+// Unobtrusive scripting support for jQuery.  NOT part of JQuery CDN
 //= require jquery_ujs
 
 // from project Blacklight

@@ -12,6 +12,9 @@
   clio_backend_url = "#{APP_CONFIG['clio_backend_url']}";
   google_analytics_web_property_id = "#{GoogleAnalytics.web_property_id}";
 
+-# https://github.com/kenn/jquery-rails-cdn
+= jquery_include_tag :google, :force => true
+
 = javascript_include_tag "application"
 
 = yield(:jstemplates)

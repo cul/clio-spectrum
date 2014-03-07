@@ -96,8 +96,10 @@ gem 'newrelic_rpm'
 # gem 'rack-utf8_sanitizer', :github => 'whitequark/rack-utf8_sanitizer'
 gem 'rack-utf8_sanitizer', :git => 'git://github.com/whitequark/rack-utf8_sanitizer'
 
-
-gem 'jquery-rails'
+# # gives us JQuery and JQuery-ujs
+# gem 'jquery-rails'
+# Replace with CDN-based loading
+gem 'jquery-rails-cdn'
 
 group :assets do
   # gem 'sass-rails', '~>3.2.4'
