@@ -41,6 +41,9 @@ $(document).ready(function() {
   // $("a.linkout").each(function() {	
   $('a[href]').filter( function() {return this.hostname && this.hostname !== location.hostname} ).each(function() {
 
+    var href   = $(this).attr("href");
+    var target = $(this).attr("target");
+    var text   = $(this).text();
     console.log("found a.href href=["+href+"] text=["+text+"]")
 
     $(this).click(function(event) { // when someone clicks these links
