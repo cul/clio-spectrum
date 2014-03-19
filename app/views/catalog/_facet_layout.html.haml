@@ -1,5 +1,5 @@
 .facet_limit{:class => "blacklight-#{facet_field.field.parameterize}"}
-  %h5
+  %h5.facet_field_label{:data => {'facet-tag' => build_facet_tag(facet_field) }}
     =facet_field.label
     %i.icon-turnbuckle
   = yield

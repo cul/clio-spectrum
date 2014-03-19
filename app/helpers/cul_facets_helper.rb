@@ -24,4 +24,24 @@ module CulFacetsHelper
     get_browser_option('always_expand_facets') == 'true'
   end
 
+  def build_facet_tag(facet_field, datasource = @active_source)
+    facet_tag = @active_source + "_" + facet_field.field.parameterize
+  end
+
+  # Is there something telling us to render this facet as open?
+  def render_facet_open?(facet_field, datasource = @active_source)
+    # Do we have "Expand All Facets" turned on?
+    return true if expand_all_facets?
+
+    # Is the facet itself configured to display as open? 
+    return true if (facet_field && facet_field.respond_to?(:open) && facet_field.open == true)
+
+    # Do we have a browser-display setting 
+    facet_tag = build_facet_tag(facet_field, datasource)
+    return true if get_browser_option(facet_tag) == 'open'
+
+    # Nothing told us to render this facet as open
+    return false
+  end
+
 end
