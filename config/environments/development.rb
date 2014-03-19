@@ -49,5 +49,11 @@ Clio::Application.configure do
   # #
   # ActiveSupport::Deprecation.silenced = true
 
+  # http://asciicasts.com/episodes/151-rack-middleware
+  # This gives us a total load time, as a comment before the opening <htm> tag.
+  # Debugging in development only, and if it causes problems just comment out.
+  config.middleware.use "ResponseTimer"
+
+
 end
 

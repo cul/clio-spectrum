@@ -135,7 +135,9 @@ class ApplicationController < ActionController::Base
 
     # this new() actually runs the search.
     # [ the Solr engine call perform_search() within it's initialize() ]
+    debug_timestamp("calling Solr.new()")
     search_engine = Spectrum::SearchEngines::Solr.new(options)
+    debug_timestamp("done.")
 
     if search_engine.successful?
       @response = search_engine.search
@@ -153,7 +155,12 @@ class ApplicationController < ActionController::Base
     end
 
     @debug_entries ||= {}
+
+    # our search engine classes don't inherit from ApplicationController.
+    # they may set their own @debug_entries instance variables, which we 
+    # here need to merge in with the controller-level instance variable.
     @debug_entries = @debug_entries.recursive_merge(search_engine.debug_entries)
+
     return search_engine
 
   end
@@ -214,12 +221,20 @@ class ApplicationController < ActionController::Base
   end
 
   def default_debug
+    @debug_start_time = Time.now
     @debug_entries = Hash.arbitrary_depth
     @debug_entries['params'] = params
     @debug_entries['session'] = session
     # ENV is environment variables, but not the HTTP-related env variables
     # @debug_entries['environment'] = ENV
     @debug_entries['request.referer'] = request.referer
+    @debug_entries['timestamps'] = []
+    debug_timestamp("setup")
+  end
+
+  def debug_timestamp(label = "timestamp")
+    elapsed = (Time.now - @debug_start_time) * 1000
+    @debug_entries['timestamps'] << { label => "#{elapsed.round(0)} ms"}
   end
 
 

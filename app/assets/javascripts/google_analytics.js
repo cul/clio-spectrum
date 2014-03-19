@@ -44,7 +44,7 @@ $(document).ready(function() {
     var href   = $(this).attr("href");
     var target = $(this).attr("target");
     var text   = $(this).text();
-    console.log("found a.href href=["+href+"] text=["+text+"]")
+    // console.log("found a.href href=["+href+"] text=["+text+"]")
 
     $(this).click(function(event) { // when someone clicks these links
       // Gather up values at time of click, not at first load, to allow

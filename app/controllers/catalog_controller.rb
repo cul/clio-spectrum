@@ -28,6 +28,8 @@ class CatalogController < ApplicationController
   # When a catalog search is submitted, this is the
   # very first point of code that's hit
   def index
+    debug_timestamp("CatalogController#index() begin")
+
     # very useful - shows the execution order of before filters
     # logger.debug "#{   _process_action_callbacks.map(&:filter) }"
 
@@ -80,6 +82,7 @@ class CatalogController < ApplicationController
       @document_list = search_engine.documents
       # If the search was not successful, there may be errors
       @errors = search_engine.errors
+      debug_timestamp("CatalogController#index() end - implicit render to follow")
     end
 
 
