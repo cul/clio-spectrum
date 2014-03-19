@@ -3,10 +3,10 @@
 %html{:xmlns => "http://www.w3.org/1999/xhtml", :lang => "en"}
   %head
     = render :partial => "/layouts/common_head"
-  - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
-  - search_params = determine_search_params
-  %body{:onload => onload}
-
+  -# - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
+  -# - search_params = determine_search_params
+  -# %body{:onload => "$('input#q').focus();"}
+  %body
     - add_datasources(@active_source)
 
     -# #trigger

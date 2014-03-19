@@ -107,6 +107,15 @@ module Clio
     # or if one of your gem compete for pre-loading, use
     I18n.config.enforce_available_locales = true
 
+    # Rails 3.2 introduced the TaggedLogging class, which makes it easy for 
+    # developers to add custom tags to log messages.
+    # One of the ways to use that is the config.log_tags setting in your 
+    # application.rb file. You can set this to an array of methods that 
+    # the request object responds to, and the results will be added as tags 
+    # to each request in logs.
+    # (from http://api.rubyonrails.org/classes/ActionDispatch/Request.html
+    # e.g., :original_url, :remote_ip, etc.)
+    config.log_tags = [ :remote_ip ]
 
   end
 end

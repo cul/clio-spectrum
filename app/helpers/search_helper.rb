@@ -83,7 +83,11 @@ module SearchHelper
       end
       result += text_field_tag(:q,
           search_params[:q] || summon_query_as_hash['s.q'] || '',
-          class: has_options, id: "#{source}_q", placeholder: options['placeholder'])
+          class: has_options, id: "#{source}_q", placeholder: options['placeholder'],
+              # This focuses, but also selects-all-text in some browsers - yuck
+              #   http://stackoverflow.com/questions/4740184
+              # , autofocus: true
+              )
 
       ### for blacklight (catalog, academic commons)
       if options['search_type'] == "blacklight"
@@ -162,7 +166,8 @@ module SearchHelper
   def display_start_over_link(source = @active_source)
     link_to content_tag(:i, '', :class => "icon-backward") + " Start Over",
             datasource_landing_page_path(source),
-            :class => 'btn btn-link'
+            :class => 'btn'
+            # :class => 'btn btn-link'
   end
 
   # def search_box_style(search_box_type)

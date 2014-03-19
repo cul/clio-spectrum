@@ -46,7 +46,10 @@ module Spectrum
         rescue => ex
           Rails.logger.error "#{self.class}##{__method__} [Spectrum][Solr] error: #{ex.message}"
           @errors = ex.message
-          raise ex
+          # Re-raising the same error will be caught by Blacklight::Base.rsolr_request_error()
+          # which will log, flash and redirect_to root_path.  We don't want that.
+          # raise ex
+          raise "Error searching Solr"
         end
 
       end
@@ -124,6 +127,7 @@ module Spectrum
         extra_controller_params = {}
 
         if @debug_mode
+
           extra_controller_params.merge!('debugQuery' => 'true')
 
             debug_results = lambda do |*args|
@@ -141,7 +145,9 @@ module Spectrum
 
             ActiveSupport::Notifications.subscribed(debug_results, "execute.rsolr_client") do |*args|
 
+
               @search, @documents = get_search_results(@params, extra_controller_params)
+
               @debug_entries['solr'] = []  if @debug_entries['solr'] == {}
               hashed_event = {
                 timing: @search['debug']['timing'],

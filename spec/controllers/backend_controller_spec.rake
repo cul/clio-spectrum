@@ -2,14 +2,26 @@ require 'spec_helper'
 
 
 describe BackendController do
+  # BackendController doesn't have an interface that can be excercised
+  #  with feature tests.  We'll test html content here with controller
+  #  specs although we maybe should setup request-specs for this.
+  render_views
+
   before(:all) do
-    saved_backend_url = APP_CONFIG['clio_backend_url']
+    APP_CONFIG['saved_backend_url'] = APP_CONFIG['clio_backend_url']
   end
 
   after(:all) do
-    APP_CONFIG['clio_backend_url'] = saved_backend_url
+    APP_CONFIG['clio_backend_url'] = APP_CONFIG['saved_backend_url']
   end
 
+  # NEXT-1009 - Multiple 866 fields in the holding records
+  it "holdings with multiple 866s" do
+    get 'holdings', :id => '763577'
+    response.should be_success
+    response.body.should_not match /\-\-/
+    response.body.should match /<br\/>Special issues/
+  end
 
 
   it "holdings() should silently ignore a bad CLIO ID" do
