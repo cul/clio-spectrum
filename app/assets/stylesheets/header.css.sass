@@ -172,19 +172,49 @@ a.clio_logo
   .navbar-inner
     :padding-right 0
 
+//.search_boxes
+//  :width -moz-calc(100% - 120px)
+//  :width -webkit-calc(100% - 120px)
+//  :width calc(100% - 120px)
+//
+//.start_over
+//  :float right
+//
 
 .search_box
   :display none
+  :font-size 80%
 
   &.selected
     :display block
 
 .search_q
   &.without_options
-    :width 25em
+    //:width 20em
+    :width -moz-calc(100% - 90px)
+    :width -webkit-calc(100% - 90px)
+    :width calc(100% - 90px)
 
   &.with_options
-    :width 19em
+    //:width 14em
+    :width -moz-calc(100% - 300px)
+    :width -webkit-calc(100% - 300px)
+    :width calc(100% - 300px)
+
+// "minus" = desktop:290, tablet:237...
+// and then refactor again, after hiding "Search"
+
+@media (max-width: 979px)
+  .search_q
+    &.without_options
+      :width -moz-calc(100% - 40px)
+      :width -webkit-calc(100% - 40px)
+      :width calc(100% - 4 0px)
+    &.with_options
+      :width -moz-calc(100% - 240px)
+      :width -webkit-calc(100% - 240px)
+      :width calc(100% - 240px)
+
 
 @media (max-width: 480px)
   .search_q
@@ -193,7 +223,28 @@ a.clio_logo
     &.with_options
       :width 8.5em
 
-
+//// NEXT-822 - Search box - style suggestions, make longer
+//@media (min-width: 1100px)
+//  .search_q
+//    &.without_options
+//      :width 30em
+//    &.with_options
+//      :width 24em
+//
+//@media (min-width: 1200px)
+//  .search_q
+//    &.without_options
+//      :width 40em
+//    &.with_options
+//      :width 34em
+//
+//@media (min-width: 1400px)
+//  .search_q
+//    &.without_options
+//      :width 50em
+//    &.with_options
+//      :width 44em
+//
 
 .datasource_list
   @extend .hidden-phone
