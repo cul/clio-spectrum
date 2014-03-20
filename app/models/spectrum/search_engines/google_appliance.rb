@@ -34,8 +34,10 @@ module Spectrum
         @rows || 10
       end
 
+      # used by QuickSearch for "All Results" link
       def search_path
-        @search_url || library_web_index_path(@params)
+        # @search_url || library_web_index_path(@params)
+        library_web_index_path(@params)
       end
 
       # def start_over_link
