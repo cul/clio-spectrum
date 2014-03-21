@@ -1,8 +1,9 @@
 #encoding: UTF-8
 module SearchHelper
-  def show_all_search_boxes
-    (controller.controller_name == 'search' && controller.action_name == 'index') || (params['q'].to_s.empty?  && params['s.q'].to_s.empty? && params['commit'].to_s.empty?)
-  end
+
+  # def show_all_search_boxes
+  #   (controller.controller_name == 'search' && controller.action_name == 'index') || (params['q'].to_s.empty?  && params['s.q'].to_s.empty? && params['commit'].to_s.empty?)
+  # end
 
   # 1/2014 - this is currently equivalent to @active_source alone
   # def active_search_box
@@ -61,7 +62,7 @@ module SearchHelper
 
     search_params = determine_search_params
     div_classes = ["search_box", source]
-    div_classes << "multi" if show_all_search_boxes
+    # div_classes << "multi" if show_all_search_boxes
 
     # The "selected" search_box hide/show was built for 
     # javascript-based datasource switching.  
@@ -70,7 +71,8 @@ module SearchHelper
     div_classes << "selected" unless has_advanced_params?
 
     result = "".html_safe
-    if show_all_search_boxes || @active_source == source
+    # if show_all_search_boxes || @active_source == source
+    if @active_source == source
       has_options = (options['search_type'].in?("blacklight","summon") ? "search_q with_options" : "search_q without_options")
 
       # BASIC SEARCH INPUT BOX

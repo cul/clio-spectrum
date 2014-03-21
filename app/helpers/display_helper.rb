@@ -103,7 +103,7 @@ module DisplayHelper
     options.symbolize_keys!
     template = options.delete(:template) || raise("Must specify template")
     formats = determine_formats(document, options.delete(:format))
-
+# raise
     # Render based on @active_source -- unless an alternative is passed in
     options[:source] ||= @active_source
 
@@ -135,9 +135,9 @@ module DisplayHelper
     "video", "music_recording", "music", "newspaper", "serial", "book",
     "clio", "ebooks", "article", "articles", "summon", "lweb" ]
 
-  def format_online_results(urls)
+  def format_online_results(link_hash)
     non_circ_img = image_tag("icons/noncirc.png", :class => 'availability')
-    urls.collect { |link|
+    link_hash.collect { |link|
       non_circ_img +
       link_to(process_online_title(link[:title]).abbreviate(80), link[:url]) +
       content_tag(:span, link[:note], :class => 'url_link_note')
@@ -148,20 +148,6 @@ module DisplayHelper
     locations.collect do |location|
 
       loc_display, hold_id = location.split('|DELIM|')
-
-      # This was left-over from back when clio holdings were 
-      # available at page-load.  Now, clio holdings are ajax,
-      # so just leave the icon as none (blank) at load.
-      # 
-      # clio_holding = "unknown"
-      # 
-      # if document.get('clio_holdings')
-      #   status = document['clio_holdings']['statuses'][hold_id.to_s]
-      #   clio_holding = status if status
-      # end
-
-      # image_tag("icons/#{clio_holding}.png",
-      #           :class => "availability holding_#{hold_id}") +
 
       image_tag("icons/none.png",
                 :class => "availability holding_#{hold_id}") +
@@ -195,24 +181,31 @@ module DisplayHelper
 
   def determine_formats(document, defaults = [])
     formats = defaults.listify
+    # AC records, from the AC Solr, don't self-identify.
     formats << "ac" if @active_source == "academic_commons"
-    formats << "database" if @active_source == "databases"
+    # Database items - from the Voyager feed - will identify themselves,
+    # via their "source", which we should respect no matter the current
+    # GUI-selected datasource
+    # formats << "database" if @active_source == "databases"
     case document
     when SolrDocument
       formats << "clio"
-
+# raise
       document["format"].listify.each do |format|
         formats << SOLR_FORMAT_LIST[format] if SOLR_FORMAT_LIST[format]
+      end
+      # What's the "home" datasource for this record?
+      # Could be multiple (e.g., 'catalog' and 'database')
+      document["source_display"].listify.each do |source|
+        formats << source if FORMAT_RANKINGS.include? source
       end
     when Summon::Document
       formats << "summon"
       document.content_types.each do |format|
         formats << SUMMON_FORMAT_LIST[format] if SUMMON_FORMAT_LIST[format]
       end
-    # when SerialSolutions::Link360
-    #   formats << "summon"
     end
-
+# raise
     formats.sort { |x,y| FORMAT_RANKINGS.index(x) <=> FORMAT_RANKINGS.index(y) }
   end
 
@@ -328,21 +321,6 @@ module DisplayHelper
 
   end
 
-  # def generate_value_links_subject(values)
-  #
-  #   # search value the same as the display value
-  #   # quote first term of the search string and remove ' - '
-  #
-  #   values.listify.collect do |v|
-  #
-  #     sub = v.split(" - ")
-  #     out = '"' + sub.shift + '"'
-  #     out += ' ' + sub.join(" ") unless sub.empty?
-  #
-  #     link_to(v, url_for(:controller => "catalog", :action => "index", :q => out, :search_field => "subject", :commit => "search"))
-  #
-  #   end
-  # end
 
   def generate_value_links_subject(values)
 
@@ -413,7 +391,8 @@ module DisplayHelper
       :html_safe => true,
       :expand => false,
       :style => @add_row_style || :definition,
-      :spans => [2,10]
+      :spans => [2,10],
+      :label_style => "field"
     })
 
 
@@ -431,7 +410,7 @@ module DisplayHelper
       else
         result = content_tag(:div, :class => "document-row") do
           if options[:style] == :definition
-            content_tag(:div, title.to_s.html_safe, :class => "field span#{spans.first}") + content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "value span#{spans.last}")
+            content_tag(:div, title.to_s.html_safe, :class => "#{options[:label_style]} span#{spans.first}") + content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "value span#{spans.last}")
 
         # We don't use style=blockquote anywhere in our app
           # elsif options[:style] == :blockquote
@@ -478,7 +457,7 @@ module DisplayHelper
       # based on:  http://jsfiddle.net/VNdmZ/4/
       values = values.collect { |value|
         value.strip!
-        teaser_length = options[:teaser].respond_to?(:to_i) ? options[:teaser].to_i : 120
+        teaser_length = options[:teaser].respond_to?(:to_i) ? options[:teaser].to_i : 180
         breaking_space_index = value.index(' ', teaser_length)
 
         # if we found an appropriate space character at which to break content...
@@ -526,6 +505,7 @@ module DisplayHelper
   # for Zotero, among other things.
   def catalog_to_openurl_ctx_kev(document)
     return '' unless document
+    raise "Document has no format!  " + document.id unless document[:format]
     format = document[:format].first ||= 'book'
 
     fields = []

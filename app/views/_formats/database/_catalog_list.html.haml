@@ -1,7 +1,7 @@
 -# FORMATS/DATABASE
 
-/ container for a single doc
-.result.document{class: render_document_class(document), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
+/ container for a SINGLE doc
+.result.document.database_record{class: render_document_class(document), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
   .row-fluid
     .title.span12

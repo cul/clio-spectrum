@@ -2,7 +2,9 @@
   #online_holdings
     .holding{:class => alternating_line}
       .location_box
-        .location Online
+        .location
+          = is_database ? database_link_label(online_links) : "Online"
+
 
       - online_links.each do |link|
         .url_link

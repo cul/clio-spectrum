@@ -7,12 +7,11 @@
 
 = add_row('Author', [document.get("author_display"),document.get("author_vern_display")].compact, :html_safe => false)
 = add_row('Published', document.get("full_publisher_display"), :html_safe => false)
-- is_aggregate = controller.controller_name == "search"
-= add_row('Online', format_online_results(online_link_hash(document)), :expand => is_aggregate)
+= add_row('Online', format_online_results(online_link_hash(document)))
 
 
 - unless (locations = document["location_call_number_id_display"].listify.reject { |l| l.match(/^Online/) }).empty?
-  = add_row("Location", format_location_results(locations, document), :expand => is_aggregate)
+  = add_row("Location", format_location_results(locations, document))
 
 
 = add_row('Format', formats_with_icons(document))

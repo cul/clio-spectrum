@@ -44,15 +44,6 @@ module CulCatalogHelper
 
   end
 
-# OLD CODE - nothing calls this anymore
-  # def active_source_path(options = {})
-  #   url_params = options.reject { |key, value|
-  #     key.in?('controller', 'action')
-  #   }.to_query
-  # 
-  #   "/#{@active_source}?#{url_params}"
-  # end
-
 
   def render_document_index_label doc, opts
     label = nil
@@ -64,20 +55,6 @@ module CulCatalogHelper
   end
 
 
-  # def document_full_title(document)
-  #   [document.get('title_display') , document.get('subtitle_display')].reject { |txt|
-  #      txt.to_s.strip.empty?
-  #   }.join(": ")
-  # end
-
-
-# OLD CODE - called from a single partial, which is never invoked
-  # def build_fake_cover(document)
-  #   book_label = (document["title_display"].to_s.abbreviate(60))
-  #   content_tag(:div,
-  #       content_tag(:div, book_label, :class => "fake_label"),
-  #       :class => "cover fake_cover")
-  # end
 
 
   def holdings_compact(document)
@@ -111,16 +88,6 @@ module CulCatalogHelper
     end
   end
 
-  # def ga_per_page_link(href, per_page, current_per_page)
-  #   label = "#{per_page} per page"
-  # 
-  #   if per_page == current_per_page
-  #     checkmark = content_tag("i", nil, :class => 'icon-ok')
-  #     content_tag(:a, (checkmark + " " + label), :href => '#', :class => "menu_checkmark_allowance" )
-  #   else
-  #     content_tag(:a, label, :href => href, :per_page => per_page, :class => "per_page_link" )
-  #   end
-  # end
   
   
   def catalog_per_page_link(per_page)
@@ -137,14 +104,6 @@ module CulCatalogHelper
 
     per_page_link(href, per_page, current_per_page)
     
-    # label = "#{per_page} per page"
-    # 
-    # if per_page == current_per_page
-    #   checkmark = content_tag("i", nil, :class => 'icon-ok')
-    #   content_tag(:a, (checkmark + " " + label), :href => '#', :class => "menu_checkmark_allowance" )
-    # else
-    #   content_tag(:a, label, :href => href, :per_page => per_page, :class => "per_page_link" )
-    # end
 
   end
 
@@ -162,5 +121,14 @@ module CulCatalogHelper
   end
 
 
+  def database_link_label (links)
+    label = "Search Database:"
+    if links and links.first and links.first[:url]
+      content_tag(:a, label, :href => links.first[:url], :class => "database_link" )
+    else
+      content_tag(:span, label, :class => "database_link" )
+    end
+    
+  end
 
 end

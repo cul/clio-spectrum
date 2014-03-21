@@ -121,7 +121,7 @@ class ApplicationController < ActionController::Base
 
   def get_browser_option(name)
     _clio_browser_options = YAML.load(cookies[:_clio_browser_options] || "{}")
-    return _clio_browser_options[name]
+    return _clio_browser_options.is_a?(Hash) ? _clio_browser_options[name] : nil
   end
 
 

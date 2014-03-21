@@ -3,13 +3,14 @@
 -# ALL item formats, all catalog-based datasources, use this partial to
 -# build their item-detail page.
 
-.show
-  -#= render 'show_constraints', :localized_params=>session[:search]
-  = render :partial => "_formats/clio/catalog_show_toolbar", :locals => { :document => document }
+-#.show
+-#= render 'show_constraints', :localized_params=>session[:search]
 
-  .row-fluid
-    .title
-      %h4= document_heading.listify.join("")
+= render :partial => "_formats/clio/catalog_show_toolbar", :locals => { :document => document }
+
+.show{:class => ("database_record" if document['source_display'].include? 'database')}
+  .title
+    %h4= document_heading.listify.join("")
 
   .row-fluid
     .info.span6

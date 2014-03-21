@@ -38,7 +38,8 @@ describe "Databases", :focus => false do
     find('#search_info').should have_text "Start Over"
 
     page.should have_text "Previous title: DigitalCommons"
-    page.should have_text "Online http://www.columbia.edu/cgi-bin/cul/resolve?clio6662174"
+    # Databases have custom label, "Search Database", instead of just "Online"
+    page.should have_text "Search Database: http://www.columbia.edu/cgi-bin/cul/resolve?clio6662174"
 
     within '#search_info' do
       click_link "Previous"
