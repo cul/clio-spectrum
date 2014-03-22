@@ -28,3 +28,4 @@ db/*.sqlite3
 *.sw?
 .sass-cache/**/*
 public/clicktale
+spec/reports
