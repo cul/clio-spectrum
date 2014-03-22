@@ -41,9 +41,9 @@ group :clio_dev, :clio_test, :clio_prod do
   gem 'mysql2'
 end
 
-# Some things we want to see in action on the LERP servers, 
-# but not in production.
-group :clio_dev do
+# Some things we want to see in development and in-action on 
+# the LERP servers, but not in production.
+group :development, :clio_dev do
 
   # "MiniProfiler allows you to see the speed of a request on the page"
   # http://railscasts.com/episodes/368-miniprofiler
@@ -186,10 +186,6 @@ group :development do
   # "A fist full of code metrics"
   gem 'metric_fu'
 
-  # "MiniProfiler allows you to see the speed of a request on the page"
-  # http://railscasts.com/episodes/368-miniprofiler
-  gem 'rack-mini-profiler'
-
 end
 
 group :test, :development do
@@ -242,4 +238,7 @@ group :test do
 
   # code coverage
   gem 'simplecov'
+  
+  gem 'ci_reporter'
+  
 end
