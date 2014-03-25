@@ -611,4 +611,19 @@ module DisplayHelper
     return fields.join('&')
   end
 
+
+
+  def link_to_previous_document_and_action(previous_document)
+    link_to_unless previous_document.nil?, raw(t('views.pagination.previous')), { :id => previous_document, :action => controller.action_name}, :class => "previous", :rel => 'prev', :'data-counter' => session[:search][:counter].to_i - 1 do
+      content_tag :span, raw(t('views.pagination.previous')), :class => 'previous'
+    end
+  end
+
+  def link_to_next_document_and_action(next_document)
+    link_to_unless next_document.nil?, raw(t('views.pagination.next')), { :id => next_document, :action => controller.action_name}, :class => "next", :rel => 'next', :'data-counter' => session[:search][:counter].to_i + 1 do
+      content_tag :span, raw(t('views.pagination.next')), :class => 'next'
+    end
+  end
+
+
 end

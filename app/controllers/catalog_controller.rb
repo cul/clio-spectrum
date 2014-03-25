@@ -103,7 +103,6 @@ class CatalogController < ApplicationController
 
   # updates the search counter (allows the show view to paginate)
   def update
-    adjust_for_results_view
     session[:search][:counter] = params[:counter]
 
     # These alternate paths all come back through catalog controller,
@@ -290,9 +289,22 @@ class CatalogController < ApplicationController
   def librarian_view
     @response, @document = get_solr_response_for_doc_id
     respond_to do |format|
-      format.html { render :layout => 'no_sidebar' }
+      format.html { 
+        # This Blacklight function re-runs the current query, twice,
+        # just to get IDs to build next/prev links.
+        # NewRelic shows this one line taking 1.5% of total processing time,
+        # even though it's hitting Solr's query cache.
+        setup_next_and_previous_documents
+        # raise
+        render :layout => 'no_sidebar'
+      }
       format.js { render :layout => false }
     end
+  end
+
+  def librarian_view_update
+    session[:search][:counter] = params[:counter]
+    redirect_to :action => "librarian_view"
   end
 
 

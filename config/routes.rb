@@ -105,6 +105,11 @@ Clio::Application.routes.draw do
 
   match '/catalog/email(.:format)', :to => "catalog#email", :as => :email
 
+  # Again, blacklight inserts this as GET, we need to support PUT
+  # (due to Blacklight's mechanism of preserving search context.)
+  match 'catalog/:id/librarian_view', :via => [:put], :to => 'catalog#librarian_view_update'
+
+
   # no, this was never implemented
   # namespace :admin do
   #   resources :locations

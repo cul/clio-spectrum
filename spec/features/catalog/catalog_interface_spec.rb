@@ -237,6 +237,40 @@ describe "Catalog Interface" do
 
     end
 
+    # NEXT-1015 - next from MARC
+    it "should support next/previous navigation from MARC view",
+        :js => true, :Xfocus => true do
+
+      # locate a fairly static set of records for a stable test suite
+      visit catalog_index_path('q' => 'maigret simenon')
+      within '#facets' do
+        find('.facet_field_label', :text => 'Publication Date').click
+        fill_in 'range[pub_date_sort][end]', :with => '1950'
+        find('button[type=submit]').click()
+      end
+
+      page.should have_text "1 - 9 of 9"
+
+      click_link("The patience of Maigret")
+      page.should have_text "Back to Results | 1 of 9 Next"
+      page.should have_text "Title The patience of Maigret"
+
+      click_link("Display In")
+      click_link("MARC View")
+      page.should have_text "Back to Results | 1 of 9 Next"
+      page.should have_text "245 1 4 a The patience of Maigret"
+
+      within "#show_toolbar" do
+        click_link("Next")
+      end
+      page.should have_text "Back to Results | « Previous 2 of 9 Next » | Start Over"
+      page.should have_text "245 1 4 a Les vacances de Maigret"
+
+      click_link("Return to Patron View")
+      page.should have_text "Back to Results | « Previous 2 of 9 Next » | Start Over"
+      page.should have_text "Title Les vacances de Maigret"
+
+    end
 end
 
 
