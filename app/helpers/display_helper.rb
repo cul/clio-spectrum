@@ -384,8 +384,6 @@ module DisplayHelper
     options.reverse_merge!(@add_row_options) if @add_row_options.kind_of?(Hash)
     options.reverse_merge!( {
       :display_blank => false,
-      # never used
-      # :display_only_first => false,
       :join => nil,
       :abbreviate => nil,
       :html_safe => true,
@@ -399,23 +397,16 @@ module DisplayHelper
     value_txt = convert_values_to_text(value, options)
     spans = options[:spans]
 
-
     result = ""
     if options[:display_blank] || !value_txt.empty?
       if options[:style] == :text
         result = (title.to_s + ": " + value_txt.to_s + "\n").html_safe
-      # elsif options[:style] == :dlist
-      #   result = content_tag(:dt, title.to_s) + "\n" +
-      #            content_tag(:dd, value_txt.to_s)
       else
         result = content_tag(:div, :class => "document-row") do
           if options[:style] == :definition
-            content_tag(:div, title.to_s.html_safe, :class => "#{options[:label_style]} span#{spans.first}") + content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "value span#{spans.last}")
-
-        # We don't use style=blockquote anywhere in our app
-          # elsif options[:style] == :blockquote
-          #   content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "blockquote")
-
+            # add space after row label, to help capybara string matchers
+            content_tag(:div, title.to_s.html_safe + " ", :class => "#{options[:label_style]} span#{spans.first}") +
+            content_tag(:div, value_txt, :class => "value span#{spans.last}")
           end
         end
       end
@@ -437,24 +428,19 @@ module DisplayHelper
       values = values.collect { |v| h(v) }.collect(&:html_safe)
     end
 
-    # "display_only_first" never used
-    # values = if options[:display_only_first]
-    #   values.first.to_s.listify
-    # elsif options[:join]
-    if options[:join]
-      values.join(options[:join]).to_s.listify.reject { |item| item.to_s.empty? }
-    else
-      values
+    # Join multiple data values into a single delimited display string
+    values = values.join(options[:join]).listify if options[:join]
+
+    # Don't do our fancy html/JS markup if we're in a text-only context
+    if options[:style] == :text
+      return values.join("\r\n  ")
     end
 
-    value_txt = if options[:style] == :text
-      values.join("\r\n  ")
-    else
-
-      # "Teaser" option - If the text is long enough, wrap the end of it
-      # within a span, with a hide/show toggle.
-      # based on:  http://stackoverflow.com/questions/14940166
-      # based on:  http://jsfiddle.net/VNdmZ/4/
+    # "Teaser" option - If the text is long enough, wrap the end of it
+    # within a span, with a hide/show toggle.
+    # based on:  http://stackoverflow.com/questions/14940166
+    # based on:  http://jsfiddle.net/VNdmZ/4/
+    if options[:teaser]
       values = values.collect { |value|
         value.strip!
         teaser_length = options[:teaser].respond_to?(:to_i) ? options[:teaser].to_i : 180
@@ -469,31 +455,31 @@ module DisplayHelper
         else
           value
         end
-      } if options[:teaser]
-
-      pre_values = values.collect { |v| content_tag(:div, v, :class => 'entry') }
-
-      if options[:expand] && values.length > 3
-        pre_values = [
-          pre_values[0],
-          pre_values[1],
-          content_tag(:div, link_to("#{values.length - 2} more &#x25BC;".html_safe, "#"), :class => 'entry expander'),
-          content_tag(:div, pre_values[2..-1].join('').html_safe, :class => 'expander_more')
-        ]
-      end
-
-      pre_text = pre_values.join('')
-      if options[:expand_to] && ! options[:expand_to].strip.empty?
-        pre_text += content_tag(:div, link_to(" more &#x25BC;".html_safe, "#"),
-                                :class => 'entry expander')
-        pre_text += content_tag(:div, options[:expand_to].html_safe,
-                                :class => 'expander_more')
-      end
-
-
-      pre_text
-
+      }
     end
+
+    if values.length > 1
+      values = values.collect { |v| content_tag(:div, v, :class => 'entry') }
+    end
+
+    if options[:expand] && values.length > 3
+      values = [
+        values[0],
+        values[1],
+        content_tag(:div, link_to("#{values.length - 2} more &#x25BC;".html_safe, "#"), :class => 'entry expander'),
+        content_tag(:div, values[2..-1].join('').html_safe, :class => 'expander_more')
+      ]
+    end
+
+    value_txt = values.join("\n")
+
+    if options[:expand_to] && ! options[:expand_to].strip.empty?
+      value_txt += content_tag(:div, link_to(" more &#x25BC;".html_safe, "#"),
+                              :class => 'entry expander')
+      value_txt += content_tag(:div, options[:expand_to].html_safe,
+                              :class => 'expander_more')
+    end
+
 
     value_txt = value_txt.html_safe
     value_txt

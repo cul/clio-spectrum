@@ -186,6 +186,10 @@ group :development do
   # "A fist full of code metrics"
   gem 'metric_fu'
 
+  # Profiling experiments
+  # https://www.coffeepowered.net/2013/08/02/ruby-prof-for-rails/
+  # gem 'request_profiler', :git => "git://github.com/justinweiss/request_profiler.git"
+
 end
 
 group :test, :development do

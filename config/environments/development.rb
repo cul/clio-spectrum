@@ -54,6 +54,13 @@ Clio::Application.configure do
   # Debugging in development only, and if it causes problems just comment out.
   config.middleware.use "ResponseTimer"
 
+  # Experiments with in-depth profiling
+  # https://github.com/justinweiss/request_profiler
+  # config.middleware.use "Rack::RequestProfiler"
+  # https://www.coffeepowered.net/2013/08/02/ruby-prof-for-rails/
+  # config.middleware.insert 0, "Rack::RequestProfiler", :printer => ::RubyProf::CallTreePrinter
+
+
 
 end
 
