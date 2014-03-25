@@ -1,4 +1,4 @@
-set :default_stage, "clio_dev"
+set :default_stage, 'clio_dev'
 set :stages, %w(clio_dev clio_test clio_prod)
 
 require 'capistrano/ext/multistage'
@@ -7,7 +7,7 @@ require 'date'
 
 default_run_options[:pty] = true
 
-set :application, "clio"
+set :application, 'clio'
 set :branch do
   default_tag = `git tag`.split("\n").last
 
@@ -19,22 +19,21 @@ end
 set :scm, :git
 set :git_enable_submodules, 1
 set :deploy_via, :remote_cache
-set :repository,  "git@github.com:cul/clio-spectrum.git"
+set :repository,  'git@github.com:cul/clio-spectrum.git'
 set :use_sudo, false
 
-
 namespace :deploy do
-  desc "Add tag based on current version"
-  task :auto_tag, :roles => :app do
-    current_version = IO.read("VERSION").to_s.strip + Date.today.strftime("-%y%m%d")
+  desc 'Add tag based on current version'
+  task :auto_tag, roles: :app do
+    current_version = IO.read('VERSION').to_s.strip + Date.today.strftime('-%y%m%d')
     tag = Capistrano::CLI.ui.ask "Tag to add: [#{current_version}] "
     tag = current_version if tag.empty?
 
     system("git tag -a #{tag} -m 'auto-tagged' && git push origin --tags")
   end
 
-  desc "Restart Application"
-  task :restart, :roles => :app do
+  desc 'Restart Application'
+  task :restart, roles: :app do
     run "mkdir -p #{current_path}/tmp/cookies"
     run "touch #{current_path}/tmp/restart.txt"
   end
@@ -48,9 +47,6 @@ namespace :deploy do
     run "ln -nfs #{deploy_to}shared/extracts #{release_path}/tmp/extracts"
   end
 
-
 end
-
-
 
 after 'deploy:update_code', 'deploy:symlink_shared'

@@ -2,10 +2,10 @@
 #
 module CulCatalogHelper
   def fix_catalog_links(text, source = @active_source)
-    text.to_s.gsub('/catalog',"/#{source}").html_safe
+    text.to_s.gsub('/catalog', "/#{source}").html_safe
   end
 
-  def build_link_back()
+  def build_link_back
     # 1) EITHER start basic - just go back to where we came from... even if
     # it was a link found on a web page or in search-engine results...
     # link_back = request.referer.path
@@ -21,11 +21,10 @@ module CulCatalogHelper
     end
 
     # send back whatever we ended up with.
-    return link_back
+    link_back
   end
 
-
-  def link_to_source_document(doc, options={:label=>nil, :counter => nil, :results_view => true, :source=>nil})
+  def link_to_source_document(doc, options = { label: nil, counter: nil, results_view: true, source: nil })
     label ||= blacklight_config.index.show_link.to_sym
     label = render_document_index_label doc, options
     source = options[:source] || @active_source
@@ -35,34 +34,29 @@ module CulCatalogHelper
   end
 
   def catalog_index_path(options = {})
-    filtered_options = options.reject { |key, value|
+    filtered_options = options.reject do |key, value|
       key.in?('controller', 'action', 'source_override')
-    }
+    end
     source = options['source_override'] || @active_source
 
     "/#{source}?#{filtered_options.to_query}"
-
   end
 
-
-  def render_document_index_label doc, opts
+  def render_document_index_label(doc, opts)
     label = nil
     label ||= doc.get(opts[:label]) if opts[:label].instance_of? Symbol
     label ||= opts[:label].call(doc, opts) if opts[:label].instance_of? Proc
     label ||= opts[:label] if opts[:label].is_a? String
-    label ||= doc.get("id")
-    label.listify.join(" ").to_s
+    label ||= doc.get('id')
+    label.listify.join(' ').to_s
   end
-
-
-
 
   def holdings_compact(document)
     online_holdings = format_online_results(online_link_hash(document))
 
-    locations = document["location_call_number_id_display"].listify.reject { |loc|
+    locations = document['location_call_number_id_display'].listify.reject do |loc|
       loc.match(/^Online/)
-    }
+    end
     physical_holdings = format_location_results(locations, document)
 
     all_holdings = online_holdings.concat(physical_holdings)
@@ -73,23 +67,20 @@ module CulCatalogHelper
 
     # from display_helper, this conveniently lists all holdings if <= 3,
     # or 2 holdings plus a clickable "N more" label to display the rest
-    return convert_values_to_text(all_holdings, :expand => true)
-
+    convert_values_to_text(all_holdings, expand: true)
   end
 
   def per_page_link(href, per_page, current_per_page)
     label = "#{per_page} per page"
 
     if per_page == current_per_page
-      checkmark = content_tag("i", nil, :class => 'icon-ok')
-      content_tag(:a, (checkmark + " " + label), :href => '#', :class => "menu_checkmark_allowance" )
+      checkmark = content_tag('i', nil, class: 'icon-ok')
+      content_tag(:a, (checkmark + ' ' + label), href: '#', class: 'menu_checkmark_allowance')
     else
-      content_tag(:a, label, :href => href, :per_page => per_page, :class => "per_page_link" )
+      content_tag(:a, label, href: href, per_page: per_page, class: 'per_page_link')
     end
   end
 
-  
-  
   def catalog_per_page_link(per_page)
     current_per_page = @response.rows || 25
 
@@ -100,35 +91,30 @@ module CulCatalogHelper
     # do the math such that the current 1st item is still in the set
     new_page_number = (first_record_on_page / per_page).to_i + 1
 
-    href = url_for(params_for_search.merge(:rows => per_page, :page => new_page_number))
+    href = url_for(params_for_search.merge(rows: per_page, page: new_page_number))
 
     per_page_link(href, per_page, current_per_page)
-    
-
   end
 
   def viewstyle_link(viewstyle, label)
     current_viewstyle = get_browser_option('viewstyle') ||
                         DATASOURCES_CONFIG['datasources'][@active_source]['default_viewstyle'] ||
-                        "list"
+                        'list'
 
     if viewstyle == current_viewstyle
-      checkmark = content_tag("i", nil, :class => 'icon-ok')
-      content_tag(:a, (checkmark + " " + label), :href => '#', :class => "menu_checkmark_allowance" )
+      checkmark = content_tag('i', nil, class: 'icon-ok')
+      content_tag(:a, (checkmark + ' ' + label), href: '#', class: 'menu_checkmark_allowance')
     else
-      content_tag(:a, label, :href => '#', :viewstyle => viewstyle, :class => "viewstyle_link" )
+      content_tag(:a, label, href: '#', viewstyle: viewstyle, class: 'viewstyle_link')
     end
   end
 
-
-  def database_link_label (links)
-    label = "Search Database:"
+  def database_link_label(links)
+    label = 'Search Database:'
     if links and links.first and links.first[:url]
-      content_tag(:a, label, :href => links.first[:url], :class => "database_link" )
+      content_tag(:a, label, href: links.first[:url], class: 'database_link')
     else
-      content_tag(:span, label, :class => "database_link" )
+      content_tag(:span, label, class: 'database_link')
     end
-    
   end
-
 end

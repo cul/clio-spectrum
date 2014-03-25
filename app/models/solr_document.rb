@@ -1,5 +1,4 @@
 class SolrDocument
-
   def id
     self[self.class.unique_key].listify.first
   end
@@ -7,14 +6,14 @@ class SolrDocument
   include Blacklight::Solr::Document
 
   def cache_key
-    "SolrDocument_#{self.id}_#{self['timestamp']}"
+    "SolrDocument_#{id}_#{self['timestamp']}"
   end
 
   # The following shows how to setup this blacklight document to display marc documents
   extension_parameters[:marc_source_field] = :marc_display
   extension_parameters[:marc_format_type] = :marcxml
-  use_extension( Blacklight::Solr::Document::Marc) do |document|
-    document.key?( :marc_display  )
+  use_extension(Blacklight::Solr::Document::Marc) do |document|
+    document.key?(:marc_display)
   end
 
   # At Columbia, these are replaced by code within the record_mailer views
@@ -33,14 +32,14 @@ class SolrDocument
 #  these are the DC fields you can play with...
 #  :contributor, :coverage, :creator, :date, :description, :format, :identifier, :language, :publisher, :relation, :rights, :source, :subject, :title, :type
 
-  use_extension( Blacklight::Solr::Document::DublinCore)
+  use_extension(Blacklight::Solr::Document::DublinCore)
   field_semantics.merge!(
                          # :identifier => "id",  # suggested mapping is ISBN or ISSN
-                         :title => "title_display",
-                         :contributor => "author_display",
-                         :publisher => "full_publisher_display",
-                         :language => "language_facet",
-                         :format => "format",
-                         :date => "pub_date_sort"
+                         title: 'title_display',
+                         contributor: 'author_display',
+                         publisher: 'full_publisher_display',
+                         language: 'language_facet',
+                         format: 'format',
+                         date: 'pub_date_sort'
                          )
 end

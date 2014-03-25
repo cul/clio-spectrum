@@ -18,20 +18,16 @@ describe 'Spectrum::SearchEngines::GoogleAppliance' do
       @search_engine.next_page?.should be true
     end
 
-
   end
 
   describe 'Libraries Website error handling' do
 
     it 'should raise an error if not query specified' do
-      expect {
-        Spectrum::SearchEngines::GoogleAppliance.new()
-      }.to raise_error(RuntimeError)
+      expect do
+        Spectrum::SearchEngines::GoogleAppliance.new
+      end.to raise_error(RuntimeError)
     end
 
   end
 
-
 end
-
-

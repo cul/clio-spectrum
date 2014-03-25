@@ -1,19 +1,18 @@
-# The front-end makes AJAX calls back to the Backend controller to get 
+# The front-end makes AJAX calls back to the Backend controller to get
 # holdings information.  The Backend Controller in turn makes calls to
 # a different web application, clio_backend, to get this data.
 class BackendController < ApplicationController
-
   def url_for_id(id = nil)
     # raise
     if clio_backend_url = APP_CONFIG['clio_backend_url']
       return "#{clio_backend_url}/holdings/retrieve/#{id}"
     else
-      raise "clio_backend_url not found in APP_CONFIG"
+      fail 'clio_backend_url not found in APP_CONFIG'
     end
   end
 
   def holdings_httpclient
-    hc = HTTPClient.new()
+    hc = HTTPClient.new
     # The default is to wait 60/120 seconds - but we expect an instant response,
     # anything else means trouble, and we should give up immediately so as not
     # to not sit on resources.
@@ -34,7 +33,7 @@ class BackendController < ApplicationController
     backend_url = url_for_id(@id)
     begin
       json_holdings = holdings_httpclient.get_content(backend_url)
-      @holdings = JSON.parse( json_holdings )[@id]
+      @holdings = JSON.parse(json_holdings)[@id]
     rescue HTTPClient::BadResponseError => ex
       logger.error "BackendController#holdings HTTPClient::BadResponseError URL: #{backend_url}  Exception: #{ex}"
       render nothing: true and return
@@ -52,16 +51,16 @@ class BackendController < ApplicationController
     end
 
     # data retrieved successfully!  render and return an html snippet.
-    render "backend/holdings", :layout => false
+    render 'backend/holdings', layout: false
   end
 
   # ??? mail to who?
   # def holdings_mail
   #   @id = params[:id]
-  # 
+  #
   #   full_backend_url = "#{APP_CONFIG['clio_backend_url']}/holdings/retrieve/#{@id}"
   #   @holdings = JSON.parse(HTTPClient.get_content(full_backend_url))[@id]
-  # 
+  #
   #   render "backend/_holdings_mail", :layout => false
   # end
 
@@ -89,6 +88,4 @@ class BackendController < ApplicationController
   #
   #   render :json => results
   # end
-
-
 end

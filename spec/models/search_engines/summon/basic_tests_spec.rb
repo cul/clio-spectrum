@@ -5,7 +5,7 @@ describe 'Spectrum::SearchEngines::Summon' do
   describe 'with parameters' do
     it 'should default to a clean search' do
 
-      sum = Spectrum::SearchEngines::Summon.new()
+      sum = Spectrum::SearchEngines::Summon.new
       sum.source.should be_nil
 
       # We always have our facets applied...
@@ -49,32 +49,29 @@ describe 'Spectrum::SearchEngines::Summon' do
     end
 
     it 'should not include newspaper articles' do
-      @sum.search.query.facet_value_filters.should be_any { |f| f.negated? && f.value == "Newspaper Article" }
+      @sum.search.query.facet_value_filters.should be_any { |f| f.negated? && f.value == 'Newspaper Article' }
       @sum.documents.each do |doc|
         doc.content_type.should_not == 'Newspaper Article'
       end
 
     end
   end
-  
-  describe "Spectrum::SearchEngines::Summon Exception Handling" do
+
+  describe 'Spectrum::SearchEngines::Summon Exception Handling' do
 
     it 'should catch error when auth fails' do
       APP_CONFIG['summon']['secret_key'] = 'BROKEN'
       sum = Spectrum::SearchEngines::Summon.new('source' => 'articles', 's.q' => 'Dog')
       sum.successful?.should be false
-      sum.errors.should == "401: Unauthorized"
+      sum.errors.should == '401: Unauthorized'
     end
-    
+
     it 'methods should handle broken Summon @search object' do
       APP_CONFIG['summon']['secret_key'] = 'BROKEN'
       sum = Spectrum::SearchEngines::Summon.new('source' => 'articles', 's.q' => 'Dog')
       sum.total_items.should == 0
     end
-    
-    
-    
-  end
-  
-end
 
+  end
+
+end

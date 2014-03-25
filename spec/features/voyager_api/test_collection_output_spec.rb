@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "collection output tests", :js => true do
+describe 'collection output tests', js: true do
 
-  it "test condensed holdings output full" do
+  it 'test condensed holdings output full' do
 
     visit catalog_path('8430339')
     within ('div#clio_holdings') do
@@ -16,7 +16,7 @@ describe "collection output tests", :js => true do
 
   end
 
-  it "test condensed holdings output brief" do
+  it 'test condensed holdings output brief' do
 
     visit catalog_path('8430339')
     within ('div#clio_holdings') do
@@ -25,7 +25,5 @@ describe "collection output tests", :js => true do
       page.should have_text('Scan & Deliver')
     end
 
-
   end
 end
-

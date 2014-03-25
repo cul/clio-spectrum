@@ -5,9 +5,8 @@ module ArticlesHelper
   ]
 
   def link_to_article(article, link_title = nil)
-
     link_title ||= article.title.html_safe
-    return link_to(link_title, article.link)
+    link_to(link_title, article.link)
 
     # OLD CODE - back from when we had articles item-detail pages?
     # url = ''
@@ -24,11 +23,9 @@ module ArticlesHelper
     # else
     #   url = article.link
     # end
-    # 
+    #
     # link_to link_title, url
   end
-
-
 
 # OLD CODE - nothing calls this
   # def generate_ill_link(document)
@@ -50,15 +47,13 @@ module ArticlesHelper
   #     'Date' => document.date,
   #     'ISSN' => issn
   #   }
-  # 
+  #
   #  (base + link_params.to_query).html_safe
   # end
 
-
-
   # No longer used - this was for the old partials,
   # working against the Articles Controller
-  # 
+  #
   # ARTICLE_HOLDING_ICONS = {
   #   'book' => 'icons/book.png',
   #   'article' => 'icons/article.png',
@@ -66,12 +61,12 @@ module ArticlesHelper
   #   'source' => 'icons/database.png',
   #   'volume' => 'icons/volume.png'
   # }
-  # 
+  #
   # ARTICLE_HOLDING_NAMES = {
   # }
-  # 
+  #
   # ARTICLE_HOLDING_LINK_ORDER = %w{book article journal volume source}
-  # 
+  #
   # def display_article_holdings_links(holding)
   #   holding[:urls].keys.reject { |key|
   #     key == 'issue'
@@ -83,31 +78,31 @@ module ArticlesHelper
   #     icon = ARTICLE_HOLDING_ICONS[source]
   #     title = content_tag(:span, "#{image_tag(icon)} ".html_safe + title,
   #                         :class => "article_holding").html_safe if icon
-  # 
+  #
   #     link_to(title, url, :target => "_blank")
   #   }.join("").html_safe
-  # 
+  #
   # end
 
   def get_article_type(doc)
-    txt = doc.content_types.join(", ")
+    txt = doc.content_types.join(', ')
 
     if doc.fulltext
-      if is_music?(doc) || doc.content_types.include?("Reference")
-        txt += ": " + link_to_article(doc, "Available Online")
+      if is_music?(doc) || doc.content_types.include?('Reference')
+        txt += ': ' + link_to_article(doc, 'Available Online')
       else
-        txt += ": " + link_to_article(doc, "Full Text Available")
+        txt += ': ' + link_to_article(doc, 'Full Text Available')
       end
     # elsif txt.include?("Journal Article")
     else
-      txt += ": " + link_to_article(doc, "Citation Online")
+      txt += ': ' + link_to_article(doc, 'Citation Online')
     end
 
-    return txt
+    txt
   end
 
   def is_music?(doc)
-    !(doc.content_types & ["Audio Recording", "Music Recording"]).empty?
+    !(doc.content_types & ['Audio Recording', 'Music Recording']).empty?
   end
 
   def get_article_citation(doc)
@@ -119,7 +114,7 @@ module ArticlesHelper
     results << "Issue #{doc.issue}" if doc.issue
     results << "p. #{doc.start_page}" if doc.start_page
 
-    result = results.join(", ")
+    result = results.join(', ')
     result.empty? ? nil : result
   end
 
@@ -128,25 +123,24 @@ module ArticlesHelper
     ordered_authors = []
     authors_to_show = 50  # some articles have hundreds of authors - only show first N
     total_authors = document.src['Author_xml'].size
-    document.src['Author_xml'].each { |author|
+    document.src['Author_xml'].each do |author|
       ordered_authors.push author['fullname']
       break if ordered_authors.size >= authors_to_show
-    }
+    end
     authors_display = ordered_authors.join ', '
     if total_authors >= authors_to_show
       # 1/2014 - the Summon API (and native interface!) have changed, to only return
       # the first 100 authors.  So we no longer have an accurate "total_authors" count.
       # authors_display +=  "  (additional #{total_authors - authors_to_show} authors not shown)"
-      authors_display +=  "  (more...)"
+      authors_display +=  '  (more...)'
     end
     authors_display
   end
 
   def process_summon_date(date)
     # NEXT-598 - Articles date formatting - use MM/DD/YYYY
-    [date.month, date.day, date.year].compact.join("/")
+    [date.month, date.day, date.year].compact.join('/')
   end
-
 
   def summon_hidden_keys_for_search(summon_query_as_hash)
     # based on Blacklight::HashAsHiddenFieldsHelperBehavior
@@ -164,10 +158,10 @@ module ArticlesHelper
 
       if value.is_a?(Array)
         value.each do |value_element|
-          hidden_fields << hidden_field_tag("#{name}[]", value_element.to_s, :id => nil)
+          hidden_fields << hidden_field_tag("#{name}[]", value_element.to_s, id: nil)
         end
       else
-        hidden_fields << hidden_field_tag(name, value.to_s, :id => nil)
+        hidden_fields << hidden_field_tag(name, value.to_s, id: nil)
       end
 
       # value = [value] if !value.is_a?(Array)
@@ -178,7 +172,6 @@ module ArticlesHelper
 
     hidden_fields.join("\n").html_safe
   end
-
 
   #  SIMPLE SEARCH:
   #   "q"=>"nature"
@@ -230,5 +223,4 @@ module ArticlesHelper
 
     hash
   end
-
 end

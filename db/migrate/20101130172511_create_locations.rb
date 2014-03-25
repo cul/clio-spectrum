@@ -4,7 +4,7 @@ class CreateLocations < ActiveRecord::Migration
       t.string :name
       t.text :found_in
       t.integer :library_id
-      t.string :category, :limit => 10
+      t.string :category, limit: 10
       t.timestamps
     end
 

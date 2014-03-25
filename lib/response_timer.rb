@@ -2,8 +2,7 @@
 # http://asciicasts.com/episodes/151-rack-middleware
 
 class ResponseTimer
-
-  def initialize(app, message = "Response Time")
+  def initialize(app, message = 'Response Time')
     @app = app
     @message = message
   end
@@ -17,11 +16,10 @@ class ResponseTimer
   end
 
   def each(&block)
-    if @headers and @headers["Content-Type"] and @headers["Content-Type"].include? "text/html"
+    if @headers && @headers['Content-Type'] and @headers['Content-Type'].include? 'text/html'
       block.call("<!-- #{@message}: #{@elapsed.round(0)} ms -->\n")
     end
 
     @response.each(&block)
   end
-
 end

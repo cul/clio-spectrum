@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe "Datasource Sanity", :js => true do
+describe 'Datasource Sanity', js: true do
 
   it "LWeb should be labeled 'Libraries Website'" do
     visit root_path
-    find('#datasources').should have_text("Libraries Website")
+    find('#datasources').should have_text('Libraries Website')
   end
 
-  it "direct datasources links should go to correct datasource landing pages" do
+  it 'direct datasources links should go to correct datasource landing pages' do
 
     visit '/quicksearch'
     find('.landing_main .title').should have_text('Quicksearch')
@@ -49,15 +49,12 @@ describe "Datasource Sanity", :js => true do
 
 end
 
+describe 'Simple query should retrieve results ', js: true do
 
-
-describe "Simple query should retrieve results ", :js => true do
-
-
-  it "within all datasources" do
+  it 'within all datasources' do
 
     visit quicksearch_index_path('q' => 'test')
-    page.should have_css(".result_set", :count => 4)
+    page.should have_css('.result_set', count: 4)
     all('.result_set').each do |result_set|
       result_set.should have_css('.result')
     end
@@ -84,13 +81,13 @@ describe "Simple query should retrieve results ", :js => true do
     page.should have_css('.result')
 
     visit dissertations_index_path('q' => 'test')
-    page.should have_css(".result_set", :count => 3)
+    page.should have_css('.result_set', count: 3)
     all('.result_set').each do |result_set|
       result_set.should have_css('.result')
     end
 
     visit ebooks_index_path('q' => 'test')
-    page.should have_css(".result_set", :count => 2)
+    page.should have_css('.result_set', count: 2)
     all('.result_set').each do |result_set|
       result_set.should have_css('.result')
     end
@@ -104,29 +101,28 @@ describe "Simple query should retrieve results ", :js => true do
 
 end
 
-describe "Switching between data-source should work", :js => true do
+describe 'Switching between data-source should work', js: true do
 
-  it 'should carry forward simple search to each datasource', :XXfocus => true do
+  it 'should carry forward simple search to each datasource', XXfocus: true do
     visit root_path
     # page.save_and_open_page # debug
     # terminal newline submits form
-    fill_in 'q', :with => "test\n"
+    fill_in 'q', with: "test\n"
 
-    page.should have_css(".result_set", :count => 4)
+    page.should have_css('.result_set', count: 4)
     all('.result_set').each do |result_set|
       result_set.should have_css('.result')
     end
     # page.save_and_open_page # debug
 
     within('#datasources') do
-      click_link("Catalog")
+      click_link('Catalog')
     end
     find('div.constraint-box').should have_text('test')
     page.should have_css('.result')
     all('#documents .result').first['source'].should eq 'catalog'
 
-
-    click_link("Articles")
+    click_link('Articles')
     # find('input#articles_q').should have_text('test')
     find('input#articles_q').value.should eq 'test'
     find('.well-constraints').should have_text('test')
@@ -134,59 +130,59 @@ describe "Switching between data-source should work", :js => true do
     # puts "==========" + all('#documents .result').first.inspect
     # all('#documents .result').first.should have_selector('.article_list')
 
-    click_link("E-Journal Titles")
+    click_link('E-Journal Titles')
     find('input#journals_q').value.should eq 'test'
     find('.constraint-box').should have_text('test')
     page.should have_css('.result')
     all('#documents .result').first['source'].should eq 'catalog'
 
-    click_link("Databases")
+    click_link('Databases')
     find('input#databases_q').value.should eq 'test'
     find('.constraint-box').should have_text('test')
     page.should have_css('.result')
     all('#documents .result').first['source'].should eq 'catalog'
 
-    click_link("Academic Commons")
+    click_link('Academic Commons')
     find('input#academic_commons_q').value.should eq 'test'
     find('.constraint-box').should have_text('test')
     page.should have_css('.result')
     all('#documents .result').first['source'].should eq 'academic_commons'
 
-    click_link("Libraries Website")
+    click_link('Libraries Website')
     find('input#library_web_q').value.should eq 'test'
     find('.constraint-box').should have_text('test')
     page.should have_css('.result')
     # all('#documents .result').first['source'].should eq 'XXX'
 
-    click_link("Archives")
+    click_link('Archives')
     find('input#archives_q').value.should eq 'test'
     find('.constraint-box').should have_text('test')
     page.should have_css('.result')
     all('#documents .result').first['source'].should eq 'catalog'
 
-    click_link("More...")
-    click_link("Dissertations")
+    click_link('More...')
+    click_link('Dissertations')
     find('input#dissertations_q').value.should eq 'test'
-    page.should have_css(".result_set", :count => 3)
+    page.should have_css('.result_set', count: 3)
     all('.result_set').each do |result_set|
       result_set.should have_css('.result')
     end
 
-    click_link("E-Books")
+    click_link('E-Books')
     find('input#ebooks_q').value.should eq 'test'
-    page.should have_css(".result_set", :count => 2)
+    page.should have_css('.result_set', count: 2)
     all('.result_set').each do |result_set|
       result_set.should have_css('.result')
     end
 
-    click_link("New Arrivals")
+    click_link('New Arrivals')
     find('input#new_arrivals_q').value.should eq 'test'
     find('.constraint-box').should have_text('test')
     page.should have_css('.result')
     all('#documents .result').first['source'].should eq 'catalog'
 
-    click_link("More...")
-    click_link("Newspapers")
+    click_link('More...')
+    click_link('Newspapers')
     find('input#newspapers_q').value.should eq 'test'
     find('.well-constraints').should have_text('test')
     page.should have_css('.result')
@@ -199,18 +195,18 @@ describe "Switching between data-source should work", :js => true do
     visit root_path
 
     within('#datasources') do
-      click_link("Catalog")
+      click_link('Catalog')
     end
     # page.save_and_open_page # debug
     find('.landing_main .title').should have_text('Catalog')
 
     within('#datasources') do
-      click_link("Articles")
+      click_link('Articles')
     end
     find('.landing_main .title').should have_text('Articles')
 
     within('#datasources') do
-      click_link("Databases")
+      click_link('Databases')
     end
     find('.landing_main .title').should have_text('Databases')
 
@@ -229,4 +225,3 @@ describe "Switching between data-source should work", :js => true do
   end
 
 end
-

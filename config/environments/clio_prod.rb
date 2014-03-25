@@ -18,7 +18,7 @@ Clio::Application.configure do
   # Cache store details - disk or memory?  How big?  (100MB?)
   # (use number, because "100.megabytes" gives:  undefined method `megabytes'
   #  see http://stackoverflow.com/questions/10200339)
-  config.cache_store = :memory_store, { size: 100000000 }
+  config.cache_store = :memory_store, { size: 100_000_000 }
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
@@ -26,15 +26,15 @@ Clio::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => "localhost",
-    :domain => "bruckner.cc.columbia.edu",
-    :port => "25"
+    address: 'localhost',
+    domain: 'bruckner.cc.columbia.edu',
+    port: '25'
   }
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
-  config.assets.precompile += %w{flot/excanvas.min.js}
+  config.assets.precompile += %w(flot/excanvas.min.js)
   config.assets.compress = true
   config.assets.compile = false
   config.assets.digest = true
@@ -61,9 +61,9 @@ end
 #    :ignore_crawlers => %w{Googlebot bingbot}
 
 Clio::Application.config.middleware.use ExceptionNotification::Rack,
- :email => {
-   :email_prefix => "[Clio Prod] ",
-   :sender_address => %{"notifier" <spectrum-tech@libraries.cul.columbia.edu>},
-   :exception_recipients => %w{spectrum-tech@libraries.cul.columbia.edu},
-   :ignore_crawlers => %w{Googlebot bingbot}
- }
+                                        email: {
+                                          email_prefix: '[Clio Prod] ',
+                                          sender_address: %("notifier" <spectrum-tech@libraries.cul.columbia.edu>),
+                                          exception_recipients: %w(spectrum-tech@libraries.cul.columbia.edu),
+                                          ignore_crawlers: %w(Googlebot bingbot)
+                                        }

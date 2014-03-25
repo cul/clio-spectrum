@@ -1,9 +1,6 @@
 module GoogleAnalytics
-
   mattr_accessor :web_property_id
-
 end
-
 
 # Change to your Google Web id
 GoogleAnalytics.web_property_id = case Rails.env.to_s
@@ -26,5 +23,3 @@ GoogleAnalytics.web_property_id = case Rails.env.to_s
   else
     nil
 end
-
-

@@ -1,6 +1,5 @@
 module AdvancedHelper
-
-  def change_params_and_redirect(changed_params, reg_params=params)
+  def change_params_and_redirect(changed_params, reg_params = params)
     new_params = reg_params.deep_clone
     new_params.delete(:page)
 
@@ -10,13 +9,13 @@ module AdvancedHelper
 
     new_params.delete(:id)
 
-    new_params[:action] = "index"
+    new_params[:action] = 'index'
     new_params.merge!(changed_params)
     new_params
   end
 
   def standard_hidden_keys_for_search
-    search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page, :categories, :advanced_operator, :adv, :advanced]).html_safe
+    search_as_hidden_fields(omit_keys: [:q, :search_field, :qt, :page, :categories, :advanced_operator, :adv, :advanced]).html_safe
   end
 
 # Unused?
@@ -28,29 +27,25 @@ module AdvancedHelper
     Array.wrap(params[:f] && params[:f]["-#{facet}"])
   end
 
-
-
   # Standard display of a SELECTED facet value, no link, special span
   # with class, and 'remove' button.
   def render_selected_facet_value_on_facet(facet_solr_field, item)
-
-    #Updated class for Bootstrap Blacklight
-    content_tag(:span, render_facet_value(facet_solr_field, item, :suppress_link => true), :class => "selected") +
-      link_to(content_tag(:i, '', :class => "icon-remove") +  content_tag(:span, '[remove]', :class => 'hide-text'), catalog_index_path(remove_facet_params(facet_solr_field, item, params)), :class=>"remove")
+    # Updated class for Bootstrap Blacklight
+    content_tag(:span, render_facet_value(facet_solr_field, item, suppress_link: true), class: 'selected') +
+      link_to(content_tag(:i, '', class: 'icon-remove') +  content_tag(:span, '[remove]', class: 'hide-text'), catalog_index_path(remove_facet_params(facet_solr_field, item, params)), class: 'remove')
   end
 
-  def advanced_field_text_field(blacklight_config, index, par=params)
+  def advanced_field_text_field(blacklight_config, index, par = params)
     index = index.to_s
     default_value = params['adv'] && params['adv'][index] && (!params['adv'][index]['field'].to_s.empty? && params['adv'][index]['value'])
 
-    text_field_tag("adv[#{index}][value]",default_value,  :class => "advanced_search_value")
-
+    text_field_tag("adv[#{index}][value]", default_value,  class: 'advanced_search_value')
   end
 
   # builds the field select-tag for each Advanced Search field/value pair (for Catalog)
   def advanced_field_select_option(blacklight_config, index, par = params)
     index = index.to_s
-    field_list = blacklight_config.search_fields.collect do |field_key, field|
+    field_list = blacklight_config.search_fields.map do |field_key, field|
       [field.label, field_key]
     end
 
@@ -62,18 +57,15 @@ module AdvancedHelper
                     (!params['adv'][index]['value'].to_s.empty? &&
                       params['adv'][index]['field'])
     default_value ||= 'all_fields'
-    select_tag("adv[#{index}][field]", options_for_select(field_list, default_value), :class => "advanced_search_field")
+    select_tag("adv[#{index}][field]", options_for_select(field_list, default_value), class: 'advanced_search_field')
   end
-
 
   def has_advanced_params?
     # Catalog
-    return true if (params[:adv].kind_of?(Hash) and !params[:adv].empty?)
+    return true if params[:adv].kind_of?(Hash) && !params[:adv].empty?
     # Summon
     return true if params[:form] == 'advanced'
     # If we didn't detect any advanced search...
-    return false
+    false
   end
-
 end
-

@@ -2,34 +2,33 @@
 
 require 'spec_helper'
 
-
-describe "Academic Commons", :focus => false do
+describe 'Academic Commons', focus: false do
   # Use this string within the below tests
   search_title_text = 'Structural and Functional Microbial Ecology'
 
-  it "fielded search should work, link to AC website", :js => true do
+  it 'fielded search should work, link to AC website', js: true do
     visit root_path
     within('li.datasource_link[source="academic_commons"]') do
       click_link('Academic Commons')
-    end    
-    
+    end
+
     within '.search_box.academic_commons' do
       find('#academic_commons_q').should be_visible
-      fill_in 'q', :with => search_title_text
-      find('btn.dropdown-toggle').click()
+      fill_in 'q', with: search_title_text
+      find('btn.dropdown-toggle').click
       within '.dropdown-menu' do
         # save_and_open_page()
-        click_link("Title")
+        click_link('Title')
       end
-      find('button[type=submit]').click()
+      find('button[type=submit]').click
     end
 
     # Search string and search field should be preserved
-    find("#academic_commons_q").value.should eq search_title_text
+    find('#academic_commons_q').value.should eq search_title_text
     find('.btn.dropdown-toggle').should have_content('Title')
 
     # The entered fielded search should be echoed on the results page
-    find(".constraints-container").should have_content('Title: ' + search_title_text)
+    find('.constraints-container').should have_content('Title: ' + search_title_text)
 
     # And the search results too
     find('#documents').should have_content(search_title_text)
@@ -52,4 +51,3 @@ describe "Academic Commons", :focus => false do
   end
 
 end
-

@@ -13,7 +13,6 @@ Clio::Application.configure do
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
 
-
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
 
@@ -40,7 +39,6 @@ Clio::Application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 
-
   # UnAPI has been removed.
   # # BlacklightUnapi - quiet the extensive log entries:
   # # DEPRECATION WARNING: Passing a template handler in the template
@@ -52,7 +50,7 @@ Clio::Application.configure do
   # http://asciicasts.com/episodes/151-rack-middleware
   # This gives us a total load time, as a comment before the opening <htm> tag.
   # Debugging in development only, and if it causes problems just comment out.
-  config.middleware.use "ResponseTimer"
+  config.middleware.use 'ResponseTimer'
 
   # Experiments with in-depth profiling
   # https://github.com/justinweiss/request_profiler
@@ -60,7 +58,4 @@ Clio::Application.configure do
   # https://www.coffeepowered.net/2013/08/02/ruby-prof-for-rails/
   # config.middleware.insert 0, "Rack::RequestProfiler", :printer => ::RubyProf::CallTreePrinter
 
-
-
 end
-

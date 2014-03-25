@@ -34,8 +34,8 @@ class SessionsController < Devise::SessionsController
       format.any(*navigational_formats) { redirect_to "https://#{User.wind_host}/logout?passthrough=1&destination=" + redirect_url }
       format.all do
           method = "to_#{request_format}"
-          text = {}.respond_to?(method) ? {}.send(method) : ""
-          render :text => text, :status => :ok
+          text = {}.respond_to?(method) ? {}.send(method) : ''
+          render text: text, status: :ok
         end
     end
   end
@@ -45,6 +45,4 @@ class SessionsController < Devise::SessionsController
   def expire_cache_for_user
     expire_fragment("top_navigation_bar_#{current_user}") if current_user
   end
-
 end
-

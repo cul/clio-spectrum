@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe 'basic' do
   it 'passes basic math' do
-    assert_equal 2+2, 4
-    (2+2).should == 4
+    assert_equal 2 + 2, 4
+    (2 + 2).should == 4
 
   end
 end

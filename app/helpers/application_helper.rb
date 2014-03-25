@@ -4,11 +4,10 @@ module ApplicationHelper
     APP_CONFIG['application_name'].to_s
   end
 
-  def alternating_line(id="default")
-    @alternating_line ||= Hash.new("odd")
-    @alternating_line[id] = @alternating_line[id] == "even" ? "odd" : "even"
+  def alternating_line(id = 'default')
+    @alternating_line ||= Hash.new('odd')
+    @alternating_line[id] = @alternating_line[id] == 'even' ? 'odd' : 'even'
   end
-
 
   # unused methods
 
@@ -40,7 +39,6 @@ module ApplicationHelper
   def clio_sidebar_items
     @clio_sidebar_items ||= []
   end
-
 
   # def ids_to_documents(id_array = [])
   #   # First, split into per-source lists,
@@ -77,5 +75,4 @@ module ApplicationHelper
   #   end
   #   document_array
   # end
-
 end

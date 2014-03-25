@@ -1,6 +1,5 @@
 module ItemAlertHelper
-
-  # Not so clever - using Bootstrap alert-type labels to mean 'future', 'past', etc. 
+  # Not so clever - using Bootstrap alert-type labels to mean 'future', 'past', etc.
   def alert_status(alert)
     right_now = DateTime.now
     start_date = alert.start_date
@@ -8,23 +7,23 @@ module ItemAlertHelper
 
     # not in-effect - future
     if start_date && start_date > right_now
-      "info"
+      'info'
     else
       # currently in-effect
       if end_date.nil? || end_date > (right_now + 3.days)
-        "success"
+        'success'
       # currently in-effect, but due to expire soon
       elsif end_date > right_now
-        "warning"
+        'warning'
       else
         # not in effect - past
-        "error"
+        'error'
       end
     end
   end
 
   def render_alert_duration(alert)
-    right_now = DateTime.now()
+    right_now = DateTime.now
     raw_start_date = alert.start_date
     raw_end_date = alert.end_date
 
@@ -55,10 +54,8 @@ module ItemAlertHelper
           "Ended #{pretty_end_date}"
         end
       else
-        "Forever"
+        'Forever'
       end
     end
-
   end
-
 end

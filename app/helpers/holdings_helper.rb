@@ -1,6 +1,5 @@
 # encoding: utf-8
 module HoldingsHelper
-
 # unused function
 #   def build_holdings_hash(document)
 #     results = Hash.new { |h,k| h[k] = []}
@@ -16,14 +15,14 @@ module HoldingsHelper
 #   end
 
   SHORTER_LOCATIONS = {
-    "Temporarily unavailable. Try Borrow Direct or ILL" =>
-        "Temporarily Unavailable",
-    "Butler Stacks (Enter at the Butler Circulation Desk)" =>
-        "Butler Stacks",
-    "Offsite - Place Request for delivery within 2 business days" =>
-        "Offsite",
-    "Offsite (Non-Circ) Request for delivery in 2 business days" =>
-        "Offsite (Non-Circ)"
+    'Temporarily unavailable. Try Borrow Direct or ILL' =>
+        'Temporarily Unavailable',
+    'Butler Stacks (Enter at the Butler Circulation Desk)' =>
+        'Butler Stacks',
+    'Offsite - Place Request for delivery within 2 business days' =>
+        'Offsite',
+    'Offsite (Non-Circ) Request for delivery in 2 business days' =>
+        'Offsite (Non-Circ)'
   }
 
   def shorten_location(location)
@@ -32,7 +31,7 @@ module HoldingsHelper
 
   def process_holdings_location(loc_display)
     location, call_number = loc_display.split(' >> ')
-    output = "".html_safe
+    output = ''.html_safe
     output << shorten_location(location)  # append will html-escape content
     if call_number
       # NEXT-437 - remove the separator between location and call number
@@ -61,13 +60,13 @@ module HoldingsHelper
     Array.wrap(location_call_number_id).each do |portmanteau|
       location = portmanteau.partition(' >>').first
       # This list of "Locations" are not available for live holdings lookups
-      return false if [ 'Law' ].include? location
+      return false if ['Law'].include? location
       # If we find any location that's not Online, Yes, it's a physical holding
       return true if location and location != 'Online'
     end
 
     # If we dropped down without finding a physical holding, No, we have none
-    return false
+    false
   end
 
   # Detect Law records, cataloged in Pegasus (http://pegasus.law.columbia.edu/)
@@ -87,20 +86,19 @@ module HoldingsHelper
       return false if location and location != 'Law'
     end
 
-    return true
+    true
   end
 
   def online_link_hash(document)
-
     links = []
     # If we were passed, e.g., a Summon document object
     return links unless document.kind_of?(SolrDocument)
 
-    document["url_munged_display"].listify.each do |url_munge|
+    document['url_munged_display'].listify.each do |url_munge|
 
       # See parsable_856s.bsh for the serialization code, which we here undo
       delim = '|||'
-      url_parts = url_munge.split(delim).collect(&:strip)
+      url_parts = url_munge.split(delim).map(&:strip)
       ind2 = url_parts[0]
       subfield3 = url_parts[1]
       subfieldU = url_parts[2]
@@ -115,15 +113,15 @@ module HoldingsHelper
       title = subfieldU unless title.length > 0
       note  = case ind2
         when '1'
-          " (version of resource)"
+          ' (version of resource)'
         when '2'
-          " (related resource)"
-        else "" # omit note for ind2 == 0, the actual resource
+          ' (related resource)'
+        else '' # omit note for ind2 == 0, the actual resource
       end
       url   = subfieldU
 
       # links << [title, note, url]   # as ARRAY
-      links << { :title => title, :note => note, :url => url }  # as HASH
+      links << { title: title, note: note, url: url }  # as HASH
 
       # url_parts = url_munge.split('~|Z|~').collect(&:strip)
       # title = url =  ""
@@ -142,17 +140,15 @@ module HoldingsHelper
 
     # remove google links if more than one exists
 
-    if links.select { |link| link[:title].to_s.strip == "Google" }.length > 1
-      links.reject! { |link| link[:title].to_s.strip == "Google" }
+    if links.select { |link| link[:title].to_s.strip == 'Google' }.length > 1
+      links.reject! { |link| link[:title].to_s.strip == 'Google' }
     end
-
 
     links
 #    links.sort { |x,y| x.first <=> y.first }
   end
 
-
-  SERVICE_ORDER = %w{offsite spec_coll precat recall_hold on_order borrow_direct ill in_process doc_delivery}
+  SERVICE_ORDER = %w(offsite spec_coll precat recall_hold on_order borrow_direct ill in_process doc_delivery)
   # # parameters: title, link, whether to append clio_id to link
   # SERVICES = {
   #   'offsite' => ["Offsite", "http://www.columbia.edu/cgi-bin/cul/offsite2?", true],
@@ -176,57 +172,54 @@ module HoldingsHelper
 
   # parameters: title, link (url or javascript)
   SERVICES = {
-    'offsite' => ["Offsite",
-        "http://www.columbia.edu/cgi-bin/cul/offsite2?"],
-    'spec_coll' => ["Special Collections",
-        "http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey="],
-    'precat' => ["Precataloging",
-        "OpenPrecatRequest"],
-    'recall_hold' => ["Recall / Hold",
-        "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId="],
-    'on_order' => ["On Order",
-        "OpenInprocessRequest"],
+    'offsite' => ['Offsite',
+                  'http://www.columbia.edu/cgi-bin/cul/offsite2?'],
+    'spec_coll' => ['Special Collections',
+                    'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
+    'precat' => %w(Precataloging OpenPrecatRequest),
+    'recall_hold' => ['Recall / Hold',
+                      'http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId='],
+    'on_order' => ['On Order',
+                   'OpenInprocessRequest'],
     'borrow_direct' => ['Borrow Direct',
-        "http://www.columbia.edu/cgi-bin/cul/borrowdirect?"],
+                        'http://www.columbia.edu/cgi-bin/cul/borrowdirect?'],
     'ill' => ['ILL',
-        "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?"],
+              'https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?'],
     'in_process' => ['In Process',
-        "OpenInprocessRequest"],
+                     'OpenInprocessRequest'],
     'doc_delivery' => ['Scan & Deliver',
-        "https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?"]
+                       'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?']
   }
 
   def service_links(services, clio_id)
     return [] unless services && clio_id
 
-    services.select {|svc| SERVICE_ORDER.index(svc)}.sort_by { |svc| SERVICE_ORDER.index(svc) }.collect do |svc|
+    services.select { |svc| SERVICE_ORDER.index(svc) }.sort_by { |svc| SERVICE_ORDER.index(svc) }.map do |svc|
       title, link = SERVICES[svc]
       bibid = clio_id.to_s
       if link.match(/^http/)
         link += bibid
-        link_to title, link, :target => "_blank"
+        link_to title, link, target: '_blank'
       else
         jscript = "#{link}(#{bibid}); return false;"
-        link_to title, "#", :onclick => jscript
+        link_to title, '#', onclick: jscript
       end
     end
   end
 
-
   def process_online_title(title)
-    title.to_s.gsub(/^Full text available from /, '').gsub(/(\d{1,2})\/\d{1,2}(\/\d{4})/,'\1\2')
+    title.to_s.gsub(/^Full text available from /, '').gsub(/(\d{1,2})\/\d{1,2}(\/\d{4})/, '\1\2')
   end
 
   # Create a holdings "Entry", mirroring the JSON returned from a backend holdings lookup,
   # but with passed-in data
   def create_dummy_entry(options = {})
-
     entry = {
-      "location_name" => options[:location_name] ||= "Location",
-      "copies"        => []
+      'location_name' => options[:location_name] ||= 'Location',
+      'copies'        => []
     }
 
-    entry["call_number"] = options[:call_number] if options[:call_number]
+    entry['call_number'] = options[:call_number] if options[:call_number]
 
     entry
   end
@@ -238,9 +231,9 @@ module HoldingsHelper
       location = Location.match_location_text(entry['location_name'])
       entry['location'] = location
 
-      if location && location.category == "physical"
+      if location && location.category == 'physical'
         check_at = DateTime.now
-        entry['location_link'] = link_to(entry['location_name'], location_display_path(CGI.escape(entry['location_name'])), :class => :location_display)
+        entry['location_link'] = link_to(entry['location_name'], location_display_path(CGI.escape(entry['location_name'])), class: :location_display)
       else
         entry['location_link'] = entry['location_name']
       end
@@ -251,8 +244,8 @@ module HoldingsHelper
 
       # add status icons
       entry['copies'].each do |copy|
-        copy['items'].each_pair do |message,details|
-          details['image_link'] = image_tag("icons/" + details['status'] + ".png")
+        copy['items'].each_pair do |message, details|
+          details['image_link'] = image_tag('icons/' + details['status'] + '.png')
         end
       end
 
@@ -261,17 +254,15 @@ module HoldingsHelper
     sort_item_statuses(entries)
 
     entries
-
   end
 
-  ITEM_STATUS_RANKING = ['available', 'some_available', 'not_available', 'none', 'online']
+  ITEM_STATUS_RANKING = %w(available some_available not_available none online)
 
   def sort_item_statuses(entries)
-
     entries.each do |entry|
       entry['copies'].each do |copy|
         items = copy['items']
-        copy['items'] = items.sort_by { |k,v| ITEM_STATUS_RANKING.index(v['status']) }
+        copy['items'] = items.sort_by { |k, v| ITEM_STATUS_RANKING.index(v['status']) }
       end
     end
 
@@ -280,38 +271,34 @@ module HoldingsHelper
     #     to:
     #       [[message, {:status => , :count => , etc.}], ...]
     # in order to preserve the sort order.
-
   end
 
   def extract_standard_bibkeys(document)
-
     bibkeys = []
 
-    unless document["isbn_display"].nil?
-      bibkeys << Array.wrap(document["isbn_display"]).collect { |isbn| "isbn:" + isbn}.uniq
+    unless document['isbn_display'].nil?
+      bibkeys << Array.wrap(document['isbn_display']).map { |isbn| 'isbn:' + isbn }.uniq
     end
 
-    unless document["issn_display"].nil?
-      bibkeys << Array.wrap(document["issn_display"]).collect { |issn| "issn:" + issn}.uniq
+    unless document['issn_display'].nil?
+      bibkeys << Array.wrap(document['issn_display']).map { |issn| 'issn:' + issn }.uniq
     end
 
-    unless document["oclc_display"].nil?
-      bibkeys << document["oclc_display"].collect { |oclc| "oclc:" + oclc.gsub(/^oc[mn]/,"") }.uniq
+    unless document['oclc_display'].nil?
+      bibkeys << document['oclc_display'].map { |oclc| 'oclc:' + oclc.gsub(/^oc[mn]/, '') }.uniq
     end
 
-    unless document["lccn_display"].nil?
-      bibkeys << document["lccn_display"].collect { |lccn| "lccn:" + lccn.gsub(/\s/,"").gsub(/\/.+$/,"") }
+    unless document['lccn_display'].nil?
+      bibkeys << document['lccn_display'].map { |lccn| 'lccn:' + lccn.gsub(/\s/, '').gsub(/\/.+$/, '') }
     end
 
     bibkeys.flatten.compact
-
   end
 
   # When bib records have a URL in their 856, they will have a holdings
   # record with location Online but with NO URL DETAILS.
   # These need to be detected, so that we can skip these holdings entries.
   def holdings_online_without_url?(json_entry)
-
     # Not an online holding if this are missing
     return false if json_entry['location_name'] != 'Online'
 
@@ -328,9 +315,6 @@ module HoldingsHelper
 
     # Only if we dropped down to here are we on an entry
     # which is marked Online but is missing URL details.
-    return true
-
+    true
   end
-
 end
-

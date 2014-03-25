@@ -7,7 +7,6 @@ describe 'Spectrum::SearchEngines::Solr' do
   solr_url = SOLR_CONFIG['test']['url']
   # solr_url = SOLR_CONFIG['spectrum_subset']['url']
 
-
   # INTERFACE TESTING
 
   describe 'Setting the result-count parameter' do
@@ -22,7 +21,6 @@ describe 'Spectrum::SearchEngines::Solr' do
     end
   end
 
-
   # QUERY TESTING
 
   describe 'for searches with diacritics' do
@@ -32,7 +30,6 @@ describe 'Spectrum::SearchEngines::Solr' do
       eng.results.first.get('author_display').should include("Edebiyat\u0131nda")
     end
   end
-
 
   # NEXT-178 - child does not stem to children
   # 10/2013 - with Stemming now being disabled, turn this into a validation test of
@@ -71,7 +68,6 @@ describe 'Spectrum::SearchEngines::Solr' do
     end
   end
 
-
   # NEXT-415
   describe 'searches for "New Yorker" in Journals' do
     it 'should find "The New Yorker" as the first result' do
@@ -80,7 +76,6 @@ describe 'Spectrum::SearchEngines::Solr' do
       eng.results.first.get('title_display').should match(/The.New.Yorker/)
     end
   end
-
 
   # NEXT-429
   describe 'catalog all-field searches with embedded space-colon-space' do
@@ -100,12 +95,11 @@ describe 'Spectrum::SearchEngines::Solr' do
 
     it 'should return full-phrase title/author matches before split-field matches' do
 
-
       eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'Judith Butler', :search_field => 'all_fields', :rows => @result_count, 'solr_url' => solr_url)
       eng.results.should_not be_empty
       # eng.results.size.should equal(@result_count)
       eng.results.each do |result|
-        result.should contain_in_fields(["Butler, Judith", "Judith Butler"], 'title_display', 'subtitle_display', 'author_display')
+        result.should contain_in_fields(['Butler, Judith', 'Judith Butler'], 'title_display', 'subtitle_display', 'author_display')
       end
     end
   end
@@ -121,21 +115,16 @@ describe 'Spectrum::SearchEngines::Solr' do
         # puts "--"
         # puts result.get('title_display') || 'emtpy-title'
         # puts result.get('subtitle_display') || 'emtpy-subtitle'
-        if (result.get('title_display') && result.get('title_display').match(/naturA/i))
+        if result.get('title_display') && result.get('title_display').match(/naturA/i)
           found_naturA = true
         end
 
         # after finding our first "natura*", there should be no more "nature" matches
-        if (found_naturA)
+        if found_naturA
           result.get('title_display').should_not match(/naturE/i)
         end
       end
     end
   end
 
-
-
-
 end
-
-

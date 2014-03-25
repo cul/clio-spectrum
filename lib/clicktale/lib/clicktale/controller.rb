@@ -1,6 +1,5 @@
 module Clicktale
   module Controller
-
     def self.included(base)
       base.class_eval do
         @@clicktale_options = {}
@@ -29,7 +28,7 @@ module Clicktale
       if clicktale_enabled? && response.body.present?
         body = response.body
 
-        # near the top, 
+        # near the top,
         top_regexp = clicktale_config[:insert_after] || /(\<body[^\>]*\>)/
         body.sub!(top_regexp) { |match| match + "\n" + clicktale_config[:top] }
 
@@ -77,8 +76,8 @@ module Clicktale
       end
     end
 
-    def clicktale_cache_token(extra = "")
-      @clicktale_cache_token ||= Digest::SHA1.hexdigest(Time.now.to_s.split(//).sort_by {rand}.join + extra)
+    def clicktale_cache_token(extra = '')
+      @clicktale_cache_token ||= Digest::SHA1.hexdigest(Time.now.to_s.split(//).sort_by { rand }.join + extra)
     end
 
     def clicktale_path

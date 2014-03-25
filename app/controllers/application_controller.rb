@@ -30,12 +30,12 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     # note - access denied gives a 302 redirect, not 403 forbidden.
     # see https://github.com/ryanb/cancan/wiki/exception-handling
-    redirect_to root_url, :alert => exception.message
+    redirect_to root_url, alert: exception.message
   end
 
   rescue_from ActionView::MissingTemplate do |exception|
-    if request.format == "html"
-      redirect_to root_url, :alert => exception.message
+    if request.format == 'html'
+      redirect_to root_url, alert: exception.message
       return
     end
 
@@ -48,8 +48,8 @@ class ApplicationController < ActionController::Base
     if params[:random_q]
       start = Time.now
       chosen_line = nil
-      line_to_pick = rand(11917)
-      input_file = File.join(Rails.root.to_s, "config", "opac_searches_sorted.txt")
+      line_to_pick = rand(11_917)
+      input_file = File.join(Rails.root.to_s, 'config', 'opac_searches_sorted.txt')
       File.foreach(input_file).each_with_index do |line, number|
         chosen_line = line if number == line_to_pick
       end
@@ -57,7 +57,6 @@ class ApplicationController < ActionController::Base
       params['s.q'] = chosen_line
     end
   end
-
 
   def condense_advanced_search_params
     new_hash = {}
@@ -70,7 +69,6 @@ class ApplicationController < ActionController::Base
       end
     end
     params['adv'] = new_hash
-
   end
 
   def set_user_characteristics
@@ -81,19 +79,18 @@ class ApplicationController < ActionController::Base
     is_on_campus = User.on_campus?(client_ip)
     @user_characteristics =
     {
-      :ip => client_ip,
+      ip: client_ip,
       # This is only a placeholder for eventual 'authorized' rules.
       # Nothing yet pays attention to this.
-      :on_campus => is_on_campus,
-      :authorized => !current_user.nil? || is_on_campus
+      on_campus: is_on_campus,
+      authorized: !current_user.nil? || is_on_campus
     }
     @debug_entries[:user_characteristics] = @user_characteristics
   end
 
-
   def set_browser_option_handler
-    unless params.has_key?('name') && params.has_key?('value')
-      render :json => nil, :status => :bad_request and return
+    unless params.key?('name') && params.key?('value')
+      render json: nil, status: :bad_request and return
     end
 
     set_browser_option(params['name'], params['value'])
@@ -101,29 +98,28 @@ class ApplicationController < ActionController::Base
   end
 
   def set_browser_option(name, value)
-    _clio_browser_options = YAML.load(cookies[:_clio_browser_options] || "{}")
+    _clio_browser_options = YAML.load(cookies[:_clio_browser_options] || '{}')
     _clio_browser_options[name] = value
-    cookies[:_clio_browser_options] = { :value => _clio_browser_options.to_yaml,
-                                        :expires => 1.year.from_now }
+    cookies[:_clio_browser_options] = { value: _clio_browser_options.to_yaml,
+                                        expires: 1.year.from_now }
   end
 
   def get_browser_option_handler
-    if params.has_key?('value') || ! params.has_key?('name')
-      render :json => nil, :status => :bad_request and return
+    if params.key?('value') || !params.key?('name')
+      render json: nil, status: :bad_request and return
     end
 
-    if value = get_browser_option( params['name'] )
-      render :json => value, :status => :ok
+    if value = get_browser_option(params['name'])
+      render json: value, status: :ok
     else
-      render :json => nil, :status => :not_found
+      render json: nil, status: :not_found
     end
   end
 
   def get_browser_option(name)
-    _clio_browser_options = YAML.load(cookies[:_clio_browser_options] || "{}")
-    return _clio_browser_options.is_a?(Hash) ? _clio_browser_options[name] : nil
+    _clio_browser_options = YAML.load(cookies[:_clio_browser_options] || '{}')
+    _clio_browser_options.is_a?(Hash) ? _clio_browser_options[name] : nil
   end
-
 
   # Called from SpectrumController.get_results()
   # and from CatalogController.index()
@@ -135,9 +131,9 @@ class ApplicationController < ActionController::Base
 
     # this new() actually runs the search.
     # [ the Solr engine call perform_search() within it's initialize() ]
-    debug_timestamp("calling Solr.new()")
+    debug_timestamp('calling Solr.new()')
     search_engine = Spectrum::SearchEngines::Solr.new(options)
-    debug_timestamp("done.")
+    debug_timestamp('done.')
 
     if search_engine.successful?
       @response = search_engine.search
@@ -148,7 +144,7 @@ class ApplicationController < ActionController::Base
 
         # Currently, item-alerts only show within the Databases data source.
         # Why?
-        if @active_source.present? and @active_source == "databases"
+        if @active_source.present? && @active_source == 'databases'
           add_alerts_to_documents(@results)
         end
       end
@@ -157,21 +153,20 @@ class ApplicationController < ActionController::Base
     @debug_entries ||= {}
 
     # our search engine classes don't inherit from ApplicationController.
-    # they may set their own @debug_entries instance variables, which we 
+    # they may set their own @debug_entries instance variables, which we
     # here need to merge in with the controller-level instance variable.
     @debug_entries = @debug_entries.recursive_merge(search_engine.debug_entries)
 
-    return search_engine
-
+    search_engine
   end
 
   # def look_up_clio_holdings(documents)
   #   clio_docs = documents.select { |cd| cd.get('clio_id_display')}
   #   return if clio_docs.empty?
-  # 
+  #
   #   # If we're async, don't do holdings-lookup here.
   #   return unless session[:async_off]
-  # 
+  #
   #   # begin
   #   #   holdings = Voyager::Request.simple_holdings_check(
   #   #     connection_details: APP_CONFIG['voyager_connection']['oracle'],
@@ -182,7 +177,7 @@ class ApplicationController < ActionController::Base
   #   # rescue => ex
   #   #   logger.error "ApplicationController#look_up_clio_holdings exception: #{ex}"
   #   # end
-  # 
+  #
   # end
 
   def trigger_async_mode
@@ -192,7 +187,6 @@ class ApplicationController < ActionController::Base
       session[:async_off] = nil
     end
   end
-
 
   def trigger_debug_mode
     RSolr::Client.send(:include, RSolr::Ext::Notifications)
@@ -229,14 +223,13 @@ class ApplicationController < ActionController::Base
     # @debug_entries['environment'] = ENV
     @debug_entries['request.referer'] = request.referer
     @debug_entries['timestamps'] = []
-    debug_timestamp("setup")
+    debug_timestamp('setup')
   end
 
-  def debug_timestamp(label = "timestamp")
+  def debug_timestamp(label = 'timestamp')
     elapsed = (Time.now - @debug_start_time) * 1000
-    @debug_entries['timestamps'] << { label => "#{elapsed.round(0)} ms"}
+    @debug_entries['timestamps'] << { label => "#{elapsed.round(0)} ms" }
   end
-
 
   def determine_active_source
     active_source_from_params = params['active_source']
@@ -285,14 +278,13 @@ class ApplicationController < ActionController::Base
       @blacklight_configs ||= {}
       @blacklight_configs[source] || (@blacklight_configs[source] = Spectrum::SearchEngines::Solr.generate_config(source))
     end
-
   end
 
   def catch_404s
     unrouted_uri = request.fullpath
     alert = "remote ip: #{request.remote_ip}   Invalid URL: #{unrouted_uri}"
     logger.warn alert
-    redirect_to root_path, :alert => alert
+    redirect_to root_path, alert: alert
   end
 
   # 7/13 - we'll need to send email from multiple datasources,
@@ -313,7 +305,7 @@ class ApplicationController < ActionController::Base
     # We got a post - that is, a submitted form, with a "To" - send the email!
     if request.post?
       if mail_to
-        url_gen_params = {:host => request.host_with_port, :protocol => request.protocol}
+        url_gen_params = { host: request.host_with_port, protocol: request.protocol }
 
         # if params[:to].match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)
         if mail_to.match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/)
@@ -322,9 +314,9 @@ class ApplicationController < ActionController::Base
           #   get_solr_response_for_field_values( SolrDocument.unique_key, params[:id] )
           # Yes, but IDs may be Catalog Bib keys or Summon FETCH IDs...
           @documents = ids_to_documents(params[:id])
-          email = RecordMailer.email_record(@documents, {:to => mail_to, :message => params[:message]}, url_gen_params)
+          email = RecordMailer.email_record(@documents, { to: mail_to, message: params[:message] }, url_gen_params)
         else
-          flash[:error] = I18n.t('blacklight.email.errors.to.invalid', :to => mail_to)
+          flash[:error] = I18n.t('blacklight.email.errors.to.invalid', to: mail_to)
         end
       else
         flash[:error] = I18n.t('blacklight.email.errors.to.blank')
@@ -332,7 +324,7 @@ class ApplicationController < ActionController::Base
 
       unless flash[:error]
         email.deliver
-        flash[:success] = "Email sent"
+        flash[:success] = 'Email sent'
         redirect_to catalog_path(params['id']) unless request.xhr?
       end
     end
@@ -340,7 +332,7 @@ class ApplicationController < ActionController::Base
     # This is supposed to catch the GET - return the HTML of the form
     unless !request.xhr? && flash[:success]
       respond_to do |format|
-        format.js { render :layout => false }
+        format.js { render layout: false }
         format.html
       end
     end
@@ -356,7 +348,7 @@ class ApplicationController < ActionController::Base
     catalog_item_ids = []
     articles_item_ids = []
     Array.wrap(id_array).each do |item_id|
-      if item_id.start_with?("FETCH")
+      if item_id.start_with?('FETCH')
         articles_item_ids.push item_id
       else
         catalog_item_ids.push item_id
@@ -367,7 +359,7 @@ class ApplicationController < ActionController::Base
     if catalog_item_ids.any?
       # Then, do two source-specific set-of-id lookups
       extra_solr_params = {
-        :rows => catalog_item_ids.size
+        rows: catalog_item_ids.size
       }
       response, catalog_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids, extra_solr_params)
     end
@@ -380,10 +372,10 @@ class ApplicationController < ActionController::Base
     # Then, merge back, in original order
     key_to_doc_hash = {}
     catalog_document_list.each do |doc|
-      key_to_doc_hash[ doc[:id] ] = doc
+      key_to_doc_hash[ doc[:id]] = doc
     end
     article_document_list.each do |doc|
-      key_to_doc_hash[ doc.id ] = doc
+      key_to_doc_hash[ doc.id] = doc
     end
 
     id_array.each do |id|
@@ -391,8 +383,6 @@ class ApplicationController < ActionController::Base
     end
     document_array
   end
-
-
 
   def get_summon_docs_for_id_values(id_array)
     return [] unless id_array.kind_of?(Array)
@@ -406,12 +396,10 @@ class ApplicationController < ActionController::Base
     }
 
     @config = APP_CONFIG['summon']
-    @config.merge!(:url => 'http://api.summon.serialssolutions.com/2.0.0')
+    @config.merge!(url: 'http://api.summon.serialssolutions.com/2.0.0')
     @config.symbolize_keys!
 
-
     @params['s.cmd'] ||= "setFetchIDs(#{id_array.join(',')})"
-
 
     @params['s.q'] ||= ''
     @params['s.fq'] ||= ''
@@ -436,11 +424,7 @@ class ApplicationController < ActionController::Base
     @search ? @search.documents : []
   end
 
-
-
-
   private
-
 
   def by_source_config
     @active_source = determine_active_source
@@ -474,11 +458,10 @@ class ApplicationController < ActionController::Base
     session[:previous_url] || root_path
   end
 
-
   protected
 
   def log_additional_data
-    request.env["exception_notifier.url"] = {
+    request.env['exception_notifier.url'] = {
       url: "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
     }
   end
@@ -489,35 +472,32 @@ class ApplicationController < ActionController::Base
 
     # initialize
     documents.each do |doc|
-      doc["_item_alerts"] = {}
+      doc['_item_alerts'] = {}
       ItemAlert::ALERT_TYPES.each do |alert_type, label|
-        doc["_item_alerts"][alert_type] = []
+        doc['_item_alerts'][alert_type] = []
       end
     end
 
     # fetch all alerts for current doc-set, in single query
-    alerts = ItemAlert.where(:source => 'catalog',
-                            :item_key=> documents.collect(&:id)).includes(:author)
+    alerts = ItemAlert.where(source: 'catalog',
+                             item_key: documents.map(&:id)).includes(:author)
 
     # loop over fetched alerts, adding them in to their documents
     alerts.each do |alert|
       this_alert_type = alert.alert_type
 
       # skip over no-longer-used alert types that may still be in the db table
-      next unless ItemAlert::ALERT_TYPES.has_key?(this_alert_type)
+      next unless ItemAlert::ALERT_TYPES.key?(this_alert_type)
 
-      document = documents.detect { |doc|
+      document = documents.find do |doc|
         doc.get('id').to_s == alert.item_key.to_s
-      }
+      end
 
-      document["_item_alerts"][this_alert_type] << alert
+      document['_item_alerts'][this_alert_type] << alert
 
-      document["_active_item_alert_count"] ||= 0
-      document["_active_item_alert_count"] += 1 if alert.active?
+      document['_active_item_alert_count'] ||= 0
+      document['_active_item_alert_count'] += 1 if alert.active?
 
     end
   end
-
-
 end
-
