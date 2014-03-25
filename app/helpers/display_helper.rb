@@ -269,9 +269,13 @@ module DisplayHelper
       # when :subject
       #   out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => search_value, :search_field => "subject", :commit => "search"))
 
-      when :title
-        q = '"' + search_value + '"'
-        out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "title", :commit => "search"))
+      # when :title
+      #   q = '"' + search_value + '"'
+      #   out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "title", :commit => "search"))
+
+      when :series_title
+        q = search_value
+        out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "series_title", :commit => "search"))
 
       else
         raise "invalid category specified for generate_value_links"

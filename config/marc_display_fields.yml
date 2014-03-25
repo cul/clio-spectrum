@@ -395,7 +395,7 @@ series:
         display: acdefghklnpqstuv3
     -   tag: 830
         display: adfghklmnoprstv3
-        search: a
+        search: adfghklmnoprst
     -   tag: 840
         display: ahv
 split_into:
