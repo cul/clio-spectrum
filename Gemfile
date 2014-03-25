@@ -242,7 +242,8 @@ group :test do
 
   # code coverage
   gem 'simplecov'
-  
-  gem 'ci_reporter'
+
+  # CI servers want XML output from rspecs
+  # gem 'ci_reporter'
   
 end
