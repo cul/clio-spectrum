@@ -9,7 +9,7 @@
   = add_row("Edition", display_marc_field(marc, 'edition'))
   = add_row("Published", display_marc_field(marc, 'publisher'))
   = add_row("Description", display_marc_field(marc, 'description'))
-  = add_row("Series", generate_value_links(display_marc_field(marc, 'series'), :title))
+  = add_row("Series", generate_value_links(display_marc_field(marc, 'series'), :series_title))
   = add_row("Performers", display_marc_field(marc, 'performers'))
   = add_row("Notes", display_marc_field(marc, 'notes_music_recording'))
   = add_row("Summary", display_marc_field(marc, 'summary'))
