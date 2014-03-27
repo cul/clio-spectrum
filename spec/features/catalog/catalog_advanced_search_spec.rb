@@ -58,7 +58,7 @@ describe 'Catalog Advanced Search' do
         has_select?(select_id, selected: 'All Fields').should == true
 
         # "All Fields" should be the first option in the drop-down select menu
-        within('select#adv_1_field') do
+        within("select##{select_id}") do
           first('option').text.should == 'All Fields'
         end
 
