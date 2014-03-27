@@ -214,3 +214,11 @@ function isEmpty(obj) {
     }
     return true;
 }
+
+
+
+$(document).ready(function() {
+  hathiBookSearch()
+});
+
+

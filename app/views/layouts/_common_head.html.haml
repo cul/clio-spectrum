@@ -7,17 +7,22 @@
 
 = stylesheet_link_tag "application", :media => 'all'
 
--# Pass Rails variables to Javascript via simple global assignment
-:javascript
-  clio_backend_url = "#{APP_CONFIG['clio_backend_url']}";
-  google_analytics_web_property_id = "#{GoogleAnalytics.web_property_id}";
 
--# https://github.com/kenn/jquery-rails-cdn
-= jquery_include_tag :google, :force => true
+-# Move to bottom (_end_body)
+-# 
+-# -# Pass Rails variables to Javascript via simple global assignment
+-# :javascript
+-#   clio_backend_url = "#{APP_CONFIG['clio_backend_url']}";
+-#   google_analytics_web_property_id = "#{GoogleAnalytics.web_property_id}";
+-# 
+-# -# https://github.com/kenn/jquery-rails-cdn
+-# = jquery_include_tag :google, :force => true
+-# 
+-# = javascript_include_tag "application"
+-# 
+-# = yield(:jstemplates)
 
-= javascript_include_tag "application"
 
-= yield(:jstemplates)
 
 -# - if GoogleAnalytics.web_property_id
 -#   :javascript
