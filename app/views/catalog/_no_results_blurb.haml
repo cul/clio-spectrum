@@ -1,5 +1,8 @@
 
-= render '/ask_a_librarian'
+-# NEXT-956 - Show "Ask a Librarian" chat box when a search has no hits
+-# But not during testing - the Javascript interferes with Capybara.
+- if Rails.env != 'test'
+  = render '/ask_a_librarian'
 
 %h4 No results found for your search
 
