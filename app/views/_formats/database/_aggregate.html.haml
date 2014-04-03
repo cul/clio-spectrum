@@ -1,0 +1,9 @@
+-# - classlist = alternating_line("catalog")
+-# - classlist = "#{classlist} database_record" if document['source_display'].include? 'database'
+-# .result{class: classlist, source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document)}
+
+.result.database_record{class: alternating_line("catalog"), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document)}
+
+  .result_title= link_to document.get('title_display'), {:controller => 'catalog', :action => 'show', :id => document.id, :counter => (counter + 1)}
+
+  = render :partial => "/_formats/database/catalog_list_details", :locals => {:document => document}

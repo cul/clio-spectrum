@@ -3,12 +3,14 @@
   :margin-top 5px
   :margin-bottom 5px
 
+
+// A lot of styling for:
+// NEXT-983 - database discovery improvement using color and different text
 .selected_item
   :background-color #EEE !important
 
 .result.document.database_record
   :margin-bottom 5px
-
 
 .database_record
   // Orange
@@ -17,6 +19,14 @@
   // Green
   :border-left 7px solid #458046
   :background-color #EDEDE5 // !important
+
+// Specific to "nested", within an Aggregate view,
+// needs some extra hints to display nicely
+.nested_result_set .database_record.result
+  :border-left 7px solid #458046
+  :background-color #EDEDE5 // !important
+  :padding-left 5px
+  :margin-top 5px
 
 .database_record .database_link
   // Orange
