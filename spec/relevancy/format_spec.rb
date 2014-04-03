@@ -6,7 +6,7 @@ require 'spec_helper'
 describe 'Format assignments for types of "Computer Files"' do
 
   it 'Double format:  Computer File and Online' do
-    bibList = [2_972_693, 3_105_451, 3_120_827]
+    bibList = [2972693, 3105451, 3120827]
     bibList.each do |bib|
       resp = solr_response('q' => "id:#{bib}", 'fl' => 'id,format', 'facet' => false)
       formatList = resp['response']['docs'][0]['format']
@@ -20,7 +20,7 @@ describe 'Format assignments for types of "Computer Files"' do
   end
 
   it 'Single format:  Other' do
-    bibList = [8_617_143]
+    bibList = [8617143]
     bibList.each do |bib|
       resp = solr_response('q' => "id:#{bib}", 'fl' => 'id,format', 'facet' => false)
       formatList = resp['response']['docs'][0]['format']
@@ -29,7 +29,7 @@ describe 'Format assignments for types of "Computer Files"' do
   end
 
   it 'Single format:  Computer File' do
-    bibList = [2_996_414, 3_041_516, 3_238_417, 3_359_137]
+    bibList = [2996414, 3041516, 3238417, 3359137]
     bibList.each do |bib|
       resp = solr_response('q' => "id:#{bib}", 'fl' => 'id,format', 'facet' => false)
       formatList = resp['response']['docs'][0]['format']
@@ -38,7 +38,7 @@ describe 'Format assignments for types of "Computer Files"' do
   end
 
   it 'Single format:  Computer Program' do
-    bibList = [519_699, 519_712, 620_786, 705_052, 742_254, 959_054, 1_242_420]
+    bibList = [519699, 519712, 620786, 705052, 742254, 959054, 1242420]
     bibList.each do |bib|
       resp = solr_response('q' => "id:#{bib}", 'fl' => 'id,format', 'facet' => false)
       formatList = resp['response']['docs'][0]['format']
@@ -52,7 +52,7 @@ end
 # Monographic Series should be treated as 'Journal/Periodical', and not Book.
 describe 'Format assignments for Monographic Series' do
   it 'Should have format Journal/Periodical' do
-    bibList = [130_062, 774_424, 2_237_522, 3_948_829]
+    bibList = [130062, 774424, 2237522, 3948829]
     bibList.each do |bib|
       resp = solr_response('q' => "id:#{bib}", 'fl' => 'id,format', 'facet' => false)
       formatList = resp['response']['docs'][0]['format']

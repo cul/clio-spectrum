@@ -1,4 +1,4 @@
-/ container for a single doc
+-# container for a single doc - within AGGREGATE views, e.g., QuickSearch
 .result{source: 'academic_commons', item_id: document.get(:id)}
   - fedora_id = document['id'].listify.first
   .result_title= link_to document.get('title_display'), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
@@ -6,10 +6,12 @@
 
   / main container for doc partial view
 
+  -# Suppress some data fields in QuickSearch view, 
+  -# to increase record-density
   = add_row('Author', document['author_display'])
   = add_row('Date', document['pub_date_facet'])
-  = add_row('Identifier', document['handle'])
+  -# = add_row('Identifier', document['handle'])
   = add_row('Subject', document['subject_facet'], :join => ', ')
-  = add_row('Type', document['genre_facet'])
-  = add_row('Publisher', document['publisher'])
+  -# = add_row('Type', document['genre_facet'])
+  -# = add_row('Publisher', document['publisher'])
   = add_row('Downloads', "<span class='fedora_#{fedora_id.gsub(':','')}'>Loading... " + image_tag("ajax-indicator.gif",:size => "12x12") + "</span>")

@@ -1,4 +1,4 @@
--# CALLED TO DISPLAY EACH BIB IN STANDARD SEARCH RESULTS
+-# CALLED TO DISPLAY AN INDIVIDUAL BIB IN STANDARD SEARCH RESULTS
 
 - if session[:search][:adv] && session[:search][:adv].values.index{ |x| x["field"] == "series_title"  }
   = add_row('Series Title', document.get("title_series_display"), :html_safe => false)

@@ -50,7 +50,11 @@ Clio::Application.configure do
   # http://asciicasts.com/episodes/151-rack-middleware
   # This gives us a total load time, as a comment before the opening <htm> tag.
   # Debugging in development only, and if it causes problems just comment out.
-  config.middleware.use 'ResponseTimer'
+  # It DOES cause problems.  As mentioned in the RailsCasts discussions on this
+  # episode, the headers indicate the byte-length of the payload, and if we 
+  # insert a dozen bytes in the front of the payload, then the final dozen
+  # bytes at the end will not make it through.  
+  # config.middleware.use 'ResponseTimer'
 
   # Experiments with in-depth profiling
   # https://github.com/justinweiss/request_profiler
