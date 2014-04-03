@@ -12,7 +12,9 @@
       .location= entry['location_link']
       .hours= entry['hours']
 
-    .call_number= entry['call_number']
+    .call_number
+      Call Number: 
+      = entry['call_number']
 
     -# Each 'copy' is a group of 1-or-more equivalent items (same call num, etc.)
     - entry['copies'].each do |copy|
