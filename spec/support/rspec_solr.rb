@@ -92,8 +92,9 @@ def title_search_args(query_str)
   { 'q' => "{!qf=$qf_title pf=$pf_title pf3=$pf3_title pf2=$pf2_title}#{query_str}", 'qt' => 'search' }
 end
 
+# fixed for CLIO
 def subject_search_args(query_str)
-  { 'q' => "{!qf=$qf_subject pf=$pf_subject pf3=$pf3_subject pf2=$pf2_subject}#{query_str}", 'qt' => 'search' }
+  { 'q' => "{!qf=$subject_qf pf=$subject_pf}#{query_str}"}
 end
 
 def series_search_args(query_str)
@@ -240,8 +241,8 @@ end
 
 # use these Solr HTTP params to reduce the size of the Solr responses
 # response documents will only have id fields, and there will be no facets in the response
-DOC_IDS_ONLY = { 'fl' => 'id', 'facet' => 'false', 'rows' => '25' }
-DOC_IDS_TITLES = { 'fl' => 'id,title_display', 'facet' => 'false', 'rows' => '25' }
+DOC_IDS_ONLY = { 'fl' => 'id', 'facet' => 'false', 'rows' => '50' }
+DOC_IDS_TITLES = { 'fl' => 'id,title_display', 'facet' => 'false', 'rows' => '50' }
 # DOC_IDS_FULL_TITLES = {'fl'=>'id,title_full_display', 'facet'=>'false'}
 
 # response documents will only have id fields, and there will be no facets in the response

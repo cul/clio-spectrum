@@ -6,7 +6,7 @@ require 'spec_helper'
 # NEXT-941 - Problems displaying parallel titles (e.g., Tibetan)
 describe 'Testing tibetan support' do
 
-  it "q of 'krun go'i bod ljons' should retrieve correct record" do
+  it "q of \"krun go'i bod ljons\" should retrieve correct record" do
     # unquoted
     resp = solr_resp_doc_ids_only('q' => 'krun go\'i bod ljons')
     resp.should include('2725279').in_first(1).results
