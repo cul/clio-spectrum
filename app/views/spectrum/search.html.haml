@@ -1,6 +1,6 @@
 
 - if @results.empty?
-  - cache("datasource_landing_page_#{@active_source}") do
+  - cache("datasource_landing_page_#{@active_source}_#{params_digest}") do
     = datasource_landing_page(@active_source)
 
 - else

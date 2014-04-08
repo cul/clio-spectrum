@@ -235,4 +235,12 @@ module DatasourcesHelper
     # link_to title, "#", options
     link_to title, source, options
   end
+
+  # Used for building cache keys, following suggestions from:
+  #    http://veerasundaravel.wordpress.com/2012/10/10
+  # Fix bug of crawlers submitting bad params to landing-pages, creating
+  # cached version of landing page with (invalid) embedded hidden query params.
+  def params_digest
+    return Digest::SHA1.hexdigest(params.sort.flatten.join("_"))
+  end
 end
