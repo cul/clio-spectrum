@@ -24,6 +24,21 @@ describe BackendController do
   end
 
 
+  # NEXT-988 - Label the Call Number field
+  it "should label Call Numbers", :focus => true do
+    # Simple case
+    get 'holdings', :id => '123456'
+    response.should be_success
+    response.body.should match /Call Number:\s+HD1945/m
+
+    # Complex case
+    get 'holdings', :id => '763577'
+    response.should be_success
+    response.body.should match /Call Number:\s+R341.273/m
+    response.body.should match /Call Number:\s+JX233/m
+    response.body.should match /Call Number:\s+MICFICHE/m
+  end
+
   it "holdings() should silently ignore a bad CLIO ID" do
 
     # non-numeric value

@@ -168,4 +168,20 @@ describe 'Linked field-values in single-item display should work', focus: false 
     page.should have_link(test_title, href: "/catalog/#{test_bib}")
   end
 
+  # NEXT-1011 - Inconsistent search results from series links.
+  it "should support linking to Series Title" do
+    visit catalog_path '9646827'
+    page.should have_text "Lo specchio acceso : narrativa italiana"
+    # field-label, white-space, field-value
+    page.should have_text "Series Collezione Confronti/consensi ; 15."
+
+    click_link "Collezione Confronti/consensi ; 15."
+    page.should have_text "You searched for: Series: Collezione Confronti/consensi"
+    page.should_not have_text('No results')
+    page.should_not have_text('1 of 5')
+    find('#documents').should have_text 'Lo specchio acceso : narrativa italiana'
+  end
+
 end
+
+

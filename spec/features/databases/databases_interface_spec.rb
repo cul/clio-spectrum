@@ -37,6 +37,7 @@ describe 'Databases', focus: false do
     find('#search_info').should have_text 'Start Over'
 
     page.should have_text 'Previous title: DigitalCommons'
+    # NEXT-983 - Improvements to database discovery interface (styles, language)
     # Databases have custom label, "Search Database", instead of just "Online"
     page.should have_text 'Search Database: http://www.columbia.edu/cgi-bin/cul/resolve?clio6662174'
 
