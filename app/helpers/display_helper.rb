@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 module DisplayHelper
-
   def get_column_classes(column)
     "result_column span#{column['width']}"
   end
@@ -16,14 +15,13 @@ module DisplayHelper
     return '' unless document.mime
 
     if (mime_icon = MIME_MAPPINGS[document.mime])
-      return image_tag("format_icons/#{mime_icon}", :size => "20x20")
+      return image_tag("format_icons/#{mime_icon}", size: '20x20')
     end
 
     extension = document.url.sub(/.*\./, '')
-    if ['mp3', 'mp4', 'xlsx'].include? extension
-      return image_tag("format_icons/#{extension}.png", :size => "20x20")
+    if %w(mp3 mp4 xlsx).include? extension
+      return image_tag("format_icons/#{extension}.png", size: '20x20')
     end
-
   end
 
   def dam_document_link(document)
@@ -36,135 +34,117 @@ module DisplayHelper
   def render_first_available_partial(partials, options)
     partials.each do |partial|
       begin
-        return render(:partial => partial, :locals => options)
+        return render(partial: partial, locals: options)
       rescue ActionView::MissingTemplate
         next
       end
     end
 
-    raise "No partials found from #{partials.inspect}"
-
+    fail "No partials found from #{partials.inspect}"
   end
 
   FORMAT_MAPPINGS = {
-    "Book" => "book",
-    "Online" =>"link",
-    "Computer File" => "computer-file",
-    "Sound Recording" => "non-musical-recording",
-    "Music - Score" => "musical-score",
-    "Music - Recording" => "musical-recording",
-    "Thesis" => "thesis",
-    "Microformat" => "microform",
-    "Journal/Periodical" => "journal",
-    "Conference Proceedings" => "conference",
-    "Video" => "video",
-    "Map/Globe" => "map-or-globe",
-    "Manuscript/Archive" => "manuscript",
-    "Newspaper" => "newspaper",
-    "Database" => "database",
-    "Image" => "image"
+    'Book' => 'book',
+    'Online' => 'link',
+    'Computer File' => 'computer-file',
+    'Sound Recording' => 'non-musical-recording',
+    'Music - Score' => 'musical-score',
+    'Music - Recording' => 'musical-recording',
+    'Thesis' => 'thesis',
+    'Microformat' => 'microform',
+    'Journal/Periodical' => 'journal',
+    'Conference Proceedings' => 'conference',
+    'Video' => 'video',
+    'Map/Globe' => 'map-or-globe',
+    'Manuscript/Archive' => 'manuscript',
+    'Newspaper' => 'newspaper',
+    'Database' => 'database',
+    'Image' => 'image'
   }
 
-
   def formats_with_icons(document)
-    document['format'].listify.collect do |format|
+    document['format'].listify.map do |format|
       if (icon = FORMAT_MAPPINGS[format]) && @add_row_style != :text
-        image_tag("icons/#{icon}.png", :size => "16x16") + " #{format}"
+        image_tag("icons/#{icon}.png", size: '16x16') + " #{format}"
       else
         format.to_s
       end
-    end.join(", ").html_safe
+    end.join(', ').html_safe
   end
 
   def render_documents(documents, options)
     current_viewstyle = get_browser_option('viewstyle') ||
                         DATASOURCES_CONFIG['datasources'][@active_source]['default_viewstyle'] ||
-                        "list"
+                        'list'
 
     # Assume view-style is the configured default, or "list" if no default configured...
     viewstyle = DATASOURCES_CONFIG['datasources'][@active_source]['default_viewstyle'] ||
-                "list"
+                'list'
 
-    # ... but if an alternative view-style option is set, 
+    # ... but if an alternative view-style option is set,
     # and if this data-source has a configuration which includes that view-style,
     # then use it instead.
     datasource_viewstyles = DATASOURCES_CONFIG['datasources'][@active_source]['viewstyles']
     if (saved_viewstyle_option = get_browser_option('viewstyle')) &&
        (datasource_viewstyles = DATASOURCES_CONFIG['datasources'][@active_source]['viewstyles']) &&
-       datasource_viewstyles.has_key?(saved_viewstyle_option)
+       datasource_viewstyles.key?(saved_viewstyle_option)
       viewstyle = saved_viewstyle_option
     end
 
     partial = "/_display/#{options[:action]}/#{viewstyle}"
-    render partial, { :documents => documents.listify}
+    render partial,  documents: documents.listify
   end
 
   def render_document_view(document, options = {})
     options.symbolize_keys!
-    template = options.delete(:template) || raise("Must specify template")
+    template = options.delete(:template) || fail('Must specify template')
     formats = determine_formats(document, options.delete(:format))
-
+# raise
     # Render based on @active_source -- unless an alternative is passed in
     options[:source] ||= @active_source
 
-    partial_list = formats.collect { |format| "/_formats/#{format}/#{template}"}
+    partial_list = formats.map { |format| "/_formats/#{format}/#{template}" }
     @add_row_style = options[:style]
-    view = render_first_available_partial(partial_list, options.merge(:document => document))
+    view = render_first_available_partial(partial_list, options.merge(document: document))
     @add_row_style = nil
 
-    return view
+    view
   end
 
   SOLR_FORMAT_LIST = {
-    "Music - Recording" => "music_recording",
-    "Music - Score" => "music",
-    "Journal/Periodical" => "serial",
-    "Manuscript/Archive" => "manuscript_archive",
-    "Newspaper" => "newspaper",
-    "Video" => "video",
-    "Map/Globe" => "map_globe",
-    "Book" => "book"
+    'Music - Recording' => 'music_recording',
+    'Music - Score' => 'music',
+    'Journal/Periodical' => 'serial',
+    'Manuscript/Archive' => 'manuscript_archive',
+    'Newspaper' => 'newspaper',
+    'Video' => 'video',
+    'Map/Globe' => 'map_globe',
+    'Book' => 'book'
   }
 
   SUMMON_FORMAT_LIST = {
-    "Book" => "ebooks",
-    "Journal Article" => "article"
+    'Book' => 'ebooks',
+    'Journal Article' => 'article'
   }
 
-  FORMAT_RANKINGS = ["ac", "database", "map_globe", "manuscript_archive",
-    "video", "music_recording", "music", "newspaper", "serial", "book",
-    "clio", "ebooks", "article", "articles", "summon", "lweb" ]
+  FORMAT_RANKINGS = %w(ac database map_globe manuscript_archive video music_recording music newspaper serial book clio ebooks article articles summon lweb)
 
-  def format_online_results(urls)
-    non_circ_img = image_tag("icons/noncirc.png", :class => 'availability')
-    urls.collect { |link|
+  def format_online_results(link_hash)
+    non_circ_img = image_tag('icons/noncirc.png', class: 'availability')
+    link_hash.map do |link|
       non_circ_img +
       link_to(process_online_title(link[:title]).abbreviate(80), link[:url]) +
-      content_tag(:span, link[:note], :class => 'url_link_note')
-    }
+      content_tag(:span, link[:note], class: 'url_link_note')
+    end
   end
 
   def format_location_results(locations, document)
-    locations.collect do |location|
+    locations.map do |location|
 
       loc_display, hold_id = location.split('|DELIM|')
 
-      # This was left-over from back when clio holdings were 
-      # available at page-load.  Now, clio holdings are ajax,
-      # so just leave the icon as none (blank) at load.
-      # 
-      # clio_holding = "unknown"
-      # 
-      # if document.get('clio_holdings')
-      #   status = document['clio_holdings']['statuses'][hold_id.to_s]
-      #   clio_holding = status if status
-      # end
-
-      # image_tag("icons/#{clio_holding}.png",
-      #           :class => "availability holding_#{hold_id}") +
-
-      image_tag("icons/none.png",
-                :class => "availability holding_#{hold_id}") +
+      image_tag('icons/none.png',
+                class: "availability holding_#{hold_id}") +
         process_holdings_location(loc_display) +
         additional_location_note(document, location)
     end
@@ -174,7 +154,7 @@ module DisplayHelper
   def additional_location_note(document, location)
     # Law records need a link back to their native catalog
     if in_pegasus? document
-      return content_tag(:span, pegasus_item_link(document, "Search Results"), :class => 'url_link_note')
+      return content_tag(:span, pegasus_item_link(document, 'Search Results'), class: 'url_link_note')
     end
   end
 
@@ -182,9 +162,9 @@ module DisplayHelper
     url = 'http://pegasus.law.columbia.edu'
     if document && document.id
       # NEXT-996 - Rename "Pegasus" link
-      return link_to "Check Law catalog for status",
+      return link_to 'Check Law catalog for status',
                      "#{url}/record=#{document.id}",
-                     :'data-ga-category' => "Pegasus Link",
+                     :'data-ga-category' => 'Pegasus Link',
                      :'data-ga-action' => context,
                      :'data-ga-label' => document['title_display'] || document.id
     else
@@ -192,32 +172,38 @@ module DisplayHelper
     end
   end
 
-
   def determine_formats(document, defaults = [])
     formats = defaults.listify
-    formats << "ac" if @active_source == "academic_commons"
-    formats << "database" if @active_source == "databases"
+    # AC records, from the AC Solr, don't self-identify.
+    formats << 'ac' if @active_source == 'academic_commons'
+    # Database items - from the Voyager feed - will identify themselves,
+    # via their "source", which we should respect no matter the current
+    # GUI-selected datasource
+    # formats << "database" if @active_source == "databases"
     case document
     when SolrDocument
-      formats << "clio"
-
-      document["format"].listify.each do |format|
+      formats << 'clio'
+# raise
+      document['format'].listify.each do |format|
         formats << SOLR_FORMAT_LIST[format] if SOLR_FORMAT_LIST[format]
       end
+      # What's the "home" datasource for this record?
+      # Could be multiple (e.g., 'catalog' and 'database')
+      document['source_display'].listify.each do |source|
+        formats << source if FORMAT_RANKINGS.include? source
+      end
     when Summon::Document
-      formats << "summon"
+      formats << 'summon'
       document.content_types.each do |format|
         formats << SUMMON_FORMAT_LIST[format] if SUMMON_FORMAT_LIST[format]
       end
-    # when SerialSolutions::Link360
-    #   formats << "summon"
     end
-
-    formats.sort { |x,y| FORMAT_RANKINGS.index(x) <=> FORMAT_RANKINGS.index(y) }
+# raise
+    formats.sort { |x, y| FORMAT_RANKINGS.index(x) <=> FORMAT_RANKINGS.index(y) }
   end
 
   # for segregating search values from display values
-  DELIM = "|DELIM|"
+  DELIM = '|DELIM|'
 
   # generate_value_links() is used extensively throughout catalog show
   # helpers, to build CLIO search links out of MARC values, for use on
@@ -253,8 +239,8 @@ module DisplayHelper
       case category
 
       when :all
-          q = '"' + search_value + '"'
-          out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "all_fields", :commit => "search"))
+        q = '"' + search_value + '"'
+        out << link_to(display_value, url_for(controller: 'catalog', action: 'index', q: q, search_field: 'all_fields', commit: 'search'))
 
       when :author
         # t880_indicator is not nil when data is from an 880 field (vernacular)
@@ -265,23 +251,27 @@ module DisplayHelper
           out << display_value
 
         else
-          # remove punctuation to match entries in author_facet 
+          # remove punctuation to match entries in author_facet
           # using solrmarc removeTrailingPunc rule
           search_value = remove_punctuation(search_value)
 
-          out << link_to(display_value, url_for(:controller => "catalog", :action => "index", "f[author_facet][]" => search_value))
+          out << link_to(display_value, url_for(:controller => 'catalog', :action => 'index', 'f[author_facet][]' => search_value))
         end
 
       # Obsoleted, replaced by generate_value_links_subject(), defined below
       # when :subject
       #   out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => search_value, :search_field => "subject", :commit => "search"))
 
-      when :title
-        q = '"' + search_value + '"'
-        out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "title", :commit => "search"))
+      # when :title
+      #   q = '"' + search_value + '"'
+      #   out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "title", :commit => "search"))
+
+      when :series_title
+        q = search_value
+        out << link_to(display_value, url_for(controller: 'catalog', action: 'index', q: q, search_field: 'series_title', commit: 'search'))
 
       else
-        raise "invalid category specified for generate_value_links"
+        fail 'invalid category specified for generate_value_links'
       end
 
     end
@@ -290,7 +280,6 @@ module DisplayHelper
   end
 
   def remove_punctuation(value)
-
     # matches edit from SolrMARC removeTrailingPunc method: Utils.cleanData
     #
     # Removes trailing characters (space, comma, slash, semicolon, colon) and
@@ -303,7 +292,7 @@ module DisplayHelper
       prev = curr
       curr = curr.strip
 
-      curr = curr.gsub(/\s*[,\/;:]$/,'')
+      curr = curr.gsub(/\s*[,\/;:]$/, '')
 
       if curr =~ /\.$/
         if curr =~ /[JS]r\.$/
@@ -325,27 +314,9 @@ module DisplayHelper
     end
 
     curr
-
   end
 
-  # def generate_value_links_subject(values)
-  #
-  #   # search value the same as the display value
-  #   # quote first term of the search string and remove ' - '
-  #
-  #   values.listify.collect do |v|
-  #
-  #     sub = v.split(" - ")
-  #     out = '"' + sub.shift + '"'
-  #     out += ' ' + sub.join(" ") unless sub.empty?
-  #
-  #     link_to(v, url_for(:controller => "catalog", :action => "index", :q => out, :search_field => "subject", :commit => "search"))
-  #
-  #   end
-  # end
-
   def generate_value_links_subject(values)
-
     # search value the same as the display value
     # but chained to create a series of searches that is increasingly narrower
     # esample: a - b - c
@@ -354,11 +325,11 @@ module DisplayHelper
     #   b             "a b"
     #   c             "a b c"
 
-    values.listify.collect do |value|
+    values.listify.map do |value|
 #    values.listify.select { |x| x.respond_to?(:split)}.collect do |value|
 
       searches = []
-      subheads = value.split(" - ")
+      subheads = value.split(' - ')
       first = subheads.shift
       display = first
       search = first
@@ -385,58 +356,48 @@ module DisplayHelper
   end
 
   def build_subject_url(display, search, title)
-
     display = display.html_safe
 
-    search = CGI::unescapeHTML(search)
+    search = CGI.unescapeHTML(search)
 
     if @add_row_style == :text
       display
     else
-      link_to(display, url_for(:controller => "catalog",
-                              :action => "index",
-                              :q => '"' + search + '"',
-                              :search_field => "subject",
-                              :commit => "search"),
-                              :title => title)
+      link_to(display, url_for(controller: 'catalog',
+                               action: 'index',
+                               q: '"' + search + '"',
+                               search_field: 'subject',
+                               commit: 'search'),
+              title: title)
     end
   end
 
   def add_row(title, value, options = {})
     options.reverse_merge!(@add_row_options) if @add_row_options.kind_of?(Hash)
-    options.reverse_merge!( {
-      :display_blank => false,
-      # never used
-      # :display_only_first => false,
-      :join => nil,
-      :abbreviate => nil,
-      :html_safe => true,
-      :expand => false,
-      :style => @add_row_style || :definition,
-      :spans => [2,10]
-    })
-
+    options.reverse_merge!(
+      display_blank: false,
+      join: nil,
+      abbreviate: nil,
+      html_safe: true,
+      expand: false,
+      style: @add_row_style || :definition,
+      spans: [2, 10],
+      label_style: 'field'
+    )
 
     value_txt = convert_values_to_text(value, options)
     spans = options[:spans]
 
-
-    result = ""
+    result = ''
     if options[:display_blank] || !value_txt.empty?
       if options[:style] == :text
-        result = (title.to_s + ": " + value_txt.to_s + "\n").html_safe
-      # elsif options[:style] == :dlist
-      #   result = content_tag(:dt, title.to_s) + "\n" +
-      #            content_tag(:dd, value_txt.to_s)
+        result = (title.to_s + ': ' + value_txt.to_s + "\n").html_safe
       else
-        result = content_tag(:div, :class => "document-row") do
+        result = content_tag(:div, class: 'document-row') do
           if options[:style] == :definition
-            content_tag(:div, title.to_s.html_safe, :class => "field span#{spans.first}") + content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "value span#{spans.last}")
-
-        # We don't use style=blockquote anywhere in our app
-          # elsif options[:style] == :blockquote
-          #   content_tag(:div, content_tag(:div, value_txt, :class => "value_box"), :class => "blockquote")
-
+            # add space after row label, to help capybara string matchers
+            content_tag(:div, title.to_s.html_safe + ' ', class: "#{options[:label_style]} span#{spans.first}") +
+            content_tag(:div, value_txt, class: "value span#{spans.last}")
           end
         end
       end
@@ -447,73 +408,66 @@ module DisplayHelper
   end
 
   def convert_values_to_text(value, options = {})
-
     values = value.listify
 
-    values = values.collect { |txt| txt.to_s.abbreviate(options[:abbreviate]) } if options[:abbreviate]
+    values = values.map { |txt| txt.to_s.abbreviate(options[:abbreviate]) } if options[:abbreviate]
 
     if options[:html_safe]
-      values = values.collect(&:html_safe)
+      values = values.map(&:html_safe)
     else
-      values = values.collect { |v| h(v) }.collect(&:html_safe)
+      values = values.map { |v| h(v) }.map(&:html_safe)
     end
 
-    # "display_only_first" never used
-    # values = if options[:display_only_first]
-    #   values.first.to_s.listify
-    # elsif options[:join]
-    if options[:join]
-      values.join(options[:join]).to_s.listify.reject { |item| item.to_s.empty? }
-    else
-      values
+    # Join multiple data values into a single delimited display string
+    values = values.join(options[:join]).listify if options[:join]
+
+    # Don't do our fancy html/JS markup if we're in a text-only context
+    if options[:style] == :text
+      return values.join("\r\n  ")
     end
 
-    value_txt = if options[:style] == :text
-      values.join("\r\n  ")
-    else
-
-      # "Teaser" option - If the text is long enough, wrap the end of it
-      # within a span, with a hide/show toggle.
-      # based on:  http://stackoverflow.com/questions/14940166
-      # based on:  http://jsfiddle.net/VNdmZ/4/
-      values = values.collect { |value|
+    # "Teaser" option - If the text is long enough, wrap the end of it
+    # within a span, with a hide/show toggle.
+    # based on:  http://stackoverflow.com/questions/14940166
+    # based on:  http://jsfiddle.net/VNdmZ/4/
+    if options[:teaser]
+      values = values.map do |value|
         value.strip!
-        teaser_length = options[:teaser].respond_to?(:to_i) ? options[:teaser].to_i : 120
+        teaser_length = options[:teaser].respond_to?(:to_i) ? options[:teaser].to_i : 180
         breaking_space_index = value.index(' ', teaser_length)
 
         # if we found an appropriate space character at which to break content...
         if breaking_space_index
           before = value[0, breaking_space_index]
           after = value[breaking_space_index + 1 .. -1]
-          icon_i = content_tag(:i, nil, :class => 'icon-resize-full toggle-teaser')
-          value = "#{before} #{content_tag(:span, after, :class => 'teaser')} #{icon_i}".html_safe
+          icon_i = content_tag(:i, nil, class: 'icon-resize-full toggle-teaser')
+          value = "#{before} #{content_tag(:span, after, class: 'teaser')} #{icon_i}".html_safe
         else
           value
         end
-      } if options[:teaser]
-
-      pre_values = values.collect { |v| content_tag(:div, v, :class => 'entry') }
-
-      if options[:expand] && values.length > 3
-        pre_values = [
-          pre_values[0],
-          pre_values[1],
-          content_tag(:div, link_to("#{values.length - 2} more &#x25BC;".html_safe, "#"), :class => 'entry expander'),
-          content_tag(:div, pre_values[2..-1].join('').html_safe, :class => 'expander_more')
-        ]
       end
+    end
 
-      pre_text = pre_values.join('')
-      if options[:expand_to] && ! options[:expand_to].strip.empty?
-        pre_text += content_tag(:div, link_to(" more &#x25BC;".html_safe, "#"),
-                                :class => 'entry expander')
-        pre_text += content_tag(:div, options[:expand_to].html_safe,
-                                :class => 'expander_more')
-      end
+    if values.length > 1
+      values = values.map { |v| content_tag(:div, v, class: 'entry') }
+    end
 
+    if options[:expand] && values.length > 3
+      values = [
+        values[0],
+        values[1],
+        content_tag(:div, link_to("#{values.length - 2} more &#x25BC;".html_safe, '#'), class: 'entry expander'),
+        content_tag(:div, values[2..-1].join('').html_safe, class: 'expander_more')
+      ]
+    end
 
-      pre_text
+    value_txt = values.join("\n")
 
+    if options[:expand_to] && !options[:expand_to].strip.empty?
+      value_txt += content_tag(:div, link_to(' more &#x25BC;'.html_safe, '#'),
+                               class: 'entry expander')
+      value_txt += content_tag(:div, options[:expand_to].html_safe,
+                               class: 'expander_more')
     end
 
     value_txt = value_txt.html_safe
@@ -526,55 +480,55 @@ module DisplayHelper
   # for Zotero, among other things.
   def catalog_to_openurl_ctx_kev(document)
     return '' unless document
+    fail 'Document has no format!  ' + document.id unless document[:format]
     format = document[:format].first ||= 'book'
 
     fields = []
-    fields.push( 'ctx_ver=Z39.88-2004' )
+    fields.push('ctx_ver=Z39.88-2004')
 
-    document[ :author_display ] && document[ :author_display ].each do |author|
-      fields.push("rft.au=#{ CGI::escape(author) }")
+    document[ :author_display] && document[ :author_display].each do |author|
+      fields.push("rft.au=#{ CGI.escape(author) }")
     end
 
-    document[ :title_display ] && Array.wrap(document[ :title_display ]).each do |title|
-      fields.push("rft.title=#{ CGI::escape(title) }")
+    document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
+      fields.push("rft.title=#{ CGI.escape(title) }")
     end
 
-    document[ :full_publisher_display ] && document[ :full_publisher_display ].each do |publisher|
-      fields.push("rft.pub=#{ CGI::escape(publisher) }")
+    document[ :full_publisher_display] && document[ :full_publisher_display].each do |publisher|
+      fields.push("rft.pub=#{ CGI.escape(publisher) }")
     end
 
     # '_sort' fields are not multi-valued - can't do .each
-    document[ :pub_date_sort ] && Array.wrap(document[ :pub_date_sort ]).each do |pub_date_sort|
-      fields.push("rft.date=#{ CGI::escape(pub_date_sort.to_s) }")
+    document[ :pub_date_sort] && Array.wrap(document[ :pub_date_sort]).each do |pub_date_sort|
+      fields.push("rft.date=#{ CGI.escape(pub_date_sort.to_s) }")
     end
 
-    document[ :isbn_display ] && document[ :isbn_display ].each do |isbn|
-      fields.push("rft.isbn=#{ CGI::escape(isbn) }")
+    document[ :isbn_display] && document[ :isbn_display].each do |isbn|
+      fields.push("rft.isbn=#{ CGI.escape(isbn) }")
     end
 
     if format =~ /journal/i
       # JOURNAL-SPECIFIC FIELDS
-      fields.push( 'rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
+      fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
       # title is redundantly given as "atitle" for books
-      document[ :title_display ] && Array.wrap(document[ :title_display ]).each do |title|
-        fields.push("rft.atitle=#{ CGI::escape(title) }")
+      document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
+        fields.push("rft.atitle=#{ CGI.escape(title) }")
       end
     else
       # BOOK-SPECIFIC FIELDS
-      fields.push( 'rft_val_fmt=info:ofi/fmt:kev:mtx:book')
+      fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:book')
       # title is redundantly given as "btitle" for books
-      document[ :title_display ] && Array.wrap(document[ :title_display ]).each do |title|
-        fields.push("rft.btitle=#{ CGI::escape(title) }")
+      document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
+        fields.push("rft.btitle=#{ CGI.escape(title) }")
       end
     end
 
-    fields.push("rft.genre=#{ CGI::escape(format_to_rft_genre(format)) }")
+    fields.push("rft.genre=#{ CGI.escape(format_to_rft_genre(format)) }")
 
-
-    return fields.join('&')
+    fields.join('&')
   end
 
-  def format_to_rft_genre (format)
+  def format_to_rft_genre(format)
     case format
     when /journal/i
       'article'
@@ -601,34 +555,45 @@ module DisplayHelper
   def ac_to_openurl_ctx_kev(document)
     fields = []
 
-    fields.push( 'ctx_ver=Z39.88-2004' )
-    fields.push( 'rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
+    fields.push('ctx_ver=Z39.88-2004')
+    fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
 
     # Many fields used to be arrays on katana, but on macana appear to be strings?
     # Defend ourselves by using Array.wrap() on everything.
 
-    Array.wrap(document[ :id ]).each do |id|
-      document_url= 'http://academiccommons.columbia.edu/catalog/' + id
-      fields.push("rft_id=#{ CGI::escape(document_url) }")
+    Array.wrap(document[ :id]).each do |id|
+      document_url = 'http://academiccommons.columbia.edu/catalog/' + id
+      fields.push("rft_id=#{ CGI.escape(document_url) }")
     end
 
-    document[ :author_facet ] && Array.wrap(document[ :author_facet ]).each do |author|
-      fields.push("rft.au=#{ CGI::escape(author) }")
+    document[ :author_facet] && Array.wrap(document[ :author_facet]).each do |author|
+      fields.push("rft.au=#{ CGI.escape(author) }")
     end
 
-    document[ :title_display ] && Array.wrap(document[ :title_display ]).each do |title|
-      fields.push("rft.atitle=#{ CGI::escape(title) }")
+    document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
+      fields.push("rft.atitle=#{ CGI.escape(title) }")
     end
 
-    document[ :publisher ] && Array.wrap(document[ :publisher ]).each do |publisher|
-      fields.push("rft.pub=#{ CGI::escape(publisher) }")
+    document[ :publisher] && Array.wrap(document[ :publisher]).each do |publisher|
+      fields.push("rft.pub=#{ CGI.escape(publisher) }")
     end
 
-    document[ :pub_date_sort ] && Array.wrap(document[ :pub_date_sort ]).each do |pub_date_sort|
-      fields.push("rft.date=#{ CGI::escape(pub_date_sort) }")
+    document[ :pub_date_sort] && Array.wrap(document[ :pub_date_sort]).each do |pub_date_sort|
+      fields.push("rft.date=#{ CGI.escape(pub_date_sort) }")
     end
 
-    return fields.join('&')
+    fields.join('&')
   end
 
+  def link_to_previous_document_and_action(previous_document)
+    link_to_unless previous_document.nil?, raw(t('views.pagination.previous')), { id: previous_document, action: controller.action_name }, :class => 'previous', :rel => 'prev', :'data-counter' => session[:search][:counter].to_i - 1 do
+      content_tag :span, raw(t('views.pagination.previous')), class: 'previous'
+    end
+  end
+
+  def link_to_next_document_and_action(next_document)
+    link_to_unless next_document.nil?, raw(t('views.pagination.next')), { id: next_document, action: controller.action_name }, :class => 'next', :rel => 'next', :'data-counter' => session[:search][:counter].to_i + 1 do
+      content_tag :span, raw(t('views.pagination.next')), class: 'next'
+    end
+  end
 end

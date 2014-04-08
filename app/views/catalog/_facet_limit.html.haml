@@ -1,7 +1,8 @@
 %ul
-  - config = facet_configuration_for_field(solr_field)
-
-  - if (config && config.respond_to?(:open) && config.open == true) || expand_all_facets?
+  -# - config = facet_configuration_for_field(solr_field)
+  -# 
+  -# - if (config && config.respond_to?(:open) && config.open == true) || expand_all_facets?
+  - if render_facet_open?(facet_field)
     %span.selected
 
 

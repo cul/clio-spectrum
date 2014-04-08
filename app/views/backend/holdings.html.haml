@@ -12,7 +12,9 @@
       .location= entry['location_link']
       .hours= entry['hours']
 
-    .call_number= entry['call_number']
+    .call_number
+      Call Number: 
+      = entry['call_number']
 
     -# Each 'copy' is a group of 1-or-more equivalent items (same call num, etc.)
     - entry['copies'].each do |copy|
@@ -26,7 +28,6 @@
 	       'reproduction_note', 'current_issues', 'donor_info'].each do |type|
           - unless copy[type].nil?
             - message = copy[type]
-            - message = message.gsub(/; /, '<br/>').html_safe if message =~ /^Current Issues:/
             -# NEXT-1009 -Multiple 866 fields in the holding records
             -# CLIO Backend will join multiple fields with this delimeter
             - message = message.gsub(/ -- /, '<br/>').html_safe

@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe "The home page" do
+describe 'The home page' do
 
   # This behavior was eliminated when we switched to static
   # links between datasources.  "q" values are caried between
   # data-sources, but not text that's been entered in the gui
   # and not-yet used to search.
-  
+
   # it "will keep the text in a box across different sources on the landing pages", :js => true do
   #   visit catalog_index_path
   #   fill_in 'catalog_q', :with => 'test'
@@ -14,7 +14,7 @@ describe "The home page" do
   #   find('#articles_q',  visible: false).value.should == 'test'
   # end
 
-  it "will switch the visible search box when a datasource is clicked upon", :js => true do
+  it 'will switch the visible search box when a datasource is clicked upon', js: true do
     visit catalog_index_path
 
     find('#catalog_q').should be_visible
@@ -28,4 +28,3 @@ describe "The home page" do
     find('#articles_q').should be_visible
   end
 end
-

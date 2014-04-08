@@ -4,42 +4,41 @@ class LibraryHours < ActiveRecord::Base
   belongs_to :library
 
   def to_day_of_week
-    date.strftime("%a")
+    date.strftime('%a')
   end
 
   def to_opens_closes
-    result = ""
+    result = ''
     if opens && closes
 
-      if opens.strftime("%l:%M%p") == "12:00PM"
-        opens_display = "Noon"
-      elsif opens.strftime("%l:%M%p") == "12:00AM"
-        opens_display = "Midnight"
+      if opens.strftime('%l:%M%p') == '12:00PM'
+        opens_display = 'Noon'
+      elsif opens.strftime('%l:%M%p') == '12:00AM'
+        opens_display = 'Midnight'
       else
-        opens_display = (opens.min == 0 ? opens.strftime("%l") : opens.strftime("%l:%M")).strip
-        opens_display += opens.strftime("%p") == "PM" ? "pm" : "am"
+        opens_display = (opens.min == 0 ? opens.strftime('%l') : opens.strftime('%l:%M')).strip
+        opens_display += opens.strftime('%p') == 'PM' ? 'pm' : 'am'
       end
 
-      if closes.strftime("%l:%M%p") == "12:00PM"
-        closes_display = "Noon"
-      elsif closes.strftime("%l:%M%p") == "12:00AM"
-        closes_display = "Midnight"
+      if closes.strftime('%l:%M%p') == '12:00PM'
+        closes_display = 'Noon'
+      elsif closes.strftime('%l:%M%p') == '12:00AM'
+        closes_display = 'Midnight'
       else
-        closes_display = (closes.min == 0 ? closes.strftime("%l") : closes.strftime("%l:%M")).strip
-        closes_display += closes.strftime("%p") == "PM" ? "pm" : "am"
+        closes_display = (closes.min == 0 ? closes.strftime('%l') : closes.strftime('%l:%M')).strip
+        closes_display += closes.strftime('%p') == 'PM' ? 'pm' : 'am'
       end
 
-      if opens_display == "Midnight" && closes_display == "Midnight"
-        result = "24 Hours"
+      if opens_display == 'Midnight' && closes_display == 'Midnight'
+        result = '24 Hours'
       else
         result = "#{opens_display}-#{closes_display}"
       end
 
     else
-      result = "CLOSED"
+      result = 'CLOSED'
     end
 
-    return result
+    result
   end
-
 end

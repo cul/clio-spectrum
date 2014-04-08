@@ -9,6 +9,7 @@
 
 .advanced_search_toggle
   :font-weight normal
+  //:font-size 11px
 
 //// to support debugging
 //.search_boxes
@@ -37,10 +38,19 @@
   :background-color #fcfcff
   :padding 1em
 
+// unused?
+//.value
+//  h
+//    :font-style italic
+//    :background-color #fff68f
+
+//.value_box
 .value
-  h
-    :font-style italic
-    :background-color #fff68f
+  :word-wrap break-word
+
+.field
+  :word-wrap break-word
+
 
 .pageEntriesInfo.non_catalog
   :padding 1em 0 .5em
@@ -54,19 +64,14 @@
   :background-color #fcfcff
   :font-size 1.2em
 
-.value_box
-  :word-wrap break-word
-
-.field
-  :word-wrap break-word
 
 .result_column
   +clearfix
 
 .result_footer
   +clearfix
-  :padding-top 0.75em
-  :padding-bottom 1.50em
+  :padding-top 0.5em
+  :padding-bottom 0.5em
   :float right
 
 

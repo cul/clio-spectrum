@@ -2,7 +2,6 @@
 
 # Despite living under /app/models, this is not a Model, it's a Mailer.
 class RecordMailer < ActionMailer::Base
-
   default from: 'CLIO <no-reply@libraries.cul.columbia.edu>'
 
   add_template_helper(ApplicationHelper)
@@ -26,9 +25,8 @@ class RecordMailer < ActionMailer::Base
     @url_gen_params = url_gen_params
 
     # Action Mailer base method, uses corresponding view to generate text of the messgae
-    mail(:to => details[:to], :subject => subject)
+    mail(to: details[:to], subject: subject)
   end
-
 
   def sms_record(documents, details, url_gen_params)
     if sms_mapping[details[:carrier]]
@@ -36,25 +34,22 @@ class RecordMailer < ActionMailer::Base
     end
 
     @documents      = documents
-    @host           = "libraries.cul.columbia.edu"
+    @host           = 'libraries.cul.columbia.edu'
     @url_gen_params = url_gen_params
 
-    mail(:to => to, :subject => "")
+    mail(to: to, subject: '')
   end
-
 
   protected
 
   def sms_mapping
-    {'virgin' => 'vmobl.com',
-    'att'     => 'txt.att.net',
-    'verizon' => 'vtext.com',
-    'nextel'  => 'messaging.nextel.com',
-    'sprint'  => 'messaging.sprintpcs.com',
-    'tmobile' => 'tmomail.net',
-    'alltel'  => 'message.alltel.com',
-    'cricket' => 'mms.mycricket.com'}
+    { 'virgin' => 'vmobl.com',
+      'att'     => 'txt.att.net',
+      'verizon' => 'vtext.com',
+      'nextel'  => 'messaging.nextel.com',
+      'sprint'  => 'messaging.sprintpcs.com',
+      'tmobile' => 'tmomail.net',
+      'alltel'  => 'message.alltel.com',
+      'cricket' => 'mms.mycricket.com' }
   end
-
 end
-

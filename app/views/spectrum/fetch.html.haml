@@ -7,7 +7,7 @@
       - warning = source ? source['warning'] : nil;
 
       .nested_result_set
-        = render partial: "/spectrum/aggregate/result_header", locals: {result: result, title: source['title'], description: source['description'], warning: warning}
+        = render partial: "/spectrum/aggregate/result_header", locals: {source: search['source'], result: result, title: source['title'], description: source['description'], warning: warning}
         = render partial: '/datasource_warning', locals: {warning: warning}
 
         = render partial: "/spectrum/aggregate/result_docs", locals: {result: result, render_opts: search_render_options(search, source), row_opts: search['row_opts']}

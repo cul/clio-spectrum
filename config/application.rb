@@ -5,7 +5,7 @@ require 'rails/all'
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
 if defined?(Bundler)
-  Bundler.require *Rails.groups(:assets => %w(development test))
+  Bundler.require *Rails.groups(assets: %w(development test))
 end
 
 # a place for patches with no personal name attached...
@@ -13,7 +13,7 @@ end
 
 require File.expand_path('../../lib/monkey_patches', __FILE__)
 require File.expand_path('../../lib/rsolr_notifications', __FILE__)
-RELEASE_STAMP = IO.read("VERSION").strip
+RELEASE_STAMP = IO.read('VERSION').strip
 
 # explicitly require, so that "config.middleware.use" works below during
 # capistrano's assets:precompile step
@@ -43,19 +43,20 @@ module Clio
     config.time_zone = 'Eastern Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-     #config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
-     #config.i18n.default_locale = :en
+     # config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
+     # config.i18n.default_locale = :en
 
     # JavaScript files you want as :defaults (application.js is always included).
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
-    config.assets.precompile += %w{ .svg .eot .woff .ttf }
+    config.assets.precompile += %w(.svg .eot .woff .ttf)
+    # https://github.com/kenn/jquery-rails-cdn
+    config.assets.precompile += ['jquery.js']
 
     # Configure the default encoding used in templates for Ruby 1.9.
-    config.encoding = "utf-8"
+    config.encoding = 'utf-8'
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-
 
     # Enable the asset pipeline
     config.assets.enabled = true
@@ -69,9 +70,8 @@ module Clio
     #
     # Catch 404s
     config.after_initialize do |app|
-      app.routes.append{match '*catch_unknown_routes', :to => 'application#catch_404s'}
+      app.routes.append { match '*catch_unknown_routes', to: 'application#catch_404s' }
     end
-
 
     # After seeing some: ActionDispatch::RemoteIp::IpSpoofAttackError
     # 1) this exception is not actually indicative of spoofing, just
@@ -94,9 +94,9 @@ module Clio
     # https://github.com/whitequark/rack-utf8_sanitizer
     # Rack::UTF8Sanitizer is a Rack middleware which cleans up
     # invalid UTF8 characters in request URI and headers.
-    config.middleware.insert_before "Rack::Runtime", Rack::UTF8Sanitizer
+    config.middleware.insert_before 'Rack::Runtime', Rack::UTF8Sanitizer
 
-    # [deprecated] I18n.enforce_available_locales will default to true in the 
+    # [deprecated] I18n.enforce_available_locales will default to true in the
     # future. If you really want to skip validation of your locale you can set
     # I18n.enforce_available_locales = false to avoid this message.
     # Good explanation here:
@@ -105,6 +105,14 @@ module Clio
     # or if one of your gem compete for pre-loading, use
     I18n.config.enforce_available_locales = true
 
-
+    # Rails 3.2 introduced the TaggedLogging class, which makes it easy for
+    # developers to add custom tags to log messages.
+    # One of the ways to use that is the config.log_tags setting in your
+    # application.rb file. You can set this to an array of methods that
+    # the request object responds to, and the results will be added as tags
+    # to each request in logs.
+    # (from http://api.rubyonrails.org/classes/ActionDispatch/Request.html
+    # e.g., :original_url, :remote_ip, etc.)
+    config.log_tags = [:remote_ip]
   end
 end

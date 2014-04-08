@@ -1,7 +1,7 @@
 class CreateBookmarks < ActiveRecord::Migration
   def self.up
     create_table :bookmarks do |t|
-      t.integer :user_id, :null=>false
+      t.integer :user_id, null: false
       t.text :url
       t.string :document_id
       t.string :title
@@ -13,5 +13,4 @@ class CreateBookmarks < ActiveRecord::Migration
   def self.down
     drop_table :bookmarks
   end
-
 end

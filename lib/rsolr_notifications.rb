@@ -6,14 +6,14 @@ module RSolr::Ext
 
     def execute_with_notifications(*args)
       payload = args.first.dup
-      ActiveSupport::Notifications.instrument("execute.rsolr_client", payload) do
-         execute_without_notifications(*args)
+      ActiveSupport::Notifications.instrument('execute.rsolr_client', payload) do
+        execute_without_notifications(*args)
       end
     end
 
     module ClassMethods
       def enable_notifications!
-        self.class_exec do
+        class_exec do
           unless method_defined?(:execute_without_notifications)
             alias_method :execute_without_notifications, :execute
             alias_method :execute, :execute_with_notifications
@@ -23,4 +23,3 @@ module RSolr::Ext
     end
   end
 end
-

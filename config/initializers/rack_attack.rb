@@ -11,7 +11,6 @@
 # https://github.com/kickstarter/rack-attack/blob/master/README.md
 # http://www.kickstarter.com/backing-and-hacking/rack-attack-protection-from-abusive-clients
 
-
 # Always allow requests from localhost (blacklist & throttles are skipped)
 Rack::Attack.whitelist('allow from localhost') do |req|
   '127.0.0.1' == req.ip
@@ -40,39 +39,37 @@ Rack::Attack.blacklist('block all Java User Agents') do |req|
 end
 
 # Rate-Limit to a certain number of requests per minute
-Rack::Attack.throttle('req/minute', :limit => APP_CONFIG['THROTTLE_LIMIT_PER_MINUTE'], :period => 1.minute) do |req|
+Rack::Attack.throttle('req/minute', limit: APP_CONFIG['THROTTLE_LIMIT_PER_MINUTE'], period: 1.minute) do |req|
   req.ip
 end
 
 # Rate-Limit to a certain number of requests per hour
-Rack::Attack.throttle('req/hour', :limit => APP_CONFIG['THROTTLE_LIMIT_PER_HOUR'], :period => 1.hour) do |req|
+Rack::Attack.throttle('req/hour', limit: APP_CONFIG['THROTTLE_LIMIT_PER_HOUR'], period: 1.hour) do |req|
   req.ip
 end
 
 # Use Fail2Ban to lock out penetration-testers based on defined rules.
-# 
+#
 # There's no legitimate reason for any of these patterns to show up,
 # block the source IP on FIRST attempt, and for a long time.
 Rack::Attack.blacklist('pentest') do |request|
   Rack::Attack::Fail2Ban.filter(
       # "pentest",                  # namespace for cache key
       request.ip,                 # count matching requests based on IP
-      :maxretry => 1,             # allow up to X bad requests...
-      :findtime => 1.minutes,    # to occur within Y minutes...
-      :bantime => 60.minutes) do  # and ban the IP address for Z minutes if exceeded
+      maxretry: 1,             # allow up to X bad requests...
+      findtime: 1.minutes,    # to occur within Y minutes...
+      bantime: 60.minutes) do  # and ban the IP address for Z minutes if exceeded
 
     # Remember to OR the different clauses below (with trailing ||)
 
     # Fishing around for the MySQL Admin page
     request.path =~ %r{scripts/setup.php} ||
 
-    # Any WordPress access attempts 
+    # Any WordPress access attempts
     # (wp-login, wp-admin, wp-signup, wp-content, wp-cache, etc.)
     request.path =~ %r{/wp-}
   end
 end
-
-
 
 # Rack::Attack.blacklist('fail2ban pentesters') do |req|
 #   # `filter` returns truthy value if request fails, or if it's from a previously banned IP
@@ -82,8 +79,6 @@ end
 #     CGI.unescape(req.query_string) =~ %r{/etc/passwd}
 #   end
 # end
-
-
 
 # Examples from documentation are pasted below, and commented-out.
 #

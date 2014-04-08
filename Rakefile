@@ -13,3 +13,14 @@ Clio::Application.load_tasks
 # production data to validate tests.  
 # So, omit this, run 'rspec' instead of 'rake'.
 # task :default  => :spec
+
+
+# This bit is for working with a CI server (e.g., Jenkins)
+# # https://github.com/nicksieger/ci_reporter
+# # To use CI::Reporter, simply add one of the following lines to your Rakefile:
+# # 
+# require 'ci/reporter/rake/rspec'     # use this if you're using RSpec
+# # require 'ci/reporter/rake/cucumber'  # use this if you're using Cucumber
+# # require 'ci/reporter/rake/spinach'   # use this if you're using Spinach
+# # require 'ci/reporter/rake/test_unit' # use this if you're using Test::Unit
+# # require 'ci/reporter/rake/minitest'  # use this if you're using Ruby 1.9 or minitest

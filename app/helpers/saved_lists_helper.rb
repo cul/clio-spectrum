@@ -1,12 +1,10 @@
 module SavedListsHelper
-
-
-def get_full_url(list)
-  root_path(:only_path => false).sub(/\/$/, '') + list.url
-  # url = lists_path(:only_path => false) + "/" + current_user.login
-  # url += "/#{list.slug}" unless list.is_default?
-  # url
-end
+  def get_full_url(list)
+    root_path(only_path: false).sub(/\/$/, '') + list.url
+    # url = lists_path(:only_path => false) + "/" + current_user.login
+    # url += "/#{list.slug}" unless list.is_default?
+    # url
+  end
 
 # Use model's get_display_name() instead
 # def get_list_name(list)
@@ -14,19 +12,17 @@ end
 #   return list.name
 # end
 
-
-def get_permissions_label(permissions)
-  case permissions
-    when "private"
-      html = "<span class='label label-info'>private</span>"
-    when "public"
-      html = "<span class='label label-warning'>public</span>"
-    else
-      raise "get_permissions_label: unexpected value: #{permission}"
-    end
+  def get_permissions_label(permissions)
+    case permissions
+      when 'private'
+        html = "<span class='label label-info'>private</span>"
+      when 'public'
+        html = "<span class='label label-warning'>public</span>"
+      else
+        fail "get_permissions_label: unexpected value: #{permission}"
+      end
     html.html_safe
-end
-
+  end
 
 # def get_summon_docs_for_id_values(id_array)
 #
@@ -97,6 +93,4 @@ end
 #   document_list = solr_response.docs.collect{|doc| SolrDocument.new(doc, solr_response) }
 #   [solr_response,document_list]
 # end
-
-
 end

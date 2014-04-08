@@ -1,17 +1,17 @@
 class SavedList < ActiveRecord::Base
   attr_accessible :owner, :name, :slug, :description, :sort_by, :permissions
-  has_many :saved_list_items, :dependent => :destroy
+  has_many :saved_list_items, dependent: :destroy
   has_paper_trail
 
-  SERVICE_URL_PREFIX = "/lists"
-  DEFAULT_LIST_NAME = "Bookbag"
-  DEFAULT_LIST_SLUG = "bookbag"
+  SERVICE_URL_PREFIX = '/lists'
+  DEFAULT_LIST_NAME = 'Bookbag'
+  DEFAULT_LIST_SLUG = 'bookbag'
 
   # stringex
-  acts_as_url :name, :url_attribute => :slug, :scope => :owner, :sync_url => true
+  acts_as_url :name, url_attribute: :slug, scope: :owner, sync_url: true
 
   def is_default?
-    return name == DEFAULT_LIST_NAME
+    name == DEFAULT_LIST_NAME
   end
 
   def url
@@ -25,8 +25,6 @@ class SavedList < ActiveRecord::Base
 
   def display_name
     return DEFAULT_LIST_NAME if is_default?
-    return name
+    name
   end
-
-
 end

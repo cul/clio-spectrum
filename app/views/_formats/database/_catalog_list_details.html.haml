@@ -19,18 +19,18 @@
 = add_row('Summary', document.get("summary_display"), :teaser => true)
 -# = add_row('Summary', document.get("database_summary_display"), :expand_to => document.get('summary_display'))
 
-- unless (urls =  online_link_hash(document)).empty?
-  - non_circ = image_tag("icons/noncirc.png", :class => :availability)
-  - urls = urls.collect { |link| non_circ + link_to(link[:title].abbreviate(60), link[:url]) + content_tag(:span, link[:note], :class => "url_link_note") }
-  - urls = urls.first if controller.controller_name == "search"
-  = add_row('Online', urls)
+- unless (links =  online_link_hash(document)).empty?
+  -# non_circ = image_tag("icons/noncirc.png", :class => :availability)
+  -# urls = links.collect { |link| non_circ + link_to(link[:title].abbreviate(60), link[:url]) + content_tag(:span, link[:note], :class => "url_link_note") }
+  -# urls = urls.first if controller.controller_name == "search"
+  =# add_row('Search Database:', urls, { :spans =>[3,9], :label_style => "field database_link" } )
+  = add_row( database_link_label(links), format_online_results(links), :spans => [3,9] )
 
 
 - unless (locations = document["location_display"].listify.reject { |l| l == "Online" }).empty? || document["location_holdings_id_display"].nil?
   .row
     .label Location
     .value
-      - locations = locations.first.listify if controller.controller_name == "search"
       - locations.each_with_index do |location, i|
         - holdings_id = "holding_" + (document["location_holdings_id_display"].listify[i] || document["location_holdings_id_display"].first).to_s if document["location_holdings_id_display"]
         %div

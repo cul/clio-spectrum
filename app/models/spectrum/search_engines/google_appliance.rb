@@ -8,7 +8,7 @@ module Spectrum
 
       def initialize(options = {})
         @params = options
-        @q = options['q'] || raise("No query string specified")
+        @q = options['q'] || fail('No query string specified')
         @rows = (options['rows'] || 10).to_i
         @start = (options['start'] || 0).to_i
         @sitesearch = options['sitesearch'] || ''
@@ -18,8 +18,8 @@ module Spectrum
         Rails.logger.debug "[Spectrum][GoogleApp] params: #{@search_url}"
         begin
           @raw_xml = Nokogiri::XML(HTTPClient.new.get_content(@search_url))
-          @documents = @raw_xml.css("R").collect { |xml_node| LibraryWeb::Document.new(xml_node) }
-          @count = @raw_xml.at_css("M") ? @raw_xml.at_css("M").content.to_i : 0
+          @documents = @raw_xml.css('R').map { |xml_node| LibraryWeb::Document.new(xml_node) }
+          @count = @raw_xml.at_css('M') ? @raw_xml.at_css('M').content.to_i : 0
         rescue => ex
           Rails.logger.error "[Spectrum][GoogleApp] error: #{ex.message}"
           @errors = ex.message
@@ -34,8 +34,10 @@ module Spectrum
         @rows || 10
       end
 
+      # used by QuickSearch for "All Results" link
       def search_path
-        @search_url || library_web_index_path(@params)
+        # @search_url || library_web_index_path(@params)
+        library_web_index_path(@params)
       end
 
       # def start_over_link
@@ -43,7 +45,7 @@ module Spectrum
       # end
 
       def constraints_with_links
-        [[@q, library_web_index_path()]]
+        [[@q, library_web_index_path]]
       end
 
       def start_item
@@ -80,15 +82,14 @@ module Spectrum
 
       # List of paging options, turned into a drop-down in summon's sorting/paging partial
       def page_size_with_links
-        [10,25,50,100].collect do |page_size|
+        [10, 25, 50, 100].map do |page_size|
           # do math so that current first item is still on screen.
           # (use zero-based params for talking to GA)
           new_page_number = @start.div page_size
           new_start_item = new_page_number * page_size
-          [ search_merge('rows' => page_size, 'start' => new_start_item), page_size]
+          [search_merge('rows' => page_size, 'start' => new_start_item), page_size]
         end
       end
-
 
       def build_search_url
         default_params = {
@@ -109,7 +110,7 @@ module Spectrum
         url += "&sitesearch=#{@sitesearch}"
         url += "&num=#{@rows}"
         url += "&start=#{@start}"
-        url += "&q=#{CGI::escape(@q)}"
+        url += "&q=#{CGI.escape(@q)}"
         url
       end
 
@@ -118,7 +119,6 @@ module Spectrum
       def search_merge(params = {})
         library_web_index_path(@params.merge(params))
       end
-
     end
   end
 end

@@ -1,8 +1,8 @@
 class CreateLibraryHours < ActiveRecord::Migration
   def self.up
     create_table :library_hours do |t|
-      t.integer :library_id, :null => false
-      t.date :date, :null => false
+      t.integer :library_id, null: false
+      t.date :date, null: false
       t.datetime :opens
       t.datetime :closes
       t.text :note

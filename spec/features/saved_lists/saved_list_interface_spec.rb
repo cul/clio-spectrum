@@ -2,14 +2,14 @@ require 'spec_helper'
 
 include Warden::Test::Helpers
 
-describe "Saved List Interface" do
+describe 'Saved List Interface' do
 
   before(:each) do
-    @autodidact = FactoryGirl.create(:user, :login => 'autodidact')
-    @blatteroon = FactoryGirl.create(:user, :login => 'blatteroon')
+    @autodidact = FactoryGirl.create(:user, login: 'autodidact')
+    @blatteroon = FactoryGirl.create(:user, login: 'blatteroon')
   end
 
-  it "Capybara should let us login and logout and login again", :xfocus => true do
+  it 'Capybara should let us login and logout and login again', xfocus: true do
     # Not yet logged in - navbar shows un-authenticated message
     visit catalog_index_path
     find('#topnavbar').should have_text 'My Library Account'
@@ -36,8 +36,7 @@ describe "Saved List Interface" do
     find('#topnavbar').should have_text 'My Library Account'
   end
 
-
-  it "should give no access to anonymous users" do
+  it 'should give no access to anonymous users' do
     visit '/lists'
     # page.save_and_open_page # debug
     page.should have_text('Login required to access Saved Lists')
@@ -47,7 +46,7 @@ describe "Saved List Interface" do
     page.should have_text('Login required to access Saved Lists')
   end
 
-  it "should protect private lists and share public lists", :js => true, :XXfocus => true do
+  it 'should protect private lists and share public lists', js: true, XXfocus: true do
 
     # Use Warden::Test::Helpers for Feature testing
     feature_login @autodidact
@@ -75,7 +74,7 @@ describe "Saved List Interface" do
     click_link('Select All Items')
     click_link('Move Selected Items')
     within('#new_list_form') do
-      fill_in 'new_list_name', :with => 'aardvark'
+      fill_in 'new_list_name', with: 'aardvark'
       click_button('new_list_submit')
     end
     # page.save_and_open_page # debug
@@ -84,24 +83,24 @@ describe "Saved List Interface" do
     within('.savedlist_header') do
       page.should have_text('aardvark')
       page.should have_text('edit list details')
-      first('span.label', :text => 'private')
+      first('span.label', text: 'private')
     end
 
     # Make this list public
-    click_link "edit list details"
+    click_link 'edit list details'
     page.should have_text('Editing list')
     choose('public')
-    click_button "Save"
+    click_button 'Save'
 
     # Confirm that this change took affect.
     page.should have_text('Saved Lists')
     within('.savedlist_header') do
       page.should have_text('aardvark')
       page.should have_text('edit list details')
-      first('span.label', :text => 'public')
+      first('span.label', text: 'public')
     end
 
-    # Next, do a new, different catalog search, 
+    # Next, do a new, different catalog search,
     # Add all found items to our Bookbag,
     # which should still be private
     visit catalog_index_path('q' => 'aardvark war')
@@ -117,11 +116,11 @@ describe "Saved List Interface" do
     #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #
 
     feature_login @blatteroon
-    visit catalog_index_path()
+    visit catalog_index_path
     # save_and_open_page
 
     # Try to visit a non-existant list
-    visit "/lists/NoSuchUser/NoSuchList"
+    visit '/lists/NoSuchUser/NoSuchList'
     page.should have_text('Cannot access list NoSuchUser/NoSuchList')
 
     # save_and_open_page # debug
@@ -140,12 +139,8 @@ describe "Saved List Interface" do
     # # Try to visit the first user's private list
     # visit "/lists/#{@first_user_name}/bookbag"
     # page.should have_text("Cannot access list #{@first_user_name}/bookbag")
-    # 
-
+    #
 
   end
 
-
 end
-
-

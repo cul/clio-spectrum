@@ -2,7 +2,7 @@
 # http://stackoverflow.com/questions/14881011
 # http://devblog.avdi.org/2012/08/31/configuring-database_cleaner
 # rspec with Capybara with :js => true runs multiple threads against SQLlite,
-# needs to run non-transactionally to avoid 
+# needs to run non-transactionally to avoid
 # "SQLite3::BusyException: database is locked"
 
 RSpec.configure do |config|
@@ -16,9 +16,9 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
   end
 
-  config.before(:each, :js => true) do
-    DatabaseCleaner.strategy = :truncation, 
-            {:except => %w[locations libraries library_hours options]}
+  config.before(:each, js: true) do
+    DatabaseCleaner.strategy = :truncation,
+                               { except: %w(locations libraries library_hours options) }
   end
 
   config.before(:each) do

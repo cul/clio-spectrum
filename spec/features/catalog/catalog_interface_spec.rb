@@ -1,27 +1,27 @@
 require 'spec_helper'
 
-describe "Catalog Interface" do
+describe 'Catalog Interface' do
 
   # NEXT-779 - Some 880 fields not showing up
-  it "MARC 880 note field should display", :js => true do
+  it 'MARC 880 note field should display', js: true do
     # visit this specific item
     visit catalog_path('7814900')
 
     # Find the 880 data for bib 7814900 within the info display
-    find('.info').should have_content("Other Information: Leaf 1 contains laws on the Torah reading")
+    find('.info').should have_content('Other Information: Leaf 1 contains laws on the Torah reading')
   end
 
   # NEXT-765 - MARC 787 field (Related To) not showing up
-  it "MARC 787 'Related To' field should display", :js => true do
+  it "MARC 787 'Related To' field should display", js: true do
     # visit this specific item
     visit catalog_path('7419929')
 
     # Find the 787 data for bib 7419929
-    find('.info').should have_content("Related To Xia intelligenteArchitektur")
+    find('.info').should have_content('Related To Xia intelligenteArchitektur')
   end
 
   # NEXT-917 - Summary showing up twice for video records
-  it "Video Records should show Summary only once", :js => true do
+  it 'Video Records should show Summary only once', js: true do
     visit catalog_index_path('q' => 'summary')
     within 'div.blacklight-format ul' do
       find('a.more_facets_link').click
@@ -33,81 +33,79 @@ describe "Catalog Interface" do
     within all('.result.document').first do
       all('a').first.click
     end
-    page.should have_css('div.field', :text => 'Summary', :count => 1)
+    page.should have_css('div.field', text: 'Summary', count: 1)
   end
 
   # NEXT-551 - display 'version of resource' and 'related resource' notes
   # this test is awefully tight - any cataloging/labeling change will break it.
-  it "Item Links should show 'version of resource' and 'related resource'", :js => true do
+  it "Item Links should show 'version of resource' and 'related resource'", js: true do
     # on the search-results page
     visit catalog_index_path('q' => 'Introduction to high-energy astrophysics stephan rosswog')
-    page.should have_text("Table of contents (version of resource)")
-    page.should have_text("Publisher description (related resource)")
+    page.should have_text('Table of contents (version of resource)')
+    page.should have_text('Publisher description (related resource)')
 
     # on the item-detail page
     click_link('Introduction to high-energy astrophysics')
-    page.should have_text("Table of contents (version of resource)")
-    page.should have_text("Publisher description (related resource)")
+    page.should have_text('Table of contents (version of resource)')
+    page.should have_text('Publisher description (related resource)')
   end
 
   # NEXT-619 - improvements to 'Manuscript' facet
-  it "Should find many Manuscripts for Call Number range X893", :js => true do
+  it 'Should find many Manuscripts for Call Number range X893', js: true do
     visit catalog_index_path('q' => 'X893')
     within '.search_box.catalog' do
-      find('btn.dropdown-toggle').click()
+      find('btn.dropdown-toggle').click
       within '.dropdown-menu' do
-        click_link("Call Number")
+        click_link('Call Number')
       end
-      find('button[type=submit]').click()
+      find('button[type=submit]').click
     end
     within 'div.blacklight-format ul' do
       click_link('Manuscript/Archive')
     end
     # exact count depends on default items-per-page, today, 25
-    page.should have_css('.result.document', :count => 25)
+    page.should have_css('.result.document', count: 25)
     # matching "1", or "1N", or "1NN"...  the value today is actually 1504
     page.should have_text('1 - 25 of 1')
   end
 
-
   # NEXT-640 - Records in CLIO should include links to Hathi Trust
   #  Full View examples:  513297, 1862548, 2081553
   #  Limited examples:  70744 (?), 4043762, 2517624
-  it "Should show Hathi Trust links, both 'Full view' and 'Limited'", :js => true do
+  it "Should show Hathi Trust links, both 'Full view' and 'Limited'", js: true do
     # visit this specific item
     visit catalog_path('513297')
 
     # Should see the 'Full View' message in the Hathi Holdings box
-    find('#hathi_holdings .hathi_info #hathidata').should have_content("Full view")
+    find('#hathi_holdings .hathi_info #hathidata').should have_content('Full view')
 
     # visit this specific item
     visit catalog_path('4043762')
 
     # Should see the 'Limited (search-only)' message in the Hathi Holdings box
-    find('#hathi_holdings .hathi_info #hathidata').should have_content("Limited (search-only)")
+    find('#hathi_holdings .hathi_info #hathidata').should have_content('Limited (search-only)')
   end
 
-
   # NEXT-931 - Online Links in Holdings (not in the Bib) should display
-  it "Online links from Bib or Holdings should show up within correct block", :js => true do
+  it 'Online links from Bib or Holdings should show up within correct block', js: true do
     # visit this specific item
     visit catalog_path('382300')
 
     # within CLIO HOLDINGS, not the regular Online div...
     # ...should see an 'Online' block
     find('div#clio_holdings').
-      should have_content("Online")
+      should have_content('Online')
     # ...should see the specific URL...
     find('div#clio_holdings').
-      should have_content("http://www.neighborhoodpreservationcenter.org/")
+      should have_content('http://www.neighborhoodpreservationcenter.org/')
 
     # And, contrariwise, other Avery Online material, which does not have
-    # an 856 URL in the Holdings record, should display 'Online' within the 
+    # an 856 URL in the Holdings record, should display 'Online' within the
     # visit this specific item
     visit catalog_path('10099362')
 
     # within ONLINE HOLDINGS, SHOULD see an 'Online' block
-    find('div#online_holdings').should have_content("Online")
+    find('div#online_holdings').should have_content('Online')
 
     # within CLIO HOLDINGS, should NOT see an 'Online' block
     # find('div#clio_holdings').should_not have_content("Online")
@@ -119,7 +117,7 @@ describe "Catalog Interface" do
   # Valid Voyager locations include angle-brackets.
   # CLIO should escape these (NOT treat them like markup)
   # NEXT-593, NEXT-928
-  it "Locations with embedded angle-brackets should work", :js => true do
+  it 'Locations with embedded angle-brackets should work', js: true do
     target1 = 'Avery obituary index of architects and artists'
     troublesome1 = 'Offsite <Avery> (Non-Circulating) Place Request for delivery'
     target2 = 'Notes for the Breitenau room'
@@ -152,9 +150,7 @@ describe "Catalog Interface" do
     find('div#clio_holdings').should have_content(troublesome2)
   end
 
-
-
-  it "supports alternative viewstyle options ('Standard' or 'Compact')", :js => true do
+  it "supports alternative viewstyle options ('Standard' or 'Compact')", js: true do
     visit catalog_index_path('q' => "the'end")
 
     click_link 'Display Options'
@@ -175,91 +171,123 @@ describe "Catalog Interface" do
     all('.result.document').first.text.should match /Author.*Published.*Location/
   end
 
-
-  it "supports an email function, directly" do
-    visit email_catalog_path(:id => 12345)
+  it 'supports an email function, directly' do
+    visit email_catalog_path(id: 12_345)
 
     within '#email_form' do
-      fill_in 'to', :with => 'marquis@columbia.edu'
-      fill_in 'message', :with => 'testing'
-      find('button[type=submit]').click()
+      fill_in 'to', with: 'marquis@columbia.edu'
+      fill_in 'message', with: 'testing'
+      find('button[type=submit]').click
     end
 
   end
 
-    it "supports an email function, via JS modal", :js => true do
-      visit catalog_path(1234)
-      within '#show_toolbar' do
-        click_link 'Email'
-      end
-
-      page.should have_css('.modal-scrollable .modal .modal-header')
-      find('.modal-header').should have_text('Email Item(s)')
-
-      within '#email_form' do
-        fill_in 'to', :with => 'marquis@columbia.edu'
-        fill_in 'message', :with => 'testing'
-        find('button[type=submit]').click()
-      end
-
+  it 'supports an email function, via JS modal', js: true do
+    visit catalog_path(1234)
+    within '#show_toolbar' do
+      click_link 'Email'
     end
 
-    it "supports a debug mode", :js => true, :xfocus => true do
-      visit catalog_index_path('q' => 'prim')
+    page.should have_css('.modal-scrollable .modal .modal-header')
+    find('.modal-header').should have_text('Email Item(s)')
 
-      page.should_not have_css('div.debug_instruction')
-      page.should_not have_css('div.debug_entries')
-
-      visit catalog_index_path('q' => 'sneak', 'debug_mode' => 'on')
-      # save_and_open_page # debug
-
-      # We should still NOT have a debug session, since this only works for
-      # authenticated users who are in the admin group
-      page.should_not have_css('div.debug_instruction')
-      page.should_not have_css('div.debug_entries')
-
-      # Login as a site admin account....
-      @test_site_manager = FactoryGirl.create(:user, :login => 'test_site_manager')
-      feature_login @test_site_manager
-
-      visit catalog_index_path('q' => 'approved', 'debug_mode' => 'on')
-
-      page.should have_css('div.debug_instruction')
-      page.should have_css('div.debug_entries')
-      find('.debug_instruction').should have_text('Debug mode is on. Turn it off')
-      within('div.debug_instruction') do
-        click_link 'off'
-      end
-
-      # clicking "off" should reload the page automatically
-      page.should_not have_css('div.debug_instruction')
-      page.should_not have_css('div.debug_entries')
-
+    within '#email_form' do
+      fill_in 'to', with: 'marquis@columbia.edu'
+      fill_in 'message', with: 'testing'
+      find('button[type=submit]').click
     end
 
+  end
+
+  it 'supports a debug mode', js: true, xfocus: true do
+    visit catalog_index_path('q' => 'prim')
+
+    page.should_not have_css('div.debug_instruction')
+    page.should_not have_css('div.debug_entries')
+
+    visit catalog_index_path('q' => 'sneak', 'debug_mode' => 'on')
+    # save_and_open_page # debug
+
+    # We should still NOT have a debug session, since this only works for
+    # authenticated users who are in the admin group
+    page.should_not have_css('div.debug_instruction')
+    page.should_not have_css('div.debug_entries')
+
+    # Login as a site admin account....
+    @test_site_manager = FactoryGirl.create(:user, login: 'test_site_manager')
+    feature_login @test_site_manager
+
+    visit catalog_index_path('q' => 'approved', 'debug_mode' => 'on')
+
+    page.should have_css('div.debug_instruction')
+    page.should have_css('div.debug_entries')
+    find('.debug_instruction').should have_text('Debug mode is on. Turn it off')
+    within('div.debug_instruction') do
+      click_link 'off'
+    end
+
+    # clicking "off" should reload the page automatically
+    page.should_not have_css('div.debug_instruction')
+    page.should_not have_css('div.debug_entries')
+
+  end
+
+    # NEXT-1015 - next from MARC
+  it 'should support next/previous navigation from MARC view',
+     js: true, Xfocus: true do
+
+    # locate a fairly static set of records for a stable test suite
+    visit catalog_index_path('q' => 'maigret simenon')
+    within '#facets' do
+      find('.facet_field_label', text: 'Publication Date').click
+      fill_in 'range[pub_date_sort][end]', with: '1950'
+      find('button[type=submit]').click
+    end
+
+    page.should have_text '1 - 9 of 9'
+
+    click_link('The patience of Maigret')
+    page.should have_text 'Back to Results | 1 of 9 Next'
+    page.should have_text 'Title The patience of Maigret'
+
+    click_link('Display In')
+    click_link('MARC View')
+    page.should have_text 'Back to Results | 1 of 9 Next'
+    page.should have_text '245 1 4 a The patience of Maigret'
+
+    within '#show_toolbar' do
+      click_link('Next')
+    end
+    page.should have_text 'Back to Results | « Previous 2 of 9 Next » | Start Over'
+    page.should have_text '245 1 4 a Les vacances de Maigret'
+
+    click_link('Return to Patron View')
+    page.should have_text 'Back to Results | « Previous 2 of 9 Next » | Start Over'
+    page.should have_text 'Title Les vacances de Maigret'
+
+  end
 end
-
 
 # email_catalog_path(:id => id)
 # describe 'Catalog item view', :caching => true do
-# 
+#
 #   it "supports an email function", :js => true do
 #     visit catalog_path(1234567)
 #     within '#show_toolbar' do
 #       click_link 'Email'
 #     end
-# 
+#
 #     page.should have_css('.modal-scrollable .modal .modal-header')
 #     # puts find('.modal-header').text.inspect #.should have_text('Email Item(s)')
 #     find('.modal-header').should have_text('Email Item(s)')
-# 
+#
 #     within '#email_form' do
 #       fill_in 'to', :with => 'delete@library.columbia.edu'
 #       fill_in 'message', :with => 'testing'
 #       find('button[type=submit]').click()
 #     end
-# 
+#
 #   end
-# 
+#
 # end
-# 
+#

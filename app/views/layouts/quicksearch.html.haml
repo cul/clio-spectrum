@@ -3,10 +3,10 @@
 %html{:xmlns => "http://www.w3.org/1999/xhtml", :lang => "en"}
   %head
     = render :partial => "/layouts/common_head"
-  - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
-  - search_params = determine_search_params
-  %body{:onload => onload}
-
+  -# - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
+  -# - search_params = determine_search_params
+  -# %body{:onload => "$('input#q').focus();"}
+  %body
     - add_datasources(@active_source)
 
     -# #trigger
@@ -33,17 +33,18 @@
 
         = render :partial => "/footer"
 
-      -# Used by Blacklight's lightbox dialog
-      #ajax-modal.modal.hide.fade{:tabindex => -1}
+    -# Used by Blacklight's lightbox dialog
+    #ajax-modal.modal.hide.fade{:tabindex => -1}
 
-      -# "Busy" box, loaded hidden, made visible when user-triggered action
-      -# will take a few moments to load a new page.
-      -# Used by, e.g., NEXT-836 - Can't uncheck multiple options at the same time
-      .busy.row-fluid
-        .span4
-          %img.busy-image{:src => image_path("ajax-loader.gif")}
-        .span8
-          .busy-text Updating...
+    -# "Busy" box, loaded hidden, made visible when user-triggered action
+    -# will take a few moments to load a new page.
+    -# Used by, e.g., NEXT-836 - Can't uncheck multiple options at the same time
+    .busy.row-fluid
+      .span4
+        %img.busy-image{:src => image_path("ajax-loader.gif")}
+      .span8
+        .busy-text Updating...
 
+    = render :partial => "/layouts/common_tail"
 
 

@@ -1,0 +1,20 @@
+
+-# NEXT-956 - Show "Ask a Librarian" chat box when a search has no hits
+
+/ LibraryH3lp iFrame Widget 
+
+- baseURL ='http://libraryh3lp.com/chat/askalibrariancolumbia@chat.libraryh3lp.com?skin=20173&theme=gtalk&identity=librarian'
+
+-# INTERFERES WITH CAPYBARA TESTING?
+
+.libraryh3lp{:style => 'display:none', :jid => "askalibrariancolumbia@chat.libraryh3lp.com"}
+  %iframe#askalibrarianchat{:src => "#{baseURL}&title=C+U+-+Ask+A+Librarian", :frameborder => '1'}
+
+.libraryh3lp{:style => 'display:none'}
+  %iframe#askalibrarianchat{:src => "#{baseURL}&title=We+are+offline", :frameborder => '1'}
+
+-# Only bring in the JavaScript from libraryh3lp.com when the widget is rendered
+- content_for :jstemplates do
+  %script{:type => "text/javascript",
+          :src  => "http://libraryh3lp.com/js/libraryh3lp.js?multi"}
+

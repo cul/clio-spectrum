@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "record tests", :js => true do
+describe 'record tests', js: true do
 
-  it "test adjust services" do
+  it 'test adjust services' do
 
     # Butler suppress doc delivery
     visit catalog_path('9702637')
@@ -16,7 +16,6 @@ describe "record tests", :js => true do
       page.should_not have_text('Borrow Direct')
       page.should_not have_text('ILL')
     end
-
 
   end
 

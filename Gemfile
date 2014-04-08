@@ -41,6 +41,17 @@ group :clio_dev, :clio_test, :clio_prod do
   gem 'mysql2'
 end
 
+# Some things we want to see in development and in-action on 
+# the LERP servers, but not in production.
+group :development, :clio_dev do
+
+  # "MiniProfiler allows you to see the speed of a request on the page"
+  # http://railscasts.com/episodes/368-miniprofiler
+  gem 'rack-mini-profiler'
+
+end
+
+
 # "Associates a hash of options with an ActiveRecord model"
 # Used for... apparently, just the list of links for each location?
 # locally developed - and no longer on Github...
@@ -96,8 +107,10 @@ gem 'newrelic_rpm'
 # gem 'rack-utf8_sanitizer', :github => 'whitequark/rack-utf8_sanitizer'
 gem 'rack-utf8_sanitizer', :git => 'git://github.com/whitequark/rack-utf8_sanitizer'
 
-
-gem 'jquery-rails'
+# # gives us JQuery and JQuery-ujs
+# gem 'jquery-rails'
+# Replace with CDN-based loading
+gem 'jquery-rails-cdn'
 
 group :assets do
   # gem 'sass-rails', '~>3.2.4'
@@ -172,6 +185,11 @@ group :development do
 
   # "A fist full of code metrics"
   gem 'metric_fu'
+
+  # Profiling experiments
+  # https://www.coffeepowered.net/2013/08/02/ruby-prof-for-rails/
+  # gem 'request_profiler', :git => "git://github.com/justinweiss/request_profiler.git"
+
 end
 
 group :test, :development do
@@ -224,4 +242,8 @@ group :test do
 
   # code coverage
   gem 'simplecov'
+
+  # CI servers want XML output from rspecs
+  # gem 'ci_reporter'
+  
 end

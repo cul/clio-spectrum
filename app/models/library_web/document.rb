@@ -1,7 +1,6 @@
 class LibraryWeb::Document
   attr_accessor :url, :title, :summary, :mime
 
-
   def initialize(xml_node = nil)
     if xml_node
 
@@ -14,5 +13,4 @@ class LibraryWeb::Document
 
     end
   end
-
 end

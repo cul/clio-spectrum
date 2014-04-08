@@ -51,7 +51,7 @@ class SavedListItemsController < ApplicationController
         format.html { redirect_to @list_item, notice: 'List item was successfully created.' }
         format.json { render json: @list_item, status: :created, location: @list_item }
       else
-        format.html { render action: "new" }
+        format.html { render action: 'new' }
         format.json { render json: @list_item.errors, status: :unprocessable_entity }
       end
     end
@@ -67,7 +67,7 @@ class SavedListItemsController < ApplicationController
         format.html { redirect_to @list_item, notice: 'List item was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.json { render json: @list_item.errors, status: :unprocessable_entity }
       end
     end

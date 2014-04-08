@@ -1,14 +1,14 @@
-#encoding: UTF-8
+# encoding: UTF-8
 module SearchHelper
-  def show_all_search_boxes
-    (controller.controller_name == 'search' && controller.action_name == 'index') || (params['q'].to_s.empty?  && params['s.q'].to_s.empty? && params['commit'].to_s.empty?)
-  end
+  # def show_all_search_boxes
+  #   (controller.controller_name == 'search' && controller.action_name == 'index') || (params['q'].to_s.empty?  && params['s.q'].to_s.empty? && params['commit'].to_s.empty?)
+  # end
 
   # 1/2014 - this is currently equivalent to @active_source alone
   # def active_search_box
   #   con = controller.controller_name
   #   act = controller.action_name
-  # 
+  #
   #   if con == 'search' && act == 'index'
   #     "quicksearch"
   #   elsif act == 'ebooks' || con == 'ebooks'
@@ -18,9 +18,8 @@ module SearchHelper
   #   end
   # end
 
-
   def search_render_options(search, source)
-    opts ={'template' => @search_style}.
+    opts = { 'template' => @search_style }.
         merge(source['render_options'] || {}).
         merge(search['render_options'] || {})
     opts['count'] = search['count'].to_i if search['count']
@@ -33,45 +32,44 @@ module SearchHelper
     dropdown_default = field_options.invert[field_default] || field_options.keys.first
     select_options = dropdown_options.delete(:select_options) || {}
 
-    result = render(:partial => "/dropdown_select", :locals => { name: name, field_options: field_options, dropdown_options: dropdown_options, field_default: field_default, dropdown_default: dropdown_default, select_options: select_options })
+    result = render(partial: '/dropdown_select', locals: { name: name, field_options: field_options, dropdown_options: dropdown_options, field_default: field_default, dropdown_default: dropdown_default, select_options: select_options })
   end
 
   def display_search_boxes(source)
-    render(:partial => "/_search/search_box", :locals => {source: source})
+    render(partial: '/_search/search_box', locals: { source: source })
   end
-
 
   def display_advanced_search_form(source)
     options = DATASOURCES_CONFIG['datasources'][source]['search_box'] || {}
     blacklight_config = Spectrum::SearchEngines::Solr.generate_config(source)
 
-    if options['search_type'] == "blacklight" && options['advanced'] == true
-      return fix_catalog_links(render('/catalog/advanced_search', :localized_params => params), source)
+    if options['search_type'] == 'blacklight' && options['advanced'] == true
+      return fix_catalog_links(render('/catalog/advanced_search', localized_params: params), source)
     end
 
-    if options['search_type'] == "summon" && options['advanced'] == true
+    if options['search_type'] == 'summon' && options['advanced'] == true
       # Rails.logger.debug "display_advanced_search() source=[#{source}]"
-      return render '/spectrum/summon/advanced_search', source: source, path: source == "articles" ? articles_index_path : newspapers_index_path
+      return render '/spectrum/summon/advanced_search', source: source, path: source == 'articles' ? articles_index_path : newspapers_index_path
     end
-
   end
 
   def display_basic_search_form(source)
     options = DATASOURCES_CONFIG['datasources'][source]['search_box'] || {}
 
     search_params = determine_search_params
-    div_classes = ["search_box", source]
-    div_classes << "multi" if show_all_search_boxes
+    div_classes = ['search_box', source]
+    # div_classes << "multi" if show_all_search_boxes
 
-    # The "selected" search_box hide/show was built for 
-    # javascript-based datasource switching.  
+    # The "selected" search_box hide/show was built for
+    # javascript-based datasource switching.
     # Repurpose for basic/advanced load state.
     # div_classes << "selected" if @active_source == source
-    div_classes << "selected" unless has_advanced_params?
+    div_classes << 'selected' unless has_advanced_params?
 
-    result = "".html_safe
-    if show_all_search_boxes || @active_source == source
-      has_options = (options['search_type'].in?("blacklight","summon") ? "search_q with_options" : "search_q without_options")
+    result = ''.html_safe
+    # if show_all_search_boxes || @active_source == source
+    if @active_source == source
+      has_options = (options['search_type'].in?('blacklight', 'summon') ? 'search_q with_options' : 'search_q without_options')
 
       # BASIC SEARCH INPUT BOX
       summon_query_as_hash = {}
@@ -82,22 +80,26 @@ module SearchHelper
         end
       end
       result += text_field_tag(:q,
-          search_params[:q] || summon_query_as_hash['s.q'] || '',
-          class: has_options, id: "#{source}_q", placeholder: options['placeholder'])
+                               search_params[:q] || summon_query_as_hash['s.q'] || '',
+                               class: has_options, id: "#{source}_q", placeholder: options['placeholder'],
+              # This focuses, but also selects-all-text in some browsers - yuck
+              #   http://stackoverflow.com/questions/4740184
+              # , autofocus: true
+              )
 
       ### for blacklight (catalog, academic commons)
-      if options['search_type'] == "blacklight"
+      if options['search_type'] == 'blacklight'
 
         # insert hidden fields
         result += standard_hidden_keys_for_search
 
         # insert drop-down
         if options['search_fields'].kind_of?(Hash)
-          result += dropdown_with_select_tag(:search_field, options['search_fields'].invert, h(search_params[:search_field]), :title => "Targeted search options", :class=>"search_options")
+          result += dropdown_with_select_tag(:search_field, options['search_fields'].invert, h(search_params[:search_field]), title: 'Targeted search options', class: 'search_options')
         end
 
       ### for summon (articles, newspapers)
-      elsif options['search_type'] == "summon"
+      elsif options['search_type'] == 'summon'
         # insert hidden fields
         # No longer applicable - we do Javascript datasource switching any longer.
         # # If we're at the Quicksearch landing page, building search-forms that will be
@@ -106,41 +108,40 @@ module SearchHelper
         #   result += hidden_field_tag 'new_search', 'true'
         # end
         result += hidden_field_tag 'source', @active_source || 'articles'
-        result += hidden_field_tag "form", "basic"
+        result += hidden_field_tag 'form', 'basic'
 
         # Pass through Summon facets, checkboxes, sort, paging, as hidden form variables
         # For any Summon data-source:  Articles or Newspapers
         result += summon_hidden_keys_for_search(summon_query_as_hash.except('s.fq'))
 
         # insert drop-down
-        result += dropdown_with_select_tag(:search_field, options['search_fields'].invert, h(search_params[:search_field]), :title => "Targeted search options", :class=>"search_options")
+        result += dropdown_with_select_tag(:search_field, options['search_fields'].invert, h(search_params[:search_field]), title: 'Targeted search options', class: 'search_options')
       end
 
       # "Search" button
-      result += content_tag(:button, '<i class="icon-search icon-white"></i> <span class="visible-desktop">Search</span>'.html_safe, type: "submit", class: "btn basic_search_button btn-primary", name: 'commit', value: 'Search')
+      result += content_tag(:button, '<i class="icon-search icon-white"></i> <span class="visible-desktop">Search</span>'.html_safe, type: 'submit', class: 'btn basic_search_button btn-primary', name: 'commit', value: 'Search')
 
       # link to advanced search
-      if options['search_type'].in?("summon", "blacklight") && options['advanced']
-        result += content_tag(:a, "Advanced Search", :class => "btn btn-link advanced_search_toggle", :href => "#")
+      if options['search_type'].in?('summon', 'blacklight') && options['advanced']
+        result += content_tag(:a, 'Advanced Search', class: 'btn btn-link advanced_search_toggle', href: '#')
       end
-
 
       result = content_tag(:div, result, class: 'search_row input-append', escape: false)
 
-      raise "no route in #{source} " unless options['route']
+      fail "no route in #{source} " unless options['route']
 
-      result = content_tag(:form, result, :'accept-charset' => 'UTF-8', :class=> "form-inline", :action => self.send(options['route']), :method => 'get')
+      result = content_tag(:form, result, :'accept-charset' => 'UTF-8', :class => 'form-inline', :action => send(options['route']), :method => 'get')
 
-      result = content_tag(:div, result, :class => div_classes.join(" "))
+      result = content_tag(:div, result, class: div_classes.join(' '))
 
     end
 
-    return result
+    result
   end
 
   # Override Blacklight's has_search_parameters to handle
   # our additional datasources
-  def has_search_parameters?()
+  def has_search_parameters?
     # Blacklight's logic, covers Catalog, AC, LWeb
     return true if !params[:q].blank?
     return true if !params[:f].blank?
@@ -156,30 +157,31 @@ module SearchHelper
     return true if !params['s.ff'].blank?
 
     # No, we found no search parameters
-    return false
+    false
   end
 
   def display_start_over_link(source = @active_source)
-    link_to content_tag(:i, '', :class => "icon-backward") + " Start Over",
+    link_to content_tag(:i, '', class: 'icon-backward') + ' Start Over',
             datasource_landing_page_path(source),
-            :class => 'btn btn-link'
+            class: 'btn'
+            # :class => 'btn btn-link'
   end
 
   # def search_box_style(search_box_type)
   #   # ADVANCED - hide basic
   #   if has_advanced_params?
   #     { 'basic'     =>  'display: none;',
-  #       'advanced'  =>  'display: block;' 
+  #       'advanced'  =>  'display: block;'
   #     }[search_box_type]
-  # 
+  #
   #   else
   #     { 'basic'     =>  'display: block;',
   #       'advanced'  =>  'display: none;'
   #     }[search_box_type]
   #   end
   # end
-  # 
-  # def get_search_display_styles()   
+  #
+  # def get_search_display_styles()
   #   puts "=========== has_advanced_params=#{has_advanced_params?}"
   #   if has_advanced_params?
   #     puts "YES"
@@ -248,6 +250,4 @@ module SearchHelper
   #   end.join("").html_safe
   #
   # end
-
-
 end

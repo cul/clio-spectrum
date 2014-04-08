@@ -18,8 +18,6 @@ class SpectrumController < ApplicationController
   include BlacklightRangeLimit::ControllerOverride
   layout 'quicksearch'
 
-
-
   def search
     @results = []
 
@@ -29,12 +27,12 @@ class SpectrumController < ApplicationController
     #  AFTER:  params[s.fq]={"AuthorCombined"=>"eric foner"}
     # [This logic is here instead of fix_summon_params, because it needs to act
     #  upon the true params object, not the cloned copy.]
-    if params['s.fq'].kind_of?(Array) or params['s.fq'].kind_of?(String)
+    if params['s.fq'].kind_of?(Array) || params['s.fq'].kind_of?(String)
       new_fq = {}
       key_value_array = []
       Array.wrap(params['s.fq']).each do |key_value|
         key_value_array  = key_value.split(':')
-        new_fq[ key_value_array[0] ] = key_value_array[1] if key_value_array.size == 2
+        new_fq[ key_value_array[0]] = key_value_array[1] if key_value_array.size == 2
       end
       params['s.fq'] = new_fq
     end
@@ -49,16 +47,16 @@ class SpectrumController < ApplicationController
     if params['q'].nil? && params['s.q'].nil? &&
        params['s.fq'].nil? && params['s.ff'].nil? ||
       (params['q'].to_s.empty? && @active_source == 'library_web')
-      flash[:error] = "You cannot search with an empty string." if params['commit']
+      flash[:error] = 'You cannot search with an empty string.' if params['commit']
     elsif @search_layout.nil?
-      flash[:error] = "No search layout specified"
+      flash[:error] = 'No search layout specified'
       redirect_to root_path
     else
       @search_style = @search_layout['style']
       # @has_facets = @search_layout['has_facets']
-      sources =  @search_layout['columns'].collect { |col|
-        col['searches'].collect { |item| item['source'] }
-      }.flatten
+      sources =  @search_layout['columns'].map do |col|
+        col['searches'].map { |item| item['source'] }
+      end.flatten
 
       @action_has_async = true if @search_style == 'aggregate'
 
@@ -75,32 +73,29 @@ class SpectrumController < ApplicationController
     @show_landing_pages = true if @results.empty?
   end
 
-
   def fetch
     @search_layout = SEARCHES_CONFIG['layouts'][params[:layout]]
 
     @datasource = params[:datasource]
 
     if @search_layout.nil?
-      render :text => "Search layout invalid."
+      render text: 'Search layout invalid.'
     else
       @fetch_action = true
       @search_style = @search_layout['style']
       # @has_facets = @search_layout['has_facets']
-      sources =  @search_layout['columns'].collect { |col|
-        col['searches'].collect { |item| item['source'] }
-      }.flatten.select { |source| source == @datasource }
+      sources =  @search_layout['columns'].map do |col|
+        col['searches'].map { |item| item['source'] }
+      end.flatten.select { |source| source == @datasource }
 
       @results = get_results(sources)
       render 'fetch', layout: 'js_return'
    end
-
   end
 
   private
 
   def fix_ga_params(params)
-
     # items-per-page ("rows" param) should be a persisent browser setting
     if params['rows'] && (params['rows'].to_i > 1)
       # Store it, if passed
@@ -114,7 +109,6 @@ class SpectrumController < ApplicationController
     end
 
     params
-
   end
 
   def fix_summon_params(params)
@@ -122,8 +116,7 @@ class SpectrumController < ApplicationController
 
     params['authorized'] = @user_characteristics[:authorized]
 
-
-    # items-per-page (summon page size, s.ps, aka 'rows') should be 
+    # items-per-page (summon page size, s.ps, aka 'rows') should be
     # a persisent browser setting
     if params['s.ps'] && (params['s.ps'].to_i > 1)
       # Store it, if passed
@@ -135,7 +128,6 @@ class SpectrumController < ApplicationController
         params['s.ps'] = summon_per_page
       end
     end
-
 
     # Article searches within QuickSearch should act as New searches
     params['new_search'] = 'true' if @active_source == 'quicksearch'
@@ -189,9 +181,9 @@ class SpectrumController < ApplicationController
     sources.listify.each do |source|
 
       fixed_params = new_params.deep_clone
-      %w{layout commit source sources controller action}.each { |param_name|
-         fixed_params.delete(param_name)
-      }
+      %w(layout commit source sources controller action).each do |param_name|
+        fixed_params.delete(param_name)
+      end
       fixed_params.delete(:source)
       # "results" is not the search results, it's the Search Engine object, in a
       # post-search-execution state.
@@ -251,7 +243,7 @@ class SpectrumController < ApplicationController
           Spectrum::SearchEngines::GoogleAppliance.new(fixed_params)
 
         else
-          raise "SpectrumController#get_results() unhandled source: '#{source}'"
+          fail "SpectrumController#get_results() unhandled source: '#{source}'"
         end
 
       @result_hash[source] = results

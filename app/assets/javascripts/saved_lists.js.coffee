@@ -4,10 +4,11 @@
 
 $ ->
   $('.item_select_checkbox').change ->
-    if this.checked
-      $(this).parents(".result.document").css('background-color', '#eee')
-    else
-      $(this).parents(".result.document").css('background-color', 'inherit')
+    $(this).parents(".result.document").toggleClass('selected_item')
+    # if this.checked
+    #   $(this).parents(".result.document").css('background-color', '#eee')
+    # else
+    #    $(this).parents(".result.document").css('background-color', 'inherit')
 
 
 @getSelectedItemKeyList = () ->

@@ -7,4 +7,3 @@ module MailerMacros
     ActionMailer::Base.deliveries = []
   end
 end
-

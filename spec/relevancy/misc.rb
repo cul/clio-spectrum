@@ -10,7 +10,7 @@ describe 'WorldCat link support' do
 
     # This fails:
     # resp.should include('title_display' => /^Tsukuba Daigaku Tetsugaku Shisōgakukei ronshū$/i)
-    # 
+    #
     # setup UTF-8 Decomposed form string constants for our various targets
     # (copy & paste gives us the pre-composed, but raw Solr results are decomposed)
     decomposed = 'Tsukuba Daigaku Tetsugaku Shisōgakukei ronshū'.mb_chars.normalize(:d)

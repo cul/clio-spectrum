@@ -1,11 +1,10 @@
 # encoding: utf-8
 
-
 require 'spec_helper'
 
-describe "Linked field-values in single-item display should work", :focus => false do
+describe 'Linked field-values in single-item display should work', focus: false do
 
-  it "including links with diacritics and trailing punctuation" do
+  it 'including links with diacritics and trailing punctuation' do
     # setup UTF-8 Decomposed form string constants for our various targets
     # the title:
     mqis_decomposed = 'Mādhā qāla al-Imām al-Shaʻrāwī'.mb_chars.normalize(:d)
@@ -19,7 +18,7 @@ describe "Linked field-values in single-item display should work", :focus => fal
 
     # follow the "Also Listed Under" linked name, should get to search results page
     click_link(mhmm_decomposed)
-    page.should have_css(".result", :count => 1)
+    page.should have_css('.result', count: 1)
 
     # click the title on the search-results page, snoudl get to the item-detail page again
     click_link(mqis_decomposed)
@@ -48,7 +47,7 @@ describe "Linked field-values in single-item display should work", :focus => fal
     page.should have_css('#documents')
     page.should have_text('You searched for:')
     page.should_not have_text('No results')
-    page.should have_link(test_title, :href => "/catalog/#{test_bib}")
+    page.should have_link(test_title, href: "/catalog/#{test_bib}")
   end
 
   # NEXT-546 - author link is not finding all the other books by this author
@@ -69,11 +68,11 @@ describe "Linked field-values in single-item display should work", :focus => fal
     page.should have_text('You searched for:')
     page.should_not have_text('No results')
     page.should_not have_text('1 of 1')
-    page.should have_link(test_title, :href => "/catalog/#{test_bib}")
+    page.should have_link(test_title, href: "/catalog/#{test_bib}")
   end
 
   # NEXT-560 - ampersands in author search cause searches to fail
-  it "including ampersands and trailing punctuation" do
+  it 'including ampersands and trailing punctuation' do
     test_bib = '787284'
     test_title = '180 East 73rd Street Building, Borough of Manhattan'
     test_link = 'William Schickel & Co.'
@@ -90,11 +89,11 @@ describe "Linked field-values in single-item display should work", :focus => fal
     page.should have_text('You searched for:')
     page.should_not have_text('No results')
     page.should_not have_text('1 of 1')
-    page.should have_link(test_title, :href => "/catalog/#{test_bib}")
+    page.should have_link(test_title, href: "/catalog/#{test_bib}")
   end
 
   # NEXT-561 - Some names with diacritics continue to fail in CLIO Beta
-  it "including ampersands and trailing punctuation" do
+  it 'including ampersands and trailing punctuation' do
     test_bib = '7030828'
     test_title = 'Iranian DVD oral history collection'
     test_link_array = [
@@ -110,7 +109,6 @@ describe "Linked field-values in single-item display should work", :focus => fal
     visit catalog_path(test_bib)
     page.should have_text(test_title)
 
-
     test_link_array.each do |test_link|
       # follow the "Also Listed Under" hyperlinked field value
       click_link(test_link)
@@ -120,7 +118,7 @@ describe "Linked field-values in single-item display should work", :focus => fal
       page.should have_text('You searched for:')
       page.should_not have_text('No results')
       page.should_not have_text('1 of 1')
-      page.should have_link(test_title, :href => "/catalog/#{test_bib}")
+      page.should have_link(test_title, href: "/catalog/#{test_bib}")
 
       # Now, follow the link, should get back to item-detail page
       click_link(test_title)
@@ -146,11 +144,11 @@ describe "Linked field-values in single-item display should work", :focus => fal
     page.should have_text('You searched for:')
     page.should_not have_text('No results')
     page.should_not have_text('1 of 1')
-    page.should have_link(test_title, :href => "/catalog/#{test_bib}")
+    page.should have_link(test_title, href: "/catalog/#{test_bib}")
   end
 
   # NEXT-862 - author search/facet isn't working
-  it "including trailing punctuation" do
+  it 'including trailing punctuation' do
     test_bib = '327686'
     test_title = 'The family in the Soviet system'
     test_link = 'Juviler, Peter H.'
@@ -167,7 +165,23 @@ describe "Linked field-values in single-item display should work", :focus => fal
     page.should have_text('You searched for:')
     page.should_not have_text('No results')
     page.should_not have_text('1 of 1')
-    page.should have_link(test_title, :href => "/catalog/#{test_bib}")
+    page.should have_link(test_title, href: "/catalog/#{test_bib}")
+  end
+
+  # NEXT-1011 - Inconsistent search results from series links.
+  it "should support linking to Series Title" do
+    visit catalog_path '9646827'
+    page.should have_text "Lo specchio acceso : narrativa italiana"
+    # field-label, white-space, field-value
+    page.should have_text "Series Collezione Confronti/consensi ; 15."
+
+    click_link "Collezione Confronti/consensi ; 15."
+    page.should have_text "You searched for: Series: Collezione Confronti/consensi"
+    page.should_not have_text('No results')
+    page.should_not have_text('1 of 5')
+    find('#documents').should have_text 'Lo specchio acceso : narrativa italiana'
   end
 
 end
+
+

@@ -4,7 +4,7 @@
 require 'blacklight/catalog'
 
 class CatalogController < ApplicationController
-  layout "quicksearch"
+  layout 'quicksearch'
 
   before_filter :by_source_config
   # use "prepend", or this comes AFTER included Blacklight filters,
@@ -24,15 +24,16 @@ class CatalogController < ApplicationController
   # (BlacklightRangeLimit::ControllerOverride#add_range_limit_params)
   include LocalSolrHelperExtension
 
-
   # When a catalog search is submitted, this is the
   # very first point of code that's hit
   def index
+    debug_timestamp('CatalogController#index() begin')
+
     # very useful - shows the execution order of before filters
     # logger.debug "#{   _process_action_callbacks.map(&:filter) }"
 
-    if params['q'] == ""
-      params['commit'] ||= "Search"
+    if params['q'] == ''
+      params['commit'] ||= 'Search'
       params['search_field'] ||= 'all_fields'
     end
 
@@ -48,28 +49,27 @@ class CatalogController < ApplicationController
       end
     end
 
-
     # this does not execute a query - it only organizes query parameters
     # conveniently for use by the view in echoing back to the user.
-    @query = Spectrum::Queries::Solr.new(params, self.blacklight_config)
+    @query = Spectrum::Queries::Solr.new(params, blacklight_config)
 
     @filters = params[:f] || []
 
     # replicates has_search_parameters?() from blacklight's catalog_helper_behavior.rb
     @show_landing_pages = (params[:q].blank? && @filters.blank? && params[:search_field].blank?)
 
-    # Only do the following if we have search parameters 
+    # Only do the following if we have search parameters
     # (i.e., if show-landing-pages is false)
     unless @show_landing_pages
 
       extra_head_content <<
         view_context.auto_discovery_link_tag(
           :rss,
-          url_for(params.merge(:format => 'rss')), :title => "RSS for results")
+          url_for(params.merge(format: 'rss')), title: 'RSS for results')
       extra_head_content <<
         view_context.auto_discovery_link_tag(
           :atom,
-          url_for(params.merge(:format => 'atom')), :title => "Atom for results")
+          url_for(params.merge(format: 'atom')), title: 'Atom for results')
 
       # runs ApplicationController.blacklight_search() using the params,
       # returns the engine with embedded results
@@ -80,27 +80,24 @@ class CatalogController < ApplicationController
       @document_list = search_engine.documents
       # If the search was not successful, there may be errors
       @errors = search_engine.errors
+      debug_timestamp('CatalogController#index() end - implicit render to follow')
     end
-
 
     # reach into search config to find possible source-specific service alert warning
     search_config = SEARCHES_CONFIG['sources'][@active_source]
-    warning = search_config ? search_config['warning'] : nil;
+    warning = search_config ? search_config['warning'] : nil
 
     respond_to do |format|
-      format.html { save_current_search_params;
-                    render :locals => {:warning => warning, :response => @response},
-                    :layout => 'quicksearch' }
-      format.rss  { render :layout => false }
-      format.atom { render :layout => false }
+      format.html do save_current_search_params
+                     render locals: { warning: warning, response: @response },
+                            layout: 'quicksearch' end
+      format.rss  { render layout: false }
+      format.atom { render layout: false }
     end
-
-
   end
 
   # updates the search counter (allows the show view to paginate)
   def update
-    adjust_for_results_view
     session[:search][:counter] = params[:counter]
 
     # These alternate paths all come back through catalog controller,
@@ -115,42 +112,41 @@ class CatalogController < ApplicationController
     when 'new_arrivals'
       redirect_to new_arrivals_show_path
     else
-      redirect_to :action => "show"
+      redirect_to action: 'show'
     end
-
   end
 
   def show
     @response, @document = get_solr_response_for_doc_id
     # solr_search_params_logic << :add_advanced_search_to_solr
     # solr_search_params_logic << :add_range_limit_params
-    @query = Spectrum::Queries::Solr.new(params, self.blacklight_config)
+    @query = Spectrum::Queries::Solr.new(params, blacklight_config)
     add_alerts_to_documents(@document)
 
     # reach into search config to find possible source-specific service alert warning
     search_config = SEARCHES_CONFIG['sources'][@active_source]
-    warning = search_config ? search_config['warning'] : nil;
+    warning = search_config ? search_config['warning'] : nil
 
     respond_to do |format|
       # require 'debugger'; debugger
-      format.html {
+      format.html do
         # This Blacklight function re-runs the current query, twice,
         # just to get IDs to build next/prev links.
         # NewRelic shows this one line taking 1.5% of total processing time,
         # even though it's hitting Solr's query cache.
-        setup_next_and_previous_documents;
-        render :locals => { :warning => warning }, :layout => "no_sidebar"
-      }
+        setup_next_and_previous_documents
+        render locals: { warning: warning }, layout: 'no_sidebar'
+      end
 
       # Add all dynamically added (such as by document extensions)
       # export formats.
       @document.export_formats.each_key do | format_name |
         # It's important that the argument to send be a symbol;
         # if it's a string, it makes Rails unhappy for unclear reasons.
-        format.send(format_name.to_sym) {
-          render :text => @document.export_as(format_name),
-          :layout => false
-        }
+        format.send(format_name.to_sym) do
+          render text: @document.export_as(format_name),
+                 layout: false
+        end
       end
 
     end
@@ -158,13 +154,12 @@ class CatalogController < ApplicationController
 
   # when a request for /catalog/BAD_SOLR_ID is made, this method is executed...
   def invalid_solr_id_error
-    if Rails.env == "development"
+    if Rails.env == 'development'
       render # will give us the stack trace
     else
       flash[:notice] = "Sorry, you have requested a record that doesn't exist."
       redirect_to root_path
     end
-
   end
 
   # displays values and pagination links for a single facet field
@@ -173,11 +168,11 @@ class CatalogController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.js { render :layout => false }
+      format.js { render layout: false }
     end
   end
 
-  # We're now emailing from within multiple classes, 
+  # We're now emailing from within multiple classes,
   # and this has moved to ApplicationController
   #
   # # NEXT-556 - send citation to more than one email address at a time
@@ -246,7 +241,6 @@ class CatalogController < ApplicationController
     # Third Case:  Remove hyphen from wildcarded phrase (foo-bar*  =>  foo bar*)
     # NEXT-421 - quicksearch, catalog, and databases search: african-american* fails
 
-
     # 1) cleanup for basic searches
     if q = params['q']
       if params['search_field'] == 'title_starts_with'
@@ -263,10 +257,10 @@ class CatalogController < ApplicationController
     end
 
     # 2) cleanup for advanced searches
-    if params['adv'] and params['adv'].kind_of?(Hash)
+    if params['adv'] && params['adv'].kind_of?(Hash)
       params['adv'].each do |rank, advanced_param|
         if val = advanced_param['value']
-          if advanced_param['field'] == "title_starts_with"
+          if advanced_param['field'] == 'title_starts_with'
             unless val =~ /^".*"$/
               # advanced_param['value'].gsub!(/"/, '\"')    # escape any double-quotes instead?
               val.gsub!(/"/, '')    # strip any double-quotes
@@ -280,18 +274,27 @@ class CatalogController < ApplicationController
         end
       end
     end
-
   end
 
   # Override Blacklight's definition, to assign custom layout
   def librarian_view
     @response, @document = get_solr_response_for_doc_id
     respond_to do |format|
-      format.html { render :layout => 'no_sidebar' }
-      format.js { render :layout => false }
+      format.html do
+        # This Blacklight function re-runs the current query, twice,
+        # just to get IDs to build next/prev links.
+        # NewRelic shows this one line taking 1.5% of total processing time,
+        # even though it's hitting Solr's query cache.
+        setup_next_and_previous_documents
+        # raise
+        render layout: 'no_sidebar'
+      end
+      format.js { render layout: false }
     end
   end
 
-
+  def librarian_view_update
+    session[:search][:counter] = params[:counter]
+    redirect_to action: 'librarian_view'
+  end
 end
-

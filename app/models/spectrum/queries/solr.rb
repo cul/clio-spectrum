@@ -10,7 +10,7 @@ module Spectrum
       attr_reader :params, :queries, :filters, :ranges, :query_operator
 
       def initialize(reg_params, blacklight_config)
-        @params = reg_params || HashWithIndifferentAccess.new()
+        @params = reg_params || HashWithIndifferentAccess.new
         @config = blacklight_config
         parse_queries
         parse_filters
@@ -26,23 +26,22 @@ module Spectrum
       end
 
       def query_operator_label
-        @query_operator == "AND" ? "All Of" : "Any Of"
+        @query_operator == 'AND' ? 'All Of' : 'Any Of'
       end
 
       def query_operator_change_links
-        if @query_operator == "AND"
+        if @query_operator == 'AND'
           [
-            ["All Of", "#"],
-            ["Any Of", catalog_index_path(change_params_and_redirect({:advanced_operator => 'OR'}, @params))]
+            ['All Of', '#'],
+            ['Any Of', catalog_index_path(change_params_and_redirect({ advanced_operator: 'OR' }, @params))]
           ]
         else
           [
-            ["All Of", catalog_index_path(change_params_and_redirect({:advanced_operator => 'AND'}, @params))],
-            ["Any Of", "#"]
+            ['All Of', catalog_index_path(change_params_and_redirect({ advanced_operator: 'AND' }, @params))],
+            ['Any Of', '#']
           ]
         end
       end
-
 
       def multiple_queries?
         @queries.length > 1
@@ -55,7 +54,7 @@ module Spectrum
       end
 
       def inverted_facet_field(facet_field)
-        is_inverted?(facet_field) ? facet_field.gsub(/^-/, "") : "-#{facet_field}"
+        is_inverted?(facet_field) ? facet_field.gsub(/^-/, '') : "-#{facet_field}"
       end
 
       def invert_facet_value(facet_field, value)
@@ -68,51 +67,51 @@ module Spectrum
 
         new_params.delete(:id)
 
-        new_params[:action] = "index"
+        new_params[:action] = 'index'
         new_params = remove_facet_params(facet_field, value, new_params)
         new_params = add_facet_params(inverted_facet_field(facet_field), value, new_params)
         new_params
       end
 
-      def facet_value_invert_links(facet_field,value)
+      def facet_value_invert_links(facet_field, value)
         if  is_inverted?(facet_field)
           [
-            ["Is Not", "#"],
-            ["Is", catalog_index_path(invert_facet_value(facet_field, value))]
+            ['Is Not', '#'],
+            ['Is', catalog_index_path(invert_facet_value(facet_field, value))]
           ]
         else
           [
-            ["Is", "#"],
-            ["Is Not", catalog_index_path(invert_facet_value(facet_field, value))]
+            ['Is', '#'],
+            ['Is Not', catalog_index_path(invert_facet_value(facet_field, value))]
           ]
         end
       end
 
       def facet_operator_change_links(raw_facet_field)
-        if facet_operator(raw_facet_field) == "AND"
+        if facet_operator(raw_facet_field) == 'AND'
           new_facet_operators = (@params[:f_operator] || {}).dup
           new_facet_operators[raw_facet_field] = 'OR'
           [
-            ["All Of", "#"],
-            ["Any Of", catalog_index_path(change_params_and_redirect({:f_operator => new_facet_operators}, @params))]
+            ['All Of', '#'],
+            ['Any Of', catalog_index_path(change_params_and_redirect({ f_operator: new_facet_operators }, @params))]
           ]
         else
           new_facet_operators = (@params[:f_operator] || {}).dup
           new_facet_operators[raw_facet_field] = 'AND'
           [
-            ["All Of", catalog_index_path(change_params_and_redirect({:f_operator => new_facet_operators}, @params))],
-            ["Any Of", "#"]
+            ['All Of', catalog_index_path(change_params_and_redirect({ f_operator: new_facet_operators }, @params))],
+            ['Any Of', '#']
           ]
 
         end
       end
 
       def facet_operator(raw_facet_field)
-        (@params[:f_operator] && @params[:f_operator][raw_facet_field]) || "AND"
+        (@params[:f_operator] && @params[:f_operator][raw_facet_field]) || 'AND'
       end
 
       def facet_operator_label(raw_facet_field)
-        facet_operator(raw_facet_field) == "AND" ? "All Of" : "Any Of"
+        facet_operator(raw_facet_field) == 'AND' ? 'All Of' : 'Any Of'
       end
 
       def facet_label(facet_field, base_facet_field)
@@ -122,16 +121,16 @@ module Spectrum
       end
 
       def parse_filters
-        @filters = HashWithIndifferentAccess.new()
+        @filters = HashWithIndifferentAccess.new
         (@params[:f] || {}).each_pair do |facet_field, values|
 
           # values has to be an array, and cannot be empty, or don't process this filter
           next unless values.is_a? Array
           next if values.nil? or (not values.is_a? Array) or values.join.empty?
 
-          base_facet_field = facet_field.gsub(/^-/,'').to_s
+          base_facet_field = facet_field.gsub(/^-/, '').to_s
 
-          unless @filters.has_key?(base_facet_field)
+          unless @filters.key?(base_facet_field)
             @filters[base_facet_field] = {
               operator: facet_operator(base_facet_field),
               operator_label: facet_operator_label(base_facet_field),
@@ -144,7 +143,7 @@ module Spectrum
 
           values.each do |value|
             @filters[base_facet_field][:values] << {
-              invert_label: is_inverted?(facet_field) ? "Is Not" : "Is",
+              invert_label: is_inverted?(facet_field) ? 'Is Not' : 'Is',
               label: value,
               remove: remove_facet_params(facet_field, value, @params),
               invert_links: facet_value_invert_links(facet_field, value)
@@ -156,7 +155,7 @@ module Spectrum
       def parse_queries
         @queries = []
 
-        if @params[:search_field] == "advanced"
+        if @params[:search_field] == 'advanced'
           (@params['adv'] || {}).each_pair  do |i, attrs|
             field, value = attrs['field'], attrs['value']
             unless value.to_s.empty?
@@ -167,9 +166,9 @@ module Spectrum
               remove_params.delete(:id)
 
               @queries << {
-                :field => field,
-                :value => value,
-                :remove => catalog_index_path(remove_params)
+                field: field,
+                value: value,
+                remove: catalog_index_path(remove_params)
               }
             end
 
@@ -181,8 +180,8 @@ module Spectrum
             remove_params[:q] = nil
             remove_params.delete(:page)
             remove_params.delete(:id)
-            field = @params[:search_field] || "all_fields"
-            @queries = [{:field => field, :value => @params[:q], :remove => catalog_index_path(remove_params)}]
+            field = @params[:search_field] || 'all_fields'
+            @queries = [{ field: field, value: @params[:q], remove: catalog_index_path(remove_params) }]
           end
         end
 
@@ -195,23 +194,22 @@ module Spectrum
           end
         end
 
-        @query_operator = @params[:advanced_operator] || "AND"
+        @query_operator = @params[:advanced_operator] || 'AND'
       end
 
       def parse_ranges
-        @ranges = HashWithIndifferentAccess.new()
+        @ranges = HashWithIndifferentAccess.new
 
         (@params[:range] || {}).each_pair do |range_key, range|
           # defend against bad input
           next unless range_key and range and @config.facet_fields[range_key]
           @ranges[range_key] = {
-              label: @config.facet_fields[range_key].label || range_key,
-              value: "#{range['begin']} to #{range['end']}",
-              remove: remove_range_params(range_key, @params)
+            label: @config.facet_fields[range_key].label || range_key,
+            value: "#{range['begin']} to #{range['end']}",
+            remove: remove_range_params(range_key, @params)
           }
         end
       end
-
     end
   end
 end

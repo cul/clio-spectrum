@@ -13,10 +13,12 @@ Clio::Application.configure do
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
 
-
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
 
+  # ***************
+  # *** CACHING ***
+  # ***************
   # Turn development caching on to test Caching, ClickTale, etc.
   config.action_controller.perform_caching = false
   # config.action_controller.perform_caching = true
@@ -40,7 +42,6 @@ Clio::Application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 
-
   # UnAPI has been removed.
   # # BlacklightUnapi - quiet the extensive log entries:
   # # DEPRECATION WARNING: Passing a template handler in the template
@@ -49,5 +50,19 @@ Clio::Application.configure do
   # #
   # ActiveSupport::Deprecation.silenced = true
 
-end
+  # http://asciicasts.com/episodes/151-rack-middleware
+  # This gives us a total load time, as a comment before the opening <htm> tag.
+  # Debugging in development only, and if it causes problems just comment out.
+  # It DOES cause problems.  As mentioned in the RailsCasts discussions on this
+  # episode, the headers indicate the byte-length of the payload, and if we 
+  # insert a dozen bytes in the front of the payload, then the final dozen
+  # bytes at the end will not make it through.  
+  # config.middleware.use 'ResponseTimer'
 
+  # Experiments with in-depth profiling
+  # https://github.com/justinweiss/request_profiler
+  # config.middleware.use "Rack::RequestProfiler"
+  # https://www.coffeepowered.net/2013/08/02/ruby-prof-for-rails/
+  # config.middleware.insert 0, "Rack::RequestProfiler", :printer => ::RubyProf::CallTreePrinter
+
+end

@@ -1,29 +1,27 @@
 require 'simplecov'
 SimpleCov.start do
   # don't do coverage of our testing code
-  add_filter "/spec/"
+  add_filter '/spec/'
   # don't do coverage of our rake tasks
-  add_filter "/lib/tasks/"
+  add_filter '/lib/tasks/'
 end
 
 require 'rubygems'
 require 'spork'
-
-
 
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
 
-  ENV["RAILS_ENV"] ||= 'test'
-  require File.expand_path("../../config/environment", __FILE__)
+  ENV['RAILS_ENV'] ||= 'test'
+  require File.expand_path('../../config/environment', __FILE__)
   require 'rspec/rails'
   require 'capybara/rspec'
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
-  Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
   RSpec.configure do |config|
     config.mock_with :rspec
@@ -45,7 +43,7 @@ Spork.prefork do
     # end
 
     config.treat_symbols_as_metadata_keys_with_true_values = true
-    config.filter_run :focus => true
+    config.filter_run focus: true
     config.run_all_when_everything_filtered = true
 
     # http://stackoverflow.com/questions/3333743
@@ -57,7 +55,7 @@ Spork.prefork do
     # http://stackoverflow.com/questions/14881011
     # http://devblog.avdi.org/2012/08/31/configuring-database_cleaner
     # rspec with Capybara with :js => true runs multiple threads against SQLlite,
-    # needs to run non-transactionally to avoid 
+    # needs to run non-transactionally to avoid
     # "SQLite3::BusyException: database is locked"
     config.use_transactional_fixtures = false
 
@@ -69,4 +67,3 @@ Spork.each_run do
   FactoryGirl.reload
   Clio::Application.reload_routes!
 end
-

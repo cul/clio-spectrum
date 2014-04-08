@@ -10,27 +10,26 @@ module Spectrum
       # s.ff - how many options to retrieve for each filter field
       SUMMON_FIXED_PARAMS = {
         'spellcheck' => true,
-        's.ff' => ['ContentType,and,1,10','SubjectTerms,and,1,10','Language,and,1,5']
+        's.ff' => ['ContentType,and,1,10', 'SubjectTerms,and,1,10', 'Language,and,1,5']
       }.freeze
 
       # These source-specific params are ONLY FOR NEW SEARCHES
       # s.ho=<boolean>     Holdings Only Parameter, a.k.a., "Columbia's collection only"
       SUMMON_DEFAULT_PARAMS = {
 
-        'newspapers' =>  {'s.ho' => 't',
-                          's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)'}.freeze,
+        'newspapers' =>  { 's.ho' => 't',
+                           's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)' }.freeze,
 
-        'articles' =>  {'s.ho' => 't',
-                        's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)'}.freeze,
+        'articles' =>  { 's.ho' => 't',
+                         's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)' }.freeze,
 
         'ebooks' => { 's.ho' => 't',
                       's.cmd' => 'addFacetValueFilters(IsFullText, true)',
-                      's.fvf' => ['ContentType,eBook']}.freeze,
+                      's.fvf' => ['ContentType,eBook'] }.freeze,
 
         'dissertations' => { 's.ho' => 't',
-                             's.fvf' => ['ContentType,Dissertation']}.freeze
+                             's.fvf' => ['ContentType,Dissertation'] }.freeze
         }.freeze
-
 
       attr_reader :source, :errors, :search
       attr_accessor :params
@@ -43,7 +42,7 @@ module Spectrum
         # Rails.logger.debug "initialize() options=#{options.inspect}"
         @source = options.delete('source') || options.delete(:source)
         @params = {}
-        
+
         # These sources only come from bento-box aggregate searches, so enforce
         # the source-specific params without requires 'new_search' CGI param
         if @source && (@source == 'ebooks' || @source == 'dissertations')
@@ -54,13 +53,13 @@ module Spectrum
         elsif @source && options.delete('new_search')
           @params = SUMMON_DEFAULT_PARAMS[@source].dup
         end
-        
+
         # @params = (@source && options.delete('new_search')) ? SUMMON_DEFAULT_PARAMS[@source].dup : {}
         @params.merge!(SUMMON_FIXED_PARAMS)
 
         @config = options.delete('config') || APP_CONFIG['summon']
 
-        @config.merge!(:url => 'http://api.summon.serialssolutions.com/2.0.0')
+        @config.merge!(url: 'http://api.summon.serialssolutions.com/2.0.0')
         @config.symbolize_keys!
 
         @search_url = options.delete('search_url')
@@ -91,7 +90,7 @@ module Spectrum
           end
           @params['s.fq'] = new_fq
         end
-        
+
         @errors = nil
         begin
           # do_benchmarking = false
@@ -113,7 +112,6 @@ module Spectrum
           #   bench.output
           # end
 
-
         rescue => ex
           # We're getting 500 errors here - is that an internal server error
           # on the Summon side of things?  Need to look into this more.
@@ -122,8 +120,7 @@ module Spectrum
         end
       end
 
-
-      FACET_ORDER = %w{ContentType_mfacet SubjectTerms_mfacet Language_s}
+      FACET_ORDER = %w(ContentType_mfacet SubjectTerms_mfacet Language_s)
 
       def facets
         @search.facets.sort_by { |facet| (ind = FACET_ORDER.index(facet.field_name)) ? ind : 999 }
@@ -131,43 +128,43 @@ module Spectrum
 
       # The "pre-facet-options" are the four checkboxes which precede the facets.
       # Return array of ad-hoc structures, parsed by summon's facets partial
-      def pre_facet_options_with_links()
+      def pre_facet_options_with_links
         facet_options = []
 
         # first checkbox, "Full text online only"
         is_full_text = facet_value('IsFullText') == 'true'
-        is_full_cmd = !is_full_text ? "addFacetValueFilters(IsFullText, true)" : "removeFacetValueFilter(IsFullText,true)"
+        is_full_cmd = !is_full_text ? 'addFacetValueFilters(IsFullText, true)' : 'removeFacetValueFilter(IsFullText,true)'
         facet_options << {
           style: :checkbox,
           value: is_full_text,
           link: by_source_search_cmd(is_full_cmd),
-          name: "Full text online only"
+          name: 'Full text online only'
         }
 
         # second checkbox, "Scholarly publications only"
         is_scholarly = facet_value('IsScholarly') == 'true'
-        is_scholarly_cmd = !is_scholarly ? "addFacetValueFilters(IsScholarly, true)" : "removeFacetValueFilter(IsScholarly,true)"
+        is_scholarly_cmd = !is_scholarly ? 'addFacetValueFilters(IsScholarly, true)' : 'removeFacetValueFilter(IsScholarly,true)'
         facet_options << {
           style: :checkbox,
           value: is_scholarly,
           link: by_source_search_cmd(is_scholarly_cmd),
-          name: "Scholarly publications only"
+          name: 'Scholarly publications only'
         }
 
         # third checkbox, "Exclude Newspaper Articles"
-        exclude_newspapers = @search.query.facet_value_filters.any? { |fvf|
-          fvf.field_name == "ContentType" &&
-          fvf.value == "Newspaper Article" &&
+        exclude_newspapers = @search.query.facet_value_filters.any? do |fvf|
+          fvf.field_name == 'ContentType' &&
+          fvf.value == 'Newspaper Article' &&
           fvf.negated?
-        }
+        end
         exclude_cmd = !exclude_newspapers ?
-              "addFacetValueFilters(ContentType, Newspaper Article:t)" :
-              "removeFacetValueFilter(ContentType, Newspaper Article)"
+              'addFacetValueFilters(ContentType, Newspaper Article:t)' :
+              'removeFacetValueFilter(ContentType, Newspaper Article)'
         facet_options << {
           style: :checkbox,
           value: exclude_newspapers,
           link: by_source_search_cmd(exclude_cmd),
-          name: "Exclude Newspaper Articles"
+          name: 'Exclude Newspaper Articles'
         }
 
         # fourth checkbox, "Columbia's collection only"
@@ -190,31 +187,27 @@ module Spectrum
       #     fvf.negated? }
       # end
 
-
       # SpectrumController sets @results = search_engine.documents,
       # does not expect a results() method
       # def results
       #   documents
       # end
 
-
       def search_path
         @search_url || by_source_search_link(@params)
       end
 
-
       def current_sort_name
         if @search.query.sort.nil?
-          "Relevance"
-        elsif @search.query.sort.field_name == "PublicationDate"
-          if @search.query.sort.sort_order == "desc"
-            "Published Latest"
+          'Relevance'
+        elsif @search.query.sort.field_name == 'PublicationDate'
+          if @search.query.sort.sort_order == 'desc'
+            'Published Latest'
           else
-            "Published Earliest"
+            'Published Earliest'
           end
         end
       end
-
 
       # The "constraints" are the displayed, cancelable, search params
       # (currently applied queries, facets, etc.)
@@ -231,17 +224,17 @@ module Spectrum
         @search.query.text_filters.each do |q|
           filter_text = q['textFilter'].to_s.
               # strip "Combined" off the back of labels (TitleCombined --> Title)
-              sub(/^([^\:]+)Combined:/,'\1:').
+              sub(/^([^\:]+)Combined:/, '\1:').
               # NEXT-581 - articles search by publication title
               # search for embedded capitals, insert a space (PublicationTitle --> Publication Title)
-              sub(/([a-z])([A-Z])/,'\1 \2').
+              sub(/([a-z])([A-Z])/, '\1 \2').
               sub(':', ': ')
           constraints << [filter_text, by_source_search_cmd(q['removeCommand'])]
         end
 
         # add in Facet limits
         @search.query.facet_value_filters.each do |fvf|
-          unless fvf.field_name.titleize.in?("Is Scholarly", "Is Full Text")
+          unless fvf.field_name.titleize.in?('Is Scholarly', 'Is Full Text')
             facet_text = "#{fvf.negated? ? "Not " : ""}#{fvf.field_name.titleize}: #{fvf.value}"
             constraints << [facet_text, by_source_search_cmd(fvf.remove_command)]
           end
@@ -256,53 +249,45 @@ module Spectrum
         constraints
       end
 
-
       # List of sort options, turned into a drop-down in summon's sorting/paging partial
       def sorts_with_links
         [
-          [by_source_search_cmd('setSortByRelevancy()'), "Relevance"],
-          [by_source_search_cmd('setSort(PublicationDate:desc)'), "Published Latest"],
-          [by_source_search_cmd('setSort(PublicationDate:asc)'), "Published Earliest"]
+          [by_source_search_cmd('setSortByRelevancy()'), 'Relevance'],
+          [by_source_search_cmd('setSort(PublicationDate:desc)'), 'Published Latest'],
+          [by_source_search_cmd('setSort(PublicationDate:asc)'), 'Published Earliest']
         ]
       end
-
 
       # List of paging options, turned into a drop-down in summon's sorting/paging partial
       def page_size_with_links
         # [10,20,50,100].collect do |page_size|
-        [10,25,50].collect do |per_page|
+        [10, 25, 50].map do |per_page|
           # No, don't do a COMMAND...
           # [by_source_search_cmd("setPageSize(#{page_size})"), page_size]
           # Just reset s.ps, it's much more transparent...
-          [ set_page_size(per_page), per_page ]
+          [set_page_size(per_page), per_page]
         end
       end
-
 
       def successful?
         @errors.nil?
       end
 
-
       def documents
         @search.documents
       end
-
 
       # def start_over_link
       #   by_source_search_link('new_search' => true)
       # end
 
-
       def previous_page?
         current_page > 1 && total_pages > 1
       end
 
-
       def previous_page_path
         set_page_path(current_page - 1)
       end
-
 
       def next_page?
         # Why was this 20-page limit in effect?
@@ -313,11 +298,9 @@ module Spectrum
         page_size * (current_page + 1) <= 500
       end
 
-
       def next_page_path
         set_page_path(current_page + 1)
       end
-
 
       def set_page_path(page_num)
         by_source_search_modify('s.pn' => [total_pages, [page_num, 1].max].min)
@@ -326,8 +309,6 @@ module Spectrum
       def set_page_size(per_page)
         by_source_search_modify('s.ps' => [(per_page || 10), 50].min)
       end
-
-
 
       def total_items
         # handle error condition when @search object is nil
@@ -365,7 +346,6 @@ module Spectrum
         by_source_search_modify('s.cmd' => cmdText)
       end
 
-
       # Create a link based on the current @search query, but
       # modified by whatever's passed in (facets, checkboxes, sort, paging),
       # and by possible advanced-search indicator
@@ -377,26 +357,24 @@ module Spectrum
         # NEXT-903 - ALWAYS reset to seeing page number 1.
         # The only exception is the Next/Prev page links, which will
         # reset s.pn via the passed input param cmd, below
-        params.merge!( { 's.pn' => 1 } )
+        params.merge!('s.pn' => 1)
         # merge in whatever new command overlays current summon state
         params.merge!(cmd)
         # raise
         # add-in our CLIO interface-level params
-        params.merge!( {'form' => @params['form']} ) if @params['form']
-        params.merge!( {'search_field' => @search_field} ) if @search_field
-        params.merge!( {'q' => @params['q']} ) if @params['q']
+        params.merge!('form' => @params['form']) if @params['form']
+        params.merge!('search_field' => @search_field) if @search_field
+        params.merge!('q' => @params['q']) if @params['q']
         # pass along the built-up params to a source-specific URL builder
         by_source_search_link(params)
       end
 
-
       private
 
       def facet_value(field_name)
-        fvf = @search.query.facet_value_filters.detect { |x| x.field_name == field_name }
+        fvf = @search.query.facet_value_filters.find { |x| x.field_name == field_name }
         fvf ? fvf.value : nil
       end
-
 
       def by_source_search_link(params = {})
         case @source
@@ -408,8 +386,6 @@ module Spectrum
           articles_index_path(params)
         end
       end
-
     end
   end
 end
-
