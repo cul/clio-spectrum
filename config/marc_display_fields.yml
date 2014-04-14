@@ -466,7 +466,7 @@ subject_mesh:
         display: avxyz
 summary:
     -   tag: 520
-        display: a
+        display: abc
 superseded_by:
     -   tag: 785
         ind1: :all
