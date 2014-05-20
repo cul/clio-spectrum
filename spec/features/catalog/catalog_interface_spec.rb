@@ -266,6 +266,16 @@ describe 'Catalog Interface' do
     page.should have_text 'Title Les vacances de Maigret'
 
   end
+
+
+  # NEXT-1054 - In the single item display menu, change "Services" to "Requests"
+  it 'should show menu-option "Requests"', :js => true, :focus => true do
+    visit catalog_path('9041682')
+    # Should use consistent language
+    find('#show_toolbar').should have_text "Requests"
+    find('#clio_holdings').should have_text "Request:"
+  end
+
 end
 
 # email_catalog_path(:id => id)
