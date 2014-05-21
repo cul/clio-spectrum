@@ -15,7 +15,9 @@
 
       .item_number_allowance
         - fedora_id = document['id'].listify.first
-        = link_to document.get('title_display'), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
+        -# NEXT-1012 - use handle for item link in AC records
+        -# = link_to document.get('title_display'), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
+        = link_to document.get('title_display'), document['handle']
 
 
   / main container for doc partial view
