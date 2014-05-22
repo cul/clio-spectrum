@@ -1,3 +1,4 @@
+
 %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
 %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
 %title= h(@page_title || application_name)
@@ -6,6 +7,9 @@
 %link{:rel => "apple-touch-icon", :href => image_path("apple-touch-icon-144x144.png"), :type => "image/x-icon"}/
 
 = stylesheet_link_tag "application", :media => 'all'
+
+-# Insert any content passed to content_for(:head)
+= yield :head
 
 
 -# Move to bottom (_end_body)

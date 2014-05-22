@@ -5,18 +5,20 @@ source 'http://rubygems.org'
 gem 'rails', '~> 3.2'
 # gem 'rails', '~> 4.0'
 
-gem 'blacklight', '~>4.3.0'
+gem 'blacklight', '~>4.7.0'
 # gem 'blacklight', '~>4'
 
 gem 'devise_wind'
 # Local copy relaxes rails version requirements (allows 4.x)
 # gem "devise_wind", :path => "/Users/marquis/src/devise_wind"
 
-# Locally developed library code to interface with ClickTale analytics
-gem 'clicktale', path: "lib/clicktale"
+# Not being used, turn it off.
+# # Locally developed library code to interface with ClickTale analytics
+# gem 'clicktale', path: "lib/clicktale"
 
+gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :tag => 'v2.0.1'
 
-gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
+# gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
 # gem 'blacklight_range_limit', :github => 'projectblacklight/blacklight_range_limit'
 
 
