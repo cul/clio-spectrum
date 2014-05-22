@@ -1,2 +1,5 @@
-- if paginate_params(@response).num_pages > 1
-  .pagination= paginate_rsolr_response @response, :outer_window => 2, :theme => 'blacklight'
+-# advice from: https://groups.google.com/forum/#!topic/hydra-tech/4PeyyiZ8VNY
+-# - if paginate_params(@response).num_pages > 1
+- if @response.total_pages > 1
+  -# .pagination= paginate_rsolr_response @response, :outer_window => 2, :theme => 'blacklight'
+  .pagination= paginate @response, :outer_window => 2, :theme => 'blacklight'

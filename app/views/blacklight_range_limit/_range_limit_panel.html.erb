@@ -9,7 +9,9 @@
            (! params["range"][solr_field]["end"].blank?) ||
            params["range"][solr_field]["missing"]) %>
     <div class="current">
-      <span class="selected"><%= range_display(solr_field) %></span> <span class="count">(<%= format_num(@response.total) %>)</span> <%= link_to content_tag(:i, '', :class => 'icon-remove').html_safe, remove_range_param(solr_field), :class=>"remove" %>
+      <span class="selected"><%= range_display(solr_field) %></span>
+      <span class="count">(<%= number_with_delimiter(@response.total) %>)</span>
+      <%= link_to content_tag(:i, '', :class => 'icon-remove').html_safe, remove_range_param(solr_field), :class=>"remove" %>
     </div>
 
   <% end %>

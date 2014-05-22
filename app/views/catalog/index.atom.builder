@@ -1,5 +1,6 @@
 require 'base64'
-page_info = paginate_params(@response)
+# page_info = paginate_params(@response)
+page_info = @response
 
 xml.instruct!(:xml, :encoding => "UTF-8")
 

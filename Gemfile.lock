@@ -1,29 +1,29 @@
 GIT
   remote: git://github.com/projectblacklight/blacklight_range_limit.git
-  revision: 5173caeadd7c9687ee9f1cc1671f2528126763b2
-  tag: v2.0.1
+  revision: a69ce17f75018ff312acd9627322f98971a34785
+  tag: v2.1.0
   specs:
-    blacklight_range_limit (2.0.1)
+    blacklight_range_limit (2.1.0)
       blacklight (~> 4.0)
       jquery-rails
-      rails (~> 3.0)
+      rails (>= 3.0, < 5.0)
 
 GIT
   remote: git://github.com/whitequark/rack-utf8_sanitizer
-  revision: b3ca5bc8467ffc81f1b4b54c6587dbc453611466
+  revision: 4603ad79ab606fe10fab4d779e8ed3f0e3f8acf4
   specs:
-    rack-utf8_sanitizer (1.1.0)
+    rack-utf8_sanitizer (1.2.0)
       rack (~> 1.0)
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
-    actionmailer (3.2.17)
-      actionpack (= 3.2.17)
+    actionmailer (3.2.18)
+      actionpack (= 3.2.18)
       mail (~> 2.5.4)
-    actionpack (3.2.17)
-      activemodel (= 3.2.17)
-      activesupport (= 3.2.17)
+    actionpack (3.2.18)
+      activemodel (= 3.2.18)
+      activesupport (= 3.2.18)
       builder (~> 3.0.0)
       erubis (~> 2.7.0)
       journey (~> 1.0.4)
@@ -31,18 +31,18 @@ GEM
       rack-cache (~> 1.2)
       rack-test (~> 0.6.1)
       sprockets (~> 2.2.1)
-    activemodel (3.2.17)
-      activesupport (= 3.2.17)
+    activemodel (3.2.18)
+      activesupport (= 3.2.18)
       builder (~> 3.0.0)
-    activerecord (3.2.17)
-      activemodel (= 3.2.17)
-      activesupport (= 3.2.17)
+    activerecord (3.2.18)
+      activemodel (= 3.2.18)
+      activesupport (= 3.2.18)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
-    activeresource (3.2.17)
-      activemodel (= 3.2.17)
-      activesupport (= 3.2.17)
-    activesupport (3.2.17)
+    activeresource (3.2.18)
+      activemodel (= 3.2.18)
+      activesupport (= 3.2.18)
+    activesupport (3.2.18)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
     addressable (2.3.6)
@@ -114,7 +114,7 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.6.3)
+    coffee-script-source (1.7.0)
     colored (1.2)
     columnize (0.8.9)
     daemons (1.1.9)
@@ -125,7 +125,7 @@ GEM
       debugger-linecache (~> 1.2.0)
       debugger-ruby_core_source (~> 1.3.1)
     debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.3.1)
+    debugger-ruby_core_source (1.3.5)
     deprecation (0.1.0)
       activesupport
     devise (2.2.8)
@@ -267,7 +267,7 @@ GEM
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.4.5)
-    rack-attack (2.3.0)
+    rack-attack (4.0.1)
       rack
     rack-cache (1.2)
       rack (>= 0.4)
@@ -277,14 +277,14 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    rails (3.2.17)
-      actionmailer (= 3.2.17)
-      actionpack (= 3.2.17)
-      activerecord (= 3.2.17)
-      activeresource (= 3.2.17)
-      activesupport (= 3.2.17)
+    rails (3.2.18)
+      actionmailer (= 3.2.18)
+      actionpack (= 3.2.18)
+      activerecord (= 3.2.18)
+      activeresource (= 3.2.18)
+      activesupport (= 3.2.18)
       bundler (~> 1.0)
-      railties (= 3.2.17)
+      railties (= 3.2.18)
     rails_best_practices (1.15.4)
       activesupport
       awesome_print
@@ -295,9 +295,9 @@ GEM
       json
       require_all
       ruby-progressbar
-    railties (3.2.17)
-      actionpack (= 3.2.17)
-      activesupport (= 3.2.17)
+    railties (3.2.18)
+      actionpack (= 3.2.18)
+      activesupport (= 3.2.18)
       rack-ssl (~> 1.3.2)
       rake (>= 0.8.7)
       rdoc (~> 3.4)
