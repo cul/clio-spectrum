@@ -1,5 +1,6 @@
 # The CatalogController supports all catalog-based datasources:
 #   Catalog, Databases, E-Journal Titles, etc.
+# (plus AcademicCommons - which uses Blacklight against a diff. Solr)
 # This was originally based on the Blacklight CatalogController.
 require 'blacklight/catalog'
 
@@ -27,6 +28,7 @@ class CatalogController < ApplicationController
   # When a catalog search is submitted, this is the
   # very first point of code that's hit
   def index
+    # raise
     debug_timestamp('CatalogController#index() begin')
 
     # very useful - shows the execution order of before filters

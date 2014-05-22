@@ -1,5 +1,7 @@
 # encoding: UTF-8
 module SearchHelper
+
+
   # def show_all_search_boxes
   #   (controller.controller_name == 'search' && controller.action_name == 'index') || (params['q'].to_s.empty?  && params['s.q'].to_s.empty? && params['commit'].to_s.empty?)
   # end
@@ -18,6 +20,7 @@ module SearchHelper
   #   end
   # end
 
+
   def search_render_options(search, source)
     opts = { 'template' => @search_style }.
         merge(source['render_options'] || {}).
@@ -25,6 +28,7 @@ module SearchHelper
     opts['count'] = search['count'].to_i if search['count']
     opts
   end
+
 
   def dropdown_with_select_tag(name, field_options, field_default = nil, *html_args)
     dropdown_options = html_args.extract_options!
@@ -35,9 +39,11 @@ module SearchHelper
     result = render(partial: '/dropdown_select', locals: { name: name, field_options: field_options, dropdown_options: dropdown_options, field_default: field_default, dropdown_default: dropdown_default, select_options: select_options })
   end
 
+
   def display_search_boxes(source)
     render(partial: '/_search/search_box', locals: { source: source })
   end
+
 
   def display_advanced_search_form(source)
     options = DATASOURCES_CONFIG['datasources'][source]['search_box'] || {}
@@ -52,6 +58,7 @@ module SearchHelper
       return render '/spectrum/summon/advanced_search', source: source, path: source == 'articles' ? articles_index_path : newspapers_index_path
     end
   end
+
 
   def display_basic_search_form(source)
     options = DATASOURCES_CONFIG['datasources'][source]['search_box'] || {}
@@ -79,9 +86,13 @@ module SearchHelper
           summon_query_as_hash = @results.values.first.search.query.to_hash
         end
       end
+      # raise
       result += text_field_tag(:q,
-                               search_params[:q] || summon_query_as_hash['s.q'] || '',
-                               class: has_options, id: "#{source}_q", placeholder: options['placeholder'],
+                               # search_params[:q] || summon_query_as_hash['s.q'] || '',
+                               search_params[:q] || '',
+                               class: has_options,
+                               id: "#{source}_q",
+                               placeholder: options['placeholder'],
               # This focuses, but also selects-all-text in some browsers - yuck
               #   http://stackoverflow.com/questions/4740184
               # , autofocus: true
@@ -139,6 +150,7 @@ module SearchHelper
     result
   end
 
+
   # Override Blacklight's has_search_parameters to handle
   # our additional datasources
   def has_search_parameters?
@@ -152,6 +164,7 @@ module SearchHelper
     return true if params[:q]
 
     # Summon params are different...
+    # (although we're trying to remove 's.q' from params.)
     return true if !params['s.q'].blank?
     return true if !params['s.fq'].blank?
     return true if !params['s.ff'].blank?
@@ -160,12 +173,14 @@ module SearchHelper
     false
   end
 
+
   def display_start_over_link(source = @active_source)
     link_to content_tag(:i, '', class: 'icon-backward') + ' Start Over',
             datasource_landing_page_path(source),
             class: 'btn'
             # :class => 'btn btn-link'
   end
+
 
   # def search_box_style(search_box_type)
   #   # ADVANCED - hide basic
@@ -250,4 +265,8 @@ module SearchHelper
   #   end.join("").html_safe
   #
   # end
+
+
 end
+
+

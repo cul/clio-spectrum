@@ -27,7 +27,7 @@ datasources:
       advanced: true
       # search_category: newspapers
       search_fields:
-        s.q: Keywords
+        q: Keywords
         s.fq[AuthorCombined]: Author
         s.fq[TitleCombined]: Title
         s.fq[ISBN]: ISBN
@@ -42,7 +42,7 @@ datasources:
       advanced: true
       # search_category: articles
       search_fields:
-        s.q: Keywords
+        q: Keywords
         s.fq[AuthorCombined]: Author
         s.fq[TitleCombined]: Title
         # NEXT-581 - articles search by publication title

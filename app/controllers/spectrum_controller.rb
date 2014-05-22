@@ -134,38 +134,53 @@ class SpectrumController < ApplicationController
     # QuickSearch is only one of may possible Aggregates - so maybe this instead?
     # params['new_search'] = 'true' if @search_style == 'aggregate'
 
-    # seeing a "q" param means a submit directly from the basic search box
-    # OR from a direct link
-    # (instead of from a facet, or a sort/paginate link, or advanced search)
-    q_param = params['q']
-    if q_param
-      # which search field was selected from the drop-down?  default s.q
-      search_field = params['search_field'] ||= 's.q'
-      # LibraryWeb QuickSearch will pass us "search_field=all_fields",
-      # which means to do a Summon search against 's.q'
-      search_field = 's.q' if search_field == 'all_fields'
-
-      if search_field == 's.q'
-        # If s.q (default simple summon search)...
-        # move the CLIO-interface "q" to what Summon works with, "s.q"
-        params['s.q']            = q_param
-        session['search']['s.q'] = q_param
-      else
-        # If the search field is a filter query (s.fq), e.g. "s.fq[TitleCombined]"...
-        hash = Rack::Utils.parse_nested_query("#{search_field}=#{q_param}")
-        params.merge! hash
-        # explicitly set base query s.q to emtpy string
-        params['s.q'] = ''
-        session['search']['s.q'] = ''
-      end
-
-      # why knock these out?
-      # So that this isn't passed along in the built navigation URLs,
-      # which interferes when we try to "X" our keyword term.
-      params.delete('q')
-      # This we want to leave in (don't delete), so our selected field remains?
-      # params.delete('search_field')
+    # 
+    # New approach, 5/14 - params will always be "q".  
+    # "s.q" is internal only to the Summon controller logic
+    if params['s.q']
+      # s.q ovewrites q, unless 'q' is given independently
+      params['q'] = params['s.q'] unless params['q']
+      params.delete('s.q')
     end
+    # 
+    #   # LibraryWeb QuickSearch will pass us "search_field=all_fields",
+    #   # which means to do a Summon search against 's.q'
+    if params['q'] && params['search_field'] && (params['search_field'] != 'all_fields')
+      hash = Rack::Utils.parse_nested_query("#{params['search_field']}=#{params['q']}")
+      params.merge! hash
+    end
+    #  # seeing a "q" param means a submit directly from the basic search box
+    #  # OR from a direct link
+    #  # (instead of from a facet, or a sort/paginate link, or advanced search)
+    # q_param = params['q']
+    # if q_param
+    #   # which search field was selected from the drop-down?  default s.q
+    #   search_field = params['search_field'] ||= 's.q'
+    #   # LibraryWeb QuickSearch will pass us "search_field=all_fields",
+    #   # which means to do a Summon search against 's.q'
+    #   search_field = 's.q' if search_field == 'all_fields'
+    # 
+    #   if search_field == 's.q'
+    #     # If s.q (default simple summon search)...
+    #     # move the CLIO-interface "q" to what Summon works with, "s.q"
+    #     params['s.q']            = q_param
+    #     session['search']['s.q'] = q_param
+    #   else
+    #     # If the search field is a filter query (s.fq), e.g. "s.fq[TitleCombined]"...
+    #     hash = Rack::Utils.parse_nested_query("#{search_field}=#{q_param}")
+    #     params.merge! hash
+    #     # explicitly set base query s.q to emtpy string
+    #     params['s.q'] = ''
+    #     session['search']['s.q'] = ''
+    #   end
+    # 
+    #   # why knock these out?
+    #   # So that this isn't passed along in the built navigation URLs,
+    #   # which interferes when we try to "X" our keyword term.
+    #   params.delete('q')
+    #   # This we want to leave in (don't delete), so our selected field remains?
+    #   # params.delete('search_field')
+    # end
 
     if params['pub_date']
       params['s.cmd'] = "setRangeFilter(PublicationDate,#{params['pub_date']['min_value']}:#{params['pub_date']['max_value']})"

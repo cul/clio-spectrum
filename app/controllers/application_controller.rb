@@ -54,7 +54,7 @@ class ApplicationController < ActionController::Base
         chosen_line = line if number == line_to_pick
       end
       params['q'] = chosen_line
-      params['s.q'] = chosen_line
+      # params['s.q'] = chosen_line
     end
   end
 
@@ -401,7 +401,7 @@ class ApplicationController < ActionController::Base
 
     @params['s.cmd'] ||= "setFetchIDs(#{id_array.join(',')})"
 
-    @params['s.q'] ||= ''
+    # @params['s.q'] ||= ''
     @params['s.fq'] ||= ''
     @params['s.role'] ||= ''
 
