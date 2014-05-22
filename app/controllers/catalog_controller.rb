@@ -74,7 +74,7 @@ class CatalogController < ApplicationController
       #     :atom,
       #     url_for(params.merge(format: 'atom')), title: 'Atom for results')
       # }
-      
+
       # runs ApplicationController.blacklight_search() using the params,
       # returns the engine with embedded results
       search_engine = blacklight_search(params)
@@ -92,8 +92,11 @@ class CatalogController < ApplicationController
     warning = search_config ? search_config['warning'] : nil
 
     respond_to do |format|
-      format.html do save_current_search_params
-                     render locals: { warning: warning, response: @response },
+      # Deprecation notice says "save_current_search_params" is now automatic
+      # format.html do save_current_search_params
+      #                render locals: { warning: warning, response: @response },
+      #                       layout: 'quicksearch' end
+      format.html do render locals: { warning: warning, response: @response },
                             layout: 'quicksearch' end
       format.rss  { render layout: false }
       format.atom { render layout: false }

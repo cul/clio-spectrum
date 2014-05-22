@@ -101,7 +101,7 @@ describe 'Simple query should retrieve results ', js: true do
 
 end
 
-describe 'Switching between data-source should work', js: true do
+describe 'Switching between data-source', js: true do
 
   it 'should carry forward simple search to each datasource', XXfocus: true do
     visit root_path
