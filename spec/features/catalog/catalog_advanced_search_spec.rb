@@ -95,7 +95,51 @@ describe 'Catalog Advanced Search' do
     end
 
     page.should have_css('.result.document')
-
   end
+
+
+  # Support advanced/fielded ISBN searches to hit on 020$z, "Canceled/invalid ISBN"
+  # NEXT-1050 - Search for invalid ISBN
+  # http://www.loc.gov/marc/bibliographic/bd020.html
+  it 'should allow advanced ISBN search against "invalid" ISBN', js: true do
+    isbn_z = '9789770274208'
+
+    visit root_path
+    within('li.datasource_link[source="catalog"]') do
+      click_link('Catalog')
+    end
+
+    find('.search_box.catalog .advanced_search_toggle').click
+
+    within '.landing_page.catalog .advanced_search' do
+      select('ISBN', from: 'adv_5_field')
+      fill_in 'adv_5_value', with: isbn_z
+      find('button[type=submit]').click
+    end
+
+    find('.constraint-box').should have_content('ISBN: ' + isbn_z)
+
+    title = 'اليوم السابع : الحرب المستحيلة .. حرب الاستنزاف'
+    page.should have_text "Title #{title}"
+  end
+
+  # NEXT-1050, continued, for basic/fielded search...
+  it 'should allow basic fielded ISBN search against "invalid" ISBN', js: true, focus: true do
+    isbn_z = '201235125'
+
+    visit catalog_index_path
+    find('btn', text: "All Fields").click
+    within('.search_row') do
+      find('li', text: "ISBN").click
+    end
+    fill_in 'q', with: isbn_z
+
+    # this time, click the little "search" icon
+    find('i.icon-search').click
+
+    find('.constraint-box').should have_content('ISBN: ' + isbn_z)
+    page.should have_text "Géographie du Territoire de Belfort".mb_chars.normalize(:d)
+  end
+
 
 end
