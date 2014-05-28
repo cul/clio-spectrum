@@ -49,7 +49,7 @@ describe 'Academic Commons', focus: false do
     # We can't validate remote websites without adding extra gems to our
     # testing environment.
   end
-  
+
   # NEXT-1012 - use handle for item link in AC records
   it 'should link items to identifiers, not AC website', js: true do
     visit quicksearch_index_path('q' => 'portuguese')
@@ -60,7 +60,7 @@ describe 'Academic Commons', focus: false do
         }
       end
     end
-    
+
   end
 
 end

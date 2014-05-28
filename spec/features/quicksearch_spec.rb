@@ -107,7 +107,7 @@ describe 'QuickSearch landing page' do
       find('.category_title').should have_text "Dissertations from Columbia's Digital Repository"
     end
 
-    # DISSERTATIONS
+    # EBOOKS
     visit ebooks_index_path('q' => 'horse')
     within('.results_header[data-source=catalog_ebooks]') do
       find('img').click
