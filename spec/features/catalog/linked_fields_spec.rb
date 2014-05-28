@@ -2,9 +2,9 @@
 
 require 'spec_helper'
 
-describe 'Linked field-values in single-item display should work', focus: false do
+describe 'Linked field-values in single-item display', focus: false do
 
-  it 'including links with diacritics and trailing punctuation' do
+  it 'should work for links with diacritics and trailing punctuation' do
     # setup UTF-8 Decomposed form string constants for our various targets
     # the title:
     mqis_decomposed = 'Mādhā qāla al-Imām al-Shaʻrāwī'.mb_chars.normalize(:d)
@@ -31,7 +31,7 @@ describe 'Linked field-values in single-item display should work', focus: false 
   end
 
   # NEXT-526 - clicking on hyperlinked editor's name returns null result
-  it "including RDA roles, such as 'editor'" do
+  it "should work for RDA roles, such as 'editor'" do
     test_bib = '9720272'
     test_title = '50 Jahre Schaubühne 1962-2012'.mb_chars.normalize(:d)
     test_link = 'Schitthelm, Jürgen, editor.'.mb_chars.normalize(:d)
@@ -51,7 +51,7 @@ describe 'Linked field-values in single-item display should work', focus: false 
   end
 
   # NEXT-546 - author link is not finding all the other books by this author
-  it "including RDA roles, such as 'author'" do
+  it "should work for RDA roles, such as 'author'" do
     test_bib = '9398081'
     test_title = 'The long and short of it'
     test_link = 'Morson, Gary Saul, 1948-, author.'
@@ -72,7 +72,7 @@ describe 'Linked field-values in single-item display should work', focus: false 
   end
 
   # NEXT-560 - ampersands in author search cause searches to fail
-  it 'including ampersands and trailing punctuation' do
+  it 'should work with ampersands and trailing punctuation' do
     test_bib = '787284'
     test_title = '180 East 73rd Street Building, Borough of Manhattan'
     test_link = 'William Schickel & Co.'
@@ -93,7 +93,7 @@ describe 'Linked field-values in single-item display should work', focus: false 
   end
 
   # NEXT-561 - Some names with diacritics continue to fail in CLIO Beta
-  it 'including ampersands and trailing punctuation' do
+  it 'should work with ampersands and trailing punctuation' do
     test_bib = '7030828'
     test_title = 'Iranian DVD oral history collection'
     test_link_array = [
@@ -127,7 +127,7 @@ describe 'Linked field-values in single-item display should work', focus: false 
   end
 
   # NEXT-771 - Author link is not finding other resource by the same author
-  it "including RDA roles, such as 'author'" do
+  it "should work for RDA roles, such as 'author'" do
     test_bib = '10288244'
     test_title = 'Islamic books'
     test_link = 'Riedel, Dagmar A., author.'
@@ -148,7 +148,7 @@ describe 'Linked field-values in single-item display should work', focus: false 
   end
 
   # NEXT-862 - author search/facet isn't working
-  it 'including trailing punctuation' do
+  it 'should work with trailing punctuation' do
     test_bib = '327686'
     test_title = 'The family in the Soviet system'
     test_link = 'Juviler, Peter H.'
@@ -180,6 +180,28 @@ describe 'Linked field-values in single-item display should work', focus: false 
     page.should_not have_text('No results')
     page.should_not have_text('1 of 5')
     find('#documents').should have_text 'Lo specchio acceso : narrativa italiana'
+  end
+
+  # NEXT-1066 - Series link on this record does not retrieve other records in CLIO.
+  it "should support Series links with apostrophe-like characters" do
+    visit catalog_path(2754188)
+    page.should have_text "Palestine > History"
+    page.should have_text "Jerusalem, Magnes Press, Hebrew University"
+
+    # field-label, white-space, field-value
+    series_decomposed = 'Sidrat meḥḳarim ʻal shem Uriʼel Hed.'.mb_chars.normalize(:d)
+    page.should have_text(series_decomposed)
+
+    click_link(series_decomposed)
+    page.should have_text "You searched for: Series: #{series_decomposed}"
+    page.should_not have_text('No results')
+    page.should have_text('1 - 4 of 4')
+    # list out four title snippets to look for...
+    find('#documents').should have_text 'Hityashvut ha-Germanim'
+    find('#documents').should have_text '18th century; patterns of government'
+    find('#documents').should have_text '1918-1929'
+    title_4 = 'ha-ʻUlama u-veʻayot dat ba-ʻolam ha-Muslemi : meḥḳarim le-zekher Uriʾel Hed'
+    find('#documents').should have_text title_4.mb_chars.normalize(:d)
   end
 
 end
