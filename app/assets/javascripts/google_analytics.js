@@ -62,7 +62,7 @@ $(document).ready(function() {
       var label = $(this).data("ga-label") || text;
 
       var href_at_click = $(this).attr("href");
-      console.log("click! href_at_click=["+href_at_click+"]")
+      // console.log("click! href_at_click=["+href_at_click+"]")
 
       event.preventDefault(); // don't open the link yet
 

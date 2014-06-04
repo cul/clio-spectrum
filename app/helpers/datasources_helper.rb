@@ -203,7 +203,8 @@ module DatasourcesHelper
       when 'databases'
         databases_index_path(q: query)
       when 'articles'
-        articles_index_path('s.q' => query, 'new_search' => true)
+        # articles_index_path('s.q' => query, 'new_search' => true)
+        articles_index_path('q' => query, 'new_search' => true)
       when 'journals'
         journals_index_path(q: query)
       when 'ebooks'

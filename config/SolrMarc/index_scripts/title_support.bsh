@@ -36,6 +36,20 @@ public String getFilingTitle(Record record)
   return title_245a;
 }
 
+// Just like the above, but with 245b (subtitle) appended
+public String getFilingTitleFull(Record record)
+{
+  String filing_title = getFilingTitle(record);
+  if (filing_title == null) return null;
+
+  String title_245b = indexer.getFirstFieldVal(record, "245b");
+  if (title_245b == null) return filing_title;
+  if ( title_245b.length() == 0) return filing_title;
+
+  // Include a space between fields!
+  return filing_title.concat(" " + title_245b);
+}
+
 
 
 

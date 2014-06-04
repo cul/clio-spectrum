@@ -1,5 +1,6 @@
 # The CatalogController supports all catalog-based datasources:
 #   Catalog, Databases, E-Journal Titles, etc.
+# (plus AcademicCommons - which uses Blacklight against a diff. Solr)
 # This was originally based on the Blacklight CatalogController.
 require 'blacklight/catalog'
 
@@ -27,6 +28,7 @@ class CatalogController < ApplicationController
   # When a catalog search is submitted, this is the
   # very first point of code that's hit
   def index
+    # raise
     debug_timestamp('CatalogController#index() begin')
 
     # very useful - shows the execution order of before filters
@@ -62,14 +64,18 @@ class CatalogController < ApplicationController
     # (i.e., if show-landing-pages is false)
     unless @show_landing_pages
 
-      extra_head_content <<
-        view_context.auto_discovery_link_tag(
-          :rss,
-          url_for(params.merge(format: 'rss')), title: 'RSS for results')
-      extra_head_content <<
-        view_context.auto_discovery_link_tag(
-          :atom,
-          url_for(params.merge(format: 'atom')), title: 'Atom for results')
+      # I don't think these are actually working.  Turn them off.
+      # content_for(:head) { 
+      #   view_context.auto_discovery_link_tag(
+      #     :rss,
+      #     url_for(params.merge(format: 'rss')), title: 'RSS for results')
+      # }
+      # 
+      # content_for(:head) { 
+      #   view_context.auto_discovery_link_tag(
+      #     :atom,
+      #     url_for(params.merge(format: 'atom')), title: 'Atom for results')
+      # }
 
       # runs ApplicationController.blacklight_search() using the params,
       # returns the engine with embedded results
@@ -88,8 +94,11 @@ class CatalogController < ApplicationController
     warning = search_config ? search_config['warning'] : nil
 
     respond_to do |format|
-      format.html do save_current_search_params
-                     render locals: { warning: warning, response: @response },
+      # Deprecation notice says "save_current_search_params" is now automatic
+      # format.html do save_current_search_params
+      #                render locals: { warning: warning, response: @response },
+      #                       layout: 'quicksearch' end
+      format.html do render locals: { warning: warning, response: @response },
                             layout: 'quicksearch' end
       format.rss  { render layout: false }
       format.atom { render layout: false }

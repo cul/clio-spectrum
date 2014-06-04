@@ -15,7 +15,12 @@ module AdvancedHelper
   end
 
   def standard_hidden_keys_for_search
-    search_as_hidden_fields(omit_keys: [:q, :search_field, :qt, :page, :categories, :advanced_operator, :adv, :advanced]).html_safe
+    # advice from:  https://groups.google.com/forum/#!topic/hydra-tech/4PeyyiZ8VNY
+    # search_as_hidden_fields(omit_keys: [:q, :search_field, :qt, :page, :categories, :advanced_operator, :adv, :advanced]).html_safe
+    omit = [:q, :search_field, :qt, :page, :categories,
+            :advanced_operator, :adv, :advanced]
+    # http://apidock.com/rails/Hash/except#1507-Passing-an-array-of-keys-to-exclude-
+    render_hash_as_hidden_fields(params_for_search.except(*omit))
   end
 
 # Unused?

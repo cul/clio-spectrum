@@ -210,7 +210,8 @@ module ArticlesHelper
     hash = {}
 # raise
     if summon_query_as_hash['s.q']
-      hash['s.q'] = summon_query_as_hash['s.q']
+      # hash['s.q'] = summon_query_as_hash['s.q']
+      hash['q'] = summon_query_as_hash['s.q']
     end
 
     if summon_query_as_hash['s.fq']

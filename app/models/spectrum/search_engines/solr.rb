@@ -557,6 +557,11 @@ module Spectrum
                                     label: 'Title A-Z'
               config.add_sort_field 'title_sort desc, pub_date_sort desc',
                                     label: 'Title Z-A'
+              # NEXT-1046 - Sort databases by acquisition date
+              config.add_sort_field 'acq_dt asc, title_sort asc',
+                                    label: 'Acquired Earliest'
+              config.add_sort_field 'acq_dt desc, title_sort asc',
+                                    label: 'Acquired Latest'
 
               add_search_fields(config, 'title',  'author', 'subject')
 

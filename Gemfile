@@ -1,28 +1,40 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 # FIXED:  Can't move up to 4.0 series yet - blacklight_range_limit has dependency on 3
 # but, devise_wind still has Rails 3.2 dependencies.
 gem 'rails', '~> 3.2'
 # gem 'rails', '~> 4.0'
 
-gem 'blacklight', '~>4.3.0'
+
+#  ###  BLACKLIGHT (begin)  ###
+
+# gem 'blacklight', '~>5.0.0'
+gem 'blacklight', '~>4.7.0'
 # gem 'blacklight', '~>4'
+
+# when we move to 5.x, uncomment this
+# gem 'blacklight-marc'
+
+
+gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :tag => 'v2.1.0'
+
+# gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
+# gem 'blacklight_range_limit', :github => 'projectblacklight/blacklight_range_limit'
+
+# Sorry, have to nix unapi.  Switch to COINS everywhere, so that
+# single page cross-datasource citation works (QuickSearch, Saved Lists)
+# gem 'blacklight_unapi', ">= 0.0.3"
+
+#  ###  BLACKLIGHT (end)  ###
+
 
 gem 'devise_wind'
 # Local copy relaxes rails version requirements (allows 4.x)
 # gem "devise_wind", :path => "/Users/marquis/src/devise_wind"
 
-# Locally developed library code to interface with ClickTale analytics
-gem 'clicktale', path: "lib/clicktale"
-
-
-gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
-# gem 'blacklight_range_limit', :github => 'projectblacklight/blacklight_range_limit'
-
-
-# Sorry, have to nix unapi.  Switch to COINS everywhere, so that
-# single page cross-datasource citation works (QuickSearch, Saved Lists)
-# gem 'blacklight_unapi', ">= 0.0.3"
+# Not being used, turn it off.
+# # Locally developed library code to interface with ClickTale analytics
+# gem 'clicktale', path: "lib/clicktale"
 
 gem 'json'
 

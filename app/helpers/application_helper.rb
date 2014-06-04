@@ -26,7 +26,8 @@ module ApplicationHelper
   # end
 
   def determine_search_params
-    if params['action'] = 'show'
+    # raise
+    if params['action'] == 'show'
       return session['search'] || {}
     else
       return params

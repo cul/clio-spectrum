@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'QuickSearch landing page""' do
+describe 'QuickSearch landing page' do
 
 # No, it shouldn't.  The home page should show ONLY the QuickSearch search box.
   # it "should display search fields for archives, catalog, new arrivals, journals" do
@@ -67,6 +67,58 @@ describe 'QuickSearch landing page""' do
       click_link "View all"
     end
     page.should have_text "You searched for: public"
+  end
+
+
+  # NEXT-849 - Quicksearch & Other Data Sources: "i" Information Content
+  # NEXT-1048 - nothing happend when you click on the little round "i"
+  it "should show popover i-button text in aggregates", js: true do
+    # QUICKSEARCH
+    visit quicksearch_index_path('q' => 'horse')
+    within('.results_header[data-source=catalog]') do
+      find('img').click
+      find('.category_title').should have_text 'Contains library, books, videos, local resources'
+    end
+    within('.results_header[data-source=articles]') do
+      find('img').click
+      find('.category_title').should have_text "Contains articles, eBooks, electronic resources"
+    end
+    within('.results_header[data-source=academic_commons]') do
+      find('img').click
+      find('.category_title').should have_text 'Digital Repository of Research'
+    end
+    within('.results_header[data-source=library_web]') do
+      find('img').click
+      find('.category_title').should have_text 'Searches the libraries\' website'
+    end
+
+    # DISSERTATIONS
+    visit dissertations_index_path('q' => 'horse')
+    within('.results_header[data-source=catalog_dissertations]') do
+      find('img').click
+      find('.category_title').should have_text "Dissertations, Thesises from Columbia's Catalog"
+    end
+    within('.results_header[data-source=dissertations]') do
+      find('img').click
+      find('.category_title').should have_text "Dissertations from Columbia's Articles Database"
+    end
+    within('.results_header[data-source=ac_dissertations]') do
+      find('img').click
+      find('.category_title').should have_text "Dissertations from Columbia's Digital Repository"
+    end
+
+    # EBOOKS
+    visit ebooks_index_path('q' => 'horse')
+    within('.results_header[data-source=catalog_ebooks]') do
+      find('img').click
+      find('.category_title').should have_text "eBooks from Catalog"
+    end
+    within('.results_header[data-source=ebooks]') do
+      find('img').click
+      find('.category_title').should have_text "eBooks from Summon's repository of digitzed books"
+    end
+
+
   end
 
 

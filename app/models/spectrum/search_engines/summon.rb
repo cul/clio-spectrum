@@ -69,11 +69,15 @@ module Spectrum
         @debug_mode = options.delete('debug_mode') || false
         @debug_entries = Hash.arbitrary_depth
 
+        # Map the 'q' CGI param to a 's.q' internal Summon param
+        @params['s.q'] = options.delete('q')
+
         @params.merge!(options)
         @params.delete('utf8')
 
-        @params['s.cmd'] ||= ''
+        # assure these are empty strings, if not passed via CGI params
         @params['s.q'] ||= ''
+        @params['s.cmd'] ||= ''
         @params['s.fq'] ||= ''
 
         @params['s.role'] = options.delete('authorized') ? 'authenticated' : ''

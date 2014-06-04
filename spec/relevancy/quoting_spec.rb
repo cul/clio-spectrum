@@ -10,6 +10,9 @@ describe "Apostrophe-like character searching" do
     "\xCA\xB9",      # MODIFIER LETTER PRIME
     "\xCA\xBE",      # MODIFIER LETTER RIGHT HALF RING
     "\xCA\xBF",      # MODIFIER LETTER LEFT HALF RING
+    # 5/2014 - yet another possibility, bib 2754188,  
+    # ticket NEXT-1066 (Series link does not retrieve...)
+    "\xCA\xBB",      # MODIFIER LETTER TURNED COMMA
     # this fails!  WDF doesn't treat it like the others.
     # So far, we have no example MARC records which use this, and no
     # requests to support it, so leave it as is.
@@ -34,6 +37,7 @@ describe "Apostrophe-like character searching" do
       resp.should include('2043563')
     end
   end
+
 end
 
 
@@ -156,6 +160,7 @@ describe 'NEXT-1034: Queries with embedded single-quotes' do
     resp = solr_resp_doc_ids_only('q' => '"' + query + '"')
     resp.should include('3108332')
   end
+
 end
 
 
