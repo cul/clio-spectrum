@@ -76,7 +76,7 @@ module SearchHelper
     result = ''.html_safe
     # if show_all_search_boxes || @active_source == source
     if @active_source == source
-      has_options = (options['search_type'].in?('blacklight', 'summon') ? 'search_q with_options' : 'search_q without_options')
+      has_options = options['search_type'].in?('blacklight', 'summon') ? 'search_q with_options' : 'search_q without_options'
 
       # BASIC SEARCH INPUT BOX
       summon_query_as_hash = {}
@@ -90,7 +90,7 @@ module SearchHelper
       result += text_field_tag(:q,
                                # search_params[:q] || summon_query_as_hash['s.q'] || '',
                                search_params[:q] || '',
-                               class: has_options,
+                               class: "#{has_options} form-control",
                                id: "#{source}_q",
                                placeholder: options['placeholder'],
               # This focuses, but also selects-all-text in some browsers - yuck
@@ -130,7 +130,7 @@ module SearchHelper
       end
 
       # "Search" button
-      result += content_tag(:button, '<i class="icon-search icon-white"></i> <span class="visible-desktop">Search</span>'.html_safe, type: 'submit', class: 'btn basic_search_button btn-primary', name: 'commit', value: 'Search')
+      result += content_tag(:button, '<span class="glyphicon glyphicon-search icon-white"></span> <span class="visible-lg">Search</span>'.html_safe, type: 'submit', class: 'btn basic_search_button btn-primary', name: 'commit', value: 'Search')
 
       # link to advanced search
       if options['search_type'].in?('summon', 'blacklight') && options['advanced']
@@ -175,9 +175,9 @@ module SearchHelper
 
 
   def display_start_over_link(source = @active_source)
-    link_to content_tag(:i, '', class: 'icon-backward') + ' Start Over',
+    link_to content_tag(:span, '', class: 'glyphicon glyphicon-backward') + ' Start Over',
             datasource_landing_page_path(source),
-            class: 'btn'
+            class: 'btn btn-default'
             # :class => 'btn btn-link'
   end
 

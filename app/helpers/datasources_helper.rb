@@ -98,11 +98,15 @@ module DatasourcesHelper
   end
 
   def sidebar_span(source = @active_source)
-    source_has_facets?(source) ? 'span3' : 'span2_5'
+    # source_has_facets?(source) ? 'col-md-3' : 'span2_5'
+    # Our local custom span2_5/span9_5 broke with Bootstrap 3
+    'col-md-3'
   end
 
   def main_span(source = @active_source)
-    source_has_facets?(source) ? 'span9' : 'span9_5'
+    # source_has_facets?(source) ? 'col-md-9' : 'span9_5'
+    # Our local custom span2_5/span9_5 broke with Bootstrap 3
+    'col-md-9'
   end
 
   # Will there be any facets shown for this datasource?

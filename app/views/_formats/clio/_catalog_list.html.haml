@@ -3,8 +3,8 @@
 / container for a SINGLE doc
 .result.document{class: render_document_class(document), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
-  .row-fluid
-    .title.span12
+  .row
+    .title.col-md-12
 
       %span.coins_wrapper
         <!-- COinS -->
@@ -18,10 +18,10 @@
 
   / main container for doc partial view
 
-  .row-fluid
+  .row
 
-    .details.span10
+    .details.col-md-10
       = render :partial => "/_formats/clio/catalog_list_details", :locals => {:document => document}
 
-    .doc_bookjacket.span2
+    .doc_bookjacket.col-md-2
       =image_tag("spacer.png", :class => "list_view bookjacket " + extract_standard_bibkeys(document).listify.collect { |x| "id_" + x.to_s.gsub(':','')}.join(" "))

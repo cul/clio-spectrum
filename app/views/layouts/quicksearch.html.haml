@@ -11,14 +11,14 @@
 
     -# #trigger
     = render :partial => "/top_navigation_bar"
-    #outer-container.container-fluid
+    #outer-container.container
       #page
 
         = render :partial => "/header_with_search"
 
-        #bd.row-fluid
+        #bd.row
           .sidebar.hidden-print{:class => sidebar_span}
-            .search_logo.hidden-phone
+            .search_logo.hidden-sm
               = link_to "CLIO", root_path, :class => "nav_title search_bar_logo"
             #sources
               = clio_sidebar_items.join('').html_safe
@@ -39,10 +39,10 @@
     -# "Busy" box, loaded hidden, made visible when user-triggered action
     -# will take a few moments to load a new page.
     -# Used by, e.g., NEXT-836 - Can't uncheck multiple options at the same time
-    .busy.row-fluid
-      .span4
+    .busy.row
+      .col-md-4
         %img.busy-image{:src => image_path("ajax-loader.gif")}
-      .span8
+      .col-md-8
         .busy-text Updating...
 
     = render :partial => "/layouts/common_tail"

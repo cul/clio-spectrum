@@ -12,8 +12,8 @@
   .title
     %h4= document_heading.listify.join("")
 
-  .row-fluid
-    .info.span6
+  .row
+    .info.col-md-6
       %span.coins_wrapper
         / COinS
         %span.Z3988{ :title => document.export_as_openurl_ctx_kev(document_partial_name(document)).html_safe }
@@ -32,11 +32,11 @@
     -# Database Notes and Alerts
     -# html_safe true, so that ERC can embed HTML links in their alert msgs
     - if document.get("_active_item_alert_count") && document.get("_active_item_alert_count") > 0
-      .span6.well.well-smallx
+      .col-md-6.well.well-smallx
         -# "alert" alerts
         - document.get("_item_alerts")[:alert].each do | alert |
           - if alert.active?
-            .span12.alert_alert
+            .col-md-12.alert_alert
               = "ALERT:  #{alert[:message]}".html_safe
 
         -# "access requirements" alerts
@@ -45,7 +45,7 @@
             = add_row(ItemAlert::ALERT_TYPES['access_requirements'], alert[:message], options = {:html_safe => true})
 
 
-    .span6.well.holdings-container
+    .col-md-6.well.holdings-container
       -# this partial renders, in turn, static html for holdings-online,
       -# holdings-display (Voyager), holdings-google, and holdings-hathi
       = render "_formats/clio/catalog_show_holdings", :document => document

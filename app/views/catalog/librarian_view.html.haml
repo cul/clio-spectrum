@@ -7,13 +7,13 @@
 = render "_formats/clio/catalog_show_toolbar", :document => @document
 
 
-.row-fluid
+.row
 
-  #marc_download_links.span6
+  #marc_download_links.col-md-6
     %strong= "Download as:"
     %span= link_to "MARCXML", catalog_path(@document.id, :format => "marcxml")
     %span= link_to "MARC21", catalog_path(@document.id, :format => "marc")
-  #patron_view_link.span6
+  #patron_view_link.col-md-6
     %strong.btn= link_to "Return to Patron View", catalog_path(@document.id)
     
 

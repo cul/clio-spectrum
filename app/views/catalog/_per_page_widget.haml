@@ -1,5 +1,5 @@
 
-%li.dropdown.hidden-phone#display-dropdown
+%li.dropdown.hidden-sm#display-dropdown
 
   %a.dropdown-toggle{:href=>"#", :data=>{:toggle => "dropdown"}}
     Display Options
@@ -10,6 +10,6 @@
       %li= catalog_per_page_link(per_page)
 
     -if viewstyles = DATASOURCES_CONFIG['datasources'][@active_source]['viewstyles']
-      %li.divider
+      %li.nav-divider
       -viewstyles.each do |viewstyle, label|
         %li= viewstyle_link(viewstyle, label)

@@ -20,18 +20,20 @@ body {
 body.blank_layout {
   padding-top: 10px;
 }
+
 #outer-container {
   margin-left: 10px;
   margin-right: 20px;
 }
+
 #crowndown a.menu,
 #crowndown-nosearch a.menu {
   background: transparent url(ldpd-toolkit/crown-bts-24x24.png) no-repeat 4px 22% !important;
 }
-#topnavbar .navbar-inner {
+#topnavbar .container {
   padding: 0!important;
 }
-.navbar-inner {
+.container {
   /* reinstate the Bootstrap white navbar, that LDPD had made shaddowy blue */
   background-color: #f9f9f9;
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);

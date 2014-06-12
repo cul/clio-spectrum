@@ -8,7 +8,7 @@
 
   <div class="modal-body">
     <%= render :partial=>'/flash_msg' %>
-    <div class="control-group">
+    <div class="form-group">
       <label class="control-label" for="to">
         <%= t('blacklight.email.form.to') %>
       </label>
@@ -17,7 +17,7 @@
         <%= text_field_tag :to, params[:to] %><br/>
       </div>
     </div>
-    <div class="control-group">
+    <div class="form-group">
       <label class="control-label" for="message">
         <%= t('blacklight.email.form.message') %>
       </label>

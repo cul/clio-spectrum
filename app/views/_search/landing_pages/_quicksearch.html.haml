@@ -1,7 +1,7 @@
 = display_search_boxes('quicksearch')
 
-.row-fluid
-  .landing_main.span8
+.row
+  .landing_main.col-md-8
     .title Quicksearch
 
     = render partial: '/datasource_warning', locals: {warning: warning}
@@ -13,13 +13,13 @@
       %li #{datasource_switch_link('Academic Commons', 'academic_commons')} (digital repository of Columbia research)
       %li #{datasource_switch_link('Libraries Website', 'library_web')}
 
-  .landing_side.span4
+  .landing_side.col-md-4
     .well.sidebar-nav
       .nav
         %ul.nav.nav-list
           %li.nav-header Guide
           %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/clio/guides/quicksearch-guide/", :target => "_blank"
-          %li.divider
+          %li.nav-divider
 
         %ul.nav.nav-list
           %li.nav-header Related Links

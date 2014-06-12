@@ -8,4 +8,4 @@
     .result_count
       -# NEXT-1027 - Relabel 'All #### results' on Quicksearch
       - label = title.eql?("Libraries Website") ? 'View' : 'View and filter'
-      %strong= link_to "#{label} all <span class='visible-desktop'>#{number_with_delimiter(result.total_items)}</span> results".html_safe, result.search_path
+      %strong= link_to "#{label} all <span class='hidden-sm'>#{number_with_delimiter(result.total_items)}</span> results".html_safe, result.search_path

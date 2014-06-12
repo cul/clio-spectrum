@@ -4,5 +4,5 @@
   %label{ :for => "item_select_#{item_id}", :class => 'no-bottom-space' }
     %input{ :type => "checkbox", :id => "item_select_#{item_id}", :class => 'item_select_checkbox hidden-print' }
     -# NEXT-930 - Number results in Index page
-    %small.muted= "#{counter ||= ''}."
+    %small.text-muted= "#{counter ||= ''}."
   

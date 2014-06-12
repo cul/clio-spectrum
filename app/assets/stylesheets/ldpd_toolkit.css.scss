@@ -335,7 +335,7 @@ a.thumbnail:hover {
   padding-left: 0;
   padding-right: 0;
 }
-#culnav .navbar-inner {
+#culnav .container {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -382,7 +382,7 @@ ul#culnav-main > li > a b {
   border-top-color: #555555;
   border-bottom-color: #555555;
 }
-.navbar-inner {
+.container {
   padding-left: 10px;
   min-height: 28px;
   background: #eeeeff; 
@@ -687,7 +687,7 @@ ul#culnav-main > li > a b {
 .hero-search a.submitss {
   font-size: 110%;
 }
-.hero-search .form-search {
+.hero-search .form-inline {
   margin: 0;
   padding: 0;
 }
@@ -1002,7 +1002,7 @@ a.nodec {
   */
 
   }
-  #culnav .navbar-inner {
+  #culnav .container {
     position: relative;
   }
   #culnav #culnav-main {

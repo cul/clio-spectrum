@@ -1,10 +1,10 @@
 GIT
   remote: git://github.com/projectblacklight/blacklight_range_limit.git
-  revision: a69ce17f75018ff312acd9627322f98971a34785
-  tag: v2.1.0
+  revision: ae3a9de787932bf9aa7ea457bf202d7c302ef36d
+  branch: master
   specs:
-    blacklight_range_limit (2.1.0)
-      blacklight (~> 4.0)
+    blacklight_range_limit (5.0.1)
+      blacklight (>= 5.0.0.pre4, < 6)
       jquery-rails
       rails (>= 3.0, < 5.0)
 
@@ -57,16 +57,18 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    blacklight (4.7.0)
-      bootstrap-sass (>= 2.2.0, < 2.4)
-      deprecation (~> 0.1)
+    blacklight (5.1.1)
+      bootstrap-sass (~> 3.0)
+      deprecation
       kaminari (~> 0.13)
-      marc (>= 0.4.3, < 1.1)
       nokogiri (~> 1.6)
       rails (>= 3.2.6, < 5)
       rsolr (~> 1.0.6)
-      sass-rails
-    bootstrap-sass (2.3.2.2)
+    blacklight-marc (5.0.0)
+      blacklight (~> 5.0)
+      marc (>= 0.4.3, < 1.1)
+      rails
+    bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
     builder (3.0.4)
     caching_mailer (1.0)
@@ -200,7 +202,7 @@ GEM
       jquery-rails
     json (1.8.1)
     json_pure (1.8.1)
-    kaminari (0.15.1)
+    kaminari (0.16.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     launchy (2.4.2)
@@ -403,7 +405,8 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  blacklight (~> 4.7.0)
+  blacklight (~> 5.1.0)
+  blacklight-marc
   blacklight_range_limit!
   bootstrap-sass
   caching_mailer

@@ -5,9 +5,9 @@
   
   .boxed_search_results.result.document{:class => ("database_record" if document['source_display'].include? 'database'), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
-    .row-fluid
+    .row
 
-      .span4.no-bottom-space
+      .col-md-4.no-bottom-space
         %span.coins_wrapper
           <!-- COinS -->
           %span.Z3988{title: catalog_to_openurl_ctx_kev(document)}
@@ -18,15 +18,15 @@
         .item_select_allowance
           %b= link_to_source_document document, :label=> document.get('title_display').abbreviate(100), :counter => blacklight_counter
 
-      .span3.no-bottom-space= document.get("author_display") || document.get("author_vern_display")
+      .col-md-3.no-bottom-space= document.get("author_display") || document.get("author_vern_display")
 
-      .span5.no-bottom-space= document.get("full_publisher_display")
+      .col-md-5.no-bottom-space= document.get("full_publisher_display")
 
 
-    .row-fluid
-      .span7.item_select_allowance.no-bottom-space
+    .row
+      .col-md-7.item_select_allowance.no-bottom-space
         %small= holdings_compact(document)
-      .span5.no-bottom-space
+      .col-md-5.no-bottom-space
         %small= formats_with_icons(document)
 
 

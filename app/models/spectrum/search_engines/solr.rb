@@ -137,7 +137,6 @@ module Spectrum
           end
 
           ActiveSupport::Notifications.subscribed(debug_results, 'execute.rsolr_client') do |*args|
-
             @search, @documents = get_search_results(@params, extra_controller_params)
 
             @debug_entries['solr'] = []  if @debug_entries['solr'] == {}
@@ -150,11 +149,10 @@ module Spectrum
             @debug_entries['solr'] << hashed_event
           end
 
-          else
-            # use blacklight gem to run the actual search against Solr,
-            # call Blacklight::SolrHelper::get_search_results()
-            @search, @documents = get_search_results(@params, extra_controller_params)
-
+        else
+          # use blacklight gem to run the actual search against Solr,
+          # call Blacklight::SolrHelper::get_search_results()
+          @search, @documents = get_search_results(@params, extra_controller_params)
         end
 
         self
@@ -360,12 +358,12 @@ module Spectrum
         end
 
         if elements.include?(:display_fields)
-          config.show.html_title = 'title_display'
-          config.show.heading = 'title_display'
-          config.show.display_type = 'format'
+          config.show.title_field = 'title_display'
+          config.show.title_field = 'title_display'
+          config.show.display_type_field = 'format'
 
-          config.index.show_link = 'title_display'
-          config.index.record_display_type = ''
+          config.index.title_field = 'title_display'
+          config.index.display_type_field = ''
         end
 
         if elements.include?(:facets)
@@ -656,15 +654,15 @@ module Spectrum
                 fq: ['{!raw f=genre_facet}Dissertations']
               }
 
-              config.show.html_title = 'title_display'
-              config.show.heading = 'title_display'
-              config.show.display_type = 'format'
+              config.show.title_field = 'title_display'
+              config.show.title_field = 'title_display'
+              config.show.display_type_field = 'format'
 
               config.show.genre = 'genre_facet'
               config.show.author = 'author_display'
 
-              config.index.show_link = 'title_display'
-              config.index.record_display_type = 'format'
+              config.index.title_field = 'title_display'
+              config.index.display_type_field = 'format'
 
               config.add_facet_field 'author_facet',
                                      label: 'Author', open: true, limit: 5
@@ -699,15 +697,15 @@ module Spectrum
             when 'academic_commons'
               default_catalog_config(config, :solr_params, :search_fields)
 
-              config.show.html_title = 'title_display'
-              config.show.heading = 'title_display'
-              config.show.display_type = 'format'
+              config.show.title_field = 'title_display'
+              config.show.title_field = 'title_display'
+              config.show.display_type_field = 'format'
 
               config.show.genre = 'genre_facet'
               config.show.author = 'author_display'
 
-              config.index.show_link = 'title_display'
-              config.index.record_display_type = 'format'
+              config.index.title_field = 'title_display'
+              config.index.display_type_field = 'format'
 
               config.add_facet_field 'author_facet',
                                      label: 'Author', open: true, limit: 5

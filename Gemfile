@@ -8,17 +8,18 @@ gem 'rails', '~> 3.2'
 
 #  ###  BLACKLIGHT (begin)  ###
 
-# gem 'blacklight', '~>5.0.0'
-gem 'blacklight', '~>4.7.0'
+gem 'blacklight', '~>5.1.0'
+# gem 'blacklight', '~>4.7.0'
 # gem 'blacklight', '~>4'
 
 # when we move to 5.x, uncomment this
-# gem 'blacklight-marc'
+gem 'blacklight-marc'
 
 
-gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :tag => 'v2.1.0'
+# gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :tag => 'v2.1.0'
 
-# gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
+gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
+
 # gem 'blacklight_range_limit', :github => 'projectblacklight/blacklight_range_limit'
 
 # Sorry, have to nix unapi.  Switch to COINS everywhere, so that

@@ -1,7 +1,7 @@
 = display_search_boxes('ebooks')
 
-.row-fluid
-  .landing_main.span8
+.row
+  .landing_main.col-md-8
     .title E-Books
 
     = render partial: '/datasource_warning', locals: {warning: warning}
@@ -15,13 +15,13 @@
 
     %p See a complete list of our E-Book databases.
 
-  .landing_side.span4
+  .landing_side.col-md-4
     .well.sidebar-nav
       .nav
         %ul.nav.nav-list
           %li.nav-header Guide
           %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/clio/guides/ebooks-guide/", :target => "_blank"
-          %li.divider
+          %li.nav-divider
 
         %ul.nav.nav-list
           %li.nav-header Related Links

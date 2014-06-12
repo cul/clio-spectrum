@@ -1,9 +1,28 @@
 -# Whatever HTML comes back from this partial is "fixed"
 -# by cul_catalog_helper#fix_catalog_links to point to @active_source
 
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+UNUSED
+
+
+- raise
+
+
+
 .sortAndPerPage
 
-  = fix_catalog_links(render "paginate_compact")
+  = fix_catalog_links(render ("paginate_compact", :object => @response))
 
   = fix_catalog_links(link_to image_tag('rss-feed-icon-14x14.png', :size => "13x13"), catalog_index_path(params.merge(:format => 'atom')), :class => "rss-feed")
 

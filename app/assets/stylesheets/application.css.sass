@@ -2,7 +2,8 @@ $baseLineHeight: 18px
 $baseFontSize: 13px
 
 @import "bootstrap"
-@import "bootstrap-responsive"
+// It's all one package with bootstrap 3
+// @import "bootstrap-responsive"
 
 =alternating-line-colors($even_row_color, $odd_row_color)
   .even
@@ -30,6 +31,7 @@ $baseFontSize: 13px
 @import "advanced_search"
 @import "articles"
 @import "book_cover"
+@import "bootstrap_bits"
 @import "catalog"
 @import "datepicker"
 @import "datasources"
@@ -42,6 +44,8 @@ $baseFontSize: 13px
 @import "search"
 @import "saved_lists"
 
+// Restore the Bootstrap 2 default styling - gradient buttons, etc.
+@import "bootstrap-theme.min"
 
 // clio_last has specific overrides to the ldpd_toolkit styles
 @import "clio_last"

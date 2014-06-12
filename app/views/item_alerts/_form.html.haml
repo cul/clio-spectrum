@@ -12,26 +12,26 @@
   - if item_alert.source
     = f.hidden_field :source
   - else
-    .control-group
+    .form-group
       %label.control-label{:for => "source"} Source:
       .controls
         = f.text_field(:source)
   - if item_alert.item_key
     = f.hidden_field :item_key
   - else
-    .control-group
+    .form-group
       %label.control-label{:for => "item_key"} Item Key:
       .controls
         = f.text_field(:item_key)
   - item_alert.author_id = current_user.id
   = f.hidden_field :author_id
 
-  .control-group
+  .form-group
     %label.control-label{:for => "alert_type"} Alert Type:
     .controls
       = f.select(:alert_type, options_for_select(ItemAlert::ALERT_TYPES.invert, item_alert.alert_type? ? item_alert.alert_type : "alert"))
 
-  .control-group
+  .form-group
     %label.control-label{:for => "start_date"} Start Date:
     .controls
       = text_field_tag 'item_alert[start_date]',
@@ -40,7 +40,7 @@
         :placeholder => "Leave blank to start immediately"
 
 
-  .control-group
+  .form-group
     %label.control-label{:for => "end_date"} End Date:
     .controls
       = text_field_tag 'item_alert[end_date]',
@@ -48,11 +48,11 @@
         :"data-datepicker-format" => "yyyy-mm-dd hh:ii",
         :placeholder =>"Leave blank to run indefinitely"
 
-  .control-group
+  .form-group
     %label.control-label{:for => "message"} Message
     .controls
       = f.text_area(:message, :rows => 4)
 
-  .control-group
+  .form-group
     .controls
       = f.submit 'Save', :class => "btn btn-primary btn-submit"

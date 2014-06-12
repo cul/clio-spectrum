@@ -108,7 +108,7 @@
 
 
 .doc_bookjacket
-  @extend .hidden-phone
+  @extend .hidden-sm
 
 @media (min-width:768px)
   .document-row
@@ -122,7 +122,8 @@
 .results_header
   +clearfix
   background: #F0F3FF
-  +border-radius(3px)
+  //+border-radius(3px)
+  border-radius: 3px
   padding: 10px 4px 6px 4px
   line-height: 1
   border: 1px solid #ccc
@@ -166,7 +167,8 @@
     :float left
     :padding .2em .5em .2em .5em
     :background-color #f0f0f0
-    +border-radius(1em)
+    //+border-radius(1em)
+    :border-radius 1em
 
 .on_search
   .a_to_z

@@ -25,7 +25,7 @@ module CulCatalogHelper
   end
 
   def link_to_source_document(doc, options = { label: nil, counter: nil, results_view: true, source: nil })
-    label ||= blacklight_config.index.show_link.to_sym
+    label ||= blacklight_config.index.title_field.to_sym
     label = render_document_index_label doc, options
     source = options[:source] || @active_source
 

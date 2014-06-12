@@ -2,19 +2,19 @@
   %header{:data => {'ga-action' => 'Top NavBar Click'} }
     %h1.hide CUL - Header
     #topnavbar.navbar.navbar-fixed-top
-      .navbar-inner.fill
-        #navbar-container.container-fluid
-          .row-fluid
+      .container.fill
+        #navbar-container.container
+          .row
             %nav
-              #cul_top-nosearch.span12
-                .row-fluid
-                  .span12
-                    %ul#crowndown-nosearch.nav.pull-left
+              #cul_top-nosearch.col-md-12
+                .row
+                  .col-md-12
+                    %ul#crowndown-nosearch.nav.navbar-left
                       %li.dropdown.menu
                         %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#", :title => "Links @ Columbia"}
                           %span.topbarlogo
-                            %span.visible-phone CLIO
-                            %span.hidden-phone
+                            %span.visible-sm CLIO
+                            %span.hidden-sm
                               =image_tag "ldpd-toolkit/crown-bts-24x24.png", :alt => "CU"
                               Columbia University Libraries<span id="topbarslash">/</span>Information Services
                             %b.caret
@@ -25,7 +25,7 @@
                             %a{:href => "http://library.columbia.edu"} Libraries - Home
                           %li
                             %a{:href => root_path} CLIO - Home
-                          %li.divider
+                          %li.nav-divider
                           %li
                             %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?cliolegacy", :target => "_blank"} CLIO Legacy
                           %li
@@ -36,7 +36,7 @@
                             %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0014", :target => "_blank"} ILL
                           %li
                             %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?AMS7418", :target => "_blank"} WorldCat
-                          %li.divider
+                          %li.nav-divider
                           %li
                             %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?AMS8587", :target => "_blank"} Law Library Catalog
                           %li
@@ -45,20 +45,20 @@
                             %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?APZ9144", :target => "_blank"} Numeric Data Catalog
                           %li
                             %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?clio6269876", :target => "_blank"} Spatial Data Catalog
-                          %li.divider
+                          %li.nav-divider
                           %li
                             %a{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0031", :target => "_blank"} Ask a Librarian
                           %li
                             %a{href: '#', class: 'feedback-popup'} Suggestions & Feedback
 
-                    %ul.nav.pull-right
+                    %ul.nav.navbar-nav.navbar-right
                       - if current_user
                         %li.dropdown.menu
                           %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#"}
-                            %span.visible-phone.clicktale_masked
+                            %span.visible-sm.clicktale_masked
                               #{current_user.login}
                               %b.caret
-                            %span.hidden-phone
+                            %span.hidden-sm
                               #{current_user.name} (#{current_user.login})
                               %b.caret
                           %ul.dropdown-menu.menu-dropdown
@@ -69,16 +69,16 @@
                       - else
                         %li.dropdown.menu
                           %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#"}
-                            %span.hidden-phone.hidden-tablet
+                            %span.hidden-sm.hidden-md
                               My Library Account
                               %b.caret
-                            %span.visible-phone.visible-tablet
+                            %span.visible-sm.visible-md
                               My Account
                               %b.caret
                           %ul.dropdown-menu.menu-dropdown
                             %li= link_to "Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087-1", :target => "_blank"
                             %li= link_to "CLIO Legacy Saved List", "http://clio.cul.columbia.edu:7018/vwebv/myList", :target => "_blank"
-                            %li.divider
+                            %li.nav-divider
                             %li= link_to "Login", new_user_session_path
 
                       %li.dropdown.menu

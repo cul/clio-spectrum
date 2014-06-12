@@ -1,7 +1,7 @@
 = display_search_boxes('databases')
 
-.row-fluid
-  .landing_main.span8
+.row
+  .landing_main.col-md-8
     .title Databases
 
     = render partial: '/datasource_warning', locals: {warning: warning}
@@ -18,13 +18,13 @@
     %p If you are looking for specific articles, try an #{datasource_switch_link 'Articles', 'articles'} search.
 
 
-  .landing_side.span4
+  .landing_side.col-md-4
     .well.sidebar-nav
       .nav
         %ul.nav.nav-list
           %li.nav-header Guide
           %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/clio/guides/databases-guide/", :target => "_blank"
-          %li.divider
+          %li.nav-divider
 
 
         %ul.nav.nav-list
@@ -62,8 +62,8 @@
           / %li= link_to "User voice help link once CERM has this working", "http://library.columbia.edu"
 
 
-.row-fluid
-  .landing_across.span12
+.row
+  .landing_across.col-md-12
     = render :partial => "/_display/databases/a_to_z"
 
     - database_browse = YAML.load(File.read(Rails.root.to_s + "/config/database_browse.yml"))

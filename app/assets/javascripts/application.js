@@ -27,12 +27,21 @@
 
 
 // JavaScript plugins from Bootstrap
-//= require bootstrap-datepicker
-//= require bootstrap-dropdown
+
+// Blacklight suggests including the following:
+//= require bootstrap/transition
+//= require bootstrap/collapse
+//= require bootstrap/dropdown
+//= require bootstrap/alert
+//= require bootstrap/modal
+
+// OLD way - bootstrap 2
+// #  require bootstrap-datepicker
+// #  require bootstrap-dropdown
 // Popover extends ToolTip, so leave this in.  Order matters.
-//= require bootstrap-tooltip
+// #  require bootstrap-tooltip
 // popovers used for source descriptions in aggregate searches, etc.
-//= require bootstrap-popover
+// #  require bootstrap-popover
 // Not used?
 // # require bootstrap-tab
 

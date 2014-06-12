@@ -9,25 +9,25 @@
     - add_datasources(@active_source)
     #trigger
     = render :partial => "/top_navigation_bar"
-    #outer-container.container-fluid
-      #page.container-fluid
+    #outer-container.container
+      #page.container
         = render :partial => "/header_with_search"
-        #bd.row-fluid
-          #bd_lede.row-fluid
+        #bd.row
+          #bd_lede.row
 
-            .search_logo.hidden-phone.span3
+            .search_logo.hidden-sm.col-md-3
               = link_to "CLIO", root_path, :class => "nav_title search_bar_logo"
             / div.search_logo end
 
-            .span9
+            .col-md-9
               = display_search_boxes(@active_source)
-            / div.span9 end
+            / div.col-md-9 end
 
 
-          .row-fluid
+          .row
             = render :partial=>'/layouts/messages'
             = yield
-          / div.row-fluid end
+          / div.row end
 
           .clear-both
           / div.clear-both end

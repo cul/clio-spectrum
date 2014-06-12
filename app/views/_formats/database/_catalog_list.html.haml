@@ -3,8 +3,8 @@
 / container for a SINGLE doc
 .result.document.database_record{class: render_document_class(document), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
-  .row-fluid
-    .title.span12
+  .row
+    .title.col-md-12
 
       %span.coins_wrapper
         <!-- COinS -->
@@ -18,12 +18,12 @@
 
   / main container for doc partial view
 
-  .row-fluid
+  .row
 
     -# Databases never have book-jackets, or, if they ever maybe do, they're not important.
     -# So, give all 12 columns over to the bibliographic details.
-    .details.span12
+    .details.col-md-12
       = render :partial => "/_formats/database/catalog_list_details", :locals => {:document => document}
 
-    -# .doc_bookjacket.span2
+    -# .doc_bookjacket.col-md-2
     -#   =image_tag("spacer.png", :class => "list_view bookjacket " + document["isbn_display"].listify.collect { |x| "id_" + x.to_s}.join(" "))

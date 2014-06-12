@@ -1,12 +1,12 @@
 
 - link_text = "#{menu_list.display_name.abbreviate(20)} (#{menu_list.size})"
 
-.row-fluid
-  .span8
+.row
+  .col-md-8
     - if menu_list == current_list
       %b= link_text
     - else
       %b= link_to link_text, menu_list.url
-  .span4.text-right
+  .col-md-4.text-right
     #{get_permissions_label(menu_list.permissions)}
 

@@ -7,7 +7,7 @@
 .toggle_expand_all_option
   :margin 0  !important
 
-.navbar-inner
+.container
   :width auto
 
 
@@ -97,7 +97,7 @@ a.clio_logo
 
 .source_select.sidenav
   +clearfix
-  @extend .visible-phone
+  @extend .visible-sm
   h4
     :padding 10px 14px 0 14px
 
@@ -156,11 +156,11 @@ a.clio_logo
   :min-height 1em
 
 @media (max-width: 767px)
-  .navbar-fixed-top .navbar-inner
+  .navbar-fixed-top .container
     padding: 0 !important
 
 @media (min-width:768px) and (max-width: 979px)
-  .navbar-fixed-top .navbar-inner
+  .navbar-fixed-top .container
     padding: 0 5px 5px 5px !important
 
 .logo
@@ -169,7 +169,7 @@ a.clio_logo
 #clio-nav-bar
   :width 100%
 
-  .navbar-inner
+  .container
     :padding-right 0
 
 //.search_boxes
@@ -247,7 +247,7 @@ a.clio_logo
 //
 
 .datasource_list
-  @extend .hidden-phone
+  @extend .hidden-sm
 
 
 .search_options
@@ -257,7 +257,8 @@ a.clio_logo
 
   btn.add-on.dropdown-toggle
     :display inline-block !important
-    +border-radius(0 0 0 0)
+    //+border-radius(0 0 0 0)
+    :border-radius 0 0 0 0
 
   .dropdown-toggle
     :display none

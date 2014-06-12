@@ -108,4 +108,12 @@ Clio::Application.routes.draw do
   # namespace :admin do
   #   resources :locations
   # end
+
+  # No longer a given, must be part of Application's routes.rb, but only
+  # inserted by the Blacklight MARC generator code.
+
+  # Catalog stuff.
+  get 'catalog/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_catalog"
+  get "catalog/endnote", :as => "endnote_catalog"
+
 end

@@ -1,7 +1,7 @@
 = display_search_boxes('catalog')
 
-.row-fluid
-  .landing_main.span8
+.row
+  .landing_main.col-md-8
 
     .title Catalog
 
@@ -23,20 +23,20 @@
     %p To find individual articles, try our #{datasource_switch_link('articles', 'articles')} or #{datasource_switch_link('newspapers', 'newspapers')} search
 
 
-  .landing_side.span4
+  .landing_side.col-md-4
     .well.sidebar-nav
       .nav
         %ul.nav.nav-list
           %li.nav-header Guide
           %li=link_to 'Search Tips', 'https://blogs.cul.columbia.edu/clio/guides/catalog-guide/', :target => '_blank'
 
-          %li.divider
+          %li.nav-divider
 
         %ul.nav.nav-list
           %li.nav-header Legacy Resource
           %li= link_to 'CLIO Legacy', 'http://www.columbia.edu/cgi-bin/cul/resolve?cliolegacy'
 
-          %li.divider
+          %li.nav-divider
 
         %ul.nav.nav-list
           %li.nav-header Other Useful Catalogs

@@ -13,12 +13,12 @@
       of the following criteria:
       %button.btn.advanced_search_button.btn-primary{:name => "commit", :type => "submit", :value => "Search"}
         %i.icon-search.icon-white
-        %span.visible-desktop Search
+        %span.hidden-sm Search
       =link_to "Basic Search", "#", class: "btn btn-link advanced_search_toggle"
 
     = hidden_field_tag 'search_field', 'advanced'
 
-    .control-group
+    .form-group
       - (1..5).each do |i|
         .advanced_search_row
           = advanced_field_select_option(blacklight_config, i)

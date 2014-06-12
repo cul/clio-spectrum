@@ -92,7 +92,7 @@ class CatalogController < ApplicationController
     # reach into search config to find possible source-specific service alert warning
     search_config = SEARCHES_CONFIG['sources'][@active_source]
     warning = search_config ? search_config['warning'] : nil
-
+# raise
     respond_to do |format|
       # Deprecation notice says "save_current_search_params" is now automatic
       # format.html do save_current_search_params

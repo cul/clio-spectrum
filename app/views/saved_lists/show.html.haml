@@ -1,17 +1,17 @@
 -# SAVED_LISTS/SHOW - build the main display page of Saved Lists
 
-.row-fluid
+.row
 
-  .savedlist_control_panel.span3
+  .savedlist_control_panel.col-md-3
     = render 'savedlist_control_panel'
 
 
-  .savedlist_display_list.span9
+  .savedlist_display_list.col-md-9
     .savedlist_header
-      .row-fluid
-        .span2
+      .row
+        .col-md-2
           %strong List Name:
-        .span10
+        .col-md-10
           %span.lead= @list.display_name
           &nbsp; &nbsp;
           - if current_user && current_user.login == @list.owner
@@ -20,16 +20,16 @@
           -#   (owner: #{@list.owner})
 
       - unless @list.description.empty?
-        .row-fluid
-          .span2
+        .row
+          .col-md-2
             %strong Description:
-          .span10
+          .col-md-10
             %span.lead= @list.description
 
-      .row-fluid
-        .span2
+      .row
+        .col-md-2
           %strong URL:
-        .span10
+        .col-md-10
           %span.lead= get_full_url(@list)
           &nbsp; &nbsp;
           = get_permissions_label(@list.permissions)
