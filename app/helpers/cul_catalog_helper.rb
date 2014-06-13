@@ -74,7 +74,7 @@ module CulCatalogHelper
     label = "#{per_page} per page"
 
     if per_page == current_per_page
-      checkmark = content_tag('i', nil, class: 'icon-ok')
+      checkmark = content_tag(:span, '', :class => 'glyphicon glyphicon-ok')
       content_tag(:a, (checkmark + ' ' + label), href: '#', class: 'menu_checkmark_allowance')
     else
       content_tag(:a, label, href: href, per_page: per_page, class: 'per_page_link')
@@ -102,7 +102,7 @@ module CulCatalogHelper
                         'list'
 
     if viewstyle == current_viewstyle
-      checkmark = content_tag('i', nil, class: 'icon-ok')
+      checkmark = content_tag(:span, '', :class => 'glyphicon glyphicon-ok')
       content_tag(:a, (checkmark + ' ' + label), href: '#', class: 'menu_checkmark_allowance')
     else
       content_tag(:a, label, href: '#', viewstyle: viewstyle, class: 'viewstyle_link')

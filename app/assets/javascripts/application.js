@@ -28,15 +28,20 @@
 
 // JavaScript plugins from Bootstrap
 
-// Blacklight suggests including the following:
+// The way to bring in Bootstrap 3 JavaScript, 
+// suggested by Blacklight 5 code:
 //= require bootstrap/transition
 //= require bootstrap/collapse
 //= require bootstrap/dropdown
 //= require bootstrap/alert
 //= require bootstrap/modal
+//= require bootstrap/tooltip
+//= require bootstrap/popover
+
+// And, one specific Bootstrap-based add-on, installed locally
+//= require bootstrap-datepicker
 
 // OLD way - bootstrap 2
-// #  require bootstrap-datepicker
 // #  require bootstrap-dropdown
 // Popover extends ToolTip, so leave this in.  Order matters.
 // #  require bootstrap-tooltip

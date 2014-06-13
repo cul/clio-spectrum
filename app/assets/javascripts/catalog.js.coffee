@@ -10,7 +10,7 @@ $ ->
   # full content on a click.
 
   $(".toggle-teaser").click ->
-    $(this).toggleClass('icon-resize-small')
+    $(this).toggleClass('glyphicon-resize-small')
     $(this).prev().toggle()
 
   $(".expander").click ->

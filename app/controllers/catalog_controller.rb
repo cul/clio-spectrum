@@ -20,7 +20,7 @@ class CatalogController < ApplicationController
   # explicitly position this in the ancestor chain - or the engine's
   # injection will position it last (ergo, un-overridable)
   include BlacklightRangeLimit::ControllerOverride
-
+  
   # load last, to override any BlackLight methods included above
   # (BlacklightRangeLimit::ControllerOverride#add_range_limit_params)
   include LocalSolrHelperExtension

@@ -23,7 +23,7 @@ describe 'Catalog Interface' do
   # NEXT-917 - Summary showing up twice for video records
   it 'Video Records should show Summary only once', js: true do
     visit catalog_index_path('q' => 'summary')
-    within 'div.blacklight-format ul' do
+    within 'div.facet_limit.blacklight-format' do
       find('a.more_facets_link').click
     end
     within 'ul.facet_extended_list' do
@@ -60,7 +60,7 @@ describe 'Catalog Interface' do
       end
       find('button[type=submit]').click
     end
-    within 'div.blacklight-format ul' do
+    within 'div.blacklight-format .facet-content .panel-body' do
       click_link('Manuscript/Archive')
     end
     # exact count depends on default items-per-page, today, 25
@@ -233,8 +233,7 @@ describe 'Catalog Interface' do
   end
 
     # NEXT-1015 - next from MARC
-  it 'should support next/previous navigation from MARC view',
-     js: true, Xfocus: true do
+  it 'should support next/previous navigation from MARC view', js: true do
 
     # locate a fairly static set of records for a stable test suite
     visit catalog_index_path('q' => 'maigret simenon')

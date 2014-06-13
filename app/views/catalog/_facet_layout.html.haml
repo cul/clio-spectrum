@@ -1,5 +1,26 @@
-.facet_limit{:class => "blacklight-#{facet_field.field.parameterize}"}
-  %h5.facet_field_label{:data => {'facet-tag' => build_facet_tag(facet_field) }}
-    =facet_field.label
-    %i.icon-turnbuckle
-  = yield
+
+-# 
+-# #############   BLACKLIGHT 4   #############
+-# 
+
+-# 
+-# .facet_limit{:class => "blacklight-#{facet_field.field.parameterize}"}
+-#   %h5.facet_field_label{:data => {'facet-tag' => build_facet_tag(facet_field) }}
+-#     =facet_field.label
+-#     %span.glyphicon.glyphicon-turnbuckle
+-#   = yield
+
+
+-# 
+-# #############   BLACKLIGHT 5   #############
+-# 
+
+.panel.panel-default.facet_limit{class: "blacklight-#{facet_field.field.parameterize} #{'facet_limit-active' if facet_field_in_params?(facet_field.field)}"}
+  .collapse-toggle.panel-heading{class: "#{'collapsed' if should_collapse_facet?(facet_field)}", data: {toggle: "collapse", target: "#facet-#{facet_field.label.parameterize}"}}
+    %h5.panel-title.facet_field_label{:data => {'facet-tag' => build_facet_tag(facet_field) }}
+      = link_to facet_field_label(facet_field.field), "#", :"data-no-turbolink" => true
+
+  .panel-collapse.facet-content{id: "facet-#{facet_field.label.parameterize}", class: "#{should_collapse_facet?(facet_field) ? 'collapse' : 'in'}"}
+    .panel-body
+      = yield
+

@@ -368,7 +368,9 @@ module Spectrum
 
         if elements.include?(:facets)
           config.add_facet_field 'format',
-                                 label: 'Format', limit: 5, open: true
+                                 # BL5 - "open" becomes "collapse"
+                                 # label: 'Format', limit: 5, open: true
+                                 label: 'Format', limit: 5, collapse: false
           # NEXT-698 - :segments key is searched for at top, not within range
           config.add_facet_field 'pub_date_sort',
                                  label: 'Publication Date', limit: 3,
@@ -500,7 +502,9 @@ module Spectrum
 
               config.add_facet_field 'language_facet',
                                      label: 'Language',
-                                     limit: 5, open: true
+                                     # BL5 - "open" becomes "collapse"
+                                     # limit: 5, open: true                                     
+                                     limit: 5, collapse: false
               config.add_facet_field 'subject_topic_facet',
                                      label: 'Subject',
                                      limit: 10
@@ -529,7 +533,9 @@ module Spectrum
               }
 
               config.add_facet_field 'database_discipline_facet',
-                                     label: 'Discipline', limit: 5, open: true
+                                     # BL5 - "open" becomes "collapse"
+                                     # label: 'Discipline', limit: 5, open: true
+                                     label: 'Discipline', limit: 5, collapse: false
               config.add_facet_field 'database_resource_type_facet',
                                      label: 'Resource Type', limit: 5
               config.add_facet_field 'language_facet',
@@ -543,7 +549,9 @@ module Spectrum
               config.add_facet_field 'subject_form_facet',
                                      label: 'Subject (Genre)', limit: 10
               config.add_facet_field 'lc_1letter_facet',
-                                     label: 'Call Number', limit: 26, open: false
+                                     # BL5 - "open" becomes "collapse"
+                                     # label: 'Call Number', limit: 26, open: false
+                                     label: 'Call Number', limit: 26, collapse: true
               config.add_facet_field 'lc_2letter_facet',
                                      label: 'Refine Call Number', limit: 26
               config.add_facet_field 'title_first_facet',
@@ -573,7 +581,8 @@ module Spectrum
               }
 
               config.add_facet_field 'format',
-                                     label: 'Format', limit: 3, open: true
+                                     # label: 'Format', limit: 3, open: true
+                                     label: 'Format', limit: 3, collapse: false
               # NEXT-698 - :segments key is searched for at top, not within range
               config.add_facet_field 'pub_date_sort',
                                      label: 'Publication Date', limit: 3,
@@ -595,7 +604,8 @@ module Spectrum
               config.add_facet_field 'subject_form_facet',
                                      label: 'Subject (Genre)', limit: 10
               config.add_facet_field 'lc_1letter_facet',
-                                     label: 'Call Number', limit: 26, open: false
+                                     # label: 'Call Number', limit: 26, open: false
+                                     label: 'Call Number', limit: 26, collapse: true
               config.add_facet_field 'lc_2letter_facet',
                                      label: 'Refine Call Number', limit: 26
 
@@ -616,13 +626,18 @@ module Spectrum
 
               default_catalog_config(config, :display_fields, :search_fields, :sorts)
 
-              config.add_facet_field 'acq_dt', label: 'Acquisition Date', open: true, query: {
+              config.add_facet_field 'acq_dt', 
+                                    # label: 'Acquisition Date', open: true, 
+                                    label: 'Acquisition Date', collapse: false, 
+                                    query: {
                 week_1: { label: 'within 1 Week', fq: "acq_dt:[#{(Date.today - 1.weeks).to_datetime.utc.to_solr_s} TO *]" },
                 month_1: { label: 'within 1 Month', fq: "acq_dt:[#{(Date.today - 1.months).to_datetime.utc.to_solr_s} TO *]" },
                 months_6: { label: 'within 6 Months', fq: "acq_dt:[#{(Date.today - 6.months).to_datetime.utc.to_solr_s} TO *]" },
                 years_1: { label: 'within 1 Year', fq: "acq_dt:[#{(Date.today - 1.years).to_datetime.utc.to_solr_s} TO *]" },
               }
-              config.add_facet_field 'format', label: 'Format', limit: 5, open: true
+              config.add_facet_field 'format',
+                                     # label: 'Format', limit: 5, open: true
+                                     label: 'Format', limit: 5, collapse: false
               # NEXT-698 - :segments key is searched for at top, not within range
               config.add_facet_field 'pub_date_sort',
                                      label: 'Publication Date', limit: 3, range: { segments: false }, segments: false
@@ -641,7 +656,8 @@ module Spectrum
               config.add_facet_field 'subject_form_facet',
                                      label: 'Subject (Genre)', limit: 10
               config.add_facet_field 'lc_1letter_facet',
-                                     label: 'Call Number', limit: 26, open: false
+                                     # label: 'Call Number', limit: 26, open: false
+                                     label: 'Call Number', limit: 26, collapse: true
               config.add_facet_field 'lc_2letter_facet',
                                      label: 'Refine Call Number', limit: 26
 
@@ -665,7 +681,8 @@ module Spectrum
               config.index.display_type_field = 'format'
 
               config.add_facet_field 'author_facet',
-                                     label: 'Author', open: true, limit: 5
+                                     # label: 'Author', open: true, limit: 5
+                                     label: 'Author', collapse: false, limit: 5
               # NEXT-698 - :segments key is searched for at top, not within range
               config.add_facet_field 'pub_date_sort',
                                      label: 'Publication Date', limit: 3,
@@ -708,7 +725,8 @@ module Spectrum
               config.index.display_type_field = 'format'
 
               config.add_facet_field 'author_facet',
-                                     label: 'Author', open: true, limit: 5
+                                     # label: 'Author', open: true, limit: 5
+                                     label: 'Author', collapse: false, limit: 5
               config.add_facet_field 'pub_date_sort',
                                      label: 'Publication Date', limit: 3,
                                      range: { segments: false }, segments: false

@@ -28,7 +28,7 @@
           -# %h5.twiddle.twiddle-open
           %h5
             = facet.display_name.titleize
-            %i.icon-turnbuckle
+            %span.glyphicon.glyphicon-turnbuckle
 
           %ul
             - if facet.has_applied_value? || facet.field_name == "ContentType_mfacet"
@@ -41,14 +41,14 @@
                       Not #{item.value}
                       %span.count #{number_with_delimiter(item.count)}
                     %a.remove{:href => result.by_source_search_cmd(item.remove_command)}
-                      %i.icon-remove
+                      %span.glyphicon.glyphicon-remove
 
                   - else
                     %span.selected
                       #{item.value}
                       %span.count #{number_with_delimiter(item.count)}
                     %a.remove{:href => result.by_source_search_cmd(item.remove_command)}
-                      %i.icon-remove
+                      %span.glyphicon.glyphicon-remove
 
                 -else
                   %span
@@ -61,7 +61,7 @@
         -# %h5.twiddle.twiddle-open
         %h5
           Publication Date
-          %i.icon-turnbuckle
+          %span.glyphicon.glyphicon-turnbuckle
 
         %ul
           - pub_range_filter = result.search.query.range_filters.detect { |rf| rf.field_name == "PublicationDate" }
@@ -70,7 +70,7 @@
             %span.selected
               #{pub_range_filter.field_name.titleize}: #{pub_range_filter.range.min_value}-#{pub_range_filter.range.max_value}
             %a.remove{:href => result.by_source_search_cmd(pub_range_filter.remove_command)}
-              %i.icon-remove
+              %span.glyphicon.glyphicon-remove
 
           = form_tag result.by_source_search_modify(), :class => 'form-inline range_limit_form' do
             = text_field_tag 'pub_date[min_value]', (pub_range_filter ? pub_range_filter.range.min_value : ""), :class => "input-mini"

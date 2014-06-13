@@ -91,7 +91,7 @@ describe 'Catalog Advanced Search' do
     find('.constraint-box').should have_content('ISBN: ' + search_isbn)
 
     within '.constraint-box' do
-      find('i.icon-remove').click
+      find('span.glyphicon.glyphicon-remove').click
     end
 
     page.should have_css('.result.document')
@@ -135,7 +135,7 @@ describe 'Catalog Advanced Search' do
     fill_in 'q', with: isbn_z
 
     # this time, click the little "search" icon
-    find('i.icon-search').click
+    find('span.glyphicon.glyphicon-search').click
 
     find('.constraint-box').should have_content('ISBN: ' + isbn_z)
     page.should have_text "Géographie du Territoire de Belfort".mb_chars.normalize(:d)

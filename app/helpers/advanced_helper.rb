@@ -37,7 +37,7 @@ module AdvancedHelper
   def render_selected_facet_value_on_facet(facet_solr_field, item)
     # Updated class for Bootstrap Blacklight
     content_tag(:span, render_facet_value(facet_solr_field, item, suppress_link: true), class: 'selected') +
-      link_to(content_tag(:i, '', class: 'icon-remove') +  content_tag(:span, '[remove]', class: 'hide-text'), catalog_index_path(remove_facet_params(facet_solr_field, item, params)), class: 'remove')
+      link_to(content_tag(:span, '', class: 'glyphicon glyphicon-remove') +  content_tag(:span, '[remove]', class: 'hide-text'), catalog_index_path(remove_facet_params(facet_solr_field, item, params)), class: 'remove')
   end
 
   def advanced_field_text_field(blacklight_config, index, par = params)

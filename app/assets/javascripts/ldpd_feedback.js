@@ -30,7 +30,7 @@ LWEB.feedbackDialogIsSetup = false;
 LWEB.feedbackDialogIsVisible = false;
 
 LWEB.setupFeedbackDialog = function() {
-    $('<div id="feedback_dialog"><a id="close_feedback_dialog" href="#" onclick="LWEB.hideFeedbackDialog();"><i class="icon-remove"></i></a><iframe width="600" height="400" src="http://culwcm.cul.columbia.edu/clio_feedback?current_page=' + window.location.href + '"></iframe></div>').hide().appendTo('body');
+    $('<div id="feedback_dialog"><a id="close_feedback_dialog" href="#" onclick="LWEB.hideFeedbackDialog();"><span class="glyphicon glyphicon-remove"></span></a><iframe width="600" height="400" src="http://culwcm.cul.columbia.edu/clio_feedback?current_page=' + window.location.href + '"></iframe></div>').hide().appendTo('body');
     $('#feedback_dialog').css(
         {
         'z-index':'10000',

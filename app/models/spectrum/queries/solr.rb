@@ -5,7 +5,10 @@ module Spectrum
       Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
       include AdvancedHelper
       include LocalSolrHelperExtension
+
       include Blacklight::FacetsHelperBehavior
+      # for "add_facet_params"
+      include Blacklight::UrlHelperBehavior
 
       attr_reader :params, :queries, :filters, :ranges, :query_operator
 

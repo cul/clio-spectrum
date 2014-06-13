@@ -1,10 +1,5 @@
 
-
 %nav.index_toolbar.navbar.navbar-default
-
-  -# .navbar-inner
-
-  -# .container{ :style => "width: auto;" }
 
   .collapse.navbar-collapse
 
@@ -19,13 +14,13 @@
 
           = fix_catalog_links(link_to image_tag('rss-feed-icon-14x14.png', :size => "13x13"), catalog_index_path(params.merge(:format => 'atom')), :class => "rss-feed")
 
-  %ul.nav.navbar-nav.navbar-right
-    %li
-      = fix_catalog_links(render 'per_page_widget')
-      = fix_catalog_links(render 'sort_widget')
-
-      -# Allow "selections" for any Catalog-based data source, but NOT for Academic Commons
-      - if @active_source != 'academic_commons'
-        = render 'selections_widget'
-   
+    %ul.nav.navbar-nav.navbar-right
+      %li
+        = fix_catalog_links(render 'per_page_widget')
+        = fix_catalog_links(render 'sort_widget')
+  
+        -# Allow "selections" for any Catalog-based data source, but NOT for Academic Commons
+        - if @active_source != 'academic_commons'
+          = render 'selections_widget'
+  
 

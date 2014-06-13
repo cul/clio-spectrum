@@ -11,7 +11,7 @@
     <div class="current">
       <span class="selected"><%= range_display(solr_field) %></span>
       <span class="count">(<%= number_with_delimiter(@response.total) %>)</span>
-      <%= link_to content_tag(:i, '', :class => 'icon-remove').html_safe, remove_range_param(solr_field), :class=>"remove" %>
+      <%= link_to content_tag(:span, '', :class => 'glyphicon glyphicon-remove').html_safe, remove_range_param(solr_field), :class=>"remove" %>
     </div>
 
   <% end %>
@@ -29,7 +29,7 @@
       <% #end %>
 
       <%= render_range_input(solr_field, :begin) %> - <%= render_range_input(solr_field, :end) %>
-      <button type="submit" name="commit" class="btn"><i class="icon-search"></i></button>
+      <button type="submit" name="commit" class="btn"><span class="glyphicon glyphicon-search"></span></button>
 
     <% end %>
   <% end %>

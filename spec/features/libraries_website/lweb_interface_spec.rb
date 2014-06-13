@@ -11,7 +11,7 @@ describe 'Libraries Website DAM search' do
   end
 
   it 'should show DAM filenames and format icons for DOC' do
-    visit library_web_index_path('q' => 'dam doc form')
+    visit library_web_index_path('q' => 'reproduction order form doc')
     within all('.result.document').first do
       find('img')['src'].should have_content 'doc.png'
       find('.lweb_dam_document').should have_text '.doc'

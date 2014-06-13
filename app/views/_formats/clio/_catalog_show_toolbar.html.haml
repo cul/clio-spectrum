@@ -2,8 +2,9 @@
 - id = document.get("id")
 
 #show_toolbar.navbar
-  .container
-    .navbar-right
+  .collapse.navbar-collapse
+
+    %ul.nav.navbar-nav.navbar-right
       .navbar-text
         - link_back = build_link_back()
         -# if we're unable to build a link_back, then we've lost our search context,
@@ -21,22 +22,16 @@
             = next_doc if next_doc.include?("<a")
             |
             = link_to "Start Over", catalog_index_path
-    %ul.nav
 
-      %li
-      %li
-        = link_to "Print", "javascript:print()"
+    %ul.nav.navbar-nav
+      %li=link_to "Print", "javascript:print()"
       %li=link_to "Email", email_catalog_path(:id => id), {:id => "emailLink", :name => "email", :class => "lightboxLink"}
       / %li=link_to "SMS-BLACKLIGHT", sms_catalog_path(:id => id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}
 
       %li=link_to "Send to Phone", "#", :onclick => "OpenTextMessage(#{id}); return false;"
 
       -# %li=link_to "Save to #{SavedList::DEFAULT_LIST_NAME}", "/lists/add/#{id}"
-
-
       %li= link_to "Save to #{SavedList::DEFAULT_LIST_NAME}", "#", :onclick => "saveBibToNamedList(#{id}, '#{SavedList::DEFAULT_LIST_NAME}'); return false;"
-
-
 
       %li.dropdown
         =link_to "Export <span class='caret'></span>".html_safe, "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown"

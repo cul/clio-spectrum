@@ -12,7 +12,7 @@
       = select_tag :advanced_operator, options_for_select([["all", "AND"], ["any", 'OR']], params['advanced_operator'] || 'AND' ), :class => "input-mini"
       of the following criteria:
       %button.btn.advanced_search_button.btn-primary{:name => "commit", :type => "submit", :value => "Search"}
-        %i.icon-search.icon-white
+        %span.glyphicon.glyphicon-search.icon-white
         %span.hidden-sm Search
       =link_to "Basic Search", "#", class: "btn btn-link advanced_search_toggle"
 
