@@ -21,8 +21,8 @@ describe 'CLIO support for Law records' do
     end
 
     # confirm
-    find('.blacklight-location_facet .blacklight-location_facet').should have_css('li', maximum: 1)
-    find('.blacklight-location_facet .blacklight-location_facet').should have_text('Law')
+    find('.blacklight-location_facet .facet-content').should have_css('li', maximum: 1)
+    find('.blacklight-location_facet .facet-content').should have_text('Law')
 
     # Now, inverse "Law" to "Not Law"
     within find('.constraint-box', text: 'Location') do
@@ -31,15 +31,15 @@ describe 'CLIO support for Law records' do
     end
 
     # confirm
-    find('.blacklight-location_facet .blacklight-location_facet').should have_css('li', minimum: 5)
-    find('.blacklight-location_facet .blacklight-location_facet').should have_text 'NOT Law'
+    find('.blacklight-location_facet .facet-content').should have_css('li', minimum: 5)
+    find('.blacklight-location_facet .facet-content').should have_text 'NOT Law'
 
     # go back, should get to Law again
     page.evaluate_script('window.history.back()')
 
     # confirm
-    find('.blacklight-location_facet .blacklight-location_facet').should have_css('li', maximum: 1)
-    find('.blacklight-location_facet .blacklight-location_facet').should have_text('Law')
+    find('.blacklight-location_facet .facet-content').should have_css('li', maximum: 1)
+    find('.blacklight-location_facet .facet-content').should have_text('Law')
 
   end
 

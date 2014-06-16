@@ -1,4 +1,42 @@
 module CulFacetsHelper
+  
+  # 
+  ##  OVERRIDE Blacklight::FacetsHelperBehavior 
+  # 
+  # Are any facet restrictions for a field in the query parameters?
+  # 
+  # @param [String] facet field
+  # @return [Boolean]
+  # def facet_field_in_params? field
+  #   # Support positive or negative, that is, "-location_facet"
+  #   params[:f] and ( params[:f][field] || params[:f]["-#{field}"])
+  # end
+  
+  ##
+  # Check if the query parameters have the given facet field with the 
+  # given value.
+  # 
+  # @param [Object] facet field
+  # @param [Object] facet value
+  # @return [Boolean]
+  def facet_in_params?(field, item)
+    if item and item.respond_to? :field
+      field = item.field
+    end
+
+    value = facet_value_for_facet_item(item)
+    
+    return true if facet_field_in_params?(field) and params[:f][field].include?(value)
+  
+    negated_field = "-#{field}"
+    return true if facet_field_in_params?(negated_field) and params[:f][negated_field].include?(value)
+    
+    return false
+  end
+  
+  
+  
+  
   # Override core blacklight render_constraints_helper_behavior.rb
   # module Blacklight::RenderConstraintsHelperBehavior#render_filter_element
   def render_filter_element(facet, values, localized_params)
