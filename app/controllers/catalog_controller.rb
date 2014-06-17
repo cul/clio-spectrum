@@ -171,10 +171,12 @@ class CatalogController < ApplicationController
     end
   end
 
+
+  # Why are we over-riding Blacklight::Catalog.facet() ??
   # displays values and pagination links for a single facet field
   def facet
     @pagination = get_facet_pagination(params[:id], params)
-
+  
     respond_to do |format|
       format.html
       format.js { render layout: false }

@@ -33,8 +33,15 @@
 
         = render :partial => "/footer"
 
-    -# Used by Blacklight's lightbox dialog
-    #ajax-modal.modal.hide.fade{:tabindex => -1}
+    -# BLACKLIGHT 4
+    -# -# Used by Blacklight's lightbox dialog
+    -# #ajax-modal.modal.hide.fade{:tabindex => -1}
+
+    -# BLACKLIGHT 5
+    -# Used by Blacklight for Bootstrap modals
+    #ajax-modal.modal.fade{tabindex: -1}
+      .modal-dialog
+        .modal-content
 
     -# "Busy" box, loaded hidden, made visible when user-triggered action
     -# will take a few moments to load a new page.

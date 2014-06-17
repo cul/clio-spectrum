@@ -59,12 +59,12 @@ $ ->
     else
       $.get('/set_browser_option?name=always_expand_facets&value=false')
 
-  $('h5.facet_field_label').click ->
-    # console.log( "click on:" + $(this).text() )
+  $('.collapse-toggle.panel-heading').click ->
+    # alert( "click on:" + $(this).text() )
     # console.log( "hasClass('twiddle-open'):" + $(this).hasClass('twiddle-open') )
     facet_tag = $(this).data("facet-tag")
     # alert "facet_tag=" + facet_tag
-    if $(this).hasClass('twiddle-open')
+    if $(this).hasClass('collapsed')
       # alert "set_browser_option=open"
       $.get('/set_browser_option?name=' + facet_tag + '&value=open')
     else

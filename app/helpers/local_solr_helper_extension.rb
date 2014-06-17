@@ -23,18 +23,19 @@ module LocalSolrHelperExtension
     end
   end
 
-    # Returns range config hash for named solr field. Returns false
-    # if not configured. Returns hash even if configured to 'true'
-    # for consistency.
-  def range_config(solr_field)
-    field = blacklight_config.facet_fields[solr_field]
-    return false unless field.range
-
-    config = field.range
-    config = {} if config === true
-
-    config
-  end
+# 6/14 - remove over-ride, fall-back to blacklight_range_limit definition
+  #   # Returns range config hash for named solr field. Returns false
+  #   # if not configured. Returns hash even if configured to 'true'
+  #   # for consistency.
+  # def range_config(solr_field)
+  #   field = blacklight_config.facet_fields[solr_field]
+  #   return false unless field.range
+  # 
+  #   config = field.range
+  #   config = {} if config === true
+  # 
+  #   config
+  # end
 
     # Method added to solr_search_params_logic to fetch
     # proper things for date ranges.

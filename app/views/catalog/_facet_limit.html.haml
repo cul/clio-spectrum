@@ -1,5 +1,5 @@
 
--# views/catalog/_facet_limit_html.haml
+-# This is views/catalog/_facet_limit_html.haml
 
 -# 
 -# #############   BLACKLIGHT 4   #############
@@ -40,6 +40,14 @@
 -# 
 
 %ul.facet-values.list-unstyled
+
+  -# Support for Excluded facet values (negated facets)
+  - excluded_solr_field = "-#{solr_field}"
+  - if params['f'] && params['f'][excluded_solr_field]
+    - Array.wrap(params['f'][excluded_solr_field]).each do |item|
+      %li
+        = render_selected_excluded_facet_value(excluded_solr_field, item)
+
   - paginator = facet_paginator(facet_field, display_facet)
   - paginator.items.each do |item| 
     %li

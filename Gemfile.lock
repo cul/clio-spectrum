@@ -60,7 +60,6 @@ GEM
     blacklight (5.1.1)
       bootstrap-sass (~> 3.0)
       deprecation
-      kaminari (~> 0.13)
       nokogiri (~> 1.6)
       rails (>= 3.2.6, < 5)
       rsolr (~> 1.0.6)
@@ -202,7 +201,7 @@ GEM
       jquery-rails
     json (1.8.1)
     json_pure (1.8.1)
-    kaminari (0.16.1)
+    kaminari (0.15.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     launchy (2.4.2)
@@ -433,6 +432,7 @@ DEPENDENCIES
   httpclient
   jquery-rails-cdn
   json
+  kaminari (= 0.15.0)
   launchy
   metric_fu
   mysql2

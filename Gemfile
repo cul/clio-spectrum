@@ -28,6 +28,11 @@ gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blackl
 
 #  ###  BLACKLIGHT (end)  ###
 
+# A recent Kaminari update broke blacklight facet pagination.
+# https://github.com/amatsuda/kaminari/commit/5e2e505cdd2ea2de20949d5cef261c247b3168b1
+# This isn't fixed in Blacklight until 5.5.0,
+# so pin kaminari to a pre-breakage release
+gem 'kaminari', '0.15.0'
 
 gem 'devise_wind'
 # Local copy relaxes rails version requirements (allows 4.x)

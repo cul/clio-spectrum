@@ -238,7 +238,7 @@ describe 'Catalog Interface' do
     # locate a fairly static set of records for a stable test suite
     visit catalog_index_path('q' => 'maigret simenon')
     within '#facets' do
-      find('.facet_field_label', text: 'Publication Date').click
+      find('.panel_heading', text: 'Publication Date').click
       fill_in 'range[pub_date_sort][end]', with: '1950'
       find('button[type=submit]').click
     end
