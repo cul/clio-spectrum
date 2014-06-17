@@ -7,7 +7,7 @@
 
     .row
 
-      .col-md-4.no-bottom-space
+      .col-sm-4.no-bottom-space
         %span.coins_wrapper
           <!-- COinS -->
           %span.Z3988{title: catalog_to_openurl_ctx_kev(document)}
@@ -18,15 +18,15 @@
         .item_select_allowance
           %b= link_to_source_document document, :label=> document.get('title_display').abbreviate(100), :counter => blacklight_counter
 
-      .col-md-3.no-bottom-space= document.get("author_display") || document.get("author_vern_display")
+      .col-sm-3.no-bottom-space= document.get("author_display") || document.get("author_vern_display")
 
-      .col-md-5.no-bottom-space= document.get("full_publisher_display")
+      .col-sm-5.no-bottom-space= document.get("full_publisher_display")
 
 
     .row
-      .col-md-7.item_select_allowance.no-bottom-space
+      .col-sm-7.item_select_allowance.no-bottom-space
         %small= holdings_compact(document)
-      .col-md-5.no-bottom-space
+      .col-sm-5.no-bottom-space
         %small= formats_with_icons(document)
 
 

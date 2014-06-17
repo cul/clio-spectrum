@@ -1,7 +1,7 @@
 = display_search_boxes('academic_commons')
 
 .row
-  .landing_main.col-md-8
+  .landing_main.col-sm-8
     .title Academic Commons
 
     = render partial: '/datasource_warning', locals: {warning: warning}
@@ -11,7 +11,7 @@
       %li For content by department: Try #{link_to 'Browse Academic Commons Content', 'http://academiccommons.columbia.edu/catalog/browse/departments'}
       %li For content by subject: Try #{link_to 'Academic Commons Content by Subject', 'http://academiccommons.columbia.edu/catalog/browse/subjects'}
 
-  .landing_side.col-md-4
+  .landing_side.col-sm-4
     .well.sidebar-nav
       .nav
         %ul.nav.nav-list

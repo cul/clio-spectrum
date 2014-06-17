@@ -2,16 +2,16 @@
 
 .row
 
-  .savedlist_control_panel.col-md-3
+  .savedlist_control_panel.col-sm-3
     = render 'savedlist_control_panel'
 
 
-  .savedlist_display_list.col-md-9
+  .savedlist_display_list.col-sm-9
     .savedlist_header
       .row
-        .col-md-2
+        .col-sm-2
           %strong List Name:
-        .col-md-10
+        .col-sm-10
           %span.lead= @list.display_name
           &nbsp; &nbsp;
           - if current_user && current_user.login == @list.owner
@@ -21,15 +21,15 @@
 
       - unless @list.description.empty?
         .row
-          .col-md-2
+          .col-sm-2
             %strong Description:
-          .col-md-10
+          .col-sm-10
             %span.lead= @list.description
 
       .row
-        .col-md-2
+        .col-sm-2
           %strong URL:
-        .col-md-10
+        .col-sm-10
           %span.lead= get_full_url(@list)
           &nbsp; &nbsp;
           = get_permissions_label(@list.permissions)

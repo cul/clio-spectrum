@@ -2,11 +2,11 @@
 - link_text = "#{menu_list.display_name.abbreviate(20)} (#{menu_list.size})"
 
 .row
-  .col-md-8
+  .col-sm-8
     - if menu_list == current_list
       %b= link_text
     - else
       %b= link_to link_text, menu_list.url
-  .col-md-4.text-right
+  .col-sm-4.text-right
     #{get_permissions_label(menu_list.permissions)}
 

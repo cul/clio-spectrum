@@ -3,7 +3,7 @@
 
 .search_box{ :class => ("selected" if has_advanced_params?) }
 
-  .col-md-12
+  .col-sm-12
     -# Adding this magic <span> makes advanced_search show and basic_search hide
     - if params[:form] == 'advanced'
       %span.show_advanced_search
@@ -38,7 +38,7 @@
         of the following criteria:
         %button.btn.advanced_search_button.btn-primary{:name => "commit", :type => "submit", :value => "Search"}
           %span.glyphicon.glyphicon-search.icon-white
-          %span.hidden-sm Search
+          %span.hidden-xs Search
         =link_to "Basic Search", "#", class: "btn btn-link advanced_search_toggle"
 
       = hidden_field_tag 'form', 'advanced'

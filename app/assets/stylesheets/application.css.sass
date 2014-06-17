@@ -1,7 +1,18 @@
-$baseLineHeight: 18px
-$baseFontSize: 13px
 
+// These base variables are used throughout Bootstrap 
+// Bootstrap 2
+//$baseLineHeight: 18px
+//$baseFontSize: 13px
+// Bootstrap 3
+$line-height-base: 1.384615
+$font-size-base: 13px
+// add back light-blue menu-link background (Bootstrap 2 default)
+$dropdown-link-hover-bg: #08c
+
+// These two are provided by bootstrap-sass gem
 @import "bootstrap"
+@import "bootstrap/theme"
+
 // It's all one package with bootstrap 3
 // @import "bootstrap-responsive"
 
@@ -45,7 +56,7 @@ $baseFontSize: 13px
 @import "saved_lists"
 
 // Restore the Bootstrap 2 default styling - gradient buttons, etc.
-@import "bootstrap-theme.min"
+// Not Needed - the gem provides this too.  @import "bootstrap-theme.min"
 
 // clio_last has specific overrides to the ldpd_toolkit styles
 @import "clio_last"

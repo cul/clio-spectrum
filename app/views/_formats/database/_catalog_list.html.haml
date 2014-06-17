@@ -4,7 +4,7 @@
 .result.document.database_record{class: render_document_class(document), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
   .row
-    .title.col-md-12
+    .title.col-sm-12
 
       %span.coins_wrapper
         <!-- COinS -->
@@ -22,8 +22,8 @@
 
     -# Databases never have book-jackets, or, if they ever maybe do, they're not important.
     -# So, give all 12 columns over to the bibliographic details.
-    .details.col-md-12
+    .details.col-sm-12
       = render :partial => "/_formats/database/catalog_list_details", :locals => {:document => document}
 
-    -# .doc_bookjacket.col-md-2
+    -# .doc_bookjacket.col-sm-2
     -#   =image_tag("spacer.png", :class => "list_view bookjacket " + document["isbn_display"].listify.collect { |x| "id_" + x.to_s}.join(" "))

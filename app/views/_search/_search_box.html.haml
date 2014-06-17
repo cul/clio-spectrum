@@ -1,14 +1,14 @@
 
 .landing_across.row
 
-  .search_boxes.col-md-9
+  .search_boxes.col-sm-9
     .basic_search
       = display_basic_search_form(source)
     .advanced_search
       = display_advanced_search_form(source)
 
   -# / Start-Over link, only present during searching
-  .start_over.col-md-3.text-right
+  .start_over.col-sm-3.text-right
     - if has_search_parameters?
       = display_start_over_link(source)
 

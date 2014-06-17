@@ -9,12 +9,12 @@
 
 .row
 
-  #marc_download_links.col-md-6
+  #marc_download_links.col-sm-6
     %strong= "Download as:"
     %span= link_to "MARCXML", catalog_path(@document.id, :format => "marcxml")
     %span= link_to "MARC21", catalog_path(@document.id, :format => "marc")
-  #patron_view_link.col-md-6
-    %strong.btn.btn-default= link_to "Return to Patron View", catalog_path(@document.id)
+  #patron_view_link.col-sm-6
+    %strong.btn= link_to "Return to Patron View", catalog_path(@document.id)
     
 
 

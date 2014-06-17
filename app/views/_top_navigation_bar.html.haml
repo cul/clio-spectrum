@@ -1,20 +1,20 @@
 - cache("top_navigation_bar_#{current_user}") do
-  %header{:data => {'ga-action' => 'Top NavBar Click'} }
+  .header{:data => {'ga-action' => 'Top NavBar Click'} }
     %h1.hide CUL - Header
     #topnavbar.navbar.navbar-fixed-top
       .container.fill
         #navbar-container.container
           .row
             %nav
-              #cul_top-nosearch.col-md-12
+              #cul_top-nosearch.col-sm-12
                 .row
-                  .col-md-12
+                  .col-sm-12
                     %ul#crowndown-nosearch.nav.navbar-left
                       %li.dropdown.menu
                         %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#", :title => "Links @ Columbia"}
                           %span.topbarlogo
-                            %span.visible-sm CLIO
-                            %span.hidden-sm
+                            %span.visible-xs CLIO
+                            %span.hidden-xs
                               =image_tag "ldpd-toolkit/crown-bts-24x24.png", :alt => "CU"
                               Columbia University Libraries<span id="topbarslash">/</span>Information Services
                             %b.caret
@@ -55,10 +55,10 @@
                       - if current_user
                         %li.dropdown.menu
                           %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#"}
-                            %span.visible-sm.clicktale_masked
+                            %span.visible-xs.clicktale_masked
                               #{current_user.login}
                               %b.caret
-                            %span.hidden-sm
+                            %span.hidden-xs
                               #{current_user.name} (#{current_user.login})
                               %b.caret
                           %ul.dropdown-menu.menu-dropdown
@@ -69,10 +69,10 @@
                       - else
                         %li.dropdown.menu
                           %a.dropdown-toggle.menu{"data-toggle" => "dropdown", :href => "#"}
-                            %span.hidden-sm.hidden-md
+                            %span.hidden-xs.hidden-md
                               My Library Account
                               %b.caret
-                            %span.visible-sm.visible-md
+                            %span.hidden-sm.visible-md
                               My Account
                               %b.caret
                           %ul.dropdown-menu.menu-dropdown

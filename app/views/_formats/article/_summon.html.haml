@@ -3,7 +3,7 @@
 .result.document.article_list{item_id: document.id}
 
   .row
-    .title.col-md-12
+    .title.col-sm-12
       .item_anchor
         = render :partial => '/saved_lists/item_select_checkbox', :locals => {:item_id => document.id, :counter => counter ||= 0}
       .item_select_allowance= link_to_article document

@@ -1,7 +1,7 @@
 = display_search_boxes('quicksearch')
 
 .row
-  .landing_main.col-md-8
+  .landing_main.col-sm-8
     .title Quicksearch
 
     = render partial: '/datasource_warning', locals: {warning: warning}
@@ -13,7 +13,7 @@
       %li #{datasource_switch_link('Academic Commons', 'academic_commons')} (digital repository of Columbia research)
       %li #{datasource_switch_link('Libraries Website', 'library_web')}
 
-  .landing_side.col-md-4
+  .landing_side.col-sm-4
     .well.sidebar-nav
       .nav
         %ul.nav.nav-list

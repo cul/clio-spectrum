@@ -150,6 +150,8 @@ h6 {
   padding-left: 13px;
   padding-right: 13px;
 }
+
+/* White text on Dark Blue background for all menu/select options */
 .nav-list > .active > a,
 .nav-list > .active > a:hover,
 .nav-pills > .active > a,
@@ -160,6 +162,7 @@ h6 {
   background-color: #2a2aa5;
   color: #ffffff !important;
 }
+
 a.thumbnail:hover {
   border-color: transparent;
 }

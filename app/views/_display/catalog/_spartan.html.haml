@@ -6,7 +6,7 @@
 
     .row
 
-      .col-md-4
+      .col-sm-4
 
         %span.coins_wrapper
           <!-- COinS -->
@@ -18,8 +18,8 @@
         .item_select_allowance
           %b= link_to_source_document document, :label=> document.get('title_display'), :counter => blacklight_counter
 
-      .col-md-4= document.get("author_display") || document.get("author_vern_display")
+      .col-sm-4= document.get("author_display") || document.get("author_vern_display")
 
-      .col-md-4= document.get("full_publisher_display")
+      .col-sm-4= document.get("full_publisher_display")
 
 

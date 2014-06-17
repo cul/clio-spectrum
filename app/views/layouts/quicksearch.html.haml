@@ -18,7 +18,7 @@
 
         #bd.row
           .sidebar.hidden-print{:class => sidebar_span}
-            .search_logo.hidden-sm
+            .search_logo.hidden-xs
               = link_to "CLIO", root_path, :class => "nav_title search_bar_logo"
             #sources
               = clio_sidebar_items.join('').html_safe
@@ -40,9 +40,9 @@
     -# will take a few moments to load a new page.
     -# Used by, e.g., NEXT-836 - Can't uncheck multiple options at the same time
     .busy.row
-      .col-md-4
+      .col-sm-4
         %img.busy-image{:src => image_path("ajax-loader.gif")}
-      .col-md-8
+      .col-sm-8
         .busy-text Updating...
 
     = render :partial => "/layouts/common_tail"

@@ -49,15 +49,15 @@ body.blank_layout {
     margin-top: -18px;
     border-top: 0;
   }
-  /* reinstate the narrow-screen Bootstrap padding-top=0 that LDPD took away */
-  body {
-    padding-top: 0;	
-  }
 }
 @media screen and (max-width: 767px) {
   #outer-container {
     margin-left: -10px;
     margin-right: -10px;
+  }
+  /* reinstate the narrow-screen Bootstrap padding-top=0 that LDPD took away */
+  body {
+    padding-top: 0;	
   }
 }
 

@@ -5,7 +5,7 @@
 - if document.get("_active_item_alert_count") && document.get("_active_item_alert_count") > 0
   - Array.wrap(document.get("_item_alerts")[:alert]).each do | alert |
     - if alert.active?
-      .col-md-12.alert_alert
+      .col-sm-12.alert_alert
         = "ALERT: #{alert[:message]}".html_safe
   - Array.wrap(document.get("_item_alerts")[:access_requirements]).each do | access_requirement |
     - if access_requirement.active?

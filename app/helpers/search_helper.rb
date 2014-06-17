@@ -129,8 +129,12 @@ module SearchHelper
         result += dropdown_with_select_tag(:search_field, options['search_fields'].invert, h(search_params[:search_field]), title: 'Targeted search options', class: 'search_options')
       end
 
+      # Will this wrap input-text and drop-down-select more nicely?
+      result = content_tag(:div, result, class: "input-group")
+
       # "Search" button
-      result += content_tag(:button, '<span class="glyphicon glyphicon-search icon-white"></span> <span class="visible-lg">Search</span>'.html_safe, type: 'submit', class: 'btn basic_search_button btn-primary', name: 'commit', value: 'Search')
+      # result += content_tag(:button, '<span class="glyphicon glyphicon-search icon-white"></span><span class="visible-lg">Search</span>'.html_safe, type: 'submit', class: 'btn basic_search_button btn-primary add-on', name: 'commit', value: 'Search')
+      result += content_tag(:button, '<span class="glyphicon glyphicon-search icon-white"></span> <span class="visible-lg-inline">Search</span>'.html_safe, type: 'submit', class: 'btn basic_search_button btn-primary', name: 'commit', value: 'Search')
 
       # link to advanced search
       if options['search_type'].in?('summon', 'blacklight') && options['advanced']

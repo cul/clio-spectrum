@@ -92,21 +92,22 @@ module DatasourcesHelper
 
     landing_class = options[:all_sources] ? 'landing datasource_list' : 'datasource_list'
     landing_class += ' no_facets' unless has_facets
+    landing_class += ' hidden-xs'
     clio_sidebar_items.unshift(
       content_tag(:ul, result.join('').html_safe, id: 'datasources', class: landing_class)
     )
   end
 
   def sidebar_span(source = @active_source)
-    # source_has_facets?(source) ? 'col-md-3' : 'span2_5'
+    # source_has_facets?(source) ? 'col-sm-3' : 'span2_5'
     # Our local custom span2_5/span9_5 broke with Bootstrap 3
-    'col-md-3'
+    'col-sm-3'
   end
 
   def main_span(source = @active_source)
-    # source_has_facets?(source) ? 'col-md-9' : 'span9_5'
+    # source_has_facets?(source) ? 'col-sm-9' : 'span9_5'
     # Our local custom span2_5/span9_5 broke with Bootstrap 3
-    'col-md-9'
+    'col-sm-9'
   end
 
   # Will there be any facets shown for this datasource?

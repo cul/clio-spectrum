@@ -97,7 +97,7 @@ a.clio_logo
 
 .source_select.sidenav
   +clearfix
-  @extend .visible-sm
+  //@extend .hidden-sm
   h4
     :padding 10px 14px 0 14px
 
@@ -246,20 +246,23 @@ a.clio_logo
 //      :width 44em
 //
 
-.datasource_list
-  @extend .hidden-sm
+// Move into explicit in-page CSS class
+//.datasource_list
+//  @extend .hidden-xs
 
 
 .search_options
   :width 6em
-.dropdown_select_tag
-  :display inline
 
-  btn.add-on.dropdown-toggle
-    :display inline-block !important
-    //+border-radius(0 0 0 0)
-    :border-radius 0 0 0 0
-
-  .dropdown-toggle
-    :display none
+// With Bootstrap 3, this styling happens for us
+//.dropdown_select_tag
+//  :display inline
+//
+//  btn.add-on.dropdown-toggle
+//    :display inline-block !important
+//    //+border-radius(0 0 0 0)
+//    :border-radius 0 0 0 0
+//
+//  .dropdown-toggle
+//    :display none
 
