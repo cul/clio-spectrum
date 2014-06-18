@@ -15,8 +15,8 @@ describe 'Searching for one-word titles: ' do
 
   it 'Gut' do
     resp = solr_resp_ids_from_query('Gut')
-    resp.should include('4842087').in_first(2).results
-    resp.should include('3942290').in_first(2).results
+    resp.should include('4842087').in_first(3).results
+    resp.should include('3942290').in_first(3).results
 
     resp = solr_resp_ids_from_journal_title_query('Gut')
     resp.should include('4842087').in_first(2).results
