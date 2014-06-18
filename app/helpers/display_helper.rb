@@ -138,7 +138,7 @@ module DisplayHelper
     end
   end
 
-  def format_location_results(locations, document)
+  def format_brief_location_results(locations, document)
     locations.map do |location|
 
       loc_display, hold_id = location.split('|DELIM|')
@@ -146,14 +146,37 @@ module DisplayHelper
       image_tag('icons/none.png',
                 class: "availability holding_#{hold_id}") +
         process_holdings_location(loc_display) +
-        additional_location_note(document, location)
+        additional_brief_location_note(document, location)
+        # Can't do this without more work...
+        # Location.get_location_note(loc_display, document)
     end
   end
 
-  # Any additional special notes, for this document at this location?
-  def additional_location_note(document, location)
+  # Any additional special notes, possibly multiple, for this document at this location
+  def additional_holdings_location_notes(document, location)
+    location_notes = []
+
     # Law records need a link back to their native catalog
-    if in_pegasus? document
+    if document && in_pegasus?(document)
+      location_notes << content_tag(:span, pegasus_item_link(document, 'Search Results'), class: 'url_link_note')
+    end
+
+    # Check for any location notes in app_config - that's used for
+    # somewhat dynamic values that we don't want to put in code
+    app_config_location_notes = APP_CONFIG['location_notes']
+    app_config_location_notes.keys.each { |location_note_key|
+      if location.starts_with? location_note_key
+        location_notes << app_config_location_notes[location_note_key].html_safe
+      end
+    }
+
+    return location_notes
+  end
+
+  # Any additional special note, for this document at this location
+  def additional_brief_location_note(document, location)
+    # Law records need a link back to their native catalog
+    if document && in_pegasus?(document)
       return content_tag(:span, pegasus_item_link(document, 'Search Results'), class: 'url_link_note')
     end
   end

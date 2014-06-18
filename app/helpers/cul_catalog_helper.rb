@@ -57,7 +57,7 @@ module CulCatalogHelper
     locations = document['location_call_number_id_display'].listify.reject do |loc|
       loc.match(/^Online/)
     end
-    physical_holdings = format_location_results(locations, document)
+    physical_holdings = format_brief_location_results(locations, document)
 
     all_holdings = online_holdings.concat(physical_holdings)
 

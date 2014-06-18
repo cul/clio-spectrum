@@ -24,6 +24,19 @@ class Location < ActiveRecord::Base
     matches.find { |m| m.name.length == max_length }
   end
 
+  # 
+  # Nope, for now use DisplayHelper.additional_holdings_location_notes()
+  # 
+  # # Location Note, used for a special add-on text/link message
+  # # location_note = Location.get_location_note(entry['location_name'])
+  # def self.get_location_note(location = nil, document = nil)
+  #   case location
+  #   when 'Law'
+  #     content_tag(:span, pegasus_item_link(document, 'Search Results'), class: 'url_link_note')
+  #   end
+  # 
+  # end
+
   def self.clear_and_load_fixtures!
     Location.delete_all
     fixture = YAML.load_file('config/locations_fixture.yml')

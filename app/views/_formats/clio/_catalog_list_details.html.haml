@@ -11,7 +11,7 @@
 
 
 - unless (locations = document["location_call_number_id_display"].listify.reject { |l| l.match(/^Online/) }).empty?
-  = add_row("Location", format_location_results(locations, document))
+  = add_row("Location", format_brief_location_results(locations, document))
 
 
 = add_row('Format', formats_with_icons(document))
