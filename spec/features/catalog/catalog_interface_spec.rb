@@ -277,6 +277,15 @@ describe 'Catalog Interface' do
   end
 
 
+  # NEXT-1081 - Apostrophe in the title bar renders incorrectly
+  it 'shows apostrophes within title element', js: true do
+    visit catalog_path(6217943)
+    page.has_title? "L&#x27;image de l&#x27;Orient"
+
+    visit catalog_path(6094212)
+    page.has_title? "Al-Qur&#x27;an"
+  end
+
 end
 
 # email_catalog_path(:id => id)
