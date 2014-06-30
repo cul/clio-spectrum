@@ -286,6 +286,15 @@ describe 'Catalog Interface' do
     page.has_title? "Al-Qur&#x27;an"
   end
 
+  # NEXT-1069 - 505s for Journals/Periodicals
+  it 'shows apostrophes within title element' do
+    visit catalog_path(10213578)
+    page.should have_text "Contents
+    ISSUE 1
+    Introduction
+    Annette Funicello"
+  end
+
 end
 
 # email_catalog_path(:id => id)
