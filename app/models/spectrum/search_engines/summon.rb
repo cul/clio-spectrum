@@ -297,9 +297,13 @@ module Spectrum
         # Why was this 20-page limit in effect?
         # total_pages > current_page && 20 > current_page
 
-        # Summon API hard limit: only first 500 items will ever be returned.
-        # Allow a next-page link if it's max item will be within this bound.
-        page_size * (current_page + 1) <= 500
+        # # Summon API hard limit: only first 500 items will ever be returned.
+        # # Allow a next-page link if it's max item will be within this bound.
+        # page_size * (current_page + 1) <= 500
+
+        # NEXT-1078 - CLIO Articles limit 500 records, Summon 1,000
+        # Update - Maximum supported returned results set size is now 1000.
+        page_size * (current_page + 1) <= 1000
       end
 
       def next_page_path
