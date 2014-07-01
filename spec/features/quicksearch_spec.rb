@@ -77,7 +77,7 @@ describe 'QuickSearch landing page' do
     visit quicksearch_index_path('q' => 'horse')
     within('.results_header[data-source=catalog]') do
       find('img').click
-      find('.category_title').should have_text 'Contains library, books, videos, local resources'
+      find('.category_title').should have_text 'Library books, journals, music, videos, databases, archival collections, and online resources'
     end
     within('.results_header[data-source=articles]') do
       find('img').click
