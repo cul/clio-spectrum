@@ -134,7 +134,7 @@ class SpectrumController < ApplicationController
     # QuickSearch is only one of may possible Aggregates - so maybe this instead?
     # params['new_search'] = 'true' if @search_style == 'aggregate'
 
-    # 
+
     # New approach, 5/14 - params will always be "q".  
     # "s.q" is internal only to the Summon controller logic
     if params['s.q']

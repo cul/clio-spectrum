@@ -54,7 +54,7 @@ module Spectrum
           @params = SUMMON_DEFAULT_PARAMS[@source].dup
         end
 
-        # @params = (@source && options.delete('new_search')) ? SUMMON_DEFAULT_PARAMS[@source].dup : {}
+        # These are ALWAYS in effect for Summon API queries
         @params.merge!(SUMMON_FIXED_PARAMS)
 
         @config = options.delete('config') || APP_CONFIG['summon']

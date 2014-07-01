@@ -79,16 +79,8 @@ module SearchHelper
       has_options = (options['search_type'].in?('blacklight', 'summon') ? 'search_q with_options' : 'search_q without_options')
 
       # BASIC SEARCH INPUT BOX
-      summon_query_as_hash = {}
-      if @results.kind_of?(Hash) && @results.values.first.instance_of?(Spectrum::SearchEngines::Summon)
-        # when summon fails, these may be nil
-        if @results.values.first.search && @results.values.first.search.query
-          summon_query_as_hash = @results.values.first.search.query.to_hash
-        end
-      end
       # raise
       result += text_field_tag(:q,
-                               # search_params[:q] || summon_query_as_hash['s.q'] || '',
                                search_params[:q] || '',
                                class: has_options,
                                id: "#{source}_q",
@@ -111,19 +103,29 @@ module SearchHelper
 
       ### for summon (articles, newspapers)
       elsif options['search_type'] == 'summon'
+
+
+        summon_query_as_hash = {}
+        if @results.kind_of?(Hash) && @results.values.first.instance_of?(Spectrum::SearchEngines::Summon)
+          # when summon fails, these may be nil
+          if @results.values.first.search && @results.values.first.search.query
+            summon_query_as_hash = @results.values.first.search.query.to_hash
+          end
+        end
+
+        if summon_query_as_hash == {}
+          # If there is no Summon query in-effect, this is a new summon search,
+          # add a param to tell Summon to apply default filter settings.
+          result += hidden_field_tag 'new_search', 'true'
+        else
+          # Pass through Summon facets, checkboxes, sort, paging, as hidden form variables
+          # For any Summon data-source:  Articles or Newspapers
+          result += summon_hidden_keys_for_search(summon_query_as_hash.except('s.fq'))
+        end
+
         # insert hidden fields
-        # No longer applicable - we do Javascript datasource switching any longer.
-        # # If we're at the Quicksearch landing page, building search-forms that will be
-        # # shown to the user via Javascript datasource switching, mark as "new_search"
-        # if @active_source == 'quicksearch'
-        #   result += hidden_field_tag 'new_search', 'true'
-        # end
         result += hidden_field_tag 'source', @active_source || 'articles'
         result += hidden_field_tag 'form', 'basic'
-
-        # Pass through Summon facets, checkboxes, sort, paging, as hidden form variables
-        # For any Summon data-source:  Articles or Newspapers
-        result += summon_hidden_keys_for_search(summon_query_as_hash.except('s.fq'))
 
         # insert drop-down
         result += dropdown_with_select_tag(:search_field, options['search_fields'].invert, h(search_params[:search_field]), title: 'Targeted search options', class: 'search_options')
