@@ -83,6 +83,17 @@ describe 'Summon Search Option Filter Settings' do
     confirm_default_filter_settings
   end
 
+  # Fire off the args of the LWeb Home-Page search widget, test that
+  # the defaults are correctly applied.
+  # NEXT-948 Article searches from LWeb do not exclude newspapers
+  it 'should default from LWeb Homepage search', js: true do
+    params = { controller: 'articles', q: $q, datasource: 'articles', search_field: 'all_fields', search: true }
+    visit articles_index_path(params)
+    # page.save_and_open_page # debug
+    all('.index_toolbar.navbar').first.should have_text " of #{@result_count}"
+    confirm_default_filter_settings
+  end
+
 end
 
 
