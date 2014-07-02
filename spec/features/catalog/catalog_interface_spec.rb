@@ -295,6 +295,31 @@ describe 'Catalog Interface' do
     Annette Funicello"
   end
 
+  # Validate all the fields of series statements
+  # NEXT-1080 - Add 490 series statement to displays
+  # (8X0s were already there, now add the 490)
+  it 'shows series statements, from 490 and 8X0 fields' do
+    # 490
+    visit catalog_path(10735763)
+    page.should have_text "Series Bullettino della Commissione archeologica comunale di Roma. Supplementi ; 21"
+    # 800
+    visit catalog_path(10840)
+    page.should have_text "Series Abusch, Alexander. Works. Selections ; Bd. 1."
+    # 810
+    visit catalog_path(11638)
+    page.should have_text "Series Freemasons. Quatuor Coronati-Loge (Bayreuth, Germany). Quellenkundliche Arbeit der Freimaurerischen Forschungsgesellschaft Quatuor Coronati e.V., Bayreuth ; Nr. 8."
+    # 811
+    visit catalog_path(6974)
+    page.should have_text "Series Sagamore Army Materials Research Conference. Sagamore Army Materials Research Conference proceedings ; 21st."
+    # 830
+    visit catalog_path(8887)
+    page.should have_text "Series Studi risorgimentali ; 12."
+# I have not yet found any example bibs for this test...
+    # # 840
+    # visit catalog_path(99)
+    # page.should have_text "xx"
+  end
+
 end
 
 # email_catalog_path(:id => id)
