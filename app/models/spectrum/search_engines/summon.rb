@@ -17,19 +17,29 @@ module Spectrum
       # s.ho=<boolean>     Holdings Only Parameter, a.k.a., "Columbia's collection only"
       SUMMON_DEFAULT_PARAMS = {
 
-        'newspapers' =>  { 's.ho' => 't',
-                           's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)' }.freeze,
+        'newspapers' =>  { 
+          's.ho' => 't',
+          # 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)'
+          's.fvf' => ['ContentType, Newspaper Article']
+        }.freeze,
 
-        'articles' =>  { 's.ho' => 't',
-                         's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)' }.freeze,
+        'articles' =>  { 
+          's.ho' => 't',
+          # 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)'
+          's.fvf' => ['ContentType, Newspaper Article,t']
+        }.freeze,
 
-        'ebooks' => { 's.ho' => 't',
-                      's.cmd' => 'addFacetValueFilters(IsFullText, true)',
-                      's.fvf' => ['ContentType,eBook'] }.freeze,
+        'ebooks' => { 
+          's.ho' => 't',
+          's.cmd' => 'addFacetValueFilters(IsFullText, true)',
+          's.fvf' => ['ContentType,eBook']
+        }.freeze,
 
-        'dissertations' => { 's.ho' => 't',
-                             's.fvf' => ['ContentType,Dissertation'] }.freeze
+        'dissertations' => {
+          's.ho' => 't',
+          's.fvf' => ['ContentType,Dissertation']
         }.freeze
+      }.freeze
 
       attr_reader :source, :errors, :search
       attr_accessor :params
@@ -96,6 +106,7 @@ module Spectrum
         end
 
         @errors = nil
+# raise
         begin
           # do_benchmarking = false
           # if do_benchmarking
@@ -104,10 +115,9 @@ module Spectrum
           #   @config.merge!( :benchmark => bench)
           # end
 
-          @service = ::Summon::Service.new(@config)
-
           Rails.logger.debug "[Spectrum][Summon] config: #{@config}"
           Rails.logger.debug "[Spectrum][Summon] params: #{@params}"
+          @service = ::Summon::Service.new(@config)
 
           ### THIS is the actual call to the Summon service to do the search
           @search = @service.search(@params)
