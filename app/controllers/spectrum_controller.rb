@@ -134,7 +134,16 @@ class SpectrumController < ApplicationController
     # QuickSearch is only one of may possible Aggregates - so maybe this instead?
     # params['new_search'] = 'true' if @search_style == 'aggregate'
 
-    # 
+    # If we're coming from the LWeb Search Widget - or any other external
+    # source - mark it as a New Search for the Summon search engine.
+    # (fixes NEXT-948 Article searches from LWeb do not exclude newspapers)
+    clios = ['http://clio', 'https://clio',
+             'http://localhost', 'https://localhost']
+    params['new_search'] = true unless request.referrer && clios.any? do |prefix|
+      request.referrer.starts_with? prefix
+    end
+
+
     # New approach, 5/14 - params will always be "q".  
     # "s.q" is internal only to the Summon controller logic
     if params['s.q']

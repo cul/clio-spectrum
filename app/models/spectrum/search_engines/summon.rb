@@ -17,19 +17,29 @@ module Spectrum
       # s.ho=<boolean>     Holdings Only Parameter, a.k.a., "Columbia's collection only"
       SUMMON_DEFAULT_PARAMS = {
 
-        'newspapers' =>  { 's.ho' => 't',
-                           's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)' }.freeze,
+        'newspapers' =>  { 
+          's.ho' => 't',
+          # 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)'
+          's.fvf' => ['ContentType, Newspaper Article']
+        }.freeze,
 
-        'articles' =>  { 's.ho' => 't',
-                         's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)' }.freeze,
+        'articles' =>  { 
+          's.ho' => 't',
+          # 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)'
+          's.fvf' => ['ContentType, Newspaper Article,t']
+        }.freeze,
 
-        'ebooks' => { 's.ho' => 't',
-                      's.cmd' => 'addFacetValueFilters(IsFullText, true)',
-                      's.fvf' => ['ContentType,eBook'] }.freeze,
+        'ebooks' => { 
+          's.ho' => 't',
+          's.cmd' => 'addFacetValueFilters(IsFullText, true)',
+          's.fvf' => ['ContentType,eBook']
+        }.freeze,
 
-        'dissertations' => { 's.ho' => 't',
-                             's.fvf' => ['ContentType,Dissertation'] }.freeze
+        'dissertations' => {
+          's.ho' => 't',
+          's.fvf' => ['ContentType,Dissertation']
         }.freeze
+      }.freeze
 
       attr_reader :source, :errors, :search
       attr_accessor :params
@@ -54,7 +64,7 @@ module Spectrum
           @params = SUMMON_DEFAULT_PARAMS[@source].dup
         end
 
-        # @params = (@source && options.delete('new_search')) ? SUMMON_DEFAULT_PARAMS[@source].dup : {}
+        # These are ALWAYS in effect for Summon API queries
         @params.merge!(SUMMON_FIXED_PARAMS)
 
         @config = options.delete('config') || APP_CONFIG['summon']
@@ -96,6 +106,7 @@ module Spectrum
         end
 
         @errors = nil
+# raise
         begin
           # do_benchmarking = false
           # if do_benchmarking
@@ -104,10 +115,9 @@ module Spectrum
           #   @config.merge!( :benchmark => bench)
           # end
 
-          @service = ::Summon::Service.new(@config)
-
           Rails.logger.debug "[Spectrum][Summon] config: #{@config}"
           Rails.logger.debug "[Spectrum][Summon] params: #{@params}"
+          @service = ::Summon::Service.new(@config)
 
           ### THIS is the actual call to the Summon service to do the search
           @search = @service.search(@params)
@@ -297,9 +307,13 @@ module Spectrum
         # Why was this 20-page limit in effect?
         # total_pages > current_page && 20 > current_page
 
-        # Summon API hard limit: only first 500 items will ever be returned.
-        # Allow a next-page link if it's max item will be within this bound.
-        page_size * (current_page + 1) <= 500
+        # # Summon API hard limit: only first 500 items will ever be returned.
+        # # Allow a next-page link if it's max item will be within this bound.
+        # page_size * (current_page + 1) <= 500
+
+        # NEXT-1078 - CLIO Articles limit 500 records, Summon 1,000
+        # Update - Maximum supported returned results set size is now 1000.
+        page_size * (current_page + 1) <= 1000
       end
 
       def next_page_path

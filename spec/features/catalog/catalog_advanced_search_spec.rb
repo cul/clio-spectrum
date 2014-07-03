@@ -124,7 +124,7 @@ describe 'Catalog Advanced Search' do
   end
 
   # NEXT-1050, continued, for basic/fielded search...
-  it 'should allow basic fielded ISBN search against "invalid" ISBN', js: true, focus: true do
+  it 'should allow basic fielded ISBN search against "invalid" ISBN', js: true do
     isbn_z = '201235125'
 
     visit catalog_index_path

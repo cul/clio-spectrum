@@ -25,7 +25,7 @@ describe BackendController do
 
 
   # NEXT-988 - Label the Call Number field
-  it "should label Call Numbers", :focus => true do
+  it "should label Call Numbers" do
     # Simple case
     get 'holdings', :id => '123456'
     response.should be_success

@@ -14,9 +14,10 @@ describe 'An articles search' do
 
     page.should_not have_css('.index_toolbar a', text: 'Previous')
     page.should have_css('.index_toolbar a', text: 'Next')
+# save_and_open_page
 
     all('.index_toolbar a', text: 'Next').first.click
-
+# save_and_open_page
     page.should have_css('.index_toolbar a', text: 'Previous')
     page.should have_css('.index_toolbar a', text: 'Next')
 
@@ -25,4 +26,22 @@ describe 'An articles search' do
     page.should_not have_css('.index_toolbar a', text: 'Previous')
     page.should have_css('.index_toolbar a', text: 'Next')
   end
+
+
+  # NEXT-1078 - CLIO Articles limit 500 records, Summon 1,000
+  it 'can paginate through 1000 total items' do
+    visit articles_index_path('q' => 'Aardvark', 's.pn' => 20, 's.ps' => 50)
+    page.should have_text('Aardvark')
+    page.should have_text('« Previous | 951 - 1000 of ')
+    page.should_not have_text('There was an error searching this datasource')
+
+    visit articles_index_path('q' => 'Aardvark', 's.pn' => 21, 's.ps' => 50)
+    page.should have_text('There was an error searching this datasource. (Maximum supported returned results set size is 1000 (provided size is 1050).)')
+
+    visit articles_index_path('q' => 'Aardvark', 's.pn' => 20, 's.ps' => 51)
+    page.should have_text('There was an error searching this datasource. (Maximum supported page size is 50 (provided size is 51).)')
+
+  end
+
 end
+

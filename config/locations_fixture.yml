@@ -460,6 +460,7 @@
   :found_in: |-
     Moral & Political Theory Reading Room
     504 Butler Library
+
 - :library_code: music
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
@@ -471,6 +472,7 @@
     Music & Arts Library
     
     701 Dodge
+
 - :links: 
     Home Page: http://nyspi.org/library/
   :category: physical
@@ -586,6 +588,58 @@
     Arthur W. Diamond Law Library
 
     Jerome Greene Hall, 3rd floor
+
+- :library_code: dhc
+  :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
+    Home Page: http://library.columbia.edu/locations/dhc.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+    Directions: http://library.columbia.edu/locations/dhc/directions.html
+  :category: physical
+  :location: Digital Humanities Center
+  :found_in: |-
+    Digital Humanities Center
+
+    305 Butler Library
+
+- :library_code: science-engineering
+  :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionD.gif
+    Home Page: http://library.columbia.edu/locations/dsc.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionD.html
+    Directions: http://library.columbia.edu/locations/science-library/directions.html
+  :category: physical
+  :location: Digital Science Center
+  :found_in: |-
+    Digital Science Center
+
+    401 Northwest Corner Building
+
+- :library_code: lehman
+  :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionF.gif
+    Home Page: http://library.columbia.edu/locations/dssc.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
+  :category: physical
+  :location: Digital Social Science Center
+  :found_in: |-
+    Digital Social Science Center
+
+    300 International Affairs
+
+- :library_code: music
+  :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
+    Home Page: http://library.columbia.edu/locations/music/music_lab.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
+  :category: physical
+  :location: Digital Music Lab
+  :found_in: |-
+    Digital Music Lab
+
+    701 Dodge
+
+
 
 
 

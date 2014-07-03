@@ -273,7 +273,65 @@ describe 'Catalog Interface' do
     visit catalog_path('9041682')
     # Should use consistent language
     find('#show_toolbar').should have_text "Requests"
-    find('#clio_holdings').should have_text "Request:"
+    find('#clio_holdings').should have_text "Requests:"
+  end
+
+
+  # NEXT-1081 - Apostrophe in the title bar renders incorrectly
+  it 'shows apostrophes within title element', js: true do
+    visit catalog_path(6217943)
+    page.has_title? "L&#x27;image de l&#x27;Orient"
+
+    visit catalog_path(6094212)
+    page.has_title? "Al-Qur&#x27;an"
+  end
+
+  # NEXT-1069 - 505s for Journals/Periodicals
+  it 'shows apostrophes within title element' do
+    visit catalog_path(10213578)
+    page.should have_text "Contents
+    ISSUE 1
+    Introduction
+    Annette Funicello"
+  end
+
+  # Validate all the fields of series statements
+  # NEXT-1080 - Add 490 series statement to displays
+  # (8X0s were already there, now add the 490)
+  it 'shows series statements, from 490 and 8X0 fields' do
+    # 490
+    visit catalog_path(10735763)
+    page.should have_text "Series Bullettino della Commissione archeologica comunale di Roma. Supplementi ; 21"
+    # 800
+    visit catalog_path(10840)
+    page.should have_text "Series Abusch, Alexander. Works. Selections ; Bd. 1."
+    # 810
+    visit catalog_path(11638)
+    page.should have_text "Series Freemasons. Quatuor Coronati-Loge (Bayreuth, Germany). Quellenkundliche Arbeit der Freimaurerischen Forschungsgesellschaft Quatuor Coronati e.V., Bayreuth ; Nr. 8."
+    # 811
+    visit catalog_path(6974)
+    page.should have_text "Series Sagamore Army Materials Research Conference. Sagamore Army Materials Research Conference proceedings ; 21st."
+    # 830
+    visit catalog_path(8887)
+    page.should have_text "Series Studi risorgimentali ; 12."
+# I have not yet found any example bibs for this test...
+    # # 840
+    # visit catalog_path(99)
+    # page.should have_text "xx"
+  end
+
+  # NEXT-977 - Series Title does not display via basic search
+  it "should show Series Title when searching by Series Title", focus: true do
+    # Basic Search
+    visit catalog_index_path('q' => 'Black Sea', 'search_field' => 'series_title')
+    page.should have_text('Series Title Black Sea studies')
+
+    # Advanced Search
+    series_title_clause = {"field" => "series_title", "value" => "black sea"}
+    adv_search_fields = {"1" => series_title_clause}
+    visit catalog_index_path('search_field' => 'advanced', 'adv' => adv_search_fields)
+    # save_and_open_page
+    page.should have_text('Series Title Black Sea studies')
   end
 
 

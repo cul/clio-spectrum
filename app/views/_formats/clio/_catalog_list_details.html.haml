@@ -1,6 +1,8 @@
--# CALLED TO DISPLAY AN INDIVIDUAL BIB IN STANDARD SEARCH RESULTS
 
-- if session[:search][:adv] && session[:search][:adv].values.index{ |x| x["field"] == "series_title"  }
+-# CONTROLS HOW CATALOG RECORDS SHOW IN SEARCH RESULTS LIST
+
+-# Show the series title if we searched by series title
+- if search_by_series_title(request.params)
   = add_row('Series Title', document.get("title_series_display"), :html_safe => false)
 
 = add_row('Title', document.get("title_vern_display"), :html_safe => false)
@@ -11,7 +13,7 @@
 
 
 - unless (locations = document["location_call_number_id_display"].listify.reject { |l| l.match(/^Online/) }).empty?
-  = add_row("Location", format_location_results(locations, document))
+  = add_row("Location", format_brief_location_results(locations, document))
 
 
 = add_row('Format', formats_with_icons(document))
