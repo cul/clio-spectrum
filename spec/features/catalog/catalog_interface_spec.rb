@@ -273,7 +273,7 @@ describe 'Catalog Interface' do
     visit catalog_path('9041682')
     # Should use consistent language
     find('#show_toolbar').should have_text "Requests"
-    find('#clio_holdings').should have_text "Request:"
+    find('#clio_holdings').should have_text "Requests:"
   end
 
 
@@ -319,6 +319,21 @@ describe 'Catalog Interface' do
     # visit catalog_path(99)
     # page.should have_text "xx"
   end
+
+  # NEXT-977 - Series Title does not display via basic search
+  it "should show Series Title when searching by Series Title", focus: true do
+    # Basic Search
+    visit catalog_index_path('q' => 'Black Sea', 'search_field' => 'series_title')
+    page.should have_text('Series Title Black Sea studies')
+
+    # Advanced Search
+    series_title_clause = {"field" => "series_title", "value" => "black sea"}
+    adv_search_fields = {"1" => series_title_clause}
+    visit catalog_index_path('search_field' => 'advanced', 'adv' => adv_search_fields)
+    # save_and_open_page
+    page.should have_text('Series Title Black Sea studies')
+  end
+
 
 end
 

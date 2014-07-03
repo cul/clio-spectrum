@@ -117,4 +117,19 @@ module CulCatalogHelper
       content_tag(:span, label, class: 'database_link')
     end
   end
+
+  def search_by_series_title(params)
+    return false unless params.is_a?(Hash)
+
+    # Basic Search
+    return true if params.fetch('search_field', '') == 'series_title'
+
+    # Advanced Search
+    return true if params[:adv] && params[:adv].values.any?{ |adv_clause|
+      adv_clause["field"] == "series_title"
+    }
+
+    return false
+  end
+
 end
