@@ -321,7 +321,7 @@ describe 'Catalog Interface' do
   end
 
   # NEXT-977 - Series Title does not display via basic search
-  it "should show Series Title when searching by Series Title", focus: true do
+  it "should show Series Title when searching by Series Title", Xfocus: true do
     # Basic Search
     visit catalog_index_path('q' => 'Black Sea', 'search_field' => 'series_title')
     page.should have_text('Series Title Black Sea studies')
