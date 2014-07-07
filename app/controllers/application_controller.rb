@@ -100,6 +100,7 @@ class ApplicationController < ActionController::Base
 
   def set_browser_option(name, value)
     _clio_browser_options = YAML.load(cookies[:_clio_browser_options] || '{}')
+    _clio_browser_options = {} unless _clio_browser_options.is_a?(Hash)
     _clio_browser_options[name] = value
     cookies[:_clio_browser_options] = { value: _clio_browser_options.to_yaml,
                                         expires: 1.year.from_now }

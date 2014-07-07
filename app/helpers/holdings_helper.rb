@@ -242,6 +242,13 @@ module HoldingsHelper
         entry['hours'] = hours.to_opens_closes
       end
 
+      # location notes
+      # this way, using a Location class method?
+      # Location.get_location_note(entry['location_name'])
+      # or this way, using (an existing) DisplayHelper method?
+      location_notes = additional_holdings_location_notes(nil, entry['location_name'])
+      entry['location_note'] = location_notes if (location_notes && location_notes.size > 0)
+
       # add status icons
       entry['copies'].each do |copy|
         copy['items'].each_pair do |message, details|

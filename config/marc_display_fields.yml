@@ -387,6 +387,10 @@ separated_from:
         display: abcdghkmnst
         search: t
 series:
+    -   tag: 490
+        ind1: '0'
+        ind2: :all
+        display: alvx3
     -   tag: 800
         display: abcdefghklmnopqrstuv3
     -   tag: 810

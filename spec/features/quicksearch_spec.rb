@@ -77,45 +77,45 @@ describe 'QuickSearch landing page' do
     visit quicksearch_index_path('q' => 'horse')
     within('.results_header[data-source=catalog]') do
       find('img').click
-      find('.category_title').should have_text 'Contains library, books, videos, local resources'
+      find('.category_title').should have_text 'Library books, journals, music, videos, databases, archival collections, and online resources'
     end
     within('.results_header[data-source=articles]') do
       find('img').click
-      find('.category_title').should have_text "Contains articles, eBooks, electronic resources"
+      find('.category_title').should have_text "Articles, e-books, dissertations, music, images, and more from a mostly full-text database"
     end
     within('.results_header[data-source=academic_commons]') do
       find('img').click
-      find('.category_title').should have_text 'Digital Repository of Research'
+      find('.category_title').should have_text "Publications and other research output from Columbia University's digital repository"
     end
     within('.results_header[data-source=library_web]') do
       find('img').click
-      find('.category_title').should have_text 'Searches the libraries\' website'
+      find('.category_title').should have_text 'Information about the libraries from the Libraries Website'
     end
 
     # DISSERTATIONS
     visit dissertations_index_path('q' => 'horse')
     within('.results_header[data-source=catalog_dissertations]') do
       find('img').click
-      find('.category_title').should have_text "Dissertations, Thesises from Columbia's Catalog"
+      find('.category_title').should have_text "Dissertations from the library catalog"
     end
     within('.results_header[data-source=dissertations]') do
       find('img').click
-      find('.category_title').should have_text "Dissertations from Columbia's Articles Database"
+      find('.category_title').should have_text "Dissertations and theses from the Articles database. Many are full-text."
     end
     within('.results_header[data-source=ac_dissertations]') do
       find('img').click
-      find('.category_title').should have_text "Dissertations from Columbia's Digital Repository"
+      find('.category_title').should have_text "Dissertations deposited in Columbia's digital repository, primarily 2011-present."
     end
 
     # EBOOKS
     visit ebooks_index_path('q' => 'horse')
     within('.results_header[data-source=catalog_ebooks]') do
       find('img').click
-      find('.category_title').should have_text "eBooks from Catalog"
+      find('.category_title').should have_text "E-books from the library catalog"
     end
     within('.results_header[data-source=ebooks]') do
       find('img').click
-      find('.category_title').should have_text "eBooks from Summon's repository of digitzed books"
+      find('.category_title').should have_text "E-books from the Articles database"
     end
 
 
