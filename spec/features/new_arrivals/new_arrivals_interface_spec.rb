@@ -60,8 +60,8 @@ describe 'New Arrivals Search' do
   it 'can move between item-detail and search-results', js: true do
     visit new_arrivals_index_path('q' => 'man')
 
-    within all('#documents').first do
-      find('a[data-counter="1"]').click
+    within all('.result.document').first do
+      find('a').click
     end
 
     # page.save_and_open_page # debug

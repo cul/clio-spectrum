@@ -5,20 +5,28 @@
     = render :partial => "/layouts/common_head"
   - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
   %body{:onload => onload}
-    #ajax-modal.modal.hide.fade{:tabindex => -1}
+    -# BLACKLIGHT 4
+    -# -# Used by Blacklight's lightbox dialog
+    -# #ajax-modal.modal.hide.fade{:tabindex => -1}
     - add_datasources(@active_source)
     #trigger
     = render :partial => "/top_navigation_bar"
     #outer-container.container
-      #page.container
-        -# = render :partial => "/header"
-        #bd.row
-          .row
+      -# #page.container
+      -# = render :partial => "/header"
+      #bd.row
+        .row
+      
+          = render :partial=>'/layouts/messages'
+          = yield
+      
+        .clear-both
+      = render :partial => "/footer"
 
-            = render :partial=>'/layouts/messages'
-            = yield
-
-          .clear-both
-        = render :partial => "/footer"
+    -# BLACKLIGHT 5
+    -# Used by Blacklight for Bootstrap modals
+    #ajax-modal.modal.fade{tabindex: -1}
+      .modal-dialog
+        .modal-content
 
     = render :partial => "/layouts/common_tail"

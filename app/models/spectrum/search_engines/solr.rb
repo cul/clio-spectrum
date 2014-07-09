@@ -8,8 +8,18 @@ module Spectrum
       include Blacklight::Configurable
       include LocalSolrHelperExtension
 
+      # # Because BL core includes it, we're obliged to?
+      # include ActiveSupport::Benchmarkable
+
       attr_reader :source, :documents, :search, :errors, :debug_mode, :debug_entries
       attr_accessor :params
+
+      # Because Blacklight::SolrHelper calls benchmark(), we need
+      # 'logger' to be available.  In Controllers, it is, but here
+      # it is not, unless I do this.
+      def logger
+        Rails.logger
+      end
 
       # Invoked when ApplicationController::blacklight_search() calls:
       #     search_engine = Spectrum::SearchEngines::Solr.new(options)
@@ -38,7 +48,7 @@ module Spectrum
         @params = options
         @params.symbolize_keys!
         Rails.logger.info "[Spectrum][Solr] source: #{@source} params: #{@params}"
-
+# raise
         begin
           # here's the actual search, defined below in this file
           perform_search

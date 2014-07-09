@@ -1,78 +1,82 @@
 - clio_id = h(document["clio_id_display"].to_s)
 - id = document.get("id")
 
-#show_toolbar.navbar
-  .collapse.navbar-collapse
+.col-sm-12
+  %nav#show_toolbar.navbar.navbar-default
+  
+    .collapse.navbar-collapse
+  
+      %ul.nav.navbar-nav
+        %li=link_to "Print", "javascript:print()"
+        %li=link_to "Email", email_catalog_path(:id => id), {:id => "emailLink", :name => "email", :class => "lightboxLink"}
+        / %li=link_to "SMS-BLACKLIGHT", sms_catalog_path(:id => id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}
+  
+        %li=link_to "Send to Phone", "#", :onclick => "OpenTextMessage(#{id}); return false;"
+  
+        -# %li=link_to "Save to #{SavedList::DEFAULT_LIST_NAME}", "/lists/add/#{id}"
+        %li= link_to "Save to #{SavedList::DEFAULT_LIST_NAME}", "#", :onclick => "saveBibToNamedList(#{id}, '#{SavedList::DEFAULT_LIST_NAME}'); return false;"
+  
+        %li.dropdown
+          =link_to "Export <span class='caret'></span>".html_safe, "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown"
+          %ul.dropdown-menu
+            - any_cites = false
+  
+            /- if @document.export_formats.keys.include?(:refworks_marc_txt)
+            /  -any_cites = true
+            /  %li=link_to "Export to RefWorks", refworks_export_url(@document)
+            - if document.export_formats.keys.include?(:endnote)
+              -any_cites = true
+              %li=link_to "Export to EndNote", catalog_path(id, :format => "endnote")
+  
+            - unless any_cites
+              %li=link_to "No citations available", "#"
+  
+        %li.dropdown
+          =link_to "Display In <span class='caret'></span>".html_safe, "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown"
+          %ul.dropdown-menu
+            - if clio_id
+              %li= link_to "Display in CLIO Legacy", "http://clio.cul.columbia.edu:7018/vwebv/holdingsInfo?bibId=#{clio_id}"
+  
+            - if @document.respond_to?(:to_marc)
+              %li= link_to "MARC View", librarian_view_catalog_path(id), {:id => "librarianLink", :name => "librarian_view" }
+  
+        %li.dropdown
+          =link_to "Requests <span class='caret'></span>".html_safe, "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown"
+          %ul.dropdown-menu
+            %li= link_to "Place a Recall / Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId=#{clio_id}", :target => "_blank"
+            %li= link_to "Borrow Direct", "http://www.columbia.edu/cgi-bin/cul/borrowdirect?#{clio_id}", :target => "_blank"
+            %li= link_to "ILL", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?#{clio_id}", :target => "_blank"
+            %li= link_to "Scan & Deliver", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?#{clio_id}", :target => "_blank"
+            %li= link_to "Inter-Campus Delivery", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0013", :target => "_blank"
+            %li= link_to "In-Process / On Order", "#", :onclick => "OpenInprocessRequest(#{clio_id}); return false;"
+            %li= link_to "Precataloging", "#", :onclick => "OpenPrecatRequest(#{clio_id}); return false;"
+  
+            -# NewRelic shows that calling this CGI script is taking 4% of total server cpu.
+            -# Just show this for everyone.
+            -# if HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + clio_id) == "1"
+            %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{clio_id}", :target => "_blank"
+  
+            %li= link_to "Item Not On Shelf?", "#", :onclick => "OpenSearchRequest(#{clio_id}); return false;"
+  
+      %ul.nav.navbar-nav.navbar-right
+        .navbar-text
+          - link_back = build_link_back()
+          -# if we're unable to build a link_back, then we've lost our search context,
+          -# don't show "Back to Search", or Next/Prev links - they would be invalid/broken.
+          - if link_back && (@previous_document || @next_document)
+            #search_info
+              -# - raise
+              %span.back_to_results=  fix_catalog_links(link_back.gsub("Back to Search", "&#0171; Back to Results")).html_safe
+              |
+              -# - raise
+              - prev_doc = fix_catalog_links(link_to_previous_document_and_action(@previous_document))
+              = prev_doc if prev_doc.include?("<a")
+              = item_page_entry_info.gsub("Showing item ", "#").gsub(" from your search.","").html_safe
+              - next_doc = fix_catalog_links(link_to_next_document_and_action(@next_document)	)
+              = next_doc if next_doc.include?("<a")
+              |
+              = link_to "Start Over", catalog_index_path
+    
 
-    %ul.nav.navbar-nav.navbar-right
-      .navbar-text
-        - link_back = build_link_back()
-        -# if we're unable to build a link_back, then we've lost our search context,
-        -# don't show "Back to Search", or Next/Prev links - they would be invalid/broken.
-        - if link_back && (@previous_document || @next_document)
-          #search_info
-            -# - raise
-            %span.back_to_results=  fix_catalog_links(link_back.gsub("Back to Search", "&#0171; Back to Results")).html_safe
-            |
-            -# - raise
-            - prev_doc = fix_catalog_links(link_to_previous_document_and_action(@previous_document))
-            = prev_doc if prev_doc.include?("<a")
-            = item_page_entry_info.gsub("Showing item ", "#").gsub(" from your search.","").html_safe
-            - next_doc = fix_catalog_links(link_to_next_document_and_action(@next_document)	)
-            = next_doc if next_doc.include?("<a")
-            |
-            = link_to "Start Over", catalog_index_path
-
-    %ul.nav.navbar-nav
-      %li=link_to "Print", "javascript:print()"
-      %li=link_to "Email", email_catalog_path(:id => id), {:id => "emailLink", :name => "email", :class => "lightboxLink"}
-      / %li=link_to "SMS-BLACKLIGHT", sms_catalog_path(:id => id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}
-
-      %li=link_to "Send to Phone", "#", :onclick => "OpenTextMessage(#{id}); return false;"
-
-      -# %li=link_to "Save to #{SavedList::DEFAULT_LIST_NAME}", "/lists/add/#{id}"
-      %li= link_to "Save to #{SavedList::DEFAULT_LIST_NAME}", "#", :onclick => "saveBibToNamedList(#{id}, '#{SavedList::DEFAULT_LIST_NAME}'); return false;"
-
-      %li.dropdown
-        =link_to "Export <span class='caret'></span>".html_safe, "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown"
-        %ul.dropdown-menu
-          - any_cites = false
-
-          /- if @document.export_formats.keys.include?(:refworks_marc_txt)
-          /  -any_cites = true
-          /  %li=link_to "Export to RefWorks", refworks_export_url(@document)
-          - if document.export_formats.keys.include?(:endnote)
-            -any_cites = true
-            %li=link_to "Export to EndNote", catalog_path(id, :format => "endnote")
-
-          - unless any_cites
-            %li=link_to "No citations available", "#"
-
-      %li.dropdown
-        =link_to "Display In <span class='caret'></span>".html_safe, "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown"
-        %ul.dropdown-menu
-          - if clio_id
-            %li= link_to "Display in CLIO Legacy", "http://clio.cul.columbia.edu:7018/vwebv/holdingsInfo?bibId=#{clio_id}"
-
-          - if @document.respond_to?(:to_marc)
-            %li= link_to "MARC View", librarian_view_catalog_path(id), {:id => "librarianLink", :name => "librarian_view" }
-
-      %li.dropdown
-        =link_to "Requests <span class='caret'></span>".html_safe, "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown"
-        %ul.dropdown-menu
-          %li= link_to "Place a Recall / Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId=#{clio_id}", :target => "_blank"
-          %li= link_to "Borrow Direct", "http://www.columbia.edu/cgi-bin/cul/borrowdirect?#{clio_id}", :target => "_blank"
-          %li= link_to "ILL", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?#{clio_id}", :target => "_blank"
-          %li= link_to "Scan & Deliver", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?#{clio_id}", :target => "_blank"
-          %li= link_to "Inter-Campus Delivery", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0013", :target => "_blank"
-          %li= link_to "In-Process / On Order", "#", :onclick => "OpenInprocessRequest(#{clio_id}); return false;"
-          %li= link_to "Precataloging", "#", :onclick => "OpenPrecatRequest(#{clio_id}); return false;"
-
-          -# NewRelic shows that calling this CGI script is taking 4% of total server cpu.
-          -# Just show this for everyone.
-          -# if HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + clio_id) == "1"
-          %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{clio_id}", :target => "_blank"
-
-          %li= link_to "Item Not On Shelf?", "#", :onclick => "OpenSearchRequest(#{clio_id}); return false;"
 
 

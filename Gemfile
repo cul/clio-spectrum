@@ -3,12 +3,12 @@ source 'https://rubygems.org'
 # FIXED:  Can't move up to 4.0 series yet - blacklight_range_limit has dependency on 3
 # but, devise_wind still has Rails 3.2 dependencies.
 gem 'rails', '~> 3.2'
-# gem 'rails', '~> 4.0'
+# gem 'rails', '~> 4.0.0'
 
 
 #  ###  BLACKLIGHT (begin)  ###
 
-gem 'blacklight', '~>5.1.0'
+gem 'blacklight', '~>5.2.0'
 # gem 'blacklight', '~>4.7.0'
 # gem 'blacklight', '~>4'
 
@@ -65,7 +65,8 @@ group :development, :clio_dev do
 
   # "MiniProfiler allows you to see the speed of a request on the page"
   # http://railscasts.com/episodes/368-miniprofiler
-  gem 'rack-mini-profiler'
+# Disable while we straighten out the Bootstrap 3 style issues.
+  # gem 'rack-mini-profiler'
 
 end
 
@@ -94,6 +95,7 @@ gem 'unicode'
 gem 'summon'
 gem 'cancan'
 
+# doesn't work in Rails 4 ??
 # RecordMailer uses partials that do fragment caching... but somehow
 # this just doesn't work in stock rails.
 gem 'caching_mailer'

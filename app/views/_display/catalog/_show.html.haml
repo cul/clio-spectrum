@@ -8,9 +8,10 @@
 
 = render :partial => "_formats/clio/catalog_show_toolbar", :locals => { :document => document }
 
-.show{:class => ("database_record" if document['source_display'].include? 'database')}
+.show-document.col-sm-12{:class => ("database_record" if document['source_display'].include? 'database')}
   .title
-    %h4= document_heading.listify.join("")
+    -# - raise
+    %h4= document_heading.listify.join("").html_safe
 
   .row
     .info.col-sm-6
@@ -45,7 +46,7 @@
             = add_row(ItemAlert::ALERT_TYPES['access_requirements'], alert[:message], options = {:html_safe => true})
 
 
-    .col-sm-6.well.holdings-container
+    .col-sm-6.holdings-container
       -# this partial renders, in turn, static html for holdings-online,
       -# holdings-display (Voyager), holdings-google, and holdings-hathi
       = render "_formats/clio/catalog_show_holdings", :document => document

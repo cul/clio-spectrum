@@ -12,7 +12,7 @@ $(document).ready(function() {
       safari  = '<a href="http://www.apple.com/safari/">Safari</a>'
       msie    = '<a href="http://windows.microsoft.com/en-us/internet-explorer/ie-10-worldwide-languages">Internet Explorer (IE) 10</a>'
       
-      $('#page').prepend('<div class="alert"><b>Warning:</b> Your browser is not fully supported. Please use the latest version of one of our fully supported browsers: ' + firefox + ', ' + chrome + ', ' + safari + ', or ' + msie + '. IE 9 is not fully supported and will only offer basic functionality.</div>');
+      $('#outer-container').prepend('<div class="alert"><b>Warning:</b> Your browser is not fully supported. Please use the latest version of one of our fully supported browsers: ' + firefox + ', ' + chrome + ', ' + safari + ', or ' + msie + '. IE 9 is not fully supported and will only offer basic functionality.</div>');
     }
 
   }

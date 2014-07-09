@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Archives Search' do
+describe 'E-Journals Search' do
 
   it 'will be able to traverse next and previous links' do
     visit journals_index_path('q' => 'notes')
@@ -22,8 +22,8 @@ describe 'Archives Search' do
   it 'can move between item-detail and search-results', js: true do
     visit journals_index_path('q' => 'letters')
 
-    within all('#documents').first do
-      find('a[data-counter="1"]').click
+    within all('.result.document').first do
+      all('a').first.click
     end
 
     # page.save_and_open_page # debug

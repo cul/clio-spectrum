@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Archives Search' do
 
-  it 'will be able to traverse next and previous links' do
+  it 'will be able to traverse next and previous links', js: true do
     visit archives_index_path('q' => 'papers')
 
     page.should_not have_css('.index_toolbar a', text: 'Previous')
@@ -19,11 +19,12 @@ describe 'Archives Search' do
     page.should have_css('.index_toolbar a', text: 'Next')
   end
 
+
   it 'can move between item-detail and search-results', js: true do
     visit archives_index_path('q' => 'files')
 
-    within all('#documents').first do
-      find('a[data-counter="1"]').click
+    within all('.result.document').first do
+      find('a').click
     end
 
     # page.save_and_open_page # debug

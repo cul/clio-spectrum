@@ -23,7 +23,7 @@ describe 'Catalog Interface' do
   # NEXT-917 - Summary showing up twice for video records
   it 'Video Records should show Summary only once', js: true do
     visit catalog_index_path('q' => 'summary')
-    within 'div.facet_limit.blacklight-format' do
+    within 'div.facet_limit.blacklight-format.panel' do
       find('a.more_facets_link').click
     end
     within 'ul.facet_extended_list' do
@@ -188,7 +188,7 @@ describe 'Catalog Interface' do
       click_link 'Email'
     end
 
-    page.should have_css('.modal-scrollable .modal .modal-header')
+    page.should have_css('.modal-dialog .modal-content .modal-header')
     find('.modal-header').should have_text('Email Item(s)')
 
     within '#email_form' do
@@ -238,7 +238,7 @@ describe 'Catalog Interface' do
     # locate a fairly static set of records for a stable test suite
     visit catalog_index_path('q' => 'maigret simenon')
     within '#facets' do
-      find('.panel_heading', text: 'Publication Date').click
+      find('.panel-heading', text: 'Publication Date').click
       fill_in 'range[pub_date_sort][end]', with: '1950'
       find('button[type=submit]').click
     end

@@ -105,31 +105,88 @@ class CatalogController < ApplicationController
     end
   end
 
-  # updates the search counter (allows the show view to paginate)
-  def update
-    session[:search][:counter] = params[:counter]
+  # Blacklight 5.2.0 version of this function
+  # # updates the search counter (allows the show view to paginate)
+  # def track
+  #   search_session['counter'] = params[:counter]
+  #   path = if params[:redirect] and (params[:redirect].starts_with?("/") or params[:redirect] =~ URI::regexp)
+  #     URI.parse(params[:redirect]).path
+  #   else
+  #     { action: 'show' }
+  #   end
+  #   redirect_to path, :status => 303
+  # end
 
-    # These alternate paths all come back through catalog controller,
-    # but this way we get things like the URL and @active_source correctly set.
-    case @active_source
+  # updates the search counter (allows the show view to paginate)
+  def track
+    # puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    # puts "PARAMS: #{params.inspect}"
+    # puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    # puts "SESSION[SEARCH]/BEFORE #{session[:search].inspect}"
+    # puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+    session[:search]['counter'] = params[:counter]
+
+    # puts "SESSION[SEARCH]/AFTER #{session[:search].inspect}"
+    # puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+    path = { action: 'show' }
+
+    path = case @active_source
     when 'databases'
-      redirect_to databases_show_path
+       databases_show_path
     when 'journals'
-      redirect_to journals_show_path
+       journals_show_path
     when 'archives'
-      redirect_to archives_show_path
+       archives_show_path
     when 'new_arrivals'
-      redirect_to new_arrivals_show_path
+       new_arrivals_show_path
     else
-      redirect_to action: 'show'
+      { action: 'show' }
     end
+
+    # If there's a 'redirect' param (the original 'href' of the clicked link), 
+    # respect that instead.
+    if params[:redirect] and (params[:redirect].starts_with?("/") or params[:redirect] =~ URI::regexp)
+      path = URI.parse(params[:redirect]).path
+    end
+
+    # puts "PATH: #{path}"
+    # puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+    redirect_to path, :status => 303
+
+    # # These alternate paths all come back through catalog controller,
+    # # but this way we get things like the URL and @active_source correctly set.
+    # case @active_source
+    # when 'databases'
+    #   redirect_to databases_show_path
+    # when 'journals'
+    #   redirect_to journals_show_path
+    # when 'archives'
+    #   redirect_to archives_show_path
+    # when 'new_arrivals'
+    #   redirect_to new_arrivals_show_path
+    # else
+    #   redirect_to action: 'show'
+    # end
+  end
+
+
+  def librarian_view_track
+    session[:search]['counter'] = params[:counter]
+    redirect_to action: 'librarian_view'
   end
 
   def show
     @response, @document = get_solr_response_for_doc_id
     # solr_search_params_logic << :add_advanced_search_to_solr
     # solr_search_params_logic << :add_range_limit_params
+
+    # this does not execute a query - it only organizes query parameters
+    # conveniently for use by the view in echoing back to the user.
     @query = Spectrum::Queries::Solr.new(params, blacklight_config)
+
     add_alerts_to_documents(@document)
 
     # reach into search config to find possible source-specific service alert warning
@@ -143,6 +200,7 @@ class CatalogController < ApplicationController
         # just to get IDs to build next/prev links.
         # NewRelic shows this one line taking 1.5% of total processing time,
         # even though it's hitting Solr's query cache.
+        # raise
         setup_next_and_previous_documents
         render locals: { warning: warning }, layout: 'no_sidebar'
       end
@@ -304,8 +362,4 @@ class CatalogController < ApplicationController
     end
   end
 
-  def librarian_view_update
-    session[:search][:counter] = params[:counter]
-    redirect_to action: 'librarian_view'
-  end
 end

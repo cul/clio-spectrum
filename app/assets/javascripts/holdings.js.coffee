@@ -1,6 +1,7 @@
 
 $ ->
-  async_lookup_item_details($('#page'))
+  # async_lookup_item_details($('#page'))
+  async_lookup_item_details($('#outer-container'))
 
 
 # async_lookup_item_details called here, on document-ready,

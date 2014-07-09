@@ -45,12 +45,14 @@ Clio::Application.routes.draw do
   match 'databases', to: 'catalog#index', as: :databases_index
   match 'databases/:id(.:format)', via: [:get], to: 'catalog#show', as: :databases_show
   match 'databases/facet/:id(.format)', to: 'catalog#facet', as: :databases_facet
-  match 'databases/:id(.:format)', via: [:put], to: 'catalog#update', as: :databases_update
+  # match 'databases/:id(.:format)', via: [:put], to: 'catalog#update', as: :databases_update
+  match 'databases/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :databases_track
 
   match 'journals', to: 'catalog#index', as: :journals_index
   match 'journals/:id(.:format)', via: [:get], to: 'catalog#show', as: :journals_show
   match 'journals/facet/:id(.format)', to: 'catalog#facet', as: :journals_facet
-  match 'journals/:id(.:format)', via: [:put], to: 'catalog#update', as: :journals_update
+  # match 'journals/:id(.:format)', via: [:put], to: 'catalog#update', as: :journals_update
+  match 'journals/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :journals_track
 
   match 'library_web', to: 'spectrum#search', as: :library_web_index, defaults: { layout: 'library_web' }
 
@@ -61,7 +63,8 @@ Clio::Application.routes.draw do
   match 'archives', to: 'catalog#index', as: :archives_index
   match 'archives/:id(.:format)', via: [:get], to: 'catalog#show', as: :archives_show
   match 'archives/facet/:id(.format)', to: 'catalog#facet', as: :archives_facet
-  match 'archives/:id(.:format)', via: [:put], to: 'catalog#update', as: :archives_update
+  # match 'archives/:id(.:format)', via: [:put], to: 'catalog#update', as: :archives_update
+  match 'archives/:id/track(.:format)', to: 'catalog#track', as: :archives_track
 
   # NEXT-483 A user should be able to browse results using previous/next
   # this requires GET ==> show, and POST ==> update, for reasons
@@ -69,7 +72,8 @@ Clio::Application.routes.draw do
   match 'new_arrivals', to: 'catalog#index', as: :new_arrivals_index
   match 'new_arrivals/:id(.:format)', via: [:get], to: 'catalog#show', as: :new_arrivals_show
   match 'new_arrivals/facet/:id(.format)', to: 'catalog#facet', as: :new_arrivals_facet
-  match 'new_arrivals/:id(.:format)', via: [:put], to: 'catalog#update', as: :new_arrivals_update
+  # match 'new_arrivals/:id(.:format)', via: [:put], to: 'catalog#update', as: :new_arrivals_update
+  match 'new_arrivals/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :new_arrivals_track
 
   match 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
   # unused
@@ -102,7 +106,8 @@ Clio::Application.routes.draw do
 
   # Again, blacklight inserts this as GET, we need to support PUT
   # (due to Blacklight's mechanism of preserving search context.)
-  match 'catalog/:id/librarian_view', via: [:put], to: 'catalog#librarian_view_update'
+  # match 'catalog/:id/librarian_view', via: [:put], to: 'catalog#librarian_view_update'
+  match 'catalog/:id/librarian_view_track', via: [:post], to: 'catalog#librarian_view_track'
 
   # no, this was never implemented
   # namespace :admin do

@@ -2,7 +2,8 @@
 
 module DisplayHelper
   def get_column_classes(column)
-    "result_column span#{column['width']}"
+    # "result_column span#{column['width']}"
+    "result_column col-sm-#{column['width']}"
   end
 
   MIME_MAPPINGS = {
@@ -419,8 +420,8 @@ module DisplayHelper
         result = content_tag(:div, class: 'document-row') do
           if options[:style] == :definition
             # add space after row label, to help capybara string matchers
-            content_tag(:div, title.to_s.html_safe + ' ', class: "#{options[:label_style]} span#{spans.first}") +
-            content_tag(:div, value_txt, class: "value span#{spans.last}")
+            content_tag(:div, title.to_s.html_safe + ' ', class: "#{options[:label_style]} col-sm-#{spans.first}") +
+            content_tag(:div, value_txt, class: "value col-sm-#{spans.last}")
           end
         end
       end
@@ -608,15 +609,81 @@ module DisplayHelper
     fields.join('&')
   end
 
+  # Our versions of link_to_previous_document/link_to_next_document,
+  # with awareness of the current action (e.g., librarian_view)
   def link_to_previous_document_and_action(previous_document)
-    link_to_unless previous_document.nil?, raw(t('views.pagination.previous')), { id: previous_document, action: controller.action_name }, :class => 'previous', :rel => 'prev', :'data-counter' => session[:search][:counter].to_i - 1 do
+    link_opts = session_tracking_params(previous_document, search_session['counter'].to_i - 1).merge(:class => "previous", :rel => 'prev')
+    link_to_unless previous_document.nil?, raw(t('views.pagination.previous')), { id: previous_document, action: controller.action_name }, link_opts do
       content_tag :span, raw(t('views.pagination.previous')), class: 'previous'
     end
   end
 
   def link_to_next_document_and_action(next_document)
-    link_to_unless next_document.nil?, raw(t('views.pagination.next')), { id: next_document, action: controller.action_name }, :class => 'next', :rel => 'next', :'data-counter' => session[:search][:counter].to_i + 1 do
+    link_opts = session_tracking_params(next_document, search_session['counter'].to_i + 1).merge(:class => "next", :rel => 'next')
+    link_to_unless next_document.nil?, raw(t('views.pagination.next')), { id: next_document, action: controller.action_name }, link_opts do
       content_tag :span, raw(t('views.pagination.next')), class: 'next'
     end
   end
+
+  # Core Blacklight, 5.2.0
+  # ##
+  # # Link to the previous document in the current search context
+  # def link_to_previous_document(previous_document)
+  #   link_opts = session_tracking_params(previous_document, search_session['counter'].to_i - 1).merge(:class => "previous", :rel => 'prev')
+  #   link_to_unless previous_document.nil?, raw(t('views.pagination.previous')), url_for_document(previous_document), link_opts do
+  #     content_tag :span, raw(t('views.pagination.previous')), :class => 'previous'
+  #   end
+  # end
+  # 
+  # ##
+  # # Link to the next document in the current search context
+  # def link_to_next_document(next_document)
+  #   link_opts = session_tracking_params(next_document, search_session['counter'].to_i + 1).merge(:class => "next", :rel => 'next')
+  #   link_to_unless next_document.nil?, raw(t('views.pagination.next')), url_for_document(next_document), link_opts do
+  #     content_tag :span, raw(t('views.pagination.next')), :class => 'next'
+  #   end
+  # end
+
+
+
+  # MORE OVERRIDES (actually, replacements)
+
+  # Blacklight Version - calls session_tracking_params()
+  # def document_link_params(doc, opts)
+  #   session_tracking_params(doc, opts[:counter]).deep_merge(opts.except(:label, :counter))
+  # end
+
+  # Blacklight Version - hardcoded track_solr_document_path, which forces
+  # paths to begin with /catalog
+  # def session_tracking_params document, counter
+  #   if document.nil?
+  #     return {}
+  #   end
+  #   { :data => {:'context-href' => track_solr_document_path(document, counter: counter, search_id: current_search_session.try(:id))}}
+  # end
+  # protected :session_tracking_params
+
+
+  # Calls our clio version of session_tracking_params
+  def document_link_params(doc, opts)
+    session_tracking_params(doc, opts[:counter]).deep_merge(opts.except(:label, :counter))
+  end
+
+  # Datasource-aware, action-aware (e.g., librarian_view)
+  def clio_session_tracking_params document, counter
+    if document.nil?
+      return {}
+    end
+    
+    # short-circuit w/BL5.2 default ??
+    return { :data => {:'context-href' => track_solr_document_path(document, counter: counter, search_id: current_search_session.try(:id))}}
+    
+    
+    context_href_action = ['show', 'index'].include?(controller.action_name) ? 'track' : "#{controller.action_name}_track"
+    context_href = url_for action: context_href_action, id: document.id, counter: counter, search_id: current_search_session.try(:id)
+    { :data => {:'context-href' => context_href}}
+  end
+
+
+
 end

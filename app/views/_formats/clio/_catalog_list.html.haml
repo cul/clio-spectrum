@@ -15,6 +15,9 @@
 
       .item_select_allowance
         = link_to_source_document document, :label=> document.get('title_display'), :counter => counter, :source => source
+        -# This is how core Blacklight would do it...
+        -# = link_to_document document, :label=>document_show_link_field(document), :counter => counter
+
 
   / main container for doc partial view
 

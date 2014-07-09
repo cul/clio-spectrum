@@ -12,26 +12,26 @@
     -# #trigger
     = render :partial => "/top_navigation_bar"
     #outer-container.container
-      #page
+      -# #page
 
-        = render :partial => "/header_with_search"
-
-        #bd.row
-          .sidebar.hidden-print{:class => sidebar_span}
-            .search_logo.hidden-xs
-              = link_to "CLIO", root_path, :class => "nav_title search_bar_logo"
-            #sources
-              = clio_sidebar_items.join('').html_safe
-          #main_with_sources{:class => main_span}
-            - unless @show_landing_pages
-              = display_search_boxes(@active_source)
-
-            = render :partial=>'/layouts/messages'
-            = yield
-
-          .clear-both
-
-        = render :partial => "/footer"
+      = render :partial => "/header_with_search"
+      
+      #bd.row
+        .sidebar.hidden-print{:class => sidebar_span}
+          .search_logo.hidden-xs
+            = link_to "CLIO", root_path, :class => "nav_title search_bar_logo"
+          #sources
+            = clio_sidebar_items.join('').html_safe
+        #main_with_sources{:class => main_span}
+          - unless @show_landing_pages
+            = display_search_boxes(@active_source)
+      
+          = render :partial=>'/layouts/messages'
+          = yield
+      
+        .clear-both
+      
+      = render :partial => "/footer"
 
     -# BLACKLIGHT 4
     -# -# Used by Blacklight's lightbox dialog
