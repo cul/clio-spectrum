@@ -57,7 +57,7 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    blacklight (5.2.0)
+    blacklight (5.3.0)
       bootstrap-sass (~> 3.0)
       deprecation
       kaminari (~> 0.13)
@@ -403,7 +403,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  blacklight (~> 5.2.0)
+  blacklight (~> 5.3.0)
   blacklight-marc
   blacklight_range_limit!
   bootstrap-sass
