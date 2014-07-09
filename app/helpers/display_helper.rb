@@ -646,44 +646,6 @@ module DisplayHelper
 
 
 
-  # MORE OVERRIDES (actually, replacements)
-
-  # Blacklight Version - calls session_tracking_params()
-  # def document_link_params(doc, opts)
-  #   session_tracking_params(doc, opts[:counter]).deep_merge(opts.except(:label, :counter))
-  # end
-
-  # Blacklight Version - hardcoded track_solr_document_path, which forces
-  # paths to begin with /catalog
-  # def session_tracking_params document, counter
-  #   if document.nil?
-  #     return {}
-  #   end
-  #   { :data => {:'context-href' => track_solr_document_path(document, counter: counter, search_id: current_search_session.try(:id))}}
-  # end
-  # protected :session_tracking_params
-
-
-  # Calls our clio version of session_tracking_params
-  def document_link_params(doc, opts)
-    session_tracking_params(doc, opts[:counter]).deep_merge(opts.except(:label, :counter))
-  end
-
-  # Datasource-aware, action-aware (e.g., librarian_view)
-  def clio_session_tracking_params document, counter
-    if document.nil?
-      return {}
-    end
-    
-    # short-circuit w/BL5.2 default ??
-    return { :data => {:'context-href' => track_solr_document_path(document, counter: counter, search_id: current_search_session.try(:id))}}
-    
-    
-    context_href_action = ['show', 'index'].include?(controller.action_name) ? 'track' : "#{controller.action_name}_track"
-    context_href = url_for action: context_href_action, id: document.id, counter: counter, search_id: current_search_session.try(:id)
-    { :data => {:'context-href' => context_href}}
-  end
-
 
 
 end
