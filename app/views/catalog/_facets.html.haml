@@ -2,21 +2,23 @@
 - unless @document_list.nil? || @document_list.empty?
   #facets.facets.sidenav
     %h4(data-toggle="collapse" data-target=".facets-collapse")
-      - if expand_all_facets?
-        %a.btn.btn-small.toggle_all.contract.hidden-xs{:href => "#"} Contract All
-      - else
-        %a.btn.btn-small.toggle_all.expand.hidden-xs{:href => "#"} Expand All
+      -# We don't need this anymore, with persisted facet states
+      -# - if expand_all_facets?
+      -#   %a.btn.btn-small.toggle_all.contract.hidden-xs{:href => "#"} Contract All
+      -# - else
+      -#   %a.btn.btn-small.toggle_all.expand.hidden-xs{:href => "#"} Expand All
       %a.btn.btn-navbar
         %span.icon-bar
         %span.icon-bar
       Refine
 
     .facets-collapse
-      .facet_limit.expand_all_option{:class => (expand_all_facets? ? "" : "hide")}
-        .facet_limit
-          %h5
-            = check_box_tag 'expand_all_facets', "1", expand_all_facets?, :class => "toggle_expand_all_option"
-            Always Expand Facets?
+      -# We don't need this anymore, with persisted facet states
+      -# .facet_limit.expand_all_option{:class => (expand_all_facets? ? "" : "hide")}
+      -#   .facet_limit
+      -#     %h5
+      -#       = check_box_tag 'expand_all_facets', "1", expand_all_facets?, :class => "toggle_expand_all_option"
+      -#       Always Expand Facets?
 
       - facet_field_names.reject { |name| facet = facet_by_field_name(name); facet.nil? || facet.items.empty? }.each do |solr_fname|
 

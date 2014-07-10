@@ -12,7 +12,7 @@
 
     - if(paginator.has_next?)
       .more_facets_link
-        = link_to('more »', params.merge(:id => solr_field, :action=>"facet"), :class => "more_facets_link")
+        = link_to(t('blacklight.search.facets.more'), params.merge(:id => solr_field, :action=>"facet"), :class => "more_facets_link")
 
 
 

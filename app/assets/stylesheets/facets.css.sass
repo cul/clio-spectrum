@@ -100,6 +100,18 @@ ul.facet_extended_list
   :margin-top 1em
   :font-weight bold
 
+.facets.sidenav
+  :border 1px solid #D4D4D4
+.facets_limit.panel
+  :border-top 1px solid #D4D4D4
+
+.facet_limit.panel, .facet_limit.panel-default .panel-heading
+//  :background-image none
+//  :border none
+
+
+
+
 
 /*
  *  OVERRIDE CORE BLACKLIGHT
@@ -141,3 +153,38 @@ ul.facet_extended_list
 //  h5:hover .icon-turnbuckle,
 //  .twiddle-open .icon-turnbuckle
 //    :opacity 1
+
+
+// Override the following, from Blacklight 5.2.0, facets.css.scss
+
+//// This is what BL used when the facet is OPEN
+//.glyphicon-chevron-down:before {
+//  content: "\e114";
+//}
+//// This is used when the facet is CLOSED
+//.glyphicon-chevron-right:before {
+//  content: "\e080";
+//}
+//// We want plus/minus instead...
+//.glyphicon-plus:before {
+//  content: "\2b";
+//}
+//
+//.glyphicon-minus:before {
+//  content: "\2212";
+//}
+
+
+.panel-heading.collapse-toggle .panel-title:after
+  /* symbol for "opening" panels */
+  font-family: 'Glyphicons Halflings'  /* essential for enabling glyphicon */
+  content: "\2212"  /* adjust as needed, taken from bootstrap.css */
+  float: right    /* adjust as needed */
+  color: grey     /* adjust as needed */
+  font-size: 0.8em
+  line-height: normal
+
+.panel-heading.collapse-toggle.collapsed .panel-title:after
+  /* symbol for "collapsed" panels */
+  content: "\2b"    /* adjust as needed, taken from bootstrap.css */
+
