@@ -30,9 +30,11 @@ body.blank_layout {
 #crowndown-nosearch a.menu {
   background: transparent url(ldpd-toolkit/crown-bts-24x24.png) no-repeat 4px 22% !important;
 }
-#topnavbar .container {
-  padding: 0!important;
-}
+
+//#topnavbar .container {
+//  padding: 0!important;
+//}
+
 .container {
   /* reinstate the Bootstrap white navbar, that LDPD had made shaddowy blue */
   background-color: #f9f9f9;
@@ -62,4 +64,11 @@ body.blank_layout {
 }
 
 
+//http://stackoverflow.com/questions/19576175/how-do-you-decrease-navbar-height-in-bootstrap-3
+.navbar-nav > li > a {padding-top:7px !important; padding-bottom:7px !important;}
+.navbar {min-height:32px !important}
+
+#topnavbar {
+  border-radius: 0;
+}
 

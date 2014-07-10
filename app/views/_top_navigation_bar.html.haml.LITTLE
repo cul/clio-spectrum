@@ -1,0 +1,19 @@
+- cache("top_navigation_bar_#{current_user}") do
+  .header{:data => {'ga-action' => 'Top NavBar Click'} }
+
+    %h1.hide CUL - Header
+
+    %nav#topnavbar.navbar.navbar-default
+      #navbar-container.container.fill
+
+        #cul_top-nosearch.collapse.navbar-collapse
+
+          %ul#crowndown-nosearch.nav.navbar-nav.navbar-left
+            = render :partial => "/top_nav/crown_menu"
+
+          %ul.nav.navbar-nav.navbar-right
+            = render :partial => "/top_nav/login_menu"
+            = render :partial => "/top_nav/help_menu"
+                
+
+
