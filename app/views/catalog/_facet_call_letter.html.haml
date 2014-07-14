@@ -1,16 +1,19 @@
+-# solr_field is the string name of the facet field
+
+-# display_facet is Blacklight::SolrResponse::Facets::FacetField 
 - display_facet = @response.facets.detect {|f| f.name == solr_field}
+-# facet_field is Blacklight::Configuration::FacetField
+- facet_field = facet_configuration_for_field(display_facet.name)
 
 - if display_facet && display_facet.items.length > 0
-  %h5
-    = facet_field_label(solr_field)
-    %span.glyphicon.glyphicon-turnbuckle
-  %ul
-    - config = facet_configuration_for_field(solr_field)
+  .panel.panel-default{:class => "facet_limit blacklight-#{solr_field.parameterize}"}
+    .collapse-toggle.panel-heading{class: "#{'collapsed' if should_collapse_facet?(facet_field)}", data: {toggle: "collapse", target: "#facet-#{solr_field.parameterize}", 'facet-tag' => build_facet_tag(facet_field)}}
+      %h5.panel-title
+        = link_to facet_field_label(solr_field), "#", :"data-no-turbolink" => true
 
-    - if (config && config.respond_to?(:open) && config.open == true) || expand_all_facets?
-      %span.selected
-
-
-    = render :partial => "catalog/facet_call_letter_value", :locals => {:solr_field => "lc_1letter_facet"}
+    .panel-collapse.facet-content{id: "facet-#{solr_field.parameterize}", class: "#{should_collapse_facet?(facet_field) ? 'collapse' : 'in'}"}
+      .panel-body
+        %ul.facet-values.list-unstyled
+          = render :partial => "catalog/facet_call_letter_value", :locals => {:solr_field => "lc_1letter_facet"}
 
 
