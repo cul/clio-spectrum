@@ -65,9 +65,11 @@ $ ->
     facet_tag = $(this).data("facet-tag")
     # alert "facet_tag=" + facet_tag
     if $(this).hasClass('collapsed')
+      console.log("click on ["+$(this).text()+"] tag["+facet_tag+"] - set_browser_option=open")
       # alert "set_browser_option=open"
       $.get('/set_browser_option?name=' + facet_tag + '&value=open')
     else
+      console.log("click on ["+$(this).text()+"] tag["+facet_tag+"] - set_browser_option=closed")
       # alert "set_browser_option=closed"
       $.get('/set_browser_option?name=' + facet_tag + '&value=closed')
 

@@ -25,19 +25,19 @@ module CulFacetsHelper
     end
 
     value = facet_value_for_facet_item(item)
-    
+
     return true if facet_field_in_params?(field) and params[:f][field].include?(value)
-  
+
     negated_field = "-#{field}"
     # Can't do this - blacklight_range_limit assumes that the string
     # passed in to facet_field_in_params?() is a valid Solr field name.
     # return true if facet_field_in_params?(negated_field) and params[:f][negated_field].include?(value)
 
     return true if params[:f] and params[:f][negated_field] and params[:f][negated_field].include?(value)
-    
+
     return false
   end
-  
+
   # Based on Blacklight::FacetsHelperBehavior.render_selected_facet_value()
   def render_selected_excluded_facet_value(excluded_solr_field, item)
 
@@ -46,15 +46,14 @@ module CulFacetsHelper
     # -#   NOT #{value}
     # -#   = link_to content_tag(:i, '', :class => "icon-remove") + content_tag(:span, '[remove]', :class => 'hide-text'), remove_facet_params(excluded_solr_field, value, params)
 
-
     content_tag(:span, :class => "facet-label") do
       content_tag(:span, "NOT #{facet_display_value(excluded_solr_field, item)}", :class => "selected") +
       # remove link
       link_to(content_tag(:span, '', :class => "glyphicon glyphicon-remove") + content_tag(:span, '[remove]', :class => 'sr-only'), search_action_path(remove_facet_params(excluded_solr_field, item, params)), :class=>"remove")
     end
   end
-  
-  
+
+
   # Override core blacklight render_constraints_helper_behavior.rb
   # module Blacklight::RenderConstraintsHelperBehavior#render_filter_element
   def render_filter_element(facet, values, localized_params)
@@ -79,7 +78,18 @@ module CulFacetsHelper
   end
 
   def build_facet_tag(facet_field, datasource = @active_source)
-    facet_tag = @active_source + '_' + facet_field.field.parameterize
+    facet_field_label = if facet_field.is_a? String
+      facet_field
+    elsif facet_field.respond_to?(:field)
+      facet_field.field
+    elsif facet_field.respond_to?(:display_name)
+      facet_field.display_name
+    else
+      ""
+      raise
+    end
+    # facet_tag = @active_source + '_' + facet_field.field.parameterize
+    facet_tag = @active_source + '_' + facet_field_label
   end
 
   ##
@@ -94,8 +104,24 @@ module CulFacetsHelper
   # 
   # @param [Blacklight::Configuration::FacetField]
   # @return [Boolean]
+  # 
+  # Columbia Override
+  # Accept a Blacklight Facet, a Summon Facet, or a String
+  # Check against our Browser Options
   def should_collapse_facet? facet_field
 
+    # 1) If the facet is 'active', don't collapse
+
+    # # For Summon Facets
+    if facet_field.respond_to?(:has_applied_value?)
+      return false if facet_field.has_applied_value?
+    end
+    # # For Blacklight Facets
+    # if facet_field.is_a?(Hash) && facet_field.has_key?('field')
+    #   return false if facet_field_in_params?(facet_field.field)
+    # end
+
+    # 2) Columbia - check browser options for display preference
     # NEXT-1028 - Make facet state (open/closed) sticky through a selection
     # Do we have an explicit browser-display setting saved?
     # If so, respect that saved setting ("Sticky").
@@ -103,7 +129,15 @@ module CulFacetsHelper
     return false if get_browser_option(facet_tag) == 'open'
     return true if get_browser_option(facet_tag) == 'closed'
 
-    !facet_field_in_params?(facet_field.field) && facet_field.collapse
+
+    # 3) "if the facet is configured..."
+    # Last fall-back, if the facet has a config option, respect it
+    if facet_field.is_a?(Hash) && facet_field.has_key?('collapse')
+      return facet_field.collapse
+    end
+
+    # Default state if nothing indicates otherwise....
+    return true
   end
 
 
