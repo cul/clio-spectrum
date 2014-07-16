@@ -26,7 +26,7 @@ describe 'Catalog Interface' do
     within 'div.facet_limit.blacklight-format.panel' do
       find('a.more_facets_link').click
     end
-    within 'ul.facet_extended_list' do
+    within '.facet_extended_list' do
       click_link('Video')
     end
 

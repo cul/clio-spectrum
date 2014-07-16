@@ -60,17 +60,12 @@ $ ->
       $.get('/set_browser_option?name=always_expand_facets&value=false')
 
   $('.collapse-toggle.panel-heading').click ->
-    # alert( "click on:" + $(this).text() )
-    # console.log( "hasClass('twiddle-open'):" + $(this).hasClass('twiddle-open') )
     facet_tag = $(this).data("facet-tag")
-    # alert "facet_tag=" + facet_tag
     if $(this).hasClass('collapsed')
-      console.log("click on ["+$(this).text()+"] tag["+facet_tag+"] - set_browser_option=open")
-      # alert "set_browser_option=open"
+      # console.log("click on ["+$(this).text()+"] tag["+facet_tag+"] - set_browser_option=open")
       $.get('/set_browser_option?name=' + facet_tag + '&value=open')
     else
-      console.log("click on ["+$(this).text()+"] tag["+facet_tag+"] - set_browser_option=closed")
-      # alert "set_browser_option=closed"
+      # console.log("click on ["+$(this).text()+"] tag["+facet_tag+"] - set_browser_option=closed")
       $.get('/set_browser_option?name=' + facet_tag + '&value=closed')
 
 

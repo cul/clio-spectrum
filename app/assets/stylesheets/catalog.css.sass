@@ -67,28 +67,28 @@
 .busy
   :display none
   :position fixed
-  :width 200px
-  :height 80px
-  :top 50%
+  //:width 600px
+  //:height 80px
+  :top 35%
   :left 50%
-  :margin-top -40px
+  :margin-top -50px
   :margin-left -100px
   :z-index 100
   :background #e3e8f1
-  :border 3px #779bc3 outset
-  :padding 5px
+  :border 4px #779bc3 outset
+  :padding 10px
   :vertical-align middle
 
 .busy-image
   :display block
   :margin-left auto
   :margin-right auto
-  :padding-top 10px
+  //:padding-top 10px
 
 .busy-text
   :font-size 160%
   :text-align center
-  :padding-top 30px
+  :padding-top 20px
  
 
 // used for debugging
@@ -179,14 +179,15 @@ a.rss-feed
   :padding-top 3px
   :padding-bottom 3px
 
-.modal.fade.in
-  :position absolute
-
-@media (min-width: 769px) and (max-width:979px)
-  .modal.fade.in
-    top: 20% !important
-    left: 20% !important
-    right: 20% !important
+// No, leave modal-handling to core Blacklight
+//.modal.fade.in
+//  :position absolute
+//
+//@media (min-width: 769px) and (max-width:979px)
+//  .modal.fade.in
+//    top: 20% !important
+//    left: 20% !important
+//    right: 20% !important
 
 #show_toolbar ul.nav > li > a
   :padding-left 8px

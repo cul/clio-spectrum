@@ -1,1 +1,22 @@
-= fix_catalog_links(render(:partial => "facet_expanded"))
+-# Override Blacklight view
+-# 1) Add fix_catalog_links, to rewrite controller URLS
+-# 2) Nothing else right now.
+
+.facet_pagination.top
+  = fix_catalog_links(render :partial=>'facet_pagination')
+
+.modal-header
+  %button.ajax-modal-close.close{type: 'button', data: {dismiss: 'modal'}}
+    x
+  %h3.modal-title
+    = facet_field_label(@facet.field)
+
+.modal-body
+  .facet_extended_list
+    = fix_catalog_links(render_facet_limit(@display_facet, layout: false))
+
+.modal-footer
+  .facet-pagination.bottom
+    = fix_catalog_links(render :partial=>'facet_pagination')
+
+

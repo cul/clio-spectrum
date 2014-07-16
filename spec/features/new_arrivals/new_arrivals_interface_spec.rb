@@ -61,7 +61,7 @@ describe 'New Arrivals Search' do
     visit new_arrivals_index_path('q' => 'man')
 
     within all('.result.document').first do
-      find('a').click
+      all('a').first.click
     end
 
     # page.save_and_open_page # debug

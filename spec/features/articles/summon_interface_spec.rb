@@ -21,7 +21,14 @@ describe 'Summon Interface ' do
     visit articles_index_path('q' =>  '',
                               's.fvf'    => ['IsFullText,true', 'ContentType,Journal Article'])
     all('div.details').each do |detail|
-      detail.should have_text('Journal Article: Full Text Available')
+      # detail node contains full descriptive data - author, citaion, format, etc.
+      detail.text.should satisfy { |detail_text|
+        # Summon's precise language seems to be flip-flopping today,
+        #  any of these might show up.
+        detail_text.match(/Journal Article: Full Text Available/) ||
+        detail_text.match(/Conference Proceeding: Full Text Online/) ||
+        detail_text.match(/Conference Proceeding: Full Text Available/)
+      }
     end
 
     visit articles_index_path('q' =>  '',

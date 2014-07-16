@@ -230,14 +230,35 @@ class CatalogController < ApplicationController
   end
 
 
-  # Why are we over-riding Blacklight::Catalog.facet() ??
-  # displays values and pagination links for a single facet field
+  # Override Blacklight::Catalog.facet()
+  # 
+  # *** Blacklight 4 ***
+  # def facet
+  #   @pagination = get_facet_pagination(params[:id], params)
+  # 
+  #   respond_to do |format|
+  #     format.html
+  #     format.js { render layout: false }
+  #   end
+  # end
+  # 
+  # *** Blacklight 5 ***
   def facet
-    @pagination = get_facet_pagination(params[:id], params)
-  
+    @facet = blacklight_config.facet_fields[params[:id]]
+    @response = get_facet_field_response(@facet.field, params)
+    @display_facet = @response.facets.first
+
+    # @pagination was deprecated in Blacklight 5.1
+    @pagination = facet_paginator(@facet, @display_facet)
+
+
     respond_to do |format|
+      # Draw the facet selector for users who have javascript disabled:
       format.html
-      format.js { render layout: false }
+      format.json { render json: render_facet_list_as_json }
+
+      # Draw the partial for the "more" facet modal window:
+      format.js { render :layout => false }
     end
   end
 

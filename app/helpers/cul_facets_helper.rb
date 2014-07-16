@@ -84,6 +84,8 @@ module CulFacetsHelper
       facet_field.field
     elsif facet_field.respond_to?(:display_name)
       facet_field.display_name
+    elsif facet_field.respond_to?(:field_name)
+      facet_field.field_name
     else
       ""
       raise
@@ -112,14 +114,14 @@ module CulFacetsHelper
 
     # 1) If the facet is 'active', don't collapse
 
-    # # For Summon Facets
+    # For Summon Facets
     if facet_field.respond_to?(:has_applied_value?)
       return false if facet_field.has_applied_value?
     end
-    # # For Blacklight Facets
-    # if facet_field.is_a?(Hash) && facet_field.has_key?('field')
-    #   return false if facet_field_in_params?(facet_field.field)
-    # end
+    # For Blacklight Facets
+    if facet_field.respond_to?(:field)
+      return false if facet_field_in_params?(facet_field.field)
+    end
 
     # 2) Columbia - check browser options for display preference
     # NEXT-1028 - Make facet state (open/closed) sticky through a selection
@@ -132,7 +134,7 @@ module CulFacetsHelper
 
     # 3) "if the facet is configured..."
     # Last fall-back, if the facet has a config option, respect it
-    if facet_field.is_a?(Hash) && facet_field.has_key?('collapse')
+    if facet_field.respond_to?(:collapse)
       return facet_field.collapse
     end
 
