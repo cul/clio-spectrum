@@ -1,0 +1,66 @@
+- cache("top_navigation_bar_#{current_user}") do
+
+  #cultnbw.cultnbw
+
+    .header{:data => {'ga-action' => 'Top NavBar Click'} }
+    
+      %h1.hide CUL - Header
+    
+      #topnavbar.navbar.navbar-fixed-top
+    
+        .navbar-inner.fill
+    
+          #navbar-container.container-fluid
+
+            %a.btn.btn-navbar{data: {toggle: 'collapse', target: '#topnav-collapse'}}
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+    
+            %nav
+              #cul_top-nosearch.row-fluid
+                -# .row
+                .span12.navbar-collapse
+                  .span7
+                    %ul#crowndown-nosearch.nav.pull-left
+                      = render :partial => "/top_nav/crown_menu"
+                  .span5
+                    %ul#cul_top-right.nav.pull-right
+                      = render :partial => "/top_nav/login_menu"
+                      = render :partial => "/top_nav/help_menu"
+
+              %h1.topbarlogo
+                #mob-crown-holder.hidden-desktop
+                  #mob-crown
+                %a.brand.visible-tablet{data: {'original-title' => 'CLIO'}, href: "http://clio.columbia.edu/"}
+                  CLIO
+                %a.brand.visible-phone{data: {'original-title' => 'CLIO'}, href: "http://clio.columbia.edu/"}
+                  CLIO
+
+            
+            #topnav-collapse.nav-collapse.collapse
+              #topbarformdiv.hidden-desktop.navbar-earch.fullbleed
+                %ul.unstyled
+                  = render :partial => "/top_nav/crown_menu"
+                  = render :partial => "/top_nav/login_menu"
+                  = render :partial => "/top_nav/help_menu"
+
+
+
+-# 
+-# %nav.navbar.navbar-default
+-#   .container-fluid
+-#     .navbar-header
+-#       %button.navbar-toggle{data: {toggle: 'collapse', target: '#FOO'}}
+-#         %span.icon-bar
+-#         %span.icon-bar
+-#         %span.icon-bar
+-# 
+-#     .collapse.navbar-collapse#FOO
+-#       %ul#crowndown-nosearch.nav.navbar-nav.navbar-left
+-#         = render :partial => "/top_nav/crown_menu"
+-# 
+-#       %ul.no-stack-menu.nav.navbar-nav.pull-right
+-#         = render :partial => "/top_nav/login_menu"
+-#         = render :partial => "/top_nav/help_menu"
+-#       

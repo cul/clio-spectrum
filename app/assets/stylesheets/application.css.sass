@@ -3,9 +3,11 @@
 // Bootstrap 2
 //$baseLineHeight: 18px
 //$baseFontSize: 13px
+
 // Bootstrap 3
 $line-height-base: 1.384615
 $font-size-base: 13px
+
 // add back light-blue menu-link background (Bootstrap 2 default)
 $dropdown-link-hover-bg: #08c
 
@@ -22,7 +24,15 @@ $dropdown-link-hover-bg: #08c
 // Used by blacklight
 @import "blacklight/blacklight"
 
-@import "ldpd_toolkit"
+// Older LDPD styles?
+//@import "ldpd_toolkit"
+// Newer LDPD styles?
+//@import 'cultnbw.min'
+// Neither is working out for me (not ready for Bootstrap 3 yet)
+// Try a default Bootstrap static menu, based on:
+//    http://getbootstrap.com/examples/navbar-static-top
+// Colorize using advice from http://stackoverflow.com/questions/18529274
+@import 'navbar'
 
 // Used by blacklight_range_limit
 @import 'blacklight_range_limit'

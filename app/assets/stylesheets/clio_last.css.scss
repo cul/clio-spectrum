@@ -2,6 +2,7 @@
  * CLIO 'last loaded' styles.
  * er2576 - LDPD
  ******************************************/
+
 @font-face {
   font-family: trajanprobold;
   src: url('TrajanPro-Bold.otf');
@@ -24,6 +25,8 @@ body.blank_layout {
 #outer-container {
   margin-left: 10px;
   margin-right: 20px;
+  border: 1px solid #aaa;
+  padding-top: 0px;
 }
 
 #crowndown a.menu,
@@ -35,12 +38,15 @@ body.blank_layout {
 //  padding: 0!important;
 //}
 
+
 .container {
-  /* reinstate the Bootstrap white navbar, that LDPD had made shaddowy blue */
-  background-color: #f9f9f9;
+  /* Our body is bluish, all content lives within containers - make them whitish */
+   background-color: #f9f9f9; 
+/*
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+*/
 }
 .navbar .topbarlogo #topbarslash {
   padding-left: .2em;
@@ -58,25 +64,41 @@ body.blank_layout {
     margin-right: -10px;
   }
   /* reinstate the narrow-screen Bootstrap padding-top=0 that LDPD took away */
+/*
   body {
     padding-top: 0;	
   }
+*/
 }
+
 
 
 //http://stackoverflow.com/questions/19576175/how-do-you-decrease-navbar-height-in-bootstrap-3
 .navbar-nav > li > a {padding-top:7px !important; padding-bottom:7px !important;}
 .navbar {min-height:32px !important}
 
+
+/* Turn off LDPD Toolkit radius */
+/*
 #topnavbar {
   border-radius: 0;
 }
+*/
 
-
+/* Try to make BS 3 menus like BS2 menus */
+/*
 .no-stack-menu.navbar-nav > li {
   float: left;
 }
 
+*/
 
 
+body {
+  min-height: 2000px;
+}
+
+.navbar-static-top {
+  margin-bottom: 0px;
+}
 
