@@ -52,6 +52,11 @@ body.blank_layout {
   padding-left: .2em;
   padding-right: .2em;
 }
+
+/*
+  * Maybe we don't need any of this crazyness, 
+  * if we're not using LDPD styles?
+
 @media screen and (max-width: 979px) {
   #outer-container {
     margin-top: -18px;
@@ -63,13 +68,12 @@ body.blank_layout {
     margin-left: -10px;
     margin-right: -10px;
   }
-  /* reinstate the narrow-screen Bootstrap padding-top=0 that LDPD took away */
-/*
   body {
     padding-top: 0;	
   }
-*/
+
 }
+*/
 
 
 

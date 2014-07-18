@@ -98,14 +98,87 @@ a.clio_logo
 .source_select.sidenav
   +clearfix
   //@extend .hidden-sm
+
+  //  Bootstrap 2 'sidenav' styling
+  margin-bottom: 1em
+  margin-top: 1em
+  padding: 0
+  background-color: transparent
+  border: 1px solid #d4d4d4
+  -webkit-border-radius: 6px
+  -moz-border-radius: 6px
+  border-radius: 6px
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.065)
+  -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.065)
+  box-shadow: 0 1px 4px rgba(0,0,0,0.065)
+
+
   h4
-    :padding 10px 14px 0 14px
+    :padding-left 1em
+    :padding-right 0px
+    :padding-top 0px
+    :padding-bottom 0px
 
   select
     :float right
     :width 10em
-    :margin-right 20px
-    :margin-top 6px
+    :margin-right 1em
+    :margin-top 0.5em
+
+
+//    option
+//      font-size: 13px
+//      color: rgb(85, 85, 85)
+//      cursor: pointer
+//      display: inline
+//      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif
+//      font-size: 13px
+//      font-weight: normal
+//      height: auto
+//      letter-spacing: normal
+//      line-height: normal
+//      text-align: start
+//      text-indent: 0px
+//      text-shadow: none
+//      text-transform: none
+//      white-space: pre
+//      width: auto
+//      word-spacing: 0px
+//
+//
+//    height: 28px
+//    line-height: 28px
+//    font-size: 14px
+
+//
+//    cursor: pointer
+//    display: block
+//    float: right
+//    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif
+//    font-size: 13px
+//    font-weight: normal
+//    height: 28px
+//    letter-spacing: normal
+//    line-height: normal
+//    margin-bottom: 9px
+//    margin-left: 0px
+//    margin-right: 20px
+//    margin-top: 6px
+//    padding-bottom: 0px
+//    padding-left: 0px
+//    padding-right: 0px
+//    padding-top: 0px
+//    text-align: start
+//    text-indent: 0px
+//    text-shadow: none
+//    text-transform: none
+//    vertical-align: middle
+//    white-space: pre
+//    width: 130px
+//    word-spacing: 0px
+//    writing-mode: lr-tb
+
+
 
 .well.sidebar-nav
   :padding 8px 0
@@ -199,15 +272,17 @@ a.clio_logo
 .search_q
   &.without_options
     //:width 20em
-    :width -moz-calc(100% - 90px)
-    :width -webkit-calc(100% - 90px)
-    :width calc(100% - 90px)
+// Broken w/Bootstrap 3
+//    :width -moz-calc(100% - 90px)
+//    :width -webkit-calc(100% - 90px)
+//    :width calc(100% - 90px)
 
   &.with_options
     //:width 14em
-    :width -moz-calc(100% - 300px)
-    :width -webkit-calc(100% - 300px)
-    :width calc(100% - 300px)
+// Broken w/Bootstrap 3
+//    :width -moz-calc(100% - 300px)
+//    :width -webkit-calc(100% - 300px)
+//    :width calc(100% - 300px)
 
 // "minus" = desktop:290, tablet:237...
 // and then refactor again, after hiding "Search"
@@ -215,13 +290,15 @@ a.clio_logo
 @media (max-width: 979px)
   .search_q
     &.without_options
-      :width -moz-calc(100% - 40px)
-      :width -webkit-calc(100% - 40px)
-      :width calc(100% - 4 0px)
+// Broken w/Bootstrap 3
+//      :width -moz-calc(100% - 40px)
+//      :width -webkit-calc(100% - 40px)
+//      :width calc(100% - 4 0px)
     &.with_options
-      :width -moz-calc(100% - 240px)
-      :width -webkit-calc(100% - 240px)
-      :width calc(100% - 240px)
+// Broken w/Bootstrap 3
+//      :width -moz-calc(100% - 240px)
+//      :width -webkit-calc(100% - 240px)
+//      :width calc(100% - 240px)
 
 
 @media (max-width: 480px)
