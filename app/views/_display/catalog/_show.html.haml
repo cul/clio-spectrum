@@ -30,26 +30,28 @@
       -# div.info expands enough to prevent overlapping by the holdings box
       .clear-both
 
-    -# Database Notes and Alerts
-    -# html_safe true, so that ERC can embed HTML links in their alert msgs
-    - if document.get("_active_item_alert_count") && document.get("_active_item_alert_count") > 0
-      .col-sm-6.well.well-smallx
-        -# "alert" alerts
-        - document.get("_item_alerts")[:alert].each do | alert |
-          - if alert.active?
-            .col-sm-12.alert_alert
-              = "ALERT:  #{alert[:message]}".html_safe
+    .col-sm-6
 
-        -# "access requirements" alerts
-        - document.get("_item_alerts")[:access_requirements].each do | alert |
-          - if alert.active?
-            = add_row(ItemAlert::ALERT_TYPES['access_requirements'], alert[:message], options = {:html_safe => true})
-
-
-    .col-sm-6.holdings-container
-      -# this partial renders, in turn, static html for holdings-online,
-      -# holdings-display (Voyager), holdings-google, and holdings-hathi
-      = render "_formats/clio/catalog_show_holdings", :document => document
+      -# Database Notes and Alerts
+      -# html_safe true, so that ERC can embed HTML links in their alert msgs
+      - if document.get("_active_item_alert_count") && document.get("_active_item_alert_count") > 0
+        .Xcol-sm-6.well
+          -# "alert" alerts
+          - document.get("_item_alerts")[:alert].each do | alert |
+            - if alert.active?
+              .Xcol-sm-12.alert_alert
+                = "ALERT:  #{alert[:message]}".html_safe
+  
+          -# "access requirements" alerts
+          - document.get("_item_alerts")[:access_requirements].each do | alert |
+            - if alert.active?
+              = add_row(ItemAlert::ALERT_TYPES['access_requirements'], alert[:message], options = {:html_safe => true})
+  
+  
+      .Xcol-sm-6.holdings-container
+        -# this partial renders, in turn, static html for holdings-online,
+        -# holdings-display (Voyager), holdings-google, and holdings-hathi
+        = render "_formats/clio/catalog_show_holdings", :document => document
 
   .clear-both
     -# this partial inserts the javascript to fetch book data from Google,

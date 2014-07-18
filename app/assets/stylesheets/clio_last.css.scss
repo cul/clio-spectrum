@@ -27,6 +27,8 @@ body.blank_layout {
   margin-right: 20px;
   border: 1px solid #aaa;
   padding-top: 0px;
+  padding-bottom: 50px;
+  background-color: rgba(255, 255, 255, 0.85098);
 }
 
 #crowndown a.menu,
@@ -80,6 +82,7 @@ body.blank_layout {
 //http://stackoverflow.com/questions/19576175/how-do-you-decrease-navbar-height-in-bootstrap-3
 .navbar-nav > li > a {padding-top:7px !important; padding-bottom:7px !important;}
 .navbar {min-height:32px !important}
+.navbar-text { margin-top: 7px !important; margin-bottom: 7px !important;}
 
 
 /* Turn off LDPD Toolkit radius */
