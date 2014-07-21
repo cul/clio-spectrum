@@ -45,6 +45,10 @@ end
 # bib 2354899 is "Pennsylvania Station (New York, N.Y.)", an exact match
 # bibs 3460633 and 3460619 are a near match that should be returned,
 #   "Pennsylvania Railroad Station (New York, N.Y.)"
+# 7/21/2008 - UPDATE - Catalogers have corrected 3460633 and 3460619,
+# they are now the same as 2354899.  Update expectations accordingly.
+# We have no other exmples of near-misses - we're not really testing
+# proper quote handling any longer here.
 describe 'Searching of N.Y. Subject Strings' do
   baseTerm = 'Pennsylvania Station New York,'
 
@@ -80,20 +84,20 @@ describe 'Searching of N.Y. Subject Strings' do
     resp.should include('3460619')
   end
 
-  it "should work for:  N.Y., quoted" do
-    resp = solr_resp_doc_ids_only( subject_search_args("\"#{baseTerm} N.Y.\"") )
-    resp.should have_at_least(15).documents
-    resp.should include('2354899').in_first(3).results
-    resp.should_not include('3460633')
-    resp.should_not include('3460619')
-  end
+  # it "should work for:  N.Y., quoted" do
+  #   resp = solr_resp_doc_ids_only( subject_search_args("\"#{baseTerm} N.Y.\"") )
+  #   resp.should have_at_least(15).documents
+  #   resp.should include('2354899').in_first(3).results
+  #   resp.should_not include('3460633')
+  #   resp.should_not include('3460619')
+  # end
 
   it "should work for:  N. Y., quoted" do
     resp = solr_resp_doc_ids_only( subject_search_args("\"#{baseTerm} N. Y.\"") )
     resp.should have_at_least(15).documents
     resp.should include('2354899').in_first(3).results
-    resp.should_not include('3460633')
-    resp.should_not include('3460619')
+    resp.should include('3460633')
+    resp.should include('3460619')
   end
 
 end
