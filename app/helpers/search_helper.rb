@@ -140,7 +140,9 @@ module SearchHelper
 
       # link to advanced search
       if options['search_type'].in?('summon', 'blacklight') && options['advanced']
-        result += content_tag(:a, 'Advanced Search', class: 'btn btn-link advanced_search_toggle', href: '#')
+        adv_text = "Advanced#{content_tag(:span, ' Search', class: 'hidden-xs')}".html_safe
+        # result += content_tag(:a, 'Advanced Search', class: 'btn btn-link advanced_search_toggle', href: '#')
+        result += content_tag(:a, adv_text, class: 'btn btn-link advanced_search_toggle', href: '#')
       end
 
       result = content_tag(:div, result, class: 'search_row input-append', escape: false)

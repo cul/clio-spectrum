@@ -18,10 +18,11 @@
 
     = hidden_field_tag 'search_field', 'advanced'
 
-    .form-group
-      - (1..5).each do |i|
-        .advanced_search_row
+    - (1..5).each do |i|
+      .advanced_search_row.form_group.row
+        .col-sm-4
           = advanced_field_select_option(blacklight_config, i)
+        .col-sm-8
           = advanced_field_text_field(blacklight_config, i)
 
 

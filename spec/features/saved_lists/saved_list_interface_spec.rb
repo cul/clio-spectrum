@@ -62,7 +62,7 @@ describe 'Saved List Interface' do
     click_link('Selected Items')
     click_link('Select All Items')
     click_link('Selected Items')
-    click_link('Save to Bookbag')
+    click_link('Add to My Saved List')
 
     # Now, go back again to my Lists page.  I should see the just-added records
     visit '/lists'
@@ -107,7 +107,7 @@ describe 'Saved List Interface' do
     click_link('Selected Items')
     click_link('Select All Items')
     click_link('Selected Items')
-    click_link('Save to Bookbag')
+    click_link('Add to My Saved List')
 
     # visit catalog_index_path()
 

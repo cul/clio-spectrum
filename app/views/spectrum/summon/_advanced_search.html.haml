@@ -44,36 +44,37 @@
       = hidden_field_tag 'form', 'advanced'
       = hidden_field_tag 'source', source || 'articles'
 
-      .advanced_search_row
-        .control-label Keywords:
-        .controls
-          = text_field_tag 'q', field_values['q'], :title => "Query", :id => "query", :class => 'input-xlarge'
+      .advanced_search_row.form_group.row
+        %label.control-label.col-sm-3 Keywords:
+        .col-sm-9
+          = text_field_tag 'q', field_values['q'], :title => "Query", :id => "query", :class => 'form-control'
 
-      .advanced_search_row
-        .control-label Author:
-        .controls
-          = text_field_tag "s.fq[AuthorCombined]", field_values['AuthorCombined'],  :title => "Author", :id => "author", :class => 'input-xlarge'
 
-      .advanced_search_row
-        .control-label Title:
-        .controls
-          = text_field_tag "s.fq[TitleCombined]", field_values['TitleCombined'], :title => "Title", :id => "title", :class => 'input-xlarge'
+      .advanced_search_row.form_group.row
+        %label.control-label.col-sm-3 Author:
+        .col-sm-9
+          = text_field_tag "s.fq[AuthorCombined]", field_values['AuthorCombined'],  :title => "Author", :id => "author", :class => 'form-control'
+
+      .advanced_search_row.form_group.row
+        %label.control-label.col-sm-3 Title:
+        .col-sm-9
+          = text_field_tag "s.fq[TitleCombined]", field_values['TitleCombined'], :title => "Title", :id => "title", :class => 'form-control'
 
       -# NEXT-581 - articles search by publication title
-      .advanced_search_row
-        .control-label Publication Title:
-        .controls
-          = text_field_tag "s.fq[PublicationTitle]",  field_values['PublicationTitle'], :title => "Publication Title", :id => "publicationtitle", :class => 'input-xlarge'
+      .advanced_search_row.form_group.row
+        %label.control-label.col-sm-3 Publication Title:
+        .col-sm-9
+          = text_field_tag "s.fq[PublicationTitle]",  field_values['PublicationTitle'], :title => "Publication Title", :id => "publicationtitle", :class => 'form-control'
 
-      .advanced_search_row
-        .control-label ISBN:
-        .controls
-          = text_field_tag "s.fq[ISBN]", field_values['ISBN'],  :title => "ISBN", :id => "isbn", :class => 'input-medium'
+      .advanced_search_row.form_group.row
+        %label.control-label.col-sm-3 ISBN:
+        .col-sm-9
+          = text_field_tag "s.fq[ISBN]", field_values['ISBN'],  :title => "ISBN", :id => "isbn", :class => 'form-control'
 
-      .advanced_search_row
-        .control-label ISSN:
-        .controls
-          = text_field_tag "s.fq[ISSN]", field_values['ISSN'],  :title => "ISSN", :id => "issn", :class => 'input-medium'
+      .advanced_search_row.form_group.row
+        %label.control-label.col-sm-3 ISSN:
+        .col-sm-9
+          = text_field_tag "s.fq[ISSN]", field_values['ISSN'],  :title => "ISSN", :id => "issn", :class => 'form-control'
 
 
       -# .advanced_search_row

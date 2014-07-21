@@ -84,6 +84,7 @@ $colHover       : #ffe6d1; /*/
             background-color: $bgHighlight; }
         .icon-bar {
             background-color: $colDefault; }}}
+
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
         color: $colDefault;
@@ -91,3 +92,6 @@ $colHover       : #ffe6d1; /*/
             color: $colHover;
             background-color: $bgHighlight; }}
 }
+
+
+

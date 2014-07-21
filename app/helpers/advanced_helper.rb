@@ -44,7 +44,7 @@ module AdvancedHelper
     index = index.to_s
     default_value = params['adv'] && params['adv'][index] && (!params['adv'][index]['field'].to_s.empty? && params['adv'][index]['value'])
 
-    text_field_tag("adv[#{index}][value]", default_value,  class: 'advanced_search_value')
+    text_field_tag("adv[#{index}][value]", default_value,  class: 'form-control')
   end
 
   # builds the field select-tag for each Advanced Search field/value pair (for Catalog)
@@ -62,7 +62,7 @@ module AdvancedHelper
                     (!params['adv'][index]['value'].to_s.empty? &&
                       params['adv'][index]['field'])
     default_value ||= 'all_fields'
-    select_tag("adv[#{index}][field]", options_for_select(field_list, default_value), class: 'advanced_search_field')
+    select_tag("adv[#{index}][field]", options_for_select(field_list, default_value), class: 'form-control')
   end
 
   def has_advanced_params?
