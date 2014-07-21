@@ -209,6 +209,16 @@ a.clio_logo
 //  :float right
 //
 
+.start_over
+  width: 110px
+  a.btn
+    margin-left: 10px
+    margin-right: 20px
+
+//.search_boxes
+//  width: calc(100% - 120px)
+
+
 .search_box
   :display none
   // w/Bootstrap 3, this makes the forms too small
@@ -217,40 +227,81 @@ a.clio_logo
   &.selected
     :display block
 
-.search_q
-  &.without_options
-    :width -moz-calc(100% - 90px)
-    :width -webkit-calc(100% - 90px)
-    :width calc(100% - 90px)
+// ???
+//@media (max-width: 480px)
+//  .search_q
+//    &.without_options
+//      :width 14.5em
+//    &.with_options
+//      :width 8.5em
 
-  &.with_options
-    :width -moz-calc(100% - 300px)
-    :width -webkit-calc(100% - 300px)
-    :width calc(100% - 300px)
+@media (min-width: 800px)
+  .search_q
+    :width 200px !important
+
+@media (min-width: 850px)
+  .search_q
+    :width 240px !important
+
+@media (min-width: 950px)
+  .search_q
+    :width 300px !important
+ 
+@media (min-width: 1000px)
+  .search_q
+    :width 300px !important
+
+@media (min-width: 1100px)
+  .search_q
+    :width 350px !important
+
+@media (min-width: 1200px)
+  .search_q
+    :width 400px !important
+
+@media (min-width: 1350px)
+  .search_q
+    :width 500px !important
+
+@media (min-width: 1450px)
+  .search_q
+    :width 600px !important
+
+
+//.search_q
+//  &.without_options
+//    :width -moz-calc(100% - 90px)
+//    :width -webkit-calc(100% - 90px)
+//    :width calc(100% - 90px)
+//
+//  &.with_options
+//    :width -moz-calc(100% - 300px)
+//    :width -webkit-calc(100% - 300px)
+//    :width calc(100% - 300px)
 
 // "minus" = desktop:290, tablet:237...
 // and then refactor again, after hiding "Search"
 
-@media (max-width: 979px)
-  .search_q
-    &.without_options
+//@media (max-width: 979px)
+//  .search_q
+//    &.without_options
 // Broken w/Bootstrap 3
 //      :width -moz-calc(100% - 40px)
 //      :width -webkit-calc(100% - 40px)
 //      :width calc(100% - 4 0px)
-    &.with_options
+    //&.with_options
 // Broken w/Bootstrap 3
 //      :width -moz-calc(100% - 240px)
 //      :width -webkit-calc(100% - 240px)
 //      :width calc(100% - 240px)
 
 
-@media (max-width: 480px)
-  .search_q
-    &.without_options
-      :width 14.5em
-    &.with_options
-      :width 8.5em
+//@media (max-width: 480px)
+//  .search_q
+//    &.without_options
+//      :width 14.5em
+//    &.with_options
+//      :width 8.5em
 
 //// NEXT-822 - Search box - style suggestions, make longer
 //@media (min-width: 1100px)
