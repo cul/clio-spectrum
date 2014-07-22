@@ -79,7 +79,7 @@ bind_alert_management_form = (form) ->
         alerts = form.find('.alerts')
         alerts.empty()
 
-        alert_html = "<div class='alert alert-error'><btn class='close' type='button' data-dismiss='alert'>x</btn>There are errors with your submission.<ul>"
+        alert_html = "<div class='alert alert-danger'><btn class='close' type='button' data-dismiss='alert'>x</btn>There are errors with your submission.<ul>"
 
         response = JSON.parse(data.responseText)
         for field,errors of response

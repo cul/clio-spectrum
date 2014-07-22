@@ -53,7 +53,7 @@ $ ->
   # Ajax to actually save the items...
   request = $.post '/lists/add', { item_key_list, name }
   request.done (data) -> flashMessage("success", data)
-  request.fail (jqXHR, textStatus, errorThrown) -> flashMessage("error", "Save failed: " + errorThrown + "  " + jqXHR.responseText)
+  request.fail (jqXHR, textStatus, errorThrown) -> flashMessage("danger", "Save failed: " + errorThrown + "  " + jqXHR.responseText)
 
 
 # Non-AJAX - move list of item-keys to named list,

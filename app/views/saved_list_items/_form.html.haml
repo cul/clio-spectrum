@@ -1,7 +1,7 @@
 = form_for @list_item do |f|
   - if @list_item.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@list_item.errors.count, "error")} prohibited this list_item from being saved:"
+      %h2= "#{pluralize(@list_item.errors.count, "danger")} prohibited this list_item from being saved:"
       %ul
         - @list_item.errors.full_messages.each do |msg|
           %li= msg

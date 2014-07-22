@@ -28,7 +28,7 @@
   -#  DO NOT display @errors, as it includes technical details such as 
   -#  Solr URL, true file-paths, etc.
   - if @errors
-    .alert.alert-error
+    .alert.alert-danger
       Unexpected Error during search.
       Please #{link_to "restart your search", datasource_landing_page_path(@active_source)}
 

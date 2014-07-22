@@ -4,7 +4,7 @@
     - if item_alert.errors.any?
       .alert
         %btn.close{:type => "button", :"data-dismiss" => "alert"} x
-        = "#{pluralize(@item_alert.errors.count, "error")} prohibited this item_alert from being saved:"
+        = "#{pluralize(@item_alert.errors.count, "danger")} prohibited this item_alert from being saved:"
         %ul
           - item_alert.errors.full_messages.each do |msg|
             %li= msg
