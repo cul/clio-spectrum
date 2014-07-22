@@ -3,7 +3,8 @@
   - blacklight_counter = counter + 1 + @response.params[:start].to_i
 
   
-  .boxed_search_results.result.document{:class => ("database_record" if document['source_display'].include? 'database'), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
+  -# .boxed_search_results.result.document{:class => ("database_record" if document['source_display'].include? 'database'), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
+  .boxed_search_results.result.document{:class => ("database_record" if document.is_database?), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
     .row
 

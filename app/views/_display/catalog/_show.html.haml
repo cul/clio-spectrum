@@ -8,7 +8,8 @@
 
 = render :partial => "_formats/clio/catalog_show_toolbar", :locals => { :document => document }
 
-.show-document.col-sm-12{:class => ("database_record" if document['source_display'].include? 'database')}
+-# .show-document.col-sm-12{:class => ("database_record" if document['source_display'].include? 'database')}
+.show-document.col-sm-12{:class => ("database_record" if document.is_database?)}
   .title
     -# - raise
     %h4= document_heading.listify.join("").html_safe

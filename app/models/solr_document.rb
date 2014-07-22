@@ -9,6 +9,12 @@ class SolrDocument
     "SolrDocument_#{id}_#{self['timestamp']}"
   end
 
+  # Convenience method for enabling database-specific styling
+  def is_database?
+    return self.has_key?('source_display') &&
+           Array(self['source_display']).include?("database")
+  end
+
   # The following shows how to setup this blacklight document to display marc documents
   extension_parameters[:marc_source_field] = :marc_display
   extension_parameters[:marc_format_type] = :marcxml
