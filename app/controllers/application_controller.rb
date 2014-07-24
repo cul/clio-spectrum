@@ -89,6 +89,8 @@ class ApplicationController < ActionController::Base
     @debug_entries[:user_characteristics] = @user_characteristics
   end
 
+
+  # AJAX handler for browser-option setting/getting
   def set_browser_option_handler
     unless params.key?('name') && params.key?('value')
       render json: nil, status: :bad_request and return
@@ -98,6 +100,7 @@ class ApplicationController < ActionController::Base
     render json: nil, status: :ok
   end
 
+  # Rails method for browser-option setting/getting
   def set_browser_option(name, value)
     _clio_browser_options = YAML.load(cookies[:_clio_browser_options] || '{}')
     _clio_browser_options = {} unless _clio_browser_options.is_a?(Hash)
@@ -106,6 +109,7 @@ class ApplicationController < ActionController::Base
                                         expires: 1.year.from_now }
   end
 
+  # AJAX handler for browser-option setting/getting
   def get_browser_option_handler
     if params.key?('value') || !params.key?('name')
       render json: nil, status: :bad_request and return
@@ -118,10 +122,33 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Rails method for browser-option setting/getting
   def get_browser_option(name)
     _clio_browser_options = YAML.load(cookies[:_clio_browser_options] || '{}')
     _clio_browser_options.is_a?(Hash) ? _clio_browser_options[name] : nil
   end
+
+  # AJAX handler for persistence of selected-items
+  def selected_items_handler
+    unless params.key?('verb') && params.key?('identifier')
+      render json: nil, status: :bad_request and return
+    end
+
+    verb = params['verb']
+    identifier = params['identifier']
+
+    selected_item_list = Array(session[:selected_items]).flatten
+
+    selected_item_list.delete(identifier) if verb == "remove"
+    selected_item_list.push(identifier).uniq if verb == "add"
+    selected_item_list = [] if verb == "clear"
+
+    session[:selected_items] = selected_item_list
+
+    # set_browser_option(params['name'], params['value'])
+    render json: nil, status: :ok
+  end
+
 
   # Called from SpectrumController.get_results()
   # and from CatalogController.index()
@@ -340,6 +367,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
   def ids_to_documents(id_array = [])
     document_array = []
     return document_array unless id_array.kind_of?(Array)
@@ -385,6 +413,7 @@ class ApplicationController < ActionController::Base
     end
     document_array
   end
+
 
   def get_summon_docs_for_id_values(id_array)
     return [] unless id_array.kind_of?(Array)
@@ -453,13 +482,15 @@ class ApplicationController < ActionController::Base
       # /spectrum/fetch - loading subpanels of bento-box aggregate
       fullpath =~ /\/spectrum/ or
       # old-style async ajax holdings lookups - obsolete?
-      fullpath =~ /\/holdings/
+      fullpath =~ /\/holdings/ or
+      # Persistent selected-item lists
+      fullpath =~ /\/selected/
   end
 
   # DEVISE callback
   # https://github.com/plataformatec/devise/wiki/ ... 
   #     How-To:-Redirect-to-a-specific-page-on-successful-sign-in-and-sign-out
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(resource = nil)
     session[:previous_url] || root_path
   end
 

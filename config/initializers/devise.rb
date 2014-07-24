@@ -1,6 +1,8 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+
 Devise.setup do |config|
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
@@ -230,3 +232,31 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = "/my_engine/users/auth"
 end
+
+
+
+# http://stackoverflow.com/questions/6547087/update-attributes-after-sign-in-devise
+
+# Warden::Manager.after_fetch do |user,auth,opts|
+#   # This is getting called.
+#   raise
+# end
+
+# Warden::Manager.after_set_user do |user,auth,opts|
+#   # This is getting called.
+#   raise
+# end
+
+# Warden::Manager.after_authentication do |user,auth,opts|
+#   # This is getting called.
+#   raise
+# end
+
+# Warden::Manager.before_logout do |user,auth,opts|
+#   # This is getting called.
+#   raise
+# end
+
+
+
+

@@ -1,14 +1,76 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
+
+  # Clicking the "Add to My List" link should post to SavedListsController.add()
+  # Follow advice from:
+  #   http://stackoverflow.com/questions/133925/javascript-post-request
+  $('.saved_list_add').click ->
+    form = document.createElement("form")
+    form.setAttribute("method", "POST")
+    form.setAttribute("action", "/lists/add")
+    
+    # for(var key in params) {
+    #     if(params.hasOwnProperty(key)) {
+    #         var hiddenField = document.createElement("input");
+    #         hiddenField.setAttribute("type", "hidden");
+    #         hiddenField.setAttribute("name", key);
+    #         hiddenField.setAttribute("value", params[key]);
+    #         form.appendChild(hiddenField);
+    #      }
+    # }
+
+    document.body.appendChild(form)
+    form.submit()
+  
+  
+  # To support persistent selected items, without muddling into the
+  # view partials, fire off some javascript to style any checked items
+  # at page load.
+  $('.item_select_checkbox:checked').parents(".result.document").addClass('selected_item')
+
+  # This handler fires when the user clicks the item-select checkbox,
+  # OR when the object's "checked" property is modified by JavaScript
   $('.item_select_checkbox').change ->
-    $(this).parents(".result.document").toggleClass('selected_item')
-    # if this.checked
-    #   $(this).parents(".result.document").css('background-color', '#eee')
-    # else
-    #    $(this).parents(".result.document").css('background-color', 'inherit')
+
+    # Fetch the item-identifier
+    identifier = $(this).data("identifier");
+    if typeof(identifier) == "undefined"
+      flashMessage("danger", "Selected item has no identifier?") 
+      return false
+    
+    # Apply/remove the 'selected_item' style - controls Coloring only
+    $(this).parents(".result.document").toggleClass('selected_item', this.checked)
+    
+    # Add/Remove from the persistent selected-item list
+    if this.checked
+      setSelectedItems("add", identifier)
+    else
+      setSelectedItems("remove", identifier)
+
+# AJAX manipulation of persistent selected-item list.
+# Add or remove a single identifier, or clear the list.
+@setSelectedItems = (verb, identifier) ->
+  request = $.post "/selected_items", { verb, identifier }
+  - # Do nothing if successful
+  - # request.done (data) -> flashMessage("success", data)
+  - # Alert if problem
+  request.fail (jqXHR, textStatus, errorThrown) -> flashMessage("danger", "Select failed: " + errorThrown + "  " + jqXHR.responseText)
+
+
+
+
+
+
+
+
+
+@selectAll = () ->
+  $("#documents").find('.item_select_checkbox').prop('checked', true).change()
+
+@deselectAll = () ->
+  $("#documents").find('.item_select_checkbox').prop('checked', false).change()
+
+
 
 
 @getSelectedItemKeyList = () ->
@@ -16,11 +78,6 @@ $ ->
   # turn array of jquery objects into array of item-id values
   item_key_array.get()
 
-@selectAll = () ->
-  $("#documents").find('.item_select_checkbox').prop('checked', true).change()
-
-@deselectAll = () ->
-  $("#documents").find('.item_select_checkbox').prop('checked', false).change()
 
 # rewrite the "this" link so that the only CGI params are the current
 # list of selected item keys

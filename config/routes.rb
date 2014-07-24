@@ -4,7 +4,9 @@ Clio::Application.routes.draw do
   resources :saved_lists
 
   match 'lists/add/:item_key_list', via: [:get], to: 'saved_lists#add', as: :savedlist_add
-  match 'lists/add', via: [:post], to: 'saved_lists#add', as: :savedlist_add
+  # Cannot restrict to POST, WIND auth always redirects via GET
+  # match 'lists/add', via: [:post], to: 'saved_lists#add', as: :savedlist_add
+  match 'lists/add', to: 'saved_lists#add', as: :savedlist_add
   match 'lists/remove', via: [:get], to: 'saved_lists#remove', as: :savedlist_remove
   match 'lists/move', via: [:get], to: 'saved_lists#move', as: :savedlist_move
   match 'lists/copy', via: [:get], to: 'saved_lists#copy', as: :savedlist_copy
@@ -37,8 +39,12 @@ Clio::Application.routes.draw do
 
   match 'quicksearch/', to: 'spectrum#search', as: :quicksearch_index, defaults: { layout: 'quicksearch' }
 
+  # "Browser Options" are things like facet open/close state, view-style, etc.
   match 'set_browser_option', to: 'application#set_browser_option_handler'
   match 'get_browser_option', to: 'application#get_browser_option_handler'
+
+  # Support for persisent selected-item lists
+  match 'selected_items', to: 'application#selected_items_handler'
 
   devise_for :users
 

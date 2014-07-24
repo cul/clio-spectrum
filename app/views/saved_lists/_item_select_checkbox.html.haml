@@ -1,8 +1,11 @@
 
+- is_selected = Array(session[:selected_items]).include?(item_id)
 
 %form.item_select_form
-  %label{ :for => "item_select_#{item_id}", :class => 'no-bottom-space' }
-    %input{ :type => "checkbox", :id => "item_select_#{item_id}", :class => 'item_select_checkbox hidden-print' }
+  -# The input has an "ID" only to be used as a "for" for the label, 
+  -# so that the label (the counter) works as an alternative click target.
+  %label{ for: "item_select_#{item_id}", class: 'no-bottom-space' }
+    %input.item_select_checkbox.hidden-print{ type: "checkbox", id: "item_select_#{item_id}", data: {identifier: item_id}, checked: is_selected }
     -# NEXT-930 - Number results in Index page
     %small.text-muted= "#{counter ||= ''}."
   

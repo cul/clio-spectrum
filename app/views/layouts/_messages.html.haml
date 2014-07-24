@@ -1,8 +1,12 @@
+
+-# Map Rails Flash types to Bootstrap 3 style colors
+- flash_map = {success: 'success', notice: 'info', alert: 'warning', error: 'danger'}
+
 #main-flashes
   .flash_messages
-    - [:success, :notice, :error, :alert].each do |type|
-      - alert_class = type == :notice ? 'info' : type
-      - if flash[type]
-        .alert{ :class => "alert-#{alert_class}"}
-          = flash[type]
-          %a.close{:"data-dismiss" => "alert", :href => "#"} x
+    - flash.each do |type, message|
+      - display_class = flash_map[type] || type
+      .alert{ class: "alert-#{display_class}"}
+        = message
+        %a.close{:"data-dismiss" => "alert", :href => "#"} x
+

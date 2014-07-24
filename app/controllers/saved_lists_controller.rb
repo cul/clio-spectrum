@@ -1,21 +1,18 @@
-# require 'blacklight/catalog'
-
 class SavedListsController < ApplicationController
   include ActionView::Helpers::TextHelper
+
+  # Devise protection...
+  before_filter :authenticate_user!, except: [:show]
 
   layout 'no_sidebar'
 
   # Because we need "add_range_limit_params" when we lookup Solr records
   include LocalSolrHelperExtension
 
-  # include Blacklight::Catalog
-  # include Blacklight::Configurable
 
 # INDEX is never called.  routes.rb redirects '/lists/' to show.
 # Users are always viewing an active list, via show().
 # If no list ID is passed, the default list is shown.
-  # # GET /lists
-  # # GET /lists.json
   # def index
   #   # Default index, show only your own lists
   #   @lists = List.where(:created_by => current_user.login)
@@ -26,8 +23,7 @@ class SavedListsController < ApplicationController
   #   end
   # end
 
-  # GET /lists/1
-  # GET /lists/1.json
+
   def show
     # Determine search parameters to locate the list
     owner = params[:owner]
@@ -41,7 +37,7 @@ class SavedListsController < ApplicationController
     # If request is for just "/lists", then MUST be logged in
     if owner.blank? and current_user.blank?
       return redirect_to root_path,
-                         flash: { error: 'Login required to access Saved Lists' }
+                         flash: { danger: 'Login required to access Saved Lists' }
     end
 
     # logged-in users can see all their own lists.
@@ -66,7 +62,7 @@ class SavedListsController < ApplicationController
     if @list.blank?
       display_list_name = "#{owner}/#{slug}"
       return redirect_to root_path,
-                         flash: { error: "Cannot access list #{display_list_name}" }
+                         flash: { notice: "Cannot access list #{display_list_name}" }
     end
 
     # We have a list to display.
@@ -86,11 +82,10 @@ class SavedListsController < ApplicationController
     end
   end
 
+
 # Lists are not "New"'d explicitly.
 # Instead, items are added to a non-existant list name,
 # which will automatically create the new list.
-  # # GET /lists/new
-  # # GET /lists/new.json
   # def new
   #   raise "don't use this method!"
   #   # @list = List.new(:created_by => current_user.login)
@@ -102,25 +97,20 @@ class SavedListsController < ApplicationController
   #   end
   # end
 
+
   # GET /lists/1/edit
   def edit
-    if current_user.blank?
-      return redirect_to root_path,
-                         flash: { error: 'Login required to access Saved Lists' }
-    end
-
     @list = SavedList.find_by_owner_and_id(current_user.login, params[:id])
     unless @list
       return redirect_to root_path,
-                         flash: { error: 'Cannot access list' }
+                         flash: { danger: 'Cannot access list' }
     end
   end
+
 
 # Lists are not "Create"'d explicitly.
 # Instead, items are added to a non-existant list name,
 # which will automatically create the new list.
-  # # POST /lists
-  # # POST /lists.json
   # def create
   #   if current_user.blank?
   #     return redirect_to root_path,
@@ -142,18 +132,12 @@ class SavedListsController < ApplicationController
   #   end
   # end
 
-  # PUT /lists/1
-  # PUT /lists/1.json
-  def update
-    if current_user.blank?
-      return redirect_to root_path,
-                         flash: { error: 'Login required to access Saved Lists' }
-    end
 
+  def update
     @list = SavedList.find_by_owner_and_id(current_user.login, params[:id])
     unless @list
       return redirect_to root_path,
-                         flash: { error: 'Cannot access list' }
+                         flash: { danger: 'Cannot access list' }
     end
 
     respond_to do |format|
@@ -167,18 +151,12 @@ class SavedListsController < ApplicationController
     end
   end
 
-  # DELETE /lists/1
-  # DELETE /lists/1.json
-  def destroy
-    if current_user.blank?
-      return redirect_to root_path,
-                         flash: { error: 'Login required to access Saved Lists' }
-    end
 
+  def destroy
     @list = SavedList.find_by_owner_and_id(current_user.login, params[:id])
     unless @list
       return redirect_to root_path,
-                         flash: { error: 'Cannot access list' }
+                         flash: { danger: 'Cannot access list' }
     end
 
     @list.destroy
@@ -189,20 +167,15 @@ class SavedListsController < ApplicationController
     end
   end
 
-  # GET /my_lists/add/234
-  # POST /my_lists/add
-  # This is called via ajax - return success/failure, but no html content.
-  # Create the named list if it does not yet exist
-  def add
-    # You have to be logged in to use this feature
-    if current_user.blank?
-      render text: 'Must be logged in to use this feature', status: :unauthorized and return
-      # render :nothing => true, :status => :unauthorized and return
-    end
 
-    unless params[:item_key_list]
+  # Add items to a named list. (And Create the list if it does not yet exist)
+  def add
+    # We're either passed a list of item-keys,
+    # OR we'll just add whatever's currently selected.
+    items_to_add = Array(params[:item_key_list] || session[:selected_items]).uniq
+
+    unless items_to_add
       render text: 'Must specify items to be added', status: :bad_request and return
-      # render :nothing => true, :status => :bad_request and return
     end
 
     list_name = params[:name] ||= SavedList::DEFAULT_LIST_NAME
@@ -210,6 +183,7 @@ class SavedListsController < ApplicationController
       render text: 'Cannot add to unnamed list', status: :unprocessable_entity and return
     end
 
+    # Find -- or CREATE -- a list with the right name
     @list = SavedList.where(owner: current_user.login, name: list_name).first
     unless @list
       @list = SavedList.new(created_by: current_user.login,
@@ -217,50 +191,52 @@ class SavedListsController < ApplicationController
                             name: list_name)
       @list.save!
     end
+
     current_item_keys = @list.saved_list_items.map { |item| item.item_key }
 
     new_item_adds = 0
-    for item_key in Array.wrap(params[:item_key_list]) do
-      next if current_item_keys.include? item_key
-
+    (items_to_add - current_item_keys).each { |item_key|
       new_item = SavedListItem.new(item_key: item_key, saved_list_id: @list[:id])
       new_item.save!
       new_item_adds += 1
       @list.touch
-    end
+    }
 
-    # Special message if everything we were asked to add is already there
-    if new_item_adds == 0
-      render text: "#{pluralize(params[:item_key_list].size, 'item')} already found in list #{view_context.link_to @list.name, @list.url}"
-      return
-    end
+    items_count = pluralize(items_to_add.size, 'item')
 
-    # render :nothing => true, :status => :ok
-    render text: "#{pluralize(params[:item_key_list].size, 'item')} added to list #{view_context.link_to @list.name, @list.url}", status: :ok
+    # needless complexity
+    # # Special message if everything we were asked to add is already there
+    # if new_item_adds == 0
+    #   render text: "#{items_count} already found in list #{view_context.link_to @list.name, @list.url}"
+    #   return
+    # end
+
+    message = "#{items_count} added to list #{view_context.link_to @list.name, @list.url}".html_safe
+
+    respond_to do |format|
+      format.html { redirect_to after_sign_in_path_for, :flash => { :notice => message } }
+      format.json { render text: message, status: :ok }
+    end
   end
+
 
   # You MOVE your own items from list to list,
   # You COPY another user's items from their list to yours.
   def copy
-    # You have to be logged in to use this feature
-    if current_user.blank?
-      return redirect_to root_path,
-                         flash: { error: 'You must be logged in to use this feature' }
-    end
-
      # To be sure about what we're doing, require the following params:
      # from_list     -- the Name of the source list
      # to_list       -- the Name of the destination list
      # item_key_list -- an array of item keys (bib keys or Summon FETCH ids)
     unless params[:from_owner] && params[:from_list] && params[:to_list] && params[:item_key_list]
       return redirect_to root_path,
-                         flash: { error: 'Invalid input parameters - unspecified' }
+                         flash: { danger: 'Invalid input parameters - unspecified' }
     end
-     # Can't copy from a list to itself
+
+    # Can't copy from a list to itself
     if params[:from_list] == params[:to_list] &&
        params[:from_owner] == current_user.login
       return redirect_to root_path,
-                         flash: { error: 'Invalid input parameters - cannot copy a list to itself' }
+                         flash: { danger: 'Invalid input parameters - cannot copy a list to itself' }
     end
 
      # Fetch the source list, we'll need it's ID
@@ -291,7 +267,7 @@ class SavedListsController < ApplicationController
                                  item_key: item_key).first
       unless item
         return redirect_to root_path,
-                           flash: { error: "Item Key #{item_key} not found in #{params[:from_list]}" }
+                           flash: { danger: "Item Key #{item_key} not found in #{params[:from_list]}" }
       end
 
       new_item = item.dup
@@ -302,24 +278,17 @@ class SavedListsController < ApplicationController
     redirect_to @list.url, notice: "#{params[:item_key_list].size} items copied to list #{view_context.link_to @list.name, @list.url}".html_safe
   end
 
+
   # You MOVE your own items from list to list,
   # You COPY another user's items from their list to yours.
   def move
-    # You have to be logged in to use this feature
-    if current_user.blank?
-      # render :text => "You must be logged in to use this feature", :status => :unauthorized and return
-      # render :nothing => true, :status => :unauthorized and return
-      return redirect_to root_path,
-                         flash: { error: 'You must be logged in to use this feature' }
-    end
-
     # To be sure about what we're doing, require the following params:
     # from_list     -- the Name of the source list
     # to_list       -- the Name of the destination list
     # item_key_list -- an array of item keys (bib keys or Summon FETCH ids)
     unless params[:from_owner] && params[:from_list] && params[:to_list] && params[:item_key_list]
       return redirect_to root_path,
-                         flash: { error: 'Invalid input parameters - unspecified' }
+                         flash: { danger: 'Invalid input parameters - unspecified' }
     end
     # puts "========  from_owner [#{params[:from_owner]}]"
     # puts "========  from_list [#{params[:from_list]}]"
@@ -329,13 +298,13 @@ class SavedListsController < ApplicationController
     # Can't copy from a list to itself
     if params[:from_list] == params[:to_list]
       return redirect_to root_path,
-                         flash: { error: "Invalid input parameters - can't move list to itself" }
+                         flash: { danger: "Invalid input parameters - can't move list to itself" }
     end
 
     # move() is ONLY for moving items between your own lists
     if params[:from_owner] != current_user.login
       return redirect_to root_path,
-                         flash: { error: 'Invalid input parameters - can only move your own items' }
+                         flash: { danger: 'Invalid input parameters - can only move your own items' }
     end
 
     # Fetch the source list, we'll need it's ID
@@ -357,7 +326,7 @@ class SavedListsController < ApplicationController
                                  item_key: item_key).first
       unless item
         return redirect_to root_path,
-                           flash: { error: "Item Key #{item_key} not found in #{params[:from_list]}" }
+                           flash: { danger: "Item Key #{item_key} not found in #{params[:from_list]}" }
       end
       item.saved_list_id = @list.id
       item.save!
@@ -366,18 +335,11 @@ class SavedListsController < ApplicationController
     redirect_to @list.url, notice: "#{params[:item_key_list].size} items moved to list #{view_context.link_to @list.name, @list.url}".html_safe
   end
 
-  # request = $.post '/lists/remove', {item_key_list, list_id}
-  def remove
-    # You have to be logged in to use this feature
-    if current_user.blank?
-      return redirect_to root_path,
-                         flash: { error: 'Login required to access Saved Lists' }
-      # render :nothing => true, :status => :unauthorized and return
-    end
 
+  def remove
     unless params[:item_key_list]
       return redirect_to root_path,
-                         flash: { error: 'Bad Request - no item keys passed' }
+                         flash: { danger: 'Bad Request - no item keys passed' }
       # render :nothing => true, :status => :bad_request and return
     end
 
@@ -385,7 +347,7 @@ class SavedListsController < ApplicationController
     @list = SavedList.find_by_owner_and_id(current_user.login, params[:list_id])
     unless @list
       return redirect_to root_path,
-                         flash: { error: 'Cannot access list' }
+                         flash: { danger: 'Cannot access list' }
       # render :nothing => true, :status => :not_found and return
     end
 
@@ -395,7 +357,7 @@ class SavedListsController < ApplicationController
         @list.touch
       else
         return redirect_to root_path,
-                           flash: { error: 'Unexpected error removing list items' }
+                           flash: { danger: 'Unexpected error removing list items' }
         # render :nothing => true, :status => :internal_server_error and return
       end
     end
@@ -405,4 +367,6 @@ class SavedListsController < ApplicationController
       format.html { redirect_to @list.url, notice: "#{params[:item_key_list].size} items removed from list" }
     end
   end
+
+
 end
