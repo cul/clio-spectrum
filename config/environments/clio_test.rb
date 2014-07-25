@@ -33,10 +33,16 @@ Clio::Application.configure do
   config.active_support.deprecation = :log
 
   config.assets.compress = true
+  # Wait... the compress introduces Chrome Javascript-parsing error?!?!
+  #   Uncaught ReferenceError: Invalid left-hand side expression in prefix operation
+  config.assets.compress = false
+
   config.assets.compile = false
   config.assets.digest = true
+
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+
 end
 
 # Exception Notifier - Upgrading to 4.x version
