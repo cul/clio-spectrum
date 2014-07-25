@@ -6,7 +6,10 @@ module ArticlesHelper
 
   def link_to_article(article, link_title = nil)
     link_title ||= article.title.html_safe
-    link_to(link_title, article.link)
+
+    # link_to(link_title, article.link)
+    proxied_article_link = "http://ezproxy.cul.columbia.edu/login?url=#{article.link}"
+    link_to(link_title, proxied_article_link)
 
     # OLD CODE - back from when we had articles item-detail pages?
     # url = ''

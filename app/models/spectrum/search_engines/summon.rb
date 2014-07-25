@@ -90,7 +90,13 @@ module Spectrum
         @params['s.cmd'] ||= ''
         @params['s.fq'] ||= ''
 
-        @params['s.role'] = options.delete('authorized') ? 'authenticated' : ''
+        # This allows authenticated searches within Summon.
+        #   http://api.summon.serialssolutions.com/help/api/search/parameters/role
+        # Set it based on whether we're "authorized"?
+        # @params['s.role'] = options.delete('authorized') ? 'authenticated' : ''
+        # No, let all searchers see all results,
+        # we'll restrict to authorized users at time of resource access.
+        @params['s.role'] = 'authenticated'
 
         # process any Filter Query - turn Rails hash into array of
         # key:value pairs for feeding to the Summon API

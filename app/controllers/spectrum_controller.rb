@@ -114,7 +114,9 @@ class SpectrumController < ApplicationController
   def fix_summon_params(params)
     # Rails.logger.debug "fix_summon_params() in params=#{params.inspect}"
 
-    params['authorized'] = @user_characteristics[:authorized]
+    # We don't want this.  And if we do, we'll access user_characteristics
+    # directly at the point of use.
+    # params['authorized'] = @user_characteristics[:authorized]
 
     # items-per-page (summon page size, s.ps, aka 'rows') should be
     # a persisent browser setting

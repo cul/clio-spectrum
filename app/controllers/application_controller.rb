@@ -84,7 +84,10 @@ class ApplicationController < ActionController::Base
       # This is only a placeholder for eventual 'authorized' rules.
       # Nothing yet pays attention to this.
       on_campus: is_on_campus,
-      authorized: !current_user.nil? || is_on_campus
+      
+      # Is the user either Logged-In or On-Campus?
+      # We might want to use this, but not currently.
+      # authorized: !current_user.nil? || is_on_campus
     }
     @debug_entries[:user_characteristics] = @user_characteristics
   end
