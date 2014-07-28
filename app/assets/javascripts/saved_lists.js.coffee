@@ -8,8 +8,7 @@ $ ->
     form = document.createElement("form")
     form.setAttribute("method", "POST")
     form.setAttribute("action", "/lists/add")
-    
-    # for(var key in params) {
+        # for(var key in params) {
     #     if(params.hasOwnProperty(key)) {
     #         var hiddenField = document.createElement("input");
     #         hiddenField.setAttribute("type", "hidden");
@@ -18,7 +17,6 @@ $ ->
     #         form.appendChild(hiddenField);
     #      }
     # }
-
     document.body.appendChild(form)
     form.submit()
   
@@ -28,9 +26,19 @@ $ ->
   # at page load.
   $('.item_select_checkbox:checked').parents(".result.document").addClass('selected_item')
 
+  # After the html page has rendered, reset the Rails session persistent
+  # selected item list to only what's currently displayed on screen.
+  resetSelectedItemsList()
+
   # This handler fires when the user clicks the item-select checkbox,
   # OR when the object's "checked" property is modified by JavaScript
   $('.item_select_checkbox').change ->
+    # Apply/remove the 'selected_item' style - controls Coloring only
+    $(this).parents(".result.document").toggleClass('selected_item', this.checked)
+
+  # This part fires ONLY on real-user clicks
+  # Fire-off AJAX to add/remove from Rails session storage
+  $('.item_select_checkbox').click ->
 
     # Fetch the item-identifier
     identifier = $(this).data("identifier");
@@ -38,37 +46,39 @@ $ ->
       flashMessage("danger", "Selected item has no identifier?") 
       return false
     
-    # Apply/remove the 'selected_item' style - controls Coloring only
-    $(this).parents(".result.document").toggleClass('selected_item', this.checked)
-    
     # Add/Remove from the persistent selected-item list
     if this.checked
       setSelectedItems("add", identifier)
     else
       setSelectedItems("remove", identifier)
 
+
+
 # AJAX manipulation of persistent selected-item list.
-# Add or remove a single identifier, or clear the list.
-@setSelectedItems = (verb, identifier) ->
-  request = $.post "/selected_items", { verb, identifier }
+# Add or remove a single identifier, or clear the list,
+# or reset the list to a specific list of ids.
+@setSelectedItems = (verb, id_param) ->
+  request = $.post "/selected_items", { verb, id_param }
   - # Do nothing if successful
   - # request.done (data) -> flashMessage("success", data)
   - # Alert if problem
   request.fail (jqXHR, textStatus, errorThrown) -> flashMessage("danger", "Select failed: " + errorThrown + "  " + jqXHR.responseText)
 
 
-
-
-
-
-
+@resetSelectedItemsList = () ->
+  item_key_list = getSelectedItemKeyList()
+  if item_key_list.length > 0
+    setSelectedItems("reset", item_key_list)
 
 
 @selectAll = () ->
   $("#documents").find('.item_select_checkbox').prop('checked', true).change()
+  item_key_list = getSelectedItemKeyList()
+  setSelectedItems("reset", item_key_list)
 
 @deselectAll = () ->
   $("#documents").find('.item_select_checkbox').prop('checked', false).change()
+  setSelectedItems("clear")
 
 
 
@@ -120,7 +130,7 @@ $ ->
   if item_key_list.length == 0
     flashMessage("notice", "No items selected") 
     return false
-  full_move_url = savedlist_move_path + "?from_owner=" + from_owner + "&from_list=" + from_list + "&to_list=" + to_list + "&" + $.param( { 'item_key_list': item_key_list } )
+  full_move_url = savedlist_move_path + "?from_owner=" + from_owner + "&from_list=" + encodeURIComponent(from_list) + "&to_list=" + encodeURIComponent(to_list) + "&" + $.param( { 'item_key_list': item_key_list } )
   window.location.href = full_move_url
 
 # Non-AJAX - copy list of item-keys to named list,
@@ -130,7 +140,7 @@ $ ->
   if item_key_list.length == 0
     flashMessage("notice", "No items selected") 
     return false
-  full_copy_url = savedlist_copy_path + "?from_owner=" + from_owner + "&from_list=" + from_list + "&to_list=" + to_list + "&" + $.param( { 'item_key_list': item_key_list } )
+  full_copy_url = savedlist_copy_path + "?from_owner=" + from_owner + "&from_list=" + encodeURIComponent(from_list) + "&to_list=" + encodeURIComponent(to_list) + "&" + $.param( { 'item_key_list': item_key_list } )
   window.location.href = full_copy_url
 
 # Non-AJAX remove items from list
@@ -146,9 +156,14 @@ $ ->
 
 # status is one of the Bootstrap alert statuses:  error, success
 @flashMessage = (status, message) ->
+  # Re-map Rails flash types to Bootstrap style types as needed...
+  if status == 'notice'    
+    status = 'info';
+  if status = 'error'      
+    status = 'danger';
   # Blacklight's CSS sets display:none for button.close.  Override here.
   close_button = '<button type="button" class="close" data-dismiss="alert" style="display:block;">&times;</button>'
   flash_html_content = '<div class="alert alert-' + status + '">' + close_button + message + '</div>'
-  $("div#main-flashes").append(flash_html_content)
+  $("div#main-flashes div.flash_messages").append(flash_html_content)
 
 

@@ -5,8 +5,9 @@
     = render :partial => "/layouts/common_head"
   -# - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
   -# - search_params = determine_search_params
-  -# %body{:onload => "$('input#q').focus();"}
-  %body
+  -# %body{:xonload => "$('.input_q').focus();"}
+  %body{onload: "$('.search_q').focus();"}
+    / Layout:  quicksearch
     - add_datasources(@active_source)
 
     -# #trigger

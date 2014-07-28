@@ -42,11 +42,12 @@ describe 'Saved List Interface' do
     page.should have_text('Login required to access Saved Lists')
 
     visit '/saved_lists/1/edit'
-    # page.save_and_open_page # debug
-    page.should have_text('Login required to access Saved Lists')
+    # page.save_and_open_page # debugI
+    # page.should have_text('Login required to access Saved Lists')
+    page.should have_text('Invalid URL: /login')
   end
 
-  it 'should protect private lists and share public lists', js: true, XXfocus: true do
+  it 'should protect private lists and share public lists', js: true do
 
     # Use Warden::Test::Helpers for Feature testing
     feature_login @autodidact

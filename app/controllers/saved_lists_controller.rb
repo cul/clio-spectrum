@@ -3,6 +3,7 @@ class SavedListsController < ApplicationController
 
   # Devise protection...
   before_filter :authenticate_user!, except: [:show]
+  before_filter :limited_show, only: [:show]
 
   layout 'no_sidebar'
 
@@ -34,11 +35,11 @@ class SavedListsController < ApplicationController
       owner = current_user.login
     end
 
-    # If request is for just "/lists", then MUST be logged in
-    if owner.blank? and current_user.blank?
-      return redirect_to root_path,
-                         flash: { danger: 'Login required to access Saved Lists' }
-    end
+    # # If request is for just "/lists", then MUST be logged in
+    # if owner.blank? and current_user.blank?
+    #   return redirect_to root_path,
+    #                      flash: { error: 'Login required to access Saved Lists' }
+    # end
 
     # logged-in users can see all their own lists.
     # loggin-in users can see anybody's public lists.
@@ -103,7 +104,7 @@ class SavedListsController < ApplicationController
     @list = SavedList.find_by_owner_and_id(current_user.login, params[:id])
     unless @list
       return redirect_to root_path,
-                         flash: { danger: 'Cannot access list' }
+                         flash: { error: 'Cannot access list' }
     end
   end
 
@@ -137,7 +138,7 @@ class SavedListsController < ApplicationController
     @list = SavedList.find_by_owner_and_id(current_user.login, params[:id])
     unless @list
       return redirect_to root_path,
-                         flash: { danger: 'Cannot access list' }
+                         flash: { error: 'Cannot access list' }
     end
 
     respond_to do |format|
@@ -156,7 +157,7 @@ class SavedListsController < ApplicationController
     @list = SavedList.find_by_owner_and_id(current_user.login, params[:id])
     unless @list
       return redirect_to root_path,
-                         flash: { danger: 'Cannot access list' }
+                         flash: { error: 'Cannot access list' }
     end
 
     @list.destroy
@@ -192,15 +193,18 @@ class SavedListsController < ApplicationController
       @list.save!
     end
 
-    current_item_keys = @list.saved_list_items.map { |item| item.item_key }
+    # redundant, move to model method
+    # current_item_keys = @list.saved_list_items.map { |item| item.item_key }
+    # 
+    # new_item_adds = 0
+    # (items_to_add - current_item_keys).each { |item_key|
+    #   new_item = SavedListItem.new(item_key: item_key, saved_list_id: @list[:id])
+    #   new_item.save!
+    #   new_item_adds += 1
+    #   @list.touch
+    # }
 
-    new_item_adds = 0
-    (items_to_add - current_item_keys).each { |item_key|
-      new_item = SavedListItem.new(item_key: item_key, saved_list_id: @list[:id])
-      new_item.save!
-      new_item_adds += 1
-      @list.touch
-    }
+    new_item_adds = @list.add_items_by_key(items_to_add)
 
     items_count = pluralize(items_to_add.size, 'item')
 
@@ -223,32 +227,37 @@ class SavedListsController < ApplicationController
   # You MOVE your own items from list to list,
   # You COPY another user's items from their list to yours.
   def copy
+
+    # We're either passed a list of item-keys,
+    # OR we'll just add whatever's currently selected.
+    items_to_add = Array(params[:item_key_list] || session[:selected_items]).uniq
+
      # To be sure about what we're doing, require the following params:
-     # from_list     -- the Name of the source list
      # to_list       -- the Name of the destination list
      # item_key_list -- an array of item keys (bib keys or Summon FETCH ids)
-    unless params[:from_owner] && params[:from_list] && params[:to_list] && params[:item_key_list]
+    # unless params[:from_owner] && params[:from_list] && params[:to_list]
+    unless params[:to_list]
       return redirect_to root_path,
-                         flash: { danger: 'Invalid input parameters - unspecified' }
+                         flash: { error: 'Invalid input parameters - unspecified' }
     end
 
-    # Can't copy from a list to itself
-    if params[:from_list] == params[:to_list] &&
-       params[:from_owner] == current_user.login
-      return redirect_to root_path,
-                         flash: { danger: 'Invalid input parameters - cannot copy a list to itself' }
-    end
+    # # Can't copy from a list to itself
+    # if params[:from_list] == params[:to_list] &&
+    #    params[:from_owner] == current_user.login
+    #   return redirect_to root_path,
+    #                      flash: { error: 'Invalid input parameters - cannot copy a list to itself' }
+    # end
 
-     # Fetch the source list, we'll need it's ID
-    if params[:from_owner] == current_user.login
-      # Our own list
-      from_list = SavedList.where(owner: current_user.login, name: params[:from_list]).first
-    else
-      # Someone else's list - it must be public!
-      from_list = SavedList.where(owner: params[:from_owner],
-                                  name: params[:from_list],
-                                  permissions: 'public').first
-    end
+    #  # Fetch the source list, we'll need it's ID
+    # if params[:from_owner] == current_user.login
+    #   # Our own list
+    #   from_list = SavedList.where(owner: current_user.login, name: params[:from_list]).first
+    # else
+    #   # Someone else's list - it must be public!
+    #   from_list = SavedList.where(owner: params[:from_owner],
+    #                               name: params[:from_list],
+    #                               permissions: 'public').first
+    # end
 
      # Find - or create - a destination list with the "to_list" Name
     @list = SavedList.where(owner: current_user.login, name: params[:to_list]).first
@@ -257,23 +266,26 @@ class SavedListsController < ApplicationController
                             name: params[:to_list])
       @list.save!
     end
-     # List of what items are already in the list - don't add something twice!
-    current_item_keys = @list.saved_list_items.map { |item| item.item_key }
 
-     # loop over the passed-in items, COPYING THEM to NEW saved-list-items
-    for item_key in Array.wrap(params[:item_key_list]) do
-      next if current_item_keys.include? item_key
-      item = SavedListItem.where(saved_list_id: from_list.id,
-                                 item_key: item_key).first
-      unless item
-        return redirect_to root_path,
-                           flash: { danger: "Item Key #{item_key} not found in #{params[:from_list]}" }
-      end
+    new_item_adds = @list.add_items_by_key(items_to_add)
 
-      new_item = item.dup
-      new_item.saved_list_id = @list.id
-      new_item.save!
-    end
+    #  # List of what items are already in the list - don't add something twice!
+    # current_item_keys = @list.saved_list_items.map { |item| item.item_key }
+    # 
+    #  # loop over the passed-in items, COPYING THEM to NEW saved-list-items
+    # for item_key in Array.wrap(params[:item_key_list]) do
+    #   next if current_item_keys.include? item_key
+    #   item = SavedListItem.where(saved_list_id: from_list.id,
+    #                              item_key: item_key).first
+    #   unless item
+    #     return redirect_to root_path,
+    #                        flash: { error: "Item Key #{item_key} not found in #{params[:from_list]}" }
+    #   end
+    # 
+    #   new_item = item.dup
+    #   new_item.saved_list_id = @list.id
+    #   new_item.save!
+    # end
 
     redirect_to @list.url, notice: "#{params[:item_key_list].size} items copied to list #{view_context.link_to @list.name, @list.url}".html_safe
   end
@@ -282,64 +294,69 @@ class SavedListsController < ApplicationController
   # You MOVE your own items from list to list,
   # You COPY another user's items from their list to yours.
   def move
+    # We're either passed a list of item-keys,
+    # OR we'll just add whatever's currently selected.
+    items_to_add = Array(params[:item_key_list] || session[:selected_items]).uniq
+
     # To be sure about what we're doing, require the following params:
     # from_list     -- the Name of the source list
     # to_list       -- the Name of the destination list
     # item_key_list -- an array of item keys (bib keys or Summon FETCH ids)
-    unless params[:from_owner] && params[:from_list] && params[:to_list] && params[:item_key_list]
+    unless params[:from_owner] && params[:from_list] && params[:to_list]
       return redirect_to root_path,
-                         flash: { danger: 'Invalid input parameters - unspecified' }
+                         flash: { error: 'Invalid input parameters - unspecified' }
     end
-    # puts "========  from_owner [#{params[:from_owner]}]"
-    # puts "========  from_list [#{params[:from_list]}]"
-    # puts "========  to_list [#{params[:to_list]}]"
-    # puts "========  item_key_list [#{params[:item_key_list]}]"
 
     # Can't copy from a list to itself
     if params[:from_list] == params[:to_list]
       return redirect_to root_path,
-                         flash: { danger: "Invalid input parameters - can't move list to itself" }
+                         flash: { error: "Invalid input parameters - can't move list to itself" }
     end
 
     # move() is ONLY for moving items between your own lists
     if params[:from_owner] != current_user.login
       return redirect_to root_path,
-                         flash: { danger: 'Invalid input parameters - can only move your own items' }
+                         flash: { error: 'Invalid input parameters - can only move your own items' }
     end
 
-    # Fetch the source list, we'll need it's ID
-    @from_list = SavedList.where(owner: current_user.login, name: params[:from_list]).first
+
+    # Implement "move" as "copy" followed by "delete"
+
 
     # Find - or create - a destination list with the "to_list" Name
     @list = SavedList.where(owner: current_user.login, name: params[:to_list]).first
     unless @list
-      # puts "========  dest list [#{params[:to_list]}] does NOT yet exist, creating"
       @list = SavedList.new(owner: current_user.login,
                             name: params[:to_list])
       @list.save!
     end
 
+    new_item_adds = @list.add_items_by_key(items_to_add)
+
+
+    # Fetch the source list, we'll need it's ID
+    @from_list = SavedList.where(owner: current_user.login, name: params[:from_list]).first
+
     # loop over the passed-in items, set their owning list to Named list
-    for item_key in Array.wrap(params[:item_key_list]) do
-      # puts "========  item key [#{item_key}]"
+    for item_key in Array(params[:item_key_list]) do
       item = SavedListItem.where(saved_list_id: @from_list.id,
                                  item_key: item_key).first
       unless item
         return redirect_to root_path,
-                           flash: { danger: "Item Key #{item_key} not found in #{params[:from_list]}" }
+                           flash: { error: "Item Key #{item_key} not found in #{params[:from_list]}" }
       end
-      item.saved_list_id = @list.id
-      item.save!
+      item.delete
     end
 
     redirect_to @list.url, notice: "#{params[:item_key_list].size} items moved to list #{view_context.link_to @list.name, @list.url}".html_safe
   end
 
 
+
   def remove
     unless params[:item_key_list]
       return redirect_to root_path,
-                         flash: { danger: 'Bad Request - no item keys passed' }
+                         flash: { error: 'Bad Request - no item keys passed' }
       # render :nothing => true, :status => :bad_request and return
     end
 
@@ -347,7 +364,7 @@ class SavedListsController < ApplicationController
     @list = SavedList.find_by_owner_and_id(current_user.login, params[:list_id])
     unless @list
       return redirect_to root_path,
-                         flash: { danger: 'Cannot access list' }
+                         flash: { error: 'Cannot access list' }
       # render :nothing => true, :status => :not_found and return
     end
 
@@ -357,7 +374,7 @@ class SavedListsController < ApplicationController
         @list.touch
       else
         return redirect_to root_path,
-                           flash: { danger: 'Unexpected error removing list items' }
+                           flash: { error: 'Unexpected error removing list items' }
         # render :nothing => true, :status => :internal_server_error and return
       end
     end
@@ -368,5 +385,11 @@ class SavedListsController < ApplicationController
     end
   end
 
+  private
+
+  def limited_show
+    # If the 'owner' param is not passed, then require authentication
+    authenticate_user! unless params[:owner]
+  end
 
 end

@@ -27,4 +27,23 @@ class SavedList < ActiveRecord::Base
     return DEFAULT_LIST_NAME if is_default?
     name
   end
+
+
+  def add_items_by_key(item_key_list)
+    current_item_keys = self.saved_list_items.map { |item| item.item_key }
+    add_count = 0
+    (item_key_list - current_item_keys).each { |item_key|
+      new_item = SavedListItem.new(item_key: item_key, saved_list_id: self.id)
+      new_item.save!
+      add_count += 1
+      # touch this list to update timestamps, etc. 
+      self.touch
+    }
+    return add_count
+  end
+
+
 end
+
+
+

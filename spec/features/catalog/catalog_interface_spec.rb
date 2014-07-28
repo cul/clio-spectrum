@@ -23,7 +23,7 @@ describe 'Catalog Interface' do
   # NEXT-917 - Summary showing up twice for video records
   it 'Video Records should show Summary only once', js: true do
     visit catalog_index_path('q' => 'summary')
-    within 'div.facet_limit.blacklight-format.panel' do
+    within all('div.facet_limit.blacklight-format.panel').first do
       find('a.more_facets_link').click
     end
     within '.facet_extended_list' do

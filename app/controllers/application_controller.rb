@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   include Blacklight::Controller
   include Blacklight::Catalog
   include Blacklight::Configurable
-    
+
   # Please be sure to impelement current_user and user_session. Blacklight depends on
   # these methods in order to perform user specific actions.
   check_authorization
@@ -133,22 +133,37 @@ class ApplicationController < ActionController::Base
 
   # AJAX handler for persistence of selected-items
   def selected_items_handler
-    unless params.key?('verb') && params.key?('identifier')
+
+    unless params.key?('verb')
       render json: nil, status: :bad_request and return
     end
 
     verb = params['verb']
-    identifier = params['identifier']
+    id_param = params['id_param']
 
     selected_item_list = Array(session[:selected_items]).flatten
 
-    selected_item_list.delete(identifier) if verb == "remove"
-    selected_item_list.push(identifier).uniq if verb == "add"
-    selected_item_list = [] if verb == "clear"
+    case verb
+    when 'add'
+      return render json: nil, status: :bad_request unless id_param
+      selected_item_list.push(id_param)
+    when 'remove'
+      return render json: nil, status: :bad_request unless id_param
+      selected_item_list.delete(id_param)
+    when 'clear'
+      selected_item_list = []
+    when 'reset'
+      # return render json: nil, status: :bad_request unless id_param
+      # Fail silently for this one - it's run on every page load
+      # Or... maybe reset to a null list if id_param isn't given?
+      id_param = [] unless id_param
+      selected_item_list = id_param if id_param
+    else
+      render json: nil, status: :bad_request and return
+    end
 
     session[:selected_items] = selected_item_list
 
-    # set_browser_option(params['name'], params['value'])
     render json: nil, status: :ok
   end
 
@@ -394,7 +409,13 @@ class ApplicationController < ActionController::Base
       extra_solr_params = {
         rows: catalog_item_ids.size
       }
-      response, catalog_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids, extra_solr_params)
+
+      # NEXT-1067 - Saved Lists broken for very large lists (~400)
+      # response, catalog_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids, extra_solr_params)
+      catalog_item_ids.each_slice(100) { |slice|
+        response, slice_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids, extra_solr_params)
+        catalog_document_list += slice_document_list
+      }
     end
 
     article_document_list = []
