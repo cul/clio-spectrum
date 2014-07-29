@@ -59,9 +59,9 @@ $ ->
 # or reset the list to a specific list of ids.
 @setSelectedItems = (verb, id_param) ->
   request = $.post "/selected_items", { verb, id_param }
-  - # Do nothing if successful
-  - # request.done (data) -> flashMessage("success", data)
-  - # Alert if problem
+  # Do nothing if successful - don't flash
+  # request.done (data) -> flashMessage("success", data)
+  # Alert if problem
   request.fail (jqXHR, textStatus, errorThrown) -> flashMessage("danger", "Select failed: " + errorThrown + "  " + jqXHR.responseText)
 
 

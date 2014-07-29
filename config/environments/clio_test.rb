@@ -36,6 +36,9 @@ Clio::Application.configure do
   # Wait... the compress introduces Chrome Javascript-parsing error?!?!
   #   Uncaught ReferenceError: Invalid left-hand side expression in prefix operation
   # 7/29 - Chrome updated, will this work now?
+  # No, not yet, leave compressed = false
+  # Aha, found it!  Wrong comments in coffeescript, tripping up only Chrome.
+  # Fixed.
   # config.assets.compress = false
 
   config.assets.compile = false
