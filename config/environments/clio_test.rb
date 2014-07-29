@@ -35,7 +35,8 @@ Clio::Application.configure do
   config.assets.compress = true
   # Wait... the compress introduces Chrome Javascript-parsing error?!?!
   #   Uncaught ReferenceError: Invalid left-hand side expression in prefix operation
-  config.assets.compress = false
+  # 7/29 - Chrome updated, will this work now?
+  # config.assets.compress = false
 
   config.assets.compile = false
   config.assets.digest = true
