@@ -114,9 +114,9 @@ class SpectrumController < ApplicationController
   def fix_summon_params(params)
     # Rails.logger.debug "fix_summon_params() in params=#{params.inspect}"
 
-    # We don't want this.  And if we do, we'll access user_characteristics
-    # directly at the point of use.
-    # params['authorized'] = @user_characteristics[:authorized]
+    # The Summon API support authenticated or un-authenticated searching.
+    # We're Authenticated if the user is on-campus, or has logged-in.
+    params['authenticated'] = @user_characteristics[:on_campus] || !current_user.nil?
 
     # items-per-page (summon page size, s.ps, aka 'rows') should be
     # a persisent browser setting

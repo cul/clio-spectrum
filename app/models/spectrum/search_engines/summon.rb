@@ -92,11 +92,10 @@ module Spectrum
 
         # This allows authenticated searches within Summon.
         #   http://api.summon.serialssolutions.com/help/api/search/parameters/role
-        # Set it based on whether we're "authorized"?
-        # @params['s.role'] = options.delete('authorized') ? 'authenticated' : ''
-        # No, let all searchers see all results,
-        # we'll restrict to authorized users at time of resource access.
-        @params['s.role'] = 'authenticated'
+        # It's set to true if we've logged in or are on-campus,
+        # but that's done in SpectrumController, since this module
+        # doesn't have access to Application variables.
+        @params['s.role'] = options.delete('authenticated') || ''
 
         # process any Filter Query - turn Rails hash into array of
         # key:value pairs for feeding to the Summon API

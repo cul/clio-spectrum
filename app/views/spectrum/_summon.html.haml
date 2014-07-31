@@ -18,6 +18,7 @@
             - else
 
               = render partial: '/spectrum/summon/index_toolbar', locals: {result: result}
+              = render partial: '/summon_warning'
               #documents{:data => {'ga-action' => 'Search Results Click'} }
                 = render partial: "/spectrum/summon/result_docs", locals: {result: result, render_opts: search_render_options(search, source), row_opts: search['row_opts']}
               = render partial: '/spectrum/summon/index_toolbar', locals: {result: result}

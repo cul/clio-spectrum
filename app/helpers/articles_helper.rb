@@ -7,9 +7,13 @@ module ArticlesHelper
   def link_to_article(article, link_title = nil)
     link_title ||= article.title.html_safe
 
-    # link_to(link_title, article.link)
-    proxied_article_link = "http://ezproxy.cul.columbia.edu/login?url=#{article.link}"
-    link_to(link_title, proxied_article_link)
+    # Proxy it ourselves?
+    # We don't need to with Summon - they know to send Columbia-referred
+    # hits to the Columbia proxy server.
+    # proxied_article_link = "http://ezproxy.cul.columbia.edu/login?url=#{article.link}"
+    # link_to(link_title, proxied_article_link)
+
+    link_to(link_title, article.link)
 
     # OLD CODE - back from when we had articles item-detail pages?
     # url = ''

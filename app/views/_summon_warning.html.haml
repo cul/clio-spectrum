@@ -1,0 +1,5 @@
+
+- unless current_user || @user_characteristics[:on_campus]
+  .alert.alert-warning.well-sm.summon-warning
+    %a{href: new_user_session_path, class: 'alert-link'} Log In 
+    to see full article results
