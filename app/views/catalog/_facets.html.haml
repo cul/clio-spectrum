@@ -20,7 +20,7 @@
           - case solr_fname
           - when "lc_1letter_facet"
             = fix_catalog_links(render(:partial => "catalog/facet_call_letter", :locals => {:solr_field => solr_fname}))
-          - when "lc_2letter_facet", "title_first_facet"
+          - when "lc_subclass_facet", "title_first_facet"
 
           - else
             = fix_catalog_links(render_facet_partials([solr_fname]))
