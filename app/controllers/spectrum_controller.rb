@@ -114,9 +114,10 @@ class SpectrumController < ApplicationController
   def fix_summon_params(params)
     # Rails.logger.debug "fix_summon_params() in params=#{params.inspect}"
 
-    # The Summon API support authenticated or un-authenticated searching.
+    # The Summon API support authenticated or un-authenticated roles,
+    # with Authenticated having access to more searchable metadata.
     # We're Authenticated if the user is on-campus, or has logged-in.
-    params['authenticated'] = @user_characteristics[:on_campus] || !current_user.nil?
+    params['s.role'] = "authenticated" if @user_characteristics[:on_campus] || !current_user.nil?
 
     # items-per-page (summon page size, s.ps, aka 'rows') should be
     # a persisent browser setting
