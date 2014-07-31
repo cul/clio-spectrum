@@ -36,3 +36,6 @@
         %div
           = image_tag("icons/unknown.png", :class => "availability " + holdings_id) + shorten_location(location).strip
 
+
+- if @debug_mode  && @response && @response['debug'] && @response['debug']['explain'] && (score = @response['debug']['explain'][document.get('id').to_s])
+  = add_row('Score', score.gsub(/\n/,"").gsub(/\=.+$/,""), :expand_to => content_tag(:pre, score))
