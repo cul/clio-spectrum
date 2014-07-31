@@ -22,7 +22,7 @@ describe ItemAlertHelper do
     item_alert = FactoryGirl.create(:item_alert,
                                     start_date: nil, end_date: '2000-01-01')
     render_alert_duration(item_alert).should start_with 'Ended 01/01/2000'
-    alert_status(item_alert).should eq 'error'
+    alert_status(item_alert).should eq 'danger'
 
     # Ends in the future - ACTIVE
     item_alert = FactoryGirl.create(:item_alert,

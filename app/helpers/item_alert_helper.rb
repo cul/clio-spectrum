@@ -1,4 +1,5 @@
 module ItemAlertHelper
+
   # Not so clever - using Bootstrap alert-type labels to mean 'future', 'past', etc.
   def alert_status(alert)
     right_now = DateTime.now
@@ -17,7 +18,7 @@ module ItemAlertHelper
         'warning'
       else
         # not in effect - past
-        'error'
+        'danger'
       end
     end
   end

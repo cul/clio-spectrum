@@ -39,7 +39,10 @@ describe 'Saved List Interface' do
   it 'should give no access to anonymous users' do
     visit '/lists'
     # page.save_and_open_page # debug
-    page.should have_text('Login required to access Saved Lists')
+    # page.should have_text('Login required to access Saved Lists')
+    # In this context, the WIND redirect happens against the local
+    # server, giving a 404.
+    page.should have_text('Invalid URL: /login')
 
     visit '/saved_lists/1/edit'
     # page.save_and_open_page # debugI

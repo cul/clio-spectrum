@@ -18,12 +18,13 @@
         .panel-heading
           %h5.panel-title.twiddle.twiddle-open
             Search Options
-        %span.selected
-        %ul
-          - result.pre_facet_options_with_links.each do |option|
-            %div.search_option
-              = check_box_tag 'option', 'yes', option[:value], :href => option[:link], :class => 'search_option_action'
-              %span.option_name #{option[:name]}
+        -# %span.selected
+        .panel-body
+          %ul.list-unstyled
+            - result.pre_facet_options_with_links.each do |option|
+              %div.search_option
+                = check_box_tag 'option', 'yes', option[:value], :href => option[:link], :class => 'search_option_action'
+                %span.option_name #{option[:name]}
 
 
 

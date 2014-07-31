@@ -21,4 +21,4 @@
 
       %form{:id => 'new_list_form'}
         %input{:name => "name", :type => "text", :value => "", :id => 'new_list_name', :style => "width:100px"}
-        %input.btn.btn-xs{ :id => 'new_list_submit', :type => "submit", :onclick => "if ( $('#new_list_name').val() != '') { moveSelectedToNamedList('/lists/#{verb}', '#{@list.owner}', '#{@list.name}', $('#new_list_name').val() ) }; return false;" }
+        %input.btn.btn-default.btn-xs{ :id => 'new_list_submit', :type => "submit", :onclick => "if ( $('#new_list_name').val() != '') { moveSelectedToNamedList('/lists/#{verb}', '#{@list.owner}', '#{@list.name}', $('#new_list_name').val() ) }; return false;" }

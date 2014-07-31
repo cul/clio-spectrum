@@ -75,12 +75,12 @@
         = form_tag databases_index_path, :method => 'get', :class => 'form-inline' do
           %div
             .browse_label Browse by discipline:
-            = select_tag 'f[database_discipline_facet][]', options_for_select(discipline_codes.keys.sort.each  { |k| [k, discipline_codes[k]] }), :prompt => "All Disciplines"
+            = select_tag 'f[database_discipline_facet][]', options_for_select(discipline_codes.keys.sort.each  { |k| [k, discipline_codes[k]] }), :prompt => "All Disciplines", class: 'form-control input-sm'
 
           %div
             .browse_label Browse by resource type:
-            = select_tag 'f[database_resource_type_facet][]', options_for_select(resource_codes.keys.sort.each  { |k| [k, resource_codes[k]] }), :prompt => "All Resource Types"
+            = select_tag 'f[database_resource_type_facet][]', options_for_select(resource_codes.keys.sort.each  { |k| [k, resource_codes[k]] }), :prompt => "All Resource Types", class: 'form-control input-sm'
 
           %div
             .browse_label
-            %button.btn{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'search'} Browse
+            %button.btn.btn-default{:type => 'submit', :class => 'submit', :name => 'commit', :value => 'search'} Browse

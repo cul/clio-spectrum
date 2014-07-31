@@ -87,7 +87,7 @@ module DatasourcesHelper
       end
 
       sub_results << content_tag(:li, link_to('Fewer...', '#'), id: 'datasource_contract')
-      result << content_tag(:ul, sub_results.join('').html_safe, id: 'expanded_datasources')
+      result << content_tag(:ul, sub_results.join('').html_safe, id: 'expanded_datasources', class: 'list-unstyled')
     end
 
     landing_class = options[:all_sources] ? 'landing datasource_list' : 'datasource_list'
