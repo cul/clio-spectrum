@@ -231,6 +231,7 @@ class CatalogController < ApplicationController
 
 
   # Override Blacklight::Catalog.facet()
+  #   [ Why do we need to ??? ]
   # 
   # *** Blacklight 4 ***
   # def facet

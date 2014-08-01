@@ -417,7 +417,7 @@ module DisplayHelper
       if options[:style] == :text
         result = (title.to_s + ': ' + value_txt.to_s + "\n").html_safe
       else
-        result = content_tag(:div, class: 'document-row') do
+        result = content_tag(:div, class: 'row document-row') do
           if options[:style] == :definition
             # add space after row label, to help capybara string matchers
             content_tag(:div, title.to_s.html_safe + ' ', class: "#{options[:label_style]} col-sm-#{spans.first}") +
