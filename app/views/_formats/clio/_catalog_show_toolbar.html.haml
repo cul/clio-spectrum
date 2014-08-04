@@ -4,10 +4,22 @@
 - clio_id = h(document["clio_id_display"].to_s)
 - id = document.get("id")
 
-.col-sm-12
-  %nav#show_toolbar.navbar.navbar-default
+%nav#show_toolbar.navbar.navbar-default
+
+  .container-fluid
+
+    .navbar-header
+
+      %button.navbar-toggle{type: 'button', data: {toggle: 'collapse', target: '#show-toolbar-collapse'}}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      .navbar-text
+        -# If you want any links to be never collapsed, 
+        -# put them here
   
-    .collapse.navbar-collapse
+
+    #show-toolbar-collapse.collapse.navbar-collapse
   
       %ul.nav.navbar-nav
         %li=link_to "Print", "javascript:print()"
@@ -62,6 +74,7 @@
   
             %li= link_to "Item Not On Shelf?", "#", :onclick => "OpenSearchRequest(#{clio_id}); return false;"
   
+
       %ul.nav.navbar-nav.navbar-right
         .navbar-text
           - link_back = build_link_back()
