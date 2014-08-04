@@ -81,9 +81,10 @@ module CulCatalogHelper
 
     if per_page == current_per_page
       checkmark = content_tag(:span, '', :class => 'glyphicon glyphicon-ok')
-      content_tag(:a, (checkmark + ' ' + label), href: '#', class: 'menu_checkmark_allowance')
+      content_tag(:a, (checkmark + ' ' + label), href: '#')
     else
-      content_tag(:a, label, href: href, per_page: per_page, class: 'per_page_link')
+      checkmark = content_tag(:span, '', :class => 'glyphicon glyphicon-spacer')
+      content_tag(:a, (checkmark + ' ' + label), href: href, per_page: per_page, class: 'per_page_link')
     end
   end
 
@@ -109,9 +110,10 @@ module CulCatalogHelper
 
     if viewstyle == current_viewstyle
       checkmark = content_tag(:span, '', :class => 'glyphicon glyphicon-ok')
-      content_tag(:a, (checkmark + ' ' + label), href: '#', class: 'menu_checkmark_allowance')
+      content_tag(:a, (checkmark + ' ' + label), href: '#')
     else
-      content_tag(:a, label, href: '#', viewstyle: viewstyle, class: 'viewstyle_link')
+      checkmark = content_tag(:span, '', :class => 'glyphicon glyphicon-spacer')
+      content_tag(:a, (checkmark + ' ' + label), href: '#', viewstyle: viewstyle, class: 'viewstyle_link')
     end
   end
 

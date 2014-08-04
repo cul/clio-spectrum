@@ -2,96 +2,98 @@
 -# FACETS FOR ARTICLES DATASOURCE (SUMMON)
 
 #facets.facets.sidenav
-  %h4{:'data-target' => '.facets-collapse', :'data-toggle'=> "collapse"}
-    %a.btn.btn-navbar
+  -# %h4{:'data-target' => '.summon-facets-collapse', :'data-toggle'=> "collapse"}
+  -#   %a.btn.btn-navbar
+  -#     %span.icon-bar
+  -#     %span.icon-bar
+  -#   Refine
+  .top-panel-heading.panel-heading
+    %button.facets-toggle{type: 'button', data: {toggle: 'collapse', target: '#facet-panel-collapse'}}
       %span.icon-bar
       %span.icon-bar
-    Refine
+      %span.icon-bar
 
-  .facets-collapse
+    %h4 Refine
+  
+  #facet-panel-collapse.collapse.panel-group
 
 
     -# Summon true/false "SEARCH OPTIONS" panel
     -# (control Full Text, Scholarly, Newspapers, Local Holdings)
-    .facet_limit
-      .panel.panel-default.facet_limit
-        .panel-heading
-          %h5.panel-title.twiddle.twiddle-open
-            Search Options
-        -# %span.selected
-        .panel-body
-          %ul.list-unstyled
-            - result.pre_facet_options_with_links.each do |option|
-              %div.search_option
-                = check_box_tag 'option', 'yes', option[:value], :href => option[:link], :class => 'search_option_action'
-                %span.option_name #{option[:name]}
-
-
-
+    .panel.panel-default.facet_limit
+      .panel-heading
+        %h5.panel-title.twiddle.twiddle-open
+          Search Options
+    
+      .panel-body
+        %ul.list-unstyled
+          - result.pre_facet_options_with_links.each do |option|
+            %div.search_option
+              = check_box_tag 'option', 'yes', option[:value], :href => option[:link], :class => 'search_option_action'
+              %span.option_name #{option[:name]}
+    
 
     -# LOOP OVER ALL EXPOSED SUMMON FACETS...
 
     -# "facet" is Summon::Facet from the response object
     - result.facets.reject { |ft| ft.empty?}.each do |facet|
 
-      .facet_limit
-        .panel.panel-default.facet_limit{class: "#{'facet_limit-active' if facet.has_applied_value?}"}
-
-          .collapse-toggle.panel-heading{class: "#{'collapsed' if should_collapse_facet?(facet)}", data: {toggle: "collapse", target: "#facet-#{facet.display_name.parameterize}", 'facet-tag' => build_facet_tag(facet)}}
-
-            %h5.panel-title
-              = link_to facet.display_name.titleize, "#", :"data-no-turbolink" => true
-
-          .panel-collapse.facet-content{id: "facet-#{facet.display_name.parameterize}", class: "#{should_collapse_facet?(facet) ? 'collapse' : 'in'}"}
-            .panel-body
-
-              %ul.facet-values.list-unstyled
-                - facet.counts.each do |item|
-                  %li
-                    %span.facet-label
-                      - if item.applied?
-                        - if item.negated?
-                          %span.selected
-                            Not #{item.value}
-                          %a.remove{:href => result.by_source_search_cmd(item.remove_command)}
-                            %span.glyphicon.glyphicon-remove
-                        - else
-                          %span.selected
-                            #{item.value}
-                          %a.remove{:href => result.by_source_search_cmd(item.remove_command)}
-                            %span.glyphicon.glyphicon-remove
-                      -else
-                        %a.facet_select{:href => result.by_source_search_cmd(item.apply_command)} #{item.value}
-                    %span.facet-count #{number_with_delimiter(item.count)}
-
+      .panel.panel-default.facet_limit{class: "#{'facet_limit-active' if facet.has_applied_value?}"}
+      
+        .collapse-toggle.panel-heading{class: "#{'collapsed' if should_collapse_facet?(facet)}", data: {toggle: "collapse", target: "#facet-#{facet.display_name.parameterize}", 'facet-tag' => build_facet_tag(facet)}}
+      
+          %h5.panel-title
+            = link_to facet.display_name.titleize, "#", :"data-no-turbolink" => true
+      
+        .panel-collapse.facet-content{id: "facet-#{facet.display_name.parameterize}", class: "#{should_collapse_facet?(facet) ? 'collapse' : 'in'}"}
+          .panel-body
+      
+            %ul.facet-values.list-unstyled
+              - facet.counts.each do |item|
+                %li
+                  %span.facet-label
+                    - if item.applied?
+                      - if item.negated?
+                        %span.selected
+                          Not #{item.value}
+                        %a.remove{:href => result.by_source_search_cmd(item.remove_command)}
+                          %span.glyphicon.glyphicon-remove
+                      - else
+                        %span.selected
+                          #{item.value}
+                        %a.remove{:href => result.by_source_search_cmd(item.remove_command)}
+                          %span.glyphicon.glyphicon-remove
+                    -else
+                      %a.facet_select{:href => result.by_source_search_cmd(item.apply_command)} #{item.value}
+                  %span.facet-count #{number_with_delimiter(item.count)}
+      
 
 
     -# PUBLICATION DATE FACET HANDLED SEPARATELY
     -# (it's actually a range-filter, not a facet)
 
     - pub_range_filter = result.search.query.range_filters.detect { |rf| rf.field_name == "PublicationDate" }
-    .facet_limit
-      .panel.panel-default.facet_limit{class: "#{'facet_limit-active' if pub_range_filter}"}
-        .collapse-toggle.panel-heading{class: "#{'collapsed' if should_collapse_facet?(pub_range_filter || "pub_range_filter")}", data: {toggle: "collapse", target: "#facet-pub_range_filter", 'facet-tag' => build_facet_tag(pub_range_filter || "pub_range_filter")}}
-
-          %h5.panel-title
-            = link_to "Publication Date", "#", :"data-no-turbolink" => true
-
-        .panel-collapse.facet-content{id: "facet-pub_range_filter", class: "#{should_collapse_facet?(pub_range_filter || "pub_range_filter") ? 'collapse' : 'in'}"}
-          .panel-body
-
-            %ul.facet-values.list-unstyled
-
-              - if pub_range_filter
-                %span.selected
-                  #{pub_range_filter.field_name.titleize}: #{pub_range_filter.range.min_value}-#{pub_range_filter.range.max_value}
-                %a.remove{:href => result.by_source_search_cmd(pub_range_filter.remove_command)}
-                  %span.glyphicon.glyphicon-remove
+    .panel.panel-default.facet_limit{class: "#{'facet_limit-active' if pub_range_filter}"}
+      .collapse-toggle.panel-heading{class: "#{'collapsed' if should_collapse_facet?(pub_range_filter || "pub_range_filter")}", data: {toggle: "collapse", target: "#facet-pub_range_filter", 'facet-tag' => build_facet_tag(pub_range_filter || "pub_range_filter")}}
     
-              = form_tag result.by_source_search_modify(), :class => 'form-inline range_limit_form' do
-                = text_field_tag 'pub_date[min_value]', (pub_range_filter ? pub_range_filter.range.min_value : ""), :class => "form-control input-mini"
-                #{"-"}
-                = text_field_tag 'pub_date[max_value]', (pub_range_filter ? pub_range_filter.range.max_value : ""), :class => "form-control input-mini"
-                %button.btn.btn-submit{:name => 'submit', :value => 'commit', :type => 'submit'} Limit
+        %h5.panel-title
+          = link_to "Publication Date", "#", :"data-no-turbolink" => true
+    
+      .panel-collapse.facet-content{id: "facet-pub_range_filter", class: "#{should_collapse_facet?(pub_range_filter || "pub_range_filter") ? 'collapse' : 'in'}"}
+        .panel-body
+    
+          %ul.facet-values.list-unstyled
+    
+            - if pub_range_filter
+              %span.selected
+                #{pub_range_filter.field_name.titleize}: #{pub_range_filter.range.min_value}-#{pub_range_filter.range.max_value}
+              %a.remove{:href => result.by_source_search_cmd(pub_range_filter.remove_command)}
+                %span.glyphicon.glyphicon-remove
+    
+            = form_tag result.by_source_search_modify(), :class => 'form-inline range_limit_form' do
+              = text_field_tag 'pub_date[min_value]', (pub_range_filter ? pub_range_filter.range.min_value : ""), :class => "form-control input-mini"
+              #{"-"}
+              = text_field_tag 'pub_date[max_value]', (pub_range_filter ? pub_range_filter.range.max_value : ""), :class => "form-control input-mini"
+              %button.btn.btn-submit{:name => 'submit', :value => 'commit', :type => 'submit'} Limit
 
 

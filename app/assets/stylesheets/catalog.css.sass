@@ -125,9 +125,14 @@
   :padding-left 2em !important
 
 
-// used to justify "checked" menu-options (the currenly-selected option)
-.menu_checkmark_allowance
-  :padding-left 2px !important
+//// used to justify "checked" menu-options (the currenly-selected option)
+//.menu_checkmark_allowance
+//  :padding-left 2px !important
+
+// No - use this instead, attach to front of all non-checked items
+.glyphicon-spacer
+  :min-width 13px
+
 
 .boxed_search_results
   :border-bottom 1px solid #ccc
@@ -138,6 +143,8 @@
 //  :border-top 0
 
 
+
+
 // Use this if we want to take away the bootstrap default values of
 // bottom-padding form elements and setting a 28px min-height on all spans.
 // (e.g., to make the compact view yet more compact.)
@@ -145,8 +152,8 @@
   :min-height 0px !important
   :margin-bottom 2px !important
 
-a.rss-feed
-  :margin-left 0.25em
+//a.rss-feed
+//  :margin-left 0.25em
 
 #startOverLink.catalog_startOverLink
   :padding-top 1em

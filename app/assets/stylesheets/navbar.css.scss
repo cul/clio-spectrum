@@ -86,7 +86,7 @@ $colHover       : #ffe6d1; /*/
             background-color: $colDefault; }}}
 
 @media (max-width: 767px) {
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    #topnavbar.navbar-default .navbar-nav .open .dropdown-menu > li > a {
         color: $colDefault;
         &:hover, &:focus {
             color: $colHover;
