@@ -17,7 +17,7 @@
 - paginator.items.each do |item|
   -# Skip this subclass facet value, if it doesn't fall within the 
   -# selected LC prefix.  (happens with multiple call-number items.)
-  - next if (solr_field == "lc_subclass_facet") && (item.value[0] != selected_lc_prefix)
+  -# - next if (solr_field == "lc_subclass_facet") && (item.value[0] != selected_lc_prefix)
 
   %li
     -# IF this LC-Prefix or LC-Subclass is selected
