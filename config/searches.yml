@@ -30,12 +30,12 @@ layouts:
             row_opts:
               spans: [3,9] 
 
-          - source: library_web
+          - source: academic_commons
             count: 3
             row_opts:
               spans: [3,9]
-         
-          - source: academic_commons
+
+          - source: library_web
             count: 3
             row_opts:
               spans: [3,9]
