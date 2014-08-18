@@ -26,6 +26,7 @@ describe 'Summon Interface ' do
         # Summon's precise language seems to be flip-flopping today,
         #  any of these might show up.
         detail_text.match(/Journal Article: Full Text Available/) ||
+        detail_text.match(/Book Chapter: Full Text Available/) ||
         detail_text.match(/Conference Proceeding: Full Text Online/) ||
         detail_text.match(/Conference Proceeding: Full Text Available/)
       }
