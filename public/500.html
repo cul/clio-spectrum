@@ -1,195 +1,301 @@
-
 <!DOCTYPE html>
 <html lang='en' xmlns='http://www.w3.org/1999/xhtml'>
-  <head>
-    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
-    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
-    <title>CLIO</title>
-    <meta content="authenticity_token" name="csrf-param" />
-    <meta content="ceksDVdMn04C/hBrM0XB0ZTNfr+JNR79ASkUpeGj7rw=" name="csrf-token" />
-    <link href='/assets/favicon-crown.png' rel='shortcut icon' type='image/x-icon'>
-    <script type="text/javascript">
-    //<![CDATA[
-    //]]>
-    </script>
-    <link href="/assets/application.css" media="all" rel="stylesheet" type="text/css" />
-    <script src="/assets/application.js" type="text/javascript"></script>
-  </head>
-  <body onload="$('input#q').focus();">
-    <div id='trigger'></div>
-    <div class='modal hide fade' id='helpModal' tabindex='-1'>
-  <div class='modal-header'>
-    <a aria-hidden='true' class='close' data-dismiss='modal' type='button'>&times;</a>
-    <h3>Help</h3>
+<head>
+  <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-6.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"7b81b87b46","applicationID":"2401936","transactionName":"dgkKREYMXl5dRBxLR1AFEEJBDh1BXVdBW18=","queueTime":0,"applicationTime":19,"agentToken":null,"agent":"js-agent.newrelic.com/nr-411.min.js"}</script>
+  <script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o?o:n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({D5DuLP:[function(t,n){function e(t,n){var e=r[t];return e?e.apply(this,n):(o[t]||(o[t]=[]),void o[t].push(n))}var r={},o={};n.exports=e,e.queues=o,e.handlers=r},{}],handle:[function(t,n){n.exports=t("D5DuLP")},{}],G9z0Bl:[function(t,n){function e(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&p&&p.body){l.proto="https"===f.split(":")[0]||t.sslForHttp?"https://":"http://",i("mark",["onload",a()]);var n=p.createElement("script");n.src=l.proto+t.agent,p.body.appendChild(n)}}function r(){"complete"===p.readyState&&o()}function o(){i("mark",["domContent",a()])}function a(){return(new Date).getTime()}var i=t("handle"),u=window,p=u.document,s="addEventListener",c="attachEvent",f=(""+location).split("?")[0],l=n.exports={offset:a(),origin:f,features:[]};p[s]?(p[s]("DOMContentLoaded",o,!1),u[s]("load",e,!1)):(p[c]("onreadystatechange",r),u[c]("onload",e)),i("mark",["firstbyte",a()])},{handle:"D5DuLP"}],loader:[function(t,n){n.exports=t("G9z0Bl")},{}]},{},["G9z0Bl"]);</script>
+  <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+  <title>CLIO</title>
+  <link href='/assets/favicon-crown.png' rel='shortcut icon' type='image/x-icon'>
+  <link href='/assets/apple-touch-icon-144x144.png' rel='apple-touch-icon' type='image/x-icon'>
+  <link href="/assets/application.css" media="all" rel="stylesheet" type="text/css" />
+
+
+</head>
+<body onload="$('.search_q').focus();">
+<!-- Layout:  quicksearch -->
+<div class='navbar navbar-default navbar-static-top' id='topnavbar'>
+  <div class='container'>
+    <div class='navbar-header'>
+      <button class='navbar-toggle' data-target='.navbar-collapse' data-toggle='collapse' type='button'>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+      </button>
+      <a class='navbar-brand visible-xs' href='#'>CLIO</a>
+    </div>
+    <div class='navbar-collapse collapse'>
+      <ul class='nav navbar-nav' id='crowndown-nosearch'>
+        <li class='dropdown menu'>
+          <a class='dropdown-toggle menu' data-toggle='dropdown' href='#' title='Links @ Columbia'>
+            <span class='topbarlogo'>
+              <span class='visible-xs'>
+                CLIO Links
+                <b class='caret'></b>
+              </span>
+              <span class='hidden-xs'>
+                <img alt="CU" src="/assets/ldpd-toolkit/crown-bts-24x24.png" />
+                Columbia University Libraries<span id="topbarslash">/</span>Information Services
+                <b class='caret'></b>
+              </span>
+            </span>
+          </a>
+          <ul class='dropdown-menu menu-dropdown'>
+            <li>
+              <a href='http://columbia.edu'>Columbia University - Home</a>
+            </li>
+            <li>
+              <a href='http://library.columbia.edu'>Libraries - Home</a>
+            </li>
+            <li>
+              <a href='/'>CLIO - Home</a>
+            </li>
+            <li class='nav-divider'></li>
+            <li>
+              <a href='http://www.columbia.edu/cgi-bin/cul/resolve?cliolegacy' target='_blank'>CLIO Legacy</a>
+            </li>
+            <li>
+              <a href='http://www.columbia.edu/cgi-bin/cul/resolve?lweb0182' target='_blank'>Course Reserves</a>
+            </li>
+            <li>
+              <a href='http://www.columbia.edu/cgi-bin/cul/resolve?lweb0012' target='_blank'>Borrow Direct</a>
+            </li>
+            <li>
+              <a href='http://www.columbia.edu/cgi-bin/cul/resolve?lweb0014' target='_blank'>ILL</a>
+            </li>
+            <li>
+              <a href='http://www.columbia.edu/cgi-bin/cul/resolve?AMS7418' target='_blank'>WorldCat</a>
+            </li>
+            <li class='nav-divider'></li>
+            <li>
+              <a href='http://www.columbia.edu/cgi-bin/cul/resolve?AMS8587' target='_blank'>Law Library Catalog</a>
+            </li>
+            <li>
+              <a href='http://www.columbia.edu/cgi-bin/cul/resolve?AMS8580' target='_blank'>Teachers College Catalog</a>
+            </li>
+            <li>
+              <a href='http://www.columbia.edu/cgi-bin/cul/resolve?APZ9144' target='_blank'>Numeric Data Catalog</a>
+            </li>
+            <li>
+              <a href='http://www.columbia.edu/cgi-bin/cul/resolve?clio6269876' target='_blank'>Spatial Data Catalog</a>
+            </li>
+            <li class='nav-divider'></li>
+            <li>
+              <a href='http://www.columbia.edu/cgi-bin/cul/resolve?lweb0031' target='_blank'>Ask a Librarian</a>
+            </li>
+            <li>
+              <a class='feedback-popup' href='#'>Suggestions &amp; Feedback</a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+      <ul class='nav navbar-nav navbar-right'>
+        <li class='dropdown menu'>
+          <a class='dropdown-toggle menu' data-toggle='dropdown' href='#'>
+            <span>
+              Log in to...
+              <b class='caret'></b>
+            </span>
+          </a>
+          <ul class='dropdown-menu menu-dropdown'>
+            <li><a href="http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087-1" target="_blank">My Library Account</a></li>
+            <li><a href="/lists">My Saved Lists</a></li>
+            <li><a href="/users/sign_in">My CLIO</a></li>
+            <li><a href="http://clio.cul.columbia.edu:7018/vwebv/myList" target="_blank">CLIO Legacy Saved Lists</a></li>
+          </ul>
+        </li>
+
+        <li class='dropdown menu'>
+          <a class='dropdown-toggle menu' data-toggle='dropdown' href='#'>
+            Help
+            <b class='caret'></b>
+          </a>
+          <ul class='dropdown-menu menu-dropdown'>
+            <li>
+              <a href='http://www.columbia.edu/cgi-bin/cul/resolve?lweb0031' target='_blank'>Ask a Librarian</a>
+            </li>
+            <li>
+              <a href='https://blogs.cul.columbia.edu/clio/guides/'>CLIO Help</a>
+            </li>
+            <li>
+              <a href='http://library.columbia.edu/content/libraryweb/help/faq.html'>FAQ</a>
+            </li>
+            <li>
+              <a href='http://library.columbia.edu/content/libraryweb/help/using-this-site.html'>Website Help</a>
+            </li>
+            <li>
+              <a href='http://library.columbia.edu/content/libraryweb/research/help.html'>Research Help</a>
+            </li>
+            <li>
+              <a href='http://www.columbia.edu/cgi-bin/cul/resolve?lweb0006'>Report E-Resource Problems</a>
+            </li>
+            <li>
+              <a href='http://www.columbia.edu/cgi-bin/cul/resolve?lweb0004'>Recommend a title for purchase</a>
+            </li>
+            <li>
+              <a class='feedback-popup' href='#'>Suggestions &amp; Feedback</a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
   </div>
-  <div class='modal-body'>
-    <div class='hide' id='success_message'>
-      <h4>Message sent successfully</h4>
+</div>
+
+<div class='container' id='outer-container'>
+  <div class='sidenav source_select visible-xs' id='source_select'>
+    <select class="form-control" id="mobile_datasource_select" name="mobile_datasource_select"><option value="quicksearch" selected="selected">Quicksearch</option>
+      <option value="catalog">Catalog</option>
+      <option value="articles">Articles</option>
+      <option value="journals">E-Journal Titles</option>
+      <option value="databases">Databases</option>
+      <option value="academic_commons">Academic Commons</option>
+      <option value="library_web">Libraries Website</option>
+      <option value="archives">Archives</option>
+      <option value="dissertations">Dissertations</option>
+      <option value="ebooks">E-Books</option>
+      <option value="new_arrivals">New Arrivals</option>
+      <option value="newspapers">Newspapers</option></select>
+      <h4>
+        Source
+      </h4>
     </div>
-    <div id='select_a_help_issue'>
-      <h4 class='text-info'>What do you need help with?</h4>
-    </div>
-    <div class='tab-content' id='helptab_content'>
-      <div class='tab-pane' id='helptab_feedback'>
-        <h4 class='text-info'>Problems / Feedback</h4>
-        <form accept-charset="UTF-8" action="" class="form-horizontal" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="ceksDVdMn04C/hBrM0XB0ZTNfr+JNR79ASkUpeGj7rw=" /></div>
-        <input id="version" name="version" type="hidden" value="6.3.4" />
-        <input id="product" name="product" type="hidden" value="CLIO" />
-        <input id="user_agent" name="user_agent" type="hidden" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11" />
-        <div class='form-group'>
-          <label class='control-label' for='name'>Name</label>
-          <div class='controls'>
-            <input id="name" name="name" placeholder="Name" type="text" value="" />
-          </div>
+
+
+    <div class='row' id='bd'>
+
+      <div class='col-sm-3 hidden-print sidebar'>
+        <div class='search_logo hidden-xs'>
+          <a href="/" class="nav_title search_bar_logo">CLIO</a>
         </div>
-        <div class='form-group'>
-          <label class='control-label' for='email'>Email</label>
-          <div class='controls'>
-            <input id="email" name="email" placeholder="Email" type="text" value="" />
-          </div>
+        <div id='sources'>
+          <ul class="landing datasource_list no_facets hidden-xs" id="datasources"><li class="datasource_link selected" source="quicksearch"><a href="/quicksearch" class="">Quicksearch</a></li><li class="datasource_link" source="catalog"><a href="/catalog" class="">Catalog</a></li><li class="datasource_link" source="articles"><a href="/articles" class="">Articles</a></li><li class="datasource_link" source="journals"><a href="/journals" class="">E-Journal Titles</a></li><li class="datasource_link" source="databases"><a href="/databases" class="">Databases</a></li><li class="datasource_link" source="academic_commons"><a href="/academic_commons" class="">Academic Commons</a></li><li class="datasource_link" source="library_web"><a href="/library_web" class="">Libraries Website</a></li><li class="datasource_link" source="archives"><a href="/archives" class="">Archives</a></li><li class="datasource_link" source="dissertations"><a href="/dissertations" class="">Dissertations</a></li><li class="datasource_link" source="ebooks"><a href="/ebooks" class="">E-Books</a></li><li class="datasource_link" source="new_arrivals"><a href="/new_arrivals" class="">New Arrivals</a></li><li class="datasource_link" source="newspapers"><a href="/newspapers" class="">Newspapers</a></li></ul>
         </div>
-        <div class='form-group'>
-          <label class='control-label' for='email'>Page You Were On</label>
-          <div class='controls'>
-          </div>
-        </div>
-        <div class='form-group'>
-          <label class='control-label' for='email'>Message</label>
-          <div class='controls'>
-            <textarea cols="60" id="message" name="message" rows="4">
-</textarea>
-          </div>
-        </div>
-</form>
       </div>
-      <div class='tab-pane' id='helptab_ask_a_librarian'>
-        <h4 class='text-info'>Ask a librarian</h4>
-      </div>
-      <div class='tab-pane' id='helptab_report_problem'>
-        <h4 class='text-info'>Resource / Book problem</h4>
+      <div class='col-sm-9' id='main_with_sources'>
+        <div id='main-flashes'>
+          <div class='flash_messages'>
+          </div>
+        </div>
+
+        <div class="landing_pages"><div class="landing_page quicksearch selected" data-ga-action="Landing Page Click"><div class='landing_across row'>
+          <div class='col-sm-12'>
+            <div class='search_boxes col-sm-9X pull-left'>
+              <div class='basic_search'>
+                <div class="search_box quicksearch selected">
+                  <form accept-charset="UTF-8" action="/quicksearch" class="form-inline" method="get">
+                    <div class="search_row input-append" escape="false">
+                      <div class="input-group">
+                        <input class="search_q without_options form-control" id="quicksearch_q" name="q" placeholder="Catalog, Articles, Academic Commons, Library Web" type="text" value="" />
+                      </div>
+                      <button class="btn basic_search_button btn-primary" name="commit" type="submit" value="Search">
+                        <span class="glyphicon glyphicon-search icon-white"></span>
+                        <span class="visible-lg-inline">Search</span>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class='advanced_search'></div>
+            </div>
+            <div class='start_over` text-right pull-right'></div>
+          </div>
+        </div>
+
+        <div class="bs-callout bs-callout-danger">
+          <h4>There has been an error with CLIO</h4>
+          <p>
+            The development team has been alerted.  
+            Thank you for your patience as we work to improve.
+          </p>
+        </div>
+
+        <!-- LibraryH3lp iFrame Widget -->
+        <div class='libraryh3lp' jid='askalibrariancolumbia@chat.libraryh3lp.com' style='display:none'>
+        <iframe frameborder='1' id='askalibrarianchat' src='http://libraryh3lp.com/chat/askalibrariancolumbia@chat.libraryh3lp.com?skin=20173&amp;theme=gtalk&amp;identity=librarian&amp;title=C+U+-+Ask+A+Librarian'></iframe>
+        </div>
+        <div class='libraryh3lp' style='display:none'>
+        <iframe frameborder='1' id='askalibrarianchat' src='http://libraryh3lp.com/chat/askalibrariancolumbia@chat.libraryh3lp.com?skin=20173&amp;theme=gtalk&amp;identity=librarian&amp;title=We+are+offline'></iframe>
+        </div>
+
+
+<!--
+        <div class='row'>
+
+          <div class='landing_main col-sm-8'>
+            <div class='title'>Quicksearch</div>
+
+            <p>Quicksearch performs a combined search of:</p>
+            <ul>
+              <li><a href="catalog" class=" datasource_link" source="catalog">Catalog</a> (books, journals, online resources, videos, and more)</li>
+              <li><a href="articles" class=" datasource_link" source="articles">Articles</a> (journal articles, e-books, dissertations, and more)</li>
+              <li><a href="academic_commons" class=" datasource_link" source="academic_commons">Academic Commons</a> (digital repository of Columbia research)</li>
+              <li><a href="library_web" class=" datasource_link" source="library_web">Libraries Website</a></li>
+            </ul>
+          </div>
+
+          <div class='landing_side col-sm-4'>
+            <div class='well sidebar-nav'>
+              <div class='nav'>
+                <ul class='nav nav-list'>
+                  <li class='nav-header'>Guide</li>
+                  <li><a href="https://blogs.cul.columbia.edu/clio/guides/quicksearch-guide/" target="_blank">Search Tips</a></li>
+                  <li class='nav-divider'></li>
+                </ul>
+                <ul class='nav nav-list'>
+                  <li class='nav-header'>Related Links</li>
+                  <li><a href="https://blogs.cul.columbia.edu/clio/">CLIO News </a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+-->
+
+
       </div>
     </div>
   </div>
 </div>
-<header>
-  <h1 class='hide'>CUL - Header</h1>
-  <div class='navbar navbar-fixed-top' id='topnavbar'>
-    <div class='container fill'>
-      <div class='container' id='navbar-container'>
-        <div class='row'>
-          <nav>
-            <div class='col-sm-12' id='cul_top-nosearch'>
-              <div class='row'>
-                <div class='col-sm-12'>
-                  <ul class='nav navbar-left' id='crowndown-nosearch'>
-                    <li class='dropdown menu'>
-                      <a class='dropdown-toggle menu' data-toggle='dropdown' href='#' title='Links @ Columbia'>
-                        <span class='topbarlogo'>
-                          <span class='hidden-sm'>CLIO</span>
-                          <span class='hidden-xs'>Columbia University Libraries</span>
-                          <b class='caret'></b>
-                        </span>
-                      </a>
-                      <ul class='dropdown-menu menu-dropdown'>
-                        <li>
-                          <a href='http://columbia.edu'>Columbia University - Home</a>
-                        </li>
-                        <li>
-                          <a href='http://library.columbia.edu'>Libraries - Home</a>
-                        </li>
-                        <li class='divider'></li>
-                        <li>
-                          <a href='#'>
-                            <i class='icon-time icon-white'></i>
-                            Library Hours
-                          </a>
-                        </li>
-                        <li>
-                          <a href='#'>
-                            <i class='icon-question-sign icon-white'></i>
-                            Ask a Librarian
-                          </a>
-                        </li>
-                        <li>
-                          <a href='#'>
-                            <i class='icon-heart icon-white'></i>
-                            Alumni & Friends
-                          </a>
-                        </li>
-                        <li>
-                          <a href='#'>
-                            <i class='icon-briefcase icon-white'></i>
-                            Job Seekers
-                          </a>
-                        </li>
-                        <li>
-                          <a href='#'>
-                            <i class='icon-plane icon-white'></i>
-                            Visitors
-                          </a>
-                        </li>
-                        <li class='divider'></li>
-                        <li>
-                          <a href='#'>
-                            <i class='icon-info-sign icon-white'></i>
-                            FAQ
-                          </a>
-                        </li>
-                        <li>
-                          <a href='#'>
-                            <i class='icon-flag icon-white'></i>
-                            Help
-                          </a>
-                        </li>
-                        <li class='divider'></li>
-                        <li>
-                          <a href='#' title=''>About Us</a>
-                        </li>
-                        <li>
-                          <a href='#' title=''>News & Events</a>
-                        </li>
-                        <li>
-                          <a href='#' title=''>Suggestions/Feedback</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <ul class='nav navbar-right'>
-                    <li class='dropdown menu'>
-                      <a class='dropdown-toggle menu' data-toggle='dropdown' href='#'>
-                        My Account
-                        <b class='caret'></b>
-                      </a>
-                      <ul class='dropdown-menu menu-dropdown'>
-                        <li><a href="http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087">Library Account</a></li>
-                        <li><a href="/users/sign_in">Login</a></li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a class='help-button' data-toggle='modal' href='#helpModal'>Feedback / Help</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-    <div class='container' id='page'>
-      <div class='row' id='bd'>
-        There has been an error with CLIO. The development team has been alerted.  Thank you for your patience as we work to improve.
-        <div class='clear-both'></div>
-      </div>
-      <div id='ft'>
-        
-        
-        <div class='clear-both'></div>
-      </div>
-    </div>
-    <div class='modal hide fade' id='ajax-modal' tabindex='-1'></div>
-  </body>
-</html>
 
+
+
+<!-- footer partial begin -->
+<div id='ft'>
+
+  <div class='async_options'>
+  </div>
+
+
+  <div class='clear-both'></div>
+  <!-- div.clear-both end -->
+</div>
+<!-- footer partial end -->
+
+</div>
+
+
+<!--  -->
+<!-- begin _common_tail -->
+<!--  -->
+<script>
+google_analytics_web_property_id = "UA-28923110-1";
+</script>
+<script force="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+window.jQuery || document.write(unescape('%3Cscript force="true" src="/assets/jquery.js" type="text/javascript">%3C/script>'))
+//]]>
+</script>
+<script src="/assets/application.js" type="text/javascript"></script>
+
+<!--  -->
+<!-- end _common_tail -->
+<!--  -->
+
+</body>
+</html>
