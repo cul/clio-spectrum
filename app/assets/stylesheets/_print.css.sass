@@ -76,13 +76,20 @@
 
   body
     :background-color white !important
-    :font-size 60% !important
+    //
+    // NEXT-1088 - CLIO print problems - font too small
+    // After Bootstrap 3, this is too small
+    //:font-size 60% !important
+    //
     //:padding-top 10px
     //:padding-bottom 10px
     //:margin 5mm 5mm 5mm 5mm
     :padding 0px
     :margin 0px
     :line-height normal
+    // We put a 2000px min-height on screen display
+    :min-height 0
+    
 
   #main_with_sources
     :width 95%
@@ -136,6 +143,10 @@
   #outer-container
     :margin 0px  !important
     :border-top-width 2px !important
+    // For print, don't add so much whitespace everywhere
+    :padding-left 10px
+    :padding-right 10px
+    :padding-bottom 10px
 
   // Compact view is a bit too tiny to read...
   .boxed_search_results
