@@ -1,6 +1,6 @@
 - cache("top_navigation_bar_#{current_user}") do
 
-  #topnavbar.navbar.navbar-default.navbar-static-top
+  #topnavbar.navbar.navbar-default.navbar-static-top{data: {'ga-action' => 'Top NavBar Click'} }
     .container
       .navbar-header
         %button.navbar-toggle{type: 'button', data: {toggle: 'collapse', target: '.navbar-collapse'}}
