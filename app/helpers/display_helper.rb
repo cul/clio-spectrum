@@ -611,16 +611,18 @@ module DisplayHelper
 
   # Our versions of link_to_previous_document/link_to_next_document,
   # with awareness of the current action (e.g., librarian_view)
+  # (AND, I switched from .pagination. to .pagination_compact., to pick
+  # up my Glyphicons for XS output display)
   def link_to_previous_document_and_action(previous_document)
     link_opts = session_tracking_params(previous_document, search_session['counter'].to_i - 1).merge(:class => "previous", :rel => 'prev')
-    link_to_unless previous_document.nil?, raw(t('views.pagination.previous')), { id: previous_document, action: controller.action_name }, link_opts do
+    link_to_unless previous_document.nil?, raw(t('views.pagination_compact.previous')), { id: previous_document, action: controller.action_name }, link_opts do
       content_tag :span, raw(t('views.pagination.previous')), class: 'previous'
     end
   end
 
   def link_to_next_document_and_action(next_document)
     link_opts = session_tracking_params(next_document, search_session['counter'].to_i + 1).merge(:class => "next", :rel => 'next')
-    link_to_unless next_document.nil?, raw(t('views.pagination.next')), { id: next_document, action: controller.action_name }, link_opts do
+    link_to_unless next_document.nil?, raw(t('views.pagination_compact.next')), { id: next_document, action: controller.action_name }, link_opts do
       content_tag :span, raw(t('views.pagination.next')), class: 'next'
     end
   end

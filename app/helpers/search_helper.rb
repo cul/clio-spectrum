@@ -132,11 +132,16 @@ module SearchHelper
       end
 
       # Will this wrap input-text and drop-down-select more nicely?
-      result = content_tag(:div, result, class: "input-group")
+      # result = content_tag(:div, result, class: "input-group")
+      # result = content_tag(:div, result, class: "form-group", style: 'display: inline;')
 
       # "Search" button
       # result += content_tag(:button, '<span class="glyphicon glyphicon-search icon-white"></span><span class="visible-lg">Search</span>'.html_safe, type: 'submit', class: 'btn basic_search_button btn-primary add-on', name: 'commit', value: 'Search')
-      result += content_tag(:button, '<span class="glyphicon glyphicon-search icon-white"></span> <span class="visible-lg-inline">Search</span>'.html_safe, type: 'submit', class: 'btn basic_search_button btn-primary', name: 'commit', value: 'Search')
+      result += content_tag(:button, '<span class="glyphicon glyphicon-search icon-white"></span> <span class="visible-lg-inline">Search</span>'.html_safe, type: 'submit', class: 'btn basic_search_button btn-primary form-control', name: 'commit', value: 'Search')
+
+      result = content_tag(:div, result, class: "input-group")
+      result = content_tag(:div, result, class: "form-group", style: 'display: inline;')
+
 
       # link to advanced search
       if options['search_type'].in?('summon', 'blacklight') && options['advanced']

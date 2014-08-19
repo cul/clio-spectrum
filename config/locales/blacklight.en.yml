@@ -8,8 +8,10 @@ en:
       truncate: '…'
 
     pagination_compact:
-      previous: '&laquo; Previous'
-      next: 'Next &raquo;'
+      # previous: '&laquo; Previous'
+      previous: '<span class="hidden-xs">&laquo; Previous</span><span class="glyphicon glyphicon-backward visible-xs-inline"></span>'
+      # next: 'Next &raquo;'
+      next: '<span class="hidden-xs">Next &raquo;</span><span class="glyphicon glyphicon-forward visible-xs-inline"></span>'
 
   blacklight:
     application_name: 'Blacklight'
