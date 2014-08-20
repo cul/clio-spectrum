@@ -4,8 +4,8 @@
 - unless @document_list.nil? || @document_list.empty?
   #facets.facets.sidenav
 
-    .top-panel-heading.panel-heading.clearfix
-      %h4.visible-xs{data: {toggle: 'collapse', target: '#facet-panel-collapse'}}
+    .top-panel-heading.panel-heading.clearfix{style: 'border: 0px;'}
+      .visible-xs.facets-toggle{type: 'button', data: {toggle: 'collapse', target: '#facet-panel-collapse'}}
         Refine your search...
 
     #facet-panel-collapse.collapse.panel-group
