@@ -9,9 +9,9 @@ en:
 
     pagination_compact:
       # previous: '&laquo; Previous'
-      previous: '<span class="hidden-xs">&laquo; Previous</span><span class="glyphicon glyphicon-backward visible-xs-inline"></span>'
+      previous: '<span class="hidden-xs">&laquo; Previous | </span><span class="btn btn-default glyphicon glyphicon-backward visible-xs-inline"></span>'
       # next: 'Next &raquo;'
-      next: '<span class="hidden-xs">Next &raquo;</span><span class="glyphicon glyphicon-forward visible-xs-inline"></span>'
+      next: '<span class="hidden-xs"> | Next &raquo;</span><span class="btn btn-default glyphicon glyphicon-forward visible-xs-inline"></span>'
 
   blacklight:
     application_name: 'Blacklight'

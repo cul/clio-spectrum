@@ -65,17 +65,23 @@ body.blank_layout {
     border-top: 0;
   }
 }
+*/
+
+/* MARGIN goes to zero when in extra-small mode (phone, tablet),
+   rely on padding for white-space along left/right edges.
+*/
 @media screen and (max-width: 767px) {
   #outer-container {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-  body {
-    padding-top: 0;	
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
-}
+/*  body {
+    padding-top: 0; 
+  }
 */
+}
+
 
 
 

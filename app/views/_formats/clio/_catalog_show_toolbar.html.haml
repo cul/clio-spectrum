@@ -18,10 +18,10 @@
         -# If you want any links to be never collapsed, 
         -# put them here
         - prev_doc = fix_catalog_links(link_to_previous_document_and_action(@previous_document))
-        = "#{prev_doc} | ".html_safe if prev_doc.include?("<a")
+        = "#{prev_doc}".html_safe if prev_doc.include?("<a")
         = item_page_entry_info.gsub("Showing item ", "#").gsub(" from your search.","").html_safe
         - next_doc = fix_catalog_links(link_to_next_document_and_action(@next_document)	)
-        = " | #{next_doc}".html_safe if next_doc.include?("<a")
+        = "#{next_doc}".html_safe if next_doc.include?("<a")
 
 
 
