@@ -34,7 +34,7 @@ describe 'Databases', focus: false do
     find('#search_info').should have_text 'Back to Results'
     find('#search_info').should have_text 'Previous'
     find('#search_info').should have_text 'Next'
-    find('#search_info').should have_text 'Start Over'
+    find('.start_over', text: 'Start Over')
 
     page.should have_text 'Previous title: DigitalCommons'
     # NEXT-983 - Improvements to database discovery interface (styles, language)
@@ -86,7 +86,8 @@ describe 'Databases', focus: false do
 
    page.should have_css('.result.document', minimum: 10)
 
-   click_link('Start Over')
+   # click_link('Start Over')
+   first(:link, 'Start Over').click
 
     # Use the
 

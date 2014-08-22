@@ -409,7 +409,8 @@ class ApplicationController < ActionController::Base
       # NEXT-1067 - Saved Lists broken for very large lists (~400)
       # response, catalog_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids, extra_solr_params)
       catalog_item_ids.each_slice(100) { |slice|
-        response, slice_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids, extra_solr_params)
+        # response, slice_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids, extra_solr_params)
+        response, slice_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids)
         catalog_document_list += slice_document_list
       }
     end

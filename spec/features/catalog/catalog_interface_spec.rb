@@ -246,22 +246,22 @@ describe 'Catalog Interface' do
     page.should have_text '1 - 9 of 9'
 
     click_link('The patience of Maigret')
-    page.should have_text 'Back to Results | 1 of 9 Next'
+    page.should have_text 'Back to Results | 1 of 9 | Next'
     page.should have_text 'Title The patience of Maigret'
 
     click_link('Display In')
     click_link('MARC View')
-    page.should have_text 'Back to Results | 1 of 9 Next'
+    page.should have_text 'Back to Results | 1 of 9 | Next'
     page.should have_text '245 1 4 a The patience of Maigret'
 
     within '#show_toolbar' do
       click_link('Next')
     end
-    page.should have_text 'Back to Results | « Previous 2 of 9 Next » | Start Over'
+    page.should have_text 'Back to Results | « Previous | 2 of 9 | Next »'
     page.should have_text '245 1 4 a Les vacances de Maigret'
 
     click_link('Return to Patron View')
-    page.should have_text 'Back to Results | « Previous 2 of 9 Next » | Start Over'
+    page.should have_text 'Back to Results | « Previous | 2 of 9 | Next »'
     page.should have_text 'Title Les vacances de Maigret'
 
   end
