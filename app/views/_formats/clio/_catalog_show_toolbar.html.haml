@@ -14,14 +14,33 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      .navbar-text
-        -# If you want any links to be never collapsed, 
-        -# put them here
-        - prev_doc = fix_catalog_links(link_to_previous_document_and_action(@previous_document))
-        = "#{prev_doc}".html_safe if prev_doc.include?("<a")
-        = item_page_entry_info.gsub("Showing item ", "#").gsub(" from your search.","").html_safe
-        - next_doc = fix_catalog_links(link_to_next_document_and_action(@next_document)	)
-        = "#{next_doc}".html_safe if next_doc.include?("<a")
+
+
+      - link_back = fix_catalog_links(build_link_back()).html_safe
+
+      -# if we're unable to build a link_back, then we've lost our search context,
+      -# don't show "Back to Search", or Next/Prev links - they would be invalid/broken.
+      - if link_back && (@previous_document || @next_document)
+        #search_info.navbar-text
+          -# If you want any links to be never collapsed, 
+          -# put them here
+          -# - raise
+          %span.back_to_results.hidden-xs= link_back
+
+          -# On small devices, switch to button - awkward to do, given
+          -# the Blacklight interface
+          - mobile_button = '<span class="btn btn-default glyphicon glyphicon-list-alt"></span>'
+          - label = t('blacklight.back_to_search')
+          - link_back_button = link_back.gsub(/#{label}/, mobile_button).html_safe
+          %span.back_to_results.visible-xs-inline= link_back_button
+
+          &nbsp; 
+
+          - prev_doc = fix_catalog_links(link_to_previous_document_and_action(@previous_document))
+          = "#{prev_doc}".html_safe if prev_doc.include?("<a")
+          = item_page_entry_info.gsub("Showing item ", "#").gsub(" from your search.","").html_safe
+          - next_doc = fix_catalog_links(link_to_next_document_and_action(@next_document)	)
+          = "#{next_doc}".html_safe if next_doc.include?("<a")
 
 
 
@@ -81,19 +100,10 @@
             %li= link_to "Item Not On Shelf?", "#", :onclick => "OpenSearchRequest(#{clio_id}); return false;"
   
 
-      %ul.nav.navbar-nav.navbar-right
-        .navbar-text
-          - link_back = build_link_back()
-          -# if we're unable to build a link_back, then we've lost our search context,
-          -# don't show "Back to Search", or Next/Prev links - they would be invalid/broken.
-          - if link_back && (@previous_document || @next_document)
-            #search_info
-              -# - raise
-              %span.back_to_results=  fix_catalog_links(link_back.gsub("Back to Search", "&#0171; Back to Results")).html_safe
-              |
-              -# - raise
-              |
-              = link_to "Start Over", catalog_index_path
+      -# %ul.nav.navbar-nav.navbar-right
+      .navbar-text
+        .start_over
+          = link_to "Start Over", catalog_index_path
     
 
 

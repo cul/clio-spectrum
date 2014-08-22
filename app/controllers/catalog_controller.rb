@@ -127,6 +127,11 @@ class CatalogController < ApplicationController
 
     session[:search]['counter'] = params[:counter]
 
+    # Blacklight wants this....
+    # session[:search]['per_page'] = params[:per_page]
+    # But our per-page/rows value is persisted here:
+    session[:search]['per_page'] = get_browser_option('catalog_per_page')
+
     # puts "SESSION[SEARCH]/AFTER #{session[:search].inspect}"
     # puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 

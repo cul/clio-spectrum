@@ -11,10 +11,11 @@ module CulCatalogHelper
     # link_back = request.referer.path
     # 2) OR have no "back" support unless the below works:
     link_back = nil
+    # raise
     begin
       # try the Blacklight approach of reconstituting session[:search] into
       # a search-results-list URL...
-      link_back = link_back_to_catalog
+      link_back = link_back_to_catalog.html_safe
       # ...but this can easily fail in multi-page web interactions, so catch errors
     rescue ActionController::RoutingError
       link_back = nil

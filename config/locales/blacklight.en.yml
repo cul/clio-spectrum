@@ -137,7 +137,9 @@ en:
           blank: 'You must select a carrier'
           invalid: "You must enter a valid carrier"
 
-    back_to_search: 'Back to Search'
+    # back_to_search: 'Back to Search'
+    back_to_search: '« Back to Results'
+    # back_to_search: '<span class="hidden-xs">« Back to Results</span><span class="btn btn-default glyphicon glyphicon-list-alt visible-xs-inline"></span>'
     back_to_bookmarks: 'Back to Bookmarks'
 
     search:

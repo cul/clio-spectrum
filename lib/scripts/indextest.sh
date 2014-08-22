@@ -29,7 +29,10 @@ then
   fi
 fi
 
-java -Dsolrmarc.main.class="org.solrmarc.marc.MarcPrinter" -jar $scriptdir/SolrMarc.jar index $1 $2 $3 $4 $5 $6
+# another variant???
+java -Dmarc.just_index_dont_add="true" -jar $scriptdir/SolrMarc.jar $1 $2 $3 
+
+# java -Dsolrmarc.main.class="org.solrmarc.marc.MarcPrinter" -jar $scriptdir/SolrMarc.jar index $1 $2 $3 $4 $5 $6
 
 exit 0
 
