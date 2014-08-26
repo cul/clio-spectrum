@@ -401,16 +401,14 @@ class ApplicationController < ActionController::Base
     if catalog_item_ids.any?
       # Then, do two source-specific set-of-id lookups
 
-      # we're doing query-by-id, this shouldn't matter
-      # extra_solr_params = {
-      #   rows: catalog_item_ids.size
-      # }
+      extra_solr_params = {
+        rows: catalog_item_ids.size
+      }
 
       # NEXT-1067 - Saved Lists broken for very large lists (~400)
       # response, catalog_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids, extra_solr_params)
       catalog_item_ids.each_slice(100) { |slice|
-        # response, slice_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids, extra_solr_params)
-        response, slice_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids)
+        response, slice_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids, extra_solr_params)
         catalog_document_list += slice_document_list
       }
     end
