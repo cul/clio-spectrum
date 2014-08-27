@@ -31,7 +31,7 @@
       -# div.info expands enough to prevent overlapping by the holdings box
       .clear-both
 
-    .col-sm-6.col-xs-6
+    .holdings-container.col-sm-6.col-xs-6
 
       -# Database Notes and Alerts
       -# html_safe true, so that ERC can embed HTML links in their alert msgs
@@ -49,7 +49,7 @@
               = add_row(ItemAlert::ALERT_TYPES['access_requirements'], alert[:message], options = {:html_safe => true})
   
   
-      .holdings-container
+      .xholdings-container
         -# this partial renders, in turn, static html for holdings-online,
         -# holdings-display (Voyager), holdings-google, and holdings-hathi
         = render "_formats/clio/catalog_show_holdings", :document => document

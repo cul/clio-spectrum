@@ -80,8 +80,8 @@
     // NEXT-1088 - CLIO print problems - font too small
     // After Bootstrap 3, this is too small... 
     //:font-size 60% !important
-    //try very slight shrink...
-    :font-size 95% !important
+    // just revert sizing to normal...
+    :font-size 100% !important
 
     //:padding-top 10px
     //:padding-bottom 10px
@@ -180,16 +180,17 @@
 
   div.details.col-sm-10
     :float left !important
-    :width 80% !important
+    //:width 80% !important
 
-  div.field.col-sm-2
+  div.field
     :float left !important
     //:width 15% !important
     //:display inline-block !important
     //:display inline !important
 
-  div.value.col-sm-10
+  div.value
     :float left !important
+    :width 100% !important
     //:width 80% !important
     //:display inline-block !important
     //:display inline !important
@@ -217,8 +218,8 @@
     //:float right !important
     //:width 40% !important
     //:margin 5px
-    //:margin 0px
-    //:padding 10px
+    :margin 0px
+    //:padding 0px
 
   div.document-row
     :page-break-inside avoid
