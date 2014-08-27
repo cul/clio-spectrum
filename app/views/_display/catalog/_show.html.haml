@@ -15,7 +15,7 @@
     %h4= document_heading.listify.join("").html_safe
 
   .row
-    .info.col-sm-6
+    .info.col-sm-6.col-xs-6
       %span.coins_wrapper
         / COinS
         %span.Z3988{ :title => document.export_as_openurl_ctx_kev(document_partial_name(document)).html_safe }
@@ -31,7 +31,7 @@
       -# div.info expands enough to prevent overlapping by the holdings box
       .clear-both
 
-    .col-sm-6
+    .col-sm-6.col-xs-6
 
       -# Database Notes and Alerts
       -# html_safe true, so that ERC can embed HTML links in their alert msgs

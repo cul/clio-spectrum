@@ -223,7 +223,7 @@ module LocalSolrHelperExtension
         ''
       when facet_field  =~ /^-/ || operator == 'OR'
         "#{facet_field}:#{subbed_value}"
-      when (facet_config and facet_config.query)
+      when (facet_config and facet_config.query and facet_config.query[value])
         facet_config.query[value][:fq]
       when (facet_config and facet_config.date),
            (value.is_a?(TrueClass) or value.is_a?(FalseClass) or value == 'true' or value == 'false'),
