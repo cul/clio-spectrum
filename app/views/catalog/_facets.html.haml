@@ -15,7 +15,7 @@
         -# %div.panel.panel-default{:class => "facet_limit blacklight-#{solr_fname.parameterize}"}
         - case solr_fname
         - when "lc_1letter_facet"
-          = fix_catalog_links(render(:partial => "catalog/facet_call_letter", :locals => {:solr_field => solr_fname}))
+          = fix_catalog_links(render(:partial => "catalog/facet_callnumber", :locals => {:solr_field => solr_fname}))
         - when "lc_subclass_facet", "title_first_facet"
         
         - else

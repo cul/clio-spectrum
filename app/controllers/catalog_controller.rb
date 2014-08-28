@@ -253,12 +253,16 @@ class CatalogController < ApplicationController
   # *** Blacklight 5 ***
   def facet
     @facet = blacklight_config.facet_fields[params[:id]]
-    @response = get_facet_field_response(@facet.field, params)
+
+    # Allow callers to pass in extra params, that won't be sanitized-out by
+    # the processing that 'params' undergoes
+    extra_params = params[:extra_params] || {}
+
+    @response = get_facet_field_response(@facet.field, params, extra_params)
     @display_facet = @response.facets.first
 
     # @pagination was deprecated in Blacklight 5.1
     @pagination = facet_paginator(@facet, @display_facet)
-
 
     respond_to do |format|
       # Draw the facet selector for users who have javascript disabled:

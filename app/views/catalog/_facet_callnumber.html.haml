@@ -1,5 +1,7 @@
--# solr_field is the string name of the facet field
 
+-# Build the entire facet panel for Call Number facets
+
+-# solr_field is the string name of the facet field
 -# display_facet is Blacklight::SolrResponse::Facets::FacetField 
 - display_facet = @response.facets.detect {|f| f.name == solr_field}
 -# facet_field is Blacklight::Configuration::FacetField
@@ -14,6 +16,6 @@
     .panel-collapse.facet-content{id: "facet-#{solr_field.parameterize}", class: "#{should_collapse_facet?(facet_field) ? 'collapse' : 'in'}"}
       .panel-body
         %ul.facet-values.list-unstyled
-          = render :partial => "catalog/facet_call_letter_value", :locals => {:solr_field => "lc_1letter_facet"}
+          = render :partial => "catalog/facet_callnumber_letter"
 
 
