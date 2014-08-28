@@ -1,25 +1,56 @@
 
+
 $ ->
+
 
   # Clicking the "Add to My List" link should post to SavedListsController.add()
   # Follow advice from:
   #   http://stackoverflow.com/questions/133925/javascript-post-request
+  # 
+  # N.B. - We don't want POST params, because those will get lost as we bounce
+  # through Shibboleth authentication.  
+  # And, We don't want GET params, because those stick around in the history,
+  # and may inadvertently be re-played by users doing back,back,back.
+  # Instead ALL params need to come from cookies/session.
+  # 
+  # We're using session[:selected_items] for now.  But there's some confusion
+  # between wanting on-screen item-selections and state-preservation through
+  # the ADD process - especially on single-item views.
+  # 
+  # Switch to a simple short-lived cookie, "items_to_add".
+  # We'll populate this just-in-time, and clear it immediately after use.
+  # 
   $('.saved_list_add').click ->
+  
+    # Does the clicked object have 'data-identifier'?
+    identifier = $(this).data("identifier")
+
+    if typeof(identifier) == "undefined"
+      # If there's no identifier, process any current DOM selected items
+      items_to_add = getSelectedItemKeyList().join('/')
+    else
+      # If there is an identifier, process that single item
+      items_to_add = identifier
+
+    
+    if typeof(items_to_add) == "undefined" || items_to_add.length < 1
+      flashMessage("danger", "No items selected") 
+      return false
+
+
+    # Build a 5-minute cookie, to be read by the form-target
+    date = new Date
+    date.setTime(date.getTime() + (100*5*60*1000))
+    expires = '; expires=' + date.toGMTString()
+    document.cookie = 'items_to_add=' + items_to_add + expires + '; path=/'
+
+    # alert(items_to_add)
+
     form = document.createElement("form")
     form.setAttribute("method", "POST")
     form.setAttribute("action", "/lists/add")
-        # for(var key in params) {
-    #     if(params.hasOwnProperty(key)) {
-    #         var hiddenField = document.createElement("input");
-    #         hiddenField.setAttribute("type", "hidden");
-    #         hiddenField.setAttribute("name", key);
-    #         hiddenField.setAttribute("value", params[key]);
-    #         form.appendChild(hiddenField);
-    #      }
-    # }
     document.body.appendChild(form)
     form.submit()
-  
   
   # To support persistent selected items, without muddling into the
   # view partials, fire off some javascript to style any checked items
@@ -82,7 +113,8 @@ $ ->
 
 
 
-
+# Fetch items currently in the DOM with their 'selected' checkbox in Checked state.
+# (There may be more items in session[:selected_items] that are not displayed on the current page)
 @getSelectedItemKeyList = () ->
   item_key_array = $(".result.document").has('.item_select_checkbox:checked').map () -> $(this).attr('item_id')
   # turn array of jquery objects into array of item-id values

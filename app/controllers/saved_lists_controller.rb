@@ -171,9 +171,13 @@ class SavedListsController < ApplicationController
 
   # Add items to a named list. (And Create the list if it does not yet exist)
   def add
-    # We're either passed a list of item-keys,
-    # OR we'll just add whatever's currently selected.
-    items_to_add = Array(params[:item_key_list] || session[:selected_items]).uniq
+    # # We're either passed a list of item-keys,
+    # # OR we'll just add whatever's currently selected.
+    # items_to_add = Array(params[:item_key_list] || session[:selected_items]).uniq
+
+    # Try new approach - JS will have created a short-lived cookie with the ID(s) to add...
+    items_to_add = Array(cookies[:items_to_add].split('/'))
+
 
     unless items_to_add
       render text: 'Must specify items to be added', status: :bad_request and return
@@ -216,6 +220,9 @@ class SavedListsController < ApplicationController
     # end
 
     message = "#{items_count} added to list #{view_context.link_to @list.name, @list.url}".html_safe
+
+    # # debug, override the above flash message with....
+    # message = "items_to_add=[#{items_to_add}], class=[#{items_to_add.class}]"
 
     respond_to do |format|
       format.html { redirect_to after_sign_in_path_for, :flash => { :notice => message } }
