@@ -408,9 +408,9 @@ module Spectrum
           config.add_facet_field 'subject_form_facet',
                                  label: 'Subject (Genre)', limit: 10
           config.add_facet_field 'lc_1letter_facet',
-                                 label: 'Call Number', limit: 26
+                                 label: 'Call Number', limit: 30
           config.add_facet_field 'lc_subclass_facet',
-                                 label: 'Refine Call Number', limit: 20
+                                 label: 'Refine Call Number', limit: 500
         end
 
         if elements.include?(:search_fields)
@@ -561,9 +561,9 @@ module Spectrum
               config.add_facet_field 'lc_1letter_facet',
                                      # BL5 - "open" becomes "collapse"
                                      # label: 'Call Number', limit: 26, open: false
-                                     label: 'Call Number', limit: 26, collapse: true
+                                     label: 'Call Number', limit: 30, collapse: true
               config.add_facet_field 'lc_subclass_facet',
-                                     label: 'Refine Call Number', limit: 20
+                                     label: 'Refine Call Number', limit: 500
               config.add_facet_field 'title_first_facet',
                                      label: 'Starts With'
 
@@ -615,9 +615,9 @@ module Spectrum
                                      label: 'Subject (Genre)', limit: 10
               config.add_facet_field 'lc_1letter_facet',
                                      # label: 'Call Number', limit: 26, open: false
-                                     label: 'Call Number', limit: 26, collapse: true
+                                     label: 'Call Number', limit: 30, collapse: true
               config.add_facet_field 'lc_subclass_facet',
-                                     label: 'Refine Call Number', limit: 20
+                                     label: 'Refine Call Number', limit: 500
 
               add_search_fields(config, 'title',  'author', 'subject')
 
@@ -667,9 +667,9 @@ module Spectrum
                                      label: 'Subject (Genre)', limit: 10
               config.add_facet_field 'lc_1letter_facet',
                                      # label: 'Call Number', limit: 26, open: false
-                                     label: 'Call Number', limit: 26, collapse: true
+                                     label: 'Call Number', limit: 30, collapse: true
               config.add_facet_field 'lc_subclass_facet',
-                                     label: 'Refine Call Number', limit: 20
+                                     label: 'Refine Call Number', limit: 500
 
             when 'ac_dissertations'
               default_catalog_config(config, :search_fields)

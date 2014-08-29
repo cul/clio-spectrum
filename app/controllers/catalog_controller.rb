@@ -20,7 +20,7 @@ class CatalogController < ApplicationController
   # explicitly position this in the ancestor chain - or the engine's
   # injection will position it last (ergo, un-overridable)
   include BlacklightRangeLimit::ControllerOverride
-  
+
   # load last, to override any BlackLight methods included above
   # (BlacklightRangeLimit::ControllerOverride#add_range_limit_params)
   include LocalSolrHelperExtension
@@ -124,6 +124,8 @@ class CatalogController < ApplicationController
     # puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     # puts "SESSION[SEARCH]/BEFORE #{session[:search].inspect}"
     # puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+    session[:search] = {} unless session[:search].is_a?(Hash)
 
     session[:search]['counter'] = params[:counter]
 
@@ -251,12 +253,16 @@ class CatalogController < ApplicationController
   # *** Blacklight 5 ***
   def facet
     @facet = blacklight_config.facet_fields[params[:id]]
-    @response = get_facet_field_response(@facet.field, params)
+
+    # Allow callers to pass in extra params, that won't be sanitized-out by
+    # the processing that 'params' undergoes
+    extra_params = params[:extra_params] || {}
+
+    @response = get_facet_field_response(@facet.field, params, extra_params)
     @display_facet = @response.facets.first
 
     # @pagination was deprecated in Blacklight 5.1
     @pagination = facet_paginator(@facet, @display_facet)
-
 
     respond_to do |format|
       # Draw the facet selector for users who have javascript disabled:

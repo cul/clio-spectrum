@@ -13,7 +13,12 @@
       - if field.is_a?(MARC::ControlField)
         .tag_ind
           %span.tag= h(field.tag)
+          .ind1= "&nbsp;&nbsp;".html_safe
+          .ind2= "&nbsp;&nbsp;".html_safe
           %span.control_field_values= h(field.value)
+        .subfields
+          %span.sub_code
+            %span.sub_code= "&nbsp;&nbsp;".html_safe
       - else
         .tag_ind
           %span.tag= h(field.tag)

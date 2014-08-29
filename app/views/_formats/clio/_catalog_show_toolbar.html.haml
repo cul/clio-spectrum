@@ -59,7 +59,11 @@
   
         -# %li=link_to "Save to #{SavedList::DEFAULT_LIST_NAME}", "/lists/add/#{id}"
         -# %li= link_to "Save to #{SavedList::DEFAULT_LIST_NAME}", "#", :onclick => "saveBibToNamedList(#{id}, '#{SavedList::DEFAULT_LIST_NAME}'); return false;"
-        %li= link_to "Add to My Saved List", "#", :onclick => "saveBibToNamedList(#{id}, '#{SavedList::DEFAULT_LIST_NAME}'); return false;"
+        -# AJAXY 
+        -# %li= link_to "Add to My Saved List", "#", :onclick => "saveBibToNamedList(#{id}, '#{SavedList::DEFAULT_LIST_NAME}'); return false;"
+        -# Non-AJAXy, class will attach JS onclick to redirect to /list/add...
+        %li= link_to "Add to My Saved List", "#", class: 'saved_list_add', data: {identifier: id}
+        
   
         %li.dropdown
           =link_to "Export <span class='caret'></span>".html_safe, "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown"
@@ -104,10 +108,10 @@
             %li= link_to "Item Not On Shelf?", "#", :onclick => "OpenSearchRequest(#{clio_id}); return false;"
   
 
-      -# %ul.nav.navbar-nav.navbar-right
-      .navbar-text
-        .start_over
-          = link_to "Start Over", catalog_index_path
+        -# %ul.nav.navbar-nav.navbar-right
+        .navbar-text
+          .start_over
+            = link_to "Start Over", catalog_index_path
     
 
 

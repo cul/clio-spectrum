@@ -1,0 +1,31 @@
+
+-# Render Call-Number Facet for single-letter prefix (lc_1letter_facet)
+-# (See NEXT-1085 for some Call Number facet requirements)
+
+-# facet_field is Blacklight::SolrResponse::Facets::FacetField 
+- solr_field = "lc_1letter_facet"
+- facet_field = @response.facets.detect {|f| f.name == solr_field}
+
+
+-# For lc_1letter_facet, our configured facet limit is greater than the size of the alphabet
+- paginator =   Blacklight::Solr::FacetPaginator.new(facet_field.items, :limit => facet_limit_for(solr_field) )
+- paginator.items.each do |item|
+  -# Skip this subclass facet value, if it doesn't fall within the 
+  -# selected LC prefix.  (happens with multiple call-number items.)
+  -# - next if (solr_field == "lc_subclass_facet") && (item.value[0] != selected_callnumber_prefix)
+
+  %li
+    -# IF this LC-Prefix is selected...
+    - if facet_in_params?( solr_field, item.value )
+      = render_selected_facet_value(solr_field, item)
+      - selected_callnumber_prefix = item.value[0] if (solr_field == "lc_1letter_facet")
+      = render "catalog/facet_callnumber_subclass", selected_callnumber_prefix: selected_callnumber_prefix
+    - else
+      -# If ANY first-letter is selected, DO NOT render any other first-letters.
+      - unless params[:f] and ( params[:f][solr_field] || params[:f]["-#{solr_field}"])
+        = render_facet_value(solr_field, item)
+
+- if(paginator.has_next?)
+  .more_facets_link
+    = link_to(t('blacklight.search.facets.more'), params.merge(:id => solr_field, :action=>"facet"), :class => "more_facets_link")
+

@@ -30,7 +30,11 @@ class SavedList < ActiveRecord::Base
 
 
   def add_items_by_key(item_key_list)
+    # Force to Array
+    item_key_list = Array(item_key_list)
+    # What items are already in this list?
     current_item_keys = self.saved_list_items.map { |item| item.item_key }
+    # Add any new items, count as we go
     add_count = 0
     (item_key_list - current_item_keys).each { |item_key|
       new_item = SavedListItem.new(item_key: item_key, saved_list_id: self.id)

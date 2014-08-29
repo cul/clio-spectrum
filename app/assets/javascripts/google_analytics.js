@@ -24,26 +24,29 @@ $(document).ready(function() {
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   // Point our running instance to the appropriate GA property definition
-  // ga('create', google_analytics_web_property_id, 'columbia.edu');
-  // FOR LOCALHOST DEVELOPMENT USE THIS LINE INSTEAD
-  ga('create', google_analytics_web_property_id, 'none');
+  ga('create', google_analytics_web_property_id, 'columbia.edu');
 
+  // FOR LOCALHOST DEVELOPMENT USE THIS LINE INSTEAD
+  // ga('create', google_analytics_web_property_id, 'none');
+
+  // This sends the a normal page-view to Google Analytics.
+  // It runs once on page load.
   ga('send', 'pageview');
 
 
-
+  // The below attaches a Click-handler function to selected <A HREF> links,
+  // which will send a GA custom event when that link is clicked.
 
   // Click-Tracking as GA Events, based on:
   //   http://www.lunametrics.com/blog/2013/07/02/jquery-event-tracking
   // Apply to all off-site <A> tags, based on:
   //   http://www.electrictoolbox.com/jquery-open-offsite-links-new-window/
 
-  // $("a.linkout").each(function() {	
   $('a[href]').filter( function() {return this.hostname && this.hostname !== location.hostname} ).each(function() {
 
-    var href   = $(this).attr("href");
-    var target = $(this).attr("target");
-    var text   = $(this).text();
+    // var href   = $(this).attr("href");
+    // var target = $(this).attr("target");
+    // var text   = $(this).text();
     // console.log("found a.href href=["+href+"] text=["+text+"]")
 
     $(this).click(function(event) { // when someone clicks these links
@@ -61,13 +64,8 @@ $(document).ready(function() {
       // Should the GA label default to the text or the URL?
       var label = $(this).data("ga-label") || text;
 
-      var href_at_click = $(this).attr("href");
-      // console.log("click! href_at_click=["+href_at_click+"]")
-
       event.preventDefault(); // don't open the link yet
 
-      // _gaq.push(["_trackEvent", category, action, label]); // create a custom event
-      // _trackEvent(category, action, label)
       // console.log("ga('send','event','"+category+"','"+action+"','"+label+"')")
       ga('send', 'event', category, action, label);
 
