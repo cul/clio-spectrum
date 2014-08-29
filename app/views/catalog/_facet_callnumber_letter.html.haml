@@ -21,7 +21,9 @@
       - selected_callnumber_prefix = item.value[0] if (solr_field == "lc_1letter_facet")
       = render "catalog/facet_callnumber_subclass", selected_callnumber_prefix: selected_callnumber_prefix
     - else
-      = render_facet_value(solr_field, item)
+      -# If ANY first-letter is selected, DO NOT render any other first-letters.
+      - unless params[:f] and ( params[:f][solr_field] || params[:f]["-#{solr_field}"])
+        = render_facet_value(solr_field, item)
 
 - if(paginator.has_next?)
   .more_facets_link
