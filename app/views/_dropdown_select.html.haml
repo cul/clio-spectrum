@@ -21,7 +21,7 @@
     = dropdown_default
     %span.caret
 
-  %ul.dropdown-menu
+  %ul.dropdown-menu{style: "left: auto"}
     - field_options.each do |name, value|
       %li
         %a(href="#" data-value=value)= name
