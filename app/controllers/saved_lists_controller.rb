@@ -57,7 +57,11 @@ class SavedListsController < ApplicationController
       end
     else
       # find someone else's list
-      @list = SavedList.find_by_owner_and_slug_and_permissions(owner, slug, 'public')
+      if current_user.has_role?('site', 'admin')
+        @list = SavedList.find_by_owner_and_slug(owner, slug)
+      else
+        @list = SavedList.find_by_owner_and_slug_and_permissions(owner, slug, 'public')
+      end
     end
 
     if @list.blank?
