@@ -1,6 +1,7 @@
 site:
   manage:
     - gb8
+    - mem2308
     - sam119
     - test_site_manager
 
@@ -54,6 +55,7 @@ item_alerts:
       - mc3395
       - mcb2212
       - mdk2126
+      - mem2308
       - mlc1
       - mw18
       - mw2064
