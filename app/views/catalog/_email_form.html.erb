@@ -11,10 +11,26 @@
         <%= render :partial=>'/flash_msg' %>
         <div class="form-group">
           <label class="control-label" for="to">
-            <%= t('blacklight.email.form.to') %>
+            Send to:
           </label>
           <div class="controls">
             <%= text_field_tag :to, params[:to] %><br/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="reply_to" >
+            Your email (optional):
+          </label>
+          <div class="input-block-level">
+            <%= text_field_tag :reply_to, @reply_to %><br/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="name" >
+            Your name (optional):
+          </label>
+          <div class="controls">
+            <%= text_field_tag :name, @display_name %><br/>
           </div>
         </div>
         <div class="form-group">

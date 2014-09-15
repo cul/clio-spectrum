@@ -171,32 +171,123 @@ describe 'Catalog Interface' do
     all('.result.document').first.text.should match /Author.*Published.*Location/
   end
 
-  it 'supports an email function, directly' do
-    visit email_catalog_path(id: 12_345)
-
-    within '#email_form' do
-      fill_in 'to', with: 'marquis@columbia.edu'
-      fill_in 'message', with: 'testing'
-      find('button[type=submit]').click
+  describe 'share by email' do
+    it 'supports an email function, directly' do
+      visit email_catalog_path(id: 12_345)
+      expect(page).to have_text('Share selected item(s) via email')
+      within '#email_form' do
+        fill_in 'to', with: 'marquis@columbia.edu'
+        fill_in 'message', with: 'testing'
+        find('button[type=submit]').click
+      end
     end
 
-  end
+    it 'supports an email function, via JS modal', js: true do
+      visit catalog_path(1234)
+      within '#show_toolbar' do
+        click_link 'Email'
+      end
 
-  it 'supports an email function, via JS modal', js: true do
-    visit catalog_path(1234)
-    within '#show_toolbar' do
-      click_link 'Email'
+      page.should have_css('.modal-dialog .modal-content .modal-header')
+      #
+      # NEXT 910 - Add some directions, and optionally email and Name, to the email form
+      #
+      find('.modal-header').should have_text('Share selected item(s) via email')
+
+      within '#email_form' do
+        fill_in 'to', with: 'marquis@columbia.edu'
+        fill_in 'message', with: 'testing'
+        find('button[type=submit]').click
+      end
     end
 
-    page.should have_css('.modal-dialog .modal-content .modal-header')
-    find('.modal-header').should have_text('Email Item(s)')
-
-    within '#email_form' do
-      fill_in 'to', with: 'marquis@columbia.edu'
-      fill_in 'message', with: 'testing'
-      find('button[type=submit]').click
+    it 'should have some instructions for the user' do
+      visit email_catalog_path(id: 12_345)
+      expect(page).to have_text("Send to:")
+      expect(page).to have_text("Your email (optional):")
+      expect(page).to have_text("Your name (optional):")
+      expect(page).to have_text("Message:")
     end
 
+    it 'should show  labels for user name and email on the form' do
+      visit email_catalog_path(id: 12_345)
+      expect(page).to have_text("Your email (optional):")
+      expect(page).to have_text("Your name (optional):")
+    end
+
+    context 'when user is not logged in' do 
+      it 'should include reply-to and name if user includes them' do
+        visit email_catalog_path(id: 12_345)
+        within '#email_form' do
+          fill_in 'to', with: 'marquis@columbia.edu'
+          fill_in 'reply_to', with: 'other@columbia.edu'
+          fill_in 'name', with: 'Someone Else'
+          fill_in 'message', with: 'testing'
+          find('button[type=submit]').click
+          expect(ActionMailer::Base.deliveries[0].reply_to).to eq(['other@columbia.edu'])
+          expect(ActionMailer::Base.deliveries[0].to_s).to match('Someone Else')
+        end
+      end
+    end
+
+    it 'should not include reply-to and name if user wishes to remain anonymous' do
+      visit email_catalog_path(id: 12_345)
+      within '#email_form' do
+        fill_in 'to', with: 'marquis@columbia.edu'
+        find('button[type=submit]').click
+      end
+      expect(ActionMailer::Base.deliveries[0].reply_to).to be_empty
+    end
+    
+    context 'when user is logged in' do 
+      before do
+        @autodidact = FactoryGirl.create(:user, login: 'autodidact',
+                                         first_name: 'Auto',
+                                         last_name: 'Didact'
+                                        )
+        feature_login @autodidact
+        visit email_catalog_path(id: 12_345)
+      end
+
+      it 'should pre-fill text fields with user email and name' do
+        expect(page.find("#reply_to").value).to eq('autodidact@columbia.edu')
+        expect(page.find("#name").value).to eq("Auto Didact")
+      end
+
+      it 'should include default reply-to and name if user does nothing' do
+        visit email_catalog_path(id: 12_345)
+        within '#email_form' do
+          fill_in 'to', with: 'marquis@columbia.edu'
+          find('button[type=submit]').click
+          expect(ActionMailer::Base.deliveries[0].reply_to).to eq(['autodidact@columbia.edu'])
+          expect(ActionMailer::Base.deliveries[0].to_s).to match('Auto Didact')
+        end
+      end
+
+      it 'should allow logged in user to change reply-to and name' do
+        visit email_catalog_path(id: 12_345)
+        within '#email_form' do
+          fill_in 'to', with: 'marquis@columbia.edu'
+          fill_in 'reply_to', with: 'other@columbia.edu'
+          fill_in 'name', with: 'Someone Else'
+          find('button[type=submit]').click
+          expect(ActionMailer::Base.deliveries[0].reply_to).to eq(['other@columbia.edu'])
+          expect(ActionMailer::Base.deliveries[0].to_s).to match('Someone Else')
+        end
+      end
+
+      it 'should not include reply-to and name if user wishes to remain anonymous' do
+        visit email_catalog_path(id: 12_345)
+        within '#email_form' do
+          fill_in 'to', with: 'marquis@columbia.edu'
+          fill_in 'reply_to', with: ''
+          fill_in 'name', with: ''
+          find('button[type=submit]').click
+        end
+        expect(ActionMailer::Base.deliveries[0].reply_to).to be_empty
+        expect(ActionMailer::Base.deliveries[0].to_s).not_to match('Auto Didact')
+      end
+    end
   end
 
   it 'supports a debug mode', js: true, xfocus: true do

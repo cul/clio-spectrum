@@ -25,7 +25,7 @@ class RecordMailer < ActionMailer::Base
     @url_gen_params = url_gen_params
 
     # Action Mailer base method, uses corresponding view to generate text of the messgae
-    mail(to: details[:to], subject: subject)
+    mail(to: details[:to], reply_to: details[:reply_to], subject: subject)
   end
 
   def sms_record(documents, details, url_gen_params)
