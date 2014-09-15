@@ -10,6 +10,13 @@
 # source:
 #   https://code.google.com/p/solrmarc/source/browse/trunk/script_templates/indextest
 
+# Example run:
+# % pwd
+# /Users/marquis/src/clio-spectrum
+# % lib/scripts/indextest.sh  tmp/extracts/spectrum_subset/current/subset.mrc  config/SolrMarc/config.properties  
+# 
+
+
 E_BADARGS=65
 
 scriptdir=$( (cd -P $(dirname $0) && pwd) )
@@ -30,9 +37,9 @@ then
 fi
 
 # another variant???
-java -Dmarc.just_index_dont_add="true" -jar $scriptdir/SolrMarc.jar $1 $2 $3 
+# java -Dmarc.just_index_dont_add="true" -jar $scriptdir/SolrMarc.jar $1 $2 $3 
 
-# java -Dsolrmarc.main.class="org.solrmarc.marc.MarcPrinter" -jar $scriptdir/SolrMarc.jar index $1 $2 $3 $4 $5 $6
+java -Dsolrmarc.main.class="org.solrmarc.marc.MarcPrinter" -jar $scriptdir/SolrMarc.jar index $1 $2 $3 $4 $5 $6
 
 exit 0
 
