@@ -203,7 +203,7 @@ describe 'Catalog Interface' do
 
     it 'should have some instructions for the user' do
       visit email_catalog_path(id: 12_345)
-      expect(page).to have_text("Send to:")
+      expect(page).to have_text("Send to (comma-separated list of emails):")
       expect(page).to have_text("Your email (optional):")
       expect(page).to have_text("Your name (optional):")
       expect(page).to have_text("Message:")
