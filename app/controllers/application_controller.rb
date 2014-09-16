@@ -343,7 +343,7 @@ class ApplicationController < ActionController::Base
   # Email Action (this will render the appropriate view on GET requests and process the form and send the email on POST requests)
   def email
     mail_to = params[:to]
-    #allow user to enter email address and name to include in email (NEXT-810)
+    #allow user to enter email address and name to include in email (NEXT-910)
     if params[:reply_to]
       reply_to = Mail::Address.new params[:reply_to]
       reply_to.display_name = params[:name]
