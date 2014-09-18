@@ -532,14 +532,15 @@ module DisplayHelper
     end
 
     if format =~ /journal/i
-      # JOURNAL-SPECIFIC FIELDS
       fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
       # title is redundantly given as "atitle" for books
       document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
         fields.push("rft.atitle=#{ CGI.escape(title) }")
       end
+    elsif format =~ /Music \- Recording/i
+      fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:dc')
+      fields.push('rft.type=audioRecording')
     else
-      # BOOK-SPECIFIC FIELDS
       fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:book')
       # title is redundantly given as "btitle" for books
       document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
@@ -564,6 +565,8 @@ module DisplayHelper
       'conference'
     when /report/i
       'report'
+    when /Music \- Recording/i
+      'music'
     else
       # http://ocoins.info/cobgbook.html
       # "general document type to be used when available data elements
