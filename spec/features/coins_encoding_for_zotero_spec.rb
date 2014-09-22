@@ -2,11 +2,27 @@ require 'spec_helper'
 
 describe 'coins encoding for zotero' do
   context 'catalog' do
-    context 'item view' do
-      it 'has the correct coins for an audio recording' do
-        visit 'http://clio.columbia.edu/catalog/10922430'
-        coins = CGI.unescape find("//span[@class='Z3988']")['title']
-        expect(coins).to match(/fmt:kev:mtx:dc&rft\.type=audioRecording/)
+    context 'in single item view' do
+      context 'music recording' do
+        it 'has the correct coins format' do
+          visit 'http://clio.columbia.edu/catalog/10922430'
+          coins = CGI.unescape find("//span[@class='Z3988']")['title']
+          expect(coins).to match(/fmt:kev:mtx:dc&rft\.type=audioRecording/)
+        end
+      end
+      context 'printed book' do
+        it 'has the correct coins format' do
+          visit 'http://clio.columbia.edu/catalog/4359539'
+          coins = CGI.unescape find("//span[@class='Z3988']")['title']
+          expect(coins).to match(/fmt:kev:mtx:book/)
+        end
+      end
+      context 'ebook' do
+        it 'has the correct coins format' do
+          visit 'http://clio.columbia.edu/catalog/7928264'
+          coins = CGI.unescape find("//span[@class='Z3988']")['title']
+          expect(coins).to match(/fmt:kev:mtx:book/)
+        end
       end
     end
     context 'search results view' do
