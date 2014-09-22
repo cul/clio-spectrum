@@ -579,15 +579,22 @@ module DisplayHelper
   # (key-encoded value) query string.
   # For use to create COinS, among other things. COinS are
   # for Zotero, among other things.
+  #
+  # request.original_url
+  #
   def ac_to_openurl_ctx_kev(document)
     fields = []
 
     fields.push('ctx_ver=Z39.88-2004')
-    fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
 
     # Many fields used to be arrays on katana, but on macana appear to be strings?
     # Defend ourselves by using Array.wrap() on everything.
 
+    if Array.wrap(document[:type_of_resource_mods])[0].match(/recording/i)
+      fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:dc&rft.type=audioRecording&rft.genre=music')
+    else
+      fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
+    end
     Array.wrap(document[ :id]).each do |id|
       document_url = 'http://academiccommons.columbia.edu/catalog/' + id
       fields.push("rft_id=#{ CGI.escape(document_url) }")
