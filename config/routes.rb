@@ -127,4 +127,11 @@ Clio::Application.routes.draw do
   get 'catalog/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_catalog"
   get "catalog/endnote", :as => "endnote_catalog"
 
+  # Call-Number Browse, taken from Stanford Searchworks
+  resources :browse, only: :index
+  get "browse/nearby" => "browse#nearby"
+
+
 end
+
+
