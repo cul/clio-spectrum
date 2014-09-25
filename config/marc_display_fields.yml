@@ -352,7 +352,7 @@ performers:
 provenance:
     -   tag: 561
         display: a3
-publisher:
+publish:
     -   tag: 260
         display: abcefg3
     -   tag: 261
@@ -360,9 +360,31 @@ publisher:
     -   tag: 262
         display: abckl
     -   tag: 264
+        ind1: :all
+        ind2: '1'
         display: abc3
     -   tag: 270
         display: abcdefghijklmnpqrz
+publish_produce:
+    -   tag: 264
+        ind1: :all
+        ind2: '0'
+        display: abc3
+publish_distribute:
+    -   tag: 264
+        ind1: :all
+        ind2: '2'
+        display: abc3
+publish_manufacture:
+    -   tag: 264
+        ind1: :all
+        ind2: '3'
+        display: abc3
+publish_copyright:
+    -   tag: 264
+        ind1: :all
+        ind2: '4'
+        display: abc3
 publisher_no:
     -   tag: '028'
         display: ab
