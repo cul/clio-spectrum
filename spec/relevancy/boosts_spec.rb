@@ -44,7 +44,7 @@ describe 'Boosts' do
 
   it "morningstar" do
     resp = solr_resp_doc_ids_only('q' => 'morningstar')
-    resp.should include('9549367').in_first(1).results
+    resp.should include('10516547').in_first(1).results
   end
 
   it "wall street journal" do
