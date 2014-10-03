@@ -9,9 +9,12 @@ Columbia Libraries Unified Search &amp; Discovery
   - install XCode from app store and Xcode command line tools 
   - install [mysql]( http://dev.mysql.com/downloads/mysql/ )
   - install [homebrew](http://brew.sh/)
-    ````ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"````
+        ````
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        ````
   - install git
-    ````brew install git````
+  
+        ````brew install git````
 
 2.  Get set up with git
   - Create an account on github.com if you don't already have one.
