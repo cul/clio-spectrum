@@ -31,13 +31,11 @@ Columbia Libraries Unified Search &amp; Discovery
 
 
 3.  Install [rvm](http://rvm.io/rvm/install)
-
         ````
         \curl -sSL https://get.rvm.io | bash -s stable --ruby
         ````
   
 4. Install Qt webchain [more information](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit
-
         ````
         brew install qt
         ````
