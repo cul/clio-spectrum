@@ -52,4 +52,4 @@ Columbia Libraries Unified Search &amp; Discovery
         git clone https://github.com/yourusername/clio-spectrum
         ````
 
-6. Install config files
+  - install config files
