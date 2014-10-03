@@ -27,10 +27,12 @@ Columbia Libraries Unified Search &amp; Discovery
         git config --global user.name "Your Name"
         git config --global user.email "your_email@whatever.com"
         ````
+
   - Install [github for mac](http://mac.github.com/) (optional) 
 
 
 3.  Install [rvm](http://rvm.io/rvm/install)
+
         ````
         \curl -sSL https://get.rvm.io | bash -s stable --ruby
         ````
