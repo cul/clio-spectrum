@@ -18,6 +18,18 @@ Columbia Libraries Unified Search &amp; Discovery
         ````
         brew install git
         ````
+  - install [rvm](http://rvm.io/rvm/install)
+
+        ````
+        \curl -sSL https://get.rvm.io | bash -s stable --ruby
+        ````
+  
+  - install Qt webchain [more information](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
+
+        ````
+        brew install qt
+        ````
+
 
 2.  Get set up with git
   - Create an account on github.com if you don't already have one.
@@ -31,17 +43,6 @@ Columbia Libraries Unified Search &amp; Discovery
   - Install [github for mac](http://mac.github.com/) (optional) 
 
 
-3.  Install [rvm](http://rvm.io/rvm/install)
-
-        ````
-        \curl -sSL https://get.rvm.io | bash -s stable --ruby
-        ````
-  
-4. Install Qt webchain [more information](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
-
-        ````
-        brew install qt
-        ````
 
 5. Fork the https://github.com/cul/clio-spectrum repo (fork button at top right of github web interface)
 
