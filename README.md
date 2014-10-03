@@ -44,13 +44,12 @@ Columbia Libraries Unified Search &amp; Discovery
 
 
 
-5. Fork the https://github.com/cul/clio-spectrum repo (fork button at top right of github web interface)
-
-6. Clone the new forked repo onto your dev machine
+5. Set up your local repo
+  - fork the https://github.com/cul/clio-spectrum repo (fork button at top right of github web interface)
+  - clone the new forked repo onto your dev machine
  
-
         ````
         git clone https://github.com/yourusername/clio-spectrum
         ````
 
-7. Install config files
+6. Install config files
