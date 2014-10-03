@@ -10,9 +10,9 @@ Columbia Libraries Unified Search &amp; Discovery
   - install [mysql]( http://dev.mysql.com/downloads/mysql/ )
   - install [homebrew](http://brew.sh/)
   
-````
+        ````
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-````
+        ````
   - install git
   
         ````
