@@ -32,8 +32,8 @@ Columbia Libraries Unified Search &amp; Discovery
 
 
 2.  Get set up with git
-  - Create an account on github.com if you don't already have one.
-  - Configure your git user name and email.
+  - Create an account on github.com if you don't already have one
+  - Configure your git user name and email
   
         ````
         git config --global user.name "Your Name"
