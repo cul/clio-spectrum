@@ -24,7 +24,7 @@ Columbia Libraries Unified Search &amp; Discovery
         \curl -sSL https://get.rvm.io | bash -s stable --ruby
         ````
   
-  - install Qt webchain [more information](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
+  - install Qt webkit [more information](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
 
         ````
         brew install qt
@@ -40,7 +40,7 @@ Columbia Libraries Unified Search &amp; Discovery
         git config --global user.email "your_email@whatever.com"
         ````
 
-  - Install [github for mac](http://mac.github.com/) (optional) 
+  - Install [github for mac](http://mac.github.com/) (optional, but has some nice features) 
 
 
 
