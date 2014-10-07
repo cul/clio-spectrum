@@ -502,6 +502,7 @@ module DisplayHelper
   # (key-encoded value) query string.
   # For use to create COinS, among other things. COinS are
   # for Zotero, among other things.
+
   def catalog_to_openurl_ctx_kev(document)
     return '' unless document
     fail 'Document has no format!  ' + document.id unless document[:format]
@@ -510,15 +511,17 @@ module DisplayHelper
     fields = []
     fields.push('ctx_ver=Z39.88-2004')
 
-    document[ :author_display] && document[ :author_display].each do |author|
+    document[:author_display] && document[:author_display].each do |author|
       fields.push("rft.au=#{ CGI.escape(author) }")
     end
+
+    fields.push("rft.au=#{ CGI.escape(' ') }") unless document[:author_display]
 
     document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
       fields.push("rft.title=#{ CGI.escape(title) }")
     end
 
-    document[ :full_publisher_display] && document[ :full_publisher_display].each do |publisher|
+    document[ :pub_name_display] && document[ :pub_name_display].each do |publisher|
       fields.push("rft.pub=#{ CGI.escape(publisher) }")
     end
 
@@ -529,15 +532,11 @@ module DisplayHelper
     document[ :pub_place_display] && Array.wrap(document[ :pub_place_display]).each do |pub_place|
       fields.push("rft.place=#{ CGI.escape(pub_place) }")
     end
-
-    # '_sort' fields are not multi-valued - can't do .each
-#    document[ :pub_date_sort] && Array.wrap(document[ :pub_date_sort]).each do |pub_date_sort|
-#      fields.push("rft.date=#{ CGI.escape(pub_date_sort.to_s) }")
-#    end
-
+    
     document[ :isbn_display] && document[ :isbn_display].each do |isbn|
       fields.push("rft.isbn=#{ CGI.escape(isbn) }")
     end
+    
     if format =~ /journal/i
       fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
       # title is redundantly given as "atitle" for books
