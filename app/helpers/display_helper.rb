@@ -515,7 +515,7 @@ module DisplayHelper
       fields.push("rft.au=#{ CGI.escape(author) }")
     end
 
-    fields.push("rft.au=#{ CGI.escape(' ') }") unless document[:author_display]
+  #  fields.push("rft.au=#{ CGI.escape(' ') }") unless document[:author_display]
 
     document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
       fields.push("rft.title=#{ CGI.escape(title) }")
