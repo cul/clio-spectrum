@@ -40,11 +40,11 @@ Columbia Libraries Unified Search &amp; Discovery
         git config --global user.email "your_email@whatever.com"
         ````
 
-  - Install [github for mac](http://mac.github.com/) (optional, but has some nice features) 
+  - Install [github for mac](http://mac.github.com/) (optional, but has some very nice features) 
 
 
 
-5. Set up your local repo
+5. [Fork and clone](https://help.github.com/articles/fork-a-repo/) the repo
   - fork the https://github.com/cul/clio-spectrum repo (fork button at top right of github web interface)
   - clone the new forked repo onto your dev machine
  
@@ -52,4 +52,12 @@ Columbia Libraries Unified Search &amp; Discovery
         git clone https://github.com/yourusername/clio-spectrum
         ````
 
-  - install config files
+6.  Rename the config files
+  - rename `config/solr.yml.SAMPLE` to `config/solr.yml`
+
+  - rename `config/database.yml.SAMPLE` to `config/database.yml`
+
+  - rename `config/app_config.yml.SAMPLE` to `config/app_config.yml`
+  
+  
+6.  
