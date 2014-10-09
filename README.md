@@ -54,20 +54,21 @@ Columbia Libraries Unified Search &amp; Discovery
         git clone https://github.com/yourusername/clio-spectrum
         ````
  
-4. `cd clio-spectrum`
+4. Prepare your development environment
+ - change to the app directory`cd clio-spectrum`
 
-5. `git checkout develop`
+ - `git checkout develop`
 
-6. run `bundle install` to get the gems 
+ - run `bundle install` to get the gems 
         
-7. run the database migrations `rake db:migrate`
+ - run the database migrations `rake db:migrate`
 
-8. Rename the config files
-    ````
-    mv config/solr.yml.SAMPLE config/solr.yml
-    mv config/database.yml.SAMPLE config/database.yml
-    mv config/app_config.yml.SAMPLE config/app_config.yml
-    ````
+ - rename the config files
+        ````
+        mv config/solr.yml.SAMPLE config/solr.yml
+        mv config/database.yml.SAMPLE config/database.yml
+        mv config/app_config.yml.SAMPLE config/app_config.yml
+        ````
 6. Start the server `rails s`
 
 7. Visit the running app in your browser at `localhost:3000`
