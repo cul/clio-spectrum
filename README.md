@@ -61,15 +61,15 @@ Columbia Libraries Unified Search &amp; Discovery
 
 5. Rename the config files
     ````
-        mv config/solr.yml.SAMPLE config/solr.yml
-        mv config/database.yml.SAMPLE config/database.yml
-        mv config/app_config.yml.SAMPLE config/app_config.yml
+    mv config/solr.yml.SAMPLE config/solr.yml
+    mv config/database.yml.SAMPLE config/database.yml
+    mv config/app_config.yml.SAMPLE config/app_config.yml
     ````
   
 6. Start the server
 
     ````
-        rails s
+    rails s
     ````
     
 7. Visit the running app at `localhost:3000`
