@@ -44,7 +44,7 @@ Columbia Libraries Unified Search &amp; Discovery
 
 
 
-5. [Fork and clone](https://help.github.com/articles/fork-a-repo/) the repo
+3. [Fork and clone](https://help.github.com/articles/fork-a-repo/) the repo
   - fork the https://github.com/cul/clio-spectrum repo (fork button at top right of github web interface)
   - clone the new forked repo onto your dev machine
  
@@ -52,24 +52,22 @@ Columbia Libraries Unified Search &amp; Discovery
         git clone https://github.com/yourusername/clio-spectrum
         ````
 
-6.  Change to the app directory 
+4.   Change to the app directory 
+````
+    cd clio-spectrum
+````
 
-        ````
-        cd clio-spectrum
-        ````
-
-7.  Rename the config files
-
-        ````
+5.  Rename the config files
+````
         mv config/solr.yml.SAMPLE config/solr.yml
         mv config/database.yml.SAMPLE config/database.yml
         mv config/app_config.yml.SAMPLE config/app_config.yml
-        ````
+````
   
-8.  Start the server
+6.  Start the server
 
-        ````
+````
         rails s
-        ````
+````
     
-9.  Visit the running app at `localhost:3000`
+7.  Visit the running app at `localhost:3000`
