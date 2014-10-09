@@ -78,14 +78,14 @@ Columbia Libraries Unified Search &amp; Discovery
 
 **Contributing to CLIO**
 
-GitHub has an excellent visual tutorial on the [GitHub workflow](https://guides.github.com/introduction/flow/index.html).  Please note that CLIO pull requests should be made against the **develop** branch, not the master branch.
+GitHub has a visual tutorial on the [GitHub workflow](https://guides.github.com/introduction/flow/index.html).  Please note that CLIO pull requests should be made against the **develop** branch, not the master branch.
 
 1. Create a feature branch off the develop branch
 
   ````
-  git fetch origin`
+  git fetch origin
   git checkout origin/develop
-  git checkout -b your-new-brach
+  git checkout -b your-new-branch
   ````
 2. Make and commit your changes
 
