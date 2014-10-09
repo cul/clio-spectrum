@@ -54,12 +54,12 @@ Columbia Libraries Unified Search &amp; Discovery
         git clone https://github.com/yourusername/clio-spectrum
         ````
  
-4. Prepare your development environment
+4. Prepare your local environment
  - change to the app directory`cd clio-spectrum`
 
- - `git checkout develop`
+ - check out the develop branch `git checkout develop`
 
- - run `bundle install` to get the gems 
+ - run `bundle` to install the gems 
         
  - run the database migrations `rake db:migrate`
 
@@ -72,3 +72,13 @@ Columbia Libraries Unified Search &amp; Discovery
 6. Start the server `rails s`
 
 7. Visit the running app in your browser at `localhost:3000`
+
+
+**Contributing to CLIO**
+
+1. Create a feature branch off the develop branch
+  ````
+  git fetch origin`
+  git checkout origin/develop
+  git checkout -b your-new-brach
+  ````
