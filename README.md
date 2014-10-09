@@ -34,8 +34,8 @@ Columbia Libraries Unified Search &amp; Discovery
 
 
 2.  Get set up with git
-  - Create an account on github.com if you don't already have one
-  - Configure your git user name and email
+  - create an account on github.com if you don't already have one
+  - configure your git user name and email
   
         ````
         git config --global user.name "Your Name"
@@ -73,8 +73,12 @@ Columbia Libraries Unified Search &amp; Discovery
 
 7. Visit the running app in your browser at `localhost:3000`
 
+8. Run the test suite `rspec`
+
 
 **Contributing to CLIO**
+
+GitHub has a visual tutorial on the [GitHub workflow](https://guides.github.com/introduction/flow/index.html).  Note that CLIO pull requests should be made against the *develop*, rather than the master branch.
 
 1. Create a feature branch off the develop branch
 
@@ -83,3 +87,6 @@ Columbia Libraries Unified Search &amp; Discovery
   git checkout origin/develop
   git checkout -b your-new-brach
   ````
+2. Make and commit your changes
+3. Assure that the test suite is all green
+3. Submit a pull request to the develop branch
