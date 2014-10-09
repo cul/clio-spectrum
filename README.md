@@ -77,6 +77,7 @@ Columbia Libraries Unified Search &amp; Discovery
 **Contributing to CLIO**
 
 1. Create a feature branch off the develop branch
+
   ````
   git fetch origin`
   git checkout origin/develop
