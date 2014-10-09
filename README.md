@@ -6,8 +6,10 @@ Columbia Libraries Unified Search &amp; Discovery
 **Getting started on OSX**
 
 1. Install tools
-  - install XCode from app store and Xcode command line tools 
+  - install XCode from app store and Xcode command line tools
+
   - install [mysql]( http://dev.mysql.com/downloads/mysql/ )
+
   - install [homebrew](http://brew.sh/)
   
         ````
