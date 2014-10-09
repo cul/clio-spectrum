@@ -52,12 +52,24 @@ Columbia Libraries Unified Search &amp; Discovery
         git clone https://github.com/yourusername/clio-spectrum
         ````
 
-6.  Rename the config files
-  - rename `config/solr.yml.SAMPLE` to `config/solr.yml`
+6.  Change to the app directory 
 
-  - rename `config/database.yml.SAMPLE` to `config/database.yml`
+        ````
+        cd clio-spectrum
+        ````
 
-  - rename `config/app_config.yml.SAMPLE` to `config/app_config.yml`
+7.  Rename the config files
+
+        ````
+        mv config/solr.yml.SAMPLE config/solr.yml
+        mv config/database.yml.SAMPLE config/database.yml
+        mv config/app_config.yml.SAMPLE config/app_config.yml
+        ````
   
-  
-6.  
+8.  Start the server
+
+        ````
+        rails s
+        ````
+    
+9.  Visit the running app at `localhost:3000`
