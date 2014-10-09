@@ -73,12 +73,12 @@ Columbia Libraries Unified Search &amp; Discovery
 
 7. Visit the running app in your browser at `localhost:3000`
 
-8. Run the test suite `rspec`
+8. Run the test suite `rspec` and ensure that all tests are passing (green)
 
 
 **Contributing to CLIO**
 
-GitHub has a visual tutorial on the [GitHub workflow](https://guides.github.com/introduction/flow/index.html).  Note that CLIO pull requests should be made against the *develop*, rather than the master branch.
+GitHub has an excellent visual tutorial on the [GitHub workflow](https://guides.github.com/introduction/flow/index.html).  Please note that CLIO pull requests should be made against the **develop**, rather than the master branch.
 
 1. Create a feature branch off the develop branch
 
@@ -88,5 +88,7 @@ GitHub has a visual tutorial on the [GitHub workflow](https://guides.github.com/
   git checkout -b your-new-brach
   ````
 2. Make and commit your changes
+
 3. Assure that the test suite is all green
-3. Submit a pull request to the develop branch
+
+4. Submit a pull request to the develop branch
