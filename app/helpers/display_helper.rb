@@ -515,8 +515,6 @@ module DisplayHelper
       fields.push("rft.au=#{ CGI.escape(author) }")
     end
 
-  #  fields.push("rft.au=#{ CGI.escape(' ') }") unless document[:author_display]
-
     document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
       fields.push("rft.title=#{ CGI.escape(title) }")
     end
@@ -532,14 +530,17 @@ module DisplayHelper
     document[ :pub_place_display] && Array.wrap(document[ :pub_place_display]).each do |pub_place|
       fields.push("rft.place=#{ CGI.escape(pub_place) }")
     end
-    
+
     document[ :isbn_display] && document[ :isbn_display].each do |isbn|
       fields.push("rft.isbn=#{ CGI.escape(isbn) }")
     end
-    
+
+    document[:subject_txt] && document[:subject_txt].each do |author|
+      fields.push("rft.subject=#{ CGI.escape(author) }")
+    end
+
     if format =~ /journal/i
       fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
-      # title is redundantly given as "atitle" for books
       document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
         fields.push("rft.atitle=#{ CGI.escape(title) }")
       end
@@ -550,12 +551,14 @@ module DisplayHelper
       fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:dc')
       fields.push('rft.type=videoRecording')
     else
-      fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:book')
-      # title is redundantly given as "btitle" for books
-      document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
-        fields.push("rft.btitle=#{ CGI.escape(title) }")
-      end
+      #fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:book')
+      #document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
+      #  fields.push("rft.btitle=#{ CGI.escape(title) }")
+      #end
+      fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:dc')
+      fields.push('rft.type=book')
     end
+
     genre = format_to_rft_genre(format)
     fields.push("rft.genre=#{ CGI.escape(genre) }") if genre
 
