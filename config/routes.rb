@@ -1,5 +1,8 @@
 Clio::Application.routes.draw do
 
+  # This is getting masked.... try it up here?
+  get "catalog/endnote", :as => "endnote_catalog"
+
   # resources :saved_list_items
   resources :saved_lists
 
@@ -125,7 +128,6 @@ Clio::Application.routes.draw do
 
   # Catalog stuff.
   get 'catalog/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_catalog"
-  get "catalog/endnote", :as => "endnote_catalog"
 
   # Call-Number Browse, based on Stanford Searchworks
   resources :browse, only: :index

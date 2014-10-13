@@ -13,6 +13,9 @@ class CatalogController < ApplicationController
   prepend_before_filter :preprocess_search_params
   before_filter :add_custom_solr_search_params_logic
 
+  # Bring in endnote export, etc.
+  include Blacklight::Marc::Catalog
+
   include Blacklight::Catalog
   include Blacklight::Configurable
   # include BlacklightUnapi::ControllerExtension
