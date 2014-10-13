@@ -53,8 +53,8 @@ class BrowseController < ApplicationController
     # all shelfkeys in Solr are normalized to lower-case
     @shelfkey = params[:shelfkey].downcase
 
-    before_count = params[:before] || 4
-    after_count  = params[:after] || 5
+    before_count = (params[:before] || 4).to_i
+    after_count  = (params[:after] || 5).to_i
 
     # A Browse-Item is a hash reflecting a doc with it's currently 
     # activated position within the browse context:
@@ -66,7 +66,7 @@ class BrowseController < ApplicationController
     # }
     @browse_item_list = shelfkey_to_item_list(@shelfkey, before_count, after_count)
 
-    render 'shelfkey', layout: false
+    render layout: false
   end
 
 
@@ -77,8 +77,8 @@ class BrowseController < ApplicationController
     # all shelfkeys in Solr are normalized to lower-case
     @shelfkey = params[:shelfkey].downcase
 
-    before_count = params[:before] || 3
-    after_count  = params[:after] || 16
+    before_count = (params[:before] || 3).to_i
+    after_count  = (params[:after] || 16).to_i
 
     # A Browse-Item is a hash reflecting a doc with it's currently 
     # activated position within the browse context:
@@ -90,7 +90,7 @@ class BrowseController < ApplicationController
     # }
     @browse_item_list = shelfkey_to_item_list(@shelfkey, before_count, after_count)
 
-    render 'shelfkey', layout: 'quicksearch'
+    render layout: 'quicksearch'
   end
 
 

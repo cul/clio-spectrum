@@ -55,7 +55,8 @@
       -# holdings-display (Voyager), holdings-google, and holdings-hathi
       = render "_formats/clio/catalog_show_holdings", :document => document
 
-  - if current_user.present? and current_user.has_role?('site', 'preview')
+  -# - if current_user.present? and current_user.has_role?('site', 'pilot')
+  - unless Rails.env == 'clio_prod'
     - if document['shelfkey']
       - first_shelfkey = Array( document['shelfkey']).first
       .row
@@ -66,8 +67,8 @@
                 %h4= "Browse Nearby"
               .col-xs-3
                 = link_to "Full Screen", browse_shelfkey_full_path( first_shelfkey)
-                .col-xs-6
-                  -# = call_number_toggles(document)
+              .col-xs-6
+                -# = call_number_toggles(document)
             .row
               .col-xs-12
                 = render "/_formats/clio/catalog_show_nearby", document: document

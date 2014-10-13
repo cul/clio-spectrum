@@ -12,6 +12,17 @@
         %span.icon-bar
 
       .navbar-text
+        -# link to previous...
+        = link_to "« Previous", browse_shelfkey_full_path(shelfkey: first_shelfkey, before: 19, after: 0)
+        
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        
+        -# link to next...
+        = link_to "Next »", browse_shelfkey_full_path(shelfkey: last_shelfkey, before: 0, after: 19)
+
+
         -# = fix_catalog_links(render :partial => "paginate_compact", :object => @response)
       
         -# = fix_catalog_links(link_to image_tag('rss-feed-icon-14x14.png', :size => "13x13"), catalog_index_path(params.merge(:format => 'atom')), :class => "rss-feed hidden-xs")
@@ -28,7 +39,7 @@
       
           -# Allow "selections" for any Catalog-based data source, but NOT for Academic Commons
           - if @active_source != 'academic_commons'
-            = render 'selections_widget'
+            = render '/catalog/selections_widget'
 
       .navbar-text.visible-xs
         = link_to "Start Over", catalog_index_path
