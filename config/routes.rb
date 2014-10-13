@@ -134,8 +134,8 @@ Clio::Application.routes.draw do
   # get 'browse/shelfkey/:shelfkey', to: 'browse#shelfkey', as: :browse_shelfkey
   # get "browse/nearby" => "browse#nearby"
   # Use distinct URLs for xhr v.s. html, to avoid cached-page problems
-  get 'browse/shelfkey_mini/:shelfkey', to: 'browse#shelfkey_mini', as: :browse_shelfkey_mini
-  get 'browse/shelfkey_full/:shelfkey', to: 'browse#shelfkey_full', as: :browse_shelfkey_full
+  get 'browse/shelfkey_mini/:shelfkey', to: 'browse#shelfkey_mini', as: :browse_shelfkey_mini, :constraints => { :shelfkey => /[^\/]*/ }
+  get 'browse/shelfkey_full/:shelfkey', to: 'browse#shelfkey_full', as: :browse_shelfkey_full, :constraints => { :shelfkey => /[^\/]*/ }
 
 
 end

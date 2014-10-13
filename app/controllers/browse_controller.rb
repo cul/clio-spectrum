@@ -48,8 +48,8 @@ class BrowseController < ApplicationController
   #### Name our XHR handler "_mini" and our HTML handler "_full", so that
   #### they have different URLs, so they cache distinctly in client browsers.
   def shelfkey_mini
-    return unless request.xhr?
-    return unless params[:shelfkey].present?
+    render nothing: true and return unless request.xhr?
+    render nothing: true and return unless params[:shelfkey].present?
     # all shelfkeys in Solr are normalized to lower-case
     @shelfkey = params[:shelfkey].downcase
 
@@ -64,6 +64,7 @@ class BrowseController < ApplicationController
     #   active_shelfkey:
     #   active_reverse_shelfkey:
     # }
+    # raise
     @browse_item_list = shelfkey_to_item_list(@shelfkey, before_count, after_count)
 
     render layout: false
@@ -71,8 +72,8 @@ class BrowseController < ApplicationController
 
 
   def shelfkey_full
-    return if request.xhr?
-    return unless params[:shelfkey].present?
+    render nothing: true and return if request.xhr?
+    render nothing: true and return unless params[:shelfkey].present?
 
     # all shelfkeys in Solr are normalized to lower-case
     @shelfkey = params[:shelfkey].downcase
