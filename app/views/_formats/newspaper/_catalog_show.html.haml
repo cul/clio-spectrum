@@ -37,6 +37,7 @@
   = add_row("Medical Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_mesh')))
   = add_row("Subjects (Genre)", generate_value_links_subject(display_marc_field(marc, 'subject_genre')))
   = add_row("Also Listed Under", generate_value_links(display_marc_field(marc, 'author_other'), :author))
+  = add_row("Contents", display_marc_field(marc, 'contents'))
   = add_row("Other Titles", display_marc_field(marc, 'title_other'))
   = add_row("Distinctive Title", display_marc_field(marc, 'title_distinctive'))
   = add_row("Cover Title", display_marc_field(marc, 'title_cover'))
