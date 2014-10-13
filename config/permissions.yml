@@ -5,6 +5,17 @@ site:
     - sam119
     - test_site_manager
 
+  preview:
+    - gb8
+    - mem2308
+    - sam119
+    - hhb2119
+    - jrl2132
+    - trd2119
+    - mw18
+    - shs4
+    - witte
+
 item_alerts:
   manage:
       - aj204

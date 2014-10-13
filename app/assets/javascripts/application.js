@@ -65,6 +65,7 @@
 //= require item_actions
 //= require item_alerts
 //= require ldpd_feedback
+//= require nearby
 //= require saved_lists
 
 

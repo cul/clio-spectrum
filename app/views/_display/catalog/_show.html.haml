@@ -29,6 +29,9 @@
 
       -# On narrow screen (single-column of div.info, div.holdings), make sure 
       -# div.info expands enough to prevent overlapping by the holdings box
+      -# NOTE: to force side-by-side print output, we've added "col-xs-6" to both
+      -# info and holdings.  But this also means we never stack on small devices.
+      -# Not optimal.
       .clear-both
 
     .holdings-container.col-sm-6.col-xs-6
@@ -48,12 +51,28 @@
             - if alert.active?
               = add_row(ItemAlert::ALERT_TYPES['access_requirements'], alert[:message], options = {:html_safe => true})
   
-  
-      .xholdings-container
-        -# this partial renders, in turn, static html for holdings-online,
-        -# holdings-display (Voyager), holdings-google, and holdings-hathi
-        = render "_formats/clio/catalog_show_holdings", :document => document
+      -# this partial renders, in turn, static html for holdings-online,
+      -# holdings-display (Voyager), holdings-google, and holdings-hathi
+      = render "_formats/clio/catalog_show_holdings", :document => document
 
+  - if current_user.present? and current_user.has_role?('site', 'preview')
+    - if document['shelfkey']
+      - first_shelfkey = Array( document['shelfkey']).first
+      .row
+        .col-sm-12.col-xs-12
+          .well
+            .row
+              .col-xs-3
+                %h4= "Browse Nearby"
+              .col-xs-3
+                = link_to "Full Screen", browse_shelfkey_full_path( first_shelfkey)
+                .col-xs-6
+                  -# = call_number_toggles(document)
+            .row
+              .col-xs-12
+                = render "/_formats/clio/catalog_show_nearby", document: document
+    
+      
   .clear-both
     -# this partial inserts the javascript to fetch book data from Google,
     -# and pass it to update_book_jackets() [defined in holdings.js]

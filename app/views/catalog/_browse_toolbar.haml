@@ -1,0 +1,36 @@
+
+-# CALL-NUMBER BROWSE NEARBY TOOLBAR CONTROLS
+
+%nav.index_toolbar.navbar.navbar-default
+
+  .container-fluid
+
+    .navbar-header
+      %button.navbar-toggle{type: 'button', data: {toggle: 'collapse', target: '.index-toolbar-collapse'}}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+
+      .navbar-text
+        -# = fix_catalog_links(render :partial => "paginate_compact", :object => @response)
+      
+        -# = fix_catalog_links(link_to image_tag('rss-feed-icon-14x14.png', :size => "13x13"), catalog_index_path(params.merge(:format => 'atom')), :class => "rss-feed hidden-xs")
+
+
+    .index-toolbar-collapse.navbar-collapse.collapse
+
+      %ul.nav.navbar-nav.navbar-right
+
+        %li.dropdown
+
+          -# = fix_catalog_links(render 'per_page_widget')
+          -# = fix_catalog_links(render 'sort_widget')
+      
+          -# Allow "selections" for any Catalog-based data source, but NOT for Academic Commons
+          - if @active_source != 'academic_commons'
+            = render 'selections_widget'
+
+      .navbar-text.visible-xs
+        = link_to "Start Over", catalog_index_path
+      
+

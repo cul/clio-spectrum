@@ -1,4 +1,8 @@
 
+-# catalog search-results listing, LIST format
+
+/ catalog/_list.html.haml
+
 - documents.each_with_index do |document, counter|
   = render_document_view(document, :format => 'clio', :template => 'catalog_list', :counter => counter + 1 + @response.params[:start].to_i)
 
