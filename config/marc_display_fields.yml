@@ -176,8 +176,6 @@ notes:
         display: a
     -   tag: 504
         display: ab
-    -   tag: 508
-        display: a
     -   tag: 513
         display: ab
     -   tag: 518
@@ -293,8 +291,6 @@ notes_music_recording:
     -   tag: 254
         display: a
     -   tag: 500
-        display: a
-    -   tag: 508
         display: a
     -   tag: 518
         display: a3

@@ -48,6 +48,7 @@
   = add_row("Frequency", display_marc_field(marc, 'frequency'))
   = add_row("Notes", display_marc_field(marc, 'notes_serial'))
   = add_row("Other Information:", display_unlinked_880_field(marc))
+  = add_row("Credits", display_marc_field(marc, 'credits'))
   = add_row("Reproduction Note", display_marc_field(marc, 'reproduction_note'))
   = add_row("Language", document["language_facet"], :join => '; ')
   = add_row("LCCN", display_marc_field(marc, 'LCCN'))
