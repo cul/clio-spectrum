@@ -59,6 +59,9 @@ changed_back_to:
         ind2: '8'
         display: abcdghkmnst
         search: t
+cite_as:
+    -   tag: 524
+        display: a3
 constituent_items:
     -   tag: 789
         display: 1livtncdpo
@@ -172,25 +175,21 @@ notes:
         display: a
     -   tag: 502
         display: a
-    -   tag: 503
-        display: a
     -   tag: 504
         display: ab
-    -   tag: 508
-        display: a
     -   tag: 513
         display: ab
+    -   tag: 515
+        display: a
+    -   tag: 516
+        display: a
     -   tag: 518
         display: a3
     -   tag: 521
         display: ab3
     -   tag: 522
         display: a
-    -   tag: 523
-        display: ab
     -   tag: 525
-        display: a
-    -   tag: 527
         display: a
     -   tag: 530
         display: abcd3
@@ -198,8 +197,8 @@ notes:
         display: abcefklmnopt
     -   tag: 535
         display: abcdg3
-    -   tag: 537
-        display: a
+    -   tag: 536
+        display: abcdefgh
     -   tag: 547
         display: a
     -   tag: 550
@@ -214,8 +213,6 @@ notes:
         display: a
     -   tag: 581
         display: a3
-    -   tag: 582
-        display: a
     -   tag: 584
         display: ab
     -   tag: 586
@@ -228,8 +225,6 @@ notes_book:
     -   tag: 501
         display: a
     -   tag: 502
-        display: a
-    -   tag: 503
         display: a
     -   tag: 504
         display: ab
@@ -293,8 +288,6 @@ notes_music_recording:
     -   tag: 254
         display: a
     -   tag: 500
-        display: a
-    -   tag: 508
         display: a
     -   tag: 518
         display: a3
