@@ -530,8 +530,20 @@ module DisplayHelper
       fields.push("rft.isbn=#{ CGI.escape(isbn) }")
     end
 
-    document[:subject_txt] && document[:subject_txt].each do |author|
-      fields.push("rft.subject=#{ CGI.escape(author) }")
+    document[:subject_topic_facet] && document[:subject_topic_facet].each do |subject|
+      fields.push("rft.subject=#{ CGI.escape(subject) }")
+    end
+
+    document[:subject_form_facet] && document[:subject_form_facet].each do |subject|
+      fields.push("rft.subject=#{ CGI.escape(subject) }")
+    end
+
+    document[:subject_geo_facet] && document[:subject_geo_facet].each do |subject|
+      fields.push("rft.subject=#{ CGI.escape(subject) }")
+    end
+
+    document[:subject_era_facet] && document[:subject_era_facet].each do |subject|
+      fields.push("rft.subject=#{ CGI.escape(subject) }")
     end
 
     if format =~ /journal/i
@@ -619,6 +631,10 @@ module DisplayHelper
     Array.wrap(document[ :id]).each do |id|
       document_url = 'http://academiccommons.columbia.edu/catalog/' + id
       fields.push("rft_id=#{ CGI.escape(document_url) }")
+    end
+
+    document[ :author_facet] && Array.wrap(document[ :author_facet]).each do |author|
+      fields.push("rft.au=#{ CGI.escape(author) }")
     end
 
     document[ :author_facet] && Array.wrap(document[ :author_facet]).each do |author|
