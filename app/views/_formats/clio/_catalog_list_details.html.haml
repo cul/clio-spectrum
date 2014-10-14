@@ -1,9 +1,15 @@
 
 -# CONTROLS HOW CATALOG RECORDS SHOW IN SEARCH RESULTS LIST
+-# Overloaded - also used for Call Number Browse - needs additional params:
+-# show_title - show regular title_display as a metadata field?
+- show_title ||= false
 
 -# Show the series title if we searched by series title
 - if search_by_series_title(request.params)
   = add_row('Series Title', document.get("title_series_display"), :html_safe => false)
+
+- if show_title
+  = add_row('Title', document.get("title_display"), :html_safe => false)
 
 = add_row('Title', document.get("title_vern_display"), :html_safe => false)
 

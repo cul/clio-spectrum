@@ -2,6 +2,7 @@
 -# Single-Item view for documents from catalog-based datasources
 
 -# - raise
+
 - @page_title = "#{@document ? document_show_html_title.listify.join('') : ''} - #{application_name}".html_safe
 
 - content_for(:head) { render_link_rel_alternates }

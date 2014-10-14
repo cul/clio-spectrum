@@ -78,7 +78,9 @@ Columbia Libraries Unified Search &amp; Discovery
 
 **Contributing to CLIO**
 
-Pull requests should be submitted from feature branches via the [GitHub workflow](https://guides.github.com/introduction/flow/index.html).  Please note that CLIO pull requests should be made against the **develop** branch, not the master branch.
+Contributions can be submitted to CLIO by making a [pull request](https://help.github.com/articles/using-pull-requests/), following GitHub's [fork-and-pull](https://help.github.com/articles/using-pull-requests/#fork--pull) model.  [Pull requests](https://help.github.com/articles/using-pull-requests/) should be submitted from feature (topic) branches and be [based on](https://help.github.com/articles/using-pull-requests/#changing-the-branch-range-and-destination-repository) CLIO's **develop** (not master) branch.
+
+[Read more about the GitHub workflow](https://guides.github.com/introduction/flow/index.html).  
 
 1. Create a feature branch off the develop branch
 

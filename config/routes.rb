@@ -1,5 +1,8 @@
 Clio::Application.routes.draw do
 
+  # This is getting masked.... try it up here?
+  get "catalog/endnote", :as => "endnote_catalog"
+
   # resources :saved_list_items
   resources :saved_lists
 
@@ -125,11 +128,14 @@ Clio::Application.routes.draw do
 
   # Catalog stuff.
   get 'catalog/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_catalog"
-  get "catalog/endnote", :as => "endnote_catalog"
 
-  # Call-Number Browse, taken from Stanford Searchworks
+  # Call-Number Browse, based on Stanford Searchworks
   resources :browse, only: :index
-  get "browse/nearby" => "browse#nearby"
+  # get 'browse/shelfkey/:shelfkey', to: 'browse#shelfkey', as: :browse_shelfkey
+  # get "browse/nearby" => "browse#nearby"
+  # Use distinct URLs for xhr v.s. html, to avoid cached-page problems
+  get 'browse/shelfkey_mini/:shelfkey', to: 'browse#shelfkey_mini', as: :browse_shelfkey_mini, :constraints => { :shelfkey => /[^\/]*/ }
+  get 'browse/shelfkey_full/:shelfkey', to: 'browse#shelfkey_full', as: :browse_shelfkey_full, :constraints => { :shelfkey => /[^\/]*/ }
 
 
 end
