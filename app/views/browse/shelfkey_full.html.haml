@@ -1,0 +1,36 @@
+
+
+- item_count = @browse_item_list.size
+- first_shelfkey = @browse_item_list.first[:current_shelfkey]
+- last_shelfkey = @browse_item_list.last[:current_shelfkey]
+
+= render 'browse_toolbar', first_shelfkey: first_shelfkey, last_shelfkey: last_shelfkey
+
+#documents
+
+  - @browse_item_list.each_with_index do |nearby, counter|
+    - document = nearby[:doc]
+    -# No highlighting on full-screen shelf-view browse interface
+    -# - highlight = (nearby[:current_shelfkey] == @shelfkey)
+
+    -# Re-Use the single-document partial-builder used by search-results
+    -# (No support currently for alternative view-styles)
+    -# Requires extra params:
+    -# (1) call_number - Use This Call-Number As Link Label, instead of Title
+    -# (2) highlight - Highlight this Document in some way (current focus)
+    = render_document_view(document, format: 'clio', template: 'catalog_list', counter: counter + 1, source: 'catalog', call_number: nearby[:current_call_number])
+
+    -# .row{class: "#{ 'bg-info' if nearby[:current_shelfkey] == @shelfkey }"  }
+    -#   .col-xs-12
+    -#     -# - if nearby[:current_shelfkey] == @shelfkey
+    -#     -#   >>>
+    -#     =link_to_source_document doc, label: nearby[:current_call_number], source: 'catalog'
+    -#   -# .col-xs-12=nearby[:current_shelfkey]
+    -#   -# .col-xs-12=nearby[:current_reverse_shelfkey]
+    -#   .col-xs-12=document.get('title_display').abbreviate(100)
+    -#   .col-xs-12=document.get("author_display") || document.get("author_vern_display")
+    -#   .col-xs-12=document.get("full_publisher_display")
+
+
+= render 'browse_toolbar', first_shelfkey: first_shelfkey, last_shelfkey: last_shelfkey
+

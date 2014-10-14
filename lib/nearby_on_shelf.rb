@@ -19,6 +19,10 @@ class NearbyOnShelf
     end
   end
 
+  def shelfkey_to_browse_list
+    puts "TEST"
+  end
+
   protected
 
   # ???

@@ -1,6 +1,9 @@
 .location_popup
   - if @location
-    .header= @library ? @library.name : @location.name
+    %h1= @library ? @library.name : @location.name
+
+    - if @location_notes.size > 0
+      .alert.alert-warning= @location_notes
 
     .location_sidebar
       .links

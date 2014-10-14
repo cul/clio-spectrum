@@ -166,12 +166,7 @@ module DisplayHelper
 
     # Check for any location notes in app_config - that's used for
     # somewhat dynamic values that we don't want to put in code
-    app_config_location_notes = APP_CONFIG['location_notes'] || {}
-    app_config_location_notes.keys.each { |location_note_key|
-      if location.starts_with? location_note_key
-        location_notes << app_config_location_notes[location_note_key].html_safe
-      end
-    }
+    location_notes << Location.get_app_config_location_notes(location).html_safe
 
     return location_notes
   end
