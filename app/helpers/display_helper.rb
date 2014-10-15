@@ -44,6 +44,7 @@ module DisplayHelper
     fail "No partials found from #{partials.inspect}"
   end
 
+  # used to assign icons
   FORMAT_MAPPINGS = {
     'Book' => 'book',
     'Online' => 'link',
@@ -112,6 +113,7 @@ module DisplayHelper
     view
   end
 
+  # used to map format to display options in views/_formats
   SOLR_FORMAT_LIST = {
     'Music - Recording' => 'music_recording',
     'Music - Score' => 'music',
