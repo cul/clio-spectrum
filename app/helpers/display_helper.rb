@@ -506,8 +506,12 @@ module DisplayHelper
     fields = []
     fields.push('ctx_ver=Z39.88-2004')
 
-    document[:author_display] && document[:author_display].each do |author|
-      fields.push("rft.au=#{ CGI.escape(author) }")
+    if document[:author_display]
+      document[:author_display] && document[:author_display].each do |author|
+        fields.push("rft.au=#{ CGI.escape(author) }")
+      end
+    else
+      fields.push("rft.au=#{ CGI.escape(' ') }")
     end
 
     document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
