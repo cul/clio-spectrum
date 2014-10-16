@@ -370,10 +370,22 @@ describe 'Catalog Interface' do
   # NEXT-1081 - Apostrophe in the title bar renders incorrectly
   it 'shows apostrophes within title element', js: true do
     visit catalog_path(6217943)
-    page.has_title? "L&#x27;image de l&#x27;Orient"
+    page.should have_title "L'image de l'Orient"
 
     visit catalog_path(6094212)
-    page.has_title? "Al-Qur&#x27;an"
+    page.should have_title "Al-Qur'an"
+  end
+
+  # NEXT-1127 - Apostrophe in the title bar (in MARC view)
+  it 'shows apostrophes within title element', js: true do
+    visit librarian_view_catalog_path(10877875)
+    page.should have_title "One woman's war: Da"
+
+    visit librarian_view_catalog_path(6217943)
+    page.should have_title "L'image de l'Orient"
+
+    visit librarian_view_catalog_path(6094212)
+    page.should have_title "Al-Qur'an"
   end
 
   # NEXT-1069 - 505s for Journals/Periodicals
