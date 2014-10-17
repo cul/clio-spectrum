@@ -10,32 +10,37 @@ class Location < ActiveRecord::Base
   # end
 
   def self.match_location_text(location = nil)
-    # location comes from URL, and so will be escaped (e.g., spaces will be '+')
-    unescaped_location = CGI.unescape(location)
-    # logger.debug("match_location_text: looking for " + location)
+    # move this out to the caller
+    # # location comes from URL, and so will be escaped (e.g., spaces will be '+')
+    # unescaped_location = CGI.unescape(location)
+    # # logger.debug("match_location_text: looking for " + location)
 
     if connection.adapter_name.downcase.include?('mysql')
-      matches = find(:all, conditions: ["? LIKE CONCAT(locations.name, '%')", unescaped_location], include: :library)
+      matches = find(:all, conditions: ["? LIKE CONCAT(locations.name, '%')", location], include: :library)
     else
-      matches = find(:all, conditions: ["? LIKE locations.name || '%'", unescaped_location], include: :library)
+      matches = find(:all, conditions: ["? LIKE locations.name || '%'", location], include: :library)
     end
 
     max_length = matches.map { |m| m.name.length }.max
     matches.find { |m| m.name.length == max_length }
   end
 
-  # 
-  # Nope, for now use DisplayHelper.additional_holdings_location_notes()
-  # 
-  # # Location Note, used for a special add-on text/link message
-  # # location_note = Location.get_location_note(entry['location_name'])
-  # def self.get_location_note(location = nil, document = nil)
-  #   case location
-  #   when 'Law'
-  #     content_tag(:span, pegasus_item_link(document, 'Search Results'), class: 'url_link_note')
-  #   end
-  # 
-  # end
+
+  # Location Note, used for a special add-on text/link message
+  # location_note = Location.get_location_note(entry['location_name'])
+  def self.get_app_config_location_notes(location = nil)
+    location_notes = ''
+
+    return location_notes unless location
+
+    app_config_location_notes = APP_CONFIG['location_notes'] || {}
+    app_config_location_notes.keys.each { |location_note_key|
+      if location.starts_with? location_note_key
+        location_notes << app_config_location_notes[location_note_key].html_safe
+      end
+    }
+    return location_notes
+  end
 
   def self.clear_and_load_fixtures!
     Location.delete_all

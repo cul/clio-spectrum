@@ -1,6 +1,7 @@
-# Top level controller defining application-wide behaviors,
+## Top level controller defining application-wide behaviors,
 # filters, authentication, methods used throughout multiple
 # classes, etc.
+require 'mail'
 class ApplicationController < ActionController::Base
   helper_method :set_browser_option, :get_browser_option
 
@@ -342,7 +343,11 @@ class ApplicationController < ActionController::Base
   # Email Action (this will render the appropriate view on GET requests and process the form and send the email on POST requests)
   def email
     mail_to = params[:to]
-
+    #allow user to enter email address and name to include in email (NEXT-910)
+    if params[:reply_to]
+      reply_to = Mail::Address.new params[:reply_to]
+      reply_to.display_name = params[:name]
+    end
     # We got a post - that is, a submitted form, with a "To" - send the email!
     if request.post?
       if mail_to
@@ -355,7 +360,8 @@ class ApplicationController < ActionController::Base
           #   get_solr_response_for_field_values( SolrDocument.unique_key, params[:id] )
           # Yes, but IDs may be Catalog Bib keys or Summon FETCH IDs...
           @documents = ids_to_documents(params[:id])
-          email = RecordMailer.email_record(@documents, { to: mail_to, message: params[:message] }, url_gen_params)
+          message_text = params[:message]
+          email = RecordMailer.email_record(@documents, { to: mail_to, reply_to: reply_to.format, message: message_text }, url_gen_params)
         else
           flash[:error] = I18n.t('blacklight.email.errors.to.invalid', to: mail_to)
         end
@@ -368,6 +374,14 @@ class ApplicationController < ActionController::Base
         flash[:success] = 'Email sent'
         redirect_to catalog_path(params['id']) unless request.xhr?
       end
+    else
+      #pre-fill email form with user's email and name (NEXT-810)
+      if current_user
+        reply_to = Mail::Address.new current_user.email
+        reply_to.display_name = "#{current_user.first_name} #{current_user.last_name}"
+        @display_name = reply_to.display_name if reply_to
+        @reply_to = reply_to.address if reply_to
+      end
     end
 
     # This is supposed to catch the GET - return the HTML of the form
@@ -378,7 +392,6 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-
 
   def ids_to_documents(id_array = [])
     document_array = []
@@ -408,7 +421,7 @@ class ApplicationController < ActionController::Base
       # NEXT-1067 - Saved Lists broken for very large lists (~400)
       # response, catalog_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids, extra_solr_params)
       catalog_item_ids.each_slice(100) { |slice|
-        response, slice_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids, extra_solr_params)
+        response, slice_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, slice, extra_solr_params)
         catalog_document_list += slice_document_list
       }
     end

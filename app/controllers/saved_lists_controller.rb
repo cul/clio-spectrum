@@ -57,7 +57,11 @@ class SavedListsController < ApplicationController
       end
     else
       # find someone else's list
-      @list = SavedList.find_by_owner_and_slug_and_permissions(owner, slug, 'public')
+      if current_user.present? and current_user.has_role?('site', 'admin')
+        @list = SavedList.find_by_owner_and_slug(owner, slug)
+      else
+        @list = SavedList.find_by_owner_and_slug_and_permissions(owner, slug, 'public')
+      end
     end
 
     if @list.blank?
@@ -176,16 +180,20 @@ class SavedListsController < ApplicationController
     # items_to_add = Array(params[:item_key_list] || session[:selected_items]).uniq
 
     # Try new approach - JS will have created a short-lived cookie with the ID(s) to add...
-    items_to_add = Array(cookies[:items_to_add].split('/'))
+    items_to_add_cookie = cookies[:items_to_add] || ''
+    items_to_add = Array(items_to_add_cookie.split('/'))
 
-
-    unless items_to_add
-      render text: 'Must specify items to be added', status: :bad_request and return
+    if items_to_add.size == 0
+      message = 'Must specify items to be added'
+      redirect_to after_sign_in_path_for, :flash => { :error => message } and return
+      # render text: 'Must specify items to be added', status: :bad_request and return
     end
 
     list_name = params[:name] ||= SavedList::DEFAULT_LIST_NAME
-    if list_name.empty?
-      render text: 'Cannot add to unnamed list', status: :unprocessable_entity and return
+    if list_name.nil? || list_name.empty?
+      message = 'Cannot add to unnamed list'
+      redirect_to after_sign_in_path_for, :flash => { :error => message } and return
+      # render text: 'Cannot add to unnamed list', status: :unprocessable_entity and return
     end
 
     # Find -- or CREATE -- a list with the right name

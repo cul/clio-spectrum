@@ -9,20 +9,44 @@
     <div class="modal-body">
       <div class="container">
         <%= render :partial=>'/flash_msg' %>
-        <div class="form-group">
-          <label class="control-label" for="to">
-            <%= t('blacklight.email.form.to') %>
-          </label>
-          <div class="controls">
-            <%= text_field_tag :to, params[:to] %><br/>
+        <div class="form-group row">
+          <div class="col-xs-12">
+            <label class="control-label" for="to">
+              Send to (comma-separated list of emails):
+            </label>
+            <div class="input-block-level">
+              <%= text_field_tag :to, params[:to], class: "form-control" %><br/>
+            </div>
           </div>
         </div>
-        <div class="form-group">
-          <label class="control-label" for="message">
-            <%= t('blacklight.email.form.message') %>
-          </label>
-          <div class="controls">
-            <%= text_area_tag :message, params[:message] %>
+        <div class="form-group row">
+          <div class="col-xs-12">
+            <label class="control-label" for="reply_to" >
+              Your email (optional):
+            </label>
+            <div class="input-block-level">
+              <%= text_field_tag :reply_to, @reply_to, class: "form-control" %><br/>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-xs-12">
+            <label class="control-label" for="name" >
+              Your name (optional):
+            </label>
+            <div class="controls">
+              <%= text_field_tag :name, @display_name, class: "form-control" %><br/>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-xs-12">
+            <label class="control-label" for="message">
+              <%= t('blacklight.email.form.message') %>
+            </label>
+            <div class="controls">
+              <%= text_area_tag :message, params[:message], class: "form-control" %>
+            </div>
           </div>
         </div>
 

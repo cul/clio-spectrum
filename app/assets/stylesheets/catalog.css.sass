@@ -336,10 +336,14 @@ img.availability
       .hours
         :padding-left 1em
 
-    .location_note
-      :font-weight bold
-      :padding-left 1.0em
-      :padding-bottom 0em
+      .location_notes
+        :padding-left 1.0em
+        //:padding-bottom 0em
+        .location_note
+          // to be consistent with .holdings_label
+          :font-weight bold
+          :font-size 90%
+      
 
     .call_number
       :padding-left 1.0em

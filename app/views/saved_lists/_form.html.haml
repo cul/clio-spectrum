@@ -1,34 +1,35 @@
 = form_for @list do |f|
-  - if @list.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@list.errors.count, "danger")} prohibited this list from being saved:"
-      %ul
-        - @list.errors.full_messages.each do |msg|
-          %li= msg
-  .field
-    = f.label :name
-    - if @list.is_default?
-      %span.uneditable-input= @list.display_name
-      (Default list - cannot rename)
-    - else
-      = f.text_field :name
-  .field
-    = f.label :description
-    = f.text_field :description
-  .field
-    = f.label :permissions
+  .container
+    - if @list.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@list.errors.count, "danger")} prohibited this list from being saved:"
+        %ul
+          - @list.errors.full_messages.each do |msg|
+            %li= msg
+    .field
+      = f.label :name
+      - if @list.is_default?
+        %span.uneditable-input= @list.display_name
+        (Default list - cannot rename)
+      - else
+        = f.text_field :name
+    .field
+      = f.label :description
+      = f.text_field :description
+    .field
+      = f.label :permissions
 
-    %label.radio.inline
-      = radio_button_tag 'saved_list[permissions]', "private", (@list.permissions == "private")
-      = get_permissions_label("private")
+      %label.radio.inline
+        = radio_button_tag 'saved_list[permissions]', "private", (@list.permissions == "private")
+        = get_permissions_label("private")
 
-    %label.radio.inline
-      = radio_button_tag 'saved_list[permissions]', "public", (@list.permissions == "public")
-      = get_permissions_label("public")
-
-
-
-  .actions
+      %label.radio.inline
+        = radio_button_tag 'saved_list[permissions]', "public", (@list.permissions == "public")
+        = get_permissions_label("public")
 
 
-    = f.submit 'Save'
+
+    .actions
+
+
+      = f.submit 'Save'

@@ -16,17 +16,18 @@
           %span.holdings_label Today's Hours: 
           = entry['hours']
 
-    -# Include location-notes, if any
-    -# They may be simple strings, or a link (hash with keys "text" and "url")
-    - entry['location_note'] && Array.wrap(entry['location_note']).each do |note|
-      .location_note
-        - if note.is_a? String
-          = note
-        - if note.is_a? Hash
-          - if note["text"] && note["url"]
-            = link_to note["text"], note["url"]
-          - elsif note["text"]
-            = note["text"]
+      .location_notes
+        -# Include location-notes, if any
+        -# They may be simple strings, or a link (hash with keys "text" and "url")
+        - entry['location_note'] && Array.wrap(entry['location_note']).each do |note|
+          .location_note
+            - if note.is_a? String
+              = note
+            - if note.is_a? Hash
+              - if note["text"] && note["url"]
+                = link_to note["text"], note["url"]
+              - elsif note["text"]
+                = note["text"]
 
     .call_number
       %span.holdings_label Call Number: 
