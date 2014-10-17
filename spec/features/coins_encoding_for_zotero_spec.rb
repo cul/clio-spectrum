@@ -17,7 +17,7 @@ describe 'coins encoding for zotero' do
           visit catalog_index_path('q' => 'penguins', 'format'=> 'Book')
           coins = all "//span[@class='Z3988']"
           coins.each do |coin|
-            expect(CGI.unescape (coin)['title']).to match(/fmt:kev:mtx:book/)
+            expect(CGI.unescape (coin)['title']).to match(/fmt:kev:mtx:dc&rft\.type=book/)
           end
         end
       end
@@ -66,14 +66,14 @@ describe 'coins encoding for zotero' do
       it 'has the correct coins format' do
         visit catalog_path 4359539
         coins = CGI.unescape find("//span[@class='Z3988']")['title']
-        expect(coins).to match(/fmt:kev:mtx:book/)
+        expect(coins).to match(/fmt:kev:mtx:dc&rft\.type=book/)
       end
     end
     context 'ebook' do
       it 'has the correct coins format' do
         visit catalog_path 7928264
         coins = CGI.unescape find("//span[@class='Z3988']")['title']
-        expect(coins).to match(/fmt:kev:mtx:book/)
+        expect(coins).to match(/fmt:kev:mtx:dc&rft\.type=book/)
       end
     end
     context 'video recording' do

@@ -513,7 +513,7 @@ module DisplayHelper
         fields.push("rft.au=#{ CGI.escape(author) }")
       end
     else
-      fields.push("rft.au=#{ CGI.escape(' ') }")
+      fields.push("rft.au=#{ CGI.escape('unknown') }")
     end
 
     document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
@@ -564,12 +564,11 @@ module DisplayHelper
       fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:dc')
       fields.push('rft.type=videoRecording')
     else
-      #fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:book')
-      #document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
-      #  fields.push("rft.btitle=#{ CGI.escape(title) }")
-      #end
       fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:dc')
       fields.push('rft.type=book')
+      document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
+        fields.push("rft.btitle=#{ CGI.escape(title) }")
+      end
     end
 
     genre = format_to_rft_genre(format)
@@ -637,10 +636,6 @@ module DisplayHelper
     Array.wrap(document[ :id]).each do |id|
       document_url = 'http://academiccommons.columbia.edu/catalog/' + id
       fields.push("rft_id=#{ CGI.escape(document_url) }")
-    end
-
-    document[ :author_facet] && Array.wrap(document[ :author_facet]).each do |author|
-      fields.push("rft.au=#{ CGI.escape(author) }")
     end
 
     document[ :author_facet] && Array.wrap(document[ :author_facet]).each do |author|
