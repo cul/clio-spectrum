@@ -2,7 +2,16 @@ class LocationsController < ApplicationController
   layout 'blank'
 
   def show
-    @location = Location.match_location_text(params[:id])
+    # raw_location comes from the Voyager response.  It might be something like:
+    #     Avery Classics - By appt. (Non-Circulating)
+    # @location is retrieved from loaded fixtures.  location['name'] might be:
+    #     Avery Classics
+
+    # raw_location comes from URL, and so will be escaped (e.g., spaces will be '+')
+    raw_location = CGI.unescape(params[:id])
+
+    # @location = Location.match_location_text(params[:id])
+    @location = Location.match_location_text(raw_location)
     if @location
       @map_url = @location.find_link_value('Map URL')
       @library = @location.library
@@ -14,7 +23,8 @@ class LocationsController < ApplicationController
 
       @links = @location.links.reject { |location| location.name == 'Map URL' }
 
-      @location_notes = Location.get_app_config_location_notes(@location['name']).html_safe
+      # @location_notes = Location.get_app_config_location_notes(@location['name']).html_safe
+      @location_notes = Location.get_app_config_location_notes(raw_location).html_safe
     end
   end
 end

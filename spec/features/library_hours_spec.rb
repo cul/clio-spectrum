@@ -37,9 +37,14 @@ describe 'Item Locations should show correct library hours', js: true do
   end
 
   it 'for Avery Classics' do
+    # Pull up the item-detail page, follow link to Location page...
     visit catalog_path('565036')
     page.should have_text('Avery Classics')
-    click_link('Avery Classics')
+    within('.location_box .location', text: 'Avery Classics') do
+      click_link('Avery Classics')
+    end
+
+    # Check out the Location page...
     page.should have_text('Avery Classics')
     page.should have_link('Floorplans', href: 'http://library.columbia.edu/locations/avery/floorplans.html')
     page.should have_link('Full Hours Info', href: 'http://www.columbia.edu/cu/lweb/services/hours/index.html?library=avery-classics')

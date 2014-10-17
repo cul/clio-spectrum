@@ -1,9 +1,9 @@
 .location_popup
   - if @location
-    %h1= @library ? @library.name : @location.name
+    %h1.well= @library ? @library.name : @location.name
 
     - if @location_notes.size > 0
-      .alert.alert-warning= @location_notes
+      .well.well-sm.location_notes= @location_notes
 
     .location_sidebar
       .links
@@ -26,7 +26,7 @@
               = hour.to_opens_closes
             .hours_note= hour.note.to_s
     .section_header Located at:
-    .found_in= @location.found_in.sub(/\n+/,"<br/>").html_safe
+    .found_in= @location.found_in.gsub(/\n+/, '<br>').html_safe
     = map_image_tag(@map_url, 400, 350)
 
 

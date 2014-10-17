@@ -27,6 +27,6 @@
         .subfields
           - field.each do |sub|
             %span.sub_code
-              %span.sub_code= h(sub.code)
+              %span.sub_code= '|' + h(sub.code)
               = h(sub.value)
 
