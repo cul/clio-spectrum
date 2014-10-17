@@ -343,13 +343,13 @@ describe 'Catalog Interface' do
     click_link('Display In')
     click_link('MARC View')
     page.should have_text 'Back to Results | 1 of 9 | Next'
-    page.should have_text '245 1 4 a The patience of Maigret'
+    page.should have_text '245 1 4 |a The patience of Maigret'
 
     within '#show_toolbar' do
       click_link('Next')
     end
     page.should have_text 'Back to Results | « Previous | 2 of 9 | Next »'
-    page.should have_text '245 1 4 a Les vacances de Maigret'
+    page.should have_text '245 1 4 |a Les vacances de Maigret'
 
     click_link('Return to Patron View')
     page.should have_text 'Back to Results | « Previous | 2 of 9 | Next »'
