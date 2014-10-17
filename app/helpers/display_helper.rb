@@ -499,6 +499,7 @@ module DisplayHelper
   # (key-encoded value) query string.
   # For use to create COinS, among other things. COinS are
   # for Zotero, among other things.
+
   def catalog_to_openurl_ctx_kev(document)
     return '' unless document
     fail 'Document has no format!  ' + document.id unless document[:format]
@@ -507,44 +508,71 @@ module DisplayHelper
     fields = []
     fields.push('ctx_ver=Z39.88-2004')
 
-    document[ :author_display] && document[ :author_display].each do |author|
-      fields.push("rft.au=#{ CGI.escape(author) }")
+    if document[:author_display]
+      document[:author_display] && document[:author_display].each do |author|
+        fields.push("rft.au=#{ CGI.escape(author) }")
+      end
+    else
+      fields.push("rft.au=#{ CGI.escape('unknown') }")
     end
 
     document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
       fields.push("rft.title=#{ CGI.escape(title) }")
     end
 
-    document[ :full_publisher_display] && document[ :full_publisher_display].each do |publisher|
+    document[ :pub_name_display] && document[ :pub_name_display].each do |publisher|
       fields.push("rft.pub=#{ CGI.escape(publisher) }")
     end
 
-    # '_sort' fields are not multi-valued - can't do .each
-    document[ :pub_date_sort] && Array.wrap(document[ :pub_date_sort]).each do |pub_date_sort|
-      fields.push("rft.date=#{ CGI.escape(pub_date_sort.to_s) }")
+    document[ :pub_year_display] && Array.wrap(document[ :pub_year_display]).each do |pub_year|
+      fields.push("rft.date=#{ CGI.escape(pub_year) }")
+    end
+
+    document[ :pub_place_display] && Array.wrap(document[ :pub_place_display]).each do |pub_place|
+      fields.push("rft.place=#{ CGI.escape(pub_place) }")
     end
 
     document[ :isbn_display] && document[ :isbn_display].each do |isbn|
       fields.push("rft.isbn=#{ CGI.escape(isbn) }")
     end
 
+    document[:subject_topic_facet] && document[:subject_topic_facet].each do |subject|
+      fields.push("rft.subject=#{ CGI.escape(subject) }")
+    end
+
+    document[:subject_form_facet] && document[:subject_form_facet].each do |subject|
+      fields.push("rft.subject=#{ CGI.escape(subject) }")
+    end
+
+    document[:subject_geo_facet] && document[:subject_geo_facet].each do |subject|
+      fields.push("rft.subject=#{ CGI.escape(subject) }")
+    end
+
+    document[:subject_era_facet] && document[:subject_era_facet].each do |subject|
+      fields.push("rft.subject=#{ CGI.escape(subject) }")
+    end
+
     if format =~ /journal/i
-      # JOURNAL-SPECIFIC FIELDS
       fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
-      # title is redundantly given as "atitle" for books
       document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
         fields.push("rft.atitle=#{ CGI.escape(title) }")
       end
+    elsif format =~ /Recording/i
+      fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:dc')
+      fields.push('rft.type=audioRecording')
+    elsif format =~ /Video/i
+      fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:dc')
+      fields.push('rft.type=videoRecording')
     else
-      # BOOK-SPECIFIC FIELDS
-      fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:book')
-      # title is redundantly given as "btitle" for books
+      fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:dc')
+      fields.push('rft.type=book')
       document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
         fields.push("rft.btitle=#{ CGI.escape(title) }")
       end
     end
 
-    fields.push("rft.genre=#{ CGI.escape(format_to_rft_genre(format)) }")
+    genre = format_to_rft_genre(format)
+    fields.push("rft.genre=#{ CGI.escape(genre) }") if genre
 
     fields.join('&')
   end
@@ -561,6 +589,12 @@ module DisplayHelper
       'conference'
     when /report/i
       'report'
+    when /Recording/i
+      nil
+    when /Sound Recording/i
+      nil
+    when /Video/i
+      nil
     else
       # http://ocoins.info/cobgbook.html
       # "general document type to be used when available data elements
@@ -573,15 +607,32 @@ module DisplayHelper
   # (key-encoded value) query string.
   # For use to create COinS, among other things. COinS are
   # for Zotero, among other things.
+  #
+  # request.original_url
+  #
   def ac_to_openurl_ctx_kev(document)
     fields = []
-
     fields.push('ctx_ver=Z39.88-2004')
-    fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
 
     # Many fields used to be arrays on katana, but on macana appear to be strings?
     # Defend ourselves by using Array.wrap() on everything.
+    if Array.wrap(document[:type_of_resource_mods])[0].match(/recording/i)
+      fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:dc&rft.type=audioRecording')
+      document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
+        fields.push("rft.title=#{ CGI.escape(title) }")
+      end
+    elsif Array.wrap(document[:type_of_resource_mods])[0].match(/moving image/i)
+      fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:dc&rft.type=videoRecording')
+      document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
+        fields.push("rft.title=#{ CGI.escape(title) }")
+      end
+    else
+      fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
+      document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
+        fields.push("rft.atitle=#{ CGI.escape(title) }")
+      end
 
+    end
     Array.wrap(document[ :id]).each do |id|
       document_url = 'http://academiccommons.columbia.edu/catalog/' + id
       fields.push("rft_id=#{ CGI.escape(document_url) }")
@@ -589,10 +640,6 @@ module DisplayHelper
 
     document[ :author_facet] && Array.wrap(document[ :author_facet]).each do |author|
       fields.push("rft.au=#{ CGI.escape(author) }")
-    end
-
-    document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
-      fields.push("rft.atitle=#{ CGI.escape(title) }")
     end
 
     document[ :publisher] && Array.wrap(document[ :publisher]).each do |publisher|
