@@ -91,7 +91,7 @@ describe 'Catalog Advanced Search' do
   }.each_pair do |searchField, searchValue|
 
 
-    it "supports fielded search by #{searchField}", js: true, focus: true do
+    it "supports fielded search by #{searchField}", js: true do
       visit catalog_index_path
       find('btn', text: "All Fields").click
       within('.search_row') do
@@ -114,7 +114,7 @@ describe 'Catalog Advanced Search' do
     end
 
 
-    it "supports advanced search by #{searchField}", js: true, focus: true do
+    it "supports advanced search by #{searchField}", js: true do
       visit catalog_index_path
       find('.search_box.catalog .advanced_search_toggle').click
       within '.landing_page.catalog .advanced_search' do
