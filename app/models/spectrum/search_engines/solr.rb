@@ -353,6 +353,18 @@ module Spectrum
             }
           end
         end
+
+        if fields.include?('location')
+          config.add_search_field('location') do |field|
+            field.show_in_dropdown = true
+            field.qt = 'search'
+            field.solr_local_parameters = {
+              qf: 'location_txt',
+              pf: 'location_txt'
+            }
+          end
+        end
+
       end
 
       # Supply default config values for the specified config keys (elements).
@@ -417,7 +429,7 @@ module Spectrum
           add_search_fields(config, 'title', 'journal_title', 'series_title',
                             'title_starts_with', 'author', 'subject', 'form_genre',
                             'publication_place', 'publisher', 'publication_year',
-                            'isbn', 'issn', 'call_number')
+                            'isbn', 'issn', 'call_number', 'location')
         end
 
         if elements.include?(:sorts)

@@ -94,6 +94,7 @@ datasources:
         isbn: ISBN
         issn: ISSN
         call_number: Call Number
+        location: Location
 
   archives:
     name: Archives
@@ -165,7 +166,7 @@ datasources:
         all_fields: All Fields
         title: Title
         journal_title: Journal Title
-        mauthor: Author
+        author: Author
         subject: Subject
 
 
