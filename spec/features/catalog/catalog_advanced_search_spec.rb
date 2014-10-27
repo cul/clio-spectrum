@@ -95,9 +95,6 @@ describe 'Catalog Advanced Search' do
       visit catalog_index_path
       find('btn', text: "All Fields").click
       within('.search_row') do
-        # find('li', text: "Title").click
-        # find("a[data-value='#{searchField}']").click
-        # find('li', text: searchField, exact: true).click
         find('li', text: /\A#{searchField}\z/).click
       end
       fill_in 'q', with: searchValue
@@ -105,12 +102,6 @@ describe 'Catalog Advanced Search' do
 
       find('.constraint-box').should have_content("#{searchField}: #{searchValue}")
       page.should have_text "« Previous | 1 - 25 of"
-      # Use this block instead if we want to search by specific bibs
-      # if ["ISBN", "ISSN"].include? searchField
-      #   page.should have_text "1 entry found"
-      # else
-      #   page.should have_text "« Previous | 1 - 25 of"
-      # end
     end
 
 
@@ -128,6 +119,46 @@ describe 'Catalog Advanced Search' do
 
 
   end
+  
+  # NEXT-1113 - location search
+  # Specifically, test the ability to search beyond "base" location to 
+  # sublocation text.
+  [ 'Barnard Reference',
+    'Lehman Reference',
+    'Barnard Alumnae Collection',
+    'Comp Lit',
+    'African Studies',
+    'Offsite <Avery>',
+    'Offsite <Fine Arts>'
+  ].each do |locationSearch|
+
+    it "supports fielded Location search for #{locationSearch}", js: true, focus: true do
+      visit catalog_index_path
+      find('btn', text: "All Fields").click
+      within('.search_row') do
+        find('li', text: 'Call Number').click
+      end
+      fill_in 'q', with: locationSearch
+      find('button[type=submit]').click
+
+      find('.constraint-box').should have_content("Call Number: #{locationSearch}")
+      page.should have_text "« Previous | 1 - 25 of"
+    end
+
+
+    it "supports advanced Location search for #{locationSearch}", js: true, focus: true do
+      visit catalog_index_path
+      find('.search_box.catalog .advanced_search_toggle').click
+      within '.landing_page.catalog .advanced_search' do
+        select('Call Number', from: 'adv_1_field')
+        fill_in 'adv_1_value', with: locationSearch
+        find('button[type=submit]').click
+      end
+      find('.constraint-box').should have_content("Call Number: #{locationSearch}")
+      page.should have_text "« Previous | 1 - 25 of"
+    end
+  end
+  
 
 
   # Bug - Dismissing the last advanced-search field should WORK
