@@ -84,7 +84,7 @@ describe 'Catalog Advanced Search' do
     # 'ISBN' => '9780470405543',
     # 'ISSN' => '2372-5699',
     # or search by prefix?
-    'ISBN' => '99921*',
+    'ISBN' => '13',
     'ISSN' => '2372',
     'Call Number' => 'PN1995.9.P7',
     'Location' => 'Dakhla Library',
