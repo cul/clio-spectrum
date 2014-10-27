@@ -1,0 +1,120 @@
+# This is an EXAMPLE app_config.yml file.
+# Copy this file to app_config.yml and edit the values as needed.
+
+
+# Everything within this _all_environments block will be used by 
+# the Rails application running in development, test, or production.
+_all_environments:
+
+  # SCP source for new record extract files, used by solr_ingest.rake,
+  # only needed when reloading records to the Solr search engine
+  extract_scp_source: service@extracts.cul.columbia.edu:/libraries/clio/spectrum
+
+  # URL to the Solr search engine for Academic Commons, Columbia's 
+  # institutional repository, available at http://academiccommons.columbia.edu, 
+  # and used by CLIO for the AC datasource 
+  # (http://clio.columbia.edu/academic_commons)
+  ac2_solr_url: http://ac2.cul.columbia.edu:1234/solr-4.0/ac2_prod
+
+  # URL to Columbia University's Google Search Appliance, used by the 
+  # search box on Columbia University's home-page 
+  # (e.g., http://search.columbia.edu/search?proxystylesheet=columbia2&q=test),
+  # and used by CLIO for the Library Web datasource
+  # (http://clio.columbia.edu/library_web)
+  google_appliance_url: http://search.columbia.edu/search
+
+
+  # Authorization credentials for SerialSolutions Summon Search API
+  # (licensed resource -- restricted access),
+  # used by CLIO for the Articles datasource
+  # (http://clio.columbia.edu/articles)
+  summon:
+    access_id: columbia_university
+    secret_key: VerySecretKey
+
+
+  # Location Notes
+  # This provides a mechanism for adding extra text and/or links within 
+  # the holdings details for items shelved in specific library locations.
+  location_notes:
+    'Avery Classics ': >
+        By appointment only.  See the
+        <a href="http://library.columbia.edu/locations/avery/classics.html">
+        Avery Classics Collection webpage
+        </a>
+    'Mathematics (Currently Closed': >
+        Request this item using the 
+        <a href="https://library.columbia.edu/find/request/math-library-paging/form.html">
+        Math Library Paging Form</a>      
+
+
+  # This list is used by the User model to determine on/off campus status.
+  # For the current list of on-campus IP ranges, see:
+  #   https://library.columbia.edu/bts/cerm/vendor_data.html#network
+  # Put this array here, in a manually maintained file, so that it can be
+  # updated without needing a code deployment.
+  COLUMBIA_IP_RANGES:
+    - 128.59.0.0/16
+    - 129.236.0.0/16
+    - 156.111.0.0/16
+    - 156.145.0.0/16
+    - 160.39.0.0/16
+    - 192.12.82.0/24
+    - 192.5.43.0/24
+    - 207.10.136.0/21
+    - 209.2.47.0/24
+    - 209.2.48.0/22
+    - 209.2.185.0/24
+    - 209.2.208.0/20
+    - 209.2.224.0/20
+    - 127.0.0.1
+
+  # IP Adresses to Block - maintain this list in reaction to attacks.
+  # Used by rack-attack gem.
+  BAD_IP_LIST:
+    - 222.66.115.236         # 8/14/2013 - Chinese crawler
+    ### - 128.59.154.72      # Developer Desktop, for testing
+
+  # User Agents to Block - maintain this list in reaction to attacks.
+  # Used by rack-attack gem.
+  BAD_USER_AGENT_LIST:
+    - Java/1.6.0_39     # 8/14/2013 - Chinese crawler
+
+  # August 2013, legitimate traffic tops in the 200s (with much of that from 
+  # separate unapi lookups, which are going away).  Crawlers hit us at 250-450 
+  # requests per minute.  Throttle within this range.  (300/minute = 5/second)
+  THROTTLE_LIMIT_PER_MINUTE: 300
+
+  # August 2013, legitimate traffic tops at 1304, crawlers up to 24,000
+  # Set a reasonable Hourly limit.  3000/hour = 50/minute
+  THROTTLE_LIMIT_PER_HOUR: 3000
+
+
+# Settings within the development block will be used by 
+# the Rails application when running in development mode.
+development:
+
+  # The application_name will be used in the html title elements,
+  # to label browser windows by which server they're connected to.
+  application_name: CLIO localhost development
+
+  # The "clio-backend" endpoint is middleware supplying real-time
+  # status information and additional holdings details from our
+  # ILMS (Voyager) and our digital asset repository (Fedora)
+  clio_backend_url: http://backend-dev.cul.columbia.edu/status_dev
+
+
+# Settings within the test block will be used by 
+# the Rails application when running in test mode.
+test:
+
+  # The application_name will be used in the html title elements,
+  # to label browser windows by which server they're connected to.
+  application_name: CLIO localhost test
+
+  # The "clio-backend" endpoint is middleware supplying real-time
+  # status information and additional holdings details from our
+  # ILMS (Voyager) and our digital asset repository (Fedora)
+  # Use the "dev" installation of this middleware for development and test.
+  clio_backend_url: http://backend-dev.cul.columbia.edu/status_dev
+
