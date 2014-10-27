@@ -11,8 +11,12 @@ $font-size-base: 13px
 // add back light-blue menu-link background (Bootstrap 2 default)
 $dropdown-link-hover-bg: #08c
 
-// These two are provided by bootstrap-sass gem
+// Provided by bootstrap-sass gem
+// This is necessary for glyphicons to work well as rails assets
+@import "bootstrap-sprockets"
+// This is basic bootstrap styles
 @import "bootstrap"
+// This is the old default look & feel from bootstrap 2
 @import "bootstrap/theme"
 
 =alternating-line-colors($even_row_color, $odd_row_color)
