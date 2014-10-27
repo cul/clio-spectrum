@@ -132,7 +132,7 @@ describe 'Catalog Advanced Search' do
     'Offsite <Fine Arts>'
   ].each do |locationSearch|
 
-    it "supports fielded Location search for #{locationSearch}", js: true, focus: true do
+    it "supports fielded Location search for #{locationSearch}", js: true do
       visit catalog_index_path
       find('btn', text: "All Fields").click
       within('.search_row') do
@@ -146,7 +146,7 @@ describe 'Catalog Advanced Search' do
     end
 
 
-    it "supports advanced Location search for #{locationSearch}", js: true, focus: true do
+    it "supports advanced Location search for #{locationSearch}", js: true do
       visit catalog_index_path
       find('.search_box.catalog .advanced_search_toggle').click
       within '.landing_page.catalog .advanced_search' do
