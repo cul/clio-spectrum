@@ -119,7 +119,7 @@ describe 'Catalog Advanced Search' do
 
 
   end
-  
+
   # NEXT-1113 - location search
   # Specifically, test the ability to search beyond "base" location to 
   # sublocation text.
@@ -158,7 +158,7 @@ describe 'Catalog Advanced Search' do
       page.should have_text "« Previous | 1 - 25 of"
     end
   end
-  
+
 
 
   # Bug - Dismissing the last advanced-search field should WORK

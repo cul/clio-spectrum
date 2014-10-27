@@ -127,23 +127,15 @@ gem 'newrelic_rpm'
 # gem 'rack-utf8_sanitizer', :github => 'whitequark/rack-utf8_sanitizer'
 gem 'rack-utf8_sanitizer', :git => 'git://github.com/whitequark/rack-utf8_sanitizer'
 
-# # gives us JQuery and JQuery-ujs
-# gem 'jquery-rails'
-# Replace with CDN-based loading
-gem 'jquery-rails-cdn'
+# gives us JQuery and JQuery-ujs
+# (blacklight_range_limit brings this in anyway - no way to switch to CDN)
+gem 'jquery-rails'
 
 group :assets do
-  # gem 'sass-rails', '~>3.2.4'
-  # gem 'coffee-rails', '~>3.2.2'
-  # gem 'uglifier', '>=1.0.3'
-  # gem 'bootstrap-sass', '~>2.1'
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
   gem 'bootstrap-sass'
-
-  # marquis, 6/13 - unused?
-  # gem 'compass-rails'
 end
 
 
