@@ -136,12 +136,12 @@ describe 'Catalog Advanced Search' do
       visit catalog_index_path
       find('btn', text: "All Fields").click
       within('.search_row') do
-        find('li', text: 'Call Number').click
+        find('li', text: 'Location').click
       end
       fill_in 'q', with: locationSearch
       find('button[type=submit]').click
 
-      find('.constraint-box').should have_content("Call Number: #{locationSearch}")
+      find('.constraint-box').should have_content("Location: #{locationSearch}")
       page.should have_text "« Previous | 1 - 25 of"
     end
 
@@ -150,11 +150,11 @@ describe 'Catalog Advanced Search' do
       visit catalog_index_path
       find('.search_box.catalog .advanced_search_toggle').click
       within '.landing_page.catalog .advanced_search' do
-        select('Call Number', from: 'adv_1_field')
+        select('Location', from: 'adv_1_field')
         fill_in 'adv_1_value', with: locationSearch
         find('button[type=submit]').click
       end
-      find('.constraint-box').should have_content("Call Number: #{locationSearch}")
+      find('.constraint-box').should have_content("Location: #{locationSearch}")
       page.should have_text "« Previous | 1 - 25 of"
     end
   end
