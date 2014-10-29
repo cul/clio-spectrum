@@ -28,6 +28,7 @@ class CatalogController < ApplicationController
   # (BlacklightRangeLimit::ControllerOverride#add_range_limit_params)
   include LocalSolrHelperExtension
 
+
   # When a catalog search is submitted, this is the
   # very first point of code that's hit
   def index

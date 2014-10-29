@@ -74,34 +74,45 @@ module DisplayHelper
     end.join(', ').html_safe
   end
 
-  def render_documents(documents, options)
-    current_viewstyle = get_browser_option('viewstyle') ||
-                        DATASOURCES_CONFIG['datasources'][@active_source]['default_viewstyle'] ||
-                        'list'
+  # render_document_list() will figure out what "action" is being requested,
+  # and the currently applicable View-Style (List, Compact, etc.),
+  # and from those figure out which partial should render the document_list.
+  def render_document_list(document_list, options = {})
+    options.symbolize_keys!
+    action = options.delete(:action) || fail('Must specify action')
 
-    # Assume view-style is the configured default, or "list" if no default configured...
+    # Assume view-style is the configured default, or "standard_list" if no default configured...
     viewstyle = DATASOURCES_CONFIG['datasources'][@active_source]['default_viewstyle'] ||
-                'list'
+                'standard_list'
 
-    # ... but if an alternative view-style option is set,
+    # ... but if an alternative view-style option is saved to browser options,
     # and if this data-source has a configuration which includes that view-style,
     # then use it instead.
+    saved_viewstyle_option = get_browser_option('viewstyle')
     datasource_viewstyles = DATASOURCES_CONFIG['datasources'][@active_source]['viewstyles']
-    if (saved_viewstyle_option = get_browser_option('viewstyle')) &&
+
+    # (10/2014 - support forward-conversion of renamed viewstyle names...)
+    saved_viewstyle_option = 'standard_list' if saved_viewstyle_option && (saved_viewstyle_option == 'list')
+    saved_viewstyle_option = 'compact_list'  if saved_viewstyle_option && (saved_viewstyle_option == 'compact')
+
+    if saved_viewstyle_option &&
        (datasource_viewstyles = DATASOURCES_CONFIG['datasources'][@active_source]['viewstyles']) &&
        datasource_viewstyles.key?(saved_viewstyle_option)
       viewstyle = saved_viewstyle_option
     end
 
-    partial = "/_display/#{options[:action]}/#{viewstyle}"
-    render partial,  documents: documents.listify
+    partial = "/_display/#{action}/#{viewstyle}"
+    render partial,  options.merge(document_list: document_list.listify)
   end
 
+  # render_document_list() will figure out what "template" is being requested,
+  # and the Format of the current item (Map, Score, Newspaper, etc.),
+  # and from those figure out which partial should render the document.
   def render_document_view(document, options = {})
     options.symbolize_keys!
     template = options.delete(:template) || fail('Must specify template')
     formats = determine_formats(document, options.delete(:format))
-# raise
+
     # Render based on @active_source -- unless an alternative is passed in
     options[:source] ||= @active_source
 

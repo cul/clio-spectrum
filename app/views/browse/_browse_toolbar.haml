@@ -17,6 +17,10 @@
         
         &nbsp;
         &nbsp;
+
+        -# = link_to ORIGINAL CALL NUMBER, browse_shelfkey_full_path(shelfkey: ORIGINAL SHELFKEY, before: 19, after: 0)
+
+        &nbsp;
         &nbsp;
         
         -# link to next...
@@ -34,7 +38,7 @@
 
         %li.dropdown
 
-          -# = fix_catalog_links(render 'per_page_widget')
+          = fix_catalog_links(render 'per_page_widget')
           -# = fix_catalog_links(render 'sort_widget')
       
           -# Allow "selections" for any Catalog-based data source, but NOT for Academic Commons

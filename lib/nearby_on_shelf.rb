@@ -198,42 +198,42 @@ class NearbyOnShelf
     result
   end
 
-  # given a document and the barcode of an item in the document, return the
-  #  item_display field corresponding to the barcode, or nil if there is no
-  #  such item
-  def get_item_display(item_display, barcode)
-    item = ""
-    if barcode.nil? || barcode.length == 0
-      return nil
-    end
-    [item_display].flatten.each do |item_disp|
-      item = item_disp if item_disp =~ /^#{CGI::escape(barcode)}/
-      # marquis - add this match...
-      item = item_disp if item_disp =~ /^#{barcode}/
-    end
-    return item unless item == ""
-  end
-
-
-  # return the shelfkey (lopped) piece of the item_display field
-  def get_shelfkey(item_display)
-    # get_item_display_piece(item_display, 6)
-    get_item_display_piece(item_display, 1)
-  end
-
-  # return the reverse shelfkey (lopped) piece of the item_display field
-  def get_reverse_shelfkey(item_display)
-    # get_item_display_piece(item_display, 7)
-    get_item_display_piece(item_display, 2)
-  end
-
-  def get_item_display_piece(item_display, index)
-    if (item_display)
-      # item_array = item_display.split('-|-')
-      item_array = item_display.split(' | ')
-
-      return item_array[index].strip unless item_array[index].nil?
-    end
-    nil
-  end
+  # # given a document and the barcode of an item in the document, return the
+  # #  item_display field corresponding to the barcode, or nil if there is no
+  # #  such item
+  # def get_item_display(item_display, barcode)
+  #   item = ""
+  #   if barcode.nil? || barcode.length == 0
+  #     return nil
+  #   end
+  #   [item_display].flatten.each do |item_disp|
+  #     item = item_disp if item_disp =~ /^#{CGI::escape(barcode)}/
+  #     # marquis - add this match...
+  #     item = item_disp if item_disp =~ /^#{barcode}/
+  #   end
+  #   return item unless item == ""
+  # end
+  # 
+  # 
+  # # return the shelfkey (lopped) piece of the item_display field
+  # def get_shelfkey(item_display)
+  #   # get_item_display_piece(item_display, 6)
+  #   get_item_display_piece(item_display, 1)
+  # end
+  # 
+  # # return the reverse shelfkey (lopped) piece of the item_display field
+  # def get_reverse_shelfkey(item_display)
+  #   # get_item_display_piece(item_display, 7)
+  #   get_item_display_piece(item_display, 2)
+  # end
+  # 
+  # def get_item_display_piece(item_display, index)
+  #   if (item_display)
+  #     # item_array = item_display.split('-|-')
+  #     item_array = item_display.split(' | ')
+  # 
+  #     return item_array[index].strip unless item_array[index].nil?
+  #   end
+  #   nil
+  # end
 end

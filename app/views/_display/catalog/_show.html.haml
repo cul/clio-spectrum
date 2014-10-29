@@ -1,7 +1,7 @@
 -# DISPLAY/CATALOG/SHOW
 
 -# ALL item formats, all catalog-based datasources, use this partial to
--# build their item-detail page.
+-# build their single-item item-detail page.
 
 -#.show
 -#= render 'show_constraints', :localized_params=>session[:search]
@@ -58,20 +58,26 @@
   -# - if current_user.present? and current_user.has_role?('site', 'pilot')
   - unless Rails.env == 'clio_prod'
     - if document['shelfkey']
+      -# For multi-call-number items, arbitrarily use first-retrieved as first browse position
       - first_shelfkey = Array( document['shelfkey']).first
-      .row
-        .col-sm-12.col-xs-12
-          .well
-            .row
-              .col-xs-3
-                %h4= "Browse Nearby"
-              .col-xs-3
+      #mini_browse_panel
+        .well
+          .row
+            .col-xs-4
+              %strong
+                Shelf Browse
+              .btn-group
+                .btn.btn-default.hide_mini_browse.disabled{type: 'button'}Off
+                .btn.btn-default.show_mini_browse{type: 'button'}On
+            .col-xs-6
+              = render "/browse/call_number_toggles", document: document
+            .col-xs-2
+              %strong.pull-right
                 = link_to "Full Screen", browse_shelfkey_full_path( first_shelfkey)
-              .col-xs-6
-                -# = call_number_toggles(document)
-            .row
-              .col-xs-12
-                = render "/_formats/clio/catalog_show_nearby", document: document
+
+          #mini_browse_list.row
+            .col-xs-12
+              = render "/_formats/clio/catalog_show_nearby", document: document
     
       
   .clear-both

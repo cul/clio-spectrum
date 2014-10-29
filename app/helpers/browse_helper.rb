@@ -4,15 +4,18 @@
 # 
 module BrowseHelper
 
-  # Display toggle-buttons of each Call-Number associated with this document
-  # Using  http://getbootstrap.com/javascript/#buttons
-  def call_number_toggles(document)
-    buttons = document['item_display'].each_with_index { |item_display, counter|
-      content_tag(:label, content_tag(:input, get_call_number(item_display), type: 'radio', name: 'call_number', id: get_shelfkey(item_display)), class: 'btn btn-primary')
-    }.join("\n")
-
-    return content_tag(:div, buttons, class:'btn-group', 'data-toggle' => 'buttons')
-  end
+  # ABORT - this is getting ridiculous, move it to a partial...
+  # # Display toggle-buttons of each Call-Number associated with this document
+  # # Using  http://getbootstrap.com/javascript/#buttons
+  # def call_number_toggles(document)
+  #   content_tag(:div, class:'btn-group') do
+  #     document['item_display'].map { |item_display|
+  #       concat(content_tag(:div, get_call_number(item_display), type: 'button', id: get_shelfkey(item_display), class: 'btn btn-default'))
+  #     }
+  #   end
+  # 
+  #   # return content_tag(:div, buttons, class:'btn-group')
+  # end
 
 
   def link_to_callnumber_browse(document, callnumber, index = 0)

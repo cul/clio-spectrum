@@ -1,0 +1,43 @@
+
+/ _formats/clio/_compact_browse_item.html.haml
+/ container for a SINGLE doc
+
+
+- highlight ||= false
+
+-# Are we inside the mini-browse?
+- mini ||= false
+
+
+-# .boxed_search_results.result.document{:class => ("database_record" if document['source_display'].include? 'database'), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
+.boxed_search_results.result.document{:class => ("database_record" if document.is_database?), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
+
+  .row{class: "#{'bg-info' if highlight}"}
+
+    .col-sm-12.no-bottom-space
+
+      -# The mini-browser should not have COINS or checkboxes
+      - unless mini
+        %span.coins_wrapper
+          <!-- COinS -->
+          %span.Z3988{title: catalog_to_openurl_ctx_kev(document)}
+      
+        .item_anchor
+          = render '/saved_lists/item_select_checkbox', item_id: document[:id]
+
+      .item_select_allowance
+        %b= link_to_source_document document, :label=> call_number
+
+  .row{class: "#{'bg-info' if highlight}"}
+    .col-sm-4.no-bottom-space= document.get("title_display") || document.get("title_vern_display")
+  
+    .col-sm-3.no-bottom-space= document.get("author_display") || document.get("author_vern_display")
+
+    .col-sm-5.no-bottom-space= document.get("full_publisher_display")
+
+
+  .row{class: "#{'bg-info' if highlight}"}
+    .col-sm-7.item_select_allowance.no-bottom-space
+      %small= holdings_compact(document)
+    .col-sm-5.no-bottom-space
+      %small= formats_with_icons(document)

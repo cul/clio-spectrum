@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
   include Blacklight::Catalog
   include Blacklight::Configurable
 
+  include BrowseSupport
+
   # Please be sure to impelement current_user and user_session. Blacklight depends on
   # these methods in order to perform user specific actions.
   check_authorization
@@ -302,6 +304,9 @@ class ApplicationController < ActionController::Base
         'newspapers'
       when /^\/archives/
         'archives'
+      # Browse (Shelf-Browse, Call-Number Browse) is assumed to act like Catalog
+      when /^\/browse/
+        'catalog'
       else
         active_source_from_params || 'quicksearch'
       end

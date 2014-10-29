@@ -1,0 +1,47 @@
+
+
+.btn-group{'data-toggle' => 'buttons'}
+
+  - document['item_display'].each_with_index do |item_display, counter|
+
+    %label.btn.btn-default{class: "#{'active' if counter == 0}"}
+      %input{type: 'radio', name: 'options', id: "#{get_shelfkey(item_display)}", autocomplete: 'off'}
+        = get_call_number(item_display)
+        = counter
+
+
+-# Bootstrap Buttons Example (http://getbootstrap.com/javascript/#buttons)
+
+-# <div class="btn-group" data-toggle="buttons">
+-#   <label class="btn btn-primary active">
+-#     <input type="radio" name="options" id="option1" autocomplete="off" checked> Radio 1 (preselected)
+-#   </label>
+-#   <label class="btn btn-primary">
+-#     <input type="radio" name="options" id="option2" autocomplete="off"> Radio 2
+-#   </label>
+-#   <label class="btn btn-primary">
+-#     <input type="radio" name="options" id="option3" autocomplete="off"> Radio 3
+-#   </label>
+-# </div>
+-# 
+-# 
+
+
+
+-# Build the toggles, in ruby-code... (not completed)
+
+-# # # Display toggle-buttons of each Call-Number associated with this document
+-# # # Using  http://getbootstrap.com/javascript/#buttons
+-# # def call_number_toggles(document)
+-# #   content_tag(:div, class:'btn-group') do
+-# #     document['item_display'].map { |item_display|
+-# #       concat(content_tag(:div, get_call_number(item_display), type: 'button', id: get_shelfkey(item_display), class: 'btn btn-default'))
+-# #     }
+-# #   end
+-# # 
+-# #   # return content_tag(:div, buttons, class:'btn-group')
+-# # end
+
+
+
+

@@ -107,7 +107,11 @@ module CulCatalogHelper
   def viewstyle_link(viewstyle, label)
     current_viewstyle = get_browser_option('viewstyle') ||
                         DATASOURCES_CONFIG['datasources'][@active_source]['default_viewstyle'] ||
-                        'list'
+                        'standard_list'
+
+    # (support forward-conversion of renamed viewstyle names...)
+    current_viewstyle = 'standard_list' if current_viewstyle == 'list'
+    current_viewstyle = 'compact_list'  if current_viewstyle == 'compact'
 
     if viewstyle == current_viewstyle
       checkmark = content_tag(:span, '', :class => 'glyphicon glyphicon-ok')
