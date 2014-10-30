@@ -1,0 +1,22 @@
+# This is an EXAMPLE solr.yml file.
+# Copy this file to solr.yml and edit the values as needed.
+
+
+# Configure the URL of the Solr search engine to be used for searching
+# most CLIO datasources (Catalog, E-Journals, Databases, Archives, etc.)
+
+# Columbia Library provides a "Library Labs" installation of our Solr search
+# engine with a copy of our CLIO data to facilitate experimentation and reuse.
+# Contact the libraries information technology office for access.
+
+# The development URL will be used for all catalog searches during development.
+development:
+  url: http://librarylabs.cul.columbia.edu:1234/solr-4.0/clio
+
+# The test URL will be used for running automated testing.
+# This can be set to the same Solr search engine as development.
+test:
+  url: http://librarylabs.cul.columbia.edu:1234/solr-4.0/clio
+
+
+
