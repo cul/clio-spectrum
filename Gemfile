@@ -127,9 +127,11 @@ gem 'newrelic_rpm'
 # gem 'rack-utf8_sanitizer', :github => 'whitequark/rack-utf8_sanitizer'
 gem 'rack-utf8_sanitizer', :git => 'git://github.com/whitequark/rack-utf8_sanitizer'
 
-# gives us JQuery and JQuery-ujs
+# gives us jQuery and jQuery-ujs, but not jQuery UI
 # (blacklight_range_limit brings this in anyway - no way to switch to CDN)
 gem 'jquery-rails'
+# jQuery UI - JavaScript, CSS, Images
+gem 'jquery-ui-rails'
 
 group :assets do
   gem 'sass-rails'

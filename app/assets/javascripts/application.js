@@ -8,6 +8,12 @@
 //= require jquery
 //= require jquery_ujs
 
+// And, from https://github.com/joliss/jquery-ui-rails
+// # No, don't pull everything in - be more specific
+// # = require jquery-ui
+//= require jquery-ui/button
+
+
 // from project Blacklight
 //= require blacklight/blacklight
 
