@@ -1,20 +1,31 @@
 
 $ ->
 
-  # Toggle the mini-shelf-browse list
+  # Toggle the mini-shelf-browse list - On / Off
 
   $('.hide_mini_browse').click ->
     $('#mini_browse_list').hide()
     $('.hide_mini_browse').toggleClass('disabled')
     $('.show_mini_browse').toggleClass('disabled')
+    $('.call_number_toggle').toggleClass('disabled')
 
   $('.show_mini_browse').click ->
     $('#mini_browse_list').show()
     $('.hide_mini_browse').toggleClass('disabled')
     $('.show_mini_browse').toggleClass('disabled')
+    $('.call_number_toggle').toggleClass('disabled')
 
+  # Toggle between multiple call-numbers
+  $('.call_number_toggle').click ->
+    shelfkey = $(this).data("shelfkey")
+    load_nearby( shelfkey )
+
+
+# function to replace the html content of our #nearby object 
+# with the shelf-key view of  looked-up nearby items
 
 @load_nearby = (shelfkey) ->
+  $('#nearby').html("")
   $("span.nearby_spinner").show
   $("#nearby .nearby_error").hide
 
