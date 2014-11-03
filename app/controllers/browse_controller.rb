@@ -73,6 +73,9 @@ class BrowseController < ApplicationController
     render nothing: true and return if request.xhr?
     render nothing: true and return unless params[:shelfkey].present?
 
+    # Which bib id to highlight
+    @highlight = params[:highlight] || 0
+
     # all shelfkeys in Solr are normalized to lower-case
     @shelfkey = params[:shelfkey].downcase
 

@@ -61,16 +61,19 @@
       -# For multi-call-number items, arbitrarily use first-retrieved as first browse position
       - first_shelfkey = Array( document['shelfkey']).first
       #mini_browse_panel
-        .well
+        .well.Xwell-sm
           .row
-            .col-xs-4
+            .col-xs-10
               %strong
                 Shelf Browse
               .btn-group
                 .btn.btn-default.hide_mini_browse.disabled{type: 'button'}Off
                 .btn.btn-default.show_mini_browse{type: 'button'}On
-            .col-xs-6
+              &nbsp;
+              &nbsp;
+              &nbsp;
               = render "/browse/call_number_toggles", document: document
+
             .col-xs-2
               %strong.pull-right
                 = link_to "Full Screen", browse_shelfkey_full_path( first_shelfkey)

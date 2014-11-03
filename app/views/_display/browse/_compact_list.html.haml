@@ -16,8 +16,9 @@
 -#   current_reverse_shelfkey:
 -# }
 
+
 - document_list.each do |browse_item|
   - document = browse_item[:doc]
-  - highlight = (browse_item[:current_shelfkey] == @shelfkey)
+  -# - highlight = (browse_item[:current_shelfkey] == @shelfkey)
 
-  = render_document_view(document, format: 'clio', template: 'compact_browse_item', source: 'catalog', call_number: browse_item[:current_call_number], highlight: highlight, mini: mini)
+  = render_document_view(document, format: 'clio', template: 'compact_browse_item', source: 'catalog', call_number: browse_item[:current_call_number], mini: mini)

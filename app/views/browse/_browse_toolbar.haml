@@ -1,6 +1,7 @@
 
 -# CALL-NUMBER BROWSE NEARBY TOOLBAR CONTROLS
 
+
 %nav.index_toolbar.navbar.navbar-default
 
   .container-fluid
@@ -13,18 +14,20 @@
 
       .navbar-text
         -# link to previous...
-        = link_to "« Previous", browse_shelfkey_full_path(shelfkey: first_shelfkey, before: 19, after: 0)
+        = link_to "« Previous", browse_shelfkey_full_path(shelfkey: first_shelfkey, highlight: @highlight, before: 19, after: 0)
         
         &nbsp;
         &nbsp;
 
+        -# This doesn't really makes sense - how can we show the original call number
+        -# up top on a screen that doesn't include that bib?  confusing?
         -# = link_to ORIGINAL CALL NUMBER, browse_shelfkey_full_path(shelfkey: ORIGINAL SHELFKEY, before: 19, after: 0)
 
         &nbsp;
         &nbsp;
         
         -# link to next...
-        = link_to "Next »", browse_shelfkey_full_path(shelfkey: last_shelfkey, before: 0, after: 19)
+        = link_to "Next »", browse_shelfkey_full_path(shelfkey: last_shelfkey, highlight: @highlight, before: 0, after: 19)
 
 
         -# = fix_catalog_links(render :partial => "paginate_compact", :object => @response)

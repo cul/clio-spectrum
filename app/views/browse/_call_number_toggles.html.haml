@@ -1,14 +1,21 @@
 
 
-.btn-group{'data-toggle' => 'buttons'}
+
+.btn-group.btn-group-sm{'data-toggle' => 'buttons'}
+
+  .btn.btn-default.call_number_nav.disabled
+    %span.glyphicon.glyphicon-backward
 
   - document['item_display'].each_with_index do |item_display, counter|
-    
+
     -# Load disabled - user needs to activate shelf-browse for these buttons to work
     %label.btn.btn-default.call_number_toggle.disabled{class: "#{'active' if counter == 0}", data: {'shelfkey' => "#{get_shelfkey(item_display)}"} }
       %input{type: 'radio', name: 'options', autocomplete: 'off'}
         = get_call_number(item_display)
         = counter
+
+  .btn.btn-default.call_number_nav.disabled
+    %span.glyphicon.glyphicon-forward
 
 
 -# Bootstrap Buttons Example (http://getbootstrap.com/javascript/#buttons)
@@ -46,3 +53,4 @@
 
 
 
+-# <span class="btn btn-default glyphicon glyphicon-backward visible-xs-inline">

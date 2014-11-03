@@ -8,12 +8,14 @@ $ ->
     $('.hide_mini_browse').toggleClass('disabled')
     $('.show_mini_browse').toggleClass('disabled')
     $('.call_number_toggle').toggleClass('disabled')
+    $('.call_number_nav').toggleClass('disabled')
 
   $('.show_mini_browse').click ->
     $('#mini_browse_list').show()
     $('.hide_mini_browse').toggleClass('disabled')
     $('.show_mini_browse').toggleClass('disabled')
     $('.call_number_toggle').toggleClass('disabled')
+    $('.call_number_nav').toggleClass('disabled')
 
   # Toggle between multiple call-numbers
   $('.call_number_toggle').click ->
