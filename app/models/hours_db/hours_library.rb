@@ -12,6 +12,9 @@ class HoursDb::HoursLibrary < ActiveRecord::Base
     enddate = startdate + days_to_add.days
 
     find(:all).each do |hl|
+      # debugging...
+      # next unless /Burk/ =~ hl.lib_name
+      # puts "XXXXXXXXXXXXXXXXXXXXXXXX  #{hl.lib_name}"
       library = hl.find_or_create_for_new_books!
       library.hours.delete_all
 
