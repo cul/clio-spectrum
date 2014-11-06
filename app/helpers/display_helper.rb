@@ -62,7 +62,8 @@ module DisplayHelper
     'Newspaper' => 'newspaper',
     'Database' => 'database',
     'Image' => 'image',
-    'Computer Program' => 'computer-file'
+    'Computer Program' => 'computer-file',
+    'Loose-leaf' => 'journal'
   }
 
   def formats_with_icons(document)
