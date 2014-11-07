@@ -6,7 +6,8 @@
 -# Usually the title, but if we're browsing by call-number, use the call_number
 - document_link_label = document.get('title_display')
 - document_link_label = call_number if local_assigns.has_key? :call_number
-- highlight ||= false
+
+- highlight_bib = session[:browse]['bib'] || 0
 
 -# Are we inside the mini-browse?
 - mini ||= false
@@ -21,7 +22,7 @@
 / container for a SINGLE doc
 .result.document{class: render_document_class(document), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
-  .row{class: "#{'bg-info' if highlight}"}
+  .row{class: "#{'bg-info' if document.id == highlight_bib}"}
     .title.col-sm-12
 
       -# The mini-browser should not have COINS or checkboxes
@@ -44,7 +45,7 @@
 
   / main container for doc partial view
 
-  .row{class: "#{'bg-info' if highlight}"}
+  .row{class: "#{'bg-info' if document.id == highlight_bib}"}
 
     .details.col-sm-10
       -# = render :partial => "/_formats/clio/catalog_list_details", :locals => {:document => document}
