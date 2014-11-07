@@ -205,7 +205,16 @@ class BrowseController < ApplicationController
     # uniq docs you want back.
     solr_params = {rows: fetch_doc_count}
     # raise
-    response, solr_document_list = get_solr_response_for_field_values(fieldname, key_list, solr_params)
+
+    # This fails when page-size is large, 50 or so.
+    #     RSolr::Error::Http - 413 Request Entity Too Large
+    # response, solr_document_list = get_solr_response_for_field_values(fieldname, key_list, solr_params)
+    # Run the query in slices, merge them.
+    solr_document_list = []
+    key_list.each_slice(40) { |slice|
+      response, slice_document_list = get_solr_response_for_field_values(fieldname, slice, solr_params)
+      solr_document_list += slice_document_list
+    }
 
     # Pair up the ordered shelfkeys with matching documents.
     # Potentially messy...
