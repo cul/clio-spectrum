@@ -46,42 +46,57 @@ class BrowseController < ApplicationController
 
   #### Name our XHR handler "_mini" and our HTML handler "_full", so that
   #### they have different URLs, so they cache distinctly in client browsers.
+
   def shelfkey_mini
     render nothing: true and return unless request.xhr?
-    render nothing: true and return unless params[:shelfkey].present?
-    # all shelfkeys in Solr are normalized to lower-case
-    @shelfkey = params[:shelfkey].downcase
 
-    before_count = (params[:before] || 3).to_i
-    after_count  = (params[:after] || 5).to_i
-
-    # A Browse-Item is a hash reflecting a doc with it's currently 
-    # activated position within the browse context:
-    # {
-    #   doc:  SolrDocument,
-    #   active_call_number:
-    #   active_shelfkey:
-    #   active_reverse_shelfkey:
-    # }
-    # raise
-    @browse_item_list = shelfkey_to_item_list(@shelfkey, before_count, after_count)
-
-    render layout: false
+    shelfkey_browse('mini')
   end
-
 
   def shelfkey_full
     render nothing: true and return if request.xhr?
+
+    shelfkey_browse('full')
+  end
+
+  def shelfkey_browse(mini_or_full)
     render nothing: true and return unless params[:shelfkey].present?
 
-    # Which bib id to highlight
-    @highlight = params[:highlight] || 0
+    # We'll use Session for storing state about our browse session
+    session[:browse] = {} unless session[:browse].is_a?(Hash)
+
+    default_before_items = 3
+    if (mini_or_full == 'full')
+      session[:browse]['per_page'] = get_browser_option('catalog_per_page') || 25
+    else
+      # How many items to show for mini-browse?
+      session[:browse]['per_page'] = 10
+    end
+
+    before_count = (params[:before] || default_before_items).to_i
+
+    # Total, minus current item, minus what comes before, equals what's after
+    default_after_items = (session[:browse]['per_page']).to_i - before_count - 1
+    after_count  = (params[:after] || default_after_items).to_i
 
     # all shelfkeys in Solr are normalized to lower-case
     @shelfkey = params[:shelfkey].downcase
 
-    before_count = (params[:before] || 3).to_i
-    after_count  = (params[:after] || 16).to_i
+    # Which bib id to highlight
+    if params[:bib]
+      response, document = get_solr_response_for_doc_id(params[:bib])
+
+      # Record the starting item for browsing in the Session
+      # This will not be part of URL (i.e., won't survive 
+      # bookmarking, emailing, etc.)
+      session[:browse]['bib'] = document.id
+      # Need the Call Number corresponding to the active shelfkey
+      active_item_display = get_item_display(document, @shelfkey)
+      session[:browse]['call_number'] = get_call_number(active_item_display)
+      session[:browse]['shelfkey'] = get_shelfkey(active_item_display)
+    end
+
+
 
     # A Browse-Item is a hash reflecting a doc with it's currently 
     # activated position within the browse context:
@@ -93,9 +108,40 @@ class BrowseController < ApplicationController
     # }
     @browse_item_list = shelfkey_to_item_list(@shelfkey, before_count, after_count)
 
-    render layout: 'quicksearch'
+    if mini_or_full == 'mini'
+      render layout: false
+    else
+      render layout: 'quicksearch'
+    end
   end
 
+
+  # def shelfkey_full
+  #   render nothing: true and return if request.xhr?
+  #   render nothing: true and return unless params[:shelfkey].present?
+  # 
+  #   # Which bib id to highlight
+  #   @bib = params[:bib] || 0
+  # 
+  #   # all shelfkeys in Solr are normalized to lower-case
+  #   @shelfkey = params[:shelfkey].downcase
+  # 
+  #   before_count = (params[:before] || 3).to_i
+  #   after_count  = (params[:after] || 16).to_i
+  # 
+  #   # A Browse-Item is a hash reflecting a doc with it's currently 
+  #   # activated position within the browse context:
+  #   # {
+  #   #   doc:  SolrDocument,
+  #   #   active_call_number:
+  #   #   active_shelfkey:
+  #   #   active_reverse_shelfkey:
+  #   # }
+  #   @browse_item_list = shelfkey_to_item_list(@shelfkey, before_count, after_count)
+  # 
+  #   render layout: 'quicksearch'
+  # end
+  # 
 
   def shelfkey_to_item_list(shelfkey, before_count, after_count)
     forward_items = get_items_by_shelfkey_forward(shelfkey, after_count)
@@ -128,6 +174,7 @@ class BrowseController < ApplicationController
 
   # def get_items_by_shelfkey_forward(shelfkey, after_count)
   def get_items_by_key(fieldname, fieldvalue, count)
+    Rails.logger.debug "get_items_by_key(#{fieldname}, #{fieldvalue}, #{count})"
     # lookup self plus "count" records onwards
     total_count = 1 + count
     # Fetch OVER the number required... because
@@ -175,9 +222,10 @@ class BrowseController < ApplicationController
     }
 
     # Sort our retrieved docs by their key
-    item_hash_list.sort!{ |x,y|
-      x[:key] <=> y[:key]
-    }
+    # item_hash_list.sort!{ |x,y|
+    #   x[:key] <=> y[:key]
+    # }
+    item_hash_list = item_hash_list.sort_by { |x| [ x[:key], x[:doc].id ] }
 
     # Use the key to fetch the matching item_display jumbo field,
     # parse it out into separate fields
@@ -198,6 +246,8 @@ class BrowseController < ApplicationController
 
 
   def get_next_terms(curr_value, field, how_many)
+    Rails.logger.debug "get_next_terms(#{curr_value}, #{field}, #{how_many})"
+
     # TermsComponent Query to get the terms
     solr_params = {
       'terms.fl' => field,
@@ -225,6 +275,8 @@ class BrowseController < ApplicationController
       i = i + 2
     end
 
+    Rails.logger.debug result.inspect
+
     result
   end
 
@@ -236,7 +288,10 @@ class BrowseController < ApplicationController
     item_display_field = get_item_display(item, shelfkey)
 
     # dig out the correct sub-component of the jumbo field
-    return get_reverse_shelfkey(item_display_field)
+    reverse_shelfkey = get_reverse_shelfkey(item_display_field)
+    raise unless reverse_shelfkey
+
+    return reverse_shelfkey
   end
 
 

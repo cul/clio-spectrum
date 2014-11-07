@@ -2,7 +2,7 @@
 / _formats/clio/_compact_browse_item.html.haml
 / container for a SINGLE doc
 
-
+- highlight_bib = session[:browse]['bib'] || 0
 -# Are we inside the mini-browse?
 - mini ||= false
 
@@ -10,7 +10,7 @@
 -# .boxed_search_results.result.document{:class => ("database_record" if document['source_display'].include? 'database'), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 .boxed_search_results.result.document{:class => ("database_record" if document.is_database?), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
-  .row{class: "#{'bg-info' if document.id == @highlight}"}
+  .row{class: "#{'bg-info' if document.id == highlight_bib}"}
 
     .col-sm-12.no-bottom-space
 
@@ -27,7 +27,7 @@
           %b= link_to_source_document document, :label=> call_number
 
 
-  .row{class: "#{'bg-info' if document.id == @highlight}"}
+  .row{class: "#{'bg-info' if document.id == highlight_bib}"}
     .col-sm-4.no-bottom-space= document.get("title_display") || document.get("title_vern_display")
   
     .col-sm-3.no-bottom-space= document.get("author_display") || document.get("author_vern_display")
@@ -35,7 +35,7 @@
     .col-sm-5.no-bottom-space= document.get("full_publisher_display")
 
 
-  .row{class: "#{'bg-info' if document.id == @highlight}"}
+  .row{class: "#{'bg-info' if document.id == highlight_bib}"}
     .col-sm-7.item_select_allowance.no-bottom-space
       %small= holdings_compact(document)
     .col-sm-5.no-bottom-space

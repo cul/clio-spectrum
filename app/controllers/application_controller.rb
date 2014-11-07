@@ -506,7 +506,10 @@ class ApplicationController < ActionController::Base
   def store_location
     fullpath = request.fullpath
     # store this as the last-acccessed URL, except for exceptions...
+
     session[:previous_url] = fullpath unless
+      # No AJAX ever
+      request.xhr? or
       # exclude /users paths, which reflect the login process
       fullpath =~ /\/users/ or
       fullpath =~ /\/backend/ or

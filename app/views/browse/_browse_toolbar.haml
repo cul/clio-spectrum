@@ -1,6 +1,7 @@
 
 -# CALL-NUMBER BROWSE NEARBY TOOLBAR CONTROLS
 
+- per_page = session[:browse]['per_page'].to_i || 25
 
 %nav.index_toolbar.navbar.navbar-default
 
@@ -14,7 +15,7 @@
 
       .navbar-text
         -# link to previous...
-        = link_to "« Previous", browse_shelfkey_full_path(shelfkey: first_shelfkey, highlight: @highlight, before: 19, after: 0)
+        = link_to "« Previous", browse_shelfkey_full_path(shelfkey: first_shelfkey, highlight: @highlight, before: per_page - 1, after: 0)
         
         &nbsp;
         &nbsp;
@@ -27,7 +28,7 @@
         &nbsp;
         
         -# link to next...
-        = link_to "Next »", browse_shelfkey_full_path(shelfkey: last_shelfkey, highlight: @highlight, before: 0, after: 19)
+        = link_to "Next »", browse_shelfkey_full_path(shelfkey: last_shelfkey, highlight: @highlight, before: 0, after: per_page - 1)
 
 
         -# = fix_catalog_links(render :partial => "paginate_compact", :object => @response)

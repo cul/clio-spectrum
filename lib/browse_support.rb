@@ -1,4 +1,7 @@
 
+# NOTE - this support library is read in once during initialization.
+# When this file is modified, the Rails server needs to be restarted.
+
 
 module BrowseSupport
 
@@ -15,7 +18,12 @@ module BrowseSupport
   #  such item
   def get_item_display(item, key)
     # raise
-    item_display = item[:doc][:item_display]
+    # Accept a "browse item" structure, or a plain old SolrDocument
+    if item.has_key? :item_display
+      item_display = item[:item_display]
+    else
+      item_display = item[:doc][:item_display]
+    end
     match = ""
     if key.nil? || key.length == 0
       return nil
