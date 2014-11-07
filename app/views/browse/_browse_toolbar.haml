@@ -1,6 +1,13 @@
 
 -# CALL-NUMBER BROWSE NEARBY TOOLBAR CONTROLS
 
+
+- first_shelfkey = @browse_item_list.first[:current_shelfkey]
+- first_call_number = @browse_item_list.first[:current_call_number]
+
+- last_shelfkey = @browse_item_list.last[:current_shelfkey]
+- last_call_number = @browse_item_list.last[:current_call_number]
+
 - per_page = session[:browse]['per_page'].to_i || 25
 
 %nav.index_toolbar.navbar.navbar-default
@@ -20,6 +27,9 @@
         &nbsp;
         &nbsp;
 
+        = first_call_number
+        &mdash;
+        = last_call_number
         -# This doesn't really makes sense - how can we show the original call number
         -# up top on a screen that doesn't include that bib?  confusing?
         -# = link_to ORIGINAL CALL NUMBER, browse_shelfkey_full_path(shelfkey: ORIGINAL SHELFKEY, before: 19, after: 0)
@@ -30,6 +40,13 @@
         -# link to next...
         = link_to "Next »", browse_shelfkey_full_path(shelfkey: last_shelfkey, highlight: @highlight, before: 0, after: per_page - 1)
 
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+
+
+        = link_to "Browse from " + session[:browse]['call_number'], browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'btn btn-default'
 
         -# = fix_catalog_links(render :partial => "paginate_compact", :object => @response)
       

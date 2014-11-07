@@ -3,7 +3,7 @@
 
 .btn-group.btn-group-sm{'data-toggle' => 'buttons'}
 
-  .btn.btn-default.call_number_nav.disabled
+  .btn.btn-default.call_number_nav.call_number_nav_previous.disabled
     %span.glyphicon.glyphicon-backward
 
   - document['item_display'].each_with_index do |item_display, counter|
@@ -14,7 +14,7 @@
         = get_call_number(item_display)
         = counter
 
-  .btn.btn-default.call_number_nav.disabled
+  .btn.btn-default.call_number_nav.call_number_nav_next.disabled
     %span.glyphicon.glyphicon-forward
 
 

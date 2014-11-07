@@ -1,6 +1,9 @@
 
+-# The full @browse_item_list is available for use here....
+- first_shelfkey = @browse_item_list.first[:current_shelfkey]
+- last_shelfkey = @browse_item_list.last[:current_shelfkey]
 
-#documents{:data => {'ga-action' => 'Browse Results Click'} }
+#documents{:data => {'ga-action' => 'Browse Results Click', 'first-shelfkey' => first_shelfkey, 'last-shelfkey' => last_shelfkey} }
   = render_document_list(@browse_item_list, action: "browse", shelfkey: @shelfkey, mini: true)
 
 -# -# - item_count = @browse_item_list.size

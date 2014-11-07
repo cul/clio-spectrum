@@ -87,7 +87,7 @@ class NearbyOnShelf
 
   # return an array of the next terms in the index for the indicated field and 
   # starting term. Returned array does NOT include starting term.  Queries Solr (duh).
-  def get_next_terms_for_field(starting_term, field_name, how_many=3)
+  def SW_get_next_terms_for_field(starting_term, field_name, how_many=3)
     result = []
     # terms is array of one element hashes with key=term and value=count
     terms_array = get_next_terms(starting_term, field_name, how_many.to_i+1)
@@ -170,7 +170,7 @@ class NearbyOnShelf
     return result_hash
   end
 
-  def get_next_terms(curr_value, field, how_many)
+  def SW_get_next_terms(curr_value, field, how_many)
     # TermsComponent Query to get the terms
     solr_params = {
       'terms.fl' => field,

@@ -1,10 +1,9 @@
 
 
 - item_count = @browse_item_list.size
-- first_shelfkey = @browse_item_list.first[:current_shelfkey]
-- last_shelfkey = @browse_item_list.last[:current_shelfkey]
 
-= render 'browse_toolbar', first_shelfkey: first_shelfkey, last_shelfkey: last_shelfkey
+-# = render 'browse_toolbar', first_shelfkey: first_shelfkey, last_shelfkey: last_shelfkey
+= render 'browse_toolbar'
 
 #documents{:data => {'ga-action' => 'Browse Results Click'} }
   = render_document_list(@browse_item_list, action: "browse", shelfkey: @shelfkey)
@@ -34,5 +33,5 @@
 -#     -#   .col-xs-12=document.get("full_publisher_display")
 
 
-= render 'browse_toolbar', first_shelfkey: first_shelfkey, last_shelfkey: last_shelfkey
+= render 'browse_toolbar'
 

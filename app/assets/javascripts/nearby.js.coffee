@@ -45,19 +45,32 @@ $ ->
       window.location = full_path_to_shelfkey 
       return false
 
+  # These need to support before and after counts, just like full-page...
+  $('.call_number_nav_previous').click ->
+    first_shelfkey = $('.nearby_content #documents').data('first-shelfkey')
+    # alert("first_shelfkey="+first_shelfkey)
+    load_shelfkey(first_shelfkey, 0, 9)
+
+  $('.call_number_nav_next').click ->
+    last_shelfkey = $('.nearby_content #documents').data('last-shelfkey')
+    # alert("last_shelfkey="+last_shelfkey)
+    load_shelfkey(last_shelfkey, 0, 0)
+    
 
 # function to replace the html content of our #nearby object 
 # with the shelf-key view of  looked-up nearby items
 
-
-@load_shelfkey = (shelfkey, bib) ->
+@load_shelfkey = (shelfkey, bib, before_count) ->
   # active_shelfkey = $('.call_number_toggle.active').data('shelfkey')
   $("#nearby .nearby_spinner").show()
   $("#nearby .nearby_error").hide()
   $("#nearby .nearby_content").hide()
   mini_browse_url = '/browse/shelfkey_mini/' + shelfkey
-  if (typeof bib != 'undefined')
+  if (typeof bib != 'undefined'  &&  bib > 0)
     mini_browse_url = mini_browse_url + "/" + bib
+  if (typeof before_count == 'undefined')
+    before_count = 3
+  mini_browse_url = mini_browse_url + '?before=' + before_count
 
   $.ajax
     url: mini_browse_url

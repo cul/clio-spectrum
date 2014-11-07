@@ -144,6 +144,7 @@ class BrowseController < ApplicationController
   # 
 
   def shelfkey_to_item_list(shelfkey, before_count, after_count)
+    # raise
     forward_items = get_items_by_shelfkey_forward(shelfkey, after_count)
 
     # pull off the current item
@@ -153,8 +154,13 @@ class BrowseController < ApplicationController
     reverse_shelfkey = shelfkey_to_reverse_shelfkey(this_item, shelfkey)
     backward_items = get_items_by_reverse_shelfkey_backward(reverse_shelfkey, before_count)
 
-    # pull off the current  item
-    backward_items.shift
+    # pull off the current item
+    # backward_items.shift
+    # raise
+    # there may be multiple items sharing the shelfkey - delete them all...
+    backward_items.delete_if { |item|
+      item[:key] == reverse_shelfkey
+    }
 # raise
     ordered_item_list = backward_items.reverse + [this_item] + forward_items
 
@@ -172,21 +178,24 @@ class BrowseController < ApplicationController
   end
 
 
-  # def get_items_by_shelfkey_forward(shelfkey, after_count)
   def get_items_by_key(fieldname, fieldvalue, count)
     Rails.logger.debug "get_items_by_key(#{fieldname}, #{fieldvalue}, #{count})"
-    # lookup self plus "count" records onwards
-    total_count = 1 + count
+
     # Fetch OVER the number required... because
     # if doc[123] occupies positions N and N+1 in the returned list, 
     # those multiple appearances will collapse into a single Doc in
     # the browse-item-list, which means you'll fall short of how many
     # uniq docs you want back.  
     # Add, arbitrarily, 5 extra.  Could be 10, could be x2, whatever.
-    fetch_count = total_count + 5
+    fetch_term_count = count + 10
+    fetch_doc_count = fetch_term_count + 10
 
     # Get the _ordered_ list of keys (using Solr term query)
-    key_list = get_next_terms(fieldvalue, fieldname, fetch_count)
+    key_list = get_next_terms(fieldvalue, fieldname, fetch_term_count)
+
+    key_list.each { |key|
+      Rails.logger.debug "key=#{key.inspect} #{' ==> MATCH' if key == fieldvalue}"
+    }
 
     # Get the unordered set of Solr docs
     # Fetch OVER the number required... because
@@ -194,7 +203,8 @@ class BrowseController < ApplicationController
     # those multiple appearances will collapse into a single Doc in
     # the browse-item-list, which means you'll fall short of how many
     # uniq docs you want back.
-    solr_params = {rows: fetch_count}
+    solr_params = {rows: fetch_doc_count}
+    # raise
     response, solr_document_list = get_solr_response_for_field_values(fieldname, key_list, solr_params)
 
     # Pair up the ordered shelfkeys with matching documents.
@@ -220,12 +230,22 @@ class BrowseController < ApplicationController
       { doc: doc, key: key}
 
     }
-
+# raise
     # Sort our retrieved docs by their key
     # item_hash_list.sort!{ |x,y|
     #   x[:key] <=> y[:key]
     # }
-    item_hash_list = item_hash_list.sort_by { |x| [ x[:key], x[:doc].id ] }
+# if count > 0 
+#   raise
+# end
+
+    # Sort by Call-Number, secondary sort by Bib for matching call-numbers,
+    # and remember to reverse the Bib sort when dealing with reverse shelfkeys.
+    if fieldname == 'shelfkey'
+      item_hash_list = item_hash_list.sort_by { |x| [ x[:key], x[:doc].id.to_i ] }
+    elsif fieldname == 'reverse_shelfkey'
+      item_hash_list = item_hash_list.sort_by { |x| [ x[:key], (0 - x[:doc].id.to_i) ] }
+    end
 
     # Use the key to fetch the matching item_display jumbo field,
     # parse it out into separate fields
@@ -246,7 +266,7 @@ class BrowseController < ApplicationController
 
 
   def get_next_terms(curr_value, field, how_many)
-    Rails.logger.debug "get_next_terms(#{curr_value}, #{field}, #{how_many})"
+    Rails.logger.debug "entering get_next_terms(#{curr_value}, #{field}, #{how_many})"
 
     # TermsComponent Query to get the terms
     solr_params = {
@@ -275,7 +295,7 @@ class BrowseController < ApplicationController
       i = i + 2
     end
 
-    Rails.logger.debug result.inspect
+    Rails.logger.debug "get_next_terms returning result:  #{result.inspect}"
 
     result
   end
