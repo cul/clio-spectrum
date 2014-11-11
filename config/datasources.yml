@@ -156,7 +156,7 @@ datasources:
         subject: Subject
 
   dcv:
-    name: dcv
+    name: DCV
     search_box:
       route: dcv_index_path
       placeholder: dcv
@@ -164,8 +164,7 @@ datasources:
       search_fields:
         all_fields: All Fields
         title: Title
-        author: Author
-        subject: Subject
+        name: Name
 
   new_arrivals:
     name: New Arrivals
@@ -197,4 +196,5 @@ datasource_bar:
     - ebooks
     - new_arrivals
     - newspapers
+    - dcv
 

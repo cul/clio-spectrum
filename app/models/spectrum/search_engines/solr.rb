@@ -369,6 +369,26 @@ module Spectrum
           end
         end
 
+        if fields.include?('dcv_title')
+          config.add_search_field('title') do |field|
+            field.show_in_dropdown = true
+            field.solr_local_parameters = {
+              qf: 'title_teim',
+              pf: 'title_teim'
+            }
+          end
+        end
+
+        if fields.include?('dcv_name')
+          config.add_search_field('name') do |field|
+            field.show_in_dropdown = true
+            field.solr_local_parameters = {
+              qf: 'lib_name_teim',
+              pf: 'lib_name_teim'
+            }
+          end
+        end
+
       end
 
       # Supply default config values for the specified config keys (elements).
@@ -783,6 +803,8 @@ module Spectrum
 
               # default_catalog_config(config, :solr_params, :search_fields)
 
+              add_search_fields(config, 'dcv_title', 'dcv_name')
+
               config.default_solr_params = {
                 qt: 'search',
                 rows: 25,
@@ -802,24 +824,22 @@ module Spectrum
 
               config.index.display_type_field = 'lib_format_ssm'
 
-              config.add_facet_field 'name_corporate_ssm',
-                                     label: 'name_corporate_ssm', limit: 5
-              config.add_facet_field 'lib_project_ssm',
-                                     label: 'lib_project_ssm', limit: 5
-              config.add_facet_field 'lib_collection_ssm',
-                                     label: 'lib_collection_ssm', limit: 5
-              config.add_facet_field 'type_of_resource_ssm',
-                                     label: 'type_of_resource_ssm', limit: 10
-              config.add_facet_field 'lib_format_ssm',
-                                     label: 'lib_format_ssm Type', limit: 10
-              config.add_facet_field 'lib_repo_ssim',
-                                     label: 'lib_repo_ssim', limit: 10
+              config.add_facet_field 'lib_project_short_ssim',
+                                     label: 'Digital Project', limit: 5
+              config.add_facet_field 'lib_collection_sim',
+                                     label: 'Collection', limit: 5
+              config.add_facet_field 'lib_repo_short_ssim',
+                                     label: 'Library Location', limit: 5
+              config.add_facet_field 'lib_name_sim',
+                                     label: 'Name', limit: 10
+              config.add_facet_field 'lib_format_sim',
+                                     label: 'Format', limit: 10
 
-              config.add_sort_field 'score desc, title_tesi asc',
+              config.add_sort_field 'score desc, title_si asc, lib_date_dtsi desc',
                                     label: 'relevance'
-              config.add_sort_field 'title_tesi asc',
+              config.add_sort_field 'title_si asc, lib_date_dtsi desc',
                                     label: 'Title A-Z'
-              config.add_sort_field 'title_tesi desc',
+              config.add_sort_field 'title_si desc, lib_date_dtsi desc',
                                     label: 'Title Z-A'
 
             end # case source

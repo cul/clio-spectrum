@@ -19,10 +19,25 @@
   / main container for doc partial view
 
   .details
-    = add_row('name_corporate_ssm', document['name_corporate_ssm'])
-    = add_row('lib_format_ssm', document['lib_format_ssm'])
-    = add_row('lib_project_ssm', document['lib_project_ssm'])
+    -# - raise
+    = add_row('Library Location', document['lib_repo_short_ssim'])
+    = add_row('Name', document['lib_name_ssm'])
+    = add_row('Format', document['lib_format_ssm'])
+    = add_row('Digital Project', document['lib_project_short_ssim'])
+    = add_row('Collection', document['lib_collection_ssm'])
 
+
+
+    -# config.add_facet_field 'lib_project_short_ssim',
+    -#                        label: 'Digital Project', limit: 5
+    -# config.add_facet_field 'lib_collection_sim',
+    -#                        label: 'Collection', limit: 5
+    -# config.add_facet_field 'lib_repo_short_ssim',
+    -#                        label: 'Library Location', limit: 5
+    -# config.add_facet_field 'lib_name_sim',
+    -#                        label: 'Name', limit: 10
+    -# config.add_facet_field 'lib_format_sim',
+    -#                        label: 'Format', limit: 10
 
 
 -# -# https://dlc.library.columbia.edu/catalog/ldpd:166321

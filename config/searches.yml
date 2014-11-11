@@ -23,11 +23,6 @@ layouts:
             display_footer: true
             row_opts:
               spans: [3,9] 
-          - source: dcv
-            count: 10
-            display_footer: true
-            row_opts:
-              spans: [3,9] 
       - width: 6
         searches:
           - source: articles
@@ -44,6 +39,11 @@ layouts:
             count: 3
             row_opts:
               spans: [3,9]
+
+          - source: dcv
+            count: 3
+            row_opts:
+              spans: [3,9] 
 
   newspapers:
     style: summon
@@ -126,7 +126,7 @@ sources:
       check_fedora: true
 
   dcv:
-    title: dcv
+    title: DCV
     description: dcv 
     warningXX:  dcv.
     render_options:

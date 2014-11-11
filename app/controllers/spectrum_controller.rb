@@ -55,7 +55,15 @@ class SpectrumController < ApplicationController
       @search_style = @search_layout['style']
       # @has_facets = @search_layout['has_facets']
       sources =  @search_layout['columns'].map do |col|
-        col['searches'].map { |item| item['source'] }
+
+        # DO NOT SHOW DCV IN PRODUCTION YET
+        if Rails.env == 'clio_prod'
+          col['searches'].delete_if{ |search| search['source'] == 'dcv'}
+        end
+
+        col['searches'].map do |search|
+          search['source']
+        end
       end.flatten
 
       @action_has_async = true if @search_style == 'aggregate'

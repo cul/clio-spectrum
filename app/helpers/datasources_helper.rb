@@ -1,9 +1,14 @@
 # encoding: UTF-8
 module DatasourcesHelper
+
   def datasource_list(category = :all)
     results = []
     results |= DATASOURCES_CONFIG['datasource_bar']['major_sources'] if category.in?(:all, :major)
     results |= DATASOURCES_CONFIG['datasource_bar']['minor_sources'] if category.in?(:all, :minor)
+
+    # DO NOT SHOW DCV IN PRODUCTION YET
+    results.delete('dcv') if Rails.env == 'clio_prod'
+
     results
   end
 
