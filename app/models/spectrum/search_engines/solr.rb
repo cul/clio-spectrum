@@ -115,6 +115,8 @@ module Spectrum
           params['f'] ||= {}
           params['f']['genre_facet'] = ['Dissertations']
           academic_commons_index_path(params)
+        when 'dcv'
+          dcv_index_path(params)
         when 'journals'
           journals_index_path(params)
         when 'databases'
@@ -171,6 +173,8 @@ module Spectrum
       def self.generate_rsolr(source, solr_url = nil)
         if source.in?('academic_commons', 'ac_dissertations')
           RSolr.connect(url: APP_CONFIG['ac2_solr_url'])
+        elsif source.in?('dcv')
+          RSolr.connect(url: APP_CONFIG['dcv_solr_url'])
         elsif solr_url
           RSolr.connect(url: solr_url)
         else
@@ -737,7 +741,6 @@ module Spectrum
               default_catalog_config(config, :solr_params, :search_fields)
 
               config.show.title_field = 'title_display'
-              config.show.title_field = 'title_display'
               config.show.display_type_field = 'format'
 
               config.show.genre = 'genre_facet'
@@ -774,6 +777,49 @@ module Spectrum
               config.add_sort_field 'title_sort asc, pub_date_sort desc',
                                     label: 'Title A-Z'
               config.add_sort_field 'title_sort desc, pub_date_sort desc',
+                                    label: 'Title Z-A'
+
+            when 'dcv'
+
+              # default_catalog_config(config, :solr_params, :search_fields)
+
+              config.default_solr_params = {
+                qt: 'search',
+                rows: 25,
+                qf: 'all_text_teim',
+                pf: 'all_text_teim',
+              }
+
+              config.show.title_field = 'title_display_ssm'
+
+              config.show.display_type_field = 'lib_format_ssm'
+
+              # config.show.genre = 'genre_facet'
+
+              config.show.author = 'name_corporate_ssm'
+
+              config.index.title_field = 'title_display_ssm'
+
+              config.index.display_type_field = 'lib_format_ssm'
+
+              config.add_facet_field 'name_corporate_ssm',
+                                     label: 'name_corporate_ssm', limit: 5
+              config.add_facet_field 'lib_project_ssm',
+                                     label: 'lib_project_ssm', limit: 5
+              config.add_facet_field 'lib_collection_ssm',
+                                     label: 'lib_collection_ssm', limit: 5
+              config.add_facet_field 'type_of_resource_ssm',
+                                     label: 'type_of_resource_ssm', limit: 10
+              config.add_facet_field 'lib_format_ssm',
+                                     label: 'lib_format_ssm Type', limit: 10
+              config.add_facet_field 'lib_repo_ssim',
+                                     label: 'lib_repo_ssim', limit: 10
+
+              config.add_sort_field 'score desc, title_tesi asc',
+                                    label: 'relevance'
+              config.add_sort_field 'title_tesi asc',
+                                    label: 'Title A-Z'
+              config.add_sort_field 'title_tesi desc',
                                     label: 'Title Z-A'
 
             end # case source

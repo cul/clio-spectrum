@@ -1,0 +1,13 @@
+-# container for a single doc - within AGGREGATE views, e.g., QuickSearch
+
+.result{source: 'dcv', item_id: document.get(:id)}
+
+  -# https://dlc.library.columbia.edu/catalog/ldpd:166321
+  .result_title= link_to document.get('title_display_ssm'), APP_CONFIG['dcv_catalog_url'] + document['id']
+
+
+  / main container for doc partial view
+
+  = add_row('name_corporate_ssm', document['name_corporate_ssm'])
+  = add_row('lib_format_ssm', document['lib_format_ssm'])
+  = add_row('lib_project_ssm', document['lib_project_ssm'])

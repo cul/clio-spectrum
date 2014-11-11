@@ -222,6 +222,8 @@ module DatasourcesHelper
         new_arrivals_index_path(q: query)
       when 'academic_commons'
         academic_commons_index_path(q: query)
+      when 'dcv'
+        dcv_index_path(q: query)
       when 'library_web'
         library_web_index_path(q: query)
       when 'archives'

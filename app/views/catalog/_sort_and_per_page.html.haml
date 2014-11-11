@@ -27,7 +27,7 @@ UNUSED
   = fix_catalog_links(link_to image_tag('rss-feed-icon-14x14.png', :size => "13x13"), catalog_index_path(params.merge(:format => 'atom')), :class => "rss-feed")
 
   -# Allow "selections" for any Catalog-based data source, but NOT for Academic Commons
-  - if @active_source != 'academic_commons'
+  - if @active_source != 'academic_commons' && @active_source != 'dcv'
     = render 'selections_widget'
 
   = fix_catalog_links(render 'sort_widget')

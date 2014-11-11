@@ -155,6 +155,18 @@ datasources:
         author: Author
         subject: Subject
 
+  dcv:
+    name: dcv
+    search_box:
+      route: dcv_index_path
+      placeholder: dcv
+      search_type: blacklight
+      search_fields:
+        all_fields: All Fields
+        title: Title
+        author: Author
+        subject: Subject
+
   new_arrivals:
     name: New Arrivals
     search_box:

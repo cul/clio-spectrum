@@ -23,6 +23,11 @@ layouts:
             display_footer: true
             row_opts:
               spans: [3,9] 
+          - source: dcv
+            count: 10
+            display_footer: true
+            row_opts:
+              spans: [3,9] 
       - width: 6
         searches:
           - source: articles
@@ -119,6 +124,13 @@ sources:
     render_options:
       format: ac
       check_fedora: true
+
+  dcv:
+    title: dcv
+    description: dcv 
+    warningXX:  dcv.
+    render_options:
+      format: dcv
 
   library_web:
     title: Libraries Website
