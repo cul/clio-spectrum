@@ -7,5 +7,6 @@
   %label{ for: "item_select_#{item_id}", class: 'no-bottom-space' }
     %input.item_select_checkbox.hidden-print{ type: "checkbox", id: "item_select_#{item_id}", data: {identifier: item_id}, checked: is_selected }
     -# NEXT-930 - Number results in Index page
-    %small.text-muted= "#{counter ||= ''}."
+    - if local_assigns[:counter]
+      %small.text-muted= "#{counter ||= ''}."
   

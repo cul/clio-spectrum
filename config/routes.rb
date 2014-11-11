@@ -69,6 +69,9 @@ Clio::Application.routes.draw do
   match 'academic_commons/range_limit(.:format)', to: 'catalog#range_limit', as: :academic_range_limit
   match 'academic_commons/facet/:id(.format)', to: 'catalog#facet', as: :academic_commons_facet
 
+  match 'dcv', to: 'catalog#index', as: :dcv_index
+  match 'dcv/facet/:id(.format)', to: 'catalog#facet', as: :dcv_facet
+
   match 'archives', to: 'catalog#index', as: :archives_index
   match 'archives/:id(.:format)', via: [:get], to: 'catalog#show', as: :archives_show
   match 'archives/facet/:id(.format)', to: 'catalog#facet', as: :archives_facet
@@ -134,8 +137,8 @@ Clio::Application.routes.draw do
   # get 'browse/shelfkey/:shelfkey', to: 'browse#shelfkey', as: :browse_shelfkey
   # get "browse/nearby" => "browse#nearby"
   # Use distinct URLs for xhr v.s. html, to avoid cached-page problems
-  get 'browse/shelfkey_mini/:shelfkey', to: 'browse#shelfkey_mini', as: :browse_shelfkey_mini, :constraints => { :shelfkey => /[^\/]*/ }
-  get 'browse/shelfkey_full/:shelfkey', to: 'browse#shelfkey_full', as: :browse_shelfkey_full, :constraints => { :shelfkey => /[^\/]*/ }
+  get 'browse/shelfkey_mini/:shelfkey(/:bib)', to: 'browse#shelfkey_mini', as: :browse_shelfkey_mini, :constraints => { :shelfkey => /[^\/]*/, :bib => /[^\/]*/ }
+  get 'browse/shelfkey_full/:shelfkey(/:bib)', to: 'browse#shelfkey_full', as: :browse_shelfkey_full, :constraints => { :shelfkey => /[^\/]*/, :bib => /[^\/]*/ }
 
 
 end

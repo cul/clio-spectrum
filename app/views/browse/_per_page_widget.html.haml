@@ -1,0 +1,19 @@
+
+-# CATALOG-BASED-DATASOURCES
+
+%li.dropdown#display-dropdown
+
+  %a.dropdown-toggle{:href=>"#", :data=>{:toggle => "dropdown"}}
+    Display Options
+    %b.caret
+
+  %ul.dropdown-menu
+    -# VERY confusing to reset your Catalog default pagination 
+    -# from within a Browse context.  Await user requests.
+    -# -blacklight_config.per_page.each do |per_page|
+    -#   %li= catalog_per_page_link(per_page)
+
+    -if viewstyles = DATASOURCES_CONFIG['datasources'][@active_source]['viewstyles']
+      -# %li.nav-divider
+      -viewstyles.each do |viewstyle, label|
+        %li= viewstyle_link(viewstyle, label)

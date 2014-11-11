@@ -18,11 +18,21 @@
     - if @document_list.nil? || @document_list.empty?
       = render 'no_results_blurb'
     - else
+
+      -# The toolbar above the search results allows pagination/sort/selection/etc.
       = render 'index_toolbar'
 
-      = render 'document_list'
+      -# Replace this partial call....
+      -# = render 'document_list'
+      -# ...with the content of the two-line partial.
+      #documents{:data => {'ga-action' => 'Search Results Click'} }
+        = render_document_list(@document_list, :action => "catalog")
+      
+
+      -# Build a secondary pagination bar below the seach results
       = fix_catalog_links(render('results_pagination'))
 
+      -# Capture the HTML for the facets panel to a variable, used by our layout
       - clio_sidebar_items << capture do
         = render 'facets'
 

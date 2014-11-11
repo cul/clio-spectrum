@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
   include Blacklight::Catalog
   include Blacklight::Configurable
 
+  include BrowseSupport
+
   # Please be sure to impelement current_user and user_session. Blacklight depends on
   # these methods in order to perform user specific actions.
   check_authorization
@@ -296,12 +298,17 @@ class ApplicationController < ActionController::Base
         'ebooks'
       when /^\/academic_commons/
         'academic_commons'
+      when /^\/dcv/
+        'dcv'
       when /^\/library_web/
         'library_web'
       when /^\/newspapers/
         'newspapers'
       when /^\/archives/
         'archives'
+      # Browse (Shelf-Browse, Call-Number Browse) is assumed to act like Catalog
+      when /^\/browse/
+        'catalog'
       else
         active_source_from_params || 'quicksearch'
       end
@@ -501,7 +508,10 @@ class ApplicationController < ActionController::Base
   def store_location
     fullpath = request.fullpath
     # store this as the last-acccessed URL, except for exceptions...
+
     session[:previous_url] = fullpath unless
+      # No AJAX ever
+      request.xhr? or
       # exclude /users paths, which reflect the login process
       fullpath =~ /\/users/ or
       fullpath =~ /\/backend/ or

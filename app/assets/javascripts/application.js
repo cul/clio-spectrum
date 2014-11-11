@@ -31,6 +31,7 @@
 //= require bootstrap/modal
 //= require bootstrap/tooltip
 //= require bootstrap/popover
+//= require bootstrap/button
 
 // And, one specific Bootstrap-based add-on, installed locally
 //= require bootstrap-datepicker

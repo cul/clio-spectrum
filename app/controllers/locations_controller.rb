@@ -19,6 +19,9 @@ class LocationsController < ApplicationController
       if @library
         range_start = Date.today
         @hours = @library.hours_for_range(range_start, range_start + 6.days)
+        # debugging...
+        # range_start = Date.today - 10
+        # @hours = @library.hours_for_range(range_start, range_start + 20.days)
       end
 
       @links = @location.links.reject { |location| location.name == 'Map URL' }

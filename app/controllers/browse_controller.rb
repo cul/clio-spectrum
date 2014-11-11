@@ -12,74 +12,91 @@ class BrowseController < ApplicationController
 
   include BlacklightRangeLimit::ControllerOverride
 
-
-  helper_method :get_call_number, :get_shelfkey, :get_reverse_shelfkey
-
-
+  # extend BrowseSupport
+  include BrowseSupport
 
   # include Thumbnail
   copy_blacklight_config_from(CatalogController)
 
-  def index
-    return unless params[:start].present?
-
-    @response, @original_doc = get_solr_response_for_doc_id(params[:start])
-    barcode = params[:barcode] || @original_doc[:preferred_barcode]
-
-    respond_to do |format|
-      format.html do
-        @document_list = NearbyOnShelf.new(
-          "static",
-          blacklight_config,
-          {:item_display => @original_doc[:item_display],
-           :preferred_barcode=>barcode,
-           :before => 9,
-           :after => 10,
-           :page => params[:page]}
-        ).items.map do |document|
-          SolrDocument.new(document[:doc])
-        end
-      end
-    end
-
-  end
+# I think we're not using this?
+  # def index
+  #   return unless params[:start].present?
+  # 
+  #   @response, @original_doc = get_solr_response_for_doc_id(params[:start])
+  #   barcode = params[:barcode] || @original_doc[:preferred_barcode]
+  # 
+  #   respond_to do |format|
+  #     format.html do
+  #       @document_list = NearbyOnShelf.new(
+  #         "static",
+  #         blacklight_config,
+  #         {:item_display => @original_doc[:item_display],
+  #          :preferred_barcode=>barcode,
+  #          :before => 9,
+  #          :after => 10,
+  #          :page => params[:page]}
+  #       ).items.map do |document|
+  #         SolrDocument.new(document[:doc])
+  #       end
+  #     end
+  #   end
+  # 
+  # end
 
 
   #### Name our XHR handler "_mini" and our HTML handler "_full", so that
   #### they have different URLs, so they cache distinctly in client browsers.
+
   def shelfkey_mini
     render nothing: true and return unless request.xhr?
-    render nothing: true and return unless params[:shelfkey].present?
-    # all shelfkeys in Solr are normalized to lower-case
-    @shelfkey = params[:shelfkey].downcase
 
-    before_count = (params[:before] || 4).to_i
-    after_count  = (params[:after] || 5).to_i
-
-    # A Browse-Item is a hash reflecting a doc with it's currently 
-    # activated position within the browse context:
-    # {
-    #   doc:  SolrDocument,
-    #   active_call_number:
-    #   active_shelfkey:
-    #   active_reverse_shelfkey:
-    # }
-    # raise
-    @browse_item_list = shelfkey_to_item_list(@shelfkey, before_count, after_count)
-
-    render layout: false
+    shelfkey_browse('mini')
   end
-
 
   def shelfkey_full
     render nothing: true and return if request.xhr?
+
+    shelfkey_browse('full')
+  end
+
+  def shelfkey_browse(mini_or_full)
     render nothing: true and return unless params[:shelfkey].present?
+
+    # We'll use Session for storing state about our browse session
+    session[:browse] = {} unless session[:browse].is_a?(Hash)
+
+    default_before_items = 3
+    if (mini_or_full == 'full')
+      session[:browse]['per_page'] = get_browser_option('catalog_per_page') || 25
+    else
+      # How many items to show for mini-browse?
+      session[:browse]['per_page'] = 10
+    end
+
+    before_count = (params[:before] || default_before_items).to_i
+
+    # Total, minus current item, minus what comes before, equals what's after
+    default_after_items = (session[:browse]['per_page']).to_i - before_count - 1
+    after_count  = (params[:after] || default_after_items).to_i
 
     # all shelfkeys in Solr are normalized to lower-case
     @shelfkey = params[:shelfkey].downcase
 
-    before_count = (params[:before] || 3).to_i
-    after_count  = (params[:after] || 16).to_i
+    # Which bib id to highlight
+    if params[:bib]
+      response, document = get_solr_response_for_doc_id(params[:bib])
+
+      # Record the starting item for browsing in the Session
+      # This will not be part of URL (i.e., won't survive 
+      # bookmarking, emailing, etc.)
+      session[:browse]['bib'] = document.id
+      # Need the Call Number corresponding to the active shelfkey
+      active_item_display = get_item_display(document, @shelfkey)
+      session[:browse]['call_number'] = get_call_number(active_item_display)
+      session[:browse]['shelfkey'] = get_shelfkey(active_item_display)
+    end
+
+
 
     # A Browse-Item is a hash reflecting a doc with it's currently 
     # activated position within the browse context:
@@ -91,11 +108,43 @@ class BrowseController < ApplicationController
     # }
     @browse_item_list = shelfkey_to_item_list(@shelfkey, before_count, after_count)
 
-    render layout: 'quicksearch'
+    if mini_or_full == 'mini'
+      render layout: false
+    else
+      render layout: 'quicksearch'
+    end
   end
 
 
+  # def shelfkey_full
+  #   render nothing: true and return if request.xhr?
+  #   render nothing: true and return unless params[:shelfkey].present?
+  # 
+  #   # Which bib id to highlight
+  #   @bib = params[:bib] || 0
+  # 
+  #   # all shelfkeys in Solr are normalized to lower-case
+  #   @shelfkey = params[:shelfkey].downcase
+  # 
+  #   before_count = (params[:before] || 3).to_i
+  #   after_count  = (params[:after] || 16).to_i
+  # 
+  #   # A Browse-Item is a hash reflecting a doc with it's currently 
+  #   # activated position within the browse context:
+  #   # {
+  #   #   doc:  SolrDocument,
+  #   #   active_call_number:
+  #   #   active_shelfkey:
+  #   #   active_reverse_shelfkey:
+  #   # }
+  #   @browse_item_list = shelfkey_to_item_list(@shelfkey, before_count, after_count)
+  # 
+  #   render layout: 'quicksearch'
+  # end
+  # 
+
   def shelfkey_to_item_list(shelfkey, before_count, after_count)
+    # raise
     forward_items = get_items_by_shelfkey_forward(shelfkey, after_count)
 
     # pull off the current item
@@ -105,8 +154,13 @@ class BrowseController < ApplicationController
     reverse_shelfkey = shelfkey_to_reverse_shelfkey(this_item, shelfkey)
     backward_items = get_items_by_reverse_shelfkey_backward(reverse_shelfkey, before_count)
 
-    # pull off the current  item
-    backward_items.shift
+    # pull off the current item
+    # backward_items.shift
+    # raise
+    # there may be multiple items sharing the shelfkey - delete them all...
+    backward_items.delete_if { |item|
+      item[:key] == reverse_shelfkey
+    }
 # raise
     ordered_item_list = backward_items.reverse + [this_item] + forward_items
 
@@ -124,20 +178,24 @@ class BrowseController < ApplicationController
   end
 
 
-  # def get_items_by_shelfkey_forward(shelfkey, after_count)
   def get_items_by_key(fieldname, fieldvalue, count)
-    # lookup self plus "count" records onwards
-    total_count = 1 + count
+    Rails.logger.debug "get_items_by_key(#{fieldname}, #{fieldvalue}, #{count})"
+
     # Fetch OVER the number required... because
     # if doc[123] occupies positions N and N+1 in the returned list, 
     # those multiple appearances will collapse into a single Doc in
     # the browse-item-list, which means you'll fall short of how many
     # uniq docs you want back.  
     # Add, arbitrarily, 5 extra.  Could be 10, could be x2, whatever.
-    fetch_count = total_count + 5
+    fetch_term_count = count + 10
+    fetch_doc_count = fetch_term_count + 10
 
     # Get the _ordered_ list of keys (using Solr term query)
-    key_list = get_next_terms(fieldvalue, fieldname, fetch_count)
+    key_list = get_next_terms(fieldvalue, fieldname, fetch_term_count)
+
+    key_list.each { |key|
+      Rails.logger.debug "key=#{key.inspect} #{' ==> MATCH' if key == fieldvalue}"
+    }
 
     # Get the unordered set of Solr docs
     # Fetch OVER the number required... because
@@ -145,8 +203,18 @@ class BrowseController < ApplicationController
     # those multiple appearances will collapse into a single Doc in
     # the browse-item-list, which means you'll fall short of how many
     # uniq docs you want back.
-    solr_params = {rows: fetch_count}
-    response, solr_document_list = get_solr_response_for_field_values(fieldname, key_list, solr_params)
+    solr_params = {rows: fetch_doc_count}
+    # raise
+
+    # This fails when page-size is large, 50 or so.
+    #     RSolr::Error::Http - 413 Request Entity Too Large
+    # response, solr_document_list = get_solr_response_for_field_values(fieldname, key_list, solr_params)
+    # Run the query in slices, merge them.
+    solr_document_list = []
+    key_list.each_slice(40) { |slice|
+      response, slice_document_list = get_solr_response_for_field_values(fieldname, slice, solr_params)
+      solr_document_list += slice_document_list
+    }
 
     # Pair up the ordered shelfkeys with matching documents.
     # Potentially messy...
@@ -171,18 +239,29 @@ class BrowseController < ApplicationController
       { doc: doc, key: key}
 
     }
-
+# raise
     # Sort our retrieved docs by their key
-    item_hash_list.sort!{ |x,y|
-      x[:key] <=> y[:key]
-    }
+    # item_hash_list.sort!{ |x,y|
+    #   x[:key] <=> y[:key]
+    # }
+# if count > 0 
+#   raise
+# end
+
+    # Sort by Call-Number, secondary sort by Bib for matching call-numbers,
+    # and remember to reverse the Bib sort when dealing with reverse shelfkeys.
+    if fieldname == 'shelfkey'
+      item_hash_list = item_hash_list.sort_by { |x| [ x[:key], x[:doc].id.to_i ] }
+    elsif fieldname == 'reverse_shelfkey'
+      item_hash_list = item_hash_list.sort_by { |x| [ x[:key], (0 - x[:doc].id.to_i) ] }
+    end
 
     # Use the key to fetch the matching item_display jumbo field,
     # parse it out into separate fields
     item_hash_list.each { |item|
       # raise
-      item[:current_call_number] = get_call_number(get_item_display(item, item[:key]) )
-      item[:current_shelfkey] = get_shelfkey(get_item_display(item, item[:key]) )
+      item[:current_call_number]      = get_call_number(get_item_display(item, item[:key]) )
+      item[:current_shelfkey]         = get_shelfkey(get_item_display(item, item[:key]) )
       item[:current_reverse_shelfkey] = get_reverse_shelfkey(get_item_display(item, item[:key]) )
     }
 
@@ -196,6 +275,8 @@ class BrowseController < ApplicationController
 
 
   def get_next_terms(curr_value, field, how_many)
+    Rails.logger.debug "entering get_next_terms(#{curr_value}, #{field}, #{how_many})"
+
     # TermsComponent Query to get the terms
     solr_params = {
       'terms.fl' => field,
@@ -223,6 +304,8 @@ class BrowseController < ApplicationController
       i = i + 2
     end
 
+    Rails.logger.debug "get_next_terms returning result:  #{result.inspect}"
+
     result
   end
 
@@ -234,60 +317,34 @@ class BrowseController < ApplicationController
     item_display_field = get_item_display(item, shelfkey)
 
     # dig out the correct sub-component of the jumbo field
-    return get_reverse_shelfkey(item_display_field)
+    reverse_shelfkey = get_reverse_shelfkey(item_display_field)
+    raise unless reverse_shelfkey
+
+    return reverse_shelfkey
   end
 
 
-  # given a document and the barcode of an item in the document, return the
-  #  item_display field corresponding to the barcode, or nil if there is no
-  #  such item
-  def get_item_display(item, key)
-    # raise
-    item_display = item[:doc][:item_display]
-    match = ""
-    if key.nil? || key.length == 0
-      return nil
-    end
-    [item_display].flatten.each do |item_disp|
-      return item_disp if item_disp.downcase.include? key.downcase
-      # raise
-      # match = item_disp if item_disp =~ /#{CGI::escape(key)}/i
-      # # marquis - add this match...
-      # match = item_disp if item_disp =~ /#{key}/i
-    end
-    return match unless match == ""
-  end
+  # # given a document and the barcode of an item in the document, return the
+  # #  item_display field corresponding to the barcode, or nil if there is no
+  # #  such item
+  # def get_item_display(item, key)
+  #   # raise
+  #   item_display = item[:doc][:item_display]
+  #   match = ""
+  #   if key.nil? || key.length == 0
+  #     return nil
+  #   end
+  #   [item_display].flatten.each do |item_disp|
+  #     return item_disp if item_disp.downcase.include? key.downcase
+  #     # raise
+  #     # match = item_disp if item_disp =~ /#{CGI::escape(key)}/i
+  #     # # marquis - add this match...
+  #     # match = item_disp if item_disp =~ /#{key}/i
+  #   end
+  #   return match unless match == ""
+  # end
 
 
-  # return the call-number piece of the item_display field
-  def get_call_number(item_display)
-    get_item_display_piece(item_display, 0)
-  end
-
-
-  # return the shelfkey piece of the item_display field
-  def get_shelfkey(item_display)
-    # get_item_display_piece(item_display, 6)
-    get_item_display_piece(item_display, 1)
-  end
-
-
-  # return the reverse shelfkey piece of the item_display field
-  def get_reverse_shelfkey(item_display)
-    # get_item_display_piece(item_display, 7)
-    get_item_display_piece(item_display, 2)
-  end
-
-
-  def get_item_display_piece(item_display, index)
-    if (item_display)
-      # item_array = item_display.split('-|-')
-      item_array = item_display.split(' | ')
-
-      return item_array[index].strip unless item_array[index].nil?
-    end
-    nil
-  end
 
 
 

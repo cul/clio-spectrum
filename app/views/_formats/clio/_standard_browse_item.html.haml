@@ -6,26 +6,33 @@
 -# Usually the title, but if we're browsing by call-number, use the call_number
 - document_link_label = document.get('title_display')
 - document_link_label = call_number if local_assigns.has_key? :call_number
-- highlight ||= false
+
+- highlight_bib = session[:browse]['bib'] || 0
+
+-# Are we inside the mini-browse?
+- mini ||= false
+
 -# And, if we didn't use "title" for the link label, we need to tell
 -#  the "details" partial that it needs to show the title, via this:
 - show_title = local_assigns.has_key? :call_number
 
 
 
-/ _formats/clio/_catalog_list.html.haml
+/ _formats/clio/_standard_list_item.html.haml
 / container for a SINGLE doc
 .result.document{class: render_document_class(document), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
-  .row{class: "#{'bg-info' if highlight}"}
+  .row{class: "#{'bg-info' if document.id == highlight_bib}"}
     .title.col-sm-12
 
-      %span.coins_wrapper
-        <!-- COinS -->
-        %span.Z3988{:title => catalog_to_openurl_ctx_kev(document)}
+      -# The mini-browser should not have COINS or checkboxes
+      - unless mini
+        %span.coins_wrapper
+          <!-- COinS -->
+          %span.Z3988{:title => catalog_to_openurl_ctx_kev(document)}
 
-      .item_anchor
-        = render '/saved_lists/item_select_checkbox', item_id: document[:id], counter: counter
+        .item_anchor
+          = render '/saved_lists/item_select_checkbox', item_id: document[:id]
 
       .item_select_allowance
         -# This is how core Blacklight would do it...
@@ -33,12 +40,12 @@
         -# Just use the title?
         -# = link_to_source_document document, :label=> document.get('title_display'), :counter => counter, :source => source
         -# Or allow a more flexible link-label, defined above
-        = link_to_source_document document, label: document_link_label, counter: counter, source: source
+        = link_to_source_document document, label: document_link_label, source: source
 
 
   / main container for doc partial view
 
-  .row{class: "#{'bg-info' if highlight}"}
+  .row{class: "#{'bg-info' if document.id == highlight_bib}"}
 
     .details.col-sm-10
       -# = render :partial => "/_formats/clio/catalog_list_details", :locals => {:document => document}

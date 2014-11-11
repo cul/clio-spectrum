@@ -8,11 +8,8 @@ if defined?(Bundler)
   Bundler.require *Rails.groups(assets: %w(development test))
 end
 
-# a place for patches with no personal name attached...
-# require File.expand_path('../../lib/monkey_patches', __FILE__)
 
-require File.expand_path('../../lib/monkey_patches', __FILE__)
-require File.expand_path('../../lib/rsolr_notifications', __FILE__)
+
 RELEASE_STAMP = IO.read('VERSION').strip
 
 # explicitly require, so that "config.middleware.use" works below during
@@ -29,6 +26,13 @@ module Clio
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras #{config.root}/lib)
     config.autoload_paths += %W(#{config.root}/lib)
+
+
+    # require File.expand_path('../../lib/monkey_patches', __FILE__)
+    require 'monkey_patches'
+    # require File.expand_path('../../lib/rsolr_notifications', __FILE__)
+    require 'rsolr_notifications'
+    require 'browse_support'
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.

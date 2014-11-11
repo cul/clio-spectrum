@@ -115,6 +115,8 @@ module Spectrum
           params['f'] ||= {}
           params['f']['genre_facet'] = ['Dissertations']
           academic_commons_index_path(params)
+        when 'dcv'
+          dcv_index_path(params)
         when 'journals'
           journals_index_path(params)
         when 'databases'
@@ -171,6 +173,8 @@ module Spectrum
       def self.generate_rsolr(source, solr_url = nil)
         if source.in?('academic_commons', 'ac_dissertations')
           RSolr.connect(url: APP_CONFIG['ac2_solr_url'])
+        elsif source.in?('dcv')
+          RSolr.connect(url: APP_CONFIG['dcv_solr_url'])
         elsif solr_url
           RSolr.connect(url: solr_url)
         else
@@ -361,6 +365,26 @@ module Spectrum
             field.solr_local_parameters = {
               qf: 'location_txt',
               pf: 'location_txt'
+            }
+          end
+        end
+
+        if fields.include?('dcv_title')
+          config.add_search_field('title') do |field|
+            field.show_in_dropdown = true
+            field.solr_local_parameters = {
+              qf: 'title_teim',
+              pf: 'title_teim'
+            }
+          end
+        end
+
+        if fields.include?('dcv_name')
+          config.add_search_field('name') do |field|
+            field.show_in_dropdown = true
+            field.solr_local_parameters = {
+              qf: 'lib_name_teim',
+              pf: 'lib_name_teim'
             }
           end
         end
@@ -737,7 +761,6 @@ module Spectrum
               default_catalog_config(config, :solr_params, :search_fields)
 
               config.show.title_field = 'title_display'
-              config.show.title_field = 'title_display'
               config.show.display_type_field = 'format'
 
               config.show.genre = 'genre_facet'
@@ -774,6 +797,49 @@ module Spectrum
               config.add_sort_field 'title_sort asc, pub_date_sort desc',
                                     label: 'Title A-Z'
               config.add_sort_field 'title_sort desc, pub_date_sort desc',
+                                    label: 'Title Z-A'
+
+            when 'dcv'
+
+              # default_catalog_config(config, :solr_params, :search_fields)
+
+              add_search_fields(config, 'dcv_title', 'dcv_name')
+
+              config.default_solr_params = {
+                qt: 'search',
+                rows: 25,
+                qf: 'all_text_teim',
+                pf: 'all_text_teim',
+              }
+
+              config.show.title_field = 'title_display_ssm'
+
+              config.show.display_type_field = 'lib_format_ssm'
+
+              # config.show.genre = 'genre_facet'
+
+              config.show.author = 'name_corporate_ssm'
+
+              config.index.title_field = 'title_display_ssm'
+
+              config.index.display_type_field = 'lib_format_ssm'
+
+              config.add_facet_field 'lib_project_short_ssim',
+                                     label: 'Digital Project', limit: 5
+              config.add_facet_field 'lib_collection_sim',
+                                     label: 'Collection', limit: 5
+              config.add_facet_field 'lib_repo_short_ssim',
+                                     label: 'Library Location', limit: 5
+              config.add_facet_field 'lib_name_sim',
+                                     label: 'Name', limit: 10
+              config.add_facet_field 'lib_format_sim',
+                                     label: 'Format', limit: 10
+
+              config.add_sort_field 'score desc, title_si asc, lib_date_dtsi desc',
+                                    label: 'relevance'
+              config.add_sort_field 'title_si asc, lib_date_dtsi desc',
+                                    label: 'Title A-Z'
+              config.add_sort_field 'title_si desc, lib_date_dtsi desc',
                                     label: 'Title Z-A'
 
             end # case source

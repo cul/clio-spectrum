@@ -87,7 +87,7 @@ class NearbyOnShelf
 
   # return an array of the next terms in the index for the indicated field and 
   # starting term. Returned array does NOT include starting term.  Queries Solr (duh).
-  def get_next_terms_for_field(starting_term, field_name, how_many=3)
+  def SW_get_next_terms_for_field(starting_term, field_name, how_many=3)
     result = []
     # terms is array of one element hashes with key=term and value=count
     terms_array = get_next_terms(starting_term, field_name, how_many.to_i+1)
@@ -170,7 +170,7 @@ class NearbyOnShelf
     return result_hash
   end
 
-  def get_next_terms(curr_value, field, how_many)
+  def SW_get_next_terms(curr_value, field, how_many)
     # TermsComponent Query to get the terms
     solr_params = {
       'terms.fl' => field,
@@ -198,42 +198,42 @@ class NearbyOnShelf
     result
   end
 
-  # given a document and the barcode of an item in the document, return the
-  #  item_display field corresponding to the barcode, or nil if there is no
-  #  such item
-  def get_item_display(item_display, barcode)
-    item = ""
-    if barcode.nil? || barcode.length == 0
-      return nil
-    end
-    [item_display].flatten.each do |item_disp|
-      item = item_disp if item_disp =~ /^#{CGI::escape(barcode)}/
-      # marquis - add this match...
-      item = item_disp if item_disp =~ /^#{barcode}/
-    end
-    return item unless item == ""
-  end
-
-
-  # return the shelfkey (lopped) piece of the item_display field
-  def get_shelfkey(item_display)
-    # get_item_display_piece(item_display, 6)
-    get_item_display_piece(item_display, 1)
-  end
-
-  # return the reverse shelfkey (lopped) piece of the item_display field
-  def get_reverse_shelfkey(item_display)
-    # get_item_display_piece(item_display, 7)
-    get_item_display_piece(item_display, 2)
-  end
-
-  def get_item_display_piece(item_display, index)
-    if (item_display)
-      # item_array = item_display.split('-|-')
-      item_array = item_display.split(' | ')
-
-      return item_array[index].strip unless item_array[index].nil?
-    end
-    nil
-  end
+  # # given a document and the barcode of an item in the document, return the
+  # #  item_display field corresponding to the barcode, or nil if there is no
+  # #  such item
+  # def get_item_display(item_display, barcode)
+  #   item = ""
+  #   if barcode.nil? || barcode.length == 0
+  #     return nil
+  #   end
+  #   [item_display].flatten.each do |item_disp|
+  #     item = item_disp if item_disp =~ /^#{CGI::escape(barcode)}/
+  #     # marquis - add this match...
+  #     item = item_disp if item_disp =~ /^#{barcode}/
+  #   end
+  #   return item unless item == ""
+  # end
+  # 
+  # 
+  # # return the shelfkey (lopped) piece of the item_display field
+  # def get_shelfkey(item_display)
+  #   # get_item_display_piece(item_display, 6)
+  #   get_item_display_piece(item_display, 1)
+  # end
+  # 
+  # # return the reverse shelfkey (lopped) piece of the item_display field
+  # def get_reverse_shelfkey(item_display)
+  #   # get_item_display_piece(item_display, 7)
+  #   get_item_display_piece(item_display, 2)
+  # end
+  # 
+  # def get_item_display_piece(item_display, index)
+  #   if (item_display)
+  #     # item_array = item_display.split('-|-')
+  #     item_array = item_display.split(' | ')
+  # 
+  #     return item_array[index].strip unless item_array[index].nil?
+  #   end
+  #   nil
+  # end
 end

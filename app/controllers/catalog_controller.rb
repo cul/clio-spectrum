@@ -1,6 +1,7 @@
 # The CatalogController supports all catalog-based datasources:
 #   Catalog, Databases, E-Journal Titles, etc.
 # (plus AcademicCommons - which uses Blacklight against a diff. Solr)
+# (and dcv - which uses Blacklight against a yet another Solr)
 # This was originally based on the Blacklight CatalogController.
 require 'blacklight/catalog'
 
@@ -27,6 +28,7 @@ class CatalogController < ApplicationController
   # load last, to override any BlackLight methods included above
   # (BlacklightRangeLimit::ControllerOverride#add_range_limit_params)
   include LocalSolrHelperExtension
+
 
   # When a catalog search is submitted, this is the
   # very first point of code that's hit

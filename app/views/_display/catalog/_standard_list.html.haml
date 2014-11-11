@@ -1,0 +1,12 @@
+
+-# catalog search-results listing, STANDARD list format
+
+/ _display/catalog/_standard_list.html.haml
+
+- document_list.each_with_index do |document, counter|
+  - blacklight_counter = counter + 1 + @response.params[:start].to_i
+
+  = render_document_view(document, :format => 'clio', :template => 'standard_list_item', :counter => blacklight_counter)
+
+
+

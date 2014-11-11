@@ -1,0 +1,23 @@
+
+-# catalog search-results listing, STANDARD list format
+
+/ _display/browse/_standard_list.html.haml
+
+-# Are we inside the mini-browse?
+- mini ||= false
+
+-# The "documents" are Browse-Items, 
+-# A Browse-Item is a hash reflecting a doc with it's currently 
+-# activated position within the browse context:
+-# {
+-#   doc:  SolrDocument,
+-#   current_call_number:
+-#   current_shelfkey:
+-#   current_reverse_shelfkey:
+-# }
+
+- document_list.each do |browse_item|
+  - document = browse_item[:doc]
+  - highlight = (browse_item[:current_shelfkey] == @shelfkey)
+
+  = render_document_view(document, format: 'clio', template: 'standard_browse_item', source: 'catalog', call_number: browse_item[:current_call_number], highlight: highlight, mini: mini)
