@@ -6,9 +6,14 @@ require 'capistrano/ext/multistage'
 require 'bundler/capistrano'
 require 'date'
 
+# http://rvm.io/deployment/capistrano
+# https://github.com/wayneeseguin/rvm-capistrano
+require 'rvm/capistrano'
+
 default_run_options[:pty] = true
 
 set :application, 'clio'
+
 set :branch do
   default_tag = `git tag`.split("\n").last
 
