@@ -1,6 +1,7 @@
 # The CatalogController supports all catalog-based datasources:
 #   Catalog, Databases, E-Journal Titles, etc.
 # (plus AcademicCommons - which uses Blacklight against a diff. Solr)
+# (and dcv - which uses Blacklight against a yet another Solr)
 # This was originally based on the Blacklight CatalogController.
 require 'blacklight/catalog'
 
@@ -37,6 +38,25 @@ class CatalogController < ApplicationController
 
     # very useful - shows the execution order of before filters
     # logger.debug "#{   _process_action_callbacks.map(&:filter) }"
+
+    # NEXT-1043 - Better handling of extremely long queries
+    if params['q']
+      # Truncate queries longer than N letters
+      maxLetters = 200
+      if params['q'].size > maxLetters
+        flash.now[:error] = "Your query was automatically truncated to the first #{maxLetters} letters. Letters beyond this do not help to further narrow the result set."
+        params['q'] = params['q'].first(maxLetters)
+      end
+
+      # Truncate queries longer than N words
+      maxTerms = 30
+      terms = params['q'].split(' ')
+      if terms.size > maxTerms
+        flash.now[:error] = "Your query was automatically truncated to the first #{maxTerms} words.  Terms beyond this do not help to further narrow the result set."
+        params['q'] = terms[0,maxTerms].join(' ')
+      end
+    end
+
 
     if params['q'] == ''
       params['commit'] ||= 'Search'
