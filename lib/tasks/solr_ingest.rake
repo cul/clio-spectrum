@@ -7,7 +7,7 @@ require File.join(Rails.root.to_s, 'config', 'initializers/load_app_config.rb')
 EXTRACT_SCP_SOURCE = APP_CONFIG['extract_scp_source']
 
 # EXTRACTS =  ["spectrum", "spectrum_update", "spectrum_update_cumulative", "spectrum_subset", "spectrum_law"]
-EXTRACTS =  ["full", "incremental", "cumulative", "subset", "law"]
+EXTRACTS =  ["full", "incremental", "cumulative", "subset", "law", "test"]
 
 
 namespace :solr do
