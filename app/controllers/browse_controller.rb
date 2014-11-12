@@ -151,7 +151,14 @@ class BrowseController < ApplicationController
     this_item = forward_items.shift
 
     # For "Before" query, we need the reverse shelfkey.
-    reverse_shelfkey = shelfkey_to_reverse_shelfkey(this_item, shelfkey)
+    # (Sometimes due to data issues, the current 'shelfkey' variable will not
+    #  exactly match the first item in forward_items.  Go with first item.)
+
+    # This fishing is unnecessary.  The call to get_items_by_shelfkey_forward()
+    # already figured out the reverse key.
+    # reverse_shelfkey = shelfkey_to_reverse_shelfkey(this_item, shelfkey)
+    reverse_shelfkey = this_item[:current_reverse_shelfkey]
+
     backward_items = get_items_by_reverse_shelfkey_backward(reverse_shelfkey, before_count)
 
     # pull off the current item

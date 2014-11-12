@@ -45,8 +45,8 @@
         &nbsp;
         &nbsp;
 
-
-        = link_to "Browse from " + session[:browse]['call_number'], browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'btn btn-default'
+        - if session[:browse] && session[:browse]['call_number'] && session[:browse]['shelfkey']
+          = link_to "Browse from " + session[:browse]['call_number'], browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'btn btn-default'
 
         -# = fix_catalog_links(render :partial => "paginate_compact", :object => @response)
       

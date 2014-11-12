@@ -78,7 +78,7 @@ public Set getShelfkeys(Record record)
   {
     if (shelfkey != null && shelfkey.length() > 0)
     {
-      shelfkeys.add(shelfkey.toLowerCase());
+      shelfkeys.add(shelfkey.toLowerCase() + '+' + record.getRecordId().toString());
     }
   }
   return shelfkeys;
@@ -87,10 +87,10 @@ public Set getShelfkeys(Record record)
 
 static Set getReverseShelfkeys(Record record)
 {
-  Set shelfkeys = indexer.getFieldList(record, "991b");
+  Set shelfkeysRaw = indexer.getFieldList(record, "991b");
 
   Set reverseShelfkeys = new HashSet();
-  for (String shelfkey : shelfkeys)
+  for (String shelfkey : shelfkeysRaw)
   {
     if (shelfkey != null && shelfkey.length() > 0)
     {
@@ -108,7 +108,7 @@ public static String getReverseShelfkey(String shelfkey) {
   StringBuilder resultBuf = new StringBuilder(reverseDefault);
   if (shelfkey != null && shelfkey.length() > 0)
     resultBuf.replace(0, shelfkey.length(), reverseAlphanum(shelfkey));
-  return resultBuf.toString().toLowerCase();
+  return resultBuf.toString().toLowerCase()  + '+' + record.getRecordId().toString();
 }
 
 
@@ -210,11 +210,13 @@ public Set getItemDisplay(Record record)
 
   for (VariableField call_number : call_numbers)
   {
+    String idSuffix = '+' + record.getRecordId().toString()
+
     String display_call_number = call_number.getSubfield('a').getData();
     
-    String shelfkey = call_number.getSubfield('b').getData().toLowerCase();
+    String shelfkey = call_number.getSubfield('b').getData().toLowerCase() + idSuffix;
     
-    String reverseShelfkey = getReverseShelfkey(shelfkey).toLowerCase();
+    String reverseShelfkey = getReverseShelfkey(shelfkey).toLowerCase() + idSuffix;
     
     String item_display = display_call_number + " | " + shelfkey + " | " + reverseShelfkey;
     
