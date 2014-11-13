@@ -241,7 +241,10 @@ module LocalSolrHelperExtension
       when value.is_a?(Range)
         "#{prefix}#{facet_field}:[#{value.first} TO #{value.last}]"
       else
-        "{!raw f=#{facet_field}#{(" " + local_params.join(" ")) unless local_params.empty?}}#{value}"
+        # NEXT-1107 -Pre-composed characters in facets
+        # Remove "raw" to allow analyzer to normalize unicode
+        # "{!raw f=#{facet_field}#{(" " + local_params.join(" ")) unless local_params.empty?}}#{value}"
+        "#{facet_field}:\"#{value}\""
     end
   end
 end
