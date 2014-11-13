@@ -72,13 +72,14 @@ public static StringBuilder reverseDefault = new StringBuilder(75);
 public Set getShelfkeys(Record record)
 {
   Set shelfkeysRaw = indexer.getFieldList(record, "991b");
+  String recordId = indexer.getFirstFieldVal(record, "001");
 
   Set shelfkeys = new HashSet();
   for (String shelfkey : shelfkeysRaw)
   {
     if (shelfkey != null && shelfkey.length() > 0)
     {
-      shelfkeys.add(shelfkey.toLowerCase() + '+' + record.getRecordId().toString());
+      shelfkeys.add(shelfkey.toLowerCase() + '+' + recordId);
     }
   }
   return shelfkeys;
@@ -88,6 +89,7 @@ public Set getShelfkeys(Record record)
 static Set getReverseShelfkeys(Record record)
 {
   Set shelfkeysRaw = indexer.getFieldList(record, "991b");
+  String recordId = indexer.getFirstFieldVal(record, "001");
 
   Set reverseShelfkeys = new HashSet();
   for (String shelfkey : shelfkeysRaw)
@@ -96,7 +98,7 @@ static Set getReverseShelfkeys(Record record)
     {
       String reverseShelfkey = getReverseShelfkey(shelfkey);
       if (reverseShelfkey != null && reverseShelfkey.length() > 0)
-        reverseShelfkeys.add(reverseShelfkey);
+        reverseShelfkeys.add(reverseShelfkey.toLowerCase() + '+' + recordId);
     }
   }
   return reverseShelfkeys;
@@ -108,7 +110,7 @@ public static String getReverseShelfkey(String shelfkey) {
   StringBuilder resultBuf = new StringBuilder(reverseDefault);
   if (shelfkey != null && shelfkey.length() > 0)
     resultBuf.replace(0, shelfkey.length(), reverseAlphanum(shelfkey));
-  return resultBuf.toString().toLowerCase()  + '+' + record.getRecordId().toString();
+  return resultBuf.toString();
 }
 
 
@@ -206,11 +208,11 @@ public Set getItemDisplay(Record record)
   Set item_displays = new HashSet();
 
   List call_numbers = record.getVariableFields("991");
-
+  String recordId = indexer.getFirstFieldVal(record, "001");
 
   for (VariableField call_number : call_numbers)
   {
-    String idSuffix = '+' + record.getRecordId().toString()
+    String idSuffix = '+' + recordId;
 
     String display_call_number = call_number.getSubfield('a').getData();
     
