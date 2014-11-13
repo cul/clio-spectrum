@@ -66,8 +66,12 @@ module DisplayHelper
     'Loose-leaf' => 'journal'
   }
 
-  def formats_with_icons(document)
-    document['format'].listify.map do |format|
+  def formats_with_icons(document, format_field = 'format')
+    # Hopefully this will save us if we accidently roll the "New Format" 
+    # partials out to Prod.
+    return nil if format_field == 'formats' && Rails.env == 'clio_prod'
+
+    document[format_field].listify.map do |format|
       if (icon = FORMAT_MAPPINGS[format]) && @add_row_style != :text
         image_tag("icons/#{icon}.png", size: '16x16') + " #{format}"
       else

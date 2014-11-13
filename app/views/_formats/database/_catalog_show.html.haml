@@ -1,5 +1,7 @@
 -# format=database
 
+/ _formats/database/_catalog_show.html.haml
+
 - cache("catalog_show_format=database_#{document.cache_key}") do
 
   - marc = document.to_marc
@@ -35,6 +37,7 @@
   = add_row("Standard No.", display_marc_field(marc, 'standard_no'))
   = add_row('Related To', display_marc_field(marc, 'related_to'))
   = add_row('Format', formats_with_icons(document))
+  = add_row('New Format', formats_with_icons(document, 'formats'))
   = add_row('Acquired On', Date.parse(document.get('acq_dt')).to_formatted_s(:long)) if document.get('acq_dt')
   = add_row('Restricted', document.get("database_restrictions_display"))
 

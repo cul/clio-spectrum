@@ -1,5 +1,7 @@
 -# format=manuscript_archive
 
+/ _formats/manuscript_archive/_catalog_show.html.haml
+
 - cache("catalog_show_format=manuscript_archive_#{document.cache_key}") do
 
   - marc = document.to_marc
@@ -31,4 +33,5 @@
   = add_row("Other Titles", display_marc_field(marc, 'title_other'))
   = add_row('Related To', display_marc_field(marc, 'related_to'))
   = add_row('Format', formats_with_icons(document))
+  = add_row('New Format', formats_with_icons(document, 'formats'))
   = add_row('Acquired On', Date.parse(document.get('acq_dt')).to_formatted_s(:long)) if document.get('acq_dt')
