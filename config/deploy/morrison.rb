@@ -1,3 +1,8 @@
+
+# http://rvm.io/deployment/capistrano
+# https://github.com/wayneeseguin/rvm-capistrano
+require 'rvm/capistrano'
+
 set :rails_env, 'clio_dev'
 set :application, 'clio_dev'
 set :domain,      'morrison.cul.columbia.edu'
