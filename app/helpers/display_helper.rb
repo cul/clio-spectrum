@@ -61,7 +61,9 @@ module DisplayHelper
     'Manuscript/Archive' => 'manuscript',
     'Newspaper' => 'newspaper',
     'Database' => 'database',
-    'Image' => 'image'
+    'Image' => 'image',
+    'Computer Program' => 'computer-file',
+    'Loose-leaf' => 'journal'
   }
 
   def formats_with_icons(document)
@@ -141,7 +143,7 @@ module DisplayHelper
     'Journal Article' => 'article'
   }
 
-  FORMAT_RANKINGS = %w(ac database map_globe manuscript_archive video music_recording music newspaper serial book clio ebooks article articles summon lweb)
+  FORMAT_RANKINGS = %w(ac dcv database map_globe manuscript_archive video music_recording music newspaper serial book clio ebooks article articles summon lweb)
 
   def format_online_results(link_hash)
     non_circ_img = image_tag('icons/noncirc.png', class: 'availability')
@@ -208,6 +210,8 @@ module DisplayHelper
     formats = defaults.listify
     # AC records, from the AC Solr, don't self-identify.
     formats << 'ac' if @active_source == 'academic_commons'
+    # dcv records
+    formats << 'dcv' if @active_source == 'dcv'
     # Database items - from the Voyager feed - will identify themselves,
     # via their "source", which we should respect no matter the current
     # GUI-selected datasource
