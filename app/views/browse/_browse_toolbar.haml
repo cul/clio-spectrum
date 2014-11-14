@@ -22,14 +22,20 @@
 
       .navbar-text
         -# link to previous...
-        = link_to "« Previous", browse_shelfkey_full_path(shelfkey: first_shelfkey, highlight: @highlight, before: per_page - 1, after: 0)
+        - if first_shelfkey
+          = link_to "« Previous", browse_shelfkey_full_path(shelfkey: first_shelfkey, before: per_page - 1, after: 0)
         
         &nbsp;
         &nbsp;
-
-        = first_call_number
+  
+        - if first_call_number
+          = first_call_number
+  
         &mdash;
-        = last_call_number
+
+        - if last_call_number
+          = last_call_number
+
         -# This doesn't really makes sense - how can we show the original call number
         -# up top on a screen that doesn't include that bib?  confusing?
         -# = link_to ORIGINAL CALL NUMBER, browse_shelfkey_full_path(shelfkey: ORIGINAL SHELFKEY, before: 19, after: 0)
@@ -38,7 +44,8 @@
         &nbsp;
         
         -# link to next...
-        = link_to "Next »", browse_shelfkey_full_path(shelfkey: last_shelfkey, highlight: @highlight, before: 0, after: per_page - 1)
+        - if last_shelfkey
+          = link_to "Next »", browse_shelfkey_full_path(shelfkey: last_shelfkey, before: 0, after: per_page - 1)
 
         &nbsp;
         &nbsp;

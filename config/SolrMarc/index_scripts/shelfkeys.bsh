@@ -89,7 +89,6 @@ public Set getShelfkeys(Record record)
 static Set getReverseShelfkeys(Record record)
 {
   Set shelfkeysRaw = indexer.getFieldList(record, "991b");
-  String recordId = indexer.getFirstFieldVal(record, "001");
 
   Set reverseShelfkeys = new HashSet();
   for (String shelfkey : shelfkeysRaw)
@@ -98,7 +97,7 @@ static Set getReverseShelfkeys(Record record)
     {
       String reverseShelfkey = getReverseShelfkey(shelfkey);
       if (reverseShelfkey != null && reverseShelfkey.length() > 0)
-        reverseShelfkeys.add(reverseShelfkey.toLowerCase() + '+' + recordId);
+        reverseShelfkeys.add(reverseShelfkey.toLowerCase());
     }
   }
   return reverseShelfkeys;
@@ -218,7 +217,7 @@ public Set getItemDisplay(Record record)
     
     String shelfkey = call_number.getSubfield('b').getData().toLowerCase() + idSuffix;
     
-    String reverseShelfkey = getReverseShelfkey(shelfkey).toLowerCase() + idSuffix;
+    String reverseShelfkey = getReverseShelfkey(shelfkey).toLowerCase();
     
     String item_display = display_call_number + " | " + shelfkey + " | " + reverseShelfkey;
     

@@ -266,11 +266,15 @@ class BrowseController < ApplicationController
     # Use the key to fetch the matching item_display jumbo field,
     # parse it out into separate fields
     item_hash_list.each { |item|
-      # raise
+      # raise unless item[:key].starts_with? 'loc'
       item[:current_call_number]      = get_call_number(get_item_display(item, item[:key]) )
       item[:current_shelfkey]         = get_shelfkey(get_item_display(item, item[:key]) )
       item[:current_reverse_shelfkey] = get_reverse_shelfkey(get_item_display(item, item[:key]) )
     }
+
+    # If we were unable to fill in current-X values, something's wrong with
+    # this record.  Suppress this item from the browse displays.
+    item_hash_list.delete_if { |item| item[:current_call_number].nil? }
 
 # raise
 
