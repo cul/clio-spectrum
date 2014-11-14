@@ -15,6 +15,7 @@ module Spectrum
       def initialize(reg_params, blacklight_config)
         @params = reg_params || HashWithIndifferentAccess.new
         @config = blacklight_config
+        # raise
         parse_queries
         parse_filters
         parse_ranges
@@ -76,6 +77,7 @@ module Spectrum
         new_params
       end
 
+      # Each invert_link is an array of [label, link]
       def facet_value_invert_links(facet_field, value)
         if  is_inverted?(facet_field)
           [
@@ -149,6 +151,7 @@ module Spectrum
               invert_label: is_inverted?(facet_field) ? 'Is Not' : 'Is',
               label: value,
               remove: remove_facet_params(facet_field, value, @params),
+              # Each invert_link is an array of [label, link]
               invert_links: facet_value_invert_links(facet_field, value)
             }
           end

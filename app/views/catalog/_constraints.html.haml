@@ -32,6 +32,8 @@
     - @query.filters.each_pair do |filter_key, filter|
       %div.constraint-box.with-dropdown
         #{filter[:label]}:
+
+        -# Toggle the AND/OR operator
         - if filter[:values].length > 1
           %span.dropdown
             %span.dropdown-toggle
@@ -41,6 +43,7 @@
               - filter[:operator_change_links].each do |label, link|
                 %li= link_to label, link
 
+        -# Print a box for each applied facet filter...
         - filter[:values].each do |value|
           - span_class = filter[:values].length > 1 ? "inner-dropdown" : ""
           %span{:class => span_class}
@@ -49,9 +52,11 @@
                 #{value[:invert_label]}
                 %span.caret
               %ul.dropdown-menu
+                -# The invert_links are "Is"/"Is Not", with links
                 - value[:invert_links].each do |label, link|
                   %li= link_to label, link
             = value[:label]
+            -# Add a "remove" icon to turn off this facet filter
             =link_to content_tag(:span, '', :class => 'glyphicon glyphicon-remove'), value[:remove]
           %span.chrome-fix
 
