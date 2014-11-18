@@ -70,7 +70,8 @@
               .btn-group
                 .btn.btn-default.show_mini_browse{type: 'button'}Show
                 .btn.btn-default.hide_mini_browse.disabled{type: 'button'}Hide
-                = link_to 'Full Screen', browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'btn btn-default'
+                - if session[:browse] && session[:browse]['call_number'] && session[:browse]['shelfkey']
+                  = link_to 'Full Screen', browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'btn btn-default'
 
             .col-xs-5
               = render "/browse/call_number_toggles", document: document
