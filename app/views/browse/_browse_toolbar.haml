@@ -1,11 +1,12 @@
 
 -# CALL-NUMBER BROWSE NEARBY TOOLBAR CONTROLS
 
+- mini = request.xhr?
 
-- first_shelfkey = @browse_item_list.first[:current_shelfkey]
+- firstShelfkey = @browse_item_list.first[:current_shelfkey]
 - first_call_number = @browse_item_list.first[:current_call_number]
 
-- last_shelfkey = @browse_item_list.last[:current_shelfkey]
+- lastShelfkey = @browse_item_list.last[:current_shelfkey]
 - last_call_number = @browse_item_list.last[:current_call_number]
 
 - per_page = session[:browse]['per_page'].to_i || 25
@@ -21,59 +22,51 @@
         %span.icon-bar
 
       .navbar-text
-        -# link to previous...
-        - if first_shelfkey
-          = link_to "« Previous", browse_shelfkey_full_path(shelfkey: first_shelfkey, before: per_page - 1, after: 0)
+        -# link to previous browse page...
+        - if firstShelfkey
+          = link_to "« Previous", browse_shelfkey_full_path(shelfkey: firstShelfkey, before: per_page - 1, after: 0), class: 'call_number_nav_previous', data: {firstShelfkey: firstShelfkey}
         
-        &nbsp;
-        &nbsp;
   
-        - if first_call_number
+        - if first_call_number && last_call_number
+          |
           = first_call_number
-  
-        &mdash;
-
-        - if last_call_number
+          ="  -  "
           = last_call_number
-
-        -# This doesn't really makes sense - how can we show the original call number
-        -# up top on a screen that doesn't include that bib?  confusing?
-        -# = link_to ORIGINAL CALL NUMBER, browse_shelfkey_full_path(shelfkey: ORIGINAL SHELFKEY, before: 19, after: 0)
-
-        &nbsp;
-        &nbsp;
+          |
         
-        -# link to next...
-        - if last_shelfkey
-          = link_to "Next »", browse_shelfkey_full_path(shelfkey: last_shelfkey, before: 0, after: per_page - 1)
+        -# link to next browse page...
+        - if lastShelfkey
+          = link_to "Next »", browse_shelfkey_full_path(shelfkey: lastShelfkey, before: 0, after: per_page - 1), class: 'call_number_nav_next', data: {lastShelfkey: lastShelfkey}
 
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
 
-        - if session[:browse] && session[:browse]['call_number'] && session[:browse]['shelfkey']
-          = link_to "Browse from " + session[:browse]['call_number'], browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'btn btn-default'
+        -# = link_to "Full Screen", '#', class: 'btn btn-default call_number_full_screen', data: {'full-path' => browse_shelfkey_full_path('SHELFKEY')}
 
         -# = fix_catalog_links(render :partial => "paginate_compact", :object => @response)
       
         -# = fix_catalog_links(link_to image_tag('rss-feed-icon-14x14.png', :size => "13x13"), catalog_index_path(params.merge(:format => 'atom')), :class => "rss-feed hidden-xs")
 
-
     .index-toolbar-collapse.navbar-collapse.collapse
+
 
       %ul.nav.navbar-nav.navbar-right
 
-        %li.dropdown
+        .navbar-text
+          - if session[:browse] && session[:browse]['call_number'] && session[:browse]['shelfkey']
+            -# = link_to session[:browse]['call_number'], browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'btn btn-default'
+            = link_to "Jump to " + session[:browse]['call_number'], browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'call_number_jump', data: {shelfkey: session[:browse]['shelfkey']}
 
-          = fix_catalog_links(render 'per_page_widget')
-          -# = fix_catalog_links(render 'sort_widget')
+          -# - if mini
+          -#   - if session[:browse] && session[:browse]['call_number'] && session[:browse]['shelfkey']
+          -#     = link_to 'Full Screen', browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'btn btn-default'
+
+        - unless mini
+          %li.dropdown
+
+            = fix_catalog_links(render 'per_page_widget')
       
-          -# Allow "selections" for any Catalog-based data source, but NOT for Academic Commons
-          - if @active_source != 'academic_commons' && @active_source != 'dcv'
-            = render '/catalog/selections_widget'
+            -# Allow "selections" for any Catalog-based data source, NOT for AC
+            - if @active_source != 'academic_commons' && @active_source != 'dcv'
+              = render '/catalog/selections_widget'
 
-      .navbar-text.visible-xs
-        = link_to "Start Over", catalog_index_path
       
 
