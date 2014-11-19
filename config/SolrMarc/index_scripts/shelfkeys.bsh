@@ -89,13 +89,14 @@ public Set getShelfkeys(Record record)
 static Set getReverseShelfkeys(Record record)
 {
   Set shelfkeysRaw = indexer.getFieldList(record, "991b");
+  String recordId = indexer.getFirstFieldVal(record, "001");
 
   Set reverseShelfkeys = new HashSet();
   for (String shelfkey : shelfkeysRaw)
   {
     if (shelfkey != null && shelfkey.length() > 0)
     {
-      String reverseShelfkey = getReverseShelfkey(shelfkey);
+      String reverseShelfkey = getReverseShelfkey(shelfkey + '+' + recordId);
       if (reverseShelfkey != null && reverseShelfkey.length() > 0)
         reverseShelfkeys.add(reverseShelfkey.toLowerCase());
     }
