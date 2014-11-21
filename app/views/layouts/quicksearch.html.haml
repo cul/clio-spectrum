@@ -6,7 +6,8 @@
   -# - onload = (params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?) ? "$('input#q').focus();" : ""
   -# - search_params = determine_search_params
   -# %body{:xonload => "$('.input_q').focus();"}
-  %body{onload: "$('.search_q').focus();"}
+  -# %body{onload: "$('.search_q').focus();"}
+  %body{onload: "focusIfInViewport($('.search_q'));"}
     / Layout:  quicksearch
     - add_datasources(@active_source)
 

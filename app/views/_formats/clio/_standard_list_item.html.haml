@@ -16,6 +16,10 @@
 
 / _formats/clio/_standard_list_item.html.haml
 / container for a SINGLE doc
+
+-# maybe handy to have a per-item anchor?
+-# %a{name: document.get(:id)}
+
 .result.document{class: render_document_class(document), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
   .row

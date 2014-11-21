@@ -1,6 +1,8 @@
 -# catalog/index.html
 -# Search-Results for catalog-based datasources
 
+/ catalog/index.html.haml
+
 -  unless has_search_parameters?
   - cache("datasource_landing_page_#{@active_source}_#{params_digest}") do
     = datasource_landing_page(@active_source)
@@ -25,7 +27,7 @@
       -# Replace this partial call....
       -# = render 'document_list'
       -# ...with the content of the two-line partial.
-      #documents{:data => {'ga-action' => 'Search Results Click'} }
+      #documents.scroll_memory{:data => {'ga-action' => 'Search Results Click'} }
         = render_document_list(@document_list, :action => "catalog")
       
 

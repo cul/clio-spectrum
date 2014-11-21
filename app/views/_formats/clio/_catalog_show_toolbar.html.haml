@@ -16,7 +16,7 @@
         %span.icon-bar
 
 
-      - link_back = fix_catalog_links(build_link_back()).html_safe
+      - link_back = fix_catalog_links(build_link_back(id)).html_safe
 
       -# if we're unable to build a link_back, then we've lost our search context,
       -# don't show "Back to Search", or Next/Prev links - they would be invalid/broken.
