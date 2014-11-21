@@ -8,6 +8,7 @@ module DatasourcesHelper
 
     # DO NOT SHOW DCV IN PRODUCTION YET
     results.delete('dcv') if Rails.env == 'clio_prod'
+    results.delete('dcv') if Rails.env == 'test'
 
     results
   end

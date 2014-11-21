@@ -57,7 +57,7 @@ class SpectrumController < ApplicationController
       sources =  @search_layout['columns'].map do |col|
 
         # DO NOT SHOW DCV IN PRODUCTION YET
-        if Rails.env == 'clio_prod'
+        if Rails.env == 'clio_prod' || Rails.env == 'test'
           col['searches'].delete_if{ |search| search['source'] == 'dcv'}
         end
 
