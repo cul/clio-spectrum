@@ -53,7 +53,7 @@
         .navbar-text
           - if session[:browse] && session[:browse]['call_number'] && session[:browse]['shelfkey']
             -# = link_to session[:browse]['call_number'], browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'btn btn-default'
-            = link_to "Jump to " + session[:browse]['call_number'], browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'call_number_jump', data: {shelfkey: session[:browse]['shelfkey']}
+            = link_to "Return to " + session[:browse]['call_number'], browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'call_number_jump', data: {shelfkey: session[:browse]['shelfkey']}
 
           -# - if mini
           -#   - if session[:browse] && session[:browse]['call_number'] && session[:browse]['shelfkey']
