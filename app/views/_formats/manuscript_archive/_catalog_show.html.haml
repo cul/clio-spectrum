@@ -30,6 +30,7 @@
   = add_row("Medical Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_mesh')))
   = add_row("Subjects (Genre)", generate_value_links_subject(display_marc_field(marc, 'subject_genre')))
   = add_row("Also Listed Under", generate_value_links(display_marc_field(marc, 'author_other'), :author))
+  = add_row("Includes", generate_value_links(display_marc_field(marc, 'contains'), :all))
   = add_row("Other Titles", display_marc_field(marc, 'title_other'))
   = add_row('Related To', display_marc_field(marc, 'related_to'))
   = add_row('Format', formats_with_icons(document))

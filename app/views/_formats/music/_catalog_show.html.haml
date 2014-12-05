@@ -22,6 +22,7 @@
   = add_row("Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_LC')))
   = add_row("Subjects (Genre)", generate_value_links_subject(display_marc_field(marc, 'subject_genre')))
   = add_row("Also Listed Under", generate_value_links(display_marc_field(marc, 'author_other'), :author))
+  = add_row("Includes", generate_value_links(display_marc_field(marc, 'contains'), :all))
   = add_row("Summary", display_marc_field(marc, 'summary'))
   = add_row("Contents", display_marc_field(marc, 'contents'))
   = add_row("Language", document["language_facet"], :join => '; ')

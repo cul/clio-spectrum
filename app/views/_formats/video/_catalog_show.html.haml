@@ -26,6 +26,7 @@
   = add_row("Medical Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_mesh')))
   = add_row("Subjects (Genre)", generate_value_links_subject(display_marc_field(marc, 'subject_genre')))
   = add_row("Also Listed Under", generate_value_links(display_marc_field(marc, 'author_other'), :author))
+  = add_row("Includes", generate_value_links(display_marc_field(marc, 'contains'), :all))
   = add_row("LCCN", display_marc_field(marc, 'LCCN'))
   = add_row("Publisher No.", display_marc_field(marc, 'publisher_no'))
   = add_row("ISBN", display_marc_field(marc, 'ISBN'))
