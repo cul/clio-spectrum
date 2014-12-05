@@ -517,8 +517,13 @@ module DisplayHelper
 
   def catalog_to_openurl_ctx_kev(document)
     return '' unless document
-    fail 'Document has no format!  ' + document.id unless document[:format]
-    format = document[:format].first ||= 'book'
+    # No, be forgiving.
+    # fail 'Document has no format!  ' + document.id unless document[:format]
+    if document[:format]
+      format = document[:format].first ||= 'book'
+    else
+      format = 'Other'
+    end
 
     fields = []
     fields.push('ctx_ver=Z39.88-2004')
