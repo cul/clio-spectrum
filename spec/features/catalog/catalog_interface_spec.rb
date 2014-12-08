@@ -348,6 +348,23 @@ describe 'Catalog Interface' do
     page.should have_text('Series Title Black Sea studies')
   end
 
+  # NEXT-1043 - Better handling of extremely long queries
+  # CatalogController.index() has maxLetters = 200
+  it "should truncate queries with too many letters", focus: true do
+    # This will be 10 x 20 = 200, plus 1 == 201 
+    too_long = "123456789 " * 20 + "X"
+    visit catalog_index_path(q: too_long)
+    page.should have_text ("Your query was automatically truncated to the first 200 letters")
+  end
+
+  # NEXT-1043 - Better handling of extremely long queries
+  # CatalogController.index() has maxTerms = 30
+  it "should truncate queries with too many words", focus: true do
+    # This will be 1 x 30 = 30, plus 1 == 31 
+    too_long = "asdf " * 30 + "X"
+    visit catalog_index_path(q: too_long)
+    page.should have_text ("Your query was automatically truncated to the first 30 words")
+  end
 
 end
 

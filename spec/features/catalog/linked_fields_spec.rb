@@ -204,6 +204,28 @@ describe 'Linked field-values in single-item display', focus: false do
     find('#documents').should have_text title_4.mb_chars.normalize(:d)
   end
 
+  # NEXT-1107 - Pre-composed characters in facets
+  # These two bib records (10322893, 10551688) encode the name Cipa differently,
+  # both should link correctly, and "author" facet should be combined.
+  it "should work equivalently with pre-composed or de-composed unicode forms" do
+    visit catalog_path(10322893)
+    # "Also Listed Under Çıpa, H. Erdem, 1971-"
+    click_link('H. Erdem, 1971')
+    page.should have_text('1 - 2 of 2')
+    within('#facet-author li', text: 'Erdem') do
+      find('.facet-label').should have_text "Çıpa, H. Erdem, 1971"
+      find('.facet-count').should have_text "2"
+    end
+
+    visit catalog_path(10551688)
+    # "Also Listed Under Çıpa, H. Erdem, 1971-"
+    click_link('H. Erdem, 1971')
+    page.should have_text('1 - 2 of 2')
+    within('#facet-author li', text: 'Erdem') do
+      find('.facet-label').should have_text "Çıpa, H. Erdem, 1971"
+      find('.facet-count').should have_text "2"
+    end
+  end
 end
 
 
