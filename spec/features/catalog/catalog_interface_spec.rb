@@ -350,7 +350,7 @@ describe 'Catalog Interface' do
 
   # NEXT-1043 - Better handling of extremely long queries
   # CatalogController.index() has maxLetters = 200
-  it "should truncate queries with too many letters", focus: true do
+  it "should truncate queries with too many letters" do
     # This will be 10 x 20 = 200, plus 1 == 201 
     too_long = "123456789 " * 20 + "X"
     visit catalog_index_path(q: too_long)
@@ -359,7 +359,7 @@ describe 'Catalog Interface' do
 
   # NEXT-1043 - Better handling of extremely long queries
   # CatalogController.index() has maxTerms = 30
-  it "should truncate queries with too many words", focus: true do
+  it "should truncate queries with too many words" do
     # This will be 1 x 30 = 30, plus 1 == 31 
     too_long = "asdf " * 30 + "X"
     visit catalog_index_path(q: too_long)

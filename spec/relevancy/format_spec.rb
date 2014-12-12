@@ -61,7 +61,7 @@ describe 'Format assignments for Monographic Series' do
 end
 
 
-
+# NEXT-1141 - Improve Format Assignment
 describe "Updated Format Assignments" do
   {
   8761270 => 'Book',
