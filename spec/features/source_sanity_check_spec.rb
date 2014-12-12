@@ -42,8 +42,8 @@ describe 'Datasource Sanity', js: true do
     visit '/new_arrivals'
     find('.landing_main .title').should have_text('New Arrivals')
 
-    visit '/newspapers'
-    find('.landing_main .title').should have_text('Newspapers')
+    # visit '/newspapers'
+    # find('.landing_main .title').should have_text('Newspapers')
 
   end
 
@@ -95,8 +95,8 @@ describe 'Simple query should retrieve results ', js: true do
     visit new_arrivals_index_path('q' => 'test')
     page.should have_css('.result')
 
-    visit newspapers_index_path('q' => 'test')
-    page.should have_css('.result')
+    # visit newspapers_index_path('q' => 'test')
+    # page.should have_css('.result')
   end
 
 end
@@ -181,12 +181,11 @@ describe 'Switching between data-source', js: true do
     page.should have_css('.result')
     all('#documents .result').first['source'].should eq 'catalog'
 
-    click_link('More...')
-    click_link('Newspapers')
-    find('input#newspapers_q').value.should eq 'test'
-    find('.well-constraints').should have_text('test')
-    page.should have_css('.result')
-    # all('#documents .result').first.should have_css('.article_list')
+    # click_link('More...')
+    # click_link('Newspapers')
+    # find('input#newspapers_q').value.should eq 'test'
+    # find('.well-constraints').should have_text('test')
+    # page.should have_css('.result')
 
   end
 
