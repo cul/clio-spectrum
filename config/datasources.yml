@@ -18,20 +18,20 @@ datasources:
       route: quicksearch_index_path
       placeholder: Catalog, Articles, Academic Commons, Library Web 
 
-  newspapers:
-    name: Newspapers
-    search_box:
-      route: newspapers_index_path
-      placeholder: Newspapers
-      search_type: summon
-      advanced: true
-      # search_category: newspapers
-      search_fields:
-        q: Keywords
-        s.fq[AuthorCombined]: Author
-        s.fq[TitleCombined]: Title
-        s.fq[ISBN]: ISBN
-        s.fq[ISSN]: ISSN
+  # newspapers:
+  #   name: Newspapers
+  #   search_box:
+  #     route: newspapers_index_path
+  #     placeholder: Newspapers
+  #     search_type: summon
+  #     advanced: true
+  #     # search_category: newspapers
+  #     search_fields:
+  #       q: Keywords
+  #       s.fq[AuthorCombined]: Author
+  #       s.fq[TitleCombined]: Title
+  #       s.fq[ISBN]: ISBN
+  #       s.fq[ISSN]: ISSN
 
   articles:
     name: Articles
@@ -185,16 +185,22 @@ datasource_bar:
   major_sources:
     - quicksearch
     - catalog
-    - articles
     - journals
     - databases
+    - archives
+    - new_arrivals
+    - articles
     - academic_commons
     - library_web
   minor_sources:
-    - archives
     - dissertations
     - ebooks
-    - new_arrivals
-    - newspapers
+    # - newspapers
     - dcv
+  subsources:
+    - journals
+    - databases
+    - archives
+    - new_arrivals
+
 
