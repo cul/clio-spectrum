@@ -275,7 +275,7 @@ module DisplayHelper
       case category
 
       when :all
-        q = '"' + search_value + '"'
+        q = search_value
         out << link_to(display_value, url_for(controller: 'catalog', action: 'index', q: q, search_field: 'all_fields', commit: 'search'))
 
       when :author
