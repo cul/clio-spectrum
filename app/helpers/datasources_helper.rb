@@ -144,9 +144,13 @@ module DatasourcesHelper
     classes << 'minor_source' if options[:minor]
     query = options[:query]
 
+# DATASOURCES_CONFIG['datasource_bar']['major_sources']
+
     li_classes = %w(datasource_link)
     li_classes << 'selected' if source == options[:active_source]
-    li_classes << 'subsource' if options[:subsource]
+
+    # li_classes << 'subsource' if options[:subsource]
+    li_classes << 'subsource' if DATASOURCES_CONFIG['datasource_bar']['subsources'].include?(source)
 
     href = datasource_landing_page_path(source, query)
 
