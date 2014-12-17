@@ -185,8 +185,8 @@ datasource_bar:
   major_sources:
     - quicksearch
     - catalog
-    - journals
     - databases
+    - journals
     - archives
     - new_arrivals
     - articles
@@ -195,11 +195,14 @@ datasource_bar:
   minor_sources:
     - dissertations
     - ebooks
+    # 12/2014 - Gary says, committee decision to remove altogether
     # - newspapers
-    - dcv
+    # 12/2014 - Breck says, remove until closer to release
+    # - dcv
+  # NEXT-1145 - Deemphasize sub-sources of Catalog datasource
   subsources:
-    - journals
     - databases
+    - journals
     - archives
     - new_arrivals
 
