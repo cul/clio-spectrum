@@ -41,6 +41,13 @@ module Spectrum
         @current_user = options.delete('current_user')
         @search_url = options.delete('search_url')
 
+# Test various kinds of AC problems...
+# bad port
+# APP_CONFIG['ac2_solr_url'] = 'http://macana.cul.columbia.edu:8888/solr-4.3.0/ac2_prod'
+# unroutable ip
+# APP_CONFIG['ac2_solr_url'] = 'http://10.255.255.1:8080/solr-4.3.0/ac2_prod'
+
+
         # allow pass-in override solr url
         @solr_url = options.delete('solr_url')
         blacklight_solr
@@ -58,7 +65,15 @@ module Spectrum
           # Re-raising the same error will be caught by Blacklight::Base.rsolr_request_error()
           # which will log, flash and redirect_to root_path.  We don't want that.
           # raise ex
-          raise 'Error searching Solr'
+
+          # The Academic Commons Solr has been down so often, and generating
+          # so many emails to the CLIO group, that we're going to special-case
+          # this to swallow AC connection errors, and partially report to patron.
+          if ['academic_commons', 'ac_dissertations'].include?(@source)
+            @errors = ex.message.truncate(40)
+          else
+            raise 'Error searching Solr'
+          end
         end
       end
 

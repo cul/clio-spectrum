@@ -45,13 +45,13 @@ layouts:
             row_opts:
               spans: [3,9] 
 
-  newspapers:
-    style: summon
-    # obsolete
-    # has_facets: true
-    columns:
-      - searches:
-          - source: newspapers 
+  # newspapers:
+  #   style: summon
+  #   # obsolete
+  #   # has_facets: true
+  #   columns:
+  #     - searches:
+  #         - source: newspapers 
   dissertations:
     style: aggregate
     columns:
@@ -154,12 +154,12 @@ sources:
     render_options:
       format: article
 
-  newspapers:
-    title: Newspaper Articles
-    description: Full text newspaper articles from Summon
-    warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.  ArtyNews.
-    render_options:
-      format: article
+  # newspapers:
+  #   title: Newspaper Articles
+  #   description: Full text newspaper articles from Summon
+  #   warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.  ArtyNews.
+  #   render_options:
+  #     format: article
 
   databases:
     title: Databases

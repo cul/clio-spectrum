@@ -23,6 +23,7 @@
   = add_row("Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_LC')))
   = add_row("Subjects (Genre)", generate_value_links_subject(display_marc_field(marc, 'subject_genre')))
   = add_row("Also Listed Under", generate_value_links(display_marc_field(marc, 'author_other'), :author))
+  = add_row("Includes", generate_value_links(display_marc_field(marc, 'contains'), :all))
   = add_row("Track List", display_marc_field(marc, 'contents'))
   = add_row("Language", document["language_facet"], :join => '; ')
   = add_row("LCCN", display_marc_field(marc, 'LCCN'))
@@ -30,5 +31,4 @@
   = add_row("Standard No.", display_marc_field(marc, 'standard_no'))
   = add_row('Related To', display_marc_field(marc, 'related_to'))
   = add_row('Format', formats_with_icons(document))
-  = add_row('New Format', formats_with_icons(document, 'formats'))
   = add_row('Acquired On', Date.parse(document.get('acq_dt')).to_formatted_s(:long)) if document.get('acq_dt')

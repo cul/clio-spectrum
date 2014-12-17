@@ -24,6 +24,7 @@
   = add_row("Series", generate_value_links(display_marc_field(marc, 'series'), :series_title))
   = add_row("Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_LC')))
   = add_row("Also Listed Under", generate_value_links(display_marc_field(marc, 'author_other'), :author))
+  = add_row("Includes", generate_value_links(display_marc_field(marc, 'contains'), :all))
   = add_row("Summary", display_marc_field(marc, 'summary'))
   = add_row("Contents", display_marc_field(marc, 'contents'))
   = add_row("Other Titles", display_marc_field(marc, 'title_other'))
@@ -37,7 +38,6 @@
   = add_row("Standard No.", display_marc_field(marc, 'standard_no'))
   = add_row('Related To', display_marc_field(marc, 'related_to'))
   = add_row('Format', formats_with_icons(document))
-  = add_row('New Format', formats_with_icons(document, 'formats'))
   = add_row('Acquired On', Date.parse(document.get('acq_dt')).to_formatted_s(:long)) if document.get('acq_dt')
   = add_row('Restricted', document.get("database_restrictions_display"))
 

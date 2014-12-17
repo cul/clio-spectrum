@@ -67,10 +67,6 @@ module DisplayHelper
   }
 
   def formats_with_icons(document, format_field = 'format')
-    # Hopefully this will save us if we accidently roll the "New Format" 
-    # partials out to Prod.
-    return nil if format_field == 'formats' && Rails.env == 'clio_prod'
-
     document[format_field].listify.map do |format|
       if (icon = FORMAT_MAPPINGS[format]) && @add_row_style != :text
         image_tag("icons/#{icon}.png", size: '16x16') + " #{format}"
@@ -279,7 +275,7 @@ module DisplayHelper
       case category
 
       when :all
-        q = '"' + search_value + '"'
+        q = search_value
         out << link_to(display_value, url_for(controller: 'catalog', action: 'index', q: q, search_field: 'all_fields', commit: 'search'))
 
       when :author
@@ -521,8 +517,13 @@ module DisplayHelper
 
   def catalog_to_openurl_ctx_kev(document)
     return '' unless document
-    fail 'Document has no format!  ' + document.id unless document[:format]
-    format = document[:format].first ||= 'book'
+    # No, be forgiving.
+    # fail 'Document has no format!  ' + document.id unless document[:format]
+    if document[:format]
+      format = document[:format].first ||= 'book'
+    else
+      format = 'Other'
+    end
 
     fields = []
     fields.push('ctx_ver=Z39.88-2004')
