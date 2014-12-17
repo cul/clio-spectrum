@@ -1,0 +1,15 @@
+
+-# This small partial is used to put a visual indicator in front of the
+-# bib from which a shelf-browse began.
+
+/ browse/_browse_focus.html.haml
+
+%span.browse_focus.glyphicon.glyphicon-bookmark{data: {toggle: 'tooltip', placement: 'top'}, title: "#{t('blacklight.browse.focus')}"}
+
+
+
+-# This AJAX-loaded tooltip needs to be enabled, after it's drawn to the page
+:javascript
+  $('[data-toggle="tooltip"]').tooltip()
+
+

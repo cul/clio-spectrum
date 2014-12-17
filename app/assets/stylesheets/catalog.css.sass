@@ -9,8 +9,24 @@
 .selected_item
   :background-color #EEE !important
 
+.show-document
+  :padding-left 10px
+  :padding-right 10px
+  :padding-bottom 10px
+  //.title
+  //  :padding-left 1em
+
+// Database records, in search-resulsts lists
 .result.document.database_record
   :margin-bottom 5px
+
+// Database records, on single-item detail pages
+.show-document.database_record
+  :margin-top 10px
+  :margin-bottom 5px
+  :border-top 1px solid #458046
+  :border-bottom 1px solid #458046
+  :border-right 1px solid #458046
 
 .database_record
   // Orange
@@ -259,6 +275,8 @@
       :display inline
     .back_to_results
       :margin-right .50em
+      .pull-right
+        :margin-right 0px
     .previous
       :margin-left .50em
       :margin-right .50em
@@ -285,17 +303,11 @@
     :border-left 1px solid #ccc
 
 .document
-  .fedora_title
-    font-size: 1.25em
-    font-weight: bold
-    padding-bottom: 5px
-
   .title
     font-size: 1.25em
     font-weight: bold
     padding-bottom: 5px
     padding-top: 5px
-
 
 
 
@@ -394,6 +406,24 @@ img.availability
     :color #999999
 
 
+// Nearby / Virtual Shelf Browse
+
+.browse_title
+  :float left
+  :font-weight bold
+  :color #2855A2
+  :padding-right 0.5em
+
+.full_screen_link
+  :margin-left 2em
+  :margin-right 2em
+
+.browse_focus
+  :margin-right 0.5em
+
+.call_number_toggle
+  :margin-right 2em
+  
 // Load hidden.  user action will call JQuery's show().
 #mini_browse_list, 
 #nearby .nearby_spinner, 

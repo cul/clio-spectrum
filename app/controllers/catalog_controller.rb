@@ -211,8 +211,16 @@ class CatalogController < ApplicationController
 
   def show
     @response, @document = get_solr_response_for_doc_id
-    # solr_search_params_logic << :add_advanced_search_to_solr
-    # solr_search_params_logic << :add_range_limit_params
+
+    # In support of "nearby" / "virtual shelf browse", remember this bib
+    # as our focus bib.
+    session[:browse]['bib'] = @document.id
+    # Need the Call Number/Shelfkey too, extract from 'item_display'
+    # (If bib has multiple call-nums, default to first.)
+    active_item_display = Array(@document['item_display']).first
+    session[:browse]['call_number'] = get_call_number(active_item_display)
+    session[:browse]['shelfkey'] = get_shelfkey(active_item_display)
+
 
     # this does not execute a query - it only organizes query parameters
     # conveniently for use by the view in echoing back to the user.

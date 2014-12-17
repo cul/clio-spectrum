@@ -222,3 +222,14 @@ en:
       default: 'entry'
 
     did_you_mean: 'Did you mean to type: %{options}?'
+
+    browse:
+      label: 'Virtual Shelf Browse'
+      description: 'Virtual Shelf Browse lets you see items from across the Columbia Libraries listed together in Call Number order.'
+      full_screen: 'Full Screen'
+      full_screen_description: 'Use Full Screen to maximize the browse window.'
+      focus: 'Browsing began with this item'
+      jump: 'Jump to'
+      back_to_item: '« Back to Item View'
+
+

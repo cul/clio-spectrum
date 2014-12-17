@@ -1,0 +1,72 @@
+
+-# CALL-NUMBER BROWSE NEARBY TOOLBAR CONTROLS
+
+- firstShelfkey = @browse_item_list.first[:current_shelfkey]
+- first_call_number = @browse_item_list.first[:current_call_number]
+
+- lastShelfkey = @browse_item_list.last[:current_shelfkey]
+- last_call_number = @browse_item_list.last[:current_call_number]
+
+- per_page = session[:browse]['per_page'].to_i || 25
+
+%nav.index_toolbar.navbar.navbar-default
+
+  .container-fluid
+    .row
+      .col-sm-12
+        = render '/browse/browse_title'
+
+
+        - link_back = fix_catalog_links(build_link_back()).html_safe
+        - if link_back
+          .navbar-text.pull-right
+            %span.back_to_results.hidden-xs
+              = link_back
+
+        .navbar-text.pull-right
+          - if session[:browse] && session[:browse]['call_number'] && session[:browse]['shelfkey']
+            = link_to "#{t('blacklight.browse.back_to_item')} (#{session[:browse]['call_number']})", catalog_path(session[:browse]['bib'])
+        
+    .row
+      .col-sm-12
+        .navbar-header
+          -# %button.navbar-toggle{type: 'button', data: {toggle: 'collapse', target: '.index-toolbar-collapse'}}
+          -#   %span.icon-bar
+          -#   %span.icon-bar
+          -#   %span.icon-bar
+
+          .navbar-text
+            -# link to previous browse page...
+            - if firstShelfkey
+              = link_to "« Previous", browse_shelfkey_full_path(shelfkey: firstShelfkey, before: per_page - 1, after: 0), class: 'call_number_nav_previous', data: {firstShelfkey: firstShelfkey}
+      
+
+            - if first_call_number && last_call_number
+              |
+              = first_call_number
+              ="  -  "
+              = last_call_number
+              |
+      
+            -# link to next browse page...
+            - if lastShelfkey
+              = link_to "Next »", browse_shelfkey_full_path(shelfkey: lastShelfkey, before: 0, after: per_page - 1), class: 'call_number_nav_next', data: {lastShelfkey: lastShelfkey}
+
+        .index-toolbar-collapse.navbar-collapse.collapse
+
+          .navbar-text
+            = link_to "#{t('blacklight.browse.jump')} #{session[:browse]['call_number']}", browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'call_number_jump', data: {shelfkey: session[:browse]['shelfkey']}
+
+          %ul.nav.navbar-nav.navbar-right
+
+            %li.dropdown
+
+              -# Too much stuff, our toolbar is wrapping - take this out for more space
+              -# = fix_catalog_links(render 'per_page_widget')
+  
+              -# Allow "selections" for any Catalog-based data source, NOT for AC
+              - if @active_source != 'academic_commons' && @active_source != 'dcv'
+                = render '/catalog/selections_widget'
+
+      
+

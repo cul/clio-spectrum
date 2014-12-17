@@ -60,17 +60,20 @@ class BrowseController < ApplicationController
   end
 
   def shelfkey_browse(mini_or_full)
+  # def shelfkey_browse
     render nothing: true and return unless params[:shelfkey].present?
 
     # We'll use Session for storing state about our browse session
     session[:browse] = {} unless session[:browse].is_a?(Hash)
 
-    default_before_items = 3
-    if (mini_or_full == 'full')
-      session[:browse]['per_page'] = get_browser_option('catalog_per_page') || 25
-    else
+    default_before_items = 2
+    # if (mini_or_full == 'full')
+    # Try basing this on....
+    if request.xhr?
       # How many items to show for mini-browse?
       session[:browse]['per_page'] = 10
+    else
+      session[:browse]['per_page'] = get_browser_option('catalog_per_page') || 25
     end
 
     before_count = (params[:before] || default_before_items).to_i
@@ -108,7 +111,9 @@ class BrowseController < ApplicationController
     # }
     @browse_item_list = shelfkey_to_item_list(@shelfkey, before_count, after_count)
 
-    if mini_or_full == 'mini'
+    # if mini_or_full == 'mini'
+    # Try basing this on....
+    if request.xhr?
       render layout: false
     else
       render layout: 'quicksearch'
@@ -218,7 +223,7 @@ class BrowseController < ApplicationController
     # response, solr_document_list = get_solr_response_for_field_values(fieldname, key_list, solr_params)
     # Run the query in slices, merge them.
     solr_document_list = []
-    key_list.each_slice(40) { |slice|
+    key_list.each_slice(20) { |slice|
       response, slice_document_list = get_solr_response_for_field_values(fieldname, slice, solr_params)
       solr_document_list += slice_document_list
     }

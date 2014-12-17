@@ -1,7 +1,6 @@
 
 -# CALL-NUMBER BROWSE NEARBY TOOLBAR CONTROLS
 
-- mini = request.xhr?
 
 - firstShelfkey = @browse_item_list.first[:current_shelfkey]
 - first_call_number = @browse_item_list.first[:current_call_number]
@@ -53,20 +52,13 @@
         .navbar-text
           - if session[:browse] && session[:browse]['call_number'] && session[:browse]['shelfkey']
             -# = link_to session[:browse]['call_number'], browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'btn btn-default'
-            = link_to "Return to " + session[:browse]['call_number'], browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'call_number_jump', data: {shelfkey: session[:browse]['shelfkey']}
+
+            = link_to "#{t('blacklight.browse.jump')} #{session[:browse]['call_number']}", browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'call_number_jump', data: {shelfkey: session[:browse]['shelfkey']}
 
           -# - if mini
           -#   - if session[:browse] && session[:browse]['call_number'] && session[:browse]['shelfkey']
           -#     = link_to 'Full Screen', browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'btn btn-default'
 
-        - unless mini
-          %li.dropdown
-
-            = fix_catalog_links(render 'per_page_widget')
-      
-            -# Allow "selections" for any Catalog-based data source, NOT for AC
-            - if @active_source != 'academic_commons' && @active_source != 'dcv'
-              = render '/catalog/selections_widget'
 
       
 

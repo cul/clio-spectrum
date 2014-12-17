@@ -3,6 +3,10 @@ $ ->
   # enabled Bootstrap popovers (quicksearch source descriptions, etc.)
   # see http://getbootstrap.com/2.3.2/javascript.html#popovers
   $("a[rel='popover']").popover()
+  $('[data-toggle="popover"]').popover()
+  
+  # enable Bootstrap tooltips
+  $('[data-toggle="tooltip"]').tooltip()
 
 
   # Two different styles of dealing with long fields,

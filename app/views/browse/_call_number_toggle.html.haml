@@ -1,0 +1,20 @@
+
+
+-# When there are multiple call-numbers, 
+-# create a toggle widget to change the currently active shelfkey/bib
+-# - updating the invisible div
+-# - updating the mini-browse content panel
+
+-# - if document['item_display'].size > 1
+%div{class: "#{'hidden' if document['item_display'].size < 2}"}
+
+  This item has multiple call-numbers.  Start browsing at:
+
+  .btn-group.btn-group-xs{data: {toggle: 'buttons'}}
+
+    - document['item_display'].each do |item_display|
+
+      %label.btn.btn-default.call_number_toggle{data: {bib: "#{document.id}", call_number: "#{get_call_number(item_display)}", shelfkey: "#{get_shelfkey(item_display)}"} }
+        %input{type: 'radio', name: 'options', autocomplete: 'off'}
+          = get_call_number(item_display)
+

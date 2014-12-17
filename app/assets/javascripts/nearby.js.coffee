@@ -86,7 +86,7 @@ $ ->
   $('#mini_browse_list .call_number_jump').click ->
     jump_shelfkey = $(this).data('shelfkey')
     # alert('Clicked JUMP to ' + jump_shelfkey + ' within mini-browse!')
-    load_shelfkey(jump_shelfkey, 0, 0)
+    load_shelfkey(jump_shelfkey, 0)
     return false
     
     
@@ -103,7 +103,7 @@ $ ->
   if (typeof bib != 'undefined'  &&  bib > 0)
     mini_browse_url = mini_browse_url + "/" + bib
   if (typeof before_count == 'undefined')
-    before_count = 3
+    before_count = 2
   mini_browse_url = mini_browse_url + '?before=' + before_count
 
   $.ajax

@@ -36,16 +36,6 @@
 // And, one specific Bootstrap-based add-on, installed locally
 //= require bootstrap-datepicker
 
-// OLD way - bootstrap 2
-// #  require bootstrap-dropdown
-// Popover extends ToolTip, so leave this in.  Order matters.
-// #  require bootstrap-tooltip
-// popovers used for source descriptions in aggregate searches, etc.
-// #  require bootstrap-popover
-// Not used?
-// # require bootstrap-tab
-
-
 
 //= require advanced
 //= require articles

@@ -1,17 +1,15 @@
 -# DISPLAY/CATALOG/SHOW
+/ views/_display/catalog/_show.html.haml
 
--# ALL item formats, all catalog-based datasources, use this partial to
--# build their single-item item-detail page.
+-# ALL item formats, ALL catalog-based datasources, use this partial to
+-# build the shell of the single-item item-detail page.
+-# (then calls render_document_view() for format-specific field lists)
 
--#.show
--#= render 'show_constraints', :localized_params=>session[:search]
 
 = render :partial => "_formats/clio/catalog_show_toolbar", :locals => { :document => document }
 
--# .show-document.col-sm-12{:class => ("database_record" if document['source_display'].include? 'database')}
-.show-document.col-sm-12{:class => ("database_record" if document.is_database?)}
+.show-document.Xcol-sm-12{:class => ("database_record" if document.is_database?)}
   .title
-    -# - raise
     %h4= document_heading.listify.join("").html_safe
 
   .row
@@ -54,43 +52,38 @@
       -# this partial renders, in turn, static html for holdings-online,
       -# holdings-display (Voyager), holdings-google, and holdings-hathi
       = render "_formats/clio/catalog_show_holdings", :document => document
-
-  -# - if current_user.present? and current_user.has_role?('site', 'pilot')
-  - unless Rails.env == 'clio_prod'
-    - if document['shelfkey']
-      -# For multi-call-number items, arbitrarily use first-retrieved as first browse position
-      - first_shelfkey = Array( document['shelfkey']).first
-      #mini_browse_panel
-        .well.Xwell-sm
-          .row
-            .col-xs-2
-              %h4
-                Virtual Shelf Browse
-            .col-xs-5
-              .btn-group
-                .btn.btn-default.show_mini_browse{type: 'button'}Show
-                .btn.btn-default.hide_mini_browse.disabled{type: 'button'}Hide
-                - if session[:browse] && session[:browse]['call_number'] && session[:browse]['shelfkey']
-                  = link_to 'Full Screen', browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'btn btn-default'
-
-            .col-xs-5
-              = render "/browse/call_number_toggles", document: document
-
-            -# .col-xs-2
-            -#   %strong.pull-right
-            -#     -# # = link_to "Full Screen", browse_shelfkey_full_path( first_shelfkey)
-            -#     = link_to "Full Screen", '#', class: 'call_number_full_screen', data: {'full-path' => browse_shelfkey_full_path('SHELFKEY')}
-
-          #mini_browse_list.row
-            .col-xs-12
-              = render "/_formats/clio/catalog_show_nearby", document: document
-    
       
   .clear-both
-    -# this partial inserts the javascript to fetch book data from Google,
-    -# and pass it to update_book_jackets() [defined in holdings.js]
-    = render "google_books_check", :documents => document
 
-    - if @active_source == "databases" && can?(:manage, ItemAlert)
-      = render "/_formats/database/catalog_manage_alert", :document => document
+-#  ====  VIRTUAL SHELF VIEW - MINI BROWSE  ====
+- unless Rails.env == 'clio_prod'
+  - if document['shelfkey']
+
+    #mini_browse_panel.well.well-sm
+      .row
+        .col-xs-7
+          = render '/browse/browse_title'
+          .btn-group
+            .btn.btn-default.show_mini_browse{type: 'button'}Show
+            .btn.btn-default.hide_mini_browse.disabled{type: 'button'}Hide
+
+          -# This "full screen" link has a default written into the generated HTML,
+          -# but needs to be updated via JS for toggled call-numbers 
+          = link_to t('blacklight.browse.full_screen'), browse_shelfkey_full_path(session['browse']['shelfkey']), class: 'btn btn-default full_screen_link', data: {toggle: 'tooltip', placement: 'top'}, title: t('blacklight.browse.full_screen_description')
+
+        .col-xs-5
+          = render "/browse/call_number_toggle", document: document
+
+      #mini_browse_list.row
+        .col-xs-12
+          = render "/_formats/clio/catalog_show_nearby", document: document
+    
+      
+  -# .clear-both
+-# this partial inserts the javascript to fetch book data from Google,
+-# and pass it to update_book_jackets() [defined in holdings.js]
+= render "google_books_check", :documents => document
+
+- if @active_source == "databases" && can?(:manage, ItemAlert)
+  = render "/_formats/database/catalog_manage_alert", :document => document
 

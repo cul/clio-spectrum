@@ -22,8 +22,9 @@
 / container for a SINGLE doc
 .result.document{class: render_document_class(document), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
-  .row{class: "#{'bg-info' if document.id == highlight_bib}"}
+  .row
     .title.col-sm-12
+    
 
       -# The mini-browser should not have COINS or checkboxes
       - unless mini
@@ -35,6 +36,9 @@
           = render '/saved_lists/item_select_checkbox', item_id: document[:id]
 
       .item_select_allowance
+
+        = render 'browse_focus' if document.id == highlight_bib
+
         -# This is how core Blacklight would do it...
         -# = link_to_document document, :label=>document_show_link_field(document), :counter => counter
         -# Just use the title?
@@ -45,7 +49,7 @@
 
   / main container for doc partial view
 
-  .row{class: "#{'bg-info' if document.id == highlight_bib}"}
+  .row
 
     .details.col-sm-10
       -# = render :partial => "/_formats/clio/catalog_list_details", :locals => {:document => document}

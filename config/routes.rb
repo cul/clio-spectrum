@@ -134,9 +134,7 @@ Clio::Application.routes.draw do
 
   # Call-Number Browse, based on Stanford Searchworks
   resources :browse, only: :index
-  # get 'browse/shelfkey/:shelfkey', to: 'browse#shelfkey', as: :browse_shelfkey
-  # get "browse/nearby" => "browse#nearby"
-  # Use distinct URLs for xhr v.s. html, to avoid cached-page problems
+  # Use distinct URLs for xhr v.s. html, to avoid cached-page problems, to customize html
   get 'browse/shelfkey_mini/:shelfkey(/:bib)', to: 'browse#shelfkey_mini', as: :browse_shelfkey_mini, :constraints => { :shelfkey => /[^\/]*/, :bib => /[^\/]*/ }
   get 'browse/shelfkey_full/:shelfkey(/:bib)', to: 'browse#shelfkey_full', as: :browse_shelfkey_full, :constraints => { :shelfkey => /[^\/]*/, :bib => /[^\/]*/ }
 
