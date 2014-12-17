@@ -214,6 +214,7 @@ class CatalogController < ApplicationController
 
     # In support of "nearby" / "virtual shelf browse", remember this bib
     # as our focus bib.
+    session[:browse] = {} unless session[:browse].is_a?(Hash)
     session[:browse]['bib'] = @document.id
     # Need the Call Number/Shelfkey too, extract from 'item_display'
     # (If bib has multiple call-nums, default to first.)
