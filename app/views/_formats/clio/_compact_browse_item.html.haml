@@ -2,36 +2,56 @@
 / _formats/clio/_compact_browse_item.html.haml
 / container for a SINGLE doc
 
+-# Nope, folks want the title to be prominent...
+-# - link_label = call_number
+- link_label = document.get("title_display") || document.get("title_vern_display")
+-# - link_label = link_label + " (#{call_number})"
+
 - highlight_bib = session[:browse]['bib'] || 0
 -# Are we inside the mini-browse?
 - mini ||= false
 
+- database_class = document.is_database? ? 'database_record' : ''
+- focus_class = (document.id == highlight_bib) ? 'browse_focus' : ''
 
-.boxed_search_results.result.document{:class => ("database_record" if document.is_database?), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
+.boxed_search_results.result.document{class: "#{database_class} #{focus_class}", source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
   .row
 
-    .col-sm-12.no-bottom-space
+    .col-sm-9.no-bottom-space
 
-      -# The mini-browser should not have COINS or checkboxes
-      - if mini
-        = render 'browse_focus' if document.id == highlight_bib
-        %b= link_to_source_document document, :label=> call_number
-      - else
+      -# -# The mini-browser should not have COINS or checkboxes
+      -# - if mini
+      -#   -# = render 'browse_focus_bookmark' if document.id == highlight_bib
+      -#   %b= link_to_source_document document, :label=> link_label
+      -# - else
+      -#   %span.coins_wrapper
+      -#     <!-- COinS -->
+      -#     %span.Z3988{title: catalog_to_openurl_ctx_kev(document)}
+      -#   .item_anchor
+      -#     = render '/saved_lists/item_select_checkbox', item_id: document[:id]
+      -#   .item_select_allowance
+      -#     -# = render 'browse_focus_bookmark' if document.id == highlight_bib
+      -#     %b= link_to_source_document document, :label=> link_label
+
+    .col-sm-3.call_number_tag
+      = "[ " + call_number + " ]"
+      
+
+
+  .row
+    .col-sm-4.no-bottom-space
+      - unless mini
         %span.coins_wrapper
           <!-- COinS -->
           %span.Z3988{title: catalog_to_openurl_ctx_kev(document)}
         .item_anchor
           = render '/saved_lists/item_select_checkbox', item_id: document[:id]
-        .item_select_allowance
-          = render 'browse_focus' if document.id == highlight_bib
-          %b= link_to_source_document document, :label=> call_number
+      .item_select_allowance
+        %b= link_to_source_document document, :label=> link_label.abbreviate(100)
+        -# = document.get("title_display") || document.get("title_vern_display")
+        -# = "[ " + call_number + " ]"
 
-
-  .row
-    .col-sm-4.no-bottom-space
-      = document.get("title_display") || document.get("title_vern_display")
-  
     .col-sm-3.no-bottom-space= document.get("author_display") || document.get("author_vern_display")
 
     .col-sm-5.no-bottom-space= document.get("full_publisher_display")

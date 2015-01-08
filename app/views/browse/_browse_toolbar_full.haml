@@ -16,16 +16,16 @@
       .col-sm-12
         = render '/browse/browse_title'
 
-
         - link_back = fix_catalog_links(build_link_back()).html_safe
-        - if link_back
+        - if link_back and link_back.match /catalog/
           .navbar-text.pull-right
             %span.back_to_results.hidden-xs
               = link_back
 
         .navbar-text.pull-right
           - if session[:browse] && session[:browse]['call_number'] && session[:browse]['shelfkey']
-            = link_to "#{t('blacklight.browse.back_to_item')} (#{session[:browse]['call_number']})", catalog_path(session[:browse]['bib'])
+            = link_to t('blacklight.browse.back_to_item'), catalog_path(session[:browse]['bib'])
+            -# = link_to "#{t('blacklight.browse.back_to_item')} (#{session[:browse]['call_number']})", catalog_path(session[:browse]['bib'])
         
     .row
       .col-sm-12

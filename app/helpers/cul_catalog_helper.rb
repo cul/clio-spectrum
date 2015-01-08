@@ -11,7 +11,7 @@ module CulCatalogHelper
     # link_back = request.referer.path
     # 2) OR have no "back" support unless the below works:
     link_back = nil
-    # raise
+
     begin
 
       # Jump to the current item within the search results?

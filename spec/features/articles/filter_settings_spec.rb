@@ -7,8 +7,8 @@ describe 'Summon Search Option Filter Settings' do
   # Summon will give different total-result values upon re-querying with the same
   # parameters (server pool not in sync?).  For stable specs, pick a search term 
   # that's not that common, hoping for more search-results stability.
-  # e.g., a mis-spelling, giving around 3,000 results.
-  $q = 'whitch'
+  # e.g., a mis-spelling, giving around 4 results.
+  $q = 'whitch engish'
   @result_count = ''
 
   def confirm_default_filter_settings

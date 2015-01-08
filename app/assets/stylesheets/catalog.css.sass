@@ -411,18 +411,28 @@ img.availability
 .browse_title
   :float left
   :font-weight bold
-  :color #2855A2
+  // No blue - looks too much like a link
+  //:color #2855A2
   :padding-right 0.5em
 
 .full_screen_link
   :margin-left 2em
   :margin-right 2em
 
-.browse_focus
+// Titlely scope the browse_focus, to up priority of this style
+#documents .result.document.browse_focus
+  :border 1px solid black
+
+.browse_focus_bookmark
   :margin-right 0.5em
 
 .call_number_toggle
   :margin-right 2em
+
+.call_number_tag
+  :font-style italic
+  :color #777
+  :font-size 90%
   
 // Load hidden.  user action will call JQuery's show().
 #mini_browse_list, 
