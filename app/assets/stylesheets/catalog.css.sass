@@ -33,7 +33,9 @@
   //:border-left 7px solid #FFA500
   //:background-color #FFF6E6 // !important
   // Green
-  :border-left 7px solid #458046
+  // Make the thick dark green left-bar important,
+  // to override any other border-based record outlining
+  :border-left 7px solid #458046 !important
   :background-color #EDEDE5 // !important
 
 // Specific to "nested", within an Aggregate view,
@@ -431,7 +433,7 @@ img.availability
 
 .call_number_tag
   :font-style italic
-  :color #777
+  :color #555
   :font-size 90%
   
 // Load hidden.  user action will call JQuery's show().
