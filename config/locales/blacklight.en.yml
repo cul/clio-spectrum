@@ -231,5 +231,7 @@ en:
       focus: 'Browsing began with this item'
       jump: 'Return to'
       back_to_item: '« Back to Item View'
+      unavailable: 'Virtual Shelf browse is unavailable from this record'
+      unavailable_description: 'Items which are not (or not yet) associated with a shelving location cannot be used to launch a virtual shelf browse view.'
 
 

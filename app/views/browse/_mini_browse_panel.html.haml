@@ -1,0 +1,40 @@
+-#  ====  VIRTUAL SHELF VIEW - MINI BROWSE  ====
+
+
+/ /browse/_mini_browse_panel
+
+
+- unless Rails.env == 'clio_prod'
+  -# - if document['shelfkey']
+
+  #mini_browse_panel.well.well-sm
+    .row
+      .col-xs-7
+        = render '/browse/browse_title'
+        
+        -# Many of these display elements only show if we
+        -# have a valid shelfkey for browsing...
+        - if document['shelfkey']
+
+          -# These are the Show/Hide toggle buttons
+          .btn-group
+            .btn.btn-default.show_mini_browse{type: 'button'}Show
+            .btn.btn-default.hide_mini_browse.disabled{type: 'button'}Hide
+
+        -# The "Full Screen" link expects session values...
+        - if session['browse'] && session['browse']['shelfkey']
+          -# This "full screen" link has a default written into the generated HTML,
+          -# but needs to be updated via JS for toggled call-numbers 
+          = link_to t('blacklight.browse.full_screen'), browse_shelfkey_full_path(session['browse']['shelfkey'] || ''), class: 'btn btn-default full_screen_link', data: {toggle: 'tooltip', placement: 'top'}, title: t('blacklight.browse.full_screen_description')
+
+      .col-xs-5
+        -# We can only toggle if we have item_display values
+        - if document['item_display']
+          = render "/browse/call_number_toggle", document: document
+
+    #mini_browse_list.row
+      .col-xs-12
+        -# We can't browse unless this document has a shelfkey
+        - if document['shelfkey']
+          = render "/_formats/clio/catalog_show_nearby", document: document
+  

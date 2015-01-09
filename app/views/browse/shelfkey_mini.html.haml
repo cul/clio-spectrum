@@ -8,3 +8,9 @@
 #documents{:data => {'ga-action' => 'Browse Results Click', 'first-shelfkey' => first_shelfkey, 'last-shelfkey' => last_shelfkey} }
   = render_document_list(@browse_item_list, action: "browse", shelfkey: @shelfkey, mini: true)
 
+%br
+%br
+
+= render 'browse_toolbar_mini'
+
+
