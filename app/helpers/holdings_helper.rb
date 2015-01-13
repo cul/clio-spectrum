@@ -246,8 +246,13 @@ module HoldingsHelper
       # "additional" are from app_config, or hard-coded application logic (e.g., pegasus)
       more_notes = additional_holdings_location_notes(nil, entry['location_name'])
       # There might already be location notes - if so, append.
-      entry['location_note'].html_safe if entry['location_note']
-      entry['location_note'] = Array.wrap(entry['location_note'])
+      if entry['location_note']
+        entry['location_note'] = Array.wrap(entry['location_note'].html_safe)
+      else
+        entry['location_note'] = []
+      end
+      # entry['location_note'].html_safe if entry['location_note']
+      # entry['location_note'] = Array.wrap(entry['location_note'])
       entry['location_note'].concat(more_notes) if (more_notes && more_notes.size > 0)
 
       # add status icons
