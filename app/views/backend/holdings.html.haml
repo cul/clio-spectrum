@@ -29,9 +29,10 @@
               - elsif note["text"]
                 = note["text"]
 
-    .call_number
-      %span.holdings_label Call Number: 
-      = entry['call_number']
+    - if entry['call_number'].length > 0
+      .call_number
+        %span.holdings_label Call Number: 
+        = entry['call_number']
 
     -# Each 'copy' is a group of 1-or-more equivalent items (same call num, etc.)
     - entry['copies'].each do |copy|

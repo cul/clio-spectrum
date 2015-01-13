@@ -179,9 +179,11 @@ module DisplayHelper
 
     # Check for any location notes in app_config - that's used for
     # somewhat dynamic values that we don't want to put in code
-    location_notes << Location.get_app_config_location_notes(location).html_safe
+    app_config_notes = Location.get_app_config_location_notes(location)
+    location_notes << app_config_notes.html_safe unless app_config_notes.nil?
 
-    return location_notes
+    return location_notes if location_notes.size > 0
+    return nil
   end
 
   # Any additional special note, for this document at this location
