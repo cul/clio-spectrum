@@ -124,7 +124,7 @@ describe 'Catalog Interface' do
     troublesome2 = 'Offsite <Fine Arts> (Non-Circ) Place Request for delivery'
 
     # go to the search-results page..
-    visit catalog_index_path('q' => target1)
+    visit catalog_index_path(q: target1, search_field: 'title_starts_with')
 
     # should see the full location
     find('#documents').should have_content(troublesome1)
