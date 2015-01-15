@@ -41,16 +41,16 @@
 
   .row
     .col-sm-4.no-bottom-space
-      - unless mini
+      - if mini
+        %b= link_to_source_document document, :label=> link_label.abbreviate(100)
+      - else
         %span.coins_wrapper
           <!-- COinS -->
           %span.Z3988{title: catalog_to_openurl_ctx_kev(document)}
         .item_anchor
           = render '/saved_lists/item_select_checkbox', item_id: document[:id]
-      .item_select_allowance
-        %b= link_to_source_document document, :label=> link_label.abbreviate(100)
-        -# = document.get("title_display") || document.get("title_vern_display")
-        -# = "[ " + call_number + " ]"
+        .item_select_allowance
+          %b= link_to_source_document document, :label=> link_label.abbreviate(100)
 
     .col-sm-3.no-bottom-space= document.get("author_display") || document.get("author_vern_display")
 

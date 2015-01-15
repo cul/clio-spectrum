@@ -56,7 +56,10 @@
         .index-toolbar-collapse.navbar-collapse.collapse
 
           .navbar-text
-            = link_to "#{t('blacklight.browse.jump')} #{session[:browse]['call_number']}", browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'call_number_jump', data: {shelfkey: session[:browse]['shelfkey']}
+            -# ONLY offer to "jump back to" your starting point, if a starting-point
+            -# was recorded to our current session[:browse]
+            - if session[:browse]['shelfkey'] && session[:browse]['call_number']
+              = link_to "#{t('blacklight.browse.jump')} #{session[:browse]['call_number']}", browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'call_number_jump', data: {shelfkey: session[:browse]['shelfkey']}
 
           %ul.nav.navbar-nav.navbar-right
 

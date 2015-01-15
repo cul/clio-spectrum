@@ -10,7 +10,13 @@
   #mini_browse_panel.well.well-sm
     .row
       .col-xs-7
-        = render '/browse/browse_title'
+        -# The "Title" gets special language if there's no current shelfkey
+        - if document['shelfkey']
+          = render '/browse/browse_title'
+        - else
+          - label = t('blacklight.browse.unavailable')
+          - description = t('blacklight.browse.unavailable_description')
+          = render '/browse/browse_title', label: label, description: description
         
         -# Many of these display elements only show if we
         -# have a valid shelfkey for browsing...

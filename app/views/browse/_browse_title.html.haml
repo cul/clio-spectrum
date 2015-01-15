@@ -1,17 +1,25 @@
 
+- label ||= t('blacklight.browse.label')
+- description ||= t('blacklight.browse.description')
+
+
 %span.browse_title
 
-  -# IF this item has a shelfkey, invite browsing...
-  - if session[:browse] && session[:browse]['shelfkey']
+  = label
+  .btn.btn-link{data: {toggle: 'tooltip', placement: 'top'}, title: description }
+    = image_tag('information_icon.png', :size => "20x20")
 
-    =t('blacklight.browse.label')
-
-    .btn.btn-link{data: {toggle: 'tooltip', placement: 'top'}, title: t('blacklight.browse.description') }
-      = image_tag('information_icon.png', :size => "20x20")
-
-  -# IF this item HAS NO shelfkey, it is Un-Available to be browsed.
-  - unless session[:browse] && session[:browse]['shelfkey']
-    =t('blacklight.browse.unavailable')
-
-    .btn.btn-link{data: {toggle: 'tooltip', placement: 'top'}, title: t('blacklight.browse.unavailable_description') }
-      = image_tag('information_icon.png', :size => "20x20")
+  -# -# IF this item has a shelfkey, invite browsing...
+  -# - if session[:browse] && session[:browse]['shelfkey']
+  -# 
+  -#   = label
+  -# 
+  -#   .btn.btn-link{data: {toggle: 'tooltip', placement: 'top'}, title: description }
+  -#     = image_tag('information_icon.png', :size => "20x20")
+  -# 
+  -# -# IF this item HAS NO shelfkey, it is Un-Available to be browsed.
+  -# - unless session[:browse] && session[:browse]['shelfkey']
+  -#   =t('blacklight.browse.unavailable')
+  -# 
+  -#   .btn.btn-link{data: {toggle: 'tooltip', placement: 'top'}, title: t('blacklight.browse.unavailable_description') }
+  -#     = image_tag('information_icon.png', :size => "20x20")
