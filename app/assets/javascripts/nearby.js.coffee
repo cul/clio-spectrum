@@ -99,7 +99,8 @@ $ ->
   $("#nearby .nearby_spinner").show()
   $("#nearby .nearby_error").hide()
   $("#nearby .nearby_content").hide()
-  mini_browse_url = '/browse/shelfkey_mini/' + shelfkey
+  # mini_browse_url = '/browse/shelfkey_mini/' + shelfkey
+  mini_browse_url = '/browse/shelfkey_mini/' + encodeURIComponent(shelfkey)
   if (typeof bib != 'undefined'  &&  bib > 0)
     mini_browse_url = mini_browse_url + "/" + bib
   if (typeof before_count == 'undefined')

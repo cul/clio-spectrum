@@ -23,9 +23,12 @@
 
         -# The "Full Screen" link expects session values...
         - if session['browse'] && session['browse']['shelfkey']
-          -# This "full screen" link has a default written into the generated HTML,
-          -# but needs to be updated via JS for toggled call-numbers 
-          = link_to t('blacklight.browse.full_screen'), browse_shelfkey_full_path(session['browse']['shelfkey'] || ''), class: 'btn btn-default full_screen_link', data: {toggle: 'tooltip', placement: 'top'}, title: t('blacklight.browse.full_screen_description')
+          -# build the path in a helper, to catch routing exceptions
+          - full_path = build_browse_shelfkey_full_path(session['browse']['shelfkey'])
+          - if full_path && full_path.length > 0
+            -# This "full screen" link has a default written into the generated HTML,
+            -# but needs to be updated via JS for toggled call-numbers 
+            = link_to t('blacklight.browse.full_screen'), full_path, class: 'btn btn-default full_screen_link', data: {toggle: 'tooltip', placement: 'top'}, title: t('blacklight.browse.full_screen_description')
 
       .col-xs-5
         -# We can only toggle if we have item_display values

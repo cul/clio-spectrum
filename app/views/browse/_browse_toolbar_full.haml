@@ -56,7 +56,10 @@
         .index-toolbar-collapse.navbar-collapse.collapse
 
           .navbar-text
-            = link_to "#{t('blacklight.browse.jump')} #{session[:browse]['call_number']}", browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey']), class: 'call_number_jump', data: {shelfkey: session[:browse]['shelfkey']}
+            -# use helper method that rescues from routing errs
+            - full_path = build_browse_shelfkey_full_path(session[:browse]['shelfkey'])
+            - if full_path && full_path.length > 0
+              = link_to "#{t('blacklight.browse.jump')} #{session[:browse]['call_number']}", full_path, class: 'call_number_jump', data: {shelfkey: session[:browse]['shelfkey']}
 
           %ul.nav.navbar-nav.navbar-right
 
