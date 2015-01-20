@@ -243,11 +243,17 @@ module HoldingsHelper
       end
 
       # location notes
-      # this way, using a Location class method?
-      # Location.get_location_note(entry['location_name'])
-      # or this way, using (an existing) DisplayHelper method?
-      location_notes = additional_holdings_location_notes(nil, entry['location_name'])
-      entry['location_note'] = location_notes if (location_notes && location_notes.size > 0)
+      # "additional" are from app_config, or hard-coded application logic (e.g., pegasus)
+      more_notes = additional_holdings_location_notes(nil, entry['location_name'])
+      # There might already be location notes - if so, append.
+      if entry['location_note']
+        entry['location_note'] = Array.wrap(entry['location_note'].html_safe)
+      else
+        entry['location_note'] = []
+      end
+      # entry['location_note'].html_safe if entry['location_note']
+      # entry['location_note'] = Array.wrap(entry['location_note'])
+      entry['location_note'].concat(more_notes) if (more_notes && more_notes.size > 0)
 
       # add status icons
       entry['copies'].each do |copy|

@@ -23,6 +23,21 @@ describe BackendController do
     response.body.should match /<br\/>Special issues/
   end
 
+  # NEXT-1147 - Add location note for Burke rare locations
+  it "should include location_notes in holdings" do
+    bibs = [5951061, 6703227, 9020317, 10654375, 4584787]
+    location_note = 'By appointment only. See the Burke Library special collections page'
+    link_text = 'Burke Library special collections page'
+    link_href = 'http://library.columbia.edu/locations/burke/access_circulation/special-collections-access.html'
+
+    bibs.each do |bib|
+      get 'holdings', :id => bib
+      response.should be_success
+      response.body.should have_text location_note
+      response.body.should have_link(link_text, href: link_href)
+    end
+  end
+
 
   # NEXT-988 - Label the Call Number field
   it "should label Call Numbers" do

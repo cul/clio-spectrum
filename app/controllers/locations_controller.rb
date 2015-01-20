@@ -27,7 +27,8 @@ class LocationsController < ApplicationController
       @links = @location.links.reject { |location| location.name == 'Map URL' }
 
       # @location_notes = Location.get_app_config_location_notes(@location['name']).html_safe
-      @location_notes = Location.get_app_config_location_notes(raw_location).html_safe
+      @location_notes = Location.get_app_config_location_notes(raw_location)
+      @location_notes.html_safe if @location_notes
     end
   end
 end

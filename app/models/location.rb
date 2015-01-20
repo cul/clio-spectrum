@@ -29,17 +29,18 @@ class Location < ActiveRecord::Base
   # Location Note, used for a special add-on text/link message
   # location_note = Location.get_location_note(entry['location_name'])
   def self.get_app_config_location_notes(location = nil)
+    return nil unless location
+
     location_notes = ''
-
-    return location_notes unless location
-
     app_config_location_notes = APP_CONFIG['location_notes'] || {}
     app_config_location_notes.keys.each { |location_note_key|
       if location.starts_with? location_note_key
         location_notes << app_config_location_notes[location_note_key].html_safe
       end
     }
-    return location_notes
+
+    return location_notes if location_notes.length > 0
+    return nil
   end
 
   def self.clear_and_load_fixtures!
