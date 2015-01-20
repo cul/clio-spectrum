@@ -8,17 +8,29 @@
     = render partial: '/datasource_warning', locals: {warning: warning}
 
 
-    %p Searches a large database of mostly full-text journal articles.
+    %p Searches a large database of mostly full-text journals, encyclopedia and newspaper articles; this database also includes e-books and government documents.
 
-    %p For scholarly articles in the:
+    %p Newspaper articles are excluded from the initial search results. To include them, click the 'x' next to "Not Content Type: Newspaper Articles" above the search results.
+
+
+    %p Other useful databases for scholarly articles in the:
     %ul
       %li Humanities and Social Sciences, try #{link_to 'Ebscohost Research Databases', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio6329559'} or #{link_to 'ProQuest', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio8557099'}
       %li Sciences, try #{link_to 'Web of Science', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio2054244'} or #{link_to 'Scopus', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio6273999'}
       %li 18<sup>th</sup> and 19<sup>th</sup> centuries, try #{link_to 'American Periodicals', 'http://www.columbia.edu/cgi-bin/cul/resolve?ARS2786'} or #{link_to 'British Periodicals', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio6022732'}
 
+
+    %p To find articles in a specific newspaper or published in a specific city:
+    %ul
+      %li For US newspapers from the 1990s on: #{link_to 'ProQuest', 'http://www.columbia.edu/cgi-bin/cul/resolve?clio6270029'}
+      %li For US newspapers before 1990s: #{link_to 'ProQuest Historial Newspapers', 'http://www.columbia.edu/cgi-bin/cul/resolve?AUN8518'}, #{link_to "America's Historical Newspapers", 'http://www.columbia.edu/cgi-bin/cul/resolve?clio4403555'}, and #{link_to "Access Newspaper Archive", 'http://www.columbia.edu/cgi-bin/cul/resolve?clio7931419'}
+      %li For international newspapers: #{link_to 'Factiva', 'http://www.columbia.edu/cgi-bin/cul/resolve?AUQ3920'}
+
+
     %p Use #{datasource_switch_link('Databases', 'databases')} to browse all of our databases by subject.
 
     %p To see a list of resources by subject, consult our subject guides.
+
 
   .landing_side.col-sm-4
     .well.sidebar-nav
