@@ -52,21 +52,24 @@ module BrowseHelper
   # Sometimes this throws routing errors:
   #   browse_shelfkey_full_path(session['browse']['shelfkey'])
   # Catch them instead of terminating.
-  def build_browse_shelfkey_mini_path(shelfkey)
+  # (mini path is never actually invoked??)
+  # def build_browse_shelfkey_mini_path(shelfkey)
+  #   path = nil
+  #   return path unless shelfkey
+  #   begin
+  #     path = browse_shelfkey_mini_path(shelfkey)
+  #   rescue ActionController::RoutingError
+  #     return nil
+  #   end
+  #   return path
+  # end
+  def build_browse_shelfkey_full_path(options)
     path = nil
-    return path unless shelfkey
+    # shelfkey = options.delete(:shelfkey)
+    # return path unless shelfkey
+    # options[:shelfkey] = CGI.escape(shelfkey)
     begin
-      path = browse_shelfkey_mini_path(shelfkey)
-    rescue ActionController::RoutingError
-      return nil
-    end
-    return path
-  end
-  def build_browse_shelfkey_full_path(shelfkey)
-    path = nil
-    return path unless shelfkey
-    begin
-      path = browse_shelfkey_full_path(shelfkey)
+      path = browse_shelfkey_full_path( options )
     rescue ActionController::RoutingError
       return nil
     end

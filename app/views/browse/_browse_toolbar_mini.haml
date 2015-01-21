@@ -23,7 +23,10 @@
       .navbar-text
         -# link to previous browse page...
         - if firstShelfkey
-          = link_to "« Previous", browse_shelfkey_full_path(shelfkey: firstShelfkey, before: per_page - 1, after: 0), class: 'call_number_nav_previous', data: {firstShelfkey: firstShelfkey}
+          -# protect against badly formed shelfkeys
+          - full_path = build_browse_shelfkey_full_path(shelfkey: firstShelfkey, before: per_page - 1, after: 0)
+          - if full_path && full_path.length > 0
+            = link_to "« Previous", full_path, class: 'call_number_nav_previous', data: {firstShelfkey: firstShelfkey}
         
   
         - if first_call_number && last_call_number
@@ -35,7 +38,10 @@
         
         -# link to next browse page...
         - if lastShelfkey
-          = link_to "Next »", browse_shelfkey_full_path(shelfkey: lastShelfkey, before: 0, after: per_page - 1), class: 'call_number_nav_next', data: {lastShelfkey: lastShelfkey}
+          -# protect against badly formed shelfkeys
+          - full_path = build_browse_shelfkey_full_path(shelfkey: lastShelfkey, before: 0, after: per_page - 1)
+          - if full_path && full_path.length > 0
+            = link_to "Next »", full_path, class: 'call_number_nav_next', data: {lastShelfkey: lastShelfkey}
 
     .index-toolbar-collapse.navbar-collapse.collapse
 
@@ -45,7 +51,7 @@
         .navbar-text
           - if session[:browse] && session[:browse]['call_number'] && session[:browse]['shelfkey']
             -# use helper method that rescues from routing errs
-            - full_path = build_browse_shelfkey_full_path(session[:browse]['shelfkey'])
+            - full_path = build_browse_shelfkey_full_path(shelfkey: session[:browse]['shelfkey'])
             - if full_path && full_path.length > 0
               = link_to "#{t('blacklight.browse.jump')} #{session[:browse]['call_number']}", full_path, class: 'call_number_jump', data: {shelfkey: session[:browse]['shelfkey']}
 

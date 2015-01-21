@@ -39,7 +39,7 @@ $ ->
     clicked_bib = $(this).data("bib")
     load_shelfkey(clicked_shelfkey, clicked_bib)
     # And, update the URL of the any "Full Screen" links
-    $('.full_screen_link').attr("href", "/browse/shelfkey_full/" + clicked_shelfkey)
+    $('.full_screen_link').attr("href", "/browse/shelfkey_full/" + encodeURIComponent(clicked_shelfkey) )
 
 
   # refactor to do this in haml, not javascript, which gives better
