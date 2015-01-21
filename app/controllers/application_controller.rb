@@ -303,7 +303,8 @@ class ApplicationController < ActionController::Base
       when /^\/library_web/
         'library_web'
       when /^\/newspapers/
-        'newspapers'
+        # re-direct bookmarked newspaper urls to articles
+        'articles'
       when /^\/archives/
         'archives'
       # Browse (Shelf-Browse, Call-Number Browse) is assumed to act like Catalog
