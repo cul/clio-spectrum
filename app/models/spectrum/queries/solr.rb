@@ -147,9 +147,19 @@ module Spectrum
           end
 
           values.each do |value|
+            display_value = value
+            # Sometimes the value is something like "week_1", that needs
+            # to be mapped back into a displayable label.  Look into the
+            # facet field configuration to do this if we need to.
+            if fq_config = @config.facet_fields[base_facet_field.to_s][:query]
+              if fq_config[value] && fq_config[value][:label]
+                display_value = fq_config[value][:label]
+              end
+            end
+            # raise
             @filters[base_facet_field][:values] << {
               invert_label: is_inverted?(facet_field) ? 'Is Not' : 'Is',
-              label: value,
+              label: display_value,
               remove: remove_facet_params(facet_field, value, @params),
               # Each invert_link is an array of [label, link]
               invert_links: facet_value_invert_links(facet_field, value)
