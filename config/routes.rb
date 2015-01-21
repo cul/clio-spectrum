@@ -101,7 +101,9 @@ Clio::Application.routes.draw do
 
   match 'ebooks', to: 'spectrum#search', as: :ebooks_index, defaults: { layout: 'ebooks' }
   match 'dissertations', to: 'spectrum#search', as: :dissertations_index, defaults: { layout: 'dissertations' }
-  match 'newspapers', to: 'spectrum#search', as: :newspapers_index, defaults: { layout: 'newspapers' }
+  # redirect newspapers to articles
+  # match 'newspapers', to: 'spectrum#search', as: :newspapers_index, defaults: { layout: 'newspapers' }
+  match '/newspapers', to: redirect('/articles')
 
   match 'locations/show/:id', id: /[^\/]+/, to: 'locations#show', as: :location_display
 
