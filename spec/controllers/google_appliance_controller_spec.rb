@@ -15,7 +15,7 @@ describe Spectrum::SearchEngines::GoogleAppliance do
 
     # Set our GA URL to an unroutable IP...
     saved_ga_url = APP_CONFIG['google_appliance_url']
-    APP_CONFIG['google_appliance_url'] = 'http://10.0.0.1'
+    APP_CONFIG['google_appliance_url'] = 'http://999.999.999.999'
 
     # Then, with a bad backend URL, there should be errors
     ga = Spectrum::SearchEngines::GoogleAppliance.new('q' => 'math')
