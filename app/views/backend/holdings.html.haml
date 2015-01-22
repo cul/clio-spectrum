@@ -33,7 +33,6 @@
       .call_number
         %span.holdings_label Call Number: 
         = entry['call_number']
-
     -# Each 'copy' is a group of 1-or-more equivalent items (same call num, etc.)
     - entry['copies'].each do |copy|
       .group
@@ -43,7 +42,7 @@
             .message= t
         -# If there are any special notes, print them out
         - ['orders', 'summary_holdings', 'supplements', 'indexes', 'notes',
-	       'reproduction_note', 'current_issues', 'donor_info'].each do |type|
+	       'reproduction_note', 'current_issues'].each do |type|
           - unless copy[type].nil?
             - message = copy[type]
             -# NEXT-1009 -Multiple 866 fields in the holding records
@@ -60,6 +59,22 @@
               = message
               - if details['count'] >1
                 (#{details['count']} copies)
+        - disabled = true
+        - if copy['donor_info_icon'].present?
+          - message = copy['donor_info_icon'].first['message']
+          - message = message.gsub(/ -- /, '<br/>').html_safe if message.present?
+          - href = copy['donor_info_icon'][0]['url']
+          - if copy['donor_info_icon'][0]['url'].present?
+            - disabled = false
+          .btn-group{style: "padding: 3px 4px 3px 28px;"}
+            - if disabled
+              %a.donor_info_icon{:disabled => disabled}
+                GIFT
+              =message
+            - else
+              %a.donor_info_icon{:disabled => disabled, href: "#{href}"}
+                GIFT
+              =message
 
         -# Different 'urls' with a 'copy' have different details...
         - copy['urls'] && copy['urls'].each do |url_details|

@@ -36,10 +36,30 @@ describe 'record tests', js: true do
     end
   end
 
-  it 'test donor info' do
-    visit catalog_path('5602687')
-    within ('div#clio_holdings') do
-      page.should have_text('Donor: Gift; Paul Levitz; 2012.')
+  context 'donor info' do
+
+    it 'test donor info' do
+      visit catalog_path('5602687')
+      within ('div#clio_holdings') do
+        page.should have_text('Donor: Gift; Paul Levitz; 2012.')
+      end
+    end
+
+    it 'test donor info icon' do
+      visit catalog_path('9576776')
+      within ('div#clio_holdings') do
+        expect(page).to have_content('Gift; John Morrow; 2013')
+        expect(page).not_to have_content('Donor:')
+        expect(page).to have_css('img')
+      end
+    end
+
+    it 'test donor info icon with link' do
+      visit catalog_path('36114')
+      within ('div#clio_holdings') do
+        expect(page).to have_content('Gift; Seymour Durst; 2012.')
+        expect(page).to have_css('img')
+      end
     end
   end
 
