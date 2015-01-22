@@ -211,7 +211,10 @@ module LocalSolrHelperExtension
   end
 
   def individual_facet_value_to_fq_string(facet_field, value, operator = 'AND')
-    facet_config = blacklight_config.facet_fields[facet_field]
+    # For mapped facets (e.g., "week_1"), we need to dig up the facet config
+    # to decode back to an actual value (e.g., [2015-01-14T00:00:00Z TO *])
+    # [n.b., the facet-field may be negated with a hyphen, so account for that]
+    facet_config = blacklight_config.facet_fields[facet_field.sub(/^-/, '')]
 
     local_params = []
     local_params << "tag=#{facet_config.tag}" if facet_config and facet_config.tag
@@ -228,10 +231,14 @@ module LocalSolrHelperExtension
       # If we somehow got here with an empty value, do not create a Solr fq clause
       when value == ''
         ''
+      # This line maps symbolic facet values (e.g., "week_1") to
+      # true values (e.g., acq_dt:[2015-01-14T00:00:00Z TO *])
+      when (facet_config and facet_config.query and facet_config.query[value])
+        negator = (facet_field  =~ /^-/) ? '-' : ''
+        negator + facet_config.query[value][:fq]
+      # Handle simple inverted facet fields
       when facet_field  =~ /^-/ || operator == 'OR'
         "#{facet_field}:#{subbed_value}"
-      when (facet_config and facet_config.query and facet_config.query[value])
-        facet_config.query[value][:fq]
       when (facet_config and facet_config.date),
            (value.is_a?(TrueClass) or value.is_a?(FalseClass) or value == 'true' or value == 'false'),
            (value.is_a?(Integer) or (value.to_i.to_s == value if value.respond_to? :to_i)),
@@ -244,7 +251,9 @@ module LocalSolrHelperExtension
         # NEXT-1107 -Pre-composed characters in facets
         # Remove "raw" to allow analyzer to normalize unicode
         # "{!raw f=#{facet_field}#{(" " + local_params.join(" ")) unless local_params.empty?}}#{value}"
-        "#{facet_field}:\"#{value}\""
+        # "#{facet_field}:\"#{value}\""
+        # We need the version with internal quotes/backslashes escaped
+        "#{facet_field}:#{subbed_value}"
     end
   end
 end

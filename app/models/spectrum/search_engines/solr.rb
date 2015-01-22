@@ -41,21 +41,19 @@ module Spectrum
         @current_user = options.delete('current_user')
         @search_url = options.delete('search_url')
 
-# Test various kinds of AC problems...
-# bad port
-# APP_CONFIG['ac2_solr_url'] = 'http://macana.cul.columbia.edu:8888/solr-4.3.0/ac2_prod'
-# unroutable ip
-# APP_CONFIG['ac2_solr_url'] = 'http://10.255.255.1:8080/solr-4.3.0/ac2_prod'
-
-
         # allow pass-in override solr url
         @solr_url = options.delete('solr_url')
-        blacklight_solr
-        blacklight_solr_config
+        # generate a Solr object
+        blacklight_solr()
+        # generate a Solr config object
+        blacklight_solr_config()
         @params = options
         @params.symbolize_keys!
         Rails.logger.info "[Spectrum][Solr] source: #{@source} params: #{@params}"
-# raise
+# ###
+# For better-errors debugging, perform the search outside the begin/rescue/end
+# perform_search
+# ###
         begin
           # here's the actual search, defined below in this file
           perform_search
