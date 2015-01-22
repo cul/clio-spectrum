@@ -151,9 +151,11 @@ module Spectrum
             # Sometimes the value is something like "week_1", that needs
             # to be mapped back into a displayable label.  Look into the
             # facet field configuration to do this if we need to.
-            if fq_config = @config.facet_fields[base_facet_field.to_s][:query]
-              if fq_config[value] && fq_config[value][:label]
-                display_value = fq_config[value][:label]
+            if fq_config = @config.facet_fields[base_facet_field.to_s]
+              if fq_config[:query] &&
+                 fq_config[:query][value] &&
+                 fq_config[:query][value][:label]
+                display_value = fq_config[:query][value][:label]
               end
             end
             # raise
