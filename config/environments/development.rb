@@ -24,7 +24,7 @@ Clio::Application.configure do
   # config.action_controller.perform_caching = true
 
   config.assets.compress = false
-  config.assets.debug = false
+  config.assets.debug = true
   config.assets.digest = false
 
   # Don't care if the mailer can't send

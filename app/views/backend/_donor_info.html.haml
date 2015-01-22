@@ -1,0 +1,21 @@
+- if copy['donor_info_icon'].present?
+  - message = copy['donor_info_icon'].first['message']
+  - message = message.gsub(/ -- /, '<br/>').html_safe if message.present?
+  - href = copy['donor_info_icon'][0]['url']
+  - disabled = true
+  - if copy['donor_info_icon'][0]['url'].present?
+    - disabled = false
+  .btn-group{style: "padding: 3px 4px 3px 28px;"}
+    - if disabled
+      %button.donor_info_icon{:disabled => disabled}
+        GIFT
+      =message
+    - else
+      %a.donor_info_icon{:disabled => disabled, href: "#{href}"}
+        GIFT
+      =link_to(message, href)
+- elsif copy['donor_info'].present?
+  - message = copy['donor_info']
+  - message = message.gsub(/ -- /, '<br/>').html_safe
+  .message=  message
+
