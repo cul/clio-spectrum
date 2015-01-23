@@ -60,9 +60,21 @@ describe 'Academic Commons', focus: false do
         }
       end
     end
-
   end
 
+  context 'title has link to ac item when handle is missing (NEXT-1144)', js: true do
+    let(:search_results){find('.results_header[data-source=academic_commons]')}
+    before do
+      visit quicksearch_index_path('q' => 'Investigations into the Metabolic Requirements for Lipoic Acid')
+      expect(page).to have_css('.results_header[data-source=academic_commons]')
+    end
+    it "search results have links to handle or ac page" do
+      expect(page).to have_xpath("//div[@source=\"academic_commons\"]/div[@class=\"result_title\"]/a", count: 3)
+      all(:xpath, "//div[@source=\"academic_commons\"]/div[@class=\"result_title\"]/a").each do |link|
+        expect(link['href']).to match(/http:\/\/dx.doi.org\/|http:\/\/hdl.handle.net\/|http:\/\/academiccommons.columbia.edu\/catalog\/ac/)
+      end
+    end
+  end
 end
 
 
