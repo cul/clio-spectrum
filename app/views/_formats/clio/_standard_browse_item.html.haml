@@ -20,9 +20,9 @@
 
 / _formats/clio/_standard_list_item.html.haml
 / container for a SINGLE doc
-- document_class = render_document_class(document)
+- database_class = document.is_database? ? 'database_record' : ''
 - focus_class = (document.id == highlight_bib) ? 'browse_focus' : ''
-.result.document{class: "#{document_class} #{focus_class}", source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
+.result.document{class: "#{database_class} #{focus_class}", source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
   .row
     .title.col-sm-9

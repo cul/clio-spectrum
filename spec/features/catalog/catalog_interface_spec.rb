@@ -366,6 +366,11 @@ describe 'Catalog Interface' do
     page.should have_text ("Your query was automatically truncated to the first 30 words")
   end
 
+  it "supports 'random query' feature" do
+    visit catalog_index_path(random_q: true)
+    page.should have_css('li.datasource_link.selected[source="catalog"]')
+    page.should have_css('span.constraints-label', text: "You searched for:")
+  end
 end
 
 # email_catalog_path(:id => id)

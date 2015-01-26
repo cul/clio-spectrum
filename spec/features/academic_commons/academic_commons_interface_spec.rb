@@ -53,7 +53,10 @@ describe 'Academic Commons', focus: false do
   # NEXT-1012 - use handle for item link in AC records
   it 'should link items to identifiers, not AC website', js: true do
     visit quicksearch_index_path('q' => 'portuguese')
-    within('.results_header[data-source=academic_commons]') do
+    within('.nested_result_set[data-source=academic_commons]') do
+      # We should find at least one of these...
+      expect(page).to have_css('.result_title a')
+      # and each one we find must satisfy this assertion.
       all('.result_title a').each do |link|
         link['href'].should satisfy { |url|
           url.match(/http:\/\/dx.doi.org\//)  || url.match(/http:\/\/hdl.handle.net\//)

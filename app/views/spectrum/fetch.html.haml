@@ -6,7 +6,7 @@
       - source = SEARCHES_CONFIG['sources'][search['source']]
       - warning = source ? source['warning'] : nil;
 
-      .nested_result_set
+      .nested_result_set{:data => {'source' => search['source']}}
         = render partial: "/spectrum/aggregate/result_header", locals: {source: search['source'], result: result, title: source['title'], description: source['description'], warning: warning}
         = render partial: '/datasource_warning', locals: {warning: warning}
         -# - raise
