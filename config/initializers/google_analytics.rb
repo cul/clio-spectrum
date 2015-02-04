@@ -18,7 +18,7 @@ GoogleAnalytics.web_property_id = case Rails.env.to_s
     'UA-28923110-4'
 
   when 'development'
-    'UA-28923110-4'
+    'UA-28923110-5'
 
   else
     nil

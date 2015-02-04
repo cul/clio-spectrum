@@ -46,14 +46,14 @@ class DateTime
   end
 end
 
-module Enumerable
-  # checks to see if any of the values in the enumerable are in
-  # [3,2,4].any_in?(6,1,2) => true
-  # [3,2,4].any_in?(5,6,7) => false
-  def any_in?(*args)
-    self.any? { |value| args.include?(value) }
-  end
-end
+# module Enumerable
+#   # checks to see if any of the values in the enumerable are in
+#   # [3,2,4].any_in?(6,1,2) => true
+#   # [3,2,4].any_in?(5,6,7) => false
+#   def any_in?(*args)
+#     self.any? { |value| args.include?(value) }
+#   end
+# end
 
 class Hash
   # creates a hash of arbitrary depth: you can refer to nested hashes without initialization.
@@ -61,11 +61,11 @@ class Hash
     Hash.new(&(p=lambda{|h, k| h[k] = Hash.new(&p)}))
   end
 
-  def recursive_symbolize_keys!
-    symbolize_keys!
-    values.select { |v| v.is_a? Hash }.each { |h| h.recursive_symbolize_keys! }
-    self
-  end
+  # def recursive_symbolize_keys!
+  #   symbolize_keys!
+  #   values.select { |v| v.is_a? Hash }.each { |h| h.recursive_symbolize_keys! }
+  #   self
+  # end
 
   def deep_clone
     Marshal.load(Marshal.dump(self))

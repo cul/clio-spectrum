@@ -656,7 +656,7 @@ module DisplayHelper
 
     end
     Array.wrap(document[ :id]).each do |id|
-      document_url = 'http://academiccommons.columbia.edu/catalog/' + id
+      document_url = academic_commons_url(id)
       fields.push("rft_id=#{ CGI.escape(document_url) }")
     end
 
@@ -673,6 +673,18 @@ module DisplayHelper
     end
 
     fields.join('&')
+  end
+
+  def academic_commons_url(id)
+    'http://academiccommons.columbia.edu/catalog/' + id
+  end
+
+  def academic_commons_title_link(document)
+    if document['handle'].present?
+      title_link = document['handle']
+    else
+      title_link = academic_commons_url(document['id'])
+    end
   end
 
   # Our versions of link_to_previous_document/link_to_next_document,

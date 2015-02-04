@@ -3,7 +3,8 @@
   - fedora_id = document['id'].listify.first
   -# NEXT-1012 - use handle for item link in AC records
   -# .result_title= link_to document.get('title_display'), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
-  .result_title= link_to document.get('title_display'), document['handle']
+
+  .result_title= link_to document.get('title_display'), academic_commons_title_link(document)
 
 
   / main container for doc partial view

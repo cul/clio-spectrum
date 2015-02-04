@@ -53,16 +53,31 @@ describe 'Academic Commons', focus: false do
   # NEXT-1012 - use handle for item link in AC records
   it 'should link items to identifiers, not AC website', js: true do
     visit quicksearch_index_path('q' => 'portuguese')
-    within('.results_header[data-source=academic_commons]') do
+    within('.nested_result_set[data-source=academic_commons]') do
+      # We should find at least one of these...
+      expect(page).to have_css('.result_title a')
+      # and each one we find must satisfy this assertion.
       all('.result_title a').each do |link|
         link['href'].should satisfy { |url|
           url.match(/http:\/\/dx.doi.org\//)  || url.match(/http:\/\/hdl.handle.net\//)
         }
       end
     end
-
   end
 
+  context 'title has link to ac item when handle is missing (NEXT-1144)', js: true do
+    let(:search_results){find('.results_header[data-source=academic_commons]')}
+    before do
+      visit quicksearch_index_path('q' => 'Investigations into the Metabolic Requirements for Lipoic Acid')
+      expect(page).to have_css('.results_header[data-source=academic_commons]')
+    end
+    it "search results have links to handle or ac page" do
+      expect(page).to have_xpath("//div[@source=\"academic_commons\"]/div[@class=\"result_title\"]/a", count: 3)
+      all(:xpath, "//div[@source=\"academic_commons\"]/div[@class=\"result_title\"]/a").each do |link|
+        expect(link['href']).to match(/http:\/\/dx.doi.org\/|http:\/\/hdl.handle.net\/|http:\/\/academiccommons.columbia.edu\/catalog\/ac/)
+      end
+    end
+  end
 end
 
 
