@@ -225,8 +225,8 @@ end
 
 group :test do
   gem 'factory_girl_rails'
-  # gem 'spork', '~>1.0.0.rc2'
-  gem 'spork'
+  # # gem 'spork', '~>1.0.0.rc2'
+  # gem 'spork'
 
   # gem 'guard'
   # gem 'guard-rspec'
