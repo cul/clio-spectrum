@@ -74,15 +74,13 @@ module SearchHelper
     div_classes << 'selected' unless has_advanced_params?
 
     result = ''.html_safe
-    # if show_all_search_boxes || @active_source == source
     if @active_source == source
-      has_options = options['search_type'].in?('blacklight', 'summon') ? 'search_q with_options' : 'search_q without_options'
 
       # BASIC SEARCH INPUT BOX
       # raise
       result += text_field_tag(:q,
                                search_params[:q] || '',
-                               class: "#{has_options} form-control",
+                               class: "search_q form-control",
                                id: "#{source}_q",
                                placeholder: options['placeholder'],
               # This focuses, but also selects-all-text in some browsers - yuck
@@ -96,14 +94,8 @@ module SearchHelper
         # insert hidden fields
         result += standard_hidden_keys_for_search
 
-        # insert drop-down
-        if options['search_fields'].kind_of?(Hash)
-          result += dropdown_with_select_tag(:search_field, options['search_fields'].invert, h(search_params[:search_field]), title: 'Targeted search options', class: 'search_options')
-        end
-
       ### for summon (articles, newspapers)
       elsif options['search_type'] == 'summon'
-
 
         summon_query_as_hash = {}
         if @results.kind_of?(Hash) && @results.values.first.instance_of?(Spectrum::SearchEngines::Summon)
@@ -126,8 +118,10 @@ module SearchHelper
         # insert hidden fields
         result += hidden_field_tag 'source', @active_source || 'articles'
         result += hidden_field_tag 'form', 'basic'
+      end
 
-        # insert drop-down
+      # insert drop-down
+      if options['search_fields'].kind_of?(Hash)
         result += dropdown_with_select_tag(:search_field, options['search_fields'].invert, h(search_params[:search_field]), title: 'Targeted search options', class: 'search_options')
       end
 
