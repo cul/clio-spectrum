@@ -27,7 +27,7 @@
             .hours_note= hour.note.to_s
     .section_header Located at:
     .found_in= @location.found_in.gsub(/\n+/, '<br>').html_safe
-    = map_image_tag(@map_url, 400, 350)
+    %iframe{width: "540", scrolling: "no", height: "540", frameborder: "0", style: "border:0", src: "http://library.columbia.edu/locations/map.html?location=butler#divMap"}
 
 
 

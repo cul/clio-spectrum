@@ -42,6 +42,8 @@ describe 'Locations' do
 
     # The full complete URL
     visit location_display_path('NYS+Psychiatric+Institute+Library+%28Circulation+Restricted%29')
+    save_and_open_page
+    save_and_open_screenshot
     page.should have_text("Call (646) 774 - 8613 between 9-5pm")
 
     # Test substring matching...
