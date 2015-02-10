@@ -15,6 +15,8 @@ gem 'blacklight', '~>5.3.0'
 # when we move to 5.x, uncomment this
 gem 'blacklight-marc'
 
+gem 'gmaps4rails'
+gem 'underscore-rails', '~> 1.7.0'
 
 # gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :tag => 'v2.1.0'
 
