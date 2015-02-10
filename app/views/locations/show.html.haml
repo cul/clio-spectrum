@@ -1,35 +1,46 @@
-.location_popup
+%script{src: "//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry", type: "text/javascript"}
+%script{src: '//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js', type: 'text/javascript'}
+.container.location_popup
   - if @location
     %h1.well= @library ? @library.name : @location.name
 
     - if @location_notes && @location_notes.length > 0
       .well.well-sm.location_notes= @location_notes
 
-    .location_sidebar
-      .links
-        %ul
-          - @links.each do |link|
-            %li= link_to link.name, link.value
+    .row
+      .col-md-6
+        .section_header Located at:
+        .found_in= @location.found_in.gsub(/\n+/, '<br>').html_safe
+        %div{style: 'width: 800px'}
+          #basic_map{style:'width: 800px', height: '400px'}
+            - content_for :map do
+              = javascript_include_tag "google_map"
 
-      - if @library
-        .section_header
-          Hours:
-          .hours_link
-            (
-            = link_to "Full Hours Info", "http://www.columbia.edu/cu/lweb/services/hours/index.html?library=#{h(@library.hours_db_code)}"
-            )
-        - @hours.each do |hour|
-          - today_class = hour.date == Date.today ? "today" : nil
-          .day_listing{:class => alternating_line }
-            .weekday= hour.to_day_of_week
-            .hours
-              = hour.to_opens_closes
-            .hours_note= hour.note.to_s
-    .section_header Located at:
-    .found_in= @location.found_in.gsub(/\n+/, '<br>').html_safe
-    %iframe{width: "540", scrolling: "no", height: "540", frameborder: "0", style: "border:0", src: "http://library.columbia.edu/locations/map.html?location=butler#divMap"}
+        -#%iframe{width: "540", scrolling: "no", height: "540", frameborder: "0", style: "border:0", src: "http://library.columbia.edu/locations/map.html?location=butler#divMap"}
 
 
+      .col-md-6
+        .location_sidebar
+          .links
+            %ul
+              - @links.each do |link|
+                %li= link_to link.name, link.value
+
+          - if @library
+            .section_header
+              Hours:
+              .hours_link
+                (
+                = link_to "Full Hours Info", "http://www.columbia.edu/cu/lweb/services/hours/index.html?library=#{h(@library.hours_db_code)}"
+                )
+            - @hours.each do |hour|
+              - today_class = hour.date == Date.today ? "today" : nil
+              .day_listing{:class => alternating_line }
+                .weekday= hour.to_day_of_week
+                .hours
+                  = hour.to_opens_closes
+                .hours_note= hour.note.to_s
 
   - else
     %h2 No location information for #{h(params[:id])}
+
