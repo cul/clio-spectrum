@@ -1,4 +1,16 @@
 GIT
+  remote: git://github.com/cul/devise_wind.git
+  revision: 2ac79bead6ab636af7142cdc0641cf3e09aecaaa
+  branch: broke_wind
+  specs:
+    devise_wind (1.0.3)
+      devise (~> 2.1)
+      devise-encryptable
+      nokogiri
+      rails (>= 3.2, < 5.0)
+      warden (~> 1.1)
+
+GIT
   remote: git://github.com/projectblacklight/blacklight_range_limit.git
   revision: 11f143c41f47af0d76e427d05c3a269be46f085e
   branch: master
@@ -142,12 +154,6 @@ GEM
       warden (~> 1.2.1)
     devise-encryptable (0.1.2)
       devise (>= 2.1.0)
-    devise_wind (1.0.2)
-      devise (~> 2.1)
-      devise-encryptable
-      nokogiri
-      rails (~> 3.2)
-      warden (~> 1.1)
     diff-lcs (1.2.5)
     docile (1.1.5)
     ensure_valid_encoding (0.5.3)
@@ -406,7 +412,7 @@ DEPENDENCIES
   debugger
   devise
   devise-encryptable
-  devise_wind
+  devise_wind!
   exception_notification
   factory_girl_rails
   haml

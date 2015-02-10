@@ -29,3 +29,4 @@ db/*.sqlite3
 .sass-cache/**/*
 public/clicktale
 spec/reports
+token.txt

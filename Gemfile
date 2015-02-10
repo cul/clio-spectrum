@@ -34,9 +34,13 @@ gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blackl
 # so pin kaminari to a pre-breakage release
 gem 'kaminari', '0.15.0'
 
-gem 'devise_wind'
+# pull from rubygems...
+# gem 'devise_wind'
 # Local copy relaxes rails version requirements (allows 4.x)
 # gem "devise_wind", :path => "/Users/marquis/src/devise_wind"
+# New branch to recover from when CUIT broke wind
+gem "devise_wind", :git => 'git://github.com/cul/devise_wind.git', :branch => 'broke_wind'
+
 
 # Not being used, turn it off.
 # # Locally developed library code to interface with ClickTale analytics
