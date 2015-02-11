@@ -55,8 +55,6 @@
 //= require saved_lists
 //= require scroll_memory
 //= require underscore
-//= require gmaps/google
-//= require google_map
 
 
 // was used in support of JavaScript landing-page switching,

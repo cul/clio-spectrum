@@ -1,5 +1,3 @@
-%script{src: "//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry", type: "text/javascript"}
-%script{src: '//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js', type: 'text/javascript'}
 .container.location_popup
   - if @location
     %h1.well= @library ? @library.name : @location.name
@@ -11,10 +9,7 @@
       .col-md-6
         .section_header Located at:
         .found_in= @location.found_in.gsub(/\n+/, '<br>').html_safe
-        %div{style: 'width: 800px'}
-          #basic_map{style:'width: 800px', height: '400px'}
-            - content_for :map do
-              = javascript_include_tag "google_map"
+        #map{style:'width: 800px', style:' height: 400px'}
 
         -#%iframe{width: "540", scrolling: "no", height: "540", frameborder: "0", style: "border:0", src: "http://library.columbia.edu/locations/map.html?location=butler#divMap"}
 
