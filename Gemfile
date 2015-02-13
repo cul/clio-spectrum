@@ -15,6 +15,7 @@ gem 'blacklight', '~>5.3.0'
 # when we move to 5.x, uncomment this
 gem 'blacklight-marc'
 
+gem 'rest-client'
 gem 'gmaps4rails'
 gem 'underscore-rails', '~> 1.7.0'
 

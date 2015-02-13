@@ -1,0 +1,21 @@
+-# Should be at the very end of body
+
+/
+/ begin _common_tail 
+/
+
+
+-# Pass Rails variables to Javascript via simple global assignment
+:javascript
+  clio_backend_url = "#{APP_CONFIG['clio_backend_url']}";
+  google_analytics_web_property_id = "#{GoogleAnalytics.web_property_id}";
+
+= javascript_include_tag "application"
+
+= yield(:jstemplates)
+= yield(:map)
+
+
+/
+/ end _common_tail 
+/

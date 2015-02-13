@@ -1,3 +1,5 @@
+- content_for :map do
+  = javascript_include_tag "google_map"
 .container.location_popup
   - if @location
     %h1.well= @library ? @library.name : @location.name
@@ -6,15 +8,15 @@
       .well.well-sm.location_notes= @location_notes
 
     .row
-      .col-md-6
+      .col-md-9
         .section_header Located at:
         .found_in= @location.found_in.gsub(/\n+/, '<br>').html_safe
-        #map{style:'width: 800px', style:' height: 400px'}
+    .row
+      .col-md-9
+        #map{style:'height: 400px; margin: 1em;', data: {markers: @markers}}
+      -#    = content_tag "div", id: "map", data: {markers: @markers}, style:'height: 400px\; margin: 1em\;'
 
-        -#%iframe{width: "540", scrolling: "no", height: "540", frameborder: "0", style: "border:0", src: "http://library.columbia.edu/locations/map.html?location=butler#divMap"}
-
-
-      .col-md-6
+      .col-md-3
         .location_sidebar
           .links
             %ul

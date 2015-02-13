@@ -1,0 +1,21 @@
+!!!
+%script{src: "//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry", type: "text/javascript"}
+%script{src: '//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js', type: 'text/javascript'}
+%html.blank_layout{:xmlns=>"http://www.w3.org/1999/xhtml"}
+
+  %head
+    %meta{"http-equiv"=>"Content-Type","content"=>"text/html; charset=utf-8"}
+    %title=(@page_title || application_name)
+    %link{:href=>url_for(:controller=>'catalog',:action => 'opensearch', :format => 'xml', :only_path => false), :title=>application_name, :type=>"application/opensearchdescription+xml", :rel=>"search"}
+
+
+
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+
+    = yield(:jstemplates)
+
+
+  %body.blank_layout
+    = yield
+  = render :partial => "/layouts/location_tail"

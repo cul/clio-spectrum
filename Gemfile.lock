@@ -432,6 +432,7 @@ DEPENDENCIES
   rack-utf8_sanitizer!
   rails (~> 3.2)
   rb-fsevent
+  rest-client
   rspec-rails
   rspec-solr
   ruby-prof
