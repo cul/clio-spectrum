@@ -1,6 +1,6 @@
 - content_for :map do
   = javascript_include_tag "google_map"
-.container.location_popup
+.container.location_popup{:style => 'background-color: #f6f6ff'}
   - if @location
     %h1.well= @library ? @library.name : @location.name
 
@@ -9,27 +9,30 @@
 
     .row
       .col-md-9
-        .section_header Located at:
-        .found_in= @location.found_in.gsub(/\n+/, '<br>').html_safe
+        %h4
+          .section_header Located at
+          .found_in= @location.found_in.gsub(/\n+/, '<br>').html_safe
     .row
       .col-md-9
-        #map{style:'height: 400px; margin: 1em;', data: {markers: @markers}}
+        #map{style:'height: 600px; margin: 1em;', data: {markers: @markers}}
       -#    = content_tag "div", id: "map", data: {markers: @markers}, style:'height: 400px\; margin: 1em\;'
 
       .col-md-3
         .location_sidebar
           .links
-            %ul
-              - @links.each do |link|
-                %li= link_to link.name, link.value
+            %p
+            - @links.each do |link|
+              %p
+                = link_to link.name, link.value
 
           - if @library
-            .section_header
-              Hours:
-              .hours_link
-                (
-                = link_to "Full Hours Info", "http://www.columbia.edu/cu/lweb/services/hours/index.html?library=#{h(@library.hours_db_code)}"
-                )
+            %h4
+              .section_header
+                Hours
+                .hours_link
+                  (
+                  = link_to "Full Hours Info", "http://www.columbia.edu/cu/lweb/services/hours/index.html?library=#{h(@library.hours_db_code)}"
+                  )
             - @hours.each do |hour|
               - today_class = hour.date == Date.today ? "today" : nil
               .day_listing{:class => alternating_line }
