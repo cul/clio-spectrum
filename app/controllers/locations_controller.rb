@@ -17,12 +17,8 @@ class LocationsController < ApplicationController
       @map_url = @location.find_link_value('Map URL')
       @library = @location.library
       @library_api_info = JSON.parse(RestClient.get "http://api.library.columbia.edu/query.json", {params: {qt: 'location', locationID: 'butler'}})
-      @markers = Gmaps4rails.build_markers(@library_api_info) do |location, marker|
-        marker.lat location['latitude']
-        marker.lng location['longitude']
-        marker.infowindow render_to_string(partial: 'locations/infowindow', locals: {library_info: location})
-        marker.json({ :id => @location.id })
-      end.to_json
+
+      @markers = build_markers
 
       if @library
         range_start = Date.today
@@ -38,8 +34,16 @@ class LocationsController < ApplicationController
       @location_notes = Location.get_app_config_location_notes(raw_location)
       @location_notes.html_safe if @location_notes
     end
-    def gmaps4rails_infowindow
-      "<img src=\"#{@library_api_info['imagePath']}\">"
-    end
   end
+
+  def build_markers
+    @library_api_info = JSON.parse(RestClient.get "http://api.library.columbia.edu/query.json", {params: {qt: 'location', locationID: 'alllocations'}})
+    markers = Gmaps4rails.build_markers(@library_api_info.select{|m| m['showOnMap']}) do |location, marker|
+      marker.lat location['latitude']
+      marker.lng location['longitude']
+      marker.infowindow render_to_string(partial: 'locations/infowindow', locals: {library_info: location})
+      marker.json({ :id => @location.id })
+    end.to_json
+  end
+
 end

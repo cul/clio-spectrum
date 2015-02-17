@@ -51,4 +51,10 @@ describe 'Locations' do
     page.should have_text("Call (646) 774 - 8613 between 9-5pm")
   end
 
+  it 'should show google map', js: true do
+    visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
+    expect(page).to have_css('.gmap_container')
+    save_and_open_page
+  end
+
 end

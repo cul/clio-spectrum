@@ -1,4 +1,4 @@
-- content_for :map do
+- content_for :scripts do
   = javascript_include_tag "google_map"
 .container.location_popup{:style => 'background-color: #EEEEFF'}
   - if @location
@@ -12,29 +12,30 @@
         .col-md-9
           %h4
             .found_in= @location.found_in.gsub(/\n+/, '<br>').html_safe
-    .row
-      .col-md-9
-        .gmap_container#map{style:'height: 600px;', data: {markers: @markers}}
-      -#    = content_tag "div", id: "map", data: {markers: @markers}, style:'height: 400px\; margin: 1em\;'
+    .container{:style => 'background-color: #EEEEFF'}
+      .row
+        .col-md-9
+          .gmap_container#map{style:'height: 600px;', data: {markers: @markers, current_location_index: 4}}
+        -#    = content_tag "div", id: "map", data: {markers: @markers}, style:'height: 400px\; margin: 1em\;'
 
-      .col-md-3
-        .row
-          .list_group
-            - @links.each do |link|
-              %a{href: link.value, class: 'list-group-item'}=link.name
-        %p
-        - if @library
+        .col-md-3
           .row
             .list_group
-              -full_hours_url="http://www.columbia.edu/cu/lweb/services/hours/index.html?library=#{h(@library.hours_db_code)}"
-              %a{href: full_hours_url, class: 'list-group-item active'}Hours (Full Hours Info)
-              - @hours.each do |hour|
-                - today_class = hour.date == Date.today ? "list-group-item list-group-item-success" : "list-group-item"
-                .list-group-item{:class => today_class }
-                  .row
-                    .col-md-4= hour.to_day_of_week
-                    .col-md-8= hour.to_opens_closes
-                    .hours_note= hour.note.to_s
+              - @links.each do |link|
+                %a{href: link.value, class: 'list-group-item'}=link.name
+          %p
+          - if @library
+            .row
+              .list_group
+                -full_hours_url="http://www.columbia.edu/cu/lweb/services/hours/index.html?library=#{h(@library.hours_db_code)}"
+                %a{href: full_hours_url, class: 'list-group-item active'}Hours (Full Hours Info)
+                - @hours.each do |hour|
+                  - today_class = hour.date == Date.today ? "list-group-item list-group-item-success" : "list-group-item"
+                  .list-group-item{:class => today_class }
+                    .row
+                      .col-md-4= hour.to_day_of_week
+                      .col-md-8= hour.to_opens_closes
+                      .hours_note= hour.note.to_s
 
   - else
     %h2 No location information for #{h(params[:id])}
