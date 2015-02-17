@@ -1,6 +1,6 @@
 - content_for :map do
   = javascript_include_tag "google_map"
-.container.location_popup{:style => 'background-color: #f6f6ff'}
+.container.location_popup{:style => 'background-color: #EEEEFF'}
   - if @location
     .well
       %h1= @library ? @library.name : @location.name
@@ -14,28 +14,22 @@
             .found_in= @location.found_in.gsub(/\n+/, '<br>').html_safe
     .row
       .col-md-9
-        .gmap_container#map{style:'height: 600px; margin: 1em;', data: {markers: @markers}}
+        .gmap_container#map{style:'height: 600px;', data: {markers: @markers}}
       -#    = content_tag "div", id: "map", data: {markers: @markers}, style:'height: 400px\; margin: 1em\;'
 
       .col-md-3
-        .links
-          %p
-          - @links.each do |link|
-            %p
-              = link_to link.name, link.value
-
+        .row
+          .list_group
+            - @links.each do |link|
+              %a{href: link.value, class: 'list-group-item'}=link.name
+        %p
         - if @library
           .row
-            %h4
-              .section_header
-                Hours
-                .hours_link
-                  (
-                  = link_to "Full Hours Info", "http://www.columbia.edu/cu/lweb/services/hours/index.html?library=#{h(@library.hours_db_code)}"
-                  )
-            - @hours.each do |hour|
-              - today_class = hour.date == Date.today ? "list-group-item active" : "list-group-item"
-              .list_group
+            .list_group
+              -full_hours_url="http://www.columbia.edu/cu/lweb/services/hours/index.html?library=#{h(@library.hours_db_code)}"
+              %a{href: full_hours_url, class: 'list-group-item active'}Hours (Full Hours Info)
+              - @hours.each do |hour|
+                - today_class = hour.date == Date.today ? "list-group-item list-group-item-success" : "list-group-item"
                 .list-group-item{:class => today_class }
                   .row
                     .col-md-4= hour.to_day_of_week
