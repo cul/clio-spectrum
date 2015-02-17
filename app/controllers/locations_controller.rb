@@ -37,6 +37,7 @@ class LocationsController < ApplicationController
   end
 
   def build_markers
+    #TODO we want to map these to clio locations and display clio name in infowindow
     @library_api_info = JSON.parse(RestClient.get "http://api.library.columbia.edu/query.json", {params: {qt: 'location', locationID: 'alllocations'}})
     markers = Gmaps4rails.build_markers(@library_api_info.select{|m| m['showOnMap']}) do |location, marker|
       marker.lat location['latitude']
