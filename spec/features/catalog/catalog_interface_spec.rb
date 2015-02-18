@@ -272,7 +272,7 @@ describe 'Catalog Interface' do
 
   # NEXT-1054 - In the single item display menu, change "Services" to "Requests"
   it 'should show menu-option "Request(s)"', :js => true do
-    visit catalog_path('9041682')
+    visit catalog_path('10905238')
     # Should use consistent language
     find('#show_toolbar').should have_text "Requests"
     find('#clio_holdings').should have_text "Request"
