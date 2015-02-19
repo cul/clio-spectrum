@@ -1,6 +1,6 @@
 class Location < ActiveRecord::Base
   CATEGORIES = %w(library info)
-  attr_accessible :name, :found_in, :library_id, :category
+  attr_accessible :name, :found_in, :library_id, :category, :library_code
   belongs_to :library
 
   has_options association_name: :links
@@ -50,11 +50,12 @@ class Location < ActiveRecord::Base
     fixture.each do |location_hash|
       library = Library.find_by_hours_db_code(location_hash[:library_code]) if location_hash[:library_code]
 
-      location = Location.create(
+      location = Location.create!(
         name: location_hash[:location],
         found_in: location_hash[:found_in],
         category: location_hash[:category],
-        library_id: (library.nil? ? nil : library.id)
+        library_id: (library.nil? ? nil : library.id),
+        library_code: location_hash[:library_code]
       )
 
       if location

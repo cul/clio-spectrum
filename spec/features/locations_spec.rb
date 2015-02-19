@@ -42,8 +42,6 @@ describe 'Locations' do
 
     # The full complete URL
     visit location_display_path('NYS+Psychiatric+Institute+Library+%28Circulation+Restricted%29')
-    save_and_open_page
-    save_and_open_screenshot
     page.should have_text("Call (646) 774 - 8613 between 9-5pm")
 
     # Test substring matching...
@@ -51,10 +49,14 @@ describe 'Locations' do
     page.should have_text("Call (646) 774 - 8613 between 9-5pm")
   end
 
-  it 'should show google map', js: true do
+  it 'should have a google map', js: true do
     visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
     expect(page).to have_css('.gmap_container')
-    save_and_open_page
+  end
+
+  it 'should have markers for all locations on the map' do
+    visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
+    expect(page.body.scan("infowindow").count).to eq(999)
   end
 
 end
