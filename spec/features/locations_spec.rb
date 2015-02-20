@@ -54,6 +54,14 @@ describe 'Locations' do
     expect(page).to have_css('.gmap_container')
   end
 
+  it 'shows the title from the clio location data' do
+    pending
+  end
+
+  it 'has mouseover text on pins' do
+    pending
+  end
+
   it 'should have markers for all locations on the map' do
     visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
     expect(page.body.scan("infowindow").count).to eq(999)

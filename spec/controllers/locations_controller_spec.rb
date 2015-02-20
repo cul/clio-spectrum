@@ -3,6 +3,7 @@ require 'rake'
 
 describe LocationsController do
   let(:locations){Location.all}
+  let(:current_location) {Location.find_by_library_code("avery")}
   before do
     Location.clear_and_load_fixtures!
     Rake.application.rake_require 'tasks/solr_ingest'
@@ -17,7 +18,18 @@ describe LocationsController do
       controller.build_markers
     end
 
+    it "assigns current marker" do
+      controller.instance_variable_set(:@locations, Location.all)
+      controller.instance_variable_set(:@location, Location.find_by_library_code("avery"))
+      controller.build_markers
+      expect(assigns(:current_marker_index)).to eq(0)
+    end
+
     it "has different location codes for butler-24 and barnard-archives" do
+      pending
+    end
+
+    it 'should display the infowindow for the current marker' do
       pending
     end
 
