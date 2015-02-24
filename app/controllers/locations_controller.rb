@@ -42,10 +42,10 @@ class LocationsController < ApplicationController
     markers = Gmaps4rails.build_markers(@library_api_info.select{|m| m['showOnMap']}) do |location, marker|
       marker.lat location['latitude']
       marker.lng location['longitude']
+      marker.title @location.library['name']
       marker.infowindow render_to_string(partial: 'locations/infowindow', locals: {library_info: location})
       marker.json({ :library_code => location['locationID'] })
     end
-    puts ""
     @current_marker_index = markers.find_index{|mark| mark[:library_code] == @location.library_code}
     markers.to_json
   end

@@ -13,6 +13,8 @@ describe LocationsController do
   end
   describe "build_markers" do
     it "should query the Library API" do
+      controller.instance_variable_set(:@locations, Location.all)
+      controller.instance_variable_set(:@location, Location.find_by_library_code("avery"))
       api_query = "http://api.library.columbia.edu/query.json", {:params=>{:qt=>"location", :locationID=>"alllocations"}}
       expect(RestClient).to receive(:get).with(api_query[0], api_query[1]).and_call_original
       controller.build_markers
@@ -26,10 +28,6 @@ describe LocationsController do
     end
 
     it "has different location codes for butler-24 and barnard-archives" do
-      pending
-    end
-
-    it 'should display the infowindow for the current marker' do
       pending
     end
 

@@ -1,7 +1,15 @@
 require 'spec_helper'
+require 'rake'
 
 describe 'Locations' do
 
+  before do
+    Location.clear_and_load_fixtures!
+    Rake.application.rake_require 'tasks/solr_ingest'
+    Rake.application.rake_require 'tasks/sync_hours'
+    Rake::Task.define_task(:environment)
+    Rake.application.invoke_task 'hours:sync'
+  end
   # NEXT-1118 - Avery link to "Make an Appointment"
   # OLD WAY - FROM APP_CONFIG - SHOWED UP ON /LOCATIONS/ PAGE
   # it 'should include Location Notes', js: true do
@@ -52,6 +60,7 @@ describe 'Locations' do
   it 'should have a google map', js: true do
     visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
     expect(page).to have_css('.gmap_container')
+    save_and_open_page
   end
 
   it 'shows the title from the clio location data' do
@@ -59,12 +68,33 @@ describe 'Locations' do
   end
 
   it 'has mouseover text on pins' do
-    pending
-  end
-
-  it 'should have markers for all locations on the map' do
     visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
-    expect(page.body.scan("infowindow").count).to eq(999)
+    title = find('.gmap_container')['data-markers'].split('},{').select{|elt| elt.match(/\"library_code\":\"butler\"/)}[0]
+    expect(title).to match(/\"marker_title\":\"Butler Library\"/)
   end
 
+  it 'should have markers for all locations on the map', js: true  do
+    visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
+    expect(find('.gmap_container')['data-markers'].split('},{').count).to eq(27)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+  it 'should display the infowindow for the current marker', js: true do
+    Capybara.current_driver = :poltergeist
+    visit location_display_path("Avery+%28Non-Circulating%29")
+    save_and_open_page
+    expect(find('.gmap_container')['data-markers'].split('},{').count).to eq(27)
+    expect(find('.infowindow').text).to match('Avery')
+  end
 end
