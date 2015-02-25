@@ -4,7 +4,7 @@ require 'rake'
 describe LocationsController do
   let(:locations){Location.all}
   let(:current_location) {Location.find_by_library_code("avery")}
-  before do
+  before :all do
     Location.clear_and_load_fixtures!
     Rake.application.rake_require 'tasks/solr_ingest'
     Rake.application.rake_require 'tasks/sync_hours'
@@ -27,16 +27,23 @@ describe LocationsController do
       expect(assigns(:current_marker_index)).to eq(0)
     end
 
+    it 'should not have a marker for chrdr' do
+      markers = controller.build_markers
+      debugger
+      expect(markers).to match(/loc/)
+    end
+
     it "has different location codes for butler-24 and barnard-archives" do
       pending
     end
 
     it "should return json for each location with a location id" do
+      controller.instance_variable_set(:@locations, Location.all)
+      controller.instance_variable_set(:@location, Location.find_by_library_code("avery"))
       markers = controller.build_markers
-      cliolocs = Location.all.map{|loc| loc.library_code}.uniq
-      liblocs = @library_api_info.map{|loc| loc['locationID'] }
-      liblocs.each do loc
-        expect(markers).to match(/loc/)
+      cliolocs = Location.all.map{|loc| loc['library_code']}.uniq
+      cliolocs.each do |loc|
+        expect(markers).to match(loc)
       end
     end
   end

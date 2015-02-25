@@ -3,7 +3,7 @@ require 'rake'
 
 describe 'Locations' do
 
-  before do
+  before :all do
     Location.clear_and_load_fixtures!
     Rake.application.rake_require 'tasks/solr_ingest'
     Rake.application.rake_require 'tasks/sync_hours'
@@ -60,7 +60,6 @@ describe 'Locations' do
   it 'should have a google map', js: true do
     visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
     expect(page).to have_css('.gmap_container')
-    save_and_open_page
   end
 
   it 'shows the title from the clio location data' do
@@ -91,9 +90,7 @@ describe 'Locations' do
 
 
   it 'should display the infowindow for the current marker', js: true do
-    Capybara.current_driver = :poltergeist
     visit location_display_path("Avery+%28Non-Circulating%29")
-    save_and_open_page
     expect(find('.gmap_container')['data-markers'].split('},{').count).to eq(27)
     expect(find('.infowindow').text).to match('Avery')
   end

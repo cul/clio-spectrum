@@ -1,11 +1,9 @@
 .container{style: 'max-width: 400px'}
   .row
-    .col-md-6.infowindow
-      %br
-      %strong
-        = library_info['displayName'].present? ? library_info['displayName'] : library_info['officialName']
-      %br
-      .row
+    %h5
+      = library_info['displayName'].present? ? library_info['displayName'] : library_info['officialName']
+  .row
+    .col-md-7.infowindow
       - if library_info['floorRoom']
         = library_info['floorRoom']
       - if library_info['building']
@@ -20,8 +18,7 @@
       %br
       %br
         = "Telephone: #{library_info['phone']}"
-    .col-md-6
-      %br
+    .col-md-5
       %img{src: "http://library.columbia.edu/#{library_info['imagePath']}", class: "img-responsive"}
 
 

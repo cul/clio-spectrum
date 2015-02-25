@@ -3,7 +3,7 @@
 .container.location_popup{:style => 'background-color: #EEEEFF'}
   - if @location
     .well
-      %h1= @library ? @library.name : @location.name
+      %h1= @display_title
 
       - if @location_notes && @location_notes.length > 0
         .well.well-sm.location_notes= @location_notes
