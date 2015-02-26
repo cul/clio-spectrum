@@ -57,13 +57,19 @@ describe 'Locations' do
     page.should have_text("Call (646) 774 - 8613 between 9-5pm")
   end
 
-  it 'should have a google map', js: true do
+  it 'should have a google map for a location with a map', js: true do
     visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
     expect(page).to have_css('.gmap_container')
   end
 
-  it 'shows the title from the clio location data' do
-    pending
+  it 'should not have a google map for a location without a map', js: true do
+    visit location_display_path("Orthopaedic+Surgery+Oversize+%28Non-Circulating%29")
+    expect(page).not_to have_css('.gmap_container')
+  end
+
+  it 'shows the heading from the clio location data' do
+    visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
+    expect(page).to have_css('.well h1', text: "Butler Library")
   end
 
   it 'has mouseover text on pins' do
@@ -74,13 +80,12 @@ describe 'Locations' do
 
   it 'should have markers for all locations on the map', js: true  do
     visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
-    expect(find('.gmap_container')['data-markers'].split('},{').count).to eq(27)
+    expect(find('.gmap_container')['data-markers'].split('},{').count).to eq(26)
   end
 
   it 'should display the infowindow for the current marker', js: true do
     Capybara.current_driver = :selenium
     visit location_display_path("Avery+%28Non-Circulating%29")
-    expect(find('.gmap_container')['data-markers'].split('},{').count).to eq(27)
     expect(find('.infowindow').text).to match('Avery')
   end
 end

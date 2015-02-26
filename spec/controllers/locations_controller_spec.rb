@@ -28,9 +28,10 @@ describe LocationsController do
     end
 
     it 'should not have a marker for chrdr' do
+      controller.instance_variable_set(:@locations, Location.all)
+      controller.instance_variable_set(:@location, Location.find_by_library_code("avery"))
       markers = controller.build_markers
-      debugger
-      expect(markers).to match(/loc/)
+      expect(markers).not_to match(/chrdr/)
     end
 
     it "has different location codes for butler-24 and barnard-archives" do
@@ -41,9 +42,11 @@ describe LocationsController do
       controller.instance_variable_set(:@locations, Location.all)
       controller.instance_variable_set(:@location, Location.find_by_library_code("avery"))
       markers = controller.build_markers
-      cliolocs = Location.all.map{|loc| loc['library_code']}.uniq
+      cliolocs = Location.all.select{|loc| loc['library_code']}.map{|loc| loc['library_code']}.uniq
       cliolocs.each do |loc|
-        expect(markers).to match(loc)
+        unless((loc == "barnard-archives") || (loc == "butler-24") || (loc == "lehman-suite"))
+          expect(markers).to match(loc)
+        end
       end
     end
   end
