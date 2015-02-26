@@ -42,19 +42,19 @@ class LocationsController < ApplicationController
                                    {params: {qt: 'location', locationID: 'alllocations'}})
     @locations = Location.all
     #does location have a libr
-    @display_map = @location.library_code
+    @display_map = @location.location_code
     if @display_map
-      api_display_name = @library_api_info.select{|m| m['locationID'] == @location['library_code']}.first['displayName']
-      locations_in_both = @library_api_info.map{|m| m['locationID']} & Location.all.map{|m| m['library_code']}
+      api_display_name = @library_api_info.select{|m| m['locationID'] == @location['location_code']}.first['displayName']
+      locations_in_both = @library_api_info.map{|m| m['locationID']} & Location.all.map{|m| m['location_code']}
       locations_to_display = @library_api_info.select{|m| locations_in_both.include? m['locationID']}
       markers = Gmaps4rails.build_markers(locations_to_display) do |location, marker|
         marker.lat location['latitude']
         marker.lng location['longitude']
-        marker.title @display_title
+        marker.title location['displayName'] ? location['displayName'] : location['officialName']
         marker.infowindow render_to_string(partial: 'locations/infowindow', locals: {library_info: location})
-        marker.json({ :library_code => location['locationID'] })
+        marker.json({ :location_code => location['locationID'] })
       end
-      @current_marker_index = markers.find_index{|mark| mark[:library_code] == @location.library_code}
+      @current_marker_index = markers.find_index{|mark| mark[:location_code] == @location.location_code}
       markers.to_json
     end
   end

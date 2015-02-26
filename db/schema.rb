@@ -64,10 +64,10 @@ ActiveRecord::Schema.define(:version => 20150218220036) do
     t.string   "name"
     t.text     "found_in"
     t.integer  "library_id"
-    t.string   "category",     :limit => 10
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
-    t.text     "library_code"
+    t.string   "category",      :limit => 10
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.text     "location_code"
   end
 
   add_index "locations", ["library_id"], :name => "index_locations_on_library_id"

@@ -57,6 +57,18 @@ describe 'Locations' do
     page.should have_text("Call (646) 774 - 8613 between 9-5pm")
   end
 
+  it 'should have a map of butler if Location is Milstein', js: true do
+    visit location_display_path("Milstein+%5BButler%5D")
+    expect(page).to have_css('.gmap_container')
+    expect(page).to have_css('.well h1', text: "Butler Library")
+  end
+
+  it 'should have a map of Barnard if location is Barnard Archives', js: true do
+    visit location_display_path("Barnard+Archives+%28Non-Circulating%29")
+    expect(page).to have_css('.gmap_container')
+    expect(page).to have_css('.well h1', text: "Barnard Archives and Special Collections")
+  end
+
   it 'should have a google map for a location with a map', js: true do
     visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
     expect(page).to have_css('.gmap_container')
@@ -74,8 +86,8 @@ describe 'Locations' do
 
   it 'has mouseover text on pins' do
     visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
-    title = find('.gmap_container')['data-markers'].split('},{').select{|elt| elt.match(/\"library_code\":\"butler\"/)}[0]
-    expect(title).to match(/\"marker_title\":\"Butler Library\"/)
+    title = find('.gmap_container')['data-markers'].split('},{').select{|elt| elt.match(/\"location_code\":\"avery\"/)}[0]
+    expect(title).to match(/\"marker_title\":\"Avery Library\"/)
   end
 
   it 'should have markers for all locations on the map', js: true  do
