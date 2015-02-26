@@ -16,7 +16,6 @@ class LocationsController < ApplicationController
     if @location
       @map_url = @location.find_link_value('Map URL')
       @library = @location.library
-      @library_api_info = JSON.parse(RestClient.get "http://api.library.columbia.edu/query.json", {params: {qt: 'location', locationID: 'butler'}})
 
       @markers = build_markers
 
@@ -28,6 +27,7 @@ class LocationsController < ApplicationController
         # @hours = @library.hours_for_range(range_start, range_start + 20.days)
       end
 
+      @display_title = @library ? @library.name : @location.name
       @links = @location.links.reject { |location| location.name == 'Map URL' }
 
       # @location_notes = Location.get_app_config_location_notes(@location['name']).html_safe
@@ -38,21 +38,19 @@ class LocationsController < ApplicationController
 
   def build_markers
     #TODO we want to map these to clio locations and display clio name in infowindow and top of page
-    @library_api_info = JSON.parse(RestClient.get "http://api.library.columbia.edu/query.json", {params: {qt: 'location', locationID: 'alllocations'}})
+    @library_api_info = JSON.parse(RestClient.get "http://api.library.columbia.edu/query.json",
+                                   {params: {qt: 'location', locationID: 'alllocations'}})
     @locations = Location.all
-    debugger
     #does location have a libr
-    display_map = @location.library_code
-    if display_map
-      api_display_name = JSON.parse(RestClient.get "http://api.library.columbia.edu/query.json", 
-               {params: {qt: 'location', locationID: @location.library_code}})[0]['displayName']
-      @display_title = api_display_name ? api_display_name : @library ? @library.name : @location.name
+    @display_map = @location.library_code
+    if @display_map
+      api_display_name = @library_api_info.select{|m| m['locationID'] == @location['library_code']}.first['displayName']
       locations_in_both = @library_api_info.map{|m| m['locationID']} & Location.all.map{|m| m['library_code']}
-      locations_to_display = @library_api_info.select{|m| locations_in_both.include? m['library_code']}
-      markers = Gmaps4rails.build_markers(@library_api_info.select{|m| m['showOnMap']}) do |location, marker|
+      locations_to_display = @library_api_info.select{|m| locations_in_both.include? m['locationID']}
+      markers = Gmaps4rails.build_markers(locations_to_display) do |location, marker|
         marker.lat location['latitude']
         marker.lng location['longitude']
-        marker.title location['displayName'].present? ? location['displayName'] : location['officialName']
+        marker.title @display_title
         marker.infowindow render_to_string(partial: 'locations/infowindow', locals: {library_info: location})
         marker.json({ :library_code => location['locationID'] })
       end
