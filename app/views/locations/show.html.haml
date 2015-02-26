@@ -15,8 +15,8 @@
     .container{:style => 'background-color: #EEEEFF'}
       .row
         .col-md-9
-          .gmap_container#map{style:'height: 600px;', data: {markers: @markers, current_location_index: @current_marker_index}}
-        -#    = content_tag "div", id: "map", data: {markers: @markers}, style:'height: 400px\; margin: 1em\;'
+          - if @display_map
+            .gmap_container#map{style:'height: 600px;', data: {markers: @markers, current_location_index: @current_marker_index}}
 
         .col-md-3
           .row
