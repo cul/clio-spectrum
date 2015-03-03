@@ -9,6 +9,11 @@
   width: 800px;
 }
 
+.container.infowindow {
+  max-width: 400px;
+  background-color: #FFFFFF;
+}
+
 .gmaps4rails_map {
   width: 800px;
   height: 400px;

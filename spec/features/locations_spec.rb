@@ -95,9 +95,23 @@ describe 'Locations' do
     expect(find('.gmap_container')['data-markers'].split('},{').count).to eq(26)
   end
 
-  it 'should display the infowindow for the current marker', js: true do
-    Capybara.current_driver = :selenium
-    visit location_display_path("Avery+%28Non-Circulating%29")
-    expect(find('.infowindow').text).to match('Avery')
+  context 'infowindow' do
+    before{Capybara.current_driver = :selenium}
+    it 'should display the infowindow for the current marker', js: true do
+      visit location_display_path("Avery+%28Non-Circulating%29")
+      expect(page).to have_css('.infowindow.avery')
+      expect(find('.infowindow').text).to match('Avery')
+    end
+
+    it "opens the Butler infowindow for Milstein" do
+      visit location_display_path("Milstein+%5BButler%5D")
+      expect(page).to have_css('.infowindow.butler')
+    end
+
+    it "opens the Barnard infowindow for Barnard Archives" do
+      visit location_display_path("Barnard+Archives+%28Non-Circulating%29")
+      expect(page).to have_css('.infowindow.barnard')
+    end
   end
+
 end

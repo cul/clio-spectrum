@@ -34,10 +34,6 @@ describe LocationsController do
       expect(markers).not_to match(/chrdr/)
     end
 
-    it "has location codes for butler-24 and barnard-archives" do
-      pending
-    end
-
     it "should return json for each location with a location id" do
       controller.instance_variable_set(:@locations, Location.all)
       controller.instance_variable_set(:@location, Location.find_by_location_code("avery"))
