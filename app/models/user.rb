@@ -7,8 +7,14 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :wind_authenticatable, :encryptable, authentication_keys: [:login]
-  wind_host 'wind.columbia.edu'
-  wind_service 'culscv'
+
+  # CUIT Broke Wind, 2015-02-09
+  # wind_host 'wind.columbia.edu'
+  # wind_service 'culscv'
+  # Allow us to adjust more quickly to the shifting sands of central support...
+  wind_host APP_CONFIG['wind_host']
+  wind_service APP_CONFIG['wind_service']
+
   # Setup accessible (or protected) attributes for your model
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
