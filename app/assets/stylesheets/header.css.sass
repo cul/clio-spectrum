@@ -202,40 +202,17 @@ a.clio_logo
   .container
     :padding-right 0
 
-//.search_boxes
-//  :width -moz-calc(100% - 120px)
-//  :width -webkit-calc(100% - 120px)
-//  :width calc(100% - 120px)
-//
-//.start_over
-//  :float right
-//
-
 .start_over
   width: 110px
   a.btn
     margin-left: 10px
     margin-right: 20px
 
-//.search_boxes
-//  width: calc(100% - 120px)
-
-
 .search_box
   :display none
-  // w/Bootstrap 3, this makes the forms too small
-  //:font-size 80%
 
   &.selected
     :display block
-
-// ???
-//@media (max-width: 480px)
-//  .search_q
-//    &.without_options
-//      :width 14.5em
-//    &.with_options
-//      :width 8.5em
 
 @media (min-width: 800px)
   .search_q
@@ -269,82 +246,6 @@ a.clio_logo
   .search_q
     :width 600px !important
 
-
-//.search_q
-//  &.without_options
-//    :width -moz-calc(100% - 90px)
-//    :width -webkit-calc(100% - 90px)
-//    :width calc(100% - 90px)
-//
-//  &.with_options
-//    :width -moz-calc(100% - 300px)
-//    :width -webkit-calc(100% - 300px)
-//    :width calc(100% - 300px)
-
-// "minus" = desktop:290, tablet:237...
-// and then refactor again, after hiding "Search"
-
-//@media (max-width: 979px)
-//  .search_q
-//    &.without_options
-// Broken w/Bootstrap 3
-//      :width -moz-calc(100% - 40px)
-//      :width -webkit-calc(100% - 40px)
-//      :width calc(100% - 4 0px)
-    //&.with_options
-// Broken w/Bootstrap 3
-//      :width -moz-calc(100% - 240px)
-//      :width -webkit-calc(100% - 240px)
-//      :width calc(100% - 240px)
-
-
-//@media (max-width: 480px)
-//  .search_q
-//    &.without_options
-//      :width 14.5em
-//    &.with_options
-//      :width 8.5em
-
-//// NEXT-822 - Search box - style suggestions, make longer
-//@media (min-width: 1100px)
-//  .search_q
-//    &.without_options
-//      :width 30em
-//    &.with_options
-//      :width 24em
-//
-//@media (min-width: 1200px)
-//  .search_q
-//    &.without_options
-//      :width 40em
-//    &.with_options
-//      :width 34em
-//
-//@media (min-width: 1400px)
-//  .search_q
-//    &.without_options
-//      :width 50em
-//    &.with_options
-//      :width 44em
-//
-
-// Move into explicit in-page CSS class
-//.datasource_list
-//  @extend .hidden-xs
-
-
 .search_options
   :width 6em
-
-// With Bootstrap 3, this styling happens for us
-//.dropdown_select_tag
-//  :display inline
-//
-//  btn.add-on.dropdown-toggle
-//    :display inline-block !important
-//    //+border-radius(0 0 0 0)
-//    :border-radius 0 0 0 0
-//
-//  .dropdown-toggle
-//    :display none
 
