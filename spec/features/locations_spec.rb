@@ -37,7 +37,7 @@ describe 'Locations' do
       all('a').first.click
     end
 
-    page.should have_css('.holdings')
+    expect(page).to have_css('.holdings')
 
     within('.location_notes') do
       find('.location_note').should have_text("By appointment only")
@@ -76,6 +76,19 @@ describe 'Locations' do
 
   it 'should not have a google map for a location without a map', js: true do
     visit location_display_path("Orthopaedic+Surgery+Oversize+%28Non-Circulating%29")
+    expect(page).not_to have_css('.gmap_container')
+  end
+
+
+
+
+
+
+
+
+
+  it 'should not show the map for Lehman Suites', js: true do
+    visit location_display_path("Lehman+Suite%2C+406+SIA+%28Non-Circulating%29")
     expect(page).not_to have_css('.gmap_container')
   end
 
