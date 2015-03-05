@@ -15,16 +15,16 @@ describe 'Summon Search Option Filter Settings' do
     within('#facets') do
       within all('.facet_limit').first do
         within('.search_option', text: 'Full text online only') do
-          find('input.search_option_action').should_not be_checked
+          expect('input.search_option_action').to_not be_checked
         end
         within('.search_option', text: 'Scholarly publications only') do
-          find('input.search_option_action').should_not be_checked
+          expect('input.search_option_action').to_not be_checked
         end
         within('.search_option', text: 'Exclude Newspaper Articles') do
-          find('input.search_option_action').should be_checked
+          expect(find('input.search_option_action')).to be_checked
         end
         within('.search_option', text: "Columbia's collection only") do
-          find('input.search_option_action').should be_checked
+          expect(find('input.search_option_action')).to be_checked
         end
       end
     end
@@ -33,7 +33,7 @@ describe 'Summon Search Option Filter Settings' do
   it 'should default from QuickSearch panel', js: true do
     visit quicksearch_index_path('q' => $q)
     within('.results_header[data-source=articles]') do
-      find('.result_count').should have_text "View and filter all"
+      expect(find('.result_count')).to have_text "View and filter all"
       @result_count = find('.result_count').text
       @result_count = @result_count.sub(/.* all (.*) results/, '\1')
       click_link "View and filter all"

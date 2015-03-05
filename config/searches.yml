@@ -40,10 +40,11 @@ layouts:
             row_opts:
               spans: [3,9]
 
-          - source: dcv
-            count: 3
-            row_opts:
-              spans: [3,9] 
+          # Remove DCV pending management approval
+          # - source: dcv
+          #   count: 3
+          #   row_opts:
+          #     spans: [3,9] 
 
   # newspapers:
   #   style: summon

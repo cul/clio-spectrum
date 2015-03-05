@@ -9,7 +9,7 @@ describe 'Summon Interface ' do
     visit articles_index_path('q' =>  '',
                               's.fvf'    => ['IsFullText,true', 'ContentType,Audio Recording'])
     # We should find at least one of these...
-    expect(page).to have_css('div.details')
+    expect(find(page)).to have_css('div.details')
     # and each one we find must satisfy this assertion.
     all('div.details').each do |detail|
       detail.should have_text('Audio Recording: Available Online')
@@ -17,14 +17,14 @@ describe 'Summon Interface ' do
 
     visit articles_index_path('q' =>  '',
                               's.fvf'    => ['IsFullText,true', 'ContentType,Music Recording'])
-    expect(page).to have_css('div.details')
+    expect(find(page)).to have_css('div.details')
     all('div.details').each do |detail|
       detail.should have_text('Music Recording: Available Online')
     end
 
     visit articles_index_path('q' =>  '',
                               's.fvf'    => ['IsFullText,true', 'ContentType,Journal Article'])
-    expect(page).to have_css('div.details')
+    expect(find(page)).to have_css('div.details')
     all('div.details').each do |detail|
       # detail node contains full descriptive data - author, citaion, format, etc.
       detail.text.should satisfy { |detail_text|
@@ -39,7 +39,7 @@ describe 'Summon Interface ' do
 
     visit articles_index_path('q' =>  '',
                               's.fvf'    => ['IsFullText,true', 'ContentType,Patent'])
-    expect(page).to have_css('div.details')
+    expect(find(page)).to have_css('div.details')
     all('div.details').each do |detail|
       detail.should have_text('Patent: Full Text Available')
     end
@@ -72,7 +72,7 @@ describe 'Summon searches' do
     # Confirm 50-items returned upon next search
     visit articles_index_path('q' => 'horse')
     within all('.index_toolbar.navbar').first do
-      find('#current_item_info').should have_text '1 - 50 of'
+      expect(find('#current_item_info')).to have_text '1 - 50 of'
     end
 
     # SET page-size to new value, 10 items
@@ -85,7 +85,7 @@ describe 'Summon searches' do
     # Confirm 10-items returned upon next search
     visit articles_index_path('q' => 'pig')
     within all('.index_toolbar.navbar').first do
-      find('#current_item_info').should have_text '1 - 10 of'
+      expect(find('#current_item_info')).to have_text '1 - 10 of'
     end
 
   end

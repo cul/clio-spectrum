@@ -240,7 +240,7 @@ class CatalogController < ApplicationController
         # just to get IDs to build next/prev links.
         # NewRelic shows this one line taking 1.5% of total processing time,
         # even though it's hitting Solr's query cache.
-        # raise
+        raise
         setup_next_and_previous_documents
         render locals: { warning: warning }, layout: 'no_sidebar'
       end

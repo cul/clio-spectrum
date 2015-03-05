@@ -42,7 +42,9 @@ require 'rubygems'
       # config.visible_text_only = true
     # end
 
-    config.treat_symbols_as_metadata_keys_with_true_values = true
+    # eliminated with rails 4
+    # config.treat_symbols_as_metadata_keys_with_true_values = true
+
     config.filter_run focus: true
     config.run_all_when_everything_filtered = true
 
@@ -58,6 +60,13 @@ require 'rubygems'
     # needs to run non-transactionally to avoid
     # "SQLite3::BusyException: database is locked"
     config.use_transactional_fixtures = false
+
+    # 3/15 - seems to be needed for rails 4?
+    # Include path helpers
+    config.include Rails.application.routes.url_helpers
+    # and this???
+    # http://stackoverflow.com/questions/15148585/undefined-method-visit
+    config.include Capybara::DSL
 
   end
 

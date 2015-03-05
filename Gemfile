@@ -2,9 +2,17 @@ source 'https://rubygems.org'
 
 # FIXED:  Can't move up to 4.0 series yet - blacklight_range_limit has dependency on 3
 # but, devise_wind still has Rails 3.2 dependencies.
-gem 'rails', '~> 3.2'
-# gem 'rails', '~> 4.0.0'
+# 3/15
+# gem 'rails', '~> 3.2'
+gem 'rails', '4.0.13'
 
+# `attr_accessible` is extracted out of Rails into a gem. Please use new 
+# recommended protection model for params(strong_parameters) or add 
+# `protected_attributes` to your Gemfile to use old one. 
+# Oops, Blacklight has "logic that assumes protected_attributes is Rails 3 only" 
+#   see:  https://github.com/projectblacklight/blacklight/issues/906
+# Does this mean that including this gem breaks things?
+gem 'protected_attributes'
 
 #  ###  BLACKLIGHT (begin)  ###
 
@@ -36,13 +44,15 @@ gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blackl
 # This isn't fixed in Blacklight until 5.5.0,
 # so pin kaminari to a pre-breakage release
 gem 'kaminari', '0.15.0'
+# 3/15
+# gem 'kaminari'
 
 # pull from rubygems...
 # gem 'devise_wind'
 # Local copy relaxes rails version requirements (allows 4.x)
-# gem "devise_wind", :path => "/Users/marquis/src/devise_wind"
+gem "devise_wind", :path => "/Users/marquis/src/devise_wind"
 # New branch to recover from when CUIT broke wind
-gem "devise_wind", :git => 'git://github.com/cul/devise_wind.git', :branch => 'broke_wind'
+# gem "devise_wind", :git => 'git://github.com/cul/devise_wind.git', :branch => 'broke_wind'
 
 
 # Not being used, turn it off.
@@ -82,7 +92,8 @@ end
 # Used for... apparently, just the list of links for each location?
 # locally developed - and no longer on Github...
 # should try to eliminate at some point.
-gem 'has_options'
+# 3/15, moved to local library code
+# gem 'has_options'
 
 # gem 'therubyracer', '0.10.2'
 gem 'therubyracer'
@@ -91,7 +102,11 @@ gem 'nokogiri'
 
 # HTML replacement language
 gem 'haml'
-gem 'haml-rails'
+
+# 3/15 - I never looked at this before, but now that it's causing
+# version dependency problems, maybe try removing it
+# "Haml-rails provides Haml generators for Rails 4"
+# gem 'haml-rails'
 
 # CSS replacement language
 gem 'sass'
@@ -105,7 +120,8 @@ gem 'cancan'
 # doesn't work in Rails 4 ??
 # RecordMailer uses partials that do fragment caching... but somehow
 # this just doesn't work in stock rails.
-gem 'caching_mailer'
+# 3/15
+# gem 'caching_mailer'
 
 # Talks to Voyager API directly, return XML-format for Spectrum use.
 # But, this is now used from within the Voyager-Backend application

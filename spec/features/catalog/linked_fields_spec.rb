@@ -18,7 +18,7 @@ describe 'Linked field-values in single-item display', focus: false do
 
     # follow the "Also Listed Under" linked name, should get to search results page
     click_link(mhmm_decomposed)
-    page.should have_css('.result', count: 1)
+    expect(page).to have_css('.result', count: 1)
 
     # click the title on the search-results page, snoudl get to the item-detail page again
     click_link(mqis_decomposed)
@@ -26,8 +26,8 @@ describe 'Linked field-values in single-item display', focus: false do
     # follow the "Author" linked name, should get to search results page, with many items
     click_link(smm_decomposed)
 
-    page.should have_css('.result')
-    page.should_not have_text('No results found')
+    expect(page).to have_css('.result')
+    expect(page).to_not have_text('No results found')
   end
 
   # NEXT-526 - clicking on hyperlinked editor's name returns null result
@@ -38,16 +38,16 @@ describe 'Linked field-values in single-item display', focus: false do
 
     # pull up the specific record, by bib key
     visit catalog_path(test_bib)
-    page.should have_text(test_title)
+    expect(page).to have_text(test_title)
 
     # follow the "Also Listed Under" hyperlinked field value
     click_link(test_link)
 
     # Should be on the item-results page, which should include at least the item just visited
-    page.should have_css('#documents')
-    page.should have_text('You searched for:')
-    page.should_not have_text('No results')
-    page.should have_link(test_title, href: "/catalog/#{test_bib}")
+    expect(page).to have_css('#documents')
+    expect(page).to have_text('You searched for:')
+    expect(page).to_not have_text('No results')
+    expect(page).to have_link(test_title, href: "/catalog/#{test_bib}")
   end
 
   # NEXT-546 - author link is not finding all the other books by this author
@@ -58,17 +58,17 @@ describe 'Linked field-values in single-item display', focus: false do
 
     # pull up the specific record, by bib key
     visit catalog_path(test_bib)
-    page.should have_text(test_title)
+    expect(page).to have_text(test_title)
 
     # follow the "Also Listed Under" hyperlinked field value
     click_link(test_link)
 
     # Should be on the item-results page, which should include at least the item just visited
-    page.should have_css('#documents')
-    page.should have_text('You searched for:')
-    page.should_not have_text('No results')
-    page.should_not have_text('1 of 1')
-    page.should have_link(test_title, href: "/catalog/#{test_bib}")
+    expect(page).to have_css('#documents')
+    expect(page).to have_text('You searched for:')
+    expect(page).to_not have_text('No results')
+    expect(page).to_not have_text('1 of 1')
+    expect(page).to have_link(test_title, href: "/catalog/#{test_bib}")
   end
 
   # NEXT-560 - ampersands in author search cause searches to fail
@@ -79,17 +79,17 @@ describe 'Linked field-values in single-item display', focus: false do
 
     # pull up the specific record, by bib key
     visit catalog_path(test_bib)
-    page.should have_text(test_title)
+    expect(page).to have_text(test_title)
 
     # follow the "Also Listed Under" hyperlinked field value
     click_link(test_link)
 
     # Should be on the item-results page, which should include at least the item just visited
-    page.should have_css('#documents')
-    page.should have_text('You searched for:')
-    page.should_not have_text('No results')
-    page.should_not have_text('1 of 1')
-    page.should have_link(test_title, href: "/catalog/#{test_bib}")
+    expect(page).to have_css('#documents')
+    expect(page).to have_text('You searched for:')
+    expect(page).to_not have_text('No results')
+    expect(page).to_not have_text('1 of 1')
+    expect(page).to have_link(test_title, href: "/catalog/#{test_bib}")
   end
 
   # NEXT-561 - Some names with diacritics continue to fail in CLIO Beta
@@ -107,22 +107,22 @@ describe 'Linked field-values in single-item display', focus: false do
 
     # pull up the specific record, by bib key
     visit catalog_path(test_bib)
-    page.should have_text(test_title)
+    expect(page).to have_text(test_title)
 
     test_link_array.each do |test_link|
       # follow the "Also Listed Under" hyperlinked field value
       click_link(test_link)
 
       # Should be on the item-results page, which should include at least the item just visited
-      page.should have_css('#documents')
-      page.should have_text('You searched for:')
-      page.should_not have_text('No results')
-      page.should_not have_text('1 of 1')
-      page.should have_link(test_title, href: "/catalog/#{test_bib}")
+      expect(page).to have_css('#documents')
+      expect(page).to have_text('You searched for:')
+      expect(page).to_not have_text('No results')
+      expect(page).to_not have_text('1 of 1')
+      expect(page).to have_link(test_title, href: "/catalog/#{test_bib}")
 
       # Now, follow the link, should get back to item-detail page
       click_link(test_title)
-      page.should have_text(test_title)
+      expect(page).to have_text(test_title)
     end
   end
 
@@ -134,17 +134,17 @@ describe 'Linked field-values in single-item display', focus: false do
 
     # pull up the specific record, by bib key
     visit catalog_path(test_bib)
-    page.should have_text(test_title)
+    expect(page).to have_text(test_title)
 
     # follow the "Also Listed Under" hyperlinked field value
     click_link(test_link)
 
     # Should be on the item-results page, which should include at least the item just visited
-    page.should have_css('#documents')
-    page.should have_text('You searched for:')
-    page.should_not have_text('No results')
-    page.should_not have_text('1 of 1')
-    page.should have_link(test_title, href: "/catalog/#{test_bib}")
+    expect(page).to have_css('#documents')
+    expect(page).to have_text('You searched for:')
+    expect(page).to_not have_text('No results')
+    expect(page).to_not have_text('1 of 1')
+    expect(page).to have_link(test_title, href: "/catalog/#{test_bib}")
   end
 
   # NEXT-862 - author search/facet isn't working
@@ -155,53 +155,53 @@ describe 'Linked field-values in single-item display', focus: false do
 
     # pull up the specific record, by bib key
     visit catalog_path(test_bib)
-    page.should have_text(test_title)
+    expect(page).to have_text(test_title)
 
     # follow the "Also Listed Under" hyperlinked field value
     click_link(test_link)
 
     # Should be on the item-results page, which should include at least the item just visited
-    page.should have_css('#documents')
-    page.should have_text('You searched for:')
-    page.should_not have_text('No results')
-    page.should_not have_text('1 of 1')
-    page.should have_link(test_title, href: "/catalog/#{test_bib}")
+    expect(page).to have_css('#documents')
+    expect(page).to have_text('You searched for:')
+    expect(page).to_not have_text('No results')
+    expect(page).to_not have_text('1 of 1')
+    expect(page).to have_link(test_title, href: "/catalog/#{test_bib}")
   end
 
   # NEXT-1011 - Inconsistent search results from series links.
   it "should support linking to Series Title" do
     visit catalog_path '9646827'
-    page.should have_text "Lo specchio acceso : narrativa italiana"
+    expect(page).to have_text "Lo specchio acceso : narrativa italiana"
     # field-label, white-space, field-value
-    page.should have_text "Series Collezione Confronti/consensi ; 15."
+    expect(page).to have_text "Series Collezione Confronti/consensi ; 15."
 
     click_link "Collezione Confronti/consensi ; 15."
-    page.should have_text "You searched for: Series: Collezione Confronti/consensi"
-    page.should_not have_text('No results')
-    page.should_not have_text('1 of 5')
-    find('#documents').should have_text 'Lo specchio acceso : narrativa italiana'
+    expect(page).to have_text "You searched for: Series: Collezione Confronti/consensi"
+    expect(page).to_not have_text('No results')
+    expect(page).to_not have_text('1 of 5')
+    expect(find('#documents')).to have_text 'Lo specchio acceso : narrativa italiana'
   end
 
   # NEXT-1066 - Series link on this record does not retrieve other records in CLIO.
   it "should support Series links with apostrophe-like characters" do
     visit catalog_path(2754188)
-    page.should have_text "Palestine > History"
-    page.should have_text "Jerusalem, Magnes Press, Hebrew University"
+    expect(page).to have_text "Palestine > History"
+    expect(page).to have_text "Jerusalem, Magnes Press, Hebrew University"
 
     # field-label, white-space, field-value
     series_decomposed = 'Sidrat meḥḳarim ʻal shem Uriʼel Hed.'.mb_chars.normalize(:d)
-    page.should have_text(series_decomposed)
+    expect(page).to have_text(series_decomposed)
 
     click_link(series_decomposed)
-    page.should have_text "You searched for: Series: #{series_decomposed}"
-    page.should_not have_text('No results')
-    page.should have_text('1 - 4 of 4')
+    expect(page).to have_text "You searched for: Series: #{series_decomposed}"
+    expect(page).to_not have_text('No results')
+    expect(page).to have_text('1 - 4 of 4')
     # list out four title snippets to look for...
-    find('#documents').should have_text 'Hityashvut ha-Germanim'
-    find('#documents').should have_text '18th century; patterns of government'
-    find('#documents').should have_text '1918-1929'
+    expect(find('#documents')).to have_text 'Hityashvut ha-Germanim'
+    expect(find('#documents')).to have_text '18th century; patterns of government'
+    expect(find('#documents')).to have_text '1918-1929'
     title_4 = 'ha-ʻUlama u-veʻayot dat ba-ʻolam ha-Muslemi : meḥḳarim le-zekher Uriʾel Hed'
-    find('#documents').should have_text title_4.mb_chars.normalize(:d)
+    expect(find('#documents')).to have_text title_4.mb_chars.normalize(:d)
   end
 
   # NEXT-1107 - Pre-composed characters in facets
@@ -211,19 +211,19 @@ describe 'Linked field-values in single-item display', focus: false do
     visit catalog_path(10322893)
     # "Also Listed Under Çıpa, H. Erdem, 1971-"
     click_link('H. Erdem, 1971')
-    page.should have_text('1 - 2 of 2')
+    expect(page).to have_text('1 - 2 of 2')
     within('#facet-author li', text: 'Erdem') do
-      find('.facet-label').should have_text "Çıpa, H. Erdem, 1971"
-      find('.facet-count').should have_text "2"
+      expect(find('.facet-label')).to have_text "Çıpa, H. Erdem, 1971"
+      expect(find('.facet-count')).to have_text "2"
     end
 
     visit catalog_path(10551688)
     # "Also Listed Under Çıpa, H. Erdem, 1971-"
     click_link('H. Erdem, 1971')
-    page.should have_text('1 - 2 of 2')
+    expect(page).to have_text('1 - 2 of 2')
     within('#facet-author li', text: 'Erdem') do
-      find('.facet-label').should have_text "Çıpa, H. Erdem, 1971"
-      find('.facet-count').should have_text "2"
+      expect(find('.facet-label')).to have_text "Çıpa, H. Erdem, 1971"
+      expect(find('.facet-count')).to have_text "2"
     end
   end
 end

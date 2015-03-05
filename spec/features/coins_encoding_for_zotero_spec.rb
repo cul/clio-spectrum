@@ -8,7 +8,7 @@ describe 'coins encoding for zotero' do
           visit catalog_index_path('q' => 'psalm 21 meyerbeer', 'format'=> 'Music Recording')
           coins = all "//span[@class='Z3988']"
           coins.each do |coin|
-            expect(CGI.unescape (coin)['title']).to match(/fmt:kev:mtx:dc&rft\.type=audioRecording/)
+            expect(find(CGI.unescape (coin)['title'])).to match(/fmt:kev:mtx:dc&rft\.type=audioRecording/)
           end
         end
       end
@@ -17,7 +17,7 @@ describe 'coins encoding for zotero' do
           visit catalog_index_path('q' => 'penguins', 'format'=> 'Book')
           coins = all "//span[@class='Z3988']"
           coins.each do |coin|
-            expect(CGI.unescape (coin)['title']).to match(/fmt:kev:mtx:dc&rft\.type=book/)
+            expect(find(CGI.unescape (coin)['title'])).to match(/fmt:kev:mtx:dc&rft\.type=book/)
           end
         end
       end
@@ -26,7 +26,7 @@ describe 'coins encoding for zotero' do
           visit catalog_index_path('q' => 'Labyrinth', 'format'=> 'Video')
           coins = all "//span[@class='Z3988']"
           coins.each do |coin|
-            expect(CGI.unescape (coin)['title']).to match(/fmt:kev:mtx:dc&rft\.type=videoRecording/)
+            expect(find(CGI.unescape (coin)['title'])).to match(/fmt:kev:mtx:dc&rft\.type=videoRecording/)
           end
         end
       end
@@ -37,7 +37,7 @@ describe 'coins encoding for zotero' do
           visit academic_commons_index_path('q' => 'Chorale Labyrinth', 'search_field' => 'title')
           coins = all "//span[@class='Z3988']"
           coins.each do |coin|
-            expect(CGI.unescape (coin)['title']).to match(/fmt:kev:mtx:dc&rft\.type=audioRecording/)
+            expect(find(CGI.unescape (coin)['title'])).to match(/fmt:kev:mtx:dc&rft\.type=audioRecording/)
           end
         end
       end
@@ -47,7 +47,7 @@ describe 'coins encoding for zotero' do
                                            'rows' => 5)
           coins = all "//span[@class='Z3988']"
           coins.each do |coin|
-            expect(CGI.unescape (coin)['title']).to match(/fmt:kev:mtx:dc&rft\.type=videoRecording/)
+            expect(find(CGI.unescape (coin)['title'])).to match(/fmt:kev:mtx:dc&rft\.type=videoRecording/)
           end
         end
       end
@@ -59,35 +59,35 @@ describe 'coins encoding for zotero' do
       it 'has the correct coins format' do
         visit catalog_path 10922430
         coins = CGI.unescape find("//span[@class='Z3988']")['title']
-        expect(coins).to match(/fmt:kev:mtx:dc&rft\.type=audioRecording/)
+        expect(find(coins)).to match(/fmt:kev:mtx:dc&rft\.type=audioRecording/)
       end
     end
     context 'printed book' do
       it 'has the correct coins format' do
         visit catalog_path 4359539
         coins = CGI.unescape find("//span[@class='Z3988']")['title']
-        expect(coins).to match(/fmt:kev:mtx:dc&rft\.type=book/)
+        expect(find(coins)).to match(/fmt:kev:mtx:dc&rft\.type=book/)
       end
     end
     context 'ebook' do
       it 'has the correct coins format' do
         visit catalog_path 7928264
         coins = CGI.unescape find("//span[@class='Z3988']")['title']
-        expect(coins).to match(/fmt:kev:mtx:dc&rft\.type=book/)
+        expect(find(coins)).to match(/fmt:kev:mtx:dc&rft\.type=book/)
       end
     end
     context 'video recording' do
       it 'has the correct coins format' do
         visit catalog_path 9340283
         coins = CGI.unescape find("//span[@class='Z3988']")['title']
-        expect(coins).to match(/fmt:kev:mtx:dc&rft\.type=videoRecording/)
+        expect(find(coins)).to match(/fmt:kev:mtx:dc&rft\.type=videoRecording/)
       end
     end
     context 'sound recording' do
       it 'has the correct coins format' do
         visit catalog_path 10903311
         coins = CGI.unescape find("//span[@class='Z3988']")['title']
-        expect(coins).to match(/fmt:kev:mtx:dc&rft\.type=audioRecording/)
+        expect(find(coins)).to match(/fmt:kev:mtx:dc&rft\.type=audioRecording/)
       end
     end
   end

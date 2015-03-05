@@ -25,7 +25,7 @@ describe ItemAlertsController do
       spec_login @priv_user
       get :index
       response.should be_success
-      expect(response).to render_template('index')
+      expect(find(response)).to render_template('index')
     end
 
     it "excercise 'active' logic" do
@@ -83,10 +83,10 @@ describe ItemAlertsController do
       get :new, format: :json
       response.should be_success
       item_alert = JSON.parse(response.body)['item_alert']
-      expect(item_alert[:id]).to be_nil
-      expect(item_alert[:author_id]).to be_nil
-      expect(item_alert[:message]).to be_nil
-      expect(item_alert[:source]).to be_nil
+      expect(find(item_alert[:id])).to be_nil
+      expect(find(item_alert[:author_id])).to be_nil
+      expect(find(item_alert[:message])).to be_nil
+      expect(find(item_alert[:source])).to be_nil
       # HTML should send you to 'new' screen
       get :new, format: :html
       response.should be_success

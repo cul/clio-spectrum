@@ -16,9 +16,11 @@ class Location < ActiveRecord::Base
     # # logger.debug("match_location_text: looking for " + location)
 
     if connection.adapter_name.downcase.include?('mysql')
-      matches = find(:all, conditions: ["? LIKE CONCAT(locations.name, '%')", location], include: :library)
+      # matches = find(:all, conditions: ["? LIKE CONCAT(locations.name, '%')", location], include: :library)
+      matches = where("? LIKE CONCAT(locations.name, '%')", location).joins(:library)
     else
-      matches = find(:all, conditions: ["? LIKE locations.name || '%'", location], include: :library)
+      # matches = find(:all, conditions: ["? LIKE locations.name || '%'", location], include: :library)
+      matches = where("? LIKE locations.name || '%'", location).joins(:library)
     end
 
     max_length = matches.map { |m| m.name.length }.max

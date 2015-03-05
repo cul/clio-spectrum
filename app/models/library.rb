@@ -3,7 +3,8 @@ class Library < ActiveRecord::Base
   has_many :hours, class_name: 'LibraryHours', dependent: :destroy
 
   def hours_for_range(startdate, enddate)
-    hours.find(:all, conditions: ['library_hours.date BETWEEN ? and ?', startdate.to_date, enddate.to_date]).sort { |x, y| x.date <=> y.date }
+    # hours.find(:all, conditions: ['library_hours.date BETWEEN ? and ?', startdate.to_date, enddate.to_date]).sort { |x, y| x.date <=> y.date }
+    hours.where('library_hours.date BETWEEN ? and ?', startdate.to_date, enddate.to_date).sort { |x, y| x.date <=> y.date }
   end
 
   # def is_open?(check_at = Datetime.now)

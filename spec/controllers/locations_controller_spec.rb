@@ -16,7 +16,7 @@ describe LocationsController do
       controller.instance_variable_set(:@locations, Location.all)
       controller.instance_variable_set(:@location, Location.find_by_location_code("avery"))
       api_query = "http://api.library.columbia.edu/query.json", {:params=>{:qt=>"location", :locationID=>"alllocations"}}
-      expect(RestClient).to receive(:get).with(api_query[0], api_query[1]).and_call_original
+      expect(find(RestClient)).to receive(:get).with(api_query[0], api_query[1]).and_call_original
       controller.build_markers
     end
 
@@ -24,7 +24,7 @@ describe LocationsController do
       controller.instance_variable_set(:@locations, Location.all)
       controller.instance_variable_set(:@location, Location.find_by_location_code("avery"))
       controller.build_markers
-      expect(assigns(:current_marker_index)).to eq(0)
+      expect(find(assigns(:current_marker_index))).to eq(0)
     end
 
     it 'should not have a marker for chrdr' do
@@ -41,7 +41,7 @@ describe LocationsController do
       cliolocs = Location.all.select{|loc| loc['library_code']}.map{|loc| loc['library_code']}.uniq
       cliolocs.each do |loc|
         unless((loc == "barnard-archives") || (loc == "butler-24") || (loc == "lehman-suite"))
-          expect(markers).to match(loc)
+          expect(find(markers)).to match(loc)
         end
       end
     end
