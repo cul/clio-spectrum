@@ -32,9 +32,9 @@ Clio::Application.configure do
   # config.assets.compress = true
   config.assets.compress = false
   config.assets.debug = true
+  config.assets.digest = false
 
   config.assets.compile = true
-  config.assets.digest = true
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
