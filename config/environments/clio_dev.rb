@@ -31,6 +31,7 @@ Clio::Application.configure do
   # Don't compress, to help with debugging...
   # config.assets.compress = true
   config.assets.compress = false
+  config.assets.debug = true
 
   config.assets.compile = false
   config.assets.digest = true
