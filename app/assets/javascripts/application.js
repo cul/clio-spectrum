@@ -44,7 +44,7 @@
 //= require datasources
 //= require dropdown_select
 //= require google_analytics
-//= require google_map
+// # require google_map
 //= require hathi
 //= require holdings
 //= require ie_warnings

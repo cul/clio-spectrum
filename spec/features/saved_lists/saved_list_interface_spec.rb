@@ -40,14 +40,16 @@ describe 'Saved List Interface' do
     visit '/lists'
     # page.save_and_open_page # debug
     # page.should have_text('Login required to access Saved Lists')
-    # In this context, the WIND redirect happens against the local
+    # In this context, the auth redirect happens against the local
     # server, giving a 404.
-    page.should have_text('Invalid URL: /login')
+    # login_path = '/login'      # wind
+    login_path = '/cas/login'  # cas
+    page.should have_text("Invalid URL: #{login_path}")
 
     visit '/saved_lists/1/edit'
     # page.save_and_open_page # debugI
     # page.should have_text('Login required to access Saved Lists')
-    page.should have_text('Invalid URL: /login')
+    page.should have_text("Invalid URL: #{login_path}")
   end
 
   it 'should protect private lists and share public lists', js: true do

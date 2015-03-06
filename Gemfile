@@ -37,13 +37,20 @@ gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blackl
 # so pin kaminari to a pre-breakage release
 gem 'kaminari', '0.15.0'
 
-# pull from rubygems...
-# gem 'devise_wind'
-# Local copy relaxes rails version requirements (allows 4.x)
-# gem "devise_wind", :path => "/Users/marquis/src/devise_wind"
-# New branch to recover from when CUIT broke wind
-gem "devise_wind", :git => 'git://github.com/cul/devise_wind.git', :branch => 'broke_wind'
+gem 'devise'
+gem 'devise-encryptable'
 
+# CAS is ready.  No more wind.
+# # pull from rubygems...
+# # gem 'devise_wind'
+# # Local copy relaxes rails version requirements (allows 4.x)
+# # gem "devise_wind", :path => "/Users/marquis/src/devise_wind"
+# # New branch to recover from when CUIT broke wind
+# gem "devise_wind", :git => 'git://github.com/cul/devise_wind.git', :branch => 'broke_wind'
+# CAS is ready.
+gem 'devise_cas_authenticatable'
+# for debugging, use local version...
+# gem 'devise_cas_authenticatable', path: '/Users/marquis/src/devise_cas_authenticatable'
 
 # Not being used, turn it off.
 # # Locally developed library code to interface with ClickTale analytics
@@ -115,9 +122,6 @@ gem 'caching_mailer'
 
 gem 'exception_notification'
 gem 'net-ldap'
-
-gem 'devise'
-gem 'devise-encryptable'
 
 
 # application monitoring tool
@@ -247,9 +251,10 @@ group :test do
   # gem 'capybara', '2.0.3'
 
   # Which Capybara driver for JS support?
-  gem 'capybara-webkit', '1.1.0'
+  # gem 'capybara-webkit', '1.1.0'
+  gem 'capybara-webkit'
   # dependent on localhost's browser configs
-  gem 'selenium-webdriver'
+  # gem 'selenium-webdriver'
 
   gem 'launchy'
   gem 'database_cleaner'

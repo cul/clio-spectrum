@@ -6,14 +6,18 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :wind_authenticatable, :encryptable, authentication_keys: [:login]
 
-  # CUIT Broke Wind, 2015-02-09
-  # wind_host 'wind.columbia.edu'
-  # wind_service 'culscv'
-  # Allow us to adjust more quickly to the shifting sands of central support...
-  wind_host APP_CONFIG['wind_host']
-  wind_service APP_CONFIG['wind_service']
+  # CAS is ready.  No more wind.
+  # devise :cas_authenticatable, :encryptable, authentication_keys: [:login]
+  devise :cas_authenticatable, authentication_keys: [:login]
+
+  # devise :wind_authenticatable, :encryptable, authentication_keys: [:login]
+  # # CUIT Broke Wind, 2015-02-09
+  # # wind_host 'wind.columbia.edu'
+  # # wind_service 'culscv'
+  # # Allow us to adjust more quickly to the shifting sands of central support...
+  # wind_host APP_CONFIG['wind_host']
+  # wind_service APP_CONFIG['wind_service']
 
   # Setup accessible (or protected) attributes for your model
 
@@ -48,16 +52,20 @@ class User < ActiveRecord::Base
     [first_name, last_name].join(' ')
   end
 
-  def default_email
-    login = send User.wind_login_field
-    mail = "#{login}@columbia.edu"
-    self.email = mail
-  end
+  # This method is private, below.
+  # def default_email
+  #   raise
+  #   login = send User.wind_login_field
+  #   mail = "#{login}@columbia.edu"
+  #   self.email = mail
+  # end
 
   private
 
   def default_email
-    login = send User.wind_login_field
+    # raise
+    # login = send User.wind_login_field
+    login = self.login
     mail = "#{login}@columbia.edu"
     self.email = mail
    end
@@ -67,8 +75,11 @@ class User < ActiveRecord::Base
   end
 
   def set_personal_info_via_ldap
-    if wind_login
-      entry = Net::LDAP.new(host: 'ldap.columbia.edu', port: 389).search(base: 'o=Columbia University, c=US', filter: Net::LDAP::Filter.eq('uid', wind_login)) || []
+    # raise
+    # if wind_login
+    if login
+      # entry = Net::LDAP.new(host: 'ldap.columbia.edu', port: 389).search(base: 'o=Columbia University, c=US', filter: Net::LDAP::Filter.eq('uid', wind_login)) || []
+      entry = Net::LDAP.new(host: 'ldap.columbia.edu', port: 389).search(base: 'o=Columbia University, c=US', filter: Net::LDAP::Filter.eq('uid', login)) || []
       entry = entry.first
 
       if entry
@@ -76,7 +87,8 @@ class User < ActiveRecord::Base
         if _mail.length > 6 and _mail.match(/^[\w.]+[@][\w.]+$/)
           self.email = _mail
         else
-          self.email = wind_login + '@columbia.edu'
+          # self.email = wind_login + '@columbia.edu'
+          self.email = login + '@columbia.edu'
         end
         if User.column_names.include? 'last_name'
           self.last_name = entry[:sn].to_s.gsub('[', '').gsub(']', '').gsub(/\"/, '')
