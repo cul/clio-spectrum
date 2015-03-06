@@ -29,17 +29,7 @@ Clio::Application.configure do
   config.active_support.deprecation = :log
 
   # Don't compress, to help with debugging...
-   config.assets.compress = true
-  # Compress JavaScripts and CSS
-  class NoCompression
-    def compress(string)
-      # do nothing
-      string
-    end
-  end
-    config.assets.compress = true
-    config.assets.js_compressor = NoCompression.new
-    config.assets.css_compressor = NoCompression.new
+   config.assets.compress = false
     config.assets.debug = true
     config.assets.digest = false
 
