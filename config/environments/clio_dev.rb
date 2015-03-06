@@ -34,7 +34,7 @@ Clio::Application.configure do
   config.assets.debug = true
   config.assets.digest = false
 
-  config.assets.compile = true
+  config.assets.compile = false
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
