@@ -29,9 +29,9 @@ Clio::Application.configure do
   config.active_support.deprecation = :log
 
   # Don't compress, to help with debugging...
-   config.assets.compress = false
-    config.assets.debug = true
-    config.assets.digest = false
+  config.assets.compress = false
+  config.assets.debug = false
+  config.assets.digest = false
 
   config.assets.compile = true
 
