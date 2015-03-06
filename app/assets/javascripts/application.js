@@ -55,6 +55,7 @@
 //= require saved_lists
 //= require scroll_memory
 //= require underscore
+//= require gmaps/google
 //= require google_map
 
 
