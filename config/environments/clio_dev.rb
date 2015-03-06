@@ -33,7 +33,7 @@ Clio::Application.configure do
   config.assets.compress = false
   config.assets.debug = true
 
-  config.assets.compile = false
+  config.assets.compile = true
   config.assets.digest = true
 
   # Only use best-standards-support built into browsers
