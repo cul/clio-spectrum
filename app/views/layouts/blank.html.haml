@@ -1,6 +1,4 @@
 !!!
-%script{src: "//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry", type: "text/javascript"}
-%script{src: '//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js', type: 'text/javascript'}
 %html.blank_layout{:xmlns=>"http://www.w3.org/1999/xhtml"}
 
   %head
@@ -14,7 +12,6 @@
     = javascript_include_tag "application"
 
     = yield(:jstemplates)
-    = yield(:scripts)
 
 
   %body.blank_layout

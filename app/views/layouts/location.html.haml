@@ -13,9 +13,6 @@
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
 
-    = yield(:jstemplates)
-
-
   %body.blank_layout
     = yield
   = render :partial => "/layouts/location_tail"
