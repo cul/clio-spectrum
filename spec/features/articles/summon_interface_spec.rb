@@ -24,7 +24,7 @@ describe 'Summon Interface ' do
 
     visit articles_index_path('q' =>  '',
                               's.fvf'    => ['IsFullText,true', 'ContentType,Journal Article'])
-    expect(page).to have_css('div.details')
+    expect(page).to have_css('div.details', count: 10)
     all('div.details').each do |detail|
       # detail node contains full descriptive data - author, citaion, format, etc.
       detail.text.should satisfy { |detail_text|
@@ -32,6 +32,7 @@ describe 'Summon Interface ' do
         #  any of these might show up.
         detail_text.match(/Journal Article: Full Text Available/) ||
         detail_text.match(/Book Chapter: Full Text Available/) ||
+        detail_text.match(/Book Review: Full Text Available/) ||
         detail_text.match(/Conference Proceeding: Full Text Online/) ||
         detail_text.match(/Conference Proceeding: Full Text Available/)
       }
