@@ -59,6 +59,17 @@ require 'rubygems'
     # "SQLite3::BusyException: database is locked"
     config.use_transactional_fixtures = false
 
+    # from https://github.com/thoughtbot/capybara-webkit/issues/717
+    # "where to whitelist/blacklist urls?"
+    config.before(:each, js: true) do
+      # Everything is terrible. js: true in config.before will run if the js tag
+      # is present in the spec declaration, regardless of the value.
+      page.driver.block_unknown_urls
+      page.driver.allow_url("catalog.hathitrust.org")
+      page.driver.allow_url("books.google.com")
+      page.driver.allow_url("http://bronte.cul.columbia.edu/clio_backend_dev")
+    end
+
   end
 
 # end
