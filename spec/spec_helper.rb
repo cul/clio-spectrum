@@ -58,6 +58,12 @@ require 'rubygems'
     # needs to run non-transactionally to avoid
     # "SQLite3::BusyException: database is locked"
     config.use_transactional_fixtures = false
+    config.before(:each, js: true) do
+      page.driver.block_unknown_urls
+      page.driver.allow_url("catalog.hathitrust.org")
+      page.driver.allow_url("books.google.com")
+      page.driver.allow_url("http://bronte.cul.columbia.edu/clio_backend_dev")
+    end
 
     # from https://github.com/thoughtbot/capybara-webkit/issues/717
     config.before(:each, js: true) do
