@@ -42,9 +42,10 @@ class LocationsController < ApplicationController
                                    {params: {qt: 'location', locationID: 'alllocations'}})
     @locations = Location.all
     #does location have a libr
-    @display_map = @location.location_code
+    api_loc = @library_api_info.select{|m| m['locationID'] == @location['location_code']}
+    api_display_name = api_loc.present? ? api_loc.first['displayName'] : nil
+    @display_map = @location.location_code && api_display_name
     if @display_map
-      api_display_name = @library_api_info.select{|m| m['locationID'] == @location['location_code']}.first['displayName']
       locations_in_both = @library_api_info.map{|m| m['locationID']} & Location.all.map{|m| m['location_code']}
       locations_to_display = @library_api_info.select{|m| locations_in_both.include? m['locationID']}
       markers = Gmaps4rails.build_markers(locations_to_display) do |location, marker|

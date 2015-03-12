@@ -17,7 +17,10 @@ gem 'blacklight-marc'
 
 gem 'rest-client'
 gem 'gmaps4rails'
-gem 'underscore-rails', '~> 1.7.0'
+# We already have a minified version of underscore
+# installed directly in our assets directory,
+# don't need this gem also.
+# gem 'underscore-rails', '~> 1.7.0'
 
 # gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :tag => 'v2.1.0'
 
@@ -41,12 +44,13 @@ gem 'devise'
 gem 'devise-encryptable'
 
 # CAS is ready.  No more wind.
+# ... but try to run them both during transition
 # # pull from rubygems...
 # # gem 'devise_wind'
 # # Local copy relaxes rails version requirements (allows 4.x)
 # # gem "devise_wind", :path => "/Users/marquis/src/devise_wind"
 # # New branch to recover from when CUIT broke wind
-# gem "devise_wind", :git => 'git://github.com/cul/devise_wind.git', :branch => 'broke_wind'
+gem "devise_wind", :git => 'git://github.com/cul/devise_wind.git', :branch => 'broke_wind'
 # CAS is ready.
 gem 'devise_cas_authenticatable'
 # for debugging, use local version...
@@ -123,10 +127,10 @@ gem 'caching_mailer'
 gem 'exception_notification'
 gem 'net-ldap'
 
-
-# application monitoring tool
-gem 'newrelic_rpm'
-
+# 3/15, comment out for now to simplify output,
+#  we can turn it back on when we want it again.
+# # application monitoring tool
+# gem 'newrelic_rpm'
 
 # "Rack middleware which cleans up invalid UTF8 characters"
 # gem 'rack-utf8_sanitizer'
@@ -198,7 +202,10 @@ group :development do
   # Deploy with Capistrano
   gem 'capistrano', '~>2'
   gem 'capistrano-ext'
+
+  # don't show all those 'rendered...' lines in server logs
   gem 'quiet_assets'
+
   # fixes [morrison.cul.columbia.edu] sh: bundle: command not found
   gem 'rvm-capistrano'
 
@@ -212,8 +219,9 @@ group :development do
   # port of ruby-debug that works on 1.9.2 and 1.9.3
   gem 'debugger'
 
-  # "A fist full of code metrics"
-  gem 'metric_fu'
+  # We haven't used this for a while, turn it off for now.
+  # # "A fist full of code metrics"
+  # gem 'metric_fu'
 
   # Profiling experiments
   # https://www.coffeepowered.net/2013/08/02/ruby-prof-for-rails/
@@ -252,9 +260,11 @@ group :test do
 
   # Which Capybara driver for JS support?
   # gem 'capybara-webkit', '1.1.0'
+  # unpin - seems to still work
   gem 'capybara-webkit'
+
   # dependent on localhost's browser configs
-  # gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '2.45.0'
 
   gem 'launchy'
   gem 'database_cleaner'

@@ -2,12 +2,14 @@
 
 require 'spec_helper'
 
-describe 'Academic Commons', focus: false do
-  # Use this string within the below tests
-  search_title_text = 'Structural and Functional Microbial Ecology'
+describe 'Academic Commons' do
 
   it 'fielded search should work', js: true do
+    # Use this string within the below tests
+    search_title_text = 'Structural and Functional Microbial Ecology'
+
     visit root_path
+
     within('li.datasource_link[source="academic_commons"]') do
       click_link('Academic Commons')
     end
@@ -43,7 +45,6 @@ describe 'Academic Commons', focus: false do
       # There should also be a Handle link to handle.net
       href = find_link('http://hdl.handle.net/10022/AC:P:')[:href]
       href.should match /http:\/\/hdl.handle.net\/10022\/AC:P:/
-
     end
 
     # We can't validate remote websites without adding extra gems to our
@@ -78,6 +79,8 @@ describe 'Academic Commons', focus: false do
       end
     end
   end
+
+
 end
 
 

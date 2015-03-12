@@ -1,5 +1,9 @@
+
 .container.location_popup{:style => 'background-color: #EEEEFF'}
+
   - if @location
+
+    -# top of page, large-font well
     .well
       %h1= @display_title
 
@@ -7,9 +11,11 @@
         .well.well-sm.location_notes= @location_notes
 
       .row
-        .col-md-9
+        .col-md-12
           %h4
             .found_in= @location.found_in.gsub(/\n+/, '<br>').html_safe
+
+    -# middle of page, wide map column, narrow data column
     .container{:style => 'background-color: #EEEEFF'}
       .row
         .col-md-9
