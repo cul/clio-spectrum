@@ -54,9 +54,11 @@
 //= require nearby
 //= require saved_lists
 //= require scroll_memory
-//= require underscore
-//= require gmaps/google
-//= require google_map
+// # these three are only used for location pages.
+// # move them to the location layout (location.html.haml)
+// # require underscore
+// # require gmaps/google
+// # require google_map
 
 
 // was used in support of JavaScript landing-page switching,
