@@ -1,7 +1,7 @@
 
 # require "config/initializers/load_app_config.rb"
 
-require File.join(Rails.root.to_s, 'config', 'initializers/load_app_config.rb')
+require File.join(Rails.root.to_s, 'config', 'initializers/aaa_load_app_config.rb')
 
 # EXTRACT_SCP_SOURCE = 'scp deployer@taft.cul.columbia.edu:/opt/dumps'
 EXTRACT_SCP_SOURCE = APP_CONFIG['extract_scp_source']
