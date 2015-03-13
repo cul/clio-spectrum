@@ -1,18 +1,23 @@
-//= require gmaps/google
-//= require underscore
+// Take care of requiring our own dependencies,
+// so don't do this anywhere else!
+// #  require gmaps/google
+// #  require underscore-min
 
-var mapExists = document.getElementById("map"); 
-if(mapExists){
+
+var aryMapStyles =  [
+{
+  featureType: "poi.business",
+  elementType: "all",
+  stylers: [
+    {visibility: "off"}
+  ]
+}
+];
+
+function buildGoogleMap()
+{
   handler = Gmaps.build('Google');
-  var aryMapStyles =  [
-  {
-    featureType: "poi.business",
-    elementType: "all",
-    stylers: [
-      {visibility: "off"}
-    ]
-  }
-  ];
+  
   handler.buildMap({ 
     provider: {styles:aryMapStyles},
     internal: {id: 'map'}}, function(){
@@ -24,4 +29,9 @@ if(mapExists){
     var transitLayer = new google.maps.TransitLayer();
     transitLayer.setMap(handler.map.serviceObject);
   });
+
 }
+
+$(document).ready(function() {
+  buildGoogleMap()
+});

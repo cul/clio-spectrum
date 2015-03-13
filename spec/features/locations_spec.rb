@@ -8,7 +8,8 @@ describe 'Locations' do
     Rake.application.rake_require 'tasks/solr_ingest'
     Rake.application.rake_require 'tasks/sync_hours'
     Rake::Task.define_task(:environment)
-    Rake.application.invoke_task 'hours:sync'
+    # slooowwww....
+    # Rake.application.invoke_task 'hours:sync'
   end
   # NEXT-1118 - Avery link to "Make an Appointment"
   # OLD WAY - FROM APP_CONFIG - SHOWED UP ON /LOCATIONS/ PAGE
@@ -108,8 +109,9 @@ describe 'Locations' do
     expect(find('.gmap_container')['data-markers'].split('},{').count).to eq(26)
   end
 
-  context 'infowindow' do
+  context 'infowindow', type: :selenium do
     before{Capybara.current_driver = :selenium}
+
     it 'should display the infowindow for the current marker', js: true do
       visit location_display_path("Avery+%28Non-Circulating%29")
       expect(page).to have_css('.infowindow.avery')
@@ -125,6 +127,7 @@ describe 'Locations' do
       visit location_display_path("Barnard+Archives+%28Non-Circulating%29")
       expect(page).to have_css('.infowindow.barnard')
     end
+
   end
 
 end

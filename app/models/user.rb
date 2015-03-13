@@ -1,4 +1,5 @@
 require 'ipaddr'
+require 'resolv'
 
 class User < ActiveRecord::Base
   include Devise::Models::DatabaseAuthenticatable

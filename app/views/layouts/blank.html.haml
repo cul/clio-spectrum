@@ -6,13 +6,10 @@
     %title=(@page_title || application_name)
     %link{:href=>url_for(:controller=>'catalog',:action => 'opensearch', :format => 'xml', :only_path => false), :title=>application_name, :type=>"application/opensearchdescription+xml", :rel=>"search"}
 
-
-
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
 
     = yield(:jstemplates)
-
 
   %body.blank_layout
     = yield
