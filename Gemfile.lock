@@ -30,7 +30,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    abstract_type (0.0.7)
     actionmailer (3.2.18)
       actionpack (= 3.2.18)
       mail (~> 2.5.4)
@@ -58,14 +57,8 @@ GEM
     activesupport (3.2.18)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
-    adamantium (0.2.0)
-      ice_nine (~> 0.11.0)
-      memoizable (~> 0.4.0)
     addressable (2.3.6)
     arel (3.0.3)
-    arrayfields (4.9.2)
-    ast (2.0.0)
-    awesome_print (1.6.1)
     bcrypt (3.1.9)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
@@ -92,8 +85,6 @@ GEM
     caching_mailer (1.0)
       rails (~> 3.2.0)
     cancan (1.6.10)
-    cane (2.6.2)
-      parallel
     capistrano (2.15.5)
       highline
       net-scp (>= 1.0.0)
@@ -113,18 +104,6 @@ GEM
       json
     childprocess (0.5.5)
       ffi (~> 1.0, >= 1.0.11)
-    chronic (0.10.2)
-    churn (0.0.35)
-      chronic (>= 0.2.3)
-      hirb
-      json_pure
-      main
-      rest-client (>= 1.6.0)
-      ruby_parser (~> 3.0)
-      sexp_processor (~> 4.1)
-    code_analyzer (0.4.5)
-      sexp_processor
-    code_metrics (0.1.3)
     coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -133,11 +112,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
-    colored (1.2)
     columnize (0.9.0)
-    concord (0.1.5)
-      adamantium (~> 0.2.0)
-      equalizer (~> 0.0.9)
     daemons (1.1.9)
     database_cleaner (1.3.0)
     debug_inspector (0.0.2)
@@ -159,7 +134,6 @@ GEM
     diff-lcs (1.2.5)
     docile (1.1.5)
     ensure_valid_encoding (0.5.3)
-    equalizer (0.0.9)
     erubis (2.7.0)
     eventmachine (1.0.4)
     exception_notification (4.0.1)
@@ -171,14 +145,7 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
-    fattr (2.2.2)
     ffi (1.9.6)
-    flay (2.6.0)
-      ruby_parser (~> 3.0)
-      sexp_processor (~> 4.0)
-    flog (4.3.1)
-      ruby_parser (~> 3.1, > 3.1.0)
-      sexp_processor (~> 4.4)
     gmaps4rails (2.1.2)
     haml (4.0.6)
       tilt
@@ -190,16 +157,13 @@ GEM
     has_options (0.4.0)
     highline (1.6.21)
     hike (1.2.3)
-    hirb (0.7.2)
     httpclient (2.6.0.1)
     i18n (0.7.0)
-    ice_nine (0.11.1)
     journey (1.0.4)
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.2)
-    json_pure (1.8.2)
     kaminari (0.15.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -209,33 +173,10 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    main (6.1.0)
-      arrayfields (>= 4.7.4)
-      chronic (>= 0.6.2)
-      fattr (>= 2.2.0)
-      map (>= 5.1.0)
-    map (6.5.5)
     marc (0.8.2)
       ensure_valid_encoding
       scrub_rb (>= 1.0.1, < 2)
       unf
-    memoizable (0.4.2)
-      thread_safe (~> 0.3, >= 0.3.1)
-    metric_fu (4.11.2)
-      cane (~> 2.5, >= 2.5.2)
-      churn (~> 0.0.35)
-      code_metrics (~> 0.1)
-      coderay
-      flay (~> 2.1, >= 2.0.1)
-      flog (~> 4.1, >= 4.1.1)
-      launchy (~> 2.0)
-      metric_fu-Saikuro (~> 1.1, >= 1.1.3)
-      multi_json
-      rails_best_practices (~> 1.14, >= 1.14.3)
-      redcard
-      reek (~> 1.3, >= 1.3.4)
-      roodi (~> 3.1)
-    metric_fu-Saikuro (1.1.3)
     mime-types (1.25.1)
     mini_portile (0.6.2)
     multi_json (1.11.0)
@@ -249,18 +190,13 @@ GEM
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
     netrc (0.10.2)
-    newrelic_rpm (3.9.9.275)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     paper_trail (3.0.6)
       activerecord (>= 3.0, < 5.0)
       activesupport (>= 3.0, < 5.0)
-    parallel (1.3.3)
-    parser (2.2.0.2)
-      ast (>= 1.1, < 3.0)
     polyglot (0.3.5)
-    procto (0.0.2)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.4.5)
@@ -280,16 +216,6 @@ GEM
       activesupport (= 3.2.18)
       bundler (~> 1.0)
       railties (= 3.2.18)
-    rails_best_practices (1.15.4)
-      activesupport
-      awesome_print
-      code_analyzer (>= 0.4.3)
-      colored
-      erubis
-      i18n
-      json
-      require_all
-      ruby-progressbar
     railties (3.2.18)
       actionpack (= 3.2.18)
       activesupport (= 3.2.18)
@@ -297,23 +223,14 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    rainbow (2.0.0)
     rake (10.4.2)
     rb-fsevent (0.9.4)
     rdoc (3.12.2)
       json (~> 1.4)
-    redcard (1.1.0)
-    reek (1.6.4)
-      parser (~> 2.2.0.pre.7)
-      rainbow (>= 1.99, < 3.0)
-      unparser (~> 0.2.2)
     ref (1.0.5)
-    require_all (1.3.2)
     rest-client (1.7.2)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    roodi (3.3.1)
-      ruby_parser (~> 3.2, >= 3.2.2)
     rsolr (1.0.10)
       builder (>= 2.1.2)
     rspec (2.14.1)
@@ -335,9 +252,6 @@ GEM
     rspec-solr (1.0.1)
       rspec
     ruby-prof (0.15.3)
-    ruby-progressbar (1.7.1)
-    ruby_parser (3.6.4)
-      sexp_processor (~> 4.1)
     rubyzip (1.1.7)
     rvm-capistrano (1.5.4)
       capistrano (~> 2.15.4)
@@ -352,7 +266,6 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
-    sexp_processor (4.4.5)
     simplecov (0.9.1)
       docile (~> 1.1.0)
       multi_json (~> 1.0)
@@ -375,7 +288,6 @@ GEM
       eventmachine (~> 1.0)
       rack (~> 1.0)
     thor (0.19.1)
-    thread_safe (0.3.4)
     tilt (1.4.1)
     treetop (1.4.15)
       polyglot
@@ -384,19 +296,10 @@ GEM
     uglifier (2.7.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    underscore-rails (1.7.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.6)
     unicode (0.4.4.2)
-    unparser (0.2.2)
-      abstract_type (~> 0.0.7)
-      adamantium (~> 0.2.0)
-      concord (~> 0.1.5)
-      diff-lcs (~> 1.2.5)
-      equalizer (~> 0.0.9)
-      parser (~> 2.2.0.2)
-      procto (~> 0.0.2)
     warden (1.2.3)
       rack (>= 1.0)
     websocket (1.2.1)
@@ -436,10 +339,8 @@ DEPENDENCIES
   json
   kaminari (= 0.15.0)
   launchy
-  metric_fu
   mysql2
   net-ldap
-  newrelic_rpm
   nokogiri
   paper_trail
   quiet_assets
@@ -462,5 +363,4 @@ DEPENDENCIES
   therubyracer
   thin
   uglifier
-  underscore-rails (~> 1.7.0)
   unicode
