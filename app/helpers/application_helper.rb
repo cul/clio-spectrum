@@ -28,10 +28,13 @@ module ApplicationHelper
   def determine_search_params
     # raise
     if params['action'] == 'show'
+      return session['save_search']  if session['save_search']
       return session['search'] || {}
-    else
-      return params
     end
+    if params['q']
+      session['save_search'] = params
+    end
+    return params
   end
 
   # Copy functionality of BlackLight's sidebar_items,

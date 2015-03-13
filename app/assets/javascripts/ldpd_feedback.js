@@ -7,7 +7,6 @@ $(document).ready(function() {
           LWEB.feedbackDialogIsSetup = true;
         }
         LWEB.showFeedbackDialog();
-        return false;
     });
 
     $(window).resize(function(){

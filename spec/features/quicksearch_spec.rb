@@ -117,8 +117,17 @@ describe 'QuickSearch landing page' do
       find('img').click
       find('.category_title').should have_text "E-books from the Articles database"
     end
+  end
 
-
+  it "keeps search text between queries", js: true do
+    visit quicksearch_index_path
+    fill_in 'quicksearch_q', with: 'cats'
+    click_button 'Search'
+    first('.result_title').find('a').click
+    fill_in 'catalog_q', with: 'penguins'
+    click_button 'Search'
+    first('.result').find('a').click
+    expect(find('#catalog_q').value).to eq('penguins')
   end
 
 
