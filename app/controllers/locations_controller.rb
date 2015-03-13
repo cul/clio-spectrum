@@ -39,7 +39,6 @@ class LocationsController < ApplicationController
   def build_markers
     @library_api_info = JSON.parse(RestClient.get "http://api.library.columbia.edu/query.json",
                                    {params: {qt: 'location', locationID: 'alllocations'}})
-    debugger
     @locations = Location.all
     api_loc = @library_api_info.select{|m| m['locationID'] == @location['location_code']}
     api_display_name = api_loc.present? ? api_loc.first['displayName'] : nil
