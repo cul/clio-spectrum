@@ -2,15 +2,15 @@ require 'spec_helper'
 require 'rake'
 
 describe LocationsController do
-  let(:location) {create :location}
+  let(:locations){Location.all}
+  let(:current_location) {Location.find_by_location_code("avery")}
+
+  before do
+    controller.instance_variable_set(:@locations, Location.all)
+    controller.instance_variable_set(:@location, Location.find_by_location_code("avery"))
+  end
 
   describe "build_markers" do
-
-
-
-
-
-
     it "should query the Library API" do
       api_query = "http://api.library.columbia.edu/query.json", {:params=>{:qt=>"location", :locationID=>"alllocations"}}
       expect(RestClient).to receive(:get).with(api_query[0], api_query[1]).and_call_original
