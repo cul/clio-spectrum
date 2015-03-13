@@ -17,10 +17,7 @@ gem 'blacklight-marc'
 
 gem 'rest-client'
 gem 'gmaps4rails'
-# We already have a minified version of underscore
-# installed directly in our assets directory,
-# don't need this gem also.
-# gem 'underscore-rails', '~> 1.7.0'
+gem 'underscore-rails', '~> 1.7.0'
 
 # gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :tag => 'v2.1.0'
 
@@ -122,10 +119,9 @@ gem 'net-ldap'
 gem 'devise'
 gem 'devise-encryptable'
 
-# 3/15, comment out for now to simplify output,
-#  we can turn it back on when we want it again.
-# # application monitoring tool
-# gem 'newrelic_rpm'
+
+# application monitoring tool
+gem 'newrelic_rpm'
 
 
 # "Rack middleware which cleans up invalid UTF8 characters"
@@ -198,10 +194,7 @@ group :development do
   # Deploy with Capistrano
   gem 'capistrano', '~>2'
   gem 'capistrano-ext'
-
-  # don't show all those 'rendered...' lines in server logs
   gem 'quiet_assets'
-
   # fixes [morrison.cul.columbia.edu] sh: bundle: command not found
   gem 'rvm-capistrano'
 
@@ -215,9 +208,8 @@ group :development do
   # port of ruby-debug that works on 1.9.2 and 1.9.3
   gem 'debugger'
 
-  # We haven't used this for a while, turn it off for now.
-  # # "A fist full of code metrics"
-  # gem 'metric_fu'
+  # "A fist full of code metrics"
+  gem 'metric_fu'
 
   # Profiling experiments
   # https://www.coffeepowered.net/2013/08/02/ruby-prof-for-rails/
@@ -254,8 +246,8 @@ group :test do
   gem 'capybara'
   # gem 'capybara', '2.0.3'
 
+  # Which Capybara driver for JS support?
   gem 'capybara-webkit', '1.1.0'
-
   # dependent on localhost's browser configs
   gem 'selenium-webdriver', '2.45.0'
 

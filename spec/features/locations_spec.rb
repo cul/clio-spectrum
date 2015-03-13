@@ -3,14 +3,6 @@ require 'rake'
 
 describe 'Locations' do
 
-  before :all do
-    Location.clear_and_load_fixtures!
-    Rake.application.rake_require 'tasks/solr_ingest'
-    Rake.application.rake_require 'tasks/sync_hours'
-    Rake::Task.define_task(:environment)
-    # slooowwww....
-    # Rake.application.invoke_task 'hours:sync'
-  end
   # NEXT-1118 - Avery link to "Make an Appointment"
   # OLD WAY - FROM APP_CONFIG - SHOWED UP ON /LOCATIONS/ PAGE
   # it 'should include Location Notes', js: true do
