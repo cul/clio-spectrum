@@ -4,13 +4,6 @@ require 'rake'
 describe LocationsController do
   let(:locations){Location.all}
   let(:current_location) {Location.find_by_location_code("avery")}
-  before :all do
-    Location.clear_and_load_fixtures!
-    Rake.application.rake_require 'tasks/solr_ingest'
-    Rake.application.rake_require 'tasks/sync_hours'
-    Rake::Task.define_task(:environment)
-    Rake.application.invoke_task 'hours:sync'
-  end
 
   before do
     controller.instance_variable_set(:@locations, Location.all)

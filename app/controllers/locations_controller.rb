@@ -37,11 +37,9 @@ class LocationsController < ApplicationController
   end
 
   def build_markers
-    #TODO we want to map these to clio locations and display clio name in infowindow and top of page
     @library_api_info = JSON.parse(RestClient.get "http://api.library.columbia.edu/query.json",
                                    {params: {qt: 'location', locationID: 'alllocations'}})
     @locations = Location.all
-    #does location have a libr
     api_loc = @library_api_info.select{|m| m['locationID'] == @location['location_code']}
     api_display_name = api_loc.present? ? api_loc.first['displayName'] : nil
     @display_map = @location.location_code && api_display_name
