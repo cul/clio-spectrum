@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'rake'
 
 describe 'Locations' do
 
@@ -50,7 +49,7 @@ describe 'Locations' do
     page.should have_text("Call (646) 774 - 8613 between 9-5pm")
   end
 
-  it 'should have a map of butler if Location is Milstein', js: true do
+  it 'should have a map of Butler if Location is Milstein', js: true do
     visit location_display_path("Milstein+%5BButler%5D")
     expect(page).to have_css('.gmap_container')
     expect(page).to have_css('.well h1', text: "Butler Library")
@@ -71,14 +70,6 @@ describe 'Locations' do
     visit location_display_path("Orthopaedic+Surgery+Oversize+%28Non-Circulating%29")
     expect(page).not_to have_css('.gmap_container')
   end
-
-
-
-
-
-
-
-
 
   it 'should not show the map for Lehman Suites', js: true do
     visit location_display_path("Lehman+Suite%2C+406+SIA+%28Non-Circulating%29")

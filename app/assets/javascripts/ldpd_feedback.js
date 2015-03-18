@@ -43,19 +43,26 @@ LWEB.setupFeedbackDialog = function() {
         }
     );
 
+    $('.glyphicon-remove').css(
+        {
+        'position':'relative',
+        'right':'4px',
+        'top':'-6px',
+        }
+    );
+
     $('#feedback_dialog #close_feedback_dialog').css(
         {
         'position':'absolute',
-        'right' : '-14px',
-        'top' : '-14px',
+        'right' : '20px',
+        'top' : '8px',
         'display' : 'inline-block',
-        'width' : '16px',
-        'height' : '16px',
+        'width' : '1px',
+        'height' : '1px',
         'text-align' : 'center',
-        'border' : '2px solid #888',
-        'border-radius' : '20px',
+        'border' : 'none',
         'padding' : '5px',
-        'background-color' : '#fff'
+        'background-color' : '#EEEEFF'
         }
     );
 

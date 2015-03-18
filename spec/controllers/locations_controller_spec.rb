@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'rake'
 
 describe LocationsController do
   let(:locations){Location.all}
@@ -22,12 +21,7 @@ describe LocationsController do
       expect(assigns(:current_marker_index)).to eq(0)
     end
 
-    it 'should not have a marker for chrdr' do
-      markers = controller.build_markers
-      expect(markers).not_to match(/chrdr/)
-    end
-
-    it 'should not blow up on Lehman Suites' do
+    it 'should not have a marker for location that does not have a map' do
       markers = controller.build_markers
       expect(markers).not_to match(/chrdr/)
     end
