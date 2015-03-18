@@ -31,9 +31,9 @@ describe 'Databases', focus: false do
       click_link('Academic Commons')
     end
 
-    expect(find('#search_info')).to have_text 'Back to Results'
-    expect(find('#search_info')).to have_text 'Previous'
-    expect(find('#search_info')).to have_text 'Next'
+    find('#search_info').should have_text 'Back to Results'
+    find('#search_info').should have_text 'Previous'
+    find('#search_info').should have_text 'Next'
     find('.start_over', text: 'Start Over')
 
     expect(page).to have_text 'Previous title: DigitalCommons'
@@ -49,20 +49,20 @@ describe 'Databases', focus: false do
       click_link 'Back to Results'
     end
 
-    expect(find('.constraints-container')).to have_text 'You searched for: Starts With: Is A'
+    find('.constraints-container').should have_text 'You searched for: Starts With: Is A'
   end
 
   it 'should search by pairs of Discipline/Resource-Type filters correctly' do
    visit root_path
     # We should now be on QUICKSEARCH page
-   expect(find('.landing_main .title')).to have_text('Quicksearch')
+   find('.landing_main .title').should have_text('Quicksearch')
     # page.save_and_open_page # debug
 
    within('li.datasource_link[source="databases"]') do
      click_link('Databases')
    end
     # We should now be on DATABASES page
-   expect(find('.landing_main .title')).to have_text('Databases')
+   find('.landing_main .title').should have_text('Databases')
 
     # Databases landing page...
    within 'div.databases_browse_by' do

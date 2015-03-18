@@ -12,28 +12,28 @@ describe 'Saved List Interface' do
   it 'Capybara should let us login and logout and login again', xfocus: true do
     # Not yet logged in - navbar shows un-authenticated message
     visit catalog_index_path
-    expect(find('#topnavbar')).to have_text 'My Library Account'
+    find('#topnavbar').should have_text 'My Library Account'
 
     # Login as the first user, verify the name shows in the nav bar
     feature_login @autodidact
 
     visit catalog_index_path
-    expect(find('#topnavbar')).to have_text @autodidact.login
+    find('#topnavbar').should have_text @autodidact.login
 
     # Logout - navbar shows un-authenticated message
     feature_logout
     visit catalog_index_path
-    expect(find('#topnavbar')).to have_text 'My Library Account'
+    find('#topnavbar').should have_text 'My Library Account'
 
     # Login as the second user, verify the (second user's) name shows in the nav bar
     feature_login @blatteroon
     visit catalog_index_path
-    expect(find('#topnavbar')).to have_text @blatteroon.login
+    find('#topnavbar').should have_text @blatteroon.login
 
     # Logout - navbar shows un-authenticated message
     feature_logout
     visit catalog_index_path
-    expect(find('#topnavbar')).to have_text 'My Library Account'
+    find('#topnavbar').should have_text 'My Library Account'
   end
 
   it 'should give no access to anonymous users' do

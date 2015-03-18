@@ -28,25 +28,25 @@ describe 'E-Journals Search' do
 
     # page.save_and_open_page # debug
 
-    expect(find('#search_info')).to have_text '1 of '
+    find('#search_info').should have_text '1 of '
     expect(page).to_not have_css('#search_info a', text: 'Previous')
     expect(page).to have_css('#search_info a', text: 'Next')
 
     find('#search_info a', text: 'Next').click
 
-    expect(find('#search_info')).to have_text '2 of '
+    find('#search_info').should have_text '2 of '
     expect(page).to have_css('#search_info a', text: 'Previous')
     expect(page).to have_css('#search_info a', text: 'Next')
 
     find('#search_info a', text: 'Previous').click
 
-    expect(find('#search_info')).to have_text '1 of '
+    find('#search_info').should have_text '1 of '
     expect(page).to_not have_css('#search_info a', text: 'Previous')
     expect(page).to have_css('#search_info a', text: 'Next')
 
     find('#search_info a', text: 'Back to Results').click
 
-    expect(find('.constraints-container')).to have_text 'You searched for: letters'
+    find('.constraints-container').should have_text 'You searched for: letters'
 
   end
 

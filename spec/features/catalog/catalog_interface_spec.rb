@@ -8,7 +8,7 @@ describe 'Catalog Interface' do
     visit catalog_path('7814900')
 
     # Find the 880 data for bib 7814900 within the info display
-    expect(find('.info')).to have_content('Other Information: Leaf 1 contains laws on the Torah reading')
+    find('.info').should have_content('Other Information: Leaf 1 contains laws on the Torah reading')
   end
 
   # NEXT-765 - MARC 787 field (Related To) not showing up
@@ -17,7 +17,7 @@ describe 'Catalog Interface' do
     visit catalog_path('7419929')
 
     # Find the 787 data for bib 7419929
-    expect(find('.info')).to have_content('Related To Xia intelligenteArchitektur')
+    find('.info').should have_content('Related To Xia intelligenteArchitektur')
   end
 
   # NEXT-917 - Summary showing up twice for video records
@@ -77,13 +77,13 @@ describe 'Catalog Interface' do
     visit catalog_path('513297')
 
     # Should see the 'Full View' message in the Hathi Holdings box
-    expect(find('#hathi_holdings .hathi_info #hathidata')).to have_content('Full view')
+    find('#hathi_holdings .hathi_info #hathidata').should have_content('Full view')
 
     # visit this specific item
     visit catalog_path('4043762')
 
     # Should see the 'Limited (search-only)' message in the Hathi Holdings box
-    expect(find('#hathi_holdings .hathi_info #hathidata')).to have_content('Limited (search-only)')
+    find('#hathi_holdings .hathi_info #hathidata').should have_content('Limited (search-only)')
   end
 
   # NEXT-931 - Online Links in Holdings (not in the Bib) should display
@@ -93,11 +93,11 @@ describe 'Catalog Interface' do
 
     # within CLIO HOLDINGS, not the regular Online div...
     # ...should see an 'Online' block
-    expect(find('div#clio_holdings')).
-        to have_content('Online')
+    find('div#clio_holdings').
+      should have_content('Online')
     # ...should see the specific URL...
-    expect(find('div#clio_holdings')).
-        to have_content('http://www.neighborhoodpreservationcenter.org/')
+    find('div#clio_holdings').
+      should have_content('http://www.neighborhoodpreservationcenter.org/')
 
     # And, contrariwise, other Avery Online material, which does not have
     # an 856 URL in the Holdings record, should display 'Online' within the
@@ -105,10 +105,10 @@ describe 'Catalog Interface' do
     visit catalog_path('10099362')
 
     # within ONLINE HOLDINGS, SHOULD see an 'Online' block
-    expect(find('div#online_holdings')).to have_content('Online')
+    find('div#online_holdings').should have_content('Online')
 
     # within CLIO HOLDINGS, should NOT see an 'Online' block
-    # expect('div#clio_holdings').to_not have_content("Online")
+    # find('div#clio_holdings').should_not have_content("Online")
     # Now, Online-Only items no longer have any CLIO Holdings div at all!
     expect(page).to have_no_selector('div#clio_holdings')
 
@@ -127,13 +127,13 @@ describe 'Catalog Interface' do
     visit catalog_index_path(q: target1, search_field: 'title_starts_with')
 
     # should see the full location
-    expect(find('#documents')).to have_content(troublesome1)
+    find('#documents').should have_content(troublesome1)
 
     # go to the item-detail page..
     click_link(target1)
 
     # within CLIO HOLDINGS, should get the full location data
-    expect(find('div#clio_holdings')).to have_content(troublesome1)
+    find('div#clio_holdings').should have_content(troublesome1)
 
     # And again, with slightly different sample...
 
@@ -141,13 +141,13 @@ describe 'Catalog Interface' do
     visit catalog_index_path('q' => target2)
 
     # should see the full location
-    expect(find('#documents')).to have_content(troublesome2)
+    find('#documents').should have_content(troublesome2)
 
     # go to the item-detail page..
     click_link(target2)
 
     # within CLIO HOLDINGS, should get the full location data
-    expect(find('div#clio_holdings')).to have_content(troublesome2)
+    find('div#clio_holdings').should have_content(troublesome2)
   end
 
   it "supports alternative viewstyle options ('Standard' or 'Compact')", js: true do
@@ -174,7 +174,7 @@ describe 'Catalog Interface' do
   describe 'share by email' do
     it 'supports an email function, directly' do
       visit email_catalog_path(id: 12_345)
-      expect(find(page)).to have_text('Share selected item(s) via email')
+      expect(page).to have_text('Share selected item(s) via email')
       within '#email_form' do
         fill_in 'to', with: 'marquis@columbia.edu'
         fill_in 'message', with: 'testing'
@@ -192,7 +192,7 @@ describe 'Catalog Interface' do
       #
       # NEXT 910 - Add some directions, and optionally email and Name, to the email form
       #
-      expect(find('.modal-header')).to have_text('Share selected item(s) via email')
+      find('.modal-header').should have_text('Share selected item(s) via email')
 
       within '#email_form' do
         fill_in 'to', with: 'marquis@columbia.edu'
@@ -224,7 +224,7 @@ describe 'Catalog Interface' do
 
     expect(page).to have_css('div.debug_instruction')
     expect(page).to have_css('div.debug_entries')
-    expect(find('.debug_instruction')).to have_text('Debug mode is on. Turn it off')
+    find('.debug_instruction').should have_text('Debug mode is on. Turn it off')
     within('div.debug_instruction') do
       click_link 'off'
     end
@@ -274,8 +274,8 @@ describe 'Catalog Interface' do
   it 'should show menu-option "Request(s)"', :js => true do
     visit catalog_path('10905238')
     # Should use consistent language
-    expect(find('#show_toolbar')).to have_text "Requests"
-    expect(find('#clio_holdings')).to have_text "Request"
+    find('#show_toolbar').should have_text "Requests"
+    find('#clio_holdings').should have_text "Request"
   end
 
 
@@ -384,7 +384,7 @@ end
 #
 #     expect(page).to have_css('.modal-scrollable .modal .modal-header')
 #     # puts find('.modal-header').text.inspect #.should have_text('Email Item(s)')
-#     expect(find('.modal-header')).to have_text('Email Item(s)')
+#     find('.modal-header').should have_text('Email Item(s)')
 #
 #     within '#email_form' do
 #       fill_in 'to', :with => 'delete@library.columbia.edu'

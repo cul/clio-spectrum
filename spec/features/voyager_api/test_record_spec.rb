@@ -42,8 +42,8 @@ describe 'record tests', js: true do
       visit catalog_path('5602687')
       within ('div#clio_holdings') do
         expect(page).not_to have_content('Donor:')
-        expect(find(page)).to have_content('Paul Levitz; 2012.')
-        expect(find(page)).to have_css('.donor_info_icon')
+        expect(page).to have_content('Paul Levitz; 2012.')
+        expect(page).to have_css('.donor_info_icon')
       end
     end
 
@@ -51,8 +51,8 @@ describe 'record tests', js: true do
       visit catalog_path('9576776')
       within ('div#clio_holdings') do
         expect(page).not_to have_content('Donor:')
-        expect(find(page)).to have_content('John Morrow; 2013')
-        expect(find(page)).to have_css('.donor_info_icon')
+        expect(page).to have_content('John Morrow; 2013')
+        expect(page).to have_css('.donor_info_icon')
       end
     end
 
@@ -60,8 +60,8 @@ describe 'record tests', js: true do
       visit catalog_path('36114')
       within ('div#clio_holdings') do
         expect(page).not_to have_content('Donor:')
-        expect(find(page)).to have_content('Seymour Durst; 2012.')
-        expect(find(page)).to have_css('.donor_info_icon')
+        expect(page).to have_content('Seymour Durst; 2012.')
+        expect(page).to have_css('.donor_info_icon')
       end
     end
   end

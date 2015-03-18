@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SavedListsController do
+describe SavedListsController, type: :controller do
 
   before(:each) do
     @first_user_name = 'user_alpha'
@@ -12,16 +12,16 @@ describe SavedListsController do
   it "anonymous users can't do much" do
     delete :destroy,  id: 1
     # page.save_and_open_page # debug
-    response.status.should be(302)
+    expect(response.status).to be(302)
     # Can't figure this out....
-    # response.should redirect_to location: 'http://wind.columbia.edu/login'
-    # response.should redirect_to %r(\Ahttp://wind.columbia.edu/login)
+    # expect(response).to redirect_to location: 'http://wind.columbia.edu/login'
+    # expect(response).to redirect_to %r(\Ahttp://wind.columbia.edu/login)
 
     put :update,  id: 1
     # page.save_and_open_page # debug
-    response.status.should be(302)
+    expect(response.status).to be(302)
     # Can't figure this out....
-    # response.should redirect_to %r(\Ahttp://wind.columbia.edu/login)
+    # expect(response).to redirect_to %r(\Ahttp://wind.columbia.edu/login)
   end
 
   it 'authenticated users can interact...' do
@@ -32,14 +32,14 @@ describe SavedListsController do
 
     # Try to delete a non-existant list
     delete :destroy,  id: 9_999_999
-    response.status.should be(302)
-    response.should redirect_to(root_path)
+    expect(response.status).to be(302)
+    expect(response).to redirect_to(root_path)
     flash[:error].should =~ /Cannot access list/i
 
     # Try to update a non-existant list
     put :update,  id: 9_999_999
-    response.status.should be(302)
-    response.should redirect_to(root_path)
+    expect(response.status).to be(302)
+    expect(response).to redirect_to(root_path)
     flash[:error].should =~ /Cannot access list/i
   end
 

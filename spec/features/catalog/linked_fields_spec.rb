@@ -179,7 +179,7 @@ describe 'Linked field-values in single-item display', focus: false do
     expect(page).to have_text "You searched for: Series: Collezione Confronti/consensi"
     expect(page).to_not have_text('No results')
     expect(page).to_not have_text('1 of 5')
-    expect(find('#documents')).to have_text 'Lo specchio acceso : narrativa italiana'
+    find('#documents').should have_text 'Lo specchio acceso : narrativa italiana'
   end
 
   # NEXT-1066 - Series link on this record does not retrieve other records in CLIO.
@@ -197,11 +197,11 @@ describe 'Linked field-values in single-item display', focus: false do
     expect(page).to_not have_text('No results')
     expect(page).to have_text('1 - 4 of 4')
     # list out four title snippets to look for...
-    expect(find('#documents')).to have_text 'Hityashvut ha-Germanim'
-    expect(find('#documents')).to have_text '18th century; patterns of government'
-    expect(find('#documents')).to have_text '1918-1929'
+    find('#documents').should have_text 'Hityashvut ha-Germanim'
+    find('#documents').should have_text '18th century; patterns of government'
+    find('#documents').should have_text '1918-1929'
     title_4 = 'ha-ʻUlama u-veʻayot dat ba-ʻolam ha-Muslemi : meḥḳarim le-zekher Uriʾel Hed'
-    expect(find('#documents')).to have_text title_4.mb_chars.normalize(:d)
+    find('#documents').should have_text title_4.mb_chars.normalize(:d)
   end
 
   # NEXT-1107 - Pre-composed characters in facets
@@ -213,8 +213,8 @@ describe 'Linked field-values in single-item display', focus: false do
     click_link('H. Erdem, 1971')
     expect(page).to have_text('1 - 2 of 2')
     within('#facet-author li', text: 'Erdem') do
-      expect(find('.facet-label')).to have_text "Çıpa, H. Erdem, 1971"
-      expect(find('.facet-count')).to have_text "2"
+      find('.facet-label').should have_text "Çıpa, H. Erdem, 1971"
+      find('.facet-count').should have_text "2"
     end
 
     visit catalog_path(10551688)
@@ -222,8 +222,8 @@ describe 'Linked field-values in single-item display', focus: false do
     click_link('H. Erdem, 1971')
     expect(page).to have_text('1 - 2 of 2')
     within('#facet-author li', text: 'Erdem') do
-      expect(find('.facet-label')).to have_text "Çıpa, H. Erdem, 1971"
-      expect(find('.facet-count')).to have_text "2"
+      find('.facet-label').should have_text "Çıpa, H. Erdem, 1971"
+      find('.facet-count').should have_text "2"
     end
   end
 end

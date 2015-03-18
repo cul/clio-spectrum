@@ -32,9 +32,9 @@ describe 'Articles Search' do
     # click('Search')
     click_button 'Search'
 
-    expect(find('.well-constraints')).to have_content('Author: Stiglitz')
-    expect(find('.well-constraints')).to have_content('Title: Economics')
-    expect(find('.well-constraints')).to have_content('Publication Title: Journal')
+    find('.well-constraints').should have_content('Author: Stiglitz')
+    find('.well-constraints').should have_content('Title: Economics')
+    find('.well-constraints').should have_content('Publication Title: Journal')
 
     page.all('#documents .result').count.should be >= 10
 
@@ -47,14 +47,14 @@ describe 'Articles Search' do
     within('li.datasource_link[source="articles"]') do
       click_link('Articles')
     end
-    expect(find('#articles_q')).to be_visible
+    find('#articles_q').should be_visible
 
     # TODO
     # expect(page).to have_no_selector('.landing_page.articles .advanced_search')
-    # expect('.landing_page.articles .advanced_search').to_not be_visible
+    # find('.landing_page.articles .advanced_search').should_not be_visible
 
     find('.search_box.articles .advanced_search_toggle').click
-    expect(find('.landing_page.articles .advanced_search')).to be_visible
+    find('.landing_page.articles .advanced_search').should be_visible
     within '.landing_page.articles .advanced_search' do
       fill_in 'publicationtitle', with: 'test'
 
@@ -62,7 +62,7 @@ describe 'Articles Search' do
 
     end
 
-    expect(find('.well-constraints')).to have_content('Publication Title')
+    find('.well-constraints').should have_content('Publication Title')
   end
 
   # NEXT-622 - Basic Articles Search should have a pull-down for fielded search
@@ -70,7 +70,7 @@ describe 'Articles Search' do
   it 'should let you perform a fielded search from the basic search', js: true do
     visit articles_index_path
     within '.search_box.articles' do
-      expect(find('#articles_q')).to be_visible
+      find('#articles_q').should be_visible
       fill_in 'q', with: 'catmull, ed'
       find('btn.dropdown-toggle').click
       within '.dropdown-menu' do
@@ -81,13 +81,13 @@ describe 'Articles Search' do
 
     # Search string and search field should be preserved
     find('#articles_q').value.should eq 'catmull, ed'
-    expect(find('.btn.dropdown-toggle')).to have_content('Author')
+    find('.btn.dropdown-toggle').should have_content('Author')
 
     # The entered fielded search should be echoed on the results page
-    expect(find('.well-constraints')).to have_content('Author: catmull, ed')
+    find('.well-constraints').should have_content('Author: catmull, ed')
 
     # And the search results too
-    expect(find('#documents')).to have_content('Author Catmull')
+    find('#documents').should have_content('Author Catmull')
 
     # AND, add in some test related to pub-date sorting...
 

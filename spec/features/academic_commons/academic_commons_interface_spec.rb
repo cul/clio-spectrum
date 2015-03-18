@@ -2,18 +2,20 @@
 
 require 'spec_helper'
 
-describe 'Academic Commons', focus: false do
-  # Use this string within the below tests
-  search_title_text = 'Structural and Functional Microbial Ecology'
+describe 'Academic Commons' do
 
   it 'fielded search should work', js: true do
+    # Use this string within the below tests
+    search_title_text = 'Structural and Functional Microbial Ecology'
+
     visit root_path
+
     within('li.datasource_link[source="academic_commons"]') do
       click_link('Academic Commons')
     end
 
     within '.search_box.academic_commons' do
-      expect(find('#academic_commons_q')).to be_visible
+      find('#academic_commons_q').should be_visible
       fill_in 'q', with: search_title_text
       find('btn.dropdown-toggle').click
       within '.dropdown-menu' do
@@ -25,13 +27,13 @@ describe 'Academic Commons', focus: false do
 
     # Search string and search field should be preserved
     find('#academic_commons_q').value.should eq search_title_text
-    expect(find('.btn.dropdown-toggle')).to have_content('Title')
+    find('.btn.dropdown-toggle').should have_content('Title')
 
     # The entered fielded search should be echoed on the results page
-    expect(find('.constraints-container')).to have_content('Title: ' + search_title_text)
+    find('.constraints-container').should have_content('Title: ' + search_title_text)
 
     # And the search results too
-    expect(find('#documents')).to have_content(search_title_text)
+    find('#documents').should have_content(search_title_text)
 
     within '#documents' do
       # The example title should be a link to the item's handle
@@ -43,7 +45,6 @@ describe 'Academic Commons', focus: false do
       # There should also be a Handle link to handle.net
       href = find_link('http://hdl.handle.net/10022/AC:P:')[:href]
       href.should match /http:\/\/hdl.handle.net\/10022\/AC:P:/
-
     end
 
     # We can't validate remote websites without adding extra gems to our
@@ -55,7 +56,7 @@ describe 'Academic Commons', focus: false do
     visit quicksearch_index_path('q' => 'portuguese')
     within('.nested_result_set[data-source=academic_commons]') do
       # We should find at least one of these...
-      expect(find(page)).to have_css('.result_title a')
+      expect(page).to have_css('.result_title a')
       # and each one we find must satisfy this assertion.
       all('.result_title a').each do |link|
         link['href'].should satisfy { |url|
@@ -69,15 +70,17 @@ describe 'Academic Commons', focus: false do
     let(:search_results){find('.results_header[data-source=academic_commons]')}
     before do
       visit quicksearch_index_path('q' => 'Investigations into the Metabolic Requirements for Lipoic Acid')
-      expect(find(page)).to have_css('.results_header[data-source=academic_commons]')
+      expect(page).to have_css('.results_header[data-source=academic_commons]')
     end
     it "search results have links to handle or ac page" do
-      expect(find(page)).to have_xpath("//div[@source=\"academic_commons\"]/div[@class=\"result_title\"]/a", count: 3)
+      expect(page).to have_xpath("//div[@source=\"academic_commons\"]/div[@class=\"result_title\"]/a", count: 3)
       all(:xpath, "//div[@source=\"academic_commons\"]/div[@class=\"result_title\"]/a").each do |link|
-        expect(find(link['href'])).to match(/http:\/\/dx.doi.org\/|http:\/\/hdl.handle.net\/|http:\/\/academiccommons.columbia.edu\/catalog\/ac/)
+        expect(link['href']).to match(/http:\/\/dx.doi.org\/|http:\/\/hdl.handle.net\/|http:\/\/academiccommons.columbia.edu\/catalog\/ac/)
       end
     end
   end
+
+
 end
 
 
