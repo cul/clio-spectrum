@@ -68,6 +68,11 @@ require 'rubygems'
     # http://stackoverflow.com/questions/15148585/undefined-method-visit
     config.include Capybara::DSL
 
+    # Allow developers to turn off selenium-based testing
+    # with a local setting in their app_config.yml
+    config.filter_run_excluding :type => 'selenium' if
+        APP_CONFIG['skip_selenium_tests']
+
   end
 
 # end

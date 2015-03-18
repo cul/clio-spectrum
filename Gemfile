@@ -25,7 +25,6 @@ gem 'blacklight-marc'
 
 gem 'rest-client'
 gem 'gmaps4rails'
-gem 'underscore-rails', '~> 1.7.0'
 
 # gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :tag => 'v2.1.0'
 
@@ -136,10 +135,6 @@ gem 'devise'
 gem 'devise-encryptable'
 
 
-# application monitoring tool
-gem 'newrelic_rpm'
-
-
 # "Rack middleware which cleans up invalid UTF8 characters"
 # gem 'rack-utf8_sanitizer'
 # Use github master branch, to pick up a few new patches.
@@ -225,7 +220,7 @@ group :development do
   gem 'debugger'
 
   # "A fist full of code metrics"
-  gem 'metric_fu'
+  # gem 'metric_fu'
 
   # Profiling experiments
   # https://www.coffeepowered.net/2013/08/02/ruby-prof-for-rails/
@@ -265,7 +260,7 @@ group :test do
   # Which Capybara driver for JS support?
   gem 'capybara-webkit', '1.1.0'
   # dependent on localhost's browser configs
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '2.45.0'
 
   gem 'launchy'
   gem 'database_cleaner'
