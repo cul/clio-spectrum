@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SavedListsController, type: :controller do
+describe SavedListsController do
 
   before(:each) do
     @first_user_name = 'user_alpha'

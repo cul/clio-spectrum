@@ -73,6 +73,10 @@ require 'rubygems'
     config.filter_run_excluding :type => 'selenium' if
         APP_CONFIG['skip_selenium_tests']
 
+    # This says to assume things in spec/controllers are controller
+    # specs, etc.  No longer automatic with new rspec?
+    config.infer_spec_type_from_file_location!
+
   end
 
 # end

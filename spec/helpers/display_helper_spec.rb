@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe DisplayHelper do
 
-  it 'should return top-level Pegasus Link' do
+  it 'should return top-level Pegasus Link', type: :helper do
     pegasus_url = 'http://pegasus.law.columbia.edu'
 
     link = pegasus_item_link(nil)
-    link.should have_text(pegasus_url)
-    link.should match(/href=.#{pegasus_url}./)
+    expect(link).to have_text(pegasus_url)
+    expect(link).to match(/href=.#{pegasus_url}./)
   end
 
   it 'should return formats as text when appropriate' do
@@ -49,7 +49,7 @@ describe DisplayHelper do
       allow(document).to receive(:[]).with(:subject_geo_facet).and_return(["Antarctica"])
       allow(document).to receive(:[]).with(:subject_era_facet).and_return(["Ice Age"])
       coin = catalog_to_openurl_ctx_kev(document)
-      expect(find(coin)).to match('rft.au=unknown')
+      expect(coin).to match('rft.au=unknown')
     end
     context 'music recording' do
       it 'should return correct coin' do
@@ -67,7 +67,7 @@ describe DisplayHelper do
         allow(document).to receive(:[]).with(:subject_era_facet).and_return(["Ice Age"])
         coin = catalog_to_openurl_ctx_kev(document)
         music_coin = /ctx_ver=Z39\.88-2004&rft.au=unknown&rft\.title=Norton\+recorded\+anthology\+of\+western\+music&rft\.pub=Naxos&rft.pub=W.W.+Norton&rft\.date=2014&rft\.date=%E2%84%972014&rft\.place=United\+States&rft\.place=New\+York&rft\.isbn=9780393936872&rft\.isbn=0393936872&rft\.isbn=9780393936889&rft\.isbn=0393936880&rft\.isbn=9780393936896&rft.subject=Musical\+analysis&rft.subject=Music\+appreciation&rft.subject=Music\+collections&rft.subject=Antarctica&rft.subject=Ice\+Age&rft_val_fmt=info\:ofi\/fmt\:kev\:mtx\:dc&rft\.type=audioRecording$/
-        expect(find(coin)).to match(music_coin)
+        expect(coin).to match(music_coin)
       end
     end
     context 'non-musical sound recording' do
@@ -87,7 +87,7 @@ describe DisplayHelper do
         allow(document).to receive(:[]).with(:subject_era_facet)
         coin = catalog_to_openurl_ctx_kev(document)
         sound_coin = /ctx_ver=Z39\.88-2004&rft\.au=Cosby%2C\+Bill%2C\+1937-&rft\.title=I\+started\+out\+as\+a\+child\+%5Bsound\+recording%5D\+%3A\+the\+wit\+of\+Bill\+Cosby&rft\.date=1964&rft\.place=Burbank%2C\+Calif&rft_val_fmt=info\:ofi\/fmt\:kev\:mtx\:dc&rft\.type=audioRecording$/
-        expect(find(coin)).to match(sound_coin)
+        expect(coin).to match(sound_coin)
       end
     end
     context 'video' do
@@ -106,7 +106,7 @@ describe DisplayHelper do
         allow(document).to receive(:[]).with(:subject_era_facet)
         coin = catalog_to_openurl_ctx_kev(document)
         video_coin = /ctx_ver=Z39\.88-2004&rft\.au=unknown&rft\.title=Labyrinth\+%5Bvideorecording\+%28DVD%29%5D&rft\.pub=Columbia\+TriStar\+Home\+Entertainment&rft\.date=2003&rft\.place=Culver\+City%2C\+Calif\.&rft_val_fmt=info:ofi\/fmt:kev:mtx:dc&rft\.type=videoRecording$/
-        expect(find(coin)).to match(video_coin)
+        expect(coin).to match(video_coin)
       end
     end
     context 'book' do
@@ -125,7 +125,7 @@ describe DisplayHelper do
         allow(document).to receive(:[]).with(:subject_era_facet)
         coin = catalog_to_openurl_ctx_kev(document)
         book_coin = /ctx_ver=Z39\.88-2004&rft\.au=Troy%2C\+Nancy\+J\.&rft\.title=Mondrian\+and\+neo-plasticism\+in\+America&rft\.pub=Yale\+University\+Art\+Gallery&rft\.date=1964&rft\.place=Burbank%2C\+Calif&rft\.isbn=0894670115&rft_val_fmt=info:ofi\/fmt:kev:mtx:dc&rft\.type=book&rft\.btitle=Mondrian\+and\+neo-plasticism\+in\+America&rft\.genre=book$/
-        expect(find(coin)).to match(book_coin)
+        expect(coin).to match(book_coin)
       end
     end
   end
@@ -135,12 +135,12 @@ describe DisplayHelper do
     it 'links to academiccommons when it has no handle' do
       allow(document).to receive(:[]).with("handle").and_return(nil)
       allow(document).to receive(:[]).with("id").and_return('ac:1234')
-      expect(find(academic_commons_title_link(document))).to eq("http://academiccommons.columbia.edu/catalog/#{document["id"]}")
+      expect(academic_commons_title_link(document)).to eq("http://academiccommons.columbia.edu/catalog/#{document["id"]}")
     end
     it 'links to handle when it has one' do
       allow(document).to receive(:[]).with("handle").and_return("http://hdl.handle.net/ac:22007")
       allow(document).to receive(:[]).with("id").and_return('ac:1234')
-      expect(find(academic_commons_title_link(document))).to eq("http://hdl.handle.net/ac:22007")
+      expect(academic_commons_title_link(document)).to eq("http://hdl.handle.net/ac:22007")
     end
 
   end
@@ -157,7 +157,7 @@ describe DisplayHelper do
         allow(document).to receive(:[]).with(:type_of_resource_mods).and_return("sound recording--musical")
         music_coin = /ctx_ver=Z39\.88-2004&rft_val_fmt=info\:ofi\/fmt\:kev\:mtx\:dc\&rft\.type\=audioRecording\&rft\.title=Chorale\+Labyrinth\&rft_id\=http%3A%2F%2Facademiccommons\.columbia\.edu%2Fcatalog%2Fac%3A155943&rft\.au=Patterson%2C\+Nick\+J\.$/
         coin = ac_to_openurl_ctx_kev(document)
-        expect(find(coin)).to match(music_coin)
+        expect(coin).to match(music_coin)
       end
     end
     context 'non-musical sound recording' do
@@ -170,7 +170,7 @@ describe DisplayHelper do
         allow(document).to receive(:[]).with(:title_display).and_return("Ambiguous Borders")
         sound_coin = /ctx_ver=Z39\.88-2004&rft_val_fmt=info\:ofi\/fmt\:kev\:mtx\:dc\&rft\.type\=audioRecording\&rft\.title=Ambiguous\+Borders\&rft_id\=http%3A%2F%2Facademiccommons\.columbia\.edu%2Fcatalog%2Fac%3A175475&rft\.au=Geis%2C\+Shannon$/
         coin = ac_to_openurl_ctx_kev(document)
-        expect(find(coin)).to match(sound_coin)
+        expect(coin).to match(sound_coin)
       end
     end
     context 'text document' do
@@ -183,7 +183,7 @@ describe DisplayHelper do
         allow(document).to receive(:[]).with(:pub_date_sort)
         text_coin = /tx_ver=Z39\.88-2004&rft_val_fmt=info:ofi\/fmt:kev:mtx:journal\&rft\.atitle=Governing\+Imperial\+Borders%3A\+Insights\+from\+the\+Study\+of\+the\+Implementation\+of\+Law\+in\+Qing\+Xinjiang\&rft_id=http%3A%2F%2Facademiccommons\.columbia\.edu%2Fcatalog%2Fac%3A161289&rft\.au=Tian%2C\+Huan$/
         coin = ac_to_openurl_ctx_kev(document)
-        expect(find(coin)).to match(text_coin)
+        expect(coin).to match(text_coin)
       end
     end
   end

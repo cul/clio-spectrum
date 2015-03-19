@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ItemAlertsController, type: :controller do
+describe ItemAlertsController do
 
   describe 'Create, Read, Update, Delete...' do
 

@@ -239,6 +239,9 @@ group :test, :development do
   # because is says to: https://github.com/rspec/rspec-rails
   # gem 'rspec-rails', '>=2.14'
   gem 'rspec-rails'
+  # rspec mocks are externalized in an another gem rspec-activemodel-mocks
+  # http://stackoverflow.com/a/24060582/1343906
+  gem 'rspec-activemodel-mocks'
 end
 
 group :test do

@@ -7,7 +7,7 @@ describe HoldingsHelper do
     fake_bib = '1999'
     linkset = service_links(non_http_services, fake_bib)
 
-    linkset.length.should eq non_http_services.length
+    expect(linkset.length).to eq non_http_services.length
 
     (0 .. non_http_services.length - 1).each do |i|
       # lookup definition, then from this infer the anchor text and href
@@ -17,8 +17,8 @@ describe HoldingsHelper do
 
       # the link returned from the helper method should match expectations
       link       = linkset[i]
-      link.should have_text(expected_text)
-      link.should include(expected_href)
+      expect(link).to have_text(expected_text)
+      expect(link).to match /#{expected_href}/
     end
 
   end

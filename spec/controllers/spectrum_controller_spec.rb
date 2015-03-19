@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SpectrumController, type: :controller do
+describe SpectrumController do
 
   describe "GET 'search'" do
     it 'returns http success' do
@@ -25,7 +25,7 @@ describe SpectrumController, type: :controller do
     it 'errors on bad input' do
       get 'fetch', layout: 'No Such Layout', datasource: 'catalog'
       expect(response).to be_success
-      expect(response.body).to =~ /search layout invalid/i
+      expect(response.body).to match(/search layout invalid/i)
     end
   end
 

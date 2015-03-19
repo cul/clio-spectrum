@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ApplicationController, type: :controller do
+describe ApplicationController do
 
   describe 'Browser Options Set/Get' do
 
