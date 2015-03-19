@@ -2,9 +2,6 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-# Suddenly getting 'NameError: uninitialized constant RSpec::Matchers'
-# resolve with this:
-require 'rspec-expectations'
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.

@@ -14,6 +14,10 @@ require 'rubygems'
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
 
+  # Suddenly getting 'NameError: uninitialized constant RSpec::Matchers'
+  # resolve with this:
+  require 'rspec-expectations'
+
   ENV['RAILS_ENV'] ||= 'test'
   require File.expand_path('../../config/environment', __FILE__)
   require 'rspec/rails'
