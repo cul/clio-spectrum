@@ -66,19 +66,22 @@ describe 'New Arrivals Search' do
 
     # page.save_and_open_page # debug
 
-    find('#search_info').should have_text '1 of '
+    # find('#search_info').should have_text '1 of '
+    find('#search_info', text: '1 of ')
     page.should_not have_css('#search_info a', text: 'Previous')
     page.should have_css('#search_info a', text: 'Next')
 
     find('#search_info a', text: 'Next').click
 
-    find('#search_info').should have_text '2 of '
+    # find('#search_info').should have_text '2 of '
+    find('#search_info', text: '2 of ')
     page.should have_css('#search_info a', text: 'Previous')
     page.should have_css('#search_info a', text: 'Next')
 
     find('#search_info a', text: 'Previous').click
 
-    find('#search_info').should have_text '1 of '
+    # find('#search_info').should have_text '1 of '
+    find('#search_info', text: '1 of ')
     page.should_not have_css('#search_info a', text: 'Previous')
     page.should have_css('#search_info a', text: 'Next')
 

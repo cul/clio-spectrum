@@ -12,10 +12,19 @@ describe 'QuickSearch landing page' do
   # end
 
   # NEXT-612 - Quick search page doesn't let you start over
-  it "should have a 'Start Over' link", js: true do
+  it "should have a 'Start Over' link", js: true, Xfocus:true do
     visit quicksearch_index_path('q' => 'borneo')
     page.should have_css('.result_set', count: 4)
+
+    # make sure all four searches have loaded their results
+    find('.result_count', count: 4)
+
+    # page.save_screenshot '/tmp/screen.png'
     all('.result_set').each do |result_set|
+      # within result_set do
+      #   # There should be at least one of these
+      #   find('.result', match: :first)
+      # end
       result_set.should have_css('.result')
     end
 
@@ -33,7 +42,7 @@ describe 'QuickSearch landing page' do
   # from Quicksearch shows an XML file
   # NEXT-1027 - Relabel 'All #### results' on Quicksearch
   # *** CATALOG ***
-  it "should link to Catalog results correctly", js:true do
+  it "should link to Catalog results correctly", js:true, Xfocus:true do
     visit quicksearch_index_path('q' => 'kitty')
     # page.save_and_open_page
     within('.results_header', :text => "Catalog") do
@@ -62,7 +71,10 @@ describe 'QuickSearch landing page' do
   it "should link to Libraries Website results correctly", js:true do
     visit quicksearch_index_path('q' => 'public')
     # page.save_and_open_page
+    find('.results_header', :text => "Libraries Website")
     within('.results_header', :text => "Libraries Website") do
+      # make sure the ajax seach has completed
+      find('.result_count')
       should_not have_text "View and filter all"
       click_link "View all"
     end
@@ -123,7 +135,7 @@ describe 'QuickSearch landing page' do
     visit quicksearch_index_path
     fill_in 'quicksearch_q', with: 'cats'
     click_button 'Search'
-    first('.result_title').find('a').click
+    find('.result_title', match: :first).find('a').click
     fill_in 'catalog_q', with: 'penguins'
     click_button 'Search'
     first('.result').find('a').click

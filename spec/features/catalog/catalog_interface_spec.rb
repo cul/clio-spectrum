@@ -161,6 +161,9 @@ describe 'Catalog Interface' do
     click_link 'Display Options'
     click_link 'Compact View'
 
+    # make sure the compact results have loaded
+    find('.boxed_search_results', match: :first)
+
     all('.result.document').first.text.should_not match /Author/
     all('.result.document').first.text.should_not match /Published/
     all('.result.document').first.text.should_not match /Location/
@@ -188,7 +191,9 @@ describe 'Catalog Interface' do
         click_link 'Email'
       end
 
-      page.should have_css('.modal-dialog .modal-content .modal-header')
+      find('.modal-dialog .modal-content .modal-header')
+      # page.should have_css('.modal-dialog .modal-content .modal-header')
+
       #
       # NEXT 910 - Add some directions, and optionally email and Name, to the email form
       #

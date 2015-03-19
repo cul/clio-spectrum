@@ -15,7 +15,7 @@ describe 'Academic Commons' do
     end
 
     within '.search_box.academic_commons' do
-      find('#academic_commons_q').should be_visible
+      find('#academic_commons_q')
       fill_in 'q', with: search_title_text
       find('btn.dropdown-toggle').click
       within '.dropdown-menu' do

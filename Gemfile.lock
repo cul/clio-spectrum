@@ -321,7 +321,7 @@ DEPENDENCIES
   capistrano (~> 2)
   capistrano-ext
   capybara
-  capybara-webkit (= 1.1.0)
+  capybara-webkit
   coffee-rails
   database_cleaner
   debugger

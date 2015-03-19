@@ -34,7 +34,10 @@ describe 'E-Journals Search' do
 
     find('#search_info a', text: 'Next').click
 
-    find('#search_info').should have_text '2 of '
+    # https://robots.thoughtbot.com/write-reliable-asynchronous-integration-tests-with-capybara
+    # "Capybara can wait for the result you want with a matcher, but doesn’t know what text you’re expecting when you invoke methods on a node."
+    # find('#search_info').should have_text '2 of '
+    find('#search_info', text: '2 of')
     page.should have_css('#search_info a', text: 'Previous')
     page.should have_css('#search_info a', text: 'Next')
 

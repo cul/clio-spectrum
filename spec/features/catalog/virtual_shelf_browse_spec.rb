@@ -21,6 +21,9 @@ describe "Virtual Shelf Browse" do
     visit catalog_path(1234)
     find('.btn.show_mini_browse', text: 'Show').click
 
+    page.save_screenshot '/tmp/screen.png'
+    find('#nearby')
+    find('#nearby .nearby_content')
     within('#nearby .nearby_content') do
       # Search for control labels specific to bib 1234
       first('nav.index_toolbar').should have_text('« Previous | PN45 .R576 1998 - PN45 .R65 | Next »')

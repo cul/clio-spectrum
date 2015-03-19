@@ -164,6 +164,7 @@ describe 'Switching between data-source', js: true do
     click_link('Dissertations')
     find('input#dissertations_q').value.should eq 'test'
     page.should have_css('.result_set', count: 3)
+    find('.result_count', count: 3)
     all('.result_set').each do |result_set|
       result_set.should have_css('.result')
     end

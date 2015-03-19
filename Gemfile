@@ -242,8 +242,9 @@ group :test do
   # gem 'capybara', '2.0.3'
 
   # Which Capybara driver for JS support?
-  gem 'capybara-webkit', '1.1.0'
-  # gem 'capybara-webkit'
+  # gem 'capybara-webkit', '1.1.0'
+  gem 'capybara-webkit'
+
   # dependent on localhost's browser configs
   gem 'selenium-webdriver', '2.45.0'
 

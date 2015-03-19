@@ -477,3 +477,11 @@ img.availability
     display: block
     float: none
 
+// make my glyphicons occupy non-zero space before applying the
+// magic bootstrap :before rules.
+// (this makes element visible to capybara clicks)
+span.glyphicon
+  min-width: 1px
+  min-height: 1px
+
+
