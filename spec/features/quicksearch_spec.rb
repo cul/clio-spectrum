@@ -17,7 +17,7 @@ describe 'QuickSearch landing page' do
     page.should have_css('.result_set', count: 4)
 
     # make sure all four searches have loaded their results
-    find('.result_count', count: 4)
+    expect(page).to have_css('.result_count', count: 4)
 
     # page.save_screenshot '/tmp/screen.png'
     all('.result_set').each do |result_set|
