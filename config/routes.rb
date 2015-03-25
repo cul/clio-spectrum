@@ -105,7 +105,7 @@ Clio::Application.routes.draw do
   # match 'newspapers', to: 'spectrum#search', as: :newspapers_index, defaults: { layout: 'newspapers' }
   match '/newspapers', to: redirect('/articles')
 
-  match 'locations/show/:id', id: /[^\/]+/, to: 'locations#show', as: :location_display
+  match 'locations/show/:id', id: /.*/, to: 'locations#show', as: :location_display
 
   # this catches certain broken sessions, when somehow controller == spectrum and action == show
   match 'spectrum/show', to: 'spectrum#search', defaults: { layout: 'quicksearch' }
