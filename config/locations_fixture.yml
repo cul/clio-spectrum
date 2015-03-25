@@ -15,6 +15,26 @@
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
+  :location: Comp Lit
+  :found_in: |-
+    Comp Lit & Society Reading Room
+    615 Butler (Non-Circ)
+- :library_code: butler
+  :location_code: butler
+  :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Edward Said
+  :found_in: |-
+    Edward Said Reading Rm
+    616 Butler (Non-Circulating)
+- :library_code: butler
+  :location_code: butler
+  :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
   :location: Ancient/Medieval
   :found_in: |-
     Ancient/Medieval Reading Room

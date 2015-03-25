@@ -2,6 +2,9 @@ require 'spec_helper'
 
 describe 'Locations' do
 
+  before :suite do
+    Location.clear_and_load_fixtures!
+  end
   # NEXT-1118 - Avery link to "Make an Appointment"
   # OLD WAY - FROM APP_CONFIG - SHOWED UP ON /LOCATIONS/ PAGE
   # it 'should include Location Notes', js: true do
@@ -63,6 +66,21 @@ describe 'Locations' do
 
   it 'should have a google map for a location with a map', js: true do
     visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
+    expect(page).to have_css('.gmap_container')
+  end
+
+  it 'should have a google map for a location with a slash', js: true do
+    visit location_display_path("Ancient%2FMedieval+Reading+Rm%2C+603+Butler+%28Non-Circulating%29")
+    expect(page).to have_css('.gmap_container')
+  end
+
+  it 'should have a google map for the Comp Lit Reading Room', js: true do
+    visit location_display_path("Comp+Lit+%26+Society+Reading+Room%2C+615+Butler+%28Non-Circ%29")
+    expect(page).to have_css('.gmap_container')
+  end
+
+  it 'should have a google map for the Edward Said Reading Room', js: true do
+    visit location_display_path("Edward+Said+Reading+Rm%2C+616+Butler+%28Non-Circulating%29")
     expect(page).to have_css('.gmap_container')
   end
 
