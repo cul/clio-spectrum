@@ -55,7 +55,6 @@ describe 'Simple query should retrieve results ', js: true do
 
     visit quicksearch_index_path('q' => 'test')
     expect(page).to have_css('.result_set', count: 4)
-    page.should have_css('.result_set', count: 4)
     all('.result_set').each do |result_set|
       result_set.should have_css('.result')
     end
