@@ -3,11 +3,13 @@
   -# fetch via hathitrust.org API
   - hathi_holdings_data = get_hathi_holdings_data(@document)
 
-  - if hathi_holdings_data
+  - if hathi_holdings_data && hathi_holdings_data['records'] && hathi_holdings_data['records'].size > 0
     - key, value = hathi_holdings_data['records'].first
     - recordURL = value['recordURL']
 
     #hathi_data
+
+      .hathi_title.holdings_title Hathi Trust
       
       .hathi_info
         %a{href: "#{recordURL}"} Summary Page
@@ -15,7 +17,7 @@
       .holdings_subtitle
         Viewability
       
-      .hathi_viewability_table
+      .hathi_viewability_table.small
         - hathi_holdings_data['items'].each do |item|
           .hathi_viewability_row
             .hathi_viewability_cell

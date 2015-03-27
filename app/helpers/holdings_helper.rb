@@ -370,6 +370,13 @@ module HoldingsHelper
     http_client = HTTPClient.new
     json_data = http_client.get_content(hathi_brief_url)
     hathi_holdings_data = JSON.parse(json_data)
+
+    # Hathi will pass back a valid, but empty, response.
+    #     {"records"=>{}, "items"=>[]}
+    # This means no hit with this bibkey, so return nil.
+    return nil unless hathi_holdings_data &&
+                      hathi_holdings_data['records'] &&
+                      hathi_holdings_data['records'].size > 0
     return hathi_holdings_data
   end
 
