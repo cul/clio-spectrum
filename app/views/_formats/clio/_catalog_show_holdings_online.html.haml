@@ -1,4 +1,11 @@
-- unless online_links.empty?
+
+-# _catalog_show_holdings_online.html.haml
+
+-# Skip Hathi links found in the 856 field.
+-# These will be handled by catalog_show_holdings_hathi
+- online_links_except_hathi = Array(online_links.delete('HathiTrust Digital Library'))
+
+- unless online_links_except_hathi.empty?
   #online_holdings
     .holding{:class => alternating_line}
       .location_box

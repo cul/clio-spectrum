@@ -1,0 +1,36 @@
+- cache("hathi_holdings_#{@document.cache_key}") do
+
+  -# fetch via hathitrust.org API
+  - hathi_holdings_data = get_hathi_holdings_data(@document)
+
+  - if hathi_holdings_data
+    - key, value = hathi_holdings_data['records'].first
+    - recordURL = value['recordURL']
+
+    #hathi_data
+      
+      .hathi_info
+        %a{href: "#{recordURL}"} Summary Page
+
+      .holdings_subtitle
+        Viewability
+      
+      .hathi_viewability_table
+        - hathi_holdings_data['items'].each do |item|
+          .hathi_viewability_row
+            .hathi_viewability_cell
+              %a{href: "#{item['itemURL']}"}= item['usRightsString']
+            .hathi_viewability_cell
+              -# enum-cron is 'false' for bookish items
+              %a{href: "#{item['itemURL']}"}= item['enumcron'] || ''
+            .hathi_viewability_cell
+              - if item['orig']
+                %em= "(original from #{item['orig']})"
+
+          -# .col-sm-6
+          -#   .pull-left
+          -#   .pull-right
+          -# 
+          -# .col-sm-6
+          -#   %em
+

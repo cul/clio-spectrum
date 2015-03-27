@@ -88,10 +88,9 @@ Clio::Application.routes.draw do
   match 'new_arrivals/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :new_arrivals_track
 
   match 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
-  # unused
-  # match 'backend/holdings_mail/:id' => 'backend#holdings_mail', :as => 'backend_holdings_mail'
-  # match 'backend/clio_recall/:id', :to => "backend#clio_recall" , :as => :clio_recall
-  # match 'backend/feedback_mail', :to => "backend#feedback_mail"
+
+  match 'catalog/hathi_holdings/:id' => 'catalog#hathi_holdings', :as => 'hathi_holdings'
+
 
   match 'spectrum/fetch/:layout/:datasource', to: 'spectrum#fetch', as: 'spectrum_fetch'
 
