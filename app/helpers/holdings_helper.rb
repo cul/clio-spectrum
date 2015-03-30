@@ -365,9 +365,10 @@ module HoldingsHelper
   def fetch_hathi_brief(id_type, id_value)
     return nil unless id_type and id_value
 
-    hathi_brief_url = "http://catalog.hathitrust.org/api/volumes/" +
+    hathi_brief_url = "http://catalog.hathitrust.org/api/volumes" +
                       "/brief/#{id_type}/#{id_value}.json"
     http_client = HTTPClient.new
+    Rails.logger.debug "get_content(#{hathi_brief_url})"
     json_data = http_client.get_content(hathi_brief_url)
     hathi_holdings_data = JSON.parse(json_data)
 
