@@ -147,4 +147,13 @@ describe 'Saved List Interface' do
 
   end
 
+  it "item can be added to bookbag", js: true do
+    feature_login @blatteroon
+    visit endnote_catalog_path("4359539")
+    visit catalog_path("4359539")
+    debugger
+    click_link('Add to My Saved List')
+    expect(page).to have_css(".alert", :text => "1 item added to list Bookbag")
+  end
+
 end
