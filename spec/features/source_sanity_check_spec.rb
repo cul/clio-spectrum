@@ -87,7 +87,7 @@ describe 'Simple query should retrieve results ', js: true do
     end
 
     visit ebooks_index_path('q' => 'test')
-    page.should have_css('.result_set', count: 2)
+    expect(page).to have_css('.result_set', count: 2)
     all('.result_set').each do |result_set|
       result_set.should have_css('.result')
     end
