@@ -147,11 +147,12 @@ describe 'Saved List Interface' do
 
   end
 
-  it "item can be added to bookbag", js: true do
-    feature_login @blatteroon
-    visit endnote_catalog_path("4359539")
+  it "item can be added to bookbag after exporting to EndNote", js: true do
+    Capybara.current_driver = :selenium
     visit catalog_path("4359539")
-    debugger
+    login_as @blatteroon
+    click_link('Export')
+    click_link('Export to EndNote')
     click_link('Add to My Saved List')
     expect(page).to have_css(".alert", :text => "1 item added to list Bookbag")
   end
