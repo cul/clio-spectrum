@@ -5,7 +5,8 @@ include Warden::Test::Helpers
 Warden.test_mode!
 
 RSpec.configure do |config|
-  config.include Devise::TestHelpers
+  # config.include Devise::TestHelpers
+  config.include Devise::TestHelpers, type: :controller
 end
 
 # Use these in Capybara Feature specs
