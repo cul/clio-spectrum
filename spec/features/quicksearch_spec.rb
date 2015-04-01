@@ -12,7 +12,7 @@ describe 'QuickSearch landing page' do
   # end
 
   # NEXT-612 - Quick search page doesn't let you start over
-  it "should have a 'Start Over' link", js: true, focus:true do
+  it "should have a 'Start Over' link", js: true do
     visit quicksearch_index_path('q' => 'borneo')
     expect(page).to have_css('.result_set', count: 4)
     # page.save_screenshot '/tmp/screen.png'
