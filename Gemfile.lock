@@ -20,13 +20,6 @@ GIT
       jquery-rails
       rails (>= 3.0, < 5.0)
 
-GIT
-  remote: git://github.com/whitequark/rack-utf8_sanitizer
-  revision: 65e3601ca89cb1381876844b2cf93f7aca0b52d7
-  specs:
-    rack-utf8_sanitizer (1.2.4)
-      rack (~> 1.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -208,6 +201,8 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rack-utf8_sanitizer (1.1.0)
+      rack (~> 1.0)
     rails (3.2.18)
       actionmailer (= 3.2.18)
       actionpack (= 3.2.18)
@@ -345,7 +340,7 @@ DEPENDENCIES
   paper_trail
   quiet_assets
   rack-attack
-  rack-utf8_sanitizer!
+  rack-utf8_sanitizer
   rails (~> 3.2)
   rb-fsevent
   rest-client

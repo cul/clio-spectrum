@@ -12,20 +12,12 @@ describe 'QuickSearch landing page' do
   # end
 
   # NEXT-612 - Quick search page doesn't let you start over
-  it "should have a 'Start Over' link", js: true, Xfocus:true do
+  it "should have a 'Start Over' link", js: true, focus:true do
     visit quicksearch_index_path('q' => 'borneo')
-    page.should have_css('.result_set', count: 4)
-
-    # make sure all four searches have loaded their results
-    expect(page).to have_css('.result_count', count: 4)
-
+    expect(page).to have_css('.result_set', count: 4)
     # page.save_screenshot '/tmp/screen.png'
     all('.result_set').each do |result_set|
-      # within result_set do
-      #   # There should be at least one of these
-      #   find('.result', match: :first)
-      # end
-      result_set.should have_css('.result')
+      expect(result_set).to have_css('.result')
     end
 
     find('.landing_across').should have_text('Start Over')

@@ -120,14 +120,14 @@ gem 'devise-encryptable'
 
 
 # "Rack middleware which cleans up invalid UTF8 characters"
-# gem 'rack-utf8_sanitizer'
-# Use github master branch, to pick up a few new patches.
-# Maybe this will fix one of our outstanding issues:
-#    application#catch_404s (ArgumentError) "invalid %-encoding"
-# We also still have invalid %-encoding w/submitted form fields.
-# This is an open issue at rack-utf8_sanitizer.
-# gem 'rack-utf8_sanitizer', :github => 'whitequark/rack-utf8_sanitizer'
-gem 'rack-utf8_sanitizer', :git => 'git://github.com/whitequark/rack-utf8_sanitizer'
+gem 'rack-utf8_sanitizer'
+# # Use github master branch, to pick up a few new patches.
+# # Maybe this will fix one of our outstanding issues:
+# #    application#catch_404s (ArgumentError) "invalid %-encoding"
+# # We also still have invalid %-encoding w/submitted form fields.
+# # This is an open issue at rack-utf8_sanitizer.
+# # gem 'rack-utf8_sanitizer', :github => 'whitequark/rack-utf8_sanitizer'
+# gem 'rack-utf8_sanitizer', :git => 'git://github.com/whitequark/rack-utf8_sanitizer'
 
 # gives us jQuery and jQuery-ujs, but not jQuery UI
 # (blacklight_range_limit brings this in anyway - no way to switch to CDN)
