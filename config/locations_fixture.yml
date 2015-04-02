@@ -134,7 +134,9 @@
     Barnard College Library
 
     Lehman Hall
-- :links: 
+- :library_code: barnard-bcrw
+  :location_code: barnard-bcrw
+  :links: 
     Home Page: http://bcrw.barnard.edu/
   :category: physical
   :location: Barnard Center For Research On Women
@@ -533,7 +535,9 @@
     
     701 Dodge
 
-- :links: 
+- :library_code: nyspi
+  :location_code: nyspi
+  :links: 
     Home Page: http://nyspi.org/library/
   :category: physical
   :location: NYS Psychiatric Institute
@@ -563,7 +567,9 @@
     Oral History Research Office
     
     801 Butler Library
-- :links: 
+- :library_code: cumc-orthopaedic
+  :location_code: cumc-orthopaedic
+  :links: 
     Home Page: http://www.columbiaortho.org/departments/russell-hibbs-memorial-library
   :category: physical
   :location: Orthopaedic Surgery

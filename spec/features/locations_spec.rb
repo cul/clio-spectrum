@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Locations' do
 
-  before :suite do
+  before :all do
     Location.clear_and_load_fixtures!
   end
   # NEXT-1118 - Avery link to "Make an Appointment"
@@ -84,14 +84,24 @@ describe 'Locations' do
     expect(page).to have_css('.gmap_container')
   end
 
-  it 'should not have a google map for a location without a map', js: true do
-    visit location_display_path("Orthopaedic+Surgery+Oversize+%28Non-Circulating%29")
-    expect(page).not_to have_css('.gmap_container')
-  end
-
   it 'should not show the map for Lehman Suites', js: true do
     visit location_display_path("Lehman+Suite%2C+406+SIA+%28Non-Circulating%29")
     expect(page).not_to have_css('.gmap_container')
+  end
+
+  it 'should show the map for Orthopaedic Surgery', js: true do
+    visit location_display_path("Orthopaedic+Surgery+%28Non-Circulating%29")
+    expect(page).to have_css('.gmap_container')
+  end
+
+  it 'should show the map for NYS Psychiatric Institute', js: true do
+    visit location_display_path("NYS+Psychiatric+Institute+Library+%28Circulation+Restricted%29")
+    expect(page).to have_css('.gmap_container')
+  end
+
+  it 'should show the map for Barnard Center for Research on Women', js: true do
+    visit location_display_path("Barnard+Center+For+Research+On+Women%29")
+    expect(page).to have_css('.gmap_container')
   end
 
   it 'shows the heading from the clio location data' do
@@ -107,7 +117,7 @@ describe 'Locations' do
 
   it 'should have markers for all locations on the map', js: true  do
     visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
-    expect(find('.gmap_container')['data-markers'].split('},{').count).to eq(26)
+    expect(find('.gmap_container')['data-markers'].split('},{').count).to eq(29)
   end
 
   context 'infowindow', type: :selenium  do
