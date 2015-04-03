@@ -72,9 +72,9 @@ Columbia Libraries Unified Search &amp; Discovery
  - load the Locations, Libraries and Library Hours 
  
         ````
-        rake hours:sync
         rake locations:load
         rake hours:sync
+        rake locations:load
         ````
 6. Start the server `rails s`
 
@@ -85,9 +85,9 @@ Columbia Libraries Unified Search &amp; Discovery
   
         ````
         rake db:test:prepare
-        rake hours:sync RAILS_ENV=test
         rake locations:load RAILS_ENV=test
         rake hours:sync RAILS_ENV=test
+        rake locations:load RAILS_ENV=test
         ````
   - run `rspec` and ensure that all tests are passing (green)
 
