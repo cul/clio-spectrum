@@ -1,10 +1,9 @@
 namespace :locations do
-  task :load => :environment do
-    puts_and_log("Starting rake task to load locations from config/locations_fixture.yml", :info)
+    desc("Starting rake task to load locations from config/locations_fixture.yml")
 
-    locations = Location.clear_and_load_fixtures!
+    task :load => :environment do
+      locations = Location.clear_and_load_fixtures!
+      puts_and_log(locations.count.to_s + " locations loaded.")
+    end
 
-    puts_and_log(locations.count.to_s + " locations loaded.")
   end
-end
-
