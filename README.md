@@ -69,11 +69,27 @@ Columbia Libraries Unified Search &amp; Discovery
         mv config/database.yml.SAMPLE config/database.yml
         mv config/app_config.yml.SAMPLE config/app_config.yml
         ````
+ - load the Locations, Libraries and Library Hours 
+ 
+        ````
+        rake hours:sync
+        rake locations:load
+        rake hours:sync
+        ````
 6. Start the server `rails s`
 
 7. Visit the running app in your browser at `localhost:3000`
 
-8. Run the test suite `rspec` and ensure that all tests are passing (green)
+8. Run the test suite
+  - prepare your test database
+  
+        ````
+        rake db:test:prepare
+        rake hours:sync RAILS_ENV=test
+        rake locations:load RAILS_ENV=test
+        rake hours:sync RAILS_ENV=test
+        ````
+  - run `rspec` and ensure that all tests are passing (green)
 
 
 **Contributing to CLIO**
