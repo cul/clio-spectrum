@@ -72,7 +72,6 @@ Columbia Libraries Unified Search &amp; Discovery
  - load the Locations, Libraries and Library Hours 
  
         ````
-        rake locations:load
         rake hours:sync
         rake locations:load
         ````
@@ -85,7 +84,6 @@ Columbia Libraries Unified Search &amp; Discovery
   
         ````
         rake db:test:prepare
-        rake locations:load RAILS_ENV=test
         rake hours:sync RAILS_ENV=test
         rake locations:load RAILS_ENV=test
         ````
