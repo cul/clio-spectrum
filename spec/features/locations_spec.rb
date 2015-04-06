@@ -2,9 +2,6 @@ require 'spec_helper'
 
 describe 'Locations' do
 
-  before :all do
-    Location.clear_and_load_fixtures!
-  end
   # NEXT-1118 - Avery link to "Make an Appointment"
   # OLD WAY - FROM APP_CONFIG - SHOWED UP ON /LOCATIONS/ PAGE
   # it 'should include Location Notes', js: true do
