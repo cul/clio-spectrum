@@ -50,8 +50,7 @@ class SavedListsController < ApplicationController
       # Special-case: if we're trying to pull up the user's default list,
       # auto-create it for them.
       if @list.blank? and slug == SavedList::DEFAULT_LIST_SLUG
-        @list = SavedList.new(created_by: current_user.login,
-                              owner: current_user.login,
+        @list = SavedList.new(owner: current_user.login,
                               name: SavedList::DEFAULT_LIST_NAME)
         @list.save!
       end
@@ -146,7 +145,8 @@ class SavedListsController < ApplicationController
     end
 
     respond_to do |format|
-      if @list.update_attributes(params[:saved_list])
+      # if @list.update_attributes(params[:saved_list])
+      if @list.update_attributes(saved_list_params)
         format.html { redirect_to @list.url, notice: 'List was successfully updated.' }
         format.json { head :no_content }
       else
@@ -199,8 +199,7 @@ class SavedListsController < ApplicationController
     # Find -- or CREATE -- a list with the right name
     @list = SavedList.where(owner: current_user.login, name: list_name).first
     unless @list
-      @list = SavedList.new(created_by: current_user.login,
-                            owner: current_user.login,
+      @list = SavedList.new(owner: current_user.login,
                             name: list_name)
       @list.save!
     end
@@ -408,7 +407,8 @@ class SavedListsController < ApplicationController
   end
 
   def saved_list_params
-    parms.permit(:owner, :name, :slug, :description, :sort_by, :permissions)
+    params.require(:saved_list).permit(:owner, :name, :slug, :description, :sort_by, :permissions)
+    # parms.permit(:owner, :name, :slug, :description, :sort_by, :permissions)
   end
 
 end

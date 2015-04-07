@@ -6,7 +6,7 @@ Clio::Application.routes.draw do
   # resources :saved_list_items
   resources :saved_lists
 
-  get 'lists/add(/:item_key_list)', to: 'saved_lists#add', as: :savedlist_add
+  match 'lists/add(/:item_key_list)', via: [:get, :post], to: 'saved_lists#add', as: :savedlist_add
   # Cannot restrict to POST, WIND auth always redirects via GET
   # get 'lists/add', via: [:post], to: 'saved_lists#add', as: :savedlist_add
   # get 'lists/add', to: 'saved_lists#add'

@@ -70,7 +70,7 @@ describe 'Saved List Interface' do
 
     # Now, go back again to my Lists page.  I should see the just-added records
     visit '/lists'
-    # page.save_and_open_page # debug
+    # save_and_open_page # debug
     expect(page).to have_text('aardvark')
 
     # Move all these items off to a different named list

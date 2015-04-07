@@ -28,14 +28,16 @@ describe 'Archives Search' do
     end
 
 
-    find('#search_info').should have_text '1 of '
+    expect(find('#search_info')).to have_text("1 of")
     expect(page).to_not have_css('#search_info a', text: 'Previous')
     expect(page).to have_css('#search_info a', text: 'Next')
 
     find('#search_info a', text: 'Next').click
 
+    # save_and_open_page # debug
     # save_and_open_screenshot # debug
 
+    expect(find('#search_info')).to have_text '2 of '
     expect(page).to have_css('#search_info a', text: 'Previous')
     expect(page).to have_css('#search_info a', text: 'Next')
 
