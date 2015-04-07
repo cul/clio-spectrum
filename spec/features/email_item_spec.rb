@@ -16,10 +16,10 @@ describe 'Share by Email' do
 
       context "#{path}" do
         it 'should have some instructions for the user' do
-          expect(find(page)).to have_text("Send to (comma-separated list of emails):")
-          expect(find(page)).to have_text("Your email (optional):")
-          expect(find(page)).to have_text("Your name (optional):")
-          expect(find(page)).to have_text("Message:")
+          expect(page).to have_text("Send to (comma-separated list of emails):")
+          expect(page).to have_text("Your email (optional):")
+          expect(page).to have_text("Your name (optional):")
+          expect(page).to have_text("Message:")
         end
 
         it 'should email record' do
@@ -37,22 +37,22 @@ describe 'Share by Email' do
             fill_in 'name', with: 'Someone Else'
             fill_in 'message', with: 'testing'
             find('button[type=submit]').click
-            expect(find(ActionMailer::Base.deliveries[0].reply_to)).to eq(['other@columbia.edu'])
-            expect(find(ActionMailer::Base.deliveries[0].to_s)).to match('Someone Else')
+            expect(ActionMailer::Base.deliveries[0].reply_to).to eq(['other@columbia.edu'])
+            expect(ActionMailer::Base.deliveries[0].to_s).to match('Someone Else')
           end
         end
 
         it 'should pre-fill text fields with user email and name' do
-          expect(find(page.find("#reply_to").value)).to eq('autodidact@columbia.edu')
-          expect(find(page.find("#name").value)).to eq("Auto Didact")
+          expect(page.find("#reply_to").value).to eq('autodidact@columbia.edu')
+          expect(page.find("#name").value).to eq("Auto Didact")
         end
 
         it 'should include default reply-to and name if user does nothing' do
           within '#email_form' do
             fill_in 'to', with: 'marquis@columbia.edu'
             find('button[type=submit]').click
-            expect(find(ActionMailer::Base.deliveries[0].reply_to)).to eq(['autodidact@columbia.edu'])
-            expect(find(ActionMailer::Base.deliveries[0].to_s)).to match('Auto Didact')
+            expect(ActionMailer::Base.deliveries[0].reply_to).to eq(['autodidact@columbia.edu'])
+            expect(ActionMailer::Base.deliveries[0].to_s).to match('Auto Didact')
           end
         end
 
@@ -62,8 +62,8 @@ describe 'Share by Email' do
             fill_in 'reply_to', with: 'other@columbia.edu'
             fill_in 'name', with: 'Someone Else'
             find('button[type=submit]').click
-            expect(find(ActionMailer::Base.deliveries[0].reply_to)).to eq(['other@columbia.edu'])
-            expect(find(ActionMailer::Base.deliveries[0].to_s)).to match('Someone Else')
+            expect(ActionMailer::Base.deliveries[0].reply_to).to eq(['other@columbia.edu'])
+            expect(ActionMailer::Base.deliveries[0].to_s).to match('Someone Else')
           end
         end
 
@@ -74,7 +74,7 @@ describe 'Share by Email' do
             fill_in 'name', with: ''
             find('button[type=submit]').click
           end
-          expect(find(ActionMailer::Base.deliveries[0].reply_to)).to be_empty
+          expect(ActionMailer::Base.deliveries[0].reply_to).to be_empty
           expect(ActionMailer::Base.deliveries[0].to_s).not_to match('Auto Didact')
         end
       end
@@ -88,13 +88,13 @@ describe 'Share by Email' do
           fill_in 'to', with: 'marquis@columbia.edu'
           find('button[type=submit]').click
         end
-        expect(find(ActionMailer::Base.deliveries[0].reply_to)).to be_empty
+        expect(ActionMailer::Base.deliveries[0].reply_to).to be_empty
       end
     end
     describe 'can not email from saved list' do
       it 'should redirect to root' do
         visit email_savedlist_path(id: 12_345)
-        expect(find(current_path)).to eq(root_path)
+        expect(current_path).to eq(root_path)
       end
     end
   end

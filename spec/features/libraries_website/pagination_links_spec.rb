@@ -6,7 +6,7 @@ describe 'A Libraries Website search' do
     visit library_web_index_path('q' => 'books')
     expect(page).to have_css('.index_toolbar a', text: 'Next')
     el = all('.index_toolbar a', text: 'Next').first
-    el['href'].should include('/library_web')
+    expect(el['href']).to have_text '/library_web'
   end
 
   it 'will be able to traverse next and previous links' do

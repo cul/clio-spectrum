@@ -44,14 +44,16 @@ describe BackendController do
     # Simple case
     get 'holdings', :id => '123456'
     expect(response).to be_success
-    expect(response.body).to match /Call Number:\s+HD1945/m
+    tagless = response.body.gsub(/<\/?[^>]+>/, '')
+    expect(tagless).to match /Call Number:\s+HD1945/m
 
     # Complex case
     get 'holdings', :id => '763577'
     expect(response).to be_success
-    expect(response.body).to match /Call Number:\s+R341.273/m
-    expect(response.body).to match /Call Number:\s+JX233/m
-    expect(response.body).to match /Call Number:\s+MICFICHE/m
+    tagless = response.body.gsub(/<\/?[^>]+>/, '')
+    expect(tagless).to match /Call Number:\s+R341.273/m
+    expect(tagless).to match /Call Number:\s+JX233/m
+    expect(tagless).to match /Call Number:\s+MICFICHE/m
   end
 
   it "holdings() should silently ignore a bad CLIO ID" do

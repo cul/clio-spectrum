@@ -27,7 +27,6 @@ Clio::Application.routes.draw do
     # get '/catalog/unapi' => proc { [404, {}, ['']] }
   end
 
-  get 'catalog/advanced', to: 'catalog#index', as: :catalog_advanced, defaults: { q: '', show_advanced: 'true' }
   resources :item_alerts
 
   get 'item_alerts/:id/show_table_row(.:format)', to: 'item_alerts#show_table_row', as: :item_alert_show_table_row
@@ -56,14 +55,12 @@ Clio::Application.routes.draw do
   get 'databases', to: 'catalog#index', as: :databases_index
   get 'databases/:id(.:format)', via: [:get], to: 'catalog#show', as: :databases_show
   get 'databases/facet/:id(.format)', to: 'catalog#facet', as: :databases_facet
-  # get 'databases/:id(.:format)', via: [:put], to: 'catalog#update', as: :databases_update
-  get 'databases/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :databases_track
+  post 'databases/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :databases_track
 
   get 'journals', to: 'catalog#index', as: :journals_index
   get 'journals/:id(.:format)', via: [:get], to: 'catalog#show', as: :journals_show
   get 'journals/facet/:id(.format)', to: 'catalog#facet', as: :journals_facet
-  # get 'journals/:id(.:format)', via: [:put], to: 'catalog#update', as: :journals_update
-  get 'journals/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :journals_track
+  post 'journals/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :journals_track
 
   get 'library_web', to: 'spectrum#search', as: :library_web_index, defaults: { layout: 'library_web' }
 
@@ -77,8 +74,7 @@ Clio::Application.routes.draw do
   get 'archives', to: 'catalog#index', as: :archives_index
   get 'archives/:id(.:format)', via: [:get], to: 'catalog#show', as: :archives_show
   get 'archives/facet/:id(.format)', to: 'catalog#facet', as: :archives_facet
-  # get 'archives/:id(.:format)', via: [:put], to: 'catalog#update', as: :archives_update
-  get 'archives/:id/track(.:format)', to: 'catalog#track', as: :archives_track
+  post 'archives/:id/track(.:format)', to: 'catalog#track', as: :archives_track
 
   # NEXT-483 A user should be able to browse results using previous/next
   # this requires GET ==> show, and POST ==> update, for reasons
@@ -86,8 +82,7 @@ Clio::Application.routes.draw do
   get 'new_arrivals', to: 'catalog#index', as: :new_arrivals_index
   get 'new_arrivals/:id(.:format)', via: [:get], to: 'catalog#show', as: :new_arrivals_show
   get 'new_arrivals/facet/:id(.format)', to: 'catalog#facet', as: :new_arrivals_facet
-  # get 'new_arrivals/:id(.:format)', via: [:put], to: 'catalog#update', as: :new_arrivals_update
-  get 'new_arrivals/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :new_arrivals_track
+  post 'new_arrivals/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :new_arrivals_track
 
   get 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
   # unused
@@ -97,7 +92,7 @@ Clio::Application.routes.draw do
 
   get 'spectrum/fetch/:layout/:datasource', to: 'spectrum#fetch', as: 'spectrum_fetch'
 
-  get 'articles', to: 'spectrum#search', as: :articles_index, defaults: { layout: 'articles' }
+  match 'articles', to: 'spectrum#search', as: :articles_index, via: [:get, :post], defaults: { layout: 'articles' }
   # there's no 'articles' controller, and no item-detail page for articles
   # get 'articles/show', :to => "articles#show", :as => :articles_show
 
@@ -123,8 +118,7 @@ Clio::Application.routes.draw do
 
   # Again, blacklight inserts this as GET, we need to support PUT
   # (due to Blacklight's mechanism of preserving search context.)
-  # get 'catalog/:id/librarian_view', via: [:put], to: 'catalog#librarian_view_update'
-  get 'catalog/:id/librarian_view_track', via: [:post], to: 'catalog#librarian_view_track'
+  post 'catalog/:id/librarian_view_track', via: [:post], to: 'catalog#librarian_view_track'
 
   # no, this was never implemented
   # namespace :admin do
@@ -143,6 +137,10 @@ Clio::Application.routes.draw do
   get 'browse/shelfkey_mini/:shelfkey(/:bib)', to: 'browse#shelfkey_mini', as: :browse_shelfkey_mini, :constraints => { :shelfkey => /[^\/]*/, :bib => /[^\/]*/ }
   get 'browse/shelfkey_full/:shelfkey(/:bib)', to: 'browse#shelfkey_full', as: :browse_shelfkey_full, :constraints => { :shelfkey => /[^\/]*/, :bib => /[^\/]*/ }
 
+  # Rails 4 - move this to bottom, so it doesn't override other
+  # routes that also go to 'catalog#index'
+  # (Didn't have to do this with Rails 3 - what changed???)
+  get 'catalog/advanced', to: 'catalog#index', as: :catalog_advanced, defaults: { q: '', show_advanced: 'true' }
 
 end
 

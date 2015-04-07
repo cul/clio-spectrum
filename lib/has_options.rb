@@ -18,7 +18,8 @@ module HasOptionsHash
         singular_association = association_name.singularize
         option_model = configuration[:option_model]
         table_name = option_model.constantize.table_name
-        has_many association_name.to_sym, :class_name => configuration[:option_model], :as => :entity, :dependent => :destroy, :conditions => { :association_type => association_name}
+        # has_many association_name.to_sym, :class_name => configuration[:option_model], :as => :entity, :dependent => :destroy, :conditions => { :association_type => association_name}
+        has_many association_name.to_sym, -> { where association_type: association_name}, class_name: configuration[:option_model], as: :entity, dependent: :destroy
 
         accepts_nested_attributes_for association_name.to_sym, :reject_if => lambda { |a| a[:name].blank? }, :allow_destroy => true
 

@@ -45,7 +45,7 @@ describe 'Spectrum::SearchEngines::Summon' do
     end
 
     it 'should find a matching title result' do
-      @sum.documents.first.title.should include('Hardnose')
+      expect(@sum.documents.first.title).to match /Hardnose/
     end
 
     it 'should not include newspaper articles' do

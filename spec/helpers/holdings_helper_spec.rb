@@ -13,7 +13,8 @@ describe HoldingsHelper do
       # lookup definition, then from this infer the anchor text and href
       definition = HoldingsHelper::SERVICES[ non_http_services[i]]
       expected_text = definition[0]
-      expected_href = definition[1] + '(' + fake_bib + ')'
+      # back-slash the parens, so we can use as regexp text within match()
+      expected_href = definition[1] + '\(' + fake_bib + '\)'
 
       # the link returned from the helper method should match expectations
       link       = linkset[i]

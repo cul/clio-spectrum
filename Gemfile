@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # but, devise_wind still has Rails 3.2 dependencies.
 # 3/15
 # gem 'rails', '~> 3.2'
-gem 'rails', '4.0.13'
+gem 'rails', '~> 4.0'
 
 # `attr_accessible` is extracted out of Rails into a gem. Please use new 
 # recommended protection model for params(strong_parameters) or add 
@@ -12,7 +12,13 @@ gem 'rails', '4.0.13'
 # Oops, Blacklight has "logic that assumes protected_attributes is Rails 3 only" 
 #   see:  https://github.com/projectblacklight/blacklight/issues/906
 # Does this mean that including this gem breaks things?
-gem 'protected_attributes'
+# gem 'protected_attributes'
+# Yes, it does, we get the behavior explained in issue 906.
+# OK, bite the bullet and convert to strong_parameters everywhere.
+
+# `ActiveRecord::SessionStore` is extracted out of Rails into a gem. 
+# Please add `activerecord-session_store` to your Gemfile to use it.
+gem 'activerecord-session_store'
 
 #  ###  BLACKLIGHT (begin)  ###
 
@@ -121,6 +127,8 @@ gem 'cancan'
 # this just doesn't work in stock rails.
 # 3/15
 # gem 'caching_mailer'
+# Here's one that's supposed to work for Rails 4.
+gem 'mailer_fragment_caching'
 
 # Talks to Voyager API directly, return XML-format for Spectrum use.
 # But, this is now used from within the Voyager-Backend application

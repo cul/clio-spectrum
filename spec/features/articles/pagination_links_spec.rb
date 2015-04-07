@@ -6,7 +6,7 @@ describe 'An articles search' do
     visit articles_index_path('q' => 'test')
     expect(page).to have_css('.index_toolbar a', text: 'Next')
     el = all('.index_toolbar a', text: 'Next').first
-    el['href'].should include('/articles')
+    expect(el['href']).to have_text '/articles'
   end
 
   it 'will be able to traverse next and previous links' do

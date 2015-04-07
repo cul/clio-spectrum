@@ -13,7 +13,7 @@ describe 'Summon Interface ' do
       expect(page).to have_css('div.details')
       # and each one we find must satisfy this assertion.
       all('div.details').each do |detail|
-        detail.should have_text('Audio Recording: Available Online')
+        expect(detail).to have_text('Audio Recording: Available Online')
       end
     end
 
@@ -22,7 +22,7 @@ describe 'Summon Interface ' do
                                 's.fvf'    => ['IsFullText,true', 'ContentType,Music Recording'])
       expect(page).to have_css('div.details')
       all('div.details').each do |detail|
-        detail.should have_text('Music Recording: Available Online')
+        expect(detail).to have_text 'Music Recording: Available Online'
       end
     end
 
@@ -32,7 +32,7 @@ describe 'Summon Interface ' do
       expect(page).to have_css('div.details', count: 10)
       all('div.details').each do |detail|
         # detail node contains full descriptive data - author, citaion, format, etc.
-        detail.text.should satisfy { |detail_text|
+        expect(detail.text).to satisfy { |detail_text|
           # Summon's precise language seems to be flip-flopping today,
           #  any of these might show up.
           detail_text.match(/Journal Article: Full Text Available/) ||
@@ -49,7 +49,7 @@ describe 'Summon Interface ' do
                                 's.fvf'    => ['IsFullText,true', 'ContentType,Patent'])
       expect(page).to have_css('div.details')
       all('div.details').each do |detail|
-        detail.should have_text('Patent: Full Text Available')
+        expect(detail).to have_text('Patent: Full Text Available')
       end
     end
   end
@@ -59,7 +59,7 @@ describe 'Summon Interface ' do
     visit articles_index_path('q' =>  'CERN LHC CMS Collaboration')
     # The "more" note is at the end of the Author field - just before
     # the Citation field
-    all('div.details').first.should have_text('(more...) Citation')
+    expect(all('div.details').first).to have_text('(more...) Citation')
   end
 
 end

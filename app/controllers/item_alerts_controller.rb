@@ -7,7 +7,7 @@
 # theory applicable to non-catalog datasources.
 class ItemAlertsController < ApplicationController
   check_authorization
-  load_and_authorize_resource
+  load_and_authorize_resource except: :create
 
   before_filter :authenticate_user!
   layout 'no_sidebar'
@@ -69,7 +69,7 @@ class ItemAlertsController < ApplicationController
   # POST /item_alerts
   # POST /item_alerts.json
   def create
-    @item_alert = ItemAlert.new(params[:item_alert])
+    @item_alert = ItemAlert.new(item_alert_params)
     authorize! :create, ItemAlert
 
     respond_to do |format|
@@ -96,7 +96,8 @@ class ItemAlertsController < ApplicationController
     authorize! :create, @item_alert
 
     respond_to do |format|
-      if @item_alert.update_attributes(params[:item_alert])
+      # if @item_alert.update_attributes(params[:item_alert])
+      if @item_alert.update_attributes(item_alert_params)
         format.html do
           redirect_to @item_alert, notice: 'Item alert was successfully updated.'
         end
@@ -122,4 +123,26 @@ class ItemAlertsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    def item_alert_params
+      # # Unpermitted keys are logged at DEBUG in test and development.
+      # # If this bothers you, delete them from params hash here.
+      # params.delete(:adv)
+      # params.delete(:format)
+    
+      params.require(:item_alert).permit(:source, :item_key, :author_id, :alert_type, :start_date, :end_date, :message)
+    
+      # params = params[:item_alert]
+      # params.permit(:source, :item_key, :author_id, :alert_type, :start_date, :end_date, :message)
+    
+      # This is built to return nulled out objects in case of omissions, 
+      # but if we want to raise exceptions, do this:
+            # .require(:author_id)
+            # .require(:message)
+            # .require(:source)
+            # .require(:item_key)
+    end
+
 end

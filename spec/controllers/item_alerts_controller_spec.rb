@@ -70,7 +70,7 @@ describe ItemAlertsController do
 
     end
 
-    it 'priv user can post new alert' do
+    it 'priv user gets expected err on get non-existant' do
       spec_login @priv_user
 
       # for priv, showing non-existant ID raises exception
@@ -78,10 +78,15 @@ describe ItemAlertsController do
         get :show_table_row, id: '99999'
       end.to raise_error(ActiveRecord::RecordNotFound)
 
+    end
+
+    it 'priv user gets successful empty response on blank json new' do
+      spec_login @priv_user
       # NEW
       # JSON returns nulled-out object
       get :new, format: :json
       expect(response).to be_success
+
       # item_alert = JSON.parse(response.body)['item_alert']
       item_alert = JSON.parse(response.body)
       expect(item_alert).not_to be_nil
@@ -89,25 +94,41 @@ describe ItemAlertsController do
       expect(item_alert[:author_id]).to be_nil
       expect(item_alert[:message]).to be_nil
       expect(item_alert[:source]).to be_nil
+    end
+
+    it 'priv user gets "new" form on html new' do
+      spec_login @priv_user
+
       # HTML should send you to 'new' screen
       get :new, format: :html
       expect(response).to be_success
       expect(response).to render_template('new')
+    end
+
+    it 'priv user gets expected errors on non-supplied required params' do
+      spec_login @priv_user
 
       # Item Alerts should have author_id, message, source, and item_key.
       # Each of the following should be invalid (unprocessable_entity, 422)
       item_alert_attrs = FactoryGirl.attributes_for(:item_alert, author_id: nil)
       post :create, item_alert: item_alert_attrs, format: :json
       expect(response.status).to be(422)
+
       item_alert_attrs = FactoryGirl.attributes_for(:item_alert, message: nil)
       post :create, item_alert: item_alert_attrs, format: :json
       expect(response.status).to be(422)
+
       item_alert_attrs = FactoryGirl.attributes_for(:item_alert, source: nil)
       post :create, item_alert: item_alert_attrs, format: :json
       expect(response.status).to be(422)
+
       item_alert_attrs = FactoryGirl.attributes_for(:item_alert, item_key: nil)
       post :create, item_alert: item_alert_attrs, format: :json
       expect(response.status).to be(422)
+    end
+
+    it 'priv user ...' do
+      spec_login @priv_user
 
       # create an alert, using complete set of attributes, should succeed.
       # In HTML, get a redirect to the show page.

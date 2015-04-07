@@ -27,7 +27,6 @@ describe 'Archives Search' do
       find('a').click
     end
 
-    # page.save_and_open_page # debug
 
     find('#search_info').should have_text '1 of '
     expect(page).to_not have_css('#search_info a', text: 'Previous')
@@ -35,19 +34,20 @@ describe 'Archives Search' do
 
     find('#search_info a', text: 'Next').click
 
-    find('#search_info').should have_text '2 of '
+    # save_and_open_screenshot # debug
+
     expect(page).to have_css('#search_info a', text: 'Previous')
     expect(page).to have_css('#search_info a', text: 'Next')
 
     find('#search_info a', text: 'Previous').click
 
-    find('#search_info').should have_text '1 of '
+    expect(find('#search_info')).to have_text '1 of '
     expect(page).to_not have_css('#search_info a', text: 'Previous')
     expect(page).to have_css('#search_info a', text: 'Next')
 
     find('#search_info a', text: 'Back to Results').click
 
-    find('.constraints-container').should have_text 'You searched for: files'
+    expect(find('.constraints-container')).to have_text 'You searched for: files'
 
   end
 

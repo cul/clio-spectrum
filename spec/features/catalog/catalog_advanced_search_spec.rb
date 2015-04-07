@@ -12,20 +12,17 @@ describe 'Catalog Advanced Search' do
     within('li.datasource_link[source="catalog"]') do
       click_link('Catalog')
     end
-    find('#catalog_q').should be_visible
-
-    # TODO
-    # expect(page).to have_no_selector('.landing_page.catalog .advanced_search')
+    expect(page).to have_css('#catalog_q')
 
     find('.search_box.catalog .advanced_search_toggle').click
-    find('.landing_page.catalog .advanced_search').should be_visible
+    expect(page).to have_css('.landing_page.catalog .advanced_search')
     within '.landing_page.catalog .advanced_search' do
       select('Journal Title', from: 'adv_1_field')
       fill_in 'adv_1_value', with: search_text
       find('button[type=submit]').click
     end
 
-    find('.constraint-box').should have_content('Journal Title: ' + search_text)
+    expect(page).to have_css('.constraint-box', text: 'Journal Title: ' + search_text)
 
     # And the search results too...
     # (struggling to make a regexp work, to do case-insensitive match...)
@@ -46,7 +43,7 @@ describe 'Catalog Advanced Search' do
 
     find('.search_box.catalog .advanced_search_toggle').click
 
-    find('.landing_page.catalog .advanced_search').should be_visible
+    expect(find('.landing_page.catalog .advanced_search')).to be_visible
 
     within '.landing_page.catalog .advanced_search' do
 
@@ -100,7 +97,7 @@ describe 'Catalog Advanced Search' do
       fill_in 'q', with: searchValue
       find('button[type=submit]').click
 
-      find('.constraint-box').should have_content("#{searchField}: #{searchValue}")
+      expect(find('.constraint-box')).to have_content("#{searchField}: #{searchValue}")
       expect(page).to have_text "« Previous | 1 - 25 of"
     end
 
@@ -113,7 +110,7 @@ describe 'Catalog Advanced Search' do
         fill_in 'adv_1_value', with: searchValue
         find('button[type=submit]').click
       end
-      find('.constraint-box').should have_content("#{searchField}: #{searchValue}")
+      expect(find('.constraint-box')).to have_content("#{searchField}: #{searchValue}")
       expect(page).to have_text "« Previous | 1 - 25 of"
     end
 
@@ -141,7 +138,7 @@ describe 'Catalog Advanced Search' do
       fill_in 'q', with: locationSearch
       find('button[type=submit]').click
 
-      find('.constraint-box').should have_content("Location: #{locationSearch}")
+      expect(find('.constraint-box')).to have_content("Location: #{locationSearch}")
       expect(page).to have_text "« Previous | 1 - 25 of"
     end
 
@@ -154,7 +151,7 @@ describe 'Catalog Advanced Search' do
         fill_in 'adv_1_value', with: locationSearch
         find('button[type=submit]').click
       end
-      find('.constraint-box').should have_content("Location: #{locationSearch}")
+      expect(find('.constraint-box')).to have_content("Location: #{locationSearch}")
       expect(page).to have_text "« Previous | 1 - 25 of"
     end
   end
@@ -173,7 +170,7 @@ describe 'Catalog Advanced Search' do
 
     find('.search_box.catalog .advanced_search_toggle').click
 
-    find('.landing_page.catalog .advanced_search').should be_visible
+    expect(find('.landing_page.catalog .advanced_search')).to be_visible
 
     within '.landing_page.catalog .advanced_search' do
       select('ISBN', from: 'adv_1_field')
@@ -181,7 +178,7 @@ describe 'Catalog Advanced Search' do
       find('button[type=submit]').click
     end
 
-    find('.constraint-box').should have_content('ISBN: ' + search_isbn)
+    expect(find('.constraint-box')).to have_content('ISBN: ' + search_isbn)
 
     within '.constraint-box' do
       find('span.glyphicon.glyphicon-remove').click
@@ -210,7 +207,7 @@ describe 'Catalog Advanced Search' do
       find('button[type=submit]').click
     end
 
-    find('.constraint-box').should have_content('ISBN: ' + isbn_z)
+    expect(find('.constraint-box')).to have_content('ISBN: ' + isbn_z)
 
     title = 'اليوم السابع : الحرب المستحيلة .. حرب الاستنزاف'
     expect(page).to have_text "Title #{title}"
@@ -230,7 +227,7 @@ describe 'Catalog Advanced Search' do
     # this time, click the little "search" icon
     find('span.glyphicon.glyphicon-search').click
 
-    find('.constraint-box').should have_content('ISBN: ' + isbn_z)
+    expect(find('.constraint-box')).to have_content('ISBN: ' + isbn_z)
     expect(page).to have_text "Géographie du Territoire de Belfort".mb_chars.normalize(:d)
   end
 

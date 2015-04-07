@@ -8,7 +8,7 @@ describe 'Catalog Interface' do
     visit catalog_path('7814900')
 
     # Find the 880 data for bib 7814900 within the info display
-    find('.info').should have_content('Other Information: Leaf 1 contains laws on the Torah reading')
+    expect(find('.info')).to have_content('Other Information: Leaf 1 contains laws on the Torah reading')
   end
 
   # NEXT-765 - MARC 787 field (Related To) not showing up
@@ -17,7 +17,7 @@ describe 'Catalog Interface' do
     visit catalog_path('7419929')
 
     # Find the 787 data for bib 7419929
-    find('.info').should have_content('Related To Xia intelligenteArchitektur')
+    expect(find('.info')).to have_content('Related To Xia intelligenteArchitektur')
   end
 
   # NEXT-917 - Summary showing up twice for video records
@@ -77,13 +77,13 @@ describe 'Catalog Interface' do
     visit catalog_path('513297')
 
     # Should see the 'Full View' message in the Hathi Holdings box
-    find('#hathi_holdings .hathi_info #hathidata').should have_content('Full view')
+    expect(find('#hathi_holdings .hathi_info #hathidata')).to have_content('Full view')
 
     # visit this specific item
     visit catalog_path('4043762')
 
     # Should see the 'Limited (search-only)' message in the Hathi Holdings box
-    find('#hathi_holdings .hathi_info #hathidata').should have_content('Limited (search-only)')
+    expect(find('#hathi_holdings .hathi_info #hathidata')).to have_content('Limited (search-only)')
   end
 
   # NEXT-931 - Online Links in Holdings (not in the Bib) should display
@@ -105,7 +105,7 @@ describe 'Catalog Interface' do
     visit catalog_path('10099362')
 
     # within ONLINE HOLDINGS, SHOULD see an 'Online' block
-    find('div#online_holdings').should have_content('Online')
+    expect(find('div#online_holdings')).to have_content('Online')
 
     # within CLIO HOLDINGS, should NOT see an 'Online' block
     # find('div#clio_holdings').should_not have_content("Online")
@@ -127,13 +127,13 @@ describe 'Catalog Interface' do
     visit catalog_index_path(q: target1, search_field: 'title_starts_with')
 
     # should see the full location
-    find('#documents').should have_content(troublesome1)
+    expect(find('#documents')).to have_content(troublesome1)
 
     # go to the item-detail page..
     click_link(target1)
 
     # within CLIO HOLDINGS, should get the full location data
-    find('div#clio_holdings').should have_content(troublesome1)
+    expect(find('div#clio_holdings')).to have_content(troublesome1)
 
     # And again, with slightly different sample...
 
@@ -141,13 +141,13 @@ describe 'Catalog Interface' do
     visit catalog_index_path('q' => target2)
 
     # should see the full location
-    find('#documents').should have_content(troublesome2)
+    expect(find('#documents')).to have_content(troublesome2)
 
     # go to the item-detail page..
     click_link(target2)
 
     # within CLIO HOLDINGS, should get the full location data
-    find('div#clio_holdings').should have_content(troublesome2)
+    expect(find('div#clio_holdings')).to have_content(troublesome2)
   end
 
   it "supports alternative viewstyle options ('Standard' or 'Compact')", js: true do
@@ -192,7 +192,7 @@ describe 'Catalog Interface' do
       #
       # NEXT 910 - Add some directions, and optionally email and Name, to the email form
       #
-      find('.modal-header').should have_text('Share selected item(s) via email')
+      expect(find('.modal-header')).to have_text('Share selected item(s) via email')
 
       within '#email_form' do
         fill_in 'to', with: 'marquis@columbia.edu'
@@ -224,7 +224,7 @@ describe 'Catalog Interface' do
 
     expect(page).to have_css('div.debug_instruction')
     expect(page).to have_css('div.debug_entries')
-    find('.debug_instruction').should have_text('Debug mode is on. Turn it off')
+    expect(find('.debug_instruction')).to have_text('Debug mode is on. Turn it off')
     within('div.debug_instruction') do
       click_link 'off'
     end
@@ -274,8 +274,8 @@ describe 'Catalog Interface' do
   it 'should show menu-option "Request(s)"', :js => true do
     visit catalog_path('10905238')
     # Should use consistent language
-    find('#show_toolbar').should have_text "Requests"
-    find('#clio_holdings').should have_text "Request"
+    expect(find('#show_toolbar')).to have_text "Requests"
+    expect(find('#clio_holdings')).to have_text "Request"
   end
 
 
@@ -384,7 +384,7 @@ end
 #
 #     expect(page).to have_css('.modal-scrollable .modal .modal-header')
 #     # puts find('.modal-header').text.inspect #.should have_text('Email Item(s)')
-#     find('.modal-header').should have_text('Email Item(s)')
+#     expect(find('.modal-header')).to have_text('Email Item(s)')
 #
 #     within '#email_form' do
 #       fill_in 'to', :with => 'delete@library.columbia.edu'

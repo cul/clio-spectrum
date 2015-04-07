@@ -8,12 +8,12 @@ describe 'Locations' do
   #   # The full complete URL
   #   visit location_display_path('Avery+Classics+-+By+appt.+%28Non-Circulating%29')
   #   expect(page).to have_text("Located at: Avery Architectural & Fine Arts Library")
-  #   find('.location_notes').should have_text("By appointment only")
+  #   expect(find('.location_notes')).to have_text("By appointment only")
   # 
   #   # Test substring matching...
   #   visit location_display_path('Avery+Classics+-+By+appt')
   #   expect(page).to have_text("Located at: Avery Architectural & Fine Arts Library")
-  #   find('.location_notes').should have_text("By appointment only")
+  #   expect(find('.location_notes')).to have_text("By appointment only")
   # 
   #   # And a further substring that doesn't match our app_config.yml location note
   #   visit location_display_path('Avery+Classics')
@@ -32,7 +32,7 @@ describe 'Locations' do
     expect(page).to have_css('.holdings')
 
     within('.location_notes') do
-      find('.location_note').should have_text("By appointment only")
+      expect(find('.location_note')).to have_text("By appointment only")
     end
   end
 

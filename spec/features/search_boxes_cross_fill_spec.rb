@@ -17,7 +17,7 @@ describe 'The home page' do
   it 'will switch the visible search box when a datasource is clicked upon', js: true do
     visit catalog_index_path
 
-    find('#catalog_q').should be_visible
+    expect(find('#catalog_q')).to be_visible
     expect(page).to have_no_selector('#articles_q')
 
     within('li.datasource_link[source=articles]') do
@@ -25,6 +25,6 @@ describe 'The home page' do
     end
 
     expect(page).to have_no_selector('#catalog_q')
-    find('#articles_q').should be_visible
+    expect(find('#articles_q')).to be_visible
   end
 end

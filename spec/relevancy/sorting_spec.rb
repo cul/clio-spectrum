@@ -9,11 +9,19 @@ describe 'Solr sort order' do
 
     # The bib for "Asia Pacific Forum" should be before
     # any of the "Asian ..." records
-    resp.should include('7038675').before('7038673')
-    resp.should include('7038675').before('7886427')
-    resp.should include('7038675').before('7038672')
-    resp.should include('7038675').before('7038674')
-    resp.should include('7038675').before('7038747')
+    # resp.should include('7038675').before('7038673')
+    # resp.should include('7038675').before('7886427')
+    # resp.should include('7038675').before('7038672')
+    # resp.should include('7038675').before('7038674')
+    # resp.should include('7038675').before('7038747')
+
+    rank7038675 = rank(resp, 7038675 )
+    expect(rank(resp, 7038673)).to be > rank7038675
+    expect(rank(resp, 7886427)).to be > rank7038675
+    expect(rank(resp, 7038672)).to be > rank7038675
+    expect(rank(resp, 7038674)).to be > rank7038675
+    expect(rank(resp, 7038747)).to be > rank7038675
+
   end
 
 end

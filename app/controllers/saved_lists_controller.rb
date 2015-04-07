@@ -407,4 +407,8 @@ class SavedListsController < ApplicationController
     authenticate_user! unless params[:owner]
   end
 
+  def saved_list_params
+    parms.permit(:owner, :name, :slug, :description, :sort_by, :permissions)
+  end
+
 end
