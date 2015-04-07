@@ -18,7 +18,8 @@
 
   = render "/_formats/clio/catalog_show_holdings_google", :document => document
 
-  = render "/_formats/clio/catalog_show_holdings_hathi", :document => document
+  -# = render "/_formats/clio/catalog_show_holdings_hathi", :document => document
+  = render "/_formats/clio/catalog_show_holdings_hathi", :clio_id => clio_id
 
   -# expand vertical height of div.holdings to encompass the 
   -# ajax-loaded floating book-jacket.

@@ -77,13 +77,13 @@ describe 'Catalog Interface' do
     visit catalog_path('513297')
 
     # Should see the 'Full View' message in the Hathi Holdings box
-    find('#hathi_holdings .hathi_info #hathidata').should have_content('Full view')
+    find('#hathi_holdings #hathi_data').should have_content('Full view')
 
     # visit this specific item
     visit catalog_path('4043762')
 
     # Should see the 'Limited (search-only)' message in the Hathi Holdings box
-    find('#hathi_holdings .hathi_info #hathidata').should have_content('Limited (search-only)')
+    find('#hathi_holdings #hathi_data').should have_content('Limited (search-only)')
   end
 
   # NEXT-931 - Online Links in Holdings (not in the Bib) should display

@@ -1,8 +1,12 @@
-#google_holdings.gbs_cover
+#google_holdings.gbs_cover.clearfix
   .holding
-    - isbns = extract_standard_bibkeys(document).listify.collect { |i| "id_" + i.to_s.gsub(':','')}.join(" ")
-    %img.bookjacket{:class => isbns, :src => image_path("spacer.png")}
-    .google_title Google Books
+
+    -# Jacket - load spacer, tag with bibkeys via classes
+    - bibkeys = extract_standard_bibkeys(document).listify.collect { |i| "id_" + i.to_s.gsub(':','')}.join(" ")
+    %img.bookjacket{:class => bibkeys, :src => image_path("spacer.png")}
+
+    -# Info / Preview / Search 
+    .google_title.holdings_title Google Books
     .gbs_info
       =link_to "More info at Google books", "http://books.google.com", :class => "gbs_info_link", :target => "_blank"
     .gbs_preview
