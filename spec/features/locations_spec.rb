@@ -117,10 +117,13 @@ describe 'Locations' do
     expect(find('.gmap_container')['data-markers'].split('},{').count).to eq(29)
   end
 
-  context 'infowindow', type: :selenium  do
-    before{Capybara.current_driver = :selenium}
+  context 'infowindow', selenium: true  do
 
-    it 'should display the infowindow for the current marker', js: true do
+    it 'uses selenium driver' do
+      expect(Capybara.current_driver).to be(:selenium)
+    end
+
+    it 'should display the infowindow for the current marker' do
       visit location_display_path("Avery+%28Non-Circulating%29")
       expect(page).to have_css('.infowindow.avery')
       expect(find('.infowindow').text).to match('Avery')

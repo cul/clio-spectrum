@@ -28,10 +28,15 @@ require 'rubygems'
   Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
   RSpec.configure do |config|
+    config.treat_symbols_as_metadata_keys_with_true_values = true
     config.mock_with :rspec
     config.include(MailerMacros)
     config.before(:each) { reset_email }
 
+    config.around(:each, :selenium) do |example|
+      Capybara.current_driver = :selenium
+      example.run
+    end
     # Specify an alternative JS driver if we want to avoid selinium
     Capybara.javascript_driver = :webkit
     # Capybara.javascript_driver = :webkit_debug
@@ -46,7 +51,6 @@ require 'rubygems'
       # config.visible_text_only = true
     # end
 
-    config.treat_symbols_as_metadata_keys_with_true_values = true
     config.filter_run focus: true
     config.run_all_when_everything_filtered = true
 
@@ -89,8 +93,9 @@ require 'rubygems'
 
     # Allow developers to turn off selenium-based testing
     # with a local setting in their app_config.yml
-    config.filter_run_excluding :type => 'selenium' if
+    config.filter_run_excluding :selenium if
         APP_CONFIG['skip_selenium_tests']
+
 
   end
 
