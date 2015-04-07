@@ -45,10 +45,11 @@ describe 'QuickSearch landing page' do
   # *** ARTICLES ***
   it "should link to Articles results correctly", js:true do
     visit quicksearch_index_path('q' => 'indefinite')
+    expect(page).to have_css('.results_header', :text => "Articles")
     within('.results_header', :text => "Articles") do
       click_link "View and filter all"
     end
-    page.should have_text "You searched for: indefinite"
+    expect(page).to have_text "You searched for: indefinite"
   end
   # *** ACADEMIC COMMONS ***
   it "should link to Academic Commons results correctly", js:true do
