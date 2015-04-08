@@ -1,0 +1,62 @@
+:link,:visited { text-decoration:none }
+ul,ol { list-style:none }
+h1,h2,h3,h4,h5,h6,pre,code { font-family: Arial, Helvetica, sans-serif; font-size:1em; font-weight: normal; }
+ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input,dt,dd
+{ margin:0; padding:0 }
+a img,:link img,:visited img { border:none }
+address { font-style:normal }
+fieldset { border: none;}
+legend { display:none; }
+
+
+body
+{
+	font-family: Arial;
+	margin: 20px;
+}
+  
+.items li
+{
+	float: left;
+	margin: 0px 5px 5px 0px;
+	text-transform: uppercase;
+}
+  
+.items li .outerContainer
+{
+	display: table;
+	height: 180px;
+	overflow: hidden;
+	width: 200px;
+	background-color: #EBEBEB;
+	border-bottom: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+}
+  
+.items li .outerContainer:Hover
+{
+	background-color: red;
+}
+
+.items li .outerContainer .innerContainer
+{
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+  
+.items li .outerContainer .innerContainer .element a
+{
+	color: #999999;
+	text-decoration: none;
+	padding: 0px 10px;
+	display: block;
+}
+  
+.items li .outerContainer:Hover .innerContainer .element a
+{
+	color: #FFFFFF;
+	text-decoration: none;  	  
+}
