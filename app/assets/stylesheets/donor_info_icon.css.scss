@@ -5,11 +5,11 @@
   background-repeat: no-repeat;
   background-size: 24px 24px;
   background-color: #779bc3;
-  border-radius: 1;
+  border-radius: 1px;
   border: 1px solid #779bc3;
   background-position: 0;
   color: white;
-  height: 2em; 
+  height: 2.2em;
   font-size: 104%;
   font-style: normal;
   line-height: 1.3;
@@ -18,21 +18,17 @@
   display: inline-block;
 }
 .area { 
-  width: 30em; 
-  height: 2em; 
   position: relative;
+  background-color: #F5F5F5;
 }
 
-.bubble { 
-  position: absolute; 
-  left: 80px; 
-  width: 30em; 
-  height: 2em; 
-  display: table; 
+.bubble {
+  height: 2.2em;
+  display: table;
 }
 
-.bubble span{
-  display: table-cell; 
-  vertical-align: middle; 
+.bubble p{
+  display: table-cell;
+  vertical-align: middle;
   margin: 0 0 0;
 }
