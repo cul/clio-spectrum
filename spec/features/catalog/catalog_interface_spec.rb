@@ -376,6 +376,39 @@ describe 'Catalog Interface' do
     page.should have_css('li.datasource_link.selected[source="catalog"]')
     page.should have_css('span.constraints-label', text: "You searched for:")
   end
+
+  #   NEXT-1140 - Special character not sorting properly
+  it "Title sort should disregard diacritics" do
+    rizq = 'Rizq, Yūnān Labīb'.mb_chars.normalize(:d)
+
+    visit catalog_index_path(q: rizq, search_field: 'author', sort: 'title_sort desc', rows: 10)
+    expect(page).to have_css('#documents .document.result')
+    # The title-sort of this record begins with "Wafd".
+    # It should be alphabetically last of the Rizq titles.
+    expect( all('#documents .document.result').first ).to have_text "al-Wafd wa-al"
+  end
+
+  #   NEXT-1140 - Special character not sorting properly
+  it "Author sort should disregard diacritics" do
+    ahmad = 'Aḥmad Muḥammad ʻAbd al-ʻĀl'.mb_chars.normalize(:d)
+    # Hooray, there are alternative unicode forms returned!
+    # Use an either/or "satisfy" block below.
+    abd1 = 'ʻAbd al-ʻĀl, Aḥmad Muḥammad'.mb_chars.normalize(:d)
+    abd2 = 'ʼAbd al-ʼĀl, Aḥmad Muḥammad'.mb_chars.normalize(:d)
+
+    # There should be at least 10 records with this author, and they
+    # should be first alphabetically.
+    visit catalog_index_path(q: ahmad, sort: 'author_sort asc', rows: 10)
+    expect(page).to have_css('#documents .document.result')
+    all('#documents .document.result .row .details').each do |details|
+      expect(details.text).to satisfy { |detail_text|
+        detail_text.match(/#{abd1}/) ||
+        detail_text.match(/#{abd2}/)
+      }
+    end
+  end
+
+
   # NEXT-1157 - Quotation mark not sorting properly
   it "Title sort should disregard punctuation" do
     visit catalog_index_path(q: 'Cairo papers in social science', search_field: 'title', sort: 'title_sort asc', rows: 10)
