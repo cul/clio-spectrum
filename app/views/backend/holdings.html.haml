@@ -61,12 +61,12 @@
                 (#{details['count']} copies)
 
       .container
-        .row
+        .row{style: "padding: 3px 4px 3px 12px;"}
           = render 'donor_info', copy: copy
 
         -# Different 'urls' with a 'copy' have different details...
-        .row{style: "padding: 3px 4px 3px 28px;"}
-          - copy['urls'] && copy['urls'].each do |url_details|
+        - copy['urls'] && copy['urls'].each do |url_details|
+          .row
             .url_link
               = image_tag "icons/online.png"
               = link_to url_details["link_text"], url_details["url"]
