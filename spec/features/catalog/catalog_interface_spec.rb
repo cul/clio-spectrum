@@ -376,6 +376,12 @@ describe 'Catalog Interface' do
     page.should have_css('li.datasource_link.selected[source="catalog"]')
     page.should have_css('span.constraints-label', text: "You searched for:")
   end
+  # NEXT-1157 - Quotation mark not sorting properly
+  it "Title sort should disregard punctuation" do
+    visit catalog_index_path(q: 'Cairo papers in social science', search_field: 'title', sort: 'title_sort asc', rows: 10)
+    expect(page).to have_css('#documents .document.result')
+    expect( all('#documents .document.result').first ).to_not have_text "Just a gaze"
+  end
 end
 
 # email_catalog_path(:id => id)
