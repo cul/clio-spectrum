@@ -207,7 +207,7 @@ describe 'Catalog Interface' do
     end
   end
 
-  it 'supports a debug mode', js: true, xfocus: true do
+  it 'supports a debug mode', js: true do
     visit catalog_index_path('q' => 'prim')
 
     page.should_not have_css('div.debug_instruction')
@@ -340,7 +340,7 @@ describe 'Catalog Interface' do
   end
 
   # NEXT-977 - Series Title does not display via basic search
-  it "should show Series Title when searching by Series Title", Xfocus: true do
+  it "should show Series Title when searching by Series Title" do
     # Basic Search
     visit catalog_index_path('q' => 'Black Sea', 'search_field' => 'series_title')
     page.should have_text('Series Title Black Sea studies')
@@ -382,6 +382,17 @@ describe 'Catalog Interface' do
     expect(page).to have_css('#documents .document.result')
     expect( all('#documents .document.result').first ).to_not have_text "Just a gaze"
   end
+
+  # NEXT-1163 - Add subfield f to title display
+  it "Titles should include dates from 245 $f" do
+    visit catalog_path('8540370')
+    expect( find('.show-document .title')).to have_text "Composers' Forum concert [electronic resource], 1958 January 18"
+
+    visit catalog_path('4079060')
+    expect( find('.show-document .title')).to have_text "Papers, 1958-1968"
+
+  end
+
 end
 
 # email_catalog_path(:id => id)
