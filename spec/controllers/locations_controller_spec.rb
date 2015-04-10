@@ -31,10 +31,32 @@ describe LocationsController do
         markers = controller.build_markers
         cliolocs = Location.all.select{|loc| loc['library_code']}.map{|loc| loc['library_code']}.uniq
         cliolocs.each do |loc|
-          unless((loc == "barnard-archives") || (loc == "butler-24") || (loc == "lehman-suite"))
+          unless(loc == "lehman-suite")
             expect(markers).to match(loc)
           end
         end
+      end
+    end
+
+    describe "library_api_path" do
+      it "returns the test api path when config variable is set to true" do
+        allow(APP_CONFIG).to receive(:has_key?).with('use_test_api').and_return(true)
+        allow(APP_CONFIG).to receive(:[]).with('use_test_api').and_return(true)
+        path = controller.library_api_path
+        expect(path).to eq("http://test-api.library.columbia.edu/query.json")
+      end
+
+      it "returns the production path when config variable is set to false" do
+        allow(APP_CONFIG).to receive(:has_key?).with('use_test_api').and_return(true)
+        allow(APP_CONFIG).to receive(:[]).with('use_test_api').and_return(false)
+        path = controller.library_api_path
+        expect(path).to eq("http://api.library.columbia.edu/query.json")
+      end
+
+      it "returns the production path when config variable is missing" do
+        allow(APP_CONFIG).to receive(:has_key?).with('use_test_api').and_return(false)
+        path = controller.library_api_path
+        expect(path).to eq("http://api.library.columbia.edu/query.json")
       end
     end
   end
