@@ -376,6 +376,26 @@ describe 'Catalog Interface' do
     page.should have_css('li.datasource_link.selected[source="catalog"]')
     page.should have_css('span.constraints-label', text: "You searched for:")
   end
+
+  it "shows 'Restricted' note in any datasource", focus: true do
+    restricted = "This resource is available only to current faculty, staff and students of Columbia University"
+
+    visit catalog_path(7000423)
+    expect(page).to have_text restricted
+
+    visit databases_show_path(7000423)
+    expect(page).to have_text restricted
+
+    visit journals_show_path(7000423)
+    expect(page).to have_text restricted
+
+    visit archives_show_path(7000423)
+    expect(page).to have_text restricted
+
+    visit new_arrivals_show_path(7000423)
+    expect(page).to have_text restricted
+  end
+
 end
 
 # email_catalog_path(:id => id)
