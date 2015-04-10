@@ -396,6 +396,23 @@ describe 'Catalog Interface' do
     expect(page).to have_text restricted
   end
 
+  # NEXT-1099 - Acquisition Date facet cannot be negated
+  it "allows acquisition date to be negated", focus: true do
+    visit catalog_index_path(q: 'kittens', 'f[acq_dt][]' => 'years_1')
+    expect(page).to have_css('#documents .document.result')
+    recent_title = all('#documents .document.result .row .title').first.text
+
+    # Now, inverse "Law" to "Not Law"
+    within find('.constraint-box', text: 'Acquisition Date') do
+      find('.dropdown', text: 'Is').click
+      find('a', text: 'Is Not').click
+    end
+    expect(page).to have_css('#documents .document.result')
+    older_title = all('#documents .document.result .row .title').first.text
+
+    expect(recent_title).to_not eq older_title
+  end
+
 end
 
 # email_catalog_path(:id => id)
