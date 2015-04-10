@@ -12,7 +12,7 @@ describe LocationsController do
   context "\nYou may need to run 'rake hours:sync RAILS_ENV=test' and 'rake locations:load RAILS_ENV=test'.  See README.\n" do
     describe "build_markers " do
       it "should query the Library API" do
-        api_query = "http://api.library.columbia.edu/query.json", {:params=>{:qt=>"location", :locationID=>"alllocations"}}
+        api_query = controller.library_api_path, {:params=>{:qt=>"location", :locationID=>"alllocations"}}
         expect(RestClient).to receive(:get).with(api_query[0], api_query[1]).and_call_original
         controller.build_markers
       end
