@@ -423,10 +423,50 @@ describe 'Catalog Interface' do
 
     visit catalog_path('4079060')
     expect( find('.show-document .title')).to have_text "Papers, 1958-1968"
-
   end
 
+
+  # NEXT-934 - question/not improvement: old key symbol?
+  it "shows 'Restricted' note in any datasource" do
+    restricted = "This resource is available only to current faculty, staff and students of Columbia University"
+
+    visit catalog_path(7000423)
+    expect(page).to have_text restricted
+
+    visit databases_show_path(7000423)
+    expect(page).to have_text restricted
+
+    visit journals_show_path(7000423)
+    expect(page).to have_text restricted
+
+    visit archives_show_path(7000423)
+    expect(page).to have_text restricted
+
+    visit new_arrivals_show_path(7000423)
+    expect(page).to have_text restricted
+  end
+
+
+  # NEXT-1099 - Acquisition Date facet cannot be negated
+  it "allows acquisition date to be negated", focus: true do
+    visit catalog_index_path(q: 'kittens', 'f[acq_dt][]' => 'years_1')
+    expect(page).to have_css('#documents .document.result')
+    recent_title = all('#documents .document.result .row .title').first.text
+
+    # Now, inverse "Law" to "Not Law"
+    within find('.constraint-box', text: 'Acquisition Date') do
+      find('.dropdown', text: 'Is').click
+      find('a', text: 'Is Not').click
+    end
+    expect(page).to have_css('#documents .document.result')
+    older_title = all('#documents .document.result .row .title').first.text
+
+    expect(recent_title).to_not eq older_title
+  end
+
+
 end
+
 
 # email_catalog_path(:id => id)
 # describe 'Catalog item view', :caching => true do
