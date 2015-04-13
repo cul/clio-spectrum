@@ -9,7 +9,7 @@ describe 'Saved List Interface' do
     @blatteroon = FactoryGirl.create(:user, login: 'blatteroon')
   end
 
-  it 'Capybara should let us login and logout and login again', xfocus: true do
+  it 'Capybara should let us login and logout and login again' do
     # Not yet logged in - navbar shows un-authenticated message
     visit catalog_index_path
     find('#topnavbar').should have_text 'My Library Account'
@@ -162,6 +162,14 @@ describe 'Saved List Interface' do
       click_on('Add to My Saved List')
       expect(page).to have_css(".alert", :text => "1 item added to list Bookbag")
     end
+  # it "item can be added to bookbag after exporting to EndNote", js: true, type: :selenium do
+  #   Capybara.current_driver = :selenium
+  #   visit catalog_path("4359539")
+  #   login_as @blatteroon
+  #   click_link('Export')
+  #   click_link('Export to EndNote')
+  #   click_link('Add to My Saved List')
+  #   expect(page).to have_css(".alert", :text => "1 item added to list Bookbag")
   end
 
 end

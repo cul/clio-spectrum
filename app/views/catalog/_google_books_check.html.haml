@@ -1,5 +1,5 @@
 
-- isbns_to_check = documents.listify.collect { |d| extract_standard_bibkeys(d) }.compact.flatten.uniq
+- bibkeys_to_check = documents.listify.collect { |d| extract_standard_bibkeys(d) }.compact.flatten.uniq
 
 
 - content_for :jstemplates do
@@ -13,15 +13,15 @@
         _GBSBookInfo = data;
     }
 
-    quoted_isbns = [#{isbns_to_check.collect { |i| "'#{i}'" }.join(",")}];
+    quoted_bibkeys = [#{bibkeys_to_check.collect { |i| "'#{i}'" }.join(",")}];
 
-    api_url= books_url + "?jscmd=viewapi&bibkeys=#{h(isbns_to_check.join(","))}" + "&callback=google_books_response_handler";
+    api_url= books_url + "?jscmd=viewapi&bibkeys=#{h(bibkeys_to_check.join(","))}" + "&callback=google_books_response_handler";
 
     document.write(unescape("%3Cscript src=" + api_url + " type='text/javascript'%3E%3C/script%3E"));
 
     $(document).ready ( function () {
 
-        update_book_jackets(quoted_isbns, _GBSBookInfo);
+        update_google_holdings(quoted_bibkeys, _GBSBookInfo);
 
     });
 

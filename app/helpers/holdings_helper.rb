@@ -305,6 +305,18 @@ module HoldingsHelper
       bibkeys << document['lccn_display'].map { |lccn| 'lccn:' + lccn.gsub(/\s/, '').gsub(/\/.+$/, '') }
     end
 
+    # Some Hathi records were directly loaded into Voyager.
+    # These have direct Hathi links in their 856 - and these
+    # links have a standard ID number not otherwise available.
+    online_link_hash(document).each do |link|
+      next unless link[:url].start_with? "http://catalog.hathitrust.org"
+
+      id_type, id_value = link[:url].match( /api\/volumes\/(\w+)\/(\d+).html/ ).captures
+
+      # put at the front - so later first-found processing hits this one
+      bibkeys.unshift(id_type + ':' + id_value)
+    end
+
     bibkeys.flatten.compact
   end
 
@@ -330,4 +342,44 @@ module HoldingsHelper
     # which is marked Online but is missing URL details.
     true
   end
+
+  def get_hathi_holdings_data(document)
+    return nil unless document
+
+    hathi_holdings_data = nil
+
+    # format will be type:value, type:value,
+    # e.g., lccn:2006921508, oclc:70850767
+    bibkeys = extract_standard_bibkeys(document)
+    bibkeys.each do |bibkey|
+      id_type, id_value = bibkey.split(':')
+      next unless id_type and id_value
+
+      hathi_holdings_data = fetch_hathi_brief(id_type, id_value)
+      break unless hathi_holdings_data.nil?
+    end
+
+    return hathi_holdings_data
+  end
+
+  def fetch_hathi_brief(id_type, id_value)
+    return nil unless id_type and id_value
+
+    hathi_brief_url = "http://catalog.hathitrust.org/api/volumes" +
+                      "/brief/#{id_type}/#{id_value}.json"
+    http_client = HTTPClient.new
+    Rails.logger.debug "get_content(#{hathi_brief_url})"
+    json_data = http_client.get_content(hathi_brief_url)
+    hathi_holdings_data = JSON.parse(json_data)
+
+    # Hathi will pass back a valid, but empty, response.
+    #     {"records"=>{}, "items"=>[]}
+    # This means no hit with this bibkey, so return nil.
+    return nil unless hathi_holdings_data &&
+                      hathi_holdings_data['records'] &&
+                      hathi_holdings_data['records'].size > 0
+    return hathi_holdings_data
+  end
+
 end
+

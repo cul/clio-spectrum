@@ -77,13 +77,13 @@ describe 'Catalog Interface' do
     visit catalog_path('513297')
 
     # Should see the 'Full View' message in the Hathi Holdings box
-    find('#hathi_holdings .hathi_info #hathidata').should have_content('Full view')
+    find('#hathi_holdings #hathi_data').should have_content('Full view')
 
     # visit this specific item
     visit catalog_path('4043762')
 
     # Should see the 'Limited (search-only)' message in the Hathi Holdings box
-    find('#hathi_holdings .hathi_info #hathidata').should have_content('Limited (search-only)')
+    find('#hathi_holdings #hathi_data').should have_content('Limited (search-only)')
   end
 
   # NEXT-931 - Online Links in Holdings (not in the Bib) should display
@@ -207,7 +207,7 @@ describe 'Catalog Interface' do
     end
   end
 
-  it 'supports a debug mode', js: true, xfocus: true do
+  it 'supports a debug mode', js: true do
     visit catalog_index_path('q' => 'prim')
 
     page.should_not have_css('div.debug_instruction')
@@ -340,7 +340,7 @@ describe 'Catalog Interface' do
   end
 
   # NEXT-977 - Series Title does not display via basic search
-  it "should show Series Title when searching by Series Title", Xfocus: true do
+  it "should show Series Title when searching by Series Title" do
     # Basic Search
     visit catalog_index_path('q' => 'Black Sea', 'search_field' => 'series_title')
     page.should have_text('Series Title Black Sea studies')
@@ -376,6 +376,56 @@ describe 'Catalog Interface' do
     page.should have_css('li.datasource_link.selected[source="catalog"]')
     page.should have_css('span.constraints-label', text: "You searched for:")
   end
+
+  #   NEXT-1140 - Special character not sorting properly
+  it "Title sort should disregard diacritics" do
+    rizq = 'Rizq, Yūnān Labīb'.mb_chars.normalize(:d)
+
+    visit catalog_index_path(q: rizq, search_field: 'author', sort: 'title_sort desc', rows: 10)
+    expect(page).to have_css('#documents .document.result')
+    # The title-sort of this record begins with "Wafd".
+    # It should be alphabetically last of the Rizq titles.
+    expect( all('#documents .document.result').first ).to have_text "al-Wafd wa-al"
+  end
+
+  #   NEXT-1140 - Special character not sorting properly
+  it "Author sort should disregard diacritics" do
+    ahmad = 'Aḥmad Muḥammad ʻAbd al-ʻĀl'.mb_chars.normalize(:d)
+    # Hooray, there are alternative unicode forms returned!
+    # Use an either/or "satisfy" block below.
+    abd1 = 'ʻAbd al-ʻĀl, Aḥmad Muḥammad'.mb_chars.normalize(:d)
+    abd2 = 'ʼAbd al-ʼĀl, Aḥmad Muḥammad'.mb_chars.normalize(:d)
+
+    # There should be at least 10 records with this author, and they
+    # should be first alphabetically.
+    visit catalog_index_path(q: ahmad, sort: 'author_sort asc', rows: 10)
+    expect(page).to have_css('#documents .document.result')
+    all('#documents .document.result .row .details').each do |details|
+      expect(details.text).to satisfy { |detail_text|
+        detail_text.match(/#{abd1}/) ||
+        detail_text.match(/#{abd2}/)
+      }
+    end
+  end
+
+
+  # NEXT-1157 - Quotation mark not sorting properly
+  it "Title sort should disregard punctuation" do
+    visit catalog_index_path(q: 'Cairo papers in social science', search_field: 'title', sort: 'title_sort asc', rows: 10)
+    expect(page).to have_css('#documents .document.result')
+    expect( all('#documents .document.result').first ).to_not have_text "Just a gaze"
+  end
+
+  # NEXT-1163 - Add subfield f to title display
+  it "Titles should include dates from 245 $f" do
+    visit catalog_path('8540370')
+    expect( find('.show-document .title')).to have_text "Composers' Forum concert [electronic resource], 1958 January 18"
+
+    visit catalog_path('4079060')
+    expect( find('.show-document .title')).to have_text "Papers, 1958-1968"
+
+  end
+
 end
 
 # email_catalog_path(:id => id)

@@ -63,11 +63,13 @@ describe 'QuickSearch landing page' do
   # *** CATALOG ***
   it "should link to Libraries Website results correctly", js:true do
     visit quicksearch_index_path('q' => 'public')
+
+    # make sure the AJAX lookups all return
+    expect(page).to have_css('.result_set', count: 4)
+
     # page.save_and_open_page
     find('.results_header', :text => "Libraries Website")
     within('.results_header', :text => "Libraries Website") do
-      # make sure the ajax seach has completed
-      find('.result_count')
       should_not have_text "View and filter all"
       click_link "View all"
     end

@@ -8,4 +8,10 @@ describe 'Testing rsolr-rspec support' do
     resp.should have_at_most(19_000).documents
   end
 
+# utility, for spitting out the bib keys that match a given query
+#   it "BIB LIST", focus: true do
+#     resp = solr_resp_doc_ids_only('q' => 'composers forum', 'search_field' => 'title', rows: 100)
+# puts    resp.inspect
+#   end
+
 end
