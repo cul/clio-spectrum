@@ -448,7 +448,7 @@ describe 'Catalog Interface' do
 
 
   # NEXT-1099 - Acquisition Date facet cannot be negated
-  it "allows acquisition date to be negated", focus: true do
+  it "allows acquisition date to be negated" do
     visit catalog_index_path(q: 'kittens', 'f[acq_dt][]' => 'years_1')
     expect(page).to have_css('#documents .document.result')
     recent_title = all('#documents .document.result .row .title').first.text
