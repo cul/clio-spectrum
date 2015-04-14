@@ -232,8 +232,11 @@ module HoldingsHelper
       entry['location'] = location
 
       if location && location.category == 'physical'
-        check_at = DateTime.now
-        entry['location_link'] = link_to(entry['location_name'], location_display_path(CGI.escape(entry['location_name'])), class: :location_display)
+        # NEXT-1041 - Icon or other visual cue
+        # %span.glyphicon.glyphicon-map-marker.text-primary
+        map_marker = content_tag(:span, "".html_safe, class: 'glyphicon glyphicon-map-marker text-primary').html_safe
+
+        entry['location_link'] = link_to(map_marker + entry['location_name'], location_display_path(CGI.escape(entry['location_name'])), class: :location_display)
       else
         entry['location_link'] = entry['location_name']
       end
