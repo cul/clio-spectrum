@@ -110,8 +110,10 @@ $ ->
     for bib, holdings of data
       for holding_id, status of data[bib].statuses
         selector = "img.availability.holding_" + holding_id
-        $(selector).attr("src", "/assets/icons/"+ status+".png")
-
+        status_upcase = status.charAt(0).toUpperCase() + status.slice(1)
+        $(selector).attr("src", "/assets/icons/" + status + ".png")
+        $(selector).attr("title", status_upcase)
+        $(selector).attr("alt", status_upcase)
 
 
 # Called from _google_books_check.html.haml, to update the

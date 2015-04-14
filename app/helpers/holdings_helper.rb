@@ -261,7 +261,10 @@ module HoldingsHelper
       # add status icons
       entry['copies'].each do |copy|
         copy['items'].each_pair do |message, details|
-          details['image_link'] = image_tag('icons/' + details['status'] + '.png')
+          status_image = 'icons/' + details['status'] + '.png'
+          status_label = details['status'].humanize
+          # details['image_link'] = image_tag('icons/' + details['status'] + '.png')
+          details['image_link'] = image_tag(status_image, title: status_label, alt: status_label)
         end
       end
 
