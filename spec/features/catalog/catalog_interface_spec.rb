@@ -75,12 +75,18 @@ describe 'Catalog Interface' do
   it "Should show Hathi Trust links, both 'Full view' and 'Limited'", js: true do
     # visit this specific item
     visit catalog_path('513297')
+    expect(page).to have_css '.holdings-container .holdings #clio_holdings'
+    expect(page).to have_css '.holdings-container .holdings #google_holdings'
+    expect(page).to have_css '.holdings-container .holdings #hathi_holdings'
 
     # Should see the 'Full View' message in the Hathi Holdings box
     find('#hathi_holdings #hathi_data').should have_content('Full view')
 
     # visit this specific item
     visit catalog_path('4043762')
+    expect(page).to have_css '.holdings-container .holdings #clio_holdings'
+    expect(page).to have_css '.holdings-container .holdings #google_holdings'
+    expect(page).to have_css '.holdings-container .holdings #hathi_holdings'
 
     # Should see the 'Limited (search-only)' message in the Hathi Holdings box
     find('#hathi_holdings #hathi_data').should have_content('Limited (search-only)')
@@ -156,6 +162,9 @@ describe 'Catalog Interface' do
     click_link 'Display Options'
     click_link 'Standard View'
 
+    # make sure the standard results have loaded
+    find('.result.document .row .title', match: :first)
+
     all('.result.document').first.text.should match /Author.*Published.*Location/
 
     click_link 'Display Options'
@@ -170,6 +179,9 @@ describe 'Catalog Interface' do
 
     click_link 'Display Options'
     click_link 'Standard View'
+
+    # make sure the standard results have loaded
+    find('.result.document .row .title', match: :first)
 
     all('.result.document').first.text.should match /Author.*Published.*Location/
   end

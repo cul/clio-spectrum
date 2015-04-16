@@ -23,8 +23,9 @@ describe 'Archives Search' do
   it 'can move between item-detail and search-results', js: true do
     visit archives_index_path('q' => 'files')
 
+    expect(page).to have_css '#documents .result.document'
     within all('.result.document').first do
-      find('a').click
+      find('a', text: 'Files').click
     end
 
     # page.save_and_open_page # debug
