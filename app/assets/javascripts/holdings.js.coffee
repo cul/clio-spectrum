@@ -68,6 +68,11 @@ $ ->
     success: (data) ->
         $('#hathi_data_wrapper').html(data)
         $('#hathi_holdings').show()
+        # If we have a long list of holdings,
+        # they'll be rendered with collapse/expand.
+        $(".expander").click ->
+          $('#hathi_holdings').find(".expander").hide()
+          $('#hathi_holdings').find(".expander_more").removeClass('expander_more')
 
     error: (data) ->
         $(".hathi_holdings_check").hide()

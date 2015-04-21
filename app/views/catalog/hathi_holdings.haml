@@ -17,9 +17,16 @@
       .holdings_subtitle
         Viewability
       
+      - item_count = hathi_holdings_data['items'].size
+      - show_count = 25
+
       .hathi_viewability_table.small
-        - hathi_holdings_data['items'].each do |item|
-          .hathi_viewability_row
+        - hathi_holdings_data['items'].each_with_index do |item, i|
+
+          -# First show_count items are shown, beyond that they'll
+          -# be hidden inside a hide/show expander.
+          - visibility = (i >= show_count) ? 'expander_more' : ''
+          .hathi_viewability_row{class: visibility}
             .hathi_viewability_cell
               %a{href: "#{item['itemURL']}"}= item['usRightsString']
             .hathi_viewability_cell
@@ -28,11 +35,12 @@
             .hathi_viewability_cell
               - if item['orig']
                 %em= "(original from #{item['orig']})"
-
-          -# .col-sm-6
-          -#   .pull-left
-          -#   .pull-right
-          -# 
-          -# .col-sm-6
-          -#   %em
+          -# After show_count items, add the show/hide expander control.
+          -# (zero-based indexing, so subtract one)
+          - if i == (show_count - 1)
+            .hathi_viewability_row.expander
+              .hathi_viewability_cell{style: 'display:inline-block'}
+                %em
+                  %a.expander{href: '#'}
+                    (#{item_count - show_count} more...)
 
