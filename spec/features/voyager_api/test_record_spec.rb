@@ -56,11 +56,14 @@ describe 'record tests', js: true do
       end
     end
 
-    it 'test donor info icon with link' do
+    # NEXT-1180 - Accommodate donor info that spans one or two lines
+    it 'test donor info with very, very, very, very, very, very long donor label' do
       visit catalog_path('36114')
       within ('div#clio_holdings') do
         expect(page).not_to have_content('Donor:')
-        expect(page).to have_content('Seymour Durst; 2012.')
+        # expect(page).to have_content('Seymour Durst; 2012.')
+        ridicule = 'Seymour B. Durst Old York Library Collection, Avery Architectural & Fine Arts Library, Columbia University.'
+        expect(page).to have_content(ridicule)
         expect(page).to have_css('.donor_info_icon')
       end
     end
