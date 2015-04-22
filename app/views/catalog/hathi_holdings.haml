@@ -20,27 +20,31 @@
       - item_count = hathi_holdings_data['items'].size
       - show_count = 25
 
-      .hathi_viewability_table.small
-        - hathi_holdings_data['items'].each_with_index do |item, i|
 
+      -# (I tried to do this with display:table/table-row/table-cell, 
+      -# but there's no way to do colspan, so the expander note was
+      -# affecting column flow.  Switched to <table>, all ok.)
+      %table.hathi_holdings_table
+        - hathi_holdings_data['items'].each_with_index do |item, i|
+      
           -# First show_count items are shown, beyond that they'll
           -# be hidden inside a hide/show expander.
           - visibility = (i >= show_count) ? 'expander_more' : ''
-          .hathi_viewability_row{class: visibility}
-            .hathi_viewability_cell
+          %tr.hathi_holdings_row{class: visibility}
+            %td.hathi_holdings_cell
               %a{href: "#{item['itemURL']}"}= item['usRightsString']
-            .hathi_viewability_cell
+            %td.hathi_holdings_cell
               -# enum-cron is 'false' for bookish items
               %a{href: "#{item['itemURL']}"}= item['enumcron'] || ''
-            .hathi_viewability_cell
+            %td.hathi_holdings_cell
               - if item['orig']
                 %em= "(original from #{item['orig']})"
           -# After show_count items, add the show/hide expander control.
           -# (zero-based indexing, so subtract one)
           - if i == (show_count - 1)
-            .hathi_viewability_row.expander
-              .hathi_viewability_cell{style: 'display:inline-block'}
+            %tr.hathi_holdings_row.expander
+              %td.hathi_expander_cell{colspan: 3}
                 %em
                   %a.expander{href: '#'}
-                    (#{item_count - show_count} more...)
+                    (show #{item_count - show_count} more holdings...)
 
