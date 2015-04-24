@@ -316,6 +316,11 @@ module HoldingsHelper
     # links have a standard ID number not otherwise available.
     online_link_hash(document).each do |link|
       next unless link[:url].start_with? "http://catalog.hathitrust.org"
+      unless link[:url].match( /api\/volumes\/\w+\/\d+.html/ )
+        # Rails.logger.debug "bib #{document.id} unexpected URL #{link[:url]}"
+        next
+      end
+      # Rails.logger.debug "bib #{document.id} as-expected URL #{link[:url]}"
 
       id_type, id_value = link[:url].match( /api\/volumes\/(\w+)\/(\d+).html/ ).captures
 
