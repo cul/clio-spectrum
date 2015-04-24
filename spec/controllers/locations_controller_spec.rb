@@ -39,22 +39,25 @@ describe LocationsController do
     end
 
     describe "library_api_path" do
-      it "returns the test api path when config variable is set to true" do
-        allow(APP_CONFIG).to receive(:has_key?).with('use_test_api').and_return(true)
-        allow(APP_CONFIG).to receive(:[]).with('use_test_api').and_return(true)
-        path = controller.library_api_path
-        expect(path).to eq("http://test-api.library.columbia.edu/query.json")
-      end
-
-      it "returns the production path when config variable is set to false" do
-        allow(APP_CONFIG).to receive(:has_key?).with('use_test_api').and_return(true)
-        allow(APP_CONFIG).to receive(:[]).with('use_test_api').and_return(false)
-        path = controller.library_api_path
-        expect(path).to eq("http://api.library.columbia.edu/query.json")
-      end
+      # change this - app_config will have the actual path, not a
+      # flag controlling which of two hard-coded paths to use.
+      # 
+      # it "returns the test api path when config variable is set to true" do
+      #   allow(APP_CONFIG).to receive(:has_key?).with('use_test_api').and_return(true)
+      #   allow(APP_CONFIG).to receive(:[]).with('use_test_api').and_return(true)
+      #   path = controller.library_api_path
+      #   expect(path).to eq("http://test-api.library.columbia.edu/query.json")
+      # end
+      # 
+      # it "returns the production path when config variable is set to false" do
+      #   allow(APP_CONFIG).to receive(:has_key?).with('use_test_api').and_return(true)
+      #   allow(APP_CONFIG).to receive(:[]).with('use_test_api').and_return(false)
+      #   path = controller.library_api_path
+      #   expect(path).to eq("http://api.library.columbia.edu/query.json")
+      # end
 
       it "returns the production path when config variable is missing" do
-        allow(APP_CONFIG).to receive(:has_key?).with('use_test_api').and_return(false)
+        allow(APP_CONFIG).to receive(:has_key?).with('library_api_path').and_return(false)
         path = controller.library_api_path
         expect(path).to eq("http://api.library.columbia.edu/query.json")
       end
