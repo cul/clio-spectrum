@@ -517,6 +517,8 @@ class ApplicationController < ActionController::Base
       fullpath =~ /\/users/ or
       fullpath =~ /\/backend/ or
       fullpath =~ /\/catalog\/unapi/ or
+      fullpath =~ /\/catalog\/.*\.endnote/ or
+      fullpath =~ /\/catalog\/email/ or
       # exclude lists VERBS, but don't wildcare /lists or viewing will break
       fullpath =~ /\/lists\/add/ or
       fullpath =~ /\/lists\/move/ or

@@ -186,16 +186,18 @@ class SavedListsController < ApplicationController
 
     if items_to_add.size == 0
       message = 'Must specify items to be added'
-      redirect_to request.referrer , :flash => { :error => message } and return
-      #redirect_to after_sign_in_path_for, :flash => { :error => message } and return
+      # "referrer" was sometimes failing - revert.
+      # redirect_to request.referrer , :flash => { :error => message } and return
+      redirect_to after_sign_in_path_for, :flash => { :error => message } and return
       # render text: 'Must specify items to be added', status: :bad_request and return
     end
 
     list_name = params[:name] ||= SavedList::DEFAULT_LIST_NAME
     if list_name.nil? || list_name.empty?
       message = 'Cannot add to unnamed list'
-      redirect_to request.referrer , :flash => { :error => message } and return
-      #redirect_to after_sign_in_path_for, :flash => { :error => message } and return
+      # "referrer" was sometimes failing - revert.
+      # redirect_to request.referrer , :flash => { :error => message } and return
+      redirect_to after_sign_in_path_for, :flash => { :error => message } and return
       # render text: 'Cannot add to unnamed list', status: :unprocessable_entity and return
     end
 
@@ -236,7 +238,9 @@ class SavedListsController < ApplicationController
     # message = "items_to_add=[#{items_to_add}], class=[#{items_to_add.class}]"
 
     respond_to do |format|
-      format.html { redirect_to request.referrer, :flash => { :notice => message } }
+      # "referrer" was sometimes failing - revert.
+      # format.html { redirect_to request.referrer, :flash => { :notice => message } }
+      format.html { redirect_to after_sign_in_path_for, :flash => { :notice => message } }
       format.json { render text: message, status: :ok }
     end
   end

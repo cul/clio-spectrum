@@ -147,6 +147,10 @@ describe 'Saved List Interface' do
 
   end
 
+  # This test triggers a file-download of the endnote file, then 
+  # tries to interact with the webpage afterwards.
+  # This fails with Capybara - When the file-download occurs, Capybara-Webkit 
+  # loses the original webpage and loads the downloaded content instead.
   context "item can be added to bookbag after exporting to EndNote", selenium: true do
 
     it 'uses selenium driver' do
