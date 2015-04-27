@@ -328,7 +328,11 @@ module HoldingsHelper
       bibkeys.unshift(id_type + ':' + id_value)
     end
 
-    bibkeys.flatten.compact
+    # Sometimes the document data from Solr has invalid chars in the bib keys.
+    # Strip these out so they don't trip up any code which uses these bibkeys.
+    bibkeys.flatten.compact.map { |bibkey|
+      bibkey.gsub(/[^a-zA-Z0-9\:\-\ ]/, '').strip
+    }.uniq
   end
 
   # When bib records have a URL in their 856, they will have a holdings
