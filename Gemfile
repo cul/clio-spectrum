@@ -248,7 +248,11 @@ group :test do
   # dependent on localhost's browser configs
   gem 'selenium-webdriver', '2.45.0'
 
+  # "A helper for launching cross-platform applications 
+  #  in a fire and forget manner."
+  # Required to enable capybara's save_and_open_page() method
   gem 'launchy'
+
   gem 'database_cleaner'
   # # Mac OS X 10.8 (Mountain Lion) Notifications replace growl
   # # http://protips.maxmasnick.com/mountain-lion-notifications-with-guard
@@ -259,8 +263,10 @@ group :test do
   gem 'rb-fsevent'
   # GNTP is Growl's protocol - turn off, since no more Growl
   # gem 'ruby_gntp'
-  gem 'ruby-prof'
 
+  # Not doing anything with profiling just now, but when we get back to it,
+  # reread:   https://www.coffeepowered.net/2013/08/02/ruby-prof-for-rails/
+  # gem 'ruby-prof'
 
   # code coverage
   gem 'simplecov'
