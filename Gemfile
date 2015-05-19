@@ -98,7 +98,13 @@ gem 'sass'
 # gem 'sass-rails', '~>3.2.4'
 
 gem 'unicode'
-gem 'summon'
+# fork local branch, to add network timeouts
+# gem 'summon'
+gem 'summon', :git => 'git://github.com/cul/summon.git'
+# Point to local copy during development...
+# gem 'summon', :path => "/Users/marquis/src/summon"
+
+
 gem 'cancan'
 
 # doesn't work in Rails 4 ??

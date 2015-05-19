@@ -20,6 +20,12 @@ GIT
       jquery-rails
       rails (>= 3.0, < 5.0)
 
+PATH
+  remote: /Users/marquis/src/summon
+  specs:
+    summon (2.0.12)
+      json
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -279,8 +285,6 @@ GEM
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.10)
     stringex (2.5.2)
-    summon (2.0.5)
-      json
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -359,7 +363,7 @@ DEPENDENCIES
   simplecov
   sqlite3
   stringex
-  summon
+  summon!
   therubyracer
   thin
   uglifier
