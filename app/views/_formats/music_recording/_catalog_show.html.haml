@@ -26,6 +26,7 @@
   = add_row("Includes", generate_value_links(display_marc_field(marc, 'contains'), :all))
   = add_row("Track List", display_marc_field(marc, 'contents'))
   = add_row("Language", document["language_facet"], :join => '; ')
+  = add_row("Language Note", display_marc_field(marc, 'language'))
   = add_row("LCCN", display_marc_field(marc, 'LCCN'))
   = add_row("Publisher No.", display_marc_field(marc, 'publisher_no'))
   = add_row("Standard No.", display_marc_field(marc, 'standard_no'))

@@ -55,6 +55,7 @@
   = add_row("Reproduction Note", display_marc_field(marc, 'reproduction_note'))
   = add_row("Cite As", display_marc_field(marc, 'cite_as'))
   = add_row("Language", document["language_facet"], :join => '; ')
+  = add_row("Language Note", display_marc_field(marc, 'language'))
   = add_row("LCCN", display_marc_field(marc, 'LCCN'))
   = add_row("ISSN", display_marc_field(marc, 'ISSN'))
   = add_row('Related To', display_marc_field(marc, 'related_to'))
