@@ -11,6 +11,13 @@ GIT
       warden (~> 1.1)
 
 GIT
+  remote: git://github.com/cul/summon.git
+  revision: 3638c2e6908c4bec749e688f794b6ebb058f4b16
+  specs:
+    summon (2.0.12)
+      json
+
+GIT
   remote: git://github.com/projectblacklight/blacklight_range_limit.git
   revision: 11f143c41f47af0d76e427d05c3a269be46f085e
   branch: master
@@ -19,12 +26,6 @@ GIT
       blacklight (>= 5.0.0.pre4, < 6)
       jquery-rails
       rails (>= 3.0, < 5.0)
-
-PATH
-  remote: /Users/marquis/src/summon
-  specs:
-    summon (2.0.12)
-      json
 
 GEM
   remote: https://rubygems.org/

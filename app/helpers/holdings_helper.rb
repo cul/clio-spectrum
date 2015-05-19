@@ -383,17 +383,26 @@ module HoldingsHelper
     hathi_brief_url = "http://catalog.hathitrust.org/api/volumes" +
                       "/brief/#{id_type}/#{id_value}.json"
     http_client = HTTPClient.new
-    Rails.logger.debug "get_content(#{hathi_brief_url})"
-    json_data = http_client.get_content(hathi_brief_url)
-    hathi_holdings_data = JSON.parse(json_data)
+    http_client.connect_timeout = 5 # default 60
+    http_client.send_timeout    = 5 # default 120
+    http_client.receive_timeout = 5 # default 60
 
-    # Hathi will pass back a valid, but empty, response.
-    #     {"records"=>{}, "items"=>[]}
-    # This means no hit with this bibkey, so return nil.
-    return nil unless hathi_holdings_data &&
-                      hathi_holdings_data['records'] &&
-                      hathi_holdings_data['records'].size > 0
-    return hathi_holdings_data
+    Rails.logger.debug "get_content(#{hathi_brief_url})"
+    begin
+      json_data = http_client.get_content(hathi_brief_url)
+      hathi_holdings_data = JSON.parse(json_data)
+
+      # Hathi will pass back a valid, but empty, response.
+      #     {"records"=>{}, "items"=>[]}
+      # This means no hit with this bibkey, so return nil.
+      return nil unless hathi_holdings_data &&
+                        hathi_holdings_data['records'] &&
+                        hathi_holdings_data['records'].size > 0
+      return hathi_holdings_data
+    rescue => error
+      logger.error "Error fetching #{hathi_brief_url}: #{error.message}"
+      return nil
+    end
   end
 
 end
