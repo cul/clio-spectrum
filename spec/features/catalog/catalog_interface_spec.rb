@@ -395,9 +395,10 @@ describe 'Catalog Interface' do
 
     visit catalog_index_path(q: rizq, search_field: 'author', sort: 'title_sort desc', rows: 10)
     expect(page).to have_css('#documents .document.result')
-    # The title-sort of this record begins with "Wafd".
-    # It should be alphabetically last of the Rizq titles.
-    expect( all('#documents .document.result').first ).to have_text "al-Wafd wa-al"
+
+    # The title-sort of this record begins with "Yahud".
+    # It should be alphabetically second-to-last of the Rizq titles.
+    expect( all('#documents .document.result').first ).to have_text yahud
   end
 
   #   NEXT-1140 - Special character not sorting properly
