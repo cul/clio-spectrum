@@ -70,14 +70,14 @@ require 'rubygems'
      # Turn this block on when we upgrade capybara-webkit
      # from https://github.com/thoughtbot/capybara-webkit/issues/717
      config.before(:each, js: true) do
-       # page.driver.block_unknown_urls
-       page.driver.allow_url("catalog.hathitrust.org")
-       page.driver.allow_url("books.google.com")
-       page.driver.allow_url("bronte.cul.columbia.edu")
+       page.driver.block_unknown_urls
+       # page.driver.allow_url("hathitrust.org")
+       # page.driver.allow_url("books.google.com")
+       # page.driver.allow_url("bronte.cul.columbia.edu")
 
        # We reliably get "Errno::EPIPE: Broken pipe" unless
        # we allow connections to here.  Annoying, mysterious.
-       page.driver.allow_url("google-analytics.com")
+       # page.driver.allow_url("google-analytics.com")
 
        # All this, just for the maps on the location pages.
        # But leaving these URLs blocked doesn't interfere
