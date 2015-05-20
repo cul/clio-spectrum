@@ -144,7 +144,7 @@ module LocalSolrHelperExtension
       facet_list = f_request_params.keys.map { |ff| ff.gsub(/^-/, '') }.uniq.sort
 
       facet_list.each do |facet_key|
-        values = Array(f_request_params[facet_key])
+        values = Array(f_request_params[facet_key]).reject(&:empty?)
 
         excluded_values = Array(f_request_params["-#{facet_key}"])
         operator = user_params[:f_operator] && user_params[:f_operator][facet_key] || 'AND'
