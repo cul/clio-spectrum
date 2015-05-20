@@ -392,6 +392,7 @@ describe 'Catalog Interface' do
   #   NEXT-1140 - Special character not sorting properly
   it "Title sort should disregard diacritics" do
     rizq = 'Rizq, Yūnān Labīb'.mb_chars.normalize(:d)
+    yahud = 'al-Yahūd fī Miṣr'.mb_chars.normalize(:d)
 
     visit catalog_index_path(q: rizq, search_field: 'author', sort: 'title_sort desc', rows: 10)
     expect(page).to have_css('#documents .document.result')
