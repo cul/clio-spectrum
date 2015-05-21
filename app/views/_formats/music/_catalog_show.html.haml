@@ -4,6 +4,7 @@
 
 - cache("catalog_show_format=music_scores_#{document.cache_key}") do
   - marc = document.to_marc
+
   = add_row("Composer", generate_value_links(display_marc_field(marc, 'author'), :author))
   = add_row("Uniform Title", display_marc_field(marc, 'title_uniform'))
   = add_row("Title", display_marc_field(marc, 'title'))
@@ -15,16 +16,20 @@
   = add_row("Manufactured", display_marc_field(marc, 'publish_manufacture'))
   = add_row("Copyright", display_marc_field(marc, 'publish_copyright'))
   = add_row("Description", display_marc_field(marc, 'description'))
+
   = add_row("Series", generate_value_links(display_marc_field(marc, 'series'), :series_title))
-  = add_row("Notes", display_marc_field(marc, 'notes'))
   = add_row("Credits", display_marc_field(marc, 'credits'))
+  = add_row("Notes", display_marc_field(marc, 'notes'))
   = add_row("Reproduction Note", display_marc_field(marc, 'reproduction_note'))
+
   = add_row("Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_LC')))
   = add_row("Subjects (Genre)", generate_value_links_subject(display_marc_field(marc, 'subject_genre')))
   = add_row("Also Listed Under", generate_value_links(display_marc_field(marc, 'author_other'), :author))
   = add_row("Includes", generate_value_links(display_marc_field(marc, 'contains'), :all))
+
   = add_row("Summary", display_marc_field(marc, 'summary'))
   = add_row("Contents", display_marc_field(marc, 'contents'))
+
   = add_row("Language", document["language_facet"], :join => '; ')
   = add_row("Language Note", display_marc_field(marc, 'language'))
   = add_row("LCCN", display_marc_field(marc, 'LCCN'))

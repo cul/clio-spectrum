@@ -130,9 +130,13 @@ module DisplayHelper
   SOLR_FORMAT_LIST = {
     'Music - Recording' => 'music_recording',
     'Music - Score' => 'music',
-    'Journal/Periodical' => 'serial',
     'Manuscript/Archive' => 'manuscript_archive',
-    'Newspaper' => 'newspaper',
+
+    'Journal/Periodical' => 'serial',
+    # These formats display identically - consolidate.
+    # 'Newspaper' => 'newspaper',
+    'Newspaper' => 'serial',
+
     'Video' => 'video',
     'Map/Globe' => 'map_globe',
     'Book' => 'book'
@@ -143,7 +147,7 @@ module DisplayHelper
     'Journal Article' => 'article'
   }
 
-  FORMAT_RANKINGS = %w(ac dcv database map_globe manuscript_archive video music_recording music newspaper serial book clio ebooks article articles summon lweb)
+  FORMAT_RANKINGS = %w(ac dcv database map_globe manuscript_archive video music_recording music serial book clio ebooks article articles summon lweb)
 
   def format_online_results(link_hash)
     non_circ_img = image_tag('icons/noncirc.png', class: 'availability')

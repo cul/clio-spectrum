@@ -3,8 +3,8 @@
 / _formats/manuscript_archive/_catalog_show.html.haml
 
 - cache("catalog_show_format=manuscript_archive_#{document.cache_key}") do
-
   - marc = document.to_marc
+
   = add_row("Author", generate_value_links(display_marc_field(marc, 'author'), :author))
   = add_row("Uniform Title", display_marc_field(marc, 'title_uniform'))
   = add_row("Title", display_marc_field(marc, 'title'))
@@ -19,8 +19,9 @@
   = add_row("Abstract", display_marc_field(marc, 'biographical_historical_note'))
   = add_row("Arrangement", display_marc_field(marc, 'arrangement'))
   = add_row("Finding Aid", display_marc_field(marc, 'finding_aid'))
-  = add_row("Contents", display_marc_field(marc, 'contents'))
+
   = add_row("Summary", display_marc_field(marc, 'summary'))
+  = add_row("Contents", display_marc_field(marc, 'contents'))
   = add_row("Restrictions", display_marc_field(marc, 'restrictions'))
   = add_row("Notes", display_marc_field(marc, 'notes'))
   = add_row("Other Information:", display_unlinked_880_field(marc))
