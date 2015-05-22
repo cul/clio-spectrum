@@ -59,12 +59,19 @@ class LocationsController < ApplicationController
   end
 
   def build_markers
-    # repeatedly re-fetch the full ALL-Location JSON...
-    @library_api_return = JSON.parse(RestClient.get library_api_path,
-                                   {params: {qt: 'location', locationID: 'alllocations'}})
+    @library_api_return = []
+    begin
+      # repeatedly re-fetch the full ALL-Location JSON...
+      @library_api_return = JSON.parse(
+        RestClient.get library_api_path,
+                       {params: {qt: 'location', locationID: 'alllocations'}}
+      )
+    rescue => ex
+      Rails.logger.error "LocationsController error fetching location data from #{library_api_path}: #{ex.message}"
+    end
+
     # And get all location records...
     @locations = Location.all
-
     api_loc = library_api_info.select{|m| m['locationID'] == @location['location_code']}
     api_display_name = api_loc.present? ? api_loc.first['displayName'] : nil
     @display_map = @location.location_code && api_display_name

@@ -40,10 +40,10 @@ layouts:
             row_opts:
               spans: [3,9]
 
-          - source: dcv
-            count: 3
-            row_opts:
-              spans: [3,9] 
+          # - source: dcv
+          #   count: 3
+          #   row_opts:
+          #     spans: [3,9] 
 
   # newspapers:
   #   style: summon
@@ -125,12 +125,12 @@ sources:
       format: ac
       check_fedora: true
 
-  dcv:
-    title: DCV
-    description: dcv 
-    warningXX:  dcv.
-    render_options:
-      format: dcv
+  # dcv:
+  #   title: DCV
+  #   description: dcv 
+  #   warningXX:  dcv.
+  #   render_options:
+  #     format: dcv
 
   library_web:
     title: Libraries Website

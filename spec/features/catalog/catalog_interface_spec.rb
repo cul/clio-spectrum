@@ -73,6 +73,9 @@ describe 'Catalog Interface' do
   #  Full View examples:  513297, 1862548, 2081553
   #  Limited examples:  70744 (?), 4043762, 2517624
   it "Should show Hathi Trust links, both 'Full view' and 'Limited'", js: true do
+    page.driver.allow_url("hathitrust.org")
+    page.driver.allow_url("books.google.com")
+
     # visit this specific item
     visit catalog_path('513297')
     expect(page).to have_css '.holdings-container .holdings #clio_holdings'
@@ -392,12 +395,14 @@ describe 'Catalog Interface' do
   #   NEXT-1140 - Special character not sorting properly
   it "Title sort should disregard diacritics" do
     rizq = 'Rizq, Yūnān Labīb'.mb_chars.normalize(:d)
+    yahud = 'al-Yahūd fī Miṣr'.mb_chars.normalize(:d)
 
     visit catalog_index_path(q: rizq, search_field: 'author', sort: 'title_sort desc', rows: 10)
     expect(page).to have_css('#documents .document.result')
-    # The title-sort of this record begins with "Wafd".
-    # It should be alphabetically last of the Rizq titles.
-    expect( all('#documents .document.result').first ).to have_text "al-Wafd wa-al"
+
+    # The title-sort of this record begins with "Yahud".
+    # It should be alphabetically second-to-last of the Rizq titles.
+    expect( all('#documents .document.result').first ).to have_text yahud
   end
 
   #   NEXT-1140 - Special character not sorting properly

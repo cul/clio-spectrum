@@ -71,6 +71,8 @@ public String getSortableTitleCleaned(Record record)
 
     // Use the stanard approach to skip over non-filing characters....
     String sortableTitle = indexer.getSortableTitle(record);
+    if (sortableTitle == null) return null;
+
     // ... then further strip away all non-alphanumeric characters
     String result = sortableTitle.toLowerCase().replaceAll("[^0-9a-z ]", "");
 
