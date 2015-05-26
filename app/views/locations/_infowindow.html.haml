@@ -22,7 +22,7 @@
       %br
         = "Telephone: #{library_info['phone']}"
     .col-md-6
-      - image_path =library_info['imagePath'].present? ? "http://library.columbia.edu/#{library_info['imagePath']}" : "http://library.columbia.edu/content/dam/locations/location.png"
+      - image_path =library_info['imagePath'].present? ? "http://library.columbia.edu/#{library_info['imagePath']}" : default_image_path
       %img{src: image_path, class: "img-responsive"} 
       %br
 

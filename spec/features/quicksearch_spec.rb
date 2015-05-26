@@ -15,8 +15,10 @@ describe 'QuickSearch landing page' do
   it "should have a 'Start Over' link", js: true do
     visit quicksearch_index_path('q' => 'borneo')
     expect(page).to have_css('.result_set', count: 4)
+
+    # page.save_screenshot '/tmp/screen.png'
     all('.result_set').each do |result_set|
-      result_set.should have_css('.result')
+      expect(result_set).to have_css('.result')
     end
 
     expect(find('.landing_across')).to have_text('Start Over')
@@ -33,7 +35,7 @@ describe 'QuickSearch landing page' do
   # from Quicksearch shows an XML file
   # NEXT-1027 - Relabel 'All #### results' on Quicksearch
   # *** CATALOG ***
-  it "should link to Catalog results correctly", js:true do
+  it "should link to Catalog results correctly", js:true, Xfocus:true do
     visit quicksearch_index_path('q' => 'kitty')
     # page.save_and_open_page
     within('.results_header', :text => "Catalog") do
@@ -44,6 +46,7 @@ describe 'QuickSearch landing page' do
   # *** ARTICLES ***
   it "should link to Articles results correctly", js:true do
     visit quicksearch_index_path('q' => 'indefinite')
+    expect(page).to have_css('.results_header', :text => "Articles")
     within('.results_header', :text => "Articles") do
       click_link "View and filter all"
     end
@@ -61,7 +64,12 @@ describe 'QuickSearch landing page' do
   # *** CATALOG ***
   it "should link to Libraries Website results correctly", js:true do
     visit quicksearch_index_path('q' => 'public')
+
+    # make sure the AJAX lookups all return
+    expect(page).to have_css('.result_set', count: 4)
+
     # page.save_and_open_page
+    find('.results_header', :text => "Libraries Website")
     within('.results_header', :text => "Libraries Website") do
       should_not have_text "View and filter all"
       click_link "View all"
@@ -77,18 +85,22 @@ describe 'QuickSearch landing page' do
     visit quicksearch_index_path('q' => 'horse')
     within('.results_header[data-source=catalog]') do
       find('img').click
+      expect(page).to have_css('.category_title')
       expect(find('.category_title')).to have_text 'Library books, journals, music, videos, databases, archival collections, and online resources'
     end
     within('.results_header[data-source=articles]') do
       find('img').click
+      expect(page).to have_css('.category_title')
       expect(find('.category_title')).to have_text "Articles, e-books, dissertations, music, images, and more from a mostly full-text database"
     end
     within('.results_header[data-source=academic_commons]') do
       find('img').click
+      expect(page).to have_css('.category_title')
       expect(find('.category_title')).to have_text "Publications and other research output from Columbia University's digital repository"
     end
     within('.results_header[data-source=library_web]') do
       find('img').click
+      expect(page).to have_css('.category_title')
       expect(find('.category_title')).to have_text 'Information about the libraries from the Libraries Website'
     end
 
@@ -124,10 +136,16 @@ describe 'QuickSearch landing page' do
     fill_in 'quicksearch_q', with: 'cats'
     click_button 'Search'
 
-    expect(page).to have_css('.result_title')
+    # make sure the AJAX lookups all return
+    expect(page).to have_css('.result_set', count: 4)
 
-    first('.result_title').find('a').click
+    # expect(page).to have_css('.result_title')
 
+    within('.nested_result_set[data-source=catalog]') do
+      expect(page).to have_css('.result_title')
+      first('.result_title').find('a').click
+    end
+    expect(page).to have_css('#catalog_q')
     fill_in 'catalog_q', with: 'penguins'
     click_button 'Search'
 

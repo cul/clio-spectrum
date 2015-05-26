@@ -10,7 +10,10 @@
 
     .holding{:class => alternating_line}
       .location_box
-        .location= entry['location_link']
+        .location
+          -# -# NEXT-1041 - Icon or other visual cue
+          -# %span.glyphicon.glyphicon-map-marker.text-primary
+          = entry['location_link']
         .hours= entry['hours']
 
       .call_number= entry['call_number']

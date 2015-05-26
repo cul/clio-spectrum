@@ -232,8 +232,11 @@ module HoldingsHelper
       entry['location'] = location
 
       if location && location.category == 'physical'
-        check_at = DateTime.now
-        entry['location_link'] = link_to(entry['location_name'], location_display_path(CGI.escape(entry['location_name'])), class: :location_display)
+        # NEXT-1041 - Icon or other visual cue
+        # %span.glyphicon.glyphicon-map-marker.text-primary
+        map_marker = content_tag(:span, "".html_safe, class: 'glyphicon glyphicon-map-marker text-primary').html_safe
+
+        entry['location_link'] = link_to(map_marker + entry['location_name'], location_display_path(CGI.escape(entry['location_name'])), class: :location_display)
       else
         entry['location_link'] = entry['location_name']
       end
@@ -258,7 +261,10 @@ module HoldingsHelper
       # add status icons
       entry['copies'].each do |copy|
         copy['items'].each_pair do |message, details|
-          details['image_link'] = image_tag('icons/' + details['status'] + '.png')
+          status_image = 'icons/' + details['status'] + '.png'
+          status_label = details['status'].humanize
+          # details['image_link'] = image_tag('icons/' + details['status'] + '.png')
+          details['image_link'] = image_tag(status_image, title: status_label, alt: status_label)
         end
       end
 
@@ -305,7 +311,28 @@ module HoldingsHelper
       bibkeys << document['lccn_display'].map { |lccn| 'lccn:' + lccn.gsub(/\s/, '').gsub(/\/.+$/, '') }
     end
 
-    bibkeys.flatten.compact
+    # Some Hathi records were directly loaded into Voyager.
+    # These have direct Hathi links in their 856 - and these
+    # links have a standard ID number not otherwise available.
+    online_link_hash(document).each do |link|
+      next unless link[:url].start_with? "http://catalog.hathitrust.org"
+      unless link[:url].match( /api\/volumes\/\w+\/\d+.html/ )
+        # Rails.logger.debug "bib #{document.id} unexpected URL #{link[:url]}"
+        next
+      end
+      # Rails.logger.debug "bib #{document.id} as-expected URL #{link[:url]}"
+
+      id_type, id_value = link[:url].match( /api\/volumes\/(\w+)\/(\d+).html/ ).captures
+
+      # put at the front - so later first-found processing hits this one
+      bibkeys.unshift(id_type + ':' + id_value)
+    end
+
+    # Sometimes the document data from Solr has invalid chars in the bib keys.
+    # Strip these out so they don't trip up any code which uses these bibkeys.
+    bibkeys.flatten.compact.map { |bibkey|
+      bibkey.gsub(/[^a-zA-Z0-9\:\-\ ]/, '').strip
+    }.uniq
   end
 
   # When bib records have a URL in their 856, they will have a holdings
@@ -330,4 +357,53 @@ module HoldingsHelper
     # which is marked Online but is missing URL details.
     true
   end
+
+  def get_hathi_holdings_data(document)
+    return nil unless document
+
+    hathi_holdings_data = nil
+
+    # format will be type:value, type:value,
+    # e.g., lccn:2006921508, oclc:70850767
+    bibkeys = extract_standard_bibkeys(document)
+    bibkeys.each do |bibkey|
+      id_type, id_value = bibkey.split(':')
+      next unless id_type and id_value
+
+      hathi_holdings_data = fetch_hathi_brief(id_type, id_value)
+      break unless hathi_holdings_data.nil?
+    end
+
+    return hathi_holdings_data
+  end
+
+  def fetch_hathi_brief(id_type, id_value)
+    return nil unless id_type and id_value
+
+    hathi_brief_url = "http://catalog.hathitrust.org/api/volumes" +
+                      "/brief/#{id_type}/#{id_value}.json"
+    http_client = HTTPClient.new
+    http_client.connect_timeout = 5 # default 60
+    http_client.send_timeout    = 5 # default 120
+    http_client.receive_timeout = 5 # default 60
+
+    Rails.logger.debug "get_content(#{hathi_brief_url})"
+    begin
+      json_data = http_client.get_content(hathi_brief_url)
+      hathi_holdings_data = JSON.parse(json_data)
+
+      # Hathi will pass back a valid, but empty, response.
+      #     {"records"=>{}, "items"=>[]}
+      # This means no hit with this bibkey, so return nil.
+      return nil unless hathi_holdings_data &&
+                        hathi_holdings_data['records'] &&
+                        hathi_holdings_data['records'].size > 0
+      return hathi_holdings_data
+    rescue => error
+      logger.error "Error fetching #{hathi_brief_url}: #{error.message}"
+      return nil
+    end
+  end
+
 end
+

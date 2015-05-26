@@ -3,8 +3,8 @@
 / _formats/manuscript_archive/_catalog_show.html.haml
 
 - cache("catalog_show_format=manuscript_archive_#{document.cache_key}") do
-
   - marc = document.to_marc
+
   = add_row("Author", generate_value_links(display_marc_field(marc, 'author'), :author))
   = add_row("Uniform Title", display_marc_field(marc, 'title_uniform'))
   = add_row("Title", display_marc_field(marc, 'title'))
@@ -15,11 +15,13 @@
   = add_row("Manufactured", display_marc_field(marc, 'publish_manufacture'))
   = add_row("Copyright", display_marc_field(marc, 'publish_copyright'))
   = add_row("Description", display_marc_field(marc, 'description'))
+
   = add_row("Abstract", display_marc_field(marc, 'biographical_historical_note'))
   = add_row("Arrangement", display_marc_field(marc, 'arrangement'))
   = add_row("Finding Aid", display_marc_field(marc, 'finding_aid'))
-  = add_row("Contents", display_marc_field(marc, 'contents'))
+
   = add_row("Summary", display_marc_field(marc, 'summary'))
+  = add_row("Contents", display_marc_field(marc, 'contents'))
   = add_row("Restrictions", display_marc_field(marc, 'restrictions'))
   = add_row("Notes", display_marc_field(marc, 'notes'))
   = add_row("Other Information:", display_unlinked_880_field(marc))
@@ -31,7 +33,12 @@
   = add_row("Subjects (Genre)", generate_value_links_subject(display_marc_field(marc, 'subject_genre')))
   = add_row("Also Listed Under", generate_value_links(display_marc_field(marc, 'author_other'), :author))
   = add_row("Includes", generate_value_links(display_marc_field(marc, 'contains'), :all))
+
   = add_row("Other Titles", display_marc_field(marc, 'title_other'))
+
+  = add_row("Language", document["language_facet"], :join   => '; ')
+  = add_row("Language Note", display_marc_field(marc, 'language'))
+
   = add_row('Related To', display_marc_field(marc, 'related_to'))
   = add_row('Format', formats_with_icons(document))
   = add_row('Acquired On', Date.parse(document.get('acq_dt')).to_formatted_s(:long)) if document.get('acq_dt')

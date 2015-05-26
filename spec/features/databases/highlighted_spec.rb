@@ -28,6 +28,7 @@ describe 'Database Highlights' do
     visit catalog_path(7928198)
     find('.btn.show_mini_browse', text: 'Show').click
 
+    expect(page).to have_css('#documents')
     within('#documents') do
       find('.result.database_record', text: 'MEDLINE')
     end

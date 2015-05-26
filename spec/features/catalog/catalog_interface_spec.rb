@@ -73,17 +73,26 @@ describe 'Catalog Interface' do
   #  Full View examples:  513297, 1862548, 2081553
   #  Limited examples:  70744 (?), 4043762, 2517624
   it "Should show Hathi Trust links, both 'Full view' and 'Limited'", js: true do
+    page.driver.allow_url("hathitrust.org")
+    page.driver.allow_url("books.google.com")
+
     # visit this specific item
     visit catalog_path('513297')
+    expect(page).to have_css '.holdings-container .holdings #clio_holdings'
+    expect(page).to have_css '.holdings-container .holdings #google_holdings'
+    expect(page).to have_css '.holdings-container .holdings #hathi_holdings'
 
     # Should see the 'Full View' message in the Hathi Holdings box
-    expect(find('#hathi_holdings .hathi_info #hathidata')).to have_content('Full view')
+    expect(find('#hathi_holdings #hathi_data')).to have_content('Full view')
 
     # visit this specific item
     visit catalog_path('4043762')
+    expect(page).to have_css '.holdings-container .holdings #clio_holdings'
+    expect(page).to have_css '.holdings-container .holdings #google_holdings'
+    expect(page).to have_css '.holdings-container .holdings #hathi_holdings'
 
     # Should see the 'Limited (search-only)' message in the Hathi Holdings box
-    expect(find('#hathi_holdings .hathi_info #hathidata')).to have_content('Limited (search-only)')
+    expect(find('#hathi_holdings #hathi_data')).to have_content('Limited (search-only)')
   end
 
   # NEXT-931 - Online Links in Holdings (not in the Bib) should display
@@ -156,10 +165,16 @@ describe 'Catalog Interface' do
     click_link 'Display Options'
     click_link 'Standard View'
 
+    # make sure the standard results have loaded
+    find('.result.document .row .title', match: :first)
+
     all('.result.document').first.text.should match /Author.*Published.*Location/
 
     click_link 'Display Options'
     click_link 'Compact View'
+
+    # make sure the compact results have loaded
+    find('.boxed_search_results', match: :first)
 
     all('.result.document').first.text.should_not match /Author/
     all('.result.document').first.text.should_not match /Published/
@@ -167,6 +182,9 @@ describe 'Catalog Interface' do
 
     click_link 'Display Options'
     click_link 'Standard View'
+
+    # make sure the standard results have loaded
+    find('.result.document .row .title', match: :first)
 
     all('.result.document').first.text.should match /Author.*Published.*Location/
   end
@@ -189,9 +207,8 @@ describe 'Catalog Interface' do
       end
 
       expect(page).to have_css('.modal-dialog .modal-content .modal-header')
-      #
-      # NEXT 910 - Add some directions, and optionally email and Name, to the email form
-      #
+
+      # NEXT 910 - Add directions, email and Name, to the email form
       expect(find('.modal-header')).to have_text('Share selected item(s) via email')
 
       within '#email_form' do
@@ -202,7 +219,7 @@ describe 'Catalog Interface' do
     end
   end
 
-  it 'supports a debug mode', js: true, xfocus: true do
+  it 'supports a debug mode', js: true do
     visit catalog_index_path('q' => 'prim')
 
     expect(page).to_not have_css('div.debug_instruction')
@@ -335,7 +352,7 @@ describe 'Catalog Interface' do
   end
 
   # NEXT-977 - Series Title does not display via basic search
-  it "should show Series Title when searching by Series Title", Xfocus: true do
+  it "should show Series Title when searching by Series Title" do
     # Basic Search
     visit catalog_index_path('q' => 'Black Sea', 'search_field' => 'series_title')
     expect(page).to have_text('Series Title Black Sea studies')
@@ -371,7 +388,99 @@ describe 'Catalog Interface' do
     expect(page).to have_css('li.datasource_link.selected[source="catalog"]')
     expect(page).to have_css('span.constraints-label', text: "You searched for:")
   end
+
+  #   NEXT-1140 - Special character not sorting properly
+  it "Title sort should disregard diacritics" do
+    rizq = 'Rizq, Yūnān Labīb'.mb_chars.normalize(:d)
+    yahud = 'al-Yahūd fī Miṣr'.mb_chars.normalize(:d)
+
+    visit catalog_index_path(q: rizq, search_field: 'author', sort: 'title_sort desc', rows: 10)
+    expect(page).to have_css('#documents .document.result')
+
+    # The title-sort of this record begins with "Yahud".
+    # It should be alphabetically second-to-last of the Rizq titles.
+    expect( all('#documents .document.result').first ).to have_text yahud
+  end
+
+  #   NEXT-1140 - Special character not sorting properly
+  it "Author sort should disregard diacritics" do
+    ahmad = 'Aḥmad Muḥammad ʻAbd al-ʻĀl'.mb_chars.normalize(:d)
+    # Hooray, there are alternative unicode forms returned!
+    # Use an either/or "satisfy" block below.
+    abd1 = 'ʻAbd al-ʻĀl, Aḥmad Muḥammad'.mb_chars.normalize(:d)
+    abd2 = 'ʼAbd al-ʼĀl, Aḥmad Muḥammad'.mb_chars.normalize(:d)
+
+    # There should be at least 10 records with this author, and they
+    # should be first alphabetically.
+    visit catalog_index_path(q: ahmad, sort: 'author_sort asc', rows: 10)
+    expect(page).to have_css('#documents .document.result')
+    all('#documents .document.result .row .details').each do |details|
+      expect(details.text).to satisfy { |detail_text|
+        detail_text.match(/#{abd1}/) ||
+        detail_text.match(/#{abd2}/)
+      }
+    end
+  end
+
+
+  # NEXT-1157 - Quotation mark not sorting properly
+  it "Title sort should disregard punctuation" do
+    visit catalog_index_path(q: 'Cairo papers in social science', search_field: 'title', sort: 'title_sort asc', rows: 10)
+    expect(page).to have_css('#documents .document.result')
+    expect( all('#documents .document.result').first ).to_not have_text "Just a gaze"
+  end
+
+  # NEXT-1163 - Add subfield f to title display
+  it "Titles should include dates from 245 $f" do
+    visit catalog_path('8540370')
+    expect( find('.show-document .title')).to have_text "Composers' Forum concert [electronic resource], 1958 January 18"
+
+    visit catalog_path('4079060')
+    expect( find('.show-document .title')).to have_text "Papers, 1958-1968"
+  end
+
+
+  # NEXT-934 - question/not improvement: old key symbol?
+  it "shows 'Restricted' note in any datasource" do
+    restricted = "This resource is available only to current faculty, staff and students of Columbia University"
+
+    visit catalog_path(7000423)
+    expect(page).to have_text restricted
+
+    visit databases_show_path(7000423)
+    expect(page).to have_text restricted
+
+    visit journals_show_path(7000423)
+    expect(page).to have_text restricted
+
+    visit archives_show_path(7000423)
+    expect(page).to have_text restricted
+
+    visit new_arrivals_show_path(7000423)
+    expect(page).to have_text restricted
+  end
+
+
+  # NEXT-1099 - Acquisition Date facet cannot be negated
+  it "allows acquisition date to be negated" do
+    visit catalog_index_path(q: 'kittens', 'f[acq_dt][]' => 'years_1')
+    expect(page).to have_css('#documents .document.result')
+    recent_title = all('#documents .document.result .row .title').first.text
+
+    # Now, inverse "Law" to "Not Law"
+    within find('.constraint-box', text: 'Acquisition Date') do
+      find('.dropdown', text: 'Is').click
+      find('a', text: 'Is Not').click
+    end
+    expect(page).to have_css('#documents .document.result')
+    older_title = all('#documents .document.result .row .title').first.text
+
+    expect(recent_title).to_not eq older_title
+  end
+
+
 end
+
 
 # email_catalog_path(:id => id)
 # describe 'Catalog item view', :caching => true do

@@ -34,7 +34,7 @@
       - locations.each_with_index do |location, i|
         - holdings_id = "holding_" + (document["location_holdings_id_display"].listify[i] || document["location_holdings_id_display"].first).to_s if document["location_holdings_id_display"]
         %div
-          = image_tag("icons/unknown.png", :class => "availability " + holdings_id) + shorten_location(location).strip
+          = image_tag("icons/unknown.png", class: "availability " + holdings_id, title: '', alt: '') + shorten_location(location).strip
 
 
 - if @debug_mode  && @response && @response['debug'] && @response['debug']['explain'] && (score = @response['debug']['explain'][document.get('id').to_s])

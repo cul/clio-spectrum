@@ -9,7 +9,7 @@ describe 'Saved List Interface' do
     @blatteroon = FactoryGirl.create(:user, login: 'blatteroon')
   end
 
-  it 'Capybara should let us login and logout and login again', xfocus: true do
+  it 'Capybara should let us login and logout and login again' do
     # Not yet logged in - navbar shows un-authenticated message
     visit catalog_index_path
     expect(find('#topnavbar')).to have_text 'My Library Account'
@@ -145,6 +145,35 @@ describe 'Saved List Interface' do
     # expect(page).to have_text("Cannot access list #{@first_user_name}/bookbag")
     #
 
+  end
+
+  # This test triggers a file-download of the endnote file, then 
+  # tries to interact with the webpage afterwards.
+  # This fails with Capybara - When the file-download occurs, Capybara-Webkit 
+  # loses the original webpage and loads the downloaded content instead.
+  context "item can be added to bookbag after exporting to EndNote", selenium: true do
+
+    it 'uses selenium driver' do
+      expect(Capybara.current_driver).to be(:selenium)
+    end
+
+    it "adds to saved list afer EndNote export" do
+      expect(Capybara.current_driver).to be(:selenium)
+      visit catalog_path("4359539")
+      login_as @blatteroon
+      click_on('Export')
+      click_on('Export to EndNote')
+      click_on('Add to My Saved List')
+      expect(page).to have_css(".alert", :text => "1 item added to list Bookbag")
+    end
+  # it "item can be added to bookbag after exporting to EndNote", js: true, type: :selenium do
+  #   Capybara.current_driver = :selenium
+  #   visit catalog_path("4359539")
+  #   login_as @blatteroon
+  #   click_link('Export')
+  #   click_link('Export to EndNote')
+  #   click_link('Add to My Saved List')
+  #   expect(page).to have_css(".alert", :text => "1 item added to list Bookbag")
   end
 
 end

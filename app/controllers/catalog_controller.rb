@@ -426,4 +426,14 @@ class CatalogController < ApplicationController
     end
   end
 
+  # Called via AJAX to build the hathi holdings section
+  # on the item-detail page.
+  def hathi_holdings
+    @response, @document = get_solr_response_for_doc_id
+
+    respond_to do |format|
+      format.html { render layout: false }
+    end
+  end
+
 end

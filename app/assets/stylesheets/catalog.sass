@@ -3,6 +3,12 @@
   :margin-top 5px
   :margin-bottom 5px
 
+.law_blurb
+  :margin 10px
+  a
+    :margin 20px
+  a:hover
+    :text-decoration underline
 
 // A lot of styling for:
 // NEXT-983 - database discovery improvement using color and different text
@@ -476,4 +482,14 @@ img.availability
     position: relative
     display: block
     float: none
+
+// make my glyphicons occupy non-zero space before applying the
+// magic bootstrap :before rules.
+// (this makes element visible to capybara clicks)
+span.glyphicon
+  min-width: 1px
+  min-height: 1px
+
+span.glyphicon.glyphicon-map-marker
+  padding-right: 0.25em
 

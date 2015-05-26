@@ -14,6 +14,11 @@ require 'rubygems'
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
 
+  # Suddenly getting 'NameError: uninitialized constant RSpec::Matchers'
+  # resolve with this:
+  # Rails 4 - remove
+  # require 'rspec-expectations'
+
   ENV['RAILS_ENV'] ||= 'test'
   require File.expand_path('../../config/environment', __FILE__)
   require 'rspec/rails'
@@ -24,10 +29,16 @@ require 'rubygems'
   Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
   RSpec.configure do |config|
+    # Rails 4 - remove
+    # config.treat_symbols_as_metadata_keys_with_true_values = true
     config.mock_with :rspec
     config.include(MailerMacros)
     config.before(:each) { reset_email }
 
+    config.around(:each, :selenium) do |example|
+      Capybara.current_driver = :selenium
+      example.run
+    end
     # Specify an alternative JS driver if we want to avoid selinium
     Capybara.javascript_driver = :webkit
     # Capybara.javascript_driver = :webkit_debug
@@ -68,9 +79,31 @@ require 'rubygems'
     # http://stackoverflow.com/questions/15148585/undefined-method-visit
     config.include Capybara::DSL
 
+     # Turn this block on when we upgrade capybara-webkit
+     # from https://github.com/thoughtbot/capybara-webkit/issues/717
+     config.before(:each, js: true) do
+       page.driver.block_unknown_urls
+       # page.driver.allow_url("hathitrust.org")
+       # page.driver.allow_url("books.google.com")
+       # page.driver.allow_url("bronte.cul.columbia.edu")
+
+       # We reliably get "Errno::EPIPE: Broken pipe" unless
+       # we allow connections to here.  Annoying, mysterious.
+       # page.driver.allow_url("google-analytics.com")
+
+       # All this, just for the maps on the location pages.
+       # But leaving these URLs blocked doesn't interfere
+       # with Selenium testing - so don't whitelist.
+       # page.driver.allow_url("maps.google.com")
+       # page.driver.allow_url("maps.googleapis.com")
+       # page.driver.allow_url("gstatic.com")
+       # page.driver.allow_url("googlecode.com")
+       # page.driver.allow_url("googleapis.com")
+     end
+
     # Allow developers to turn off selenium-based testing
     # with a local setting in their app_config.yml
-    config.filter_run_excluding :type => 'selenium' if
+    config.filter_run_excluding :selenium if
         APP_CONFIG['skip_selenium_tests']
 
     # This says to assume things in spec/controllers are controller

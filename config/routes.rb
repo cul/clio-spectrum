@@ -85,10 +85,8 @@ Clio::Application.routes.draw do
   post 'new_arrivals/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :new_arrivals_track
 
   get 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
-  # unused
-  # get 'backend/holdings_mail/:id' => 'backend#holdings_mail', :as => 'backend_holdings_mail'
-  # get 'backend/clio_recall/:id', :to => "backend#clio_recall" , :as => :clio_recall
-  # get 'backend/feedback_mail', :to => "backend#feedback_mail"
+
+  get 'catalog/hathi_holdings/:id' => 'catalog#hathi_holdings', :as => 'hathi_holdings'
 
   get 'spectrum/fetch/:layout/:datasource', to: 'spectrum#fetch', as: 'spectrum_fetch'
 

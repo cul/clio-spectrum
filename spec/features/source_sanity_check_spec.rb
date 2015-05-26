@@ -103,7 +103,7 @@ end
 
 describe 'Switching between data-source', js: true do
 
-  it 'should carry forward simple search to each datasource', XXfocus: true do
+  it 'should carry forward simple search to each datasource' do
     visit root_path
     # page.save_and_open_page # debug
     # terminal newline submits form

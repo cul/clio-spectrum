@@ -15,6 +15,26 @@
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
+  :location: Comp Lit
+  :found_in: |-
+    Comp Lit & Society Reading Room
+    615 Butler (Non-Circ)
+- :library_code: butler
+  :location_code: butler
+  :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
+  :location: Edward Said
+  :found_in: |-
+    Edward Said Reading Rm
+    616 Butler (Non-Circulating)
+- :library_code: butler
+  :location_code: butler
+  :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+  :category: physical
   :location: Ancient/Medieval
   :found_in: |-
     Ancient/Medieval Reading Room
@@ -114,7 +134,9 @@
     Barnard College Library
 
     Lehman Hall
-- :links: 
+- :library_code: barnard-bcrw
+  :location_code: barnard-bcrw
+  :links: 
     Home Page: http://bcrw.barnard.edu/
   :category: physical
   :location: Barnard Center For Research On Women
@@ -513,7 +535,9 @@
     
     701 Dodge
 
-- :links: 
+- :library_code: nyspi
+  :location_code: nyspi
+  :links: 
     Home Page: http://nyspi.org/library/
   :category: physical
   :location: NYS Psychiatric Institute
@@ -543,7 +567,9 @@
     Oral History Research Office
     
     801 Butler Library
-- :links: 
+- :library_code: cumc-orthopaedic
+  :location_code: cumc-orthopaedic
+  :links: 
     Home Page: http://www.columbiaortho.org/departments/russell-hibbs-memorial-library
   :category: physical
   :location: Orthopaedic Surgery

@@ -62,50 +62,53 @@ describe 'Articles Search' do
 
   # NEXT-622 - Basic Articles Search should have a pull-down for fielded search
   # NEXT-842 - Articles search results page doesn't put search term back into search box
-  it 'should let you perform a fielded search from the basic search', js: true do
-    visit articles_index_path
-    within '.search_box.articles' do
-      expect(find('#articles_q')).to be_visible
-      fill_in 'q', with: 'catmull, ed'
-      find('btn.dropdown-toggle').click
-      within '.dropdown-menu' do
-        find("a[data-value='s.fq[AuthorCombined]']").click
+  context 'should let you perform a fielded search from the basic search', js: true do
+    before do
+      visit articles_index_path
+      within '.search_box.articles' do
+        expect(find('#articles_q')).to be_visible
+        fill_in 'q', with: 'catmull, ed'
+        find('btn.dropdown-toggle').click
+        within '.dropdown-menu' do
+          find("a[data-value='s.fq[AuthorCombined]']").click
+        end
+        find('button[type=submit]').click
       end
-      find('button[type=submit]').click
     end
 
-    # Search string and search field should be preserved
-    find('#articles_q').value.should eq 'catmull, ed'
-    expect(find('.btn.dropdown-toggle')).to have_content('Author')
+    it "Search string and search field should be preserved" do
+      find('#articles_q').value.should eq 'catmull, ed'
+      expect(find('.btn.dropdown-toggle')).to have_content('Author')
+    end
 
-    # The entered fielded search should be echoed on the results page
-    expect(find('.well-constraints')).to have_content('Author: catmull, ed')
+    it "the entered fielded search should be echoed on the results page" do
+      expect(find('.well-constraints')).to have_content('Author: catmull, ed')
+    end
 
-    # And the search results too
-    expect(find('#documents')).to have_content('Author Catmull')
+    it "and the search results too" do
+      expect(find('#documents')).to have_content('Author Catmull')
+    end
 
-    # AND, add in some test related to pub-date sorting...
+    it "add in some test related to pub-date sorting..." do
+      first('.index_toolbar').should have_content('Sort by Relevance')
+      first(:link, 'Sort by Relevance').click
 
-    # page.save_and_open_page # debug
+      expect(page).to have_link('Relevance')
+      expect(page).to have_link('Published Latest')
+      find_link('Published Earliest').click
 
-    first('.index_toolbar').should have_content('Sort by Relevance')
-    first(:link, 'Sort by Relevance').click
+      first('.index_toolbar').should have_content('Published Earliest')
+      first(:link, 'Published Earliest').click
+      expect(page).to have_link('Relevance')
+      expect(page).to have_link('Published Earliest')
+      find_link('Published Latest').click
 
-    find_link('Relevance')
-    find_link('Published Latest')
-    find_link('Published Earliest').click
-
-    first('.index_toolbar').should have_content('Published Earliest')
-    first(:link, 'Published Earliest').click
-    find_link('Relevance')
-    find_link('Published Earliest')
-    find_link('Published Latest').click
-
-    first('.index_toolbar').should have_content('Published Latest')
-    first(:link, 'Published Latest').click
-    find_link('Relevance')
-    find_link('Published Earliest')
-    find_link('Published Latest')
+      first('.index_toolbar').should have_content('Published Latest')
+      first(:link, 'Published Latest').click
+      expect(page).to have_link('Relevance')
+      expect(page).to have_link('Published Earliest')
+      expect(page).to have_link('Published Latest')
+    end
   end
 
 end

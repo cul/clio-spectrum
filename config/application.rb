@@ -2,8 +2,12 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
+
+# Rails 4 - remove
+# require 'rspec-expectations' if Rails.env == 'test'
 if defined?(Bundler)
   Bundler.require *Rails.groups(assets: %w(development test))
 end
@@ -101,7 +105,8 @@ module Clio
     # https://github.com/whitequark/rack-utf8_sanitizer
     # Rack::UTF8Sanitizer is a Rack middleware which cleans up
     # invalid UTF8 characters in request URI and headers.
-    config.middleware.insert_before 'Rack::Runtime', Rack::UTF8Sanitizer
+    # config.middleware.insert_before 'Rack::Runtime', Rack::UTF8Sanitizer
+    config.middleware.insert 0, Rack::UTF8Sanitizer
 
     # [deprecated] I18n.enforce_available_locales will default to true in the
     # future. If you really want to skip validation of your locale you can set

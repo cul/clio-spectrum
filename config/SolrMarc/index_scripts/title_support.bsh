@@ -50,6 +50,34 @@ public String getFilingTitleFull(Record record)
   return filing_title.concat(" " + title_245b);
 }
 
+// Non-filing indicator doesn't count punctuation, do it ourselves.
+// Based on UVA's Blacklight indexing scripts, updated to work for us.
+// NEXT-1157 - Quotation mark not sorting properly
+public String getSortableTitleCleaned(Record record)
+{
+    // StringBuilder resultBuf = new StringBuilder();
+    // 
+    // // uniform title
+    // DataField df = (DataField) record.getVariableField("130");
+    // if (df != null)
+    //     resultBuf.append(getAlphaSubfldsAsSortStr(df, null));
+    // 
+    // // 245 (required) title statement
+    // df = (DataField) record.getVariableField("245");
+    // if (df != null)
+    //     resultBuf.append(getAlphaSubfldsAsSortStr(df, "ch"));
+    // 
+    // String result = resultBuf.toString().trim().toLowerCase().replaceAll("[^0-9a-z ]", "");
+
+    // Use the stanard approach to skip over non-filing characters....
+    String sortableTitle = indexer.getSortableTitle(record);
+    if (sortableTitle == null) return null;
+
+    // ... then further strip away all non-alphanumeric characters
+    String result = sortableTitle.toLowerCase().replaceAll("[^0-9a-z ]", "");
+
+    return(result);
+}
 
 
 

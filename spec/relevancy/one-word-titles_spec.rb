@@ -171,4 +171,13 @@ describe 'Searching for other one-word titles: ' do
     expect(rank(resp, 1959655)).to be <= 1
   end
 
+  # NEXT-767 - Relevance ranking issue for MEDLINE
+  it 'Medline' do
+    resp = solr_resp_ids_from_query('medline')
+    expect(rank(resp, 4066287)).to be <= 1
+    expect(rank(resp, 8088762)).to be <= 3
+    # resp.should include('4066287').in_first(1).results
+    # resp.should include('8088762').in_first(3).results
+  end
+
 end

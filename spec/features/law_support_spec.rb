@@ -48,7 +48,21 @@ describe 'CLIO support for Law records' do
     visit catalog_index_path('q' => 'supr* cour* felix aime')
     expect(find('.result.document')).to have_text 'Law Trials C5453'
     expect(find('.result.document')).to have_link('Check Law catalog for status', href: 'http://pegasus.law.columbia.edu/record=b402660')
+  end
 
+  it 'should replace "Requests" menu with link to Law Library' do
+    law_text = 'Requests serviced by the Arthur W. Diamond Law Library'
+    visit catalog_path(32468)
+    find('#show_toolbar .navbar-nav', text: 'Requests').click
+    within('li.dropdown', text: 'Requests') do
+      expect(page).to_not have_text law_text
+    end
+
+    visit catalog_path('b276194')
+    find('#show_toolbar .navbar-nav', text: 'Requests').click
+    within('li.dropdown', text: 'Requests') do
+      expect(page).to have_text law_text
+    end
   end
 
 end

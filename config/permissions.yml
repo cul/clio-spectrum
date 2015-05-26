@@ -1,14 +1,12 @@
 site:
   manage:
     - gb8
-    - mem2308
     - sam119
     - test_site_manager
 
   # for any pre-production features we want to play with
   pilot:
     - gb8
-    - mem2308
     - sam119
     - hhb2119
     - jrl2132
@@ -68,7 +66,6 @@ item_alerts:
       - mc3395
       - mcb2212
       - mdk2126
-      - mem2308
       - mlc1
       - mw18
       - mw2064

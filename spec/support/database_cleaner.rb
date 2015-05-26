@@ -21,6 +21,11 @@ RSpec.configure do |config|
                                { except: %w(locations libraries library_hours options) }
   end
 
+  config.before(:each, selenium: true) do
+    DatabaseCleaner.strategy = :truncation,
+    { except: %w(locations libraries library_hours options) }
+  end
+
   config.before(:each) do
     DatabaseCleaner.start
   end

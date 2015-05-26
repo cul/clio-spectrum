@@ -211,19 +211,19 @@ describe 'Linked field-values in single-item display', focus: false do
     visit catalog_path(10322893)
     # "Also Listed Under Çıpa, H. Erdem, 1971-"
     click_link('H. Erdem, 1971')
-    expect(page).to have_text('1 - 3 of 3')
+    expect(page).to have_text('1 - 4 of 4')
     within('#facet-author li', text: 'Erdem') do
       expect(find('.facet-label')).to have_text "Çıpa, H. Erdem, 1971"
-      expect(find('.facet-count')).to have_text "3"
+      expect(find('.facet-count')).to have_text "4"
     end
 
     visit catalog_path(10551688)
     # "Also Listed Under Çıpa, H. Erdem, 1971-"
     click_link('H. Erdem, 1971')
-    expect(page).to have_text('1 - 3 of 3')
+    expect(page).to have_text('1 - 4 of 4')
     within('#facet-author li', text: 'Erdem') do
       expect(find('.facet-label')).to have_text "Çıpa, H. Erdem, 1971"
-      expect(find('.facet-count')).to have_text "3"
+      expect(find('.facet-count')).to have_text "4"
     end
   end
 end
