@@ -25,7 +25,7 @@
       - unless params[:f] and ( params[:f][solr_field] || params[:f]["-#{solr_field}"])
         = render_facet_value(solr_field, item)
 
-- if(paginator.has_next?)
+- unless (paginator.last_page?)
   .more_facets_link
     = link_to(t('blacklight.search.facets.more'), params.merge(:id => solr_field, :action=>"facet"), :class => "more_facets_link")
 

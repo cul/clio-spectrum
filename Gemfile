@@ -8,7 +8,7 @@ gem 'rails', '~> 3.2'
 
 #  ###  BLACKLIGHT (begin)  ###
 
-gem 'blacklight', '~>5.4.0'
+gem 'blacklight', '~>5.5.0'
 # gem 'blacklight', '~>4.7.0'
 # gem 'blacklight', '~>4'
 
