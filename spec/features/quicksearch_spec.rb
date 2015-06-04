@@ -33,6 +33,7 @@ describe 'QuickSearch landing page' do
   # NEXT-1026 - Clicking 'All Results' for Libraries Website 
   # from Quicksearch shows an XML file
   # NEXT-1027 - Relabel 'All #### results' on Quicksearch
+
   # *** CATALOG ***
   it "should link to Catalog results correctly", js:true, Xfocus:true do
     visit quicksearch_index_path('q' => 'kitty')
@@ -42,6 +43,7 @@ describe 'QuickSearch landing page' do
     end
     page.should have_text "You searched for: kitty"
   end
+
   # *** ARTICLES ***
   it "should link to Articles results correctly", js:true do
     visit quicksearch_index_path('q' => 'indefinite')
@@ -51,6 +53,7 @@ describe 'QuickSearch landing page' do
     end
     expect(page).to have_text "You searched for: indefinite"
   end
+
   # *** ACADEMIC COMMONS ***
   it "should link to Academic Commons results correctly", js:true do
     visit quicksearch_index_path('q' => 'uncommon')
@@ -60,20 +63,25 @@ describe 'QuickSearch landing page' do
     end
     page.should have_text "You searched for: uncommon"
   end
-  # *** CATALOG ***
+
+  # *** LIBRARIES WEBSITE ***
   it "should link to Libraries Website results correctly", js:true do
     visit quicksearch_index_path('q' => 'public')
 
     # make sure the AJAX lookups all return
     expect(page).to have_css('.result_set', count: 4)
+    within('.result_set[data-source=library_web]') do
 
-    # page.save_and_open_page
-    find('.results_header', :text => "Libraries Website")
-    within('.results_header', :text => "Libraries Website") do
-      should_not have_text "View and filter all"
-      click_link "View all"
+      expect(page).to have_css('.results_header', :text => "Libraries Website")
+      within('.results_header', :text => "Libraries Website") do
+        expect(page).not_to have_text('View and filter all')
+        expect(page).to have_text('View all')
+        click_link "View all"
+      end
     end
+
     page.should have_text "You searched for: public"
+
   end
 
 
