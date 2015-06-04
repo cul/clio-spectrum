@@ -35,11 +35,15 @@ describe 'Summon Interface ' do
         detail.text.should satisfy { |detail_text|
           # Summon's precise language seems to be flip-flopping today,
           #  any of these might show up.
-          detail_text.match(/Journal Article: Full Text Available/) ||
-          detail_text.match(/Book Chapter: Full Text Available/) ||
-          detail_text.match(/Book Review: Full Text Available/) ||
-          detail_text.match(/Conference Proceeding: Full Text Online/) ||
-          detail_text.match(/Conference Proceeding: Full Text Available/)
+          # TOO MANY...
+          # detail_text.match(/Journal Article: Full Text Available/) ||
+          # detail_text.match(/Book Chapter: Full Text Available/) ||
+          # detail_text.match(/Book Review: Full Text Available/) ||
+          # detail_text.match(/Conference Proceeding: Full Text Online/) ||
+          # detail_text.match(/Conference Proceeding: Full Text Available/)
+          # JUST TEST THE FINAL WORDS...
+          detail_text.match(/: Full Text Online/) ||
+          detail_text.match(/: Full Text Available/)
         }
       end
     end
