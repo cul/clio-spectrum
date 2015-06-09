@@ -162,9 +162,11 @@ describe 'Switching between data-source', js: true do
 
     click_link('More...')
     click_link('Dissertations')
+
     find('input#dissertations_q').value.should eq 'test'
-    page.should have_css('.result_set', count: 3)
-    expect(page).to have_css('.result_count', count: 3)
+
+    expect(page).to have_css('.result_count', count: 3, wait: 5)
+
     all('.result_set').each do |result_set|
       result_set.should have_css('.result')
     end

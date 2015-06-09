@@ -54,6 +54,11 @@ describe 'Academic Commons' do
   # NEXT-1012 - use handle for item link in AC records
   it 'should link items to identifiers, not AC website', js: true do
     visit quicksearch_index_path('q' => 'portuguese')
+
+    # Make sure things load...
+    expect(page).to have_css('.result_set', count: 4)
+    expect(page).to have_css('.nested_result_set', count: 4, wait: 5)
+
     within('.nested_result_set[data-source=academic_commons]') do
       # We should find at least one of these...
       expect(page).to have_css('.result_title a', count: 3)

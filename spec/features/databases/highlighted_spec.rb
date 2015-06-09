@@ -32,7 +32,7 @@ describe 'Database Highlights' do
     page.save_screenshot '/tmp/screen1.png'
     expect(page).to have_css('#nearby')
     page.save_screenshot '/tmp/screen2.png'
-    expect(page).to have_css('#nearby .nearby_content')
+    expect(page).to have_css('#nearby .nearby_content', wait: 5)
     page.save_screenshot '/tmp/screen3.png'
 
     expect(page).to have_css('#documents')
