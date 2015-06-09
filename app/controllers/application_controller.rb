@@ -172,7 +172,7 @@ class ApplicationController < ActionController::Base
     options['source'] = @active_source unless options['source']
     options['debug_mode'] = @debug_mode
     options['current_user'] = current_user
-
+raise
     # this new() actually runs the search.
     # [ the Solr engine call perform_search() within it's initialize() ]
     debug_timestamp('calling Solr.new()')

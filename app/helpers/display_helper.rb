@@ -639,7 +639,7 @@ module DisplayHelper
   def ac_to_openurl_ctx_kev(document)
     fields = []
     fields.push('ctx_ver=Z39.88-2004')
-
+Rails.logger.debug "XXXXXXXXXXXXXXX #{document.inspect}"
     # Many fields used to be arrays on katana, but on macana appear to be strings?
     # Defend ourselves by using Array.wrap() on everything.
     if Array.wrap(document[:type_of_resource_mods])[0].match(/recording/i)

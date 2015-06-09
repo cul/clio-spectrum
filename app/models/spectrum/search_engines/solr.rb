@@ -52,11 +52,11 @@ module Spectrum
         Rails.logger.info "[Spectrum][Solr] source: #{@source} params: #{@params}"
 # ###
 # For better-errors debugging, perform the search outside the begin/rescue/end
-# perform_search
+perform_search
 # ###
         begin
           # here's the actual search, defined below in this file
-          perform_search
+          # perform_search
         rescue => ex
           Rails.logger.error "#{self.class}##{__method__} [Spectrum][Solr] error: #{ex.message}"
           @errors = ex.message
@@ -184,6 +184,7 @@ module Spectrum
       end
 
       def self.generate_rsolr(source, solr_url = nil)
+        Rails.logger.debug "generate_rsolr(#{source}) - new RSolr.connect()"
         if source.in?('academic_commons', 'ac_dissertations')
           RSolr.connect(url: APP_CONFIG['ac2_solr_url'])
         elsif source.in?('dcv')

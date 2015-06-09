@@ -97,7 +97,11 @@ module LocalSolrHelperExtension
         !value || (value.strip.length == 0)
       end.map do |query|
         field_name, value = *query
-        search_field_def = search_field_def_for_key(field_name)
+        # With the upgrade of the Blacklight gem from 5.7.x to 5.8.x,
+        # method search_field_def_for_key() is not longer callable?
+        # search_field_def = search_field_def_for_key(field_name)
+        search_field_def = blacklight_config.search_fields[field_name]
+        blacklight_config.search_fields
 
         if search_field_def && hash = search_field_def.solr_local_parameters
           local_params = hash.map do |key, val|
