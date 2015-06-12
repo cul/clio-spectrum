@@ -34,7 +34,9 @@ gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blackl
 # https://github.com/amatsuda/kaminari/commit/5e2e505cdd2ea2de20949d5cef261c247b3168b1
 # This isn't fixed in Blacklight until 5.5.0,
 # so pin kaminari to a pre-breakage release
-gem 'kaminari', '0.15.0'
+# gem 'kaminari', '0.15.0'
+# We've now moved past 5.5.0, let it upgrade freely
+gem 'kaminari'
 
 # pull from rubygems...
 # gem 'devise_wind'
@@ -252,7 +254,8 @@ group :test do
   gem 'capybara-webkit'
 
   # dependent on localhost's browser configs
-  gem 'selenium-webdriver', '2.45.0'
+  # gem 'selenium-webdriver', '2.45.0'
+  gem 'selenium-webdriver'
 
   # "A helper for launching cross-platform applications 
   #  in a fire and forget manner."
