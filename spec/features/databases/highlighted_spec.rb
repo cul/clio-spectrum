@@ -28,6 +28,13 @@ describe 'Database Highlights' do
     visit catalog_path(7928198)
     find('.btn.show_mini_browse', text: 'Show').click
 
+    # help timing issues?
+    page.save_screenshot '/tmp/screen1.png'
+    expect(page).to have_css('#nearby')
+    page.save_screenshot '/tmp/screen2.png'
+    expect(page).to have_css('#nearby .nearby_content', wait: 5)
+    page.save_screenshot '/tmp/screen3.png'
+
     expect(page).to have_css('#documents')
     within('#documents') do
       find('.result.database_record', text: 'MEDLINE')

@@ -26,7 +26,7 @@ describe "Virtual Shelf Browse" do
     find('#nearby .nearby_content')
     within('#nearby .nearby_content') do
       # Search for control labels specific to bib 1234
-      first('nav.index_toolbar').should have_text('« Previous | PN45 .R576 1998 - PN45 .R65 | Next »')
+      first('nav.index_toolbar').should have_text('« Previous | PN45 .R576 1998 - PN45 .R69 2011g | Next »')
       first('nav.index_toolbar').should have_text('Return to PN45 .R587')
       expect(page).to have_css('.document.result', count: 10)
 

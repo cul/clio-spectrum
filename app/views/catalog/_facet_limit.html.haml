@@ -29,7 +29,7 @@
 -#       - else
 -#         = render_facet_value(solr_field, item)
 -# 
--#   - if(paginator.has_next?)
+-#   - unless(paginator.last_page?)
 -#     %li.more_facets_link
 -#       = link_to('See more »', params.merge(:id => solr_field, :action=>"facet"), :class => "more_facets_link")
 
