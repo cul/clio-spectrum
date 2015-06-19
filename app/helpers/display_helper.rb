@@ -639,26 +639,26 @@ module DisplayHelper
   def ac_to_openurl_ctx_kev(document)
     fields = []
     fields.push('ctx_ver=Z39.88-2004')
-Rails.logger.debug "XXXXXXXXXXXXXXX #{document.inspect}"
     # Many fields used to be arrays on katana, but on macana appear to be strings?
     # Defend ourselves by using Array.wrap() on everything.
-    if Array.wrap(document[:type_of_resource_mods])[0].match(/recording/i)
+
+    # by default, titles will be "atitle" - unless we override below
+    title_key = "rft.atitle"
+
+    if document[:type_of_resource_mods] && Array.wrap(document[:type_of_resource_mods])[0].match(/recording/i)
       fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:dc&rft.type=audioRecording')
-      document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
-        fields.push("rft.title=#{ CGI.escape(title) }")
-      end
-    elsif Array.wrap(document[:type_of_resource_mods])[0].match(/moving image/i)
+      title_key = "rft.title"
+    elsif document[:type_of_resource_mods] && Array.wrap(document[:type_of_resource_mods])[0].match(/moving image/i)
       fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:dc&rft.type=videoRecording')
-      document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
-        fields.push("rft.title=#{ CGI.escape(title) }")
-      end
+      title_key = "rft.title"
     else
       fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
-      document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
-        fields.push("rft.atitle=#{ CGI.escape(title) }")
-      end
-
     end
+
+    document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
+      fields.push("#{title_key}=#{ CGI.escape(title) }")
+    end
+
     Array.wrap(document[ :id]).each do |id|
       document_url = academic_commons_url(id)
       fields.push("rft_id=#{ CGI.escape(document_url) }")
