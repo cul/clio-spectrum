@@ -125,7 +125,7 @@ describe 'Catalog Advanced Search' do
   # sublocation text.
   [ 'Barnard Reference',
     'Lehman Reference',
-    'Barnard Alumnae Collection',
+    # 'Barnard Alumnae Collection',
     'Comp Lit',
     'African Studies',
     'Offsite <Avery>',
