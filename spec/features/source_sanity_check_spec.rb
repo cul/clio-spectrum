@@ -88,9 +88,10 @@ describe 'Simple query should retrieve results ', js: true do
 
     visit ebooks_index_path('q' => 'test')
     expect(page).to have_css('.result_set', count: 2)
-    all('.result_set').each do |result_set|
-      result_set.should have_css('.result')
-    end
+    expect(page).to have_css('.result', count: 2, wait: 3)
+    # all('.result_set').each do |result_set|
+    #   result_set.should have_css('.result')
+    # end
 
     visit new_arrivals_index_path('q' => 'test')
     page.should have_css('.result')
