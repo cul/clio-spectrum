@@ -75,11 +75,27 @@ perform_search
         end
       end
 
+      def solr_repository
+        # raise
+        Rails.logger.debug "Spectrum::SearchEngine::Solr#solr_repository()"
+        # Rails.logger.debug "before: @solr_repository=#{@solr_repository.inspect}"
+        
+        @solr_repository ||= Spectrum::SolrRepository.new(blacklight_config)
+        @solr_repository.source = @source
+        @solr_repository.solr_url = @solr_url
+
+        # Rails.logger.debug "after: @solr_repository=#{@solr_repository.inspect}"
+        @solr_repository
+      end
+
       def blacklight_solr
+        Rails.logger.debug "Spectrum::SearchEngine::Solr#blacklight_solr()"
         @solr ||= Solr.generate_rsolr(@source, @solr_url)
       end
 
       def blacklight_solr_config
+        Rails.logger.debug "Spectrum::SearchEngine::Solr#blacklight_solr_config()"
+        
         @config ||= Solr.generate_config(@source)
       end
 
@@ -96,10 +112,12 @@ perform_search
       end
 
       def blacklight_config
+        Rails.logger.debug "Spectrum::SearchEngine::Solr#blacklight_config()"
         @config
       end
 
       def blacklight_config=(config)
+        Rails.logger.debug "Spectrum::SearchEngine::Solr#blacklight_config=()"
         @config = config
       end
 
