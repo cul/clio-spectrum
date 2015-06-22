@@ -260,4 +260,14 @@ module LocalSolrHelperExtension
         "#{facet_field}:#{subbed_value}"
     end
   end
+
+  # This is getting deprecated from Blacklight
+  def get_solr_response_for_field_values(field, values, extra_controller_params = {})
+
+    solr_response = query_solr(params, extra_controller_params.merge(solr_documents_by_field_values_params(field, values)))
+
+    [solr_response, solr_response.documents]
+
+  end
+
 end
