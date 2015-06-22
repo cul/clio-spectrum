@@ -45,7 +45,7 @@ module DisplayHelper
   end
 
   # used to assign icons
-  FORMAT_MAPPINGS = {
+  FORMAT_ICON_MAPPINGS = {
     'Book' => 'book',
     'Online' => 'link',
     'Computer File' => 'computer-file',
@@ -63,12 +63,14 @@ module DisplayHelper
     'Database' => 'database',
     'Image' => 'image',
     'Computer Program' => 'computer-file',
-    'Loose-leaf' => 'journal'
+    'Loose-leaf' => 'journal',
+    'US Government Document' => 'govdoc',
+    'NY State/City Government Document' => 'govdoc2'
   }
 
   def formats_with_icons(document, format_field = 'format')
     document[format_field].listify.map do |format|
-      if (icon = FORMAT_MAPPINGS[format]) && @add_row_style != :text
+      if (icon = FORMAT_ICON_MAPPINGS[format]) && @add_row_style != :text
         image_tag("icons/#{icon}.png", size: '16x16') + " #{format}"
       else
         format.to_s
