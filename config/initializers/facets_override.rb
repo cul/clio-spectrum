@@ -1,3 +1,4 @@
+# marquis, 6/2015 - BlackLight now upgraded, time to remove this code.
 # 
 # # NEXT-1103 - Catalog facet sorting is not working properly
 # puts "REMEMBER:  Remove facets_override.rb after upgrading Blacklight gem to 5.7.x"

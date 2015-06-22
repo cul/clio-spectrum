@@ -5,7 +5,7 @@ require 'spec_helper'
 # NEXT-970 - Some bibs assigned format "Computer File" instead of "Other"
 describe 'Format assignments for types of "Computer Files"' do
 
-  bibList = [2972693, 3105451, 3120827]
+  bibList = [2972693, 3105451]
   bibList.each do |bib|
     it "bib #{bib} should have single format: 'Online'" do
       resp = solr_response('q' => "id:#{bib}", 'fl' => 'id,format', 'facet' => false)
@@ -18,14 +18,14 @@ describe 'Format assignments for types of "Computer Files"' do
 
   bibList = [8617143]
   bibList.each do |bib|
-    it "bib #{bib} should have single format: 'Computer File'" do
+    it "bib #{bib} should have two formats: 'Computer File' && US Gov.Doc." do
       resp = solr_response('q' => "id:#{bib}", 'fl' => 'id,format', 'facet' => false)
       formatList = resp['response']['docs'][0]['format']
-      formatList.should == ['Computer File']
+      formatList.should == ["Computer File", "US Government Document"]
     end
   end
 
-  bibList = [2996414, 3041516, 3238417, 3359137]
+  bibList = [3041516, 3238417]
   bibList.each do |bib|
     it "bib #{bib} should have single format: 'Computer File'" do
       resp = solr_response('q' => "id:#{bib}", 'fl' => 'id,format', 'facet' => false)
@@ -68,9 +68,9 @@ describe "Updated Format Assignments" do
   8761542 => 'Book',
   8877512 => 'Book',
 
-  8329922 => 'Computer File',
-  8329923 => 'Computer File',
-  8379277 => 'Computer File',
+  10787097 => 'Computer File',
+  10657222 => 'Computer File',
+  10291684 => 'Computer File',
 
   8600916 => 'Manuscript/Archive',
   8601514 => 'Manuscript/Archive',
@@ -84,13 +84,15 @@ describe "Updated Format Assignments" do
   1033597 => 'Journal/Periodical',
   5321235 => 'Journal/Periodical',
 
-  8646332 => ['Journal/Periodical', 'Loose-leaf'],
-  10565232 => ['Journal/Periodical', 'Loose-leaf'],
-  10102150 => ['Journal/Periodical', 'Loose-leaf'],
+  11138471 => ['Journal/Periodical', 'Loose-leaf'],
+  11149683 => ['Journal/Periodical', 'Loose-leaf'],
+  'b785038' => ['Journal/Periodical', 'Loose-leaf'],
+  'b785925' => ['Journal/Periodical', 'Loose-leaf'],
 
-  7582170 => ['Book', 'Microformat'],
-  9160816 => ['Book', 'Microformat'],
-  6969175 => ['Book', 'Microformat'],
+  3740193 => ['Book', 'Microformat'],
+  10819290 => ['Book', 'Microformat'],
+  'b786949' => ['Book', 'Microformat'],
+  'b786897' => ['Book', 'Microformat'],
   }.each do |bib, formatValue|
 
 
@@ -103,7 +105,6 @@ describe "Updated Format Assignments" do
 
   end
 end
-
 
 
 

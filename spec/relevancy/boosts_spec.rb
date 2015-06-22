@@ -95,8 +95,8 @@ describe 'Boosts' do
     resp.should include('3325775').in_first(1).results
   end
 
-  it "caim" do
-    resp = solr_resp_doc_ids_only('q' => 'caim')
+  it "cairn" do
+    resp = solr_resp_doc_ids_only('q' => 'cairn')
     resp.should include('9463370').in_first(1).results
   end
 

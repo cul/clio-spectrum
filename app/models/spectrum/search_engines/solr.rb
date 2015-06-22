@@ -52,11 +52,11 @@ module Spectrum
         Rails.logger.info "[Spectrum][Solr] source: #{@source} params: #{@params}"
 # ###
 # For better-errors debugging, perform the search outside the begin/rescue/end
-# perform_search
+perform_search
 # ###
         begin
           # here's the actual search, defined below in this file
-          perform_search
+          # perform_search
         rescue => ex
           Rails.logger.error "#{self.class}##{__method__} [Spectrum][Solr] error: #{ex.message}"
           @errors = ex.message
@@ -75,11 +75,27 @@ module Spectrum
         end
       end
 
+      def solr_repository
+        # raise
+        Rails.logger.debug "Spectrum::SearchEngine::Solr#solr_repository()"
+        # Rails.logger.debug "before: @solr_repository=#{@solr_repository.inspect}"
+        
+        @solr_repository ||= Spectrum::SolrRepository.new(blacklight_config)
+        @solr_repository.source = @source
+        @solr_repository.solr_url = @solr_url
+
+        # Rails.logger.debug "after: @solr_repository=#{@solr_repository.inspect}"
+        @solr_repository
+      end
+
       def blacklight_solr
+        Rails.logger.debug "Spectrum::SearchEngine::Solr#blacklight_solr()"
         @solr ||= Solr.generate_rsolr(@source, @solr_url)
       end
 
       def blacklight_solr_config
+        Rails.logger.debug "Spectrum::SearchEngine::Solr#blacklight_solr_config()"
+        
         @config ||= Solr.generate_config(@source)
       end
 
@@ -96,10 +112,12 @@ module Spectrum
       end
 
       def blacklight_config
+        Rails.logger.debug "Spectrum::SearchEngine::Solr#blacklight_config()"
         @config
       end
 
       def blacklight_config=(config)
+        Rails.logger.debug "Spectrum::SearchEngine::Solr#blacklight_config=()"
         @config = config
       end
 
@@ -184,6 +202,7 @@ module Spectrum
       end
 
       def self.generate_rsolr(source, solr_url = nil)
+        Rails.logger.debug "generate_rsolr(#{source}) - new RSolr.connect()"
         if source.in?('academic_commons', 'ac_dissertations')
           RSolr.connect(url: APP_CONFIG['ac2_solr_url'])
         elsif source.in?('dcv')

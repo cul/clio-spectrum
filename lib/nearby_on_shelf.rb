@@ -85,17 +85,6 @@ class NearbyOnShelf
     get_spines_from_field_values(desired_values, field_name)
   end
 
-  # return an array of the next terms in the index for the indicated field and 
-  # starting term. Returned array does NOT include starting term.  Queries Solr (duh).
-  def SW_get_next_terms_for_field(starting_term, field_name, how_many=3)
-    result = []
-    # terms is array of one element hashes with key=term and value=count
-    terms_array = get_next_terms(starting_term, field_name, how_many.to_i+1)
-    terms_array.each { |term_hash|
-      result << term_hash.keys[0] unless term_hash.keys[0] == starting_term
-    }
-    result
-  end
 
   # create an array of sorted html list items containing the appropriate display text
   #  (analogous to what would be visible if you were looking at the spine of 
@@ -135,105 +124,6 @@ class NearbyOnShelf
     return result_hash
 
 
-    # This winnows down the holdings hashs on only ones where the desired values includes the shelfkey or reverse shelfkey using a very quick select statment
-    # The resulting array looke like [[:"36105123456789",{:barcode=>"36105123456789",:callnumber=>"PS3156 .A53"}]]
-    item_array = doc.holdings.callnumbers.select do |callnumber|
-      [:shelfkey, :reverse_shelfkey].include?(field.to_sym) && desired_values.include?(callnumber.send(field.to_sym))
-    end
-
-    unless item_array.empty?
-      # putting items back into a hash for readibility
-      # looping through the resulting temp hash of holdings to build proper sort keys and then return a hash that conains a solr document for every item in the hash
-      item_array.each do |callnumber|
-        # create sorting key for spine
-        # shelfkey asc, then by sorting title asc, then by pub date desc
-        # notice that shelfkey and sort_title need to be a constant length
-        #  separator of " -|- " is for human readability only
-        sort_key = "#{callnumber.shelfkey[0,100].ljust(100)} -|- "
-        sort_key << "#{doc[:title_sort][0,100].ljust(100)} -|- " unless doc[:title_sort].nil?
-
-        # pub_year must be inverted for descending sort
-        if doc[:pub_date].nil? || doc[:pub_date].length == 0
-          sort_key << '9999'
-        else
-         sort_key << doc[:pub_date].tr('0123456789', '9876543210')
-        end
-        # Adding ckey to sort to make sure we collapse things that have the same callnumber, title, pub date, AND ckey
-        sort_key << " -|- #{doc[:id][0,20].ljust(20)}"
-        # We were adding the library to the sortkey. However; if we don't add the library we can easily collapse items that have the same
-        # call number (shelfkey), title, pub date, and ckey but are housed in different libraries.
-        #sort_key << " -|- #{value[:library][0,40].ljust(40)}"
-
-        result_hash[sort_key] = {:doc=>doc,:holding=>callnumber}
-      end  # end each item display    
-    end
-    return result_hash
   end
 
-  def SW_get_next_terms(curr_value, field, how_many)
-    # TermsComponent Query to get the terms
-    solr_params = {
-      'terms.fl' => field,
-      'terms.lower' => curr_value,
-      'terms.sort' => 'index',
-      'terms.limit' => how_many
-    }
-    solr_response = Blacklight.solr.alphaTerms({params: solr_params})
-    # create array of one element hashes with key=term and value=count
-    result = []
-    terms ||= solr_response['terms'] || []
-    if terms.is_a?(Array)
-      field_terms ||= terms[1] || []  # solr 1.4 returns array
-    else
-      field_terms ||= terms[field] || []  # solr 3.5 returns hash
-    end
-    # field_terms is an array of value, then num hits, then next value, then hits ...
-    i = 0
-    until result.length == how_many || i >= field_terms.length do
-      term_hash = {field_terms[i] => field_terms[i+1]}
-      result << term_hash
-      i = i + 2
-    end
-
-    result
-  end
-
-  # # given a document and the barcode of an item in the document, return the
-  # #  item_display field corresponding to the barcode, or nil if there is no
-  # #  such item
-  # def get_item_display(item_display, barcode)
-  #   item = ""
-  #   if barcode.nil? || barcode.length == 0
-  #     return nil
-  #   end
-  #   [item_display].flatten.each do |item_disp|
-  #     item = item_disp if item_disp =~ /^#{CGI::escape(barcode)}/
-  #     # marquis - add this match...
-  #     item = item_disp if item_disp =~ /^#{barcode}/
-  #   end
-  #   return item unless item == ""
-  # end
-  # 
-  # 
-  # # return the shelfkey (lopped) piece of the item_display field
-  # def get_shelfkey(item_display)
-  #   # get_item_display_piece(item_display, 6)
-  #   get_item_display_piece(item_display, 1)
-  # end
-  # 
-  # # return the reverse shelfkey (lopped) piece of the item_display field
-  # def get_reverse_shelfkey(item_display)
-  #   # get_item_display_piece(item_display, 7)
-  #   get_item_display_piece(item_display, 2)
-  # end
-  # 
-  # def get_item_display_piece(item_display, index)
-  #   if (item_display)
-  #     # item_array = item_display.split('-|-')
-  #     item_array = item_display.split(' | ')
-  # 
-  #     return item_array[index].strip unless item_array[index].nil?
-  #   end
-  #   nil
-  # end
 end
