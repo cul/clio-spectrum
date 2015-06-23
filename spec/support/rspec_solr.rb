@@ -19,7 +19,7 @@ RSpec.configure do |config|
   #   solr_config = {:url => baseurl}
   # else
   #   yml_group = ENV["YML_GROUP"] ||= 'test'
-  #   solr_config = YAML::load_file('config/solr.yml')[yml_group]
+  #   solr_config = YAML::load_file('config/blacklight.yml')[yml_group]
   # end
 
   solr_url = SOLR_CONFIG['test']['url']

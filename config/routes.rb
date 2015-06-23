@@ -92,7 +92,7 @@ Clio::Application.routes.draw do
   match 'catalog/hathi_holdings/:id' => 'catalog#hathi_holdings', :as => 'hathi_holdings'
 
 
-  match 'spectrum/fetch/:layout/:datasource', to: 'spectrum#fetch', as: 'spectrum_fetch'
+  match 'spectrum/searchjson/:layout/:datasource', to: 'spectrum#searchjson', as: 'spectrum_searchjson'
 
   match 'articles', to: 'spectrum#search', as: :articles_index, defaults: { layout: 'articles' }
   # there's no 'articles' controller, and no item-detail page for articles

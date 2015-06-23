@@ -65,7 +65,7 @@ Columbia Libraries Unified Search &amp; Discovery
 
  - rename the config files
         ````
-        mv config/solr.yml.SAMPLE config/solr.yml
+        mv config/blacklight.yml.SAMPLE config/blacklight.yml
         mv config/database.yml.SAMPLE config/database.yml
         mv config/app_config.yml.SAMPLE config/app_config.yml
         ````

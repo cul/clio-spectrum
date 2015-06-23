@@ -1,5 +1,5 @@
-# This is an EXAMPLE solr.yml file.
-# Copy this file to solr.yml and edit the values as needed.
+# This is an EXAMPLE blacklight.yml file.
+# Copy this file to blacklight.yml and edit the values as needed.
 
 
 # Configure the URL of the Solr search engine to be used for searching

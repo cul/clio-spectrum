@@ -16,14 +16,14 @@ describe SpectrumController do
     end
   end
 
-  describe "GET 'fetch'" do
+  describe "GET 'searchjson'" do
     it 'returns http success' do
-      get 'fetch', layout: 'qucksearch', datasource: 'catalog'
+      get 'searchjson', layout: 'qucksearch', datasource: 'catalog'
       response.should be_success
     end
 
     it 'errors on bad input' do
-      get 'fetch', layout: 'No Such Layout', datasource: 'catalog'
+      get 'searchjson', layout: 'No Such Layout', datasource: 'catalog'
       response.should be_success
       response.body.should =~ /search layout invalid/i
     end

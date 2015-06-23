@@ -4,7 +4,7 @@
 # 
 
 class NearbyOnShelf
-  include Blacklight::SolrHelper
+  include Blacklight::SearchHelper
 
   attr_reader :items
 

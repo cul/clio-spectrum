@@ -48,7 +48,7 @@ namespace :deploy do
     run "ln -nfs #{deploy_to}shared/robots.txt #{release_path}/public/robots.txt"
     run "ln -nfs #{deploy_to}shared/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{deploy_to}shared/app_config.yml #{release_path}/config/app_config.yml"
-    run "ln -nfs #{deploy_to}shared/solr.yml #{release_path}/config/solr.yml"
+    run "ln -nfs #{deploy_to}shared/blacklight.yml #{release_path}/config/blacklight.yml"
     run "mkdir -p #{deploy_to}shared/extracts"
     run "ln -nfs #{deploy_to}shared/extracts #{release_path}/tmp/extracts"
   end
