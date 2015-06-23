@@ -19,11 +19,11 @@ GIT
 
 GIT
   remote: git://github.com/projectblacklight/blacklight_range_limit.git
-  revision: 6f32bb29c0a6d68988a3f473637b510048d7dbd4
-  branch: master
+  revision: 5dfd222b4a8acd657ecbf7987f904fac0c93ae41
+  branch: blacklight-master
   specs:
-    blacklight_range_limit (5.1.0)
-      blacklight (>= 5.0.0.pre4, < 6)
+    blacklight_range_limit (5.0.3)
+      blacklight (~> 5.10)
       jquery-rails
       rails (>= 3.0, < 5.0)
 

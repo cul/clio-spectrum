@@ -22,14 +22,13 @@ test:
     
 
 
-spectrum_test_master:
-  adapter: solr
-  url: http://dirk.cul.columbia.edu:8983/solr-4.2.1/spectrum_test_master
-
-spectrum_prod_master:
-  adapter: solr
-  url: http://dirk.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod_master
-
+# spectrum_test_master:
+#   adapter: solr
+#   url: http://dirk.cul.columbia.edu:8983/solr-4.2.1/spectrum_test_master
+# 
+# spectrum_prod_master:
+#   adapter: solr
+#   url: http://dirk.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod_master
 
 # authorities_prod_master:
 #     url: http://machete.cul.columbia.edu:8983/solr-4.2.1/authorities_prod

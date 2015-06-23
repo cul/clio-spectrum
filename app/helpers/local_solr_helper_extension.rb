@@ -1,6 +1,6 @@
 module LocalSolrHelperExtension
   extend ActiveSupport::Concern
-  include Blacklight::SolrHelper
+  include Blacklight::SearchHelper
   include BlacklightRangeLimit::SegmentCalculation
 
   def is_advanced_search?(req_params = params)
@@ -37,7 +37,7 @@ module LocalSolrHelperExtension
   #   config
   # end
 
-    # Method added to solr_search_params_logic to fetch
+    # Method added to search_params_logic to fetch
     # proper things for date ranges.
   def add_range_limit_params(solr_params, req_params)
     ranged_facet_configs =
