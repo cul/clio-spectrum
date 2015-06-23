@@ -72,24 +72,24 @@ describe 'Catalog Interface' do
   # NEXT-640 - Records in CLIO should include links to Hathi Trust
   #  Full View examples:  513297, 1862548, 2081553
   #  Limited examples:  70744 (?), 4043762, 2517624
-  it "Should show Hathi Trust links, both 'Full view' and 'Limited'", js: true do
+  it "Should show CLIO, Google, and 'Full' & 'Limited' Hathi Trust links", js: true do
     page.driver.allow_url("hathitrust.org")
     page.driver.allow_url("books.google.com")
 
     # visit this specific item
     visit catalog_path('513297')
-    expect(page).to have_css '.holdings-container .holdings #clio_holdings'
-    expect(page).to have_css '.holdings-container .holdings #google_holdings'
-    expect(page).to have_css '.holdings-container .holdings #hathi_holdings'
+    expect(page).to have_css('.holdings-container .holdings #clio_holdings')
+    expect(page).to have_css('.holdings-container .holdings #google_holdings')
+    expect(page).to have_css('.holdings-container .holdings #hathi_holdings', wait: 3)
 
     # Should see the 'Full View' message in the Hathi Holdings box
     find('#hathi_holdings #hathi_data').should have_content('Full view')
 
     # visit this specific item
     visit catalog_path('4043762')
-    expect(page).to have_css '.holdings-container .holdings #clio_holdings'
-    expect(page).to have_css '.holdings-container .holdings #google_holdings'
-    expect(page).to have_css '.holdings-container .holdings #hathi_holdings'
+    expect(page).to have_css('.holdings-container .holdings #clio_holdings')
+    expect(page).to have_css('.holdings-container .holdings #google_holdings')
+    expect(page).to have_css('.holdings-container .holdings #hathi_holdings', wait: 3)
 
     # Should see the 'Limited (search-only)' message in the Hathi Holdings box
     find('#hathi_holdings #hathi_data').should have_content('Limited (search-only)')
