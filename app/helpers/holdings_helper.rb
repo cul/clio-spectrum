@@ -301,7 +301,7 @@ module HoldingsHelper
     # Sometimes the document data from Solr has invalid chars in the bib keys.
     # Strip these out so they don't trip up any code which uses these bibkeys.
     bibkeys.flatten.compact.map { |bibkey|
-      bibkey.gsub(/[^a-zA-Z0-9\:\-\ ]/, '').strip
+      bibkey.gsub(/[^a-zA-Z0-9\:\-]/, '').strip
     }.uniq
   end
 
