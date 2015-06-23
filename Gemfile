@@ -8,7 +8,7 @@ gem 'rails', '~> 3.2'
 
 #  ###  BLACKLIGHT (begin)  ###
 
-gem 'blacklight', '~>5.9.0'
+gem 'blacklight', '~>5.10.0'
 
 # when we move to 5.x, uncomment this
 gem 'blacklight-marc'
