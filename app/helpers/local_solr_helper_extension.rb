@@ -105,7 +105,8 @@ module LocalSolrHelperExtension
 
         if search_field_def && hash = search_field_def.solr_local_parameters
           local_params = hash.map do |key, val|
-            key.to_s + '=' + solr_param_quote(val, quote: "'")
+            # key.to_s + '=' + solr_param_quote(val, quote: "'")
+            key.to_s + '=' + search_builder.solr_param_quote(val, quote: "'")
           end.join(' ')
 
           # This has problems. Why "_query_"?  Why dismax?
@@ -264,7 +265,24 @@ module LocalSolrHelperExtension
   # This is getting deprecated from Blacklight
   def get_solr_response_for_field_values(field, values, extra_controller_params = {})
 
-    solr_response = query_solr(params, extra_controller_params.merge(solr_documents_by_field_values_params(field, values)))
+    # solr_response = query_solr(params, extra_controller_params.merge(solr_documents_by_field_values_params(field, values)))
+    # 
+    # [solr_response, solr_response.documents]
+
+    # Updated Blacklight 5.10.x version of this deprecated function...
+
+    query = Deprecation.silence(Blacklight::RequestBuilders) do
+      search_builder.
+       with(params).
+       query(
+         extra_controller_params.merge(
+           solr_documents_by_field_values_params(field, values)
+         )
+       )
+    end
+
+    solr_response = repository.search(query)
+
 
     [solr_response, solr_response.documents]
 

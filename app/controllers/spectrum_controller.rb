@@ -89,9 +89,11 @@ class SpectrumController < ApplicationController
     if @search_layout.nil?
       render text: 'Search layout invalid.'
     else
-      # These two seem to be unused for JSON results?
+      # seems to be unused for JSON results?
       # @fetch_action = true
-      # @search_style = @search_layout['style']
+
+      # Need this to help partials select which template to render
+      @search_style = @search_layout['style']
 
       # @has_facets = @search_layout['has_facets']
       sources =  @search_layout['columns'].map do |col|

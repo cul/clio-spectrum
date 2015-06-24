@@ -24,6 +24,7 @@ module Spectrum
       # Invoked when ApplicationController::blacklight_search() calls:
       #     search_engine = Spectrum::SearchEngines::Solr.new(options)
       def initialize(original_options = {})
+        Rails.logger.debug "Spectrum::Search::Engine#initialize(original_options=#{original_options.inspect})"
         # this "search_params_logic" is used when querying via our Solr engine.
         # queries using standard blacklight functions have their own config in CatalogController
         unless search_params_logic.include? :add_advanced_search_to_solr
@@ -160,11 +161,12 @@ perform_search
       end
 
       def perform_search
+        Rails.logger.debug "Spectrum::Search::Engine#perform_search() with @params=#{@params.inspect}"
         extra_controller_params = {}
 
         if @debug_mode
 
-          extra_controller_params.merge!('debugQuery' => 'true')
+          extra_controller_params.merge!(debugQuery: 'true')
 
           debug_results = lambda do |*args|
             @debug_entries['solr'] = [] if @debug_entries['solr'] == {}
@@ -180,7 +182,9 @@ perform_search
           end
 
           ActiveSupport::Notifications.subscribed(debug_results, 'execute.rsolr_client') do |*args|
-            @search, @documents = search_results(@params, extra_controller_params)
+            # @search, @documents = search_results(@params, extra_controller_params)
+            # raise
+            @search, @documents = search_results(@params.merge(extra_controller_params), search_params_logic)
 
             @debug_entries['solr'] = []  if @debug_entries['solr'] == {}
             hashed_event = {
@@ -195,7 +199,9 @@ perform_search
         else
           # use blacklight gem to run the actual search against Solr,
           # call Blacklight::SearchHelper::search_results()
-          @search, @documents = search_results(@params, extra_controller_params)
+          # @search, @documents = search_results(@params, extra_controller_params)
+          # Try this???
+          @search, @documents = search_results(@params.merge(extra_controller_params), search_params_logic)
         end
 
         self
@@ -210,7 +216,7 @@ perform_search
         elsif solr_url
           RSolr.connect(url: solr_url)
         else
-          RSolr.connect(Blacklight.solr_config)
+          RSolr.connect(Blacklight.connection_config)
         end
       end
 

@@ -38,7 +38,7 @@ class SolrDocument
 #  these are the DC fields you can play with...
 #  :contributor, :coverage, :creator, :date, :description, :format, :identifier, :language, :publisher, :relation, :rights, :source, :subject, :title, :type
 
-  use_extension(Blacklight::Solr::Document::DublinCore)
+  use_extension(Blacklight::Document::DublinCore)
   field_semantics.merge!(
                          # :identifier => "id",  # suggested mapping is ISBN or ISSN
                          title: 'title_display',
