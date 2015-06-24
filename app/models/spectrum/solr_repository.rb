@@ -26,7 +26,7 @@ module Spectrum
       elsif solr_url
         RSolr.connect(url: solr_url)
       else
-        RSolr.connect(Blacklight.solr_config)
+        RSolr.connect(Blacklight.connection_config)
       end
     end
 

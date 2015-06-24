@@ -169,6 +169,7 @@ class ApplicationController < ActionController::Base
   # and from CatalogController.index()
   def blacklight_search(sent_options = {})
     # raise
+    Rails.logger.debug "ApplicationController#blacklight_search(sent_options=#{sent_options.inspect})"
     options = sent_options.deep_clone
     options['source'] = @active_source unless options['source']
     options['debug_mode'] = @debug_mode
