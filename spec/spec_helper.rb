@@ -14,9 +14,6 @@ require 'rubygems'
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
 
-  # Suddenly getting 'NameError: uninitialized constant RSpec::Matchers'
-  # resolve with this:
-  require 'rspec-expectations'
 
   ENV['RAILS_ENV'] ||= 'test'
   require File.expand_path('../../config/environment', __FILE__)
@@ -28,7 +25,7 @@ require 'rubygems'
   Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
   RSpec.configure do |config|
-    config.treat_symbols_as_metadata_keys_with_true_values = true
+
     config.mock_with :rspec
     config.include(MailerMacros)
     config.before(:each) { reset_email }
@@ -93,6 +90,10 @@ require 'rubygems'
     # with a local setting in their app_config.yml
     config.filter_run_excluding :selenium if
         APP_CONFIG['skip_selenium_tests']
+
+    # This says to assume things in spec/controllers are controller
+    # specs, etc.  No longer automatic with rspec 3
+    config.infer_spec_type_from_file_location!
 
 
   end
