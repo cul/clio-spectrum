@@ -8,7 +8,7 @@ describe 'Catalog Interface' do
     visit catalog_path('7814900')
 
     # Find the 880 data for bib 7814900 within the info display
-    find('.info').should have_content('Other Information: Leaf 1 contains laws on the Torah reading')
+    expect(find('.info')).to have_content('Other Information: Leaf 1 contains laws on the Torah reading')
   end
 
   # NEXT-765 - MARC 787 field (Related To) not showing up
@@ -17,7 +17,7 @@ describe 'Catalog Interface' do
     visit catalog_path('7419929')
 
     # Find the 787 data for bib 7419929
-    find('.info').should have_content('Related To Xia intelligenteArchitektur')
+    expect(find('.info')).to have_content('Related To Xia intelligenteArchitektur')
   end
 
   # NEXT-917 - Summary showing up twice for video records
@@ -33,7 +33,7 @@ describe 'Catalog Interface' do
     within all('.result.document').first do
       all('a').first.click
     end
-    page.should have_css('div.field', text: 'Summary', count: 1)
+    expect(page).to have_css('div.field', text: 'Summary', count: 1)
   end
 
   # NEXT-551 - display 'version of resource' and 'related resource' notes
@@ -41,13 +41,13 @@ describe 'Catalog Interface' do
   it "Item Links should show 'version of resource' and 'related resource'", js: true do
     # on the search-results page
     visit catalog_index_path('q' => 'Introduction to high-energy astrophysics stephan rosswog')
-    page.should have_text('Table of contents (version of resource)')
-    page.should have_text('Publisher description (related resource)')
+    expect(page).to have_text('Table of contents (version of resource)')
+    expect(page).to have_text('Publisher description (related resource)')
 
     # on the item-detail page
     click_link('Introduction to high-energy astrophysics')
-    page.should have_text('Table of contents (version of resource)')
-    page.should have_text('Publisher description (related resource)')
+    expect(page).to have_text('Table of contents (version of resource)')
+    expect(page).to have_text('Publisher description (related resource)')
   end
 
   # NEXT-619 - improvements to 'Manuscript' facet
@@ -64,9 +64,9 @@ describe 'Catalog Interface' do
       click_link('Manuscript/Archive')
     end
     # exact count depends on default items-per-page, today, 25
-    page.should have_css('.result.document', count: 25)
+    expect(page).to have_css('.result.document', count: 25)
     # matching "1", or "1N", or "1NN"...  the value today is actually 1504
-    page.should have_text('1 - 25 of 1')
+    expect(page).to have_text('1 - 25 of 1')
   end
 
   # NEXT-640 - Records in CLIO should include links to Hathi Trust
@@ -83,7 +83,7 @@ describe 'Catalog Interface' do
     expect(page).to have_css('.holdings-container .holdings #hathi_holdings', wait: 3)
 
     # Should see the 'Full View' message in the Hathi Holdings box
-    find('#hathi_holdings #hathi_data').should have_content('Full view')
+    expect(find('#hathi_holdings #hathi_data')).to have_content('Full view')
 
     # visit this specific item
     visit catalog_path('4043762')
@@ -92,7 +92,7 @@ describe 'Catalog Interface' do
     expect(page).to have_css('.holdings-container .holdings #hathi_holdings', wait: 3)
 
     # Should see the 'Limited (search-only)' message in the Hathi Holdings box
-    find('#hathi_holdings #hathi_data').should have_content('Limited (search-only)')
+    expect(find('#hathi_holdings #hathi_data')).to have_content('Limited (search-only)')
   end
 
   # NEXT-931 - Online Links in Holdings (not in the Bib) should display
@@ -114,12 +114,12 @@ describe 'Catalog Interface' do
     visit catalog_path('10099362')
 
     # within ONLINE HOLDINGS, SHOULD see an 'Online' block
-    find('div#online_holdings').should have_content('Online')
+    expect(find('div#online_holdings')).to have_content('Online')
 
     # within CLIO HOLDINGS, should NOT see an 'Online' block
     # find('div#clio_holdings').should_not have_content("Online")
     # Now, Online-Only items no longer have any CLIO Holdings div at all!
-    page.should have_no_selector('div#clio_holdings')
+    expect(page).to have_no_selector('div#clio_holdings')
 
   end
 
@@ -136,7 +136,7 @@ describe 'Catalog Interface' do
     visit catalog_index_path(q: target1, search_field: 'title_starts_with')
 
     # should see the full location
-    find('#documents').should have_content(troublesome1)
+    expect(find('#documents')).to have_content(troublesome1)
 
     # go to the item-detail page..
     click_link(target1)
@@ -207,7 +207,7 @@ describe 'Catalog Interface' do
       end
 
       find('.modal-dialog .modal-content .modal-header')
-      # page.should have_css('.modal-dialog .modal-content .modal-header')
+      # expect(page).to have_css('.modal-dialog .modal-content .modal-header')
 
       #
       # NEXT 910 - Add some directions, and optionally email and Name, to the email form
@@ -225,16 +225,16 @@ describe 'Catalog Interface' do
   it 'supports a debug mode', js: true do
     visit catalog_index_path('q' => 'prim')
 
-    page.should_not have_css('div.debug_instruction')
-    page.should_not have_css('div.debug_entries')
+    expect(page).to_not have_css('div.debug_instruction')
+    expect(page).to_not have_css('div.debug_entries')
 
     visit catalog_index_path('q' => 'sneak', 'debug_mode' => 'on')
     # save_and_open_page # debug
 
     # We should still NOT have a debug session, since this only works for
     # authenticated users who are in the admin group
-    page.should_not have_css('div.debug_instruction')
-    page.should_not have_css('div.debug_entries')
+    expect(page).to_not have_css('div.debug_instruction')
+    expect(page).to_not have_css('div.debug_entries')
 
     # Login as a site admin account....
     @test_site_manager = FactoryGirl.create(:user, login: 'test_site_manager')
@@ -242,16 +242,16 @@ describe 'Catalog Interface' do
 
     visit catalog_index_path('q' => 'approved', 'debug_mode' => 'on')
 
-    page.should have_css('div.debug_instruction')
-    page.should have_css('div.debug_entries')
+    expect(page).to have_css('div.debug_instruction')
+    expect(page).to have_css('div.debug_entries')
     find('.debug_instruction').should have_text('Debug mode is on. Turn it off')
     within('div.debug_instruction') do
       click_link 'off'
     end
 
     # clicking "off" should reload the page automatically
-    page.should_not have_css('div.debug_instruction')
-    page.should_not have_css('div.debug_entries')
+    expect(page).to_not have_css('div.debug_instruction')
+    expect(page).to_not have_css('div.debug_entries')
 
   end
 
@@ -266,26 +266,26 @@ describe 'Catalog Interface' do
       find('button[type=submit]').click
     end
 
-    page.should have_text '1 - 9 of 9'
+    expect(page).to have_text '1 - 9 of 9'
 
     click_link('The patience of Maigret')
-    page.should have_text 'Back to Results | 1 of 9 | Next'
-    page.should have_text 'Title The patience of Maigret'
+    expect(page).to have_text 'Back to Results | 1 of 9 | Next'
+    expect(page).to have_text 'Title The patience of Maigret'
 
     click_link('Display In')
     click_link('MARC View')
-    page.should have_text 'Back to Results | 1 of 9 | Next'
-    page.should have_text '245 1 4 |a The patience of Maigret'
+    expect(page).to have_text 'Back to Results | 1 of 9 | Next'
+    expect(page).to have_text '245 1 4 |a The patience of Maigret'
 
     within '#show_toolbar' do
       click_link('Next')
     end
-    page.should have_text 'Back to Results | « Previous | 2 of 9 | Next »'
-    page.should have_text '245 1 4 |a Les vacances de Maigret'
+    expect(page).to have_text 'Back to Results | « Previous | 2 of 9 | Next »'
+    expect(page).to have_text '245 1 4 |a Les vacances de Maigret'
 
     click_link('Return to Patron View')
-    page.should have_text 'Back to Results | « Previous | 2 of 9 | Next »'
-    page.should have_text 'Title Les vacances de Maigret'
+    expect(page).to have_text 'Back to Results | « Previous | 2 of 9 | Next »'
+    expect(page).to have_text 'Title Les vacances de Maigret'
 
   end
 
@@ -302,28 +302,28 @@ describe 'Catalog Interface' do
   # NEXT-1081 - Apostrophe in the title bar renders incorrectly
   it 'shows apostrophes within title element', js: true do
     visit catalog_path(6217943)
-    page.should have_title "L'image de l'Orient"
+    expect(page).to have_title "L'image de l'Orient"
 
     visit catalog_path(6094212)
-    page.should have_title "Al-Qur'an"
+    expect(page).to have_title "Al-Qur'an"
   end
 
   # NEXT-1127 - Apostrophe in the title bar (in MARC view)
   it 'shows apostrophes within title element', js: true do
     visit librarian_view_catalog_path(10877875)
-    page.should have_title "One woman's war: Da"
+    expect(page).to have_title "One woman's war: Da"
 
     visit librarian_view_catalog_path(6217943)
-    page.should have_title "L'image de l'Orient"
+    expect(page).to have_title "L'image de l'Orient"
 
     visit librarian_view_catalog_path(6094212)
-    page.should have_title "Al-Qur'an"
+    expect(page).to have_title "Al-Qur'an"
   end
 
   # NEXT-1069 - 505s for Journals/Periodicals
   it 'shows apostrophes within title element' do
     visit catalog_path(10213578)
-    page.should have_text "Contents
+    expect(page).to have_text "Contents
     ISSUE 1
     Introduction
     Annette Funicello"
@@ -335,37 +335,37 @@ describe 'Catalog Interface' do
   it 'shows series statements, from 490 and 8X0 fields' do
     # 490
     visit catalog_path(10735763)
-    page.should have_text "Series Bullettino della Commissione archeologica comunale di Roma. Supplementi ; 21"
+    expect(page).to have_text "Series Bullettino della Commissione archeologica comunale di Roma. Supplementi ; 21"
     # 800
     visit catalog_path(10840)
-    page.should have_text "Series Abusch, Alexander. Works. Selections ; Bd. 1."
+    expect(page).to have_text "Series Abusch, Alexander. Works. Selections ; Bd. 1."
     # 810
     visit catalog_path(11638)
-    page.should have_text "Series Freemasons. Quatuor Coronati-Loge (Bayreuth, Germany). Quellenkundliche Arbeit der Freimaurerischen Forschungsgesellschaft Quatuor Coronati e.V., Bayreuth ; Nr. 8."
+    expect(page).to have_text "Series Freemasons. Quatuor Coronati-Loge (Bayreuth, Germany). Quellenkundliche Arbeit der Freimaurerischen Forschungsgesellschaft Quatuor Coronati e.V., Bayreuth ; Nr. 8."
     # 811
     visit catalog_path(6974)
-    page.should have_text "Series Sagamore Army Materials Research Conference. Sagamore Army Materials Research Conference proceedings ; 21st."
+    expect(page).to have_text "Series Sagamore Army Materials Research Conference. Sagamore Army Materials Research Conference proceedings ; 21st."
     # 830
     visit catalog_path(8887)
-    page.should have_text "Series Studi risorgimentali ; 12."
+    expect(page).to have_text "Series Studi risorgimentali ; 12."
 # I have not yet found any example bibs for this test...
     # # 840
     # visit catalog_path(99)
-    # page.should have_text "xx"
+    # expect(page).to have_text "xx"
   end
 
   # NEXT-977 - Series Title does not display via basic search
   it "should show Series Title when searching by Series Title" do
     # Basic Search
     visit catalog_index_path('q' => 'Black Sea', 'search_field' => 'series_title')
-    page.should have_text('Series Title Black Sea studies')
+    expect(page).to have_text('Series Title Black Sea studies')
 
     # Advanced Search
     series_title_clause = {"field" => "series_title", "value" => "black sea"}
     adv_search_fields = {"1" => series_title_clause}
     visit catalog_index_path('search_field' => 'advanced', 'adv' => adv_search_fields)
     # save_and_open_page
-    page.should have_text('Series Title Black Sea studies')
+    expect(page).to have_text('Series Title Black Sea studies')
   end
 
   # NEXT-1043 - Better handling of extremely long queries
@@ -374,7 +374,7 @@ describe 'Catalog Interface' do
     # This will be 10 x 20 = 200, plus 1 == 201 
     too_long = "123456789 " * 20 + "X"
     visit catalog_index_path(q: too_long)
-    page.should have_text ("Your query was automatically truncated to the first 200 letters")
+    expect(page).to have_text ("Your query was automatically truncated to the first 200 letters")
   end
 
   # NEXT-1043 - Better handling of extremely long queries
@@ -383,13 +383,13 @@ describe 'Catalog Interface' do
     # This will be 1 x 30 = 30, plus 1 == 31 
     too_long = "asdf " * 30 + "X"
     visit catalog_index_path(q: too_long)
-    page.should have_text ("Your query was automatically truncated to the first 30 words")
+    expect(page).to have_text ("Your query was automatically truncated to the first 30 words")
   end
 
   it "supports 'random query' feature" do
     visit catalog_index_path(random_q: true)
-    page.should have_css('li.datasource_link.selected[source="catalog"]')
-    page.should have_css('span.constraints-label', text: "You searched for:")
+    expect(page).to have_css('li.datasource_link.selected[source="catalog"]')
+    expect(page).to have_css('span.constraints-label', text: "You searched for:")
   end
 
   #   NEXT-1140 - Special character not sorting properly
@@ -494,7 +494,7 @@ end
 #       click_link 'Email'
 #     end
 #
-#     page.should have_css('.modal-scrollable .modal .modal-header')
+#     expect(page).to have_css('.modal-scrollable .modal .modal-header')
 #     # puts find('.modal-header').text.inspect #.should have_text('Email Item(s)')
 #     find('.modal-header').should have_text('Email Item(s)')
 #
