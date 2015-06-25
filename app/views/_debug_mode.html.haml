@@ -8,7 +8,8 @@
     - @debug_entries.each do |key, values|
       - values = values.listify
       .row
-        .label= key
+        .key
+          %b= key
         .value
           .value_box
             - values.each do |value|

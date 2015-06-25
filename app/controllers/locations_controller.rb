@@ -92,4 +92,11 @@ class LocationsController < ApplicationController
       markers.to_json
     end
   end
+
+  private
+
+  def location_params
+    parms.permit(:name, :found_in, :library_id, :category, :location_code)
+  end
+
 end

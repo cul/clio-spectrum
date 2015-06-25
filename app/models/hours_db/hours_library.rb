@@ -18,7 +18,8 @@ class HoursDb::HoursLibrary < ActiveRecord::Base
       library = hl.find_or_create_for_new_books!
       library.hours.delete_all
 
-      calendars = hl.calendars.find(:all, conditions: ['cal_date BETWEEN ? and ?', startdate, enddate])
+      # calendars = hl.calendars.find(:all, conditions: ['cal_date BETWEEN ? and ?', startdate, enddate])
+      calendars = hl.calendars.where('cal_date BETWEEN ? and ?', startdate, enddate)
 
       calendars.each do |calendar|
         library.hours.create(calendar.to_new_books_fmt)

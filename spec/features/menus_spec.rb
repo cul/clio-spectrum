@@ -8,7 +8,7 @@ describe 'Top nav menus' do
     within('#topnavbar') do
       within('.dropdown.menu', :text => "Help") do
         click_link "Help"
-        find('.dropdown-menu').should have_link('CLIO Help', :href => 'https://blogs.cul.columbia.edu/clio/guides/')
+        expect(find('.dropdown-menu')).to have_link('CLIO Help', :href => 'https://blogs.cul.columbia.edu/clio/guides/')
       end
     end
   end

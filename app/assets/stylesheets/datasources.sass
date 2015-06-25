@@ -24,10 +24,12 @@
       color: #888
 
     &.hover
-      :background #f0f0f0 asset_url("ds_pointer.png",image) no-repeat center right
+      //:background #f0f0f0 asset_url("ds_pointer.png",image) no-repeat center right
+      :background #f0f0f0 image_url("ds_pointer.png") no-repeat center right
 
     &.selected, &.selected.hover
-      background: #e3e8f1 asset_url("ds_pointer.png",image) no-repeat center right
+      //background: #e3e8f1 asset_url("ds_pointer.png",image) no-repeat center right
+      background: #e3e8f1 image_url("ds_pointer.png") no-repeat center right
       border-left: 5px solid gold
       a
         margin-left: -3px 

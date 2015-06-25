@@ -15,7 +15,7 @@ describe 'Academic Commons' do
     end
 
     within '.search_box.academic_commons' do
-      find('#academic_commons_q')
+      expect(find('#academic_commons_q')).to be_visible
       fill_in 'q', with: search_title_text
       find('btn.dropdown-toggle').click
       within '.dropdown-menu' do
@@ -27,17 +27,17 @@ describe 'Academic Commons' do
 
     # Search string and search field should be preserved
     find('#academic_commons_q').value.should eq search_title_text
-    find('.btn.dropdown-toggle').should have_content('Title')
+    expect(find('.btn.dropdown-toggle')).to have_content('Title')
 
     # The entered fielded search should be echoed on the results page
-    find('.constraints-container').should have_content('Title: ' + search_title_text)
+    expect(find('.constraints-container')).to have_content('Title: ' + search_title_text)
 
     # And the search results too
-    find('#documents').should have_content(search_title_text)
+    expect(find('#documents')).to have_content(search_title_text)
 
     within '#documents' do
       # The example title should be a link to the item's handle
-      page.should have_link(search_title_text)
+      expect(page).to have_link(search_title_text)
       href = find_link(search_title_text)[:href]
       # href.should match /http:\/\/academiccommons.columbia.edu\/catalog/
       href.should match /http:\/\/hdl.handle.net\/10022\/AC:P:/

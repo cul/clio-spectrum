@@ -1,4 +1,6 @@
 
+require 'rspec/expectations'
+
 RSpec::Matchers.define :contain_in_fields do |target, *field_list|
   match do |doc|
     targets = Array.wrap(target).map { |t| Regexp.new(t.gsub(/ +/, '.*')) }
@@ -13,3 +15,4 @@ RSpec::Matchers.define :contain_in_fields do |target, *field_list|
   end
 
 end
+

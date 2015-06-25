@@ -3,6 +3,7 @@
 
 / catalog/index.html.haml
 
+
 -  unless has_search_parameters?
   - cache("datasource_landing_page_#{@active_source}_#{params_digest}") do
     = datasource_landing_page(@active_source)
@@ -20,7 +21,7 @@
     - if @document_list.nil? || @document_list.empty?
       = render 'no_results_blurb'
     - else
-
+      
       -# The toolbar above the search results allows pagination/sort/selection/etc.
       = render 'index_toolbar'
 

@@ -20,10 +20,9 @@ describe 'collection output tests', js: true do
 
     visit catalog_path('8430339')
     within ('div#clio_holdings') do
-      find('.holding .location_box', match: :first)
-      page.should have_text('Butler Stacks (Enter at the Butler Circulation Desk)')
-      page.should have_text('BL80.3 .D74 2011')
-      page.should have_text('Scan & Deliver')
+      expect(page).to have_text('Butler Stacks (Enter at the Butler Circulation Desk)')
+      expect(page).to have_text('BL80.3 .D74 2011')
+      expect(page).to have_text('Scan & Deliver')
     end
 
   end

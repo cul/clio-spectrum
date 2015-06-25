@@ -1,25 +1,25 @@
 require 'spec_helper'
 
 describe 'Locations' do
-
   context "\nYou may need to run 'rake hours:sync RAILS_ENV=test' and 'rake locations:load RAILS_ENV=test'.  See README.\n" do
+
     # NEXT-1118 - Avery link to "Make an Appointment"
     # OLD WAY - FROM APP_CONFIG - SHOWED UP ON /LOCATIONS/ PAGE
     # it 'should include Location Notes', js: true do
     #   # The full complete URL
     #   visit location_display_path('Avery+Classics+-+By+appt.+%28Non-Circulating%29')
-    #   page.should have_text("Located at: Avery Architectural & Fine Arts Library")
-    #   find('.location_notes').should have_text("By appointment only")
+    #   expect(page).to have_text("Located at: Avery Architectural & Fine Arts Library")
+    #   expect(find('.location_notes')).to have_text("By appointment only")
     # 
     #   # Test substring matching...
     #   visit location_display_path('Avery+Classics+-+By+appt')
-    #   page.should have_text("Located at: Avery Architectural & Fine Arts Library")
-    #   find('.location_notes').should have_text("By appointment only")
+    #   expect(page).to have_text("Located at: Avery Architectural & Fine Arts Library")
+    #   expect(find('.location_notes')).to have_text("By appointment only")
     # 
     #   # And a further substring that doesn't match our app_config.yml location note
     #   visit location_display_path('Avery+Classics')
-    #   page.should have_text("Located at: Avery Architectural & Fine Arts Library")
-    #   page.should_not have_css('.location_notes')
+    #   expect(page).to have_text("Located at: Avery Architectural & Fine Arts Library")
+    #   expect(page).to_not have_css('.location_notes')
     # end
     # NEW WAY - SUPPLIED FROM BACKEND - SHOWS ONLY ON ITEM DETAIL PAGE
     it 'should show backend-supplied location_notes in holdings box', js: true do
@@ -33,7 +33,8 @@ describe 'Locations' do
       expect(page).to have_css('.holdings')
 
       within('.location_notes') do
-        find('.location_note').should have_text("By appointment only")
+        expect(page).to have_css('.location_note', text: 'By appointment only')
+        # expect(find('.location_note')).to have_text("By appointment only")
       end
     end
 
@@ -41,14 +42,14 @@ describe 'Locations' do
     # NEXT-1129 - Request to change text of NYSPI
     it 'should show correct phone for NYS Psychiatric Inst', js: true do
 
-      # The full complete URL
-      visit location_display_path('NYS+Psychiatric+Institute+Library+%28Circulation+Restricted%29')
-      page.should have_text("Call (646) 774 - 8613 between 9-5pm")
+    # The full complete URL
+    visit location_display_path('NYS+Psychiatric+Institute+Library+%28Circulation+Restricted%29')
+    expect(page).to have_text("Call (646) 774 - 8613 between 9-5pm")
 
-      # Test substring matching...
-      visit location_display_path('NYS+Psychiatric+Institute')
-      page.should have_text("Call (646) 774 - 8613 between 9-5pm")
-    end
+    # Test substring matching...
+    visit location_display_path('NYS+Psychiatric+Institute')
+    expect(page).to have_text("Call (646) 774 - 8613 between 9-5pm")
+  end
 
     it 'should have a map of Butler if Location is Milstein', js: true do
       visit location_display_path("Milstein+%5BButler%5D")

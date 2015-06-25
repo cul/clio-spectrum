@@ -2,7 +2,7 @@
 -# - add_display_elements(@holdings['condensed_holdings_full']).listify.reject { |x| x['location_name'].to_s.strip == "Online"}.each do |entry|
 
 -# Each 'entry' is one location (e.g., 'Avery', or 'Online')
-- add_display_elements(@holdings['condensed_holdings_full']).listify.each do |entry|
+- Array(add_display_elements(@holdings['condensed_holdings_full'])).each do |entry|
 
   -# IF this is an Online, but there is no Holdings-level URL, skip this entry
   - next if holdings_online_without_url?(entry)

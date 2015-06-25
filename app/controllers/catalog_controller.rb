@@ -33,7 +33,6 @@ class CatalogController < ApplicationController
   # When a catalog search is submitted, this is the
   # very first point of code that's hit
   def index
-    # raise
     debug_timestamp('CatalogController#index() begin')
 
     # very useful - shows the execution order of before filters
@@ -74,7 +73,6 @@ class CatalogController < ApplicationController
         params['rows'] = catalog_per_page
       end
     end
-
     # this does not execute a query - it only organizes query parameters
     # conveniently for use by the view in echoing back to the user.
     @query = Spectrum::Queries::Solr.new(params, blacklight_config)

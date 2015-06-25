@@ -27,7 +27,7 @@ describe 'Spectrum::SearchEngines::Solr' do
     it 'should find an author with diacritics' do
       eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'turk edebiyatinda', :search_field => 'author', 'solr_url' => solr_url)
       eng.results.should_not be_empty
-      eng.results.first.get('author_display').should include("Edebiyat\u0131nda")
+      expect(eng.results.first.get('author_display')).to match /Edebiyat\u0131nda/
     end
   end
 
@@ -40,7 +40,7 @@ describe 'Spectrum::SearchEngines::Solr' do
       # puts eng.solr_search_params
       eng.results.should_not be_empty
       # puts eng.results.first.get('title_display')
-      eng.results.first.get('title_display').should match(/reading Asian North American autobiographies of childhood/)
+      expect(eng.results.first.get('title_display')).to match(/reading Asian North American autobiographies of childhood/)
     end
   end
 
@@ -49,8 +49,8 @@ describe 'Spectrum::SearchEngines::Solr' do
     it 'should find "Debt: The first 5,000 years" ' do
       eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'debt the first 5000 years', :search_field => 'all_fields', 'solr_url' => solr_url)
       eng.results.should_not be_empty
-      eng.results.first.get('title_display').should match(/Debt/)
-      eng.results.first.get('title_display').should match(/the first 5,000 years/)
+      expect(eng.results.first.get('title_display')).to match(/Debt/)
+      expect(eng.results.first.get('title_display')).to match(/the first 5,000 years/)
     end
   end
 
@@ -82,8 +82,8 @@ describe 'Spectrum::SearchEngines::Solr' do
     it 'should return search results' do
       eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'Clemens Krauss : Denk Display', :search_field => 'all_fields', 'solr_url' => solr_url)
       eng.results.should_not be_empty
-      eng.results.first.get('title_display').should include('Clemens Krauss')
-      eng.results.first.get('title_display').should include('Denk Display')
+      expect(eng.results.first.get('title_display')).to match /Clemens Krauss/
+      expect(eng.results.first.get('title_display')).to match /Denk Display/
     end
   end
 
@@ -96,10 +96,10 @@ describe 'Spectrum::SearchEngines::Solr' do
     it 'should return full-phrase title/author matches before split-field matches' do
 
       eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'Judith Butler', :search_field => 'all_fields', :rows => @result_count, 'solr_url' => solr_url)
-      eng.results.should_not be_empty
+      expect(eng.results).not_to be_empty
       # eng.results.size.should equal(@result_count)
       eng.results.each do |result|
-        result.should contain_in_fields(['Butler, Judith', 'Judith Butler'], 'title_display', 'subtitle_display', 'author_display')
+        expect(result).to contain_in_fields(['Butler, Judith', 'Judith Butler'], 'title_display', 'subtitle_display', 'author_display')
       end
     end
   end

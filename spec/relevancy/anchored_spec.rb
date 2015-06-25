@@ -12,17 +12,21 @@ describe 'Anchored searches' do
 
     [q1, q2, q3, q4].each { |q|
       resp = solr_resp_doc_ids_only(q: "#{starts_with}#{q}")
-      resp.should include('6613582').in_first(3).results
-      resp.should include('8364149').in_first(3).results
-      resp.should include('10026137').in_first(3).results
+      # resp.should include('6613582').in_first(3).results
+      # resp.should include('8364149').in_first(3).results
+      # resp.should include('10026137').in_first(3).results
+      expect(rank(resp, 6613582)).to be <= 3
+      expect(rank(resp, 8364149)).to be <= 3
+      expect(rank(resp, 10026137)).to be <= 3
 
       # NOT:  "Wills hospital eye manual for nurses"
-      resp.should_not include('4019811').in_first(3).results
+      # resp.should_not include('4019811').in_first(3).results
+      expect(rank(resp, 4019811)).to be > 3
 
       # If we ever get more in our catalog, bump this up.
-      resp.should have_at_least(3).documents
-      resp.should have_at_most(3).documents
-
+      # resp.should have_at_least(3).documents
+      # resp.should have_at_most(3).documents
+      expect(resp.size).to eq 3
     }
 
   end

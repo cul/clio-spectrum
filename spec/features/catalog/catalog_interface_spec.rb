@@ -79,7 +79,7 @@ describe 'Catalog Interface' do
     # visit this specific item
     visit catalog_path('513297')
     expect(page).to have_css('.holdings-container .holdings #clio_holdings')
-    expect(page).to have_css('.holdings-container .holdings #google_holdings')
+    expect(page).to have_css('.holdings-container .holdings #google_holdings', wait: 3)
     expect(page).to have_css('.holdings-container .holdings #hathi_holdings', wait: 3)
 
     # Should see the 'Full View' message in the Hathi Holdings box
@@ -142,7 +142,7 @@ describe 'Catalog Interface' do
     click_link(target1)
 
     # within CLIO HOLDINGS, should get the full location data
-    find('div#clio_holdings').should have_content(troublesome1)
+    expect(find('div#clio_holdings')).to have_content(troublesome1)
 
     # And again, with slightly different sample...
 
@@ -150,13 +150,13 @@ describe 'Catalog Interface' do
     visit catalog_index_path('q' => target2)
 
     # should see the full location
-    find('#documents').should have_content(troublesome2)
+    expect(find('#documents')).to have_content(troublesome2)
 
     # go to the item-detail page..
     click_link(target2)
 
     # within CLIO HOLDINGS, should get the full location data
-    find('div#clio_holdings').should have_content(troublesome2)
+    expect(find('div#clio_holdings')).to have_content(troublesome2)
   end
 
   it "supports alternative viewstyle options ('Standard' or 'Compact')", js: true do
@@ -206,13 +206,10 @@ describe 'Catalog Interface' do
         click_link 'Email'
       end
 
-      find('.modal-dialog .modal-content .modal-header')
-      # expect(page).to have_css('.modal-dialog .modal-content .modal-header')
+      expect(page).to have_css('.modal-dialog .modal-content .modal-header')
 
-      #
-      # NEXT 910 - Add some directions, and optionally email and Name, to the email form
-      #
-      find('.modal-header').should have_text('Share selected item(s) via email')
+      # NEXT 910 - Add directions, email and Name, to the email form
+      expect(find('.modal-header')).to have_text('Share selected item(s) via email')
 
       within '#email_form' do
         fill_in 'to', with: 'marquis@columbia.edu'
@@ -244,7 +241,8 @@ describe 'Catalog Interface' do
 
     expect(page).to have_css('div.debug_instruction')
     expect(page).to have_css('div.debug_entries')
-    find('.debug_instruction').should have_text('Debug mode is on. Turn it off')
+    expect(find('.debug_instruction')).to have_text('Debug mode is on. Turn it off')
+
     within('div.debug_instruction') do
       click_link 'off'
     end
@@ -294,8 +292,8 @@ describe 'Catalog Interface' do
   it 'should show menu-option "Request(s)"', :js => true do
     visit catalog_path('10905238')
     # Should use consistent language
-    find('#show_toolbar').should have_text "Requests"
-    find('#clio_holdings').should have_text "Request"
+    expect(find('#show_toolbar')).to have_text "Requests"
+    expect(find('#clio_holdings')).to have_text "Request"
   end
 
 
@@ -496,7 +494,7 @@ end
 #
 #     expect(page).to have_css('.modal-scrollable .modal .modal-header')
 #     # puts find('.modal-header').text.inspect #.should have_text('Email Item(s)')
-#     find('.modal-header').should have_text('Email Item(s)')
+#     expect(find('.modal-header')).to have_text('Email Item(s)')
 #
 #     within '#email_form' do
 #       fill_in 'to', :with => 'delete@library.columbia.edu'

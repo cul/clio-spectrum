@@ -8,7 +8,7 @@ describe 'Invalid byte sequences should be caught' do
 
     # We SHOULD have added middleware to deal with this,
     # which should land us on a valid search-results page.
-    page.should have_text('You searched for')
+    expect(page).to have_text('You searched for')
   end
 
 end

@@ -168,6 +168,7 @@ class ApplicationController < ActionController::Base
   # Called from SpectrumController.get_results()
   # and from CatalogController.index()
   def blacklight_search(sent_options = {})
+    # raise
     options = sent_options.deep_clone
     options['source'] = @active_source unless options['source']
     options['debug_mode'] = @debug_mode
@@ -262,7 +263,11 @@ class ApplicationController < ActionController::Base
     @debug_start_time = Time.now
     @debug_entries = Hash.arbitrary_depth
     @debug_entries['params'] = params
-    @debug_entries['session'] = session
+
+    # Rails 4?  session.inspect now dumps full object internals,
+    # instead of just stored keys/values.  Convert to hash first.
+    @debug_entries['session'] = session.to_hash
+
     # ENV is environment variables, but not the HTTP-related env variables
     # @debug_entries['environment'] = ENV
     @debug_entries['request.referer'] = request.referer

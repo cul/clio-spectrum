@@ -15,16 +15,18 @@ describe 'Summon Search Option Filter Settings' do
     within('#facets') do
       within all('.facet_limit').first do
         within('.search_option', text: 'Full text online only') do
-          find('input.search_option_action').should_not be_checked
+# save_and_open_screenshot
+# save_and_open_page
+          expect(find('input.search_option_action')).to_not be_checked
         end
         within('.search_option', text: 'Scholarly publications only') do
-          find('input.search_option_action').should_not be_checked
+          expect(find('input.search_option_action')).to_not be_checked
         end
         within('.search_option', text: 'Exclude Newspaper Articles') do
-          find('input.search_option_action').should be_checked
+          expect(find('input.search_option_action')).to be_checked
         end
         within('.search_option', text: "Columbia's collection only") do
-          find('input.search_option_action').should be_checked
+          expect(find('input.search_option_action')).to be_checked
         end
       end
     end
@@ -33,14 +35,13 @@ describe 'Summon Search Option Filter Settings' do
   it 'should default from QuickSearch panel', js: true do
     visit quicksearch_index_path('q' => $q)
     within('.results_header[data-source=articles]') do
-      find('.result_count')
-      find('.result_count').should have_text "View and filter all"
+      expect(find('.result_count')).to have_text "View and filter all"
       @result_count = find('.result_count').text
       @result_count = @result_count.sub(/.* all (.*) results/, '\1')
       click_link "View and filter all"
     end
 
-    all('.index_toolbar.navbar').first.should have_text " of #{@result_count}"
+    expect(all('.index_toolbar.navbar').first).to have_text " of #{@result_count}"
     confirm_default_filter_settings
   end
 
@@ -49,7 +50,7 @@ describe 'Summon Search Option Filter Settings' do
     within('#datasources') do
       click_link('Articles')
     end
-    all('.index_toolbar.navbar').first.should have_text " of #{@result_count}"
+    expect(all('.index_toolbar.navbar').first).to have_text " of #{@result_count}"
     confirm_default_filter_settings
   end
 
@@ -58,7 +59,7 @@ describe 'Summon Search Option Filter Settings' do
     within('#datasources') do
       click_link('Articles')
     end
-    all('.index_toolbar.navbar').first.should have_text " of #{@result_count}"
+    expect(all('.index_toolbar.navbar').first).to have_text " of #{@result_count}"
     confirm_default_filter_settings
   end
 
@@ -67,7 +68,7 @@ describe 'Summon Search Option Filter Settings' do
     fill_in 'q', with: $q
     find('span.glyphicon.glyphicon-search.icon-white').click
     # page.save_and_open_page # debug
-    all('.index_toolbar.navbar').first.should have_text " of #{@result_count}"
+    expect(all('.index_toolbar.navbar').first).to have_text " of #{@result_count}"
     confirm_default_filter_settings
   end
 
@@ -80,7 +81,7 @@ describe 'Summon Search Option Filter Settings' do
     fill_in 'q', with: $q
     find('button.btn', text: Search).click
     # page.save_and_open_page # debug
-    all('.index_toolbar.navbar').first.should have_text " of #{@result_count}"
+    expect(all('.index_toolbar.navbar').first).to have_text " of #{@result_count}"
     confirm_default_filter_settings
   end
 
@@ -91,7 +92,7 @@ describe 'Summon Search Option Filter Settings' do
     params = { controller: 'articles', q: $q, datasource: 'articles', search_field: 'all_fields', search: true }
     visit articles_index_path(params)
     # page.save_and_open_page # debug
-    all('.index_toolbar.navbar').first.should have_text " of #{@result_count}"
+    expect(all('.index_toolbar.navbar').first).to have_text " of #{@result_count}"
     confirm_default_filter_settings
   end
 

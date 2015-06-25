@@ -16,10 +16,11 @@ class User < ActiveRecord::Base
   wind_host APP_CONFIG['wind_host']
   wind_service APP_CONFIG['wind_service']
 
-  # Setup accessible (or protected) attributes for your model
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :first_name, :last_name, :login
+  # Rails 4 - don't do this.  Will our gems do it for us?
+  # # Setup accessible (or protected) attributes for your model
+  # attr_accessible :email, :password, :password_confirmation, :remember_me
+  # attr_accessible :first_name, :last_name, :login
 
   validates :login, uniqueness: true, presence: true
 

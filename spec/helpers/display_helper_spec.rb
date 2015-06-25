@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe DisplayHelper do
 
-  it 'should return top-level Pegasus Link' do
+  it 'should return top-level Pegasus Link', type: :helper do
     pegasus_url = 'http://pegasus.law.columbia.edu'
 
     link = pegasus_item_link(nil)
-    link.should have_text(pegasus_url)
-    link.should match(/href=.#{pegasus_url}./)
+    expect(link).to have_text(pegasus_url)
+    expect(link).to match(/href=.#{pegasus_url}./)
   end
 
   it 'should return formats as text when appropriate' do

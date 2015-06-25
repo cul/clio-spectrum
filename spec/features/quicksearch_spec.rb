@@ -5,10 +5,10 @@ describe 'QuickSearch landing page' do
 # No, it shouldn't.  The home page should show ONLY the QuickSearch search box.
   # it "should display search fields for archives, catalog, new arrivals, journals" do
   #   visit root_path
-  #   page.should have_css(".search_box.catalog option")
-  #   page.should have_css(".search_box.new_arrivals option")
-  #   page.should have_css(".search_box.academic_commons option")
-  #   page.should have_css(".search_box.journals option")
+  #   expect(page).to have_css(".search_box.catalog option")
+  #   expect(page).to have_css(".search_box.new_arrivals option")
+  #   expect(page).to have_css(".search_box.academic_commons option")
+  #   expect(page).to have_css(".search_box.journals option")
   # end
 
   # NEXT-612 - Quick search page doesn't let you start over
@@ -21,14 +21,14 @@ describe 'QuickSearch landing page' do
       expect(result_set).to have_css('.result')
     end
 
-    find('.landing_across').should have_text('Start Over')
+    expect(find('.landing_across')).to have_text('Start Over')
     within('.landing_across') do
       click_link('Start Over')
     end
 
     # Verify that we're now on the landing page
-    page.should_not have_css('.result_set')
-    page.should have_text('Quicksearch performs a combined search of')
+    expect(page).to_not have_css('.result_set')
+    expect(page).to have_text('Quicksearch performs a combined search of')
   end
 
   # NEXT-1026 - Clicking 'All Results' for Libraries Website 
@@ -42,7 +42,7 @@ describe 'QuickSearch landing page' do
     within('.results_header', :text => "Catalog") do
       click_link "View and filter all"
     end
-    page.should have_text "You searched for: kitty"
+    expect(page).to have_text "You searched for: kitty"
   end
 
   # *** ARTICLES ***
@@ -62,7 +62,7 @@ describe 'QuickSearch landing page' do
     within('.results_header', :text => "Academic Commons") do
       click_link "View and filter all"
     end
-    page.should have_text "You searched for: uncommon"
+    expect(page).to have_text "You searched for: uncommon"
   end
 
   # *** LIBRARIES WEBSITE ***
@@ -77,8 +77,7 @@ describe 'QuickSearch landing page' do
       expect(page).not_to have_css('.results_header', :text => "View and filter all")
       click_link "View all"
     end
-
-    page.should have_text "You searched for: public"
+    expect(page).to have_text "You searched for: public"
   end
 
 
@@ -89,45 +88,49 @@ describe 'QuickSearch landing page' do
     visit quicksearch_index_path('q' => 'horse')
     within('.results_header[data-source=catalog]') do
       find('img').click
-      find('.category_title').should have_text 'Library books, journals, music, videos, databases, archival collections, and online resources'
+      expect(page).to have_css('.category_title')
+      expect(find('.category_title')).to have_text 'Library books, journals, music, videos, databases, archival collections, and online resources'
     end
     within('.results_header[data-source=articles]') do
       find('img').click
-      find('.category_title').should have_text "Articles, e-books, dissertations, music, images, and more from a mostly full-text database"
+      expect(page).to have_css('.category_title')
+      expect(find('.category_title')).to have_text "Articles, e-books, dissertations, music, images, and more from a mostly full-text database"
     end
     within('.results_header[data-source=academic_commons]') do
       find('img').click
-      find('.category_title').should have_text "Publications and other research output from Columbia University's digital repository"
+      expect(page).to have_css('.category_title')
+      expect(find('.category_title')).to have_text "Publications and other research output from Columbia University's digital repository"
     end
     within('.results_header[data-source=library_web]') do
       find('img').click
-      find('.category_title').should have_text 'Information about the libraries from the Libraries Website'
+      expect(page).to have_css('.category_title')
+      expect(find('.category_title')).to have_text 'Information about the libraries from the Libraries Website'
     end
 
     # DISSERTATIONS
     visit dissertations_index_path('q' => 'horse')
     within('.results_header[data-source=catalog_dissertations]') do
       find('img').click
-      find('.category_title').should have_text "Dissertations from the library catalog"
+      expect(find('.category_title')).to have_text "Dissertations from the library catalog"
     end
     within('.results_header[data-source=dissertations]') do
       find('img').click
-      find('.category_title').should have_text "Dissertations and theses from the Articles database. Many are full-text."
+      expect(find('.category_title')).to have_text "Dissertations and theses from the Articles database. Many are full-text."
     end
     within('.results_header[data-source=ac_dissertations]') do
       find('img').click
-      find('.category_title').should have_text "Dissertations deposited in Columbia's digital repository, primarily 2011-present."
+      expect(find('.category_title')).to have_text "Dissertations deposited in Columbia's digital repository, primarily 2011-present."
     end
 
     # EBOOKS
     visit ebooks_index_path('q' => 'horse')
     within('.results_header[data-source=catalog_ebooks]') do
       find('img').click
-      find('.category_title').should have_text "E-books from the library catalog"
+      expect(find('.category_title')).to have_text "E-books from the library catalog"
     end
     within('.results_header[data-source=ebooks]') do
       find('img').click
-      find('.category_title').should have_text "E-books from the Articles database"
+      expect(find('.category_title')).to have_text "E-books from the Articles database"
     end
   end
 
@@ -135,9 +138,22 @@ describe 'QuickSearch landing page' do
     visit quicksearch_index_path
     fill_in 'quicksearch_q', with: 'cats'
     click_button 'Search'
-    find('.result_title', match: :first).find('a').click
+
+    # make sure the AJAX lookups all return
+    expect(page).to have_css('.result_set', count: 4)
+
+    # expect(page).to have_css('.result_title')
+
+    within('.nested_result_set[data-source=catalog]') do
+      expect(page).to have_css('.result_title')
+      first('.result_title').find('a').click
+    end
+    expect(page).to have_css('#catalog_q')
     fill_in 'catalog_q', with: 'penguins'
     click_button 'Search'
+
+    expect(page).to have_css('.result')
+
     first('.result').find('a').click
     expect(find('#catalog_q').value).to eq('penguins')
   end

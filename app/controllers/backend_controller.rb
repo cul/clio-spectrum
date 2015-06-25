@@ -25,6 +25,11 @@ class BackendController < ApplicationController
   def holdings
     @id = params[:id]
 
+    if @id.nil?
+      logger.error "BackendController#holdings passed nil id!"
+      render nothing: true and return
+    end
+
     unless @id.match(/^\d+$/)
       logger.error "BackendController#holdings passed non-numeric id: #{@id}"
       render nothing: true and return

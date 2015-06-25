@@ -11,7 +11,7 @@ describe 'Format assignments for types of "Computer Files"' do
       resp = solr_response('q' => "id:#{bib}", 'fl' => 'id,format', 'facet' => false)
       formatList = resp['response']['docs'][0]['format']
       # Assert the precise list of formats
-      formatList.should == ['Online']
+      expect(formatList).to be == ['Online']
     end
 
   end
@@ -21,7 +21,7 @@ describe 'Format assignments for types of "Computer Files"' do
     it "bib #{bib} should have two formats: 'Computer File' && US Gov.Doc." do
       resp = solr_response('q' => "id:#{bib}", 'fl' => 'id,format', 'facet' => false)
       formatList = resp['response']['docs'][0]['format']
-      formatList.should == ["Computer File", "US Government Document"]
+      expect(formatList).to be == ['Computer File', 'US Government Document']
     end
   end
 
@@ -30,7 +30,7 @@ describe 'Format assignments for types of "Computer Files"' do
     it "bib #{bib} should have single format: 'Computer File'" do
       resp = solr_response('q' => "id:#{bib}", 'fl' => 'id,format', 'facet' => false)
       formatList = resp['response']['docs'][0]['format']
-      formatList.should == ['Computer File']
+      expect(formatList).to be == ['Computer File']
     end
   end
 
@@ -39,7 +39,7 @@ describe 'Format assignments for types of "Computer Files"' do
     it "bib #{bib} should have single format: 'Computer Program'" do
       resp = solr_response('q' => "id:#{bib}", 'fl' => 'id,format', 'facet' => false)
       formatList = resp['response']['docs'][0]['format']
-      formatList.should == ['Computer Program']
+      expect(formatList).to be == ['Computer Program']
     end
   end
 
@@ -54,7 +54,7 @@ describe 'Format assignments for Monographic Series' do
     it "bib #{bib} should have format 'Journal/Periodical'" do
       resp = solr_response('q' => "id:#{bib}", 'fl' => 'id,format', 'facet' => false)
       formatList = resp['response']['docs'][0]['format']
-      formatList.should == ['Journal/Periodical']
+      expect(formatList).to be == ['Journal/Periodical']
     end
 
   end
@@ -100,7 +100,7 @@ describe "Updated Format Assignments" do
       resp = solr_response('q' => "id:#{bib}", 'fl' => 'id,format', 'facet' => false)
       formatList = resp['response']['docs'][0]['format']
       # Format specs can be given above as arrays or string values
-      formatList.should == Array.wrap(formatValue)
+      expect(formatList).to be == Array.wrap(formatValue)
     end
 
   end

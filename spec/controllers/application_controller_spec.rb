@@ -9,36 +9,36 @@ describe ApplicationController do
       # Calling "set" without both name and value is a bad request (400)
 
       get :set_browser_option_handler
-      response.should_not be_success
-      response.status.should be(400)
+      expect(response).not_to be_success
+      expect(response.status).to be(400)
 
       get :set_browser_option_handler, name: 'foo'
-      response.should_not be_success
-      response.status.should be(400)
+      expect(response).not_to be_success
+      expect(response.status).to be(400)
 
       get :set_browser_option_handler, value: 'bar'
-      response.should_not be_success
-      response.status.should be(400)
+      expect(response).not_to be_success
+      expect(response.status).to be(400)
 
       # Calling "get" with a value, or without a name, is a bad request (400)
 
       get :get_browser_option_handler
-      response.should_not be_success
-      response.status.should be(400)
+      expect(response).not_to be_success
+      expect(response.status).to be(400)
 
       get :get_browser_option_handler, name: 'foo', value: 'bar'
-      response.should_not be_success
-      response.status.should be(400)
+      expect(response).not_to be_success
+      expect(response.status).to be(400)
 
       get :get_browser_option_handler, value: 'bar'
-      response.should_not be_success
-      response.status.should be(400)
+      expect(response).not_to be_success
+      expect(response.status).to be(400)
 
       # new, unique name should not be found (404)
       name = "name__#{DateTime.now.to_s}"
       get :get_browser_option_handler, name: name
-      response.should_not be_success
-      response.status.should be(404)
+      expect(response).not_to be_success
+      expect(response.status).to be(404)
 
     end
 
@@ -48,12 +48,12 @@ describe ApplicationController do
       value = "value__#{DateTime.now.to_s}"
 
       get :set_browser_option_handler, name: name, value: value
-      response.should be_success
+      expect(response).to be_success
 
       get :get_browser_option_handler, name: name
-      response.should be_success
-      response.header['Content-Type'].should include 'application/json'
-      response.body.should == value
+      expect(response).to be_success
+      expect(response.header['Content-Type']).to match(/application\/json/)
+      expect(response.body).to eq(value)
     end
 
   end
