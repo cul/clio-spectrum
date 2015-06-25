@@ -122,7 +122,8 @@ describe 'Catalog Advanced Search' do
   # sublocation text.
   [ 'Barnard Reference',
     'Lehman Reference',
-    'Barnard Alumnae Collection',
+    # 6/2015 - Barnard library material is being moved about
+    # 'Barnard Alumnae Collection',
     'Comp Lit',
     'African Studies',
     'Offsite <Avery>',

@@ -115,7 +115,7 @@ describe 'Locations' do
 
     it 'should have markers for all locations on the map', js: true  do
       visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
-      expect(find('.gmap_container')['data-markers'].split('},{').count).to eq(29)
+      expect(find('.gmap_container')['data-markers'].split('},{').count).to eq(28)
     end
 
     context 'infowindow', selenium: true  do

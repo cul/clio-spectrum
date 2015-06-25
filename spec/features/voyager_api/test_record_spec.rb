@@ -88,7 +88,7 @@ describe 'record tests', js: true do
     within ('div#clio_holdings') do
       expect(page).to have_link('Scan & Deliver',
                             href: 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?6871895',
-                            count: 2)
+                            count: 3)
     end
 
   end

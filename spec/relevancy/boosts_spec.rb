@@ -117,9 +117,8 @@ describe 'Boosts' do
     expect(rank(resp, 3325775)).to be <= 1
   end
 
-  it "caim" do
-    resp = solr_resp_doc_ids_only('q' => 'caim')
-    # resp.should include('9463370').in_first(1).results
+  it "cairn" do
+    resp = solr_resp_doc_ids_only('q' => 'cairn')
     expect(rank(resp, 9463370)).to be <= 1
   end
 

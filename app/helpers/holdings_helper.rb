@@ -107,7 +107,10 @@ module HoldingsHelper
       # return empty links[] if the $u isn't a URL (bad input data)
       url_regex = Regexp.new('(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))')
 
-      return links unless subfieldU =~ url_regex
+      # No, don't stop on first non-URL, 
+      # just skip it and move on to the next munged 856.
+      # return links unless subfieldU =~ url_regex
+      next unless subfieldU =~ url_regex
 
       title = "#{subfield3} #{subfieldZ}".strip
       title = subfieldU unless title.length > 0
@@ -123,19 +126,6 @@ module HoldingsHelper
       # links << [title, note, url]   # as ARRAY
       links << { title: title, note: note, url: url }  # as HASH
 
-      # url_parts = url_munge.split('~|Z|~').collect(&:strip)
-      # title = url =  ""
-      # if (url_index = url_parts.index { |part| part =~ URL_REGEX })
-      #   url = url_parts.delete_at(url_index)
-      #   title = url_parts.join(" ").to_s
-      #   title = url if title.empty?
-      #   links << [title, url]
-      # # Actually, just ignore bad URLs, don't display in the interface
-      # # else
-      # #   title = "Bad URL: " + url_parts.join(" ")
-      # #   url = ""
-      # end
-
     end
 
     # remove google links if more than one exists
@@ -149,26 +139,6 @@ module HoldingsHelper
   end
 
   SERVICE_ORDER = %w(offsite spec_coll precat recall_hold on_order borrow_direct ill in_process doc_delivery)
-  # # parameters: title, link, whether to append clio_id to link
-  # SERVICES = {
-  #   'offsite' => ["Offsite", "http://www.columbia.edu/cgi-bin/cul/offsite2?", true],
-  #   'spec_coll' => ["Special Collections", "http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey=", true],
-  #   'precat' => ["Precataloging", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sprecat?", true],
-  #   'recall_hold' => ["Recall/Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId=", true],
-  #   'on_order' => ["On Order", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sinprocess?", true],
-  #   'borrow_direct' => ['Borrow Direct', "http://www.columbia.edu/cgi-bin/cul/borrowdirect?", true],
-  #   'ill' => ['ILL', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?", true],
-  #   'in_process' => ['In Process', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/Sinprocess?", true],
-  #   'doc_delivery' => ['Document Delivery', "https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?", true]
-  # }
-  #
-  # def service_links(services, clio_id, options = {})
-  #   services.select {|svc| SERVICE_ORDER.index(svc)}.sort_by { |svc| SERVICE_ORDER.index(svc) }.collect do |svc|
-  #     title, uri, add_clio_id = SERVICES[svc]
-  #     uri += clio_id.to_s if add_clio_id
-  #     link_to title, uri, options
-  #   end
-  # end
 
   # parameters: title, link (url or javascript)
   SERVICES = {
@@ -331,7 +301,7 @@ module HoldingsHelper
     # Sometimes the document data from Solr has invalid chars in the bib keys.
     # Strip these out so they don't trip up any code which uses these bibkeys.
     bibkeys.flatten.compact.map { |bibkey|
-      bibkey.gsub(/[^a-zA-Z0-9\:\-\ ]/, '').strip
+      bibkey.gsub(/[^a-zA-Z0-9\:\-]/, '').strip
     }.uniq
   end
 

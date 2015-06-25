@@ -35,13 +35,15 @@ describe 'Summon Interface ' do
         expect(detail.text).to satisfy { |detail_text|
           # Summon's precise language seems to be flip-flopping today,
           #  any of these might show up.
-          # And, add even more labels that come up within "Journal Articles"
-          detail_text.match(/Journal Article: Full Text Available/) ||
-          detail_text.match(/Book Chapter: Full Text Available/) ||
-          detail_text.match(/Book Review: Full Text Available/) ||
-          detail_text.match(/Conference Proceeding: Full Text Online/) ||
-          detail_text.match(/Conference Proceeding: Full Text Available/) ||
-          detail_text.match(/Trade Publication Article: Full Text Available/)
+          # TOO MANY...
+          # detail_text.match(/Journal Article: Full Text Available/) ||
+          # detail_text.match(/Book Chapter: Full Text Available/) ||
+          # detail_text.match(/Book Review: Full Text Available/) ||
+          # detail_text.match(/Conference Proceeding: Full Text Online/) ||
+          # detail_text.match(/Conference Proceeding: Full Text Available/)
+          # JUST TEST THE FINAL WORDS...
+          detail_text.match(/: Full Text Online/) ||
+          detail_text.match(/: Full Text Available/)
         }
       end
     end

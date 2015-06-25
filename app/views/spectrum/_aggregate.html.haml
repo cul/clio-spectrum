@@ -18,7 +18,7 @@
 
           - else
             -# Async == YES, that is, all current traffic comes here
-            .result_set.async_result_set{:"data-result-set" => spectrum_fetch_path(params.except(:controller, :action).merge(:datasource => search['source'] ))}
+            .result_set.async_result_set{:"data-result-set" => spectrum_fetch_path(params.except(:controller, :action).merge(:datasource => search['source'] )), :"data-source" => search['source']}
               = render partial: "/spectrum/aggregate/result_header_async", locals: {source: search['source'], result: result, title: source['title'], description: source['description']}
               = render partial: '/datasource_warning', locals: {warning: warning}
 

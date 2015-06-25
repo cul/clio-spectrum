@@ -208,7 +208,7 @@ class CatalogController < ApplicationController
   end
 
   def show
-    @response, @document = get_solr_response_for_doc_id
+    @response, @document = get_solr_response_for_doc_id params[:id]
 
     # In support of "nearby" / "virtual shelf browse", remember this bib
     # as our focus bib.
@@ -411,7 +411,7 @@ class CatalogController < ApplicationController
 
   # Override Blacklight's definition, to assign custom layout
   def librarian_view
-    @response, @document = get_solr_response_for_doc_id
+    @response, @document = get_solr_response_for_doc_id params[:id]
     respond_to do |format|
       format.html do
         # This Blacklight function re-runs the current query, twice,
@@ -429,7 +429,7 @@ class CatalogController < ApplicationController
   # Called via AJAX to build the hathi holdings section
   # on the item-detail page.
   def hathi_holdings
-    @response, @document = get_solr_response_for_doc_id
+    @response, @document = get_solr_response_for_doc_id params[:id]
 
     respond_to do |format|
       format.html { render layout: false }

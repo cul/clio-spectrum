@@ -89,7 +89,8 @@ describe 'Simple query should retrieve results ', js: true do
     visit ebooks_index_path('q' => 'test')
     expect(page).to have_css('.result_set', count: 2)
     all('.result_set').each do |result_set|
-      result_set.should have_css('.result')
+      # result_set.should have_css('.result')
+      expect(page).to have_css('.result', wait: 5)
     end
 
     visit new_arrivals_index_path('q' => 'test')
@@ -162,8 +163,12 @@ describe 'Switching between data-source', js: true do
 
     click_link('More...')
     click_link('Dissertations')
+
     find('input#dissertations_q').value.should eq 'test'
-    expect(page).to have_css('.result_set', count: 3)
+
+    expect(page).to have_css('.result_set', count: 3, wait: 3)
+    expect(page).to have_css('.result_count', count: 3, wait: 3)
+
     all('.result_set').each do |result_set|
       result_set.should have_css('.result')
     end
