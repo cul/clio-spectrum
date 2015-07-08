@@ -80,7 +80,7 @@ perform_search
         # raise
         Rails.logger.debug "Spectrum::SearchEngine::Solr#repository()"
         # Rails.logger.debug "before: @repository=#{@repository.inspect}"
-        
+
         @repository ||= Spectrum::SolrRepository.new(blacklight_config)
         @repository.source = @source
         @repository.solr_url = @solr_url
@@ -96,8 +96,13 @@ perform_search
 
       def connection_config
         Rails.logger.debug "Spectrum::SearchEngine::Solr#connection_config()"
-        
+
         @config ||= Solr.generate_config(@source)
+      end
+
+      def search_builder_class
+        Rails.logger.debug "Spectrum::SearchEngine::Solr#search_builder_class()"
+        Spectrum::SearchBuilder
       end
 
       def results
@@ -578,12 +583,6 @@ perform_search
                 fq: ['{!raw f=source_facet}ejournal']
               }
 
-              # experiments only... remove for prod...
-              # this reveals that about 9K records with data-source E-Journals
-              # are NOT of ofrmat "Journal/Periodical"
-              # config.add_facet_field "format",
-              #    :label => "Format", :limit => 5, :open => true
-
               config.add_facet_field 'language_facet',
                                      label: 'Language',
                                      # BL5 - "open" becomes "collapse"
@@ -710,9 +709,9 @@ perform_search
 
               default_catalog_config(config, :display_fields, :search_fields, :sorts)
 
-              config.add_facet_field 'acq_dt', 
+              config.add_facet_field 'acq_dt',
                                     # label: 'Acquisition Date', open: true, 
-                                    label: 'Acquisition Date', collapse: false, 
+                                    label: 'Acquisition Date', collapse: false,
                                     query: {
                 week_1: { label: 'within 1 Week', fq: "acq_dt:[#{(Date.today - 1.weeks).to_datetime.utc.to_solr_s} TO *]" },
                 month_1: { label: 'within 1 Month', fq: "acq_dt:[#{(Date.today - 1.months).to_datetime.utc.to_solr_s} TO *]" },
