@@ -56,12 +56,16 @@ Clio::Application.routes.draw do
   match 'databases/facet/:id(.format)', to: 'catalog#facet', as: :databases_facet
   # match 'databases/:id(.:format)', via: [:put], to: 'catalog#update', as: :databases_update
   match 'databases/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :databases_track
+  get 'databases/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_databases"
+  match 'databases/:id/librarian_view_track', via: [:post], to: 'databases#librarian_view_track'
 
   match 'journals', to: 'catalog#index', as: :journals_index
   match 'journals/:id(.:format)', via: [:get], to: 'catalog#show', as: :journals_show
   match 'journals/facet/:id(.format)', to: 'catalog#facet', as: :journals_facet
   # match 'journals/:id(.:format)', via: [:put], to: 'catalog#update', as: :journals_update
   match 'journals/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :journals_track
+  get 'journals/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_journals"
+  match 'journals/:id/librarian_view_track', via: [:post], to: 'journals#librarian_view_track'
 
   match 'library_web', to: 'spectrum#search', as: :library_web_index, defaults: { layout: 'library_web' }
 
@@ -77,6 +81,8 @@ Clio::Application.routes.draw do
   match 'archives/facet/:id(.format)', to: 'catalog#facet', as: :archives_facet
   # match 'archives/:id(.:format)', via: [:put], to: 'catalog#update', as: :archives_update
   match 'archives/:id/track(.:format)', to: 'catalog#track', as: :archives_track
+  get 'archives/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_archives"
+  match 'archives/:id/librarian_view_track', via: [:post], to: 'archives#librarian_view_track'
 
   # NEXT-483 A user should be able to browse results using previous/next
   # this requires GET ==> show, and POST ==> update, for reasons
@@ -86,6 +92,8 @@ Clio::Application.routes.draw do
   match 'new_arrivals/facet/:id(.format)', to: 'catalog#facet', as: :new_arrivals_facet
   # match 'new_arrivals/:id(.:format)', via: [:put], to: 'catalog#update', as: :new_arrivals_update
   match 'new_arrivals/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :new_arrivals_track
+  get 'new_arrivals/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_new_arrivals"
+  match 'new_arrivals/:id/librarian_view_track', via: [:post], to: 'new_arrivals#librarian_view_track'
 
   match 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
 
