@@ -65,6 +65,10 @@ class CatalogController < ApplicationController
 
     # items-per-page ("rows" param) should be a persisent browser setting
     if params['rows'] && (params['rows'].to_i > 1)
+      # NEXT-1199 - can't get CLIO to display more than 10 records at a time
+      # 'rows' and 'per_page' are redundant.
+      # if we have a valid 'rows', ignore 'per_page'
+      params.delete('per_page')
       # Store it, if passed
       set_browser_option('catalog_per_page', params['rows'])
     else
