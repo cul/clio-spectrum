@@ -127,7 +127,7 @@ describe ItemAlertsController do
       expect(response.status).to be(422)
     end
 
-    it 'priv user ...', focus: true do
+    it 'priv user ...' do
       spec_login @priv_user
 
       # create an alert, using complete set of attributes, should succeed.

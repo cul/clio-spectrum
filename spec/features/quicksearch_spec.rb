@@ -36,7 +36,7 @@ describe 'QuickSearch landing page' do
   # NEXT-1027 - Relabel 'All #### results' on Quicksearch
 
   # *** CATALOG ***
-  it "should link to Catalog results correctly", js:true, Xfocus:true do
+  it "should link to Catalog results correctly", js:true do
     visit quicksearch_index_path('q' => 'kitty')
     # page.save_and_open_page
     within('.results_header', :text => "Catalog") do

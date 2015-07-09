@@ -146,8 +146,8 @@ gem 'rack-attack'
 group :development do
 
   # Deploy with Capistrano
-  gem 'capistrano', '~>2', :require => false
-  gem 'capistrano-ext', :require => false
+  gem 'capistrano', '~>2', require: false
+  gem 'capistrano-ext', require: false
   gem 'quiet_assets'
   # fixes [morrison.cul.columbia.edu] sh: bundle: command not found
   gem 'rvm-capistrano', :require => false

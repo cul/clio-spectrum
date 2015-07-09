@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'Linked field-values in single-item display', focus: false do
+describe 'Linked field-values in single-item display' do
 
   it 'should work for links with diacritics and trailing punctuation' do
     # setup UTF-8 Decomposed form string constants for our various targets

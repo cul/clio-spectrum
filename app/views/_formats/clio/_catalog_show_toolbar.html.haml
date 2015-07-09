@@ -87,7 +87,7 @@
               %li= link_to "Display in CLIO Legacy", "http://clio.cul.columbia.edu:7018/vwebv/holdingsInfo?bibId=#{clio_id}"
   
             - if @document.respond_to?(:to_marc)
-              %li= link_to "MARC View", librarian_view_catalog_path(id), {:id => "librarianLink", :name => "librarian_view" }
+              %li= link_to "MARC View", fix_catalog_links(librarian_view_catalog_path(id)), {:id => "librarianLink", :name => "librarian_view" }
   
         %li.dropdown
           =link_to "Requests <span class='caret'></span>".html_safe, "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown"
