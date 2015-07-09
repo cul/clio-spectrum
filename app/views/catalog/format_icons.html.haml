@@ -1,0 +1,11 @@
+
+%h3 CLIO Format Icons
+
+%table.table
+
+  - DisplayHelper.const_get(:FORMAT_ICON_MAPPINGS).sort.each do |format,icon|
+    %tr
+      %td= format
+      %td= image_tag("icons/#{icon}.png", size: '16x16')
+      %td= "#{icon}.png"
+

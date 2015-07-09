@@ -2,6 +2,7 @@ Clio::Application.routes.draw do
 
   # This is getting masked.... try it up here?
   get "catalog/endnote", :as => "endnote_catalog"
+  get 'catalog/format_icons'
 
   # and this..
   get 'catalog/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_catalog"
