@@ -40,11 +40,11 @@ describe 'Academic Commons' do
       expect(page).to have_link(search_title_text)
       href = find_link(search_title_text)[:href]
       # href.should match /http:\/\/academiccommons.columbia.edu\/catalog/
-      href.should match /http:\/\/hdl.handle.net\/10022\/AC:P:/
+      expect(href).to match /http:\/\/hdl.handle.net\/10022\/AC:P:/
 
       # There should also be a Handle link to handle.net
       href = find_link('http://hdl.handle.net/10022/AC:P:')[:href]
-      href.should match /http:\/\/hdl.handle.net\/10022\/AC:P:/
+      expect(href).to match /http:\/\/hdl.handle.net\/10022\/AC:P:/
     end
 
     # We can't validate remote websites without adding extra gems to our

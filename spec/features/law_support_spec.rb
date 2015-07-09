@@ -12,8 +12,8 @@ describe 'CLIO support for Law records' do
     end
     expect(page).to have_css('.result.document')
     all('.result.document').each do |result_document|
-      result_document.should have_text 'Law'
-      result_document.should have_link('Check Law catalog for status')
+      expect(result_document).to have_text 'Law'
+      expect(result_document).to have_link('Check Law catalog for status')
     end
 
     # Now dismiss "supr* cour*", to get full listing of all law records...

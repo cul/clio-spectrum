@@ -4,7 +4,7 @@ describe ItemAlertHelper do
 
   it 'excercise helper - classes and text messages' do
     item_alert = FactoryGirl.create(:item_alert)
-    item_alert.should_not be_nil
+    expect(item_alert).to_not be_nil
 
     # Starts in the future - NOT ACTIVE
     item_alert = FactoryGirl.create(:item_alert,

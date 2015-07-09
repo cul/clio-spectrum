@@ -27,7 +27,7 @@ describe 'Catalog Advanced Search' do
 
     # And the search results too...
     # (struggling to make a regexp work, to do case-insensitive match...)
-    # page.body.should match(%r{#{string}}i)
+    # expect(page.body).to match(%r{#{string}}i)
     # page.find 'li.line-item', text: %r{Awesome Line Item}i
     # all('.result.document').first.should have_content(search_text)
     # all('.result.document').first.should match(%r{#{search_text}}i)

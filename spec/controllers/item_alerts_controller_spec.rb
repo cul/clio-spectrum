@@ -30,7 +30,7 @@ describe ItemAlertsController do
 
     it "excercise 'active' logic" do
       item_alert = FactoryGirl.create(:item_alert)
-      item_alert.should_not be_nil
+      expect(item_alert).to_not be_nil
       item_alert.active?.should eq true
 
       # Starts in the future - NOT ACTIVE

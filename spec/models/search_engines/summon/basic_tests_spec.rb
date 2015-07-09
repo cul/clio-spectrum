@@ -6,31 +6,31 @@ describe 'Spectrum::SearchEngines::Summon' do
     it 'should default to a clean search' do
 
       sum = Spectrum::SearchEngines::Summon.new
-      sum.source.should be_nil
+      expect(sum.source).to be_nil
 
       # We always have our facets applied...
-      sum.params.should have_key('s.ff')
+      expect(sum.params).to have_key('s.ff')
       # but not yet our source-specifics...
-      sum.params.should_not have_key('s.ho')
+      expect(sum.params).to_not have_key('s.ho')
 
     end
 
     it 'should load in default options as necessary' do
       # should not load in options unless it's a new search
       sum = Spectrum::SearchEngines::Summon.new('source' => 'articles')
-      sum.source.should == 'articles'
+      expect(sum.source).to == 'articles'
       # should always have our facets applied...
-      sum.params.should have_key('s.ff')
+      expect(sum.params).to have_key('s.ff')
       # but not yet our source-specifics...
-      sum.params.should_not have_key('s.ho')
+      expect(sum.params).to_not have_key('s.ho')
 
       # should load in options with a new search
       sum = Spectrum::SearchEngines::Summon.new('source' => 'articles', 'new_search' => true)
-      sum.source.should == 'articles'
+      expect(sum.source).to == 'articles'
       # should have, as always, facets applied...
-      sum.params.should have_key('s.ff')
+      expect(sum.params).to have_key('s.ff')
       # and finally also our source-specifics...
-      sum.params.should have_key('s.ho')
+      expect(sum.params).to have_key('s.ho')
 
     end
   end
@@ -51,7 +51,7 @@ describe 'Spectrum::SearchEngines::Summon' do
     it 'should not include newspaper articles' do
       @sum.search.query.facet_value_filters.should be_any { |f| f.negated? && f.value == 'Newspaper Article' }
       @sum.documents.each do |doc|
-        doc.content_type.should_not == 'Newspaper Article'
+        expect(doc.content_type).to_not == 'Newspaper Article'
       end
 
     end
@@ -63,13 +63,13 @@ describe 'Spectrum::SearchEngines::Summon' do
       APP_CONFIG['summon']['secret_key'] = 'BROKEN'
       sum = Spectrum::SearchEngines::Summon.new('source' => 'articles', 's.q' => 'Dog')
       sum.successful?.should be false
-      sum.errors.should == '401: Unauthorized'
+      expect(sum.errors).to == '401: Unauthorized'
     end
 
     it 'methods should handle broken Summon @search object' do
       APP_CONFIG['summon']['secret_key'] = 'BROKEN'
       sum = Spectrum::SearchEngines::Summon.new('source' => 'articles', 's.q' => 'Dog')
-      sum.total_items.should == 0
+      expect(sum.total_items).to == 0
     end
 
   end

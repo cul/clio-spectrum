@@ -16,8 +16,8 @@ describe 'Spectrum::SearchEngines::Solr' do
 
     it 'should return that number of results' do
       eng = Spectrum::SearchEngines::Solr.new('source' => 'catalog', :q => 'Smith', :search_field => 'all_fields', :rows => @result_count, 'solr_url' => solr_url)
-      eng.results.should_not be_empty
-      eng.results.size.should equal(@result_count)
+      expect(eng.results).to_not be_empty
+      expect(eng.results.size).to equal(@result_count)
     end
   end
 
@@ -26,7 +26,7 @@ describe 'Spectrum::SearchEngines::Solr' do
   describe 'for searches with diacritics' do
     it 'should find an author with diacritics' do
       eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'turk edebiyatinda', :search_field => 'author', 'solr_url' => solr_url)
-      eng.results.should_not be_empty
+      expect(eng.results).to_not be_empty
       expect(eng.results.first.get('author_display')).to match /Edebiyat\u0131nda/
     end
   end
@@ -38,7 +38,7 @@ describe 'Spectrum::SearchEngines::Solr' do
     it 'should find "autobiographies of children" ' do
       eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'child* autobiography asian north american honolulu', :search_field => 'all_fields', 'solr_url' => solr_url)
       # puts eng.solr_search_params
-      eng.results.should_not be_empty
+      expect(eng.results).to_not be_empty
       # puts eng.results.first.get('title_display')
       expect(eng.results.first.get('title_display')).to match(/reading Asian North American autobiographies of childhood/)
     end
@@ -48,7 +48,7 @@ describe 'Spectrum::SearchEngines::Solr' do
   describe 'search for "debt the first 5000 years" in Catalog' do
     it 'should find "Debt: The first 5,000 years" ' do
       eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'debt the first 5000 years', :search_field => 'all_fields', 'solr_url' => solr_url)
-      eng.results.should_not be_empty
+      expect(eng.results).to_not be_empty
       expect(eng.results.first.get('title_display')).to match(/Debt/)
       expect(eng.results.first.get('title_display')).to match(/the first 5,000 years/)
     end
@@ -63,8 +63,8 @@ describe 'Spectrum::SearchEngines::Solr' do
       eng_b = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => '2165B', :search_field => 'all_fields', 'solr_url' => solr_url)
       eng_bap = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => '2165BAP', :search_field => 'all_fields', 'solr_url' => solr_url)
       eng_wildcard = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => '2165B*', :search_field => 'all_fields', 'solr_url' => solr_url)
-      eng_wildcard.total_items.should be > eng_b.total_items
-      eng_wildcard.total_items.should be > eng_bap.total_items
+      expect(eng_wildcard.total_items).to be > eng_b.total_items
+      expect(eng_wildcard.total_items).to be > eng_bap.total_items
     end
   end
 
@@ -72,7 +72,7 @@ describe 'Spectrum::SearchEngines::Solr' do
   describe 'searches for "New Yorker" in Journals' do
     it 'should find "The New Yorker" as the first result' do
       eng = Spectrum::SearchEngines::Solr.new(:source => 'journals', :q => 'New Yorker', :search_field => 'all_fields', 'solr_url' => solr_url)
-      eng.results.should_not be_empty
+      expect(eng.results).to_not be_empty
       eng.results.first.get('title_display').should match(/The.New.Yorker/)
     end
   end
@@ -81,7 +81,7 @@ describe 'Spectrum::SearchEngines::Solr' do
   describe 'catalog all-field searches with embedded space-colon-space' do
     it 'should return search results' do
       eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'Clemens Krauss : Denk Display', :search_field => 'all_fields', 'solr_url' => solr_url)
-      eng.results.should_not be_empty
+      expect(eng.results).to_not be_empty
       expect(eng.results.first.get('title_display')).to match /Clemens Krauss/
       expect(eng.results.first.get('title_display')).to match /Denk Display/
     end
@@ -97,7 +97,7 @@ describe 'Spectrum::SearchEngines::Solr' do
 
       eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'Judith Butler', :search_field => 'all_fields', :rows => @result_count, 'solr_url' => solr_url)
       expect(eng.results).not_to be_empty
-      # eng.results.size.should equal(@result_count)
+      # expect(eng.results.size).to equal(@result_count)
       eng.results.each do |result|
         expect(result).to contain_in_fields(['Butler, Judith', 'Judith Butler'], 'title_display', 'subtitle_display', 'author_display')
       end

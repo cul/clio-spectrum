@@ -29,14 +29,14 @@ describe 'New Arrivals Search' do
 
     # Now, assert some basic sanity checks on sizes and relationships
 
-    within1week_count.should be > 100
-    within1month_count.should be > 1000
-    within6months_count.should be > 10_000
-    within1year_count.should be > 100_000
+    expect(within1week_count).to be > 100
+    expect(within1month_count).to be > 1000
+    expect(within6months_count).to be > 10_000
+    expect(within1year_count).to be > 100_000
 
-    within1month_count.should be > within1week_count
-    within6months_count.should be > within1month_count
-    within1year_count.should be > within6months_count
+    expect(within1month_count).to be > within1week_count
+    expect(within6months_count).to be > within1month_count
+    expect(within1year_count).to be > within6months_count
 
   end
 

@@ -42,17 +42,17 @@ describe 'User' do
 
     OFF_CAMPUS_EXAMPLES.each do |ip|
       it 'when checking an off-campus IP (' + ip + ')' do
-        Benchmark.realtime do
+        expect(Benchmark.realtime do
           User.on_campus?(ip).should eq false
-        end.should be < 0.010, 'should run in under 10ms'
+        end).to be < 0.010, 'should run in under 10ms'
       end
     end
 
     ON_CAMPUS_EXAMPLES.each do |ip|
       it 'when checking an on-campus IP (' + ip + ')' do
-        Benchmark.realtime do
+        expect(Benchmark.realtime do
           User.on_campus?(ip).should eq true
-        end.should be < 0.010, 'should run in under 10ms'
+        end).to be < 0.010, 'should run in under 10ms'
       end
     end
   end
