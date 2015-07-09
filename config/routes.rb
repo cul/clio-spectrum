@@ -3,6 +3,13 @@ Clio::Application.routes.draw do
   # This is getting masked.... try it up here?
   get "catalog/endnote", :as => "endnote_catalog"
 
+  # and this..
+  get 'catalog/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_catalog"
+  # Again, blacklight inserts this as GET, we need to support PUT
+  # (due to Blacklight's mechanism of preserving search context.)
+  # match 'catalog/:id/librarian_view', via: [:put], to: 'catalog#librarian_view_update'
+  match 'catalog/:id/librarian_view_track', via: [:post], to: 'catalog#librarian_view_track'
+
   # resources :saved_list_items
   resources :saved_lists
 
@@ -125,10 +132,6 @@ Clio::Application.routes.draw do
 
   match '/catalog/email(.:format)', to: 'catalog#email', as: :email
 
-  # Again, blacklight inserts this as GET, we need to support PUT
-  # (due to Blacklight's mechanism of preserving search context.)
-  # match 'catalog/:id/librarian_view', via: [:put], to: 'catalog#librarian_view_update'
-  match 'catalog/:id/librarian_view_track', via: [:post], to: 'catalog#librarian_view_track'
 
   # no, this was never implemented
   # namespace :admin do
@@ -139,7 +142,6 @@ Clio::Application.routes.draw do
   # inserted by the Blacklight MARC generator code.
 
   # Catalog stuff.
-  get 'catalog/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_catalog"
 
   # Call-Number Browse, based on Stanford Searchworks
   resources :browse, only: :index
