@@ -26,10 +26,8 @@ describe 'Catalog Advanced Search' do
 
     # And the search results too...
     # (struggling to make a regexp work, to do case-insensitive match...)
-    # page.body.should match(%r{#{string}}i)
+    # expect(page.body).to match(%r{#{string}}i)
     # page.find 'li.line-item', text: %r{Awesome Line Item}i
-    # all('.result.document').first.should have_content(search_text)
-    # all('.result.document').first.should match(%r{#{search_text}}i)
     all('.result.document').first.find 'a', text: %r{#{search_text}}i
 
   end
@@ -52,11 +50,11 @@ describe 'Catalog Advanced Search' do
         select_id = "adv_#{i}_field"
 
         # The select should exist, and "All Fields" should be selected
-        has_select?(select_id, selected: 'All Fields').should == true
+        expect(has_select?(select_id, selected: 'All Fields')).to eq true
 
         # "All Fields" should be the first option in the drop-down select menu
         within("select##{select_id}") do
-          first('option').text.should == 'All Fields'
+          expect(first('option').text).to eq 'All Fields'
         end
 
       end

@@ -11,7 +11,7 @@ class HoursDb::HoursLibrary < ActiveRecord::Base
   def self.sync_all!(startdate = Date.yesterday, days_to_add = 31)
     enddate = startdate + days_to_add.days
 
-    find(:all).each do |hl|
+    all().each do |hl|
       # debugging...
       # next unless /Burk/ =~ hl.lib_name
       # puts "XXXXXXXXXXXXXXXXXXXXXXXX  #{hl.lib_name}"

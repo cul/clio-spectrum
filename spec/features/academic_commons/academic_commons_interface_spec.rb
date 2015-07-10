@@ -26,7 +26,7 @@ describe 'Academic Commons' do
     end
 
     # Search string and search field should be preserved
-    find('#academic_commons_q').value.should eq search_title_text
+    expect(find('#academic_commons_q').value).to eq search_title_text
     expect(find('.btn.dropdown-toggle')).to have_content('Title')
 
     # The entered fielded search should be echoed on the results page
@@ -39,12 +39,11 @@ describe 'Academic Commons' do
       # The example title should be a link to the item's handle
       expect(page).to have_link(search_title_text)
       href = find_link(search_title_text)[:href]
-      # href.should match /http:\/\/academiccommons.columbia.edu\/catalog/
-      href.should match /http:\/\/hdl.handle.net\/10022\/AC:P:/
+      expect(href).to match /http:\/\/hdl.handle.net\/10022\/AC:P:/
 
       # There should also be a Handle link to handle.net
       href = find_link('http://hdl.handle.net/10022/AC:P:')[:href]
-      href.should match /http:\/\/hdl.handle.net\/10022\/AC:P:/
+      expect(href).to match /http:\/\/hdl.handle.net\/10022\/AC:P:/
     end
 
     # We can't validate remote websites without adding extra gems to our
@@ -64,7 +63,7 @@ describe 'Academic Commons' do
       expect(page).to have_css('.result_title a', count: 3)
       # and each one we find must satisfy this assertion.
       all('.result_title a').each do |link|
-        link['href'].should satisfy { |url|
+        expect(link['href']).to satisfy { |url|
           url.match(/http:\/\/dx.doi.org\//)  || url.match(/http:\/\/hdl.handle.net\//) || url.match(/http:\/\/academiccommons.columbia.edu\//)
         }
       end

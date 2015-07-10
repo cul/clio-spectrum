@@ -56,7 +56,7 @@ describe 'Simple query should retrieve results ', js: true do
     visit quicksearch_index_path('q' => 'test')
     expect(page).to have_css('.result_set', count: 4)
     all('.result_set').each do |result_set|
-      result_set.should have_css('.result')
+      expect(result_set).to have_css('.result')
     end
 
     visit catalog_index_path('q' => 'test')
@@ -83,13 +83,13 @@ describe 'Simple query should retrieve results ', js: true do
     visit dissertations_index_path('q' => 'test')
     expect(page).to have_css('.result_set', count: 3)
     all('.result_set').each do |result_set|
-      result_set.should have_css('.result')
+      expect(result_set).to have_css('.result')
     end
 
     visit ebooks_index_path('q' => 'test')
     expect(page).to have_css('.result_set', count: 2)
     all('.result_set').each do |result_set|
-      # result_set.should have_css('.result')
+      # expect(result_set).to have_css('.result')
       expect(page).to have_css('.result', wait: 5)
     end
 
@@ -112,7 +112,7 @@ describe 'Switching between data-source', js: true do
 
     expect(page).to have_css('.result_set', count: 4)
     all('.result_set').each do |result_set|
-      result_set.should have_css('.result')
+      expect(result_set).to have_css('.result')
     end
     # page.save_and_open_page # debug
 
@@ -170,14 +170,14 @@ describe 'Switching between data-source', js: true do
     expect(page).to have_css('.result_count', count: 3, wait: 3)
 
     all('.result_set').each do |result_set|
-      result_set.should have_css('.result')
+      expect(result_set).to have_css('.result')
     end
 
     click_link('E-Books')
     find('input#ebooks_q').value.should eq 'test'
     expect(page).to have_css('.result_set', count: 2)
     all('.result_set').each do |result_set|
-      result_set.should have_css('.result')
+      expect(result_set).to have_css('.result')
     end
 
     click_link('New Arrivals')

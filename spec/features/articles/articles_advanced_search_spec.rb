@@ -11,7 +11,7 @@ describe 'Articles Search' do
 # save_and_open_screenshot
 # save_and_open_page # debug
     find('#documents')
-    page.all('#documents .result').count.should be >= 10
+    expect(page.all('#documents .result').count).to be >= 10
   end
 
   it 'should support multi-field searching', js: true do
@@ -32,7 +32,7 @@ describe 'Articles Search' do
     expect(find('.well-constraints')).to have_content('Title: Economics')
     expect(find('.well-constraints')).to have_content('Publication Title: Journal')
 
-    page.all('#documents .result').count.should be >= 10
+    expect(page.all('#documents .result').count).to be >= 10
   end
 
   # NEXT-581 - Articles Advanced Search should include Publication Title search
@@ -77,7 +77,7 @@ describe 'Articles Search' do
     end
 
     it "Search string and search field should be preserved" do
-      find('#articles_q').value.should eq 'catmull, ed'
+      expect(find('#articles_q').value).to eq 'catmull, ed'
       expect(find('.btn.dropdown-toggle')).to have_content('Author')
     end
 
@@ -90,20 +90,20 @@ describe 'Articles Search' do
     end
 
     it "add in some test related to pub-date sorting..." do
-      first('.index_toolbar').should have_content('Sort by Relevance')
+      expect(first('.index_toolbar')).to have_content('Sort by Relevance')
       first(:link, 'Sort by Relevance').click
 
       expect(page).to have_link('Relevance')
       expect(page).to have_link('Published Latest')
       find_link('Published Earliest').click
 
-      first('.index_toolbar').should have_content('Published Earliest')
+      expect(first('.index_toolbar')).to have_content('Published Earliest')
       first(:link, 'Published Earliest').click
       expect(page).to have_link('Relevance')
       expect(page).to have_link('Published Earliest')
       find_link('Published Latest').click
 
-      first('.index_toolbar').should have_content('Published Latest')
+      expect(first('.index_toolbar')).to have_content('Published Latest')
       first(:link, 'Published Latest').click
       expect(page).to have_link('Relevance')
       expect(page).to have_link('Published Earliest')

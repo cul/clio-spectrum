@@ -34,13 +34,13 @@ describe SavedListsController do
     delete :destroy,  id: 9_999_999
     expect(response.status).to be(302)
     expect(response).to redirect_to(root_path)
-    flash[:error].should =~ /Cannot access list/i
+    expect(flash[:error]).to match(/Cannot access list/i)
 
     # Try to update a non-existant list
     put :update,  id: 9_999_999
     expect(response.status).to be(302)
     expect(response).to redirect_to(root_path)
-    flash[:error].should =~ /Cannot access list/i
+    expect(flash[:error]).to match(/Cannot access list/i)
   end
 
 end

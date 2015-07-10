@@ -30,43 +30,43 @@ describe ItemAlertsController do
 
     it "excercise 'active' logic" do
       item_alert = FactoryGirl.create(:item_alert)
-      item_alert.should_not be_nil
-      item_alert.active?.should eq true
+      expect(item_alert).to_not be_nil
+      expect(item_alert.active?).to eq true
 
       # Starts in the future - NOT ACTIVE
       item_alert = FactoryGirl.create(:item_alert,
                                       start_date: '2050-01-01', end_date: nil)
-      item_alert.active?.should eq false
+      expect(item_alert.active?).to eq false
 
       # Starts in the past - ACTIVE
       item_alert = FactoryGirl.create(:item_alert,
                                       start_date: '2000-01-01', end_date: nil)
-      item_alert.active?.should eq true
+      expect(item_alert.active?).to eq true
 
       # Ends in the past - NOT ACTIVE
       item_alert = FactoryGirl.create(:item_alert,
                                       start_date: nil, end_date: '2000-01-01')
-      item_alert.active?.should eq false
+      expect(item_alert.active?).to eq false
 
       # Ends in the future - ACTIVE
       item_alert = FactoryGirl.create(:item_alert,
                                       start_date: nil, end_date: '2050-01-01')
-      item_alert.active?.should eq true
+      expect(item_alert.active?).to eq true
 
       # No times set - ACTIVE
       item_alert = FactoryGirl.create(:item_alert,
                                       start_date: nil, end_date: nil)
-      item_alert.active?.should eq true
+      expect(item_alert.active?).to eq true
 
       # From past to future - ACTIVE
       item_alert = FactoryGirl.create(:item_alert,
                                       start_date: '2000-01-01', end_date: '2050-01-01')
-      item_alert.active?.should eq true
+      expect(item_alert.active?).to eq true
 
       # From future to past - NOT ACTIVE
       item_alert = FactoryGirl.create(:item_alert,
                                       start_date: '2050-01-01', end_date: '2000-01-01')
-      item_alert.active?.should eq false
+      expect(item_alert.active?).to eq false
 
     end
 

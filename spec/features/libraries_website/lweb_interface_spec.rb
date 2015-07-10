@@ -5,7 +5,7 @@ describe 'Libraries Website DAM search' do
   it 'should show DAM filenames and format icons for XLS' do
     visit library_web_index_path('q' => 'dam sheet1 xlsx')
     within all('.result.document').first do
-      find('img')['src'].should have_content 'xlsx.png'
+      expect(find('img')['src']).to have_content 'xlsx.png'
       expect(find('.lweb_dam_document')).to have_text '.xlsx'
     end
   end
@@ -13,7 +13,7 @@ describe 'Libraries Website DAM search' do
   it 'should show DAM filenames and format icons for DOC' do
     visit library_web_index_path('q' => 'reproduction form doc dam')
     within all('.result.document').first do
-      find('img')['src'].should have_content 'doc.png'
+      expect(find('img')['src']).to have_content 'doc.png'
       expect(find('.lweb_dam_document')).to have_text '.doc'
     end
   end
@@ -21,7 +21,7 @@ describe 'Libraries Website DAM search' do
   it 'should show DAM filenames and format icons for PDF' do
     visit library_web_index_path('q' => 'dam pdf guide')
     within all('.result.document').first do
-      find('img')['src'].should have_content 'pdf.png'
+      expect(find('img')['src']).to have_content 'pdf.png'
       expect(find('.lweb_dam_document')).to have_text '.pdf'
     end
   end

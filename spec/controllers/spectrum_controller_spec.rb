@@ -12,7 +12,7 @@ describe SpectrumController do
       get 'search', q: 'dummy', layout: 'No Such Layout'
       expect(response.status).to be(302)
       expect(response).to redirect_to(root_path)
-      flash[:error].should =~ /no search layout/i
+      expect(flash[:error]).to match(/no search layout/i)
     end
   end
 

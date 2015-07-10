@@ -102,11 +102,9 @@ describe 'Catalog Interface' do
 
     # within CLIO HOLDINGS, not the regular Online div...
     # ...should see an 'Online' block
-    find('div#clio_holdings').
-      should have_content('Online')
+    expect(find('div#clio_holdings')).to have_content('Online')
     # ...should see the specific URL...
-    find('div#clio_holdings').
-      should have_content('http://www.neighborhoodpreservationcenter.org/')
+    expect(find('div#clio_holdings')).to have_content('http://www.neighborhoodpreservationcenter.org/')
 
     # And, contrariwise, other Avery Online material, which does not have
     # an 856 URL in the Holdings record, should display 'Online' within the
@@ -168,7 +166,7 @@ describe 'Catalog Interface' do
     # make sure the standard results have loaded
     find('.result.document .row .title', match: :first)
 
-    all('.result.document').first.text.should match /Author.*Published.*Location/
+    expect(all('.result.document').first.text).to match(/Author.*Published.*Location/)
 
     click_link 'Display Options'
     click_link 'Compact View'
@@ -176,9 +174,9 @@ describe 'Catalog Interface' do
     # make sure the compact results have loaded
     find('.boxed_search_results', match: :first)
 
-    all('.result.document').first.text.should_not match /Author/
-    all('.result.document').first.text.should_not match /Published/
-    all('.result.document').first.text.should_not match /Location/
+    expect(all('.result.document').first.text).not_to match /Author/
+    expect(all('.result.document').first.text).not_to match /Published/
+    expect(all('.result.document').first.text).not_to match /Location/
 
     click_link 'Display Options'
     click_link 'Standard View'
@@ -186,7 +184,7 @@ describe 'Catalog Interface' do
     # make sure the standard results have loaded
     find('.result.document .row .title', match: :first)
 
-    all('.result.document').first.text.should match /Author.*Published.*Location/
+    expect(all('.result.document').first.text).to match(/Author.*Published.*Location/)
   end
 
   describe 'share by email' do
@@ -492,7 +490,7 @@ end
 #     end
 #
 #     expect(page).to have_css('.modal-scrollable .modal .modal-header')
-#     # puts find('.modal-header').text.inspect #.should have_text('Email Item(s)')
+#     # puts find('.modal-header').text.inspect #expect.to have_text('Email Item(s)')
 #     expect(find('.modal-header')).to have_text('Email Item(s)')
 #
 #     within '#email_form' do

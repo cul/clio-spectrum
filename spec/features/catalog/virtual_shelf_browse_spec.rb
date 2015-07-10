@@ -8,7 +8,7 @@ describe "Virtual Shelf Browse" do
     visit catalog_path(1234)
     # verify some basic labels and buttons
     expect(find('#mini_browse_panel')).to have_text( I18n.t('blacklight.browse.label'))
-    find('.btn.show_mini_browse', text: 'Show').should_not have_css('disabled')
+    expect(find('.btn.show_mini_browse', text: 'Show')).not_to have_css('disabled')
     find('.btn.hide_mini_browse.disabled', text: 'Hide')
     expect(find('.btn.full_screen_link')).to have_text(I18n.t('blacklight.browse.full_screen'))
     # verify that there's no browse-list showing yet
@@ -25,8 +25,8 @@ describe "Virtual Shelf Browse" do
 
     within('#nearby .nearby_content') do
       # Search for control labels specific to bib 1234
-      first('nav.index_toolbar').should have_text('« Previous | PN45 .R576 1998 - PN45 .R69 2011g | Next »')
-      first('nav.index_toolbar').should have_text('Return to PN45 .R587')
+      expect(first('nav.index_toolbar')).to have_text('« Previous | PN45 .R576 1998 - PN45 .R69 2011g | Next »')
+      expect(first('nav.index_toolbar')).to have_text('Return to PN45 .R587')
       expect(page).to have_css('.document.result', count: 10)
 
       # The current item (bib 1234) should be 3rd in the list.
