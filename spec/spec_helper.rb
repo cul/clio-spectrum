@@ -92,6 +92,10 @@ require 'rubygems'
   Capybara::Webkit.configure do |config|
     config.block_unknown_urls
 
+    # We test response data from these sites
+    config.allow_url("hathitrust.org")
+    config.allow_url("books.google.com")
+
     # OLD - WAS PART OF RSPEC CONFIG BLOCK ABOVE
      # # Turn this block on when we upgrade capybara-webkit
      # # from https://github.com/thoughtbot/capybara-webkit/issues/717
