@@ -2,6 +2,14 @@ Clio::Application.routes.draw do
 
   # This is getting masked.... try it up here?
   get "catalog/endnote", :as => "endnote_catalog"
+  get 'catalog/format_icons'
+
+  # and this..
+  get 'catalog/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_catalog"
+  # Again, blacklight inserts this as GET, we need to support PUT
+  # (due to Blacklight's mechanism of preserving search context.)
+  # match 'catalog/:id/librarian_view', via: [:put], to: 'catalog#librarian_view_update'
+  match 'catalog/:id/librarian_view_track', via: [:post], to: 'catalog#librarian_view_track'
 
   # resources :saved_list_items
   resources :saved_lists
@@ -56,11 +64,15 @@ Clio::Application.routes.draw do
   get 'databases/:id(.:format)', via: [:get], to: 'catalog#show', as: :databases_show
   get 'databases/facet/:id(.format)', to: 'catalog#facet', as: :databases_facet
   post 'databases/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :databases_track
+  get 'databases/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_databases"
+  match 'databases/:id/librarian_view_track', via: [:post], to: 'databases#librarian_view_track'
 
   get 'journals', to: 'catalog#index', as: :journals_index
   get 'journals/:id(.:format)', via: [:get], to: 'catalog#show', as: :journals_show
   get 'journals/facet/:id(.format)', to: 'catalog#facet', as: :journals_facet
   post 'journals/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :journals_track
+  get 'journals/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_journals"
+  match 'journals/:id/librarian_view_track', via: [:post], to: 'journals#librarian_view_track'
 
   get 'library_web', to: 'spectrum#search', as: :library_web_index, defaults: { layout: 'library_web' }
 
@@ -68,13 +80,12 @@ Clio::Application.routes.draw do
   get 'academic_commons/range_limit(.:format)', to: 'catalog#range_limit', as: :academic_range_limit
   get 'academic_commons/facet/:id(.format)', to: 'catalog#facet', as: :academic_commons_facet
 
-  get 'dcv', to: 'catalog#index', as: :dcv_index
-  get 'dcv/facet/:id(.format)', to: 'catalog#facet', as: :dcv_facet
-
   get 'archives', to: 'catalog#index', as: :archives_index
   get 'archives/:id(.:format)', via: [:get], to: 'catalog#show', as: :archives_show
   get 'archives/facet/:id(.format)', to: 'catalog#facet', as: :archives_facet
   post 'archives/:id/track(.:format)', to: 'catalog#track', as: :archives_track
+  get 'archives/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_archives"
+  match 'archives/:id/librarian_view_track', via: [:post], to: 'archives#librarian_view_track'
 
   # NEXT-483 A user should be able to browse results using previous/next
   # this requires GET ==> show, and POST ==> update, for reasons
@@ -83,6 +94,8 @@ Clio::Application.routes.draw do
   get 'new_arrivals/:id(.:format)', via: [:get], to: 'catalog#show', as: :new_arrivals_show
   get 'new_arrivals/facet/:id(.format)', to: 'catalog#facet', as: :new_arrivals_facet
   post 'new_arrivals/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :new_arrivals_track
+  get 'new_arrivals/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_new_arrivals"
+  match 'new_arrivals/:id/librarian_view_track', via: [:post], to: 'new_arrivals#librarian_view_track'
 
   get 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
 
@@ -118,16 +131,6 @@ Clio::Application.routes.draw do
   # (due to Blacklight's mechanism of preserving search context.)
   post 'catalog/:id/librarian_view_track', via: [:post], to: 'catalog#librarian_view_track'
 
-  # no, this was never implemented
-  # namespace :admin do
-  #   resources :locations
-  # end
-
-  # No longer a given, must be part of Application's routes.rb, but only
-  # inserted by the Blacklight MARC generator code.
-
-  # Catalog stuff.
-  get 'catalog/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_catalog"
 
   # Call-Number Browse, based on Stanford Searchworks
   resources :browse, only: :index

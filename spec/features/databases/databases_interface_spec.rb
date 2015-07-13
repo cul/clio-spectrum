@@ -112,4 +112,45 @@ describe 'Databases', focus: false do
    expect(page).to have_text('No results found for your search')
  end
 
+ # NEXT-1211 - When I do a blank ejournals search, view a title, and view the MARC record, my results revert back to the full catalog results
+ it 'should preserve active_source through MARC view', js: true do
+   firstTitle = '60 minutes'
+   visit databases_index_path( q: '')
+   expect(page).to have_text firstTitle
+
+
+   click_link(firstTitle)
+   expect(page).to have_text 'Back to Results | 1 of '
+   expect(page).to have_text "Title " + firstTitle
+
+   click_link('Display In')
+   click_link('MARC View')
+   page.should have_text 'Back to Results | 1 of '
+   page.should have_text '245 0 0 |a ' + firstTitle
+
+   # Nav links should preserve active datasource
+   href = find_link('Back to Results')[:href]
+   expect(href).to match( /\/databases\?/)
+   href = find_link('Next')[:href]
+   expect(href).to match( /\/databases\//)
+   href = find_link('Return to Patron View')[:href]
+   expect(href).to match( /\/databases\//)
+
+   within '#show_toolbar' do
+     click_link('Next')
+   end
+   page.should have_text 'Back to Results | « Previous | 2 of '
+
+   # Nav links should preserve active datasource
+   href = find_link('Back to Results')[:href]
+   expect(href).to match( /\/databases\?/)
+   href = find_link('Previous')[:href]
+   expect(href).to match( /\/databases\//)
+   href = find_link('Next')[:href]
+   expect(href).to match( /\/databases\//)
+   href = find_link('Return to Patron View')[:href]
+   expect(href).to match( /\/databases\//)
+ end
+
+
 end
