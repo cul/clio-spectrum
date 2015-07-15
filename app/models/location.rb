@@ -49,7 +49,10 @@ class Location < ActiveRecord::Base
   end
 
   def self.clear_and_load_fixtures!
-    Location.delete_all
+    # Use "destroy" instead of delete, so that it'll
+    # also clear out associated 'has_options' rows
+    # Location.delete_all
+    Location.destroy_all
     fixture = YAML.load_file('config/locations_fixture.yml')
 
     fixture.each do |location_hash|
