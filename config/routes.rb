@@ -55,7 +55,7 @@ Clio::Application.routes.draw do
   get 'get_browser_option', to: 'application#get_browser_option_handler'
 
   # Support for persisent selected-item lists
-  get 'selected_items', to: 'application#selected_items_handler'
+  match 'selected_items', via: [:get, :post], to: 'application#selected_items_handler'
 
   # Is this redundant with above "evise_for :users, controllers:..." ?
   # devise_for :users
