@@ -75,7 +75,7 @@ class BackendController < ApplicationController
   #   begin
   #     isbns.each do |isbn|
   #       unless results[isbn]
-  #         query_url = 'http://books.google.com/books/feeds/volumes'
+  #         query_url = 'https://books.google.com/books/feeds/volumes'
   #         logger.info("retrieving #{query_url}?q=isbn:#{isbn}")
   #         xml = Nokogiri::XML(hc.get_content(query_url, :q => "isbn:" + isbn))
   #         image_node = xml.at_css("feed>entry>link[@type^='image']")
