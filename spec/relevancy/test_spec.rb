@@ -4,8 +4,16 @@ describe 'Testing rsolr-rspec support' do
 
   it "q of 'Buddhism' should get around 18,000 results" do
     resp = solr_resp_doc_ids_only('q' => 'Buddhism')
-    resp.should have_at_least(17_000).documents
-    resp.should have_at_most(19_000).documents
+
+    expect(resp.size).to be > 18_000
+    expect(resp.size).to be < 22_000
+
   end
+
+# utility, for spitting out the bib keys that match a given query
+#   it "BIB LIST", focus: true do
+#     resp = solr_resp_doc_ids_only('q' => 'composers forum', 'search_field' => 'title', rows: 100)
+# puts    resp.inspect
+#   end
 
 end

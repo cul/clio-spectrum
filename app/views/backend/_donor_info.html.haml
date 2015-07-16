@@ -5,17 +5,26 @@
   - disabled = true
   - if copy['donor_info_icon'][0]['url'].present?
     - disabled = false
-  .btn-group{style: "padding: 3px 4px 3px 28px;"}
-    - if disabled
+
+  -# override for testing
+  - disabled = false
+
+  - if disabled
+    .col-md-2
       %button.donor_info_icon{:disabled => disabled}
         GIFT
-      =message
-    - else
-      %a.donor_info_icon{:disabled => disabled, href: "#{href}"}
+    .col-md-10
+      .area
+        .bubble
+          %p
+            =message
+  - else
+    .col-md-2
+      %a.btn.donor_info_icon{:disabled => disabled, href: "#{href}"}
         GIFT
-      =link_to(message, href)
-- elsif copy['donor_info'].present?
-  - message = copy['donor_info']
-  - message = message.gsub(/ -- /, '<br/>').html_safe
-  .message=  message
+    .col-md-10
+      .area
+        .bubble
+          %p
+            =link_to(message, href)
 

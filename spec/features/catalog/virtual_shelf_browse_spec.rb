@@ -7,12 +7,12 @@ describe "Virtual Shelf Browse" do
     # pull up a simple item-detail page
     visit catalog_path(1234)
     # verify some basic labels and buttons
-    find('#mini_browse_panel').should have_text( I18n.t('blacklight.browse.label'))
-    find('.btn.show_mini_browse', text: 'Show').should_not have_css('disabled')
+    expect(find('#mini_browse_panel')).to have_text( I18n.t('blacklight.browse.label'))
+    expect(find('.btn.show_mini_browse', text: 'Show')).not_to have_css('disabled')
     find('.btn.hide_mini_browse.disabled', text: 'Hide')
-    find('.btn.full_screen_link').should have_text(I18n.t('blacklight.browse.full_screen'))
+    expect(find('.btn.full_screen_link')).to have_text(I18n.t('blacklight.browse.full_screen'))
     # verify that there's no browse-list showing yet
-    page.should_not have_css('#mini_browse_list')
+    expect(page).to_not have_css('#mini_browse_list')
   end
 
 
@@ -21,17 +21,19 @@ describe "Virtual Shelf Browse" do
     visit catalog_path(1234)
     find('.btn.show_mini_browse', text: 'Show').click
 
+    expect(page).to have_css('#nearby .nearby_content')
+
     within('#nearby .nearby_content') do
       # Search for control labels specific to bib 1234
-      first('nav.index_toolbar').should have_text('« Previous | PN45 .R576 1998 - PN45 .R65 | Next »')
-      first('nav.index_toolbar').should have_text('Return to PN45 .R587')
+      expect(first('nav.index_toolbar')).to have_text('« Previous | PN45 .R576 1998 - PN45 .R69 2011g | Next »')
+      expect(first('nav.index_toolbar')).to have_text('Return to PN45 .R587')
       expect(page).to have_css('.document.result', count: 10)
 
       # The current item (bib 1234) should be 3rd in the list.
       browse_items = page.all('.document.result')
-      browse_items[2].should have_text('The reader, the text, the poem')
-      browse_items[2][:item_id].should eq "1234"
-      browse_items[2][:class].should include('browse_focus')
+      expect(browse_items[2]).to have_text('The reader, the text, the poem')
+      expect(browse_items[2][:item_id]).to eq "1234"
+      expect(browse_items[2][:class]).to match(/browse_focus/)
     end
 
   end
@@ -42,7 +44,7 @@ describe "Virtual Shelf Browse" do
     unavailable_text = I18n.t('blacklight.browse.unavailable')
     # offsite, no call number assigned - should be durable for testing
     visit catalog_path(102437)
-    page.should have_text(unavailable_text)
+    expect(page).to have_text(unavailable_text)
   end
 
 

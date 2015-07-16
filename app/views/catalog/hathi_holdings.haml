@@ -1,0 +1,50 @@
+- cache("hathi_holdings_#{@document.cache_key}") do
+
+  -# fetch via hathitrust.org API
+  - hathi_holdings_data = get_hathi_holdings_data(@document)
+
+  - if hathi_holdings_data && hathi_holdings_data['records'] && hathi_holdings_data['records'].size > 0
+    - key, value = hathi_holdings_data['records'].first
+    - recordURL = value['recordURL']
+
+    #hathi_data
+
+      .hathi_title.holdings_title Hathi Trust
+      
+      .hathi_info
+        %a{href: "#{recordURL}"} Summary Page
+
+      .holdings_subtitle
+        Viewability
+      
+      - item_count = hathi_holdings_data['items'].size
+      - show_count = 25
+
+
+      -# (I tried to do this with display:table/table-row/table-cell, 
+      -# but there's no way to do colspan, so the expander note was
+      -# affecting column flow.  Switched to <table>, all ok.)
+      %table.hathi_holdings_table
+        - hathi_holdings_data['items'].each_with_index do |item, i|
+      
+          -# First show_count items are shown, beyond that they'll
+          -# be hidden inside a hide/show expander.
+          - visibility = (i >= show_count) ? 'expander_more' : ''
+          %tr.hathi_holdings_row{class: visibility}
+            %td.hathi_holdings_cell
+              %a{href: "#{item['itemURL']}"}= item['usRightsString']
+            %td.hathi_holdings_cell
+              -# enum-cron is 'false' for bookish items
+              %a{href: "#{item['itemURL']}"}= item['enumcron'] || ''
+            %td.hathi_holdings_cell
+              - if item['orig']
+                %em= "(original from #{item['orig']})"
+          -# After show_count items, add the show/hide expander control.
+          -# (zero-based indexing, so subtract one)
+          - if i == (show_count - 1)
+            %tr.hathi_holdings_row.expander
+              %td.hathi_expander_cell{colspan: 3}
+                %em
+                  %a.expander{href: '#'}
+                    (show #{item_count - show_count} more holdings...)
+

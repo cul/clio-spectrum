@@ -33,7 +33,6 @@ class CatalogController < ApplicationController
   # When a catalog search is submitted, this is the
   # very first point of code that's hit
   def index
-    # raise
     debug_timestamp('CatalogController#index() begin')
 
     # very useful - shows the execution order of before filters
@@ -65,6 +64,10 @@ class CatalogController < ApplicationController
 
     # items-per-page ("rows" param) should be a persisent browser setting
     if params['rows'] && (params['rows'].to_i > 1)
+      # NEXT-1199 - can't get CLIO to display more than 10 records at a time
+      # 'rows' and 'per_page' are redundant.
+      # if we have a valid 'rows', ignore 'per_page'
+      params.delete('per_page')
       # Store it, if passed
       set_browser_option('catalog_per_page', params['rows'])
     else
@@ -74,7 +77,6 @@ class CatalogController < ApplicationController
         params['rows'] = catalog_per_page
       end
     end
-
     # this does not execute a query - it only organizes query parameters
     # conveniently for use by the view in echoing back to the user.
     @query = Spectrum::Queries::Solr.new(params, blacklight_config)
@@ -210,7 +212,7 @@ class CatalogController < ApplicationController
   end
 
   def show
-    @response, @document = get_solr_response_for_doc_id
+    @response, @document = get_solr_response_for_doc_id params[:id]
 
     # In support of "nearby" / "virtual shelf browse", remember this bib
     # as our focus bib.
@@ -413,7 +415,7 @@ class CatalogController < ApplicationController
 
   # Override Blacklight's definition, to assign custom layout
   def librarian_view
-    @response, @document = get_solr_response_for_doc_id
+    @response, @document = get_solr_response_for_doc_id params[:id]
     respond_to do |format|
       format.html do
         # This Blacklight function re-runs the current query, twice,
@@ -425,6 +427,16 @@ class CatalogController < ApplicationController
         render layout: 'no_sidebar'
       end
       format.js { render layout: false }
+    end
+  end
+
+  # Called via AJAX to build the hathi holdings section
+  # on the item-detail page.
+  def hathi_holdings
+    @response, @document = get_solr_response_for_doc_id params[:id]
+
+    respond_to do |format|
+      format.html { render layout: false }
     end
   end
 

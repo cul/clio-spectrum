@@ -1,5 +1,5 @@
 class LibraryHours < ActiveRecord::Base
-  attr_accessible :opens, :closes, :date, :library_id
+  # attr_accessible :opens, :closes, :date, :library_id
 
   belongs_to :library
 

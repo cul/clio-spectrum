@@ -111,6 +111,11 @@ class BrowseController < ApplicationController
     # }
     @browse_item_list = shelfkey_to_item_list(@shelfkey, before_count, after_count)
 
+    # If the lookup by shelfkey failed, display nothing
+    if @browse_item_list.nil? || (@browse_item_list.size == 0)
+      render nothing: true and return
+    end
+
     # if mini_or_full == 'mini'
     # Try basing this on....
     if request.xhr?
@@ -151,6 +156,7 @@ class BrowseController < ApplicationController
   def shelfkey_to_item_list(shelfkey, before_count, after_count)
     # raise
     forward_items = get_items_by_shelfkey_forward(shelfkey, after_count)
+    return nil if forward_items.nil? || forward_items.size == 0
 
     # pull off the current item
     this_item = forward_items.shift
@@ -163,8 +169,9 @@ class BrowseController < ApplicationController
     # already figured out the reverse key.
     # reverse_shelfkey = shelfkey_to_reverse_shelfkey(this_item, shelfkey)
     reverse_shelfkey = this_item[:current_reverse_shelfkey]
+    return nil if reverse_shelfkey.nil?
 
-    backward_items = get_items_by_reverse_shelfkey_backward(reverse_shelfkey, before_count)
+    backward_items = get_items_by_reverse_shelfkey_backward(reverse_shelfkey, before_count) || []
 
     # pull off the current item
     # backward_items.shift
@@ -204,6 +211,10 @@ class BrowseController < ApplicationController
 
     # Get the _ordered_ list of keys (using Solr term query)
     key_list = get_next_terms(fieldvalue, fieldname, fetch_term_count)
+    # We must fetch a list of items
+    return [] if key_list.nil? || key_list.size == 0
+    # One of the items must be the original lookup key
+    return [] unless key_list.include? fieldvalue
 
     key_list.each { |key|
       Rails.logger.debug "key=#{key.inspect} #{' ==> MATCH' if key == fieldvalue}"
@@ -216,7 +227,6 @@ class BrowseController < ApplicationController
     # the browse-item-list, which means you'll fall short of how many
     # uniq docs you want back.
     solr_params = {rows: fetch_doc_count}
-    # raise
 
     # This fails when page-size is large, 50 or so.
     #     RSolr::Error::Http - 413 Request Entity Too Large
@@ -301,6 +311,7 @@ class BrowseController < ApplicationController
       'terms.limit' => how_many
     }
     solr_response = Blacklight.solr.alphaTerms({params: solr_params})
+
     # create array of one element hashes with key=term and value=count
     result = []
     terms ||= solr_response['terms'] || []

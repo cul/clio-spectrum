@@ -29,6 +29,15 @@ RSpec.configure do |config|
   puts "Solr URL: #{SOLR.uri}"
 end
 
+
+# Quick function to make simpler syntax in specs
+def rank(resp, bib)
+  position = resp.get_first_doc_index(bib.to_s)
+  # not-found, pretend it's just really, really low ranking
+  return 999999 if position.nil?
+  return position +1
+end
+
 # send a GET request to the default Solr request handler with the indicated query
 # @param query [String] the value of the 'q' param to be sent to Solr
 # @return [RSpecSolr::SolrResponseHash] object for rspec-solr testing the Solr response, with no facets, and only the id field for each Solr doc

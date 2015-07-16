@@ -43,13 +43,13 @@ module MarcHelper
         options[:subject] = true
       end
       # process marc tag
-      out << get_field_values(marc, field['tag'].to_s, field['display'], options)
+      out << clio_get_field_values(marc, field['tag'].to_s, field['display'], options)
     end
 
     out.flatten
   end
 
-  def get_field_values(marc, tag, display_subfields = :all, options = {})
+  def clio_get_field_values(marc, tag, display_subfields = :all, options = {})
     options.reverse_merge!(vernacular: true,
                            search_subfields: '',
                            subject: false,
@@ -159,7 +159,7 @@ module MarcHelper
     marc.each_by_tag('880') do |t880|
       sub6 = t880.subfields.first
       # sequesnce number match 00
-      if (sub6.code == '6') && (sub6.value[4..5] == '00')
+      if sub6.present? && (sub6.code == '6') && (sub6.value[4..5] == '00')
         display = process_field(t880, 'abcdefghijklmnopqrstuvwxyz', '', false)
         values << display unless display.empty?
       end

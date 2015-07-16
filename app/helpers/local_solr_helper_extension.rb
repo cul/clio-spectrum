@@ -97,7 +97,11 @@ module LocalSolrHelperExtension
         !value || (value.strip.length == 0)
       end.map do |query|
         field_name, value = *query
-        search_field_def = search_field_def_for_key(field_name)
+        # With the upgrade of the Blacklight gem from 5.7.x to 5.8.x,
+        # method search_field_def_for_key() is not longer callable?
+        # search_field_def = search_field_def_for_key(field_name)
+        search_field_def = blacklight_config.search_fields[field_name]
+        blacklight_config.search_fields
 
         if search_field_def && hash = search_field_def.solr_local_parameters
           local_params = hash.map do |key, val|
@@ -144,7 +148,7 @@ module LocalSolrHelperExtension
       facet_list = f_request_params.keys.map { |ff| ff.gsub(/^-/, '') }.uniq.sort
 
       facet_list.each do |facet_key|
-        values = Array(f_request_params[facet_key])
+        values = Array(f_request_params[facet_key]).reject(&:empty?)
 
         excluded_values = Array(f_request_params["-#{facet_key}"])
         operator = user_params[:f_operator] && user_params[:f_operator][facet_key] || 'AND'
@@ -256,4 +260,14 @@ module LocalSolrHelperExtension
         "#{facet_field}:#{subbed_value}"
     end
   end
+
+  # This is getting deprecated from Blacklight
+  def get_solr_response_for_field_values(field, values, extra_controller_params = {})
+
+    solr_response = query_solr(params, extra_controller_params.merge(solr_documents_by_field_values_params(field, values)))
+
+    [solr_response, solr_response.documents]
+
+  end
+
 end

@@ -58,6 +58,28 @@ $ ->
         $("span.holding_spinner").hide()
         $('#clio_holdings .holdings_error').show()
 
+@load_hathi_holdings = (id) ->
+  $(".hathi_holdings_check").show
+  $(".hathi_holdings_error").hide
+
+  $.ajax
+    url: '/catalog/hathi_holdings/' + id
+
+    success: (data) ->
+        $('#hathi_data_wrapper').html(data)
+        $('#hathi_holdings').show()
+        # If we have a long list of holdings,
+        # they'll be rendered with collapse/expand.
+        $(".expander").click ->
+          $('#hathi_holdings').find(".expander").hide()
+          $('#hathi_holdings').find(".expander_more").removeClass('expander_more')
+
+    error: (data) ->
+        $(".hathi_holdings_check").hide()
+        $('.hathi_holdings_error').show()
+        $('#hathi_holdings').show()
+
+
 @retrieve_fedora_resources = (fedora_ids) ->
   url = clio_backend_url + '/fedora/resources/' + fedora_ids.join('/');
 
@@ -93,50 +115,52 @@ $ ->
     for bib, holdings of data
       for holding_id, status of data[bib].statuses
         selector = "img.availability.holding_" + holding_id
-        $(selector).attr("src", "/assets/icons/"+ status+".png")
-
+        status_upcase = status.charAt(0).toUpperCase() + status.slice(1)
+        $(selector).attr("src", "/assets/icons/" + status + ".png")
+        $(selector).attr("title", status_upcase)
+        $(selector).attr("alt", status_upcase)
 
 
 # Called from _google_books_check.html.haml, to update the
 # Google section of the single-item Holdings information.
-@update_book_jackets = (isbns, data) ->
-  for index of isbns
-    isbn = isbns[index]
-    isbn_name = isbn.replace(/:/, "")
-    selector = $("img.bookjacket[src*='assets/spacer'].id_" + isbn_name)
-    isbn_data = data[isbn]
+@update_google_holdings = (bibkeys, data) ->
+  for index of bibkeys
+    bibkey = bibkeys[index]
+    bibkey_name = bibkey.replace(/:/, "")
+    selector = $("img.bookjacket[src*='assets/spacer'].id_" + bibkey_name)
+    bibkey_data = data[bibkey]
 
-    if selector.length > 0 and isbn_data
+    if selector.length > 0 and bibkey_data
       selector.parents("#google_holdings").show()
       gbs_cover = selector.parents(".gbs_cover")
 
-      if isbn_data.thumbnail_url
+      if bibkey_data.thumbnail_url
         # the img is height 0, to not interfere with other elements.
         # reset to 'auto' before inserting GBS URL
         selector.height('auto')
-        selector.attr "src", isbn_data.thumbnail_url.replace(/zoom\=5/, "zoom=1")
+        selector.attr "src", bibkey_data.thumbnail_url.replace(/zoom\=5/, "zoom=1")
         selector.parents(".book_cover").find(".fake_cover").hide()
         gbs_cover.show()
 
       $("li.gbs_info").show()
-      $("a.gbs_info_link").attr "href", isbn_data.info_url
+      $("a.gbs_info_link").attr "href", bibkey_data.info_url
 
-      unless isbn_data.preview is "noview"
+      unless bibkey_data.preview is "noview"
         gbs_cover.find(".gbs_preview").show()
-        gbs_cover.find(".gbs_preview_link").attr "href", isbn_data.preview_url
+        gbs_cover.find(".gbs_preview_link").attr "href", bibkey_data.preview_url
 
         search_form = gbs_cover.find(".gbs_search_form")
         search_form.show()
 
-        find_id = new RegExp("[&?]id=([^&(.+)=]*)").exec(isbn_data.preview_url)
-        strip_querystring = new RegExp("^[^?]+").exec(isbn_data.preview_url)
+        find_id = new RegExp("[&?]id=([^&(.+)=]*)").exec(bibkey_data.preview_url)
+        strip_querystring = new RegExp("^[^?]+").exec(bibkey_data.preview_url)
 
         if find_id and strip_querystring
           search_form.attr("action", strip_querystring[0]).show()
           search_form.find("input[name=id]").attr "value", find_id[1]
 
-        gbs_cover.find(".gbs_preview_partial").show()  if isbn_data.preview is "partial"
-        gbs_cover.find(".gbs_preview_full").show()  if isbn_data.preview is "full"
+        gbs_cover.find(".gbs_preview_partial").show()  if bibkey_data.preview is "partial"
+        gbs_cover.find(".gbs_preview_full").show()  if bibkey_data.preview is "full"
 
 
 

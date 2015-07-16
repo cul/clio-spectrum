@@ -83,8 +83,9 @@
     
       
   -# .clear-both
+
 -# this partial inserts the javascript to fetch book data from Google,
--# and pass it to update_book_jackets() [defined in holdings.js]
+-# and pass it to update_google_holdings() [defined in holdings.js]
 = render "google_books_check", :documents => document
 
 - if @active_source == "databases" && can?(:manage, ItemAlert)

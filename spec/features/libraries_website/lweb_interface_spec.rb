@@ -5,24 +5,24 @@ describe 'Libraries Website DAM search' do
   it 'should show DAM filenames and format icons for XLS' do
     visit library_web_index_path('q' => 'dam sheet1 xlsx')
     within all('.result.document').first do
-      find('img')['src'].should have_content 'xlsx.png'
-      find('.lweb_dam_document').should have_text '.xlsx'
+      expect(find('img')['src']).to have_content 'xlsx.png'
+      expect(find('.lweb_dam_document')).to have_text '.xlsx'
     end
   end
 
   it 'should show DAM filenames and format icons for DOC' do
     visit library_web_index_path('q' => 'reproduction form doc dam')
     within all('.result.document').first do
-      find('img')['src'].should have_content 'doc.png'
-      find('.lweb_dam_document').should have_text '.doc'
+      expect(find('img')['src']).to have_content 'doc.png'
+      expect(find('.lweb_dam_document')).to have_text '.doc'
     end
   end
 
   it 'should show DAM filenames and format icons for PDF' do
     visit library_web_index_path('q' => 'dam pdf guide')
     within all('.result.document').first do
-      find('img')['src'].should have_content 'pdf.png'
-      find('.lweb_dam_document').should have_text '.pdf'
+      expect(find('img')['src']).to have_content 'pdf.png'
+      expect(find('.lweb_dam_document')).to have_text '.pdf'
     end
   end
 
@@ -43,7 +43,7 @@ describe 'Libraries Website searches' do
     # Confirm 100-items returned upon next search
     visit library_web_index_path('q' => 'book')
     within all('.index_toolbar.navbar').first do
-      find('#current_item_info').should have_text '1 - 100 of'
+      expect(find('#current_item_info')).to have_text '1 - 100 of'
     end
 
     # SET page-size to new value, 25 items
@@ -56,7 +56,7 @@ describe 'Libraries Website searches' do
     # Confirm 25-items returned upon next search
     visit library_web_index_path('q' => 'library')
     within all('.index_toolbar.navbar').first do
-      find('#current_item_info').should have_text '1 - 25 of'
+      expect(find('#current_item_info')).to have_text '1 - 25 of'
     end
 
   end

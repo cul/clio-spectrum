@@ -14,6 +14,11 @@ require 'rubygems'
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
 
+  # Suddenly getting 'NameError: uninitialized constant RSpec::Matchers'
+  # resolve with this:
+  # Rails 4 - remove
+  # require 'rspec-expectations'
+
   ENV['RAILS_ENV'] ||= 'test'
   require File.expand_path('../../config/environment', __FILE__)
   require 'rspec/rails'
@@ -24,10 +29,16 @@ require 'rubygems'
   Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
   RSpec.configure do |config|
+    # Rails 4 - remove
+    # config.treat_symbols_as_metadata_keys_with_true_values = true
     config.mock_with :rspec
     config.include(MailerMacros)
     config.before(:each) { reset_email }
 
+    config.around(:each, :selenium) do |example|
+      Capybara.current_driver = :selenium
+      example.run
+    end
     # Specify an alternative JS driver if we want to avoid selinium
     Capybara.javascript_driver = :webkit
     # Capybara.javascript_driver = :webkit_debug
@@ -42,7 +53,9 @@ require 'rubygems'
       # config.visible_text_only = true
     # end
 
-    config.treat_symbols_as_metadata_keys_with_true_values = true
+    # eliminated with rails 4
+    # config.treat_symbols_as_metadata_keys_with_true_values = true
+
     config.filter_run focus: true
     config.run_all_when_everything_filtered = true
 
@@ -58,66 +71,53 @@ require 'rubygems'
     # needs to run non-transactionally to avoid
     # "SQLite3::BusyException: database is locked"
     config.use_transactional_fixtures = false
-    config.before(:each, js: true) do
-      page.driver.block_unknown_urls
-      page.driver.allow_url("catalog.hathitrust.org")
-      page.driver.allow_url("books.google.com")
-      page.driver.allow_url("http://bronte.cul.columbia.edu/clio_backend_dev")
-    end
 
-    # from https://github.com/thoughtbot/capybara-webkit/issues/717
-    config.before(:each, js: true) do
-      # Everything is terrible. js: true in config.before will run if the js tag
-      # is present in the spec declaration, regardless of the value.
-      page.driver.block_unknown_urls
-      page.driver.allow_url("catalog.hathitrust.org")
-      page.driver.allow_url("books.google.com")
-      page.driver.allow_url("bronte.cul.columbia.edu")
-
-      # We reliably get "Errno::EPIPE: Broken pipe" unless
-      # we allow connections to here.  Annoying, mysterious.
-      page.driver.allow_url("google-analytics.com")
-
-      # All this, just for the maps on the location pages.
-      # But leaving these URLs blocked doesn't interfere
-      # with Selenium testing - so don't whitelist.
-      # page.driver.allow_url("maps.google.com")
-      # page.driver.allow_url("maps.googleapis.com")
-      # page.driver.allow_url("gstatic.com")
-      # page.driver.allow_url("googlecode.com")
-      # page.driver.allow_url("googleapis.com")
-    end
+    # 3/15 - seems to be needed for rails 4?
+    # Include path helpers
+    config.include Rails.application.routes.url_helpers
+    # and this???
+    # http://stackoverflow.com/questions/15148585/undefined-method-visit
+    config.include Capybara::DSL
 
     # Allow developers to turn off selenium-based testing
     # with a local setting in their app_config.yml
-    config.filter_run_excluding :type => 'selenium' if
+    config.filter_run_excluding :selenium if
         APP_CONFIG['skip_selenium_tests']
 
-    # # # Capybara URL whitelisting
-    #  config.before(:each) do
-    #      puts "AAA"
-    #      if page.present? && page.driver.respond_to?(:block_unknown_urls)
-    #        puts "BBB"
-    #        page.driver.block_unknown_urls
-    #      end
-    #      # if page && page.driver.respond_to?(:allow_url)
-    #      #   page.driver.allow_url("catalog.hathitrust.org")
-    #      #   page.driver.allow_url("books.google.com")
-    #      #   page.driver.allow_url("http://bronte.cul.columbia.edu/clio_backend_dev")
-    #      # end
-    #  end
+    # This says to assume things in spec/controllers are controller
+    # specs, etc.  No longer automatic with new rspec?
+    config.infer_spec_type_from_file_location!
+  end
 
-    # from https://github.com/thoughtbot/capybara-webkit/issues/717
-    # config.before :each, :js, type: :feature do |example|
+  Capybara::Webkit.configure do |config|
+    config.block_unknown_urls
 
-    config.before(:each, js: true) do
-      # Everything is terrible. js: true in config.before will run if the js tag
-      # is present in the spec declaration, regardless of the value.
-      page.driver.block_unknown_urls
-      page.driver.allow_url("catalog.hathitrust.org")
-      page.driver.allow_url("books.google.com")
-      page.driver.allow_url("http://bronte.cul.columbia.edu/clio_backend_dev")
-    end
+    # We test response data from these sites
+    config.allow_url("hathitrust.org")
+    config.allow_url("books.google.com")
+
+    # OLD - WAS PART OF RSPEC CONFIG BLOCK ABOVE
+     # # Turn this block on when we upgrade capybara-webkit
+     # # from https://github.com/thoughtbot/capybara-webkit/issues/717
+     # config.before(:each, js: true) do
+     #   page.driver.block_unknown_urls
+     #   # page.driver.allow_url("hathitrust.org")
+     #   # page.driver.allow_url("books.google.com")
+     #   # page.driver.allow_url("bronte.cul.columbia.edu")
+     # 
+     #   # We reliably get "Errno::EPIPE: Broken pipe" unless
+     #   # we allow connections to here.  Annoying, mysterious.
+     #   # page.driver.allow_url("google-analytics.com")
+     # 
+     #   # All this, just for the maps on the location pages.
+     #   # But leaving these URLs blocked doesn't interfere
+     #   # with Selenium testing - so don't whitelist.
+     #   # page.driver.allow_url("maps.google.com")
+     #   # page.driver.allow_url("maps.googleapis.com")
+     #   # page.driver.allow_url("gstatic.com")
+     #   # page.driver.allow_url("googlecode.com")
+     #   # page.driver.allow_url("googleapis.com")
+     # end
 
 
   end

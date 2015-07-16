@@ -50,8 +50,7 @@ class SavedListsController < ApplicationController
       # Special-case: if we're trying to pull up the user's default list,
       # auto-create it for them.
       if @list.blank? and slug == SavedList::DEFAULT_LIST_SLUG
-        @list = SavedList.new(created_by: current_user.login,
-                              owner: current_user.login,
+        @list = SavedList.new(owner: current_user.login,
                               name: SavedList::DEFAULT_LIST_NAME)
         @list.save!
       end
@@ -146,7 +145,8 @@ class SavedListsController < ApplicationController
     end
 
     respond_to do |format|
-      if @list.update_attributes(params[:saved_list])
+      # if @list.update_attributes(params[:saved_list])
+      if @list.update_attributes(saved_list_params)
         format.html { redirect_to @list.url, notice: 'List was successfully updated.' }
         format.json { head :no_content }
       else
@@ -175,6 +175,7 @@ class SavedListsController < ApplicationController
 
   # Add items to a named list. (And Create the list if it does not yet exist)
   def add
+
     # # We're either passed a list of item-keys,
     # # OR we'll just add whatever's currently selected.
     # items_to_add = Array(params[:item_key_list] || session[:selected_items]).uniq
@@ -185,6 +186,8 @@ class SavedListsController < ApplicationController
 
     if items_to_add.size == 0
       message = 'Must specify items to be added'
+      # "referrer" was sometimes failing - revert.
+      # redirect_to request.referrer , :flash => { :error => message } and return
       redirect_to after_sign_in_path_for, :flash => { :error => message } and return
       # render text: 'Must specify items to be added', status: :bad_request and return
     end
@@ -192,6 +195,8 @@ class SavedListsController < ApplicationController
     list_name = params[:name] ||= SavedList::DEFAULT_LIST_NAME
     if list_name.nil? || list_name.empty?
       message = 'Cannot add to unnamed list'
+      # "referrer" was sometimes failing - revert.
+      # redirect_to request.referrer , :flash => { :error => message } and return
       redirect_to after_sign_in_path_for, :flash => { :error => message } and return
       # render text: 'Cannot add to unnamed list', status: :unprocessable_entity and return
     end
@@ -199,8 +204,7 @@ class SavedListsController < ApplicationController
     # Find -- or CREATE -- a list with the right name
     @list = SavedList.where(owner: current_user.login, name: list_name).first
     unless @list
-      @list = SavedList.new(created_by: current_user.login,
-                            owner: current_user.login,
+      @list = SavedList.new(owner: current_user.login,
                             name: list_name)
       @list.save!
     end
@@ -233,6 +237,8 @@ class SavedListsController < ApplicationController
     # message = "items_to_add=[#{items_to_add}], class=[#{items_to_add.class}]"
 
     respond_to do |format|
+      # "referrer" was sometimes failing - revert.
+      # format.html { redirect_to request.referrer, :flash => { :notice => message } }
       format.html { redirect_to after_sign_in_path_for, :flash => { :notice => message } }
       format.json { render text: message, status: :ok }
     end
@@ -405,6 +411,11 @@ class SavedListsController < ApplicationController
   def limited_show
     # If the 'owner' param is not passed, then require authentication
     authenticate_user! unless params[:owner]
+  end
+
+  def saved_list_params
+    params.require(:saved_list).permit(:owner, :name, :slug, :description, :sort_by, :permissions)
+    # parms.permit(:owner, :name, :slug, :description, :sort_by, :permissions)
   end
 
 end

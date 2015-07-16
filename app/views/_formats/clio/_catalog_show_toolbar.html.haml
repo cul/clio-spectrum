@@ -87,25 +87,27 @@
               %li= link_to "Display in CLIO Legacy", "http://clio.cul.columbia.edu:7018/vwebv/holdingsInfo?bibId=#{clio_id}"
   
             - if @document.respond_to?(:to_marc)
-              %li= link_to "MARC View", librarian_view_catalog_path(id), {:id => "librarianLink", :name => "librarian_view" }
+              %li= link_to "MARC View", fix_catalog_links(librarian_view_catalog_path(id)), {:id => "librarianLink", :name => "librarian_view" }
   
         %li.dropdown
           =link_to "Requests <span class='caret'></span>".html_safe, "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown"
           %ul.dropdown-menu
-            %li= link_to "Place a Recall / Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId=#{clio_id}", :target => "_blank"
-            %li= link_to "Borrow Direct", "http://www.columbia.edu/cgi-bin/cul/borrowdirect?#{clio_id}", :target => "_blank"
-            %li= link_to "ILL", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?#{clio_id}", :target => "_blank"
-            %li= link_to "Scan & Deliver", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?#{clio_id}", :target => "_blank"
-            %li= link_to "Inter-Campus Delivery", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0013", :target => "_blank"
-            %li= link_to "In-Process / On Order", "#", :onclick => "OpenInprocessRequest(#{clio_id}); return false;"
-            %li= link_to "Precataloging", "#", :onclick => "OpenPrecatRequest(#{clio_id}); return false;"
+            - if in_pegasus?(document)
+              %li= law_requests_blurb
+            - else
+              %li= link_to "Place a Recall / Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId=#{clio_id}", :target => "_blank"
+              %li= link_to "Borrow Direct", "http://www.columbia.edu/cgi-bin/cul/borrowdirect?#{clio_id}", :target => "_blank"
+              %li= link_to "ILL", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?#{clio_id}", :target => "_blank"
+              %li= link_to "Scan & Deliver", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?#{clio_id}", :target => "_blank"
+              %li= link_to "Inter-Campus Delivery", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0013", :target => "_blank"
+              %li= link_to "In-Process / On Order", "#", :onclick => "OpenInprocessRequest(#{clio_id}); return false;"
+              %li= link_to "Precataloging", "#", :onclick => "OpenPrecatRequest(#{clio_id}); return false;"
+              -# NewRelic shows that calling this CGI script is taking 4% of total server cpu.
+              -# Just show this for everyone.
+              -# if HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + clio_id) == "1"
+              %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{clio_id}", :target => "_blank"
   
-            -# NewRelic shows that calling this CGI script is taking 4% of total server cpu.
-            -# Just show this for everyone.
-            -# if HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + clio_id) == "1"
-            %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{clio_id}", :target => "_blank"
-  
-            %li= link_to "Item Not On Shelf?", "#", :onclick => "OpenSearchRequest(#{clio_id}); return false;"
+              %li= link_to "Item Not On Shelf?", "#", :onclick => "OpenSearchRequest(#{clio_id}); return false;"
   
 
         -# %ul.nav.navbar-nav.navbar-right

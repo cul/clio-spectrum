@@ -62,8 +62,11 @@ Rack::Attack.blacklist('pentest') do |request|
 
     # Remember to OR the different clauses below (with trailing ||)
 
-    # Fishing around for the MySQL Admin page
-    request.path =~ %r{scripts/setup.php} ||
+    # # Fishing around for the MySQL Admin page
+    # request.path =~ %r{scripts/setup.php} ||
+
+    # Actually, any path which ends in any of these extensions is a pentest
+    request.path =~ %r{\.(php|asp|aspx)$} ||
 
     # Any WordPress access attempts
     # (wp-login, wp-admin, wp-signup, wp-content, wp-cache, etc.)

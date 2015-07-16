@@ -1,7 +1,7 @@
 // Take care of requiring our own dependencies,
 // so don't do this anywhere else!
-//= require gmaps/google
-//= require underscore-min
+// #  require gmaps/google
+// #  require underscore-min
 
 
 var aryMapStyles =  [

@@ -1,8 +1,9 @@
 class ItemAlert < ActiveRecord::Base
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
 
-  attr_accessible :source, :item_key, :author_id, :alert_type,
-                  :start_date, :end_date, :message
+  # remove for Rails 4
+  # attr_accessible :source, :item_key, :author_id, :alert_type,
+  #                 :start_date, :end_date, :message
 
   validates :author_id, presence: true
   validates :message, presence: true

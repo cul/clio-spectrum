@@ -23,14 +23,48 @@
 -# They want CLIO to work just like voyager, so copy this as much as possible...
 -#
 
+-# OLD - BROUGHT OVER FROM VOYAGER
+-# #hathi_holdings
+-#   .hathi_title Hathi Trust
+-#   .hathi_info
+-#     #hathidata
+-#     %form{:onsubmit => 'return false', :name => 'hathiBk'}
+-#       - extract_standard_bibkeys(document).each { |key|
+-#       - keytype, keyvalue = key.split(':')
+-#       %input{ :value => "#{keytype}:#{keyvalue}", :id => "h#{keytype}", :name => "h#{keytype}",  :type => 'hidden'}
+-#       - }
+
+-# NEW
+
+- content_for :jstemplates do
+  :javascript
+    $(document).ready(function() {
+      load_hathi_holdings(#{clio_id});
+    });
+
 #hathi_holdings
-  .hathi_title Hathi Trust
-  .hathi_info
-    #hathidata
-    %form{:onsubmit => 'return false', :name => 'hathiBk'}
-      - extract_standard_bibkeys(document).each { |key|
-      - keytype, keyvalue = key.split(':')
-      %input{ :value => "#{keytype}:#{keyvalue}", :id => "h#{keytype}", :name => "h#{keytype}",  :type => 'hidden'}
-      - }
+  #hathi_data_wrapper
+    .hathi_holdings_check
+      Loading holdings...
+      %span.holding_spinner=image_tag ("ajax-indicator.gif")
+    .hathi_holdings_error
+      Unable to load.
+      = link_to "Retry?", "#", :onclick => "javascript:load_hathi_holdings(#{h(clio_id)});"
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

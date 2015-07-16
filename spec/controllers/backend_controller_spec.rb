@@ -18,9 +18,9 @@ describe BackendController do
   # NEXT-1009 - Multiple 866 fields in the holding records
   it "holdings with multiple 866s" do
     get 'holdings', :id => '763577'
-    response.should be_success
-    response.body.should_not match /\-\-/
-    response.body.should match /<br\/>Special issues/
+    expect(response).to be_success
+    expect(response.body).to_not match /\-\-/
+    expect(response.body).to match /<br\/>Special issues/
   end
 
   # NEXT-1147 - Add location note for Burke rare locations
@@ -32,9 +32,9 @@ describe BackendController do
 
     bibs.each do |bib|
       get 'holdings', :id => bib
-      response.should be_success
-      response.body.should have_text location_note
-      response.body.should have_link(link_text, href: link_href)
+      expect(response).to be_success
+      expect(response.body).to have_text location_note
+      expect(response.body).to have_link(link_text, href: link_href)
     end
   end
 
@@ -43,28 +43,30 @@ describe BackendController do
   it "should label Call Numbers" do
     # Simple case
     get 'holdings', :id => '123456'
-    response.should be_success
-    response.body.should match /Call Number:\s+HD1945/m
+    expect(response).to be_success
+    tagless = response.body.gsub(/<\/?[^>]+>/, '')
+    expect(tagless).to match /Call Number:\s+HD1945/m
 
     # Complex case
     get 'holdings', :id => '763577'
-    response.should be_success
-    response.body.should match /Call Number:\s+R341.273/m
-    response.body.should match /Call Number:\s+JX233/m
-    response.body.should match /Call Number:\s+MICFICHE/m
+    expect(response).to be_success
+    tagless = response.body.gsub(/<\/?[^>]+>/, '')
+    expect(tagless).to match /Call Number:\s+R341.273/m
+    expect(tagless).to match /Call Number:\s+JX233/m
+    expect(tagless).to match /Call Number:\s+MICFICHE/m
   end
 
   it "holdings() should silently ignore a bad CLIO ID" do
 
     # non-numeric value
     get 'holdings', :id => 'non-numeric'
-    response.should be_success
-    response.body.strip.should be_empty
+    expect(response).to be_success
+    expect(response.body.strip).to be_empty
 
     # really, really big integer
     get 'holdings', :id => '999999999999999999999999999999999999'
-    response.should be_success
-    response.body.strip.should be_empty
+    expect(response).to be_success
+    expect(response.body.strip).to be_empty
 
   end
 
@@ -86,8 +88,8 @@ describe BackendController do
   it "holdings() should silently absorb 404 from clio_backend_url" do
     APP_CONFIG['clio_backend_url'] = APP_CONFIG['clio_backend_url'] + "/foo/bar"
     get 'holdings', :id => '123'
-    response.should be_success
-    response.body.strip.should be_empty
+    expect(response).to be_success
+    expect(response.body.strip).to be_empty
   end
 
 
@@ -95,16 +97,16 @@ describe BackendController do
   it "holdings() should silently absorb a bogus clio_backend_url" do
     APP_CONFIG['clio_backend_url'] = 'http://no.such.host'
     get 'holdings', :id => '123'
-    response.should be_success
-    response.body.strip.should be_empty
+    expect(response).to be_success
+    expect(response.body.strip).to be_empty
   end
 
 
   it "holdings() should silently absorb unroutable clio_backend_url" do
     APP_CONFIG['clio_backend_url'] = 'http://10.0.0.1'
     get 'holdings', :id => '123'
-    response.should be_success
-    response.body.strip.should be_empty
+    expect(response).to be_success
+    expect(response.body.strip).to be_empty
   end
 
   it "url_for_id() should raise RuntimeError if when clio_backend_url unset" do

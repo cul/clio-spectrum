@@ -2,25 +2,25 @@ require 'spec_helper'
 
 describe DisplayHelper do
 
-  it 'should return top-level Pegasus Link' do
+  it 'should return top-level Pegasus Link', type: :helper do
     pegasus_url = 'http://pegasus.law.columbia.edu'
 
     link = pegasus_item_link(nil)
-    link.should have_text(pegasus_url)
-    link.should match(/href=.#{pegasus_url}./)
+    expect(link).to have_text(pegasus_url)
+    expect(link).to match(/href=.#{pegasus_url}./)
   end
 
   it 'should return formats as text when appropriate' do
     # we know that Online uses "link.png"
     document = { 'format' => %w(Purple Online Banana) }
     format_string = formats_with_icons(document)
-    format_string.should match /Purple, .*link.png.*Online, Banana/
+    expect(format_string).to match /Purple, .*link.png.*Online, Banana/
   end
 
   it 'generate_value_links() returns unlinked values when appropriate' do
     values = %w(Eeny meeny miny moe)
     out = generate_value_links(values, 'NoSuchCategory')
-    out.should == values
+    expect(out).to eq(values)
 
     values_delimited = values.map { |element| "#{element}|DELIM|foo" }
     expect do
@@ -30,7 +30,7 @@ describe DisplayHelper do
     @add_row_style = :text
     values_delimited = values.map { |element| "#{element}|DELIM|foo" }
     out = generate_value_links(values_delimited, 'NoSuchCategory')
-    out.should == values
+    expect(out).to eq(values)
   end
 
   describe '#catalog_to_openurl_ctx_kev' do

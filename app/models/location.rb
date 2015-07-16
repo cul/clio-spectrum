@@ -1,6 +1,9 @@
 class Location < ActiveRecord::Base
   CATEGORIES = %w(library info)
-  attr_accessible :name, :found_in, :library_id, :category, :location_code
+
+  # Rails 4 - remove this
+  # attr_accessible :name, :found_in, :library_id, :category, :location_code
+
   belongs_to :library
 
   has_options association_name: :links
@@ -16,9 +19,11 @@ class Location < ActiveRecord::Base
     # # logger.debug("match_location_text: looking for " + location)
 
     if connection.adapter_name.downcase.include?('mysql')
-      matches = find(:all, conditions: ["? LIKE CONCAT(locations.name, '%')", location], include: :library)
+      # matches = find(:all, conditions: ["? LIKE CONCAT(locations.name, '%')", location], include: :library)
+      matches = where("? LIKE CONCAT(locations.name, '%')", location).joins('LEFT OUTER JOIN libraries ON libraries.id = locations.library_id')
     else
-      matches = find(:all, conditions: ["? LIKE locations.name || '%'", location], include: :library)
+      # matches = find(:all, conditions: ["? LIKE locations.name || '%'", location], include: :library)
+      matches = where("? LIKE locations.name || '%'", location).joins('LEFT OUTER JOIN libraries ON libraries.id = locations.library_id')
     end
 
     max_length = matches.map { |m| m.name.length }.max
@@ -44,7 +49,10 @@ class Location < ActiveRecord::Base
   end
 
   def self.clear_and_load_fixtures!
-    Location.delete_all
+    # Use "destroy" instead of delete, so that it'll
+    # also clear out associated 'has_options' rows
+    # Location.delete_all
+    Location.destroy_all
     fixture = YAML.load_file('config/locations_fixture.yml')
 
     fixture.each do |location_hash|
