@@ -125,7 +125,7 @@ Clio::Application.routes.draw do
   # match '/catalog/email(.:format)' => 'catalog#email', as: :email_catalog, via: [:post]
   # match '/catalog/sms(.:format)' => 'catalog#sms', as: :sms_catalog, via: [:post]
 
-  get '/catalog/email(.:format)', to: 'catalog#email', as: :email
+  match '/catalog/email(.:format)', via: [:get, :post], to: 'catalog#email', as: :email
 
   # Again, blacklight inserts this as GET, we need to support PUT
   # (due to Blacklight's mechanism of preserving search context.)
