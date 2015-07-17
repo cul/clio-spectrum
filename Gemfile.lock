@@ -167,8 +167,6 @@ GEM
     libv8 (3.16.14.7)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mailer_fragment_caching (0.0.3)
-      rails (>= 3.0.0)
     marc (1.0.0)
       scrub_rb (>= 1.0.1, < 2)
       unf
@@ -344,7 +342,6 @@ DEPENDENCIES
   json
   kaminari
   launchy
-  mailer_fragment_caching
   meta_request
   mysql2
   net-ldap

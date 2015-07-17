@@ -55,7 +55,7 @@ Clio::Application.routes.draw do
   get 'get_browser_option', to: 'application#get_browser_option_handler'
 
   # Support for persisent selected-item lists
-  get 'selected_items', to: 'application#selected_items_handler'
+  match 'selected_items', via: [:get, :post], to: 'application#selected_items_handler'
 
   # Is this redundant with above "evise_for :users, controllers:..." ?
   # devise_for :users
@@ -125,7 +125,7 @@ Clio::Application.routes.draw do
   # match '/catalog/email(.:format)' => 'catalog#email', as: :email_catalog, via: [:post]
   # match '/catalog/sms(.:format)' => 'catalog#sms', as: :sms_catalog, via: [:post]
 
-  get '/catalog/email(.:format)', to: 'catalog#email', as: :email
+  match '/catalog/email(.:format)', via: [:get, :post], to: 'catalog#email', as: :email
 
   # Again, blacklight inserts this as GET, we need to support PUT
   # (due to Blacklight's mechanism of preserving search context.)

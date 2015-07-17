@@ -219,7 +219,7 @@ $ ->
   # var tag = document.createElement("script");
   # tag.src = 'somewhere_else.php?callback=foo';
   # document.getElementsByTagName("head")[0].appendChild(tag);
-  books_url = "http://books.google.com/books";
+  books_url = "https://books.google.com/books";
   api_url= books_url + "?jscmd=viewapi&bibkeys=" + standard_id_set_csv + "&callback=google_books_response_callback";
   tag = document.createElement("script")
   tag.src = api_url

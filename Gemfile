@@ -123,7 +123,8 @@ gem 'cancan'
 # 3/15
 # gem 'caching_mailer'
 # Here's one that's supposed to work for Rails 4.
-gem 'mailer_fragment_caching'
+# gem 'mailer_fragment_caching'
+# but it doesn't.
 
 gem 'exception_notification'
 gem 'net-ldap'
