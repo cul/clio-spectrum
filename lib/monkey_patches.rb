@@ -85,3 +85,22 @@ class Hash
     base
   end
 end
+
+
+# https://github.com/rails/rails/pull/19941
+module ActionView
+  module Helpers
+    module CacheHelper
+
+      def cache(name = {}, options = nil, &block)
+        if controller.respond_to?(:perform_caching) && controller.perform_caching
+          safe_concat(fragment_for(cache_fragment_name(name, options), options, &block))
+        else
+          yield
+        end
+
+        nil
+      end
+    end
+  end
+end

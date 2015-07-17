@@ -2,8 +2,9 @@
 
 # Despite living under /app/models, this is not a Model, it's a Mailer.
 class RecordMailer < ActionMailer::Base
-  # let the Mailer use fragments that use caching
-  include MailerFragmentCaching
+  # this doesnt' work.
+  # # let the Mailer use fragments that use caching
+  # include MailerFragmentCaching
 
   default from: 'CLIO <no-reply@libraries.cul.columbia.edu>'
 
