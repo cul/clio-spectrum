@@ -252,12 +252,17 @@ Devise.setup do |config|
   # 'destination' or 'follow' as the logout_url_param. If the urls are blank but
   # logout_url_param is set, a default will be detected for the service.
   # config.cas_destination_url = 'https://cas.myorganization.com'
-  config.cas_follow_url = APP_CONFIG['cas_follow_url']
-  config.cas_logout_url_param = 'follow'
+  # config.cas_follow_url = APP_CONFIG['cas_follow_url']
+  # config.cas_logout_url_param = 'follow'
+  config.cas_follow_url = APP_CONFIG['cas_destination_url']
+  config.cas_logout_url_param = 'destination'
 
   # You can specify the name of the destination argument with the following option.
   # e.g. the following option will change it from 'destination' to 'url'
   # config.cas_destination_logout_param_name = 'url'
+  # *** CUIT wants this to be "service", and it must be a registered service.
+  # see:   https://cuit.columbia.edu/cas-authentication
+  config.cas_destination_logout_param_name = 'service'
 
   # By default, devise_cas_authenticatable will create users.  If you would rather
   # require user records to already exist locally before they can authenticate via
