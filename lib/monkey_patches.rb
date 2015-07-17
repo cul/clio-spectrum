@@ -86,7 +86,9 @@ class Hash
   end
 end
 
-
+# This is in Rails 4.1, 4.2, and onward.
+# Add it here as a monkey-patch for Rails 4.0,
+# *** try to remember to remove this after Rails upgrade ***
 # https://github.com/rails/rails/pull/19941
 module ActionView
   module Helpers
