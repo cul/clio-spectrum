@@ -35,7 +35,7 @@ module Clio
     # require File.expand_path('../../lib/monkey_patches', __FILE__)
     require 'monkey_patches'
     # require File.expand_path('../../lib/rsolr_notifications', __FILE__)
-    require 'rsolr_notifications'
+    # require 'rsolr_notifications'
     require 'browse_support'
 
     # Only load the plugins named here, in the order given (default is alphabetical).

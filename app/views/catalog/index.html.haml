@@ -3,6 +3,7 @@
 
 / catalog/index.html.haml
 
+- debug_timestamp('begin catalog/index.html.haml')
 
 -  unless has_search_parameters?
   - cache("datasource_landing_page_#{@active_source}_#{params_digest}") do
@@ -47,6 +48,8 @@
     .alert.alert-danger
       Unexpected Error during search.
       Please #{link_to "restart your search", datasource_landing_page_path(@active_source)}
+
+- debug_timestamp('end catalog/index.html.haml')
 
 
 

@@ -3,7 +3,7 @@
 # classes, etc.
 require 'mail'
 class ApplicationController < ActionController::Base
-  helper_method :set_browser_option, :get_browser_option
+  helper_method :set_browser_option, :get_browser_option, :debug_timestamp
 
   # Adds a few additional behaviors into the application controller
   include Blacklight::Controller
@@ -234,8 +234,8 @@ class ApplicationController < ActionController::Base
   end
 
   def trigger_debug_mode
-    RSolr::Client.send(:include, RSolr::Ext::Notifications)
-    RSolr::Client.enable_notifications!
+    # RSolr::Client.send(:include, RSolr::Ext::Notifications)
+    # RSolr::Client.enable_notifications!
 
     params_debug_mode = params['debug_mode']
 
