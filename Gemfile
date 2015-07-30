@@ -22,7 +22,7 @@ gem 'activerecord-session_store'
 
 #  ###  BLACKLIGHT (begin)  ###
 
-gem 'blacklight', '~>5.9.0'
+gem 'blacklight', '~>5.10.0'
 
 # when we move to 5.x, uncomment this
 gem 'blacklight-marc'
