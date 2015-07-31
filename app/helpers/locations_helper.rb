@@ -1,7 +1,7 @@
 
 # UNUSED with move to AJAX-based lookups against LibraryWeb mapping API
 
-# module LocationsHelper
+module LocationsHelper
 #   MAP_IMAGE_SIZES = {
 #     'http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionC.gif' => [304, 500],
 #     'http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionA.gif' => [560, 346],
@@ -32,4 +32,4 @@
 # 
 #     end
 #   end
-# end
+end
