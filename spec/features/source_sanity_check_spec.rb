@@ -121,50 +121,46 @@ describe 'Switching between data-source', js: true do
     end
     expect(find('div.constraint-box')).to have_text('test')
     expect(page).to have_css('.result')
-    all('#documents .result').first['source'].should eq 'catalog'
+    expect(all('#documents .result').first['source']).to eq 'catalog'
 
     click_link('Articles')
-    # expect(find('input#articles_q')).to have_text('test')
-    find('input#articles_q').value.should eq 'test'
+    expect(find('input#articles_q').value).to eq 'test'
     expect(find('.well-constraints')).to have_text('test')
     expect(page).to have_css('.result')
-    # puts "==========" + all('#documents .result').first.inspect
-    # all('#documents .result').first.should have_selector('.article_list')
 
     click_link('E-Journal Titles')
-    find('input#journals_q').value.should eq 'test'
+    expect(find('input#journals_q').value).to eq 'test'
     expect(find('.constraint-box')).to have_text('test')
     expect(page).to have_css('.result')
-    all('#documents .result').first['source'].should eq 'catalog'
+    expect(all('#documents .result').first['source']).to eq 'catalog'
 
     click_link('Databases')
-    find('input#databases_q').value.should eq 'test'
+    expect(find('input#databases_q').value).to eq 'test'
     expect(find('.constraint-box')).to have_text('test')
     expect(page).to have_css('.result')
-    all('#documents .result').first['source'].should eq 'catalog'
+    expect(all('#documents .result').first['source']).to eq 'catalog'
 
     click_link('Academic Commons')
-    find('input#academic_commons_q').value.should eq 'test'
+    expect(find('input#academic_commons_q').value).to eq 'test'
     expect(find('.constraint-box')).to have_text('test')
     expect(page).to have_css('.result')
-    all('#documents .result').first['source'].should eq 'academic_commons'
+    expect(all('#documents .result').first['source']).to eq 'academic_commons'
 
     click_link('Libraries Website')
-    find('input#library_web_q').value.should eq 'test'
+    expect(find('input#library_web_q').value).to eq 'test'
     expect(find('.constraint-box')).to have_text('test')
     expect(page).to have_css('.result')
-    # all('#documents .result').first['source'].should eq 'XXX'
 
     click_link('Archives')
-    find('input#archives_q').value.should eq 'test'
+    expect(find('input#archives_q').value).to eq 'test'
     expect(find('.constraint-box')).to have_text('test')
     expect(page).to have_css('.result')
-    all('#documents .result').first['source'].should eq 'catalog'
+    expect(all('#documents .result').first['source']).to eq 'catalog'
 
     click_link('More...')
     click_link('Dissertations')
 
-    find('input#dissertations_q').value.should eq 'test'
+    expect(find('input#dissertations_q').value).to eq 'test'
 
     expect(page).to have_css('.result_set', count: 3, wait: 3)
     expect(page).to have_css('.result_count', count: 3, wait: 3)
@@ -174,23 +170,17 @@ describe 'Switching between data-source', js: true do
     end
 
     click_link('E-Books')
-    find('input#ebooks_q').value.should eq 'test'
+    expect(find('input#ebooks_q').value).to eq 'test'
     expect(page).to have_css('.result_set', count: 2)
     all('.result_set').each do |result_set|
       expect(result_set).to have_css('.result')
     end
 
     click_link('New Arrivals')
-    find('input#new_arrivals_q').value.should eq 'test'
+    expect(find('input#new_arrivals_q').value).to eq 'test'
     expect(find('.constraint-box')).to have_text('test')
     expect(page).to have_css('.result')
-    all('#documents .result').first['source'].should eq 'catalog'
-
-    # click_link('More...')
-    # click_link('Newspapers')
-    # find('input#newspapers_q').value.should eq 'test'
-    # expect(find('.well-constraints')).to have_text('test')
-    # expect(page).to have_css('.result')
+    expect(all('#documents .result').first['source']).to eq 'catalog'
 
   end
 

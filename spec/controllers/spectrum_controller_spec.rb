@@ -27,13 +27,13 @@ describe SpectrumController do
     #   expect(response).to be_success
     #   expect(response.body).to match(/search layout invalid/i)
       get 'searchjson', layout: 'qucksearch', datasource: 'catalog'
-      response.should be_success
+      expect(response).to be_success
     end
 
     it 'errors on bad input' do
       get 'searchjson', layout: 'No Such Layout', datasource: 'catalog'
-      response.should be_success
-      response.body.should =~ /search layout invalid/i
+      expect(response).to be_success
+      expect(response.body).to match(/search layout invalid/i)
     end
   end
 

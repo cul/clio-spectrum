@@ -8,10 +8,6 @@ describe 'The home page' do
   # and not-yet used to search.
 
   # it "will keep the text in a box across different sources on the landing pages", :js => true do
-  #   visit catalog_index_path
-  #   fill_in 'catalog_q', :with => 'test'
-  #   sleep 1
-  #   find('#articles_q',  visible: false).value.should == 'test'
   # end
 
   it 'will switch the visible search box when a datasource is clicked upon', js: true do

@@ -1,7 +1,10 @@
 Clio::Application.routes.draw do
 
-  # This is getting masked.... try it up here?
+  # blacklight-marc gem gives endnote as an action, not just format of 'show',
+  # to allow endnote export of multiple records at once
   get "catalog/endnote", :as => "endnote_catalog"
+
+  # special admin demo page
   get 'catalog/format_icons'
 
   # and this..

@@ -125,8 +125,8 @@ describe 'Databases', focus: false do
 
    click_link('Display In')
    click_link('MARC View')
-   page.should have_text 'Back to Results | 1 of '
-   page.should have_text '245 0 0 |a ' + firstTitle
+   expect(page).to have_text 'Back to Results | 1 of '
+   expect(page).to have_text '245 0 0 |a ' + firstTitle
 
    # Nav links should preserve active datasource
    href = find_link('Back to Results')[:href]
@@ -139,7 +139,7 @@ describe 'Databases', focus: false do
    within '#show_toolbar' do
      click_link('Next')
    end
-   page.should have_text 'Back to Results | « Previous | 2 of '
+   expect(page).to have_text 'Back to Results | « Previous | 2 of '
 
    # Nav links should preserve active datasource
    href = find_link('Back to Results')[:href]
