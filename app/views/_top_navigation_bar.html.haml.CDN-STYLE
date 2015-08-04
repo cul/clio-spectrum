@@ -32,9 +32,9 @@
               %h1.topbarlogo
                 #mob-crown-holder.hidden-desktop
                   #mob-crown
-                %a.brand.visible-tablet{data: {'original-title' => 'CLIO'}, href: "http://clio.columbia.edu/"}
+                %a.brand.visible-tablet{data: {'original-title' => 'CLIO'}, href: "https://clio.columbia.edu/"}
                   CLIO
-                %a.brand.visible-phone{data: {'original-title' => 'CLIO'}, href: "http://clio.columbia.edu/"}
+                %a.brand.visible-phone{data: {'original-title' => 'CLIO'}, href: "https://clio.columbia.edu/"}
                   CLIO
 
             

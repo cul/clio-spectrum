@@ -22,7 +22,7 @@
 
       -# NEXT-923 - for all formats, for all data-sources, include a stable
       -# "Bookmark As" link to get back to this record.  Hardcode to prod CLIO URL.
-      - bookmark_as_url = "http://clio.columbia.edu/catalog/#{document.id}"
+      - bookmark_as_url = "https://clio.columbia.edu/catalog/#{document.id}"
       = add_row('Bookmark As', link_to(bookmark_as_url, bookmark_as_url) )
 
       -# On narrow screen (single-column of div.info, div.holdings), make sure 
