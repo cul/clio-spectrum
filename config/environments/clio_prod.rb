@@ -2,6 +2,9 @@
 Clio::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  # For CLIO Production server environment, use SSL for everything
+  config.force_ssl = true
+
   # less logging
   config.log_level = :warn
 
