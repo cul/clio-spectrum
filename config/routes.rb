@@ -4,7 +4,8 @@ Clio::Application.routes.draw do
   # to allow endnote export of multiple records at once
   get "catalog/endnote", :as => "endnote_catalog"
 
-  # special admin demo page
+  # special admin pages
+  get 'catalog/system'
   get 'catalog/format_icons'
 
   # and this..
