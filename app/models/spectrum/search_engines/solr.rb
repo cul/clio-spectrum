@@ -887,7 +887,16 @@ perform_search
           end # Blacklight::Configuration.new do
 
         end # if/else bento-box/single-source
+
+        # What else is special in CLIO's generated 
+        # blacklight configurations?
+        # How about overriding the default search_builder?
+        blacklight_config.search_builder_class = Spectrum::SearchBuilder
+
+        # Finally, return the config object
+        return blacklight_config
       end # self.generate_config
+
     end # class Solr
   end # module SearchEngines
 end # module Spectrum

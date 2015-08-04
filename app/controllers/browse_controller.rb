@@ -310,7 +310,7 @@ class BrowseController < ApplicationController
       'terms.sort' => 'index',
       'terms.limit' => how_many
     }
-    solr_response = Blacklight.solr.alphaTerms({params: solr_params})
+    solr_response = Blacklight.default_index.connection.alphaTerms({params: solr_params})
 
     # create array of one element hashes with key=term and value=count
     result = []
