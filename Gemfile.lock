@@ -19,11 +19,11 @@ GIT
 
 GIT
   remote: git://github.com/projectblacklight/blacklight_range_limit.git
-  revision: 9b5c054e53d480a22572fbae4b841c34cd611051
-  branch: master
+  revision: 5dfd222b4a8acd657ecbf7987f904fac0c93ae41
+  branch: blacklight-master
   specs:
-    blacklight_range_limit (5.0.4)
-      blacklight (>= 5.0.0.pre4, < 6)
+    blacklight_range_limit (5.0.3)
+      blacklight (~> 5.10)
       jquery-rails
       rails (>= 3.0, < 5.0)
 
@@ -70,15 +70,15 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    blacklight (5.9.4)
+    blacklight (5.10.3)
       bootstrap-sass (~> 3.2)
       deprecation
       kaminari (~> 0.13)
       nokogiri (~> 1.6)
       rails (>= 3.2.6, < 5)
-      rsolr (~> 1.0.6)
-    blacklight-marc (5.5.0)
-      blacklight (~> 5.8)
+      rsolr (~> 1.0.11)
+    blacklight-marc (5.10.0)
+      blacklight (~> 5.10)
       marc (>= 0.4.3, < 1.1)
       rails
     bootstrap-sass (3.3.5.1)
@@ -312,7 +312,7 @@ DEPENDENCIES
   activerecord-session_store
   better_errors
   binding_of_caller
-  blacklight (~> 5.9.0)
+  blacklight (~> 5.10.0)
   blacklight-marc
   blacklight_range_limit!
   bootstrap-sass

@@ -2,19 +2,19 @@ module Spectrum
   class SolrRepository < Blacklight::SolrRepository
     attr_accessor :source, :solr_url
 
-    def blacklight_solr
-      Rails.logger.debug "Spectrum::SolrRepository#blacklight_solr()"
-      Rails.logger.debug "@blacklight_solr=#{@blacklight_solr.inspect}"
+    def connection
+      Rails.logger.debug "Spectrum::SolrRepository#connection()"
+      Rails.logger.debug "@connection=#{@connection.inspect}"
 
-      # Blacklight::SolrRepository#blacklight_solr
-      # @blacklight_solr ||= RSolr.connect(blacklight_solr_config)
+      # Blacklight::SolrRepository#connection
+      # @connection ||= RSolr.connect(connection_config)
       # Example from Blacklight Wiki:
       # https://github.com/projectblacklight/blacklight/wiki/Solr-Configuration
-      # @blacklight_solr ||= RSolr::Custom::Client.new :user => current_user.id
-      # Spectrum::SearchEngines::Solr#blacklight_solr
+      # @connection ||= RSolr::Custom::Client.new :user => current_user.id
+      # Spectrum::SearchEngines::Solr#connection
       # @solr ||= Solr.generate_rsolr(@source, @solr_url)
 
-       @blacklight_solr ||= generate_rsolr(@source, @solr_url)
+       @connection ||= generate_rsolr(@source, @solr_url)
     end
 
     def generate_rsolr(source, solr_url = nil)
@@ -26,7 +26,7 @@ module Spectrum
       elsif solr_url
         RSolr.connect(url: solr_url)
       else
-        RSolr.connect(Blacklight.solr_config)
+        RSolr.connect(Blacklight.connection_config)
       end
     end
 

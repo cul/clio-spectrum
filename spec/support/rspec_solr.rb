@@ -19,13 +19,13 @@ RSpec.configure do |config|
   #   solr_config = {:url => baseurl}
   # else
   #   yml_group = ENV["YML_GROUP"] ||= 'test'
-  #   solr_config = YAML::load_file('config/solr.yml')[yml_group]
+  #   solr_config = YAML::load_file('config/blacklight.yml')[yml_group]
   # end
 
   solr_url = SOLR_CONFIG['test']['url']
-  solr_config = { url: solr_url }
+  connection_config = { url: solr_url }
 
-  SOLR = RSolr.connect(solr_config)
+  SOLR = RSolr.connect(connection_config)
   puts "Solr URL: #{SOLR.uri}"
 end
 
@@ -286,14 +286,16 @@ end
 #   DOC_IDS_FULL_TITLES
 # end
 
-def solr_conn
-  SOLR
-end
+# marquis - I think we don't need these???
 
-def solr_schema
-  @schema_xml ||= SOLR.send_and_receive('admin/file/', method: :get, params: { 'file' => 'schema.xml', :wt => 'xml' })
-end
-
-def solr_config_xml
-  @solrconfig_xml = SOLR.send_and_receive('admin/file/', method: :get, params: { 'file' => 'solrconfig.xml', :wt => 'xml' })
-end
+# def solr_conn
+#   SOLR
+# end
+# 
+# def solr_schema
+#   @schema_xml ||= SOLR.send_and_receive('admin/file/', method: :get, params: { 'file' => 'schema.xml', :wt => 'xml' })
+# end
+# 
+# def solr_config_xml
+#   @solrconfig_xml = SOLR.send_and_receive('admin/file/', method: :get, params: { 'file' => 'solrconfig.xml', :wt => 'xml' })
+# end

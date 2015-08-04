@@ -22,14 +22,15 @@ gem 'activerecord-session_store'
 
 #  ###  BLACKLIGHT (begin)  ###
 
-gem 'blacklight', '~>5.9.0'
+gem 'blacklight', '~>5.10.0'
 
 # when we move to 5.x, uncomment this
 gem 'blacklight-marc'
 
 # gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :tag => 'v2.1.0'
 
-gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
+# gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
+gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'blacklight-master'
 
 #  ###  BLACKLIGHT (end)  ###
 

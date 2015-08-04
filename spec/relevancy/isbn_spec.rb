@@ -8,8 +8,8 @@ describe 'ISBN Searching' do
   it 'should hit on "invalid" ISBNs' do
     isbn_z = '9789770274208'
     resp = solr_resp_doc_ids_only('q' => isbn_z)
-    # resp.should have_at_most(1).documents
-    # resp.should include('8682754').in_first(1).results
+    
+    
 
     expect(resp.size).to eq 1
     expect(rank(resp, 8682754)).to be == 1
