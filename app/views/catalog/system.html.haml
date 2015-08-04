@@ -3,15 +3,10 @@
 %h3
   System Details
   
+- ['request.protocol', 'request.fullpath', 'request.url'].each do |i|
+  .row
+    .col-sm-3
+      =i
+    .col-sm-9 
+      =eval(i)
 
-.row
-  .col-sm-6= "request.protocol"
-  .col-sm-6=  request.protocol
-
-.row
-  .col-sm-6= "request.url"
-  .col-sm-6=  request.url
-    
-.row
-  .col-sm-6= "request.fullpath"
-  .col-sm-6=  request.fullpath
