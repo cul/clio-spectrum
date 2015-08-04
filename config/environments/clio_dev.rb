@@ -2,9 +2,6 @@
 Clio::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
-  # For CLIO Dev server environment, use SSL for everything
-  config.force_ssl = true
-
   config.cache_classes = true
 
   # # deprecated in rails 4
