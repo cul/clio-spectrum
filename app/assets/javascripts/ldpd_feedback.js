@@ -33,7 +33,9 @@ LWEB.setupFeedbackDialog = function() {
     $('#feedback_dialog').css(
         {
         'z-index':'10000',
-        'position':'absolute'
+        'position':'absolute',
+        'border': '3px solid rgb(187, 187, 187)' 
+        
         }
     );
 
