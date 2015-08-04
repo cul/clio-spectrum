@@ -125,7 +125,7 @@ describe 'Boosts' do
   it "rilm" do
     resp = solr_resp_doc_ids_only('q' => 'rilm')
     
-    expect(rank(resp, 2710784)).to be <= 1
+    expect(rank(resp, 11528023)).to be <= 1
   end
 
   it "gartner" do
