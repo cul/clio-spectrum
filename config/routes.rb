@@ -1,7 +1,11 @@
 Clio::Application.routes.draw do
 
-  # This is getting masked.... try it up here?
+  # blacklight-marc gem gives endnote as an action, not just format of 'show',
+  # to allow endnote export of multiple records at once
   get "catalog/endnote", :as => "endnote_catalog"
+
+  # special admin pages
+  get 'catalog/system'
   get 'catalog/format_icons'
 
   # and this..
@@ -101,7 +105,9 @@ Clio::Application.routes.draw do
 
   get 'catalog/hathi_holdings/:id' => 'catalog#hathi_holdings', :as => 'hathi_holdings'
 
-  get 'spectrum/fetch/:layout/:datasource', to: 'spectrum#fetch', as: 'spectrum_fetch'
+  # get 'spectrum/fetch/:layout/:datasource', to: 'spectrum#fetch', as: 'spectrum_fetch'
+  # match 'spectrum/searchjson/:layout/:datasource', to: 'spectrum#searchjson', as: 'spectrum_searchjson'
+  get 'spectrum/searchjson/:layout/:datasource', to: 'spectrum#searchjson', as: 'spectrum_searchjson'
 
   match 'articles', to: 'spectrum#search', as: :articles_index, via: [:get, :post], defaults: { layout: 'articles' }
   # there's no 'articles' controller, and no item-detail page for articles

@@ -46,7 +46,6 @@ describe 'Articles Search' do
 
     # TODO
     # expect(page).to have_no_selector('.landing_page.articles .advanced_search')
-    # find('.landing_page.articles .advanced_search').should_not be_visible
 
     find('.search_box.articles .advanced_search_toggle').click
     expect(find('.landing_page.articles .advanced_search')).to be_visible

@@ -3,7 +3,7 @@
 # classes, etc.
 require 'mail'
 class ApplicationController < ActionController::Base
-  helper_method :set_browser_option, :get_browser_option
+  helper_method :set_browser_option, :get_browser_option, :debug_timestamp
 
   # Adds a few additional behaviors into the application controller
   include Blacklight::Controller
@@ -169,6 +169,7 @@ class ApplicationController < ActionController::Base
   # and from CatalogController.index()
   def blacklight_search(sent_options = {})
     # raise
+    Rails.logger.debug "ApplicationController#blacklight_search(sent_options=#{sent_options.inspect})"
     options = sent_options.deep_clone
     options['source'] = @active_source unless options['source']
     options['debug_mode'] = @debug_mode
@@ -234,8 +235,8 @@ class ApplicationController < ActionController::Base
   end
 
   def trigger_debug_mode
-    RSolr::Client.send(:include, RSolr::Ext::Notifications)
-    RSolr::Client.enable_notifications!
+    # RSolr::Client.send(:include, RSolr::Ext::Notifications)
+    # RSolr::Client.enable_notifications!
 
     params_debug_mode = params['debug_mode']
 
@@ -321,10 +322,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def blacklight_solr(source = @active_source)
+  def connection(source = @active_source)
     if self.respond_to?(:blacklight_config)
-      @blacklight_solrs ||= {}
-      @blacklight_solrs[source] || (@blacklight_solrs[source] = Spectrum::SearchEngines::Solr.generate_rsolr(source))
+      @connections ||= {}
+      @connections[source] || (@connections[source] = Spectrum::SearchEngines::Solr.generate_rsolr(source))
     end
   end
 

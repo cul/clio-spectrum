@@ -25,7 +25,7 @@ describe "Apostrophe-like character searching" do
         # puts "unquoted lookalike=[#{lookalike}]"
         query = "Qur#{lookalike}anic and non-Qur#{lookalike}anic Islam"
         resp = solr_resp_doc_ids_only('q' => query)
-        # resp.should include('2043563')
+        
         expect(rank(resp, 2043563)).to be < 10
       end
     end
@@ -35,7 +35,7 @@ describe "Apostrophe-like character searching" do
       # puts "quoted lookalike=[#{lookalike}]"
       query = "Qur#{lookalike}anic and non-Qur#{lookalike}anic Islam"
       resp = solr_resp_doc_ids_only('q' => '"' + query + '"')
-      # resp.should include('2043563')
+      
       expect(rank(resp, 2043563)).to be < 10
     end
   end
@@ -56,10 +56,10 @@ describe 'Searching of N.Y. Subject Strings' do
 
   it "should work for:  N.Y., unquoted" do
     resp = solr_resp_doc_ids_only( subject_search_args("#{baseTerm} N.Y.") )
-    # resp.should have_at_least(15).documents
-    # resp.should include('2354899').in_first(3).results
-    # resp.should include('3460633')
-    # resp.should include('3460619')
+    
+    
+    
+    
     expect(resp.size).to be >= 15
     expect(rank(resp, 2354899)).to be <= 3
     expect(rank(resp, 3460633)).to be <= 30
@@ -68,10 +68,10 @@ describe 'Searching of N.Y. Subject Strings' do
 
   it "should work for:  N. Y., unquoted" do
     resp = solr_resp_doc_ids_only( subject_search_args("#{baseTerm} N. Y.") )
-    # resp.should have_at_least(15).documents
-    # resp.should include('2354899').in_first(3).results
-    # resp.should include('3460633')
-    # resp.should include('3460619')
+    
+    
+    
+    
     expect(resp.size).to be >= 15
     expect(rank(resp, 2354899)).to be <= 3
     expect(rank(resp, 3460633)).to be <= 30
@@ -80,10 +80,10 @@ describe 'Searching of N.Y. Subject Strings' do
 
   it "should work for:  NY, unquoted" do
     resp = solr_resp_doc_ids_only( subject_search_args("#{baseTerm} NY") )
-    # resp.should have_at_least(15).documents
-    # resp.should include('2354899').in_first(3).results
-    # resp.should include('3460633')
-    # resp.should include('3460619')
+    
+    
+    
+    
     expect(resp.size).to be >= 15
     expect(rank(resp, 2354899)).to be <= 3
     expect(rank(resp, 3460633)).to be <= 30
@@ -92,30 +92,15 @@ describe 'Searching of N.Y. Subject Strings' do
 
   it "should work for:  N Y, unquoted" do
     resp = solr_resp_doc_ids_only( subject_search_args("#{baseTerm} N Y") )
-    # resp.should have_at_least(15).documents
-    # resp.should include('2354899').in_first(3).results
-    # resp.should include('3460633')
-    # resp.should include('3460619')
     expect(resp.size).to be >= 15
     expect(rank(resp, 2354899)).to be <= 3
     expect(rank(resp, 3460633)).to be <= 30
     expect(rank(resp, 3460619)).to be <= 30
   end
 
-  # it "should work for:  N.Y., quoted" do
-  #   resp = solr_resp_doc_ids_only( subject_search_args("\"#{baseTerm} N.Y.\"") )
-  #   resp.should have_at_least(15).documents
-  #   resp.should include('2354899').in_first(3).results
-  #   resp.should_not include('3460633')
-  #   resp.should_not include('3460619')
-  # end
 
   it "should work for:  N. Y., quoted" do
     resp = solr_resp_doc_ids_only( subject_search_args("\"#{baseTerm} N. Y.\"") )
-    # resp.should have_at_least(15).documents
-    # resp.should include('2354899').in_first(3).results
-    # resp.should include('3460633')
-    # resp.should include('3460619')
     expect(resp.size).to be >= 15
     expect(rank(resp, 2354899)).to be <= 3
     expect(rank(resp, 3460633)).to be <= 30
@@ -139,7 +124,7 @@ describe 'Variants of query: "if i can\'t dance" revolution' do
   variants.each do |variant|
     it "should work for: #{variant}" do
       resp = solr_resp_doc_ids_only('q' => variant)
-      # resp.should include('9560671').in_first(1).results
+      
       expect(rank(resp, 9560671)).to be == 1
     end
   end
@@ -152,12 +137,12 @@ describe 'NEXT-999: Queries with embedded single-quotes' do
   query = "Memoires de l'association francaise d'archeologie merovingienne"
   it "should have >=5 hits for unquoted #{query}" do
     resp = solr_resp_doc_ids_only('q' => query)
-    # resp.should have_at_least(5).documents
+    
     expect(resp.size).to be >= 5
   end
   it "should have >=5 hits for quoted #{query}" do
     resp = solr_resp_doc_ids_only('q' => '"' + query + '"')
-    # resp.should have_at_least(5).documents
+    
     expect(resp.size).to be >= 5
   end
 end
@@ -168,12 +153,12 @@ describe 'NEXT-1023: Queries with embedded single-quotes' do
   query = "storia dell'urbanistica"
   it "should have >50 hits for unquoted #{query}" do
     resp = solr_resp_doc_ids_only('q' => query)
-    # resp.should have_at_least(50).documents
+    
     expect(resp.size).to be >= 50
   end
   it "should have >50 hits for quoted #{query}" do
     resp = solr_resp_doc_ids_only('q' => '"' + query + '"')
-    # resp.should have_at_least(50).documents
+    
     expect(resp.size).to be >= 50
   end
 end
@@ -185,12 +170,12 @@ describe 'NEXT-1034: Queries with embedded single-quotes' do
 
   it "should work for unquoted #{query}" do
     resp = solr_resp_doc_ids_only('q' => query)
-    # resp.should include('3108332')
+    
     expect(rank(resp, 3108332)).to be == 1
   end
   it "should work for quoted #{query}" do
     resp = solr_resp_doc_ids_only('q' => '"' + query + '"')
-    # resp.should include('3108332')
+    
     expect(rank(resp, 3108332)).to be == 1
   end
 

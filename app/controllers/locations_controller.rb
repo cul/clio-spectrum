@@ -42,7 +42,7 @@ class LocationsController < ApplicationController
     # elsif APP_CONFIG.has_key?('use_test_api') && APP_CONFIG['use_test_api']
     #   "http://test-api.library.columbia.edu/query.json"
     else
-      "http://api.library.columbia.edu/query.json"
+      "https://api.library.columbia.edu/query.json"
     end
   end
 
@@ -55,7 +55,7 @@ class LocationsController < ApplicationController
   def default_image_url
     # TODO after API upgrade
       # change this to library_api_return["defaultImageURL"]
-    @library_api_return.is_a?(Hash) ? @library_api_return["defaultImageURL"] : "http://library.columbia.edu/content/dam/locations/location.png"
+    @library_api_return.is_a?(Hash) ? @library_api_return["defaultImageURL"] : "https://library.columbia.edu/content/dam/locations/location.png"
   end
 
   def build_markers

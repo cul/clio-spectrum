@@ -60,7 +60,7 @@ describe LocationsController do
       it "returns the production path when config variable is missing" do
         allow(APP_CONFIG).to receive(:has_key?).with('library_api_path').and_return(false)
         path = controller.library_api_path
-        expect(path).to eq("http://api.library.columbia.edu/query.json")
+        expect(path).to eq("https://api.library.columbia.edu/query.json")
       end
     end
   end

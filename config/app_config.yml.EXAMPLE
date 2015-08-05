@@ -13,21 +13,21 @@ _all_environments:
   # URL to the Solr search engine for Academic Commons, Columbia's 
   # institutional repository, available at http://academiccommons.columbia.edu, 
   # and used by CLIO for the AC datasource 
-  # (http://clio.columbia.edu/academic_commons)
+  # (https://clio.columbia.edu/academic_commons)
   ac2_solr_url: http://ac2.cul.columbia.edu:1234/solr-4.0/ac2_prod
 
   # URL to Columbia University's Google Search Appliance, used by the 
   # search box on Columbia University's home-page 
   # (e.g., http://search.columbia.edu/search?proxystylesheet=columbia2&q=test),
   # and used by CLIO for the Library Web datasource
-  # (http://clio.columbia.edu/library_web)
+  # (https://clio.columbia.edu/library_web)
   google_appliance_url: http://search.columbia.edu/search
 
 
   # Authorization credentials for SerialSolutions Summon Search API
   # (licensed resource -- restricted access),
   # used by CLIO for the Articles datasource
-  # (http://clio.columbia.edu/articles)
+  # (https://clio.columbia.edu/articles)
   summon:
     access_id: columbia_university
     secret_key: VerySecretKey

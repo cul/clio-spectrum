@@ -6,7 +6,7 @@
 class BrowseController < ApplicationController
   include Blacklight::Catalog::SearchContext
   include Blacklight::Configurable
-  include Blacklight::SolrHelper
+  include Blacklight::SearchHelper
 
   include LocalSolrHelperExtension
 
@@ -22,7 +22,7 @@ class BrowseController < ApplicationController
   # def index
   #   return unless params[:start].present?
   # 
-  #   @response, @original_doc = get_solr_response_for_doc_id(params[:start])
+  #   @response, @original_doc = fetch(params[:start])
   #   barcode = params[:barcode] || @original_doc[:preferred_barcode]
   # 
   #   respond_to do |format|
@@ -87,7 +87,7 @@ class BrowseController < ApplicationController
 
     # Which bib id to highlight
     if params[:bib]
-      response, document = get_solr_response_for_doc_id(params[:bib])
+      response, document = fetch(params[:bib])
 
       # Record the starting item for browsing in the Session
       # This will not be part of URL (i.e., won't survive 
@@ -310,7 +310,7 @@ class BrowseController < ApplicationController
       'terms.sort' => 'index',
       'terms.limit' => how_many
     }
-    solr_response = Blacklight.solr.alphaTerms({params: solr_params})
+    solr_response = Blacklight.default_index.connection.alphaTerms({params: solr_params})
 
     # create array of one element hashes with key=term and value=count
     result = []
@@ -379,7 +379,7 @@ class BrowseController < ApplicationController
   def nearby_SearchWorks
     return unless params[:start].present?
 
-    @response, @document = get_solr_response_for_doc_id(params[:start])
+    @response, @document = fetch(params[:start])
 
 # raise
     # barcode = params[:barcode] || @original_doc[:preferred_barcode]

@@ -6,84 +6,84 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
 <url>
-  <loc>http://clio.columbia.edu/</loc>
+  <loc>https://clio.columbia.edu/</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/quicksearch</loc>
+  <loc>https://clio.columbia.edu/quicksearch</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/quicksearch?q=</loc>
+  <loc>https://clio.columbia.edu/quicksearch?q=</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/catalog</loc>
+  <loc>https://clio.columbia.edu/catalog</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/catalog?q=</loc>
+  <loc>https://clio.columbia.edu/catalog?q=</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/articles</loc>
+  <loc>https://clio.columbia.edu/articles</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/articles?q=</loc>
+  <loc>https://clio.columbia.edu/articles?q=</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/journals</loc>
+  <loc>https://clio.columbia.edu/journals</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/journals?q=</loc>
+  <loc>https://clio.columbia.edu/journals?q=</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/databases</loc>
+  <loc>https://clio.columbia.edu/databases</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/databases?q=</loc>
+  <loc>https://clio.columbia.edu/databases?q=</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/academic_commons</loc>
+  <loc>https://clio.columbia.edu/academic_commons</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/academic_commons?q=</loc>
+  <loc>https://clio.columbia.edu/academic_commons?q=</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/library_web</loc>
+  <loc>https://clio.columbia.edu/library_web</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/library_web?q=</loc>
+  <loc>https://clio.columbia.edu/library_web?q=</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/archives</loc>
+  <loc>https://clio.columbia.edu/archives</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/archives?q=</loc>
+  <loc>https://clio.columbia.edu/archives?q=</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/dissertations</loc>
+  <loc>https://clio.columbia.edu/dissertations</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/dissertations?q=</loc>
+  <loc>https://clio.columbia.edu/dissertations?q=</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/ebooks</loc>
+  <loc>https://clio.columbia.edu/ebooks</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/ebooks?q=</loc>
+  <loc>https://clio.columbia.edu/ebooks?q=</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/new_arrivals</loc>
+  <loc>https://clio.columbia.edu/new_arrivals</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/new_arrivals?q=</loc>
+  <loc>https://clio.columbia.edu/new_arrivals?q=</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/newspapers</loc>
+  <loc>https://clio.columbia.edu/newspapers</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/newspapers?q=</loc>
+  <loc>https://clio.columbia.edu/newspapers?q=</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/catalog/1234567</loc>
+  <loc>https://clio.columbia.edu/catalog/1234567</loc>
 </url>
 <url>
-  <loc>http://clio.columbia.edu/catalog/1234567/librarian_view</loc>
+  <loc>https://clio.columbia.edu/catalog/1234567/librarian_view</loc>
 </url>
 </urlset>

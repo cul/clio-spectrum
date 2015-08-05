@@ -69,10 +69,6 @@ datasources:
     viewstyles: 
       standard_list: Standard View
       compact_list: Compact View
-    viewstyles_DISABLED: 
-      list: Standard View
-      compact: Compact View
-      spartan: Title View
     default_viewstyle: standard_list
     search_box:
       route: base_catalog_index_path
