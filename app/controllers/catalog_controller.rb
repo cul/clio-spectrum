@@ -261,14 +261,14 @@ class CatalogController < ApplicationController
     end
   end
 
-  # when a request for /catalog/BAD_SOLR_ID is made, this method is executed...
+  # when a request for /catalog/BAD_DOCUMENT_ID is made, this method is executed...
+  def invalid_document_id_error
+    invalid_solr_id_error
+  end
+  # (which used to be this, but got wrapped to abstract from Solr)
   def invalid_solr_id_error
-    if Rails.env == 'development'
-      render # will give us the stack trace
-    else
-      flash[:notice] = "Sorry, you have requested a record that doesn't exist."
-      redirect_to root_path
-    end
+    flash[:notice] = t('blacklight.search.errors.invalid_solr_id')
+    redirect_to root_path
   end
 
 
