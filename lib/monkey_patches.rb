@@ -106,3 +106,42 @@ module ActionView
     end
   end
 end
+
+# Some monkey patching to add some network debugging
+
+# module Net
+#   class HTTP
+#     def do_start
+#       # DEBUGGING
+#       # puts "#{Time.now} [Net::HTTP#do_start]  opening connection to #{address.to_s}:#{port.to_s}..."
+#       connect
+#       @started = true
+#     end
+#   end
+# end
+
+
+
+# class RSolr::Connection
+#   def http uri, proxy = nil, read_timeout = nil, open_timeout = nil
+#     @http ||= (
+#       http = if proxy
+#         proxy_user, proxy_pass = proxy.userinfo.split(/:/) if proxy.userinfo
+#         Net::HTTP.Proxy(proxy.host, proxy.port, proxy_user, proxy_pass).new uri.host, uri.port
+#       else
+#         Net::HTTP.new uri.host, uri.port
+#       end
+#       http.use_ssl = uri.port == 443 || uri.instance_of?(URI::HTTPS)
+#       http.read_timeout = read_timeout if read_timeout
+#       http.open_timeout = open_timeout if open_timeout
+# 
+#       # TURN ON DEBUGGING
+#       http.set_debug_output $stderr
+# 
+#       http
+#     )
+#   end
+# end
+
+
+
