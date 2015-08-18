@@ -52,7 +52,7 @@ gem 'devise-encryptable'
 # # Local copy relaxes rails version requirements (allows 4.x)
 # # gem "devise_wind", :path => "/Users/marquis/src/devise_wind"
 # # New branch to recover from when CUIT broke wind
-gem "devise_wind", :git => 'git://github.com/cul/devise_wind.git', :branch => 'broke_wind'
+# gem "devise_wind", :git => 'git://github.com/cul/devise_wind.git', :branch => 'broke_wind'
 # CAS is ready.
 gem 'devise_cas_authenticatable'
 # for debugging, use local version...

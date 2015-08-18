@@ -1,16 +1,4 @@
 GIT
-  remote: git://github.com/cul/devise_wind.git
-  revision: 6f050d5d7bff3c412655160329e6c7b098b4ce2a
-  branch: broke_wind
-  specs:
-    devise_wind (1.0.4)
-      devise
-      devise-encryptable
-      nokogiri
-      rails (~> 4.0)
-      warden
-
-GIT
   remote: git://github.com/cul/summon.git
   revision: 3638c2e6908c4bec749e688f794b6ebb058f4b16
   specs:
@@ -331,7 +319,6 @@ DEPENDENCIES
   devise
   devise-encryptable
   devise_cas_authenticatable
-  devise_wind!
   exception_notification
   factory_girl_rails
   gmaps4rails
