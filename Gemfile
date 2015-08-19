@@ -91,8 +91,12 @@ end
 # 3/15, moved to local library code
 # gem 'has_options'
 
-gem 'therubyracer'
+# I think this had been added to allow JavaScript specs. But with
+#  our current capybara-webkit driver, this is no longer needed.
+# gem 'therubyracer'
+
 gem 'httpclient'
+
 gem 'nokogiri'
 
 # HTML replacement language
