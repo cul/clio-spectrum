@@ -176,12 +176,27 @@ gem 'rack-attack'
 # and rake tasks are available in development mode:
 group :development do
 
-  # Deploy with Capistrano
-  gem 'capistrano', '~>2'
-  gem 'capistrano-ext'
+  # # Deploy with Capistrano
+  # gem 'capistrano', '~>2'
+  # gem 'capistrano-ext'
+  # # fixes [morrison.cul.columbia.edu] sh: bundle: command not found
+  # gem 'rvm-capistrano'
+
+  # Upgrade to Capistrano 3.x
+  # http://capistranorb.com/documentation/upgrading/
+  gem 'capistrano', '~> 3.0', require: false
+  # Rails and Bundler integrations were moved out from Capistrano 3
+  gem 'capistrano-rails',   '~> 1.1', require: false
+  gem 'capistrano-bundler', '~> 1.1', require: false
+  # # "idiomatic support for your preferred ruby version manager"
+  # gem 'capistrano-rvm',   '~> 0.1', require: false
+  # The `deploy:restart` hook for passenger applications is now in a separate gem
+  # Just add it to your Gemfile and require it in your Capfile.
+  gem 'capistrano-passenger',   '~> 0.1', require: false
+
+
+  # don't log every rendered view/partial
   gem 'quiet_assets'
-  # fixes [morrison.cul.columbia.edu] sh: bundle: command not found
-  gem 'rvm-capistrano'
 
   # browser-based live debugger and REPL
   # http://railscasts.com/episodes/402-better-errors-railspanel
