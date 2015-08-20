@@ -1,0 +1,33 @@
+/*  Copied from: 
+https://github.com/projectblacklight/blacklight_range_limit/blob/master/app/assets/stylesheets/blacklight_range_limit.css.scss
+    - rename from .css.scss to .scss
+    - customize styles for CLIO
+*/
+
+form.range_limit {
+  /* leave room for buttons not to collide on line wrap */
+  line-height: 3;
+}
+
+.range_limit input.range_begin, .range_limit input.range_end {
+  display: inline-block;
+  width: 4.5em;
+}
+
+/*
+.limit_content .subsection {
+  margin-top: 1em;
+}
+*/
+
+/*
+.hover_legend {
+  padding: 0.25em;
+}
+*/
+
+/*
+.slider_js .slider-selection {
+  background: #e8cfac;
+}
+*/
