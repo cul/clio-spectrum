@@ -9,8 +9,8 @@
 }
 @font-face {
   font-family: 'TrajanProRegular';
-  src: url('trajanpro-regular-webfont.eot');
-  src: url('trajanpro-regular-webfont.eot?#iefix') format('embedded-opentype'), url('trajanpro-regular-webfont.woff') format('woff'), url('trajanpro-regular-webfont.ttf') format('truetype'), url('trajanpro-regular-webfont.svg#TrajanProRegular') format('svg');
+  src: asset-url('trajanpro-regular-webfont.eot');
+  src: asset-url('trajanpro-regular-webfont.eot?#iefix') format('embedded-opentype'), asset-url('trajanpro-regular-webfont.woff') format('woff'), asset-url('trajanpro-regular-webfont.ttf') format('truetype'), asset-url('trajanpro-regular-webfont.svg#TrajanProRegular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
