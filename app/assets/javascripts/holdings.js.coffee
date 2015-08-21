@@ -116,7 +116,7 @@ $ ->
       for holding_id, status of data[bib].statuses
         selector = "img.availability.holding_" + holding_id
         status_upcase = status.charAt(0).toUpperCase() + status.slice(1)
-        $(selector).attr("src", "/assets/icons/" + status + ".png")
+        $(selector).attr("src", "/ajax-status-icons/" + status + ".png")
         $(selector).attr("title", status_upcase)
         $(selector).attr("alt", status_upcase)
 
