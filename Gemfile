@@ -93,7 +93,10 @@ end
 
 # I think this had been added to allow JavaScript specs. But with
 #  our current capybara-webkit driver, this is no longer needed.
-# gem 'therubyracer'
+# Oops.  This is needed for assets pre-compilation on bruckner.
+# assets precompilation works on clio-dev and clio-test, but
+# not on clio-prod.  Maybe difference in local gems?
+gem 'therubyracer'
 
 gem 'httpclient'
 
