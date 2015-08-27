@@ -87,6 +87,8 @@ require 'rubygems'
     # This says to assume things in spec/controllers are controller
     # specs, etc.  No longer automatic with new rspec?
     config.infer_spec_type_from_file_location!
+
+    config.example_status_persistence_file_path = "spec/examples.txt"
   end
 
   Capybara::Webkit.configure do |config|
