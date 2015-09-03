@@ -1,5 +1,7 @@
 
-%h3 CLIO Format Icons
+%h2 CLIO Format Icons
+
+%h4 Document Content Formats
 
 %table.table
 
@@ -8,3 +10,13 @@
       %td= format
       %td= image_tag("icons/#{icon}.png", size: '16x16')
       %td= "#{icon}.png"
+
+%h4 File Formats
+
+%table.table
+
+  - Dir.glob("#{Rails.root.to_s}/app/assets/images/format_icons/*.png") do |filename|
+    - filename.sub! /.*format_icons./, ''
+    %tr
+      %td= image_tag("format_icons/#{filename}", size: '32x32')
+      %td= filename
