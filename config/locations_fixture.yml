@@ -223,7 +223,8 @@
   :location_code: butler-reference
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    Guides: http://library.columbia.edu/locations/butler-reference.html
+    # Guides: http://library.columbia.edu/locations/butler-reference.html
+    Call Number Guide: http://library.columbia.edu/content/dam/libraryweb/locations/butler/Butler%20Reference/301%26310.pdf
     Home Page: http://library.columbia.edu/locations/butler-reference.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
@@ -236,7 +237,8 @@
   :location_code: butler 
   :links: 
     Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    Guides: http://library.columbia.edu/locations/butler-reference.html
+    # Guides: http://library.columbia.edu/locations/butler-reference.html
+    Call Number Guide: http://library.columbia.edu/content/dam/libraryweb/locations/butler/Butler%20Reference/301%26310.pdf
     Home Page: http://library.columbia.edu/locations/butler-reference.html
     Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
