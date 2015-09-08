@@ -100,7 +100,7 @@ $ ->
           extension = filename.substr(filename.length - 3).toLowerCase()
           if $.inArray(extension, format_icons) >= 0
             icon = extension
-        txt = '<div class="entry"><img src="/assets/format_icons/' + icon + '.png" width="16" height="16"/> <a href="' + resource['download_path'] + '">' + resource['filename'] + '</a></div>'
+        txt = '<div class="entry"><img src="/static_icons/' + icon + '.png" width="16" height="16"/> <a href="' + resource['download_path'] + '">' + resource['filename'] + '</a></div>'
         $(fedora_selector).append(txt)
 
       if first_resource
@@ -116,7 +116,7 @@ $ ->
       for holding_id, status of data[bib].statuses
         selector = "img.availability.holding_" + holding_id
         status_upcase = status.charAt(0).toUpperCase() + status.slice(1)
-        $(selector).attr("src", "/ajax-status-icons/" + status + ".png")
+        $(selector).attr("src", "/static-icons/" + status + ".png")
         $(selector).attr("title", status_upcase)
         $(selector).attr("alt", status_upcase)
 
