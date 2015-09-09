@@ -1,5 +1,8 @@
-clio-spectrum
-=============
+# clio-spectrum
+
+
+[![Code Climate](https://codeclimate.com/github/cul/clio-spectrum/badges/gpa.svg)](https://codeclimate.com/github/cul/clio-spectrum)
+
 
 Columbia Libraries Unified Search &amp; Discovery
 
