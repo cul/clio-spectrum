@@ -29,6 +29,7 @@ module HoldingsHelper
     SHORTER_LOCATIONS[location.strip] || location
   end
 
+
   def process_holdings_location(loc_display)
     location, call_number = loc_display.split(' >> ')
     output = ''.html_safe
@@ -40,6 +41,7 @@ module HoldingsHelper
     end
     output
   end
+
 
   # Support for:
   #   NEXT-113 - Do not make api request for online-only resources
@@ -194,6 +196,7 @@ module HoldingsHelper
     entry
   end
 
+
   def add_display_elements(entries)
     entries.each do |entry|
 
@@ -224,8 +227,6 @@ module HoldingsHelper
       else
         entry['location_note'] = []
       end
-      # entry['location_note'].html_safe if entry['location_note']
-      # entry['location_note'] = Array.wrap(entry['location_note'])
       entry['location_note'].concat(more_notes) if (more_notes && more_notes.size > 0)
 
       # add status icons
@@ -245,6 +246,7 @@ module HoldingsHelper
     entries
   end
 
+
   ITEM_STATUS_RANKING = %w(available some_available not_available none online)
 
   def sort_item_statuses(entries)
@@ -262,35 +264,55 @@ module HoldingsHelper
     # in order to preserve the sort order.
   end
 
+  # Extract bibkeys for a particular type of key
+  # (e.g., 'isbn', 'issn', 'oclc', 'lccn')
+  def extract_by_key(document, key)
+    display_values = document[key + "_display"]
+    return unless display_values
+
+    Array.wrap(display_values).map { |value|
+      # always remove all white-space from any key
+      value.gsub!(/\s/, '')
+      # LCCN sometimes has a strange suffix.  Remove it.
+      # e.g., "84162131 /HE" or "78309771 //r83"
+      value.gsub!(/\/.+$/, '') if value == 'lccn'
+      # For OCLC numbers, strip away the prefix ('ocm' or 'ocn')
+      value.gsub!(/^oc[mn]/, '') if value == 'oclc'
+      # Here's what we want returned - key:value, e.g. 
+      "#{key}:#{value}"
+    }
+  end
+
   def extract_standard_bibkeys(document)
     bibkeys = []
 
-    unless document['isbn_display'].nil?
-      bibkeys << Array.wrap(document['isbn_display']).map { |isbn| 'isbn:' + isbn }.uniq
-    end
+    bibkeys << extract_by_key(document, 'isbn')
+    bibkeys << extract_by_key(document, 'issn')
+    bibkeys << extract_by_key(document, 'oclc')
+    bibkeys << extract_by_key(document, 'lccn')
 
-    unless document['issn_display'].nil?
-      bibkeys << Array.wrap(document['issn_display']).map { |issn| 'issn:' + issn }.uniq
-    end
-
-    unless document['oclc_display'].nil?
-      bibkeys << document['oclc_display'].map { |oclc| 'oclc:' + oclc.gsub(/^oc[mn]/, '') }.uniq
-    end
-
-    unless document['lccn_display'].nil?
-      bibkeys << document['lccn_display'].map { |lccn| 'lccn:' + lccn.gsub(/\s/, '').gsub(/\/.+$/, '') }
-    end
+    # unless document['isbn_display'].nil?
+    #   bibkeys << Array.wrap(document['isbn_display']).map { |isbn| 'isbn:' + isbn }.uniq
+    # end
+    # 
+    # unless document['issn_display'].nil?
+    #   bibkeys << Array.wrap(document['issn_display']).map { |issn| 'issn:' + issn }.uniq
+    # end
+    # 
+    # unless document['oclc_display'].nil?
+    #   bibkeys << document['oclc_display'].map { |oclc| 'oclc:' + oclc.gsub(/^oc[mn]/, '') }.uniq
+    # end
+    # 
+    # unless document['lccn_display'].nil?
+    #   bibkeys << document['lccn_display'].map { |lccn| 'lccn:' + lccn.gsub(/\s/, '').gsub(/\/.+$/, '') }
+    # end
 
     # Some Hathi records were directly loaded into Voyager.
     # These have direct Hathi links in their 856 - and these
     # links have a standard ID number not otherwise available.
     online_link_hash(document).each do |link|
       next unless link[:url].start_with? "http://catalog.hathitrust.org"
-      unless link[:url].match( /api\/volumes\/\w+\/\d+.html/ )
-        # Rails.logger.debug "bib #{document.id} unexpected URL #{link[:url]}"
-        next
-      end
-      # Rails.logger.debug "bib #{document.id} as-expected URL #{link[:url]}"
+      next unless link[:url].match( /api\/volumes\/\w+\/\d+.html/ )
 
       id_type, id_value = link[:url].match( /api\/volumes\/(\w+)\/(\d+).html/ ).captures
 
