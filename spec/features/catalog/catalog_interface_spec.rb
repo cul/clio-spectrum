@@ -54,10 +54,11 @@ describe 'Catalog Interface' do
   it 'Should find many Manuscripts for Call Number range X893', js: true do
     visit catalog_index_path('q' => 'X893')
     within '.search_box.catalog' do
-      find('btn.dropdown-toggle').click
-      within '.dropdown-menu' do
-        click_link('Call Number')
-      end
+      # find('btn.dropdown-toggle').click
+      # within '.dropdown-menu' do
+      #   click_link('Call Number')
+      # end
+      select 'Call Number', :from => "search_field"
       find('button[type=submit]').click
     end
     within 'div.blacklight-format .facet-content .panel-body' do
@@ -472,6 +473,13 @@ describe 'Catalog Interface' do
     older_title = all('#documents .document.result .row .title').first.text
 
     expect(recent_title).to_not eq older_title
+  end
+
+  # NEXT-1218 - Display label for MARC 545 - Biographical or Historical Data
+  it 'shows Biographical / Historical Note appropriately' do
+    visit catalog_path(7755896)
+    expect(page).to have_text "Biographical / Historical Note
+      Makino Mamoru (1930-) was born"
   end
 
 

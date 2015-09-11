@@ -14,15 +14,15 @@
 
 
 
-
-.input-group-btn.dropdown_select_tag
-
-  %btn.btn.btn-default.dropdown-toggle{ data: {toggle: 'dropdown'}}
-    = dropdown_default
-    %span.caret
-
-  %ul.dropdown-menu{style: "left: auto"}
-    - field_options.each do |name, value|
-      %li
-        %a(href="#" data-value=value)= name
-  = select_tag(name, options_for_select(field_options, field_default), select_options)
+-# remove Bootstrap-Dropdown-Menu-as-Select-Tag
+-# .input-group-btn.dropdown_select_tag
+-# 
+-#   %btn.btn.btn-default.dropdown-toggle{ data: {toggle: 'dropdown'}}
+-#     = dropdown_default
+-#     %span.caret
+-# 
+-#   %ul.dropdown-menu{style: "left: auto"}
+-#     - field_options.each do |name, value|
+-#       %li
+-#         %a(href="#" data-value=value)= name
+-#   = select_tag(name, options_for_select(field_options, field_default), select_options)
