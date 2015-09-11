@@ -54,10 +54,11 @@ describe 'Catalog Interface' do
   it 'Should find many Manuscripts for Call Number range X893', js: true do
     visit catalog_index_path('q' => 'X893')
     within '.search_box.catalog' do
-      find('btn.dropdown-toggle').click
-      within '.dropdown-menu' do
-        click_link('Call Number')
-      end
+      # find('btn.dropdown-toggle').click
+      # within '.dropdown-menu' do
+      #   click_link('Call Number')
+      # end
+      select 'Call Number', :from => "search_field"
       find('button[type=submit]').click
     end
     within 'div.blacklight-format .facet-content .panel-body' do

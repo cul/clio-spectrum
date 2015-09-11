@@ -67,17 +67,18 @@ describe 'Articles Search' do
       within '.search_box.articles' do
         expect(find('#articles_q')).to be_visible
         fill_in 'q', with: 'catmull, ed'
-        find('btn.dropdown-toggle').click
-        within '.dropdown-menu' do
-          find("a[data-value='s.fq[AuthorCombined]']").click
-        end
+        # find('btn.dropdown-toggle').click
+        # within '.dropdown-menu' do
+        #   find("a[data-value='s.fq[AuthorCombined]']").click
+        # end
+        select 'Author', :from => "search_field"
         find('button[type=submit]').click
       end
     end
 
     it "Search string and search field should be preserved" do
       expect(find('#articles_q').value).to eq 'catmull, ed'
-      expect(find('.btn.dropdown-toggle')).to have_content('Author')
+      expect(page).to have_select('search_field', selected: 'Author')
     end
 
     it "the entered fielded search should be echoed on the results page" do

@@ -42,7 +42,7 @@ $ ->
   #       $(".basic_search .search_q:hidden").val(value)
   # )
 
-  bind_dropdown_selects()
+  # bind_dropdown_selects()
 
 
   $("#mobile_datasource_select").change ->
@@ -56,15 +56,16 @@ $ ->
       $('.busy').show()
       window.location = datasource_href
 
-bind_dropdown_selects = (source) ->
-  $(".dropdown_select_tag").each ->
-    $(this).find('ul.dropdown-menu a').click ->
-      selection = $(this).attr('data-value')
-      selection_key = $(this).text()
-
-      dropdown_root = $(this).parents(".dropdown_select_tag")
-      $(dropdown_root).find('.dropdown-toggle').html(selection_key + ' <span class="caret"/>')
-      $(dropdown_root).find('select').val(selection)
+# remove Bootstrap-Dropdown-Menu-as-Select-Tag
+# bind_dropdown_selects = (source) ->
+#   $(".dropdown_select_tag").each ->
+#     $(this).find('ul.dropdown-menu a').click ->
+#       selection = $(this).attr('data-value')
+#       selection_key = $(this).text()
+# 
+#       dropdown_root = $(this).parents(".dropdown_select_tag")
+#       $(dropdown_root).find('.dropdown-toggle').html(selection_key + ' <span class="caret"/>')
+#       $(dropdown_root).find('select').val(selection)
 
 # # Capture the browser's forward/backward events, 
 # # send them to change_datasource()

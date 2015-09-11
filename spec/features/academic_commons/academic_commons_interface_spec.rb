@@ -17,17 +17,19 @@ describe 'Academic Commons' do
     within '.search_box.academic_commons' do
       expect(find('#academic_commons_q')).to be_visible
       fill_in 'q', with: search_title_text
-      find('btn.dropdown-toggle').click
-      within '.dropdown-menu' do
-        # save_and_open_page()
-        click_link('Title')
-      end
+      # find('btn.dropdown-toggle').click
+      # within '.dropdown-menu' do
+      #   # save_and_open_page()
+      #   click_link('Title')
+      # end
+      select 'Title', :from => "search_field"
       find('button[type=submit]').click
     end
 
     # Search string and search field should be preserved
     expect(find('#academic_commons_q').value).to eq search_title_text
-    expect(find('.btn.dropdown-toggle')).to have_content('Title')
+    # expect(find('.btn.dropdown-toggle')).to have_content('Title')
+    expect(page).to have_select('search_field', selected: 'Title')
 
     # The entered fielded search should be echoed on the results page
     expect(find('.constraints-container')).to have_content('Title: ' + search_title_text)

@@ -30,14 +30,15 @@ module SearchHelper
   end
 
 
-  def dropdown_with_select_tag(name, field_options, field_default = nil, *html_args)
-    dropdown_options = html_args.extract_options!
-
-    dropdown_default = field_options.invert[field_default] || field_options.keys.first
-    select_options = dropdown_options.delete(:select_options) || {}
-
-    result = render(partial: '/dropdown_select', locals: { name: name, field_options: field_options, dropdown_options: dropdown_options, field_default: field_default, dropdown_default: dropdown_default, select_options: select_options })
-  end
+# remove Bootstrap-Dropdown-Menu-as-Select-Tag
+  # def dropdown_with_select_tag(name, field_options, field_default = nil, *html_args)
+  #   dropdown_options = html_args.extract_options!
+  # 
+  #   dropdown_default = field_options.invert[field_default] || field_options.keys.first
+  #   select_options = dropdown_options.delete(:select_options) || {}
+  # 
+  #   result = render(partial: '/dropdown_select', locals: { name: name, field_options: field_options, dropdown_options: dropdown_options, field_default: field_default, dropdown_default: dropdown_default, select_options: select_options })
+  # end
 
 
   def display_search_boxes(source)
@@ -122,7 +123,10 @@ module SearchHelper
 
       # insert drop-down
       if options['search_fields'].kind_of?(Hash)
-        result += dropdown_with_select_tag(:search_field, options['search_fields'].invert, h(search_params[:search_field]), title: 'Targeted search options', class: 'search_options')
+        # remove Bootstrap-Dropdown-Menu-as-Select-Tag
+        # result += dropdown_with_select_tag(:search_field, options['search_fields'].invert, h(search_params[:search_field]), title: 'Targeted search options', class: 'search_options')
+        search_field_select = select_tag('search_field', options_for_select(options['search_fields'].invert, search_params[:search_field]), class: 'form-control')
+        result += content_tag(:div, search_field_select, class: "form-group")
       end
 
       # Will this wrap input-text and drop-down-select more nicely?

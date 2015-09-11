@@ -88,10 +88,14 @@ describe 'Catalog Advanced Search' do
 
     it "supports fielded search by #{searchField}", js: true do
       visit catalog_index_path
-      find('btn', text: "All Fields").click
-      within('.search_row') do
-        find('li', text: /\A#{searchField}\z/).click
-      end
+#       # find('btn', text: "All Fields").click
+# 
+#       within('.search_row') do
+#         find('li', text: /\A#{searchField}\z/).click
+#       end
+
+      select searchField, :from => "search_field"
+
       fill_in 'q', with: searchValue
       find('button[type=submit]').click
 
@@ -130,10 +134,11 @@ describe 'Catalog Advanced Search' do
 
     it "supports fielded Location search for #{locationSearch}", js: true do
       visit catalog_index_path
-      find('btn', text: "All Fields").click
-      within('.search_row') do
-        find('li', text: 'Location').click
-      end
+      # find('btn', text: "All Fields").click
+      # within('.search_row') do
+      #   find('li', text: 'Location').click
+      # end
+      select 'Location', :from => "search_field"
       fill_in 'q', with: locationSearch
       find('button[type=submit]').click
 
@@ -217,10 +222,11 @@ describe 'Catalog Advanced Search' do
     isbn_z = '201235125'
 
     visit catalog_index_path
-    find('btn', text: "All Fields").click
-    within('.search_row') do
-      find('li', text: "ISBN").click
-    end
+    # find('btn', text: "All Fields").click
+    # within('.search_row') do
+    #   find('li', text: "ISBN").click
+    # end
+    select 'ISBN', :from => "search_field"
     fill_in 'q', with: isbn_z
 
     # this time, click the little "search" icon
