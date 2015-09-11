@@ -475,7 +475,7 @@ describe 'Catalog Interface' do
   end
 
   # NEXT-1218 - Display label for MARC 545 - Biographical or Historical Data
-  it 'shows Biographical / Historical Note appropriately', focus: true do
+  it 'shows Biographical / Historical Note appropriately' do
     visit catalog_path(7755896)
     expect(page).to have_text "Biographical / Historical Note
       Makino Mamoru (1930-) was born"
