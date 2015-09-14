@@ -24,6 +24,6 @@ MARC_FIELDS ||= marc_config
 # SOLR_CONFIG ||= YAML.load(File.read(Rails.root.to_s + '/config/blacklight.yml'))
 # Interpolation
 blacklight_config_file = Rails.root.to_s + '/config/blacklight.yml'
-SOLR_CONFIG = YAML.load(ERB.new(IO.read(blacklight_config_file)).result) || {}
+SOLR_CONFIG ||= YAML.load(ERB.new(IO.read(blacklight_config_file)).result) || {}
 
 
