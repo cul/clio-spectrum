@@ -349,6 +349,7 @@ DEPENDENCIES
   rack-attack
   rack-utf8_sanitizer
   rails (~> 4.1)
+  rake
   rb-fsevent
   rest-client
   rspec-activemodel-mocks
