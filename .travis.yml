@@ -19,7 +19,7 @@ script:
   - RAILS_ENV=test bundle exec rake db:migrate
   - RAILS_ENV=test bundle exec rake db:migrate:status
   - RAILS_ENV=test bundle exec rake locations:load
-  - xvfb-run bundle exec rspec spec/features/catalog
+  - xvfb-run bundle exec rspec spec
 
 env:
   global:
