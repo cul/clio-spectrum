@@ -1,0 +1,52 @@
+_all_environments:
+
+
+  web_authentication: cas
+  cas_base_url: https://cas.columbia.edu
+  cas_login_url: https://cas.columbia.edu/cas/login
+  cas_logout_url: https://cas.columbia.edu/cas/logout
+  cas_validate_url: https://cas.columbia.edu/cas/serviceValidate
+  cas_destination_url: https://cliobeta.columbia.edu:3000
+
+  google_appliance_url: http://search.columbia.edu/search
+
+  library_api_path: <%= ENV['LIBRARY_API_PATH'] %>
+
+  ac2_solr_url: <%= ENV['AC2_SOLR_URL'] %>
+
+
+  summon:
+    access_id: <%= ENV['SUMMON__ACCESS_ID'] %>
+    secret_key: <%= ENV['SUMMON__SECRET_KEY'] %>
+
+
+  COLUMBIA_IP_RANGES:
+    - 128.59.0.0/16
+    - 129.236.0.0/16
+    - 156.111.0.0/16
+    - 156.145.0.0/16
+    - 160.39.0.0/16
+    - 192.12.82.0/24
+    - 192.5.43.0/24
+    - 207.10.136.0/21
+    - 209.2.47.0/24
+    - 209.2.48.0/22
+    - 209.2.185.0/24
+    - 209.2.208.0/20
+    - 209.2.224.0/20
+
+  BAD_IP_LIST:
+    - 222.66.115.236
+
+  BAD_USER_AGENT_LIST:
+    - Java/1.6.0_39
+    - crawler4j (http://code.google.com/p/crawler4j/)
+
+  THROTTLE_LIMIT_PER_MINUTE: 300
+  THROTTLE_LIMIT_PER_HOUR: 3000
+
+  skip_selenium_tests: true
+
+  application_name: CLIO CI - test
+  clio_backend_url: <%= ENV['CLIO_BACKEND_URL'] %>
+

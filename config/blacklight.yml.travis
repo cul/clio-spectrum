@@ -1,0 +1,3 @@
+test:
+  adapter: solr
+  url: <%= ENV['SOLR_URL'] %>
