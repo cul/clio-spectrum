@@ -14,7 +14,7 @@ before_script:
   - cp ./config/blacklight.yml.travis ./config/blacklight.yml
   - cp ./config/app_config.yml.travis ./config/app_config.yml
   - RAILS_ENV=test bundle exec rake db:migrate 
-  - RAILS_ENV=test bundle exec rake hours:sync
+  # - RAILS_ENV=test bundle exec rake hours:sync
   - RAILS_ENV=test bundle exec rake locations:load
   - sh -c 'if [ -n "$QMAKE" ]; then sudo apt-add-repository -y ppa:ubuntu-sdk-team/ppa && sudo apt-get update && sudo apt-get install libqt5webkit5-dev qtdeclarative5-dev; fi'
   - RAILS_ENV=test bundle exec rake db:migrate:status
