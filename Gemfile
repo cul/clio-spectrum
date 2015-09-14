@@ -268,4 +268,8 @@ group :test do
   # CI servers want XML output from rspecs
   # gem 'ci_reporter'
   
+  # Travis needs this.
+  #  http://docs.travis-ci.com/user/languages/ruby/
+  gem 'rake'
+  
 end

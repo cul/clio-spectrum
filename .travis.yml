@@ -1,10 +1,8 @@
 language: ruby
 rvm:
-# - "1.8.7"
-# - "1.9.2"
- - "1.9.3"
- - "2.1.0"
-# - rbx
-# uncomment this line if your project needs to run something other than `rake`:
-# script: bundle exec rspec spec
-
+- 2.1.0
+before_script:
+- cp ./config/database.yml.travis ./config/database.yml
+env:
+  global:
+    secure: HO+3ezmlovIprHmb2c+Aw87LbsXhs4pY5ZhPWjO0ZsjKq4QsWWV0CCTX1TUJ7adNgnTpuBiaQ+hb9jnrG8UMeokHWvxICD3wkN+GNJMHvqkbuqGq23twvdWb1iDlzaMkNN7RRBydbA7qVaBjX1fMzmOz7Tt+mjqPBBgS+1UhnXg=
