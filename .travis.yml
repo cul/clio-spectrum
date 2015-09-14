@@ -13,16 +13,20 @@ before_script:
   - cp ./config/database.yml.travis ./config/database.yml
   - cp ./config/blacklight.yml.travis ./config/blacklight.yml
   - cp ./config/app_config.yml.travis ./config/app_config.yml
-  - bundle exec rake db:migrate RAILS_ENV=test
-  - bundle exec rake db:migrate:status RAILS_ENV=test
-  - bundle exec rake locations:load RAILS_ENV=test
+  #- bundle exec rake db:migrate RAILS_ENV=test
+  #- bundle exec rake db:migrate:status RAILS_ENV=test
+  #- bundle exec rake locations:load RAILS_ENV=test
   # - RAILS_ENV=test bundle exec rake hours:sync
   - sh -c 'if [ -n "$QMAKE" ]; then sudo apt-add-repository -y ppa:ubuntu-sdk-team/ppa && sudo apt-get update && sudo apt-get install libqt5webkit5-dev qtdeclarative5-dev; fi'
 
 script: 
+  - RAILS_ENV=test bundle exec rake db:migrate
+  - RAILS_ENV=test bundle exec rake db:migrate:status
+  - RAILS_ENV=test bundle exec rake locations:load
   - xvfb-run bundle exec rspec spec/features/catalog
 
 env:
+  - DB-sqlite
   global:
     - secure: E04d3CX7q2po3xtZmSmeOvNJ6zJyBX6R9C/dj729UvCf8SGxO3Gcd19Wh86NBRRm4ucnDBg1aq7vazjRDvOuFCdNqrB/I4caYUohSxLTgX2SmfSd74LebERii9FXsHwKrhvEh8me16kqsF+h9OoAcEvDn4e4f2ybiZfbSuqdUpc=
     - secure: XUMiorwZ3XGSf6ta/KHHHlq3lVQvkpESDiKD8lMyKsxJ96rTIjikstq8lTdJJ6W1c3dW8Di2Aq2Q/84TI2uuJWB8VcuyKfOaqKV31odDLSd+fOkl8Fthxvl7fUBCVBrAlsktANE/jdPSm77AgZrdIYGKNCi0EjWSyT8OhXEDCw4=
