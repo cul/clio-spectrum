@@ -9,6 +9,9 @@ end
 require 'rubygems'
 # require 'spork'
 
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
+
 # Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,
   # if you change any configuration or code from libraries loaded here, you'll

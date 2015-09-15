@@ -271,5 +271,10 @@ group :test do
   # Travis needs this.
   #  http://docs.travis-ci.com/user/languages/ruby/
   gem 'rake'
+
+  # Travis can use this to send coverage data over to Code Climate
+  # http://docs.travis-ci.com/user/code-climate/
+  # https://codeclimate.com/repos/556c823fe30ba007ad0069ee/coverage_setup
+  gem "codeclimate-test-reporter", require: nil
   
 end

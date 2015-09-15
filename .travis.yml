@@ -21,6 +21,10 @@ script:
   - RAILS_ENV=test bundle exec rake locations:load
   - xvfb-run bundle exec rspec spec
 
+addons:
+  code_climate:
+    repo_token: 857ea37f4cf82d7dcddbf53c68763e75623dfbf6ec63099d70c101d2e5928104
+
 env:
   global:
     - secure: E04d3CX7q2po3xtZmSmeOvNJ6zJyBX6R9C/dj729UvCf8SGxO3Gcd19Wh86NBRRm4ucnDBg1aq7vazjRDvOuFCdNqrB/I4caYUohSxLTgX2SmfSd74LebERii9FXsHwKrhvEh8me16kqsF+h9OoAcEvDn4e4f2ybiZfbSuqdUpc=
