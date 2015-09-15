@@ -100,6 +100,8 @@ GEM
       json
     childprocess (0.5.6)
       ffi (~> 1.0, >= 1.0.11)
+    codeclimate-test-reporter (0.4.8)
+      simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -325,6 +327,7 @@ DEPENDENCIES
   capistrano-rails (~> 1.1)
   capybara
   capybara-webkit
+  codeclimate-test-reporter
   coffee-rails
   database_cleaner
   devise
