@@ -98,6 +98,7 @@ describe 'Catalog Interface' do
   it 'Online links from Bib or Holdings should show up within correct block', js: true do
     # visit this specific item
     visit catalog_path('382300')
+    expect(page).to have_selector('#clio_holdings .holding')
 
     # within CLIO HOLDINGS, not the regular Online div...
     # ...want to see an 'Online' block
@@ -138,6 +139,7 @@ describe 'Catalog Interface' do
     click_link(target1)
 
     # within CLIO HOLDINGS, should get the full location data
+    expect(page).to have_selector('#clio_holdings holding')
     expect(find('div#clio_holdings')).to have_content(troublesome1)
 
     # And again, with slightly different sample...

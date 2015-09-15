@@ -4,6 +4,7 @@ describe 'record tests', js: true do
 
   it 'test call number' do
     visit catalog_path('7686002')
+    expect(page).to have_selector('#clio_holdings .holding')
     within ('div#clio_holdings') do
       expect(page).to have_text('Ms MONTGOM 675')
     end
@@ -11,6 +12,7 @@ describe 'record tests', js: true do
 
   it 'test supplements' do
     visit catalog_path('2120018')
+    expect(page).to have_selector('#clio_holdings .holding')
     within ('div#clio_holdings') do
       expect(page).to have_text('1880-1881 bound in 1 v.')
     end
@@ -30,6 +32,7 @@ describe 'record tests', js: true do
 
   it 'test services offsite' do
     visit catalog_path('6249927')
+    expect(page).to have_selector('#clio_holdings .holding')
     within ('div#clio_holdings') do
       expect(page).to have_link('Offsite',
                             href: 'http://www.columbia.edu/cgi-bin/cul/offsite2?6249927')
@@ -40,6 +43,7 @@ describe 'record tests', js: true do
 
     it 'test donor info' do
       visit catalog_path('5602687')
+      expect(page).to have_selector('#clio_holdings .holding')
       within ('div#clio_holdings') do
         expect(page).not_to have_content('Donor:')
         expect(page).to have_content('Paul Levitz; 2012.')
@@ -49,6 +53,7 @@ describe 'record tests', js: true do
 
     it 'test donor info icon' do
       visit catalog_path('9576776')
+      expect(page).to have_selector('#clio_holdings .holding')
       within ('div#clio_holdings') do
         expect(page).not_to have_content('Donor:')
         expect(page).to have_content('John Morrow; 2013')
@@ -59,6 +64,7 @@ describe 'record tests', js: true do
     # NEXT-1180 - Accommodate donor info that spans one or two lines
     it 'test donor info with very, very, very, very, very, very long donor label' do
       visit catalog_path('36114')
+      expect(page).to have_selector('#clio_holdings .holding')
       within ('div#clio_holdings') do
         expect(page).not_to have_content('Donor:')
         # expect(page).to have_content('Seymour Durst; 2012.')
@@ -71,6 +77,7 @@ describe 'record tests', js: true do
 
   it 'test service spec coll' do
     visit catalog_path('10104738')
+    expect(page).to have_selector('#clio_holdings .holding')
     within ('div#clio_holdings') do
       expect(page).to have_link('Special Collections',
                             href: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey=10104738')
@@ -79,12 +86,14 @@ describe 'record tests', js: true do
 
   it 'test service spec coll' do
     visit catalog_path('6201975')
+    expect(page).to have_selector('#clio_holdings .holding')
     within ('div#clio_holdings') do
       expect(page).to have_link('Scan & Deliver',
                             href: 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?6201975')
     end
 
     visit catalog_path('6871895')
+    expect(page).to have_selector('#clio_holdings .holding')
     within ('div#clio_holdings') do
       expect(page).to have_link('Scan & Deliver',
                             href: 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?6871895',

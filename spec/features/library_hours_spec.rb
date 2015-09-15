@@ -26,10 +26,9 @@ describe 'Item Locations should show correct library hours', js: true, skip_trav
   # end
 
   it 'for Avery Drawings & Archives' do
-    # puts catalog_path('8277276')
     visit catalog_path('8277276')
     # page.save_and_open_page # debug
-    expect(page).to have_text('Avery Drawings & Archives')
+    expect(find('.holdings-container')).to have_text('Avery Drawings & Archives')
     click_link('Avery Drawings & Archives - By appt. (Non-Circulating)')
     # page.save_and_open_page # debug
     expect(page).to have_text('Avery Drawings & Archives')
@@ -39,7 +38,7 @@ describe 'Item Locations should show correct library hours', js: true, skip_trav
   it 'for Avery Classics' do
     # Pull up the item-detail page, follow link to Location page...
     visit catalog_path('565036')
-    expect(page).to have_text('Avery Classics')
+    expect(find('.holdings-container')).to have_text('Avery Classics')
     within('.location_box .location', text: 'Avery Classics') do
       click_link('Avery Classics')
     end

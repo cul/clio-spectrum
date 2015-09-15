@@ -31,6 +31,7 @@ describe 'Locations' do
       end
 
       expect(page).to have_css('.holdings')
+      expect(page).to have_css('.location_notes')
 
       within('.location_notes') do
         expect(find('.location_note')).to have_text("By appointment only")
