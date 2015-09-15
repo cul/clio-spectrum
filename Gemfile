@@ -276,5 +276,10 @@ group :test do
   # http://docs.travis-ci.com/user/code-climate/
   # https://codeclimate.com/repos/556c823fe30ba007ad0069ee/coverage_setup
   gem "codeclimate-test-reporter", require: nil
+
+  # Coveralls for Code Coverage
+  # https://coveralls.zendesk.com/hc/en-us/articles/201769485-Ruby-Rails
+  gem 'coveralls', require: false
   
 end
+
