@@ -1,6 +1,8 @@
 # clio-spectrum
 
 
+[![Build Status](https://travis-ci.org/cul/clio-spectrum.svg?branch=master)](https://travis-ci.org/cul/clio-spectrum)
+
 [![Code Climate](https://codeclimate.com/github/cul/clio-spectrum/badges/gpa.svg)](https://codeclimate.com/github/cul/clio-spectrum)
 
 
