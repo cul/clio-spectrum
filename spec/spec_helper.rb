@@ -84,6 +84,10 @@ require 'rubygems'
     config.filter_run_excluding :selenium if
         APP_CONFIG['skip_selenium_tests']
 
+    # Some specs are awkward to run on Travis.
+    # Flag them with a :skip_travis
+    config.filter_run_excluding :skip_travis if ENV['TRAVIS']
+
     # This says to assume things in spec/controllers are controller
     # specs, etc.  No longer automatic with new rspec?
     config.infer_spec_type_from_file_location!

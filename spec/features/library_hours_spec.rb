@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'rake'
 
-describe 'Item Locations should show correct library hours', js: true do
+describe 'Item Locations should show correct library hours', js: true, skip_travis: true do
 
   before(:all) do
     Location.clear_and_load_fixtures!

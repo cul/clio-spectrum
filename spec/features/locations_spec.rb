@@ -50,19 +50,19 @@ describe 'Locations' do
     expect(page).to have_text("Call (646) 774 - 8613 between 9-5pm")
   end
 
-    it 'should have a map of Butler if Location is Milstein', js: true do
+    it 'should have a map of Butler if Location is Milstein', js: true, skip_travis: true do
       visit location_display_path("Milstein+%5BButler%5D")
       expect(page).to have_css('.gmap_container')
       expect(page).to have_css('.well h1', text: "Butler Library")
     end
 
-    it 'should have a map of Barnard if location is Barnard Archives', js: true do
+    it 'should have a map of Barnard if location is Barnard Archives', js: true, skip_travis: true do
       visit location_display_path("Barnard+Archives+%28Non-Circulating%29")
       expect(page).to have_css('.gmap_container')
       expect(page).to have_css('.well h1', text: "Barnard Archives and Special Collections")
     end
 
-    it 'should have a google map for a location with a map', js: true do
+    it 'should have a google map for a location with a map', js: true, skip_travis: true do
       visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
       expect(page).to have_css('.gmap_container')
     end
