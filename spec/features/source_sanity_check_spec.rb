@@ -90,7 +90,7 @@ describe 'Simple query should retrieve results ', js: true do
     expect(page).to have_css('.result_set', count: 2)
     all('.result_set').each do |result_set|
       # expect(result_set).to have_css('.result')
-      expect(page).to have_css('.result', wait: 5)
+      expect(page).to have_css('.result')
     end
 
     visit new_arrivals_index_path('q' => 'test')
@@ -162,8 +162,8 @@ describe 'Switching between data-source', js: true do
 
     expect(find('input#dissertations_q').value).to eq 'test'
 
-    expect(page).to have_css('.result_set', count: 3, wait: 3)
-    expect(page).to have_css('.result_count', count: 3, wait: 3)
+    expect(page).to have_css('.result_set', count: 3)
+    expect(page).to have_css('.result_count', count: 3)
 
     all('.result_set').each do |result_set|
       expect(result_set).to have_css('.result')

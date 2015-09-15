@@ -15,7 +15,7 @@ describe 'QuickSearch landing page' do
   it "should have a 'Start Over' link", js: true do
     visit quicksearch_index_path('q' => 'borneo')
     expect(page).to have_css('.result_set', count: 4)
-    expect(page).to have_css('.nested_result_set', count: 4, wait: 5)
+    expect(page).to have_css('.nested_result_set', count: 4)
 
     all('.result_set').each do |result_set|
       expect(result_set).to have_css('.result')
@@ -86,7 +86,7 @@ describe 'QuickSearch landing page' do
   it "should show popover i-button text in aggregates", js: true do
     # QUICKSEARCH
     visit quicksearch_index_path('q' => 'horse')
-    expect(page).to have_css('.nested_result_set', count: 4, wait: 5)
+    expect(page).to have_css('.nested_result_set', count: 4)
 
     within('.results_header[data-source=catalog]') do
       find('img').click

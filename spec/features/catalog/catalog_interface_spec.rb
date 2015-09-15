@@ -79,7 +79,7 @@ describe 'Catalog Interface' do
     visit catalog_path('513297')
     expect(page).to have_css('.holdings-container .holdings #clio_holdings')
     expect(page).to have_css('.holdings-container .holdings #google_holdings')
-    expect(page).to have_css('.holdings-container .holdings #hathi_holdings', wait: 3)
+    expect(page).to have_css('.holdings-container .holdings #hathi_holdings')
 
     # Should see the 'Full View' message in the Hathi Holdings box
     expect(find('#hathi_holdings #hathi_data')).to have_content('Full view')
@@ -88,7 +88,7 @@ describe 'Catalog Interface' do
     visit catalog_path('4043762')
     expect(page).to have_css('.holdings-container .holdings #clio_holdings')
     expect(page).to have_css('.holdings-container .holdings #google_holdings')
-    expect(page).to have_css('.holdings-container .holdings #hathi_holdings', wait: 3)
+    expect(page).to have_css('.holdings-container .holdings #hathi_holdings')
 
     # Should see the 'Limited (search-only)' message in the Hathi Holdings box
     expect(find('#hathi_holdings #hathi_data')).to have_content('Limited (search-only)')

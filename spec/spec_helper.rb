@@ -43,18 +43,13 @@ require 'rubygems'
     Capybara.javascript_driver = :webkit
     # Capybara.javascript_driver = :webkit_debug
 
-    # http://www.elabs.se/blog/60-introducing-capybara-2-1
-    # But try to rewrite our specs so that we don't have to change
-    # Capybara's default configuration settings.
-    # Capybara.configure do |config|
-      # config.match = :one
-      # config.exact_options = true
-      # config.ignore_hidden_elements = true
-      # config.visible_text_only = true
-    # end
-
-    # eliminated with rails 4
-    # config.treat_symbols_as_metadata_keys_with_true_values = true
+    # How long does Capybara wait for AJAX before erroring?
+    # The 2-second default is fine for on-campus testing, but
+    # for telecommutes more time is needed
+    # https://github.com/jnicklas/capybara#asynchronous-javascript-ajax-and-friends
+    Capybara.default_wait_time = 5
+    # Next version will rename this setting to this...
+    # Capybara.default_max_wait_time = 5
 
     config.filter_run focus: true
     config.run_all_when_everything_filtered = true
