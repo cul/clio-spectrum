@@ -1,4 +1,13 @@
 require 'simplecov'
+require 'coveralls'
+require "codeclimate-test-reporter"
+
+# Using Coveralls with SimpleCov, per:
+#   https://coveralls.zendesk.com/hc/en-us/articles/201769485-Ruby-Rails
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
 SimpleCov.start do
   # don't do coverage of our testing code
   add_filter '/spec/'
@@ -6,12 +15,11 @@ SimpleCov.start do
   add_filter '/lib/tasks/'
 end
 
-require 'rubygems'
+# Don't know why this is here - try removing it
+# require 'rubygems'
 
-require 'coveralls'
-Coveralls.wear!
-
-require "codeclimate-test-reporter"
+# Can these two coexist?
+Coveralls.wear!('rails')
 CodeClimate::TestReporter.start
 
 
