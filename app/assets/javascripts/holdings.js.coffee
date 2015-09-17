@@ -100,7 +100,7 @@ $ ->
           extension = filename.substr(filename.length - 3).toLowerCase()
           if $.inArray(extension, format_icons) >= 0
             icon = extension
-        txt = '<div class="entry"><img src="/static_icons/' + icon + '.png" width="16" height="16"/> <a href="' + resource['download_path'] + '">' + resource['filename'] + '</a></div>'
+        txt = '<div class="entry"><img src="/static-icons/' + icon + '.png" width="16" height="16"/> <a href="' + resource['download_path'] + '">' + resource['filename'] + '</a></div>'
         $(fedora_selector).append(txt)
 
       if first_resource
