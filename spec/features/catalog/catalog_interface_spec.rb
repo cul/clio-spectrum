@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Catalog Interface' do
+describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
   # NEXT-779 - Some 880 fields not showing up
   it 'MARC 880 note field should display', :js do
@@ -198,7 +198,7 @@ describe 'Catalog Interface' do
       end
     end
 
-    it 'supports an email function, via JS modal', :js do
+    it 'supports an email function, via JS modal', :js, vcr: false do
       visit catalog_path(1234)
       within '#show_toolbar' do
         click_link 'Email'
@@ -296,7 +296,7 @@ describe 'Catalog Interface' do
 
 
   # NEXT-1081 - Apostrophe in the title bar renders incorrectly
-  it 'shows apostrophes within title element', :js do
+  it 'shows apostrophes within title element in patron view', :js do
     visit catalog_path(6217943)
     expect(page).to have_title "L'image de l'Orient"
 
@@ -305,7 +305,7 @@ describe 'Catalog Interface' do
   end
 
   # NEXT-1127 - Apostrophe in the title bar (in MARC view)
-  it 'shows apostrophes within title element', :js do
+  it 'shows apostrophes within title element in librarian view', :js do
     visit librarian_view_catalog_path(10877875)
     expect(page).to have_title "One woman's war: Da"
 
@@ -317,7 +317,7 @@ describe 'Catalog Interface' do
   end
 
   # NEXT-1069 - 505s for Journals/Periodicals
-  it 'shows apostrophes within title element' do
+  it 'shows 505s appropriately' do
     visit catalog_path(10213578)
     expect(page).to have_text "Contents
     ISSUE 1
@@ -382,7 +382,7 @@ describe 'Catalog Interface' do
     expect(page).to have_text ("Your query was automatically truncated to the first 30 words")
   end
 
-  it "supports 'random query' feature" do
+  it "supports 'random query' feature", vcr: false do
     visit catalog_index_path(random_q: true)
     expect(page).to have_css('li.datasource_link.selected[source="catalog"]')
     expect(page).to have_css('span.constraints-label', text: "You searched for:")

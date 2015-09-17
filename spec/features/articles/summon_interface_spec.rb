@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Summon Interface ' do
+describe 'Summon Interface', :vcr do
 
   context 'use appropriate language in the links to full text' do
     # Turn this URL (multiple s.fvf) into Rails code

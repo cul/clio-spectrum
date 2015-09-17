@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Articles Search' do
+describe 'Articles Search', :vcr do
 
   it 'should support range facets', :js do
     visit articles_index_path('s.q' => 'zebra')

@@ -17,7 +17,7 @@ VCR.configure do |c|
   c.configure_rspec_metadata!
 
   # Not working?  Use this to spew debugging to console
-  c.debug_logger = $stdout
+  # c.debug_logger = $stdout
 
 
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'An articles search' do
+describe 'An articles search', :vcr do
 
   it 'will have a next link that links to articles' do
     visit articles_index_path('q' => 'test')
