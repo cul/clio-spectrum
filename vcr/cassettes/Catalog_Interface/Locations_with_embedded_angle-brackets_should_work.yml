@@ -1,0 +1,1637 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=10099362&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:01 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'10099362','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+ht-+0168+00000000+n5000000+10099362'],'location_call_number_id_display'=>['Online >> Avery Library Historic Preservation and Urban Planning|DELIM|13175745'],'pub_year_display'=>['2010-'],'summary_display'=>['A growing collection of websites selected by the Avery Architectural and Fine Arts Library staff for web archiving preservation by the Columbia University Libraries\' Web Resources Collection Program. Website captures began in 2010 and are ongoing. The collection\'s principal thematic focus is documenting the evolution of the built environment and public spaces through the interaction of historic preservation efforts and new development projects within urban planning debates. Selected websites are mostly published by non-profit groups or individuals based in the New York City area, including historic preservation groups, neighborhood associations, public policy organizations, parks conservancies, and both sponsors and critics of ongoing development projects. Websites on related themes from other locations are also preserved in the collection'],'acq_dt'=>'2012-12-07T00:00:00Z','title_display'=>['Avery Library historic preservation and urban planning web archive'],'item_display'=>['HT168 .N5 | loc+ht-+0168+00000000+n5000000+10099362 | ebn~i6~~zytr~zzzzzzzz~cuzzzzzz~yzzqqwtx~~~~~~~~~~~'],'id'=>'10099362','reverse_shelfkey'=>['ebn~i6~~zytr~zzzzzzzz~cuzzzzzz~yzzqqwtx~~~~~~~~~~~'],'clio_id_display'=>'10099362','subject_geo_facet'=>['New York (State)','New York','New York (N.Y.)'],'call_number_display'=>['Avery Library Historic Preservation and Urban Planning'],'subject_topic_facet'=>['Atlantic Yards (Project)','Historic preservation','City planning','Historic districts','Public spaces','Parks','Web archives','Conservation and restoration','Buildings, structures, etc'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>02722cpcaa2200493Ii 4500</leader><controlfield tag="001">10099362</controlfield><controlfield tag="005">20130617214314.0</controlfield><controlfield tag="008">121114k20109999nyu                 eng d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn756766257</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)756766257</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)10099362</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">NNC</subfield><subfield code="c">NNC</subfield><subfield code="e">rda</subfield><subfield code="d">ZCU</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">n-us-ny</subfield></datafield><datafield tag="050" ind1=" " ind2="4"><subfield code="a">HT168</subfield><subfield code="b">.N5</subfield></datafield><datafield tag="245" ind1="0" ind2="0"><subfield code="a">Avery Library historic preservation and urban planning web archive.</subfield></datafield><datafield tag="246" ind1="1" ind2="3"><subfield code="a">Avery Library web archive</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="c">2010-</subfield></datafield><datafield tag="336" ind1=" " ind2=" "><subfield code="a">text</subfield><subfield code="b">txt</subfield><subfield code="2">rdacontent</subfield></datafield><datafield tag="337" ind1=" " ind2=" "><subfield code="a">computer</subfield><subfield code="b">c</subfield><subfield code="2">rdamedia</subfield></datafield><datafield tag="338" ind1=" " ind2=" "><subfield code="a">online resource</subfield><subfield code="b">cr</subfield><subfield code="2">rdacarrier</subfield></datafield><datafield tag="506" ind1=" " ind2=" "><subfield code="a">Browsing and full-text search of archived websites is available without restriction.</subfield></datafield><datafield tag="520" ind1=" " ind2=" "><subfield code="a">A growing collection of websites selected by the Avery Architectural and Fine Arts Library staff for web archiving preservation by the Columbia University Libraries\' Web Resources Collection Program. Website captures began in 2010 and are ongoing. The collection\'s principal thematic focus is documenting the evolution of the built environment and public spaces through the interaction of historic preservation efforts and new development projects within urban planning debates. Selected websites are mostly published by non-profit groups or individuals based in the New York City area, including historic preservation groups, neighborhood associations, public policy organizations, parks conservancies, and both sponsors and critics of ongoing development projects. Websites on related themes from other locations are also preserved in the collection.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Historic preservation</subfield><subfield code="z">New York (State)</subfield><subfield code="z">New York.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Historic preservation.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">City planning</subfield><subfield code="z">New York (State)</subfield><subfield code="z">New York.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Historic districts</subfield><subfield code="x">Conservation and restoration</subfield><subfield code="z">New York (State)</subfield><subfield code="z">New York.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Public spaces</subfield><subfield code="z">New York (State)</subfield><subfield code="z">New York.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Parks</subfield><subfield code="z">New York (State)</subfield><subfield code="z">New York.</subfield></datafield><datafield tag="610" ind1="2" ind2="0"><subfield code="a">Atlantic Yards (Project)</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Web archives.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">New York (N.Y.)</subfield><subfield code="x">Buildings, structures, etc.</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Web archives</subfield><subfield code="2">lcsh</subfield></datafield><datafield tag="710" ind1="2" ind2=" "><subfield code="a">Avery Library.</subfield></datafield><datafield tag="710" ind1="2" ind2=" "><subfield code="a">Columbia University.</subfield><subfield code="b">Libraries.</subfield><subfield code="b">Web Resources Collection Program.</subfield></datafield><datafield tag="856" ind1="4" ind2="0"><subfield code="u">http://www.columbia.edu/cgi-bin/cul/resolve?clio10099362</subfield><subfield code="z">Full collection access via Archive-It.org</subfield></datafield><datafield tag="920" ind1="4" ind2="0"><subfield code="u">http://archive-it.org/collections/1757</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20121207</subfield><subfield code="b">o</subfield><subfield code="c">at2186</subfield><subfield code="d">OSMC</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">HT</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">HT168 .N5</subfield><subfield code="b">loc+HT-+0168+00000000+N5000000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Online</subfield><subfield code="b">Online &gt;&gt; Avery Library Historic Preservation and Urban Planning|DELIM|13175745</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Manuscript/Archive</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2012-12-07T00:00:00.000Z</subfield></datafield></record></collection>','database_restrictions_display'=>['Browsing and full-text search of archived websites is available without restriction.'],'format'=>['Manuscript/Archive'],'source_display'=>['catalog'],'url_munged_display'=>['0||||||http://www.columbia.edu/cgi-bin/cul/resolve?clio10099362|||Full collection access via Archive-It.org'],'oclc_display'=>['ocn756766257','756766257'],'title_first_facet'=>['A'],'full_publisher_display'=>['2010-'],'pub_date_sort'=>2010,'language_facet'=>['English'],'_version_'=>1501984863978258432,'timestamp'=>'2015-05-23T18:06:28.407Z'}]}}
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:02 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocn756766257.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 17 Sep 2015 19:41:02 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:01 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        19:51:01 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:02 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-17T00:00:00Z%20TO%20*%5D&q=%7B!qf=$title_start_qf%20pf=$title_start_pf%7D%22Avery%20obituary%20index%20of%20architects%20and%20artists%22&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck.q=%22Avery%20obituary%20index%20of%20architects%20and%20artists%22&stats=true&stats.field=pub_date_sort&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:01 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>36,'params'=>{'f.subject_form_facet.facet.limit'=>'11','facet'=>'true','sort'=>'score desc, pub_date_sort desc, title_sort asc','stats'=>'true','f.subject_topic_facet.facet.limit'=>'11','spellcheck.q'=>'"Avery obituary index of architects and artists"','f.language_facet.facet.limit'=>'6','f.lc_1letter_facet.facet.limit'=>'31','f.pub_date_sort.facet.limit'=>'4','f.location_facet.facet.limit'=>'6','wt'=>'ruby','f.lc_subclass_facet.facet.limit'=>'501','rows'=>'25','f.subject_geo_facet.facet.limit'=>'11','facet.query'=>['acq_dt:[2015-09-10T00:00:00Z TO *]','acq_dt:[2015-08-17T00:00:00Z TO *]','acq_dt:[2015-03-17T00:00:00Z TO *]','acq_dt:[2014-09-17T00:00:00Z TO *]'],'stats.field'=>'pub_date_sort','q'=>'{!qf=$title_start_qf pf=$title_start_pf}"Avery obituary index of architects and artists"','f.author_facet.facet.limit'=>'6','facet.field'=>['format','pub_date_sort','author_facet','location_facet','language_facet','subject_topic_facet','subject_geo_facet','subject_era_facet','subject_form_facet','lc_1letter_facet','lc_subclass_facet'],'qt'=>'search','f.subject_era_facet.facet.limit'=>'11','f.format.facet.limit'=>'6'}},'response'=>{'numFound'=>1,'start'=>0,'maxScore'=>5.024857,'docs'=>[{'location_call_number_id_display'=>['Avery Fine Arts (Non-Circulating) >> N40 C72 Q|DELIM|2118829','Offsite <Avery> (Non-Circulating) Place Request for delivery >> AZ900 C72|DELIM|2118830'],'pub_year_display'=>['1963'],'lccn_display'=>['64007017 //r84'],'title_display'=>['Avery obituary index of architects and artists'],'id'=>'1721651','clio_id_display'=>'1721651','subject_topic_facet'=>['Architects','Artists','Obituaries'],'pub_place_display'=>['Boston'],'author_display'=>['Avery Library'],'pub_name_display'=>['G.K. Hall'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['338 p.'],'oclc_display'=>['ocm00607808'],'full_publisher_display'=>['Boston, G.K. Hall, 1963.'],'language_facet'=>['English'],'score'=>5.024857}]},'facet_counts'=>{'facet_queries'=>{'acq_dt:[2015-09-10T00:00:00Z TO *]'=>0,'acq_dt:[2015-08-17T00:00:00Z TO *]'=>0,'acq_dt:[2015-03-17T00:00:00Z TO *]'=>0,'acq_dt:[2014-09-17T00:00:00Z TO *]'=>0},'facet_fields'=>{'format'=>['Book',1],'pub_date_sort'=>['1963',1],'author_facet'=>['Avery Library',1],'location_facet'=>['Avery, Fine Arts, Ware',1,'Offsite',1],'language_facet'=>['English',1],'subject_topic_facet'=>['Architects',1,'Artists',1,'Obituaries',1],'subject_geo_facet'=>[],'subject_era_facet'=>[],'subject_form_facet'=>['Bibliography',1,'Indexes',1],'lc_1letter_facet'=>['Z - Bibliography, Library Science, Information Resources',1],'lc_subclass_facet'=>['Z - Bibliography, Library Science, Information Resources',1]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>{'min'=>1963.0,'max'=>1963.0,'count'=>1,'missing'=>0,'sum'=>1963.0,'sumOfSquares'=>3853369.0,'mean'=>1963.0,'stddev'=>0.0,'facets'=>{}}}}}
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:02 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/756766257.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 17 Sep 2015 19:41:02 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:01 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        19:51:01 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:02 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=1721651&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:02 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'1721651','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['avefax+n--+0040+00000000+c7200000+q00000+1721651','loc+z--+5943+00000000+a6900000+a9300000+001963+1721651','avefax+az-+0900+00000000+c7200000+1721651'],'location_call_number_id_display'=>['Avery Fine Arts (Non-Circulating) >> N40 C72 Q|DELIM|2118829','Offsite <Avery> (Non-Circulating) Place Request for delivery >> AZ900 C72|DELIM|2118830'],'pub_year_display'=>['1963'],'lccn_display'=>['64007017 //r84'],'title_display'=>['Avery obituary index of architects and artists'],'item_display'=>['AZ900 C72 | avefax+az-+0900+00000000+c7200000+1721651 | p4lkp2~p0~~zqzz~zzzzzzzz~nsxzzzzz~ysxytuy~~~~~~~~~','N40 C72 Q | avefax+n--+0040+00000000+c7200000+q00000+1721651 | p4lkp2~c~~~zzvz~zzzzzzzz~nsxzzzzz~9zzzzz~ysxytuy~~','Z5943.A69 A93 1963 | loc+z--+5943+00000000+a6900000+a9300000+001963+1721651 | ebn~0~~~uqvw~zzzzzzzz~ptqzzzzz~pqwzzzzz~zzyqtw~ysxytuy'],'id'=>'1721651','reverse_shelfkey'=>['p4lkp2~c~~~zzvz~zzzzzzzz~nsxzzzzz~9zzzzz~ysxytuy~~','p4lkp2~p0~~zqzz~zzzzzzzz~nsxzzzzz~ysxytuy~~~~~~~~~','ebn~0~~~uqvw~zzzzzzzz~ptqzzzzz~pqwzzzzz~zzyqtw~ysxytuy'],'clio_id_display'=>'1721651','call_number_display'=>['N40 C72 Q','AZ900 C72'],'subject_topic_facet'=>['Architects','Artists','Obituaries'],'pub_place_display'=>['Boston'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01174cam a22003371  4500</leader><controlfield tag="001">1721651</controlfield><controlfield tag="005">20030429113215.0</controlfield><controlfield tag="008">831025s1963    mau      ib   000 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   64007017 //r84</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm00607808</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">ALC6577CU</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">ZCU</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">Z5943.A69</subfield><subfield code="b">A93 1963</subfield><subfield code="a">NA40</subfield></datafield><datafield tag="110" ind1="2" ind2=" "><subfield code="a">Avery Library.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Avery obituary index of architects and artists.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Boston,</subfield><subfield code="b">G.K. Hall,</subfield><subfield code="c">1963.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">338 p.</subfield><subfield code="c">37 cm.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Architects</subfield><subfield code="v">Bibliography.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Artists</subfield><subfield code="v">Bibliography.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Obituaries</subfield><subfield code="v">Indexes.</subfield></datafield><datafield tag="740" ind1="0" ind2="1"><subfield code="a">Obituary index of architects and artists.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="965" ind1=" " ind2=" "><subfield code="a">rcp2954</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">Z</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">Z5943.A69 A93 1963</subfield><subfield code="b">loc+Z--+5943+00000000+A6900000+A9300000+001963</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">N40 C72 Q</subfield><subfield code="b">avefax+N--+0040+00000000+C7200000+Q00000</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">AZ900 C72</subfield><subfield code="b">avefax+AZ-+0900+00000000+C7200000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Avery, Fine Arts, Ware</subfield><subfield code="b">Avery Fine Arts (Non-Circulating) &gt;&gt; N40 C72 Q|DELIM|2118829</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Offsite</subfield><subfield code="b">Offsite &lt;Avery&gt; (Non-Circulating) Place Request for delivery &gt;&gt; AZ900 C72|DELIM|2118830</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Avery Library'],'pub_name_display'=>['G.K. Hall'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['338 p.'],'oclc_display'=>['ocm00607808'],'title_first_facet'=>['A'],'pub_date_sort'=>1963,'full_publisher_display'=>['Boston, G.K. Hall, 1963.'],'language_facet'=>['English'],'_version_'=>1501910680409735168,'timestamp'=>'2015-05-22T22:27:21.443Z'}]}}
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:02 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=false&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-17T00:00:00Z%20TO%20*%5D&fl=*&q=%7B!qf=$title_start_qf%20pf=$title_start_pf%7D%22Avery%20obituary%20index%20of%20architects%20and%20artists%22&qt=search&rows=2&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck.q=%22Avery%20obituary%20index%20of%20architects%20and%20artists%22&start=0&stats=true&stats.field=pub_date_sort&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:02 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'f.subject_form_facet.facet.limit'=>'11','facet'=>'false','sort'=>'score desc, pub_date_sort desc, title_sort asc','stats'=>'true','f.subject_topic_facet.facet.limit'=>'11','spellcheck.q'=>'"Avery obituary index of architects and artists"','f.language_facet.facet.limit'=>'6','f.lc_1letter_facet.facet.limit'=>'31','f.pub_date_sort.facet.limit'=>'4','f.location_facet.facet.limit'=>'6','wt'=>'ruby','f.lc_subclass_facet.facet.limit'=>'501','rows'=>'2','fl'=>'*','start'=>'0','f.subject_geo_facet.facet.limit'=>'11','facet.query'=>['acq_dt:[2015-09-10T00:00:00Z TO *]','acq_dt:[2015-08-17T00:00:00Z TO *]','acq_dt:[2015-03-17T00:00:00Z TO *]','acq_dt:[2014-09-17T00:00:00Z TO *]'],'stats.field'=>'pub_date_sort','q'=>'{!qf=$title_start_qf pf=$title_start_pf}"Avery obituary index of architects and artists"','f.author_facet.facet.limit'=>'6','facet.field'=>['format','pub_date_sort','author_facet','location_facet','language_facet','subject_topic_facet','subject_geo_facet','subject_era_facet','subject_form_facet','lc_1letter_facet','lc_subclass_facet'],'qt'=>'search','f.subject_era_facet.facet.limit'=>'11','f.format.facet.limit'=>'6'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['avefax+n--+0040+00000000+c7200000+q00000+1721651','loc+z--+5943+00000000+a6900000+a9300000+001963+1721651','avefax+az-+0900+00000000+c7200000+1721651'],'location_call_number_id_display'=>['Avery Fine Arts (Non-Circulating) >> N40 C72 Q|DELIM|2118829','Offsite <Avery> (Non-Circulating) Place Request for delivery >> AZ900 C72|DELIM|2118830'],'pub_year_display'=>['1963'],'lccn_display'=>['64007017 //r84'],'title_display'=>['Avery obituary index of architects and artists'],'item_display'=>['AZ900 C72 | avefax+az-+0900+00000000+c7200000+1721651 | p4lkp2~p0~~zqzz~zzzzzzzz~nsxzzzzz~ysxytuy~~~~~~~~~','N40 C72 Q | avefax+n--+0040+00000000+c7200000+q00000+1721651 | p4lkp2~c~~~zzvz~zzzzzzzz~nsxzzzzz~9zzzzz~ysxytuy~~','Z5943.A69 A93 1963 | loc+z--+5943+00000000+a6900000+a9300000+001963+1721651 | ebn~0~~~uqvw~zzzzzzzz~ptqzzzzz~pqwzzzzz~zzyqtw~ysxytuy'],'id'=>'1721651','reverse_shelfkey'=>['p4lkp2~c~~~zzvz~zzzzzzzz~nsxzzzzz~9zzzzz~ysxytuy~~','p4lkp2~p0~~zqzz~zzzzzzzz~nsxzzzzz~ysxytuy~~~~~~~~~','ebn~0~~~uqvw~zzzzzzzz~ptqzzzzz~pqwzzzzz~zzyqtw~ysxytuy'],'clio_id_display'=>'1721651','call_number_display'=>['N40 C72 Q','AZ900 C72'],'subject_topic_facet'=>['Architects','Artists','Obituaries'],'pub_place_display'=>['Boston'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01174cam a22003371  4500</leader><controlfield tag="001">1721651</controlfield><controlfield tag="005">20030429113215.0</controlfield><controlfield tag="008">831025s1963    mau      ib   000 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   64007017 //r84</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm00607808</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">ALC6577CU</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">ZCU</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">Z5943.A69</subfield><subfield code="b">A93 1963</subfield><subfield code="a">NA40</subfield></datafield><datafield tag="110" ind1="2" ind2=" "><subfield code="a">Avery Library.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Avery obituary index of architects and artists.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Boston,</subfield><subfield code="b">G.K. Hall,</subfield><subfield code="c">1963.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">338 p.</subfield><subfield code="c">37 cm.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Architects</subfield><subfield code="v">Bibliography.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Artists</subfield><subfield code="v">Bibliography.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Obituaries</subfield><subfield code="v">Indexes.</subfield></datafield><datafield tag="740" ind1="0" ind2="1"><subfield code="a">Obituary index of architects and artists.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="965" ind1=" " ind2=" "><subfield code="a">rcp2954</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">Z</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">Z5943.A69 A93 1963</subfield><subfield code="b">loc+Z--+5943+00000000+A6900000+A9300000+001963</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">N40 C72 Q</subfield><subfield code="b">avefax+N--+0040+00000000+C7200000+Q00000</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">AZ900 C72</subfield><subfield code="b">avefax+AZ-+0900+00000000+C7200000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Avery, Fine Arts, Ware</subfield><subfield code="b">Avery Fine Arts (Non-Circulating) &gt;&gt; N40 C72 Q|DELIM|2118829</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Offsite</subfield><subfield code="b">Offsite &lt;Avery&gt; (Non-Circulating) Place Request for delivery &gt;&gt; AZ900 C72|DELIM|2118830</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Avery Library'],'pub_name_display'=>['G.K. Hall'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['338 p.'],'oclc_display'=>['ocm00607808'],'title_first_facet'=>['A'],'pub_date_sort'=>1963,'full_publisher_display'=>['Boston, G.K. Hall, 1963.'],'language_facet'=>['English'],'_version_'=>1501910680409735168,'timestamp'=>'2015-05-22T22:27:21.443Z'}]},'stats'=>{'stats_fields'=>{'pub_date_sort'=>{'min'=>1963.0,'max'=>1963.0,'count'=>1,'missing'=>0,'sum'=>1963.0,'sumOfSquares'=>3853369.0,'mean'=>1963.0,'stddev'=>0.0,'facets'=>{}}}}}
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:03 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=1721651&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:02 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'1721651','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['avefax+n--+0040+00000000+c7200000+q00000+1721651','loc+z--+5943+00000000+a6900000+a9300000+001963+1721651','avefax+az-+0900+00000000+c7200000+1721651'],'location_call_number_id_display'=>['Avery Fine Arts (Non-Circulating) >> N40 C72 Q|DELIM|2118829','Offsite <Avery> (Non-Circulating) Place Request for delivery >> AZ900 C72|DELIM|2118830'],'pub_year_display'=>['1963'],'lccn_display'=>['64007017 //r84'],'title_display'=>['Avery obituary index of architects and artists'],'item_display'=>['AZ900 C72 | avefax+az-+0900+00000000+c7200000+1721651 | p4lkp2~p0~~zqzz~zzzzzzzz~nsxzzzzz~ysxytuy~~~~~~~~~','N40 C72 Q | avefax+n--+0040+00000000+c7200000+q00000+1721651 | p4lkp2~c~~~zzvz~zzzzzzzz~nsxzzzzz~9zzzzz~ysxytuy~~','Z5943.A69 A93 1963 | loc+z--+5943+00000000+a6900000+a9300000+001963+1721651 | ebn~0~~~uqvw~zzzzzzzz~ptqzzzzz~pqwzzzzz~zzyqtw~ysxytuy'],'id'=>'1721651','reverse_shelfkey'=>['p4lkp2~c~~~zzvz~zzzzzzzz~nsxzzzzz~9zzzzz~ysxytuy~~','p4lkp2~p0~~zqzz~zzzzzzzz~nsxzzzzz~ysxytuy~~~~~~~~~','ebn~0~~~uqvw~zzzzzzzz~ptqzzzzz~pqwzzzzz~zzyqtw~ysxytuy'],'clio_id_display'=>'1721651','call_number_display'=>['N40 C72 Q','AZ900 C72'],'subject_topic_facet'=>['Architects','Artists','Obituaries'],'pub_place_display'=>['Boston'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01174cam a22003371  4500</leader><controlfield tag="001">1721651</controlfield><controlfield tag="005">20030429113215.0</controlfield><controlfield tag="008">831025s1963    mau      ib   000 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   64007017 //r84</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm00607808</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">ALC6577CU</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">ZCU</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">Z5943.A69</subfield><subfield code="b">A93 1963</subfield><subfield code="a">NA40</subfield></datafield><datafield tag="110" ind1="2" ind2=" "><subfield code="a">Avery Library.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Avery obituary index of architects and artists.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Boston,</subfield><subfield code="b">G.K. Hall,</subfield><subfield code="c">1963.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">338 p.</subfield><subfield code="c">37 cm.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Architects</subfield><subfield code="v">Bibliography.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Artists</subfield><subfield code="v">Bibliography.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Obituaries</subfield><subfield code="v">Indexes.</subfield></datafield><datafield tag="740" ind1="0" ind2="1"><subfield code="a">Obituary index of architects and artists.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="965" ind1=" " ind2=" "><subfield code="a">rcp2954</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">Z</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">Z5943.A69 A93 1963</subfield><subfield code="b">loc+Z--+5943+00000000+A6900000+A9300000+001963</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">N40 C72 Q</subfield><subfield code="b">avefax+N--+0040+00000000+C7200000+Q00000</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">AZ900 C72</subfield><subfield code="b">avefax+AZ-+0900+00000000+C7200000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Avery, Fine Arts, Ware</subfield><subfield code="b">Avery Fine Arts (Non-Circulating) &gt;&gt; N40 C72 Q|DELIM|2118829</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Offsite</subfield><subfield code="b">Offsite &lt;Avery&gt; (Non-Circulating) Place Request for delivery &gt;&gt; AZ900 C72|DELIM|2118830</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Avery Library'],'pub_name_display'=>['G.K. Hall'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['338 p.'],'oclc_display'=>['ocm00607808'],'title_first_facet'=>['A'],'pub_date_sort'=>1963,'full_publisher_display'=>['Boston, G.K. Hall, 1963.'],'language_facet'=>['English'],'_version_'=>1501910680409735168,'timestamp'=>'2015-05-22T22:27:21.443Z'}]}}
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:03 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocm00607808.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 17 Sep 2015 19:41:03 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:02 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        19:51:02 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:03 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/lccn/64007017r84.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 17 Sep 2015 19:41:03 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:02 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        19:51:02 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:03 GMT
+- request:
+    method: get
+    uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/1721651
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 17 Sep 2015 19:41:03 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Etag:
+      - W/"ed36af36084b47f9d3d9999597b662c1"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - c3746fca-faa6-4d1b-883a-bf70553a111b
+      X-Runtime:
+      - '1.705737'
+      Server:
+      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+    body:
+      encoding: UTF-8
+      string: "{\"1721651\":{\"condensed_holdings_full\":[{\"location_name\":\"Avery
+        Fine Arts (Non-Circulating)\",\"location_note\":\"\",\"call_number\":\"N40
+        C72 Q\",\"status\":\"available\",\"holding_id\":[\"2118829\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[]},{\"location_name\":\"Offsite
+        \\u003cAvery\\u003e (Non-Circulating) Place Request for delivery\",\"location_note\":\"\",\"call_number\":\"AZ900
+        C72\",\"status\":\"available\",\"holding_id\":[\"2118830\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"offsite\"]}]}}"
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:05 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-17T00:00:00Z%20TO%20*%5D&q=Notes%20for%20the%20Breitenau%20room&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:04 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4zOCwn
+        cGFyYW1zJz0+eydmLnN1YmplY3RfZm9ybV9mYWNldC5mYWNldC5saW1pdCc9
+        PicxMScsJ2ZhY2V0Jz0+J3RydWUnLCdzb3J0Jz0+J3Njb3JlIGRlc2MsIHB1
+        Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdzdGF0cyc9Pid0
+        cnVlJywnZi5zdWJqZWN0X3RvcGljX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzEx
+        JywnZi5sYW5ndWFnZV9mYWNldC5mYWNldC5saW1pdCc9Pic2JywnZi5sY18x
+        bGV0dGVyX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzMxJywnZi5wdWJfZGF0ZV9z
+        b3J0LmZhY2V0LmxpbWl0Jz0+JzQnLCdmLmxvY2F0aW9uX2ZhY2V0LmZhY2V0
+        LmxpbWl0Jz0+JzYnLCd3dCc9PidydWJ5JywnZi5sY19zdWJjbGFzc19mYWNl
+        dC5mYWNldC5saW1pdCc9Pic1MDEnLCdyb3dzJz0+JzI1JywnZi5zdWJqZWN0
+        X2dlb19mYWNldC5mYWNldC5saW1pdCc9PicxMScsJ2ZhY2V0LnF1ZXJ5Jz0+
+        WydhY3FfZHQ6WzIwMTUtMDktMTBUMDA6MDA6MDBaIFRPICpdJywnYWNxX2R0
+        OlsyMDE1LTA4LTE3VDAwOjAwOjAwWiBUTyAqXScsJ2FjcV9kdDpbMjAxNS0w
+        My0xN1QwMDowMDowMFogVE8gKl0nLCdhY3FfZHQ6WzIwMTQtMDktMTdUMDA6
+        MDA6MDBaIFRPICpdJ10sJ3N0YXRzLmZpZWxkJz0+J3B1Yl9kYXRlX3NvcnQn
+        LCdxJz0+J05vdGVzIGZvciB0aGUgQnJlaXRlbmF1IHJvb20nLCdmLmF1dGhv
+        cl9mYWNldC5mYWNldC5saW1pdCc9Pic2JywnZmFjZXQuZmllbGQnPT5bJ2Zv
+        cm1hdCcsJ3B1Yl9kYXRlX3NvcnQnLCdhdXRob3JfZmFjZXQnLCdsb2NhdGlv
+        bl9mYWNldCcsJ2xhbmd1YWdlX2ZhY2V0Jywnc3ViamVjdF90b3BpY19mYWNl
+        dCcsJ3N1YmplY3RfZ2VvX2ZhY2V0Jywnc3ViamVjdF9lcmFfZmFjZXQnLCdz
+        dWJqZWN0X2Zvcm1fZmFjZXQnLCdsY18xbGV0dGVyX2ZhY2V0JywnbGNfc3Vi
+        Y2xhc3NfZmFjZXQnXSwncXQnPT4nc2VhcmNoJywnZi5zdWJqZWN0X2VyYV9m
+        YWNldC5mYWNldC5saW1pdCc9PicxMScsJ2YuZm9ybWF0LmZhY2V0LmxpbWl0
+        Jz0+JzYnfX0sJ3Jlc3BvbnNlJz0+eydudW1Gb3VuZCc9PjIsJ3N0YXJ0Jz0+
+        MCwnbWF4U2NvcmUnPT40Ljc2NzExNSwnZG9jcyc9Plt7J2xvY2F0aW9uX2Nh
+        bGxfbnVtYmVyX2lkX2Rpc3BsYXknPT5bJ09mZnNpdGUgPEZpbmUgQXJ0cz4g
+        KE5vbi1DaXJjKSBQbGFjZSBSZXF1ZXN0IGZvciBkZWxpdmVyeSA+PiBONjQ4
+        OC5HMyBLMzcxOCAyMDEyaCBuby4wNDF8REVMSU18MTI0NTczMjknLCdDb21w
+        IExpdCAmIFNvY2lldHkgUmVhZGluZyBSb29tLCA2MTUgQnV0bGVyIChOb24t
+        Q2lyYykgPj4gSFY4OTY0Lkc0IEc2NyAyMDExZ3xERUxJTXwxMjQ2Nzg3Mydd
+        LCdhY3FfZHQnPT4nMjAxMi0wOC0wMVQwMDowMDowMFonLCd0aXRsZV9kaXNw
+        bGF5Jz0+WydOb3RlcyBmb3IgdGhlIEJyZWl0ZW5hdSByb29tIG9mIFRoZSBX
+        b3JraG91c2UgOiBhIHByb2plY3QgYnkgSW5lcyBTY2hhYmVyIGFuZCBBdmVy
+        eSBHb3Jkb24gPSBOb3RpemVuIGZ1zIhyIGRlbiBCcmVpdGVuYXUtUmF1bSB2
+        b24gVGhlIFdvcmtob3VzZSA6IGVpbiBQcm9qZWt0IHZvbiBJbmVzIFNjaGFi
+        ZXIgdW5kIEF2ZXJ5IEdvcmRvbiddLCdjbGlvX2lkX2Rpc3BsYXknPT4nOTQw
+        MTU3MScsJ3N1YmplY3RfdG9waWNfZmFjZXQnPT5bJ0dlZGVua3N0YcyIdHRl
+        IEJyZWl0ZW5hdScsJ0JyZWl0ZW5hdSAoQ29uY2VudHJhdGlvbiBjYW1wKScs
+        J0Rlc2NyaXB0aW9uIGFuZCB0cmF2ZWwnXSwncHViX3BsYWNlX2Rpc3BsYXkn
+        PT5bJ09zdGZpbGRlcm4nXSwnZm9ybWF0Jz0+WydCb29rJ10sJ29jbGNfZGlz
+        cGxheSc9Plsnb2NuNzkzNjgzNzIyJywnNzkzNjgzNzIyJ10sJ2Z1bGxfcHVi
+        bGlzaGVyX2Rpc3BsYXknPT5bJ09zdGZpbGRlcm4gOiBIYXRqZSBDYW50eiwg
+        YzIwMTEuJ10sJ2lzYm5fZGlzcGxheSc9PlsnOTc4Mzc3NTcyODkwNCcsJzM3
+        NzU3Mjg5MDInXSwncHViX3llYXJfZGlzcGxheSc9PlsnYzIwMTEnXSwndGl0
+        bGVfc2VyaWVzX2Rpc3BsYXknPT5bJzEwMCBub3Rlcy0tMTAwIHRob3VnaHRz
+        IDsgbm8uIDQxJ10sJ2lkJz0+Jzk0MDE1NzEnLCdhdXRob3JfZGlzcGxheSc9
+        PlsnR29yZG9uLCBBdmVyeSddLCdwdWJfbmFtZV9kaXNwbGF5Jz0+WydIYXRq
+        ZSBDYW50eiddLCdzb3VyY2VfZGlzcGxheSc9PlsnY2F0YWxvZyddLCdtYXRl
+        cmlhbF90eXBlX2Rpc3BsYXknPT5bJzI3IHAuJ10sJ2xhbmd1YWdlX2ZhY2V0
+        Jz0+WydFbmdsaXNoJywnR2VybWFuJ10sJ3Njb3JlJz0+NC43NjcxMTV9LHsn
+        bG9jYXRpb25fY2FsbF9udW1iZXJfaWRfZGlzcGxheSc9PlsnRm9yIE9mZnNp
+        dGUgPj4gTjY0ODguRzMgSzM3MTggMjAxMmh8REVMSU18MTI2MDg0MjEnXSwn
+        cHViX3llYXJfZGlzcGxheSc9PlsnMjAxMS0nXSwnYWNxX2R0Jz0+JzIwMTIt
+        MDctMjRUMDA6MDA6MDBaJywndGl0bGVfZGlzcGxheSc9PlsnMTAwIG5vdGVz
+        IC0tIDEwMCB0aG91Z2h0cyA9IDEwMCBub3RpemVuIC0tIDEwMCBnZWRhbmtl
+        biddLCdpZCc9Pic5NTU4MzUxJywnY2xpb19pZF9kaXNwbGF5Jz0+Jzk1NTgz
+        NTEnLCdzdWJqZWN0X3RvcGljX2ZhY2V0Jz0+WydEb2N1bWVudGEnXSwncHVi
+        X3BsYWNlX2Rpc3BsYXknPT5bJ09zdGZpbGRlcm4nXSwnYXV0aG9yX2Rpc3Bs
+        YXknPT5bJ0RvY3VtZW50YSAoMTN0aCA6IDIwMTIgOiBLYXNzZWwsIEdlcm1h
+        bnkpJ10sJ3B1Yl9uYW1lX2Rpc3BsYXknPT5bJ0hhdGplIENhbnR6J10sJ2Zv
+        cm1hdCc9PlsnQm9vayddLCdzb3VyY2VfZGlzcGxheSc9PlsnY2F0YWxvZydd
+        LCdtYXRlcmlhbF90eXBlX2Rpc3BsYXknPT5bJ3YuJ10sJ29jbGNfZGlzcGxh
+        eSc9Plsnb2NuNzgwNjE5NjU2JywnNzgwNjE5NjU2J10sJ2Z1bGxfcHVibGlz
+        aGVyX2Rpc3BsYXknPT5bJ09zdGZpbGRlcm46IEhhdGplIENhbnR6LCAyMDEx
+        LSddLCdsYW5ndWFnZV9mYWNldCc9PlsnRW5nbGlzaCcsJ0dlcm1hbiddLCdz
+        Y29yZSc9PjAuMDExNDU0ODM1fV19LCdmYWNldF9jb3VudHMnPT57J2ZhY2V0
+        X3F1ZXJpZXMnPT57J2FjcV9kdDpbMjAxNS0wOS0xMFQwMDowMDowMFogVE8g
+        Kl0nPT4wLCdhY3FfZHQ6WzIwMTUtMDgtMTdUMDA6MDA6MDBaIFRPICpdJz0+
+        MCwnYWNxX2R0OlsyMDE1LTAzLTE3VDAwOjAwOjAwWiBUTyAqXSc9PjAsJ2Fj
+        cV9kdDpbMjAxNC0wOS0xN1QwMDowMDowMFogVE8gKl0nPT4wfSwnZmFjZXRf
+        ZmllbGRzJz0+eydmb3JtYXQnPT5bJ0Jvb2snLDJdLCdwdWJfZGF0ZV9zb3J0
+        Jz0+WycyMDExJywxLCcyMDEyJywxXSwnYXV0aG9yX2ZhY2V0Jz0+WydEb2N1
+        bWVudGEgKDEzdGggOiAyMDEyIDogS2Fzc2VsLCBHZXJtYW55KScsMiwnR29y
+        ZG9uLCBBdmVyeScsMV0sJ2xvY2F0aW9uX2ZhY2V0Jz0+WydPZmZzaXRlJywy
+        LCdCdXRsZXIgUmVhZGluZyBSb29tcycsMV0sJ2xhbmd1YWdlX2ZhY2V0Jz0+
+        WydFbmdsaXNoJywyLCdHZXJtYW4nLDJdLCdzdWJqZWN0X3RvcGljX2ZhY2V0
+        Jz0+WydCcmVpdGVuYXUgKENvbmNlbnRyYXRpb24gY2FtcCknLDEsJ0Rlc2Ny
+        aXB0aW9uIGFuZCB0cmF2ZWwnLDEsJ0RvY3VtZW50YScsMSwnR2VkZW5rc3TD
+        pHR0ZSBCcmVpdGVuYXUnLDFdLCdzdWJqZWN0X2dlb19mYWNldCc9PltdLCdz
+        dWJqZWN0X2VyYV9mYWNldCc9PltdLCdzdWJqZWN0X2Zvcm1fZmFjZXQnPT5b
+        XSwnbGNfMWxldHRlcl9mYWNldCc9PlsnSCAtIFNvY2lhbCBTY2llbmNlcycs
+        MSwnTiAtIEZpbmUgQXJ0cycsMl0sJ2xjX3N1YmNsYXNzX2ZhY2V0Jz0+WydI
+        ViAtIFNvY2lhbCBQYXRob2xvZ3ksIFNvY2lhbCAmIFB1YmxpYyBXZWxmYXJl
+        LCBDcmltaW5vbG9neScsMSwnTiAtIEZpbmUgQXJ0cycsMl19LCdmYWNldF9k
+        YXRlcyc9Pnt9LCdmYWNldF9yYW5nZXMnPT57fX0sJ3N0YXRzJz0+eydzdGF0
+        c19maWVsZHMnPT57J3B1Yl9kYXRlX3NvcnQnPT57J21pbic9PjIwMTEuMCwn
+        bWF4Jz0+MjAxMi4wLCdjb3VudCc9PjIsJ21pc3NpbmcnPT4wLCdzdW0nPT40
+        MDIzLjAsJ3N1bU9mU3F1YXJlcyc9PjgwOTIyNjUuMCwnbWVhbic9PjIwMTEu
+        NSwnc3RkZGV2Jz0+MC43MDcxMDY3ODExODY1NDc2LCdmYWNldHMnPT57fX19
+        fX0K
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:05 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=9401571&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:05 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
+        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
+        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic5NDAxNTcx
+        JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
+        PnsnbnVtRm91bmQnPT4xLCdzdGFydCc9PjAsJ2RvY3MnPT5beydzaGVsZmtl
+        eSc9PlsnbG9jK24tLSs2NDg4KzAwMDAwMDAwK2czMDAwMDAwK2szNzE4MDAw
+        KzAwMjAxMitoMDAwMDArbm8wMDAwKzAwMDA0MSs5NDAxNTcxJywnbG9jK2h2
+        LSs4OTY0KzAwMDAwMDAwK2c0MDAwMDAwK2c2NzAwMDAwKzAwMjAxMSs5NDAx
+        NTcxJ10sJ2xvY2F0aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3BsYXknPT5bJ09m
+        ZnNpdGUgPEZpbmUgQXJ0cz4gKE5vbi1DaXJjKSBQbGFjZSBSZXF1ZXN0IGZv
+        ciBkZWxpdmVyeSA+PiBONjQ4OC5HMyBLMzcxOCAyMDEyaCBuby4wNDF8REVM
+        SU18MTI0NTczMjknLCdDb21wIExpdCAmIFNvY2lldHkgUmVhZGluZyBSb29t
+        LCA2MTUgQnV0bGVyIChOb24tQ2lyYykgPj4gSFY4OTY0Lkc0IEc2NyAyMDEx
+        Z3xERUxJTXwxMjQ2Nzg3MyddLCdhY3FfZHQnPT4nMjAxMi0wOC0wMVQwMDow
+        MDowMFonLCdpdGVtX2Rpc3BsYXknPT5bJ0hWODk2NC5HNCBHNjcgMjAxMWcg
+        fCBsb2MraHYtKzg5NjQrMDAwMDAwMDArZzQwMDAwMDArZzY3MDAwMDArMDAy
+        MDExKzk0MDE1NzEgfCBlYm5+aTR+fnJxdHZ+enp6enp6enp+anZ6enp6enp+
+        anRzenp6enp+enp4enl5fnF2enl1c3knLCdONjQ4OC5HMyBLMzcxOCAyMDEy
+        aCBuby4wNDEgfCBsb2Mrbi0tKzY0ODgrMDAwMDAwMDArZzMwMDAwMDArazM3
+        MTgwMDArMDAyMDEyK2gwMDAwMCtubzAwMDArMDAwMDQxKzk0MDE1NzEgfCBl
+        Ym5+Y35+fnR2cnJ+enp6enp6enp+and6enp6enp+ZndzeXJ6enp+enp4enl4
+        fml6enp6en5jYnp6enp+enp6enZ5fnF2enl1c3knXSwndGl0bGVfZGlzcGxh
+        eSc9PlsnTm90ZXMgZm9yIHRoZSBCcmVpdGVuYXUgcm9vbSBvZiBUaGUgV29y
+        a2hvdXNlIDogYSBwcm9qZWN0IGJ5IEluZXMgU2NoYWJlciBhbmQgQXZlcnkg
+        R29yZG9uID0gTm90aXplbiBmdcyIciBkZW4gQnJlaXRlbmF1LVJhdW0gdm9u
+        IFRoZSBXb3JraG91c2UgOiBlaW4gUHJvamVrdCB2b24gSW5lcyBTY2hhYmVy
+        IHVuZCBBdmVyeSBHb3Jkb24nXSwnY2xpb19pZF9kaXNwbGF5Jz0+Jzk0MDE1
+        NzEnLCdzdWJqZWN0X3RvcGljX2ZhY2V0Jz0+WydHZWRlbmtzdGHMiHR0ZSBC
+        cmVpdGVuYXUnLCdCcmVpdGVuYXUgKENvbmNlbnRyYXRpb24gY2FtcCknLCdE
+        ZXNjcmlwdGlvbiBhbmQgdHJhdmVsJ10sJ3B1Yl9wbGFjZV9kaXNwbGF5Jz0+
+        WydPc3RmaWxkZXJuJ10sJ2Zvcm1hdCc9PlsnQm9vayddLCdvY2xjX2Rpc3Bs
+        YXknPT5bJ29jbjc5MzY4MzcyMicsJzc5MzY4MzcyMiddLCd0aXRsZV9maXJz
+        dF9mYWNldCc9PlsnTiddLCdwdWJfZGF0ZV9zb3J0Jz0+MjAxMSwnZnVsbF9w
+        dWJsaXNoZXJfZGlzcGxheSc9PlsnT3N0ZmlsZGVybiA6IEhhdGplIENhbnR6
+        LCBjMjAxMS4nXSwnaXNibl9kaXNwbGF5Jz0+Wyc5NzgzNzc1NzI4OTA0Jywn
+        Mzc3NTcyODkwMiddLCdwdWJfeWVhcl9kaXNwbGF5Jz0+WydjMjAxMSddLCd0
+        aXRsZV9zZXJpZXNfZGlzcGxheSc9PlsnMTAwIG5vdGVzLS0xMDAgdGhvdWdo
+        dHMgOyBuby4gNDEnXSwnaWQnPT4nOTQwMTU3MScsJ3JldmVyc2Vfc2hlbGZr
+        ZXknPT5bJ2Vibn5jfn5+dHZycn56enp6enp6en5qd3p6enp6en5md3N5cnp6
+        en56enh6eXh+aXp6enp6fmNienp6en56enp6dnl+cXZ6eXVzeScsJ2Vibn5p
+        NH5+cnF0dn56enp6enp6en5qdnp6enp6en5qdHN6enp6en56enh6eXl+cXZ6
+        eXVzeSddLCdjYWxsX251bWJlcl9kaXNwbGF5Jz0+WydONjQ4OC5HMyBLMzcx
+        OCAyMDEyaCBuby4wNDEnLCdIVjg5NjQuRzQgRzY3IDIwMTFnJ10sJ21hcmNf
+        ZGlzcGxheSc9Pic8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYt
+        OCI/Pjxjb2xsZWN0aW9uIHhtbG5zPSJodHRwOi8vd3d3LmxvYy5nb3YvTUFS
+        QzIxL3NsaW0iPjxyZWNvcmQ+PGxlYWRlcj4wMjA4NmNhbSBhMjIwMDQ2OUlh
+        IDQ1MDA8L2xlYWRlcj48Y29udHJvbGZpZWxkIHRhZz0iMDAxIj45NDAxNTcx
+        PC9jb250cm9sZmllbGQ+PGNvbnRyb2xmaWVsZCB0YWc9IjAwNSI+MjAxMjEw
+        MjIxNzE2MDcuMDwvY29udHJvbGZpZWxkPjxjb250cm9sZmllbGQgdGFnPSIw
+        MDgiPjExMTIyM3MyMDExICAgIGd3IGEgICAgIGIgICAgMDAwIDAgZW5nIGQ8
+        L2NvbnRyb2xmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDE5IiBpbmQxPSIgIiBp
+        bmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+NzY5NDMwMjI4PC9zdWJmaWVs
+        ZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDIwIiBpbmQxPSIgIiBp
+        bmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+OTc4Mzc3NTcyODkwNDwvc3Vi
+        ZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAyMCIgaW5kMT0i
+        ICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPjM3NzU3Mjg5MDI8L3N1
+        YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwMzUiIGluZDE9
+        IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4oT0NvTEMpb2NuNzkz
+        NjgzNzIyPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
+        MDM1IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+KE9D
+        b0xDKTc5MzY4MzcyMjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9InoiPihP
+        Q29MQyk3Njk0MzAyMjg8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmll
+        bGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2Rl
+        PSJhIj4oTk5DKTk0MDE1NzE8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRh
+        ZmllbGQgdGFnPSIwNDAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBj
+        b2RlPSJhIj5IRkw8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5IRkw8
+        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj5CVENUQTwvc3ViZmllbGQ+
+        PHN1YmZpZWxkIGNvZGU9ImQiPllEWENQPC9zdWJmaWVsZD48c3ViZmllbGQg
+        Y29kZT0iZCI+T0hYPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+QldY
+        PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+T0NMQ088L3N1YmZpZWxk
+        PjxzdWJmaWVsZCBjb2RlPSJkIj5NWkE8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
+        b2RlPSJkIj5aQ1U8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj5OTkM8
+        L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwNDEiIGlu
+        ZDE9IjAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5lbmc8L3N1YmZp
+        ZWxkPjxzdWJmaWVsZCBjb2RlPSJhIj5nZXI8L3N1YmZpZWxkPjwvZGF0YWZp
+        ZWxkPjxkYXRhZmllbGQgdGFnPSIwNTAiIGluZDE9IiAiIGluZDI9IjQiPjxz
+        dWJmaWVsZCBjb2RlPSJhIj5IVjg5NjQuRzQ8L3N1YmZpZWxkPjxzdWJmaWVs
+        ZCBjb2RlPSJiIj5HNjcgMjAxMTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRh
+        dGFmaWVsZCB0YWc9IjEwMCIgaW5kMT0iMSIgaW5kMj0iICI+PHN1YmZpZWxk
+        IGNvZGU9ImEiPkdvcmRvbiwgQXZlcnkuPC9zdWJmaWVsZD48L2RhdGFmaWVs
+        ZD48ZGF0YWZpZWxkIHRhZz0iMjQ1IiBpbmQxPSIxIiBpbmQyPSIwIj48c3Vi
+        ZmllbGQgY29kZT0iYSI+Tm90ZXMgZm9yIHRoZSBCcmVpdGVuYXUgcm9vbSBv
+        ZiBUaGUgV29ya2hvdXNlIDo8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJi
+        Ij5hIHByb2plY3QgYnkgSW5lcyBTY2hhYmVyIGFuZCBBdmVyeSBHb3Jkb24g
+        PSBOb3RpemVuIGZ1zIhyIGRlbiBCcmVpdGVuYXUtUmF1bSB2b24gVGhlIFdv
+        cmtob3VzZSA6IGVpbiBQcm9qZWt0IHZvbiBJbmVzIFNjaGFiZXIgdW5kIEF2
+        ZXJ5IEdvcmRvbiAvPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYyI+QXZl
+        cnkgRi4gR29yZG9uLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVs
+        ZCB0YWc9IjI0NiIgaW5kMT0iMyIgaW5kMj0iMSI+PHN1YmZpZWxkIGNvZGU9
+        ImEiPk5vdGl6ZW4gZnXMiHIgZGVuIEJyZWl0ZW5hdS1SYXVtIHZvbiBUaGUg
+        V29ya2hvdXNlIDo8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5laW4g
+        UHJvamVrdCB2b24gSW5lcyBTY2hhYmVyIHVuZCBBdmVyeSBHb3Jkb248L3N1
+        YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIyNjAiIGluZDE9
+        IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5Pc3RmaWxkZXJuIDo8
+        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5IYXRqZSBDYW50eiw8L3N1
+        YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5jMjAxMS48L3N1YmZpZWxkPjwv
+        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIzMDAiIGluZDE9IiAiIGluZDI9
+        IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4yNyBwLiA6PC9zdWJmaWVsZD48c3Vi
+        ZmllbGQgY29kZT0iYiI+aWxsLiA7PC9zdWJmaWVsZD48c3ViZmllbGQgY29k
+        ZT0iYyI+MjEgY20uPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxk
+        IHRhZz0iNDkwIiBpbmQxPSIxIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0i
+        YSI+MTAwIG5vdGVzIC0gMTAwIHRob3VnaHRzIGRvY3VtZW50YSA7PC9zdWJm
+        aWVsZD48c3ViZmllbGQgY29kZT0idiI+MDQxPC9zdWJmaWVsZD48L2RhdGFm
+        aWVsZD48ZGF0YWZpZWxkIHRhZz0iNTAwIiBpbmQxPSIgIiBpbmQyPSIgIj48
+        c3ViZmllbGQgY29kZT0iYSI+UHVibGlzaGVkIGluIGNvbmp1bmN0aW9uIHdp
+        dGggdGhlIGV4aGliaXRpb24gRG9jdW1lbnRhICgxMyksIHRvIGJlIGhlbGQg
+        aW4gMjAxMi48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFn
+        PSI1MDQiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5J
+        bmNsdWRlcyBiaWJsaW9ncmFwaGljYWwgcmVmZXJlbmNlcy48L3N1YmZpZWxk
+        PjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1NDYiIGluZDE9IiAiIGlu
+        ZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5UZXh0IGluIEVuZ2xpc2ggYW5k
+        IEdlcm1hbi48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFn
+        PSI2MTAiIGluZDE9IjIiIGluZDI9IjAiPjxzdWJmaWVsZCBjb2RlPSJhIj5H
+        ZWRlbmtzdGHMiHR0ZSBCcmVpdGVuYXU8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
+        b2RlPSJ4Ij5EZXNjcmlwdGlvbiBhbmQgdHJhdmVsLjwvc3ViZmllbGQ+PC9k
+        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjYxMCIgaW5kMT0iMiIgaW5kMj0i
+        MCI+PHN1YmZpZWxkIGNvZGU9ImEiPkJyZWl0ZW5hdSAoQ29uY2VudHJhdGlv
+        biBjYW1wKTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9
+        IjcxMSIgaW5kMT0iMiIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkRv
+        Y3VtZW50YTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9Im4iPigxM3RoIDo8
+        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj4yMDEyIDo8L3N1YmZpZWxk
+        PjxzdWJmaWVsZCBjb2RlPSJjIj5LYXNzZWwsIEdlcm1hbnkpPC9zdWJmaWVs
+        ZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iODMwIiBpbmQxPSIgIiBp
+        bmQyPSIwIj48c3ViZmllbGQgY29kZT0iYSI+MTAwIG5vdGVzLS0xMDAgdGhv
+        dWdodHMgOzwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9InYiPm5vLiA0MS48
+        L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5NDgiIGlu
+        ZDE9IjEiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4yMDEyMDcxNjwv
+        c3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPmM8L3N1YmZpZWxkPjxzdWJm
+        aWVsZCBjb2RlPSJjIj5pdzIxMTc8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2Rl
+        PSJkIj5PU01DPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
+        Zz0iOTQ4IiBpbmQxPSIyIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+
+        MjAxMjA4MDE8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5hPC9zdWJm
+        aWVsZD48c3ViZmllbGQgY29kZT0iYyI+ZnJhMTwvc3ViZmllbGQ+PHN1YmZp
+        ZWxkIGNvZGU9ImQiPk9TTUM8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRh
+        ZmllbGQgdGFnPSI5MDAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBj
+        b2RlPSJhIj5BVVRIPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxk
+        IHRhZz0iOTkwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0i
+        YSI+Tjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5
+        MCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkhWPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTkxIiBpbmQx
+        PSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+TjY0ODguRzMgSzM3
+        MTggMjAxMmggbm8uMDQxPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+
+        bG9jK04tLSs2NDg4KzAwMDAwMDAwK0czMDAwMDAwK0szNzE4MDAwKzAwMjAx
+        MitIMDAwMDArTk8wMDAwKzAwMDA0MTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+
+        PGRhdGFmaWVsZCB0YWc9Ijk5MSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZp
+        ZWxkIGNvZGU9ImEiPkhWODk2NC5HNCBHNjcgMjAxMWc8L3N1YmZpZWxkPjxz
+        dWJmaWVsZCBjb2RlPSJiIj5sb2MrSFYtKzg5NjQrMDAwMDAwMDArRzQwMDAw
+        MDArRzY3MDAwMDArMDAyMDExPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0
+        YWZpZWxkIHRhZz0iOTkyIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQg
+        Y29kZT0iYSI+T2Zmc2l0ZTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIi
+        Pk9mZnNpdGUgJmx0O0ZpbmUgQXJ0cyZndDsgKE5vbi1DaXJjKSBQbGFjZSBS
+        ZXF1ZXN0IGZvciBkZWxpdmVyeSAmZ3Q7Jmd0OyBONjQ4OC5HMyBLMzcxOCAy
+        MDEyaCBuby4wNDF8REVMSU18MTI0NTczMjk8L3N1YmZpZWxkPjwvZGF0YWZp
+        ZWxkPjxkYXRhZmllbGQgdGFnPSI5OTIiIGluZDE9IiAiIGluZDI9IiAiPjxz
+        dWJmaWVsZCBjb2RlPSJhIj5CdXRsZXIgUmVhZGluZyBSb29tczwvc3ViZmll
+        bGQ+PHN1YmZpZWxkIGNvZGU9ImIiPkNvbXAgTGl0ICZhbXA7IFNvY2lldHkg
+        UmVhZGluZyBSb29tLCA2MTUgQnV0bGVyIChOb24tQ2lyYykgJmd0OyZndDsg
+        SFY4OTY0Lkc0IEc2NyAyMDExZ3xERUxJTXwxMjQ2Nzg3Mzwvc3ViZmllbGQ+
+        PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MyIgaW5kMT0iICIgaW5k
+        Mj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkJvb2s8L3N1YmZpZWxkPjwvZGF0
+        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTUiIGluZDE9IiAiIGluZDI9IiAi
+        PjxzdWJmaWVsZCBjb2RlPSJhIj5jYXRhbG9nPC9zdWJmaWVsZD48L2RhdGFm
+        aWVsZD48ZGF0YWZpZWxkIHRhZz0iOTk3IiBpbmQxPSIgIiBpbmQyPSIgIj48
+        c3ViZmllbGQgY29kZT0iYSI+MjAxMi0wOC0wMVQwMDowMDowMC4wMDBaPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48L3JlY29yZD48L2NvbGxlY3Rpb24+Jywn
+        YXV0aG9yX2Rpc3BsYXknPT5bJ0dvcmRvbiwgQXZlcnknXSwncHViX25hbWVf
+        ZGlzcGxheSc9PlsnSGF0amUgQ2FudHonXSwnc291cmNlX2Rpc3BsYXknPT5b
+        J2NhdGFsb2cnXSwnbWF0ZXJpYWxfdHlwZV9kaXNwbGF5Jz0+WycyNyBwLidd
+        LCdsYW5ndWFnZV9mYWNldCc9PlsnRW5nbGlzaCcsJ0dlcm1hbiddLCdfdmVy
+        c2lvbl8nPT4xNTAxOTc5NTQ2MTEwMzk0MzY4LCd0aW1lc3RhbXAnPT4nMjAx
+        NS0wNS0yM1QxNjo0MTo1Ni44OTNaJ31dfX0K
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:06 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=false&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-17T00:00:00Z%20TO%20*%5D&fl=*&q=Notes%20for%20the%20Breitenau%20room&qt=search&rows=2&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&start=0&stats=true&stats.field=pub_date_sort&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:05 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4yLCdw
+        YXJhbXMnPT57J2Yuc3ViamVjdF9mb3JtX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+
+        JzExJywnZmFjZXQnPT4nZmFsc2UnLCdzb3J0Jz0+J3Njb3JlIGRlc2MsIHB1
+        Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdzdGF0cyc9Pid0
+        cnVlJywnZi5zdWJqZWN0X3RvcGljX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzEx
+        JywnZi5sYW5ndWFnZV9mYWNldC5mYWNldC5saW1pdCc9Pic2JywnZi5sY18x
+        bGV0dGVyX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzMxJywnZi5wdWJfZGF0ZV9z
+        b3J0LmZhY2V0LmxpbWl0Jz0+JzQnLCdmLmxvY2F0aW9uX2ZhY2V0LmZhY2V0
+        LmxpbWl0Jz0+JzYnLCd3dCc9PidydWJ5JywnZi5sY19zdWJjbGFzc19mYWNl
+        dC5mYWNldC5saW1pdCc9Pic1MDEnLCdyb3dzJz0+JzInLCdmbCc9PicqJywn
+        c3RhcnQnPT4nMCcsJ2Yuc3ViamVjdF9nZW9fZmFjZXQuZmFjZXQubGltaXQn
+        PT4nMTEnLCdmYWNldC5xdWVyeSc9PlsnYWNxX2R0OlsyMDE1LTA5LTEwVDAw
+        OjAwOjAwWiBUTyAqXScsJ2FjcV9kdDpbMjAxNS0wOC0xN1QwMDowMDowMFog
+        VE8gKl0nLCdhY3FfZHQ6WzIwMTUtMDMtMTdUMDA6MDA6MDBaIFRPICpdJywn
+        YWNxX2R0OlsyMDE0LTA5LTE3VDAwOjAwOjAwWiBUTyAqXSddLCdzdGF0cy5m
+        aWVsZCc9PidwdWJfZGF0ZV9zb3J0JywncSc9PidOb3RlcyBmb3IgdGhlIEJy
+        ZWl0ZW5hdSByb29tJywnZi5hdXRob3JfZmFjZXQuZmFjZXQubGltaXQnPT4n
+        NicsJ2ZhY2V0LmZpZWxkJz0+Wydmb3JtYXQnLCdwdWJfZGF0ZV9zb3J0Jywn
+        YXV0aG9yX2ZhY2V0JywnbG9jYXRpb25fZmFjZXQnLCdsYW5ndWFnZV9mYWNl
+        dCcsJ3N1YmplY3RfdG9waWNfZmFjZXQnLCdzdWJqZWN0X2dlb19mYWNldCcs
+        J3N1YmplY3RfZXJhX2ZhY2V0Jywnc3ViamVjdF9mb3JtX2ZhY2V0JywnbGNf
+        MWxldHRlcl9mYWNldCcsJ2xjX3N1YmNsYXNzX2ZhY2V0J10sJ3F0Jz0+J3Nl
+        YXJjaCcsJ2Yuc3ViamVjdF9lcmFfZmFjZXQuZmFjZXQubGltaXQnPT4nMTEn
+        LCdmLmZvcm1hdC5mYWNldC5saW1pdCc9Pic2J319LCdyZXNwb25zZSc9Pnsn
+        bnVtRm91bmQnPT4yLCdzdGFydCc9PjAsJ2RvY3MnPT5beydzaGVsZmtleSc9
+        PlsnbG9jK24tLSs2NDg4KzAwMDAwMDAwK2czMDAwMDAwK2szNzE4MDAwKzAw
+        MjAxMitoMDAwMDArbm8wMDAwKzAwMDA0MSs5NDAxNTcxJywnbG9jK2h2LSs4
+        OTY0KzAwMDAwMDAwK2c0MDAwMDAwK2c2NzAwMDAwKzAwMjAxMSs5NDAxNTcx
+        J10sJ2xvY2F0aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3BsYXknPT5bJ09mZnNp
+        dGUgPEZpbmUgQXJ0cz4gKE5vbi1DaXJjKSBQbGFjZSBSZXF1ZXN0IGZvciBk
+        ZWxpdmVyeSA+PiBONjQ4OC5HMyBLMzcxOCAyMDEyaCBuby4wNDF8REVMSU18
+        MTI0NTczMjknLCdDb21wIExpdCAmIFNvY2lldHkgUmVhZGluZyBSb29tLCA2
+        MTUgQnV0bGVyIChOb24tQ2lyYykgPj4gSFY4OTY0Lkc0IEc2NyAyMDExZ3xE
+        RUxJTXwxMjQ2Nzg3MyddLCdhY3FfZHQnPT4nMjAxMi0wOC0wMVQwMDowMDow
+        MFonLCdpdGVtX2Rpc3BsYXknPT5bJ0hWODk2NC5HNCBHNjcgMjAxMWcgfCBs
+        b2MraHYtKzg5NjQrMDAwMDAwMDArZzQwMDAwMDArZzY3MDAwMDArMDAyMDEx
+        Kzk0MDE1NzEgfCBlYm5+aTR+fnJxdHZ+enp6enp6enp+anZ6enp6enp+anRz
+        enp6enp+enp4enl5fnF2enl1c3knLCdONjQ4OC5HMyBLMzcxOCAyMDEyaCBu
+        by4wNDEgfCBsb2Mrbi0tKzY0ODgrMDAwMDAwMDArZzMwMDAwMDArazM3MTgw
+        MDArMDAyMDEyK2gwMDAwMCtubzAwMDArMDAwMDQxKzk0MDE1NzEgfCBlYm5+
+        Y35+fnR2cnJ+enp6enp6enp+and6enp6enp+ZndzeXJ6enp+enp4enl4fml6
+        enp6en5jYnp6enp+enp6enZ5fnF2enl1c3knXSwndGl0bGVfZGlzcGxheSc9
+        PlsnTm90ZXMgZm9yIHRoZSBCcmVpdGVuYXUgcm9vbSBvZiBUaGUgV29ya2hv
+        dXNlIDogYSBwcm9qZWN0IGJ5IEluZXMgU2NoYWJlciBhbmQgQXZlcnkgR29y
+        ZG9uID0gTm90aXplbiBmdcyIciBkZW4gQnJlaXRlbmF1LVJhdW0gdm9uIFRo
+        ZSBXb3JraG91c2UgOiBlaW4gUHJvamVrdCB2b24gSW5lcyBTY2hhYmVyIHVu
+        ZCBBdmVyeSBHb3Jkb24nXSwnY2xpb19pZF9kaXNwbGF5Jz0+Jzk0MDE1NzEn
+        LCdzdWJqZWN0X3RvcGljX2ZhY2V0Jz0+WydHZWRlbmtzdGHMiHR0ZSBCcmVp
+        dGVuYXUnLCdCcmVpdGVuYXUgKENvbmNlbnRyYXRpb24gY2FtcCknLCdEZXNj
+        cmlwdGlvbiBhbmQgdHJhdmVsJ10sJ3B1Yl9wbGFjZV9kaXNwbGF5Jz0+WydP
+        c3RmaWxkZXJuJ10sJ2Zvcm1hdCc9PlsnQm9vayddLCdvY2xjX2Rpc3BsYXkn
+        PT5bJ29jbjc5MzY4MzcyMicsJzc5MzY4MzcyMiddLCd0aXRsZV9maXJzdF9m
+        YWNldCc9PlsnTiddLCdwdWJfZGF0ZV9zb3J0Jz0+MjAxMSwnZnVsbF9wdWJs
+        aXNoZXJfZGlzcGxheSc9PlsnT3N0ZmlsZGVybiA6IEhhdGplIENhbnR6LCBj
+        MjAxMS4nXSwnaXNibl9kaXNwbGF5Jz0+Wyc5NzgzNzc1NzI4OTA0JywnMzc3
+        NTcyODkwMiddLCdwdWJfeWVhcl9kaXNwbGF5Jz0+WydjMjAxMSddLCd0aXRs
+        ZV9zZXJpZXNfZGlzcGxheSc9PlsnMTAwIG5vdGVzLS0xMDAgdGhvdWdodHMg
+        OyBuby4gNDEnXSwnaWQnPT4nOTQwMTU3MScsJ3JldmVyc2Vfc2hlbGZrZXkn
+        PT5bJ2Vibn5jfn5+dHZycn56enp6enp6en5qd3p6enp6en5md3N5cnp6en56
+        enh6eXh+aXp6enp6fmNienp6en56enp6dnl+cXZ6eXVzeScsJ2Vibn5pNH5+
+        cnF0dn56enp6enp6en5qdnp6enp6en5qdHN6enp6en56enh6eXl+cXZ6eXVz
+        eSddLCdjYWxsX251bWJlcl9kaXNwbGF5Jz0+WydONjQ4OC5HMyBLMzcxOCAy
+        MDEyaCBuby4wNDEnLCdIVjg5NjQuRzQgRzY3IDIwMTFnJ10sJ21hcmNfZGlz
+        cGxheSc9Pic8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYtOCI/
+        Pjxjb2xsZWN0aW9uIHhtbG5zPSJodHRwOi8vd3d3LmxvYy5nb3YvTUFSQzIx
+        L3NsaW0iPjxyZWNvcmQ+PGxlYWRlcj4wMjA4NmNhbSBhMjIwMDQ2OUlhIDQ1
+        MDA8L2xlYWRlcj48Y29udHJvbGZpZWxkIHRhZz0iMDAxIj45NDAxNTcxPC9j
+        b250cm9sZmllbGQ+PGNvbnRyb2xmaWVsZCB0YWc9IjAwNSI+MjAxMjEwMjIx
+        NzE2MDcuMDwvY29udHJvbGZpZWxkPjxjb250cm9sZmllbGQgdGFnPSIwMDgi
+        PjExMTIyM3MyMDExICAgIGd3IGEgICAgIGIgICAgMDAwIDAgZW5nIGQ8L2Nv
+        bnRyb2xmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDE5IiBpbmQxPSIgIiBpbmQy
+        PSIgIj48c3ViZmllbGQgY29kZT0iYSI+NzY5NDMwMjI4PC9zdWJmaWVsZD48
+        L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDIwIiBpbmQxPSIgIiBpbmQy
+        PSIgIj48c3ViZmllbGQgY29kZT0iYSI+OTc4Mzc3NTcyODkwNDwvc3ViZmll
+        bGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAyMCIgaW5kMT0iICIg
+        aW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPjM3NzU3Mjg5MDI8L3N1YmZp
+        ZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwMzUiIGluZDE9IiAi
+        IGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4oT0NvTEMpb2NuNzkzNjgz
+        NzIyPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDM1
+        IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+KE9Db0xD
+        KTc5MzY4MzcyMjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9InoiPihPQ29M
+        Qyk3Njk0MzAyMjg8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
+        dGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJh
+        Ij4oTk5DKTk0MDE1NzE8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmll
+        bGQgdGFnPSIwNDAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2Rl
+        PSJhIj5IRkw8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5IRkw8L3N1
+        YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj5CVENUQTwvc3ViZmllbGQ+PHN1
+        YmZpZWxkIGNvZGU9ImQiPllEWENQPC9zdWJmaWVsZD48c3ViZmllbGQgY29k
+        ZT0iZCI+T0hYPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+QldYPC9z
+        dWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+T0NMQ088L3N1YmZpZWxkPjxz
+        dWJmaWVsZCBjb2RlPSJkIj5NWkE8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2Rl
+        PSJkIj5aQ1U8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj5OTkM8L3N1
+        YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwNDEiIGluZDE9
+        IjAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5lbmc8L3N1YmZpZWxk
+        PjxzdWJmaWVsZCBjb2RlPSJhIj5nZXI8L3N1YmZpZWxkPjwvZGF0YWZpZWxk
+        PjxkYXRhZmllbGQgdGFnPSIwNTAiIGluZDE9IiAiIGluZDI9IjQiPjxzdWJm
+        aWVsZCBjb2RlPSJhIj5IVjg5NjQuRzQ8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
+        b2RlPSJiIj5HNjcgMjAxMTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFm
+        aWVsZCB0YWc9IjEwMCIgaW5kMT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNv
+        ZGU9ImEiPkdvcmRvbiwgQXZlcnkuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48
+        ZGF0YWZpZWxkIHRhZz0iMjQ1IiBpbmQxPSIxIiBpbmQyPSIwIj48c3ViZmll
+        bGQgY29kZT0iYSI+Tm90ZXMgZm9yIHRoZSBCcmVpdGVuYXUgcm9vbSBvZiBU
+        aGUgV29ya2hvdXNlIDo8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5h
+        IHByb2plY3QgYnkgSW5lcyBTY2hhYmVyIGFuZCBBdmVyeSBHb3Jkb24gPSBO
+        b3RpemVuIGZ1zIhyIGRlbiBCcmVpdGVuYXUtUmF1bSB2b24gVGhlIFdvcmto
+        b3VzZSA6IGVpbiBQcm9qZWt0IHZvbiBJbmVzIFNjaGFiZXIgdW5kIEF2ZXJ5
+        IEdvcmRvbiAvPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYyI+QXZlcnkg
+        Ri4gR29yZG9uLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0
+        YWc9IjI0NiIgaW5kMT0iMyIgaW5kMj0iMSI+PHN1YmZpZWxkIGNvZGU9ImEi
+        Pk5vdGl6ZW4gZnXMiHIgZGVuIEJyZWl0ZW5hdS1SYXVtIHZvbiBUaGUgV29y
+        a2hvdXNlIDo8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5laW4gUHJv
+        amVrdCB2b24gSW5lcyBTY2hhYmVyIHVuZCBBdmVyeSBHb3Jkb248L3N1YmZp
+        ZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIyNjAiIGluZDE9IiAi
+        IGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5Pc3RmaWxkZXJuIDo8L3N1
+        YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5IYXRqZSBDYW50eiw8L3N1YmZp
+        ZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5jMjAxMS48L3N1YmZpZWxkPjwvZGF0
+        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIzMDAiIGluZDE9IiAiIGluZDI9IiAi
+        PjxzdWJmaWVsZCBjb2RlPSJhIj4yNyBwLiA6PC9zdWJmaWVsZD48c3ViZmll
+        bGQgY29kZT0iYiI+aWxsLiA7PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
+        YyI+MjEgY20uPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
+        Zz0iNDkwIiBpbmQxPSIxIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+
+        MTAwIG5vdGVzIC0gMTAwIHRob3VnaHRzIGRvY3VtZW50YSA7PC9zdWJmaWVs
+        ZD48c3ViZmllbGQgY29kZT0idiI+MDQxPC9zdWJmaWVsZD48L2RhdGFmaWVs
+        ZD48ZGF0YWZpZWxkIHRhZz0iNTAwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3Vi
+        ZmllbGQgY29kZT0iYSI+UHVibGlzaGVkIGluIGNvbmp1bmN0aW9uIHdpdGgg
+        dGhlIGV4aGliaXRpb24gRG9jdW1lbnRhICgxMyksIHRvIGJlIGhlbGQgaW4g
+        MjAxMi48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1
+        MDQiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5JbmNs
+        dWRlcyBiaWJsaW9ncmFwaGljYWwgcmVmZXJlbmNlcy48L3N1YmZpZWxkPjwv
+        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1NDYiIGluZDE9IiAiIGluZDI9
+        IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5UZXh0IGluIEVuZ2xpc2ggYW5kIEdl
+        cm1hbi48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI2
+        MTAiIGluZDE9IjIiIGluZDI9IjAiPjxzdWJmaWVsZCBjb2RlPSJhIj5HZWRl
+        bmtzdGHMiHR0ZSBCcmVpdGVuYXU8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2Rl
+        PSJ4Ij5EZXNjcmlwdGlvbiBhbmQgdHJhdmVsLjwvc3ViZmllbGQ+PC9kYXRh
+        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjYxMCIgaW5kMT0iMiIgaW5kMj0iMCI+
+        PHN1YmZpZWxkIGNvZGU9ImEiPkJyZWl0ZW5hdSAoQ29uY2VudHJhdGlvbiBj
+        YW1wKTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijcx
+        MSIgaW5kMT0iMiIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkRvY3Vt
+        ZW50YTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9Im4iPigxM3RoIDo8L3N1
+        YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj4yMDEyIDo8L3N1YmZpZWxkPjxz
+        dWJmaWVsZCBjb2RlPSJjIj5LYXNzZWwsIEdlcm1hbnkpPC9zdWJmaWVsZD48
+        L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iODMwIiBpbmQxPSIgIiBpbmQy
+        PSIwIj48c3ViZmllbGQgY29kZT0iYSI+MTAwIG5vdGVzLS0xMDAgdGhvdWdo
+        dHMgOzwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9InYiPm5vLiA0MS48L3N1
+        YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5NDgiIGluZDE9
+        IjEiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4yMDEyMDcxNjwvc3Vi
+        ZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPmM8L3N1YmZpZWxkPjxzdWJmaWVs
+        ZCBjb2RlPSJjIj5pdzIxMTc8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJk
+        Ij5PU01DPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
+        OTQ4IiBpbmQxPSIyIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+MjAx
+        MjA4MDE8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5hPC9zdWJmaWVs
+        ZD48c3ViZmllbGQgY29kZT0iYyI+ZnJhMTwvc3ViZmllbGQ+PHN1YmZpZWxk
+        IGNvZGU9ImQiPk9TTUM8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmll
+        bGQgdGFnPSI5MDAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2Rl
+        PSJhIj5BVVRIPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
+        Zz0iOTkwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+
+        Tjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MCIg
+        aW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkhWPC9zdWJm
+        aWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTkxIiBpbmQxPSIg
+        IiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+TjY0ODguRzMgSzM3MTgg
+        MjAxMmggbm8uMDQxPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+bG9j
+        K04tLSs2NDg4KzAwMDAwMDAwK0czMDAwMDAwK0szNzE4MDAwKzAwMjAxMitI
+        MDAwMDArTk8wMDAwKzAwMDA0MTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRh
+        dGFmaWVsZCB0YWc9Ijk5MSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxk
+        IGNvZGU9ImEiPkhWODk2NC5HNCBHNjcgMjAxMWc8L3N1YmZpZWxkPjxzdWJm
+        aWVsZCBjb2RlPSJiIj5sb2MrSFYtKzg5NjQrMDAwMDAwMDArRzQwMDAwMDAr
+        RzY3MDAwMDArMDAyMDExPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZp
+        ZWxkIHRhZz0iOTkyIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29k
+        ZT0iYSI+T2Zmc2l0ZTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPk9m
+        ZnNpdGUgJmx0O0ZpbmUgQXJ0cyZndDsgKE5vbi1DaXJjKSBQbGFjZSBSZXF1
+        ZXN0IGZvciBkZWxpdmVyeSAmZ3Q7Jmd0OyBONjQ4OC5HMyBLMzcxOCAyMDEy
+        aCBuby4wNDF8REVMSU18MTI0NTczMjk8L3N1YmZpZWxkPjwvZGF0YWZpZWxk
+        PjxkYXRhZmllbGQgdGFnPSI5OTIiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJm
+        aWVsZCBjb2RlPSJhIj5CdXRsZXIgUmVhZGluZyBSb29tczwvc3ViZmllbGQ+
+        PHN1YmZpZWxkIGNvZGU9ImIiPkNvbXAgTGl0ICZhbXA7IFNvY2lldHkgUmVh
+        ZGluZyBSb29tLCA2MTUgQnV0bGVyIChOb24tQ2lyYykgJmd0OyZndDsgSFY4
+        OTY0Lkc0IEc2NyAyMDExZ3xERUxJTXwxMjQ2Nzg3Mzwvc3ViZmllbGQ+PC9k
+        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MyIgaW5kMT0iICIgaW5kMj0i
+        ICI+PHN1YmZpZWxkIGNvZGU9ImEiPkJvb2s8L3N1YmZpZWxkPjwvZGF0YWZp
+        ZWxkPjxkYXRhZmllbGQgdGFnPSI5OTUiIGluZDE9IiAiIGluZDI9IiAiPjxz
+        dWJmaWVsZCBjb2RlPSJhIj5jYXRhbG9nPC9zdWJmaWVsZD48L2RhdGFmaWVs
+        ZD48ZGF0YWZpZWxkIHRhZz0iOTk3IiBpbmQxPSIgIiBpbmQyPSIgIj48c3Vi
+        ZmllbGQgY29kZT0iYSI+MjAxMi0wOC0wMVQwMDowMDowMC4wMDBaPC9zdWJm
+        aWVsZD48L2RhdGFmaWVsZD48L3JlY29yZD48L2NvbGxlY3Rpb24+JywnYXV0
+        aG9yX2Rpc3BsYXknPT5bJ0dvcmRvbiwgQXZlcnknXSwncHViX25hbWVfZGlz
+        cGxheSc9PlsnSGF0amUgQ2FudHonXSwnc291cmNlX2Rpc3BsYXknPT5bJ2Nh
+        dGFsb2cnXSwnbWF0ZXJpYWxfdHlwZV9kaXNwbGF5Jz0+WycyNyBwLiddLCds
+        YW5ndWFnZV9mYWNldCc9PlsnRW5nbGlzaCcsJ0dlcm1hbiddLCdfdmVyc2lv
+        bl8nPT4xNTAxOTc5NTQ2MTEwMzk0MzY4LCd0aW1lc3RhbXAnPT4nMjAxNS0w
+        NS0yM1QxNjo0MTo1Ni44OTNaJ30seydzaGVsZmtleSc9PlsnbG9jK24tLSs2
+        NDg4KzAwMDAwMDAwK2czMDAwMDAwK2szNzE4MDAwKzAwMjAxMis5NTU4MzUx
+        J10sJ2xvY2F0aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3BsYXknPT5bJ0ZvciBP
+        ZmZzaXRlID4+IE42NDg4LkczIEszNzE4IDIwMTJofERFTElNfDEyNjA4NDIx
+        J10sJ3B1Yl95ZWFyX2Rpc3BsYXknPT5bJzIwMTEtJ10sJ2FjcV9kdCc9Picy
+        MDEyLTA3LTI0VDAwOjAwOjAwWicsJ3RpdGxlX2Rpc3BsYXknPT5bJzEwMCBu
+        b3RlcyAtLSAxMDAgdGhvdWdodHMgPSAxMDAgbm90aXplbiAtLSAxMDAgZ2Vk
+        YW5rZW4nXSwnaXRlbV9kaXNwbGF5Jz0+WydONjQ4OC5HMyBLMzcxOCAyMDEy
+        aCB8IGxvYytuLS0rNjQ4OCswMDAwMDAwMCtnMzAwMDAwMCtrMzcxODAwMCsw
+        MDIwMTIrOTU1ODM1MSB8IGVibn5jfn5+dHZycn56enp6enp6en5qd3p6enp6
+        en5md3N5cnp6en56enh6eXh+cXV1cnd1eSddLCdpZCc9Pic5NTU4MzUxJywn
+        cmV2ZXJzZV9zaGVsZmtleSc9PlsnZWJufmN+fn50dnJyfnp6enp6enp6fmp3
+        enp6enp6fmZ3c3lyenp6fnp6eHp5eH5xdXVyd3V5J10sJ2NsaW9faWRfZGlz
+        cGxheSc9Pic5NTU4MzUxJywnY2FsbF9udW1iZXJfZGlzcGxheSc9PlsnTjY0
+        ODguRzMgSzM3MTggMjAxMmgnXSwnc3ViamVjdF90b3BpY19mYWNldCc9Plsn
+        RG9jdW1lbnRhJ10sJ3B1Yl9wbGFjZV9kaXNwbGF5Jz0+WydPc3RmaWxkZXJu
+        J10sJ21hcmNfZGlzcGxheSc9Pic8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29k
+        aW5nPSJVVEYtOCI/Pjxjb2xsZWN0aW9uIHhtbG5zPSJodHRwOi8vd3d3Lmxv
+        Yy5nb3YvTUFSQzIxL3NsaW0iPjxyZWNvcmQ+PGxlYWRlcj4xMTIyOWNhbSBh
+        MjIwMDQwOSBhIDQ1MDA8L2xlYWRlcj48Y29udHJvbGZpZWxkIHRhZz0iMDAx
+        Ij45NTU4MzUxPC9jb250cm9sZmllbGQ+PGNvbnRyb2xmaWVsZCB0YWc9IjAw
+        NSI+MjAxMjExMTkyMTU3NDcuMDwvY29udHJvbGZpZWxkPjxjb250cm9sZmll
+        bGQgdGFnPSIwMDgiPjEyMDMyMHMyMDEyICAgIGd3IGEgICAgICAgICAgMDAw
+        IDAgZW5nIGQ8L2NvbnRyb2xmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDM1IiBp
+        bmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+KE9Db0xDKW9j
+        bjc4MDYxOTY1Njwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0
+        YWc9IjAzNSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEi
+        PihPQ29MQyk3ODA2MTk2NTY8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRh
+        ZmllbGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBj
+        b2RlPSJhIj4oTk5DKTk1NTgzNTE8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxk
+        YXRhZmllbGQgdGFnPSIwNDAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVs
+        ZCBjb2RlPSJhIj5OTEY8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5O
+        TEY8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj5OTkM8L3N1YmZpZWxk
+        PjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwNDEiIGluZDE9IjEiIGlu
+        ZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5lbmc8L3N1YmZpZWxkPjxzdWJm
+        aWVsZCBjb2RlPSJhIj5nZXI8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRh
+        ZmllbGQgdGFnPSIwNTAiIGluZDE9IjAiIGluZDI9IiAiPjxzdWJmaWVsZCBj
+        b2RlPSJhIj5ONjQ5Ni4zLkczPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
+        YiI+SzM3MTggMjAxMjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVs
+        ZCB0YWc9IjExMSIgaW5kMT0iMiIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9
+        ImEiPkRvY3VtZW50YTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9Im4iPigx
+        M3RoIDo8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj4yMDEyIDo8L3N1
+        YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5LYXNzZWwsIEdlcm1hbnkpPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMjQ1IiBpbmQx
+        PSIxIiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0iYSI+MTAwIG5vdGVzIC0t
+        IDEwMCB0aG91Z2h0cyA9IDEwMCBub3RpemVuIC0tIDEwMCBnZWRhbmtlbi48
+        L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIyNDYiIGlu
+        ZDE9IjAiIGluZDI9IjEiPjxzdWJmaWVsZCBjb2RlPSJhIj5vbmUgaHVuZHJl
+        ZCBub3RlcyAtLSBvbmUgaHVuZHJlZCB0aG91Z2h0czwvc3ViZmllbGQ+PC9k
+        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjI0NiIgaW5kMT0iMCIgaW5kMj0i
+        MSI+PHN1YmZpZWxkIGNvZGU9ImEiPjEwMCBub3RpemVuIC0tIDEwMCBnZWRh
+        bmtlbjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjI0
+        NiIgaW5kMT0iMCIgaW5kMj0iMyI+PHN1YmZpZWxkIGNvZGU9ImEiPkRvY3Vt
+        ZW50YSAxMzwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9
+        IjI2MCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPk9z
+        dGZpbGRlcm46PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+SGF0amUg
+        Q2FudHosPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYyI+MjAxMS08L3N1
+        YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIzMDAiIGluZDE9
+        IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj52LiA6PC9zdWJmaWVs
+        ZD48c3ViZmllbGQgY29kZT0iYiI+aWxsLiA7PC9zdWJmaWVsZD48c3ViZmll
+        bGQgY29kZT0iYyI+MTUgY20uIHRvIDI1IGNtLjwvc3ViZmllbGQ+PC9kYXRh
+        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjUwMCIgaW5kMT0iICIgaW5kMj0iICI+
+        PHN1YmZpZWxkIGNvZGU9ImEiPlB1Ymxpc2hlZCBpbiBjb25qdW5jdGlvbiB3
+        aXRoIHRoZSBleGhpYml0aW9uIERvY3VtZW50YSAxMywgaGVsZCBKdW5lIDks
+        IDIwMTItU2VwdC4gMTYsIDIwMTIuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48
+        ZGF0YWZpZWxkIHRhZz0iNTAwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmll
+        bGQgY29kZT0iYSI+RW5nbGlzaCBhbmQgR2VybWFuLjwvc3ViZmllbGQ+PC9k
+        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjUwNSIgaW5kMT0iMCIgaW5kMj0i
+        ICI+PHN1YmZpZWxkIGNvZGU9ImEiPk5vLiAwMDEuIEZpZWxkd29yayBub3Rl
+        Ym9va3MgPSBGZWxkZm9yc2NodW5nc25vdGl6YnXMiGNoZXIgLyBNaWNoYWVs
+        IFRhdXNzaWcgLS0gTm8uIDAwMi4gVGhlIGZpcnN0IGRvY3VtZW50YSwgMTk1
+        NSA9IERpZSBlcnN0ZSBEb2N1bWVudGEsIDE5NTUgLyBJYW4gV2FsbGFjZSAt
+        LSBOby4gMDAzLiBMZXR0ZXIgdG8gYSBmcmllbmQgPSBCcmllZiBhbiBlaW5l
+        biBGcmV1bmQgLyBDYXJvbHluIENocmlzdG92LUJha2FyZ2lldiAtLSBOby4g
+        MDA0LiBFbWlseSBKYWNpciAmYW1wOyBTdXNhbiBCdWNrLU1vcnNzIC0tIE5v
+        LiAwMDUuIE5vdGVzIG9uIEdlb3JnIFNpbW1lbFwncyBsZXNzb25zLCAxOTA2
+        LzA3LCBhbmQgb24gYSAic29jaW9sb2d5IG9mIGFydCwiIGMuIDE5MDkgPSBO
+        b3RpemVuIHp1IEdlb3JnIFNpbW1lbHMgVmVybGVzdW5nZW4sIDE5MDYvMDcs
+        IHVuZCB6dXIgIkt1bnN0c296aW9sb2dpZSwiIGNhLiAxOTA5IC8gR3lvzIhy
+        Z3kgTHVrYcyBY3MgLS0gTm8uIDAwNi4gVGhlIGNvc3QgZm9yIGxvdmUgd2Ug
+        YXJlIG5vdCB3aWxsaW5nIHRvIHBheSA9IERlciBQcmVpcyBkZXIgTGllYmUs
+        IGRlbiB3aXIgbmljaHQgemFobGVuIHdvbGxlbiAvICBFdGVsIEFkbmFuIC0t
+        IE5vLiAwMDcuIEVya2tpIEt1cmVubmllbWkgLyBpbnRyb2R1Y3Rpb24sIExh
+        cnMgQmFuZyBMYXJzZW4gLS0gTm8uIDAwOC4gTGF3cmVuY2UgV2VpbmVyIDog
+        IFtpZiBpbiBmYWN0IHRoZXJlIGlzIGEgY29udGV4dF0gLyBMYXdyZW5jZSBX
+        ZWluZXIgLS0gTm8uIDAwOS4gV2lsbGlhbSBLZW50cmlkZ2UgJmFtcDsgUGV0
+        ZXIgTC4gR2FsaXNvbiA6IHRoZSByZWZ1c2FsIG9mIHRpbWUgPSBEaWUgQWJs
+        ZWhudW5nIGRlciBaZWl0IC0tIE5vLiAwMTAuIEFlc3RoZXRpY3Mgb2YgZXF1
+        YWxpdHkgPSBBzIhzdGhldGlrIGRlciBHbGVpY2hoZWl0IC8gQ2hyaXN0b3Bo
+        IE1lbmtlIC0tIE5vLiAwMTEuIFJlYWRpbmcsIHJld3JpdGluZyBQb2VcJ3Mg
+        IlRoZSBvdmFsIHBvcnRyYWl0Ii0tYW5nZWxpY2FsbHkgPSBQb2VzICJEYXMg
+        b3ZhbGUgUG9ydHJhaXQiLCBtaXQgZGVuIEF1Z2VuIGVpbmVzIEVuZ2VscyBn
+        ZWxlc2VuIHVuZCB1bWdlc2NocmllYmVuIC8gSmFsYWwgVG91ZmljIC0tIE5v
+        LiAwMTIuIFRoZSBjb3Jwb3JhdGUgY29udHJvbCBvZiBsaWZlID0gRGllIEtv
+        bnRyb2xsZSB2b24gS29uemVybmVuIHXMiGJlciBkYXMgTGViZW4gLyBWYW5k
+        YW5hIFNoaXZhIC0tIE5vLiAwMTMuIElubm9jZW50IHBvd2VyID0gIERpZSB1
+        bnNjaHVsZGlnZSBNYWNodCAvIEcuIE0uIFRhbWHMgXMgLS0gTm8uIDAxNC4g
+        QWxlamFuZHJvIEpvZG9yb3dza3kgLyBpbnRyb2R1Y3Rpb24sIENodXMgTWFy
+        dGluZXogLS0gTm8uIDAxNS4gVHdvIGlzIG5vdCBhIG51bWJlciA6IGEgY29u
+        dmVyc2F0aW9uIHdpdGggQXlyZWVuIEFuYXN0YXMgJmFtcDsgUmVuZSBHYWJy
+        aSA9IFp3ZWkgaXN0IGtlaW5lIFphaGwgOiBlaW4gR2VzcHJhzIhjaCBtaXQg
+        QXlyZWVuIEFuYXN0YXMgJmFtcDsgUmVuZSBHYWJyaSAvIFBhdWwgUnlhbiAt
+        LSBOby4gMDE2LiBUaGUgdHdvIEthc3NlbHM6IFNhbWUgdGltZSwgYW5vdGhl
+        ciBzcGFjZSA9IERpZSBiZWlkZW4gS2Fzc2VsczogZ2xlaWNoZSBaZWl0LCBh
+        bmRlcmVyIE9ydCAvIFBlzIF0ZXIgR3lvzIhyZ3kgLS0gTm8uIDAxNy4gTGV0
+        dGVyIHRvIEJldHRpbmEgRnVuY2tlID0gQnJpZWYgYW4gQmV0dGluYSBGdW5j
+        a2UgLyBLZW5uZXRoIEdvbGRzbWl0aCAtLSBOby4gMDE4LiBUaGUgaHVuZHJl
+        ZCB0aG91c2FuZCBib29rcyBvZiBCZWxsYXRpbiA9IGRpZSBodW5kZXJ0dGF1
+        c2VuZCBCdcyIY2hlciB2b24gQmVsbGF0aW4gLyBNYXJpbyBCZWxsYXRpbjwv
+        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjUwNSIgaW5k
+        MT0iMCIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPi0tIE5vLiAwMTku
+        IFRoZSBsaXN0ZW5lbmluZyBleWU6IHRha2luZyBub3RlcyBhZnRlciBHYXVn
+        dWluID0gZGFzIGhvzIhyZW5kZSBBdWdlOiBhdWZ6ZWljaG51bmdlbiBuYWNo
+        IEdhdWd1aW4gLyBEYXJpbyBHYW1ib25pIC0tIE5vLiAwMjAuIFBvZW1zIGZy
+        b20gYSBob21lbGFuZCA9IEdlZGljaHRlIGF1cyBlaW5lbSBIZWltYXRsYW5k
+        IC8gUm9tYWluZSBNb3JldG9uIC0tIE5vLiAwMjEuIENvcm5lbGl1cyBDYXN0
+        b3JpYWRpcyAvICBpbnRyb2R1Y3Rpb246IE5pa29zIFBhcGFzdGVyZ2lhZGlz
+        ICAtLSBOby4gMDIyLiBBcmNoaXZlIG1hbmlhID0gQXJjaGl2bWFuaWUgLyBT
+        dWVseSBSb2xuaWsgLS0gTm8uIDAyMy4gIFRoZSBtb3JhbGl0eSBvZiByZWZ1
+        c2FsID0gZGllIE1vcmFsIGRlciBWZXJ3ZWlnZXJ1bmcgLyBOYWxpbmkgTWFs
+        YW5pIGFuZCBBcmp1biBBcHBhZHVyYWkgLS0gTm8uIDAyNC4gIENveW90ZSBh
+        bnRocm9wb2xvZ3kgOiBhIGNvbnZlcnNhdGlvbiBpbiB3b3JkcyBhbmQgZHJh
+        d2luZ3MgPSBLb2pvdGVuYW50aHJvcG9sb2dpZSA6IGVpbiBHZXNwcmHMiGNo
+        IGluIFdvcnRlbiB1bmQgWmVpY2hudW5nZW4gLyBNYXJpYW5hIENhc3RpbGxv
+        IERlYmFsbCBhbmQgUm95IFdhZ25lciAtLSBOby4gMDI1LiBBbGlnaGllcm8g
+        Qm9ldHRpXCdzIG9uZSBob3RlbCAvIEFubmVtYXJpZSBTYXV6ZWF1IC0tIE5v
+        LiAwMjYuICBBIGZldyBxdWVzdGlvbnMgcmVnYXJkaW5nIHRoZSBoZXNpdGFu
+        Y2UgYXQgY2hvb3NpbmcgYmV0d2VlbiBicmluZ2luZyBhIGJvdHRsZSBvZiB3
+        aW5lIG9yIGEgYm91cXVldCBvZiBmbG93ZXJzID0gRWluaWdlIEZyYWdlbiBo
+        aW5zaWNodGxpY2ggZGVzIFpvzIhnZXJucyBiZWkgZGVyIEVudHNjaGVpZHVu
+        ZywgZWluZSBGbGFzY2hlIFdlaW4gb2RlciBlaW5lbiBCbHVtZW5zdHJhdXNz
+        IG1pdHp1YnJpbmdlbiAvIE1hcmlvIEdhcmNpYSBUb3JyZXMgLS0gTm8uIDAy
+        Ny4gSXJvbmljIGV0aGljcyA9IElyb25pc2NoZSBFdGhpayAvIEJpZm8tRnJh
+        bmNvIEJlcmFyZGkgLS0gTm8uIDAyOC4gQWxsby10aGFuYXRvZ3JhcGh5IG9y
+        IGFsbG8tYXV0by1iaW9ncmFwaHk6IGEgZmV3IHRob3VnaHRzIG9uIG9uZSBw
+        YWludGluZyBpbiBDaGFybG90dGUgU2Fsb21vblwncyBMZWJlbj8gb2RlciB0
+        aGVhdGVyPywgMTk0MS00MiA9IEFsbG8tVGhhbmF0b2dyYWZpZSBvZGVyIEFs
+        bG8tQXV0by1CaW9ncmFmaWUgOiBVzIhiZXJsZWd1bmdlbiB6dSBlaW5lbSBC
+        aWxkIGluIENoYXJsb3R0ZSBTYWxvbW9ucyBMZWJlbj8gb2RlciBUaGVhdGVy
+        PywgMTk0MS80MiAvIEdyaXNlbGRhIFBvbGxvY2sgLS0gTm8uIDAyOS4gQWZn
+        aGFuaXN0YW46IGEgbGV4aWNvbiAvIE1hcmlhbSBhbmQgQXNocmFmIEdoYW5p
+        IC0tIE5vLiAwMzAuIElsbGVnaWJpbGl0eSA9IFVubGVzZXJsaWNoa2VpdCAv
+        IFBhbWVsYSBNLiBMZWUgLS0gTm8uIDAzMS4gSGUgaGFzIHRoZSBoZWFydGxl
+        c3MgZXllcyBvZiBvbmUgbG92ZWQgYWJvdmUgYWxsIGVsc2UgPSBFciBoYXQg
+        ZGllIGhlcnpsb3NlbiBBdWdlbiBlaW5lcyB1zIhiZXIgYWxsZXMgR2VsaWVi
+        dGVuIC8gQWxleGFuZGVyIEtsdWdlIC0tIE5vLiAwMzIuIEFJRFMgdGltZWxp
+        bmUgLyBEb3VnIEFzaGZvcmQsIEp1bGllIEF1bHQsIEdyb3VwIE1hdGVyaWFs
+        IC0tIE5vLiAwMzMuIFNGOiBzcGVjdWxhdGl2ZSBmYWJ1bGF0aW9uIGFuZCBz
+        dHJpbmcgZmlndXJlcyA9IFNGOiBzcGVrdWxhdGl2ZSBGYWJ1bGF0aW9uIHVu
+        ZCBTdHJpbmctRmlndXJlbiAvIERvbm5hIEhhcmF3YXk8L3N1YmZpZWxkPjwv
+        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1MDUiIGluZDE9IjAiIGluZDI9
+        IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4tLSBOby4gMDM0LiBJbmdvIE5pZXJt
+        YW5uIDogY2hvb3NlIGRyaWxsID0gRHJpbGwgZGljaCAtLSBOby4gMDM1LiBN
+        YXRpYXMgRmFsZGJha2tlbiA6IFNlYXJjaCA9IFN1Y2hlIC0tIE5vLiAwMzYu
+        IERpZXRtYXIgRGF0aCA6IGdpcmxzXCcgY2FsbGlncmFwaHkgZXhlcmNpc2Ug
+        PSBNYcyIZGNoZW5zY2hvzIhuc2NocmlmdGF1ZmdhYmUgLS0gIE5vLiAwMzcu
+        IE1hY2hpbmUgaGVhcnQgPSBEYXMgSGVyeiBkZXIgTWFzY2hpbmUgLyBEYXZp
+        ZCBMaW5rIC0tIE5vLiAwMzguIEXMgWRvdWFyZCBHbGlzc2FudCAmYW1wOyBI
+        YW5zIFVscmljaCBPYnJpc3QgLyBbSGFucyBVbHJpY2ggT2JyaXN0XSAtLSBO
+        by4gMDM5LiBTYWx2YWRvciBEYWxpzIEgLyBpbnRyb2R1Y3Rpb246IElnbmFj
+        aW8gVmlkYWwtRm9sY2ggLS0gTm8uIDA0MC4gT24gdGhlIGRlc3RydWN0aW9u
+        IG9mIGFydC0tIG9yIENvbmZsaWN0IGFuZCBhcnQsIG9yIFRyYXVtYSBhbmQg
+        dGhlIGFydCBvZiBoZWFsaW5nID0gVcyIYmVyIGRpZSBaZXJzdG/MiHJ1bmcg
+        dm9uIEt1bnN0LS0gb2RlciBLb25mbGlrdCB1bmQgS3Vuc3QsIG9kZXIgVHJh
+        dW1hIHVuZCBkaWUgS3Vuc3QgZGVzIEhlaWxlbnMgLyBDYXJvbHluIENocmlz
+        dG92LUJha2FyZ2lldiAtLSBOby4gMDQxLiBOb3RlcyBmb3IgdGhlIEJyZWl0
+        ZW5hdSByb29tIG9mIFRoZSBXb3JraG91c2UgOiBhIHByb2plY3QgYnkgSW5l
+        cyBTY2hhYmVyIGFuZCBBdmVyeSBHb3Jkb24gPSBOb3RpemVuIGZ1zIhyIGRl
+        biBCcmVpdGVuYXUtUmF1bSB2b24gVGhlIFdvcmtob3VzZSA6IGVpbiBQcm9q
+        ZWt0IHZvbiBJbmVzIFNjaGFiZXIgdW5kIEF2ZXJ5IEdvcmRvbiAtLSBOby4g
+        MDQyLiBTY3JpcHRzIC8gSWRhIEFwcGxlYnJvb2cgLS0gTm8uIDA0My4gQW5h
+        IFBydmFja2kgJmFtcDsgSXJpbmEgQXJpc3Rhcmtob3ZhIDogdGhlIGdyZWV0
+        aW5nIGNvbW1pdHRlZSByZXBvcnRzLSA9IERhcyBCZWdydcyIc3N1bmdza29t
+        aXRlZSBiZXJpY2h0ZXQtIC0tIE5vLiAwNDQuIEFuZHJldyBSb3NzIDogdGhl
+        IGV4b3JjaXN0IGFuZCB0aGUgbWFjaGluZXMgPSBEZXIgRXhvcnppc3QgdW5k
+        IGRpZSBNYXNjaGluZW4gLS0gTm8uIDA0NS4gUGFyaXMgYXJjYWRlcyA9ICBQ
+        YXJpc2VyIHBhc3NhZ2VuIC8gIFdhbHRlciBCZW5qYW1pbiAtLSBOby4gMDQ2
+        LiBCb3JpcyBHcm95cyA6ICBHb29nbGU6IHdvcmRzIGJleW9uZCBncmFtbWFy
+        ID0gR29vZ2xlOiBXb3J0ZSBqZW5zZWl0cyBkZXIgR3JhbW1hdGlrIC0tIE5v
+        LiAwNDcgU29uYWxsYWggSWJyYWhpbSA6IHR3byBub3ZlbHMgYW5kIHR3byB3
+        b21lbiA9IFp3ZWkgUm9tYW5lIHVuZCB6d2VpIEZyYXVlbiAtLSBOby4gMDQ4
+        LiBUaGUgZGF5IE11YmFyYWsgd2FzIHRyaWVkID0gRGVyIFRhZywgYW4gZGVt
+        IE11YmFyYWsgZGVyIFByb3plc3MgZ2VtYWNodCB3dXJkZSA9IFlhd20gbXVo
+        zKNhzIRrYW1hdCBNdWJhzIRyYWsgLyBOYXdhbCBFbCBTYWFkYXdpIC0tIE5v
+        LiAwNDkuIEppbW1pZSBEdXJoYW0gOiAgbWF0ZXJpYWwgLS0gTm8uIDA1MC4g
+        VGhvbWFzIE1hbm4gJmFtcDsgVGhlb2RvciBXLiBBZG9ybm8gOiBhbiBleGNo
+        YW5nZSA9IEVpbiBBdXN0YXVzY2ggLS0gTm8uIDA1MS4gRHJlYW0gZmFybXMg
+        PSBUcmF1bWZhcm1lbiAvIEdlb3JnZSBDaGFuIC0tIE5vLiAwNTIuIFNlY3Jl
+        dHMgb2YgYWwtSmHMhGjMo2l6zKMgPSBEaWUgR2VoZWltbmlzc2UgZGVzIGFs
+        LUphzIRozKNpesyjIC8gRGFuaWVsIEhlbGxlci1Sb2F6ZW4gLS0gTm8uIDA1
+        My4gTGl2aW5nIGluIHRoZSBBbnRocm9wb2NlbmUgPSBMZWJlbiBpbSBBbnRo
+        cm9wb3phzIhuIC8gSmlsbCBCZW5uZXR0IC0tIE5vLiAwNTQuIEJ1dGNoZXIg
+        Sm9lIC8gU3RlcGhlbiBNdWVja2UgLS0gTm8uIDA1NS4gQWRhIExvdmVsYWNl
+        IC8gaW50cm9kdWN0aW9uOiBKb2FzaWEgS3J5c2EgLS0gTm8uIDA1Ni4gUmFk
+        aWNhbCBkdWFsaXNtID0gUmFkaWthbGVyIER1YWxpc211cyAvICBFZHVhcmRv
+        IEJhdGFsaGEgVml2ZWlyb3MgZGUgQ2FzdHJvPC9zdWJmaWVsZD48L2RhdGFm
+        aWVsZD48ZGF0YWZpZWxkIHRhZz0iNTA1IiBpbmQxPSIwIiBpbmQyPSIgIj48
+        c3ViZmllbGQgY29kZT0iYSI+LS0gTm8uIDA1Ny4gQWJyYWhhbSBDcnV6dmls
+        bGVnYXMgLS0gTm8uIDA1OC4gVGhlIEdhcmRlbiBvZiBFeGlsZSA9IERlciBH
+        YXJ0ZW4gZGVzIEV4aWxzIC8gSm9seW9uIExlc2xpZSAtLSBOby4gMDU5LiBC
+        ZWNvbWluZyBwb3N0LVNvdmlldCA9IFBvc3Rzb3dqZXRpc2NoIHdlcmRlbiAv
+        IEhyYWNoIEJheWFkeWFuIC0tIE5vLiAwNjAuIFZ5YWNoZXNsYXYgQWtodW5v
+        diAvIGludHJvZHVjdGlvbi9FaW5mdcyIaHJ1bmc6IExlZXphIEFobWFkeSAt
+        LSBOby4gMDYxLiBOb3RlcyBmcm9tIHVuZGVyZ3JvdW5kID0gIE5vdGl6ZW4g
+        YXVzIGRlbSBVbnRlcmdydW5kIC8gQ2xhaXJlIFBlbnRlY29zdCAtLSBOby4g
+        MDYyLiBGb3JlbnNpYyBhcmNoaXRlY3R1cmUgOiBub3RlcyBmcm9tIGZpZWxk
+        cyBhbmQgZm9ydW1zID0gRm9yZW5zaXNjaGUgQXJjaGl0ZWt0dXIgOiBOb3Rp
+        emVuIHZvbiBGZWxkZXJuIHVuZCBGb3JlbiAvICBFeWFsIFdlaXptYW4gLS0g
+        Tm8uIDA2My4gVGhlIGNvbmNlcm5zIG9mIGEgcmVwZW50YW50IEdhbHRvbmlh
+        biA9IEJlZGVua2VuIGVpbmVzIGdlbGHMiHV0ZXJ0ZW4gR2FsdG9uaWFuZXJz
+        IC8gQ3JpdGljYWwgQXJ0IEVuc2VtYmxlIC0tIE5vLiAwNjQuIFByb2Zhbml0
+        eSBhbmQgdGhlIGZpbmFuY2lhbCBtYXJrZXRzID0gRGFzIFByb2ZhbmUgdW5k
+        IGRpZSBGaW5hbnptYcyIcmt0ZSAvIEJyaWFuIEhvbG1lcyAtLSBOby4gMDY1
+        LiBEcmVhbSBpbmRleCA9IEF1cyBkZXIgVHJhdW0gKEthcnRlaSkgLyBEdXJz
+        IEdydcyIbmJlaW4gLS0gTm8uIDA2Ni4gVG8gc2Vuc2Ugd2hhdCBpcyBsaXZp
+        bmcgaW4gdGhlIG90aGVyIDogSGVnZWxcJ3MgZWFybHkgbG92ZSA9IEZ1zIho
+        bGVuLCB3YXMgaW0gYW5kZXJlbiBsZWJlbmRpZyBpc3QgOiBIZWdlbHMgZnJ1
+        zIhoZSBMaWViZSAvIEp1ZGl0aCBCdXRsZXIgLS0gTm8uIDA2Ny4gSGFubmEg
+        UnlnZ2VuIC8gTWFydGEgS3V6bWEgLS0gTm8uIDA2OC4gVGhlIFByb2NlZHVy
+        ZXMgb2YgTG92ZSA9IERpZSBWZXJmYWhyZW4gZGVyIExpZWJlIC8gTWljaGFl
+        bCBIYXJkdCAtLSBOby4gMDY5LiBUaGUgU3VzcGVuc2lvbiBvZiBIaXN0b3Jp
+        Y2FsIFRpbWUgPSBEaWUgU3VzcGVuZGllcnVuZyBkZXIgZ2VzY2hpY2h0bGlj
+        aGVuIFplaXQgLyBGdXJpbyBKZXNpIC0tIE5vLiAwNzAuIENhcmJvbmlhICh3
+        ZSB3ZXJlIGFsbCBjb21tdW5pc3RzKSA9IENhcmJvbmlhIChlcmF2YW1vIHR1
+        dHRpIGNvbXVuaXN0aSkgLyAgTmFubmkgQmFsZXN0cmluaSAtLSBOby4gMDcx
+        LiBNYXJrIExvbWJhcmRpIC8gaW50cm9kdWN0aW9uOiBDYXJvbHluIENocmlz
+        dG92LUJha2FyZ2lldiAtLSBOby4gMDcyLiBJbiBjYXNlIHNvbWV0aGluZyBk
+        aWZmZXJlbnQgaGFwcGVucyBpbiB0aGUgZnV0dXJlIDogSm9zZXBoIEJldXlz
+        IGFuZCA5LzExID0gRnXMiHIgZGVuIEZhbGwsIGRhc3MgaW4gZGVyIFp1a3Vu
+        ZnQgZXR3YXMgYW5kZXJlcyBrb21tdCAvIERhdmlkIExldmkgU3RyYXVzcyAt
+        LSBOby4gMDczLiBIdXluaCBQaHVvbmcgRG9uZywgTmd1eWVuIFRodSwgUXVh
+        bmcgVGhvLCBMZSBMYW0sIFZ1IEdpYW5nIEh1b25nLCBEdW9uZyBBbmgsIFRy
+        dW9uZyBIaWV1IC8gRGluaCBRLiBMZcyCIC0tIE5vLiAwNzQuIFBsYWNpbmcg
+        dGhlIGFydGlzdCA9IERpZSBQbGF0emllcnVuZyBkZXMgS3XMiG5zdGxlcnMg
+        LyBBbGFubmEgSGVpc3MgLS0gTm8uIDA3NS4gVW5leHByZXNzIHRoZSBleHBy
+        ZXNzaWJsZSA9IERhcyBBdXNkcnXMiGNrYmFyZSBuaWNodCBhdXNkcnXMiGNr
+        ZW4gLyBDaHVzIE1hcnRpzIFuZXo8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxk
+        YXRhZmllbGQgdGFnPSI1MDUiIGluZDE9IjAiIGluZDI9IiAiPjxzdWJmaWVs
+        ZCBjb2RlPSJhIj4tLSBOby4gMDc2LiBBbnRvbiBaZWlsaW5nZXIgLS0gTm8u
+        IDA3Ny4gUm9zZW1hcmllIFRyb2NrZWwgLyBSb2xmIERpZXRlciBCcmlua21h
+        bm4gLS0gTm8uIDA3OC4gVHdvIGZvcm1lciBzdHVkZW50cyA9IFp3ZWkgZWhl
+        bWFsaWdlIFN0dWRlbnRlbiAvIEx5ZGlhIERhdmlzIC0tIE5vLiAwNzkuIE1l
+        ZXRpbmcgRGl4aWUgRXZhbnMgOiAgaG93IHRvIGJ1cmxlc3F1ZSA9IFdpZSBt
+        YWNodCBtYW4gQnVybGVzcXVlPyBFaW5lIEJlZ2VnbnVuZyBtaXQgRGl4aWUg
+        RXZhbnMgLyBSYWltdW5kYXMgTWFsYXPMjGF1c2thcyAtLSBOby4gMDgwLiBV
+        bmRlciB0aGUgSW5mbHVlbmNlIDogSHlwbm9zaXMgYXMgYSBOZXcgTWVkaXVt
+        ID0gVW50ZXIgRWluZmx1c3MgOiBIeXBub3NlIGFscyBuZXVlcyBLdW5zdG1l
+        ZGl1bSAvIFBhc2NhbCBSb3Vzc2VhdSAtLSBOby4gMDgxLiBUcmFzaCBoYWNr
+        cyA9IEVpbmZhzIhsbGUgc3RhdHQgQWJmYcyIbGxlIC8gQ2hyaXN0aWFuIEt1
+        aHR6IC0tIE5vLiAwODIuIFNvbWUgaGlnaGx5IHNwZWN1bGF0aXZlIHJlbWFy
+        a3Mgb24gYXJ0IGFuZCBpZGVvbG9neSA9IEVpbmlnZSBob2NoIHNwZWt1bGF0
+        aXZlIEFubWVya3VuZ2VuIHXMiGJlciBLdW5zdCB1bmQgSWRlb2xvZ2llIC8g
+        IEJydW5vIEJvc3RlZWxzIC0tIE5vLiAwODMuIFNlZWluZyBNYWRuZXNzIDog
+        SW5zYW5pdHksIE1lZGlhLCBhbmQgVmlzdWFsIEN1bHR1cmUgPSBEZW4gV2Fo
+        bnNpbm4gc2VoZW4gOiBwc3ljaGlzY2hlIFN0b8yIcnVuZywgTWVkaWVuIHVu
+        ZCB2aXN1ZWxsZSBLdWx0dXIgLyAgVy5KLlQuIE1pdGNoZWxsIC0tIE5vLiAw
+        ODQuIERvaW5nIG5vdGhpbmcgLyBTb25nIERvbmcgLS0gTm8uIDA4NS4gVGhl
+        IFRoaXJkIFRhYmxlID0gRGVyIGRyaXR0ZSBUaXNjaCAvIEdyYWhhbSBIYXJt
+        YW4gLS0gTm8uIDA4Ni4gVGhlIEdvaW5nIEluc3VycmVjdGlvbiA9IERlciBn
+        ZWhlbmRlIEF1ZnN0YW5kIC8gU2FyYWggUmlma3kgLS0gTm8uIDA4Ny4gU2hv
+        dyBhbmQgdGVsbCA9IFplaWdlbiB1bmQgRXJ6YcyIaGxlbiAvIEl3b25hIEJs
+        YXp3aWNrIC0tIE5vLiAwODguIE5vdGVzIG9uIHRoZSBleGhpYml0aW9uID0g
+        Tm90aXplbiB6dXIgQXVzc3RlbGx1bmcgLyBEb3JvdGhlYSB2b24gSGFudGVs
+        bWFubiAtLSBOby4gMDg5LiBFY2NlIG9jY3VweSA6IGZyYWdtZW50cyBmcm9t
+        IGNvbnZlcnNhdGlvbnMgYmV0d2VlbiBmcmVlIHBlcnNvbnMgYW5kIGNhcHRp
+        dmUgcGVyc29ucyBjb25jZXJuaW5nIHRoZSBjcmlzaXMgb2YgZXZlcnl0aGlu
+        ZyBldmVyeXdoZXJlLCB0aGUgbmVlZCBmb3IgZ3JlYXQgZmljdGlvbnMgd2l0
+        aG91dCBwcm9wZXIgbmFtZXMsIHRoZSBwcmVtaXNlIG9mIHRoZSBjb21tb25z
+        LCB0aGUgZXhwbG9pdGF0aW9uIG9mIG91ciBldmVyeWRheSBjb21tdW5pc20u
+        Li4gLyBBeXJlZW4gQW5hc3RhcyAmYW1wOyBSZW5lIEdhYnJpIC0tIE5vLiAw
+        OTAuIERpYWdyYW0gMzAwMCBbd29yZHNdID0gRGlhZ3JhbW0gMzAwMCBbV29y
+        dGVdIC8gRcyBcmljIEFsbGlleiAtLSBOby4gMDkxLiBIb3cgdG8gbGliZXJh
+        dGUgTWFyeCBmcm9tIGhpcyBFdXJvY2VudHJpc20gOiBub3RlcyBvbiBBZnJp
+        Y2FuL0JsYWNrIE1hcnhpc20gPSBXaWUgbWFuIE1hcnggdm9uIHNlaW5lbSBF
+        dXJvemVudHJpc211cyBiZWZyZWl0IDogQW5tZXJrdW5nZW4genVtIGFmcmlr
+        YW5pc2NoZW4vc2Nod2FyemVuIE1hcnhpc211cyAvIFNhbGFoIE0uIEhhc3Nh
+        biAtLSBOby4gMDkyLiBCYW1idWxlIDogVGhlIFNjcmlwdC9kYXMgUmVnaWVi
+        dWNoIC8gVWxyaWtlIE1hcmllIE1laW5ob2YgLS0gTm8uIDA5My4gR3JlZW5i
+        ZXJnIGFuZCBUcm9udGkgOiAgYmVpbmcgcmVhbGx5IG91dHNpZGU/ID0gR3Jl
+        ZW5iZXJnIHVuZCBUcm9udGkgOiB3aXJrbGljaCBhdXNzZXJoYWxiIHNlaW4/
+        IC8gRnJhbmNlc2NvIE1hdGFycmVzZSAtLSBOby4gMDk0LiBUcmFuc3ZlcnNl
+        L3RyYW5zdmVyc2FsIC8gQmlmbyAtIEZyYW5jbyBCZXJhcmRpIC0tIE5vLiAw
+        OTUuIElzc2EgU2FtYiAvIGludHJvZHVjdGlvbjogS295byBLb3VvaCAtLSBO
+        by4gMDk2LiBXaXRjaC1odW50aW5nLCBQYXN0IGFuZCBQcmVzZW50LCBhbmQg
+        dGhlIEZlYXIgb2YgdGhlIFBvd2VyIG9mIFdvbWVuID0gSGV4ZW5qYWdkLCBW
+        ZXJnYW5nZW5oZWl0IHVuZCBHZWdlbndhcnQgdW5kIGRpZSBBbmdzdCB2b3Ig
+        ZGVyIE1hY2h0IGRlciBGcmF1ZW4gLyBTaWx2aWEgRmVkZXJpY2kgLS0gTm8u
+        IDA5Ny4gUmV4IGV4c29tbmlzIDogc2xlZXAgYW5kIHN1YmplY3Rpdml0eSBp
+        biBjYXBpdGFsaXN0IG1vZGVybml0eSA9IFJleCBleHNvbW5pcyA6IFNjaGxh
+        ZiB1bmQgU3ViamVrdGl2aXRhzIh0IGluIGRlciBrYXBpdGFsaXN0aXNjaGVu
+        IE1vZGVybmUgLyAgQWxleGVpIFBlbnppbiAtLSBOby4gMDk4LiBNZWxhbmll
+        IEtsZWluIC8gaW50cm9kdWN0aW9uOiBKYWNxdWVsaW5lIFJvc2UgLS0gTm8u
+        IDA5OS4gV2hhdCBpcyB0aGUgbWVhc3VyZSBvZiBub3RoaW5nbmVzcz8gOiBp
+        bmZpbml0eSwgdmlydHVhbGl0eSwganVzdGljZSA9IFdhcyBpc3QgZGFzIE1h
+        c3MgZGVzIE5pY2h0cz8gOiBVbmVuZGxpY2hrZWl0LCBWaXJ0dWFsaXRhzIh0
+        LCBHZXJlY2h0aWdrZWl0IC8gS2FyZW4gQmFyYWQgLS0gTm8uIDEwMC4gUnVk
+        b2xmIEFybmhlaW0gLyBpbnRyb2R1Y3Rpb246IENhcm9seW4gQ2hyaXN0b3Yt
+        QmFrYXJnaWV2Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0
+        YWc9IjYxMSIgaW5kMT0iMiIgaW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEi
+        PkRvY3VtZW50YTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9Im4iPigxM3Ro
+        IDo8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj4yMDEyIDo8L3N1YmZp
+        ZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5LYXNzZWwsIEdlcm1hbnkpPC9zdWJm
+        aWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTQ4IiBpbmQxPSIx
+        IiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+MjAxMjA3MjQ8L3N1YmZp
+        ZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5jPC9zdWJmaWVsZD48c3ViZmllbGQg
+        Y29kZT0iYyI+ZnJhMTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImQiPk9T
+        TUM8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5MDAi
+        IGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5BVVRIPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTkwIiBpbmQx
+        PSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+Tjwvc3ViZmllbGQ+
+        PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MSIgaW5kMT0iICIgaW5k
+        Mj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPk42NDg4LkczIEszNzE4IDIwMTJo
+        PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+bG9jK04tLSs2NDg4KzAw
+        MDAwMDAwK0czMDAwMDAwK0szNzE4MDAwKzAwMjAxMjwvc3ViZmllbGQ+PC9k
+        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MiIgaW5kMT0iICIgaW5kMj0i
+        ICI+PHN1YmZpZWxkIGNvZGU9ImEiPk9mZnNpdGU8L3N1YmZpZWxkPjxzdWJm
+        aWVsZCBjb2RlPSJiIj5Gb3IgT2Zmc2l0ZSAmZ3Q7Jmd0OyBONjQ4OC5HMyBL
+        MzcxOCAyMDEyaHxERUxJTXwxMjYwODQyMTwvc3ViZmllbGQ+PC9kYXRhZmll
+        bGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MyIgaW5kMT0iICIgaW5kMj0iICI+PHN1
+        YmZpZWxkIGNvZGU9ImEiPkJvb2s8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxk
+        YXRhZmllbGQgdGFnPSI5OTUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVs
+        ZCBjb2RlPSJhIj5jYXRhbG9nPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0
+        YWZpZWxkIHRhZz0iOTk3IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQg
+        Y29kZT0iYSI+MjAxMi0wNy0yNFQwMDowMDowMC4wMDBaPC9zdWJmaWVsZD48
+        L2RhdGFmaWVsZD48L3JlY29yZD48L2NvbGxlY3Rpb24+JywnYXV0aG9yX2Rp
+        c3BsYXknPT5bJ0RvY3VtZW50YSAoMTN0aCA6IDIwMTIgOiBLYXNzZWwsIEdl
+        cm1hbnkpJ10sJ3B1Yl9uYW1lX2Rpc3BsYXknPT5bJ0hhdGplIENhbnR6J10s
+        J2Zvcm1hdCc9PlsnQm9vayddLCdzb3VyY2VfZGlzcGxheSc9PlsnY2F0YWxv
+        ZyddLCdtYXRlcmlhbF90eXBlX2Rpc3BsYXknPT5bJ3YuJ10sJ29jbGNfZGlz
+        cGxheSc9Plsnb2NuNzgwNjE5NjU2JywnNzgwNjE5NjU2J10sJ3RpdGxlX2Zp
+        cnN0X2ZhY2V0Jz0+WycwLTknXSwncHViX2RhdGVfc29ydCc9PjIwMTIsJ2Z1
+        bGxfcHVibGlzaGVyX2Rpc3BsYXknPT5bJ09zdGZpbGRlcm46IEhhdGplIENh
+        bnR6LCAyMDExLSddLCdsYW5ndWFnZV9mYWNldCc9PlsnRW5nbGlzaCcsJ0dl
+        cm1hbiddLCdfdmVyc2lvbl8nPT4xNTAxOTgwNjE1NjkwNDIwMjI0LCd0aW1l
+        c3RhbXAnPT4nMjAxNS0wNS0yM1QxNjo1ODo1Ni45MjFaJ31dfSwnc3RhdHMn
+        PT57J3N0YXRzX2ZpZWxkcyc9PnsncHViX2RhdGVfc29ydCc9PnsnbWluJz0+
+        MjAxMS4wLCdtYXgnPT4yMDEyLjAsJ2NvdW50Jz0+MiwnbWlzc2luZyc9PjAs
+        J3N1bSc9PjQwMjMuMCwnc3VtT2ZTcXVhcmVzJz0+ODA5MjI2NS4wLCdtZWFu
+        Jz0+MjAxMS41LCdzdGRkZXYnPT4wLjcwNzEwNjc4MTE4NjU0NzYsJ2ZhY2V0
+        cyc9Pnt9fX19fQo=
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:06 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=9401571&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:05 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
+        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic5NDAxNTcx
+        JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
+        PnsnbnVtRm91bmQnPT4xLCdzdGFydCc9PjAsJ2RvY3MnPT5beydzaGVsZmtl
+        eSc9PlsnbG9jK24tLSs2NDg4KzAwMDAwMDAwK2czMDAwMDAwK2szNzE4MDAw
+        KzAwMjAxMitoMDAwMDArbm8wMDAwKzAwMDA0MSs5NDAxNTcxJywnbG9jK2h2
+        LSs4OTY0KzAwMDAwMDAwK2c0MDAwMDAwK2c2NzAwMDAwKzAwMjAxMSs5NDAx
+        NTcxJ10sJ2xvY2F0aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3BsYXknPT5bJ09m
+        ZnNpdGUgPEZpbmUgQXJ0cz4gKE5vbi1DaXJjKSBQbGFjZSBSZXF1ZXN0IGZv
+        ciBkZWxpdmVyeSA+PiBONjQ4OC5HMyBLMzcxOCAyMDEyaCBuby4wNDF8REVM
+        SU18MTI0NTczMjknLCdDb21wIExpdCAmIFNvY2lldHkgUmVhZGluZyBSb29t
+        LCA2MTUgQnV0bGVyIChOb24tQ2lyYykgPj4gSFY4OTY0Lkc0IEc2NyAyMDEx
+        Z3xERUxJTXwxMjQ2Nzg3MyddLCdhY3FfZHQnPT4nMjAxMi0wOC0wMVQwMDow
+        MDowMFonLCdpdGVtX2Rpc3BsYXknPT5bJ0hWODk2NC5HNCBHNjcgMjAxMWcg
+        fCBsb2MraHYtKzg5NjQrMDAwMDAwMDArZzQwMDAwMDArZzY3MDAwMDArMDAy
+        MDExKzk0MDE1NzEgfCBlYm5+aTR+fnJxdHZ+enp6enp6enp+anZ6enp6enp+
+        anRzenp6enp+enp4enl5fnF2enl1c3knLCdONjQ4OC5HMyBLMzcxOCAyMDEy
+        aCBuby4wNDEgfCBsb2Mrbi0tKzY0ODgrMDAwMDAwMDArZzMwMDAwMDArazM3
+        MTgwMDArMDAyMDEyK2gwMDAwMCtubzAwMDArMDAwMDQxKzk0MDE1NzEgfCBl
+        Ym5+Y35+fnR2cnJ+enp6enp6enp+and6enp6enp+ZndzeXJ6enp+enp4enl4
+        fml6enp6en5jYnp6enp+enp6enZ5fnF2enl1c3knXSwndGl0bGVfZGlzcGxh
+        eSc9PlsnTm90ZXMgZm9yIHRoZSBCcmVpdGVuYXUgcm9vbSBvZiBUaGUgV29y
+        a2hvdXNlIDogYSBwcm9qZWN0IGJ5IEluZXMgU2NoYWJlciBhbmQgQXZlcnkg
+        R29yZG9uID0gTm90aXplbiBmdcyIciBkZW4gQnJlaXRlbmF1LVJhdW0gdm9u
+        IFRoZSBXb3JraG91c2UgOiBlaW4gUHJvamVrdCB2b24gSW5lcyBTY2hhYmVy
+        IHVuZCBBdmVyeSBHb3Jkb24nXSwnY2xpb19pZF9kaXNwbGF5Jz0+Jzk0MDE1
+        NzEnLCdzdWJqZWN0X3RvcGljX2ZhY2V0Jz0+WydHZWRlbmtzdGHMiHR0ZSBC
+        cmVpdGVuYXUnLCdCcmVpdGVuYXUgKENvbmNlbnRyYXRpb24gY2FtcCknLCdE
+        ZXNjcmlwdGlvbiBhbmQgdHJhdmVsJ10sJ3B1Yl9wbGFjZV9kaXNwbGF5Jz0+
+        WydPc3RmaWxkZXJuJ10sJ2Zvcm1hdCc9PlsnQm9vayddLCdvY2xjX2Rpc3Bs
+        YXknPT5bJ29jbjc5MzY4MzcyMicsJzc5MzY4MzcyMiddLCd0aXRsZV9maXJz
+        dF9mYWNldCc9PlsnTiddLCdwdWJfZGF0ZV9zb3J0Jz0+MjAxMSwnZnVsbF9w
+        dWJsaXNoZXJfZGlzcGxheSc9PlsnT3N0ZmlsZGVybiA6IEhhdGplIENhbnR6
+        LCBjMjAxMS4nXSwnaXNibl9kaXNwbGF5Jz0+Wyc5NzgzNzc1NzI4OTA0Jywn
+        Mzc3NTcyODkwMiddLCdwdWJfeWVhcl9kaXNwbGF5Jz0+WydjMjAxMSddLCd0
+        aXRsZV9zZXJpZXNfZGlzcGxheSc9PlsnMTAwIG5vdGVzLS0xMDAgdGhvdWdo
+        dHMgOyBuby4gNDEnXSwnaWQnPT4nOTQwMTU3MScsJ3JldmVyc2Vfc2hlbGZr
+        ZXknPT5bJ2Vibn5jfn5+dHZycn56enp6enp6en5qd3p6enp6en5md3N5cnp6
+        en56enh6eXh+aXp6enp6fmNienp6en56enp6dnl+cXZ6eXVzeScsJ2Vibn5p
+        NH5+cnF0dn56enp6enp6en5qdnp6enp6en5qdHN6enp6en56enh6eXl+cXZ6
+        eXVzeSddLCdjYWxsX251bWJlcl9kaXNwbGF5Jz0+WydONjQ4OC5HMyBLMzcx
+        OCAyMDEyaCBuby4wNDEnLCdIVjg5NjQuRzQgRzY3IDIwMTFnJ10sJ21hcmNf
+        ZGlzcGxheSc9Pic8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYt
+        OCI/Pjxjb2xsZWN0aW9uIHhtbG5zPSJodHRwOi8vd3d3LmxvYy5nb3YvTUFS
+        QzIxL3NsaW0iPjxyZWNvcmQ+PGxlYWRlcj4wMjA4NmNhbSBhMjIwMDQ2OUlh
+        IDQ1MDA8L2xlYWRlcj48Y29udHJvbGZpZWxkIHRhZz0iMDAxIj45NDAxNTcx
+        PC9jb250cm9sZmllbGQ+PGNvbnRyb2xmaWVsZCB0YWc9IjAwNSI+MjAxMjEw
+        MjIxNzE2MDcuMDwvY29udHJvbGZpZWxkPjxjb250cm9sZmllbGQgdGFnPSIw
+        MDgiPjExMTIyM3MyMDExICAgIGd3IGEgICAgIGIgICAgMDAwIDAgZW5nIGQ8
+        L2NvbnRyb2xmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDE5IiBpbmQxPSIgIiBp
+        bmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+NzY5NDMwMjI4PC9zdWJmaWVs
+        ZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDIwIiBpbmQxPSIgIiBp
+        bmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+OTc4Mzc3NTcyODkwNDwvc3Vi
+        ZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAyMCIgaW5kMT0i
+        ICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPjM3NzU3Mjg5MDI8L3N1
+        YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwMzUiIGluZDE9
+        IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4oT0NvTEMpb2NuNzkz
+        NjgzNzIyPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
+        MDM1IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+KE9D
+        b0xDKTc5MzY4MzcyMjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9InoiPihP
+        Q29MQyk3Njk0MzAyMjg8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmll
+        bGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2Rl
+        PSJhIj4oTk5DKTk0MDE1NzE8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRh
+        ZmllbGQgdGFnPSIwNDAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBj
+        b2RlPSJhIj5IRkw8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5IRkw8
+        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj5CVENUQTwvc3ViZmllbGQ+
+        PHN1YmZpZWxkIGNvZGU9ImQiPllEWENQPC9zdWJmaWVsZD48c3ViZmllbGQg
+        Y29kZT0iZCI+T0hYPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+QldY
+        PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+T0NMQ088L3N1YmZpZWxk
+        PjxzdWJmaWVsZCBjb2RlPSJkIj5NWkE8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
+        b2RlPSJkIj5aQ1U8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj5OTkM8
+        L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwNDEiIGlu
+        ZDE9IjAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5lbmc8L3N1YmZp
+        ZWxkPjxzdWJmaWVsZCBjb2RlPSJhIj5nZXI8L3N1YmZpZWxkPjwvZGF0YWZp
+        ZWxkPjxkYXRhZmllbGQgdGFnPSIwNTAiIGluZDE9IiAiIGluZDI9IjQiPjxz
+        dWJmaWVsZCBjb2RlPSJhIj5IVjg5NjQuRzQ8L3N1YmZpZWxkPjxzdWJmaWVs
+        ZCBjb2RlPSJiIj5HNjcgMjAxMTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRh
+        dGFmaWVsZCB0YWc9IjEwMCIgaW5kMT0iMSIgaW5kMj0iICI+PHN1YmZpZWxk
+        IGNvZGU9ImEiPkdvcmRvbiwgQXZlcnkuPC9zdWJmaWVsZD48L2RhdGFmaWVs
+        ZD48ZGF0YWZpZWxkIHRhZz0iMjQ1IiBpbmQxPSIxIiBpbmQyPSIwIj48c3Vi
+        ZmllbGQgY29kZT0iYSI+Tm90ZXMgZm9yIHRoZSBCcmVpdGVuYXUgcm9vbSBv
+        ZiBUaGUgV29ya2hvdXNlIDo8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJi
+        Ij5hIHByb2plY3QgYnkgSW5lcyBTY2hhYmVyIGFuZCBBdmVyeSBHb3Jkb24g
+        PSBOb3RpemVuIGZ1zIhyIGRlbiBCcmVpdGVuYXUtUmF1bSB2b24gVGhlIFdv
+        cmtob3VzZSA6IGVpbiBQcm9qZWt0IHZvbiBJbmVzIFNjaGFiZXIgdW5kIEF2
+        ZXJ5IEdvcmRvbiAvPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYyI+QXZl
+        cnkgRi4gR29yZG9uLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVs
+        ZCB0YWc9IjI0NiIgaW5kMT0iMyIgaW5kMj0iMSI+PHN1YmZpZWxkIGNvZGU9
+        ImEiPk5vdGl6ZW4gZnXMiHIgZGVuIEJyZWl0ZW5hdS1SYXVtIHZvbiBUaGUg
+        V29ya2hvdXNlIDo8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5laW4g
+        UHJvamVrdCB2b24gSW5lcyBTY2hhYmVyIHVuZCBBdmVyeSBHb3Jkb248L3N1
+        YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIyNjAiIGluZDE9
+        IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5Pc3RmaWxkZXJuIDo8
+        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5IYXRqZSBDYW50eiw8L3N1
+        YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5jMjAxMS48L3N1YmZpZWxkPjwv
+        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIzMDAiIGluZDE9IiAiIGluZDI9
+        IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4yNyBwLiA6PC9zdWJmaWVsZD48c3Vi
+        ZmllbGQgY29kZT0iYiI+aWxsLiA7PC9zdWJmaWVsZD48c3ViZmllbGQgY29k
+        ZT0iYyI+MjEgY20uPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxk
+        IHRhZz0iNDkwIiBpbmQxPSIxIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0i
+        YSI+MTAwIG5vdGVzIC0gMTAwIHRob3VnaHRzIGRvY3VtZW50YSA7PC9zdWJm
+        aWVsZD48c3ViZmllbGQgY29kZT0idiI+MDQxPC9zdWJmaWVsZD48L2RhdGFm
+        aWVsZD48ZGF0YWZpZWxkIHRhZz0iNTAwIiBpbmQxPSIgIiBpbmQyPSIgIj48
+        c3ViZmllbGQgY29kZT0iYSI+UHVibGlzaGVkIGluIGNvbmp1bmN0aW9uIHdp
+        dGggdGhlIGV4aGliaXRpb24gRG9jdW1lbnRhICgxMyksIHRvIGJlIGhlbGQg
+        aW4gMjAxMi48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFn
+        PSI1MDQiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5J
+        bmNsdWRlcyBiaWJsaW9ncmFwaGljYWwgcmVmZXJlbmNlcy48L3N1YmZpZWxk
+        PjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1NDYiIGluZDE9IiAiIGlu
+        ZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5UZXh0IGluIEVuZ2xpc2ggYW5k
+        IEdlcm1hbi48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFn
+        PSI2MTAiIGluZDE9IjIiIGluZDI9IjAiPjxzdWJmaWVsZCBjb2RlPSJhIj5H
+        ZWRlbmtzdGHMiHR0ZSBCcmVpdGVuYXU8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
+        b2RlPSJ4Ij5EZXNjcmlwdGlvbiBhbmQgdHJhdmVsLjwvc3ViZmllbGQ+PC9k
+        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjYxMCIgaW5kMT0iMiIgaW5kMj0i
+        MCI+PHN1YmZpZWxkIGNvZGU9ImEiPkJyZWl0ZW5hdSAoQ29uY2VudHJhdGlv
+        biBjYW1wKTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9
+        IjcxMSIgaW5kMT0iMiIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkRv
+        Y3VtZW50YTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9Im4iPigxM3RoIDo8
+        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj4yMDEyIDo8L3N1YmZpZWxk
+        PjxzdWJmaWVsZCBjb2RlPSJjIj5LYXNzZWwsIEdlcm1hbnkpPC9zdWJmaWVs
+        ZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iODMwIiBpbmQxPSIgIiBp
+        bmQyPSIwIj48c3ViZmllbGQgY29kZT0iYSI+MTAwIG5vdGVzLS0xMDAgdGhv
+        dWdodHMgOzwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9InYiPm5vLiA0MS48
+        L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5NDgiIGlu
+        ZDE9IjEiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4yMDEyMDcxNjwv
+        c3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPmM8L3N1YmZpZWxkPjxzdWJm
+        aWVsZCBjb2RlPSJjIj5pdzIxMTc8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2Rl
+        PSJkIj5PU01DPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
+        Zz0iOTQ4IiBpbmQxPSIyIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+
+        MjAxMjA4MDE8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5hPC9zdWJm
+        aWVsZD48c3ViZmllbGQgY29kZT0iYyI+ZnJhMTwvc3ViZmllbGQ+PHN1YmZp
+        ZWxkIGNvZGU9ImQiPk9TTUM8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRh
+        ZmllbGQgdGFnPSI5MDAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBj
+        b2RlPSJhIj5BVVRIPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxk
+        IHRhZz0iOTkwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0i
+        YSI+Tjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5
+        MCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkhWPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTkxIiBpbmQx
+        PSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+TjY0ODguRzMgSzM3
+        MTggMjAxMmggbm8uMDQxPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+
+        bG9jK04tLSs2NDg4KzAwMDAwMDAwK0czMDAwMDAwK0szNzE4MDAwKzAwMjAx
+        MitIMDAwMDArTk8wMDAwKzAwMDA0MTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+
+        PGRhdGFmaWVsZCB0YWc9Ijk5MSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZp
+        ZWxkIGNvZGU9ImEiPkhWODk2NC5HNCBHNjcgMjAxMWc8L3N1YmZpZWxkPjxz
+        dWJmaWVsZCBjb2RlPSJiIj5sb2MrSFYtKzg5NjQrMDAwMDAwMDArRzQwMDAw
+        MDArRzY3MDAwMDArMDAyMDExPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0
+        YWZpZWxkIHRhZz0iOTkyIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQg
+        Y29kZT0iYSI+T2Zmc2l0ZTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIi
+        Pk9mZnNpdGUgJmx0O0ZpbmUgQXJ0cyZndDsgKE5vbi1DaXJjKSBQbGFjZSBS
+        ZXF1ZXN0IGZvciBkZWxpdmVyeSAmZ3Q7Jmd0OyBONjQ4OC5HMyBLMzcxOCAy
+        MDEyaCBuby4wNDF8REVMSU18MTI0NTczMjk8L3N1YmZpZWxkPjwvZGF0YWZp
+        ZWxkPjxkYXRhZmllbGQgdGFnPSI5OTIiIGluZDE9IiAiIGluZDI9IiAiPjxz
+        dWJmaWVsZCBjb2RlPSJhIj5CdXRsZXIgUmVhZGluZyBSb29tczwvc3ViZmll
+        bGQ+PHN1YmZpZWxkIGNvZGU9ImIiPkNvbXAgTGl0ICZhbXA7IFNvY2lldHkg
+        UmVhZGluZyBSb29tLCA2MTUgQnV0bGVyIChOb24tQ2lyYykgJmd0OyZndDsg
+        SFY4OTY0Lkc0IEc2NyAyMDExZ3xERUxJTXwxMjQ2Nzg3Mzwvc3ViZmllbGQ+
+        PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MyIgaW5kMT0iICIgaW5k
+        Mj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkJvb2s8L3N1YmZpZWxkPjwvZGF0
+        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTUiIGluZDE9IiAiIGluZDI9IiAi
+        PjxzdWJmaWVsZCBjb2RlPSJhIj5jYXRhbG9nPC9zdWJmaWVsZD48L2RhdGFm
+        aWVsZD48ZGF0YWZpZWxkIHRhZz0iOTk3IiBpbmQxPSIgIiBpbmQyPSIgIj48
+        c3ViZmllbGQgY29kZT0iYSI+MjAxMi0wOC0wMVQwMDowMDowMC4wMDBaPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48L3JlY29yZD48L2NvbGxlY3Rpb24+Jywn
+        YXV0aG9yX2Rpc3BsYXknPT5bJ0dvcmRvbiwgQXZlcnknXSwncHViX25hbWVf
+        ZGlzcGxheSc9PlsnSGF0amUgQ2FudHonXSwnc291cmNlX2Rpc3BsYXknPT5b
+        J2NhdGFsb2cnXSwnbWF0ZXJpYWxfdHlwZV9kaXNwbGF5Jz0+WycyNyBwLidd
+        LCdsYW5ndWFnZV9mYWNldCc9PlsnRW5nbGlzaCcsJ0dlcm1hbiddLCdfdmVy
+        c2lvbl8nPT4xNTAxOTc5NTQ2MTEwMzk0MzY4LCd0aW1lc3RhbXAnPT4nMjAx
+        NS0wNS0yM1QxNjo0MTo1Ni44OTNaJ31dfX0K
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:06 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/9783775728904.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 17 Sep 2015 19:41:06 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:05 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        19:51:05 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:06 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/3775728902.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 17 Sep 2015 19:41:06 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:05 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        19:51:05 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:06 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocn793683722.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 17 Sep 2015 19:41:06 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:05 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        19:51:05 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:06 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/793683722.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 17 Sep 2015 19:41:06 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:06 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        19:51:06 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:06 GMT
+- request:
+    method: get
+    uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/9401571
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 17 Sep 2015 19:41:06 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Etag:
+      - W/"a85fa697d42b284bec0ad0e2b977c63a"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 6ddfb8b1-258e-4412-9cf9-5e0e89571026
+      X-Runtime:
+      - '1.407567'
+      Server:
+      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+    body:
+      encoding: UTF-8
+      string: "{\"9401571\":{\"condensed_holdings_full\":[{\"location_name\":\"Comp
+        Lit \\u0026 Society Reading Room, 615 Butler (Non-Circ)\",\"location_note\":\"\",\"call_number\":\"HV8964.G4
+        G67 2011g\",\"status\":\"available\",\"holding_id\":[\"12467873\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[]},{\"location_name\":\"Offsite
+        \\u003cFine Arts\\u003e (Non-Circ) Place Request for delivery\",\"location_note\":\"\",\"call_number\":\"N6488.G3
+        K3718 2012h no.041\",\"status\":\"available\",\"holding_id\":[\"12457329\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"offsite\"]}]}}"
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:08 GMT
+recorded_with: VCR 2.9.3

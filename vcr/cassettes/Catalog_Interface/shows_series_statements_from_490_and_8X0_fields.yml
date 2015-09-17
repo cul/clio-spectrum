@@ -1,0 +1,535 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=10735763&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:20 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
+        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9PicxMDczNTc2
+        MycsJ3F0Jz0+J2RvY3VtZW50Jywnd3QnPT4ncnVieSd9fSwncmVzcG9uc2Un
+        PT57J251bUZvdW5kJz0+MSwnc3RhcnQnPT4wLCdkb2NzJz0+W3snc2hlbGZr
+        ZXknPT5bJ2xvYytuLS0rNzc2MyswMDAwMDAwMCtkNTYwMDAwMCtiODMwMDAw
+        MCswMDIwMTMrMTA3MzU3NjMnXSwnbG9jYXRpb25fY2FsbF9udW1iZXJfaWRf
+        ZGlzcGxheSc9PlsnQXZlcnktTEMgKE5vbi1DaXJjdWxhdGluZykgPj4gTjc3
+        NjMuRDU2IEI4MyAyMDEzZ3xERUxJTXwxMzc5MzU3MiddLCdhY3FfZHQnPT4n
+        MjAxNC0wNi0yNlQwMDowMDowMFonLCdpdGVtX2Rpc3BsYXknPT5bJ043NzYz
+        LkQ1NiBCODMgMjAxM2cgfCBsb2Mrbi0tKzc3NjMrMDAwMDAwMDArZDU2MDAw
+        MDArYjgzMDAwMDArMDAyMDEzKzEwNzM1NzYzIHwgZWJufmN+fn5zc3R3fnp6
+        enp6enp6fm11dHp6enp6fm9yd3p6enp6fnp6eHp5d355enN3dXN0dyddLCd0
+        aXRsZV9kaXNwbGF5Jz0+WydEaW9uaXNvIHRyaW9uZmF0b3JlIDogcGVyY29y
+        c2kgZSBpbnRlcnByZXRhemlvbmUgZGVsIG1pdG8gZGVsIHRyaW9uZm8gaW5k
+        aWFubyBuZWxsZSBmb250aSBlIG5lbGxcJ2ljb25vZ3JhZmlhIGFudGljaGUn
+        XSwnY2xpb19pZF9kaXNwbGF5Jz0+JzEwNzM1NzYzJywnc3ViamVjdF90b3Bp
+        Y19mYWNldCc9PlsnRGlvbnlzdXMgKEdyZWVrIGRlaXR5KScsJ0luIGxpdGVy
+        YXR1cmUnLCdDdWx0JywnUmVsaWdpb24nLCdBbnRpcXVpdGllcyddLCdwdWJf
+        cGxhY2VfZGlzcGxheSc9PlsnUm9tYSddLCdmb3JtYXQnPT5bJ0Jvb2snXSwn
+        b2NsY19kaXNwbGF5Jz0+WydvY244NzcxMTI2NTQnLCc4NzcxMTI2NTQnXSwn
+        dGl0bGVfZmlyc3RfZmFjZXQnPT5bJ0QnXSwncHViX2RhdGVfc29ydCc9PjIw
+        MTMsJ2Z1bGxfcHVibGlzaGVyX2Rpc3BsYXknPT5bJ1JvbWEgOiAiTFwnRXJt
+        YSIgZGkgQnJldHNjaG5laWRlciwgwqkyMDEzLiddLCdpc2JuX2Rpc3BsYXkn
+        PT5bJzk3ODg4OTEzMDY5MTMnLCc4ODkxMzA2OTE2J10sJ3B1Yl95ZWFyX2Rp
+        c3BsYXknPT5bJ8KpMjAxMyddLCd0aXRsZV9zZXJpZXNfZGlzcGxheSc9Plsn
+        QnVsbGV0dGlubyBkZWxsYSBDb21taXNzaW9uZSBhcmNoZW9sb2dpY2EgY29t
+        dW5hbGUgZGkgUm9tYS4gU3VwcGxlbWVudGkgOyAyMSddLCdpZCc9PicxMDcz
+        NTc2MycsJ3JldmVyc2Vfc2hlbGZrZXknPT5bJ2Vibn5jfn5+c3N0d356enp6
+        enp6en5tdXR6enp6en5vcnd6enp6en56enh6eXd+eXpzd3VzdHcnXSwnc3Vi
+        amVjdF9nZW9fZmFjZXQnPT5bJ0luZGlhJ10sJ2NhbGxfbnVtYmVyX2Rpc3Bs
+        YXknPT5bJ043NzYzLkQ1NiBCODMgMjAxM2cnXSwnbWFyY19kaXNwbGF5Jz0+
+        Jzw/eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9IlVURi04Ij8+PGNvbGxl
+        Y3Rpb24geG1sbnM9Imh0dHA6Ly93d3cubG9jLmdvdi9NQVJDMjEvc2xpbSI+
+        PHJlY29yZD48bGVhZGVyPjAxODI1Y2FtIGEyMjAwNDkzIGEgNDUwMDwvbGVh
+        ZGVyPjxjb250cm9sZmllbGQgdGFnPSIwMDEiPjEwNzM1NzYzPC9jb250cm9s
+        ZmllbGQ+PGNvbnRyb2xmaWVsZCB0YWc9IjAwNSI+MjAxNDA3MjIxNDIzNTQu
+        MDwvY29udHJvbGZpZWxkPjxjb250cm9sZmllbGQgdGFnPSIwMDgiPjE0MDQw
+        OHMyMDEzICAgIGl0IGEgICAgIGIgICAgMDAwIDAgaXRhIGQ8L2NvbnRyb2xm
+        aWVsZD48ZGF0YWZpZWxkIHRhZz0iMDIwIiBpbmQxPSIgIiBpbmQyPSIgIj48
+        c3ViZmllbGQgY29kZT0iYSI+OTc4ODg5MTMwNjkxMzwvc3ViZmllbGQ+PC9k
+        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAyMCIgaW5kMT0iICIgaW5kMj0i
+        ICI+PHN1YmZpZWxkIGNvZGU9ImEiPjg4OTEzMDY5MTY8L3N1YmZpZWxkPjwv
+        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9
+        IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4oT0NvTEMpb2NuODc3MTEyNjU0PC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDM1IiBpbmQx
+        PSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+KE9Db0xDKTg3NzEx
+        MjY1NDwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAz
+        NSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPihOTlUp
+        MDAzOTY5OTc3PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
+        Zz0iMDM1IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+
+        KE5OQykxMDczNTc2Mzwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVs
+        ZCB0YWc9IjA0MCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9
+        ImEiPkMzTDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPmVuZzwvc3Vi
+        ZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImMiPk4xNTwvc3ViZmllbGQ+PC9kYXRh
+        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjA0MyIgaW5kMT0iICIgaW5kMj0iICI+
+        PHN1YmZpZWxkIGNvZGU9ImEiPmEtaWktLS08L3N1YmZpZWxkPjwvZGF0YWZp
+        ZWxkPjxkYXRhZmllbGQgdGFnPSIwNTAiIGluZDE9IjEiIGluZDI9IjQiPjxz
+        dWJmaWVsZCBjb2RlPSJhIj5ONzc2My5ENTY8L3N1YmZpZWxkPjxzdWJmaWVs
+        ZCBjb2RlPSJiIj5CODMgMjAxMzwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRh
+        dGFmaWVsZCB0YWc9IjA3OSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxk
+        IGNvZGU9ImEiPm9jbjg3NzExMjY1NDwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+
+        PGRhdGFmaWVsZCB0YWc9IjA4MiIgaW5kMT0iMSIgaW5kMj0iNCI+PHN1YmZp
+        ZWxkIGNvZGU9ImEiPjcwNDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9IjIi
+        PjE0PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMTAw
+        IiBpbmQxPSIxIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+QnVjY2lu
+        bywgTGF1cmEuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
+        Zz0iMjQ1IiBpbmQxPSIxIiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0iYSI+
+        RGlvbmlzbyB0cmlvbmZhdG9yZSA6PC9zdWJmaWVsZD48c3ViZmllbGQgY29k
+        ZT0iYiI+cGVyY29yc2kgZSBpbnRlcnByZXRhemlvbmUgZGVsIG1pdG8gZGVs
+        IHRyaW9uZm8gaW5kaWFubyBuZWxsZSBmb250aSBlIG5lbGxcJ2ljb25vZ3Jh
+        ZmlhIGFudGljaGUgLzwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImMiPkxh
+        dXJhIEJ1Y2Npbm8uPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxk
+        IHRhZz0iMjYwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0i
+        YSI+Um9tYSA6PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+IkxcJ0Vy
+        bWEiIGRpIEJyZXRzY2huZWlkZXIsPC9zdWJmaWVsZD48c3ViZmllbGQgY29k
+        ZT0iYyI+wqkyMDEzLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVs
+        ZCB0YWc9IjMwMCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9
+        ImEiPnh2aSwgMzUwIHBhZ2VzIDo8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2Rl
+        PSJiIj5pbGx1c3RyYXRpb25zIChzb21lIGNvbG9yKSA7PC9zdWJmaWVsZD48
+        c3ViZmllbGQgY29kZT0iYyI+MjkgY20uPC9zdWJmaWVsZD48L2RhdGFmaWVs
+        ZD48ZGF0YWZpZWxkIHRhZz0iMzM2IiBpbmQxPSIgIiBpbmQyPSIgIj48c3Vi
+        ZmllbGQgY29kZT0iYSI+dGV4dDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9
+        ImIiPnR4dDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9IjIiPnJkYWNvbnRl
+        bnQ8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIzMzci
+        IGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj51bm1lZGlh
+        dGVkPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+bjwvc3ViZmllbGQ+
+        PHN1YmZpZWxkIGNvZGU9IjIiPnJkYW1lZGlhPC9zdWJmaWVsZD48L2RhdGFm
+        aWVsZD48ZGF0YWZpZWxkIHRhZz0iMzM4IiBpbmQxPSIgIiBpbmQyPSIgIj48
+        c3ViZmllbGQgY29kZT0iYSI+dm9sdW1lPC9zdWJmaWVsZD48c3ViZmllbGQg
+        Y29kZT0iYiI+bmM8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSIyIj5yZGFj
+        YXJyaWVyPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
+        NDkwIiBpbmQxPSIxIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+QnVs
+        bGV0dGlubyBkZWxsYSBDb21taXNzaW9uZSBhcmNoZW9sb2dpY2EgY29tdW5h
+        bGUgZGkgUm9tYS4gU3VwcGxlbWVudGkgOzwvc3ViZmllbGQ+PHN1YmZpZWxk
+        IGNvZGU9InYiPjIxPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxk
+        IHRhZz0iNTA0IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0i
+        YSI+SW5jbHVkZXMgYmlibGlvZ3JhcGhpY2FsIHJlZmVyZW5jZXMgKHBhZ2Vz
+        IDMxMy0zNDcpLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0
+        YWc9IjYwMCIgaW5kMT0iMCIgaW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEi
+        PkRpb255c3VzPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYyI+KEdyZWVr
+        IGRlaXR5KTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9InYiPkFydC48L3N1
+        YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI2MDAiIGluZDE9
+        IjAiIGluZDI9IjAiPjxzdWJmaWVsZCBjb2RlPSJhIj5EaW9ueXN1czwvc3Vi
+        ZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImMiPihHcmVlayBkZWl0eSk8L3N1YmZp
+        ZWxkPjxzdWJmaWVsZCBjb2RlPSJ4Ij5JbiBsaXRlcmF0dXJlLjwvc3ViZmll
+        bGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjYwMCIgaW5kMT0iMCIg
+        aW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEiPkRpb255c3VzPC9zdWJmaWVs
+        ZD48c3ViZmllbGQgY29kZT0iYyI+KEdyZWVrIGRlaXR5KTwvc3ViZmllbGQ+
+        PHN1YmZpZWxkIGNvZGU9IngiPkN1bHQ8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
+        b2RlPSJ6Ij5JbmRpYS48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmll
+        bGQgdGFnPSI2NTEiIGluZDE9IiAiIGluZDI9IjAiPjxzdWJmaWVsZCBjb2Rl
+        PSJhIj5JbmRpYTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9IngiPlJlbGln
+        aW9uLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjY1
+        MSIgaW5kMT0iICIgaW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEiPkluZGlh
+        PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0ieCI+QW50aXF1aXRpZXMuPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iODMwIiBpbmQx
+        PSIgIiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0iYSI+QnVsbGV0dGlubyBk
+        ZWxsYSBDb21taXNzaW9uZSBhcmNoZW9sb2dpY2EgY29tdW5hbGUgZGkgUm9t
+        YS48L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJwIj5TdXBwbGVtZW50aSA7
+        PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0idiI+MjEuPC9zdWJmaWVsZD48
+        L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iODUyIiBpbmQxPSIwIiBpbmQy
+        PSIgIj48c3ViZmllbGQgY29kZT0iYSI+Tk5VPC9zdWJmaWVsZD48c3ViZmll
+        bGQgY29kZT0iYiI+TklGQTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImMi
+        Pk1BSU48L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJoIj5ONzc2My5ENTY8
+        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJpIj5CODMgMjAxMzwvc3ViZmll
+        bGQ+PHN1YmZpZWxkIGNvZGU9Im0iPk5vbi1jaXJjdWxhdGluZzwvc3ViZmll
+        bGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk2NSIgaW5kMT0iICIg
+        aW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPm9jbGNiYXRjaDwvc3ViZmll
+        bGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk0OCIgaW5kMT0iMSIg
+        aW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPjIwMTQwNjI2PC9zdWJmaWVs
+        ZD48c3ViZmllbGQgY29kZT0iYiI+Yzwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
+        ZGU9ImMiPnJoZzk8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj5PU01D
+        PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTAwIiBp
+        bmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+QVVUSDwvc3Vi
+        ZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MCIgaW5kMT0i
+        ICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPk48L3N1YmZpZWxkPjwv
+        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTEiIGluZDE9IiAiIGluZDI9
+        IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5ONzc2My5ENTYgQjgzIDIwMTNnPC9z
+        dWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+bG9jK04tLSs3NzYzKzAwMDAw
+        MDAwK0Q1NjAwMDAwK0I4MzAwMDAwKzAwMjAxMzwvc3ViZmllbGQ+PC9kYXRh
+        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MiIgaW5kMT0iICIgaW5kMj0iICI+
+        PHN1YmZpZWxkIGNvZGU9ImEiPkF2ZXJ5LCBGaW5lIEFydHMsIFdhcmU8L3N1
+        YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5BdmVyeS1MQyAoTm9uLUNpcmN1
+        bGF0aW5nKSAmZ3Q7Jmd0OyBONzc2My5ENTYgQjgzIDIwMTNnfERFTElNfDEz
+        NzkzNTcyPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
+        OTkzIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+Qm9v
+        azwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5NSIg
+        aW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPmNhdGFsb2c8
+        L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTciIGlu
+        ZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4yMDE0LTA2LTI2
+        VDAwOjAwOjAwLjAwMFo8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjwvcmVjb3Jk
+        PjwvY29sbGVjdGlvbj4nLCdhdXRob3JfZGlzcGxheSc9PlsnQnVjY2lubywg
+        TGF1cmEnXSwncHViX25hbWVfZGlzcGxheSc9PlsnIkxcJ0VybWEiIGRpIEJy
+        ZXRzY2huZWlkZXInXSwnc291cmNlX2Rpc3BsYXknPT5bJ2NhdGFsb2cnXSwn
+        bWF0ZXJpYWxfdHlwZV9kaXNwbGF5Jz0+Wyd4dmksIDM1MCBwYWdlcyddLCds
+        YW5ndWFnZV9mYWNldCc9PlsnSXRhbGlhbiddLCdfdmVyc2lvbl8nPT4xNTAx
+        OTk2NDExNDg3NTE4NzIwLCd0aW1lc3RhbXAnPT4nMjAxNS0wNS0yM1QyMTox
+        MDowMC45NjlaJ31dfX0K
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:21 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=10840&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:20 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
+        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9PicxMDg0MCcs
+        J3F0Jz0+J2RvY3VtZW50Jywnd3QnPT4ncnVieSd9fSwncmVzcG9uc2UnPT57
+        J251bUZvdW5kJz0+MSwnc3RhcnQnPT4wLCdkb2NzJz0+W3snc2hlbGZrZXkn
+        PT5bJ2xvYytkZC0rMDIzMiswMDAwMDAwMCthMjUwMDAwMCsxMDg0MCddLCds
+        b2NhdGlvbl9jYWxsX251bWJlcl9pZF9kaXNwbGF5Jz0+WydPZmZzaXRlIC0g
+        UGxhY2UgUmVxdWVzdCBmb3IgZGVsaXZlcnkgd2l0aGluIDIgYnVzaW5lc3Mg
+        ZGF5cyA+PiBERDIzMi5BMjV8REVMSU18MTY4MDEnXSwnbGNjbl9kaXNwbGF5
+        Jz0+Wyc3ODM0OTYwOSddLCdpdGVtX2Rpc3BsYXknPT5bJ0REMjMyLkEyNSB8
+        IGxvYytkZC0rMDIzMiswMDAwMDAwMCthMjUwMDAwMCsxMDg0MCB8IGVibn5t
+        bX5+enh3eH56enp6enp6en5weHV6enp6en55enJ2en5+fn5+fn5+fn5+fn5+
+        J10sJ3RpdGxlX2Rpc3BsYXknPT5bJ0VudHNjaGVpZHVuZyB1bnNlcmVzIEph
+        aHJodW5kZXJ0cyA6IEJlaXRyYcyIZ2UgenVyIFplaXRnZXNjaGljaHRlIDE5
+        MjEgYmlzIDE5NzYnXSwnY2xpb19pZF9kaXNwbGF5Jz0+JzEwODQwJywnc3Vi
+        amVjdF90b3BpY19mYWNldCc9PlsnRGltaXRyb3YsIEdlb3JnaSwgMTg4Mi0x
+        OTQ5JywnV29ya2luZyBjbGFzcycsJ1NvY2lhbGlzbScsJ0hpc3RvcnknXSwn
+        cHViX3BsYWNlX2Rpc3BsYXknPT5bJ0JlcmxpbiddLCdmb3JtYXQnPT5bJ0Jv
+        b2snXSwnb2NsY19kaXNwbGF5Jz0+WyczNDYwMDE5Jywnb2NtMDM0NjAwMTkn
+        XSwndGl0bGVfZmlyc3RfZmFjZXQnPT5bJ0UnXSwnZnVsbF9wdWJsaXNoZXJf
+        ZGlzcGxheSc9PlsnQmVybGluIDogQXVmYmF1LVZlcmxhZywgMTk3Ny4nXSwn
+        cHViX2RhdGVfc29ydCc9PjE5NzcsJ3B1Yl95ZWFyX2Rpc3BsYXknPT5bJzE5
+        NzcnXSwnaWQnPT4nMTA4NDAnLCdyZXZlcnNlX3NoZWxma2V5Jz0+WydlYm5+
+        bW1+fnp4d3h+enp6enp6enp+cHh1enp6enp+eXpydnp+fn5+fn5+fn5+fn5+
+        fiddLCdzdWJqZWN0X2dlb19mYWNldCc9PlsnR2VybWFueSddLCdjYWxsX251
+        bWJlcl9kaXNwbGF5Jz0+WydERDIzMi5BMjUnXSwnbWFyY19kaXNwbGF5Jz0+
+        Jzw/eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9IlVURi04Ij8+PGNvbGxl
+        Y3Rpb24geG1sbnM9Imh0dHA6Ly93d3cubG9jLmdvdi9NQVJDMjEvc2xpbSI+
+        PHJlY29yZD48bGVhZGVyPjAxMjg4Y2FtIGEyMjAwNDIxIGkgNDUwMDwvbGVh
+        ZGVyPjxjb250cm9sZmllbGQgdGFnPSIwMDEiPjEwODQwPC9jb250cm9sZmll
+        bGQ+PGNvbnRyb2xmaWVsZCB0YWc9IjAwNSI+MjAxMzEwMTQxMjU0MTIuMDwv
+        Y29udHJvbGZpZWxkPjxjb250cm9sZmllbGQgdGFnPSIwMDgiPjc5MTAzMXMx
+        OTc3ICAgIGd3ICAgICAgIGIgICAgMDAxIDAgZ2VyICA8L2NvbnRyb2xmaWVs
+        ZD48ZGF0YWZpZWxkIHRhZz0iMDEwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3Vi
+        ZmllbGQgY29kZT0iYSI+ICAgNzgzNDk2MDkgPC9zdWJmaWVsZD48L2RhdGFm
+        aWVsZD48ZGF0YWZpZWxkIHRhZz0iMDE1IiBpbmQxPSIgIiBpbmQyPSIgIj48
+        c3ViZmllbGQgY29kZT0iYSI+R0RSNzctQTwvc3ViZmllbGQ+PC9kYXRhZmll
+        bGQ+PGRhdGFmaWVsZCB0YWc9IjAyMCIgaW5kMT0iICIgaW5kMj0iICI+PHN1
+        YmZpZWxkIGNvZGU9ImMiPjE1LjkwPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48
+        ZGF0YWZpZWxkIHRhZz0iMDM1IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmll
+        bGQgY29kZT0iYSI+KE9Db0xDKTM0NjAwMTk8L3N1YmZpZWxkPjwvZGF0YWZp
+        ZWxkPjxkYXRhZmllbGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAiPjxz
+        dWJmaWVsZCBjb2RlPSJhIj4oT0NvTEMpb2NtMDM0NjAwMTk8L3N1YmZpZWxk
+        PjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwMzUiIGluZDE9IiAiIGlu
+        ZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4oQ1N0UkxJTilOWUNHMTI3MDc0
+        MTQtQjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAz
+        NSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9IjkiPkFBQjEx
+        NjlDVTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAz
+        NSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPihOTkMp
+        MTA4NDA8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIw
+        NDMiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5lLWd4
+        LS0tPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDUw
+        IiBpbmQxPSIwIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+REQyMzI8
+        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj4uQTI1PC9zdWJmaWVsZD48
+        L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDkwIiBpbmQxPSIgIiBpbmQy
+        PSIgIj48c3ViZmllbGQgY29kZT0iYiI+REQyMzIuQTI1PC9zdWJmaWVsZD48
+        L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMTAwIiBpbmQxPSIxIiBpbmQy
+        PSIgIj48c3ViZmllbGQgY29kZT0iYSI+QWJ1c2NoLCBBbGV4YW5kZXIuPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMjQ1IiBpbmQx
+        PSIxIiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0iYSI+RW50c2NoZWlkdW5n
+        IHVuc2VyZXMgSmFocmh1bmRlcnRzIDo8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
+        b2RlPSJiIj5CZWl0cmHMiGdlIHp1ciBaZWl0Z2VzY2hpY2h0ZSAxOTIxIGJp
+        cyAxOTc2IC88L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5BbGV4YW5k
+        ZXIgQWJ1c2NoLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0
+        YWc9IjI1MCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEi
+        PjEuIEF1ZmwuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
+        Zz0iMjYwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+
+        QmVybGluIDo8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5BdWZiYXUt
+        VmVybGFnLDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImMiPjE5NzcuPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMzAwIiBpbmQx
+        PSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+ODE1IHAuIDs8L3N1
+        YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj4yMCBjbS48L3N1YmZpZWxkPjwv
+        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI0OTAiIGluZDE9IjEiIGluZDI9
+        IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5IaXMgU2NocmlmdGVuIDsgQmQuIDE8
+        L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1MDAiIGlu
+        ZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5JbmNsdWRlcyBp
+        bmRleC48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1
+        MDQiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5CaWJs
+        aW9ncmFwaHk6IHAuIDc5NC03OTkuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48
+        ZGF0YWZpZWxkIHRhZz0iNjAwIiBpbmQxPSIxIiBpbmQyPSIwIj48c3ViZmll
+        bGQgY29kZT0iYSI+RGltaXRyb3YsIEdlb3JnaSw8L3N1YmZpZWxkPjxzdWJm
+        aWVsZCBjb2RlPSJkIj4xODgyLTE5NDkuPC9zdWJmaWVsZD48L2RhdGFmaWVs
+        ZD48ZGF0YWZpZWxkIHRhZz0iNjUwIiBpbmQxPSIgIiBpbmQyPSIwIj48c3Vi
+        ZmllbGQgY29kZT0iYSI+V29ya2luZyBjbGFzczwvc3ViZmllbGQ+PHN1YmZp
+        ZWxkIGNvZGU9InoiPkdlcm1hbnkuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48
+        ZGF0YWZpZWxkIHRhZz0iNjUwIiBpbmQxPSIgIiBpbmQyPSIwIj48c3ViZmll
+        bGQgY29kZT0iYSI+U29jaWFsaXNtLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+
+        PGRhdGFmaWVsZCB0YWc9IjY1MSIgaW5kMT0iICIgaW5kMj0iMCI+PHN1YmZp
+        ZWxkIGNvZGU9ImEiPkdlcm1hbnk8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2Rl
+        PSJ4Ij5IaXN0b3J5PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0ieSI+MjB0
+        aCBjZW50dXJ5Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0
+        YWc9IjgwMCIgaW5kMT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEi
+        PkFidXNjaCwgQWxleGFuZGVyLjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9
+        InQiPldvcmtzLjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImsiPlNlbGVj
+        dGlvbnMgOzwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9InYiPkJkLiAxLjwv
+        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjkwMCIgaW5k
+        MT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkFVVEg8L3N1YmZp
+        ZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTAiIGluZDE9IiAi
+        IGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5ERDwvc3ViZmllbGQ+PC9k
+        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MSIgaW5kMT0iICIgaW5kMj0i
+        ICI+PHN1YmZpZWxkIGNvZGU9ImEiPkREMjMyLkEyNTwvc3ViZmllbGQ+PHN1
+        YmZpZWxkIGNvZGU9ImIiPmxvYytERC0rMDIzMiswMDAwMDAwMCtBMjUwMDAw
+        MDwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MiIg
+        aW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPk9mZnNpdGU8
+        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5PZmZzaXRlIC0gUGxhY2Ug
+        UmVxdWVzdCBmb3IgZGVsaXZlcnkgd2l0aGluIDIgYnVzaW5lc3MgZGF5cyAm
+        Z3Q7Jmd0OyBERDIzMi5BMjV8REVMSU18MTY4MDE8L3N1YmZpZWxkPjwvZGF0
+        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTMiIGluZDE9IiAiIGluZDI9IiAi
+        PjxzdWJmaWVsZCBjb2RlPSJhIj5Cb29rPC9zdWJmaWVsZD48L2RhdGFmaWVs
+        ZD48ZGF0YWZpZWxkIHRhZz0iOTk1IiBpbmQxPSIgIiBpbmQyPSIgIj48c3Vi
+        ZmllbGQgY29kZT0iYSI+Y2F0YWxvZzwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+
+        PC9yZWNvcmQ+PC9jb2xsZWN0aW9uPicsJ2F1dGhvcl9kaXNwbGF5Jz0+WydB
+        YnVzY2gsIEFsZXhhbmRlciddLCdwdWJfbmFtZV9kaXNwbGF5Jz0+WydBdWZi
+        YXUtVmVybGFnJ10sJ3NvdXJjZV9kaXNwbGF5Jz0+WydjYXRhbG9nJ10sJ21h
+        dGVyaWFsX3R5cGVfZGlzcGxheSc9PlsnODE1IHAuJ10sJ2xhbmd1YWdlX2Zh
+        Y2V0Jz0+WydHZXJtYW4nXSwnX3ZlcnNpb25fJz0+MTUwMTk5MjkxMTI1NTg5
+        NjA2NCwndGltZXN0YW1wJz0+JzIwMTUtMDUtMjNUMjA6MTQ6MjIuODg5Wid9
+        XX19Cg==
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:21 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=11638&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:20 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
+        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9PicxMTYzOCcs
+        J3F0Jz0+J2RvY3VtZW50Jywnd3QnPT4ncnVieSd9fSwncmVzcG9uc2UnPT57
+        J251bUZvdW5kJz0+MSwnc3RhcnQnPT4wLCdkb2NzJz0+W3snc2hlbGZrZXkn
+        PT5bJ2xvYytocy0rMDYwNyswMDAwMDAwMCtnNDQwMDAwMCswMDE5NzYrMTE2
+        MzgnXSwnbG9jYXRpb25fY2FsbF9udW1iZXJfaWRfZGlzcGxheSc9PlsnT2Zm
+        c2l0ZSAtIFBsYWNlIFJlcXVlc3QgZm9yIGRlbGl2ZXJ5IHdpdGhpbiAyIGJ1
+        c2luZXNzIGRheXMgPj4gSFM2MDcuRzQ0IDE5NzZ8REVMSU18MTgwNTQnXSwn
+        bGNjbl9kaXNwbGF5Jz0+Wyc3NjQ4NTMyMiddLCdpdGVtX2Rpc3BsYXknPT5b
+        J0hTNjA3Lkc0NCAxOTc2IHwgbG9jK2hzLSswNjA3KzAwMDAwMDAwK2c0NDAw
+        MDAwKzAwMTk3NisxMTYzOCB8IGVibn5pN35+enR6c356enp6enp6en5qdnZ6
+        enp6en56enlxc3R+eXl0d3J+fn5+fn5+J10sJ3RpdGxlX2Rpc3BsYXknPT5b
+        J0RpZSBIZXJrdW5mdCwgZGllIEdydcyIbmRlciwgZGllIE5hbWVuIGRlciBG
+        cmVpbWF1cmVybG9nZW4gaW4gRGV1dHNjaGxhbmQgc2VpdCAxNzM3J10sJ2Ns
+        aW9faWRfZGlzcGxheSc9PicxMTYzOCcsJ3N1YmplY3RfdG9waWNfZmFjZXQn
+        PT5bJ0ZyZWVtYXNvbnMnLCdIaXN0b3J5JywnT25vbWFzdGljcyddLCdwdWJf
+        cGxhY2VfZGlzcGxheSc9PlsnSGFtYnVyZyddLCdmb3JtYXQnPT5bJ0Jvb2sn
+        XSwnb2NsY19kaXNwbGF5Jz0+WycyNjQ4MjU4Jywnb2NtMDI2NDgyNTgnXSwn
+        dGl0bGVfZmlyc3RfZmFjZXQnPT5bJ0gnXSwnZnVsbF9wdWJsaXNoZXJfZGlz
+        cGxheSc9PlsnSGFtYnVyZyA6IEJhdWh1zIh0dGVuLVZlcmxhZywgMTk3Ni4n
+        XSwncHViX2RhdGVfc29ydCc9PjE5NzYsJ2lzYm5fZGlzcGxheSc9PlsnMzg3
+        MDUwMTE0NiddLCdwdWJfeWVhcl9kaXNwbGF5Jz0+WycxOTc2J10sJ2lkJz0+
+        JzExNjM4JywncmV2ZXJzZV9zaGVsZmtleSc9PlsnZWJufmk3fn56dHpzfnp6
+        enp6enp6fmp2dnp6enp6fnp6eXFzdH55eXR3cn5+fn5+fn4nXSwnc3ViamVj
+        dF9nZW9fZmFjZXQnPT5bJ0dlcm1hbnknXSwnY2FsbF9udW1iZXJfZGlzcGxh
+        eSc9PlsnSFM2MDcuRzQ0IDE5NzYnXSwnbWFyY19kaXNwbGF5Jz0+Jzw/eG1s
+        IHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9IlVURi04Ij8+PGNvbGxlY3Rpb24g
+        eG1sbnM9Imh0dHA6Ly93d3cubG9jLmdvdi9NQVJDMjEvc2xpbSI+PHJlY29y
+        ZD48bGVhZGVyPjAxNjU1Y2FtIGEyMjAwNDQ1IGkgNDUwMDwvbGVhZGVyPjxj
+        b250cm9sZmllbGQgdGFnPSIwMDEiPjExNjM4PC9jb250cm9sZmllbGQ+PGNv
+        bnRyb2xmaWVsZCB0YWc9IjAwNSI+MjAxMDAyMTYwMTE3NDUuMDwvY29udHJv
+        bGZpZWxkPjxjb250cm9sZmllbGQgdGFnPSIwMDgiPjc5MTExMnMxOTc2ICAg
+        IGd3ICAgICAgIGIgICAgMDAxIDAgZ2VyICA8L2NvbnRyb2xmaWVsZD48ZGF0
+        YWZpZWxkIHRhZz0iMDEwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQg
+        Y29kZT0iYSI+ICAgNzY0ODUzMjIgPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48
+        ZGF0YWZpZWxkIHRhZz0iMDE1IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmll
+        bGQgY29kZT0iYSI+R0ZSNzYtQTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRh
+        dGFmaWVsZCB0YWc9IjAyMCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxk
+        IGNvZGU9ImEiPjM4NzA1MDExNDYgOjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
+        ZGU9ImMiPkRNMzIuMDA8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmll
+        bGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2Rl
+        PSJhIj4oT0NvTEMpMjY0ODI1ODwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRh
+        dGFmaWVsZCB0YWc9IjAzNSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxk
+        IGNvZGU9ImEiPihPQ29MQylvY20wMjY0ODI1ODwvc3ViZmllbGQ+PC9kYXRh
+        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAzNSIgaW5kMT0iICIgaW5kMj0iICI+
+        PHN1YmZpZWxkIGNvZGU9ImEiPihDU3RSTElOKU5ZQ0cxMjg2NTEzMy1CPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDM1IiBpbmQx
+        PSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iOSI+QUFCMTk2N0NVPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDM1IiBpbmQx
+        PSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+KE5OQykxMTYzODwv
+        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjA0MCIgaW5k
+        MT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImQiPk5OQzwvc3ViZmll
+        bGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjA0MyIgaW5kMT0iICIg
+        aW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPmUtZ3gtLS08L3N1YmZpZWxk
+        PjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwNTAiIGluZDE9IjAiIGlu
+        ZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5IUzYwNzwvc3ViZmllbGQ+PHN1
+        YmZpZWxkIGNvZGU9ImIiPi5HNDQgMTk3Njwvc3ViZmllbGQ+PC9kYXRhZmll
+        bGQ+PGRhdGFmaWVsZCB0YWc9IjA4MiIgaW5kMT0iICIgaW5kMj0iICI+PHN1
+        YmZpZWxkIGNvZGU9ImEiPjM2Ni8uMS8wMTQyPC9zdWJmaWVsZD48L2RhdGFm
+        aWVsZD48ZGF0YWZpZWxkIHRhZz0iMDkwIiBpbmQxPSIgIiBpbmQyPSIgIj48
+        c3ViZmllbGQgY29kZT0iYiI+SFM2MDcuRzQ0IDE5NzY8L3N1YmZpZWxkPjwv
+        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIxMDAiIGluZDE9IjEiIGluZDI9
+        IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5HZXBwZXJ0LCBFcm5zdC1HdcyIbnRo
+        ZXIuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMjQ1
+        IiBpbmQxPSIxIiBpbmQyPSI0Ij48c3ViZmllbGQgY29kZT0iYSI+RGllIEhl
+        cmt1bmZ0LCBkaWUgR3J1zIhuZGVyLCBkaWUgTmFtZW4gZGVyIEZyZWltYXVy
+        ZXJsb2dlbiBpbiBEZXV0c2NobGFuZCBzZWl0IDE3MzcgLzwvc3ViZmllbGQ+
+        PHN1YmZpZWxkIGNvZGU9ImMiPnZvbiBFcm5zdC1HdcyIbnRoZXIgR2VwcGVy
+        dC48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIyNTAi
+        IGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4yLiBBdWZs
+        Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjI2MCIg
+        aW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkhhbWJ1cmcg
+        Ojwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPkJhdWh1zIh0dGVuLVZl
+        cmxhZyw8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj4xOTc2Ljwvc3Vi
+        ZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjMwMCIgaW5kMT0i
+        ICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPjE2MCBwLiA7PC9zdWJm
+        aWVsZD48c3ViZmllbGQgY29kZT0iYyI+MjkgY20uPC9zdWJmaWVsZD48L2Rh
+        dGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNDkwIiBpbmQxPSIxIiBpbmQyPSIg
+        Ij48c3ViZmllbGQgY29kZT0iYSI+UXVlbGxlbmt1bmRsaWNoZSBBcmJlaXQg
+        ZGVyIEZyZWltYXVyZXJpc2NoZW4gRm9yc2NodW5nc2dlc2VsbHNjaGFmdCBR
+        dWF0dW9yIENvcm9uYXRpIGUuVi4sIEJheXJldXRoIDsgTnIuIDg8L3N1YmZp
+        ZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1MDAiIGluZDE9IiAi
+        IGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5PbiBzcGluZTogRGllIE5h
+        bWVuIGRlciBGcmVpbWF1cmVybG9nZW4gaW4gRGV1dHNjaGxhbmQuPC9zdWJm
+        aWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNTAwIiBpbmQxPSIg
+        IiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+SW5jbHVkZXMgaW5kZXhl
+        cy48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1MDQi
+        IGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5CaWJsaW9n
+        cmFwaHk6IHAuIDE0OC48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmll
+        bGQgdGFnPSI2MTAiIGluZDE9IjIiIGluZDI9IjAiPjxzdWJmaWVsZCBjb2Rl
+        PSJhIj5GcmVlbWFzb25zPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0ieiI+
+        R2VybWFueTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9IngiPkhpc3Rvcnku
+        PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNjUwIiBp
+        bmQxPSIgIiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0iYSI+T25vbWFzdGlj
+        cy48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI3NDAi
+        IGluZDE9IjQiIGluZDI9IjEiPjxzdWJmaWVsZCBjb2RlPSJhIj5EaWUgTmFt
+        ZW4gZGVyIEZyZWltYXVyZXJsb2dlbiBpbiBEZXV0c2NobGFuZC48L3N1YmZp
+        ZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI4MTAiIGluZDE9IjIi
+        IGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5GcmVlbWFzb25zLjwvc3Vi
+        ZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPlF1YXR1b3IgQ29yb25hdGktTG9n
+        ZSAoQmF5cmV1dGgsIEdlcm1hbnkpLjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
+        ZGU9InQiPlF1ZWxsZW5rdW5kbGljaGUgQXJiZWl0IGRlciBGcmVpbWF1cmVy
+        aXNjaGVuIEZvcnNjaHVuZ3NnZXNlbGxzY2hhZnQgUXVhdHVvciBDb3JvbmF0
+        aSBlLlYuLCBCYXlyZXV0aCA7PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
+        diI+TnIuIDguPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
+        Zz0iOTAwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+
+        QVVUSDwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5
+        MCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkhTPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTkxIiBpbmQx
+        PSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+SFM2MDcuRzQ0IDE5
+        NzY8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5sb2MrSFMtKzA2MDcr
+        MDAwMDAwMDArRzQ0MDAwMDArMDAxOTc2PC9zdWJmaWVsZD48L2RhdGFmaWVs
+        ZD48ZGF0YWZpZWxkIHRhZz0iOTkyIiBpbmQxPSIgIiBpbmQyPSIgIj48c3Vi
+        ZmllbGQgY29kZT0iYSI+T2Zmc2l0ZTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
+        ZGU9ImIiPk9mZnNpdGUgLSBQbGFjZSBSZXF1ZXN0IGZvciBkZWxpdmVyeSB3
+        aXRoaW4gMiBidXNpbmVzcyBkYXlzICZndDsmZ3Q7IEhTNjA3Lkc0NCAxOTc2
+        fERFTElNfDE4MDU0PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxk
+        IHRhZz0iOTkzIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0i
+        YSI+Qm9vazwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9
+        Ijk5NSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPmNh
+        dGFsb2c8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjwvcmVjb3JkPjwvY29sbGVj
+        dGlvbj4nLCdhdXRob3JfZGlzcGxheSc9PlsnR2VwcGVydCwgRXJuc3QtR3XM
+        iG50aGVyJ10sJ3B1Yl9uYW1lX2Rpc3BsYXknPT5bJ0JhdWh1zIh0dGVuLVZl
+        cmxhZyddLCdzb3VyY2VfZGlzcGxheSc9PlsnY2F0YWxvZyddLCdtYXRlcmlh
+        bF90eXBlX2Rpc3BsYXknPT5bJzE2MCBwLiddLCdsYW5ndWFnZV9mYWNldCc9
+        PlsnR2VybWFuJ10sJ192ZXJzaW9uXyc9PjE1MDE5OTI5MTk3OTU0OTkwMDgs
+        J3RpbWVzdGFtcCc9PicyMDE1LTA1LTIzVDIwOjE0OjMxLjAzM1onfV19fQo=
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:21 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=6974&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:21 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'6974','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+ts-+0200+00000000+s3300000+001974+6974'],'location_call_number_id_display'=>['Offsite - Place Request for delivery within 2 business days >> TS200 .S33 1974|DELIM|11046'],'lccn_display'=>['77018700'],'item_display'=>['TS200 .S33 1974 | loc+ts-+0200+00000000+s3300000+001974+6974 | ebn~67~~zxzz~zzzzzzzz~7wwzzzzz~zzyqsv~tqsv~~~~~~~~'],'title_display'=>['Advances in deformation processing : [proceedings of the Twenty-first Sagamore Army Materials Research Conference, held at Sagamore Conference Center, Raquette Lake, New York, August 13-16, 1974]'],'clio_id_display'=>'6974','subject_topic_facet'=>['Metal-work','Deformations (Mechanics)','Manufacturing processes'],'pub_place_display'=>['New York'],'format'=>['Book','Conference Proceedings'],'oclc_display'=>['3543536','ocm03543536'],'title_first_facet'=>['A'],'pub_date_sort'=>1978,'full_publisher_display'=>['New York : Plenum Press, c1978.'],'isbn_display'=>['0306345218'],'pub_year_display'=>['c1978'],'id'=>'6974','reverse_shelfkey'=>['ebn~67~~zxzz~zzzzzzzz~7wwzzzzz~zzyqsv~tqsv~~~~~~~~'],'call_number_display'=>['TS200 .S33 1974'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01723cam a2200421 i 4500</leader><controlfield tag="001">6974</controlfield><controlfield tag="005">20100310071716.0</controlfield><controlfield tag="008">790816s1978    nyua     b    101 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   77018700 </subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0306345218</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)3543536</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm03543536</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG11754184-B</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAA7260CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)6974</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="d">CStRLIN</subfield><subfield code="d">NNC</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">UF526</subfield><subfield code="b">.S3 no. 21</subfield><subfield code="a">TS200;</subfield></datafield><datafield tag="082" ind1=" " ind2=" "><subfield code="a">623/.028 s</subfield><subfield code="a">671.3</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="a">TS200</subfield><subfield code="b">.S33 1974</subfield></datafield><datafield tag="111" ind1="2" ind2=" "><subfield code="a">Sagamore Army Materials Research Conference</subfield><subfield code="n">(21st :</subfield><subfield code="d">1974 :</subfield><subfield code="c">Raquette Lake, N.Y.)</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Advances in deformation processing :</subfield><subfield code="b">[proceedings of the Twenty-first Sagamore Army Materials Research Conference, held at Sagamore Conference Center, Raquette Lake, New York, August 13-16, 1974] /</subfield><subfield code="c">edited by John J. Burke and Volker Weiss.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Plenum Press,</subfield><subfield code="c">c1978.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">x, 596 p. :</subfield><subfield code="b">ill. ;</subfield><subfield code="c">26 cm.</subfield></datafield><datafield tag="490" ind1="1" ind2=" "><subfield code="a">Sagamore Army Materials Research Conference proceedings ;</subfield><subfield code="v">21</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Metal-work</subfield><subfield code="v">Congresses.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Deformations (Mechanics)</subfield><subfield code="v">Congresses.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Manufacturing processes</subfield><subfield code="v">Congresses.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Burke, John J.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Weiss, Volker,</subfield><subfield code="d">1930-</subfield></datafield><datafield tag="811" ind1="2" ind2=" "><subfield code="a">Sagamore Army Materials Research Conference.</subfield><subfield code="t">Sagamore Army Materials Research Conference proceedings ;</subfield><subfield code="v">21st.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">TS</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">TS200 .S33 1974</subfield><subfield code="b">loc+TS-+0200+00000000+S3300000+001974</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Offsite</subfield><subfield code="b">Offsite - Place Request for delivery within 2 business days &gt;&gt; TS200 .S33 1974|DELIM|11046</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Conference Proceedings</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Sagamore Army Materials Research Conference (21st : 1974 : Raquette Lake, N.Y.)'],'pub_name_display'=>['Plenum Press'],'source_display'=>['catalog'],'material_type_display'=>['x, 596 p.'],'language_facet'=>['English'],'_version_'=>1501992873592094720,'timestamp'=>'2015-05-23T20:13:46.97Z'}]}}
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:21 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=8887&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:21 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'8887','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+dg-+0552+60000000+n4800000+8887'],'location_call_number_id_display'=>['Offsite - Place Request for delivery within 2 business days >> DG552.6 .N48|DELIM|13693'],'lccn_display'=>['77483638'],'item_display'=>['DG552.6 .N48 | loc+dg-+0552+60000000+n4800000+8887 | ebn~mj~~zuux~tzzzzzzz~cvrzzzzz~rrrs~~~~~~~~~~~~~~~'],'title_display'=>['La Russia e il Risorgimento'],'clio_id_display'=>'8887','subject_topic_facet'=>['Garibaldi, Giuseppe, 1807-1882','Mazzini, Giuseppe, 1805-1872','History','Relations'],'pub_place_display'=>['Catania'],'format'=>['Book'],'oclc_display'=>['3432833','ocm03432833'],'title_first_facet'=>['R'],'full_publisher_display'=>['Catania : Bonanno, 1976.'],'pub_date_sort'=>1976,'pub_year_display'=>['1976'],'title_series_display'=>['Studi risorgimentali ; 12'],'id'=>'8887','reverse_shelfkey'=>['ebn~mj~~zuux~tzzzzzzz~cvrzzzzz~rrrs~~~~~~~~~~~~~~~'],'subject_geo_facet'=>['Italy','Soviet Union'],'call_number_display'=>['DG552.6 .N48'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01244cam a2200397 i 4500</leader><controlfield tag="001">8887</controlfield><controlfield tag="005">20100313235457.0</controlfield><controlfield tag="008">790919s1976    it       b    000 0 ita  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   77483638 </subfield></datafield><datafield tag="015" ind1=" " ind2=" "><subfield code="a">It77-Apr</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="c">L4800</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)3432833</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm03432833</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG12150746-B</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAA9199CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)8887</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">e-it---</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">DG552.6</subfield><subfield code="b">.N48</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Nevler, V. E.</subfield><subfield code="q">(Vladimir Efimovich)</subfield></datafield><datafield tag="245" ind1="1" ind2="3"><subfield code="a">La Russia e il Risorgimento /</subfield><subfield code="c">[di] Vladimir Nevler.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Catania :</subfield><subfield code="b">Bonanno,</subfield><subfield code="c">1976.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">190 p. ;</subfield><subfield code="c">21 cm.</subfield></datafield><datafield tag="490" ind1="1" ind2=" "><subfield code="a">Studi risorgimentali ;</subfield><subfield code="v">12</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Garibaldi, Giuseppe,</subfield><subfield code="d">1807-1882.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Mazzini, Giuseppe,</subfield><subfield code="d">1805-1872.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">Italy</subfield><subfield code="x">History</subfield><subfield code="y">1849-1870.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">Italy</subfield><subfield code="x">Relations</subfield><subfield code="z">Soviet Union.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">Soviet Union</subfield><subfield code="x">Relations</subfield><subfield code="z">Italy.</subfield></datafield><datafield tag="830" ind1=" " ind2="0"><subfield code="a">Studi risorgimentali ;</subfield><subfield code="v">12.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">DG</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">DG552.6 .N48</subfield><subfield code="b">loc+DG-+0552+60000000+N4800000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Offsite</subfield><subfield code="b">Offsite - Place Request for delivery within 2 business days &gt;&gt; DG552.6 .N48|DELIM|13693</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Nevler, V. E. (Vladimir Efimovich)'],'pub_name_display'=>['Bonanno'],'source_display'=>['catalog'],'material_type_display'=>['190 p.'],'language_facet'=>['Italian'],'_version_'=>1501992892507357184,'timestamp'=>'2015-05-23T20:14:05.009Z'}]}}
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:22 GMT
+recorded_with: VCR 2.9.3

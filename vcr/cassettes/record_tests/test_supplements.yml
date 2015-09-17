@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:14 GMT
+      - Thu, 17 Sep 2015 18:05:55 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -131,7 +131,7 @@ http_interactions:
         cnNpb25fJz0+MTUwMTkxNTU3NzM4MzM4NzEzNiwndGltZXN0YW1wJz0+JzIw
         MTUtMDUtMjJUMjM6NDU6MTEuNTYxWid9XX19Cg==
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:15 GMT
+  recorded_at: Thu, 17 Sep 2015 18:05:56 GMT
 - request:
     method: get
     uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=2120018&qt=document&wt=ruby
@@ -145,7 +145,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:15 GMT
+      - Thu, 17 Sep 2015 18:05:55 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -155,7 +155,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
         YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
         eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9PicyMTIwMDE4
         JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
@@ -263,7 +263,7 @@ http_interactions:
         cnNpb25fJz0+MTUwMTkxNTU3NzM4MzM4NzEzNiwndGltZXN0YW1wJz0+JzIw
         MTUtMDUtMjJUMjM6NDU6MTEuNTYxWid9XX19Cg==
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:15 GMT
+  recorded_at: Thu, 17 Sep 2015 18:05:56 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/504235520.json
@@ -276,14 +276,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:15 GMT
+      - Thu, 17 Sep 2015 18:05:56 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:15 GMT
+      - Thu, 17 Sep 2015 18:05:55 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -293,8 +293,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        15:33:15 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        18:15:55 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -304,7 +304,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:16 GMT
+  recorded_at: Thu, 17 Sep 2015 18:05:56 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocn504235520.json
@@ -317,14 +317,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:16 GMT
+      - Thu, 17 Sep 2015 18:05:56 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:15 GMT
+      - Thu, 17 Sep 2015 18:05:56 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -334,8 +334,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        15:33:15 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        18:15:56 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -345,7 +345,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:16 GMT
+  recorded_at: Thu, 17 Sep 2015 18:05:56 GMT
 - request:
     method: get
     uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/2120018
@@ -358,7 +358,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:15 GMT
+      - Thu, 17 Sep 2015 18:05:56 GMT
   response:
     status:
       code: 200
@@ -389,9 +389,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 48327d6b-b1f3-4251-8245-f39a36c6f920
+      - 014c52b4-a2a6-4e87-ae06-3493cc50cd32
       X-Runtime:
-      - '1.379869'
+      - '1.291376'
       Server:
       - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
     body:
@@ -406,5 +406,63 @@ http_interactions:
         année 23 (1901)-année 36 (1914)\"},{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}},\"summary_holdings\":\"Library
         has: année 2 (1880)\"}],\"services\":[]}]}}"
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:17 GMT
+  recorded_at: Thu, 17 Sep 2015 18:05:58 GMT
+- request:
+    method: get
+    uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/9702637
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 17 Sep 2015 19:35:01 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Etag:
+      - W/"fe20be89809f1a2d163c5a9def7b2c05"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - c0901ecb-130f-4246-a55c-970682c79e4f
+      X-Runtime:
+      - '2.500097'
+      Server:
+      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+    body:
+      encoding: UTF-8
+      string: "{\"9702637\":{\"condensed_holdings_full\":[{\"location_name\":\"Butler
+        Stacks (Enter at the Butler Circulation Desk)\",\"location_note\":\"\",\"call_number\":\"PR9369.3.S6
+        A28 2012g\",\"status\":\"not_available\",\"holding_id\":[\"12747868\"],\"copies\":[{\"items\":{\"In
+        transit 2015-05-26\":{\"status\":\"not_available\",\"count\":1}}}],\"services\":[\"recall_hold\"]},{\"location_name\":\"Offsite
+        - Place Request for delivery within 2 business days\",\"location_note\":\"\",\"call_number\":\"PR9369.3.S6
+        A28 2012g\",\"status\":\"available\",\"holding_id\":[\"13256207\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"offsite\"]}]}}"
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:35:04 GMT
 recorded_with: VCR 2.9.3

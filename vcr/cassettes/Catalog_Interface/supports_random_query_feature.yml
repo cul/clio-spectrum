@@ -1,0 +1,353 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/6217943
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 17 Sep 2015 19:41:20 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Etag:
+      - W/"7c619d9a342cdd3e688bf952b20bea43"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - e6096ec3-b98e-417e-8df7-4e7a65e0d278
+      X-Runtime:
+      - '3.555071'
+      Server:
+      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+    body:
+      encoding: UTF-8
+      string: "{\"6217943\":{\"condensed_holdings_full\":[{\"location_name\":\"Butler
+        Stacks (Enter at the Butler Circulation Desk)\",\"location_note\":\"\",\"call_number\":\"PQ145.7.T9
+        U43 2007g\",\"status\":\"available\",\"holding_id\":[\"7965331\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"doc_delivery\"]}]}}"
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:24 GMT
+- request:
+    method: get
+    uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/6094212
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 17 Sep 2015 19:41:21 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Etag:
+      - W/"9a4c73fd0e792b9715eff0b2315b8067"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - cf6c6286-496b-49ff-9b9d-3561b65a4e7f
+      X-Runtime:
+      - '3.468367'
+      Server:
+      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+    body:
+      encoding: UTF-8
+      string: "{\"6094212\":{\"condensed_holdings_full\":[{\"location_name\":\"Burke
+        [UTS] MRL Pamphlets (Non-Circulating)\",\"location_note\":\"By appointment
+        only. See the \\u003ca href=\\\"http://library.columbia.edu/locations/burke/access_circulation/special-collections-access.html\\\"
+        target=\\\"_blank\\\"\\u003eBurke Library special collections page\\u003c/a\\u003e\",\"call_number\":\"2143\",\"status\":\"none\",\"holding_id\":[\"7605502\"],\"copies\":[{\"items\":{\"Status
+        unknown\":{\"status\":\"none\",\"count\":1}}}],\"services\":[]}]}}"
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:24 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-17T00:00:00Z%20TO%20*%5D&q=Calculus%20James%20%0A&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:23 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: "{'responseHeader'=>{'status'=>0,'QTime'=>202,'params'=>{'f.subject_form_facet.facet.limit'=>'11','facet'=>'true','sort'=>'score
+        desc, pub_date_sort desc, title_sort asc','stats'=>'true','f.subject_topic_facet.facet.limit'=>'11','f.language_facet.facet.limit'=>'6','f.lc_1letter_facet.facet.limit'=>'31','f.pub_date_sort.facet.limit'=>'4','f.location_facet.facet.limit'=>'6','wt'=>'ruby','f.lc_subclass_facet.facet.limit'=>'501','rows'=>'25','f.subject_geo_facet.facet.limit'=>'11','facet.query'=>['acq_dt:[2015-09-10T00:00:00Z
+        TO *]','acq_dt:[2015-08-17T00:00:00Z TO *]','acq_dt:[2015-03-17T00:00:00Z
+        TO *]','acq_dt:[2014-09-17T00:00:00Z TO *]'],'stats.field'=>'pub_date_sort','q'=>'Calculus
+        James \n','f.author_facet.facet.limit'=>'6','facet.field'=>['format','pub_date_sort','author_facet','location_facet','language_facet','subject_topic_facet','subject_geo_facet','subject_era_facet','subject_form_facet','lc_1letter_facet','lc_subclass_facet'],'qt'=>'search','f.subject_era_facet.facet.limit'=>'11','f.format.facet.limit'=>'6'}},'response'=>{'numFound'=>218,'start'=>0,'maxScore'=>0.48543414,'docs'=>[{'location_call_number_id_display'=>['Mathematics
+        Reserves >> QA39.2 .S75 2012g Manual|DELIM|11913365','Mathematics Reserves
+        >> QA39.2 .S75 2012g Manual|DELIM|11913366','Mathematics Reserves >> QA39.2
+        .S75 2012g Manual|DELIM|11913367','Mathematics Reserves >> QA39.2 .S75 2012g
+        Manual|DELIM|11913368','Mathematics Reserves >> QA39.2 .S75 2012g Manual|DELIM|11913369','Mathematics
+        Reserves >> QA39.2 .S75 2012g Manual|DELIM|11913370'],'acq_dt'=>'2011-07-22T00:00:00Z','title_display'=>['Student
+        solutions manual : Precalculus : mathematics for calculus, sixth edition,
+        James Stewart, Lothar Redlin, Saleem Watson'],'clio_id_display'=>'8838618','subject_topic_facet'=>['Precalculus','Mathematics'],'pub_place_display'=>['Belmont,
+        CA'],'format'=>['Book'],'oclc_display'=>['ocn741967525','741967525'],'full_publisher_display'=>['Belmont,
+        CA : Brooks/Cole Cengage Learning, c2012.'],'isbn_display'=>['9780840068798','0840068794'],'pub_year_display'=>['c2012'],'id'=>'8838618','author_display'=>['Bulman-Fleming,
+        Andy'],'pub_name_display'=>['Brooks/Cole Cengage Learning'],'source_display'=>['catalog'],'material_type_display'=>['vii,
+        444 p.'],'language_facet'=>['English'],'score'=>0.48543414},{'location_call_number_id_display'=>['Offsite
+        - Place Request for delivery within 2 business days >> QA303 .S8825 1999|DELIM|3806092'],'pub_year_display'=>['c1999'],'lccn_display'=>['98049809'],'title_display'=>['Calculus'],'id'=>'3283520','clio_id_display'=>'3283520','subject_topic_facet'=>['Calculus'],'pub_place_display'=>['Pacific
+        Grove, CA'],'author_display'=>['Stewart, James, 1941-'],'pub_name_display'=>['Brooks/Cole'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['xxi,
+        1185, 130 p.'],'oclc_display'=>['40269904','ocm40269904'],'full_publisher_display'=>['Pacific
+        Grove, CA : Brooks/Cole, c1999.'],'language_facet'=>['English'],'isbn_display'=>['0534359493'],'score'=>0.24259478},{'location_call_number_id_display'=>['Mathematics
+        >> QA303 .S8825 1995|DELIM|1961257','Mathematics >> QA303 .S8825 1995|DELIM|1961258'],'pub_year_display'=>['c1995'],'lccn_display'=>['94029764'],'title_display'=>['Calculus'],'id'=>'1587849','clio_id_display'=>'1587849','subject_topic_facet'=>['Calculus'],'pub_place_display'=>['Pacific
+        Grove, Calif'],'author_display'=>['Stewart, James, 1941-'],'pub_name_display'=>['Brooks/Cole
+        Pub. Co','ITP'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['xxii,
+        1018, 112 p.'],'oclc_display'=>['30979420','ocm30979420'],'full_publisher_display'=>['Pacific
+        Grove, Calif. : Brooks/Cole Pub. Co. ; ITP, c1995.'],'language_facet'=>['English'],'isbn_display'=>['0534217982','0534218016'],'score'=>0.24259478},{'location_call_number_id_display'=>['Mathematics
+        >> QA303 .S8825 1991|DELIM|1559615'],'pub_year_display'=>['c1991'],'lccn_display'=>['90020282'],'title_display'=>['Calculus'],'id'=>'1232796','clio_id_display'=>'1232796','subject_topic_facet'=>['Calculus'],'pub_place_display'=>['Pacific
+        Grove, Calif'],'author_display'=>['Stewart, James, 1941-'],'pub_name_display'=>['Brooks/Cole
+        Pub. Co'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['xviii,
+        974, A112 p.'],'oclc_display'=>['22544784','ocm22544784'],'full_publisher_display'=>['Pacific
+        Grove, Calif. : Brooks/Cole Pub. Co., c1991.'],'language_facet'=>['English'],'isbn_display'=>['053413212X'],'score'=>0.24259478},{'location_call_number_id_display'=>['Mathematics
+        >> QA303 .S8825 2003g|DELIM|4816705','Mathematics >> QA303 .S8825 2003g|DELIM|4824923','Mathematics
+        >> QA303 .S8825 2003g|DELIM|4824930'],'pub_year_display'=>['c2003'],'lccn_display'=>['2002112186'],'title_display'=>['Calculus'],'id'=>'4256508','clio_id_display'=>'4256508','subject_topic_facet'=>['Calculus'],'pub_place_display'=>['Belmont,
+        CA'],'author_display'=>['Stewart, James, 1941-'],'pub_name_display'=>['Thomson
+        Brooks/Cole'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['xxv,
+        1204, 136, 10 p.'],'oclc_display'=>['ocm52203357'],'full_publisher_display'=>['Belmont,
+        CA : Thomson Brooks/Cole, c2003.'],'language_facet'=>['English'],'isbn_display'=>['053439339X'],'score'=>0.24259435},{'location_call_number_id_display'=>['Mathematics
+        >> QA303.2 .S73 1999g|DELIM|2766376','Mathematics >> QA303.2 .S73 1999g|DELIM|2766377'],'lccn_display'=>['98049806'],'title_display'=>['Calculus
+        : early transcendentals'],'clio_id_display'=>'2289387','subject_topic_facet'=>['Calculus'],'pub_place_display'=>['Pacific
+        Grove, Calif'],'format'=>['Book'],'oclc_display'=>['ocm40269867'],'full_publisher_display'=>['Pacific
+        Grove, Calif. : Brooks/Cole, 1999.'],'isbn_display'=>['0534362982','0534370659'],'pub_year_display'=>['1999'],'id'=>'2289387','author_display'=>['Stewart,
+        James, 1941-'],'pub_name_display'=>['Brooks/Cole'],'source_display'=>['catalog'],'material_type_display'=>['xxi,
+        1151, A132 p.'],'language_facet'=>['English'],'score'=>0.24255772},{'location_call_number_id_display'=>['Mathematics
+        >> QA303.2 .S73 1991g|DELIM|4816916'],'lccn_display'=>['91006370'],'title_display'=>['Calculus
+        early transcendentals'],'clio_id_display'=>'4256708','subject_topic_facet'=>['Calculus'],'pub_place_display'=>['Pacific
+        Grove, Calif'],'format'=>['Book'],'oclc_display'=>['ocm24319914'],'full_publisher_display'=>['Pacific
+        Grove, Calif. : Brooks/Cole Pub. Co., c1991.'],'isbn_display'=>['0534138306'],'pub_year_display'=>['c1991'],'id'=>'4256708','author_display'=>['Stewart,
+        James, 1941-'],'pub_name_display'=>['Brooks/Cole Pub. Co'],'source_display'=>['catalog'],'material_type_display'=>['xviii,
+        968, 118 p.'],'language_facet'=>['English'],'score'=>0.24255605},{'location_call_number_id_display'=>['Mathematics
+        Reserves >> QA303.2 .S73 2012|DELIM|11739530','Mathematics Reserves >> QA303.2
+        .S73 2012|DELIM|11739532','Mathematics Reserves >> QA303.2 .S73 2012|DELIM|11740342','Mathematics
+        Reserves >> QA303.2 .S73 2012|DELIM|11740343','Mathematics Reserves >> QA303.2
+        .S73 2012|DELIM|11913346','Mathematics Reserves >> QA303.2 .S73 2012|DELIM|11915028'],'pub_year_display'=>['c2012'],'acq_dt'=>'2011-07-19T00:00:00Z','title_display'=>['Calculus
+        : early transcendentals'],'id'=>'8661671','clio_id_display'=>'8661671','subject_topic_facet'=>['Calculus'],'pub_place_display'=>['Belmont,
+        Calif'],'author_display'=>['Stewart, James, 1941-'],'pub_name_display'=>['Brooks/Cole'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['1
+        v. (various pagings)'],'oclc_display'=>['ocn704439548'],'full_publisher_display'=>['Belmont,
+        Calif. : Brooks/Cole, c2012.'],'language_facet'=>['English'],'isbn_display'=>['0538497904','9780538497909'],'score'=>0.24255572},{'location_call_number_id_display'=>['Mathematics
+        >> QA303.2 .S73 2008g|DELIM|7814703','Mathematics >> QA303.2 .S73 2008g|DELIM|7964920','Mathematics
+        >> QA303.2 .S73 2008g|DELIM|7964926','Mathematics >> QA303.2 .S73 2008g|DELIM|7965823','Mathematics
+        >> QA303.2 .S73 2008g|DELIM|9391184','Mathematics >> QA303.2 .S73 2008g|DELIM|11048025','Mathematics
+        >> QA303.2 .S73 2008g|DELIM|11048028'],'pub_year_display'=>['c2008'],'acq_dt'=>'2010-09-16T00:00:00Z','title_display'=>['Calculus
+        : early transcendentals'],'id'=>'6217776','clio_id_display'=>'6217776','subject_topic_facet'=>['Calculus'],'pub_place_display'=>['Belmont,
+        CA'],'author_display'=>['Stewart, James, 1941-'],'pub_name_display'=>['Thomson/Brooks/Cole'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['1
+        v. (various pagings)'],'oclc_display'=>['ocn144526840','144526840'],'full_publisher_display'=>['Belmont,
+        CA : Thomson/Brooks/Cole, c2008.'],'language_facet'=>['English'],'score'=>0.24255541},{'location_call_number_id_display'=>['Mathematics
+        >> QA303.2 .S73 2003g|DELIM|3907736','Mathematics >> QA303.2 .S73 2003g|DELIM|4630479','Mathematics
+        >> QA303.2 .S73 2003g|DELIM|4929938','Mathematics >> QA303.2 .S73 2003g|DELIM|4929962','Mathematics
+        >> QA303.2 .S73 2003g|DELIM|8102365','Mathematics >> QA303.2 .S73 2003g|DELIM|8102372','Milstein
+        [Butler] >> QA303 .S882527 2003g|DELIM|10957960'],'lccn_display'=>['2002112185'],'acq_dt'=>'2010-08-02T00:00:00Z','title_display'=>['Calculus
+        : early transcendentals'],'clio_id_display'=>'3381792','subject_topic_facet'=>['Calculus'],'pub_place_display'=>['Belmont,
+        CA'],'format'=>['Book'],'oclc_display'=>['ocm52295593'],'full_publisher_display'=>['Belmont,
+        CA : Thomson/Brooks/Cole, c2003.'],'isbn_display'=>['0534393217'],'pub_year_display'=>['c2003'],'id'=>'3381792','author_display'=>['Stewart,
+        James, 1941-'],'pub_name_display'=>['Thomson/Brooks/Cole'],'source_display'=>['catalog'],'material_type_display'=>['1
+        v. (various pagings)'],'language_facet'=>['English'],'score'=>0.24254623},{'location_call_number_id_display'=>['Mathematics
+        Reserves >> QA303.2 .S7315 2016|DELIM|14561399','Mathematics Reserves >> QA303.2
+        .S7315 2016|DELIM|14561400','Mathematics Reserves >> QA303.2 .S7315 2016|DELIM|14561401','Mathematics
+        Reserves >> QA303.2 .S7315 2016|DELIM|14561402','Mathematics Reserves >> QA303.2
+        .S7315 2016|DELIM|14561403','Mathematics Reserves >> QA303.2 .S7315 2016|DELIM|14561404','Mathematics
+        Reserves >> QA303.2 .S7315 2016|DELIM|14561406'],'acq_dt'=>'2015-09-03T00:00:00Z','title_display'=>['Calculus
+        : early transcendentals'],'clio_id_display'=>'11547146','subject_topic_facet'=>['Calculus'],'pub_place_display'=>['Boston,
+        MA'],'format'=>['Book'],'oclc_display'=>['ocn884617308','884617308'],'full_publisher_display'=>['Boston,
+        MA : Centage Learning, [2016]'],'isbn_display'=>['1285741552','9781285741550','9781305270367','1305270363'],'pub_year_display'=>['2016'],'id'=>'11547146','author_display'=>['Stewart,
+        James, 1941-'],'pub_name_display'=>['Centage Learning'],'source_display'=>['catalog'],'material_type_display'=>['1
+        volume (various pagings)'],'language_facet'=>['English'],'score'=>0.24102293},{'location_call_number_id_display'=>['Offsite
+        - Place Request for delivery within 2 business days >> VIDEO QA303 .C36 1999g|DELIM|3205575'],'pub_year_display'=>['c1999'],'summary_display'=>['Combines
+        serious academic content with a humorous presentation style to help make calculus
+        more accessible. Used as a supplement to lectures, as a pre-exam review, or
+        for independent study, each program skillfully employs elements such as clever
+        mnemonics, high-tech computer graphics, and entertaining vignettes to boost
+        retention and confidence while driving home core concepts through concise
+        explanations and challenging problems'],'title_display'=>['Calculus [videorecording]
+        : the Standard Deviants core curriculum'],'id'=>'2700216','clio_id_display'=>'2700216','subject_topic_facet'=>['Calculus'],'pub_place_display'=>['Princeton,
+        NJ'],'pub_name_display'=>['Films for the Humanities & Sciences'],'format'=>['Video'],'source_display'=>['catalog'],'material_type_display'=>['10
+        videocassettes (268 min.)'],'oclc_display'=>['ocm44022326'],'full_publisher_display'=>['Princeton,
+        NJ : Films for the Humanities & Sciences, c1999.'],'language_facet'=>['English'],'score'=>0.23780712},{'location_call_number_id_display'=>['Online
+        >> EBOOKS|DELIM|11641845'],'acq_dt'=>'2011-03-21T00:00:00Z','title_display'=>['Advanced
+        calculus [electronic resource] : a geometric view'],'clio_id_display'=>'8559028','subject_topic_facet'=>['Calculus','Mathematical
+        analysis','Study and teaching (Higher)'],'pub_place_display'=>['New York'],'database_restrictions_display'=>['License
+        restrictions may limit access.'],'format'=>['Book','Online'],'url_munged_display'=>['0||||||http://www.columbia.edu/cgi-bin/cul/resolve?clio8559028|||Full
+        text available from SpringerLink ebooks - Mathematics and Statistics (2010)'],'full_publisher_display'=>['New
+        York : Springer, c2010.'],'isbn_display'=>['9781441973313','1441973311'],'pub_year_display'=>['c2010'],'title_series_display'=>['Undergraduate
+        texts in mathematics'],'id'=>'8559028','author_display'=>['Callahan, James
+        (James J.)'],'pub_name_display'=>['Springer'],'source_display'=>['catalog'],'language_facet'=>['English'],'score'=>0.106101535},{'location_call_number_id_display'=>['Mathematics
+        >> QA303 .S88254 1999|DELIM|3106909','Mathematics >> QA303 .S88254 1999|DELIM|3106910'],'pub_year_display'=>['c1999'],'lccn_display'=>['98049807'],'title_display'=>['Multivariable
+        calculus'],'id'=>'2606957','clio_id_display'=>'2606957','subject_topic_facet'=>['Calculus'],'pub_place_display'=>['Pacific
+        Grove, CA'],'author_display'=>['Stewart, James, 1941-'],'pub_name_display'=>['Brooks/Cole'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['xxvi
+        p., p. 675-1185, 45 p.'],'oclc_display'=>['40269877','ocm40269877'],'full_publisher_display'=>['Pacific
+        Grove, CA : Brooks/Cole, c1999.'],'language_facet'=>['English'],'isbn_display'=>['0534359485'],'score'=>0.10511405},{'location_call_number_id_display'=>['Milstein
+        [Butler] >> QA303.2 .S74 2003|DELIM|10695448'],'lccn_display'=>['2002113173'],'acq_dt'=>'2010-01-19T00:00:00Z','title_display'=>['Multivariable
+        calculus : early transcendentals'],'clio_id_display'=>'7590534','subject_topic_facet'=>['Calculus'],'pub_place_display'=>['Belmont,
+        CA'],'format'=>['Book'],'oclc_display'=>['ocm52134888','52134888'],'full_publisher_display'=>['Belmont,
+        CA : Brooks/Cole, c2003.'],'isbn_display'=>['0534417787','9780534417789','9780534274160'],'pub_year_display'=>['c2003'],'id'=>'7590534','author_display'=>['Stewart,
+        James, 1941-'],'pub_name_display'=>['Brooks/Cole'],'source_display'=>['catalog'],'material_type_display'=>['xviii,
+        p. 651-1168, 49, 10 p.'],'language_facet'=>['English'],'score'=>0.105099045},{'location_call_number_id_display'=>['Mathematics
+        >> QA353.T7 S74 2007|DELIM|7249285','Mathematics >> QA353.T7 S74 2007|DELIM|7325091','Mathematics
+        >> QA353.T7 S74 2007|DELIM|7369856','Mathematics >> QA353.T7 S74 2007|DELIM|7369857','Mathematics
+        >> QA353.T7 S74 2007|DELIM|7374983'],'lccn_display'=>['2006900521'],'title_display'=>['Essential
+        calculus : early transcendentals'],'clio_id_display'=>'5956258','subject_topic_facet'=>['Transcendental
+        functions','Calculus'],'pub_place_display'=>['Belmont, CA'],'format'=>['Book'],'oclc_display'=>['ocm71371565'],'full_publisher_display'=>['Belmont,
+        CA : Thomson Higher Education, c2007.'],'isbn_display'=>['0495014281'],'pub_year_display'=>['c2007'],'id'=>'5956258','author_display'=>['Stewart,
+        James, 1941-'],'pub_name_display'=>['Thomson Higher Education'],'source_display'=>['catalog'],'material_type_display'=>['1
+        v. (various pagings)'],'language_facet'=>['English'],'score'=>0.105097465},{'location_call_number_id_display'=>['Offsite
+        - Place Request for delivery within 2 business days >> 517.9 Sh2|DELIM|1923666'],'pub_year_display'=>['1922'],'lccn_display'=>['22016188
+        //r84'],'title_display'=>['Vector calculus, with applications to physics'],'id'=>'1556444','clio_id_display'=>'1556444','subject_topic_facet'=>['Vector
+        analysis'],'pub_place_display'=>['New York'],'author_display'=>['Shaw, James
+        Byrnie, 1866-1948'],'pub_name_display'=>['D. Van Nostrand company'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['v,
+        314 p.'],'oclc_display'=>['ocm11289333'],'full_publisher_display'=>['New York,
+        D. Van Nostrand company, 1922.'],'language_facet'=>['English'],'score'=>0.103552565},{'location_call_number_id_display'=>['Mathematics
+        >> QA303 .S88254 2003g Manual|DELIM|4735516','Mathematics >> QA303 .S88254
+        2003g Manual|DELIM|4824320'],'title_display'=>['Student solutions manual for
+        Multivariable calculus, fifth edition'],'clio_id_display'=>'4189642','subject_topic_facet'=>['Calculus'],'pub_place_display'=>['Belmont,
+        Calif'],'format'=>['Book'],'oclc_display'=>['ocm53303121'],'full_publisher_display'=>['Belmont,
+        Calif. : Brooks/Cole, c2003.'],'isbn_display'=>['0534393608'],'pub_year_display'=>['c2003'],'id'=>'4189642','author_display'=>['Clegg,
+        Dan'],'pub_name_display'=>['Brooks/Cole'],'source_display'=>['catalog'],'material_type_display'=>['ix,
+        329 p.'],'language_facet'=>['English'],'score'=>0.09518048},{'location_call_number_id_display'=>['Mathematics
+        >> QA303 .S8827 1999|DELIM|2795063'],'lccn_display'=>['98049805'],'title_display'=>['Single
+        variable calculus : early transcendentals'],'clio_id_display'=>'2315941','subject_topic_facet'=>['Calculus'],'pub_place_display'=>['Pacific
+        Grove, Calif'],'format'=>['Book'],'oclc_display'=>['40269841','ocm40269841'],'full_publisher_display'=>['Pacific
+        Grove, Calif. : Brooks/Cole, c1999.'],'isbn_display'=>['0534355633'],'pub_year_display'=>['c1999'],'id'=>'2315941','author_display'=>['Stewart,
+        James, 1941-'],'pub_name_display'=>['Brooks/Cole'],'source_display'=>['catalog'],'material_type_display'=>['xxi,
+        781 p., [115] p.'],'language_facet'=>['English'],'score'=>0.085616656},{'location_call_number_id_display'=>['Offsite
+        - Place Request for delivery within 2 business days >> QD42 .B973|DELIM|2749275'],'pub_year_display'=>['1965'],'lccn_display'=>['65028332
+        //r83'],'title_display'=>['The calculus of chemistry, with an introduction
+        to computer programming'],'id'=>'2273956','clio_id_display'=>'2273956','subject_topic_facet'=>['Chemistry','Calculus','Mathematics'],'pub_place_display'=>['New
+        York'],'author_display'=>['Butler, James N. (James Newton), 1934-'],'pub_name_display'=>['W.A.
+        Benjamin'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['x,
+        150 p.'],'oclc_display'=>['ocm00405303'],'full_publisher_display'=>['New York,
+        W.A. Benjamin, 1965.'],'language_facet'=>['English'],'score'=>0.08552349},{'location_call_number_id_display'=>['Mathematics
+        >> QA303.5.D37 F5 1992g|DELIM|1442189','Offsite - Place Request for delivery
+        within 2 business days >> QA303.5.D37 F5 1992g|DELIM|1442190'],'title_display'=>['Exploring
+        calculus with Mathematica : for the Macintosh interface'],'clio_id_display'=>'1155769','subject_topic_facet'=>['Mathematica
+        (Computer file)','Calculus','Data processing'],'pub_place_display'=>['Reading,
+        Mass'],'format'=>['Book'],'oclc_display'=>['ocm26649921'],'full_publisher_display'=>['Reading,
+        Mass. : Addison-Wesley Pub. Co., c1992.'],'isbn_display'=>['0201555727'],'pub_year_display'=>['c1992'],'title_series_display'=>['Math
+        exploration series'],'id'=>'1155769','author_display'=>['Finch, James K.'],'pub_name_display'=>['Addison-Wesley
+        Pub. Co'],'source_display'=>['catalog'],'material_type_display'=>['x, 341
+        p.'],'language_facet'=>['English'],'score'=>0.08407314},{'location_call_number_id_display'=>['Lehman
+        >> JC423 .B86 2004|DELIM|6007828'],'lccn_display'=>['2004044230'],'title_display'=>['The
+        calculus of consent : logical foundations of constitutional democracy'],'clio_id_display'=>'5267191','subject_topic_facet'=>['Democracy','Social
+        choice','Voting'],'pub_place_display'=>['Indianapolis'],'format'=>['Book'],'oclc_display'=>['54487533','ocm54487533'],'full_publisher_display'=>['Indianapolis
+        : Liberty Fund, c2004.'],'isbn_display'=>['0865975213','0865975329'],'pub_year_display'=>['c2004'],'id'=>'5267191','author_display'=>['Buchanan,
+        James M.'],'pub_name_display'=>['Liberty Fund'],'source_display'=>['catalog'],'material_type_display'=>['xxv,
+        337 p.'],'language_facet'=>['English'],'score'=>0.08406624},{'location_call_number_id_display'=>['Offsite
+        - Place Request for delivery within 2 business days >> JC423 .B86 1967|DELIM|2012557'],'pub_year_display'=>['1967,
+        c1962'],'lccn_display'=>['62007705'],'title_display'=>['The calculus of consent,
+        logical foundations of constitutional democracy'],'id'=>'1631728','clio_id_display'=>'1631728','subject_topic_facet'=>['Democracy','Decision
+        making','Voting'],'pub_place_display'=>['Ann Arbor'],'author_display'=>['Buchanan,
+        James M.'],'pub_name_display'=>['University of Michigan Press'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['x,
+        361 p.'],'oclc_display'=>['ocm28732431'],'full_publisher_display'=>['Ann Arbor,
+        University of Michigan Press [1967, c1962]'],'language_facet'=>['English'],'score'=>0.08406624},{'location_call_number_id_display'=>['Offsite
+        - Place Request for delivery within 2 business days >> 321.8 B85|DELIM|2012554'],'pub_year_display'=>['1965,
+        c1962'],'title_display'=>['The calculus of consent ; logical foundations of
+        constitutional democracy'],'id'=>'1631725','clio_id_display'=>'1631725','subject_topic_facet'=>['Democracy','Decision
+        making','Voting'],'pub_place_display'=>['Ann Arbor'],'author_display'=>['Buchanan,
+        James M.'],'pub_name_display'=>['University of Michigan Press'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['x,
+        361 p.'],'oclc_display'=>['ocm00237700'],'full_publisher_display'=>['Ann Arbor
+        : University of Michigan Press, 1965, c1962.'],'language_facet'=>['English'],'isbn_display'=>['0472061003'],'score'=>0.08406624},{'location_call_number_id_display'=>['Law
+        >> JC423 .B82 1965'],'pub_year_display'=>['1965, c1962'],'title_series_display'=>['Ann
+        Arbor paperbacks ; AA100'],'title_display'=>['The calculus of consent : logical
+        foundations of constitutional democracy'],'id'=>'b242437','clio_id_display'=>'b242437','subject_topic_facet'=>['Democracy','Decision
+        making','Voting'],'pub_place_display'=>['Ann Arbor'],'author_display'=>['Buchanan,
+        James M.'],'pub_name_display'=>['University of Michigan Press'],'format'=>['Book'],'source_display'=>['law','catalog'],'material_type_display'=>['x,
+        361 p.'],'full_publisher_display'=>['Ann Arbor : University of Michigan Press,
+        1965, c1962.'],'language_facet'=>['English'],'isbn_display'=>['0472061003','047209100X'],'score'=>0.08406624}]},'facet_counts'=>{'facet_queries'=>{'acq_dt:[2015-09-10T00:00:00Z
+        TO *]'=>1,'acq_dt:[2015-08-17T00:00:00Z TO *]'=>3,'acq_dt:[2015-03-17T00:00:00Z
+        TO *]'=>25,'acq_dt:[2014-09-17T00:00:00Z TO *]'=>26},'facet_fields'=>{'format'=>['Book',216,'Online',57,'Conference
+        Proceedings',24,'Microformat',4,'US Government Document',3,'Thesis',2],'pub_date_sort'=>['1999',15,'2004',12,'2003',11,'1996',10],'author_facet'=>['Stewart,
+        James, 1941-',38,'SpringerLink (Online service)',19,'Buchanan, James M.',7,'Redlin,
+        L.',6,'Taylor, James M. (James Morford), 1843-1930',6,'Tullock, Gordon',6],'location_facet'=>['Mathematics',72,'Online',57,'Offsite',51,'Rare
+        Book',9,'Butler Stacks',7,'Lehman',7],'language_facet'=>['English',215,'German',2,'Latin',2],'subject_topic_facet'=>['Calculus',53,'Mathematics',42,'History',9,'Democracy',8,'Differential
+        calculus',8,'Data processing',7,'Decision making',7,'Voting',7,'Analysis',6,'Calculus
+        of variations',6,'Global analysis (Mathematics)',6],'subject_geo_facet'=>['United
+        States',5,'Great Britain',3,'Middle East',2,'China',1,'Colorado',1,'New York',1,'New
+        York (State)',1,'New Zealand',1,'South Asia',1,'Soviet Union',1],'subject_era_facet'=>['20th
+        century',4,'1945-1989',1,'19th century',1,'21st century',1],'subject_form_facet'=>['Congresses',23,'Problems,
+        exercises, etc',14,'Electronic books',9,'Early works to 1800',7,'Textbooks',4,'Biography',2,'Case
+        studies',2,'Authors\\' presentation inscriptions (Provenance)',1,'Bookplates
+        (Provenance)',1,'Early works',1,'Early works to 1900',1],'lc_1letter_facet'=>['B
+        - Philosophy, Psychology, Religion',3,'D - World History',2,'E - History of
+        the Americas (General)',1,'G - Geography, Anthropology, Recreation',2,'H -
+        Social Sciences',9,'J - Political Science',10,'L - Education',1,'P - Language
+        & Literature',3,'Q - Science',147,'R - Medicine',7,'T - Technology',4,'U -
+        Military Science',5],'lc_subclass_facet'=>['B - Philosophy, Psychology, Religion',1,'BC
+        - Logic',1,'BD - Speculative Philosophy',1,'D - World History',1,'DU - Oceania
+        (History)',1,'E - History of the Americas (General)',1,'GE - Environmental
+        Sciences',2,'H - Social Sciences',1,'HB - Economic Theory, Demography',4,'HG
+        - Finance',2,'HV - Social Pathology, Social & Public Welfare, Criminology',2,'JA
+        - Political Science',2,'JC - Political Theory',6,'JF - Political Institutions',1,'JX
+        - International Law',1,'LC - Special Aspects of Education',1,'PR - English
+        Literature',1,'PS - American Literature',2,'Q - Science',3,'QA - Mathematics',127,'QC
+        - Physics',10,'QD - Chemistry',1,'QH - Natural History, Biology',5,'QM - Human
+        Anatomy',1,'RC - Internal Medicine',3,'RD - Surgery',1,'RK - Dentistry',3,'TA
+        - Engineering, Civil Engineering',1,'TJ - Mechanical Engineering & Machinery',3,'U
+        - Military Science',2,'UA - Armies',1,'UG - Military Engineering, Air Forces,
+        Military Astronautics',2]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>{'min'=>1690.0,'max'=>2016.0,'count'=>218,'missing'=>0,'sum'=>429530.0,'sumOfSquares'=>8.4730997E8,'mean'=>1970.3211009174313,'stddev'=>67.81472193576253,'facets'=>{}}}}}\n"
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:24 GMT
+recorded_with: VCR 2.9.3

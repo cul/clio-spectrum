@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:23 GMT
+      - Thu, 17 Sep 2015 18:06:04 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -23,9 +23,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'6201975','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+e--+0902+00000000+g6700000+002007+6201975'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> E902 .G67 2007|DELIM|7900669','Lehman >> E902 .G67 2007|DELIM|8043304','Milstein [Butler] >> E902 .G67 2007|DELIM|8115214'],'lccn_display'=>['2007003261'],'summary_display'=>['"We live in an age when the 30-second television spot is the most powerful force shaping the electorate\'s thinking, and America is in the hands of an administration less interested than any previous administration in sharing the truth with the citizenry. Related to this and of even greater concern is this administration\'s disinterest in the process by which the truth is ascertained, the tenets of fact-based reasoning - first among them an embrace of open inquiry, in which unexpected and even inconvenient facts can lead to unexpected conclusions." "How did we get here? And how much damage has been done to the functioning of our democracy and its role as steward of our security? Never has there been a worse time for us to lose the capacity to face the reality of our long-term challenges, from national security to the economy, from issues of health and social welfare to the environment. As The Assault on Reason shows us, we have precious little time to waste." "Al Gore\'s larger goal in this book is to explain how the public sphere itself has evolved into a place hospitable to reason\'s enemies; to make us more aware of the forces at work on our own minds; and to lead us to an understanding of what we can do, individually and collectively, to restore the rule of reason and safeguard our future. Drawing on a life\'s work in politics as well as on the work of experts across a broad range of disciplines, A1 Gore has written a farsighted and powerful manifesto for clear thinking."--BOOK JACKET'],'item_display'=>['E902 .G67 2007 | loc+e--+0902+00000000+g6700000+002007+6201975 | ebn~l~~~zqzx~zzzzzzzz~jtszzzzz~zzxzzs~txzyqsu~~~~~'],'title_display'=>['The assault on reason'],'clio_id_display'=>'6201975','subject_topic_facet'=>['Bush, George W. (George Walker), 1946-','Friends and associates','Political culture','Democracy','Reason','Fear','Official secrets','Religious fundamentalism','Social aspects','Political aspects','Politics and government'],'pub_place_display'=>['New York'],'format'=>['Book'],'oclc_display'=>['ocm81252666','81252666'],'url_munged_display'=>['2|||Contributor biographical information|||http://www.loc.gov/catdir/enhancements/fy0743/2007003261-b.html|||','2|||Publisher description|||http://www.loc.gov/catdir/enhancements/fy0743/2007003261-d.html|||'],'title_first_facet'=>['A'],'full_publisher_display'=>['New York : Penguin Press, 2007.'],'pub_date_sort'=>2007,'isbn_display'=>['9781594201226','1594201226'],'pub_year_display'=>['2007'],'id'=>'6201975','reverse_shelfkey'=>['ebn~l~~~zqzx~zzzzzzzz~jtszzzzz~zzxzzs~txzyqsu~~~~~'],'subject_geo_facet'=>['United States'],'call_number_display'=>['E902 .G67 2007'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>03975cam a2200553 a 4500</leader><controlfield tag="001">6201975</controlfield><controlfield tag="005">20150123144650.0</controlfield><controlfield tag="008">070124s2007    nyu      b    001 0deng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2007003261</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781594201226</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1594201226</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm81252666</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)81252666</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(DLC)  2007003261</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)6201975</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">BAKER</subfield><subfield code="d">BTCTA</subfield><subfield code="d">LF3</subfield><subfield code="d">YBM</subfield><subfield code="d">C#P</subfield><subfield code="d">VP@</subfield><subfield code="d">BUR</subfield><subfield code="d">YDXCP</subfield><subfield code="d">IXA</subfield><subfield code="d">DLC</subfield><subfield code="d">OrLoB-B</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">n-us---</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">E902</subfield><subfield code="b">.G67 2007</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">973.931</subfield><subfield code="2">22</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Gore, Al,</subfield><subfield code="d">1948-</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The assault on reason /</subfield><subfield code="c">Al Gore.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Penguin Press,</subfield><subfield code="c">2007.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">308 p. ;</subfield><subfield code="c">25 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references (p. [277]-296) and index.</subfield></datafield><datafield tag="505" ind1="0" ind2="0"><subfield code="g">1.</subfield><subfield code="t">The politics of fear -- </subfield><subfield code="g">2.</subfield><subfield code="t">Blinding the faithful -- </subfield><subfield code="g">3.</subfield><subfield code="t">The politics of wealth -- </subfield><subfield code="g">4.</subfield><subfield code="t">Convenient untruths -- </subfield><subfield code="g">5.</subfield><subfield code="t">The assault on the individual -- </subfield><subfield code="g">6.</subfield><subfield code="t">National insecurity -- </subfield><subfield code="g">7.</subfield><subfield code="t">The carbon crisis -- </subfield><subfield code="g">8.</subfield><subfield code="t">Democracy in the balance -- </subfield><subfield code="g">9.</subfield><subfield code="t">A well-connected citizenry -- </subfield><subfield code="t">Conclusion : the rebirth of democracy.</subfield></datafield><datafield tag="520" ind1="1" ind2=" "><subfield code="a">"We live in an age when the 30-second television spot is the most powerful force shaping the electorate\'s thinking, and America is in the hands of an administration less interested than any previous administration in sharing the truth with the citizenry. Related to this and of even greater concern is this administration\'s disinterest in the process by which the truth is ascertained, the tenets of fact-based reasoning - first among them an embrace of open inquiry, in which unexpected and even inconvenient facts can lead to unexpected conclusions." "How did we get here? And how much damage has been done to the functioning of our democracy and its role as steward of our security? Never has there been a worse time for us to lose the capacity to face the reality of our long-term challenges, from national security to the economy, from issues of health and social welfare to the environment. As The Assault on Reason shows us, we have precious little time to waste." "Al Gore\'s larger goal in this book is to explain how the public sphere itself has evolved into a place hospitable to reason\'s enemies; to make us more aware of the forces at work on our own minds; and to lead us to an understanding of what we can do, individually and collectively, to restore the rule of reason and safeguard our future. Drawing on a life\'s work in politics as well as on the work of experts across a broad range of disciplines, A1 Gore has written a farsighted and powerful manifesto for clear thinking."--BOOK JACKET.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">Politics and government</subfield><subfield code="y">2001-2009.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Political culture</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Democracy</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reason</subfield><subfield code="x">Social aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reason</subfield><subfield code="x">Political aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Fear</subfield><subfield code="x">Political aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Official secrets</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Bush, George W.</subfield><subfield code="q">(George Walker),</subfield><subfield code="d">1946-</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Bush, George W.</subfield><subfield code="q">(George Walker),</subfield><subfield code="d">1946-</subfield><subfield code="x">Friends and associates.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Religious fundamentalism</subfield><subfield code="x">Political aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Contributor biographical information</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0743/2007003261-b.html</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Publisher description</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0743/2007003261-d.html</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield><subfield code="b">TOC</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20070619</subfield><subfield code="b">c</subfield><subfield code="c">sds12</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20070808</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20071015</subfield><subfield code="b">a</subfield><subfield code="c">hew2</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">E</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">E902 .G67 2007</subfield><subfield code="b">loc+E--+0902+00000000+G6700000+002007</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; E902 .G67 2007|DELIM|7900669</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Lehman</subfield><subfield code="b">Lehman &gt;&gt; E902 .G67 2007|DELIM|8043304</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein [Butler] &gt;&gt; E902 .G67 2007|DELIM|8115214</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Gore, Al, 1948-'],'pub_name_display'=>['Penguin Press'],'source_display'=>['catalog'],'material_type_display'=>['308 p.'],'language_facet'=>['English'],'_version_'=>1501954957358661632,'timestamp'=>'2015-05-23T10:11:07.23Z'}]}}
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'6201975','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+e--+0902+00000000+g6700000+002007+6201975'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> E902 .G67 2007|DELIM|7900669','Lehman >> E902 .G67 2007|DELIM|8043304','Milstein [Butler] >> E902 .G67 2007|DELIM|8115214'],'lccn_display'=>['2007003261'],'summary_display'=>['"We live in an age when the 30-second television spot is the most powerful force shaping the electorate\'s thinking, and America is in the hands of an administration less interested than any previous administration in sharing the truth with the citizenry. Related to this and of even greater concern is this administration\'s disinterest in the process by which the truth is ascertained, the tenets of fact-based reasoning - first among them an embrace of open inquiry, in which unexpected and even inconvenient facts can lead to unexpected conclusions." "How did we get here? And how much damage has been done to the functioning of our democracy and its role as steward of our security? Never has there been a worse time for us to lose the capacity to face the reality of our long-term challenges, from national security to the economy, from issues of health and social welfare to the environment. As The Assault on Reason shows us, we have precious little time to waste." "Al Gore\'s larger goal in this book is to explain how the public sphere itself has evolved into a place hospitable to reason\'s enemies; to make us more aware of the forces at work on our own minds; and to lead us to an understanding of what we can do, individually and collectively, to restore the rule of reason and safeguard our future. Drawing on a life\'s work in politics as well as on the work of experts across a broad range of disciplines, A1 Gore has written a farsighted and powerful manifesto for clear thinking."--BOOK JACKET'],'item_display'=>['E902 .G67 2007 | loc+e--+0902+00000000+g6700000+002007+6201975 | ebn~l~~~zqzx~zzzzzzzz~jtszzzzz~zzxzzs~txzyqsu~~~~~'],'title_display'=>['The assault on reason'],'clio_id_display'=>'6201975','subject_topic_facet'=>['Bush, George W. (George Walker), 1946-','Friends and associates','Political culture','Democracy','Reason','Fear','Official secrets','Religious fundamentalism','Social aspects','Political aspects','Politics and government'],'pub_place_display'=>['New York'],'format'=>['Book'],'oclc_display'=>['ocm81252666','81252666'],'url_munged_display'=>['2|||Contributor biographical information|||http://www.loc.gov/catdir/enhancements/fy0743/2007003261-b.html|||','2|||Publisher description|||http://www.loc.gov/catdir/enhancements/fy0743/2007003261-d.html|||'],'title_first_facet'=>['A'],'full_publisher_display'=>['New York : Penguin Press, 2007.'],'pub_date_sort'=>2007,'isbn_display'=>['9781594201226','1594201226'],'pub_year_display'=>['2007'],'id'=>'6201975','reverse_shelfkey'=>['ebn~l~~~zqzx~zzzzzzzz~jtszzzzz~zzxzzs~txzyqsu~~~~~'],'subject_geo_facet'=>['United States'],'call_number_display'=>['E902 .G67 2007'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>03975cam a2200553 a 4500</leader><controlfield tag="001">6201975</controlfield><controlfield tag="005">20150123144650.0</controlfield><controlfield tag="008">070124s2007    nyu      b    001 0deng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2007003261</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781594201226</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1594201226</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm81252666</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)81252666</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(DLC)  2007003261</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)6201975</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">BAKER</subfield><subfield code="d">BTCTA</subfield><subfield code="d">LF3</subfield><subfield code="d">YBM</subfield><subfield code="d">C#P</subfield><subfield code="d">VP@</subfield><subfield code="d">BUR</subfield><subfield code="d">YDXCP</subfield><subfield code="d">IXA</subfield><subfield code="d">DLC</subfield><subfield code="d">OrLoB-B</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">n-us---</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">E902</subfield><subfield code="b">.G67 2007</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">973.931</subfield><subfield code="2">22</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Gore, Al,</subfield><subfield code="d">1948-</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The assault on reason /</subfield><subfield code="c">Al Gore.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Penguin Press,</subfield><subfield code="c">2007.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">308 p. ;</subfield><subfield code="c">25 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references (p. [277]-296) and index.</subfield></datafield><datafield tag="505" ind1="0" ind2="0"><subfield code="g">1.</subfield><subfield code="t">The politics of fear -- </subfield><subfield code="g">2.</subfield><subfield code="t">Blinding the faithful -- </subfield><subfield code="g">3.</subfield><subfield code="t">The politics of wealth -- </subfield><subfield code="g">4.</subfield><subfield code="t">Convenient untruths -- </subfield><subfield code="g">5.</subfield><subfield code="t">The assault on the individual -- </subfield><subfield code="g">6.</subfield><subfield code="t">National insecurity -- </subfield><subfield code="g">7.</subfield><subfield code="t">The carbon crisis -- </subfield><subfield code="g">8.</subfield><subfield code="t">Democracy in the balance -- </subfield><subfield code="g">9.</subfield><subfield code="t">A well-connected citizenry -- </subfield><subfield code="t">Conclusion : the rebirth of democracy.</subfield></datafield><datafield tag="520" ind1="1" ind2=" "><subfield code="a">"We live in an age when the 30-second television spot is the most powerful force shaping the electorate\'s thinking, and America is in the hands of an administration less interested than any previous administration in sharing the truth with the citizenry. Related to this and of even greater concern is this administration\'s disinterest in the process by which the truth is ascertained, the tenets of fact-based reasoning - first among them an embrace of open inquiry, in which unexpected and even inconvenient facts can lead to unexpected conclusions." "How did we get here? And how much damage has been done to the functioning of our democracy and its role as steward of our security? Never has there been a worse time for us to lose the capacity to face the reality of our long-term challenges, from national security to the economy, from issues of health and social welfare to the environment. As The Assault on Reason shows us, we have precious little time to waste." "Al Gore\'s larger goal in this book is to explain how the public sphere itself has evolved into a place hospitable to reason\'s enemies; to make us more aware of the forces at work on our own minds; and to lead us to an understanding of what we can do, individually and collectively, to restore the rule of reason and safeguard our future. Drawing on a life\'s work in politics as well as on the work of experts across a broad range of disciplines, A1 Gore has written a farsighted and powerful manifesto for clear thinking."--BOOK JACKET.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">Politics and government</subfield><subfield code="y">2001-2009.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Political culture</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Democracy</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reason</subfield><subfield code="x">Social aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reason</subfield><subfield code="x">Political aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Fear</subfield><subfield code="x">Political aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Official secrets</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Bush, George W.</subfield><subfield code="q">(George Walker),</subfield><subfield code="d">1946-</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Bush, George W.</subfield><subfield code="q">(George Walker),</subfield><subfield code="d">1946-</subfield><subfield code="x">Friends and associates.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Religious fundamentalism</subfield><subfield code="x">Political aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Contributor biographical information</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0743/2007003261-b.html</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Publisher description</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0743/2007003261-d.html</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield><subfield code="b">TOC</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20070619</subfield><subfield code="b">c</subfield><subfield code="c">sds12</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20070808</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20071015</subfield><subfield code="b">a</subfield><subfield code="c">hew2</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">E</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">E902 .G67 2007</subfield><subfield code="b">loc+E--+0902+00000000+G6700000+002007</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; E902 .G67 2007|DELIM|7900669</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Lehman</subfield><subfield code="b">Lehman &gt;&gt; E902 .G67 2007|DELIM|8043304</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein [Butler] &gt;&gt; E902 .G67 2007|DELIM|8115214</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Gore, Al, 1948-'],'pub_name_display'=>['Penguin Press'],'source_display'=>['catalog'],'material_type_display'=>['308 p.'],'language_facet'=>['English'],'_version_'=>1501954957358661632,'timestamp'=>'2015-05-23T10:11:07.23Z'}]}}
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:24 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:05 GMT
 - request:
     method: get
     uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=6201975&qt=document&wt=ruby
@@ -39,7 +39,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:23 GMT
+      - Thu, 17 Sep 2015 18:06:05 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -49,9 +49,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'6201975','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+e--+0902+00000000+g6700000+002007+6201975'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> E902 .G67 2007|DELIM|7900669','Lehman >> E902 .G67 2007|DELIM|8043304','Milstein [Butler] >> E902 .G67 2007|DELIM|8115214'],'lccn_display'=>['2007003261'],'summary_display'=>['"We live in an age when the 30-second television spot is the most powerful force shaping the electorate\'s thinking, and America is in the hands of an administration less interested than any previous administration in sharing the truth with the citizenry. Related to this and of even greater concern is this administration\'s disinterest in the process by which the truth is ascertained, the tenets of fact-based reasoning - first among them an embrace of open inquiry, in which unexpected and even inconvenient facts can lead to unexpected conclusions." "How did we get here? And how much damage has been done to the functioning of our democracy and its role as steward of our security? Never has there been a worse time for us to lose the capacity to face the reality of our long-term challenges, from national security to the economy, from issues of health and social welfare to the environment. As The Assault on Reason shows us, we have precious little time to waste." "Al Gore\'s larger goal in this book is to explain how the public sphere itself has evolved into a place hospitable to reason\'s enemies; to make us more aware of the forces at work on our own minds; and to lead us to an understanding of what we can do, individually and collectively, to restore the rule of reason and safeguard our future. Drawing on a life\'s work in politics as well as on the work of experts across a broad range of disciplines, A1 Gore has written a farsighted and powerful manifesto for clear thinking."--BOOK JACKET'],'item_display'=>['E902 .G67 2007 | loc+e--+0902+00000000+g6700000+002007+6201975 | ebn~l~~~zqzx~zzzzzzzz~jtszzzzz~zzxzzs~txzyqsu~~~~~'],'title_display'=>['The assault on reason'],'clio_id_display'=>'6201975','subject_topic_facet'=>['Bush, George W. (George Walker), 1946-','Friends and associates','Political culture','Democracy','Reason','Fear','Official secrets','Religious fundamentalism','Social aspects','Political aspects','Politics and government'],'pub_place_display'=>['New York'],'format'=>['Book'],'oclc_display'=>['ocm81252666','81252666'],'url_munged_display'=>['2|||Contributor biographical information|||http://www.loc.gov/catdir/enhancements/fy0743/2007003261-b.html|||','2|||Publisher description|||http://www.loc.gov/catdir/enhancements/fy0743/2007003261-d.html|||'],'title_first_facet'=>['A'],'full_publisher_display'=>['New York : Penguin Press, 2007.'],'pub_date_sort'=>2007,'isbn_display'=>['9781594201226','1594201226'],'pub_year_display'=>['2007'],'id'=>'6201975','reverse_shelfkey'=>['ebn~l~~~zqzx~zzzzzzzz~jtszzzzz~zzxzzs~txzyqsu~~~~~'],'subject_geo_facet'=>['United States'],'call_number_display'=>['E902 .G67 2007'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>03975cam a2200553 a 4500</leader><controlfield tag="001">6201975</controlfield><controlfield tag="005">20150123144650.0</controlfield><controlfield tag="008">070124s2007    nyu      b    001 0deng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2007003261</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781594201226</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1594201226</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm81252666</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)81252666</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(DLC)  2007003261</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)6201975</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">BAKER</subfield><subfield code="d">BTCTA</subfield><subfield code="d">LF3</subfield><subfield code="d">YBM</subfield><subfield code="d">C#P</subfield><subfield code="d">VP@</subfield><subfield code="d">BUR</subfield><subfield code="d">YDXCP</subfield><subfield code="d">IXA</subfield><subfield code="d">DLC</subfield><subfield code="d">OrLoB-B</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">n-us---</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">E902</subfield><subfield code="b">.G67 2007</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">973.931</subfield><subfield code="2">22</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Gore, Al,</subfield><subfield code="d">1948-</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The assault on reason /</subfield><subfield code="c">Al Gore.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Penguin Press,</subfield><subfield code="c">2007.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">308 p. ;</subfield><subfield code="c">25 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references (p. [277]-296) and index.</subfield></datafield><datafield tag="505" ind1="0" ind2="0"><subfield code="g">1.</subfield><subfield code="t">The politics of fear -- </subfield><subfield code="g">2.</subfield><subfield code="t">Blinding the faithful -- </subfield><subfield code="g">3.</subfield><subfield code="t">The politics of wealth -- </subfield><subfield code="g">4.</subfield><subfield code="t">Convenient untruths -- </subfield><subfield code="g">5.</subfield><subfield code="t">The assault on the individual -- </subfield><subfield code="g">6.</subfield><subfield code="t">National insecurity -- </subfield><subfield code="g">7.</subfield><subfield code="t">The carbon crisis -- </subfield><subfield code="g">8.</subfield><subfield code="t">Democracy in the balance -- </subfield><subfield code="g">9.</subfield><subfield code="t">A well-connected citizenry -- </subfield><subfield code="t">Conclusion : the rebirth of democracy.</subfield></datafield><datafield tag="520" ind1="1" ind2=" "><subfield code="a">"We live in an age when the 30-second television spot is the most powerful force shaping the electorate\'s thinking, and America is in the hands of an administration less interested than any previous administration in sharing the truth with the citizenry. Related to this and of even greater concern is this administration\'s disinterest in the process by which the truth is ascertained, the tenets of fact-based reasoning - first among them an embrace of open inquiry, in which unexpected and even inconvenient facts can lead to unexpected conclusions." "How did we get here? And how much damage has been done to the functioning of our democracy and its role as steward of our security? Never has there been a worse time for us to lose the capacity to face the reality of our long-term challenges, from national security to the economy, from issues of health and social welfare to the environment. As The Assault on Reason shows us, we have precious little time to waste." "Al Gore\'s larger goal in this book is to explain how the public sphere itself has evolved into a place hospitable to reason\'s enemies; to make us more aware of the forces at work on our own minds; and to lead us to an understanding of what we can do, individually and collectively, to restore the rule of reason and safeguard our future. Drawing on a life\'s work in politics as well as on the work of experts across a broad range of disciplines, A1 Gore has written a farsighted and powerful manifesto for clear thinking."--BOOK JACKET.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">Politics and government</subfield><subfield code="y">2001-2009.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Political culture</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Democracy</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reason</subfield><subfield code="x">Social aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reason</subfield><subfield code="x">Political aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Fear</subfield><subfield code="x">Political aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Official secrets</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Bush, George W.</subfield><subfield code="q">(George Walker),</subfield><subfield code="d">1946-</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Bush, George W.</subfield><subfield code="q">(George Walker),</subfield><subfield code="d">1946-</subfield><subfield code="x">Friends and associates.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Religious fundamentalism</subfield><subfield code="x">Political aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Contributor biographical information</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0743/2007003261-b.html</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Publisher description</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0743/2007003261-d.html</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield><subfield code="b">TOC</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20070619</subfield><subfield code="b">c</subfield><subfield code="c">sds12</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20070808</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20071015</subfield><subfield code="b">a</subfield><subfield code="c">hew2</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">E</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">E902 .G67 2007</subfield><subfield code="b">loc+E--+0902+00000000+G6700000+002007</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; E902 .G67 2007|DELIM|7900669</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Lehman</subfield><subfield code="b">Lehman &gt;&gt; E902 .G67 2007|DELIM|8043304</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein [Butler] &gt;&gt; E902 .G67 2007|DELIM|8115214</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Gore, Al, 1948-'],'pub_name_display'=>['Penguin Press'],'source_display'=>['catalog'],'material_type_display'=>['308 p.'],'language_facet'=>['English'],'_version_'=>1501954957358661632,'timestamp'=>'2015-05-23T10:11:07.23Z'}]}}
+        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'6201975','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+e--+0902+00000000+g6700000+002007+6201975'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> E902 .G67 2007|DELIM|7900669','Lehman >> E902 .G67 2007|DELIM|8043304','Milstein [Butler] >> E902 .G67 2007|DELIM|8115214'],'lccn_display'=>['2007003261'],'summary_display'=>['"We live in an age when the 30-second television spot is the most powerful force shaping the electorate\'s thinking, and America is in the hands of an administration less interested than any previous administration in sharing the truth with the citizenry. Related to this and of even greater concern is this administration\'s disinterest in the process by which the truth is ascertained, the tenets of fact-based reasoning - first among them an embrace of open inquiry, in which unexpected and even inconvenient facts can lead to unexpected conclusions." "How did we get here? And how much damage has been done to the functioning of our democracy and its role as steward of our security? Never has there been a worse time for us to lose the capacity to face the reality of our long-term challenges, from national security to the economy, from issues of health and social welfare to the environment. As The Assault on Reason shows us, we have precious little time to waste." "Al Gore\'s larger goal in this book is to explain how the public sphere itself has evolved into a place hospitable to reason\'s enemies; to make us more aware of the forces at work on our own minds; and to lead us to an understanding of what we can do, individually and collectively, to restore the rule of reason and safeguard our future. Drawing on a life\'s work in politics as well as on the work of experts across a broad range of disciplines, A1 Gore has written a farsighted and powerful manifesto for clear thinking."--BOOK JACKET'],'item_display'=>['E902 .G67 2007 | loc+e--+0902+00000000+g6700000+002007+6201975 | ebn~l~~~zqzx~zzzzzzzz~jtszzzzz~zzxzzs~txzyqsu~~~~~'],'title_display'=>['The assault on reason'],'clio_id_display'=>'6201975','subject_topic_facet'=>['Bush, George W. (George Walker), 1946-','Friends and associates','Political culture','Democracy','Reason','Fear','Official secrets','Religious fundamentalism','Social aspects','Political aspects','Politics and government'],'pub_place_display'=>['New York'],'format'=>['Book'],'oclc_display'=>['ocm81252666','81252666'],'url_munged_display'=>['2|||Contributor biographical information|||http://www.loc.gov/catdir/enhancements/fy0743/2007003261-b.html|||','2|||Publisher description|||http://www.loc.gov/catdir/enhancements/fy0743/2007003261-d.html|||'],'title_first_facet'=>['A'],'full_publisher_display'=>['New York : Penguin Press, 2007.'],'pub_date_sort'=>2007,'isbn_display'=>['9781594201226','1594201226'],'pub_year_display'=>['2007'],'id'=>'6201975','reverse_shelfkey'=>['ebn~l~~~zqzx~zzzzzzzz~jtszzzzz~zzxzzs~txzyqsu~~~~~'],'subject_geo_facet'=>['United States'],'call_number_display'=>['E902 .G67 2007'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>03975cam a2200553 a 4500</leader><controlfield tag="001">6201975</controlfield><controlfield tag="005">20150123144650.0</controlfield><controlfield tag="008">070124s2007    nyu      b    001 0deng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2007003261</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781594201226</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1594201226</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm81252666</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)81252666</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(DLC)  2007003261</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)6201975</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">BAKER</subfield><subfield code="d">BTCTA</subfield><subfield code="d">LF3</subfield><subfield code="d">YBM</subfield><subfield code="d">C#P</subfield><subfield code="d">VP@</subfield><subfield code="d">BUR</subfield><subfield code="d">YDXCP</subfield><subfield code="d">IXA</subfield><subfield code="d">DLC</subfield><subfield code="d">OrLoB-B</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">n-us---</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">E902</subfield><subfield code="b">.G67 2007</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">973.931</subfield><subfield code="2">22</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Gore, Al,</subfield><subfield code="d">1948-</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The assault on reason /</subfield><subfield code="c">Al Gore.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Penguin Press,</subfield><subfield code="c">2007.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">308 p. ;</subfield><subfield code="c">25 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references (p. [277]-296) and index.</subfield></datafield><datafield tag="505" ind1="0" ind2="0"><subfield code="g">1.</subfield><subfield code="t">The politics of fear -- </subfield><subfield code="g">2.</subfield><subfield code="t">Blinding the faithful -- </subfield><subfield code="g">3.</subfield><subfield code="t">The politics of wealth -- </subfield><subfield code="g">4.</subfield><subfield code="t">Convenient untruths -- </subfield><subfield code="g">5.</subfield><subfield code="t">The assault on the individual -- </subfield><subfield code="g">6.</subfield><subfield code="t">National insecurity -- </subfield><subfield code="g">7.</subfield><subfield code="t">The carbon crisis -- </subfield><subfield code="g">8.</subfield><subfield code="t">Democracy in the balance -- </subfield><subfield code="g">9.</subfield><subfield code="t">A well-connected citizenry -- </subfield><subfield code="t">Conclusion : the rebirth of democracy.</subfield></datafield><datafield tag="520" ind1="1" ind2=" "><subfield code="a">"We live in an age when the 30-second television spot is the most powerful force shaping the electorate\'s thinking, and America is in the hands of an administration less interested than any previous administration in sharing the truth with the citizenry. Related to this and of even greater concern is this administration\'s disinterest in the process by which the truth is ascertained, the tenets of fact-based reasoning - first among them an embrace of open inquiry, in which unexpected and even inconvenient facts can lead to unexpected conclusions." "How did we get here? And how much damage has been done to the functioning of our democracy and its role as steward of our security? Never has there been a worse time for us to lose the capacity to face the reality of our long-term challenges, from national security to the economy, from issues of health and social welfare to the environment. As The Assault on Reason shows us, we have precious little time to waste." "Al Gore\'s larger goal in this book is to explain how the public sphere itself has evolved into a place hospitable to reason\'s enemies; to make us more aware of the forces at work on our own minds; and to lead us to an understanding of what we can do, individually and collectively, to restore the rule of reason and safeguard our future. Drawing on a life\'s work in politics as well as on the work of experts across a broad range of disciplines, A1 Gore has written a farsighted and powerful manifesto for clear thinking."--BOOK JACKET.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">Politics and government</subfield><subfield code="y">2001-2009.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Political culture</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Democracy</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reason</subfield><subfield code="x">Social aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reason</subfield><subfield code="x">Political aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Fear</subfield><subfield code="x">Political aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Official secrets</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Bush, George W.</subfield><subfield code="q">(George Walker),</subfield><subfield code="d">1946-</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Bush, George W.</subfield><subfield code="q">(George Walker),</subfield><subfield code="d">1946-</subfield><subfield code="x">Friends and associates.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Religious fundamentalism</subfield><subfield code="x">Political aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Contributor biographical information</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0743/2007003261-b.html</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Publisher description</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0743/2007003261-d.html</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield><subfield code="b">TOC</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20070619</subfield><subfield code="b">c</subfield><subfield code="c">sds12</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20070808</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20071015</subfield><subfield code="b">a</subfield><subfield code="c">hew2</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">E</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">E902 .G67 2007</subfield><subfield code="b">loc+E--+0902+00000000+G6700000+002007</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; E902 .G67 2007|DELIM|7900669</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Lehman</subfield><subfield code="b">Lehman &gt;&gt; E902 .G67 2007|DELIM|8043304</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein [Butler] &gt;&gt; E902 .G67 2007|DELIM|8115214</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Gore, Al, 1948-'],'pub_name_display'=>['Penguin Press'],'source_display'=>['catalog'],'material_type_display'=>['308 p.'],'language_facet'=>['English'],'_version_'=>1501954957358661632,'timestamp'=>'2015-05-23T10:11:07.23Z'}]}}
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:24 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:06 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/9781594201226.json
@@ -64,14 +64,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:24 GMT
+      - Thu, 17 Sep 2015 18:06:06 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:23 GMT
+      - Thu, 17 Sep 2015 18:06:05 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -81,8 +81,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        15:33:23 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        18:16:05 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -92,7 +92,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:24 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:06 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/1594201226.json
@@ -105,14 +105,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:24 GMT
+      - Thu, 17 Sep 2015 18:06:06 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:24 GMT
+      - Thu, 17 Sep 2015 18:06:06 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -122,8 +122,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        15:33:24 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        18:16:06 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -133,7 +133,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:24 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:07 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocm81252666.json
@@ -146,14 +146,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:24 GMT
+      - Thu, 17 Sep 2015 18:06:07 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:24 GMT
+      - Thu, 17 Sep 2015 18:06:06 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -164,7 +164,7 @@ http_interactions:
       - text/html
       Set-Cookie:
       - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        15:33:24 GMT;path=/;httponly
+        18:16:06 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -174,7 +174,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:25 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:07 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/81252666.json
@@ -187,14 +187,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:25 GMT
+      - Thu, 17 Sep 2015 18:06:07 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:24 GMT
+      - Thu, 17 Sep 2015 18:06:06 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -205,7 +205,7 @@ http_interactions:
       - text/html
       Set-Cookie:
       - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        15:33:24 GMT;path=/;httponly
+        18:16:06 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -215,48 +215,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:25 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/lccn/2007003261.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Thu, 17 Sep 2015 15:23:25 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 17 Sep 2015 15:23:24 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        15:33:24 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:25 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:07 GMT
 - request:
     method: get
     uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/6201975
@@ -269,7 +228,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:24 GMT
+      - Thu, 17 Sep 2015 18:06:05 GMT
   response:
     status:
       code: 200
@@ -300,9 +259,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 601e9fe2-4b3f-48e0-a320-976a4e071629
+      - d3c0ba42-9186-4384-91c0-eebc80f58f8c
       X-Runtime:
-      - '5.258666'
+      - '1.310381'
       Server:
       - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
     body:
@@ -313,33 +272,48 @@ http_interactions:
         .G67 2007\",\"status\":\"available\",\"holding_id\":[\"8043304\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"doc_delivery\"]},{\"location_name\":\"Milstein
         [Butler]\",\"location_note\":\"\",\"call_number\":\"E902 .G67 2007\",\"status\":\"available\",\"holding_id\":[\"8115214\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"doc_delivery\"]}]}}"
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:30 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:07 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=6871895&qt=document&wt=ruby
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 17 Sep 2015 15:23:29 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
+    uri: http://catalog.hathitrust.org/api/volumes/brief/lccn/2007003261.json
     body:
       encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'6871895','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+ds-+0326+00000000+p4745000+002009+6871895'],'location_call_number_id_display'=>['Milstein [Butler] >> DS326 .P4745 2009|DELIM|9336454','Butler Stacks (Enter at the Butler Circulation Desk) >> DS326 .P4745 2009|DELIM|9902579','Lehman >> DS326 .P4745 2009|DELIM|10336040'],'lccn_display'=>['2008021284'],'acq_dt'=>'2010-07-26T00:00:00Z','item_display'=>['DS326 .P4745 2009 | loc+ds-+0326+00000000+p4745000+002009+6871895 | ebn~m7~~zwxt~zzzzzzzz~avsvuzzz~zzxzzq~trsyrqu~~~~~'],'title_display'=>['The Persian Gulf in history'],'clio_id_display'=>'6871895','subject_topic_facet'=>['History'],'pub_place_display'=>['New York'],'format'=>['Book'],'oclc_display'=>['ocn228427351','228427351'],'url_munged_display'=>['2|||Contributor biographical information|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-b.html|||','2|||Publisher description|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-d.html|||','1|||Table of contents only|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-t.html|||'],'title_first_facet'=>['P'],'pub_date_sort'=>2009,'full_publisher_display'=>['New York : Palgrave Macmillan, 2009.'],'isbn_display'=>['1403972451','9781403972453'],'pub_year_display'=>['2009'],'id'=>'6871895','reverse_shelfkey'=>['ebn~m7~~zwxt~zzzzzzzz~avsvuzzz~zzxzzq~trsyrqu~~~~~'],'subject_geo_facet'=>['Persian Gulf Region'],'call_number_display'=>['DS326 .P4745 2009'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>03377cam a22004814a 4500</leader><controlfield tag="001">6871895</controlfield><controlfield tag="005">20100818145900.0</controlfield><controlfield tag="008">080519s2009    nyuab    b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2008021284</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1403972451</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781403972453</subfield></datafield><datafield tag="024" ind1=" " ind2=" "><subfield code="a">40016299031</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn228427351</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)228427351</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)6871895</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">BAKER</subfield><subfield code="d">BTCTA</subfield><subfield code="d">C#P</subfield><subfield code="d">BWX</subfield><subfield code="d">OrLoB-B</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">ap-----</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">DS326</subfield><subfield code="b">.P4745 2009</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">953.6</subfield><subfield code="2">22</subfield></datafield><datafield tag="245" ind1="0" ind2="4"><subfield code="a">The Persian Gulf in history /</subfield><subfield code="c">edited by Lawrence G. Potter.</subfield></datafield><datafield tag="250" ind1=" " ind2=" "><subfield code="a">1st ed.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Palgrave Macmillan,</subfield><subfield code="c">2009.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">iv, 326 p. :</subfield><subfield code="b">ill., maps ;</subfield><subfield code="c">25 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="505" ind1="0" ind2="0"><subfield code="t">Introduction /</subfield><subfield code="r">Lawrence G. Potter --</subfield><subfield code="g">Pt. I.</subfield><subfield code="t">Gulf History and Society --</subfield><subfield code="g">1.</subfield><subfield code="t">The Archaeology and Early History of the Persian Gulf /</subfield><subfield code="r">D. T. Potts --</subfield><subfield code="g">2.</subfield><subfield code="t">The Persian Gulf in Late Antiquity: The Sasanian Era (200-700 C.E.) /</subfield><subfield code="r">Touraj Daryaee --</subfield><subfield code="g">3.</subfield><subfield code="t">The Gulf in the Early Islamic Period: The Contribution of Archaeology to Regional History /</subfield><subfield code="r">Donald Whitcomb --</subfield><subfield code="g">4.</subfield><subfield code="t">The Kings of Hormuz: From the Beginning until the Arrival of the Portuguese /</subfield><subfield code="r">Mohammad Bagher Vosoughi --</subfield><subfield code="g">5.</subfield><subfield code="t">Boom and Bust: The Port of Basra in the Sixteenth and Seventeenth Centuries /</subfield><subfield code="r">Rudi Matthee --</subfield><subfield code="g">6.</subfield><subfield code="t">The Arab Presence on the Iranian Coast of the Persian Gulf /</subfield><subfield code="r">Shahnaz Razieh Nadjmabadi --</subfield><subfield code="g">7.</subfield><subfield code="t">Gulf Society: An Anthropological View of the Khalijis - Their Evolution and Way of Life /</subfield><subfield code="r">William O. Beeman --</subfield><subfield code="g">Pt. II.</subfield><subfield code="t">The Gulf and the Indian Ocean --</subfield><subfield code="g">8.</subfield><subfield code="t">The Cultural Unity of the Gulf and the Indian Ocean: A Longue Duree Historical Perspective /</subfield><subfield code="r">M. Redha Bhacker --</subfield><subfield code="g">9.</subfield><subfield code="t">The Persian Gulf and the Swahili Coast: A History of Acculturation over the Longue Duree /</subfield><subfield code="r">Abdul Sheriff --</subfield><subfield code="g">10.</subfield><subfield code="t">India and the Gulf: Encounters from the Mid-Sixteenth to the Mid-Twentieth Centuries /</subfield><subfield code="r">Patricia Risso --</subfield><subfield code="g">Pt. III.</subfield><subfield code="t">The Role of Outsiders --</subfield><subfield code="g">11.</subfield><subfield code="t">The Portuguese Presence in the Persian Gulf /</subfield><subfield code="r">Joao Teles e Cunha --</subfield><subfield code="g">12.</subfield><subfield code="t">Dutch Relations with the Persian Gulf /</subfield><subfield code="r">Willem Floor --</subfield><subfield code="g">13.</subfield><subfield code="t">The Ottoman Role in the Gulf /</subfield><subfield code="r">Frederick Anscombe --</subfield><subfield code="g">14.</subfield><subfield code="t">Britain and the Gulf: At the Periphery of Empire /</subfield><subfield code="r">J. E. Peterson --</subfield><subfield code="g">15.</subfield><subfield code="t">The United States and the Persian Gulf in the Twentieth Century /</subfield><subfield code="r">Gary Sick.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">Persian Gulf Region</subfield><subfield code="x">History.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Potter, Lawrence G.</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Contributor biographical information</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-b.html</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Publisher description</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-d.html</subfield></datafield><datafield tag="856" ind1="4" ind2="1"><subfield code="3">Table of contents only</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-t.html</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield><subfield code="b">TOC</subfield></datafield><datafield tag="960" ind1=" " ind2=" "><subfield code="f">617420</subfield><subfield code="o">1</subfield><subfield code="s">72.41</subfield><subfield code="t">sho</subfield><subfield code="u">2576B</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20090210</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20090804</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20100726</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">DS</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">DS326 .P4745 2009</subfield><subfield code="b">loc+DS-+0326+00000000+P4745000+002009</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein [Butler] &gt;&gt; DS326 .P4745 2009|DELIM|9336454</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; DS326 .P4745 2009|DELIM|9902579</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Lehman</subfield><subfield code="b">Lehman &gt;&gt; DS326 .P4745 2009|DELIM|10336040</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2010-07-26T00:00:00.000Z</subfield></datafield></record></collection>','pub_name_display'=>['Palgrave Macmillan'],'source_display'=>['catalog'],'material_type_display'=>['iv, 326 p.'],'language_facet'=>['English'],'_version_'=>1503691827719438336,'timestamp'=>'2015-06-11T14:17:55.885Z'}]}}
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 17 Sep 2015 18:06:07 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 18:06:07 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        18:16:07 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:30 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:07 GMT
 - request:
     method: get
     uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=6871895&qt=document&wt=ruby
@@ -353,7 +327,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:30 GMT
+      - Thu, 17 Sep 2015 18:06:07 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -365,7 +339,33 @@ http_interactions:
       string: |
         {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'6871895','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+ds-+0326+00000000+p4745000+002009+6871895'],'location_call_number_id_display'=>['Milstein [Butler] >> DS326 .P4745 2009|DELIM|9336454','Butler Stacks (Enter at the Butler Circulation Desk) >> DS326 .P4745 2009|DELIM|9902579','Lehman >> DS326 .P4745 2009|DELIM|10336040'],'lccn_display'=>['2008021284'],'acq_dt'=>'2010-07-26T00:00:00Z','item_display'=>['DS326 .P4745 2009 | loc+ds-+0326+00000000+p4745000+002009+6871895 | ebn~m7~~zwxt~zzzzzzzz~avsvuzzz~zzxzzq~trsyrqu~~~~~'],'title_display'=>['The Persian Gulf in history'],'clio_id_display'=>'6871895','subject_topic_facet'=>['History'],'pub_place_display'=>['New York'],'format'=>['Book'],'oclc_display'=>['ocn228427351','228427351'],'url_munged_display'=>['2|||Contributor biographical information|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-b.html|||','2|||Publisher description|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-d.html|||','1|||Table of contents only|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-t.html|||'],'title_first_facet'=>['P'],'pub_date_sort'=>2009,'full_publisher_display'=>['New York : Palgrave Macmillan, 2009.'],'isbn_display'=>['1403972451','9781403972453'],'pub_year_display'=>['2009'],'id'=>'6871895','reverse_shelfkey'=>['ebn~m7~~zwxt~zzzzzzzz~avsvuzzz~zzxzzq~trsyrqu~~~~~'],'subject_geo_facet'=>['Persian Gulf Region'],'call_number_display'=>['DS326 .P4745 2009'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>03377cam a22004814a 4500</leader><controlfield tag="001">6871895</controlfield><controlfield tag="005">20100818145900.0</controlfield><controlfield tag="008">080519s2009    nyuab    b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2008021284</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1403972451</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781403972453</subfield></datafield><datafield tag="024" ind1=" " ind2=" "><subfield code="a">40016299031</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn228427351</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)228427351</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)6871895</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">BAKER</subfield><subfield code="d">BTCTA</subfield><subfield code="d">C#P</subfield><subfield code="d">BWX</subfield><subfield code="d">OrLoB-B</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">ap-----</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">DS326</subfield><subfield code="b">.P4745 2009</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">953.6</subfield><subfield code="2">22</subfield></datafield><datafield tag="245" ind1="0" ind2="4"><subfield code="a">The Persian Gulf in history /</subfield><subfield code="c">edited by Lawrence G. Potter.</subfield></datafield><datafield tag="250" ind1=" " ind2=" "><subfield code="a">1st ed.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Palgrave Macmillan,</subfield><subfield code="c">2009.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">iv, 326 p. :</subfield><subfield code="b">ill., maps ;</subfield><subfield code="c">25 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="505" ind1="0" ind2="0"><subfield code="t">Introduction /</subfield><subfield code="r">Lawrence G. Potter --</subfield><subfield code="g">Pt. I.</subfield><subfield code="t">Gulf History and Society --</subfield><subfield code="g">1.</subfield><subfield code="t">The Archaeology and Early History of the Persian Gulf /</subfield><subfield code="r">D. T. Potts --</subfield><subfield code="g">2.</subfield><subfield code="t">The Persian Gulf in Late Antiquity: The Sasanian Era (200-700 C.E.) /</subfield><subfield code="r">Touraj Daryaee --</subfield><subfield code="g">3.</subfield><subfield code="t">The Gulf in the Early Islamic Period: The Contribution of Archaeology to Regional History /</subfield><subfield code="r">Donald Whitcomb --</subfield><subfield code="g">4.</subfield><subfield code="t">The Kings of Hormuz: From the Beginning until the Arrival of the Portuguese /</subfield><subfield code="r">Mohammad Bagher Vosoughi --</subfield><subfield code="g">5.</subfield><subfield code="t">Boom and Bust: The Port of Basra in the Sixteenth and Seventeenth Centuries /</subfield><subfield code="r">Rudi Matthee --</subfield><subfield code="g">6.</subfield><subfield code="t">The Arab Presence on the Iranian Coast of the Persian Gulf /</subfield><subfield code="r">Shahnaz Razieh Nadjmabadi --</subfield><subfield code="g">7.</subfield><subfield code="t">Gulf Society: An Anthropological View of the Khalijis - Their Evolution and Way of Life /</subfield><subfield code="r">William O. Beeman --</subfield><subfield code="g">Pt. II.</subfield><subfield code="t">The Gulf and the Indian Ocean --</subfield><subfield code="g">8.</subfield><subfield code="t">The Cultural Unity of the Gulf and the Indian Ocean: A Longue Duree Historical Perspective /</subfield><subfield code="r">M. Redha Bhacker --</subfield><subfield code="g">9.</subfield><subfield code="t">The Persian Gulf and the Swahili Coast: A History of Acculturation over the Longue Duree /</subfield><subfield code="r">Abdul Sheriff --</subfield><subfield code="g">10.</subfield><subfield code="t">India and the Gulf: Encounters from the Mid-Sixteenth to the Mid-Twentieth Centuries /</subfield><subfield code="r">Patricia Risso --</subfield><subfield code="g">Pt. III.</subfield><subfield code="t">The Role of Outsiders --</subfield><subfield code="g">11.</subfield><subfield code="t">The Portuguese Presence in the Persian Gulf /</subfield><subfield code="r">Joao Teles e Cunha --</subfield><subfield code="g">12.</subfield><subfield code="t">Dutch Relations with the Persian Gulf /</subfield><subfield code="r">Willem Floor --</subfield><subfield code="g">13.</subfield><subfield code="t">The Ottoman Role in the Gulf /</subfield><subfield code="r">Frederick Anscombe --</subfield><subfield code="g">14.</subfield><subfield code="t">Britain and the Gulf: At the Periphery of Empire /</subfield><subfield code="r">J. E. Peterson --</subfield><subfield code="g">15.</subfield><subfield code="t">The United States and the Persian Gulf in the Twentieth Century /</subfield><subfield code="r">Gary Sick.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">Persian Gulf Region</subfield><subfield code="x">History.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Potter, Lawrence G.</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Contributor biographical information</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-b.html</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Publisher description</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-d.html</subfield></datafield><datafield tag="856" ind1="4" ind2="1"><subfield code="3">Table of contents only</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-t.html</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield><subfield code="b">TOC</subfield></datafield><datafield tag="960" ind1=" " ind2=" "><subfield code="f">617420</subfield><subfield code="o">1</subfield><subfield code="s">72.41</subfield><subfield code="t">sho</subfield><subfield code="u">2576B</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20090210</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20090804</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20100726</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">DS</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">DS326 .P4745 2009</subfield><subfield code="b">loc+DS-+0326+00000000+P4745000+002009</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein [Butler] &gt;&gt; DS326 .P4745 2009|DELIM|9336454</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; DS326 .P4745 2009|DELIM|9902579</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Lehman</subfield><subfield code="b">Lehman &gt;&gt; DS326 .P4745 2009|DELIM|10336040</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2010-07-26T00:00:00.000Z</subfield></datafield></record></collection>','pub_name_display'=>['Palgrave Macmillan'],'source_display'=>['catalog'],'material_type_display'=>['iv, 326 p.'],'language_facet'=>['English'],'_version_'=>1503691827719438336,'timestamp'=>'2015-06-11T14:17:55.885Z'}]}}
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:31 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:08 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=6871895&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 18:06:07 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'6871895','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+ds-+0326+00000000+p4745000+002009+6871895'],'location_call_number_id_display'=>['Milstein [Butler] >> DS326 .P4745 2009|DELIM|9336454','Butler Stacks (Enter at the Butler Circulation Desk) >> DS326 .P4745 2009|DELIM|9902579','Lehman >> DS326 .P4745 2009|DELIM|10336040'],'lccn_display'=>['2008021284'],'acq_dt'=>'2010-07-26T00:00:00Z','item_display'=>['DS326 .P4745 2009 | loc+ds-+0326+00000000+p4745000+002009+6871895 | ebn~m7~~zwxt~zzzzzzzz~avsvuzzz~zzxzzq~trsyrqu~~~~~'],'title_display'=>['The Persian Gulf in history'],'clio_id_display'=>'6871895','subject_topic_facet'=>['History'],'pub_place_display'=>['New York'],'format'=>['Book'],'oclc_display'=>['ocn228427351','228427351'],'url_munged_display'=>['2|||Contributor biographical information|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-b.html|||','2|||Publisher description|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-d.html|||','1|||Table of contents only|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-t.html|||'],'title_first_facet'=>['P'],'pub_date_sort'=>2009,'full_publisher_display'=>['New York : Palgrave Macmillan, 2009.'],'isbn_display'=>['1403972451','9781403972453'],'pub_year_display'=>['2009'],'id'=>'6871895','reverse_shelfkey'=>['ebn~m7~~zwxt~zzzzzzzz~avsvuzzz~zzxzzq~trsyrqu~~~~~'],'subject_geo_facet'=>['Persian Gulf Region'],'call_number_display'=>['DS326 .P4745 2009'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>03377cam a22004814a 4500</leader><controlfield tag="001">6871895</controlfield><controlfield tag="005">20100818145900.0</controlfield><controlfield tag="008">080519s2009    nyuab    b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2008021284</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1403972451</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781403972453</subfield></datafield><datafield tag="024" ind1=" " ind2=" "><subfield code="a">40016299031</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn228427351</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)228427351</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)6871895</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">BAKER</subfield><subfield code="d">BTCTA</subfield><subfield code="d">C#P</subfield><subfield code="d">BWX</subfield><subfield code="d">OrLoB-B</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">ap-----</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">DS326</subfield><subfield code="b">.P4745 2009</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">953.6</subfield><subfield code="2">22</subfield></datafield><datafield tag="245" ind1="0" ind2="4"><subfield code="a">The Persian Gulf in history /</subfield><subfield code="c">edited by Lawrence G. Potter.</subfield></datafield><datafield tag="250" ind1=" " ind2=" "><subfield code="a">1st ed.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Palgrave Macmillan,</subfield><subfield code="c">2009.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">iv, 326 p. :</subfield><subfield code="b">ill., maps ;</subfield><subfield code="c">25 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="505" ind1="0" ind2="0"><subfield code="t">Introduction /</subfield><subfield code="r">Lawrence G. Potter --</subfield><subfield code="g">Pt. I.</subfield><subfield code="t">Gulf History and Society --</subfield><subfield code="g">1.</subfield><subfield code="t">The Archaeology and Early History of the Persian Gulf /</subfield><subfield code="r">D. T. Potts --</subfield><subfield code="g">2.</subfield><subfield code="t">The Persian Gulf in Late Antiquity: The Sasanian Era (200-700 C.E.) /</subfield><subfield code="r">Touraj Daryaee --</subfield><subfield code="g">3.</subfield><subfield code="t">The Gulf in the Early Islamic Period: The Contribution of Archaeology to Regional History /</subfield><subfield code="r">Donald Whitcomb --</subfield><subfield code="g">4.</subfield><subfield code="t">The Kings of Hormuz: From the Beginning until the Arrival of the Portuguese /</subfield><subfield code="r">Mohammad Bagher Vosoughi --</subfield><subfield code="g">5.</subfield><subfield code="t">Boom and Bust: The Port of Basra in the Sixteenth and Seventeenth Centuries /</subfield><subfield code="r">Rudi Matthee --</subfield><subfield code="g">6.</subfield><subfield code="t">The Arab Presence on the Iranian Coast of the Persian Gulf /</subfield><subfield code="r">Shahnaz Razieh Nadjmabadi --</subfield><subfield code="g">7.</subfield><subfield code="t">Gulf Society: An Anthropological View of the Khalijis - Their Evolution and Way of Life /</subfield><subfield code="r">William O. Beeman --</subfield><subfield code="g">Pt. II.</subfield><subfield code="t">The Gulf and the Indian Ocean --</subfield><subfield code="g">8.</subfield><subfield code="t">The Cultural Unity of the Gulf and the Indian Ocean: A Longue Duree Historical Perspective /</subfield><subfield code="r">M. Redha Bhacker --</subfield><subfield code="g">9.</subfield><subfield code="t">The Persian Gulf and the Swahili Coast: A History of Acculturation over the Longue Duree /</subfield><subfield code="r">Abdul Sheriff --</subfield><subfield code="g">10.</subfield><subfield code="t">India and the Gulf: Encounters from the Mid-Sixteenth to the Mid-Twentieth Centuries /</subfield><subfield code="r">Patricia Risso --</subfield><subfield code="g">Pt. III.</subfield><subfield code="t">The Role of Outsiders --</subfield><subfield code="g">11.</subfield><subfield code="t">The Portuguese Presence in the Persian Gulf /</subfield><subfield code="r">Joao Teles e Cunha --</subfield><subfield code="g">12.</subfield><subfield code="t">Dutch Relations with the Persian Gulf /</subfield><subfield code="r">Willem Floor --</subfield><subfield code="g">13.</subfield><subfield code="t">The Ottoman Role in the Gulf /</subfield><subfield code="r">Frederick Anscombe --</subfield><subfield code="g">14.</subfield><subfield code="t">Britain and the Gulf: At the Periphery of Empire /</subfield><subfield code="r">J. E. Peterson --</subfield><subfield code="g">15.</subfield><subfield code="t">The United States and the Persian Gulf in the Twentieth Century /</subfield><subfield code="r">Gary Sick.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">Persian Gulf Region</subfield><subfield code="x">History.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Potter, Lawrence G.</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Contributor biographical information</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-b.html</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Publisher description</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-d.html</subfield></datafield><datafield tag="856" ind1="4" ind2="1"><subfield code="3">Table of contents only</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-t.html</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield><subfield code="b">TOC</subfield></datafield><datafield tag="960" ind1=" " ind2=" "><subfield code="f">617420</subfield><subfield code="o">1</subfield><subfield code="s">72.41</subfield><subfield code="t">sho</subfield><subfield code="u">2576B</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20090210</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20090804</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20100726</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">DS</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">DS326 .P4745 2009</subfield><subfield code="b">loc+DS-+0326+00000000+P4745000+002009</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein [Butler] &gt;&gt; DS326 .P4745 2009|DELIM|9336454</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; DS326 .P4745 2009|DELIM|9902579</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Lehman</subfield><subfield code="b">Lehman &gt;&gt; DS326 .P4745 2009|DELIM|10336040</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2010-07-26T00:00:00.000Z</subfield></datafield></record></collection>','pub_name_display'=>['Palgrave Macmillan'],'source_display'=>['catalog'],'material_type_display'=>['iv, 326 p.'],'language_facet'=>['English'],'_version_'=>1503691827719438336,'timestamp'=>'2015-06-11T14:17:55.885Z'}]}}
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 18:06:08 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/1403972451.json
@@ -378,14 +378,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:31 GMT
+      - Thu, 17 Sep 2015 18:06:08 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:31 GMT
+      - Thu, 17 Sep 2015 18:06:07 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -395,8 +395,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed045525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        15:33:31 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        18:16:07 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -406,7 +406,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:31 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:08 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/9781403972453.json
@@ -419,14 +419,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:31 GMT
+      - Thu, 17 Sep 2015 18:06:08 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:31 GMT
+      - Thu, 17 Sep 2015 18:06:07 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -436,8 +436,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed045525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        15:33:31 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        18:16:07 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -447,7 +447,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:32 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:08 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocn228427351.json
@@ -460,14 +460,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:32 GMT
+      - Thu, 17 Sep 2015 18:06:08 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:31 GMT
+      - Thu, 17 Sep 2015 18:06:07 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -477,8 +477,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed045525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        15:33:31 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        18:16:07 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -488,7 +488,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:32 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:08 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/228427351.json
@@ -501,14 +501,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:32 GMT
+      - Thu, 17 Sep 2015 18:06:08 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:32 GMT
+      - Thu, 17 Sep 2015 18:06:08 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -518,8 +518,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed045525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        15:33:32 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        18:16:08 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -529,7 +529,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:33 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:08 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/lccn/2008021284.json
@@ -542,14 +542,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:33 GMT
+      - Thu, 17 Sep 2015 18:06:08 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:32 GMT
+      - Thu, 17 Sep 2015 18:06:08 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -559,8 +559,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed045525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        15:33:32 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        18:16:08 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -570,7 +570,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:33 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:09 GMT
 - request:
     method: get
     uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/6871895
@@ -583,7 +583,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:30 GMT
+      - Thu, 17 Sep 2015 18:06:08 GMT
   response:
     status:
       code: 200
@@ -614,9 +614,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d6d28e3f-e91a-4c76-9e50-cf54078b5e83
+      - db63d5ae-f489-4d1d-8520-a504108287db
       X-Runtime:
-      - '4.955099'
+      - '1.571035'
       Server:
       - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
     body:
@@ -627,5 +627,5 @@ http_interactions:
         .P4745 2009\",\"status\":\"available\",\"holding_id\":[\"10336040\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"doc_delivery\"]},{\"location_name\":\"Milstein
         [Butler]\",\"location_note\":\"\",\"call_number\":\"DS326 .P4745 2009\",\"status\":\"available\",\"holding_id\":[\"9336454\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"doc_delivery\"]}]}}"
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:36 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:10 GMT
 recorded_with: VCR 2.9.3

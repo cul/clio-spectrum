@@ -1,0 +1,246 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=7814900&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:40:45 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
+        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
+        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic3ODE0OTAw
+        JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
+        PnsnbnVtRm91bmQnPT4xLCdzdGFydCc9PjAsJ2RvY3MnPT5beydzaGVsZmtl
+        eSc9PlsncmJ4K21zLS0tLS0tLS0tLSt4ODkzKzAwMDAwMDAwKzAwMDAwMDAw
+        K20yODE1MDAwKzc4MTQ5MDAnXSwnbG9jYXRpb25fY2FsbF9udW1iZXJfaWRf
+        ZGlzcGxheSc9PlsnUmFyZSBCb29rLCBCdXRsZXIgNnRoIEZsLiBFYXN0IChO
+        b24tQ2lyY3VsYXRpbmcpID4+IE1TIFg4OTMgTTI4MTV8REVMSU18MTA5MTg1
+        MjYnXSwncHViX3llYXJfZGlzcGxheSc9PlsnMTYtLSddLCdhY3FfZHQnPT4n
+        MjAxMC0wNi0xNFQwMDowMDowMFonLCdhdXRob3JfdmVybl9kaXNwbGF5Jz0+
+        WyfXntep15Qg15HXnyDXnteZ15nXnteV158sINeU16jXnteR17TXnSwgMTEz
+        NS0xMjA0J10sJ3RpdGxlX2Rpc3BsYXknPT5bJ1tNaXNobmVoIHRvcmFoXSBb
+        bWFudXNjcmlwdF0gOiBbc2VmZXIga8yjZWR1c2hhaF0nXSwnaXRlbV9kaXNw
+        bGF5Jz0+WydNUyBYODkzIE0yODE1IHwgcmJ4K21zLS0tLS0tLS0tLSt4ODkz
+        KzAwMDAwMDAwKzAwMDAwMDAwK20yODE1MDAwKzc4MTQ5MDAgfCA4bzJ+ZDd+
+        fn5+fn5+fn5+fjJycXd+enp6enp6enp+enp6enp6enp+ZHhyeXV6enp+c3J5
+        dnF6eiddLCdpZCc9Pic3ODE0OTAwJywncmV2ZXJzZV9zaGVsZmtleSc9Plsn
+        OG8yfmQ3fn5+fn5+fn5+fn4ycnF3fnp6enp6enp6fnp6enp6enp6fmR4cnl1
+        enp6fnNyeXZxenonXSwnY2xpb19pZF9kaXNwbGF5Jz0+Jzc4MTQ5MDAnLCdj
+        YWxsX251bWJlcl9kaXNwbGF5Jz0+WydNUyBYODkzIE0yODE1J10sJ3N1Ympl
+        Y3RfdG9waWNfZmFjZXQnPT5bJ01haW1vbmlkZXMsIE1vc2VzLCAxMTM1LTEy
+        MDQnLCdCaWJsZScsJ1JlYWRpbmcnLCdKZXdpc2ggbGF3JywnSGVicmV3IHBv
+        ZXRyeScsJ1RvcmFoIHNjcm9sbHMgKEpld2lzaCBsYXcpJ10sJ3B1Yl9wbGFj
+        ZV9kaXNwbGF5Jz0+WydZZW1lbiddLCdtYXJjX2Rpc3BsYXknPT4nPD94bWwg
+        dmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48Y29sbGVjdGlvbiB4
+        bWxucz0iaHR0cDovL3d3dy5sb2MuZ292L01BUkMyMS9zbGltIj48cmVjb3Jk
+        PjxsZWFkZXI+MDI3OTFjdG0gYTIyMDA1NDFJYSA0NTAwPC9sZWFkZXI+PGNv
+        bnRyb2xmaWVsZCB0YWc9IjAwMSI+NzgxNDkwMDwvY29udHJvbGZpZWxkPjxj
+        b250cm9sZmllbGQgdGFnPSIwMDUiPjIwMTQwMTI3MDE0ODU1LjA8L2NvbnRy
+        b2xmaWVsZD48Y29udHJvbGZpZWxkIHRhZz0iMDA4Ij4xMDA2MTRzMTZ1dSAg
+        ICB5ZSAgICAgICAgICAgIDAwMCAwIGhlYiBkPC9jb250cm9sZmllbGQ+PGRh
+        dGFmaWVsZCB0YWc9IjAzNSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxk
+        IGNvZGU9ImEiPihPQ29MQylvY242NDEyNzcyNjc8L3N1YmZpZWxkPjwvZGF0
+        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAi
+        PjxzdWJmaWVsZCBjb2RlPSJhIj4oT0NvTEMpNjQxMjc3MjY3PC9zdWJmaWVs
+        ZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDM1IiBpbmQxPSIgIiBp
+        bmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+KE5OQyk3ODE0OTAwPC9zdWJm
+        aWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDQwIiBpbmQxPSIg
+        IiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+WkNVPC9zdWJmaWVsZD48
+        c3ViZmllbGQgY29kZT0iYyI+WkNVPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48
+        ZGF0YWZpZWxkIHRhZz0iMTAwIiBpbmQxPSIxIiBpbmQyPSIgIj48c3ViZmll
+        bGQgY29kZT0iNiI+ODgwLTAxPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
+        YSI+TWFpbW9uaWRlcywgTW9zZXMsPC9zdWJmaWVsZD48c3ViZmllbGQgY29k
+        ZT0iZCI+MTEzNS0xMjA0Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFm
+        aWVsZCB0YWc9IjI0NSIgaW5kMT0iMCIgaW5kMj0iMCI+PHN1YmZpZWxkIGNv
+        ZGU9IjYiPjg4MC0wMjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImEiPltN
+        aXNobmVoIHRvcmFoXTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImgiPltt
+        YW51c2NyaXB0XSA6PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+W3Nl
+        ZmVyIGvMo2VkdXNoYWhdLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFm
+        aWVsZCB0YWc9IjI2MCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNv
+        ZGU9ImEiPltZZW1lbl0sPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYyI+
+        WzE2LS1dLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9
+        IjMwMCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPjIz
+        IGxlYXZlcyA6PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+cGFwZXIg
+        Ozwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImMiPjI5IHggMjAgY20uPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNTAwIiBpbmQx
+        PSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+TWFudXNjcmlwdCB3
+        cml0dGVuIG9uIHBhcGVyIGluIFllbWVuaXRlIHNjcmlwdC48L3N1YmZpZWxk
+        PjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1NDYiIGluZDE9IiAiIGlu
+        ZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5Wb2NhbGl6ZWQgSGVicmV3Ozwv
+        c3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPlllbWVuaXRlIHNjcmlwdC48
+        L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1MTAiIGlu
+        ZDE9IjQiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5NZW5kZWxzb2hu
+        LCBJLiBEZXNjcmlwdGl2ZSBjYXRhbG9ndWUgb2YgU2VtaXRpYyBtYW51c2Ny
+        aXB0cyw8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5wLiA2MTI8L3N1
+        YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1MzAiIGluZDE9
+        IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5BbHNvIGF2YWlsYWJs
+        ZSBvbiBtaWNyb2ZpbG0uPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZp
+        ZWxkIHRhZz0iNTAwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29k
+        ZT0iYSI+Q2Fpcm8gZ2VuaXphaCg/KS48L3N1YmZpZWxkPjwvZGF0YWZpZWxk
+        PjxkYXRhZmllbGQgdGFnPSI1MDAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJm
+        aWVsZCBjb2RlPSJhIj5MZWFmIDEgY29udGFpbnM6IEhpbGtob3QgTWHKvGFr
+        aGFsb3QgQXN1cm90ICBjaC4gMToxLTE1IDsgbGVhdmVzIDItMTk6IGNoLiAy
+        OjEtIHRvIHRoZSBlbmQgb2YgdGhlIEhpbGtob3QgTWHKvGFraGFsb3QgQXN1
+        cm90IDsgbGVhdmVzIDE5LTIzOiBIaWxraG90IFNoZWjMo2l0zKNhaCwgY2gu
+        IDE6MS02OjUuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
+        Zz0iNTAwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+
+        VGhlIGZpcnN0IGNoYXB0ZXIgb2YgSGlsa2hvdCBTaGVozKNpdMyjYWggaXMg
+        dm93ZWxpemVkLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0
+        YWc9IjY1MCIgaW5kMT0iICIgaW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEi
+        Pkpld2lzaCBsYXc8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ2Ij5FYXJs
+        eSB3b3JrcyB0byAxODAwLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFm
+        aWVsZCB0YWc9IjYwMCIgaW5kMT0iMSIgaW5kMj0iMCI+PHN1YmZpZWxkIGNv
+        ZGU9ImEiPk1haW1vbmlkZXMsIE1vc2VzLDwvc3ViZmllbGQ+PHN1YmZpZWxk
+        IGNvZGU9ImQiPjExMzUtMTIwNC48L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2Rl
+        PSJ0Ij5IaWxraG90IHNoZWjMo2l0zKNhaC48L3N1YmZpZWxkPjwvZGF0YWZp
+        ZWxkPjxkYXRhZmllbGQgdGFnPSI2MDAiIGluZDE9IjEiIGluZDI9IjAiPjxz
+        dWJmaWVsZCBjb2RlPSJhIj5NYWltb25pZGVzLCBNb3Nlcyw8L3N1YmZpZWxk
+        PjxzdWJmaWVsZCBjb2RlPSJkIj4xMTM1LTEyMDQuPC9zdWJmaWVsZD48c3Vi
+        ZmllbGQgY29kZT0idCI+SGlsa2hvdCBtYcq8YWtoYWxvdCBhc3Vyb3QuPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNjAwIiBpbmQx
+        PSIxIiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0iYSI+TWFpbW9uaWRlcywg
+        TW9zZXMsPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+MTEzNS0xMjA0
+        Ljwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9InQiPlNlZmVyIGvMo2VkdXNo
+        YWguPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNjUw
+        IiBpbmQxPSIgIiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0iYSI+SGVicmV3
+        IHBvZXRyeTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9InYiPkVhcmx5IHdv
+        cmtzIHRvIDE4MDAuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxk
+        IHRhZz0iNjUwIiBpbmQxPSIgIiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0i
+        YSI+VG9yYWggc2Nyb2xscyAoSmV3aXNoIGxhdyk8L3N1YmZpZWxkPjxzdWJm
+        aWVsZCBjb2RlPSJ2Ij5FYXJseSB3b3JrcyB0byAxODAwLjwvc3ViZmllbGQ+
+        PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjYzMCIgaW5kMT0iMCIgaW5k
+        Mj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEiPkJpYmxlLjwvc3ViZmllbGQ+PHN1
+        YmZpZWxkIGNvZGU9InAiPlBlbnRhdGV1Y2g8L3N1YmZpZWxkPjxzdWJmaWVs
+        ZCBjb2RlPSJ4Ij5SZWFkaW5nPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
+        diI+RWFybHkgd29ya3MgdG8gMTgwMC48L3N1YmZpZWxkPjwvZGF0YWZpZWxk
+        PjxkYXRhZmllbGQgdGFnPSI2NTUiIGluZDE9IiAiIGluZDI9IjciPjxzdWJm
+        aWVsZCBjb2RlPSJhIj5NYW51c2NyaXB0cywgSGVicmV3PC9zdWJmaWVsZD48
+        c3ViZmllbGQgY29kZT0ieSI+MTd0aCBjZW50dXJ5Ljwvc3ViZmllbGQ+PHN1
+        YmZpZWxkIGNvZGU9IjIiPmxjc2g8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxk
+        YXRhZmllbGQgdGFnPSI3MDAiIGluZDE9IjAiIGluZDI9IiAiPjxzdWJmaWVs
+        ZCBjb2RlPSI2Ij44ODAtMDM8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJh
+        Ij5KdWRhaCw8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5oYS1MZXZp
+        LDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImQiPmFjdGl2ZSAxMnRoIGNl
+        bnR1cnkuPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0idCI+QmFya2hpIG5h
+        ZnNoaS48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI3
+        MDAiIGluZDE9IjEiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSI2Ij44ODAt
+        MDQ8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJhIj5KYWZmZSwgTW9yZGVj
+        YWkgYmVuIEFicmFoYW0sPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+
+        YXBwcm94aW1hdGVseSAxNTM1LTE2MTIuPC9zdWJmaWVsZD48c3ViZmllbGQg
+        Y29kZT0idCI+TGV2dXNoIG1hbGtodXQuPC9zdWJmaWVsZD48L2RhdGFmaWVs
+        ZD48ZGF0YWZpZWxkIHRhZz0iNzEwIiBpbmQxPSIyIiBpbmQyPSIgIj48c3Vi
+        ZmllbGQgY29kZT0iYSI+SGVicmV3IE1hbnVzY3JpcHRzIChDb2x1bWJpYSBV
+        bml2ZXJzaXR5IExpYnJhcmllcyk8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2Rl
+        PSI1Ij5OTkM8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFn
+        PSI3NTIiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5Z
+        ZW1lbi48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI4
+        ODAiIGluZDE9IjEiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSI2Ij4xMDAt
+        MDEvcjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImEiPtee16nXlCDXkdef
+        INee15nXmdee15XXnyw8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj7X
+        lNeo157Xkde0150sPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+MTEz
+        NS0xMjA0Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9
+        Ijg4MCIgaW5kMT0iMCIgaW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9IjYiPjI0
+        NS0wMi9yPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYSI+W9ee16nXoNeU
+        INeq15XXqNeUXTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImgiPlvXm9eq
+        IteZXSA6PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+W9eh16TXqCDX
+        p9eT15XXqdeUXS48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
+        dGFnPSI4ODAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSI2
+        Ij41MDAtMDAvcjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImEiPkxlYWYg
+        MSBjb250YWlucyBsYXdzIG9uIHRoZSBUb3JhaCByZWFkaW5nIGFuZCBtZW50
+        aW9ucyBoYS1SYXYgTW9yZGVraGFpIGF1dGhvciBvZiBMZXZ1c2ggTWFsa2h1
+        dC4gSW4gYWRkaXRpb24sIHRoZXJlIGlzIGEgcG9lbSBieSBZZWh1ZGFoIGhh
+        LUxldmk6INeR16jXm9eZINeg16TXqdeZINeQ16og15RcJyDXkdeo15vXmSDX
+        kNem15XXnNeUINee16jXldeXINeU16fXk9epINeQ16og16nXnSDXkNeT15nX
+        qCDXoNeQ15PXqCDXkden15PXqS48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxk
+        YXRhZmllbGQgdGFnPSI4ODAiIGluZDE9IjAiIGluZDI9IiAiPjxzdWJmaWVs
+        ZCBjb2RlPSI2Ij43MDAtMDMvcjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9
+        ImEiPteZ15TXldeT15QsPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYyI+
+        15TXnNeV15ksPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+YWN0aXZl
+        IDEydGggY2VudHVyeS48L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ0Ij7X
+        kdeo15vXmSDXoNek16nXmS48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRh
+        ZmllbGQgdGFnPSI4ODAiIGluZDE9IjEiIGluZDI9IiAiPjxzdWJmaWVsZCBj
+        b2RlPSI2Ij43MDAtMDQvcjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImEi
+        PteZ16TXlCwg157XqNeT15vXmSDXkdefINeQ15HXqNeU150sPC9zdWJmaWVs
+        ZD48c3ViZmllbGQgY29kZT0iZCI+YXBwcm94aW1hdGVseSAxNTM1LTE2MTIu
+        PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0idCI+15zXkdeV16kg157XnNeb
+        15XXqi48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5
+        NDgiIGluZDE9IjEiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4yMDEw
+        MDYxNDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPm88L3N1YmZpZWxk
+        PjxzdWJmaWVsZCBjb2RlPSJjIj55YjIyMTc8L3N1YmZpZWxkPjxzdWJmaWVs
+        ZCBjb2RlPSJkIj5TQ01DPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZp
+        ZWxkIHRhZz0iOTAwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29k
+        ZT0iYSI+QVVUSDwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0
+        YWc9Ijk5MSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEi
+        Pk1TIFg4OTMgTTI4MTU8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5y
+        YngrTVMtLS0tLS0tLS0tK1g4OTMrMDAwMDAwMDArMDAwMDAwMDArTTI4MTUw
+        MDA8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTIi
+        IGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5SYXJlIEJv
+        b2s8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5SYXJlIEJvb2ssIEJ1
+        dGxlciA2dGggRmwuIEVhc3QgKE5vbi1DaXJjdWxhdGluZykgJmd0OyZndDsg
+        TVMgWDg5MyBNMjgxNXxERUxJTXwxMDkxODUyNjwvc3ViZmllbGQ+PC9kYXRh
+        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MyIgaW5kMT0iICIgaW5kMj0iICI+
+        PHN1YmZpZWxkIGNvZGU9ImEiPkJvb2s8L3N1YmZpZWxkPjwvZGF0YWZpZWxk
+        PjxkYXRhZmllbGQgdGFnPSI5OTMiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJm
+        aWVsZCBjb2RlPSJhIj5NYW51c2NyaXB0L0FyY2hpdmU8L3N1YmZpZWxkPjwv
+        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTUiIGluZDE9IiAiIGluZDI9
+        IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5jYXRhbG9nPC9zdWJmaWVsZD48L2Rh
+        dGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTk3IiBpbmQxPSIgIiBpbmQyPSIg
+        Ij48c3ViZmllbGQgY29kZT0iYSI+MjAxMC0wNi0xNFQwMDowMDowMC4wMDBa
+        PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48L3JlY29yZD48L2NvbGxlY3Rpb24+
+        JywnYXV0aG9yX2Rpc3BsYXknPT5bJ01haW1vbmlkZXMsIE1vc2VzLCAxMTM1
+        LTEyMDQnXSwndGl0bGVfdmVybl9kaXNwbGF5Jz0+Wydb157Xqdeg15Qg16rX
+        ldeo15RdIFvXm9eqIteZXSA6IFvXodek16gg16fXk9eV16nXlF0nXSwnZm9y
+        bWF0Jz0+WydCb29rJywnTWFudXNjcmlwdC9BcmNoaXZlJ10sJ3NvdXJjZV9k
+        aXNwbGF5Jz0+WydjYXRhbG9nJ10sJ21hdGVyaWFsX3R5cGVfZGlzcGxheSc9
+        PlsnMjMgbGVhdmVzJ10sJ29jbGNfZGlzcGxheSc9Plsnb2NuNjQxMjc3MjY3
+        JywnNjQxMjc3MjY3J10sJ3RpdGxlX2ZpcnN0X2ZhY2V0Jz0+WydbJ10sJ3B1
+        Yl9kYXRlX3NvcnQnPT4xNjAwLCdmdWxsX3B1Ymxpc2hlcl9kaXNwbGF5Jz0+
+        WydbWWVtZW5dLCBbMTYtLV0uJ10sJ2xhbmd1YWdlX2ZhY2V0Jz0+WydIZWJy
+        ZXcnXSwnX3ZlcnNpb25fJz0+MTUwMTk2NzI1MTIzNTkzMDExMiwndGltZXN0
+        YW1wJz0+JzIwMTUtMDUtMjNUMTM6MjY6MzEuNTg3Wid9XX19Cg==
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:40:45 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=7419929&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:40:45 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'7419929','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['avefax+ab-+0000+00000000+in772000+7419929','loc+na-+2543+00000000+t4300000+x5300000+7419929'],'location_call_number_id_display'=>['Avery (Non-Circulating) >> AB In772|DELIM|10535113'],'pub_year_display'=>['2008-'],'title_display'=>['Xia international'],'item_display'=>['AB In772 | avefax+ab-+0000+00000000+in772000+7419929 | p4lkp2~po~~zzzz~zzzzzzzz~hcssxzzz~svyqqxq~~~~~~~~~','NA2543.T43 X53 | loc+na-+2543+00000000+t4300000+x5300000+7419929 | ebn~cp~~xuvw~zzzzzzzz~6vwzzzzz~2uwzzzzz~svyqqxq~~~'],'id'=>'7419929','reverse_shelfkey'=>['p4lkp2~po~~zzzz~zzzzzzzz~hcssxzzz~svyqqxq~~~~~~~~~','ebn~cp~~xuvw~zzzzzzzz~6vwzzzzz~2uwzzzzz~svyqqxq~~~'],'clio_id_display'=>'7419929','subject_geo_facet'=>['Germany'],'call_number_display'=>['AB In772'],'subject_topic_facet'=>['Architecture and technology','Architecture','Technological innovations'],'pub_place_display'=>['Leinfelden-Echterdingen, Germany'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01523cas a2200421Ma 4500</leader><controlfield tag="001">7419929</controlfield><controlfield tag="005">20130722162234.0</controlfield><controlfield tag="008">080821d20082009gw fr p       0   a0eng d</controlfield><datafield tag="022" ind1=" " ind2=" "><subfield code="a">0949-2356</subfield><subfield code="l">0949-2356</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn271656698</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)271656698</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)7419929</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">AU@</subfield><subfield code="c">AU@</subfield><subfield code="d">ZCU</subfield><subfield code="d">OCLCQ</subfield><subfield code="d">ZCU</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">e-gx---</subfield></datafield><datafield tag="050" ind1=" " ind2="4"><subfield code="a">NA2543.T43</subfield><subfield code="b">X53</subfield></datafield><datafield tag="082" ind1="0" ind2="4"><subfield code="a">720.10505</subfield><subfield code="2">22</subfield></datafield><datafield tag="245" ind1="0" ind2="0"><subfield code="a">Xia international.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Leinfelden-Echterdingen, Germany :</subfield><subfield code="b">Verlagsanstalt Alexander Koch,</subfield><subfield code="c">2008-</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">v. :</subfield><subfield code="b">col. ill. ;</subfield><subfield code="c">31 cm.</subfield></datafield><datafield tag="362" ind1="0" ind2=" "><subfield code="a">01/08-</subfield></datafield><datafield tag="362" ind1="1" ind2=" "><subfield code="a">Ceased in 2009.</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Cover title.</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">"Smart buildings - materials - technologies"</subfield></datafield><datafield tag="580" ind1=" " ind2=" "><subfield code="a">A special English edition of the quarterly German language publication: Xia intelligenteArchitektur.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Architecture and technology</subfield><subfield code="z">Germany</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Architecture and technology</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Architecture</subfield><subfield code="x">Technological innovations</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="787" ind1="1" ind2=" "><subfield code="t">Xia intelligenteArchitektur</subfield><subfield code="w">(OCoLC)137242817</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20091006</subfield><subfield code="b">c</subfield><subfield code="c">rf63</subfield><subfield code="d">OSMC</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20100129</subfield><subfield code="b">l</subfield><subfield code="c">rr2205</subfield><subfield code="d">OSMC</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20130604</subfield><subfield code="b">l</subfield><subfield code="c">rr2205</subfield><subfield code="d">OSMC</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">NA</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">NA2543.T43 X53</subfield><subfield code="b">loc+NA-+2543+00000000+T4300000+X5300000</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">AB In772</subfield><subfield code="b">avefax+AB-+0000+00000000+IN772000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Avery, Fine Arts, Ware</subfield><subfield code="b">Avery (Non-Circulating) &gt;&gt; AB In772|DELIM|10535113</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Journal/Periodical</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','pub_name_display'=>['Verlagsanstalt Alexander Koch'],'issn_display'=>['0949-2356'],'format'=>['Journal/Periodical'],'source_display'=>['catalog'],'material_type_display'=>['v.'],'oclc_display'=>['ocn271656698','271656698'],'title_first_facet'=>['X'],'pub_date_sort'=>2008,'full_publisher_display'=>['Leinfelden-Echterdingen, Germany : Verlagsanstalt Alexander Koch, 2008-'],'language_facet'=>['English'],'_version_'=>1501963915564679168,'timestamp'=>'2015-05-23T12:33:30.443Z'}]}}
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:40:45 GMT
+recorded_with: VCR 2.9.3

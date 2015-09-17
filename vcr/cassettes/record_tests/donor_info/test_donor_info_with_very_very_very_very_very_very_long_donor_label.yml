@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:41 GMT
+      - Thu, 17 Sep 2015 18:06:17 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -148,7 +148,7 @@ http_interactions:
         Jz0+MTUwMTk5MzE1OTI3MTM4MzA0MCwndGltZXN0YW1wJz0+JzIwMTUtMDUt
         MjNUMjA6MTg6MTkuNDE0Wid9XX19Cg==
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:42 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:18 GMT
 - request:
     method: get
     uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=36114&qt=document&wt=ruby
@@ -162,7 +162,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:42 GMT
+      - Thu, 17 Sep 2015 18:06:18 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -297,7 +297,7 @@ http_interactions:
         Jz0+MTUwMTk5MzE1OTI3MTM4MzA0MCwndGltZXN0YW1wJz0+JzIwMTUtMDUt
         MjNUMjA6MTg6MTkuNDE0Wid9XX19Cg==
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:42 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:19 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/0814749941.json
@@ -310,14 +310,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:42 GMT
+      - Thu, 17 Sep 2015 18:06:19 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:42 GMT
+      - Thu, 17 Sep 2015 18:06:18 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -327,8 +327,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        15:33:42 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        18:16:18 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -338,7 +338,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:43 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:19 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/5678246.json
@@ -351,14 +351,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:43 GMT
+      - Thu, 17 Sep 2015 18:06:19 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:42 GMT
+      - Thu, 17 Sep 2015 18:06:18 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -368,8 +368,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        15:33:42 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        18:16:18 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -379,7 +379,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:43 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:19 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocm05678246.json
@@ -392,14 +392,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:43 GMT
+      - Thu, 17 Sep 2015 18:06:19 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:42 GMT
+      - Thu, 17 Sep 2015 18:06:18 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -409,8 +409,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        15:33:42 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        18:16:18 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -420,7 +420,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:43 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:19 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/lccn/79053579.json
@@ -433,14 +433,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:43 GMT
+      - Thu, 17 Sep 2015 18:06:19 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:43 GMT
+      - Thu, 17 Sep 2015 18:06:19 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -450,8 +450,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        15:33:43 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        18:16:19 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -461,7 +461,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:43 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:19 GMT
 - request:
     method: get
     uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/36114
@@ -474,7 +474,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:42 GMT
+      - Thu, 17 Sep 2015 18:06:18 GMT
   response:
     status:
       code: 200
@@ -505,9 +505,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - e6ea1fb0-194f-4993-b39c-95f4137e61a3
+      - cd2ce8f1-f295-4411-827f-01fd07a97e8f
       X-Runtime:
-      - '1.665495'
+      - '1.268252'
       Server:
       - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
     body:
@@ -521,5 +521,5 @@ http_interactions:
         Durst Old York Library Collection, Avery Architectural \\u0026 Fine Arts Library,
         Columbia University.\",\"url\":\"https://dlc.library.columbia.edu/durst\"}]}],\"services\":[\"offsite\"]}]}}"
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:44 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:20 GMT
 recorded_with: VCR 2.9.3

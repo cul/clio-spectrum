@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:21 GMT
+      - Thu, 17 Sep 2015 18:06:01 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -25,7 +25,7 @@ http_interactions:
       string: |
         {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'10104738','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+e--+0302+60000000+m7000000+c3700000+002013+10104738','clm+ce-+0000+00000000+mo830000+10104738'],'location_call_number_id_display'=>['Rare Book, Butler 6th Fl. East (Non-Circulating)|DELIM|13180928','University Archives, Butler 6th Fl. East (Non-Circulating) >> CE Mo83|DELIM|13945799'],'acq_dt'=>'2014-08-08T00:00:00Z','item_display'=>['E302.6.M7 C37 2013 | loc+e--+0302+60000000+m7000000+c3700000+002013+10104738 | ebn~l~~~zwzx~tzzzzzzz~dszzzzzz~nwszzzzz~zzxzyw~yzyzvswr','CE Mo83 | clm+ce-+0000+00000000+mo830000+10104738 | ned~nl~~zzzz~zzzzzzzz~dbrwzzzz~yzyzvswr~~~~~~~~~~~'],'title_display'=>['The young Gouverneur Morris : two essays'],'clio_id_display'=>'10104738','subject_topic_facet'=>['Morris, Gouverneur, 1752-1816','United States','Signers','Statesmen','History','Politics and government'],'pub_place_display'=>['Portola Valley, Calif'],'format'=>['Book'],'oclc_display'=>['ocn830538751','830538751'],'title_first_facet'=>['Y'],'full_publisher_display'=>['Portola Valley, Calif. : Galloway Hills Press, c2013.'],'pub_date_sort'=>2013,'pub_year_display'=>['c2013'],'id'=>'10104738','reverse_shelfkey'=>['ebn~l~~~zwzx~tzzzzzzz~dszzzzzz~nwszzzzz~zzxzyw~yzyzvswr','ned~nl~~zzzz~zzzzzzzz~dbrwzzzz~yzyzvswr~~~~~~~~~~~'],'subject_geo_facet'=>['United States','New York (State)'],'call_number_display'=>['CE Mo83'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01541cam a2200385Ma 4500</leader><controlfield tag="001">10104738</controlfield><controlfield tag="005">20140922151551.0</controlfield><controlfield tag="008">121217s2013    caua     b    000 0 eng d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn830538751</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)830538751</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)10104738</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">NHi</subfield><subfield code="b">eng</subfield><subfield code="c">N15</subfield><subfield code="d">OCLCO</subfield></datafield><datafield tag="050" ind1="1" ind2="4"><subfield code="a">E302.6.M7</subfield><subfield code="b">C37 2013</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Carnochan, W. B.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The young Gouverneur Morris :</subfield><subfield code="b">two essays.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Portola Valley, Calif. :</subfield><subfield code="b">Galloway Hills Press,</subfield><subfield code="c">c2013.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">[10], 44 p., [2] leaves of plates :</subfield><subfield code="b">ill. ;</subfield><subfield code="c">23 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Morris, Gouverneur,</subfield><subfield code="d">1752-1816.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Statesmen</subfield><subfield code="z">United States</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="610" ind1="1" ind2="0"><subfield code="a">United States.</subfield><subfield code="t">Constitution</subfield><subfield code="x">Signers</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">History</subfield><subfield code="y">Revolution, 1775-1783</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">New York (State)</subfield><subfield code="x">History</subfield><subfield code="y">Revolution, 1775-1783</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">Politics and government</subfield><subfield code="y">1775-1783.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">Politics and government</subfield><subfield code="y">1783-1789.</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20140808</subfield><subfield code="b">c</subfield><subfield code="c">cep2</subfield><subfield code="d">OSMC</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">E</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">E302.6.M7 C37 2013</subfield><subfield code="b">loc+E--+0302+60000000+M7000000+C3700000+002013</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">CE Mo83</subfield><subfield code="b">clm+CE-+0000+00000000+MO830000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Rare Book</subfield><subfield code="b">Rare Book, Butler 6th Fl. East (Non-Circulating)|DELIM|13180928</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Other</subfield><subfield code="b">University Archives, Butler 6th Fl. East (Non-Circulating) &gt;&gt; CE Mo83|DELIM|13945799</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2014-08-08T00:00:00.000Z</subfield></datafield></record></collection>','author_display'=>['Carnochan, W. B.'],'pub_name_display'=>['Galloway Hills Press'],'source_display'=>['catalog'],'material_type_display'=>['[10], 44 p., [2] leaves of plates'],'language_facet'=>['English'],'_version_'=>1501984937954246656,'timestamp'=>'2015-05-23T18:07:38.955Z'}]}}
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:22 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:02 GMT
 - request:
     method: get
     uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=10104738&qt=document&wt=ruby
@@ -39,7 +39,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:21 GMT
+      - Thu, 17 Sep 2015 18:06:01 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -49,9 +49,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'10104738','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+e--+0302+60000000+m7000000+c3700000+002013+10104738','clm+ce-+0000+00000000+mo830000+10104738'],'location_call_number_id_display'=>['Rare Book, Butler 6th Fl. East (Non-Circulating)|DELIM|13180928','University Archives, Butler 6th Fl. East (Non-Circulating) >> CE Mo83|DELIM|13945799'],'acq_dt'=>'2014-08-08T00:00:00Z','item_display'=>['E302.6.M7 C37 2013 | loc+e--+0302+60000000+m7000000+c3700000+002013+10104738 | ebn~l~~~zwzx~tzzzzzzz~dszzzzzz~nwszzzzz~zzxzyw~yzyzvswr','CE Mo83 | clm+ce-+0000+00000000+mo830000+10104738 | ned~nl~~zzzz~zzzzzzzz~dbrwzzzz~yzyzvswr~~~~~~~~~~~'],'title_display'=>['The young Gouverneur Morris : two essays'],'clio_id_display'=>'10104738','subject_topic_facet'=>['Morris, Gouverneur, 1752-1816','United States','Signers','Statesmen','History','Politics and government'],'pub_place_display'=>['Portola Valley, Calif'],'format'=>['Book'],'oclc_display'=>['ocn830538751','830538751'],'title_first_facet'=>['Y'],'full_publisher_display'=>['Portola Valley, Calif. : Galloway Hills Press, c2013.'],'pub_date_sort'=>2013,'pub_year_display'=>['c2013'],'id'=>'10104738','reverse_shelfkey'=>['ebn~l~~~zwzx~tzzzzzzz~dszzzzzz~nwszzzzz~zzxzyw~yzyzvswr','ned~nl~~zzzz~zzzzzzzz~dbrwzzzz~yzyzvswr~~~~~~~~~~~'],'subject_geo_facet'=>['United States','New York (State)'],'call_number_display'=>['CE Mo83'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01541cam a2200385Ma 4500</leader><controlfield tag="001">10104738</controlfield><controlfield tag="005">20140922151551.0</controlfield><controlfield tag="008">121217s2013    caua     b    000 0 eng d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn830538751</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)830538751</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)10104738</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">NHi</subfield><subfield code="b">eng</subfield><subfield code="c">N15</subfield><subfield code="d">OCLCO</subfield></datafield><datafield tag="050" ind1="1" ind2="4"><subfield code="a">E302.6.M7</subfield><subfield code="b">C37 2013</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Carnochan, W. B.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The young Gouverneur Morris :</subfield><subfield code="b">two essays.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Portola Valley, Calif. :</subfield><subfield code="b">Galloway Hills Press,</subfield><subfield code="c">c2013.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">[10], 44 p., [2] leaves of plates :</subfield><subfield code="b">ill. ;</subfield><subfield code="c">23 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Morris, Gouverneur,</subfield><subfield code="d">1752-1816.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Statesmen</subfield><subfield code="z">United States</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="610" ind1="1" ind2="0"><subfield code="a">United States.</subfield><subfield code="t">Constitution</subfield><subfield code="x">Signers</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">History</subfield><subfield code="y">Revolution, 1775-1783</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">New York (State)</subfield><subfield code="x">History</subfield><subfield code="y">Revolution, 1775-1783</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">Politics and government</subfield><subfield code="y">1775-1783.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">Politics and government</subfield><subfield code="y">1783-1789.</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20140808</subfield><subfield code="b">c</subfield><subfield code="c">cep2</subfield><subfield code="d">OSMC</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">E</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">E302.6.M7 C37 2013</subfield><subfield code="b">loc+E--+0302+60000000+M7000000+C3700000+002013</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">CE Mo83</subfield><subfield code="b">clm+CE-+0000+00000000+MO830000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Rare Book</subfield><subfield code="b">Rare Book, Butler 6th Fl. East (Non-Circulating)|DELIM|13180928</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Other</subfield><subfield code="b">University Archives, Butler 6th Fl. East (Non-Circulating) &gt;&gt; CE Mo83|DELIM|13945799</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2014-08-08T00:00:00.000Z</subfield></datafield></record></collection>','author_display'=>['Carnochan, W. B.'],'pub_name_display'=>['Galloway Hills Press'],'source_display'=>['catalog'],'material_type_display'=>['[10], 44 p., [2] leaves of plates'],'language_facet'=>['English'],'_version_'=>1501984937954246656,'timestamp'=>'2015-05-23T18:07:38.955Z'}]}}
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'10104738','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+e--+0302+60000000+m7000000+c3700000+002013+10104738','clm+ce-+0000+00000000+mo830000+10104738'],'location_call_number_id_display'=>['Rare Book, Butler 6th Fl. East (Non-Circulating)|DELIM|13180928','University Archives, Butler 6th Fl. East (Non-Circulating) >> CE Mo83|DELIM|13945799'],'acq_dt'=>'2014-08-08T00:00:00Z','item_display'=>['E302.6.M7 C37 2013 | loc+e--+0302+60000000+m7000000+c3700000+002013+10104738 | ebn~l~~~zwzx~tzzzzzzz~dszzzzzz~nwszzzzz~zzxzyw~yzyzvswr','CE Mo83 | clm+ce-+0000+00000000+mo830000+10104738 | ned~nl~~zzzz~zzzzzzzz~dbrwzzzz~yzyzvswr~~~~~~~~~~~'],'title_display'=>['The young Gouverneur Morris : two essays'],'clio_id_display'=>'10104738','subject_topic_facet'=>['Morris, Gouverneur, 1752-1816','United States','Signers','Statesmen','History','Politics and government'],'pub_place_display'=>['Portola Valley, Calif'],'format'=>['Book'],'oclc_display'=>['ocn830538751','830538751'],'title_first_facet'=>['Y'],'full_publisher_display'=>['Portola Valley, Calif. : Galloway Hills Press, c2013.'],'pub_date_sort'=>2013,'pub_year_display'=>['c2013'],'id'=>'10104738','reverse_shelfkey'=>['ebn~l~~~zwzx~tzzzzzzz~dszzzzzz~nwszzzzz~zzxzyw~yzyzvswr','ned~nl~~zzzz~zzzzzzzz~dbrwzzzz~yzyzvswr~~~~~~~~~~~'],'subject_geo_facet'=>['United States','New York (State)'],'call_number_display'=>['CE Mo83'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01541cam a2200385Ma 4500</leader><controlfield tag="001">10104738</controlfield><controlfield tag="005">20140922151551.0</controlfield><controlfield tag="008">121217s2013    caua     b    000 0 eng d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn830538751</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)830538751</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)10104738</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">NHi</subfield><subfield code="b">eng</subfield><subfield code="c">N15</subfield><subfield code="d">OCLCO</subfield></datafield><datafield tag="050" ind1="1" ind2="4"><subfield code="a">E302.6.M7</subfield><subfield code="b">C37 2013</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Carnochan, W. B.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The young Gouverneur Morris :</subfield><subfield code="b">two essays.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Portola Valley, Calif. :</subfield><subfield code="b">Galloway Hills Press,</subfield><subfield code="c">c2013.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">[10], 44 p., [2] leaves of plates :</subfield><subfield code="b">ill. ;</subfield><subfield code="c">23 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Morris, Gouverneur,</subfield><subfield code="d">1752-1816.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Statesmen</subfield><subfield code="z">United States</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="610" ind1="1" ind2="0"><subfield code="a">United States.</subfield><subfield code="t">Constitution</subfield><subfield code="x">Signers</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">History</subfield><subfield code="y">Revolution, 1775-1783</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">New York (State)</subfield><subfield code="x">History</subfield><subfield code="y">Revolution, 1775-1783</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">Politics and government</subfield><subfield code="y">1775-1783.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">Politics and government</subfield><subfield code="y">1783-1789.</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20140808</subfield><subfield code="b">c</subfield><subfield code="c">cep2</subfield><subfield code="d">OSMC</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">E</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">E302.6.M7 C37 2013</subfield><subfield code="b">loc+E--+0302+60000000+M7000000+C3700000+002013</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">CE Mo83</subfield><subfield code="b">clm+CE-+0000+00000000+MO830000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Rare Book</subfield><subfield code="b">Rare Book, Butler 6th Fl. East (Non-Circulating)|DELIM|13180928</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Other</subfield><subfield code="b">University Archives, Butler 6th Fl. East (Non-Circulating) &gt;&gt; CE Mo83|DELIM|13945799</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2014-08-08T00:00:00.000Z</subfield></datafield></record></collection>','author_display'=>['Carnochan, W. B.'],'pub_name_display'=>['Galloway Hills Press'],'source_display'=>['catalog'],'material_type_display'=>['[10], 44 p., [2] leaves of plates'],'language_facet'=>['English'],'_version_'=>1501984937954246656,'timestamp'=>'2015-05-23T18:07:38.955Z'}]}}
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:22 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:02 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocn830538751.json
@@ -64,14 +64,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:22 GMT
+      - Thu, 17 Sep 2015 18:06:02 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:22 GMT
+      - Thu, 17 Sep 2015 18:06:01 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -81,8 +81,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        15:33:22 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        18:16:01 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -92,7 +92,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:22 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:02 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/830538751.json
@@ -105,14 +105,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:22 GMT
+      - Thu, 17 Sep 2015 18:06:02 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 15:23:22 GMT
+      - Thu, 17 Sep 2015 18:06:01 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -122,8 +122,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        15:33:22 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        18:16:01 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -133,7 +133,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:23 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:02 GMT
 - request:
     method: get
     uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/10104738
@@ -146,7 +146,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 15:23:22 GMT
+      - Thu, 17 Sep 2015 18:06:02 GMT
   response:
     status:
       code: 200
@@ -177,9 +177,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d81e3723-8273-4026-b94e-ac1ef6ee187f
+      - 0b2ba552-c593-4571-9302-41a9ffd894a9
       X-Runtime:
-      - '1.237279'
+      - '2.316976'
       Server:
       - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
     body:
@@ -192,5 +192,5 @@ http_interactions:
         Archives, Butler 6th Fl. East (Non-Circulating)\",\"location_note\":\"\",\"call_number\":\"CE
         Mo83\",\"status\":\"available\",\"holding_id\":[\"13945799\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"spec_coll\"]}]}}"
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 15:23:24 GMT
+  recorded_at: Thu, 17 Sep 2015 18:06:04 GMT
 recorded_with: VCR 2.9.3

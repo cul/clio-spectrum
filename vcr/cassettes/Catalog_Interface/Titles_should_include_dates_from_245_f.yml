@@ -1,0 +1,229 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=8540370&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:25 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
+        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic4NTQwMzcw
+        JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
+        PnsnbnVtRm91bmQnPT4xLCdzdGFydCc9PjAsJ2RvY3MnPT5beydzaGVsZmtl
+        eSc9PlsnbXNyK3JibWxfY29tcG9zZXJzZm9ydW1fMTk1ODAxMThfODU0MDM3
+        MCs4NTQwMzcwJ10sJ2xvY2F0aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3BsYXkn
+        PT5bJ011c2ljIFNvdW5kIFJlY29yZGluZ3MgPj4gUkJNTF9Db21wb3NlcnNG
+        b3J1bV8xOTU4MDExOF84NTQwMzcwfERFTElNfDExNjIyOTQxJ10sJ2FjcV9k
+        dCc9PicyMDExLTAzLTEwVDAwOjAwOjAwWicsJ3RpdGxlX2Rpc3BsYXknPT5b
+        J0NvbXBvc2Vyc1wnIEZvcnVtIGNvbmNlcnQgW2VsZWN0cm9uaWMgcmVzb3Vy
+        Y2VdLCAxOTU4IEphbnVhcnkgMTgnXSwnaXRlbV9kaXNwbGF5Jz0+WydSQk1M
+        X0NvbXBvc2Vyc0ZvcnVtXzE5NTgwMTE4Xzg1NDAzNzAgfCBtc3IrcmJtbF9j
+        b21wb3NlcnNmb3J1bV8xOTU4MDExOF84NTQwMzcwKzg1NDAzNzAgfCBkNzh+
+        OG9kZX5uYmRhYjdsODdrYjg1ZH55cXVyenl5cn5ydXZ6d3N6fnJ1dnp3c3p+
+        fiddLCdpZCc9Pic4NTQwMzcwJywncmV2ZXJzZV9zaGVsZmtleSc9PlsnZDc4
+        fjhvZGV+bmJkYWI3bDg3a2I4NWR+eXF1cnp5eXJ+cnV2endzen5ydXZ6d3N6
+        fn4nXSwnY2xpb19pZF9kaXNwbGF5Jz0+Jzg1NDAzNzAnLCdjYWxsX251bWJl
+        cl9kaXNwbGF5Jz0+WydSQk1MX0NvbXBvc2Vyc0ZvcnVtXzE5NTgwMTE4Xzg1
+        NDAzNzAnXSwnc3ViamVjdF90b3BpY19mYWNldCc9PlsnU29uYXRhcyAoVmlv
+        bGEpJywnV29vZHdpbmQgdHJpb3MgKEJhc3Nvb24sIGNsYXJpbmV0LCBvYm9l
+        KScsJ1dpbmQgcXVpbnRldHMgKEJhc3Nvb24sIGNsYXJpbmV0LCBmbHV0ZSwg
+        aG9ybiwgb2JvZSknXSwnbWFyY19kaXNwbGF5Jz0+Jzw/eG1sIHZlcnNpb249
+        IjEuMCIgZW5jb2Rpbmc9IlVURi04Ij8+PGNvbGxlY3Rpb24geG1sbnM9Imh0
+        dHA6Ly93d3cubG9jLmdvdi9NQVJDMjEvc2xpbSI+PHJlY29yZD48bGVhZGVy
+        PjAyODA5Y2ptIGEyMjAwNTc3NWEgNDUwMDwvbGVhZGVyPjxjb250cm9sZmll
+        bGQgdGFnPSIwMDEiPjg1NDAzNzA8L2NvbnRyb2xmaWVsZD48Y29udHJvbGZp
+        ZWxkIHRhZz0iMDA1Ij4yMDEyMDUyMjE2NTMzNi4wPC9jb250cm9sZmllbGQ+
+        PGNvbnRyb2xmaWVsZCB0YWc9IjAwNiI+bSAgICAgICAgaCAgICAgICAgPC9j
+        b250cm9sZmllbGQ+PGNvbnRyb2xmaWVsZCB0YWc9IjAwNyI+c3ogem1ubm5u
+        bnxuZWU8L2NvbnRyb2xmaWVsZD48Y29udHJvbGZpZWxkIHRhZz0iMDA3Ij5j
+        ciBubmFubm5hbmFhcDwvY29udHJvbGZpZWxkPjxjb250cm9sZmllbGQgdGFn
+        PSIwMDciPmNyIG5uYW5ubmFuZGFhPC9jb250cm9sZmllbGQ+PGNvbnRyb2xm
+        aWVsZCB0YWc9IjAwOCI+MTEwMzEwczE5NTggICAgeHggICBuICAgICAgICAg
+        ICAgICAgICAgZDwvY29udHJvbGZpZWxkPjxkYXRhZmllbGQgdGFnPSIwMjgi
+        IGluZDE9IjMiIGluZDI9IjAiPjxzdWJmaWVsZCBjb2RlPSJhIj5DRjA1MDwv
+        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAzNSIgaW5k
+        MT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPihPQ29MQyk3ODk2
+        NTA3ODk8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIw
+        MzUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4oT0Nv
+        TEMpb2NuNzg5NjUwNzg5PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZp
+        ZWxkIHRhZz0iMDM1IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29k
+        ZT0iYSI+KE5OQyk4NTQwMzcwPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0
+        YWZpZWxkIHRhZz0iMTAwIiBpbmQxPSIxIiBpbmQyPSIgIj48c3ViZmllbGQg
+        Y29kZT0iYSI+V3luZXIsIFllaHVkaSw8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
+        b2RlPSJkIj4xOTI5LTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVs
+        ZCB0YWc9IjI0NSIgaW5kMT0iMSIgaW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9
+        ImEiPkNvbXBvc2Vyc1wnIEZvcnVtIGNvbmNlcnQ8L3N1YmZpZWxkPjxzdWJm
+        aWVsZCBjb2RlPSJoIj5bZWxlY3Ryb25pYyByZXNvdXJjZV0sPC9zdWJmaWVs
+        ZD48c3ViZmllbGQgY29kZT0iZiI+MTk1OCBKYW51YXJ5IDE4Ljwvc3ViZmll
+        bGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjMwMCIgaW5kMT0iICIg
+        aW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPjQgc291bmQgZmlsZXMgOjwv
+        c3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPmRpZ2l0YWwgcHJlc2VydmF0
+        aW9uIG1hc3RlciwgV0FWIGZpbGVzICg5NiBrSHosIDI0IGJpdCk8L3N1YmZp
+        ZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1MDAiIGluZDE9IiAi
+        IGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5Db25jZXJ0IG9mIGluc3Ry
+        dW1lbnRhbCBjb21wb3NpdGlvbnMgYnkgWWVodWRpIFd5bmVyIGFuZCBKb3Nl
+        zIEgU2VyZWJyaWVyLCBpbmNsdWRpbmcgYXVkaWVuY2UgZGlzY3Vzc2lvbiB3
+        aXRoIEpvc2XMgSBTZXJlYnJpZXIuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48
+        ZGF0YWZpZWxkIHRhZz0iNTE4IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmll
+        bGQgY29kZT0iYSI+UmVjb3JkZWQgYXQgTWNNaWxsaW4gVGhlYXRlciwgQ29s
+        dW1iaWEgVW5pdmVyc2l0eS48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRh
+        ZmllbGQgdGFnPSI1MDUiIGluZDE9IjAiIGluZDI9IiAiPjxzdWJmaWVsZCBj
+        b2RlPSJhIj5maWxlIDAxLiBbVW5pZGVudGlmaWVkIHdvcmtzXSAvIFllaHVk
+        aSBXeW5lciAtLSBmaWxlIDAyLiBTb25hdGEgZm9yIHZpb2xhIGFsb25lIChX
+        YWx0ZXIgVHJhbXBsZXIsIHZpb2xhKSA7IFN1aXRlIGNhbmluYSAoSGFycnkg
+        U2h1bG1hbiwgb2JvZSA7IERhdmlkIFdlYmVyLCBjbGFyaW5ldCA7IENvbnN0
+        YW50aW5lIE1lcmpvcywgYmFzc29vbikgLyBKb3NlzIEgU2VyZWJyaWVyIC0t
+        IEZpbGUgMDMuIFBlcXVlbsyDYSBtdXNpY2EgOiBmb3Igd29vZHdpbmQgcXVp
+        bnRldCAoTXVycmF5IFBhbml0eiwgZmx1dGUgOyBIYXJyeSBTaHVsbWFuLCBv
+        Ym9lIDsgRGF2aWQgV2ViZXIsIGNsYXJpbmV0IDsgQ29uc3RhbnRpbmUgTWVy
+        am9zLCBiYXNzb29uIDsgRnJlZCBLbGVpbiwgaG9ybikgLyBKb3NlzIEgU2Vy
+        ZWJyaWVyIC0tIGZpbGUgMDQgRGlzY3Vzc2lvbiB3aXRoIEpvc2XMgSBTZXJl
+        YnJpZXIuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
+        NTA2IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+QWNj
+        ZXNzIHJlc3RyaWN0ZWQgdG8gb25zaXRlIHVzZSBhdCB0aGUgTXVzaWMgJmFt
+        cDsgQXJ0cyBMaWJyYXJ5Ljwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9IjUi
+        Pk5OQzwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjUw
+        MCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkZpbGUg
+        bmFtZTogUkJNTF9Db21wb3NlcnNGb3J1bV8xOTU4MDExOF84NTQwMzcwPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNTAwIiBpbmQx
+        PSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+RGlnaXRpemVkIGJ5
+        IEdlb3JnZSBCbG9vZCBBdWRpbywgUGhpbGFkZWxwaGlhLCAyMDExLjwvc3Vi
+        ZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjUwMCIgaW5kMT0i
+        ICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPlNlcnZpY2UgY29weSAo
+        NDQga0h6LCAxNiBiaXQpIG9mIHNvdW5kIGZpbGUgZGVyaXZlZCBmcm9tIGEg
+        ZGlnaXRhbCBwcmVzZXJ2YXRpb24gbWFzdGVyIGRpZ2l0aXplZCBhdCA5NiBr
+        SHosIDI0IGJpdC48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
+        dGFnPSI1MzQiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJw
+        Ij5EaWdpdGFsIHJlcHJvZHVjdGlvbiBvZjo8L3N1YmZpZWxkPjxzdWJmaWVs
+        ZCBjb2RlPSJlIj40IGFuYWxvZyB0YXBlIHJlZWxzLjwvc3ViZmllbGQ+PC9k
+        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjUzNiIgaW5kMT0iICIgaW5kMj0i
+        ICI+PHN1YmZpZWxkIGNvZGU9ImEiPkRpZ2l0aXphdGlvbiBmdW5kZWQgYnkg
+        dGhlIEFzc29jaWF0aW9uIGZvciBSZWNvcmRlZCBTb3VuZCBDb2xsZWN0aW9u
+        cy48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI2NTAi
+        IGluZDE9IiAiIGluZDI9IjAiPjxzdWJmaWVsZCBjb2RlPSJhIj5Tb25hdGFz
+        IChWaW9sYSk8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFn
+        PSI2NTAiIGluZDE9IiAiIGluZDI9IjAiPjxzdWJmaWVsZCBjb2RlPSJhIj5X
+        b29kd2luZCB0cmlvcyAoQmFzc29vbiwgY2xhcmluZXQsIG9ib2UpPC9zdWJm
+        aWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNjUwIiBpbmQxPSIg
+        IiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0iYSI+V2luZCBxdWludGV0cyAo
+        QmFzc29vbiwgY2xhcmluZXQsIGZsdXRlLCBob3JuLCBvYm9lKTwvc3ViZmll
+        bGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjY1NSIgaW5kMT0iICIg
+        aW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEiPkxpdmUgc291bmQgcmVjb3Jk
+        aW5ncy48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI3
+        MDAiIGluZDE9IjEiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5UcmFt
+        cGxlciwgV2FsdGVyLjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9IjQiPnBy
+        Zjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjcwMCIg
+        aW5kMT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPlNodWxtYW4s
+        IEhhcnJ5Ljwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9IjQiPnByZjwvc3Vi
+        ZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjcwMCIgaW5kMT0i
+        MSIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPldlYmVyLCBEYXZpZCw8
+        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj4xOTEzLTIwMDYuPC9zdWJm
+        aWVsZD48c3ViZmllbGQgY29kZT0iNCI+cHJmPC9zdWJmaWVsZD48L2RhdGFm
+        aWVsZD48ZGF0YWZpZWxkIHRhZz0iNzAwIiBpbmQxPSIxIiBpbmQyPSIgIj48
+        c3ViZmllbGQgY29kZT0iYSI+TWVyam9zLCBDb25zdGFudGluZS48L3N1YmZp
+        ZWxkPjxzdWJmaWVsZCBjb2RlPSI0Ij5wcmY8L3N1YmZpZWxkPjwvZGF0YWZp
+        ZWxkPjxkYXRhZmllbGQgdGFnPSI3MDAiIGluZDE9IjEiIGluZDI9IiAiPjxz
+        dWJmaWVsZCBjb2RlPSJhIj5QYW5pdHosIE11cnJheS48L3N1YmZpZWxkPjxz
+        dWJmaWVsZCBjb2RlPSI0Ij5wcmY8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxk
+        YXRhZmllbGQgdGFnPSI3MDAiIGluZDE9IjEiIGluZDI9IiAiPjxzdWJmaWVs
+        ZCBjb2RlPSJhIj5LbGVpbiwgRnJlZCBFLjwvc3ViZmllbGQ+PHN1YmZpZWxk
+        IGNvZGU9IjQiPnByZjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVs
+        ZCB0YWc9IjcwMCIgaW5kMT0iMSIgaW5kMj0iMiI+PHN1YmZpZWxkIGNvZGU9
+        ImEiPlNlcmVicmllciwgSm9zZcyBLDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
+        ZGU9ImQiPjE5MzgtPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0idCI+U29u
+        YXRhcyw8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJtIj52aW9sYS48L3N1
+        YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI3MDAiIGluZDE9
+        IjEiIGluZDI9IjIiPjxzdWJmaWVsZCBjb2RlPSJhIj5TZXJlYnJpZXIsIEpv
+        c2XMgSw8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj4xOTM4LTwvc3Vi
+        ZmllbGQ+PHN1YmZpZWxkIGNvZGU9InQiPlN1aXRlIGNhbmluYS48L3N1YmZp
+        ZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI3MDAiIGluZDE9IjEi
+        IGluZDI9IjIiPjxzdWJmaWVsZCBjb2RlPSJhIj5TZXJlYnJpZXIsIEpvc2XM
+        gSw8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj4xOTM4LTwvc3ViZmll
+        bGQ+PHN1YmZpZWxkIGNvZGU9InQiPlBlcXVlbsyDYSBtdXNpY2EuPC9zdWJm
+        aWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTY1IiBpbmQxPSIg
+        IiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+OTY1Y29tcG9zZXJzZm9y
+        dW08L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5NDgi
+        IGluZDE9IjAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4yMDExMDMx
+        MDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPnk8L3N1YmZpZWxkPjxz
+        dWJmaWVsZCBjb2RlPSJjIj5yZ20zPC9zdWJmaWVsZD48c3ViZmllbGQgY29k
+        ZT0iZCI+T1NNQzwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0
+        YWc9Ijk0OCIgaW5kMT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEi
+        PjIwMTIwNDExPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+bzwvc3Vi
+        ZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImMiPnJnbTM8L3N1YmZpZWxkPjxzdWJm
+        aWVsZCBjb2RlPSJkIj5PU01DPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0
+        YWZpZWxkIHRhZz0iOTAwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQg
+        Y29kZT0iYSI+QVVUSDwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVs
+        ZCB0YWc9Ijk5MSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9
+        ImEiPlJCTUxfQ29tcG9zZXJzRm9ydW1fMTk1ODAxMThfODU0MDM3MDwvc3Vi
+        ZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPm1zcitSQk1MX0NPTVBPU0VSU0ZP
+        UlVNXzE5NTgwMTE4Xzg1NDAzNzA8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxk
+        YXRhZmllbGQgdGFnPSI5OTIiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVs
+        ZCBjb2RlPSJhIj5NdXNpYzwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIi
+        Pk11c2ljIFNvdW5kIFJlY29yZGluZ3MgJmd0OyZndDsgUkJNTF9Db21wb3Nl
+        cnNGb3J1bV8xOTU4MDExOF84NTQwMzcwfERFTElNfDExNjIyOTQxPC9zdWJm
+        aWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTkzIiBpbmQxPSIg
+        IiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+TXVzaWMgLSBSZWNvcmRp
+        bmc8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTMi
+        IGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5PbmxpbmU8
+        L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTUiIGlu
+        ZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5jYXRhbG9nPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTk3IiBpbmQx
+        PSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+MjAxMS0wMy0xMFQw
+        MDowMDowMC4wMDBaPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48L3JlY29yZD48
+        L2NvbGxlY3Rpb24+JywnYXV0aG9yX2Rpc3BsYXknPT5bJ1d5bmVyLCBZZWh1
+        ZGksIDE5MjktJ10sJ2RhdGFiYXNlX3Jlc3RyaWN0aW9uc19kaXNwbGF5Jz0+
+        WydBY2Nlc3MgcmVzdHJpY3RlZCB0byBvbnNpdGUgdXNlIGF0IHRoZSBNdXNp
+        YyAmIEFydHMgTGlicmFyeS4nXSwnZm9ybWF0Jz0+WydNdXNpYyAtIFJlY29y
+        ZGluZycsJ09ubGluZSddLCdzb3VyY2VfZGlzcGxheSc9PlsnY2F0YWxvZydd
+        LCdtYXRlcmlhbF90eXBlX2Rpc3BsYXknPT5bJzQgc291bmQgZmlsZXMnXSwn
+        b2NsY19kaXNwbGF5Jz0+Wyc3ODk2NTA3ODknLCdvY243ODk2NTA3ODknXSwn
+        dGl0bGVfZmlyc3RfZmFjZXQnPT5bJ0MnXSwncHViX2RhdGVfc29ydCc9PjE5
+        NTgsJ192ZXJzaW9uXyc9PjE1MDE5NzMyMTgxNDE5Mjk0NzIsJ3RpbWVzdGFt
+        cCc9PicyMDE1LTA1LTIzVDE1OjAxOjIyLjA3MVonfV19fQo=
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:26 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=4079060&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 19:41:25 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'4079060','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['rbms+ms coll mcclure+4079060'],'location_call_number_id_display'=>['Rare Book, Butler 6th Fl. East (Non-Circulating) >> Ms Coll McClure|DELIM|4616283'],'repository_display'=>['Rare Book & Manuscript Library'],'summary_display'=>['Letters from McClure to David Meltzer discussing McClure\'s writings, especially during a visit to New York in 1961.  Also, three poems sent to Meltzer; one letter, dated 1965, and addressed to Joe Pinelli; letters from McClure to his agent, Max Gartenberg, 1965-1967, concerning his negotiations with Grove Press; and 43 drafts of his MEAT SCIENCE ESSAYS, published by City Lights Books in 1963 and 1966'],'title_display'=>['Papers, 1958-1968'],'item_display'=>['Ms Coll McClure | rbms+ms coll mcclure+4079060 | 8od7~d7~nbee~dnne58l~vzsqztz~~~~~~~~~~~~~~~~~~~~~~'],'id'=>'4079060','clio_id_display'=>'4079060','reverse_shelfkey'=>['8od7~d7~nbee~dnne58l~vzsqztz~~~~~~~~~~~~~~~~~~~~~~'],'subject_geo_facet'=>['New York (N.Y.)'],'call_number_display'=>['Ms Coll McClure'],'subject_topic_facet'=>['Meltzer, David','Pinelli, Joe','Gartenberg, Max','Grove Press','Literary agents','American poetry','Literature publishing','Publishers and publishing','Bohemianism','Description and travel'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01938cbc a2200493ua 4500</leader><controlfield tag="001">4079060</controlfield><controlfield tag="005">20100226143651.0</controlfield><controlfield tag="008">890802i19581968nyu                 eng d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)122571388</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn122571388</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCR89-A560</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAB1821RB</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)4079060</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">NIC</subfield><subfield code="c">NIC</subfield><subfield code="e">appm</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="b">Ms Coll\\McClure</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">McClure, Michael.</subfield></datafield><datafield tag="245" ind1="0" ind2="0"><subfield code="k">Papers,</subfield><subfield code="f">1958-1968.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">93 items (1 box)</subfield></datafield><datafield tag="545" ind1=" " ind2=" "><subfield code="a">Poet.</subfield><subfield code="b">McClure was born in 1932.</subfield></datafield><datafield tag="520" ind1=" " ind2=" "><subfield code="a">Letters from McClure to David Meltzer discussing McClure\'s writings, especially during a visit to New York in 1961.  Also, three poems sent to Meltzer; one letter, dated 1965, and addressed to Joe Pinelli; letters from McClure to his agent, Max Gartenberg, 1965-1967, concerning his negotiations with Grove Press; and 43 drafts of his MEAT SCIENCE ESSAYS, published by City Lights Books in 1963 and 1966.</subfield></datafield><datafield tag="541" ind1=" " ind2=" "><subfield code="d">04/24/81</subfield><subfield code="e">M-81-04-24</subfield><subfield code="a">409622C</subfield><subfield code="c">Purchase</subfield></datafield><datafield tag="583" ind1=" " ind2=" "><subfield code="a">Cataloged</subfield><subfield code="c">08/--/89</subfield><subfield code="k">Christina Hilton Fenn</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Meltzer, David.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Pinelli, Joe.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Gartenberg, Max.</subfield></datafield><datafield tag="610" ind1="2" ind2="0"><subfield code="a">Grove Press.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Literary agents.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">American poetry</subfield><subfield code="y">20th century.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Literature publishing.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Publishers and publishing.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Bohemianism.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">New York (N.Y.)</subfield><subfield code="x">Description and travel.</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Poems.</subfield><subfield code="2">ftamc</subfield></datafield><datafield tag="656" ind1=" " ind2="7"><subfield code="a">Poets, American.</subfield><subfield code="2">lcsh</subfield></datafield><datafield tag="690" ind1=" " ind2="4"><subfield code="a">Beats.</subfield></datafield><datafield tag="690" ind1=" " ind2="4"><subfield code="a">Beat literature.</subfield></datafield><datafield tag="852" ind1=" " ind2=" "><subfield code="a">Columbia University.</subfield><subfield code="b">Rare Book and Manuscript Library,</subfield><subfield code="e">New York, NY.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">Ms Coll McClure</subfield><subfield code="b">rbms+MS COLL MCCLURE</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Rare Book</subfield><subfield code="b">Rare Book, Butler 6th Fl. East (Non-Circulating) &gt;&gt; Ms Coll McClure|DELIM|4616283</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Manuscript/Archive</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">archive</subfield></datafield><datafield tag="996" ind1=" " ind2=" "><subfield code="a">Rare Book &amp; Manuscript Library</subfield></datafield></record></collection>','author_display'=>['McClure, Michael'],'format'=>['Manuscript/Archive'],'source_display'=>['catalog','archive'],'material_type_display'=>['93 items (1 box)'],'oclc_display'=>['122571388','ocn122571388'],'title_first_facet'=>['P'],'pub_date_sort'=>1958,'language_facet'=>['English'],'_version_'=>1501936580970938368,'timestamp'=>'2015-05-23T05:19:02.143Z'}]}}
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:41:26 GMT
+recorded_with: VCR 2.9.3
