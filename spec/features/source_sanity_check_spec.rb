@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Datasource Sanity', js: true do
+describe 'Datasource Sanity', :js do
 
   it "LWeb should be labeled 'Libraries Website'" do
     visit root_path
@@ -49,7 +49,7 @@ describe 'Datasource Sanity', js: true do
 
 end
 
-describe 'Simple query should retrieve results ', js: true do
+describe 'Simple query should retrieve results ', :js do
 
   it 'within all datasources' do
 
@@ -102,7 +102,7 @@ describe 'Simple query should retrieve results ', js: true do
 
 end
 
-describe 'Switching between data-source', js: true do
+describe 'Switching between data-source', :js do
 
   it 'should carry forward simple search to each datasource' do
     visit root_path

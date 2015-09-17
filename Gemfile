@@ -281,5 +281,8 @@ group :test do
   # https://coveralls.zendesk.com/hc/en-us/articles/201769485-Ruby-Rails
   gem 'coveralls', require: false
   
+  # Record API responses, use saved responses for tests
+  gem 'vcr'
+  gem 'webmock'
 end
 

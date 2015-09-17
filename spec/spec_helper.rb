@@ -1,6 +1,6 @@
 require 'simplecov'
 require 'coveralls'
-require "codeclimate-test-reporter"
+require 'codeclimate-test-reporter'
 
 # Using Coveralls with SimpleCov, per:
 #   https://coveralls.zendesk.com/hc/en-us/articles/201769485-Ruby-Rails
@@ -105,7 +105,7 @@ Capybara::Webkit.configure do |config|
   # OLD - WAS PART OF RSPEC CONFIG BLOCK ABOVE
    # # Turn this block on when we upgrade capybara-webkit
    # # from https://github.com/thoughtbot/capybara-webkit/issues/717
-   # config.before(:each, js: true) do
+   # config.before(:each, :js) do
    #   page.driver.block_unknown_urls
    #   # page.driver.allow_url("hathitrust.org")
    #   # page.driver.allow_url("books.google.com")

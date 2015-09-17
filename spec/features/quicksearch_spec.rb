@@ -12,7 +12,7 @@ describe 'QuickSearch landing page' do
   # end
 
   # NEXT-612 - Quick search page doesn't let you start over
-  it "should have a 'Start Over' link", js: true do
+  it "should have a 'Start Over' link", :js do
     visit quicksearch_index_path('q' => 'borneo')
     expect(page).to have_css('.result_set', count: 4)
     expect(page).to have_css('.nested_result_set', count: 4)
@@ -83,7 +83,7 @@ describe 'QuickSearch landing page' do
 
   # NEXT-849 - Quicksearch & Other Data Sources: "i" Information Content
   # NEXT-1048 - nothing happend when you click on the little round "i"
-  it "should show popover i-button text in aggregates", js: true do
+  it "should show popover i-button text in aggregates", :js do
     # QUICKSEARCH
     visit quicksearch_index_path('q' => 'horse')
     expect(page).to have_css('.nested_result_set', count: 4)
@@ -135,7 +135,7 @@ describe 'QuickSearch landing page' do
     end
   end
 
-  it "keeps search text between queries", js: true do
+  it "keeps search text between queries", :js do
     visit quicksearch_index_path
     fill_in 'quicksearch_q', with: 'cats'
     click_button 'Search'

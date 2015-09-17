@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'record tests', js: true do
+describe 'collection tests', :js, :vcr do
 
   it 'test adjust services' do
 

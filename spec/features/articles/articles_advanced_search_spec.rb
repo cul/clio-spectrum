@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Articles Search' do
 
-  it 'should support range facets', js: true do
+  it 'should support range facets', :js do
     visit articles_index_path('s.q' => 'zebra')
     find('.facet_limit h5', text: 'Publication Date').click
     fill_in 'pub_date_min_value',   with: 1890
@@ -14,7 +14,7 @@ describe 'Articles Search' do
     expect(page.all('#documents .result').count).to be >= 10
   end
 
-  it 'should support multi-field searching', js: true do
+  it 'should support multi-field searching', :js do
     visit root_path
     within('.landing_page') do
       click_link('Articles')
@@ -37,7 +37,7 @@ describe 'Articles Search' do
 
   # NEXT-581 - Articles Advanced Search should include Publication Title search
   # NEXT-793 - add Advanced Search to Articles, support Publication Title search
-  it 'should let you perform an advanced publication title search', js: true do
+  it 'should let you perform an advanced publication title search', :js do
     visit root_path
     within('li.datasource_link[source="articles"]') do
       click_link('Articles')
@@ -61,7 +61,7 @@ describe 'Articles Search' do
 
   # NEXT-622 - Basic Articles Search should have a pull-down for fielded search
   # NEXT-842 - Articles search results page doesn't put search term back into search box
-  context 'should let you perform a fielded search from the basic search', js: true do
+  context 'should let you perform a fielded search from the basic search', :js do
     before do
       visit articles_index_path
       within '.search_box.articles' do

@@ -32,7 +32,7 @@ describe 'Summon Search Option Filter Settings' do
     end
   end
 
-  it 'should default from QuickSearch panel', js: true do
+  it 'should default from QuickSearch panel', :js do
     visit quicksearch_index_path('q' => $q)
     expect(page).to have_css('.result_count')
 
@@ -65,7 +65,7 @@ describe 'Summon Search Option Filter Settings' do
     confirm_default_filter_settings
   end
 
-  it 'should default from Landing Page', js: true do
+  it 'should default from Landing Page', :js do
     visit articles_index_path
     fill_in 'q', with: $q
     find('span.glyphicon.glyphicon-search.icon-white').click
@@ -74,7 +74,7 @@ describe 'Summon Search Option Filter Settings' do
     confirm_default_filter_settings
   end
 
-  it 'should default from Start Over', js: true do
+  it 'should default from Start Over', :js do
     visit articles_index_path('q' => 'albatros')
     within '.start_over' do
       find('.btn', text: 'Start Over').click
@@ -90,7 +90,7 @@ describe 'Summon Search Option Filter Settings' do
   # Fire off the args of the LWeb Home-Page search widget, test that
   # the defaults are correctly applied.
   # NEXT-948 Article searches from LWeb do not exclude newspapers
-  it 'should default from LWeb Homepage search', js: true do
+  it 'should default from LWeb Homepage search', :js do
     params = { controller: 'articles', q: $q, datasource: 'articles', search_field: 'all_fields', search: true }
     visit articles_index_path(params)
     # page.save_and_open_page # debug

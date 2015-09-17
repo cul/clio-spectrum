@@ -16,7 +16,7 @@ describe BackendController do
   end
 
   # NEXT-1009 - Multiple 866 fields in the holding records
-  it "holdings with multiple 866s" do
+  it "holdings with multiple 866s", :vcr do
     get 'holdings', :id => '763577'
     expect(response).to be_success
     expect(response.body).to_not match /\-\-/
@@ -24,7 +24,7 @@ describe BackendController do
   end
 
   # NEXT-1147 - Add location note for Burke rare locations
-  it "should include location_notes in holdings" do
+  it "should include location_notes in holdings", :vcr do
     bibs = [5951061, 6703227, 9020317, 10654375, 4584787]
     location_note = 'By appointment only. See the Burke Library special collections page'
     link_text = 'Burke Library special collections page'
@@ -40,7 +40,7 @@ describe BackendController do
 
 
   # NEXT-988 - Label the Call Number field
-  it "should label Call Numbers" do
+  it "should label Call Numbers", :vcr do
     # Simple case
     get 'holdings', :id => '123456'
     expect(response).to be_success
@@ -56,7 +56,7 @@ describe BackendController do
     expect(tagless).to match /Call Number:\s+MICFICHE/m
   end
 
-  it "holdings() should silently ignore a bad CLIO ID" do
+  it "holdings() should silently ignore a bad CLIO ID", :vcr do
 
     # non-numeric value
     get 'holdings', :id => 'non-numeric'
@@ -71,7 +71,7 @@ describe BackendController do
   end
 
 
-  it "should refuse to route without an ID filled in" do
+  it "should refuse to route without an ID filled in", :vcr do
 
     expect {
       # nil
@@ -85,7 +85,7 @@ describe BackendController do
 
   end
 
-  it "holdings() should silently absorb 404 from clio_backend_url" do
+  it "holdings() should silently absorb 404 from clio_backend_url", :vcr do
     APP_CONFIG['clio_backend_url'] = APP_CONFIG['clio_backend_url'] + "/foo/bar"
     get 'holdings', :id => '123'
     expect(response).to be_success
@@ -94,7 +94,7 @@ describe BackendController do
 
 
 
-  it "holdings() should silently absorb a bogus clio_backend_url" do
+  it "holdings() should silently absorb a bogus clio_backend_url", :vcr do
     APP_CONFIG['clio_backend_url'] = 'http://no.such.host'
     get 'holdings', :id => '123'
     expect(response).to be_success
@@ -102,14 +102,14 @@ describe BackendController do
   end
 
 
-  it "holdings() should silently absorb unroutable clio_backend_url" do
+  it "holdings() should silently absorb unroutable clio_backend_url", :vcr do
     APP_CONFIG['clio_backend_url'] = 'http://10.0.0.1'
     get 'holdings', :id => '123'
     expect(response).to be_success
     expect(response.body.strip).to be_empty
   end
 
-  it "url_for_id() should raise RuntimeError if when clio_backend_url unset" do
+  it "url_for_id() should raise RuntimeError if when clio_backend_url unset", :vcr do
     expect {
       be = BackendController.new()
       APP_CONFIG.delete('clio_backend_url')

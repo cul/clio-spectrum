@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'collection output tests', js: true do
+describe 'collection output tests', :js, :vcr do
 
   it 'test condensed holdings output full' do
 

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'record tests', js: true do
+describe 'record tests', :js, :vcr do
 
   it 'test call number' do
     visit catalog_path('7686002')
@@ -75,7 +75,7 @@ describe 'record tests', js: true do
     end
   end
 
-  it 'test service spec coll' do
+  it 'special collections link' do
     visit catalog_path('10104738')
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do
@@ -84,7 +84,7 @@ describe 'record tests', js: true do
     end
   end
 
-  it 'test service spec coll' do
+  it 'special collections services' do
     visit catalog_path('6201975')
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do

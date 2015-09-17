@@ -3,7 +3,7 @@ require 'spec_helper'
 # NEXT-845 - New Arrivals timeframe (6 month count == 1 year count)
 describe 'New Arrivals Search' do
 
-  it 'should show 4 distinct acquisition-date facet options', js: true do
+  it 'should show 4 distinct acquisition-date facet options', :js do
     visit root_path
 
     within 'div#sources' do
@@ -57,7 +57,7 @@ describe 'New Arrivals Search' do
     expect(page).to have_css('.index_toolbar a', text: 'Next')
   end
 
-  it 'can move between item-detail and search-results', js: true do
+  it 'can move between item-detail and search-results', :js do
     visit new_arrivals_index_path('q' => 'man')
 
     within all('.result.document').first do

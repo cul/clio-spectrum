@@ -5,7 +5,7 @@ require 'spec_helper'
 describe 'Databases', focus: false do
 
   # NEXT-843 - Database Alpha jump-list should respect non-filing indicator
-  it "First-Letter facet should ignore leading 'The'", js: true do
+  it "First-Letter facet should ignore leading 'The'", :js do
     visit databases_index_path
     within 'div.a_to_z' do
       click_link('T')
@@ -113,7 +113,7 @@ describe 'Databases', focus: false do
  end
 
  # NEXT-1211 - When I do a blank ejournals search, view a title, and view the MARC record, my results revert back to the full catalog results
- it 'should preserve active_source through MARC view', js: true do
+ it 'should preserve active_source through MARC view', :js do
    firstTitle = '60 minutes'
    visit databases_index_path( q: '')
    expect(page).to have_text firstTitle

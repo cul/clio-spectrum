@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Archives Search' do
 
-  it 'will be able to traverse next and previous links', js: true do
+  it 'will be able to traverse next and previous links', :js do
     visit archives_index_path('q' => 'papers')
 
     expect(page).to_not have_css('.index_toolbar a', text: 'Previous')
@@ -20,7 +20,7 @@ describe 'Archives Search' do
   end
 
 
-  it 'can move between item-detail and search-results', js: true do
+  it 'can move between item-detail and search-results', :js do
     visit archives_index_path('q' => 'files')
 
     expect(page).to have_css '#documents .result.document'

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Catalog Advanced Search' do
 
-  it 'should be accessible from the home page', js: true do
+  it 'should be accessible from the home page', :js do
     # NEXT-713, NEXT-891 - A Journal Title search should find Newspapers
 
     # Use this string within the below test
@@ -33,7 +33,7 @@ describe 'Catalog Advanced Search' do
   end
 
   # NEXT-705 - "All Fields" should be default, and should be first option
-  it "should default to 'All Fields'", js: true do
+  it "should default to 'All Fields'", :js do
     visit root_path
     within('li.datasource_link[source="catalog"]') do
       click_link('Catalog')
@@ -86,7 +86,7 @@ describe 'Catalog Advanced Search' do
   }.each_pair do |searchField, searchValue|
 
 
-    it "supports fielded search by #{searchField}", js: true do
+    it "supports fielded search by #{searchField}", :js do
       visit catalog_index_path
 #       # find('btn', text: "All Fields").click
 # 
@@ -104,7 +104,7 @@ describe 'Catalog Advanced Search' do
     end
 
 
-    it "supports advanced search by #{searchField}", js: true do
+    it "supports advanced search by #{searchField}", :js do
       visit catalog_index_path
       find('.search_box.catalog .advanced_search_toggle').click
       within '.landing_page.catalog .advanced_search' do
@@ -132,7 +132,7 @@ describe 'Catalog Advanced Search' do
     'Offsite <Fine Arts>'
   ].each do |locationSearch|
 
-    it "supports fielded Location search for #{locationSearch}", js: true do
+    it "supports fielded Location search for #{locationSearch}", :js do
       visit catalog_index_path
       # find('btn', text: "All Fields").click
       # within('.search_row') do
@@ -147,7 +147,7 @@ describe 'Catalog Advanced Search' do
     end
 
 
-    it "supports advanced Location search for #{locationSearch}", js: true do
+    it "supports advanced Location search for #{locationSearch}", :js do
       visit catalog_index_path
       find('.search_box.catalog .advanced_search_toggle').click
       within '.landing_page.catalog .advanced_search' do
@@ -164,7 +164,7 @@ describe 'Catalog Advanced Search' do
 
   # Bug - Dismissing the last advanced-search field should WORK
   # (CatalogController#preprocess_search_params:  undefined method `gsub!' for nil:NilClass)
-  it 'should allow dismissing of final advanced fielded search param', js: true do
+  it 'should allow dismissing of final advanced fielded search param', :js do
     search_isbn = '978-1-4615-2974-3'
 
     visit root_path
@@ -195,7 +195,7 @@ describe 'Catalog Advanced Search' do
   # Support advanced/fielded ISBN searches to hit on 020$z, "Canceled/invalid ISBN"
   # NEXT-1050 - Search for invalid ISBN
   # http://www.loc.gov/marc/bibliographic/bd020.html
-  it 'should allow advanced ISBN search against "invalid" ISBN', js: true do
+  it 'should allow advanced ISBN search against "invalid" ISBN', :js do
     isbn_z = '9789770274208'
 
     visit root_path
@@ -218,7 +218,7 @@ describe 'Catalog Advanced Search' do
   end
 
   # NEXT-1050, continued, for basic/fielded search...
-  it 'should allow basic fielded ISBN search against "invalid" ISBN', js: true do
+  it 'should allow basic fielded ISBN search against "invalid" ISBN', :js do
     isbn_z = '201235125'
 
     visit catalog_index_path

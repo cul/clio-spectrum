@@ -10,7 +10,7 @@ describe 'The home page' do
   # it "will keep the text in a box across different sources on the landing pages", :js => true do
   # end
 
-  it 'will switch the visible search box when a datasource is clicked upon', js: true do
+  it 'will switch the visible search box when a datasource is clicked upon', :js do
     visit catalog_index_path
 
     expect(find('#catalog_q')).to be_visible

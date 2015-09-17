@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Catalog Interface' do
 
   # NEXT-779 - Some 880 fields not showing up
-  it 'MARC 880 note field should display', js: true do
+  it 'MARC 880 note field should display', :js do
     # visit this specific item
     visit catalog_path('7814900')
 
@@ -12,7 +12,7 @@ describe 'Catalog Interface' do
   end
 
   # NEXT-765 - MARC 787 field (Related To) not showing up
-  it "MARC 787 'Related To' field should display", js: true do
+  it "MARC 787 'Related To' field should display", :js do
     # visit this specific item
     visit catalog_path('7419929')
 
@@ -21,7 +21,7 @@ describe 'Catalog Interface' do
   end
 
   # NEXT-917 - Summary showing up twice for video records
-  it 'Video Records should show Summary only once', js: true do
+  it 'Video Records should show Summary only once', :js do
     visit catalog_index_path('q' => 'summary')
     within all('div.facet_limit.blacklight-format.panel').first do
       find('a.more_facets_link').click
@@ -38,7 +38,7 @@ describe 'Catalog Interface' do
 
   # NEXT-551 - display 'version of resource' and 'related resource' notes
   # this test is awefully tight - any cataloging/labeling change will break it.
-  it "Item Links should show 'version of resource' and 'related resource'", js: true do
+  it "Item Links should show 'version of resource' and 'related resource'", :js do
     # on the search-results page
     visit catalog_index_path('q' => 'Introduction to high-energy astrophysics stephan rosswog')
     expect(page).to have_text('Table of contents (version of resource)')
@@ -51,7 +51,7 @@ describe 'Catalog Interface' do
   end
 
   # NEXT-619 - improvements to 'Manuscript' facet
-  it 'Should find many Manuscripts for Call Number range X893', js: true do
+  it 'Should find many Manuscripts for Call Number range X893', :js do
     visit catalog_index_path('q' => 'X893')
     within '.search_box.catalog' do
       # find('btn.dropdown-toggle').click
@@ -73,7 +73,7 @@ describe 'Catalog Interface' do
   # NEXT-640 - Records in CLIO should include links to Hathi Trust
   #  Full View examples:  513297, 1862548, 2081553
   #  Limited examples:  70744 (?), 4043762, 2517624
-  it "Should show CLIO, Google, and 'Full' & 'Limited' Hathi Trust links", js: true do
+  it "Should show CLIO, Google, and 'Full' & 'Limited' Hathi Trust links", :js do
 
     # visit this specific item
     visit catalog_path('513297')
@@ -95,7 +95,7 @@ describe 'Catalog Interface' do
   end
 
   # NEXT-931 - Online Links in Holdings (not in the Bib) should display
-  it 'Online links from Bib or Holdings should show up within correct block', js: true do
+  it 'Online links from Bib or Holdings should show up within correct block', :js do
     # visit this specific item
     visit catalog_path('382300')
     expect(page).to have_css('#clio_holdings .holding')
@@ -123,7 +123,7 @@ describe 'Catalog Interface' do
   # Valid Voyager locations include angle-brackets.
   # CLIO should escape these (NOT treat them like markup)
   # NEXT-593, NEXT-928
-  it 'Locations with embedded angle-brackets should work', js: true do
+  it 'Locations with embedded angle-brackets should work', :js do
     target1 = 'Avery obituary index of architects and artists'
     troublesome1 = 'Offsite <Avery> (Non-Circulating) Place Request for delivery'
     target2 = 'Notes for the Breitenau room'
@@ -157,7 +157,7 @@ describe 'Catalog Interface' do
     expect(find('div#clio_holdings')).to have_content(troublesome2)
   end
 
-  it "supports alternative viewstyle options ('Standard' or 'Compact')", js: true do
+  it "supports alternative viewstyle options ('Standard' or 'Compact')", :js do
     visit catalog_index_path('q' => "the'end")
 
     click_link 'Display Options'
@@ -198,7 +198,7 @@ describe 'Catalog Interface' do
       end
     end
 
-    it 'supports an email function, via JS modal', js: true do
+    it 'supports an email function, via JS modal', :js do
       visit catalog_path(1234)
       within '#show_toolbar' do
         click_link 'Email'
@@ -217,7 +217,7 @@ describe 'Catalog Interface' do
     end
   end
 
-  it 'supports a debug mode', js: true do
+  it 'supports a debug mode', :js do
     skip "Debug mode broken w/BL 5.10"
     visit catalog_index_path('q' => 'prim')
 
@@ -252,7 +252,7 @@ describe 'Catalog Interface' do
   end
 
     # NEXT-1015 - next from MARC
-  it 'should support next/previous navigation from MARC view', js: true do
+  it 'should support next/previous navigation from MARC view', :js do
 
     # locate a fairly static set of records for a stable test suite
     visit catalog_index_path('q' => 'maigret simenon')
@@ -296,7 +296,7 @@ describe 'Catalog Interface' do
 
 
   # NEXT-1081 - Apostrophe in the title bar renders incorrectly
-  it 'shows apostrophes within title element', js: true do
+  it 'shows apostrophes within title element', :js do
     visit catalog_path(6217943)
     expect(page).to have_title "L'image de l'Orient"
 
@@ -305,7 +305,7 @@ describe 'Catalog Interface' do
   end
 
   # NEXT-1127 - Apostrophe in the title bar (in MARC view)
-  it 'shows apostrophes within title element', js: true do
+  it 'shows apostrophes within title element', :js do
     visit librarian_view_catalog_path(10877875)
     expect(page).to have_title "One woman's war: Da"
 

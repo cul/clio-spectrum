@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe 'Academic Commons' do
 
-  it 'fielded search should work', js: true do
+  it 'fielded search should work', :js do
     # Use this string within the below tests
     search_title_text = 'Structural and Functional Microbial Ecology'
 
@@ -53,7 +53,7 @@ describe 'Academic Commons' do
   end
 
   # NEXT-1012 - use handle for item link in AC records
-  it 'should link items to identifiers, not AC website', js: true do
+  it 'should link items to identifiers, not AC website', :js do
     visit quicksearch_index_path('q' => 'portuguese')
 
     # Make sure things load...

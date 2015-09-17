@@ -19,7 +19,7 @@ describe 'E-Journals Search' do
     expect(page).to have_css('.index_toolbar a', text: 'Next')
   end
 
-  it 'can move between item-detail and search-results', js: true do
+  it 'can move between item-detail and search-results', :js do
     visit journals_index_path('q' => 'letters')
 
     within all('.result.document').first do

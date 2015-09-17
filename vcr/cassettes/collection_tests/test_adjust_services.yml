@@ -1,0 +1,163 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=9702637&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 15:26:12 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'9702637','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+pr-+9369+30000000+s6000000+a2800000+002012+9702637'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> PR9369.3.S6 A28 2012g|DELIM|12747868','Offsite - Place Request for delivery within 2 business days >> PR9369.3.S6 A28 2012g|DELIM|13256207'],'pub_year_display'=>['2012'],'acq_dt'=>'2013-02-28T00:00:00Z','title_display'=>['Absent tongues'],'item_display'=>['PR9369.3.S6 A28 2012g | loc+pr-+9369+30000000+s6000000+a2800000+002012+9702637 | ebn~a8~~qwtq~wzzzzzzz~7tzzzzzz~pxrzzzzz~zzxzyx~qszxtws'],'id'=>'9702637','reverse_shelfkey'=>['ebn~a8~~qwtq~wzzzzzzz~7tzzzzzz~pxrzzzzz~zzxzyx~qszxtws'],'clio_id_display'=>'9702637','call_number_display'=>['PR9369.3.S6 A28 2012g'],'pub_place_display'=>['Athlone, South Africa'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01218cam a2200361 a 4500</leader><controlfield tag="001">9702637</controlfield><controlfield tag="005">20130318143748.0</controlfield><controlfield tag="008">120709s2012    sa            000 p eng c</controlfield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781920397401 (pbk.)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">192039740X (pbk.)</subfield></datafield><datafield tag="029" ind1="1" ind2=" "><subfield code="a">AU@</subfield><subfield code="b">000050210767</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn798561180</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)798561180</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)9702637</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">OI@</subfield><subfield code="c">OI@</subfield><subfield code="d">OI@</subfield><subfield code="d">CLU</subfield><subfield code="d">YDXCP</subfield><subfield code="d">BWX</subfield><subfield code="d">IQU</subfield></datafield><datafield tag="042" ind1=" " ind2=" "><subfield code="a">pcc</subfield></datafield><datafield tag="050" ind1=" " ind2="4"><subfield code="a">PR9369.3.S6</subfield><subfield code="b">A28 2012</subfield></datafield><datafield tag="082" ind1="0" ind2="4"><subfield code="a">821.914</subfield><subfield code="2">23</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Sole, Kelwyn,</subfield><subfield code="d">1951-</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Absent tongues /</subfield><subfield code="c">by Kelwyn Sole.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Athlone, South Africa :</subfield><subfield code="b">Hands-On Books,</subfield><subfield code="c">2012.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">76 p. ;</subfield><subfield code="c">22 cm.</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Poems.</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20121101</subfield><subfield code="b">c</subfield><subfield code="c">as2107</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20130228</subfield><subfield code="b">a</subfield><subfield code="c">vt2130</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">PR</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">PR9369.3.S6 A28 2012g</subfield><subfield code="b">loc+PR-+9369+30000000+S6000000+A2800000+002012</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; PR9369.3.S6 A28 2012g|DELIM|12747868</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Offsite</subfield><subfield code="b">Offsite - Place Request for delivery within 2 business days &gt;&gt; PR9369.3.S6 A28 2012g|DELIM|13256207</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2013-02-28T00:00:00.000Z</subfield></datafield></record></collection>','author_display'=>['Sole, Kelwyn, 1951-'],'pub_name_display'=>['Hands-On Books'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['76 p.'],'oclc_display'=>['ocn798561180','798561180'],'title_first_facet'=>['A'],'pub_date_sort'=>2012,'full_publisher_display'=>['Athlone, South Africa : Hands-On Books, 2012.'],'language_facet'=>['English'],'isbn_display'=>['9781920397401','192039740X'],'_version_'=>1501981455568338944,'timestamp'=>'2015-05-23T17:12:17.894Z'}]}}
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 15:26:13 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=9702637&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 15:26:13 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'9702637','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+pr-+9369+30000000+s6000000+a2800000+002012+9702637'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> PR9369.3.S6 A28 2012g|DELIM|12747868','Offsite - Place Request for delivery within 2 business days >> PR9369.3.S6 A28 2012g|DELIM|13256207'],'pub_year_display'=>['2012'],'acq_dt'=>'2013-02-28T00:00:00Z','title_display'=>['Absent tongues'],'item_display'=>['PR9369.3.S6 A28 2012g | loc+pr-+9369+30000000+s6000000+a2800000+002012+9702637 | ebn~a8~~qwtq~wzzzzzzz~7tzzzzzz~pxrzzzzz~zzxzyx~qszxtws'],'id'=>'9702637','reverse_shelfkey'=>['ebn~a8~~qwtq~wzzzzzzz~7tzzzzzz~pxrzzzzz~zzxzyx~qszxtws'],'clio_id_display'=>'9702637','call_number_display'=>['PR9369.3.S6 A28 2012g'],'pub_place_display'=>['Athlone, South Africa'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01218cam a2200361 a 4500</leader><controlfield tag="001">9702637</controlfield><controlfield tag="005">20130318143748.0</controlfield><controlfield tag="008">120709s2012    sa            000 p eng c</controlfield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781920397401 (pbk.)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">192039740X (pbk.)</subfield></datafield><datafield tag="029" ind1="1" ind2=" "><subfield code="a">AU@</subfield><subfield code="b">000050210767</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn798561180</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)798561180</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)9702637</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">OI@</subfield><subfield code="c">OI@</subfield><subfield code="d">OI@</subfield><subfield code="d">CLU</subfield><subfield code="d">YDXCP</subfield><subfield code="d">BWX</subfield><subfield code="d">IQU</subfield></datafield><datafield tag="042" ind1=" " ind2=" "><subfield code="a">pcc</subfield></datafield><datafield tag="050" ind1=" " ind2="4"><subfield code="a">PR9369.3.S6</subfield><subfield code="b">A28 2012</subfield></datafield><datafield tag="082" ind1="0" ind2="4"><subfield code="a">821.914</subfield><subfield code="2">23</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Sole, Kelwyn,</subfield><subfield code="d">1951-</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Absent tongues /</subfield><subfield code="c">by Kelwyn Sole.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Athlone, South Africa :</subfield><subfield code="b">Hands-On Books,</subfield><subfield code="c">2012.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">76 p. ;</subfield><subfield code="c">22 cm.</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Poems.</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20121101</subfield><subfield code="b">c</subfield><subfield code="c">as2107</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20130228</subfield><subfield code="b">a</subfield><subfield code="c">vt2130</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">PR</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">PR9369.3.S6 A28 2012g</subfield><subfield code="b">loc+PR-+9369+30000000+S6000000+A2800000+002012</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; PR9369.3.S6 A28 2012g|DELIM|12747868</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Offsite</subfield><subfield code="b">Offsite - Place Request for delivery within 2 business days &gt;&gt; PR9369.3.S6 A28 2012g|DELIM|13256207</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2013-02-28T00:00:00.000Z</subfield></datafield></record></collection>','author_display'=>['Sole, Kelwyn, 1951-'],'pub_name_display'=>['Hands-On Books'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['76 p.'],'oclc_display'=>['ocn798561180','798561180'],'title_first_facet'=>['A'],'pub_date_sort'=>2012,'full_publisher_display'=>['Athlone, South Africa : Hands-On Books, 2012.'],'language_facet'=>['English'],'isbn_display'=>['9781920397401','192039740X'],'_version_'=>1501981455568338944,'timestamp'=>'2015-05-23T17:12:17.894Z'}]}}
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 15:26:14 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=9420109&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 15:26:13 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'9420109','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+bm-+0197+50000000+c6400000+002012+9420109'],'location_call_number_id_display'=>['Offsite - Place Request for delivery within 2 business days >> BM197.5 .C64 2012|DELIM|12472989','Butler Stacks (Enter at the Butler Circulation Desk) >> BM197.5 .C64 2012|DELIM|12476238'],'lccn_display'=>['2011025625'],'acq_dt'=>'2012-05-04T00:00:00Z','item_display'=>['BM197.5 .C64 2012 | loc+bm-+0197+50000000+c6400000+002012+9420109 | ebn~od~~zyqs~uzzzzzzz~ntvzzzzz~zzxzyx~qvxzyzq~~~~~'],'title_display'=>['The birth of conservative Judaism : Solomon Schechter\'s disciples and the creation of an American religious movement'],'clio_id_display'=>'9420109','subject_topic_facet'=>['Schechter, S. (Solomon), 1847-1915','Conservative Judaism','History'],'pub_place_display'=>['New York'],'format'=>['Book'],'oclc_display'=>['ocn731192708','731192708'],'title_first_facet'=>['B'],'full_publisher_display'=>['New York : Columbia University Press, c2012.'],'pub_date_sort'=>2012,'isbn_display'=>['9780231156356','0231156359','9780231526777','0231526776'],'pub_year_display'=>['c2012'],'id'=>'9420109','reverse_shelfkey'=>['ebn~od~~zyqs~uzzzzzzz~ntvzzzzz~zzxzyx~qvxzyzq~~~~~'],'subject_geo_facet'=>['United States'],'call_number_display'=>['BM197.5 .C64 2012'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>02066cam a2200445 a 4500</leader><controlfield tag="001">9420109</controlfield><controlfield tag="005">20120823161014.0</controlfield><controlfield tag="008">120201s2012    nyuaf    b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2011025625</subfield></datafield><datafield tag="016" ind1="7" ind2=" "><subfield code="a">016014653</subfield><subfield code="2">Uk</subfield></datafield><datafield tag="019" ind1=" " ind2=" "><subfield code="a">775411297</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9780231156356 (cloth : alk. paper)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0231156359 (cloth : alk. paper)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9780231526777 (e-book)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0231526776 (e-book)</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn731192708</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)731192708</subfield><subfield code="z">(OCoLC)775411297</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)9420109</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="b">eng</subfield><subfield code="c">DLC</subfield><subfield code="d">YDX</subfield><subfield code="d">UKMGB</subfield><subfield code="d">ZCU</subfield><subfield code="d">YDXCP</subfield><subfield code="d">BWX</subfield><subfield code="d">BTCTA</subfield><subfield code="d">CDX</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">n-us---</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">BM197.5</subfield><subfield code="b">.C64 2012</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">296.8/3420973</subfield><subfield code="2">23</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Cohen, Michael R.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The birth of conservative Judaism :</subfield><subfield code="b">Solomon Schechter\'s disciples and the creation of an American religious movement /</subfield><subfield code="c">Michael R. Cohen.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Columbia University Press,</subfield><subfield code="c">c2012.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">ix, 210 p., [10] p. of plates :</subfield><subfield code="b">ill. ;</subfield><subfield code="c">24 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="505" ind1="0" ind2=" "><subfield code="a">Solomon Schechter and the charismatic bond -- The United Synagogue and the transition to postcharismatic authority -- A heretic, a maverick, and the challenge to inclusivity -- On the brink of irrelevancy -- The platform of discipleship -- A task left unfinished -- Conclusion from Schechter to Frankel: deceptive retrospect and the history of Conservative Judaism.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Conservative Judaism</subfield><subfield code="z">United States</subfield><subfield code="x">History.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Schechter, S.</subfield><subfield code="q">(Solomon),</subfield><subfield code="d">1847-1915.</subfield></datafield><datafield tag="948" ind1="0" ind2=" "><subfield code="a">20120503</subfield><subfield code="b">b</subfield><subfield code="c">as2107</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20120504</subfield><subfield code="b">a</subfield><subfield code="c">as2107</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">BM</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">BM197.5 .C64 2012</subfield><subfield code="b">loc+BM-+0197+50000000+C6400000+002012</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Offsite</subfield><subfield code="b">Offsite - Place Request for delivery within 2 business days &gt;&gt; BM197.5 .C64 2012|DELIM|12472989</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; BM197.5 .C64 2012|DELIM|12476238</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2012-05-04T00:00:00.000Z</subfield></datafield></record></collection>','author_display'=>['Cohen, Michael R.'],'pub_name_display'=>['Columbia University Press'],'source_display'=>['catalog'],'material_type_display'=>['ix, 210 p., [10] p. of plates'],'language_facet'=>['English'],'_version_'=>1503692115315523584,'timestamp'=>'2015-06-11T14:22:30.159Z'}]}}
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 15:26:14 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/9781920397401.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 17 Sep 2015 15:26:14 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 15:26:14 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        15:36:14 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 15:26:14 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/192039740X.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 17 Sep 2015 15:26:14 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 17 Sep 2015 15:26:14 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
+        15:36:14 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 15:26:14 GMT
+recorded_with: VCR 2.9.3

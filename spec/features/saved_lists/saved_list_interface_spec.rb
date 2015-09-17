@@ -52,7 +52,7 @@ describe 'Saved List Interface' do
     expect(page).to have_text("Invalid URL: #{login_path}")
   end
 
-  it 'should protect private lists and share public lists', js: true do
+  it 'should protect private lists and share public lists', :js do
 
     # Use Warden::Test::Helpers for Feature testing
     feature_login @autodidact
@@ -153,7 +153,7 @@ describe 'Saved List Interface' do
   # tries to interact with the webpage afterwards.
   # This fails with Capybara - When the file-download occurs, Capybara-Webkit 
   # loses the original webpage and loads the downloaded content instead.
-  context "item can be added to bookbag after exporting to EndNote", selenium: true do
+  context "item can be added to bookbag after exporting to EndNote",:selenium do
 
     it 'uses selenium driver' do
       expect(Capybara.current_driver).to be(:selenium)
@@ -168,7 +168,7 @@ describe 'Saved List Interface' do
       click_on('Add to My Saved List')
       expect(page).to have_css(".alert", :text => "1 item added to list Bookbag")
     end
-  # it "item can be added to bookbag after exporting to EndNote", js: true, type: :selenium do
+  # it "item can be added to bookbag after exporting to EndNote", :js, type: :selenium do
   #   Capybara.current_driver = :selenium
   #   visit catalog_path("4359539")
   #   login_as @blatteroon

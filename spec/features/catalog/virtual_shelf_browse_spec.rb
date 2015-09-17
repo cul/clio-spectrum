@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Virtual Shelf Browse" do
 
   # NEXT-995 - Something like "shelf view"
-  it "should show basic controls on first load of simple item", js: true do
+  it "should show basic controls on first load of simple item", :js do
     # pull up a simple item-detail page
     visit catalog_path(1234)
     # verify some basic labels and buttons
@@ -16,7 +16,7 @@ describe "Virtual Shelf Browse" do
   end
 
 
-  it "should show browse list upon button click", js: true do
+  it "should show browse list upon button click", :js do
     # pull up simple item-detail page, click to Show the browse-list
     visit catalog_path(1234)
     find('.btn.show_mini_browse', text: 'Show').click
@@ -40,7 +40,7 @@ describe "Virtual Shelf Browse" do
 
 
   # NEXT-1150 - message for items which cannot launch virtual shelf browse
-  it "should display special text for items without call-numbers", js: true do
+  it "should display special text for items without call-numbers", :js do
     unavailable_text = I18n.t('blacklight.browse.unavailable')
     # offsite, no call number assigned - should be durable for testing
     visit catalog_path(102437)
