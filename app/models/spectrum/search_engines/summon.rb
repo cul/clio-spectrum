@@ -125,7 +125,10 @@ module Spectrum
           @service = ::Summon::Service.new(@config)
 
           ### THIS is the actual call to the Summon service to do the search
+          start_time = Time.now
           @search = @service.search(@params)
+          end_time = Time.now
+          Rails.logger.debug "[Spectrum][Summon] search took: #{(end_time - start_time).round(2)} sec"
 
           # if do_benchmarking
           #   bench.output

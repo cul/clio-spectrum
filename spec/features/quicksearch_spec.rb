@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'QuickSearch landing page' do
+describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
 
 # No, it shouldn't.  The home page should show ONLY the QuickSearch search box.
   # it "should display search fields for archives, catalog, new arrivals, journals" do
@@ -36,7 +36,7 @@ describe 'QuickSearch landing page' do
   # NEXT-1027 - Relabel 'All #### results' on Quicksearch
 
   # *** CATALOG ***
-  it "should link to Catalog results correctly", js:true, Xfocus:true do
+  it "should link to Catalog results correctly", :js, Xfocus:true do
     visit quicksearch_index_path('q' => 'kitty')
     # page.save_and_open_page
     within('.results_header', :text => "Catalog") do
@@ -46,7 +46,7 @@ describe 'QuickSearch landing page' do
   end
 
   # *** ARTICLES ***
-  it "should link to Articles results correctly", js:true do
+  it "should link to Articles results correctly", :js do
     visit quicksearch_index_path('q' => 'indefinite')
     expect(page).to have_css('.results_header', :text => "Articles")
     within('.results_header', :text => "Articles") do
@@ -56,7 +56,7 @@ describe 'QuickSearch landing page' do
   end
 
   # *** ACADEMIC COMMONS ***
-  it "should link to Academic Commons results correctly", js:true do
+  it "should link to Academic Commons results correctly", :js do
     visit quicksearch_index_path('q' => 'uncommon')
     # page.save_and_open_page
     within('.results_header', :text => "Academic Commons") do
@@ -66,11 +66,13 @@ describe 'QuickSearch landing page' do
   end
 
   # *** LIBRARIES WEBSITE ***
-  it "should link to Libraries Website results correctly", js:true do
+  it "should link to Libraries Website results correctly", :js do
     visit quicksearch_index_path('q' => 'public')
 
     # make sure the AJAX lookups all return
     expect(page).to have_css('.result_set', count: 4)
+    expect(page).to have_css('.nested_result_set', count: 4)
+
     within('.result_set[data-source=library_web]') do
       expect(page).to have_css('.results_header', :text => "Libraries Website")
       expect(page).to have_css('.results_header', :text => "View all", :wait =>5)
@@ -83,7 +85,7 @@ describe 'QuickSearch landing page' do
 
   # NEXT-849 - Quicksearch & Other Data Sources: "i" Information Content
   # NEXT-1048 - nothing happend when you click on the little round "i"
-  it "should show popover i-button text in aggregates", :js do
+  it "should show popover i-button text in QuickSearch", :js do
     # QUICKSEARCH
     visit quicksearch_index_path('q' => 'horse')
     expect(page).to have_css('.nested_result_set', count: 4)
@@ -107,9 +109,13 @@ describe 'QuickSearch landing page' do
       expect(page).to have_css('.category_title')
       expect(find('.category_title')).to have_text 'Information about the libraries from the Libraries Website'
     end
+  end
 
+  it "should show popover i-button text in Dissertations", :js do
     # DISSERTATIONS
     visit dissertations_index_path('q' => 'horse')
+    expect(page).to have_css('.nested_result_set', count: 3)
+
     within('.results_header[data-source=catalog_dissertations]') do
       find('img').click
       expect(find('.category_title')).to have_text "Dissertations from the library catalog"
@@ -122,9 +128,13 @@ describe 'QuickSearch landing page' do
       find('img').click
       expect(find('.category_title')).to have_text "Dissertations deposited in Columbia's digital repository, primarily 2011-present."
     end
+  end
 
+  it "should show popover i-button text in E-Books", :js do
     # EBOOKS
     visit ebooks_index_path('q' => 'horse')
+    expect(page).to have_css('.nested_result_set', count: 2)
+
     within('.results_header[data-source=catalog_ebooks]') do
       find('img').click
       expect(find('.category_title')).to have_text "E-books from the library catalog"

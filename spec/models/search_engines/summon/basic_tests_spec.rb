@@ -1,8 +1,10 @@
 # encoding: utf-8
 require 'spec_helper'
 
-describe 'Spectrum::SearchEngines::Summon' do
+describe 'Spectrum::SearchEngines::Summon', :vcr do
+
   describe 'with parameters' do
+
     it 'should default to a clean search' do
 
       sum = Spectrum::SearchEngines::Summon.new
@@ -36,11 +38,11 @@ describe 'Spectrum::SearchEngines::Summon' do
   end
 
   describe 'basic articles search' do
-    before(:all) do
+    before(:each) do
       @sum = Spectrum::SearchEngines::Summon.new('source' => 'articles', 's.q' => 'hardnose dictator', 'new_search' => true)
     end
 
-    it 'should find results' do
+    it 'should find results', :xfocus do
       expect(@sum.documents).to_not be_empty
     end
 

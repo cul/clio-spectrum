@@ -49,7 +49,7 @@ describe 'Datasource Sanity', :js do
 
 end
 
-describe 'Simple query should retrieve results ', :js do
+describe 'Simple query should retrieve results ', :js, :vcr do
 
   it 'within all datasources' do
 
@@ -102,7 +102,7 @@ describe 'Simple query should retrieve results ', :js do
 
 end
 
-describe 'Switching between data-source', :js do
+describe 'Switching between data-source', :js, :vcr do
 
   it 'should carry forward simple search to each datasource' do
     visit root_path

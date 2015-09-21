@@ -16,6 +16,14 @@ VCR.configure do |c|
   # Do this, and VCR is only enacted on specs tagged with :vcr
   c.configure_rspec_metadata!
 
+  # The acquisition-date facet options are computed based on current date.
+  #   e.g., facet.query=acq_dt:[2014-09-21T00:00:00Z TO *]
+  # Ignore all facet.query params - is this the only one?
+  c.default_cassette_options = {
+    :match_requests_on => [:method,
+      VCR.request_matchers.uri_without_param('facet.query')]
+  }
+
   # Not working?  Use this to spew debugging to console
   # c.debug_logger = $stdout
 

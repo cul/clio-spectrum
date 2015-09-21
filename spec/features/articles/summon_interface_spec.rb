@@ -68,7 +68,7 @@ describe 'Summon Interface', :vcr do
 
 end
 
-describe 'Summon searches' do
+describe 'Summon searches', :vcr do
 
   it 'should remember items-per-page' do
 
