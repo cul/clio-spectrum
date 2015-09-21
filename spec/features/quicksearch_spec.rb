@@ -38,6 +38,8 @@ describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
   # *** CATALOG ***
   it "should link to Catalog results correctly", :js, Xfocus:true do
     visit quicksearch_index_path('q' => 'kitty')
+    expect(page).to have_css('.result_set', count: 4)
+    expect(page).to have_css('.nested_result_set', count: 4)
     # page.save_and_open_page
     within('.results_header', :text => "Catalog") do
       click_link "View and filter all"
@@ -48,6 +50,9 @@ describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
   # *** ARTICLES ***
   it "should link to Articles results correctly", :js do
     visit quicksearch_index_path('q' => 'indefinite')
+    expect(page).to have_css('.result_set', count: 4)
+    expect(page).to have_css('.nested_result_set', count: 4)
+
     expect(page).to have_css('.results_header', :text => "Articles")
     within('.results_header', :text => "Articles") do
       click_link "View and filter all"
@@ -58,6 +63,9 @@ describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
   # *** ACADEMIC COMMONS ***
   it "should link to Academic Commons results correctly", :js do
     visit quicksearch_index_path('q' => 'uncommon')
+    expect(page).to have_css('.result_set', count: 4)
+    expect(page).to have_css('.nested_result_set', count: 4)
+
     # page.save_and_open_page
     within('.results_header', :text => "Academic Commons") do
       click_link "View and filter all"
@@ -68,8 +76,6 @@ describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
   # *** LIBRARIES WEBSITE ***
   it "should link to Libraries Website results correctly", :js do
     visit quicksearch_index_path('q' => 'public')
-
-    # make sure the AJAX lookups all return
     expect(page).to have_css('.result_set', count: 4)
     expect(page).to have_css('.nested_result_set', count: 4)
 

@@ -3217,4 +3217,59 @@ http_interactions:
         M3613 2014g\",\"status\":\"available\",\"holding_id\":[\"14054196\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"doc_delivery\"]}]}}"
     http_version: 
   recorded_at: Mon, 21 Sep 2015 20:32:21 GMT
+- request:
+    method: get
+    uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/11012477
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Mon, 21 Sep 2015 21:21:03 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Etag:
+      - W/"dae5d6a9813526bf36c1d7fd6473e15b"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - f901e62f-6e54-4990-a441-8c8f7db3f2cf
+      X-Runtime:
+      - '2.763998'
+      Server:
+      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+    body:
+      encoding: UTF-8
+      string: "{\"11012477\":{\"condensed_holdings_full\":[{\"location_name\":\"Butler
+        Stacks (Enter at the Butler Circulation Desk)\",\"location_note\":\"\",\"call_number\":\"PQ3919.3.T48
+        M3613 2014g\",\"status\":\"available\",\"holding_id\":[\"14054196\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"doc_delivery\"]}]}}"
+    http_version: 
+  recorded_at: Mon, 21 Sep 2015 21:21:06 GMT
 recorded_with: VCR 2.9.3
