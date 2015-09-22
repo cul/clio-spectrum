@@ -114,13 +114,6 @@ sources:
       format: ac
       check_fedora: true
 
-  # dcv:
-  #   title: DCV
-  #   description: dcv 
-  #   warningXX:  dcv.
-  #   render_options:
-  #     format: dcv
-
   library_web:
     title: Libraries Website
     description: Information about the libraries from the Libraries Website
@@ -142,13 +135,6 @@ sources:
     warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.  ArtyDiss.
     render_options:
       format: article
-
-  # newspapers:
-  #   title: Newspaper Articles
-  #   description: Full text newspaper articles from Summon
-  #   warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.  ArtyNews.
-  #   render_options:
-  #     format: article
 
   databases:
     title: Databases

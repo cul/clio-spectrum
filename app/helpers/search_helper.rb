@@ -55,8 +55,7 @@ module SearchHelper
     end
 
     if options['search_type'] == 'summon' && options['advanced'] == true
-      # Rails.logger.debug "display_advanced_search() source=[#{source}]"
-      return render '/spectrum/summon/advanced_search', source: source, path: source == 'articles' ? articles_index_path : newspapers_index_path
+      return render '/spectrum/summon/advanced_search', source: source, path: articles_index_path
     end
   end
 
@@ -95,7 +94,7 @@ module SearchHelper
         # insert hidden fields
         result += standard_hidden_keys_for_search
 
-      ### for summon (articles, newspapers)
+      ### for summon (articles)
       elsif options['search_type'] == 'summon'
 
         summon_query_as_hash = {}
@@ -112,7 +111,7 @@ module SearchHelper
           result += hidden_field_tag 'new_search', 'true'
         else
           # Pass through Summon facets, checkboxes, sort, paging, as hidden form variables
-          # For any Summon data-source:  Articles or Newspapers
+          # For any Summon data-source:  Articles
           result += summon_hidden_keys_for_search(summon_query_as_hash.except('s.fq'))
         end
 

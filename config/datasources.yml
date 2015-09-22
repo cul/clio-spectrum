@@ -18,21 +18,6 @@ datasources:
       route: quicksearch_index_path
       placeholder: Catalog, Articles, Academic Commons, Library Web 
 
-  # newspapers:
-  #   name: Newspapers
-  #   search_box:
-  #     route: newspapers_index_path
-  #     placeholder: Newspapers
-  #     search_type: summon
-  #     advanced: true
-  #     # search_category: newspapers
-  #     search_fields:
-  #       q: Keywords
-  #       s.fq[AuthorCombined]: Author
-  #       s.fq[TitleCombined]: Title
-  #       s.fq[ISBN]: ISBN
-  #       s.fq[ISSN]: ISSN
-
   articles:
     name: Articles
     search_box:
@@ -151,17 +136,6 @@ datasources:
         author: Author
         subject: Subject
 
-  # dcv:
-  #   name: DCV
-  #   search_box:
-  #     route: dcv_index_path
-  #     placeholder: dcv
-  #     search_type: blacklight
-  #     search_fields:
-  #       all_fields: All Fields
-  #       title: Title
-  #       name: Name
-
   new_arrivals:
     name: New Arrivals
     search_box:
@@ -191,10 +165,6 @@ datasource_bar:
   minor_sources:
     - dissertations
     - ebooks
-    # 12/2014 - Gary says, committee decision to remove altogether
-    # - newspapers
-    # 12/2014 - Breck says, remove until closer to release
-    # - dcv
   # NEXT-1145 - Deemphasize sub-sources of Catalog datasource
   subsources:
     - databases

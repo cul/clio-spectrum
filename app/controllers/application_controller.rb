@@ -304,8 +304,6 @@ class ApplicationController < ActionController::Base
         'ebooks'
       when /^\/academic_commons/
         'academic_commons'
-      when /^\/dcv/
-        'dcv'
       when /^\/library_web/
         'library_web'
       when /^\/newspapers/

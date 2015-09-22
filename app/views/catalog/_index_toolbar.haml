@@ -32,7 +32,7 @@
           = fix_catalog_links(render 'sort_widget')
       
           -# Allow "selections" for any Catalog-based data source, but NOT for Academic Commons
-          - if @active_source != 'academic_commons' && @active_source != 'dcv'
+          - if @active_source != 'academic_commons'
             = render 'selections_widget'
 
       .navbar-text.visible-xs

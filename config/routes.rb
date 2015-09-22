@@ -116,7 +116,6 @@ Clio::Application.routes.draw do
   get 'ebooks', to: 'spectrum#search', as: :ebooks_index, defaults: { layout: 'ebooks' }
   get 'dissertations', to: 'spectrum#search', as: :dissertations_index, defaults: { layout: 'dissertations' }
   # redirect newspapers to articles
-  # get 'newspapers', to: 'spectrum#search', as: :newspapers_index, defaults: { layout: 'newspapers' }
   get '/newspapers', to: redirect('/articles')
 
   get 'locations/show/:id', id: /[^\/]+/, to: 'locations#show', as: :location_display

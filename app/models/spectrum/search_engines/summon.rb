@@ -17,12 +17,6 @@ module Spectrum
       # s.ho=<boolean>     Holdings Only Parameter, a.k.a., "Columbia's collection only"
       SUMMON_DEFAULT_PARAMS = {
 
-        'newspapers' =>  { 
-          's.ho' => 't',
-          # 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)'
-          's.fvf' => ['ContentType, Newspaper Article']
-        }.freeze,
-
         'articles' =>  { 
           's.ho' => 't',
           # 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)'
@@ -200,20 +194,6 @@ module Spectrum
 
         facet_options
       end
-
-      # unused?
-      # def newspapers_excluded?()
-      #   @search.query.facet_value_filters.any? { |fvf|
-      #     fvf.field_name == "ContentType" &&
-      #     fvf.value == "Newspaper Article" &&
-      #     fvf.negated? }
-      # end
-
-      # SpectrumController sets @results = search_engine.documents,
-      # does not expect a results() method
-      # def results
-      #   documents
-      # end
 
       def search_path
         @search_url || by_source_search_link(@params)
@@ -403,14 +383,7 @@ module Spectrum
       end
 
       def by_source_search_link(params = {})
-        case @source
-        when 'newspapers'
-          newspapers_index_path(params)
-        when 'articles'
-          articles_index_path(params)
-        else
-          articles_index_path(params)
-        end
+        articles_index_path(params)
       end
     end
   end

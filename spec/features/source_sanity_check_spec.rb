@@ -42,9 +42,6 @@ describe 'Datasource Sanity', :js do
     visit '/new_arrivals'
     expect(find('.landing_main .title')).to have_text('New Arrivals')
 
-    # visit '/newspapers'
-    # expect(find('.landing_main .title')).to have_text('Newspapers')
-
   end
 
 end
@@ -89,15 +86,12 @@ describe 'Simple query should retrieve results ', :js, :vcr do
     visit ebooks_index_path('q' => 'test')
     expect(page).to have_css('.result_set', count: 2)
     all('.result_set').each do |result_set|
-      # expect(result_set).to have_css('.result')
       expect(page).to have_css('.result')
     end
 
     visit new_arrivals_index_path('q' => 'test')
     expect(page).to have_css('.result')
 
-    # visit newspapers_index_path('q' => 'test')
-    # expect(page).to have_css('.result')
   end
 
 end

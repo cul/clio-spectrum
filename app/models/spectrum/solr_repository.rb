@@ -21,8 +21,6 @@ module Spectrum
       Rails.logger.debug "Spectrum::SolrRepository#generate_rsolr(#{source})"
       if source.in?('academic_commons', 'ac_dissertations')
         RSolr.connect(url: APP_CONFIG['ac2_solr_url'])
-      elsif source.in?('dcv')
-        RSolr.connect(url: APP_CONFIG['dcv_solr_url'])
       elsif solr_url
         RSolr.connect(url: solr_url)
       else

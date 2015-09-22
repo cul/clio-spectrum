@@ -1,5 +1,5 @@
 
--# SUMMON ADVANCED SEARCH PANEL (ARTICLES or NEWSPAPERS)
+-# SUMMON ADVANCED SEARCH PANEL (ARTICLES)
 
 .search_box{ :class => ("selected" if has_advanced_params?) }
 
@@ -10,7 +10,7 @@
 
     = form_tag path, :class => "form-horizontal", :method => "GET" do
       -# Pass through Summon facets, checkboxes, sort, paging, as hidden form variables
-      -# This needs to work for any data-source which is an instance of Summon:  Articles or Newspapers
+      -# This needs to work for any data-source which is an instance of Summon:  Articles only, currently
       -# We're in ADV search here, so we know @results will have only a single result set
       -# - if @results.kind_of?(Hash) && @results['articles'] && @results['articles'].search
       -#   - summon_query_as_hash = @results['articles'].search.query.to_hash
