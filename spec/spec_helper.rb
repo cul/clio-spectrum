@@ -52,9 +52,9 @@ RSpec.configure do |config|
 
   # How long does Capybara wait for AJAX before erroring?
   # The 2-second default is fine for on-campus testing, but
-  # for telecommutes more time is needed
+  # for telecommuters more time is needed
   # https://github.com/jnicklas/capybara#asynchronous-javascript-ajax-and-friends
-  Capybara.default_max_wait_time = 8
+  Capybara.default_max_wait_time = 10
 
   config.filter_run focus: true
   config.run_all_when_everything_filtered = true

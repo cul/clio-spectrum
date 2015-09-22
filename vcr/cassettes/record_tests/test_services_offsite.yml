@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: "<solr_config>/select?id=5656993&qt=document&wt=ruby"
+    uri: "<solr_config>/select?id=1052500&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 19:32:46 GMT
+      - Tue, 22 Sep 2015 20:11:58 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -21,126 +21,134 @@ http_interactions:
       Server:
       - Jetty(8.1.8.v20121106)
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
-        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
-        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic1NjU2OTkz
-        JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
-        PnsnbnVtRm91bmQnPT4xLCdzdGFydCc9PjAsJ2RvY3MnPT5beydsb2NhdGlv
-        bl9jYWxsX251bWJlcl9pZF9kaXNwbGF5Jz0+WydPbmxpbmUgPj4gRUJPT0tT
-        fERFTElNfDY4NjY3NzEnXSwncHViX3llYXJfZGlzcGxheSc9PlsnMTYyNydd
-        LCd0aXRsZV9zZXJpZXNfZGlzcGxheSc9PlsnRWFybHkgRW5nbGlzaCBib29r
-        cyBvbmxpbmUnXSwndGl0bGVfZGlzcGxheSc9PlsnVm9jYXRpbyBkaXZpbmEs
-        IHNldSwgTWVkaXRhdGlvbmVzIFtlbGVjdHJvbmljIHJlc291cmNlXSA6IHN1
-        Y2NpbmN0w6YgaW4gaWxsdWQgQXBvc3RvbGknXSwnaWQnPT4nNTY1Njk5Mycs
-        J2NsaW9faWRfZGlzcGxheSc9Pic1NjU2OTkzJywnY2FsbF9udW1iZXJfZGlz
-        cGxheSc9PlsnRUJPT0tTJ10sJ3N1YmplY3RfdG9waWNfZmFjZXQnPT5bJ01l
-        ZGl0YXRpb25zJ10sJ3B1Yl9wbGFjZV9kaXNwbGF5Jz0+WydMb25kb25pJ10s
-        J21hcmNfZGlzcGxheSc9Pic8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5n
-        PSJVVEYtOCI/Pjxjb2xsZWN0aW9uIHhtbG5zPSJodHRwOi8vd3d3LmxvYy5n
-        b3YvTUFSQzIxL3NsaW0iPjxyZWNvcmQ+PGxlYWRlcj4wMTU4OWNhbSBhMjIw
-        MDM4NUlhIDQ1MDA8L2xlYWRlcj48Y29udHJvbGZpZWxkIHRhZz0iMDAxIj41
-        NjU2OTkzPC9jb250cm9sZmllbGQ+PGNvbnRyb2xmaWVsZCB0YWc9IjAwNSI+
-        MjAwNjA3MTIxMTI3NTcuMDwvY29udHJvbGZpZWxkPjxjb250cm9sZmllbGQg
-        dGFnPSIwMDYiPm0gICAgZyAgIGQgICAgICAgIDwvY29udHJvbGZpZWxkPjxj
-        b250cm9sZmllbGQgdGFnPSIwMDciPmNyIGJuIHx8fGF8YmJ8PC9jb250cm9s
-        ZmllbGQ+PGNvbnRyb2xmaWVsZCB0YWc9IjAwOCI+ODkwNjI4czE2MjcgICAg
-        ZW5rICAgICBzYiAgICAwMHwgfCBsYXQgZDwvY29udHJvbGZpZWxkPjxkYXRh
-        ZmllbGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBj
-        b2RlPSJhIj4oTWlBYVBRKW9jbTE5OTQwMTE5ZTwvc3ViZmllbGQ+PC9kYXRh
-        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAzNyIgaW5kMT0iICIgaW5kMj0iICI+
-        PHN1YmZpZWxkIGNvZGU9ImEiPkNMMDAzNjAwMDA0OTwvc3ViZmllbGQ+PHN1
-        YmZpZWxkIGNvZGU9ImIiPlByb1F1ZXN0IEluZm9ybWF0aW9uIGFuZCBMZWFy
-        bmluZy4gMzAwIE4uIFplZWIgUmQuLCBBbm4gQXJib3IsIE1JIDQ4MTA2PC9z
-        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDQwIiBpbmQx
-        PSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+RUJLPC9zdWJmaWVs
-        ZD48c3ViZmllbGQgY29kZT0iYyI+RUJLPC9zdWJmaWVsZD48c3ViZmllbGQg
-        Y29kZT0iZCI+V2FPTE48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmll
-        bGQgdGFnPSIwNDkiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2Rl
-        PSJhIj5FQktBPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
-        Zz0iMDkwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+
-        QlY0ODMwPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+LlQzOSAxNjI3
-        PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMTAwIiBp
-        bmQxPSIxIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+VGF5bG9yLCBG
-        cmFuY2lzLDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImQiPjE1OTAtMTY1
-        Ni48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIyNDUi
-        IGluZDE9IjEiIGluZDI9IjAiPjxzdWJmaWVsZCBjb2RlPSJhIj5Wb2NhdGlv
-        IGRpdmluYSwgc2V1LCBNZWRpdGF0aW9uZXM8L3N1YmZpZWxkPjxzdWJmaWVs
-        ZCBjb2RlPSJoIj5bZWxlY3Ryb25pYyByZXNvdXJjZV0gOjwvc3ViZmllbGQ+
-        PHN1YmZpZWxkIGNvZGU9ImIiPnN1Y2NpbmN0w6YgaW4gaWxsdWQgQXBvc3Rv
-        bGkgLzwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImMiPmF1Y3RvcmUgRnJh
-        bmNpc2NvIFRheWxlcm8gLi4uPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0
-        YWZpZWxkIHRhZz0iMjYwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQg
-        Y29kZT0iYSI+TG9uZG9uaSA6PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
-        YiI+RXhjdWRlYmFudCBCLkEuICZhbXA7IFQuIEZhdXVjZXQsIGltcGVuc2lz
-        IE5hdGhhbmllbGlzIEJ1dHRlciw8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2Rl
-        PSJjIj4xNjI3Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0
-        YWc9IjMwMCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEi
-        PlsxMF0sIDUxIHAuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxk
-        IHRhZz0iNTAwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0i
-        YSI+U2lnbmF0dXJlczogW3BpXcK5IEHigbQgQi1E4oG4IEXCsi48L3N1YmZp
-        ZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1MDAiIGluZDE9IiAi
-        IGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5FcnJhdGE6IHAuIFsxMF0u
-        PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNTAwIiBp
-        bmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+UmVwcm9kdWN0
-        aW9uIG9mIG9yaWdpbmFsIGluIHRoZSBCb2RsZWlhbiBMaWJyYXJ5Ljwvc3Vi
-        ZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjUwNCIgaW5kMT0i
-        ICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkluY2x1ZGVzIGJpYmxp
-        b2dyYXBoaWNhbCByZWZlcmVuY2VzLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+
-        PGRhdGFmaWVsZCB0YWc9IjUxMCIgaW5kMT0iNCIgaW5kMj0iICI+PHN1YmZp
-        ZWxkIGNvZGU9ImEiPlNUQyAoMm5kIGVkLik8L3N1YmZpZWxkPjxzdWJmaWVs
-        ZCBjb2RlPSJjIj4yMzcxODwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFm
-        aWVsZCB0YWc9IjUzMyIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNv
-        ZGU9ImEiPkVsZWN0cm9uaWMgcmVwcm9kdWN0aW9uLjwvc3ViZmllbGQ+PHN1
-        YmZpZWxkIGNvZGU9ImIiPkFubiBBcmJvciwgTWljaC4gOjwvc3ViZmllbGQ+
-        PHN1YmZpZWxkIGNvZGU9ImMiPlVNSSw8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
-        b2RlPSJkIj4xOTk5LTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImYiPihF
-        YXJseSBFbmdsaXNoIGJvb2tzIG9ubGluZSk8L3N1YmZpZWxkPjxzdWJmaWVs
-        ZCBjb2RlPSJuIj5EaWdpdGFsIHZlcnNpb24gb2Y6IChFYXJseSBFbmdsaXNo
-        IGJvb2tzLCAxNDc1LTE2NDAgOyAxNzE3OjgpPC9zdWJmaWVsZD48c3ViZmll
-        bGQgY29kZT0iNyI+czE5OTkgICAgbWl1biBzPC9zdWJmaWVsZD48L2RhdGFm
-        aWVsZD48ZGF0YWZpZWxkIHRhZz0iNjUwIiBpbmQxPSIgIiBpbmQyPSIwIj48
-        c3ViZmllbGQgY29kZT0iYSI+TWVkaXRhdGlvbnMuPC9zdWJmaWVsZD48L2Rh
-        dGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNzQwIiBpbmQxPSIwIiBpbmQyPSIg
-        Ij48c3ViZmllbGQgY29kZT0iYSI+TWVkaXRhdGlvbmVzLjwvc3ViZmllbGQ+
-        PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjgzMCIgaW5kMT0iICIgaW5k
-        Mj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEiPkVhcmx5IEVuZ2xpc2ggYm9va3Mg
-        b25saW5lLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9
-        Ijg1NiIgaW5kMT0iNCIgaW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9InUiPmh0
-        dHA6Ly93d3cuY29sdW1iaWEuZWR1L2NnaS1iaW4vY3VsL3Jlc29sdmU/Y2xp
-        bzU2NTY5OTM8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFn
-        PSI5MjAiIGluZDE9IjQiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJ1Ij5o
-        dHRwOi8vZ2F0ZXdheS5wcm9xdWVzdC5jb20vb3BlbnVybD9jdHhfdmVyPVoz
-        OS44OC0yMDAzJmFtcDtyZXNfaWQ9eHJpOmVlYm8mYW1wO3JmdF92YWxfZm10
-        PSZhbXA7cmZ0X2lkPXhyaTplZWJvOmltYWdlOjIzNTQ1PC9zdWJmaWVsZD48
-        L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTY1IiBpbmQxPSIgIiBpbmQy
-        PSIgIj48c3ViZmllbGQgY29kZT0iYSI+ZWVibzwvc3ViZmllbGQ+PC9kYXRh
-        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MiIgaW5kMT0iICIgaW5kMj0iICI+
-        PHN1YmZpZWxkIGNvZGU9ImEiPk9ubGluZTwvc3ViZmllbGQ+PHN1YmZpZWxk
-        IGNvZGU9ImIiPk9ubGluZSAmZ3Q7Jmd0OyBFQk9PS1N8REVMSU18Njg2Njc3
-        MTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MyIg
-        aW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkJvb2s8L3N1
-        YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTMiIGluZDE9
-        IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5PbmxpbmU8L3N1YmZp
-        ZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTUiIGluZDE9IiAi
-        IGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5jYXRhbG9nPC9zdWJmaWVs
-        ZD48L2RhdGFmaWVsZD48L3JlY29yZD48L2NvbGxlY3Rpb24+JywnYXV0aG9y
-        X2Rpc3BsYXknPT5bJ1RheWxvciwgRnJhbmNpcywgMTU5MC0xNjU2J10sJ3B1
-        Yl9uYW1lX2Rpc3BsYXknPT5bJ0V4Y3VkZWJhbnQgQi5BLiAmIFQuIEZhdXVj
-        ZXQsIGltcGVuc2lzIE5hdGhhbmllbGlzIEJ1dHRlciddLCdmb3JtYXQnPT5b
-        J0Jvb2snLCdPbmxpbmUnXSwnc291cmNlX2Rpc3BsYXknPT5bJ2NhdGFsb2cn
-        XSwnbWF0ZXJpYWxfdHlwZV9kaXNwbGF5Jz0+WydbMTBdLCA1MSBwLiddLCd1
-        cmxfbXVuZ2VkX2Rpc3BsYXknPT5bJzB8fHx8fHxodHRwOi8vd3d3LmNvbHVt
-        YmlhLmVkdS9jZ2ktYmluL2N1bC9yZXNvbHZlP2NsaW81NjU2OTkzfHx8J10s
-        J3RpdGxlX2ZpcnN0X2ZhY2V0Jz0+WydWJ10sJ3B1Yl9kYXRlX3NvcnQnPT4x
-        NjI3LCdmdWxsX3B1Ymxpc2hlcl9kaXNwbGF5Jz0+WydMb25kb25pIDogRXhj
-        dWRlYmFudCBCLkEuICYgVC4gRmF1dWNldCwgaW1wZW5zaXMgTmF0aGFuaWVs
-        aXMgQnV0dGVyLCAxNjI3LiddLCdsYW5ndWFnZV9mYWNldCc9PlsnTGF0aW4n
-        XSwnX3ZlcnNpb25fJz0+MTUwMTk0OTAxNDc3NTQzMTE2OCwndGltZXN0YW1w
-        Jz0+JzIwMTUtMDUtMjNUMDg6MzY6MzkuOTQzWid9XX19Cg==
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'1052500','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['mic+fn--+-+00000041+1052500'],'location_call_number_id_display'=>['Lehman >> NEWSPAPERS|DELIM|1320823','Journalism >> NEWSPAPERS|DELIM|1320826','Butler Current Periodicals, 401 Butler (Non-Circulating)|DELIM|4817248','Butler Microforms, 401 Butler >> MICROFLM FN 41|DELIM|4817249'],'pub_year_display'=>['1857-'],'lccn_display'=>['sn 78004456'],'title_display'=>['The New York times'],'item_display'=>['MICROFLM FN 41 | mic+fn--+-+00000041+1052500 | dhn~kc~~~~~zzzzzzvy~yzuxuzz~~~~~~~~~~~~~~~~~~~~~~~'],'id'=>'1052500','reverse_shelfkey'=>['dhn~kc~~~~~zzzzzzvy~yzuxuzz~~~~~~~~~~~~~~~~~~~~~~~'],'clio_id_display'=>'1052500','subject_geo_facet'=>['New York (N.Y.)','New York County (N.Y.)'],'call_number_display'=>['NEWSPAPERS','MICROFLM FN 41'],'pub_place_display'=>['New-York [N.Y.'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>03081mas a2200721 a 4500</leader><controlfield tag="001">1052500</controlfield><controlfield tag="005">20040217104614.0</controlfield><controlfield tag="008">750921c18579999nyudr1ne      0   a0eng d</controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">sn 78004456 </subfield></datafield><datafield tag="012" ind1=" " ind2=" "><subfield code="b">3</subfield><subfield code="e">n</subfield><subfield code="k">1</subfield><subfield code="l">1</subfield><subfield code="m">1</subfield></datafield><datafield tag="022" ind1="0" ind2=" "><subfield code="a">0362-4331</subfield></datafield><datafield tag="030" ind1=" " ind2=" "><subfield code="a">NYTIAO</subfield></datafield><datafield tag="032" ind1=" " ind2=" "><subfield code="a">383520</subfield><subfield code="b">USPS</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm01645522</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AFV9210CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)1052500</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">MUL</subfield><subfield code="c">MUL</subfield><subfield code="d">NSD</subfield><subfield code="d">IUL</subfield><subfield code="d">DLC</subfield><subfield code="d">SER</subfield><subfield code="d">AIP</subfield><subfield code="d">SER</subfield><subfield code="d">AIP</subfield><subfield code="d">NPI</subfield><subfield code="d">IUL</subfield><subfield code="d">AIP</subfield><subfield code="d">NPI</subfield><subfield code="d">NPX</subfield><subfield code="d">NPA</subfield><subfield code="d">DLC</subfield><subfield code="d">AIP</subfield><subfield code="d">UNP</subfield><subfield code="d">OCL</subfield><subfield code="d">DLC</subfield><subfield code="d">NSD</subfield><subfield code="d">DLC</subfield><subfield code="d">NSD</subfield><subfield code="d">AGL</subfield><subfield code="d">NSD</subfield><subfield code="d">AGL</subfield><subfield code="d">MGN</subfield><subfield code="d">NYS</subfield><subfield code="d">NYG</subfield><subfield code="d">MXC</subfield><subfield code="d">OCL</subfield><subfield code="d">HUL</subfield><subfield code="d">CUS</subfield><subfield code="d">NYG</subfield></datafield><datafield tag="042" ind1=" " ind2=" "><subfield code="a">nsdp</subfield><subfield code="a">lc</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">n-us-ny</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">Newspaper</subfield></datafield><datafield tag="210" ind1="0" ind2=" "><subfield code="a">N. Y. times</subfield></datafield><datafield tag="222" ind1=" " ind2="4"><subfield code="a">The New York times</subfield></datafield><datafield tag="245" ind1="0" ind2="4"><subfield code="a">The New York times.</subfield></datafield><datafield tag="246" ind1="1" ind2=" "><subfield code="i">Issues for Sept. 19-26, 1923 published jointly with other newspapers as:</subfield><subfield code="a">Combined New York morning newspapers</subfield></datafield><datafield tag="246" ind1="1" ind2=" "><subfield code="i">Issue for Sept. 23, 1923 published jointly with other newspapers as:</subfield><subfield code="a">Combined New York Sunday newspapers</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New-York [N.Y. :</subfield><subfield code="b">H.J. Raymond &amp; Co.],</subfield><subfield code="c">1857-</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">v. :</subfield><subfield code="b">ill. ;</subfield><subfield code="c">59 cm.</subfield></datafield><datafield tag="310" ind1=" " ind2=" "><subfield code="a">Daily,</subfield><subfield code="b">1861-</subfield></datafield><datafield tag="321" ind1=" " ind2=" "><subfield code="a">Daily (except Sunday),</subfield><subfield code="b">1857-1861</subfield></datafield><datafield tag="362" ind1="0" ind2=" "><subfield code="a">Vol. 6, no. 1868 (Sept. 14, 1857)-</subfield></datafield><datafield tag="510" ind1="1" ind2=" "><subfield code="a">Biography index</subfield><subfield code="x">0006-3053</subfield></datafield><datafield tag="510" ind1="1" ind2=" "><subfield code="a">National newspaper index</subfield><subfield code="b">1979-</subfield></datafield><datafield tag="510" ind1="1" ind2=" "><subfield code="a">NEXIS</subfield><subfield code="b">June 1, 1980-</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Bibliography of agriculture</subfield><subfield code="x">0006-1530</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">BioBusiness</subfield><subfield code="b">1990-</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Book review index</subfield><subfield code="x">0524-0581</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Chemical industry notes</subfield><subfield code="x">0045-639X</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Energy information abstracts</subfield><subfield code="x">0147-6521</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Environment abstracts</subfield><subfield code="x">0093-3287</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Film literature index</subfield><subfield code="x">0093-6758</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Infobank</subfield><subfield code="b">Jan. 1969-</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Predicasts</subfield></datafield><datafield tag="515" ind1=" " ind2=" "><subfield code="a">Suspended Dec. 12-28, 1958; Dec. 20, 1962-Mar. 1963; Sept. 17-Oct. 10, 1965; and Aug. 10-Nov. 5, 1978.</subfield></datafield><datafield tag="530" ind1=" " ind2=" "><subfield code="a">Also available on microfilm from University Microfilms International and in an online version.</subfield></datafield><datafield tag="580" ind1=" " ind2=" "><subfield code="a">Issued monthly reduced size publication titled: Little times, &lt;1924-1928&gt;.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">New York (N.Y.)</subfield><subfield code="v">Newspapers.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">New York County (N.Y.)</subfield><subfield code="v">Newspapers.</subfield></datafield><datafield tag="752" ind1=" " ind2=" "><subfield code="a">United States</subfield><subfield code="b">New York</subfield><subfield code="c">New York</subfield><subfield code="d">New York.</subfield></datafield><datafield tag="775" ind1="0" ind2=" "><subfield code="t">Semi-weekly times (New York, N.Y.)</subfield><subfield code="g">1857-1867</subfield><subfield code="w">(DLC)sn 83045440</subfield><subfield code="w">(OCoLC)9475039</subfield></datafield><datafield tag="775" ind1="0" ind2=" "><subfield code="t">New-York weekly times</subfield><subfield code="g">1857-&lt;1896&gt;</subfield><subfield code="w">(OCoLC)9447647</subfield><subfield code="w">(DLC)sn 83045332</subfield></datafield><datafield tag="776" ind1="1" ind2=" "><subfield code="t">New York times on the Web</subfield><subfield code="w">(OCoLC)34107580</subfield></datafield><datafield tag="777" ind1="1" ind2=" "><subfield code="t">Little times</subfield><subfield code="w">(DLC)sn 92061532</subfield><subfield code="w">(OCoLC)1756036</subfield></datafield><datafield tag="780" ind1="0" ind2="0"><subfield code="t">New-York daily times</subfield><subfield code="w">(DLC)sn 83030746</subfield><subfield code="w">(OCoLC)7919228</subfield></datafield><datafield tag="850" ind1=" " ind2=" "><subfield code="a">DNAL</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">MICROFLM FN 41</subfield><subfield code="b">mic+FN--+-+00000041</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Lehman</subfield><subfield code="b">Lehman &gt;&gt; NEWSPAPERS|DELIM|1320823</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Journalism</subfield><subfield code="b">Journalism &gt;&gt; NEWSPAPERS|DELIM|1320826</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Other</subfield><subfield code="b">Butler Current Periodicals, 401 Butler (Non-Circulating)|DELIM|4817248</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Microform Read Rm</subfield><subfield code="b">Butler Microforms, 401 Butler &gt;&gt; MICROFLM FN 41|DELIM|4817249</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Journal/Periodical</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Newspaper</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','pub_name_display'=>['H.J. Raymond & Co'],'issn_display'=>['0362-4331'],'format'=>['Journal/Periodical','Newspaper'],'source_display'=>['catalog'],'material_type_display'=>['v.'],'oclc_display'=>['ocm01645522'],'title_first_facet'=>['N'],'pub_date_sort'=>1857,'full_publisher_display'=>['New-York [N.Y. : H.J. Raymond & Co.], 1857-'],'language_facet'=>['English'],'_version_'=>1512082924073123840,'timestamp'=>'2015-09-12T05:10:48.964Z'}]}}
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:32:46 GMT
+  recorded_at: Tue, 22 Sep 2015 20:11:58 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/issn/0362-4331.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 20:11:58 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 20:11:58 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        20:21:58 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 20:11:58 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocm01645522.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 20:11:58 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 20:11:58 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        20:21:58 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 20:11:58 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/lccn/sn78004456.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 20:11:58 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 20:11:59 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        20:21:59 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 20:11:59 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=6249927&qt=document&wt=ruby"
@@ -154,7 +162,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 19:32:46 GMT
+      - Tue, 22 Sep 2015 20:11:59 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -166,5 +174,66 @@ http_interactions:
       string: |
         {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'6249927','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+jc-+0312+00000000+c5500000+6249927'],'location_call_number_id_display'=>['East Asian >> JC312 .C55|DELIM|8040145','Offsite - Place Request for delivery within 2 business days >> JC312 .C55|DELIM|9378553'],'lccn_display'=>['2004248007'],'item_display'=>['JC312 .C55 | loc+jc-+0312+00000000+c5500000+6249927 | ebn~gn~~zwyx~zzzzzzzz~nuuzzzzz~txvqqxs~~~~~~~~~~~~'],'title_display'=>['China\'s ethnic groups'],'clio_id_display'=>'6249927','subject_topic_facet'=>['Minorities','Ethnology'],'pub_place_display'=>['Beijing, China'],'format'=>['Journal/Periodical'],'oclc_display'=>['ocm53983697','53983697'],'title_first_facet'=>['C'],'full_publisher_display'=>['Beijing, China : Ethnic Groups Unity Pub. House, 2003-'],'pub_date_sort'=>2003,'pub_year_display'=>['2003-'],'id'=>'6249927','reverse_shelfkey'=>['ebn~gn~~zwyx~zzzzzzzz~nuuzzzzz~txvqqxs~~~~~~~~~~~~'],'subject_geo_facet'=>['China'],'call_number_display'=>['JC312 .C55'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01728cas a2200493 a 4500</leader><controlfield tag="001">6249927</controlfield><controlfield tag="005">20080122114638.0</controlfield><controlfield tag="008">040106c20039999cc qr p      f0    0eng d</controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2004248007</subfield></datafield><datafield tag="022" ind1=" " ind2=" "><subfield code="a">1672-3341</subfield></datafield><datafield tag="029" ind1="1" ind2=" "><subfield code="a">NLGGC</subfield><subfield code="b">256251010</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm53983697</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)53983697</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)6249927</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">NYP</subfield><subfield code="c">NYP</subfield><subfield code="d">OCLCQ</subfield><subfield code="d">DLC</subfield><subfield code="d">IUL</subfield></datafield><datafield tag="042" ind1=" " ind2=" "><subfield code="a">lcd</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">a-cc---</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">JC312</subfield><subfield code="b">.C55</subfield></datafield><datafield tag="245" ind1="0" ind2="0"><subfield code="a">China\'s ethnic groups.</subfield></datafield><datafield tag="246" ind1="1" ind2=" "><subfield code="i">Chinese title on masthead:</subfield><subfield code="a">Zhongguo min zu</subfield></datafield><datafield tag="246" ind1="1" ind2=" "><subfield code="i">Issues for &lt;2004-&gt; have also title:</subfield><subfield code="a">China\'s English language human and cultural geographic magazine</subfield></datafield><datafield tag="246" ind1="3" ind2=" "><subfield code="a">China\'s ethnic groups journal</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Beijing, China :</subfield><subfield code="b">Ethnic Groups Unity Pub. House,</subfield><subfield code="c">2003-</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">v. :</subfield><subfield code="b">ill. ;</subfield><subfield code="c">29 cm.</subfield></datafield><datafield tag="310" ind1=" " ind2=" "><subfield code="a">Quarterly</subfield></datafield><datafield tag="362" ind1="0" ind2=" "><subfield code="a">No. 1 (2003.03)-</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Title from cover.</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Latest issue consulted: v. 2, no. 1 (Mar. 2004).</subfield></datafield><datafield tag="550" ind1=" " ind2=" "><subfield code="a">Published under the auspices of: China\'s State Ethnic Affairs Commission.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Minorities</subfield><subfield code="z">China</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Ethnology</subfield><subfield code="z">China</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="710" ind1="2" ind2=" "><subfield code="a">Min zu tuan jie za zhi she.</subfield></datafield><datafield tag="710" ind1="1" ind2=" "><subfield code="a">China.</subfield><subfield code="b">Guo jia min wei.</subfield></datafield><datafield tag="850" ind1=" " ind2=" "><subfield code="a">DLC</subfield></datafield><datafield tag="891" ind1="2" ind2="0"><subfield code="9">853</subfield><subfield code="8">1</subfield><subfield code="a">v.</subfield><subfield code="b">no.</subfield><subfield code="u">4</subfield><subfield code="i">(year)</subfield><subfield code="j">(month)</subfield><subfield code="w">q</subfield></datafield><datafield tag="891" ind1="4" ind2="1"><subfield code="9">863</subfield><subfield code="8">1.1</subfield><subfield code="a">&lt;2&gt;</subfield><subfield code="b">&lt;1&gt;</subfield><subfield code="i">&lt;2004&gt;</subfield><subfield code="j">&lt;03&gt;</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20071218</subfield><subfield code="b">c</subfield><subfield code="c">rf63</subfield><subfield code="d">OSMC</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">JC</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">JC312 .C55</subfield><subfield code="b">loc+JC-+0312+00000000+C5500000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">East Asian</subfield><subfield code="b">East Asian &gt;&gt; JC312 .C55|DELIM|8040145</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Offsite</subfield><subfield code="b">Offsite - Place Request for delivery within 2 business days &gt;&gt; JC312 .C55|DELIM|9378553</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Journal/Periodical</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','pub_name_display'=>['Ethnic Groups Unity Pub. House'],'issn_display'=>['1672-3341'],'source_display'=>['catalog'],'material_type_display'=>['v.'],'language_facet'=>['English'],'_version_'=>1512807728987242496,'timestamp'=>'2015-09-20T05:11:16.796Z'}]}}
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:32:46 GMT
+  recorded_at: Tue, 22 Sep 2015 20:11:59 GMT
+- request:
+    method: get
+    uri: "<clio_backend_url>/holdings/retrieve/6249927"
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 20:11:59 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Etag:
+      - W/"1d4279d92e600e16e8aa7382fbd43b89"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - e42eeaf6-32a6-401e-83e6-71e750036e60
+      X-Runtime:
+      - '1.614839'
+      Server:
+      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+    body:
+      encoding: UTF-8
+      string: "{\"6249927\":{\"condensed_holdings_full\":[{\"location_name\":\"East
+        Asian\",\"location_note\":\"\",\"call_number\":\"JC312 .C55\",\"status\":\"none\",\"holding_id\":[\"8040145\"],\"copies\":[{\"items\":{\"Status
+        unknown\":{\"status\":\"none\",\"count\":1}},\"current_issues\":\"Current
+        Issues: v. 10, no. 2 (2012 June) -- v. 10, no. 1 (2012 Mar.)\"}],\"services\":[]},{\"location_name\":\"Offsite
+        - Place Request for delivery within 2 business days\",\"location_note\":\"\",\"call_number\":\"JC312
+        .C55\",\"status\":\"some_available\",\"holding_id\":[\"9378553\"],\"copies\":[{\"items\":{\"no.3
+        (2012) In binding preparation\":{\"status\":\"some_available\",\"count\":1}},\"summary_holdings\":\"Library
+        has: v.2 (2003), v.5:no.3 (2007)-v.7:no.3 (2009), v.8:no.2-4 (2010) -- 2011,
+        2012:no.3\",\"temp_locations\":[\"no.3 (2012) Shelved in For Offsite\"]}],\"services\":[\"offsite\",\"ill\"]}]}}"
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 20:12:01 GMT
 recorded_with: VCR 2.9.3

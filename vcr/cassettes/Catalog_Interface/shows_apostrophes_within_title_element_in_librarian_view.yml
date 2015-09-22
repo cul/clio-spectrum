@@ -728,4 +728,61 @@ http_interactions:
         MzAuNTk5Wid9XX19Cg==
     http_version: 
   recorded_at: Tue, 22 Sep 2015 19:27:56 GMT
+- request:
+    method: get
+    uri: "<clio_backend_url>/holdings/retrieve/6094212"
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 20:13:38 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Etag:
+      - W/"9a4c73fd0e792b9715eff0b2315b8067"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 2e4d8100-5db5-4ebc-b2cd-34a2446ef492
+      X-Runtime:
+      - '1.552081'
+      Server:
+      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+    body:
+      encoding: UTF-8
+      string: "{\"6094212\":{\"condensed_holdings_full\":[{\"location_name\":\"Burke
+        [UTS] MRL Pamphlets (Non-Circulating)\",\"location_note\":\"By appointment
+        only. See the \\u003ca href=\\\"http://library.columbia.edu/locations/burke/access_circulation/special-collections-access.html\\\"
+        target=\\\"_blank\\\"\\u003eBurke Library special collections page\\u003c/a\\u003e\",\"call_number\":\"2143\",\"status\":\"none\",\"holding_id\":[\"7605502\"],\"copies\":[{\"items\":{\"Status
+        unknown\":{\"status\":\"none\",\"count\":1}}}],\"services\":[]}]}}"
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 20:13:39 GMT
 recorded_with: VCR 2.9.3
