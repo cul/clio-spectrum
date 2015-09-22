@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'record tests', :js, :vcr do
+describe 'record tests', :js, vcr: { allow_playback_repeats: true } do
 
   it 'test call number' do
     visit catalog_path('7686002')
