@@ -41,4 +41,13 @@ Clio::Application.configure do
   # rails 4
   config.eager_load = false
 
+  # getting errors.  
+  # 2015-09-22 11:23:24 [ERROR] Spectrum::SearchEngines::Solr#initialize [Spectrum][Solr] error: Circular dependency detected while autoloading constant Spectrum::SolrRepository
+  # Will this help?
+  #   https://robots.thoughtbot.com/how-to-fix-circular-dependency-errors
+  # Yes!  Errors gone!
+  # Supposed to be fixed in Rails 4.2, try removing this config line when 
+  # we upgrade.
+  config.allow_concurrency = false
+
 end
