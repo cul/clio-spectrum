@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Special HTML characters in MARC data should be escaped' do
+describe 'Special HTML characters in MARC data should be escaped', :vcr do
 
   # NEXT-658
   # The Voyager record 6315882 (Auszug aus dem Lager), has

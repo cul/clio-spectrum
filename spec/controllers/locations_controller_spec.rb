@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe LocationsController do
+describe LocationsController, :vcr do
 
   let(:locations){Location.all}
   let(:current_location) {Location.find_by_location_code("avery")}

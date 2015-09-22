@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CatalogController do
+describe CatalogController, :vcr do
 
   describe "GET 'endnote.endnote'" do
 

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 include Warden::Test::Helpers
 
-describe 'Share by Email' do
+describe 'Share by Email', :vcr do
   ['catalog', 'savedlist'].each do |path|
     context 'when user is logged in' do
       before do

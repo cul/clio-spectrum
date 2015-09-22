@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Virtual Shelf Browse" do
+describe "Virtual Shelf Browse", :vcr do
 
   # NEXT-995 - Something like "shelf view"
   it "should show basic controls on first load of simple item", :js do
