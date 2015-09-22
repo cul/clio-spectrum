@@ -2,7 +2,61 @@
 http_interactions:
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=9429247&qt=document&wt=ruby
+    uri: "<clio_backend_url>/holdings/retrieve/9429247"
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:26:19 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Etag:
+      - W/"fd788750a0190bfde80031c6e3663bc4"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - cce3bfe7-61fc-407a-9e8b-8b6fc3ebef9f
+      X-Runtime:
+      - '4.282658'
+      Server:
+      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+    body:
+      encoding: UTF-8
+      string: "{\"9429247\":{\"condensed_holdings_full\":[{\"location_name\":\"Online\",\"location_note\":\"\",\"call_number\":\"US
+        Government Documents\",\"status\":\"online\",\"holding_id\":[\"12484731\"],\"copies\":[{\"items\":{}}],\"services\":[]}]}}"
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:26:23 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?id=9429247&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -13,7 +67,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 19:40:49 GMT
+      - Tue, 22 Sep 2015 19:26:24 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -25,7 +79,7 @@ http_interactions:
       string: |
         {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'9429247','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'location_call_number_id_display'=>['Online|DELIM|12484731'],'pub_year_display'=>['2011?'],'summary_display'=>['Julia Rowland, Ph.D., National Cancer Institute, explains the contents and functions of two crucial documents for post-therapy cancer patients, viz., the treatment summary and care plan.  Emphasizes the importance of these documents for future medical care decisions'],'title_display'=>['Keep a copy of your treatment summary and care plan [electronic resource]'],'id'=>'9429247','clio_id_display'=>'9429247','subject_topic_facet'=>['Medical records','Cancer','Patients'],'pub_place_display'=>['Bethesda, Md'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01790cgm a2200445 a 4500</leader><controlfield tag="001">9429247</controlfield><controlfield tag="005">20120509163234.0</controlfield><controlfield tag="006">m    g   c f      </controlfield><controlfield tag="007">cr mna||||||||</controlfield><controlfield tag="007">vz czazz|</controlfield><controlfield tag="008">120402s2011    mdu002 g     fo   vleng c</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(GPO)99366759</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn782956344</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">GPO</subfield><subfield code="c">GPO</subfield><subfield code="d">MvI</subfield></datafield><datafield tag="042" ind1=" " ind2=" "><subfield code="a">pcc</subfield></datafield><datafield tag="049" ind1=" " ind2=" "><subfield code="a">ZCUZ</subfield></datafield><datafield tag="074" ind1=" " ind2=" "><subfield code="a">0507-A-74 (online)</subfield></datafield><datafield tag="086" ind1="0" ind2=" "><subfield code="a">HE 20.3076:C 18</subfield></datafield><datafield tag="099" ind1=" " ind2=" "><subfield code="a">US Government Documents</subfield></datafield><datafield tag="245" ind1="0" ind2="0"><subfield code="a">Keep a copy of your treatment summary and care plan</subfield><subfield code="h">[electronic resource].</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">[Bethesda, Md. :</subfield><subfield code="b">National Institutes of Health,</subfield><subfield code="c">2011?]</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">1 streaming video file (1 min., 21 sec.) :</subfield><subfield code="b">digital, SWF file, sd., col.</subfield></datafield><datafield tag="538" ind1=" " ind2=" "><subfield code="a">System requirements: Internet browser; Adobe Flash Player.</subfield></datafield><datafield tag="538" ind1=" " ind2=" "><subfield code="a">Mode of access: Internet via the NIH SeniorHealth web site.</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Title from HTML title bar (viewed Apr. 2, 2012).</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Accompanied by transcript in HTML format.</subfield></datafield><datafield tag="520" ind1=" " ind2=" "><subfield code="a">Julia Rowland, Ph.D., National Cancer Institute, explains the contents and functions of two crucial documents for post-therapy cancer patients, viz., the treatment summary and care plan.  Emphasizes the importance of these documents for future medical care decisions.</subfield></datafield><datafield tag="546" ind1=" " ind2=" "><subfield code="a">Open-captioned.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Medical records</subfield><subfield code="v">Popular works.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Cancer</subfield><subfield code="x">Patients</subfield><subfield code="v">Popular works.</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Educational films.</subfield><subfield code="2">lcgft</subfield></datafield><datafield tag="710" ind1="2" ind2=" "><subfield code="a">National Institutes of Health (U.S.)</subfield></datafield><datafield tag="856" ind1="4" ind2="0"><subfield code="u">http://www.columbia.edu/cgi-bin/cul/resolve?clio9429247</subfield></datafield><datafield tag="920" ind1="4" ind2="0"><subfield code="u">http://purl.fdlp.gov/GPO/gpo21019</subfield></datafield><datafield tag="965" ind1=" " ind2=" "><subfield code="a">E-MARCIVE</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Online</subfield><subfield code="b">Online|DELIM|12484731</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Video</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">US Government Document</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Online</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','pub_name_display'=>['National Institutes of Health'],'format'=>['Video','US Government Document','Online'],'source_display'=>['catalog'],'material_type_display'=>['1 streaming video file (1 min., 21 sec.)'],'url_munged_display'=>['0||||||http://www.columbia.edu/cgi-bin/cul/resolve?clio9429247|||'],'oclc_display'=>['ocn782956344'],'title_first_facet'=>['K'],'pub_date_sort'=>2011,'full_publisher_display'=>['[Bethesda, Md. : National Institutes of Health, 2011?]'],'language_facet'=>['English'],'_version_'=>1501979731747143680,'timestamp'=>'2015-05-23T16:44:53.929Z'}]}}
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 19:40:50 GMT
+  recorded_at: Tue, 22 Sep 2015 19:26:24 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocn782956344.json
@@ -38,14 +92,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 19:40:50 GMT
+      - Tue, 22 Sep 2015 19:26:24 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 19:40:50 GMT
+      - Tue, 22 Sep 2015 19:26:24 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -55,8 +109,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        19:50:50 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:36:24 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -66,10 +120,10 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 19:40:50 GMT
+  recorded_at: Tue, 22 Sep 2015 19:26:24 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-17T00:00:00Z%20TO%20*%5D&q=Introduction%20to%20high-energy%20astrophysics%20stephan%20rosswog&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby
+    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&q=Introduction%20to%20high-energy%20astrophysics%20stephan%20rosswog&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -80,7 +134,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 19:40:50 GMT
+      - Tue, 22 Sep 2015 19:26:24 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -90,94 +144,94 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4zOCwn
-        cGFyYW1zJz0+eydmLnN1YmplY3RfZm9ybV9mYWNldC5mYWNldC5saW1pdCc9
-        PicxMScsJ2ZhY2V0Jz0+J3RydWUnLCdzb3J0Jz0+J3Njb3JlIGRlc2MsIHB1
-        Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdzdGF0cyc9Pid0
-        cnVlJywnZi5zdWJqZWN0X3RvcGljX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzEx
-        JywnZi5sYW5ndWFnZV9mYWNldC5mYWNldC5saW1pdCc9Pic2JywnZi5sY18x
-        bGV0dGVyX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzMxJywnZi5wdWJfZGF0ZV9z
-        b3J0LmZhY2V0LmxpbWl0Jz0+JzQnLCdmLmxvY2F0aW9uX2ZhY2V0LmZhY2V0
-        LmxpbWl0Jz0+JzYnLCd3dCc9PidydWJ5JywnZi5sY19zdWJjbGFzc19mYWNl
-        dC5mYWNldC5saW1pdCc9Pic1MDEnLCdyb3dzJz0+JzI1JywnZi5zdWJqZWN0
-        X2dlb19mYWNldC5mYWNldC5saW1pdCc9PicxMScsJ2ZhY2V0LnF1ZXJ5Jz0+
-        WydhY3FfZHQ6WzIwMTUtMDktMTBUMDA6MDA6MDBaIFRPICpdJywnYWNxX2R0
-        OlsyMDE1LTA4LTE3VDAwOjAwOjAwWiBUTyAqXScsJ2FjcV9kdDpbMjAxNS0w
-        My0xN1QwMDowMDowMFogVE8gKl0nLCdhY3FfZHQ6WzIwMTQtMDktMTdUMDA6
-        MDA6MDBaIFRPICpdJ10sJ3N0YXRzLmZpZWxkJz0+J3B1Yl9kYXRlX3NvcnQn
-        LCdxJz0+J0ludHJvZHVjdGlvbiB0byBoaWdoLWVuZXJneSBhc3Ryb3BoeXNp
-        Y3Mgc3RlcGhhbiByb3Nzd29nJywnZi5hdXRob3JfZmFjZXQuZmFjZXQubGlt
-        aXQnPT4nNicsJ2ZhY2V0LmZpZWxkJz0+Wydmb3JtYXQnLCdwdWJfZGF0ZV9z
-        b3J0JywnYXV0aG9yX2ZhY2V0JywnbG9jYXRpb25fZmFjZXQnLCdsYW5ndWFn
-        ZV9mYWNldCcsJ3N1YmplY3RfdG9waWNfZmFjZXQnLCdzdWJqZWN0X2dlb19m
-        YWNldCcsJ3N1YmplY3RfZXJhX2ZhY2V0Jywnc3ViamVjdF9mb3JtX2ZhY2V0
-        JywnbGNfMWxldHRlcl9mYWNldCcsJ2xjX3N1YmNsYXNzX2ZhY2V0J10sJ3F0
-        Jz0+J3NlYXJjaCcsJ2Yuc3ViamVjdF9lcmFfZmFjZXQuZmFjZXQubGltaXQn
-        PT4nMTEnLCdmLmZvcm1hdC5mYWNldC5saW1pdCc9Pic2J319LCdyZXNwb25z
-        ZSc9PnsnbnVtRm91bmQnPT4xLCdzdGFydCc9PjAsJ21heFNjb3JlJz0+MC4x
-        NTQ4MTM3LCdkb2NzJz0+W3snbG9jYXRpb25fY2FsbF9udW1iZXJfaWRfZGlz
-        cGxheSc9PlsnU2NpZW5jZSAmIEVuZ2luZWVyaW5nIFtOV0MgQnVpbGRpbmdd
-        ID4+IFFCNDYxIC5SNjcgMjAwN3xERUxJTXwxMzIwNDc1NyddLCdsY2NuX2Rp
-        c3BsYXknPT5bJzIwMDcwMDgxMTgnXSwnc3VtbWFyeV9kaXNwbGF5Jz0+WydU
-        aGlzIGlzIGEgc2VsZi1zdXBwb3J0aW5nLCB0aW1lbHkgdGV4dGJvb2sgb24g
-        aGlnaC1lbmVyZ3kgYXN0cm9waHlzaWNzIGZvciB1bmRlcmdyYWR1YXRlIHN0
-        dWRlbnRzLiBJdCBwcm92aWRlcyBhIGJyb2FkIG92ZXJ2aWV3IG9mIGhpZ2gt
-        ZW5lcmd5IHBoZW5vbWVuYSBhbmQgdGhlIG1hbnkgYWR2YW5jZXMgaW4gb3Vy
-        IGtub3dsZWRnZSBnYWluZWQgb3ZlciB0aGUgbGFzdCBkZWNhZGUnXSwnYWNx
-        X2R0Jz0+JzIwMTMtMDEtMTdUMDA6MDA6MDBaJywndGl0bGVfZGlzcGxheSc9
-        PlsnSW50cm9kdWN0aW9uIHRvIGhpZ2gtZW5lcmd5IGFzdHJvcGh5c2ljcydd
-        LCdjbGlvX2lkX2Rpc3BsYXknPT4nMTAxMjk1NDUnLCdzdWJqZWN0X3RvcGlj
-        X2ZhY2V0Jz0+WydBc3Ryb3BoeXNpY3MnLCdOdWNsZWFyIGFzdHJvcGh5c2lj
-        cycsJ0Nvc21vY2hlbWlzdHJ5JywnSG9jaGVuZXJnaWVhc3Ryb25vbWllJywn
-        QXN0cm9waHlzaWsnLCdIb2hlIEVuZXJnaWUnXSwncHViX3BsYWNlX2Rpc3Bs
-        YXknPT5bJ0NhbWJyaWRnZScsJ05ldyBZb3JrJ10sJ2Zvcm1hdCc9PlsnQm9v
-        ayddLCdvY2xjX2Rpc3BsYXknPT5bJ29jbTg1NDg1MTYyJywnODU0ODUxNjIn
-        XSwndXJsX211bmdlZF9kaXNwbGF5Jz0+WycxfHx8VGFibGUgb2YgY29udGVu
-        dHMgb25seXx8fGh0dHA6Ly9jYXRkaXIubG9jLmdvdi9jYXRkaXIvdG9jL2Vj
-        aXAwNzEyLzIwMDcwMDgxMTguaHRtbHx8fCcsJzJ8fHxDb250cmlidXRvciBi
-        aW9ncmFwaGljYWwgaW5mb3JtYXRpb258fHxodHRwOi8vY2F0ZGlyLmxvYy5n
-        b3YvY2F0ZGlyL2VuaGFuY2VtZW50cy9meTA4MDMvMjAwNzAwODExOC1iLmh0
-        bWx8fHwnLCcyfHx8UHVibGlzaGVyIGRlc2NyaXB0aW9ufHx8aHR0cDovL2Nh
-        dGRpci5sb2MuZ292L2NhdGRpci9lbmhhbmNlbWVudHMvZnkwODAzLzIwMDcw
-        MDgxMTgtZC5odG1sfHx8JywnMXx8fFRhYmxlIG9mIGNvbnRlbnRzfHx8aHR0
-        cDovL2J2YnIuYmliLWJ2Yi5kZTo4OTkxL0Y/ZnVuYz1zZXJ2aWNlJmRvY19s
-        aWJyYXJ5PUJWQjAxJmRvY19udW1iZXI9MDE1ODI1OTA0JmxpbmVfbnVtYmVy
-        PTAwMDEmZnVuY19jb2RlPURCX1JFQ09SRFMmc2VydmljZV90eXBlPU1FRElB
-        fHx8J10sJ2Z1bGxfcHVibGlzaGVyX2Rpc3BsYXknPT5bJ0NhbWJyaWRnZSA7
-        IE5ldyBZb3JrIDogQ2FtYnJpZGdlIFVuaXZlcnNpdHkgUHJlc3MsIDIwMDcu
-        J10sJ2lzYm5fZGlzcGxheSc9PlsnOTc4MDUyMTg1NzY5NycsJzA1MjE4NTc2
-        OTQnXSwncHViX3llYXJfZGlzcGxheSc9PlsnMjAwNyddLCdpZCc9PicxMDEy
-        OTU0NScsJ2F1dGhvcl9kaXNwbGF5Jz0+WydSb3Nzd29nLCBTdGVwaGFuLCAx
-        OTY4LSddLCdwdWJfbmFtZV9kaXNwbGF5Jz0+WydDYW1icmlkZ2UgVW5pdmVy
-        c2l0eSBQcmVzcyddLCdzb3VyY2VfZGlzcGxheSc9PlsnY2F0YWxvZyddLCdt
-        YXRlcmlhbF90eXBlX2Rpc3BsYXknPT5bJ3gsIDM1NSBwLiddLCdsYW5ndWFn
-        ZV9mYWNldCc9PlsnRW5nbGlzaCddLCdzY29yZSc9PjAuMTU0ODEzN31dfSwn
-        ZmFjZXRfY291bnRzJz0+eydmYWNldF9xdWVyaWVzJz0+eydhY3FfZHQ6WzIw
-        MTUtMDktMTBUMDA6MDA6MDBaIFRPICpdJz0+MCwnYWNxX2R0OlsyMDE1LTA4
-        LTE3VDAwOjAwOjAwWiBUTyAqXSc9PjAsJ2FjcV9kdDpbMjAxNS0wMy0xN1Qw
-        MDowMDowMFogVE8gKl0nPT4wLCdhY3FfZHQ6WzIwMTQtMDktMTdUMDA6MDA6
-        MDBaIFRPICpdJz0+MH0sJ2ZhY2V0X2ZpZWxkcyc9PnsnZm9ybWF0Jz0+WydC
-        b29rJywxXSwncHViX2RhdGVfc29ydCc9PlsnMjAwNycsMV0sJ2F1dGhvcl9m
-        YWNldCc9PlsnQnLDvGdnZW4sIE1hcmN1cywgMTk3Mi0nLDEsJ1Jvc3N3b2cs
-        IFN0ZXBoYW4sIDE5NjgtJywxXSwnbG9jYXRpb25fZmFjZXQnPT5bJ1NjaWVu
-        Y2UgJiBFbmdpbmVlcmluZycsMV0sJ2xhbmd1YWdlX2ZhY2V0Jz0+WydFbmds
-        aXNoJywxXSwnc3ViamVjdF90b3BpY19mYWNldCc9PlsnQXN0cm9waHlzaWNz
-        JywxLCdBc3Ryb3BoeXNpaycsMSwnQ29zbW9jaGVtaXN0cnknLDEsJ0hvY2hl
-        bmVyZ2llYXN0cm9ub21pZScsMSwnSG9oZSBFbmVyZ2llJywxLCdOdWNsZWFy
-        IGFzdHJvcGh5c2ljcycsMV0sJ3N1YmplY3RfZ2VvX2ZhY2V0Jz0+W10sJ3N1
-        YmplY3RfZXJhX2ZhY2V0Jz0+W10sJ3N1YmplY3RfZm9ybV9mYWNldCc9Pltd
-        LCdsY18xbGV0dGVyX2ZhY2V0Jz0+WydRIC0gU2NpZW5jZScsMV0sJ2xjX3N1
-        YmNsYXNzX2ZhY2V0Jz0+WydRQiAtIEFzdHJvbm9teScsMV19LCdmYWNldF9k
-        YXRlcyc9Pnt9LCdmYWNldF9yYW5nZXMnPT57fX0sJ3N0YXRzJz0+eydzdGF0
-        c19maWVsZHMnPT57J3B1Yl9kYXRlX3NvcnQnPT57J21pbic9PjIwMDcuMCwn
-        bWF4Jz0+MjAwNy4wLCdjb3VudCc9PjEsJ21pc3NpbmcnPT4wLCdzdW0nPT4y
-        MDA3LjAsJ3N1bU9mU3F1YXJlcyc9PjQwMjgwNDkuMCwnbWVhbic9PjIwMDcu
-        MCwnc3RkZGV2Jz0+MC4wLCdmYWNldHMnPT57fX19fX0K
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xMjMs
+        J3BhcmFtcyc9PnsnZi5zdWJqZWN0X2Zvcm1fZmFjZXQuZmFjZXQubGltaXQn
+        PT4nMTEnLCdmYWNldCc9Pid0cnVlJywnc29ydCc9PidzY29yZSBkZXNjLCBw
+        dWJfZGF0ZV9zb3J0IGRlc2MsIHRpdGxlX3NvcnQgYXNjJywnc3RhdHMnPT4n
+        dHJ1ZScsJ2Yuc3ViamVjdF90b3BpY19mYWNldC5mYWNldC5saW1pdCc9Picx
+        MScsJ2YubGFuZ3VhZ2VfZmFjZXQuZmFjZXQubGltaXQnPT4nNicsJ2YubGNf
+        MWxldHRlcl9mYWNldC5mYWNldC5saW1pdCc9PiczMScsJ2YucHViX2RhdGVf
+        c29ydC5mYWNldC5saW1pdCc9Pic0JywnZi5sb2NhdGlvbl9mYWNldC5mYWNl
+        dC5saW1pdCc9Pic2Jywnd3QnPT4ncnVieScsJ2YubGNfc3ViY2xhc3NfZmFj
+        ZXQuZmFjZXQubGltaXQnPT4nNTAxJywncm93cyc9PicyNScsJ2Yuc3ViamVj
+        dF9nZW9fZmFjZXQuZmFjZXQubGltaXQnPT4nMTEnLCdmYWNldC5xdWVyeSc9
+        PlsnYWNxX2R0OlsyMDE1LTA5LTE1VDAwOjAwOjAwWiBUTyAqXScsJ2FjcV9k
+        dDpbMjAxNS0wOC0yMlQwMDowMDowMFogVE8gKl0nLCdhY3FfZHQ6WzIwMTUt
+        MDMtMjJUMDA6MDA6MDBaIFRPICpdJywnYWNxX2R0OlsyMDE0LTA5LTIyVDAw
+        OjAwOjAwWiBUTyAqXSddLCdzdGF0cy5maWVsZCc9PidwdWJfZGF0ZV9zb3J0
+        JywncSc9PidJbnRyb2R1Y3Rpb24gdG8gaGlnaC1lbmVyZ3kgYXN0cm9waHlz
+        aWNzIHN0ZXBoYW4gcm9zc3dvZycsJ2YuYXV0aG9yX2ZhY2V0LmZhY2V0Lmxp
+        bWl0Jz0+JzYnLCdmYWNldC5maWVsZCc9PlsnZm9ybWF0JywncHViX2RhdGVf
+        c29ydCcsJ2F1dGhvcl9mYWNldCcsJ2xvY2F0aW9uX2ZhY2V0JywnbGFuZ3Vh
+        Z2VfZmFjZXQnLCdzdWJqZWN0X3RvcGljX2ZhY2V0Jywnc3ViamVjdF9nZW9f
+        ZmFjZXQnLCdzdWJqZWN0X2VyYV9mYWNldCcsJ3N1YmplY3RfZm9ybV9mYWNl
+        dCcsJ2xjXzFsZXR0ZXJfZmFjZXQnLCdsY19zdWJjbGFzc19mYWNldCddLCdx
+        dCc9PidzZWFyY2gnLCdmLnN1YmplY3RfZXJhX2ZhY2V0LmZhY2V0LmxpbWl0
+        Jz0+JzExJywnZi5mb3JtYXQuZmFjZXQubGltaXQnPT4nNid9fSwncmVzcG9u
+        c2UnPT57J251bUZvdW5kJz0+MSwnc3RhcnQnPT4wLCdtYXhTY29yZSc9PjAu
+        MTU0NTgwNzQsJ2RvY3MnPT5beydsb2NhdGlvbl9jYWxsX251bWJlcl9pZF9k
+        aXNwbGF5Jz0+WydTY2llbmNlICYgRW5naW5lZXJpbmcgW05XQyBCdWlsZGlu
+        Z10gPj4gUUI0NjEgLlI2NyAyMDA3fERFTElNfDEzMjA0NzU3J10sJ2xjY25f
+        ZGlzcGxheSc9PlsnMjAwNzAwODExOCddLCdzdW1tYXJ5X2Rpc3BsYXknPT5b
+        J1RoaXMgaXMgYSBzZWxmLXN1cHBvcnRpbmcsIHRpbWVseSB0ZXh0Ym9vayBv
+        biBoaWdoLWVuZXJneSBhc3Ryb3BoeXNpY3MgZm9yIHVuZGVyZ3JhZHVhdGUg
+        c3R1ZGVudHMuIEl0IHByb3ZpZGVzIGEgYnJvYWQgb3ZlcnZpZXcgb2YgaGln
+        aC1lbmVyZ3kgcGhlbm9tZW5hIGFuZCB0aGUgbWFueSBhZHZhbmNlcyBpbiBv
+        dXIga25vd2xlZGdlIGdhaW5lZCBvdmVyIHRoZSBsYXN0IGRlY2FkZSddLCdh
+        Y3FfZHQnPT4nMjAxMy0wMS0xN1QwMDowMDowMFonLCd0aXRsZV9kaXNwbGF5
+        Jz0+WydJbnRyb2R1Y3Rpb24gdG8gaGlnaC1lbmVyZ3kgYXN0cm9waHlzaWNz
+        J10sJ2NsaW9faWRfZGlzcGxheSc9PicxMDEyOTU0NScsJ3N1YmplY3RfdG9w
+        aWNfZmFjZXQnPT5bJ0FzdHJvcGh5c2ljcycsJ051Y2xlYXIgYXN0cm9waHlz
+        aWNzJywnQ29zbW9jaGVtaXN0cnknLCdIb2NoZW5lcmdpZWFzdHJvbm9taWUn
+        LCdBc3Ryb3BoeXNpaycsJ0hvaGUgRW5lcmdpZSddLCdwdWJfcGxhY2VfZGlz
+        cGxheSc9PlsnQ2FtYnJpZGdlJywnTmV3IFlvcmsnXSwnZm9ybWF0Jz0+WydC
+        b29rJ10sJ29jbGNfZGlzcGxheSc9Plsnb2NtODU0ODUxNjInLCc4NTQ4NTE2
+        MiddLCd1cmxfbXVuZ2VkX2Rpc3BsYXknPT5bJzF8fHxUYWJsZSBvZiBjb250
+        ZW50cyBvbmx5fHx8aHR0cDovL2NhdGRpci5sb2MuZ292L2NhdGRpci90b2Mv
+        ZWNpcDA3MTIvMjAwNzAwODExOC5odG1sfHx8JywnMnx8fENvbnRyaWJ1dG9y
+        IGJpb2dyYXBoaWNhbCBpbmZvcm1hdGlvbnx8fGh0dHA6Ly9jYXRkaXIubG9j
+        Lmdvdi9jYXRkaXIvZW5oYW5jZW1lbnRzL2Z5MDgwMy8yMDA3MDA4MTE4LWIu
+        aHRtbHx8fCcsJzJ8fHxQdWJsaXNoZXIgZGVzY3JpcHRpb258fHxodHRwOi8v
+        Y2F0ZGlyLmxvYy5nb3YvY2F0ZGlyL2VuaGFuY2VtZW50cy9meTA4MDMvMjAw
+        NzAwODExOC1kLmh0bWx8fHwnLCcxfHx8VGFibGUgb2YgY29udGVudHN8fHxo
+        dHRwOi8vYnZici5iaWItYnZiLmRlOjg5OTEvRj9mdW5jPXNlcnZpY2UmZG9j
+        X2xpYnJhcnk9QlZCMDEmZG9jX251bWJlcj0wMTU4MjU5MDQmbGluZV9udW1i
+        ZXI9MDAwMSZmdW5jX2NvZGU9REJfUkVDT1JEUyZzZXJ2aWNlX3R5cGU9TUVE
+        SUF8fHwnXSwnZnVsbF9wdWJsaXNoZXJfZGlzcGxheSc9PlsnQ2FtYnJpZGdl
+        IDsgTmV3IFlvcmsgOiBDYW1icmlkZ2UgVW5pdmVyc2l0eSBQcmVzcywgMjAw
+        Ny4nXSwnaXNibl9kaXNwbGF5Jz0+Wyc5NzgwNTIxODU3Njk3JywnMDUyMTg1
+        NzY5NCddLCdwdWJfeWVhcl9kaXNwbGF5Jz0+WycyMDA3J10sJ2lkJz0+JzEw
+        MTI5NTQ1JywnYXV0aG9yX2Rpc3BsYXknPT5bJ1Jvc3N3b2csIFN0ZXBoYW4s
+        IDE5NjgtJ10sJ3B1Yl9uYW1lX2Rpc3BsYXknPT5bJ0NhbWJyaWRnZSBVbml2
+        ZXJzaXR5IFByZXNzJ10sJ3NvdXJjZV9kaXNwbGF5Jz0+WydjYXRhbG9nJ10s
+        J21hdGVyaWFsX3R5cGVfZGlzcGxheSc9PlsneCwgMzU1IHAuJ10sJ2xhbmd1
+        YWdlX2ZhY2V0Jz0+WydFbmdsaXNoJ10sJ3Njb3JlJz0+MC4xNTQ1ODA3NH1d
+        fSwnZmFjZXRfY291bnRzJz0+eydmYWNldF9xdWVyaWVzJz0+eydhY3FfZHQ6
+        WzIwMTUtMDktMTVUMDA6MDA6MDBaIFRPICpdJz0+MCwnYWNxX2R0OlsyMDE1
+        LTA4LTIyVDAwOjAwOjAwWiBUTyAqXSc9PjAsJ2FjcV9kdDpbMjAxNS0wMy0y
+        MlQwMDowMDowMFogVE8gKl0nPT4wLCdhY3FfZHQ6WzIwMTQtMDktMjJUMDA6
+        MDA6MDBaIFRPICpdJz0+MH0sJ2ZhY2V0X2ZpZWxkcyc9PnsnZm9ybWF0Jz0+
+        WydCb29rJywxXSwncHViX2RhdGVfc29ydCc9PlsnMjAwNycsMV0sJ2F1dGhv
+        cl9mYWNldCc9PlsnQnLDvGdnZW4sIE1hcmN1cywgMTk3Mi0nLDEsJ1Jvc3N3
+        b2csIFN0ZXBoYW4sIDE5NjgtJywxXSwnbG9jYXRpb25fZmFjZXQnPT5bJ1Nj
+        aWVuY2UgJiBFbmdpbmVlcmluZycsMV0sJ2xhbmd1YWdlX2ZhY2V0Jz0+WydF
+        bmdsaXNoJywxXSwnc3ViamVjdF90b3BpY19mYWNldCc9PlsnQXN0cm9waHlz
+        aWNzJywxLCdBc3Ryb3BoeXNpaycsMSwnQ29zbW9jaGVtaXN0cnknLDEsJ0hv
+        Y2hlbmVyZ2llYXN0cm9ub21pZScsMSwnSG9oZSBFbmVyZ2llJywxLCdOdWNs
+        ZWFyIGFzdHJvcGh5c2ljcycsMV0sJ3N1YmplY3RfZ2VvX2ZhY2V0Jz0+W10s
+        J3N1YmplY3RfZXJhX2ZhY2V0Jz0+W10sJ3N1YmplY3RfZm9ybV9mYWNldCc9
+        PltdLCdsY18xbGV0dGVyX2ZhY2V0Jz0+WydRIC0gU2NpZW5jZScsMV0sJ2xj
+        X3N1YmNsYXNzX2ZhY2V0Jz0+WydRQiAtIEFzdHJvbm9teScsMV19LCdmYWNl
+        dF9kYXRlcyc9Pnt9LCdmYWNldF9yYW5nZXMnPT57fX0sJ3N0YXRzJz0+eydz
+        dGF0c19maWVsZHMnPT57J3B1Yl9kYXRlX3NvcnQnPT57J21pbic9PjIwMDcu
+        MCwnbWF4Jz0+MjAwNy4wLCdjb3VudCc9PjEsJ21pc3NpbmcnPT4wLCdzdW0n
+        PT4yMDA3LjAsJ3N1bU9mU3F1YXJlcyc9PjQwMjgwNDkuMCwnbWVhbic9PjIw
+        MDcuMCwnc3RkZGV2Jz0+MC4wLCdmYWNldHMnPT57fX19fX0K
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 19:40:51 GMT
+  recorded_at: Tue, 22 Sep 2015 19:26:24 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=10129545&qt=document&wt=ruby
+    uri: "<solr_config>/select?id=10129545&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -188,7 +242,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 19:40:50 GMT
+      - Tue, 22 Sep 2015 19:26:25 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -198,7 +252,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
         YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
         eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9PicxMDEyOTU0
         NScsJ3F0Jz0+J2RvY3VtZW50Jywnd3QnPT4ncnVieSd9fSwncmVzcG9uc2Un
@@ -393,10 +447,10 @@ http_interactions:
         Z2xpc2gnXSwnX3ZlcnNpb25fJz0+MTUwMTk4NTA3NzgzOTUyNzkzNiwndGlt
         ZXN0YW1wJz0+JzIwMTUtMDUtMjNUMTg6MDk6NTIuMzZaJ31dfX0K
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 19:40:51 GMT
+  recorded_at: Tue, 22 Sep 2015 19:26:25 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=false&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-17T00:00:00Z%20TO%20*%5D&fl=*&q=Introduction%20to%20high-energy%20astrophysics%20stephan%20rosswog&qt=search&rows=2&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&start=0&stats=true&stats.field=pub_date_sort&wt=ruby
+    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=false&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&fl=*&q=Introduction%20to%20high-energy%20astrophysics%20stephan%20rosswog&qt=search&rows=2&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&start=0&stats=true&stats.field=pub_date_sort&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -407,7 +461,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 19:40:50 GMT
+      - Tue, 22 Sep 2015 19:26:25 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -417,7 +471,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4yLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4zLCdw
         YXJhbXMnPT57J2Yuc3ViamVjdF9mb3JtX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+
         JzExJywnZmFjZXQnPT4nZmFsc2UnLCdzb3J0Jz0+J3Njb3JlIGRlc2MsIHB1
         Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdzdGF0cyc9Pid0
@@ -428,10 +482,10 @@ http_interactions:
         LmxpbWl0Jz0+JzYnLCd3dCc9PidydWJ5JywnZi5sY19zdWJjbGFzc19mYWNl
         dC5mYWNldC5saW1pdCc9Pic1MDEnLCdyb3dzJz0+JzInLCdmbCc9PicqJywn
         c3RhcnQnPT4nMCcsJ2Yuc3ViamVjdF9nZW9fZmFjZXQuZmFjZXQubGltaXQn
-        PT4nMTEnLCdmYWNldC5xdWVyeSc9PlsnYWNxX2R0OlsyMDE1LTA5LTEwVDAw
-        OjAwOjAwWiBUTyAqXScsJ2FjcV9kdDpbMjAxNS0wOC0xN1QwMDowMDowMFog
-        VE8gKl0nLCdhY3FfZHQ6WzIwMTUtMDMtMTdUMDA6MDA6MDBaIFRPICpdJywn
-        YWNxX2R0OlsyMDE0LTA5LTE3VDAwOjAwOjAwWiBUTyAqXSddLCdzdGF0cy5m
+        PT4nMTEnLCdmYWNldC5xdWVyeSc9PlsnYWNxX2R0OlsyMDE1LTA5LTE1VDAw
+        OjAwOjAwWiBUTyAqXScsJ2FjcV9kdDpbMjAxNS0wOC0yMlQwMDowMDowMFog
+        VE8gKl0nLCdhY3FfZHQ6WzIwMTUtMDMtMjJUMDA6MDA6MDBaIFRPICpdJywn
+        YWNxX2R0OlsyMDE0LTA5LTIyVDAwOjAwOjAwWiBUTyAqXSddLCdzdGF0cy5m
         aWVsZCc9PidwdWJfZGF0ZV9zb3J0JywncSc9PidJbnRyb2R1Y3Rpb24gdG8g
         aGlnaC1lbmVyZ3kgYXN0cm9waHlzaWNzIHN0ZXBoYW4gcm9zc3dvZycsJ2Yu
         YXV0aG9yX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzYnLCdmYWNldC5maWVsZCc9
@@ -637,5 +691,5 @@ http_interactions:
         cXVhcmVzJz0+NDAyODA0OS4wLCdtZWFuJz0+MjAwNy4wLCdzdGRkZXYnPT4w
         LjAsJ2ZhY2V0cyc9Pnt9fX19fQo=
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 19:40:51 GMT
+  recorded_at: Tue, 22 Sep 2015 19:26:25 GMT
 recorded_with: VCR 2.9.3

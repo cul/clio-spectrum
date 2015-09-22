@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=4&f.format.facet.limit=4&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.repository_facet.facet.limit=6&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&fq=%7B!raw%20f=source_facet%7Darchive&q=papers&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby
+    uri: "<solr_config>/select?f.author_facet.facet.limit=4&f.format.facet.limit=4&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.repository_facet.facet.limit=6&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&fq=%7B!raw%20f=source_facet%7Darchive&q=papers&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 16:12:24 GMT
+      - Tue, 22 Sep 2015 19:24:15 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -878,10 +878,10 @@ http_interactions:
         LCdzdGRkZXYnPT42OC43NjYwNjMwMjE5NzMyMiwnZmFjZXRzJz0+e319fX19
         Cg==
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 16:12:26 GMT
+  recorded_at: Tue, 22 Sep 2015 19:24:15 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=4&f.format.facet.limit=4&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.repository_facet.facet.limit=6&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&fq=%7B!raw%20f=source_facet%7Darchive&q=papers&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&start=25&stats=true&stats.field=pub_date_sort&wt=ruby
+    uri: "<solr_config>/select?f.author_facet.facet.limit=4&f.format.facet.limit=4&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.repository_facet.facet.limit=6&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&fq=%7B!raw%20f=source_facet%7Darchive&q=papers&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&start=25&stats=true&stats.field=pub_date_sort&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -892,7 +892,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 16:12:28 GMT
+      - Tue, 22 Sep 2015 19:24:16 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -902,7 +902,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT43MCwn
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT42OSwn
         cGFyYW1zJz0+eydmLnN1YmplY3RfZm9ybV9mYWNldC5mYWNldC5saW1pdCc9
         PicxMScsJ2ZhY2V0Jz0+J3RydWUnLCdzb3J0Jz0+J3Njb3JlIGRlc2MsIHB1
         Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdzdGF0cyc9Pid0
@@ -1601,10 +1601,10 @@ http_interactions:
         OTA3NzQ5MDcsJ3N0ZGRldic9PjY4Ljc2NjA2MzAyMTk3MzIyLCdmYWNldHMn
         PT57fX19fX0K
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 16:12:29 GMT
+  recorded_at: Tue, 22 Sep 2015 19:24:16 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=4&f.format.facet.limit=4&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.repository_facet.facet.limit=6&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&fq=%7B!raw%20f=source_facet%7Darchive&q=papers&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby
+    uri: "<solr_config>/select?f.author_facet.facet.limit=4&f.format.facet.limit=4&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.repository_facet.facet.limit=6&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&fq=%7B!raw%20f=source_facet%7Darchive&q=papers&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -1615,7 +1615,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 16:12:29 GMT
+      - Tue, 22 Sep 2015 19:24:17 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -2480,5 +2480,5 @@ http_interactions:
         LCdzdGRkZXYnPT42OC43NjYwNjMwMjE5NzMyMiwnZmFjZXRzJz0+e319fX19
         Cg==
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 16:12:31 GMT
+  recorded_at: Tue, 22 Sep 2015 19:24:17 GMT
 recorded_with: VCR 2.9.3

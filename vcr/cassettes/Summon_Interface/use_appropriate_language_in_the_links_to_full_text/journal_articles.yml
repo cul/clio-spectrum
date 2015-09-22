@@ -16,13 +16,13 @@ http_interactions:
       Content-Type:
       - application/x-www-form-urlencoded; charset=utf8
       X-Summon-Date:
-      - Thu, 17 Sep 2015 17:56:09 GMT
+      - Tue, 22 Sep 2015 19:25:04 GMT
       X-Summon-Session-Id:
-      - SUMMON-SESSION-Sprite.local-62517-29
+      - SUMMON-SESSION-Sprite.local-1824-30
       X-Summon-Request-Id:
       - ''
       Authorization:
-      - Summon columbia;aMXpDU/ZWdQ6lpxbqvK+lfDA0mw=
+      - Summon columbia;TQ1gmOmjyqTd/2B0XgFcQU4aR+Y=
       Host:
       - api.summon.serialssolutions.com:80
   response:
@@ -35,771 +35,308 @@ http_interactions:
       Datacenter:
       - IAD1
       Date:
-      - Thu, 17 Sep 2015 17:56:07 GMT
+      - Tue, 22 Sep 2015 19:25:05 GMT
       Transfer-Encoding:
       - chunked
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJ2ZXJzaW9uIjogIjIuMC4wIiwic2Vzc2lvbklkIjogIlNVTU1PTi1TRVNT
-        SU9OLVNwcml0ZS5sb2NhbC02MjUxNy0yOSIsImVsYXBzZWRRdWVyeVRpbWUi
-        OiA2LCJxdWVyeVRpbWUiOiAxMzE2LCJ0b3RhbFJlcXVlc3RUaW1lIjogNTYs
-        InBhZ2VDb3VudCI6IDEyNDA2NDc4LCJyZWNvcmRDb3VudCI6IDEyNDA2NDc4
-        MCwicXVlcnkiOiB7InF1ZXJ5U3RyaW5nIjogInMuaG89dCZzLnBzPTEwJnMu
-        ZmY9U3ViamVjdFRlcm1zJTJDYW5kJTJDMSUyQzEwJnMuZmY9TGFuZ3VhZ2Ul
-        MkNhbmQlMkMxJTJDNSZzLmZmPUNvbnRlbnRUeXBlJTJDYW5kJTJDMSUyQzEw
-        JnMucG49MSZzLmZ2Zj1Db250ZW50VHlwZSUyQ0pvdXJuYWwrQXJ0aWNsZSUy
-        Q2Ymcy5mdmY9SXNGdWxsVGV4dCUyQ3RydWUlMkNmIiwicGFnZU51bWJlciI6
-        IDEsInBhZ2VTaXplIjogMTAsImlzSG9sZGluZ3NPbmx5RW5hYmxlZCI6IHRy
-        dWUsInRleHRRdWVyaWVzIjogW10sInNlYXJjaFRlcm1zIjogW10sInRleHRG
-        aWx0ZXJzIjogW10sInJhbmdlRmlsdGVycyI6IFtdLCJmYWNldFZhbHVlRmls
-        dGVycyI6IFt7ImZpZWxkTmFtZSI6ICJDb250ZW50VHlwZSIsInZhbHVlIjog
-        IkpvdXJuYWwgQXJ0aWNsZSIsImlzTmVnYXRlZCI6IGZhbHNlLCJyZW1vdmVD
-        b21tYW5kIjogInJlbW92ZUZhY2V0VmFsdWVGaWx0ZXIoQ29udGVudFR5cGUs
-        Sm91cm5hbCBBcnRpY2xlKSIsIm5lZ2F0ZUNvbW1hbmQiOiAibmVnYXRlRmFj
-        ZXRWYWx1ZUZpbHRlcihDb250ZW50VHlwZSxKb3VybmFsIEFydGljbGUpIn0s
-        eyJmaWVsZE5hbWUiOiAiSXNGdWxsVGV4dCIsInZhbHVlIjogInRydWUiLCJp
-        c05lZ2F0ZWQiOiBmYWxzZSwicmVtb3ZlQ29tbWFuZCI6ICJyZW1vdmVGYWNl
-        dFZhbHVlRmlsdGVyKElzRnVsbFRleHQsdHJ1ZSkiLCJuZWdhdGVDb21tYW5k
-        IjogIm5lZ2F0ZUZhY2V0VmFsdWVGaWx0ZXIoSXNGdWxsVGV4dCx0cnVlKSJ9
-        XSwiaW5jbHVzaXZlRmFjZXRWYWx1ZUZpbHRlcnMiOiBbXSwiZmFjZXRWYWx1
-        ZUdyb3VwRmlsdGVycyI6IFtdLCJmYWNldEZpZWxkcyI6IFt7ImZpZWxkTmFt
-        ZSI6ICJMYW5ndWFnZSIsImNvbWJpbmVNb2RlIjogImFuZCIsInBhZ2VOdW1i
-        ZXIiOiAxLCJwYWdlU2l6ZSI6IDUsInJlbW92ZUNvbW1hbmQiOiAicmVtb3Zl
-        RmFjZXRGaWVsZChMYW5ndWFnZSkifSx7ImZpZWxkTmFtZSI6ICJDb250ZW50
-        VHlwZSIsImNvbWJpbmVNb2RlIjogImFuZCIsInBhZ2VOdW1iZXIiOiAxLCJw
-        YWdlU2l6ZSI6IDEwLCJyZW1vdmVDb21tYW5kIjogInJlbW92ZUZhY2V0Rmll
-        bGQoQ29udGVudFR5cGUpIn0seyJmaWVsZE5hbWUiOiAiU3ViamVjdFRlcm1z
-        IiwiY29tYmluZU1vZGUiOiAiYW5kIiwicGFnZU51bWJlciI6IDEsInBhZ2VT
-        aXplIjogMTAsInJlbW92ZUNvbW1hbmQiOiAicmVtb3ZlRmFjZXRGaWVsZChT
-        dWJqZWN0VGVybXMpIn1dLCJyYW5nZUZhY2V0RmllbGRzIjogW10sInNvcnQi
-        OiBbXX0sImZhY2V0RmllbGRzIjogW3siZmllbGROYW1lIjogIkxhbmd1YWdl
-        X3MiLCJkaXNwbGF5TmFtZSI6ICJMYW5ndWFnZSIsImNvbWJpbmVNb2RlIjog
-        ImFuZCIsInBhZ2VOdW1iZXIiOiAxLCJwYWdlU2l6ZSI6IDUsImhhc0xpbWl0
-        aW5nVmFsdWUiOiB0cnVlLCJoYXNBcHBsaWVkVmFsdWUiOiBmYWxzZSwicmVt
-        b3ZlQ29tbWFuZCI6ICJyZW1vdmVGYWNldEZpZWxkKExhbmd1YWdlKSIsImxp
-        c3RWYWx1ZXNDb21tYW5kIjogImxpc3RGYWNldFZhbHVlcyhMYW5ndWFnZSxh
-        bmQpIiwicmVtb3ZlVmFsdWVGaWx0ZXJzQ29tbWFuZCI6ICJyZW1vdmVGYWNl
-        dFZhbHVlRmlsdGVyKExhbmd1YWdlKSIsImNvdW50cyI6IFt7InZhbHVlIjog
-        IkVuZ2xpc2giLCJjb3VudCI6IDgxMzU0NTk1LCJpc0FwcGxpZWQiOiBmYWxz
-        ZSwiaXNOZWdhdGVkIjogZmFsc2UsImlzRnVydGhlckxpbWl0aW5nIjogdHJ1
-        ZSwiYXBwbHlDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKExhbmd1
-        YWdlLEVuZ2xpc2gpIiwiYXBwbHlOZWdhdGVkQ29tbWFuZCI6ICJhZGRGYWNl
-        dFZhbHVlRmlsdGVycyhMYW5ndWFnZSxFbmdsaXNoOnQpIn0seyJ2YWx1ZSI6
-        ICJDaGluZXNlIiwiY291bnQiOiAyNjQ1MTQ3NiwiaXNBcHBsaWVkIjogZmFs
-        c2UsImlzTmVnYXRlZCI6IGZhbHNlLCJpc0Z1cnRoZXJMaW1pdGluZyI6IHRy
-        dWUsImFwcGx5Q29tbWFuZCI6ICJhZGRGYWNldFZhbHVlRmlsdGVycyhMYW5n
-        dWFnZSxDaGluZXNlKSIsImFwcGx5TmVnYXRlZENvbW1hbmQiOiAiYWRkRmFj
-        ZXRWYWx1ZUZpbHRlcnMoTGFuZ3VhZ2UsQ2hpbmVzZTp0KSJ9LHsidmFsdWUi
-        OiAiS29yZWFuIiwiY291bnQiOiAyNDY5MTI4LCJpc0FwcGxpZWQiOiBmYWxz
-        ZSwiaXNOZWdhdGVkIjogZmFsc2UsImlzRnVydGhlckxpbWl0aW5nIjogdHJ1
-        ZSwiYXBwbHlDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKExhbmd1
-        YWdlLEtvcmVhbikiLCJhcHBseU5lZ2F0ZWRDb21tYW5kIjogImFkZEZhY2V0
-        VmFsdWVGaWx0ZXJzKExhbmd1YWdlLEtvcmVhbjp0KSJ9LHsidmFsdWUiOiAi
-        RnJlbmNoIiwiY291bnQiOiAyMTE1MjEzLCJpc0FwcGxpZWQiOiBmYWxzZSwi
-        aXNOZWdhdGVkIjogZmFsc2UsImlzRnVydGhlckxpbWl0aW5nIjogdHJ1ZSwi
-        YXBwbHlDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKExhbmd1YWdl
-        LEZyZW5jaCkiLCJhcHBseU5lZ2F0ZWRDb21tYW5kIjogImFkZEZhY2V0VmFs
-        dWVGaWx0ZXJzKExhbmd1YWdlLEZyZW5jaDp0KSJ9LHsidmFsdWUiOiAiR2Vy
-        bWFuIiwiY291bnQiOiAxOTcyNDI4LCJpc0FwcGxpZWQiOiBmYWxzZSwiaXNO
-        ZWdhdGVkIjogZmFsc2UsImlzRnVydGhlckxpbWl0aW5nIjogdHJ1ZSwiYXBw
-        bHlDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKExhbmd1YWdlLEdl
-        cm1hbikiLCJhcHBseU5lZ2F0ZWRDb21tYW5kIjogImFkZEZhY2V0VmFsdWVG
-        aWx0ZXJzKExhbmd1YWdlLEdlcm1hbjp0KSJ9XX0seyJmaWVsZE5hbWUiOiAi
-        U3ViamVjdFRlcm1zX21mYWNldCIsImRpc3BsYXlOYW1lIjogIlN1YmplY3RU
-        ZXJtcyIsImNvbWJpbmVNb2RlIjogImFuZCIsInBhZ2VOdW1iZXIiOiAxLCJw
-        YWdlU2l6ZSI6IDEwLCJoYXNMaW1pdGluZ1ZhbHVlIjogdHJ1ZSwiaGFzQXBw
-        bGllZFZhbHVlIjogZmFsc2UsInJlbW92ZUNvbW1hbmQiOiAicmVtb3ZlRmFj
-        ZXRGaWVsZChTdWJqZWN0VGVybXMpIiwibGlzdFZhbHVlc0NvbW1hbmQiOiAi
-        bGlzdEZhY2V0VmFsdWVzKFN1YmplY3RUZXJtcyxhbmQpIiwicmVtb3ZlVmFs
-        dWVGaWx0ZXJzQ29tbWFuZCI6ICJyZW1vdmVGYWNldFZhbHVlRmlsdGVyKFN1
-        YmplY3RUZXJtcykiLCJjb3VudHMiOiBbeyJ2YWx1ZSI6ICJhcnRpY2xlIiwi
-        Y291bnQiOiAzNDA5NzI4LCJpc0FwcGxpZWQiOiBmYWxzZSwiaXNOZWdhdGVk
-        IjogZmFsc2UsImlzRnVydGhlckxpbWl0aW5nIjogdHJ1ZSwiYXBwbHlDb21t
-        YW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKFN1YmplY3RUZXJtcyxhcnRp
-        Y2xlKSIsImFwcGx5TmVnYXRlZENvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZp
-        bHRlcnMoU3ViamVjdFRlcm1zLGFydGljbGU6dCkifSx7InZhbHVlIjogImFu
-        YWx5c2lzIiwiY291bnQiOiAyMTg3MzYxLCJpc0FwcGxpZWQiOiBmYWxzZSwi
-        aXNOZWdhdGVkIjogZmFsc2UsImlzRnVydGhlckxpbWl0aW5nIjogdHJ1ZSwi
-        YXBwbHlDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKFN1YmplY3RU
-        ZXJtcyxhbmFseXNpcykiLCJhcHBseU5lZ2F0ZWRDb21tYW5kIjogImFkZEZh
-        Y2V0VmFsdWVGaWx0ZXJzKFN1YmplY3RUZXJtcyxhbmFseXNpczp0KSJ9LHsi
-        dmFsdWUiOiAicmVzZWFyY2giLCJjb3VudCI6IDIwNDMzODAsImlzQXBwbGll
-        ZCI6IGZhbHNlLCJpc05lZ2F0ZWQiOiBmYWxzZSwiaXNGdXJ0aGVyTGltaXRp
-        bmciOiB0cnVlLCJhcHBseUNvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRl
-        cnMoU3ViamVjdFRlcm1zLHJlc2VhcmNoKSIsImFwcGx5TmVnYXRlZENvbW1h
-        bmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoU3ViamVjdFRlcm1zLHJlc2Vh
-        cmNoOnQpIn0seyJ2YWx1ZSI6ICJ1bml0ZWQgc3RhdGVzIiwiY291bnQiOiAx
-        MzEyMzM0LCJpc0FwcGxpZWQiOiBmYWxzZSwiaXNOZWdhdGVkIjogZmFsc2Us
-        ImlzRnVydGhlckxpbWl0aW5nIjogdHJ1ZSwiYXBwbHlDb21tYW5kIjogImFk
-        ZEZhY2V0VmFsdWVGaWx0ZXJzKFN1YmplY3RUZXJtcyx1bml0ZWQgc3RhdGVz
-        KSIsImFwcGx5TmVnYXRlZENvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRl
-        cnMoU3ViamVjdFRlcm1zLHVuaXRlZCBzdGF0ZXM6dCkifSx7InZhbHVlIjog
-        InN0dWRpZXMiLCJjb3VudCI6IDEyNzMzMjIsImlzQXBwbGllZCI6IGZhbHNl
-        LCJpc05lZ2F0ZWQiOiBmYWxzZSwiaXNGdXJ0aGVyTGltaXRpbmciOiB0cnVl
-        LCJhcHBseUNvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoU3ViamVj
-        dFRlcm1zLHN0dWRpZXMpIiwiYXBwbHlOZWdhdGVkQ29tbWFuZCI6ICJhZGRG
-        YWNldFZhbHVlRmlsdGVycyhTdWJqZWN0VGVybXMsc3R1ZGllczp0KSJ9LHsi
-        dmFsdWUiOiAibWFuYWdlbWVudCIsImNvdW50IjogMTExMzkwOSwiaXNBcHBs
-        aWVkIjogZmFsc2UsImlzTmVnYXRlZCI6IGZhbHNlLCJpc0Z1cnRoZXJMaW1p
-        dGluZyI6IHRydWUsImFwcGx5Q29tbWFuZCI6ICJhZGRGYWNldFZhbHVlRmls
-        dGVycyhTdWJqZWN0VGVybXMsbWFuYWdlbWVudCkiLCJhcHBseU5lZ2F0ZWRD
-        b21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKFN1YmplY3RUZXJtcyxt
-        YW5hZ2VtZW50OnQpIn0seyJ2YWx1ZSI6ICJodW1hbnMiLCJjb3VudCI6IDEx
-        MDgxNDEsImlzQXBwbGllZCI6IGZhbHNlLCJpc05lZ2F0ZWQiOiBmYWxzZSwi
-        aXNGdXJ0aGVyTGltaXRpbmciOiB0cnVlLCJhcHBseUNvbW1hbmQiOiAiYWRk
-        RmFjZXRWYWx1ZUZpbHRlcnMoU3ViamVjdFRlcm1zLGh1bWFucykiLCJhcHBs
-        eU5lZ2F0ZWRDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKFN1Ympl
-        Y3RUZXJtcyxodW1hbnM6dCkifSx7InZhbHVlIjogImJpb2NoZW1pc3RyeSAm
-        IG1vbGVjdWxhciBiaW9sb2d5IiwiY291bnQiOiAxMDQwNTA2LCJpc0FwcGxp
-        ZWQiOiBmYWxzZSwiaXNOZWdhdGVkIjogZmFsc2UsImlzRnVydGhlckxpbWl0
-        aW5nIjogdHJ1ZSwiYXBwbHlDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0
-        ZXJzKFN1YmplY3RUZXJtcyxiaW9jaGVtaXN0cnkgJiBtb2xlY3VsYXIgYmlv
-        bG9neSkiLCJhcHBseU5lZ2F0ZWRDb21tYW5kIjogImFkZEZhY2V0VmFsdWVG
-        aWx0ZXJzKFN1YmplY3RUZXJtcyxiaW9jaGVtaXN0cnkgJiBtb2xlY3VsYXIg
-        YmlvbG9neTp0KSJ9LHsidmFsdWUiOiAiYXNpYSIsImNvdW50IjogOTU0MDM0
-        LCJpc0FwcGxpZWQiOiBmYWxzZSwiaXNOZWdhdGVkIjogZmFsc2UsImlzRnVy
-        dGhlckxpbWl0aW5nIjogdHJ1ZSwiYXBwbHlDb21tYW5kIjogImFkZEZhY2V0
-        VmFsdWVGaWx0ZXJzKFN1YmplY3RUZXJtcyxhc2lhKSIsImFwcGx5TmVnYXRl
-        ZENvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoU3ViamVjdFRlcm1z
-        LGFzaWE6dCkifSx7InZhbHVlIjogIm9uY29sb2d5IiwiY291bnQiOiA4ODAz
-        NTAsImlzQXBwbGllZCI6IGZhbHNlLCJpc05lZ2F0ZWQiOiBmYWxzZSwiaXNG
-        dXJ0aGVyTGltaXRpbmciOiB0cnVlLCJhcHBseUNvbW1hbmQiOiAiYWRkRmFj
-        ZXRWYWx1ZUZpbHRlcnMoU3ViamVjdFRlcm1zLG9uY29sb2d5KSIsImFwcGx5
-        TmVnYXRlZENvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoU3ViamVj
-        dFRlcm1zLG9uY29sb2d5OnQpIn1dfSx7ImZpZWxkTmFtZSI6ICJDb250ZW50
-        VHlwZV9tZmFjZXQiLCJkaXNwbGF5TmFtZSI6ICJDb250ZW50VHlwZSIsImNv
-        bWJpbmVNb2RlIjogImFuZCIsInBhZ2VOdW1iZXIiOiAxLCJwYWdlU2l6ZSI6
-        IDEwLCJoYXNMaW1pdGluZ1ZhbHVlIjogdHJ1ZSwiaGFzQXBwbGllZFZhbHVl
-        IjogdHJ1ZSwicmVtb3ZlQ29tbWFuZCI6ICJyZW1vdmVGYWNldEZpZWxkKENv
-        bnRlbnRUeXBlKSIsImxpc3RWYWx1ZXNDb21tYW5kIjogImxpc3RGYWNldFZh
-        bHVlcyhDb250ZW50VHlwZSxhbmQpIiwicmVtb3ZlVmFsdWVGaWx0ZXJzQ29t
-        bWFuZCI6ICJyZW1vdmVGYWNldFZhbHVlRmlsdGVyKENvbnRlbnRUeXBlKSIs
-        ImNvdW50cyI6IFt7InZhbHVlIjogIkpvdXJuYWwgQXJ0aWNsZSIsImNvdW50
-        IjogMTI0MDY0NzgwLCJpc0FwcGxpZWQiOiB0cnVlLCJpc05lZ2F0ZWQiOiBm
-        YWxzZSwiaXNGdXJ0aGVyTGltaXRpbmciOiBmYWxzZSwicmVtb3ZlQ29tbWFu
-        ZCI6ICJyZW1vdmVGYWNldFZhbHVlRmlsdGVyKENvbnRlbnRUeXBlLEpvdXJu
-        YWwgQXJ0aWNsZSkiLCJuZWdhdGVDb21tYW5kIjogIm5lZ2F0ZUZhY2V0VmFs
-        dWVGaWx0ZXIoQ29udGVudFR5cGUsSm91cm5hbCBBcnRpY2xlKSJ9LHsidmFs
-        dWUiOiAiVHJhZGUgUHVibGljYXRpb24gQXJ0aWNsZSIsImNvdW50IjogOTQ0
-        MTcxLCJpc0FwcGxpZWQiOiBmYWxzZSwiaXNOZWdhdGVkIjogZmFsc2UsImlz
-        RnVydGhlckxpbWl0aW5nIjogdHJ1ZSwiYXBwbHlDb21tYW5kIjogImFkZEZh
-        Y2V0VmFsdWVGaWx0ZXJzKENvbnRlbnRUeXBlLFRyYWRlIFB1YmxpY2F0aW9u
-        IEFydGljbGUpIiwiYXBwbHlOZWdhdGVkQ29tbWFuZCI6ICJhZGRGYWNldFZh
-        bHVlRmlsdGVycyhDb250ZW50VHlwZSxUcmFkZSBQdWJsaWNhdGlvbiBBcnRp
-        Y2xlOnQpIn0seyJ2YWx1ZSI6ICJCb29rIFJldmlldyIsImNvdW50IjogODcx
-        MDYxLCJpc0FwcGxpZWQiOiBmYWxzZSwiaXNOZWdhdGVkIjogZmFsc2UsImlz
-        RnVydGhlckxpbWl0aW5nIjogdHJ1ZSwiYXBwbHlDb21tYW5kIjogImFkZEZh
-        Y2V0VmFsdWVGaWx0ZXJzKENvbnRlbnRUeXBlLEJvb2sgUmV2aWV3KSIsImFw
-        cGx5TmVnYXRlZENvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoQ29u
-        dGVudFR5cGUsQm9vayBSZXZpZXc6dCkifSx7InZhbHVlIjogIkNvbmZlcmVu
-        Y2UgUHJvY2VlZGluZyIsImNvdW50IjogNTY4MTM0LCJpc0FwcGxpZWQiOiBm
-        YWxzZSwiaXNOZWdhdGVkIjogZmFsc2UsImlzRnVydGhlckxpbWl0aW5nIjog
-        dHJ1ZSwiYXBwbHlDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKENv
-        bnRlbnRUeXBlLENvbmZlcmVuY2UgUHJvY2VlZGluZykiLCJhcHBseU5lZ2F0
-        ZWRDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKENvbnRlbnRUeXBl
-        LENvbmZlcmVuY2UgUHJvY2VlZGluZzp0KSJ9LHsidmFsdWUiOiAiTWFnYXpp
-        bmUgQXJ0aWNsZSIsImNvdW50IjogNDY1MTEyLCJpc0FwcGxpZWQiOiBmYWxz
-        ZSwiaXNOZWdhdGVkIjogZmFsc2UsImlzRnVydGhlckxpbWl0aW5nIjogdHJ1
-        ZSwiYXBwbHlDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKENvbnRl
-        bnRUeXBlLE1hZ2F6aW5lIEFydGljbGUpIiwiYXBwbHlOZWdhdGVkQ29tbWFu
-        ZCI6ICJhZGRGYWNldFZhbHVlRmlsdGVycyhDb250ZW50VHlwZSxNYWdhemlu
-        ZSBBcnRpY2xlOnQpIn0seyJ2YWx1ZSI6ICJOZXdzcGFwZXIgQXJ0aWNsZSIs
-        ImNvdW50IjogNDMwOTMyLCJpc0FwcGxpZWQiOiBmYWxzZSwiaXNOZWdhdGVk
-        IjogZmFsc2UsImlzRnVydGhlckxpbWl0aW5nIjogdHJ1ZSwiYXBwbHlDb21t
-        YW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKENvbnRlbnRUeXBlLE5ld3Nw
-        YXBlciBBcnRpY2xlKSIsImFwcGx5TmVnYXRlZENvbW1hbmQiOiAiYWRkRmFj
-        ZXRWYWx1ZUZpbHRlcnMoQ29udGVudFR5cGUsTmV3c3BhcGVyIEFydGljbGU6
-        dCkifSx7InZhbHVlIjogIkJvb2sgQ2hhcHRlciIsImNvdW50IjogMTA2MTg5
-        LCJpc0FwcGxpZWQiOiBmYWxzZSwiaXNOZWdhdGVkIjogZmFsc2UsImlzRnVy
-        dGhlckxpbWl0aW5nIjogdHJ1ZSwiYXBwbHlDb21tYW5kIjogImFkZEZhY2V0
-        VmFsdWVGaWx0ZXJzKENvbnRlbnRUeXBlLEJvb2sgQ2hhcHRlcikiLCJhcHBs
-        eU5lZ2F0ZWRDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKENvbnRl
-        bnRUeXBlLEJvb2sgQ2hhcHRlcjp0KSJ9LHsidmFsdWUiOiAiUGFwZXIiLCJj
-        b3VudCI6IDE2MjIzLCJpc0FwcGxpZWQiOiBmYWxzZSwiaXNOZWdhdGVkIjog
-        ZmFsc2UsImlzRnVydGhlckxpbWl0aW5nIjogdHJ1ZSwiYXBwbHlDb21tYW5k
-        IjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKENvbnRlbnRUeXBlLFBhcGVyKSIs
-        ImFwcGx5TmVnYXRlZENvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMo
-        Q29udGVudFR5cGUsUGFwZXI6dCkifSx7InZhbHVlIjogIkJvb2sgLyBlQm9v
-        ayIsImNvdW50IjogMjMyNSwiaXNBcHBsaWVkIjogZmFsc2UsImlzTmVnYXRl
-        ZCI6IGZhbHNlLCJpc0Z1cnRoZXJMaW1pdGluZyI6IHRydWUsImFwcGx5Q29t
-        bWFuZCI6ICJhZGRGYWNldFZhbHVlRmlsdGVycyhDb250ZW50VHlwZSxCb29r
-        IC8gZUJvb2spIiwiYXBwbHlOZWdhdGVkQ29tbWFuZCI6ICJhZGRGYWNldFZh
-        bHVlRmlsdGVycyhDb250ZW50VHlwZSxCb29rIC8gZUJvb2s6dCkifSx7InZh
-        bHVlIjogIkVsZWN0cm9uaWMgUmVzb3VyY2UiLCJjb3VudCI6IDYyMywiaXNB
-        cHBsaWVkIjogZmFsc2UsImlzTmVnYXRlZCI6IGZhbHNlLCJpc0Z1cnRoZXJM
-        aW1pdGluZyI6IHRydWUsImFwcGx5Q29tbWFuZCI6ICJhZGRGYWNldFZhbHVl
-        RmlsdGVycyhDb250ZW50VHlwZSxFbGVjdHJvbmljIFJlc291cmNlKSIsImFw
-        cGx5TmVnYXRlZENvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoQ29u
-        dGVudFR5cGUsRWxlY3Ryb25pYyBSZXNvdXJjZTp0KSJ9XX1dLCJyYW5nZUZh
-        Y2V0RmllbGRzIjogW10sImRpZFlvdU1lYW5TdWdnZXN0aW9ucyI6IFtdLCJy
-        ZWNvbW1lbmRhdGlvbkxpc3RzIjoge30sImRvY3VtZW50cyI6IFt7Imhhc0Z1
-        bGxUZXh0IjogdHJ1ZSwiaXNGdWxsVGV4dEhpdCI6IGZhbHNlLCJpbkhvbGRp
-        bmdzIjogdHJ1ZSwib3BlblVybCI6ICJjdHhfdmVyPVozOS44OC0yMDA0JmN0
-        eF9lbmM9aW5mbyUzQW9maSUyRmVuYyUzQVVURi04JnJmcl9pZD1pbmZvOnNp
-        ZC9zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20mcmZ0X3ZhbF9mbXQ9aW5m
-        bzpvZmkvZm10OmtldjptdHg6am91cm5hbCZyZnQuZ2VucmU9YXJ0aWNsZSZy
-        ZnQuYXRpdGxlPUVmZmVjdCtvZitSZWlzaGkrUG9seXNhY2NoYXJpZGVzK29u
-        K0h1bWFuK1N0ZW0lMkZQcm9nZW5pdG9yK0NlbGxzJnJmdC5qdGl0bGU9QklP
-        T1JHQU5JQyslMjYrTUVESUNJTkFMK0NIRU1JU1RSWSsxOCUyODI0JTI5JTJD
-        Kzg1ODMtODU5MSZyZnQuYXU9Q2hlbiUyQytXListWSZyZnQuYXU9WWFuZyUy
-        QytXListQiZyZnQuYXU9V29uZyUyQytDListSCZyZnQuYXU9U2hpaCUyQytE
-        LitUListQiZyZnQuZGF0ZT0yMDEwLTAxLTAxJnJmdC5leHRlcm5hbERCSUQ9
-        biUyRmEmcmZ0LmV4dGVybmFsRG9jSUQ9b2FpX2lyX3NpbmljYV9lZHVfdHdf
-        MjAxMDAwMDAwQV8yMzgyNCIsImxpbmsiOiAiaHR0cDovL2NvbHVtYmlhLnN1
-        bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbS8yLjAuMC9saW5rLzAvZUx2SENY
-        TXdZMkJRUVNzUFFDTlVKYWw2NExKWjF3eDBSSll1LUxCcXBHTVhHV0EzMDJV
-        VzZSV0ROd1NDaHlwS3l2VWhadzNvZy1ac3djQlJIMWpIR0prd0EzdFpvTXRT
-        MkNDcWthb0VOMEVHZm1oYlRzRVJFdmhDREV5cGVTSU05cER6Z0JYeTB4U0NV
-        a0VEUEFvQi1UbVZ4WW5Kb1AxTm1TbXB4UXI1ZVFyZ29YT0Y0SkxVWFAyQW9u
-        eGdIQUx6VlpHQ2MycE9UckVvZzQyYmE0aXpoeTdFem5nSWxWa1VEenFoR1Vo
-        QmhZRU9qeThwajBlNE9CN3NZbU1KQmdVakFfTzA1RFF6QzR0RTAxUVR5NlRr
-        UkdCckpNVW8xZFRRTE5IRXd0RFlUSkxCbEN5enBjalVKODNBQlprTUI0MG95
-        REN3bEJTVnBzb0M2MmRRdVppVW1RZ0E2T2FJcWciLCJMYW5ndWFnZSI6IFsi
-        RW5nbGlzaCJdLCJBdXRob3IiOiBbIkNoZW4sIFcuIC1ZIiwiV29uZywgQy4g
-        LUgiLCJZYW5nLCBXLiAtQiIsIlNoaWgsIEQuIFQuIC1CIl0sIlNjb3JlIjog
-        WyIwLjAxIl0sIklzUGVlclJldmlld2VkIjogWyJmYWxzZSJdLCJEQklEIjog
-        WyI3NS0iXSwiUHVibGljYXRpb25EYXRlX3htbCI6IFt7InRleHQiOiAiMjAx
-        MCIsInllYXIiOiAiMjAxMCJ9XSwiUHVibGljYXRpb25EYXRlIjogWyIyMDEw
-        Il0sIlB1YmxpY2F0aW9uQ2VudHVyeSI6IFsiMjAwMCJdLCJBYnN0cmFjdExp
-        c3QiOiBbIuWfuuWboOmrlOeglOeptuS4reW/gyDlt7Llh7rniYg7W1NDSV07
-        5pyJ5a+p5p+l5Yi25bqmO+S4jeWFt+S7o+ihqOaApyBodHRwOi8vZ2F0ZXdh
-        eS5pc2lrbm93bGVkZ2UuY29tL2dhdGV3YXkvR2F0ZXdheS5jZ2k/R1dWZXJz
-        aW9uPTImU3JjQXV0aD1EcmV4ZWwmU3JjQXBwPWhhZ2VydHlfb3BhYyZLZXlS
-        ZWNvcmQ9MDk2OC0wODk2JkRlc3RBcHA9SkNSJlJRPUlGX0NBVF9CT1hQTE9U
-        IGh0dHA6Ly9nYXRld2F5LmlzaWtub3dsZWRnZS5jb20vZ2F0ZXdheS9HYXRl
-        d2F5LmNnaT9HV1ZlcnNpb249MiZTcmNBdXRoPVJJRCZTcmNBcHA9UklEJkRl
-        c3RMaW5rVHlwZT1GdWxsUmVjb3JkJkRlc3RBcHA9QUxMX1dPUyZLZXlVVD0w
-        MDAyODQ2ODYwMDAwMTQiXSwiU291cmNlVHlwZSI6IFsiSW5zdGl0dXRpb25h
-        bCBSZXBvc2l0b3J5Il0sIlNuaXBwZXQiOiBbIuWfuuWboOmrlOeglOeptuS4
-        reW/gyDlt7Llh7rniYg7W1NDSV075pyJ5a+p5p+l5Yi25bqmO+S4jeWFt+S7
-        o+ihqOaApy4uLiJdLCJVUkkiOiBbImh0dHA6Ly9pci5zaW5pY2EuZWR1LnR3
-        L2hhbmRsZS8yMDEwMDAwMDBBLzIzODI0Il0sIklzU2Nob2xhcmx5IjogWyJm
-        YWxzZSJdLCJJRCI6IFsiRkVUQ0gtc2luaWNhX3NpbmljYWlyX29haV9pcl9z
-        aW5pY2FfZWR1X3R3XzIwMTAwMDAwMEFfMjM4MjQzIl0sIlB1YmxpY2F0aW9u
-        VGl0bGUiOiBbIkJJT09SR0FOSUMgJiBNRURJQ0lOQUwgQ0hFTUlTVFJZIDE4
-        KDI0KSwgODU4My04NTkxIl0sIlB1YmxpY2F0aW9uWWVhciI6IFsiMjAxMCJd
-        LCJBYnN0cmFjdCI6IFsi5Z+65Zug6auU56CU56m25Lit5b+DIOW3suWHuueJ
-        iDtbU0NJXTvmnInlr6nmn6XliLbluqY75LiN5YW35Luj6KGo5oCnIGh0dHA6
-        Ly9nYXRld2F5LmlzaWtub3dsZWRnZS5jb20vZ2F0ZXdheS9HYXRld2F5LmNn
-        aT9HV1ZlcnNpb249MiZTcmNBdXRoPURyZXhlbCZTcmNBcHA9aGFnZXJ0eV9v
-        cGFjJktleVJlY29yZD0wOTY4LTA4OTYmRGVzdEFwcD1KQ1ImUlE9SUZfQ0FU
-        X0JPWFBMT1QgaHR0cDovL2dhdGV3YXkuaXNpa25vd2xlZGdlLmNvbS9nYXRl
-        d2F5L0dhdGV3YXkuY2dpP0dXVmVyc2lvbj0yJlNyY0F1dGg9UklEJlNyY0Fw
-        cD1SSUQmRGVzdExpbmtUeXBlPUZ1bGxSZWNvcmQmRGVzdEFwcD1BTExfV09T
-        JktleVVUPTAwMDI4NDY4NjAwMDAxNCJdLCJEYXRhYmFzZVRpdGxlTGlzdCI6
-        IFsiIl0sIk1lcmdlZElkIjogWyJGRVRDSE1FUkdFRC1zaW5pY2Ffc2luaWNh
-        aXJfb2FpX2lyX3NpbmljYV9lZHVfdHdfMjAxMDAwMDAwQV8yMzgyNDMiXSwi
-        QXV0aG9yX3htbCI6IFt7InNlcXVlbmNlIjogIjEiLCJmdWxsbmFtZSI6ICJD
-        aGVuLCBXLiAtWSJ9LHsic2VxdWVuY2UiOiAiMiIsImZ1bGxuYW1lIjogIllh
-        bmcsIFcuIC1CIn0seyJzZXF1ZW5jZSI6ICIzIiwiZnVsbG5hbWUiOiAiV29u
-        ZywgQy4gLUgifSx7InNlcXVlbmNlIjogIjQiLCJmdWxsbmFtZSI6ICJTaGlo
-        LCBELiBULiAtQiJ9XSwiUHVibGljYXRpb25EZWNhZGUiOiBbIjIwMTAiXSwi
-        Q29udGVudFR5cGUiOiBbIkpvdXJuYWwgQXJ0aWNsZSJdLCJUaXRsZSI6IFsi
-        RWZmZWN0IG9mIFJlaXNoaSBQb2x5c2FjY2hhcmlkZXMgb24gSHVtYW4gU3Rl
-        bS9Qcm9nZW5pdG9yIENlbGxzIl0sIkV4dGVybmFsRG9jdW1lbnRJRCI6IFsi
-        b2FpX2lyX3NpbmljYV9lZHVfdHdfMjAxMDAwMDAwQV8yMzgyNCJdLCJMaW5r
-        TW9kZWwiOiBbIkRpcmVjdExpbmsiXSwiQm9va01hcmsiOiBbImVQbkhDWE13
-        NDJTd2g1eTdxNUNmcGhDVUNocElVUWpJejZrc1Rrd0c3U1BLVEVrdFZzalBV
-        d0FQVVNzRWw2VG02Z2NVNVFQRENwaC1peFNjVTNOeWlya1piTnhjUTV3OWRJ
-        dkJXd1BqSVZSbVVUem9KR1FnQlJVR2xzVHhKZVh4b05sY01IQ01COVktUnFE
-        ZE54UnBCd0RvcmtDQiJdfSx7Imhhc0Z1bGxUZXh0IjogdHJ1ZSwiaXNGdWxs
-        VGV4dEhpdCI6IGZhbHNlLCJpbkhvbGRpbmdzIjogdHJ1ZSwib3BlblVybCI6
-        ICJjdHhfdmVyPVozOS44OC0yMDA0JmN0eF9lbmM9aW5mbyUzQW9maSUyRmVu
-        YyUzQVVURi04JnJmcl9pZD1pbmZvOnNpZC9zdW1tb24uc2VyaWFsc3NvbHV0
-        aW9ucy5jb20mcmZ0X3ZhbF9mbXQ9aW5mbzpvZmkvZm10OmtldjptdHg6am91
-        cm5hbCZyZnQuZ2VucmU9YXJ0aWNsZSZyZnQuYXRpdGxlPVVuaW5kZXhlZCtG
-        cm9udCtNYXR0ZXImcmZ0Lmp0aXRsZT1FbmdsaXNoK0hpc3RvcmljYWwrUmV2
-        aWV3JnJmdC5kYXRlPTE5OTMtMDctMDEmcmZ0LnB1Yj1Mb25nbWFuJnJmdC5p
-        c3NuPTAwMTMtODI2NiZyZnQuZWlzc249MTQ3Ny00NTM0JnJmdC52b2x1bWU9
-        MTA4JnJmdC5pc3N1ZT00MjgiLCJsaW5rIjogImh0dHA6Ly9jb2x1bWJpYS5z
-        dW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20vMi4wLjAvbGluay8wL2VMdkhD
-        WE13WTJCUVFTc1BRQ05VSmFsNjRMSloxd3gwUkpZdS1MQnFwR01YNGIxLWhO
-        aHdpR2xnc3hGMDVDR3c1ZWdHT28xQTJ6ZXhCTGJtRmpia0R0bXJpM3dtQ05L
-        Y1FBcDBFNXd4Zkgwb3RNLWZuNWVlQzAwODBITE4wRmdYMkZHQUhpb05LY3BN
-        ekVFbm1rT0hDbUZsbllFRlVxUUN1eDdNd082cUJlUmdZV2Q0RFFhYUdvWGRf
-        QUF5RmFPZUF0Y2xJWUlNX05CV3M0SWp4UE5DREV5cGVjSU1vaER2VkNxb0tZ
-        RE96MDBFMzFGY0tjSWdCZzhRQlhDQUtFQUNSSlJCenMwMXhObERGMlpKZkVw
-        T1RqeW9JV0lNYkYxWkdCaExNQ2dZR1ppbkphZVpXVmdrbXFhYVdDWWxKd0li
-        Y2lsR3FhYUdab2ttRm9iR1pwSU00amgwUy1HVWtXYmdRZ1N1REFOTFNWRnBx
-        aXl3ZVFJS3FxVE1SQUNSanR5eCIsIlZvbHVtZSI6IFsiMTA4Il0sIkRhdGFi
-        YXNlVGl0bGUiOiBbIlBlcmlvZGljYWxzIEluZGV4IE9ubGluZSJdLCJMYW5n
-        dWFnZSI6IFsiRW5nbGlzaCJdLCJQdWJsaWNhdGlvblBsYWNlIjogWyJIYXJs
-        b3csIGV0YyJdLCJTY29yZSI6IFsiMC4wMSJdLCJJc1BlZXJSZXZpZXdlZCI6
-        IFsidHJ1ZSJdLCJQdWJsaWNhdGlvbkRhdGVfeG1sIjogW3sidGV4dCI6ICIx
-        OTkzMDcwMSIsIm1vbnRoIjogIjA3IiwieWVhciI6ICIxOTkzIiwiZGF5Ijog
-        IjAxIn1dLCJQdWJsaWNhdGlvbkRhdGUiOiBbIjE5OTMwNzAxIl0sIlB1Ymxp
-        Y2F0aW9uQ2VudHVyeSI6IFsiMTkwMCJdLCJQdWJsaXNoZXIiOiBbIkxvbmdt
-        YW4iXSwiU291cmNlVHlwZSI6IFsiQWdncmVnYXRpb24gRGF0YWJhc2UiXSwi
-        UHVibGlzaGVyX3htbCI6IFt7Im5hbWUiOiAiTG9uZ21hbiJ9XSwiVVJJIjog
-        WyJodHRwOi8vc2VhcmNoLnByb3F1ZXN0LmNvbS9kb2N2aWV3LzEyOTMzNzI3
-        ODAiXSwiUFFQdWJJRCI6IFsiMTgxNjU3NyJdLCJJc1NjaG9sYXJseSI6IFsi
-        dHJ1ZSJdLCJJRCI6IFsiRkVUQ0gtcHJvcXVlc3RfZGxsXzEyOTMzNzI3ODAz
-        Il0sIlB1YmxpY2F0aW9uVGl0bGUiOiBbIkVuZ2xpc2ggSGlzdG9yaWNhbCBS
-        ZXZpZXciXSwiSXNzdWUiOiBbIjQyOCJdLCJEaXNjaXBsaW5lIjogWyJIaXN0
-        b3J5ICYgQXJjaGFlb2xvZ3kiXSwiUHVibGljYXRpb25ZZWFyIjogWyIxOTkz
-        Il0sIkdlbnJlIjogWyJGcm9udCBNYXR0ZXIiXSwiUHVibGljYXRpb25QbGFj
-        ZV94bWwiOiBbeyJuYW1lIjogIkhhcmxvdywgZXRjIn1dLCJQUUlEIjogWyIx
-        MjkzMzcyNzgwIl0sIkVJU1NOIjogWyIxNDc3LTQ1MzQiXSwiTWVyZ2VkSWQi
-        OiBbIkZFVENITUVSR0VELXByb3F1ZXN0X2RsbF8xMjkzMzcyNzgwMyJdLCJQ
-        dWJsaWNhdGlvbkRlY2FkZSI6IFsiMTk5MCJdLCJDb250ZW50VHlwZSI6IFsi
-        Sm91cm5hbCBBcnRpY2xlIl0sIlRpdGxlIjogWyJVbmluZGV4ZWQgRnJvbnQg
-        TWF0dGVyIl0sIklTU04iOiBbIjAwMTMtODI2NiJdLCJTU0lEIjogWyJzc2ow
-        MDAzNTgwIl0sInRodW1ibmFpbF9sIjogWyJodHRwOi8vY292ZXJzLWNkbi5z
-        dW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20vaW5kZXguYXNweD9pc2JuPS9s
-        Yy5naWYmaXNzbj0wMDEzLTgyNjYmY2xpZW50PXN1bW1vbiJdLCJ0aHVtYm5h
-        aWxfcyI6IFsiaHR0cDovL2NvdmVycy1jZG4uc3VtbW9uLnNlcmlhbHNzb2x1
-        dGlvbnMuY29tL2luZGV4LmFzcHg/aXNibj0vc2MuZ2lmJmlzc249MDAxMy04
-        MjY2JmNsaWVudD1zdW1tb24iXSwidGh1bWJuYWlsX20iOiBbImh0dHA6Ly9j
-        b3ZlcnMtY2RuLnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbS9pbmRleC5h
-        c3B4P2lzYm49L21jLmdpZiZpc3NuPTAwMTMtODI2NiZjbGllbnQ9c3VtbW9u
-        Il0sIkxpbmtNb2RlbCI6IFsiT3BlblVSTCJdLCJCb29rTWFyayI6IFsiZVBu
-        SENYTXdZd0x0NWpFSG5hVnRiTUlDdlQwQTJJUTE0NEFWajZCNU4wNEdNV0NU
-        Q25RY1lHcUtnaHRvcDc2Q0xfZzRTVzRHT1RmWEVHY1BYVmk1R0otU2t4TVBx
-        cE9NZ1JXdEJlaHFLd0lLQU1UaklkOCJdfSx7Imhhc0Z1bGxUZXh0IjogdHJ1
-        ZSwiaXNGdWxsVGV4dEhpdCI6IGZhbHNlLCJpbkhvbGRpbmdzIjogdHJ1ZSwi
-        b3BlblVybCI6ICJjdHhfdmVyPVozOS44OC0yMDA0JmN0eF9lbmM9aW5mbyUz
-        QW9maSUyRmVuYyUzQVVURi04JnJmcl9pZD1pbmZvOnNpZC9zdW1tb24uc2Vy
-        aWFsc3NvbHV0aW9ucy5jb20mcmZ0X3ZhbF9mbXQ9aW5mbzpvZmkvZm10Omtl
-        djptdHg6am91cm5hbCZyZnQuZ2VucmU9YXJ0aWNsZSZyZnQuYXRpdGxlPUNh
-        cnRvb24mcmZ0Lmp0aXRsZT1JbmRpYW5hcG9saXMrQnVzaW5lc3MrSm91cm5h
-        bCZyZnQuZGF0ZT0yMDEzLTA2LTAzJnJmdC5wdWI9SW5kaWFuYXBvbGlzK0J1
-        c2luZXNzK0pvdXJuYWwrQ29ycCZyZnQuaXNzbj0wMjc0LTQ5MjkmcmZ0LnZv
-        bHVtZT0zNCZyZnQuaXNzdWU9MTQmcmZ0LnNwYWdlPTExJnJmdC5leHRlcm5h
-        bERCSUQ9SU9GJnJmdC5leHRlcm5hbERvY0lEPTMzNDYwNTAzNSIsImxpbmsi
-        OiAiaHR0cDovL2NvbHVtYmlhLnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNv
-        bS8yLjAuMC9saW5rLzAvZUx2SENYTXdZMkJRUVNzUFFDTlVKYWw2NExKWjF3
-        eDBSSll1LUxCcXBHTVhHVHpnUXhkNTJYcWdvaEd4cHlHeG9LQllQeVVfV2Rf
-        UjJCZzBpV2RnYktydjVPbHFqM1NCUnFsdE1pZ3JKMlVtbGpJenNBTGJMS2Fn
-        U3h3aVBPRmRMOUJtT1BEZGVjQS1tSzZKSmFnOXlRSmJfQVl0SWQwRUdHQnpG
-        ckFsSk1tbE9Yb3dnNUhXVnlNZDFFaXhjd1VaLUtFTlR3VkhTRW9SWW1CS3pS
-        Tm00SUN0ZXhkbTRJUnRVUzRXWVdCM0JpYW9fUHc4VVFZNU45Y1Fadzlka09Y
-        eG9MUllVcFNZSEEtMzBsaUNRY0hJd0R3dE9jM013aUxSTk5YRU1pazVFZGoy
-        U1RGS05UVTBTelN4TURRMmsyUVF4NkZiQ3FlTU5BT1hFZVEtQ0YwRFl4a0ds
-        cEtpMGxSWllJME85UThBaDV1UzlnIiwiVm9sdW1lIjogWyIzNCJdLCJMYW5n
-        dWFnZSI6IFsiRW5nbGlzaCJdLCJTY29yZSI6IFsiMC4wMSJdLCJDb3B5cmln
-        aHQiOiBbIkNPUFlSSUdIVCAyMDEzIEluZGlhbmFwb2xpcyBCdXNpbmVzcyBK
-        b3VybmFsIENvcnAuIl0sIkRCSUQiOiBbIklPRiJdLCJJc1BlZXJSZXZpZXdl
-        ZCI6IFsiZmFsc2UiXSwiUHVibGljYXRpb25EYXRlX3htbCI6IFt7InRleHQi
-        OiAiMjAxMzA2MDMiLCJtb250aCI6ICIwNiIsInllYXIiOiAiMjAxMyIsImRh
-        eSI6ICIwMyJ9XSwiUHVibGljYXRpb25EYXRlIjogWyIyMDEzMDYwMyJdLCJQ
-        dWJsaWNhdGlvbkNlbnR1cnkiOiBbIjIwMDAiXSwiQ29weXJpZ2h0X3htbCI6
-        IFt7Im5vdGljZSI6ICJDT1BZUklHSFQgMjAxMyBJbmRpYW5hcG9saXMgQnVz
-        aW5lc3MgSm91cm5hbCBDb3JwLiJ9XSwiUHVibGlzaGVyIjogWyJJbmRpYW5h
-        cG9saXMgQnVzaW5lc3MgSm91cm5hbCBDb3JwIl0sIlNvdXJjZVR5cGUiOiBb
-        IkFnZ3JlZ2F0aW9uIERhdGFiYXNlIl0sIlB1Ymxpc2hlcl94bWwiOiBbeyJu
-        YW1lIjogIkluZGlhbmFwb2xpcyBCdXNpbmVzcyBKb3VybmFsIENvcnAifV0s
-        IklzU2Nob2xhcmx5IjogWyJmYWxzZSJdLCJJRCI6IFsiRkVUQ0gtZ2FsZV9p
-        bmZvdHJhY18zMzQ2MDUwMzUzIl0sIlB1YmxpY2F0aW9uVGl0bGUiOiBbIklu
-        ZGlhbmFwb2xpcyBCdXNpbmVzcyBKb3VybmFsIl0sIklzc3VlIjogWyIxNCJd
-        LCJEaXNjaXBsaW5lIjogWyJCdXNpbmVzcyIsIkVjb25vbWljcyJdLCJQdWJs
-        aWNhdGlvblllYXIiOiBbIjIwMTMiXSwiQXVkaWVuY2UiOiBbIkdlbmVyYWwi
-        LCJUcmFkZSJdLCJNZXJnZWRJZCI6IFsiRkVUQ0hNRVJHRUQtZ2FsZV9pbmZv
-        dHJhY18zMzQ2MDUwMzUzIl0sIlB1YmxpY2F0aW9uRGVjYWRlIjogWyIyMDEw
-        Il0sIkNvbnRlbnRUeXBlIjogWyJKb3VybmFsIEFydGljbGUiXSwiVGl0bGUi
-        OiBbIkNhcnRvb24iXSwiRXh0ZXJuYWxEb2N1bWVudElEIjogWyIzMzQ2MDUw
-        MzUiXSwiSVNTTiI6IFsiMDI3NC00OTI5Il0sIlNTSUQiOiBbInNzajAwMTAz
-        NzEiXSwiU3RhcnRQYWdlIjogWyIxMSJdLCJ0aHVtYm5haWxfbCI6IFsiaHR0
-        cDovL2NvdmVycy1jZG4uc3VtbW9uLnNlcmlhbHNzb2x1dGlvbnMuY29tL2lu
-        ZGV4LmFzcHg/aXNibj0vbGMuZ2lmJmlzc249MDI3NC00OTI5JmNsaWVudD1z
-        dW1tb24iXSwidGh1bWJuYWlsX3MiOiBbImh0dHA6Ly9jb3ZlcnMtY2RuLnN1
-        bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbS9pbmRleC5hc3B4P2lzYm49L3Nj
-        LmdpZiZpc3NuPTAyNzQtNDkyOSZjbGllbnQ9c3VtbW9uIl0sInRodW1ibmFp
-        bF9tIjogWyJodHRwOi8vY292ZXJzLWNkbi5zdW1tb24uc2VyaWFsc3NvbHV0
-        aW9ucy5jb20vaW5kZXguYXNweD9pc2JuPS9tYy5naWYmaXNzbj0wMjc0LTQ5
-        MjkmY2xpZW50PXN1bW1vbiJdLCJMaW5rTW9kZWwiOiBbIkRpcmVjdExpbmsi
-        XSwiQm9va01hcmsiOiBbImVQbkhDWE13WXdHTmFaaWI2Sm9BNjEwT3hGVUM1
-        b2FjRE96T3dORElCODBFeXJtNWhqaDc2SUxLd0hoUVFBSTc5Y254eHNhZ09U
-        b0RZOUE5eFFRVUFBRFRZeHBlIl19LHsiaGFzRnVsbFRleHQiOiB0cnVlLCJp
-        c0Z1bGxUZXh0SGl0IjogZmFsc2UsImluSG9sZGluZ3MiOiB0cnVlLCJvcGVu
-        VXJsIjogImN0eF92ZXI9WjM5Ljg4LTIwMDQmY3R4X2VuYz1pbmZvJTNBb2Zp
-        JTJGZW5jJTNBVVRGLTgmcmZyX2lkPWluZm86c2lkL3N1bW1vbi5zZXJpYWxz
-        c29sdXRpb25zLmNvbSZyZnRfdmFsX2ZtdD1pbmZvOm9maS9mbXQ6a2V2Om10
-        eDpqb3VybmFsJnJmdC5nZW5yZT1hcnRpY2xlJnJmdC5hdGl0bGU9QWJzdHJh
-        Y3QmcmZ0Lmp0aXRsZT1KYXBhbmVzZStKb3VybmFsK29mK09waHRoYWxtb2xv
-        Z3kmcmZ0LmRhdGU9MjAwMyZyZnQucHViPUVsc2V2aWVyK0luYyZyZnQuaXNz
-        bj0wMDIxLTUxNTUmcmZ0LnZvbHVtZT00NyZyZnQuaXNzdWU9NCZyZnQuc3Bh
-        Z2U9NDE5JnJmdC5lcGFnZT00MTkmcmZ0X2lkPWluZm86ZG9pLzEwLjEwMTYl
-        MkZTMDAyMS01MTU1JTI4MDMlMjkwMDA4MS05JnJmdC5leHRlcm5hbERvY0lE
-        PWRvaV8xMF8xMDE2X1MwMDIxXzUxNTVfMDNfMDAwODFfOSIsImxpbmsiOiAi
-        aHR0cDovL2NvbHVtYmlhLnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbS8y
-        LjAuMC9saW5rLzAvZUx2SENYTXdZMkJRUVNzUFFDTlVKYWw2NExKWjF3eDBS
-        Sll1LUxCcXBHTVhJWHRob0tzcW9VVV9wRWdIRjlaUUVYMW9ZT29YWkdhQ3R2
-        aUNhaXRnQTlzWVVxLUJ0bElEdTNxZ2t4NWRuQkJiSTQyTW9RZUdHLXFDVkNN
-        MjhVQk1BQXRxR0JocmdnM1J0VVNxazNnUXhhaWJBQU5zNFJOc2ZVbHlhUTdR
-        YmNBQ0pDa3pFV254TmRJcGpoVDRSWkNCSDlvZVZYQ0VxQk5pWUVyTkUyYmc4
-        SVhPdUlzd2NEZ21nUVpEa2t0RUdlemRYRU9jUFhSaERvOUhzVFVlV0RiR0k5
-        WnlBVzJLQjFrVmIyQWNEN1lzM3RKWWdrSEJ5TUE4TFRuTnpNSWkwVFRWeERJ
-        cE9SSFlVRW94U2pVMU5FczBzVEEwTnBOa3NDRFhlQ255dFVvemNJRVh6NEdI
-        UEdRWVdFcUtTbE5sZ1EwSWFMZ0RBS2Rqc0dZIiwiVm9sdW1lIjogWyI0NyJd
-        LCJMYW5ndWFnZSI6IFsiRW5nbGlzaCJdLCJTY29yZSI6IFsiMC4wMSJdLCJE
-        T0kiOiBbIjEwLjEwMTYvUzAwMjEtNTE1NSgwMykwMDA4MS05Il0sIklzUGVl
-        clJldmlld2VkIjogWyJ0cnVlIl0sIlB1YmxpY2F0aW9uRGF0ZV94bWwiOiBb
-        eyJ0ZXh0IjogIjIwMDMiLCJ5ZWFyIjogIjIwMDMifV0sIlB1YmxpY2F0aW9u
-        RGF0ZSI6IFsiMjAwMyJdLCJQdWJsaWNhdGlvbkNlbnR1cnkiOiBbIjIwMDAi
-        XSwiUHVibGlzaGVyIjogWyJFbHNldmllciBJbmMiXSwiU291cmNlVHlwZSI6
-        IFsiUHVibGlzaGVyIl0sIlB1Ymxpc2hlcl94bWwiOiBbeyJuYW1lIjogIkVs
-        c2V2aWVyIEluYyJ9XSwiVVJJIjogWyJodHRwOi8vd3d3LnNjaWVuY2VkaXJl
-        Y3QuY29tL3NjaWVuY2UvYXJ0aWNsZS9waWkvUzAwMjE1MTU1MDMwMDA4MTki
-        XSwiSXNTY2hvbGFybHkiOiBbInRydWUiXSwiSUQiOiBbIkZFVENILWVsc2V2
-        aWVyX3NjaWVuY2VkaXJlY3RfZG9pXzEwXzEwMTZfUzAwMjFfNTE1NV8wM18w
-        MDA4MV85MyJdLCJQdWJsaWNhdGlvblRpdGxlIjogWyJKYXBhbmVzZSBKb3Vy
-        bmFsIG9mIE9waHRoYWxtb2xvZ3kiXSwiSXNzdWUiOiBbIjQiXSwiRGlzY2lw
-        bGluZSI6IFsiTWVkaWNpbmUiXSwiUHVibGljYXRpb25ZZWFyIjogWyIyMDAz
-        Il0sIk1lcmdlZElkIjogWyJGRVRDSE1FUkdFRC1lbHNldmllcl9zY2llbmNl
-        ZGlyZWN0X2RvaV8xMF8xMDE2X1MwMDIxXzUxNTVfMDNfMDAwODFfOTMiXSwi
-        UHVibGljYXRpb25EZWNhZGUiOiBbIjIwMDAiXSwiQ29udGVudFR5cGUiOiBb
-        IkpvdXJuYWwgQXJ0aWNsZSJdLCJUaXRsZSI6IFsiQWJzdHJhY3QiXSwiSVNT
-        TiI6IFsiMDAyMS01MTU1Il0sIkV4dGVybmFsRG9jdW1lbnRJRCI6IFsiZG9p
-        XzEwXzEwMTZfUzAwMjFfNTE1NV8wM18wMDA4MV85Il0sIlNTSUQiOiBbInNz
-        ajAwMDQyMzIiXSwiU3RhcnRQYWdlIjogWyI0MTkiXSwiRW5kUGFnZSI6IFsi
-        NDE5Il0sInRodW1ibmFpbF9sIjogWyJodHRwOi8vY292ZXJzLWNkbi5zdW1t
-        b24uc2VyaWFsc3NvbHV0aW9ucy5jb20vaW5kZXguYXNweD9pc2JuPS9sYy5n
-        aWYmaXNzbj0wMDIxLTUxNTUmY2xpZW50PXN1bW1vbiJdLCJ0aHVtYm5haWxf
-        cyI6IFsiaHR0cDovL2NvdmVycy1jZG4uc3VtbW9uLnNlcmlhbHNzb2x1dGlv
-        bnMuY29tL2luZGV4LmFzcHg/aXNibj0vc2MuZ2lmJmlzc249MDAyMS01MTU1
-        JmNsaWVudD1zdW1tb24iXSwidGh1bWJuYWlsX20iOiBbImh0dHA6Ly9jb3Zl
-        cnMtY2RuLnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbS9pbmRleC5hc3B4
-        P2lzYm49L21jLmdpZiZpc3NuPTAwMjEtNTE1NSZjbGllbnQ9c3VtbW9uIl0s
-        IkxpbmtNb2RlbCI6IFsiRGlyZWN0TGluayJdLCJCb29rTWFyayI6IFsiZVBu
-        SENYTXdZNER2a2dIdHdqVXkxQVhkSWFKaFlLd0pybjEwZ1FtUEV5N01BZF9B
-        Q0t6WE9SazRISk5BM2Z0a1lCUFAzczAxeE5sREYxWTl4RU9yQTBneEh3X003
-        ZkdJMVVsQTAtSkJwc1ViR01lRExZa0h6U0pUYWdJQVdFSTFsdyJdfSx7Imhh
-        c0Z1bGxUZXh0IjogdHJ1ZSwiaXNGdWxsVGV4dEhpdCI6IGZhbHNlLCJpbkhv
-        bGRpbmdzIjogdHJ1ZSwib3BlblVybCI6ICJjdHhfdmVyPVozOS44OC0yMDA0
-        JmN0eF9lbmM9aW5mbyUzQW9maSUyRmVuYyUzQVVURi04JnJmcl9pZD1pbmZv
-        OnNpZC9zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20mcmZ0X3ZhbF9mbXQ9
-        aW5mbzpvZmkvZm10OmtldjptdHg6am91cm5hbCZyZnQuZ2VucmU9YXJ0aWNs
-        ZSZyZnQuYXRpdGxlPUN1cnJlbnQrQ29tbWVudCZyZnQuanRpdGxlPUpvdXJu
-        YWwrb2YrdGhlK0FtZXJpY2FuK01lZGljYWwrQXNzb2NpYXRpb24mcmZ0LmRh
-        dGU9MTkxMi0wNC0xMyZyZnQucHViPUFtZXJpY2FuK01lZGljYWwrQXNzb2Np
-        YXRpb24mcmZ0Lmlzc249MDAwMi05OTU1JnJmdC52b2x1bWU9TFZJSUkmcmZ0
-        Lmlzc3VlPTE1JnJmdC5zcGFnZT0xMTIwJnJmdC5lcGFnZT0xMTIzJnJmdF9p
-        ZD1pbmZvOmRvaS8xMC4xMDAxJTJGamFtYS4xOTEyLjA0MjYwMDQwMTM2MDE2
-        JnJmdC5leHRlcm5hbERvY0lEPTQ1MTcyMyIsImxpbmsiOiAiaHR0cDovL2Nv
-        bHVtYmlhLnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbS8yLjAuMC9saW5r
-        LzAvZUx2SENYTXdZMkJRUVNzUFFDTlVKYWw2NExKWjF3eDBSSll1LUxCcXBH
-        TVg0WWY1SThTR1EwekRqbGdDN2ZXQUxXUEJiRzRpYlNGQlRNLWdSMDRLWkQ4
-        Y2FCMkZpUzVrOXliU2luczhHaEhsbnFVbDVFQmNXTG5uRS1icDZZa2N4YVpJ
-        QlJtd0dXYUFWQ2tDdWNaWUMxeWtnXzVCcnRPRG5IZ1A2clNCem5sQlZETHdw
-        WDhtd1BnM01tWUc5cEl0UUgzbElFY3Z4SW9jRV9ERm5IREhRaGRld1EtSndt
-        SUI1SHhjSGtURkZ5TEl3QThOV3dWSFNJd0lNVENsNWdremNQaENGeXVJTVBC
-        REkwWUJHakdpREpKdXJpSE9IcnBBcy1JTElLZDh4RU1jYWl6Qm9HQmtZSjZX
-        bkdabVlaRm9tbXBpbVpTY0NHeEVwaGlsbWhxYUpacFlBTjBoeVNDRXFWRUtt
-        NkEwQXhjaURtVVlXRXFLU2xObGdRMGlVSVFrWlNZQ0FGOVNfRHMiLCJWb2x1
-        bWUiOiBbIkxWSUlJIl0sIkxhbmd1YWdlIjogWyJFbmdsaXNoIl0sIlNjb3Jl
-        IjogWyIwLjAxIl0sIkRPSSI6IFsiMTAuMTAwMS9qYW1hLjE5MTIuMDQyNjAw
-        NDAxMzYwMTYiXSwiSXNQZWVyUmV2aWV3ZWQiOiBbImZhbHNlIl0sIlB1Ymxp
-        Y2F0aW9uRGF0ZV94bWwiOiBbeyJ0ZXh0IjogIjE5MTItMDQtMTMiLCJtb250
-        aCI6ICIwNCIsInllYXIiOiAiMTkxMiIsImRheSI6ICIxMyJ9XSwiUHVibGlj
-        YXRpb25EYXRlIjogWyIxOTEyLTA0LTEzIl0sIlB1YmxpY2F0aW9uQ2VudHVy
-        eSI6IFsiMTkwMCJdLCJQdWJsaXNoZXIiOiBbIkFtZXJpY2FuIE1lZGljYWwg
-        QXNzb2NpYXRpb24iXSwiU291cmNlVHlwZSI6IFsiUHVibGlzaGVyIl0sIlB1
-        Ymxpc2hlcl94bWwiOiBbeyJuYW1lIjogIkFtZXJpY2FuIE1lZGljYWwgQXNz
-        b2NpYXRpb24ifV0sIklzU2Nob2xhcmx5IjogWyJmYWxzZSJdLCJJRCI6IFsi
-        RkVUQ0gtYW1hX3ByaW1hcnlfNDUxNzIzMyJdLCJQdWJsaWNhdGlvblRpdGxl
-        IjogWyJKb3VybmFsIG9mIHRoZSBBbWVyaWNhbiBNZWRpY2FsIEFzc29jaWF0
-        aW9uIl0sIklzc3VlIjogWyIxNSJdLCJEaXNjaXBsaW5lIjogWyJNZWRpY2lu
-        ZSJdLCJQdWJsaWNhdGlvblllYXIiOiBbIjE5MTIiXSwiTWVyZ2VkSWQiOiBb
-        IkZFVENITUVSR0VELWFtYV9wcmltYXJ5XzQ1MTcyMzMiXSwiUHVibGljYXRp
-        b25EZWNhZGUiOiBbIjE5MTAiXSwiQ29udGVudFR5cGUiOiBbIkpvdXJuYWwg
-        QXJ0aWNsZSJdLCJUaXRsZSI6IFsiQ3VycmVudCBDb21tZW50Il0sIklTU04i
-        OiBbIjAwMDItOTk1NSJdLCJFeHRlcm5hbERvY3VtZW50SUQiOiBbIjQ1MTcy
-        MyJdLCJTU0lEIjogWyJzc2owMDA1NDg2Il0sIlN0YXJ0UGFnZSI6IFsiMTEy
-        MCJdLCJFbmRQYWdlIjogWyIxMTIzIl0sInRodW1ibmFpbF9sIjogWyJodHRw
-        Oi8vY292ZXJzLWNkbi5zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20vaW5k
-        ZXguYXNweD9pc2JuPS9sYy5naWYmaXNzbj0wMDAyLTk5NTUmY2xpZW50PXN1
-        bW1vbiJdLCJ0aHVtYm5haWxfcyI6IFsiaHR0cDovL2NvdmVycy1jZG4uc3Vt
-        bW9uLnNlcmlhbHNzb2x1dGlvbnMuY29tL2luZGV4LmFzcHg/aXNibj0vc2Mu
-        Z2lmJmlzc249MDAwMi05OTU1JmNsaWVudD1zdW1tb24iXSwidGh1bWJuYWls
-        X20iOiBbImh0dHA6Ly9jb3ZlcnMtY2RuLnN1bW1vbi5zZXJpYWxzc29sdXRp
-        b25zLmNvbS9pbmRleC5hc3B4P2lzYm49L21jLmdpZiZpc3NuPTAwMDItOTk1
-        NSZjbGllbnQ9c3VtbW9uIl0sIkxpbmtNb2RlbCI6IFsiT3BlblVSTCJdLCJC
-        b29rTWFyayI6IFsiZVBuSENYTXdZNENzbG9HZjdBUHNEeGpwUWM1QkJ6WGxR
-        YWRfc0VCYnBKYVdwcVljOE9VWUpoWm1uQXo4MEZPSkZFRGJJNEEwTjRPa20y
-        dUlzNGN1MEtqNEFzajVDX0VtcHNCYUYzVFRMVzQ1QUFhVklkMCJdfSx7Imhh
-        c0Z1bGxUZXh0IjogdHJ1ZSwiaXNGdWxsVGV4dEhpdCI6IGZhbHNlLCJpbkhv
-        bGRpbmdzIjogdHJ1ZSwib3BlblVybCI6ICJjdHhfdmVyPVozOS44OC0yMDA0
-        JmN0eF9lbmM9aW5mbyUzQW9maSUyRmVuYyUzQVVURi04JnJmcl9pZD1pbmZv
-        OnNpZC9zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20mcmZ0X3ZhbF9mbXQ9
-        aW5mbzpvZmkvZm10OmtldjptdHg6am91cm5hbCZyZnQuZ2VucmU9YXJ0aWNs
-        ZSZyZnQuYXRpdGxlPVVudGl0bGVkK2l0ZW0mcmZ0Lmp0aXRsZT1Cb3crYmVs
-        bHMrJTNBK2ErbWFnYXppbmUrb2YrZ2VuZXJhbCtsaXRlcmF0dXJlK2FuZCth
-        cnQrZm9yK2ZhbWlseStyZWFkaW5nJnJmdC5kYXRlPTE4OTQtMDMtMzAmcmZ0
-        LnB1Yj1Kb2huK0RpY2tzK1ByaW50aW5nK2FuZCtQdWJsaXNoaW5nK09mZmlj
-        ZSZyZnQuaXNzbj0yMDQzLTE1MlgmcmZ0LnZvbHVtZT0yNiZyZnQuaXNzdWU9
-        MzI2JnJmdC5zcGFnZT0zMjEmcmZ0LmVwYWdlPTMyMSIsImxpbmsiOiAiaHR0
-        cDovL2NvbHVtYmlhLnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbS8yLjAu
-        MC9saW5rLzAvZUx2SENYTXdZMkJRUVNzUFFDTlVKYWw2NExKWjF3eDBSSll1
-        LUxCcXBHTVhHV0RYVzBHakYxWXFnb3ZxbFB4azBDaTVQakN4V0pnWUc5a1hG
-        T3FDTG8wQ1RhN0NidEJJaE42c0FKcWdBYllubUJsWVFWdEVRUW5lMGRnSm5y
-        eEE1LTVhZ2lfRkEyMEkxUVhXWEJFWUpUQzRGSFVUWUNoSFBpLWhvbEl2dVRR
-        SDZCaGdlWkdVbVlpMDFocnAwRWJxT0YyUWdSX2FFbFZ3aENRZElRYW0xRHdS
-        QnQ1UXlMYmRGQVhRb0s0b2c3U2JhNGl6aHk3TXV2aVVuSng0cURYR0Vnd0tS
-        Z2JtYWNscFpoWVdpYWFwSnBaSnlZbkFoay1LVWFxcG9WbWlpWVdoc1pra2d3
-        ZzJyVkxZaGFWQmUtOUJad2diNnhvYnlEQ3dsQlNWcHNvQ0szSm9nQUFBRVhx
-        VUpBIiwiVm9sdW1lIjogWyIyNiJdLCJEYXRhYmFzZVRpdGxlIjogWyJCcml0
-        aXNoIFBlcmlvZGljYWxzIENvbGxlY3Rpb24gSSIsIkJyaXRpc2ggUGVyaW9k
-        aWNhbHMiXSwiTGFuZ3VhZ2UiOiBbIkVuZ2xpc2giXSwiUHVibGljYXRpb25Q
-        bGFjZSI6IFsiTG9uZG9uIl0sIlNjb3JlIjogWyIwLjAxIl0sIkRCSUQiOiBb
-        IkFFMSIsIjBVMCIsIlBCSyIsIlBCUCIsIkEzQiJdLCJJc1BlZXJSZXZpZXdl
-        ZCI6IFsiZmFsc2UiXSwiUHVibGljYXRpb25EYXRlX3htbCI6IFt7InRleHQi
-        OiAiMTg5NDAzMzAiLCJtb250aCI6ICIwMyIsInllYXIiOiAiMTg5NCIsImRh
-        eSI6ICIzMCJ9XSwiUHVibGljYXRpb25EYXRlIjogWyIxODk0MDMzMCJdLCJQ
-        dWJsaWNhdGlvbkNlbnR1cnkiOiBbIjE4MDAiXSwiUHVibGlzaGVyIjogWyJK
-        b2huIERpY2tzIFByaW50aW5nIGFuZCBQdWJsaXNoaW5nIE9mZmljZSJdLCJT
-        b3VyY2VUeXBlIjogWyJBZ2dyZWdhdGlvbiBEYXRhYmFzZSJdLCJQdWJsaXNo
-        ZXJfeG1sIjogW3sibmFtZSI6ICJKb2huIERpY2tzIFByaW50aW5nIGFuZCBQ
-        dWJsaXNoaW5nIE9mZmljZSJ9XSwiVVJJIjogWyJodHRwOi8vc2VhcmNoLnBy
-        b3F1ZXN0LmNvbS9kb2N2aWV3LzMxOTg0MzIiXSwiUFFQdWJJRCI6IFsiMzEy
-        NiJdLCJJc1NjaG9sYXJseSI6IFsiZmFsc2UiXSwiSUQiOiBbIkZFVENILXBy
-        b3F1ZXN0X2RsbF8zMTk4NDMyMyJdLCJQdWJsaWNhdGlvblRpdGxlIjogWyJC
-        b3cgYmVsbHMgOiBhIG1hZ2F6aW5lIG9mIGdlbmVyYWwgbGl0ZXJhdHVyZSBh
-        bmQgYXJ0IGZvciBmYW1pbHkgcmVhZGluZyJdLCJJc3N1ZSI6IFsiMzI2Il0s
-        IlB1YmxpY2F0aW9uWWVhciI6IFsiMTg5NCJdLCJQdWJsaWNhdGlvblBsYWNl
-        X3htbCI6IFt7Im5hbWUiOiAiTG9uZG9uIn1dLCJQUUlEIjogWyIzMTk4NDMy
-        Il0sIlN1YmplY3RUZXJtcyI6IFsiRU5HTElTSCBGSUNUSU9OIC0gMTl0aCBD
-        ZW50dXJ5IiwiRkFTSElPTiJdLCJNZXJnZWRJZCI6IFsiRkVUQ0hNRVJHRUQt
-        cHJvcXVlc3RfZGxsXzMxOTg0MzIzIl0sIlB1YmxpY2F0aW9uRGVjYWRlIjog
-        WyIxODkwIl0sIkNvbnRlbnRUeXBlIjogWyJKb3VybmFsIEFydGljbGUiXSwi
-        VGl0bGUiOiBbIlVudGl0bGVkIGl0ZW0iXSwiSVNTTiI6IFsiMjA0My0xNTJY
-        Il0sIlNTSUQiOiBbInNzaWIwMDgwNzU5ODkiXSwiU3RhcnRQYWdlIjogWyIz
-        MjEiXSwiRW5kUGFnZSI6IFsiMzIxIl0sInRodW1ibmFpbF9sIjogWyJodHRw
-        Oi8vY292ZXJzLWNkbi5zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20vaW5k
-        ZXguYXNweD9pc2JuPS9sYy5naWYmaXNzbj0yMDQzLTE1MlgmY2xpZW50PXN1
-        bW1vbiJdLCJ0aHVtYm5haWxfcyI6IFsiaHR0cDovL2NvdmVycy1jZG4uc3Vt
-        bW9uLnNlcmlhbHNzb2x1dGlvbnMuY29tL2luZGV4LmFzcHg/aXNibj0vc2Mu
-        Z2lmJmlzc249MjA0My0xNTJYJmNsaWVudD1zdW1tb24iXSwidGh1bWJuYWls
-        X20iOiBbImh0dHA6Ly9jb3ZlcnMtY2RuLnN1bW1vbi5zZXJpYWxzc29sdXRp
-        b25zLmNvbS9pbmRleC5hc3B4P2lzYm49L21jLmdpZiZpc3NuPTIwNDMtMTUy
-        WCZjbGllbnQ9c3VtbW9uIl0sIkRhdGFiYXNlX3htbCI6IFt7InNlcXVlbmNl
-        IjogIjEiLCJuYW1lIjogIkJyaXRpc2ggUGVyaW9kaWNhbHMgQ29sbGVjdGlv
-        biBJIiwiZGJpZCI6ICJBM0IiLCJ1cmwiOiAiaHR0cDovL2V6cHJveHkuY3Vs
-        LmNvbHVtYmlhLmVkdS9sb2dpbj91cmw9aHR0cDovL3NlYXJjaC5wcm9xdWVz
-        dC5jb20vYnJpdGlzaHBlcmlvZGljYWxzL2FkdmFuY2VkP2FjY291bnRpZD0x
-        MDIyNiIsInNvdXJjZVR5cGVzIjogWyJBZ2dyZWdhdGlvbiBEYXRhYmFzZSJd
-        fV0sIkxpbmtNb2RlbCI6IFsiRGlyZWN0TGluayJdLCJCb29rTWFyayI6IFsi
-        ZVBuSENYTXdZMkhnQkcyMzFBWFdDeEVjc0lnRm5YaHJhV0hKeWNBYkN0bDht
-        cUlBR3Bya1pwQjJjdzF4OXRDRmxZTHhLVGs1OGNCRVlXRmlETG9fQ0o4c0FH
-        R1pISHciXX0seyJoYXNGdWxsVGV4dCI6IHRydWUsImlzRnVsbFRleHRIaXQi
-        OiBmYWxzZSwiaW5Ib2xkaW5ncyI6IHRydWUsIm9wZW5VcmwiOiAiY3R4X3Zl
-        cj1aMzkuODgtMjAwNCZjdHhfZW5jPWluZm8lM0FvZmklMkZlbmMlM0FVVEYt
-        OCZyZnJfaWQ9aW5mbzpzaWQvc3VtbW9uLnNlcmlhbHNzb2x1dGlvbnMuY29t
-        JnJmdF92YWxfZm10PWluZm86b2ZpL2ZtdDprZXY6bXR4OmpvdXJuYWwmcmZ0
-        LmdlbnJlPWFydGljbGUmcmZ0LmF0aXRsZT1CT09LU0hFTEYmcmZ0Lmp0aXRs
-        ZT1UaGUrTGFuY2V0JnJmdC5kYXRlPTE5OTImcmZ0LnB1Yj1FbHNldmllcitM
-        dGQmcmZ0Lmlzc249MDE0MC02NzM2JnJmdC5laXNzbj0xNDc0LTU0N1gmcmZ0
-        LnZvbHVtZT0zNDAmcmZ0Lmlzc3VlPTg4MzEmcmZ0LnNwYWdlPTEzMzYmcmZ0
-        LmVwYWdlPTEzMzgmcmZ0X2lkPWluZm86ZG9pLzEwLjEwMTYlMkYwMTQwLTY3
-        MzYlMjg5MiUyOTkyNTA2LUImcmZ0LmV4dGVybmFsRG9jSUQ9ZG9pXzEwXzEw
-        MTZfMDE0MF82NzM2XzkyXzkyNTA2X0IiLCJsaW5rIjogImh0dHA6Ly9jb2x1
-        bWJpYS5zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20vMi4wLjAvbGluay8w
-        L2VMdkhDWE13WTJCUVFTc1BRQ05VSmFsNjRMSloxd3gwUkpZdS1MQnFwR01Y
-        NGFzSlFhc3FvVVVfcEVnSEY5WlFFWDFvWU9vWFpHYnFnM29Hb0RWSndPb2RX
-        SXViT1lGMlVnTTV3QlFkN09pQ2JXY2tlSkU3YlBPY29aay1YRXpEMGtnVGJJ
-        YXVFMUtOeElNb1hOMEVHR0FyREdDclM1SkxjNEF1QXhZZlNabUpTRXV2a2M1
-        d0pOOG5nZ3o4ME1hb2dpTkVtUkFEVTJxZU1BT0hMM1M2WFlTQjA4bmYzenZZ
-        dzlYSFRaVEJ6czAxeE5sREYtYndlQlJiNDRFbFl6eHNKUmRpSVplbFVUellz
-        bmduWXdrR0JTTUQ4N1RrTkRNTGkwVFRWQlBMcE9SRVlDc3B4U2pWMU5BczBj
-        VEMwTmhNa3NHY1ROT2x5TllwemNBRldSa0xHdTJRWVdBcEtTcE5sUVcySGFD
-        QkRnQXZ1cTdwIiwiVm9sdW1lIjogWyIzNDAiXSwiTGFuZ3VhZ2UiOiBbIkVu
-        Z2xpc2giXSwiU2NvcmUiOiBbIjAuMDEiXSwiRE9JIjogWyIxMC4xMDE2LzAx
-        NDAtNjczNig5Mik5MjUwNi1CIl0sIklzUGVlclJldmlld2VkIjogWyJ0cnVl
-        Il0sIlB1YmxpY2F0aW9uRGF0ZV94bWwiOiBbeyJ0ZXh0IjogIjE5OTIiLCJ5
-        ZWFyIjogIjE5OTIifV0sIlB1YmxpY2F0aW9uRGF0ZSI6IFsiMTk5MiJdLCJQ
-        dWJsaWNhdGlvbkNlbnR1cnkiOiBbIjE5MDAiXSwiUHVibGlzaGVyIjogWyJF
-        bHNldmllciBMdGQiXSwiU291cmNlVHlwZSI6IFsiUHVibGlzaGVyIl0sIlB1
-        Ymxpc2hlcl94bWwiOiBbeyJuYW1lIjogIkVsc2V2aWVyIEx0ZCJ9XSwiVVJJ
-        IjogWyJodHRwOi8vd3d3LnNjaWVuY2VkaXJlY3QuY29tL3NjaWVuY2UvYXJ0
-        aWNsZS9waWkvMDE0MDY3MzY5MjkyNTA2QiJdLCJJc1NjaG9sYXJseSI6IFsi
-        dHJ1ZSJdLCJJRCI6IFsiRkVUQ0gtZWxzZXZpZXJfc2NpZW5jZWRpcmVjdF9k
-        b2lfMTBfMTAxNl8wMTQwXzY3MzZfOTJfOTI1MDZfQjMiXSwiUHVibGljYXRp
-        b25UaXRsZSI6IFsiVGhlIExhbmNldCJdLCJJc3N1ZSI6IFsiODgzMSJdLCJE
-        aXNjaXBsaW5lIjogWyJNZWRpY2luZSJdLCJQdWJsaWNhdGlvblllYXIiOiBb
-        IjE5OTIiXSwiRUlTU04iOiBbIjE0NzQtNTQ3WCJdLCJNZXJnZWRJZCI6IFsi
-        RkVUQ0hNRVJHRUQtZWxzZXZpZXJfc2NpZW5jZWRpcmVjdF9kb2lfMTBfMTAx
-        Nl8wMTQwXzY3MzZfOTJfOTI1MDZfQjMiXSwiUHVibGljYXRpb25EZWNhZGUi
-        OiBbIjE5OTAiXSwiQ29udGVudFR5cGUiOiBbIkpvdXJuYWwgQXJ0aWNsZSJd
-        LCJUaXRsZSI6IFsiQk9PS1NIRUxGIl0sIkV4dGVybmFsRG9jdW1lbnRJRCI6
-        IFsiZG9pXzEwXzEwMTZfMDE0MF82NzM2XzkyXzkyNTA2X0IiXSwiSVNTTiI6
-        IFsiMDE0MC02NzM2Il0sIlNTSUQiOiBbInNzajAwMDQ2MDUiXSwiU3RhcnRQ
-        YWdlIjogWyIxMzM2Il0sIkVuZFBhZ2UiOiBbIjEzMzgiXSwidGh1bWJuYWls
-        X2wiOiBbImh0dHA6Ly9jb3ZlcnMtY2RuLnN1bW1vbi5zZXJpYWxzc29sdXRp
-        b25zLmNvbS9pbmRleC5hc3B4P2lzYm49L2xjLmdpZiZpc3NuPTAxNDAtNjcz
-        NiZjbGllbnQ9c3VtbW9uIl0sInRodW1ibmFpbF9zIjogWyJodHRwOi8vY292
-        ZXJzLWNkbi5zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20vaW5kZXguYXNw
-        eD9pc2JuPS9zYy5naWYmaXNzbj0wMTQwLTY3MzYmY2xpZW50PXN1bW1vbiJd
-        LCJ0aHVtYm5haWxfbSI6IFsiaHR0cDovL2NvdmVycy1jZG4uc3VtbW9uLnNl
-        cmlhbHNzb2x1dGlvbnMuY29tL2luZGV4LmFzcHg/aXNibj0vbWMuZ2lmJmlz
-        c249MDE0MC02NzM2JmNsaWVudD1zdW1tb24iXSwiTGlua01vZGVsIjogWyJE
-        aXJlY3RMaW5rIl0sIkJvb2tNYXJrIjogWyJlUG5IQ1hNd1k0QnVUek0wMDRj
-        dkxkZXdOTkswQk5hMVpycE9US0ROUHVZbXVxWW01aEVzME5XRklDVWN5SHNa
-        T1JrNG5mejl2WU05WEgzY3VCbnMzRnhEbkQxMFlWVkZQTFJxZ0JUNThjQ2NI
-        dzlicVlSWXFHUnBGQS0yTU43Sm1HSURBQzN5Tm9NIl19LHsiaGFzRnVsbFRl
-        eHQiOiB0cnVlLCJpc0Z1bGxUZXh0SGl0IjogZmFsc2UsImluSG9sZGluZ3Mi
-        OiB0cnVlLCJvcGVuVXJsIjogImN0eF92ZXI9WjM5Ljg4LTIwMDQmY3R4X2Vu
-        Yz1pbmZvJTNBb2ZpJTJGZW5jJTNBVVRGLTgmcmZyX2lkPWluZm86c2lkL3N1
-        bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbSZyZnRfdmFsX2ZtdD1pbmZvOm9m
-        aS9mbXQ6a2V2Om10eDpqb3VybmFsJnJmdC5nZW5yZT1hcnRpY2xlJnJmdC5h
-        dGl0bGU9VW5pbmRleGVkK01pZGRsZStNYXR0ZXImcmZ0Lmp0aXRsZT1TdHVk
-        aWVzK2luK0VuZ2xpc2grTGl0ZXJhdHVyZSUyQysxNTAwLTE5MDAmcmZ0LmRh
-        dGU9MTk5NS0wNC0wMSZyZnQucHViPVJpY2UrVW5pdmVyc2l0eSZyZnQuaXNz
-        bj0wMDM5LTM2NTcmcmZ0LmVpc3NuPTE1MjItOTI3MCZyZnQudm9sdW1lPTM1
-        JnJmdC5pc3N1ZT0xIiwibGluayI6ICJodHRwOi8vY29sdW1iaWEuc3VtbW9u
-        LnNlcmlhbHNzb2x1dGlvbnMuY29tLzIuMC4wL2xpbmsvMC9lTHZIQ1hNd1ky
-        QlFRU3NQUUNOVUphbDY0TEpaMXd4MFJKWXUtTEJxcEdNWEdXQjN0a0tqRjFZ
-        cWdvdnFsUHhrMENpNXZpSG9taVhRY1dZbTlnV0Z1cUI3bzBEenE3QkxOQkto
-        bHl1QTVtaUFUUXBRb1d4cENFcm12b1l1U09kSkdVTFBhYlRVTlRZek5jY29n
-        TUdGcXBzQVF4WHljUWtWbFhySnBUbEF0d0NMaTZUTVJLU2wxa2huTmxMTjVZ
-        SU1fTkMycUlJakpQRUlNVENsNWdremlQdEFSekNMRmRRVWZPQ0hMaGVMTUln
-        RDI2ZWdzeFZUVXhSOHdjTWFDcjdnd3psRkdlVGNYRU9jUFhSaHJvcFB5Y21K
-        UjdqR1dJSkJ3Y2pBUEMwNXpjekNJdEUwMWNReUtUa1IyRUpLTVVvMU5UUkxO
-        TEV3TkRhVFpCREhvVnNLcDR3MEF4ZGs1emRvZ1lzTUEwdEpVV21xTExEZWh3
-        WWdBRDlub24wIiwiVm9sdW1lIjogWyIzNSJdLCJEYXRhYmFzZVRpdGxlIjog
-        WyJQZXJpb2RpY2FscyBJbmRleCBPbmxpbmUiXSwiTGFuZ3VhZ2UiOiBbIkVu
-        Z2xpc2giXSwiUHVibGljYXRpb25QbGFjZSI6IFsiSG91c3RvbiJdLCJTY29y
-        ZSI6IFsiMC4wMSJdLCJJc1BlZXJSZXZpZXdlZCI6IFsidHJ1ZSJdLCJQdWJs
-        aWNhdGlvbkRhdGVfeG1sIjogW3sidGV4dCI6ICIxOTk1MDQwMSIsIm1vbnRo
-        IjogIjA0IiwieWVhciI6ICIxOTk1IiwiZGF5IjogIjAxIn1dLCJQdWJsaWNh
-        dGlvbkRhdGUiOiBbIjE5OTUwNDAxIl0sIlB1YmxpY2F0aW9uQ2VudHVyeSI6
-        IFsiMTkwMCJdLCJQdWJsaXNoZXIiOiBbIlJpY2UgVW5pdmVyc2l0eSJdLCJT
-        b3VyY2VUeXBlIjogWyJBZ2dyZWdhdGlvbiBEYXRhYmFzZSJdLCJQdWJsaXNo
-        ZXJfeG1sIjogW3sibmFtZSI6ICJSaWNlIFVuaXZlcnNpdHkifV0sIlVSSSI6
-        IFsiaHR0cDovL3NlYXJjaC5wcm9xdWVzdC5jb20vZG9jdmlldy8xMjk3Mzk0
-        MzQ0Il0sIlBRUHViSUQiOiBbIjE4MTg0MTIiXSwiSXNTY2hvbGFybHkiOiBb
-        InRydWUiXSwiSUQiOiBbIkZFVENILXByb3F1ZXN0X2RsbF8xMjk3Mzk0MzQ0
-        MyJdLCJQdWJsaWNhdGlvblRpdGxlIjogWyJTdHVkaWVzIGluIEVuZ2xpc2gg
-        TGl0ZXJhdHVyZSwgMTUwMC0xOTAwIl0sIklzc3VlIjogWyIxIl0sIkRpc2Np
-        cGxpbmUiOiBbIkxhbmd1YWdlcyAmIExpdGVyYXR1cmVzIl0sIlB1YmxpY2F0
-        aW9uWWVhciI6IFsiMTk5NSJdLCJQdWJsaWNhdGlvblBsYWNlX3htbCI6IFt7
-        Im5hbWUiOiAiSG91c3RvbiJ9XSwiUFFJRCI6IFsiMTI5NzM5NDM0NCJdLCJF
-        SVNTTiI6IFsiMTUyMi05MjcwIl0sIk1lcmdlZElkIjogWyJGRVRDSE1FUkdF
-        RC1wcm9xdWVzdF9kbGxfMTI5NzM5NDM0NDMiXSwiUHVibGljYXRpb25EZWNh
-        ZGUiOiBbIjE5OTAiXSwiQ29udGVudFR5cGUiOiBbIkpvdXJuYWwgQXJ0aWNs
-        ZSJdLCJUaXRsZSI6IFsiVW5pbmRleGVkIE1pZGRsZSBNYXR0ZXIiXSwiSVNT
-        TiI6IFsiMDAzOS0zNjU3Il0sIlNTSUQiOiBbInNzajAwMDAxMTAiXSwidGh1
-        bWJuYWlsX2wiOiBbImh0dHA6Ly9jb3ZlcnMtY2RuLnN1bW1vbi5zZXJpYWxz
-        c29sdXRpb25zLmNvbS9pbmRleC5hc3B4P2lzYm49L2xjLmdpZiZpc3NuPTAw
-        MzktMzY1NyZjbGllbnQ9c3VtbW9uIl0sInRodW1ibmFpbF9zIjogWyJodHRw
-        Oi8vY292ZXJzLWNkbi5zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20vaW5k
-        ZXguYXNweD9pc2JuPS9zYy5naWYmaXNzbj0wMDM5LTM2NTcmY2xpZW50PXN1
-        bW1vbiJdLCJ0aHVtYm5haWxfbSI6IFsiaHR0cDovL2NvdmVycy1jZG4uc3Vt
-        bW9uLnNlcmlhbHNzb2x1dGlvbnMuY29tL2luZGV4LmFzcHg/aXNibj0vbWMu
-        Z2lmJmlzc249MDAzOS0zNjU3JmNsaWVudD1zdW1tb24iXSwiTGlua01vZGVs
-        IjogWyJEaXJlY3RMaW5rIl0sIkJvb2tNYXJrIjogWyJlUG5IQ1hNd1l3S2RU
-        d3JzNEZnYW1SdXdnSTlFdE5RMU5qTTE1MENjNldSb3dNa2dEbXhTZ1k0RFRF
-        MVI4QVgzeEJWOHdlZEpjalBJdWJtR09Idm93Z3JHLUpTY25IaEQwQTFMb0pQ
-        TVFKdHJDQ2dBQU9EZUlpQSJdfSx7Imhhc0Z1bGxUZXh0IjogdHJ1ZSwiaXNG
-        dWxsVGV4dEhpdCI6IGZhbHNlLCJpbkhvbGRpbmdzIjogdHJ1ZSwib3BlblVy
-        bCI6ICJjdHhfdmVyPVozOS44OC0yMDA0JmN0eF9lbmM9aW5mbyUzQW9maSUy
-        RmVuYyUzQVVURi04JnJmcl9pZD1pbmZvOnNpZC9zdW1tb24uc2VyaWFsc3Nv
-        bHV0aW9ucy5jb20mcmZ0X3ZhbF9mbXQ9aW5mbzpvZmkvZm10OmtldjptdHg6
-        am91cm5hbCZyZnQuZ2VucmU9YXJ0aWNsZSZyZnQuYXRpdGxlPUFib3V0K3Ro
-        ZSthdXRob3JzJnJmdC5qdGl0bGU9Sm91cm5hbCtvZitDcmltaW5hbCtKdXN0
-        aWNlK0VkdWNhdGlvbiZyZnQuZGF0ZT0yMDAwLTExLTAxJnJmdC5pc3NuPTEw
-        NTEtMTI1MyZyZnQuZWlzc249MTc0NS05MTE3JnJmdC52b2x1bWU9MTEmcmZ0
-        Lmlzc3VlPTImcmZ0LnNwYWdlPTM4MyZyZnQuZXBhZ2U9Mzg2JnJmdF9pZD1p
-        bmZvOmRvaS8xMC4xMDgwJTJGMTA1MTEyNTAwMDAwODUwMDEmcmZ0LmV4dGVy
-        bmFsREJJRD1uJTJGYSZyZnQuZXh0ZXJuYWxEb2NJRD0xMF8xMDgwXzEwNTEx
-        MjUwMDAwMDg1MDAxIiwibGluayI6ICJodHRwOi8vY29sdW1iaWEuc3VtbW9u
-        LnNlcmlhbHNzb2x1dGlvbnMuY29tLzIuMC4wL2xpbmsvMC9lTHZIQ1hNd1ky
-        QlFRU3NQUUNOVUphbDY0TEpaMXd4MFJKWXUtTEJxcEdNWDRmZU9Jc1NHUTB3
-        N2d0Y1dneHFRaWFVbEdmblE2Um5NQmlmNkRWNkl4UjBvWFg4RDZCNDRSR2tG
-        ekZHNndCWUtwSVJJaFlpWm00QXVYNFJzaUlRWGNZWklVV21FVkY0Wld4Z2pW
-        WDNHa0ZPcE1VcFZ5REpFa0cxQXl3d2dpOXNNb0E1Qk9jRWFyV2FCcl9jemhC
-        NUVpbUVFTTdDM2JBSHFNd2Q1LUNPMnM1cURiM2FFLXc0MkdXMWhvSTloQUZK
-        emdnZFJQWVlJTXZCRHcxZkJFUkl2UWd4TXFYbkNvTHV3b1VFcnpDQUQyUUd0
-        RUo2YWs1WllsS3FncGdBVHlDX0tGbUVRQkVlZkFqRDZGS0RSSjhwZzZPWWE0
-        dXloQzdNeXZnQnlKRWc4VGc4YVN6QW9HQm1ZcHlXbm1WbFlKSnFtbWxnbUpT
-        Y0NHNkVwUnFtbWhtYUpKaGFHeG1hU0RGckVHeWhGaW1KcEJpNUV1cEZoWUNr
-        cEtrMlZCWVlZS0ZVa1pTWUNBSzJPR05vIiwiRGF0YWJhc2VUaXRsZSI6IFsi
-        Q3Jvc3NSZWYiXSwiVm9sdW1lIjogWyIxMSJdLCJMYW5ndWFnZSI6IFsiRW5n
-        bGlzaCJdLCJTY29yZSI6IFsiMC4wMSJdLCJET0kiOiBbIjEwLjEwODAvMTA1
-        MTEyNTAwMDAwODUwMDEiXSwiSXNQZWVyUmV2aWV3ZWQiOiBbInRydWUiXSwi
-        UHVibGljYXRpb25EYXRlX3htbCI6IFt7InRleHQiOiAiMjAwMC0xMS0wMCIs
-        Im1vbnRoIjogIjExIiwieWVhciI6ICIyMDAwIn1dLCJQdWJsaWNhdGlvbkRh
-        dGUiOiBbIjIwMDAtMTEtMDAiXSwiUHVibGljYXRpb25DZW50dXJ5IjogWyIy
-        MDAwIl0sIlNvdXJjZVR5cGUiOiBbIkFnZ3JlZ2F0aW9uIERhdGFiYXNlIl0s
-        IklzU2Nob2xhcmx5IjogWyJ0cnVlIl0sIklEIjogWyJGRVRDSC1jcm9zc3Jl
-        Zl9wcmltYXJ5XzEwXzEwODBfMTA1MTEyNTAwMDAwODUwMDEzIl0sIlB1Ymxp
-        Y2F0aW9uVGl0bGUiOiBbIkpvdXJuYWwgb2YgQ3JpbWluYWwgSnVzdGljZSBF
-        ZHVjYXRpb24iXSwiSXNzdWUiOiBbIjIiXSwiRGlzY2lwbGluZSI6IFsiRWR1
-        Y2F0aW9uIiwiU29jaWFsIFdlbGZhcmUgJiBTb2NpYWwgV29yayJdLCJQdWJs
-        aWNhdGlvblllYXIiOiBbIjIwMDAiXSwiRUlTU04iOiBbIjE3NDUtOTExNyJd
-        LCJNZXJnZWRJZCI6IFsiRkVUQ0hNRVJHRUQtY3Jvc3NyZWZfcHJpbWFyeV8x
-        MF8xMDgwXzEwNTExMjUwMDAwMDg1MDAxMyJdLCJQdWJsaWNhdGlvbkRlY2Fk
-        ZSI6IFsiMjAwMCJdLCJDb250ZW50VHlwZSI6IFsiSm91cm5hbCBBcnRpY2xl
-        Il0sIlRpdGxlIjogWyJBYm91dCB0aGUgYXV0aG9ycyJdLCJJU1NOIjogWyIx
-        MDUxLTEyNTMiXSwiRXh0ZXJuYWxEb2N1bWVudElEIjogWyIxMF8xMDgwXzEw
-        NTExMjUwMDAwMDg1MDAxIl0sIlNTSUQiOiBbInNzajAwMDQ3MzYiXSwiU3Rh
-        cnRQYWdlIjogWyIzODMiXSwiRW5kUGFnZSI6IFsiMzg2Il0sInRodW1ibmFp
-        bF9sIjogWyJodHRwOi8vY292ZXJzLWNkbi5zdW1tb24uc2VyaWFsc3NvbHV0
-        aW9ucy5jb20vaW5kZXguYXNweD9pc2JuPS9sYy5naWYmaXNzbj0xMDUxLTEy
-        NTMmY2xpZW50PXN1bW1vbiJdLCJ0aHVtYm5haWxfcyI6IFsiaHR0cDovL2Nv
-        dmVycy1jZG4uc3VtbW9uLnNlcmlhbHNzb2x1dGlvbnMuY29tL2luZGV4LmFz
-        cHg/aXNibj0vc2MuZ2lmJmlzc249MTA1MS0xMjUzJmNsaWVudD1zdW1tb24i
-        XSwidGh1bWJuYWlsX20iOiBbImh0dHA6Ly9jb3ZlcnMtY2RuLnN1bW1vbi5z
-        ZXJpYWxzc29sdXRpb25zLmNvbS9pbmRleC5hc3B4P2lzYm49L21jLmdpZiZp
-        c3NuPTEwNTEtMTI1MyZjbGllbnQ9c3VtbW9uIl0sIkxpbmtNb2RlbCI6IFsi
-        T3BlblVSTCJdLCJCb29rTWFyayI6IFsiZVBuSENYTXdZNERPSEZvWUFETWtx
-        RFkzaFp6YURxUU1tY0NiRTBGM0F4b0MtMG1jSUhsZG9BSmpEdmhHUm5Oak0w
-        NEdRZENNUjRrQ3NBR2trRmhha3BGZlZNek5ZT2ptR3VMc29RdXJPdUlMSUdj
-        eHhCdENqN2pFc011WUhEMEE4Z3d1dnciXX0seyJoYXNGdWxsVGV4dCI6IHRy
-        dWUsImlzRnVsbFRleHRIaXQiOiBmYWxzZSwiaW5Ib2xkaW5ncyI6IHRydWUs
-        Im9wZW5VcmwiOiAiY3R4X3Zlcj1aMzkuODgtMjAwNCZjdHhfZW5jPWluZm8l
-        M0FvZmklMkZlbmMlM0FVVEYtOCZyZnJfaWQ9aW5mbzpzaWQvc3VtbW9uLnNl
-        cmlhbHNzb2x1dGlvbnMuY29tJnJmdF92YWxfZm10PWluZm86b2ZpL2ZtdDpr
-        ZXY6bXR4OmpvdXJuYWwmcmZ0LmdlbnJlPWFydGljbGUmcmZ0LmF0aXRsZT1Q
-        RU9QTEUrSU4rVEhFK05FV1MmcmZ0Lmp0aXRsZT1UaGUrTGVnYWwrSW50ZWxs
-        aWdlbmNlciZyZnQuZGF0ZT0yMDA1LTAyLTE3JnJmdC5wdWI9SW5jaXNpdmUr
-        TWVkaWEmcmZ0Lmlzc249MDI3Ny00OTVYJnJmdC5leHRlcm5hbERCSUQ9QlNI
-        RUUmcmZ0LmV4dGVybmFsRG9jSUQ9MTI5MjQ5NTA5IiwibGluayI6ICJodHRw
-        Oi8vY29sdW1iaWEuc3VtbW9uLnNlcmlhbHNzb2x1dGlvbnMuY29tLzIuMC4w
-        L2xpbmsvMC9lTHZIQ1hNd1kyQlFRU3NQUUNOVUphbDY0TEpaMXd4MFJKWXUt
-        TEJxcEdNWEdhdWhNWTBRR3c0eEhlRHFILUFEdWpvZXZIekh6elU4R0xuRkNV
-        b0hQcW5wNENNMUVLZHZGcUgwOXNHN3B5R2JHeUU5UU5CZEc2QWxSYUJwbkVT
-        a3NnSTBFd3ZzNjBRZ2luWFlWTFpUc0FlMDE0aDZyalN3b2dmZE93M2FfTWhz
-        YWdIcXQ3bzVPc01uWUVEN1VjSERVMUJ6b1RVV2NqVVZJc2pBRDIwMUt6aENQ
-        Q19Fd0pTYUo4ekE3Sk5ZTHNJZ0JQRy1ncWVmQXREN0NpRHZpekxJdWJtR09I
-        dm9nc3lLQndWc1NWRmljanpjS2NZU0RBcEdCdVpweVdsbUZoYUpwcWttbGtu
-        SmljQW1XNHBScXFtaFdhS0poYUd4bVNTRE9BN2RVamhscEJtNEVJRXB3OEJT
-        VWxTYUtndHNpSUFxZ0tUTVJBQzU2OF92IiwiTGFuZ3VhZ2UiOiBbIkVuZ2xp
-        c2giXSwiU2NvcmUiOiBbIjAuMDEiXSwiREJJRCI6IFsiQlNIRUUiXSwiSXNQ
-        ZWVyUmV2aWV3ZWQiOiBbImZhbHNlIl0sIlB1YmxpY2F0aW9uRGF0ZV94bWwi
-        OiBbeyJ0ZXh0IjogIjIwMDUwMjE3IiwibW9udGgiOiAiMDIiLCJ5ZWFyIjog
-        IjIwMDUiLCJkYXkiOiAiMTcifV0sIlB1YmxpY2F0aW9uRGF0ZSI6IFsiMjAw
-        NTAyMTciXSwiUHVibGljYXRpb25DZW50dXJ5IjogWyIyMDAwIl0sIlB1Ymxp
-        c2hlciI6IFsiSW5jaXNpdmUgTWVkaWEiXSwiU291cmNlVHlwZSI6IFsiQWdn
-        cmVnYXRpb24gRGF0YWJhc2UiXSwiUHVibGlzaGVyX3htbCI6IFt7Im5hbWUi
-        OiAiSW5jaXNpdmUgTWVkaWEifV0sIkdlb2dyYXBoaWNMb2NhdGlvbnMiOiBb
-        IlVuaXRlZCBTdGF0ZXMiXSwiSXNTY2hvbGFybHkiOiBbImZhbHNlIl0sIklE
-        IjogWyJGRVRDSC1nYWxlX2luZm90cmFjXzEyOTI0OTUwOTMiXSwiR2VvZ3Jh
-        cGhpY0xvY2F0aW9uc194bWwiOiBbeyJuYW1lIjogIlVuaXRlZCBTdGF0ZXMi
-        fV0sIlB1YmxpY2F0aW9uVGl0bGUiOiBbIlRoZSBMZWdhbCBJbnRlbGxpZ2Vu
-        Y2VyIl0sIkRpc2NpcGxpbmUiOiBbIkxhdyJdLCJQdWJsaWNhdGlvblllYXIi
-        OiBbIjIwMDUiXSwiQXVkaWVuY2UiOiBbIlByb2Zlc3Npb25hbCJdLCJTdWJq
-        ZWN0VGVybXMiOiBbIkF0dG9ybmV5cyIsIkFwcG9pbnRtZW50cywgcmVzaWdu
-        YXRpb25zIGFuZCBkaXNtaXNzYWxzIiwiMjAwNSBBRCIsIkNvbmZlcmVuY2Vz
-        LCBtZWV0aW5ncyBhbmQgc2VtaW5hcnMiLCJCYW5rcnVwdGN5IGxhdyIsIlB1
-        YmxpYyB1dGlsaXRpZXMiXSwiTWVyZ2VkSWQiOiBbIkZFVENITUVSR0VELWdh
-        bGVfaW5mb3RyYWNfMTI5MjQ5NTA5MyJdLCJQdWJsaWNhdGlvbkRlY2FkZSI6
-        IFsiMjAwMCJdLCJDb250ZW50VHlwZSI6IFsiSm91cm5hbCBBcnRpY2xlIl0s
-        IlRpdGxlIjogWyJQRU9QTEUgSU4gVEhFIE5FV1MiXSwiRXh0ZXJuYWxEb2N1
-        bWVudElEIjogWyIxMjkyNDk1MDkiXSwiSVNTTiI6IFsiMDI3Ny00OTVYIl0s
-        IlNTSUQiOiBbInNzajAwMTExODEiXSwidGh1bWJuYWlsX2wiOiBbImh0dHA6
-        Ly9jb3ZlcnMtY2RuLnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbS9pbmRl
-        eC5hc3B4P2lzYm49L2xjLmdpZiZpc3NuPTAyNzctNDk1WCZjbGllbnQ9c3Vt
-        bW9uIl0sInRodW1ibmFpbF9zIjogWyJodHRwOi8vY292ZXJzLWNkbi5zdW1t
-        b24uc2VyaWFsc3NvbHV0aW9ucy5jb20vaW5kZXguYXNweD9pc2JuPS9zYy5n
-        aWYmaXNzbj0wMjc3LTQ5NVgmY2xpZW50PXN1bW1vbiJdLCJ0aHVtYm5haWxf
-        bSI6IFsiaHR0cDovL2NvdmVycy1jZG4uc3VtbW9uLnNlcmlhbHNzb2x1dGlv
-        bnMuY29tL2luZGV4LmFzcHg/aXNibj0vbWMuZ2lmJmlzc249MDI3Ny00OTVY
-        JmNsaWVudD1zdW1tb24iXSwiTGlua01vZGVsIjogWyJPcGVuVVJMIl0sIkJv
-        b2tNYXJrIjogWyJlUG5IQ1hNd1l3R05hWmliNndJYjNoRWNzT0Y4ME81R1Rn
-        YWhBRmZfQUI5WEJVOF9oUkFQVndVXzFfQmdiZ1k1TjljUVp3OWRVSEVZRHdw
-        VFlQOC1PUjVZQ1lIdVJEWUFUUWNUVUFBQXc1c2NxZyJdfV0sInJvbGx1cHMi
-        OiB7ImltYWdlIjoge30sInJlZmVyZW5jZSI6IHt9LCJuZXdzcGFwZXIiOiB7
-        fX19
+      encoding: UTF-8
+      string: "{\"version\": \"2.0.0\",\"sessionId\": \"SUMMON-SESSION-Sprite.local-1824-30\",\"elapsedQueryTime\":
+        1098,\"queryTime\": 1087,\"totalRequestTime\": 1152,\"pageCount\": 12413475,\"recordCount\":
+        124134750,\"query\": {\"queryString\": \"s.ho=t&s.ps=10&s.ff=SubjectTerms%2Cand%2C1%2C10&s.ff=Language%2Cand%2C1%2C5&s.ff=ContentType%2Cand%2C1%2C10&s.pn=1&s.fvf=ContentType%2CJournal+Article%2Cf&s.fvf=IsFullText%2Ctrue%2Cf\",\"pageNumber\":
+        1,\"pageSize\": 10,\"isHoldingsOnlyEnabled\": true,\"textQueries\": [],\"searchTerms\":
+        [],\"textFilters\": [],\"rangeFilters\": [],\"facetValueFilters\": [{\"fieldName\":
+        \"ContentType\",\"value\": \"Journal Article\",\"isNegated\": false,\"removeCommand\":
+        \"removeFacetValueFilter(ContentType,Journal Article)\",\"negateCommand\":
+        \"negateFacetValueFilter(ContentType,Journal Article)\"},{\"fieldName\": \"IsFullText\",\"value\":
+        \"true\",\"isNegated\": false,\"removeCommand\": \"removeFacetValueFilter(IsFullText,true)\",\"negateCommand\":
+        \"negateFacetValueFilter(IsFullText,true)\"}],\"inclusiveFacetValueFilters\":
+        [],\"facetValueGroupFilters\": [],\"facetFields\": [{\"fieldName\": \"SubjectTerms\",\"combineMode\":
+        \"and\",\"pageNumber\": 1,\"pageSize\": 10,\"removeCommand\": \"removeFacetField(SubjectTerms)\"},{\"fieldName\":
+        \"Language\",\"combineMode\": \"and\",\"pageNumber\": 1,\"pageSize\": 5,\"removeCommand\":
+        \"removeFacetField(Language)\"},{\"fieldName\": \"ContentType\",\"combineMode\":
+        \"and\",\"pageNumber\": 1,\"pageSize\": 10,\"removeCommand\": \"removeFacetField(ContentType)\"}],\"rangeFacetFields\":
+        [],\"sort\": []},\"facetFields\": [{\"fieldName\": \"Language_s\",\"displayName\":
+        \"Language\",\"combineMode\": \"and\",\"pageNumber\": 1,\"pageSize\": 5,\"hasLimitingValue\":
+        true,\"hasAppliedValue\": false,\"removeCommand\": \"removeFacetField(Language)\",\"listValuesCommand\":
+        \"listFacetValues(Language,and)\",\"removeValueFiltersCommand\": \"removeFacetValueFilter(Language)\",\"counts\":
+        [{\"value\": \"English\",\"count\": 81394958,\"isApplied\": false,\"isNegated\":
+        false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(Language,English)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(Language,English:t)\"},{\"value\": \"Chinese\",\"count\":
+        26452506,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
+        true,\"applyCommand\": \"addFacetValueFilters(Language,Chinese)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(Language,Chinese:t)\"},{\"value\": \"Korean\",\"count\":
+        2463336,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
+        \"addFacetValueFilters(Language,Korean)\",\"applyNegatedCommand\": \"addFacetValueFilters(Language,Korean:t)\"},{\"value\":
+        \"French\",\"count\": 2142799,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
+        true,\"applyCommand\": \"addFacetValueFilters(Language,French)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(Language,French:t)\"},{\"value\": \"German\",\"count\":
+        1976436,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
+        \"addFacetValueFilters(Language,German)\",\"applyNegatedCommand\": \"addFacetValueFilters(Language,German:t)\"}]},{\"fieldName\":
+        \"SubjectTerms_mfacet\",\"displayName\": \"SubjectTerms\",\"combineMode\":
+        \"and\",\"pageNumber\": 1,\"pageSize\": 10,\"hasLimitingValue\": true,\"hasAppliedValue\":
+        false,\"removeCommand\": \"removeFacetField(SubjectTerms)\",\"listValuesCommand\":
+        \"listFacetValues(SubjectTerms,and)\",\"removeValueFiltersCommand\": \"removeFacetValueFilter(SubjectTerms)\",\"counts\":
+        [{\"value\": \"article\",\"count\": 3412827,\"isApplied\": false,\"isNegated\":
+        false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(SubjectTerms,article)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(SubjectTerms,article:t)\"},{\"value\": \"analysis\",\"count\":
+        2187709,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
+        \"addFacetValueFilters(SubjectTerms,analysis)\",\"applyNegatedCommand\": \"addFacetValueFilters(SubjectTerms,analysis:t)\"},{\"value\":
+        \"research\",\"count\": 2043885,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
+        true,\"applyCommand\": \"addFacetValueFilters(SubjectTerms,research)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(SubjectTerms,research:t)\"},{\"value\": \"united states\",\"count\":
+        1312652,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
+        \"addFacetValueFilters(SubjectTerms,united states)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(SubjectTerms,united states:t)\"},{\"value\": \"studies\",\"count\":
+        1274750,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
+        \"addFacetValueFilters(SubjectTerms,studies)\",\"applyNegatedCommand\": \"addFacetValueFilters(SubjectTerms,studies:t)\"},{\"value\":
+        \"management\",\"count\": 1114360,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
+        true,\"applyCommand\": \"addFacetValueFilters(SubjectTerms,management)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(SubjectTerms,management:t)\"},{\"value\": \"humans\",\"count\":
+        1108681,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
+        \"addFacetValueFilters(SubjectTerms,humans)\",\"applyNegatedCommand\": \"addFacetValueFilters(SubjectTerms,humans:t)\"},{\"value\":
+        \"biochemistry & molecular biology\",\"count\": 1040840,\"isApplied\": false,\"isNegated\":
+        false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(SubjectTerms,biochemistry
+        & molecular biology)\",\"applyNegatedCommand\": \"addFacetValueFilters(SubjectTerms,biochemistry
+        & molecular biology:t)\"},{\"value\": \"asia\",\"count\": 954520,\"isApplied\":
+        false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(SubjectTerms,asia)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(SubjectTerms,asia:t)\"},{\"value\": \"oncology\",\"count\":
+        880780,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
+        \"addFacetValueFilters(SubjectTerms,oncology)\",\"applyNegatedCommand\": \"addFacetValueFilters(SubjectTerms,oncology:t)\"}]},{\"fieldName\":
+        \"ContentType_mfacet\",\"displayName\": \"ContentType\",\"combineMode\": \"and\",\"pageNumber\":
+        1,\"pageSize\": 10,\"hasLimitingValue\": true,\"hasAppliedValue\": true,\"removeCommand\":
+        \"removeFacetField(ContentType)\",\"listValuesCommand\": \"listFacetValues(ContentType,and)\",\"removeValueFiltersCommand\":
+        \"removeFacetValueFilter(ContentType)\",\"counts\": [{\"value\": \"Journal
+        Article\",\"count\": 124134750,\"isApplied\": true,\"isNegated\": false,\"isFurtherLimiting\":
+        false,\"removeCommand\": \"removeFacetValueFilter(ContentType,Journal Article)\",\"negateCommand\":
+        \"negateFacetValueFilter(ContentType,Journal Article)\"},{\"value\": \"Trade
+        Publication Article\",\"count\": 944483,\"isApplied\": false,\"isNegated\":
+        false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Trade
+        Publication Article)\",\"applyNegatedCommand\": \"addFacetValueFilters(ContentType,Trade
+        Publication Article:t)\"},{\"value\": \"Book Review\",\"count\": 872630,\"isApplied\":
+        false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Book
+        Review)\",\"applyNegatedCommand\": \"addFacetValueFilters(ContentType,Book
+        Review:t)\"},{\"value\": \"Conference Proceeding\",\"count\": 568856,\"isApplied\":
+        false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Conference
+        Proceeding)\",\"applyNegatedCommand\": \"addFacetValueFilters(ContentType,Conference
+        Proceeding:t)\"},{\"value\": \"Magazine Article\",\"count\": 466103,\"isApplied\":
+        false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Magazine
+        Article)\",\"applyNegatedCommand\": \"addFacetValueFilters(ContentType,Magazine
+        Article:t)\"},{\"value\": \"Newspaper Article\",\"count\": 431155,\"isApplied\":
+        false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Newspaper
+        Article)\",\"applyNegatedCommand\": \"addFacetValueFilters(ContentType,Newspaper
+        Article:t)\"},{\"value\": \"Book Chapter\",\"count\": 106503,\"isApplied\":
+        false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Book
+        Chapter)\",\"applyNegatedCommand\": \"addFacetValueFilters(ContentType,Book
+        Chapter:t)\"},{\"value\": \"Paper\",\"count\": 16246,\"isApplied\": false,\"isNegated\":
+        false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Paper)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(ContentType,Paper:t)\"},{\"value\": \"Book / eBook\",\"count\":
+        2321,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
+        \"addFacetValueFilters(ContentType,Book / eBook)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(ContentType,Book / eBook:t)\"},{\"value\": \"Electronic
+        Resource\",\"count\": 629,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
+        true,\"applyCommand\": \"addFacetValueFilters(ContentType,Electronic Resource)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(ContentType,Electronic Resource:t)\"}]}],\"rangeFacetFields\":
+        [],\"didYouMeanSuggestions\": [],\"recommendationLists\": {},\"documents\":
+        [{\"hasFullText\": true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\":
+        \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Cover&rft.jtitle=The+Lute+%3A+a+monthly+journal+of+musical+news%2C+1883-1899&rft.date=1884-01-01&rft.pub=Patey+%26+Willis&rft.issn=2043-4243&rft.volume=2&rft.issue=1&rft.spage=1&rft.epage=1\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icBY3Eo566yAC73Qoau7BCEVxSp-QngwbJ9c1B5-gZmtsXFOqC7owCza3CLtBIhF6sAJqfATYnmBlYQTtEQend0dgZkbpMgVUn0q5McxNL0EZnBB_YsrFA6gxZgLr44Bs6QftHdU2MQDt70ApscC3kJsBQjny8QkWlXnJpDtDxwOIlKTMRaWk20hmP1PGqIAM_tOGq4AhJaUIMTKl5wgys4GuiRRhYnUErQUUZpN1cQ5w9dGHWxafk5MRDrTGWAO3cBrasUoHdYUvzRBMzs8QkYMPMOC0xMcky2dw00dBQkkEEm1Yp7MLSoK36FiaQkQoZBpaSotJUWWC9Dw0QAK7PnXo\",\"Volume\":
+        [\"2\"],\"DatabaseTitle\": [\"British Periodicals\"],\"Language\": [\"English\"],\"PublicationPlace\":
+        [\"London\"],\"Score\": [\"0.01\"],\"DBID\": [\"0U0\"],\"IsPeerReviewed\":
+        [\"false\"],\"PublicationDate_xml\": [{\"text\": \"18840101\",\"month\": \"01\",\"year\":
+        \"1884\",\"day\": \"01\"}],\"PublicationDate\": [\"18840101\"],\"PublicationCentury\":
+        [\"1800\"],\"Publisher\": [\"Patey & Willis\"],\"SourceType\": [\"Aggregation
+        Database\"],\"Publisher_xml\": [{\"name\": \"Patey & Willis\"}],\"URI\": [\"http://search.proquest.com/docview/7349217\"],\"PQPubID\":
+        [\"2686\"],\"IsScholarly\": [\"false\"],\"ID\": [\"FETCH-proquest_dll_73492173\"],\"PublicationTitle\":
+        [\"The Lute : a monthly journal of musical news, 1883-1899\"],\"Issue\": [\"1\"],\"Discipline\":
+        [\"Music\"],\"PublicationYear\": [\"1884\"],\"Genre\": [\"Front Matter\",\"Front
+        Page/Cover Story\"],\"PublicationPlace_xml\": [{\"name\": \"London\"}],\"PQID\":
+        [\"7349217\"],\"SubjectTerms\": [\"MUSIC\"],\"MergedId\": [\"FETCHMERGED-proquest_dll_73492173\"],\"PublicationDecade\":
+        [\"1880\"],\"ContentType\": [\"Journal Article\"],\"Title\": [\"Cover\"],\"ISSN\":
+        [\"2043-4243\"],\"SSID\": [\"ssib008076135\",\"ssib006555484\",\"ssib007498180\",\"ssib007566807\"],\"StartPage\":
+        [\"1\"],\"EndPage\": [\"1\"],\"thumbnail_s\": [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=2043-4243&client=summon\"],\"thumbnail_m\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=2043-4243&client=summon\"],\"thumbnail_l\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=2043-4243&client=summon\"],\"LinkModel\":
+        [\"DirectLink\"],\"BookMark\": [\"ePnHCXMwY2HgBG231DUxMjHmgEWsBai3bGzKycDqDFqYyM0g7eYa4uyhCyv94lNycuLNQQflGYIuMMcnCwBKYhku\"]},{\"hasFullText\":
+        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Unindexed+Front+Matter&rft.jtitle=Chicago+Review&rft.date=1969-05-01&rft.pub=University+of+Chicago+Press&rft.issn=0009-3696&rft.eissn=2327-5804&rft.volume=20&rft.issue=4\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icBY3Eo566yFgHjWiE2HCIaGCrEXTiIbDh6AY6jEDbN7EEtuQWdgIBdLkF0jxACmTjm5klYlUd0pmx-NZpQMo3S13QDX2Q0h0sBmwymeuaWkAu-YWVeUYGSHFrwgzss1pAThd2g1djRtApGJiRGJUVuEIJEWTghzadFRwhQSDEwJSaJ8wg7gMdcC1WUFPwgZ8RXSzCIAYPGAVwwChAAkaUQc7NNcTZQxdmTXxKTg5oug3YSDUyAnamJUA7zIHeSQV22y3NE03MzBKTgA1I47TExCTLZHPTRENDSQZxHLqlcMpIM3AhwluGgaWkqDRVFthKAYVUUmYiAApW37I\",\"DatabaseTitle\":
+        [\"Periodicals Index Online\"],\"Volume\": [\"20\"],\"Language\": [\"English\"],\"PublicationPlace\":
+        [\"Chicago\"],\"Score\": [\"0.01\"],\"IsPeerReviewed\": [\"true\"],\"PublicationDate\":
+        [\"19690501\"],\"PublicationDate_xml\": [{\"text\": \"19690501\",\"month\":
+        \"05\",\"year\": \"1969\",\"day\": \"01\"}],\"PublicationCentury\": [\"1900\"],\"Publisher\":
+        [\"University of Chicago Press\"],\"SourceType\": [\"Aggregation Database\"],\"Publisher_xml\":
+        [{\"name\": \"University of Chicago Press\"}],\"PQPubID\": [\"1821006\"],\"URI\":
+        [\"http://search.proquest.com/docview/1301392271\"],\"IsScholarly\": [\"true\"],\"ID\":
+        [\"FETCH-proquest_dll_13013922713\"],\"PublicationTitle\": [\"Chicago Review\"],\"Issue\":
+        [\"4\"],\"Discipline\": [\"Languages & Literatures\"],\"PublicationYear\":
+        [\"1969\"],\"Genre\": [\"Front Matter\"],\"PublicationPlace_xml\": [{\"name\":
+        \"Chicago\"}],\"PQID\": [\"1301392271\"],\"EISSN\": [\"2327-5804\"],\"MergedId\":
+        [\"FETCHMERGED-proquest_dll_13013922713\"],\"PublicationDecade\": [\"1960\"],\"ContentType\":
+        [\"Journal Article\"],\"Title\": [\"Unindexed Front Matter\"],\"ISSN\": [\"0009-3696\"],\"SSID\":
+        [\"ssj0002222\"],\"thumbnail_s\": [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0009-3696&client=summon\"],\"thumbnail_m\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0009-3696&client=summon\"],\"thumbnail_l\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0009-3696&client=summon\"],\"LinkModel\":
+        [\"OpenURL\"],\"BookMark\": [\"ePnHCXMwYwJd5mZkrmtqYWDCAr3FDHRnHAeseARWSEacDGLAJhXoOMDUFAU30E59BV_wcZLcDHJuriHOHrqwcjE-JScHNOUCbKgYGZmDLiEgoAAAwI8hwA\"]},{\"hasFullText\":
+        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Information+for+Readers&rft.jtitle=Annals+of+Emergency+Medicine&rft.date=2009&rft.pub=Mosby%2C+Inc&rft.issn=0196-0644&rft.eissn=1085-8717&rft.volume=53&rft.issue=1&rft.spage=A13&rft.epage=A13&rft_id=info:doi/10.1016%2FS0196-0644%2808%2902031-3&rft.externalDocID=doi_10_1016_S0196_0644_08_02031_3\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icBY3Eo566CNkKA11UCS35ISU6uKyGiuhDw1K_IDNTPxh0rguwOjUB7RUFnT8I2kltZgHqfrm5OCGO3TUxgt5ICOw3A1Uj9vBATAALahhYaIIN0TVGqpJ4EKWnmwADbN0TbHlJcmkO0G3A8iMpMxFp7TXSIY4U-EWQgR_aHFVwhKgTYmBKzRNm4PCFTriLMIhDtyuBok8ByFIIgix9FmWwd3MNcfbQhfkjHsUR8cCSMh5pZZelWTzI5njQXZQgu-ONjSVAG7mBDa1UYO_Y0jzRxMwsMQnYTjNOS0xMskw2N000NJRksCDXeCnytUozcEHmckADIDIMLCVFpamywOYENBoAKOy2Gg\",\"Volume\":
+        [\"53\"],\"Language\": [\"English\"],\"Score\": [\"0.01\"],\"DOI\": [\"10.1016/S0196-0644(08)02031-3\"],\"IsPeerReviewed\":
+        [\"true\"],\"PublicationDate\": [\"2009\"],\"PublicationDate_xml\": [{\"text\":
+        \"2009\",\"year\": \"2009\"}],\"PublicationCentury\": [\"2000\"],\"Publisher\":
+        [\"Mosby, Inc\"],\"SourceType\": [\"Publisher\"],\"Publisher_xml\": [{\"name\":
+        \"Mosby, Inc\"}],\"URI\": [\"http://www.sciencedirect.com/science/article/pii/S0196064408020313\"],\"IsScholarly\":
+        [\"true\"],\"ID\": [\"FETCH-elsevier_sciencedirect_doi_10_1016_S0196_0644_08_02031_33\"],\"PublicationTitle\":
+        [\"Annals of Emergency Medicine\"],\"Issue\": [\"1\"],\"Discipline\": [\"Medicine\"],\"PublicationYear\":
+        [\"2009\"],\"EISSN\": [\"1085-8717\"],\"MergedId\": [\"FETCHMERGED-elsevier_sciencedirect_doi_10_1016_S0196_0644_08_02031_33\"],\"PublicationDecade\":
+        [\"2000\"],\"ContentType\": [\"Journal Article\"],\"Title\": [\"Information
+        for Readers\"],\"ISSN\": [\"0196-0644\"],\"ExternalDocumentID\": [\"doi_10_1016_S0196_0644_08_02031_3\"],\"SSID\":
+        [\"ssj0009421\"],\"StartPage\": [\"A13\"],\"EndPage\": [\"A13\"],\"thumbnail_s\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0196-0644&client=summon\"],\"thumbnail_m\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0196-0644&client=summon\"],\"thumbnail_l\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0196-0644&client=summon\"],\"LinkModel\":
+        [\"DirectLink\"],\"BookMark\": [\"ePnHCXMwY4DvktEPBp29ogus80w0DCw0QVNehrrGTNAF78CGOrCvxAlXwgE_KdfEyJCTQRy6GwfkOgUgSyEIsrKXm8HezTXE2UMXVnPEQ2sKSA0QDywI4pEWLlmaxYMMjwddtQiyPx50QS6lJgAA-OM9Rw\"]},{\"hasFullText\":
+        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Article+2+--+No+Title&rft.jtitle=The+New+England+Farmer%2C+and+Horticultural+Register+%281822-1890%29&rft.date=1831-12-07&rft.pub=American+Periodicals+Series+II&rft.volume=10&rft.issue=21&rft.spage=167&rft.externalDocID=1593539472\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icBY3Eo566yAC7FBUau7BCEVxSp-QngwbJ9Q1BU2QmwPxgX1CoC7o1CjS7CrtCIxF6tQJohgbYoGBmYDUETWkB07d5hDFGMQsuGt0EGGADErA1I8mlOUArgYVCUmYi0oJqpJMZqeVAQQZ-aINTwRGSQoQYmFLzRBhEoVwFIwVdXQW_fIUQUJoRZZBzcw1x9tCFWRyfkpMTD2yJGJsaW5qYGxlLgDZfAxtHqcAeraV5oomZWWISsG1lnJaYmGSZbG6aaGgoySCOQ7cUThlp0J57Y0Pw8g1zGQaWkqLSVFlgBQ4NIwBizJKe\",\"DatabaseTitle\":
+        [\"American Periodicals\",\"American Periodicals Series (Collection I)\"],\"Volume\":
+        [\"10\"],\"Language\": [\"English\"],\"PublicationPlace\": [\"Boston\"],\"Score\":
+        [\"0.01\"],\"IsPeerReviewed\": [\"false\"],\"DBID\": [\"7X3\",\"D1Z\"],\"PublicationDate\":
+        [\"18311207\"],\"PublicationDate_xml\": [{\"text\": \"18311207\",\"month\":
+        \"12\",\"year\": \"1831\",\"day\": \"07\"}],\"PublicationCentury\": [\"1800\"],\"Publisher\":
+        [\"American Periodicals Series II\"],\"SourceType\": [\"Aggregation Database\"],\"Publisher_xml\":
+        [{\"name\": \"American Periodicals Series II\"}],\"PQPubID\": [\"24525\"],\"URI\":
+        [\"http://search.proquest.com/docview/127844376\"],\"IsScholarly\": [\"false\"],\"ID\":
+        [\"FETCH-proquest_dll_15935394723\"],\"PublicationTitle\": [\"The New England
+        Farmer, and Horticultural Register (1822-1890)\"],\"Issue\": [\"21\"],\"PublicationYear\":
+        [\"1831\"],\"PublicationPlace_xml\": [{\"name\": \"Boston\"}],\"PQID\": [\"127844376\"],\"MergedId\":
+        [\"FETCHMERGED-proquest_dll_15935394723\"],\"PublicationDecade\": [\"1830\"],\"ContentType\":
+        [\"Journal Article\"],\"Title\": [\"Article 2 -- No Title\"],\"ExternalDocumentID\":
+        [\"1593539472\"],\"StartPage\": [\"167\"],\"Database_xml\": [{\"sequence\":
+        \"1\",\"name\": \"American Periodicals Series (Collection I)\",\"dbid\": \"7X3\",\"url\":
+        \"http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/americanperiodicals/advanced?accountid=10226\",\"sourceTypes\":
+        [\"Aggregation Database\"]}],\"LinkModel\": [\"DirectLink\"],\"BookMark\":
+        [\"ePnHCXMw42QQdYT4WcFIQVdXwS9fIQTkbW4GOTfXEGcPXViJF5-SkxMPrEyNTY0tTcxB1wURUAAAgfgZrg\"]},{\"hasFullText\":
+        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Contents&rft.jtitle=Annals+of+Pure+and+Applied+Logic&rft.date=2006&rft.pub=Elsevier+B.V&rft.issn=0168-0072&rft.volume=143&rft.issue=1&rft.spage=vi&rft.epage=vi&rft_id=info:doi/10.1016%2FS0168-0072%2806%2900111-4&rft.externalDocID=doi_10_1016_S0168_0072_06_00111_4\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icBY3Eo566CNkKA11UCS35ISU6uKyGiuhDw1K_IDNTPxjYVLEAHXttYAa-Lh10IqgpsG4HbeGLcEIs8jCBzDEDFeuCVCP28EBMAAtqGJhpgg3RNUGqkngQpambAANs3RNseUlyaQ7QbcDyIykzEWntNdIhjhT4RZCBH9ocVXCEqBNiYErNE2bg9oWf5VoszMAVALvtoFKEgQN8mlVeSbEog72ba4izhy7MI_EorogHFpXxSEu7zCziQVbHQ5e3GcabGEuAdnIDW1qpwO6xpXmiiZlZYhKwoWaclpiYZJlsbppoaCjJYEGu8VLka5Vm4EKMgMgwsJQUlabKAtsT0HgAAIEptfc\",\"Volume\":
+        [\"143\"],\"Language\": [\"English\"],\"Score\": [\"0.01\"],\"DOI\": [\"10.1016/S0168-0072(06)00111-4\"],\"IsPeerReviewed\":
+        [\"true\"],\"PublicationDate\": [\"2006\"],\"PublicationDate_xml\": [{\"text\":
+        \"2006\",\"year\": \"2006\"}],\"PublicationCentury\": [\"2000\"],\"Publisher\":
+        [\"Elsevier B.V\"],\"SourceType\": [\"Publisher\"],\"Publisher_xml\": [{\"name\":
+        \"Elsevier B.V\"}],\"URI\": [\"http://www.sciencedirect.com/science/article/pii/S0168007206001114\"],\"IsScholarly\":
+        [\"true\"],\"ID\": [\"FETCH-elsevier_sciencedirect_doi_10_1016_S0168_0072_06_00111_43\"],\"PublicationTitle\":
+        [\"Annals of Pure and Applied Logic\"],\"Issue\": [\"1\"],\"Discipline\":
+        [\"Philosophy\",\"Mathematics\"],\"PublicationYear\": [\"2006\"],\"MergedId\":
+        [\"FETCHMERGED-elsevier_sciencedirect_doi_10_1016_S0168_0072_06_00111_43\"],\"PublicationDecade\":
+        [\"2000\"],\"ContentType\": [\"Journal Article\"],\"Title\": [\"Contents\"],\"ISSN\":
+        [\"0168-0072\"],\"ExternalDocumentID\": [\"doi_10_1016_S0168_0072_06_00111_4\"],\"SSID\":
+        [\"ssj0005473\"],\"StartPage\": [\"vi\"],\"EndPage\": [\"vi\"],\"thumbnail_s\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0168-0072&client=summon\"],\"thumbnail_m\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0168-0072&client=summon\"],\"thumbnail_l\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0168-0072&client=summon\"],\"LinkModel\":
+        [\"DirectLink\"],\"BookMark\": [\"ePnHCXMwY4DvktEPBhIWuqCzqTUMzDTBt5rrmrCAz9qGCHPA12KYmBtzMnCAD2TKKynmZrB3cw1x9tCFVQ_x0OoAUszHA3N7PNLqJDOLeJBp8dAVWobxoC04lJoAAGxgNbU\"]},{\"hasFullText\":
+        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Announcement&rft.jtitle=Applied+and+Preventive+Psychology&rft.date=1999-01-01&rft.issn=0962-1849&rft.eissn=1873-7293&rft.volume=8&rft.issue=3&rft.spage=229&rft.epage=229&rft_id=info:doi/10.1016%2FS0962-1849%2805%2980080-0&rft.externalDBID=n%2Fa&rft.externalDocID=10_1016_S0962_1849_05_80080_0\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icBY3Eo566yKCPYwIfvJXX0swIqM3EUsPAVNMC1MLRBXXRTYD1POhURxcnxKSBAfjCWLgGxIYd7KYgVUU8iCLUTYABtqQetpYkuTQHGP_AwiIpMxFpoTXSiY3EOlyQgR_a0FRwhKQMIQam1DxhBi54eVcpwsDjmJcHzOvJ4AFCUQZTN9cQZw9dmFvjCyDnUMQjFmgBbYoH2RRvYBoPtinewFgCtB8b2F5KBXZyLc0TTczMEpOAzS3jtMTEJMtkc9NEQ0NJBj3SDJUiVYM0AxfknAPQmIUMA0tJUWmqLDDYoYEJAF-nk8w\",\"Volume\":
+        [\"8\"],\"DatabaseTitle\": [\"CrossRef\"],\"Language\": [\"English\"],\"Score\":
+        [\"0.01\"],\"DOI\": [\"10.1016/S0962-1849(05)80080-0\"],\"IsPeerReviewed\":
+        [\"true\"],\"PublicationDate\": [\"1999-22\"],\"PublicationDate_xml\": [{\"text\":
+        \"1999-22\",\"year\": \"1999\"}],\"PublicationCentury\": [\"1900\"],\"SourceType\":
+        [\"Aggregation Database\"],\"IsScholarly\": [\"true\"],\"ID\": [\"FETCH-crossref_primary_10_1016_S0962_1849_05_80080_03\"],\"PublicationTitle\":
+        [\"Applied and Preventive Psychology\"],\"Issue\": [\"3\"],\"Discipline\":
+        [\"Psychology\"],\"PublicationYear\": [\"1999\"],\"EISSN\": [\"1873-7293\"],\"MergedId\":
+        [\"FETCHMERGED-crossref_primary_10_1016_S0962_1849_05_80080_03\"],\"PublicationDecade\":
+        [\"1990\"],\"ContentType\": [\"Journal Article\"],\"Title\": [\"Announcement\"],\"ExternalDocumentID\":
+        [\"10_1016_S0962_1849_05_80080_0\"],\"ISSN\": [\"0962-1849\"],\"SSID\": [\"ssj0013067\"],\"StartPage\":
+        [\"229\"],\"EndPage\": [\"229\"],\"thumbnail_s\": [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0962-1849&client=summon\"],\"thumbnail_m\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0962-1849&client=summon\"],\"thumbnail_l\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0962-1849&client=summon\"],\"LinkModel\":
+        [\"DirectLink\"],\"BookMark\": [\"ePnHCXMwY4DvktEPBjaPjXSBXQhLDQNTTQtQ40TXgAnYAbIwNwZdoQpMlpxwJRzwoX9g-cnJwOOYlwdM7sngMTJuBlM31xBnD11YzRFfADmKIR6xRgloTjzInHgD03iwVfGge7DI0wcAZ6oxrA\"]},{\"hasFullText\":
+        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Results+of+Competitive+Sales&rft.jtitle=The+Bond+Buyer&rft.date=2002-12-09&rft.pub=SourceMedia%2C+Inc&rft.issn=0732-0469&rft.volume=342&rft.issue=31528&rft.spage=30&rft.externalDBID=IAO&rft.externalDocID=95094171\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icBY3Eo566yOAOH7nIy9YDlYyILQ2JBQXF-in5yfqOlqCz3gzNDfWdPF3tka7PKLVNBmXkpMzEUmYGVlCHApTSIzzhHS9giwi8JQ6Ymo1ASxktocUvD6L8dBNggI0nwRaQJJfm6MEMRlpdjXRMI6WuFWTgh7Y6FRwhyUSIgSk1T5iBA7boXYRBJii1uDSnpFghP03BGdySBi8pUggGWlssyiDr5hri7KELckQ8KEWWFCUmx8OsNpYAbckGNplSgf1cS_NEEzOzxCRgi8s4LTExyTLZ3DTR0FCSQQy7ZilcEtIMXLAbUQwsZRhYSopKU2WBlTrUVwDQ9pYY\",\"Volume\":
+        [\"342\"],\"Language\": [\"English\"],\"Score\": [\"0.01\"],\"Copyright\":
+        [\"COPYRIGHT 2002 SourceMedia, Inc.\"],\"IsPeerReviewed\": [\"false\"],\"DBID\":
+        [\"IAO\"],\"PublicationDate\": [\"20021209\"],\"PublicationDate_xml\": [{\"text\":
+        \"20021209\",\"month\": \"12\",\"year\": \"2002\",\"day\": \"09\"}],\"PublicationCentury\":
+        [\"2000\"],\"Copyright_xml\": [{\"notice\": \"COPYRIGHT 2002 SourceMedia,
+        Inc.\"}],\"Publisher\": [\"SourceMedia, Inc\"],\"SourceType\": [\"Aggregation
+        Database\"],\"Publisher_xml\": [{\"name\": \"SourceMedia, Inc\"}],\"IsScholarly\":
+        [\"false\"],\"ID\": [\"FETCH-gale_infotrac_950941713\"],\"PublicationTitle\":
+        [\"The Bond Buyer\"],\"Issue\": [\"31528\"],\"Discipline\": [\"Business\"],\"PublicationYear\":
+        [\"2002\"],\"Audience\": [\"Trade\"],\"MergedId\": [\"FETCHMERGED-gale_infotrac_950941713\"],\"PublicationDecade\":
+        [\"2000\"],\"ContentType\": [\"Journal Article\"],\"Title\": [\"Results of
+        Competitive Sales\"],\"ISSN\": [\"0732-0469\"],\"ExternalDocumentID\": [\"95094171\"],\"SSID\":
+        [\"ssj0002068\"],\"StartPage\": [\"30\"],\"thumbnail_s\": [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0732-0469&client=summon\"],\"thumbnail_m\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0732-0469&client=summon\"],\"thumbnail_l\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0732-0469&client=summon\"],\"LinkModel\":
+        [\"DirectLink\"],\"BookMark\": [\"ePnHCXMwYwEde2lsBFoyaMkBKxKNDMwsOBlkglKLS3NKihXy0xScwa1C8PIYhWBgUVjMzSDr5hri7KELKhjjQaEL7Oknx1uCDngzNAfdPoBfHgCQOCHv\"]},{\"hasFullText\":
+        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Editorial+note&rft.jtitle=The+Journal+of+Pediatrics&rft.au=J.M.G&rft.date=1978&rft.pub=Mosby%2C+Inc&rft.issn=0022-3476&rft.eissn=1085-8695&rft.volume=93&rft.issue=4&rft.spage=722&rft.epage=722&rft_id=info:doi/10.1016%2FS0022-3476%2878%2980928-7&rft.externalDocID=doi_10_1016_S0022_3476_78_80928_7\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icBY3Eo566CNkKA11UCS35ISU6uKyGiuhDw1K_IDMTtMMXWLGZmAPLWgsDS2CzH7ST2swC1P1yc3FCHLtrAt2EAlqzDlSN2MMDMQEsqGFuoQk2RNccqUriQZSybgIMsHVPsOUlyaU5QLcBy4-kzESktddIhzhS4BdBBn5oc1TBEaJOiIEpNU-YgcMXOuEuwsDnmpIJOkYEqCYvvyRVlMHezTXE2UMX5vx4FLvjgQVkPGJBF9C-eJCF8eYW8WAr482NJUD7t4Htq1SgKyzNE03MzBKTgM0z47TExCTLZHPTRENDSQYLco2XIl-rNAOXIfgcYNC4hwwDS0lRaaossBUBDX0An7qzVw\",\"Volume\":
+        [\"93\"],\"Language\": [\"English\"],\"Author\": [\"J.M.G\"],\"Score\": [\"0.01\"],\"DOI\":
+        [\"10.1016/S0022-3476(78)80928-7\"],\"Copyright\": [\"The C. V. Mosby Company\"],\"IsPeerReviewed\":
+        [\"true\"],\"PublicationDate\": [\"1978\"],\"PublicationDate_xml\": [{\"text\":
+        \"1978\",\"year\": \"1978\"}],\"PublicationCentury\": [\"1900\"],\"Copyright_xml\":
+        [{\"notice\": \"The C. V. Mosby Company\"}],\"Publisher\": [\"Mosby, Inc\"],\"SourceType\":
+        [\"Publisher\"],\"Publisher_xml\": [{\"name\": \"Mosby, Inc\"}],\"URI\": [\"http://www.sciencedirect.com/science/article/pii/S0022347678809287\"],\"IsScholarly\":
+        [\"true\"],\"ID\": [\"FETCH-elsevier_sciencedirect_doi_10_1016_S0022_3476_78_80928_73\"],\"PublicationTitle\":
+        [\"The Journal of Pediatrics\"],\"Issue\": [\"4\"],\"Discipline\": [\"Medicine\"],\"PublicationYear\":
+        [\"1978\"],\"EISSN\": [\"1085-8695\"],\"MergedId\": [\"FETCHMERGED-elsevier_sciencedirect_doi_10_1016_S0022_3476_78_80928_73\"],\"Author_xml\":
+        [{\"sequence\": \"1\",\"surname\": \"J.M.G\",\"fullname\": \"J.M.G\"}],\"PublicationDecade\":
+        [\"1970\"],\"ContentType\": [\"Journal Article\"],\"Title\": [\"Editorial
+        note\"],\"ISSN\": [\"0022-3476\"],\"ExternalDocumentID\": [\"doi_10_1016_S0022_3476_78_80928_7\"],\"SSID\":
+        [\"ssj0009400\"],\"StartPage\": [\"722\"],\"EndPage\": [\"722\"],\"thumbnail_s\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0022-3476&client=summon\"],\"thumbnail_m\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0022-3476&client=summon\"],\"thumbnail_l\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0022-3476&client=summon\"],\"LinkModel\":
+        [\"DirectLink\"],\"BookMark\": [\"ePnHCXMwY4DvkgHtwgUtFTcxN9Mwt9C0MLA0stA1Z4IueLcwszRlgZ3kDVTCAT8pF5iqOBn4XFMyQadkJOYo5OWXAEtKezfXEGcPXViFEQ-tICAFfzww_8cj1isBzYwHmRlvbhEPtjYedC06pSYAAJxuOig\"]},{\"hasFullText\":
+        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Reports+and+Analyses+and+Descriptions+of+New+Inventions+in+Medicine%2C+Surgery%2C+Dietetics%2C+and+the+Allied+Sciences&rft.jtitle=British+Medical+Journal&rft.date=1886-06-19&rft.issn=0007-1447&rft.volume=1&rft.issue=1329&rft.spage=1174&rft.epage=1174&rft.externalDBID=5PM&rft.externalDocID=2257234\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwnV1NS8NAEB3EQw-C2Cr4VRgQekoDcWPWHFooatGDJ72XTbvBQE1CEy_-emf2g7Iee8zHDsuwebzZvHkLcPcPD3iHqtexweYp0VneiQ9dF8GrxlhUGUgT47r6MvJKl8edOV8tLrlO5FubGa1HeS_SSd8021n7bcbp34l90RgPqYI3DdY94TT7o_mK3qK1EDK1bSpslpjyKSuhOPJkD7rLMzh1NBEXdj5DONL1CAbv7kf4ObSWOHeo6g1aYxFtL6iQ9EDQYVMioRi-eWV5h1WNPkqEH7YnOsLnirgzGzZHJgaRQlxsmZ2i-_a7C5gvXz6fXqfBtFetNatYsX10-IRSamykXebEJTduE7HSVA3nUqVZpgriZaJUqsjX8kElyRXIA6NfHzzyhvv9HzOWZSX5LRz3ux89JvLAoF1U6g-SPcW2\",\"Volume\":
+        [\"1\"],\"Language\": [\"English\"],\"Score\": [\"0.01\"],\"IsPeerReviewed\":
+        [\"false\"],\"DBID\": [\"5PM\"],\"PublicationDate\": [\"18860619\"],\"PublicationDate_xml\":
+        [{\"text\": \"18860619\",\"month\": \"06\",\"year\": \"1886\",\"day\": \"19\"}],\"PublicationCentury\":
+        [\"1800\"],\"SourceType\": [\"Open Access Repository\"],\"URI\": [\"http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2257234&tool=pmcentrez&rendertype=abstract\"],\"IsScholarly\":
+        [\"false\"],\"ID\": [\"FETCH-pubmedcentral_primary_oai_pubmedcentral_nih_gov_22572343\"],\"PublicationTitle\":
+        [\"British Medical Journal\"],\"Issue\": [\"1329\"],\"Discipline\": [\"Medicine\"],\"PublicationYear\":
+        [\"1886\"],\"MergedId\": [\"FETCHMERGED-pubmedcentral_primary_oai_pubmedcentral_nih_gov_22572343\"],\"PublicationDecade\":
+        [\"1880\"],\"ContentType\": [\"Journal Article\"],\"Title\": [\"Reports and
+        Analyses and Descriptions of New Inventions in Medicine, Surgery, Dietetics,
+        and the Allied Sciences\"],\"ExternalDocumentID\": [\"2257234\"],\"ISSN\":
+        [\"0007-1447\"],\"SSID\": [\"ssj0033740\"],\"StartPage\": [\"1174\"],\"EndPage\":
+        [\"1174\"],\"thumbnail_s\": [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0007-1447&client=summon\"],\"thumbnail_m\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0007-1447&client=summon\"],\"thumbnail_l\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0007-1447&client=summon\"],\"LinkModel\":
+        [\"DirectLink\"],\"BookMark\": [\"ePnHCXMwYwE3N811gQ11cw5okWhsbG5iwMlQAGlTFisA-8gKkDM3UiEcYB8LlkeKFfLTFIAZXMETtui6WCEzT8EXOtOsoxAM2S6so-CSCWxWgs4y1gGbAWwvKTjmgBpuCtBsUczNYOfmGuLsoYuy3DG-AHKOQzzoZGVUmbzMDPAJy8BEbm5kDNrJQ6EBAI-GXC4\"]},{\"hasFullText\":
+        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Foreign+Notes&rft.jtitle=The+Magazine+of+music+%3A+For+the+student+and+the+Million%2C+Feb.+1885&rft.date=1889-05-01&rft.pub=John+W.+Coates&rft.issn=2043-4278&rft.volume=6&rft.issue=5&rft.spage=97&rft.epage=97\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icBY3Eo566yAC73Qoau7BCEVxSp-QngwbJ9c0sQXNGFvYFhbqgO6NAc6uwCzQSoRcrgOZngM0JZgZW0A5RUHp3NHZGpDYT0GFcoP3ToP2guqA7JhBsCzMchbGbAEM58tkJFZV6yaU5QJcBy46kzESkdddIBzhSxx-CDPzQVqmCIyQZCTEwpeYJM7CC74AWYeCFXt-p4JcPbJeKMki7uYY4e-jCrI1PycmJh1pnLAHang1sPqUC-7yW5okmZmaJScDWl3FaYmKSZbK5aaKhoSSDCDatUtiFpUH78UHrrUCL_2QYWEqKSlNlgZU7NGAAKsuYEg\",\"Volume\":
+        [\"6\"],\"DatabaseTitle\": [\"British Periodicals Collection II\",\"British
+        Periodicals\"],\"Language\": [\"English\"],\"PublicationPlace\": [\"London\"],\"Score\":
+        [\"0.01\"],\"DBID\": [\"PBE\",\"PBC\",\"0U0\",\"A3C\"],\"IsPeerReviewed\":
+        [\"false\"],\"PublicationDate_xml\": [{\"text\": \"18890501\",\"month\": \"05\",\"year\":
+        \"1889\",\"day\": \"01\"}],\"PublicationDate\": [\"18890501\"],\"PublicationCentury\":
+        [\"1800\"],\"Publisher\": [\"John W. Coates\"],\"AbstractList\": [\"VERDI,
+        it appears, must perforce give way on the question of his jubilee. His friends
+        are resolved on the celebration, and the most that he can do is to beg that
+        the ceremonies may be as simple and brief as possible. M. Boito is at the
+        head of the committee, which has already made several propositions.\"],\"SourceType\":
+        [\"Aggregation Database\"],\"Publisher_xml\": [{\"name\": \"John W. Coates\"}],\"Snippet\":
+        [\"VERDI, it appears, must perforce give way on the question of his jubilee.
+        His friends are resolved on the celebration, and the most that he can do is
+        to beg...\"],\"URI\": [\"http://search.proquest.com/docview/6976848\"],\"PQPubID\":
+        [\"2898\"],\"IsScholarly\": [\"false\"],\"ID\": [\"FETCH-proquest_dll_69768483\"],\"PublicationTitle\":
+        [\"The Magazine of music : For the student and the Million, Feb. 1885\"],\"Issue\":
+        [\"5\"],\"Discipline\": [\"Music\"],\"PublicationYear\": [\"1889\"],\"PublicationPlace_xml\":
+        [{\"name\": \"London\"}],\"PQID\": [\"6976848\"],\"DatabaseTitleList\": [\"British
+        Periodicals Collection II\"],\"Abstract\": [\"VERDI, it appears, must perforce
+        give way on the question of his jubilee. His friends are resolved on the celebration,
+        and the most that he can do is to beg that the ceremonies may be as simple
+        and brief as possible. M. Boito is at the head of the committee, which has
+        already made several propositions.\"],\"SubjectTerms\": [\"MUSIC\"],\"MergedId\":
+        [\"FETCHMERGED-proquest_dll_69768483\"],\"PublicationDecade\": [\"1880\"],\"ContentType\":
+        [\"Journal Article\"],\"Title\": [\"Foreign Notes\"],\"ISSN\": [\"2043-4278\",\"2043-4286\"],\"SSID\":
+        [\"ssib005444517\"],\"StartPage\": [\"97\"],\"EndPage\": [\"97\"],\"thumbnail_s\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=2043-4278&client=summon\"],\"thumbnail_m\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=2043-4278&client=summon\"],\"thumbnail_l\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=2043-4278&client=summon\"],\"Database_xml\":
+        [{\"sequence\": \"1\",\"name\": \"British Periodicals Collection II\",\"dbid\":
+        \"A3C\",\"url\": \"http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/britishperiodicals/advanced?accountid=10226\",\"sourceTypes\":
+        [\"Aggregation Database\"]}],\"LinkModel\": [\"DirectLink\"],\"BookMark\":
+        [\"ePnHCXMwY2HgBG231AVd4cABj2gT0DlY5pwMvNALJxX88oEtKW4GaTfXEGcPXVgpGJ-SkxNvZgmaHAKd44dPFgBLMxxQ\"]}],\"rollups\":
+        {\"image\": {},\"reference\": {},\"newspaper\": {}}}"
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 17:56:09 GMT
+  recorded_at: Tue, 22 Sep 2015 19:25:05 GMT
 recorded_with: VCR 2.9.3

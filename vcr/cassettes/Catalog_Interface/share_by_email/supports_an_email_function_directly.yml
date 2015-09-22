@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&fl=*&q=%7B!lucene%7Did:(12345)&qt=search&rows=1&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck=false&stats=true&stats.field=pub_date_sort&wt=ruby
+    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&fl=*&q=%7B!lucene%7Did:(12345)&qt=search&rows=1&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck=false&stats=true&stats.field=pub_date_sort&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 19:41:30 GMT
+      - Tue, 22 Sep 2015 19:28:17 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -151,10 +151,10 @@ http_interactions:
         PT4zOTA4NTI5LjAsJ21lYW4nPT4xOTc3LjAsJ3N0ZGRldic9PjAuMCwnZmFj
         ZXRzJz0+e319fX19Cg==
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 19:41:31 GMT
+  recorded_at: Tue, 22 Sep 2015 19:28:17 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=12345&qt=document&wt=ruby
+    uri: "<solr_config>/select?id=12345&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -165,7 +165,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 19:41:30 GMT
+      - Tue, 22 Sep 2015 19:28:17 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -175,7 +175,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
         YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
         eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9PicxMjM0NScs
         J3F0Jz0+J2RvY3VtZW50Jywnd3QnPT4ncnVieSd9fSwncmVzcG9uc2UnPT57
@@ -274,5 +274,5 @@ http_interactions:
         cnNpb25fJz0+MTUwMTk5MjkyNjExNjMxNTEzNiwndGltZXN0YW1wJz0+JzIw
         MTUtMDUtMjNUMjA6MTQ6MzcuMDZaJ31dfX0K
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 19:41:31 GMT
+  recorded_at: Tue, 22 Sep 2015 19:28:17 GMT
 recorded_with: VCR 2.9.3

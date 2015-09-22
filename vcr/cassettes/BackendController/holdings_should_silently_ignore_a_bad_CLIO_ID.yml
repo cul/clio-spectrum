@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/999999999999999999999999999999999999
+    uri: "<clio_backend_url>/holdings/retrieve/999999999999999999999999999999999999"
     body:
       encoding: UTF-8
       string: ''
@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 14:45:15 GMT
+      - Tue, 22 Sep 2015 19:24:01 GMT
   response:
     status:
       code: 404
@@ -41,14 +41,14 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 9617e373-5b70-41b5-aab9-f121c27c1ac9
+      - 8e745ebe-0d4e-4a84-891d-dbea8919db26
       X-Runtime:
-      - '1.085886'
+      - '1.561599'
       Server:
       - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
     body:
       encoding: UTF-8
       string: "{}"
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 14:45:16 GMT
+  recorded_at: Tue, 22 Sep 2015 19:24:03 GMT
 recorded_with: VCR 2.9.3

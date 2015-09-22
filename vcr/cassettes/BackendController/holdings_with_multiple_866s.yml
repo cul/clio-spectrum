@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/763577
+    uri: "<clio_backend_url>/holdings/retrieve/763577"
     body:
       encoding: UTF-8
       string: ''
@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 14:45:13 GMT
+      - Tue, 22 Sep 2015 19:23:34 GMT
   response:
     status:
       code: 200
@@ -39,13 +39,13 @@ http_interactions:
       Access-Control-Request-Method:
       - "*"
       Etag:
-      - W/"7c51973c58d680618b63836c56de28d9"
+      - W/"2ef80c3f0d2482ff22cd1c223c57b761"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2d636934-9df2-46c5-a7ef-0af063276c8a
+      - b76e32f8-00a2-492e-a0a6-3385b53d3590
       X-Runtime:
-      - '0.025835'
+      - '6.907941'
       Server:
       - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
     body:
@@ -58,7 +58,7 @@ http_interactions:
         .A3\",\"status\":\"some_available\",\"holding_id\":[\"980108\"],\"copies\":[{\"items\":{\"1969/1976:v.32
         Unavailable 2014-03-31\":{\"status\":\"some_available\",\"count\":1},\"1940:v.5
         In transit to library\":{\"status\":\"some_available\",\"count\":1},\"1969/1976:v.38:pt.2
-        In transit to library\":{\"status\":\"some_available\",\"count\":1}},\"notes\":\"Notes:
+        In Maintenance. Ask for help at circ desk\":{\"status\":\"some_available\",\"count\":1}},\"notes\":\"Notes:
         For vols. 17, 18, 20 and 21 microfiche supplement for Near East, Africa microfiche
         supplement, see Microfiche FX3 6159.\",\"summary_holdings\":\"Library has:
         1927:v.2, 1929:v.1-3, 1934:v.2, 4-5, 1938:v.1, 4-5, 1939:v.1, 1940:v.5, 1941:v.1,
@@ -100,5 +100,5 @@ http_interactions:
         Establishment. -- 1952-1954:Guatemala (Suppl. to v.4)\",\"temp_locations\":[\"1910
         Shelved in Lehman\",\"1969-1976:v.11 Shelved in Lehman Reference (Non-Circulating)\"]}],\"services\":[\"offsite\"]}]}}"
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 14:45:13 GMT
+  recorded_at: Tue, 22 Sep 2015 19:23:42 GMT
 recorded_with: VCR 2.9.3

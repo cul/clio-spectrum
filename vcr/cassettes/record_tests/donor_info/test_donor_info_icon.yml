@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=9576776&qt=document&wt=ruby
+    uri: "<solr_config>/select?id=5602687&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -13,7 +13,197 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 18:06:13 GMT
+      - Tue, 22 Sep 2015 19:33:12 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'5602687','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+pn-+6727+00000000+c5730000+r6350000+001998+5602687'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> PN6727.C573 R635 1998|DELIM|6714432'],'summary_display'=>['In Depression-era Chicago, the most fearsome hitman in town learns that the mob intends to kill his twelve-year-old son'],'item_display'=>['PN6727.C573 R635 1998 | loc+pn-+6727+00000000+c5730000+r6350000+001998+5602687 | ebn~ac~~tsxs~zzzzzzzz~nuswzzzz~8twuzzzz~zzyqqr~utzxtrs'],'title_display'=>['Road to perdition'],'clio_id_display'=>'5602687','subject_topic_facet'=>['Gangsters','Graphic novels','Comic books, strips, etc'],'pub_place_display'=>['New York'],'format'=>['Book'],'oclc_display'=>['ocm52060886','52060886'],'title_first_facet'=>['R'],'pub_date_sort'=>1998,'full_publisher_display'=>['New York : Paradox Press, c1998.'],'isbn_display'=>['1563894491','9781563894497'],'pub_year_display'=>['c1998'],'title_series_display'=>['Road to perdition'],'id'=>'5602687','reverse_shelfkey'=>['ebn~ac~~tsxs~zzzzzzzz~nuswzzzz~8twuzzzz~zzyqqr~utzxtrs'],'subject_geo_facet'=>['Illinois','Chicago'],'call_number_display'=>['PN6727.C573 R635 1998'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01508cam a2200397 a 4500</leader><controlfield tag="001">5602687</controlfield><controlfield tag="005">20121217162351.0</controlfield><controlfield tag="008">030415s1998    nyua     6    000 1 eng  </controlfield><datafield tag="019" ind1=" " ind2=" "><subfield code="a">144544293</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1563894491 (pbk.)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781563894497 (pbk.)</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm52060886</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)52060886</subfield><subfield code="z">(OCoLC)144544293</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)5602687</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DVA</subfield><subfield code="c">DVA</subfield><subfield code="d">BAKER</subfield><subfield code="d">XY4</subfield><subfield code="d">OSU</subfield><subfield code="d">BTCTA</subfield><subfield code="d">CQU</subfield><subfield code="d">YDXCP</subfield><subfield code="d">NNC</subfield></datafield><datafield tag="050" ind1=" " ind2="4"><subfield code="a">PN6727.C5796</subfield><subfield code="b">R63 1998</subfield></datafield><datafield tag="082" ind1="0" ind2="4"><subfield code="a">741.5973</subfield><subfield code="2">21</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Collins, Max Allan.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Road to perdition /</subfield><subfield code="c">written by Max Allan Collins ; art by Richard Piers Rayner ; lettering by Bob Lappan.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Paradox Press,</subfield><subfield code="c">c1998.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">302 p. :</subfield><subfield code="b">chiefly ill. ;</subfield><subfield code="c">21 cm.</subfield></datafield><datafield tag="490" ind1="1" ind2=" "><subfield code="a">Road to perdition</subfield></datafield><datafield tag="520" ind1=" " ind2=" "><subfield code="a">In Depression-era Chicago, the most fearsome hitman in town learns that the mob intends to kill his twelve-year-old son.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Gangsters</subfield><subfield code="z">Illinois</subfield><subfield code="z">Chicago</subfield><subfield code="v">Fiction</subfield><subfield code="v">Comic books, strips, etc.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Graphic novels.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Comic books, strips, etc.</subfield><subfield code="v">Fiction.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Rayner, Richard,</subfield><subfield code="d">1955-</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Lappan, Robert.</subfield></datafield><datafield tag="830" ind1=" " ind2="0"><subfield code="a">Road to perdition.</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20060622</subfield><subfield code="b">c</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">PN</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">PN6727.C573 R635 1998</subfield><subfield code="b">loc+PN-+6727+00000000+C5730000+R6350000+001998</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; PN6727.C573 R635 1998|DELIM|6714432</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Collins, Max Allan'],'pub_name_display'=>['Paradox Press'],'source_display'=>['catalog'],'material_type_display'=>['302 p.'],'language_facet'=>['English'],'_version_'=>1501948622513635328,'timestamp'=>'2015-05-23T08:30:25.852Z'}]}}
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:33:12 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/1563894491.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:33:12 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 19:33:12 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:43:12 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:33:12 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/9781563894497.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:33:12 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 19:33:12 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:43:12 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:33:12 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocm52060886.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:33:12 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 19:33:12 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:43:12 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:33:12 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/52060886.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:33:12 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 19:33:12 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:43:12 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:33:12 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?id=9576776&qt=document&wt=ruby"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 19:33:12 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -25,36 +215,10 @@ http_interactions:
       string: |
         {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'9576776','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+pn-+6727+00000000+k5700000+z4585000+9576776'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> PN6727.K57 Z4585|DELIM|12626104'],'lccn_display'=>['2006214209'],'acq_dt'=>'2012-08-03T00:00:00Z','title_display'=>['The Jack Kirby collector'],'item_display'=>['PN6727.K57 Z4585 | loc+pn-+6727+00000000+k5700000+z4585000+9576776 | ebn~ac~~tsxs~zzzzzzzz~fuszzzzz~0vuruzzz~qustsst~~~'],'id'=>'9576776','reverse_shelfkey'=>['ebn~ac~~tsxs~zzzzzzzz~fuszzzzz~0vuruzzz~qustsst~~~'],'clio_id_display'=>'9576776','subject_geo_facet'=>['United States'],'call_number_display'=>['PN6727.K57 Z4585'],'subject_topic_facet'=>['Kirby, Jack','Criticism and interpretation','Appreciation','Comic books, strips, etc','Cartoonists','Superhero comics','History and criticism'],'pub_place_display'=>['Raleigh, NC'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01867cas a2200529 a 4500</leader><controlfield tag="001">9576776</controlfield><controlfield tag="005">20140121191026.0</controlfield><controlfield tag="008">950208c199u9999ncuqr p       0   a0eng c</controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2006214209</subfield></datafield><datafield tag="012" ind1=" " ind2=" "><subfield code="l">1</subfield></datafield><datafield tag="016" ind1="7" ind2=" "><subfield code="a">016008315</subfield><subfield code="2">Uk</subfield></datafield><datafield tag="022" ind1="0" ind2=" "><subfield code="a">1932-6912</subfield><subfield code="l">1932-6912</subfield><subfield code="2">1</subfield></datafield><datafield tag="029" ind1="1" ind2=" "><subfield code="a">AU@</subfield><subfield code="b">000040599764</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm31953160</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)31953160</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)9576776</subfield></datafield><datafield tag="037" ind1=" " ind2=" "><subfield code="b">TwoMorrows Pub., 10407 Bedfordtown Dr., Raleigh, NC 27614</subfield><subfield code="c">$40.00</subfield><subfield code="c">$9.95 (single issue)</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">EEM</subfield><subfield code="c">EEM</subfield><subfield code="d">OCL</subfield><subfield code="d">NSD</subfield><subfield code="d">DLC</subfield><subfield code="d">OCLCQ</subfield><subfield code="d">UKMGB</subfield></datafield><datafield tag="042" ind1=" " ind2=" "><subfield code="a">pcc</subfield><subfield code="a">nsdp</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">n-us---</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">PN6727.K57</subfield><subfield code="b">Z4585</subfield></datafield><datafield tag="082" ind1="1" ind2="0"><subfield code="a">741.5</subfield><subfield code="2">14</subfield></datafield><datafield tag="222" ind1=" " ind2="4"><subfield code="a">The Jack Kirby collector</subfield></datafield><datafield tag="245" ind1="0" ind2="4"><subfield code="a">The Jack Kirby collector.</subfield></datafield><datafield tag="246" ind1="3" ind2=" "><subfield code="a">TJKC</subfield></datafield><datafield tag="246" ind1="0" ind2="3"><subfield code="a">New Jack Kirby collector</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Raleigh, NC :</subfield><subfield code="b">TwoMorrows Publishing</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">v. :</subfield><subfield code="b">ill. ;</subfield><subfield code="c">28-36 cm.</subfield></datafield><datafield tag="310" ind1=" " ind2=" "><subfield code="a">Quarterly,</subfield><subfield code="b">&lt;2004-&gt;</subfield></datafield><datafield tag="321" ind1=" " ind2=" "><subfield code="a">Bimonthly,</subfield><subfield code="b">&lt;1995-&gt;</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Description based on: v. 2, no. 3 (Jan. 1995).</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Latest issue consulted: v. 13, no. 45 (winter 2006).</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Kirby, Jack</subfield><subfield code="x">Criticism and interpretation</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Kirby, Jack</subfield><subfield code="x">Appreciation</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Comic books, strips, etc.</subfield><subfield code="z">United States</subfield><subfield code="x">History and criticism</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Cartoonists</subfield><subfield code="z">United States</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="650" ind1=" " ind2="4"><subfield code="a">Superhero comics</subfield><subfield code="x">History and criticism</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="850" ind1=" " ind2=" "><subfield code="a">DLC</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20120803</subfield><subfield code="b">c</subfield><subfield code="c">ar34</subfield><subfield code="d">OSMC</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20131204</subfield><subfield code="b">l</subfield><subfield code="c">ar34</subfield><subfield code="d">OSMC</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">PN</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">PN6727.K57 Z4585</subfield><subfield code="b">loc+PN-+6727+00000000+K5700000+Z4585000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; PN6727.K57 Z4585|DELIM|12626104</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Journal/Periodical</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2012-08-03T00:00:00.000Z</subfield></datafield></record></collection>','pub_name_display'=>['TwoMorrows Publishing'],'issn_display'=>['1932-6912'],'format'=>['Journal/Periodical'],'source_display'=>['catalog'],'material_type_display'=>['v.'],'oclc_display'=>['ocm31953160','31953160'],'title_first_facet'=>['J'],'pub_date_sort'=>1990,'full_publisher_display'=>['Raleigh, NC : TwoMorrows Publishing'],'language_facet'=>['English'],'_version_'=>1501980812147425280,'timestamp'=>'2015-05-23T17:02:04.279Z'}]}}
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 18:06:14 GMT
+  recorded_at: Tue, 22 Sep 2015 19:33:12 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=9576776&qt=document&wt=ruby
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 17 Sep 2015 18:06:14 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'9576776','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+pn-+6727+00000000+k5700000+z4585000+9576776'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> PN6727.K57 Z4585|DELIM|12626104'],'lccn_display'=>['2006214209'],'acq_dt'=>'2012-08-03T00:00:00Z','title_display'=>['The Jack Kirby collector'],'item_display'=>['PN6727.K57 Z4585 | loc+pn-+6727+00000000+k5700000+z4585000+9576776 | ebn~ac~~tsxs~zzzzzzzz~fuszzzzz~0vuruzzz~qustsst~~~'],'id'=>'9576776','reverse_shelfkey'=>['ebn~ac~~tsxs~zzzzzzzz~fuszzzzz~0vuruzzz~qustsst~~~'],'clio_id_display'=>'9576776','subject_geo_facet'=>['United States'],'call_number_display'=>['PN6727.K57 Z4585'],'subject_topic_facet'=>['Kirby, Jack','Criticism and interpretation','Appreciation','Comic books, strips, etc','Cartoonists','Superhero comics','History and criticism'],'pub_place_display'=>['Raleigh, NC'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01867cas a2200529 a 4500</leader><controlfield tag="001">9576776</controlfield><controlfield tag="005">20140121191026.0</controlfield><controlfield tag="008">950208c199u9999ncuqr p       0   a0eng c</controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2006214209</subfield></datafield><datafield tag="012" ind1=" " ind2=" "><subfield code="l">1</subfield></datafield><datafield tag="016" ind1="7" ind2=" "><subfield code="a">016008315</subfield><subfield code="2">Uk</subfield></datafield><datafield tag="022" ind1="0" ind2=" "><subfield code="a">1932-6912</subfield><subfield code="l">1932-6912</subfield><subfield code="2">1</subfield></datafield><datafield tag="029" ind1="1" ind2=" "><subfield code="a">AU@</subfield><subfield code="b">000040599764</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm31953160</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)31953160</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)9576776</subfield></datafield><datafield tag="037" ind1=" " ind2=" "><subfield code="b">TwoMorrows Pub., 10407 Bedfordtown Dr., Raleigh, NC 27614</subfield><subfield code="c">$40.00</subfield><subfield code="c">$9.95 (single issue)</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">EEM</subfield><subfield code="c">EEM</subfield><subfield code="d">OCL</subfield><subfield code="d">NSD</subfield><subfield code="d">DLC</subfield><subfield code="d">OCLCQ</subfield><subfield code="d">UKMGB</subfield></datafield><datafield tag="042" ind1=" " ind2=" "><subfield code="a">pcc</subfield><subfield code="a">nsdp</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">n-us---</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">PN6727.K57</subfield><subfield code="b">Z4585</subfield></datafield><datafield tag="082" ind1="1" ind2="0"><subfield code="a">741.5</subfield><subfield code="2">14</subfield></datafield><datafield tag="222" ind1=" " ind2="4"><subfield code="a">The Jack Kirby collector</subfield></datafield><datafield tag="245" ind1="0" ind2="4"><subfield code="a">The Jack Kirby collector.</subfield></datafield><datafield tag="246" ind1="3" ind2=" "><subfield code="a">TJKC</subfield></datafield><datafield tag="246" ind1="0" ind2="3"><subfield code="a">New Jack Kirby collector</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Raleigh, NC :</subfield><subfield code="b">TwoMorrows Publishing</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">v. :</subfield><subfield code="b">ill. ;</subfield><subfield code="c">28-36 cm.</subfield></datafield><datafield tag="310" ind1=" " ind2=" "><subfield code="a">Quarterly,</subfield><subfield code="b">&lt;2004-&gt;</subfield></datafield><datafield tag="321" ind1=" " ind2=" "><subfield code="a">Bimonthly,</subfield><subfield code="b">&lt;1995-&gt;</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Description based on: v. 2, no. 3 (Jan. 1995).</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Latest issue consulted: v. 13, no. 45 (winter 2006).</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Kirby, Jack</subfield><subfield code="x">Criticism and interpretation</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Kirby, Jack</subfield><subfield code="x">Appreciation</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Comic books, strips, etc.</subfield><subfield code="z">United States</subfield><subfield code="x">History and criticism</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Cartoonists</subfield><subfield code="z">United States</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="650" ind1=" " ind2="4"><subfield code="a">Superhero comics</subfield><subfield code="x">History and criticism</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="850" ind1=" " ind2=" "><subfield code="a">DLC</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20120803</subfield><subfield code="b">c</subfield><subfield code="c">ar34</subfield><subfield code="d">OSMC</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20131204</subfield><subfield code="b">l</subfield><subfield code="c">ar34</subfield><subfield code="d">OSMC</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">PN</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">PN6727.K57 Z4585</subfield><subfield code="b">loc+PN-+6727+00000000+K5700000+Z4585000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; PN6727.K57 Z4585|DELIM|12626104</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Journal/Periodical</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2012-08-03T00:00:00.000Z</subfield></datafield></record></collection>','pub_name_display'=>['TwoMorrows Publishing'],'issn_display'=>['1932-6912'],'format'=>['Journal/Periodical'],'source_display'=>['catalog'],'material_type_display'=>['v.'],'oclc_display'=>['ocm31953160','31953160'],'title_first_facet'=>['J'],'pub_date_sort'=>1990,'full_publisher_display'=>['Raleigh, NC : TwoMorrows Publishing'],'language_facet'=>['English'],'_version_'=>1501980812147425280,'timestamp'=>'2015-05-23T17:02:04.279Z'}]}}
-    http_version: 
-  recorded_at: Thu, 17 Sep 2015 18:06:15 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/issn/1932-6912.json
+    uri: "<clio_backend_url>/holdings/retrieve/9576776"
     body:
       encoding: UTF-8
       string: ''
@@ -64,171 +228,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 18:06:15 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 17 Sep 2015 18:06:14 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        18:16:14 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Thu, 17 Sep 2015 18:06:15 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocm31953160.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Thu, 17 Sep 2015 18:06:15 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 17 Sep 2015 18:06:14 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        18:16:14 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Thu, 17 Sep 2015 18:06:15 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/31953160.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Thu, 17 Sep 2015 18:06:15 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 17 Sep 2015 18:06:14 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        18:16:14 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Thu, 17 Sep 2015 18:06:15 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/lccn/2006214209.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Thu, 17 Sep 2015 18:06:15 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 17 Sep 2015 18:06:14 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        18:16:14 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Thu, 17 Sep 2015 18:06:15 GMT
-- request:
-    method: get
-    uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/9576776
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Thu, 17 Sep 2015 18:06:14 GMT
+      - Tue, 22 Sep 2015 19:33:13 GMT
   response:
     status:
       code: 200
@@ -259,9 +259,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c640e1f5-6e95-473b-bf8d-9e406cbb0806
+      - 752de726-78e2-46a7-bbfa-488db2a63cfa
       X-Runtime:
-      - '3.389761'
+      - '1.886442'
       Server:
       - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
     body:
@@ -275,5 +275,5 @@ http_interactions:
         v.11:no.40 (2004:Summer)-v.13:no.46 (2006:Summer), v.14:no.49 (2007:Fall),
         v.15:no.51 (2008:Fall)-v.19:no.59 (2012:Summer)\"}],\"services\":[\"doc_delivery\"]}]}}"
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 18:06:18 GMT
+  recorded_at: Tue, 22 Sep 2015 19:33:15 GMT
 recorded_with: VCR 2.9.3

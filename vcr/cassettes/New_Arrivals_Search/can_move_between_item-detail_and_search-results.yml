@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&fq=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&q=man&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby
+    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&fq=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&q=man&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 14:48:44 GMT
+      - Tue, 22 Sep 2015 19:30:48 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -23,7 +23,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT43Nywn
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT43OSwn
         cGFyYW1zJz0+eydmLnN1YmplY3RfZm9ybV9mYWNldC5mYWNldC5saW1pdCc9
         PicxMScsJ2ZhY2V0Jz0+J3RydWUnLCdzb3J0Jz0+J3Njb3JlIGRlc2MsIHB1
         Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdzdGF0cyc9Pid0
@@ -789,10 +789,10 @@ http_interactions:
         ZWFuJz0+MTk2MC42NjE5NzUwODA3NTY3LCdzdGRkZXYnPT4xMDguNDY2MTU1
         NzU5MjM0NjIsJ2ZhY2V0cyc9Pnt9fX19fQo=
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:48:45 GMT
+  recorded_at: Tue, 22 Sep 2015 19:30:48 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=11012477&qt=document&wt=ruby
+    uri: "<solr_config>/select?id=11012477&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -803,7 +803,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 14:48:45 GMT
+      - Tue, 22 Sep 2015 19:30:48 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -813,7 +813,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
         YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
         eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9PicxMTAxMjQ3
         NycsJ3F0Jz0+J2RvY3VtZW50Jywnd3QnPT4ncnVieSd9fSwncmVzcG9uc2Un
@@ -982,10 +982,10 @@ http_interactions:
         MzYxOTcxMiwndGltZXN0YW1wJz0+JzIwMTUtMDUtMjNUMTk6Mjc6MDYuODEx
         Wid9XX19Cg==
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:48:46 GMT
+  recorded_at: Tue, 22 Sep 2015 19:30:48 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=false&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&fl=*&fq=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&q=man&qt=search&rows=2&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&start=0&stats=true&stats.field=pub_date_sort&wt=ruby
+    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=false&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&fl=*&fq=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&q=man&qt=search&rows=2&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&start=0&stats=true&stats.field=pub_date_sort&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -996,7 +996,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 14:48:45 GMT
+      - Tue, 22 Sep 2015 19:30:49 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -1006,7 +1006,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4zLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4yLCdw
         YXJhbXMnPT57J2Yuc3ViamVjdF9mb3JtX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+
         JzExJywnZmFjZXQnPT4nZmFsc2UnLCdzb3J0Jz0+J3Njb3JlIGRlc2MsIHB1
         Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdzdGF0cyc9Pid0
@@ -1294,10 +1294,65 @@ http_interactions:
         ZWFuJz0+MTk2MC42NjE5NzUwODA3NTY3LCdzdGRkZXYnPT4xMDguNDY2MTU1
         NzU5MjM0NjIsJ2ZhY2V0cyc9Pnt9fX19fQo=
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:48:46 GMT
+  recorded_at: Tue, 22 Sep 2015 19:30:49 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=11012477&qt=document&wt=ruby
+    uri: "<clio_backend_url>/holdings/retrieve/11012477"
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:30:49 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Etag:
+      - W/"dae5d6a9813526bf36c1d7fd6473e15b"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 9da74293-bfb8-4935-9c2a-593bf48a3a1b
+      X-Runtime:
+      - '1.275380'
+      Server:
+      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+    body:
+      encoding: UTF-8
+      string: "{\"11012477\":{\"condensed_holdings_full\":[{\"location_name\":\"Butler
+        Stacks (Enter at the Butler Circulation Desk)\",\"location_note\":\"\",\"call_number\":\"PQ3919.3.T48
+        M3613 2014g\",\"status\":\"available\",\"holding_id\":[\"14054196\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"doc_delivery\"]}]}}"
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:30:50 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?id=11012477&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -1308,7 +1363,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 14:48:45 GMT
+      - Tue, 22 Sep 2015 19:30:51 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -1487,10 +1542,174 @@ http_interactions:
         MzYxOTcxMiwndGltZXN0YW1wJz0+JzIwMTUtMDUtMjNUMTk6Mjc6MDYuODEx
         Wid9XX19Cg==
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:48:47 GMT
+  recorded_at: Tue, 22 Sep 2015 19:30:51 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=11369037&qt=document&wt=ruby
+    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/9780345813794.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:30:51 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 19:30:51 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:40:51 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:30:51 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/0345813790.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:30:51 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 19:30:51 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:40:51 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:30:51 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/871227827.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:30:51 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 19:30:51 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:40:51 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:30:51 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocn871227827.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:30:51 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 19:30:51 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:40:51 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:30:51 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?id=11369037&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -1501,7 +1720,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 14:48:45 GMT
+      - Tue, 22 Sep 2015 19:30:51 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -1513,10 +1732,10 @@ http_interactions:
       string: |
         {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'11369037','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'location_call_number_id_display'=>['Online >> EBOOKS|DELIM|14398486'],'pub_year_display'=>['1883'],'acq_dt'=>'2015-04-16T00:00:00Z','title_display'=>['Man : A creative first cause, two discourses'],'id'=>'11369037','clio_id_display'=>'11369037','call_number_display'=>['EBOOKS'],'pub_place_display'=>['Place of publication not identified'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01230cam a22003373u 4500</leader><controlfield tag="001">11369037</controlfield><controlfield tag="005">20150416151705.0</controlfield><controlfield tag="006">m        d        </controlfield><controlfield tag="007">cr  n         </controlfield><controlfield tag="008">150415s1883    ||||||||s|||||||| ||||| d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(WaSeSS)ssib002006176</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">WaSeSS</subfield><subfield code="c">WaSeSS</subfield><subfield code="d">WaSeSS</subfield><subfield code="e">rda</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Hazard, Rowland G.</subfield></datafield><datafield tag="210" ind1="1" ind2="0"><subfield code="a">Man :</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Man :</subfield><subfield code="b">A creative first cause, two discourses /</subfield><subfield code="c">Hazard, Rowland G.</subfield></datafield><datafield tag="264" ind1=" " ind2="1"><subfield code="a">[Place of publication not identified] :</subfield><subfield code="b">[publisher not identified],</subfield><subfield code="c">1883.</subfield></datafield><datafield tag="336" ind1=" " ind2=" "><subfield code="a">text</subfield><subfield code="b">txt</subfield><subfield code="2">rdacontent</subfield></datafield><datafield tag="337" ind1=" " ind2=" "><subfield code="a">computer</subfield><subfield code="b">c</subfield><subfield code="2">rdamedia</subfield></datafield><datafield tag="338" ind1=" " ind2=" "><subfield code="a">online resource</subfield><subfield code="b">cr</subfield><subfield code="2">rdacarrier</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Title from content provider.</subfield></datafield><datafield tag="506" ind1=" " ind2=" "><subfield code="a">License restrictions may limit access.</subfield></datafield><datafield tag="773" ind1=" " ind2="0"><subfield code="t">APA PsycBooks</subfield></datafield><datafield tag="856" ind1="4" ind2="0"><subfield code="u">http://www.columbia.edu/cgi-bin/cul/resolve?clio11369037</subfield><subfield code="z">Full text available from APA PsycBooks</subfield></datafield><datafield tag="910" ind1=" " ind2=" "><subfield code="a">Serials Solutions supplemental brief record</subfield></datafield><datafield tag="920" ind1="4" ind2="0"><subfield code="z">Full text available from APA PsycBooks</subfield><subfield code="u">http://content.apa.org/books/11598-000</subfield></datafield><datafield tag="965" ind1=" " ind2=" "><subfield code="a">965SerialsSolutionsBooks</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Online</subfield><subfield code="b">Online &gt;&gt; EBOOKS|DELIM|14398486</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Online</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2015-04-16T00:00:00.000Z</subfield></datafield></record></collection>','author_display'=>['Hazard, Rowland G.'],'pub_name_display'=>['publisher not identified'],'database_restrictions_display'=>['License restrictions may limit access.'],'format'=>['Book','Online'],'source_display'=>['catalog'],'url_munged_display'=>['0||||||http://www.columbia.edu/cgi-bin/cul/resolve?clio11369037|||Full text available from APA PsycBooks'],'title_first_facet'=>['M'],'pub_date_sort'=>1883,'full_publisher_display'=>['[Place of publication not identified] : [publisher not identified], 1883.'],'_version_'=>1501992692814446592,'timestamp'=>'2015-05-23T20:10:54.567Z'}]}}
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:48:47 GMT
+  recorded_at: Tue, 22 Sep 2015 19:30:51 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=false&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&fl=*&fq=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&q=man&qt=search&rows=3&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&start=0&stats=true&stats.field=pub_date_sort&wt=ruby
+    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=false&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&fl=*&fq=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&q=man&qt=search&rows=3&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&start=0&stats=true&stats.field=pub_date_sort&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -1527,7 +1746,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 14:48:46 GMT
+      - Tue, 22 Sep 2015 19:30:51 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -1916,10 +2135,10 @@ http_interactions:
         bic9PjE5NjAuNjYxOTc1MDgwNzU2Nywnc3RkZGV2Jz0+MTA4LjQ2NjE1NTc1
         OTIzNDYyLCdmYWNldHMnPT57fX19fX0K
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:48:47 GMT
+  recorded_at: Tue, 22 Sep 2015 19:30:51 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=11369037&qt=document&wt=ruby
+    uri: "<solr_config>/select?id=11369037&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -1930,7 +2149,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 14:48:46 GMT
+      - Tue, 22 Sep 2015 19:30:52 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -1942,51 +2161,10 @@ http_interactions:
       string: |
         {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'11369037','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'location_call_number_id_display'=>['Online >> EBOOKS|DELIM|14398486'],'pub_year_display'=>['1883'],'acq_dt'=>'2015-04-16T00:00:00Z','title_display'=>['Man : A creative first cause, two discourses'],'id'=>'11369037','clio_id_display'=>'11369037','call_number_display'=>['EBOOKS'],'pub_place_display'=>['Place of publication not identified'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01230cam a22003373u 4500</leader><controlfield tag="001">11369037</controlfield><controlfield tag="005">20150416151705.0</controlfield><controlfield tag="006">m        d        </controlfield><controlfield tag="007">cr  n         </controlfield><controlfield tag="008">150415s1883    ||||||||s|||||||| ||||| d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(WaSeSS)ssib002006176</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">WaSeSS</subfield><subfield code="c">WaSeSS</subfield><subfield code="d">WaSeSS</subfield><subfield code="e">rda</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Hazard, Rowland G.</subfield></datafield><datafield tag="210" ind1="1" ind2="0"><subfield code="a">Man :</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Man :</subfield><subfield code="b">A creative first cause, two discourses /</subfield><subfield code="c">Hazard, Rowland G.</subfield></datafield><datafield tag="264" ind1=" " ind2="1"><subfield code="a">[Place of publication not identified] :</subfield><subfield code="b">[publisher not identified],</subfield><subfield code="c">1883.</subfield></datafield><datafield tag="336" ind1=" " ind2=" "><subfield code="a">text</subfield><subfield code="b">txt</subfield><subfield code="2">rdacontent</subfield></datafield><datafield tag="337" ind1=" " ind2=" "><subfield code="a">computer</subfield><subfield code="b">c</subfield><subfield code="2">rdamedia</subfield></datafield><datafield tag="338" ind1=" " ind2=" "><subfield code="a">online resource</subfield><subfield code="b">cr</subfield><subfield code="2">rdacarrier</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Title from content provider.</subfield></datafield><datafield tag="506" ind1=" " ind2=" "><subfield code="a">License restrictions may limit access.</subfield></datafield><datafield tag="773" ind1=" " ind2="0"><subfield code="t">APA PsycBooks</subfield></datafield><datafield tag="856" ind1="4" ind2="0"><subfield code="u">http://www.columbia.edu/cgi-bin/cul/resolve?clio11369037</subfield><subfield code="z">Full text available from APA PsycBooks</subfield></datafield><datafield tag="910" ind1=" " ind2=" "><subfield code="a">Serials Solutions supplemental brief record</subfield></datafield><datafield tag="920" ind1="4" ind2="0"><subfield code="z">Full text available from APA PsycBooks</subfield><subfield code="u">http://content.apa.org/books/11598-000</subfield></datafield><datafield tag="965" ind1=" " ind2=" "><subfield code="a">965SerialsSolutionsBooks</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Online</subfield><subfield code="b">Online &gt;&gt; EBOOKS|DELIM|14398486</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Online</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2015-04-16T00:00:00.000Z</subfield></datafield></record></collection>','author_display'=>['Hazard, Rowland G.'],'pub_name_display'=>['publisher not identified'],'database_restrictions_display'=>['License restrictions may limit access.'],'format'=>['Book','Online'],'source_display'=>['catalog'],'url_munged_display'=>['0||||||http://www.columbia.edu/cgi-bin/cul/resolve?clio11369037|||Full text available from APA PsycBooks'],'title_first_facet'=>['M'],'pub_date_sort'=>1883,'full_publisher_display'=>['[Place of publication not identified] : [publisher not identified], 1883.'],'_version_'=>1501992692814446592,'timestamp'=>'2015-05-23T20:10:54.567Z'}]}}
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:48:47 GMT
+  recorded_at: Tue, 22 Sep 2015 19:30:52 GMT
 - request:
     method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/9780345813794.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 14:48:47 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 14:48:46 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        14:58:46 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:48:47 GMT
-- request:
-    method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=11012477&qt=document&wt=ruby
+    uri: "<solr_config>/select?id=11012477&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -1997,7 +2175,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 14:48:46 GMT
+      - Tue, 22 Sep 2015 19:30:52 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -2176,51 +2354,10 @@ http_interactions:
         MzYxOTcxMiwndGltZXN0YW1wJz0+JzIwMTUtMDUtMjNUMTk6Mjc6MDYuODEx
         Wid9XX19Cg==
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:48:47 GMT
+  recorded_at: Tue, 22 Sep 2015 19:30:52 GMT
 - request:
     method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/0345813790.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 14:48:47 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 14:48:46 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        14:58:46 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:48:48 GMT
-- request:
-    method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=false&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&fl=*&fq=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&q=man&qt=search&rows=2&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&start=0&stats=true&stats.field=pub_date_sort&wt=ruby
+    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=false&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&fl=*&fq=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&q=man&qt=search&rows=2&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&start=0&stats=true&stats.field=pub_date_sort&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -2231,7 +2368,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 14:48:46 GMT
+      - Tue, 22 Sep 2015 19:30:52 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -2529,10 +2666,10 @@ http_interactions:
         ZWFuJz0+MTk2MC42NjE5NzUwODA3NTY3LCdzdGRkZXYnPT4xMDguNDY2MTU1
         NzU5MjM0NjIsJ2ZhY2V0cyc9Pnt9fX19fQo=
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:48:48 GMT
+  recorded_at: Tue, 22 Sep 2015 19:30:52 GMT
 - request:
     method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/871227827.json
+    uri: "<clio_backend_url>/holdings/retrieve/11012477"
     body:
       encoding: UTF-8
       string: ''
@@ -2542,79 +2679,52 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 22 Sep 2015 14:48:48 GMT
+      - Tue, 22 Sep 2015 19:30:52 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
-      Date:
-      - Tue, 22 Sep 2015 14:48:46 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
       Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        14:58:46 GMT;path=/;httponly
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Etag:
+      - W/"dae5d6a9813526bf36c1d7fd6473e15b"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 0cf98d29-f5ae-4457-8d28-359c09fb5de0
+      X-Runtime:
+      - '0.070957'
+      Server:
+      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
     body:
       encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
+      string: "{\"11012477\":{\"condensed_holdings_full\":[{\"location_name\":\"Butler
+        Stacks (Enter at the Butler Circulation Desk)\",\"location_note\":\"\",\"call_number\":\"PQ3919.3.T48
+        M3613 2014g\",\"status\":\"available\",\"holding_id\":[\"14054196\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"doc_delivery\"]}]}}"
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:48:48 GMT
+  recorded_at: Tue, 22 Sep 2015 19:30:52 GMT
 - request:
     method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocn871227827.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 14:48:48 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 14:48:46 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        14:58:46 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:48:48 GMT
-- request:
-    method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=11012477&qt=document&wt=ruby
+    uri: "<solr_config>/select?id=11012477&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -2625,7 +2735,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 14:48:46 GMT
+      - Tue, 22 Sep 2015 19:30:52 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -2804,7 +2914,7 @@ http_interactions:
         MzYxOTcxMiwndGltZXN0YW1wJz0+JzIwMTUtMDUtMjNUMTk6Mjc6MDYuODEx
         Wid9XX19Cg==
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:48:48 GMT
+  recorded_at: Tue, 22 Sep 2015 19:30:52 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/9780345813794.json
@@ -2817,14 +2927,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 22 Sep 2015 14:48:48 GMT
+      - Tue, 22 Sep 2015 19:30:52 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 14:48:47 GMT
+      - Tue, 22 Sep 2015 19:30:52 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -2834,8 +2944,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        14:58:47 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:40:52 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -2845,10 +2955,133 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:48:48 GMT
+  recorded_at: Tue, 22 Sep 2015 19:30:52 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&fq=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&q=man&qt=search&rows=10&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby
+    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/0345813790.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:30:52 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 19:30:53 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:40:53 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:30:53 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/871227827.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:30:53 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 19:30:53 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:40:53 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:30:53 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocn871227827.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:30:53 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 19:30:53 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:40:53 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:30:53 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&fq=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&q=man&qt=search&rows=10&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -2859,7 +3092,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 14:48:47 GMT
+      - Tue, 22 Sep 2015 19:30:53 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -2869,7 +3102,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT43Nywn
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT43OCwn
         cGFyYW1zJz0+eydmLnN1YmplY3RfZm9ybV9mYWNldC5mYWNldC5saW1pdCc9
         PicxMScsJ2ZhY2V0Jz0+J3RydWUnLCdzb3J0Jz0+J3Njb3JlIGRlc2MsIHB1
         Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdzdGF0cyc9Pid0
@@ -3363,128 +3596,5 @@ http_interactions:
         MDgwNzU2Nywnc3RkZGV2Jz0+MTA4LjQ2NjE1NTc1OTIzNDYyLCdmYWNldHMn
         PT57fX19fX0K
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:48:48 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/0345813790.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 14:48:48 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 14:48:47 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        14:58:47 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:48:48 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/871227827.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 14:48:48 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 14:48:47 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        14:58:47 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:48:48 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocn871227827.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 14:48:48 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 14:48:47 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        14:58:47 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:48:49 GMT
+  recorded_at: Tue, 22 Sep 2015 19:30:53 GMT
 recorded_with: VCR 2.9.3

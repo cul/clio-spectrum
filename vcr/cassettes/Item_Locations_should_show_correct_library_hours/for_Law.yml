@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=b402660&qt=document&wt=ruby
+    uri: "<solr_config>/select?id=b402660&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 18:01:58 GMT
+      - Tue, 22 Sep 2015 19:30:31 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -23,12 +23,12 @@ http_interactions:
     body:
       encoding: UTF-8
       string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'b402660','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'location_call_number_id_display'=>['Law >> Trials C5453'],'pub_year_display'=>['1853'],'title_display'=>['Supreme court. : Felix Colliard, and others against Aime Legoux. Case and exceptions'],'id'=>'b402660','clio_id_display'=>'b402660','subject_topic_facet'=>['Trials','Colliard'],'pub_place_display'=>['New York'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>00690nam a2200241   4500</leader><controlfield tag="001">b402660</controlfield><controlfield tag="005">20140530082501.0</controlfield><controlfield tag="008">920721s1853    nyu    |      000 0 eng d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">.b4026603</subfield><subfield code="b">06-11-14</subfield><subfield code="c">10-04-92</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">.b4026603</subfield><subfield code="b">03-31-11</subfield><subfield code="c">10-04-92</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">NYCLM0108227-B</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="c">SAZTEC</subfield></datafield><datafield tag="099" ind1=" " ind2=" "><subfield code="a">Trials</subfield><subfield code="b">C5453</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Colliard, Felix.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Supreme court. :</subfield><subfield code="b">Felix Colliard, and others against Aime Legoux. Case and exceptions.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Bryant,</subfield><subfield code="c">1853.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">[9], 33 p. ;</subfield><subfield code="c">26 cm.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Trials</subfield><subfield code="x">Colliard.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Legoux, Aime.</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Law</subfield><subfield code="b">Law &gt;&gt; Trials C5453</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">law</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Colliard, Felix'],'pub_name_display'=>['Bryant'],'format'=>['Book'],'source_display'=>['law','catalog'],'material_type_display'=>['[9], 33 p.'],'title_first_facet'=>['S'],'pub_date_sort'=>1853,'full_publisher_display'=>['New York : Bryant, 1853.'],'language_facet'=>['English'],'_version_'=>1512098841251282944,'timestamp'=>'2015-09-12T09:23:48.769Z'}]}}
+        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'b402660','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'location_call_number_id_display'=>['Law >> Trials C5453'],'pub_year_display'=>['1853'],'title_display'=>['Supreme court. : Felix Colliard, and others against Aime Legoux. Case and exceptions'],'id'=>'b402660','clio_id_display'=>'b402660','subject_topic_facet'=>['Trials','Colliard'],'pub_place_display'=>['New York'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>00690nam a2200241   4500</leader><controlfield tag="001">b402660</controlfield><controlfield tag="005">20140530082501.0</controlfield><controlfield tag="008">920721s1853    nyu    |      000 0 eng d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">.b4026603</subfield><subfield code="b">06-11-14</subfield><subfield code="c">10-04-92</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">.b4026603</subfield><subfield code="b">03-31-11</subfield><subfield code="c">10-04-92</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">NYCLM0108227-B</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="c">SAZTEC</subfield></datafield><datafield tag="099" ind1=" " ind2=" "><subfield code="a">Trials</subfield><subfield code="b">C5453</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Colliard, Felix.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Supreme court. :</subfield><subfield code="b">Felix Colliard, and others against Aime Legoux. Case and exceptions.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Bryant,</subfield><subfield code="c">1853.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">[9], 33 p. ;</subfield><subfield code="c">26 cm.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Trials</subfield><subfield code="x">Colliard.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Legoux, Aime.</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Law</subfield><subfield code="b">Law &gt;&gt; Trials C5453</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">law</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Colliard, Felix'],'pub_name_display'=>['Bryant'],'format'=>['Book'],'source_display'=>['law','catalog'],'material_type_display'=>['[9], 33 p.'],'title_first_facet'=>['S'],'pub_date_sort'=>1853,'full_publisher_display'=>['New York : Bryant, 1853.'],'language_facet'=>['English'],'_version_'=>1512732956941090816,'timestamp'=>'2015-09-19T09:22:48.616Z'}]}}
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 18:01:59 GMT
+  recorded_at: Tue, 22 Sep 2015 19:30:31 GMT
 - request:
     method: get
-    uri: https://api.library.columbia.edu/query.json?locationID=alllocations&qt=location
+    uri: "<library_api_path>?locationID=alllocations&qt=location"
     body:
       encoding: US-ASCII
       string: ''
@@ -45,7 +45,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 18:01:58 GMT
+      - Tue, 22 Sep 2015 19:30:32 GMT
       Server:
       - Apache
       Access-Control-Allow-Origin:
@@ -53,7 +53,7 @@ http_interactions:
       Cache-Control:
       - max-age=0
       Expires:
-      - Thu, 17 Sep 2015 18:01:58 GMT
+      - Tue, 22 Sep 2015 19:30:32 GMT
       Vary:
       - Accept-Encoding,User-Agent
       Content-Encoding:
@@ -197,5 +197,5 @@ http_interactions:
         4Ex+me4xpfFDfhjakFt0P6/uV+B19AU3M4shm0eF7eWVNPof/4cLQFuYBelb
         0v/9rSFwJM7/ogdWf/w/AuQKKQqfAAA=
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 18:01:59 GMT
+  recorded_at: Tue, 22 Sep 2015 19:30:32 GMT
 recorded_with: VCR 2.9.3

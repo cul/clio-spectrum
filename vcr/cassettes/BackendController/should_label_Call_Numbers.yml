@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/123456
+    uri: "<clio_backend_url>/holdings/retrieve/123456"
     body:
       encoding: UTF-8
       string: ''
@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 14:45:15 GMT
+      - Tue, 22 Sep 2015 19:23:59 GMT
   response:
     status:
       code: 200
@@ -43,9 +43,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a7620d38-3e73-403c-815b-4d0d634d5ca5
+      - 47006a2a-5ffb-4d1c-af34-2ec402eadc6a
       X-Runtime:
-      - '0.013192'
+      - '1.303136'
       Server:
       - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
     body:
@@ -55,10 +55,10 @@ http_interactions:
         .P74 1982\",\"status\":\"available\",\"holding_id\":[\"177302\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}},\"summary_holdings\":\"Library
         has: v.1 -- 1982\"}],\"services\":[\"offsite\"]}]}}"
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 14:45:15 GMT
+  recorded_at: Tue, 22 Sep 2015 19:24:01 GMT
 - request:
     method: get
-    uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/763577
+    uri: "<clio_backend_url>/holdings/retrieve/763577"
     body:
       encoding: UTF-8
       string: ''
@@ -68,7 +68,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 14:45:15 GMT
+      - Tue, 22 Sep 2015 19:24:01 GMT
   response:
     status:
       code: 200
@@ -95,13 +95,13 @@ http_interactions:
       Access-Control-Request-Method:
       - "*"
       Etag:
-      - W/"7c51973c58d680618b63836c56de28d9"
+      - W/"2ef80c3f0d2482ff22cd1c223c57b761"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - fa374b23-92c2-47f1-9d2e-15832059e3d8
+      - d65205a9-b662-40c7-b11a-a7ac9a6e5269
       X-Runtime:
-      - '0.020181'
+      - '0.011127'
       Server:
       - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
     body:
@@ -114,7 +114,7 @@ http_interactions:
         .A3\",\"status\":\"some_available\",\"holding_id\":[\"980108\"],\"copies\":[{\"items\":{\"1969/1976:v.32
         Unavailable 2014-03-31\":{\"status\":\"some_available\",\"count\":1},\"1940:v.5
         In transit to library\":{\"status\":\"some_available\",\"count\":1},\"1969/1976:v.38:pt.2
-        In transit to library\":{\"status\":\"some_available\",\"count\":1}},\"notes\":\"Notes:
+        In Maintenance. Ask for help at circ desk\":{\"status\":\"some_available\",\"count\":1}},\"notes\":\"Notes:
         For vols. 17, 18, 20 and 21 microfiche supplement for Near East, Africa microfiche
         supplement, see Microfiche FX3 6159.\",\"summary_holdings\":\"Library has:
         1927:v.2, 1929:v.1-3, 1934:v.2, 4-5, 1938:v.1, 4-5, 1939:v.1, 1940:v.5, 1941:v.1,
@@ -156,5 +156,5 @@ http_interactions:
         Establishment. -- 1952-1954:Guatemala (Suppl. to v.4)\",\"temp_locations\":[\"1910
         Shelved in Lehman\",\"1969-1976:v.11 Shelved in Lehman Reference (Non-Circulating)\"]}],\"services\":[\"offsite\"]}]}}"
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 14:45:15 GMT
+  recorded_at: Tue, 22 Sep 2015 19:24:01 GMT
 recorded_with: VCR 2.9.3

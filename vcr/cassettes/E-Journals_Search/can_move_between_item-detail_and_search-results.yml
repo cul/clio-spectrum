@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.language_facet.facet.limit=6&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=title_first_facet&fq=%7B!raw%20f=source_facet%7Dejournal&q=letters&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&wt=ruby
+    uri: "<solr_config>/select?f.language_facet.facet.limit=6&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=title_first_facet&fq=%7B!raw%20f=source_facet%7Dejournal&q=letters&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 16:00:24 GMT
+      - Tue, 22 Sep 2015 19:29:29 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -23,7 +23,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4yMiwn
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4yMywn
         cGFyYW1zJz0+eydmLnN1YmplY3RfZm9ybV9mYWNldC5mYWNldC5saW1pdCc9
         PicxMScsJ2ZhY2V0Jz0+J3RydWUnLCdzb3J0Jz0+J3Njb3JlIGRlc2MsIHB1
         Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdmLnN1YmplY3Rf
@@ -654,10 +654,10 @@ http_interactions:
         RScsMjgsJ0onLDI4LCdTJywyNiwnUicsMjIsJ04nLDE4XX0sJ2ZhY2V0X2Rh
         dGVzJz0+e30sJ2ZhY2V0X3Jhbmdlcyc9Pnt9fX0K
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 16:00:25 GMT
+  recorded_at: Tue, 22 Sep 2015 19:29:29 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=7412697&qt=document&wt=ruby
+    uri: "<solr_config>/select?id=7412697&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -668,7 +668,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 16:00:25 GMT
+      - Tue, 22 Sep 2015 19:29:30 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -822,10 +822,10 @@ http_interactions:
         NDEzNzUzNzUzNiwndGltZXN0YW1wJz0+JzIwMTUtMDktMjFUMDU6MTE6NTMu
         MjFaJ31dfX0K
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 16:00:26 GMT
+  recorded_at: Tue, 22 Sep 2015 19:29:30 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.language_facet.facet.limit=6&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=false&facet.field=title_first_facet&fl=*&fq=%7B!raw%20f=source_facet%7Dejournal&q=letters&qt=search&rows=2&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&start=0&wt=ruby
+    uri: "<solr_config>/select?f.language_facet.facet.limit=6&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=false&facet.field=title_first_facet&fl=*&fq=%7B!raw%20f=source_facet%7Dejournal&q=letters&qt=search&rows=2&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&start=0&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -836,7 +836,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 16:00:25 GMT
+      - Tue, 22 Sep 2015 19:29:30 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -1125,10 +1125,10 @@ http_interactions:
         aW9uXyc9PjE1MDcxMDAxMzEzMzExNDU3MjgsJ3RpbWVzdGFtcCc9PicyMDE1
         LTA3LTE5VDA1OjExOjI3LjUwM1onfV19fQo=
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 16:00:27 GMT
+  recorded_at: Tue, 22 Sep 2015 19:29:30 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=7412697&qt=document&wt=ruby
+    uri: "<solr_config>/select?id=7412697&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -1139,7 +1139,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 16:00:26 GMT
+      - Tue, 22 Sep 2015 19:29:31 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -1293,7 +1293,7 @@ http_interactions:
         NDEzNzUzNzUzNiwndGltZXN0YW1wJz0+JzIwMTUtMDktMjFUMDU6MTE6NTMu
         MjFaJ31dfX0K
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 16:00:27 GMT
+  recorded_at: Tue, 22 Sep 2015 19:29:31 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/issn/1876-7486.json
@@ -1306,14 +1306,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 22 Sep 2015 16:00:27 GMT
+      - Tue, 22 Sep 2015 19:29:31 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 16:00:26 GMT
+      - Tue, 22 Sep 2015 19:29:31 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -1323,8 +1323,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed045525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        16:10:26 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:39:31 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -1334,10 +1334,10 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 16:00:28 GMT
+  recorded_at: Tue, 22 Sep 2015 19:29:31 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=7762353&qt=document&wt=ruby
+    uri: "<solr_config>/select?id=7762353&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -1348,7 +1348,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 16:00:27 GMT
+      - Tue, 22 Sep 2015 19:29:31 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -1360,10 +1360,10 @@ http_interactions:
       string: |
         {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'7762353','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+ta-+1750+00000000+o6750000+7762353'],'location_call_number_id_display'=>['Online >> EJOURNALS|DELIM|10867639'],'acq_dt'=>'2010-05-03T00:00:00Z','title_display'=>['Optoelectronics letters [electronic resource]'],'item_display'=>['TA1750 .O675 | loc+ta-+1750+00000000+o6750000+7762353 | ebn~6p~~ysuz~zzzzzzzz~btsuzzzz~sstxwuw~~~~~~~~~~~~'],'id'=>'7762353','reverse_shelfkey'=>['ebn~6p~~ysuz~zzzzzzzz~btsuzzzz~sstxwuw~~~~~~~~~~~~'],'clio_id_display'=>'7762353','call_number_display'=>['EJOURNALS'],'subject_topic_facet'=>['Optoelectronics'],'pub_place_display'=>['Tianjin [China]','Berlin, Germany'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01805cas a2200433 a 4500</leader><controlfield tag="001">7762353</controlfield><controlfield tag="005">20150716173724.0</controlfield><controlfield tag="006">m        d        </controlfield><controlfield tag="007">cr  n         </controlfield><controlfield tag="008">100203c20059999cc br p s     0   a0eng d</controlfield><datafield tag="022" ind1=" " ind2=" "><subfield code="a">1993-5013</subfield><subfield code="y">1673-1905</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(WaSeSS)ssj0000327849</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">WaSeSS</subfield><subfield code="c">WaSeSS</subfield><subfield code="d">WaSeSS</subfield></datafield><datafield tag="050" ind1=" " ind2="4"><subfield code="a">TA1750</subfield><subfield code="b">.O675</subfield></datafield><datafield tag="130" ind1="0" ind2=" "><subfield code="a">Optoelectronics letters (Online)</subfield></datafield><datafield tag="210" ind1="1" ind2="0"><subfield code="a">Optoelectronics letters</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Optoelectronics letters</subfield><subfield code="h">[electronic resource] /</subfield><subfield code="c">Tianjin University of Technology.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Tianjin [China] :</subfield><subfield code="b">[Tianjin University of Technology] ;</subfield><subfield code="a">[Berlin, Germany] :</subfield><subfield code="b">Springer-Verlag</subfield></datafield><datafield tag="310" ind1=" " ind2=" "><subfield code="a">Bimonthly</subfield></datafield><datafield tag="362" ind1="1" ind2=" "><subfield code="a">Began with Vol. 1, no. 1 (July, 2005).</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Description based on: Vol. 1, no. 1 (July, 2005); title from contents screen (MetaPress, viewed Feb. 3, 2010).</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Latest issue consulted: Vol. 5, no. 5 (September, 2009) (viewed Feb. 3, 2010).</subfield></datafield><datafield tag="506" ind1=" " ind2=" "><subfield code="a">Access limited to subscribers.</subfield></datafield><datafield tag="530" ind1=" " ind2=" "><subfield code="a">Also available in print.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Optoelectronics</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="655" ind1=" " ind2="0"><subfield code="a">Electronic journals.</subfield></datafield><datafield tag="710" ind1="2" ind2=" "><subfield code="a">Tianjin li gong da xue.</subfield></datafield><datafield tag="776" ind1="1" ind2=" "><subfield code="t">Optoelectronics letters</subfield><subfield code="w">(WaSeSS)slc10693</subfield></datafield><datafield tag="856" ind1="4" ind2="0"><subfield code="u">http://www.columbia.edu/cgi-bin/cul/resolve?clio7762353</subfield><subfield code="z">Full text available from SpringerLINK - NERL: 2005 to present</subfield></datafield><datafield tag="920" ind1="4" ind2="0"><subfield code="z">Full text available from SpringerLINK - NERL: 2005 to present</subfield><subfield code="u">http://link.springer.com/openurl?genre=journal&amp;issn=1673-1905&amp;volume=</subfield></datafield><datafield tag="965" ind1=" " ind2=" "><subfield code="a">SerialsSolutions</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">TA</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">TA1750 .O675</subfield><subfield code="b">loc+TA-+1750+00000000+O6750000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Online</subfield><subfield code="b">Online &gt;&gt; EJOURNALS|DELIM|10867639</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Journal/Periodical</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Online</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">ejournal</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2010-05-03T00:00:00.000Z</subfield></datafield></record></collection>','pub_name_display'=>['Tianjin University of Technology','Springer-Verlag'],'database_restrictions_display'=>['Access limited to subscribers.'],'issn_display'=>['1993-5013'],'format'=>['Journal/Periodical','Online'],'source_display'=>['catalog','ejournal'],'url_munged_display'=>['0||||||http://www.columbia.edu/cgi-bin/cul/resolve?clio7762353|||Full text available from SpringerLINK - NERL: 2005 to present'],'title_first_facet'=>['O'],'pub_date_sort'=>2005,'full_publisher_display'=>['Tianjin [China] : [Tianjin University of Technology] ; [Berlin, Germany] : Springer-Verlag'],'language_facet'=>['English'],'_version_'=>1507100131331145728,'timestamp'=>'2015-07-19T05:11:27.503Z'}]}}
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 16:00:28 GMT
+  recorded_at: Tue, 22 Sep 2015 19:29:31 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.language_facet.facet.limit=6&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=false&facet.field=title_first_facet&fl=*&fq=%7B!raw%20f=source_facet%7Dejournal&q=letters&qt=search&rows=3&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&start=0&wt=ruby
+    uri: "<solr_config>/select?f.language_facet.facet.limit=6&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=false&facet.field=title_first_facet&fl=*&fq=%7B!raw%20f=source_facet%7Dejournal&q=letters&qt=search&rows=3&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&start=0&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -1374,7 +1374,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 16:00:27 GMT
+      - Tue, 22 Sep 2015 19:29:31 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -1855,10 +1855,10 @@ http_interactions:
         OCwndGltZXN0YW1wJz0+JzIwMTUtMDUtMjNUMTU6MzM6NTMuNTE3Wid9XX19
         Cg==
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 16:00:28 GMT
+  recorded_at: Tue, 22 Sep 2015 19:29:31 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=7762353&qt=document&wt=ruby
+    uri: "<solr_config>/select?id=7762353&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -1869,7 +1869,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 16:00:27 GMT
+      - Tue, 22 Sep 2015 19:29:31 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -1879,9 +1879,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'7762353','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+ta-+1750+00000000+o6750000+7762353'],'location_call_number_id_display'=>['Online >> EJOURNALS|DELIM|10867639'],'acq_dt'=>'2010-05-03T00:00:00Z','title_display'=>['Optoelectronics letters [electronic resource]'],'item_display'=>['TA1750 .O675 | loc+ta-+1750+00000000+o6750000+7762353 | ebn~6p~~ysuz~zzzzzzzz~btsuzzzz~sstxwuw~~~~~~~~~~~~'],'id'=>'7762353','reverse_shelfkey'=>['ebn~6p~~ysuz~zzzzzzzz~btsuzzzz~sstxwuw~~~~~~~~~~~~'],'clio_id_display'=>'7762353','call_number_display'=>['EJOURNALS'],'subject_topic_facet'=>['Optoelectronics'],'pub_place_display'=>['Tianjin [China]','Berlin, Germany'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01805cas a2200433 a 4500</leader><controlfield tag="001">7762353</controlfield><controlfield tag="005">20150716173724.0</controlfield><controlfield tag="006">m        d        </controlfield><controlfield tag="007">cr  n         </controlfield><controlfield tag="008">100203c20059999cc br p s     0   a0eng d</controlfield><datafield tag="022" ind1=" " ind2=" "><subfield code="a">1993-5013</subfield><subfield code="y">1673-1905</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(WaSeSS)ssj0000327849</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">WaSeSS</subfield><subfield code="c">WaSeSS</subfield><subfield code="d">WaSeSS</subfield></datafield><datafield tag="050" ind1=" " ind2="4"><subfield code="a">TA1750</subfield><subfield code="b">.O675</subfield></datafield><datafield tag="130" ind1="0" ind2=" "><subfield code="a">Optoelectronics letters (Online)</subfield></datafield><datafield tag="210" ind1="1" ind2="0"><subfield code="a">Optoelectronics letters</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Optoelectronics letters</subfield><subfield code="h">[electronic resource] /</subfield><subfield code="c">Tianjin University of Technology.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Tianjin [China] :</subfield><subfield code="b">[Tianjin University of Technology] ;</subfield><subfield code="a">[Berlin, Germany] :</subfield><subfield code="b">Springer-Verlag</subfield></datafield><datafield tag="310" ind1=" " ind2=" "><subfield code="a">Bimonthly</subfield></datafield><datafield tag="362" ind1="1" ind2=" "><subfield code="a">Began with Vol. 1, no. 1 (July, 2005).</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Description based on: Vol. 1, no. 1 (July, 2005); title from contents screen (MetaPress, viewed Feb. 3, 2010).</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Latest issue consulted: Vol. 5, no. 5 (September, 2009) (viewed Feb. 3, 2010).</subfield></datafield><datafield tag="506" ind1=" " ind2=" "><subfield code="a">Access limited to subscribers.</subfield></datafield><datafield tag="530" ind1=" " ind2=" "><subfield code="a">Also available in print.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Optoelectronics</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="655" ind1=" " ind2="0"><subfield code="a">Electronic journals.</subfield></datafield><datafield tag="710" ind1="2" ind2=" "><subfield code="a">Tianjin li gong da xue.</subfield></datafield><datafield tag="776" ind1="1" ind2=" "><subfield code="t">Optoelectronics letters</subfield><subfield code="w">(WaSeSS)slc10693</subfield></datafield><datafield tag="856" ind1="4" ind2="0"><subfield code="u">http://www.columbia.edu/cgi-bin/cul/resolve?clio7762353</subfield><subfield code="z">Full text available from SpringerLINK - NERL: 2005 to present</subfield></datafield><datafield tag="920" ind1="4" ind2="0"><subfield code="z">Full text available from SpringerLINK - NERL: 2005 to present</subfield><subfield code="u">http://link.springer.com/openurl?genre=journal&amp;issn=1673-1905&amp;volume=</subfield></datafield><datafield tag="965" ind1=" " ind2=" "><subfield code="a">SerialsSolutions</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">TA</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">TA1750 .O675</subfield><subfield code="b">loc+TA-+1750+00000000+O6750000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Online</subfield><subfield code="b">Online &gt;&gt; EJOURNALS|DELIM|10867639</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Journal/Periodical</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Online</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">ejournal</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2010-05-03T00:00:00.000Z</subfield></datafield></record></collection>','pub_name_display'=>['Tianjin University of Technology','Springer-Verlag'],'database_restrictions_display'=>['Access limited to subscribers.'],'issn_display'=>['1993-5013'],'format'=>['Journal/Periodical','Online'],'source_display'=>['catalog','ejournal'],'url_munged_display'=>['0||||||http://www.columbia.edu/cgi-bin/cul/resolve?clio7762353|||Full text available from SpringerLINK - NERL: 2005 to present'],'title_first_facet'=>['O'],'pub_date_sort'=>2005,'full_publisher_display'=>['Tianjin [China] : [Tianjin University of Technology] ; [Berlin, Germany] : Springer-Verlag'],'language_facet'=>['English'],'_version_'=>1507100131331145728,'timestamp'=>'2015-07-19T05:11:27.503Z'}]}}
+        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'7762353','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+ta-+1750+00000000+o6750000+7762353'],'location_call_number_id_display'=>['Online >> EJOURNALS|DELIM|10867639'],'acq_dt'=>'2010-05-03T00:00:00Z','title_display'=>['Optoelectronics letters [electronic resource]'],'item_display'=>['TA1750 .O675 | loc+ta-+1750+00000000+o6750000+7762353 | ebn~6p~~ysuz~zzzzzzzz~btsuzzzz~sstxwuw~~~~~~~~~~~~'],'id'=>'7762353','reverse_shelfkey'=>['ebn~6p~~ysuz~zzzzzzzz~btsuzzzz~sstxwuw~~~~~~~~~~~~'],'clio_id_display'=>'7762353','call_number_display'=>['EJOURNALS'],'subject_topic_facet'=>['Optoelectronics'],'pub_place_display'=>['Tianjin [China]','Berlin, Germany'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01805cas a2200433 a 4500</leader><controlfield tag="001">7762353</controlfield><controlfield tag="005">20150716173724.0</controlfield><controlfield tag="006">m        d        </controlfield><controlfield tag="007">cr  n         </controlfield><controlfield tag="008">100203c20059999cc br p s     0   a0eng d</controlfield><datafield tag="022" ind1=" " ind2=" "><subfield code="a">1993-5013</subfield><subfield code="y">1673-1905</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(WaSeSS)ssj0000327849</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">WaSeSS</subfield><subfield code="c">WaSeSS</subfield><subfield code="d">WaSeSS</subfield></datafield><datafield tag="050" ind1=" " ind2="4"><subfield code="a">TA1750</subfield><subfield code="b">.O675</subfield></datafield><datafield tag="130" ind1="0" ind2=" "><subfield code="a">Optoelectronics letters (Online)</subfield></datafield><datafield tag="210" ind1="1" ind2="0"><subfield code="a">Optoelectronics letters</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Optoelectronics letters</subfield><subfield code="h">[electronic resource] /</subfield><subfield code="c">Tianjin University of Technology.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Tianjin [China] :</subfield><subfield code="b">[Tianjin University of Technology] ;</subfield><subfield code="a">[Berlin, Germany] :</subfield><subfield code="b">Springer-Verlag</subfield></datafield><datafield tag="310" ind1=" " ind2=" "><subfield code="a">Bimonthly</subfield></datafield><datafield tag="362" ind1="1" ind2=" "><subfield code="a">Began with Vol. 1, no. 1 (July, 2005).</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Description based on: Vol. 1, no. 1 (July, 2005); title from contents screen (MetaPress, viewed Feb. 3, 2010).</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Latest issue consulted: Vol. 5, no. 5 (September, 2009) (viewed Feb. 3, 2010).</subfield></datafield><datafield tag="506" ind1=" " ind2=" "><subfield code="a">Access limited to subscribers.</subfield></datafield><datafield tag="530" ind1=" " ind2=" "><subfield code="a">Also available in print.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Optoelectronics</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="655" ind1=" " ind2="0"><subfield code="a">Electronic journals.</subfield></datafield><datafield tag="710" ind1="2" ind2=" "><subfield code="a">Tianjin li gong da xue.</subfield></datafield><datafield tag="776" ind1="1" ind2=" "><subfield code="t">Optoelectronics letters</subfield><subfield code="w">(WaSeSS)slc10693</subfield></datafield><datafield tag="856" ind1="4" ind2="0"><subfield code="u">http://www.columbia.edu/cgi-bin/cul/resolve?clio7762353</subfield><subfield code="z">Full text available from SpringerLINK - NERL: 2005 to present</subfield></datafield><datafield tag="920" ind1="4" ind2="0"><subfield code="z">Full text available from SpringerLINK - NERL: 2005 to present</subfield><subfield code="u">http://link.springer.com/openurl?genre=journal&amp;issn=1673-1905&amp;volume=</subfield></datafield><datafield tag="965" ind1=" " ind2=" "><subfield code="a">SerialsSolutions</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">TA</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">TA1750 .O675</subfield><subfield code="b">loc+TA-+1750+00000000+O6750000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Online</subfield><subfield code="b">Online &gt;&gt; EJOURNALS|DELIM|10867639</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Journal/Periodical</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Online</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">ejournal</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2010-05-03T00:00:00.000Z</subfield></datafield></record></collection>','pub_name_display'=>['Tianjin University of Technology','Springer-Verlag'],'database_restrictions_display'=>['Access limited to subscribers.'],'issn_display'=>['1993-5013'],'format'=>['Journal/Periodical','Online'],'source_display'=>['catalog','ejournal'],'url_munged_display'=>['0||||||http://www.columbia.edu/cgi-bin/cul/resolve?clio7762353|||Full text available from SpringerLINK - NERL: 2005 to present'],'title_first_facet'=>['O'],'pub_date_sort'=>2005,'full_publisher_display'=>['Tianjin [China] : [Tianjin University of Technology] ; [Berlin, Germany] : Springer-Verlag'],'language_facet'=>['English'],'_version_'=>1507100131331145728,'timestamp'=>'2015-07-19T05:11:27.503Z'}]}}
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 16:00:29 GMT
+  recorded_at: Tue, 22 Sep 2015 19:29:31 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/issn/1993-5013.json
@@ -1894,14 +1894,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 22 Sep 2015 16:00:29 GMT
+      - Tue, 22 Sep 2015 19:29:31 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 16:00:28 GMT
+      - Tue, 22 Sep 2015 19:29:31 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -1911,8 +1911,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed045525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        16:10:28 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:39:31 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -1922,10 +1922,10 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 16:00:29 GMT
+  recorded_at: Tue, 22 Sep 2015 19:29:31 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=7412697&qt=document&wt=ruby
+    uri: "<solr_config>/select?id=7412697&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -1936,7 +1936,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 16:00:28 GMT
+      - Tue, 22 Sep 2015 19:29:32 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -2090,10 +2090,10 @@ http_interactions:
         NDEzNzUzNzUzNiwndGltZXN0YW1wJz0+JzIwMTUtMDktMjFUMDU6MTE6NTMu
         MjFaJ31dfX0K
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 16:00:29 GMT
+  recorded_at: Tue, 22 Sep 2015 19:29:32 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.language_facet.facet.limit=6&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=false&facet.field=title_first_facet&fl=*&fq=%7B!raw%20f=source_facet%7Dejournal&q=letters&qt=search&rows=2&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&start=0&wt=ruby
+    uri: "<solr_config>/select?f.language_facet.facet.limit=6&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=false&facet.field=title_first_facet&fl=*&fq=%7B!raw%20f=source_facet%7Dejournal&q=letters&qt=search&rows=2&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&start=0&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -2104,7 +2104,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 16:00:28 GMT
+      - Tue, 22 Sep 2015 19:29:32 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -2114,7 +2114,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4yLCdw
         YXJhbXMnPT57J2Yuc3ViamVjdF9mb3JtX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+
         JzExJywnZmFjZXQnPT4nZmFsc2UnLCdzb3J0Jz0+J3Njb3JlIGRlc2MsIHB1
         Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdmLnN1YmplY3Rf
@@ -2393,10 +2393,10 @@ http_interactions:
         aW9uXyc9PjE1MDcxMDAxMzEzMzExNDU3MjgsJ3RpbWVzdGFtcCc9PicyMDE1
         LTA3LTE5VDA1OjExOjI3LjUwM1onfV19fQo=
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 16:00:29 GMT
+  recorded_at: Tue, 22 Sep 2015 19:29:32 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=7412697&qt=document&wt=ruby
+    uri: "<solr_config>/select?id=7412697&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -2407,7 +2407,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 16:00:28 GMT
+      - Tue, 22 Sep 2015 19:29:32 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -2561,7 +2561,7 @@ http_interactions:
         NDEzNzUzNzUzNiwndGltZXN0YW1wJz0+JzIwMTUtMDktMjFUMDU6MTE6NTMu
         MjFaJ31dfX0K
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 16:00:30 GMT
+  recorded_at: Tue, 22 Sep 2015 19:29:32 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/issn/1876-7486.json
@@ -2574,14 +2574,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 22 Sep 2015 16:00:30 GMT
+      - Tue, 22 Sep 2015 19:29:32 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 16:00:28 GMT
+      - Tue, 22 Sep 2015 19:29:32 GMT
       Server:
       - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
       X-Powered-By:
@@ -2591,8 +2591,8 @@ http_interactions:
       Content-Type:
       - text/html
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed045525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        16:10:28 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:39:32 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |2-
@@ -2602,10 +2602,10 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 16:00:30 GMT
+  recorded_at: Tue, 22 Sep 2015 19:29:32 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.language_facet.facet.limit=6&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=title_first_facet&fq=%7B!raw%20f=source_facet%7Dejournal&q=letters&qt=search&rows=10&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&wt=ruby
+    uri: "<solr_config>/select?f.language_facet.facet.limit=6&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=title_first_facet&fq=%7B!raw%20f=source_facet%7Dejournal&q=letters&qt=search&rows=10&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -2616,7 +2616,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 16:00:29 GMT
+      - Tue, 22 Sep 2015 19:29:32 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -2929,5 +2929,5 @@ http_interactions:
         MjgsJ0onLDI4LCdTJywyNiwnUicsMjIsJ04nLDE4XX0sJ2ZhY2V0X2RhdGVz
         Jz0+e30sJ2ZhY2V0X3Jhbmdlcyc9Pnt9fX0K
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 16:00:30 GMT
+  recorded_at: Tue, 22 Sep 2015 19:29:32 GMT
 recorded_with: VCR 2.9.3

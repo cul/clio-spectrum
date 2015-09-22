@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=32468&qt=document&wt=ruby
+    uri: "<solr_config>/select?id=32468&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 14:47:49 GMT
+      - Tue, 22 Sep 2015 19:29:40 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -25,10 +25,10 @@ http_interactions:
       string: |
         {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'32468','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+kf-+8742+00000000+m5400000+32468'],'location_call_number_id_display'=>['Lehman >> KF8742 .M54|DELIM|48846'],'lccn_display'=>['77091106'],'item_display'=>['KF8742 .M54 | loc+kf-+8742+00000000+m5400000+32468 | ebn~fk~~rsvx~zzzzzzzz~duvzzzzz~wxvtr~~~~~~~~~~~~~~'],'title_display'=>['The Supreme Court : myth and reality'],'clio_id_display'=>'32468','subject_topic_facet'=>['United States. Supreme Court'],'pub_place_display'=>['Westport, Conn'],'format'=>['Book'],'oclc_display'=>['3631303','ocm03631303'],'title_first_facet'=>['S'],'full_publisher_display'=>['Westport, Conn. : Greenwood Press, 1978.'],'pub_date_sort'=>1978,'isbn_display'=>['0313200467'],'pub_year_display'=>['1978'],'title_series_display'=>['Contributions in American studies ; no. 38'],'id'=>'32468','reverse_shelfkey'=>['ebn~fk~~rsvx~zzzzzzzz~duvzzzzz~wxvtr~~~~~~~~~~~~~~'],'call_number_display'=>['KF8742 .M54'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01132cam a2200373 i 4500</leader><controlfield tag="001">32468</controlfield><controlfield tag="005">20100225221650.0</controlfield><controlfield tag="008">801016s1978    ctu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   77091106 </subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0313200467</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)3631303</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm03631303</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG19103050-B</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAD3959CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)32468</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">n-us---</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">KF8742</subfield><subfield code="b">.M54</subfield></datafield><datafield tag="082" ind1=" " ind2=" "><subfield code="a">347/.73/26</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="a">KF8742</subfield><subfield code="b">.M54</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Miller, Arthur Selwyn,</subfield><subfield code="d">1917-</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The Supreme Court :</subfield><subfield code="b">myth and reality /</subfield><subfield code="c">Arthur Selwyn Miller.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Westport, Conn. :</subfield><subfield code="b">Greenwood Press,</subfield><subfield code="c">1978.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xvii, 388 p. ;</subfield><subfield code="c">24 cm.</subfield></datafield><datafield tag="490" ind1="1" ind2=" "><subfield code="a">Contributions in American studies,</subfield><subfield code="x">0084-9227 ;</subfield><subfield code="v">no. 38</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Includes index.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Bibliography: p. [379]-382.</subfield></datafield><datafield tag="610" ind1="1" ind2="0"><subfield code="a">United States.</subfield><subfield code="b">Supreme Court.</subfield></datafield><datafield tag="830" ind1=" " ind2="0"><subfield code="a">Contributions in American studies ;</subfield><subfield code="v">no. 38.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">KF</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">KF8742 .M54</subfield><subfield code="b">loc+KF-+8742+00000000+M5400000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Lehman</subfield><subfield code="b">Lehman &gt;&gt; KF8742 .M54|DELIM|48846</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Miller, Arthur Selwyn, 1917-'],'pub_name_display'=>['Greenwood Press'],'source_display'=>['catalog'],'material_type_display'=>['xvii, 388 p.'],'language_facet'=>['English'],'_version_'=>1501993122150744064,'timestamp'=>'2015-05-23T20:17:44.014Z'}]}}
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:47:51 GMT
+  recorded_at: Tue, 22 Sep 2015 19:29:40 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=b276194&qt=document&wt=ruby
+    uri: "<solr_config>/select?id=b276194&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -39,7 +39,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 14:47:49 GMT
+      - Tue, 22 Sep 2015 19:29:40 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -51,5 +51,5 @@ http_interactions:
       string: |
         {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'b276194','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'location_call_number_id_display'=>['Law >> T T828s'],'pub_year_display'=>['c1963'],'lccn_display'=>['63009276'],'title_display'=>['Supreme Court : a novel'],'id'=>'b276194','clio_id_display'=>'b276194','pub_place_display'=>['New York'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>00617nam a2200229   4500</leader><controlfield tag="001">b276194</controlfield><controlfield tag="005">20140530074538.0</controlfield><controlfield tag="008">890823s1963    nyu           000 1 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">63009276</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">.b2761944</subfield><subfield code="b">06-10-14</subfield><subfield code="c">02-08-90</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">.b2761944</subfield><subfield code="b">04-05-09</subfield><subfield code="c">02-08-90</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">NYCL89-B13237</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="c">AzF</subfield></datafield><datafield tag="099" ind1=" " ind2=" "><subfield code="a">T</subfield><subfield code="b">T828s</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Tully, Andrew,</subfield><subfield code="d">1914-1993.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Supreme Court :</subfield><subfield code="b">a novel /</subfield><subfield code="c">by Andrew Tully.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">New American Library,</subfield><subfield code="c">[c1963]</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">351 p. ;</subfield><subfield code="c">22 cm.</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Law</subfield><subfield code="b">Law &gt;&gt; T T828s</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">law</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Tully, Andrew, 1914-1993'],'pub_name_display'=>['New American Library'],'format'=>['Book'],'source_display'=>['law','catalog'],'material_type_display'=>['351 p.'],'title_first_facet'=>['S'],'pub_date_sort'=>1963,'full_publisher_display'=>['New York : New American Library, [c1963]'],'language_facet'=>['English'],'_version_'=>1512735425586790400,'timestamp'=>'2015-09-19T10:02:02.9Z'}]}}
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 14:47:51 GMT
+  recorded_at: Tue, 22 Sep 2015 19:29:40 GMT
 recorded_with: VCR 2.9.3

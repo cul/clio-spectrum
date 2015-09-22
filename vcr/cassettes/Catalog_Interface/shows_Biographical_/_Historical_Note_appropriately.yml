@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=7755896&qt=document&wt=ruby
+    uri: "<solr_config>/select?id=7755896&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 19:41:28 GMT
+      - Tue, 22 Sep 2015 19:28:16 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -23,7 +23,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
         YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
         eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic3NzU1ODk2
         JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
@@ -575,5 +575,5 @@ http_interactions:
         MDMwMDgwLCd0aW1lc3RhbXAnPT4nMjAxNS0wOS0xN1QwNToxMDo1Ni41Nzda
         J31dfX0K
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 19:41:30 GMT
+  recorded_at: Tue, 22 Sep 2015 19:28:16 GMT
 recorded_with: VCR 2.9.3

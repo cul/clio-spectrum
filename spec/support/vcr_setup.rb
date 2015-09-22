@@ -24,6 +24,15 @@ VCR.configure do |c|
       VCR.request_matchers.uri_without_param('facet.query')]
   }
 
+  # Don't put URLs in the cassettes, so they can go into public repo
+  # https://relishapp.com/vcr/vcr/v/2-5-0/docs/configuration/filter-sensitive-data
+  # http://stackoverflow.com/questions/9816152
+  c.filter_sensitive_data("<ac2_solr_url>") { APP_CONFIG['ac2_solr_url'] }
+  c.filter_sensitive_data("<library_api_path>") { APP_CONFIG['library_api_path'] }
+  c.filter_sensitive_data("<clio_backend_url>") { APP_CONFIG['clio_backend_url'] }
+  c.filter_sensitive_data("<solr_config>") { SOLR_CONFIG['test']['url'] }
+
+
   # Not working?  Use this to spew debugging to console
   # c.debug_logger = $stdout
 

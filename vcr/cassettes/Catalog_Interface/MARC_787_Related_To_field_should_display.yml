@@ -2,7 +2,63 @@
 http_interactions:
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=7814900&qt=document&wt=ruby
+    uri: "<clio_backend_url>/holdings/retrieve/7814900"
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:26:10 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Etag:
+      - W/"3cd5a7e3e88e774128aaf521bbc53285"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 390bd8b7-fcbe-4371-9c82-6eb41f20b7f3
+      X-Runtime:
+      - '1.429248'
+      Server:
+      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+    body:
+      encoding: UTF-8
+      string: "{\"7814900\":{\"condensed_holdings_full\":[{\"location_name\":\"Rare
+        Book, Butler 6th Fl. East (Non-Circulating)\",\"location_note\":\"\",\"call_number\":\"MS
+        X893 M2815\",\"status\":\"none\",\"holding_id\":[\"10918526\"],\"copies\":[{\"items\":{\"Status
+        unknown\":{\"status\":\"none\",\"count\":1}}}],\"services\":[\"spec_coll\"]}]}}"
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:26:12 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?id=7814900&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -13,7 +69,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 19:40:45 GMT
+      - Tue, 22 Sep 2015 19:26:12 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -23,7 +79,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
         YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
         eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic3ODE0OTAw
         JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
@@ -216,10 +272,92 @@ http_interactions:
         ZXcnXSwnX3ZlcnNpb25fJz0+MTUwMTk2NzI1MTIzNTkzMDExMiwndGltZXN0
         YW1wJz0+JzIwMTUtMDUtMjNUMTM6MjY6MzEuNTg3Wid9XX19Cg==
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 19:40:45 GMT
+  recorded_at: Tue, 22 Sep 2015 19:26:12 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=7419929&qt=document&wt=ruby
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocn641277267.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:26:12 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 19:26:13 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:36:13 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:26:13 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/641277267.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:26:13 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 19:26:13 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:36:13 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:26:13 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?id=7419929&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -230,7 +368,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 19:40:45 GMT
+      - Tue, 22 Sep 2015 19:26:13 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -242,5 +380,5 @@ http_interactions:
       string: |
         {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'7419929','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['avefax+ab-+0000+00000000+in772000+7419929','loc+na-+2543+00000000+t4300000+x5300000+7419929'],'location_call_number_id_display'=>['Avery (Non-Circulating) >> AB In772|DELIM|10535113'],'pub_year_display'=>['2008-'],'title_display'=>['Xia international'],'item_display'=>['AB In772 | avefax+ab-+0000+00000000+in772000+7419929 | p4lkp2~po~~zzzz~zzzzzzzz~hcssxzzz~svyqqxq~~~~~~~~~','NA2543.T43 X53 | loc+na-+2543+00000000+t4300000+x5300000+7419929 | ebn~cp~~xuvw~zzzzzzzz~6vwzzzzz~2uwzzzzz~svyqqxq~~~'],'id'=>'7419929','reverse_shelfkey'=>['p4lkp2~po~~zzzz~zzzzzzzz~hcssxzzz~svyqqxq~~~~~~~~~','ebn~cp~~xuvw~zzzzzzzz~6vwzzzzz~2uwzzzzz~svyqqxq~~~'],'clio_id_display'=>'7419929','subject_geo_facet'=>['Germany'],'call_number_display'=>['AB In772'],'subject_topic_facet'=>['Architecture and technology','Architecture','Technological innovations'],'pub_place_display'=>['Leinfelden-Echterdingen, Germany'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01523cas a2200421Ma 4500</leader><controlfield tag="001">7419929</controlfield><controlfield tag="005">20130722162234.0</controlfield><controlfield tag="008">080821d20082009gw fr p       0   a0eng d</controlfield><datafield tag="022" ind1=" " ind2=" "><subfield code="a">0949-2356</subfield><subfield code="l">0949-2356</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn271656698</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)271656698</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)7419929</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">AU@</subfield><subfield code="c">AU@</subfield><subfield code="d">ZCU</subfield><subfield code="d">OCLCQ</subfield><subfield code="d">ZCU</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">e-gx---</subfield></datafield><datafield tag="050" ind1=" " ind2="4"><subfield code="a">NA2543.T43</subfield><subfield code="b">X53</subfield></datafield><datafield tag="082" ind1="0" ind2="4"><subfield code="a">720.10505</subfield><subfield code="2">22</subfield></datafield><datafield tag="245" ind1="0" ind2="0"><subfield code="a">Xia international.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Leinfelden-Echterdingen, Germany :</subfield><subfield code="b">Verlagsanstalt Alexander Koch,</subfield><subfield code="c">2008-</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">v. :</subfield><subfield code="b">col. ill. ;</subfield><subfield code="c">31 cm.</subfield></datafield><datafield tag="362" ind1="0" ind2=" "><subfield code="a">01/08-</subfield></datafield><datafield tag="362" ind1="1" ind2=" "><subfield code="a">Ceased in 2009.</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Cover title.</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">"Smart buildings - materials - technologies"</subfield></datafield><datafield tag="580" ind1=" " ind2=" "><subfield code="a">A special English edition of the quarterly German language publication: Xia intelligenteArchitektur.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Architecture and technology</subfield><subfield code="z">Germany</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Architecture and technology</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Architecture</subfield><subfield code="x">Technological innovations</subfield><subfield code="v">Periodicals.</subfield></datafield><datafield tag="787" ind1="1" ind2=" "><subfield code="t">Xia intelligenteArchitektur</subfield><subfield code="w">(OCoLC)137242817</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20091006</subfield><subfield code="b">c</subfield><subfield code="c">rf63</subfield><subfield code="d">OSMC</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20100129</subfield><subfield code="b">l</subfield><subfield code="c">rr2205</subfield><subfield code="d">OSMC</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20130604</subfield><subfield code="b">l</subfield><subfield code="c">rr2205</subfield><subfield code="d">OSMC</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">NA</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">NA2543.T43 X53</subfield><subfield code="b">loc+NA-+2543+00000000+T4300000+X5300000</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">AB In772</subfield><subfield code="b">avefax+AB-+0000+00000000+IN772000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Avery, Fine Arts, Ware</subfield><subfield code="b">Avery (Non-Circulating) &gt;&gt; AB In772|DELIM|10535113</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Journal/Periodical</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','pub_name_display'=>['Verlagsanstalt Alexander Koch'],'issn_display'=>['0949-2356'],'format'=>['Journal/Periodical'],'source_display'=>['catalog'],'material_type_display'=>['v.'],'oclc_display'=>['ocn271656698','271656698'],'title_first_facet'=>['X'],'pub_date_sort'=>2008,'full_publisher_display'=>['Leinfelden-Echterdingen, Germany : Verlagsanstalt Alexander Koch, 2008-'],'language_facet'=>['English'],'_version_'=>1501963915564679168,'timestamp'=>'2015-05-23T12:33:30.443Z'}]}}
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 19:40:45 GMT
+  recorded_at: Tue, 22 Sep 2015 19:26:13 GMT
 recorded_with: VCR 2.9.3

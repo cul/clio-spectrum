@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=8540370&qt=document&wt=ruby
+    uri: "<solr_config>/select?id=8540370&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 19:41:25 GMT
+      - Tue, 22 Sep 2015 19:28:14 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -23,7 +23,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
         YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
         eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic4NTQwMzcw
         JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
@@ -199,10 +199,10 @@ http_interactions:
         NTgsJ192ZXJzaW9uXyc9PjE1MDE5NzMyMTgxNDE5Mjk0NzIsJ3RpbWVzdGFt
         cCc9PicyMDE1LTA1LTIzVDE1OjAxOjIyLjA3MVonfV19fQo=
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 19:41:26 GMT
+  recorded_at: Tue, 22 Sep 2015 19:28:14 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=4079060&qt=document&wt=ruby
+    uri: "<solr_config>/select?id=4079060&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -213,7 +213,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 19:41:25 GMT
+      - Tue, 22 Sep 2015 19:28:14 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -225,5 +225,5 @@ http_interactions:
       string: |
         {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'4079060','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['rbms+ms coll mcclure+4079060'],'location_call_number_id_display'=>['Rare Book, Butler 6th Fl. East (Non-Circulating) >> Ms Coll McClure|DELIM|4616283'],'repository_display'=>['Rare Book & Manuscript Library'],'summary_display'=>['Letters from McClure to David Meltzer discussing McClure\'s writings, especially during a visit to New York in 1961.  Also, three poems sent to Meltzer; one letter, dated 1965, and addressed to Joe Pinelli; letters from McClure to his agent, Max Gartenberg, 1965-1967, concerning his negotiations with Grove Press; and 43 drafts of his MEAT SCIENCE ESSAYS, published by City Lights Books in 1963 and 1966'],'title_display'=>['Papers, 1958-1968'],'item_display'=>['Ms Coll McClure | rbms+ms coll mcclure+4079060 | 8od7~d7~nbee~dnne58l~vzsqztz~~~~~~~~~~~~~~~~~~~~~~'],'id'=>'4079060','clio_id_display'=>'4079060','reverse_shelfkey'=>['8od7~d7~nbee~dnne58l~vzsqztz~~~~~~~~~~~~~~~~~~~~~~'],'subject_geo_facet'=>['New York (N.Y.)'],'call_number_display'=>['Ms Coll McClure'],'subject_topic_facet'=>['Meltzer, David','Pinelli, Joe','Gartenberg, Max','Grove Press','Literary agents','American poetry','Literature publishing','Publishers and publishing','Bohemianism','Description and travel'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01938cbc a2200493ua 4500</leader><controlfield tag="001">4079060</controlfield><controlfield tag="005">20100226143651.0</controlfield><controlfield tag="008">890802i19581968nyu                 eng d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)122571388</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn122571388</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCR89-A560</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAB1821RB</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)4079060</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">NIC</subfield><subfield code="c">NIC</subfield><subfield code="e">appm</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="b">Ms Coll\\McClure</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">McClure, Michael.</subfield></datafield><datafield tag="245" ind1="0" ind2="0"><subfield code="k">Papers,</subfield><subfield code="f">1958-1968.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">93 items (1 box)</subfield></datafield><datafield tag="545" ind1=" " ind2=" "><subfield code="a">Poet.</subfield><subfield code="b">McClure was born in 1932.</subfield></datafield><datafield tag="520" ind1=" " ind2=" "><subfield code="a">Letters from McClure to David Meltzer discussing McClure\'s writings, especially during a visit to New York in 1961.  Also, three poems sent to Meltzer; one letter, dated 1965, and addressed to Joe Pinelli; letters from McClure to his agent, Max Gartenberg, 1965-1967, concerning his negotiations with Grove Press; and 43 drafts of his MEAT SCIENCE ESSAYS, published by City Lights Books in 1963 and 1966.</subfield></datafield><datafield tag="541" ind1=" " ind2=" "><subfield code="d">04/24/81</subfield><subfield code="e">M-81-04-24</subfield><subfield code="a">409622C</subfield><subfield code="c">Purchase</subfield></datafield><datafield tag="583" ind1=" " ind2=" "><subfield code="a">Cataloged</subfield><subfield code="c">08/--/89</subfield><subfield code="k">Christina Hilton Fenn</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Meltzer, David.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Pinelli, Joe.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Gartenberg, Max.</subfield></datafield><datafield tag="610" ind1="2" ind2="0"><subfield code="a">Grove Press.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Literary agents.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">American poetry</subfield><subfield code="y">20th century.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Literature publishing.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Publishers and publishing.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Bohemianism.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">New York (N.Y.)</subfield><subfield code="x">Description and travel.</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Poems.</subfield><subfield code="2">ftamc</subfield></datafield><datafield tag="656" ind1=" " ind2="7"><subfield code="a">Poets, American.</subfield><subfield code="2">lcsh</subfield></datafield><datafield tag="690" ind1=" " ind2="4"><subfield code="a">Beats.</subfield></datafield><datafield tag="690" ind1=" " ind2="4"><subfield code="a">Beat literature.</subfield></datafield><datafield tag="852" ind1=" " ind2=" "><subfield code="a">Columbia University.</subfield><subfield code="b">Rare Book and Manuscript Library,</subfield><subfield code="e">New York, NY.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">Ms Coll McClure</subfield><subfield code="b">rbms+MS COLL MCCLURE</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Rare Book</subfield><subfield code="b">Rare Book, Butler 6th Fl. East (Non-Circulating) &gt;&gt; Ms Coll McClure|DELIM|4616283</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Manuscript/Archive</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">archive</subfield></datafield><datafield tag="996" ind1=" " ind2=" "><subfield code="a">Rare Book &amp; Manuscript Library</subfield></datafield></record></collection>','author_display'=>['McClure, Michael'],'format'=>['Manuscript/Archive'],'source_display'=>['catalog','archive'],'material_type_display'=>['93 items (1 box)'],'oclc_display'=>['122571388','ocn122571388'],'title_first_facet'=>['P'],'pub_date_sort'=>1958,'language_facet'=>['English'],'_version_'=>1501936580970938368,'timestamp'=>'2015-05-23T05:19:02.143Z'}]}}
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 19:41:26 GMT
+  recorded_at: Tue, 22 Sep 2015 19:28:14 GMT
 recorded_with: VCR 2.9.3

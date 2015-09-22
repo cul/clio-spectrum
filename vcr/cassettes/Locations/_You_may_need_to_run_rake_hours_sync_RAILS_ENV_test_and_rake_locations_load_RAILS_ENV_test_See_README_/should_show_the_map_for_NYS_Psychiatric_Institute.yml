@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.library.columbia.edu/query.json?locationID=alllocations&qt=location
+    uri: "<library_api_path>?locationID=alllocations&qt=location"
     body:
       encoding: US-ASCII
       string: ''
@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 19:38:08 GMT
+      - Tue, 22 Sep 2015 19:30:41 GMT
       Server:
       - Apache
       Access-Control-Allow-Origin:
@@ -27,7 +27,7 @@ http_interactions:
       Cache-Control:
       - max-age=0
       Expires:
-      - Thu, 17 Sep 2015 19:38:08 GMT
+      - Tue, 22 Sep 2015 19:30:41 GMT
       Vary:
       - Accept-Encoding,User-Agent
       Content-Encoding:
@@ -171,5 +171,5 @@ http_interactions:
         4Ex+me4xpfFDfhjakFt0P6/uV+B19AU3M4shm0eF7eWVNPof/4cLQFuYBelb
         0v/9rSFwJM7/ogdWf/w/AuQKKQqfAAA=
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 19:38:09 GMT
+  recorded_at: Tue, 22 Sep 2015 19:30:41 GMT
 recorded_with: VCR 2.9.3

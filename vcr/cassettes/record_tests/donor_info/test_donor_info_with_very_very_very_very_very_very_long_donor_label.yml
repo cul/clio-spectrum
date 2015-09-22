@@ -2,7 +2,171 @@
 http_interactions:
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=36114&qt=document&wt=ruby
+    uri: http://catalog.hathitrust.org/api/volumes/brief/issn/1932-6912.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:33:15 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 19:33:15 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:43:15 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:33:15 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocm31953160.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:33:15 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 19:33:15 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:43:15 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:33:15 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/31953160.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:33:15 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 19:33:15 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:43:15 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:33:15 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/lccn/2006214209.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 19:33:15 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 19:33:15 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
+        19:43:15 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 19:33:15 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?id=36114&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -13,7 +177,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 17 Sep 2015 18:06:17 GMT
+      - Tue, 22 Sep 2015 19:33:15 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -148,159 +312,10 @@ http_interactions:
         Jz0+MTUwMTk5MzE1OTI3MTM4MzA0MCwndGltZXN0YW1wJz0+JzIwMTUtMDUt
         MjNUMjA6MTg6MTkuNDE0Wid9XX19Cg==
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 18:06:18 GMT
+  recorded_at: Tue, 22 Sep 2015 19:33:15 GMT
 - request:
     method: get
-    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=36114&qt=document&wt=ruby
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 17 Sep 2015 18:06:18 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
-        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
-        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9PiczNjExNCcs
-        J3F0Jz0+J2RvY3VtZW50Jywnd3QnPT4ncnVieSd9fSwncmVzcG9uc2UnPT57
-        J251bUZvdW5kJz0+MSwnc3RhcnQnPT4wLCdkb2NzJz0+W3snc2hlbGZrZXkn
-        PT5bJ2xvYytlLS0rMDI2MyswMDAwMDAwMCtuNjAwMDAwMCtsMzgwMDAwMCsz
-        NjExNCddLCdsb2NhdGlvbl9jYWxsX251bWJlcl9pZF9kaXNwbGF5Jz0+WydC
-        dXRsZXIgU3RhY2tzIChFbnRlciBhdCB0aGUgQnV0bGVyIENpcmN1bGF0aW9u
-        IERlc2spID4+IEUyNjMuTjYgTDM4fERFTElNfDUzOTI2JywnT2Zmc2l0ZSA8
-        QXZlcnk+IChOb24tQ2lyY3VsYXRpbmcpIFBsYWNlIFJlcXVlc3QgZm9yIGRl
-        bGl2ZXJ5ID4+IEUyNjMuTjYgTDM4fERFTElNfDEyNzYyMjQzJ10sJ2xjY25f
-        ZGlzcGxheSc9PlsnNzkwNTM1NzknXSwnaXRlbV9kaXNwbGF5Jz0+WydFMjYz
-        Lk42IEwzOCB8IGxvYytlLS0rMDI2MyswMDAwMDAwMCtuNjAwMDAwMCtsMzgw
-        MDAwMCszNjExNCB8IGVibn5sfn5+enh0d356enp6enp6en5jdHp6enp6en5l
-        d3J6enp6en53dHl5dn5+fn5+J10sJ3RpdGxlX2Rpc3BsYXknPT5bJ0xveWFs
-        IFdoaWdzIGFuZCByZXZvbHV0aW9uYXJpZXMgOiB0aGUgbWFraW5nIG9mIHRo
-        ZSBSZXZvbHV0aW9uIGluIE5ldyBZb3JrLCAxNzY1LTE3NzYnXSwnY2xpb19p
-        ZF9kaXNwbGF5Jz0+JzM2MTE0Jywnc3ViamVjdF90b3BpY19mYWNldCc9Plsn
-        UG9saXRpY3MgYW5kIGdvdmVybm1lbnQnXSwncHViX3BsYWNlX2Rpc3BsYXkn
-        PT5bJ05ldyBZb3JrJ10sJ2Zvcm1hdCc9PlsnQm9vayddLCdvY2xjX2Rpc3Bs
-        YXknPT5bJzU2NzgyNDYnLCdvY20wNTY3ODI0NiddLCd0aXRsZV9maXJzdF9m
-        YWNldCc9PlsnTCddLCdmdWxsX3B1Ymxpc2hlcl9kaXNwbGF5Jz0+WydOZXcg
-        WW9yayA6IE5ldyBZb3JrIFVuaXZlcnNpdHkgUHJlc3MsIGMxOTgwLiddLCdw
-        dWJfZGF0ZV9zb3J0Jz0+MTk4MCwnaXNibl9kaXNwbGF5Jz0+WycwODE0NzQ5
-        OTQxJ10sJ3B1Yl95ZWFyX2Rpc3BsYXknPT5bJ2MxOTgwJ10sJ2lkJz0+JzM2
-        MTE0JywncmV2ZXJzZV9zaGVsZmtleSc9PlsnZWJufmx+fn56eHR3fnp6enp6
-        enp6fmN0enp6enp6fmV3cnp6enp6fnd0eXl2fn5+fn4nXSwnc3ViamVjdF9n
-        ZW9fZmFjZXQnPT5bJ05ldyBZb3JrIChTdGF0ZSknXSwnY2FsbF9udW1iZXJf
-        ZGlzcGxheSc9PlsnRTI2My5ONiBMMzgnXSwnbWFyY19kaXNwbGF5Jz0+Jzw/
-        eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9IlVURi04Ij8+PGNvbGxlY3Rp
-        b24geG1sbnM9Imh0dHA6Ly93d3cubG9jLmdvdi9NQVJDMjEvc2xpbSI+PHJl
-        Y29yZD48bGVhZGVyPjAxNDExY2FtIGEyMjAwMzk3IGkgNDUwMDwvbGVhZGVy
-        Pjxjb250cm9sZmllbGQgdGFnPSIwMDEiPjM2MTE0PC9jb250cm9sZmllbGQ+
-        PGNvbnRyb2xmaWVsZCB0YWc9IjAwNSI+MjAxMjExMTkyMTI4MTYuMDwvY29u
-        dHJvbGZpZWxkPjxjb250cm9sZmllbGQgdGFnPSIwMDgiPjgwMTIwOXMxOTgw
-        ICAgIG55dSAgICAgIGIgICAgMDAxIDAgZW5nICA8L2NvbnRyb2xmaWVsZD48
-        ZGF0YWZpZWxkIHRhZz0iMDEwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmll
-        bGQgY29kZT0iYSI+ICAgNzkwNTM1NzkgPC9zdWJmaWVsZD48L2RhdGFmaWVs
-        ZD48ZGF0YWZpZWxkIHRhZz0iMDIwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3Vi
-        ZmllbGQgY29kZT0iYSI+MDgxNDc0OTk0MSA6PC9zdWJmaWVsZD48c3ViZmll
-        bGQgY29kZT0iYyI+JDE3LjUwPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0
-        YWZpZWxkIHRhZz0iMDM1IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQg
-        Y29kZT0iYSI+KE9Db0xDKTU2NzgyNDY8L3N1YmZpZWxkPjwvZGF0YWZpZWxk
-        PjxkYXRhZmllbGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJm
-        aWVsZCBjb2RlPSJhIj4oT0NvTEMpb2NtMDU2NzgyNDY8L3N1YmZpZWxkPjwv
-        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9
-        IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4oQ1N0UkxJTilOWUNHMjAzMTE5ODIt
-        Qjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAzNSIg
-        aW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9IjkiPkFBRDc5OTFD
-        VTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAzNSIg
-        aW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPihOTkMpMzYx
-        MTQ8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwNDMi
-        IGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5uLXVzLW55
-        PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDUwIiBp
-        bmQxPSIwIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+RTI2My5ONjwv
-        c3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPkwzODwvc3ViZmllbGQ+PC9k
-        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjA4MiIgaW5kMT0iICIgaW5kMj0i
-        ICI+PHN1YmZpZWxkIGNvZGU9ImEiPjk3NC43LzAyPC9zdWJmaWVsZD48L2Rh
-        dGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDkwIiBpbmQxPSIgIiBpbmQyPSIg
-        Ij48c3ViZmllbGQgY29kZT0iYSI+RTI2My5ONjwvc3ViZmllbGQ+PHN1YmZp
-        ZWxkIGNvZGU9ImIiPkwzODwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFm
-        aWVsZCB0YWc9IjEwMCIgaW5kMT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNv
-        ZGU9ImEiPkxhdW5pdHotU2NodcyIcmVyLCBMZW9wb2xkIFMuLDwvc3ViZmll
-        bGQ+PHN1YmZpZWxkIGNvZGU9ImQiPjE5NDItPC9zdWJmaWVsZD48L2RhdGFm
-        aWVsZD48ZGF0YWZpZWxkIHRhZz0iMjQ1IiBpbmQxPSIxIiBpbmQyPSIwIj48
-        c3ViZmllbGQgY29kZT0iYSI+TG95YWwgV2hpZ3MgYW5kIHJldm9sdXRpb25h
-        cmllcyA6PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+dGhlIG1ha2lu
-        ZyBvZiB0aGUgUmV2b2x1dGlvbiBpbiBOZXcgWW9yaywgMTc2NS0xNzc2IC88
-        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5MZW9wb2xkIFMuIExhdW5p
-        dHotU2NodcyIcmVyLCBKci48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRh
-        ZmllbGQgdGFnPSIyNjAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBj
-        b2RlPSJhIj5OZXcgWW9yayA6PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
-        YiI+TmV3IFlvcmsgVW5pdmVyc2l0eSBQcmVzcyw8L3N1YmZpZWxkPjxzdWJm
-        aWVsZCBjb2RlPSJjIj5jMTk4MC48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxk
-        YXRhZmllbGQgdGFnPSIzMDAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVs
-        ZCBjb2RlPSJhIj54aXYsIDIyNSBwLiA7PC9zdWJmaWVsZD48c3ViZmllbGQg
-        Y29kZT0iYyI+MjQgY20uPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZp
-        ZWxkIHRhZz0iNTAwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29k
-        ZT0iYSI+SW5jbHVkZXMgaW5kZXguPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48
-        ZGF0YWZpZWxkIHRhZz0iNTA0IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmll
-        bGQgY29kZT0iYSI+QmlibGlvZ3JhcGh5OiBwLiAyMDUtMjE5Ljwvc3ViZmll
-        bGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjY1MSIgaW5kMT0iICIg
-        aW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEiPk5ldyBZb3JrIChTdGF0ZSk8
-        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ4Ij5Qb2xpdGljcyBhbmQgZ292
-        ZXJubWVudDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9InkiPjE3NzUtMTc4
-        My48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI2NTEi
-        IGluZDE9IiAiIGluZDI9IjAiPjxzdWJmaWVsZCBjb2RlPSJhIj5OZXcgWW9y
-        ayAoU3RhdGUpPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0ieCI+UG9saXRp
-        Y3MgYW5kIGdvdmVybm1lbnQ8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ5
-        Ij5UbyAxNzc1Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0
-        YWc9IjkwMCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEi
-        PkFVVEg8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5
-        NDgiIGluZDE9IjIiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4yMDEy
-        MTAxMjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPmE8L3N1YmZpZWxk
-        PjxzdWJmaWVsZCBjb2RlPSJjIj5kdXJzdDM8L3N1YmZpZWxkPjxzdWJmaWVs
-        ZCBjb2RlPSJkIj5BVkM8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmll
-        bGQgdGFnPSI5NjUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2Rl
-        PSJhIj45NjVkdXJzdDwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVs
-        ZCB0YWc9Ijk5MCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9
-        ImEiPkU8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5
-        OTEiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5FMjYz
-        Lk42IEwzODwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPmxvYytFLS0r
-        MDI2MyswMDAwMDAwMCtONjAwMDAwMCtMMzgwMDAwMDwvc3ViZmllbGQ+PC9k
-        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MiIgaW5kMT0iICIgaW5kMj0i
-        ICI+PHN1YmZpZWxkIGNvZGU9ImEiPkJ1dGxlciBTdGFja3M8L3N1YmZpZWxk
-        PjxzdWJmaWVsZCBjb2RlPSJiIj5CdXRsZXIgU3RhY2tzIChFbnRlciBhdCB0
-        aGUgQnV0bGVyIENpcmN1bGF0aW9uIERlc2spICZndDsmZ3Q7IEUyNjMuTjYg
-        TDM4fERFTElNfDUzOTI2PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZp
-        ZWxkIHRhZz0iOTkyIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29k
-        ZT0iYSI+T2Zmc2l0ZTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPk9m
-        ZnNpdGUgJmx0O0F2ZXJ5Jmd0OyAoTm9uLUNpcmN1bGF0aW5nKSBQbGFjZSBS
-        ZXF1ZXN0IGZvciBkZWxpdmVyeSAmZ3Q7Jmd0OyBFMjYzLk42IEwzOHxERUxJ
-        TXwxMjc2MjI0Mzwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0
-        YWc9Ijk5MyIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEi
-        PkJvb2s8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5
-        OTUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5jYXRh
-        bG9nPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48L3JlY29yZD48L2NvbGxlY3Rp
-        b24+JywnYXV0aG9yX2Rpc3BsYXknPT5bJ0xhdW5pdHotU2NodcyIcmVyLCBM
-        ZW9wb2xkIFMuLCAxOTQyLSddLCdwdWJfbmFtZV9kaXNwbGF5Jz0+WydOZXcg
-        WW9yayBVbml2ZXJzaXR5IFByZXNzJ10sJ3NvdXJjZV9kaXNwbGF5Jz0+Wydj
-        YXRhbG9nJ10sJ21hdGVyaWFsX3R5cGVfZGlzcGxheSc9PlsneGl2LCAyMjUg
-        cC4nXSwnbGFuZ3VhZ2VfZmFjZXQnPT5bJ0VuZ2xpc2gnXSwnX3ZlcnNpb25f
-        Jz0+MTUwMTk5MzE1OTI3MTM4MzA0MCwndGltZXN0YW1wJz0+JzIwMTUtMDUt
-        MjNUMjA6MTg6MTkuNDE0Wid9XX19Cg==
-    http_version: 
-  recorded_at: Thu, 17 Sep 2015 18:06:19 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/0814749941.json
+    uri: "<clio_backend_url>/holdings/retrieve/36114"
     body:
       encoding: UTF-8
       string: ''
@@ -310,171 +325,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Thu, 17 Sep 2015 18:06:19 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 17 Sep 2015 18:06:18 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        18:16:18 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Thu, 17 Sep 2015 18:06:19 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/5678246.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Thu, 17 Sep 2015 18:06:19 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 17 Sep 2015 18:06:18 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        18:16:18 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Thu, 17 Sep 2015 18:06:19 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocm05678246.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Thu, 17 Sep 2015 18:06:19 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 17 Sep 2015 18:06:18 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        18:16:18 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Thu, 17 Sep 2015 18:06:19 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/lccn/79053579.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Thu, 17 Sep 2015 18:06:19 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 17 Sep 2015 18:06:19 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Thu, 17-Sep-2015
-        18:16:19 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Thu, 17 Sep 2015 18:06:19 GMT
-- request:
-    method: get
-    uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/36114
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Thu, 17 Sep 2015 18:06:18 GMT
+      - Tue, 22 Sep 2015 19:33:16 GMT
   response:
     status:
       code: 200
@@ -505,9 +356,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - cd2ce8f1-f295-4411-827f-01fd07a97e8f
+      - a4ae0df8-108f-40e5-bc3d-6ebcbb141c71
       X-Runtime:
-      - '1.268252'
+      - '4.438464'
       Server:
       - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
     body:
@@ -521,5 +372,5 @@ http_interactions:
         Durst Old York Library Collection, Avery Architectural \\u0026 Fine Arts Library,
         Columbia University.\",\"url\":\"https://dlc.library.columbia.edu/durst\"}]}],\"services\":[\"offsite\"]}]}}"
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 18:06:20 GMT
+  recorded_at: Tue, 22 Sep 2015 19:33:20 GMT
 recorded_with: VCR 2.9.3
