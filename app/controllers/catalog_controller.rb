@@ -1,7 +1,6 @@
 # The CatalogController supports all catalog-based datasources:
 #   Catalog, Databases, E-Journal Titles, etc.
 # (plus AcademicCommons - which uses Blacklight against a diff. Solr)
-# (and dcv - which uses Blacklight against a yet another Solr)
 # This was originally based on the Blacklight CatalogController.
 require 'blacklight/catalog'
 

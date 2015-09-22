@@ -1,3 +1,0 @@
--# When is this invoked?
--# When we do an AJAX fetch of facets for a modal "more facets" dialog?
-= fix_catalog_links(render(:partial => "facet_advanced"))
