@@ -1,10 +1,10 @@
 # encoding: utf-8
 require 'spec_helper'
 
-describe 'Spectrum::SearchEngines::GoogleAppliance' do
+describe 'Spectrum::SearchEngines::GoogleAppliance', :vcr do
 
   describe 'Libraries Website search for "books"' do
-    before(:all) do
+    before(:each) do
       @search_engine = Spectrum::SearchEngines::GoogleAppliance.new('q' => 'books')
     end
 

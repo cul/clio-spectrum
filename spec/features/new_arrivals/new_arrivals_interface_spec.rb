@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 # NEXT-845 - New Arrivals timeframe (6 month count == 1 year count)
-describe 'New Arrivals Search' do
+describe 'New Arrivals Search', :vcr do
 
   it 'should show 4 distinct acquisition-date facet options', :js do
     visit root_path

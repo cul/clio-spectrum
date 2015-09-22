@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Archives Search' do
+describe 'Archives Search', :vcr do
 
   it 'will be able to traverse next and previous links', :js do
     visit archives_index_path('q' => 'papers')
@@ -27,7 +27,6 @@ describe 'Archives Search' do
     within all('.result.document').first do
       find('a', text: 'Files').click
     end
-
 
     expect(find('#search_info')).to have_text("1 of")
     expect(page).to_not have_css('#search_info a', text: 'Previous')

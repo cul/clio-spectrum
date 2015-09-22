@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'Linked field-values in single-item display', focus: false do
+describe 'Linked field-values in single-item display', vcr: { allow_playback_repeats: true } do
 
   it 'should work for links with diacritics and trailing punctuation' do
     # setup UTF-8 Decomposed form string constants for our various targets
@@ -51,7 +51,7 @@ describe 'Linked field-values in single-item display', focus: false do
   end
 
   # NEXT-546 - author link is not finding all the other books by this author
-  it "should work for RDA roles, such as 'author'" do
+  it "should work for RDA roles, such as 'author' (Morson)" do
     test_bib = '9398081'
     test_title = 'The long and short of it'
     test_link = 'Morson, Gary Saul, 1948-, author.'
@@ -92,8 +92,8 @@ describe 'Linked field-values in single-item display', focus: false do
     expect(page).to have_link(test_title, href: "/catalog/#{test_bib}")
   end
 
-  # NEXT-561 - Some names with diacritics continue to fail in CLIO Beta
-  it 'should work with ampersands and trailing punctuation' do
+  # NEXT-561 - Some names with diacritics continue to fail in CLIO
+  it 'work with diacritics' do
     test_bib = '7030828'
     test_title = 'Iranian DVD oral history collection'
     test_link_array = [
@@ -127,7 +127,7 @@ describe 'Linked field-values in single-item display', focus: false do
   end
 
   # NEXT-771 - Author link is not finding other resource by the same author
-  it "should work for RDA roles, such as 'author'" do
+  it "should work for RDA roles, such as 'author' (Riedel)" do
     test_bib = '10288244'
     test_title = 'Islamic books'
     test_link = 'Riedel, Dagmar A., author.'

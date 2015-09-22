@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'A Libraries Website search' do
+describe 'A Libraries Website search', :vcr do
 
   it 'will have a next link that links to library_web' do
     visit library_web_index_path('q' => 'books')

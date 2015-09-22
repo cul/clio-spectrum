@@ -1,0 +1,1124 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=10172954&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 15:36:13 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
+        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9PicxMDE3Mjk1
+        NCcsJ3F0Jz0+J2RvY3VtZW50Jywnd3QnPT4ncnVieSd9fSwncmVzcG9uc2Un
+        PT57J251bUZvdW5kJz0+MSwnc3RhcnQnPT4wLCdkb2NzJz0+W3snc2hlbGZr
+        ZXknPT5bJ2xvYytrYnArMDQ0MCszMjAwMDAwMCtzNTMwMDAwMCswMDIwMTIr
+        MTAxNzI5NTQnXSwnbG9jYXRpb25fY2FsbF9udW1iZXJfaWRfZGlzcGxheSc9
+        PlsnQnV0bGVyIFN0YWNrcyAoRW50ZXIgYXQgdGhlIEJ1dGxlciBDaXJjdWxh
+        dGlvbiBEZXNrKSA+PiBLQlA0NDAuMzIgLlM1MyAyMDEyZ3xERUxJTXwxMzI0
+        NTk1MiddLCdhdXRob3JfdmVybl9kaXNwbGF5Jz0+WyfYtNi52LHYp9mI2YrY
+        jCDZhdit2YXYryDZhdiq2YjZhNmKJ10sJ2FjcV9kdCc9PicyMDEzLTAyLTE5
+        VDAwOjAwOjAwWicsJ2l0ZW1fZGlzcGxheSc9PlsnS0JQNDQwLjMyIC5TNTMg
+        MjAxMmcgfCBsb2Mra2JwKzA0NDArMzIwMDAwMDArczUzMDAwMDArMDAyMDEy
+        KzEwMTcyOTU0IHwgZWJufmZvYX56dnZ6fnd4enp6enp6fjd1d3p6enp6fnp6
+        eHp5eH55enlzeHF1dn5+fn4nXSwndGl0bGVfZGlzcGxheSc9PlsnTWHMhGRo
+        YcyEIHFhzIRsYSBhbC1JbWHMhG0gYWwtU2hhyrtyYcyEd2nMhCBmacyEIHRh
+        ZnNpzIRyaWhpIMq7YW4gdGFozKNracyEbSBhbC1zaGFyacyEyrthaCB3YS10
+        YXTMo2JpzIRxaWhhzIQ/J10sJ2NsaW9faWRfZGlzcGxheSc9PicxMDE3Mjk1
+        NCcsJ3N1YmplY3RfdG9waWNfZmFjZXQnPT5bJ1F1csq8YW4nLCdDcml0aWNp
+        c20sIGludGVycHJldGF0aW9uLCBldGMnLCdJc2xhbWljIGxhdycsJ0ludGVy
+        cHJldGF0aW9uIGFuZCBjb25zdHJ1Y3Rpb24nXSwncHViX3BsYWNlX2Rpc3Bs
+        YXknPT5bJ01hZGnMhG5hdCBOYXPMo3IsIGFsLVFhzIRoaXJhaCddLCd0aXRs
+        ZV92ZXJuX2Rpc3BsYXknPT5bJ9mF2KfYsNinINmC2KfZhCDYp9mE2KXZhdin
+        2YUg2KfZhNi02LnYsdin2YjZiiDZgdmKINiq2YHYs9mK2LHZhyDYudmGINiq
+        2K3Zg9mK2YUg2KfZhNi02LHZiti52Kkg2YjYqti32KjZitmC2YfYp9ifJ10s
+        J2Zvcm1hdCc9PlsnQm9vayddLCdvY2xjX2Rpc3BsYXknPT5bJ29jbjc5NzAw
+        MDIxOCcsJzc5NzAwMDIxOCddLCd0aXRsZV9maXJzdF9mYWNldCc9PlsnTSdd
+        LCdwdWJfZGF0ZV9zb3J0Jz0+MjAxMiwnZnVsbF9wdWJsaXNoZXJfZGlzcGxh
+        eSc9PlsnTWFkacyEbmF0IE5hc8yjciwgYWwtUWHMhGhpcmFoIDogRGHMhHIg
+        YWwtWXVzciwgMjAxMi4nXSwnaXNibl9kaXNwbGF5Jz0+Wyc5Nzg5Nzc1MTAy
+        MTcxJywnOTc3NTEwMjE3MCddLCdwdWJfeWVhcl9kaXNwbGF5Jz0+WycyMDEy
+        J10sJ2lkJz0+JzEwMTcyOTU0JywncmV2ZXJzZV9zaGVsZmtleSc9PlsnZWJu
+        fmZvYX56dnZ6fnd4enp6enp6fjd1d3p6enp6fnp6eHp5eH55enlzeHF1dn5+
+        fn4nXSwnY2FsbF9udW1iZXJfZGlzcGxheSc9PlsnS0JQNDQwLjMyIC5TNTMg
+        MjAxMmcnXSwnbWFyY19kaXNwbGF5Jz0+Jzw/eG1sIHZlcnNpb249IjEuMCIg
+        ZW5jb2Rpbmc9IlVURi04Ij8+PGNvbGxlY3Rpb24geG1sbnM9Imh0dHA6Ly93
+        d3cubG9jLmdvdi9NQVJDMjEvc2xpbSI+PHJlY29yZD48bGVhZGVyPjAxOTAy
+        Y2FtIGEyMjAwNDIxSWEgNDUwMDwvbGVhZGVyPjxjb250cm9sZmllbGQgdGFn
+        PSIwMDEiPjEwMTcyOTU0PC9jb250cm9sZmllbGQ+PGNvbnRyb2xmaWVsZCB0
+        YWc9IjAwNSI+MjAxMzA1MDIxNDMxNDguMDwvY29udHJvbGZpZWxkPjxjb250
+        cm9sZmllbGQgdGFnPSIwMDgiPjEyMDYyMXMyMDEyICAgIHVhICAgICAgIGIg
+        ICAgMDAwIDAgYXJhIGQ8L2NvbnRyb2xmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
+        MDIwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+OTc4
+        OTc3NTEwMjE3MTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0
+        YWc9IjAyMCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEi
+        Pjk3NzUxMDIxNzA8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
+        dGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJh
+        Ij4oT0NvTEMpb2NuNzk3MDAwMjE4PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48
+        ZGF0YWZpZWxkIHRhZz0iMDM1IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmll
+        bGQgY29kZT0iYSI+KE9Db0xDKTc5NzAwMDIxODwvc3ViZmllbGQ+PC9kYXRh
+        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAzNSIgaW5kMT0iICIgaW5kMj0iICI+
+        PHN1YmZpZWxkIGNvZGU9ImEiPihOTkMpMTAxNzI5NTQ8L3N1YmZpZWxkPjwv
+        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwNDAiIGluZDE9IiAiIGluZDI9
+        IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5MRUlMQTwvc3ViZmllbGQ+PHN1YmZp
+        ZWxkIGNvZGU9ImMiPkxFSUxBPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
+        ZCI+TlVJPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+WVVTPC9zdWJm
+        aWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDUwIiBpbmQxPSIg
+        IiBpbmQyPSI0Ij48c3ViZmllbGQgY29kZT0iYSI+S0JQNDQwLjMyPC9zdWJm
+        aWVsZD48c3ViZmllbGQgY29kZT0iYiI+LlM1MyAyMDEyPC9zdWJmaWVsZD48
+        L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDUwIiBpbmQxPSIgIiBpbmQy
+        PSI0Ij48c3ViZmllbGQgY29kZT0iYSI+QlAxMzAuNDwvc3ViZmllbGQ+PHN1
+        YmZpZWxkIGNvZGU9ImIiPi5TNTM3IDIwMTI8L3N1YmZpZWxkPjwvZGF0YWZp
+        ZWxkPjxkYXRhZmllbGQgdGFnPSIxMDAiIGluZDE9IjEiIGluZDI9IiAiPjxz
+        dWJmaWVsZCBjb2RlPSI2Ij44ODAtMDE8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
+        b2RlPSJhIj5TaGHKu3JhzIR3acyELCBNdWjMo2FtbWFkIE11dGF3YWxsacyE
+        Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjI0NSIg
+        aW5kMT0iMSIgaW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9IjYiPjg4MC0wMjwv
+        c3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImEiPk1hzIRkaGHMhCBxYcyEbGEg
+        YWwtSW1hzIRtIGFsLVNoYcq7cmHMhHdpzIQgZmnMhCB0YWZzacyEcmloaSDK
+        u2FuIHRhaMyja2nMhG0gYWwtc2hhcmnMhMq7YWggd2EtdGF0zKNiacyEcWlo
+        YcyEPyAvPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYyI+amFtyrsgd2Et
+        dGFydGnMhGIgd2EtyrtpbmHMhHlhdCBIzKNhzIR0aW0gTXVozKNhbW1hZCBN
+        YXpydcyEyrthaC48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
+        dGFnPSIyNTAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSI2
+        Ij44ODAtMDM8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJhIj5hbC1UzKNh
+        Ysq7YWggMS48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFn
+        PSIyNjAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSI2Ij44
+        ODAtMDQ8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJhIj5NYWRpzIRuYXQg
+        TmFzzKNyLCBhbC1RYcyEaGlyYWggOjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
+        ZGU9ImIiPkRhzIRyIGFsLVl1c3IsPC9zdWJmaWVsZD48c3ViZmllbGQgY29k
+        ZT0iYyI+MjAxMi48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
+        dGFnPSIzMDAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJh
+        Ij4xMDMgcC4gOzwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImMiPjI0IGNt
+        Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjUwNCIg
+        aW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkluY2x1ZGVz
+        IGJpYmxpb2dyYXBoaWNhbCByZWZlcmVuY2VzLjwvc3ViZmllbGQ+PC9kYXRh
+        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjYzMCIgaW5kMT0iMCIgaW5kMj0iMCI+
+        PHN1YmZpZWxkIGNvZGU9ImEiPlF1csq8YW48L3N1YmZpZWxkPjxzdWJmaWVs
+        ZCBjb2RlPSJ4Ij5Dcml0aWNpc20sIGludGVycHJldGF0aW9uLCBldGMuPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNjUwIiBpbmQx
+        PSIgIiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0iYSI+SXNsYW1pYyBsYXc8
+        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ4Ij5JbnRlcnByZXRhdGlvbiBh
+        bmQgY29uc3RydWN0aW9uLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFm
+        aWVsZCB0YWc9IjcwMCIgaW5kMT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNv
+        ZGU9IjYiPjg4MC0wNTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImEiPk1h
+        enJ1zITKu2FoLCBIzKNhzIR0aW0gTXVozKNhbW1hZCBNYW5zzKN1zIRyLjwv
+        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijg4MCIgaW5k
+        MT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9IjYiPjEwMC0wMS9yPC9z
+        dWJmaWVsZD48c3ViZmllbGQgY29kZT0iYSI+2LTYudix2KfZiNmK2Iwg2YXY
+        rdmF2K8g2YXYqtmI2YTZii48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRh
+        ZmllbGQgdGFnPSI4ODAiIGluZDE9IjEiIGluZDI9IjAiPjxzdWJmaWVsZCBj
+        b2RlPSI2Ij4yNDUtMDIvcjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImEi
+        PtmF2KfYsNinINmC2KfZhCDYp9mE2KXZhdin2YUg2KfZhNi02LnYsdin2YjZ
+        iiDZgdmKINiq2YHYs9mK2LHZhyDYudmGINiq2K3Zg9mK2YUg2KfZhNi02LHZ
+        iti52Kkg2YjYqti32KjZitmC2YfYp9ifIC88L3N1YmZpZWxkPjxzdWJmaWVs
+        ZCBjb2RlPSJjIj7YrNmF2Lkg2YjYqtix2KrZitioINmI2LnZhtin2YrYqSDY
+        rdin2KrZhSDZhdit2YXYryDZhdiy2LHZiNi52KkuPC9zdWJmaWVsZD48L2Rh
+        dGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iODgwIiBpbmQxPSIgIiBpbmQyPSIg
+        Ij48c3ViZmllbGQgY29kZT0iNiI+MjUwLTAzL3I8L3N1YmZpZWxkPjxzdWJm
+        aWVsZCBjb2RlPSJhIj7Yp9mE2LfYqNi52KkgMS48L3N1YmZpZWxkPjwvZGF0
+        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI4ODAiIGluZDE9IiAiIGluZDI9IiAi
+        PjxzdWJmaWVsZCBjb2RlPSI2Ij4yNjAtMDQvcjwvc3ViZmllbGQ+PHN1YmZp
+        ZWxkIGNvZGU9ImEiPtmF2K/ZitmG2Kkg2YbYtdix2Iwg2KfZhNmC2KfZh9ix
+        2KkgOjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPtiv2KfYsSDYp9mE
+        2YrYs9ix2Iw8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj4yMDEyLjwv
+        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijg4MCIgaW5k
+        MT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9IjYiPjcwMC0wNS9yPC9z
+        dWJmaWVsZD48c3ViZmllbGQgY29kZT0iYSI+2YXYstix2YjYudip2Iwg2K3Y
+        p9iq2YUg2YXYrdmF2K8g2YXZhti12YjYsS48L3N1YmZpZWxkPjwvZGF0YWZp
+        ZWxkPjxkYXRhZmllbGQgdGFnPSI5NDgiIGluZDE9IjEiIGluZDI9IiAiPjxz
+        dWJmaWVsZCBjb2RlPSJhIj4yMDEzMDIxOTwvc3ViZmllbGQ+PHN1YmZpZWxk
+        IGNvZGU9ImIiPmM8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5qbGsy
+        MjA2PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+TVBTPC9zdWJmaWVs
+        ZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTAwIiBpbmQxPSIgIiBp
+        bmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+QVVUSDwvc3ViZmllbGQ+PC9k
+        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MCIgaW5kMT0iICIgaW5kMj0i
+        ICI+PHN1YmZpZWxkIGNvZGU9ImEiPktCUDwvc3ViZmllbGQ+PC9kYXRhZmll
+        bGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MSIgaW5kMT0iICIgaW5kMj0iICI+PHN1
+        YmZpZWxkIGNvZGU9ImEiPktCUDQ0MC4zMiAuUzUzIDIwMTJnPC9zdWJmaWVs
+        ZD48c3ViZmllbGQgY29kZT0iYiI+bG9jK0tCUCswNDQwKzMyMDAwMDAwK1M1
+        MzAwMDAwKzAwMjAxMjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVs
+        ZCB0YWc9Ijk5MiIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9
+        ImEiPkJ1dGxlciBTdGFja3M8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJi
+        Ij5CdXRsZXIgU3RhY2tzIChFbnRlciBhdCB0aGUgQnV0bGVyIENpcmN1bGF0
+        aW9uIERlc2spICZndDsmZ3Q7IEtCUDQ0MC4zMiAuUzUzIDIwMTJnfERFTElN
+        fDEzMjQ1OTUyPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
+        Zz0iOTkzIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+
+        Qm9vazwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5
+        NSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPmNhdGFs
+        b2c8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTci
+        IGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4yMDEzLTAy
+        LTE5VDAwOjAwOjAwLjAwMFo8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjwvcmVj
+        b3JkPjwvY29sbGVjdGlvbj4nLCdhdXRob3JfZGlzcGxheSc9PlsnU2hhyrty
+        YcyEd2nMhCwgTXVozKNhbW1hZCBNdXRhd2FsbGnMhCddLCdwdWJfbmFtZV9k
+        aXNwbGF5Jz0+WydEYcyEciBhbC1ZdXNyJ10sJ3NvdXJjZV9kaXNwbGF5Jz0+
+        WydjYXRhbG9nJ10sJ21hdGVyaWFsX3R5cGVfZGlzcGxheSc9PlsnMTAzIHAu
+        J10sJ2xhbmd1YWdlX2ZhY2V0Jz0+WydBcmFiaWMnXSwnX3ZlcnNpb25fJz0+
+        MTUwMTk4NTMzNDQwNDA1NTA0MCwndGltZXN0YW1wJz0+JzIwMTUtMDUtMjNU
+        MTg6MTM6NTcuMDRaJ31dfX0K
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 15:36:15 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&fq=author_facet:%22Mazr%C5%AB%CA%BBah,%20%E1%B8%A4%C4%81tim%20Mu%E1%B8%A5ammad%20Man%E1%B9%A3%C5%ABr%22&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 15:36:14 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4zNiwn
+        cGFyYW1zJz0+eydmLnN1YmplY3RfZm9ybV9mYWNldC5mYWNldC5saW1pdCc9
+        PicxMScsJ2ZhY2V0Jz0+J3RydWUnLCdzb3J0Jz0+J3Njb3JlIGRlc2MsIHB1
+        Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdzdGF0cyc9Pid0
+        cnVlJywnZi5zdWJqZWN0X3RvcGljX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzEx
+        JywnZi5sYW5ndWFnZV9mYWNldC5mYWNldC5saW1pdCc9Pic2JywnZi5sY18x
+        bGV0dGVyX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzMxJywnZi5wdWJfZGF0ZV9z
+        b3J0LmZhY2V0LmxpbWl0Jz0+JzQnLCdmLmxvY2F0aW9uX2ZhY2V0LmZhY2V0
+        LmxpbWl0Jz0+JzYnLCd3dCc9PidydWJ5JywnZi5sY19zdWJjbGFzc19mYWNl
+        dC5mYWNldC5saW1pdCc9Pic1MDEnLCdyb3dzJz0+JzI1JywnZi5zdWJqZWN0
+        X2dlb19mYWNldC5mYWNldC5saW1pdCc9PicxMScsJ2ZhY2V0LnF1ZXJ5Jz0+
+        WydhY3FfZHQ6WzIwMTUtMDktMTVUMDA6MDA6MDBaIFRPICpdJywnYWNxX2R0
+        OlsyMDE1LTA4LTIyVDAwOjAwOjAwWiBUTyAqXScsJ2FjcV9kdDpbMjAxNS0w
+        My0yMlQwMDowMDowMFogVE8gKl0nLCdhY3FfZHQ6WzIwMTQtMDktMjJUMDA6
+        MDA6MDBaIFRPICpdJ10sJ3N0YXRzLmZpZWxkJz0+J3B1Yl9kYXRlX3NvcnQn
+        LCdmLmF1dGhvcl9mYWNldC5mYWNldC5saW1pdCc9Pic2JywnZmFjZXQuZmll
+        bGQnPT5bJ2Zvcm1hdCcsJ3B1Yl9kYXRlX3NvcnQnLCdhdXRob3JfZmFjZXQn
+        LCdsb2NhdGlvbl9mYWNldCcsJ2xhbmd1YWdlX2ZhY2V0Jywnc3ViamVjdF90
+        b3BpY19mYWNldCcsJ3N1YmplY3RfZ2VvX2ZhY2V0Jywnc3ViamVjdF9lcmFf
+        ZmFjZXQnLCdzdWJqZWN0X2Zvcm1fZmFjZXQnLCdsY18xbGV0dGVyX2ZhY2V0
+        JywnbGNfc3ViY2xhc3NfZmFjZXQnXSwncXQnPT4nc2VhcmNoJywnZnEnPT4n
+        YXV0aG9yX2ZhY2V0OiJNYXpydcyEyrthaCwgSMyjYcyEdGltIE11aMyjYW1t
+        YWQgTWFuc8yjdcyEciInLCdmLnN1YmplY3RfZXJhX2ZhY2V0LmZhY2V0Lmxp
+        bWl0Jz0+JzExJywnZi5mb3JtYXQuZmFjZXQubGltaXQnPT4nNid9fSwncmVz
+        cG9uc2UnPT57J251bUZvdW5kJz0+MSwnc3RhcnQnPT4wLCdtYXhTY29yZSc9
+        PjEuMCwnZG9jcyc9Plt7J2xvY2F0aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3Bs
+        YXknPT5bJ0J1dGxlciBTdGFja3MgKEVudGVyIGF0IHRoZSBCdXRsZXIgQ2ly
+        Y3VsYXRpb24gRGVzaykgPj4gS0JQNDQwLjMyIC5TNTMgMjAxMmd8REVMSU18
+        MTMyNDU5NTInXSwnYXV0aG9yX3Zlcm5fZGlzcGxheSc9Plsn2LTYudix2KfZ
+        iNmK2Iwg2YXYrdmF2K8g2YXYqtmI2YTZiiddLCdhY3FfZHQnPT4nMjAxMy0w
+        Mi0xOVQwMDowMDowMFonLCd0aXRsZV9kaXNwbGF5Jz0+WydNYcyEZGhhzIQg
+        cWHMhGxhIGFsLUltYcyEbSBhbC1TaGHKu3JhzIR3acyEIGZpzIQgdGFmc2nM
+        hHJpaGkgyrthbiB0YWjMo2tpzIRtIGFsLXNoYXJpzITKu2FoIHdhLXRhdMyj
+        YmnMhHFpaGHMhD8nXSwnY2xpb19pZF9kaXNwbGF5Jz0+JzEwMTcyOTU0Jywn
+        c3ViamVjdF90b3BpY19mYWNldCc9PlsnUXVyyrxhbicsJ0NyaXRpY2lzbSwg
+        aW50ZXJwcmV0YXRpb24sIGV0YycsJ0lzbGFtaWMgbGF3JywnSW50ZXJwcmV0
+        YXRpb24gYW5kIGNvbnN0cnVjdGlvbiddLCdwdWJfcGxhY2VfZGlzcGxheSc9
+        PlsnTWFkacyEbmF0IE5hc8yjciwgYWwtUWHMhGhpcmFoJ10sJ3RpdGxlX3Zl
+        cm5fZGlzcGxheSc9Plsn2YXYp9iw2Kcg2YLYp9mEINin2YTYpdmF2KfZhSDY
+        p9mE2LTYudix2KfZiNmKINmB2Yog2KrZgdiz2YrYsdmHINi52YYg2KrYrdmD
+        2YrZhSDYp9mE2LTYsdmK2LnYqSDZiNiq2LfYqNmK2YLZh9in2J8nXSwnZm9y
+        bWF0Jz0+WydCb29rJ10sJ29jbGNfZGlzcGxheSc9Plsnb2NuNzk3MDAwMjE4
+        JywnNzk3MDAwMjE4J10sJ2Z1bGxfcHVibGlzaGVyX2Rpc3BsYXknPT5bJ01h
+        ZGnMhG5hdCBOYXPMo3IsIGFsLVFhzIRoaXJhaCA6IERhzIRyIGFsLVl1c3Is
+        IDIwMTIuJ10sJ2lzYm5fZGlzcGxheSc9PlsnOTc4OTc3NTEwMjE3MScsJzk3
+        NzUxMDIxNzAnXSwncHViX3llYXJfZGlzcGxheSc9PlsnMjAxMiddLCdpZCc9
+        PicxMDE3Mjk1NCcsJ2F1dGhvcl9kaXNwbGF5Jz0+WydTaGHKu3JhzIR3acyE
+        LCBNdWjMo2FtbWFkIE11dGF3YWxsacyEJ10sJ3B1Yl9uYW1lX2Rpc3BsYXkn
+        PT5bJ0RhzIRyIGFsLVl1c3InXSwnc291cmNlX2Rpc3BsYXknPT5bJ2NhdGFs
+        b2cnXSwnbWF0ZXJpYWxfdHlwZV9kaXNwbGF5Jz0+WycxMDMgcC4nXSwnbGFu
+        Z3VhZ2VfZmFjZXQnPT5bJ0FyYWJpYyddLCdzY29yZSc9PjEuMH1dfSwnZmFj
+        ZXRfY291bnRzJz0+eydmYWNldF9xdWVyaWVzJz0+eydhY3FfZHQ6WzIwMTUt
+        MDktMTVUMDA6MDA6MDBaIFRPICpdJz0+MCwnYWNxX2R0OlsyMDE1LTA4LTIy
+        VDAwOjAwOjAwWiBUTyAqXSc9PjAsJ2FjcV9kdDpbMjAxNS0wMy0yMlQwMDow
+        MDowMFogVE8gKl0nPT4wLCdhY3FfZHQ6WzIwMTQtMDktMjJUMDA6MDA6MDBa
+        IFRPICpdJz0+MH0sJ2ZhY2V0X2ZpZWxkcyc9PnsnZm9ybWF0Jz0+WydCb29r
+        JywxXSwncHViX2RhdGVfc29ydCc9PlsnMjAxMicsMV0sJ2F1dGhvcl9mYWNl
+        dCc9PlsnTWF6csWryrthaCwg4bikxIF0aW0gTXXhuKVhbW1hZCBNYW7huaPF
+        q3InLDEsJ1NoYcq7csSBd8SrLCBNdeG4pWFtbWFkIE11dGF3YWxsxKsnLDFd
+        LCdsb2NhdGlvbl9mYWNldCc9PlsnQnV0bGVyIFN0YWNrcycsMV0sJ2xhbmd1
+        YWdlX2ZhY2V0Jz0+WydBcmFiaWMnLDFdLCdzdWJqZWN0X3RvcGljX2ZhY2V0
+        Jz0+WydDcml0aWNpc20sIGludGVycHJldGF0aW9uLCBldGMnLDEsJ0ludGVy
+        cHJldGF0aW9uIGFuZCBjb25zdHJ1Y3Rpb24nLDEsJ0lzbGFtaWMgbGF3Jywx
+        LCdRdXLKvGFuJywxXSwnc3ViamVjdF9nZW9fZmFjZXQnPT5bXSwnc3ViamVj
+        dF9lcmFfZmFjZXQnPT5bXSwnc3ViamVjdF9mb3JtX2ZhY2V0Jz0+W10sJ2xj
+        XzFsZXR0ZXJfZmFjZXQnPT5bJ0sgLSBMYXcnLDFdLCdsY19zdWJjbGFzc19m
+        YWNldCc9PlsnS0JQIC0gSXNsYW1pYyBMYXcnLDFdfSwnZmFjZXRfZGF0ZXMn
+        PT57fSwnZmFjZXRfcmFuZ2VzJz0+e319LCdzdGF0cyc9Pnsnc3RhdHNfZmll
+        bGRzJz0+eydwdWJfZGF0ZV9zb3J0Jz0+eydtaW4nPT4yMDEyLjAsJ21heCc9
+        PjIwMTIuMCwnY291bnQnPT4xLCdtaXNzaW5nJz0+MCwnc3VtJz0+MjAxMi4w
+        LCdzdW1PZlNxdWFyZXMnPT40MDQ4MTQ0LjAsJ21lYW4nPT4yMDEyLjAsJ3N0
+        ZGRldic9PjAuMCwnZmFjZXRzJz0+e319fX19Cg==
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 15:36:16 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?id=10172954&qt=document&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 15:36:14 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
+        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9PicxMDE3Mjk1
+        NCcsJ3F0Jz0+J2RvY3VtZW50Jywnd3QnPT4ncnVieSd9fSwncmVzcG9uc2Un
+        PT57J251bUZvdW5kJz0+MSwnc3RhcnQnPT4wLCdkb2NzJz0+W3snc2hlbGZr
+        ZXknPT5bJ2xvYytrYnArMDQ0MCszMjAwMDAwMCtzNTMwMDAwMCswMDIwMTIr
+        MTAxNzI5NTQnXSwnbG9jYXRpb25fY2FsbF9udW1iZXJfaWRfZGlzcGxheSc9
+        PlsnQnV0bGVyIFN0YWNrcyAoRW50ZXIgYXQgdGhlIEJ1dGxlciBDaXJjdWxh
+        dGlvbiBEZXNrKSA+PiBLQlA0NDAuMzIgLlM1MyAyMDEyZ3xERUxJTXwxMzI0
+        NTk1MiddLCdhdXRob3JfdmVybl9kaXNwbGF5Jz0+WyfYtNi52LHYp9mI2YrY
+        jCDZhdit2YXYryDZhdiq2YjZhNmKJ10sJ2FjcV9kdCc9PicyMDEzLTAyLTE5
+        VDAwOjAwOjAwWicsJ2l0ZW1fZGlzcGxheSc9PlsnS0JQNDQwLjMyIC5TNTMg
+        MjAxMmcgfCBsb2Mra2JwKzA0NDArMzIwMDAwMDArczUzMDAwMDArMDAyMDEy
+        KzEwMTcyOTU0IHwgZWJufmZvYX56dnZ6fnd4enp6enp6fjd1d3p6enp6fnp6
+        eHp5eH55enlzeHF1dn5+fn4nXSwndGl0bGVfZGlzcGxheSc9PlsnTWHMhGRo
+        YcyEIHFhzIRsYSBhbC1JbWHMhG0gYWwtU2hhyrtyYcyEd2nMhCBmacyEIHRh
+        ZnNpzIRyaWhpIMq7YW4gdGFozKNracyEbSBhbC1zaGFyacyEyrthaCB3YS10
+        YXTMo2JpzIRxaWhhzIQ/J10sJ2NsaW9faWRfZGlzcGxheSc9PicxMDE3Mjk1
+        NCcsJ3N1YmplY3RfdG9waWNfZmFjZXQnPT5bJ1F1csq8YW4nLCdDcml0aWNp
+        c20sIGludGVycHJldGF0aW9uLCBldGMnLCdJc2xhbWljIGxhdycsJ0ludGVy
+        cHJldGF0aW9uIGFuZCBjb25zdHJ1Y3Rpb24nXSwncHViX3BsYWNlX2Rpc3Bs
+        YXknPT5bJ01hZGnMhG5hdCBOYXPMo3IsIGFsLVFhzIRoaXJhaCddLCd0aXRs
+        ZV92ZXJuX2Rpc3BsYXknPT5bJ9mF2KfYsNinINmC2KfZhCDYp9mE2KXZhdin
+        2YUg2KfZhNi02LnYsdin2YjZiiDZgdmKINiq2YHYs9mK2LHZhyDYudmGINiq
+        2K3Zg9mK2YUg2KfZhNi02LHZiti52Kkg2YjYqti32KjZitmC2YfYp9ifJ10s
+        J2Zvcm1hdCc9PlsnQm9vayddLCdvY2xjX2Rpc3BsYXknPT5bJ29jbjc5NzAw
+        MDIxOCcsJzc5NzAwMDIxOCddLCd0aXRsZV9maXJzdF9mYWNldCc9PlsnTSdd
+        LCdwdWJfZGF0ZV9zb3J0Jz0+MjAxMiwnZnVsbF9wdWJsaXNoZXJfZGlzcGxh
+        eSc9PlsnTWFkacyEbmF0IE5hc8yjciwgYWwtUWHMhGhpcmFoIDogRGHMhHIg
+        YWwtWXVzciwgMjAxMi4nXSwnaXNibl9kaXNwbGF5Jz0+Wyc5Nzg5Nzc1MTAy
+        MTcxJywnOTc3NTEwMjE3MCddLCdwdWJfeWVhcl9kaXNwbGF5Jz0+WycyMDEy
+        J10sJ2lkJz0+JzEwMTcyOTU0JywncmV2ZXJzZV9zaGVsZmtleSc9PlsnZWJu
+        fmZvYX56dnZ6fnd4enp6enp6fjd1d3p6enp6fnp6eHp5eH55enlzeHF1dn5+
+        fn4nXSwnY2FsbF9udW1iZXJfZGlzcGxheSc9PlsnS0JQNDQwLjMyIC5TNTMg
+        MjAxMmcnXSwnbWFyY19kaXNwbGF5Jz0+Jzw/eG1sIHZlcnNpb249IjEuMCIg
+        ZW5jb2Rpbmc9IlVURi04Ij8+PGNvbGxlY3Rpb24geG1sbnM9Imh0dHA6Ly93
+        d3cubG9jLmdvdi9NQVJDMjEvc2xpbSI+PHJlY29yZD48bGVhZGVyPjAxOTAy
+        Y2FtIGEyMjAwNDIxSWEgNDUwMDwvbGVhZGVyPjxjb250cm9sZmllbGQgdGFn
+        PSIwMDEiPjEwMTcyOTU0PC9jb250cm9sZmllbGQ+PGNvbnRyb2xmaWVsZCB0
+        YWc9IjAwNSI+MjAxMzA1MDIxNDMxNDguMDwvY29udHJvbGZpZWxkPjxjb250
+        cm9sZmllbGQgdGFnPSIwMDgiPjEyMDYyMXMyMDEyICAgIHVhICAgICAgIGIg
+        ICAgMDAwIDAgYXJhIGQ8L2NvbnRyb2xmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
+        MDIwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+OTc4
+        OTc3NTEwMjE3MTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0
+        YWc9IjAyMCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEi
+        Pjk3NzUxMDIxNzA8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
+        dGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJh
+        Ij4oT0NvTEMpb2NuNzk3MDAwMjE4PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48
+        ZGF0YWZpZWxkIHRhZz0iMDM1IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmll
+        bGQgY29kZT0iYSI+KE9Db0xDKTc5NzAwMDIxODwvc3ViZmllbGQ+PC9kYXRh
+        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAzNSIgaW5kMT0iICIgaW5kMj0iICI+
+        PHN1YmZpZWxkIGNvZGU9ImEiPihOTkMpMTAxNzI5NTQ8L3N1YmZpZWxkPjwv
+        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwNDAiIGluZDE9IiAiIGluZDI9
+        IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5MRUlMQTwvc3ViZmllbGQ+PHN1YmZp
+        ZWxkIGNvZGU9ImMiPkxFSUxBPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
+        ZCI+TlVJPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+WVVTPC9zdWJm
+        aWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDUwIiBpbmQxPSIg
+        IiBpbmQyPSI0Ij48c3ViZmllbGQgY29kZT0iYSI+S0JQNDQwLjMyPC9zdWJm
+        aWVsZD48c3ViZmllbGQgY29kZT0iYiI+LlM1MyAyMDEyPC9zdWJmaWVsZD48
+        L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDUwIiBpbmQxPSIgIiBpbmQy
+        PSI0Ij48c3ViZmllbGQgY29kZT0iYSI+QlAxMzAuNDwvc3ViZmllbGQ+PHN1
+        YmZpZWxkIGNvZGU9ImIiPi5TNTM3IDIwMTI8L3N1YmZpZWxkPjwvZGF0YWZp
+        ZWxkPjxkYXRhZmllbGQgdGFnPSIxMDAiIGluZDE9IjEiIGluZDI9IiAiPjxz
+        dWJmaWVsZCBjb2RlPSI2Ij44ODAtMDE8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
+        b2RlPSJhIj5TaGHKu3JhzIR3acyELCBNdWjMo2FtbWFkIE11dGF3YWxsacyE
+        Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjI0NSIg
+        aW5kMT0iMSIgaW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9IjYiPjg4MC0wMjwv
+        c3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImEiPk1hzIRkaGHMhCBxYcyEbGEg
+        YWwtSW1hzIRtIGFsLVNoYcq7cmHMhHdpzIQgZmnMhCB0YWZzacyEcmloaSDK
+        u2FuIHRhaMyja2nMhG0gYWwtc2hhcmnMhMq7YWggd2EtdGF0zKNiacyEcWlo
+        YcyEPyAvPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYyI+amFtyrsgd2Et
+        dGFydGnMhGIgd2EtyrtpbmHMhHlhdCBIzKNhzIR0aW0gTXVozKNhbW1hZCBN
+        YXpydcyEyrthaC48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
+        dGFnPSIyNTAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSI2
+        Ij44ODAtMDM8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJhIj5hbC1UzKNh
+        Ysq7YWggMS48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFn
+        PSIyNjAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSI2Ij44
+        ODAtMDQ8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJhIj5NYWRpzIRuYXQg
+        TmFzzKNyLCBhbC1RYcyEaGlyYWggOjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
+        ZGU9ImIiPkRhzIRyIGFsLVl1c3IsPC9zdWJmaWVsZD48c3ViZmllbGQgY29k
+        ZT0iYyI+MjAxMi48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
+        dGFnPSIzMDAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJh
+        Ij4xMDMgcC4gOzwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImMiPjI0IGNt
+        Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjUwNCIg
+        aW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkluY2x1ZGVz
+        IGJpYmxpb2dyYXBoaWNhbCByZWZlcmVuY2VzLjwvc3ViZmllbGQ+PC9kYXRh
+        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjYzMCIgaW5kMT0iMCIgaW5kMj0iMCI+
+        PHN1YmZpZWxkIGNvZGU9ImEiPlF1csq8YW48L3N1YmZpZWxkPjxzdWJmaWVs
+        ZCBjb2RlPSJ4Ij5Dcml0aWNpc20sIGludGVycHJldGF0aW9uLCBldGMuPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNjUwIiBpbmQx
+        PSIgIiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0iYSI+SXNsYW1pYyBsYXc8
+        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ4Ij5JbnRlcnByZXRhdGlvbiBh
+        bmQgY29uc3RydWN0aW9uLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFm
+        aWVsZCB0YWc9IjcwMCIgaW5kMT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNv
+        ZGU9IjYiPjg4MC0wNTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImEiPk1h
+        enJ1zITKu2FoLCBIzKNhzIR0aW0gTXVozKNhbW1hZCBNYW5zzKN1zIRyLjwv
+        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijg4MCIgaW5k
+        MT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9IjYiPjEwMC0wMS9yPC9z
+        dWJmaWVsZD48c3ViZmllbGQgY29kZT0iYSI+2LTYudix2KfZiNmK2Iwg2YXY
+        rdmF2K8g2YXYqtmI2YTZii48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRh
+        ZmllbGQgdGFnPSI4ODAiIGluZDE9IjEiIGluZDI9IjAiPjxzdWJmaWVsZCBj
+        b2RlPSI2Ij4yNDUtMDIvcjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImEi
+        PtmF2KfYsNinINmC2KfZhCDYp9mE2KXZhdin2YUg2KfZhNi02LnYsdin2YjZ
+        iiDZgdmKINiq2YHYs9mK2LHZhyDYudmGINiq2K3Zg9mK2YUg2KfZhNi02LHZ
+        iti52Kkg2YjYqti32KjZitmC2YfYp9ifIC88L3N1YmZpZWxkPjxzdWJmaWVs
+        ZCBjb2RlPSJjIj7YrNmF2Lkg2YjYqtix2KrZitioINmI2LnZhtin2YrYqSDY
+        rdin2KrZhSDZhdit2YXYryDZhdiy2LHZiNi52KkuPC9zdWJmaWVsZD48L2Rh
+        dGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iODgwIiBpbmQxPSIgIiBpbmQyPSIg
+        Ij48c3ViZmllbGQgY29kZT0iNiI+MjUwLTAzL3I8L3N1YmZpZWxkPjxzdWJm
+        aWVsZCBjb2RlPSJhIj7Yp9mE2LfYqNi52KkgMS48L3N1YmZpZWxkPjwvZGF0
+        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI4ODAiIGluZDE9IiAiIGluZDI9IiAi
+        PjxzdWJmaWVsZCBjb2RlPSI2Ij4yNjAtMDQvcjwvc3ViZmllbGQ+PHN1YmZp
+        ZWxkIGNvZGU9ImEiPtmF2K/ZitmG2Kkg2YbYtdix2Iwg2KfZhNmC2KfZh9ix
+        2KkgOjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPtiv2KfYsSDYp9mE
+        2YrYs9ix2Iw8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj4yMDEyLjwv
+        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijg4MCIgaW5k
+        MT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9IjYiPjcwMC0wNS9yPC9z
+        dWJmaWVsZD48c3ViZmllbGQgY29kZT0iYSI+2YXYstix2YjYudip2Iwg2K3Y
+        p9iq2YUg2YXYrdmF2K8g2YXZhti12YjYsS48L3N1YmZpZWxkPjwvZGF0YWZp
+        ZWxkPjxkYXRhZmllbGQgdGFnPSI5NDgiIGluZDE9IjEiIGluZDI9IiAiPjxz
+        dWJmaWVsZCBjb2RlPSJhIj4yMDEzMDIxOTwvc3ViZmllbGQ+PHN1YmZpZWxk
+        IGNvZGU9ImIiPmM8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5qbGsy
+        MjA2PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+TVBTPC9zdWJmaWVs
+        ZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTAwIiBpbmQxPSIgIiBp
+        bmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+QVVUSDwvc3ViZmllbGQ+PC9k
+        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MCIgaW5kMT0iICIgaW5kMj0i
+        ICI+PHN1YmZpZWxkIGNvZGU9ImEiPktCUDwvc3ViZmllbGQ+PC9kYXRhZmll
+        bGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MSIgaW5kMT0iICIgaW5kMj0iICI+PHN1
+        YmZpZWxkIGNvZGU9ImEiPktCUDQ0MC4zMiAuUzUzIDIwMTJnPC9zdWJmaWVs
+        ZD48c3ViZmllbGQgY29kZT0iYiI+bG9jK0tCUCswNDQwKzMyMDAwMDAwK1M1
+        MzAwMDAwKzAwMjAxMjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVs
+        ZCB0YWc9Ijk5MiIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9
+        ImEiPkJ1dGxlciBTdGFja3M8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJi
+        Ij5CdXRsZXIgU3RhY2tzIChFbnRlciBhdCB0aGUgQnV0bGVyIENpcmN1bGF0
+        aW9uIERlc2spICZndDsmZ3Q7IEtCUDQ0MC4zMiAuUzUzIDIwMTJnfERFTElN
+        fDEzMjQ1OTUyPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
+        Zz0iOTkzIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+
+        Qm9vazwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5
+        NSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPmNhdGFs
+        b2c8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTci
+        IGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4yMDEzLTAy
+        LTE5VDAwOjAwOjAwLjAwMFo8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjwvcmVj
+        b3JkPjwvY29sbGVjdGlvbj4nLCdhdXRob3JfZGlzcGxheSc9PlsnU2hhyrty
+        YcyEd2nMhCwgTXVozKNhbW1hZCBNdXRhd2FsbGnMhCddLCdwdWJfbmFtZV9k
+        aXNwbGF5Jz0+WydEYcyEciBhbC1ZdXNyJ10sJ3NvdXJjZV9kaXNwbGF5Jz0+
+        WydjYXRhbG9nJ10sJ21hdGVyaWFsX3R5cGVfZGlzcGxheSc9PlsnMTAzIHAu
+        J10sJ2xhbmd1YWdlX2ZhY2V0Jz0+WydBcmFiaWMnXSwnX3ZlcnNpb25fJz0+
+        MTUwMTk4NTMzNDQwNDA1NTA0MCwndGltZXN0YW1wJz0+JzIwMTUtMDUtMjNU
+        MTg6MTM6NTcuMDRaJ31dfX0K
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 15:36:16 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&fq=author_facet:%22Sha%CA%BBr%C4%81w%C4%AB,%20Mu%E1%B8%A5ammad%20Mutawall%C4%AB%22&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 15:36:15 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT40Niwn
+        cGFyYW1zJz0+eydmLnN1YmplY3RfZm9ybV9mYWNldC5mYWNldC5saW1pdCc9
+        PicxMScsJ2ZhY2V0Jz0+J3RydWUnLCdzb3J0Jz0+J3Njb3JlIGRlc2MsIHB1
+        Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdzdGF0cyc9Pid0
+        cnVlJywnZi5zdWJqZWN0X3RvcGljX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzEx
+        JywnZi5sYW5ndWFnZV9mYWNldC5mYWNldC5saW1pdCc9Pic2JywnZi5sY18x
+        bGV0dGVyX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzMxJywnZi5wdWJfZGF0ZV9z
+        b3J0LmZhY2V0LmxpbWl0Jz0+JzQnLCdmLmxvY2F0aW9uX2ZhY2V0LmZhY2V0
+        LmxpbWl0Jz0+JzYnLCd3dCc9PidydWJ5JywnZi5sY19zdWJjbGFzc19mYWNl
+        dC5mYWNldC5saW1pdCc9Pic1MDEnLCdyb3dzJz0+JzI1JywnZi5zdWJqZWN0
+        X2dlb19mYWNldC5mYWNldC5saW1pdCc9PicxMScsJ2ZhY2V0LnF1ZXJ5Jz0+
+        WydhY3FfZHQ6WzIwMTUtMDktMTVUMDA6MDA6MDBaIFRPICpdJywnYWNxX2R0
+        OlsyMDE1LTA4LTIyVDAwOjAwOjAwWiBUTyAqXScsJ2FjcV9kdDpbMjAxNS0w
+        My0yMlQwMDowMDowMFogVE8gKl0nLCdhY3FfZHQ6WzIwMTQtMDktMjJUMDA6
+        MDA6MDBaIFRPICpdJ10sJ3N0YXRzLmZpZWxkJz0+J3B1Yl9kYXRlX3NvcnQn
+        LCdmLmF1dGhvcl9mYWNldC5mYWNldC5saW1pdCc9Pic2JywnZmFjZXQuZmll
+        bGQnPT5bJ2Zvcm1hdCcsJ3B1Yl9kYXRlX3NvcnQnLCdhdXRob3JfZmFjZXQn
+        LCdsb2NhdGlvbl9mYWNldCcsJ2xhbmd1YWdlX2ZhY2V0Jywnc3ViamVjdF90
+        b3BpY19mYWNldCcsJ3N1YmplY3RfZ2VvX2ZhY2V0Jywnc3ViamVjdF9lcmFf
+        ZmFjZXQnLCdzdWJqZWN0X2Zvcm1fZmFjZXQnLCdsY18xbGV0dGVyX2ZhY2V0
+        JywnbGNfc3ViY2xhc3NfZmFjZXQnXSwncXQnPT4nc2VhcmNoJywnZnEnPT4n
+        YXV0aG9yX2ZhY2V0OiJTaGHKu3JhzIR3acyELCBNdWjMo2FtbWFkIE11dGF3
+        YWxsacyEIicsJ2Yuc3ViamVjdF9lcmFfZmFjZXQuZmFjZXQubGltaXQnPT4n
+        MTEnLCdmLmZvcm1hdC5mYWNldC5saW1pdCc9Pic2J319LCdyZXNwb25zZSc9
+        PnsnbnVtRm91bmQnPT43NCwnc3RhcnQnPT4wLCdtYXhTY29yZSc9PjEuMCwn
+        ZG9jcyc9Plt7J2xvY2F0aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3BsYXknPT5b
+        J0J1dGxlciBTdGFja3MgKEVudGVyIGF0IHRoZSBCdXRsZXIgQ2lyY3VsYXRp
+        b24gRGVzaykgPj4gUEo2Njk2IC5TNDc4IDIwMTRnfERFTElNfDE0MzAwNDE4
+        J10sJ3N1bW1hcnlfZGlzcGxheSc9PlsnUXVyyrxhbjsgbGFuZ3VhZ2UsIHN0
+        eWxlOyBncmFtbWFyJ10sJ2F1dGhvcl92ZXJuX2Rpc3BsYXknPT5bJ9i02LnY
+        sdin2YjZitiMINmF2K3ZhdivINmF2KrZiNmE2YonXSwnYWNxX2R0Jz0+JzIw
+        MTUtMDUtMTRUMDA6MDA6MDBaJywndGl0bGVfZGlzcGxheSc9PlsnScq7cmHM
+        hGIgYWwtUXVyyrxhzIRuIGFsLUthcmnMhG0nXSwnY2xpb19pZF9kaXNwbGF5
+        Jz0+JzExMjY1MDMzJywnc3ViamVjdF90b3BpY19mYWNldCc9PlsnUXVyyrxh
+        bicsJ0xhbmd1YWdlLCBzdHlsZScsJ0FyYWJpYyBsYW5ndWFnZScsJ0dyYW1t
+        YXInXSwncHViX3BsYWNlX2Rpc3BsYXknPT5bJ0NhaXJvJ10sJ3RpdGxlX3Zl
+        cm5fZGlzcGxheSc9Plsn2KXYudix2KfYqCDYp9mE2YLYsdii2YYg2KfZhNmD
+        2LHZitmFJ10sJ2Zvcm1hdCc9PlsnQm9vayddLCdvY2xjX2Rpc3BsYXknPT5b
+        J29jbjkwMDQxNjM0MycsJzkwMDQxNjM0MyddLCdmdWxsX3B1Ymxpc2hlcl9k
+        aXNwbGF5Jz0+WydbQ2Fpcm9dIDogRGHMhHIgYWwtUmF3ZMyjYWggbGlsLU5h
+        c2hyIHdhLWFsLVRhd3ppzITKuywgMjAxNC4nXSwncHViX3llYXJfZGlzcGxh
+        eSc9PlsnMjAxNCddLCdpZCc9PicxMTI2NTAzMycsJ2F1dGhvcl9kaXNwbGF5
+        Jz0+WydTaGHKu3JhzIR3acyELCBNdWjMo2FtbWFkIE11dGF3YWxsacyEJ10s
+        J3B1Yl9uYW1lX2Rpc3BsYXknPT5bJ0RhzIRyIGFsLVJhd2TMo2FoIGxpbC1O
+        YXNociB3YS1hbC1UYXd6acyEyrsnXSwnc291cmNlX2Rpc3BsYXknPT5bJ2Nh
+        dGFsb2cnXSwnbWF0ZXJpYWxfdHlwZV9kaXNwbGF5Jz0+WyczIHZvbHVtZXMg
+        KDE3MDMgcGFnZXMpJ10sJ2xhbmd1YWdlX2ZhY2V0Jz0+WydBcmFiaWMnXSwn
+        c2NvcmUnPT4xLjB9LHsnbG9jYXRpb25fY2FsbF9udW1iZXJfaWRfZGlzcGxh
+        eSc9PlsnQnV0bGVyIFN0YWNrcyAoRW50ZXIgYXQgdGhlIEJ1dGxlciBDaXJj
+        dWxhdGlvbiBEZXNrKSA+PiBLQlA0NDAuMzIgLlM1MyAyMDEyZ3xERUxJTXwx
+        MzI0NTk1MiddLCdhdXRob3JfdmVybl9kaXNwbGF5Jz0+WyfYtNi52LHYp9mI
+        2YrYjCDZhdit2YXYryDZhdiq2YjZhNmKJ10sJ2FjcV9kdCc9PicyMDEzLTAy
+        LTE5VDAwOjAwOjAwWicsJ3RpdGxlX2Rpc3BsYXknPT5bJ01hzIRkaGHMhCBx
+        YcyEbGEgYWwtSW1hzIRtIGFsLVNoYcq7cmHMhHdpzIQgZmnMhCB0YWZzacyE
+        cmloaSDKu2FuIHRhaMyja2nMhG0gYWwtc2hhcmnMhMq7YWggd2EtdGF0zKNi
+        acyEcWloYcyEPyddLCdjbGlvX2lkX2Rpc3BsYXknPT4nMTAxNzI5NTQnLCdz
+        dWJqZWN0X3RvcGljX2ZhY2V0Jz0+WydRdXLKvGFuJywnQ3JpdGljaXNtLCBp
+        bnRlcnByZXRhdGlvbiwgZXRjJywnSXNsYW1pYyBsYXcnLCdJbnRlcnByZXRh
+        dGlvbiBhbmQgY29uc3RydWN0aW9uJ10sJ3B1Yl9wbGFjZV9kaXNwbGF5Jz0+
+        WydNYWRpzIRuYXQgTmFzzKNyLCBhbC1RYcyEaGlyYWgnXSwndGl0bGVfdmVy
+        bl9kaXNwbGF5Jz0+WyfZhdin2LDYpyDZgtin2YQg2KfZhNil2YXYp9mFINin
+        2YTYtNi52LHYp9mI2Yog2YHZiiDYqtmB2LPZitix2Ycg2LnZhiDYqtit2YPZ
+        itmFINin2YTYtNix2YrYudipINmI2KrYt9io2YrZgtmH2KfYnyddLCdmb3Jt
+        YXQnPT5bJ0Jvb2snXSwnb2NsY19kaXNwbGF5Jz0+WydvY243OTcwMDAyMTgn
+        LCc3OTcwMDAyMTgnXSwnZnVsbF9wdWJsaXNoZXJfZGlzcGxheSc9PlsnTWFk
+        acyEbmF0IE5hc8yjciwgYWwtUWHMhGhpcmFoIDogRGHMhHIgYWwtWXVzciwg
+        MjAxMi4nXSwnaXNibl9kaXNwbGF5Jz0+Wyc5Nzg5Nzc1MTAyMTcxJywnOTc3
+        NTEwMjE3MCddLCdwdWJfeWVhcl9kaXNwbGF5Jz0+WycyMDEyJ10sJ2lkJz0+
+        JzEwMTcyOTU0JywnYXV0aG9yX2Rpc3BsYXknPT5bJ1NoYcq7cmHMhHdpzIQs
+        IE11aMyjYW1tYWQgTXV0YXdhbGxpzIQnXSwncHViX25hbWVfZGlzcGxheSc9
+        PlsnRGHMhHIgYWwtWXVzciddLCdzb3VyY2VfZGlzcGxheSc9PlsnY2F0YWxv
+        ZyddLCdtYXRlcmlhbF90eXBlX2Rpc3BsYXknPT5bJzEwMyBwLiddLCdsYW5n
+        dWFnZV9mYWNldCc9PlsnQXJhYmljJ10sJ3Njb3JlJz0+MS4wfSx7J2xvY2F0
+        aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3BsYXknPT5bJ0J1dGxlciBTdGFja3Mg
+        KEVudGVyIGF0IHRoZSBCdXRsZXIgQ2lyY3VsYXRpb24gRGVzaykgPj4gQlA4
+        MC5TNTEzIEs0NyAyMDA5Z3xERUxJTXwxMTc5NzYyMSddLCdhdXRob3JfdmVy
+        bl9kaXNwbGF5Jz0+WyfYrti02YrZhdiMINi52YTZiiDZgdmH2YXZiiddLCdh
+        Y3FfZHQnPT4nMjAxMS0wNi0xNlQwMDowMDowMFonLCd0aXRsZV9kaXNwbGF5
+        Jz0+WydIzKNhZGnMhHRoIGFsLWFozKNhzIRkacyEdGgnXSwnY2xpb19pZF9k
+        aXNwbGF5Jz0+Jzg3MjA4OTAnLCdzdWJqZWN0X3RvcGljX2ZhY2V0Jz0+WydT
+        aGHKu3JhzIR3acyELCBNdWjMo2FtbWFkIE11dGF3YWxsacyEJywnSXNsYW0n
+        XSwncHViX3BsYWNlX2Rpc3BsYXknPT5bJ1tUzKNhcmHMhGJ1bHVzXSwgTGnM
+        hGJpeWHMhCddLCd0aXRsZV92ZXJuX2Rpc3BsYXknPT5bJ9it2K/ZitirINin
+        2YTYo9it2KfYr9mK2KsnXSwnZm9ybWF0Jz0+WydCb29rJ10sJ29jbGNfZGlz
+        cGxheSc9Plsnb2NuNzE2MzEyNTc4J10sJ2Z1bGxfcHVibGlzaGVyX2Rpc3Bs
+        YXknPT5bJ1tUzKNhcmHMhGJ1bHVzXSwgTGnMhGJpeWHMhCA6IGFsLU11yr5h
+        c3Nhc2FoIGFsLcq7QcyEbW1haCBsaWwtVGhhcWHMhGZhaCwgMjAwOS4nXSwn
+        aXNibl9kaXNwbGF5Jz0+Wyc5Nzg5OTU5MjUzMjYyJywnOTk1OTI1MzI2MCdd
+        LCdwdWJfeWVhcl9kaXNwbGF5Jz0+WycyMDA5J10sJ2lkJz0+Jzg3MjA4OTAn
+        LCdhdXRob3JfZGlzcGxheSc9PlsnS2hhc2hpzIRtLCDKu0FsacyEIEZhaG1p
+        zIQnXSwncHViX25hbWVfZGlzcGxheSc9PlsnYWwtTXXKvmFzc2FzYWggYWwt
+        yrtBzIRtbWFoIGxpbC1UaGFxYcyEZmFoJ10sJ3NvdXJjZV9kaXNwbGF5Jz0+
+        WydjYXRhbG9nJ10sJ21hdGVyaWFsX3R5cGVfZGlzcGxheSc9PlsnMTQzIHAu
+        J10sJ2xhbmd1YWdlX2ZhY2V0Jz0+WydBcmFiaWMnXSwnc2NvcmUnPT4xLjB9
+        LHsnbG9jYXRpb25fY2FsbF9udW1iZXJfaWRfZGlzcGxheSc9PlsnQnV0bGVy
+        IFN0YWNrcyAoRW50ZXIgYXQgdGhlIEJ1dGxlciBDaXJjdWxhdGlvbiBEZXNr
+        KSA+PiBCUDE2NiAuUzUyNyAyMDA3Z3xERUxJTXw5MTg2MDQyJ10sJ2F1dGhv
+        cl92ZXJuX2Rpc3BsYXknPT5bJ9i02LnYsdin2YjZitiMINmF2K3ZhdivINmF
+        2KrZiNmE2YonXSwndGl0bGVfZGlzcGxheSc9PlsnSXRiYcq7dcyEIHdhLWxh
+        zIQgdGFidGFkacq7dcyEIGZhcWFkIGt1ZmnMhHR1bSddLCdjbGlvX2lkX2Rp
+        c3BsYXknPT4nNjgyMjg3MycsJ3N1YmplY3RfdG9waWNfZmFjZXQnPT5bJ011
+        aMyjYW1tYWQsIFByb3BoZXQsIC02MzInLCdJc2xhbScsJ0RvY3RyaW5lcydd
+        LCdwdWJfcGxhY2VfZGlzcGxheSc9PlsnU8yjYXlkYcyEJywnQmF5cnXMhHQn
+        XSwndGl0bGVfdmVybl9kaXNwbGF5Jz0+WyfYp9iq2KjYudmI2Kcg2YjZhNin
+        INiq2KjYqtiv2LnZiNinINmB2YLYryDZg9mB2YrYqtmFJ10sJ2Zvcm1hdCc9
+        PlsnQm9vayddLCdvY2xjX2Rpc3BsYXknPT5bJzQ1NjcxNzAxOScsJ29jbjQ1
+        NjcxNzAxOSddLCdmdWxsX3B1Ymxpc2hlcl9kaXNwbGF5Jz0+WydTzKNheWRh
+        zIQgOiBCYXlydcyEdCA6IGFsLU1ha3RhYmFoIGFsLcq7QXPMo3JpzIR5YWgs
+        IDIwMDcuJ10sJ2lzYm5fZGlzcGxheSc9PlsnOTk1MzM0ODM0MCcsJzk3ODk5
+        NTMzNDgzNDYnXSwncHViX3llYXJfZGlzcGxheSc9PlsnMjAwNyddLCdpZCc9
+        Pic2ODIyODczJywnYXV0aG9yX2Rpc3BsYXknPT5bJ1NoYcq7cmHMhHdpzIQs
+        IE11aMyjYW1tYWQgTXV0YXdhbGxpzIQnXSwncHViX25hbWVfZGlzcGxheSc9
+        PlsnYWwtTWFrdGFiYWggYWwtyrtBc8yjcmnMhHlhaCddLCdzb3VyY2VfZGlz
+        cGxheSc9PlsnY2F0YWxvZyddLCdtYXRlcmlhbF90eXBlX2Rpc3BsYXknPT5b
+        JzMxMCBwLiddLCdsYW5ndWFnZV9mYWNldCc9PlsnQXJhYmljJ10sJ3Njb3Jl
+        Jz0+MS4wfSx7J2xvY2F0aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3BsYXknPT5b
+        J0lzbGFtaWMgU3R1ZGllcyBSZWFkaW5nIFJtLCA2MDIgQnV0bGVyIChOb24t
+        Q2lyY3VsYXRpbmcpID4+IEJQMTM1LjY2IC5TNDM3OSAyMDA3Z3xERUxJTXw5
+        MTg2MDQzJ10sJ3B1Yl95ZWFyX2Rpc3BsYXknPT5bJzIwMDcnXSwnYXV0aG9y
+        X3Zlcm5fZGlzcGxheSc9Plsn2LTYudix2KfZiNmK2Iwg2YXYrdmF2K8g2YXY
+        qtmI2YTZiiddLCd0aXRsZV9kaXNwbGF5Jz0+WydTaGFyaMyjIGFsLWFozKNh
+        zIRkacyEdGggYWwtcXVkc2nMhHlhaCddLCdpZCc9Pic2ODIyODc0JywnY2xp
+        b19pZF9kaXNwbGF5Jz0+JzY4MjI4NzQnLCdzdWJqZWN0X3RvcGljX2ZhY2V0
+        Jz0+WydIYWRpdGgnLCdJc2xhbScsJ0NyaXRpY2lzbSwgaW50ZXJwcmV0YXRp
+        b24sIGV0YycsJ0N1c3RvbXMgYW5kIHByYWN0aWNlcyddLCdwdWJfcGxhY2Vf
+        ZGlzcGxheSc9PlsnU8yjYXlkYcyEJ10sJ2F1dGhvcl9kaXNwbGF5Jz0+WydT
+        aGHKu3JhzIR3acyELCBNdWjMo2FtbWFkIE11dGF3YWxsacyEJ10sJ3RpdGxl
+        X3Zlcm5fZGlzcGxheSc9Plsn2LTYsditINin2YTYo9it2KfYr9mK2Ksg2KfZ
+        hNmC2K/Ys9mK2KknXSwncHViX25hbWVfZGlzcGxheSc9PlsnYWwtTWFrdGFi
+        YWggYWwtyrtBc8yjcmnMhHlhaCddLCdmb3JtYXQnPT5bJ0Jvb2snXSwnc291
+        cmNlX2Rpc3BsYXknPT5bJ2NhdGFsb2cnXSwnbWF0ZXJpYWxfdHlwZV9kaXNw
+        bGF5Jz0+WyczIHYuJ10sJ29jbGNfZGlzcGxheSc9Plsnb2NuMTg3OTgzMjAy
+        J10sJ2Z1bGxfcHVibGlzaGVyX2Rpc3BsYXknPT5bJ1PMo2F5ZGHMhCA6IGFs
+        LU1ha3RhYmFoIGFsLcq7QXPMo3JpzIR5YWgsIDIwMDcuJ10sJ2xhbmd1YWdl
+        X2ZhY2V0Jz0+WydBcmFiaWMnXSwnc2NvcmUnPT4xLjB9LHsnbG9jYXRpb25f
+        Y2FsbF9udW1iZXJfaWRfZGlzcGxheSc9PlsnQnV0bGVyIFN0YWNrcyAoRW50
+        ZXIgYXQgdGhlIEJ1dGxlciBDaXJjdWxhdGlvbiBEZXNrKSA+PiBCUDEyOC42
+        LkkyNTMgUzUzIDIwMDZnfERFTElNfDgxNTY5OTUnXSwncHViX3llYXJfZGlz
+        cGxheSc9PlsnMjAwNiddLCdhdXRob3JfdmVybl9kaXNwbGF5Jz0+WyfYtNi5
+        2LHYp9mI2YrYjCDZhdit2YXYryDZhdiq2YjZhNmKJ10sJ3RpdGxlX2Rpc3Bs
+        YXknPT5bJ1N1zIRyYXQgYWwtTnXMhHIgOiBkaXJhzIRzYWggZmlxaGnMhHlh
+        aCBiYXluYSBhbC1zaGF5a2hheW4gYWwtamFsacyEbGF5biBhbC1TaGHKu3Jh
+        zIR3acyELS0gd2EtSWJuIFRheW1pzIR5YWgnXSwnaWQnPT4nNjI5Mjk2MCcs
+        J2NsaW9faWRfZGlzcGxheSc9Pic2MjkyOTYwJywnc3ViamVjdF90b3BpY19m
+        YWNldCc9PlsnSWJuIFRheW1pzIR5YWgsIEFozKNtYWQgaWJuIMq7QWJkIGFs
+        LUjMo2FsacyEbSwgMTI2My0xMzI4JywnUXVyyrxhbicsJ0NyaXRpY2lzbSwg
+        aW50ZXJwcmV0YXRpb24sIGV0YyddLCdwdWJfcGxhY2VfZGlzcGxheSc9Plsn
+        YWwtUWHMhGhpcmFoJ10sJ2F1dGhvcl9kaXNwbGF5Jz0+WydTaGHKu3JhzIR3
+        acyELCBNdWjMo2FtbWFkIE11dGF3YWxsacyEJ10sJ3RpdGxlX3Zlcm5fZGlz
+        cGxheSc9Plsn2LPZiNix2Kkg2KfZhNmG2YjYsSA6INiv2LHYp9iz2Kkg2YHZ
+        gtmH2YrYqSDYqNmK2YYg2KfZhNi02YrYrtmK2YYg2KfZhNis2YTZitmE2YrZ
+        hiDYp9mE2LTYudix2KfZiNmKLS0g2YjYp9io2YYg2KrZitmF2YrYqSddLCdw
+        dWJfbmFtZV9kaXNwbGF5Jz0+WydNYWt0YWJhdCBhbC1UdXJhzIR0aCBhbC1J
+        c2xhzIRtacyEJ10sJ2Zvcm1hdCc9PlsnQm9vayddLCdzb3VyY2VfZGlzcGxh
+        eSc9PlsnY2F0YWxvZyddLCdtYXRlcmlhbF90eXBlX2Rpc3BsYXknPT5bJzM2
+        NyBwLiddLCdvY2xjX2Rpc3BsYXknPT5bJ29jbTg0NTQyNzYwJ10sJ2Z1bGxf
+        cHVibGlzaGVyX2Rpc3BsYXknPT5bJ2FsLVFhzIRoaXJhaCA6IE1ha3RhYmF0
+        IGFsLVR1cmHMhHRoIGFsLUlzbGHMhG1pzIQsIDIwMDYuJ10sJ2xhbmd1YWdl
+        X2ZhY2V0Jz0+WydBcmFiaWMnXSwnc2NvcmUnPT4xLjB9LHsnbG9jYXRpb25f
+        Y2FsbF9udW1iZXJfaWRfZGlzcGxheSc9PlsnQnV0bGVyIFN0YWNrcyAoRW50
+        ZXIgYXQgdGhlIEJ1dGxlciBDaXJjdWxhdGlvbiBEZXNrKSA+PiBLQlA1MjYu
+        MzIuUzQzNyBBMzQzIDIwMDRnfERFTElNfDEwODc3MTAwJ10sJ3B1Yl95ZWFy
+        X2Rpc3BsYXknPT5bJzIwMDQnXSwnYWNxX2R0Jz0+JzIwMTAtMDUtMjhUMDA6
+        MDA6MDBaJywnYXV0aG9yX3Zlcm5fZGlzcGxheSc9Plsn2LTYudix2KfZiNmK
+        2Iwg2YXYrdmF2K8g2YXYqtmI2YTZiiddLCd0aXRsZV9kaXNwbGF5Jz0+WydG
+        YXRhzIR3YcyBIGFsLUltYcyEbSBhbC1TaGHKu3JhzIR3acyEIGZpzIQgYWwt
+        bWFyyr5haCddLCdpZCc9Pic3NzcyMTYyJywnY2xpb19pZF9kaXNwbGF5Jz0+
+        Jzc3NzIxNjInLCdzdWJqZWN0X3RvcGljX2ZhY2V0Jz0+WydXb21lbiAoSXNs
+        YW1pYyBsYXcpJywnTXVzbGltIHdvbWVuJywnRmF0d2FzJ10sJ3B1Yl9wbGFj
+        ZV9kaXNwbGF5Jz0+WydEaW1hc2hxLCBTdcyEcmnMhHlhaCddLCdhdXRob3Jf
+        ZGlzcGxheSc9PlsnU2hhyrtyYcyEd2nMhCwgTXVozKNhbW1hZCBNdXRhd2Fs
+        bGnMhCddLCd0aXRsZV92ZXJuX2Rpc3BsYXknPT5bJ9mB2KrYp9mI2Ykg2KfZ
+        hNil2YXYp9mFINin2YTYtNi52LHYp9mI2Yog2YHZiiDYp9mE2YXYsdij2Kkn
+        XSwncHViX25hbWVfZGlzcGxheSc9PlsnTXXKvmFzc2FzYXQgyrtBbGHMhMq+
+        IGFsLURpzIRuJ10sJ2Zvcm1hdCc9PlsnQm9vayddLCdzb3VyY2VfZGlzcGxh
+        eSc9PlsnY2F0YWxvZyddLCdtYXRlcmlhbF90eXBlX2Rpc3BsYXknPT5bJzgw
+        IHAuJ10sJ29jbGNfZGlzcGxheSc9Plsnb2NuNDg5Njc2NDkzJ10sJ2Z1bGxf
+        cHVibGlzaGVyX2Rpc3BsYXknPT5bJ0RpbWFzaHEsIFN1zIRyacyEeWFoIDog
+        TXXKvmFzc2FzYXQgyrtBbGHMhMq+IGFsLURpzIRuLCAyMDA0LiddLCdsYW5n
+        dWFnZV9mYWNldCc9PlsnQXJhYmljJ10sJ3Njb3JlJz0+MS4wfSx7J2xvY2F0
+        aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3BsYXknPT5bJ0J1dGxlciBTdGFja3Mg
+        KEVudGVyIGF0IHRoZSBCdXRsZXIgQ2lyY3VsYXRpb24gRGVzaykgPj4gS0JM
+        IC4gUzQ1ODYgMjAwM2d8REVMSU18NDczODY0NSddLCdwdWJfeWVhcl9kaXNw
+        bGF5Jz0+WycyMDAzJ10sJ3RpdGxlX2Rpc3BsYXknPT5bJ0FozKNrYcyEbSBh
+        bC11c3JhaCB3YS1hbC1iYXl0IGFsLU11c2xpbSddLCdpZCc9Pic0MTkyNzI3
+        JywnY2xpb19pZF9kaXNwbGF5Jz0+JzQxOTI3MjcnLCdzdWJqZWN0X3RvcGlj
+        X2ZhY2V0Jz0+WydEb21lc3RpYyByZWxhdGlvbnMgKElzbGFtaWMgbGF3KScs
+        J0ZhbWlsaWVzJywnRG9tZXN0aWMgcmVsYXRpb25zJywnUmVsaWdpb3VzIGFz
+        cGVjdHMnLCdJc2xhbSddLCdwdWJfcGxhY2VfZGlzcGxheSc9PlsnQmF5cnXM
+        hHQnLCdTYXlkYcyEJ10sJ2F1dGhvcl9kaXNwbGF5Jz0+WydTaGHKu3JhzIR3
+        acyELCBNdWjMo2FtbWFkIE11dGF3YWxsacyEJ10sJ3B1Yl9uYW1lX2Rpc3Bs
+        YXknPT5bJ2FsLU1ha3RhYmFoIGFsLcq7QXPMo3JpeWFoJ10sJ2Zvcm1hdCc9
+        PlsnQm9vayddLCdzb3VyY2VfZGlzcGxheSc9PlsnY2F0YWxvZyddLCdtYXRl
+        cmlhbF90eXBlX2Rpc3BsYXknPT5bJzcwMyBwLiddLCdvY2xjX2Rpc3BsYXkn
+        PT5bJzUwNTc1Mjc3NScsJ29jbjUwNTc1Mjc3NSddLCdmdWxsX3B1Ymxpc2hl
+        cl9kaXNwbGF5Jz0+WydCYXlydcyEdCA7IFNheWRhzIQgOiBhbC1NYWt0YWJh
+        aCBhbC3Ku0FzzKNyaXlhaCwgMjAwMy4nXSwnbGFuZ3VhZ2VfZmFjZXQnPT5b
+        J0FyYWJpYyddLCdpc2JuX2Rpc3BsYXknPT5bJzk5NTM0MDA5OTcnXSwnc2Nv
+        cmUnPT4xLjB9LHsnbG9jYXRpb25fY2FsbF9udW1iZXJfaWRfZGlzcGxheSc9
+        PlsnSXNsYW1pYyBTdHVkaWVzIFJlYWRpbmcgUm0sIDYwMiBCdXRsZXIgKE5v
+        bi1DaXJjdWxhdGluZykgPj4gS0JQNDkxIC4gUzU0IDIwMDNnfERFTElNfDQ3
+        Mzc0MDknXSwncHViX3llYXJfZGlzcGxheSc9PlsnMjAwMyddLCd0aXRsZV9k
+        aXNwbGF5Jz0+WydhbC1GYXRhzIR3YcyBIGFsLWt1YnJhzIEnXSwnaWQnPT4n
+        NDE5MTYzNycsJ2NsaW9faWRfZGlzcGxheSc9Pic0MTkxNjM3Jywnc3ViamVj
+        dF90b3BpY19mYWNldCc9PlsnRmF0d2FzJywnSXNsYW1pYyBsYXcnXSwncHVi
+        X3BsYWNlX2Rpc3BsYXknPT5bJ1PMo2F5ZGHMhCcsJ0JheXJ1zIR0J10sJ2F1
+        dGhvcl9kaXNwbGF5Jz0+WydTaGHKu3JhzIR3acyELCBNdWjMo2FtbWFkIE11
+        dGF3YWxsacyEJ10sJ3B1Yl9uYW1lX2Rpc3BsYXknPT5bJ2FsLU1ha3RhYmFo
+        IGFsLcq7QXPMo3JpzIR5YWgnXSwnZm9ybWF0Jz0+WydCb29rJ10sJ3NvdXJj
+        ZV9kaXNwbGF5Jz0+WydjYXRhbG9nJ10sJ21hdGVyaWFsX3R5cGVfZGlzcGxh
+        eSc9PlsnNzM2IHAuJ10sJ29jbGNfZGlzcGxheSc9PlsnNTA1NzUyNjE1Jywn
+        b2NuNTA1NzUyNjE1J10sJ2Z1bGxfcHVibGlzaGVyX2Rpc3BsYXknPT5bJ1PM
+        o2F5ZGHMhCA7IEJheXJ1zIR0IDogYWwtTWFrdGFiYWggYWwtyrtBc8yjcmnM
+        hHlhaCwgMjAwMy4nXSwnbGFuZ3VhZ2VfZmFjZXQnPT5bJ0FyYWJpYyddLCdp
+        c2JuX2Rpc3BsYXknPT5bJzk5NTM0MDA5ODknXSwnc2NvcmUnPT4xLjB9LHsn
+        bG9jYXRpb25fY2FsbF9udW1iZXJfaWRfZGlzcGxheSc9PlsnQnV0bGVyIFN0
+        YWNrcyAoRW50ZXIgYXQgdGhlIEJ1dGxlciBDaXJjdWxhdGlvbiBEZXNrKSA+
+        PiBLQkwgLlM0NTc2MSAyMDAzZ3xERUxJTXw0NzM4NjQ5J10sJ3B1Yl95ZWFy
+        X2Rpc3BsYXknPT5bJzIwMDMnXSwndGl0bGVfZGlzcGxheSc9PlsnRmF0YcyE
+        d2HMgSBhbC1uaXNhzITKviddLCdpZCc9Pic0MTkyNzMwJywnY2xpb19pZF9k
+        aXNwbGF5Jz0+JzQxOTI3MzAnLCdzdWJqZWN0X3RvcGljX2ZhY2V0Jz0+WydX
+        b21lbiAoSXNsYW1pYyBsYXcpJywnRmF0d2FzJywnV29tZW4gaW4gSXNsYW0n
+        XSwncHViX3BsYWNlX2Rpc3BsYXknPT5bJ0JheXJ1zIR0JywnU2F5ZGHMhCdd
+        LCdhdXRob3JfZGlzcGxheSc9PlsnU2hhyrtyYcyEd2nMhCwgTXVozKNhbW1h
+        ZCBNdXRhd2FsbGnMhCddLCdwdWJfbmFtZV9kaXNwbGF5Jz0+WydhbC1NYWt0
+        YWJhaCBhbC3Ku0FzzKNyaXlhaCddLCdmb3JtYXQnPT5bJ0Jvb2snXSwnc291
+        cmNlX2Rpc3BsYXknPT5bJ2NhdGFsb2cnXSwnbWF0ZXJpYWxfdHlwZV9kaXNw
+        bGF5Jz0+Wyc1MDcgcC4nXSwnb2NsY19kaXNwbGF5Jz0+Wyc1MDU3NTI3ODAn
+        LCdvY241MDU3NTI3ODAnXSwnZnVsbF9wdWJsaXNoZXJfZGlzcGxheSc9Plsn
+        QmF5cnXMhHQgOyBTYXlkYcyEIDogYWwtTWFrdGFiYWggYWwtyrtBc8yjcml5
+        YWgsIDIwMDMuJ10sJ2xhbmd1YWdlX2ZhY2V0Jz0+WydBcmFiaWMnXSwnaXNi
+        bl9kaXNwbGF5Jz0+Wyc5OTUzNDI4MTIzJ10sJ3Njb3JlJz0+MS4wfSx7J2xv
+        Y2F0aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3BsYXknPT5bJ0J1dGxlciBTdGFj
+        a3MgKEVudGVyIGF0IHRoZSBCdXRsZXIgQ2lyY3VsYXRpb24gRGVzaykgPj4g
+        QlAxNjYgLlM1MjUgMjAwM2d8REVMSU18NDczODQ1NSddLCd0aXRsZV9kaXNw
+        bGF5Jz0+WydNaW5oYcyEaiBhbC1zzKNhbGlozKNpzIRuIGlsYcyBIG1hyrty
+        aWZhdCBhd2HMhG1pciB3YS1uYXdhzIRoacyEIFJhYmIgYWwtyrthzIRsYW1p
+        zIRuJ10sJ2lkJz0+JzQxOTI1MTInLCdjbGlvX2lkX2Rpc3BsYXknPT4nNDE5
+        MjUxMicsJ3N1YmplY3RfdG9waWNfZmFjZXQnPT5bJ1F1csq8YW4nLCdFdGhp
+        Y3MnLCdJc2xhbScsJ0RvY3RyaW5lcyddLCdwdWJfcGxhY2VfZGlzcGxheSc9
+        PlsnQmF5cnXMhHQsIEx1Ym5hzIRuIDogTWFrdGFiYXQgYWwtyrtBc8yjcmnM
+        hHlhaCwgMjAwMyddLCdhdXRob3JfZGlzcGxheSc9PlsnU2hhyrtyYcyEd2nM
+        hCwgTXVozKNhbW1hZCBNdXRhd2FsbGnMhCddLCdmb3JtYXQnPT5bJ0Jvb2sn
+        XSwnc291cmNlX2Rpc3BsYXknPT5bJ2NhdGFsb2cnXSwnbWF0ZXJpYWxfdHlw
+        ZV9kaXNwbGF5Jz0+Wyc2NzEgcC4nXSwnb2NsY19kaXNwbGF5Jz0+Wyc1NjE4
+        ODU1OCcsJ29jbTU2MTg4NTU4J10sJ2Z1bGxfcHVibGlzaGVyX2Rpc3BsYXkn
+        PT5bJ0JheXJ1zIR0LCBMdWJuYcyEbiA6IE1ha3RhYmF0IGFsLcq7QXPMo3Jp
+        zIR5YWgsIDIwMDMuJ10sJ2xhbmd1YWdlX2ZhY2V0Jz0+WydBcmFiaWMnXSwn
+        c2NvcmUnPT4xLjB9LHsnbG9jYXRpb25fY2FsbF9udW1iZXJfaWRfZGlzcGxh
+        eSc9PlsnQnV0bGVyIFN0YWNrcyAoRW50ZXIgYXQgdGhlIEJ1dGxlciBDaXJj
+        dWxhdGlvbiBEZXNrKSA+PiBCUDc1LjIgLlM1NCAyMDAzZ3xERUxJTXw0NzM4
+        NjkwJ10sJ3RpdGxlX2Rpc3BsYXknPT5bJ2FsLVNpzIRyYWggYWwtTmFiYXdp
+        zIR5YWgnXSwnaWQnPT4nNDE5Mjc2OScsJ2NsaW9faWRfZGlzcGxheSc9Pic0
+        MTkyNzY5Jywnc3ViamVjdF9nZW9fZmFjZXQnPT5bJ1NhdWRpIEFyYWJpYSdd
+        LCdzdWJqZWN0X3RvcGljX2ZhY2V0Jz0+WydNdWjMo2FtbWFkLCBQcm9waGV0
+        LCAtNjMyJywnTXVzbGltcyddLCdwdWJfcGxhY2VfZGlzcGxheSc9PlsnQmF5
+        cnXMhHQsIEx1Ym5hzIRuIDogTWFrdGFiYXQgYWwtyrtBc8yjcmnMhHlhaCwg
+        MjAwMyddLCdhdXRob3JfZGlzcGxheSc9PlsnU2hhyrtyYcyEd2nMhCwgTXVo
+        zKNhbW1hZCBNdXRhd2FsbGnMhCddLCdmb3JtYXQnPT5bJ0Jvb2snXSwnc291
+        cmNlX2Rpc3BsYXknPT5bJ2NhdGFsb2cnXSwnbWF0ZXJpYWxfdHlwZV9kaXNw
+        bGF5Jz0+Wyc1NTEgcC4nXSwnb2NsY19kaXNwbGF5Jz0+Wyc1MDU3NTI3OTgn
+        LCdvY241MDU3NTI3OTgnXSwnZnVsbF9wdWJsaXNoZXJfZGlzcGxheSc9Plsn
+        QmF5cnXMhHQsIEx1Ym5hzIRuIDogTWFrdGFiYXQgYWwtyrtBc8yjcmnMhHlh
+        aCwgMjAwMy4nXSwnbGFuZ3VhZ2VfZmFjZXQnPT5bJ0FyYWJpYyddLCdpc2Ju
+        X2Rpc3BsYXknPT5bJzk5NTM0MjgxMTUnXSwnc2NvcmUnPT4xLjB9LHsnbG9j
+        YXRpb25fY2FsbF9udW1iZXJfaWRfZGlzcGxheSc9PlsnQnV0bGVyIFN0YWNr
+        cyAoRW50ZXIgYXQgdGhlIEJ1dGxlciBDaXJjdWxhdGlvbiBEZXNrKSA+PiBC
+        UDEzMiAuUzQzIDIwMDNnfERFTElNfDQ3Njg4MzInXSwnbGNjbl9kaXNwbGF5
+        Jz0+WycyMDAzMzQ2NDUxJ10sJ3N1bW1hcnlfZGlzcGxheSc9PlsnTXVozKNh
+        bW1hZCwgUHJvcGhldCwgZC4gNjMyOyBJc2xhbWljIHNlcm1vbnMsIEFyYWJp
+        YyddLCdhdXRob3JfdmVybl9kaXNwbGF5Jz0+WyfYtNi52LHYp9mI2YrYjCDZ
+        hdit2YXYryDZhdiq2YjZhNmKJ10sJ3RpdGxlX2Rpc3BsYXknPT5bJ1dhc8yj
+        YcyEeWHMhCBhbC1SYXN1zIRsIDogdGhhbGHMhHRodcyEbiB3YXPMo2nMhHlh
+        aCBtaW4gd2FzzKNhzIR5YcyEIFJhc3XMhGwgQWxsYcyEaCddLCdjbGlvX2lk
+        X2Rpc3BsYXknPT4nNDIxNTk2NicsJ3N1YmplY3RfdG9waWNfZmFjZXQnPT5b
+        J011aMyjYW1tYWQsIFByb3BoZXQsIC02MzInLCdUZWFjaGluZ3MnLCdIYWRp
+        dGgnLCdJc2xhbWljIHNlcm1vbnMsIEFyYWJpYyddLCdwdWJfcGxhY2VfZGlz
+        cGxheSc9PlsnYWwtUWHMhGhpcmFoJ10sJ3RpdGxlX3Zlcm5fZGlzcGxheSc9
+        Plsn2YjYtdin2YrYpyDYp9mE2LHYs9mI2YQgOiDYq9mE2KfYq9mI2YYg2YjY
+        tdmK2Kkg2YXZhiDZiNi12KfZitinINix2LPZiNmEINin2YTZhNmHJ10sJ2Zv
+        cm1hdCc9PlsnQm9vayddLCdvY2xjX2Rpc3BsYXknPT5bJ29jbTYxODkxNjg4
+        J10sJ2Z1bGxfcHVibGlzaGVyX2Rpc3BsYXknPT5bJ2FsLVFhzIRoaXJhaCA6
+        IE1ha3RhYmF0IGFsLVR1cmHMhHRoIGFsLUlzbGHMhG1pzIQsIDIwMDMuJ10s
+        J3B1Yl95ZWFyX2Rpc3BsYXknPT5bJzIwMDMnXSwnaWQnPT4nNDIxNTk2Nics
+        J2F1dGhvcl9kaXNwbGF5Jz0+WydTaGHKu3JhzIR3acyELCBNdWjMo2FtbWFk
+        IE11dGF3YWxsacyEJ10sJ3B1Yl9uYW1lX2Rpc3BsYXknPT5bJ01ha3RhYmF0
+        IGFsLVR1cmHMhHRoIGFsLUlzbGHMhG1pzIQnXSwnc291cmNlX2Rpc3BsYXkn
+        PT5bJ2NhdGFsb2cnXSwnbWF0ZXJpYWxfdHlwZV9kaXNwbGF5Jz0+WycxOTAg
+        cC4nXSwnbGFuZ3VhZ2VfZmFjZXQnPT5bJ0FyYWJpYyddLCdzY29yZSc9PjEu
+        MH0seydsb2NhdGlvbl9jYWxsX251bWJlcl9pZF9kaXNwbGF5Jz0+WydJc2xh
+        bWljIFN0dWRpZXMgUmVhZGluZyBSbSwgNjAyIEJ1dGxlciAoTm9uLUNpcmN1
+        bGF0aW5nKSA+PiBCUDEzNi4zOCAuUzUzNyAyMDAyZ3xERUxJTXw0NzQ5NDYy
+        J10sJ2xjY25fZGlzcGxheSc9PlsnMjAwMjQ2MTI5NCddLCdhdXRob3JfdmVy
+        bl9kaXNwbGF5Jz0+WyfYtNi52LHYp9mI2YrYjCDZhdit2YXYryDZhdiq2YjZ
+        hNmKJ10sJ3RpdGxlX2Rpc3BsYXknPT5bJ2FsLUFozKNhzIRkacyEdGggYWwt
+        UXVkc2nMhHlhaCddLCdjbGlvX2lkX2Rpc3BsYXknPT4nNDIwMTMyNicsJ3N1
+        YmplY3RfdG9waWNfZmFjZXQnPT5bJ0hhZGl0aCcsJ1JlbGF0aW9uIHRvIHRo
+        ZSBRdXLKvGFuJywnQ3JpdGljaXNtLCBpbnRlcnByZXRhdGlvbiwgZXRjJ10s
+        J3B1Yl9wbGFjZV9kaXNwbGF5Jz0+WydDYWlybyddLCd0aXRsZV92ZXJuX2Rp
+        c3BsYXknPT5bJ9in2YTYo9it2KfYr9mK2Ksg2KfZhNmC2K/Ys9mK2KknXSwn
+        Zm9ybWF0Jz0+WydCb29rJ10sJ29jbGNfZGlzcGxheSc9PlsnNTA5ODU3MzQn
+        LCdvY201MDk4NTczNCddLCdmdWxsX3B1Ymxpc2hlcl9kaXNwbGF5Jz0+Wydb
+        Q2Fpcm9dIDogRGHMhHIgYWwtUmF3ZMyjYWgsIDIwMDIuJ10sJ3B1Yl95ZWFy
+        X2Rpc3BsYXknPT5bJzIwMDInXSwnaWQnPT4nNDIwMTMyNicsJ2F1dGhvcl9k
+        aXNwbGF5Jz0+WydTaGHKu3JhzIR3acyELCBNdWjMo2FtbWFkIE11dGF3YWxs
+        acyEJ10sJ3B1Yl9uYW1lX2Rpc3BsYXknPT5bJ0RhzIRyIGFsLVJhd2TMo2Fo
+        J10sJ3NvdXJjZV9kaXNwbGF5Jz0+WydjYXRhbG9nJ10sJ21hdGVyaWFsX3R5
+        cGVfZGlzcGxheSc9PlsnMiB2LiddLCdsYW5ndWFnZV9mYWNldCc9PlsnQXJh
+        YmljJ10sJ3Njb3JlJz0+MS4wfSx7J2xvY2F0aW9uX2NhbGxfbnVtYmVyX2lk
+        X2Rpc3BsYXknPT5bJ0J1dGxlciBTdGFja3MgKEVudGVyIGF0IHRoZSBCdXRs
+        ZXIgQ2lyY3VsYXRpb24gRGVzaykgPj4gQlAxNjYuMiAuUzQ4NDcgMjAwMmd8
+        REVMSU18MzkxNTgwMiddLCdwdWJfeWVhcl9kaXNwbGF5Jz0+WycyMDAyLSdd
+        LCdsY2NuX2Rpc3BsYXknPT5bJzIwMDIzNjA3NjUnXSwndGl0bGVfZGlzcGxh
+        eSc9PlsnYWwtyrtBcWnMhGRhaCBmacyEIEFsbGHMhGgnXSwnaWQnPT4nMzM4
+        OTU4MycsJ2NsaW9faWRfZGlzcGxheSc9PiczMzg5NTgzJywnc3ViamVjdF90
+        b3BpY19mYWNldCc9PlsnR29kIChJc2xhbSknXSwncHViX3BsYWNlX2Rpc3Bs
+        YXknPT5bJ8q7QcyEYmlkacyEbiwgYWwtUWHMhGhpcmFoJ10sJ2F1dGhvcl9k
+        aXNwbGF5Jz0+WydTaGHKu3JhzIR3acyELCBNdWjMo2FtbWFkIE11dGF3YWxs
+        acyEJ10sJ3B1Yl9uYW1lX2Rpc3BsYXknPT5bJ01ha3RhYmF0IGFsLVR1cmHM
+        hHRoIGFsLUlzbGHMhG1pzIQnXSwnZm9ybWF0Jz0+WydCb29rJ10sJ3NvdXJj
+        ZV9kaXNwbGF5Jz0+WydjYXRhbG9nJ10sJ21hdGVyaWFsX3R5cGVfZGlzcGxh
+        eSc9Plsndi4nXSwnb2NsY19kaXNwbGF5Jz0+Wyc1MTk4MjI4MycsJ29jbTUx
+        OTgyMjgzJ10sJ2Z1bGxfcHVibGlzaGVyX2Rpc3BsYXknPT5bJ8q7QcyEYmlk
+        acyEbiwgYWwtUWHMhGhpcmFoIDogTWFrdGFiYXQgYWwtVHVyYcyEdGggYWwt
+        SXNsYcyEbWnMhCwgMjAwMi0nXSwnbGFuZ3VhZ2VfZmFjZXQnPT5bJ0FyYWJp
+        YyddLCdzY29yZSc9PjEuMH0seydsb2NhdGlvbl9jYWxsX251bWJlcl9pZF9k
+        aXNwbGF5Jz0+WydJc2xhbWljIFN0dWRpZXMgUmVhZGluZyBSbSwgNjAyIEJ1
+        dGxlciAoTm9uLUNpcmN1bGF0aW5nKSA+PiBLQlA0NjEgLlM1MzUgMjAwMmd8
+        REVMSU18NDc0OTExMCddLCdsY2NuX2Rpc3BsYXknPT5bJzIwMDMzNDc4Mjgn
+        XSwnYXV0aG9yX3Zlcm5fZGlzcGxheSc9Plsn2LTYudix2KfZiNmK2Iwg2YXY
+        rdmF2K8g2YXYqtmI2YTZiiddLCd0aXRsZV9kaXNwbGF5Jz0+WydhbC1GaXFo
+        IGFsLUlzbGHMhG1pzIQgYWwtbXV5YXNzYXIgd2EtYWRpbGxhdHVodSBhbC1z
+        aGFyyrtpzIR5YWggyrthbGHMgSB0zKNhcmnMhHFhdCBhbC1zdcq+YcyEbCB3
+        YS1hbC1qYXdhzIRiJ10sJ2NsaW9faWRfZGlzcGxheSc9Pic0MjAxMDE1Jywn
+        c3ViamVjdF90b3BpY19mYWNldCc9PlsnSXNsYW1pYyBsYXcnLCdJc2xhbScs
+        J0ludGVycHJldGF0aW9uIGFuZCBjb25zdHJ1Y3Rpb24nLCdDdXN0b21zIGFu
+        ZCBwcmFjdGljZXMnXSwncHViX3BsYWNlX2Rpc3BsYXknPT5bJ8q7QcyEYmlk
+        acyEbiwgYWwtUWFoaXJhaCddLCd0aXRsZV92ZXJuX2Rpc3BsYXknPT5bJ9in
+        2YTZgdmC2Ycg2KfZhNil2LPZhNin2YXZiiDYp9mE2YXZitiz2LEg2YjYo9iv
+        2YTYqtmHINin2YTYtNix2LnZitipINi52YTZiSDYt9ix2YrZgtipINin2YTY
+        s9ik2KfZhCDZiNin2YTYrNmI2KfYqCddLCdmb3JtYXQnPT5bJ0Jvb2snXSwn
+        b2NsY19kaXNwbGF5Jz0+Wyc1MTgxMzg3MCcsJ29jbTUxODEzODcwJ10sJ2Z1
+        bGxfcHVibGlzaGVyX2Rpc3BsYXknPT5bJ8q7QcyEYmlkacyEbiwgYWwtUWFo
+        aXJhaCA6IE1ha3RhYmF0IGFsLVR1cmHMhHRoIGFsLUlzbGHMhG1pzIQsIDIw
+        MDItJ10sJ2lzYm5fZGlzcGxheSc9PlsnOTc3MjYwMjU3MSddLCdwdWJfeWVh
+        cl9kaXNwbGF5Jz0+WycyMDAyLSddLCdpZCc9Pic0MjAxMDE1JywnYXV0aG9y
+        X2Rpc3BsYXknPT5bJ1NoYcq7cmHMhHdpzIQsIE11aMyjYW1tYWQgTXV0YXdh
+        bGxpzIQnXSwncHViX25hbWVfZGlzcGxheSc9PlsnTWFrdGFiYXQgYWwtVHVy
+        YcyEdGggYWwtSXNsYcyEbWnMhCddLCdzb3VyY2VfZGlzcGxheSc9PlsnY2F0
+        YWxvZyddLCdtYXRlcmlhbF90eXBlX2Rpc3BsYXknPT5bJ3YuJ10sJ2xhbmd1
+        YWdlX2ZhY2V0Jz0+WydBcmFiaWMnXSwnc2NvcmUnPT4xLjB9LHsnbG9jYXRp
+        b25fY2FsbF9udW1iZXJfaWRfZGlzcGxheSc9PlsnT2Zmc2l0ZSAtIFBsYWNl
+        IFJlcXVlc3QgZm9yIGRlbGl2ZXJ5IHdpdGhpbiAyIGJ1c2luZXNzIGRheXMg
+        Pj4gS0JMIC4gUzQ1ODQgMjAwMWd8REVMSU18NDkyNzcyOSddLCdwdWJfeWVh
+        cl9kaXNwbGF5Jz0+WycyMDAxJ10sJ3RpdGxlX2Rpc3BsYXknPT5bJzIwMCBz
+        dcq+YcyEbCB3YS1qYXdhzIRiIGZpzIQgYWwtZmlxaCBhbC1pc2xhbWnMhCdd
+        LCdpZCc9Pic0MzIxNDQzJywnY2xpb19pZF9kaXNwbGF5Jz0+JzQzMjE0NDMn
+        LCdzdWJqZWN0X3RvcGljX2ZhY2V0Jz0+WydJc2xhbWljIGxhdycsJ0ludGVy
+        cHJldGF0aW9uIGFuZCBjb25zdHJ1Y3Rpb24nXSwncHViX3BsYWNlX2Rpc3Bs
+        YXknPT5bJ2FsLVFhzIRoaXJhaCddLCdhdXRob3JfZGlzcGxheSc9PlsnU2hh
+        yrtyYcyEd2nMhCwgTXVozKNhbW1hZCBNdXRhd2FsbGnMhCddLCdwdWJfbmFt
+        ZV9kaXNwbGF5Jz0+WydNYWt0YWJhdCBhbC1UdXJhzIR0aCBhbC1Jc2xhzIRt
+        acyEJ10sJ2Zvcm1hdCc9PlsnQm9vayddLCdzb3VyY2VfZGlzcGxheSc9Plsn
+        Y2F0YWxvZyddLCdtYXRlcmlhbF90eXBlX2Rpc3BsYXknPT5bJzE4NSBwLidd
+        LCdvY2xjX2Rpc3BsYXknPT5bJ29jbTUwODgwMTk5J10sJ2Z1bGxfcHVibGlz
+        aGVyX2Rpc3BsYXknPT5bJ2FsLVFhzIRoaXJhaCA6IE1ha3RhYmF0IGFsLVR1
+        cmHMhHRoIGFsLUlzbGHMhG1pzIQsIDIwMDEuJ10sJ2xhbmd1YWdlX2ZhY2V0
+        Jz0+WydBcmFiaWMnXSwnc2NvcmUnPT4xLjB9LHsnbG9jYXRpb25fY2FsbF9u
+        dW1iZXJfaWRfZGlzcGxheSc9PlsnQnV0bGVyIFN0YWNrcyAoRW50ZXIgYXQg
+        dGhlIEJ1dGxlciBDaXJjdWxhdGlvbiBEZXNrKSA+PiBCUDE2Ni43OSAuUzUy
+        NCAyMDAxZ3xERUxJTXw0NzY4NDQ3J10sJ2xjY25fZGlzcGxheSc9PlsnMjAw
+        MjM2MDg0MSddLCdzdW1tYXJ5X2Rpc3BsYXknPT5bJ1JlcGVudGFuY2U7IElz
+        bGFtJ10sJ2F1dGhvcl92ZXJuX2Rpc3BsYXknPT5bJ9i02LnYsdin2YjZitiM
+        INmF2K3ZhdivINmF2KrZiNmE2YonXSwndGl0bGVfZGlzcGxheSc9PlsnYWwt
+        VGF3YmFoJ10sJ2NsaW9faWRfZGlzcGxheSc9Pic0MjE1NjQwJywnc3ViamVj
+        dF90b3BpY19mYWNldCc9PlsnUmVwZW50YW5jZScsJ0lzbGFtJ10sJ3B1Yl9w
+        bGFjZV9kaXNwbGF5Jz0+WyfKu0HMhGJpZGnMhG4sIGFsLVFhzIRoaXJhaCdd
+        LCd0aXRsZV92ZXJuX2Rpc3BsYXknPT5bJ9in2YTYqtmI2KjYqSddLCdmb3Jt
+        YXQnPT5bJ0Jvb2snXSwnb2NsY19kaXNwbGF5Jz0+Wyc1NjE1MTUzMycsJ29j
+        bTU2MTUxNTMzJ10sJ2Z1bGxfcHVibGlzaGVyX2Rpc3BsYXknPT5bJ8q7QcyE
+        YmlkacyEbiwgYWwtUWHMhGhpcmFoIDogTWFrdGFiYXQgYWwtVHVyYcyEdGgg
+        YWwtSXNsYcyEbWnMhCwgMjAwMS4nXSwnaXNibl9kaXNwbGF5Jz0+Wyc5Nzcy
+        NjAyNDU4J10sJ3B1Yl95ZWFyX2Rpc3BsYXknPT5bJzIwMDEnXSwnaWQnPT4n
+        NDIxNTY0MCcsJ2F1dGhvcl9kaXNwbGF5Jz0+WydTaGHKu3JhzIR3acyELCBN
+        dWjMo2FtbWFkIE11dGF3YWxsacyEJ10sJ3B1Yl9uYW1lX2Rpc3BsYXknPT5b
+        J01ha3RhYmF0IGFsLVR1cmHMhHRoIGFsLUlzbGHMhG1pzIQnXSwnc291cmNl
+        X2Rpc3BsYXknPT5bJ2NhdGFsb2cnXSwnbWF0ZXJpYWxfdHlwZV9kaXNwbGF5
+        Jz0+WycxNjMgcC4nXSwnbGFuZ3VhZ2VfZmFjZXQnPT5bJ0FyYWJpYyddLCdz
+        Y29yZSc9PjEuMH0seydsb2NhdGlvbl9jYWxsX251bWJlcl9pZF9kaXNwbGF5
+        Jz0+WydPZmZzaXRlIC0gUGxhY2UgUmVxdWVzdCBmb3IgZGVsaXZlcnkgd2l0
+        aGluIDIgYnVzaW5lc3MgZGF5cyA+PiBIUTUyNS5JOCBTNTIgMjAwMGd8REVM
+        SU18MzcwMjcwMiddLCdwdWJfeWVhcl9kaXNwbGF5Jz0+WycyMDAwJ10sJ2xj
+        Y25fZGlzcGxheSc9PlsnMDAyOTM4MzgnXSwndGl0bGVfZGlzcGxheSc9Plsn
+        QWjMo2thzIRtIGFsLXphd2HMhGogd2EtYWwtdMyjYWxhzIRxIHdhLWFsLWto
+        dWzKuyddLCdpZCc9PiczMTgyNTQ5JywnY2xpb19pZF9kaXNwbGF5Jz0+JzMx
+        ODI1NDknLCdzdWJqZWN0X3RvcGljX2ZhY2V0Jz0+WydNYXJyaWFnZScsJ0lz
+        bGFtaWMgbWFycmlhZ2UgY3VzdG9tcyBhbmQgcml0ZXMnLCdEaXZvcmNlIChJ
+        c2xhbWljIGxhdyknLCdEaXZvcmNlJywnUmVsaWdpb3VzIGFzcGVjdHMnLCdJ
+        c2xhbSddLCdwdWJfcGxhY2VfZGlzcGxheSc9PlsnYWwtUWHMhGhpcmFoJ10s
+        J2F1dGhvcl9kaXNwbGF5Jz0+WydTaGHKu3JhzIR3acyELCBNdWjMo2FtbWFk
+        IE11dGF3YWxsacyEJ10sJ3B1Yl9uYW1lX2Rpc3BsYXknPT5bJ01ha3RhYmF0
+        IGFsLVR1cmHMhHRoIGFsLUlzbGHMhG1pzIQnXSwnZm9ybWF0Jz0+WydCb29r
+        J10sJ3NvdXJjZV9kaXNwbGF5Jz0+WydjYXRhbG9nJ10sJ21hdGVyaWFsX3R5
+        cGVfZGlzcGxheSc9PlsnMzM2IHAuJ10sJ29jbGNfZGlzcGxheSc9PlsnNDQ1
+        ODU5NTInLCdvY200NDU4NTk1MiddLCdmdWxsX3B1Ymxpc2hlcl9kaXNwbGF5
+        Jz0+WydhbC1RYcyEaGlyYWggOiBNYWt0YWJhdCBhbC1UdXJhzIR0aCBhbC1J
+        c2xhzIRtacyELCAyMDAwLiddLCdsYW5ndWFnZV9mYWNldCc9PlsnQXJhYmlj
+        J10sJ3Njb3JlJz0+MS4wfSx7J2xvY2F0aW9uX2NhbGxfbnVtYmVyX2lkX2Rp
+        c3BsYXknPT5bJ0J1dGxlciBTdGFja3MgKEVudGVyIGF0IHRoZSBCdXRsZXIg
+        Q2lyY3VsYXRpb24gRGVzaykgPj4gQlAxNjUuNSAuUzQzIDIwMDBnfERFTElN
+        fDU1Nzc5MjcnXSwncHViX3llYXJfZGlzcGxheSc9PlsnMjAwMCddLCd0aXRs
+        ZV9kaXNwbGF5Jz0+WyfKu0FxacyEZGF0IGFsLW11c2xpbSddLCdpZCc9Pic0
+        OTEwNzk0JywnY2xpb19pZF9kaXNwbGF5Jz0+JzQ5MTA3OTQnLCdzdWJqZWN0
+        X3RvcGljX2ZhY2V0Jz0+WydJc2xhbScsJ0RvY3RyaW5lcyddLCdwdWJfcGxh
+        Y2VfZGlzcGxheSc9PlsnQmF5cnXMhHQnXSwnYXV0aG9yX2Rpc3BsYXknPT5b
+        J1NoYcq7cmHMhHdpzIQsIE11aMyjYW1tYWQgTXV0YXdhbGxpzIQnXSwncHVi
+        X25hbWVfZGlzcGxheSc9PlsnRGHMhHIgYWwtUWFsYW0nXSwnZm9ybWF0Jz0+
+        WydCb29rJ10sJ3NvdXJjZV9kaXNwbGF5Jz0+WydjYXRhbG9nJ10sJ21hdGVy
+        aWFsX3R5cGVfZGlzcGxheSc9PlsnMTY5IHAuJ10sJ29jbGNfZGlzcGxheSc9
+        PlsnNzkzODg2MjknLCdvY203OTM4ODYyOSddLCdmdWxsX3B1Ymxpc2hlcl9k
+        aXNwbGF5Jz0+WydCYXlydcyEdCA6IERhzIRyIGFsLVFhbGFtLCAyMDAwLidd
+        LCdsYW5ndWFnZV9mYWNldCc9PlsnQXJhYmljJ10sJ3Njb3JlJz0+MS4wfSx7
+        J2xvY2F0aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3BsYXknPT5bJ0J1dGxlciBT
+        dGFja3MgKEVudGVyIGF0IHRoZSBCdXRsZXIgQ2lyY3VsYXRpb24gRGVzaykg
+        Pj4gQlAxMzQuQzYgUzQzIDIwMDBnfERFTElNfDU0MDAwMjEnXSwncHViX3ll
+        YXJfZGlzcGxheSc9PlsnMjAwMCddLCd0aXRsZV9kaXNwbGF5Jz0+WydhbC1B
+        zIR5YcyEdCBhbC1rYXduacyEeWFoIHdhLWRhbGHMhGxhdHVoYcyEIMq7YWxh
+        zIEgd3VqdcyEZCBBbGxhzIRoIHRhyrthzIRsYcyBJ10sJ2lkJz0+JzQ3NzI1
+        MDgnLCdjbGlvX2lkX2Rpc3BsYXknPT4nNDc3MjUwOCcsJ3N1YmplY3RfdG9w
+        aWNfZmFjZXQnPT5bJ0NyZWF0aW9uIChJc2xhbSknLCdRdXLKvGFuaWMgdGVh
+        Y2hpbmcnXSwncHViX3BsYWNlX2Rpc3BsYXknPT5bJ0JheXJ1zIR0J10sJ2F1
+        dGhvcl9kaXNwbGF5Jz0+WydTaGHKu3JhzIR3acyELCBNdWjMo2FtbWFkIE11
+        dGF3YWxsacyEJ10sJ3B1Yl9uYW1lX2Rpc3BsYXknPT5bJ0RhzIRyIGFsLVFh
+        bGFtJ10sJ2Zvcm1hdCc9PlsnQm9vayddLCdzb3VyY2VfZGlzcGxheSc9Plsn
+        Y2F0YWxvZyddLCdtYXRlcmlhbF90eXBlX2Rpc3BsYXknPT5bJzExMSBwLidd
+        LCdvY2xjX2Rpc3BsYXknPT5bJ29jbTQ5NjA0NTgzJ10sJ2Z1bGxfcHVibGlz
+        aGVyX2Rpc3BsYXknPT5bJ0JheXJ1zIR0IDogRGHMhHIgYWwtUWFsYW0sIFsy
+        MDAwXSddLCdsYW5ndWFnZV9mYWNldCc9PlsnQXJhYmljJ10sJ2lzYm5fZGlz
+        cGxheSc9PlsnOTk1MzQ0MjY1NyddLCdzY29yZSc9PjEuMH0seydsb2NhdGlv
+        bl9jYWxsX251bWJlcl9pZF9kaXNwbGF5Jz0+WydCdXRsZXIgU3RhY2tzIChF
+        bnRlciBhdCB0aGUgQnV0bGVyIENpcmN1bGF0aW9uIERlc2spID4+IEJQMTcw
+        Ljg1IC5TNTQgMjAwMGd8REVMSU18NTg1NjY0NCddLCdwdWJfeWVhcl9kaXNw
+        bGF5Jz0+WycyMDAwJ10sJ3RpdGxlX2Rpc3BsYXknPT5bJ0R1cnVzIGZpIGFs
+        LWRhd8q7YWggd2EtYWwtbWFuaGFqJ10sJ2lkJz0+JzUxNDgxNjMnLCdjbGlv
+        X2lkX2Rpc3BsYXknPT4nNTE0ODE2MycsJ3N1YmplY3RfdG9waWNfZmFjZXQn
+        PT5bJ0Rhyrt3YWggKElzbGFtKSddLCdwdWJfcGxhY2VfZGlzcGxheSc9Plsn
+        QmF5cnXMhHQnXSwnYXV0aG9yX2Rpc3BsYXknPT5bJ1NoYcq7cmHMhHdpzIQs
+        IE11aMyjYW1tYWQgTXV0YXdhbGxpzIQnXSwncHViX25hbWVfZGlzcGxheSc9
+        PlsnRGHMhHIgYWwtUWFsYW0nXSwnZm9ybWF0Jz0+WydCb29rJ10sJ3NvdXJj
+        ZV9kaXNwbGF5Jz0+WydjYXRhbG9nJ10sJ21hdGVyaWFsX3R5cGVfZGlzcGxh
+        eSc9PlsnMTU5IHAuJ10sJ29jbGNfZGlzcGxheSc9PlsnNTA2MTg1MzI3Jywn
+        b2NuNTA2MTg1MzI3J10sJ2Z1bGxfcHVibGlzaGVyX2Rpc3BsYXknPT5bJ0Jh
+        eXJ1zIR0IDogRGHMhHIgYWwtUWFsYW0sIFsyMDAwXSddLCdsYW5ndWFnZV9m
+        YWNldCc9PlsnQXJhYmljJ10sJ3Njb3JlJz0+MS4wfSx7J2xvY2F0aW9uX2Nh
+        bGxfbnVtYmVyX2lkX2Rpc3BsYXknPT5bJ0J1dGxlciBTdGFja3MgKEVudGVy
+        IGF0IHRoZSBCdXRsZXIgQ2lyY3VsYXRpb24gRGVzaykgPj4gQlA3Ny41IC5T
+        NTMgMjAwMGd8REVMSU18MzU1MjYzNiddLCdwdWJfeWVhcl9kaXNwbGF5Jz0+
+        WycyMDAwJ10sJ2xjY25fZGlzcGxheSc9PlsnOTk1MDMyMTInXSwnc3VtbWFy
+        eV9kaXNwbGF5Jz0+WydPbiBQcm9waGV0IE11aMyjYW1tYWQsIGQuIDYzMlwn
+        cyBmbGlnaHQgZnJvbSBNZWNjYTsgSXNsYW07IGRvY3RvcmluZXMnXSwndGl0
+        bGVfZGlzcGxheSc9PlsnYWwtSGlqcmFoIGFsLU5hYmF3acyEeWFoJ10sJ2lk
+        Jz0+JzMwMzc3MzAnLCdjbGlvX2lkX2Rpc3BsYXknPT4nMzAzNzczMCcsJ3N1
+        YmplY3RfdG9waWNfZmFjZXQnPT5bJ011aMyjYW1tYWQsIFByb3BoZXQsIC02
+        MzInLCdIaWpyYWgnLCdJc2xhbScsJ0RvY3RyaW5lcyddLCdwdWJfcGxhY2Vf
+        ZGlzcGxheSc9PlsnyrtBzIRiaWRpzIRuLCBhbC1RYcyEaGlyYWgnXSwnYXV0
+        aG9yX2Rpc3BsYXknPT5bJ1NoYcq7cmHMhHdpzIQsIE11aMyjYW1tYWQgTXV0
+        YXdhbGxpzIQnXSwncHViX25hbWVfZGlzcGxheSc9PlsnTWFrdGFiYXQgYWwt
+        VHVyYcyEdGggYWwtSXNsYcyEbWnMhCddLCdmb3JtYXQnPT5bJ0Jvb2snXSwn
+        c291cmNlX2Rpc3BsYXknPT5bJ2NhdGFsb2cnXSwnbWF0ZXJpYWxfdHlwZV9k
+        aXNwbGF5Jz0+WycyMDQgcC4nXSwnb2NsY19kaXNwbGF5Jz0+WydvY200NTE0
+        OTg3MiddLCdmdWxsX3B1Ymxpc2hlcl9kaXNwbGF5Jz0+WyfKu0HMhGJpZGnM
+        hG4sIGFsLVFhzIRoaXJhaCA6IE1ha3RhYmF0IGFsLVR1cmHMhHRoIGFsLUlz
+        bGHMhG1pzIQsIDIwMDAuJ10sJ2xhbmd1YWdlX2ZhY2V0Jz0+WydBcmFiaWMn
+        XSwnc2NvcmUnPT4xLjB9LHsnbG9jYXRpb25fY2FsbF9udW1iZXJfaWRfZGlz
+        cGxheSc9PlsnQnV0bGVyIFN0YWNrcyAoRW50ZXIgYXQgdGhlIEJ1dGxlciBD
+        aXJjdWxhdGlvbiBEZXNrKSA+PiBCUDE2Ni43ODUgLlM1NDMgMjAwMHp8REVM
+        SU18NTg1NjY0OSddLCdwdWJfeWVhcl9kaXNwbGF5Jz0+WycyMDAtPyddLCdh
+        dXRob3JfdmVybl9kaXNwbGF5Jz0+WyfYtNi52LHYp9mI2YrYjCDZhdit2YXY
+        ryDZhdiq2YjZhNmKJ10sJ3RpdGxlX2Rpc3BsYXknPT5bJ0todXPMo3XMhG0g
+        YWwtSXNsYcyEbSB3YS1hbC1yYWRkIMq7YWxheWhpbSddLCdpZCc9Pic1MTQ4
+        MTcxJywnY2xpb19pZF9kaXNwbGF5Jz0+JzUxNDgxNzEnLCdzdWJqZWN0X3Rv
+        cGljX2ZhY2V0Jz0+WydLdWZyIChJc2xhbSknXSwncHViX3BsYWNlX2Rpc3Bs
+        YXknPT5bJ0JheXJ1zIR0J10sJ2F1dGhvcl9kaXNwbGF5Jz0+WydTaGHKu3Jh
+        zIR3acyELCBNdWjMo2FtbWFkIE11dGF3YWxsacyEJ10sJ3RpdGxlX3Zlcm5f
+        ZGlzcGxheSc9Plsn2K7YtdmI2YUg2KfZhNil2LPZhNin2YUg2YjYp9mE2LHY
+        ryDYudmE2YrZh9mFJ10sJ3B1Yl9uYW1lX2Rpc3BsYXknPT5bJ0RhzIRyIGFs
+        LVFhbGFtJ10sJ2Zvcm1hdCc9PlsnQm9vayddLCdzb3VyY2VfZGlzcGxheSc9
+        PlsnY2F0YWxvZyddLCdtYXRlcmlhbF90eXBlX2Rpc3BsYXknPT5bJzExMSBw
+        LiddLCdvY2xjX2Rpc3BsYXknPT5bJ29jbTYyMDczNjc4J10sJ2Z1bGxfcHVi
+        bGlzaGVyX2Rpc3BsYXknPT5bJ0JheXJ1zIR0IDogRGHMhHIgYWwtUWFsYW0s
+        IFsyMDAtP10nXSwnbGFuZ3VhZ2VfZmFjZXQnPT5bJ0FyYWJpYyddLCdzY29y
+        ZSc9PjEuMH0seydsb2NhdGlvbl9jYWxsX251bWJlcl9pZF9kaXNwbGF5Jz0+
+        WydCdXRsZXIgU3RhY2tzIChFbnRlciBhdCB0aGUgQnV0bGVyIENpcmN1bGF0
+        aW9uIERlc2spID4+IEJQMTczLjQgLlM0NjYgMjAwMGd8REVMSU18NTM5NDA5
+        NiddLCdwdWJfeWVhcl9kaXNwbGF5Jz0+WycyMDAwJ10sJ3RpdGxlX2Rpc3Bs
+        YXknPT5bJ01ha2HMhG5hdCBhbC1tYXLKvmFoIGZpzIQgYWwtSXNsYcyEbSdd
+        LCdpZCc9Pic0NzY1Mjk5JywnY2xpb19pZF9kaXNwbGF5Jz0+JzQ3NjUyOTkn
+        LCdzdWJqZWN0X3RvcGljX2ZhY2V0Jz0+WydXb21lbiBpbiBJc2xhbScsJ011
+        c2xpbSB3b21lbicsJ0NvbmR1Y3Qgb2YgbGlmZSddLCdwdWJfcGxhY2VfZGlz
+        cGxheSc9PlsnQmF5cnXMhHQnXSwnYXV0aG9yX2Rpc3BsYXknPT5bJ1NoYcq7
+        cmHMhHdpzIQsIE11aMyjYW1tYWQgTXV0YXdhbGxpzIQnXSwncHViX25hbWVf
+        ZGlzcGxheSc9PlsnRGHMhHIgYWwtUWFsYW0nXSwnZm9ybWF0Jz0+WydCb29r
+        J10sJ3NvdXJjZV9kaXNwbGF5Jz0+WydjYXRhbG9nJ10sJ21hdGVyaWFsX3R5
+        cGVfZGlzcGxheSc9PlsnMjAwIHAuJ10sJ29jbGNfZGlzcGxheSc9Plsnb2Nt
+        NDk2MDQxMzInXSwnZnVsbF9wdWJsaXNoZXJfZGlzcGxheSc9PlsnQmF5cnXM
+        hHQgOiBEYcyEciBhbC1RYWxhbSwgWzIwMDBdJ10sJ2xhbmd1YWdlX2ZhY2V0
+        Jz0+WydBcmFiaWMnXSwnc2NvcmUnPT4xLjB9XX0sJ2ZhY2V0X2NvdW50cyc9
+        PnsnZmFjZXRfcXVlcmllcyc9PnsnYWNxX2R0OlsyMDE1LTA5LTE1VDAwOjAw
+        OjAwWiBUTyAqXSc9PjAsJ2FjcV9kdDpbMjAxNS0wOC0yMlQwMDowMDowMFog
+        VE8gKl0nPT4wLCdhY3FfZHQ6WzIwMTUtMDMtMjJUMDA6MDA6MDBaIFRPICpd
+        Jz0+MSwnYWNxX2R0OlsyMDE0LTA5LTIyVDAwOjAwOjAwWiBUTyAqXSc9PjF9
+        LCdmYWNldF9maWVsZHMnPT57J2Zvcm1hdCc9PlsnQm9vaycsNzMsJ0NvbXB1
+        dGVyIEZpbGUnLDFdLCdwdWJfZGF0ZV9zb3J0Jz0+WycyMDAwJywxNSwnMTk5
+        OCcsNywnMTk4MCcsNiwnMjAwMycsNl0sJ2F1dGhvcl9mYWNldCc9PlsnU2hh
+        yrtyxIF3xKssIE114bilYW1tYWQgTXV0YXdhbGzEqycsNzQsJ1p1yrtixKss
+        IEHhuKVtYWQnLDExLCdNYXJrYXogYWwtVHVyxIF0aCBsaS1LaGlkbWF0IGFs
+        LUtpdMSBYiB3YS1hbC1TdW5uYWgnLDcsJ0FixasgYWwtTWHKu8SB4bmtxKss
+        IMq7xIBkaWwnLDMsJ0Zhd3rEqywgTWHhuKVtxatkLCAxOTUwLScsMiwnSWJu
+        IFRheW3Eq3lhaCwgQeG4pW1hZCBpYm4gyrtBYmQgYWwt4bikYWzEq20sIDEy
+        NjMtMTMyOCcsMl0sJ2xvY2F0aW9uX2ZhY2V0Jz0+WydCdXRsZXIgU3RhY2tz
+        Jyw0MiwnT2Zmc2l0ZScsMjMsJ0J1dGxlciBSZWFkaW5nIFJvb21zJyw2LCdP
+        dGhlcicsMiwnRGlnaXRhbCBIdW1hbml0aWVzIENlbnRlcicsMV0sJ2xhbmd1
+        YWdlX2ZhY2V0Jz0+WydBcmFiaWMnLDcxLCdFbmdsaXNoJywzXSwnc3ViamVj
+        dF90b3BpY19mYWNldCc9PlsnSXNsYW0nLDI5LCdRdXLKvGFuJywxNSwnU2hh
+        yrtyxIF3xKssIE114bilYW1tYWQgTXV0YXdhbGzEqycsMTAsJ0RvY3RyaW5l
+        cycsOSwnQ3JpdGljaXNtLCBpbnRlcnByZXRhdGlvbiwgZXRjJyw4LCdNdeG4
+        pWFtbWFkLCBQcm9waGV0LCAtNjMyJyw3LCdJc2xhbWljIGxhdycsNSwnTXVz
+        bGltIHNjaG9sYXJzJyw1LCdGYXR3YXMnLDQsJ0hhZGl0aCcsNCwnTXVzbGlt
+        IHdvbWVuJyw0XSwnc3ViamVjdF9nZW9fZmFjZXQnPT5bJ0VneXB0Jyw2LCdT
+        YXVkaSBBcmFiaWEnLDFdLCdzdWJqZWN0X2VyYV9mYWNldCc9PlsnMjB0aCBj
+        ZW50dXJ5Jyw0XSwnc3ViamVjdF9mb3JtX2ZhY2V0Jz0+WydCaW9ncmFwaHkn
+        LDQsJ0NvbW1lbnRhcmllcycsNCwnSW50ZXJ2aWV3cycsMywnQXBvbG9nZXRp
+        YyB3b3JrcycsMiwnTWlzY2VsbGFuZWEnLDIsJ1RleHRzJywyLCdDb250cm92
+        ZXJzaWFsIGxpdGVyYXR1cmUnLDEsJ0Vhcmx5IHdvcmtzIHRvIDE4MDAnLDFd
+        LCdsY18xbGV0dGVyX2ZhY2V0Jz0+WydCIC0gUGhpbG9zb3BoeSwgUHN5Y2hv
+        bG9neSwgUmVsaWdpb24nLDU0LCdIIC0gU29jaWFsIFNjaWVuY2VzJywzLCdL
+        IC0gTGF3Jyw4LCdQIC0gTGFuZ3VhZ2UgJiBMaXRlcmF0dXJlJywyXSwnbGNf
+        c3ViY2xhc3NfZmFjZXQnPT5bJ0JQIC0gSXNsYW0sIEJhaGFpc20sIFRoZW9z
+        b3BoeSwgZXRjLicsNTQsJ0hRIC0gVGhlIEZhbWlseSwgTWFycmlhZ2UsIFdv
+        bWFuJywzLCdLQkwnLDQsJ0tCUCAtIElzbGFtaWMgTGF3Jyw0LCdQSiAtIE9y
+        aWVudGFsIExhbmd1YWdlcyAmIExpdGVyYXR1cmUnLDJdfSwnZmFjZXRfZGF0
+        ZXMnPT57fSwnZmFjZXRfcmFuZ2VzJz0+e319LCdzdGF0cyc9Pnsnc3RhdHNf
+        ZmllbGRzJz0+eydwdWJfZGF0ZV9zb3J0Jz0+eydtaW4nPT4xOTc1LjAsJ21h
+        eCc9PjIwMTQuMCwnY291bnQnPT43NCwnbWlzc2luZyc9PjAsJ3N1bSc9PjE0
+        NzU5NS4wLCdzdW1PZlNxdWFyZXMnPT4yLjk0Mzg4ODcxRTgsJ21lYW4nPT4x
+        OTk0LjUyNzAyNzAyNzAyNywnc3RkZGV2Jz0+OS41NDc2MDY3MDQzMDQ1NjMs
+        J2ZhY2V0cyc9Pnt9fX19fQo=
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 15:36:16 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&fl=*&q=%7B!lucene%7Did:(1234)&qt=search&rows=1&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck=false&stats=true&stats.field=pub_date_sort&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 15:43:31 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>35,'params'=>{'spellcheck'=>'false','f.subject_form_facet.facet.limit'=>'11','facet'=>'true','sort'=>'score desc, pub_date_sort desc, title_sort asc','stats'=>'true','f.subject_topic_facet.facet.limit'=>'11','f.language_facet.facet.limit'=>'6','f.lc_1letter_facet.facet.limit'=>'31','f.pub_date_sort.facet.limit'=>'4','f.location_facet.facet.limit'=>'6','wt'=>'ruby','f.lc_subclass_facet.facet.limit'=>'501','rows'=>'1','fl'=>'*','f.subject_geo_facet.facet.limit'=>'11','q'=>'{!lucene}id:(1234)','stats.field'=>'pub_date_sort','f.author_facet.facet.limit'=>'6','qt'=>'search','f.format.facet.limit'=>'6','f.subject_era_facet.facet.limit'=>'11'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+pn-+0045+00000000+r5870000+1234'],'location_call_number_id_display'=>['Milstein <Barnard Library Collection>, Butler 406A, 406, 409 >> PN45 .R587|DELIM|1936'],'lccn_display'=>['78016335'],'item_display'=>['PN45 .R587 | loc+pn-+0045+00000000+r5870000+1234 | ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'title_display'=>['The reader, the text, the poem : the transactional theory of the literary work'],'clio_id_display'=>'1234','subject_topic_facet'=>['Literature','Criticism','Reading','Philosophy'],'pub_place_display'=>['Carbondale'],'format'=>['Book'],'oclc_display'=>['4056043','ocm04056043'],'title_first_facet'=>['R'],'full_publisher_display'=>['Carbondale : Southern Illinois University Press, c1978.'],'pub_date_sort'=>1978,'isbn_display'=>['0809308835'],'pub_year_display'=>['c1978'],'id'=>'1234','reverse_shelfkey'=>['ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'call_number_display'=>['PN45 .R587'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01131cam a2200349 i 4500</leader><controlfield tag="001">1234</controlfield><controlfield tag="005">20140424164936.0</controlfield><controlfield tag="008">790426s1978    ilu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   78016335 </subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0809308835</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)4056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm04056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG10505040-B</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAA1293CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)1234</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="082" ind1=" " ind2=" "><subfield code="a">801/.95</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Rosenblatt, Louise M.</subfield><subfield code="q">(Louise Michelle),</subfield><subfield code="d">1904-2005.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The reader, the text, the poem :</subfield><subfield code="b">the transactional theory of the literary work /</subfield><subfield code="c">Louise M. Rosenblatt.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Carbondale :</subfield><subfield code="b">Southern Illinois University Press,</subfield><subfield code="c">c1978.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xv, 196 p. ;</subfield><subfield code="c">24 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Literature</subfield><subfield code="x">Philosophy.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Criticism.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reading.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">PN</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">PN45 .R587</subfield><subfield code="b">loc+PN-+0045+00000000+R5870000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Barnard</subfield><subfield code="b">Milstein &lt;Barnard Library Collection&gt;, Butler 406A, 406, 409 &gt;&gt; PN45 .R587|DELIM|1936</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005'],'pub_name_display'=>['Southern Illinois University Press'],'source_display'=>['catalog'],'material_type_display'=>['xv, 196 p.'],'language_facet'=>['English'],'_version_'=>1507643674918387712,'timestamp'=>'2015-07-25T05:10:51.062Z'}]},'facet_counts'=>{'facet_queries'=>{},'facet_fields'=>{'format'=>['Book',1],'lc_1letter_facet'=>['P - Language & Literature',1],'lc_subclass_facet'=>['PN - Literature (General)',1],'language_facet'=>['English',1],'pub_date_sort'=>['1978',1],'subject_geo_facet'=>[],'subject_topic_facet'=>['Criticism',1,'Literature',1,'Philosophy',1,'Reading',1],'subject_era_facet'=>[],'subject_form_facet'=>[],'database_hilcc_facet'=>[],'database_resource_type_facet'=>[],'location_facet'=>['Barnard',1],'author_facet'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005',1],'source_facet'=>['catalog',1]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>{'min'=>1978.0,'max'=>1978.0,'count'=>1,'missing'=>0,'sum'=>1978.0,'sumOfSquares'=>3912484.0,'mean'=>1978.0,'stddev'=>0.0,'facets'=>{}}}}}
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 15:43:32 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&fl=*&q=%7B!lucene%7Did:(1234)&qt=search&rows=1&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck=false&stats=true&stats.field=pub_date_sort&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 15:51:10 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>36,'params'=>{'spellcheck'=>'false','f.subject_form_facet.facet.limit'=>'11','facet'=>'true','sort'=>'score desc, pub_date_sort desc, title_sort asc','stats'=>'true','f.subject_topic_facet.facet.limit'=>'11','f.language_facet.facet.limit'=>'6','f.lc_1letter_facet.facet.limit'=>'31','f.pub_date_sort.facet.limit'=>'4','f.location_facet.facet.limit'=>'6','wt'=>'ruby','f.lc_subclass_facet.facet.limit'=>'501','rows'=>'1','fl'=>'*','f.subject_geo_facet.facet.limit'=>'11','q'=>'{!lucene}id:(1234)','stats.field'=>'pub_date_sort','f.author_facet.facet.limit'=>'6','qt'=>'search','f.format.facet.limit'=>'6','f.subject_era_facet.facet.limit'=>'11'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+pn-+0045+00000000+r5870000+1234'],'location_call_number_id_display'=>['Milstein <Barnard Library Collection>, Butler 406A, 406, 409 >> PN45 .R587|DELIM|1936'],'lccn_display'=>['78016335'],'item_display'=>['PN45 .R587 | loc+pn-+0045+00000000+r5870000+1234 | ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'title_display'=>['The reader, the text, the poem : the transactional theory of the literary work'],'clio_id_display'=>'1234','subject_topic_facet'=>['Literature','Criticism','Reading','Philosophy'],'pub_place_display'=>['Carbondale'],'format'=>['Book'],'oclc_display'=>['4056043','ocm04056043'],'title_first_facet'=>['R'],'full_publisher_display'=>['Carbondale : Southern Illinois University Press, c1978.'],'pub_date_sort'=>1978,'isbn_display'=>['0809308835'],'pub_year_display'=>['c1978'],'id'=>'1234','reverse_shelfkey'=>['ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'call_number_display'=>['PN45 .R587'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01131cam a2200349 i 4500</leader><controlfield tag="001">1234</controlfield><controlfield tag="005">20140424164936.0</controlfield><controlfield tag="008">790426s1978    ilu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   78016335 </subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0809308835</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)4056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm04056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG10505040-B</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAA1293CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)1234</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="082" ind1=" " ind2=" "><subfield code="a">801/.95</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Rosenblatt, Louise M.</subfield><subfield code="q">(Louise Michelle),</subfield><subfield code="d">1904-2005.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The reader, the text, the poem :</subfield><subfield code="b">the transactional theory of the literary work /</subfield><subfield code="c">Louise M. Rosenblatt.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Carbondale :</subfield><subfield code="b">Southern Illinois University Press,</subfield><subfield code="c">c1978.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xv, 196 p. ;</subfield><subfield code="c">24 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Literature</subfield><subfield code="x">Philosophy.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Criticism.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reading.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">PN</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">PN45 .R587</subfield><subfield code="b">loc+PN-+0045+00000000+R5870000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Barnard</subfield><subfield code="b">Milstein &lt;Barnard Library Collection&gt;, Butler 406A, 406, 409 &gt;&gt; PN45 .R587|DELIM|1936</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005'],'pub_name_display'=>['Southern Illinois University Press'],'source_display'=>['catalog'],'material_type_display'=>['xv, 196 p.'],'language_facet'=>['English'],'_version_'=>1507643674918387712,'timestamp'=>'2015-07-25T05:10:51.062Z'}]},'facet_counts'=>{'facet_queries'=>{},'facet_fields'=>{'format'=>['Book',1],'lc_1letter_facet'=>['P - Language & Literature',1],'lc_subclass_facet'=>['PN - Literature (General)',1],'language_facet'=>['English',1],'pub_date_sort'=>['1978',1],'subject_geo_facet'=>[],'subject_topic_facet'=>['Criticism',1,'Literature',1,'Philosophy',1,'Reading',1],'subject_era_facet'=>[],'subject_form_facet'=>[],'database_hilcc_facet'=>[],'database_resource_type_facet'=>[],'location_facet'=>['Barnard',1],'author_facet'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005',1],'source_facet'=>['catalog',1]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>{'min'=>1978.0,'max'=>1978.0,'count'=>1,'missing'=>0,'sum'=>1978.0,'sumOfSquares'=>3912484.0,'mean'=>1978.0,'stddev'=>0.0,'facets'=>{}}}}}
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 15:51:11 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&fl=*&q=%7B!lucene%7Did:(1234)&qt=search&rows=1&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck=false&stats=true&stats.field=pub_date_sort&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 15:59:25 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>35,'params'=>{'spellcheck'=>'false','f.subject_form_facet.facet.limit'=>'11','facet'=>'true','sort'=>'score desc, pub_date_sort desc, title_sort asc','stats'=>'true','f.subject_topic_facet.facet.limit'=>'11','f.language_facet.facet.limit'=>'6','f.lc_1letter_facet.facet.limit'=>'31','f.pub_date_sort.facet.limit'=>'4','f.location_facet.facet.limit'=>'6','wt'=>'ruby','f.lc_subclass_facet.facet.limit'=>'501','rows'=>'1','fl'=>'*','f.subject_geo_facet.facet.limit'=>'11','q'=>'{!lucene}id:(1234)','stats.field'=>'pub_date_sort','f.author_facet.facet.limit'=>'6','qt'=>'search','f.format.facet.limit'=>'6','f.subject_era_facet.facet.limit'=>'11'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+pn-+0045+00000000+r5870000+1234'],'location_call_number_id_display'=>['Milstein <Barnard Library Collection>, Butler 406A, 406, 409 >> PN45 .R587|DELIM|1936'],'lccn_display'=>['78016335'],'item_display'=>['PN45 .R587 | loc+pn-+0045+00000000+r5870000+1234 | ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'title_display'=>['The reader, the text, the poem : the transactional theory of the literary work'],'clio_id_display'=>'1234','subject_topic_facet'=>['Literature','Criticism','Reading','Philosophy'],'pub_place_display'=>['Carbondale'],'format'=>['Book'],'oclc_display'=>['4056043','ocm04056043'],'title_first_facet'=>['R'],'full_publisher_display'=>['Carbondale : Southern Illinois University Press, c1978.'],'pub_date_sort'=>1978,'isbn_display'=>['0809308835'],'pub_year_display'=>['c1978'],'id'=>'1234','reverse_shelfkey'=>['ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'call_number_display'=>['PN45 .R587'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01131cam a2200349 i 4500</leader><controlfield tag="001">1234</controlfield><controlfield tag="005">20140424164936.0</controlfield><controlfield tag="008">790426s1978    ilu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   78016335 </subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0809308835</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)4056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm04056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG10505040-B</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAA1293CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)1234</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="082" ind1=" " ind2=" "><subfield code="a">801/.95</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Rosenblatt, Louise M.</subfield><subfield code="q">(Louise Michelle),</subfield><subfield code="d">1904-2005.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The reader, the text, the poem :</subfield><subfield code="b">the transactional theory of the literary work /</subfield><subfield code="c">Louise M. Rosenblatt.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Carbondale :</subfield><subfield code="b">Southern Illinois University Press,</subfield><subfield code="c">c1978.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xv, 196 p. ;</subfield><subfield code="c">24 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Literature</subfield><subfield code="x">Philosophy.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Criticism.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reading.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">PN</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">PN45 .R587</subfield><subfield code="b">loc+PN-+0045+00000000+R5870000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Barnard</subfield><subfield code="b">Milstein &lt;Barnard Library Collection&gt;, Butler 406A, 406, 409 &gt;&gt; PN45 .R587|DELIM|1936</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005'],'pub_name_display'=>['Southern Illinois University Press'],'source_display'=>['catalog'],'material_type_display'=>['xv, 196 p.'],'language_facet'=>['English'],'_version_'=>1507643674918387712,'timestamp'=>'2015-07-25T05:10:51.062Z'}]},'facet_counts'=>{'facet_queries'=>{},'facet_fields'=>{'format'=>['Book',1],'lc_1letter_facet'=>['P - Language & Literature',1],'lc_subclass_facet'=>['PN - Literature (General)',1],'language_facet'=>['English',1],'pub_date_sort'=>['1978',1],'subject_geo_facet'=>[],'subject_topic_facet'=>['Criticism',1,'Literature',1,'Philosophy',1,'Reading',1],'subject_era_facet'=>[],'subject_form_facet'=>[],'database_hilcc_facet'=>[],'database_resource_type_facet'=>[],'location_facet'=>['Barnard',1],'author_facet'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005',1],'source_facet'=>['catalog',1]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>{'min'=>1978.0,'max'=>1978.0,'count'=>1,'missing'=>0,'sum'=>1978.0,'sumOfSquares'=>3912484.0,'mean'=>1978.0,'stddev'=>0.0,'facets'=>{}}}}}
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 15:59:26 GMT
+- request:
+    method: get
+    uri: http://machete.cul.columbia.edu:8983/solr-4.2.1/spectrum_prod/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&fl=*&q=%7B!lucene%7Did:(1234)&qt=search&rows=1&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck=false&stats=true&stats.field=pub_date_sort&wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 16:15:38 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>35,'params'=>{'spellcheck'=>'false','f.subject_form_facet.facet.limit'=>'11','facet'=>'true','sort'=>'score desc, pub_date_sort desc, title_sort asc','stats'=>'true','f.subject_topic_facet.facet.limit'=>'11','f.language_facet.facet.limit'=>'6','f.lc_1letter_facet.facet.limit'=>'31','f.pub_date_sort.facet.limit'=>'4','f.location_facet.facet.limit'=>'6','wt'=>'ruby','f.lc_subclass_facet.facet.limit'=>'501','rows'=>'1','fl'=>'*','f.subject_geo_facet.facet.limit'=>'11','q'=>'{!lucene}id:(1234)','stats.field'=>'pub_date_sort','f.author_facet.facet.limit'=>'6','qt'=>'search','f.format.facet.limit'=>'6','f.subject_era_facet.facet.limit'=>'11'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+pn-+0045+00000000+r5870000+1234'],'location_call_number_id_display'=>['Milstein <Barnard Library Collection>, Butler 406A, 406, 409 >> PN45 .R587|DELIM|1936'],'lccn_display'=>['78016335'],'item_display'=>['PN45 .R587 | loc+pn-+0045+00000000+r5870000+1234 | ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'title_display'=>['The reader, the text, the poem : the transactional theory of the literary work'],'clio_id_display'=>'1234','subject_topic_facet'=>['Literature','Criticism','Reading','Philosophy'],'pub_place_display'=>['Carbondale'],'format'=>['Book'],'oclc_display'=>['4056043','ocm04056043'],'title_first_facet'=>['R'],'full_publisher_display'=>['Carbondale : Southern Illinois University Press, c1978.'],'pub_date_sort'=>1978,'isbn_display'=>['0809308835'],'pub_year_display'=>['c1978'],'id'=>'1234','reverse_shelfkey'=>['ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'call_number_display'=>['PN45 .R587'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01131cam a2200349 i 4500</leader><controlfield tag="001">1234</controlfield><controlfield tag="005">20140424164936.0</controlfield><controlfield tag="008">790426s1978    ilu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   78016335 </subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0809308835</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)4056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm04056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG10505040-B</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAA1293CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)1234</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="082" ind1=" " ind2=" "><subfield code="a">801/.95</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Rosenblatt, Louise M.</subfield><subfield code="q">(Louise Michelle),</subfield><subfield code="d">1904-2005.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The reader, the text, the poem :</subfield><subfield code="b">the transactional theory of the literary work /</subfield><subfield code="c">Louise M. Rosenblatt.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Carbondale :</subfield><subfield code="b">Southern Illinois University Press,</subfield><subfield code="c">c1978.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xv, 196 p. ;</subfield><subfield code="c">24 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Literature</subfield><subfield code="x">Philosophy.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Criticism.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reading.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">PN</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">PN45 .R587</subfield><subfield code="b">loc+PN-+0045+00000000+R5870000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Barnard</subfield><subfield code="b">Milstein &lt;Barnard Library Collection&gt;, Butler 406A, 406, 409 &gt;&gt; PN45 .R587|DELIM|1936</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005'],'pub_name_display'=>['Southern Illinois University Press'],'source_display'=>['catalog'],'material_type_display'=>['xv, 196 p.'],'language_facet'=>['English'],'_version_'=>1507643674918387712,'timestamp'=>'2015-07-25T05:10:51.062Z'}]},'facet_counts'=>{'facet_queries'=>{},'facet_fields'=>{'format'=>['Book',1],'lc_1letter_facet'=>['P - Language & Literature',1],'lc_subclass_facet'=>['PN - Literature (General)',1],'language_facet'=>['English',1],'pub_date_sort'=>['1978',1],'subject_geo_facet'=>[],'subject_topic_facet'=>['Criticism',1,'Literature',1,'Philosophy',1,'Reading',1],'subject_era_facet'=>[],'subject_form_facet'=>[],'database_hilcc_facet'=>[],'database_resource_type_facet'=>[],'location_facet'=>['Barnard',1],'author_facet'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005',1],'source_facet'=>['catalog',1]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>{'min'=>1978.0,'max'=>1978.0,'count'=>1,'missing'=>0,'sum'=>1978.0,'sumOfSquares'=>3912484.0,'mean'=>1978.0,'stddev'=>0.0,'facets'=>{}}}}}
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 16:15:39 GMT
+recorded_with: VCR 2.9.3

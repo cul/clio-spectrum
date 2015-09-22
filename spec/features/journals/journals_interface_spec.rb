@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'E-Journals Search' do
+describe 'E-Journals Search', :vcr do
 
   it 'will be able to traverse next and previous links' do
     visit journals_index_path('q' => 'notes')

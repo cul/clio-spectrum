@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://search.columbia.edu/search?as_dt=i&client=cul_libraryweb&filter=0&ie=UTF-8&num=10&oe=UTF-8&output=xml&q=dam%20sheet1%20xlsx&site=CUL_LibraryWeb&sitesearch=&sort=date:D:L:dl&start=0&x=0&y=0
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 15:44:28 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 15:44:27 GMT
+      Server:
+      - Google Search Appliance
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/xml; charset=UTF-8
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Length:
+      - '9042'
+      X-Cnection:
+      - close
+      X-Pad:
+      - avoid browser bug
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <!DOCTYPE GSP SYSTEM "google.dtd">
+        <GSP VER="3.2">
+        <TM>0.049434</TM><Q>dam sheet1 xlsx</Q>
+        <PARAM name="as_dt" value="i" original_value="i"/>
+        <PARAM name="client" value="cul_libraryweb" original_value="cul_libraryweb"/>
+        <PARAM name="filter" value="0" original_value="0"/>
+        <PARAM name="ie" value="UTF-8" original_value="UTF-8"/>
+        <PARAM name="oe" value="UTF-8" original_value="UTF-8"/>
+        <PARAM name="output" value="xml" original_value="xml"/>
+        <PARAM name="site" value="CUL_LibraryWeb" original_value="CUL_LibraryWeb"/>
+        <PARAM name="sort" value="date:D:L:dl" original_value="date:D:L:dl"/>
+        <PARAM name="x" value="0" original_value="0"/>
+        <PARAM name="y" value="0" original_value="0"/>
+        <PARAM name="sitesearch" value="" original_value=""/>
+        <PARAM name="num" value="10" original_value="10"/>
+        <PARAM name="start" value="0" original_value="0"/>
+        <PARAM name="q" value="dam sheet1 xlsx" original_value="dam+sheet1+xlsx"/>
+        <PARAM name="ulang" value="" original_value=""/>
+        <PARAM name="ip" value="128.59.251.229" original_value="128.59.251.229"/>
+        <PARAM name="access" value="p" original_value="p"/>
+        <PARAM name="entqr" value="3" original_value="3"/>
+        <PARAM name="entqrm" value="0" original_value="0"/>
+        <PARAM name="wc" value="200" original_value="200"/>
+        <PARAM name="wc_mc" value="1" original_value="1"/>
+        <RES SN="1" EN="10">
+        <M>11</M>
+        <WXT/><NB><NU>/search?q=dam+sheet1+xlsx&amp;site=CUL_LibraryWeb&amp;lr=&amp;ie=UTF-8&amp;oe=UTF-8&amp;output=xml&amp;client=cul_libraryweb&amp;access=p&amp;sort=date:D:L:dl&amp;start=10&amp;sa=N&amp;filter=0</NU>
+        </NB>
+
+        <R N="1" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_Movie_Theater_Handbills.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_Movie_Theater_Handbills.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P. 1, Series, s_id, Subseries,&lt;br&gt; ss_id, cont01_type, cont01_value, cont02_type, cont02_value, &lt;b&gt;...&lt;/b&gt;  </S><LANG>ja</LANG><HAS><L/><C SZ="410k" CID="QEIU0RlBS_wJ" ENC="UTF-8"/></HAS></R><R N="2" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_11_Subject_Files_Censorship.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_11_Subject_Files_Censorship.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q. 1, Series, s_id, Subseries,&lt;br&gt; ss_id, cont01_type, cont01_value, cont02_type, cont02_value, &lt;b&gt;...&lt;/b&gt;  </S><LANG>ja</LANG><HAS><L/><C SZ="166k" CID="pDkmpDsPCakJ" ENC="UTF-8"/></HAS></R><R N="3" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2010_Subject_Files_Amateur_Films,_Kogata_Eiga.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2010_Subject_Files_Amateur_Films,_Kogata_Eiga.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P. 1, Series, s_id, Subseries,&lt;br&gt; ss_id, cont01_type, cont01_value, cont02_type, cont02_value, &lt;b&gt;...&lt;/b&gt;  </S><LANG>ja</LANG><HAS><L/><C SZ="111k" CID="Q7XXJslGUKYJ" ENC="UTF-8"/></HAS></R><R N="4" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2010_Subject_Files_Documentary_Film.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2010_Subject_Files_Documentary_Film.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q. 1, Series, s_id, Subseries,&lt;br&gt; ss_id, cont01_type, cont01_value, cont02_type, cont02_value, &lt;b&gt;...&lt;/b&gt;  </S><LANG>ja</LANG><HAS><L/><C SZ="331k" CID="eRzCRrwpGIsJ" ENC="UTF-8"/></HAS></R><R N="5" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_11_Subject_Files_Censorship-chronological.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_11_Subject_Files_Censorship-chronological.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q. 1, (Type of Box), (Box&lt;br&gt; No.), (Folder), (Folder No.), (Description), (yyyy-mm-dd or &lt;b&gt;...&lt;/b&gt;  </S><LANG>ja</LANG><HAS><L/><C SZ="167k" CID="mLt15O9nKnoJ" ENC="UTF-8"/></HAS></R><R N="6" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2011_Subject_Files_Animation_Manga.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2011_Subject_Files_Animation_Manga.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P. 1, Series, s_id, Subseries,&lt;br&gt; ss_id, cont01_type, cont01_value, cont02_type, cont02_value, &lt;b&gt;...&lt;/b&gt;  </S><LANG>ja</LANG><HAS><L/><C SZ="438k" CID="Xw7uuk8IVU8J" ENC="UTF-8"/></HAS></R><R N="7" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_10_Subject_Files_Music_Songbooks.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_10_Subject_Files_Music_Songbooks.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O. 1, Series, s_id, Subseries, ss_id,&lt;br&gt; cont01_type, cont01_value, cont02_type, cont02_value, &lt;b&gt;...&lt;/b&gt;  </S><LANG>ja</LANG><HAS><L/><C SZ="141k" CID="owdvBQ4DjE4J" ENC="UTF-8"/></HAS></R><R N="8" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_Handbills_shows_revues.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_Handbills_shows_revues.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P. 1, Series, s_id, Subseries,&lt;br&gt; ss_id, cont01_type, cont01_value, cont02_type, cont02_value, &lt;b&gt;...&lt;/b&gt;  </S><LANG>ja</LANG><HAS><L/><C SZ="75k" CID="ZbkcMlCS3kgJ" ENC="UTF-8"/></HAS></R><R N="9" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_Subject_Files_University_Files.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_Subject_Files_University_Files.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q. 1, Series, s_id, Subseries,&lt;br&gt; ss_id, cont01_type, cont01_value, cont02_type, cont02_value, &lt;b&gt;...&lt;/b&gt;  </S><LANG>ja</LANG><HAS><L/><C SZ="151k" CID="-H1GUSakvzMJ" ENC="UTF-8"/></HAS></R><R N="10" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/Item_descriptions_2010_10_Subject_Files_Proletarian_Film.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/Item_descriptions_2010_10_Subject_Files_Proletarian_Film.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q. 1, Series, s_id, Subseries,&lt;br&gt; ss_id, cont01_type, cont01_value, cont02_type, cont02_value, &lt;b&gt;...&lt;/b&gt;  </S><LANG>ja</LANG><HAS><L/><C SZ="149k" CID="2GtEOJvjtB0J" ENC="UTF-8"/></HAS></R></RES>
+        </GSP>
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 15:44:29 GMT
+recorded_with: VCR 2.9.3

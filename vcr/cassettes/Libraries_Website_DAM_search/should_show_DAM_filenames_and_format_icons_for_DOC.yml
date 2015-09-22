@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://search.columbia.edu/search?as_dt=i&client=cul_libraryweb&filter=0&ie=UTF-8&num=10&oe=UTF-8&output=xml&q=reproduction%20form%20doc%20dam&site=CUL_LibraryWeb&sitesearch=&sort=date:D:L:dl&start=0&x=0&y=0
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 15:44:29 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 15:44:27 GMT
+      Server:
+      - Google Search Appliance
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/xml; charset=UTF-8
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Length:
+      - '8924'
+      X-Cnection:
+      - close
+      X-Pad:
+      - avoid browser bug
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <!DOCTYPE GSP SYSTEM "google.dtd">
+        <GSP VER="3.2">
+        <TM>0.081637</TM><Q>reproduction form doc dam</Q>
+        <PARAM name="as_dt" value="i" original_value="i"/>
+        <PARAM name="client" value="cul_libraryweb" original_value="cul_libraryweb"/>
+        <PARAM name="filter" value="0" original_value="0"/>
+        <PARAM name="ie" value="UTF-8" original_value="UTF-8"/>
+        <PARAM name="oe" value="UTF-8" original_value="UTF-8"/>
+        <PARAM name="output" value="xml" original_value="xml"/>
+        <PARAM name="site" value="CUL_LibraryWeb" original_value="CUL_LibraryWeb"/>
+        <PARAM name="sort" value="date:D:L:dl" original_value="date:D:L:dl"/>
+        <PARAM name="x" value="0" original_value="0"/>
+        <PARAM name="y" value="0" original_value="0"/>
+        <PARAM name="sitesearch" value="" original_value=""/>
+        <PARAM name="num" value="10" original_value="10"/>
+        <PARAM name="start" value="0" original_value="0"/>
+        <PARAM name="q" value="reproduction form doc dam" original_value="reproduction+form+doc+dam"/>
+        <PARAM name="ulang" value="" original_value=""/>
+        <PARAM name="ip" value="128.59.251.229" original_value="128.59.251.229"/>
+        <PARAM name="access" value="p" original_value="p"/>
+        <PARAM name="entqr" value="3" original_value="3"/>
+        <PARAM name="entqrm" value="0" original_value="0"/>
+        <PARAM name="wc" value="200" original_value="200"/>
+        <PARAM name="wc_mc" value="1" original_value="1"/>
+        <Spelling><Suggestion q="reproduction formm doc dam">reproduction &lt;b&gt;&lt;i&gt;formm&lt;/i&gt;&lt;/b&gt; doc dam</Suggestion></Spelling><RES SN="1" EN="10">
+        <M>15</M>
+        <WXT/><NB><NU>/search?q=reproduction+form+doc+dam&amp;site=CUL_LibraryWeb&amp;lr=&amp;ie=UTF-8&amp;oe=UTF-8&amp;output=xml&amp;client=cul_libraryweb&amp;access=p&amp;sort=date:D:L:dl&amp;start=10&amp;sa=N&amp;filter=0</NU>
+        </NB>
+
+        <R N="1" MIME="application/msword"><U>http://library.columbia.edu/content/dam/libraryweb/services/preservation/prd/photodig_prd.doc</U><UE>http://library.columbia.edu/content/dam/libraryweb/services/preservation/prd/photodig_prd.doc</UE><T>Digital &lt;b&gt;Reproduction&lt;/b&gt; Order &lt;b&gt;Form&lt;/b&gt;</T><RK>8</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; http://www.columbia.edu/cu/lweb/services/. preservation/&lt;b&gt;reproductions&lt;/b&gt;.html. &lt;b&gt;...&lt;/b&gt;&lt;br&gt; RECEIVED IN PRD: Digital &lt;b&gt;Reproduction&lt;/b&gt; Order &lt;b&gt;Form&lt;/b&gt;. </S><LANG>en</LANG><HAS><L/><C SZ="11k" CID="a-IPFQThjmEJ" ENC="UTF-8"/></HAS></R><R N="2" MIME="application/msword"><U>http://library.columbia.edu/content/dam/libraryweb/services/preservation/eastasian/photodig_eastasian.doc</U><UE>http://library.columbia.edu/content/dam/libraryweb/services/preservation/eastasian/photodig_eastasian.doc</UE><T>Digital &lt;b&gt;Reproduction&lt;/b&gt; Order &lt;b&gt;Form&lt;/b&gt;</T><RK>8</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; library.columbia.edu/services/preservation/&lt;b&gt;reproductions&lt;/b&gt;/&lt;b&gt;forms&lt;/b&gt;.html. &lt;b&gt;...&lt;/b&gt; conditions&lt;br&gt; of service&amp;quot; &lt;b&gt;form&lt;/b&gt; and Acknowledge &lt;b&gt;...&lt;/b&gt; Digital &lt;b&gt;Reproduction&lt;/b&gt; Order &lt;b&gt;Form&lt;/b&gt;. </S><LANG>en</LANG><HAS><L/><C SZ="11k" CID="fAGAoO9jYuwJ" ENC="UTF-8"/></HAS></R><R N="3" MIME="application/msword"><U>http://library.columbia.edu/content/dam/libraryweb/services/preservation/burke/photodig_burke.doc</U><UE>http://library.columbia.edu/content/dam/libraryweb/services/preservation/burke/photodig_burke.doc</UE><T>Digital &lt;b&gt;Reproduction&lt;/b&gt; Order &lt;b&gt;Form&lt;/b&gt;</T><RK>8</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; library.columbia.edu/services/preservation/&lt;b&gt;reproductions&lt;/b&gt;/&lt;b&gt;forms&lt;/b&gt;.html. &lt;b&gt;...&lt;/b&gt; conditions&lt;br&gt; of service&amp;quot; &lt;b&gt;form&lt;/b&gt; and Acknowledge &lt;b&gt;...&lt;/b&gt; Digital &lt;b&gt;Reproduction&lt;/b&gt; Order &lt;b&gt;Form&lt;/b&gt;. </S><LANG>en</LANG><HAS><L/><C SZ="11k" CID="Fisr5d5AFj8J" ENC="UTF-8"/></HAS></R><R N="4" MIME="application/msword"><U>http://library.columbia.edu/content/dam/libraryweb/services/preservation/rbml/photodig_rbml.doc</U><UE>http://library.columbia.edu/content/dam/libraryweb/services/preservation/rbml/photodig_rbml.doc</UE><T>Digital &lt;b&gt;Reproduction&lt;/b&gt; Order &lt;b&gt;Form&lt;/b&gt;</T><RK>8</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; library.columbia.edu/services/preservation/&lt;b&gt;reproductions&lt;/b&gt;/&lt;b&gt;forms&lt;/b&gt;.html. &lt;b&gt;...&lt;/b&gt; conditions&lt;br&gt; of service&amp;quot; &lt;b&gt;form&lt;/b&gt; and Acknowledge &lt;b&gt;...&lt;/b&gt; Digital &lt;b&gt;Reproduction&lt;/b&gt; Order &lt;b&gt;Form&lt;/b&gt;. </S><LANG>en</LANG><HAS><L/><C SZ="11k" CID="W75qrnWRxikJ" ENC="UTF-8"/></HAS></R><R N="5" MIME="application/msword"><U>http://library.columbia.edu/content/dam/libraryweb/services/preservation/ConditionsofServiceCopyright_2014.doc</U><UE>http://library.columbia.edu/content/dam/libraryweb/services/preservation/ConditionsofServiceCopyright_2014.doc</UE><T>GENERAL CONDITIONS OF SERVICE</T><RK>8</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; COLUMBIA UNIVERSITY LIBRARIES DIGITAL ORDER &lt;b&gt;FORM&lt;/b&gt;. &lt;b&gt;...&lt;/b&gt; a fee for the&lt;br&gt; use of &lt;b&gt;reproductions&lt;/b&gt;. &lt;b&gt;...&lt;/b&gt; Publication and Digital &lt;b&gt;Reproduction&lt;/b&gt; Policy and &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="9k" CID="qKnsD4d3ccgJ" ENC="UTF-8"/></HAS></R><R N="6" MIME="application/msword"><U>http://library.columbia.edu/content/dam/libraryweb/services/preservation/prd/ebk_prd.doc</U><UE>http://library.columbia.edu/content/dam/libraryweb/services/preservation/prd/ebk_prd.doc</UE><T>Electronic book Order &lt;b&gt;Form&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; &lt;b&gt;reproductions&lt;/b&gt;.html. 1 November 2014. Order approved by: (Curator/Librarian).&lt;br&gt; (Date). ORDER NO: RECEIVED IN PRD: Electronic book Order &lt;b&gt;Form&lt;/b&gt;. </S><LANG>en</LANG><HAS><L/><C SZ="11k" CID="Ke3YAo7J0DYJ" ENC="UTF-8"/></HAS></R><R N="7" MIME="application/msword"><U>http://library.columbia.edu/content/dam/libraryweb/services/preservation/eastasian/audioref_prd.doc</U><UE>http://library.columbia.edu/content/dam/libraryweb/services/preservation/eastasian/audioref_prd.doc</UE><T>audio/Video reformatting &lt;b&gt;form&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; http://www.columbia.edu/cu/lweb/services/. preservation/&lt;b&gt;reproductions&lt;/b&gt;.html.&lt;br&gt; audio/Video reformatting &lt;b&gt;form&lt;/b&gt;. ORDER NO: RECEIVED IN PRD: &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="12k" CID="mqd_tfu3hmcJ" ENC="UTF-8"/></HAS></R><R N="8" MIME="application/msword"><U>http://library.columbia.edu/content/dam/libraryweb/services/preservation/prd/audioref_prd.doc</U><UE>http://library.columbia.edu/content/dam/libraryweb/services/preservation/prd/audioref_prd.doc</UE><T>audio/Video reformatting &lt;b&gt;form&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; http://www.columbia.edu/cu/lweb/services/. preservation/&lt;b&gt;reproductions&lt;/b&gt;.html.&lt;br&gt; audio/Video reformatting &lt;b&gt;form&lt;/b&gt;. ORDER NO: RECEIVED IN PRD: &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="12k" CID="Fxbx71v1PEsJ" ENC="UTF-8"/></HAS></R><R N="9" MIME="application/msword"><U>http://library.columbia.edu/content/dam/libraryweb/services/preservation/prd/microfilm_prd.doc</U><UE>http://library.columbia.edu/content/dam/libraryweb/services/preservation/prd/microfilm_prd.doc</UE><T>Microfilm Order &lt;b&gt;Form&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; &lt;b&gt;reproductions&lt;/b&gt;.html. 30 October 2014. Order approved by: (Curator/Librarian).&lt;br&gt; (Date). ORDER NO: RECEIVED IN PRD: Microfilm Order &lt;b&gt;Form&lt;/b&gt;. </S><LANG>en</LANG><HAS><L/><C SZ="11k" CID="3-aq8HSSM_sJ" ENC="UTF-8"/></HAS></R><R N="10" MIME="application/pdf"><U>http://library.columbia.edu/content/dam/libraryweb/services/preservation/copyrightchecklist108privatestudy.pdf</U><UE>http://library.columbia.edu/content/dam/libraryweb/services/preservation/copyrightchecklist108privatestudy.pdf</UE><T>Copyright Checklist for Libraries: Providing Copies for Private &lt;b&gt;...&lt;/b&gt;</T><RK>5</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; 3. The &lt;b&gt;reproduction&lt;/b&gt; must include one of the following copyright notices: (a)&lt;br&gt; The &lt;b&gt;...&lt;/b&gt; at the place where orders are accepted and on its order &lt;b&gt;form&lt;/b&gt;. &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="12k" CID="BxTDmNHmbZIJ" ENC="UTF-8"/></HAS></R></RES>
+        </GSP>
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 15:44:29 GMT
+recorded_with: VCR 2.9.3

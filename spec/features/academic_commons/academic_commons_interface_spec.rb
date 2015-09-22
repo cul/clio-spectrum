@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'Academic Commons' do
+describe 'Academic Commons', :vcr do
 
   it 'fielded search should work', :js do
     # Use this string within the below tests
@@ -71,7 +71,6 @@ describe 'Academic Commons' do
       end
     end
   end
-
 
 
 end

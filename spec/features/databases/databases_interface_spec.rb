@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'Databases', focus: false do
+describe 'Databases', :vcr do
 
   # NEXT-843 - Database Alpha jump-list should respect non-filing indicator
   it "First-Letter facet should ignore leading 'The'", :js do
@@ -110,10 +110,10 @@ describe 'Databases', focus: false do
      find('.constraint-box', text: %r{Resource Type: Is .* Music Scores})
    end
    expect(page).to have_text('No results found for your search')
- end
+  end
 
- # NEXT-1211 - When I do a blank ejournals search, view a title, and view the MARC record, my results revert back to the full catalog results
- it 'should preserve active_source through MARC view', :js do
+  # NEXT-1211 - When I do a blank ejournals search, view a title, and view the MARC record, my results revert back to the full catalog results
+  it 'should preserve active_source through MARC view', :js do
    firstTitle = '60 minutes'
    visit databases_index_path( q: '')
    expect(page).to have_text firstTitle
@@ -150,7 +150,7 @@ describe 'Databases', focus: false do
    expect(href).to match( /\/databases\//)
    href = find_link('Return to Patron View')[:href]
    expect(href).to match( /\/databases\//)
- end
+  end
 
 
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Libraries Website DAM search' do
+describe 'Libraries Website DAM search', :vcr do
 
   it 'should show DAM filenames and format icons for XLS' do
     visit library_web_index_path('q' => 'dam sheet1 xlsx')
@@ -28,7 +28,7 @@ describe 'Libraries Website DAM search' do
 
 end
 
-describe 'Libraries Website searches' do
+describe 'Libraries Website searches', :vcr do
 
   it 'should remember items-per-page' do
 

@@ -1,114 +1,158 @@
 require 'spec_helper'
 
-describe 'Datasource Sanity', :js do
+describe 'Datasource Sanity', :js, :vcr do
 
   it "LWeb should be labeled 'Libraries Website'" do
     visit root_path
     expect(find('#datasources')).to have_text('Libraries Website')
   end
 
-  it 'direct datasources links should go to correct datasource landing pages' do
+  context 'direct datasources links go to landing pages' do
 
-    visit '/quicksearch'
-    expect(find('.landing_main .title')).to have_text('Quicksearch')
+    it 'quicksearch' do
+      visit '/quicksearch'
+      expect(find('.landing_main .title')).to have_text('Quicksearch')
+    end
 
-    visit '/catalog'
-    expect(find('.landing_main .title')).to have_text('Catalog')
+    it 'catalog' do
+      visit '/catalog'
+      expect(find('.landing_main .title')).to have_text('Catalog')
+    end
 
-    visit '/articles'
-    expect(find('.landing_main .title')).to have_text('Articles')
+    it 'articles' do
+      visit '/articles'
+      expect(find('.landing_main .title')).to have_text('Articles')
+    end
 
-    visit '/journals'
-    expect(find('.landing_main .title')).to have_text('E-Journal Titles')
+    it 'journals' do
+      visit '/journals'
+      expect(find('.landing_main .title')).to have_text('E-Journal Titles')
+    end
 
-    visit '/databases'
-    expect(find('.landing_main .title')).to have_text('Databases')
+    it 'databases' do
+      visit '/databases'
+      expect(find('.landing_main .title')).to have_text('Databases')
+    end
 
-    visit '/academic_commons'
-    expect(find('.landing_main .title')).to have_text('Academic Commons')
+    it 'ac' do
+      visit '/academic_commons'
+      expect(find('.landing_main .title')).to have_text('Academic Commons')
+    end
 
-    visit '/library_web'
-    expect(find('.landing_main .title')).to have_text('Libraries Website')
+    it 'lweb' do
+      visit '/library_web'
+      expect(find('.landing_main .title')).to have_text('Libraries Website')
+    end
 
-    visit '/archives'
-    expect(find('.landing_main .title')).to have_text('Archives')
+    it 'archives' do
+      visit '/archives'
+      expect(find('.landing_main .title')).to have_text('Archives')
+    end
 
-    visit '/dissertations'
-    expect(find('.landing_main .title')).to have_text('Dissertations')
+    it 'dissertations' do
+      visit '/dissertations'
+      expect(find('.landing_main .title')).to have_text('Dissertations')
+    end
 
-    visit '/ebooks'
-    expect(find('.landing_main .title')).to have_text('E-Books')
+    it 'ebooks' do
+      visit '/ebooks'
+      expect(find('.landing_main .title')).to have_text('E-Books')
+    end
 
-    visit '/new_arrivals'
-    expect(find('.landing_main .title')).to have_text('New Arrivals')
+    it 'newarrivals' do
+      visit '/new_arrivals'
+      expect(find('.landing_main .title')).to have_text('New Arrivals')
+    end
 
   end
 
 end
 
-describe 'Simple query should retrieve results ', :js, :vcr do
+describe 'Simple query should retrieve results', :js, :vcr do
 
-  it 'within all datasources' do
-
-    visit quicksearch_index_path('q' => 'test')
+  it 'in quicksearch datasource' do
+    visit quicksearch_index_path(q: 'test')
     expect(page).to have_css('.result_set', count: 4)
+    expect(page).to have_css('.nested_result_set', count: 4)
     all('.result_set').each do |result_set|
       expect(result_set).to have_css('.result')
     end
+  end
 
+  it 'in catalog datasource' do
     visit catalog_index_path('q' => 'test')
     expect(page).to have_css('.result')
+  end
 
+  it 'in articles datasource' do
     visit articles_index_path('q' => 'test')
     expect(page).to have_css('.result')
+  end
 
+  it 'in journals datasource' do
     visit journals_index_path('q' => 'test')
     expect(page).to have_css('.result')
+  end
 
+  it 'in databases datasource' do
     visit databases_index_path('q' => 'test')
     expect(page).to have_css('.result')
+  end
 
+  it 'in ac datasource' do
     visit academic_commons_index_path('q' => 'test')
     expect(page).to have_css('.result')
+  end
 
+  it 'in lweb datasource' do
     visit library_web_index_path('q' => 'test')
     expect(page).to have_css('.result')
+  end
 
+  it 'in archives datasource' do
     visit archives_index_path('q' => 'test')
     expect(page).to have_css('.result')
+  end
 
+  it 'in dissertations datasource' do
     visit dissertations_index_path('q' => 'test')
     expect(page).to have_css('.result_set', count: 3)
+    expect(page).to have_css('.nested_result_set', count: 3)
     all('.result_set').each do |result_set|
       expect(result_set).to have_css('.result')
     end
+  end
 
+  it 'in ebooks datasource' do
     visit ebooks_index_path('q' => 'test')
     expect(page).to have_css('.result_set', count: 2)
+    expect(page).to have_css('.nested_result_set', count: 2)
     all('.result_set').each do |result_set|
       expect(page).to have_css('.result')
     end
+  end
 
+  it 'in new arrivals datasource' do
     visit new_arrivals_index_path('q' => 'test')
     expect(page).to have_css('.result')
-
   end
 
 end
+
 
 describe 'Switching between data-source', :js, :vcr do
 
   it 'should carry forward simple search to each datasource' do
     visit root_path
-    # page.save_and_open_page # debug
+
     # terminal newline submits form
     fill_in 'q', with: "test\n"
 
     expect(page).to have_css('.result_set', count: 4)
+    expect(page).to have_css('.nested_result_set', count: 4)
     all('.result_set').each do |result_set|
       expect(result_set).to have_css('.result')
     end
-    # page.save_and_open_page # debug
 
     within('#datasources') do
       click_link('Catalog')
@@ -157,8 +201,7 @@ describe 'Switching between data-source', :js, :vcr do
     expect(find('input#dissertations_q').value).to eq 'test'
 
     expect(page).to have_css('.result_set', count: 3)
-    expect(page).to have_css('.result_count', count: 3)
-
+    expect(page).to have_css('.nested_result_set', count: 3)
     all('.result_set').each do |result_set|
       expect(result_set).to have_css('.result')
     end
@@ -166,6 +209,7 @@ describe 'Switching between data-source', :js, :vcr do
     click_link('E-Books')
     expect(find('input#ebooks_q').value).to eq 'test'
     expect(page).to have_css('.result_set', count: 2)
+    expect(page).to have_css('.nested_result_set', count: 2)
     all('.result_set').each do |result_set|
       expect(result_set).to have_css('.result')
     end
@@ -177,6 +221,7 @@ describe 'Switching between data-source', :js, :vcr do
     expect(all('#documents .result').first['source']).to eq 'catalog'
 
   end
+
 
   # NEXT-978 - "Back" button broken in CLIO
   it 'should allow back/forward navigation' do
@@ -209,7 +254,7 @@ describe 'Switching between data-source', :js, :vcr do
 
     page.evaluate_script('window.history.forward()')
     expect(find('.landing_main .title')).to have_text('Databases')
-
   end
 
 end
+

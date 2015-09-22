@@ -2407,4 +2407,60 @@ http_interactions:
         out, due 2015-09-28\":{\"status\":\"not_available\",\"count\":1}}}],\"services\":[\"recall_hold\",\"borrow_direct\",\"ill\"]}]}}"
     http_version: 
   recorded_at: Thu, 17 Sep 2015 19:40:56 GMT
+- request:
+    method: get
+    uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/10129545
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 15:27:17 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Etag:
+      - W/"b583b7628c274ddd78ec3b76577d1317"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 79f6c4f5-9894-4b25-aef4-113c771e3e10
+      X-Runtime:
+      - '3.592277'
+      Server:
+      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+    body:
+      encoding: UTF-8
+      string: "{\"10129545\":{\"condensed_holdings_full\":[{\"location_name\":\"Science
+        \\u0026 Engineering [NWC Building]\",\"location_note\":\"\",\"call_number\":\"QB461
+        .R67 2007\",\"status\":\"not_available\",\"holding_id\":[\"13204757\"],\"copies\":[{\"items\":{\"Checked
+        out, due 2015-09-28\":{\"status\":\"not_available\",\"count\":1}}}],\"services\":[\"recall_hold\",\"borrow_direct\",\"ill\"]}]}}"
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 15:27:21 GMT
 recorded_with: VCR 2.9.3

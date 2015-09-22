@@ -103,7 +103,7 @@ describe BackendController, :vcr do
 
 
   it "holdings() should silently absorb unroutable clio_backend_url" do
-    APP_CONFIG['clio_backend_url'] = 'http://10.0.0.1'
+    APP_CONFIG['clio_backend_url'] = 'http://999.999.999.999'
     get 'holdings', :id => '123'
     expect(response).to be_success
     expect(response.body.strip).to be_empty
@@ -116,8 +116,6 @@ describe BackendController, :vcr do
       be.url_for_id(123)
     }.to raise_error(RuntimeError)
   end
-
-
 
 end
 

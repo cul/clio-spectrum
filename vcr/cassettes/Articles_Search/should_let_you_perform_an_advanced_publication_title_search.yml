@@ -896,4 +896,115 @@ http_interactions:
         cmVmZXJlbmNlIjoge30sIm5ld3NwYXBlciI6IHt9fX0=
     http_version: 
   recorded_at: Thu, 17 Sep 2015 17:57:27 GMT
+- request:
+    method: get
+    uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/4078641
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 14:31:14 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Etag:
+      - W/"9315ab6fa936f93e6643adc13b055f6f"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 77fc1551-a016-4339-9b15-91e70661ad0b
+      X-Runtime:
+      - '3.082659'
+      Server:
+      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+    body:
+      encoding: UTF-8
+      string: "{\"4078641\":{\"condensed_holdings_full\":[{\"location_name\":\"Rare
+        Book \\u003cOffsite\\u003e - Request at Rare Book Lib (Non-Circ)\",\"location_note\":\"\",\"call_number\":\"Ms
+        Coll Col.Univ.Lib.Staf\",\"status\":\"available\",\"holding_id\":[\"4615864\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"spec_coll\"]}]}}"
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 14:31:19 GMT
+- request:
+    method: get
+    uri: https://clio-backend-dev.cul.columbia.edu/holdings/retrieve/9366214
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 22 Sep 2015 14:31:15 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - '200'
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Etag:
+      - W/"a2b6fad5d2b21985fe7f49570ab99e1e"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 2d2fe080-ff90-4ec3-81ca-bc50ef0b778a
+      X-Runtime:
+      - '0.026050'
+      Server:
+      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+    body:
+      encoding: UTF-8
+      string: "{\"9366214\":{\"condensed_holdings_full\":[{\"location_name\":\"Avery
+        Drawings \\u0026 Archives - By appt. (Non-Circulating)\",\"location_note\":\"\",\"call_number\":\"D\\u0026A
+        Alpern Holdouts!\",\"status\":\"none\",\"holding_id\":[\"12423901\"],\"copies\":[{\"items\":{\"Status
+        unknown\":{\"status\":\"none\",\"count\":1}}}],\"services\":[]}]}}"
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 14:31:19 GMT
 recorded_with: VCR 2.9.3
