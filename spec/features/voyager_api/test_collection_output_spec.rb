@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'collection output tests', :js, :vcr do
+describe 'collection output tests', :js, vcr: { allow_playback_repeats: true } do
 
   it 'test condensed holdings output full' do
 

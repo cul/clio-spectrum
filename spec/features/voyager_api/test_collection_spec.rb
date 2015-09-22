@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'collection tests', :js, :vcr do
+describe 'collection tests', :js, vcr: { allow_playback_repeats: true } do
 
   it 'test adjust services' do
 

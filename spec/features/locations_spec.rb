@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Locations', :vcr do
+describe 'Locations', vcr: { allow_playback_repeats: true } do
   context "\nYou may need to run 'rake hours:sync RAILS_ENV=test' and 'rake locations:load RAILS_ENV=test'.  See README.\n" do
 
     # NEXT-1118 - Avery link to "Make an Appointment"
