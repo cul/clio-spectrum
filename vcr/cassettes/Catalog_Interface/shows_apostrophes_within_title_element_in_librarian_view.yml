@@ -785,4 +785,170 @@ http_interactions:
         unknown\":{\"status\":\"none\",\"count\":1}}}],\"services\":[]}]}}"
     http_version: 
   recorded_at: Tue, 22 Sep 2015 20:13:39 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?id=6094212&qt=document&wt=ruby"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Sep 2015 20:37:35 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
+        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic2MDk0MjEy
+        JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
+        PnsnbnVtRm91bmQnPT4xLCdzdGFydCc9PjAsJ2RvY3MnPT5beydzaGVsZmtl
+        eSc9PlsnbG9jK2JwLSswMTMwKzAwMDAwMDAwK3M0NDAwMDAwKzAwMTkwOSs2
+        MDk0MjEyJywndXRzbXJsKzAwMDAyMTQzKzAwMDAwMDAwKzYwOTQyMTInXSwn
+        bG9jYXRpb25fY2FsbF9udW1iZXJfaWRfZGlzcGxheSc9PlsnQnVya2UgW1VU
+        U10gTVJMIFBhbXBobGV0cyAoTm9uLUNpcmN1bGF0aW5nKSA+PiAyMTQzfERF
+        TElNfDc2MDU1MDInXSwncHViX3llYXJfZGlzcGxheSc9PlsnMTkwOSddLCd0
+        aXRsZV9zZXJpZXNfZGlzcGxheSc9PlsnU2VyaWUgIklzbGFtLiInXSwndGl0
+        bGVfZGlzcGxheSc9PlsnQWwtUXVyXCdhbiddLCdpdGVtX2Rpc3BsYXknPT5b
+        J0JQMTMwIC5TNDQgMTkwOSB8IGxvYyticC0rMDEzMCswMDAwMDAwMCtzNDQw
+        MDAwMCswMDE5MDkrNjA5NDIxMiB8IGVibn5vYX5+enl3en56enp6enp6en43
+        dnZ6enp6en56enlxenF+dHpxdnh5eH5+fn5+JywnMjE0MyB8IHV0c21ybCsw
+        MDAwMjE0MyswMDAwMDAwMCs2MDk0MjEyIHwgNTY3ZDhlfnp6enp4eXZ3fnp6
+        enp6enp6fnR6cXZ4eXh+fn5+fn5+fn5+fn5+fn5+fn4nXSwnaWQnPT4nNjA5
+        NDIxMicsJ3JldmVyc2Vfc2hlbGZrZXknPT5bJzU2N2Q4ZX56enp6eHl2d356
+        enp6enp6en50enF2eHl4fn5+fn5+fn5+fn5+fn5+fn5+JywnZWJufm9hfn56
+        eXd6fnp6enp6enp6fjd2dnp6enp6fnp6eXF6cX50enF2eHl4fn5+fn4nXSwn
+        Y2xpb19pZF9kaXNwbGF5Jz0+JzYwOTQyMTInLCdjYWxsX251bWJlcl9kaXNw
+        bGF5Jz0+WycyMTQzJ10sJ3N1YmplY3RfdG9waWNfZmFjZXQnPT5bJ1F1csq8
+        YW4nXSwncHViX3BsYWNlX2Rpc3BsYXknPT5bJ0xvbmRvbiddLCdtYXJjX2Rp
+        c3BsYXknPT4nPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgi
+        Pz48Y29sbGVjdGlvbiB4bWxucz0iaHR0cDovL3d3dy5sb2MuZ292L01BUkMy
+        MS9zbGltIj48cmVjb3JkPjxsZWFkZXI+MDA5ODZjYW0gYTIyMDAzMjVJYSA0
+        NTAwPC9sZWFkZXI+PGNvbnRyb2xmaWVsZCB0YWc9IjAwMSI+NjA5NDIxMjwv
+        Y29udHJvbGZpZWxkPjxjb250cm9sZmllbGQgdGFnPSIwMDUiPjIwMTMwNTAx
+        MTgxNjU1LjA8L2NvbnRyb2xmaWVsZD48Y29udHJvbGZpZWxkIHRhZz0iMDA4
+        Ij4wNzAyMjFzMTkwOSAgICBlbmsgICAgICBiICAgIDAwMCAwIGVuZyBkPC9j
+        b250cm9sZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAzNSIgaW5kMT0iICIgaW5k
+        Mj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPihPQ29MQylvY204NDc0MjM3Mjwv
+        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAzNSIgaW5k
+        MT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPihPQ29MQyk4NDc0
+        MjM3Mjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAz
+        NSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPihOTkMp
+        NjA5NDIxMjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9
+        IjA0MCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPlpD
+        VTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImMiPlpDVTwvc3ViZmllbGQ+
+        PHN1YmZpZWxkIGNvZGU9ImQiPlpDVTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+
+        PGRhdGFmaWVsZCB0YWc9IjA1MCIgaW5kMT0iICIgaW5kMj0iNCI+PHN1YmZp
+        ZWxkIGNvZGU9ImEiPkJQMTMwPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
+        YiI+LlM0NCAxOTA5PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxk
+        IHRhZz0iMTAwIiBpbmQxPSIxIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0i
+        YSI+U2VsbCwgQ2Fub24uPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZp
+        ZWxkIHRhZz0iMjQ1IiBpbmQxPSIxIiBpbmQyPSIzIj48c3ViZmllbGQgY29k
+        ZT0iYSI+QWwtUXVyXCdhbiAvPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
+        YyI+YnkgQ2Fub24gU2VsbC48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRh
+        ZmllbGQgdGFnPSIyNjAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBj
+        b2RlPSJhIj5Mb25kb24gOjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIi
+        PkNocmlzdGlhbiBMaXRlcmF0dXJlIFNvY2lldHksPC9zdWJmaWVsZD48c3Vi
+        ZmllbGQgY29kZT0iYyI+MTkwOS48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxk
+        YXRhZmllbGQgdGFnPSIzMDAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVs
+        ZCBjb2RlPSJhIj40NiBwLiA7PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
+        YyI+MTggY20uPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
+        Zz0iNDkwIiBpbmQxPSIxIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+
+        VGhlIElzbGFtIHNlcmllczwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFm
+        aWVsZCB0YWc9IjU0MCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNv
+        ZGU9ImEiPkluY2x1ZGVzIGJpYmxpb2dyYXBoaWNhbCByZWZlcmVuY2VzLjwv
+        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjYzMCIgaW5k
+        MT0iMCIgaW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEiPlF1csq8YW4uPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNzEwIiBpbmQx
+        PSIyIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+Q2hyaXN0aWFuIExp
+        dGVyYXR1cmUgU29jaWV0eSBmb3IgSW5kaWEuPC9zdWJmaWVsZD48L2RhdGFm
+        aWVsZD48ZGF0YWZpZWxkIHRhZz0iODMwIiBpbmQxPSIgIiBpbmQyPSIwIj48
+        c3ViZmllbGQgY29kZT0iYSI+U2VyaWUgIklzbGFtLiI8L3N1YmZpZWxkPjwv
+        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5NDgiIGluZDE9IjEiIGluZDI9
+        IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4yMDA3MDIyMTwvc3ViZmllbGQ+PHN1
+        YmZpZWxkIGNvZGU9ImIiPm88L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJj
+        Ij5zY21jMTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImQiPlNDTUM8L3N1
+        YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5MDAiIGluZDE9
+        IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5BVVRIPC9zdWJmaWVs
+        ZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTkwIiBpbmQxPSIgIiBp
+        bmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+QlA8L3N1YmZpZWxkPjwvZGF0
+        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTEiIGluZDE9IiAiIGluZDI9IiAi
+        PjxzdWJmaWVsZCBjb2RlPSJhIj4yMTQzPC9zdWJmaWVsZD48c3ViZmllbGQg
+        Y29kZT0iYiI+dXRzbXJsKzAwMDAyMTQzKzAwMDAwMDAwPC9zdWJmaWVsZD48
+        L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTkxIiBpbmQxPSIgIiBpbmQy
+        PSIgIj48c3ViZmllbGQgY29kZT0iYSI+QlAxMzAgLlM0NCAxOTA5PC9zdWJm
+        aWVsZD48c3ViZmllbGQgY29kZT0iYiI+bG9jK0JQLSswMTMwKzAwMDAwMDAw
+        K1M0NDAwMDAwKzAwMTkwOTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFm
+        aWVsZCB0YWc9Ijk5MiIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNv
+        ZGU9ImEiPkJ1cmtlPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+QnVy
+        a2UgW1VUU10gTVJMIFBhbXBobGV0cyAoTm9uLUNpcmN1bGF0aW5nKSAmZ3Q7
+        Jmd0OyAyMTQzfERFTElNfDc2MDU1MDI8L3N1YmZpZWxkPjwvZGF0YWZpZWxk
+        PjxkYXRhZmllbGQgdGFnPSI5OTMiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJm
+        aWVsZCBjb2RlPSJhIj5Cb29rPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0
+        YWZpZWxkIHRhZz0iOTk1IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQg
+        Y29kZT0iYSI+Y2F0YWxvZzwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PC9yZWNv
+        cmQ+PC9jb2xsZWN0aW9uPicsJ2F1dGhvcl9kaXNwbGF5Jz0+WydTZWxsLCBD
+        YW5vbiddLCdwdWJfbmFtZV9kaXNwbGF5Jz0+WydDaHJpc3RpYW4gTGl0ZXJh
+        dHVyZSBTb2NpZXR5J10sJ2Zvcm1hdCc9PlsnQm9vayddLCdzb3VyY2VfZGlz
+        cGxheSc9PlsnY2F0YWxvZyddLCdtYXRlcmlhbF90eXBlX2Rpc3BsYXknPT5b
+        JzQ2IHAuJ10sJ29jbGNfZGlzcGxheSc9Plsnb2NtODQ3NDIzNzInLCc4NDc0
+        MjM3MiddLCd0aXRsZV9maXJzdF9mYWNldCc9PlsnUSddLCdwdWJfZGF0ZV9z
+        b3J0Jz0+MTkwOSwnZnVsbF9wdWJsaXNoZXJfZGlzcGxheSc9PlsnTG9uZG9u
+        IDogQ2hyaXN0aWFuIExpdGVyYXR1cmUgU29jaWV0eSwgMTkwOS4nXSwnbGFu
+        Z3VhZ2VfZmFjZXQnPT5bJ0VuZ2xpc2gnXSwnX3ZlcnNpb25fJz0+MTUwMTk1
+        Mzc4NjQ4NDA5NzAyNCwndGltZXN0YW1wJz0+JzIwMTUtMDUtMjNUMDk6NTI6
+        MzAuNTk5Wid9XX19Cg==
+    http_version: 
+  recorded_at: Tue, 22 Sep 2015 20:37:35 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocm84742372.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 23 Sep 2015 14:31:37 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 23 Sep 2015 14:31:38 GMT
+      Server:
+      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      X-Powered-By:
+      - PHP/5.4.45-0+deb7u1
+      Content-Length:
+      - '33'
+      Content-Type:
+      - text/html
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63c145525d5f4f58455e445a4a423660;expires=Wed, 23-Sep-2015
+        14:41:38 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |2-
+
+
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Wed, 23 Sep 2015 14:31:38 GMT
 recorded_with: VCR 2.9.3
