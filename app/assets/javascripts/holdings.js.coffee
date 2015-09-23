@@ -124,14 +124,25 @@ $ ->
 # Called from _google_books_check.html.haml, to update the
 # Google section of the single-item Holdings information.
 @update_google_holdings = (bibkeys, data) ->
+  # console.log("entered update_google_holdings")
+  # console.log("data=" + JSON.stringify(data))
+
   for index of bibkeys
     bibkey = bibkeys[index]
     bibkey_name = bibkey.replace(/:/, "")
-    selector = $("img.bookjacket[src*='assets/spacer'].id_" + bibkey_name)
+    # selector = $("img.bookjacket[src*='assets/spacer'].id_" + bibkey_name)
+    selector = $("img.bookjacket.id_" + bibkey_name).filter(":hidden")
     bibkey_data = data[bibkey]
 
+    # console.log("bibkey=" + bibkey)
+    # console.log("selector.length=" + selector.length)
+    # console.log("bibkey_data=" + bibkey_data)
+
     if selector.length > 0 and bibkey_data
-      selector.parents("#google_holdings").show()
+      # console.log("about to show")
+      # selector.parents("#google_holdings").show()
+      selector.closest("#google_holdings").show()
+      # console.log("after show")
       gbs_cover = selector.parents(".gbs_cover")
 
       if bibkey_data.thumbnail_url

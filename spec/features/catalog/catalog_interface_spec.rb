@@ -77,7 +77,15 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
     # visit this specific item
     visit catalog_path('513297')
+
     expect(page).to have_css('.holdings-container .holdings #clio_holdings')
+
+    # Debugging
+    # puts "JS Console Messages:"
+    # page.driver.console_messages.each { |m| puts m.inspect }
+    # puts "JS Error Messages:"
+    # page.driver.error_messages.each { |m| puts m.inspect }
+
     expect(page).to have_css('.holdings-container .holdings #google_holdings')
     expect(page).to have_css('.holdings-container .holdings #hathi_holdings')
 
