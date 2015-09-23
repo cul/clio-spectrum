@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 # NEXT-845 - New Arrivals timeframe (6 month count == 1 year count)
-describe 'New Arrivals Search', :vcr do
+# Every time we hit new-arrivals, we need to tell the VCR
+# request matcher to ignore 'fq', to get stable cassettes
+describe 'New Arrivals Search', :vcr => {:match_requests_on => [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')]} do
 
   it 'should show 4 distinct acquisition-date facet options', :js do
     visit root_path
@@ -11,6 +13,7 @@ describe 'New Arrivals Search', :vcr do
     end
 
     find('.basic_search_button', visible: true).click
+    # page.save_and_open_screenshot
 
     # Find the <li> with this text, as a Capybara node...
     within1week = find('li', text: /within 1 week/i)

@@ -132,7 +132,9 @@ describe 'Simple query should retrieve results', :js, :vcr do
     end
   end
 
-  it 'in new arrivals datasource' do
+  # Every time we hit new-arrivals, we need to tell the VCR
+  # request matcher to ignore 'fq', to get stable cassettes
+  it 'in new arrivals datasource', :vcr => {:match_requests_on => [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')]} do
     visit new_arrivals_index_path('q' => 'test')
     expect(page).to have_css('.result')
   end
@@ -142,7 +144,9 @@ end
 
 describe 'Switching between data-source', :js, :vcr do
 
-  it 'should carry forward simple search to each datasource' do
+  # Every time we hit new-arrivals, we need to tell the VCR
+  # request matcher to ignore 'fq', to get stable cassettes
+  it 'should carry forward simple search to each datasource', :vcr => {:match_requests_on => [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')]} do
     visit root_path
 
     # terminal newline submits form
