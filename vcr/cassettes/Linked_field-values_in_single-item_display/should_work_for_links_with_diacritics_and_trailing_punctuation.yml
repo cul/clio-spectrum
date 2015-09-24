@@ -2,32 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&fl=*&q=%7B!lucene%7Did:(1234)&qt=search&rows=1&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck=false&stats=true&stats.field=pub_date_sort&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:28:24 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>35,'params'=>{'spellcheck'=>'false','f.subject_form_facet.facet.limit'=>'11','facet'=>'true','sort'=>'score desc, pub_date_sort desc, title_sort asc','stats'=>'true','f.subject_topic_facet.facet.limit'=>'11','f.language_facet.facet.limit'=>'6','f.lc_1letter_facet.facet.limit'=>'31','f.pub_date_sort.facet.limit'=>'4','f.location_facet.facet.limit'=>'6','wt'=>'ruby','f.lc_subclass_facet.facet.limit'=>'501','rows'=>'1','fl'=>'*','f.subject_geo_facet.facet.limit'=>'11','q'=>'{!lucene}id:(1234)','stats.field'=>'pub_date_sort','f.author_facet.facet.limit'=>'6','qt'=>'search','f.format.facet.limit'=>'6','f.subject_era_facet.facet.limit'=>'11'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+pn-+0045+00000000+r5870000+1234'],'location_call_number_id_display'=>['Milstein <Barnard Library Collection>, Butler 406A, 406, 409 >> PN45 .R587|DELIM|1936'],'lccn_display'=>['78016335'],'item_display'=>['PN45 .R587 | loc+pn-+0045+00000000+r5870000+1234 | ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'title_display'=>['The reader, the text, the poem : the transactional theory of the literary work'],'clio_id_display'=>'1234','subject_topic_facet'=>['Literature','Criticism','Reading','Philosophy'],'pub_place_display'=>['Carbondale'],'format'=>['Book'],'oclc_display'=>['4056043','ocm04056043'],'title_first_facet'=>['R'],'full_publisher_display'=>['Carbondale : Southern Illinois University Press, c1978.'],'pub_date_sort'=>1978,'isbn_display'=>['0809308835'],'pub_year_display'=>['c1978'],'id'=>'1234','reverse_shelfkey'=>['ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'call_number_display'=>['PN45 .R587'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01131cam a2200349 i 4500</leader><controlfield tag="001">1234</controlfield><controlfield tag="005">20140424164936.0</controlfield><controlfield tag="008">790426s1978    ilu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   78016335 </subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0809308835</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)4056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm04056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG10505040-B</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAA1293CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)1234</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="082" ind1=" " ind2=" "><subfield code="a">801/.95</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Rosenblatt, Louise M.</subfield><subfield code="q">(Louise Michelle),</subfield><subfield code="d">1904-2005.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The reader, the text, the poem :</subfield><subfield code="b">the transactional theory of the literary work /</subfield><subfield code="c">Louise M. Rosenblatt.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Carbondale :</subfield><subfield code="b">Southern Illinois University Press,</subfield><subfield code="c">c1978.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xv, 196 p. ;</subfield><subfield code="c">24 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Literature</subfield><subfield code="x">Philosophy.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Criticism.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reading.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">PN</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">PN45 .R587</subfield><subfield code="b">loc+PN-+0045+00000000+R5870000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Barnard</subfield><subfield code="b">Milstein &lt;Barnard Library Collection&gt;, Butler 406A, 406, 409 &gt;&gt; PN45 .R587|DELIM|1936</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005'],'pub_name_display'=>['Southern Illinois University Press'],'source_display'=>['catalog'],'material_type_display'=>['xv, 196 p.'],'language_facet'=>['English'],'_version_'=>1507643674918387712,'timestamp'=>'2015-07-25T05:10:51.062Z'}]},'facet_counts'=>{'facet_queries'=>{},'facet_fields'=>{'format'=>['Book',1],'lc_1letter_facet'=>['P - Language & Literature',1],'lc_subclass_facet'=>['PN - Literature (General)',1],'language_facet'=>['English',1],'pub_date_sort'=>['1978',1],'subject_geo_facet'=>[],'subject_topic_facet'=>['Criticism',1,'Literature',1,'Philosophy',1,'Reading',1],'subject_era_facet'=>[],'subject_form_facet'=>[],'database_hilcc_facet'=>[],'database_resource_type_facet'=>[],'location_facet'=>['Barnard',1],'author_facet'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005',1],'source_facet'=>['catalog',1]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>{'min'=>1978.0,'max'=>1978.0,'count'=>1,'missing'=>0,'sum'=>1978.0,'sumOfSquares'=>3912484.0,'mean'=>1978.0,'stddev'=>0.0,'facets'=>{}}}}}
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:28:24 GMT
-- request:
-    method: get
     uri: "<solr_config>/select?id=10172954&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
@@ -39,278 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 19:28:24 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
-        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
-        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9PicxMDE3Mjk1
-        NCcsJ3F0Jz0+J2RvY3VtZW50Jywnd3QnPT4ncnVieSd9fSwncmVzcG9uc2Un
-        PT57J251bUZvdW5kJz0+MSwnc3RhcnQnPT4wLCdkb2NzJz0+W3snc2hlbGZr
-        ZXknPT5bJ2xvYytrYnArMDQ0MCszMjAwMDAwMCtzNTMwMDAwMCswMDIwMTIr
-        MTAxNzI5NTQnXSwnbG9jYXRpb25fY2FsbF9udW1iZXJfaWRfZGlzcGxheSc9
-        PlsnQnV0bGVyIFN0YWNrcyAoRW50ZXIgYXQgdGhlIEJ1dGxlciBDaXJjdWxh
-        dGlvbiBEZXNrKSA+PiBLQlA0NDAuMzIgLlM1MyAyMDEyZ3xERUxJTXwxMzI0
-        NTk1MiddLCdhdXRob3JfdmVybl9kaXNwbGF5Jz0+WyfYtNi52LHYp9mI2YrY
-        jCDZhdit2YXYryDZhdiq2YjZhNmKJ10sJ2FjcV9kdCc9PicyMDEzLTAyLTE5
-        VDAwOjAwOjAwWicsJ2l0ZW1fZGlzcGxheSc9PlsnS0JQNDQwLjMyIC5TNTMg
-        MjAxMmcgfCBsb2Mra2JwKzA0NDArMzIwMDAwMDArczUzMDAwMDArMDAyMDEy
-        KzEwMTcyOTU0IHwgZWJufmZvYX56dnZ6fnd4enp6enp6fjd1d3p6enp6fnp6
-        eHp5eH55enlzeHF1dn5+fn4nXSwndGl0bGVfZGlzcGxheSc9PlsnTWHMhGRo
-        YcyEIHFhzIRsYSBhbC1JbWHMhG0gYWwtU2hhyrtyYcyEd2nMhCBmacyEIHRh
-        ZnNpzIRyaWhpIMq7YW4gdGFozKNracyEbSBhbC1zaGFyacyEyrthaCB3YS10
-        YXTMo2JpzIRxaWhhzIQ/J10sJ2NsaW9faWRfZGlzcGxheSc9PicxMDE3Mjk1
-        NCcsJ3N1YmplY3RfdG9waWNfZmFjZXQnPT5bJ1F1csq8YW4nLCdDcml0aWNp
-        c20sIGludGVycHJldGF0aW9uLCBldGMnLCdJc2xhbWljIGxhdycsJ0ludGVy
-        cHJldGF0aW9uIGFuZCBjb25zdHJ1Y3Rpb24nXSwncHViX3BsYWNlX2Rpc3Bs
-        YXknPT5bJ01hZGnMhG5hdCBOYXPMo3IsIGFsLVFhzIRoaXJhaCddLCd0aXRs
-        ZV92ZXJuX2Rpc3BsYXknPT5bJ9mF2KfYsNinINmC2KfZhCDYp9mE2KXZhdin
-        2YUg2KfZhNi02LnYsdin2YjZiiDZgdmKINiq2YHYs9mK2LHZhyDYudmGINiq
-        2K3Zg9mK2YUg2KfZhNi02LHZiti52Kkg2YjYqti32KjZitmC2YfYp9ifJ10s
-        J2Zvcm1hdCc9PlsnQm9vayddLCdvY2xjX2Rpc3BsYXknPT5bJ29jbjc5NzAw
-        MDIxOCcsJzc5NzAwMDIxOCddLCd0aXRsZV9maXJzdF9mYWNldCc9PlsnTSdd
-        LCdwdWJfZGF0ZV9zb3J0Jz0+MjAxMiwnZnVsbF9wdWJsaXNoZXJfZGlzcGxh
-        eSc9PlsnTWFkacyEbmF0IE5hc8yjciwgYWwtUWHMhGhpcmFoIDogRGHMhHIg
-        YWwtWXVzciwgMjAxMi4nXSwnaXNibl9kaXNwbGF5Jz0+Wyc5Nzg5Nzc1MTAy
-        MTcxJywnOTc3NTEwMjE3MCddLCdwdWJfeWVhcl9kaXNwbGF5Jz0+WycyMDEy
-        J10sJ2lkJz0+JzEwMTcyOTU0JywncmV2ZXJzZV9zaGVsZmtleSc9PlsnZWJu
-        fmZvYX56dnZ6fnd4enp6enp6fjd1d3p6enp6fnp6eHp5eH55enlzeHF1dn5+
-        fn4nXSwnY2FsbF9udW1iZXJfZGlzcGxheSc9PlsnS0JQNDQwLjMyIC5TNTMg
-        MjAxMmcnXSwnbWFyY19kaXNwbGF5Jz0+Jzw/eG1sIHZlcnNpb249IjEuMCIg
-        ZW5jb2Rpbmc9IlVURi04Ij8+PGNvbGxlY3Rpb24geG1sbnM9Imh0dHA6Ly93
-        d3cubG9jLmdvdi9NQVJDMjEvc2xpbSI+PHJlY29yZD48bGVhZGVyPjAxOTAy
-        Y2FtIGEyMjAwNDIxSWEgNDUwMDwvbGVhZGVyPjxjb250cm9sZmllbGQgdGFn
-        PSIwMDEiPjEwMTcyOTU0PC9jb250cm9sZmllbGQ+PGNvbnRyb2xmaWVsZCB0
-        YWc9IjAwNSI+MjAxMzA1MDIxNDMxNDguMDwvY29udHJvbGZpZWxkPjxjb250
-        cm9sZmllbGQgdGFnPSIwMDgiPjEyMDYyMXMyMDEyICAgIHVhICAgICAgIGIg
-        ICAgMDAwIDAgYXJhIGQ8L2NvbnRyb2xmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
-        MDIwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+OTc4
-        OTc3NTEwMjE3MTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0
-        YWc9IjAyMCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEi
-        Pjk3NzUxMDIxNzA8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
-        dGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJh
-        Ij4oT0NvTEMpb2NuNzk3MDAwMjE4PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48
-        ZGF0YWZpZWxkIHRhZz0iMDM1IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmll
-        bGQgY29kZT0iYSI+KE9Db0xDKTc5NzAwMDIxODwvc3ViZmllbGQ+PC9kYXRh
-        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAzNSIgaW5kMT0iICIgaW5kMj0iICI+
-        PHN1YmZpZWxkIGNvZGU9ImEiPihOTkMpMTAxNzI5NTQ8L3N1YmZpZWxkPjwv
-        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwNDAiIGluZDE9IiAiIGluZDI9
-        IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5MRUlMQTwvc3ViZmllbGQ+PHN1YmZp
-        ZWxkIGNvZGU9ImMiPkxFSUxBPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
-        ZCI+TlVJPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+WVVTPC9zdWJm
-        aWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDUwIiBpbmQxPSIg
-        IiBpbmQyPSI0Ij48c3ViZmllbGQgY29kZT0iYSI+S0JQNDQwLjMyPC9zdWJm
-        aWVsZD48c3ViZmllbGQgY29kZT0iYiI+LlM1MyAyMDEyPC9zdWJmaWVsZD48
-        L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDUwIiBpbmQxPSIgIiBpbmQy
-        PSI0Ij48c3ViZmllbGQgY29kZT0iYSI+QlAxMzAuNDwvc3ViZmllbGQ+PHN1
-        YmZpZWxkIGNvZGU9ImIiPi5TNTM3IDIwMTI8L3N1YmZpZWxkPjwvZGF0YWZp
-        ZWxkPjxkYXRhZmllbGQgdGFnPSIxMDAiIGluZDE9IjEiIGluZDI9IiAiPjxz
-        dWJmaWVsZCBjb2RlPSI2Ij44ODAtMDE8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
-        b2RlPSJhIj5TaGHKu3JhzIR3acyELCBNdWjMo2FtbWFkIE11dGF3YWxsacyE
-        Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjI0NSIg
-        aW5kMT0iMSIgaW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9IjYiPjg4MC0wMjwv
-        c3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImEiPk1hzIRkaGHMhCBxYcyEbGEg
-        YWwtSW1hzIRtIGFsLVNoYcq7cmHMhHdpzIQgZmnMhCB0YWZzacyEcmloaSDK
-        u2FuIHRhaMyja2nMhG0gYWwtc2hhcmnMhMq7YWggd2EtdGF0zKNiacyEcWlo
-        YcyEPyAvPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYyI+amFtyrsgd2Et
-        dGFydGnMhGIgd2EtyrtpbmHMhHlhdCBIzKNhzIR0aW0gTXVozKNhbW1hZCBN
-        YXpydcyEyrthaC48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
-        dGFnPSIyNTAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSI2
-        Ij44ODAtMDM8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJhIj5hbC1UzKNh
-        Ysq7YWggMS48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFn
-        PSIyNjAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSI2Ij44
-        ODAtMDQ8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJhIj5NYWRpzIRuYXQg
-        TmFzzKNyLCBhbC1RYcyEaGlyYWggOjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
-        ZGU9ImIiPkRhzIRyIGFsLVl1c3IsPC9zdWJmaWVsZD48c3ViZmllbGQgY29k
-        ZT0iYyI+MjAxMi48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
-        dGFnPSIzMDAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJh
-        Ij4xMDMgcC4gOzwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImMiPjI0IGNt
-        Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjUwNCIg
-        aW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkluY2x1ZGVz
-        IGJpYmxpb2dyYXBoaWNhbCByZWZlcmVuY2VzLjwvc3ViZmllbGQ+PC9kYXRh
-        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjYzMCIgaW5kMT0iMCIgaW5kMj0iMCI+
-        PHN1YmZpZWxkIGNvZGU9ImEiPlF1csq8YW48L3N1YmZpZWxkPjxzdWJmaWVs
-        ZCBjb2RlPSJ4Ij5Dcml0aWNpc20sIGludGVycHJldGF0aW9uLCBldGMuPC9z
-        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNjUwIiBpbmQx
-        PSIgIiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0iYSI+SXNsYW1pYyBsYXc8
-        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ4Ij5JbnRlcnByZXRhdGlvbiBh
-        bmQgY29uc3RydWN0aW9uLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFm
-        aWVsZCB0YWc9IjcwMCIgaW5kMT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNv
-        ZGU9IjYiPjg4MC0wNTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImEiPk1h
-        enJ1zITKu2FoLCBIzKNhzIR0aW0gTXVozKNhbW1hZCBNYW5zzKN1zIRyLjwv
-        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijg4MCIgaW5k
-        MT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9IjYiPjEwMC0wMS9yPC9z
-        dWJmaWVsZD48c3ViZmllbGQgY29kZT0iYSI+2LTYudix2KfZiNmK2Iwg2YXY
-        rdmF2K8g2YXYqtmI2YTZii48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRh
-        ZmllbGQgdGFnPSI4ODAiIGluZDE9IjEiIGluZDI9IjAiPjxzdWJmaWVsZCBj
-        b2RlPSI2Ij4yNDUtMDIvcjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImEi
-        PtmF2KfYsNinINmC2KfZhCDYp9mE2KXZhdin2YUg2KfZhNi02LnYsdin2YjZ
-        iiDZgdmKINiq2YHYs9mK2LHZhyDYudmGINiq2K3Zg9mK2YUg2KfZhNi02LHZ
-        iti52Kkg2YjYqti32KjZitmC2YfYp9ifIC88L3N1YmZpZWxkPjxzdWJmaWVs
-        ZCBjb2RlPSJjIj7YrNmF2Lkg2YjYqtix2KrZitioINmI2LnZhtin2YrYqSDY
-        rdin2KrZhSDZhdit2YXYryDZhdiy2LHZiNi52KkuPC9zdWJmaWVsZD48L2Rh
-        dGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iODgwIiBpbmQxPSIgIiBpbmQyPSIg
-        Ij48c3ViZmllbGQgY29kZT0iNiI+MjUwLTAzL3I8L3N1YmZpZWxkPjxzdWJm
-        aWVsZCBjb2RlPSJhIj7Yp9mE2LfYqNi52KkgMS48L3N1YmZpZWxkPjwvZGF0
-        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI4ODAiIGluZDE9IiAiIGluZDI9IiAi
-        PjxzdWJmaWVsZCBjb2RlPSI2Ij4yNjAtMDQvcjwvc3ViZmllbGQ+PHN1YmZp
-        ZWxkIGNvZGU9ImEiPtmF2K/ZitmG2Kkg2YbYtdix2Iwg2KfZhNmC2KfZh9ix
-        2KkgOjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPtiv2KfYsSDYp9mE
-        2YrYs9ix2Iw8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj4yMDEyLjwv
-        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijg4MCIgaW5k
-        MT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9IjYiPjcwMC0wNS9yPC9z
-        dWJmaWVsZD48c3ViZmllbGQgY29kZT0iYSI+2YXYstix2YjYudip2Iwg2K3Y
-        p9iq2YUg2YXYrdmF2K8g2YXZhti12YjYsS48L3N1YmZpZWxkPjwvZGF0YWZp
-        ZWxkPjxkYXRhZmllbGQgdGFnPSI5NDgiIGluZDE9IjEiIGluZDI9IiAiPjxz
-        dWJmaWVsZCBjb2RlPSJhIj4yMDEzMDIxOTwvc3ViZmllbGQ+PHN1YmZpZWxk
-        IGNvZGU9ImIiPmM8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5qbGsy
-        MjA2PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+TVBTPC9zdWJmaWVs
-        ZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTAwIiBpbmQxPSIgIiBp
-        bmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+QVVUSDwvc3ViZmllbGQ+PC9k
-        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MCIgaW5kMT0iICIgaW5kMj0i
-        ICI+PHN1YmZpZWxkIGNvZGU9ImEiPktCUDwvc3ViZmllbGQ+PC9kYXRhZmll
-        bGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MSIgaW5kMT0iICIgaW5kMj0iICI+PHN1
-        YmZpZWxkIGNvZGU9ImEiPktCUDQ0MC4zMiAuUzUzIDIwMTJnPC9zdWJmaWVs
-        ZD48c3ViZmllbGQgY29kZT0iYiI+bG9jK0tCUCswNDQwKzMyMDAwMDAwK1M1
-        MzAwMDAwKzAwMjAxMjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVs
-        ZCB0YWc9Ijk5MiIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9
-        ImEiPkJ1dGxlciBTdGFja3M8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJi
-        Ij5CdXRsZXIgU3RhY2tzIChFbnRlciBhdCB0aGUgQnV0bGVyIENpcmN1bGF0
-        aW9uIERlc2spICZndDsmZ3Q7IEtCUDQ0MC4zMiAuUzUzIDIwMTJnfERFTElN
-        fDEzMjQ1OTUyPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
-        Zz0iOTkzIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+
-        Qm9vazwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5
-        NSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPmNhdGFs
-        b2c8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTci
-        IGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4yMDEzLTAy
-        LTE5VDAwOjAwOjAwLjAwMFo8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjwvcmVj
-        b3JkPjwvY29sbGVjdGlvbj4nLCdhdXRob3JfZGlzcGxheSc9PlsnU2hhyrty
-        YcyEd2nMhCwgTXVozKNhbW1hZCBNdXRhd2FsbGnMhCddLCdwdWJfbmFtZV9k
-        aXNwbGF5Jz0+WydEYcyEciBhbC1ZdXNyJ10sJ3NvdXJjZV9kaXNwbGF5Jz0+
-        WydjYXRhbG9nJ10sJ21hdGVyaWFsX3R5cGVfZGlzcGxheSc9PlsnMTAzIHAu
-        J10sJ2xhbmd1YWdlX2ZhY2V0Jz0+WydBcmFiaWMnXSwnX3ZlcnNpb25fJz0+
-        MTUwMTk4NTMzNDQwNDA1NTA0MCwndGltZXN0YW1wJz0+JzIwMTUtMDUtMjNU
-        MTg6MTM6NTcuMDRaJ31dfX0K
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:28:24 GMT
-- request:
-    method: get
-    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&fq=author_facet:%22Mazr%C5%AB%CA%BBah,%20%E1%B8%A4%C4%81tim%20Mu%E1%B8%A5ammad%20Man%E1%B9%A3%C5%ABr%22&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:28:24 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4zNywn
-        cGFyYW1zJz0+eydmLnN1YmplY3RfZm9ybV9mYWNldC5mYWNldC5saW1pdCc9
-        PicxMScsJ2ZhY2V0Jz0+J3RydWUnLCdzb3J0Jz0+J3Njb3JlIGRlc2MsIHB1
-        Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdzdGF0cyc9Pid0
-        cnVlJywnZi5zdWJqZWN0X3RvcGljX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzEx
-        JywnZi5sYW5ndWFnZV9mYWNldC5mYWNldC5saW1pdCc9Pic2JywnZi5sY18x
-        bGV0dGVyX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzMxJywnZi5wdWJfZGF0ZV9z
-        b3J0LmZhY2V0LmxpbWl0Jz0+JzQnLCdmLmxvY2F0aW9uX2ZhY2V0LmZhY2V0
-        LmxpbWl0Jz0+JzYnLCd3dCc9PidydWJ5JywnZi5sY19zdWJjbGFzc19mYWNl
-        dC5mYWNldC5saW1pdCc9Pic1MDEnLCdyb3dzJz0+JzI1JywnZi5zdWJqZWN0
-        X2dlb19mYWNldC5mYWNldC5saW1pdCc9PicxMScsJ2ZhY2V0LnF1ZXJ5Jz0+
-        WydhY3FfZHQ6WzIwMTUtMDktMTVUMDA6MDA6MDBaIFRPICpdJywnYWNxX2R0
-        OlsyMDE1LTA4LTIyVDAwOjAwOjAwWiBUTyAqXScsJ2FjcV9kdDpbMjAxNS0w
-        My0yMlQwMDowMDowMFogVE8gKl0nLCdhY3FfZHQ6WzIwMTQtMDktMjJUMDA6
-        MDA6MDBaIFRPICpdJ10sJ3N0YXRzLmZpZWxkJz0+J3B1Yl9kYXRlX3NvcnQn
-        LCdmLmF1dGhvcl9mYWNldC5mYWNldC5saW1pdCc9Pic2JywnZmFjZXQuZmll
-        bGQnPT5bJ2Zvcm1hdCcsJ3B1Yl9kYXRlX3NvcnQnLCdhdXRob3JfZmFjZXQn
-        LCdsb2NhdGlvbl9mYWNldCcsJ2xhbmd1YWdlX2ZhY2V0Jywnc3ViamVjdF90
-        b3BpY19mYWNldCcsJ3N1YmplY3RfZ2VvX2ZhY2V0Jywnc3ViamVjdF9lcmFf
-        ZmFjZXQnLCdzdWJqZWN0X2Zvcm1fZmFjZXQnLCdsY18xbGV0dGVyX2ZhY2V0
-        JywnbGNfc3ViY2xhc3NfZmFjZXQnXSwncXQnPT4nc2VhcmNoJywnZnEnPT4n
-        YXV0aG9yX2ZhY2V0OiJNYXpydcyEyrthaCwgSMyjYcyEdGltIE11aMyjYW1t
-        YWQgTWFuc8yjdcyEciInLCdmLnN1YmplY3RfZXJhX2ZhY2V0LmZhY2V0Lmxp
-        bWl0Jz0+JzExJywnZi5mb3JtYXQuZmFjZXQubGltaXQnPT4nNid9fSwncmVz
-        cG9uc2UnPT57J251bUZvdW5kJz0+MSwnc3RhcnQnPT4wLCdtYXhTY29yZSc9
-        PjEuMCwnZG9jcyc9Plt7J2xvY2F0aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3Bs
-        YXknPT5bJ0J1dGxlciBTdGFja3MgKEVudGVyIGF0IHRoZSBCdXRsZXIgQ2ly
-        Y3VsYXRpb24gRGVzaykgPj4gS0JQNDQwLjMyIC5TNTMgMjAxMmd8REVMSU18
-        MTMyNDU5NTInXSwnYXV0aG9yX3Zlcm5fZGlzcGxheSc9Plsn2LTYudix2KfZ
-        iNmK2Iwg2YXYrdmF2K8g2YXYqtmI2YTZiiddLCdhY3FfZHQnPT4nMjAxMy0w
-        Mi0xOVQwMDowMDowMFonLCd0aXRsZV9kaXNwbGF5Jz0+WydNYcyEZGhhzIQg
-        cWHMhGxhIGFsLUltYcyEbSBhbC1TaGHKu3JhzIR3acyEIGZpzIQgdGFmc2nM
-        hHJpaGkgyrthbiB0YWjMo2tpzIRtIGFsLXNoYXJpzITKu2FoIHdhLXRhdMyj
-        YmnMhHFpaGHMhD8nXSwnY2xpb19pZF9kaXNwbGF5Jz0+JzEwMTcyOTU0Jywn
-        c3ViamVjdF90b3BpY19mYWNldCc9PlsnUXVyyrxhbicsJ0NyaXRpY2lzbSwg
-        aW50ZXJwcmV0YXRpb24sIGV0YycsJ0lzbGFtaWMgbGF3JywnSW50ZXJwcmV0
-        YXRpb24gYW5kIGNvbnN0cnVjdGlvbiddLCdwdWJfcGxhY2VfZGlzcGxheSc9
-        PlsnTWFkacyEbmF0IE5hc8yjciwgYWwtUWHMhGhpcmFoJ10sJ3RpdGxlX3Zl
-        cm5fZGlzcGxheSc9Plsn2YXYp9iw2Kcg2YLYp9mEINin2YTYpdmF2KfZhSDY
-        p9mE2LTYudix2KfZiNmKINmB2Yog2KrZgdiz2YrYsdmHINi52YYg2KrYrdmD
-        2YrZhSDYp9mE2LTYsdmK2LnYqSDZiNiq2LfYqNmK2YLZh9in2J8nXSwnZm9y
-        bWF0Jz0+WydCb29rJ10sJ29jbGNfZGlzcGxheSc9Plsnb2NuNzk3MDAwMjE4
-        JywnNzk3MDAwMjE4J10sJ2Z1bGxfcHVibGlzaGVyX2Rpc3BsYXknPT5bJ01h
-        ZGnMhG5hdCBOYXPMo3IsIGFsLVFhzIRoaXJhaCA6IERhzIRyIGFsLVl1c3Is
-        IDIwMTIuJ10sJ2lzYm5fZGlzcGxheSc9PlsnOTc4OTc3NTEwMjE3MScsJzk3
-        NzUxMDIxNzAnXSwncHViX3llYXJfZGlzcGxheSc9PlsnMjAxMiddLCdpZCc9
-        PicxMDE3Mjk1NCcsJ2F1dGhvcl9kaXNwbGF5Jz0+WydTaGHKu3JhzIR3acyE
-        LCBNdWjMo2FtbWFkIE11dGF3YWxsacyEJ10sJ3B1Yl9uYW1lX2Rpc3BsYXkn
-        PT5bJ0RhzIRyIGFsLVl1c3InXSwnc291cmNlX2Rpc3BsYXknPT5bJ2NhdGFs
-        b2cnXSwnbWF0ZXJpYWxfdHlwZV9kaXNwbGF5Jz0+WycxMDMgcC4nXSwnbGFu
-        Z3VhZ2VfZmFjZXQnPT5bJ0FyYWJpYyddLCdzY29yZSc9PjEuMH1dfSwnZmFj
-        ZXRfY291bnRzJz0+eydmYWNldF9xdWVyaWVzJz0+eydhY3FfZHQ6WzIwMTUt
-        MDktMTVUMDA6MDA6MDBaIFRPICpdJz0+MCwnYWNxX2R0OlsyMDE1LTA4LTIy
-        VDAwOjAwOjAwWiBUTyAqXSc9PjAsJ2FjcV9kdDpbMjAxNS0wMy0yMlQwMDow
-        MDowMFogVE8gKl0nPT4wLCdhY3FfZHQ6WzIwMTQtMDktMjJUMDA6MDA6MDBa
-        IFRPICpdJz0+MH0sJ2ZhY2V0X2ZpZWxkcyc9PnsnZm9ybWF0Jz0+WydCb29r
-        JywxXSwncHViX2RhdGVfc29ydCc9PlsnMjAxMicsMV0sJ2F1dGhvcl9mYWNl
-        dCc9PlsnTWF6csWryrthaCwg4bikxIF0aW0gTXXhuKVhbW1hZCBNYW7huaPF
-        q3InLDEsJ1NoYcq7csSBd8SrLCBNdeG4pWFtbWFkIE11dGF3YWxsxKsnLDFd
-        LCdsb2NhdGlvbl9mYWNldCc9PlsnQnV0bGVyIFN0YWNrcycsMV0sJ2xhbmd1
-        YWdlX2ZhY2V0Jz0+WydBcmFiaWMnLDFdLCdzdWJqZWN0X3RvcGljX2ZhY2V0
-        Jz0+WydDcml0aWNpc20sIGludGVycHJldGF0aW9uLCBldGMnLDEsJ0ludGVy
-        cHJldGF0aW9uIGFuZCBjb25zdHJ1Y3Rpb24nLDEsJ0lzbGFtaWMgbGF3Jywx
-        LCdRdXLKvGFuJywxXSwnc3ViamVjdF9nZW9fZmFjZXQnPT5bXSwnc3ViamVj
-        dF9lcmFfZmFjZXQnPT5bXSwnc3ViamVjdF9mb3JtX2ZhY2V0Jz0+W10sJ2xj
-        XzFsZXR0ZXJfZmFjZXQnPT5bJ0sgLSBMYXcnLDFdLCdsY19zdWJjbGFzc19m
-        YWNldCc9PlsnS0JQIC0gSXNsYW1pYyBMYXcnLDFdfSwnZmFjZXRfZGF0ZXMn
-        PT57fSwnZmFjZXRfcmFuZ2VzJz0+e319LCdzdGF0cyc9Pnsnc3RhdHNfZmll
-        bGRzJz0+eydwdWJfZGF0ZV9zb3J0Jz0+eydtaW4nPT4yMDEyLjAsJ21heCc9
-        PjIwMTIuMCwnY291bnQnPT4xLCdtaXNzaW5nJz0+MCwnc3VtJz0+MjAxMi4w
-        LCdzdW1PZlNxdWFyZXMnPT40MDQ4MTQ0LjAsJ21lYW4nPT4yMDEyLjAsJ3N0
-        ZGRldic9PjAuMCwnZmFjZXRzJz0+e319fX19Cg==
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:28:24 GMT
-- request:
-    method: get
-    uri: "<solr_config>/select?id=10172954&qt=document&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:28:24 GMT
+      - Thu, 24 Sep 2015 15:34:28 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -470,10 +173,10 @@ http_interactions:
         MTUwMTk4NTMzNDQwNDA1NTA0MCwndGltZXN0YW1wJz0+JzIwMTUtMDUtMjNU
         MTg6MTM6NTcuMDRaJ31dfX0K
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:28:24 GMT
+  recorded_at: Thu, 24 Sep 2015 15:34:28 GMT
 - request:
     method: get
-    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&fq=author_facet:%22Sha%CA%BBr%C4%81w%C4%AB,%20Mu%E1%B8%A5ammad%20Mutawall%C4%AB%22&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
+    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-24T00:00:00Z%20TO%20*%5D&fq=author_facet:%22Mazr%C5%AB%CA%BBah,%20%E1%B8%A4%C4%81tim%20Mu%E1%B8%A5ammad%20Man%E1%B9%A3%C5%ABr%22&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -484,7 +187,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 19:28:25 GMT
+      - Thu, 24 Sep 2015 15:34:28 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -494,7 +197,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT40Niwn
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT41NCwn
         cGFyYW1zJz0+eydmLnN1YmplY3RfZm9ybV9mYWNldC5mYWNldC5saW1pdCc9
         PicxMScsJ2ZhY2V0Jz0+J3RydWUnLCdzb3J0Jz0+J3Njb3JlIGRlc2MsIHB1
         Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdzdGF0cyc9Pid0
@@ -505,9 +208,280 @@ http_interactions:
         LmxpbWl0Jz0+JzYnLCd3dCc9PidydWJ5JywnZi5sY19zdWJjbGFzc19mYWNl
         dC5mYWNldC5saW1pdCc9Pic1MDEnLCdyb3dzJz0+JzI1JywnZi5zdWJqZWN0
         X2dlb19mYWNldC5mYWNldC5saW1pdCc9PicxMScsJ2ZhY2V0LnF1ZXJ5Jz0+
-        WydhY3FfZHQ6WzIwMTUtMDktMTVUMDA6MDA6MDBaIFRPICpdJywnYWNxX2R0
-        OlsyMDE1LTA4LTIyVDAwOjAwOjAwWiBUTyAqXScsJ2FjcV9kdDpbMjAxNS0w
-        My0yMlQwMDowMDowMFogVE8gKl0nLCdhY3FfZHQ6WzIwMTQtMDktMjJUMDA6
+        WydhY3FfZHQ6WzIwMTUtMDktMTdUMDA6MDA6MDBaIFRPICpdJywnYWNxX2R0
+        OlsyMDE1LTA4LTI0VDAwOjAwOjAwWiBUTyAqXScsJ2FjcV9kdDpbMjAxNS0w
+        My0yNFQwMDowMDowMFogVE8gKl0nLCdhY3FfZHQ6WzIwMTQtMDktMjRUMDA6
+        MDA6MDBaIFRPICpdJ10sJ3N0YXRzLmZpZWxkJz0+J3B1Yl9kYXRlX3NvcnQn
+        LCdmLmF1dGhvcl9mYWNldC5mYWNldC5saW1pdCc9Pic2JywnZmFjZXQuZmll
+        bGQnPT5bJ2Zvcm1hdCcsJ3B1Yl9kYXRlX3NvcnQnLCdhdXRob3JfZmFjZXQn
+        LCdsb2NhdGlvbl9mYWNldCcsJ2xhbmd1YWdlX2ZhY2V0Jywnc3ViamVjdF90
+        b3BpY19mYWNldCcsJ3N1YmplY3RfZ2VvX2ZhY2V0Jywnc3ViamVjdF9lcmFf
+        ZmFjZXQnLCdzdWJqZWN0X2Zvcm1fZmFjZXQnLCdsY18xbGV0dGVyX2ZhY2V0
+        JywnbGNfc3ViY2xhc3NfZmFjZXQnXSwncXQnPT4nc2VhcmNoJywnZnEnPT4n
+        YXV0aG9yX2ZhY2V0OiJNYXpydcyEyrthaCwgSMyjYcyEdGltIE11aMyjYW1t
+        YWQgTWFuc8yjdcyEciInLCdmLnN1YmplY3RfZXJhX2ZhY2V0LmZhY2V0Lmxp
+        bWl0Jz0+JzExJywnZi5mb3JtYXQuZmFjZXQubGltaXQnPT4nNid9fSwncmVz
+        cG9uc2UnPT57J251bUZvdW5kJz0+MSwnc3RhcnQnPT4wLCdtYXhTY29yZSc9
+        PjEuMCwnZG9jcyc9Plt7J2xvY2F0aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3Bs
+        YXknPT5bJ0J1dGxlciBTdGFja3MgKEVudGVyIGF0IHRoZSBCdXRsZXIgQ2ly
+        Y3VsYXRpb24gRGVzaykgPj4gS0JQNDQwLjMyIC5TNTMgMjAxMmd8REVMSU18
+        MTMyNDU5NTInXSwnYXV0aG9yX3Zlcm5fZGlzcGxheSc9Plsn2LTYudix2KfZ
+        iNmK2Iwg2YXYrdmF2K8g2YXYqtmI2YTZiiddLCdhY3FfZHQnPT4nMjAxMy0w
+        Mi0xOVQwMDowMDowMFonLCd0aXRsZV9kaXNwbGF5Jz0+WydNYcyEZGhhzIQg
+        cWHMhGxhIGFsLUltYcyEbSBhbC1TaGHKu3JhzIR3acyEIGZpzIQgdGFmc2nM
+        hHJpaGkgyrthbiB0YWjMo2tpzIRtIGFsLXNoYXJpzITKu2FoIHdhLXRhdMyj
+        YmnMhHFpaGHMhD8nXSwnY2xpb19pZF9kaXNwbGF5Jz0+JzEwMTcyOTU0Jywn
+        c3ViamVjdF90b3BpY19mYWNldCc9PlsnUXVyyrxhbicsJ0NyaXRpY2lzbSwg
+        aW50ZXJwcmV0YXRpb24sIGV0YycsJ0lzbGFtaWMgbGF3JywnSW50ZXJwcmV0
+        YXRpb24gYW5kIGNvbnN0cnVjdGlvbiddLCdwdWJfcGxhY2VfZGlzcGxheSc9
+        PlsnTWFkacyEbmF0IE5hc8yjciwgYWwtUWHMhGhpcmFoJ10sJ3RpdGxlX3Zl
+        cm5fZGlzcGxheSc9Plsn2YXYp9iw2Kcg2YLYp9mEINin2YTYpdmF2KfZhSDY
+        p9mE2LTYudix2KfZiNmKINmB2Yog2KrZgdiz2YrYsdmHINi52YYg2KrYrdmD
+        2YrZhSDYp9mE2LTYsdmK2LnYqSDZiNiq2LfYqNmK2YLZh9in2J8nXSwnZm9y
+        bWF0Jz0+WydCb29rJ10sJ29jbGNfZGlzcGxheSc9Plsnb2NuNzk3MDAwMjE4
+        JywnNzk3MDAwMjE4J10sJ2Z1bGxfcHVibGlzaGVyX2Rpc3BsYXknPT5bJ01h
+        ZGnMhG5hdCBOYXPMo3IsIGFsLVFhzIRoaXJhaCA6IERhzIRyIGFsLVl1c3Is
+        IDIwMTIuJ10sJ2lzYm5fZGlzcGxheSc9PlsnOTc4OTc3NTEwMjE3MScsJzk3
+        NzUxMDIxNzAnXSwncHViX3llYXJfZGlzcGxheSc9PlsnMjAxMiddLCdpZCc9
+        PicxMDE3Mjk1NCcsJ2F1dGhvcl9kaXNwbGF5Jz0+WydTaGHKu3JhzIR3acyE
+        LCBNdWjMo2FtbWFkIE11dGF3YWxsacyEJ10sJ3B1Yl9uYW1lX2Rpc3BsYXkn
+        PT5bJ0RhzIRyIGFsLVl1c3InXSwnc291cmNlX2Rpc3BsYXknPT5bJ2NhdGFs
+        b2cnXSwnbWF0ZXJpYWxfdHlwZV9kaXNwbGF5Jz0+WycxMDMgcC4nXSwnbGFu
+        Z3VhZ2VfZmFjZXQnPT5bJ0FyYWJpYyddLCdzY29yZSc9PjEuMH1dfSwnZmFj
+        ZXRfY291bnRzJz0+eydmYWNldF9xdWVyaWVzJz0+eydhY3FfZHQ6WzIwMTUt
+        MDktMTdUMDA6MDA6MDBaIFRPICpdJz0+MCwnYWNxX2R0OlsyMDE1LTA4LTI0
+        VDAwOjAwOjAwWiBUTyAqXSc9PjAsJ2FjcV9kdDpbMjAxNS0wMy0yNFQwMDow
+        MDowMFogVE8gKl0nPT4wLCdhY3FfZHQ6WzIwMTQtMDktMjRUMDA6MDA6MDBa
+        IFRPICpdJz0+MH0sJ2ZhY2V0X2ZpZWxkcyc9PnsnZm9ybWF0Jz0+WydCb29r
+        JywxXSwncHViX2RhdGVfc29ydCc9PlsnMjAxMicsMV0sJ2F1dGhvcl9mYWNl
+        dCc9PlsnTWF6csWryrthaCwg4bikxIF0aW0gTXXhuKVhbW1hZCBNYW7huaPF
+        q3InLDEsJ1NoYcq7csSBd8SrLCBNdeG4pWFtbWFkIE11dGF3YWxsxKsnLDFd
+        LCdsb2NhdGlvbl9mYWNldCc9PlsnQnV0bGVyIFN0YWNrcycsMV0sJ2xhbmd1
+        YWdlX2ZhY2V0Jz0+WydBcmFiaWMnLDFdLCdzdWJqZWN0X3RvcGljX2ZhY2V0
+        Jz0+WydDcml0aWNpc20sIGludGVycHJldGF0aW9uLCBldGMnLDEsJ0ludGVy
+        cHJldGF0aW9uIGFuZCBjb25zdHJ1Y3Rpb24nLDEsJ0lzbGFtaWMgbGF3Jywx
+        LCdRdXLKvGFuJywxXSwnc3ViamVjdF9nZW9fZmFjZXQnPT5bXSwnc3ViamVj
+        dF9lcmFfZmFjZXQnPT5bXSwnc3ViamVjdF9mb3JtX2ZhY2V0Jz0+W10sJ2xj
+        XzFsZXR0ZXJfZmFjZXQnPT5bJ0sgLSBMYXcnLDFdLCdsY19zdWJjbGFzc19m
+        YWNldCc9PlsnS0JQIC0gSXNsYW1pYyBMYXcnLDFdfSwnZmFjZXRfZGF0ZXMn
+        PT57fSwnZmFjZXRfcmFuZ2VzJz0+e319LCdzdGF0cyc9Pnsnc3RhdHNfZmll
+        bGRzJz0+eydwdWJfZGF0ZV9zb3J0Jz0+eydtaW4nPT4yMDEyLjAsJ21heCc9
+        PjIwMTIuMCwnY291bnQnPT4xLCdtaXNzaW5nJz0+MCwnc3VtJz0+MjAxMi4w
+        LCdzdW1PZlNxdWFyZXMnPT40MDQ4MTQ0LjAsJ21lYW4nPT4yMDEyLjAsJ3N0
+        ZGRldic9PjAuMCwnZmFjZXRzJz0+e319fX19Cg==
+    http_version: 
+  recorded_at: Thu, 24 Sep 2015 15:34:29 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?id=10172954&qt=document&wt=ruby"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 24 Sep 2015 15:34:29 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
+        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9PicxMDE3Mjk1
+        NCcsJ3F0Jz0+J2RvY3VtZW50Jywnd3QnPT4ncnVieSd9fSwncmVzcG9uc2Un
+        PT57J251bUZvdW5kJz0+MSwnc3RhcnQnPT4wLCdkb2NzJz0+W3snc2hlbGZr
+        ZXknPT5bJ2xvYytrYnArMDQ0MCszMjAwMDAwMCtzNTMwMDAwMCswMDIwMTIr
+        MTAxNzI5NTQnXSwnbG9jYXRpb25fY2FsbF9udW1iZXJfaWRfZGlzcGxheSc9
+        PlsnQnV0bGVyIFN0YWNrcyAoRW50ZXIgYXQgdGhlIEJ1dGxlciBDaXJjdWxh
+        dGlvbiBEZXNrKSA+PiBLQlA0NDAuMzIgLlM1MyAyMDEyZ3xERUxJTXwxMzI0
+        NTk1MiddLCdhdXRob3JfdmVybl9kaXNwbGF5Jz0+WyfYtNi52LHYp9mI2YrY
+        jCDZhdit2YXYryDZhdiq2YjZhNmKJ10sJ2FjcV9kdCc9PicyMDEzLTAyLTE5
+        VDAwOjAwOjAwWicsJ2l0ZW1fZGlzcGxheSc9PlsnS0JQNDQwLjMyIC5TNTMg
+        MjAxMmcgfCBsb2Mra2JwKzA0NDArMzIwMDAwMDArczUzMDAwMDArMDAyMDEy
+        KzEwMTcyOTU0IHwgZWJufmZvYX56dnZ6fnd4enp6enp6fjd1d3p6enp6fnp6
+        eHp5eH55enlzeHF1dn5+fn4nXSwndGl0bGVfZGlzcGxheSc9PlsnTWHMhGRo
+        YcyEIHFhzIRsYSBhbC1JbWHMhG0gYWwtU2hhyrtyYcyEd2nMhCBmacyEIHRh
+        ZnNpzIRyaWhpIMq7YW4gdGFozKNracyEbSBhbC1zaGFyacyEyrthaCB3YS10
+        YXTMo2JpzIRxaWhhzIQ/J10sJ2NsaW9faWRfZGlzcGxheSc9PicxMDE3Mjk1
+        NCcsJ3N1YmplY3RfdG9waWNfZmFjZXQnPT5bJ1F1csq8YW4nLCdDcml0aWNp
+        c20sIGludGVycHJldGF0aW9uLCBldGMnLCdJc2xhbWljIGxhdycsJ0ludGVy
+        cHJldGF0aW9uIGFuZCBjb25zdHJ1Y3Rpb24nXSwncHViX3BsYWNlX2Rpc3Bs
+        YXknPT5bJ01hZGnMhG5hdCBOYXPMo3IsIGFsLVFhzIRoaXJhaCddLCd0aXRs
+        ZV92ZXJuX2Rpc3BsYXknPT5bJ9mF2KfYsNinINmC2KfZhCDYp9mE2KXZhdin
+        2YUg2KfZhNi02LnYsdin2YjZiiDZgdmKINiq2YHYs9mK2LHZhyDYudmGINiq
+        2K3Zg9mK2YUg2KfZhNi02LHZiti52Kkg2YjYqti32KjZitmC2YfYp9ifJ10s
+        J2Zvcm1hdCc9PlsnQm9vayddLCdvY2xjX2Rpc3BsYXknPT5bJ29jbjc5NzAw
+        MDIxOCcsJzc5NzAwMDIxOCddLCd0aXRsZV9maXJzdF9mYWNldCc9PlsnTSdd
+        LCdwdWJfZGF0ZV9zb3J0Jz0+MjAxMiwnZnVsbF9wdWJsaXNoZXJfZGlzcGxh
+        eSc9PlsnTWFkacyEbmF0IE5hc8yjciwgYWwtUWHMhGhpcmFoIDogRGHMhHIg
+        YWwtWXVzciwgMjAxMi4nXSwnaXNibl9kaXNwbGF5Jz0+Wyc5Nzg5Nzc1MTAy
+        MTcxJywnOTc3NTEwMjE3MCddLCdwdWJfeWVhcl9kaXNwbGF5Jz0+WycyMDEy
+        J10sJ2lkJz0+JzEwMTcyOTU0JywncmV2ZXJzZV9zaGVsZmtleSc9PlsnZWJu
+        fmZvYX56dnZ6fnd4enp6enp6fjd1d3p6enp6fnp6eHp5eH55enlzeHF1dn5+
+        fn4nXSwnY2FsbF9udW1iZXJfZGlzcGxheSc9PlsnS0JQNDQwLjMyIC5TNTMg
+        MjAxMmcnXSwnbWFyY19kaXNwbGF5Jz0+Jzw/eG1sIHZlcnNpb249IjEuMCIg
+        ZW5jb2Rpbmc9IlVURi04Ij8+PGNvbGxlY3Rpb24geG1sbnM9Imh0dHA6Ly93
+        d3cubG9jLmdvdi9NQVJDMjEvc2xpbSI+PHJlY29yZD48bGVhZGVyPjAxOTAy
+        Y2FtIGEyMjAwNDIxSWEgNDUwMDwvbGVhZGVyPjxjb250cm9sZmllbGQgdGFn
+        PSIwMDEiPjEwMTcyOTU0PC9jb250cm9sZmllbGQ+PGNvbnRyb2xmaWVsZCB0
+        YWc9IjAwNSI+MjAxMzA1MDIxNDMxNDguMDwvY29udHJvbGZpZWxkPjxjb250
+        cm9sZmllbGQgdGFnPSIwMDgiPjEyMDYyMXMyMDEyICAgIHVhICAgICAgIGIg
+        ICAgMDAwIDAgYXJhIGQ8L2NvbnRyb2xmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
+        MDIwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+OTc4
+        OTc3NTEwMjE3MTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0
+        YWc9IjAyMCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEi
+        Pjk3NzUxMDIxNzA8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
+        dGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJh
+        Ij4oT0NvTEMpb2NuNzk3MDAwMjE4PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48
+        ZGF0YWZpZWxkIHRhZz0iMDM1IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmll
+        bGQgY29kZT0iYSI+KE9Db0xDKTc5NzAwMDIxODwvc3ViZmllbGQ+PC9kYXRh
+        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAzNSIgaW5kMT0iICIgaW5kMj0iICI+
+        PHN1YmZpZWxkIGNvZGU9ImEiPihOTkMpMTAxNzI5NTQ8L3N1YmZpZWxkPjwv
+        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwNDAiIGluZDE9IiAiIGluZDI9
+        IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5MRUlMQTwvc3ViZmllbGQ+PHN1YmZp
+        ZWxkIGNvZGU9ImMiPkxFSUxBPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
+        ZCI+TlVJPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+WVVTPC9zdWJm
+        aWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDUwIiBpbmQxPSIg
+        IiBpbmQyPSI0Ij48c3ViZmllbGQgY29kZT0iYSI+S0JQNDQwLjMyPC9zdWJm
+        aWVsZD48c3ViZmllbGQgY29kZT0iYiI+LlM1MyAyMDEyPC9zdWJmaWVsZD48
+        L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDUwIiBpbmQxPSIgIiBpbmQy
+        PSI0Ij48c3ViZmllbGQgY29kZT0iYSI+QlAxMzAuNDwvc3ViZmllbGQ+PHN1
+        YmZpZWxkIGNvZGU9ImIiPi5TNTM3IDIwMTI8L3N1YmZpZWxkPjwvZGF0YWZp
+        ZWxkPjxkYXRhZmllbGQgdGFnPSIxMDAiIGluZDE9IjEiIGluZDI9IiAiPjxz
+        dWJmaWVsZCBjb2RlPSI2Ij44ODAtMDE8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
+        b2RlPSJhIj5TaGHKu3JhzIR3acyELCBNdWjMo2FtbWFkIE11dGF3YWxsacyE
+        Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjI0NSIg
+        aW5kMT0iMSIgaW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9IjYiPjg4MC0wMjwv
+        c3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImEiPk1hzIRkaGHMhCBxYcyEbGEg
+        YWwtSW1hzIRtIGFsLVNoYcq7cmHMhHdpzIQgZmnMhCB0YWZzacyEcmloaSDK
+        u2FuIHRhaMyja2nMhG0gYWwtc2hhcmnMhMq7YWggd2EtdGF0zKNiacyEcWlo
+        YcyEPyAvPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYyI+amFtyrsgd2Et
+        dGFydGnMhGIgd2EtyrtpbmHMhHlhdCBIzKNhzIR0aW0gTXVozKNhbW1hZCBN
+        YXpydcyEyrthaC48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
+        dGFnPSIyNTAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSI2
+        Ij44ODAtMDM8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJhIj5hbC1UzKNh
+        Ysq7YWggMS48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFn
+        PSIyNjAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSI2Ij44
+        ODAtMDQ8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJhIj5NYWRpzIRuYXQg
+        TmFzzKNyLCBhbC1RYcyEaGlyYWggOjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
+        ZGU9ImIiPkRhzIRyIGFsLVl1c3IsPC9zdWJmaWVsZD48c3ViZmllbGQgY29k
+        ZT0iYyI+MjAxMi48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
+        dGFnPSIzMDAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJh
+        Ij4xMDMgcC4gOzwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImMiPjI0IGNt
+        Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjUwNCIg
+        aW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkluY2x1ZGVz
+        IGJpYmxpb2dyYXBoaWNhbCByZWZlcmVuY2VzLjwvc3ViZmllbGQ+PC9kYXRh
+        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjYzMCIgaW5kMT0iMCIgaW5kMj0iMCI+
+        PHN1YmZpZWxkIGNvZGU9ImEiPlF1csq8YW48L3N1YmZpZWxkPjxzdWJmaWVs
+        ZCBjb2RlPSJ4Ij5Dcml0aWNpc20sIGludGVycHJldGF0aW9uLCBldGMuPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNjUwIiBpbmQx
+        PSIgIiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0iYSI+SXNsYW1pYyBsYXc8
+        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ4Ij5JbnRlcnByZXRhdGlvbiBh
+        bmQgY29uc3RydWN0aW9uLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFm
+        aWVsZCB0YWc9IjcwMCIgaW5kMT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNv
+        ZGU9IjYiPjg4MC0wNTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImEiPk1h
+        enJ1zITKu2FoLCBIzKNhzIR0aW0gTXVozKNhbW1hZCBNYW5zzKN1zIRyLjwv
+        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijg4MCIgaW5k
+        MT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9IjYiPjEwMC0wMS9yPC9z
+        dWJmaWVsZD48c3ViZmllbGQgY29kZT0iYSI+2LTYudix2KfZiNmK2Iwg2YXY
+        rdmF2K8g2YXYqtmI2YTZii48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRh
+        ZmllbGQgdGFnPSI4ODAiIGluZDE9IjEiIGluZDI9IjAiPjxzdWJmaWVsZCBj
+        b2RlPSI2Ij4yNDUtMDIvcjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImEi
+        PtmF2KfYsNinINmC2KfZhCDYp9mE2KXZhdin2YUg2KfZhNi02LnYsdin2YjZ
+        iiDZgdmKINiq2YHYs9mK2LHZhyDYudmGINiq2K3Zg9mK2YUg2KfZhNi02LHZ
+        iti52Kkg2YjYqti32KjZitmC2YfYp9ifIC88L3N1YmZpZWxkPjxzdWJmaWVs
+        ZCBjb2RlPSJjIj7YrNmF2Lkg2YjYqtix2KrZitioINmI2LnZhtin2YrYqSDY
+        rdin2KrZhSDZhdit2YXYryDZhdiy2LHZiNi52KkuPC9zdWJmaWVsZD48L2Rh
+        dGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iODgwIiBpbmQxPSIgIiBpbmQyPSIg
+        Ij48c3ViZmllbGQgY29kZT0iNiI+MjUwLTAzL3I8L3N1YmZpZWxkPjxzdWJm
+        aWVsZCBjb2RlPSJhIj7Yp9mE2LfYqNi52KkgMS48L3N1YmZpZWxkPjwvZGF0
+        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI4ODAiIGluZDE9IiAiIGluZDI9IiAi
+        PjxzdWJmaWVsZCBjb2RlPSI2Ij4yNjAtMDQvcjwvc3ViZmllbGQ+PHN1YmZp
+        ZWxkIGNvZGU9ImEiPtmF2K/ZitmG2Kkg2YbYtdix2Iwg2KfZhNmC2KfZh9ix
+        2KkgOjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPtiv2KfYsSDYp9mE
+        2YrYs9ix2Iw8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj4yMDEyLjwv
+        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijg4MCIgaW5k
+        MT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9IjYiPjcwMC0wNS9yPC9z
+        dWJmaWVsZD48c3ViZmllbGQgY29kZT0iYSI+2YXYstix2YjYudip2Iwg2K3Y
+        p9iq2YUg2YXYrdmF2K8g2YXZhti12YjYsS48L3N1YmZpZWxkPjwvZGF0YWZp
+        ZWxkPjxkYXRhZmllbGQgdGFnPSI5NDgiIGluZDE9IjEiIGluZDI9IiAiPjxz
+        dWJmaWVsZCBjb2RlPSJhIj4yMDEzMDIxOTwvc3ViZmllbGQ+PHN1YmZpZWxk
+        IGNvZGU9ImIiPmM8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5qbGsy
+        MjA2PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+TVBTPC9zdWJmaWVs
+        ZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTAwIiBpbmQxPSIgIiBp
+        bmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+QVVUSDwvc3ViZmllbGQ+PC9k
+        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MCIgaW5kMT0iICIgaW5kMj0i
+        ICI+PHN1YmZpZWxkIGNvZGU9ImEiPktCUDwvc3ViZmllbGQ+PC9kYXRhZmll
+        bGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MSIgaW5kMT0iICIgaW5kMj0iICI+PHN1
+        YmZpZWxkIGNvZGU9ImEiPktCUDQ0MC4zMiAuUzUzIDIwMTJnPC9zdWJmaWVs
+        ZD48c3ViZmllbGQgY29kZT0iYiI+bG9jK0tCUCswNDQwKzMyMDAwMDAwK1M1
+        MzAwMDAwKzAwMjAxMjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVs
+        ZCB0YWc9Ijk5MiIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9
+        ImEiPkJ1dGxlciBTdGFja3M8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJi
+        Ij5CdXRsZXIgU3RhY2tzIChFbnRlciBhdCB0aGUgQnV0bGVyIENpcmN1bGF0
+        aW9uIERlc2spICZndDsmZ3Q7IEtCUDQ0MC4zMiAuUzUzIDIwMTJnfERFTElN
+        fDEzMjQ1OTUyPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
+        Zz0iOTkzIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+
+        Qm9vazwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5
+        NSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPmNhdGFs
+        b2c8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTci
+        IGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4yMDEzLTAy
+        LTE5VDAwOjAwOjAwLjAwMFo8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjwvcmVj
+        b3JkPjwvY29sbGVjdGlvbj4nLCdhdXRob3JfZGlzcGxheSc9PlsnU2hhyrty
+        YcyEd2nMhCwgTXVozKNhbW1hZCBNdXRhd2FsbGnMhCddLCdwdWJfbmFtZV9k
+        aXNwbGF5Jz0+WydEYcyEciBhbC1ZdXNyJ10sJ3NvdXJjZV9kaXNwbGF5Jz0+
+        WydjYXRhbG9nJ10sJ21hdGVyaWFsX3R5cGVfZGlzcGxheSc9PlsnMTAzIHAu
+        J10sJ2xhbmd1YWdlX2ZhY2V0Jz0+WydBcmFiaWMnXSwnX3ZlcnNpb25fJz0+
+        MTUwMTk4NTMzNDQwNDA1NTA0MCwndGltZXN0YW1wJz0+JzIwMTUtMDUtMjNU
+        MTg6MTM6NTcuMDRaJ31dfX0K
+    http_version: 
+  recorded_at: Thu, 24 Sep 2015 15:34:29 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-24T00:00:00Z%20TO%20*%5D&fq=author_facet:%22Sha%CA%BBr%C4%81w%C4%AB,%20Mu%E1%B8%A5ammad%20Mutawall%C4%AB%22&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 24 Sep 2015 15:34:29 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT42OCwn
+        cGFyYW1zJz0+eydmLnN1YmplY3RfZm9ybV9mYWNldC5mYWNldC5saW1pdCc9
+        PicxMScsJ2ZhY2V0Jz0+J3RydWUnLCdzb3J0Jz0+J3Njb3JlIGRlc2MsIHB1
+        Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdzdGF0cyc9Pid0
+        cnVlJywnZi5zdWJqZWN0X3RvcGljX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzEx
+        JywnZi5sYW5ndWFnZV9mYWNldC5mYWNldC5saW1pdCc9Pic2JywnZi5sY18x
+        bGV0dGVyX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzMxJywnZi5wdWJfZGF0ZV9z
+        b3J0LmZhY2V0LmxpbWl0Jz0+JzQnLCdmLmxvY2F0aW9uX2ZhY2V0LmZhY2V0
+        LmxpbWl0Jz0+JzYnLCd3dCc9PidydWJ5JywnZi5sY19zdWJjbGFzc19mYWNl
+        dC5mYWNldC5saW1pdCc9Pic1MDEnLCdyb3dzJz0+JzI1JywnZi5zdWJqZWN0
+        X2dlb19mYWNldC5mYWNldC5saW1pdCc9PicxMScsJ2ZhY2V0LnF1ZXJ5Jz0+
+        WydhY3FfZHQ6WzIwMTUtMDktMTdUMDA6MDA6MDBaIFRPICpdJywnYWNxX2R0
+        OlsyMDE1LTA4LTI0VDAwOjAwOjAwWiBUTyAqXScsJ2FjcV9kdDpbMjAxNS0w
+        My0yNFQwMDowMDowMFogVE8gKl0nLCdhY3FfZHQ6WzIwMTQtMDktMjRUMDA6
         MDA6MDBaIFRPICpdJ10sJ3N0YXRzLmZpZWxkJz0+J3B1Yl9kYXRlX3NvcnQn
         LCdmLmF1dGhvcl9mYWNldC5mYWNldC5saW1pdCc9Pic2JywnZmFjZXQuZmll
         bGQnPT5bJ2Zvcm1hdCcsJ3B1Yl9kYXRlX3NvcnQnLCdhdXRob3JfZmFjZXQn
@@ -1001,10 +975,10 @@ http_interactions:
         NDk2MDQxMzInXSwnZnVsbF9wdWJsaXNoZXJfZGlzcGxheSc9PlsnQmF5cnXM
         hHQgOiBEYcyEciBhbC1RYWxhbSwgWzIwMDBdJ10sJ2xhbmd1YWdlX2ZhY2V0
         Jz0+WydBcmFiaWMnXSwnc2NvcmUnPT4xLjB9XX0sJ2ZhY2V0X2NvdW50cyc9
-        PnsnZmFjZXRfcXVlcmllcyc9PnsnYWNxX2R0OlsyMDE1LTA5LTE1VDAwOjAw
-        OjAwWiBUTyAqXSc9PjAsJ2FjcV9kdDpbMjAxNS0wOC0yMlQwMDowMDowMFog
-        VE8gKl0nPT4wLCdhY3FfZHQ6WzIwMTUtMDMtMjJUMDA6MDA6MDBaIFRPICpd
-        Jz0+MSwnYWNxX2R0OlsyMDE0LTA5LTIyVDAwOjAwOjAwWiBUTyAqXSc9PjF9
+        PnsnZmFjZXRfcXVlcmllcyc9PnsnYWNxX2R0OlsyMDE1LTA5LTE3VDAwOjAw
+        OjAwWiBUTyAqXSc9PjAsJ2FjcV9kdDpbMjAxNS0wOC0yNFQwMDowMDowMFog
+        VE8gKl0nPT4wLCdhY3FfZHQ6WzIwMTUtMDMtMjRUMDA6MDA6MDBaIFRPICpd
+        Jz0+MSwnYWNxX2R0OlsyMDE0LTA5LTI0VDAwOjAwOjAwWiBUTyAqXSc9PjF9
         LCdmYWNldF9maWVsZHMnPT57J2Zvcm1hdCc9PlsnQm9vaycsNzMsJ0NvbXB1
         dGVyIEZpbGUnLDFdLCdwdWJfZGF0ZV9zb3J0Jz0+WycyMDAwJywxNSwnMTk5
         OCcsNywnMTk4MCcsNiwnMjAwMycsNl0sJ2F1dGhvcl9mYWNldCc9PlsnU2hh
@@ -1042,202 +1016,5 @@ http_interactions:
         OTk0LjUyNzAyNzAyNzAyNywnc3RkZGV2Jz0+OS41NDc2MDY3MDQzMDQ1NjMs
         J2ZhY2V0cyc9Pnt9fX19fQo=
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:28:25 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/0809308835.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 19:59:25 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:59:26 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Access-Control-Allow-Origin:
-      - "*"
-      Content-Length:
-      - '646'
-      Content-Type:
-      - application/json; charset=UTF-8
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed045525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        20:09:26 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {"records":{"000178346":{"recordURL":"http:\/\/catalog.hathitrust.org\/Record\/000178346","titles":["The reader, the text, the poem : the transactional theory of the literary work \/","reader, the text, the poem : the transactional theory of the literary work \/"],"isbns":["9780809308835","9780809308835"],"issns":[],"oclcs":["4056043"],"lccns":["78016335"],"publishDates":["1978"]}},"items":[{"orig":"University of Michigan","fromRecord":"000178346","htid":"mdp.39015062065266","itemURL":"http:\/\/hdl.handle.net\/2027\/mdp.39015062065266","rightsCode":"ic","lastUpdate":"20140327","enumcron":false,"usRightsString":"Limited (search-only)"}]}
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:59:26 GMT
-- request:
-    method: get
-    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&fl=*&q=%7B!lucene%7Did:(1234)&qt=search&rows=1&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck=false&stats=true&stats.field=pub_date_sort&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 20:13:49 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>38,'params'=>{'spellcheck'=>'false','f.subject_form_facet.facet.limit'=>'11','facet'=>'true','sort'=>'score desc, pub_date_sort desc, title_sort asc','stats'=>'true','f.subject_topic_facet.facet.limit'=>'11','f.language_facet.facet.limit'=>'6','f.lc_1letter_facet.facet.limit'=>'31','f.pub_date_sort.facet.limit'=>'4','f.location_facet.facet.limit'=>'6','wt'=>'ruby','f.lc_subclass_facet.facet.limit'=>'501','rows'=>'1','fl'=>'*','f.subject_geo_facet.facet.limit'=>'11','q'=>'{!lucene}id:(1234)','stats.field'=>'pub_date_sort','f.author_facet.facet.limit'=>'6','qt'=>'search','f.format.facet.limit'=>'6','f.subject_era_facet.facet.limit'=>'11'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+pn-+0045+00000000+r5870000+1234'],'location_call_number_id_display'=>['Milstein <Barnard Library Collection>, Butler 406A, 406, 409 >> PN45 .R587|DELIM|1936'],'lccn_display'=>['78016335'],'item_display'=>['PN45 .R587 | loc+pn-+0045+00000000+r5870000+1234 | ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'title_display'=>['The reader, the text, the poem : the transactional theory of the literary work'],'clio_id_display'=>'1234','subject_topic_facet'=>['Literature','Criticism','Reading','Philosophy'],'pub_place_display'=>['Carbondale'],'format'=>['Book'],'oclc_display'=>['4056043','ocm04056043'],'title_first_facet'=>['R'],'full_publisher_display'=>['Carbondale : Southern Illinois University Press, c1978.'],'pub_date_sort'=>1978,'isbn_display'=>['0809308835'],'pub_year_display'=>['c1978'],'id'=>'1234','reverse_shelfkey'=>['ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'call_number_display'=>['PN45 .R587'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01131cam a2200349 i 4500</leader><controlfield tag="001">1234</controlfield><controlfield tag="005">20140424164936.0</controlfield><controlfield tag="008">790426s1978    ilu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   78016335 </subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0809308835</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)4056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm04056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG10505040-B</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAA1293CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)1234</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="082" ind1=" " ind2=" "><subfield code="a">801/.95</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Rosenblatt, Louise M.</subfield><subfield code="q">(Louise Michelle),</subfield><subfield code="d">1904-2005.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The reader, the text, the poem :</subfield><subfield code="b">the transactional theory of the literary work /</subfield><subfield code="c">Louise M. Rosenblatt.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Carbondale :</subfield><subfield code="b">Southern Illinois University Press,</subfield><subfield code="c">c1978.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xv, 196 p. ;</subfield><subfield code="c">24 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Literature</subfield><subfield code="x">Philosophy.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Criticism.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reading.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">PN</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">PN45 .R587</subfield><subfield code="b">loc+PN-+0045+00000000+R5870000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Barnard</subfield><subfield code="b">Milstein &lt;Barnard Library Collection&gt;, Butler 406A, 406, 409 &gt;&gt; PN45 .R587|DELIM|1936</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005'],'pub_name_display'=>['Southern Illinois University Press'],'source_display'=>['catalog'],'material_type_display'=>['xv, 196 p.'],'language_facet'=>['English'],'_version_'=>1507643674918387712,'timestamp'=>'2015-07-25T05:10:51.062Z'}]},'facet_counts'=>{'facet_queries'=>{},'facet_fields'=>{'format'=>['Book',1],'lc_1letter_facet'=>['P - Language & Literature',1],'lc_subclass_facet'=>['PN - Literature (General)',1],'language_facet'=>['English',1],'pub_date_sort'=>['1978',1],'subject_geo_facet'=>[],'subject_topic_facet'=>['Criticism',1,'Literature',1,'Philosophy',1,'Reading',1],'subject_era_facet'=>[],'subject_form_facet'=>[],'database_hilcc_facet'=>[],'database_resource_type_facet'=>[],'location_facet'=>['Barnard',1],'author_facet'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005',1],'source_facet'=>['catalog',1]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>{'min'=>1978.0,'max'=>1978.0,'count'=>1,'missing'=>0,'sum'=>1978.0,'sumOfSquares'=>3912484.0,'mean'=>1978.0,'stddev'=>0.0,'facets'=>{}}}}}
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 20:13:49 GMT
-- request:
-    method: get
-    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&fl=*&q=%7B!lucene%7Did:(1234)&qt=search&rows=1&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck=false&stats=true&stats.field=pub_date_sort&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 20:28:48 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>35,'params'=>{'spellcheck'=>'false','f.subject_form_facet.facet.limit'=>'11','facet'=>'true','sort'=>'score desc, pub_date_sort desc, title_sort asc','stats'=>'true','f.subject_topic_facet.facet.limit'=>'11','f.language_facet.facet.limit'=>'6','f.lc_1letter_facet.facet.limit'=>'31','f.pub_date_sort.facet.limit'=>'4','f.location_facet.facet.limit'=>'6','wt'=>'ruby','f.lc_subclass_facet.facet.limit'=>'501','rows'=>'1','fl'=>'*','f.subject_geo_facet.facet.limit'=>'11','q'=>'{!lucene}id:(1234)','stats.field'=>'pub_date_sort','f.author_facet.facet.limit'=>'6','qt'=>'search','f.format.facet.limit'=>'6','f.subject_era_facet.facet.limit'=>'11'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+pn-+0045+00000000+r5870000+1234'],'location_call_number_id_display'=>['Milstein <Barnard Library Collection>, Butler 406A, 406, 409 >> PN45 .R587|DELIM|1936'],'lccn_display'=>['78016335'],'item_display'=>['PN45 .R587 | loc+pn-+0045+00000000+r5870000+1234 | ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'title_display'=>['The reader, the text, the poem : the transactional theory of the literary work'],'clio_id_display'=>'1234','subject_topic_facet'=>['Literature','Criticism','Reading','Philosophy'],'pub_place_display'=>['Carbondale'],'format'=>['Book'],'oclc_display'=>['4056043','ocm04056043'],'title_first_facet'=>['R'],'full_publisher_display'=>['Carbondale : Southern Illinois University Press, c1978.'],'pub_date_sort'=>1978,'isbn_display'=>['0809308835'],'pub_year_display'=>['c1978'],'id'=>'1234','reverse_shelfkey'=>['ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'call_number_display'=>['PN45 .R587'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01131cam a2200349 i 4500</leader><controlfield tag="001">1234</controlfield><controlfield tag="005">20140424164936.0</controlfield><controlfield tag="008">790426s1978    ilu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   78016335 </subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0809308835</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)4056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm04056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG10505040-B</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAA1293CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)1234</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="082" ind1=" " ind2=" "><subfield code="a">801/.95</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Rosenblatt, Louise M.</subfield><subfield code="q">(Louise Michelle),</subfield><subfield code="d">1904-2005.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The reader, the text, the poem :</subfield><subfield code="b">the transactional theory of the literary work /</subfield><subfield code="c">Louise M. Rosenblatt.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Carbondale :</subfield><subfield code="b">Southern Illinois University Press,</subfield><subfield code="c">c1978.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xv, 196 p. ;</subfield><subfield code="c">24 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Literature</subfield><subfield code="x">Philosophy.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Criticism.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reading.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">PN</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">PN45 .R587</subfield><subfield code="b">loc+PN-+0045+00000000+R5870000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Barnard</subfield><subfield code="b">Milstein &lt;Barnard Library Collection&gt;, Butler 406A, 406, 409 &gt;&gt; PN45 .R587|DELIM|1936</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005'],'pub_name_display'=>['Southern Illinois University Press'],'source_display'=>['catalog'],'material_type_display'=>['xv, 196 p.'],'language_facet'=>['English'],'_version_'=>1507643674918387712,'timestamp'=>'2015-07-25T05:10:51.062Z'}]},'facet_counts'=>{'facet_queries'=>{},'facet_fields'=>{'format'=>['Book',1],'lc_1letter_facet'=>['P - Language & Literature',1],'lc_subclass_facet'=>['PN - Literature (General)',1],'language_facet'=>['English',1],'pub_date_sort'=>['1978',1],'subject_geo_facet'=>[],'subject_topic_facet'=>['Criticism',1,'Literature',1,'Philosophy',1,'Reading',1],'subject_era_facet'=>[],'subject_form_facet'=>[],'database_hilcc_facet'=>[],'database_resource_type_facet'=>[],'location_facet'=>['Barnard',1],'author_facet'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005',1],'source_facet'=>['catalog',1]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>{'min'=>1978.0,'max'=>1978.0,'count'=>1,'missing'=>0,'sum'=>1978.0,'sumOfSquares'=>3912484.0,'mean'=>1978.0,'stddev'=>0.0,'facets'=>{}}}}}
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 20:28:48 GMT
-- request:
-    method: get
-    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&fl=*&q=%7B!lucene%7Did:(1234)&qt=search&rows=1&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck=false&stats=true&stats.field=pub_date_sort&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 20:37:45 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>36,'params'=>{'spellcheck'=>'false','f.subject_form_facet.facet.limit'=>'11','facet'=>'true','sort'=>'score desc, pub_date_sort desc, title_sort asc','stats'=>'true','f.subject_topic_facet.facet.limit'=>'11','f.language_facet.facet.limit'=>'6','f.lc_1letter_facet.facet.limit'=>'31','f.pub_date_sort.facet.limit'=>'4','f.location_facet.facet.limit'=>'6','wt'=>'ruby','f.lc_subclass_facet.facet.limit'=>'501','rows'=>'1','fl'=>'*','f.subject_geo_facet.facet.limit'=>'11','q'=>'{!lucene}id:(1234)','stats.field'=>'pub_date_sort','f.author_facet.facet.limit'=>'6','qt'=>'search','f.format.facet.limit'=>'6','f.subject_era_facet.facet.limit'=>'11'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+pn-+0045+00000000+r5870000+1234'],'location_call_number_id_display'=>['Milstein <Barnard Library Collection>, Butler 406A, 406, 409 >> PN45 .R587|DELIM|1936'],'lccn_display'=>['78016335'],'item_display'=>['PN45 .R587 | loc+pn-+0045+00000000+r5870000+1234 | ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'title_display'=>['The reader, the text, the poem : the transactional theory of the literary work'],'clio_id_display'=>'1234','subject_topic_facet'=>['Literature','Criticism','Reading','Philosophy'],'pub_place_display'=>['Carbondale'],'format'=>['Book'],'oclc_display'=>['4056043','ocm04056043'],'title_first_facet'=>['R'],'full_publisher_display'=>['Carbondale : Southern Illinois University Press, c1978.'],'pub_date_sort'=>1978,'isbn_display'=>['0809308835'],'pub_year_display'=>['c1978'],'id'=>'1234','reverse_shelfkey'=>['ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'call_number_display'=>['PN45 .R587'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01131cam a2200349 i 4500</leader><controlfield tag="001">1234</controlfield><controlfield tag="005">20140424164936.0</controlfield><controlfield tag="008">790426s1978    ilu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   78016335 </subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0809308835</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)4056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm04056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG10505040-B</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAA1293CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)1234</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="082" ind1=" " ind2=" "><subfield code="a">801/.95</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Rosenblatt, Louise M.</subfield><subfield code="q">(Louise Michelle),</subfield><subfield code="d">1904-2005.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The reader, the text, the poem :</subfield><subfield code="b">the transactional theory of the literary work /</subfield><subfield code="c">Louise M. Rosenblatt.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Carbondale :</subfield><subfield code="b">Southern Illinois University Press,</subfield><subfield code="c">c1978.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xv, 196 p. ;</subfield><subfield code="c">24 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Literature</subfield><subfield code="x">Philosophy.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Criticism.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reading.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">PN</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">PN45 .R587</subfield><subfield code="b">loc+PN-+0045+00000000+R5870000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Barnard</subfield><subfield code="b">Milstein &lt;Barnard Library Collection&gt;, Butler 406A, 406, 409 &gt;&gt; PN45 .R587|DELIM|1936</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005'],'pub_name_display'=>['Southern Illinois University Press'],'source_display'=>['catalog'],'material_type_display'=>['xv, 196 p.'],'language_facet'=>['English'],'_version_'=>1507643674918387712,'timestamp'=>'2015-07-25T05:10:51.062Z'}]},'facet_counts'=>{'facet_queries'=>{},'facet_fields'=>{'format'=>['Book',1],'lc_1letter_facet'=>['P - Language & Literature',1],'lc_subclass_facet'=>['PN - Literature (General)',1],'language_facet'=>['English',1],'pub_date_sort'=>['1978',1],'subject_geo_facet'=>[],'subject_topic_facet'=>['Criticism',1,'Literature',1,'Philosophy',1,'Reading',1],'subject_era_facet'=>[],'subject_form_facet'=>[],'database_hilcc_facet'=>[],'database_resource_type_facet'=>[],'location_facet'=>['Barnard',1],'author_facet'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005',1],'source_facet'=>['catalog',1]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>{'min'=>1978.0,'max'=>1978.0,'count'=>1,'missing'=>0,'sum'=>1978.0,'sumOfSquares'=>3912484.0,'mean'=>1978.0,'stddev'=>0.0,'facets'=>{}}}}}
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 20:37:45 GMT
-- request:
-    method: get
-    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&fl=*&q=%7B!lucene%7Did:(1234)&qt=search&rows=1&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck=false&stats=true&stats.field=pub_date_sort&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Wed, 23 Sep 2015 14:31:52 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>37,'params'=>{'spellcheck'=>'false','f.subject_form_facet.facet.limit'=>'11','facet'=>'true','sort'=>'score desc, pub_date_sort desc, title_sort asc','stats'=>'true','f.subject_topic_facet.facet.limit'=>'11','f.language_facet.facet.limit'=>'6','f.lc_1letter_facet.facet.limit'=>'31','f.pub_date_sort.facet.limit'=>'4','f.location_facet.facet.limit'=>'6','wt'=>'ruby','f.lc_subclass_facet.facet.limit'=>'501','rows'=>'1','fl'=>'*','f.subject_geo_facet.facet.limit'=>'11','q'=>'{!lucene}id:(1234)','stats.field'=>'pub_date_sort','f.author_facet.facet.limit'=>'6','qt'=>'search','f.format.facet.limit'=>'6','f.subject_era_facet.facet.limit'=>'11'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+pn-+0045+00000000+r5870000+1234'],'location_call_number_id_display'=>['Milstein <Barnard Library Collection>, Butler 406A, 406, 409 >> PN45 .R587|DELIM|1936'],'lccn_display'=>['78016335'],'item_display'=>['PN45 .R587 | loc+pn-+0045+00000000+r5870000+1234 | ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'title_display'=>['The reader, the text, the poem : the transactional theory of the literary work'],'clio_id_display'=>'1234','subject_topic_facet'=>['Literature','Criticism','Reading','Philosophy'],'pub_place_display'=>['Carbondale'],'format'=>['Book'],'oclc_display'=>['4056043','ocm04056043'],'title_first_facet'=>['R'],'full_publisher_display'=>['Carbondale : Southern Illinois University Press, c1978.'],'pub_date_sort'=>1978,'isbn_display'=>['0809308835'],'pub_year_display'=>['c1978'],'id'=>'1234','reverse_shelfkey'=>['ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'call_number_display'=>['PN45 .R587'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01131cam a2200349 i 4500</leader><controlfield tag="001">1234</controlfield><controlfield tag="005">20140424164936.0</controlfield><controlfield tag="008">790426s1978    ilu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   78016335 </subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0809308835</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)4056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm04056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG10505040-B</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAA1293CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)1234</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="082" ind1=" " ind2=" "><subfield code="a">801/.95</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Rosenblatt, Louise M.</subfield><subfield code="q">(Louise Michelle),</subfield><subfield code="d">1904-2005.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The reader, the text, the poem :</subfield><subfield code="b">the transactional theory of the literary work /</subfield><subfield code="c">Louise M. Rosenblatt.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Carbondale :</subfield><subfield code="b">Southern Illinois University Press,</subfield><subfield code="c">c1978.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xv, 196 p. ;</subfield><subfield code="c">24 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Literature</subfield><subfield code="x">Philosophy.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Criticism.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reading.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">PN</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">PN45 .R587</subfield><subfield code="b">loc+PN-+0045+00000000+R5870000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Barnard</subfield><subfield code="b">Milstein &lt;Barnard Library Collection&gt;, Butler 406A, 406, 409 &gt;&gt; PN45 .R587|DELIM|1936</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005'],'pub_name_display'=>['Southern Illinois University Press'],'source_display'=>['catalog'],'material_type_display'=>['xv, 196 p.'],'language_facet'=>['English'],'_version_'=>1507643674918387712,'timestamp'=>'2015-07-25T05:10:51.062Z'}]},'facet_counts'=>{'facet_queries'=>{},'facet_fields'=>{'format'=>['Book',1],'lc_1letter_facet'=>['P - Language & Literature',1],'lc_subclass_facet'=>['PN - Literature (General)',1],'language_facet'=>['English',1],'pub_date_sort'=>['1978',1],'subject_geo_facet'=>[],'subject_topic_facet'=>['Criticism',1,'Literature',1,'Philosophy',1,'Reading',1],'subject_era_facet'=>[],'subject_form_facet'=>[],'database_hilcc_facet'=>[],'database_resource_type_facet'=>[],'location_facet'=>['Barnard',1],'author_facet'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005',1],'source_facet'=>['catalog',1]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>{'min'=>1978.0,'max'=>1978.0,'count'=>1,'missing'=>0,'sum'=>1978.0,'sumOfSquares'=>3912484.0,'mean'=>1978.0,'stddev'=>0.0,'facets'=>{}}}}}
-    http_version: 
-  recorded_at: Wed, 23 Sep 2015 14:31:53 GMT
-- request:
-    method: get
-    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&fl=*&q=%7B!lucene%7Did:(1234)&qt=search&rows=1&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck=false&stats=true&stats.field=pub_date_sort&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Wed, 23 Sep 2015 16:18:39 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>36,'params'=>{'spellcheck'=>'false','f.subject_form_facet.facet.limit'=>'11','facet'=>'true','sort'=>'score desc, pub_date_sort desc, title_sort asc','stats'=>'true','f.subject_topic_facet.facet.limit'=>'11','f.language_facet.facet.limit'=>'6','f.lc_1letter_facet.facet.limit'=>'31','f.pub_date_sort.facet.limit'=>'4','f.location_facet.facet.limit'=>'6','wt'=>'ruby','f.lc_subclass_facet.facet.limit'=>'501','rows'=>'1','fl'=>'*','f.subject_geo_facet.facet.limit'=>'11','q'=>'{!lucene}id:(1234)','stats.field'=>'pub_date_sort','f.author_facet.facet.limit'=>'6','qt'=>'search','f.format.facet.limit'=>'6','f.subject_era_facet.facet.limit'=>'11'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+pn-+0045+00000000+r5870000+1234'],'location_call_number_id_display'=>['Milstein <Barnard Library Collection>, Butler 406A, 406, 409 >> PN45 .R587|DELIM|1936'],'lccn_display'=>['78016335'],'item_display'=>['PN45 .R587 | loc+pn-+0045+00000000+r5870000+1234 | ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'title_display'=>['The reader, the text, the poem : the transactional theory of the literary work'],'clio_id_display'=>'1234','subject_topic_facet'=>['Literature','Criticism','Reading','Philosophy'],'pub_place_display'=>['Carbondale'],'format'=>['Book'],'oclc_display'=>['4056043','ocm04056043'],'title_first_facet'=>['R'],'full_publisher_display'=>['Carbondale : Southern Illinois University Press, c1978.'],'pub_date_sort'=>1978,'isbn_display'=>['0809308835'],'pub_year_display'=>['c1978'],'id'=>'1234','reverse_shelfkey'=>['ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'call_number_display'=>['PN45 .R587'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01131cam a2200349 i 4500</leader><controlfield tag="001">1234</controlfield><controlfield tag="005">20140424164936.0</controlfield><controlfield tag="008">790426s1978    ilu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   78016335 </subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0809308835</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)4056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm04056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG10505040-B</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAA1293CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)1234</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="082" ind1=" " ind2=" "><subfield code="a">801/.95</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Rosenblatt, Louise M.</subfield><subfield code="q">(Louise Michelle),</subfield><subfield code="d">1904-2005.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The reader, the text, the poem :</subfield><subfield code="b">the transactional theory of the literary work /</subfield><subfield code="c">Louise M. Rosenblatt.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Carbondale :</subfield><subfield code="b">Southern Illinois University Press,</subfield><subfield code="c">c1978.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xv, 196 p. ;</subfield><subfield code="c">24 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Literature</subfield><subfield code="x">Philosophy.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Criticism.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reading.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">PN</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">PN45 .R587</subfield><subfield code="b">loc+PN-+0045+00000000+R5870000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Barnard</subfield><subfield code="b">Milstein &lt;Barnard Library Collection&gt;, Butler 406A, 406, 409 &gt;&gt; PN45 .R587|DELIM|1936</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005'],'pub_name_display'=>['Southern Illinois University Press'],'source_display'=>['catalog'],'material_type_display'=>['xv, 196 p.'],'language_facet'=>['English'],'_version_'=>1507643674918387712,'timestamp'=>'2015-07-25T05:10:51.062Z'}]},'facet_counts'=>{'facet_queries'=>{},'facet_fields'=>{'format'=>['Book',1],'lc_1letter_facet'=>['P - Language & Literature',1],'lc_subclass_facet'=>['PN - Literature (General)',1],'language_facet'=>['English',1],'pub_date_sort'=>['1978',1],'subject_geo_facet'=>[],'subject_topic_facet'=>['Criticism',1,'Literature',1,'Philosophy',1,'Reading',1],'subject_era_facet'=>[],'subject_form_facet'=>[],'database_hilcc_facet'=>[],'database_resource_type_facet'=>[],'location_facet'=>['Barnard',1],'author_facet'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005',1],'source_facet'=>['catalog',1]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>{'min'=>1978.0,'max'=>1978.0,'count'=>1,'missing'=>0,'sum'=>1978.0,'sumOfSquares'=>3912484.0,'mean'=>1978.0,'stddev'=>0.0,'facets'=>{}}}}}
-    http_version: 
-  recorded_at: Wed, 23 Sep 2015 16:18:39 GMT
-- request:
-    method: get
-    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&fl=*&q=%7B!lucene%7Did:(1234)&qt=search&rows=1&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck=false&stats=true&stats.field=pub_date_sort&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Wed, 23 Sep 2015 16:23:20 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>36,'params'=>{'spellcheck'=>'false','f.subject_form_facet.facet.limit'=>'11','facet'=>'true','sort'=>'score desc, pub_date_sort desc, title_sort asc','stats'=>'true','f.subject_topic_facet.facet.limit'=>'11','f.language_facet.facet.limit'=>'6','f.lc_1letter_facet.facet.limit'=>'31','f.pub_date_sort.facet.limit'=>'4','f.location_facet.facet.limit'=>'6','wt'=>'ruby','f.lc_subclass_facet.facet.limit'=>'501','rows'=>'1','fl'=>'*','f.subject_geo_facet.facet.limit'=>'11','q'=>'{!lucene}id:(1234)','stats.field'=>'pub_date_sort','f.author_facet.facet.limit'=>'6','qt'=>'search','f.format.facet.limit'=>'6','f.subject_era_facet.facet.limit'=>'11'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+pn-+0045+00000000+r5870000+1234'],'location_call_number_id_display'=>['Milstein <Barnard Library Collection>, Butler 406A, 406, 409 >> PN45 .R587|DELIM|1936'],'lccn_display'=>['78016335'],'item_display'=>['PN45 .R587 | loc+pn-+0045+00000000+r5870000+1234 | ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'title_display'=>['The reader, the text, the poem : the transactional theory of the literary work'],'clio_id_display'=>'1234','subject_topic_facet'=>['Literature','Criticism','Reading','Philosophy'],'pub_place_display'=>['Carbondale'],'format'=>['Book'],'oclc_display'=>['4056043','ocm04056043'],'title_first_facet'=>['R'],'full_publisher_display'=>['Carbondale : Southern Illinois University Press, c1978.'],'pub_date_sort'=>1978,'isbn_display'=>['0809308835'],'pub_year_display'=>['c1978'],'id'=>'1234','reverse_shelfkey'=>['ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'call_number_display'=>['PN45 .R587'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01131cam a2200349 i 4500</leader><controlfield tag="001">1234</controlfield><controlfield tag="005">20140424164936.0</controlfield><controlfield tag="008">790426s1978    ilu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   78016335 </subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0809308835</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)4056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm04056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG10505040-B</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAA1293CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)1234</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="082" ind1=" " ind2=" "><subfield code="a">801/.95</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Rosenblatt, Louise M.</subfield><subfield code="q">(Louise Michelle),</subfield><subfield code="d">1904-2005.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The reader, the text, the poem :</subfield><subfield code="b">the transactional theory of the literary work /</subfield><subfield code="c">Louise M. Rosenblatt.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Carbondale :</subfield><subfield code="b">Southern Illinois University Press,</subfield><subfield code="c">c1978.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xv, 196 p. ;</subfield><subfield code="c">24 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Literature</subfield><subfield code="x">Philosophy.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Criticism.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reading.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">PN</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">PN45 .R587</subfield><subfield code="b">loc+PN-+0045+00000000+R5870000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Barnard</subfield><subfield code="b">Milstein &lt;Barnard Library Collection&gt;, Butler 406A, 406, 409 &gt;&gt; PN45 .R587|DELIM|1936</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005'],'pub_name_display'=>['Southern Illinois University Press'],'source_display'=>['catalog'],'material_type_display'=>['xv, 196 p.'],'language_facet'=>['English'],'_version_'=>1507643674918387712,'timestamp'=>'2015-07-25T05:10:51.062Z'}]},'facet_counts'=>{'facet_queries'=>{},'facet_fields'=>{'format'=>['Book',1],'lc_1letter_facet'=>['P - Language & Literature',1],'lc_subclass_facet'=>['PN - Literature (General)',1],'language_facet'=>['English',1],'pub_date_sort'=>['1978',1],'subject_geo_facet'=>[],'subject_topic_facet'=>['Criticism',1,'Literature',1,'Philosophy',1,'Reading',1],'subject_era_facet'=>[],'subject_form_facet'=>[],'database_hilcc_facet'=>[],'database_resource_type_facet'=>[],'location_facet'=>['Barnard',1],'author_facet'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005',1],'source_facet'=>['catalog',1]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>{'min'=>1978.0,'max'=>1978.0,'count'=>1,'missing'=>0,'sum'=>1978.0,'sumOfSquares'=>3912484.0,'mean'=>1978.0,'stddev'=>0.0,'facets'=>{}}}}}
-    http_version: 
-  recorded_at: Wed, 23 Sep 2015 16:23:20 GMT
+  recorded_at: Thu, 24 Sep 2015 15:34:29 GMT
 recorded_with: VCR 2.9.3
