@@ -206,7 +206,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
       end
     end
 
-    it 'supports an email function, via JS modal', :js, vcr: false do
+    it 'supports an email function, via JS modal', :js do
       visit catalog_path(1234)
       within '#show_toolbar' do
         click_link 'Email'
@@ -222,6 +222,8 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
         fill_in 'message', with: 'testing'
         find('button[type=submit]').click
       end
+
+      expect(find('#main-flashes')).to have_text "Email sent"
     end
   end
 
