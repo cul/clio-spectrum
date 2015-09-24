@@ -9,8 +9,13 @@
 
 .result{class: alternating_line("catalog"), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document)}
   .result_title= link_to document.get('title_display'), {:controller => 'catalog', :action => 'show', :id => document.id, :counter => (counter + 1)}
-  - if saved_viewstyle_option == 'compact_list'
-    = render :partial => "/_formats/clio/compact_list_details", :locals => {:document => document}
-  - else
-    = render :partial => "/_formats/clio/catalog_list_details", :locals => {:document => document}
 
+  -# NEXT-1049 Compact view for QuickSearch results
+  -# This controls the Quasi-Compact display of Catalog results in aggregates.
+  -# Leave disabled for now.
+  -# - if saved_viewstyle_option == 'compact_list'
+  -#   = render :partial => "/_formats/clio/compact_list_details", :locals => {:document => document}
+  -# - else
+  -#   = render :partial => "/_formats/clio/catalog_list_details", :locals => {:document => document}
+  -# This is the usual view:
+  = render :partial => "/_formats/clio/catalog_list_details", :locals => {:document => document}
