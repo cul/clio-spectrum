@@ -5,7 +5,7 @@ xml.feed("xmlns" => "http://www.w3.org/2005/Atom") do
 
   xml.title   @list.display_name + " Saved List"
   # an author is required, so we'll just use the app name
-  xml.author { xml.name "#{current_user.name} (#{current_user.login})" }
+  xml.author { xml.name  "List owner: " + @list.owner }
 
   xml.link    "rel" => "self", "href" => url_for(params.merge(:only_path => false))
   xml.link    "rel" => "alternate", "href" => url_for(params.merge(:only_path => false, :format => "html")), "type" => "text/html"
