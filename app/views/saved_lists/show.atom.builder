@@ -16,7 +16,7 @@ xml.feed("xmlns" => "http://www.w3.org/2005/Atom") do
 
 
 
-  @document_list.each do |doc|
+  @document_list.select {|doc| doc.instance_of?(SolrDocument) }.each do |doc|
     xml.entry do
       xml.title   doc.to_semantic_values[:title][0] || doc.id
 
