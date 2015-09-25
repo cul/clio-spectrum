@@ -1,49 +1,13 @@
--# %h2 Saved Lists
--# %hr
-
--# General information about Saved Lists
--# List items can be emailed, printed, and exported.
--# Logged-in users can copy items to their own lists.
--# List owners can delete items from their own lists.
--# %hr
-
--# - if @list
--#   -# Details for the list currently shown
--#   %h5 Current List Details
--#
--#   %dl
--#     %dt name
--#     %dd= @list.display_name
--#     %dt owner
--#     %dd= @list.owner
--#     - if @list.description
--#       %dt description
--#       %dd= @list.description
--#     %dt permissions
--#     %dd= @list.permissions
--#     %dt created
--#     %dd= @list.created_at.strftime("%b %e, %Y %l:%M%P")
--#     %dt last update
--#     %dd= @list.updated_at.strftime("%b %e, %Y %l:%M%P")
--#     %dt number of items
--#     %dd= @list.size
--#
--#   - if current_user && current_user.login == @list.owner
--#     %small=link_to "edit list details", edit_saved_list_path(@list)
--#
--#   %hr
-
 
 -# If authenticated, show a menu of all the current user's lists
 - if current_user
 
-%h4 Saved Lists for:
-%p.lead #{current_user.name} (#{current_user.login})
+  %h4 Saved Lists for:
+  %p.lead #{current_user.name} (#{current_user.login})
 
-%br
-= render :partial => "menu_list", :collection => @all_current_user_lists, :locals => { current_list: @list }
-
-- end  # if current_user (that is, if the user has authenticated)
+  -# %br
+  .container
+    = render partial: 'menu_list', collection: @all_current_user_lists, locals: { current_list: @list }
 
 
 
