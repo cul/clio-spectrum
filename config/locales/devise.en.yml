@@ -15,7 +15,8 @@ en:
     failure:
       already_authenticated: 'You are already signed in.'
       # unauthenticated: 'You need to sign in or sign up before continuing.'
-      unauthenticated: 'You have not yet signed in, searching anonymously.'
+      # unauthenticated: 'You have not yet signed in, searching anonymously.'
+      unauthenticated: ''
       unconfirmed: 'You have to confirm your account before continuing.'
       locked: 'Your account is locked.'
       invalid: 'Invalid email or password.'
