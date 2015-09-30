@@ -33,17 +33,22 @@ Clio::Application.configure do
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
-  config.assets.compress = true
   # Wait... the compress introduces Chrome Javascript-parsing error?!?!
   #   Uncaught ReferenceError: Invalid left-hand side expression in prefix operation
   # 7/29 - Chrome updated, will this work now?
   # No, not yet, leave compressed = false
+  # config.assets.compress = false
   # Aha, found it!  Wrong comments in coffeescript, tripping up only Chrome.
   # Fixed.
-  # config.assets.compress = false
-
+  config.assets.compress = true
   config.assets.compile = false
   config.assets.digest = true
+
+  # Rails 4 - these are split out
+  # config.assets.css_compressor = :yui
+  # This is available from sass-rails gem
+  config.assets.css_compressor = :sass
+  config.assets.js_compressor = :uglifier
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin

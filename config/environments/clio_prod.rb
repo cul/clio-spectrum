@@ -39,6 +39,12 @@ Clio::Application.configure do
   config.assets.compile = false
   config.assets.digest = true
 
+  # Rails 4 - these are split out
+  # config.assets.css_compressor = :yui
+  # This is available from sass-rails gem
+  config.assets.css_compressor = :sass
+  config.assets.js_compressor = :uglifier
+
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 
