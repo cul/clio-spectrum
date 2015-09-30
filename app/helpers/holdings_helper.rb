@@ -34,11 +34,13 @@ module HoldingsHelper
     location, call_number = loc_display.split(' >> ')
     output = ''.html_safe
     output << shorten_location(location)  # append will html-escape content
-    if call_number
-      # NEXT-437 - remove the separator between location and call number
-      # output << " >> "
-      output << content_tag(:span, " #{call_number} ", class: 'call_number').html_safe
-    end
+    # if call_number
+    #   # NEXT-437 - remove the separator between location and call number
+    #   # output << " >> "
+    #   output << content_tag(:span, " #{call_number} ", class: 'call_number').html_safe
+    # end
+    # simplify:
+    output << "  #{call_number}" if call_number
     output
   end
 
