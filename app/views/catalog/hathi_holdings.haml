@@ -1,4 +1,6 @@
-- cache("hathi_holdings_#{@document.cache_key}") do
+-# Hathi content does change, but slowly.  
+-# Force re-fetch after a month.
+- cache("hathi_holdings_#{@document.cache_key}", expires_in: 30.days) do
 
   -# fetch via hathitrust.org API
   - hathi_holdings_data = get_hathi_holdings_data(@document)
