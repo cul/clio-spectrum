@@ -1,18 +1,5 @@
 -# FORMATS/CLIO
 -# for search-results listing
--# overloaded for use with call-number browse
-
--# no, stop using this partial for browsing, don't overload functionality/parms so much 
--# -# What to use for our document link label?
--# -# Usually the title, but if we're browsing by call-number, use the call_number
--# - document_link_label = document.get('title_display')
--# - document_link_label = call_number if local_assigns.has_key? :call_number
--# - highlight ||= false
--# -# And, if we didn't use "title" for the link label, we need to tell
--# -#  the "details" partial that it needs to show the title, via this:
--# - show_title = local_assigns.has_key? :call_number
-
-
 
 / _formats/clio/_standard_list_item.html.haml
 / container for a SINGLE doc

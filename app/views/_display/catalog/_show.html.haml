@@ -8,7 +8,7 @@
 
 = render :partial => "_formats/clio/catalog_show_toolbar", :locals => { :document => document }
 
-.show-document.Xcol-sm-12{:class => ("database_record" if document.is_database?)}
+.show-document{:class => ("database_record" if document.is_database?)}
   .title
     %h4= document_heading.listify.join("").html_safe
 
@@ -57,32 +57,6 @@
 
 -#  ====  VIRTUAL SHELF VIEW - MINI BROWSE  ====
 = render "/browse/mini_browse_panel", :document => document
-
--#  MOVED TO PARTIAL /browse/_mini_browse_panel
--# - unless Rails.env == 'clio_prod'
--#   - if document['shelfkey']
--# 
--#     #mini_browse_panel.well.well-sm
--#       .row
--#         .col-xs-7
--#           = render '/browse/browse_title'
--#           .btn-group
--#             .btn.btn-default.show_mini_browse{type: 'button'}Show
--#             .btn.btn-default.hide_mini_browse.disabled{type: 'button'}Hide
--# 
--#           -# This "full screen" link has a default written into the generated HTML,
--#           -# but needs to be updated via JS for toggled call-numbers 
--#           = link_to t('blacklight.browse.full_screen'), browse_shelfkey_full_path(session['browse']['shelfkey']), class: 'btn btn-default full_screen_link', data: {toggle: 'tooltip', placement: 'top'}, title: t('blacklight.browse.full_screen_description')
--# 
--#         .col-xs-5
--#           = render "/browse/call_number_toggle", document: document
--# 
--#       #mini_browse_list.row
--#         .col-xs-12
--#           = render "/_formats/clio/catalog_show_nearby", document: document
-    
-      
-  -# .clear-both
 
 -# this partial inserts the javascript to fetch book data from Google,
 -# and pass it to update_google_holdings() [defined in holdings.js]
