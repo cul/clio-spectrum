@@ -8,10 +8,11 @@
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
 
-server 'bronte.cul.columbia.edu', user: 'deployer', roles: %w{app db web}
+# server 'bronte.cul.columbia.edu', user: 'deployer', roles: %w{app db web}
+server 'clio-dev.cul.columbia.edu', user: 'deployer', roles: %w{app db web}
 
 # set :deploy_to, '/var/www/my_app_name'
-set :deploy_to, '/opt/passenger/clio_dev'
+set :deploy_to, '/opt/passenger/clio/clio_dev'
 
 
 # role-based syntax
