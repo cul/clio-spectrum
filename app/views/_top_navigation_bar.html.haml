@@ -1,4 +1,4 @@
-- cache("top_navigation_bar_#{current_user}", :expires_in: 1.day) do
+- cache("top_navigation_bar_#{current_user}", expires_in: 1.day) do
 
   #topnavbar.navbar.navbar-default.navbar-static-top{data: {'ga-action' => 'Top NavBar Click'} }
     .container
