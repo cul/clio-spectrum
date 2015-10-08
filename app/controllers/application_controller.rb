@@ -534,16 +534,12 @@ class ApplicationController < ActionController::Base
       fullpath =~ /\/holdings/ or
       # Persistent selected-item lists
       fullpath =~ /\/selected/
-    Rails.logger.debug "SSSS store_location() session[:previous_url]=#{session[:previous_url]}"
-    Rails.logger.debug "SSSS store_location() fullpath=#{fullpath}"
-    Rails.logger.debug "SSSS store_location() request.xhr?=#{request.xhr?}"
   end
 
   # DEVISE callback
   # https://github.com/plataformatec/devise/wiki/ ... 
   #     How-To:-Redirect-to-a-specific-page-on-successful-sign-in-and-sign-out
   def after_sign_in_path_for(resource = nil)
-    Rails.logger.debug "SSSS after_sign_in_path_for() session[:previous_url]=#{session[:previous_url]}"
     session[:previous_url] || root_path
   end
 
