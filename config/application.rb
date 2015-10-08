@@ -126,5 +126,8 @@ module Clio
     # (from http://api.rubyonrails.org/classes/ActionDispatch/Request.html
     # e.g., :original_url, :remote_ip, etc.)
     config.log_tags = [:remote_ip]
+
+    # Set a default.  This'll be set to true in per-environment files.
+    config.eager_load = false
   end
 end
