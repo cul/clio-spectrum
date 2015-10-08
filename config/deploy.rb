@@ -35,9 +35,19 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
+# set :default_env, { path: "/opt/ruby/ruby-2.2.2/bin/ruby:$PATH" }
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
+
+# # Capistrano can't find passenger:
+# #   ERROR: Phusion Passenger doesn't seem to be running
+# # So tell it where we it's installed:
+# #   https://github.com/capistrano/passenger/blob/master/README.md
+# set :passenger_environment_variables, { :path => '$PATH:/opt/nginx/passenger/passenger-5.0.7/bin' }
+
+# can't get "passenger-config restart-app" working
+set :passenger_restart_with_touch, true
 
 namespace :deploy do
 
