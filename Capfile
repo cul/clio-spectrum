@@ -15,7 +15,15 @@ require 'capistrano/deploy'
 #   https://github.com/capistrano/rails
 #   https://github.com/capistrano/passenger
 #
-require 'capistrano/rvm'
+
+# TEMPORARY - until migration to new servers is complete.
+# Only load RVM in RVM-enabled environments
+#   https://github.com/capistrano/rvm/issues/49
+task :require_rvm do
+  require 'capistrano/rvm'
+end
+task 'clio_dev' => [:require_rvm]
+
 # require 'capistrano/rbenv'
 # require 'capistrano/chruby'
 require 'capistrano/bundler'
