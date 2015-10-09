@@ -228,14 +228,12 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   end
 
   it 'supports a debug mode', :js do
-    skip "Debug mode broken w/BL 5.10"
     visit catalog_index_path('q' => 'prim')
 
     expect(page).to_not have_css('div.debug_instruction')
     expect(page).to_not have_css('div.debug_entries')
 
     visit catalog_index_path('q' => 'sneak', 'debug_mode' => 'on')
-    # save_and_open_page # debug
 
     # We should still NOT have a debug session, since this only works for
     # authenticated users who are in the admin group

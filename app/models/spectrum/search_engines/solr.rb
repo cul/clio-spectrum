@@ -33,6 +33,9 @@ module Spectrum
         unless search_params_logic.include? :add_range_limit_params
           search_params_logic << :add_range_limit_params
         end
+        unless search_params_logic.include? :add_debug_to_solr
+          search_params_logic << :add_debug_to_solr
+        end
 
         options = original_options.to_hash.deep_clone
         @source = options.delete('source') || options.delete(:source) || fail('Must specify source')
@@ -185,11 +188,14 @@ module Spectrum
             @search, @documents = search_results(@params.merge(extra_controller_params), search_params_logic)
 
             @debug_entries['solr'] = []  if @debug_entries['solr'] == {}
-            hashed_event = {
-              timing: @search['debug']['timing'],
-              parsedquery: @search['debug']['parsedquery'].to_s,
-              params: @search['params']
-            }
+
+            hashed_event = { params: @search['params'] }
+            # retrieve values from native Solr response debug section,
+            # if present
+            if @search['debug']
+              hashed_event[:timing] = @search['debug']['timing']
+              hashed_event[:parsedquery] = @search['debug']['parsedquery'].to_s
+            end
 
             @debug_entries['solr'] << hashed_event
           end

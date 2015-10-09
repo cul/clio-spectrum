@@ -1,9 +1,18 @@
 module Spectrum
   class SearchBuilder < Blacklight::Solr::SearchBuilder
 
+    # These methods are passed a hash, which will
+    # become the Solr request parameters.
+    # Their job is to fill this hash with keys/values, based
+    # on another hash - blacklight_params - which is available
+    # to subclasses of Blacklight::Solr::SearchBuilder
+
+    def add_debug_to_solr(solr_parameters)
+      solr_parameters[:debugQuery] = :true if  blacklight_params[:debugQuery] == "true"
+    end
+
 
     def add_advanced_search_to_solr(solr_parameters)
-
       req_params = blacklight_params
 
       # Only continue if the blacklight params indicate this is 

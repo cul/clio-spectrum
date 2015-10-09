@@ -363,6 +363,9 @@ class CatalogController < ApplicationController
     unless search_params_logic.include? :add_range_limit_params
       search_params_logic << :add_range_limit_params
     end
+    unless search_params_logic.include? :add_debug_to_solr
+      search_params_logic << :add_debug_to_solr
+    end
   end
 
   def preprocess_search_params
