@@ -3,7 +3,7 @@
 
 / catalog/index.html.haml
 
-- debug_timestamp('begin catalog/index.html.haml')
+- debug_timestamp('views/catalog/index.html.haml begin')
 
 -  unless has_search_parameters?
   - cache("datasource_landing_page_#{@active_source}_#{params_digest}") do
@@ -31,7 +31,9 @@
       -# = render 'document_list'
       -# ...with the content of the two-line partial.
       #documents.scroll_memory{:data => {'ga-action' => 'Search Results Click'} }
+        - debug_timestamp('views/catalog/index.html.haml render_document_list begin...')
         = render_document_list(@document_list, :action => "catalog")
+        - debug_timestamp('views/catalog/index.html.haml render_document_list end...')
       
 
       -# Build a secondary pagination bar below the seach results
@@ -49,7 +51,7 @@
       Unexpected Error during search.
       Please #{link_to "restart your search", datasource_landing_page_path(@active_source)}
 
-- debug_timestamp('end catalog/index.html.haml')
+- debug_timestamp('views/catalog/index.html.haml complete.')
 
 
 
