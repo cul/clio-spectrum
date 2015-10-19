@@ -59,6 +59,10 @@ Clio::Application.configure do
   # rails 4
   config.eager_load = true
 
+  # log information from Action View, set to nil to disable logging
+  # http://guides.rubyonrails.org/configuring.html
+  config.action_view.logger = nil
+
 end
 
 # Exception Notifier - Upgrading to 4.x version

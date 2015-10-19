@@ -13,6 +13,7 @@ Clio::Application.configure do
 
   # Do we want caching (page-, action-, fragment-) in this environment?
   config.action_controller.perform_caching = true
+
   # Cache store details - disk or memory?  How big?  (50MB?)
   config.cache_store = :memory_store, { size: 50_000_000 }
 

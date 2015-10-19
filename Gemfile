@@ -200,8 +200,9 @@ group :development do
   gem 'capistrano-passenger',   '~> 0.1', require: false
 
 
-  # don't log every rendered view/partial
-  gem 'quiet_assets'
+  # Rails 4 - use config.action_view.logger instead
+  # # don't log every rendered view/partial
+  # gem 'quiet_assets'
 
   # browser-based live debugger and REPL
   # http://railscasts.com/episodes/402-better-errors-railspanel
