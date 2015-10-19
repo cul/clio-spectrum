@@ -138,11 +138,12 @@ gem 'cancan'
 gem 'exception_notification'
 gem 'net-ldap'
 
-# 3/15, comment out for now to simplify output,
-#  we can turn it back on when we want it again.
-# 9/15 - let's try to improve things a bit more
-# application monitoring tool
-gem 'newrelic_rpm'
+# 10/15 - not giving us insight beyond our debug_timestamp info
+# # 3/15, comment out for now to simplify output,
+# #  we can turn it back on when we want it again.
+# # 9/15 - let's try to improve things a bit more
+# # application monitoring tool
+# gem 'newrelic_rpm'
 
 # "Rack middleware which cleans up invalid UTF8 characters"
 gem 'rack-utf8_sanitizer'
