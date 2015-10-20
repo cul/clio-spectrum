@@ -22,8 +22,9 @@
 
     .col-sm-5.no-bottom-space= document.get("full_publisher_display")
 
-  .row
-    .col-sm-7.item_select_allowance.no-bottom-space.small
-      = holdings_compact(document)
-    .col-sm-5.no-bottom-space.small
-      = formats_with_icons(document)
+  - cache("compact_list_item_#{document.cache_key}") do
+    .row
+      .col-sm-7.item_select_allowance.no-bottom-space.small
+        = holdings_compact(document)
+      .col-sm-5.no-bottom-space.small
+        = formats_with_icons(document)

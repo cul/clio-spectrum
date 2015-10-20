@@ -24,12 +24,13 @@
 
 
   / main container for doc partial view
-  .row
+  - cache("standard_list_item_#{document.cache_key}") do
+    .row
 
-    .details.col-sm-10
-      = render "/_formats/clio/catalog_list_details", document: document
+      .details.col-sm-10
+        = render "/_formats/clio/catalog_list_details", document: document
 
-    .doc_bookjacket.col-sm-2.hidden-xs
-      =image_tag("spacer.png", :class => "list_view bookjacket " + extract_standard_bibkeys(document).listify.collect { |x| "id_" + x.to_s.gsub(':','')}.join(" "))
+      .doc_bookjacket.col-sm-2.hidden-xs
+        =image_tag("spacer.png", :class => "list_view bookjacket " + extract_standard_bibkeys(document).listify.collect { |x| "id_" + x.to_s.gsub(':','')}.join(" "))
 
 
