@@ -5,7 +5,7 @@ Clio::Application.routes.draw do
   get "catalog/endnote", :as => "endnote_catalog"
 
   # special admin pages
-  get 'catalog/system'
+  get 'catalog/enviro'
   get 'catalog/format_icons'
 
   # and this..

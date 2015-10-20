@@ -27,6 +27,9 @@ Clio::Application.configure do
   # config.action_controller.perform_caching = false
   config.action_controller.perform_caching = true
 
+  # Cache store details - disk or memory?  How big?  (50MB?)
+  config.cache_store = :memory_store, { size: 50_000_000 }
+
   config.assets.compress = false
   config.assets.debug = true
   config.assets.digest = false

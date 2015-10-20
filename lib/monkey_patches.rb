@@ -86,6 +86,15 @@ class Hash
   end
 end
 
+class ActiveSupport::Cache::MemoryStore
+  def key_count
+    @data.keys.size
+  end
+  def cache_size
+    @cache_size
+  end
+end
+
 # # This is in Rails 4.1, 4.2, and onward.
 # # Add it here as a monkey-patch for Rails 4.0,
 # # *** try to remember to remove this after Rails upgrade ***
