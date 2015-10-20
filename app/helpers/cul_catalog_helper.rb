@@ -41,17 +41,19 @@ module CulCatalogHelper
   # Local version of Blacklight::UrlHelperBehavior.link_to_document,
   # which preserves datasource within the route 
   def link_to_source_document(doc, opts = { label: nil, counter: nil, results_view: true, source: nil })
-    label ||= blacklight_config.index.title_field.to_sym
-    label = render_document_index_label doc, opts
+    # Rails.logger.debug "opts=[#{opts.inspect}]"
+    blacklight_link = link_to_document(doc, opts[:label], counter: opts[:counter])
     source = opts[:source] || @active_source
-
-    url = "/#{source}/#{doc['id'].listify.first.to_s}"
-
-    # BlackLight 5.2 updates how they track the counter, 
-    # link_to label, url, :'data-counter' => options[:counter]
-    link_to label, url, document_link_params(doc, opts)
-
+    fix_catalog_links(blacklight_link, source)
   end
+
+  # def link_to_source_document(doc, opts = { label: nil, counter: nil, source: nil })
+  #   label ||= blacklight_config.index.title_field.to_sym
+  #   label = render_document_index_label doc, opts
+  #   source = opts[:source] || @active_source
+  #   url = "/#{source}/#{doc['id'].listify.first.to_s}"
+  #   link_to label, url, document_link_params(doc, opts)
+  # end
 
   def catalog_index_path(options = {})
     filtered_options = options.reject do |key, value|
