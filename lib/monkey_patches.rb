@@ -86,26 +86,26 @@ class Hash
   end
 end
 
-# This is in Rails 4.1, 4.2, and onward.
-# Add it here as a monkey-patch for Rails 4.0,
-# *** try to remember to remove this after Rails upgrade ***
-# https://github.com/rails/rails/pull/19941
-module ActionView
-  module Helpers
-    module CacheHelper
-
-      def cache(name = {}, options = nil, &block)
-        if controller.respond_to?(:perform_caching) && controller.perform_caching
-          safe_concat(fragment_for(cache_fragment_name(name, options), options, &block))
-        else
-          yield
-        end
-
-        nil
-      end
-    end
-  end
-end
+# # This is in Rails 4.1, 4.2, and onward.
+# # Add it here as a monkey-patch for Rails 4.0,
+# # *** try to remember to remove this after Rails upgrade ***
+# # https://github.com/rails/rails/pull/19941
+# module ActionView
+#   module Helpers
+#     module CacheHelper
+# 
+#       def cache(name = {}, options = nil, &block)
+#         if controller.respond_to?(:perform_caching) && controller.perform_caching
+#           safe_concat(fragment_for(cache_fragment_name(name, options), options, &block))
+#         else
+#           yield
+#         end
+# 
+#         nil
+#       end
+#     end
+#   end
+# end
 
 # Some monkey patching to add some network debugging
 

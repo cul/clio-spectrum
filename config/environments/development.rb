@@ -24,8 +24,8 @@ Clio::Application.configure do
   # *** CACHING ***
   # ***************
   # Turn development caching on to test Caching, ClickTale, etc.
-  config.action_controller.perform_caching = false
-  # config.action_controller.perform_caching = true
+  # config.action_controller.perform_caching = false
+  config.action_controller.perform_caching = true
 
   config.assets.compress = false
   config.assets.debug = true
