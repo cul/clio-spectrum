@@ -27,9 +27,7 @@
       - if mini
         %b= link_to_source_document document, :label=> link_label.abbreviate(100)
       - else
-        %span.coins_wrapper
-          <!-- COinS -->
-          %span.Z3988{title: catalog_to_openurl_ctx_kev(document)}
+        = render '/coins', document: document
         .item_anchor
           = render '/saved_lists/item_select_checkbox', item_id: document[:id]
         .item_select_allowance

@@ -14,9 +14,7 @@
 
   .row
     .info.col-sm-6.col-xs-6
-      %span.coins_wrapper
-        / COinS
-        %span.Z3988{ :title => catalog_to_openurl_ctx_kev(document).html_safe }
+      = render '/coins', document: document
 
       = render_document_view(document, :template => "catalog_show", :format => "clio")
 
