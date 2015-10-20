@@ -39,6 +39,7 @@ Clio::Application.configure do
   config.assets.compress = true
   config.assets.compile = false
   config.assets.digest = true
+  config.assets.logger = nil
 
   # Rails 4 - these are split out
   # config.assets.css_compressor = :yui
@@ -60,8 +61,7 @@ Clio::Application.configure do
   # rails 4
   config.eager_load = true
 
-  # log information from Action View, set to nil to disable logging
-  # http://guides.rubyonrails.org/configuring.html
+  # turn off logging of view/parital rendering
   config.action_view.logger = nil
 
 end

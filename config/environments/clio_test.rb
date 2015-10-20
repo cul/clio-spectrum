@@ -44,6 +44,8 @@ Clio::Application.configure do
   config.assets.compress = true
   config.assets.compile = false
   config.assets.digest = true
+  # turn off all asset logging - match CLIO Test to CLIO Prod
+  config.assets.logger = nil
 
   # Rails 4 - these are split out
   # config.assets.css_compressor = :yui
@@ -51,15 +53,15 @@ Clio::Application.configure do
   config.assets.css_compressor = :sass
   config.assets.js_compressor = :uglifier
 
+  # turn off logging of view/parital rendering
+  # - match CLIO Test to CLIO Prod
+  config.action_view.logger = nil
+
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 
   # rails 4
   config.eager_load = true
-
-  # log information from Action View, set to nil to disable logging
-  # http://guides.rubyonrails.org/configuring.html
-  config.action_view.logger = nil
 
 end
 

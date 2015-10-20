@@ -33,14 +33,17 @@ Clio::Application.configure do
   # Don't compress, to help with debugging...
   # config.assets.compress = true
   config.assets.compress = false
-
   config.assets.compile = false
-
   # # CLIO DEV is another environment where we'll want to debug asset issues
   # config.assets.debug = true
-
   config.assets.digest = true
   # config.assets.digest = false
+  # We want to see this in CLIO Dev
+  # config.assets.logger = nil
+
+  # turn off logging of view/parital rendering?
+  # - no, we want to see this in CLIO Dev
+  # config.action_view.logger = nil
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin

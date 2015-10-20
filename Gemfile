@@ -204,6 +204,9 @@ group :development do
   # Rails 4 - use config.action_view.logger instead
   # # don't log every rendered view/partial
   # gem 'quiet_assets'
+  # But rails outputs two blank lines to log?
+  # Ok, use this - but only for dev.
+  gem 'quiet_assets', group: :development
 
   # browser-based live debugger and REPL
   # http://railscasts.com/episodes/402-better-errors-railspanel
