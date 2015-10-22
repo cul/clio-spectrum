@@ -177,9 +177,9 @@ class ApplicationController < ActionController::Base
 
     # this new() actually runs the search.
     # [ the Solr engine call perform_search() within it's initialize() ]
-    debug_timestamp('calling Solr.new()')
+    debug_timestamp('blacklight_search() calling Solr.new()')
     search_engine = Spectrum::SearchEngines::Solr.new(options)
-    debug_timestamp('done.')
+    debug_timestamp('blacklight_search() Solr.new() complete.')
 
     if search_engine.successful?
       @response = search_engine.search

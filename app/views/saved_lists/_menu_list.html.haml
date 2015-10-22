@@ -1,13 +1,15 @@
 
 - link_text = "#{menu_list.display_name.abbreviate(20)} (#{menu_list.size})"
 
-.container.saved_list_list
-  .row
-    .col-sm-8
-      - if menu_list == current_list
-        %b= link_text
-      - else
-        %b= link_to link_text, menu_list.url
-    .col-sm-4.text-right
-      #{get_permissions_label(menu_list.permissions)}
+.row.saved_list_list.no-gutter
+  .col-sm-7
+    - if menu_list == current_list
+      %b= link_text
+    - else
+      %b= link_to link_text, menu_list.url
+  .col-sm-3
+    #{get_permissions_label(menu_list.permissions)}
+  .col-sm-2.text-right
+    - if menu_list.permissions == 'public'
+      = link_to image_tag('rss-feed-icon-14x14.png', size: "13x13"), menu_list.url + '.atom', :class => "rss-feed"
 

@@ -2,12 +2,14 @@ site:
   manage:
     - gb8
     - sam119
+    - slt0
     - test_site_manager
 
   # for any pre-production features we want to play with
   pilot:
     - gb8
     - sam119
+    - slt0
     - hhb2119
     - jrl2132
     - trd2119
@@ -88,6 +90,7 @@ item_alerts:
       - sem2166
       - shs4
       - sk33
+      - slt0
       - sn2160
       - sy2133
       - tkf2104

@@ -98,8 +98,7 @@ module Spectrum
       end
 
       def connection_config
-        Rails.logger.debug "Spectrum::SearchEngine::Solr#connection_config()"
-        
+        # Rails.logger.debug "Spectrum::SearchEngine::Solr#connection_config()"
         @config ||= Solr.generate_config(@source)
       end
 
@@ -116,12 +115,12 @@ module Spectrum
       end
 
       def blacklight_config
-        Rails.logger.debug "Spectrum::SearchEngine::Solr#blacklight_config()"
+        # Rails.logger.debug "Spectrum::SearchEngine::Solr#blacklight_config()"
         @config
       end
 
       def blacklight_config=(config)
-        Rails.logger.debug "Spectrum::SearchEngine::Solr#blacklight_config=()"
+        # Rails.logger.debug "Spectrum::SearchEngine::Solr#blacklight_config=()"
         @config = config
       end
 

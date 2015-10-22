@@ -16,6 +16,7 @@ Clio::Application.configure do
 
   # Do we want caching (page-, action-, fragment-) in this environment?
   config.action_controller.perform_caching = true
+
   # Cache store details - disk or memory?  How big?  (50MB?)
   config.cache_store = :memory_store, { size: 50_000_000 }
 
@@ -43,12 +44,18 @@ Clio::Application.configure do
   config.assets.compress = true
   config.assets.compile = false
   config.assets.digest = true
+  # turn off all asset logging - match CLIO Test to CLIO Prod
+  config.assets.logger = nil
 
   # Rails 4 - these are split out
   # config.assets.css_compressor = :yui
   # This is available from sass-rails gem
   config.assets.css_compressor = :sass
   config.assets.js_compressor = :uglifier
+
+  # turn off logging of view/parital rendering
+  # - match CLIO Test to CLIO Prod
+  config.action_view.logger = nil
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin

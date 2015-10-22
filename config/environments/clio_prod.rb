@@ -16,10 +16,11 @@ Clio::Application.configure do
 
   # Do we want caching (page-, action-, fragment-) in this environment?
   config.action_controller.perform_caching = true
+
   # Cache store details - disk or memory?  How big?  (100MB?)
   # (use number, because "100.megabytes" gives:  undefined method `megabytes'
   #  see http://stackoverflow.com/questions/10200339)
-  config.cache_store = :memory_store, { size: 100_000_000 }
+  config.cache_store = :memory_store, { size: 150_000_000 }
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
@@ -38,6 +39,7 @@ Clio::Application.configure do
   config.assets.compress = true
   config.assets.compile = false
   config.assets.digest = true
+  config.assets.logger = nil
 
   # Rails 4 - these are split out
   # config.assets.css_compressor = :yui
@@ -58,6 +60,9 @@ Clio::Application.configure do
 
   # rails 4
   config.eager_load = true
+
+  # turn off logging of view/parital rendering
+  config.action_view.logger = nil
 
 end
 

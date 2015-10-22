@@ -24,12 +24,16 @@ Clio::Application.configure do
   # *** CACHING ***
   # ***************
   # Turn development caching on to test Caching, ClickTale, etc.
-  config.action_controller.perform_caching = false
-  # config.action_controller.perform_caching = true
+  # config.action_controller.perform_caching = false
+  config.action_controller.perform_caching = true
+
+  # Cache store details - disk or memory?  How big?  (50MB?)
+  config.cache_store = :memory_store, { size: 50_000_000 }
 
   config.assets.compress = false
   config.assets.debug = true
   config.assets.digest = false
+  config.assets.logger = nil
 
   # Don't care if the mailer can't send
   config.action_mailer.delivery_method = :test
@@ -48,14 +52,6 @@ Clio::Application.configure do
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-
-  # UnAPI has been removed.
-  # # BlacklightUnapi - quiet the extensive log entries:
-  # # DEPRECATION WARNING: Passing a template handler in the template
-  # # name is deprecated. You can simply remove the handler name or
-  # # pass render :handlers => [:builder] instead.
-  # #
-  # ActiveSupport::Deprecation.silenced = true
 
   # http://asciicasts.com/episodes/151-rack-middleware
   # This gives us a total load time, as a comment before the opening <htm> tag.

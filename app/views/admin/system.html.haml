@@ -1,0 +1,14 @@
+
+
+%h3
+  System Details
+
+%table.table.table-bordered
+  - ['request.protocol', 'request.fullpath', 'request.url',
+     'Rails.cache.key_count', 'Rails.cache.cache_size.to_s(:human_size)',
+     'Process.pid', 'Process.uid',
+     'Etc.getpwuid(Process.uid).name'].each do |i|
+    %tr
+      %td=i
+      %td=eval(i)
+

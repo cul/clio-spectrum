@@ -95,9 +95,10 @@ module DisplayHelper
     saved_viewstyle_option = get_browser_option('viewstyle')
     datasource_viewstyles = DATASOURCES_CONFIG['datasources'][@active_source]['viewstyles']
 
-    # (10/2014 - support forward-conversion of renamed viewstyle names...)
-    saved_viewstyle_option = 'standard_list' if saved_viewstyle_option && (saved_viewstyle_option == 'list')
-    saved_viewstyle_option = 'compact_list'  if saved_viewstyle_option && (saved_viewstyle_option == 'compact')
+    # 10/2015 - it's been a year - remove this.
+    # # (10/2014 - support forward-conversion of renamed viewstyle names...)
+    # saved_viewstyle_option = 'standard_list' if saved_viewstyle_option && (saved_viewstyle_option == 'list')
+    # saved_viewstyle_option = 'compact_list'  if saved_viewstyle_option && (saved_viewstyle_option == 'compact')
 
     if saved_viewstyle_option &&
        (datasource_viewstyles = DATASOURCES_CONFIG['datasources'][@active_source]['viewstyles']) &&

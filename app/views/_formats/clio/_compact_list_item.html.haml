@@ -10,9 +10,7 @@
   .row
 
     .col-sm-4.no-bottom-space
-      %span.coins_wrapper
-        <!-- COinS -->
-        %span.Z3988{title: catalog_to_openurl_ctx_kev(document)}
+      = render '/coins', document: document
       
       .item_anchor
         = render '/saved_lists/item_select_checkbox', item_id: document[:id], counter: counter
@@ -24,8 +22,9 @@
 
     .col-sm-5.no-bottom-space= document.get("full_publisher_display")
 
-  .row
-    .col-sm-7.item_select_allowance.no-bottom-space.small
-      = holdings_compact(document)
-    .col-sm-5.no-bottom-space.small
-      = formats_with_icons(document)
+  - cache("compact_list_item_#{document.cache_key}") do
+    .row
+      .col-sm-7.item_select_allowance.no-bottom-space.small
+        = holdings_compact(document)
+      .col-sm-5.no-bottom-space.small
+        = formats_with_icons(document)
