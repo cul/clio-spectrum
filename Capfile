@@ -23,6 +23,7 @@ task :require_rvm do
   require 'capistrano/rvm'
 end
 task 'clio_dev' => [:require_rvm]
+task 'clio_test' => [:require_rvm]
 
 # require 'capistrano/rbenv'
 # require 'capistrano/chruby'
