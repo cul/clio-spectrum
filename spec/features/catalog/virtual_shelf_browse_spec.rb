@@ -40,7 +40,7 @@ describe "Virtual Shelf Browse", vcr: { allow_playback_repeats: true } do
 
 
   # NEXT-1150 - message for items which cannot launch virtual shelf browse
-  it "should display special text for items without call-numbers", :js do
+  it "should display special text for items without call-numbers" do
     unavailable_text = I18n.t('blacklight.browse.unavailable')
     # offsite, no call number assigned - should be durable for testing
     visit catalog_path(102437)

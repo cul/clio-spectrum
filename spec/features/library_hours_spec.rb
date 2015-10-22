@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'rake'
 
-describe 'Item Locations should show correct library hours', :js, :vcr, :skip_travis do
+describe 'Item Locations should show correct library hours', :vcr, :skip_travis do
 
   before(:all) do
     Location.clear_and_load_fixtures!
@@ -25,7 +25,7 @@ describe 'Item Locations should show correct library hours', :js, :vcr, :skip_tr
   #   Location.clear_and_load_fixtures!
   # end
 
-  it 'for Avery Drawings & Archives' do
+  it 'for Avery Drawings & Archives', :js do
     visit catalog_path('8277276')
     # page.save_and_open_page # debug
     expect(find('.holdings-container')).to have_text('Avery Drawings & Archives')
@@ -35,7 +35,7 @@ describe 'Item Locations should show correct library hours', :js, :vcr, :skip_tr
     expect(page).to have_link('Full Hours Info', href: 'http://www.columbia.edu/cu/lweb/services/hours/index.html?library=avery-drawings-archives')
   end
 
-  it 'for Avery Classics' do
+  it 'for Avery Classics', :js do
     # Pull up the item-detail page, follow link to Location page...
     visit catalog_path('565036')
     expect(find('.holdings-container')).to have_text('Avery Classics')

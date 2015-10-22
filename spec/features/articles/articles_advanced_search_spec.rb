@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Articles Search', :vcr do
 
-  it 'should support range facets', :js do
+  it 'should support range facets' do
     visit articles_index_path('s.q' => 'zebra')
     find('.facet_limit h5', text: 'Publication Date').click
     fill_in 'pub_date_min_value',   with: 1890
@@ -37,7 +37,7 @@ describe 'Articles Search', :vcr do
 
   # NEXT-581 - Articles Advanced Search should include Publication Title search
   # NEXT-793 - add Advanced Search to Articles, support Publication Title search
-  it 'should let you perform an advanced publication title search', :js do
+  it 'should let you perform an advanced publication title search' do
     visit root_path
     within('li.datasource_link[source="articles"]') do
       click_link('Articles')
@@ -61,7 +61,7 @@ describe 'Articles Search', :vcr do
 
   # NEXT-622 - Basic Articles Search should have a pull-down for fielded search
   # NEXT-842 - Articles search results page doesn't put search term back into search box
-  context 'should let you perform a fielded search from the basic search', :js do
+  context 'should let you perform a fielded search from the basic search' do
     before do
       visit articles_index_path
       within '.search_box.articles' do
@@ -89,7 +89,7 @@ describe 'Articles Search', :vcr do
       expect(find('#documents')).to have_content('Author Catmull')
     end
 
-    it "add in some test related to pub-date sorting..." do
+    it "add in some test related to pub-date sorting...", :js do
       expect(first('.index_toolbar')).to have_content('Sort by Relevance')
       first(:link, 'Sort by Relevance').click
 

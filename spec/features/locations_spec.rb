@@ -5,7 +5,7 @@ describe 'Locations', vcr: { allow_playback_repeats: true } do
 
     # NEXT-1118 - Avery link to "Make an Appointment"
     # OLD WAY - FROM APP_CONFIG - SHOWED UP ON /LOCATIONS/ PAGE
-    # it 'should include Location Notes', :js do
+    # it 'should include Location Notes' do
     #   # The full complete URL
     #   visit location_display_path('Avery+Classics+-+By+appt.+%28Non-Circulating%29')
     #   expect(page).to have_text("Located at: Avery Architectural & Fine Arts Library")
@@ -40,7 +40,7 @@ describe 'Locations', vcr: { allow_playback_repeats: true } do
 
 
     # NEXT-1129 - Request to change text of NYSPI
-    it 'should show correct phone for NYS Psychiatric Inst', :js do
+    it 'should show correct phone for NYS Psychiatric Inst' do
 
     # The full complete URL
     visit location_display_path('NYS+Psychiatric+Institute+Library+%28Circulation+Restricted%29')
@@ -51,54 +51,54 @@ describe 'Locations', vcr: { allow_playback_repeats: true } do
     expect(page).to have_text("Call (646) 774 - 8613 between 9-5pm")
   end
 
-    it 'should have a map of Butler if Location is Milstein', :js, :skip_travis do
+    it 'should have a map of Butler if Location is Milstein', :skip_travis do
       visit location_display_path("Milstein+%5BButler%5D")
       expect(page).to have_css('.gmap_container')
       expect(page).to have_css('.well h1', text: "Butler Library")
     end
 
-    it 'should have a map of Barnard if location is Barnard Archives', :js, :skip_travis do
+    it 'should have a map of Barnard if location is Barnard Archives', :skip_travis do
       visit location_display_path("Barnard+Archives+%28Non-Circulating%29")
       expect(page).to have_css('.gmap_container')
       expect(page).to have_css('.well h1', text: "Barnard Archives and Special Collections")
     end
 
-    it 'should have a google map for a location with a map', :js, :skip_travis do
+    it 'should have a google map for a location with a map', :skip_travis do
       visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
       expect(page).to have_css('.gmap_container')
     end
 
-    it 'should have a google map for a location with a slash', :js do
+    it 'should have a google map for a location with a slash' do
       visit location_display_path("Ancient%2FMedieval+Reading+Rm%2C+603+Butler+%28Non-Circulating%29")
       expect(page).to have_css('.gmap_container')
     end
 
-    it 'should have a google map for the Comp Lit Reading Room', :js do
+    it 'should have a google map for the Comp Lit Reading Room' do
       visit location_display_path("Comp+Lit+%26+Society+Reading+Room%2C+615+Butler+%28Non-Circ%29")
       expect(page).to have_css('.gmap_container')
     end
 
-    it 'should have a google map for the Edward Said Reading Room', :js do
+    it 'should have a google map for the Edward Said Reading Room' do
       visit location_display_path("Edward+Said+Reading+Rm%2C+616+Butler+%28Non-Circulating%29")
       expect(page).to have_css('.gmap_container')
     end
 
-    it 'should not show the map for Lehman Suites', :js do
+    it 'should not show the map for Lehman Suites' do
       visit location_display_path("Lehman+Suite%2C+406+SIA+%28Non-Circulating%29")
       expect(page).not_to have_css('.gmap_container')
     end
 
-    it 'should show the map for Orthopaedic Surgery', :js do
+    it 'should show the map for Orthopaedic Surgery' do
       visit location_display_path("Orthopaedic+Surgery+%28Non-Circulating%29")
       expect(page).to have_css('.gmap_container')
     end
 
-    it 'should show the map for NYS Psychiatric Institute', :js do
+    it 'should show the map for NYS Psychiatric Institute' do
       visit location_display_path("NYS+Psychiatric+Institute+Library+%28Circulation+Restricted%29")
       expect(page).to have_css('.gmap_container')
     end
 
-    it 'should show the map for Barnard Center for Research on Women', :js do
+    it 'should show the map for Barnard Center for Research on Women' do
       visit location_display_path("Barnard+Center+For+Research+On+Women%29")
       expect(page).to have_css('.gmap_container')
     end
@@ -114,7 +114,7 @@ describe 'Locations', vcr: { allow_playback_repeats: true } do
       expect(title).to match(/\"marker_title\":\"Avery Library\"/)
     end
 
-    it 'should have markers for all locations on the map', :js  do
+    it 'should have markers for all locations on the map'  do
       visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
       expect(find('.gmap_container')['data-markers'].split('},{').count).to eq(28)
     end

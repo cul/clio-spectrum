@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe 'record tests', :js, vcr: { allow_playback_repeats: true } do
+describe 'record tests', vcr: { allow_playback_repeats: true } do
 
-  it 'test call number' do
+  it 'test call number', :js do
     visit catalog_path('7686002')
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do
@@ -10,7 +10,7 @@ describe 'record tests', :js, vcr: { allow_playback_repeats: true } do
     end
   end
 
-  it 'test supplements' do
+  it 'test supplements', :js do
     visit catalog_path('2120018')
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do
@@ -30,7 +30,7 @@ describe 'record tests', :js, vcr: { allow_playback_repeats: true } do
     expect(page).to have_no_selector('div#clio_holdings')
   end
 
-  it 'test services offsite' do
+  it 'test services offsite', :js do
     visit catalog_path('6249927')
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do
@@ -41,7 +41,7 @@ describe 'record tests', :js, vcr: { allow_playback_repeats: true } do
 
   context 'donor info' do
 
-    it 'test donor info' do
+    it 'test donor info', :js do
       visit catalog_path('5602687')
       expect(page).to have_css('#clio_holdings .holding')
       within ('div#clio_holdings') do
@@ -51,7 +51,7 @@ describe 'record tests', :js, vcr: { allow_playback_repeats: true } do
       end
     end
 
-    it 'test donor info icon' do
+    it 'test donor info icon', :js do
       visit catalog_path('9576776')
       expect(page).to have_css('#clio_holdings .holding')
       within ('div#clio_holdings') do
@@ -62,7 +62,7 @@ describe 'record tests', :js, vcr: { allow_playback_repeats: true } do
     end
 
     # NEXT-1180 - Accommodate donor info that spans one or two lines
-    it 'test donor info with very, very, very, very, very, very long donor label' do
+    it 'test donor info with very, very, very, very, very, very long donor label', :js do
       visit catalog_path('36114')
       expect(page).to have_css('#clio_holdings .holding')
       within ('div#clio_holdings') do
@@ -75,7 +75,7 @@ describe 'record tests', :js, vcr: { allow_playback_repeats: true } do
     end
   end
 
-  it 'special collections link' do
+  it 'special collections link', :js do
     visit catalog_path('10104738')
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do
@@ -84,7 +84,7 @@ describe 'record tests', :js, vcr: { allow_playback_repeats: true } do
     end
   end
 
-  it 'special collections services' do
+  it 'special collections services', :js do
     visit catalog_path('6201975')
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do

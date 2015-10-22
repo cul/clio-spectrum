@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Datasource Sanity', :js, :vcr do
+describe 'Datasource Sanity', :vcr do
 
   it "LWeb should be labeled 'Libraries Website'" do
     visit root_path
@@ -68,9 +68,9 @@ describe 'Datasource Sanity', :js, :vcr do
 
 end
 
-describe 'Simple query should retrieve results', :js, :vcr do
+describe 'Simple query should retrieve results', :vcr do
 
-  it 'in quicksearch datasource' do
+  it 'in quicksearch datasource', :js do
     visit quicksearch_index_path(q: 'test')
     expect(page).to have_css('.result_set', count: 4)
     expect(page).to have_css('.nested_result_set', count: 4)
@@ -114,7 +114,7 @@ describe 'Simple query should retrieve results', :js, :vcr do
     expect(page).to have_css('.result')
   end
 
-  it 'in dissertations datasource' do
+  it 'in dissertations datasource', :js do
     visit dissertations_index_path('q' => 'test')
     expect(page).to have_css('.result_set', count: 3)
     expect(page).to have_css('.nested_result_set', count: 3)
@@ -123,7 +123,7 @@ describe 'Simple query should retrieve results', :js, :vcr do
     end
   end
 
-  it 'in ebooks datasource' do
+  it 'in ebooks datasource', :js do
     visit ebooks_index_path('q' => 'test')
     expect(page).to have_css('.result_set', count: 2)
     expect(page).to have_css('.nested_result_set', count: 2)
@@ -142,11 +142,11 @@ describe 'Simple query should retrieve results', :js, :vcr do
 end
 
 
-describe 'Switching between data-source', :js, :vcr do
+describe 'Switching between data-source', :vcr do
 
   # Every time we hit new-arrivals, we need to tell the VCR
   # request matcher to ignore 'fq', to get stable cassettes
-  it 'should carry forward simple search to each datasource', :vcr => {:match_requests_on => [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')]} do
+  it 'should carry forward simple search to each datasource', :js, :vcr => {:match_requests_on => [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')]} do
     visit root_path
 
     # terminal newline submits form
@@ -228,7 +228,7 @@ describe 'Switching between data-source', :js, :vcr do
 
 
   # NEXT-978 - "Back" button broken in CLIO
-  it 'should allow back/forward navigation' do
+  it 'should allow back/forward navigation', :js do
     visit root_path
 
     within('#datasources') do

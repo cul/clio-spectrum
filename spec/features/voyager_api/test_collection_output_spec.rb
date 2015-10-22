@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe 'collection output tests', :js, vcr: { allow_playback_repeats: true } do
+describe 'collection output tests', vcr: { allow_playback_repeats: true } do
 
-  it 'test condensed holdings output full' do
+  it 'test condensed holdings output full', :js do
 
     visit catalog_path('8430339')
     within ('div#clio_holdings') do
@@ -16,7 +16,7 @@ describe 'collection output tests', :js, vcr: { allow_playback_repeats: true } d
 
   end
 
-  it 'test condensed holdings output brief' do
+  it 'test condensed holdings output brief', :js do
 
     visit catalog_path('8430339')
     within ('div#clio_holdings') do

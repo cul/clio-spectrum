@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Catalog Advanced Search', :vcr do
 
-  it 'should be accessible from the home page', :js do
+  it 'should be accessible from the home page' do
     # NEXT-713, NEXT-891 - A Journal Title search should find Newspapers
 
     # Use this string within the below test
@@ -33,7 +33,7 @@ describe 'Catalog Advanced Search', :vcr do
   end
 
   # NEXT-705 - "All Fields" should be default, and should be first option
-  it "should default to 'All Fields'", :js do
+  it "should default to 'All Fields'" do
     visit root_path
     within('li.datasource_link[source="catalog"]') do
       click_link('Catalog')
@@ -104,7 +104,7 @@ describe 'Catalog Advanced Search', :vcr do
     end
 
 
-    it "supports advanced search by #{searchField}", :js do
+    it "supports advanced search by #{searchField}" do
       visit catalog_index_path
       find('.search_box.catalog .advanced_search_toggle').click
       within '.landing_page.catalog .advanced_search' do
@@ -147,7 +147,7 @@ describe 'Catalog Advanced Search', :vcr do
     end
 
 
-    it "supports advanced Location search for #{locationSearch}", :js do
+    it "supports advanced Location search for #{locationSearch}" do
       visit catalog_index_path
       find('.search_box.catalog .advanced_search_toggle').click
       within '.landing_page.catalog .advanced_search' do
@@ -195,7 +195,7 @@ describe 'Catalog Advanced Search', :vcr do
   # Support advanced/fielded ISBN searches to hit on 020$z, "Canceled/invalid ISBN"
   # NEXT-1050 - Search for invalid ISBN
   # http://www.loc.gov/marc/bibliographic/bd020.html
-  it 'should allow advanced ISBN search against "invalid" ISBN', :js do
+  it 'should allow advanced ISBN search against "invalid" ISBN' do
     isbn_z = '9789770274208'
 
     visit root_path

@@ -36,7 +36,7 @@ describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
   # NEXT-1027 - Relabel 'All #### results' on Quicksearch
 
   # *** CATALOG ***
-  it "should link to Catalog results correctly", :js, Xfocus:true do
+  it "should link to Catalog results correctly", :js do
     visit quicksearch_index_path('q' => 'kitty')
     expect(page).to have_css('.result_set', count: 4)
     expect(page).to have_css('.nested_result_set', count: 4)
