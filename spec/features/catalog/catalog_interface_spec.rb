@@ -494,6 +494,12 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
       Makino Mamoru (1930-) was born"
   end
 
+  # NEXT-911 - Display uniform title in serial records
+  it 'shows Uniform Title in Serial records' do
+    visit catalog_path(622349)
+    expect(page).to have_text "Uniform Title
+      Arkitektur (Stockholm, Sweden : 1959)"
+  end
 
 end
 
