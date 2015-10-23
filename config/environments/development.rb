@@ -29,6 +29,14 @@ Clio::Application.configure do
 
   # Cache store details - disk or memory?  How big?  (50MB?)
   config.cache_store = :memory_store, { size: 50_000_000 }
+  # Or... use redis?
+  # config.cache_store = :redis_store, APP_CONFIG['redis_url']
+  # Oops - can't use APP_CONFIG within environment files
+  # Cheat - redundantly read app_config right here...
+  ENV_CONFIG = YAML.load_file(File.expand_path('../../app_config.yml', __FILE__))[Rails.env]
+  if ENV_CONFIG['redis_url'].present?
+    config.cache_store = :redis_store, ENV_CONFIG['redis_url']
+  end
 
   config.assets.compress = false
   config.assets.debug = true

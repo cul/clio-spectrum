@@ -226,6 +226,23 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rb-fsevent (0.9.5)
+    redis (3.2.1)
+    redis-actionpack (4.0.1)
+      actionpack (~> 4)
+      redis-rack (~> 1.5.0)
+      redis-store (~> 1.1.0)
+    redis-activesupport (4.1.4)
+      activesupport (>= 3, < 5)
+      redis-store (~> 1.1.0)
+    redis-rack (1.5.0)
+      rack (~> 1.5)
+      redis-store (~> 1.1.0)
+    redis-rails (4.0.0)
+      redis-actionpack (~> 4)
+      redis-activesupport (~> 4)
+      redis-store (~> 1.1.0)
+    redis-store (1.1.6)
+      redis (>= 2.2)
     request_store (1.2.0)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
@@ -372,6 +389,7 @@ DEPENDENCIES
   rails (~> 4.1)
   rake
   rb-fsevent
+  redis-rails
   rest-client
   rspec-activemodel-mocks
   rspec-rails

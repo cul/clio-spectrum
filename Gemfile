@@ -114,6 +114,9 @@ gem 'haml'
 # CSS replacement language
 gem 'sass'
 
+# use Redis for our cache store
+gem 'redis-rails'
+
 # are we using this anywhere?
 # gem 'unicode'
 
@@ -206,7 +209,7 @@ group :development do
   # gem 'quiet_assets'
   # But rails outputs two blank lines to log?
   # Ok, use this - but only for dev.
-  gem 'quiet_assets', group: :development
+  gem 'quiet_assets'
 
   # browser-based live debugger and REPL
   # http://railscasts.com/episodes/402-better-errors-railspanel
