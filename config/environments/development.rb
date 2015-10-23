@@ -28,7 +28,7 @@ Clio::Application.configure do
   config.action_controller.perform_caching = true
 
   # Cache store details - disk or memory?  How big?  (50MB?)
-  config.cache_store = :memory_store, { size: 50_000_000 }
+  # config.cache_store = :memory_store, { size: 50_000_000 }
   # Or... use redis?
   # config.cache_store = :redis_store, APP_CONFIG['redis_url']
   # Oops - can't use APP_CONFIG within environment files

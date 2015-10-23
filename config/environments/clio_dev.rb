@@ -15,7 +15,17 @@ Clio::Application.configure do
   config.action_controller.perform_caching = true
 
   # Cache store details - disk or memory?  How big?  (50MB?)
-  config.cache_store = :memory_store, { size: 50_000_000 }
+  # config.cache_store = :memory_store, { size: 50_000_000 }
+  # Or... use redis?
+  # config.cache_store = :redis_store, APP_CONFIG['redis_url']
+  # Oops - can't use APP_CONFIG within environment files
+  # Cheat - redundantly read app_config right here...
+  ENV_CONFIG = YAML.load_file(File.expand_path('../../app_config.yml', __FILE__))[Rails.env]
+  if ENV_CONFIG['redis_url'].present?
+    config.cache_store = :redis_store, ENV_CONFIG['redis_url']
+  else
+    config.cache_store = :memory_store, { size: 50_000_000 }
+  end
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
