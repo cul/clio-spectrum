@@ -36,7 +36,7 @@ Clio::Application.configure do
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
-  config.assets.compress = true
+  # config.assets.compress = true
   config.assets.compile = false
   config.assets.digest = true
   config.assets.logger = nil

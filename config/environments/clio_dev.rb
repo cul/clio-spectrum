@@ -42,7 +42,7 @@ Clio::Application.configure do
 
   # Don't compress, to help with debugging...
   # config.assets.compress = true
-  config.assets.compress = false
+  # config.assets.compress = false
   config.assets.compile = false
   # # CLIO DEV is another environment where we'll want to debug asset issues
   # config.assets.debug = true

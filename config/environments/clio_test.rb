@@ -51,7 +51,7 @@ Clio::Application.configure do
   # config.assets.compress = false
   # Aha, found it!  Wrong comments in coffeescript, tripping up only Chrome.
   # Fixed.
-  config.assets.compress = true
+  # config.assets.compress = true
   config.assets.compile = false
   config.assets.digest = true
   # turn off all asset logging - match CLIO Test to CLIO Prod

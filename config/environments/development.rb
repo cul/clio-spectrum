@@ -38,7 +38,7 @@ Clio::Application.configure do
     config.cache_store = :redis_store, ENV_CONFIG['redis_url']
   end
 
-  config.assets.compress = false
+  # config.assets.compress = false
   config.assets.debug = true
   config.assets.digest = false
   config.assets.logger = nil
