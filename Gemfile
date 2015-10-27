@@ -158,12 +158,11 @@ gem 'jquery-rails'
 # # jQuery UI - JavaScript, CSS, Images
 # gem 'jquery-ui-rails'
 
-group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
-  gem 'bootstrap-sass'
-end
+# Assets processing
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
+gem 'bootstrap-sass'
 
 
 # To build slugs for saved-list URLs
