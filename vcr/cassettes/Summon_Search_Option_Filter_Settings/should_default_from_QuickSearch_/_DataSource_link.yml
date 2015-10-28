@@ -811,4 +811,34 @@ http_interactions:
         OiB7fSwicmVmZXJlbmNlIjoge30sIm5ld3NwYXBlciI6IHt9fX0=
     http_version: 
   recorded_at: Tue, 22 Sep 2015 19:24:43 GMT
+- request:
+    method: get
+    uri: "<ac2_solr_url>/select?f.author_facet.facet.limit=6&f.department_facet.facet.limit=6&f.genre_facet.facet.limit=11&f.pub_date_sort.facet.limit=4&f.series_facet.facet.limit=11&f.subject_facet.facet.limit=11&facet=true&facet.field=series_facet&q=whitch%20engish&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Last-Modified:
+      - Wed, 28 Oct 2015 15:48:01 GMT
+      Etag:
+      - "\"ZTNhOTU5MDAwMDAwMDAwMFNvbHI=\""
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Wed, 28 Oct 2015 15:49:25 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>7,'params'=>{'facet'=>'true','f.series_facet.facet.limit'=>'11','sort'=>'score desc, pub_date_sort desc, title_sort asc','stats'=>'true','f.pub_date_sort.facet.limit'=>'4','wt'=>'ruby','rows'=>'25','stats.field'=>'pub_date_sort','q'=>'whitch engish','f.author_facet.facet.limit'=>'6','f.genre_facet.facet.limit'=>'11','facet.field'=>['author_facet','pub_date_sort','department_facet','subject_facet','genre_facet','series_facet'],'f.subject_facet.facet.limit'=>'11','qt'=>'search','f.department_facet.facet.limit'=>'6'}},'response'=>{'numFound'=>0,'start'=>0,'maxScore'=>0.0,'docs'=>[]},'facet_counts'=>{'facet_queries'=>{},'facet_fields'=>{'author_facet'=>[],'pub_date_sort'=>[],'department_facet'=>[],'subject_facet'=>[],'genre_facet'=>[],'series_facet'=>[]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>nil}},'spellcheck'=>{'suggestions'=>['correctlySpelled',false]}}
+    http_version: 
+  recorded_at: Wed, 28 Oct 2015 15:49:24 GMT
 recorded_with: VCR 2.9.3

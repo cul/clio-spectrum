@@ -20,6 +20,8 @@ VCR.configure do |c|
   #   e.g., facet.query=acq_dt:[2014-09-21T00:00:00Z TO *]
   # Ignore all facet.query params - is this the only one?
   c.default_cassette_options = {
+    # Un-comment this line to trigger re-recording of ALL cassettes
+    # :re_record_interval => 1.days,
     :match_requests_on => [:method,
       VCR.request_matchers.uri_without_param('facet.query')]
   }
