@@ -97,7 +97,7 @@ end
 # assets precompilation works on clio-dev and clio-test, but
 # not on clio-prod.  Maybe difference in local gems?
 # OK, node now installed on bruckner, try deploy w/out this.
-# gem 'therubyracer'
+gem 'therubyracer'
 
 gem 'httpclient'
 
