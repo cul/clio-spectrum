@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe 'Academic Commons', :vcr do
 
-  it 'fielded search should work', :js do
+  it 'fielded search should work' do
     # Use this string within the below tests
     search_title_text = 'Structural and Functional Microbial Ecology'
 

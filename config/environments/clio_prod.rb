@@ -36,7 +36,7 @@ Clio::Application.configure do
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
-  config.assets.compress = true
+  # config.assets.compress = true
   config.assets.compile = false
   config.assets.digest = true
   config.assets.logger = nil
@@ -75,9 +75,10 @@ end
 #    :ignore_crawlers => %w{Googlebot bingbot}
 
 Clio::Application.config.middleware.use ExceptionNotification::Rack,
-                                        email: {
-                                          email_prefix: '[Clio Prod] ',
-                                          sender_address: %("notifier" <spectrum-tech@libraries.cul.columbia.edu>),
-                                          exception_recipients: %w(spectrum-tech@libraries.cul.columbia.edu),
-                                          ignore_crawlers: %w(Googlebot bingbot)
-                                        }
+  ignore_exceptions: ['Errno::EHOSTUNREACH'] + ExceptionNotifier.ignored_exceptions,
+  ignore_crawlers: %w(Googlebot bingbot archive.org_bot),
+  email: {
+    email_prefix: '[Clio Prod] ',
+    sender_address: %("notifier" <spectrum-tech@libraries.cul.columbia.edu>),
+    exception_recipients: %w(spectrum-tech@libraries.cul.columbia.edu)
+  }

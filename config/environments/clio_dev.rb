@@ -15,7 +15,17 @@ Clio::Application.configure do
   config.action_controller.perform_caching = true
 
   # Cache store details - disk or memory?  How big?  (50MB?)
-  config.cache_store = :memory_store, { size: 50_000_000 }
+  # config.cache_store = :memory_store, { size: 50_000_000 }
+  # Or... use redis?
+  # config.cache_store = :redis_store, APP_CONFIG['redis_url']
+  # Oops - can't use APP_CONFIG within environment files
+  # Cheat - redundantly read app_config right here...
+  ENV_CONFIG = YAML.load_file(File.expand_path('../../app_config.yml', __FILE__))[Rails.env]
+  if ENV_CONFIG['redis_url'].present?
+    config.cache_store = :redis_store, ENV_CONFIG['redis_url']
+  else
+    config.cache_store = :memory_store, { size: 50_000_000 }
+  end
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
@@ -32,7 +42,7 @@ Clio::Application.configure do
 
   # Don't compress, to help with debugging...
   # config.assets.compress = true
-  config.assets.compress = false
+  # config.assets.compress = false
   config.assets.compile = false
   # # CLIO DEV is another environment where we'll want to debug asset issues
   # config.assets.debug = true
@@ -61,9 +71,10 @@ end
 #    :ignore_crawlers => %w{Googlebot bingbot}
 
 Clio::Application.config.middleware.use ExceptionNotification::Rack,
-                                        email: {
-                                          email_prefix: '[Clio Dev] ',
-                                          sender_address: %("notifier" <spectrum-tech@libraries.cul.columbia.edu>),
-                                          exception_recipients: %w(spectrum-tech@libraries.cul.columbia.edu),
-                                          ignore_crawlers: %w(Googlebot bingbot)
-                                        }
+  ignore_exceptions: ['Errno::EHOSTUNREACH'] + ExceptionNotifier.ignored_exceptions,
+  ignore_crawlers: %w(Googlebot bingbot archive.org_bot),
+  email: {
+    email_prefix: '[Clio Dev] ',
+    sender_address: %("notifier" <spectrum-tech@libraries.cul.columbia.edu>),
+    exception_recipients: %w(spectrum-tech@libraries.cul.columbia.edu)
+  }

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
   # NEXT-779 - Some 880 fields not showing up
-  it 'MARC 880 note field should display', :js do
+  it 'MARC 880 note field should display' do
     # visit this specific item
     visit catalog_path('7814900')
 
@@ -12,7 +12,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   end
 
   # NEXT-765 - MARC 787 field (Related To) not showing up
-  it "MARC 787 'Related To' field should display", :js do
+  it "MARC 787 'Related To' field should display" do
     # visit this specific item
     visit catalog_path('7419929')
 
@@ -21,7 +21,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   end
 
   # NEXT-917 - Summary showing up twice for video records
-  it 'Video Records should show Summary only once', :js do
+  it 'Video Records should show Summary only once' do
     visit catalog_index_path('q' => 'summary')
     within all('div.facet_limit.blacklight-format.panel').first do
       find('a.more_facets_link').click
@@ -38,7 +38,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
   # NEXT-551 - display 'version of resource' and 'related resource' notes
   # this test is awefully tight - any cataloging/labeling change will break it.
-  it "Item Links should show 'version of resource' and 'related resource'", :js do
+  it "Item Links should show 'version of resource' and 'related resource'" do
     # on the search-results page
     visit catalog_index_path('q' => 'Introduction to high-energy astrophysics stephan rosswog')
     expect(page).to have_text('Table of contents (version of resource)')
@@ -51,7 +51,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   end
 
   # NEXT-619 - improvements to 'Manuscript' facet
-  it 'Should find many Manuscripts for Call Number range X893', :js do
+  it 'Should find many Manuscripts for Call Number range X893' do
     visit catalog_index_path('q' => 'X893')
     within '.search_box.catalog' do
       # find('btn.dropdown-toggle').click
@@ -101,6 +101,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     # Should see the 'Limited (search-only)' message in the Hathi Holdings box
     expect(find('#hathi_holdings #hathi_data')).to have_content('Limited (search-only)')
   end
+
 
   # NEXT-931 - Online Links in Holdings (not in the Bib) should display
   it 'Online links from Bib or Holdings should show up within correct block', :js do
@@ -227,7 +228,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     end
   end
 
-  it 'supports a debug mode', :js do
+  it 'supports a debug mode' do
     visit catalog_index_path('q' => 'prim')
 
     expect(page).to_not have_css('div.debug_instruction')
@@ -295,7 +296,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
 
   # NEXT-1054 - In the single item display menu, change "Services" to "Requests"
-  it 'should show menu-option "Request(s)"', :js => true do
+  it 'should show menu-option "Request(s)"', :js do
     visit catalog_path('10905238')
     # Should use consistent language
     expect(find('#show_toolbar')).to have_text "Requests"
@@ -304,7 +305,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
 
   # NEXT-1081 - Apostrophe in the title bar renders incorrectly
-  it 'shows apostrophes within title element in patron view', :js do
+  it 'shows apostrophes within title element in patron view' do
     visit catalog_path(6217943)
     expect(page).to have_title "L'image de l'Orient"
 
@@ -313,7 +314,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   end
 
   # NEXT-1127 - Apostrophe in the title bar (in MARC view)
-  it 'shows apostrophes within title element in librarian view', :js do
+  it 'shows apostrophes within title element in librarian view' do
     visit librarian_view_catalog_path(10877875)
     expect(page).to have_title "One woman's war: Da"
 
@@ -494,30 +495,13 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
       Makino Mamoru (1930-) was born"
   end
 
+  # NEXT-911 - Display uniform title in serial records
+  it 'shows Uniform Title in Serial records' do
+    visit catalog_path(622349)
+    expect(page).to have_text "Uniform Title
+      Arkitektur (Stockholm, Sweden : 1959)"
+  end
 
 end
 
 
-# email_catalog_path(:id => id)
-# describe 'Catalog item view', :caching => true do
-#
-#   it "supports an email function", :js => true do
-#     visit catalog_path(1234567)
-#     within '#show_toolbar' do
-#       click_link 'Email'
-#     end
-#
-#     expect(page).to have_css('.modal-scrollable .modal .modal-header')
-#     # puts find('.modal-header').text.inspect #expect.to have_text('Email Item(s)')
-#     expect(find('.modal-header')).to have_text('Email Item(s)')
-#
-#     within '#email_form' do
-#       fill_in 'to', :with => 'delete@library.columbia.edu'
-#       fill_in 'message', :with => 'testing'
-#       find('button[type=submit]').click()
-#     end
-#
-#   end
-#
-# end
-#

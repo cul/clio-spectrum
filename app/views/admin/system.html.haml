@@ -1,14 +1,26 @@
 
 
-%h3
+%h2
   System Details
 
 %table.table.table-bordered
   - ['request.protocol', 'request.fullpath', 'request.url',
-     'Rails.cache.key_count', 'Rails.cache.cache_size.to_s(:human_size)',
      'Process.pid', 'Process.uid',
      'Etc.getpwuid(Process.uid).name'].each do |i|
     %tr
       %td=i
       %td=eval(i)
 
+%h4
+  Cache Info
+
+%table.table.table-bordered
+  - ['Rails.cache.class','Rails.cache.clio_key_count', 'Rails.cache.clio_cache_size'].each do |i|
+    %tr
+      %td=i
+      %td=eval(i)
+
+- if Rails.cache.is_a? ActiveSupport::Cache::RedisStore
+  %h4 Full Redis Cache Stats
+  %pre
+    = Rails.cache.stats.to_yaml

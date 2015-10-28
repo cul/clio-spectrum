@@ -114,6 +114,9 @@ gem 'haml'
 # CSS replacement language
 gem 'sass'
 
+# use Redis for our cache store
+gem 'redis-rails'
+
 # are we using this anywhere?
 # gem 'unicode'
 
@@ -155,12 +158,11 @@ gem 'jquery-rails'
 # # jQuery UI - JavaScript, CSS, Images
 # gem 'jquery-ui-rails'
 
-group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
-  gem 'bootstrap-sass'
-end
+# Assets processing
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
+gem 'bootstrap-sass'
 
 
 # To build slugs for saved-list URLs
@@ -206,13 +208,15 @@ group :development do
   # gem 'quiet_assets'
   # But rails outputs two blank lines to log?
   # Ok, use this - but only for dev.
-  gem 'quiet_assets', group: :development
+  gem 'quiet_assets'
 
   # browser-based live debugger and REPL
   # http://railscasts.com/episodes/402-better-errors-railspanel
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'meta_request'
+
+  # Works with the Rails Panel plugin for Chrome
+  # gem 'meta_request'
 
   # Trouble building on Yosemite 10.10, and since 
   # I don't use it, remove it.

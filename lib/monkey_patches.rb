@@ -86,12 +86,18 @@ class Hash
   end
 end
 
-class ActiveSupport::Cache::MemoryStore
-  def key_count
-    @data.keys.size
+# class ActiveSupport::Cache::MemoryStore
+class ActiveSupport::Cache::Store
+
+  def clio_key_count
+    return @data.keys.size if defined? @data
+    'unknown'
   end
-  def cache_size
-    @cache_size
+
+  def clio_cache_size
+    return @cache_size.to_s(:human_size) if defined? @cache_size
+    return self.stats['used_memory_human'] if self.respond_to?(:stats)
+    'unknown'
   end
 end
 

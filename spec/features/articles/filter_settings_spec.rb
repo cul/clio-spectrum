@@ -56,6 +56,7 @@ describe 'Summon Search Option Filter Settings', :vcr do
     confirm_default_filter_settings
   end
 
+
   it 'should default from Other DataSource' do
     visit catalog_index_path('q' => $q)
     within('#datasources') do
@@ -65,6 +66,7 @@ describe 'Summon Search Option Filter Settings', :vcr do
     confirm_default_filter_settings
   end
 
+
   it 'should default from Landing Page', :js do
     visit articles_index_path
     fill_in 'q', with: $q
@@ -73,6 +75,7 @@ describe 'Summon Search Option Filter Settings', :vcr do
     expect(all('.index_toolbar.navbar').first).to have_text " of #{@result_count}"
     confirm_default_filter_settings
   end
+
 
   it 'should default from Start Over', :js do
     visit articles_index_path('q' => 'albatros')
@@ -87,10 +90,11 @@ describe 'Summon Search Option Filter Settings', :vcr do
     confirm_default_filter_settings
   end
 
+
   # Fire off the args of the LWeb Home-Page search widget, test that
   # the defaults are correctly applied.
   # NEXT-948 Article searches from LWeb do not exclude newspapers
-  it 'should default from LWeb Homepage search', :js do
+  it 'should default from LWeb Homepage search' do
     params = { controller: 'articles', q: $q, datasource: 'articles', search_field: 'all_fields', search: true }
     visit articles_index_path(params)
     # page.save_and_open_page # debug

@@ -394,7 +394,7 @@ module HoldingsHelper
                         hathi_holdings_data['records'].size > 0
       return hathi_holdings_data
     rescue => error
-      logger.error "Error fetching #{hathi_brief_url}: #{error.message}"
+      Rails.logger.error "Error fetching #{hathi_brief_url}: #{error.message}"
       return nil
     end
   end

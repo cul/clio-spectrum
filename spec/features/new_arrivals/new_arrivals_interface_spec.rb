@@ -9,7 +9,7 @@ describe 'New Arrivals Search', :vcr => {:match_requests_on => [:method, VCR.req
   # I can't figure out how to work with a recorded VCR cassette.
   # It can also been seen as, partially, an index-quality check 
   # rather than a code-correctness check - I'm ok skipping CI for this.
-  it 'should show 4 distinct acquisition-date facet options', :js, :skip_travis, vcr: false do
+  it 'should show 4 distinct acquisition-date facet options', :skip_travis, vcr: false do
     visit root_path
 
     within 'div#sources' do
