@@ -214,7 +214,9 @@ group :development do
   # http://railscasts.com/episodes/402-better-errors-railspanel
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'meta_request'
+
+  # Works with the Rails Panel plugin for Chrome
+  # gem 'meta_request'
 
   # Trouble building on Yosemite 10.10, and since 
   # I don't use it, remove it.
