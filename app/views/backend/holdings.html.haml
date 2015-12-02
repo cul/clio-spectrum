@@ -63,8 +63,9 @@
                 (#{details['count']} copies)
 
       .container
-        .row{style: "padding: 3px 4px 3px 12px;"}
-          = render 'donor_info', copy: copy
+        - if copy['donor_info_icon'].present?
+          .row{style: "padding: 3px 4px 3px 12px;"}
+            = render 'donor_info', copy: copy
 
         -# Different 'urls' with a 'copy' have different details...
         - copy['urls'] && copy['urls'].each do |url_details|
