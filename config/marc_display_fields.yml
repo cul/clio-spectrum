@@ -459,7 +459,7 @@ subject_genre:
     -   tag: 655
         ind1: :all
         ind2: :all
-        display: abcvxyz
+        display: abvxyz
 subject_LC:
     -   tag: 600
         ind1: :all
