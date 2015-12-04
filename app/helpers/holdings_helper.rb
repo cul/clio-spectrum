@@ -142,7 +142,7 @@ module HoldingsHelper
 #    links.sort { |x,y| x.first <=> y.first }
   end
 
-  SERVICE_ORDER = %w(offsite spec_coll precat recall_hold on_order borrow_direct ill in_process doc_delivery)
+  SERVICE_ORDER = %w(offsite spec_coll precat on_order borrow_direct recall_hold ill in_process doc_delivery)
 
   # parameters: title, link (url or javascript)
   SERVICES = {
