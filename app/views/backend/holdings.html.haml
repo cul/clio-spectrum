@@ -76,7 +76,7 @@
                 = image_tag "icons/online.png"
                 = link_to url_details["link_text"], url_details["url"]
 
-    // Service links for this entry (not for each copy)
+    -# Service links for this entry (not for each copy)
     - unless (svc_links = service_links(entry['services'], @id)).empty?
       .services
         %span.holdings_label= "#{'Request'.pluralize(svc_links.size)}: "
