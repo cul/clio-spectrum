@@ -1,5 +1,4 @@
 
-/ backend/holdings.html.haml
 
 -# - add_display_elements(@holdings['condensed_holdings_full']).listify.reject { |x| x['location_name'].to_s.strip == "Online"}.each do |entry|
 
@@ -39,7 +38,7 @@
         = entry['call_number']
     -# Each 'copy' is a group of 1-or-more equivalent items (same call num, etc.)
     - entry['copies'].each do |copy|
-      .group
+      .copy
         -# If there are any temp locations for this item, print them out
         - unless copy['temp_locations'].nil?
           - copy['temp_locations'].each do |t|
@@ -64,21 +63,22 @@
               - if details['count'] >1
                 (#{details['count']} copies)
 
-      .container
         - if copy['donor_info_icon'].present?
-          .row{style: "padding: 3px 4px 3px 12px;"}
+          .donor_info
             = render 'donor_info', copy: copy
 
         -# Different 'urls' with a 'copy' have different details...
-        - copy['urls'] && copy['urls'].each do |url_details|
-          .row
-            .url_link
-              = image_tag "icons/online.png"
-              = link_to url_details["link_text"], url_details["url"]
+        - if copy['urls'].present?
+          .container
+          - copy['urls'].each do |url_details|
+            .row
+              .url_link
+                = image_tag "icons/online.png"
+                = link_to url_details["link_text"], url_details["url"]
 
-        - unless (svc_links = service_links(entry['services'], @id)).empty?
-          .row
-            .services
-              %span.holdings_label= "#{'Request'.pluralize(svc_links.size)}: "
-              - svc_links.each do |link|
-                .service= link
+    // Service links for this entry (not for each copy)
+    - unless (svc_links = service_links(entry['services'], @id)).empty?
+      .services
+        %span.holdings_label= "#{'Request'.pluralize(svc_links.size)}: "
+        - svc_links.each do |link|
+          .service= link
