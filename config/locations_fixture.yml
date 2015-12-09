@@ -398,6 +398,7 @@
   :found_in: |-
     Latin American Studies Reading Room
     503 Butler Library
+
 - :library_code: lehman
   :location_code: lehman
   :links: 
@@ -411,6 +412,21 @@
     Lehman Social Sciences Library
     
     300 International Affairs
+
+- :library_code: lehman-business
+  :location_code: lehman
+  :links: 
+    Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionF.gif
+    Home Page: http://library.columbia.edu/locations/lehman.html
+    Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
+    Floorplans: http://library.columbia.edu/locations/lehman/floorplan.html
+  :category: physical
+  :location: Business Collection, Lehman
+  :found_in: |-
+    Lehman Social Sciences Library
+
+    300 International Affairs
+
 - :library_code: dssc-data
   :location_code: dssc-data
   :links: 
