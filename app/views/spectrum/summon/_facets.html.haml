@@ -56,17 +56,20 @@
                       - if item.negated?
                         %span.selected
                           Not #{item.value}
-                        %a.remove{:href => result.by_source_search_cmd(item.remove_command)}
+                        %a.remove{:href => result.summon_search_cmd(item.remove_command)}
                           %span.glyphicon.glyphicon-remove
                       - else
                         %span.selected
                           #{item.value}
-                        %a.remove{:href => result.by_source_search_cmd(item.remove_command)}
+                        %a.remove{:href => result.summon_search_cmd(item.remove_command)}
                           %span.glyphicon.glyphicon-remove
                     -else
-                      %a.facet_select{:href => result.by_source_search_cmd(item.apply_command)} #{item.value}
+                      %a.facet_select{:href => result.summon_search_cmd(item.apply_command)} #{item.value}
                   %span.facet-count #{number_with_delimiter(item.count)}
-      
+              -# Only show the "more..." link if we think there may be more.
+              - if facet.counts.size >= facet.src['pageSize']
+                %li.more_facets_link
+                  %a.more_facets_link{:href => result.summon_facet_cmd(facet.list_values_command)} #{t('blacklight.search.facets.more')}
 
 
     -# PUBLICATION DATE FACET HANDLED SEPARATELY
@@ -87,10 +90,10 @@
             - if pub_range_filter
               %span.selected
                 #{pub_range_filter.field_name.titleize}: #{pub_range_filter.range.min_value}-#{pub_range_filter.range.max_value}
-              %a.remove{:href => result.by_source_search_cmd(pub_range_filter.remove_command)}
+              %a.remove{:href => result.summon_search_cmd(pub_range_filter.remove_command)}
                 %span.glyphicon.glyphicon-remove
     
-            = form_tag result.by_source_search_modify(), :class => 'form-inline range_limit_form' do
+            = form_tag result.summon_search_modify(), :class => 'form-inline range_limit_form' do
               = text_field_tag 'pub_date[min_value]', (pub_range_filter ? pub_range_filter.range.min_value : ""), :class => "form-control input-mini"
               #{"-"}
               = text_field_tag 'pub_date[max_value]', (pub_range_filter ? pub_range_filter.range.max_value : ""), :class => "form-control input-mini"

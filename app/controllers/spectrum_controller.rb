@@ -99,6 +99,21 @@ class SpectrumController < ApplicationController
    end
   end
 
+  def facet
+    # render values of a facet, nothing else.
+
+    # This is only used for Summon article facets
+    @results = get_results(['articles'])
+
+    respond_to do |format|
+      # regular full-page view
+      format.html
+      # for the "more" facet modal window:
+      format.js { render :layout => false }
+    end
+
+  end
+
   private
 
   def fix_ga_params(params)

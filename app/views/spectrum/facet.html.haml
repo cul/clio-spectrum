@@ -1,0 +1,57 @@
+-# There should only be a single facet being listed
+- result = @results['articles']
+- facet = result.facets.first
+
+.modal-header
+  %button.ajax-modal-close.close{type: 'button', data: {dismiss: 'modal'}}
+    x
+  %h3.modal-title
+    = facet_field_label(facet.display_name.titleize)
+
+.modal-body
+  .facet_extended_list
+
+    %ul.facet-values.list-unstyled
+      - facet.counts.each do |item|
+        %li
+          %span.facet-label
+            - if item.applied?
+              - if item.negated?
+                %span.selected
+                  Not #{item.value}
+                %a.remove{:href => result.summon_search_cmd(item.remove_command)}
+                  %span.glyphicon.glyphicon-remove
+              - else
+                %span.selected
+                  #{item.value}
+                %a.remove{:href => result.summon_search_cmd(item.remove_command)}
+                  %span.glyphicon.glyphicon-remove
+            -else
+              %a.facet_select{:href => result.summon_search_cmd(item.apply_command)} #{item.value}
+          %span.facet-count #{number_with_delimiter(item.count)}
+
+.modal-footer
+  .facet-pagination.bottom
+    &nbsp;
+
+
+-# CATALOG FACET VIEW
+
+-# .facet_pagination.top
+-#   = fix_catalog_links(render :partial=>'facet_pagination')
+-# 
+-# .modal-header
+-#   %button.ajax-modal-close.close{type: 'button', data: {dismiss: 'modal'}}
+-#     x
+-#   %h3.modal-title
+-#     = facet_field_label(@facet.field)
+-# 
+-# .modal-body
+-#   .facet_extended_list
+-#     = fix_catalog_links(render_facet_limit(@display_facet, layout: false))
+-# 
+-# .modal-footer
+-#   .facet-pagination.bottom
+-#     = fix_catalog_links(render :partial=>'facet_pagination')
+-# 
+

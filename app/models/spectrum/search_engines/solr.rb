@@ -107,7 +107,7 @@ module Spectrum
       end
 
       def search_path
-        @search_url || by_source_search_link(@params)
+        @search_url || summon_search_link(@params)
       end
 
       def total_items
@@ -130,7 +130,7 @@ module Spectrum
 
       private
 
-      def by_source_search_link(params = {})
+      def summon_search_link(params = {})
         case @source
         when 'catalog'
           catalog_index_path(params)

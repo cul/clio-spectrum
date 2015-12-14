@@ -110,6 +110,9 @@ Clio::Application.routes.draw do
   get 'spectrum/searchjson/:layout/:datasource', to: 'spectrum#searchjson', as: 'spectrum_searchjson'
 
   match 'articles', to: 'spectrum#search', as: :articles_index, via: [:get, :post], defaults: { layout: 'articles' }
+
+  match 'articles/facet', to: 'spectrum#facet', as: :articles_facet, via: [:get, :post], defaults: { layout: 'articles' }
+
   # there's no 'articles' controller, and no item-detail page for articles
   # get 'articles/show', :to => "articles#show", :as => :articles_show
 

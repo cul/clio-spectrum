@@ -153,7 +153,7 @@ module Spectrum
         facet_options << {
           style: :checkbox,
           value: is_full_text,
-          link: by_source_search_cmd(is_full_cmd),
+          link: summon_search_cmd(is_full_cmd),
           name: 'Full text online only'
         }
 
@@ -163,7 +163,7 @@ module Spectrum
         facet_options << {
           style: :checkbox,
           value: is_scholarly,
-          link: by_source_search_cmd(is_scholarly_cmd),
+          link: summon_search_cmd(is_scholarly_cmd),
           name: 'Scholarly publications only'
         }
 
@@ -179,7 +179,7 @@ module Spectrum
         facet_options << {
           style: :checkbox,
           value: exclude_newspapers,
-          link: by_source_search_cmd(exclude_cmd),
+          link: summon_search_cmd(exclude_cmd),
           name: 'Exclude Newspaper Articles'
         }
 
@@ -188,7 +188,7 @@ module Spectrum
         facet_options << {
           style: :checkbox,
           value: all_holdings_only,
-          link: by_source_search_cmd("setHoldingsOnly(#{!all_holdings_only})"),
+          link: summon_search_cmd("setHoldingsOnly(#{!all_holdings_only})"),
           name: "Columbia's collection only"
         }
 
@@ -196,7 +196,7 @@ module Spectrum
       end
 
       def search_path
-        @search_url || by_source_search_link(@params)
+        @search_url || summon_search_link(@params)
       end
 
       def current_sort_name
@@ -219,7 +219,7 @@ module Spectrum
 # raise
         # add in the basic search query
         @search.query.text_queries.each do |q|
-          constraints << [q['textQuery'], by_source_search_cmd(q['removeCommand'])]
+          constraints << [q['textQuery'], summon_search_cmd(q['removeCommand'])]
         end
 
         # add in "filter queries" - each advanced search field
@@ -231,21 +231,21 @@ module Spectrum
               # search for embedded capitals, insert a space (PublicationTitle --> Publication Title)
               sub(/([a-z])([A-Z])/, '\1 \2').
               sub(':', ': ')
-          constraints << [filter_text, by_source_search_cmd(q['removeCommand'])]
+          constraints << [filter_text, summon_search_cmd(q['removeCommand'])]
         end
 
         # add in Facet limits
         @search.query.facet_value_filters.each do |fvf|
           unless fvf.field_name.titleize.in?('Is Scholarly', 'Is Full Text')
             facet_text = "#{fvf.negated? ? "Not " : ""}#{fvf.field_name.titleize}: #{fvf.value}"
-            constraints << [facet_text, by_source_search_cmd(fvf.remove_command)]
+            constraints << [facet_text, summon_search_cmd(fvf.remove_command)]
           end
         end
 
         # add in Range Filters
         @search.query.range_filters.each do |rf|
           facet_text = "#{rf.field_name.titleize}: #{rf.range.min_value}-#{rf.range.max_value}"
-          constraints << [facet_text, by_source_search_cmd(rf.remove_command)]
+          constraints << [facet_text, summon_search_cmd(rf.remove_command)]
         end
 
         constraints
@@ -254,9 +254,9 @@ module Spectrum
       # List of sort options, turned into a drop-down in summon's sorting/paging partial
       def sorts_with_links
         [
-          [by_source_search_cmd('setSortByRelevancy()'), 'Relevance'],
-          [by_source_search_cmd('setSort(PublicationDate:desc)'), 'Published Latest'],
-          [by_source_search_cmd('setSort(PublicationDate:asc)'), 'Published Earliest']
+          [summon_search_cmd('setSortByRelevancy()'), 'Relevance'],
+          [summon_search_cmd('setSort(PublicationDate:desc)'), 'Published Latest'],
+          [summon_search_cmd('setSort(PublicationDate:asc)'), 'Published Earliest']
         ]
       end
 
@@ -265,7 +265,7 @@ module Spectrum
         # [10,20,50,100].collect do |page_size|
         [10, 25, 50].map do |per_page|
           # No, don't do a COMMAND...
-          # [by_source_search_cmd("setPageSize(#{page_size})"), page_size]
+          # [summon_search_cmd("setPageSize(#{page_size})"), page_size]
           # Just reset s.ps, it's much more transparent...
           [set_page_size(per_page), per_page]
         end
@@ -280,7 +280,7 @@ module Spectrum
       end
 
       # def start_over_link
-      #   by_source_search_link('new_search' => true)
+      #   summon_search_link('new_search' => true)
       # end
 
       def previous_page?
@@ -309,11 +309,11 @@ module Spectrum
       end
 
       def set_page_path(page_num)
-        by_source_search_modify('s.pn' => [total_pages, [page_num, 1].max].min)
+        summon_search_modify('s.pn' => [total_pages, [page_num, 1].max].min)
       end
 
       def set_page_size(per_page)
-        by_source_search_modify('s.ps' => [(per_page || 10), 50].min)
+        summon_search_modify('s.ps' => [(per_page || 10), 50].min)
       end
 
       def total_items
@@ -348,14 +348,30 @@ module Spectrum
         @search.query.page_size.to_i
       end
 
-      def by_source_search_cmd(cmdText)
-        by_source_search_modify('s.cmd' => cmdText)
+      def summon_search_cmd(cmdText)
+        summon_search_modify('s.cmd' => cmdText)
+      end
+
+      def summon_search_modify(extra_params = {})
+        params = summon_params_modify(extra_params)
+        # pass along the built-up params to a source-specific URL builder
+        summon_search_link(params)
+      end
+
+      def summon_facet_cmd(cmdText)
+        summon_facet_modify('s.cmd' => cmdText)
+      end
+
+      def summon_facet_modify(extra_params = {})
+        params = summon_params_modify(extra_params)
+        # pass along the built-up params to a source-specific URL builder
+        summon_facet_link(params)
       end
 
       # Create a link based on the current @search query, but
       # modified by whatever's passed in (facets, checkboxes, sort, paging),
       # and by possible advanced-search indicator
-      def by_source_search_modify(cmd = {})
+      def summon_params_modify(extra_params = {})
         # start with the query, directly extracted from the Summon object
         # (which means "s.fq=AuthorCombined:eric+foner")
         # Rails.logger.debug  "SQ=[#{@search.query.to_hash.inspect}]"
@@ -365,14 +381,16 @@ module Spectrum
         # reset s.pn via the passed input param cmd, below
         params.merge!('s.pn' => 1)
         # merge in whatever new command overlays current summon state
-        params.merge!(cmd)
+        params.merge!(extra_params)
         # raise
         # add-in our CLIO interface-level params
         params.merge!('form' => @params['form']) if @params['form']
         params.merge!('search_field' => @search_field) if @search_field
         params.merge!('q' => @params['q']) if @params['q']
-        # pass along the built-up params to a source-specific URL builder
-        by_source_search_link(params)
+        # # pass along the built-up params to a source-specific URL builder
+        # summon_search_link(params)
+
+        params
       end
 
       private
@@ -382,9 +400,16 @@ module Spectrum
         fvf ? fvf.value : nil
       end
 
-      def by_source_search_link(params = {})
+      def summon_search_link(params = {})
+        # These are ALWAYS in effect for Summon API queries
+        params.merge!(SUMMON_FIXED_PARAMS)
         articles_index_path(params)
       end
+
+      def summon_facet_link(params = {})
+        articles_facet_path(params)
+      end
+
     end
   end
 end
