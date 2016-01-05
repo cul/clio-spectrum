@@ -6,11 +6,11 @@ require 'codeclimate-test-reporter'
 #   https://coveralls.zendesk.com/hc/en-us/articles/201769485-Ruby-Rails
 # Whoa!  Using all three?
 #   https://coderwall.com/p/vwhuqq/using-code-climate
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   Coveralls::SimpleCov::Formatter,
   SimpleCov::Formatter::HTMLFormatter,
   CodeClimate::TestReporter::Formatter
-]
+])
 SimpleCov.start 'rails' do
   # don't do coverage of our testing code
   add_filter '/spec/'
