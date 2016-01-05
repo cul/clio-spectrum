@@ -16,14 +16,6 @@ require 'capistrano/deploy'
 #   https://github.com/capistrano/passenger
 #
 
-# TEMPORARY - until migration to new servers is complete.
-# Only load RVM in RVM-enabled environments
-#   https://github.com/capistrano/rvm/issues/49
-task :require_rvm do
-  require 'capistrano/rvm'
-end
-task 'clio_dev' => [:require_rvm]
-task 'clio_test' => [:require_rvm]
 
 # require 'capistrano/rbenv'
 # require 'capistrano/chruby'
@@ -31,6 +23,7 @@ require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 require 'capistrano/passenger'
+require 'capistrano/rvm'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
