@@ -242,8 +242,8 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     expect(page).to_not have_css('div.debug_entries')
 
     # Login as a site admin account....
-    @test_site_manager = FactoryGirl.create(:user, login: 'test_site_manager')
-    feature_login @test_site_manager
+    @test_manager = FactoryGirl.create(:user, login: 'test_mngr')
+    feature_login @test_manager
 
     visit catalog_index_path('q' => 'approved', 'debug_mode' => 'on')
 

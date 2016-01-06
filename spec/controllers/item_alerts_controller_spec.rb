@@ -5,8 +5,8 @@ describe ItemAlertsController do
   describe 'Create, Read, Update, Delete...' do
 
     before(:each) do
-      @unpriv_user = FactoryGirl.create(:user, login: 'persona_non_grata')
-      @priv_user = FactoryGirl.create(:user, login: 'test_manager')
+      @unpriv_user = FactoryGirl.create(:user, login: 'stranger')
+      @priv_user = FactoryGirl.create(:user, login: 'test_mngr')
     end
 
     it 'unpriv user cannot see index' do
