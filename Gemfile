@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # but, devise_wind still has Rails 3.2 dependencies.
 # 3/15
 # gem 'rails', '~> 3.2'
-gem 'rails', '~> 4.1'
+gem 'rails', '~> 4.2'
 
 # `attr_accessible` is extracted out of Rails into a gem. Please use new 
 # recommended protection model for params(strong_parameters) or add 
