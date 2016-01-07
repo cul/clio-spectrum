@@ -64,6 +64,8 @@ module Spectrum
         @config = options.delete('config') || APP_CONFIG['summon']
 
         @config.merge!(url: 'http://api.summon.serialssolutions.com/2.0.0')
+
+
         @config.symbolize_keys!
 
         @search_url = options.delete('search_url')
@@ -99,6 +101,7 @@ module Spectrum
         if @params['s.fq'].kind_of?(Hash)
           new_fq = []
           @params['s.fq'].each_pair do |name, value|
+            value = "(#{value})" unless value.starts_with? '('
             new_fq << "#{name}:#{value}" unless value.to_s.empty?
           end
           @params['s.fq'] = new_fq
@@ -113,6 +116,7 @@ module Spectrum
           #   bench = ::Summon::Benchmark.new()
           #   @config.merge!( :benchmark => bench)
           # end
+          @config.merge!(log: Rails.logger)
 
           Rails.logger.debug "[Spectrum][Summon] config: #{@config}"
           Rails.logger.debug "[Spectrum][Summon] params: #{@params}"
