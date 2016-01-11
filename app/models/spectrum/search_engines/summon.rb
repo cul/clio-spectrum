@@ -43,7 +43,7 @@ module Spectrum
       # input "options" are the CGI-param inputs, while
       # @params is a built-up parameters hash to pass to the Summon API
       def initialize(options = {})
-        # Rails.logger.debug "initialize() options=#{options.inspect}"
+        Rails.logger.debug "initialize() options=#{options.inspect}"
         @source = options.delete('source') || options.delete(:source)
         @params = {}
 
@@ -101,8 +101,9 @@ module Spectrum
         if @params['s.fq'].kind_of?(Hash)
           new_fq = []
           @params['s.fq'].each_pair do |name, value|
+            next if value.to_s.empty?
             value = "(#{value})" unless value.starts_with? '('
-            new_fq << "#{name}:#{value}" unless value.to_s.empty?
+            new_fq << "#{name}:#{value}" # unless value.to_s.empty?
           end
           @params['s.fq'] = new_fq
         end
@@ -110,13 +111,9 @@ module Spectrum
         @errors = nil
 # raise
         begin
-          # do_benchmarking = false
-          # if do_benchmarking
-          #   require 'summon/benchmark'
-          #   bench = ::Summon::Benchmark.new()
-          #   @config.merge!( :benchmark => bench)
-          # end
-          @config.merge!(log: Rails.logger)
+          # This turns on a huge amount of logging, including
+          # the full response JSON
+          # @config.merge!(log: Rails.logger)
 
           Rails.logger.debug "[Spectrum][Summon] config: #{@config}"
           Rails.logger.debug "[Spectrum][Summon] params: #{@params}"
@@ -228,14 +225,25 @@ module Spectrum
 
         # add in "filter queries" - each advanced search field
         @search.query.text_filters.each do |q|
-          filter_text = q['textFilter'].to_s.
-              # strip "Combined" off the back of labels (TitleCombined --> Title)
-              sub(/^([^\:]+)Combined:/, '\1:').
-              # NEXT-581 - articles search by publication title
-              # search for embedded capitals, insert a space (PublicationTitle --> Publication Title)
-              sub(/([a-z])([A-Z])/, '\1 \2').
-              sub(':', ': ')
-          constraints << [filter_text, summon_search_cmd(q['removeCommand'])]
+          # This logic treated "Field:Value" as a single string.
+          # Instead, let's split, treat each separately.
+          # filter_text = q['textFilter'].to_s.
+          #     # strip "Combined" off the back of labels (TitleCombined --> Title)
+          #     sub(/^([^\:]+)Combined:/, '\1:').
+          #     # NEXT-581 - articles search by publication title
+          #     # search for embedded capitals, insert a space (PublicationTitle --> Publication Title)
+          #     sub(/([a-z])([A-Z])/, '\1 \2').
+          #     sub(':', ': ')
+          # constraints << [filter_text, summon_search_cmd(q['removeCommand'])]
+          displayField, displayValue = q['textFilter'].to_s.split(':')
+          displayField = displayField.
+            # strip "Combined" off the back of labels (TitleCombined --> Title)
+            sub(/^(.+)Combined$/, '\1').
+            # NEXT-581 - articles search by publication title
+            # search for embedded capitals, insert a space (PublicationTitle --> Publication Title)
+            sub(/([a-z])([A-Z])/, '\1 \2')
+          displayValue = displayValue.sub(/^\((.+)\)$/, '\1')
+          constraints << ["#{displayField}: #{displayValue}", summon_search_cmd(q['removeCommand'])]
         end
 
         # add in Facet limits
