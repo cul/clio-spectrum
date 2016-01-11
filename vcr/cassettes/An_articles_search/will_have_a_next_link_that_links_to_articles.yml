@@ -1,0 +1,361 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.summon.serialssolutions.com/2.0.0/search?adv=%7B%7D&s.ff=SubjectTerms,and,1,10&s.fvf=ContentType,%20Newspaper%20Article,t&s.ho=t&s.q=test&spellcheck=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf8
+      X-Summon-Date:
+      - Mon, 11 Jan 2016 21:54:11 GMT
+      X-Summon-Session-Id:
+      - SUMMON-SESSION-Sprite.local-92560-20
+      X-Summon-Request-Id:
+      - ''
+      Authorization:
+      - Summon columbia;YZx5azwU1OZh27NTyYn0ZvTzUm4=
+      Host:
+      - api.summon.serialssolutions.com:80
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Datacenter:
+      - IAD1
+      Date:
+      - Mon, 11 Jan 2016 21:54:27 GMT
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "{\"version\": \"2.0.0\",\"sessionId\": \"SUMMON-SESSION-Sprite.local-92560-20\",\"elapsedQueryTime\":
+        1545,\"queryTime\": 1529,\"totalRequestTime\": 1651,\"pageCount\": 2399967,\"recordCount\":
+        23999666,\"query\": {\"queryString\": \"s.ho=t&s.ps=10&s.ff=SubjectTerms%2Cand%2C1%2C10&s.ff=Language%2Cand%2C1%2C5&s.ff=ContentType%2Cand%2C1%2C10&s.q=test&s.pn=1&s.fvf=ContentType%2CNewspaper+Article%2Ct\",\"pageNumber\":
+        1,\"pageSize\": 10,\"isHoldingsOnlyEnabled\": true,\"textQueries\": [{\"textQuery\":
+        \"test\",\"removeCommand\": \"removeTextQuery(test)\"}],\"searchTerms\": [],\"textFilters\":
+        [],\"rangeFilters\": [],\"facetValueFilters\": [{\"fieldName\": \"ContentType\",\"value\":
+        \"Newspaper Article\",\"isNegated\": true,\"removeCommand\": \"removeFacetValueFilter(ContentType,Newspaper
+        Article)\",\"negateCommand\": \"negateFacetValueFilter(ContentType,Newspaper
+        Article)\"}],\"inclusiveFacetValueFilters\": [],\"facetValueGroupFilters\":
+        [],\"facetFields\": [{\"fieldName\": \"SubjectTerms\",\"combineMode\": \"and\",\"pageNumber\":
+        1,\"pageSize\": 10,\"removeCommand\": \"removeFacetField(SubjectTerms)\"},{\"fieldName\":
+        \"Language\",\"combineMode\": \"and\",\"pageNumber\": 1,\"pageSize\": 5,\"removeCommand\":
+        \"removeFacetField(Language)\"},{\"fieldName\": \"ContentType\",\"combineMode\":
+        \"and\",\"pageNumber\": 1,\"pageSize\": 10,\"removeCommand\": \"removeFacetField(ContentType)\"}],\"rangeFacetFields\":
+        [],\"sort\": []},\"facetFields\": [{\"fieldName\": \"Language_s\",\"displayName\":
+        \"Language\",\"combineMode\": \"and\",\"pageNumber\": 1,\"pageSize\": 5,\"hasLimitingValue\":
+        true,\"hasAppliedValue\": false,\"removeCommand\": \"removeFacetField(Language)\",\"listValuesCommand\":
+        \"listFacetValues(Language,and)\",\"removeValueFiltersCommand\": \"removeFacetValueFilter(Language)\",\"counts\":
+        [{\"value\": \"English\",\"count\": 21584941,\"isApplied\": false,\"isNegated\":
+        false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(Language,English)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(Language,English:t)\"},{\"value\": \"German\",\"count\":
+        744423,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
+        \"addFacetValueFilters(Language,German)\",\"applyNegatedCommand\": \"addFacetValueFilters(Language,German:t)\"},{\"value\":
+        \"Chinese\",\"count\": 438218,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
+        true,\"applyCommand\": \"addFacetValueFilters(Language,Chinese)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(Language,Chinese:t)\"},{\"value\": \"French\",\"count\":
+        207569,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
+        \"addFacetValueFilters(Language,French)\",\"applyNegatedCommand\": \"addFacetValueFilters(Language,French:t)\"},{\"value\":
+        \"Korean\",\"count\": 124964,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
+        true,\"applyCommand\": \"addFacetValueFilters(Language,Korean)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(Language,Korean:t)\"}]},{\"fieldName\": \"SubjectTerms_mfacet\",\"displayName\":
+        \"SubjectTerms\",\"combineMode\": \"and\",\"pageNumber\": 1,\"pageSize\":
+        10,\"hasLimitingValue\": true,\"hasAppliedValue\": false,\"removeCommand\":
+        \"removeFacetField(SubjectTerms)\",\"listValuesCommand\": \"listFacetValues(SubjectTerms,and)\",\"removeValueFiltersCommand\":
+        \"removeFacetValueFilter(SubjectTerms)\",\"counts\": [{\"value\": \"article\",\"count\":
+        1197761,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
+        \"addFacetValueFilters(SubjectTerms,article)\",\"applyNegatedCommand\": \"addFacetValueFilters(SubjectTerms,article:t)\"},{\"value\":
+        \"research\",\"count\": 1052327,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
+        true,\"applyCommand\": \"addFacetValueFilters(SubjectTerms,research)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(SubjectTerms,research:t)\"},{\"value\": \"analysis\",\"count\":
+        856569,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
+        \"addFacetValueFilters(SubjectTerms,analysis)\",\"applyNegatedCommand\": \"addFacetValueFilters(SubjectTerms,analysis:t)\"},{\"value\":
+        \"studies\",\"count\": 782346,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
+        true,\"applyCommand\": \"addFacetValueFilters(SubjectTerms,studies)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(SubjectTerms,studies:t)\"},{\"value\": \"index medicus\",\"count\":
+        625795,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
+        \"addFacetValueFilters(SubjectTerms,index medicus)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(SubjectTerms,index medicus:t)\"},{\"value\": \"humans\",\"count\":
+        479555,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
+        \"addFacetValueFilters(SubjectTerms,humans)\",\"applyNegatedCommand\": \"addFacetValueFilters(SubjectTerms,humans:t)\"},{\"value\":
+        \"education\",\"count\": 437425,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
+        true,\"applyCommand\": \"addFacetValueFilters(SubjectTerms,education)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(SubjectTerms,education:t)\"},{\"value\": \"neurosciences\",\"count\":
+        375100,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
+        \"addFacetValueFilters(SubjectTerms,neurosciences)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(SubjectTerms,neurosciences:t)\"},{\"value\": \"management\",\"count\":
+        372770,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
+        \"addFacetValueFilters(SubjectTerms,management)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(SubjectTerms,management:t)\"},{\"value\": \"psychology\",\"count\":
+        348174,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
+        \"addFacetValueFilters(SubjectTerms,psychology)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(SubjectTerms,psychology:t)\"}]},{\"fieldName\": \"ContentType_mfacet\",\"displayName\":
+        \"ContentType\",\"combineMode\": \"and\",\"pageNumber\": 1,\"pageSize\": 10,\"hasLimitingValue\":
+        true,\"hasAppliedValue\": true,\"removeCommand\": \"removeFacetField(ContentType)\",\"listValuesCommand\":
+        \"listFacetValues(ContentType,and)\",\"removeValueFiltersCommand\": \"removeFacetValueFilter(ContentType)\",\"counts\":
+        [{\"value\": \"Journal Article\",\"count\": 14493261,\"isApplied\": false,\"isNegated\":
+        false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Journal
+        Article)\",\"applyNegatedCommand\": \"addFacetValueFilters(ContentType,Journal
+        Article:t)\"},{\"value\": \"Magazine Article\",\"count\": 1912181,\"isApplied\":
+        false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Magazine
+        Article)\",\"applyNegatedCommand\": \"addFacetValueFilters(ContentType,Magazine
+        Article:t)\"},{\"value\": \"Dissertation\",\"count\": 1364398,\"isApplied\":
+        false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Dissertation)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(ContentType,Dissertation:t)\"},{\"value\": \"Trade
+        Publication Article\",\"count\": 1279582,\"isApplied\": false,\"isNegated\":
+        false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Trade
+        Publication Article)\",\"applyNegatedCommand\": \"addFacetValueFilters(ContentType,Trade
+        Publication Article:t)\"},{\"value\": \"Newsletter\",\"count\": 1217375,\"isApplied\":
+        false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Newsletter)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(ContentType,Newsletter:t)\"},{\"value\": \"Book / eBook\",\"count\":
+        920079,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
+        \"addFacetValueFilters(ContentType,Book / eBook)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(ContentType,Book / eBook:t)\"},{\"value\": \"Patent\",\"count\":
+        597432,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
+        \"addFacetValueFilters(ContentType,Patent)\",\"applyNegatedCommand\": \"addFacetValueFilters(ContentType,Patent:t)\"},{\"value\":
+        \"Book Review\",\"count\": 580160,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
+        true,\"applyCommand\": \"addFacetValueFilters(ContentType,Book Review)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(ContentType,Book Review:t)\"},{\"value\": \"Conference
+        Proceeding\",\"count\": 544825,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
+        true,\"applyCommand\": \"addFacetValueFilters(ContentType,Conference Proceeding)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(ContentType,Conference Proceeding:t)\"},{\"value\":
+        \"Book Chapter\",\"count\": 445221,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
+        true,\"applyCommand\": \"addFacetValueFilters(ContentType,Book Chapter)\",\"applyNegatedCommand\":
+        \"addFacetValueFilters(ContentType,Book Chapter:t)\"},{\"value\": \"Newspaper
+        Article\",\"count\": 0,\"isApplied\": true,\"isNegated\": true,\"isFurtherLimiting\":
+        false,\"removeCommand\": \"removeFacetValueFilter(ContentType,Newspaper Article)\",\"negateCommand\":
+        \"negateFacetValueFilter(ContentType,Newspaper Article)\"}]}],\"rangeFacetFields\":
+        [],\"didYouMeanSuggestions\": [],\"recommendationLists\": {},\"documents\":
+        [{\"hasFullText\": true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\":
+        \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=test&rft.jtitle=International+Journal+of+Medical+Education&rft.au=test+test&rft.date=2015-02-01&rft.issn=2042-6372&rft.eissn=2042-6372&rft.volume=1&rft.spage=1&rft.epage=2&rft.externalDBID=DOA&rft.externalDocID=oai_doaj_org_article_256b70ed1f3c4dac96004234a4f4dbf7\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZ1xJUxeqC7yJAOnYRfsoiQmw4xHQJbIYoC7EqHXWQD9rihE3KwBd1wEIbZII23BjoGIChKWzZMKyoMAJtsjEzhlyCo5eKRQxW1iGVVYZIlZ4RojqATYEjnT-Kdho1aN1efH5RejzUy_HAOE0yN0hNMUwzTjZJSUwG9opAy21MEk3STFKS0syZgX1iC3Ok_i64mgS2zMzBd5_CXYpybwK4gg8RZOCHhpOCI8Q2IQam1Dxh0KXW0LASZuDwha5DEGHgtsmwA4WXjX6GnSiDp5triLOHLtjBBZDTO-LJ8oGxBIOCaWJKYgowxSdbAhuRqaD5XRMD46TU1CSL5FTjFAtTSQYnyi2SooYh0gxciFQiw8BSUlSaKgtsd4HSQFJmIgB94yfO\",\"Volume\":
+        [\"1\"],\"Language\": [\"English\"],\"Author\": [\"<h>test</h> <h>test</h>\"],\"Score\":
+        [\"6.243688\"],\"IsPeerReviewed\": [\"true\"],\"DBID\": [\"DOA\"],\"PublicationDate\":
+        [\"2015-02-01\"],\"PublicationDate_xml\": [{\"text\": \"2015-02-01\",\"month\":
+        \"02\",\"year\": \"2015\",\"day\": \"01\"}],\"PublicationCentury\": [\"2000\"],\"SourceType\":
+        [\"Open Website\"],\"URI\": [\"https://doaj.org/article/256b70ed1f3c4dac96004234a4f4dbf7\"],\"IsScholarly\":
+        [\"true\"],\"ID\": [\"FETCH-doaj_primary_oai_doaj_org_article_256b70ed1f3c4dac96004234a4f4dbf73\"],\"PublicationTitle\":
+        [\"International Journal of Medical Education\"],\"Discipline\": [\"Education\",\"Medicine\"],\"PublicationYear\":
+        [\"2015\"],\"EISSN\": [\"2042-6372\"],\"SubjectTerms\": [\"Education\",\"test\",\"Education
+        (General)\",\"L7-991\"],\"MergedId\": [\"FETCHMERGED-doaj_primary_oai_doaj_org_article_256b70ed1f3c4dac96004234a4f4dbf73\"],\"Author_xml\":
+        [{\"sequence\": \"1\",\"fullname\": \"test test\"}],\"PublicationDecade\":
+        [\"2010\"],\"ContentType\": [\"Journal Article\"],\"Title\": [\"<h>test</h>\"],\"ISSN\":
+        [\"2042-6372\"],\"ExternalDocumentID\": [\"oai_doaj_org_article_256b70ed1f3c4dac96004234a4f4dbf7\"],\"SSID\":
+        [\"ssj0000392706\"],\"StartPage\": [\"1\"],\"EndPage\": [\"2\"],\"thumbnail_s\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=2042-6372&client=summon\"],\"thumbnail_l\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=2042-6372&client=summon\"],\"thumbnail_m\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=2042-6372&client=summon\"],\"Database_xml\":
+        [{\"sequence\": \"1\",\"name\": \"Directory of Open Access Journals\",\"dbid\":
+        \"DOA\",\"url\": \"http://www.doaj.org/\",\"sourceTypes\": [\"Open Website\"]}],\"LinkModel\":
+        [\"OpenURL\"],\"BookMark\": [\"ePnHCXMwY2LgNAJt-TAzNjdiQWJzwAY-DIA1srmBGScDSwm4Nefp5hri7KELWgwWXwA5YSEedOYxWCC_KD0eGoTxwMo5ydwgNcUwzTjZJCUxGdj2Bi3qMEk0STNJSUoD3XxOPbMAFX86mg\"]},{\"hasFullText\":
+        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=test&rft.jtitle=American+Journal+of+Archaeology&rft.au=Borg%2C+Richard&rft.date=2015&rft.issn=0002-9114&rft.eissn=1939-828X&rft.volume=1&rft.issue=1&rft.spage=1&rft.externalDocID=oai_DiVA_org_du_19111\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZ1xJUxeqC7yJAOnYRfq8BQmw4xHQJbIYIdpgsbBIGubEJOhIpFWUI3SkfsrALaWs9rPsP2fqIVJgByypIfzwVUn5ZGluCdoZHoBRwGPEIKawMEXUAymnTLplhjvFAN8SnlMYbggpD0A59EwMLcPnhCp-jMbeEzATDnIF22Cq4vgkRZOCHelbBERJAQgxMqXnCDKKQY1AqFdQUkIJAhIHbJsMOFG42-hl2ogzabq4hzh66EHPjCyAHcMRjdaSxBIOCaWJKYgowUSZbAtt5qaApWBMD46TU1CSL5FTjFAtTSQYVYoySIk6ZNAMXKEYgAzIyDCwlRaWpssDmDSjUkzITAYLj94E\",\"Volume\":
+        [\"1\"],\"Language\": [\"English\"],\"Author\": [\"Borg, Richard\"],\"Score\":
+        [\"6.1928\"],\"IsPeerReviewed\": [\"true\"],\"DBID\": [\"DG6\"],\"PublicationDate\":
+        [\"2015\"],\"PublicationDate_xml\": [{\"text\": \"2015\",\"year\": \"2015\"}],\"PublicationCentury\":
+        [\"2000\"],\"SourceType\": [\"Open Access Repository\"],\"URI\": [\"http://urn.kb.se/resolve?urn=urn:nbn:se:du-19111\"],\"IsScholarly\":
+        [\"true\"],\"ID\": [\"FETCH-swepub_primary_oai_DiVA_org_du_191113\"],\"PublicationTitle\":
+        [\"American Journal of Archaeology\"],\"Issue\": [\"1\"],\"Discipline\": [\"History
+        & Archaeology\"],\"PublicationYear\": [\"2015\"],\"EISSN\": [\"1939-828X\"],\"MergedId\":
+        [\"FETCHMERGED-swepub_primary_oai_DiVA_org_du_191113\"],\"Author_xml\": [{\"sequence\":
+        \"1\",\"givenname\": \"Richard\",\"surname\": \"Borg\",\"fullname\": \"Borg,
+        Richard\"}],\"PublicationDecade\": [\"2010\"],\"ContentType\": [\"Journal
+        Article\"],\"Title\": [\"<h>test</h>\"],\"ISSN\": [\"0002-9114\"],\"ExternalDocumentID\":
+        [\"oai_DiVA_org_du_19111\"],\"SSID\": [\"ssj0017966\"],\"StartPage\": [\"1\"],\"thumbnail_s\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0002-9114&client=summon\"],\"thumbnail_l\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0002-9114&client=summon\"],\"thumbnail_m\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0002-9114&client=summon\"],\"LinkModel\":
+        [\"OpenURL\"],\"BookMark\": [\"ePnHCXMwYwLP4lqCtidHsECbnsAMZcIBG9o3BzawORlYSsBNOW031xBnD13IIZ3xBZADFuJBRx67ZIY5xucXpcenlMYbgnKkMWmqATq4J04\"]},{\"hasFullText\":
+        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=test&rft.jtitle=Zoosystematics+and+Evolution&rft.au=test%2C+test&rft.date=2014-03-28&rft.issn=1435-1935&rft.eissn=1860-0743&rft.volume=90&rft.issue=1&rft.spage=87&rft.epage=93&rft_id=info:doi/10.3897%2Fzse.90.1092&rft.externalDBID=n%2Fa&rft.externalDocID=10_3897_zse_90_1092\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZ1xJUxeqC7yJAOnYRfggCQmw4xHQJbIYI2saMys9HnM8MOYLZtQxqLyx8QXpAoQvXC-34G5qAVj4ZIZdVwJaOLrD9BZkUToWIWQBDF9QqQC7gIPdxokRkMXJVB6n3IBcVopeowPYMaE63qjhVzxJ89pQRouKATZaj1SfwVX7A_gVIezxQc7wleK4bWFcym1qYw3q-kArT2NzABH7kF-j8OPCFODDPQfZUgszRR3IEUiuCB1HLhQgy8EPb8QqOkOgQYmBKzRNmYAcGPWiWQoSB2ybDDhS2NvoZdqIM2m6uIc4eujCz4gsgR3zEY3G6sQSDgmliSmIKMNEnWwLbkamgKV4TA-Ok1NQki-RU4xQLU0kGFWKMkiJOmTQDFyLeZRhYSopKU2WBHgfFalJmIgA_7w2D\",\"Volume\":
+        [\"90\"],\"DatabaseTitle\": [\"CrossRef\"],\"Language\": [\"English\"],\"Author\":
+        [\"<h>test</h>, <h>test</h>\"],\"Score\": [\"6.177962\"],\"DOI\": [\"10.3897/zse.90.1092\"],\"IsPeerReviewed\":
+        [\"true\"],\"PublicationDate\": [\"2014-03-28\"],\"PublicationDate_xml\":
+        [{\"text\": \"2014-03-28\",\"month\": \"03\",\"year\": \"2014\",\"day\": \"28\"}],\"PublicationCentury\":
+        [\"2000\"],\"SourceType\": [\"Aggregation Database\"],\"IsScholarly\": [\"true\"],\"ID\":
+        [\"FETCH-crossref_primary_10_3897_zse_90_10923\"],\"PublicationTitle\": [\"Zoosystematics
+        and Evolution\"],\"Issue\": [\"1\"],\"Discipline\": [\"Zoology\"],\"PublicationYear\":
+        [\"2014\"],\"EISSN\": [\"1860-0743\"],\"MergedId\": [\"FETCHMERGED-crossref_primary_10_3897_zse_90_10923\"],\"Author_xml\":
+        [{\"sequence\": \"1\",\"givenname\": \"test\",\"surname\": \"test\",\"fullname\":
+        \"test, test\"}],\"PublicationDecade\": [\"2010\"],\"ContentType\": [\"Journal
+        Article\"],\"Title\": [\"<h>test</h>\"],\"ExternalDocumentID\": [\"10_3897_zse_90_1092\"],\"ISSN\":
+        [\"1435-1935\"],\"SSID\": [\"ssj0067677\",\"ssj0037042\"],\"StartPage\": [\"87\"],\"EndPage\":
+        [\"93\"],\"thumbnail_s\": [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=1435-1935&client=summon\"],\"thumbnail_l\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=1435-1935&client=summon\"],\"thumbnail_m\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=1435-1935&client=summon\"],\"LinkModel\":
+        [\"OpenURL\"],\"BookMark\": [\"ePnHCXMwYwDvgQNWg-b6VcWpepbgA4uMmIDdHgszA11QhcUC2u9jbKoLbDqYckALTdCxYeacDCwl4AaetptriLOHLqyeiC-AHLwQD2ywggyOBxocbwmePAXdMkSKagB0HSmu\"]},{\"hasFullText\":
+        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=test&rft.jtitle=Nature&rft.au=Gibney%2C+Elizabeth&rft.date=2014-08-21&rft.eissn=1476-4687&rft_id=info:doi/10.1038%2Fnature.2014.15759&rft.externalDBID=n%2Fa&rft.externalDocID=10_1038_nature_2014_15759\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZ1xJUxeqC7yJAOnYRfq8BQmw4xHQJbIYI2sb0S4QdEwJeWJOZBF3QhbyCC97TNzQBDV1Ctg_rpUJKJxNzM10TM0gNhVH2QU46h5wHClqzZqJnCLp9E1HQwya30cp_-Ko88Hy0sUU8xIh4kBHxYCOYgX1aC1DPNsgvBLF-BtiXgU0TG1voY9iLVNHzICqkEEEGfmhTW8EREmJCDEypecIM7OAlr8nFwgxC0GKtWEEDeva2pggDt02GHSg8bfQz7EQZDN1cQ5w9dGEWxBdAjuaIx-kFYwkGBdPElMQUYJJNtgS2AlNBE7QmBsZJqalJFsmpxikWppIMWsQbKEWKYmkGLkSEyjCwlBSVpsoCwwdUASVlJgIAXCb8eg\",\"DatabaseTitle\":
+        [\"CrossRef\"],\"Language\": [\"English\"],\"Author\": [\"Gibney, Elizabeth\"],\"Score\":
+        [\"6.1697984\"],\"DOI\": [\"10.1038/nature.2014.15759\"],\"IsPeerReviewed\":
+        [\"true\"],\"PublicationDate\": [\"2014-08-21\"],\"PublicationDate_xml\":
+        [{\"text\": \"2014-08-21\",\"month\": \"08\",\"year\": \"2014\",\"day\": \"21\"}],\"PublicationCentury\":
+        [\"2000\"],\"SourceType\": [\"Aggregation Database\"],\"IsScholarly\": [\"true\"],\"ID\":
+        [\"FETCH-crossref_primary_10_1038_nature_2014_157593\"],\"PublicationTitle\":
+        [\"Nature\"],\"Discipline\": [\"Physics\",\"Sciences (General)\"],\"PublicationYear\":
+        [\"2014\"],\"EISSN\": [\"1476-4687\"],\"MergedId\": [\"FETCHMERGED-crossref_primary_10_1038_nature_2014_157593\"],\"Author_xml\":
+        [{\"sequence\": \"1\",\"givenname\": \"Elizabeth\",\"surname\": \"Gibney\",\"fullname\":
+        \"Gibney, Elizabeth\"}],\"PublicationDecade\": [\"2010\"],\"ContentType\":
+        [\"Journal Article\"],\"Title\": [\"<h>test</h>\"],\"ExternalDocumentID\":
+        [\"10_1038_nature_2014_15759\"],\"SSID\": [\"ssj0005174\"],\"LinkModel\":
+        [\"OpenURL\"],\"BookMark\": [\"ePnHCXMwY4DOHBpb6EOOpgQtnzLRMwRdBMkE2uljbqZrYmZhzgFfhwFsE3MysJSAm3aGbq4hzh66sBoivgBy5EI8eKrU2CIeYmQ8yMh4sJHG5OgBAGlULUY\"]},{\"hasFullText\":
+        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=test&rft.jtitle=Ploughshares&rft.au=MOTEN%2C+FRED&rft.date=2013-04-01&rft.pub=EMERSON+COLLEGE&rft.issn=0048-4474&rft.eissn=2162-0903&rft.volume=39&rft.issue=1&rft.spage=95&rft.epage=99&rft.externalDocID=23645913\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZ1xJUxeqC7yJAOnYRPnQBWlUJXhYInsQHto-SclL1QWecm1oaGtsXFOqCrosCTatC784Alr2gM8lAJzr7WSL2Q5pAj2MEDZaZgNbyIa81BBeQbgIMsCW-sBUjyaU5wFgGFglJmYlIy6mRzmUk1XWCDPzQZqWCIyQdCDEwpeYJM4j7QAcjixXUFHzg5ycXCzNwh2UWl0LUF4swcNtk2AFbnCU2-hl2ogyybq4hzh66YBfEF0AOo4iHWW8swaBgmpiSmAKMk2RLYDMnFTQDaWJgnJSammSRnGqcYmEqySCGXbMULglpBi4j8P0PoKUqMgwsJUWlqbLAGhwaTAD29JB-\",\"Volume\":
+        [\"39\"],\"Language\": [\"English\"],\"Author\": [\"MOTEN, FRED\"],\"Score\":
+        [\"6.0779977\"],\"Copyright\": [\"2013 Emerson College\"],\"IsPeerReviewed\":
+        [\"false\"],\"PublicationDate\": [\"20130401\"],\"PublicationDate_xml\": [{\"text\":
+        \"20130401\",\"month\": \"4\",\"year\": \"2013\",\"day\": \"1\"}],\"PublicationCentury\":
+        [\"2000\"],\"Copyright_xml\": [{\"notice\": \"2013 Emerson College\"}],\"Publisher\":
+        [\"EMERSON COLLEGE\"],\"SourceType\": [\"Publisher\"],\"Publisher_xml\": [{\"name\":
+        \"EMERSON COLLEGE\"}],\"URI\": [\"http://www.jstor.org/stable/23645913\"],\"IsScholarly\":
+        [\"true\"],\"ID\": [\"FETCH-jstor_primary_236459133\"],\"PublicationTitle\":
+        [\"Ploughshares\"],\"Issue\": [\"1\"],\"Discipline\": [\"Visual Arts\",\"Languages
+        & Literatures\"],\"PublicationYear\": [\"2013\"],\"EISSN\": [\"2162-0903\"],\"MergedId\":
+        [\"FETCHMERGED-jstor_primary_236459133\"],\"Author_xml\": [{\"sequence\":
+        \"1\",\"givenname\": \"FRED\",\"surname\": \"MOTEN\",\"fullname\": \"MOTEN,
+        FRED\"}],\"PublicationDecade\": [\"2010\"],\"ContentType\": [\"Journal Article\"],\"Title\":
+        [\"<h>test</h>\"],\"ISSN\": [\"0048-4474\"],\"ExternalDocumentID\": [\"23645913\"],\"SSID\":
+        [\"ssj0004420\"],\"StartPage\": [\"95\"],\"EndPage\": [\"99\"],\"thumbnail_s\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0048-4474&client=summon\"],\"thumbnail_l\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0048-4474&client=summon\"],\"thumbnail_m\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0048-4474&client=summon\"],\"LinkModel\":
+        [\"DirectLink\"],\"BookMark\": [\"ePnHCXMwY2LgNDI0MwL3_1nAs7sWuiYm5iYc8M2KJkYGnAwsJeCmnKyba4izhy54JWB8AeR8hXjQmeamloagu2zxywMADvwbQA\"]},{\"hasFullText\":
+        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Test&rft.jtitle=Ploughshares&rft.au=Moten%2C+Fred&rft.date=2013-03-22&rft.pub=Ploughshares%2C+Inc&rft.issn=0048-4474&rft.eissn=2162-0903&rft.volume=39&rft.issue=1&rft.spage=95&rft.externalDBID=IAO&rft.externalDocID=328165708\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZ1xJUxeqC7yJAOnYRfqQQeLE7qGhE7GlILCgo1k_JT9Z3NDayMASt1LDQd_J0NrRHukGj1DYZlJeTMhNLmRlYgY0WA9BlBp5O7ogtkibQExpB42cmoOV9LLDVb9Ci002AATa2BVtDklyaowczGGmBNdJJjZS7V5CBH9r0VHCEpBUhBqbUPGEGcR_ogGWxgpqCD_yM5WJhBu6wzOJSiPpiEQZumwy7EGANYqOfYSfKIOfmGuLsoQtyUjwoiZYUJSbHwx1iLMGgYJqYkpgCjLhkS2BbKBU0TWliYJyUmppkkZxqnGJhKskgjkO3FE4ZaQYuI_A1Eca6RkYyDCwlRaWpssCKHupJAMqxmwk\",\"Volume\":
+        [\"39\"],\"Language\": [\"English\"],\"Author\": [\"Moten, Fred\"],\"Score\":
+        [\"6.076122\"],\"Copyright\": [\"COPYRIGHT 2013 Ploughshares, Inc.\"],\"DBID\":
+        [\"IAO\"],\"IsPeerReviewed\": [\"false\"],\"PublicationDate_xml\": [{\"text\":
+        \"20130322\",\"month\": \"03\",\"year\": \"2013\",\"day\": \"22\"}],\"PublicationDate\":
+        [\"20130322\"],\"PublicationCentury\": [\"2000\"],\"Copyright_xml\": [{\"notice\":
+        \"COPYRIGHT 2013 Ploughshares, Inc.\"}],\"Publisher\": [\"Ploughshares, Inc\"],\"SourceType\":
+        [\"Aggregation Database\"],\"Publisher_xml\": [{\"name\": \"Ploughshares,
+        Inc\"}],\"IsScholarly\": [\"true\"],\"ID\": [\"FETCH-gale_infotrac_3281657083\"],\"PublicationTitle\":
+        [\"Ploughshares\"],\"Issue\": [\"1\"],\"Discipline\": [\"Visual Arts\",\"Languages
+        & Literatures\"],\"PublicationYear\": [\"2013\"],\"Audience\": [\"Academic\"],\"EISSN\":
+        [\"2162-0903\"],\"MergedId\": [\"FETCHMERGED-gale_infotrac_3281657083\"],\"Author_xml\":
+        [{\"sequence\": \"1\",\"fullname\": \"Moten, Fred\"}],\"PublicationDecade\":
+        [\"2010\"],\"ContentType\": [\"Journal Article\"],\"Title\": [\"<h>Test</h>\"],\"ISSN\":
+        [\"0048-4474\"],\"ExternalDocumentID\": [\"328165708\"],\"SSID\": [\"ssj0004420\"],\"StartPage\":
+        [\"95\"],\"thumbnail_s\": [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0048-4474&client=summon\"],\"thumbnail_l\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0048-4474&client=summon\"],\"thumbnail_m\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0048-4474&client=summon\"],\"LinkModel\":
+        [\"DirectLink\"],\"BookMark\": [\"ePnHCXMwY2LgNDI0MwL3_1nAs7sWuiYm5iYc8M2KJkYGnAwsIeCmnJyba4izhy6oMIwHhSiwd58cb2xkYQhakQE6yo-AAgAncBsC\"]},{\"hasFullText\":
+        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Test&rft.jtitle=Ploughshares&rft.au=Moten%2C+Fred&rft.date=2013-03-22&rft.pub=Ploughshares%2C+Inc&rft.issn=0048-4474&rft.eissn=2162-0903&rft.volume=39&rft.issue=1&rft.spage=95&rft.externalDBID=n%2Fa&rft.externalDocID=328165708\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZ1xJUxeqC7yJAOnYRfqQQeLE7qGhE7GlILCgo1k_JT9Z3NDayMASt1LDQd_J0NrRHukGj1DYZlJeTMhNLmRlYgY0WI1AC93RyR2yRNIGe0AgaPzMBLe9jga1-gxahbgIMsLEt2BqS5NIcPZjBSAuskU5qpNy9ggz80KangiMkrQgxMKXmCTOI-0AHLIsV1BR84GcsFwszcIdlFpdC1BeLMHDbZNiFAGsQG_0MO1EGOTfXEGcPXZCT4nOKktMTS4uL4-EOMZZgUDBNTElMAUZcsiWwLZQKmqY0MTBOSk1NskhONU6xMJVkEMehWwqnjDQDlxH4mghjXSMjGQaWkqLSVFlgRQ_1JADmvps9\",\"Volume\":
+        [\"39\"],\"Language\": [\"English\"],\"Author\": [\"Moten, Fred\"],\"Score\":
+        [\"6.076122\"],\"PageCount\": [\"5\"],\"Copyright\": [\"COPYRIGHT 2013 Ploughshares,
+        Inc.\"],\"IsPeerReviewed\": [\"false\"],\"PublicationDate\": [\"20130322\"],\"PublicationDate_xml\":
+        [{\"text\": \"20130322\",\"month\": \"03\",\"year\": \"2013\",\"day\": \"22\"}],\"PublicationCentury\":
+        [\"2000\"],\"Copyright_xml\": [{\"notice\": \"COPYRIGHT 2013 Ploughshares,
+        Inc.\"}],\"Publisher\": [\"Ploughshares, Inc\"],\"SourceType\": [\"Aggregation
+        Database\"],\"Publisher_xml\": [{\"name\": \"Ploughshares, Inc\"}],\"IsScholarly\":
+        [\"true\"],\"ID\": [\"FETCH-gale_lrcgauss_3281657083\"],\"PublicationTitle\":
+        [\"Ploughshares\"],\"Issue\": [\"1\"],\"Discipline\": [\"Visual Arts\",\"Languages
+        & Literatures\"],\"PublicationYear\": [\"2013\"],\"Audience\": [\"Academic\"],\"EISSN\":
+        [\"2162-0903\"],\"MergedId\": [\"FETCHMERGED-gale_lrcgauss_3281657083\"],\"Author_xml\":
+        [{\"sequence\": \"1\",\"fullname\": \"Moten, Fred\"}],\"PublicationDecade\":
+        [\"2010\"],\"ContentType\": [\"Journal Article\"],\"Title\": [\"<h>Test</h>\"],\"ISSN\":
+        [\"0048-4474\"],\"ExternalDocumentID\": [\"328165708\"],\"SSID\": [\"ssj0004420\"],\"StartPage\":
+        [\"95\"],\"thumbnail_s\": [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0048-4474&client=summon\"],\"thumbnail_l\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0048-4474&client=summon\"],\"thumbnail_m\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0048-4474&client=summon\"],\"LinkModel\":
+        [\"DirectLink\"],\"BookMark\": [\"ePnHCXMwY2LgNDI0MwL3_1nAs7sWuiYm5iYc8M2KJkYGnAwsIeCmnJyba4izhy6oMIzPKUpOTywtLo43NrIwBK3IAB3lR0ABACpIGx4\"]},{\"hasFullText\":
+        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=test&rft.jtitle=Disease+Models+%26+Mechanisms&rft.au=mccormack%2C+k&rft.au=Schaub%2C+A&rft.date=2013-03-22&rft.issn=1754-8403&rft.eissn=1754-8411&rft_id=info:doi/10.1242%2Fdmm.000968&rft.externalDBID=n%2Fa&rft.externalDocID=10_1242_dmm_000968\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZ1xJUxeqC7yJAOnaRQQX7DD6w_tBPyc3VA7e0QTt6TS3AuS_I2QlW3JoB60dL8K5HUxNdYG_FGHoGKapWpFqHB1F6ugkwwO5Zgi0bSS7NAUY1sFxIykxEWlONdDgjXicKMvBDG5IKjpCYF2JgSs0TZmCHXC1ZKczA4QudNBdh4LbJsAM2KEts9DPsRBm03FxDnD10Ye6ML4AcNxEPaqYDbYkH2hIPscVYgkHBNDElMQUY_smWwCZNKmi2Eej3pNTUJIvkVOMUC1NJBmUiTJIiSpU0A5cR-BYIY10jIxkGlpKi0lRZYIhCwwkAVziJ7A\",\"DatabaseTitle\":
+        [\"CrossRef\"],\"Language\": [\"English\"],\"Author\": [\"mccormack, k\",\"Schaub,
+        A\"],\"Score\": [\"6.076122\"],\"DOI\": [\"10.1242/dmm.000968\"],\"IsPeerReviewed\":
+        [\"true\"],\"PublicationDate\": [\"2013-03-22\"],\"PublicationDate_xml\":
+        [{\"text\": \"2013-03-22\",\"month\": \"03\",\"year\": \"2013\",\"day\": \"22\"}],\"PublicationCentury\":
+        [\"2000\"],\"SourceType\": [\"Aggregation Database\"],\"IsScholarly\": [\"true\"],\"ID\":
+        [\"FETCH-crossref_primary_10_1242_dmm_0009683\"],\"PublicationTitle\": [\"Disease
+        Models & Mechanisms\"],\"Discipline\": [\"Medicine\",\"Biology\"],\"PublicationYear\":
+        [\"2013\"],\"EISSN\": [\"1754-8411\"],\"MergedId\": [\"FETCHMERGED-crossref_primary_10_1242_dmm_0009683\"],\"Author_xml\":
+        [{\"sequence\": \"1\",\"givenname\": \"k\",\"surname\": \"mccormack\",\"fullname\":
+        \"mccormack, k\"},{\"sequence\": \"2\",\"givenname\": \"A\",\"surname\": \"Schaub\",\"fullname\":
+        \"Schaub, A\"}],\"PublicationDecade\": [\"2010\"],\"ContentType\": [\"Journal
+        Article\"],\"Title\": [\"<h>test</h>\"],\"ExternalDocumentID\": [\"10_1242_dmm_000968\"],\"ISSN\":
+        [\"1754-8403\"],\"SSID\": [\"ssj0062839\"],\"thumbnail_s\": [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=1754-8403&client=summon\"],\"thumbnail_l\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=1754-8403&client=summon\"],\"thumbnail_m\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=1754-8403&client=summon\"],\"LinkModel\":
+        [\"DirectLink\"],\"BookMark\": [\"ePnHCXMwY4AcAQos-fVTcnP1wG1kCybQrkRTE10LE1DmgbENjDmgZaYZsJKz5GRgKQG377TcXEOcPXRh1UR8AeTchXhQexVobjzQ3HiIucYkKQYA35UoUQ\"]},{\"hasFullText\":
+        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=test&rft.jtitle=Ploughshares&rft.au=Fred+Moten&rft.date=2013&rft.pub=Ploughshares&rft.eissn=2162-0903&rft.volume=39&rft.issue=1&rft.spage=95&rft.epage=97&rft_id=info:doi/10.1353%2Fplo.2013.0000&rft.externalDBID=n%2Fa&rft.externalDocID=ploughshares_v039_39_1_moten_test\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZ1xJUxeqC7yJAOnYRfugRQmw4xHQJbIYI2sYMyAHdvFOcAdpZBI8e0DJz3_wS6MYvaDcfsj8THCUYmlLBpYORoZkReJAFuSiDnAuEEmWQcglykSW0hoMsiMUoOyEXYBTkgLZEGhqDD3ZEVBKwiXG0ugO-oq8AyZXxZQbGlvFAZBifC_JYPCgcQLv8TQxAi-6cffwRO1dNjAygJ58CrddHsRx1NIoHUfmFCDLwQ5vrCo6QUBdiYErNE2YQ94EO8hYrqCn4wM-lLhZm4A7LLC6FqC8WYeC2ybADOcpGP8NOlMHGzTXE2UMXybL4AshRH_EEvWUswaBgmpiSmALMCsmWwNZlKmji18TAOCk1NckiOdU4xcJUksGULLMlGdSx6UNXWpCSJkWmDdIMXEbg6z1AQ0oyDCwlRaWpssAGGig1JWUmAgBdnT_C\",\"Volume\":
+        [\"39\"],\"Language\": [\"English\"],\"Author\": [\"Fred Moten\"],\"Score\":
+        [\"6.0634985\"],\"DOI\": [\"10.1353/plo.2013.0000\"],\"IsPeerReviewed\": [\"false\"],\"PublicationDate_xml\":
+        [{\"text\": \"20130000\",\"year\": \"2013\"}],\"PublicationDate\": [\"20130000\"],\"PublicationCentury\":
+        [\"2000\"],\"Publisher\": [\"Ploughshares\"],\"AbstractList\": [\"The poet
+        Major Jackson (Holding Company, Hoops) compiles this eclectic Spring issue,
+        which includes the work of several distinguished writers and newcomers. Featuring
+        poetry by writers like Mark Doty, Martin Espada, Tony Hoagland, Laura Kasischke,
+        Sharon Olds, Carl Phillips, and Tracy K. Smith, the issue is a dazzling tour
+        of the modern poetic landscape in America. There is also a wide variety of
+        fiction, from the story of a high school girl in the South and her relationship
+        with a white teacher (\\\"What Happens Next,\\\" by Emily Bernard) to a New
+        York doorman dying of cancer (\\\"The Rubber Game,\\\" by Sherri Phillips).
+        The issue also features a Plan B essay by Floyd Skloot (\\\"The Great Dream\\\"),
+        about the mostly thwarted ambitions of the members of his family, and an appreciation
+        of the British writer Barbara Pym (\\\"Patron Saint of Quiet Lives,\\\" by
+        Raina Lipsitz).\"],\"SourceType\": [\"Publisher\",\"Enrichment Source\"],\"Publisher_xml\":
+        [{\"name\": \"Ploughshares\"}],\"Snippet\": [\"...Access provided by your
+        local institution (22 May 2013 05:22 GMT) FRED MOTEN <h>test</h> (A small,
+        and still isolated, incident in New Y ork shows what can happen...\"],\"URI\":
+        [\"http://muse.jhu.edu/journals/ploughshares/v039/39.1.moten.html\"],\"IsScholarly\":
+        [\"true\"],\"ID\": [\"FETCH-projectmuse_primary_ploughshares_v039_39_1_moten_test3\"],\"PublicationTitle\":
+        [\"Ploughshares\"],\"Issue\": [\"1\"],\"Discipline\": [\"Visual Arts\",\"Languages
+        & Literatures\"],\"PublicationYear\": [\"2013\"],\"DatabaseTitleList\": [\"\"],\"Abstract\":
+        [\"The poet Major Jackson (Holding Company, Hoops) compiles this eclectic
+        Spring issue, which includes the work of several distinguished writers and
+        newcomers. Featuring poetry by writers like Mark Doty, Martin Espada, Tony
+        Hoagland, Laura Kasischke, Sharon Olds, Carl Phillips, and Tracy K. Smith,
+        the issue is a dazzling tour of the modern poetic landscape in America. There
+        is also a wide variety of fiction, from the story of a high school girl in
+        the South and her relationship with a white teacher (\\\"What Happens Next,\\\"
+        by Emily Bernard) to a New York doorman dying of cancer (\\\"The Rubber Game,\\\"
+        by Sherri Phillips). The issue also features a Plan B essay by Floyd Skloot
+        (\\\"The Great Dream\\\"), about the mostly thwarted ambitions of the members
+        of his family, and an appreciation of the British writer Barbara Pym (\\\"Patron
+        Saint of Quiet Lives,\\\" by Raina Lipsitz).\"],\"EISSN\": [\"2162-0903\"],\"MergedId\":
+        [\"FETCHMERGED-projectmuse_primary_ploughshares_v039_39_1_moten_test3\"],\"Author_xml\":
+        [{\"sequence\": \"1\",\"fullname\": \"Fred Moten\"}],\"PublicationDecade\":
+        [\"2010\"],\"ContentType\": [\"Journal Article\"],\"Title\": [\"<h>test</h>\"],\"ExternalDocumentID\":
+        [\"ploughshares_v039_39_1_moten_test\"],\"SSID\": [\"ssj0004420\"],\"StartPage\":
+        [\"95\"],\"EndPage\": [\"97\"],\"LinkModel\": [\"OpenURL\"],\"BookMark\":
+        [\"ePnHCXMwY4CcY2lsaqxfkAPaXWdoDD4jkImB08jQzAg8LsAB37hoYmTAycBSAm7W2bi5hjh76CKNQMQXQE5ciAeaVJqeUZwB2pITX2ZgbBkPRIbxQM-k5sWDdBtzM-jh1o6uoyAlzZhC-wAtqkov\"]},{\"hasFullText\":
+        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=test&rft.jtitle=Indian+Journal+of+Critical+Care+Medicine&rft.date=2014-01-01&rft.pub=Medknow+Publications&rft.issn=0972-5229&rft.eissn=1998-359X&rft.volume=18&rft.issue=14&rft.spage=1&rft.epage=1&rft.externalDBID=DOA&rft.externalDocID=oai_doaj_org_article_5de70d66c7824b4ba58a54f5089a1955\",\"link\":
+        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZ1xJUxeqC7yJAOnYRfoUqQmw4xHQJbIYoC7YqHXzcAFJTE36fAWi3EWRuBjadDu3wG5qgdfjRt8mhD-uZgzqX0FGEVEihBtpGZ2wKvrIWS6lXCtvHCS3DDJEqQ0NENQGbGkc6lxTtlGrQer74_KL0eGhQxJumpJobpJiZJQObISZJJkmJphaJpiZpwDahZaKhpakpM7CvbGEOG2KB9pLNLMGb5eAeAS8LgHoA5WIFSGUZIsjADw1QBUeIvUIMTKl5wgwcsOAUYeC2ybADRYaNfoadKIOnm2uIs4cu2LkFkDM94slyv7EEg4JpYkpiCjAfJFsCm5apoFlfEwPjpNTUJIvkVOMUC1NJBifKLZKihiHSDFyI5CTDwFJSVJoqC2yNgdJDUmYiAGW1LE4\",\"Volume\":
+        [\"18\"],\"Language\": [\"English\"],\"Score\": [\"5.9899793\"],\"IsPeerReviewed\":
+        [\"true\"],\"DBID\": [\"DOA\"],\"PublicationDate\": [\"2014-01-01\"],\"PublicationDate_xml\":
+        [{\"text\": \"2014-01-01\",\"month\": \"01\",\"year\": \"2014\",\"day\": \"01\"}],\"PublicationCentury\":
+        [\"2000\"],\"Publisher\": [\"Medknow Publications\"],\"SourceType\": [\"Open
+        Website\"],\"Publisher_xml\": [{\"name\": \"Medknow Publications\"}],\"URI\":
+        [\"https://doaj.org/article/5de70d66c7824b4ba58a54f5089a1955\"],\"IsScholarly\":
+        [\"true\"],\"ID\": [\"FETCH-doaj_primary_oai_doaj_org_article_5de70d66c7824b4ba58a54f5089a19553\"],\"PublicationTitle\":
+        [\"Indian Journal of Critical Care Medicine\"],\"Issue\": [\"14\"],\"Discipline\":
+        [\"Medicine\"],\"PublicationYear\": [\"2014\"],\"EISSN\": [\"1998-359X\"],\"SubjectTerms\":
+        [\"Medical emergencies. Critical care. Intensive care. First aid\",\"Internal
+        medicine\",\"RC31-1245\",\"RC86-88.9\",\"Medicine\"],\"MergedId\": [\"FETCHMERGED-doaj_primary_oai_doaj_org_article_5de70d66c7824b4ba58a54f5089a19553\"],\"PublicationDecade\":
+        [\"2010\"],\"ContentType\": [\"Journal Article\"],\"Title\": [\"<h>test</h>\"],\"ISSN\":
+        [\"1998-359X\",\"0972-5229\"],\"ExternalDocumentID\": [\"oai_doaj_org_article_5de70d66c7824b4ba58a54f5089a1955\"],\"SSID\":
+        [\"ssj0026921\"],\"StartPage\": [\"1\"],\"EndPage\": [\"1\"],\"thumbnail_s\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=1998-359X&client=summon\"],\"thumbnail_l\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=1998-359X&client=summon\"],\"thumbnail_m\":
+        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=1998-359X&client=summon\"],\"Database_xml\":
+        [{\"sequence\": \"1\",\"name\": \"Directory of Open Access Journals\",\"dbid\":
+        \"DOA\",\"url\": \"http://www.doaj.org/\",\"sourceTypes\": [\"Open Website\"]}],\"LinkModel\":
+        [\"OpenURL\"],\"BookMark\": [\"ePnHCXMwYwLN4lpa6BqbWkawILE5YL0gM0sjQ04GlhJwU87TzTXE2UMXtBIsvgByvEI86MBjsEB-UXo8NPziTVNSzQ1SzMySgTWaSZJJUqKpRaKpSRqweWGZaGhpCrrbmHpmAQDOlTmE\"]}],\"rollups\":
+        {\"image\": {},\"reference\": {},\"newspaper\": {}}}"
+    http_version: 
+  recorded_at: Mon, 11 Jan 2016 21:54:13 GMT
+recorded_with: VCR 2.9.3
