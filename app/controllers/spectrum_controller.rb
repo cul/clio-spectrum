@@ -181,7 +181,7 @@ class SpectrumController < ApplicationController
     if params['q'] && params['search_field'] && (params['search_field'] != 'all_fields')
       hash = Rack::Utils.parse_nested_query("#{params['search_field']}=#{params['q']}")
       params.merge! hash
-      params.delete('q')
+      params.delete('q') unless params['search_field'] == 'q'
     end
     #  # seeing a "q" param means a submit directly from the basic search box
     #  # OR from a direct link
