@@ -27,7 +27,6 @@ describe 'Articles Search', :vcr do
     fill_in 'publicationtitle', with: 'Journal'
 
     click_button 'Search'
-
     expect(find('.well-constraints')).to have_content('Author: Stiglitz')
     expect(find('.well-constraints')).to have_content('Title: Economics')
     expect(find('.well-constraints')).to have_content('Publication Title: Journal')
