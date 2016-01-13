@@ -13,31 +13,45 @@ module Spectrum
 
 
     def add_advanced_search_to_solr(solr_parameters)
-      req_params = blacklight_params
-
       # Only continue if the blacklight params indicate this is 
       # an advanced search
-      return unless req_params[:search_field] == 'advanced' && req_params[:adv].kind_of?(Hash)
+      return unless blacklight_params[:search_field] == 'advanced' && blacklight_params[:adv].kind_of?(Hash)
 
-      solr_parameters[:qt] = req_params[:qt] if req_params[:qt]
+      solr_parameters[:qt] = blacklight_params[:qt] if blacklight_params[:qt]
 
       # NEXT-922 - Advanced search item pagination skips records from search-results list
       # fix: skip over empty advanced-search fields (don't AND empty strings)
-      advanced_q = advanced_search_queries(req_params).reject do |query|
+      advanced_q = advanced_search_queries(blacklight_params).reject do |query|
         field_name, value = *query
         !value || (value.strip.length == 0)
       end.map do |query|
         field_name, value = *query
-        # With the upgrade of the Blacklight gem from 5.7.x to 5.8.x,
-        # method search_field_def_for_key() is not longer callable?
-        # search_field_def = search_field_def_for_key(field_name)
         search_field_def = blacklight_config.search_fields[field_name]
-        blacklight_config.search_fields
 
+        # The search_field_def may look something like this:
+        # <Blacklight::Configuration::SearchField 
+        #    key="journal_title", 
+        #    show_in_dropdown=true,
+        #    solr_parameters={:fq=>["format:Journal\\/Periodical"]},
+        #    solr_local_parameters={:qf=>"$title_qf", :pf=>"$title_pf"},
+        #    if=true, 
+        #    field="journal_title", 
+        #    label="Journal Title",
+        #    unless=false, 
+        #    qt="search">
+
+        # ==> process the solr_local_parameters
+        # does searching by this field oblige us to merge
+        # in some specific solr parameters?  
+        # (e.g., a "Journal Title" search means fq:'format:Journal')
+        if search_field_def && search_field_def.solr_parameters
+          solr_parameters.merge!(search_field_def.solr_parameters)
+        end
+
+        # ==> process the solr_local_parameters
         if search_field_def && hash = search_field_def.solr_local_parameters
           local_params = hash.map do |key, val|
             key.to_s + '=' + solr_param_quote(val, quote: "'")
-            # key.to_s + '=' + search_builder.solr_param_quote(val, quote: "'")
           end.join(' ')
 
           # This has problems. Why "_query_"?  Why dismax?
@@ -54,11 +68,12 @@ module Spectrum
           value.to_s
         end
 
+        # TODO:  process the solr_parameters (e.g., :fq)
+
       end
       Rails.logger.debug "FINAL: #{advanced_q}"
 
-      solr_parameters[:q] = advanced_q.join(" #{advanced_search_operator(req_params)} ")
-
+      solr_parameters[:q] = advanced_q.join(" #{advanced_search_operator(blacklight_params)} ")
     end
 
       ##
@@ -95,9 +110,6 @@ module Spectrum
       # Method added to search_params_logic to fetch
       # proper things for date ranges.
     def add_range_limit_params(solr_params)
-
-      req_params = blacklight_params
-
       ranged_facet_configs =
         blacklight_config.facet_fields.select { |key, config| config.range }
        # In ruby 1.8, hash.select returns an array of pairs, in ruby 1.9
@@ -110,8 +122,8 @@ module Spectrum
        solr_params['stats.field'] << solr_field unless
            solr_params['stats.field'].include?(solr_field)
 
-       hash = req_params[:range] && req_params[:range][solr_field] ?
-                 req_params[:range][solr_field] :
+       hash = blacklight_params[:range] && blacklight_params[:range][solr_field] ?
+                 blacklight_params[:range][solr_field] :
                  {}
 
        if !hash['missing'].blank?
