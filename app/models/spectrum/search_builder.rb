@@ -45,7 +45,11 @@ module Spectrum
         # in some specific solr parameters?  
         # (e.g., a "Journal Title" search means fq:'format:Journal')
         if search_field_def && search_field_def.solr_parameters
-          solr_parameters.merge!(search_field_def.solr_parameters)
+          search_field_def.solr_parameters.map do |key, value|
+            solr_parameters[key] ||= []
+            solr_parameters[key] |= value
+          end
+          # solr_parameters.merge!(search_field_def.solr_parameters)
         end
 
         # ==> process the solr_local_parameters
