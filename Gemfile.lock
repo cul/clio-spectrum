@@ -57,10 +57,10 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    blacklight (5.11.3)
+    blacklight (5.12.1)
       bootstrap-sass (~> 3.2)
       deprecation
-      kaminari (~> 0.13)
+      kaminari (>= 0.15)
       nokogiri (~> 1.6)
       rails (>= 3.2.6, < 5)
       rsolr (~> 1.0.11)
@@ -342,7 +342,7 @@ DEPENDENCIES
   activerecord-session_store
   better_errors
   binding_of_caller
-  blacklight (~> 5.11.0)
+  blacklight (~> 5.12.0)
   blacklight-marc
   blacklight_range_limit!
   bootstrap-sass
