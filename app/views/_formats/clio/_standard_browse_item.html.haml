@@ -4,7 +4,7 @@
 
 -# What to use for our document link label?
 -# Usually the title, but if we're browsing by call-number, use the call_number
-- link_label = document.get("title_display") || document.get("title_vern_display")
+- link_label = document.fetch('title_display', nil) || document.fetch('title_vern_display', nil)
 -# - link_label = call_number if local_assigns.has_key? :call_number
 
 - highlight_bib = session[:browse]['bib'] || 0
@@ -22,7 +22,7 @@
 / container for a SINGLE doc
 - database_class = document.is_database? ? 'database_record' : ''
 - focus_class = (document.id == highlight_bib) ? 'browse_focus' : ''
-.result.document{class: "#{database_class} #{focus_class}", source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
+.result.document{class: "#{database_class} #{focus_class}", source: 'catalog', item_id: document.fetch(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
   .row
     .title.col-sm-9
@@ -42,7 +42,7 @@
         -# This is how core Blacklight would do it...
         -# = link_to_document document, :label=>document_show_link_field(document), :counter => counter
         -# Just use the title?
-        -# = link_to_source_document document, :label=> document.get('title_display'), :counter => counter, :source => source
+        -# = link_to_source_document document, :label=> document.fetch('title_display', nil), :counter => counter, :source => source
         -# Or allow a more flexible link-label, defined above
         = link_to_source_document document, label: link_label, source: source
 

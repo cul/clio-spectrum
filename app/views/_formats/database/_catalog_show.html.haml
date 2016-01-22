@@ -7,9 +7,9 @@
 
   -# Per 10/1013 NER/Cataloging decision, eliminate the 969 DB Summary field,
   -# use only the standard MARC 520 full summary, below.
-  -# = add_row("DB Summary", document.get("database_summary_display"))
+  -# = add_row("DB Summary", document.fetch('database_summary_display', nil))
   -# Redundant with 'Summary', below
-  -# = add_row("Details", document.get("summary_display"))
+  -# = add_row("Details", document.fetch('summary_display', nil))
 
   = add_row("Author", generate_value_links(display_marc_field(marc, 'author'), :author))
   = add_row("Uniform Title", display_marc_field(marc, 'title_uniform'))
@@ -41,12 +41,12 @@
   = add_row("Standard No.", display_marc_field(marc, 'standard_no'))
   = add_row('Related To', display_marc_field(marc, 'related_to'))
   = add_row('Format', formats_with_icons(document))
-  = add_row('Acquired On', Date.parse(document.get('acq_dt')).to_formatted_s(:long)) if document.get('acq_dt')
-  = add_row('Restricted', document.get("database_restrictions_display"))
+  = add_row('Acquired On', Date.parse(document.fetch('acq_dt', nil)).to_formatted_s(:long)) if document.fetch('acq_dt', nil)
+  = add_row('Restricted', document.fetch('database_restrictions_display', nil))
 
   -#  The database note/alert display is moved to holdings partial
-  -# - if document.get("_item_alerts").kind_of?(Hash)
-  -#  - document.get("_item_alerts").each do |alert_type, alerts|
+  -# - if document.fetch('_item_alerts', nil).kind_of?(Hash)
+  -#  - document.fetch('_item_alerts', nil).each do |alert_type, alerts|
   -#    = add_row(ItemAlert::ALERT_TYPES[alert_type], alerts.select { |alert| alert.active? }.collect(&:message), options = {:html_safe => true})
   -# html_safe true, so that ERC can embed HTML links in their alert msgs
 

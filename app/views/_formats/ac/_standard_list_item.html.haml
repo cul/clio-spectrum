@@ -3,7 +3,7 @@
 / _formats/ac/_standard_list_item.html.haml
 / container for a SINGLE doc
 
-.result.document{class: render_document_class(document), source: 'academic_commons', item_id: document.get(:id)}
+.result.document{class: render_document_class(document), source: 'academic_commons', item_id: document.fetch(:id)}
 
   .row
     .title.col-sm-12
@@ -18,8 +18,8 @@
       .item_number_allowance
         - fedora_id = document['id'].listify.first
         -# NEXT-1012 - use handle for item link in AC records
-        -# = link_to document.get('title_display'), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
-        = link_to document.get('title_display'), document['handle']
+        -# = link_to document.fetch('title_display', nil), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
+        = link_to document.fetch('title_display', nil), document['handle']
 
 
   / main container for doc partial view

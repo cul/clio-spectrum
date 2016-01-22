@@ -6,15 +6,15 @@
 
 -# Show the series title if we searched by series title
 - if search_by_series_title(request.params)
-  = add_row('Series Title', document.get("title_series_display"), :html_safe => false)
+  = add_row('Series Title', document.fetch('title_series_display', nil), :html_safe => false)
 
 - if show_title
-  = add_row('Title', document.get("title_display"), :html_safe => false)
+  = add_row('Title', document.fetch('title_display', nil), :html_safe => false)
 
-= add_row('Title', document.get("title_vern_display"), :html_safe => false)
+= add_row('Title', document.fetch('title_vern_display', nil), :html_safe => false)
 
-= add_row('Author', [document.get("author_display"),document.get("author_vern_display")].compact, :html_safe => false)
-= add_row('Published', document.get("full_publisher_display"), :html_safe => false)
+= add_row('Author', [document.fetch('author_display', nil),document.fetch('author_vern_display', nil)].compact, :html_safe => false)
+= add_row('Published', document.fetch('full_publisher_display', nil), :html_safe => false)
 = add_row('Online', format_online_results(online_link_hash(document)))
 
 
@@ -25,6 +25,6 @@
 = add_row('Format', formats_with_icons(document))
 
 
-- if @debug_mode  && @response && @response['debug'] && @response['debug']['explain'] && (score = @response['debug']['explain'][document.get('id').to_s])
+- if @debug_mode  && @response && @response['debug'] && @response['debug']['explain'] && (score = @response['debug']['explain'][document.fetch('id', nil).to_s])
   = add_row('Score', score.gsub(/\n/,"").gsub(/\=.+$/,""), :expand_to => content_tag(:pre, score))
 

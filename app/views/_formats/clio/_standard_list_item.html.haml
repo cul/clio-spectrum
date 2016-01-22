@@ -5,9 +5,9 @@
 / container for a SINGLE doc
 
 -# maybe handy to have a per-item anchor?
--# %a{name: document.get(:id)}
+-# %a{name: document.fetch(:id)}
 
-.result.document{class: "#{render_document_class(document)} #{'database_record' if document.is_database?}", source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
+.result.document{class: "#{render_document_class(document)} #{'database_record' if document.is_database?}", source: 'catalog', item_id: document.fetch(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
   .row
     .title.col-sm-12
@@ -18,9 +18,9 @@
 
       .item_select_allowance
         -# This is how core Blacklight would do it...
-        -# = link_to_document document, :label=>document_show_link_field(document), :counter => counter
-        -# Just use the title?
-        = link_to_source_document document, :label=> document.get('title_display'), :counter => counter, :source => source
+        -# = link_to_document document, document_show_link_field(document), counter: counter
+        -# We need the 'source' to setup a datasource-specific path
+        = link_to_source_document document, :label=> document_show_link_field(document), :counter => counter, :source => source
 
 
   / main container for doc partial view

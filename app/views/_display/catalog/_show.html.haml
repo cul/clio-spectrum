@@ -34,16 +34,16 @@
 
       -# Database Notes and Alerts
       -# html_safe true, so that ERC can embed HTML links in their alert msgs
-      - if document.get("_active_item_alert_count") && document.get("_active_item_alert_count") > 0
+      - if document.fetch('_active_item_alert_count', nil) && document.fetch('_active_item_alert_count', nil) > 0
         .well
           -# "alert" alerts
-          - document.get("_item_alerts")[:alert].each do | alert |
+          - document.fetch('_item_alerts', nil)[:alert].each do | alert |
             - if alert.active?
               .alert_alert
                 = "ALERT:  #{alert[:message]}".html_safe
   
           -# "access requirements" alerts
-          - document.get("_item_alerts")[:access_requirements].each do | alert |
+          - document.fetch('_item_alerts', nil)[:access_requirements].each do | alert |
             - if alert.active?
               = add_row(ItemAlert::ALERT_TYPES['access_requirements'], alert[:message], options = {:html_safe => true})
   

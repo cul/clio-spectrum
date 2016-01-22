@@ -2,22 +2,22 @@
 -# CONTROLS HOW DATABASE RECORDS SHOW IN SEARCH RESULTS LIST
 
 -# Database note/alerts of type "alert" show up w/out key, with special styling
-- if document.get("_active_item_alert_count") && document.get("_active_item_alert_count") > 0
-  - Array.wrap(document.get("_item_alerts")[:alert]).each do | alert |
+- if document.fetch('_active_item_alert_count', nil) && document.fetch('_active_item_alert_count', nil) > 0
+  - Array.wrap(document.fetch('_item_alerts', nil)[:alert]).each do | alert |
     - if alert.active?
       .col-sm-12.alert_alert
         = "ALERT: #{alert[:message]}".html_safe
-  - Array.wrap(document.get("_item_alerts")[:access_requirements]).each do | access_requirement |
+  - Array.wrap(document.fetch('_item_alerts', nil)[:access_requirements]).each do | access_requirement |
     - if access_requirement.active?
       = add_row('Access Requirements', access_requirement[:message])
 
--# = add_row('Restricted', document.get("database_restrictions_display"))
-= add_row('Author', document.get("author_display"))
-= add_row('Published', document.get("full_publisher_display"))
+-# = add_row('Restricted', document.fetch('database_restrictions_display', nil))
+= add_row('Author', document.fetch('author_display', nil))
+= add_row('Published', document.fetch('full_publisher_display', nil))
 
 -# switch from "expand_to" to "teaser"
-= add_row('Summary', document.get("summary_display"), :teaser => true)
--# = add_row('Summary', document.get("database_summary_display"), :expand_to => document.get('summary_display'))
+= add_row('Summary', document.fetch('summary_display', nil), :teaser => true)
+-# = add_row('Summary', document.fetch('database_summary_display', nil), :expand_to => document.fetch('summary_display', nil))
 
 - unless (links =  online_link_hash(document)).empty?
   -# non_circ = image_tag("icons/noncirc.png", :class => :availability)
@@ -37,5 +37,5 @@
           = image_tag("icons/unknown.png", class: "availability " + holdings_id, title: '', alt: '') + shorten_location(location).strip
 
 
-- if @debug_mode  && @response && @response['debug'] && @response['debug']['explain'] && (score = @response['debug']['explain'][document.get('id').to_s])
+- if @debug_mode  && @response && @response['debug'] && @response['debug']['explain'] && (score = @response['debug']['explain'][document.fetch('id', nil).to_s])
   = add_row('Score', score.gsub(/\n/,"").gsub(/\=.+$/,""), :expand_to => content_tag(:pre, score))

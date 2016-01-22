@@ -4,7 +4,7 @@
 
 -# Nope, folks want the title to be prominent...
 -# - link_label = call_number
-- link_label = document.get("title_display") || document.get("title_vern_display")
+- link_label = document.fetch('title_display', nil) || document.fetch('title_vern_display', nil)
 -# - link_label = link_label + " (#{call_number})"
 
 - highlight_bib = session[:browse]['bib'] || 0
@@ -14,7 +14,7 @@
 - database_class = document.is_database? ? 'database_record' : ''
 - focus_class = (document.id == highlight_bib) ? 'browse_focus' : ''
 
-.boxed_search_results.result.document{class: "#{database_class} #{focus_class}", source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
+.boxed_search_results.result.document{class: "#{database_class} #{focus_class}", source: 'catalog', item_id: document.fetch(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
   .row
     .col-sm-9.no-bottom-space
@@ -33,9 +33,9 @@
         .item_select_allowance
           %b= link_to_source_document document, :label=> link_label.abbreviate(100)
 
-    .col-sm-3.no-bottom-space= document.get("author_display") || document.get("author_vern_display")
+    .col-sm-3.no-bottom-space= document.fetch('author_display', nil) || document.fetch('author_vern_display', nil)
 
-    .col-sm-5.no-bottom-space= document.get("full_publisher_display")
+    .col-sm-5.no-bottom-space= document.fetch('full_publisher_display', nil)
 
 
   .row

@@ -3,9 +3,9 @@
 / container for a SINGLE doc
 
 -# maybe handy to have a per-item anchor?
--# %a{name: document.get(:id)}
+-# %a{name: document.fetch(:id)}
 
-.boxed_search_results.result.document{:class => ("database_record" if document.is_database?), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
+.boxed_search_results.result.document{:class => ("database_record" if document.is_database?), source: 'catalog', item_id: document.fetch(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
   .row
 
@@ -16,11 +16,12 @@
         = render '/saved_lists/item_select_checkbox', item_id: document[:id], counter: counter
 
       .item_select_allowance
-        %b= link_to_source_document document, :label=> document.get('title_display').abbreviate(100), :counter => counter
+        %b= link_to_source_document document, :label=> document_show_link_field(document), :counter => counter
 
-    .col-sm-3.no-bottom-space= document.get("author_display") || document.get("author_vern_display")
 
-    .col-sm-5.no-bottom-space= document.get("full_publisher_display")
+    .col-sm-3.no-bottom-space= document.fetch('author_display', nil) || document.fetch('author_vern_display', nil)
+
+    .col-sm-5.no-bottom-space= document.fetch('full_publisher_display', nil)
 
   - cache("compact_list_item_#{document.cache_key}") do
     .row

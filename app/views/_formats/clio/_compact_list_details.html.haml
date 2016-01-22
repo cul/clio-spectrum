@@ -1,7 +1,7 @@
 
-%div= document.get("author_display") || document.get("author_vern_display")
+%div= document.fetch('author_display', nil) || document.fetch('author_vern_display', nil)
 
-%div= document.get("full_publisher_display")
+%div= document.fetch('full_publisher_display', nil)
 
 %div= holdings_compact(document)
 

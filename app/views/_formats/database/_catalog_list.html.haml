@@ -1,7 +1,7 @@
 -# FORMATS/DATABASE
 
 / container for a SINGLE doc
-.result.document.database_record{class: render_document_class(document), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
+.result.document.database_record{class: render_document_class(document), source: 'catalog', item_id: document.fetch(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
 
   .row
     .title.col-sm-12
@@ -11,7 +11,7 @@
         = render :partial => '/saved_lists/item_select_checkbox', :locals => {:item_id => document[:id], :counter => counter}
 
       .item_select_allowance
-        = link_to_source_document document, :label=> document.get('title_display'), :counter => counter
+        = link_to_source_document document, :label=> document.fetch('title_display', nil), :counter => counter
 
   / main container for doc partial view
 

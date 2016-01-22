@@ -10,8 +10,8 @@
         %th Duration
         %th.message_column Message
         %th.action_column
-          - if document.get("_item_alerts")
-            - document.get("_item_alerts").keys.sort.collect { |alert_type| document["_item_alerts"][alert_type]}.flatten.each do |alert|
+          - if document.fetch('_item_alerts', nil)
+            - document.fetch('_item_alerts', nil).keys.sort.collect { |alert_type| document["_item_alerts"][alert_type]}.flatten.each do |alert|
               = render :partial => "/item_alerts/show_table_row", :locals => {:item_alert => alert}
       %tr.add_row
         %td.info{:colspan => 5}
@@ -20,7 +20,7 @@
             Add Alert
 
     #create_alert.edit_form
-      - item_alert = ItemAlert.new('source' => 'catalog', :author_id => current_user.id, 'item_key' => document.get('id') )
+      - item_alert = ItemAlert.new('source' => 'catalog', :author_id => current_user.id, 'item_key' => document.fetch('id', nil) )
       = render :partial => "/item_alerts/form", :locals => {:item_alert => item_alert, :remote => true}
 
 

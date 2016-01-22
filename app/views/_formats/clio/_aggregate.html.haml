@@ -7,8 +7,8 @@
 -# If viewstyle is 'compact_list', try to compact the output
 - saved_viewstyle_option = get_browser_option('viewstyle') || 'standard_list'
 
-.result{class: alternating_line("catalog"), source: 'catalog', item_id: document.get(:id), standard_ids: extract_standard_bibkeys(document)}
-  .result_title= link_to document.get('title_display'), {:controller => 'catalog', :action => 'show', :id => document.id, :counter => (counter + 1)}
+.result{class: alternating_line("catalog"), source: 'catalog', item_id: document.fetch(:id), standard_ids: extract_standard_bibkeys(document)}
+  .result_title= link_to document.fetch('title_display', nil), {:controller => 'catalog', :action => 'show', :id => document.id, :counter => (counter + 1)}
 
   -# NEXT-1049 Compact view for QuickSearch results
   -# This controls the Quasi-Compact display of Catalog results in aggregates.
