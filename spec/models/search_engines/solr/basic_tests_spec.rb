@@ -27,7 +27,7 @@ describe 'Spectrum::SearchEngines::Solr', :vcr do
     it 'should find an author with diacritics' do
       eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'turk edebiyatinda', :search_field => 'author', 'solr_url' => solr_url)
       expect(eng.results).to_not be_empty
-      expect(eng.results.first.get('author_display')).to match /Edebiyat\u0131nda/
+      expect(eng.results.first.fetch('author_display')).to match /Edebiyat\u0131nda/
     end
   end
 
@@ -37,10 +37,8 @@ describe 'Spectrum::SearchEngines::Solr', :vcr do
   describe 'searches for "child* autobiography..." in Catalog' do
     it 'should find "autobiographies of children" ' do
       eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'child* autobiography asian north american honolulu', :search_field => 'all_fields', 'solr_url' => solr_url)
-      # puts eng.solr_search_params
       expect(eng.results).to_not be_empty
-      # puts eng.results.first.get('title_display')
-      expect(eng.results.first.get('title_display')).to match(/reading Asian North American autobiographies of childhood/)
+      expect(eng.results.first.fetch('title_display')).to match(/reading Asian North American autobiographies of childhood/)
     end
   end
 
@@ -49,8 +47,8 @@ describe 'Spectrum::SearchEngines::Solr', :vcr do
     it 'should find "Debt: The first 5,000 years" ' do
       eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'debt the first 5000 years', :search_field => 'all_fields', 'solr_url' => solr_url)
       expect(eng.results).to_not be_empty
-      expect(eng.results.first.get('title_display')).to match(/Debt/)
-      expect(eng.results.first.get('title_display')).to match(/the first 5,000 years/)
+      expect(eng.results.first.fetch('title_display')).to match(/Debt/)
+      expect(eng.results.first.fetch('title_display')).to match(/the first 5,000 years/)
     end
   end
 
@@ -73,7 +71,7 @@ describe 'Spectrum::SearchEngines::Solr', :vcr do
     it 'should find "The New Yorker" as the first result' do
       eng = Spectrum::SearchEngines::Solr.new(:source => 'journals', :q => 'New Yorker', :search_field => 'all_fields', 'solr_url' => solr_url)
       expect(eng.results).to_not be_empty
-      expect(eng.results.first.get('title_display')).to match(/The.New.Yorker/)
+      expect(eng.results.first.fetch('title_display')).to match(/The.New.Yorker/)
     end
   end
 
@@ -82,8 +80,8 @@ describe 'Spectrum::SearchEngines::Solr', :vcr do
     it 'should return search results' do
       eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'Clemens Krauss : Denk Display', :search_field => 'all_fields', 'solr_url' => solr_url)
       expect(eng.results).to_not be_empty
-      expect(eng.results.first.get('title_display')).to match /Clemens Krauss/
-      expect(eng.results.first.get('title_display')).to match /Denk Display/
+      expect(eng.results.first.fetch('title_display')).to match /Clemens Krauss/
+      expect(eng.results.first.fetch('title_display')).to match /Denk Display/
     end
   end
 
@@ -108,19 +106,15 @@ describe 'Spectrum::SearchEngines::Solr', :vcr do
     it 'should return matches on "Nature" before "Naturalization"' do
       eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'nature', :search_field => 'all_fields', 'solr_url' => solr_url)
 
-      # puts "XXXXXXXXXXXX   results.size: #{eng.results.size.to_s}"
       found_naturA = false
       eng.results.each do |result|
-        # puts "--"
-        # puts result.get('title_display') || 'emtpy-title'
-        # puts result.get('subtitle_display') || 'emtpy-subtitle'
-        if result.get('title_display') && result.get('title_display').match(/naturA/i)
+        if result.fetch('title_display') && result.fetch('title_display').match(/naturA/i)
           found_naturA = true
         end
 
         # after finding our first "natura*", there should be no more "nature" matches
         if found_naturA
-          expect(result.get('title_display')).to_not match(/naturE/i)
+          expect(result.fetch('title_display')).to_not match(/naturE/i)
         end
       end
     end
