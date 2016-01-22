@@ -294,8 +294,8 @@ class CatalogController < ApplicationController
     # the processing that 'params' undergoes
     extra_params = params[:extra_params] || {}
 
-    @response = get_facet_field_response(@facet.field, params, extra_params)
-    @display_facet = @response.facets.first
+    @response = get_facet_field_response(@facet.key, params, extra_params)
+    @display_facet = @response.aggregations[@facet.key]
 
     # @pagination was deprecated in Blacklight 5.1
     @pagination = facet_paginator(@facet, @display_facet)

@@ -6,7 +6,7 @@
 
 -# facet_field is Blacklight::SolrResponse::Facets::FacetField 
 - solr_field = "lc_subclass_facet"
-- facet_field = @response.facets.detect {|f| f.name == solr_field}
+- facet_field = @response.aggregations[solr_field]
 
 -# What is the selected LC prefix?
 -# Should be a single-letter, but set to false if not defined

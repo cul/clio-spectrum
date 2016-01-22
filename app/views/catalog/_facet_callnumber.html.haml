@@ -3,7 +3,8 @@
 
 -# solr_field is the string name of the facet field
 -# display_facet is Blacklight::SolrResponse::Facets::FacetField 
-- display_facet = @response.facets.detect {|f| f.name == solr_field}
+- display_facet = @response.aggregations[solr_field]
+
 -# facet_field is Blacklight::Configuration::FacetField
 - facet_field = facet_configuration_for_field(display_facet.name)
 
