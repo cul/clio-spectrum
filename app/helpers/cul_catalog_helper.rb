@@ -41,7 +41,7 @@ module CulCatalogHelper
   # Local version of Blacklight::UrlHelperBehavior.link_to_document,
   # which preserves datasource within the route 
   def link_to_source_document(doc, opts = { label: nil, counter: nil, results_view: true, source: nil })
-    # Rails.logger.debug "opts=[#{opts.inspect}]"
+    # Rails.logger.debug "link_to_source_document() opts=[#{opts.inspect}]"
     blacklight_link = link_to_document(doc, opts[:label], counter: opts[:counter])
     source = opts[:source] || @active_source
     fix_catalog_links(blacklight_link, source)

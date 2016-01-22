@@ -328,10 +328,8 @@ class ApplicationController < ActionController::Base
   end
 
   def blacklight_config(source = @active_source)
-    if self.respond_to?(:blacklight_config)
-      @blacklight_configs ||= {}
-      @blacklight_configs[source] || (@blacklight_configs[source] = Spectrum::SearchEngines::Solr.generate_config(source))
-    end
+    @blacklight_configs ||= {}
+    @blacklight_configs[source] || (@blacklight_configs[source] = Spectrum::SearchEngines::Solr.generate_config(source))
   end
 
   def catch_404s

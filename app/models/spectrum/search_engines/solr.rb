@@ -182,8 +182,6 @@ module Spectrum
           end
 
           ActiveSupport::Notifications.subscribed(debug_results, 'execute.rsolr_client') do |*args|
-            # @search, @documents = search_results(@params, extra_controller_params)
-            # raise
             @search, @documents = search_results(@params.merge(extra_controller_params), search_params_logic)
 
             @debug_entries['solr'] = []  if @debug_entries['solr'] == {}
@@ -202,8 +200,6 @@ module Spectrum
         else
           # use blacklight gem to run the actual search against Solr,
           # call Blacklight::SearchHelper::search_results()
-          # @search, @documents = search_results(@params, extra_controller_params)
-          # Try this???
           @search, @documents = search_results(@params.merge(extra_controller_params), search_params_logic)
         end
 
@@ -227,7 +223,6 @@ module Spectrum
         if fields.include?('title')
           config.add_search_field('title') do |field|
             field.show_in_dropdown = true
-            # field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
             field.solr_local_parameters = {
               qf: '$title_qf',
               pf: '$title_pf'
@@ -239,7 +234,6 @@ module Spectrum
           config.add_search_field('title_start') do |field|
             field.show_in_dropdown = true
             field.label = 'Title Begins With'
-            # field.solr_parameters = { :'spellcheck.dictionary' => 'title' }
             field.solr_local_parameters = {
               qf: '$title_start_qf',
               pf: '$title_start_pf'
@@ -260,11 +254,6 @@ module Spectrum
 
             field.solr_parameters = { fq: field_fq }
 
-            # field.solr_parameters = { :fq => ['format:Journal\/Periodical'] }
-
-            # This fix does not work.  It refers to, instead of copying, the default.
-            # default_fq = config.default_solr_params[:fq] ||= []
-            # field.solr_parameters = {:fq => default_fq.push('format:Journal\/Periodical') }
             field.solr_local_parameters = {
               qf: '$title_qf',
               pf: '$title_pf'
@@ -297,7 +286,6 @@ module Spectrum
         if fields.include?('author')
           config.add_search_field('author') do |field|
             field.show_in_dropdown = true
-            # field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
             field.solr_local_parameters = {
               qf: '$author_qf',
               pf: '$author_pf'
@@ -308,7 +296,6 @@ module Spectrum
         if fields.include?('subject')
           config.add_search_field('subject') do |field|
             field.show_in_dropdown = true
-            # field.solr_parameters = { :'spellcheck.dictionary' => 'subject' }
             field.qt = 'search'
             field.solr_local_parameters = {
               qf: '$subject_qf',
@@ -417,8 +404,7 @@ module Spectrum
 
         if elements.include?(:solr_params)
           config.default_solr_params = {
-            qt: 'search',
-            rows: 25
+            qt: 'search'
           }
         end
 
@@ -433,8 +419,6 @@ module Spectrum
 
         if elements.include?(:facets)
           config.add_facet_field 'format',
-                                 # BL5 - "open" becomes "collapse"
-                                 # label: 'Format', limit: 5, open: true
                                  label: 'Format', limit: 5, collapse: false
           # NEXT-698 - :segments key is searched for at top, not within range
           config.add_facet_field 'pub_date_sort',
@@ -509,11 +493,11 @@ module Spectrum
 
             # override defaults to lower rows from 25 to 10 for bento-box searches
             config.default_solr_params = {
-              qt: 'search',
-              rows: 10
+              qt: 'search'
             }
 
             config.per_page = [10, 25, 50, 100]
+            config.default_per_page = 10
             config.spell_max = 0
           end
         # Else, we're in one of the single-source searches....
@@ -521,12 +505,12 @@ module Spectrum
           self.blacklight_config = Blacklight::Configuration.new do |config|
 
             config.default_solr_params = {
-              qt: 'search',
-              rows: 25
+              qt: 'search'
             }
 
             # These apply to any config for any source
             config.per_page = [10, 25, 50, 100]
+            config.default_per_page = 25
             config.spell_max = 0
 
             config.add_search_field 'all_fields', label: 'All Fields'
@@ -540,14 +524,12 @@ module Spectrum
               default_catalog_config(config, :display_fields, :facets, :search_fields, :sorts)
               config.default_solr_params = {
                 qt: 'search',
-                rows: 25,
                 fq: ['{!raw f=format}Book', '{!raw f=format}Online']
               }
             when 'catalog_dissertations'
               default_catalog_config(config, :display_fields, :facets, :search_fields, :sorts)
               config.default_solr_params = {
                 qt: 'search',
-                rows: 25,
                 fq: ['{!raw f=format}Thesis']
               }
             when 'journals'
@@ -555,7 +537,6 @@ module Spectrum
 
               config.default_solr_params = {
                 qt: 'search',
-                rows: 25,
                 fq: ['{!raw f=source_facet}ejournal']
               }
 
@@ -567,8 +548,6 @@ module Spectrum
 
               config.add_facet_field 'language_facet',
                                      label: 'Language',
-                                     # BL5 - "open" becomes "collapse"
-                                     # limit: 5, open: true                                     
                                      limit: 5, collapse: false
               config.add_facet_field 'subject_topic_facet',
                                      label: 'Subject',
@@ -593,13 +572,10 @@ module Spectrum
 
               config.default_solr_params = {
                 qt: 'search',
-                rows: 25,
                 fq: ['{!raw f=source_facet}database']
               }
 
               config.add_facet_field 'database_discipline_facet',
-                                     # BL5 - "open" becomes "collapse"
-                                     # label: 'Discipline', limit: 5, open: true
                                      label: 'Discipline', limit: 5, collapse: false
               config.add_facet_field 'database_resource_type_facet',
                                      label: 'Resource Type', limit: 5
@@ -614,8 +590,6 @@ module Spectrum
               config.add_facet_field 'subject_form_facet',
                                      label: 'Subject (Genre)', limit: 10
               config.add_facet_field 'lc_1letter_facet',
-                                     # BL5 - "open" becomes "collapse"
-                                     # label: 'Call Number', limit: 26, open: false
                                      label: 'Call Number', limit: 30, collapse: true
               config.add_facet_field 'lc_subclass_facet',
                                      label: 'Refine Call Number', limit: 500
@@ -641,7 +615,6 @@ module Spectrum
 
               config.default_solr_params = {
                 qt: 'search',
-                rows: 25,
                 fq: ['{!raw f=source_facet}archive']
               }
 
@@ -683,7 +656,6 @@ module Spectrum
               # (e.g., to merge fq values)
               config.default_solr_params = {
                 qt: 'search',
-                rows: 25,
                 # NEXT-845 - New Arrivals timeframe (6 month count == 1 year count)
                 # :fq  => ["acq_dt:[#{(Date.today - 6.months).to_datetime.utc.to_solr_s} TO *]"]
                 fq: ["acq_dt:[#{(Date.today - 1.year).to_datetime.utc.to_solr_s} TO *]"]
@@ -731,7 +703,6 @@ module Spectrum
 
               config.default_solr_params = {
                 qt: 'search',
-                rows: 25,
                 fq: ['{!raw f=genre_facet}Dissertations']
               }
 
@@ -825,11 +796,6 @@ module Spectrum
           end # Blacklight::Configuration.new do
 
         end # if/else bento-box/single-source
-
-        # What else is special in CLIO's generated 
-        # blacklight configurations?
-        # How about overriding the default search_builder?
-        blacklight_config.search_builder_class = Spectrum::SearchBuilder
 
         # Finally, return the config object
         return blacklight_config

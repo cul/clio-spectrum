@@ -2481,4 +2481,77 @@ http_interactions:
         Cg==
     http_version: 
   recorded_at: Tue, 22 Sep 2015 19:24:17 GMT
+- request:
+    method: get
+    uri: http://search.columbia.edu/search?as_dt=i&client=cul_libraryweb&filter=0&ie=UTF-8&num=10&oe=UTF-8&output=xml&q=portuguese&site=CUL_LibraryWeb&sitesearch=&sort=date:D:L:dl&start=0&x=0&y=0
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 21 Jan 2016 16:34:54 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 21 Jan 2016 16:35:40 GMT
+      Server:
+      - Google Search Appliance
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/xml; charset=UTF-8
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Length:
+      - '8144'
+      X-Cnection:
+      - close
+      X-Pad:
+      - avoid browser bug
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <!DOCTYPE GSP SYSTEM "google.dtd">
+        <GSP VER="3.2">
+        <TM>0.039127</TM><Q>portuguese</Q>
+        <PARAM name="as_dt" value="i" original_value="i"/>
+        <PARAM name="client" value="cul_libraryweb" original_value="cul_libraryweb"/>
+        <PARAM name="filter" value="0" original_value="0"/>
+        <PARAM name="ie" value="UTF-8" original_value="UTF-8"/>
+        <PARAM name="oe" value="UTF-8" original_value="UTF-8"/>
+        <PARAM name="output" value="xml" original_value="xml"/>
+        <PARAM name="site" value="CUL_LibraryWeb" original_value="CUL_LibraryWeb"/>
+        <PARAM name="sort" value="date:D:L:dl" original_value="date:D:L:dl"/>
+        <PARAM name="x" value="0" original_value="0"/>
+        <PARAM name="y" value="0" original_value="0"/>
+        <PARAM name="sitesearch" value="" original_value=""/>
+        <PARAM name="num" value="10" original_value="10"/>
+        <PARAM name="start" value="0" original_value="0"/>
+        <PARAM name="q" value="portuguese" original_value="portuguese"/>
+        <PARAM name="ulang" value="" original_value=""/>
+        <PARAM name="ip" value="209.6.149.207" original_value="209.6.149.207"/>
+        <PARAM name="access" value="p" original_value="p"/>
+        <PARAM name="entqr" value="3" original_value="3"/>
+        <PARAM name="entqrm" value="0" original_value="0"/>
+        <PARAM name="wc" value="200" original_value="200"/>
+        <PARAM name="wc_mc" value="1" original_value="1"/>
+        <RES SN="1" EN="10">
+        <M>165</M>
+        <NB><NU>/search?q=portuguese&amp;site=CUL_LibraryWeb&amp;lr=&amp;ie=UTF-8&amp;oe=UTF-8&amp;output=xml&amp;client=cul_libraryweb&amp;access=p&amp;sort=date:D:L:dl&amp;start=10&amp;sa=N&amp;filter=0</NU>
+        </NB>
+
+        <R N="1"><U>http://library.columbia.edu/about/policies/collection-development/subject/spanish.html</U><UE>http://library.columbia.edu/about/policies/collection-development/subject/spanish.html</UE><T>Spanish &amp;amp; &lt;b&gt;Portuguese&lt;/b&gt; Language &amp;amp; Literature | Columbia &lt;b&gt;...&lt;/b&gt;</T><RK>10</RK><CRAWLDATE>21 Jan 2016</CRAWLDATE><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; Spanish &amp;amp; &lt;b&gt;Portuguese&lt;/b&gt; Language &amp;amp; Literature. &lt;b&gt;...&lt;/b&gt; Languages Collected: We&lt;br&gt; collect Spanish, &lt;b&gt;Portuguese&lt;/b&gt;, and English extensively. &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="31k" CID="giaIoJbhT5IJ" ENC="UTF-8"/></HAS></R><R N="2" MIME="application/pdf"><U>http://library.columbia.edu/content/dam/libraryweb/locations/area/latinamerican/ReferenceSourcesLiterature_LATAM.pdf</U><UE>http://library.columbia.edu/content/dam/libraryweb/locations/area/latinamerican/ReferenceSourcesLiterature_LATAM.pdf</UE><T>COlUMbiA UNivERSity LibRARiES REFERENCE SOURCES &lt;b&gt;...&lt;/b&gt;</T><RK>9</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>Page 1. COlUMbiA UNivERSity LibRARiES REFERENCE SOURCES&lt;br&gt; FOR LitERAtURE iN SPANiSh ANd &lt;b&gt;PORtUGUESE&lt;/b&gt; &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="73k" CID="06Js4NV90D4J" ENC="UTF-8"/></HAS></R><R N="3"><U>http://library.columbia.edu/subject-guides/history-humanities/span.html</U><UE>http://library.columbia.edu/subject-guides/history-humanities/span.html</UE><T>Spanish &amp;amp; Latin American History &amp;amp; Literature | Columbia &lt;b&gt;...&lt;/b&gt;</T><RK>9</RK><CRAWLDATE>21 Jan 2016</CRAWLDATE><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>CUL - Main Content. CUL - Banner. Subject Guides. Ask a Librarian.&lt;br&gt; CUL - NAV. Thursday January 21st, 2016. Navigation. &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="27k" CID="vEjdVikIMfYJ" ENC="ISO-8859-1"/></HAS></R><R N="4" MIME="application/pdf"><U>http://library.columbia.edu/content/dam/libraryweb/locations/area/latinamerican/CallNumberRanges_LATAM.pdf</U><UE>http://library.columbia.edu/content/dam/libraryweb/locations/area/latinamerican/CallNumberRanges_LATAM.pdf</UE><T>Library of Congress Ranges</T><RK>8</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; AM23-34 Museums AP62-65 Periodicals - Spanish (Latin America) and&lt;br&gt; &lt;b&gt;Portuguese&lt;/b&gt; (South America) AS60-90 General AY430-729 Academies and &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="49k" CID="Av5I2f9787YJ" ENC="UTF-8"/></HAS></R><R N="5"><U>http://library.columbia.edu/about/policies/collection-development/subject/iberian.html</U><UE>http://library.columbia.edu/about/policies/collection-development/subject/iberian.html</UE><T>Iberian Studies | Columbia University Libraries</T><RK>7</RK><CRAWLDATE>21 Jan 2016</CRAWLDATE><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; the University but particularly the Institute of Latin American and Iberian Studies,&lt;br&gt; the Camõ Center for the Study of the &lt;b&gt;Portuguese&lt;/b&gt;-Speaking World &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="30k" CID="RjzcJNKbh8oJ" ENC="UTF-8"/></HAS></R><R N="6"><U>http://library.columbia.edu/subject-guides/latinamerica/news.html</U><UE>http://library.columbia.edu/subject-guides/latinamerica/news.html</UE><T>News and Newspapers | Columbia University Libraries</T><RK>7</RK><CRAWLDATE>20 Jan 2016</CRAWLDATE><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; language results. Use Spanish or &lt;b&gt;Portuguese&lt;/b&gt; keywords to search. &lt;b&gt;...&lt;/b&gt;&lt;br&gt; &lt;b&gt;Portuguese&lt;/b&gt;-American Digital Newspaper Collections. The Ferreira &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="66k" CID="IVffF0zokWUJ" ENC="UTF-8"/></HAS></R><R N="7"><U>https://blogs.cul.columbia.edu/jewishstudiesatcul/tag/amsterdam/</U><UE>https://blogs.cul.columbia.edu/jewishstudiesatcul/tag/amsterdam/</UE><T>Amsterdam | Jewish Studies Blog</T><RK>7</RK><CRAWLDATE>21 Jan 2016</CRAWLDATE><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; Henriques. His name is mentioned in the &lt;b&gt;Portuguese&lt;/b&gt; Community of&lt;br&gt; Amsterdam&amp;#39;s archives between 1657 and 1673. There &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="36k" CID="aHKcjZk0LCcJ" ENC="UTF-8"/></HAS></R><R N="8"><U>http://library.columbia.edu/about/policies/collection-development/subject/latin_american.html</U><UE>http://library.columbia.edu/about/policies/collection-development/subject/latin_american.html</UE><T>Latin American Studies | Columbia University Libraries</T><RK>6</RK><CRAWLDATE>21 Jan 2016</CRAWLDATE><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; University but particularly the Institute of Latin American and Iberian Studies,&lt;br&gt; the Camões Center for the Study of the &lt;b&gt;Portuguese&lt;/b&gt;-Speaking World &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="30k" CID="t1FvmIrHvWEJ" ENC="UTF-8"/></HAS></R><R N="9"><U>http://library.columbia.edu/locations/global/virtual-libraries/african_studies/countries/cape_verde.html</U><UE>http://library.columbia.edu/locations/global/virtual-libraries/african_studies/countries/cape_verde.html</UE><T>Cape Verde | Columbia University Libraries</T><RK>5</RK><CRAWLDATE>21 Jan 2016</CRAWLDATE><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; France) A multi-media site in French ; &lt;b&gt;Portuguese&lt;/b&gt; ; or, English. Cesaria &lt;b&gt;...&lt;/b&gt;&lt;br&gt; excerpts. See also: &lt;b&gt;Portuguese&lt;/b&gt; version. Radio &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="43k" CID="sVpiegT6h-sJ" ENC="UTF-8"/></HAS></R><R N="10"><U>http://library.columbia.edu/locations/global/virtual-libraries/african_studies/countries/mozambique/educ.html</U><UE>http://library.columbia.edu/locations/global/virtual-libraries/african_studies/countries/mozambique/educ.html</UE><T>Mozambique: Education, History, &amp;amp; Culture | Columbia &lt;b&gt;...&lt;/b&gt;</T><RK>5</RK><CRAWLDATE>21 Jan 2016</CRAWLDATE><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; In English, &lt;b&gt;Portuguese&lt;/b&gt;, Dutch, or Danish. &lt;b&gt;...&lt;/b&gt; Universidade Eduardo Mondlane,&lt;br&gt; Maputo, Moçambique: Official home page, in &lt;b&gt;Portuguese&lt;/b&gt;. &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="35k" CID="4LNfSKz30iYJ" ENC="UTF-8"/></HAS></R></RES>
+        </GSP>
+    http_version: 
+  recorded_at: Thu, 21 Jan 2016 16:34:54 GMT
 recorded_with: VCR 2.9.3

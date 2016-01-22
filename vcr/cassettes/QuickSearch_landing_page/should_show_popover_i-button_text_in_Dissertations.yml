@@ -4051,4 +4051,77 @@ http_interactions:
         bnMnPT5bJ2NvcnJlY3RseVNwZWxsZWQnLHRydWVdfX0K
     http_version: 
   recorded_at: Tue, 22 Sep 2015 19:31:14 GMT
+- request:
+    method: get
+    uri: http://search.columbia.edu/search?as_dt=i&client=cul_libraryweb&filter=0&ie=UTF-8&num=10&oe=UTF-8&output=xml&q=horse&site=CUL_LibraryWeb&sitesearch=&sort=date:D:L:dl&start=0&x=0&y=0
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.1, ruby 2.1.0 (2013-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Thu, 21 Jan 2016 16:36:20 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 21 Jan 2016 16:37:06 GMT
+      Server:
+      - Google Search Appliance
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/xml; charset=UTF-8
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Length:
+      - '7432'
+      X-Cnection:
+      - close
+      X-Pad:
+      - avoid browser bug
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <!DOCTYPE GSP SYSTEM "google.dtd">
+        <GSP VER="3.2">
+        <TM>0.033446</TM><Q>horse</Q>
+        <PARAM name="as_dt" value="i" original_value="i"/>
+        <PARAM name="client" value="cul_libraryweb" original_value="cul_libraryweb"/>
+        <PARAM name="filter" value="0" original_value="0"/>
+        <PARAM name="ie" value="UTF-8" original_value="UTF-8"/>
+        <PARAM name="oe" value="UTF-8" original_value="UTF-8"/>
+        <PARAM name="output" value="xml" original_value="xml"/>
+        <PARAM name="site" value="CUL_LibraryWeb" original_value="CUL_LibraryWeb"/>
+        <PARAM name="sort" value="date:D:L:dl" original_value="date:D:L:dl"/>
+        <PARAM name="x" value="0" original_value="0"/>
+        <PARAM name="y" value="0" original_value="0"/>
+        <PARAM name="sitesearch" value="" original_value=""/>
+        <PARAM name="num" value="10" original_value="10"/>
+        <PARAM name="start" value="0" original_value="0"/>
+        <PARAM name="q" value="horse" original_value="horse"/>
+        <PARAM name="ulang" value="" original_value=""/>
+        <PARAM name="ip" value="209.6.149.207" original_value="209.6.149.207"/>
+        <PARAM name="access" value="p" original_value="p"/>
+        <PARAM name="entqr" value="3" original_value="3"/>
+        <PARAM name="entqrm" value="0" original_value="0"/>
+        <PARAM name="wc" value="200" original_value="200"/>
+        <PARAM name="wc_mc" value="1" original_value="1"/>
+        <RES SN="1" EN="10">
+        <M>89</M>
+        <NB><NU>/search?q=horse&amp;site=CUL_LibraryWeb&amp;lr=&amp;ie=UTF-8&amp;oe=UTF-8&amp;output=xml&amp;client=cul_libraryweb&amp;access=p&amp;sort=date:D:L:dl&amp;start=10&amp;sa=N&amp;filter=0</NU>
+        </NB>
+
+        <R N="1"><U>https://blogs.cul.columbia.edu/rbml/2010/08/12/problem-how-to-construct-a-vehicle-with-which-one-can-transport-oneself-where-one-likes-without-out-a-horse/</U><UE>https://blogs.cul.columbia.edu/rbml/2010/08/12/problem-how-to-construct-a-vehicle-with-which-one-can-transport-oneself-where-one-likes-without-out-a-horse/</UE><T>Problem: How to construct a vehicle with which one can &lt;b&gt;...&lt;/b&gt;</T><RK>9</RK><CRAWLDATE>21 Jan 2016</CRAWLDATE><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; Problem: How to construct a vehicle with which one can transport oneself where&lt;br&gt; one likes, without a &lt;b&gt;horse&lt;/b&gt;. by Gerald W. Cloud on August 12, 2010. &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="39k" CID="uyOPfE7EWQkJ" ENC="UTF-8"/></HAS></R><R N="2"><U>https://blogs.cul.columbia.edu/burke/tag/indians/</U><UE>https://blogs.cul.columbia.edu/burke/tag/indians/</UE><T>Indians | The Burke Library Blog</T><RK>9</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; her appearance to unsaddle our &lt;b&gt;horses&lt;/b&gt; and bring in our luggage. The young&lt;br&gt; woman unsaddled and unbridled her father&amp;#39;s &lt;b&gt;horse&lt;/b&gt;, then attempted to &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="65k" CID="C6oydb4xgtgJ" ENC="UTF-8"/></HAS></R><R N="3"><U>https://blogs.cul.columbia.edu/burke/tag/mrl10/</U><UE>https://blogs.cul.columbia.edu/burke/tag/mrl10/</UE><T>MRL10 | The Burke Library Blog</T><RK>9</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; her appearance to unsaddle our &lt;b&gt;horses&lt;/b&gt; and bring in our luggage. The young&lt;br&gt; woman unsaddled and unbridled her father&amp;#39;s &lt;b&gt;horse&lt;/b&gt;, then attempted to &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="65k" CID="Z9C_Vu0evUEJ" ENC="UTF-8"/></HAS></R><R N="4"><U>https://blogs.cul.columbia.edu/burke/2013/01/</U><UE>https://blogs.cul.columbia.edu/burke/2013/01/</UE><T>January | 2013 | The Burke Library Blog</T><RK>9</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; her appearance to unsaddle our &lt;b&gt;horses&lt;/b&gt; and bring in our luggage. The young&lt;br&gt; woman unsaddled and unbridled her father&amp;#39;s &lt;b&gt;horse&lt;/b&gt;, then attempted to &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="59k" CID="h5WN9WzH8-AJ" ENC="UTF-8"/></HAS></R><R N="5"><U>https://blogs.cul.columbia.edu/burke/tag/native-american/</U><UE>https://blogs.cul.columbia.edu/burke/tag/native-american/</UE><T>Native American | The Burke Library Blog</T><RK>9</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; her appearance to unsaddle our &lt;b&gt;horses&lt;/b&gt; and bring in our luggage. The young&lt;br&gt; woman unsaddled and unbridled her father&amp;#39;s &lt;b&gt;horse&lt;/b&gt;, then attempted to &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="65k" CID="EBvArfm-LNkJ" ENC="UTF-8"/></HAS></R><R N="6"><U>https://blogs.cul.columbia.edu/burke/tag/native-americans/</U><UE>https://blogs.cul.columbia.edu/burke/tag/native-americans/</UE><T>Native Americans | The Burke Library Blog</T><RK>9</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; her appearance to unsaddle our &lt;b&gt;horses&lt;/b&gt; and bring in our luggage. The young&lt;br&gt; woman unsaddled and unbridled her father&amp;#39;s &lt;b&gt;horse&lt;/b&gt;, then attempted to &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="65k" CID="E8MTpn70Y0kJ" ENC="UTF-8"/></HAS></R><R N="7"><U>https://blogs.cul.columbia.edu/jayprint/2015/01/31/jay-washington-and-donkeys-and-mules/</U><UE>https://blogs.cul.columbia.edu/jayprint/2015/01/31/jay-washington-and-donkeys-and-mules/</UE><T>Jay, Washington,. . .and donkeys and mules? | The Selected &lt;b&gt;...&lt;/b&gt;</T><RK>9</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; Even more than &lt;b&gt;horses&lt;/b&gt;, mules and donkeys provided the “&lt;b&gt;horse&lt;/b&gt; power” that&lt;br&gt; ran America, indispensable for agriculture, transportation, and the &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="20k" CID="4NzNfUXJvpsJ" ENC="UTF-8"/></HAS></R><R N="8"><U>https://blogs.cul.columbia.edu/burke/tag/women/</U><UE>https://blogs.cul.columbia.edu/burke/tag/women/</UE><T>Women | The Burke Library Blog</T><RK>8</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; her appearance to unsaddle our &lt;b&gt;horses&lt;/b&gt; and bring in our luggage. The young&lt;br&gt; woman unsaddled and unbridled her father&amp;#39;s &lt;b&gt;horse&lt;/b&gt;, then attempted to &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="32k" CID="zXfZ5Jv2mPIJ" ENC="UTF-8"/></HAS></R><R N="9"><U>https://blogs.cul.columbia.edu/burke/tag/pawnee/</U><UE>https://blogs.cul.columbia.edu/burke/tag/pawnee/</UE><T>Pawnee | The Burke Library Blog</T><RK>8</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; her appearance to unsaddle our &lt;b&gt;horses&lt;/b&gt; and bring in our luggage. The young&lt;br&gt; woman unsaddled and unbridled her father&amp;#39;s &lt;b&gt;horse&lt;/b&gt;, then attempted to &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="32k" CID="xBmJ5UjxzxAJ" ENC="UTF-8"/></HAS></R><R N="10"><U>https://blogs.cul.columbia.edu/burke/tag/john-dunbar/</U><UE>https://blogs.cul.columbia.edu/burke/tag/john-dunbar/</UE><T>John Dunbar | The Burke Library Blog</T><RK>8</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; her appearance to unsaddle our &lt;b&gt;horses&lt;/b&gt; and bring in our luggage. The young&lt;br&gt; woman unsaddled and unbridled her father&amp;#39;s &lt;b&gt;horse&lt;/b&gt;, then attempted to &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="32k" CID="s9h1dEnUjzUJ" ENC="UTF-8"/></HAS></R></RES>
+        </GSP>
+    http_version: 
+  recorded_at: Thu, 21 Jan 2016 16:36:20 GMT
 recorded_with: VCR 2.9.3
