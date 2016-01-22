@@ -18,32 +18,6 @@ class BrowseController < ApplicationController
   # include Thumbnail
   copy_blacklight_config_from(CatalogController)
 
-# I think we're not using this?
-  # def index
-  #   return unless params[:start].present?
-  # 
-  #   @response, @original_doc = fetch(params[:start])
-  #   barcode = params[:barcode] || @original_doc[:preferred_barcode]
-  # 
-  #   respond_to do |format|
-  #     format.html do
-  #       @document_list = NearbyOnShelf.new(
-  #         "static",
-  #         blacklight_config,
-  #         {:item_display => @original_doc[:item_display],
-  #          :preferred_barcode=>barcode,
-  #          :before => 9,
-  #          :after => 10,
-  #          :page => params[:page]}
-  #       ).items.map do |document|
-  #         SolrDocument.new(document[:doc])
-  #       end
-  #     end
-  #   end
-  # 
-  # end
-
-
   #### Name our XHR handler "_mini" and our HTML handler "_full", so that
   #### they have different URLs, so they cache distinctly in client browsers.
 
@@ -126,32 +100,6 @@ class BrowseController < ApplicationController
   end
 
 
-  # def shelfkey_full
-  #   render nothing: true and return if request.xhr?
-  #   render nothing: true and return unless params[:shelfkey].present?
-  # 
-  #   # Which bib id to highlight
-  #   @bib = params[:bib] || 0
-  # 
-  #   # all shelfkeys in Solr are normalized to lower-case
-  #   @shelfkey = params[:shelfkey].downcase
-  # 
-  #   before_count = (params[:before] || 3).to_i
-  #   after_count  = (params[:after] || 16).to_i
-  # 
-  #   # A Browse-Item is a hash reflecting a doc with it's currently 
-  #   # activated position within the browse context:
-  #   # {
-  #   #   doc:  SolrDocument,
-  #   #   active_call_number:
-  #   #   active_shelfkey:
-  #   #   active_reverse_shelfkey:
-  #   # }
-  #   @browse_item_list = shelfkey_to_item_list(@shelfkey, before_count, after_count)
-  # 
-  #   render layout: 'quicksearch'
-  # end
-  # 
 
   def shelfkey_to_item_list(shelfkey, before_count, after_count)
     # raise
@@ -351,30 +299,6 @@ class BrowseController < ApplicationController
   end
 
 
-  # # given a document and the barcode of an item in the document, return the
-  # #  item_display field corresponding to the barcode, or nil if there is no
-  # #  such item
-  # def get_item_display(item, key)
-  #   # raise
-  #   item_display = item[:doc][:item_display]
-  #   match = ""
-  #   if key.nil? || key.length == 0
-  #     return nil
-  #   end
-  #   [item_display].flatten.each do |item_disp|
-  #     return item_disp if item_disp.downcase.include? key.downcase
-  #     # raise
-  #     # match = item_disp if item_disp =~ /#{CGI::escape(key)}/i
-  #     # # marquis - add this match...
-  #     # match = item_disp if item_disp =~ /#{key}/i
-  #   end
-  #   return match unless match == ""
-  # end
-
-
-
-
-
 
   def nearby_SearchWorks
     return unless params[:start].present?
@@ -405,11 +329,5 @@ class BrowseController < ApplicationController
     end
   end
 
-  private
-
-# ???
-  # def _prefixes
-  #   @_prefixes ||= super + ['catalog']
-  # end
 
 end
