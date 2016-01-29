@@ -10,7 +10,7 @@ class BrowseController < ApplicationController
 
   include LocalSolrHelperExtension
 
-  include BlacklightRangeLimit::ControllerOverride
+  # include BlacklightRangeLimit::ControllerOverride
 
   # extend BrowseSupport
   include BrowseSupport

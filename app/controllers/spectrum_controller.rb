@@ -15,7 +15,7 @@ class SpectrumController < ApplicationController
   include Blacklight::Controller
   include Blacklight::Catalog
   include Blacklight::Configurable
-  include BlacklightRangeLimit::ControllerOverride
+  # include BlacklightRangeLimit::ControllerOverride
   layout 'quicksearch'
 
   def search
