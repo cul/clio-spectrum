@@ -168,10 +168,12 @@ module CulCatalogHelper
   end
 
   def get_badge_html(document)
+    return nil unless document && document.id
     # begin
       badges = APP_CONFIG['badges']
+      return nil unless badges && badges['bibs']
       # Lookup this doc to see if it's got a badge
-      return unless badge_id = badges['bibs'][document.id]
+      return nil unless badge_id = badges['bibs'][document.id.to_s]
       # use the badge id (e.g., "dcg") to fetch badge details
       badge = badges[badge_id]
       extra = {size: '50x80'}
