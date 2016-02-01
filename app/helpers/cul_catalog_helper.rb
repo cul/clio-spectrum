@@ -167,4 +167,22 @@ module CulCatalogHelper
 
   end
 
+  def get_badge_html(document)
+    # begin
+      badges = APP_CONFIG['badges']
+      # Lookup this doc to see if it's got a badge
+      return unless badge_id = badges['bibs'][document.id]
+      # use the badge id (e.g., "dcg") to fetch badge details
+      badge = badges[badge_id]
+      extra = {size: '50x80'}
+      if badge['tooltip'].present?
+        extra['data'] = {toggle: 'tooltip', placement: 'top'}
+        extra['title'] = badge['tooltip']
+      end
+      badge_html = image_tag('icons/' + badge['icon'], extra)
+    # rescue
+    #   return nil
+    # end
+  end
+
 end
