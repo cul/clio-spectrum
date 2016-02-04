@@ -4,7 +4,9 @@
   System Details
 
 %table.table.table-bordered
-  - ['request.protocol', 'request.fullpath', 'request.url',
+  - ['RUBY_VERSION', 'Rails.version', 'Blacklight.version',
+     'Rails.env',
+     'request.protocol', 'request.fullpath', 'request.url',
      'Process.pid', 'Process.uid',
      'Etc.getpwuid(Process.uid).name'].each do |i|
     %tr
