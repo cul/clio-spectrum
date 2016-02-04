@@ -178,7 +178,12 @@ module Spectrum
             field, value = attrs['field'], attrs['value']
             unless value.to_s.empty?
               remove_params = @params.deep_clone
-              remove_params[:action] = 'index'
+              # remove_params[:action] = 'index'
+              # "Calling URL helpers with string keys controller, action is deprecated"
+              remove_params.delete(:controller)
+              remove_params.delete(:action)
+              # let controller / action be handled by rails
+
               remove_params[:adv][i] = nil
               remove_params.delete(:page)
               remove_params.delete(:id)
@@ -194,7 +199,11 @@ module Spectrum
         else
           unless @params[:q].to_s.empty?
             remove_params = @params.deep_clone
-            remove_params[:action] = 'index'
+            # remove_params[:action] = 'index'
+            # "Calling URL helpers with string keys controller, action is deprecated"
+            remove_params.delete(:controller)
+            remove_params.delete(:action)
+            # let controller / action be handled by rails
             remove_params[:q] = nil
             remove_params.delete(:page)
             remove_params.delete(:id)

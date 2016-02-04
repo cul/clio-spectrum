@@ -1,6 +1,6 @@
 module SavedListsHelper
   def get_full_url(list)
-    root_path(only_path: false).sub(/\/$/, '') + list.url
+    root_url.sub(/\/$/, '') + list.url
   end
 
   def get_permissions_label(permissions)

@@ -382,7 +382,7 @@ class ApplicationController < ActionController::Base
       end
 
       unless flash[:error]
-        email.deliver
+        email.deliver_now
         flash[:success] = 'Email sent'
         redirect_to catalog_path(params['id']) unless request.xhr?
       end

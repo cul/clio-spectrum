@@ -9,7 +9,11 @@ module AdvancedHelper
 
     new_params.delete(:id)
 
-    new_params[:action] = 'index'
+    # new_params[:action] = 'index'
+    # "Calling URL helpers with string keys controller, action is deprecated"
+    new_params.delete(:controller)
+    new_params.delete(:action)
+
     new_params.merge!(changed_params)
     new_params
   end
