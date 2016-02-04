@@ -224,6 +224,9 @@ module ArticlesHelper
     if summon_query_as_hash['s.fq']
       Array.wrap(summon_query_as_hash['s.fq']).each do | fq |
         field, value = fq.split(':')
+        # Summon text filter queries are wrapped in parens 
+        # to be literal matches.  Undo for BL user input fields.
+        value = value.sub(/^\((.+)\)$/, '\1')
         # Rails.logger.debug "field/value=#{field}/#{value}"
         hash[field] = value
       end

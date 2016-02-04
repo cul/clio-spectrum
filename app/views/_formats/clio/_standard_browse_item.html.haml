@@ -59,6 +59,10 @@
       = render "/_formats/clio/catalog_list_details", document: document, show_title: show_title
 
     .doc_bookjacket.col-sm-2.hidden-xs
-      =image_tag("spacer.png", :class => "list_view bookjacket " + extract_standard_bibkeys(document).listify.collect { |x| "id_" + x.to_s.gsub(':','')}.join(" "))
+      -# NEXT-1030, if badge applies, insert instead of bookjacket
+      - if badge = get_badge_html(document)
+        = badge
+      - else
+        =image_tag("spacer.png", :class => "list_view bookjacket " + extract_standard_bibkeys(document).listify.collect { |x| "id_" + x.to_s.gsub(':','')}.join(" "))
 
 

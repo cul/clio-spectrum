@@ -253,7 +253,7 @@ class BrowseController < ApplicationController
       # which key does this doc match?
       key = key_list.select { |this_key|
         doc[fieldname].any? { |doc_key|
-          doc_key.downcase == this_key.downcase
+          doc_key.downcase.gsub(/[`]/, '') == this_key.downcase
         }
       }.first
 

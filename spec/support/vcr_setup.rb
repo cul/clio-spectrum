@@ -3,6 +3,12 @@
 require 'vcr'
 
 VCR.configure do |c|
+
+  ## VCR on/off toggle
+  ## Do this, and VCR is enacted on specs tagged with :vcr
+  ## Comment this out to test directly against live backends
+  c.configure_rspec_metadata!
+
   c.cassette_library_dir = 'vcr/cassettes'
   c.hook_into :webmock
 
@@ -12,9 +18,6 @@ VCR.configure do |c|
   # Tell VCR not to pay attention to any localhost connection,
   #   (like Capybara's JS-related calls to /__identify__)
   c.ignore_localhost = true
-
-  # Do this, and VCR is only enacted on specs tagged with :vcr
-  c.configure_rspec_metadata!
 
   # The acquisition-date facet options are computed based on current date.
   #   e.g., facet.query=acq_dt:[2014-09-21T00:00:00Z TO *]
