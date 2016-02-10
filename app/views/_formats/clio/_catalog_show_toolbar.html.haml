@@ -107,7 +107,7 @@
               -# if HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + clio_id) == "1"
               %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{clio_id}", :target => "_blank"
   
-              %li= link_to "Item Feedback", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/itemfeedback?#{clio_id}", :onclick => "OpenItemFeedback(#{clio_id}); return false;"
+              %li= link_to "Item Feedback", "#", :onclick => "OpenItemFeedback(#{clio_id}); return false;"
   
               %li= link_to "Item Not On Shelf?", "#", :onclick => "OpenSearchRequest(#{clio_id}); return false;"
   
