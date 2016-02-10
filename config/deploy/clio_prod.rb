@@ -15,6 +15,12 @@ server 'lito-nginx-clio-prod1.cul.columbia.edu', user: 'litoserv', roles: %w{app
 # set :deploy_to, '/opt/passenger/clio_prod'
 set :deploy_to, '/opt/passenger/clio/clio_prod'
 
+# https://github.com/capistrano/rvm
+# set :rvm_type, :user                     # Defaults to: :auto
+# set :rvm_ruby_version, '2.0.0-p247'      # Defaults to: 'default'
+# set :rvm_custom_path, '~/.myveryownrvm'  # only needed if not detected
+set :rvm_ruby_version, 'clio_prod'
+
 
 # role-based syntax
 # ==================
