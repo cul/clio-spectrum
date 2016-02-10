@@ -15,6 +15,9 @@
   url = 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/precat?' + bibid
   OpenWindow(url)
 
+@OpenItemFeedback = (bibid) ->
+  url = 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/itemfeedback?' + bibid
+  OpenWindow(url)
 
 @OpenWindow = (url) ->
   window.open(url,'','left=200,top=200,width=650,height=700,scrollbars')
