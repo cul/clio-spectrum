@@ -55,8 +55,10 @@ Clio::Application.configure do
   # # DEPRECATION WARNING: Passing a template handler in the template
   # # name is deprecated. You can simply remove the handler name or
   # # pass render :handlers => [:builder] instead.
-  # #
-  # ActiveSupport::Deprecation.silenced = true
+
+  # More noisy deprecations as we try to get BL + BL-Range-Limit
+  # upgraded enough...
+  ActiveSupport::Deprecation.silenced = true
 
   # rails 4
   config.eager_load = true
