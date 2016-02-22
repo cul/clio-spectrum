@@ -76,12 +76,12 @@ describe BackendController, :vcr do
     expect {
       # nil
       get 'holdings', :id => nil
-    }.to raise_error(ActionController::RoutingError)
+    }.to raise_error(ActionController::UrlGenerationError)
 
     expect {
       # nil
       get 'holdings'
-    }.to raise_error(ActionController::RoutingError)
+    }.to raise_error(ActionController::UrlGenerationError)
 
   end
 

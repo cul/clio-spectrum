@@ -4,7 +4,7 @@
 # 
 
 class BrowseController < ApplicationController
-  include Blacklight::Catalog::SearchContext
+  include Blacklight::SearchContext
   include Blacklight::Configurable
   include Blacklight::SearchHelper
 
@@ -177,8 +177,6 @@ class BrowseController < ApplicationController
     solr_params = {rows: fetch_doc_count}
 
     # This fails when page-size is large, 50 or so.
-    #     RSolr::Error::Http - 413 Request Entity Too Large
-    # response, solr_document_list = get_solr_response_for_field_values(fieldname, key_list, solr_params)
     # Run the query in slices, merge them.
     solr_document_list = []
     key_list.each_slice(20) { |slice|

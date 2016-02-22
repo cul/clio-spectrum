@@ -1,30 +1,13 @@
 source 'https://rubygems.org'
 
-# FIXED:  Can't move up to 4.0 series yet - blacklight_range_limit has dependency on 3
-# but, devise_wind still has Rails 3.2 dependencies.
-# 3/15
-# gem 'rails', '~> 3.2'
-gem 'rails', '~> 4.1'
+gem 'rails', '~> 4.2'
 
-# `attr_accessible` is extracted out of Rails into a gem. Please use new 
-# recommended protection model for params(strong_parameters) or add 
-# `protected_attributes` to your Gemfile to use old one. 
-# Oops, Blacklight has "logic that assumes protected_attributes is Rails 3 only" 
-#   see:  https://github.com/projectblacklight/blacklight/issues/906
-# Does this mean that including this gem breaks things?
-# gem 'protected_attributes'
-# Yes, it does, we get the behavior explained in issue 906.
-# OK, bite the bullet and convert to strong_parameters everywhere.
-
-# `ActiveRecord::SessionStore` is extracted out of Rails into a gem. 
-# Please add `activerecord-session_store` to your Gemfile to use it.
 gem 'activerecord-session_store'
 
 #  ###  BLACKLIGHT (begin)  ###
 
-gem 'blacklight', '~>5.13.0'
+gem 'blacklight', '~>5.0'
 
-# when we move to 5.x, uncomment this
 gem 'blacklight-marc'
 
 # # gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :tag => 'v2.1.0'

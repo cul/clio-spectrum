@@ -19,6 +19,12 @@ Clio::Application.configure do
   # config.action_controller.perform_caching = false
   config.action_controller.perform_caching = true
 
+  # Asset approach for test runs
+  config.assets.compile = true
+  config.assets.compress = false
+  config.assets.debug = false
+  config.assets.digest = false
+
   # Raise exceptions instead of rendering exception templates
   config.action_dispatch.show_exceptions = false
 

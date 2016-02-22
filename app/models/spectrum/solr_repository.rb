@@ -1,5 +1,5 @@
 module Spectrum
-  class SolrRepository < Blacklight::SolrRepository
+  class SolrRepository < Blacklight::Solr::Repository
     attr_accessor :source, :solr_url
 
     def connection

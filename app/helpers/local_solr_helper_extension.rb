@@ -4,57 +4,6 @@ module LocalSolrHelperExtension
   include BlacklightRangeLimit::SegmentCalculation
 
 
-
-
-  #   # OVERRIDE Blacklight::Solr::SearchBuilder#add_facet_fq_to_solr(),
-  #   # so support negative facets (prefaced with '-')
-  #   # 
-  #   # Add any existing facet limits, stored in app-level HTTP query
-  #   # as :f, to solr as appropriate :fq query.
-  # def add_facet_fq_to_solr(solr_parameters, user_params)
-  # 
-  #   # convert a String value into an Array
-  #   if solr_parameters[:fq].is_a? String
-  #     solr_parameters[:fq] = [solr_parameters[:fq]]
-  #   end
-  # 
-  #   # :fq, map from :f.
-  #   if user_params[:f]
-  #     f_request_params = user_params[:f]
-  # 
-  #     solr_parameters[:fq] ||= []
-  # 
-  #     facet_list = f_request_params.keys.map { |ff| ff.gsub(/^-/, '') }.uniq.sort
-  # 
-  #     facet_list.each do |facet_key|
-  #       values = Array(f_request_params[facet_key]).reject(&:empty?)
-  # 
-  #       excluded_values = Array(f_request_params["-#{facet_key}"])
-  #       operator = user_params[:f_operator] && user_params[:f_operator][facet_key] || 'AND'
-  #       solr_parameters[:fq] |= facet_value_to_fq_string(facet_key, values, excluded_values, operator)
-  #     end
-  #   end
-  # end
-
-
-  # def facet_value_to_fq_string(facet_field, values = [], excluded_values = [], operator = 'AND')
-  #   values = Array.wrap(values)
-  #   excluded_values = Array.wrap(excluded_values)
-  # 
-  #   results = []
-  #   values.each do |value|
-  #     results << individual_facet_value_to_fq_string(facet_field, value, operator)
-  #   end
-  # 
-  #   excluded_values.each do |value|
-  #     results << individual_facet_value_to_fq_string("-#{facet_field}", value, operator)
-  #   end
-  # 
-  #   results = ["(#{results.join(" OR ")})"] if operator == 'OR'
-  # 
-  #   results
-  # end
-
   def remove_range_params(range_key, source_params = params)
     p = source_params.deep_clone
     # need to dup the facet values too,
@@ -104,15 +53,8 @@ module LocalSolrHelperExtension
 
     # Updated Blacklight 5.10.x version of this deprecated function...
 
-    query = Deprecation.silence(Blacklight::RequestBuilders) do
-      search_builder.
-       with(params).
-       query(
-         extra_controller_params.merge(
-           solr_documents_by_field_values_params(field, values)
-         )
-       )
-    end
+    query =
+search_builder.with(params).merge(extra_controller_params).merge(solr_documents_by_field_values_params(field, values))
 
     solr_response = repository.search(query)
 

@@ -206,26 +206,6 @@ class ApplicationController < ActionController::Base
     search_engine
   end
 
-  # def look_up_clio_holdings(documents)
-  #   clio_docs = documents.select { |cd| cd.get('clio_id_display')}
-  #   return if clio_docs.empty?
-  #
-  #   # If we're async, don't do holdings-lookup here.
-  #   return unless session[:async_off]
-  #
-  #   # begin
-  #   #   holdings = Voyager::Request.simple_holdings_check(
-  #   #     connection_details: APP_CONFIG['voyager_connection']['oracle'],
-  #   #     bibids: clio_docs.collect { |cd| cd.get('clio_id_display')} )
-  #   #   clio_docs.each do |cd|
-  #   #     cd['clio_holdings'] = holdings[cd.get('clio_id_display')]
-  #   #   end
-  #   # rescue => ex
-  #   #   logger.error "ApplicationController#look_up_clio_holdings exception: #{ex}"
-  #   # end
-  #
-  # end
-
   def trigger_async_mode
     if params.delete('async_off') == 'true'
       session[:async_off] = true
@@ -363,12 +343,8 @@ class ApplicationController < ActionController::Base
       if mail_to
         url_gen_params = { host: request.host_with_port, protocol: request.protocol }
 
-        # if params[:to].match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)
         if mail_to.match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/)
-          # # Don't hit Solr until we actually need to fetch field data
-          # @response, @documents =
-          #   get_solr_response_for_field_values( SolrDocument.unique_key, params[:id] )
-          # Yes, but IDs may be Catalog Bib keys or Summon FETCH IDs...
+          # IDs may be Catalog Bib keys or Summon FETCH IDs...
           @documents = ids_to_documents(params[:id])
           message_text = params[:message]
           email = RecordMailer.email_record(@documents, { to: mail_to, reply_to: reply_to.format, message: message_text }, url_gen_params)
@@ -380,7 +356,7 @@ class ApplicationController < ActionController::Base
       end
 
       unless flash[:error]
-        email.deliver
+        email.deliver_now
         flash[:success] = 'Email sent'
         redirect_to catalog_path(params['id']) unless request.xhr?
       end
@@ -429,7 +405,7 @@ class ApplicationController < ActionController::Base
       }
 
       # NEXT-1067 - Saved Lists broken for very large lists (~400)
-      # response, catalog_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, catalog_item_ids, extra_solr_params)
+      # fix by breaking into slices
       catalog_item_ids.each_slice(100) { |slice|
         response, slice_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, slice, extra_solr_params)
         catalog_document_list += slice_document_list

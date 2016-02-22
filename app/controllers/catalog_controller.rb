@@ -90,19 +90,6 @@ class CatalogController < ApplicationController
     # (i.e., if show-landing-pages is false)
     unless @show_landing_pages
 
-      # I don't think these are actually working.  Turn them off.
-      # content_for(:head) { 
-      #   view_context.auto_discovery_link_tag(
-      #     :rss,
-      #     url_for(params.merge(format: 'rss')), title: 'RSS for results')
-      # }
-      # 
-      # content_for(:head) { 
-      #   view_context.auto_discovery_link_tag(
-      #     :atom,
-      #     url_for(params.merge(format: 'atom')), title: 'Atom for results')
-      # }
-
       # runs ApplicationController.blacklight_search() using the params,
       # returns the engine with embedded results
       debug_timestamp('CatalogController#index() before blacklight_search()')
