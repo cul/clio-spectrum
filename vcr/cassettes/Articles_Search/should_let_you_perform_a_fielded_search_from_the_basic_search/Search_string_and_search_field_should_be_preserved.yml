@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.summon.serialssolutions.com/2.0.0/search?adv=%7B%7D&form=basic&s.ff=SubjectTerms,and,1,10&s.fq=AuthorCombined:(catmull,%20ed)&s.fvf=ContentType,%20Newspaper%20Article,t&s.ho=t&spellcheck=true
+    uri: http://api.summon.serialssolutions.com/2.0.0/search?adv=%7B%7D&form=basic&s.ff=SubjectTerms,and,1,10&s.fq=AuthorCombined:(catmull,%20ed)&s.fvf=ContentType,%20Newspaper%20Article,t&s.ho=t&s.q=catmull,%20ed&spellcheck=true
     body:
       encoding: US-ASCII
       string: ''
@@ -16,13 +16,13 @@ http_interactions:
       Content-Type:
       - application/x-www-form-urlencoded; charset=utf8
       X-Summon-Date:
-      - Mon, 11 Jan 2016 21:49:03 GMT
+      - Wed, 24 Feb 2016 15:32:59 GMT
       X-Summon-Session-Id:
-      - SUMMON-SESSION-Sprite.local-92309-6
+      - SUMMON-SESSION-Sprite.local-18637-6
       X-Summon-Request-Id:
       - ''
       Authorization:
-      - Summon columbia;lYdk9AKgdK+U+9zsgiiiW3tjdxI=
+      - Summon columbia;8xRArXpNz27pwyC8H9kEsmz6arQ=
       Host:
       - api.summon.serialssolutions.com:80
   response:
@@ -35,903 +35,292 @@ http_interactions:
       Datacenter:
       - IAD1
       Date:
-      - Mon, 11 Jan 2016 21:49:19 GMT
+      - Wed, 24 Feb 2016 15:33:23 GMT
       Transfer-Encoding:
       - chunked
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJ2ZXJzaW9uIjogIjIuMC4wIiwic2Vzc2lvbklkIjogIlNVTU1PTi1TRVNT
-        SU9OLVNwcml0ZS5sb2NhbC05MjMwOS02IiwiZWxhcHNlZFF1ZXJ5VGltZSI6
-        IDI4MiwicXVlcnlUaW1lIjogMjcxLCJ0b3RhbFJlcXVlc3RUaW1lIjogMzQ2
-        LCJwYWdlQ291bnQiOiAxLCJyZWNvcmRDb3VudCI6IDgsInF1ZXJ5IjogeyJx
-        dWVyeVN0cmluZyI6ICJzLmhvPXQmcy5mcT1BdXRob3JDb21iaW5lZCUzQSUy
-        OGNhdG11bGwlMkMrZWQlMjkmcy5wcz0xMCZzLmZmPVN1YmplY3RUZXJtcyUy
-        Q2FuZCUyQzElMkMxMCZzLmZmPUNvbnRlbnRUeXBlJTJDYW5kJTJDMSUyQzEw
-        JnMuZmY9TGFuZ3VhZ2UlMkNhbmQlMkMxJTJDNSZzLnBuPTEmcy5mdmY9Q29u
-        dGVudFR5cGUlMkNOZXdzcGFwZXIrQXJ0aWNsZSUyQ3QiLCJwYWdlTnVtYmVy
-        IjogMSwicGFnZVNpemUiOiAxMCwiaXNIb2xkaW5nc09ubHlFbmFibGVkIjog
-        dHJ1ZSwidGV4dFF1ZXJpZXMiOiBbXSwic2VhcmNoVGVybXMiOiBbXSwidGV4
-        dEZpbHRlcnMiOiBbeyJ0ZXh0RmlsdGVyIjogIkF1dGhvckNvbWJpbmVkOihj
-        YXRtdWxsLCBlZCkiLCJyZW1vdmVDb21tYW5kIjogInJlbW92ZVRleHRGaWx0
-        ZXIoQXV0aG9yQ29tYmluZWRcXDpcXChjYXRtdWxsXFwsIGVkXFwpKSJ9XSwi
-        cmFuZ2VGaWx0ZXJzIjogW10sImZhY2V0VmFsdWVGaWx0ZXJzIjogW3siZmll
-        bGROYW1lIjogIkNvbnRlbnRUeXBlIiwidmFsdWUiOiAiTmV3c3BhcGVyIEFy
-        dGljbGUiLCJpc05lZ2F0ZWQiOiB0cnVlLCJyZW1vdmVDb21tYW5kIjogInJl
-        bW92ZUZhY2V0VmFsdWVGaWx0ZXIoQ29udGVudFR5cGUsTmV3c3BhcGVyIEFy
-        dGljbGUpIiwibmVnYXRlQ29tbWFuZCI6ICJuZWdhdGVGYWNldFZhbHVlRmls
-        dGVyKENvbnRlbnRUeXBlLE5ld3NwYXBlciBBcnRpY2xlKSJ9XSwiaW5jbHVz
-        aXZlRmFjZXRWYWx1ZUZpbHRlcnMiOiBbXSwiZmFjZXRWYWx1ZUdyb3VwRmls
-        dGVycyI6IFtdLCJmYWNldEZpZWxkcyI6IFt7ImZpZWxkTmFtZSI6ICJTdWJq
-        ZWN0VGVybXMiLCJjb21iaW5lTW9kZSI6ICJhbmQiLCJwYWdlTnVtYmVyIjog
-        MSwicGFnZVNpemUiOiAxMCwicmVtb3ZlQ29tbWFuZCI6ICJyZW1vdmVGYWNl
-        dEZpZWxkKFN1YmplY3RUZXJtcykifSx7ImZpZWxkTmFtZSI6ICJDb250ZW50
-        VHlwZSIsImNvbWJpbmVNb2RlIjogImFuZCIsInBhZ2VOdW1iZXIiOiAxLCJw
-        YWdlU2l6ZSI6IDEwLCJyZW1vdmVDb21tYW5kIjogInJlbW92ZUZhY2V0Rmll
-        bGQoQ29udGVudFR5cGUpIn0seyJmaWVsZE5hbWUiOiAiTGFuZ3VhZ2UiLCJj
-        b21iaW5lTW9kZSI6ICJhbmQiLCJwYWdlTnVtYmVyIjogMSwicGFnZVNpemUi
-        OiA1LCJyZW1vdmVDb21tYW5kIjogInJlbW92ZUZhY2V0RmllbGQoTGFuZ3Vh
-        Z2UpIn1dLCJyYW5nZUZhY2V0RmllbGRzIjogW10sInNvcnQiOiBbXX0sImZh
-        Y2V0RmllbGRzIjogW3siZmllbGROYW1lIjogIkxhbmd1YWdlX3MiLCJkaXNw
-        bGF5TmFtZSI6ICJMYW5ndWFnZSIsImNvbWJpbmVNb2RlIjogImFuZCIsInBh
-        Z2VOdW1iZXIiOiAxLCJwYWdlU2l6ZSI6IDUsImhhc0xpbWl0aW5nVmFsdWUi
-        OiB0cnVlLCJoYXNBcHBsaWVkVmFsdWUiOiBmYWxzZSwicmVtb3ZlQ29tbWFu
-        ZCI6ICJyZW1vdmVGYWNldEZpZWxkKExhbmd1YWdlKSIsImxpc3RWYWx1ZXND
-        b21tYW5kIjogImxpc3RGYWNldFZhbHVlcyhMYW5ndWFnZSxhbmQpIiwicmVt
-        b3ZlVmFsdWVGaWx0ZXJzQ29tbWFuZCI6ICJyZW1vdmVGYWNldFZhbHVlRmls
-        dGVyKExhbmd1YWdlKSIsImNvdW50cyI6IFt7InZhbHVlIjogIkVuZ2xpc2gi
-        LCJjb3VudCI6IDcsImlzQXBwbGllZCI6IGZhbHNlLCJpc05lZ2F0ZWQiOiBm
-        YWxzZSwiaXNGdXJ0aGVyTGltaXRpbmciOiB0cnVlLCJhcHBseUNvbW1hbmQi
-        OiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoTGFuZ3VhZ2UsRW5nbGlzaCkiLCJh
-        cHBseU5lZ2F0ZWRDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKExh
-        bmd1YWdlLEVuZ2xpc2g6dCkifSx7InZhbHVlIjogIlNwYW5pc2giLCJjb3Vu
-        dCI6IDEsImlzQXBwbGllZCI6IGZhbHNlLCJpc05lZ2F0ZWQiOiBmYWxzZSwi
-        aXNGdXJ0aGVyTGltaXRpbmciOiB0cnVlLCJhcHBseUNvbW1hbmQiOiAiYWRk
-        RmFjZXRWYWx1ZUZpbHRlcnMoTGFuZ3VhZ2UsU3BhbmlzaCkiLCJhcHBseU5l
-        Z2F0ZWRDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKExhbmd1YWdl
-        LFNwYW5pc2g6dCkifV19LHsiZmllbGROYW1lIjogIlN1YmplY3RUZXJtc19t
-        ZmFjZXQiLCJkaXNwbGF5TmFtZSI6ICJTdWJqZWN0VGVybXMiLCJjb21iaW5l
-        TW9kZSI6ICJhbmQiLCJwYWdlTnVtYmVyIjogMSwicGFnZVNpemUiOiAxMCwi
-        aGFzTGltaXRpbmdWYWx1ZSI6IHRydWUsImhhc0FwcGxpZWRWYWx1ZSI6IGZh
-        bHNlLCJyZW1vdmVDb21tYW5kIjogInJlbW92ZUZhY2V0RmllbGQoU3ViamVj
-        dFRlcm1zKSIsImxpc3RWYWx1ZXNDb21tYW5kIjogImxpc3RGYWNldFZhbHVl
-        cyhTdWJqZWN0VGVybXMsYW5kKSIsInJlbW92ZVZhbHVlRmlsdGVyc0NvbW1h
-        bmQiOiAicmVtb3ZlRmFjZXRWYWx1ZUZpbHRlcihTdWJqZWN0VGVybXMpIiwi
-        Y291bnRzIjogW3sidmFsdWUiOiAibW90aW9uIHBpY3R1cmUgaW5kdXN0cnki
-        LCJjb3VudCI6IDMsImlzQXBwbGllZCI6IGZhbHNlLCJpc05lZ2F0ZWQiOiBm
-        YWxzZSwiaXNGdXJ0aGVyTGltaXRpbmciOiB0cnVlLCJhcHBseUNvbW1hbmQi
-        OiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoU3ViamVjdFRlcm1zLG1vdGlvbiBw
-        aWN0dXJlIGluZHVzdHJ5KSIsImFwcGx5TmVnYXRlZENvbW1hbmQiOiAiYWRk
-        RmFjZXRWYWx1ZUZpbHRlcnMoU3ViamVjdFRlcm1zLG1vdGlvbiBwaWN0dXJl
-        IGluZHVzdHJ5OnQpIn0seyJ2YWx1ZSI6ICJtYW5hZ2VtZW50IiwiY291bnQi
-        OiAyLCJpc0FwcGxpZWQiOiBmYWxzZSwiaXNOZWdhdGVkIjogZmFsc2UsImlz
-        RnVydGhlckxpbWl0aW5nIjogdHJ1ZSwiYXBwbHlDb21tYW5kIjogImFkZEZh
-        Y2V0VmFsdWVGaWx0ZXJzKFN1YmplY3RUZXJtcyxtYW5hZ2VtZW50KSIsImFw
-        cGx5TmVnYXRlZENvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoU3Vi
-        amVjdFRlcm1zLG1hbmFnZW1lbnQ6dCkifSx7InZhbHVlIjogIjItcGFzcyBh
-        bGdvcml0aG0iLCJjb3VudCI6IDEsImlzQXBwbGllZCI6IGZhbHNlLCJpc05l
-        Z2F0ZWQiOiBmYWxzZSwiaXNGdXJ0aGVyTGltaXRpbmciOiB0cnVlLCJhcHBs
-        eUNvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoU3ViamVjdFRlcm1z
-        LDItcGFzcyBhbGdvcml0aG0pIiwiYXBwbHlOZWdhdGVkQ29tbWFuZCI6ICJh
-        ZGRGYWNldFZhbHVlRmlsdGVycyhTdWJqZWN0VGVybXMsMi1wYXNzIGFsZ29y
-        aXRobTp0KSJ9LHsidmFsdWUiOiAiYWxpYXNpbmciLCJjb3VudCI6IDEsImlz
-        QXBwbGllZCI6IGZhbHNlLCJpc05lZ2F0ZWQiOiBmYWxzZSwiaXNGdXJ0aGVy
-        TGltaXRpbmciOiB0cnVlLCJhcHBseUNvbW1hbmQiOiAiYWRkRmFjZXRWYWx1
-        ZUZpbHRlcnMoU3ViamVjdFRlcm1zLGFsaWFzaW5nKSIsImFwcGx5TmVnYXRl
-        ZENvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoU3ViamVjdFRlcm1z
-        LGFsaWFzaW5nOnQpIn0seyJ2YWx1ZSI6ICJhbmltYXRpb24iLCJjb3VudCI6
-        IDEsImlzQXBwbGllZCI6IGZhbHNlLCJpc05lZ2F0ZWQiOiBmYWxzZSwiaXNG
-        dXJ0aGVyTGltaXRpbmciOiB0cnVlLCJhcHBseUNvbW1hbmQiOiAiYWRkRmFj
-        ZXRWYWx1ZUZpbHRlcnMoU3ViamVjdFRlcm1zLGFuaW1hdGlvbikiLCJhcHBs
-        eU5lZ2F0ZWRDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKFN1Ympl
-        Y3RUZXJtcyxhbmltYXRpb246dCkifSx7InZhbHVlIjogImJvb2sgcmV2aWV3
-        cyIsImNvdW50IjogMSwiaXNBcHBsaWVkIjogZmFsc2UsImlzTmVnYXRlZCI6
-        IGZhbHNlLCJpc0Z1cnRoZXJMaW1pdGluZyI6IHRydWUsImFwcGx5Q29tbWFu
-        ZCI6ICJhZGRGYWNldFZhbHVlRmlsdGVycyhTdWJqZWN0VGVybXMsYm9vayBy
-        ZXZpZXdzKSIsImFwcGx5TmVnYXRlZENvbW1hbmQiOiAiYWRkRmFjZXRWYWx1
-        ZUZpbHRlcnMoU3ViamVjdFRlcm1zLGJvb2sgcmV2aWV3czp0KSJ9LHsidmFs
-        dWUiOiAiYm9va3MiLCJjb3VudCI6IDEsImlzQXBwbGllZCI6IGZhbHNlLCJp
-        c05lZ2F0ZWQiOiBmYWxzZSwiaXNGdXJ0aGVyTGltaXRpbmciOiB0cnVlLCJh
-        cHBseUNvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoU3ViamVjdFRl
-        cm1zLGJvb2tzKSIsImFwcGx5TmVnYXRlZENvbW1hbmQiOiAiYWRkRmFjZXRW
-        YWx1ZUZpbHRlcnMoU3ViamVjdFRlcm1zLGJvb2tzOnQpIn0seyJ2YWx1ZSI6
-        ICJib3R0bGVuZWNrIiwiY291bnQiOiAxLCJpc0FwcGxpZWQiOiBmYWxzZSwi
-        aXNOZWdhdGVkIjogZmFsc2UsImlzRnVydGhlckxpbWl0aW5nIjogdHJ1ZSwi
-        YXBwbHlDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKFN1YmplY3RU
-        ZXJtcyxib3R0bGVuZWNrKSIsImFwcGx5TmVnYXRlZENvbW1hbmQiOiAiYWRk
-        RmFjZXRWYWx1ZUZpbHRlcnMoU3ViamVjdFRlcm1zLGJvdHRsZW5lY2s6dCki
-        fSx7InZhbHVlIjogImJ1c2luZXNzIiwiY291bnQiOiAxLCJpc0FwcGxpZWQi
-        OiBmYWxzZSwiaXNOZWdhdGVkIjogZmFsc2UsImlzRnVydGhlckxpbWl0aW5n
-        IjogdHJ1ZSwiYXBwbHlDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJz
-        KFN1YmplY3RUZXJtcyxidXNpbmVzcykiLCJhcHBseU5lZ2F0ZWRDb21tYW5k
-        IjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKFN1YmplY3RUZXJtcyxidXNpbmVz
-        czp0KSJ9LHsidmFsdWUiOiAiYnVzaW5lc3MgY3JlYXRpdml0eSIsImNvdW50
-        IjogMSwiaXNBcHBsaWVkIjogZmFsc2UsImlzTmVnYXRlZCI6IGZhbHNlLCJp
-        c0Z1cnRoZXJMaW1pdGluZyI6IHRydWUsImFwcGx5Q29tbWFuZCI6ICJhZGRG
-        YWNldFZhbHVlRmlsdGVycyhTdWJqZWN0VGVybXMsYnVzaW5lc3MgY3JlYXRp
-        dml0eSkiLCJhcHBseU5lZ2F0ZWRDb21tYW5kIjogImFkZEZhY2V0VmFsdWVG
-        aWx0ZXJzKFN1YmplY3RUZXJtcyxidXNpbmVzcyBjcmVhdGl2aXR5OnQpIn1d
-        fSx7ImZpZWxkTmFtZSI6ICJDb250ZW50VHlwZV9tZmFjZXQiLCJkaXNwbGF5
-        TmFtZSI6ICJDb250ZW50VHlwZSIsImNvbWJpbmVNb2RlIjogImFuZCIsInBh
-        Z2VOdW1iZXIiOiAxLCJwYWdlU2l6ZSI6IDEwLCJoYXNMaW1pdGluZ1ZhbHVl
-        IjogdHJ1ZSwiaGFzQXBwbGllZFZhbHVlIjogdHJ1ZSwicmVtb3ZlQ29tbWFu
-        ZCI6ICJyZW1vdmVGYWNldEZpZWxkKENvbnRlbnRUeXBlKSIsImxpc3RWYWx1
-        ZXNDb21tYW5kIjogImxpc3RGYWNldFZhbHVlcyhDb250ZW50VHlwZSxhbmQp
-        IiwicmVtb3ZlVmFsdWVGaWx0ZXJzQ29tbWFuZCI6ICJyZW1vdmVGYWNldFZh
-        bHVlRmlsdGVyKENvbnRlbnRUeXBlKSIsImNvdW50cyI6IFt7InZhbHVlIjog
-        Ik1hZ2F6aW5lIEFydGljbGUiLCJjb3VudCI6IDQsImlzQXBwbGllZCI6IGZh
-        bHNlLCJpc05lZ2F0ZWQiOiBmYWxzZSwiaXNGdXJ0aGVyTGltaXRpbmciOiB0
-        cnVlLCJhcHBseUNvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoQ29u
-        dGVudFR5cGUsTWFnYXppbmUgQXJ0aWNsZSkiLCJhcHBseU5lZ2F0ZWRDb21t
-        YW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKENvbnRlbnRUeXBlLE1hZ2F6
-        aW5lIEFydGljbGU6dCkifSx7InZhbHVlIjogIkpvdXJuYWwgQXJ0aWNsZSIs
-        ImNvdW50IjogMywiaXNBcHBsaWVkIjogZmFsc2UsImlzTmVnYXRlZCI6IGZh
-        bHNlLCJpc0Z1cnRoZXJMaW1pdGluZyI6IHRydWUsImFwcGx5Q29tbWFuZCI6
-        ICJhZGRGYWNldFZhbHVlRmlsdGVycyhDb250ZW50VHlwZSxKb3VybmFsIEFy
-        dGljbGUpIiwiYXBwbHlOZWdhdGVkQ29tbWFuZCI6ICJhZGRGYWNldFZhbHVl
-        RmlsdGVycyhDb250ZW50VHlwZSxKb3VybmFsIEFydGljbGU6dCkifSx7InZh
-        bHVlIjogIkJvb2sgUmV2aWV3IiwiY291bnQiOiAxLCJpc0FwcGxpZWQiOiBm
-        YWxzZSwiaXNOZWdhdGVkIjogZmFsc2UsImlzRnVydGhlckxpbWl0aW5nIjog
-        dHJ1ZSwiYXBwbHlDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKENv
-        bnRlbnRUeXBlLEJvb2sgUmV2aWV3KSIsImFwcGx5TmVnYXRlZENvbW1hbmQi
-        OiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoQ29udGVudFR5cGUsQm9vayBSZXZp
-        ZXc6dCkifSx7InZhbHVlIjogIkNvbmZlcmVuY2UgUHJvY2VlZGluZyIsImNv
-        dW50IjogMSwiaXNBcHBsaWVkIjogZmFsc2UsImlzTmVnYXRlZCI6IGZhbHNl
-        LCJpc0Z1cnRoZXJMaW1pdGluZyI6IHRydWUsImFwcGx5Q29tbWFuZCI6ICJh
-        ZGRGYWNldFZhbHVlRmlsdGVycyhDb250ZW50VHlwZSxDb25mZXJlbmNlIFBy
-        b2NlZWRpbmcpIiwiYXBwbHlOZWdhdGVkQ29tbWFuZCI6ICJhZGRGYWNldFZh
-        bHVlRmlsdGVycyhDb250ZW50VHlwZSxDb25mZXJlbmNlIFByb2NlZWRpbmc6
-        dCkifSx7InZhbHVlIjogIk5ld3NwYXBlciBBcnRpY2xlIiwiY291bnQiOiAw
-        LCJpc0FwcGxpZWQiOiB0cnVlLCJpc05lZ2F0ZWQiOiB0cnVlLCJpc0Z1cnRo
-        ZXJMaW1pdGluZyI6IGZhbHNlLCJyZW1vdmVDb21tYW5kIjogInJlbW92ZUZh
-        Y2V0VmFsdWVGaWx0ZXIoQ29udGVudFR5cGUsTmV3c3BhcGVyIEFydGljbGUp
-        IiwibmVnYXRlQ29tbWFuZCI6ICJuZWdhdGVGYWNldFZhbHVlRmlsdGVyKENv
-        bnRlbnRUeXBlLE5ld3NwYXBlciBBcnRpY2xlKSJ9XX1dLCJyYW5nZUZhY2V0
-        RmllbGRzIjogW10sImRpZFlvdU1lYW5TdWdnZXN0aW9ucyI6IFtdLCJyZWNv
-        bW1lbmRhdGlvbkxpc3RzIjoge30sImRvY3VtZW50cyI6IFt7Imhhc0Z1bGxU
-        ZXh0IjogdHJ1ZSwiaXNGdWxsVGV4dEhpdCI6IGZhbHNlLCJpbkhvbGRpbmdz
-        IjogdHJ1ZSwib3BlblVybCI6ICJjdHhfdmVyPVozOS44OC0yMDA0JmN0eF9l
-        bmM9aW5mbyUzQW9maSUyRmVuYyUzQVVURi04JnJmcl9pZD1pbmZvOnNpZC9z
-        dW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20mcmZ0X3ZhbF9mbXQ9aW5mbzpv
-        ZmkvZm10OmtldjptdHg6am91cm5hbCZyZnQuZ2VucmU9YXJ0aWNsZSZyZnQu
-        YXRpdGxlPUZyb20rVG95K1N0b3J5K3RvK0NUK1NjYW5zJTNBK0xlc3NvbnMr
-        RnJvbStQaXhhcitmb3IrUmFkaW9sb2d5JnJmdC5qdGl0bGU9Sm91cm5hbCtv
-        Zit0aGUrQW1lcmljYW4rQ29sbGVnZStvZitSYWRpb2xvZ3krJTNBK0pBQ1Im
-        cmZ0LmF1PUNhdG11bGwlMkMrRWQmcmZ0LmF1PUZpc2htYW4lMkMrRWxsaW90
-        K0smcmZ0LmF1PUhvcnRvbiUyQytLYXJlbitNJnJmdC5hdT1SYW1hbiUyQytT
-        aXZhK1AmcmZ0LmRhdGU9MjAxNS0wOS0wMSZyZnQuZWlzc249MTU1OC0zNDlY
-        JnJmdC52b2x1bWU9MTImcmZ0Lmlzc3VlPTkmcmZ0LnNwYWdlPTk3OCZyZnRf
-        aWQ9aW5mbzpwbWlkLzI1NzAzNTkwJnJmdC5leHRlcm5hbERvY0lEPTI1NzAz
-        NTkwIiwibGluayI6ICJodHRwOi8vY29sdW1iaWEuc3VtbW9uLnNlcmlhbHNz
-        b2x1dGlvbnMuY29tLzIuMC4wL2xpbmsvMC9lTHZIQ1hNd2xWMUpTOFF3Rkg2
-        SUJfSGlqbzRMQkR4cUpXblRwaFV2T2xvOEtJZ3pua09hcERDRE9sSTdvUF9l
-        bDdUVkdWSFFZMmxKeVZ1XzVHMEFoOV9zZ2J1aHF1Mkp0ODBCNGdtYUJjbDgx
-        MFU0X2lXQTd4T3h4a3E3eHAyTS0xNmJ2cHlLODhpTmFjZ3ZMNzRPVjhMUG1F
-        UkVrQVF1WU5rV3lQeTh4SndUYWszeEhLcjAzaVZmaGE0U3ZNc3EwZE5IbEFR
-        MEc4Vkl6YVJjel9SdV9OTVcxbUNseFp2a3ZCR1FkVml3enh1d2ROdEcxRGZo
-        TEs4bVQyUTRlU2NERjI0bjlZVDBoMlNBQkg4OUpUZG9CbEVxaWZfbWJ2U21L
-        b0lZbDl3cjB4UzViTUZEZmpYc1h3ZnRSSVZBNDBrb0RWSWVtbGhuVEFrbENz
-        RU1LbmVobVM0VHE1SXlDbFVhRzI0c0sybFpJRlFwYmFnUUhUSmpTMU5RcmRI
-        SjdRQVJWdHNZdFpnYXdibXc2TTI0TlZGbVU4RjFvV2pTZzZPT3R2S2w2Wmdo
-        dTFTeXNYU1VrSTRTMGsyX1pMUUgyNDc4MHFsVFhTa3RlUlFpaEFtakdOODBI
-        UGxjeFEzY2ktS003djdyRDN1d2pFOXhrMm05RDR0MU5iVUh5UC1XaXg4UVZN
-        Q1UiLCJWb2x1bWUiOiBbIjEyIl0sIkRhdGFiYXNlVGl0bGUiOiBbIlB1Yk1l
-        ZCIsIkNyb3NzUmVmIl0sIkxhbmd1YWdlIjogWyJFbmdsaXNoIl0sIkF1dGhv
-        ciI6IFsiQ2F0bXVsbCwgRWQiLCJSYW1hbiwgU2l2YSBQIiwiSG9ydG9uLCBL
-        YXJlbiBNIiwiRmlzaG1hbiwgRWxsaW90IEsiXSwiUHVibGljYXRpb25QbGFj
-        ZSI6IFsiVW5pdGVkIFN0YXRlcyJdLCJTY29yZSI6IFsiMC4wMSJdLCJET0ki
-        OiBbIjEwLjEwMTYvai5qYWNyLjIwMTQuMDguMDEwIl0sIkNvcHlyaWdodCI6
-        IFsiQ09QWVJJR0hUIDIwMTUgRWxzZXZpZXIgQi5WLiJdLCJJc1BlZXJSZXZp
-        ZXdlZCI6IFsidHJ1ZSJdLCJEQklEIjogWyJOUE0iLCJCS01NVCJdLCJQdWJs
-        aWNhdGlvbkRhdGUiOiBbIjIwMTUtU2VwIiwiMjAxNS0wMi0wMCIsIjIwMTUw
-        OTAxIl0sIlB1YmxpY2F0aW9uRGF0ZV94bWwiOiBbeyJ0ZXh0IjogIjIwMTUt
-        U2VwIiwibW9udGgiOiAiMDkiLCJ5ZWFyIjogIjIwMTUifV0sIlB1YmxpY2F0
-        aW9uQ2VudHVyeSI6IFsiMjAwMCJdLCJDb3B5cmlnaHRfeG1sIjogW3sibm90
-        aWNlIjogIkNPUFlSSUdIVCAyMDE1IEVsc2V2aWVyIEIuVi4ifV0sIlB1Ymxp
-        c2hlciI6IFsiRWxzZXZpZXIgQi5WIl0sIlNvdXJjZVR5cGUiOiBbIkFnZ3Jl
-        Z2F0aW9uIERhdGFiYXNlIiwiSW5kZXggRGF0YWJhc2UiXSwiUHVibGlzaGVy
-        X3htbCI6IFt7Im5hbWUiOiAiRWxzZXZpZXIgQi5WIn1dLCJQdWJsaWNhdGlv
-        blRpdGxlQWx0ZXJuYXRlIjogWyJKIEFtIENvbGwgUmFkaW9sIl0sIlVSSSI6
-        IFsiaHR0cDovL3d3dy5uY2JpLm5sbS5uaWguZ292L3B1Ym1lZC8yNTcwMzU5
-        MCJdLCJJc1NjaG9sYXJseSI6IFsidHJ1ZSJdLCJJRCI6IFsiRkVUQ0gtTE9H
-        SUNBTC1jMTQ5OC04NDJkNWM5MWE3YTdiNzFkMDExYmMxY2Y2ZWE2ZjMyYTg1
-        ZDRkZTFmMGZiMDY0ZmUyYTc3NDFkZWZkYjBjYzEyMyJdLCJQTUlEIjogWyIy
-        NTcwMzU5MCJdLCJQdWJsaWNhdGlvblRpdGxlIjogWyJKb3VybmFsIG9mIHRo
-        ZSBBbWVyaWNhbiBDb2xsZWdlIG9mIFJhZGlvbG9neSA6IEpBQ1IiXSwiSXNz
-        dWUiOiBbIjkiXSwiRGlzY2lwbGluZSI6IFsiTWVkaWNpbmUiXSwiUHVibGlj
-        YXRpb25ZZWFyIjogWyIyMDE1Il0sIkdlbnJlIjogWyJKb3VybmFsIEFydGlj
-        bGUiXSwiUHVibGljYXRpb25QbGFjZV94bWwiOiBbeyJuYW1lIjogIlVuaXRl
-        ZCBTdGF0ZXMifV0sIkF1ZGllbmNlIjogWyJQcm9mZXNzaW9uYWwiXSwiRUlT
-        U04iOiBbIjE1NTgtMzQ5WCJdLCJTdWJqZWN0VGVybXMiOiBbIlJhZGlvbG9n
-        eSIsIlJhZGlvbG9neSwgTWVkaWNhbCIsIkNUIGltYWdpbmciXSwiTWVyZ2Vk
-        SWQiOiBbIkZFVENITUVSR0VELUxPR0lDQUwtYzE0OTgtODQyZDVjOTFhN2E3
-        YjcxZDAxMWJjMWNmNmVhNmYzMmE4NWQ0ZGUxZjBmYjA2NGZlMmE3NzQxZGVm
-        ZGIwY2MxMjMiXSwiQXV0aG9yX3htbCI6IFt7InNlcXVlbmNlIjogIjEiLCJn
-        aXZlbm5hbWUiOiAiRWQiLCJzdXJuYW1lIjogIkNhdG11bGwiLCJmdWxsbmFt
-        ZSI6ICJDYXRtdWxsLCBFZCJ9LHsic2VxdWVuY2UiOiAiMiIsImdpdmVubmFt
-        ZSI6ICJFbGxpb3QgSyIsInN1cm5hbWUiOiAiRmlzaG1hbiIsImZ1bGxuYW1l
-        IjogIkZpc2htYW4sIEVsbGlvdCBLIn0seyJzZXF1ZW5jZSI6ICIzIiwiZ2l2
-        ZW5uYW1lIjogIkthcmVuIE0iLCJzdXJuYW1lIjogIkhvcnRvbiIsImZ1bGxu
-        YW1lIjogIkhvcnRvbiwgS2FyZW4gTSJ9LHsic2VxdWVuY2UiOiAiNCIsImdp
-        dmVubmFtZSI6ICJTaXZhIFAiLCJzdXJuYW1lIjogIlJhbWFuIiwiZnVsbG5h
-        bWUiOiAiUmFtYW4sIFNpdmEgUCJ9XSwiUHVibGljYXRpb25EZWNhZGUiOiBb
-        IjIwMTAiXSwiQ29udGVudFR5cGUiOiBbIkpvdXJuYWwgQXJ0aWNsZSJdLCJU
-        aXRsZSI6IFsiRnJvbSBUb3kgU3RvcnkgdG8gQ1QgU2NhbnM6IExlc3NvbnMg
-        RnJvbSBQaXhhciBmb3IgUmFkaW9sb2d5Il0sIkV4dGVybmFsRG9jdW1lbnRJ
-        RCI6IFsiNDMyMDkxMjM1IiwiMTBfMTAxNl9qX2phY3JfMjAxNF8wOF8wMTAi
-        LCIyNTcwMzU5MCJdLCJJU1NOIjogWyIxNTQ2LTE0NDAiXSwiU1NJRCI6IFsi
-        c3NqMDAyNzc4OCJdLCJTdGFydFBhZ2UiOiBbIjk3OCJdLCJ0aHVtYm5haWxf
-        bSI6IFsiaHR0cDovL2NvdmVycy1jZG4uc3VtbW9uLnNlcmlhbHNzb2x1dGlv
-        bnMuY29tL2luZGV4LmFzcHg/aXNibj0vbWMuZ2lmJmlzc249MTU0Ni0xNDQw
-        JmNsaWVudD1zdW1tb24iXSwidGh1bWJuYWlsX2wiOiBbImh0dHA6Ly9jb3Zl
-        cnMtY2RuLnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbS9pbmRleC5hc3B4
-        P2lzYm49L2xjLmdpZiZpc3NuPTE1NDYtMTQ0MCZjbGllbnQ9c3VtbW9uIl0s
-        InRodW1ibmFpbF9zIjogWyJodHRwOi8vY292ZXJzLWNkbi5zdW1tb24uc2Vy
-        aWFsc3NvbHV0aW9ucy5jb20vaW5kZXguYXNweD9pc2JuPS9zYy5naWYmaXNz
-        bj0xNTQ2LTE0NDAmY2xpZW50PXN1bW1vbiJdLCJEYXRhYmFzZV94bWwiOiBb
-        eyJzZXF1ZW5jZSI6ICIxIiwibmFtZSI6ICJQdWJNZWQiLCJkYmlkIjogIk5Q
-        TSIsInVybCI6ICJodHRwOi8vZXpwcm94eS5jdWwuY29sdW1iaWEuZWR1L2xv
-        Z2luP3VybD1odHRwOi8vd3d3Lm5jYmkubmxtLm5paC5nb3YvcHVibWVkP290
-        b29sPW55Y3Voc2xpYiIsInNvdXJjZVR5cGVzIjogWyJJbmRleCBEYXRhYmFz
-        ZSJdfV0sIkxpbmtNb2RlbCI6IFsiRGlyZWN0TGluayJdLCJCb29rTWFyayI6
-        IFsiZVBuSENYTXdSVjFMYThNd0RBNWpzSmI5aDZFX1lMQnM1elYyS3lzOTlG
-        RFdESFl6aWgxREN5VWo2Mkg3OTVYcXBydjVJTXNnQ3ozUTR5dnlZRXJ1b1Rw
-        U2tKMmI2SzVyTWxFX3lQTFNzbEhXdFYtUGNuYVZrdXJpNHA0aWNVYjJWQ3dF
-        V3MyV3JWNFdiLXRwUEVFM19zRmVpczV3SG1IVndaNmZfWG1GTFJzRF9odTQw
-        dXdPdnpRQlIzcndRVEdQZWp3WG4tdjNiclZSTjF3QkZUZ2ZhRlRqVEN4RGkx
-        UlQzZGNZV2NYN2dDRlZBMVhKR21ySzZPS0FTYWVlSFhZYURIR01oSEZJc2Rj
-        aG9DQWJ2V1MtWXNTOWFNSjVvdUNkTmV4OWpSV2daWk1KWmxmbnZfUHVDRDgz
-        VlIyOXlNYUxiTHpnUUtMLTU1bzk0ZjNLTEF4N0FSdmFYLVUiXX0seyJoYXNG
-        dWxsVGV4dCI6IHRydWUsImlzRnVsbFRleHRIaXQiOiBmYWxzZSwiaW5Ib2xk
-        aW5ncyI6IHRydWUsIm9wZW5VcmwiOiAiY3R4X3Zlcj1aMzkuODgtMjAwNCZj
-        dHhfZW5jPWluZm8lM0FvZmklMkZlbmMlM0FVVEYtOCZyZnJfaWQ9aW5mbzpz
-        aWQvc3VtbW9uLnNlcmlhbHNzb2x1dGlvbnMuY29tJnJmdF92YWxfZm10PWlu
-        Zm86b2ZpL2ZtdDprZXY6bXR4OmpvdXJuYWwmcmZ0LmdlbnJlPWFydGljbGUm
-        cmZ0LmF0aXRsZT1TZStuYW8rZXN0aXZlcm1vcytwZWxvK21lbm9zK3VtK3Bv
-        dWNvK2Fzc3VzdGFkb3MlMkMrbmFvK2VzdGFtb3MrZmF6ZW5kbytub3Nzbyt0
-        cmFiYWxobyZyZnQuanRpdGxlPUV4YW1lJnJmdC5hdT1DYXRtdWxsJTJDK0Vk
-        JnJmdC5kYXRlPTIwMDktMTAtMDcmcmZ0LnB1Yj1VLU5lYXIrUy5BJnJmdC5p
-        c3NuPTAxMDItMjg4MSZyZnQudm9sdW1lPTQzJnJmdC5pc3N1ZT0xOSZyZnQu
-        ZXh0ZXJuYWxEQklEPUlORiZyZnQuZXh0ZXJuYWxEb2NJRD0yMTMwMzEyOTci
-        LCJsaW5rIjogImh0dHA6Ly9jb2x1bWJpYS5zdW1tb24uc2VyaWFsc3NvbHV0
-        aW9ucy5jb20vMi4wLjAvbGluay8wL2VMdkhDWE13cFYxTlN3TXhFQjIwZ25p
-        cVg2ajFnd0d2Ym5lMTIyWjdFQ25TeFI3MFl1OGx6WTRvYkp2RjNWejg5V2JT
-        WmwyRm5qeG5Fb1l3ZVJrbWIxNEFydl9nQVZlb0t1bzZiQTVzUGhFTmc4RnYx
-        Y1ZhVWNoeDNSa1pmMW9hWkZHVVlhWlZPTHBqdUxYWGt3Z242ZlA0b2ZHQmhy
-        bFhmSlRuSDlKc3c4NXRrdlNaM0RWNVNldHFpODJELVlzVngyZDBfY2lzWTkz
-        eV9MYzFPS1p0OE5VdHp5SlJKdV82dFJzVTY0Wlc0XzlkM29lMkY1UEcwU3Bj
-        RG1DTHlrUFk5ZVQzSTVpLUVpNmxScGJlc0RHLTBDVVdsR3Qwa3VKb0ZsaG9v
-        elRhaEp2N3JqSmQzbmh6eWJadjhvdVdtVVpyWEdxc21DNlF2LXRqdUVySDA4
-        ZW5nUDJmY1VUYkVUV3J2ZTZkQWdwUzFMZUhOc3BFSEF1eWwxZE1XVzlJaVlq
-        VlhFYURNempaTUx1emNlUWM5dHlqRExfRGl3dG9WWi1HTG0xZXNONlJid1Z4
-        cmVJIiwiVm9sdW1lIjogWyI0MyJdLCJMYW5ndWFnZSI6IFsiU3BhbmlzaCJd
-        LCJBdXRob3IiOiBbIkNhdG11bGwsIEVkIl0sIlNjb3JlIjogWyIwLjAxIl0s
-        IkNvcHlyaWdodCI6IFsiQ09QWVJJR0hUIDIwMDkgVS1OZWFyIFMuQS4iXSwi
-        SXNQZWVyUmV2aWV3ZWQiOiBbImZhbHNlIl0sIkRCSUQiOiBbIklORiJdLCJQ
-        dWJsaWNhdGlvbkRhdGUiOiBbIjIwMDkxMDA3Il0sIlB1YmxpY2F0aW9uRGF0
-        ZV94bWwiOiBbeyJ0ZXh0IjogIjIwMDkxMDA3IiwibW9udGgiOiAiMTAiLCJ5
-        ZWFyIjogIjIwMDkiLCJkYXkiOiAiMDcifV0sIlB1YmxpY2F0aW9uQ2VudHVy
-        eSI6IFsiMjAwMCJdLCJDb3B5cmlnaHRfeG1sIjogW3sibm90aWNlIjogIkNP
-        UFlSSUdIVCAyMDA5IFUtTmVhciBTLkEuIn1dLCJQdWJsaXNoZXIiOiBbIlUt
-        TmVhciBTLkEiXSwiU291cmNlVHlwZSI6IFsiQWdncmVnYXRpb24gRGF0YWJh
-        c2UiXSwiUHVibGlzaGVyX3htbCI6IFt7Im5hbWUiOiAiVS1OZWFyIFMuQSJ9
-        XSwiSXNTY2hvbGFybHkiOiBbImZhbHNlIl0sIklEIjogWyJGRVRDSC1nYWxl
-        X2luZm90cmFjXzIxMzAzMTI5NzMiXSwiUHVibGljYXRpb25UaXRsZSI6IFsi
-        RXhhbWUiXSwiSXNzdWUiOiBbIjE5Il0sIkRpc2NpcGxpbmUiOiBbIkJ1c2lu
-        ZXNzIl0sIlB1YmxpY2F0aW9uWWVhciI6IFsiMjAwOSJdLCJBdWRpZW5jZSI6
-        IFsiVHJhZGUiXSwiTWVyZ2VkSWQiOiBbIkZFVENITUVSR0VELWdhbGVfaW5m
-        b3RyYWNfMjEzMDMxMjk3MyJdLCJBdXRob3JfeG1sIjogW3sic2VxdWVuY2Ui
-        OiAiMSIsImZ1bGxuYW1lIjogIkNhdG11bGwsIEVkIn1dLCJQdWJsaWNhdGlv
-        bkRlY2FkZSI6IFsiMjAwMCJdLCJDb250ZW50VHlwZSI6IFsiTWFnYXppbmUg
-        QXJ0aWNsZSJdLCJUaXRsZSI6IFsiU2UgbmFvIGVzdGl2ZXJtb3MgcGVsbyBt
-        ZW5vcyB1bSBwb3VjbyBhc3N1c3RhZG9zLCBuYW8gZXN0YW1vcyBmYXplbmRv
-        IG5vc3NvIHRyYWJhbGhvIl0sIklTU04iOiBbIjAxMDItMjg4MSJdLCJFeHRl
-        cm5hbERvY3VtZW50SUQiOiBbIjIxMzAzMTI5NyJdLCJTU0lEIjogWyJzc2ow
-        MDAwNDkxMTcwIl0sInRodW1ibmFpbF9tIjogWyJodHRwOi8vY292ZXJzLWNk
-        bi5zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20vaW5kZXguYXNweD9pc2Ju
-        PS9tYy5naWYmaXNzbj0wMTAyLTI4ODEmY2xpZW50PXN1bW1vbiJdLCJ0aHVt
-        Ym5haWxfbCI6IFsiaHR0cDovL2NvdmVycy1jZG4uc3VtbW9uLnNlcmlhbHNz
-        b2x1dGlvbnMuY29tL2luZGV4LmFzcHg/aXNibj0vbGMuZ2lmJmlzc249MDEw
-        Mi0yODgxJmNsaWVudD1zdW1tb24iXSwidGh1bWJuYWlsX3MiOiBbImh0dHA6
-        Ly9jb3ZlcnMtY2RuLnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbS9pbmRl
-        eC5hc3B4P2lzYm49L3NjLmdpZiZpc3NuPTAxMDItMjg4MSZjbGllbnQ9c3Vt
-        bW9uIl0sIkRhdGFiYXNlX3htbCI6IFt7InNlcXVlbmNlIjogIjEiLCJuYW1l
-        IjogIkluZm9ybWUgQWNhZGVtaWNvIiwiZGJpZCI6ICJJTkYiLCJ1cmwiOiAi
-        aHR0cDovL2V6cHJveHkuY3VsLmNvbHVtYmlhLmVkdS9sb2dpbj91cmw9aHR0
-        cDovL2luZm90cmFjLmdhbGVncm91cC5jb20vaXR3ZWIvY29sdW1iaWF1P2Ri
-        PUlGTUUiLCJzb3VyY2VUeXBlcyI6IFsiQWdncmVnYXRpb24gRGF0YWJhc2Ui
-        XX1dLCJMaW5rTW9kZWwiOiBbIkRpcmVjdExpbmsiXSwiQm9va01hcmsiOiBb
-        ImVQbkhDWE13WXdFdEdRUnYtYlV3NUlBTmRnQ2JvYUFiVGpnWlFvSlRGZklT
-        OHhWQUowZ0FveW8zdjFpaElEVW5Yd0Y4TXJaQ2FhNUNRWDVwY3I0Q3NOMEky
-        ajZVa2wtc0ExT2VDRktibGxpVm1wZVNyd0JVWEp5dlVBS2E5YzdKeU9kbWtI
-        TnpEWEgyMEFXVnFmR2dpQUhLSk1jYmdZcG5ROURkVEFRVkFBQnB0amdZIl19
-        LHsiaGFzRnVsbFRleHQiOiB0cnVlLCJpc0Z1bGxUZXh0SGl0IjogZmFsc2Us
-        ImluSG9sZGluZ3MiOiB0cnVlLCJvcGVuVXJsIjogImN0eF92ZXI9WjM5Ljg4
-        LTIwMDQmY3R4X2VuYz1pbmZvJTNBb2ZpJTJGZW5jJTNBVVRGLTgmcmZyX2lk
-        PWluZm86c2lkL3N1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbSZyZnRfdmFs
-        X2ZtdD1pbmZvOm9maS9mbXQ6a2V2Om10eDpqb3VybmFsJnJmdC5nZW5yZT1h
-        cnRpY2xlJnJmdC5hdGl0bGU9Q3JlYXRpdml0eSUyQytJbmMmcmZ0Lmp0aXRs
-        ZT1TdWNjZXNzJnJmdC5hdT1DYXRtdWxsJTJDK0VkJnJmdC5hdT1XYWxsYWNl
-        JTJDK0FteSZyZnQuZGF0ZT0yMDE0LTA0LTAxJnJmdC5wdWI9UislMjYrTCtQ
-        dWJsaXNoaW5nJTJDK0x0ZC4rJTI4ZGJhK1NVQ0NFU1MrTWVkaWElMjkmcmZ0
-        Lmlzc249MDc0NS0yNDg5JnJmdC5zcGFnZT03OSZyZnQuZXh0ZXJuYWxEQklE
-        PVhJNyZyZnQuZXh0ZXJuYWxEb2NJRD0zNzc1NzcyNDQiLCJsaW5rIjogImh0
-        dHA6Ly9jb2x1bWJpYS5zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20vMi4w
-        LjAvbGluay8wL2VMdkhDWE13cFYzTlM4TXdGSF9vQkprSFA2Ym9fSUNDSHMz
-        YU5XblNIRVIwYkd6M0hieU5ORW1IS0hQMDQtQl9iMUtidG5vU3ZPU1NFSkxB
-        LS1YbDVmZmVELUQyRng3WUNGV2hSeFUySS1OUEJCelJuMVVYWWQ1RUxqWnZJ
-        NHVNYlVxRDJHNXpYMzFJX3drekZobGZrQkRfZVRGOTdPaG5sQV9TV25MeUtz
-        cGQyQnZIbkZrTmg1Y0ZhN2tldUpKOE5OZGxoRUppSmQxN2p2dFdBLVRzQ055
-        WGhXT1F5UEo5NUNidTBLczdkUnJfdmR4ak9MQXBEZDczUDhBSjdPak5BUFlk
-        NVgwQV9RWUZQMF9oY0pJNVNZbDd6NkRIR1N4bjAtVmtqbXJWQkxTT09FRmEw
-        WEdhaGl4aFJGQ0ZhY3hsTEpNNENJVUlNU1kweFZTa0d0dXlYa3BLWXN6WlZ0
-        UXpqd3l1b2xRYnRMa0FqMm1wSTJPb2dXS0VNRzB1TEtJVjVqcG1SQ1lpb0VP
-        NHM3dGUxVHFacHNsdEpDRmZpekxQVjgzR2gzQmVEYk9tVW1SQ3RqMlhmNXZn
-        Q3ZyR1A2bUpNdGZRSzdKUzN4al9vVDYtTDY3RnRTdyIsIkxhbmd1YWdlIjog
-        WyJFbmdsaXNoIl0sIkF1dGhvciI6IFsiQ2F0bXVsbCwgRWQiLCJXYWxsYWNl
-        LCBBbXkiXSwiU2NvcmUiOiBbIjAuMDEiXSwiQ29weXJpZ2h0IjogWyJDT1BZ
-        UklHSFQgMjAxNCBSICYgTCBQdWJsaXNoaW5nLCBMdGQuIChkYmEgU1VDQ0VT
-        UyBNZWRpYSkiXSwiSXNQZWVyUmV2aWV3ZWQiOiBbImZhbHNlIl0sIkRCSUQi
-        OiBbIlhJNyIsIklBTyJdLCJQdWJsaWNhdGlvbkRhdGUiOiBbIjIwMTQwNDAx
-        Il0sIlB1YmxpY2F0aW9uRGF0ZV94bWwiOiBbeyJ0ZXh0IjogIjIwMTQwNDAx
-        IiwibW9udGgiOiAiMDQiLCJ5ZWFyIjogIjIwMTQiLCJkYXkiOiAiMDEifV0s
-        IlB1YmxpY2F0aW9uQ2VudHVyeSI6IFsiMjAwMCJdLCJDb3B5cmlnaHRfeG1s
-        IjogW3sibm90aWNlIjogIkNPUFlSSUdIVCAyMDE0IFIgJiBMIFB1Ymxpc2hp
-        bmcsIEx0ZC4gKGRiYSBTVUNDRVNTIE1lZGlhKSJ9XSwiUHVibGlzaGVyIjog
-        WyJSICYgTCBQdWJsaXNoaW5nLCBMdGQuIChkYmEgU1VDQ0VTUyBNZWRpYSki
-        XSwiU291cmNlVHlwZSI6IFsiQWdncmVnYXRpb24gRGF0YWJhc2UiXSwiUHVi
-        bGlzaGVyX3htbCI6IFt7Im5hbWUiOiAiUiAmIEwgUHVibGlzaGluZywgTHRk
-        LiAoZGJhIFNVQ0NFU1MgTWVkaWEpIn1dLCJJc1NjaG9sYXJseSI6IFsiZmFs
-        c2UiXSwiSUQiOiBbIkZFVENILUxPR0lDQUwtZzU5NC1lZDYxZmYyN2I3NGE2
-        ZDM2ODljOGNiODAyYWEyMzM0NmYzNmFmZTMxMDEyZGNjNDIyNTAzMjg4MjY5
-        ZDVmZTc2MyJdLCJQdWJsaWNhdGlvblRpdGxlIjogWyJTdWNjZXNzIl0sIkRp
-        c2NpcGxpbmUiOiBbIkJ1c2luZXNzIiwiUHN5Y2hvbG9neSJdLCJQdWJsaWNh
-        dGlvblllYXIiOiBbIjIwMTQiXSwiQXVkaWVuY2UiOiBbIlRyYWRlIl0sIlN1
-        YmplY3RUZXJtcyI6IFsiQm9va3MiLCJCb29rIHJldmlld3MiXSwiTWVyZ2Vk
-        SWQiOiBbIkZFVENITUVSR0VELUxPR0lDQUwtZzU5NC1lZDYxZmYyN2I3NGE2
-        ZDM2ODljOGNiODAyYWEyMzM0NmYzNmFmZTMxMDEyZGNjNDIyNTAzMjg4MjY5
-        ZDVmZTc2MyJdLCJBdXRob3JfeG1sIjogW3sic2VxdWVuY2UiOiAiMSIsImZ1
-        bGxuYW1lIjogIkNhdG11bGwsIEVkIn0seyJzZXF1ZW5jZSI6ICIyIiwiZnVs
-        bG5hbWUiOiAiV2FsbGFjZSwgQW15In1dLCJQdWJsaWNhdGlvbkRlY2FkZSI6
-        IFsiMjAxMCJdLCJDb250ZW50VHlwZSI6IFsiQm9vayBSZXZpZXciXSwiVGl0
-        bGUiOiBbIkNyZWF0aXZpdHksIEluYyJdLCJFeHRlcm5hbERvY3VtZW50SUQi
-        OiBbIjM3NzU3NzI0NCJdLCJJU1NOIjogWyIwNzQ1LTI0ODkiXSwiU1NJRCI6
-        IFsic3NqMDAwNTM4NiJdLCJTdGFydFBhZ2UiOiBbIjc5Il0sInRodW1ibmFp
-        bF9tIjogWyJodHRwOi8vY292ZXJzLWNkbi5zdW1tb24uc2VyaWFsc3NvbHV0
-        aW9ucy5jb20vaW5kZXguYXNweD9pc2JuPS9tYy5naWYmaXNzbj0wNzQ1LTI0
-        ODkmY2xpZW50PXN1bW1vbiJdLCJ0aHVtYm5haWxfbCI6IFsiaHR0cDovL2Nv
-        dmVycy1jZG4uc3VtbW9uLnNlcmlhbHNzb2x1dGlvbnMuY29tL2luZGV4LmFz
-        cHg/aXNibj0vbGMuZ2lmJmlzc249MDc0NS0yNDg5JmNsaWVudD1zdW1tb24i
-        XSwidGh1bWJuYWlsX3MiOiBbImh0dHA6Ly9jb3ZlcnMtY2RuLnN1bW1vbi5z
-        ZXJpYWxzc29sdXRpb25zLmNvbS9pbmRleC5hc3B4P2lzYm49L3NjLmdpZiZp
-        c3NuPTA3NDUtMjQ4OSZjbGllbnQ9c3VtbW9uIl0sIkRhdGFiYXNlX3htbCI6
-        IFt7InNlcXVlbmNlIjogIjEiLCJuYW1lIjogIkJ1c2luZXNzIEluc2lnaHRz
-        OiBFc3NlbnRpYWxzIiwiZGJpZCI6ICJYSTciLCJ1cmwiOiAiaHR0cDovL2V6
-        cHJveHkuY3VsLmNvbHVtYmlhLmVkdS9sb2dpbj91cmw9aHR0cDovL2luZm90
-        cmFjLmdhbGVncm91cC5jb20vaXR3ZWIvY29sdW1iaWF1P2RiPUJJRSIsInNv
-        dXJjZVR5cGVzIjogWyJBZ2dyZWdhdGlvbiBEYXRhYmFzZSJdfV0sIkxpbmtN
-        b2RlbCI6IFsiRGlyZWN0TGluayJdLCJCb29rTWFyayI6IFsiZVBuSENYTXdZ
-        d0VmZTJtcWEyUmlZY2tCWDJ0aGJHSEd5Y0R2WEFTN0UwRkhBWmo4dVJsQzNG
-        eERuRDEwb2NmLTY2YWJXcHJvcHFhWUdhYWxHWmtubVpza21xVVltMWxZSmxz
-        a0oxa1lHQ1VtR2hrYm01aWxHWnNscHFVYWc4NmxTa2xPTmdHbVI5Q1JjTUJX
-        c21XS2FWb3EtRHhQT1lpeG9DSTJIaFJQSlVXSnlmSEc1dWFtd0tha0NXaF9q
-        amFTQXVobGowQ2lHTlFkTGs1UExDMHVSbElOQUFHdk9hTSJdfSx7Imhhc0Z1
-        bGxUZXh0IjogdHJ1ZSwiaXNGdWxsVGV4dEhpdCI6IGZhbHNlLCJpbkhvbGRp
-        bmdzIjogdHJ1ZSwib3BlblVybCI6ICJjdHhfdmVyPVozOS44OC0yMDA0JmN0
-        eF9lbmM9aW5mbyUzQW9maSUyRmVuYyUzQVVURi04JnJmcl9pZD1pbmZvOnNp
-        ZC9zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20mcmZ0X3ZhbF9mbXQ9aW5m
-        bzpvZmkvZm10OmtldjptdHg6am91cm5hbCZyZnQuZ2VucmU9YXJ0aWNsZSZy
-        ZnQuYXRpdGxlPUhvdytQaXhhcitGb3N0ZXJzK0NvbGxlY3RpdmUrQ3JlYXRp
-        dml0eSZyZnQuanRpdGxlPUhhcnZhcmQrQnVzaW5lc3MrUmV2aWV3JnJmdC5h
-        dT1FZCtDYXRtdWxsJnJmdC5kYXRlPTIwMDgtMDktMDEmcmZ0LnB1Yj1IYXJ2
-        YXJkK0J1c2luZXNzK1JldmlldyZyZnQuaXNzbj0wMDE3LTgwMTImcmZ0LnZv
-        bHVtZT04NiZyZnQuaXNzdWU9OSZyZnQuc3BhZ2U9NjQmcmZ0LmV4dGVybmFs
-        RG9jSUQ9MTUzNzY1NzExMSIsImxpbmsiOiAiaHR0cDovL2NvbHVtYmlhLnN1
-        bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbS8yLjAuMC9saW5rLzAvZUx2SENY
-        TXczVjFOUzhRd0VBM2lRVHo1aWE2ckVQRGdZYW1rYmRxa1IxMTI4ZWhoOTF6
-        U1pDb0xkWVZ1Q181OEpfM3V3dXJkYTFNSzh5Wjk4ekpKWmdoNTNPTURtNkVx
-        NExuaVpnZjFCSXVjY0Z4MXNXc0Uyal83RDQ2MlRlSGVOOThxbnkzdGhZMThW
-        eWNES2g2YnpmTzJQOFJRaGJZTmdicFQ3LU1kZ29XeEZ3TV95eXdiNVFSa2Qt
-        aXA5dUp2WDJsNHNJbE5ReDVzU2xMWF9vNEdwRmFYR2Q4clMtM2FPakNCY0t0
-        NzFTZ3I3WEc2eGV2NllCUThGUEtxTUxVNkoyZHRRVzM2VWlONVFZNWdlMGxP
-        V2lPdXlCTUNTaXRBYVFNbzdRR2xQYURYWkwxY3JPWnZUdE5Pd3Zsd2ZSazRY
-        QWlVYzZsU1RPTWFMVldwbEFwWHgtQ0RKMEtlQkVhSHFFVkR5Vkx0LTRZWkFB
-        aEJteVFKWEFWV2FkMFNLa0JEZ0JUR2pPQmNBSVp5RHNhUFFBcXVFOFhDQ2Jt
-        eFZzWjIwaFM1MHJGdHA0TXFVekFjYVEyUFRaYkZQWDRUUXJzUl9MZnRobzNh
-        d2xlNWl6MVBJSDBpYWQ3OV9jcVVuUFl6NFo0Y0Yza0pENmkxckctVGpmb0Jp
-        TlVmc3ciLCJWb2x1bWUiOiBbIjg2Il0sIlJlbGF0ZWRDb21wYW5pZXMiOiBb
-        IlBpeGFyIEFuaW1hdGlvbiBTdHVkaW9zIEluYyJdLCJEYXRhYmFzZVRpdGxl
-        IjogWyJQcm9RdWVzdCBIZWFsdGggTWFuYWdlbWVudCIsIkFCSS9JTkZPUk0g
-        U2VsZWN0IiwiUHJvUXVlc3QgVGVsZWNvbW11bmljYXRpb25zIiwiR2xvYmFs
-        IE5ld3MgJiBBQkkvSW5mb3JtIFByb2Zlc3Npb25hbCIsIlByb1F1ZXN0IFRl
-        bGVjb21tdW5pY2F0aW9ucyAoQWx1bW5pIEVkaXRpb24pIiwiUHJvUXVlc3Qg
-        UmVzZWFyY2ggTGlicmFyeSIsIlJlc291cmNlIE9uZTogQnVzaW5lc3MiLCJU
-        cmFkZSBQUk8iLCJUZWxlY29tIiwiUHJvUXVlc3QgR29sZCIsIkJhbmtpbmcg
-        SW5mb3JtYXRpb24gU291cmNlIiwiQUJJL0lORk9STSBSZXNlYXJjaCIsIkFC
-        SS9JTkZPUk0gU2VsZWN0IChBbHVtbmkgRWRpdGlvbikiLCJSZXNvdXJjZSBP
-        bmUiLCJBQkkvSU5GT1JNIEdsb2JhbCIsIkJhbmtpbmcgSW5mb3JtYXRpb24g
-        U291cmNlIChBbHVtbmkgRWRpdGlvbikiLCJQcm9RdWVzdCBDZW50cmFsIChB
-        bHVtbmkpIiwiUHJvUXVlc3QgQ2VudHJhbCIsIkdvbGQ6IEJ1c2luZXNzIiwi
-        UmVzZWFyY2ggTGlicmFyeSAoQWx1bW5pIEVkaXRpb24pIiwiQUJJL0lORk9S
-        TSBSZXNlYXJjaCAoQWx1bW5pIEVkaXRpb24pIiwiUHJvUXVlc3QgQ2VudHJh
-        bCBCYXNpYyIsIlByb1F1ZXN0IEJ1c2luZXNzIENvbGxlY3Rpb24iLCJBQkkv
-        SU5GT1JNIEdsb2JhbCAoQWx1bW5pIEVkaXRpb24pIiwiUHJvUXVlc3QgTGF3
-        IiwiQUJJL0lORk9STSBQcm9mZXNzaW9uYWwgU3RhbmRhcmQiLCJQcm9RdWVz
-        dCBCdXNpbmVzcyBDb2xsZWN0aW9uIChBbHVtbmkgRWRpdGlvbikiLCJQcm9R
-        dWVzdCBIb3NwaXRhbCBDb2xsZWN0aW9uIiwiUGxhdGludW06IEJ1c2luZXNz
-        IiwiQUJJL0lORk9STSBDb21wbGV0ZSAtIFByb2Zlc3Npb25hbCBFZGl0aW9u
-        IiwiUHJvUXVlc3QgRGlzY292ZXJ5IiwiQUJJL0lORk9STSBQcm9mZXNzaW9u
-        YWwgQWR2YW5jZWQiLCJBQkkvSU5GT1JNIENvbXBsZXRlIChBbHVtbmkgRWRp
-        dGlvbikiLCJQcm9RdWVzdCBIdW1hbiBSZXNvdXJjZXMiLCJQcm9RdWVzdCBD
-        ZW50cmFsIChQcm9mZXNzaW9uYWwgRWRpdGlvbikiLCJBQkkvSU5GT1JNIENv
-        bXBsZXRlIiwiUHJvUXVlc3QgUGxhdGludW0iXSwiTGFuZ3VhZ2UiOiBbIkVu
-        Z2xpc2giXSwiQXV0aG9yIjogWyJFZCBDYXRtdWxsIl0sIlB1YmxpY2F0aW9u
-        UGxhY2UiOiBbIkJvc3RvbiJdLCJTY29yZSI6IFsiMC4wMSJdLCJJc1BlZXJS
-        ZXZpZXdlZCI6IFsiZmFsc2UiXSwiREJJRCI6IFsiQlNIRUUiXSwiUHVibGlj
-        YXRpb25EYXRlIjogWyIyMDA4MDkwMSJdLCJQdWJsaWNhdGlvbkRhdGVfeG1s
-        IjogW3sidGV4dCI6ICIyMDA4MDkwMSIsIm1vbnRoIjogIjA5IiwieWVhciI6
-        ICIyMDA4IiwiZGF5IjogIjAxIn1dLCJSZWxhdGVkQ29tcGFuaWVzX3htbCI6
-        IFt7Im5hbWUiOiAiUGl4YXIgQW5pbWF0aW9uIFN0dWRpb3MgSW5jIn1dLCJQ
-        dWJsaWNhdGlvbkNlbnR1cnkiOiBbIjIwMDAiXSwiUHVibGlzaGVyIjogWyJI
-        YXJ2YXJkIEJ1c2luZXNzIFNjaG9vbCBQcmVzcyIsIkhhcnZhcmQgQnVzaW5l
-        c3MgUmV2aWV3Il0sIkFic3RyYWN0TGlzdCI6IFsiwqAgVGhlIHRyaWNrIGZv
-        ciBQaXhhciBpbiBmb3N0ZXJpbmcgY29sbGVjdGl2ZSBjcmVhdGl2aXR5IGlz
-        IHRocmVlZm9sZDogUGxhY2UgdGhlIGNyZWF0aXZlIGF1dGhvcml0eSBmb3Ig
-        cHJvZHVjdCBkZXZlbG9wbWVudCBmaXJtbHkgaW4gdGhlIGhhbmRzIG9mIHRo
-        ZSBwcm9qZWN0IGxlYWRlcnM7IGJ1aWxkIGEgY3VsdHVyZSBhbmQgcHJvY2Vz
-        c2VzIHRoYXQgZW5jb3VyYWdlIHBlb3BsZSB0byBzaGFyZSB0aGVpciB3b3Jr
-        LWluLXByb2dyZXNzIGFuZCBzdXBwb3J0IG9uZSBhbm90aGVyIGFzIHBlZXJz
-        OyBhbmQgZGlzbWFudGxlIHRoZSBuYXR1cmFsIGJhcnJpZXJzIHRoYXQgZGl2
-        aWRlIGRpc2NpcGxpbmVzLiBUaGUgYXV0aG9yLCBwcmVzaWRlbnQgb2YgUGl4
-        YXIgYW5kIERpc25leSBBbmltYXRpb24gU3R1ZGlvcywgaGFzIHNvdWdodCB3
-        YXlzIHRvIGNvbnRpbnVhbGx5IGNoYWxsZW5nZSBQaXhhcidzIGFzc3VtcHRp
-        b25zIGFuZCBzZWFyY2ggZm9yIHRoZSBmbGF3cyB0aGF0IGNvdWxkIGRlc3Ry
-        b3kgaXRzIGN1bHR1cmUuIEhlIHNheXMgc3Ryb25nIGxlYWRlcnNoaXAgaXMg
-        bmVlZGVkLiIsIsKgIFRoZSB0cmljayBmb3IgUGl4YXIgaW4gZm9zdGVyaW5n
-        IGNvbGxlY3RpdmUgY3JlYXRpdml0eSBpcyB0aHJlZWZvbGQ6IFBsYWNlIHRo
-        ZSBjcmVhdGl2ZSBhdXRob3JpdHkgZm9yIHByb2R1Y3QgZGV2ZWxvcG1lbnQg
-        ZmlybWx5IGluIHRoZSBoYW5kcyBvZiB0aGUgcHJvamVjdCBsZWFkZXJzOyBi
-        dWlsZCBhIGN1bHR1cmUgYW5kIHByb2Nlc3NlcyB0aGF0IGVuY291cmFnZSBw
-        ZW9wbGUgdG8gc2hhcmUgdGhlaXIgd29yay1pbi1wcm9ncmVzcyBhbmQgc3Vw
-        cG9ydCBvbmUgYW5vdGhlciBhcyBwZWVyczsgYW5kIGRpc21hbnRsZSB0aGUg
-        bmF0dXJhbCBiYXJyaWVycyB0aGF0IGRpdmlkZSBkaXNjaXBsaW5lcy4gVGhl
-        IGF1dGhvciwgcHJlc2lkZW50IG9mIFBpeGFyIGFuZCBEaXNuZXkgQW5pbWF0
-        aW9uIFN0dWRpb3MsIGhhcyBzb3VnaHQgd2F5cyB0byBjb250aW51YWxseSBj
-        aGFsbGVuZ2UgUGl4YXIncyBhc3N1bXB0aW9ucyBhbmQgc2VhcmNoIGZvciB0
-        aGUgZmxhd3MgdGhhdCBjb3VsZCBkZXN0cm95IGl0cyBjdWx0dXJlLiBIZSBz
-        YXlzIHN0cm9uZyBsZWFkZXJzaGlwIGlzIG5lZWRlZC4iXSwiU291cmNlVHlw
-        ZSI6IFsiQWdncmVnYXRpb24gRGF0YWJhc2UiXSwiUHVibGlzaGVyX3htbCI6
-        IFt7Im5hbWUiOiAiSGFydmFyZCBCdXNpbmVzcyBTY2hvb2wgUHJlc3MifSx7
-        Im5hbWUiOiAiSGFydmFyZCBCdXNpbmVzcyBSZXZpZXcifV0sIlNuaXBwZXQi
-        OiBbIsKgIFRoZSB0cmljayBmb3IgUGl4YXIgaW4gZm9zdGVyaW5nIGNvbGxl
-        Y3RpdmUgY3JlYXRpdml0eSBpcyB0aHJlZWZvbGQ6IFBsYWNlIHRoZSBjcmVh
-        dGl2ZSBhdXRob3JpdHkgZm9yIHByb2R1Y3QgZGV2ZWxvcG1lbnQgZmlybWx5
-        IGluIHRoZSBoYW5kcyBvZiB0aGUgcHJvamVjdC4uLiJdLCJHZW9ncmFwaGlj
-        TG9jYXRpb25zIjogWyJVbml0ZWQgU3RhdGVzIiwiVW5pdGVkIFN0YXRlcy0t
-        VVMiXSwiUFFQdWJJRCI6IFsiNDA2MzQiXSwiVVJJIjogWyJodHRwOi8vc2Vh
-        cmNoLnByb3F1ZXN0LmNvbS9kb2N2aWV3LzIyNzc5MzEwMSJdLCJJc1NjaG9s
-        YXJseSI6IFsiZmFsc2UiXSwiSUQiOiBbIkZFVENILUxPR0lDQUwtZzEzODUt
-        NDc3NjEyZmFhMGM3NTNmYWY4OGE1NDllM2UyNzY0YjVkYzYyMjY2ODBmYzMz
-        ZDBkZWVlNmVjZGJiNTFhZTA3NDMiXSwiR2VvZ3JhcGhpY0xvY2F0aW9uc194
-        bWwiOiBbeyJuYW1lIjogIlVuaXRlZCBTdGF0ZXMifSx7Im5hbWUiOiAiVW5p
-        dGVkIFN0YXRlcy0tVVMifV0sIlB1YmxpY2F0aW9uVGl0bGUiOiBbIkhhcnZh
-        cmQgQnVzaW5lc3MgUmV2aWV3Il0sIklzc3VlIjogWyI5Il0sIkRpc2NpcGxp
-        bmUiOiBbIkJ1c2luZXNzIl0sIlB1YmxpY2F0aW9uWWVhciI6IFsiMjAwOCJd
-        LCJQdWJsaWNhdGlvblBsYWNlX3htbCI6IFt7Im5hbWUiOiAiQm9zdG9uIn1d
-        LCJBdWRpZW5jZSI6IFsiVHJhZGUiLCJBY2FkZW1pYyJdLCJQUUlEIjogWyIy
-        Mjc3OTMxMDEiXSwiRGF0YWJhc2VUaXRsZUxpc3QiOiBbIlByb1F1ZXN0IEhl
-        YWx0aCBNYW5hZ2VtZW50IiwiIl0sIkFic3RyYWN0IjogWyLCoCBUaGUgdHJp
-        Y2sgZm9yIFBpeGFyIGluIGZvc3RlcmluZyBjb2xsZWN0aXZlIGNyZWF0aXZp
-        dHkgaXMgdGhyZWVmb2xkOiBQbGFjZSB0aGUgY3JlYXRpdmUgYXV0aG9yaXR5
-        IGZvciBwcm9kdWN0IGRldmVsb3BtZW50IGZpcm1seSBpbiB0aGUgaGFuZHMg
-        b2YgdGhlIHByb2plY3QgbGVhZGVyczsgYnVpbGQgYSBjdWx0dXJlIGFuZCBw
-        cm9jZXNzZXMgdGhhdCBlbmNvdXJhZ2UgcGVvcGxlIHRvIHNoYXJlIHRoZWly
-        IHdvcmstaW4tcHJvZ3Jlc3MgYW5kIHN1cHBvcnQgb25lIGFub3RoZXIgYXMg
-        cGVlcnM7IGFuZCBkaXNtYW50bGUgdGhlIG5hdHVyYWwgYmFycmllcnMgdGhh
-        dCBkaXZpZGUgZGlzY2lwbGluZXMuIFRoZSBhdXRob3IsIHByZXNpZGVudCBv
-        ZiBQaXhhciBhbmQgRGlzbmV5IEFuaW1hdGlvbiBTdHVkaW9zLCBoYXMgc291
-        Z2h0IHdheXMgdG8gY29udGludWFsbHkgY2hhbGxlbmdlIFBpeGFyJ3MgYXNz
-        dW1wdGlvbnMgYW5kIHNlYXJjaCBmb3IgdGhlIGZsYXdzIHRoYXQgY291bGQg
-        ZGVzdHJveSBpdHMgY3VsdHVyZS4gSGUgc2F5cyBzdHJvbmcgbGVhZGVyc2hp
-        cCBpcyBuZWVkZWQuIl0sIlN1YmplY3RUZXJtcyI6IFsiV29yayBncm91cHMi
-        LCJNYW5hZ2VtZW50IiwiQnVzaW5lc3MgY3JlYXRpdml0eSIsIk1vdGlvbiBw
-        aWN0dXJlIGluZHVzdHJ5IiwiUHJvZHVjdCBkZXZlbG9wbWVudCIsIkNvbXB1
-        dGVyIGFuaW1hdGlvbiIsIkNvcnBvcmF0ZSBwcm9maWxlcyIsIkNyZWF0aXZp
-        dHkiLCJDb3Jwb3JhdGUgY3VsdHVyZSJdLCJNZXJnZWRJZCI6IFsiRkVUQ0hN
-        RVJHRUQtTE9HSUNBTC1nMTM4NS00Nzc2MTJmYWEwYzc1M2ZhZjg4YTU0OWUz
-        ZTI3NjRiNWRjNjIyNjY4MGZjMzNkMGRlZWU2ZWNkYmI1MWFlMDc0MyJdLCJB
-        dXRob3JfeG1sIjogW3sic2VxdWVuY2UiOiAiMSIsImZ1bGxuYW1lIjogIkVk
-        IENhdG11bGwifV0sIlB1YmxpY2F0aW9uRGVjYWRlIjogWyIyMDAwIl0sIkNv
-        bnRlbnRUeXBlIjogWyJNYWdhemluZSBBcnRpY2xlIl0sIlRpdGxlIjogWyJI
-        b3cgUGl4YXIgZm9zdGVycyBjb2xsZWN0aXZlIGNyZWF0aXZpdHkiXSwiRXh0
-        ZXJuYWxEb2N1bWVudElEIjogWyIxNTM3NjU3MTExIiwiMTg0MzI1MDcwIl0s
-        IklTU04iOiBbIjAwMTctODAxMiJdLCJTU0lEIjogWyJzc2owMDAwNjc4Il0s
-        IlN0YXJ0UGFnZSI6IFsiNjQiXSwidGh1bWJuYWlsX20iOiBbImh0dHA6Ly9j
-        b3ZlcnMtY2RuLnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbS9pbmRleC5h
-        c3B4P2lzYm49L21jLmdpZiZpc3NuPTAwMTctODAxMiZjbGllbnQ9c3VtbW9u
-        Il0sInRodW1ibmFpbF9sIjogWyJodHRwOi8vY292ZXJzLWNkbi5zdW1tb24u
-        c2VyaWFsc3NvbHV0aW9ucy5jb20vaW5kZXguYXNweD9pc2JuPS9sYy5naWYm
-        aXNzbj0wMDE3LTgwMTImY2xpZW50PXN1bW1vbiJdLCJ0aHVtYm5haWxfcyI6
-        IFsiaHR0cDovL2NvdmVycy1jZG4uc3VtbW9uLnNlcmlhbHNzb2x1dGlvbnMu
-        Y29tL2luZGV4LmFzcHg/aXNibj0vc2MuZ2lmJmlzc249MDAxNy04MDEyJmNs
-        aWVudD1zdW1tb24iXSwiTGlua01vZGVsIjogWyJPcGVuVVJMIl0sIkJvb2tN
-        YXJrIjogWyJlUG5IQ1hNd1hWMDlDOEl3RU8zZ29QUV9TTFpPaFNacFBuWlJP
-        anJvSEs3SnBRaEZvUXI2ODcyaktzWDlFVWk0ZV9kZUlIbXJCZk90bDVTNEth
-        cnU5aFRIeXdzbWtma0Z3M1FYdk5tNXNjVXNramd3b1N6T2hfMXAxOVdmT0lC
-        NmtOcWJ1blZrdVZVR2FDSnA3QXpaZXlCM2d4cVZzMjF2VXJTa0pheHZjdFE2
-        TlFrUkxjYlU5MFlDOHFRc2kycGU5MHU2Z1k2Uzc4ZmhpbVN6ZzFLT3FwVnFs
-        SkRiUDJRYXh5RDU2eFBqT0p6OUIyQWFEMXdMandsaTRQQVUwaFRVUlc5NGlV
-        d2EiXX0seyJoYXNGdWxsVGV4dCI6IHRydWUsImlzRnVsbFRleHRIaXQiOiBm
-        YWxzZSwiaW5Ib2xkaW5ncyI6IHRydWUsIm9wZW5VcmwiOiAiY3R4X3Zlcj1a
-        MzkuODgtMjAwNCZjdHhfZW5jPWluZm8lM0FvZmklMkZlbmMlM0FVVEYtOCZy
-        ZnJfaWQ9aW5mbzpzaWQvc3VtbW9uLnNlcmlhbHNzb2x1dGlvbnMuY29tJnJm
-        dF92YWxfZm10PWluZm86b2ZpL2ZtdDprZXY6bXR4OmJvb2smcmZ0LmdlbnJl
-        PXByb2NlZWRpbmcmcmZ0LnRpdGxlPVByb2NlZWRpbmdzK29mK3RoZSs3dGgr
-        YW5udWFsK2NvbmZlcmVuY2Urb24rY29tcHV0ZXIrZ3JhcGhpY3MrYW5kK2lu
-        dGVyYWN0aXZlK3RlY2huaXF1ZXMmcmZ0LmF0aXRsZT0zLUQrdHJhbnNmb3Jt
-        YXRpb25zK29mK2ltYWdlcytpbitzY2FubGluZStvcmRlciZyZnQuYXU9Q2F0
-        bXVsbCUyQytFZCZyZnQuYXU9U21pdGglMkMrQWx2eSZyZnQuc2VyaWVzPVNJ
-        R0dSQVBIKyUyNzgwJnJmdC5kYXRlPTE5ODAtMDctMDEmcmZ0LnB1Yj1BQ00m
-        cmZ0LmlzYm49OTc4MDg5NzkxMDIxNyZyZnQuc3BhZ2U9Mjc5JnJmdC5lcGFn
-        ZT0yODUmcmZ0X2lkPWluZm86ZG9pLzEwLjExNDUlMkY4MDAyNTAuODA3NTA1
-        JnJmdC5leHRlcm5hbERvY0lEPTgwNzUwNSIsImxpbmsiOiAiaHR0cDovL2Nv
-        bHVtYmlhLnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbS8yLjAuMC9saW5r
-        LzAvZUx2SENYTXdoWjNQUzhNd0ZNZURlRklQT2gzNEV3S2UyNlY5YWRJY1pU
-        cThDQjUySF9rSmhYV0syXzVfWDlOMnJTSjRiQ21oU2R2djlfSHktbm1FUFA3
-        U2d5WkR0Zk5wMU9ZRTR3bW1FdkdUdW5oSWQ3ZzFqbExIRFh6YklhcFRHLXBt
-        czdTQjVrWldLVWhvT2hVOHpkLUdYRXFXbzlQS2lIZFVVc1Z1MVIxY3B6LVdQ
-        Vi1URjdNeUduX2FqdGk0a3EzUEJ1bGNuSk8tZVd0ZlMyTDNhM3otS0JhbTBx
-        TkM2eEd4OGQ4YnZ5RFQ0UmMtLW40d3B3azU4cHRMY2pxaUQxNlJHU1RQZERj
-        S1hQRUZwQi1CVmpWcXpKWldHN3JGZFdfQ1VCb0JuVk95WEx3czU2OUoxejho
-        MGFMa2lkSWduTXNMSThDR1hCZUJHZENLMjBKcVp6TURGalNBZDh3QzVEcUlI
-        Qy14eW1qaHdJU1NCd2ZYaEVwdmZZR2ZMSE9TYy1uUnVyaDNvSHdwdVRXYWlS
-        c3l3WG12UGxzeXhxcWQ2LTFmSi1fSVNhWksxbGE2M3BQajNkZmVQMkFzMEMz
-        ck4tUjJuWWsiLCJMYW5ndWFnZSI6IFsiRW5nbGlzaCJdLCJBdXRob3IiOiBb
-        IkNhdG11bGwsIEVkIiwiU21pdGgsIEFsdnkiXSwiU2NvcmUiOiBbIjAuMDEi
-        XSwiUmVsYXRlZFBlcnNvbnNfeG1sIjogW3sic2VxdWVuY2UiOiAiMSIsImdp
-        dmVubmFtZSI6ICJKYW1lcyIsInN1cm5hbWUiOiAiVGhvbWFzIiwiZnVsbG5h
-        bWUiOiAiVGhvbWFzLCBKYW1lcyJ9LHsic2VxdWVuY2UiOiAiMiIsImdpdmVu
-        bmFtZSI6ICJSb2JlcnQiLCJzdXJuYW1lIjogIkVsbGlzIiwiZnVsbG5hbWUi
-        OiAiRWxsaXMsIFJvYmVydCJ9LHsic2VxdWVuY2UiOiAiMyIsImdpdmVubmFt
-        ZSI6ICJIYXJ2ZXkiLCJzdXJuYW1lIjogIktyaWxvZmYiLCJmdWxsbmFtZSI6
-        ICJLcmlsb2ZmLCBIYXJ2ZXkifV0sIkRPSSI6IFsiMTAuMTE0NS84MDAyNTAu
-        ODA3NTA1Il0sIklzUGVlclJldmlld2VkIjogWyJmYWxzZSJdLCJQdWJsaWNh
-        dGlvbkRhdGVfeG1sIjogW3sidGV4dCI6ICIwNy0wMS0xOTgwIiwibW9udGgi
-        OiAiMDciLCJ5ZWFyIjogIjE5ODAiLCJkYXkiOiAiMDEifV0sIlB1YmxpY2F0
-        aW9uRGF0ZSI6IFsiMDctMDEtMTk4MCJdLCJQdWJsaWNhdGlvblNlcmllc1Rp
-        dGxlIjogWyJTSUdHUkFQSCAnODAiXSwiUHVibGljYXRpb25DZW50dXJ5Ijog
-        WyIxOTAwIl0sIlJlbGF0ZWRQZXJzb25zIjogWyJUaG9tYXMsIEphbWVzIiwi
-        S3JpbG9mZiwgSGFydmV5IiwiRWxsaXMsIFJvYmVydCJdLCJQdWJsaXNoZXIi
-        OiBbIkFDTSJdLCJBYnN0cmFjdExpc3QiOiBbIkN1cnJlcm50bHkgdGV4dHVy
-        ZSBtYXBwaW5nIG9udG8gcHJvamVjdGlvbnMgb2YgMy1EIHN1cmZhY2VzIGlz
-        IHRpbWUgY29uc3VtaW5nIGFuZCBzdWJqZWN0IHRvIGNvbnNpZGVyYWJsZSBh
-        bGlhc2luZyBlcnJvcnMuIFVzdWFsbHkgdGhlIHByb2NlZHVyZSBpcyB0byBw
-        ZXJmb3JtIHNvbWUgaW52ZXJzZSBtYXBwaW5nIGZyb20gdGhlIGFyZWEgb2Yg
-        dGhlIHBpeGVsIG9udG8gdGhlIHN1cmZhY2UgdGV4dHVyZS4gSXQgaXMgZGlm
-        ZmljdWx0IHRvIGRvIHRoaXMgY29ycmVjdGx5LiBUaGVyZSBpcyBhbiBhbHRl
-        cm5hdGUgYXBwcm9hY2ggd2hlcmUgdGhlIHRleHR1cmUgc3VyZmFjZSBpcyB0
-        cmFuc2Zvcm1lZCBhcyBhIDItRCBpbWFnZSB1bnRpbCBpdCBjb25mb3JtcyB0
-        byBhIHByb2plY3Rpb24gb2YgYSBwb2x5Z29uIHBsYWNlZCBhcmJpdHJhcmls
-        eSBpbiAzLXNwYWNlLiBUaGUgZ3JlYXQgYWR2YW50YWdlIG9mIHRoaXMgYXBw
-        cm9hY2ggaXMgdGhhdCB0aGUgMi1EIHRyYW5zZm9ybWF0aW9uIGNhbiBiZSBk
-        ZWNvbXBvc2VkIGludG8gdHdvIHNpbXBsZSB0cmFuc2Zvcm1zLCBvbmUgaW4g
-        aG9yaXpvbnRhbCBhbmQgdGhlIG90aGVyIGluIHZlcnRpY2FsIHNjYW5saW5l
-        IG9yZGVyLiBob3Jpem9udGFsIHNjYW5saW5lIG9yZGVyLCBTb3BoaXN0aWNh
-        dGVkIGxpZ2h0IGNhbGN1bGF0aW9uIGlzIGFsc28gdGltZSBjb25zdW1pbmcg
-        YW5kIGRpZmZpY3VsdCB0byBjYWxjdWxhdGUgY29ycmVjdGx5IG9uIHByb2pl
-        Y3RlZCBwb2x5Z29ucy4gSW5zdGVhZCBvZiBjYWxjdWxhdGluZyB0aGUgbGln
-        aHRpbmcgYmFzZWQgb24gdGhlIHBvc2l0aW9uIG9mIHRoZSBwb2x5Z29uLCBs
-        aWdodHMsIGFuZCBleWUsIHRoZSBsaWdodHMgYW5kIGV5ZSBjYW4gYmUgdHJh
-        bnNmb3JtZWQgdG8gYSBjb3JyZXNwb25kaW5nIHBvc2l0aW9uIGZvciBhIHVu
-        aXQgc3F1YXJlIHdoaWNoIHdlIGNhbiBjb25zaWRlciB0byBiZSBhIGNhbm9u
-        aWNhbCBwb2x5Z29uLiBBZnRlciB0aGlzIGNhbm9uaWNhbCBwb2x5Z29uIGlz
-        IGNvcnJlY3RseSB0ZXh0dXJlZCBhbmQgc2hhZGVkIGl0IGNhbiBiZSBlYXNp
-        bHkgY29uZm9ybWVkIHRvIHRoZSBwcm9qZWN0aW9uIG9mIHRoZSAzLUQgc3Vy
-        ZmFjZS4iXSwiU291cmNlVHlwZSI6IFsiUHVibGlzaGVyIl0sIlB1Ymxpc2hl
-        cl94bWwiOiBbeyJuYW1lIjogIkFDTSJ9XSwiU25pcHBldCI6IFsiQ3VycmVy
-        bnRseSB0ZXh0dXJlIG1hcHBpbmcgb250byBwcm9qZWN0aW9ucyBvZiAzLUQg
-        c3VyZmFjZXMgaXMgdGltZSBjb25zdW1pbmcgYW5kIHN1YmplY3QgdG8gY29u
-        c2lkZXJhYmxlIGFsaWFzaW5nIGVycm9ycy4gVXN1YWxseSB0aGUgcHJvY2Vk
-        dXJlIGlzIHRvIHBlcmZvcm0uLi4iXSwiUHVibGljYXRpb25UaXRsZUFsdGVy
-        bmF0ZSI6IFsiSW50ZXJuYXRpb25hbCBDb25mZXJlbmNlIG9uIENvbXB1dGVy
-        IEdyYXBoaWNzIGFuZCBJbnRlcmFjdGl2ZSBUZWNobmlxdWVzIl0sIlVSSSI6
-        IFsiaHR0cDovL2RsLmFjbS5vcmcvY2l0YXRpb24uY2ZtP2lkPTgwNzUwNSJd
-        LCJJU0JOIjogWyIwODk3OTEwMjE0IiwiOTc4MDg5NzkxMDIxNyJdLCJJc1Nj
-        aG9sYXJseSI6IFsiZmFsc2UiXSwiSUQiOiBbIkZFVENILUxPR0lDQUwtYTY4
-        NC05YTM2ZGQyNWI2M2NmMmE1ZjBiM2E5NGM1N2FkYzFiM2MzYTMzZWQwYzMz
-        MmFmNjIyYTVjOWJhNmQzYmY4NGZkMyJdLCJQdWJsaWNhdGlvblRpdGxlIjog
-        WyJQcm9jZWVkaW5ncyBvZiB0aGUgN3RoIGFubnVhbCBjb25mZXJlbmNlIG9u
-        IGNvbXB1dGVyIGdyYXBoaWNzIGFuZCBpbnRlcmFjdGl2ZSB0ZWNobmlxdWVz
-        Il0sIkRpc2NpcGxpbmUiOiBbIkVuZ2luZWVyaW5nIl0sIlB1YmxpY2F0aW9u
-        WWVhciI6IFsiMTk4MCJdLCJEYXRhYmFzZVRpdGxlTGlzdCI6IFsiIl0sIkFi
-        c3RyYWN0IjogWyJDdXJyZXJudGx5IHRleHR1cmUgbWFwcGluZyBvbnRvIHBy
-        b2plY3Rpb25zIG9mIDMtRCBzdXJmYWNlcyBpcyB0aW1lIGNvbnN1bWluZyBh
-        bmQgc3ViamVjdCB0byBjb25zaWRlcmFibGUgYWxpYXNpbmcgZXJyb3JzLiBV
-        c3VhbGx5IHRoZSBwcm9jZWR1cmUgaXMgdG8gcGVyZm9ybSBzb21lIGludmVy
-        c2UgbWFwcGluZyBmcm9tIHRoZSBhcmVhIG9mIHRoZSBwaXhlbCBvbnRvIHRo
-        ZSBzdXJmYWNlIHRleHR1cmUuIEl0IGlzIGRpZmZpY3VsdCB0byBkbyB0aGlz
-        IGNvcnJlY3RseS4gVGhlcmUgaXMgYW4gYWx0ZXJuYXRlIGFwcHJvYWNoIHdo
-        ZXJlIHRoZSB0ZXh0dXJlIHN1cmZhY2UgaXMgdHJhbnNmb3JtZWQgYXMgYSAy
-        LUQgaW1hZ2UgdW50aWwgaXQgY29uZm9ybXMgdG8gYSBwcm9qZWN0aW9uIG9m
-        IGEgcG9seWdvbiBwbGFjZWQgYXJiaXRyYXJpbHkgaW4gMy1zcGFjZS4gVGhl
-        IGdyZWF0IGFkdmFudGFnZSBvZiB0aGlzIGFwcHJvYWNoIGlzIHRoYXQgdGhl
-        IDItRCB0cmFuc2Zvcm1hdGlvbiBjYW4gYmUgZGVjb21wb3NlZCBpbnRvIHR3
-        byBzaW1wbGUgdHJhbnNmb3Jtcywgb25lIGluIGhvcml6b250YWwgYW5kIHRo
-        ZSBvdGhlciBpbiB2ZXJ0aWNhbCBzY2FubGluZSBvcmRlci4gaG9yaXpvbnRh
-        bCBzY2FubGluZSBvcmRlciwgU29waGlzdGljYXRlZCBsaWdodCBjYWxjdWxh
-        dGlvbiBpcyBhbHNvIHRpbWUgY29uc3VtaW5nIGFuZCBkaWZmaWN1bHQgdG8g
-        Y2FsY3VsYXRlIGNvcnJlY3RseSBvbiBwcm9qZWN0ZWQgcG9seWdvbnMuIElu
-        c3RlYWQgb2YgY2FsY3VsYXRpbmcgdGhlIGxpZ2h0aW5nIGJhc2VkIG9uIHRo
-        ZSBwb3NpdGlvbiBvZiB0aGUgcG9seWdvbiwgbGlnaHRzLCBhbmQgZXllLCB0
-        aGUgbGlnaHRzIGFuZCBleWUgY2FuIGJlIHRyYW5zZm9ybWVkIHRvIGEgY29y
-        cmVzcG9uZGluZyBwb3NpdGlvbiBmb3IgYSB1bml0IHNxdWFyZSB3aGljaCB3
-        ZSBjYW4gY29uc2lkZXIgdG8gYmUgYSBjYW5vbmljYWwgcG9seWdvbi4gQWZ0
-        ZXIgdGhpcyBjYW5vbmljYWwgcG9seWdvbiBpcyBjb3JyZWN0bHkgdGV4dHVy
-        ZWQgYW5kIHNoYWRlZCBpdCBjYW4gYmUgZWFzaWx5IGNvbmZvcm1lZCB0byB0
-        aGUgcHJvamVjdGlvbiBvZiB0aGUgMy1EIHN1cmZhY2UuIl0sIlN1YmplY3RU
-        ZXJtcyI6IFsiVGV4dHVyZSBtYXBwaW5nIiwiU3RyZWFtIHByb2Nlc3NvciIs
-        IldhcnBpbmciLCJTcGF0aWFsIHRyYW5zZm9ybXMiLCJCb3R0bGVuZWNrIiwi
-        Mi1wYXNzIGFsZ29yaXRobSIsIlNjYW5saW5lIGFsZ29yaXRobSIsIkZvbGRv
-        dmVyIl0sIk1lcmdlZElkIjogWyJGRVRDSE1FUkdFRC1MT0dJQ0FMLWE2ODQt
-        OWEzNmRkMjViNjNjZjJhNWYwYjNhOTRjNTdhZGMxYjNjM2EzM2VkMGMzMzJh
-        ZjYyMmE1YzliYTZkM2JmODRmZDMiXSwiQXV0aG9yX3htbCI6IFt7InNlcXVl
-        bmNlIjogIjEiLCJnaXZlbm5hbWUiOiAiRWQiLCJzdXJuYW1lIjogIkNhdG11
-        bGwiLCJmdWxsbmFtZSI6ICJDYXRtdWxsLCBFZCJ9LHsic2VxdWVuY2UiOiAi
-        MiIsImdpdmVubmFtZSI6ICJBbHZ5Iiwic3VybmFtZSI6ICJTbWl0aCIsImZ1
-        bGxuYW1lIjogIlNtaXRoLCBBbHZ5In1dLCJQdWJsaWNhdGlvbkRlY2FkZSI6
-        IFsiMTk4MCJdLCJDb250ZW50VHlwZSI6IFsiQ29uZmVyZW5jZSBQcm9jZWVk
-        aW5nIl0sIlRpdGxlIjogWyIzLUQgdHJhbnNmb3JtYXRpb25zIG9mIGltYWdl
-        cyBpbiBzY2FubGluZSBvcmRlciJdLCJFeHRlcm5hbERvY3VtZW50SUQiOiBb
-        IjgwNzUwNSJdLCJTU0lEIjogWyJzc2owMDAxMTIwNjM3Il0sIlN0YXJ0UGFn
-        ZSI6IFsiMjc5Il0sIkVuZFBhZ2UiOiBbIjI4NSJdLCJ0aHVtYm5haWxfbSI6
-        IFsiaHR0cDovL2NvdmVycy1jZG4uc3VtbW9uLnNlcmlhbHNzb2x1dGlvbnMu
-        Y29tL2luZGV4LmFzcHg/aXNibj05NzgwODk3OTEwMjE3L21jLmdpZiZjbGll
-        bnQ9c3VtbW9uJmZyZWVpbWFnZT10cnVlIl0sInRodW1ibmFpbF9sIjogWyJo
-        dHRwOi8vY292ZXJzLWNkbi5zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20v
-        aW5kZXguYXNweD9pc2JuPTk3ODA4OTc5MTAyMTcvbGMuZ2lmJmNsaWVudD1z
-        dW1tb24mZnJlZWltYWdlPXRydWUiXSwidGh1bWJuYWlsX3MiOiBbImh0dHA6
-        Ly9jb3ZlcnMtY2RuLnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbS9pbmRl
-        eC5hc3B4P2lzYm49OTc4MDg5NzkxMDIxNy9zYy5naWYmY2xpZW50PXN1bW1v
-        biZmcmVlaW1hZ2U9dHJ1ZSJdLCJMaW5rTW9kZWwiOiBbIkRpcmVjdExpbmsi
-        XSwiQm9va01hcmsiOiBbImVQbkhDWE13VFowN0RzSXdESVl6QWowQld5NFEy
-        c1o1emp6RUFicFhqa09rRGdXa2NuLVJKaFZpdDJ6Wmt1VmZIcjZmYlJ4THBW
-        dFhEdXhweGQydWxORkQ1N3oxeFVwNjlfdUM5RExmU0x0bkxZZ0xfX3hwdFR4
-        el9rcDhtdk5hTFh4NjhpV1hXcFVYTDB6S2hnMjM2M0MtaTgweVFLQnhTbmdF
-        RTZQVXdRQWxpVHAxQWRBcjBoWWo5UUVJRU9BUk93S1FtSXpNSWVRRG1nZ2hP
-        WlVpTk94WTB5TE40N3Z5SHNiYUFId0J4Qlk3aGciXX0seyJoYXNGdWxsVGV4
-        dCI6IHRydWUsImlzRnVsbFRleHRIaXQiOiBmYWxzZSwiaW5Ib2xkaW5ncyI6
-        IHRydWUsIm9wZW5VcmwiOiAiY3R4X3Zlcj1aMzkuODgtMjAwNCZjdHhfZW5j
-        PWluZm8lM0FvZmklMkZlbmMlM0FVVEYtOCZyZnJfaWQ9aW5mbzpzaWQvc3Vt
-        bW9uLnNlcmlhbHNzb2x1dGlvbnMuY29tJnJmdF92YWxfZm10PWluZm86b2Zp
-        L2ZtdDprZXY6bXR4OmpvdXJuYWwmcmZ0LmdlbnJlPWFydGljbGUmcmZ0LmF0
-        aXRsZT1BdCtzb21lK3BvaW50JTJDK2FsbCtvdXIrbW92aWVzK3N1Y2suJnJm
-        dC5qdGl0bGU9RmFzdCtDb21wYW55JnJmdC5kYXRlPTIwMTQtMDQtMDEmcmZ0
-        LnB1Yj1NYW5zdWV0bytWZW50dXJlcytMTEMrb24rYmVoYWxmK29mK0Zhc3Qr
-        Q29tcGFueSZyZnQuaXNzbj0xMDg1LTkyNDEmcmZ0LmVpc3NuPTE5NDMtMjYy
-        MyZyZnQuaXNzdWU9MTg0JnJmdC5zcGFnZT02NCZyZnQuZXh0ZXJuYWxEQklE
-        PUJTSEVFJnJmdC5leHRlcm5hbERvY0lEPTM2MzU2MDU3NyIsImxpbmsiOiAi
-        aHR0cDovL2NvbHVtYmlhLnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbS8y
-        LjAuMC9saW5rLzAvZUx2SENYTXczVjFkVDRNd0ZHMk1EOFluUDZQekk2blpJ
-        N0lBTFJRZTUtS3ltRDNwNGlzcFVNemlOc3lBXzc5N0tURFE3QV80Mm9ZYmVs
-        cnVQZVgybmhJeV9PVVA4QTlWb1VhVmJ6YUJUMWlCNmZWVkYxczFubjNiZjVq
-        b2NXSGsyVm9aUDlsU2F3aGdzaGtlTk5ZWnhMemN5TXY0ZTlUbG9GT1pGejBf
-        VUdfNjdlNVprZXJnRDRTeFVnRTVfYXdpRTlpYXp5ZVlYY0RhX2xXS1BQT1BM
-        ZTNmc05ZQXRsemFsTkp0QVdlbTQtbXkzMmE2ZmQ3eGFscG52QzlXX2ZJeHF6
-        ZWpmYmxxaG9KM1FBS3h3Ql9ZSnA2eW03Nl90WWtkaHpHbnFYbkE5emdVQ2F0
-        b3RqZ25aNDNPTmgxcmdDX0lrZHBja3BPbUx1Q0tETWNGUlp4cGhmTXpCWlFw
-        b0V3MXlyUkMtWm9zcHEtTHljeXNiNWd3djBUZ21pNzNMR2w1VnVLZ2hKQVV0
-        cXNrOEdXYi1hbE1nb2dMWUNfQ2w5RGxPNm1NdUdOSHZoQ1JaTEN0Wm9LbjdK
-        WlFvV0xsZ2xPekVzRzVVQkRjdVVwWW9IekI0d2lNRDhnTkRqREVaVlJzWlJ5
-        MkFFRlBNLVl3V2ExQ1FJWUp2S2pESHBDbnRnZS1ka3poeUkzS3lqeTAwV1dp
-        YXE1N2Q5RHVQVG5kTDVrSGNseHNTX1VJckF1alhiU1VPd1hFSEk0IiwiRGF0
-        YWJhc2VUaXRsZSI6IFsiR2xvYmFsIE5ld3MgJiBBQkkvSW5mb3JtIFByb2Zl
-        c3Npb25hbCIsIlNJUlMgRWRpdG9yaWFsIiwiUHJvUXVlc3QgUmVzZWFyY2gg
-        TGlicmFyeSIsIlRyYWRlIFBSTyIsIlByb1F1ZXN0IFBoYXJtYSBDb2xsZWN0
-        aW9uIiwiUHJvUXVlc3QgRW50cmVwcmVuZXVyc2hpcCIsIkFCSS9JTkZPUk0g
-        UmVzZWFyY2giLCJBQkkvSU5GT1JNIEdsb2JhbCIsIlByb1F1ZXN0IENlbnRy
-        YWwgKEFsdW1uaSkiLCJQcm9RdWVzdCBDZW50cmFsIiwiUmVzZWFyY2ggTGli
-        cmFyeSAoQWx1bW5pIEVkaXRpb24pIiwiQUJJL0lORk9STSBSZXNlYXJjaCAo
-        QWx1bW5pIEVkaXRpb24pIiwiUHJvUXVlc3QgRW50cmVwcmVuZXVyc2hpcCAo
-        QWx1bW5pIEVkaXRpb24pIiwiUHJvUXVlc3QgQ2VudHJhbCBCYXNpYyIsIlBy
-        b1F1ZXN0IEJ1c2luZXNzIENvbGxlY3Rpb24iLCJBQkkvSU5GT1JNIEdsb2Jh
-        bCAoQWx1bW5pIEVkaXRpb24pIiwiQUJJL0lORk9STSBQcm9mZXNzaW9uYWwg
-        U3RhbmRhcmQiLCJQcm9RdWVzdCBCdXNpbmVzcyBDb2xsZWN0aW9uIChBbHVt
-        bmkgRWRpdGlvbikiLCJQbGF0aW51bTogQnVzaW5lc3MiLCJBQkkvSU5GT1JN
-        IENvbXBsZXRlIC0gUHJvZmVzc2lvbmFsIEVkaXRpb24iLCJBQkkvSU5GT1JN
-        IFByb2Zlc3Npb25hbCBBZHZhbmNlZCIsIlJlc2VsbGVyIC0gRG9jc3RvYyIs
-        IlByb1F1ZXN0IERpc2NvdmVyeSIsIkFCSS9JTkZPUk0gQ29tcGxldGUgKEFs
-        dW1uaSBFZGl0aW9uKSIsIlByb1F1ZXN0IENlbnRyYWwgKFByb2Zlc3Npb25h
-        bCBFZGl0aW9uKSIsIlByb1F1ZXN0IFBsYXRpbnVtIiwiQUJJL0lORk9STSBD
-        b21wbGV0ZSJdLCJMYW5ndWFnZSI6IFsiRW5nbGlzaCJdLCJBdXRob3IiOiBb
-        IkVkIENhdG11bGwiXSwiUHVibGljYXRpb25QbGFjZSI6IFsiQm9zdG9uIl0s
-        IlNjb3JlIjogWyIwLjAxIl0sIlJlbGF0ZWRQZXJzb25zX3htbCI6IFt7ImZ1
-        bGxuYW1lIjogIkNhdG11bGwsIEVkIn1dLCJJc1BlZXJSZXZpZXdlZCI6IFsi
-        ZmFsc2UiXSwiREJJRCI6IFsiQlNIRUUiXSwiUHVibGljYXRpb25EYXRlX3ht
-        bCI6IFt7InRleHQiOiAiMjAxNDA0MDEiLCJtb250aCI6ICIwNCIsInllYXIi
-        OiAiMjAxNCIsImRheSI6ICIwMSJ9XSwiUHVibGljYXRpb25EYXRlIjogWyIy
-        MDE0MDQwMSJdLCJQdWJsaWNhdGlvbkNlbnR1cnkiOiBbIjIwMDAiXSwiUmVs
-        YXRlZFBlcnNvbnMiOiBbIkNhdG11bGwsIEVkIl0sIlB1Ymxpc2hlciI6IFsi
-        TWFuc3VldG8gVmVudHVyZXMgTExDIG9uIGJlaGFsZiBvZiBGYXN0IENvbXBh
-        bnkiLCJNYW5zdWV0byBWZW50dXJlcyBMTEMiXSwiU291cmNlVHlwZSI6IFsi
-        QWdncmVnYXRpb24gRGF0YWJhc2UiXSwiUHVibGlzaGVyX3htbCI6IFt7Im5h
-        bWUiOiAiTWFuc3VldG8gVmVudHVyZXMgTExDIG9uIGJlaGFsZiBvZiBGYXN0
-        IENvbXBhbnkifSx7Im5hbWUiOiAiTWFuc3VldG8gVmVudHVyZXMgTExDIn1d
-        LCJHZW9ncmFwaGljTG9jYXRpb25zIjogWyJVbml0ZWQgU3RhdGVzIl0sIlBR
-        UHViSUQiOiBbIjM0MjYxIl0sIlVSSSI6IFsiaHR0cDovL3NlYXJjaC5wcm9x
-        dWVzdC5jb20vZG9jdmlldy8xNTMxOTEwMDI1Il0sIklzU2Nob2xhcmx5Ijog
-        WyJmYWxzZSJdLCJJRCI6IFsiRkVUQ0gtTE9HSUNBTC1nNzk1LTU0NjBhMDYw
-        ZDIwNjA0YTcxNWVhOTkxMTM4ZmFkOWI0NzI2Njc4YTA0YTgyZmFiNDIxYjg3
-        N2JhMzgyNTM3NGYzIl0sIkdlb2dyYXBoaWNMb2NhdGlvbnNfeG1sIjogW3si
-        bmFtZSI6ICJVbml0ZWQgU3RhdGVzIn1dLCJQdWJsaWNhdGlvblRpdGxlIjog
-        WyJGYXN0IENvbXBhbnkiXSwiSXNzdWUiOiBbIjE4NCJdLCJEaXNjaXBsaW5l
-        IjogWyJCdXNpbmVzcyJdLCJQdWJsaWNhdGlvblllYXIiOiBbIjIwMTQiXSwi
-        R2VucmUiOiBbIkdlbmVyYWwgSW5mb3JtYXRpb24iXSwiUHVibGljYXRpb25Q
-        bGFjZV94bWwiOiBbeyJuYW1lIjogIkJvc3RvbiJ9XSwiQXVkaWVuY2UiOiBb
-        IkdlbmVyYWwiXSwiUFFJRCI6IFsiMTUzMTkxMDAyNSJdLCJFSVNTTiI6IFsi
-        MTk0My0yNjIzIl0sIlN1YmplY3RUZXJtcyI6IFsiT2ZmaWNpYWxzIGFuZCBl
-        bXBsb3llZXMiLCJJbnRlcnZpZXdzIiwiTW90aW9uIHBpY3R1cmUgaW5kdXN0
-        cnkiLCJQcmVzaWRlbnRzIChPcmdhbml6YXRpb25zKSJdLCJNZXJnZWRJZCI6
-        IFsiRkVUQ0hNRVJHRUQtTE9HSUNBTC1nNzk1LTU0NjBhMDYwZDIwNjA0YTcx
-        NWVhOTkxMTM4ZmFkOWI0NzI2Njc4YTA0YTgyZmFiNDIxYjg3N2JhMzgyNTM3
-        NGYzIl0sIkF1dGhvcl94bWwiOiBbeyJzZXF1ZW5jZSI6ICIxIiwiZnVsbG5h
-        bWUiOiAiRWQgQ2F0bXVsbCJ9XSwiUHVibGljYXRpb25EZWNhZGUiOiBbIjIw
-        MTAiXSwiQ29udGVudFR5cGUiOiBbIk1hZ2F6aW5lIEFydGljbGUiXSwiVGl0
-        bGUiOiBbIkF0IHNvbWUgcG9pbnQsIGFsbCBvdXIgbW92aWVzIHN1Y2suIl0s
-        IkV4dGVybmFsRG9jdW1lbnRJRCI6IFsiMzMyMzcwNTMyMSIsIjM2MzU2MDU3
-        NyJdLCJJU1NOIjogWyIxMDg1LTkyNDEiXSwiU1NJRCI6IFsic3NqMDAxMjMz
-        MiJdLCJTdGFydFBhZ2UiOiBbIjY0Il0sInRodW1ibmFpbF9tIjogWyJodHRw
-        Oi8vY292ZXJzLWNkbi5zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20vaW5k
-        ZXguYXNweD9pc2JuPS9tYy5naWYmaXNzbj0xMDg1LTkyNDEmY2xpZW50PXN1
-        bW1vbiJdLCJ0aHVtYm5haWxfbCI6IFsiaHR0cDovL2NvdmVycy1jZG4uc3Vt
-        bW9uLnNlcmlhbHNzb2x1dGlvbnMuY29tL2luZGV4LmFzcHg/aXNibj0vbGMu
-        Z2lmJmlzc249MTA4NS05MjQxJmNsaWVudD1zdW1tb24iXSwidGh1bWJuYWls
-        X3MiOiBbImh0dHA6Ly9jb3ZlcnMtY2RuLnN1bW1vbi5zZXJpYWxzc29sdXRp
-        b25zLmNvbS9pbmRleC5hc3B4P2lzYm49L3NjLmdpZiZpc3NuPTEwODUtOTI0
-        MSZjbGllbnQ9c3VtbW9uIl0sIkxpbmtNb2RlbCI6IFsiT3BlblVSTCJdLCJC
-        b29rTWFyayI6IFsiZVBuSENYTXdYVjFOQzhJd0RCMmVsUDBIS1hqeDRHUnR1
-        bVU3aWlqLUFPOGwyem9SOXlGdV9uOFQ1aEE4TnhRYVF2cGVXdDVieUN1dWhj
-        aWtnbGVtei0yTThmVnlIdTBiQUxNS05vZFJEWDNyMWJPX2QtTk9VZE1vVHA1
-        cW1VZjdRUTN2OHJFUGctdjVkRDFlb3E4dFFIVERQSWtTbThZVXAzRmxSUGVG
-        VUNlZUdPUm95R3FxOHNJaVh6bVlFUzlscHFiQ0dsMWtpQVVCY3lGQVcwTVli
-        S2R0NTk3ck9LTXlKcWZPTTl0MldzcFNsRW5GTUhuOUYxbzFqZU1EQUlxamd2
-        NEZTRHQzVWhQamkwb0hvdnJHU0FqaEF4cGtTWk0iXX0seyJoYXNGdWxsVGV4
-        dCI6IHRydWUsImlzRnVsbFRleHRIaXQiOiBmYWxzZSwiaW5Ib2xkaW5ncyI6
-        IHRydWUsIm9wZW5VcmwiOiAiY3R4X3Zlcj1aMzkuODgtMjAwNCZjdHhfZW5j
-        PWluZm8lM0FvZmklMkZlbmMlM0FVVEYtOCZyZnJfaWQ9aW5mbzpzaWQvc3Vt
-        bW9uLnNlcmlhbHNzb2x1dGlvbnMuY29tJnJmdF92YWxfZm10PWluZm86b2Zp
-        L2ZtdDprZXY6bXR4OmpvdXJuYWwmcmZ0LmdlbnJlPWFydGljbGUmcmZ0LmF0
-        aXRsZT1CdWlsZGluZythK3NlbnNlK29mK3B1cnBvc2UrYXQrUGl4YXImcmZ0
-        Lmp0aXRsZT1UaGUrTWNLaW5zZXkrUXVhcnRlcmx5JnJmdC5hdT1DYXRtdWxs
-        JTJDK0VkJnJmdC5kYXRlPTIwMTQtMDMtMjImcmZ0LnB1Yj1NY0tpbnNleSsl
-        MjYrQ29tcGFueSUyQytJbmMmcmZ0Lmlzc249MDA0Ny01Mzk0JnJmdC5pc3N1
-        ZT0yJnJmdC5zcGFnZT0xMjcmcmZ0LmV4dGVybmFsREJJRD1CS01NVCZyZnQu
-        ZXh0ZXJuYWxEb2NJRD00MTYzNTQ0NzUiLCJsaW5rIjogImh0dHA6Ly9jb2x1
-        bWJpYS5zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20vMi4wLjAvbGluay8w
-        L2VMdkhDWE13M1YxTFM4UXdFQTdxUVVRUVhfaUdnTjZXU0pzMGJmZG9seFZo
-        S1hpbzV5VnRwdEtERDlZdXJQX2VTWnJ0dzhVXzREWHBnM3d6ek15WFRHWUl1
-        ZjFsRDh3T1ZRMzMxall6akNlOE1RdUhWUmZiNXE3ZDJIOFFkT0lhVzRfVTZB
-        czVxZDBELUVUNFRDSTZzdl9uYXFVV19SRFVLRVphekNwODlIc3pwM09pNnJk
-        bGN4UXgxZjB0QVQ4d09WRzhJNUR0TjR6eU9MT3lrVmxweWtReUtab093MDdJ
-        dkdmSl9PYktfckJDZFRKTDAydzRiRjJoaWVxa0tSMjRqZXczdG53NGVla09j
-        MExac0JEM1ItZjk5anYzbFIyU0F4ZUEwNGNHeUNPeUJlX0haSGVkXzM5Qzd0
-        WjRVa1V0bnZTanBBNVBxbXBxOFR3bDJlTTBtend4MTBxQ3ZRYVJ4eUFYRVBK
-        QWM2Vjk4RDBvaGRSNXFFUEpJMDlIT1FlX2xEbHdYeUdmRkNvcWhJeHhXcHNy
-        RWxBb0FlS2MwQWdLa0dpOThBVmNLYUFYRDBDTE1jUlJVT1RLQ3lfSW1WblYz
-        T2hMdlZERnZBWGw4cy1aSzdMWHllLWE3TlNMSmR4Z2dHUWNVMTZwSDRxdEEt
-        USIsIkxhbmd1YWdlIjogWyJFbmdsaXNoIl0sIkF1dGhvciI6IFsiQ2F0bXVs
-        bCwgRWQiXSwiU2NvcmUiOiBbIjAuMDEiXSwiSXNQZWVyUmV2aWV3ZWQiOiBb
-        ImZhbHNlIl0sIkRCSUQiOiBbIkJLTU1UIl0sIlB1YmxpY2F0aW9uRGF0ZV94
-        bWwiOiBbeyJ0ZXh0IjogIjIwMTQwMzIyIiwibW9udGgiOiAiMDMiLCJ5ZWFy
-        IjogIjIwMTQiLCJkYXkiOiAiMjIifV0sIlB1YmxpY2F0aW9uRGF0ZSI6IFsi
-        MjAxNDAzMjIiXSwiUHVibGljYXRpb25DZW50dXJ5IjogWyIyMDAwIl0sIlB1
-        Ymxpc2hlciI6IFsiTWNLaW5zZXkgJiBDb21wYW55LCBJbmMiXSwiU291cmNl
-        VHlwZSI6IFsiQWdncmVnYXRpb24gRGF0YWJhc2UiXSwiUHVibGlzaGVyX3ht
-        bCI6IFt7Im5hbWUiOiAiTWNLaW5zZXkgJiBDb21wYW55LCBJbmMifV0sIkdl
-        b2dyYXBoaWNMb2NhdGlvbnMiOiBbIlVuaXRlZCBTdGF0ZXMiXSwiSXNTY2hv
-        bGFybHkiOiBbImZhbHNlIl0sIklEIjogWyJGRVRDSC1MT0dJQ0FMLWc0NzAt
-        ZWIzZTYyNGQyYWQxZTEwZWYzNWRiNmQ2NTI3MGQ3YjJlMWY1YmUyMWEyNjEz
-        YTdjMzU4YjZkZDExMDhlY2EzZTMiXSwiR2VvZ3JhcGhpY0xvY2F0aW9uc194
-        bWwiOiBbeyJuYW1lIjogIlVuaXRlZCBTdGF0ZXMifV0sIlB1YmxpY2F0aW9u
-        VGl0bGUiOiBbIlRoZSBNY0tpbnNleSBRdWFydGVybHkiXSwiSXNzdWUiOiBb
-        IjIiXSwiRGlzY2lwbGluZSI6IFsiQnVzaW5lc3MiXSwiUHVibGljYXRpb25Z
-        ZWFyIjogWyIyMDE0Il0sIkF1ZGllbmNlIjogWyJUcmFkZSJdLCJTdWJqZWN0
-        VGVybXMiOiBbIlBlcnNvbmFsIG5hcnJhdGl2ZXMiLCJCdXNpbmVzcyBvd25l
-        cnMiLCJNYW5hZ2VtZW50IiwiTW90aW9uIHBpY3R1cmUgaW5kdXN0cnkiXSwi
-        TWVyZ2VkSWQiOiBbIkZFVENITUVSR0VELUxPR0lDQUwtZzQ3MC1lYjNlNjI0
-        ZDJhZDFlMTBlZjM1ZGI2ZDY1MjcwZDdiMmUxZjViZTIxYTI2MTNhN2MzNThi
-        NmRkMTEwOGVjYTNlMyJdLCJBdXRob3JfeG1sIjogW3sic2VxdWVuY2UiOiAi
-        MSIsImZ1bGxuYW1lIjogIkNhdG11bGwsIEVkIn1dLCJQdWJsaWNhdGlvbkRl
-        Y2FkZSI6IFsiMjAxMCJdLCJDb250ZW50VHlwZSI6IFsiSm91cm5hbCBBcnRp
-        Y2xlIl0sIlRpdGxlIjogWyJCdWlsZGluZyBhIHNlbnNlIG9mIHB1cnBvc2Ug
-        YXQgUGl4YXIiXSwiRXh0ZXJuYWxEb2N1bWVudElEIjogWyI0MTYzNTQ0NzUi
-        XSwiSVNTTiI6IFsiMDA0Ny01Mzk0Il0sIlNTSUQiOiBbInNzajAwMTM2NTki
-        XSwiU3RhcnRQYWdlIjogWyIxMjciXSwidGh1bWJuYWlsX20iOiBbImh0dHA6
-        Ly9jb3ZlcnMtY2RuLnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbS9pbmRl
-        eC5hc3B4P2lzYm49L21jLmdpZiZpc3NuPTAwNDctNTM5NCZjbGllbnQ9c3Vt
-        bW9uIl0sInRodW1ibmFpbF9sIjogWyJodHRwOi8vY292ZXJzLWNkbi5zdW1t
-        b24uc2VyaWFsc3NvbHV0aW9ucy5jb20vaW5kZXguYXNweD9pc2JuPS9sYy5n
-        aWYmaXNzbj0wMDQ3LTUzOTQmY2xpZW50PXN1bW1vbiJdLCJ0aHVtYm5haWxf
-        cyI6IFsiaHR0cDovL2NvdmVycy1jZG4uc3VtbW9uLnNlcmlhbHNzb2x1dGlv
-        bnMuY29tL2luZGV4LmFzcHg/aXNibj0vc2MuZ2lmJmlzc249MDA0Ny01Mzk0
-        JmNsaWVudD1zdW1tb24iXSwiTGlua01vZGVsIjogWyJPcGVuVVJMIl0sIkJv
-        b2tNYXJrIjogWyJlUG5IQ1hNd1l3SFA2SnJybWhwYm1uREFoX1BOVEMwNUdW
-        U2NvRGM5S3lRcUZBTTdhYWtLLVdrS0JVRHo4b0hNeEJLRmdNeUtSR0JORU9M
-        bUd1THNvUXU5QzBBMzNjVGNRQmZZNVVzMU16SkpNVXBNTVV3MU5FaE5NelpO
-        U1RKTE1UTTFNamRJTVU4eVNqVk1NMDFLTlRKTUJIWUlqQlBOazQxTkxZRFNL
-        YUExN3FuSmljYXB4dHdNY2hCalFlVnVQQ2p5U29vU2stTkJ6UkZUMEpsM3hn
-        RHlQek1UIl19LHsiaGFzRnVsbFRleHQiOiBmYWxzZSwiaXNGdWxsVGV4dEhp
-        dCI6IGZhbHNlLCJpbkhvbGRpbmdzIjogdHJ1ZSwib3BlblVybCI6ICJjdHhf
-        dmVyPVozOS44OC0yMDA0JmN0eF9lbmM9aW5mbyUzQW9maSUyRmVuYyUzQVVU
-        Ri04JnJmcl9pZD1pbmZvOnNpZC9zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5j
-        b20mcmZ0X3ZhbF9mbXQ9aW5mbzpvZmkvZm10OmtldjptdHg6am91cm5hbCZy
-        ZnQuZ2VucmU9YXJ0aWNsZSZyZnQuYXRpdGxlPVJlbmRlck1hbit0dXJucysy
-        MCZyZnQuanRpdGxlPTNEK1dvcmxkJnJmdC5hdT1DYXRtdWxsJTJDK0VkJnJm
-        dC5kYXRlPTIwMDgtMTEtMDEmcmZ0Lmlzc249MTQ3MC00MzgyJnJmdC5pc3N1
-        ZT0xMDkmcmZ0LnNwYWdlPTIwJnJmdC5lcGFnZT0yMCIsImxpbmsiOiAiaHR0
-        cDovL2NvbHVtYmlhLnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbS8yLjAu
-        MC9saW5rLzAvZUx2SENYTXdZMkJRUmlzUFFDTlVKYWw2NExKWkY5aWVNTERV
-        TlVNOWRaRUJkbVVyTkhaaGhTSzRwRTdKVHdZTmt1c2Jtb0FPWGpFME56UzBM
-        eWpVQlYwYkJacGVoZDJoa1FpOVd3RTBSUU5zVVRBenNCb0NPLWlnaE8tRzNK
-        NHdNYmMwUlc3X0FMTzdPWEw5YUdrR3V1TUVxZjREVnE5bXlQMFBTMk5UUkgw
-        SkxHV0F0U3Y0UGhPZzZ3eDBUY0RuLWFHVjZlQnkyazJBb1FyNUJJYUtTcjNr
-        MGh5Z180QWxVRkptSXRMcWJhUmpJS2tXR29JTUFyRGpxaFVjSVFsU2lJRXBO
-        VS1FUVNnSWZHR2RiMktlQXJDR3l5dFdNRElRWlZCeGN3MXg5dENGMlJ1Zm1B
-        UWFkVWt1S1k1SDJHb2t3YUJnbnBxY2Fnck16d1lwNWlZbTVxbkFlczBrTmNY
-        WU10WEMzQ1E1S2RIQVRKSkJGcThaVWdUa3BSbTR3S3N6d0R2X1pCaFkwNEFa
-        TWxVVzJINkFoaG9BLVJTeUlnIiwiRGF0YWJhc2VUaXRsZSI6IFsiRGVzaWdu
-        IGFuZCBBcHBsaWVkIEFydHMgSW5kZXggKERBQUkpIiwiUHJvUXVlc3QgQXJ0
-        LCBEZXNpZ24gYW5kIEFyY2hpdGVjdHVyZSBDb2xsZWN0aW9uIl0sIkxhbmd1
-        YWdlIjogWyJFbmdsaXNoIl0sIkF1dGhvciI6IFsiQ2F0bXVsbCwgRWQiXSwi
-        U2NvcmUiOiBbIjAuMDEiXSwiSXNQZWVyUmV2aWV3ZWQiOiBbImZhbHNlIl0s
-        IkRCSUQiOiBbIkYyOSIsIks1MCJdLCJQdWJsaWNhdGlvbkRhdGUiOiBbIjIw
-        MDgxMTAxIl0sIlB1YmxpY2F0aW9uRGF0ZV94bWwiOiBbeyJ0ZXh0IjogIjIw
-        MDgxMTAxIiwibW9udGgiOiAiMTEiLCJ5ZWFyIjogIjIwMDgiLCJkYXkiOiAi
-        MDEifV0sIlB1YmxpY2F0aW9uQ2VudHVyeSI6IFsiMjAwMCJdLCJBYnN0cmFj
-        dExpc3QiOiBbIkludGVydmlldyB3aXRoIEVkIENhdG11bGwsIHByZXNpZGVu
-        dCBvZiBQaXhhciBBbmltYXRpb24sIHdobyBkaXNjdXNzZXMgdGhlIHN0dWRp
-        bydzIFJlbmRlck1hbiBzb2Z0d2FyZSwgZmlyc3QgcmVsZWFzZWQgMjAgeWVh
-        cnMgYWdvLiJdLCJTb3VyY2VUeXBlIjogWyJJbmRleCBEYXRhYmFzZSJdLCJT
-        bmlwcGV0IjogWyJJbnRlcnZpZXcgd2l0aCBFZCBDYXRtdWxsLCBwcmVzaWRl
-        bnQgb2YgUGl4YXIgQW5pbWF0aW9uLCB3aG8gZGlzY3Vzc2VzIHRoZSBzdHVk
-        aW8ncyBSZW5kZXJNYW4gc29mdHdhcmUsIGZpcnN0IHJlbGVhc2VkIDIwIHll
-        YXJzIGFnby4iXSwiUFFQdWJJRCI6IFsiMjM0NjMiXSwiSXNTY2hvbGFybHki
-        OiBbImZhbHNlIl0sIklEIjogWyJGRVRDSC1wcm9xdWVzdF9hYnN0cmFjdHNf
-        MTQ3Mzg1MTcxMTIiXSwiUHVibGljYXRpb25UaXRsZSI6IFsiM0QgV29ybGQi
-        XSwiSXNzdWUiOiBbIjEwOSJdLCJQdWJsaWNhdGlvblllYXIiOiBbIjIwMDgi
-        XSwiUFFJRCI6IFsiMTQ3Mzg1MTcxMSJdLCJEYXRhYmFzZVRpdGxlTGlzdCI6
-        IFsiRGVzaWduIGFuZCBBcHBsaWVkIEFydHMgSW5kZXggKERBQUkpIl0sIkFi
-        c3RyYWN0IjogWyJJbnRlcnZpZXcgd2l0aCBFZCBDYXRtdWxsLCBwcmVzaWRl
-        bnQgb2YgUGl4YXIgQW5pbWF0aW9uLCB3aG8gZGlzY3Vzc2VzIHRoZSBzdHVk
-        aW8ncyBSZW5kZXJNYW4gc29mdHdhcmUsIGZpcnN0IHJlbGVhc2VkIDIwIHll
-        YXJzIGFnby4iXSwiU3ViamVjdFRlcm1zIjogWyJDYXRtdWxsLCBFZCIsIlNv
-        ZnR3YXJlIiwiVVNBIiwiUGl4YXIiLCJBbmltYXRpb24iXSwiTWVyZ2VkSWQi
-        OiBbIkZFVENITUVSR0VELXByb3F1ZXN0X2Fic3RyYWN0c18xNDczODUxNzEx
-        MiJdLCJBdXRob3JfeG1sIjogW3sic2VxdWVuY2UiOiAiMSIsImZ1bGxuYW1l
-        IjogIkNhdG11bGwsIEVkIn1dLCJQdWJsaWNhdGlvbkRlY2FkZSI6IFsiMjAw
-        MCJdLCJDb250ZW50VHlwZSI6IFsiTWFnYXppbmUgQXJ0aWNsZSJdLCJUaXRs
-        ZSI6IFsiUmVuZGVyTWFuIHR1cm5zIDIwIl0sIklTU04iOiBbIjE0NzAtNDM4
-        MiJdLCJTU0lEIjogWyJzc2liMDAyMTMxNzYzIiwic3NpYjAwMDQ3OTU3MSIs
-        InNzaWIwMTQ2MjIzMzAiLCJzc2liMDAwNTM4NzIzIiwic3NpYjAwMzA5MzUx
-        MCIsInNzaWIwMDA5NjExMzYiXSwiU3RhcnRQYWdlIjogWyIyMCJdLCJFbmRQ
-        YWdlIjogWyIyMCJdLCJ0aHVtYm5haWxfbSI6IFsiaHR0cDovL2NvdmVycy1j
-        ZG4uc3VtbW9uLnNlcmlhbHNzb2x1dGlvbnMuY29tL2luZGV4LmFzcHg/aXNi
-        bj0vbWMuZ2lmJmlzc249MTQ3MC00MzgyJmNsaWVudD1zdW1tb24iXSwidGh1
-        bWJuYWlsX2wiOiBbImh0dHA6Ly9jb3ZlcnMtY2RuLnN1bW1vbi5zZXJpYWxz
-        c29sdXRpb25zLmNvbS9pbmRleC5hc3B4P2lzYm49L2xjLmdpZiZpc3NuPTE0
-        NzAtNDM4MiZjbGllbnQ9c3VtbW9uIl0sInRodW1ibmFpbF9zIjogWyJodHRw
-        Oi8vY292ZXJzLWNkbi5zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20vaW5k
-        ZXguYXNweD9pc2JuPS9zYy5naWYmaXNzbj0xNDcwLTQzODImY2xpZW50PXN1
-        bW1vbiJdLCJEYXRhYmFzZV94bWwiOiBbeyJzZXF1ZW5jZSI6ICIxIiwibmFt
-        ZSI6ICJEQUFJOiBEZXNpZ24gYW5kIEFwcGxpZWQgQXJ0cyBJbmRleCIsImRi
-        aWQiOiAiRjI5IiwidXJsIjogImh0dHA6Ly9lenByb3h5LmN1bC5jb2x1bWJp
-        YS5lZHUvbG9naW4/dXJsPWh0dHA6Ly9zZWFyY2gucHJvcXVlc3QuY29tL2Rh
-        YWkvYWR2YW5jZWQ/YWNjb3VudGlkPTEwMjI2Iiwic291cmNlVHlwZXMiOiBb
-        IkluZGV4IERhdGFiYXNlIl19XSwiTGlua01vZGVsIjogWyJEaXJlY3RMaW5r
-        Il0sIkJvb2tNYXJrIjogWyJlUG5IQ1hNd1l3SHQ1akUzMEFWTk1IRWc2aEZn
-        TldWbXpNa2dGQVMtSU0wM01VOEJXS0xtRlN1QTd0bFdjWE1OY2ZiUWhSV0Y4
-        WWxKb0Y1LWNra3hzRjBLT216RjBOd1FkR0VrVWNvQVVJNGo1ZyJdfV0sInJv
-        bGx1cHMiOiB7ImltYWdlIjoge30sInJlZmVyZW5jZSI6IHt9LCJuZXdzcGFw
-        ZXIiOiB7fX19
+      encoding: UTF-8
+      string: '{"version": "2.0.0","sessionId": "SUMMON-SESSION-Sprite.local-18637-6","elapsedQueryTime":
+        8,"queryTime": 43,"totalRequestTime": 56,"pageCount": 1,"recordCount": 7,"query":
+        {"queryString": "s.ho=t&s.fq=AuthorCombined%3A%28catmull%2C+ed%29&s.ps=10&s.ff=ContentType%2Cand%2C1%2C10&s.ff=Language%2Cand%2C1%2C5&s.ff=SubjectTerms%2Cand%2C1%2C10&s.q=catmull%2C+ed&s.pn=1&s.fvf=ContentType%2CNewspaper+Article%2Ct","pageNumber":
+        1,"pageSize": 10,"isHoldingsOnlyEnabled": true,"textQueries": [{"textQuery":
+        "catmull, ed","removeCommand": "removeTextQuery(catmull\\, ed)"}],"searchTerms":
+        [],"textFilters": [{"textFilter": "AuthorCombined:(catmull, ed)","removeCommand":
+        "removeTextFilter(AuthorCombined\\:\\(catmull\\, ed\\))"}],"rangeFilters":
+        [],"facetValueFilters": [{"fieldName": "ContentType","value": "Newspaper Article","isNegated":
+        true,"removeCommand": "removeFacetValueFilter(ContentType,Newspaper Article)","negateCommand":
+        "negateFacetValueFilter(ContentType,Newspaper Article)"}],"inclusiveFacetValueFilters":
+        [],"facetValueGroupFilters": [],"facetFields": [{"fieldName": "Language","combineMode":
+        "and","pageNumber": 1,"pageSize": 5,"removeCommand": "removeFacetField(Language)"},{"fieldName":
+        "ContentType","combineMode": "and","pageNumber": 1,"pageSize": 10,"removeCommand":
+        "removeFacetField(ContentType)"},{"fieldName": "SubjectTerms","combineMode":
+        "and","pageNumber": 1,"pageSize": 10,"removeCommand": "removeFacetField(SubjectTerms)"}],"rangeFacetFields":
+        [],"sort": []},"facetFields": [{"fieldName": "Language_s","displayName": "Language","combineMode":
+        "and","pageNumber": 1,"pageSize": 5,"hasLimitingValue": true,"hasAppliedValue":
+        false,"removeCommand": "removeFacetField(Language)","listValuesCommand": "listFacetValues(Language,and)","removeValueFiltersCommand":
+        "removeFacetValueFilter(Language)","counts": [{"value": "English","count":
+        6,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(Language,English)","applyNegatedCommand": "addFacetValueFilters(Language,English:t)"},{"value":
+        "Spanish","count": 1,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(Language,Spanish)","applyNegatedCommand":
+        "addFacetValueFilters(Language,Spanish:t)"}]},{"fieldName": "SubjectTerms_mfacet","displayName":
+        "SubjectTerms","combineMode": "and","pageNumber": 1,"pageSize": 10,"hasLimitingValue":
+        true,"hasAppliedValue": false,"removeCommand": "removeFacetField(SubjectTerms)","listValuesCommand":
+        "listFacetValues(SubjectTerms,and)","removeValueFiltersCommand": "removeFacetValueFilter(SubjectTerms)","counts":
+        [{"value": "motion picture industry","count": 2,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,motion
+        picture industry)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,motion
+        picture industry:t)"},{"value": "2-pass algorithm","count": 1,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,2-pass
+        algorithm)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,2-pass
+        algorithm:t)"},{"value": "aliasing","count": 1,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,aliasing)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,aliasing:t)"},{"value": "animation","count":
+        1,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,animation)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,animation:t)"},{"value":
+        "book reviews","count": 1,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,book reviews)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,book reviews:t)"},{"value": "books","count":
+        1,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,books)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,books:t)"},{"value":
+        "bottleneck","count": 1,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,bottleneck)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,bottleneck:t)"},{"value": "business owners","count":
+        1,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,business owners)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,business owners:t)"},{"value": "catmull,
+        ed","count": 1,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,catmull\\, ed)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,catmull\\, ed:t)"},{"value": "computer
+        graphics","count": 1,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,computer graphics)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,computer graphics:t)"}]},{"fieldName":
+        "ContentType_mfacet","displayName": "ContentType","combineMode": "and","pageNumber":
+        1,"pageSize": 10,"hasLimitingValue": true,"hasAppliedValue": true,"removeCommand":
+        "removeFacetField(ContentType)","listValuesCommand": "listFacetValues(ContentType,and)","removeValueFiltersCommand":
+        "removeFacetValueFilter(ContentType)","counts": [{"value": "Journal Article","count":
+        3,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(ContentType,Journal Article)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Journal Article:t)"},{"value": "Magazine
+        Article","count": 3,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(ContentType,Magazine Article)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Magazine Article:t)"},{"value": "Book Review","count":
+        1,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(ContentType,Book Review)","applyNegatedCommand": "addFacetValueFilters(ContentType,Book
+        Review:t)"},{"value": "Conference Proceeding","count": 1,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(ContentType,Conference
+        Proceeding)","applyNegatedCommand": "addFacetValueFilters(ContentType,Conference
+        Proceeding:t)"},{"value": "Newspaper Article","count": 0,"isApplied": true,"isNegated":
+        true,"isFurtherLimiting": false,"removeCommand": "removeFacetValueFilter(ContentType,Newspaper
+        Article)","negateCommand": "negateFacetValueFilter(ContentType,Newspaper Article)"}]}],"rangeFacetFields":
+        [],"didYouMeanSuggestions": [],"recommendationLists": {},"documents": [{"hasFullText":
+        true,"isFullTextHit": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=From+Toy+Story+to+CT+Scans%3A+Lessons+From+Pixar+for+Radiology&rft.jtitle=Journal+of+the+American+College+of+Radiology&rft.au=Catmull%2C+Ed&rft.au=Fishman%2C+Elliot+K&rft.au=Horton%2C+Karen+M&rft.au=Raman%2C+Siva+P&rft.date=2015-02-01&rft.issn=1546-1440&rft.eissn=1558-349X&rft_id=info:doi/10.1016%2Fj.jacr.2014.08.010&rft.externalDBID=n%2Fa&rft.externalDocID=10_1016_j_jacr_2014_08_010","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwlV1JS8QwFA7iQby4o-MCAY9aaZp0GfGio8WDgjjjOWSFGdRK7YD-e9_rojOioOeWpHnrl76NkMNv9gD_UFXupLbNAcsSrEub77pIjn8J4NeJWBNlsHEnE3WvzbqcSogIlTC_vPi6XKX1jElABEmAAcu2QObnJeacUGuK51Bl7V3yVdJVgndZJWb6CJIAZkOP1UzK9Uzvxj8dYY2stHiTnjcCsk4W3PMGWbptI-qb5Cwviyc6Kt7pEMPttCroYESHQPDXU3oDZhCkktbv3I3fVEkB49J7ZZsily3ykF-NBtdBO1EhMHATyoJMRDY2faZSleqUWVBubZjxiVOJ55HKYiusYz70GqCKd5ECdMis81aHxoCT2yE0jb1GlAlYgQsV20yHrs-FhuNhzI33yFFHW_nSdMyQXSrZRCIlJFJC4vRLFvbINpJfojpVpTJS8AggTMRjeNJw5HMVHLjH4364-68d9sgyflqTab1PFqty6g6A_y0XPwBrKL-u","DatabaseTitle":
+        ["PubMed","CrossRef"],"Volume": ["12"],"Language": ["English"],"Author": ["<h>Catmull</h>,
+        <h>Ed</h>","Raman, Siva P","Horton, Karen M","Fishman, Elliot K"],"PublicationPlace":
+        ["United States"],"Score": ["68.16438"],"DOI": ["10.1016/j.jacr.2014.08.010"],"Copyright":
+        ["COPYRIGHT 2015 Elsevier B.V."],"DBID": ["NPM","BKMMT"],"IsPeerReviewed":
+        ["true"],"PublicationDate_xml": [{"text": "2015-Sep","month": "09","year":
+        "2015"}],"PublicationDate": ["2015-Sep","2015-02-00","20150901"],"PublicationCentury":
+        ["2000"],"Copyright_xml": [{"notice": "COPYRIGHT 2015 Elsevier B.V."}],"Publisher":
+        ["Elsevier B.V"],"SourceType": ["Aggregation Database","Index Database"],"Publisher_xml":
+        [{"name": "Elsevier B.V"}],"PublicationTitleAlternate": ["J Am Coll Radiol"],"URI":
+        ["http://www.ncbi.nlm.nih.gov/pubmed/25703590"],"IsScholarly": ["true"],"ID":
+        ["FETCH-LOGICAL-c1498-842d5c91a7a7b71d011bc1cf6ea6f32a85d4de1f0fb064fe2a7741defdb0cc123"],"PMID":
+        ["25703590"],"PublicationTitle": ["Journal of the American College of Radiology
+        : JACR"],"Issue": ["9"],"Discipline": ["Medicine"],"PublicationYear": ["2015"],"Genre":
+        ["Journal Article"],"PublicationPlace_xml": [{"name": "United States"}],"Audience":
+        ["Professional"],"EISSN": ["1558-349X"],"SubjectTerms": ["Radiology","Radiology,
+        Medical","CT imaging"],"MergedId": ["FETCHMERGED-LOGICAL-c1498-842d5c91a7a7b71d011bc1cf6ea6f32a85d4de1f0fb064fe2a7741defdb0cc123"],"Author_xml":
+        [{"sequence": "1","givenname": "Ed","surname": "Catmull","fullname": "Catmull,
+        Ed"},{"sequence": "2","givenname": "Elliot K","surname": "Fishman","fullname":
+        "Fishman, Elliot K"},{"sequence": "3","givenname": "Karen M","surname": "Horton","fullname":
+        "Horton, Karen M"},{"sequence": "4","givenname": "Siva P","surname": "Raman","fullname":
+        "Raman, Siva P"}],"PublicationDecade": ["2010"],"ContentType": ["Journal Article"],"Title":
+        ["From Toy Story to CT Scans: Lessons From Pixar for Radiology"],"ISSN": ["1546-1440"],"ExternalDocumentID":
+        ["432091235","10_1016_j_jacr_2014_08_010","25703590"],"SSID": ["ssj0027788"],"StartPage":
+        ["978"],"thumbnail_l": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=1546-1440&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=1546-1440&client=summon"],"thumbnail_m":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=1546-1440&client=summon"],"Database_xml":
+        [{"sequence": "1","name": "PubMed","dbid": "NPM","url": "http://ezproxy.cul.columbia.edu/login?url=http://www.ncbi.nlm.nih.gov/pubmed?otool=nycuhslib","sourceTypes":
+        ["Index Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMwRV1La8MwDA5jsJb9h6E_YLBs5zV2Kys99FDWDHYzih1DCyUj62H795Xqprv5IMsgCz3Q4yvyYEruoTpSkJ2b6K5rMlE_yPLSslHWtV-PcnaVkuri4p4icUb2VCwEWs2WrV4Wb-tpPEE3_sFeis5wHmHVwZ6f_XmFLRsD_hu40uwOvzQBR3rwQTGPejwXn-v3brVRN1wBFTgfaFTjTCxDi1RT3dcYWcX7gCFVA1XJGmrK6OKASaeeHXYaDHGMhHFIsdchoCAbvWS-YsS9aMJ5ouCdNex9jRWgZZMJZlfnv_PuCD83VR29yMaLbLzgQKL-55o94f3KLAx7ARvaX-U"]},{"hasFullText":
+        true,"isFullTextHit": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Building+a+sense+of+purpose+at+Pixar&rft.jtitle=The+McKinsey+Quarterly&rft.au=Catmull%2C+Ed&rft.date=2014-03-22&rft.pub=McKinsey+%26+Company%2C+Inc&rft.issn=0047-5394&rft.issue=2&rft.spage=127&rft.externalDBID=BKMMT&rft.externalDocID=416354475","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMw3V1LS8QwEA7qQUQQX_iGgN6WSpM0bT3aZUVYCh7qeZk0qfTgg9oF_fdm2mwfLv4Br0lp6TdhZr6ZyQwh17_0AUaoanPb6GaPxSHeSxt3XeyGu_Zr_0HQiRtsPYHJp-WkTQzgw8KHheiW_T-VX1ANXVA8GGk-L-2j3-s1nVOoX5dtKmKmhyEBFmBNFO8JZPcOPDxOraxVVmKbSE-KdsKwEzIfaDLWXtkfd6hO5mmajZcbU4hencTWgZuW_cYNH06e-2ROKFsW4r7orN9ub5ayfbLnHHB63wJ5QDbM2yHZXtX_H5GbFZ4UaIMnfS-ow5NCTRs8j0n2MMumj54bJeG9BJHvGSVMyAPNQTPDfFMIqVWoQ8kjX0eKG1ZIZTgDyycFRLmQsd3WeEXC5CCMOCU0koVC79r6SCIAqWPlmzsRKCsAzDWKM3KCf7XA81JXkC86UM7_3LkgO738LslWXS3NlXWQ0DCpEn4ANKIC-Q","Language":
+        ["English"],"Author": ["<h>Catmull</h>, <h>Ed</h>"],"Score": ["61.877773"],"DBID":
+        ["BKMMT"],"IsPeerReviewed": ["false"],"PublicationDate": ["20140322"],"PublicationDate_xml":
+        [{"text": "20140322","month": "03","year": "2014","day": "22"}],"PublicationCentury":
+        ["2000"],"Publisher": ["McKinsey & Company, Inc"],"SourceType": ["Aggregation
+        Database"],"Publisher_xml": [{"name": "McKinsey & Company, Inc"}],"GeographicLocations":
+        ["United States"],"IsScholarly": ["false"],"ID": ["FETCH-LOGICAL-g470-eb3e624d2ad1e10ef35db6d65270d7b2e1f5be21a2613a7c358b6dd1108eca3e3"],"PublicationTitle":
+        ["The McKinsey Quarterly"],"GeographicLocations_xml": [{"name": "United States"}],"Issue":
+        ["2"],"Discipline": ["Business"],"PublicationYear": ["2014"],"Audience": ["Trade"],"SubjectTerms":
+        ["Personal narratives","Business owners","Management","Motion picture industry"],"MergedId":
+        ["FETCHMERGED-LOGICAL-g470-eb3e624d2ad1e10ef35db6d65270d7b2e1f5be21a2613a7c358b6dd1108eca3e3"],"Author_xml":
+        [{"sequence": "1","fullname": "Catmull, Ed"}],"PublicationDecade": ["2010"],"ContentType":
+        ["Journal Article"],"Title": ["Building a sense of purpose at Pixar"],"ISSN":
+        ["0047-5394"],"ExternalDocumentID": ["416354475"],"SSID": ["ssj0013659"],"StartPage":
+        ["127"],"thumbnail_l": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0047-5394&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0047-5394&client=summon"],"thumbnail_m":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0047-5394&client=summon"],"LinkModel":
+        ["OpenURL"],"BookMark": ["ePnHCXMwYwHP6JrrmhpbmnDAh_PNTC05GVScoDc9KyQqFAM7aakK-WkKBUDz8oHMxBKFgMyKRGBNEOLmGuLsoQu9C0A33cTcQBfY5Us1MzJJMUpMMUw1NEhNMzZNSTJLMTM1MjdIMU8ySjVMM01KNTJMBHYIjBPNk41NLYDSKaA17qnJicapxtwMchBjQeVuPCjySooSk-NBzRFT0Jl3xgDyPzMT"]},{"hasFullText":
+        true,"isFullTextHit": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=At+some+point%2C+all+our+movies+suck.&rft.jtitle=Fast+Company&rft.date=2014-04-01&rft.pub=Mansueto+Ventures+LLC+on+behalf+of+Fast+Company&rft.issn=1085-9241&rft.eissn=1943-2623&rft.issue=184&rft.spage=64&rft.externalDBID=BSHEE&rft.externalDocID=363560577","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMw3V1NT8MwDI0QB8SJT8H4kIJ2LJ3WpmnT45iYJrQTTFyrJEvQBFvR2v5_7GbdVtD-ANdIiZrn1H6u41dCur_8AX6hKk2v9s1-IGLsS2urLm7UeLZj_8HQg9Ir8oXxvvO50xDAYjNM9BY5xLzCKyr92dvloCNZlC0_sE76g927IvXFHwhjlQFy-l5HJlhrMhlidQF7-78s8sw_azn_hr0GkHK5pYwbSyPmh7Fr-23MLaIdr-Z0xtti1U9v43Uy2parZih4ByQQG_xRyAeVN19fNoWdkLGw6XnA59gXCeuoNT0lJ43ONh04gM_IgVmek6OmL-CCdAclRZxpjfMjBZQpoEwdyrRG-ZJMR8_T4dhf_2HC_wAi6ysdzIyxKeSYsUmltYkxOlShlaKfxBq4baAks8ykXAdCp6IvdMwZkEZuOTLZa0ITbhWSbqBOLJJ8JlTfpCxSYDUsQbIOucINZniMypXU2QagDnlo9pzBO42FGrk0eVVkATpG1MblN3tn35Lj7cG4I4flqjL3wK0wpqm5_AErChVd","Language":
+        ["English"],"Author": ["<h>Ed</h> <h>Catmull</h>"],"PublicationPlace": ["Boston"],"Score":
+        ["37.93466"],"RelatedPersons_xml": [{"fullname": "Catmull, Ed"}],"DBID": ["BSHEE"],"IsPeerReviewed":
+        ["false"],"PublicationDate": ["20140401"],"PublicationDate_xml": [{"text":
+        "20140401","month": "04","year": "2014","day": "01"}],"PublicationCentury":
+        ["2000"],"RelatedPersons": ["Catmull, Ed"],"Publisher": ["Mansueto Ventures
+        LLC on behalf of Fast Company","Mansueto Ventures LLC"],"SourceType": ["Aggregation
+        Database"],"Publisher_xml": [{"name": "Mansueto Ventures LLC on behalf of
+        Fast Company"},{"name": "Mansueto Ventures LLC"}],"Snippet": ["... to hyperbole
+        when asked about the qualities of others-once described <h>Ed</h> <h>Catmull</h>
+        as \"very wise,\" \"very self-aware,\" \"really thoughtful,\" \"really, really
+        smart..."],"GeographicLocations": ["United States"],"URI": ["http://search.proquest.com/docview/1531910025"],"PQPubID":
+        ["34261"],"IsScholarly": ["false"],"ID": ["FETCH-LOGICAL-g565-bc1deef94016e9aff7eec2b2fa8076c1931ba3f3e95c18c9808c6535055f54163"],"PublicationTitle":
+        ["Fast Company"],"GeographicLocations_xml": [{"name": "United States"}],"Issue":
+        ["184"],"Discipline": ["Business"],"PublicationYear": ["2014"],"Genre": ["General
+        Information"],"PublicationPlace_xml": [{"name": "Boston"}],"Audience": ["General"],"PQID":
+        ["1531910025"],"EISSN": ["1943-2623"],"SubjectTerms": ["Officials and employees","Interviews","Motion
+        picture industry","Presidents (Organizations)"],"MergedId": ["FETCHMERGED-LOGICAL-g565-bc1deef94016e9aff7eec2b2fa8076c1931ba3f3e95c18c9808c6535055f54163"],"Author_xml":
+        [{"sequence": "1","fullname": "Ed Catmull"}],"PublicationDecade": ["2010"],"ContentType":
+        ["Magazine Article"],"Title": ["At some point, all our movies suck."],"ISSN":
+        ["1085-9241"],"ExternalDocumentID": ["3323705321","363560577"],"SSID": ["ssj0012332"],"StartPage":
+        ["64"],"thumbnail_l": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=1085-9241&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=1085-9241&client=summon"],"thumbnail_m":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=1085-9241&client=summon"],"LinkModel":
+        ["OpenURL"],"BookMark": ["ePnHCXMwNZ3NCsIwDMeHJ2XvIAUvHqzYxm7tUUTxAXYvXU1F3Ie4-f4mzN1LD0lIf_-kJAvu4h5B6oJ5ZfrcToyvlnNpXwPoVbY5jWLoWxTv_tmNOxGaRpDxREs6GgcxfONrn2fV9VKdb_K_FkA-iD5kHdUdMTkSBgW6kFKJGHWtU7CkySMBiaoDJEBnorLR2YONhQF66U0yjB95tp2unXOvJ4tymTx0SGrbKw5LnkzKC5PX01HO1p5dPn5C9MBD3Qh0SvgB-9xBiQ"]},{"hasFullText":
+        false,"isFullTextHit": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=RenderMan+turns+20&rft.jtitle=3D+World&rft.au=Catmull%2C+Ed&rft.date=2008-11-01&rft.issn=1470-4382&rft.issue=109&rft.spage=20&rft.epage=20","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZ19DCDLQvDfXURQbYla3Q2IUViuCSOiU_GTRIrm9oAjp4xdDc0NC-oFAXdG0UaHoVdodGIvRuBdAUDbBFwczACqwXzUBrvNyQ2xMm5pamyO0fYHY3R64fLc1Ad5wg1X_A6tUMuf9haWyKqC-BpQywdgXfZwJ0nYGuCfg8P7QyHVwOuwkwVCGfwFBRqZdcmgP0H7AESspMRFq9jXQMJNVCQ5BBAHZctYIjJEEKMTCl5okwCAWBL6zzTcxTANZwecUKRgaiDCpuriHOHrowe-MTk0CjLsklxfEIW40kGBTMTdOSQO1NYKvB2CTRNMUiySDV0tgkCdimAM2-GUsyyOI1Q4qAvDQDF3h1BnjnnwwDaxowQ6bKAtsP0FADAKZzsUE","DatabaseTitle":
+        ["Design and Applied Arts Index (DAAI)","ProQuest Art, Design and Architecture
+        Collection"],"Language": ["English"],"Author": ["<h>Catmull</h>, <h>Ed</h>"],"Score":
+        ["37.007122"],"DBID": ["F29","K50"],"IsPeerReviewed": ["false"],"PublicationDate_xml":
+        [{"text": "20081101","month": "11","year": "2008","day": "01"}],"PublicationDate":
+        ["20081101"],"PublicationCentury": ["2000"],"AbstractList": ["Interview with
+        Ed Catmull, president of Pixar Animation, who discusses the studio''s RenderMan
+        software, first released 20 years ago."],"SourceType": ["Index Database"],"Snippet":
+        ["Interview with <h>Ed</h> <h>Catmull</h>, president of Pixar Animation, who
+        discusses the studio''s RenderMan software, first released 20 years ago."],"PQPubID":
+        ["23463"],"IsScholarly": ["false"],"ID": ["FETCH-proquest_abstracts_14738517112"],"PublicationTitle":
+        ["3D World"],"Issue": ["109"],"PublicationYear": ["2008"],"PQID": ["1473851711"],"Abstract":
+        ["Interview with Ed Catmull, president of Pixar Animation, who discusses the
+        studio''s RenderMan software, first released 20 years ago."],"DatabaseTitleList":
+        ["Design and Applied Arts Index (DAAI)"],"SubjectTerms": ["Catmull, Ed","Software","USA","Pixar","Animation"],"MergedId":
+        ["FETCHMERGED-proquest_abstracts_14738517112"],"Author_xml": [{"sequence":
+        "1","fullname": "Catmull, Ed"}],"PublicationDecade": ["2000"],"ContentType":
+        ["Magazine Article"],"Title": ["RenderMan turns 20"],"ISSN": ["1470-4382"],"SSID":
+        ["ssib002131763","ssib000479571","ssib014622330","ssib000538723","ssib003093510","ssib000961136"],"StartPage":
+        ["20"],"EndPage": ["20"],"thumbnail_l": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=1470-4382&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=1470-4382&client=summon"],"thumbnail_m":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=1470-4382&client=summon"],"Database_xml":
+        [{"sequence": "1","name": "DAAI: Design and Applied Arts Index","dbid": "F29","url":
+        "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/daai/advanced?accountid=10226","sourceTypes":
+        ["Index Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMwYwHt5jE30AVNMHEg6hFgNWVmzMkgFAS-IM03MU8BWKLmFSuA7tlWcXMNcfbQhRWF8YlJoF5-ckkxsF0KOmzF0NwQdGEkUcoAUI4j5g"]},{"hasFullText":
+        true,"isFullTextHit": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Se+nao+estivermos+pelo+menos+um+pouco+assustados%2C+nao+estamos+fazendo+nosso+trabalho&rft.jtitle=Exame&rft.au=Catmull%2C+Ed&rft.date=2009-10-07&rft.pub=U-Near+S.A&rft.issn=0102-2881&rft.volume=43&rft.issue=19&rft.externalDBID=INF&rft.externalDocID=213031297","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwpV1NT8MwDLVgSIjTxof4Rpa4spXSjZbDhCa0Cg5wYfcpTTOB1M0VaS779cRhKR3STpzjVFbkuE_28wvA9Z98wBWqSvVcbu6GyT3Ppa2rLtaKQo7rzpnxd6RBlKUOcpLB6I7Trf09xcFL-jp-bDygYYaSr3L2Kcw27IRJErpRvre0rrZYHMxPrDg-o5tHZh3rlue_rZJm2gZf3fIsEmmKnv92g2Ld0Gr8v8sdaHsxaRz9hMs-bCl9ALue_H4Ik3eFC0HI0hs2xueksVQFoZMURzPHkowktICb565y0jfeXLDtTCzVIie0xpqwYrpA8UFHcJWOJ0_PXfZ_yhFtV-S09jo6AYwHs4xBpYUGUV8M8iS7VQ9RP7PAgVts0Skcb9h9tnHlHPZcU4b78PEFtKovoy4tLlidyDenx6z2","Volume":
+        ["43"],"Language": ["Spanish"],"Author": ["<h>Catmull</h>, <h>Ed</h>"],"Score":
+        ["36.94983"],"Copyright": ["COPYRIGHT 2009 U-Near S.A."],"DBID": ["INF"],"IsPeerReviewed":
+        ["false"],"PublicationDate_xml": [{"text": "20091007","month": "10","year":
+        "2009","day": "07"}],"PublicationDate": ["20091007"],"PublicationCentury":
+        ["2000"],"Copyright_xml": [{"notice": "COPYRIGHT 2009 U-Near S.A."}],"Publisher":
+        ["U-Near S.A"],"SourceType": ["Aggregation Database"],"Publisher_xml": [{"name":
+        "U-Near S.A"}],"Snippet": ["...\"Se nao estivermos pelo menos um pouco assustados,
+        nao estamos fazendo nosso trabalho. Para ser original, e preciso aceitar a
+        incerteza\" <h>Ed</h> <h>Catmull</h>, presidente..."],"IsScholarly": ["false"],"ID":
+        ["FETCH-gale_infotrac_2130312973"],"PublicationTitle": ["Exame"],"Issue":
+        ["19"],"Discipline": ["Business"],"PublicationYear": ["2009"],"Audience":
+        ["Trade"],"MergedId": ["FETCHMERGED-gale_infotrac_2130312973"],"Author_xml":
+        [{"sequence": "1","fullname": "Catmull, Ed"}],"PublicationDecade": ["2000"],"ContentType":
+        ["Magazine Article"],"Title": ["Se nao estivermos pelo menos um pouco assustados,
+        nao estamos fazendo nosso trabalho"],"ExternalDocumentID": ["213031297"],"ISSN":
+        ["0102-2881"],"SSID": ["ssj0000491170"],"thumbnail_l": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0102-2881&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0102-2881&client=summon"],"thumbnail_m":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0102-2881&client=summon"],"Database_xml":
+        [{"sequence": "1","name": "Informe Academico","dbid": "INF","url": "http://ezproxy.cul.columbia.edu/login?url=http://infotrac.galegroup.com/itweb/columbiau?db=IFME","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMwYwEtGQRv-bUw5IANdgCboaAbTjgZQoJTFfIS8xVAJ0gAoyo3v1ihIDUnXwF8MrZCaa5CQX5pcr4CsN0I2j6Ukl-sA1OeCFKblliVmpeSrwBUXJyvUAKa9c7JyOdmkHNzDXH20AWVqfGgiAHKJMcbgYpnQ9DdTAQVAABptjgY"]},{"hasFullText":
+        true,"isFullTextHit": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Creativity%2C+Inc&rft.jtitle=Success&rft.au=Catmull%2C+Ed&rft.au=Wallace%2C+Amy&rft.date=2014-04-01&rft.pub=R+%26+L+Publishing%2C+Ltd.+%28dba+SUCCESS+Media%29&rft.issn=0745-2489&rft.spage=79&rft.externalDBID=XI7&rft.externalDocID=377577244","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwpV1LS8NAEB60gtSDjypaHxDQo0na7G42OYhoaWnvPXgr-0oRpZY8Dv57d2JeehK85JKwyQbmy5eZb-YDuP2FB5ihyo1XYrM7jkLsS_s5dRHmTeZi8-YhMrYtDWK7zXz9ofwnwjmzXJBS_3kxfez4ZxQPCiNZvopiF_bGURygtu9lwVutByktH-3nkrkBRUv3Xq19q4BzdgR1yaJWkKji3asX7sirO3Ma__24x3CALQ3Odx3gBHbMZgD7teR9AP0GBT9P4XCS1pYS945FjzNYzqbLydytXBPcNYupa3Q4TpKAS05FqEkYxSpSMhoFQgSE0DAhoUgMwbFeWilqwxkn6tmfjFizxFi0uQCHs0QikbR0gFDBdCRHJiZUWrKAZTUyhDvc9aryybSHDDMJ2VoUWbZqNj6E8_IyDJU8Fao9c_m3Ba6gb29ZCWWuoZenhbmx_KF6fV8ygrRJ","Language":
+        ["English"],"Author": ["<h>Catmull</h>, <h>Ed</h>","Wallace, Amy"],"Score":
+        ["35.60183"],"Copyright": ["COPYRIGHT 2014 R & L Publishing, Ltd. (dba SUCCESS
+        Media)"],"DBID": ["XI7","IAO"],"IsPeerReviewed": ["false"],"PublicationDate_xml":
+        [{"text": "20140401","month": "04","year": "2014","day": "01"}],"PublicationDate":
+        ["20140401"],"PublicationCentury": ["2000"],"Copyright_xml": [{"notice": "COPYRIGHT
+        2014 R & L Publishing, Ltd. (dba SUCCESS Media)"}],"Publisher": ["R & L Publishing,
+        Ltd. (dba SUCCESS Media)"],"SourceType": ["Aggregation Database"],"Publisher_xml":
+        [{"name": "R & L Publishing, Ltd. (dba SUCCESS Media)"}],"Snippet": ["...
+        high-end computer company to animated Kim powerhouse, <h>Ed</h> <h>Catmull</h>,
+        Ph.D., president of the company and of Walt Disney Animation Studios, invites
+        readers..."],"IsScholarly": ["false"],"ID": ["FETCH-LOGICAL-g594-ed61ff27b74a6d3689c8cb802aa23346f36afe31012dcc422503288269d5fe763"],"PublicationTitle":
+        ["Success"],"Discipline": ["Business","Psychology"],"PublicationYear": ["2014"],"Audience":
+        ["Trade"],"SubjectTerms": ["Books","Book reviews"],"MergedId": ["FETCHMERGED-LOGICAL-g594-ed61ff27b74a6d3689c8cb802aa23346f36afe31012dcc422503288269d5fe763"],"Author_xml":
+        [{"sequence": "1","fullname": "Catmull, Ed"},{"sequence": "2","fullname":
+        "Wallace, Amy"}],"PublicationDecade": ["2010"],"ContentType": ["Book Review"],"Title":
+        ["Creativity, Inc"],"ISSN": ["0745-2489"],"ExternalDocumentID": ["377577244"],"SSID":
+        ["ssj0005386"],"StartPage": ["79"],"thumbnail_l": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0745-2489&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0745-2489&client=summon"],"thumbnail_m":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0745-2489&client=summon"],"Database_xml":
+        [{"sequence": "1","name": "Business Insights: Essentials","dbid": "XI7","url":
+        "http://ezproxy.cul.columbia.edu/login?url=http://infotrac.galegroup.com/itweb/columbiau?db=BIE","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMwYwEfe2mqa2RiYckBX2thbGHGycDvXAS7E0FHAZj8uRlC3FxDnD10ocf-66abWpropqaYGaalGZknmZskmqUYm1lYJlskJ1kYGCUmGhkbm5ilGZslpqUag86lSklONgGmR9CRcMBWsmWKaVoq-DxPOYixoCI2HhRPJUWJyfHG5uamwKakCWh_jjaSAuhlj0CiGNQdLk5PLC0uRlINAAGvOaM"]},{"hasFullText":
+        true,"isFullTextHit": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:book&rft.genre=proceeding&rft.title=Proceedings+of+the+7th+annual+conference+on+computer+graphics+and+interactive+techniques&rft.atitle=3-D+transformations+of+images+in+scanline+order&rft.au=Catmull%2C+Ed&rft.au=Smith%2C+Alvy&rft.series=SIGGRAPH+%2780&rft.date=1980-07-01&rft.pub=ACM&rft.isbn=9780897910217&rft.spage=279&rft.epage=285&rft_id=info:doi/10.1145%2F800250.807505&rft.externalDocID=807505","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwhZ3fS8MwEMeD-KQ-6HSgTiHgc7u2l6TJ83T4Iviw95EfDRTWKa77_72k7VZF8LGlhOYS7r7kLp8j5OmXPwgnVG2VRt-c5FKEe2k_qYuH4w63wVGamMC3PaI6tb4JydIAzY2sUsA9GSTQ4u14lpIXGGnLiHdUpYrdqnu4zvBcDnxNxucyBv60GzFEJdtcHF3p8pIMzVuHWhK73-D6o7MwtR4VWo-Ijf_--BWZHq_w0fdDcJqQk2p7Tc5H9MEbMofkmbYj4YobkH54WjfoY3a03tId2j3IUBoBnVOyWr6sFq9J3z8h0UKyRGkQzhXcCLC-0NxnBrRilpfa2dyABQ1QucwCFNqLAj-xymjhwHjJvINbQkvuTTAXCgNgmjtpskoBMygbQoIN7sgE573-7MgY626u93-9nJGzXMmsq3R9IKft1756RC3Qm_Ubmiacow","Language":
+        ["English"],"Author": ["<h>Catmull</h>, <h>Ed</h>","Smith, Alvy"],"Score":
+        ["32.630207"],"RelatedPersons_xml": [{"sequence": "1","givenname": "James","surname":
+        "Thomas","fullname": "Thomas, James"},{"sequence": "2","givenname": "Robert","surname":
+        "Ellis","fullname": "Ellis, Robert"},{"sequence": "3","givenname": "Harvey","surname":
+        "Kriloff","fullname": "Kriloff, Harvey"}],"DOI": ["10.1145/800250.807505"],"IsPeerReviewed":
+        ["false"],"PublicationDate": ["07-01-1980"],"PublicationDate_xml": [{"text":
+        "07-01-1980","month": "07","year": "1980","day": "01"}],"PublicationSeriesTitle":
+        ["SIGGRAPH ''80"],"PublicationCentury": ["1900"],"RelatedPersons": ["Thomas,
+        James","Kriloff, Harvey","Ellis, Robert"],"Publisher": ["ACM"],"AbstractList":
+        ["Currerntly texture mapping onto projections of 3-D surfaces is time consuming
+        and subject to considerable aliasing errors. Usually the procedure is to perform
+        some inverse mapping from the area of the pixel onto the surface texture.
+        It is difficult to do this correctly. There is an alternate approach where
+        the texture surface is transformed as a 2-D image until it conforms to a projection
+        of a polygon placed arbitrarily in 3-space. The great advantage of this approach
+        is that the 2-D transformation can be decomposed into two simple transforms,
+        one in horizontal and the other in vertical scanline order. horizontal scanline
+        order, Sophisticated light calculation is also time consuming and difficult
+        to calculate correctly on projected polygons. Instead of calculating the lighting
+        based on the position of the polygon, lights, and eye, the lights and eye
+        can be transformed to a corresponding position for a unit square which we
+        can consider to be a canonical polygon. After this canonical polygon is correctly
+        textured and shaded it can be easily conformed to the projection of the 3-D
+        surface."],"SourceType": ["Publisher"],"Publisher_xml": [{"name": "ACM"}],"Snippet":
+        ["...3-D TRANSFORMATIONS OF IMAGES IN SCANLINE ORDER <h>Ed</h> <h>Catmull</h>
+        and AIw Ray Smith Lucas film Ltd. P.O.Box 7 San Anselmo, CA 94960 ABSTRACT
+        -Currer/tly texture..."],"PublicationTitleAlternate": ["International Conference
+        on Computer Graphics and Interactive Techniques"],"URI": ["http://dl.acm.org/citation.cfm?id=807505"],"ISBN":
+        ["0897910214","9780897910217"],"IsScholarly": ["false"],"ID": ["FETCH-LOGICAL-a684-9a36dd25b63cf2a5f0b3a94c57adc1b3c3a33ed0c332af622a5c9ba6d3bf84fd3"],"PublicationTitle":
+        ["Proceedings of the 7th annual conference on computer graphics and interactive
+        techniques"],"Discipline": ["Engineering"],"PublicationYear": ["1980"],"Abstract":
+        ["Currerntly texture mapping onto projections of 3-D surfaces is time consuming
+        and subject to considerable aliasing errors. Usually the procedure is to perform
+        some inverse mapping from the area of the pixel onto the surface texture.
+        It is difficult to do this correctly. There is an alternate approach where
+        the texture surface is transformed as a 2-D image until it conforms to a projection
+        of a polygon placed arbitrarily in 3-space. The great advantage of this approach
+        is that the 2-D transformation can be decomposed into two simple transforms,
+        one in horizontal and the other in vertical scanline order. horizontal scanline
+        order, Sophisticated light calculation is also time consuming and difficult
+        to calculate correctly on projected polygons. Instead of calculating the lighting
+        based on the position of the polygon, lights, and eye, the lights and eye
+        can be transformed to a corresponding position for a unit square which we
+        can consider to be a canonical polygon. After this canonical polygon is correctly
+        textured and shaded it can be easily conformed to the projection of the 3-D
+        surface."],"DatabaseTitleList": [""],"SubjectTerms": ["Texture mapping","Stream
+        processor","Warping","Spatial transforms","Bottleneck","2-pass algorithm","Scanline
+        algorithm","Foldover"],"MergedId": ["FETCHMERGED-LOGICAL-a684-9a36dd25b63cf2a5f0b3a94c57adc1b3c3a33ed0c332af622a5c9ba6d3bf84fd3"],"Author_xml":
+        [{"sequence": "1","givenname": "Ed","surname": "Catmull","fullname": "Catmull,
+        Ed"},{"sequence": "2","givenname": "Alvy","surname": "Smith","fullname": "Smith,
+        Alvy"}],"PublicationDecade": ["1980"],"ContentType": ["Conference Proceeding"],"Title":
+        ["3-D transformations of images in scanline order"],"ExternalDocumentID":
+        ["807505"],"SSID": ["ssj0001120637"],"StartPage": ["279"],"EndPage": ["285"],"thumbnail_l":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=9780897910217/lc.gif&client=summon&freeimage=true"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=9780897910217/sc.gif&client=summon&freeimage=true"],"thumbnail_m":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=9780897910217/mc.gif&client=summon&freeimage=true"],"LinkModel":
+        ["DirectLink"],"BookMark": ["ePnHCXMwTZ07DsIwDIYzAj0BWy4Q2sZ5zjzEAbpXjkOkDgWkcn-RJhVit2zZkuVfHr6fbRxLpVtXDuxpxd2ulNFD57z1xUp69_uC9DLfSLtnLYgL__xptTxz_kp8mvNaLXx68iWXWpUXL0zKhg2363C-i80yQKBxSngEE6PUwQAliTp1AdAr0hYj9QEIEOAROwKQmIzMIeQDmgghOZUiNOxY0yLN47vyHsbaAHwBxBY7hg"]}],"rollups":
+        {"image": {},"reference": {},"newspaper": {}}}'
     http_version: 
-  recorded_at: Mon, 11 Jan 2016 21:49:04 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Wed, 24 Feb 2016 15:32:59 GMT
+recorded_with: VCR 3.0.1
