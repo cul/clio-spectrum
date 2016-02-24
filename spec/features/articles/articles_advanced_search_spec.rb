@@ -8,7 +8,6 @@ describe 'Articles Search', :vcr do
     fill_in 'pub_date_min_value',   with: 1890
     fill_in 'pub_date_max_value',   with: 1910
     click_button 'Limit'
-# save_and_open_screenshot
 # save_and_open_page # debug
     find('#documents')
     expect(page.all('#documents .result').count).to be >= 10
