@@ -4,7 +4,7 @@
 
 -# What to use for our document link label?
 -# Usually the title, but if we're browsing by call-number, use the call_number
-- link_label = document.fetch('title_display', nil) || document.fetch('title_vern_display', nil)
+- link_label = document.first('title_display') || document.first('title_vern_display')
 -# - link_label = call_number if local_assigns.has_key? :call_number
 
 - highlight_bib = session[:browse]['bib'] || 0
@@ -18,7 +18,7 @@
 
 
 
-/ _formats/clio/_standard_list_item.html.haml
+/ _formats/clio/_standard_browse_item.html.haml
 / container for a SINGLE doc
 - database_class = document.is_database? ? 'database_record' : ''
 - focus_class = (document.id == highlight_bib) ? 'browse_focus' : ''
