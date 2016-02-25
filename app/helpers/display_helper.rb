@@ -451,7 +451,7 @@ module DisplayHelper
   end
 
   def convert_values_to_text(value, options = {})
-    values = value.listify
+    values = value.listify.flatten
 
     values = values.map { |txt| txt.to_s.abbreviate(options[:abbreviate]) } if options[:abbreviate]
 
