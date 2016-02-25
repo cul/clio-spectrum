@@ -2,7 +2,10 @@
 #   Catalog, Databases, E-Journal Titles, etc.
 # (plus AcademicCommons - which uses Blacklight against a diff. Solr)
 # This was originally based on the Blacklight CatalogController.
-require 'blacklight/catalog'
+
+## ??? breaks in some environments, not others ???
+## .../gems/ruby-2.2.1/gems/activesupport-4.2.5.1/lib/active_support/concern.rb:126:in `included': Cannot define multiple 'included' blocks for a Concern (ActiveSupport::Concern::MultipleIncludedBlocks)
+## require 'blacklight/catalog'
 
 class CatalogController < ApplicationController
   layout 'quicksearch'
