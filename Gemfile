@@ -23,6 +23,8 @@ gem 'blacklight_range_limit'
 
 #  ###  BLACKLIGHT (end)  ###
 
+# MARC indexing in pure ruby
+gem "traject"
 
 # Only used for Google Maps location pages
 gem 'rest-client'
