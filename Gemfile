@@ -23,6 +23,7 @@ gem 'blacklight_range_limit'
 
 #  ###  BLACKLIGHT (end)  ###
 
+gem 'traject'
 
 # Only used for Google Maps location pages
 gem 'rest-client'
