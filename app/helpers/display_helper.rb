@@ -301,17 +301,15 @@ module DisplayHelper
           out << link_to(display_value, url_for(:controller => 'catalog', :action => 'index', 'f[author_facet][]' => search_value))
         end
 
-      # Obsoleted, replaced by generate_value_links_subject(), defined below
-      # when :subject
-      #   out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => search_value, :search_field => "subject", :commit => "search"))
-
-      # when :title
-      #   q = '"' + search_value + '"'
-      #   out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "title", :commit => "search"))
 
       when :series_title
         q = search_value
         out << link_to(display_value, url_for(controller: 'catalog', action: 'index', q: q, search_field: 'series_title', commit: 'search'))
+
+      when :serial
+        q = search_value
+        # out << link_to(display_value, url_for(controller: 'journals', action: 'index', q: q, search_field: 'title', commit: 'search'))
+        out << link_to(display_value, journals_index_path( {q: q, search_field: 'title'} ))
 
       else
         fail 'invalid category specified for generate_value_links'
