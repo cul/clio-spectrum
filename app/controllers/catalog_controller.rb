@@ -2,7 +2,6 @@
 #   Catalog, Databases, E-Journal Titles, etc.
 # (plus AcademicCommons - which uses Blacklight against a diff. Solr)
 # This was originally based on the Blacklight CatalogController.
-require 'blacklight/catalog'
 
 class CatalogController < ApplicationController
   layout 'quicksearch'
