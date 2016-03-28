@@ -19,9 +19,9 @@
         %b= link_to_source_document document, :label=> document_show_link_field(document), :counter => counter
 
 
-    .col-sm-3.no-bottom-space= document.fetch('author_display', nil) || document.fetch('author_vern_display', nil)
+    .col-sm-3.no-bottom-space= Array(document.fetch('author_display', nil) || document.fetch('author_vern_display', nil)).join(', ')
 
-    .col-sm-5.no-bottom-space= document.fetch('full_publisher_display', nil)
+    .col-sm-5.no-bottom-space= Array(document.fetch('full_publisher_display', nil)).join(', ')
 
   - cache("compact_list_item_#{document.cache_key}") do
     .row

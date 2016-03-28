@@ -54,6 +54,6 @@ Clio::Application.configure do
   # Yes!  Errors gone!
   # Supposed to be fixed in Rails 4.2, try removing this config line when 
   # we upgrade.
-  config.allow_concurrency = false
+  # config.allow_concurrency = false
 
 end
