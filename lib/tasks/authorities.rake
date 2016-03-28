@@ -1,9 +1,4 @@
 
-require File.join(Rails.root.to_s, 'config', 'initializers/aaa_load_app_config.rb')
-
-extract_scp_source = APP_CONFIG['extract_scp_source']
-
-extracts =  ["auth_full", "auth_incremental"]
 
 namespace :authorities do
 
@@ -11,7 +6,7 @@ namespace :authorities do
 
     desc "download the latest extract from EXTRACT_SCP_SOURCE"
     task :download  do
-      extract = extracts.find { |x| x == ENV["EXTRACT"] }
+      extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
       puts_and_log("Extract not specified", :error, :alarm => true) unless extract
 
       temp_dir_name = File.join(Rails.root, "tmp/extracts/#{extract}/current/")

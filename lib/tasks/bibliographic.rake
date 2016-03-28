@@ -1,9 +1,4 @@
 
-require File.join(Rails.root.to_s, 'config', 'initializers/aaa_load_app_config.rb')
-
-EXTRACT_SCP_SOURCE = APP_CONFIG['extract_scp_source']
-
-EXTRACTS =  ["full", "incremental", "cumulative", "subset", "law", "test"]
 
 
 namespace :bibliographic do
@@ -39,23 +34,30 @@ namespace :bibliographic do
     end
 
 
-    desc "ingest latest marc records"
+    desc "ingest latest authority records"
     task :ingest => :environment do
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
       extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.mrc")) if extract
       files_to_read = (ENV["INGEST_FILE"] || extract_files).listify
 
-      files_to_read.each do |file|
-        puts_and_log("Starting ingest of file: #{file}")
-        begin
-          ENV["MARC_FILE"] = file
-          Rake::Task["solr:marc:index:work"].reenable
-          Rake::Task["solr:marc:index:work"].invoke
-# Rake::Task["solr:marc:index:info"].invoke
-          puts_and_log ("Indexing succesful.")
-        rescue => e
-          puts_and_log("Indexing  task failed to " + e.message, :error, :alarm => true)
-          raise "Terminating due to failed ingest task."
+      # create new traject indexer
+      indexer = Traject::Indexer.new
+
+      # explicity set the settings
+      indexer.settings do
+         provide "solr.url", Blacklight.connection_config[:url]
+         provide 'debug_ascii_progress', true
+         provide "log.level", 'debug'
+         provide 'processing_thread_pool', '0'
+      end
+
+      # load Traject config file (indexing rules)
+      indexer.load_config_file(File.join(Rails.root, "config/traject/bibliographic.rb"))
+
+      # index each file 
+      files_to_read.each do |filename|
+        File.open(filename) do |file|
+          indexer.process(file)
         end
       end
     end
