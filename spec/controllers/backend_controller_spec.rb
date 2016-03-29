@@ -56,20 +56,19 @@ describe BackendController, :vcr do
     expect(tagless).to match /Call Number:\s+MICFICHE/m
   end
 
-  it "holdings() should silently ignore a bad CLIO ID" do
-
+  it "holdings() should return silently absorb non-numeric CLIO ID" do
     # non-numeric value
     get 'holdings', :id => 'non-numeric'
     expect(response).to be_success
     expect(response.body.strip).to be_empty
-
-    # really, really big integer
-    get 'holdings', :id => '999999999999999999999999999999999999'
-    expect(response).to be_success
-    expect(response.body.strip).to be_empty
-
   end
 
+  it "holdings() should fail on out-of-integer-range CLIO ID" do
+    # really, really big integer
+    get 'holdings', :id => '999999999999999999999999999999999999'
+    expect(response.status).to eq 400
+    expect(response.body.strip).to be_empty
+  end
 
   it "should refuse to route without an ID filled in" do
 
@@ -85,27 +84,27 @@ describe BackendController, :vcr do
 
   end
 
-  it "holdings() should silently absorb 404 from clio_backend_url" do
+  it "holdings() against an invalid back-end app path should fail" do
     APP_CONFIG['clio_backend_url'] = APP_CONFIG['clio_backend_url'] + "/foo/bar"
     get 'holdings', :id => '123'
-    expect(response).to be_success
+    expect(response.status).to eq 400
     expect(response.body.strip).to be_empty
   end
 
 
 
-  it "holdings() should silently absorb a bogus clio_backend_url" do
+  it "holdings() against an invalid back-end hostname should fail" do
     APP_CONFIG['clio_backend_url'] = 'http://no.such.host'
     get 'holdings', :id => '123'
-    expect(response).to be_success
+    expect(response.status).to eq 400
     expect(response.body.strip).to be_empty
   end
 
 
-  it "holdings() should silently absorb unroutable clio_backend_url" do
+  it "holdings() against an unroutable back-end IP should fail" do
     APP_CONFIG['clio_backend_url'] = 'http://999.999.999.999'
     get 'holdings', :id => '123'
-    expect(response).to be_success
+    expect(response.status).to eq 400
     expect(response.body.strip).to be_empty
   end
 

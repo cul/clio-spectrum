@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: "<clio_backend_url>/holdings/retrieve/123"
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.1, ruby 2.2.1 (2015-02-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 29 Mar 2016 20:39:09 GMT
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+      Content-Length:
+      - '728'
+      Connection:
+      - keep-alive
+      Status:
+      - 404 Not Found
+      X-Request-Id:
+      - 90d1db53-767c-4541-a52f-2105625f134b
+      X-Runtime:
+      - '0.006878'
+      Date:
+      - Tue, 29 Mar 2016 20:39:12 GMT
+      X-Powered-By:
+      - Phusion Passenger
+      Server:
+      - nginx + Phusion Passenger
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>The page you were looking for doesn't exist (404)</title>
+          <style type="text/css">
+            body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
+            div.dialog {
+              width: 25em;
+              padding: 0 4em;
+              margin: 4em auto 0 auto;
+              border: 1px solid #ccc;
+              border-right-color: #999;
+              border-bottom-color: #999;
+            }
+            h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+          </style>
+        </head>
+
+        <body>
+          <!-- This file lives in public/404.html -->
+          <div class="dialog">
+            <h1>The page you were looking for doesn't exist.</h1>
+            <p>You may have mistyped the address or the page may have moved.</p>
+          </div>
+        </body>
+        </html>
+    http_version: 
+  recorded_at: Tue, 29 Mar 2016 20:39:10 GMT
+recorded_with: VCR 3.0.1
