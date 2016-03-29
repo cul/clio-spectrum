@@ -32,7 +32,7 @@ describe 'record tests', vcr: { allow_playback_repeats: true } do
 
   it 'test services offsite', :js do
     visit catalog_path('6249927')
-    expect(page).to have_css('#clio_holdings .holding')
+    expect(page).to have_css('#clio_holdings .holding', wait: 20)
     within ('div#clio_holdings') do
       expect(page).to have_link('Offsite',
                             href: 'http://www.columbia.edu/cgi-bin/cul/offsite2?6249927')
@@ -64,7 +64,7 @@ describe 'record tests', vcr: { allow_playback_repeats: true } do
     # NEXT-1180 - Accommodate donor info that spans one or two lines
     it 'test donor info with very, very, very, very, very, very long donor label', :js do
       visit catalog_path('36114')
-      expect(page).to have_css('#clio_holdings .holding')
+      expect(page).to have_css('#clio_holdings .holding', wait: 20)
       within ('div#clio_holdings') do
         expect(page).not_to have_content('Donor:')
         # expect(page).to have_content('Seymour Durst; 2012.')
