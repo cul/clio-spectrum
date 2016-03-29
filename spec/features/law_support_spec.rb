@@ -52,13 +52,13 @@ describe 'CLIO support for Law records', :vcr do
 
   it 'should replace "Requests" menu with link to Law Library' do
     law_text = 'Requests serviced by the Arthur W. Diamond Law Library'
-    visit catalog_path(32468)
+    visit solr_document_path(32468)
     find('#show_toolbar .navbar-nav', text: 'Requests').click
     within('li.dropdown', text: 'Requests') do
       expect(page).to_not have_text law_text
     end
 
-    visit catalog_path('b276194')
+    visit solr_document_path('b276194')
     find('#show_toolbar .navbar-nav', text: 'Requests').click
     within('li.dropdown', text: 'Requests') do
       expect(page).to have_text law_text

@@ -11,10 +11,10 @@
 
   #marc_download_links.col-sm-6
     %strong= "Download as:"
-    %span= link_to "MARCXML", catalog_path(@document.id, :format => "marcxml")
-    %span= link_to "MARC21", catalog_path(@document.id, :format => "marc")
+    %span= link_to "MARCXML", solr_document_path(@document.id, :format => "marcxml")
+    %span= link_to "MARC21", solr_document_path(@document.id, :format => "marc")
   #patron_view_link.col-sm-6
-    %strong.btn.btn-default= link_to "Return to Patron View", fix_catalog_links(catalog_path(@document.id))
+    %strong.btn.btn-default= link_to "Return to Patron View", fix_catalog_links(solr_document_path(@document.id))
     
 
 

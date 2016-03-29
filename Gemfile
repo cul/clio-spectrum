@@ -6,7 +6,7 @@ gem 'activerecord-session_store'
 
 #  ###  BLACKLIGHT (begin)  ###
 
-gem 'blacklight', '~>5.0'
+gem 'blacklight', '~>6.0'
 
 gem 'blacklight-marc'
 
@@ -23,6 +23,8 @@ gem 'blacklight_range_limit'
 
 #  ###  BLACKLIGHT (end)  ###
 
+# RSolr should be in your gemfile. Blacklight 6.0 will not load rsolr by default
+gem 'rsolr'
 
 # Only used for Google Maps location pages
 gem 'rest-client'

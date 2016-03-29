@@ -5,7 +5,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   # NEXT-779 - Some 880 fields not showing up
   it 'MARC 880 note field should display' do
     # visit this specific item
-    visit catalog_path('7814900')
+    visit solr_document_path('7814900')
 
     # Find the 880 data for bib 7814900 within the info display
     expect(find('.info')).to have_content('Other Information: Leaf 1 contains laws on the Torah reading')
@@ -14,7 +14,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   # NEXT-765 - MARC 787 field (Related To) not showing up
   it "MARC 787 'Related To' field should display" do
     # visit this specific item
-    visit catalog_path('7419929')
+    visit solr_document_path('7419929')
 
     # Find the 787 data for bib 7419929
     expect(find('.info')).to have_content('Related To Xia intelligenteArchitektur')
@@ -76,7 +76,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   it "Should show CLIO, Google, and 'Full' & 'Limited' Hathi Trust links", :js do
 
     # visit this specific item
-    visit catalog_path('513297')
+    visit solr_document_path('513297')
 
     expect(page).to have_css('.holdings-container .holdings #clio_holdings')
 
@@ -93,7 +93,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     expect(find('#hathi_holdings #hathi_data')).to have_content('Full view')
 
     # visit this specific item
-    visit catalog_path('4043762')
+    visit solr_document_path('4043762')
     expect(page).to have_css('.holdings-container .holdings #clio_holdings')
     expect(page).to have_css('.holdings-container .holdings #google_holdings')
     expect(page).to have_css('.holdings-container .holdings #hathi_holdings')
@@ -106,7 +106,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   # NEXT-931 - Online Links in Holdings (not in the Bib) should display
   it 'Online links from Bib or Holdings should show up within correct block', :js do
     # visit this specific item
-    visit catalog_path('382300')
+    visit solr_document_path('382300')
     expect(page).to have_css('#clio_holdings .holding')
 
     # within CLIO HOLDINGS, not the regular Online div...
@@ -118,7 +118,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     # And, contrariwise, other Avery Online material, which does not have
     # an 856 URL in the Holdings record, should display 'Online' within the
     # visit this specific item
-    visit catalog_path('10099362')
+    visit solr_document_path('10099362')
 
     # within ONLINE HOLDINGS, SHOULD see an 'Online' block
     expect(find('div#online_holdings')).to have_content('Online')
@@ -198,7 +198,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
   describe 'share by email' do
     it 'supports an email function, directly' do
-      visit email_catalog_path(id: 12_345)
+      visit email_solr_document_path(id: 12_345)
       expect(page).to have_text('Share selected item(s) via email')
       within '#email_form' do
         fill_in 'to', with: 'marquis@columbia.edu'
@@ -208,7 +208,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     end
 
     it 'supports an email function, via JS modal', :js do
-      visit catalog_path(1234)
+      visit solr_document_path(1234)
       within '#show_toolbar' do
         click_link 'Email'
       end
@@ -297,7 +297,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
   # NEXT-1054 - In the single item display menu, change "Services" to "Requests"
   it 'should show menu-option "Request(s)"', :js do
-    visit catalog_path('10905238')
+    visit solr_document_path('10905238')
     # Should use consistent language
     expect(find('#show_toolbar')).to have_text "Requests"
     expect(find('#clio_holdings')).to have_text "Request"
@@ -306,28 +306,28 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
   # NEXT-1081 - Apostrophe in the title bar renders incorrectly
   it 'shows apostrophes within title element in patron view' do
-    visit catalog_path(6217943)
+    visit solr_document_path(6217943)
     expect(page).to have_title "L'image de l'Orient"
 
-    visit catalog_path(6094212)
+    visit solr_document_path(6094212)
     expect(page).to have_title "Al-Qur'an"
   end
 
   # NEXT-1127 - Apostrophe in the title bar (in MARC view)
   it 'shows apostrophes within title element in librarian view' do
-    visit librarian_view_catalog_path(10877875)
+    visit librarian_view_solr_document_path(10877875)
     expect(page).to have_title "One woman's war: Da"
 
-    visit librarian_view_catalog_path(6217943)
+    visit librarian_view_solr_document_path(6217943)
     expect(page).to have_title "L'image de l'Orient"
 
-    visit librarian_view_catalog_path(6094212)
+    visit librarian_view_solr_document_path(6094212)
     expect(page).to have_title "Al-Qur'an"
   end
 
   # NEXT-1069 - 505s for Journals/Periodicals
   it 'shows 505s appropriately' do
-    visit catalog_path(10213578)
+    visit solr_document_path(10213578)
     expect(page).to have_text "Contents
     ISSUE 1
     Introduction
@@ -339,23 +339,23 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   # (8X0s were already there, now add the 490)
   it 'shows series statements, from 490 and 8X0 fields' do
     # 490
-    visit catalog_path(10735763)
+    visit solr_document_path(10735763)
     expect(page).to have_text "Series Bullettino della Commissione archeologica comunale di Roma. Supplementi ; 21"
     # 800
-    visit catalog_path(10840)
+    visit solr_document_path(10840)
     expect(page).to have_text "Series Abusch, Alexander. Works. Selections ; Bd. 1."
     # 810
-    visit catalog_path(11638)
+    visit solr_document_path(11638)
     expect(page).to have_text "Series Freemasons. Quatuor Coronati-Loge (Bayreuth, Germany). Quellenkundliche Arbeit der Freimaurerischen Forschungsgesellschaft Quatuor Coronati e.V., Bayreuth ; Nr. 8."
     # 811
-    visit catalog_path(6974)
+    visit solr_document_path(6974)
     expect(page).to have_text "Series Sagamore Army Materials Research Conference. Sagamore Army Materials Research Conference proceedings ; 21st."
     # 830
-    visit catalog_path(8887)
+    visit solr_document_path(8887)
     expect(page).to have_text "Series Studi risorgimentali ; 12."
 # I have not yet found any example bibs for this test...
     # # 840
-    # visit catalog_path(99)
+    # visit solr_document_path(99)
     # expect(page).to have_text "xx"
   end
 
@@ -440,10 +440,10 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
   # NEXT-1163 - Add subfield f to title display
   it "Titles should include dates from 245 $f" do
-    visit catalog_path('8540370')
+    visit solr_document_path('8540370')
     expect( find('.show-document .title')).to have_text "Composers' Forum concert [electronic resource], 1958 January 18"
 
-    visit catalog_path('4079060')
+    visit solr_document_path('4079060')
     expect( find('.show-document .title')).to have_text "Papers, 1958-1968"
   end
 
@@ -452,7 +452,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   it "shows 'Restricted' note in any datasource" do
     restricted = "This resource is available only to current faculty, staff and students of Columbia University"
 
-    visit catalog_path(7000423)
+    visit solr_document_path(7000423)
     expect(page).to have_text restricted
 
     visit databases_show_path(7000423)
@@ -490,14 +490,14 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
   # NEXT-1218 - Display label for MARC 545 - Biographical or Historical Data
   it 'shows Biographical / Historical Note appropriately' do
-    visit catalog_path(7755896)
+    visit solr_document_path(7755896)
     expect(page).to have_text "Biographical / Historical Note
       Makino Mamoru (1930-) was born"
   end
 
   # NEXT-911 - Display uniform title in serial records
   it 'shows Uniform Title in Serial records' do
-    visit catalog_path(622349)
+    visit solr_document_path(622349)
     expect(page).to have_text "Uniform Title
       Arkitektur (Stockholm, Sweden : 1959)"
   end

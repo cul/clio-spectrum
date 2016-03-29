@@ -5,7 +5,7 @@ describe "Virtual Shelf Browse", vcr: { allow_playback_repeats: true } do
   # NEXT-995 - Something like "shelf view"
   it "should show basic controls on first load of simple item", :js do
     # pull up a simple item-detail page
-    visit catalog_path(1234)
+    visit solr_document_path(1234)
     # verify some basic labels and buttons
     expect(find('#mini_browse_panel')).to have_text( I18n.t('blacklight.browse.label'))
     expect(find('.btn.show_mini_browse', text: 'Show')).not_to have_css('disabled')
@@ -18,7 +18,7 @@ describe "Virtual Shelf Browse", vcr: { allow_playback_repeats: true } do
 
   it "should show browse list upon button click", :js do
     # pull up simple item-detail page, click to Show the browse-list
-    visit catalog_path(1234)
+    visit solr_document_path(1234)
     find('.btn.show_mini_browse', text: 'Show').click
 
     expect(page).to have_css('#nearby .nearby_content')
@@ -44,7 +44,7 @@ describe "Virtual Shelf Browse", vcr: { allow_playback_repeats: true } do
   it "should display special text for items without call-numbers" do
     unavailable_text = I18n.t('blacklight.browse.unavailable')
     # offsite, no call number assigned - should be durable for testing
-    visit catalog_path(102437)
+    visit solr_document_path(102437)
     expect(page).to have_text(unavailable_text)
   end
 

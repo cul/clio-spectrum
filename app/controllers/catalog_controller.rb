@@ -10,7 +10,7 @@ class CatalogController < ApplicationController
   # use "prepend", or this comes AFTER included Blacklight filters,
   # (and then un-processed params are stored to session[:search])
   prepend_before_filter :preprocess_search_params
-  before_filter :add_custom_search_params_logic
+  # before_filter :add_custom_search_params_logic
 
   # Bring in endnote export, etc.
   include Blacklight::Marc::Catalog
@@ -286,20 +286,20 @@ class CatalogController < ApplicationController
   end
 
 
-  def add_custom_search_params_logic
-    # this "search_params_logic" is used when querying using standard
-    # blacklight functions
-    # queries using our Solr engine have their own config in Spectrum::SearchEngines::Solr
-    unless search_params_logic.include? :add_advanced_search_to_solr
-      search_params_logic << :add_advanced_search_to_solr
-    end
-    unless search_params_logic.include? :add_range_limit_params
-      search_params_logic << :add_range_limit_params
-    end
-    unless search_params_logic.include? :add_debug_to_solr
-      search_params_logic << :add_debug_to_solr
-    end
-  end
+  # def add_custom_search_params_logic
+  #   # this "search_params_logic" is used when querying using standard
+  #   # blacklight functions
+  #   # queries using our Solr engine have their own config in Spectrum::SearchEngines::Solr
+  #   unless search_params_logic.include? :add_advanced_search_to_solr
+  #     search_params_logic << :add_advanced_search_to_solr
+  #   end
+  #   unless search_params_logic.include? :add_range_limit_params
+  #     search_params_logic << :add_range_limit_params
+  #   end
+  #   unless search_params_logic.include? :add_debug_to_solr
+  #     search_params_logic << :add_debug_to_solr
+  #   end
+  # end
 
   def preprocess_search_params
     # clean up any search params if necessary, possibly only for specific search fields.

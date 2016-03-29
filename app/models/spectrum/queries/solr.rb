@@ -61,19 +61,29 @@ module Spectrum
         is_inverted?(facet_field) ? facet_field.gsub(/^-/, '') : "-#{facet_field}"
       end
 
+      # Create new params for the inversion of facet_field=value
       def invert_facet_value(facet_field, value)
+        # start with our current params...
         new_params = @params.deep_clone
+        # remove what we don't want...
         new_params.delete(:page)
-
+        new_params.delete(:id)
         Blacklight::Solr::FacetPaginator.request_keys.values.each do |paginator_key|
           new_params.delete(paginator_key)
         end
-
-        new_params.delete(:id)
-
+        # send them to the index (search results)
         new_params[:action] = 'index'
-        new_params = remove_facet_params(facet_field, value, new_params)
-        new_params = add_facet_params(inverted_facet_field(facet_field), value, new_params)
+
+
+        # deprecated
+        # new_params = remove_facet_params(facet_field, value, new_params)
+        new_params = Blacklight::SearchState.new(new_params, blacklight_config).
+                     remove_facet_params(facet_field, value)
+
+        # deprecated
+        # new_params = add_facet_params(inverted_facet_field(facet_field), value, new_params)
+        new_params = Blacklight::SearchState.new(new_params, blacklight_config).
+                     add_facet_params(inverted_facet_field(facet_field), value)
         new_params
       end
 

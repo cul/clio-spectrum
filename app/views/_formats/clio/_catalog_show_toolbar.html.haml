@@ -52,8 +52,8 @@
   
       %ul.nav.navbar-nav
         %li=link_to "Print", "javascript:print()"
-        %li=link_to "Email", email_catalog_path(:id => id), {:id => "emailLink", :name => "email", :class => "lightboxLink"}
-        / %li=link_to "SMS-BLACKLIGHT", sms_catalog_path(:id => id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}
+        %li=link_to "Email", email_solr_document_path(:id => id), {:id => "emailLink", :name => "email", :class => "lightboxLink"}
+        / %li=link_to "SMS-BLACKLIGHT", sms_solr_document_path(:id => id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}
   
         %li=link_to "Send to Phone", "#", :onclick => "OpenTextMessage(#{id}); return false;"
   
@@ -75,7 +75,7 @@
             /  %li=link_to "Export to RefWorks", refworks_export_url(@document)
             - if document.export_formats.keys.include?(:endnote)
               -any_cites = true
-              %li=link_to "Export to EndNote", catalog_path(id, :format => "endnote")
+              %li=link_to "Export to EndNote", solr_document_path(id, :format => "endnote")
   
             - unless any_cites
               %li=link_to "No citations available", "#"
@@ -87,7 +87,7 @@
               %li= link_to "Display in CLIO Legacy", "http://clio.cul.columbia.edu:7018/vwebv/holdingsInfo?bibId=#{clio_id}"
   
             - if @document.respond_to?(:to_marc)
-              %li= link_to "MARC View", fix_catalog_links(librarian_view_catalog_path(id)), {:id => "librarianLink", :name => "librarian_view" }
+              %li= link_to "MARC View", fix_catalog_links(librarian_view_solr_document_path(id)), {:id => "librarianLink", :name => "librarian_view" }
   
         %li.dropdown
           =link_to "Requests <span class='caret'></span>".html_safe, "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown"

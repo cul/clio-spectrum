@@ -25,17 +25,18 @@ module Spectrum
       #     search_engine = Spectrum::SearchEngines::Solr.new(options)
       def initialize(original_options = {})
         Rails.logger.debug "Spectrum::Search::Engine#initialize(original_options=#{original_options.inspect})"
-        # this "search_params_logic" is used when querying via our Solr engine.
-        # queries using standard blacklight functions have their own config in CatalogController
-        unless search_params_logic.include? :add_advanced_search_to_solr
-          search_params_logic << :add_advanced_search_to_solr
-        end
-        unless search_params_logic.include? :add_range_limit_params
-          search_params_logic << :add_range_limit_params
-        end
-        unless search_params_logic.include? :add_debug_to_solr
-          search_params_logic << :add_debug_to_solr
-        end
+
+        # # this "search_params_logic" is used when querying via our Solr engine.
+        # # queries using standard blacklight functions have their own config in CatalogController
+        # unless search_params_logic.include? :add_advanced_search_to_solr
+        #   search_params_logic << :add_advanced_search_to_solr
+        # end
+        # unless search_params_logic.include? :add_range_limit_params
+        #   search_params_logic << :add_range_limit_params
+        # end
+        # unless search_params_logic.include? :add_debug_to_solr
+        #   search_params_logic << :add_debug_to_solr
+        # end
 
         options = original_options.to_hash.deep_clone
         @source = options.delete('source') || options.delete(:source) || fail('Must specify source')
@@ -181,7 +182,8 @@ module Spectrum
           end
 
           ActiveSupport::Notifications.subscribed(debug_results, 'execute.rsolr_client') do |*args|
-            @search, @documents = search_results(@params.merge(extra_controller_params), search_params_logic)
+            # @search, @documents = search_results(@params.merge(extra_controller_params), search_params_logic)
+            @search, @documents = search_results(@params.merge(extra_controller_params))
 
             @debug_entries['solr'] = []  if @debug_entries['solr'] == {}
 
@@ -199,7 +201,8 @@ module Spectrum
         else
           # use blacklight gem to run the actual search against Solr,
           # call Blacklight::SearchHelper::search_results()
-          @search, @documents = search_results(@params.merge(extra_controller_params), search_params_logic)
+          # @search, @documents = search_results(@params.merge(extra_controller_params), search_params_logic)
+          @search, @documents = search_results(@params.merge(extra_controller_params))
         end
 
         self

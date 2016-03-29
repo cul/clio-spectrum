@@ -1,0 +1,167 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: "<solr_config>/select?id=7928198&qt=document&wt=ruby"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 28 Mar 2016 18:52:52 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'7928198','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+r--+0129+00000000+m6900000+002010+7928198'],'location_call_number_id_display'=>['Health Sciences Stacks >> R129 .M69 2010|DELIM|11028879'],'pub_year_display'=>['c2010'],'acq_dt'=>'2010-08-27T00:00:00Z','title_display'=>['Truth of scientific medicine'],'item_display'=>['R129 .M69 2010 | loc+r--+0129+00000000+m6900000+002010+7928198 | ebn~8~~~zyxq~zzzzzzzz~dtqzzzzz~zzxzyz~sqxryqr~~~~~'],'id'=>'7928198','reverse_shelfkey'=>['ebn~8~~~zyxq~zzzzzzzz~dtqzzzzz~zzxzyz~sqxryqr~~~~~'],'clio_id_display'=>'7928198','call_number_display'=>['R129 .M69 2010'],'subject_topic_facet'=>['Medicine','Medical care','Physician and patient','Physician-Patient Relations'],'pub_place_display'=>['Jerusalem'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01228cam a2200397 a 4500</leader><controlfield tag="001">7928198</controlfield><controlfield tag="005">20100921203353.0</controlfield><controlfield tag="008">100308s2010    is       b    001 0 eng  </controlfield><datafield tag="015" ind1=" " ind2=" "><subfield code="a">GBB040452</subfield><subfield code="2">bnb</subfield></datafield><datafield tag="016" ind1="7" ind2=" "><subfield code="a">015511929</subfield><subfield code="2">Uk</subfield></datafield><datafield tag="019" ind1=" " ind2=" "><subfield code="a">554225986</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9789654934664 (pbk.)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9654934663 (pbk.)</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn559856602</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)559856602</subfield><subfield code="z">(OCoLC)554225986</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)7928198</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">UKM</subfield><subfield code="c">UKM</subfield><subfield code="d">WEINB</subfield><subfield code="d">YDXCP</subfield><subfield code="d">C#P</subfield><subfield code="d">NNC-M</subfield></datafield><datafield tag="050" ind1=" " ind2="4"><subfield code="a">R129</subfield><subfield code="b">.M69 2010</subfield></datafield><datafield tag="082" ind1="0" ind2="4"><subfield code="a">616</subfield><subfield code="2">22</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Mozes, Benjamin.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Truth of scientific medicine /</subfield><subfield code="c">Benjamin Mozes.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Jerusalem :</subfield><subfield code="b">Hebrew University Magnes Press,</subfield><subfield code="c">c2010.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xviii, 495 p. ;</subfield><subfield code="c">23 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Medicine.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Medical care.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Physician and patient.</subfield></datafield><datafield tag="650" ind1="1" ind2="2"><subfield code="a">Medicine.</subfield></datafield><datafield tag="650" ind1="2" ind2="2"><subfield code="a">Physician-Patient Relations.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">R</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">R129 .M69 2010</subfield><subfield code="b">loc+R--+0129+00000000+M6900000+002010</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Health Sciences</subfield><subfield code="b">Health Sciences Stacks &gt;&gt; R129 .M69 2010|DELIM|11028879</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2010-08-27T00:00:00.000Z</subfield></datafield></record></collection>','author_display'=>['Mozes, Benjamin'],'pub_name_display'=>['Hebrew University Magnes Press'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['xviii, 495 p.'],'oclc_display'=>['ocn559856602','559856602'],'title_first_facet'=>['T'],'pub_date_sort'=>2010,'full_publisher_display'=>['Jerusalem : Hebrew University Magnes Press, c2010.'],'language_facet'=>['English'],'isbn_display'=>['9789654934664','9654934663'],'_version_'=>1522784163401302016,'timestamp'=>'2016-01-08T08:02:26.066Z'}]}}
+    http_version: 
+  recorded_at: Mon, 28 Mar 2016 18:52:52 GMT
+- request:
+    method: get
+    uri: "<clio_backend_url>/holdings/retrieve/7928198"
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.1, ruby 2.2.1 (2015-02-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Mon, 28 Mar 2016 18:52:52 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 86b4d7e5-545d-479c-8da9-c662c7a1d818
+      Etag:
+      - W/"e9dd889a1b9a8a992338a3783de1e17c"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Runtime:
+      - '1.964647'
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Request-Method:
+      - "*"
+      Date:
+      - Mon, 28 Mar 2016 18:52:55 GMT
+      X-Powered-By:
+      - Phusion Passenger
+      Server:
+      - nginx + Phusion Passenger
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubdomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"7928198":{"condensed_holdings_full":[{"location_name":"Health Sciences
+        Stacks","location_note":"","call_number":"R129 .M69 2010","status":"available","holding_id":["11028879"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":[]}]}}'
+    http_version: 
+  recorded_at: Mon, 28 Mar 2016 18:52:55 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?id=7928198&qt=document&wt=ruby"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 28 Mar 2016 18:52:55 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'7928198','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+r--+0129+00000000+m6900000+002010+7928198'],'location_call_number_id_display'=>['Health Sciences Stacks >> R129 .M69 2010|DELIM|11028879'],'pub_year_display'=>['c2010'],'acq_dt'=>'2010-08-27T00:00:00Z','title_display'=>['Truth of scientific medicine'],'item_display'=>['R129 .M69 2010 | loc+r--+0129+00000000+m6900000+002010+7928198 | ebn~8~~~zyxq~zzzzzzzz~dtqzzzzz~zzxzyz~sqxryqr~~~~~'],'id'=>'7928198','reverse_shelfkey'=>['ebn~8~~~zyxq~zzzzzzzz~dtqzzzzz~zzxzyz~sqxryqr~~~~~'],'clio_id_display'=>'7928198','call_number_display'=>['R129 .M69 2010'],'subject_topic_facet'=>['Medicine','Medical care','Physician and patient','Physician-Patient Relations'],'pub_place_display'=>['Jerusalem'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01228cam a2200397 a 4500</leader><controlfield tag="001">7928198</controlfield><controlfield tag="005">20100921203353.0</controlfield><controlfield tag="008">100308s2010    is       b    001 0 eng  </controlfield><datafield tag="015" ind1=" " ind2=" "><subfield code="a">GBB040452</subfield><subfield code="2">bnb</subfield></datafield><datafield tag="016" ind1="7" ind2=" "><subfield code="a">015511929</subfield><subfield code="2">Uk</subfield></datafield><datafield tag="019" ind1=" " ind2=" "><subfield code="a">554225986</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9789654934664 (pbk.)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9654934663 (pbk.)</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn559856602</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)559856602</subfield><subfield code="z">(OCoLC)554225986</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)7928198</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">UKM</subfield><subfield code="c">UKM</subfield><subfield code="d">WEINB</subfield><subfield code="d">YDXCP</subfield><subfield code="d">C#P</subfield><subfield code="d">NNC-M</subfield></datafield><datafield tag="050" ind1=" " ind2="4"><subfield code="a">R129</subfield><subfield code="b">.M69 2010</subfield></datafield><datafield tag="082" ind1="0" ind2="4"><subfield code="a">616</subfield><subfield code="2">22</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Mozes, Benjamin.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Truth of scientific medicine /</subfield><subfield code="c">Benjamin Mozes.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Jerusalem :</subfield><subfield code="b">Hebrew University Magnes Press,</subfield><subfield code="c">c2010.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xviii, 495 p. ;</subfield><subfield code="c">23 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Medicine.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Medical care.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Physician and patient.</subfield></datafield><datafield tag="650" ind1="1" ind2="2"><subfield code="a">Medicine.</subfield></datafield><datafield tag="650" ind1="2" ind2="2"><subfield code="a">Physician-Patient Relations.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">R</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">R129 .M69 2010</subfield><subfield code="b">loc+R--+0129+00000000+M6900000+002010</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Health Sciences</subfield><subfield code="b">Health Sciences Stacks &gt;&gt; R129 .M69 2010|DELIM|11028879</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2010-08-27T00:00:00.000Z</subfield></datafield></record></collection>','author_display'=>['Mozes, Benjamin'],'pub_name_display'=>['Hebrew University Magnes Press'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['xviii, 495 p.'],'oclc_display'=>['ocn559856602','559856602'],'title_first_facet'=>['T'],'pub_date_sort'=>2010,'full_publisher_display'=>['Jerusalem : Hebrew University Magnes Press, c2010.'],'language_facet'=>['English'],'isbn_display'=>['9789654934664','9654934663'],'_version_'=>1522784163401302016,'timestamp'=>'2016-01-08T08:02:26.066Z'}]}}
+    http_version: 
+  recorded_at: Mon, 28 Mar 2016 18:52:55 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?id=7928198&qt=document&wt=ruby"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 28 Mar 2016 18:52:55 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'7928198','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+r--+0129+00000000+m6900000+002010+7928198'],'location_call_number_id_display'=>['Health Sciences Stacks >> R129 .M69 2010|DELIM|11028879'],'pub_year_display'=>['c2010'],'acq_dt'=>'2010-08-27T00:00:00Z','title_display'=>['Truth of scientific medicine'],'item_display'=>['R129 .M69 2010 | loc+r--+0129+00000000+m6900000+002010+7928198 | ebn~8~~~zyxq~zzzzzzzz~dtqzzzzz~zzxzyz~sqxryqr~~~~~'],'id'=>'7928198','reverse_shelfkey'=>['ebn~8~~~zyxq~zzzzzzzz~dtqzzzzz~zzxzyz~sqxryqr~~~~~'],'clio_id_display'=>'7928198','call_number_display'=>['R129 .M69 2010'],'subject_topic_facet'=>['Medicine','Medical care','Physician and patient','Physician-Patient Relations'],'pub_place_display'=>['Jerusalem'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01228cam a2200397 a 4500</leader><controlfield tag="001">7928198</controlfield><controlfield tag="005">20100921203353.0</controlfield><controlfield tag="008">100308s2010    is       b    001 0 eng  </controlfield><datafield tag="015" ind1=" " ind2=" "><subfield code="a">GBB040452</subfield><subfield code="2">bnb</subfield></datafield><datafield tag="016" ind1="7" ind2=" "><subfield code="a">015511929</subfield><subfield code="2">Uk</subfield></datafield><datafield tag="019" ind1=" " ind2=" "><subfield code="a">554225986</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9789654934664 (pbk.)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9654934663 (pbk.)</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn559856602</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)559856602</subfield><subfield code="z">(OCoLC)554225986</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)7928198</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">UKM</subfield><subfield code="c">UKM</subfield><subfield code="d">WEINB</subfield><subfield code="d">YDXCP</subfield><subfield code="d">C#P</subfield><subfield code="d">NNC-M</subfield></datafield><datafield tag="050" ind1=" " ind2="4"><subfield code="a">R129</subfield><subfield code="b">.M69 2010</subfield></datafield><datafield tag="082" ind1="0" ind2="4"><subfield code="a">616</subfield><subfield code="2">22</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Mozes, Benjamin.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Truth of scientific medicine /</subfield><subfield code="c">Benjamin Mozes.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Jerusalem :</subfield><subfield code="b">Hebrew University Magnes Press,</subfield><subfield code="c">c2010.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xviii, 495 p. ;</subfield><subfield code="c">23 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Medicine.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Medical care.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Physician and patient.</subfield></datafield><datafield tag="650" ind1="1" ind2="2"><subfield code="a">Medicine.</subfield></datafield><datafield tag="650" ind1="2" ind2="2"><subfield code="a">Physician-Patient Relations.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">R</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">R129 .M69 2010</subfield><subfield code="b">loc+R--+0129+00000000+M6900000+002010</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Health Sciences</subfield><subfield code="b">Health Sciences Stacks &gt;&gt; R129 .M69 2010|DELIM|11028879</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2010-08-27T00:00:00.000Z</subfield></datafield></record></collection>','author_display'=>['Mozes, Benjamin'],'pub_name_display'=>['Hebrew University Magnes Press'],'format'=>['Book'],'source_display'=>['catalog'],'material_type_display'=>['xviii, 495 p.'],'oclc_display'=>['ocn559856602','559856602'],'title_first_facet'=>['T'],'pub_date_sort'=>2010,'full_publisher_display'=>['Jerusalem : Hebrew University Magnes Press, c2010.'],'language_facet'=>['English'],'isbn_display'=>['9789654934664','9654934663'],'_version_'=>1522784163401302016,'timestamp'=>'2016-01-08T08:02:26.066Z'}]}}
+    http_version: 
+  recorded_at: Mon, 28 Mar 2016 18:52:55 GMT
+- request:
+    method: get
+    uri: "<solr_config>/alphaTerms?terms.fl=shelfkey&terms.limit=17&terms.lower=loc%2Br--%2B0129%2B00000000%2Bm6900000%2B002010%2B7928198&terms.sort=index&wt=ruby"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 28 Mar 2016 18:52:55 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'terms.lower'=>'loc+r--+0129+00000000+m6900000+002010+7928198','terms.fl'=>'shelfkey','terms.limit'=>'17','wt'=>'ruby','terms.sort'=>'index'}},'terms'=>{'shelfkey'=>['loc+r--+0129+00000000+m6900000+002010+7928198',1,'loc+r--+0129+00000000+m8900000+8088762',1,'loc+r--+0129+00000000+n4v.1580+8114097',1,'loc+r--+0129+00000000+p1600000+001847+3991583',2,'loc+r--+0129+00000000+p1600000+001870+3991584',2,'loc+r--+0129+00000000+p1700000+1914339',1,'loc+r--+0129+00000000+p2320000+001988+3693398',1,'loc+r--+0129+00000000+p2600000+001976+3906301',1,'loc+r--+0129+00000000+p5300000+002012+eb0000+10794571',1,'loc+r--+0129+00000000+p8800000+4070739',2,'loc+r--+0129+00000000+s3500000+001973+3777861',1,'loc+r--+0129+00000000+sci30000+3909943',1,'loc+r--+0129+00000000+t4900000+001987+q00000+3955155',1,'loc+r--+0129+00000000+t4900000+001996+q00000+4050218',1,'loc+r--+0129+00000000+t5400000+002011+9321727',1,'loc+r--+0129+00000000+w3300000+001986+3697131',2,'loc+r--+0129+00000000+w6781300+002014+eb0000+11852893',4]}}
+    http_version: 
+  recorded_at: Mon, 28 Mar 2016 18:52:55 GMT
+recorded_with: VCR 3.0.1

@@ -14,7 +14,7 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
     smm_decomposed = 'Shaʻrāwī, Muḥammad Mutawallī.'.mb_chars.normalize(:d)
 
     # visit this specific item
-    visit catalog_path('10172954')
+    visit solr_document_path('10172954')
 
     # follow the "Also Listed Under" linked name, should get to search results page
     click_link(mhmm_decomposed)
@@ -37,7 +37,7 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
     test_link = 'Schitthelm, Jürgen, editor.'.mb_chars.normalize(:d)
 
     # pull up the specific record, by bib key
-    visit catalog_path(test_bib)
+    visit solr_document_path(test_bib)
     expect(page).to have_text(test_title)
 
     # follow the "Also Listed Under" hyperlinked field value
@@ -57,7 +57,7 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
     test_link = 'Morson, Gary Saul, 1948-, author.'
 
     # pull up the specific record, by bib key
-    visit catalog_path(test_bib)
+    visit solr_document_path(test_bib)
     expect(page).to have_text(test_title)
 
     # follow the "Also Listed Under" hyperlinked field value
@@ -78,7 +78,7 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
     test_link = 'William Schickel & Co.'
 
     # pull up the specific record, by bib key
-    visit catalog_path(test_bib)
+    visit solr_document_path(test_bib)
     expect(page).to have_text(test_title)
 
     # follow the "Also Listed Under" hyperlinked field value
@@ -106,7 +106,7 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
     ]
 
     # pull up the specific record, by bib key
-    visit catalog_path(test_bib)
+    visit solr_document_path(test_bib)
     expect(page).to have_text(test_title)
 
     test_link_array.each do |test_link|
@@ -133,7 +133,7 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
     test_link = 'Riedel, Dagmar A., author.'
 
     # pull up the specific record, by bib key
-    visit catalog_path(test_bib)
+    visit solr_document_path(test_bib)
     expect(page).to have_text(test_title)
 
     # follow the "Also Listed Under" hyperlinked field value
@@ -154,7 +154,7 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
     test_link = 'Juviler, Peter H.'
 
     # pull up the specific record, by bib key
-    visit catalog_path(test_bib)
+    visit solr_document_path(test_bib)
     expect(page).to have_text(test_title)
 
     # follow the "Also Listed Under" hyperlinked field value
@@ -170,7 +170,7 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
 
   # NEXT-1011 - Inconsistent search results from series links.
   it "should support linking to Series Title" do
-    visit catalog_path '9646827'
+    visit solr_document_path '9646827'
     expect(page).to have_text "Lo specchio acceso : narrativa italiana"
     # field-label, white-space, field-value
     expect(page).to have_text "Series Collezione Confronti/consensi ; 15."
@@ -184,7 +184,7 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
 
   # NEXT-1066 - Series link on this record does not retrieve other records in CLIO.
   it "should support Series links with apostrophe-like characters" do
-    visit catalog_path(2754188)
+    visit solr_document_path(2754188)
     expect(page).to have_text "Palestine > History"
     expect(page).to have_text "Jerusalem, Magnes Press, Hebrew University"
 
@@ -208,7 +208,7 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
   # These two bib records (10322893, 10551688) encode the name Cipa differently,
   # both should link correctly, and "author" facet should be combined.
   it "should work equivalently with pre-composed or de-composed unicode forms" do
-    visit catalog_path(10322893)
+    visit solr_document_path(10322893)
     # "Also Listed Under Çıpa, H. Erdem, 1971-"
     click_link('H. Erdem, 1971')
     expect(page).to have_text('1 - 4 of 4')
@@ -217,7 +217,7 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
       expect(find('.facet-count')).to have_text "4"
     end
 
-    visit catalog_path(10551688)
+    visit solr_document_path(10551688)
     # "Also Listed Under Çıpa, H. Erdem, 1971-"
     click_link('H. Erdem, 1971')
     expect(page).to have_text('1 - 4 of 4')

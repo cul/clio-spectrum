@@ -68,7 +68,7 @@ describe 'coins encoding for zotero', :vcr do
 
     context 'music recording' do
       it 'has the correct coins format' do
-        visit catalog_path 10922430
+        visit solr_document_path 10922430
         coins = find("//span[@class='Z3988']")['title']
         expect(coins).to have_text 'fmt:kev:mtx:dc&rft.type=audioRecording'
       end
@@ -76,7 +76,7 @@ describe 'coins encoding for zotero', :vcr do
 
     context 'printed book' do
       it 'has the correct coins format' do
-        visit catalog_path 4359539
+        visit solr_document_path 4359539
         coins = find("//span[@class='Z3988']")['title']
         expect(coins).to have_text 'fmt:kev:mtx:dc&rft.type=book'
       end
@@ -84,7 +84,7 @@ describe 'coins encoding for zotero', :vcr do
 
     context 'ebook' do
       it 'has the correct coins format' do
-        visit catalog_path 7928264
+        visit solr_document_path 7928264
         coins = find("//span[@class='Z3988']")['title']
         expect(coins).to have_text 'fmt:kev:mtx:dc&rft.type=book'
       end
@@ -92,7 +92,7 @@ describe 'coins encoding for zotero', :vcr do
 
     context 'video recording' do
       it 'has the correct coins format' do
-        visit catalog_path 9340283
+        visit solr_document_path 9340283
         coins = find("//span[@class='Z3988']")['title']
         expect(coins).to have_text 'fmt:kev:mtx:dc&rft.type=videoRecording'
       end
@@ -100,7 +100,7 @@ describe 'coins encoding for zotero', :vcr do
 
     context 'sound recording' do
       it 'has the correct coins format' do
-        visit catalog_path 10903311
+        visit solr_document_path 10903311
         coins = find("//span[@class='Z3988']")['title']
         expect(coins).to have_text 'fmt:kev:mtx:dc&rft.type=audioRecording'
       end

@@ -56,7 +56,7 @@ datasources:
       compact_list: Compact View
     default_viewstyle: standard_list
     search_box:
-      route: base_catalog_index_path
+      route: catalog_index_path
       placeholder: Catalog
       search_type: blacklight
       advanced: true

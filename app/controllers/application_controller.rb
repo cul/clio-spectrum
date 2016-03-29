@@ -358,7 +358,7 @@ class ApplicationController < ActionController::Base
       unless flash[:error]
         email.deliver_now
         flash[:success] = 'Email sent'
-        redirect_to catalog_path(params['id']) unless request.xhr?
+        redirect_to solr_document_path(params['id']) unless request.xhr?
       end
     else
       #pre-fill email form with user's email and name (NEXT-810)

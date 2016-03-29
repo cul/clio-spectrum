@@ -160,7 +160,7 @@ module DatasourcesHelper
       # when 'quicksearch'
       #   quicksearch_index_path(:q => query)
       # when 'catalog'
-      #   base_catalog_index_path(:q => query)
+      #   catalog_index_path(:q => query)
       # when 'databases'
       #   databases_index_path(:q => query)
       # when 'articles'
@@ -206,7 +206,7 @@ module DatasourcesHelper
       when 'quicksearch'
         quicksearch_index_path(q: query)
       when 'catalog'
-        base_catalog_index_path(q: query)
+        catalog_index_path(q: query)
       when 'databases'
         databases_index_path(q: query)
       when 'articles'

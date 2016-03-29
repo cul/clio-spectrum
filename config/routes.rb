@@ -1,4 +1,39 @@
-Clio::Application.routes.draw do
+Rails.application.routes.draw do
+
+
+  ##### COPIED FROM VANILLA BLACKLIGHT 6.0 APP
+  mount Blacklight::Engine => '/'
+
+  Blacklight::Marc.add_routes(self)
+
+  # clio:
+  root to: 'spectrum#search', defaults: { layout: 'quicksearch' }
+  # blacklight:
+  # root to: "catalog#index"
+
+  concern :searchable, Blacklight::Routes::Searchable.new
+
+  resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
+    concerns :searchable
+  end
+
+  devise_for :users
+  concern :exportable, Blacklight::Routes::Exportable.new
+  # old clio:
+  # devise_for :users, controllers: { sessions: 'sessions' }
+
+  resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do
+    concerns :exportable
+  end
+
+  resources :bookmarks do
+    concerns :exportable
+
+    collection do
+      delete 'clear'
+    end
+  end
+  #####
 
   # blacklight-marc gem gives endnote as an action, not just format of 'show',
   # to allow endnote export of multiple records at once
@@ -44,13 +79,10 @@ Clio::Application.routes.draw do
   get 'item_alerts/:id/show_table_row(.:format)', to: 'item_alerts#show_table_row', as: :item_alert_show_table_row
   get 'spectrum/search'
 
-  Blacklight.add_routes(self)
 
-  root to: 'spectrum#search', defaults: { layout: 'quicksearch' }
 
-  devise_for :users, controllers: { sessions: 'sessions' }
 
-  get 'catalog', to: 'catalog#index', as: :base_catalog_index
+  get 'catalog', to: 'catalog#index', as: :catalog_index
 
   get 'quicksearch/', to: 'spectrum#search', as: :quicksearch_index, defaults: { layout: 'quicksearch' }
 

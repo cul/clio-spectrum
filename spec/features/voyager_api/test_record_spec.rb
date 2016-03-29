@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'record tests', vcr: { allow_playback_repeats: true } do
 
   it 'test call number', :js do
-    visit catalog_path('7686002')
+    visit solr_document_path('7686002')
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do
       expect(page).to have_text('Ms MONTGOM 675')
@@ -11,7 +11,7 @@ describe 'record tests', vcr: { allow_playback_repeats: true } do
   end
 
   it 'test supplements', :js do
-    visit catalog_path('2120018')
+    visit solr_document_path('2120018')
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do
       expect(page).to have_text('1880-1881 bound in 1 v.')
@@ -19,7 +19,7 @@ describe 'record tests', vcr: { allow_playback_repeats: true } do
   end
 
   it 'test online record' do
-    visit catalog_path('5656993')
+    visit solr_document_path('5656993')
     within ('div.location_box') do
       expect(page).to have_text('Online')
     end
@@ -31,7 +31,7 @@ describe 'record tests', vcr: { allow_playback_repeats: true } do
   end
 
   it 'test services offsite', :js do
-    visit catalog_path('6249927')
+    visit solr_document_path('6249927')
     expect(page).to have_css('#clio_holdings .holding', wait: 20)
     within ('div#clio_holdings') do
       expect(page).to have_link('Offsite',
@@ -42,7 +42,7 @@ describe 'record tests', vcr: { allow_playback_repeats: true } do
   context 'donor info' do
 
     it 'test donor info', :js do
-      visit catalog_path('5602687')
+      visit solr_document_path('5602687')
       expect(page).to have_css('#clio_holdings .holding')
       within ('div#clio_holdings') do
         expect(page).not_to have_content('Donor:')
@@ -52,7 +52,7 @@ describe 'record tests', vcr: { allow_playback_repeats: true } do
     end
 
     it 'test donor info icon', :js do
-      visit catalog_path('9576776')
+      visit solr_document_path('9576776')
       expect(page).to have_css('#clio_holdings .holding')
       within ('div#clio_holdings') do
         expect(page).not_to have_content('Donor:')
@@ -63,7 +63,7 @@ describe 'record tests', vcr: { allow_playback_repeats: true } do
 
     # NEXT-1180 - Accommodate donor info that spans one or two lines
     it 'test donor info with very, very, very, very, very, very long donor label', :js do
-      visit catalog_path('36114')
+      visit solr_document_path('36114')
       expect(page).to have_css('#clio_holdings .holding', wait: 20)
       within ('div#clio_holdings') do
         expect(page).not_to have_content('Donor:')
@@ -76,7 +76,7 @@ describe 'record tests', vcr: { allow_playback_repeats: true } do
   end
 
   it 'special collections link', :js do
-    visit catalog_path('10104738')
+    visit solr_document_path('10104738')
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do
       expect(page).to have_link('Special Collections',
@@ -85,14 +85,14 @@ describe 'record tests', vcr: { allow_playback_repeats: true } do
   end
 
   it 'special collections services', :js do
-    visit catalog_path('6201975')
+    visit solr_document_path('6201975')
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do
       expect(page).to have_link('Scan & Deliver',
                             href: 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?6201975')
     end
 
-    visit catalog_path('6871895')
+    visit solr_document_path('6871895')
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do
       expect(page).to have_link('Scan & Deliver',

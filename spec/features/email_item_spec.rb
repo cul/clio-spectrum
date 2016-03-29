@@ -3,7 +3,7 @@ require 'spec_helper'
 include Warden::Test::Helpers
 
 describe 'Share by Email', :vcr do
-  ['catalog', 'savedlist'].each do |path|
+  ['solr_document', 'savedlist'].each do |path|
     context 'when user is logged in' do
       before do
         @autodidact = FactoryGirl.create(:user, login: 'autodidact',
@@ -11,7 +11,7 @@ describe 'Share by Email', :vcr do
                                          last_name: 'Didact'
                                         )
         feature_login @autodidact
-        visit self.send("email_#{path}_path", id: 12_345)
+        visit self.send("email_#{path}_path", id: 12345)
       end
 
       context "#{path}" do
@@ -83,7 +83,7 @@ describe 'Share by Email', :vcr do
   context 'user is not logged in' do
     describe 'can email from catalog' do
       it 'should not include reply-to and name if user wishes to remain anonymous' do
-        visit email_catalog_path(id: 12_345)
+        visit email_solr_document_path(id: 12345)
         within '#email_form' do
           fill_in 'to', with: 'marquis@columbia.edu'
           find('button[type=submit]').click
@@ -93,7 +93,7 @@ describe 'Share by Email', :vcr do
     end
     describe 'can not email from saved list' do
       it 'should redirect to root' do
-        visit email_savedlist_path(id: 12_345)
+        visit email_savedlist_path(id: 12345)
         expect(current_path).to eq(root_path)
       end
     end

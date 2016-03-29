@@ -2,6 +2,11 @@
 class SearchBuilder < Blacklight::SearchBuilder
   include Blacklight::Solr::SearchBuilderBehavior
 
+  self.default_processor_chain += [:add_advanced_search_to_solr]
+  self.default_processor_chain += [:add_range_limit_params]
+  self.default_processor_chain += [:add_debug_to_solr]
+
+
   # These methods are passed a hash, which will
   # become the Solr request parameters.
   # Their job is to fill this hash with keys/values, based
@@ -112,8 +117,7 @@ class SearchBuilder < Blacklight::SearchBuilder
   end
 
 
-    # Method added to search_params_logic to fetch
-    # proper things for date ranges.
+  # fetch proper things for date ranges.
   def add_range_limit_params(solr_params)
     ranged_facet_configs =
       blacklight_config.facet_fields.select { |key, config| config.range }

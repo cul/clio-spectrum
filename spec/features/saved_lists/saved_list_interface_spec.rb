@@ -161,7 +161,7 @@ describe 'Saved List Interface' do
 
     it "adds to saved list afer EndNote export" do
       expect(Capybara.current_driver).to be(:selenium)
-      visit catalog_path("4359539")
+      visit solr_document_path("4359539")
       login_as @blatteroon
       click_on('Export')
       click_on('Export to EndNote')
@@ -170,7 +170,7 @@ describe 'Saved List Interface' do
     end
   # it "item can be added to bookbag after exporting to EndNote", type: :selenium do
   #   Capybara.current_driver = :selenium
-  #   visit catalog_path("4359539")
+  #   visit solr_document_path("4359539")
   #   login_as @blatteroon
   #   click_link('Export')
   #   click_link('Export to EndNote')

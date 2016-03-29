@@ -26,7 +26,7 @@ describe 'Item Locations should show correct library hours', :vcr, :skip_travis 
   # end
 
   it 'for Avery Drawings & Archives', :js do
-    visit catalog_path('8277276')
+    visit solr_document_path('8277276')
     # page.save_and_open_page # debug
     expect(find('.holdings-container')).to have_text('Avery Drawings & Archives')
     click_link('Avery Drawings & Archives - By appt. (Non-Circulating)')
@@ -37,7 +37,7 @@ describe 'Item Locations should show correct library hours', :vcr, :skip_travis 
 
   it 'for Avery Classics', :js do
     # Pull up the item-detail page, follow link to Location page...
-    visit catalog_path('565036')
+    visit solr_document_path('565036')
     expect(find('.holdings-container')).to have_text('Avery Classics')
     within('.location_box .location', text: 'Avery Classics') do
       click_link('Avery Classics')
@@ -50,7 +50,7 @@ describe 'Item Locations should show correct library hours', :vcr, :skip_travis 
   end
 
   it 'for Law' do
-    visit catalog_path('b402660')
+    visit solr_document_path('b402660')
     expect(page).to have_text('Law Library')
     click_link('Law Library')
     expect(page).to have_text('Law Library')
