@@ -23,6 +23,9 @@ gem 'blacklight_range_limit'
 
 #  ###  BLACKLIGHT (end)  ###
 
+# basic library to parse, create and manage MARC records
+gem 'marc'
+
 # MARC indexing in pure ruby
 gem "traject"
 

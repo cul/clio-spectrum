@@ -42,9 +42,12 @@ namespace :compare do
     puts_and_log("Indexing #{files_to_read} to #{output_file}")
 
     # create new traject indexer
+    puts "creating indexer..."
     indexer = Traject::Indexer.new
+    puts "indexer=#{indexer}"
 
     # explicity set the settings
+    puts "providing indexer settings..."
     indexer.settings do
        provide 'debug_ascii_progress', true
        provide "log.level", 'debug'
@@ -55,11 +58,14 @@ namespace :compare do
     end
 
     # load authorities config file (indexing rules)
+    puts "loading indexer config file..."
     indexer.load_config_file(File.join(Rails.root, "config/traject/bibliographic.rb"))
 
     # index each file 
+    puts "indexing #{files_to_read.size} files."
     files_to_read.each do |filename|
       File.open(filename) do |file|
+        puts " - reading #{file}..."
         indexer.process(file)
       end
     end

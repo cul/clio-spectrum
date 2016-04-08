@@ -12,6 +12,10 @@ extend Traject::Macros::MarcFormats
 require 'traject/indexer'
 require 'traject/macros/marc21'
 
+require 'traject_utility'
+
+Marc21 = Traject::Macros::Marc21 # shortcut
+
 bibs = 0
 lookups = 0
 
@@ -226,12 +230,33 @@ to_field "url_munged_display" do |record, accumulator|
 end
 
 
-# IN SUPPORT OF SHELF BROWSE - OMIT FOR AUTHORITIES TESTING
-# 
-# shelfkey = script(shelfkeys.bsh), getShelfkeys
-# reverse_shelfkey = script(shelfkeys.bsh), getReverseShelfkeys
-# item_display = script(shelfkeys.bsh), getItemDisplay
-# 
+# Shelf Browse support fields
+
+to_field "shelfkey" do |record, accumulator|
+  id = Marc21.extract_marc_from(record, "001", first: true).first
+  record.fields('991').each { |field991|
+    next unless field991 && field991['b']
+    accumulator << "#{field991['b'].downcase}+#{id}"
+  }
+end
+to_field "reverse_shelfkey" do |record, accumulator|
+  id = Marc21.extract_marc_from(record, "001", first: true).first
+  record.fields('991').each { |field991|
+    next unless field991 && field991['b']
+    accumulator << TrajectUtility.reverseString("#{field991['b'].downcase}+#{id}")
+  }
+end
+
+to_field "item_display" do |record, accumulator|
+  id = Marc21.extract_marc_from(record, "001", first: true).first
+  record.fields('991').each { |field991|
+    next unless field991 && field991['a'] && field991['b']
+    display_call_number = field991['a']
+    shelfkey = "#{field991['b'].downcase}+#{id}"
+    reverse_shelfkey = TrajectUtility.reverseString("#{field991['b'].downcase}+#{id}")
+    accumulator << display_call_number + " | " + shelfkey + " | " + reverse_shelfkey
+  }
+end
 
 
 

@@ -410,6 +410,7 @@ DEPENDENCIES
   json
   kaminari
   launchy
+  marc
   mysql2
   net-ldap
   nokogiri
