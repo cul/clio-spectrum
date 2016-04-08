@@ -1,9 +1,17 @@
+
+require 'time'    # gives us ISO time formatting
+require 'marc'
+
 require File.join(Rails.root.to_s, 'config', 'initializers/aaa_load_app_config.rb')
 
 EXTRACT_SCP_SOURCE = APP_CONFIG['extract_scp_source']
 
-EXTRACTS =  ["full", "incremental", "cumulative", "subset", "law", "test"]
+EXTRACTS =  ["full", "incremental", "cumulative", "subset", "law", "test",
+             "auth_incremental", "auth_full"]
 
+BIB_SOLR_URL = Blacklight.connection_config[:url]
+BIB_SOLR = RSolr.connect(url: BIB_SOLR_URL)
+AUTHORITIES_SOLR = RSolr.connect(url: APP_CONFIG['authorities_solr_url'])
 
 
 def puts_and_log(msg, level = :info, params = {})

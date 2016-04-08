@@ -41,6 +41,16 @@ Traject does the translation map before the ruby code.
 to_field "lc_1letter_facet", extract_marc("990a", translation_map: 'callnumber_map') do |rec, acc, context|
   acc.map!{ |value| value.first }
 end
+
+fix:
+
+to_field "lc_1letter_facet", extract_marc("990a") do |record, accumulator|
+  accumulator.map!{ |value|
+    Traject::TranslationMap.new("callnumber_map")[value.first]
+     }
+end
+
+
 ============================
 
 
