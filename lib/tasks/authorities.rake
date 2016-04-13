@@ -29,6 +29,35 @@ namespace :authorities do
       end
     end
 
+    desc "rewrite marc files to marcxml"
+    task :to_xml do
+      extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
+      puts_and_log("Unknown extract: #{ENV['EXTRACT']}", :error) unless extract
+
+      extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.mrc")) if extract
+      files_to_read = (ENV["INGEST_FILE"] || extract_files).listify
+      puts "transforming #{files_to_read.size} files from MARC to MARCXML"
+
+      xmldir = File.join(Rails.root, "tmp/extracts/#{extract}/xml")
+      FileUtils.rm_rf(xmldir)
+      FileUtils.mkdir_p(xmldir)
+
+      files_to_read.each do |filename|
+        puts "- transforming #{filename}..."
+        xmlfile = File.join(xmldir, File.basename(filename, '.mrc') + ".xml")
+
+        reader = MARC::Reader.new(filename)
+        writer = MARC::XMLWriter.new(xmlfile)
+
+        for record in reader
+          writer.write(record)
+        end
+
+        writer.close()
+      end
+      puts "done."
+    end
+
     desc "ingest latest authority records"
     task :ingest => :environment do
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
@@ -75,7 +104,7 @@ namespace :authorities do
 
     task :by_extract, [:extract, :age] do |t, args|
       extract = args[:extract]
-      raise "usage:  authorities:add_by_extract[incremental]" unless extract
+      raise "usage:  authorities:add_to_bib:by_extract[incremental]" unless extract
 
       biblist = []
       extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.mrc"))
@@ -83,15 +112,11 @@ namespace :authorities do
         puts "file #{file}..."
         reader = MARC::Reader.new(file)
         for record in reader
-          biblist.push record['001']
+          biblist.push record['001'].value
         end
       end
 
-      puts "found #{biblist.size} bibs.  Adding authority variants..."
-      biblist.each do |bib|
-        Rake::Task["authorities:bib:add_variants"].execute bib: bib, age: args[:age]
-      end
-      puts "done."
+      add_variants_to_biblist(biblist, args[:age])
     end
 
     task :by_range, [:start, :stop, :age] do |t, args|
@@ -148,62 +173,8 @@ namespace :authorities do
     end
   end
 
-#   namespace :bib do
-# 
-#     desc "Add Authority variants to bib records"
-#     task :add_variants, [:bib, :age] do |t, args|
-#       bib = args[:bib]
-#       raise "bib:add_variants not passed :bib!" unless bib
-# 
-#       # default, trust authority lookups done within the last year
-#       age = (args[:age] || "365").to_i
-# 
-#       # Collect variants.  If we find any, we'll update the bib
-#       # subject_variants = []  # TODO
-#       author_variants = []
-# 
-#       # fetch the authorizied forms from the bib
-#       response = BIB_SOLR.get 'select', params: {q: "id:#{bib}", fl: 'author_facet,authorities_dt'}
-#       next unless response && response["response"]["docs"].size > 0
-# 
-#       authorities_dt = response["response"]["docs"].first['authorities_dt']
-#       authors = response["response"]["docs"].first['author_facet']
-#       # subjects = response["response"]["docs"].first[...]   # TODO
-# 
-#       # If the age of the record is less than threshold, don't update it
-#       next if authorities_dt && ((DateTime.now - Date.parse(authorities_dt)).to_i < age)
-# 
-#       Array(authors).each do |author|
-#         response = AUTHORITIE S_SOLR.get 'select', params: {q: "author_t:\"#{author}\"", fl: 'id,author_t,author_variant_t', rows: 1, qt: 'select'}
-#         next unless response &&
-#                     response['response']['docs'].size > 0 &&
-#                     response['response']['docs'].first['author_variant_t']
-#         author_variants = author_variants + response['response']['docs'].first['author_variant_t']
-#       end
-# 
-#       # Update the bib record with zero or more variants, 
-#       # and a timestamp for when we last added authorities to this record.
-#       # Atomic update bib record...
-#       params = { id: bib,
-#                  authorities_dt: {set: Time.now.utc.iso8601}
-#                  # author_variant_txt: {set: author_variants.uniq.join(' ') }
-#                  # subject_variant_txt: {set: subject_variants.uniq.join(' ') }  # TODO
-#                 }
-#       if author_variants.size > 0
-#         params[:author_variant_txt] = {set: author_variants.uniq.join(' ') }
-#       end
-# # puts "params:\n#{params}"
-#       response = BIB_SOLR.update data: Array.wrap(params).to_json,
-#               headers: { 'Content-Type' => 'application/json' }
-#     end
-# 
-#   end
-# 
 end
 
-
-
-# Common logic in methods
 
 
 # Given a list of bib IDs, 
@@ -211,6 +182,10 @@ end
 # Skip records which have been processed in the last AGE days
 def add_variants_to_biblist(biblist, age)
   raise "add_variants_to_biblist(biblist) not passed an array of bibs!" unless biblist and biblist.kind_of?(Array)
+
+  # write the biblist to an output file, for debugging...
+  File.open('/tmp/biblist.out', 'w') {|f| f.write biblist.join("\n")}
+
   if age
     raise "'age' needs to be integer, zero or more" unless age.match /^\d+$/
     age = age.to_i
@@ -221,8 +196,11 @@ def add_variants_to_biblist(biblist, age)
   # so that our progress dots print right away
   $stdout.sync = true
 
-  puts "Adding author/subject variants to #{biblist.size} bibs"
+  puts "Adding author/subject variants to #{biblist.size - 1} bibs"
   puts "(skipping records if last lookup was within #{age} days)"
+
+  # Used throughout to gather overall stats
+  @stats = {}
 
   counter = 0
   statuses = {}
@@ -256,6 +234,9 @@ def add_variants_to_biblist(biblist, age)
   statuses.each { |k,v|
     puts "#{k}: #{v} records"
   }
+  @stats.each { |k,v|
+    puts "#  #{k}: #{v.round(2)}"
+  }
 end
 
 def add_variants_to_bib(bib, age = 365)
@@ -267,8 +248,23 @@ def add_variants_to_bib(bib, age = 365)
   subject_variants = []
 
   # fetch the authorizied forms from the bib
-  params = {q: "id:#{bib}", fl: 'author_facet,subject_topic_facet,authorities_dt'}
+  params = {q: "id:#{bib}", facet: 'off',
+      fl: 'author_facet,subject_topic_facet,authorities_dt'
+  }
+
+  # timing metrics...
+  startTime = Time.now
+
   response = BIB_SOLR.get 'select', params: params
+
+  # timing metrics...
+  elapsed = Time.now - startTime
+  key = "bib get total time (sec)"
+  @stats[key] = (@stats[key] || 0) + elapsed.round(2)
+  key = "bib get count"
+  @stats[key] = (@stats[key] || 0) + 1
+
+
   return 'no such bib' unless response && response["response"]["docs"].size > 0
 
   authorities_dt = response["response"]["docs"].first['authorities_dt']
@@ -298,8 +294,20 @@ def add_variants_to_bib(bib, age = 365)
     params[:subject_variant_txt] = {set: subject_variants.flatten.uniq.join(' ') }
   end
   # puts "DEBUG  params:\n#{params}"
+
+  # timing metrics...
+  startTime = Time.now
+
   response = BIB_SOLR.update data: Array.wrap(params).to_json,
           headers: { 'Content-Type' => 'application/json' }
+
+  # timing metrics...
+  elapsed = Time.now - startTime
+  key = "bib updates total time (sec)"
+  @stats[key] = (@stats[key] || 0) + elapsed.round(2)
+  key = "bib updates count"
+  @stats[key] = (@stats[key] || 0) + 1
+
   return "success"
 end
 
@@ -321,9 +329,23 @@ def lookup_variants(authorized_form, authorized_field_name, variant_field_name)
   safe_authorized_form = authorized_form.gsub(/"/, '\"')
   params = { qt: 'select', rows: 1,
       q: "#{authorized_field_name}:\"#{safe_authorized_form}\"",
-      fl: "id,#{authorized_field_name},#{variant_field_name}" }
+      fl: "id,#{authorized_field_name},#{variant_field_name}",
+      facet: 'off'
+  }
   # puts "DEBUG: params=#{params}"
+
+  # timing metrics...
+  startTime = Time.now
+
   response = AUTHORITIES_SOLR.get 'select', params: params
+
+  # timing metrics...
+  elapsed = Time.now - startTime
+  key = "#{authorized_field_name} lookups total time (sec)"
+  @stats[key] = (@stats[key] || 0) + elapsed.round(2)
+  key = "#{authorized_field_name} lookups count"
+  @stats[key] = (@stats[key] || 0) + 1
+
   # puts "DEBUG: response=#{response}"
   return unless response &&
               response['response']['docs'].size > 0 &&

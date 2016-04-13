@@ -5,7 +5,7 @@ namespace :bibliographic do
 
   namespace :extract do
 
-    desc "download the latest extract from EXTRACT_SCP_SOURCE"
+    desc "download the latest bibliographic extract from EXTRACT_SCP_SOURCE"
     task :download  do
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
       puts_and_log("Extract not specified", :error, :alarm => true) unless extract
@@ -34,7 +34,7 @@ namespace :bibliographic do
     end
 
 
-    desc "ingest latest authority records"
+    desc "ingest latest bibliographic records"
     task :ingest => :environment do
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
       extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.mrc")) if extract

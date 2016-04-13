@@ -9,6 +9,10 @@ extend Traject::Macros::MarcFormats
 
 Marc21 = Traject::Macros::Marc21 # shortcut
 
+# Any fields with any of these subfields should be ignored for 
+# our purposes.  (Subdivisions, Title, etc.)
+disqualifying_subfields = ['k', 't', 'v', 'x', 'y', 'z']
+
 # Don't process records we're not interested in.
 # For now only:
 # - Name Authority records, but not qualified Name records
@@ -18,9 +22,9 @@ each_record do |record, context|
   # # abort after a certain number of records
   # raise "EARLY ABORT FOR TESTING" if context.position > 1000
 
-  # interesting_fields = [ '100', '110', '111', '150']
-  interesting_fields = ['150']
-  disqualifying_subfields = ['k', 't', 'v', 'x', 'y', 'z']
+  interesting_fields = [ '100', '110', '111', '150']
+  # for rapid testing of Subjects, only do Subject variants...
+  # interesting_fields = ['150']
 
   # assume we're going to skip this record, unless we find something interesting.
   skip = true
@@ -51,54 +55,17 @@ each_record do |record, context|
     end
   }
 
-# skip = false if record['150'].present?
 
   if skip
     note = name.nil? ? '(no authorized name field)' : "(\"#{name}\")"
     context.skip!("skipping auth id #{record['001'].value} #{note}")
     next
   end
-  # 
-  # # But wait - also skip records that have no variants
-  # see_also = 
-  # unless record['400'].present? or record['500'].present?
-  #   context.skip!("skipping, no variants (auth id #{record['001'].value})")
-  #   next
-  # end
-
-
-  # # Skip records that aren't Name Authority records
-  # unless record['100'].present?
-  #   context.skip!("skipping non-name record (auth id #{record['001'].value})")
-  #   next
-  # end
-  # 
-  # unless record['100']['a'].present? or record['110']['a'].present? or record['111']['a'].present? or record['150']['a'].present?
-  #   context.skip!("skipping, no auth heading found (auth id #{record['001'].value})")
-  #   next
-  # end
-
-  # # Skip Name/Title Authority records
-  # if record['100']['t'].present? or record['100']['k'].present? or
-  #    record['110']['t'].present? or record['110']['k'].present? or
-  #    record['111']['t'].present? or record['111']['k'].present?
-  #   context.skip!("skipping name/title record (auth id #{record['001'].value})")
-  #   next
-  # end
-
-# TODO - Subject Authorities
-# including 100 fields with 008[14-15] set to "a" for appropriate use
-# exclude based on all kinds of qualifying subfields:
-# $v - Form subdivision (R)
-# $x - General subdivision (R)
-# $y - Chronological subdivision (R)
-# $z - Geographic subdivision (R)
-# docs:  https://www.loc.gov/marc/authority/ad100.html
-
 
 end
 
-# raise
+
+
 to_field "id", extract_marc("001", :first => true)
 
 to_field "marc_display", serialized_marc(:format => "xml")
@@ -111,6 +78,20 @@ to_field "author_variant_t", extract_marc("400abcdq:410abcd:411acde:500abcdq:510
 
 to_field "subject_t", extract_marc("150a", trim_punctuation: false)
 
-to_field "subject_variant_t", extract_marc("450a:550a", trim_punctuation: false)
+# to_field "subject_variant_t", extract_marc("450a:550a", trim_punctuation: false)
+to_field "subject_variant_t" do |record, accumulator, context|
+  record.fields(['450','550']).each do |field|
+    next unless field['a']
+
+    # Check all the subfields of this field...
+    all_subfields = field.subfields.map{ |subfield| subfield.code }
+    # ... against the "disqualifying" list.  (intersection must be empty)
+    next unless (all_subfields & disqualifying_subfields).empty?
+
+    # ok, there's a "a", and no bad subfields, so yes, we want this variant...
+    accumulator << field['a']
+  end
+end
+
 
 
