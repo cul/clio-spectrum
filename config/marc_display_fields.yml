@@ -120,6 +120,28 @@ continues_in_part:
         ind2: '1'
         display: abcdghkmnst
         search: t
+creator:
+    -   tag: 100
+        display: abcdefgjklnpqtu
+        search: abcdq
+    -   tag: 110
+        display: abcdefgjklnpqtu
+        search: abcdefgjklnpqtu
+    -   tag: 700
+        ind1: :all
+        ind2: ' 013'
+        display: abcdefghjklmnopqrstu
+        search: abcdq
+    -   tag: 710
+        ind1: :all
+        ind2: ' 013'
+        display: abcdefghklmnoprstu
+        search: abcdefghklmnoprstu
+credit_line:
+    -   tag: 541
+        ind1: '1'
+        ind2: :all
+        display: abcdefhno3
 credits:
     -   tag: 508
         display: a
@@ -154,6 +176,9 @@ frequency:
 in:
     -   tag: 773
         display: abdghkmnpqrstuxyz
+inscription:
+    -   tag: 562
+        display: abcde3
 issues_published:
     -   tag: 362
         display: a

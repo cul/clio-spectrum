@@ -142,7 +142,8 @@ module DisplayHelper
 
     'Video' => 'video',
     'Map/Globe' => 'map_globe',
-    'Book' => 'book'
+    'Book' => 'book',
+    'Art Work (Original)' => 'art_work'
   }
 
   SUMMON_FORMAT_LIST = {
@@ -150,7 +151,7 @@ module DisplayHelper
     'Journal Article' => 'article'
   }
 
-  FORMAT_RANKINGS = %w(ac database map_globe manuscript_archive video music_recording music serial book clio ebooks article articles summon lweb)
+  FORMAT_RANKINGS = %w(ac database art_work map_globe manuscript_archive video music_recording music serial book clio ebooks article articles summon lweb)
 
   def format_online_results(link_hash)
     non_circ_img = image_tag('icons/noncirc.png', class: 'availability')
