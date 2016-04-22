@@ -165,7 +165,7 @@ namespace :authorities do
       puts "found #{hits} bibs."
       puts "(** cutoff at #{cutoff} bibs)" if hits >= cutoff
       puts "No hits - giving up." if hits == 0
-      next if hits <= 1
+      next if hits < 1
 
       biblist = response['response']['docs'].map { |doc| doc['id'] }
       add_variants_to_biblist(biblist, args[:age])
@@ -177,6 +177,133 @@ end
 
 
 
+#############################################
+####   Batch processing approach below   ####
+# Gets very messy fast - we'll come back to this
+# work if we need to.
+#############################################
+
+# # Given a list of bib IDs, 
+# # lookup Authority variants for Authors, Subject Topics
+# # Skip records which have been processed in the last AGE days
+# def add_variants_to_biblist_by_batch(biblist, age)
+# 
+#   save_biblist_for_debug(biblist)
+# 
+#   # Reduce # of Solr API calls by working with batches
+#   batch_size = 10
+#   biblist.in_groups_of(batch_size) do |batch|
+# 
+#     # Query the bibliographic Solr for authorized forms
+#     authorized_forms = get_authorized_forms_for_batch(batch, age)
+# 
+#     # Query the authorities Solr for variant forms
+#     author_variants = lookup_author_variants_for_batch(authorized_forms)
+#     subject_variants = lookup_subject_variants_for_batch(authorized_forms)
+# 
+#     # Update the bibliographic Solr with variant forms
+#     batch_update(authorized_forms, author_variants, subject_variants)
+# 
+#   end
+# 
+# end
+# 
+# 
+# # input array of bib id integers, string days-since-last-lookup
+# #   batch:   [101, 210, 363, nil]
+# #   age:     "7"
+# # return array of id/authorized-form 
+# #   [ { id: 101, author_facet: 'Smith, Adam' }, 
+# #     { id: 210, author_facet: 'Doe, John', subject_topic_facet: "Aliases" } ]
+# def get_authorized_forms_for_batch(batch, age)
+#   authorized_forms = []
+# 
+#   # [101, 210, 363, nil] ==> "id:101 OR id:210 OR id:363"
+#   q = batch.select{|bib| bib.present?}.map{|bib| "id:#{bib}" }.join(" OR ")
+# 
+#   # fetch the authorizied forms from the bib
+#   params = {q: q, facet: 'off', fl: 'author_facet,subject_topic_facet,authorities_dt'}
+# 
+#   response = BIB_SOLR.get 'select', params: params
+# 
+#   age = cleanup_age_param(age)
+#   response["response"]["docs"].each { |doc|
+#     # Only select docs in need of lookup - freshly looked up record are skipped
+#     if doc['authorities_dt'] && ((DateTime.now - Date.parse(doc['authorities_dt'])).to_i < age)
+#       puts "skipping bib record #{doc['id']} - looked up recently"
+#       next
+#     end
+# 
+#     # skip 
+#     if doc[:author_facet].nil? and doc[:subject_topic_facet].nil?
+#       puts "skipping bib record #{doc['id']} - no author/subject values"
+#       next
+#     end
+# 
+#     authorized_forms.push( doc.slice(:id, :author_facet, :subject_topic_facet) )
+#   }
+# 
+# end
+# 
+# # input an array of authorized forms
+# #   [ { id: 101, author_facet: 'Smith, Adam' }, 
+# #     { id: 210, author_facet: 'Doe, John', subject_topic_facet: "Aliases" } ]
+# # output a hash of authorized-to-variant forms
+# #  { 'Smith, Adam' => ['Smitty', 'Adamicus'],
+# #    'Doe, John',  => ['Mr. Nobody', 'anonymous', 'persona incognito'] }
+# def lookup_author_variants_for_batch(authorized_forms)
+#   params  = { bib_field: 'author_facet', auth_field: 'author_t', variant_field: 'author_variant_t'}
+#   lookup_variants_for_batch(authorized_forms, params)
+# end
+# 
+# 
+# def lookup_variants_for_batch(authorized_forms, params)
+#   variants = {}
+# 
+#   # transform bibliographic docs into a query string
+#   # output string:  "'Smith, Adam' OR 'Doe, John'"
+#   q = authorized_forms.select { |doc|
+#     doc[ params[:bib_field] ].present?
+#   }.map { |doc|
+#     doc[ params[:bib_field] ].gsub(/"/, '\"')
+#   }.join (" OR ")
+# 
+#   fl = "id,#{params[:auth_field]},#{params[:variant_field]}"
+# 
+#   variant_batch = queryasdfasdf_variants_for_batch(q, fl)
+# 
+#   # transform authorities docs into a form/variant-list hash
+#   variant_batch.each { |doc|
+#     next unless doc && doc[ params[:auth_field] ] && doc[ params[:variant_field] ]
+#     author_variants[ doc[ params[:auth_field] ] ].merge doc[ params[:variant_field] ]
+#   }
+# 
+#   return variants
+# end
+# 
+# 
+# # write the biblist to an output file, for debugging...
+# def save_biblist_for_debug(biblist)
+#   File.open('/tmp/biblist.out', 'w') { |f|
+#     biblist.each { |bib| f.puts(bib) }
+#   }
+# end
+# 
+# def cleanup_age_param(age)
+#   # if unset, return 365 (one  year)
+#   return 365 unless age
+#   # if set, convert to integer.  Raise if unable to convert.
+#   raise "'age' needs to be integer, zero or more" unless age.match /^\d+$/
+#   return age.to_i
+# end
+
+
+##################################################
+####   One-By-One processing approach below   ####
+##################################################
+
+
+
 # Given a list of bib IDs, 
 # lookup Authority variants for Authors, Subject Topics
 # Skip records which have been processed in the last AGE days
@@ -184,7 +311,9 @@ def add_variants_to_biblist(biblist, age)
   raise "add_variants_to_biblist(biblist) not passed an array of bibs!" unless biblist and biblist.kind_of?(Array)
 
   # write the biblist to an output file, for debugging...
-  File.open('/tmp/biblist.out', 'w') {|f| f.write biblist.join("\n")}
+  File.open('/tmp/biblist.out', 'w') { |f|
+    biblist.each { |bib| f.puts(bib) }
+  }
 
   if age
     raise "'age' needs to be integer, zero or more" unless age.match /^\d+$/
@@ -196,7 +325,7 @@ def add_variants_to_biblist(biblist, age)
   # so that our progress dots print right away
   $stdout.sync = true
 
-  puts "Adding author/subject variants to #{biblist.size - 1} bibs"
+  puts "Adding author/subject variants to #{biblist.size} bibs"
   puts "(skipping records if last lookup was within #{age} days)"
 
   # Used throughout to gather overall stats
@@ -298,6 +427,7 @@ def add_variants_to_bib(bib, age = 365)
   # timing metrics...
   startTime = Time.now
 
+  # Atomic update
   response = BIB_SOLR.update data: Array.wrap(params).to_json,
           headers: { 'Content-Type' => 'application/json' }
 

@@ -7,7 +7,7 @@ require File.join(Rails.root.to_s, 'config', 'initializers/aaa_load_app_config.r
 EXTRACT_SCP_SOURCE = APP_CONFIG['extract_scp_source']
 
 EXTRACTS =  ["full", "incremental", "cumulative", "subset", "law", "test",
-             "auth_incremental", "auth_full"]
+             "auth_incremental", "auth_full", "auth_subset"]
 
 BIB_SOLR_URL = Blacklight.connection_config[:url]
 BIB_SOLR = RSolr.connect(url: BIB_SOLR_URL)
