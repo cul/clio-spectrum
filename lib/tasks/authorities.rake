@@ -71,7 +71,7 @@ namespace :authorities do
 
       # explicity set the settings
       indexer.settings do
-         provide "solr.url", APP_CONFIG['authorities_solr']
+         provide "solr.url", APP_CONFIG['authorities_solr_url']
          provide 'debug_ascii_progress', true
          provide "log.level", 'debug'
       end
