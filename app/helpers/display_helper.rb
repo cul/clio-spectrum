@@ -65,7 +65,8 @@ module DisplayHelper
     'Computer Program' => 'computer-file',
     'Loose-leaf' => 'journal',
     'US Government Document' => 'govdoc2',
-    'NY State/City Government Document' => 'govdoc2'
+    'NY State/City Government Document' => 'govdoc2',
+    'Art Work (Original)' => 'art-work'
   }
 
   def formats_with_icons(document, format_field = 'format')
