@@ -22,9 +22,9 @@ each_record do |record, context|
   # # abort after a certain number of records
   # raise "EARLY ABORT FOR TESTING" if context.position > 1000
 
-  # interesting_fields = [ '100', '110', '111', '150']
+  interesting_fields = [ '100', '110', '111', '150']
   # for faster testing of subset...
-  interesting_fields = ['100']
+  # interesting_fields = ['100']
 
   # assume we're going to skip this record, unless we find something interesting.
   skip = true
