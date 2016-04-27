@@ -12,6 +12,9 @@ class Location < ActiveRecord::Base
   #   library ? library.is_open?(check_at) : false
   # end
 
+  # Given a string location, e.g., "Butler Mezzanine",
+  # query the Location table for a partial match (e.g., "Butler%"),
+  # return the Location object
   def self.match_location_text(location = nil)
     # move this out to the caller
     # # location comes from URL, and so will be escaped (e.g., spaces will be '+')

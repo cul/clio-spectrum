@@ -184,11 +184,11 @@ http_interactions:
       - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
     body:
       encoding: UTF-8
-      string: "{\"6201975\":{\"condensed_holdings_full\":[{\"location_name\":\"Butler
-        Stacks (Enter at the Butler Circulation Desk)\",\"location_note\":\"\",\"call_number\":\"E902
-        .G67 2007\",\"status\":\"available\",\"holding_id\":[\"7900669\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"doc_delivery\"]},{\"location_name\":\"Lehman\",\"location_note\":\"\",\"call_number\":\"E902
-        .G67 2007\",\"status\":\"available\",\"holding_id\":[\"8043304\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"doc_delivery\"]},{\"location_name\":\"Milstein
-        [Butler]\",\"location_note\":\"\",\"call_number\":\"E902 .G67 2007\",\"status\":\"available\",\"holding_id\":[\"8115214\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"doc_delivery\"]}]}}"
+      string: '{"6201975":{"condensed_holdings_full":[{"location_name":"Butler Stacks
+        (Enter at the Butler Circulation Desk)","location_note":"","call_number":"E902
+        .G67 2007","status":"available","holding_id":["7900669"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]},{"location_name":"Lehman","location_note":"","call_number":"E902
+        .G67 2007","status":"available","holding_id":["8043304"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]},{"location_name":"Milstein
+        [Butler]","location_note":"","call_number":"E902 .G67 2007","status":"available","holding_id":["8115214"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]}]}}'
     http_version: 
   recorded_at: Tue, 22 Sep 2015 19:33:04 GMT
 - request:
@@ -498,11 +498,37 @@ http_interactions:
       - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
     body:
       encoding: UTF-8
-      string: "{\"6871895\":{\"condensed_holdings_full\":[{\"location_name\":\"Butler
-        Stacks (Enter at the Butler Circulation Desk)\",\"location_note\":\"\",\"call_number\":\"DS326
-        .P4745 2009\",\"status\":\"available\",\"holding_id\":[\"9902579\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"doc_delivery\"]},{\"location_name\":\"Lehman\",\"location_note\":\"\",\"call_number\":\"DS326
-        .P4745 2009\",\"status\":\"available\",\"holding_id\":[\"10336040\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"doc_delivery\"]},{\"location_name\":\"Milstein
-        [Butler]\",\"location_note\":\"\",\"call_number\":\"DS326 .P4745 2009\",\"status\":\"available\",\"holding_id\":[\"9336454\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"doc_delivery\"]}]}}"
+      string: '{"6871895":{"condensed_holdings_full":[{"location_name":"Butler Stacks
+        (Enter at the Butler Circulation Desk)","location_note":"","call_number":"DS326
+        .P4745 2009","status":"available","holding_id":["9902579"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]},{"location_name":"Lehman","location_note":"","call_number":"DS326
+        .P4745 2009","status":"available","holding_id":["10336040"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]},{"location_name":"Milstein
+        [Butler]","location_note":"","call_number":"DS326 .P4745 2009","status":"available","holding_id":["9336454"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]}]}}'
     http_version: 
   recorded_at: Tue, 22 Sep 2015 19:33:08 GMT
-recorded_with: VCR 2.9.3
+- request:
+    method: get
+    uri: "<solr_config>/select?id=10104738&qt=document&wt=ruby"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 26 Apr 2016 20:58:40 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'10104738','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+e--+0302+60000000+m7000000+c3700000+002013+10104738','clm+ce-+0000+00000000+mo830000+10104738'],'location_call_number_id_display'=>['Rare Book, Butler 6th Fl. East (Non-Circulating)|DELIM|13180928','University Archives, Butler 6th Fl. East (Non-Circulating) >> CE Mo83|DELIM|13945799'],'acq_dt'=>'2014-08-08T00:00:00Z','item_display'=>['E302.6.M7 C37 2013 | loc+e--+0302+60000000+m7000000+c3700000+002013+10104738 | ebn~l~~~zwzx~tzzzzzzz~dszzzzzz~nwszzzzz~zzxzyw~yzyzvswr','CE Mo83 | clm+ce-+0000+00000000+mo830000+10104738 | ned~nl~~zzzz~zzzzzzzz~dbrwzzzz~yzyzvswr~~~~~~~~~~~'],'title_display'=>['The young Gouverneur Morris : two essays'],'clio_id_display'=>'10104738','subject_topic_facet'=>['Morris, Gouverneur, 1752-1816','United States','Signers','Statesmen','History','Politics and government'],'pub_place_display'=>['Portola Valley, Calif'],'format'=>['Book'],'oclc_display'=>['ocn830538751','830538751'],'title_first_facet'=>['Y'],'full_publisher_display'=>['Portola Valley, Calif. : Galloway Hills Press, c2013.'],'pub_date_sort'=>2013,'pub_year_display'=>['c2013'],'id'=>'10104738','reverse_shelfkey'=>['ebn~l~~~zwzx~tzzzzzzz~dszzzzzz~nwszzzzz~zzxzyw~yzyzvswr','ned~nl~~zzzz~zzzzzzzz~dbrwzzzz~yzyzvswr~~~~~~~~~~~'],'subject_geo_facet'=>['United States','New York (State)'],'call_number_display'=>['CE Mo83'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01541cam a2200385Ma 4500</leader><controlfield tag="001">10104738</controlfield><controlfield tag="005">20140922151551.0</controlfield><controlfield tag="008">121217s2013    caua     b    000 0 eng d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn830538751</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)830538751</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)10104738</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">NHi</subfield><subfield code="b">eng</subfield><subfield code="c">N15</subfield><subfield code="d">OCLCO</subfield></datafield><datafield tag="050" ind1="1" ind2="4"><subfield code="a">E302.6.M7</subfield><subfield code="b">C37 2013</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Carnochan, W. B.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The young Gouverneur Morris :</subfield><subfield code="b">two essays.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Portola Valley, Calif. :</subfield><subfield code="b">Galloway Hills Press,</subfield><subfield code="c">c2013.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">[10], 44 p., [2] leaves of plates :</subfield><subfield code="b">ill. ;</subfield><subfield code="c">23 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Morris, Gouverneur,</subfield><subfield code="d">1752-1816.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Statesmen</subfield><subfield code="z">United States</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="610" ind1="1" ind2="0"><subfield code="a">United States.</subfield><subfield code="t">Constitution</subfield><subfield code="x">Signers</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">History</subfield><subfield code="y">Revolution, 1775-1783</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">New York (State)</subfield><subfield code="x">History</subfield><subfield code="y">Revolution, 1775-1783</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">Politics and government</subfield><subfield code="y">1775-1783.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">Politics and government</subfield><subfield code="y">1783-1789.</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20140808</subfield><subfield code="b">c</subfield><subfield code="c">cep2</subfield><subfield code="d">OSMC</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">E</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">E302.6.M7 C37 2013</subfield><subfield code="b">loc+E--+0302+60000000+M7000000+C3700000+002013</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">CE Mo83</subfield><subfield code="b">clm+CE-+0000+00000000+MO830000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Rare Book</subfield><subfield code="b">Rare Book, Butler 6th Fl. East (Non-Circulating)|DELIM|13180928</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Other</subfield><subfield code="b">University Archives, Butler 6th Fl. East (Non-Circulating) &gt;&gt; CE Mo83|DELIM|13945799</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2014-08-08T00:00:00.000Z</subfield></datafield></record></collection>','author_display'=>['Carnochan, W. B.'],'pub_name_display'=>['Galloway Hills Press'],'source_display'=>['catalog'],'material_type_display'=>['[10], 44 p., [2] leaves of plates'],'language_facet'=>['English'],'_version_'=>1522798412189138944,'timestamp'=>'2016-01-08T11:48:54.768Z'}]}}
+    http_version: 
+  recorded_at: Tue, 26 Apr 2016 20:58:40 GMT
+recorded_with: VCR 3.0.1
