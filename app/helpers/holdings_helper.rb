@@ -397,7 +397,7 @@ module HoldingsHelper
     if temp_location.is_a? String
       # hard-coded reliance on exact text of voyager_api
       what, shelved_in, location_name = temp_location.match(/(.*)(Shelved in)(.*)/i).captures
-      label_text = "#{what} shelved in:"
+      label_text = "#{what}shelved in:"
     end
 
     if temp_location.is_a? Hash
