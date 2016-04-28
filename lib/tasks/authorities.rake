@@ -85,9 +85,6 @@ namespace :authorities do
           indexer.process(file)
         end
       end
-
-      BIB_SOLR.commit  # Slow......
-
     end
 
     desc "download and ingest latest authority files"
@@ -123,15 +120,7 @@ namespace :authorities do
       raise "usage:  authorities:add_by_range[10000,11000]" unless args[:start] and args[:stop]
       biblist = ( args[:start] .. args[:stop] ).to_a
 
-      # puts "DEBUG biblist=#{biblist.inspect}"
-      # biblist.each do |bib|
-      #   Rake::Task["authorities:bib:add_variants"].execute bib: bib, age: args[:age]
-      # end
       add_variants_to_biblist(biblist, args[:age])
-
-      # # Do we need this?
-      # BIB_SOLR.commit  # Slow......
-
     end
 
     task :by_bibfile, [:bib_file, :age] do |t, args|
@@ -140,14 +129,6 @@ namespace :authorities do
       biblist = File.open(bibfile).readlines.map(&:strip)
 
       add_variants_to_biblist(biblist, args[:age])
-      # 
-      # biblist.each do |bib|
-      #   Rake::Task["authorities:bib:add_variants"].execute bib: bib, age: args[:age]
-      # end
-      # 
-      # # Do we need this?
-      # BIB_SOLR.commit  # Slow......
-
     end
 
     desc "Get list of bib ids by running query against bib solr"
@@ -358,7 +339,11 @@ def add_variants_to_biblist(biblist, age)
   end
 
   # A final commit after the full biblist is processed
-  BIB_SOLR.commit  # Slow......
+  begin
+    BIB_SOLR.commit  # Slow......
+  rescue => ex
+    puts "Exception commiting to bibliographic Solr: #{ex.message}"
+  end
 
   statuses.each { |k,v|
     puts "#{k}: #{v} records"
