@@ -65,7 +65,8 @@ module DisplayHelper
     'Computer Program' => 'computer-file',
     'Loose-leaf' => 'journal',
     'US Government Document' => 'govdoc2',
-    'NY State/City Government Document' => 'govdoc2'
+    'NY State/City Government Document' => 'govdoc2',
+    'Art Work (Original)' => 'art-work'
   }
 
   def formats_with_icons(document, format_field = 'format')
@@ -142,7 +143,8 @@ module DisplayHelper
 
     'Video' => 'video',
     'Map/Globe' => 'map_globe',
-    'Book' => 'book'
+    'Book' => 'book',
+    'Art Work (Original)' => 'art_work'
   }
 
   SUMMON_FORMAT_LIST = {
@@ -150,7 +152,7 @@ module DisplayHelper
     'Journal Article' => 'article'
   }
 
-  FORMAT_RANKINGS = %w(ac database map_globe manuscript_archive video music_recording music serial book clio ebooks article articles summon lweb)
+  FORMAT_RANKINGS = %w(ac database art_work map_globe manuscript_archive video music_recording music serial book clio ebooks article articles summon lweb)
 
   def format_online_results(link_hash)
     non_circ_img = image_tag('icons/noncirc.png', class: 'availability')
@@ -538,7 +540,10 @@ module DisplayHelper
         fields.push("rft.au=#{ CGI.escape(author) }")
       end
     else
+      # NEXT-1264 - Zotero shows "unknown" author for edited works
+      # (contradicts NEXT-606, see discussion in ticket)
       fields.push("rft.au=#{ CGI.escape('unknown') }")
+      # fields.push("rft.au=")
     end
 
     document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|

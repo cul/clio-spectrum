@@ -2628,4 +2628,77 @@ http_interactions:
         ZXIiOiB7fX19
     http_version: 
   recorded_at: Mon, 22 Feb 2016 18:55:23 GMT
+- request:
+    method: get
+    uri: http://search.columbia.edu/search?as_dt=i&client=cul_libraryweb&filter=0&ie=UTF-8&num=10&oe=UTF-8&output=xml&q=whitch%20engish&site=CUL_LibraryWeb&sitesearch=&sort=date:D:L:dl&start=0&x=0&y=0
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.1, ruby 2.2.1 (2015-02-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Mon, 28 Mar 2016 14:47:07 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 28 Mar 2016 14:47:08 GMT
+      Server:
+      - Google Search Appliance
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/xml; charset=UTF-8
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Length:
+      - '8138'
+      X-Cnection:
+      - close
+      X-Pad:
+      - avoid browser bug
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <!DOCTYPE GSP SYSTEM "google.dtd">
+        <GSP VER="3.2">
+        <TM>0.063729</TM><Q>whitch engish</Q>
+        <PARAM name="as_dt" value="i" original_value="i"/>
+        <PARAM name="client" value="cul_libraryweb" original_value="cul_libraryweb"/>
+        <PARAM name="filter" value="0" original_value="0"/>
+        <PARAM name="ie" value="UTF-8" original_value="UTF-8"/>
+        <PARAM name="oe" value="UTF-8" original_value="UTF-8"/>
+        <PARAM name="output" value="xml" original_value="xml"/>
+        <PARAM name="site" value="CUL_LibraryWeb" original_value="CUL_LibraryWeb"/>
+        <PARAM name="sort" value="date:D:L:dl" original_value="date:D:L:dl"/>
+        <PARAM name="x" value="0" original_value="0"/>
+        <PARAM name="y" value="0" original_value="0"/>
+        <PARAM name="sitesearch" value="" original_value=""/>
+        <PARAM name="num" value="10" original_value="10"/>
+        <PARAM name="start" value="0" original_value="0"/>
+        <PARAM name="q" value="whitch engish" original_value="whitch+engish"/>
+        <PARAM name="ulang" value="" original_value=""/>
+        <PARAM name="ip" value="209.6.149.207" original_value="209.6.149.207"/>
+        <PARAM name="access" value="p" original_value="p"/>
+        <PARAM name="entqr" value="3" original_value="3"/>
+        <PARAM name="entqrm" value="0" original_value="0"/>
+        <PARAM name="wc" value="200" original_value="200"/>
+        <PARAM name="wc_mc" value="1" original_value="1"/>
+        <Spelling><Suggestion q="which english">&lt;b&gt;&lt;i&gt;which english&lt;/i&gt;&lt;/b&gt;</Suggestion></Spelling><RES SN="1" EN="10">
+        <M>29</M>
+        <NB><NU>/search?q=whitch+engish&amp;site=CUL_LibraryWeb&amp;lr=&amp;ie=UTF-8&amp;oe=UTF-8&amp;output=xml&amp;client=cul_libraryweb&amp;access=p&amp;sort=date:D:L:dl&amp;start=10&amp;sa=N&amp;filter=0</NU>
+        </NB>
+
+        <R N="1"><U>http://library.columbia.edu/subject-guides/africa/resources/videos.html</U><UE>http://library.columbia.edu/subject-guides/africa/resources/videos.html</UE><T>A Guide to Videos in African Studies | Columbia University &lt;b&gt;...&lt;/b&gt;</T><RK>6</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; About 139 minutes in length. In &lt;b&gt;English&lt;/b&gt; and Farsi with &lt;b&gt;English&lt;/b&gt; subtitles. &lt;b&gt;...&lt;/b&gt;&lt;br&gt; In Chad Arabic with optional &lt;b&gt;English&lt;/b&gt; subtitles. &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="613k" CID="It7xgGvTgkAJ" ENC="UTF-8"/></HAS></R><R N="2"><U>https://blogs.cul.columbia.edu/makino/2015/12/23/the-presence-of-japanese-manga-anime-and-animated-films-overseas/</U><UE>https://blogs.cul.columbia.edu/makino/2015/12/23/the-presence-of-japanese-manga-anime-and-animated-films-overseas/</UE><T>The Presence of Japanese Manga, Anime, and Animated &lt;b&gt;...&lt;/b&gt;</T><RK>4</RK><CRAWLDATE>28 Mar 2016</CRAWLDATE><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; box of unprocessed materials, the image of a young &lt;b&gt;witch&lt;/b&gt; and tiny &lt;b&gt;...&lt;/b&gt; Walt Disney&lt;br&gt; Company, and Walt Disney Pictures recorded an &lt;b&gt;English&lt;/b&gt; version in &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="50k" CID="zdv5KlSYG0oJ" ENC="UTF-8"/></HAS></R><R N="3"><U>http://library.columbia.edu/locations/rbml/exhibitions/2015-2016/2010-2011.html</U><UE>http://library.columbia.edu/locations/rbml/exhibitions/2015-2016/2010-2011.html</UE><T>2010-2011 Book History Colloquium at Columbia University &lt;b&gt;...&lt;/b&gt;</T><RK>3</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; C. Annenberg Professor in the Humanities and Professor of &lt;b&gt;English&lt;/b&gt; and of &lt;b&gt;...&lt;/b&gt;&lt;br&gt; “&lt;b&gt;Witch&lt;/b&gt;-Hunters in the Book-Shops: How Curators and Scholars Built the &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="50k" CID="Rv237jyHzEsJ" ENC="UTF-8"/></HAS></R><R N="4"><U>https://blogs.cul.columbia.edu/makino/category/film-program/</U><UE>https://blogs.cul.columbia.edu/makino/category/film-program/</UE><T>film program | Makino Collection Blog</T><RK>3</RK><CRAWLDATE>28 Mar 2016</CRAWLDATE><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; box of unprocessed materials, the image of a young &lt;b&gt;witch&lt;/b&gt; and tiny &lt;b&gt;...&lt;/b&gt; Walt Disney&lt;br&gt; Company, and Walt Disney Pictures recorded an &lt;b&gt;English&lt;/b&gt; version in &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="126k" CID="KX05P1e1mewJ" ENC="UTF-8"/></HAS></R><R N="5"><U>https://blogs.cul.columbia.edu/makino/category/film-flier/</U><UE>https://blogs.cul.columbia.edu/makino/category/film-flier/</UE><T>film flier | Makino Collection Blog</T><RK>3</RK><CRAWLDATE>28 Mar 2016</CRAWLDATE><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; box of unprocessed materials, the image of a young &lt;b&gt;witch&lt;/b&gt; and tiny &lt;b&gt;...&lt;/b&gt; Walt Disney&lt;br&gt; Company, and Walt Disney Pictures recorded an &lt;b&gt;English&lt;/b&gt; version in &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="130k" CID="J_D890_x78QJ" ENC="UTF-8"/></HAS></R><R N="6"><U>https://blogs.cul.columbia.edu/makino/tag/anime/</U><UE>https://blogs.cul.columbia.edu/makino/tag/anime/</UE><T>anime | Makino Collection Blog</T><RK>3</RK><CRAWLDATE>28 Mar 2016</CRAWLDATE><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; box of unprocessed materials, the image of a young &lt;b&gt;witch&lt;/b&gt; and tiny &lt;b&gt;...&lt;/b&gt; Walt Disney&lt;br&gt; Company, and Walt Disney Pictures recorded an &lt;b&gt;English&lt;/b&gt; version in &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="45k" CID="IBlWg4nkOpYJ" ENC="UTF-8"/></HAS></R><R N="7"><U>https://blogs.cul.columbia.edu/makino/tag/manga/</U><UE>https://blogs.cul.columbia.edu/makino/tag/manga/</UE><T>manga | Makino Collection Blog</T><RK>3</RK><CRAWLDATE>28 Mar 2016</CRAWLDATE><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; box of unprocessed materials, the image of a young &lt;b&gt;witch&lt;/b&gt; and tiny &lt;b&gt;...&lt;/b&gt; Walt Disney&lt;br&gt; Company, and Walt Disney Pictures recorded an &lt;b&gt;English&lt;/b&gt; version in &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="45k" CID="zkbFcMnEFWkJ" ENC="UTF-8"/></HAS></R><R N="8"><U>https://blogs.cul.columbia.edu/makino/2015/12/</U><UE>https://blogs.cul.columbia.edu/makino/2015/12/</UE><T>December | 2015 | Makino Collection Blog</T><RK>3</RK><CRAWLDATE>28 Mar 2016</CRAWLDATE><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; box of unprocessed materials, the image of a young &lt;b&gt;witch&lt;/b&gt; and tiny &lt;b&gt;...&lt;/b&gt; Walt Disney&lt;br&gt; Company, and Walt Disney Pictures recorded an &lt;b&gt;English&lt;/b&gt; version in &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="32k" CID="oM2zrlmx4PgJ" ENC="UTF-8"/></HAS></R><R N="9"><U>https://blogs.cul.columbia.edu/makino/</U><UE>https://blogs.cul.columbia.edu/makino/</UE><T>Makino Collection Blog | Archiving East Asian Film Studies at &lt;b&gt;...&lt;/b&gt;</T><RK>3</RK><CRAWLDATE>28 Mar 2016</CRAWLDATE><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; box of unprocessed materials, the image of a young &lt;b&gt;witch&lt;/b&gt; and tiny &lt;b&gt;...&lt;/b&gt; Walt Disney&lt;br&gt; Company, and Walt Disney Pictures recorded an &lt;b&gt;English&lt;/b&gt; version in &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="127k" CID="CoivdFrw7t4J" ENC="UTF-8"/></HAS></R><R N="10" MIME="text/plain"><U>https://blogs.cul.columbia.edu/makino/feed/</U><UE>https://blogs.cul.columbia.edu/makino/feed/</UE><T>xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;lt;rss version=&amp;quot;2.0&amp;quot; &lt;b&gt;...&lt;/b&gt;</T><RK>3</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;...&lt;/b&gt; of unprocessed materials, the image of a young &lt;b&gt;witch&lt;/b&gt; and tiny &lt;b&gt;...&lt;/b&gt; wiki/&lt;br&gt; Walt_Disney_Pictures&amp;quot;&amp;gt;Walt Disney Pictures&amp;lt;/a&amp;gt; recorded an &lt;b&gt;English&lt;/b&gt; version &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="140k" CID="Ustw2SMjnZcJ" ENC="UTF-8"/></HAS></R></RES>
+        </GSP>
+    http_version: 
+  recorded_at: Mon, 28 Mar 2016 14:47:08 GMT
 recorded_with: VCR 3.0.1

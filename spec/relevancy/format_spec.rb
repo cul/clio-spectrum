@@ -91,7 +91,7 @@ describe "Updated Format Assignments" do
 
   3740193 => ['Book', 'Microformat'],
   10819290 => ['Book', 'Microformat'],
-  'b786949' => ['Book', 'Microformat'],
+  'b487643' => ['Book', 'Microformat'],
   'b786897' => ['Book', 'Microformat'],
   }.each do |bib, formatValue|
 

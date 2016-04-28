@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'collection output tests', vcr: { allow_playback_repeats: true } do
 
-  it 'test condensed holdings output full', :js do
+  it 'test condensed holdings output full', :js, wait: 20 do
 
     visit catalog_path('8430339')
     within ('div#clio_holdings') do

@@ -32,6 +32,7 @@ db/*.sqlite3
 *.sw?
 .sass-cache/**/*
 public/clicktale
+public/assets
 spec/reports
 spec/examples.txt
 token.txt
