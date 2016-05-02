@@ -151,6 +151,10 @@ Clio::Application.routes.draw do
   # (Didn't have to do this with Rails 3 - what changed???)
   get 'catalog/advanced', to: 'catalog#index', as: :catalog_advanced, defaults: { q: '', show_advanced: 'true' }
 
+  # authorities
+  get 'authorities/author/:author', to: 'authorities#author'
+  get 'authorities/subject/:subject', to: 'authorities#subject'
+
 end
 
 
