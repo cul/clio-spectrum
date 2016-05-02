@@ -10,12 +10,8 @@ class BrowseController < ApplicationController
 
   include LocalSolrHelperExtension
 
-  # include BlacklightRangeLimit::ControllerOverride
-
-  # extend BrowseSupport
   include BrowseSupport
 
-  # include Thumbnail
   copy_blacklight_config_from(CatalogController)
 
   #### Name our XHR handler "_mini" and our HTML handler "_full", so that

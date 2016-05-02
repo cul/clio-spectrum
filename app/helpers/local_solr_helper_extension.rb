@@ -1,8 +1,6 @@
 module LocalSolrHelperExtension
   extend ActiveSupport::Concern
   include Blacklight::SearchHelper
-  include BlacklightRangeLimit::SegmentCalculation
-
 
   def remove_range_params(range_key, source_params = params)
     p = source_params.deep_clone
