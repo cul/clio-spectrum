@@ -379,7 +379,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     # This will be 10 x 20 = 200, plus 1 == 201 
     too_long = "123456789 " * 20 + "X"
     visit catalog_index_path(q: too_long)
-    expect(page).to have_text ("Your query was automatically truncated to the first 200 letters")
+    expect(page).to have_text ("You searched for: #{too_long}")
   end
 
   # NEXT-1043 - Better handling of extremely long queries
@@ -388,7 +388,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     # This will be 1 x 30 = 30, plus 1 == 31 
     too_long = "asdf " * 30 + "X"
     visit catalog_index_path(q: too_long)
-    expect(page).to have_text ("Your query was automatically truncated to the first 30 words")
+    expect(page).to have_text ("You searched for: #{too_long}")
   end
 
   it "supports 'random query' feature", vcr: false do
