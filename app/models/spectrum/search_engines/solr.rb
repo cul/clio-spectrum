@@ -45,7 +45,7 @@ module Spectrum
         Rails.logger.info "[Spectrum][Solr] source: #{@source} params: #{@params}"
 # ###
 # For better-errors debugging, perform the search outside the begin/rescue/end
-# perform_search
+perform_search
 # ###
         begin
           # here's the actual search, defined below in this file
@@ -231,13 +231,16 @@ module Spectrum
 
         if fields.include?('journal_title')
           config.add_search_field('journal_title') do |field|
+            # raise
             field.show_in_dropdown = true
             # The field-specific solr_parameters defined here will
             # replace the source-specific default_solr_params when
             # a search by this field is in effect.
             field_fq = ['format:Journal\/Periodical']
             # So - copy in any source-specific solr param values.
-            field_fq.push(config.default_solr_params[:fq]) if
+            # field_fq.push(config.default_solr_params[:fq]) if
+            #     config.default_solr_params[:fq]
+            field_fq = field_fq + config.default_solr_params[:fq] if
                 config.default_solr_params[:fq]
 
             field.solr_parameters = { fq: field_fq }

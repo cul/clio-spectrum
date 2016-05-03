@@ -4,12 +4,34 @@ class SearchBuilder < Blacklight::SearchBuilder
 
   self.default_processor_chain += [:add_advanced_search_to_solr]
   self.default_processor_chain += [:add_debug_to_solr]
+  self.default_processor_chain += [:trim_long_queries]
 
   # These methods are passed a hash, which will
   # become the Solr request parameters.
   # Their job is to fill this hash with keys/values, based
   # on another hash - blacklight_params - which is available
   # to subclasses of Blacklight::Solr::SearchBuilder
+
+  # NEXT-1043 - Better handling of extremely long queries
+  def trim_long_queries(solr_parameters)
+    # raise
+    if solr_parameters['q']
+      # Truncate queries longer than N letters
+      maxLetters = 200
+      if solr_parameters['q'].size > maxLetters
+        # flash.now[:error] = "Your query was automatically truncated to the first #{maxLetters} letters. Letters beyond this do not help to further narrow the result set."
+        solr_parameters['q'] = solr_parameters['q'].first(maxLetters)
+      end
+
+      # Truncate queries longer than N words
+      maxTerms = 30
+      terms = solr_parameters['q'].split(' ')
+      if terms.size > maxTerms
+        # flash.now[:error] = "Your query was automatically truncated to the first #{maxTerms} words.  Terms beyond this do not help to further narrow the result set."
+        solr_parameters['q'] = terms[0,maxTerms].join(' ')
+      end
+    end
+  end
 
   def add_debug_to_solr(solr_parameters)
     solr_parameters[:debugQuery] = :true if  blacklight_params[:debugQuery] == "true"
