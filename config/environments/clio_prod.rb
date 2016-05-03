@@ -77,8 +77,7 @@ end
 #    :ignore_crawlers => %w{Googlebot bingbot}
 
 Clio::Application.config.middleware.use ExceptionNotification::Rack,
-  ignore_exceptions: ['Errno::EHOSTUNREACH'] + ExceptionNotifier.ignored_exceptions,
-  ignore_crawlers: %w(Googlebot bingbot archive.org_bot),
+  ignore_exceptions: ['Errno::EHOSTUNREACH', 'Mail::Field::ParseError'] + ExceptionNotifier.ignored_exceptions,
   ignore_crawlers: %w(Googlebot bingbot archive.org_bot Blogtrottr),
   email: {
     email_prefix: '[Clio Prod] ',
