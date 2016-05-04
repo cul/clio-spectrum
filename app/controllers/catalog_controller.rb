@@ -10,24 +10,15 @@ class CatalogController < ApplicationController
   # use "prepend", or this comes AFTER included Blacklight filters,
   # (and then un-processed params are stored to session[:search])
   prepend_before_filter :preprocess_search_params
-  before_filter :add_custom_search_params_logic
 
   # Bring in endnote export, etc.
   include Blacklight::Marc::Catalog
 
   include Blacklight::Catalog
   include Blacklight::Configurable
-  # include BlacklightUnapi::ControllerExtension
-
-  # This is now the wrong way to include this
-  # # explicitly position this in the ancestor chain - or the engine's
-  # # injection will position it last (ergo, un-overridable)
-  # include BlacklightRangeLimit::ControllerOverride
 
   # load last, to override any BlackLight methods included above
-  # (BlacklightRangeLimit::ControllerOverride#add_range_limit_params)
   include LocalSolrHelperExtension
-
 
   # When a catalog search is submitted, this is the
   # very first point of code that's hit
@@ -37,24 +28,25 @@ class CatalogController < ApplicationController
     # very useful - shows the execution order of before filters
     # logger.debug "#{   _process_action_callbacks.map(&:filter) }"
 
-    # NEXT-1043 - Better handling of extremely long queries
-    if params['q']
-      # Truncate queries longer than N letters
-      maxLetters = 200
-      if params['q'].size > maxLetters
-        flash.now[:error] = "Your query was automatically truncated to the first #{maxLetters} letters. Letters beyond this do not help to further narrow the result set."
-        params['q'] = params['q'].first(maxLetters)
-      end
 
-      # Truncate queries longer than N words
-      maxTerms = 30
-      terms = params['q'].split(' ')
-      if terms.size > maxTerms
-        flash.now[:error] = "Your query was automatically truncated to the first #{maxTerms} words.  Terms beyond this do not help to further narrow the result set."
-        params['q'] = terms[0,maxTerms].join(' ')
-      end
-    end
-
+    # Moved to SearchBuilder
+    # # NEXT-1043 - Better handling of extremely long queries
+    # # if params['q']
+    # #   # Truncate queries longer than N letters
+    # #   maxLetters = 200
+    # #   if params['q'].size > maxLetters
+    # #     flash.now[:error] = "Your query was automatically truncated to the first #{maxLetters} letters. Letters beyond this do not help to further narrow the result set."
+    # #     params['q'] = params['q'].first(maxLetters)
+    # #   end
+    # # 
+    # #   # Truncate queries longer than N words
+    # #   maxTerms = 30
+    # #   terms = params['q'].split(' ')
+    # #   if terms.size > maxTerms
+    # #     flash.now[:error] = "Your query was automatically truncated to the first #{maxTerms} words.  Terms beyond this do not help to further narrow the result set."
+    # #     params['q'] = terms[0,maxTerms].join(' ')
+    # #   end
+    # # end
 
     if params['q'] == ''
       params['commit'] ||= 'Search'
@@ -92,6 +84,7 @@ class CatalogController < ApplicationController
       # runs ApplicationController.blacklight_search() using the params,
       # returns the engine with embedded results
       debug_timestamp('CatalogController#index() before blacklight_search()')
+
       search_engine = blacklight_search(params)
       debug_timestamp('CatalogController#index() after blacklight_search()')
 
@@ -108,10 +101,6 @@ class CatalogController < ApplicationController
     warning = search_config ? search_config['warning'] : nil
 # raise
     respond_to do |format|
-      # Deprecation notice says "save_current_search_params" is now automatic
-      # format.html do save_current_search_params
-      #                render locals: { warning: warning, response: @response },
-      #                       layout: 'quicksearch' end
       format.html do render locals: { warning: warning, response: @response },
                             layout: 'quicksearch' end
       format.rss  { render layout: false }
@@ -119,39 +108,16 @@ class CatalogController < ApplicationController
     end
   end
 
-  # Blacklight 5.2.0 version of this function
-  # # updates the search counter (allows the show view to paginate)
-  # def track
-  #   search_session['counter'] = params[:counter]
-  #   path = if params[:redirect] and (params[:redirect].starts_with?("/") or params[:redirect] =~ URI::regexp)
-  #     URI.parse(params[:redirect]).path
-  #   else
-  #     { action: 'show' }
-  #   end
-  #   redirect_to path, :status => 303
-  # end
 
   # updates the search counter (allows the show view to paginate)
   def track
-    # puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-    # puts "PARAMS: #{params.inspect}"
-    # puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-    # puts "SESSION[SEARCH]/BEFORE #{session[:search].inspect}"
-    # puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-
     session[:search] = {} unless session[:search].is_a?(Hash)
-
     session[:search]['counter'] = params[:counter]
 
     # Blacklight wants this....
     # session[:search]['per_page'] = params[:per_page]
     # But our per-page/rows value is persisted here:
     session[:search]['per_page'] = get_browser_option('catalog_per_page')
-
-    # puts "SESSION[SEARCH]/AFTER #{session[:search].inspect}"
-    # puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-
-    path = { action: 'show' }
 
     path = case @active_source
     when 'databases'
@@ -172,25 +138,7 @@ class CatalogController < ApplicationController
       path = URI.parse(params[:redirect]).path
     end
 
-    # puts "PATH: #{path}"
-    # puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-
     redirect_to path, :status => 303
-
-    # # These alternate paths all come back through catalog controller,
-    # # but this way we get things like the URL and @active_source correctly set.
-    # case @active_source
-    # when 'databases'
-    #   redirect_to databases_show_path
-    # when 'journals'
-    #   redirect_to journals_show_path
-    # when 'archives'
-    #   redirect_to archives_show_path
-    # when 'new_arrivals'
-    #   redirect_to new_arrivals_show_path
-    # else
-    #   redirect_to action: 'show'
-    # end
   end
 
 
@@ -251,10 +199,6 @@ class CatalogController < ApplicationController
 
   # when a request for /catalog/BAD_DOCUMENT_ID is made, this method is executed...
   def invalid_document_id_error
-    invalid_solr_id_error
-  end
-  # (which used to be this, but got wrapped to abstract from Solr)
-  def invalid_solr_id_error
     flash[:notice] = t('blacklight.search.errors.invalid_solr_id')
     redirect_to root_path
   end
@@ -272,7 +216,6 @@ class CatalogController < ApplicationController
     @response = get_facet_field_response(@facet.key, params, extra_params)
     @display_facet = @response.aggregations[@facet.key]
 
-    # @pagination was deprecated in Blacklight 5.1
     @pagination = facet_paginator(@facet, @display_facet)
 
     respond_to do |format|
@@ -286,20 +229,6 @@ class CatalogController < ApplicationController
   end
 
 
-  def add_custom_search_params_logic
-    # this "search_params_logic" is used when querying using standard
-    # blacklight functions
-    # queries using our Solr engine have their own config in Spectrum::SearchEngines::Solr
-    unless search_params_logic.include? :add_advanced_search_to_solr
-      search_params_logic << :add_advanced_search_to_solr
-    end
-    unless search_params_logic.include? :add_range_limit_params
-      search_params_logic << :add_range_limit_params
-    end
-    unless search_params_logic.include? :add_debug_to_solr
-      search_params_logic << :add_debug_to_solr
-    end
-  end
 
   def preprocess_search_params
     # clean up any search params if necessary, possibly only for specific search fields.

@@ -2,11 +2,36 @@
 class SearchBuilder < Blacklight::SearchBuilder
   include Blacklight::Solr::SearchBuilderBehavior
 
+  self.default_processor_chain += [:add_advanced_search_to_solr]
+  self.default_processor_chain += [:add_debug_to_solr]
+  self.default_processor_chain += [:trim_long_queries]
+
   # These methods are passed a hash, which will
   # become the Solr request parameters.
   # Their job is to fill this hash with keys/values, based
   # on another hash - blacklight_params - which is available
   # to subclasses of Blacklight::Solr::SearchBuilder
+
+  # NEXT-1043 - Better handling of extremely long queries
+  def trim_long_queries(solr_parameters)
+    # raise
+    if solr_parameters['q']
+      # Truncate queries longer than N letters
+      maxLetters = 200
+      if solr_parameters['q'].size > maxLetters
+        # flash.now[:error] = "Your query was automatically truncated to the first #{maxLetters} letters. Letters beyond this do not help to further narrow the result set."
+        solr_parameters['q'] = solr_parameters['q'].first(maxLetters)
+      end
+
+      # Truncate queries longer than N words
+      maxTerms = 30
+      terms = solr_parameters['q'].split(' ')
+      if terms.size > maxTerms
+        # flash.now[:error] = "Your query was automatically truncated to the first #{maxTerms} words.  Terms beyond this do not help to further narrow the result set."
+        solr_parameters['q'] = terms[0,maxTerms].join(' ')
+      end
+    end
+  end
 
   def add_debug_to_solr(solr_parameters)
     solr_parameters[:debugQuery] = :true if  blacklight_params[:debugQuery] == "true"
@@ -112,53 +137,54 @@ class SearchBuilder < Blacklight::SearchBuilder
   end
 
 
-    # Method added to search_params_logic to fetch
-    # proper things for date ranges.
-  def add_range_limit_params(solr_params)
-    ranged_facet_configs =
-      blacklight_config.facet_fields.select { |key, config| config.range }
-     # In ruby 1.8, hash.select returns an array of pairs, in ruby 1.9
-     # it returns a hash. Turn it into a hash either way.
-    ranged_facet_configs = Hash[ ranged_facet_configs] unless ranged_facet_configs.kind_of?(Hash)
-
-    ranged_facet_configs.each_pair do |solr_field, config|
-     solr_params['stats'] = 'true'
-     solr_params['stats.field'] ||= []
-     solr_params['stats.field'] << solr_field unless
-         solr_params['stats.field'].include?(solr_field)
-
-     hash = blacklight_params[:range] && blacklight_params[:range][solr_field] ?
-               blacklight_params[:range][solr_field] :
-               {}
-
-     if !hash['missing'].blank?
-       # missing specified in request params
-       solr_params[:fq] ||= []
-       solr_params[:fq] << "-#{solr_field}:[* TO *]"
-
-     elsif !(hash['begin'].blank? && hash['end'].blank?)
-       # specified in request params, begin and/or end, might just have one
-       start = hash['begin'].blank? ? '*' : hash['begin']
-       finish = hash['end'].blank? ? '*' : hash['end']
-       fq_value = "#{solr_field}: [#{start} TO #{finish}]"
-
-       solr_params[:fq] ||= []
-       solr_params[:fq] << fq_value unless solr_params[:fq].include?(fq_value)
-
-       if config.segments != false && start != '*' && finish != '*'
-         # Add in our calculated segments, can only do with both boundaries.
-         add_range_segments_to_solr!(solr_params, solr_field, start.to_i, finish.to_i)
-       end
-
-     elsif config.segments != false &&
-            boundaries = config.assumed_boundaries
-       # assumed_boundaries in config
-       add_range_segments_to_solr!(solr_params, solr_field, boundaries[0], boundaries[1])
-     end
-   end
-
-    solr_params
-  end
+  #   # Method added to search_params_logic to fetch
+  #   # proper things for date ranges.
+  # def add_range_limit_params(solr_params)
+  #   ranged_facet_configs =
+  #     blacklight_config.facet_fields.select { |key, config| config.range }
+  # 
+  #   #  # In ruby 1.8, hash.select returns an array of pairs, in ruby 1.9
+  #   #  # it returns a hash. Turn it into a hash either way.
+  #   # ranged_facet_configs = Hash[ ranged_facet_configs] unless ranged_facet_configs.kind_of?(Hash)
+  # 
+  #   ranged_facet_configs.each_pair do |solr_field, config|
+  #    solr_params['stats'] = 'true'
+  #    solr_params['stats.field'] ||= []
+  #    solr_params['stats.field'] << solr_field unless
+  #        solr_params['stats.field'].include?(solr_field)
+  # 
+  #    hash = blacklight_params[:range] && blacklight_params[:range][solr_field] ?
+  #              blacklight_params[:range][solr_field] :
+  #              {}
+  # 
+  #    if !hash['missing'].blank?
+  #      # missing specified in request params
+  #      solr_params[:fq] ||= []
+  #      solr_params[:fq] << "-#{solr_field}:[* TO *]"
+  # 
+  #    elsif !(hash['begin'].blank? && hash['end'].blank?)
+  #      # specified in request params, begin and/or end, might just have one
+  #      start = hash['begin'].blank? ? '*' : hash['begin']
+  #      finish = hash['end'].blank? ? '*' : hash['end']
+  #      fq_value = "#{solr_field}: [#{start} TO #{finish}]"
+  # 
+  #      solr_params[:fq] ||= []
+  #      solr_params[:fq] << fq_value unless solr_params[:fq].include?(fq_value)
+  # 
+  #      if config.segments != false && start != '*' && finish != '*'
+  #        # Add in our calculated segments, can only do with both boundaries.
+  #        add_range_segments_to_solr!(solr_params, solr_field, start.to_i, finish.to_i)
+  #      end
+  # 
+  #    elsif config.segments != false &&
+  #           boundaries = config.assumed_boundaries
+  #      # assumed_boundaries in config
+  #      add_range_segments_to_solr!(solr_params, solr_field, boundaries[0], boundaries[1])
+  #    end
+  #  end
+  # 
+  #   solr_params
+  # end
 
   private
 

@@ -101,7 +101,7 @@ module Spectrum
         if @params['s.fq'].kind_of?(Hash)
           new_fq = []
           @params['s.fq'].each_pair do |name, value|
-            next if value.to_s.empty?
+            next if value.to_s.strip.empty?
             value = "(#{value})" unless value.starts_with? '('
             new_fq << "#{name}:#{value}" # unless value.to_s.empty?
           end
@@ -236,6 +236,7 @@ module Spectrum
           #     sub(':', ': ')
           # constraints << [filter_text, summon_search_cmd(q['removeCommand'])]
           displayField, displayValue = q['textFilter'].to_s.split(':')
+          next unless displayField && displayValue
           displayField = displayField.
             # strip "Combined" off the back of labels (TitleCombined --> Title)
             sub(/^(.+)Combined$/, '\1').

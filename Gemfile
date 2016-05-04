@@ -10,15 +10,10 @@ gem 'blacklight', '~>5.0'
 
 gem 'blacklight-marc'
 
-# # gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :tag => 'v2.1.0'
-# 
-# # gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
-# gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'blacklight-master'
-
+# local testing...
+# gem 'blacklight_range_limit', path: '/Users/marquis/src/blacklight_range_limit'
 gem 'blacklight_range_limit'
 
-# The next blacklight_range_limit requires blacklight 5.15
-# gem 'blacklight_range_limit', :github => 'projectblacklight/blacklight_range_limit', :tag => 'v5.2.0'
 
 
 #  ###  BLACKLIGHT (end)  ###
