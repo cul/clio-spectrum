@@ -4,7 +4,7 @@ module MarcHelper
   def display_marc_field(marc, field_name)
     config = MARC_FIELDS[field_name]
 
-    fail 'Field name not found in config/marc_display_fields.yml' unless config
+    fail "Field name '#{field_name}' not found in config/marc_display_fields.yml" unless config
 
     # field_name is a label used to identify a field group in the MARC_FIELDS hash
     #     (maintained in config/marc_display_fields.yml)

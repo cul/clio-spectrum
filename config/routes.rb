@@ -152,8 +152,12 @@ Clio::Application.routes.draw do
   get 'catalog/advanced', to: 'catalog#index', as: :catalog_advanced, defaults: { q: '', show_advanced: 'true' }
 
   # authorities
-  get 'authorities/author/:author', to: 'authorities#author'
+  get 'authorities/author/:author', to: 'authorities#author', as: :author_authorities
   get 'authorities/subject/:subject', to: 'authorities#subject'
+
+  # and the MARC "librarian view" for each
+  get 'authorities/author_marc/:author', to: 'authorities#author_marc'
+  get 'authorities/subject_marc/:subject', to: 'authorities#subject_marc'
 
 end
 
