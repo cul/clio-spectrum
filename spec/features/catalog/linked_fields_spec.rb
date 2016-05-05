@@ -211,19 +211,19 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
     visit catalog_path(10322893)
     # "Also Listed Under Çıpa, H. Erdem, 1971-"
     click_link('H. Erdem, 1971')
-    expect(page).to have_text('1 - 4 of 4')
+    expect(page).to have_text('1 - 5  of 5')
     within('#facet-author li', text: 'Erdem') do
       expect(find('.facet-label')).to have_text "Çıpa, H. Erdem, 1971"
-      expect(find('.facet-count')).to have_text "4"
+      expect(find('.facet-count')).to have_text "5"
     end
 
     visit catalog_path(10551688)
     # "Also Listed Under Çıpa, H. Erdem, 1971-"
     click_link('H. Erdem, 1971')
-    expect(page).to have_text('1 - 4 of 4')
+    expect(page).to have_text('1 - 5 of 5')
     within('#facet-author li', text: 'Erdem') do
       expect(find('.facet-label')).to have_text "Çıpa, H. Erdem, 1971"
-      expect(find('.facet-count')).to have_text "4"
+      expect(find('.facet-count')).to have_text "5"
     end
   end
 end
