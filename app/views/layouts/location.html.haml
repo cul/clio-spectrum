@@ -12,8 +12,9 @@
     = render :partial => "/layouts/common_tail"
 
     // Javascript from Google to work against Maps API
-    %script{src: "//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry", type: "text/javascript"}
-    %script{src: '//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js', type: 'text/javascript'}
+    -# Updated 5/2016
+    %script{src: '//maps.google.com/maps/api/js?v=3.23&key=AIzaSyDSEgQqa-dByStBpuRHjrFOGQoonPYs2KU&libraries=geometry&language=&hl=&region=', type: 'text/javascript'}
+    %script{src: '//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js', type: 'text/javascript'}
 
     // Local Javascript for this layout only.
     // The google_map JS file requires in a few other

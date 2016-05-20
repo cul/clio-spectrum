@@ -355,6 +355,10 @@ class ApplicationController < ActionController::Base
         flash[:error] = I18n.t('blacklight.email.errors.to.blank')
       end
 
+      unless params['id']
+        flash[:error] = I18n.t('blacklight.email.errors.invalid')
+      end
+
       unless flash[:error]
         email.deliver_now
         flash[:success] = 'Email sent'

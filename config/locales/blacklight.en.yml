@@ -114,6 +114,7 @@ en:
       success: "Email Sent"
 
       errors:
+        invalid: 'Invalid input'
         to:
           invalid: 'You must enter a valid email address'
           blank: 'You must enter a recipient in order to send this message'

@@ -273,24 +273,24 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
     expect(page).to have_text '1 - 9 of 9'
 
-    click_link('The patience of Maigret')
+    click_link('Maigret mystified')
     expect(page).to have_text 'Back to Results | 1 of 9 | Next'
-    expect(page).to have_text 'Title The patience of Maigret'
+    expect(page).to have_text 'Title Maigret mystified'
 
     click_link('Display In')
     click_link('MARC View')
     expect(page).to have_text 'Back to Results | 1 of 9 | Next'
-    expect(page).to have_text '245 1 4 |a The patience of Maigret'
+    expect(page).to have_text '245 1 4 |a Maigret mystified'
 
     within '#show_toolbar' do
       click_link('Next')
     end
     expect(page).to have_text 'Back to Results | « Previous | 2 of 9 | Next »'
-    expect(page).to have_text '245 1 4 |a Les vacances de Maigret'
+    expect(page).to have_text '245 1 4 |a The patience of Maigret'
 
     click_link('Return to Patron View')
     expect(page).to have_text 'Back to Results | « Previous | 2 of 9 | Next »'
-    expect(page).to have_text 'Title Les vacances de Maigret'
+    expect(page).to have_text 'Title The patience of Maigret'
 
   end
 
