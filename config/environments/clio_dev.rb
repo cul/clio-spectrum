@@ -21,7 +21,7 @@ Clio::Application.configure do
   # Oops - can't use APP_CONFIG within environment files
   # Cheat - redundantly read app_config right here...
   ENV_CONFIG = YAML.load_file(File.expand_path('../../app_config.yml', __FILE__))[Rails.env]
-  if ENV_CONFIG && ENV_CONFIG['redis_url'].present?
+  if ENV_CONFIG && ENV_CONFIG && ENV_CONFIG['redis_url'].present?
     config.cache_store = :redis_store, ENV_CONFIG['redis_url']
   else
     config.cache_store = :memory_store, { size: 50_000_000 }

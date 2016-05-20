@@ -280,7 +280,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     click_link('Display In')
     click_link('MARC View')
     expect(page).to have_text 'Back to Results | 1 of 9 | Next'
-    expect(page).to have_text '245 1 4 |a Maigret mystified'
+    expect(page).to have_text '245 1 0 |a Maigret mystified'
 
     within '#show_toolbar' do
       click_link('Next')
@@ -412,7 +412,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
   #   NEXT-1140 - Special character not sorting properly
   it "Author sort should disregard diacritics" do
-    ahmad = 'Aḥmad Muḥammad ʻAbd al-ʻĀl'.mb_chars.normalize(:d)
+    ahmad = 'ʻAbd "al-ʻĀl, Aḥmad Muḥammad "'.mb_chars.normalize(:d)
     # Hooray, there are alternative unicode forms returned!
     # Use an either/or "satisfy" block below.
     abd1 = 'ʻAbd al-ʻĀl, Aḥmad Muḥammad'.mb_chars.normalize(:d)
@@ -420,7 +420,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
     # There should be at least 10 records with this author, and they
     # should be first alphabetically.
-    visit catalog_index_path(q: ahmad, sort: 'author_sort asc', rows: 10)
+    visit catalog_index_path(q: ahmad, search_field: 'author', sort: 'author_sort asc', rows: 30)
     expect(page).to have_css('#documents .document.result')
     all('#documents .document.result .row .details').each do |details|
       expect(details.text).to satisfy { |detail_text|
