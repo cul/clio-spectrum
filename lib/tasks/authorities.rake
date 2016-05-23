@@ -74,6 +74,7 @@ namespace :authorities do
          provide "solr.url", APP_CONFIG['authorities_solr_url']
          provide 'debug_ascii_progress', true
          provide "log.level", 'debug'
+         provide "solr_writer.commit_on_close", "true"
       end
 
       # load authorities config file (indexing rules)
@@ -394,7 +395,6 @@ def add_variants_to_bib(bib, age = 365)
   # Lookup variants in the authorities datastore
   author_variants = lookup_author_variants(bib_authors)
   subject_variants = lookup_subject_variants(bib_subjects)
-  # subject_variants = []
 
   # Always update the bib record with today's timestamp for last-lookup date.
   # Also add any author or subject variants that we found.

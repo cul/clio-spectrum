@@ -83,6 +83,7 @@ namespace :bibliographic do
          provide 'debug_ascii_progress', true
          provide "log.level", 'debug'
          provide 'processing_thread_pool', '0'
+         provide "solr_writer.commit_on_close", "true"
       end
 
       # load Traject config file (indexing rules)
@@ -90,6 +91,7 @@ namespace :bibliographic do
 
       # index each file 
       files_to_read.each do |filename|
+        puts "- processing #{filename}..."
         File.open(filename) do |file|
           indexer.process(file)
         end
