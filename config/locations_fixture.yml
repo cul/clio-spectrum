@@ -350,12 +350,37 @@
   :location_code: health-sciences
   :links: 
     Home Page: http://library.cumc.columbia.edu/
-    Floorplans: http://library.cumc.columbia.edu/library-floorplan
+    # Floorplans: http://library.cumc.columbia.edu/library-floorplan
+    Stacks Floorplan: http://library.cumc.columbia.edu/lower-level-2-floorplan
   :category: physical
   :location: Health Sciences
   :found_in: |-
     Health Sciences Library
     
+    701 West 168th Street
+- :library_code: health-sciences
+  :location_code: health-sciences
+  :links: 
+    Home Page: http://library.cumc.columbia.edu/
+    # Floorplans: http://library.cumc.columbia.edu/library-floorplan
+    Floorplan: http://library.cumc.columbia.edu/library-floorplan
+  :category: physical
+  :location: Health Sciences Reserve
+  :found_in: |-
+    Health Sciences Library, Reserves
+
+    701 West 168th Street
+- :library_code: health-sciences
+  :location_code: health-sciences
+  :links: 
+    Home Page: http://library.cumc.columbia.edu/
+    # Floorplans: http://library.cumc.columbia.edu/library-floorplan
+    Floorplan: http://library.cumc.columbia.edu/lower-level-1-floorplan
+  :category: physical
+  :location: Health Sciences Spec Coll
+  :found_in: |-
+    Health Sciences Library, Special Collections
+
     701 West 168th Street
 - :links: {}
 
