@@ -296,11 +296,14 @@ module DisplayHelper
           out << display_value
 
         else
+          # "Info" span linking to authorities page
+          author_authority_link = buildAuthorAuthorityLink(search_value)
+
           # remove punctuation to match entries in author_facet
           # using solrmarc removeTrailingPunc rule
           search_value = remove_punctuation(search_value)
 
-          out << link_to(display_value, url_for(:controller => 'catalog', :action => 'index', 'f[author_facet][]' => search_value))
+          out << link_to(display_value, url_for(:controller => 'catalog', :action => 'index', 'f[author_facet][]' => search_value)) + author_authority_link
         end
 
 
@@ -734,6 +737,27 @@ module DisplayHelper
 
 
 
+  def buildAuthorAuthorityLink(value)
+    return nil unless value and value.length > 2
+
+    auth_url = author_authorities_path(author: value)
+    box = content_tag(:span, 'Info', class: 'label label-info')
+    return link_to box, auth_url, class: 'lightboxLink'
+  end
+
+  # def author_auth(value)
+  #   raise "expected Array input!" unless value.is_a? Array
+  #   # value may be string or array
+  #   value.map do |value|
+  #     raise
+  #     # value may be simple string, or delimited display/search values
+  #     value = value.split(DELIM).first
+  #     auth_url = author_authorities_path(author: value)
+  #     box = content_tag(:span, 'Info', class: 'label label-info')
+  #     auth_link = link_to box, auth_url
+  #     value + '&nbsp;' + auth_link
+  #   end
+  # end
 
 
 end

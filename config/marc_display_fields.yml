@@ -1,3 +1,5 @@
+# MARC BIBLIOGRAPHIC RECORDS
+
 absorbed:
     -   tag: 780
         ind1: :all
@@ -621,3 +623,64 @@ title_uniform:
         display: adfghklmnoprs
     -   tag: 130
         display: adfghklmnoprst
+
+# MARC AUTHORITY RECORDS
+
+personal_name:
+    -   tag: 100
+        display: abcdefgjklnpqtu
+corporate_name:
+    -   tag: 110
+        display: abcdefgjklnpqtu
+meeting_name:
+    -   tag: 111
+        display: acdefgjklnpqtu
+fuller_name:
+    -   tag: 378
+        display: q
+variants:
+    -   tag: 400
+        display: abcdefgjklnpqtu
+birth_date:
+    -   tag: '046'
+        display: f
+death_date:
+    -   tag: '046'
+        display: g
+descriptor:
+    -   tag: 368
+        display: 2c
+birth_place:
+    -   tag: 370
+        display: a
+death_place:
+    -   tag: 370
+        display: b
+associated_locale:
+    -   tag: 370
+        display: ce2
+gender:
+    -   tag: 375
+        display: a
+associated_language:
+    -   tag: 377
+        display: a
+sources:
+    -   tag: 670
+        display: ab
+editorial_notes:
+    -   tag: 667
+        display: a
+see_also:
+    -   tag: 500
+        display: ad
+lc_classification:
+    -   tag: '053'
+        display: ab
+
+
+
+
+
+
+  

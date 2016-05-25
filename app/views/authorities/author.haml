@@ -1,0 +1,22 @@
+
+
+= link_to "MARC View", url_for(action: 'author_marc'), class: 'lightboxLink'
+
+- marc = @document.to_marc
+
+= add_row("Fuller Name", display_marc_field(marc, 'fuller_name'))
+= add_row("Personal Name", display_marc_field(marc, 'personal_name'))
+= add_row("Variants", display_marc_field(marc, 'variants'))
+= add_row("Birth Date", display_marc_field(marc, 'birth_date'))
+= add_row("Death Date", display_marc_field(marc, 'death_date'))
+= add_row("Descriptor", display_marc_field(marc, 'descriptor'))
+= add_row("Birth Place", display_marc_field(marc, 'birth_place'))
+= add_row("Death Place", display_marc_field(marc, 'death_place'))
+= add_row("Associated Locale", display_marc_field(marc, 'associated_locale'))
+= add_row("Gender", display_marc_field(marc, 'gender'))
+= add_row("Associated Language", display_marc_field(marc, 'associated_language'))
+= add_row("See Also", display_marc_field(marc, 'see_also'))
+= add_row("Sources", display_marc_field(marc, 'sources'))
+= add_row("LC Classificiation", display_marc_field(marc, 'lc_classification'))
+= add_row("Editorial Notes", display_marc_field(marc, 'editorial_notes'))
+

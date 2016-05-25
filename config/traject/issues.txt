@@ -1,0 +1,61 @@
+ISSUES 
+
+Differences between SolrMarc and Traject
+
+============================
+Bib 11817879
+240 1 0  |a Correspondence. |k Selections. |s (Crawford and Patterson)
+
+title_addl_txt = custom, getLinkedFieldCombined(245abnps:130[a-z]:240[a-gk-s]:210ab:222ab:242abnp:243[a-gk-s]:246[a-gnp]:247[a-gnp]:780[a-z]:785[a-z]:700[gk-pr-t]:710[fgk-t]:711fgklnpst:730[a-gk-t]:740anp)
+
+to_field "title_addl_txt", extract_marc("245abnps:130#{ATOZ}:240abcdefgklmnopqrs:210ab:222ab:242abnp:243abcdefgklmnopqrs:246abcdefgnp:247abcdefgnp:780#{ATOZ}:785#{ATOZ}:700gklmnoprst:710fgklmnopqrst:711fgklnpst:730abcdefgklmnopqrst:740anp", trim_punctuation: false, alternate_script: true)
+
+BUT the 240s is NOT included in the Traject output:
+$ egrep -i '11817879 : title_addl_txt' tmp/*out
+tmp/solrmarc.out:11817879 : title_addl_txt = Correspondence. Selections. (Crawford and Patterson)
+tmp/traject.out:11817879 : title_addl_txt = Correspondence. Selections
+beyond
+============================
+Traject does NOT allow additional options when fetching filing fields.
+
+Specifically, I'd like to add:  alternate_script: true
+To this:
+
+
+$ egrep '5286967 : title_series_txt' tmp/*out
+tmp/solrmarc.out:5286967 : title_series_txt = Seira Hellada ; 1
+tmp/solrmarc.out:5286967 : title_series_txt = Σειρά Ελλαδα · 1
+tmp/traject.out:5286967 : title_series_txt = Seira Hellada ; 1
+
+============================
+Leading space in title_sort
+
+SolrMarc uses Java's trim(), which removes leading and trailing whitespace.
+
+Traject's get_sortable_title() does not do this.
+
+============================
+I want to extract a MARC field, apply some ruby code (to pluck first letter), then use a translation_map on the result.
+Traject does the translation map before the ruby code.  
+
+to_field "lc_1letter_facet", extract_marc("990a", translation_map: 'callnumber_map') do |rec, acc, context|
+  acc.map!{ |value| value.first }
+end
+
+fix:
+
+to_field "lc_1letter_facet", extract_marc("990a") do |record, accumulator|
+  accumulator.map!{ |value|
+    Traject::TranslationMap.new("callnumber_map")[value.first]
+     }
+end
+
+
+============================
+
+
+
+============================
+
+
+

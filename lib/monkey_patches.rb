@@ -158,5 +158,54 @@ end
 #   end
 # end
 
+class Traject::DebugWriter
+  def serialize(context)
+    h       = context.output_hash
+    rec_key = record_number(context)
+    # lines   = h.keys.sort.map { |k| @format % [rec_key, k, h[k].join(' | ')] }
+    lines   = h.keys.sort.map { |k|
+      Array(h[k]).map { |v|
+        @format % [rec_key, k, v]
+      }
+    }
+    lines.push "\n"
+    lines.join("\n")
+  end
+end
+
+module Traject::Macros
+  module Marc21
+    def self.trim_trailing_period(str)
+      # str = str.sub(/(.+\w\w)\. *\Z/, '\1')
+      # str = str.sub(/(.+\p{L}\p{L})\. *\Z/, '\1')
+      str = str.sub(/(.+\p{Alnum}\p{M}?\p{Alnum}\p{M}?)\. *\Z/, '\1')
+      str = str.sub(/(.+\p{Punct})\. *\Z/, '\1')
+      return str
+    end
+
+    def self.trim_punctuation(str)
+      # If something went wrong and we got a nil, just return it
+      return str unless str
+
+      # trailing: comma, slash, semicolon, colon (possibly preceded and followed by whitespace)
+      str = str.sub(/ *[ ,\/;:] *\Z/, '')
+
+      # trailing period if it is preceded by at least three letters (possibly preceded and followed by whitespace)
+      # str = str.sub(/( *\w\w\w)\. *\Z/, '\1')
+      str = trim_trailing_period(str)
+
+      # single square bracket characters if they are the start and/or end
+      #   chars and there are no internal square brackets.
+      str = str.sub(/\A\[?([^\[\]]+)\]?\Z/, '\1')
+
+      # trim any leading or trailing whitespace
+      str.strip!
+
+      return str
+    end
+  end
+
+
+end
 
 
