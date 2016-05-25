@@ -28,7 +28,7 @@ class LocationsController < ApplicationController
       end
 
       @display_title = @library ? @library.name : @location.name
-      @links = @location.links.reject { |location| location.name == 'Map URL' }
+      @links = @location.links.reject { |link| link.name == 'Map URL' }
 
       # @location_notes = Location.get_app_config_location_notes(@location['name']).html_safe
       @location_notes = Location.get_app_config_location_notes(raw_location)
