@@ -298,6 +298,7 @@ module DisplayHelper
         else
           # "Info" span linking to authorities page
           author_authority_link = buildAuthorAuthorityLink(search_value)
+          author_authority_link = ''
 
           # remove punctuation to match entries in author_facet
           # using solrmarc removeTrailingPunc rule
