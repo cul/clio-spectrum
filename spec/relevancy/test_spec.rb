@@ -5,8 +5,8 @@ describe 'Testing rsolr-rspec support' do
   it "q of 'Buddhism' should get around 18,000 results" do
     resp = solr_resp_doc_ids_only('q' => 'Buddhism')
 
-    expect(resp.size).to be > 18_000
-    expect(resp.size).to be < 22_000
+    expect(resp.size).to be > 18000
+    expect(resp.size).to be < 25000
 
   end
 
