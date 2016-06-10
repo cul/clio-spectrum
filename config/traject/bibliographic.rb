@@ -21,9 +21,6 @@ lookups = 0
 
 ATOZ = ('a'..'z').to_a.join('')
 
-authorities_solr = RSolr.connect(url: APP_CONFIG['authorities_solr_url'])
-puts_and_log("authorities_solr=#{authorities_solr}")
-
 to_field "id", extract_marc("001", first: true)
 
 to_field "marc_display", serialized_marc(:format => "xml")
@@ -38,6 +35,8 @@ to_field "author_vern_display", extract_marc("100abcdq:110#{ATOZ}:111#{ATOZ}", t
 to_field "author_sort", marc_sortable_author
 
 # ### authority variants are not inserted at original index time ###
+# authorities_solr = RSolr.connect(url: APP_CONFIG['authorities_solr_url'])
+# puts_and_log("authorities_solr=#{authorities_solr}")
 # to_field "author_variants_txt" do |record, accumulator|
 #   bibs = bibs + 1
 #   id = Traject::Macros::Marc21.extract_marc_from(record, "001", first: true)
@@ -89,6 +88,7 @@ to_field "subject_era_facet", extract_marc("600y:610y:611y:630y:650y:651y:655y",
 to_field "subject_geo_facet", extract_marc("600z:610z:611z:630z:650z:651a:651z:655z", trim_punctuation: true, alternate_script: false)
 to_field "subject_form_facet", extract_marc("600v:610v:611v:630v:650v:651v:655ab:655v", trim_punctuation: true, alternate_script: false)
 to_field "subject_form_txt", extract_marc("600v:610v:611v:630v:650v:651v:655ab:655v", trim_punctuation: true, alternate_script: false)
+
 
 to_field "pub_place_display", extract_marc("260a:264a", trim_punctuation: true, alternate_script: false)
 to_field "pub_name_display", extract_marc("260b:264b", trim_punctuation: true, alternate_script: false)

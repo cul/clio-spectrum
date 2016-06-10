@@ -6,9 +6,9 @@ describe 'Authority support for Author variants' do
     'Ghannouchi'  => 12,
     'Ghanushi'    => 8,
     'Dostoevskii, F M'  => 300,
-    'Alicia Chudo'  => 10,
-    'Ghaddafi, Muammar' => 20,
-    'Khadafy'       => 20,
+    'Alicia Chudo'  => 8,
+    'Ghaddafi, Muammar' => 15,
+    'Khadafy'       => 15,
     'Svetlana Alexievich' => 12,
     'Svetlana Aleksievich'  =>  12,
     'Svetlana Alexievitch'  => 12,
@@ -38,6 +38,26 @@ describe 'Authority support for Subject variants' do
     'Sarakole Language' =>  4,
     'Fakism'  =>  2,
     'Senior citizens' =>  5000,
+  }
+
+  expectedHits.each_pair do | term, count |
+    it "#{term}" do
+      resp = solr_resp_doc_ids_only( subject_search_args(term) )
+      expect(resp.size).to be >= count
+    end
+  end
+
+end
+
+
+describe 'Authority support for Author authorities used as Subjects' do
+
+  expectedHits = {
+    'Gaddafi'  => 1,
+    'Keneday family' =>  1,
+    'Palestine Liberation Organization'  =>  1,
+    'COP21' =>  1,
+    'Kyiv' =>  1,
   }
 
   expectedHits.each_pair do | term, count |

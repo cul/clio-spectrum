@@ -152,6 +152,9 @@ Clio::Application.routes.draw do
   get 'catalog/advanced', to: 'catalog#index', as: :catalog_advanced, defaults: { q: '', show_advanced: 'true' }
 
   # authorities
+  resources :authorities, only: [:index, :show]
+
+  # fetch by term, instead of id
   get 'authorities/author/:author', to: 'authorities#author', as: :author_authorities
   get 'authorities/subject/:subject', to: 'authorities#subject'
 

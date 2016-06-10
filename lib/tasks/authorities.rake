@@ -74,7 +74,12 @@ namespace :authorities do
          provide "solr.url", APP_CONFIG['authorities_solr_url']
          provide 'debug_ascii_progress', true
          provide "log.level", 'debug'
+         # Set to true (or "true") if you want to commit at the
+         #   end of the indexing run.
          provide "solr_writer.commit_on_close", "true"
+         # How many records skipped due to errors before we 
+         #   bail out with a fatal error?
+         provide "solr_writer.max_skipped", "100"
       end
 
       # load authorities config file (indexing rules)
@@ -396,6 +401,13 @@ def add_variants_to_bib(bib, age = 365)
   author_variants = lookup_author_variants(bib_authors)
   subject_variants = lookup_subject_variants(bib_subjects)
 
+  if ENV["DEBUG_AUTHORITIES"]
+    puts "DEBUG_AUTHORITIES: bib_authors=#{bib_authors}"
+    puts "DEBUG_AUTHORITIES: author_variants=#{author_variants}"
+    puts "DEBUG_AUTHORITIES: bib_subjects=#{bib_subjects}"
+    puts "DEBUG_AUTHORITIES: subject_variants=#{subject_variants}"
+  end
+
   # Always update the bib record with today's timestamp for last-lookup date.
   # Also add any author or subject variants that we found.
   params = { id: bib,
@@ -405,7 +417,8 @@ def add_variants_to_bib(bib, age = 365)
     params[:author_variant_txt] = {set: author_variants.flatten.uniq.join(' ') }
   end
   if subject_variants && subject_variants.size > 0
-    params[:subject_variant_txt] = {set: subject_variants.flatten.uniq.join(' ') }
+    # params[:subject_variant_txt] = {set: subject_variants.flatten.uniq.join(' ') }
+    params[:subject_variant_txt] = {set: subject_variants.flatten.uniq }
   end
   # puts "DEBUG  params:\n#{params}"
 
@@ -429,25 +442,30 @@ end
 def lookup_author_variants(bib_authors)
   return unless bib_authors
   bib_authors.map { |author|
-    lookup_variants(author, 'author_t', 'author_variant_t')
+    # lookup_variants(author, 'author_t', 'author_variant_t')
+    lookup_variants(author, 'authorized_t', 'variant_t')
   }
 end
 
 def lookup_subject_variants(bib_subjects)
   return unless bib_subjects
   bib_subjects.map { |subject|
-    lookup_variants(subject, 'subject_t', 'subject_variant_t')
+    # lookup_variants(subject, 'subject_t', 'subject_variant_t')
+    lookup_variants(subject, 'authorized_t', 'variant_t')
   }
 end
 
 def lookup_variants(authorized_form, authorized_field_name, variant_field_name)
-  safe_authorized_form = authorized_form.gsub(/"/, '\"')
+  # safe_authorized_form = authorized_form.gsub(/"/, '\"')
+  safe_authorized_form = CGI.escape authorized_form
   params = { qt: 'select', rows: 1,
       q: "#{authorized_field_name}:\"#{safe_authorized_form}\"",
       fl: "id,#{authorized_field_name},#{variant_field_name}",
       facet: 'off'
   }
-  # puts "DEBUG: params=#{params}"
+  if ENV["DEBUG_AUTHORITIES"]
+    puts "DEBUG_AUTHORITIES: lookup_variants() params=#{params}"
+  end
 
   # timing metrics...
   startTime = Time.now
