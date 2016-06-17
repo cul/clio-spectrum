@@ -8,7 +8,7 @@
 
 -# Show the series title if we searched by series title
 - if search_by_series_title(request.params)
-  = add_row('Series Title', document.fetch('title_series_display', nil), :html_safe => false)
+  = add_row('Series', document.fetch('title_series_display', nil), :html_safe => false)
 
 - if show_title
   = add_row('Title', document.fetch('title_display', nil), :html_safe => false)

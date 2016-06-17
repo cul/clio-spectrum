@@ -226,6 +226,21 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
       expect(find('.facet-count')).to have_text "5"
     end
   end
+
+  # NEXT-1317 - Incorrect search results for series with parenthesis.
+  it "should handle parens within series title" do
+    target = 'Monograph (British Institute of Archaeology at Ankara)'
+    visit catalog_path(10904345)
+    # Click a series with parenthesized words...
+    click_link(target)
+    expect(find('.constraints-container')).to have_text(target)
+
+    page_entries = find('.page_links .page_entries').text
+    # page_entries should be something like "1 - 25 of 37"
+    shown, of, total = page_entries.partition(/ of /)
+    expect(total.to_i).to be < 50
+  end
+
 end
 
 

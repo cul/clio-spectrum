@@ -309,7 +309,9 @@ module DisplayHelper
 
 
       when :series_title
-        q = search_value
+        # NEXT-1317 - Incorrect search results for series with parenthesis
+        # q = search_value
+        q = '"' + search_value.gsub(/"/, '') + '"'
         out << link_to(display_value, url_for(controller: 'catalog', action: 'index', q: q, search_field: 'series_title', commit: 'search'))
 
       when :serial
