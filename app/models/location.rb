@@ -63,6 +63,9 @@ class Location < ActiveRecord::Base
     fixture = YAML.load_file('config/locations_fixture.yml')
 
     fixture.each do |location_hash|
+      # puts "vvv"
+      # puts location_hash.inspect
+      # puts "^^^"
       library = Library.find_by_hours_db_code(location_hash[:library_code]) if location_hash[:library_code]
 
       location = Location.create!(
@@ -73,12 +76,13 @@ class Location < ActiveRecord::Base
         location_code: location_hash[:location_code]
       )
 
-      if location
-
+      # Add links to this location, if they exist
+      if location && location_hash[:links]
         location_hash[:links].each_pair do |name, url|
           location.links.create(name: name, value: url)
         end
       end
+
     end
   end
 end

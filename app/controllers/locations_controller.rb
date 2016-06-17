@@ -14,7 +14,6 @@ class LocationsController < ApplicationController
     # @location = Location.match_location_text(params[:id])
     @location = Location.match_location_text(raw_location)
     if @location
-      @map_url = @location.find_link_value('Map URL')
       @library = @location.library
 
       @markers = build_markers
