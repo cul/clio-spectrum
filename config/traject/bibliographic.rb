@@ -132,13 +132,24 @@ to_field 'summary_display', extract_marc("520#{ATOZ}", trim_punctuation: false)
 
 ISBN_CLEAN = /([\- \d]*[X\d])/
 
-to_field "isbn_txt", extract_marc("020a:020z") do |record, accumulator|
-  accumulator.map!{ |isbn|
-    if clean_isbn = isbn.match(ISBN_CLEAN)
-      clean_isbn[1]
-    end
-  }
+# Searchable ISBN: consider both the 020a and 020z, as 10- or 13-digit
+# to_field "isbn_txt", extract_marc("020a:020z") do |record, accumulator|
+#   accumulator.map!{ |isbn|
+#     if clean_isbn = isbn.match(ISBN_CLEAN)
+#       clean_isbn[1]*
+#     end
+#   }
+# end
+to_field 'isbn_txt', extract_marc('020az', :separator=>nil) do |record, accumulator|
+     original = accumulator.dup
+     accumulator.map!{|isbn| StdNum::ISBN.allNormalizedValues(isbn)}
+     accumulator << original
+     accumulator.flatten!
+     accumulator.uniq!
 end
+
+
+# Displayed ISBN - only the primary 020a, cleaned but otherwise as-given
 to_field "isbn_display", extract_marc("020a") do |record, accumulator|
   accumulator.map!{ |isbn|
     if clean_isbn = isbn.match(ISBN_CLEAN)

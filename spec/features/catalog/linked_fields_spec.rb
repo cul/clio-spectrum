@@ -176,7 +176,7 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
     expect(page).to have_text "Series Collezione Confronti/consensi ; 15."
 
     click_link "Collezione Confronti/consensi ; 15."
-    expect(page).to have_text "You searched for: Series: Collezione Confronti/consensi"
+    expect(find('.constraints-container')).to have_text("Collezione Confronti/consensi")
     expect(page).to_not have_text('No results')
     expect(page).to_not have_text('1 of 5')
     expect(find('#documents')).to have_text 'Lo specchio acceso : narrativa italiana'
@@ -193,7 +193,7 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
     expect(page).to have_text(series_decomposed)
 
     click_link(series_decomposed)
-    expect(page).to have_text "You searched for: Series: #{series_decomposed}"
+    expect(find('.constraints-container')).to have_text(series_decomposed)
     expect(page).to_not have_text('No results')
     expect(page).to have_text('1 - 4 of 4')
     # list out four title snippets to look for...

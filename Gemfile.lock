@@ -184,6 +184,7 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.4.3)
       addressable (~> 2.3)
+    library_stdnums (1.4.1)
     libv8 (3.16.14.15)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
@@ -413,6 +414,7 @@ DEPENDENCIES
   json
   kaminari
   launchy
+  library_stdnums
   marc
   mysql2
   net-ldap
