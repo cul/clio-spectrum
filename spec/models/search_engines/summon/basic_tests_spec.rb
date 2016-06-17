@@ -42,7 +42,7 @@ describe 'Spectrum::SearchEngines::Summon', :vcr do
       @sum = Spectrum::SearchEngines::Summon.new('source' => 'articles', 's.q' => 'hardnose dictator', 'new_search' => true)
     end
 
-    it 'should find results', :xfocus do
+    it 'should find results' do
       expect(@sum.documents).to_not be_empty
     end
 

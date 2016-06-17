@@ -86,7 +86,6 @@ class LocationsController < ApplicationController
                                            locals: {library_info: location,  default_image_path: default_image_url})
         marker.json({ :location_code => location['locationID'] })
       end
-
       @current_marker_index = markers.find_index{|mark| mark[:location_code] == @location.location_code}
       markers.to_json
     end

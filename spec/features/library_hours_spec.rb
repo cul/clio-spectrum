@@ -50,7 +50,7 @@ describe 'Item Locations should show correct library hours', :vcr, :skip_travis 
   end
 
   # NEXT-1319 - Avery Art Properties hours
-  it 'for Art Properties', :js, :focus do
+  it 'for Art Properties', :js do
     target = 'Avery Art Properties'
 
     visit catalog_index_path( {q: target, search_field: 'location'} )
