@@ -4,8 +4,8 @@ class HoursDb::HoursLibrary < ActiveRecord::Base
   belongs_to :library, class_name: 'Library', primary_key: 'hours_db_code', foreign_key: 'lib_code'
   has_many :calendars, class_name: 'HoursDb::Calendar', primary_key: 'lib_code', foreign_key: 'cal_library'
 
-  def find_or_create_for_new_books!
-    library || Library.create(to_new_books_fmt)
+  def find_or_create_for_clio!
+    library || Library.create(to_clio_fmt)
   end
 
   def self.sync_all!(startdate = Date.yesterday, days_to_add = 31)
@@ -15,7 +15,7 @@ class HoursDb::HoursLibrary < ActiveRecord::Base
       # debugging...
       # next unless /Burk/ =~ hl.lib_name
       # puts "XXXXXXXXXXXXXXXXXXXXXXXX  #{hl.lib_name}"
-      library = hl.find_or_create_for_new_books!
+      library = hl.find_or_create_for_clio!
       # Use "destroy" instead of delete, so that it'll
       # also clear out associated 'has_options' rows
       # library.hours.delete_all
@@ -25,12 +25,12 @@ class HoursDb::HoursLibrary < ActiveRecord::Base
       calendars = hl.calendars.where('cal_date BETWEEN ? and ?', startdate, enddate)
 
       calendars.each do |calendar|
-        library.hours.create(calendar.to_new_books_fmt)
+        library.hours.create(calendar.to_clio_fmt)
       end
     end
   end
 
-  def to_new_books_fmt
+  def to_clio_fmt
     {
       hours_db_code: lib_code,
       name: lib_name,
