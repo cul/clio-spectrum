@@ -502,6 +502,12 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
       Arkitektur (Stockholm, Sweden : 1959)"
   end
 
+  # NEXT-911 - Display uniform title in serial records
+  it 'shows 773 ("In") in non-archival records' do
+    visit catalog_path(10139859)
+    expect(page).to have_text "In Meg McLagan Collection"
+  end
+
 end
 
 

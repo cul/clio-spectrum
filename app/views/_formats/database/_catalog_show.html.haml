@@ -23,6 +23,9 @@
   = add_row("Description", display_marc_field(marc, 'description'))
 
   = add_row("Series", generate_value_links(display_marc_field(marc, 'series'), :series_title))
+
+  = add_row("In", display_marc_field(marc, 'in'))
+
   = add_row("Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_LC')))
   = add_row("Also Listed Under", generate_value_links(display_marc_field(marc, 'author_other'), :author))
   = add_row("Includes", generate_value_links(display_marc_field(marc, 'contains'), :all))
