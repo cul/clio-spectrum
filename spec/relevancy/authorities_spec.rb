@@ -48,3 +48,23 @@ describe 'Authority support for Subject variants' do
   end
 
 end
+
+
+describe 'Authority support for Author authorities used as Subjects' do
+
+  expectedHits = {
+    'Gaddafi'  => 1,
+    'Keneday family' =>  1,
+    'Palestine Liberation Organization'  =>  1,
+    'COP21' =>  1,
+    'Kyiv' =>  1,
+  }
+
+  expectedHits.each_pair do | term, count |
+    it "#{term}" do
+      resp = solr_resp_doc_ids_only( subject_search_args(term) )
+      expect(resp.size).to be >= count
+    end
+  end
+
+end
