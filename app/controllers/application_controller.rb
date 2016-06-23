@@ -63,6 +63,8 @@ class ApplicationController < ActionController::Base
   end
 
   def condense_advanced_search_params
+    # Convert string representation to true empty hash
+    params['adv'] = {} if params['adv'] == '{}'
     new_hash = {}
     counter = 1
     (params['adv'] || {}).each_pair do |adv_field_number, attrs|
