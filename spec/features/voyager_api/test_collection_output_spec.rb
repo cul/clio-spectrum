@@ -10,6 +10,7 @@ describe 'collection output tests', vcr: { allow_playback_repeats: true } do
     end
 
     visit catalog_path('1052500')
+    expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do
       expect(page).to have_text('MICROFLM FN 41 Library has: v.1851:Sept.-2003:Dec.14, 2004:Jan.')
     end
