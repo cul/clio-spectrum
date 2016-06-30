@@ -40,7 +40,9 @@ env:
     # # CLIO_BACKEND_URL
     # - secure: AX2z9hDTJ54rm5IrhjIeIrRh/Z/A65QWQ04o6t69+1Oy0yOyzNm7eRZ+ww94mXpHJdBiOsOm03u7jwo7zaEg8IkezmVdyvdExxVOYeSv3dOgn7bsj9nISTRtcrZ7zVZSKCASq+uuclo4ZepNFDiEIgsubJ91YAwhwx5J0EQfIjk=
     # SOLR_URL
-    - secure: hqMFUbVTVeWZgZxW48UGXQWqCS+/P/ocVA4avyGBCbx2OXKHNOx9HgGN2qtdxGAI8EHtpoVReqn9NJz+nCcJCnKDalwKQ0ke7KV/G8bGiYujBDa12jCqmj9vi52MOgi2bhZ38pDC6twiYASdJ2vosUmIN5RSPveMd0n810p3Ft8=
+    # generated with:  $ travis encrypt SOLR_URL=http://pr-sv-1.lib.columbia.edu:8989/solr-4.8.3/spec_prd_mstr
+    #- secure: hqMFUbVTVeWZgZxW48UGXQWqCS+/P/ocVA4avyGBCbx2OXKHNOx9HgGN2qtdxGAI8EHtpoVReqn9NJz+nCcJCnKDalwKQ0ke7KV/G8bGiYujBDa12jCqmj9vi52MOgi2bhZ38pDC6twiYASdJ2vosUmIN5RSPveMd0n810p3Ft8=
+    - secure: "SI87PQ6jZeklO97A8AnEx9DSf3voNin0s/zSb3zobBy0c/2PfkBtI/bjxLGPwdIjh8H7ieEC3KJR8dXtGhXKYsWcqIf8XxUBhcUa6UO/+DEp5CKLCs0No8vU7yIbM3f1Z38N43wOFjNPRHfia7OjyJ0zXcpipDJAvqHwbcEr+/w="
     # CLIO_BACKEND_URL
     - secure: g4oxrzPM1+06tOxAxZFep0Po71yx5hcrn9kyJJzzP/qBVuCyvBqasSSE13KssuGzTTpScnTgwokkWAWBTNQUWPzQzWNSk0/FBL5OnojcR3geZ1d1CdLTafd4YTQ8VtYzr/3vzK7wuh6Br8LpbolCQvRTrcX68bP7i5VZeZd7ruE=
 

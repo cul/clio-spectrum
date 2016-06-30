@@ -26,7 +26,6 @@ RSpec.configure do |config|
   connection_config = { url: solr_url }
 
   SOLR = RSolr.connect(connection_config)
-  puts "Solr URL: #{SOLR.uri}"
 end
 
 
