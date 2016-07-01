@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Testing rsolr-rspec support' do
+describe 'Testing rsolr-rspec support', :skip_travis do
 
   it "q of 'Buddhism' should get around 18,000 results" do
     resp = solr_resp_doc_ids_only('q' => 'Buddhism')

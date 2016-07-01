@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 # NEXT-971 - Some WorldCat links to CLIO broken / OCLC-defined 079a not being indexed
-describe 'WorldCat link support' do
+describe 'WorldCat link support', :skip_travis do
   it "q of 'ocn213772249' should find Tsukuba Daigaku Tetsugaku Shisōgakukei ronshū" do
     resp = solr_resp_ids_titles_from_query 'ocn213772249'
     

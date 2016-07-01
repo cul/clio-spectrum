@@ -4,6 +4,10 @@ describe 'record tests', vcr: { allow_playback_repeats: true } do
 
   it 'test call number', :js do
     visit catalog_path('7686002')
+
+# page.save_and_open_page
+# page.save_and_open_screenshot
+
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do
       expect(page).to have_text('Ms MONTGOM 675')

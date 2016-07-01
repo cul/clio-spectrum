@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Solr sort order' do
+describe 'Solr sort order', :skip_travis do
 
   # NEXT-962 - Would it be possible for CLIO catalog A-Z to sort by word
   it "should alpha-sort 'asia' before 'asian'" do

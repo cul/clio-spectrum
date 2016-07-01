@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 # NEXT-950 - Boosts: A librarian can 'promote' resources
-describe 'Boosts' do
+describe 'Boosts', :skip_travis do
 
   it "CLIO" do
     resp = solr_resp_doc_ids_only('q' => 'clio')

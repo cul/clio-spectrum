@@ -5,7 +5,7 @@ describe 'ISBN Searching' do
   # Support fielded ISBN searches to hit on 020$z, "Canceled/invalid ISBN"
   # NEXT-1050 - Search for invalid ISBN
   # http://www.loc.gov/marc/bibliographic/bd020.html
-  it 'should hit on "invalid" ISBNs' do
+  it 'should hit on "invalid" ISBNs', :skip_travis do
     isbn_z = '9789770274208'
     resp = solr_resp_doc_ids_only('q' => isbn_z)
     expect(resp.size).to eq 1
@@ -14,6 +14,9 @@ describe 'ISBN Searching' do
 
 
   it 'should hit on 10- or 13-digit forms' do
+
+    pending("next prod deployment")
+
     # bib 5441161, ISBN-10 9608733006, ISBN-13 9789608733008
     resp = solr_resp_doc_ids_only(q: '9608733006', search_field: 'isbn')
     expect(resp.size).to eq 1

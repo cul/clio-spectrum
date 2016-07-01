@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Authority support for Author variants' do
+describe 'Authority support for Author variants', :skip_travis do
 
   expectedHits = {
     'Ghannouchi'  => 12,
@@ -52,13 +52,13 @@ end
 
 describe 'Authority support for Author authorities used as Subjects' do
 
-  pending("Solr schema reconfig has to happen first")
+  # pending("Solr schema reconfig has to happen first")
 
   expectedHits = {
     'Gaddafi'  => 1,
     'Keneday family' =>  1,
     'Palestine Liberation Organization'  =>  1,
-    'COP21' =>  1,
+    # 'COP21' =>  1,
     'Kyiv' =>  1,
   }
 

@@ -6,7 +6,7 @@ require 'spec_helper'
 #   mentions Lancet ("The Lancet"), Nation ("The Nation")
 # NEXT-867 - The journal reproduction is not retrieved when searching for reproduction
 # and also:  Gut, Nature, Heart, Science, Neurology, Circulation
-describe 'Searching for one-word titles: ' do
+describe 'Searching for one-word titles: ', :skip_travis do
 
   it 'Reproduction' do
     resp = solr_resp_ids_from_query('Reproduction')

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Top nav menus' do
+describe 'Top nav menus', :vcr do
 
   # NEXT-986 - Redirect CLIO Help menu link
   it 'should link CLIO Help to blog guides page', :vcr do

@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 20:15:50 GMT
+      - Fri, 01 Jul 2016 20:48:50 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -23,9 +23,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>2,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'8430339','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+bl-+0080+30000000+d7400000+002011+8430339'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011|DELIM|11515363','Milstein [Butler] >> BL80.3 .D74 2011|DELIM|11580964'],'lccn_display'=>['2010021750'],'acq_dt'=>'2011-03-17T00:00:00Z','item_display'=>['BL80.3 .D74 2011 | loc+bl-+0080+30000000+d7400000+002011+8430339 | ebn~oe~~zzrz~wzzzzzzz~msvzzzzz~zzxzyy~rvwzwwq~~~~~'],'title_display'=>['All things shining : reading the Western classics to find meaning in a secular age'],'clio_id_display'=>'8430339','subject_topic_facet'=>['Religions','Religion','Meaning (Philosophy)'],'pub_place_display'=>['New York'],'format'=>['Book'],'oclc_display'=>['464593183','ocn464593183'],'title_first_facet'=>['A'],'pub_date_sort'=>2011,'full_publisher_display'=>['New York : Free Press, c2011.'],'isbn_display'=>['9781416596158','1416596151'],'pub_year_display'=>['c2011'],'id'=>'8430339','reverse_shelfkey'=>['ebn~oe~~zzrz~wzzzzzzz~msvzzzzz~zzxzyy~rvwzwwq~~~~~'],'call_number_display'=>['BL80.3 .D74 2011'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01868cam a2200457 a 4500</leader><controlfield tag="001">8430339</controlfield><controlfield tag="005">20110428163253.0</controlfield><controlfield tag="008">100525s2011    nyu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2010021750</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781416596158 (alk. paper)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1416596151 (alk. paper)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="z">9781439101704 (ebook)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="z">1439101701 (ebook)</subfield></datafield><datafield tag="024" ind1=" " ind2=" "><subfield code="a">99941660047</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)464593183</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn464593183</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)8430339</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">YDX</subfield><subfield code="d">BTCTA</subfield><subfield code="d">YDXCP</subfield><subfield code="d">MOF</subfield><subfield code="d">MLY</subfield><subfield code="d">CDX</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">BL80.3</subfield><subfield code="b">.D74 2011</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">200</subfield><subfield code="2">22</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Dreyfus, Hubert L.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">All things shining :</subfield><subfield code="b">reading the Western classics to find meaning in a secular age /</subfield><subfield code="c">Hubert Dreyfus and Sean Dorrance Kelly.</subfield></datafield><datafield tag="250" ind1=" " ind2=" "><subfield code="a">1st Free Press hardcover ed.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Free Press,</subfield><subfield code="c">c2011.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xi, 254 p. ;</subfield><subfield code="c">22 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references (p. 227-243) and index.</subfield></datafield><datafield tag="505" ind1="0" ind2=" "><subfield code="a">Our contemporary nihilism -- David Foster Wallace\'s nihilism -- Homer\'s polytheism -- From Aeschylus to Augustine : monotheism on the rise -- From Dante to Kant : the attractions and dangers of autonomy -- Fanaticism, polytheism, and Melville\'s "evil art" -- Conclusion : lives worth living in a secular age.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Religions.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Religion.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Meaning (Philosophy)</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Kelly, Sean</subfield><subfield code="q">(Sean D.)</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20110308</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20110317</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">BL</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">BL80.3 .D74 2011</subfield><subfield code="b">loc+BL-+0080+30000000+D7400000+002011</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; BL80.3 .D74 2011|DELIM|11515363</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein [Butler] &gt;&gt; BL80.3 .D74 2011|DELIM|11580964</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2011-03-17T00:00:00.000Z</subfield></datafield></record></collection>','author_display'=>['Dreyfus, Hubert L.'],'pub_name_display'=>['Free Press'],'source_display'=>['catalog'],'material_type_display'=>['xi, 254 p.'],'language_facet'=>['English'],'_version_'=>1501972238485684224,'timestamp'=>'2015-05-23T14:45:47.799Z'}]}}
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'8430339','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'8430339','marc_display'=>'<record><leader>01868cam a2200457 a 4500</leader><controlfield tag="001">8430339</controlfield><controlfield tag="005">20110428163253.0</controlfield><controlfield tag="008">100525s2011    nyu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2010021750</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781416596158 (alk. paper)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1416596151 (alk. paper)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="z">9781439101704 (ebook)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="z">1439101701 (ebook)</subfield></datafield><datafield tag="024" ind1=" " ind2=" "><subfield code="a">99941660047</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)464593183</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn464593183</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)8430339</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">YDX</subfield><subfield code="d">BTCTA</subfield><subfield code="d">YDXCP</subfield><subfield code="d">MOF</subfield><subfield code="d">MLY</subfield><subfield code="d">CDX</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">BL80.3</subfield><subfield code="b">.D74 2011</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">200</subfield><subfield code="2">22</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Dreyfus, Hubert L.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">All things shining :</subfield><subfield code="b">reading the Western classics to find meaning in a secular age /</subfield><subfield code="c">Hubert Dreyfus and Sean Dorrance Kelly.</subfield></datafield><datafield tag="250" ind1=" " ind2=" "><subfield code="a">1st Free Press hardcover ed.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Free Press,</subfield><subfield code="c">c2011.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xi, 254 p. ;</subfield><subfield code="c">22 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references (p. 227-243) and index.</subfield></datafield><datafield tag="505" ind1="0" ind2=" "><subfield code="a">Our contemporary nihilism -- David Foster Wallace\'s nihilism -- Homer\'s polytheism -- From Aeschylus to Augustine : monotheism on the rise -- From Dante to Kant : the attractions and dangers of autonomy -- Fanaticism, polytheism, and Melville\'s "evil art" -- Conclusion : lives worth living in a secular age.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Religions.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Religion.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Meaning (Philosophy)</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Kelly, Sean</subfield><subfield code="q">(Sean D.)</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20110308</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20110317</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">BL</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">BL80.3 .D74 2011</subfield><subfield code="b">loc+BL-+0080+30000000+D7400000+002011</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; BL80.3 .D74 2011|DELIM|11515363</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein [Butler] &gt;&gt; BL80.3 .D74 2011|DELIM|11580964</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2011-03-17T00:00:00.000Z</subfield></datafield></record>','text'=>['BL80.3 .D74 2011','200 22','Dreyfus, Hubert L.','All things shining : reading the Western classics to find meaning in a secular age / Hubert Dreyfus and Sean Dorrance Kelly.','1st Free Press hardcover ed.','New York : Free Press, c2011.','xi, 254 p. ; 22 cm.','Includes bibliographical references (p. 227-243) and index.','Our contemporary nihilism -- David Foster Wallace\'s nihilism -- Homer\'s polytheism -- From Aeschylus to Augustine : monotheism on the rise -- From Dante to Kant : the attractions and dangers of autonomy -- Fanaticism, polytheism, and Melville\'s "evil art" -- Conclusion : lives worth living in a secular age.','Religions.','Religion.','Meaning (Philosophy)','Kelly, Sean (Sean D.)','20110308 c sl13 MPS','20110317 c sl13 MPS','AUTH'],'author_txt'=>['Dreyfus, Hubert L.'],'author_addl_txt'=>['Kelly, Sean (Sean D.)'],'author_facet'=>['Dreyfus, Hubert L.','Kelly, Sean (Sean D.)'],'author_display'=>['Dreyfus, Hubert L.'],'author_sort'=>'Dreyfus, Hubert L.   All things shining reading the Western classics to find meaning in a secular age Hubert Dreyfus and Sean Dorrance Kelly','title_txt'=>['All things shining :'],'title_display'=>['All things shining : reading the Western classics to find meaning in a secular age'],'title_filing_txt'=>['All things shining :'],'title_filing_full_txt'=>['All things shining : reading the Western classics to find meaning in a secular age /'],'subtitle_txt'=>['reading the Western classics to find meaning in a secular age'],'title_first_facet'=>['A'],'title_addl_txt'=>['All things shining : reading the Western classics to find meaning in a secular age /'],'title_sort'=>'all things shining  reading the western classics to find meaning in a secular age','subject_txt'=>['Religions','Religion','Meaning (Philosophy)'],'subject_topic_facet'=>['Religions','Religion','Meaning (Philosophy)'],'pub_place_display'=>['New York'],'pub_name_display'=>['Free Press'],'pub_year_display'=>['c2011'],'pub_place_txt'=>['New York'],'pub_name_txt'=>['Free Press'],'pub_year_txt'=>['c2011'],'pub_date_txt'=>['2011'],'language_facet'=>['English'],'format'=>['Book'],'lc_1letter_facet'=>['B - Philosophy, Psychology, Religion'],'lc_2letter_facet'=>['BL - Religions (General)'],'lc_subclass_facet'=>['BL - Religions (General)'],'clio_id_display'=>'8430339','acq_dt'=>'2011-03-17T00:00:00Z','source_facet'=>['catalog'],'source_display'=>['catalog'],'isbn_txt'=>['9781416596158','1416596151','9781439101704','1439101701'],'isbn_display'=>['9781416596158','1416596151'],'lccn_display'=>['2010021750'],'lccn_txt'=>['2010021750'],'oclc_txt'=>['464593183','ocn464593183'],'oclc_display'=>['464593183','ocn464593183'],'full_publisher_display'=>['New York : Free Press, c2011.'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011|DELIM|11515363','Milstein [Butler] >> BL80.3 .D74 2011|DELIM|11580964'],'location_call_number_txt'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011','Milstein [Butler] >> BL80.3 .D74 2011'],'call_number_txt'=>['BL80.3 .D74 2011','BL80.3 .D74 2011'],'call_number_display'=>['BL80.3 .D74 2011','BL80.3 .D74 2011'],'location_facet'=>['Butler Stacks','Milstein'],'location_txt'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011','Milstein [Butler] >> BL80.3 .D74 2011'],'shelfkey'=>['loc+bl-+0080+30000000+d7400000+002011+8430339'],'reverse_shelfkey'=>['ebn~oe~~zzrz~wzzzzzzz~msvzzzzz~zzxzyy~rvwzwwq~~~~~'],'item_display'=>['BL80.3 .D74 2011 | loc+bl-+0080+30000000+d7400000+002011+8430339 | ebn~oe~~zzrz~wzzzzzzz~msvzzzzz~zzxzyy~rvwzwwq~~~~~'],'timestamp'=>'2016-05-23T20:04:39.565Z','authorities_dt'=>'2016-05-23T23:12:34Z','author_variant_txt'=>['Dreyfus, Hubert '],'subject_variant_txt'=>['Comparative religion Denominations, Religious Religion, Comparative Religions, Comparative Religious denominations World religions Civilization Gods Religion Religion, Primitive Atheism God Irreligion Religions Theology Philosophy Semantics (Philosophy)'],'_version_'=>1535162611657605120}]}}
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 20:15:50 GMT
+  recorded_at: Fri, 01 Jul 2016 20:48:49 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/8430339"
@@ -34,11 +34,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      - HTTPClient/1.0 (2.8.0, ruby 2.2.1 (2015-02-26))
       Accept:
       - "*/*"
       Date:
-      - Tue, 22 Sep 2015 20:15:51 GMT
+      - Fri, 01 Jul 2016 20:48:50 GMT
   response:
     status:
       code: 200
@@ -50,81 +50,43 @@ http_interactions:
       - chunked
       Connection:
       - keep-alive
+      Vary:
+      - Accept-Encoding
       Status:
-      - '200'
-      X-Powered-By:
-      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
+      - 200 OK
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - W/"179b6c288c1de65779680def58b3dd74"
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
       - 1; mode=block
       X-Content-Type-Options:
       - nosniff
-      Access-Control-Allow-Origin:
-      - "*"
+      X-Runtime:
+      - '0.004453'
       Access-Control-Request-Method:
       - "*"
-      Etag:
-      - W/"1fd6c8fe0476e460a71b1f3eed6aa1fb"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 685d0b0a-4599-4e9c-8c80-63c634c547c9
-      X-Runtime:
-      - '0.015950'
-      Server:
-      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
-    body:
-      encoding: UTF-8
-      string: "{\"8430339\":{\"condensed_holdings_full\":[{\"location_name\":\"Butler
-        Stacks (Enter at the Butler Circulation Desk)\",\"location_note\":\"\",\"call_number\":\"BL80.3
-        .D74 2011\",\"status\":\"available\",\"holding_id\":[\"11515363\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"doc_delivery\"]},{\"location_name\":\"Milstein
-        [Butler]\",\"location_note\":\"\",\"call_number\":\"BL80.3 .D74 2011\",\"status\":\"available\",\"holding_id\":[\"11580964\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}}}],\"services\":[\"doc_delivery\"]}]}}"
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 20:15:51 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocm01645522.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
+      - d14fbb99-34bf-46c2-afc6-06b5b919383e
       Date:
-      - Wed, 30 Sep 2015 20:49:40 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Wed, 30 Sep 2015 20:49:41 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
+      - Fri, 01 Jul 2016 20:48:50 GMT
       X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Keep-Alive:
-      - timeout=5, max=100
-      Connection:
-      - Keep-Alive
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed045525d5f4f58455e445a4a423660;expires=Wed, 30-Sep-2015
-        20:59:41 GMT;path=/;httponly
+      - Phusion Passenger
+      Server:
+      - nginx + Phusion Passenger
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubdomains; preload
     body:
       encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
+      string: '{"8430339":{"condensed_holdings_full":[{"location_name":"Butler Stacks
+        (Enter at the Butler Circulation Desk)","location_note":"","call_number":"BL80.3
+        .D74 2011","status":"not_available","holding_id":["11515363"],"copies":[{"items":{"Checked
+        out, due 2016-10-03":{"status":"not_available","count":1}}}],"services":["recall_hold"]},{"location_name":"Milstein
+        [Butler]","location_note":"","call_number":"BL80.3 .D74 2011","status":"available","holding_id":["11580964"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]}]}}'
     http_version: 
-  recorded_at: Wed, 30 Sep 2015 20:49:41 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Fri, 01 Jul 2016 20:48:50 GMT
+recorded_with: VCR 3.0.1

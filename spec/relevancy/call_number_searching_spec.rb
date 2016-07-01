@@ -14,7 +14,7 @@ require 'spec_helper'
 #   AA966B25R11
 #   "AA966B25R11"
 
-describe 'Testing Call Number Searching' do
+describe 'Testing Call Number Searching', :skip_travis do
 
   it 'Basic Call-Number, searching all-fields or call-number only' do
     resp = solr_resp_doc_ids_only('q' => 'AA966 B25 R11')

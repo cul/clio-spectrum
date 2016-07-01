@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Invalid byte sequences should be caught' do
+describe 'Invalid byte sequences should be caught', :vcr do
 
   it 'in CGI params' do
     # Send bytes that are NOT valid in UTF-8...

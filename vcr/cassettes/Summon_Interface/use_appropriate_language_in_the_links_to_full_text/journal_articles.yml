@@ -16,13 +16,13 @@ http_interactions:
       Content-Type:
       - application/x-www-form-urlencoded; charset=utf8
       X-Summon-Date:
-      - Tue, 22 Sep 2015 19:25:04 GMT
+      - Fri, 01 Jul 2016 18:31:05 GMT
       X-Summon-Session-Id:
-      - SUMMON-SESSION-Sprite.local-1824-30
+      - SUMMON-SESSION-Sprite.local-66765-29
       X-Summon-Request-Id:
       - ''
       Authorization:
-      - Summon columbia;TQ1gmOmjyqTd/2B0XgFcQU4aR+Y=
+      - Summon columbia;apguE6JpAV2TRyuVYe4ccBbh5SA=
       Host:
       - api.summon.serialssolutions.com:80
   response:
@@ -35,308 +35,327 @@ http_interactions:
       Datacenter:
       - IAD1
       Date:
-      - Tue, 22 Sep 2015 19:25:05 GMT
+      - Fri, 01 Jul 2016 18:31:07 GMT
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: "{\"version\": \"2.0.0\",\"sessionId\": \"SUMMON-SESSION-Sprite.local-1824-30\",\"elapsedQueryTime\":
-        1098,\"queryTime\": 1087,\"totalRequestTime\": 1152,\"pageCount\": 12413475,\"recordCount\":
-        124134750,\"query\": {\"queryString\": \"s.ho=t&s.ps=10&s.ff=SubjectTerms%2Cand%2C1%2C10&s.ff=Language%2Cand%2C1%2C5&s.ff=ContentType%2Cand%2C1%2C10&s.pn=1&s.fvf=ContentType%2CJournal+Article%2Cf&s.fvf=IsFullText%2Ctrue%2Cf\",\"pageNumber\":
-        1,\"pageSize\": 10,\"isHoldingsOnlyEnabled\": true,\"textQueries\": [],\"searchTerms\":
-        [],\"textFilters\": [],\"rangeFilters\": [],\"facetValueFilters\": [{\"fieldName\":
-        \"ContentType\",\"value\": \"Journal Article\",\"isNegated\": false,\"removeCommand\":
-        \"removeFacetValueFilter(ContentType,Journal Article)\",\"negateCommand\":
-        \"negateFacetValueFilter(ContentType,Journal Article)\"},{\"fieldName\": \"IsFullText\",\"value\":
-        \"true\",\"isNegated\": false,\"removeCommand\": \"removeFacetValueFilter(IsFullText,true)\",\"negateCommand\":
-        \"negateFacetValueFilter(IsFullText,true)\"}],\"inclusiveFacetValueFilters\":
-        [],\"facetValueGroupFilters\": [],\"facetFields\": [{\"fieldName\": \"SubjectTerms\",\"combineMode\":
-        \"and\",\"pageNumber\": 1,\"pageSize\": 10,\"removeCommand\": \"removeFacetField(SubjectTerms)\"},{\"fieldName\":
-        \"Language\",\"combineMode\": \"and\",\"pageNumber\": 1,\"pageSize\": 5,\"removeCommand\":
-        \"removeFacetField(Language)\"},{\"fieldName\": \"ContentType\",\"combineMode\":
-        \"and\",\"pageNumber\": 1,\"pageSize\": 10,\"removeCommand\": \"removeFacetField(ContentType)\"}],\"rangeFacetFields\":
-        [],\"sort\": []},\"facetFields\": [{\"fieldName\": \"Language_s\",\"displayName\":
-        \"Language\",\"combineMode\": \"and\",\"pageNumber\": 1,\"pageSize\": 5,\"hasLimitingValue\":
-        true,\"hasAppliedValue\": false,\"removeCommand\": \"removeFacetField(Language)\",\"listValuesCommand\":
-        \"listFacetValues(Language,and)\",\"removeValueFiltersCommand\": \"removeFacetValueFilter(Language)\",\"counts\":
-        [{\"value\": \"English\",\"count\": 81394958,\"isApplied\": false,\"isNegated\":
-        false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(Language,English)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(Language,English:t)\"},{\"value\": \"Chinese\",\"count\":
-        26452506,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(Language,Chinese)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(Language,Chinese:t)\"},{\"value\": \"Korean\",\"count\":
-        2463336,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
-        \"addFacetValueFilters(Language,Korean)\",\"applyNegatedCommand\": \"addFacetValueFilters(Language,Korean:t)\"},{\"value\":
-        \"French\",\"count\": 2142799,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(Language,French)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(Language,French:t)\"},{\"value\": \"German\",\"count\":
-        1976436,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
-        \"addFacetValueFilters(Language,German)\",\"applyNegatedCommand\": \"addFacetValueFilters(Language,German:t)\"}]},{\"fieldName\":
-        \"SubjectTerms_mfacet\",\"displayName\": \"SubjectTerms\",\"combineMode\":
-        \"and\",\"pageNumber\": 1,\"pageSize\": 10,\"hasLimitingValue\": true,\"hasAppliedValue\":
-        false,\"removeCommand\": \"removeFacetField(SubjectTerms)\",\"listValuesCommand\":
-        \"listFacetValues(SubjectTerms,and)\",\"removeValueFiltersCommand\": \"removeFacetValueFilter(SubjectTerms)\",\"counts\":
-        [{\"value\": \"article\",\"count\": 3412827,\"isApplied\": false,\"isNegated\":
-        false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(SubjectTerms,article)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(SubjectTerms,article:t)\"},{\"value\": \"analysis\",\"count\":
-        2187709,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
-        \"addFacetValueFilters(SubjectTerms,analysis)\",\"applyNegatedCommand\": \"addFacetValueFilters(SubjectTerms,analysis:t)\"},{\"value\":
-        \"research\",\"count\": 2043885,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(SubjectTerms,research)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(SubjectTerms,research:t)\"},{\"value\": \"united states\",\"count\":
-        1312652,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
-        \"addFacetValueFilters(SubjectTerms,united states)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(SubjectTerms,united states:t)\"},{\"value\": \"studies\",\"count\":
-        1274750,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
-        \"addFacetValueFilters(SubjectTerms,studies)\",\"applyNegatedCommand\": \"addFacetValueFilters(SubjectTerms,studies:t)\"},{\"value\":
-        \"management\",\"count\": 1114360,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(SubjectTerms,management)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(SubjectTerms,management:t)\"},{\"value\": \"humans\",\"count\":
-        1108681,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
-        \"addFacetValueFilters(SubjectTerms,humans)\",\"applyNegatedCommand\": \"addFacetValueFilters(SubjectTerms,humans:t)\"},{\"value\":
-        \"biochemistry & molecular biology\",\"count\": 1040840,\"isApplied\": false,\"isNegated\":
-        false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(SubjectTerms,biochemistry
-        & molecular biology)\",\"applyNegatedCommand\": \"addFacetValueFilters(SubjectTerms,biochemistry
-        & molecular biology:t)\"},{\"value\": \"asia\",\"count\": 954520,\"isApplied\":
-        false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(SubjectTerms,asia)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(SubjectTerms,asia:t)\"},{\"value\": \"oncology\",\"count\":
-        880780,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
-        \"addFacetValueFilters(SubjectTerms,oncology)\",\"applyNegatedCommand\": \"addFacetValueFilters(SubjectTerms,oncology:t)\"}]},{\"fieldName\":
-        \"ContentType_mfacet\",\"displayName\": \"ContentType\",\"combineMode\": \"and\",\"pageNumber\":
-        1,\"pageSize\": 10,\"hasLimitingValue\": true,\"hasAppliedValue\": true,\"removeCommand\":
-        \"removeFacetField(ContentType)\",\"listValuesCommand\": \"listFacetValues(ContentType,and)\",\"removeValueFiltersCommand\":
-        \"removeFacetValueFilter(ContentType)\",\"counts\": [{\"value\": \"Journal
-        Article\",\"count\": 124134750,\"isApplied\": true,\"isNegated\": false,\"isFurtherLimiting\":
-        false,\"removeCommand\": \"removeFacetValueFilter(ContentType,Journal Article)\",\"negateCommand\":
-        \"negateFacetValueFilter(ContentType,Journal Article)\"},{\"value\": \"Trade
-        Publication Article\",\"count\": 944483,\"isApplied\": false,\"isNegated\":
-        false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Trade
-        Publication Article)\",\"applyNegatedCommand\": \"addFacetValueFilters(ContentType,Trade
-        Publication Article:t)\"},{\"value\": \"Book Review\",\"count\": 872630,\"isApplied\":
-        false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Book
-        Review)\",\"applyNegatedCommand\": \"addFacetValueFilters(ContentType,Book
-        Review:t)\"},{\"value\": \"Conference Proceeding\",\"count\": 568856,\"isApplied\":
-        false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Conference
-        Proceeding)\",\"applyNegatedCommand\": \"addFacetValueFilters(ContentType,Conference
-        Proceeding:t)\"},{\"value\": \"Magazine Article\",\"count\": 466103,\"isApplied\":
-        false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Magazine
-        Article)\",\"applyNegatedCommand\": \"addFacetValueFilters(ContentType,Magazine
-        Article:t)\"},{\"value\": \"Newspaper Article\",\"count\": 431155,\"isApplied\":
-        false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Newspaper
-        Article)\",\"applyNegatedCommand\": \"addFacetValueFilters(ContentType,Newspaper
-        Article:t)\"},{\"value\": \"Book Chapter\",\"count\": 106503,\"isApplied\":
-        false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Book
-        Chapter)\",\"applyNegatedCommand\": \"addFacetValueFilters(ContentType,Book
-        Chapter:t)\"},{\"value\": \"Paper\",\"count\": 16246,\"isApplied\": false,\"isNegated\":
-        false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Paper)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(ContentType,Paper:t)\"},{\"value\": \"Book / eBook\",\"count\":
-        2321,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
-        \"addFacetValueFilters(ContentType,Book / eBook)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(ContentType,Book / eBook:t)\"},{\"value\": \"Electronic
-        Resource\",\"count\": 629,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(ContentType,Electronic Resource)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(ContentType,Electronic Resource:t)\"}]}],\"rangeFacetFields\":
-        [],\"didYouMeanSuggestions\": [],\"recommendationLists\": {},\"documents\":
-        [{\"hasFullText\": true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\":
-        \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Cover&rft.jtitle=The+Lute+%3A+a+monthly+journal+of+musical+news%2C+1883-1899&rft.date=1884-01-01&rft.pub=Patey+%26+Willis&rft.issn=2043-4243&rft.volume=2&rft.issue=1&rft.spage=1&rft.epage=1\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icBY3Eo566yAC73Qoau7BCEVxSp-QngwbJ9c1B5-gZmtsXFOqC7owCza3CLtBIhF6sAJqfATYnmBlYQTtEQend0dgZkbpMgVUn0q5McxNL0EZnBB_YsrFA6gxZgLr44Bs6QftHdU2MQDt70ApscC3kJsBQjny8QkWlXnJpDtDxwOIlKTMRaWk20hmP1PGqIAM_tOGq4AhJaUIMTKl5wgys4GuiRRhYnUErQUUZpN1cQ5w9dGHWxafk5MRDrTGWAO3cBrasUoHdYUvzRBMzs8QkYMPMOC0xMcky2dw00dBQkkEEm1Yp7MLSoK36FiaQkQoZBpaSotJUWWC9Dw0QAK7PnXo\",\"Volume\":
-        [\"2\"],\"DatabaseTitle\": [\"British Periodicals\"],\"Language\": [\"English\"],\"PublicationPlace\":
-        [\"London\"],\"Score\": [\"0.01\"],\"DBID\": [\"0U0\"],\"IsPeerReviewed\":
-        [\"false\"],\"PublicationDate_xml\": [{\"text\": \"18840101\",\"month\": \"01\",\"year\":
-        \"1884\",\"day\": \"01\"}],\"PublicationDate\": [\"18840101\"],\"PublicationCentury\":
-        [\"1800\"],\"Publisher\": [\"Patey & Willis\"],\"SourceType\": [\"Aggregation
-        Database\"],\"Publisher_xml\": [{\"name\": \"Patey & Willis\"}],\"URI\": [\"http://search.proquest.com/docview/7349217\"],\"PQPubID\":
-        [\"2686\"],\"IsScholarly\": [\"false\"],\"ID\": [\"FETCH-proquest_dll_73492173\"],\"PublicationTitle\":
-        [\"The Lute : a monthly journal of musical news, 1883-1899\"],\"Issue\": [\"1\"],\"Discipline\":
-        [\"Music\"],\"PublicationYear\": [\"1884\"],\"Genre\": [\"Front Matter\",\"Front
-        Page/Cover Story\"],\"PublicationPlace_xml\": [{\"name\": \"London\"}],\"PQID\":
-        [\"7349217\"],\"SubjectTerms\": [\"MUSIC\"],\"MergedId\": [\"FETCHMERGED-proquest_dll_73492173\"],\"PublicationDecade\":
-        [\"1880\"],\"ContentType\": [\"Journal Article\"],\"Title\": [\"Cover\"],\"ISSN\":
-        [\"2043-4243\"],\"SSID\": [\"ssib008076135\",\"ssib006555484\",\"ssib007498180\",\"ssib007566807\"],\"StartPage\":
-        [\"1\"],\"EndPage\": [\"1\"],\"thumbnail_s\": [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=2043-4243&client=summon\"],\"thumbnail_m\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=2043-4243&client=summon\"],\"thumbnail_l\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=2043-4243&client=summon\"],\"LinkModel\":
-        [\"DirectLink\"],\"BookMark\": [\"ePnHCXMwY2HgBG231DUxMjHmgEWsBai3bGzKycDqDFqYyM0g7eYa4uyhCyv94lNycuLNQQflGYIuMMcnCwBKYhku\"]},{\"hasFullText\":
-        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Unindexed+Front+Matter&rft.jtitle=Chicago+Review&rft.date=1969-05-01&rft.pub=University+of+Chicago+Press&rft.issn=0009-3696&rft.eissn=2327-5804&rft.volume=20&rft.issue=4\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icBY3Eo566yFgHjWiE2HCIaGCrEXTiIbDh6AY6jEDbN7EEtuQWdgIBdLkF0jxACmTjm5klYlUd0pmx-NZpQMo3S13QDX2Q0h0sBmwymeuaWkAu-YWVeUYGSHFrwgzss1pAThd2g1djRtApGJiRGJUVuEIJEWTghzadFRwhQSDEwJSaJ8wg7gMdcC1WUFPwgZ8RXSzCIAYPGAVwwChAAkaUQc7NNcTZQxdmTXxKTg5oug3YSDUyAnamJUA7zIHeSQV22y3NE03MzBKTgA1I47TExCTLZHPTRENDSQZxHLqlcMpIM3AhwluGgaWkqDRVFthKAYVUUmYiAApW37I\",\"DatabaseTitle\":
-        [\"Periodicals Index Online\"],\"Volume\": [\"20\"],\"Language\": [\"English\"],\"PublicationPlace\":
-        [\"Chicago\"],\"Score\": [\"0.01\"],\"IsPeerReviewed\": [\"true\"],\"PublicationDate\":
-        [\"19690501\"],\"PublicationDate_xml\": [{\"text\": \"19690501\",\"month\":
-        \"05\",\"year\": \"1969\",\"day\": \"01\"}],\"PublicationCentury\": [\"1900\"],\"Publisher\":
-        [\"University of Chicago Press\"],\"SourceType\": [\"Aggregation Database\"],\"Publisher_xml\":
-        [{\"name\": \"University of Chicago Press\"}],\"PQPubID\": [\"1821006\"],\"URI\":
-        [\"http://search.proquest.com/docview/1301392271\"],\"IsScholarly\": [\"true\"],\"ID\":
-        [\"FETCH-proquest_dll_13013922713\"],\"PublicationTitle\": [\"Chicago Review\"],\"Issue\":
-        [\"4\"],\"Discipline\": [\"Languages & Literatures\"],\"PublicationYear\":
-        [\"1969\"],\"Genre\": [\"Front Matter\"],\"PublicationPlace_xml\": [{\"name\":
-        \"Chicago\"}],\"PQID\": [\"1301392271\"],\"EISSN\": [\"2327-5804\"],\"MergedId\":
-        [\"FETCHMERGED-proquest_dll_13013922713\"],\"PublicationDecade\": [\"1960\"],\"ContentType\":
-        [\"Journal Article\"],\"Title\": [\"Unindexed Front Matter\"],\"ISSN\": [\"0009-3696\"],\"SSID\":
-        [\"ssj0002222\"],\"thumbnail_s\": [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0009-3696&client=summon\"],\"thumbnail_m\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0009-3696&client=summon\"],\"thumbnail_l\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0009-3696&client=summon\"],\"LinkModel\":
-        [\"OpenURL\"],\"BookMark\": [\"ePnHCXMwYwJd5mZkrmtqYWDCAr3FDHRnHAeseARWSEacDGLAJhXoOMDUFAU30E59BV_wcZLcDHJuriHOHrqwcjE-JScHNOUCbKgYGZmDLiEgoAAAwI8hwA\"]},{\"hasFullText\":
-        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Information+for+Readers&rft.jtitle=Annals+of+Emergency+Medicine&rft.date=2009&rft.pub=Mosby%2C+Inc&rft.issn=0196-0644&rft.eissn=1085-8717&rft.volume=53&rft.issue=1&rft.spage=A13&rft.epage=A13&rft_id=info:doi/10.1016%2FS0196-0644%2808%2902031-3&rft.externalDocID=doi_10_1016_S0196_0644_08_02031_3\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icBY3Eo566CNkKA11UCS35ISU6uKyGiuhDw1K_IDNTPxh0rguwOjUB7RUFnT8I2kltZgHqfrm5OCGO3TUxgt5ICOw3A1Uj9vBATAALahhYaIIN0TVGqpJ4EKWnmwADbN0TbHlJcmkO0G3A8iMpMxFp7TXSIY4U-EWQgR_aHFVwhKgTYmBKzRNm4PCFTriLMIhDtyuBok8ByFIIgix9FmWwd3MNcfbQhfkjHsUR8cCSMh5pZZelWTzI5njQXZQgu-ONjSVAG7mBDa1UYO_Y0jzRxMwsMQnYTjNOS0xMskw2N000NJRksCDXeCnytUozcEHmckADIDIMLCVFpamywOYENBoAKOy2Gg\",\"Volume\":
-        [\"53\"],\"Language\": [\"English\"],\"Score\": [\"0.01\"],\"DOI\": [\"10.1016/S0196-0644(08)02031-3\"],\"IsPeerReviewed\":
-        [\"true\"],\"PublicationDate\": [\"2009\"],\"PublicationDate_xml\": [{\"text\":
-        \"2009\",\"year\": \"2009\"}],\"PublicationCentury\": [\"2000\"],\"Publisher\":
-        [\"Mosby, Inc\"],\"SourceType\": [\"Publisher\"],\"Publisher_xml\": [{\"name\":
-        \"Mosby, Inc\"}],\"URI\": [\"http://www.sciencedirect.com/science/article/pii/S0196064408020313\"],\"IsScholarly\":
-        [\"true\"],\"ID\": [\"FETCH-elsevier_sciencedirect_doi_10_1016_S0196_0644_08_02031_33\"],\"PublicationTitle\":
-        [\"Annals of Emergency Medicine\"],\"Issue\": [\"1\"],\"Discipline\": [\"Medicine\"],\"PublicationYear\":
-        [\"2009\"],\"EISSN\": [\"1085-8717\"],\"MergedId\": [\"FETCHMERGED-elsevier_sciencedirect_doi_10_1016_S0196_0644_08_02031_33\"],\"PublicationDecade\":
-        [\"2000\"],\"ContentType\": [\"Journal Article\"],\"Title\": [\"Information
-        for Readers\"],\"ISSN\": [\"0196-0644\"],\"ExternalDocumentID\": [\"doi_10_1016_S0196_0644_08_02031_3\"],\"SSID\":
-        [\"ssj0009421\"],\"StartPage\": [\"A13\"],\"EndPage\": [\"A13\"],\"thumbnail_s\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0196-0644&client=summon\"],\"thumbnail_m\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0196-0644&client=summon\"],\"thumbnail_l\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0196-0644&client=summon\"],\"LinkModel\":
-        [\"DirectLink\"],\"BookMark\": [\"ePnHCXMwY4DvktEPBp29ogus80w0DCw0QVNehrrGTNAF78CGOrCvxAlXwgE_KdfEyJCTQRy6GwfkOgUgSyEIsrKXm8HezTXE2UMXVnPEQ2sKSA0QDywI4pEWLlmaxYMMjwddtQiyPx50QS6lJgAA-OM9Rw\"]},{\"hasFullText\":
-        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Article+2+--+No+Title&rft.jtitle=The+New+England+Farmer%2C+and+Horticultural+Register+%281822-1890%29&rft.date=1831-12-07&rft.pub=American+Periodicals+Series+II&rft.volume=10&rft.issue=21&rft.spage=167&rft.externalDocID=1593539472\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icBY3Eo566yAC7FBUau7BCEVxSp-QngwbJ9Q1BU2QmwPxgX1CoC7o1CjS7CrtCIxF6tQJohgbYoGBmYDUETWkB07d5hDFGMQsuGt0EGGADErA1I8mlOUArgYVCUmYi0oJqpJMZqeVAQQZ-aINTwRGSQoQYmFLzRBhEoVwFIwVdXQW_fIUQUJoRZZBzcw1x9tCFWRyfkpMTD2yJGJsaW5qYGxlLgDZfAxtHqcAeraV5oomZWWISsG1lnJaYmGSZbG6aaGgoySCOQ7cUThlp0J57Y0Pw8g1zGQaWkqLSVFlgBQ4NIwBizJKe\",\"DatabaseTitle\":
-        [\"American Periodicals\",\"American Periodicals Series (Collection I)\"],\"Volume\":
-        [\"10\"],\"Language\": [\"English\"],\"PublicationPlace\": [\"Boston\"],\"Score\":
-        [\"0.01\"],\"IsPeerReviewed\": [\"false\"],\"DBID\": [\"7X3\",\"D1Z\"],\"PublicationDate\":
-        [\"18311207\"],\"PublicationDate_xml\": [{\"text\": \"18311207\",\"month\":
-        \"12\",\"year\": \"1831\",\"day\": \"07\"}],\"PublicationCentury\": [\"1800\"],\"Publisher\":
-        [\"American Periodicals Series II\"],\"SourceType\": [\"Aggregation Database\"],\"Publisher_xml\":
-        [{\"name\": \"American Periodicals Series II\"}],\"PQPubID\": [\"24525\"],\"URI\":
-        [\"http://search.proquest.com/docview/127844376\"],\"IsScholarly\": [\"false\"],\"ID\":
-        [\"FETCH-proquest_dll_15935394723\"],\"PublicationTitle\": [\"The New England
-        Farmer, and Horticultural Register (1822-1890)\"],\"Issue\": [\"21\"],\"PublicationYear\":
-        [\"1831\"],\"PublicationPlace_xml\": [{\"name\": \"Boston\"}],\"PQID\": [\"127844376\"],\"MergedId\":
-        [\"FETCHMERGED-proquest_dll_15935394723\"],\"PublicationDecade\": [\"1830\"],\"ContentType\":
-        [\"Journal Article\"],\"Title\": [\"Article 2 -- No Title\"],\"ExternalDocumentID\":
-        [\"1593539472\"],\"StartPage\": [\"167\"],\"Database_xml\": [{\"sequence\":
-        \"1\",\"name\": \"American Periodicals Series (Collection I)\",\"dbid\": \"7X3\",\"url\":
-        \"http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/americanperiodicals/advanced?accountid=10226\",\"sourceTypes\":
-        [\"Aggregation Database\"]}],\"LinkModel\": [\"DirectLink\"],\"BookMark\":
-        [\"ePnHCXMw42QQdYT4WcFIQVdXwS9fIQTkbW4GOTfXEGcPXViJF5-SkxMPrEyNTY0tTcxB1wURUAAAgfgZrg\"]},{\"hasFullText\":
-        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Contents&rft.jtitle=Annals+of+Pure+and+Applied+Logic&rft.date=2006&rft.pub=Elsevier+B.V&rft.issn=0168-0072&rft.volume=143&rft.issue=1&rft.spage=vi&rft.epage=vi&rft_id=info:doi/10.1016%2FS0168-0072%2806%2900111-4&rft.externalDocID=doi_10_1016_S0168_0072_06_00111_4\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icBY3Eo566CNkKA11UCS35ISU6uKyGiuhDw1K_IDNTPxjYVLEAHXttYAa-Lh10IqgpsG4HbeGLcEIs8jCBzDEDFeuCVCP28EBMAAtqGJhpgg3RNUGqkngQpambAANs3RNseUlyaQ7QbcDyIykzEWntNdIhjhT4RZCBH9ocVXCEqBNiYErNE2bg9oWf5VoszMAVALvtoFKEgQN8mlVeSbEog72ba4izhy7MI_EorogHFpXxSEu7zCziQVbHQ5e3GcabGEuAdnIDW1qpwO6xpXmiiZlZYhKwoWaclpiYZJlsbppoaCjJYEGu8VLka5Vm4EKMgMgwsJQUlabKAtsT0HgAAIEptfc\",\"Volume\":
-        [\"143\"],\"Language\": [\"English\"],\"Score\": [\"0.01\"],\"DOI\": [\"10.1016/S0168-0072(06)00111-4\"],\"IsPeerReviewed\":
-        [\"true\"],\"PublicationDate\": [\"2006\"],\"PublicationDate_xml\": [{\"text\":
-        \"2006\",\"year\": \"2006\"}],\"PublicationCentury\": [\"2000\"],\"Publisher\":
-        [\"Elsevier B.V\"],\"SourceType\": [\"Publisher\"],\"Publisher_xml\": [{\"name\":
-        \"Elsevier B.V\"}],\"URI\": [\"http://www.sciencedirect.com/science/article/pii/S0168007206001114\"],\"IsScholarly\":
-        [\"true\"],\"ID\": [\"FETCH-elsevier_sciencedirect_doi_10_1016_S0168_0072_06_00111_43\"],\"PublicationTitle\":
-        [\"Annals of Pure and Applied Logic\"],\"Issue\": [\"1\"],\"Discipline\":
-        [\"Philosophy\",\"Mathematics\"],\"PublicationYear\": [\"2006\"],\"MergedId\":
-        [\"FETCHMERGED-elsevier_sciencedirect_doi_10_1016_S0168_0072_06_00111_43\"],\"PublicationDecade\":
-        [\"2000\"],\"ContentType\": [\"Journal Article\"],\"Title\": [\"Contents\"],\"ISSN\":
-        [\"0168-0072\"],\"ExternalDocumentID\": [\"doi_10_1016_S0168_0072_06_00111_4\"],\"SSID\":
-        [\"ssj0005473\"],\"StartPage\": [\"vi\"],\"EndPage\": [\"vi\"],\"thumbnail_s\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0168-0072&client=summon\"],\"thumbnail_m\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0168-0072&client=summon\"],\"thumbnail_l\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0168-0072&client=summon\"],\"LinkModel\":
-        [\"DirectLink\"],\"BookMark\": [\"ePnHCXMwY4DvktEPBhIWuqCzqTUMzDTBt5rrmrCAz9qGCHPA12KYmBtzMnCAD2TKKynmZrB3cw1x9tCFVQ_x0OoAUszHA3N7PNLqJDOLeJBp8dAVWobxoC04lJoAAGxgNbU\"]},{\"hasFullText\":
-        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Announcement&rft.jtitle=Applied+and+Preventive+Psychology&rft.date=1999-01-01&rft.issn=0962-1849&rft.eissn=1873-7293&rft.volume=8&rft.issue=3&rft.spage=229&rft.epage=229&rft_id=info:doi/10.1016%2FS0962-1849%2805%2980080-0&rft.externalDBID=n%2Fa&rft.externalDocID=10_1016_S0962_1849_05_80080_0\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icBY3Eo566yKCPYwIfvJXX0swIqM3EUsPAVNMC1MLRBXXRTYD1POhURxcnxKSBAfjCWLgGxIYd7KYgVUU8iCLUTYABtqQetpYkuTQHGP_AwiIpMxFpoTXSiY3EOlyQgR_a0FRwhKQMIQam1DxhBi54eVcpwsDjmJcHzOvJ4AFCUQZTN9cQZw9dmFvjCyDnUMQjFmgBbYoH2RRvYBoPtinewFgCtB8b2F5KBXZyLc0TTczMEpOAzS3jtMTEJMtkc9NEQ0NJBj3SDJUiVYM0AxfknAPQmIUMA0tJUWmqLDDYoYEJAF-nk8w\",\"Volume\":
-        [\"8\"],\"DatabaseTitle\": [\"CrossRef\"],\"Language\": [\"English\"],\"Score\":
-        [\"0.01\"],\"DOI\": [\"10.1016/S0962-1849(05)80080-0\"],\"IsPeerReviewed\":
-        [\"true\"],\"PublicationDate\": [\"1999-22\"],\"PublicationDate_xml\": [{\"text\":
-        \"1999-22\",\"year\": \"1999\"}],\"PublicationCentury\": [\"1900\"],\"SourceType\":
-        [\"Aggregation Database\"],\"IsScholarly\": [\"true\"],\"ID\": [\"FETCH-crossref_primary_10_1016_S0962_1849_05_80080_03\"],\"PublicationTitle\":
-        [\"Applied and Preventive Psychology\"],\"Issue\": [\"3\"],\"Discipline\":
-        [\"Psychology\"],\"PublicationYear\": [\"1999\"],\"EISSN\": [\"1873-7293\"],\"MergedId\":
-        [\"FETCHMERGED-crossref_primary_10_1016_S0962_1849_05_80080_03\"],\"PublicationDecade\":
-        [\"1990\"],\"ContentType\": [\"Journal Article\"],\"Title\": [\"Announcement\"],\"ExternalDocumentID\":
-        [\"10_1016_S0962_1849_05_80080_0\"],\"ISSN\": [\"0962-1849\"],\"SSID\": [\"ssj0013067\"],\"StartPage\":
-        [\"229\"],\"EndPage\": [\"229\"],\"thumbnail_s\": [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0962-1849&client=summon\"],\"thumbnail_m\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0962-1849&client=summon\"],\"thumbnail_l\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0962-1849&client=summon\"],\"LinkModel\":
-        [\"DirectLink\"],\"BookMark\": [\"ePnHCXMwY4DvktEPBjaPjXSBXQhLDQNTTQtQ40TXgAnYAbIwNwZdoQpMlpxwJRzwoX9g-cnJwOOYlwdM7sngMTJuBlM31xBnD11YzRFfADmKIR6xRgloTjzInHgD03iwVfGge7DI0wcAZ6oxrA\"]},{\"hasFullText\":
-        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Results+of+Competitive+Sales&rft.jtitle=The+Bond+Buyer&rft.date=2002-12-09&rft.pub=SourceMedia%2C+Inc&rft.issn=0732-0469&rft.volume=342&rft.issue=31528&rft.spage=30&rft.externalDBID=IAO&rft.externalDocID=95094171\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icBY3Eo566yOAOH7nIy9YDlYyILQ2JBQXF-in5yfqOlqCz3gzNDfWdPF3tka7PKLVNBmXkpMzEUmYGVlCHApTSIzzhHS9giwi8JQ6Ymo1ASxktocUvD6L8dBNggI0nwRaQJJfm6MEMRlpdjXRMI6WuFWTgh7Y6FRwhyUSIgSk1T5iBA7boXYRBJii1uDSnpFghP03BGdySBi8pUggGWlssyiDr5hri7KELckQ8KEWWFCUmx8OsNpYAbckGNplSgf1cS_NEEzOzxCRgi8s4LTExyTLZ3DTR0FCSQQy7ZilcEtIMXLAbUQwsZRhYSopKU2WBlTrUVwDQ9pYY\",\"Volume\":
-        [\"342\"],\"Language\": [\"English\"],\"Score\": [\"0.01\"],\"Copyright\":
-        [\"COPYRIGHT 2002 SourceMedia, Inc.\"],\"IsPeerReviewed\": [\"false\"],\"DBID\":
-        [\"IAO\"],\"PublicationDate\": [\"20021209\"],\"PublicationDate_xml\": [{\"text\":
-        \"20021209\",\"month\": \"12\",\"year\": \"2002\",\"day\": \"09\"}],\"PublicationCentury\":
-        [\"2000\"],\"Copyright_xml\": [{\"notice\": \"COPYRIGHT 2002 SourceMedia,
-        Inc.\"}],\"Publisher\": [\"SourceMedia, Inc\"],\"SourceType\": [\"Aggregation
-        Database\"],\"Publisher_xml\": [{\"name\": \"SourceMedia, Inc\"}],\"IsScholarly\":
-        [\"false\"],\"ID\": [\"FETCH-gale_infotrac_950941713\"],\"PublicationTitle\":
-        [\"The Bond Buyer\"],\"Issue\": [\"31528\"],\"Discipline\": [\"Business\"],\"PublicationYear\":
-        [\"2002\"],\"Audience\": [\"Trade\"],\"MergedId\": [\"FETCHMERGED-gale_infotrac_950941713\"],\"PublicationDecade\":
-        [\"2000\"],\"ContentType\": [\"Journal Article\"],\"Title\": [\"Results of
-        Competitive Sales\"],\"ISSN\": [\"0732-0469\"],\"ExternalDocumentID\": [\"95094171\"],\"SSID\":
-        [\"ssj0002068\"],\"StartPage\": [\"30\"],\"thumbnail_s\": [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0732-0469&client=summon\"],\"thumbnail_m\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0732-0469&client=summon\"],\"thumbnail_l\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0732-0469&client=summon\"],\"LinkModel\":
-        [\"DirectLink\"],\"BookMark\": [\"ePnHCXMwYwEde2lsBFoyaMkBKxKNDMwsOBlkglKLS3NKihXy0xScwa1C8PIYhWBgUVjMzSDr5hri7KELKhjjQaEL7Oknx1uCDngzNAfdPoBfHgCQOCHv\"]},{\"hasFullText\":
-        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Editorial+note&rft.jtitle=The+Journal+of+Pediatrics&rft.au=J.M.G&rft.date=1978&rft.pub=Mosby%2C+Inc&rft.issn=0022-3476&rft.eissn=1085-8695&rft.volume=93&rft.issue=4&rft.spage=722&rft.epage=722&rft_id=info:doi/10.1016%2FS0022-3476%2878%2980928-7&rft.externalDocID=doi_10_1016_S0022_3476_78_80928_7\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icBY3Eo566CNkKA11UCS35ISU6uKyGiuhDw1K_IDMTtMMXWLGZmAPLWgsDS2CzH7ST2swC1P1yc3FCHLtrAt2EAlqzDlSN2MMDMQEsqGFuoQk2RNccqUriQZSybgIMsHVPsOUlyaU5QLcBy4-kzESktddIhzhS4BdBBn5oc1TBEaJOiIEpNU-YgcMXOuEuwsDnmpIJOkYEqCYvvyRVlMHezTXE2UMX5vx4FLvjgQVkPGJBF9C-eJCF8eYW8WAr482NJUD7t4Htq1SgKyzNE03MzBKTgM0z47TExCTLZHPTRENDSQYLco2XIl-rNAOXIfgcYNC4hwwDS0lRaaossBUBDX0An7qzVw\",\"Volume\":
-        [\"93\"],\"Language\": [\"English\"],\"Author\": [\"J.M.G\"],\"Score\": [\"0.01\"],\"DOI\":
-        [\"10.1016/S0022-3476(78)80928-7\"],\"Copyright\": [\"The C. V. Mosby Company\"],\"IsPeerReviewed\":
-        [\"true\"],\"PublicationDate\": [\"1978\"],\"PublicationDate_xml\": [{\"text\":
-        \"1978\",\"year\": \"1978\"}],\"PublicationCentury\": [\"1900\"],\"Copyright_xml\":
-        [{\"notice\": \"The C. V. Mosby Company\"}],\"Publisher\": [\"Mosby, Inc\"],\"SourceType\":
-        [\"Publisher\"],\"Publisher_xml\": [{\"name\": \"Mosby, Inc\"}],\"URI\": [\"http://www.sciencedirect.com/science/article/pii/S0022347678809287\"],\"IsScholarly\":
-        [\"true\"],\"ID\": [\"FETCH-elsevier_sciencedirect_doi_10_1016_S0022_3476_78_80928_73\"],\"PublicationTitle\":
-        [\"The Journal of Pediatrics\"],\"Issue\": [\"4\"],\"Discipline\": [\"Medicine\"],\"PublicationYear\":
-        [\"1978\"],\"EISSN\": [\"1085-8695\"],\"MergedId\": [\"FETCHMERGED-elsevier_sciencedirect_doi_10_1016_S0022_3476_78_80928_73\"],\"Author_xml\":
-        [{\"sequence\": \"1\",\"surname\": \"J.M.G\",\"fullname\": \"J.M.G\"}],\"PublicationDecade\":
-        [\"1970\"],\"ContentType\": [\"Journal Article\"],\"Title\": [\"Editorial
-        note\"],\"ISSN\": [\"0022-3476\"],\"ExternalDocumentID\": [\"doi_10_1016_S0022_3476_78_80928_7\"],\"SSID\":
-        [\"ssj0009400\"],\"StartPage\": [\"722\"],\"EndPage\": [\"722\"],\"thumbnail_s\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0022-3476&client=summon\"],\"thumbnail_m\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0022-3476&client=summon\"],\"thumbnail_l\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0022-3476&client=summon\"],\"LinkModel\":
-        [\"DirectLink\"],\"BookMark\": [\"ePnHCXMwY4DvkgHtwgUtFTcxN9Mwt9C0MLA0stA1Z4IueLcwszRlgZ3kDVTCAT8pF5iqOBn4XFMyQadkJOYo5OWXAEtKezfXEGcPXViFEQ-tICAFfzww_8cj1isBzYwHmRlvbhEPtjYedC06pSYAAJxuOig\"]},{\"hasFullText\":
-        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Reports+and+Analyses+and+Descriptions+of+New+Inventions+in+Medicine%2C+Surgery%2C+Dietetics%2C+and+the+Allied+Sciences&rft.jtitle=British+Medical+Journal&rft.date=1886-06-19&rft.issn=0007-1447&rft.volume=1&rft.issue=1329&rft.spage=1174&rft.epage=1174&rft.externalDBID=5PM&rft.externalDocID=2257234\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwnV1NS8NAEB3EQw-C2Cr4VRgQekoDcWPWHFooatGDJ72XTbvBQE1CEy_-emf2g7Iee8zHDsuwebzZvHkLcPcPD3iHqtexweYp0VneiQ9dF8GrxlhUGUgT47r6MvJKl8edOV8tLrlO5FubGa1HeS_SSd8021n7bcbp34l90RgPqYI3DdY94TT7o_mK3qK1EDK1bSpslpjyKSuhOPJkD7rLMzh1NBEXdj5DONL1CAbv7kf4ObSWOHeo6g1aYxFtL6iQ9EDQYVMioRi-eWV5h1WNPkqEH7YnOsLnirgzGzZHJgaRQlxsmZ2i-_a7C5gvXz6fXqfBtFetNatYsX10-IRSamykXebEJTduE7HSVA3nUqVZpgriZaJUqsjX8kElyRXIA6NfHzzyhvv9HzOWZSX5LRz3ux89JvLAoF1U6g-SPcW2\",\"Volume\":
-        [\"1\"],\"Language\": [\"English\"],\"Score\": [\"0.01\"],\"IsPeerReviewed\":
-        [\"false\"],\"DBID\": [\"5PM\"],\"PublicationDate\": [\"18860619\"],\"PublicationDate_xml\":
-        [{\"text\": \"18860619\",\"month\": \"06\",\"year\": \"1886\",\"day\": \"19\"}],\"PublicationCentury\":
-        [\"1800\"],\"SourceType\": [\"Open Access Repository\"],\"URI\": [\"http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2257234&tool=pmcentrez&rendertype=abstract\"],\"IsScholarly\":
-        [\"false\"],\"ID\": [\"FETCH-pubmedcentral_primary_oai_pubmedcentral_nih_gov_22572343\"],\"PublicationTitle\":
-        [\"British Medical Journal\"],\"Issue\": [\"1329\"],\"Discipline\": [\"Medicine\"],\"PublicationYear\":
-        [\"1886\"],\"MergedId\": [\"FETCHMERGED-pubmedcentral_primary_oai_pubmedcentral_nih_gov_22572343\"],\"PublicationDecade\":
-        [\"1880\"],\"ContentType\": [\"Journal Article\"],\"Title\": [\"Reports and
-        Analyses and Descriptions of New Inventions in Medicine, Surgery, Dietetics,
-        and the Allied Sciences\"],\"ExternalDocumentID\": [\"2257234\"],\"ISSN\":
-        [\"0007-1447\"],\"SSID\": [\"ssj0033740\"],\"StartPage\": [\"1174\"],\"EndPage\":
-        [\"1174\"],\"thumbnail_s\": [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0007-1447&client=summon\"],\"thumbnail_m\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0007-1447&client=summon\"],\"thumbnail_l\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0007-1447&client=summon\"],\"LinkModel\":
-        [\"DirectLink\"],\"BookMark\": [\"ePnHCXMwYwE3N811gQ11cw5okWhsbG5iwMlQAGlTFisA-8gKkDM3UiEcYB8LlkeKFfLTFIAZXMETtui6WCEzT8EXOtOsoxAM2S6so-CSCWxWgs4y1gGbAWwvKTjmgBpuCtBsUczNYOfmGuLsoYuy3DG-AHKOQzzoZGVUmbzMDPAJy8BEbm5kDNrJQ6EBAI-GXC4\"]},{\"hasFullText\":
-        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Foreign+Notes&rft.jtitle=The+Magazine+of+music+%3A+For+the+student+and+the+Million%2C+Feb.+1885&rft.date=1889-05-01&rft.pub=John+W.+Coates&rft.issn=2043-4278&rft.volume=6&rft.issue=5&rft.spage=97&rft.epage=97\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icBY3Eo566yAC73Qoau7BCEVxSp-QngwbJ9c0sQXNGFvYFhbqgO6NAc6uwCzQSoRcrgOZngM0JZgZW0A5RUHp3NHZGpDYT0GFcoP3ToP2guqA7JhBsCzMchbGbAEM58tkJFZV6yaU5QJcBy46kzESkdddIBzhSxx-CDPzQVqmCIyQZCTEwpeYJM7CC74AWYeCFXt-p4JcPbJeKMki7uYY4e-jCrI1PycmJh1pnLAHang1sPqUC-7yW5okmZmaJScDWl3FaYmKSZbK5aaKhoSSDCDatUtiFpUH78UHrrUCL_2QYWEqKSlNlgZU7NGAAKsuYEg\",\"Volume\":
-        [\"6\"],\"DatabaseTitle\": [\"British Periodicals Collection II\",\"British
-        Periodicals\"],\"Language\": [\"English\"],\"PublicationPlace\": [\"London\"],\"Score\":
-        [\"0.01\"],\"DBID\": [\"PBE\",\"PBC\",\"0U0\",\"A3C\"],\"IsPeerReviewed\":
-        [\"false\"],\"PublicationDate_xml\": [{\"text\": \"18890501\",\"month\": \"05\",\"year\":
-        \"1889\",\"day\": \"01\"}],\"PublicationDate\": [\"18890501\"],\"PublicationCentury\":
-        [\"1800\"],\"Publisher\": [\"John W. Coates\"],\"AbstractList\": [\"VERDI,
-        it appears, must perforce give way on the question of his jubilee. His friends
-        are resolved on the celebration, and the most that he can do is to beg that
-        the ceremonies may be as simple and brief as possible. M. Boito is at the
-        head of the committee, which has already made several propositions.\"],\"SourceType\":
-        [\"Aggregation Database\"],\"Publisher_xml\": [{\"name\": \"John W. Coates\"}],\"Snippet\":
-        [\"VERDI, it appears, must perforce give way on the question of his jubilee.
-        His friends are resolved on the celebration, and the most that he can do is
-        to beg...\"],\"URI\": [\"http://search.proquest.com/docview/6976848\"],\"PQPubID\":
-        [\"2898\"],\"IsScholarly\": [\"false\"],\"ID\": [\"FETCH-proquest_dll_69768483\"],\"PublicationTitle\":
-        [\"The Magazine of music : For the student and the Million, Feb. 1885\"],\"Issue\":
-        [\"5\"],\"Discipline\": [\"Music\"],\"PublicationYear\": [\"1889\"],\"PublicationPlace_xml\":
-        [{\"name\": \"London\"}],\"PQID\": [\"6976848\"],\"DatabaseTitleList\": [\"British
-        Periodicals Collection II\"],\"Abstract\": [\"VERDI, it appears, must perforce
-        give way on the question of his jubilee. His friends are resolved on the celebration,
-        and the most that he can do is to beg that the ceremonies may be as simple
-        and brief as possible. M. Boito is at the head of the committee, which has
-        already made several propositions.\"],\"SubjectTerms\": [\"MUSIC\"],\"MergedId\":
-        [\"FETCHMERGED-proquest_dll_69768483\"],\"PublicationDecade\": [\"1880\"],\"ContentType\":
-        [\"Journal Article\"],\"Title\": [\"Foreign Notes\"],\"ISSN\": [\"2043-4278\",\"2043-4286\"],\"SSID\":
-        [\"ssib005444517\"],\"StartPage\": [\"97\"],\"EndPage\": [\"97\"],\"thumbnail_s\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=2043-4278&client=summon\"],\"thumbnail_m\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=2043-4278&client=summon\"],\"thumbnail_l\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=2043-4278&client=summon\"],\"Database_xml\":
-        [{\"sequence\": \"1\",\"name\": \"British Periodicals Collection II\",\"dbid\":
-        \"A3C\",\"url\": \"http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/britishperiodicals/advanced?accountid=10226\",\"sourceTypes\":
-        [\"Aggregation Database\"]}],\"LinkModel\": [\"DirectLink\"],\"BookMark\":
-        [\"ePnHCXMwY2HgBG231AVd4cABj2gT0DlY5pwMvNALJxX88oEtKW4GaTfXEGcPXVgpGJ-SkxNvZgmaHAKd44dPFgBLMxxQ\"]}],\"rollups\":
-        {\"image\": {},\"reference\": {},\"newspaper\": {}}}"
+      string: '{"version": "2.0.0","sessionId": "SUMMON-SESSION-Sprite.local-66765-29","elapsedQueryTime":
+        1339,"queryTime": 1319,"totalRequestTime": 1463,"pageCount": 14332662,"recordCount":
+        143326611,"query": {"queryString": "s.ho=t&s.ff=SubjectTerms%2Cand%2C1%2C10&s.ff=Language%2Cand%2C1%2C5&s.ff=ContentType%2Cand%2C1%2C10&s.fvf=ContentType%2CJournal+Article%2Cf&s.fvf=IsFullText%2Ctrue%2Cf","pageNumber":
+        1,"pageSize": 10,"isHoldingsOnlyEnabled": true,"textQueries": [],"searchTerms":
+        [],"textFilters": [],"rangeFilters": [],"facetValueFilters": [{"fieldName":
+        "ContentType","value": "Journal Article","isNegated": false,"removeCommand":
+        "removeFacetValueFilter(ContentType,Journal Article)","negateCommand": "negateFacetValueFilter(ContentType,Journal
+        Article)"},{"fieldName": "IsFullText","value": "true","isNegated": false,"removeCommand":
+        "removeFacetValueFilter(IsFullText,true)","negateCommand": "negateFacetValueFilter(IsFullText,true)"}],"inclusiveFacetValueFilters":
+        [],"facetValueGroupFilters": [],"facetFields": [{"fieldName": "SubjectTerms","combineMode":
+        "and","pageNumber": 1,"pageSize": 10,"removeCommand": "removeFacetField(SubjectTerms)"},{"fieldName":
+        "Language","combineMode": "and","pageNumber": 1,"pageSize": 5,"removeCommand":
+        "removeFacetField(Language)"},{"fieldName": "ContentType","combineMode": "and","pageNumber":
+        1,"pageSize": 10,"removeCommand": "removeFacetField(ContentType)"}],"rangeFacetFields":
+        [],"sort": []},"facetFields": [{"fieldName": "Language_s","displayName": "Language","combineMode":
+        "and","pageNumber": 1,"pageSize": 5,"hasLimitingValue": true,"hasAppliedValue":
+        false,"removeCommand": "removeFacetField(Language)","listValuesCommand": "listFacetValues(Language,and)","removeValueFiltersCommand":
+        "removeFacetValueFilter(Language)","counts": [{"value": "English","count":
+        94419821,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(Language,English)","applyNegatedCommand": "addFacetValueFilters(Language,English:t)"},{"value":
+        "Chinese","count": 30943123,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(Language,Chinese)","applyNegatedCommand":
+        "addFacetValueFilters(Language,Chinese:t)"},{"value": "Korean","count": 2526941,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(Language,Korean)","applyNegatedCommand":
+        "addFacetValueFilters(Language,Korean:t)"},{"value": "French","count": 2390131,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(Language,French)","applyNegatedCommand":
+        "addFacetValueFilters(Language,French:t)"},{"value": "German","count": 2210951,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(Language,German)","applyNegatedCommand":
+        "addFacetValueFilters(Language,German:t)"}]},{"fieldName": "SubjectTerms_mfacet","displayName":
+        "SubjectTerms","combineMode": "and","pageNumber": 1,"pageSize": 10,"hasLimitingValue":
+        true,"hasAppliedValue": false,"removeCommand": "removeFacetField(SubjectTerms)","listValuesCommand":
+        "listFacetValues(SubjectTerms,and)","removeValueFiltersCommand": "removeFacetValueFilter(SubjectTerms)","counts":
+        [{"value": "article","count": 3361496,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,article)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,article:t)"},{"value": "analysis","count":
+        2268207,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,analysis)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,analysis:t)"},{"value":
+        "research","count": 2157261,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,research)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,research:t)"},{"value": "index medicus","count":
+        1581847,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,index medicus)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,index medicus:t)"},{"value": "united states","count":
+        1482329,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,united states)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,united states:t)"},{"value": "studies","count":
+        1389420,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,studies)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,studies:t)"},{"value":
+        "humans","count": 1194864,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,humans)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,humans:t)"},{"value": "asia","count": 1169514,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,asia)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,asia:t)"},{"value": "management","count":
+        1156632,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,management)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,management:t)"},{"value":
+        "biochemistry & molecular biology","count": 1074301,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,biochemistry
+        & molecular biology)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,biochemistry
+        & molecular biology:t)"}]},{"fieldName": "ContentType_mfacet","displayName":
+        "ContentType","combineMode": "and","pageNumber": 1,"pageSize": 10,"hasLimitingValue":
+        true,"hasAppliedValue": true,"removeCommand": "removeFacetField(ContentType)","listValuesCommand":
+        "listFacetValues(ContentType,and)","removeValueFiltersCommand": "removeFacetValueFilter(ContentType)","counts":
+        [{"value": "Journal Article","count": 143326611,"isApplied": true,"isNegated":
+        false,"isFurtherLimiting": false,"removeCommand": "removeFacetValueFilter(ContentType,Journal
+        Article)","negateCommand": "negateFacetValueFilter(ContentType,Journal Article)"},{"value":
+        "Book Review","count": 1522434,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(ContentType,Book Review)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Book Review:t)"},{"value": "Newspaper Article","count":
+        1160604,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(ContentType,Newspaper Article)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Newspaper Article:t)"},{"value": "Conference
+        Proceeding","count": 611869,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(ContentType,Conference Proceeding)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Conference Proceeding:t)"},{"value": "Magazine
+        Article","count": 311180,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(ContentType,Magazine Article)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Magazine Article:t)"},{"value": "Trade Publication
+        Article","count": 256388,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(ContentType,Trade Publication Article)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Trade Publication Article:t)"},{"value":
+        "Book Chapter","count": 116784,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(ContentType,Book Chapter)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Book Chapter:t)"},{"value": "Paper","count":
+        108183,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(ContentType,Paper)","applyNegatedCommand": "addFacetValueFilters(ContentType,Paper:t)"},{"value":
+        "Electronic Resource","count": 926,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(ContentType,Electronic Resource)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Electronic Resource:t)"},{"value": "Dissertation","count":
+        776,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(ContentType,Dissertation)","applyNegatedCommand": "addFacetValueFilters(ContentType,Dissertation:t)"}]}],"rangeFacetFields":
+        [],"didYouMeanSuggestions": [],"recommendationLists": {},"documents": [{"hasFullText":
+        true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=In+Brief&rft.jtitle=British+Medical+Journal+%28Clinical+Research+Edition%29&rft.date=1982-03-13&rft.pub=British+Medical+Association&rft.issn=0267-0623&rft.eissn=1756-1833&rft.volume=284&rft.issue=6318&rft.spage=816&rft.epage=816&rft.externalDocID=29505718","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfFg10rGL8KEL0KpK8LJA8CQ-sH2UlJOqb2QJakUbWtgXFOqCrosCTatC784Alr2gnZOQpXzwEtjCDHKFvJEZaGkX6CYi5LWG4JrDTYABtsQXtmIkuTQHGMvAIiEpMxFpOTXSuYykuk6QgR_arFRwhKQDIQam1DxhBg5f6MS5CAOHZ56CE7BXnCbKIOvmGuLsoQu2Ib4ActhEPMx4YwkGBVNgZ8nQMjXNLMU0ycTSwiwxGdhgSDNKNjFONLZINLOUZBDDrlkKl4Q0A5ehJbCNDVqgZizDwFJSVJoqC6yhocEAAIRphRE","Volume":
+        ["284"],"Language": ["English"],"Score": ["0.01"],"Copyright": ["Copyright
+        1982 British Medical Journal"],"IsPeerReviewed": ["true"],"PublicationDate":
+        ["19820313"],"PublicationDate_xml": [{"text": "19820313","month": "3","year":
+        "1982","day": "13"}],"PublicationCentury": ["1900"],"Copyright_xml": [{"notice":
+        "Copyright 1982 British Medical Journal"}],"Publisher": ["British Medical
+        Association"],"SourceType": ["Publisher"],"Publisher_xml": [{"name": "British
+        Medical Association"}],"URI": ["http://www.jstor.org/stable/29505718"],"IsScholarly":
+        ["true"],"ID": ["FETCH-jstor_primary_295057183"],"PublicationTitle": ["British
+        Medical Journal (Clinical Research Edition)"],"Issue": ["6318"],"Discipline":
+        ["Medicine"],"PublicationYear": ["1982"],"EISSN": ["1756-1833"],"MergedId":
+        ["FETCHMERGED-jstor_primary_295057183"],"PublicationDecade": ["1980"],"ContentType":
+        ["Journal Article"],"Title": ["In Brief"],"ExternalDocumentID": ["29505718"],"ISSN":
+        ["0267-0623"],"SSID": ["ssj0008633"],"StartPage": ["816"],"EndPage": ["816"],"thumbnail_m":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0267-0623&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0267-0623&client=summon"],"thumbnail_l":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0267-0623&client=summon"],"LinkModel":
+        ["DirectLink"],"BookMark": ["ePnHCXMwYwJtQASdbWdhDEx2oPEN0PIqI2MOWPFoYWZszMnA4ZmnAOz-gioBWTfXEGcPXfBqwPgCyBkL8UaWoJazIeg0P_zyAHdbHFs"]},{"hasFullText":
+        true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Announcements&rft.jtitle=ABNF+Journal&rft.date=2010-01-01&rft.pub=Tucker+Publications%2C+Inc&rft.issn=1046-7041&rft.eissn=2169-4133&rft.volume=21&rft.issue=1&rft.spage=27&rft.externalDocID=2041267891","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfFg10rGLDLBbUaHRCysVwUV1Sn4yaJRc39gIdBiehYGZfUGhLujaKND0KuwOjUTo3QqgKRpgi4KZgdXIEFiVAhO4eQS8B2YIap1Djicw0zU3MDHEKIDBhaSbAANsqAK2miS5NAfoFmBxkZSZiLTUGunMRmq5XJCBH9oUVXCEpB0hBqbUPGEGdujwgTADP_hyS_ViBehSQxEGXse8PKAhyeARxWJRBiU31xBnD12YY-Kh6bI4Hu4SYwkGBVNg38vQMjXNLMU0ycTSwiwxGdj-SDNKNjFONLZINLOUZJDGY4IUXllpBi7IPDtosEKGgaWkqDRVFlj1Q8MQAFOXpJ4","Volume":
+        ["21"],"DatabaseTitle": ["ProQuest Central K12","British Nursing Index with
+        Full Text","University Readers","ProQuest Nursing & Allied Health Source (Alumni)","Health
+        and Medicine Complete (Alumni Edition)","SIRS Editorial","ProQuest Nursing
+        & Allied Health Source","GenderWatch","ProQuest Research Library","ProQuest
+        Central Korea","Docstoc","ProQuest Central (Alumni)","ProQuest Central","GenderWatch
+        (Alumni Edition)","BPIR.com Limited","ProQuest Health & Medical Complete (Alumni)","Research
+        Library (Alumni Edition)","Health Research Premium Collection (Alumni)","Ethnic
+        NewsWatch [Current]","ProQuest Central Basic","Health Research Premium Collection","Ethnic
+        NewsWatch (Alumni)","ProQuest Hospital Collection (Alumni)","Research Library
+        Prep","ProQuest Hospital Collection","ProQuest Medical Library","ProQuest
+        Discovery","Ethnic NewsWatch","ProQuest Central (Professional Edition)","ProQuest
+        Health & Medical Complete","Ethnic NewsWatch (Alumni Edition) [Current]","ProQuest
+        Central (Alumni Edition)","ProQuest Medical Library (Alumni)"],"Language":
+        ["English"],"PublicationPlace": ["Lisle"],"Score": ["0.01"],"DBID": ["M2O","8FX","4T-","Q9U","GUQSH","M4H","7XB","S0X","ABUWG","BENPR","7RV","8FU","8G5","AN0","MBDVC","DWQXO","888","GNUQQ","886","M0S","4U-","M1P","8FK","FYUFA","8FJ","8FI","4S-","88E","7R6","KB0","3V.","LD.","LD-","K9.","GHDGH","7X7"],"IsPeerReviewed":
+        ["true"],"PublicationDate_xml": [{"text": "20100101","month": "01","year":
+        "2010","day": "01"}],"PublicationDate": ["20100101"],"PublicationCentury":
+        ["2000"],"Publisher": ["Tucker Publications, Inc"],"SourceType": ["Aggregation
+        Database"],"Publisher_xml": [{"name": "Tucker Publications, Inc"}],"URI":
+        ["http://search.proquest.com/docview/325060806"],"PQPubID": ["32975"],"IsScholarly":
+        ["true"],"ID": ["FETCH-proquest_journals_3250608063"],"PublicationTitle":
+        ["ABNF Journal"],"Issue": ["1"],"Discipline": ["Women''s Studies","Nursing"],"PublicationYear":
+        ["2010"],"Genre": ["General Information"],"PublicationPlace_xml": [{"name":
+        "Lisle"}],"PQID": ["325060806"],"EISSN": ["2169-4133"],"MergedId": ["FETCHMERGED-proquest_journals_3250608063"],"PublicationDecade":
+        ["2010"],"ContentType": ["Journal Article"],"Title": ["Announcements"],"ISSN":
+        ["1046-7041"],"ExternalDocumentID": ["2041267891"],"SSID": ["ssj0014875"],"StartPage":
+        ["27"],"thumbnail_m": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=1046-7041&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=1046-7041&client=summon"],"thumbnail_l":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=1046-7041&client=summon"],"Database_xml":
+        [{"sequence": "1","name": "Health & Medical Collection","dbid": "7X7","url":
+        "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/healthcomplete/advanced?accountid=10226","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMwY2LgNDI0A80uGgOTHegkADNdcwMTQw7Y0D6ohczJwOuYlwdMzsngMbBibgYlN9cQZw9dWHEYDw3J4nhjI9AReBYGoHM6iVAEAMScIs4"],"DatabaseName":
+        ["ProQuest Research Library","Central (Professional Edition)","Docstoc","ProQuest
+        Central Basic","Ethnic NewsWatch [Current]","ProQuest Central (purchase pre-March
+        2016)","SIRS Editorial","ProQuest Central","Nursing & Allied Health Database","ProQuest
+        Discovery","Research Library (Alumni Edition)","British Nursing Database","Research
+        Library","GenderWatch (Alumni Edition)","Ethnic NewsWatch (Alumni Edition)
+        [Current]","Health & Medical Collection (Alumni Edition)","University Readers","Medical
+        Database","ProQuest Central (Alumni) (purchase pre-March 2016)","Health Research
+        Premium Collection","Hospital Premium Collection (Alumni Edition)","Hospital
+        Premium Collection","BPIR.com Limited","Medical Database (Alumni Edition)","GenderWatch","Nursing
+        & Allied Health Database (Alumni Edition)","ProQuest Central (Corporate)","Ethnic
+        NewsWatch (Alumni)","Ethnic NewsWatch","ProQuest Health & Medical Complete
+        (Alumni)","Health & Medical Collection"]},{"hasFullText": true,"isFullTextHit":
+        false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Author+Index&rft.jtitle=Journal+of+Invertebrate+Pathology&rft.date=2009&rft.pub=Elsevier+Inc&rft.issn=0022-2011&rft.eissn=1096-0805&rft.volume=101&rft.issue=3&rft.spage=II&rft.epage=II&rft_id=info:doi/10.1016%2FS0022-2011%2809%2900133-5&rft.externalDocID=doi_10_1016_S0022_2011_09_00133_5","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfFg10rGLkL0w0FWV0KIfUqSDC2uoiD40MPULMjNBW3yBVRuo9rIENWOMQfvMTYG1J-ikRxcn-EQCsHtiCTswHKQasYkHYgJYUMPAUhNsiK4pUp3Egyg-3QQYYAufYOtLkktzgG4DFiBJmYlIi6-RTnGkwC-CDPzQ9qiCI0SdEANTap4wA7djehH0TI5UYQb2qHzw2LsIAw9oQC2_SMETdMSiKIO9m2uIs4cuzCfxKM6IBxaW8YjFXUCr40F2xxtYxoNtjzc1lmBQMAV2zAwtU9PMUkyTTCwtzBKTgY2TNKNkE-NEY4tEM0tJBgtyjZciX6s0AxdkOgc0BiLDwFJSVJoqC2xRQCMCACTrteI","Volume":
+        ["101"],"Language": ["English"],"Score": ["0.01"],"DOI": ["10.1016/S0022-2011(09)00133-5"],"IsPeerReviewed":
+        ["true"],"PublicationDate": ["2009"],"PublicationDate_xml": [{"text": "2009","year":
+        "2009"}],"PublicationCentury": ["2000"],"Publisher": ["Elsevier Inc"],"SourceType":
+        ["Publisher"],"Publisher_xml": [{"name": "Elsevier Inc"}],"URI": ["http://www.sciencedirect.com/science/article/pii/S0022201109001335"],"IsScholarly":
+        ["true"],"ID": ["FETCH-elsevier_sciencedirect_doi_10_1016_S0022_2011_09_00133_53"],"PublicationTitle":
+        ["Journal of Invertebrate Pathology"],"Issue": ["3"],"Discipline": ["Agriculture","Zoology"],"PublicationYear":
+        ["2009"],"EISSN": ["1096-0805"],"MergedId": ["FETCHMERGED-elsevier_sciencedirect_doi_10_1016_S0022_2011_09_00133_53"],"PublicationDecade":
+        ["2000"],"ContentType": ["Journal Article"],"Title": ["Author Index"],"ISSN":
+        ["0022-2011"],"ExternalDocumentID": ["doi_10_1016_S0022_2011_09_00133_5"],"SSID":
+        ["ssj0011569"],"StartPage": ["II"],"EndPage": ["II"],"thumbnail_m": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0022-2011&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0022-2011&client=summon"],"thumbnail_l":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0022-2011&client=summon"],"LinkModel":
+        ["DirectLink"],"BookMark": ["ePnHCXMwY4DvkgHtwgX2dEA1jIaBpSaosWGsa8oEmn0ELXy1MDBlgZ7kDVLCARv6B3YoLDkZeEAjRPlFCp6gMwO5GezdXEOcPXRh1UU8tHqAFPvxwNwfj1itBDQxHmRivIFlPNjSeNDNx5SaAADBxzim"]},{"hasFullText":
+        true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Editorial+Board&rft.jtitle=Psychiatry+Research&rft.date=2010&rft.pub=Elsevier+Ireland+Ltd&rft.issn=0165-1781&rft.eissn=1872-7123&rft.volume=177&rft.issue=1&rft.spage=IFC&rft.epage=IFC&rft_id=info:doi/10.1016%2FS0165-1781%2810%2900146-0&rft.externalDocID=doi_10_1016_S0165_1781_10_00146_0","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfFg10rGLkL0w0FWV0KIfUqSDC2uoiD40MPULMjP1g0H7cAxB-yTBzXwzULfdFFh7gk56dHGCF8ZGkCskQYp1QaoRm3ggJoAFNQwNNMGG6Bog1Uk8iGLUTYABtvAJtr4kuTQH6DZgAZKUmYi0-BrpFEcK_CLIwA9tjyo4QtQJMTCl5gkzcPhCZ9xFGPhdUzJB54gA1TjlA1OTKIO9m2uIs4cuzP3xKJbHA4vIeKQlXWam8SAbQUJgO-MNjCUYFEyB3TFDy9Q0sxTTJBNLC7PEZGCTJM0o2cQ40dgi0cxSksGCXOOlyNcqzcAFmbQHjXzIMLCUFJWmygLbEdDgBwAU0LLb","Volume":
+        ["177"],"Language": ["English"],"Score": ["0.01"],"DOI": ["10.1016/S0165-1781(10)00146-0"],"IsPeerReviewed":
+        ["true"],"PublicationDate": ["2010"],"PublicationDate_xml": [{"text": "2010","year":
+        "2010"}],"PublicationCentury": ["2000"],"Publisher": ["Elsevier Ireland Ltd"],"SourceType":
+        ["Publisher"],"Publisher_xml": [{"name": "Elsevier Ireland Ltd"}],"URI": ["http://www.sciencedirect.com/science/article/pii/S0165178110001460"],"IsScholarly":
+        ["true"],"ID": ["FETCH-elsevier_sciencedirect_doi_10_1016_S0165_1781_10_00146_03"],"PublicationTitle":
+        ["Psychiatry Research"],"Issue": ["1"],"Discipline": ["Medicine"],"PublicationYear":
+        ["2010"],"EISSN": ["1872-7123"],"MergedId": ["FETCHMERGED-elsevier_sciencedirect_doi_10_1016_S0165_1781_10_00146_03"],"PublicationDecade":
+        ["2010"],"ContentType": ["Journal Article"],"Title": ["Editorial Board"],"ISSN":
+        ["0165-1781"],"ExternalDocumentID": ["doi_10_1016_S0165_1781_10_00146_0"],"SSID":
+        ["ssj0002199"],"StartPage": ["IFC"],"EndPage": ["IFC"],"thumbnail_m": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0165-1781&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0165-1781&client=summon"],"thumbnail_l":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0165-1781&client=summon"],"LinkModel":
+        ["DirectLink"],"BookMark": ["ePnHCXMwY4DvktEPBm2V0TU0tzDUMDTQBDXGgZ1XJmAHyMIc2KoDt2c44Uo4YMUnMAtZcjLwu6Zkgk7JSMxRcMoHhhU3g72ba4izhy6sxoiH1hCQkj8eWADEIy1YMjONBxkKEgLbGw-6FItSEwCnSTn9"]},{"hasFullText":
+        true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Article+3+--+No+Title&rft.jtitle=The+Urn+%281892-1895%29&rft.date=1895-06-25&rft.pub=Center+for+Research+Libraries&rft.volume=4&rft.issue=6&rft.spage=3&rft.externalDocID=1964936182","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfFg10rGLDLBbUaHRCysVwUV1Sn4yaJRcH1gXA9sqxkaW9gWFuqBro0DTq7A7NBKhdyuApmiALQpmBlYjE2DDEbSWz9AJo5wFl5FuAgywEQnYopHk0hyglcBSISkzEWlFNdLRjNRyoCADP7TFqeAISSJCDEypeSIMolCugrGCrq6CX75CCCjRiDIourmGOHvowiyOh04pxMMtNZZgUDAF9qYMLVPTzFJMk0wsLcwSk4EtijSjZBPjRGOLRDNLSQYp3AZI4ZOUBu2-B23mNtM1MpVhYCkpKk2VBVbl0MACAPiwl7M","DatabaseTitle":
+        ["American Periodicals from the Center for Research Libraries (Collection
+        II)","American Periodicals"],"Volume": ["4"],"Language": ["English"],"PublicationPlace":
+        ["New York"],"Score": ["0.01"],"IsPeerReviewed": ["false"],"DBID": ["M1B","D1Z"],"PublicationDate":
+        ["18950625"],"PublicationDate_xml": [{"text": "18950625","month": "06","year":
+        "1895","day": "25"}],"PublicationCentury": ["1800"],"Publisher": ["Center
+        for Research Libraries"],"SourceType": ["Aggregation Database"],"Publisher_xml":
+        [{"name": "Center for Research Libraries"}],"PQPubID": ["54254"],"URI": ["http://search.proquest.com/docview/612774329"],"IsScholarly":
+        ["false"],"ID": ["FETCH-proquest_reports_6127743293"],"PublicationTitle":
+        ["The Urn (1892-1895)"],"Issue": ["6"],"PublicationYear": ["1895"],"PublicationPlace_xml":
+        [{"name": "New York"}],"PQID": ["612774329"],"MergedId": ["FETCHMERGED-proquest_reports_6127743293"],"PublicationDecade":
+        ["1890"],"ContentType": ["Journal Article"],"Title": ["Article 3 -- No Title"],"ExternalDocumentID":
+        ["1964936182"],"StartPage": ["3"],"Database_xml": [{"sequence": "1","name":
+        "American Periodicals from the Center for Research Libraries (Collection II)","dbid":
+        "M1B","url": "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/americanperiodicals/advanced?accountid=10226","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42QQdYT4WcFYQVdXwS9fIQTkbW4GRTfXEGcPXViJFw8dFI8H1rHANoixEWjul7AaAFdwHO0"],"DatabaseName":
+        ["American Periodicals from the Center for Research Libraries (Collection
+        II)","American Periodicals"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Editorial+Board&rft.jtitle=Pharmacology%2C+Biochemistry+and+Behavior&rft.date=2008&rft.pub=Elsevier+Inc&rft.issn=0091-3057&rft.eissn=1873-5177&rft.volume=90&rft.issue=2&rft.spage=IFC&rft.epage=IFC&rft_id=info:doi/10.1016%2FS0091-3057%2808%2900176-7&rft.externalDocID=doi_10_1016_S0091_3057_08_00176_7","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfFg10rGLkL0w0FWV0KIfUqSDC2uoiD40MPULMjNBW3wtgeWvqTmoyWNobgbaUG4KrD1BJz26OCG2RhqZQY_NBA2zmJojNvFATAALahhYaIIN0TVHqpN4EMWqmwADbOETbH1JcmkO0G3AAiQpMxFp8TXSKY4U-EWQgR_aHlVwhKgTYmBKzRNmUAuAHGhdqaMQgtifVayjoKYQgDjqulKYgQteflaKMPC7pmSCjhwBGueUD0x4ogz2bq4hzh66MK_Go7gzHliaxiNWfwHdFg9yXDzovkqQ8-LNjSUYFEyBPTdDy9Q0sxTTJBNLC7PEZGDrJc0o2cQ40dgi0cxSksGCXOOlyNcqzcAFWdEBGiSRYWApKSpNlQU2OaAxBQCCu8Jk","Volume":
+        ["90"],"Language": ["English"],"Score": ["0.01"],"DOI": ["10.1016/S0091-3057(08)00176-7"],"IsPeerReviewed":
+        ["true"],"PublicationDate": ["2008"],"PublicationDate_xml": [{"text": "2008","year":
+        "2008"}],"PublicationCentury": ["2000"],"Publisher": ["Elsevier Inc"],"SourceType":
+        ["Publisher"],"Publisher_xml": [{"name": "Elsevier Inc"}],"URI": ["http://www.sciencedirect.com/science/article/pii/S0091305708001767"],"IsScholarly":
+        ["true"],"ID": ["FETCH-elsevier_sciencedirect_doi_10_1016_S0091_3057_08_00176_73"],"PublicationTitle":
+        ["Pharmacology, Biochemistry and Behavior"],"Issue": ["2"],"Discipline": ["Pharmacy,
+        Therapeutics, & Pharmacology","Psychology"],"PublicationYear": ["2008"],"EISSN":
+        ["1873-5177"],"MergedId": ["FETCHMERGED-elsevier_sciencedirect_doi_10_1016_S0091_3057_08_00176_73"],"PublicationDecade":
+        ["2000"],"ContentType": ["Journal Article"],"Title": ["Editorial Board"],"ISSN":
+        ["0091-3057"],"ExternalDocumentID": ["doi_10_1016_S0091_3057_08_00176_7"],"SSID":
+        ["ssj0004267"],"StartPage": ["IFC"],"EndPage": ["IFC"],"thumbnail_m": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0091-3057&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0091-3057&client=summon"],"thumbnail_l":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0091-3057&client=summon"],"LinkModel":
+        ["DirectLink"],"BookMark": ["ePnHCXMwY4DvkgHtwrUEDW6YmmsYWGiCykMzXXMmYAfIwtxY19TQHNhX4oQr4YBvZjQyM-dk4HdNyQSdkpGYo-CUDwwrbgZ7N9cQZw9dWI0RD60hICV_PLAAiEcsWAIaGg8yNB50xSLI3njQveiUmgAAtho6Jg"]},{"hasFullText":
+        true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Abstracts&rft.jtitle=The+Critical+Quarterly&rft.date=2015-07-01&rft.pub=Blackwell+Publishing+Ltd&rft.issn=0011-1562&rft.eissn=1467-8705&rft.volume=57&rft.issue=2&rft.spage=E1&rft_id=info:doi/10.1111%2Fcriq.12207&rft.externalDocID=3753521231","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfFg10rGL8ON4EGI0jWmgGDCuQTtnSYhtuKFAASAbGOdAEhjrQJKoeHdMAg1eJEMOaII1O8G308EuNUBdxwnt8RuawleHYh3Zg4xUIdYAgYs50Do1U2gxlwop2UAlIjBzmiIXfZCzoaFRbIRUjrka4ilegcVZoZ6hkRHkulq046qNzUEHxgDrQ2CXlNnUAtgfZvXxDPFwhVeP5sZGkKOxoW6EnhkLWl6FMBijZgTXciGCDPzQdrqCIySAhRiYUvOEGcR9oKO7xQpqCj7wA6mLRRg44cEuyqDs5hri7KELMzkeGm3F8YZmlhbGQMLI1FiCQcEU2Cc1tExNM0sxTTKxtDBLTAa2y9KMkk2ME40tEs0sJRlk8BkhhV9amoELEakyDCwlRaWpssBGEShGkjITASPl_14","Volume":
+        ["57"],"Language": ["English"],"PublicationPlace": ["Oxford"],"Score": ["0.01"],"DOI":
+        ["10.1111/criq.12207"],"IsPeerReviewed": ["true"],"PublicationDate": ["20150701"],"PublicationDate_xml":
+        [{"text": "20150701","month": "07","year": "2015","day": "01"}],"PublicationCentury":
+        ["2000"],"Publisher": ["Blackwell Publishing Ltd"],"SourceType": ["Aggregation
+        Database"],"Publisher_xml": [{"name": "Blackwell Publishing Ltd"}],"PQPubID":
+        ["37649"],"URI": ["http://search.proquest.com/docview/1698316925"],"IsScholarly":
+        ["true"],"ID": ["FETCH-proquest_journals_16983169253"],"PublicationTitle":
+        ["The Critical Quarterly"],"Issue": ["2"],"Discipline": ["Languages & Literatures"],"PublicationYear":
+        ["2015"],"PublicationPlace_xml": [{"name": "Oxford"}],"PQID": ["1698316925"],"EISSN":
+        ["1467-8705"],"MergedId": ["FETCHMERGED-proquest_journals_16983169253"],"PublicationDecade":
+        ["2010"],"ContentType": ["Journal Article"],"Title": ["Abstracts"],"ISSN":
+        ["0011-1562"],"ExternalDocumentID": ["3753521231"],"SSID": ["ssj0007324"],"StartPage":
+        ["E1"],"thumbnail_m": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0011-1562&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0011-1562&client=summon"],"thumbnail_l":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0011-1562&client=summon"],"LinkModel":
+        ["OpenURL"],"BookMark": ["ePnHCXMwY4AcAQpaLQNM9oV6hkZGBuZM4C0-wOLQ3MCUBVw0GuoCOw5GHLAy0xxYr3MycDomgfr3ySXF3AzKbq4hzh66sPIxHhq0xfGGZpYWxkDCCHSfMTGqAKqXJgM"]},{"hasFullText":
+        true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=ENERGY&rft.jtitle=Economic+Review&rft.date=2002-12-01&rft.pub=The+Post+Publishing+Company%2C+Ltd&rft.externalDocID=972885781","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfFg10rGLDLBbUaHRCysVwUV1Sn4yaJQc2E03NAHVtmb2BYW6oGujQNOrsDs0EqF3K4CmaIAtCmYGVtD1bKAkbx7hBCuagV0f0P3oaIUuuCB1E2CADU_AVpAkl-YA7QcWEUmZiUjLq5HOaaSWawUZ-KHNTwVHSHoRYmBKzRNm4ITtTi4WZuACtT4hhzeLMLCB1rW5R4oyKLq5hjh76MKcEA-daYiHW28swaBgCuxkGVqmppmlmCaZWFqYJSYDGxppRskmxonGFolmlpIMUrgNkMInKc3ABbsexcBQhoGlpKg0VRZYw0ODDQBldJ1y","DatabaseTitle":
+        ["ProQuest Asian Business & Reference","ProQuest Central Basic","ProQuest
+        Business Collection","ProQuest Business Collection (Alumni Edition)","Asian
+        & European Business Collection (Alumni)","ProQuest Central Korea","ABI/INFORM
+        Professional Advanced","ProQuest Central (Professional Edition)","Asian &
+        European Business Collection","ProQuest Asian Business and Reference (Alumni
+        Edition)","ProQuest Central (Alumni)","ProQuest Central","ProQuest Central
+        (Alumni Edition)","Business Premium Collection","Business Premium Collection
+        (Alumni)"],"Language": ["English"],"PublicationPlace": ["Bangkok"],"Score":
+        ["0.01"],"IsPeerReviewed": ["false"],"DBID": ["8FX","7RO","Q9U","K6~","7XB","8FK","FREBS","FRNLG","ABUWG","BENPR","L.-","DWQXO","K60","3V.","AXJJW","BEZIV","8AI"],"PublicationDate":
+        ["20021201"],"PublicationDate_xml": [{"text": "20021201","month": "12","year":
+        "2002","day": "01"}],"PublicationCentury": ["2000"],"Publisher": ["The Post
+        Publishing Company, Ltd"],"SourceType": ["Aggregation Database"],"Publisher_xml":
+        [{"name": "The Post Publishing Company, Ltd"}],"GeographicLocations": ["Thailand"],"PQPubID":
+        ["27915"],"URI": ["http://search.proquest.com/docview/201472736"],"IsScholarly":
+        ["false"],"ID": ["FETCH-proquest_reports_2014727363"],"PublicationTitle":
+        ["Economic Review"],"GeographicLocations_xml": [{"name": "Thailand"}],"Discipline":
+        ["Statistics","Economics"],"PublicationYear": ["2002"],"PublicationPlace_xml":
+        [{"name": "Bangkok"}],"PQID": ["201472736"],"SubjectTerms": ["Gas industry","Petroleum
+        industry","Electric power","Statistics","Oil exploration","Electric utilities","Natural
+        gas","Industrial production","Crude oil","Energy policy","Energy resources","Energy
+        industry","Consumption","Natural gas industry","Natural gas supply"],"MergedId":
+        ["FETCHMERGED-proquest_reports_2014727363"],"PublicationDecade": ["2000"],"ContentType":
+        ["Journal Article"],"Title": ["ENERGY"],"ExternalDocumentID": ["972885781"],"SSID":
+        ["ssj0044673"],"Database_xml": [{"sequence": "1","name": "ProQuest Central
+        (purchase pre-March 2016)","dbid": "7XB","url": "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/pqcentral/advanced?accountid=10226","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw44AWg8BuhrkxJwMbaAGWeyQ3g6Kba4izhy6svIuHDonHAysgE1AdCjqHk7AaAKlsGtA"],"DatabaseName":
+        ["Central (Professional Edition)","Asian Business Database","ProQuest Central
+        Basic","ProQuest Business Collection","ProQuest Central (purchase pre-March
+        2016)","ProQuest Central (Alumni) (purchase pre-March 2016)","ProQuest Central","ABI/INFORM
+        Professional Advanced","ProQuest Business Collection (Alumni Edition)","ProQuest
+        Central (Corporate)","Asian & European Business Collection","Business Premium
+        Collection","Asian Business Database (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
+        false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Among+the+New+Words&rft.jtitle=American+Speech%3A+A+Quarterly+of+Linguistic+Usage&rft.au=Glowka%2C+Wayne&rft.au=Lester%2C+Brenda+K&rft.date=1998&rft.issn=1527-2133&rft.eissn=1527-2133&rft.volume=73&rft.issue=2&rft.spage=197&rft.externalDocID=R03813180","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfFg10rGL8JM9EGI0jWmgGDCuQTtnSYhtuKFAASAbGOdAEhjrQJKoeHcE3x4EW7oYDuxbFiM3QOEzNMEFqanJGZCN6fCVneAZA2BlVgo-vlk7FLTqDL5CJye_PBvc1AxPrERMxvvA7_ZwAi2vTYSOm6bAdtYhl3pG5rpGhpATKfRSsYhBi0rIrSPQJGGEVO4ZQhbZoh1dHQSahgQWGqAhFXNjMwNIoQOvKIF9J_CkP8wmjKl_HkSFFyLIwA9tois4QsJWiIEpNU-YQdwHOrBbrKCm4AM_i7pYhEEYHOIKwBBXAIa4AjjERRlU3VxDnD10UW2KTwRN88TDHWwswaBgCuyaGlqmppmlmCaZWFqYJSYDm2dpRskmxonGFolmlpIMcvgNkSKkQJqBC7LFETSiI8PAUlJUmioLbB-BAjspMxEABtIHXw","Volume":
+        ["73"],"Language": ["English"],"Author": ["Glowka, Wayne","Lester, Brenda
+        K"],"Score": ["0.01"],"IsPeerReviewed": ["true"],"DBID": ["CBS"],"PublicationDate":
+        ["1998"],"PublicationDate_xml": [{"text": "1998","year": "1998"}],"PublicationCentury":
+        ["1900"],"SourceType": ["Index Database"],"URI": ["http://gateway.proquest.com/openurl?ctx_ver=Z39.88-2003&xri:pqil:res_ver=0.2&res_id=xri:ilcs-us&rft_id=xri:ilcs:rec:abell:R03813180"],"IsScholarly":
+        ["true"],"ID": ["FETCH-chadwyckhealey_abell_R038131803"],"PublicationTitle":
+        ["American Speech: A Quarterly of Linguistic Usage"],"Issue": ["2"],"Discipline":
+        ["Languages & Literatures"],"PublicationYear": ["1998"],"EISSN": ["1527-2133"],"SubjectTerms":
+        ["English language (Modern)","lexicology","neologism"],"MergedId": ["FETCHMERGED-chadwyckhealey_abell_R038131803"],"Author_xml":
+        [{"sequence": "1","fullname": "Glowka, Wayne"},{"sequence": "2","fullname":
+        "Lester, Brenda K"}],"PublicationDecade": ["1990"],"ContentType": ["Journal
+        Article"],"Title": ["Among the New Words"],"ISSN": ["1527-2133"],"ExternalDocumentID":
+        ["R03813180"],"SSID": ["ssj0006064"],"StartPage": ["197"],"thumbnail_m": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=1527-2133&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=1527-2133&client=summon"],"thumbnail_l":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=1527-2133&client=summon"],"Database_xml":
+        [{"sequence": "1","name": "Annual Bibliography of English Language and Literature","dbid":
+        "CBS","url": "http://ezproxy.cul.columbia.edu/login?url=http://collections.chadwyck.com/home/home_abell.jsp","sourceTypes":
+        ["Index Database"]}],"LinkModel": ["OpenURL"],"BookMark": ["ePnHCXMwYwKdT2pkrmsE7PywILE5YMUjsMVswskg7Ai6S0cB2MhRAOZmhXBgT6uYm0HVzTXE2UMXdQI4PhE0BB8fBJrTAqZA0PVWxKkDAFAYJh0"],"DatabaseName":
+        ["Annual Bibliography of English Language and Literature"]},{"hasFullText":
+        true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=BERLIN&rft.jtitle=JAMA%3A+The+Journal+of+the+American+Medical+Association&rft.date=1930-12-13&rft.issn=0098-7484&rft.eissn=1538-3598&rft.volume=95&rft.issue=24&rft.spage=1848&rft.epage=1849&rft_id=info:doi/10.1001%2Fjama.1930.02720240058026&rft.externalDBID=n%2Fa&rft.externalDocID=10_1001_jama_1930_02720240058026","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfFg10rGL8Bv1EGI0jWmgGDCuQTtnSYhtuKFAASAbGOdAEhjrQJKoeHcCNk89_VDanLBRdPgusBzYygCM-Rr02EqBbJAzBq-tgGznhJVxiBNCgSU8olgDndWHXO5BLreExq-RCVIpBuz1WSDViECuJdbSFumUf5BL9AxAk7qgRammFgZGWA64Rqt44MsBIUcnAzsiQJPiQSbFo5rEDOxTW4B61kGOXkhng6EeiApdpgU_UgqLi5DaHsj1bYggAz80-BUcIfEmxMCUmifMwOELXeAgwsAGiT5RBgs31xBnD12YQfEFkFNB4gl5wliCQcEU2Ns1tExNM0sxTTKxtDBLTAa2-NKMkk2ME40tEs0sJRkMSTZXigw90gxciKQjw8BSUlSaKgsMHFDCSMpMBADB5Buq","Volume":
+        ["95"],"DatabaseTitle": ["CrossRef"],"Language": ["English"],"Score": ["0.01"],"DOI":
+        ["10.1001/jama.1930.02720240058026"],"IsPeerReviewed": ["true"],"PublicationDate":
+        ["1930-12-13"],"PublicationDate_xml": [{"text": "1930-12-13","month": "12","year":
+        "1930","day": "13"}],"PublicationCentury": ["1900"],"SourceType": ["Aggregation
+        Database"],"IsScholarly": ["true"],"ID": ["FETCH-crossref_primary_10_1001_jama_1930_027202400580263"],"PublicationTitle":
+        ["JAMA: The Journal of the American Medical Association"],"Issue": ["24"],"Discipline":
+        ["Medicine"],"PublicationYear": ["1930"],"EISSN": ["1538-3598"],"MergedId":
+        ["FETCHMERGED-crossref_primary_10_1001_jama_1930_027202400580263"],"PublicationDecade":
+        ["1930"],"ContentType": ["Journal Article"],"Title": ["BERLIN"],"ExternalDocumentID":
+        ["10_1001_jama_1930_02720240058026"],"ISSN": ["0098-7484"],"SSID": ["ssj0000137"],"StartPage":
+        ["1848"],"EndPage": ["1849"],"thumbnail_m": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0098-7484&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0098-7484&client=summon"],"thumbnail_l":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0098-7484&client=summon"],"LinkModel":
+        ["OpenURL"],"BookMark": ["ePnHCXMwY4CsloGf7ANsIBjoGYBm-0CrFU0tgG1-JvARpha6oMPjWJCOtORAHPtkbM7JwOYEbM95-nEzWLi5hjh76MKqjfgCyDkM8ZATd4HtV6A98SB74lHtMaZAKwDDZDF3"]}],"rollups":
+        {"image": {},"reference": {},"newspaper": {}}}'
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:25:05 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Fri, 01 Jul 2016 18:31:07 GMT
+recorded_with: VCR 3.0.1

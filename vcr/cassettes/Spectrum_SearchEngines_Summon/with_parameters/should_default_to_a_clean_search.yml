@@ -16,13 +16,13 @@ http_interactions:
       Content-Type:
       - application/x-www-form-urlencoded; charset=utf8
       X-Summon-Date:
-      - Tue, 22 Sep 2015 19:33:24 GMT
+      - Fri, 01 Jul 2016 19:07:09 GMT
       X-Summon-Session-Id:
-      - SUMMON-SESSION-Sprite.local-1824-56
+      - SUMMON-SESSION-Sprite.local-683-51
       X-Summon-Request-Id:
       - ''
       Authorization:
-      - Summon columbia;CjN3rE6EYpof0KDgdLlq3HEEVws=
+      - Summon columbia;lTKWxDmjCYYr/azQUArr9jEXw6U=
       Host:
       - api.summon.serialssolutions.com:80
   response:
@@ -35,401 +35,332 @@ http_interactions:
       Datacenter:
       - IAD1
       Date:
-      - Tue, 22 Sep 2015 19:33:26 GMT
+      - Fri, 01 Jul 2016 19:07:11 GMT
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: "{\"version\": \"2.0.0\",\"sessionId\": \"SUMMON-SESSION-Sprite.local-1824-56\",\"elapsedQueryTime\":
-        2112,\"queryTime\": 2100,\"totalRequestTime\": 2181,\"pageCount\": 134455495,\"recordCount\":
-        1344554948,\"query\": {\"queryString\": \"s.ps=10&s.ff=ContentType%2Cand%2C1%2C10&s.ff=Language%2Cand%2C1%2C5&s.ff=SubjectTerms%2Cand%2C1%2C10&s.pn=1\",\"pageNumber\":
-        1,\"pageSize\": 10,\"textQueries\": [],\"searchTerms\": [],\"textFilters\":
-        [],\"rangeFilters\": [],\"facetValueFilters\": [],\"inclusiveFacetValueFilters\":
-        [],\"facetValueGroupFilters\": [],\"facetFields\": [{\"fieldName\": \"ContentType\",\"combineMode\":
-        \"and\",\"pageNumber\": 1,\"pageSize\": 10,\"removeCommand\": \"removeFacetField(ContentType)\"},{\"fieldName\":
-        \"Language\",\"combineMode\": \"and\",\"pageNumber\": 1,\"pageSize\": 5,\"removeCommand\":
-        \"removeFacetField(Language)\"},{\"fieldName\": \"SubjectTerms\",\"combineMode\":
-        \"and\",\"pageNumber\": 1,\"pageSize\": 10,\"removeCommand\": \"removeFacetField(SubjectTerms)\"}],\"rangeFacetFields\":
-        [],\"sort\": []},\"facetFields\": [{\"fieldName\": \"Language_s\",\"displayName\":
-        \"Language\",\"combineMode\": \"and\",\"pageNumber\": 1,\"pageSize\": 5,\"hasLimitingValue\":
-        true,\"hasAppliedValue\": false,\"removeCommand\": \"removeFacetField(Language)\",\"listValuesCommand\":
-        \"listFacetValues(Language,and)\",\"removeValueFiltersCommand\": \"removeFacetValueFilter(Language)\",\"counts\":
-        [{\"value\": \"English\",\"count\": 1108318533,\"isApplied\": false,\"isNegated\":
-        false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(Language,English)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(Language,English:t)\"},{\"value\": \"German\",\"count\":
-        86682152,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(Language,German)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(Language,German:t)\"},{\"value\": \"Chinese\",\"count\":
-        55027737,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(Language,Chinese)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(Language,Chinese:t)\"},{\"value\": \"Spanish\",\"count\":
-        22858761,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(Language,Spanish)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(Language,Spanish:t)\"},{\"value\": \"Japanese\",\"count\":
-        19831498,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(Language,Japanese)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(Language,Japanese:t)\"}]},{\"fieldName\": \"SubjectTerms_mfacet\",\"displayName\":
-        \"SubjectTerms\",\"combineMode\": \"and\",\"pageNumber\": 1,\"pageSize\":
-        10,\"hasLimitingValue\": true,\"hasAppliedValue\": false,\"removeCommand\":
-        \"removeFacetField(SubjectTerms)\",\"listValuesCommand\": \"listFacetValues(SubjectTerms,and)\",\"removeValueFiltersCommand\":
-        \"removeFacetValueFilter(SubjectTerms)\",\"counts\": [{\"value\": \"athletes\",\"count\":
-        8685577,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
-        \"addFacetValueFilters(SubjectTerms,athletes)\",\"applyNegatedCommand\": \"addFacetValueFilters(SubjectTerms,athletes:t)\"},{\"value\":
-        \"research\",\"count\": 7891653,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(SubjectTerms,research)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(SubjectTerms,research:t)\"},{\"value\": \"books\",\"count\":
-        5642408,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
-        \"addFacetValueFilters(SubjectTerms,books)\",\"applyNegatedCommand\": \"addFacetValueFilters(SubjectTerms,books:t)\"},{\"value\":
-        \"reports\",\"count\": 5393790,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(SubjectTerms,reports)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(SubjectTerms,reports:t)\"},{\"value\": \"book reviews\",\"count\":
-        4862616,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
-        \"addFacetValueFilters(SubjectTerms,book reviews)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(SubjectTerms,book reviews:t)\"},{\"value\": \"universities
-        and colleges\",\"count\": 4636679,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(SubjectTerms,universities and
-        colleges)\",\"applyNegatedCommand\": \"addFacetValueFilters(SubjectTerms,universities
-        and colleges:t)\"},{\"value\": \"article\",\"count\": 4558963,\"isApplied\":
-        false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(SubjectTerms,article)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(SubjectTerms,article:t)\"},{\"value\": \"patents\",\"count\":
-        4258384,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
-        \"addFacetValueFilters(SubjectTerms,patents)\",\"applyNegatedCommand\": \"addFacetValueFilters(SubjectTerms,patents:t)\"},{\"value\":
-        \"analysis\",\"count\": 4126097,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(SubjectTerms,analysis)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(SubjectTerms,analysis:t)\"},{\"value\": \"banking industry\",\"count\":
-        3856959,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\":
-        \"addFacetValueFilters(SubjectTerms,banking industry)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(SubjectTerms,banking industry:t)\"}]},{\"fieldName\":
-        \"ContentType_mfacet\",\"displayName\": \"ContentType\",\"combineMode\": \"and\",\"pageNumber\":
-        1,\"pageSize\": 10,\"hasLimitingValue\": true,\"hasAppliedValue\": false,\"removeCommand\":
-        \"removeFacetField(ContentType)\",\"listValuesCommand\": \"listFacetValues(ContentType,and)\",\"removeValueFiltersCommand\":
-        \"removeFacetValueFilter(ContentType)\",\"counts\": [{\"value\": \"Newspaper
-        Article\",\"count\": 806650349,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(ContentType,Newspaper Article)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(ContentType,Newspaper Article:t)\"},{\"value\": \"Journal
-        Article\",\"count\": 203724012,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(ContentType,Journal Article)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(ContentType,Journal Article:t)\"},{\"value\": \"Patent\",\"count\":
-        76251611,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(ContentType,Patent)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(ContentType,Patent:t)\"},{\"value\": \"Magazine Article\",\"count\":
-        49708813,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(ContentType,Magazine Article)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(ContentType,Magazine Article:t)\"},{\"value\": \"Book
-        / eBook\",\"count\": 46893719,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(ContentType,Book / eBook)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(ContentType,Book / eBook:t)\"},{\"value\": \"Trade
-        Publication Article\",\"count\": 30904934,\"isApplied\": false,\"isNegated\":
-        false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Trade
-        Publication Article)\",\"applyNegatedCommand\": \"addFacetValueFilters(ContentType,Trade
-        Publication Article:t)\"},{\"value\": \"Newsletter\",\"count\": 23431256,\"isApplied\":
-        false,\"isNegated\": false,\"isFurtherLimiting\": true,\"applyCommand\": \"addFacetValueFilters(ContentType,Newsletter)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(ContentType,Newsletter:t)\"},{\"value\": \"Book Review\",\"count\":
-        20705165,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(ContentType,Book Review)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(ContentType,Book Review:t)\"},{\"value\": \"Reference\",\"count\":
-        13299793,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(ContentType,Reference)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(ContentType,Reference:t)\"},{\"value\": \"Dissertation\",\"count\":
-        10292066,\"isApplied\": false,\"isNegated\": false,\"isFurtherLimiting\":
-        true,\"applyCommand\": \"addFacetValueFilters(ContentType,Dissertation)\",\"applyNegatedCommand\":
-        \"addFacetValueFilters(ContentType,Dissertation:t)\"}]}],\"rangeFacetFields\":
-        [],\"didYouMeanSuggestions\": [],\"recommendationLists\": {},\"documents\":
-        [{\"hasFullText\": true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\":
-        \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Investing+prudently%3A+How+financialization+puts+a+legal+standard+to+use+%28vol+55%2C+pg+e48%2C+2013%29&rft.jtitle=SOCIOLOGIE+DU+TRAVAIL&rft.au=Montagne%2C+S&rft.date=2015-01-01&rft.pub=ELSEVIER+FRANCE-EDITIONS+SCIENTIFIQUES+MEDICALES+ELSEVIER&rft.issn=0038-0296&rft.eissn=1777-5701&rft.volume=57&rft.issue=1&rft.spage=E1&rft.epage=E1&rft_id=info:doi/10.1016%2Fj.soctra.2014.07.009&rft.externalDBID=n%2Fa&rft.externalDocID=000349756100001\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMw3V1NT8JAFNygF70YvxI_k5foQbOUtIXNUm8IJfZklOLNkKKl0RBtaPn_vv2kFg-cvbWEUlgms7PTffMIuarxgXCoyrQludlBOdtxZLOGSupiw-x1X732H_5onZQhi8plTuVchjiJXnEzE6ehiy1pviwLmtB5mskyEe0ioPxcFlJrIldRxsSw5xlNO11xhHO3dWO1ih099iPZRSGkgzGNn3svvciayMgSZZIpo3RUNRU8VjMVrNMltwuGTjiIVFGzdL7iaBg9jcORSaDEI3NBlWqRSV0_0DnXil055w7j-kaaflU-9S-YKS4NvcqsrE7W-F5ZD58tRHK5EDFSXkdmsbrBan4zz_Rr057djKgyergQkkLxbuECviuW8cPBvX0ehTO46oWhf5QpwpQ7Bddv_qeKkYol3id7eqkBPQWZA9JIvw7JjqlEL47Iq4UOWOjcAQIH6sABARxIQAIHDHCg_AYEDtzgGANjTcgzQNA0QUDm9pjQYRj3H5zqd5zkKt1kUhuO9gmBwHt7Rx0-80XPeN9NEp-zWXvKp9xNWeoHp-R6k4862-xt52R3BckLsl0uluklqkYBl-lH8gN7LVbg\",\"Volume\":
-        [\"57\"],\"DatabaseTitle\": [\"Web of Science\"],\"Language\": [\"English\"],\"Author\":
-        [\"Montagne, S\"],\"PublicationPlace\": [\"PARIS\"],\"Score\": [\"0.01\"],\"References_xml\":
-        [],\"DOI\": [\"10.1016/j.soctra.2014.07.009\"],\"PageCount\": [\"1\"],\"Copyright\":
-        [\"Copyright (c) 2015 Institute for Scientific Information\"],\"DBID\": [\"DVR\",\"EGQ\",\"17B\"],\"IsPeerReviewed\":
-        [\"true\"],\"PublicationDate\": [\"2015-01-00\"],\"PublicationDate_xml\":
-        [{\"text\": \"2015-01-00\",\"month\": \"01\",\"year\": \"2015\"}],\"Source\":
-        [\"Web of Science\"],\"PublicationCentury\": [\"2000\"],\"References\": [\"DOI
-        10.1016/j.soctra.2013.08.001\"],\"Copyright_xml\": [{\"notice\": \"Copyright
-        (c) 2015 Institute for Scientific Information\"}],\"Publisher\": [\"ELSEVIER
-        FRANCE-EDITIONS SCIENTIFIQUES MEDICALES ELSEVIER\"],\"SourceType\": [\"Index
-        Database\"],\"Publisher_xml\": [{\"name\": \"ELSEVIER FRANCE-EDITIONS SCIENTIFIQUES
-        MEDICALES ELSEVIER\"}],\"URI\": [\"http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=SerialsSolutions&SrcApp=Summon&KeyUT=000349756100001&DestLinkType=FullRecord&DestApp=WOS\"],\"IsScholarly\":
-        [\"true\"],\"ID\": [\"FETCH-webofscience_primary_0003497561000013\"],\"PublicationTitle\":
-        [\"SOCIOLOGIE DU TRAVAIL\"],\"Issue\": [\"1\"],\"PublicationTitleAbbrev\":
-        [\"SOCIOL TRAV\"],\"Discipline\": [\"Economics\"],\"PublicationYear\": [\"2015\"],\"Genre\":
-        [\"Correction\"],\"PublicationPlace_xml\": [{\"name\": \"PARIS\"}],\"EISSN\":
-        [\"1777-5701\"],\"SubjectTerms\": [\"SOCIOLOGY\"],\"ISICitedReferencesURI\":
-        [\"http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=SerialsSolutions&SrcApp=Summon&KeyUT=000349756100001&DestLinkType=CitingArticles&DestApp=WOS\"],\"MergedId\":
-        [\"FETCHMERGED-webofscience_primary_0003497561000013\"],\"Author_xml\": [{\"sequence\":
-        \"1\",\"fullname\": \"Montagne, S\"}],\"PublicationDecade\": [\"2010\"],\"ContentType\":
-        [\"Journal Article\"],\"Title\": [\"Investing prudently: How financialization
-        puts a legal standard to use (vol 55, pg e48, 2013)\"],\"ISSN\": [\"0038-0296\"],\"ExternalDocumentID\":
-        [\"000349756100001\"],\"SSID\": [\"ssj0017185\"],\"StartPage\": [\"E1\"],\"EndPage\":
-        [\"E1\"],\"thumbnail_s\": [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0038-0296&client=summon\"],\"thumbnail_m\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0038-0296&client=summon\"],\"thumbnail_l\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0038-0296&client=summon\"],\"LinkModel\":
-        [\"OpenURL\"],\"BookMark\": [\"ePnHCXMwY4BuTwOvoQJaAOyvgxZQmYCPyDSwZALtTzQ31zU1NwBmI9CJiRa6BkaWZhywkX9gWWnKyRALPWUiL12hoAh8xmNOpZWCR365QhrsIAroNkWFgtKSYoVEBWAnOzFHAdb_VijJVwD28hU0gHlcwdRUR6EgXSHVxEJHAegUY01uBm031xBnD13kqia-AHK8QzzkzBZzUMMC3EIiTTUACnxJKw\"]},{\"hasFullText\":
-        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Scientists+at+Tohoku+University%2C+Department+of+Neurology+target+neuromyelitis+optica&rft.jtitle=Immunotherapy+Weekly&rft.date=2010-06-02&rft.pub=NewsRX+LLC&rft.issn=1090-8625&rft.eissn=1532-463X&rft.spage=403&rft.externalDBID=IAO&rft.externalDocID=227525997\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwpV1NS8NAEB20gvSkVvFbBoSe8mVqjTmI-NHSHoQecvBWNukGpbUJye4h_96dTdIEoSfPy4ZsmLxMZt57A3D7Bw-oQiW4pbHZVOnsvamHNbRcF2GyqVyslxYhYyNpYGma24sksl9c1xuqZN337Nfp6Lk1P0M-RfQmh99M7sIe_VFQqH9OvYbr8eiUmjjSTT_QWOxOzX2rgHF8AHXLomaQRHJl1Rdu0atbPo3_vt1D6BKWrbRy5wh2-LoH-x9VU70H_VlpX10YGDRqrNzAPs4aY-viGAINBEIFRo5MYJB8JUuJDbXDwHf1ccs0bx2TGLXxB23Fkm-O2jzzp-BEucsxSamOfgI341HwNjHphHOKd5GxaL451-AM0L-LFipDi12aJu46jKnFeBB6oefwIXf9czjdsvti68oldMsWPbGjr6AjMsmvVdZQPbRfR5y5Sw\",\"Language\":
-        [\"English\"],\"Score\": [\"0.01\"],\"Copyright\": [\"COPYRIGHT 2010 NewsRX
-        LLC\"],\"IsPeerReviewed\": [\"false\"],\"DBID\": [\"IAO\"],\"PublicationDate\":
-        [\"20100602\"],\"PublicationDate_xml\": [{\"text\": \"20100602\",\"month\":
-        \"06\",\"year\": \"2010\",\"day\": \"02\"}],\"PublicationCentury\": [\"2000\"],\"Copyright_xml\":
-        [{\"notice\": \"COPYRIGHT 2010 NewsRX LLC\"}],\"Publisher\": [\"NewsRX LLC\"],\"SourceType\":
-        [\"Aggregation Database\"],\"Publisher_xml\": [{\"name\": \"NewsRX LLC\"}],\"IsScholarly\":
-        [\"false\"],\"ID\": [\"FETCH-gale_infotrac_2275259973\"],\"PublicationTitle\":
-        [\"Immunotherapy Weekly\"],\"Discipline\": [\"Pharmacy, Therapeutics, & Pharmacology\",\"Medicine\"],\"PublicationYear\":
-        [\"2010\"],\"Audience\": [\"Professional\"],\"EISSN\": [\"1532-463X\"],\"SubjectTerms\":
-        [\"Aquaporins\",\"Scientists\",\"Neuromyelitis optica\",\"Universities and
-        colleges\",\"Immunologic diseases\"],\"MergedId\": [\"FETCHMERGED-gale_infotrac_2275259973\"],\"PublicationDecade\":
-        [\"2010\"],\"ContentType\": [\"Newsletter\"],\"Title\": [\"Scientists at Tohoku
-        University, Department of Neurology target neuromyelitis optica\"],\"ISSN\":
-        [\"1090-8625\"],\"ExternalDocumentID\": [\"227525997\"],\"SSID\": [\"ssj0005808\"],\"StartPage\":
-        [\"403\"],\"thumbnail_s\": [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=1090-8625&client=summon\"],\"thumbnail_m\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=1090-8625&client=summon\"],\"thumbnail_l\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=1090-8625&client=summon\"],\"LinkModel\":
-        [\"DirectLink\"],\"BookMark\": [\"ePnHCXMwYwKfT2qka2JmHMECmmkEbVUGNrI54OsuLAwsOBlCwEm3BOiVYoXEEoWQ_Iz87FIFxGIEHQUXYHFcBF5prZCfpgA-qgI0zqwAWSGtAD7uMbcyFbRIrFghvwA08svNIOfmGuLsoQsqXONBMVRSlJgcb2Rkbgps5VuC7kYnoAAAtGU6SQ\"]},{\"hasFullText\":
-        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Theatre%3A+Big+spenders%2C+big+sound...+big+deal%3B+Sweet+Charity+Crucible+SHEFFIELD+Engaged+Orange+Tree+RICHMOND+Eastward+Ho%21+Gielgud+LONDON&rft.jtitle=The+Independent+on+Sunday+%28London%2C+England%29&rft.au=Bassett%2C+Kate&rft.date=2003-01-05&rft.pub=Independent+Print+Ltd&rft.issn=0958-1723&rft.spage=10&rft.externalDBID=XI7&rft.externalDocID=96106981\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwpV1LS8NAEF58XDypqPiElV5N2myabKOItLW2BVGwPXiTzWYSgqUteeBP8G87E5u6eBK8BMJuSNidnflmMjMfY41f-oAiVAXYlW62EM62rYqswei6yIbryMX83SbN-FPSoJbLvBktdLMboKX3g47T7I0HdwZ9Rnmr6SCHqSo32XZl4FCuX8cmbJdeYLSpEtQmzTCDQnQQCBj1mji5ZZhpxNRt4--fg-9w5U99JxUjt2RFBYaABZ0ySeRHW3V23UoFP-yyOmRV56jocmbX324kcBudIP-7IHtsj5TlUi0h491vWdxnGzA_YJ9T0vYZXPNemvC8YtzN8ise0h1ROtm2Xd1EiFhv-OQDoOCUA4DeAe-j4KXhDPhkhHh6PHi854N5ghow4s8ZVUXwaQbAX8b9EYoCDqq8oCxgPlpc8mEKs6SM-COOPD8dsunDYNofWSvyByvxpGMhUELvWYVa-1pJJSAKvFj6MbqMfidWKiaspmOXAFEY-q6vXJACHNwWCW3puseMB46OED7GgqjORUspIb3YDWUoW-CBCE5Yg5b2bUX3iZecAiJ5oso8f6tX94QdVbPowBeZ0uuB0z89fsZ2qvw_itp452yryEq4QAy02qEvy_vstA\",\"Language\":
-        [\"English\"],\"Author\": [\"Bassett, Kate\"],\"Score\": [\"0.01\"],\"Copyright\":
-        [\"COPYRIGHT 2003 Independent Print Ltd.\"],\"IsPeerReviewed\": [\"false\"],\"DBID\":
-        [\"XI7\",\"IOF\"],\"PublicationDate_xml\": [{\"text\": \"20030105\",\"month\":
-        \"01\",\"year\": \"2003\",\"day\": \"05\"}],\"PublicationDate\": [\"20030105\"],\"PublicationCentury\":
-        [\"2000\"],\"Copyright_xml\": [{\"notice\": \"COPYRIGHT 2003 Independent Print
-        Ltd.\"}],\"Publisher\": [\"Independent Print Ltd\"],\"SourceType\": [\"Aggregation
-        Database\"],\"Publisher_xml\": [{\"name\": \"Independent Print Ltd\"}],\"IsScholarly\":
-        [\"false\"],\"ID\": [\"FETCH-LOGICAL-g571-643133abcc6ca7a2ed95f76f02668faaf0256cf37415bb636a3e72e17847e4733\"],\"PublicationTitle\":
-        [\"The Independent on Sunday (London, England)\"],\"PublicationYear\": [\"2003\"],\"Audience\":
-        [\"General\"],\"MergedId\": [\"FETCHMERGED-LOGICAL-g571-643133abcc6ca7a2ed95f76f02668faaf0256cf37415bb636a3e72e17847e4733\"],\"Author_xml\":
-        [{\"sequence\": \"1\",\"fullname\": \"Bassett, Kate\"}],\"PublicationDecade\":
-        [\"2000\"],\"ContentType\": [\"Newspaper Article\"],\"Title\": [\"Theatre:
-        Big spenders, big sound... big deal; Sweet Charity Crucible SHEFFIELD Engaged
-        Orange Tree RICHMOND Eastward Ho! Gielgud LONDON\"],\"ExternalDocumentID\":
-        [\"96106981\"],\"ISSN\": [\"0958-1723\"],\"SSID\": [\"ssib002100415\",\"ssib004909076\",\"ssib002285054\",\"ssib015600796\",\"ssib011903784\",\"ssib000875909\",\"ssib007584250\"],\"StartPage\":
-        [\"10\"],\"thumbnail_s\": [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0958-1723&client=summon\"],\"thumbnail_m\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0958-1723&client=summon\"],\"thumbnail_l\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0958-1723&client=summon\"],\"Database_xml\":
-        [{\"sequence\": \"1\",\"name\": \"Business Insights: Essentials\",\"dbid\":
-        \"XI7\",\"url\": \"http://ezproxy.cul.columbia.edu/login?url=http://infotrac.galegroup.com/itweb/columbiau?db=BIE\",\"sourceTypes\":
-        [\"Aggregation Database\"]}],\"LinkModel\": [\"DirectLink\"],\"BookMark\":
-        [\"ePnHCXMwTV1NawIxEPXgoeJvKEyv0l1wtyZuvbnduoJUqHuXSXYSFkQhWelP6N_uzCrUS2CYEAgkb94jH288_G3HykRn-dODrpCn4JPRbyMQE-gd1p2HONi8hvgKRiLxEUrTdAhapkkrOPwQ9SAHz0xJoeTZduZEcKiZxG2r3QdUZ8_broV9kKv40AQi-N6WNeMRJzH2cvUU6ssLbDo6-WsLO87sv6aj5rNqyjq5Ow4kfqHnCVdnlmxorFUWNWbUFgunlWOdopYO0QlBsC6XKmyMyhXmpDOaa4Z4etNivvt8G1bQ_ShLpA9ojwVzFFUsxUJh9pC_20xyE0WIR4_XGP87_wGFCGHw\"]},{\"hasFullText\":
-        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=SADC+to+mediate+post-election+standoff+in+Lesotho&rft.jtitle=Xinhua+News+Agency+-+CEIS&rft.date=2007-04-03&rft.pub=Xinhua+News+Agency&rft.spage=1&rft.externalDocID=1250249361\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwrV09T8MwELX4WJgoAkH5kCzBaojtfHlCpVAxsNGBLTonTlWpakKT_v_euQkqSN1YstiDdee8vLyz7zF2_wcPSKFq3aPHZoF0NhTerGGn6yLrTVG77Pag6JG6qHISyZ9C_GXSVLd6rr8FuUZRdbW30IDOWoEqNEgoDtmxpMbeuL-Tr5efqgJ-XdU-6PVwOTllvUjRnyPJ1wtcBgKFncPOIeudbo3_tegBGxCw1VC7FR9t980ZO3DLcyY_R69j3lbcXydpHa-rphXeKAezx73qUJUlny_5h2swxdUFm07epuN30VkqiFmqpIhB2yhOjAoSgIjYlI50WBqwECDQqFzlIcRpaByUTtq4kBZwblo454wzqb5i3Mi8wOCWigzEVQCgkqjUNrFJ4CKnzJA9UICzzkQTHw3JDM0M1k2TEcGMqWvgkF36afQetSvIf430scyKxSJDCkZ9DXUsr_eO3LCTregaikDfsqN2tXZ3yDS6xG0ApVHFkQ\",\"DatabaseTitle\":
-        [\"Global News & ABI/Inform Professional\",\"International Newswires\",\"ProQuest
-        Central Basic\",\"Newsstand (CDN)\",\"ProQuest Newsstand (Alumni)\",\"News
-        PRO\",\"Asia Newsstand\",\"Newswire Newsstand\",\"Newsstand - w/o Columbus\",\"Reseller
-        - BPIR.com Limited\",\"ProQuest Central (Professional Edition)\",\"ProQuest
-        Central (Alumni)\",\"Newsstand (CDN) (Alumni)\",\"ProQuest Central\",\"ProQuest
-        Newsstand\",\"ProQuest Newsstand Professional\"],\"Language\": [\"English\"],\"PublicationPlace\":
-        [\"Woodside\"],\"Score\": [\"0.01\"],\"Copyright\": [\"COPYRIGHT 2007 COMTEX
-        News Network, Inc.\",\"Copyright Xinhua News Agency Apr 3, 2007\"],\"IsPeerReviewed\":
-        [\"false\"],\"DBID\": [\"XI7\",\"0U~\",\"8FX\",\"Q9U\",\"8BE\",\"7XB\",\"8FK\",\"0TT\",\"4S-\",\"7XH\",\"89Y\",\"KB~\",\"8A7\",\"8CL\",\"M9A\",\"8B2\",\"KL~\"],\"PublicationDate_xml\":
-        [{\"text\": \"20070403\",\"month\": \"04\",\"year\": \"2007\",\"day\": \"03\"}],\"PublicationDate\":
-        [\"20070403\"],\"PublicationCentury\": [\"2000\"],\"Copyright_xml\": [{\"notice\":
-        \"COPYRIGHT 2007 COMTEX News Network, Inc.\"},{\"notice\": \"Copyright Xinhua
-        News Agency Apr 3, 2007\"}],\"Publisher\": [\"COMTEX News Network, Inc\",\"Xinhua
-        News Agency\"],\"AbstractList\": [\"Tom Thabane, leader of the opposition
-        All Basotho Convention ( ABC), said on Tuesday his party welcomed the SADC
-        efforts to help resolve the political disputes, according to media reports
-        in South Africa and Lesotho. \\\"We welcome the decision of SADC to send a
-        high-level delegation here,\\\" Thabane told a press conference in Maseru,
-        capital of Lesotho, the South African Press Association (SAPA) reported. The
-        Lesotho Prime Minister Pakalitha Mosisili, who chairs the SADC, on Monday
-        announced the delegation would visit Lesotho after the Easter break. But no
-        date has been announced.\"],\"SourceType\": [\"Aggregation Database\"],\"Publisher_xml\":
-        [{\"name\": \"COMTEX News Network, Inc\"},{\"name\": \"Xinhua News Agency\"}],\"Snippet\":
-        [\"Tom Thabane, leader of the opposition All Basotho Convention ( ABC), said
-        on Tuesday his party welcomed the SADC efforts to help resolve the political...\"],\"PQPubID\":
-        [\"11179\"],\"URI\": [\"http://search.proquest.com/docview/452330438\"],\"IsScholarly\":
-        [\"false\"],\"ID\": [\"FETCH-LOGICAL-g821-6a3b5679207aa512323534f9aba07632c2c4a6849eafe1b6d1ba2078deee9e983\"],\"PublicationTitle\":
-        [\"Xinhua News Agency\"],\"PublicationYear\": [\"2007\"],\"Genre\": [\"News\"],\"PublicationPlace_xml\":
-        [{\"name\": \"Woodside\"}],\"Audience\": [\"Trade\",\"General\"],\"PQID\":
-        [\"452330438\"],\"DatabaseTitleList\": [\"Global News & ABI/Inform Professional\"],\"Abstract\":
-        [\"Tom Thabane, leader of the opposition All Basotho Convention ( ABC), said
-        on Tuesday his party welcomed the SADC efforts to help resolve the political
-        disputes, according to media reports in South Africa and Lesotho. \\\"We welcome
-        the decision of SADC to send a high-level delegation here,\\\" Thabane told
-        a press conference in Maseru, capital of Lesotho, the South African Press
-        Association (SAPA) reported. The Lesotho Prime Minister Pakalitha Mosisili,
-        who chairs the SADC, on Monday announced the delegation would visit Lesotho
-        after the Easter break. But no date has been announced.\"],\"MergedId\": [\"FETCHMERGED-LOGICAL-g821-6a3b5679207aa512323534f9aba07632c2c4a6849eafe1b6d1ba2078deee9e983\"],\"PublicationDecade\":
-        [\"2000\"],\"ContentType\": [\"Newspaper Article\"],\"Title\": [\"SADC to
-        mediate post-election standoff in Lesotho\"],\"ExternalDocumentID\": [\"1250249361\",\"161563598\"],\"SSID\":
-        [\"ssj0016632\"],\"StartPage\": [\"1\"],\"Database_xml\": [{\"sequence\":
-        \"1\",\"name\": \"ProQuest Newsstand\",\"dbid\": \"7XH\",\"url\": \"http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/newsstand/advanced?accountid=10226\",\"sourceTypes\":
-        [\"Aggregation Database\"]},{\"sequence\": \"2\",\"name\": \"Business Insights:
-        Essentials\",\"dbid\": \"XI7\",\"url\": \"http://ezproxy.cul.columbia.edu/login?url=http://infotrac.galegroup.com/itweb/columbiau?db=BIE\",\"sourceTypes\":
-        [\"Aggregation Database\"]}],\"LinkModel\": [\"DirectLink\"],\"BookMark\":
-        [\"ePnHCXMwTV3BCsMgDO1xY_8wvA9hamvrcXQbO-y23iW2WgZljun-f9G10IunhwkISV7A9zbLCh9bGd8W7HE6tyR6kj9CREvePkSaLV4wLsl82TtHni9ytwGT87uiu1669kZnMwA6NpxRCcJUslb8WANUaQ4QlSidAgPIxAXveV-CbEplwVlm5MAMILYZrLXKqqQKuP9fu1RcPUyTxvaeNPNEtjeYAaky6_S88QO9ThORTDJ3CDisALNHJB4hsegwwjeEFfoHtcNN_g\"]},{\"hasFullText\":
-        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Pediatric+Otolaryngology+in+the+United+States%3A+Demographics%2C+Workforce+Perceptions%2C+and+Current+Practices&rft.jtitle=JAMA&rft.au=Carolyn+J+Hildreth&rft.date=2009-03-04&rft.pub=American+Medical+Association&rft.issn=0098-7484&rft.eissn=1538-3598&rft.volume=301&rft.issue=9&rft.spage=918&rft.externalDocID=1665640681\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icNdEFX9aAdOoi_KZDhNhwiGj4ZRva_iWgfmplXjrkXCXoCkaUViVoAMAlNRdyTjV0jRBovBzYdAVm8ADEKhfYqk7Y-U0B0N1UxSitWaQSG7xypDJP20vbA7w9vCQDZUDBEryiCjGgiDFThJ5OoCUp4hxSYD2CKDxBJwIil67G0LEKSDKyRCorLaEFL-px14ZmwBYmsJUB2k7PbGoB6k8HOXohnQiGegwqRhUKrv5CBBn4oQ16BUdIxAgxMKXmCTNw-EKXLIgwZMLjRwE1fhQy8xSA8aMAiR8FSPxYKSDHjo4CPG4UkOJGRwEYMwrQmFGAx4wog5yba4izhy7MqfEpOTnxCJ8aSzAoWBompwDbumlGoHvZjQwSE43MTdOMk8yTzA1STVONLCUZxHHolsIpI83AhYhgGQaWkqLSVFlg-wsUM0mZiQBl3Sye\",\"Volume\":
-        [\"301\"],\"DatabaseTitle\": [\"Health Module (Alumni Edition)\",\"ProQuest
-        Health Management\",\"ProQuest Nursing and Allied Health Source\",\"ProQuest
-        Nursing & Allied Health Source (Alumni)\",\"Health and Medicine Complete (Alumni
-        Edition)\",\"ProQuest Central Basic\",\"ProQuest Family Health\",\"ProQuest
-        Family Health (Alumni Edition)\",\"ProQuest Hospital Collection (Alumni)\",\"ProQuest
-        Research Library\",\"ProQuest Psychology Journals (Alumni)\",\"ProQuest Hospital
-        Collection\",\"ProQuest Medical Library\",\"ProQuest Psychology Journals\",\"ProQuest
-        Central (Professional Edition)\",\"ProQuest Public Health\",\"ProQuest Central
-        (Alumni)\",\"ProQuest Health & Medical Complete\",\"ProQuest Central\",\"ProQuest
-        Health & Medical Complete (Alumni)\",\"Research Library (Alumni Edition)\",\"ProQuest
-        Medical Library (Alumni)\"],\"Language\": [\"English\"],\"Author\": [\"Carolyn
-        J Hildreth\"],\"PublicationPlace\": [\"Chicago\"],\"Score\": [\"0.01\"],\"IsPeerReviewed\":
-        [\"true\"],\"PublicationDate\": [\"20090304\"],\"PublicationDate_xml\": [{\"text\":
-        \"20090304\",\"month\": \"03\",\"year\": \"2009\",\"day\": \"04\"}],\"PublicationCentury\":
-        [\"2000\"],\"Publisher\": [\"American Medical Association\"],\"AbstractList\":
-        [\"An abstract of a study evaluating self-reported workforce needs and demands,
-        professional activities, and the clinical practices of pediatric otolaryngologists
-        in the US for the purpose of better understanding the pediatric otolaryngology
-        workforce and predicting manpower needs in presented. Findings show that pediatric
-        otolaryngologists predict an increased demand for their services in the near
-        future. The only differences in the clinical practices of academic and private
-        pediatric otolaryngologists are patient payer mix and the amount of time devoted
-        to teaching.\"],\"SourceType\": [\"Aggregation Database\"],\"Publisher_xml\":
-        [{\"name\": \"American Medical Association\"}],\"Snippet\": [\"An abstract
-        of a study evaluating self-reported workforce needs and demands, professional
-        activities, and the clinical practices of pediatric otolaryngologists...\"],\"GeographicLocations\":
-        [\"United States--US\"],\"URI\": [\"http://search.proquest.com/docview/211444562\"],\"PQPubID\":
-        [\"42339\"],\"IsScholarly\": [\"true\"],\"ID\": [\"FETCH-proquest_dll_16656406813\"],\"GeographicLocations_xml\":
-        [{\"name\": \"United States--US\"}],\"PublicationTitle\": [\"JAMA\"],\"Issue\":
-        [\"9\"],\"Discipline\": [\"Medicine\"],\"PublicationYear\": [\"2009\"],\"PublicationPlace_xml\":
-        [{\"name\": \"Chicago\"}],\"PQID\": [\"211444562\"],\"DatabaseTitleList\":
-        [\"Health Module (Alumni Edition)\"],\"Abstract\": [\"An abstract of a study
-        evaluating self-reported workforce needs and demands, professional activities,
-        and the clinical practices of pediatric otolaryngologists in the US for the
-        purpose of better understanding the pediatric otolaryngology workforce and
-        predicting manpower needs in presented. Findings show that pediatric otolaryngologists
-        predict an increased demand for their services in the near future. The only
-        differences in the clinical practices of academic and private pediatric otolaryngologists
-        are patient payer mix and the amount of time devoted to teaching.\"],\"EISSN\":
-        [\"1538-3598\"],\"SubjectTerms\": [\"Pediatrics\",\"Physicians\",\"Clinical
-        medicine\",\"Otolaryngology\"],\"MergedId\": [\"FETCHMERGED-proquest_dll_16656406813\"],\"Author_xml\":
-        [{\"sequence\": \"1\",\"fullname\": \"Carolyn J Hildreth\"}],\"PublicationDecade\":
-        [\"2000\"],\"ContentType\": [\"Journal Article\"],\"CODEN\": [\"JAMAAP\"],\"Title\":
-        [\"Pediatric Otolaryngology in the United States: Demographics, Workforce
-        Perceptions, and Current Practices\"],\"PublicationSubtitle\": [\"The Journal
-        of the American Medical Association\"],\"ISSN\": [\"0098-7484\"],\"ExternalDocumentID\":
-        [\"1665640681\"],\"SSID\": [\"ssj0000137\"],\"StartPage\": [\"918\"],\"thumbnail_s\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0098-7484&client=summon\"],\"thumbnail_m\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0098-7484&client=summon\"],\"thumbnail_l\":
-        [\"http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0098-7484&client=summon\"],\"LinkModel\":
-        [\"OpenURL\"],\"BookMark\": [\"ePnHCXMwYwKfT2qhCzoZjgXpvEoOxJlOxuacDJnwmygU_EtAnbjKvHTwOLJCZp4CsOmjAGlyKUCaXFYKLqm5kCOcM5OLdRRAA8nANl1yqkIAYvmHjgKw760APdZIIQC6yaiYm0HOzTXE2UMXVtTGp-TkxBuaARsywMrMAnSvAQEFAODAQRc\"]},{\"hasFullText\":
-        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Business+Brief%3A+Qantas+Airways+Ltd&rft.jtitle=The+Wall+Street+Journal+Asia&rft.date=2007-12-14&rft.pub=Dow+Jones+%26+Company+Inc&rft.spage=8&rft.externalDocID=1398391711\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icNdEFX9aAdOoiA-xSVGjswgpFcEmdkp8MGiTXNwbmTTMzE1ML-4JCXdCtUaDZVdgVGonQqxVAMzTABgUzA6sh6GBvYPo2j3CClczAloGpJUaZCy433QQYYKMTsAUkyaU5QPuBJURSZiLS6mqkYxqp5VpBBkFQiVaQWJBapOAISTBCDEypeSIMSrDl7wpOwJ5zmpVCIDC8E4sVHDOLyhMrixV8SlJEGeTcXEOcPXRh7ohPycmJBzbsgE0fQ3NDQ2MJBgVLw-QUYICkGYEu_TYySEw0MjdNM04yTzI3SDVNNbKUZBDHoVsKp4w0Axd4nNPQSNfQRIaBpaSoNFUWWLlDgwwADJyb2A\",\"DatabaseTitle\":
-        [\"ProQuest International Newsstand (Canada)\",\"ProQuest Asian Business &
-        Reference\",\"Newsstand - w/o Columbus\",\"International Newsstand\",\"ProQuest
-        Business Collection\",\"ProQuest Central Basic\",\"Newsstand (CDN)\",\"SIRS
-        Editorial\",\"ProQuest Central\",\"ProQuest Newsstand\",\"Wall Street Journal
-        Asia\"],\"Language\": [\"English\"],\"PublicationPlace\": [\"Hong Kong\"],\"Score\":
-        [\"0.01\"],\"IsPeerReviewed\": [\"false\"],\"DBID\": [\"KF0\",\"84L\",\"8A8\",\"8A7\",\"7RO\",\"Q9U\",\"8BE\",\"K6~\",\"7XB\",\"M6D\",\"7XH\"],\"PublicationDate\":
-        [\"20071214\"],\"PublicationDate_xml\": [{\"text\": \"20071214\",\"month\":
-        \"12\",\"year\": \"2007\",\"day\": \"14\"}],\"PublicationCentury\": [\"2000\"],\"Publisher\":
-        [\"Dow Jones & Company Inc\"],\"AbstractList\": [\"Australia's largest airline
-        and travel agency both upgraded their earnings forecasts as a booming domestic
-        economy underpins strong demand for travel.\"],\"SourceType\": [\"Aggregation
-        Database\"],\"Publisher_xml\": [{\"name\": \"Dow Jones & Company Inc\"}],\"Snippet\":
-        [\"Australia's largest airline and travel agency both upgraded their earnings
-        forecasts as a booming domestic economy underpins strong demand for travel.\"],\"PQPubID\":
-        [\"28806\"],\"URI\": [\"http://search.proquest.com/docview/315366458\"],\"IsScholarly\":
-        [\"false\"],\"ID\": [\"FETCH-proquest_dll_13983917113\"],\"PublicationTitle\":
-        [\"The Wall Street Journal Asia\"],\"PublicationYear\": [\"2007\"],\"Genre\":
-        [\"News\"],\"PublicationPlace_xml\": [{\"name\": \"Hong Kong\"}],\"PQID\":
-        [\"315366458\"],\"DatabaseTitleList\": [\"ProQuest International Newsstand
-        (Canada)\"],\"Abstract\": [\"Australia's largest airline and travel agency
-        both upgraded their earnings forecasts as a booming domestic economy underpins
-        strong demand for travel.\"],\"MergedId\": [\"FETCHMERGED-proquest_dll_13983917113\"],\"PublicationDecade\":
-        [\"2000\"],\"ContentType\": [\"Newspaper Article\"],\"Title\": [\"Business
-        Brief: Qantas Airways Ltd\"],\"ExternalDocumentID\": [\"1398391711\"],\"SSID\":
-        [\"ssj0043559\"],\"StartPage\": [\"8\"],\"Database_xml\": [{\"sequence\":
-        \"1\",\"name\": \"ProQuest Newsstand\",\"dbid\": \"7XH\",\"url\": \"http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/newsstand/advanced?accountid=10226\",\"sourceTypes\":
-        [\"Aggregation Database\"]}],\"LinkModel\": [\"DirectLink\"],\"BookMark\":
-        [\"ePnHCXMw44AWg8Bq2NSSk0EJtn5bAdjZTU2zUggEakgsVnDMLCpPrCxW8CkBFvlybq4hzh66sLIwPiUnJx7YMgHW3YbmhqCLBwgoAADJ4CJI\"]},{\"hasFullText\":
-        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Acevedo+wants+Ward+taken+off+theft+case&rft.jtitle=McClatchy+-+Tribune+Business+News&rft.au=Sean+Kinney&rft.date=2010-05-18&rft.pub=Tribune+Content+Agency+LLC&rft.externalDocID=2035658071\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icNdEFX9aAdOoiA-xSVGjswgpFcEmdkp8MGiTXNwK2Bc2Bla-RfUGhLujWKNDsKuwKjUTo1QqgGRpgg4KZgdUQdLA3MH2bRzjBO2DAutcEo8wFl59uAgyw0QnYApLk0hyg_cASIikzEWl1NdIxjdRyrSCDIKhEK0gsSC1ScIQkGCEGptQ8EQZ1x-TUstSUfIVy0KoYhXBgqlEoScxOzVPIT0tTADYR00oUkoHVnSiDnJtriLOHLswx8Sk5OfFGBsbA9poFqCMqwaBgaZicAgyVNCPQzd9GBomJRuamacZJ5knmBqmmqUaWkgziOHRL4ZSRZuACtiCMIGMSMgwsJUWlqbLAGh4abgBwFp2k\",\"DatabaseTitle\":
-        [\"Global News & ABI/Inform Professional\",\"ProQuest Newsstand (Alumni)\",\"ProQuest
-        Central Basic\",\"ProQuest Business Collection\",\"SIRS Editorial\",\"News
-        PRO\",\"ProQuest Business Collection (Alumni Edition)\",\"ABI/INFORM Dateline\",\"Newswire
-        Newsstand\",\"ABI/INFORM Complete - Professional Edition\",\"Business Dateline\",\"ProQuest
-        Pharma Collection\",\"ABI/INFORM Complete (Alumni Edition)\",\"ABI/INFORM
-        Professional Advanced\",\"ProQuest Central (Professional Edition)\",\"ProQuest
-        Central (Alumni)\",\"ProQuest Central\",\"ABI/INFORM Dateline (Alumni Edition)\",\"ABI/INFORM
-        Complete\",\"ProQuest Newsstand\",\"ProQuest Newsstand Professional\"],\"Language\":
-        [\"English\"],\"Author\": [\"Sean Kinney\"],\"PublicationPlace\": [\"Washington\"],\"Score\":
-        [\"0.01\"],\"DBID\": [\"0U~\",\"8FX\",\"KF0\",\"Q9U\",\"88M\",\"7XB\",\"K6~\",\"8FL\",\"8FK\",\"0TT\",\"7XH\",\"L.-\",\"M2J\",\"KB~\",\"K60\",\"M0B\",\"7WY\",\"M9A\",\"87Y\",\"8AO\",\"KL~\"],\"IsPeerReviewed\":
-        [\"false\"],\"PublicationDate_xml\": [{\"text\": \"20100518\",\"month\": \"05\",\"year\":
-        \"2010\",\"day\": \"18\"}],\"PublicationDate\": [\"20100518\"],\"PublicationCentury\":
-        [\"2000\"],\"Publisher\": [\"Tribune Content Agency LLC\"],\"AbstractList\":
-        [\"In a Friday filing in Circuit Court, Docherty asks Judge Mark Jones \\\"for
-        an order disqualifying [Ward's office] for misconduct intended to maliciously,
-        and in bad faith, in order to prejudice public opinion against the defendant,
-        deprive her of the right to an unbiased jury and a fair trial, and pressure
-        her to plead guilty to the charges.\\\"\"],\"SourceType\": [\"Aggregation
-        Database\"],\"Publisher_xml\": [{\"name\": \"Tribune Content Agency LLC\"}],\"Snippet\":
-        [\"In a Friday filing in Circuit Court, Docherty asks Judge Mark Jones \\\"for
-        an order disqualifying [Ward's office] for misconduct intended to maliciously,
-        and in...\"],\"URI\": [\"http://search.proquest.com/docview/288271592\"],\"PQPubID\":
-        [\"38704\"],\"IsScholarly\": [\"false\"],\"ID\": [\"FETCH-proquest_dll_20356580713\"],\"PublicationTitle\":
-        [\"McClatchy - Tribune Business News\"],\"PublicationYear\": [\"2010\"],\"Genre\":
-        [\"News\"],\"PublicationPlace_xml\": [{\"name\": \"Washington\"}],\"PQID\":
-        [\"288271592\"],\"DatabaseTitleList\": [\"Global News & ABI/Inform Professional\"],\"Abstract\":
-        [\"In a Friday filing in Circuit Court, Docherty asks Judge Mark Jones \\\"for
-        an order disqualifying [Ward's office] for misconduct intended to maliciously,
-        and in bad faith, in order to prejudice public opinion against the defendant,
-        deprive her of the right to an unbiased jury and a fair trial, and pressure
-        her to plead guilty to the charges.\\\"\"],\"SubjectTerms\": [\"Attorneys\",\"Criminal
-        pleas\",\"Trials\"],\"MergedId\": [\"FETCHMERGED-proquest_dll_20356580713\"],\"Author_xml\":
-        [{\"sequence\": \"1\",\"fullname\": \"Sean Kinney\"}],\"PublicationDecade\":
-        [\"2010\"],\"ContentType\": [\"Newspaper Article\"],\"Title\": [\"Acevedo
-        wants Ward taken off theft case\"],\"ExternalDocumentID\": [\"2035658071\"],\"SSID\":
-        [\"ssj0023974\"],\"Database_xml\": [{\"sequence\": \"1\",\"name\": \"ABI/INFORM
-        Complete\",\"dbid\": \"7WY\",\"url\": \"http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/abicomplete/advanced?accountid=10226\",\"sourceTypes\":
-        [\"Aggregation Database\"]}],\"LinkModel\": [\"DirectLink\"],\"BookMark\":
-        [\"ePnHCXMw44D1doAVnQkng7pjcmpZakq-QjloWYdCONDbCiWJ2al5CvlpaQrANk5aiUIysLzmZpBzcw1x9tCFFYjxKTk58UYGxsAGhwWoJ0VQAQCXcyQd\"]},{\"hasFullText\":
-        false,\"isFullTextHit\": false,\"inHoldings\": false,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=Crescent+Financial+Partners+acquires+minority+stake+in+Prominent+Pictures&rft.jtitle=Datamonitor+Financial+Deals+Tracker&rft.date=2010-04-08&rft.pub=COMTEX+News+Network%2C+Inc&rft.externalDBID=IOF&rft.externalDocID=223391995\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icNdEFX9aAdOoi_Eo8hNhwiGjnIsiJTNpu8MMzAoDK8kA7cxOTQQt9U4u1czPz8kHX1IGGDrLB54QEFOUDBUH6AjLB0wjFyO1Ul8QS0DVEwOxehGSuSyrosGVg9QZai4E8XgCa6jbRNbBALNvx9w1xjQAXoaA9xeXQu35gqy5RDqT29HdDFQTXe8AGhbElaGc3M7CrC7qejgW2jhBaKYUIMgiCzC9ILEgtUnCEBIwQA1NqngiDJyxQFOCOV4AFigIsUBRggaIADhSFzDwFeKAowAJFlEHOzTXE2UMXZHs8KJZKgN6Ph7vOQIJBwdIwOQXYgEwzAl12bmSQmGhkbppmnGSeZG6QappqZCnJII5DtxROGWkGLkSwyjCwpgFDPlUW2KoB1SZJmYkAs6v6IA\",\"Language\":
-        [\"English\"],\"Score\": [\"0.01\"],\"Copyright\": [\"COPYRIGHT 2010 COMTEX
-        News Network, Inc.\"],\"DBID\": [\"IOF\"],\"IsPeerReviewed\": [\"false\"],\"PublicationDate\":
-        [\"20100408\"],\"PublicationDate_xml\": [{\"text\": \"20100408\",\"month\":
-        \"04\",\"year\": \"2010\",\"day\": \"08\"}],\"PublicationCentury\": [\"2000\"],\"Copyright_xml\":
-        [{\"notice\": \"COPYRIGHT 2010 COMTEX News Network, Inc.\"}],\"Publisher\":
-        [\"COMTEX News Network, Inc\"],\"SourceType\": [\"Aggregation Database\"],\"Publisher_xml\":
-        [{\"name\": \"COMTEX News Network, Inc\"}],\"IsScholarly\": [\"false\"],\"ID\":
-        [\"FETCH-gale_infotrac_2233919950\"],\"PublicationTitle\": [\"Datamonitor
-        Financial Deals Tracker\"],\"PublicationYear\": [\"2010\"],\"Audience\": [\"Trade\"],\"MergedId\":
-        [\"FETCHMERGED-gale_infotrac_2233919950\"],\"PublicationDecade\": [\"2010\"],\"ContentType\":
-        [\"Newspaper Article\"],\"Title\": [\"Crescent Financial Partners acquires
-        minority stake in Prominent Pictures\"],\"ExternalDocumentID\": [\"223391995\"],\"LinkModel\":
-        [\"OpenURL\"],\"BookMark\": [\"ePnHCXMw42TwdC6CnESk4AY7NEIhABgOecD2jEJiMmiBa2qxQm5mXj7oejYFYCMoO1UhM08hoCgfKAjSF5AJHj4v5maQc3MNcfbQBRWW8aAQB_b-k-OBNZqxJWhrsQFBBQDT4C8g\"]},{\"hasFullText\":
-        true,\"isFullTextHit\": false,\"inHoldings\": true,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=TURKEY%3A+CENTER-RIGHT+MERGER+FALTERS&rft.jtitle=IPR+Strategic+Business+Information+Database&rft.date=2007-06-05&rft.pub=Info-Prod+%28Middle+East%29+Ltd&rft.externalDBID=XI7&rft.externalDocID=164515853\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icNdEFX9aAdOoigwd85CIvWw9UMiK2NCQWFBTrp-Qn6zsCG_bAyhdYveg7ebraI92fUWqbDMrJSZmJpcwMrOAaDpiwIzzNocUsD6LcdBNggM1MwBaKJJfm6MH0I62iRjqOkWJXCTJwgYqsHPAGHSEGptQ8EQblkNAgb9dIKwVnV9DZt7pBnu4eIQq-rkHurkEKbo4-QLFgUQZtN9cQZw9dkOXx0FspgUQxqN9enJ5YWlwcD7ffWIJBwdIwOQXYYEozAl3ubWSQmGhkbppmnGSeZG6QappqZCnJoEKMUVLEKZNm4IKtnjMwlWFgKSkqTZUFVu9QbwMAg6qdbg\",\"Language\":
-        [\"English\"],\"Score\": [\"0.01\"],\"Copyright\": [\"COPYRIGHT 2007 Info-Prod
-        (Middle East) Ltd.\"],\"DBID\": [\"XI7\"],\"IsPeerReviewed\": [\"false\"],\"PublicationDate\":
-        [\"20070605\"],\"PublicationDate_xml\": [{\"text\": \"20070605\",\"month\":
-        \"06\",\"year\": \"2007\",\"day\": \"05\"}],\"PublicationCentury\": [\"2000\"],\"Copyright_xml\":
-        [{\"notice\": \"COPYRIGHT 2007 Info-Prod (Middle East) Ltd.\"}],\"Publisher\":
-        [\"Info-Prod (Middle East) Ltd\"],\"SourceType\": [\"Aggregation Database\"],\"Publisher_xml\":
-        [{\"name\": \"Info-Prod (Middle East) Ltd\"}],\"IsScholarly\": [\"false\"],\"ID\":
-        [\"FETCH-gale_businessinsightsgauss_1645158533\"],\"PublicationTitle\": [\"IPR
-        Strategic Business Information Database\"],\"PublicationYear\": [\"2007\"],\"Audience\":
-        [\"Trade\"],\"MergedId\": [\"FETCHMERGED-gale_businessinsightsgauss_1645158533\"],\"PublicationDecade\":
-        [\"2000\"],\"ContentType\": [\"Newsletter\"],\"Title\": [\"TURKEY: CENTER-RIGHT
-        MERGER FALTERS\"],\"ExternalDocumentID\": [\"164515853\"],\"Database_xml\":
-        [{\"sequence\": \"1\",\"name\": \"Business Insights: Essentials\",\"dbid\":
-        \"XI7\",\"url\": \"http://ezproxy.cul.columbia.edu/login?url=http://infotrac.galegroup.com/itweb/columbiau?db=BIE\",\"sourceTypes\":
-        [\"Aggregation Database\"]}],\"LinkModel\": [\"DirectLink\"],\"BookMark\":
-        [\"ePnHCXMw42RQDgkN8naNtFJwdgWd6qob5OnuEaLg6xrk7hqk4OboAxQL5mbQdnMNcfbQBRWD8dD7FoFEMahHWpyeWFpcHA9syAMrW2B1YkyaagDF7ig0\"]},{\"hasFullText\":
-        false,\"isFullTextHit\": false,\"inHoldings\": false,\"openUrl\": \"ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info:sid/summon.serialssolutions.com&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=DGP+inaugurates+Pilot+Go-Live+CCTNS+project&rft.jtitle=UNI&rft.date=2013-01-07&rft.pub=HT+Media+Ltd&rft.externalDBID=3GN&rft.externalDocID=314123755\",\"link\":
-        \"http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRisPQCNUJal64LJZF9icNdEFX9aAdOoiI2xCFyE2HCLaxT0AdGxGaXop6NSHYu2AzJz8Em33fF0f0KIgZ-cQv2Bt6HgLcksU2PFD7vGDbl8A9vjN4XHkEQKexEmEr_tBOUTa2N0PVRBSVxmaAKsoc1NTZmD3FHSlHAts7R-s0gkRZBAElasFiQWpRQqOEN8IMTCl5okwaAN9ooDkEwWwTxSgPlEA-0QB6hNRBjk31xBnD12QBfGgwCspSkyOhzvAQIJBwdIwOQXYrkszAt1BbmSQmGhkbppmnGSeZG6QappqZCnJII5DtxROGWkGLkRYyTCwpgEjNVUW2NgAFfJJmYkAXs7O9g\",\"Language\":
-        [\"English\"],\"Score\": [\"0.01\"],\"Copyright\": [\"COPYRIGHT 2013 HT Media
-        Ltd.\"],\"DBID\": [\"3GN\",\"2~S\"],\"IsPeerReviewed\": [\"false\"],\"PublicationDate\":
-        [\"20130107\"],\"PublicationDate_xml\": [{\"text\": \"20130107\",\"month\":
-        \"01\",\"year\": \"2013\",\"day\": \"07\"}],\"PublicationCentury\": [\"2000\"],\"Copyright_xml\":
-        [{\"notice\": \"COPYRIGHT 2013 HT Media Ltd.\"}],\"Publisher\": [\"HT Media
-        Ltd\"],\"SourceType\": [\"Aggregation Database\"],\"Publisher_xml\": [{\"name\":
-        \"HT Media Ltd\"}],\"GeographicLocations\": [\"India\"],\"IsScholarly\": [\"false\"],\"ID\":
-        [\"FETCH-gale_infotrac_3141237550\"],\"PublicationTitle\": [\"UNI\"],\"GeographicLocations_xml\":
-        [{\"name\": \"India\"}],\"PublicationYear\": [\"2013\"],\"Audience\": [\"General\"],\"MergedId\":
-        [\"FETCHMERGED-gale_infotrac_3141237550\"],\"PublicationDecade\": [\"2010\"],\"ContentType\":
-        [\"Newspaper Article\"],\"Title\": [\"DGP inaugurates Pilot Go-Live CCTNS
-        project\"],\"ExternalDocumentID\": [\"314123755\"],\"LinkModel\": [\"OpenURL\"],\"BookMark\":
-        [\"ePnHCXMw42TQdnEPUMjMSyxNLwWddlCsEJCZk1-i4J6v6wPMwArOziF-wQrQcQZuBjk31xBnD11QcRgPClNg_z453tjQBFiimpuCdsMTUAAAuNMiHQ\"]}],\"rollups\":
-        {\"image\": {},\"reference\": {},\"newspaper\": {}}}"
+      string: '{"version": "2.0.0","sessionId": "SUMMON-SESSION-Sprite.local-683-51","elapsedQueryTime":
+        2273,"queryTime": 2257,"totalRequestTime": 2407,"pageCount": 149822523,"recordCount":
+        1498225222,"query": {"queryString": "s.ff=SubjectTerms%2Cand%2C1%2C10&s.ff=Language%2Cand%2C1%2C5&s.ff=ContentType%2Cand%2C1%2C10","pageNumber":
+        1,"pageSize": 10,"textQueries": [],"searchTerms": [],"textFilters": [],"rangeFilters":
+        [],"facetValueFilters": [],"inclusiveFacetValueFilters": [],"facetValueGroupFilters":
+        [],"facetFields": [{"fieldName": "SubjectTerms","combineMode": "and","pageNumber":
+        1,"pageSize": 10,"removeCommand": "removeFacetField(SubjectTerms)"},{"fieldName":
+        "Language","combineMode": "and","pageNumber": 1,"pageSize": 5,"removeCommand":
+        "removeFacetField(Language)"},{"fieldName": "ContentType","combineMode": "and","pageNumber":
+        1,"pageSize": 10,"removeCommand": "removeFacetField(ContentType)"}],"rangeFacetFields":
+        [],"sort": []},"facetFields": [{"fieldName": "Language_s","displayName": "Language","combineMode":
+        "and","pageNumber": 1,"pageSize": 5,"hasLimitingValue": true,"hasAppliedValue":
+        false,"removeCommand": "removeFacetField(Language)","listValuesCommand": "listFacetValues(Language,and)","removeValueFiltersCommand":
+        "removeFacetValueFilter(Language)","counts": [{"value": "English","count":
+        1190169763,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(Language,English)","applyNegatedCommand": "addFacetValueFilters(Language,English:t)"},{"value":
+        "German","count": 107771152,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(Language,German)","applyNegatedCommand":
+        "addFacetValueFilters(Language,German:t)"},{"value": "Chinese","count": 61758316,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(Language,Chinese)","applyNegatedCommand":
+        "addFacetValueFilters(Language,Chinese:t)"},{"value": "Spanish","count": 28511220,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(Language,Spanish)","applyNegatedCommand":
+        "addFacetValueFilters(Language,Spanish:t)"},{"value": "Japanese","count":
+        27505339,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(Language,Japanese)","applyNegatedCommand": "addFacetValueFilters(Language,Japanese:t)"}]},{"fieldName":
+        "SubjectTerms_mfacet","displayName": "SubjectTerms","combineMode": "and","pageNumber":
+        1,"pageSize": 10,"hasLimitingValue": true,"hasAppliedValue": false,"removeCommand":
+        "removeFacetField(SubjectTerms)","listValuesCommand": "listFacetValues(SubjectTerms,and)","removeValueFiltersCommand":
+        "removeFacetValueFilter(SubjectTerms)","counts": [{"value": "athletes","count":
+        9440465,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,athletes)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,athletes:t)"},{"value":
+        "research","count": 8504596,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,research)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,research:t)"},{"value": "books","count":
+        5860304,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,books)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,books:t)"},{"value":
+        "reports","count": 5694423,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,reports)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,reports:t)"},{"value": "history","count":
+        5198380,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,history)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,history:t)"},{"value":
+        "book reviews","count": 4982853,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,book reviews)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,book reviews:t)"},{"value": "patents","count":
+        4949698,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,patents)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,patents:t)"},{"value":
+        "universities and colleges","count": 4778001,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,universities
+        and colleges)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,universities
+        and colleges:t)"},{"value": "united states","count": 4687341,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,united
+        states)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,united
+        states:t)"},{"value": "article","count": 4429143,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,article)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,article:t)"}]},{"fieldName": "ContentType_mfacet","displayName":
+        "ContentType","combineMode": "and","pageNumber": 1,"pageSize": 10,"hasLimitingValue":
+        true,"hasAppliedValue": false,"removeCommand": "removeFacetField(ContentType)","listValuesCommand":
+        "listFacetValues(ContentType,and)","removeValueFiltersCommand": "removeFacetValueFilter(ContentType)","counts":
+        [{"value": "Newspaper Article","count": 830504408,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(ContentType,Newspaper
+        Article)","applyNegatedCommand": "addFacetValueFilters(ContentType,Newspaper
+        Article:t)"},{"value": "Journal Article","count": 227811540,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(ContentType,Journal
+        Article)","applyNegatedCommand": "addFacetValueFilters(ContentType,Journal
+        Article:t)"},{"value": "Patent","count": 76249577,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(ContentType,Patent)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Patent:t)"},{"value": "Manuscript","count":
+        74576773,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(ContentType,Manuscript)","applyNegatedCommand": "addFacetValueFilters(ContentType,Manuscript:t)"},{"value":
+        "Report","count": 53534087,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(ContentType,Report)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Report:t)"},{"value": "Book / eBook","count":
+        45096625,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(ContentType,Book / eBook)","applyNegatedCommand": "addFacetValueFilters(ContentType,Book
+        / eBook:t)"},{"value": "Magazine Article","count": 37401498,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(ContentType,Magazine
+        Article)","applyNegatedCommand": "addFacetValueFilters(ContentType,Magazine
+        Article:t)"},{"value": "Newsletter","count": 24291712,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(ContentType,Newsletter)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Newsletter:t)"},{"value": "Book Review","count":
+        23976312,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(ContentType,Book Review)","applyNegatedCommand": "addFacetValueFilters(ContentType,Book
+        Review:t)"},{"value": "Reference","count": 15696205,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(ContentType,Reference)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Reference:t)"}]}],"rangeFacetFields": [],"didYouMeanSuggestions":
+        [],"recommendationLists": {},"documents": [{"hasFullText": true,"isFullTextHit":
+        false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Will+US+threats+scare+off+Ottawa%27s+ban+on+magazines%3F&rft.jtitle=The+Globe+and+Mail+%28Index-only%29&rft.au=McKenna%2C+Barrie&rft.date=1999-01-25&rft.pub=The+Globe+%26+Mail+division+of+Bell+Globemedia+Publishing+Inc&rft.issn=0319-0714&rft.externalDocID=452742761","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQisPQCNUJal64LJZ18zCWBd81j7SoYsMsDtRoZELKxPBBXVKfjJojFzfGHSqIah9bV9QqAu6NAo0uQq7QSMRerMCaIIG2J5gZmAFzSaCErl5hBN8UgFz3w5a8QuuU9wEGGADFbC1JMmlOUC3AAuLpMxEpIXWSCc2UsvlggyCoMKtILEgtUjBEZJ2hBiYUvNEGExAAzAKocEKJRmg5mSxQjFobZhCflqagn9JSWJ5onqxQlJinkJ-nkIu9GzqYntRBhU31xBnD12Yy-LzYMYXx8MdZizBoGBsYZpoYm6SkmKeZmRilmqUBMz7ZkAxg0QjS6CEqSSDLF4zpAjISzNwQU48MNQ1MpVhYCkpKk2VBbYFoMEKAJVVrFA","Language":
+        ["English"],"Author": ["McKenna, Barrie"],"PublicationPlace": ["Toronto, Ont"],"Score":
+        ["0.01"],"IsPeerReviewed": ["false"],"PublicationDate": ["19990125"],"PublicationDate_xml":
+        [{"text": "19990125","month": "01","year": "1999","day": "25"}],"PublicationCentury":
+        ["1900"],"Publisher": ["The Globe & Mail division of Bell Globemedia Publishing
+        Inc","The Globe and Mail"],"SourceType": ["Aggregation Database"],"Publisher_xml":
+        [{"name": "The Globe and Mail"},{"name": "The Globe & Mail division of Bell
+        Globemedia Publishing Inc"}],"GeographicLocations": ["United States","Canada"],"PQPubID":
+        ["46322"],"URI": ["http://search.proquest.com/docview/347221548"],"IsScholarly":
+        ["false"],"ID": ["FETCH-proquest_newspapers_3472215483"],"PublicationTitle":
+        ["The Globe and Mail (Index-only)"],"GeographicLocations_xml": [{"name": "United
+        States"},{"name": "Canada"}],"PublicationYear": ["1999"],"Genre": ["News"],"PublicationPlace_xml":
+        [{"name": "Toronto, Ont"}],"PQID": ["347221548"],"SubjectTerms": ["Commerce","International","Magazines","Laws
+        & regulations","Magazine advertising"],"MergedId": ["FETCHMERGED-proquest_newspapers_3472215483"],"Author_xml":
+        [{"sequence": "1","fullname": "McKenna, Barrie"}],"PublicationDecade": ["1990"],"ContentType":
+        ["Newspaper Article"],"Title": ["Will US threats scare off Ottawa''s ban on
+        magazines?"],"ISSN": ["0319-0714"],"ExternalDocumentID": ["452742761"],"SSID":
+        ["ssj0016546"],"thumbnail_l": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0319-0714&client=summon"],"thumbnail_m":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0319-0714&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0319-0714&client=summon"],"LinkModel":
+        ["DirectLink"],"BookMark": ["ePnHCXMwY0HaGMMBG84H7ZjhZDABDSEohAYrlGSAGkTFCsWg1U0K-WlpCv4lJYnlierFCkmJeQr5eQq50NOVi-25GVTcXEOcPXRhJWU8qLlZkFgAbB3FG4OOOgQ1uo2JVAYAG-AwHw"]},{"hasFullText":
+        true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Pick+of+the+day&rft.jtitle=Sunday+Times+%28London%2C+England%29&rft.date=2012-03-18&rft.pub=NI+Syndication+Limited&rft.issn=0956-1382&rft.spage=75&rft.externalDBID=IAO&rft.externalDocID=286617394","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQisPQCNUJal64LJZ18zCWBd81j7SoYvwi8UQYjSNZ6AYMKZB-2ZJiGu4oUABIBsY40ASGOdAkqhYD8hMzoZN-8PWx2Rh7vnAepEHbFAAOgYAWkxhrAsttsBLJDy1gyvzUqCDfFi2RsEOG0QqqSD3laAeQO3p6I8qCK7njCyAdbi5sSXo0FVg-9EUcmInvgMNYesKoZVOiCCDIKjILkgsSC1ScISEjRADU2qeCAM_KFwU8tMUgOGiAAwFUQY5N9cQZw9dkBnxoIAvKUpMjoe7wViCQcHYwjTRxNwkJcU8zcjELNUoCVhMmQHFDBKNLIESppIM4jh0S-GUkWbgQgSsDANLSVFpqiywqQKqIpIyEwEjU9xR","Language":
+        ["English"],"Score": ["0.01"],"Copyright": ["COPYRIGHT 2012 Sunday Times"],"IsPeerReviewed":
+        ["false"],"DBID": ["IAO"],"PublicationDate": ["20120318"],"PublicationDate_xml":
+        [{"text": "20120318","month": "03","year": "2012","day": "18"}],"PublicationCentury":
+        ["2000"],"Copyright_xml": [{"notice": "COPYRIGHT 2012 Sunday Times"}],"Publisher":
+        ["NI Syndication Limited"],"SourceType": ["Aggregation Database"],"Publisher_xml":
+        [{"name": "NI Syndication Limited"}],"IsScholarly": ["false"],"ID": ["FETCH-gale_infotrac_2866173943"],"PublicationTitle":
+        ["Sunday Times (London, England)"],"PublicationYear": ["2012"],"Audience":
+        ["General"],"MergedId": ["FETCHMERGED-gale_infotrac_2866173943"],"PublicationDecade":
+        ["2010"],"ContentType": ["Newspaper Article"],"Title": ["Pick of the day"],"ISSN":
+        ["0956-1382"],"ExternalDocumentID": ["286617394"],"SSID": ["ssj0024379"],"StartPage":
+        ["75"],"thumbnail_l": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0956-1382&client=summon"],"thumbnail_m":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0956-1382&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0956-1382&client=summon"],"LinkModel":
+        ["OpenURL"],"BookMark": ["ePnHCXMwY0E6244D-dA7Tgb-gMzkbIX8NAVg00YhJRHYCJJzcw1x9tAFlYXxoAAFdu6T440sgHWGubElaCMNAQUAvkkc9w"]},{"hasFullText":
+        false,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.title=Information+Furnished+in+Conformity+with+the+Convention+on+Registration+of+Objects+Launched+into+Outer+Space.+Note+Verbale+Dated+21+Mar.+1990+from+the+Permanent+Mission+of+the+USSR+to+the+UN+Addressed+to+the+Secretary-General+%3A+Information+Furnished+in+Conformity+with+the+Convention+on+Registration+of+Objects+Launched+into+Outer+Space%3B1990+IIS+3080-D2.99%3BST%2FSG%2FSER.E%2F217&rft.date=1990-01-01&rft.externalDocID=1990_3080_D2_99","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwxV1LS8NAEF6VevCkouATBhEvksSmz1hExLZasA-7rYiXkHZTCdSktinYf-_MJNGgl54UcgizyT4ym29nJrNfhDj5gQcUoQpdnbFZK5ZzGnPtp0gXRaLnWLkJJjJQ074apixGs9SfkcNKrNrzcWhM3ifRGb15eBPH0vkRX6tgyG5c51E2zljUn3pXBmV_I5QbWYRgI4e2klY1dcvSP97GayJDH-jYKXt--QXMDKL1TZH8DTDJMhnOx9hLhJGB56RSsFNcjv84pi2xHlnx22LV9XdWwniHE2kc6jhTKetegecD7S4MiEBgART-BbQ9SRZnXAIeXff1i8gXghG0BxQmmsGDg8tvVEsYQJt-QwESvX1Xh1YQuvCEkwNXOqii5azAzELTmepAnQXaP8MtdWgN8rEtaHqU-ssNUEFfyi5gtXzeghulmFBdJTJJlnXoTBdazNENl_CXY6zwOBoNCd8PviJ7hrwzZK2r1wz093bFeb3Wu73Xkhlgp7RvUwU23WxXTduyzD0BuXLByZfySpVGZr7omgME4SLKLhzTwoLCvjhdpqqD5S47FBskiYJKRyIzQtBzj9FGiyf1J5JHQZI","Language":
+        ["English"],"Score": ["0.01"],"DBID": ["DXZ"],"IsPeerReviewed": ["false"],"PublicationDate":
+        ["1990"],"PublicationDate_xml": [{"text": "1990","year": "1990"}],"PublicationCentury":
+        ["1900"],"AbstractList": ["Record Number: 1990 IIS 3080-D2.99 Issuing Agency:
+        United Nations Secretariat Accession Number: 3080-D2.99 Includes data for
+        Nov.-Dec. 1989."],"SourceType": ["Aggregation Database"],"Snippet": ["Record
+        Number: 1990 IIS 3080-D2.99 Issuing Agency: United Nations Secretariat Accession
+        Number: 3080-D2.99 Includes data for Nov.-Dec. 1989."],"URI": ["http://search.proquest.com/statisticalinsight/result/pqpresultpage.previewtitle?docType=PQSI&titleUri=/content/1990/3080-D2.99.xml"],"IsScholarly":
+        ["false"],"CorporateAuthor": ["United Nations Secretariat"],"ID": ["FETCH-proquest_statistical_1990_3080_D2_992"],"PublicationYear":
+        ["1990"],"DatabaseTitleList": [""],"Abstract": ["Record Number: 1990 IIS 3080-D2.99
+        Issuing Agency: United Nations Secretariat Accession Number: 3080-D2.99 Includes
+        data for Nov.-Dec. 1989."],"MergedId": ["FETCHMERGED-proquest_statistical_1990_3080_D2_992"],"PublicationDecade":
+        ["1990"],"ContentType": ["Report"],"Title": ["Information Furnished in Conformity
+        with the Convention on Registration of Objects Launched into Outer Space.
+        Note Verbale Dated 21 Mar. 1990 from the Permanent Mission of the USSR to
+        the UN Addressed to the Secretary-General : Information Furnished in Conformity
+        with the Convention on Registration of Objects Launched into Outer Space;1990
+        IIS 3080-D2.99;ST/SG/SER.E/217"],"ExternalDocumentID": ["1990_3080_D2_99"],"CorporateAuthor_xml":
+        [{"name": "United Nations Secretariat"}],"Database_xml": [{"sequence": "1","name":
+        "ProQuest Statistical Insight","dbid": "DXZ","url": "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/statistical","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMwvV09D4IwEI2j_-LtBgg4IZMRUBIBQ9GVYIqGBRJk4d97r4K7i0mHph93bdNcrx_vdb0aZyANBSOWAeHjbo22A0FsPXHqE3jKCHFxmDY_7IOEonl--WLRP5DfeRrxwrkWK_-RMvbI-dsBlGwqGxtZPza4SRvEoCIUB03Dc5HWgw1XTC0I0zCaLjR1nehC2hrKCypgxlWpAiLWxDPstTa83XpJU3TgxnqYrJkKGjv8s4-B6UeSKGzFv7NCz_b9QJWOOjoqKuzI8fjd2iaOysPJWhaUioAkw_UsE5YCKlauQq_yee37S-k3eJuebg"]},{"hasFullText":
+        true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=PREMIER+PALLET&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2016-03-08&rft.pub=Experian+Information+Solutions%2C+Inc","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQisPQCNUJal64LJZ18zCWBd81j7SoYsMsBtboZELKxPBBXVKfjJojFzf0MzSBFTampvaFxTqgm6NAs2uwq7QSIRerQCaoQE2KJgZWEG3s4FSvHmEE0YxCy4a3QQYqpAPRaio1EsuzQHaCSwUkjITkRZUI53MSDUXCjKwQVrYQgxMqXkiDHzAAPf1dA1SCHD08XENEWVQcnMNcfbQhdkUD51CiEfYYizBoGBsYZpoYm6SkmKeZmRilmqUBMyxZkAxg0QjS6CEqSSDNB4TpPDKSjNwAVsHZuAFVxYyDCwlRaWpssDaGxpAAFy5khE","DatabaseTitle":
+        ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
+        Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
+        Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
+        (Alumni)","ProQuest Central","ABI/INFORM Complete","ABI/INFORM Trade & Industry","Business
+        Premium Collection","ProQuest Central (Alumni Edition)","Business Premium
+        Collection (Alumni)"],"Language": ["English"],"PublicationPlace": ["Costa
+        Mesa"],"Score": ["0.01"],"IsPeerReviewed": ["false"],"DBID": ["Q9U","7XB","K6~","8FL","8FK","ABUWG","FRNLG","M0F","BENPR","DWQXO","K60","7WY","3V.","BEZIV","883"],"PublicationDate":
+        ["20160308"],"PublicationDate_xml": [{"text": "20160308","month": "03","year":
+        "2016","day": "08"}],"PublicationCentury": ["2000"],"Publisher": ["Experian
+        Information Solutions, Inc"],"SourceType": ["Aggregation Database"],"Publisher_xml":
+        [{"name": "Experian Information Solutions, Inc"}],"GeographicLocations": ["BOSTON
+        MA-NH"],"PQPubID": ["2032612"],"URI": ["http://search.proquest.com/docview/1694036275"],"IsScholarly":
+        ["false"],"ID": ["FETCH-proquest_reports_16940362753"],"PublicationTitle":
+        ["Experian Commercial Risk Database"],"GeographicLocations_xml": [{"name":
+        "BOSTON MA-NH"}],"PublicationYear": ["2016"],"Genre": ["Company Profile"],"PublicationPlace_xml":
+        [{"name": "Costa Mesa"}],"PQID": ["1694036275"],"SubjectTerms": ["Wholesalers"],"MergedId":
+        ["FETCHMERGED-proquest_reports_16940362753"],"PublicationDecade": ["2010"],"ContentType":
+        ["Report"],"Title": ["PREMIER PALLET"],"Database_xml": [{"sequence": "1","name":
+        "ABI/INFORM Collection","dbid": "7WY","url": "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/abicomplete/advanced?accountid=10226","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42TgA-r19XQNUghw9PFxDeFmUHJzDXH20IUVdfHQ0fB4QzNLE1ABag66mZgIRQCf8xqy"],"DatabaseName":
+        ["ProQuest Central Basic","ProQuest Central (purchase pre-March 2016)","ProQuest
+        Business Collection","ABI/INFORM Collection (Alumni Edition)","ProQuest Central
+        (Alumni) (purchase pre-March 2016)","ABI/INFORM Trade & Industry","ProQuest
+        Central","ProQuest Business Collection (Alumni Edition)","ABI/INFORM Collection","ProQuest
+        Central (Corporate)","Business Premium Collection","ABI/INFORM Trade & Industry
+        (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=TIMBER+CREEK+HOMECRAFTERS%2C+INC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2016-03-03&rft.pub=Experian+Information+Solutions%2C+Inc","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQisPQCNUJal64LJZ18zCWBd81j7SoYsMsBtboZELKxPBBXVKfjJojFzf0NTcBHTUuamhfUGhLujWKNDsKuwKjUTo1QqgGRpgg4KZgRV0OxsoxZtHOGEUs-Ai0k2AoQr5UISKSr3k0hygncBCISkzEWlBNdLJjFRzoSADG6SFLcTAlJonwiAX4unr5Bqk4Bzk6uqt4OHv6-oc5OgGbNEG6ygAu_eiDEpuriHOHrowm-OhUwrxCFuNJRgUjC1ME03MTVJSzNOMTMxSjZKAOdgMKGaQaGQJlDCVZJDGY4IUXllpBi5ga8EMvADLWIaBpaSoNFUWWJtDAwwAZTKWOA","DatabaseTitle":
+        ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
+        Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
+        Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
+        (Alumni)","ProQuest Central","ABI/INFORM Complete","ABI/INFORM Trade & Industry","Business
+        Premium Collection","ProQuest Central (Alumni Edition)","Business Premium
+        Collection (Alumni)"],"Language": ["English"],"PublicationPlace": ["Costa
+        Mesa"],"Score": ["0.01"],"IsPeerReviewed": ["false"],"DBID": ["Q9U","7XB","K6~","8FL","8FK","ABUWG","FRNLG","M0F","BENPR","DWQXO","K60","7WY","3V.","BEZIV","883"],"PublicationDate":
+        ["20160303"],"PublicationDate_xml": [{"text": "20160303","month": "03","year":
+        "2016","day": "03"}],"PublicationCentury": ["2000"],"Publisher": ["Experian
+        Information Solutions, Inc"],"SourceType": ["Aggregation Database"],"Publisher_xml":
+        [{"name": "Experian Information Solutions, Inc"}],"GeographicLocations": ["FORT
+        COLLINS-LOVELAND CO"],"PQPubID": ["2032612"],"URI": ["http://search.proquest.com/docview/1574647251"],"IsScholarly":
+        ["false"],"ID": ["FETCH-proquest_reports_15746472513"],"PublicationTitle":
+        ["Experian Commercial Risk Database"],"GeographicLocations_xml": [{"name":
+        "FORT COLLINS-LOVELAND CO"}],"PublicationYear": ["2016"],"Genre": ["Company
+        Profile"],"PublicationPlace_xml": [{"name": "Costa Mesa"}],"PQID": ["1574647251"],"MergedId":
+        ["FETCHMERGED-proquest_reports_15746472513"],"PublicationDecade": ["2010"],"ContentType":
+        ["Report"],"Title": ["TIMBER CREEK HOMECRAFTERS, INC"],"Database_xml": [{"sequence":
+        "1","name": "ABI/INFORM Collection","dbid": "7WY","url": "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/abicomplete/advanced?accountid=10226","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42SQC_H0dXINUnAOcnX1VvDw93V1DnJ0AzbOgnUUgD1VbgYlN9cQZw9dWNEXDx0djzc0NTcBnWZuCrprgAhFADoKHuA"],"DatabaseName":
+        ["ProQuest Central Basic","ProQuest Central (purchase pre-March 2016)","ProQuest
+        Business Collection","ABI/INFORM Collection (Alumni Edition)","ProQuest Central
+        (Alumni) (purchase pre-March 2016)","ABI/INFORM Trade & Industry","ProQuest
+        Central","ProQuest Business Collection (Alumni Edition)","ABI/INFORM Collection","ProQuest
+        Central (Corporate)","Business Premium Collection","ABI/INFORM Trade & Industry
+        (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Durable+delights+of+Rachmaninov%3B+Piano&rft.jtitle=Sunday+Times+%28London%2C+England%29&rft.date=1989-04-30&rft.pub=NI+Syndication+Limited&rft.issn=0956-1382&rft.externalDBID=IAO&rft.externalDocID=117306374","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQisPQCNUJal64LJZ18zCWBd81j7SoYvwWwcRYjSNZ6AYMKZB-2ZJiGu4oUABIBsY40ASGOdAkqhYdyktgu6FygH1uiFnjSQmZ4BOucjLLwMd2B8ATBD5yG1S5M0gWG_4gI0WpCTCVz_B5znAayc8tYMr81Kgo39Y9kzBTiFE1AawGXBPR39UQUiXwRBYIpgZm4MOYAW2JU0hp3fiO9wQtsYQWkGFCDIIgorvgsSC1CIFR0g4CTEwpeaJMKhBw0gBFkYK-WkKSGFkrQAOIVEGOTfXEGcPXZDR8aC4KSlKTI6HO81YgkHB2MI00cTcJCXFPM3IxCzVKAlYkpkBxQwSjSyBEqaSDOI4dEvhlJFm4EIEsQwDS0lRaaossDUDqkWSMhMBozjqHQ","Language":
+        ["English"],"Score": ["0.01"],"Copyright": ["COPYRIGHT 1989 Sunday Times"],"IsPeerReviewed":
+        ["false"],"DBID": ["IAO"],"PublicationDate": ["19890430"],"PublicationDate_xml":
+        [{"text": "19890430","month": "04","year": "1989","day": "30"}],"PublicationCentury":
+        ["1900"],"Copyright_xml": [{"notice": "COPYRIGHT 1989 Sunday Times"}],"Publisher":
+        ["NI Syndication Limited"],"SourceType": ["Aggregation Database"],"Publisher_xml":
+        [{"name": "NI Syndication Limited"}],"IsScholarly": ["false"],"ID": ["FETCH-gale_infotrac_1173063743"],"PublicationTitle":
+        ["Sunday Times (London, England)"],"PublicationYear": ["1989"],"Audience":
+        ["General"],"MergedId": ["FETCHMERGED-gale_infotrac_1173063743"],"PublicationDecade":
+        ["1980"],"ContentType": ["Newspaper Article"],"Title": ["Durable delights
+        of Rachmaninov; Piano"],"ISSN": ["0956-1382"],"ExternalDocumentID": ["117306374"],"SSID":
+        ["ssj0024379"],"thumbnail_l": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0956-1382&client=summon"],"thumbnail_m":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0956-1382&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0956-1382&client=summon"],"LinkModel":
+        ["OpenURL"],"BookMark": ["ePnHCXMwY0E6244D-dA7TgY1l9Ii0H4ghRTQatuMkmKF_DSFINAF9ol5mXn5ZdYKAcAgyedmkHNzDXH20AUVkfGgcAb2-ZNBp1IDm7fG5qD9NQQUAABi_CXH"]},{"hasFullText":
+        true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Consort+of+Queen+Injured&rft.jtitle=The+Atlanta+Constitution+%281881-1945%29&rft.date=1910-08-05&rft.pub=CMG+Corporate+Services%2C+Inc.+on+behalf+of+itself+and+the+Newspapers&rft.spage=5&rft.externalDocID=544029832","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQisPQCNUJal64LJZ18zCWBd81j7SoYsMsDtRoZELKxPBBXVKfjJojFzfBJhSzID9ExP7gkJd0KVRoMlV2A0aidCbFUATNMD2BDMDK7AlbAY6St_J1AejlAWXmG4CDLDxCNiSkeTSHKCVwDIhKTMRaT010sGM1HKgIIMgqAwrSCxILVJwhCQRIQam1DwRBgnQRZ3AlrdCfppCIKgvq-CZl1ValJoiyiDr5hri7KELsz0-I68gHm6rsQSDgrGFaaKJuUlKinmakYlZqlESMP-aAcUMEo0sgRKmkgxi2DVL4ZKQZuACduggK95MZRhYSopKU2WBNTg0lABK3pSt","DatabaseTitle":
+        ["ProQuest Historical Newspapers: The Atlanta Constitution (1868-1984)","ProQuest
+        Historical Newspapers: The Atlanta Constitution (1868-1945)"],"Language":
+        ["English"],"PublicationPlace": ["Atlanta, Ga"],"Score": ["0.01"],"IsPeerReviewed":
+        ["false"],"DBID": ["K90","B5L"],"PublicationDate": ["19100805"],"PublicationDate_xml":
+        [{"text": "19100805","month": "08","year": "1910","day": "05"}],"PublicationCentury":
+        ["1900"],"Publisher": ["CMG Corporate Services, Inc. on behalf of itself and
+        the Newspapers"],"SourceType": ["Aggregation Database"],"Publisher_xml": [{"name":
+        "CMG Corporate Services, Inc. on behalf of itself and the Newspapers"}],"GeographicLocations":
+        ["The Hague, August 4"],"PQPubID": ["46864"],"URI": ["http://search.proquest.com/docview/496362104"],"IsScholarly":
+        ["false"],"ID": ["FETCH-proquest_hnp_4963621043"],"PublicationTitle": ["The
+        Atlanta Constitution (1881-1945)"],"PublicationYear": ["1910"],"PublicationPlace_xml":
+        [{"name": "Atlanta, Ga"}],"PQID": ["496362104"],"MergedId": ["FETCHMERGED-proquest_hnp_4963621043"],"PublicationDecade":
+        ["1910"],"ContentType": ["Newspaper Article"],"Title": ["Consort of Queen
+        Injured"],"ExternalDocumentID": ["544029832"],"StartPage": ["5"],"Database_xml":
+        [{"sequence": "1","name": "ProQuest Historical Newspapers: Atlanta Constitution","dbid":
+        "B5L","url": "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/hnpatlantaconstitution/advanced?accountid=10226","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42SQAF01CWw7KuSnKQSCemMKnnlZpUWgsl3WzTXE2UMXVujFZ-QVxJsAk4AZsOMB2jeDXx4AEdYbpg"],"DatabaseName":
+        ["ProQuest Historical Newspapers: Atlanta Constitution (1868-1984)","ProQuest
+        Historical Newspapers: Atlanta Constitution"]},{"hasFullText": false,"isFullTextHit":
+        false,"isPrint": false,"inHoldings": false,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Helmet+Cam+Lets+Fans+Get+Inside+Quarterback%27s+Head&rft.jtitle=Detroit+News&rft.au=McCann%2C+Hugh&rft.date=1991-05-20&rft.pub=Detroit+News&rft.issn=1055-2715&rft.externalDocID=8056927","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwtV09a8MwED1aunRLaaFfAREKGYyLUSzLGYubNNmzB5kobYakIXb_f99JdZS60I-hizAndIJ35k4n6emIei1_wDtUtb13vjnO8kHs3to_eHRxX7IkyP7VzpDB0syb_YOt90ohwDcsjhY2R_srqyOKrG0dFWbNRJ0qGiMSRU-QTF1dzuYOZ2nYC-qKWUifKnU-2nr3uqoD-8Ft2RUflZQnb88vYZvAX2dSsUzCXY_2cO_uEsWMNE-obL07nWNpNJT6GPmsDgczmfY5bDPwSwhzYWnWoQ7PtDVbuxMPHo0zOrKbc5IeCQEkBCMhGAkBJIRHQhwg0a8E43BBd-PRrJjEzVTzTaO8mqfMik8U8spLEoNcmVSni4VeyjSzsoQHyyBLjByiQ11R91sd1z_039BpAPeWTpb4b2wXSxoOJeXKvAMGsO9S","Language":
+        ["English"],"Author": ["McCann, Hugh"],"PublicationPlace": ["Detroit, Mich"],"Score":
+        ["0.01"],"IsPeerReviewed": ["false"],"PublicationDate": ["19910520"],"PublicationDate_xml":
+        [{"text": "19910520","month": "05","year": "1991","day": "20"}],"PublicationCentury":
+        ["1900"],"Publisher": ["Detroit News"],"AbstractList": ["Aerial Video Systems
+        of Burbank CA designed the Helmet Cam being used in the WLAF games televised
+        by the USA Network. The camera is a lipstick-sized device mounted inside the
+        helmet."],"SourceType": ["Aggregation Database"],"Publisher_xml": [{"name":
+        "Detroit News"}],"Snippet": ["Aerial Video Systems of Burbank CA designed
+        the Helmet Cam being used in the WLAF games televised by the USA Network.
+        The camera is a lipstick-sized device..."],"PQPubID": ["46053"],"URI": ["http://search.proquest.com/docview/404800501"],"IsScholarly":
+        ["false"],"ID": ["FETCH-proquest_newspapers_4048005010"],"PublicationTitle":
+        ["Detroit News"],"PublicationYear": ["1991"],"PublicationPlace_xml": [{"name":
+        "Detroit, Mich"}],"PQID": ["404800501"],"DatabaseTitleList": [""],"Abstract":
+        ["Aerial Video Systems of Burbank CA designed the Helmet Cam being used in
+        the WLAF games televised by the USA Network. The camera is a lipstick-sized
+        device mounted inside the helmet."],"SubjectTerms": ["Video equipment","Television
+        sports"],"MergedId": ["FETCHMERGED-proquest_newspapers_4048005010"],"Author_xml":
+        [{"sequence": "1","fullname": "McCann, Hugh"}],"PublicationDecade": ["1990"],"ContentType":
+        ["Newspaper Article"],"Title": ["Helmet Cam Lets Fans Get Inside Quarterback''s
+        Head"],"ISSN": ["1055-2715"],"ExternalDocumentID": ["8056927"],"SSID": ["ssj0016771"],"thumbnail_l":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=1055-2715&client=summon"],"thumbnail_m":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=1055-2715&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=1055-2715&client=summon"],"LinkModel":
+        ["OpenURL"],"BookMark": ["ePnHCXMwYwHNLpqC9jkZmnLAhvPNzM0NORmMgCVpbmqJgnNiroJPakmxghuwNFZwB4p4gu-mVICuY0xKTM5WL1bwAHqSm0HFzTXE2UMXVk7GgxqbBYkFwLZRvAloP7SBqQFo9ytRygCCXC7P"]},{"hasFullText":
+        true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=NEWSPAPER%27S+APPEAL+IN+LIBEL+ACTION&rft.jtitle=The+Irish+Times+%281921-Current+File%29&rft.date=1956-06-21&rft.pub=The+Irish+Times+Ltd&rft.spage=9&rft.externalDocID=1323338342","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQisPQCNUJal64LJZ18zCWBd81j7SoYsMsDtRoZELKxPBBXVKfjJojFwf2E4A97hN7QsKdUGXRoEmV2E3aCRCb1YATdAA2xPMDKzAlrAxKNlbWMInFYxAh49jFLng4tRNgAE2OAFbP5JcmgO0H1hAJGUmIi2uRjqlkVquFWQQBBVoBYkFqUUKjpD0IsTAlJonwqDk5xoeHOAY4BqkHqzgGBDg6uij4Omn4OPp5OqjAFllIsog6-Ya4uyhC3NHfEZeQTzcfmMJBgVjC9NEE3OTlBTzNCMTs1SjJGC2NgOKGSQaWQIlTCUZxLBrlsIlIc3ABdpnCFoyZWQow8BSUlSaKgus2KHhBQCLfZez","DatabaseTitle":
+        ["ProQuest Historical Newspapers: The Irish Times (1859-2012) and The Weekly
+        Irish Times (1876-1958)"],"Language": ["English"],"PublicationPlace": ["Dublin,
+        Ireland"],"Score": ["0.01"],"IsPeerReviewed": ["false"],"DBID": ["898"],"PublicationDate":
+        ["19560621"],"PublicationDate_xml": [{"text": "19560621","month": "06","year":
+        "1956","day": "21"}],"PublicationCentury": ["1900"],"Publisher": ["The Irish
+        Times Ltd"],"SourceType": ["Aggregation Database"],"Publisher_xml": [{"name":
+        "The Irish Times Ltd"}],"PQPubID": ["27284"],"URI": ["http://search.proquest.com/docview/522761945"],"IsScholarly":
+        ["false"],"ID": ["FETCH-proquest_hnp_5227619453"],"PublicationTitle": ["The
+        Irish Times (1921-Current File)"],"PublicationYear": ["1956"],"PublicationPlace_xml":
+        [{"name": "Dublin, Ireland"}],"PQID": ["522761945"],"MergedId": ["FETCHMERGED-proquest_hnp_5227619453"],"PublicationDecade":
+        ["1950"],"ContentType": ["Newspaper Article"],"Title": ["NEWSPAPER''S APPEAL
+        IN LIBEL ACTION"],"ExternalDocumentID": ["1323338342"],"SSID": ["ssj0022617"],"StartPage":
+        ["9"],"Database_xml": [{"sequence": "1","name": "ProQuest Historical Newspapers:
+        Irish Times, The (1859-2011) and Weekly Irish Times, The (1876-1958)","dbid":
+        "898","url": "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/hnpirishtimes/advanced?accountid=10226","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw44D1dkBHfXMyKPm5hgcHOAa4BqkHKzgGBLg6-ih4-in4eDq5-ihA1klwM8i6uYY4e-jCysL4jLyCeGC7ANzDBt1ajF8eAIDqHrM"],"DatabaseName":
+        ["ProQuest Historical Newspapers: Irish Times, The (1859-2011) and Weekly
+        Irish Times, The (1876-1958)"]},{"hasFullText": false,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": false,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Tactics+of+a+Maverick+Money+Manager&rft.jtitle=The+Jerusalem+Post+%281950-1988%29&rft.au=Fred+R+Bleakley&rft.date=1983-09-18&rft.pub=The+Jerusalem+Post+Ltd&rft.spage=5IE&rft.externalDocID=2213344112","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQisPQCNUJal64LJZ18zCWBd81j7SoYvw-8MQYjSNZ6AYMKZB-2ZJiGu4oUABIBsY40ASGOdAkrhYB-95KobsevRNLANNx2SDMi4w60NWuhQhN0fBG8NSi0qLgdVELvjiXvDBTZamBrqGlhYWSMMEbqB16kHaTjmpifC54BTI7jlgWIMuO7CARy8WU2GLhyDll6mnK6JigC_XMzIC9mSB7SbQbc7MpuYWOOqtEEEGQVDRXJBYkFqk4AgJAyEGptQ8EQZlqP8V8tMUEhVg_lcA-18B6n9RBlk31xBnD12Y4fEZeQXxlqA2h5EpsGErwaBgbGGaaGJukpJinmZkYpZqlAQsocyAYgaJRpZACVNJBjHsmqVwSUgzcCECSoaBNQ2YElJlgY0UUOWQlJkIADZV4TE","DatabaseTitle":
+        ["ProQuest Historical Newspapers: The Jerusalem Post (1932-2008)"],"Language":
+        ["English"],"Author": ["Fred R Bleakley"],"PublicationPlace": ["Jerusalem,
+        Israel"],"Score": ["0.01"],"IsPeerReviewed": ["false"],"DBID": ["XR1"],"PublicationDate":
+        ["19830918"],"PublicationDate_xml": [{"text": "19830918","month": "09","year":
+        "1983","day": "18"}],"PublicationCentury": ["1900"],"Publisher": ["The Jerusalem
+        Post Ltd"],"AbstractList": ["SHORTLY after the start of stock market trading
+        last Monday, pension fund manager Robert Torray bet his head trader $5 that
+        the Dow Jones industrial average would close with a loss for the day. A tough
+        wager to win, considering that the bulls already were roaring and that the
+        Dow was up nearly 20 points at the time."],"SourceType": ["Aggregation Database"],"Publisher_xml":
+        [{"name": "The Jerusalem Post Ltd"}],"Snippet": ["SHORTLY after the start
+        of stock market trading last Monday, pension fund manager Robert Torray bet
+        his head trader $5 that the Dow Jones industrial average..."],"NewspaperSection":
+        ["The Economy"],"GeographicLocations": ["BETHESDA, Md"],"PQPubID": ["616556"],"URI":
+        ["http://search.proquest.com/docview/924062580"],"IsScholarly": ["false"],"ID":
+        ["FETCH-proquest_hnp_9240625800"],"PublicationTitle": ["The Jerusalem Post
+        (1950-1988)"],"PublicationYear": ["1983"],"PublicationPlace_xml": [{"name":
+        "Jerusalem, Israel"}],"PQID": ["924062580"],"DatabaseTitleList": ["ProQuest
+        Historical Newspapers: The Jerusalem Post (1932-2008)"],"Abstract": ["SHORTLY
+        after the start of stock market trading last Monday, pension fund manager
+        Robert Torray bet his head trader $5 that the Dow Jones industrial average
+        would close with a loss for the day. A tough wager to win, considering that
+        the bulls already were roaring and that the Dow was up nearly 20 points at
+        the time."],"MergedId": ["FETCHMERGED-proquest_hnp_9240625800"],"Author_xml":
+        [{"sequence": "1","fullname": "Fred R Bleakley"}],"PublicationDecade": ["1980"],"ContentType":
+        ["Newspaper Article"],"Title": ["Tactics of a Maverick Money Manager"],"ExternalDocumentID":
+        ["2213344112"],"StartPage": ["5IE"],"LinkModel": ["OpenURL"],"BookMark": ["ePnHCXMw42RQDgFv7ylWyE9TSFTwTSwDzTxkKwDTaGqlAmRRB7C8l3VzDXH20IWVf_EZeQXxlqDqxcjUArTdDL88AHJsH1c"],"DatabaseName":
+        ["ProQuest Historical Newspapers: Jerusalem Post"]}],"rollups": {"image":
+        {},"reference": {},"newspaper": {}}}'
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:27 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Fri, 01 Jul 2016 19:07:12 GMT
+recorded_with: VCR 3.0.1

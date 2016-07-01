@@ -3,7 +3,7 @@ require 'spec_helper'
 
 # NEXT-824 - Apostrophe character
 # Variations in character used in place of simple apostophe should all work
-describe "Apostrophe-like character searching" do
+describe "Apostrophe-like character searching", :skip_travis do
   characterList = [
     "\x27",          # APOSTROPHE
     "\xCA\xBC",      # MODIFIER LETTER APOSTROPHE

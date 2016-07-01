@@ -3,7 +3,7 @@ require 'spec_helper'
 
 # Fix up Computer Program, Computer File, etc.
 # NEXT-970 - Some bibs assigned format "Computer File" instead of "Other"
-describe 'Format assignments for types of "Computer Files"' do
+describe 'Format assignments for types of "Computer Files"', :skip_travis do
 
   bibList = [2972693, 3105451]
   bibList.each do |bib|

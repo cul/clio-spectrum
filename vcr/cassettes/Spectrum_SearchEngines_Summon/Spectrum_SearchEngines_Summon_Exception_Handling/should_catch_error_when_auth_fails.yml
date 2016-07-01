@@ -16,13 +16,13 @@ http_interactions:
       Content-Type:
       - application/x-www-form-urlencoded; charset=utf8
       X-Summon-Date:
-      - Tue, 22 Sep 2015 19:33:33 GMT
+      - Fri, 01 Jul 2016 19:07:19 GMT
       X-Summon-Session-Id:
-      - SUMMON-SESSION-Sprite.local-1824-62
+      - SUMMON-SESSION-Sprite.local-683-57
       X-Summon-Request-Id:
       - ''
       Authorization:
-      - Summon columbia;1tcBXFDsZsjjkijyoFv1oI0B4cM=
+      - Summon columbia;hz8SNwtRdt/eHjoFwS/Zl/lIMfM=
       Host:
       - api.summon.serialssolutions.com:80
   response:
@@ -35,12 +35,12 @@ http_interactions:
       Datacenter:
       - IAD1
       Date:
-      - Tue, 22 Sep 2015 19:33:33 GMT
+      - Fri, 01 Jul 2016 19:07:18 GMT
       Content-Length:
       - '1065'
     body:
       encoding: UTF-8
-      string: "<html><head><title>Apache Tomcat/6.0.20 - Error report</title><style><!--H1
+      string: '<html><head><title>Apache Tomcat/6.0.20 - Error report</title><style><!--H1
         {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;}
         H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;}
         H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;}
@@ -48,10 +48,10 @@ http_interactions:
         B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;}
         P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A
         {color : black;}A.name {color : black;}HR {color : #525D76;}--></style> </head><body><h1>HTTP
-        Status 401 - Invalid ID, secret key or client hash</h1><HR size=\"1\" noshade=\"noshade\"><p><b>type</b>
+        Status 401 - Invalid ID, secret key or client hash</h1><HR size="1" noshade="noshade"><p><b>type</b>
         Status report</p><p><b>message</b> <u>Invalid ID, secret key or client hash</u></p><p><b>description</b>
         <u>This request requires HTTP authentication (Invalid ID, secret key or client
-        hash).</u></p><HR size=\"1\" noshade=\"noshade\"><h3>Apache Tomcat/6.0.20</h3></body></html>"
+        hash).</u></p><HR size="1" noshade="noshade"><h3>Apache Tomcat/6.0.20</h3></body></html>'
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:33 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Fri, 01 Jul 2016 19:07:19 GMT
+recorded_with: VCR 3.0.1

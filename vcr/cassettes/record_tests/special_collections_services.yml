@@ -2,114 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: "<solr_config>/select?id=10104738&qt=document&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:33:01 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'10104738','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+e--+0302+60000000+m7000000+c3700000+002013+10104738','clm+ce-+0000+00000000+mo830000+10104738'],'location_call_number_id_display'=>['Rare Book, Butler 6th Fl. East (Non-Circulating)|DELIM|13180928','University Archives, Butler 6th Fl. East (Non-Circulating) >> CE Mo83|DELIM|13945799'],'acq_dt'=>'2014-08-08T00:00:00Z','item_display'=>['E302.6.M7 C37 2013 | loc+e--+0302+60000000+m7000000+c3700000+002013+10104738 | ebn~l~~~zwzx~tzzzzzzz~dszzzzzz~nwszzzzz~zzxzyw~yzyzvswr','CE Mo83 | clm+ce-+0000+00000000+mo830000+10104738 | ned~nl~~zzzz~zzzzzzzz~dbrwzzzz~yzyzvswr~~~~~~~~~~~'],'title_display'=>['The young Gouverneur Morris : two essays'],'clio_id_display'=>'10104738','subject_topic_facet'=>['Morris, Gouverneur, 1752-1816','United States','Signers','Statesmen','History','Politics and government'],'pub_place_display'=>['Portola Valley, Calif'],'format'=>['Book'],'oclc_display'=>['ocn830538751','830538751'],'title_first_facet'=>['Y'],'full_publisher_display'=>['Portola Valley, Calif. : Galloway Hills Press, c2013.'],'pub_date_sort'=>2013,'pub_year_display'=>['c2013'],'id'=>'10104738','reverse_shelfkey'=>['ebn~l~~~zwzx~tzzzzzzz~dszzzzzz~nwszzzzz~zzxzyw~yzyzvswr','ned~nl~~zzzz~zzzzzzzz~dbrwzzzz~yzyzvswr~~~~~~~~~~~'],'subject_geo_facet'=>['United States','New York (State)'],'call_number_display'=>['CE Mo83'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01541cam a2200385Ma 4500</leader><controlfield tag="001">10104738</controlfield><controlfield tag="005">20140922151551.0</controlfield><controlfield tag="008">121217s2013    caua     b    000 0 eng d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn830538751</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)830538751</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)10104738</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">NHi</subfield><subfield code="b">eng</subfield><subfield code="c">N15</subfield><subfield code="d">OCLCO</subfield></datafield><datafield tag="050" ind1="1" ind2="4"><subfield code="a">E302.6.M7</subfield><subfield code="b">C37 2013</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Carnochan, W. B.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The young Gouverneur Morris :</subfield><subfield code="b">two essays.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Portola Valley, Calif. :</subfield><subfield code="b">Galloway Hills Press,</subfield><subfield code="c">c2013.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">[10], 44 p., [2] leaves of plates :</subfield><subfield code="b">ill. ;</subfield><subfield code="c">23 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Morris, Gouverneur,</subfield><subfield code="d">1752-1816.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Statesmen</subfield><subfield code="z">United States</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="610" ind1="1" ind2="0"><subfield code="a">United States.</subfield><subfield code="t">Constitution</subfield><subfield code="x">Signers</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">History</subfield><subfield code="y">Revolution, 1775-1783</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">New York (State)</subfield><subfield code="x">History</subfield><subfield code="y">Revolution, 1775-1783</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">Politics and government</subfield><subfield code="y">1775-1783.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">Politics and government</subfield><subfield code="y">1783-1789.</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20140808</subfield><subfield code="b">c</subfield><subfield code="c">cep2</subfield><subfield code="d">OSMC</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">E</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">E302.6.M7 C37 2013</subfield><subfield code="b">loc+E--+0302+60000000+M7000000+C3700000+002013</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">CE Mo83</subfield><subfield code="b">clm+CE-+0000+00000000+MO830000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Rare Book</subfield><subfield code="b">Rare Book, Butler 6th Fl. East (Non-Circulating)|DELIM|13180928</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Other</subfield><subfield code="b">University Archives, Butler 6th Fl. East (Non-Circulating) &gt;&gt; CE Mo83|DELIM|13945799</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2014-08-08T00:00:00.000Z</subfield></datafield></record></collection>','author_display'=>['Carnochan, W. B.'],'pub_name_display'=>['Galloway Hills Press'],'source_display'=>['catalog'],'material_type_display'=>['[10], 44 p., [2] leaves of plates'],'language_facet'=>['English'],'_version_'=>1501984937954246656,'timestamp'=>'2015-05-23T18:07:38.955Z'}]}}
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:01 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocn830538751.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 19:33:01 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:33:01 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        19:43:01 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:01 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/830538751.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 19:33:01 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:33:01 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        19:43:01 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:02 GMT
-- request:
-    method: get
     uri: "<solr_config>/select?id=6201975&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
@@ -121,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 19:33:02 GMT
+      - Fri, 01 Jul 2016 20:48:57 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -129,11 +21,394 @@ http_interactions:
       Server:
       - Jetty(8.1.8.v20121106)
     body:
-      encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'6201975','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+e--+0902+00000000+g6700000+002007+6201975'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> E902 .G67 2007|DELIM|7900669','Lehman >> E902 .G67 2007|DELIM|8043304','Milstein [Butler] >> E902 .G67 2007|DELIM|8115214'],'lccn_display'=>['2007003261'],'summary_display'=>['"We live in an age when the 30-second television spot is the most powerful force shaping the electorate\'s thinking, and America is in the hands of an administration less interested than any previous administration in sharing the truth with the citizenry. Related to this and of even greater concern is this administration\'s disinterest in the process by which the truth is ascertained, the tenets of fact-based reasoning - first among them an embrace of open inquiry, in which unexpected and even inconvenient facts can lead to unexpected conclusions." "How did we get here? And how much damage has been done to the functioning of our democracy and its role as steward of our security? Never has there been a worse time for us to lose the capacity to face the reality of our long-term challenges, from national security to the economy, from issues of health and social welfare to the environment. As The Assault on Reason shows us, we have precious little time to waste." "Al Gore\'s larger goal in this book is to explain how the public sphere itself has evolved into a place hospitable to reason\'s enemies; to make us more aware of the forces at work on our own minds; and to lead us to an understanding of what we can do, individually and collectively, to restore the rule of reason and safeguard our future. Drawing on a life\'s work in politics as well as on the work of experts across a broad range of disciplines, A1 Gore has written a farsighted and powerful manifesto for clear thinking."--BOOK JACKET'],'item_display'=>['E902 .G67 2007 | loc+e--+0902+00000000+g6700000+002007+6201975 | ebn~l~~~zqzx~zzzzzzzz~jtszzzzz~zzxzzs~txzyqsu~~~~~'],'title_display'=>['The assault on reason'],'clio_id_display'=>'6201975','subject_topic_facet'=>['Bush, George W. (George Walker), 1946-','Friends and associates','Political culture','Democracy','Reason','Fear','Official secrets','Religious fundamentalism','Social aspects','Political aspects','Politics and government'],'pub_place_display'=>['New York'],'format'=>['Book'],'oclc_display'=>['ocm81252666','81252666'],'url_munged_display'=>['2|||Contributor biographical information|||http://www.loc.gov/catdir/enhancements/fy0743/2007003261-b.html|||','2|||Publisher description|||http://www.loc.gov/catdir/enhancements/fy0743/2007003261-d.html|||'],'title_first_facet'=>['A'],'full_publisher_display'=>['New York : Penguin Press, 2007.'],'pub_date_sort'=>2007,'isbn_display'=>['9781594201226','1594201226'],'pub_year_display'=>['2007'],'id'=>'6201975','reverse_shelfkey'=>['ebn~l~~~zqzx~zzzzzzzz~jtszzzzz~zzxzzs~txzyqsu~~~~~'],'subject_geo_facet'=>['United States'],'call_number_display'=>['E902 .G67 2007'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>03975cam a2200553 a 4500</leader><controlfield tag="001">6201975</controlfield><controlfield tag="005">20150123144650.0</controlfield><controlfield tag="008">070124s2007    nyu      b    001 0deng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2007003261</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781594201226</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1594201226</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm81252666</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)81252666</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(DLC)  2007003261</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)6201975</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">BAKER</subfield><subfield code="d">BTCTA</subfield><subfield code="d">LF3</subfield><subfield code="d">YBM</subfield><subfield code="d">C#P</subfield><subfield code="d">VP@</subfield><subfield code="d">BUR</subfield><subfield code="d">YDXCP</subfield><subfield code="d">IXA</subfield><subfield code="d">DLC</subfield><subfield code="d">OrLoB-B</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">n-us---</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">E902</subfield><subfield code="b">.G67 2007</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">973.931</subfield><subfield code="2">22</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Gore, Al,</subfield><subfield code="d">1948-</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The assault on reason /</subfield><subfield code="c">Al Gore.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Penguin Press,</subfield><subfield code="c">2007.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">308 p. ;</subfield><subfield code="c">25 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references (p. [277]-296) and index.</subfield></datafield><datafield tag="505" ind1="0" ind2="0"><subfield code="g">1.</subfield><subfield code="t">The politics of fear -- </subfield><subfield code="g">2.</subfield><subfield code="t">Blinding the faithful -- </subfield><subfield code="g">3.</subfield><subfield code="t">The politics of wealth -- </subfield><subfield code="g">4.</subfield><subfield code="t">Convenient untruths -- </subfield><subfield code="g">5.</subfield><subfield code="t">The assault on the individual -- </subfield><subfield code="g">6.</subfield><subfield code="t">National insecurity -- </subfield><subfield code="g">7.</subfield><subfield code="t">The carbon crisis -- </subfield><subfield code="g">8.</subfield><subfield code="t">Democracy in the balance -- </subfield><subfield code="g">9.</subfield><subfield code="t">A well-connected citizenry -- </subfield><subfield code="t">Conclusion : the rebirth of democracy.</subfield></datafield><datafield tag="520" ind1="1" ind2=" "><subfield code="a">"We live in an age when the 30-second television spot is the most powerful force shaping the electorate\'s thinking, and America is in the hands of an administration less interested than any previous administration in sharing the truth with the citizenry. Related to this and of even greater concern is this administration\'s disinterest in the process by which the truth is ascertained, the tenets of fact-based reasoning - first among them an embrace of open inquiry, in which unexpected and even inconvenient facts can lead to unexpected conclusions." "How did we get here? And how much damage has been done to the functioning of our democracy and its role as steward of our security? Never has there been a worse time for us to lose the capacity to face the reality of our long-term challenges, from national security to the economy, from issues of health and social welfare to the environment. As The Assault on Reason shows us, we have precious little time to waste." "Al Gore\'s larger goal in this book is to explain how the public sphere itself has evolved into a place hospitable to reason\'s enemies; to make us more aware of the forces at work on our own minds; and to lead us to an understanding of what we can do, individually and collectively, to restore the rule of reason and safeguard our future. Drawing on a life\'s work in politics as well as on the work of experts across a broad range of disciplines, A1 Gore has written a farsighted and powerful manifesto for clear thinking."--BOOK JACKET.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">Politics and government</subfield><subfield code="y">2001-2009.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Political culture</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Democracy</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reason</subfield><subfield code="x">Social aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reason</subfield><subfield code="x">Political aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Fear</subfield><subfield code="x">Political aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Official secrets</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Bush, George W.</subfield><subfield code="q">(George Walker),</subfield><subfield code="d">1946-</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Bush, George W.</subfield><subfield code="q">(George Walker),</subfield><subfield code="d">1946-</subfield><subfield code="x">Friends and associates.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Religious fundamentalism</subfield><subfield code="x">Political aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Contributor biographical information</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0743/2007003261-b.html</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Publisher description</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0743/2007003261-d.html</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield><subfield code="b">TOC</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20070619</subfield><subfield code="b">c</subfield><subfield code="c">sds12</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20070808</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20071015</subfield><subfield code="b">a</subfield><subfield code="c">hew2</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">E</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">E902 .G67 2007</subfield><subfield code="b">loc+E--+0902+00000000+G6700000+002007</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; E902 .G67 2007|DELIM|7900669</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Lehman</subfield><subfield code="b">Lehman &gt;&gt; E902 .G67 2007|DELIM|8043304</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein [Butler] &gt;&gt; E902 .G67 2007|DELIM|8115214</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Gore, Al, 1948-'],'pub_name_display'=>['Penguin Press'],'source_display'=>['catalog'],'material_type_display'=>['308 p.'],'language_facet'=>['English'],'_version_'=>1501954957358661632,'timestamp'=>'2015-05-23T10:11:07.23Z'}]}}
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
+        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
+        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic2MjAxOTc1
+        JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
+        PnsnbnVtRm91bmQnPT4xLCdzdGFydCc9PjAsJ2RvY3MnPT5beydpZCc9Pic2
+        MjAxOTc1JywnbWFyY19kaXNwbGF5Jz0+JzxyZWNvcmQ+PGxlYWRlcj4wMzk3
+        NWNhbSBhMjIwMDU1MyBhIDQ1MDA8L2xlYWRlcj48Y29udHJvbGZpZWxkIHRh
+        Zz0iMDAxIj42MjAxOTc1PC9jb250cm9sZmllbGQ+PGNvbnRyb2xmaWVsZCB0
+        YWc9IjAwNSI+MjAxNTAxMjMxNDQ2NTAuMDwvY29udHJvbGZpZWxkPjxjb250
+        cm9sZmllbGQgdGFnPSIwMDgiPjA3MDEyNHMyMDA3ICAgIG55dSAgICAgIGIg
+        ICAgMDAxIDBkZW5nICA8L2NvbnRyb2xmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
+        MDEwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+ICAy
+        MDA3MDAzMjYxPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
+        Zz0iMDIwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+
+        OTc4MTU5NDIwMTIyNjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVs
+        ZCB0YWc9IjAyMCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9
+        ImEiPjE1OTQyMDEyMjY8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmll
+        bGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2Rl
+        PSJhIj4oT0NvTEMpb2NtODEyNTI2NjY8L3N1YmZpZWxkPjwvZGF0YWZpZWxk
+        PjxkYXRhZmllbGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJm
+        aWVsZCBjb2RlPSJhIj4oT0NvTEMpODEyNTI2NjY8L3N1YmZpZWxkPjwvZGF0
+        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAi
+        PjxzdWJmaWVsZCBjb2RlPSJhIj4oRExDKSAgMjAwNzAwMzI2MTwvc3ViZmll
+        bGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAzNSIgaW5kMT0iICIg
+        aW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPihOTkMpNjIwMTk3NTwvc3Vi
+        ZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjA0MCIgaW5kMT0i
+        ICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkRMQzwvc3ViZmllbGQ+
+        PHN1YmZpZWxkIGNvZGU9ImMiPkRMQzwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
+        ZGU9ImQiPkJBS0VSPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+QlRD
+        VEE8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj5MRjM8L3N1YmZpZWxk
+        PjxzdWJmaWVsZCBjb2RlPSJkIj5ZQk08L3N1YmZpZWxkPjxzdWJmaWVsZCBj
+        b2RlPSJkIj5DI1A8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj5WUEA8
+        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj5CVVI8L3N1YmZpZWxkPjxz
+        dWJmaWVsZCBjb2RlPSJkIj5ZRFhDUDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
+        ZGU9ImQiPklYQTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImQiPkRMQzwv
+        c3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImQiPk9yTG9CLUI8L3N1YmZpZWxk
+        PjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwNDMiIGluZDE9IiAiIGlu
+        ZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5uLXVzLS0tPC9zdWJmaWVsZD48
+        L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDUwIiBpbmQxPSIwIiBpbmQy
+        PSIwIj48c3ViZmllbGQgY29kZT0iYSI+RTkwMjwvc3ViZmllbGQ+PHN1YmZp
+        ZWxkIGNvZGU9ImIiPi5HNjcgMjAwNzwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+
+        PGRhdGFmaWVsZCB0YWc9IjA4MiIgaW5kMT0iMCIgaW5kMj0iMCI+PHN1YmZp
+        ZWxkIGNvZGU9ImEiPjk3My45MzE8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2Rl
+        PSIyIj4yMjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9
+        IjEwMCIgaW5kMT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkdv
+        cmUsIEFsLDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImQiPjE5NDgtPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMjQ1IiBpbmQx
+        PSIxIiBpbmQyPSI0Ij48c3ViZmllbGQgY29kZT0iYSI+VGhlIGFzc2F1bHQg
+        b24gcmVhc29uIC88L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5BbCBH
+        b3JlLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjI2
+        MCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPk5ldyBZ
+        b3JrIDo8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5QZW5ndWluIFBy
+        ZXNzLDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImMiPjIwMDcuPC9zdWJm
+        aWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMzAwIiBpbmQxPSIg
+        IiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+MzA4IHAuIDs8L3N1YmZp
+        ZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj4yNSBjbS48L3N1YmZpZWxkPjwvZGF0
+        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1MDQiIGluZDE9IiAiIGluZDI9IiAi
+        PjxzdWJmaWVsZCBjb2RlPSJhIj5JbmNsdWRlcyBiaWJsaW9ncmFwaGljYWwg
+        cmVmZXJlbmNlcyAocC4gWzI3N10tMjk2KSBhbmQgaW5kZXguPC9zdWJmaWVs
+        ZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNTA1IiBpbmQxPSIwIiBp
+        bmQyPSIwIj48c3ViZmllbGQgY29kZT0iZyI+MS48L3N1YmZpZWxkPjxzdWJm
+        aWVsZCBjb2RlPSJ0Ij5UaGUgcG9saXRpY3Mgb2YgZmVhciAtLSA8L3N1YmZp
+        ZWxkPjxzdWJmaWVsZCBjb2RlPSJnIj4yLjwvc3ViZmllbGQ+PHN1YmZpZWxk
+        IGNvZGU9InQiPkJsaW5kaW5nIHRoZSBmYWl0aGZ1bCAtLSA8L3N1YmZpZWxk
+        PjxzdWJmaWVsZCBjb2RlPSJnIj4zLjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
+        ZGU9InQiPlRoZSBwb2xpdGljcyBvZiB3ZWFsdGggLS0gPC9zdWJmaWVsZD48
+        c3ViZmllbGQgY29kZT0iZyI+NC48L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2Rl
+        PSJ0Ij5Db252ZW5pZW50IHVudHJ1dGhzIC0tIDwvc3ViZmllbGQ+PHN1YmZp
+        ZWxkIGNvZGU9ImciPjUuPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0idCI+
+        VGhlIGFzc2F1bHQgb24gdGhlIGluZGl2aWR1YWwgLS0gPC9zdWJmaWVsZD48
+        c3ViZmllbGQgY29kZT0iZyI+Ni48L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2Rl
+        PSJ0Ij5OYXRpb25hbCBpbnNlY3VyaXR5IC0tIDwvc3ViZmllbGQ+PHN1YmZp
+        ZWxkIGNvZGU9ImciPjcuPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0idCI+
+        VGhlIGNhcmJvbiBjcmlzaXMgLS0gPC9zdWJmaWVsZD48c3ViZmllbGQgY29k
+        ZT0iZyI+OC48L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ0Ij5EZW1vY3Jh
+        Y3kgaW4gdGhlIGJhbGFuY2UgLS0gPC9zdWJmaWVsZD48c3ViZmllbGQgY29k
+        ZT0iZyI+OS48L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ0Ij5BIHdlbGwt
+        Y29ubmVjdGVkIGNpdGl6ZW5yeSAtLSA8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
+        b2RlPSJ0Ij5Db25jbHVzaW9uIDogdGhlIHJlYmlydGggb2YgZGVtb2NyYWN5
+        Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjUyMCIg
+        aW5kMT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPiJXZSBsaXZl
+        IGluIGFuIGFnZSB3aGVuIHRoZSAzMC1zZWNvbmQgdGVsZXZpc2lvbiBzcG90
+        IGlzIHRoZSBtb3N0IHBvd2VyZnVsIGZvcmNlIHNoYXBpbmcgdGhlIGVsZWN0
+        b3JhdGVcJ3MgdGhpbmtpbmcsIGFuZCBBbWVyaWNhIGlzIGluIHRoZSBoYW5k
+        cyBvZiBhbiBhZG1pbmlzdHJhdGlvbiBsZXNzIGludGVyZXN0ZWQgdGhhbiBh
+        bnkgcHJldmlvdXMgYWRtaW5pc3RyYXRpb24gaW4gc2hhcmluZyB0aGUgdHJ1
+        dGggd2l0aCB0aGUgY2l0aXplbnJ5LiBSZWxhdGVkIHRvIHRoaXMgYW5kIG9m
+        IGV2ZW4gZ3JlYXRlciBjb25jZXJuIGlzIHRoaXMgYWRtaW5pc3RyYXRpb25c
+        J3MgZGlzaW50ZXJlc3QgaW4gdGhlIHByb2Nlc3MgYnkgd2hpY2ggdGhlIHRy
+        dXRoIGlzIGFzY2VydGFpbmVkLCB0aGUgdGVuZXRzIG9mIGZhY3QtYmFzZWQg
+        cmVhc29uaW5nIC0gZmlyc3QgYW1vbmcgdGhlbSBhbiBlbWJyYWNlIG9mIG9w
+        ZW4gaW5xdWlyeSwgaW4gd2hpY2ggdW5leHBlY3RlZCBhbmQgZXZlbiBpbmNv
+        bnZlbmllbnQgZmFjdHMgY2FuIGxlYWQgdG8gdW5leHBlY3RlZCBjb25jbHVz
+        aW9ucy4iICJIb3cgZGlkIHdlIGdldCBoZXJlPyBBbmQgaG93IG11Y2ggZGFt
+        YWdlIGhhcyBiZWVuIGRvbmUgdG8gdGhlIGZ1bmN0aW9uaW5nIG9mIG91ciBk
+        ZW1vY3JhY3kgYW5kIGl0cyByb2xlIGFzIHN0ZXdhcmQgb2Ygb3VyIHNlY3Vy
+        aXR5PyBOZXZlciBoYXMgdGhlcmUgYmVlbiBhIHdvcnNlIHRpbWUgZm9yIHVz
+        IHRvIGxvc2UgdGhlIGNhcGFjaXR5IHRvIGZhY2UgdGhlIHJlYWxpdHkgb2Yg
+        b3VyIGxvbmctdGVybSBjaGFsbGVuZ2VzLCBmcm9tIG5hdGlvbmFsIHNlY3Vy
+        aXR5IHRvIHRoZSBlY29ub215LCBmcm9tIGlzc3VlcyBvZiBoZWFsdGggYW5k
+        IHNvY2lhbCB3ZWxmYXJlIHRvIHRoZSBlbnZpcm9ubWVudC4gQXMgVGhlIEFz
+        c2F1bHQgb24gUmVhc29uIHNob3dzIHVzLCB3ZSBoYXZlIHByZWNpb3VzIGxp
+        dHRsZSB0aW1lIHRvIHdhc3RlLiIgIkFsIEdvcmVcJ3MgbGFyZ2VyIGdvYWwg
+        aW4gdGhpcyBib29rIGlzIHRvIGV4cGxhaW4gaG93IHRoZSBwdWJsaWMgc3Bo
+        ZXJlIGl0c2VsZiBoYXMgZXZvbHZlZCBpbnRvIGEgcGxhY2UgaG9zcGl0YWJs
+        ZSB0byByZWFzb25cJ3MgZW5lbWllczsgdG8gbWFrZSB1cyBtb3JlIGF3YXJl
+        IG9mIHRoZSBmb3JjZXMgYXQgd29yayBvbiBvdXIgb3duIG1pbmRzOyBhbmQg
+        dG8gbGVhZCB1cyB0byBhbiB1bmRlcnN0YW5kaW5nIG9mIHdoYXQgd2UgY2Fu
+        IGRvLCBpbmRpdmlkdWFsbHkgYW5kIGNvbGxlY3RpdmVseSwgdG8gcmVzdG9y
+        ZSB0aGUgcnVsZSBvZiByZWFzb24gYW5kIHNhZmVndWFyZCBvdXIgZnV0dXJl
+        LiBEcmF3aW5nIG9uIGEgbGlmZVwncyB3b3JrIGluIHBvbGl0aWNzIGFzIHdl
+        bGwgYXMgb24gdGhlIHdvcmsgb2YgZXhwZXJ0cyBhY3Jvc3MgYSBicm9hZCBy
+        YW5nZSBvZiBkaXNjaXBsaW5lcywgQTEgR29yZSBoYXMgd3JpdHRlbiBhIGZh
+        cnNpZ2h0ZWQgYW5kIHBvd2VyZnVsIG1hbmlmZXN0byBmb3IgY2xlYXIgdGhp
+        bmtpbmcuIi0tQk9PSyBKQUNLRVQuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48
+        ZGF0YWZpZWxkIHRhZz0iNjUxIiBpbmQxPSIgIiBpbmQyPSIwIj48c3ViZmll
+        bGQgY29kZT0iYSI+VW5pdGVkIFN0YXRlczwvc3ViZmllbGQ+PHN1YmZpZWxk
+        IGNvZGU9IngiPlBvbGl0aWNzIGFuZCBnb3Zlcm5tZW50PC9zdWJmaWVsZD48
+        c3ViZmllbGQgY29kZT0ieSI+MjAwMS0yMDA5Ljwvc3ViZmllbGQ+PC9kYXRh
+        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjY1MCIgaW5kMT0iICIgaW5kMj0iMCI+
+        PHN1YmZpZWxkIGNvZGU9ImEiPlBvbGl0aWNhbCBjdWx0dXJlPC9zdWJmaWVs
+        ZD48c3ViZmllbGQgY29kZT0ieiI+VW5pdGVkIFN0YXRlcy48L3N1YmZpZWxk
+        PjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI2NTAiIGluZDE9IiAiIGlu
+        ZDI9IjAiPjxzdWJmaWVsZCBjb2RlPSJhIj5EZW1vY3JhY3k8L3N1YmZpZWxk
+        PjxzdWJmaWVsZCBjb2RlPSJ6Ij5Vbml0ZWQgU3RhdGVzLjwvc3ViZmllbGQ+
+        PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjY1MCIgaW5kMT0iICIgaW5k
+        Mj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEiPlJlYXNvbjwvc3ViZmllbGQ+PHN1
+        YmZpZWxkIGNvZGU9IngiPlNvY2lhbCBhc3BlY3RzPC9zdWJmaWVsZD48c3Vi
+        ZmllbGQgY29kZT0ieiI+VW5pdGVkIFN0YXRlcy48L3N1YmZpZWxkPjwvZGF0
+        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI2NTAiIGluZDE9IiAiIGluZDI9IjAi
+        PjxzdWJmaWVsZCBjb2RlPSJhIj5SZWFzb248L3N1YmZpZWxkPjxzdWJmaWVs
+        ZCBjb2RlPSJ4Ij5Qb2xpdGljYWwgYXNwZWN0czwvc3ViZmllbGQ+PHN1YmZp
+        ZWxkIGNvZGU9InoiPlVuaXRlZCBTdGF0ZXMuPC9zdWJmaWVsZD48L2RhdGFm
+        aWVsZD48ZGF0YWZpZWxkIHRhZz0iNjUwIiBpbmQxPSIgIiBpbmQyPSIwIj48
+        c3ViZmllbGQgY29kZT0iYSI+RmVhcjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
+        ZGU9IngiPlBvbGl0aWNhbCBhc3BlY3RzPC9zdWJmaWVsZD48c3ViZmllbGQg
+        Y29kZT0ieiI+VW5pdGVkIFN0YXRlcy48L3N1YmZpZWxkPjwvZGF0YWZpZWxk
+        PjxkYXRhZmllbGQgdGFnPSI2NTAiIGluZDE9IiAiIGluZDI9IjAiPjxzdWJm
+        aWVsZCBjb2RlPSJhIj5PZmZpY2lhbCBzZWNyZXRzPC9zdWJmaWVsZD48c3Vi
+        ZmllbGQgY29kZT0ieiI+VW5pdGVkIFN0YXRlcy48L3N1YmZpZWxkPjwvZGF0
+        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI2MDAiIGluZDE9IjEiIGluZDI9IjAi
+        PjxzdWJmaWVsZCBjb2RlPSJhIj5CdXNoLCBHZW9yZ2UgVy48L3N1YmZpZWxk
+        PjxzdWJmaWVsZCBjb2RlPSJxIj4oR2VvcmdlIFdhbGtlciksPC9zdWJmaWVs
+        ZD48c3ViZmllbGQgY29kZT0iZCI+MTk0Ni08L3N1YmZpZWxkPjwvZGF0YWZp
+        ZWxkPjxkYXRhZmllbGQgdGFnPSI2MDAiIGluZDE9IjEiIGluZDI9IjAiPjxz
+        dWJmaWVsZCBjb2RlPSJhIj5CdXNoLCBHZW9yZ2UgVy48L3N1YmZpZWxkPjxz
+        dWJmaWVsZCBjb2RlPSJxIj4oR2VvcmdlIFdhbGtlciksPC9zdWJmaWVsZD48
+        c3ViZmllbGQgY29kZT0iZCI+MTk0Ni08L3N1YmZpZWxkPjxzdWJmaWVsZCBj
+        b2RlPSJ4Ij5GcmllbmRzIGFuZCBhc3NvY2lhdGVzLjwvc3ViZmllbGQ+PC9k
+        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjY1MCIgaW5kMT0iICIgaW5kMj0i
+        MCI+PHN1YmZpZWxkIGNvZGU9ImEiPlJlbGlnaW91cyBmdW5kYW1lbnRhbGlz
+        bTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9IngiPlBvbGl0aWNhbCBhc3Bl
+        Y3RzPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0ieiI+VW5pdGVkIFN0YXRl
+        cy48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI4NTYi
+        IGluZDE9IjQiIGluZDI9IjIiPjxzdWJmaWVsZCBjb2RlPSIzIj5Db250cmli
+        dXRvciBiaW9ncmFwaGljYWwgaW5mb3JtYXRpb248L3N1YmZpZWxkPjxzdWJm
+        aWVsZCBjb2RlPSJ1Ij5odHRwOi8vd3d3LmxvYy5nb3YvY2F0ZGlyL2VuaGFu
+        Y2VtZW50cy9meTA3NDMvMjAwNzAwMzI2MS1iLmh0bWw8L3N1YmZpZWxkPjwv
+        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI4NTYiIGluZDE9IjQiIGluZDI9
+        IjIiPjxzdWJmaWVsZCBjb2RlPSIzIj5QdWJsaXNoZXIgZGVzY3JpcHRpb248
+        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ1Ij5odHRwOi8vd3d3LmxvYy5n
+        b3YvY2F0ZGlyL2VuaGFuY2VtZW50cy9meTA3NDMvMjAwNzAwMzI2MS1kLmh0
+        bWw8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5MDAi
+        IGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5BVVRIPC9z
+        dWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+VE9DPC9zdWJmaWVsZD48L2Rh
+        dGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTQ4IiBpbmQxPSIxIiBpbmQyPSIg
+        Ij48c3ViZmllbGQgY29kZT0iYSI+MjAwNzA2MTk8L3N1YmZpZWxkPjxzdWJm
+        aWVsZCBjb2RlPSJiIj5jPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYyI+
+        c2RzMTI8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj5NUFM8L3N1YmZp
+        ZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5NDgiIGluZDE9IjIi
+        IGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4yMDA3MDgwODwvc3ViZmll
+        bGQ+PHN1YmZpZWxkIGNvZGU9ImIiPmE8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
+        b2RlPSJjIj5yYWQxPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+TVBT
+        PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTQ4IiBp
+        bmQxPSIyIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+MjAwNzEwMTU8
+        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5hPC9zdWJmaWVsZD48c3Vi
+        ZmllbGQgY29kZT0iYyI+aGV3Mjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9
+        ImQiPk1QUzwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9
+        Ijk5MCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkU8
+        L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTEiIGlu
+        ZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5FOTAyIC5HNjcg
+        MjAwNzwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPmxvYytFLS0rMDkw
+        MiswMDAwMDAwMCtHNjcwMDAwMCswMDIwMDc8L3N1YmZpZWxkPjwvZGF0YWZp
+        ZWxkPjxkYXRhZmllbGQgdGFnPSI5OTIiIGluZDE9IiAiIGluZDI9IiAiPjxz
+        dWJmaWVsZCBjb2RlPSJhIj5CdXRsZXIgU3RhY2tzPC9zdWJmaWVsZD48c3Vi
+        ZmllbGQgY29kZT0iYiI+QnV0bGVyIFN0YWNrcyAoRW50ZXIgYXQgdGhlIEJ1
+        dGxlciBDaXJjdWxhdGlvbiBEZXNrKSAmZ3Q7Jmd0OyBFOTAyIC5HNjcgMjAw
+        N3xERUxJTXw3OTAwNjY5PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZp
+        ZWxkIHRhZz0iOTkyIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29k
+        ZT0iYSI+TGVobWFuPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+TGVo
+        bWFuICZndDsmZ3Q7IEU5MDIgLkc2NyAyMDA3fERFTElNfDgwNDMzMDQ8L3N1
+        YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTIiIGluZDE9
+        IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5NaWxzdGVpbjwvc3Vi
+        ZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPk1pbHN0ZWluIFtCdXRsZXJdICZn
+        dDsmZ3Q7IEU5MDIgLkc2NyAyMDA3fERFTElNfDgxMTUyMTQ8L3N1YmZpZWxk
+        PjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTMiIGluZDE9IiAiIGlu
+        ZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5Cb29rPC9zdWJmaWVsZD48L2Rh
+        dGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTk1IiBpbmQxPSIgIiBpbmQyPSIg
+        Ij48c3ViZmllbGQgY29kZT0iYSI+Y2F0YWxvZzwvc3ViZmllbGQ+PC9kYXRh
+        ZmllbGQ+PC9yZWNvcmQ+JywndGV4dCc9PlsnRTkwMiAuRzY3IDIwMDcnLCc5
+        NzMuOTMxIDIyJywnR29yZSwgQWwsIDE5NDgtJywnVGhlIGFzc2F1bHQgb24g
+        cmVhc29uIC8gQWwgR29yZS4nLCdOZXcgWW9yayA6IFBlbmd1aW4gUHJlc3Ms
+        IDIwMDcuJywnMzA4IHAuIDsgMjUgY20uJywnSW5jbHVkZXMgYmlibGlvZ3Jh
+        cGhpY2FsIHJlZmVyZW5jZXMgKHAuIFsyNzddLTI5NikgYW5kIGluZGV4Lics
+        JzEuIFRoZSBwb2xpdGljcyBvZiBmZWFyIC0tICAyLiBCbGluZGluZyB0aGUg
+        ZmFpdGhmdWwgLS0gIDMuIFRoZSBwb2xpdGljcyBvZiB3ZWFsdGggLS0gIDQu
+        IENvbnZlbmllbnQgdW50cnV0aHMgLS0gIDUuIFRoZSBhc3NhdWx0IG9uIHRo
+        ZSBpbmRpdmlkdWFsIC0tICA2LiBOYXRpb25hbCBpbnNlY3VyaXR5IC0tICA3
+        LiBUaGUgY2FyYm9uIGNyaXNpcyAtLSAgOC4gRGVtb2NyYWN5IGluIHRoZSBi
+        YWxhbmNlIC0tICA5LiBBIHdlbGwtY29ubmVjdGVkIGNpdGl6ZW5yeSAtLSAg
+        Q29uY2x1c2lvbiA6IHRoZSByZWJpcnRoIG9mIGRlbW9jcmFjeS4nLCciV2Ug
+        bGl2ZSBpbiBhbiBhZ2Ugd2hlbiB0aGUgMzAtc2Vjb25kIHRlbGV2aXNpb24g
+        c3BvdCBpcyB0aGUgbW9zdCBwb3dlcmZ1bCBmb3JjZSBzaGFwaW5nIHRoZSBl
+        bGVjdG9yYXRlXCdzIHRoaW5raW5nLCBhbmQgQW1lcmljYSBpcyBpbiB0aGUg
+        aGFuZHMgb2YgYW4gYWRtaW5pc3RyYXRpb24gbGVzcyBpbnRlcmVzdGVkIHRo
+        YW4gYW55IHByZXZpb3VzIGFkbWluaXN0cmF0aW9uIGluIHNoYXJpbmcgdGhl
+        IHRydXRoIHdpdGggdGhlIGNpdGl6ZW5yeS4gUmVsYXRlZCB0byB0aGlzIGFu
+        ZCBvZiBldmVuIGdyZWF0ZXIgY29uY2VybiBpcyB0aGlzIGFkbWluaXN0cmF0
+        aW9uXCdzIGRpc2ludGVyZXN0IGluIHRoZSBwcm9jZXNzIGJ5IHdoaWNoIHRo
+        ZSB0cnV0aCBpcyBhc2NlcnRhaW5lZCwgdGhlIHRlbmV0cyBvZiBmYWN0LWJh
+        c2VkIHJlYXNvbmluZyAtIGZpcnN0IGFtb25nIHRoZW0gYW4gZW1icmFjZSBv
+        ZiBvcGVuIGlucXVpcnksIGluIHdoaWNoIHVuZXhwZWN0ZWQgYW5kIGV2ZW4g
+        aW5jb252ZW5pZW50IGZhY3RzIGNhbiBsZWFkIHRvIHVuZXhwZWN0ZWQgY29u
+        Y2x1c2lvbnMuIiAiSG93IGRpZCB3ZSBnZXQgaGVyZT8gQW5kIGhvdyBtdWNo
+        IGRhbWFnZSBoYXMgYmVlbiBkb25lIHRvIHRoZSBmdW5jdGlvbmluZyBvZiBv
+        dXIgZGVtb2NyYWN5IGFuZCBpdHMgcm9sZSBhcyBzdGV3YXJkIG9mIG91ciBz
+        ZWN1cml0eT8gTmV2ZXIgaGFzIHRoZXJlIGJlZW4gYSB3b3JzZSB0aW1lIGZv
+        ciB1cyB0byBsb3NlIHRoZSBjYXBhY2l0eSB0byBmYWNlIHRoZSByZWFsaXR5
+        IG9mIG91ciBsb25nLXRlcm0gY2hhbGxlbmdlcywgZnJvbSBuYXRpb25hbCBz
+        ZWN1cml0eSB0byB0aGUgZWNvbm9teSwgZnJvbSBpc3N1ZXMgb2YgaGVhbHRo
+        IGFuZCBzb2NpYWwgd2VsZmFyZSB0byB0aGUgZW52aXJvbm1lbnQuIEFzIFRo
+        ZSBBc3NhdWx0IG9uIFJlYXNvbiBzaG93cyB1cywgd2UgaGF2ZSBwcmVjaW91
+        cyBsaXR0bGUgdGltZSB0byB3YXN0ZS4iICJBbCBHb3JlXCdzIGxhcmdlciBn
+        b2FsIGluIHRoaXMgYm9vayBpcyB0byBleHBsYWluIGhvdyB0aGUgcHVibGlj
+        IHNwaGVyZSBpdHNlbGYgaGFzIGV2b2x2ZWQgaW50byBhIHBsYWNlIGhvc3Bp
+        dGFibGUgdG8gcmVhc29uXCdzIGVuZW1pZXM7IHRvIG1ha2UgdXMgbW9yZSBh
+        d2FyZSBvZiB0aGUgZm9yY2VzIGF0IHdvcmsgb24gb3VyIG93biBtaW5kczsg
+        YW5kIHRvIGxlYWQgdXMgdG8gYW4gdW5kZXJzdGFuZGluZyBvZiB3aGF0IHdl
+        IGNhbiBkbywgaW5kaXZpZHVhbGx5IGFuZCBjb2xsZWN0aXZlbHksIHRvIHJl
+        c3RvcmUgdGhlIHJ1bGUgb2YgcmVhc29uIGFuZCBzYWZlZ3VhcmQgb3VyIGZ1
+        dHVyZS4gRHJhd2luZyBvbiBhIGxpZmVcJ3Mgd29yayBpbiBwb2xpdGljcyBh
+        cyB3ZWxsIGFzIG9uIHRoZSB3b3JrIG9mIGV4cGVydHMgYWNyb3NzIGEgYnJv
+        YWQgcmFuZ2Ugb2YgZGlzY2lwbGluZXMsIEExIEdvcmUgaGFzIHdyaXR0ZW4g
+        YSBmYXJzaWdodGVkIGFuZCBwb3dlcmZ1bCBtYW5pZmVzdG8gZm9yIGNsZWFy
+        IHRoaW5raW5nLiItLUJPT0sgSkFDS0VULicsJ1VuaXRlZCBTdGF0ZXMgUG9s
+        aXRpY3MgYW5kIGdvdmVybm1lbnQgMjAwMS0yMDA5LicsJ1BvbGl0aWNhbCBj
+        dWx0dXJlIFVuaXRlZCBTdGF0ZXMuJywnRGVtb2NyYWN5IFVuaXRlZCBTdGF0
+        ZXMuJywnUmVhc29uIFNvY2lhbCBhc3BlY3RzIFVuaXRlZCBTdGF0ZXMuJywn
+        UmVhc29uIFBvbGl0aWNhbCBhc3BlY3RzIFVuaXRlZCBTdGF0ZXMuJywnRmVh
+        ciBQb2xpdGljYWwgYXNwZWN0cyBVbml0ZWQgU3RhdGVzLicsJ09mZmljaWFs
+        IHNlY3JldHMgVW5pdGVkIFN0YXRlcy4nLCdCdXNoLCBHZW9yZ2UgVy4gKEdl
+        b3JnZSBXYWxrZXIpLCAxOTQ2LScsJ0J1c2gsIEdlb3JnZSBXLiAoR2Vvcmdl
+        IFdhbGtlciksIDE5NDYtIEZyaWVuZHMgYW5kIGFzc29jaWF0ZXMuJywnUmVs
+        aWdpb3VzIGZ1bmRhbWVudGFsaXNtIFBvbGl0aWNhbCBhc3BlY3RzIFVuaXRl
+        ZCBTdGF0ZXMuJywnQ29udHJpYnV0b3IgYmlvZ3JhcGhpY2FsIGluZm9ybWF0
+        aW9uIGh0dHA6Ly93d3cubG9jLmdvdi9jYXRkaXIvZW5oYW5jZW1lbnRzL2Z5
+        MDc0My8yMDA3MDAzMjYxLWIuaHRtbCcsJ1B1Ymxpc2hlciBkZXNjcmlwdGlv
+        biBodHRwOi8vd3d3LmxvYy5nb3YvY2F0ZGlyL2VuaGFuY2VtZW50cy9meTA3
+        NDMvMjAwNzAwMzI2MS1kLmh0bWwnLCdBVVRIIFRPQycsJzIwMDcwNjE5IGMg
+        c2RzMTIgTVBTJywnMjAwNzA4MDggYSByYWQxIE1QUycsJzIwMDcxMDE1IGEg
+        aGV3MiBNUFMnXSwnYXV0aG9yX3R4dCc9PlsnR29yZSwgQWwsJ10sJ2F1dGhv
+        cl9mYWNldCc9PlsnR29yZSwgQWwsIDE5NDgtJ10sJ2F1dGhvcl9kaXNwbGF5
+        Jz0+WydHb3JlLCBBbCwgMTk0OC0nXSwnYXV0aG9yX3NvcnQnPT4nR29yZSwg
+        QWwsIDE5NDgtICAgYXNzYXVsdCBvbiByZWFzb24gQWwgR29yZScsJ3RpdGxl
+        X3R4dCc9PlsnVGhlIGFzc2F1bHQgb24gcmVhc29uIC8nXSwndGl0bGVfZGlz
+        cGxheSc9PlsnVGhlIGFzc2F1bHQgb24gcmVhc29uJ10sJ3RpdGxlX2ZpbGlu
+        Z190eHQnPT5bJ2Fzc2F1bHQgb24gcmVhc29uIC8nXSwndGl0bGVfZmlsaW5n
+        X2Z1bGxfdHh0Jz0+Wydhc3NhdWx0IG9uIHJlYXNvbiAvJ10sJ3RpdGxlX2Zp
+        cnN0X2ZhY2V0Jz0+WydBJ10sJ3RpdGxlX2FkZGxfdHh0Jz0+WydUaGUgYXNz
+        YXVsdCBvbiByZWFzb24gLyddLCd0aXRsZV9zb3J0Jz0+J2Fzc2F1bHQgb24g
+        cmVhc29uJywnc3ViamVjdF90eHQnPT5bJ1VuaXRlZCBTdGF0ZXMgUG9saXRp
+        Y3MgYW5kIGdvdmVybm1lbnQgMjAwMS0yMDA5JywnUG9saXRpY2FsIGN1bHR1
+        cmUgVW5pdGVkIFN0YXRlcycsJ0RlbW9jcmFjeSBVbml0ZWQgU3RhdGVzJywn
+        UmVhc29uIFNvY2lhbCBhc3BlY3RzIFVuaXRlZCBTdGF0ZXMnLCdSZWFzb24g
+        UG9saXRpY2FsIGFzcGVjdHMgVW5pdGVkIFN0YXRlcycsJ0ZlYXIgUG9saXRp
+        Y2FsIGFzcGVjdHMgVW5pdGVkIFN0YXRlcycsJ09mZmljaWFsIHNlY3JldHMg
+        VW5pdGVkIFN0YXRlcycsJ0J1c2gsIEdlb3JnZSBXLiAoR2VvcmdlIFdhbGtl
+        ciksIDE5NDYtJywnQnVzaCwgR2VvcmdlIFcuIChHZW9yZ2UgV2Fsa2VyKSwg
+        MTk0Ni0gRnJpZW5kcyBhbmQgYXNzb2NpYXRlcycsJ1JlbGlnaW91cyBmdW5k
+        YW1lbnRhbGlzbSBQb2xpdGljYWwgYXNwZWN0cyBVbml0ZWQgU3RhdGVzJ10s
+        J3N1YmplY3RfdG9waWNfZmFjZXQnPT5bJ1BvbGl0aWNzIGFuZCBnb3Zlcm5t
+        ZW50JywnUG9saXRpY2FsIGN1bHR1cmUnLCdEZW1vY3JhY3knLCdSZWFzb24n
+        LCdTb2NpYWwgYXNwZWN0cycsJ1BvbGl0aWNhbCBhc3BlY3RzJywnRmVhcics
+        J09mZmljaWFsIHNlY3JldHMnLCdCdXNoLCBHZW9yZ2UgVy4gKEdlb3JnZSBX
+        YWxrZXIpLCAxOTQ2LScsJ0ZyaWVuZHMgYW5kIGFzc29jaWF0ZXMnLCdSZWxp
+        Z2lvdXMgZnVuZGFtZW50YWxpc20nXSwnc3ViamVjdF9lcmFfZmFjZXQnPT5b
+        JzIwMDEtMjAwOSddLCdzdWJqZWN0X2dlb19mYWNldCc9PlsnVW5pdGVkIFN0
+        YXRlcyddLCdwdWJfcGxhY2VfZGlzcGxheSc9PlsnTmV3IFlvcmsnXSwncHVi
+        X25hbWVfZGlzcGxheSc9PlsnUGVuZ3VpbiBQcmVzcyddLCdwdWJfeWVhcl9k
+        aXNwbGF5Jz0+WycyMDA3J10sJ3B1Yl9wbGFjZV90eHQnPT5bJ05ldyBZb3Jr
+        J10sJ3B1Yl9uYW1lX3R4dCc9PlsnUGVuZ3VpbiBQcmVzcyddLCdwdWJfeWVh
+        cl90eHQnPT5bJzIwMDcnXSwncHViX2RhdGVfdHh0Jz0+WycyMDA3J10sJ2xh
+        bmd1YWdlX2ZhY2V0Jz0+WydFbmdsaXNoJ10sJ2Zvcm1hdCc9PlsnQm9vaydd
+        LCdsY18xbGV0dGVyX2ZhY2V0Jz0+WydFIC0gSGlzdG9yeSBvZiB0aGUgQW1l
+        cmljYXMgKEdlbmVyYWwpJ10sJ2xjXzJsZXR0ZXJfZmFjZXQnPT5bJ0UgLSBI
+        aXN0b3J5IG9mIHRoZSBBbWVyaWNhcyAoR2VuZXJhbCknXSwnbGNfc3ViY2xh
+        c3NfZmFjZXQnPT5bJ0UgLSBIaXN0b3J5IG9mIHRoZSBBbWVyaWNhcyAoR2Vu
+        ZXJhbCknXSwnY2xpb19pZF9kaXNwbGF5Jz0+JzYyMDE5NzUnLCdzb3VyY2Vf
+        ZmFjZXQnPT5bJ2NhdGFsb2cnXSwnc291cmNlX2Rpc3BsYXknPT5bJ2NhdGFs
+        b2cnXSwnc3VtbWFyeV9kaXNwbGF5Jz0+WyciV2UgbGl2ZSBpbiBhbiBhZ2Ug
+        d2hlbiB0aGUgMzAtc2Vjb25kIHRlbGV2aXNpb24gc3BvdCBpcyB0aGUgbW9z
+        dCBwb3dlcmZ1bCBmb3JjZSBzaGFwaW5nIHRoZSBlbGVjdG9yYXRlXCdzIHRo
+        aW5raW5nLCBhbmQgQW1lcmljYSBpcyBpbiB0aGUgaGFuZHMgb2YgYW4gYWRt
+        aW5pc3RyYXRpb24gbGVzcyBpbnRlcmVzdGVkIHRoYW4gYW55IHByZXZpb3Vz
+        IGFkbWluaXN0cmF0aW9uIGluIHNoYXJpbmcgdGhlIHRydXRoIHdpdGggdGhl
+        IGNpdGl6ZW5yeS4gUmVsYXRlZCB0byB0aGlzIGFuZCBvZiBldmVuIGdyZWF0
+        ZXIgY29uY2VybiBpcyB0aGlzIGFkbWluaXN0cmF0aW9uXCdzIGRpc2ludGVy
+        ZXN0IGluIHRoZSBwcm9jZXNzIGJ5IHdoaWNoIHRoZSB0cnV0aCBpcyBhc2Nl
+        cnRhaW5lZCwgdGhlIHRlbmV0cyBvZiBmYWN0LWJhc2VkIHJlYXNvbmluZyAt
+        IGZpcnN0IGFtb25nIHRoZW0gYW4gZW1icmFjZSBvZiBvcGVuIGlucXVpcnks
+        IGluIHdoaWNoIHVuZXhwZWN0ZWQgYW5kIGV2ZW4gaW5jb252ZW5pZW50IGZh
+        Y3RzIGNhbiBsZWFkIHRvIHVuZXhwZWN0ZWQgY29uY2x1c2lvbnMuIiAiSG93
+        IGRpZCB3ZSBnZXQgaGVyZT8gQW5kIGhvdyBtdWNoIGRhbWFnZSBoYXMgYmVl
+        biBkb25lIHRvIHRoZSBmdW5jdGlvbmluZyBvZiBvdXIgZGVtb2NyYWN5IGFu
+        ZCBpdHMgcm9sZSBhcyBzdGV3YXJkIG9mIG91ciBzZWN1cml0eT8gTmV2ZXIg
+        aGFzIHRoZXJlIGJlZW4gYSB3b3JzZSB0aW1lIGZvciB1cyB0byBsb3NlIHRo
+        ZSBjYXBhY2l0eSB0byBmYWNlIHRoZSByZWFsaXR5IG9mIG91ciBsb25nLXRl
+        cm0gY2hhbGxlbmdlcywgZnJvbSBuYXRpb25hbCBzZWN1cml0eSB0byB0aGUg
+        ZWNvbm9teSwgZnJvbSBpc3N1ZXMgb2YgaGVhbHRoIGFuZCBzb2NpYWwgd2Vs
+        ZmFyZSB0byB0aGUgZW52aXJvbm1lbnQuIEFzIFRoZSBBc3NhdWx0IG9uIFJl
+        YXNvbiBzaG93cyB1cywgd2UgaGF2ZSBwcmVjaW91cyBsaXR0bGUgdGltZSB0
+        byB3YXN0ZS4iICJBbCBHb3JlXCdzIGxhcmdlciBnb2FsIGluIHRoaXMgYm9v
+        ayBpcyB0byBleHBsYWluIGhvdyB0aGUgcHVibGljIHNwaGVyZSBpdHNlbGYg
+        aGFzIGV2b2x2ZWQgaW50byBhIHBsYWNlIGhvc3BpdGFibGUgdG8gcmVhc29u
+        XCdzIGVuZW1pZXM7IHRvIG1ha2UgdXMgbW9yZSBhd2FyZSBvZiB0aGUgZm9y
+        Y2VzIGF0IHdvcmsgb24gb3VyIG93biBtaW5kczsgYW5kIHRvIGxlYWQgdXMg
+        dG8gYW4gdW5kZXJzdGFuZGluZyBvZiB3aGF0IHdlIGNhbiBkbywgaW5kaXZp
+        ZHVhbGx5IGFuZCBjb2xsZWN0aXZlbHksIHRvIHJlc3RvcmUgdGhlIHJ1bGUg
+        b2YgcmVhc29uIGFuZCBzYWZlZ3VhcmQgb3VyIGZ1dHVyZS4gRHJhd2luZyBv
+        biBhIGxpZmVcJ3Mgd29yayBpbiBwb2xpdGljcyBhcyB3ZWxsIGFzIG9uIHRo
+        ZSB3b3JrIG9mIGV4cGVydHMgYWNyb3NzIGEgYnJvYWQgcmFuZ2Ugb2YgZGlz
+        Y2lwbGluZXMsIEExIEdvcmUgaGFzIHdyaXR0ZW4gYSBmYXJzaWdodGVkIGFu
+        ZCBwb3dlcmZ1bCBtYW5pZmVzdG8gZm9yIGNsZWFyIHRoaW5raW5nLiItLUJP
+        T0sgSkFDS0VULiddLCdpc2JuX3R4dCc9PlsnOTc4MTU5NDIwMTIyNicsJzE1
+        OTQyMDEyMjYnXSwnaXNibl9kaXNwbGF5Jz0+Wyc5NzgxNTk0MjAxMjI2Jywn
+        MTU5NDIwMTIyNiddLCdsY2NuX2Rpc3BsYXknPT5bJzIwMDcwMDMyNjEnXSwn
+        bGNjbl90eHQnPT5bJzIwMDcwMDMyNjEnXSwnb2NsY190eHQnPT5bJ29jbTgx
+        MjUyNjY2JywnODEyNTI2NjYnXSwnb2NsY19kaXNwbGF5Jz0+WydvY204MTI1
+        MjY2NicsJzgxMjUyNjY2J10sJ2Z1bGxfcHVibGlzaGVyX2Rpc3BsYXknPT5b
+        J05ldyBZb3JrIDogUGVuZ3VpbiBQcmVzcywgMjAwNy4nXSwnbG9jYXRpb25f
+        Y2FsbF9udW1iZXJfaWRfZGlzcGxheSc9PlsnQnV0bGVyIFN0YWNrcyAoRW50
+        ZXIgYXQgdGhlIEJ1dGxlciBDaXJjdWxhdGlvbiBEZXNrKSA+PiBFOTAyIC5H
+        NjcgMjAwN3xERUxJTXw3OTAwNjY5JywnTGVobWFuID4+IEU5MDIgLkc2NyAy
+        MDA3fERFTElNfDgwNDMzMDQnLCdNaWxzdGVpbiBbQnV0bGVyXSA+PiBFOTAy
+        IC5HNjcgMjAwN3xERUxJTXw4MTE1MjE0J10sJ2xvY2F0aW9uX2NhbGxfbnVt
+        YmVyX3R4dCc9PlsnQnV0bGVyIFN0YWNrcyAoRW50ZXIgYXQgdGhlIEJ1dGxl
+        ciBDaXJjdWxhdGlvbiBEZXNrKSA+PiBFOTAyIC5HNjcgMjAwNycsJ0xlaG1h
+        biA+PiBFOTAyIC5HNjcgMjAwNycsJ01pbHN0ZWluIFtCdXRsZXJdID4+IEU5
+        MDIgLkc2NyAyMDA3J10sJ2NhbGxfbnVtYmVyX3R4dCc9PlsnRTkwMiAuRzY3
+        IDIwMDcnLCdFOTAyIC5HNjcgMjAwNycsJ0U5MDIgLkc2NyAyMDA3J10sJ2Nh
+        bGxfbnVtYmVyX2Rpc3BsYXknPT5bJ0U5MDIgLkc2NyAyMDA3JywnRTkwMiAu
+        RzY3IDIwMDcnLCdFOTAyIC5HNjcgMjAwNyddLCdsb2NhdGlvbl9mYWNldCc9
+        PlsnQnV0bGVyIFN0YWNrcycsJ0xlaG1hbicsJ01pbHN0ZWluJ10sJ2xvY2F0
+        aW9uX3R4dCc9PlsnQnV0bGVyIFN0YWNrcyAoRW50ZXIgYXQgdGhlIEJ1dGxl
+        ciBDaXJjdWxhdGlvbiBEZXNrKSA+PiBFOTAyIC5HNjcgMjAwNycsJ0xlaG1h
+        biA+PiBFOTAyIC5HNjcgMjAwNycsJ01pbHN0ZWluIFtCdXRsZXJdID4+IEU5
+        MDIgLkc2NyAyMDA3J10sJ3VybF9tdW5nZWRfZGlzcGxheSc9PlsnMnx8fENv
+        bnRyaWJ1dG9yIGJpb2dyYXBoaWNhbCBpbmZvcm1hdGlvbnx8fGh0dHA6Ly93
+        d3cubG9jLmdvdi9jYXRkaXIvZW5oYW5jZW1lbnRzL2Z5MDc0My8yMDA3MDAz
+        MjYxLWIuaHRtbHx8fCcsJzJ8fHxQdWJsaXNoZXIgZGVzY3JpcHRpb258fHxo
+        dHRwOi8vd3d3LmxvYy5nb3YvY2F0ZGlyL2VuaGFuY2VtZW50cy9meTA3NDMv
+        MjAwNzAwMzI2MS1kLmh0bWx8fHwnXSwnc2hlbGZrZXknPT5bJ2xvYytlLS0r
+        MDkwMiswMDAwMDAwMCtnNjcwMDAwMCswMDIwMDcrNjIwMTk3NSddLCdyZXZl
+        cnNlX3NoZWxma2V5Jz0+WydlYm5+bH5+fnpxenh+enp6enp6enp+anRzenp6
+        enp+enp4enpzfnR4enlxc3V+fn5+fiddLCdpdGVtX2Rpc3BsYXknPT5bJ0U5
+        MDIgLkc2NyAyMDA3IHwgbG9jK2UtLSswOTAyKzAwMDAwMDAwK2c2NzAwMDAw
+        KzAwMjAwNys2MjAxOTc1IHwgZWJufmx+fn56cXp4fnp6enp6enp6fmp0c3p6
+        enp6fnp6eHp6c350eHp5cXN1fn5+fn4nXSwndGltZXN0YW1wJz0+JzIwMTYt
+        MDUtMjNUMjA6MDQ6MzcuMjUyWicsJ2F1dGhvcml0aWVzX2R0Jz0+JzIwMTYt
+        MDUtMjRUMjA6Mzc6NTJaJywnYXV0aG9yX3ZhcmlhbnRfdHh0Jz0+WydHb3Jl
+        LCBBbGJlcnQsIDE5NDgtIEdvcmUsIEFsYmVydCBBcm5vbGQsIEpyLiwgMTk0
+        OC0g0JPQvtGALCDQkNC70YzQsdC10YDRgiwgMTk0OC0g0JPQvtGALCDQkNC7
+        LCAxOTQ4LSddLCdzdWJqZWN0X3ZhcmlhbnRfdHh0Jz0+WycgQ3VsdHVyZSBQ
+        b2xpdGljYWwgc2NpZW5jZSBTZWxmLWdvdmVybm1lbnQgRXF1YWxpdHkgUmVw
+        cmVzZW50YXRpdmUgZ292ZXJubWVudCBhbmQgcmVwcmVzZW50YXRpb24gUmVw
+        dWJsaWNzIE1pbmQgSW50ZWxsZWN0IFJhdGlvbmFsaXNtIEZyaWdodCBFbW90
+        aW9ucyBBbnhpZXR5IEhvcnJvciBEaXNjbG9zaW5nIG9mZmljaWFsIHNlY3Jl
+        dHMgR292ZXJubWVudCBzZWNyZWN5IFNlY3JlY3kgaW4gZ292ZXJubWVudCBT
+        ZWNyZXRzLCBPZmZpY2lhbCBTZWNyZXRzIG9mIHN0YXRlIENvbmZpZGVudGlh
+        bCBjb21tdW5pY2F0aW9ucyBDcmltaW5hbCBsYXcgR292ZXJubWVudCBhbmQg
+        dGhlIHByZXNzIEdvdmVybm1lbnQgaW5mb3JtYXRpb24gTWluaXN0ZXJpYWwg
+        cmVzcG9uc2liaWxpdHkgU2VjcmVjeSBGdW5kYW1lbnRhbGlzbSwgUmVsaWdp
+        b3VzIEZ1bmRhbWVudGFsaXN0IG1vdmVtZW50cywgUmVsaWdpb3VzIFJlbGln
+        aW9uJ10sJ192ZXJzaW9uXyc9PjE1MzUyNDM0NzYyODQ3MzU0ODh9XX19Cg==
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:02 GMT
+  recorded_at: Fri, 01 Jul 2016 20:48:56 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/6201975"
@@ -142,11 +417,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      - HTTPClient/1.0 (2.8.0, ruby 2.2.1 (2015-02-26))
       Accept:
       - "*/*"
       Date:
-      - Tue, 22 Sep 2015 19:33:02 GMT
+      - Fri, 01 Jul 2016 20:48:56 GMT
   response:
     status:
       code: 200
@@ -158,30 +433,36 @@ http_interactions:
       - chunked
       Connection:
       - keep-alive
+      Vary:
+      - Accept-Encoding
       Status:
-      - '200'
-      X-Powered-By:
-      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Request-Method:
-      - "*"
-      Etag:
-      - W/"c8e11e05d0b650e10227a96bc8ba1b78"
+      - 200 OK
       Cache-Control:
       - max-age=0, private, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Xss-Protection:
+      - 1; mode=block
       X-Request-Id:
-      - 2c87c7c5-2963-44af-baf5-397e46ec39a0
+      - 8c73ee34-565c-49e6-ba5c-29ef53bc8bc6
+      Etag:
+      - W/"c8e11e05d0b650e10227a96bc8ba1b78"
+      X-Frame-Options:
+      - SAMEORIGIN
       X-Runtime:
-      - '1.876893'
+      - '1.237418'
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Request-Method:
+      - "*"
+      Date:
+      - Fri, 01 Jul 2016 20:48:58 GMT
+      X-Powered-By:
+      - Phusion Passenger
       Server:
-      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+      - nginx + Phusion Passenger
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubdomains; preload
     body:
       encoding: UTF-8
       string: '{"6201975":{"condensed_holdings_full":[{"location_name":"Butler Stacks
@@ -190,7 +471,7 @@ http_interactions:
         .G67 2007","status":"available","holding_id":["8043304"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]},{"location_name":"Milstein
         [Butler]","location_note":"","call_number":"E902 .G67 2007","status":"available","holding_id":["8115214"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]}]}}'
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:04 GMT
+  recorded_at: Fri, 01 Jul 2016 20:48:58 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=6201975&qt=document&wt=ruby"
@@ -204,7 +485,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 19:33:04 GMT
+      - Fri, 01 Jul 2016 20:48:58 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -212,216 +493,394 @@ http_interactions:
       Server:
       - Jetty(8.1.8.v20121106)
     body:
-      encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'6201975','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+e--+0902+00000000+g6700000+002007+6201975'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> E902 .G67 2007|DELIM|7900669','Lehman >> E902 .G67 2007|DELIM|8043304','Milstein [Butler] >> E902 .G67 2007|DELIM|8115214'],'lccn_display'=>['2007003261'],'summary_display'=>['"We live in an age when the 30-second television spot is the most powerful force shaping the electorate\'s thinking, and America is in the hands of an administration less interested than any previous administration in sharing the truth with the citizenry. Related to this and of even greater concern is this administration\'s disinterest in the process by which the truth is ascertained, the tenets of fact-based reasoning - first among them an embrace of open inquiry, in which unexpected and even inconvenient facts can lead to unexpected conclusions." "How did we get here? And how much damage has been done to the functioning of our democracy and its role as steward of our security? Never has there been a worse time for us to lose the capacity to face the reality of our long-term challenges, from national security to the economy, from issues of health and social welfare to the environment. As The Assault on Reason shows us, we have precious little time to waste." "Al Gore\'s larger goal in this book is to explain how the public sphere itself has evolved into a place hospitable to reason\'s enemies; to make us more aware of the forces at work on our own minds; and to lead us to an understanding of what we can do, individually and collectively, to restore the rule of reason and safeguard our future. Drawing on a life\'s work in politics as well as on the work of experts across a broad range of disciplines, A1 Gore has written a farsighted and powerful manifesto for clear thinking."--BOOK JACKET'],'item_display'=>['E902 .G67 2007 | loc+e--+0902+00000000+g6700000+002007+6201975 | ebn~l~~~zqzx~zzzzzzzz~jtszzzzz~zzxzzs~txzyqsu~~~~~'],'title_display'=>['The assault on reason'],'clio_id_display'=>'6201975','subject_topic_facet'=>['Bush, George W. (George Walker), 1946-','Friends and associates','Political culture','Democracy','Reason','Fear','Official secrets','Religious fundamentalism','Social aspects','Political aspects','Politics and government'],'pub_place_display'=>['New York'],'format'=>['Book'],'oclc_display'=>['ocm81252666','81252666'],'url_munged_display'=>['2|||Contributor biographical information|||http://www.loc.gov/catdir/enhancements/fy0743/2007003261-b.html|||','2|||Publisher description|||http://www.loc.gov/catdir/enhancements/fy0743/2007003261-d.html|||'],'title_first_facet'=>['A'],'full_publisher_display'=>['New York : Penguin Press, 2007.'],'pub_date_sort'=>2007,'isbn_display'=>['9781594201226','1594201226'],'pub_year_display'=>['2007'],'id'=>'6201975','reverse_shelfkey'=>['ebn~l~~~zqzx~zzzzzzzz~jtszzzzz~zzxzzs~txzyqsu~~~~~'],'subject_geo_facet'=>['United States'],'call_number_display'=>['E902 .G67 2007'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>03975cam a2200553 a 4500</leader><controlfield tag="001">6201975</controlfield><controlfield tag="005">20150123144650.0</controlfield><controlfield tag="008">070124s2007    nyu      b    001 0deng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2007003261</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781594201226</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1594201226</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm81252666</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)81252666</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(DLC)  2007003261</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)6201975</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">BAKER</subfield><subfield code="d">BTCTA</subfield><subfield code="d">LF3</subfield><subfield code="d">YBM</subfield><subfield code="d">C#P</subfield><subfield code="d">VP@</subfield><subfield code="d">BUR</subfield><subfield code="d">YDXCP</subfield><subfield code="d">IXA</subfield><subfield code="d">DLC</subfield><subfield code="d">OrLoB-B</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">n-us---</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">E902</subfield><subfield code="b">.G67 2007</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">973.931</subfield><subfield code="2">22</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Gore, Al,</subfield><subfield code="d">1948-</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The assault on reason /</subfield><subfield code="c">Al Gore.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Penguin Press,</subfield><subfield code="c">2007.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">308 p. ;</subfield><subfield code="c">25 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references (p. [277]-296) and index.</subfield></datafield><datafield tag="505" ind1="0" ind2="0"><subfield code="g">1.</subfield><subfield code="t">The politics of fear -- </subfield><subfield code="g">2.</subfield><subfield code="t">Blinding the faithful -- </subfield><subfield code="g">3.</subfield><subfield code="t">The politics of wealth -- </subfield><subfield code="g">4.</subfield><subfield code="t">Convenient untruths -- </subfield><subfield code="g">5.</subfield><subfield code="t">The assault on the individual -- </subfield><subfield code="g">6.</subfield><subfield code="t">National insecurity -- </subfield><subfield code="g">7.</subfield><subfield code="t">The carbon crisis -- </subfield><subfield code="g">8.</subfield><subfield code="t">Democracy in the balance -- </subfield><subfield code="g">9.</subfield><subfield code="t">A well-connected citizenry -- </subfield><subfield code="t">Conclusion : the rebirth of democracy.</subfield></datafield><datafield tag="520" ind1="1" ind2=" "><subfield code="a">"We live in an age when the 30-second television spot is the most powerful force shaping the electorate\'s thinking, and America is in the hands of an administration less interested than any previous administration in sharing the truth with the citizenry. Related to this and of even greater concern is this administration\'s disinterest in the process by which the truth is ascertained, the tenets of fact-based reasoning - first among them an embrace of open inquiry, in which unexpected and even inconvenient facts can lead to unexpected conclusions." "How did we get here? And how much damage has been done to the functioning of our democracy and its role as steward of our security? Never has there been a worse time for us to lose the capacity to face the reality of our long-term challenges, from national security to the economy, from issues of health and social welfare to the environment. As The Assault on Reason shows us, we have precious little time to waste." "Al Gore\'s larger goal in this book is to explain how the public sphere itself has evolved into a place hospitable to reason\'s enemies; to make us more aware of the forces at work on our own minds; and to lead us to an understanding of what we can do, individually and collectively, to restore the rule of reason and safeguard our future. Drawing on a life\'s work in politics as well as on the work of experts across a broad range of disciplines, A1 Gore has written a farsighted and powerful manifesto for clear thinking."--BOOK JACKET.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">Politics and government</subfield><subfield code="y">2001-2009.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Political culture</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Democracy</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reason</subfield><subfield code="x">Social aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reason</subfield><subfield code="x">Political aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Fear</subfield><subfield code="x">Political aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Official secrets</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Bush, George W.</subfield><subfield code="q">(George Walker),</subfield><subfield code="d">1946-</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Bush, George W.</subfield><subfield code="q">(George Walker),</subfield><subfield code="d">1946-</subfield><subfield code="x">Friends and associates.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Religious fundamentalism</subfield><subfield code="x">Political aspects</subfield><subfield code="z">United States.</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Contributor biographical information</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0743/2007003261-b.html</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Publisher description</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0743/2007003261-d.html</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield><subfield code="b">TOC</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20070619</subfield><subfield code="b">c</subfield><subfield code="c">sds12</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20070808</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20071015</subfield><subfield code="b">a</subfield><subfield code="c">hew2</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">E</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">E902 .G67 2007</subfield><subfield code="b">loc+E--+0902+00000000+G6700000+002007</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; E902 .G67 2007|DELIM|7900669</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Lehman</subfield><subfield code="b">Lehman &gt;&gt; E902 .G67 2007|DELIM|8043304</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein [Butler] &gt;&gt; E902 .G67 2007|DELIM|8115214</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Gore, Al, 1948-'],'pub_name_display'=>['Penguin Press'],'source_display'=>['catalog'],'material_type_display'=>['308 p.'],'language_facet'=>['English'],'_version_'=>1501954957358661632,'timestamp'=>'2015-05-23T10:11:07.23Z'}]}}
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
+        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
+        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic2MjAxOTc1
+        JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
+        PnsnbnVtRm91bmQnPT4xLCdzdGFydCc9PjAsJ2RvY3MnPT5beydpZCc9Pic2
+        MjAxOTc1JywnbWFyY19kaXNwbGF5Jz0+JzxyZWNvcmQ+PGxlYWRlcj4wMzk3
+        NWNhbSBhMjIwMDU1MyBhIDQ1MDA8L2xlYWRlcj48Y29udHJvbGZpZWxkIHRh
+        Zz0iMDAxIj42MjAxOTc1PC9jb250cm9sZmllbGQ+PGNvbnRyb2xmaWVsZCB0
+        YWc9IjAwNSI+MjAxNTAxMjMxNDQ2NTAuMDwvY29udHJvbGZpZWxkPjxjb250
+        cm9sZmllbGQgdGFnPSIwMDgiPjA3MDEyNHMyMDA3ICAgIG55dSAgICAgIGIg
+        ICAgMDAxIDBkZW5nICA8L2NvbnRyb2xmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
+        MDEwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+ICAy
+        MDA3MDAzMjYxPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
+        Zz0iMDIwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+
+        OTc4MTU5NDIwMTIyNjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVs
+        ZCB0YWc9IjAyMCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9
+        ImEiPjE1OTQyMDEyMjY8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmll
+        bGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2Rl
+        PSJhIj4oT0NvTEMpb2NtODEyNTI2NjY8L3N1YmZpZWxkPjwvZGF0YWZpZWxk
+        PjxkYXRhZmllbGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJm
+        aWVsZCBjb2RlPSJhIj4oT0NvTEMpODEyNTI2NjY8L3N1YmZpZWxkPjwvZGF0
+        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAi
+        PjxzdWJmaWVsZCBjb2RlPSJhIj4oRExDKSAgMjAwNzAwMzI2MTwvc3ViZmll
+        bGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAzNSIgaW5kMT0iICIg
+        aW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPihOTkMpNjIwMTk3NTwvc3Vi
+        ZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjA0MCIgaW5kMT0i
+        ICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkRMQzwvc3ViZmllbGQ+
+        PHN1YmZpZWxkIGNvZGU9ImMiPkRMQzwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
+        ZGU9ImQiPkJBS0VSPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+QlRD
+        VEE8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj5MRjM8L3N1YmZpZWxk
+        PjxzdWJmaWVsZCBjb2RlPSJkIj5ZQk08L3N1YmZpZWxkPjxzdWJmaWVsZCBj
+        b2RlPSJkIj5DI1A8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj5WUEA8
+        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj5CVVI8L3N1YmZpZWxkPjxz
+        dWJmaWVsZCBjb2RlPSJkIj5ZRFhDUDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
+        ZGU9ImQiPklYQTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImQiPkRMQzwv
+        c3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImQiPk9yTG9CLUI8L3N1YmZpZWxk
+        PjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwNDMiIGluZDE9IiAiIGlu
+        ZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5uLXVzLS0tPC9zdWJmaWVsZD48
+        L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDUwIiBpbmQxPSIwIiBpbmQy
+        PSIwIj48c3ViZmllbGQgY29kZT0iYSI+RTkwMjwvc3ViZmllbGQ+PHN1YmZp
+        ZWxkIGNvZGU9ImIiPi5HNjcgMjAwNzwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+
+        PGRhdGFmaWVsZCB0YWc9IjA4MiIgaW5kMT0iMCIgaW5kMj0iMCI+PHN1YmZp
+        ZWxkIGNvZGU9ImEiPjk3My45MzE8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2Rl
+        PSIyIj4yMjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9
+        IjEwMCIgaW5kMT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkdv
+        cmUsIEFsLDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImQiPjE5NDgtPC9z
+        dWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMjQ1IiBpbmQx
+        PSIxIiBpbmQyPSI0Ij48c3ViZmllbGQgY29kZT0iYSI+VGhlIGFzc2F1bHQg
+        b24gcmVhc29uIC88L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5BbCBH
+        b3JlLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjI2
+        MCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPk5ldyBZ
+        b3JrIDo8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5QZW5ndWluIFBy
+        ZXNzLDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImMiPjIwMDcuPC9zdWJm
+        aWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMzAwIiBpbmQxPSIg
+        IiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+MzA4IHAuIDs8L3N1YmZp
+        ZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj4yNSBjbS48L3N1YmZpZWxkPjwvZGF0
+        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1MDQiIGluZDE9IiAiIGluZDI9IiAi
+        PjxzdWJmaWVsZCBjb2RlPSJhIj5JbmNsdWRlcyBiaWJsaW9ncmFwaGljYWwg
+        cmVmZXJlbmNlcyAocC4gWzI3N10tMjk2KSBhbmQgaW5kZXguPC9zdWJmaWVs
+        ZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNTA1IiBpbmQxPSIwIiBp
+        bmQyPSIwIj48c3ViZmllbGQgY29kZT0iZyI+MS48L3N1YmZpZWxkPjxzdWJm
+        aWVsZCBjb2RlPSJ0Ij5UaGUgcG9saXRpY3Mgb2YgZmVhciAtLSA8L3N1YmZp
+        ZWxkPjxzdWJmaWVsZCBjb2RlPSJnIj4yLjwvc3ViZmllbGQ+PHN1YmZpZWxk
+        IGNvZGU9InQiPkJsaW5kaW5nIHRoZSBmYWl0aGZ1bCAtLSA8L3N1YmZpZWxk
+        PjxzdWJmaWVsZCBjb2RlPSJnIj4zLjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
+        ZGU9InQiPlRoZSBwb2xpdGljcyBvZiB3ZWFsdGggLS0gPC9zdWJmaWVsZD48
+        c3ViZmllbGQgY29kZT0iZyI+NC48L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2Rl
+        PSJ0Ij5Db252ZW5pZW50IHVudHJ1dGhzIC0tIDwvc3ViZmllbGQ+PHN1YmZp
+        ZWxkIGNvZGU9ImciPjUuPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0idCI+
+        VGhlIGFzc2F1bHQgb24gdGhlIGluZGl2aWR1YWwgLS0gPC9zdWJmaWVsZD48
+        c3ViZmllbGQgY29kZT0iZyI+Ni48L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2Rl
+        PSJ0Ij5OYXRpb25hbCBpbnNlY3VyaXR5IC0tIDwvc3ViZmllbGQ+PHN1YmZp
+        ZWxkIGNvZGU9ImciPjcuPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0idCI+
+        VGhlIGNhcmJvbiBjcmlzaXMgLS0gPC9zdWJmaWVsZD48c3ViZmllbGQgY29k
+        ZT0iZyI+OC48L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ0Ij5EZW1vY3Jh
+        Y3kgaW4gdGhlIGJhbGFuY2UgLS0gPC9zdWJmaWVsZD48c3ViZmllbGQgY29k
+        ZT0iZyI+OS48L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ0Ij5BIHdlbGwt
+        Y29ubmVjdGVkIGNpdGl6ZW5yeSAtLSA8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
+        b2RlPSJ0Ij5Db25jbHVzaW9uIDogdGhlIHJlYmlydGggb2YgZGVtb2NyYWN5
+        Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjUyMCIg
+        aW5kMT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPiJXZSBsaXZl
+        IGluIGFuIGFnZSB3aGVuIHRoZSAzMC1zZWNvbmQgdGVsZXZpc2lvbiBzcG90
+        IGlzIHRoZSBtb3N0IHBvd2VyZnVsIGZvcmNlIHNoYXBpbmcgdGhlIGVsZWN0
+        b3JhdGVcJ3MgdGhpbmtpbmcsIGFuZCBBbWVyaWNhIGlzIGluIHRoZSBoYW5k
+        cyBvZiBhbiBhZG1pbmlzdHJhdGlvbiBsZXNzIGludGVyZXN0ZWQgdGhhbiBh
+        bnkgcHJldmlvdXMgYWRtaW5pc3RyYXRpb24gaW4gc2hhcmluZyB0aGUgdHJ1
+        dGggd2l0aCB0aGUgY2l0aXplbnJ5LiBSZWxhdGVkIHRvIHRoaXMgYW5kIG9m
+        IGV2ZW4gZ3JlYXRlciBjb25jZXJuIGlzIHRoaXMgYWRtaW5pc3RyYXRpb25c
+        J3MgZGlzaW50ZXJlc3QgaW4gdGhlIHByb2Nlc3MgYnkgd2hpY2ggdGhlIHRy
+        dXRoIGlzIGFzY2VydGFpbmVkLCB0aGUgdGVuZXRzIG9mIGZhY3QtYmFzZWQg
+        cmVhc29uaW5nIC0gZmlyc3QgYW1vbmcgdGhlbSBhbiBlbWJyYWNlIG9mIG9w
+        ZW4gaW5xdWlyeSwgaW4gd2hpY2ggdW5leHBlY3RlZCBhbmQgZXZlbiBpbmNv
+        bnZlbmllbnQgZmFjdHMgY2FuIGxlYWQgdG8gdW5leHBlY3RlZCBjb25jbHVz
+        aW9ucy4iICJIb3cgZGlkIHdlIGdldCBoZXJlPyBBbmQgaG93IG11Y2ggZGFt
+        YWdlIGhhcyBiZWVuIGRvbmUgdG8gdGhlIGZ1bmN0aW9uaW5nIG9mIG91ciBk
+        ZW1vY3JhY3kgYW5kIGl0cyByb2xlIGFzIHN0ZXdhcmQgb2Ygb3VyIHNlY3Vy
+        aXR5PyBOZXZlciBoYXMgdGhlcmUgYmVlbiBhIHdvcnNlIHRpbWUgZm9yIHVz
+        IHRvIGxvc2UgdGhlIGNhcGFjaXR5IHRvIGZhY2UgdGhlIHJlYWxpdHkgb2Yg
+        b3VyIGxvbmctdGVybSBjaGFsbGVuZ2VzLCBmcm9tIG5hdGlvbmFsIHNlY3Vy
+        aXR5IHRvIHRoZSBlY29ub215LCBmcm9tIGlzc3VlcyBvZiBoZWFsdGggYW5k
+        IHNvY2lhbCB3ZWxmYXJlIHRvIHRoZSBlbnZpcm9ubWVudC4gQXMgVGhlIEFz
+        c2F1bHQgb24gUmVhc29uIHNob3dzIHVzLCB3ZSBoYXZlIHByZWNpb3VzIGxp
+        dHRsZSB0aW1lIHRvIHdhc3RlLiIgIkFsIEdvcmVcJ3MgbGFyZ2VyIGdvYWwg
+        aW4gdGhpcyBib29rIGlzIHRvIGV4cGxhaW4gaG93IHRoZSBwdWJsaWMgc3Bo
+        ZXJlIGl0c2VsZiBoYXMgZXZvbHZlZCBpbnRvIGEgcGxhY2UgaG9zcGl0YWJs
+        ZSB0byByZWFzb25cJ3MgZW5lbWllczsgdG8gbWFrZSB1cyBtb3JlIGF3YXJl
+        IG9mIHRoZSBmb3JjZXMgYXQgd29yayBvbiBvdXIgb3duIG1pbmRzOyBhbmQg
+        dG8gbGVhZCB1cyB0byBhbiB1bmRlcnN0YW5kaW5nIG9mIHdoYXQgd2UgY2Fu
+        IGRvLCBpbmRpdmlkdWFsbHkgYW5kIGNvbGxlY3RpdmVseSwgdG8gcmVzdG9y
+        ZSB0aGUgcnVsZSBvZiByZWFzb24gYW5kIHNhZmVndWFyZCBvdXIgZnV0dXJl
+        LiBEcmF3aW5nIG9uIGEgbGlmZVwncyB3b3JrIGluIHBvbGl0aWNzIGFzIHdl
+        bGwgYXMgb24gdGhlIHdvcmsgb2YgZXhwZXJ0cyBhY3Jvc3MgYSBicm9hZCBy
+        YW5nZSBvZiBkaXNjaXBsaW5lcywgQTEgR29yZSBoYXMgd3JpdHRlbiBhIGZh
+        cnNpZ2h0ZWQgYW5kIHBvd2VyZnVsIG1hbmlmZXN0byBmb3IgY2xlYXIgdGhp
+        bmtpbmcuIi0tQk9PSyBKQUNLRVQuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48
+        ZGF0YWZpZWxkIHRhZz0iNjUxIiBpbmQxPSIgIiBpbmQyPSIwIj48c3ViZmll
+        bGQgY29kZT0iYSI+VW5pdGVkIFN0YXRlczwvc3ViZmllbGQ+PHN1YmZpZWxk
+        IGNvZGU9IngiPlBvbGl0aWNzIGFuZCBnb3Zlcm5tZW50PC9zdWJmaWVsZD48
+        c3ViZmllbGQgY29kZT0ieSI+MjAwMS0yMDA5Ljwvc3ViZmllbGQ+PC9kYXRh
+        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjY1MCIgaW5kMT0iICIgaW5kMj0iMCI+
+        PHN1YmZpZWxkIGNvZGU9ImEiPlBvbGl0aWNhbCBjdWx0dXJlPC9zdWJmaWVs
+        ZD48c3ViZmllbGQgY29kZT0ieiI+VW5pdGVkIFN0YXRlcy48L3N1YmZpZWxk
+        PjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI2NTAiIGluZDE9IiAiIGlu
+        ZDI9IjAiPjxzdWJmaWVsZCBjb2RlPSJhIj5EZW1vY3JhY3k8L3N1YmZpZWxk
+        PjxzdWJmaWVsZCBjb2RlPSJ6Ij5Vbml0ZWQgU3RhdGVzLjwvc3ViZmllbGQ+
+        PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjY1MCIgaW5kMT0iICIgaW5k
+        Mj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEiPlJlYXNvbjwvc3ViZmllbGQ+PHN1
+        YmZpZWxkIGNvZGU9IngiPlNvY2lhbCBhc3BlY3RzPC9zdWJmaWVsZD48c3Vi
+        ZmllbGQgY29kZT0ieiI+VW5pdGVkIFN0YXRlcy48L3N1YmZpZWxkPjwvZGF0
+        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI2NTAiIGluZDE9IiAiIGluZDI9IjAi
+        PjxzdWJmaWVsZCBjb2RlPSJhIj5SZWFzb248L3N1YmZpZWxkPjxzdWJmaWVs
+        ZCBjb2RlPSJ4Ij5Qb2xpdGljYWwgYXNwZWN0czwvc3ViZmllbGQ+PHN1YmZp
+        ZWxkIGNvZGU9InoiPlVuaXRlZCBTdGF0ZXMuPC9zdWJmaWVsZD48L2RhdGFm
+        aWVsZD48ZGF0YWZpZWxkIHRhZz0iNjUwIiBpbmQxPSIgIiBpbmQyPSIwIj48
+        c3ViZmllbGQgY29kZT0iYSI+RmVhcjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
+        ZGU9IngiPlBvbGl0aWNhbCBhc3BlY3RzPC9zdWJmaWVsZD48c3ViZmllbGQg
+        Y29kZT0ieiI+VW5pdGVkIFN0YXRlcy48L3N1YmZpZWxkPjwvZGF0YWZpZWxk
+        PjxkYXRhZmllbGQgdGFnPSI2NTAiIGluZDE9IiAiIGluZDI9IjAiPjxzdWJm
+        aWVsZCBjb2RlPSJhIj5PZmZpY2lhbCBzZWNyZXRzPC9zdWJmaWVsZD48c3Vi
+        ZmllbGQgY29kZT0ieiI+VW5pdGVkIFN0YXRlcy48L3N1YmZpZWxkPjwvZGF0
+        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI2MDAiIGluZDE9IjEiIGluZDI9IjAi
+        PjxzdWJmaWVsZCBjb2RlPSJhIj5CdXNoLCBHZW9yZ2UgVy48L3N1YmZpZWxk
+        PjxzdWJmaWVsZCBjb2RlPSJxIj4oR2VvcmdlIFdhbGtlciksPC9zdWJmaWVs
+        ZD48c3ViZmllbGQgY29kZT0iZCI+MTk0Ni08L3N1YmZpZWxkPjwvZGF0YWZp
+        ZWxkPjxkYXRhZmllbGQgdGFnPSI2MDAiIGluZDE9IjEiIGluZDI9IjAiPjxz
+        dWJmaWVsZCBjb2RlPSJhIj5CdXNoLCBHZW9yZ2UgVy48L3N1YmZpZWxkPjxz
+        dWJmaWVsZCBjb2RlPSJxIj4oR2VvcmdlIFdhbGtlciksPC9zdWJmaWVsZD48
+        c3ViZmllbGQgY29kZT0iZCI+MTk0Ni08L3N1YmZpZWxkPjxzdWJmaWVsZCBj
+        b2RlPSJ4Ij5GcmllbmRzIGFuZCBhc3NvY2lhdGVzLjwvc3ViZmllbGQ+PC9k
+        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjY1MCIgaW5kMT0iICIgaW5kMj0i
+        MCI+PHN1YmZpZWxkIGNvZGU9ImEiPlJlbGlnaW91cyBmdW5kYW1lbnRhbGlz
+        bTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9IngiPlBvbGl0aWNhbCBhc3Bl
+        Y3RzPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0ieiI+VW5pdGVkIFN0YXRl
+        cy48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI4NTYi
+        IGluZDE9IjQiIGluZDI9IjIiPjxzdWJmaWVsZCBjb2RlPSIzIj5Db250cmli
+        dXRvciBiaW9ncmFwaGljYWwgaW5mb3JtYXRpb248L3N1YmZpZWxkPjxzdWJm
+        aWVsZCBjb2RlPSJ1Ij5odHRwOi8vd3d3LmxvYy5nb3YvY2F0ZGlyL2VuaGFu
+        Y2VtZW50cy9meTA3NDMvMjAwNzAwMzI2MS1iLmh0bWw8L3N1YmZpZWxkPjwv
+        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI4NTYiIGluZDE9IjQiIGluZDI9
+        IjIiPjxzdWJmaWVsZCBjb2RlPSIzIj5QdWJsaXNoZXIgZGVzY3JpcHRpb248
+        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ1Ij5odHRwOi8vd3d3LmxvYy5n
+        b3YvY2F0ZGlyL2VuaGFuY2VtZW50cy9meTA3NDMvMjAwNzAwMzI2MS1kLmh0
+        bWw8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5MDAi
+        IGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5BVVRIPC9z
+        dWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+VE9DPC9zdWJmaWVsZD48L2Rh
+        dGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTQ4IiBpbmQxPSIxIiBpbmQyPSIg
+        Ij48c3ViZmllbGQgY29kZT0iYSI+MjAwNzA2MTk8L3N1YmZpZWxkPjxzdWJm
+        aWVsZCBjb2RlPSJiIj5jPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYyI+
+        c2RzMTI8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj5NUFM8L3N1YmZp
+        ZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5NDgiIGluZDE9IjIi
+        IGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4yMDA3MDgwODwvc3ViZmll
+        bGQ+PHN1YmZpZWxkIGNvZGU9ImIiPmE8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
+        b2RlPSJjIj5yYWQxPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+TVBT
+        PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTQ4IiBp
+        bmQxPSIyIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+MjAwNzEwMTU8
+        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5hPC9zdWJmaWVsZD48c3Vi
+        ZmllbGQgY29kZT0iYyI+aGV3Mjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9
+        ImQiPk1QUzwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9
+        Ijk5MCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkU8
+        L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTEiIGlu
+        ZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5FOTAyIC5HNjcg
+        MjAwNzwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPmxvYytFLS0rMDkw
+        MiswMDAwMDAwMCtHNjcwMDAwMCswMDIwMDc8L3N1YmZpZWxkPjwvZGF0YWZp
+        ZWxkPjxkYXRhZmllbGQgdGFnPSI5OTIiIGluZDE9IiAiIGluZDI9IiAiPjxz
+        dWJmaWVsZCBjb2RlPSJhIj5CdXRsZXIgU3RhY2tzPC9zdWJmaWVsZD48c3Vi
+        ZmllbGQgY29kZT0iYiI+QnV0bGVyIFN0YWNrcyAoRW50ZXIgYXQgdGhlIEJ1
+        dGxlciBDaXJjdWxhdGlvbiBEZXNrKSAmZ3Q7Jmd0OyBFOTAyIC5HNjcgMjAw
+        N3xERUxJTXw3OTAwNjY5PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZp
+        ZWxkIHRhZz0iOTkyIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29k
+        ZT0iYSI+TGVobWFuPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+TGVo
+        bWFuICZndDsmZ3Q7IEU5MDIgLkc2NyAyMDA3fERFTElNfDgwNDMzMDQ8L3N1
+        YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTIiIGluZDE9
+        IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5NaWxzdGVpbjwvc3Vi
+        ZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPk1pbHN0ZWluIFtCdXRsZXJdICZn
+        dDsmZ3Q7IEU5MDIgLkc2NyAyMDA3fERFTElNfDgxMTUyMTQ8L3N1YmZpZWxk
+        PjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTMiIGluZDE9IiAiIGlu
+        ZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5Cb29rPC9zdWJmaWVsZD48L2Rh
+        dGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTk1IiBpbmQxPSIgIiBpbmQyPSIg
+        Ij48c3ViZmllbGQgY29kZT0iYSI+Y2F0YWxvZzwvc3ViZmllbGQ+PC9kYXRh
+        ZmllbGQ+PC9yZWNvcmQ+JywndGV4dCc9PlsnRTkwMiAuRzY3IDIwMDcnLCc5
+        NzMuOTMxIDIyJywnR29yZSwgQWwsIDE5NDgtJywnVGhlIGFzc2F1bHQgb24g
+        cmVhc29uIC8gQWwgR29yZS4nLCdOZXcgWW9yayA6IFBlbmd1aW4gUHJlc3Ms
+        IDIwMDcuJywnMzA4IHAuIDsgMjUgY20uJywnSW5jbHVkZXMgYmlibGlvZ3Jh
+        cGhpY2FsIHJlZmVyZW5jZXMgKHAuIFsyNzddLTI5NikgYW5kIGluZGV4Lics
+        JzEuIFRoZSBwb2xpdGljcyBvZiBmZWFyIC0tICAyLiBCbGluZGluZyB0aGUg
+        ZmFpdGhmdWwgLS0gIDMuIFRoZSBwb2xpdGljcyBvZiB3ZWFsdGggLS0gIDQu
+        IENvbnZlbmllbnQgdW50cnV0aHMgLS0gIDUuIFRoZSBhc3NhdWx0IG9uIHRo
+        ZSBpbmRpdmlkdWFsIC0tICA2LiBOYXRpb25hbCBpbnNlY3VyaXR5IC0tICA3
+        LiBUaGUgY2FyYm9uIGNyaXNpcyAtLSAgOC4gRGVtb2NyYWN5IGluIHRoZSBi
+        YWxhbmNlIC0tICA5LiBBIHdlbGwtY29ubmVjdGVkIGNpdGl6ZW5yeSAtLSAg
+        Q29uY2x1c2lvbiA6IHRoZSByZWJpcnRoIG9mIGRlbW9jcmFjeS4nLCciV2Ug
+        bGl2ZSBpbiBhbiBhZ2Ugd2hlbiB0aGUgMzAtc2Vjb25kIHRlbGV2aXNpb24g
+        c3BvdCBpcyB0aGUgbW9zdCBwb3dlcmZ1bCBmb3JjZSBzaGFwaW5nIHRoZSBl
+        bGVjdG9yYXRlXCdzIHRoaW5raW5nLCBhbmQgQW1lcmljYSBpcyBpbiB0aGUg
+        aGFuZHMgb2YgYW4gYWRtaW5pc3RyYXRpb24gbGVzcyBpbnRlcmVzdGVkIHRo
+        YW4gYW55IHByZXZpb3VzIGFkbWluaXN0cmF0aW9uIGluIHNoYXJpbmcgdGhl
+        IHRydXRoIHdpdGggdGhlIGNpdGl6ZW5yeS4gUmVsYXRlZCB0byB0aGlzIGFu
+        ZCBvZiBldmVuIGdyZWF0ZXIgY29uY2VybiBpcyB0aGlzIGFkbWluaXN0cmF0
+        aW9uXCdzIGRpc2ludGVyZXN0IGluIHRoZSBwcm9jZXNzIGJ5IHdoaWNoIHRo
+        ZSB0cnV0aCBpcyBhc2NlcnRhaW5lZCwgdGhlIHRlbmV0cyBvZiBmYWN0LWJh
+        c2VkIHJlYXNvbmluZyAtIGZpcnN0IGFtb25nIHRoZW0gYW4gZW1icmFjZSBv
+        ZiBvcGVuIGlucXVpcnksIGluIHdoaWNoIHVuZXhwZWN0ZWQgYW5kIGV2ZW4g
+        aW5jb252ZW5pZW50IGZhY3RzIGNhbiBsZWFkIHRvIHVuZXhwZWN0ZWQgY29u
+        Y2x1c2lvbnMuIiAiSG93IGRpZCB3ZSBnZXQgaGVyZT8gQW5kIGhvdyBtdWNo
+        IGRhbWFnZSBoYXMgYmVlbiBkb25lIHRvIHRoZSBmdW5jdGlvbmluZyBvZiBv
+        dXIgZGVtb2NyYWN5IGFuZCBpdHMgcm9sZSBhcyBzdGV3YXJkIG9mIG91ciBz
+        ZWN1cml0eT8gTmV2ZXIgaGFzIHRoZXJlIGJlZW4gYSB3b3JzZSB0aW1lIGZv
+        ciB1cyB0byBsb3NlIHRoZSBjYXBhY2l0eSB0byBmYWNlIHRoZSByZWFsaXR5
+        IG9mIG91ciBsb25nLXRlcm0gY2hhbGxlbmdlcywgZnJvbSBuYXRpb25hbCBz
+        ZWN1cml0eSB0byB0aGUgZWNvbm9teSwgZnJvbSBpc3N1ZXMgb2YgaGVhbHRo
+        IGFuZCBzb2NpYWwgd2VsZmFyZSB0byB0aGUgZW52aXJvbm1lbnQuIEFzIFRo
+        ZSBBc3NhdWx0IG9uIFJlYXNvbiBzaG93cyB1cywgd2UgaGF2ZSBwcmVjaW91
+        cyBsaXR0bGUgdGltZSB0byB3YXN0ZS4iICJBbCBHb3JlXCdzIGxhcmdlciBn
+        b2FsIGluIHRoaXMgYm9vayBpcyB0byBleHBsYWluIGhvdyB0aGUgcHVibGlj
+        IHNwaGVyZSBpdHNlbGYgaGFzIGV2b2x2ZWQgaW50byBhIHBsYWNlIGhvc3Bp
+        dGFibGUgdG8gcmVhc29uXCdzIGVuZW1pZXM7IHRvIG1ha2UgdXMgbW9yZSBh
+        d2FyZSBvZiB0aGUgZm9yY2VzIGF0IHdvcmsgb24gb3VyIG93biBtaW5kczsg
+        YW5kIHRvIGxlYWQgdXMgdG8gYW4gdW5kZXJzdGFuZGluZyBvZiB3aGF0IHdl
+        IGNhbiBkbywgaW5kaXZpZHVhbGx5IGFuZCBjb2xsZWN0aXZlbHksIHRvIHJl
+        c3RvcmUgdGhlIHJ1bGUgb2YgcmVhc29uIGFuZCBzYWZlZ3VhcmQgb3VyIGZ1
+        dHVyZS4gRHJhd2luZyBvbiBhIGxpZmVcJ3Mgd29yayBpbiBwb2xpdGljcyBh
+        cyB3ZWxsIGFzIG9uIHRoZSB3b3JrIG9mIGV4cGVydHMgYWNyb3NzIGEgYnJv
+        YWQgcmFuZ2Ugb2YgZGlzY2lwbGluZXMsIEExIEdvcmUgaGFzIHdyaXR0ZW4g
+        YSBmYXJzaWdodGVkIGFuZCBwb3dlcmZ1bCBtYW5pZmVzdG8gZm9yIGNsZWFy
+        IHRoaW5raW5nLiItLUJPT0sgSkFDS0VULicsJ1VuaXRlZCBTdGF0ZXMgUG9s
+        aXRpY3MgYW5kIGdvdmVybm1lbnQgMjAwMS0yMDA5LicsJ1BvbGl0aWNhbCBj
+        dWx0dXJlIFVuaXRlZCBTdGF0ZXMuJywnRGVtb2NyYWN5IFVuaXRlZCBTdGF0
+        ZXMuJywnUmVhc29uIFNvY2lhbCBhc3BlY3RzIFVuaXRlZCBTdGF0ZXMuJywn
+        UmVhc29uIFBvbGl0aWNhbCBhc3BlY3RzIFVuaXRlZCBTdGF0ZXMuJywnRmVh
+        ciBQb2xpdGljYWwgYXNwZWN0cyBVbml0ZWQgU3RhdGVzLicsJ09mZmljaWFs
+        IHNlY3JldHMgVW5pdGVkIFN0YXRlcy4nLCdCdXNoLCBHZW9yZ2UgVy4gKEdl
+        b3JnZSBXYWxrZXIpLCAxOTQ2LScsJ0J1c2gsIEdlb3JnZSBXLiAoR2Vvcmdl
+        IFdhbGtlciksIDE5NDYtIEZyaWVuZHMgYW5kIGFzc29jaWF0ZXMuJywnUmVs
+        aWdpb3VzIGZ1bmRhbWVudGFsaXNtIFBvbGl0aWNhbCBhc3BlY3RzIFVuaXRl
+        ZCBTdGF0ZXMuJywnQ29udHJpYnV0b3IgYmlvZ3JhcGhpY2FsIGluZm9ybWF0
+        aW9uIGh0dHA6Ly93d3cubG9jLmdvdi9jYXRkaXIvZW5oYW5jZW1lbnRzL2Z5
+        MDc0My8yMDA3MDAzMjYxLWIuaHRtbCcsJ1B1Ymxpc2hlciBkZXNjcmlwdGlv
+        biBodHRwOi8vd3d3LmxvYy5nb3YvY2F0ZGlyL2VuaGFuY2VtZW50cy9meTA3
+        NDMvMjAwNzAwMzI2MS1kLmh0bWwnLCdBVVRIIFRPQycsJzIwMDcwNjE5IGMg
+        c2RzMTIgTVBTJywnMjAwNzA4MDggYSByYWQxIE1QUycsJzIwMDcxMDE1IGEg
+        aGV3MiBNUFMnXSwnYXV0aG9yX3R4dCc9PlsnR29yZSwgQWwsJ10sJ2F1dGhv
+        cl9mYWNldCc9PlsnR29yZSwgQWwsIDE5NDgtJ10sJ2F1dGhvcl9kaXNwbGF5
+        Jz0+WydHb3JlLCBBbCwgMTk0OC0nXSwnYXV0aG9yX3NvcnQnPT4nR29yZSwg
+        QWwsIDE5NDgtICAgYXNzYXVsdCBvbiByZWFzb24gQWwgR29yZScsJ3RpdGxl
+        X3R4dCc9PlsnVGhlIGFzc2F1bHQgb24gcmVhc29uIC8nXSwndGl0bGVfZGlz
+        cGxheSc9PlsnVGhlIGFzc2F1bHQgb24gcmVhc29uJ10sJ3RpdGxlX2ZpbGlu
+        Z190eHQnPT5bJ2Fzc2F1bHQgb24gcmVhc29uIC8nXSwndGl0bGVfZmlsaW5n
+        X2Z1bGxfdHh0Jz0+Wydhc3NhdWx0IG9uIHJlYXNvbiAvJ10sJ3RpdGxlX2Zp
+        cnN0X2ZhY2V0Jz0+WydBJ10sJ3RpdGxlX2FkZGxfdHh0Jz0+WydUaGUgYXNz
+        YXVsdCBvbiByZWFzb24gLyddLCd0aXRsZV9zb3J0Jz0+J2Fzc2F1bHQgb24g
+        cmVhc29uJywnc3ViamVjdF90eHQnPT5bJ1VuaXRlZCBTdGF0ZXMgUG9saXRp
+        Y3MgYW5kIGdvdmVybm1lbnQgMjAwMS0yMDA5JywnUG9saXRpY2FsIGN1bHR1
+        cmUgVW5pdGVkIFN0YXRlcycsJ0RlbW9jcmFjeSBVbml0ZWQgU3RhdGVzJywn
+        UmVhc29uIFNvY2lhbCBhc3BlY3RzIFVuaXRlZCBTdGF0ZXMnLCdSZWFzb24g
+        UG9saXRpY2FsIGFzcGVjdHMgVW5pdGVkIFN0YXRlcycsJ0ZlYXIgUG9saXRp
+        Y2FsIGFzcGVjdHMgVW5pdGVkIFN0YXRlcycsJ09mZmljaWFsIHNlY3JldHMg
+        VW5pdGVkIFN0YXRlcycsJ0J1c2gsIEdlb3JnZSBXLiAoR2VvcmdlIFdhbGtl
+        ciksIDE5NDYtJywnQnVzaCwgR2VvcmdlIFcuIChHZW9yZ2UgV2Fsa2VyKSwg
+        MTk0Ni0gRnJpZW5kcyBhbmQgYXNzb2NpYXRlcycsJ1JlbGlnaW91cyBmdW5k
+        YW1lbnRhbGlzbSBQb2xpdGljYWwgYXNwZWN0cyBVbml0ZWQgU3RhdGVzJ10s
+        J3N1YmplY3RfdG9waWNfZmFjZXQnPT5bJ1BvbGl0aWNzIGFuZCBnb3Zlcm5t
+        ZW50JywnUG9saXRpY2FsIGN1bHR1cmUnLCdEZW1vY3JhY3knLCdSZWFzb24n
+        LCdTb2NpYWwgYXNwZWN0cycsJ1BvbGl0aWNhbCBhc3BlY3RzJywnRmVhcics
+        J09mZmljaWFsIHNlY3JldHMnLCdCdXNoLCBHZW9yZ2UgVy4gKEdlb3JnZSBX
+        YWxrZXIpLCAxOTQ2LScsJ0ZyaWVuZHMgYW5kIGFzc29jaWF0ZXMnLCdSZWxp
+        Z2lvdXMgZnVuZGFtZW50YWxpc20nXSwnc3ViamVjdF9lcmFfZmFjZXQnPT5b
+        JzIwMDEtMjAwOSddLCdzdWJqZWN0X2dlb19mYWNldCc9PlsnVW5pdGVkIFN0
+        YXRlcyddLCdwdWJfcGxhY2VfZGlzcGxheSc9PlsnTmV3IFlvcmsnXSwncHVi
+        X25hbWVfZGlzcGxheSc9PlsnUGVuZ3VpbiBQcmVzcyddLCdwdWJfeWVhcl9k
+        aXNwbGF5Jz0+WycyMDA3J10sJ3B1Yl9wbGFjZV90eHQnPT5bJ05ldyBZb3Jr
+        J10sJ3B1Yl9uYW1lX3R4dCc9PlsnUGVuZ3VpbiBQcmVzcyddLCdwdWJfeWVh
+        cl90eHQnPT5bJzIwMDcnXSwncHViX2RhdGVfdHh0Jz0+WycyMDA3J10sJ2xh
+        bmd1YWdlX2ZhY2V0Jz0+WydFbmdsaXNoJ10sJ2Zvcm1hdCc9PlsnQm9vaydd
+        LCdsY18xbGV0dGVyX2ZhY2V0Jz0+WydFIC0gSGlzdG9yeSBvZiB0aGUgQW1l
+        cmljYXMgKEdlbmVyYWwpJ10sJ2xjXzJsZXR0ZXJfZmFjZXQnPT5bJ0UgLSBI
+        aXN0b3J5IG9mIHRoZSBBbWVyaWNhcyAoR2VuZXJhbCknXSwnbGNfc3ViY2xh
+        c3NfZmFjZXQnPT5bJ0UgLSBIaXN0b3J5IG9mIHRoZSBBbWVyaWNhcyAoR2Vu
+        ZXJhbCknXSwnY2xpb19pZF9kaXNwbGF5Jz0+JzYyMDE5NzUnLCdzb3VyY2Vf
+        ZmFjZXQnPT5bJ2NhdGFsb2cnXSwnc291cmNlX2Rpc3BsYXknPT5bJ2NhdGFs
+        b2cnXSwnc3VtbWFyeV9kaXNwbGF5Jz0+WyciV2UgbGl2ZSBpbiBhbiBhZ2Ug
+        d2hlbiB0aGUgMzAtc2Vjb25kIHRlbGV2aXNpb24gc3BvdCBpcyB0aGUgbW9z
+        dCBwb3dlcmZ1bCBmb3JjZSBzaGFwaW5nIHRoZSBlbGVjdG9yYXRlXCdzIHRo
+        aW5raW5nLCBhbmQgQW1lcmljYSBpcyBpbiB0aGUgaGFuZHMgb2YgYW4gYWRt
+        aW5pc3RyYXRpb24gbGVzcyBpbnRlcmVzdGVkIHRoYW4gYW55IHByZXZpb3Vz
+        IGFkbWluaXN0cmF0aW9uIGluIHNoYXJpbmcgdGhlIHRydXRoIHdpdGggdGhl
+        IGNpdGl6ZW5yeS4gUmVsYXRlZCB0byB0aGlzIGFuZCBvZiBldmVuIGdyZWF0
+        ZXIgY29uY2VybiBpcyB0aGlzIGFkbWluaXN0cmF0aW9uXCdzIGRpc2ludGVy
+        ZXN0IGluIHRoZSBwcm9jZXNzIGJ5IHdoaWNoIHRoZSB0cnV0aCBpcyBhc2Nl
+        cnRhaW5lZCwgdGhlIHRlbmV0cyBvZiBmYWN0LWJhc2VkIHJlYXNvbmluZyAt
+        IGZpcnN0IGFtb25nIHRoZW0gYW4gZW1icmFjZSBvZiBvcGVuIGlucXVpcnks
+        IGluIHdoaWNoIHVuZXhwZWN0ZWQgYW5kIGV2ZW4gaW5jb252ZW5pZW50IGZh
+        Y3RzIGNhbiBsZWFkIHRvIHVuZXhwZWN0ZWQgY29uY2x1c2lvbnMuIiAiSG93
+        IGRpZCB3ZSBnZXQgaGVyZT8gQW5kIGhvdyBtdWNoIGRhbWFnZSBoYXMgYmVl
+        biBkb25lIHRvIHRoZSBmdW5jdGlvbmluZyBvZiBvdXIgZGVtb2NyYWN5IGFu
+        ZCBpdHMgcm9sZSBhcyBzdGV3YXJkIG9mIG91ciBzZWN1cml0eT8gTmV2ZXIg
+        aGFzIHRoZXJlIGJlZW4gYSB3b3JzZSB0aW1lIGZvciB1cyB0byBsb3NlIHRo
+        ZSBjYXBhY2l0eSB0byBmYWNlIHRoZSByZWFsaXR5IG9mIG91ciBsb25nLXRl
+        cm0gY2hhbGxlbmdlcywgZnJvbSBuYXRpb25hbCBzZWN1cml0eSB0byB0aGUg
+        ZWNvbm9teSwgZnJvbSBpc3N1ZXMgb2YgaGVhbHRoIGFuZCBzb2NpYWwgd2Vs
+        ZmFyZSB0byB0aGUgZW52aXJvbm1lbnQuIEFzIFRoZSBBc3NhdWx0IG9uIFJl
+        YXNvbiBzaG93cyB1cywgd2UgaGF2ZSBwcmVjaW91cyBsaXR0bGUgdGltZSB0
+        byB3YXN0ZS4iICJBbCBHb3JlXCdzIGxhcmdlciBnb2FsIGluIHRoaXMgYm9v
+        ayBpcyB0byBleHBsYWluIGhvdyB0aGUgcHVibGljIHNwaGVyZSBpdHNlbGYg
+        aGFzIGV2b2x2ZWQgaW50byBhIHBsYWNlIGhvc3BpdGFibGUgdG8gcmVhc29u
+        XCdzIGVuZW1pZXM7IHRvIG1ha2UgdXMgbW9yZSBhd2FyZSBvZiB0aGUgZm9y
+        Y2VzIGF0IHdvcmsgb24gb3VyIG93biBtaW5kczsgYW5kIHRvIGxlYWQgdXMg
+        dG8gYW4gdW5kZXJzdGFuZGluZyBvZiB3aGF0IHdlIGNhbiBkbywgaW5kaXZp
+        ZHVhbGx5IGFuZCBjb2xsZWN0aXZlbHksIHRvIHJlc3RvcmUgdGhlIHJ1bGUg
+        b2YgcmVhc29uIGFuZCBzYWZlZ3VhcmQgb3VyIGZ1dHVyZS4gRHJhd2luZyBv
+        biBhIGxpZmVcJ3Mgd29yayBpbiBwb2xpdGljcyBhcyB3ZWxsIGFzIG9uIHRo
+        ZSB3b3JrIG9mIGV4cGVydHMgYWNyb3NzIGEgYnJvYWQgcmFuZ2Ugb2YgZGlz
+        Y2lwbGluZXMsIEExIEdvcmUgaGFzIHdyaXR0ZW4gYSBmYXJzaWdodGVkIGFu
+        ZCBwb3dlcmZ1bCBtYW5pZmVzdG8gZm9yIGNsZWFyIHRoaW5raW5nLiItLUJP
+        T0sgSkFDS0VULiddLCdpc2JuX3R4dCc9PlsnOTc4MTU5NDIwMTIyNicsJzE1
+        OTQyMDEyMjYnXSwnaXNibl9kaXNwbGF5Jz0+Wyc5NzgxNTk0MjAxMjI2Jywn
+        MTU5NDIwMTIyNiddLCdsY2NuX2Rpc3BsYXknPT5bJzIwMDcwMDMyNjEnXSwn
+        bGNjbl90eHQnPT5bJzIwMDcwMDMyNjEnXSwnb2NsY190eHQnPT5bJ29jbTgx
+        MjUyNjY2JywnODEyNTI2NjYnXSwnb2NsY19kaXNwbGF5Jz0+WydvY204MTI1
+        MjY2NicsJzgxMjUyNjY2J10sJ2Z1bGxfcHVibGlzaGVyX2Rpc3BsYXknPT5b
+        J05ldyBZb3JrIDogUGVuZ3VpbiBQcmVzcywgMjAwNy4nXSwnbG9jYXRpb25f
+        Y2FsbF9udW1iZXJfaWRfZGlzcGxheSc9PlsnQnV0bGVyIFN0YWNrcyAoRW50
+        ZXIgYXQgdGhlIEJ1dGxlciBDaXJjdWxhdGlvbiBEZXNrKSA+PiBFOTAyIC5H
+        NjcgMjAwN3xERUxJTXw3OTAwNjY5JywnTGVobWFuID4+IEU5MDIgLkc2NyAy
+        MDA3fERFTElNfDgwNDMzMDQnLCdNaWxzdGVpbiBbQnV0bGVyXSA+PiBFOTAy
+        IC5HNjcgMjAwN3xERUxJTXw4MTE1MjE0J10sJ2xvY2F0aW9uX2NhbGxfbnVt
+        YmVyX3R4dCc9PlsnQnV0bGVyIFN0YWNrcyAoRW50ZXIgYXQgdGhlIEJ1dGxl
+        ciBDaXJjdWxhdGlvbiBEZXNrKSA+PiBFOTAyIC5HNjcgMjAwNycsJ0xlaG1h
+        biA+PiBFOTAyIC5HNjcgMjAwNycsJ01pbHN0ZWluIFtCdXRsZXJdID4+IEU5
+        MDIgLkc2NyAyMDA3J10sJ2NhbGxfbnVtYmVyX3R4dCc9PlsnRTkwMiAuRzY3
+        IDIwMDcnLCdFOTAyIC5HNjcgMjAwNycsJ0U5MDIgLkc2NyAyMDA3J10sJ2Nh
+        bGxfbnVtYmVyX2Rpc3BsYXknPT5bJ0U5MDIgLkc2NyAyMDA3JywnRTkwMiAu
+        RzY3IDIwMDcnLCdFOTAyIC5HNjcgMjAwNyddLCdsb2NhdGlvbl9mYWNldCc9
+        PlsnQnV0bGVyIFN0YWNrcycsJ0xlaG1hbicsJ01pbHN0ZWluJ10sJ2xvY2F0
+        aW9uX3R4dCc9PlsnQnV0bGVyIFN0YWNrcyAoRW50ZXIgYXQgdGhlIEJ1dGxl
+        ciBDaXJjdWxhdGlvbiBEZXNrKSA+PiBFOTAyIC5HNjcgMjAwNycsJ0xlaG1h
+        biA+PiBFOTAyIC5HNjcgMjAwNycsJ01pbHN0ZWluIFtCdXRsZXJdID4+IEU5
+        MDIgLkc2NyAyMDA3J10sJ3VybF9tdW5nZWRfZGlzcGxheSc9PlsnMnx8fENv
+        bnRyaWJ1dG9yIGJpb2dyYXBoaWNhbCBpbmZvcm1hdGlvbnx8fGh0dHA6Ly93
+        d3cubG9jLmdvdi9jYXRkaXIvZW5oYW5jZW1lbnRzL2Z5MDc0My8yMDA3MDAz
+        MjYxLWIuaHRtbHx8fCcsJzJ8fHxQdWJsaXNoZXIgZGVzY3JpcHRpb258fHxo
+        dHRwOi8vd3d3LmxvYy5nb3YvY2F0ZGlyL2VuaGFuY2VtZW50cy9meTA3NDMv
+        MjAwNzAwMzI2MS1kLmh0bWx8fHwnXSwnc2hlbGZrZXknPT5bJ2xvYytlLS0r
+        MDkwMiswMDAwMDAwMCtnNjcwMDAwMCswMDIwMDcrNjIwMTk3NSddLCdyZXZl
+        cnNlX3NoZWxma2V5Jz0+WydlYm5+bH5+fnpxenh+enp6enp6enp+anRzenp6
+        enp+enp4enpzfnR4enlxc3V+fn5+fiddLCdpdGVtX2Rpc3BsYXknPT5bJ0U5
+        MDIgLkc2NyAyMDA3IHwgbG9jK2UtLSswOTAyKzAwMDAwMDAwK2c2NzAwMDAw
+        KzAwMjAwNys2MjAxOTc1IHwgZWJufmx+fn56cXp4fnp6enp6enp6fmp0c3p6
+        enp6fnp6eHp6c350eHp5cXN1fn5+fn4nXSwndGltZXN0YW1wJz0+JzIwMTYt
+        MDUtMjNUMjA6MDQ6MzcuMjUyWicsJ2F1dGhvcml0aWVzX2R0Jz0+JzIwMTYt
+        MDUtMjRUMjA6Mzc6NTJaJywnYXV0aG9yX3ZhcmlhbnRfdHh0Jz0+WydHb3Jl
+        LCBBbGJlcnQsIDE5NDgtIEdvcmUsIEFsYmVydCBBcm5vbGQsIEpyLiwgMTk0
+        OC0g0JPQvtGALCDQkNC70YzQsdC10YDRgiwgMTk0OC0g0JPQvtGALCDQkNC7
+        LCAxOTQ4LSddLCdzdWJqZWN0X3ZhcmlhbnRfdHh0Jz0+WycgQ3VsdHVyZSBQ
+        b2xpdGljYWwgc2NpZW5jZSBTZWxmLWdvdmVybm1lbnQgRXF1YWxpdHkgUmVw
+        cmVzZW50YXRpdmUgZ292ZXJubWVudCBhbmQgcmVwcmVzZW50YXRpb24gUmVw
+        dWJsaWNzIE1pbmQgSW50ZWxsZWN0IFJhdGlvbmFsaXNtIEZyaWdodCBFbW90
+        aW9ucyBBbnhpZXR5IEhvcnJvciBEaXNjbG9zaW5nIG9mZmljaWFsIHNlY3Jl
+        dHMgR292ZXJubWVudCBzZWNyZWN5IFNlY3JlY3kgaW4gZ292ZXJubWVudCBT
+        ZWNyZXRzLCBPZmZpY2lhbCBTZWNyZXRzIG9mIHN0YXRlIENvbmZpZGVudGlh
+        bCBjb21tdW5pY2F0aW9ucyBDcmltaW5hbCBsYXcgR292ZXJubWVudCBhbmQg
+        dGhlIHByZXNzIEdvdmVybm1lbnQgaW5mb3JtYXRpb24gTWluaXN0ZXJpYWwg
+        cmVzcG9uc2liaWxpdHkgU2VjcmVjeSBGdW5kYW1lbnRhbGlzbSwgUmVsaWdp
+        b3VzIEZ1bmRhbWVudGFsaXN0IG1vdmVtZW50cywgUmVsaWdpb3VzIFJlbGln
+        aW9uJ10sJ192ZXJzaW9uXyc9PjE1MzUyNDM0NzYyODQ3MzU0ODh9XX19Cg==
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:04 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/9781594201226.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 19:33:04 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:33:04 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        19:43:04 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:04 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/1594201226.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 19:33:04 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:33:05 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        19:43:05 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:05 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocm81252666.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 19:33:05 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:33:05 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        19:43:05 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:05 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/81252666.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 19:33:05 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:33:05 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        19:43:05 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:05 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/lccn/2007003261.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 19:33:05 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:33:05 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        19:43:05 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:05 GMT
+  recorded_at: Fri, 01 Jul 2016 20:48:58 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=6871895&qt=document&wt=ruby"
@@ -435,7 +894,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 19:33:05 GMT
+      - Fri, 01 Jul 2016 20:48:59 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -445,9 +904,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'6871895','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+ds-+0326+00000000+p4745000+002009+6871895'],'location_call_number_id_display'=>['Milstein [Butler] >> DS326 .P4745 2009|DELIM|9336454','Butler Stacks (Enter at the Butler Circulation Desk) >> DS326 .P4745 2009|DELIM|9902579','Lehman >> DS326 .P4745 2009|DELIM|10336040'],'lccn_display'=>['2008021284'],'acq_dt'=>'2010-07-26T00:00:00Z','item_display'=>['DS326 .P4745 2009 | loc+ds-+0326+00000000+p4745000+002009+6871895 | ebn~m7~~zwxt~zzzzzzzz~avsvuzzz~zzxzzq~trsyrqu~~~~~'],'title_display'=>['The Persian Gulf in history'],'clio_id_display'=>'6871895','subject_topic_facet'=>['History'],'pub_place_display'=>['New York'],'format'=>['Book'],'oclc_display'=>['ocn228427351','228427351'],'url_munged_display'=>['2|||Contributor biographical information|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-b.html|||','2|||Publisher description|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-d.html|||','1|||Table of contents only|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-t.html|||'],'title_first_facet'=>['P'],'pub_date_sort'=>2009,'full_publisher_display'=>['New York : Palgrave Macmillan, 2009.'],'isbn_display'=>['1403972451','9781403972453'],'pub_year_display'=>['2009'],'id'=>'6871895','reverse_shelfkey'=>['ebn~m7~~zwxt~zzzzzzzz~avsvuzzz~zzxzzq~trsyrqu~~~~~'],'subject_geo_facet'=>['Persian Gulf Region'],'call_number_display'=>['DS326 .P4745 2009'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>03377cam a22004814a 4500</leader><controlfield tag="001">6871895</controlfield><controlfield tag="005">20100818145900.0</controlfield><controlfield tag="008">080519s2009    nyuab    b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2008021284</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1403972451</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781403972453</subfield></datafield><datafield tag="024" ind1=" " ind2=" "><subfield code="a">40016299031</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn228427351</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)228427351</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)6871895</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">BAKER</subfield><subfield code="d">BTCTA</subfield><subfield code="d">C#P</subfield><subfield code="d">BWX</subfield><subfield code="d">OrLoB-B</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">ap-----</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">DS326</subfield><subfield code="b">.P4745 2009</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">953.6</subfield><subfield code="2">22</subfield></datafield><datafield tag="245" ind1="0" ind2="4"><subfield code="a">The Persian Gulf in history /</subfield><subfield code="c">edited by Lawrence G. Potter.</subfield></datafield><datafield tag="250" ind1=" " ind2=" "><subfield code="a">1st ed.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Palgrave Macmillan,</subfield><subfield code="c">2009.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">iv, 326 p. :</subfield><subfield code="b">ill., maps ;</subfield><subfield code="c">25 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="505" ind1="0" ind2="0"><subfield code="t">Introduction /</subfield><subfield code="r">Lawrence G. Potter --</subfield><subfield code="g">Pt. I.</subfield><subfield code="t">Gulf History and Society --</subfield><subfield code="g">1.</subfield><subfield code="t">The Archaeology and Early History of the Persian Gulf /</subfield><subfield code="r">D. T. Potts --</subfield><subfield code="g">2.</subfield><subfield code="t">The Persian Gulf in Late Antiquity: The Sasanian Era (200-700 C.E.) /</subfield><subfield code="r">Touraj Daryaee --</subfield><subfield code="g">3.</subfield><subfield code="t">The Gulf in the Early Islamic Period: The Contribution of Archaeology to Regional History /</subfield><subfield code="r">Donald Whitcomb --</subfield><subfield code="g">4.</subfield><subfield code="t">The Kings of Hormuz: From the Beginning until the Arrival of the Portuguese /</subfield><subfield code="r">Mohammad Bagher Vosoughi --</subfield><subfield code="g">5.</subfield><subfield code="t">Boom and Bust: The Port of Basra in the Sixteenth and Seventeenth Centuries /</subfield><subfield code="r">Rudi Matthee --</subfield><subfield code="g">6.</subfield><subfield code="t">The Arab Presence on the Iranian Coast of the Persian Gulf /</subfield><subfield code="r">Shahnaz Razieh Nadjmabadi --</subfield><subfield code="g">7.</subfield><subfield code="t">Gulf Society: An Anthropological View of the Khalijis - Their Evolution and Way of Life /</subfield><subfield code="r">William O. Beeman --</subfield><subfield code="g">Pt. II.</subfield><subfield code="t">The Gulf and the Indian Ocean --</subfield><subfield code="g">8.</subfield><subfield code="t">The Cultural Unity of the Gulf and the Indian Ocean: A Longue Duree Historical Perspective /</subfield><subfield code="r">M. Redha Bhacker --</subfield><subfield code="g">9.</subfield><subfield code="t">The Persian Gulf and the Swahili Coast: A History of Acculturation over the Longue Duree /</subfield><subfield code="r">Abdul Sheriff --</subfield><subfield code="g">10.</subfield><subfield code="t">India and the Gulf: Encounters from the Mid-Sixteenth to the Mid-Twentieth Centuries /</subfield><subfield code="r">Patricia Risso --</subfield><subfield code="g">Pt. III.</subfield><subfield code="t">The Role of Outsiders --</subfield><subfield code="g">11.</subfield><subfield code="t">The Portuguese Presence in the Persian Gulf /</subfield><subfield code="r">Joao Teles e Cunha --</subfield><subfield code="g">12.</subfield><subfield code="t">Dutch Relations with the Persian Gulf /</subfield><subfield code="r">Willem Floor --</subfield><subfield code="g">13.</subfield><subfield code="t">The Ottoman Role in the Gulf /</subfield><subfield code="r">Frederick Anscombe --</subfield><subfield code="g">14.</subfield><subfield code="t">Britain and the Gulf: At the Periphery of Empire /</subfield><subfield code="r">J. E. Peterson --</subfield><subfield code="g">15.</subfield><subfield code="t">The United States and the Persian Gulf in the Twentieth Century /</subfield><subfield code="r">Gary Sick.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">Persian Gulf Region</subfield><subfield code="x">History.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Potter, Lawrence G.</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Contributor biographical information</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-b.html</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Publisher description</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-d.html</subfield></datafield><datafield tag="856" ind1="4" ind2="1"><subfield code="3">Table of contents only</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-t.html</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield><subfield code="b">TOC</subfield></datafield><datafield tag="960" ind1=" " ind2=" "><subfield code="f">617420</subfield><subfield code="o">1</subfield><subfield code="s">72.41</subfield><subfield code="t">sho</subfield><subfield code="u">2576B</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20090210</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20090804</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20100726</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">DS</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">DS326 .P4745 2009</subfield><subfield code="b">loc+DS-+0326+00000000+P4745000+002009</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein [Butler] &gt;&gt; DS326 .P4745 2009|DELIM|9336454</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; DS326 .P4745 2009|DELIM|9902579</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Lehman</subfield><subfield code="b">Lehman &gt;&gt; DS326 .P4745 2009|DELIM|10336040</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2010-07-26T00:00:00.000Z</subfield></datafield></record></collection>','pub_name_display'=>['Palgrave Macmillan'],'source_display'=>['catalog'],'material_type_display'=>['iv, 326 p.'],'language_facet'=>['English'],'_version_'=>1503691827719438336,'timestamp'=>'2015-06-11T14:17:55.885Z'}]}}
+        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'6871895','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'6871895','marc_display'=>'<record><leader>03377cam a22004814a 4500</leader><controlfield tag="001">6871895</controlfield><controlfield tag="005">20100818145900.0</controlfield><controlfield tag="008">080519s2009    nyuab    b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2008021284</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1403972451</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781403972453</subfield></datafield><datafield tag="024" ind1=" " ind2=" "><subfield code="a">40016299031</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn228427351</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)228427351</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)6871895</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">BAKER</subfield><subfield code="d">BTCTA</subfield><subfield code="d">C#P</subfield><subfield code="d">BWX</subfield><subfield code="d">OrLoB-B</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">ap-----</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">DS326</subfield><subfield code="b">.P4745 2009</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">953.6</subfield><subfield code="2">22</subfield></datafield><datafield tag="245" ind1="0" ind2="4"><subfield code="a">The Persian Gulf in history /</subfield><subfield code="c">edited by Lawrence G. Potter.</subfield></datafield><datafield tag="250" ind1=" " ind2=" "><subfield code="a">1st ed.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Palgrave Macmillan,</subfield><subfield code="c">2009.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">iv, 326 p. :</subfield><subfield code="b">ill., maps ;</subfield><subfield code="c">25 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="505" ind1="0" ind2="0"><subfield code="t">Introduction /</subfield><subfield code="r">Lawrence G. Potter --</subfield><subfield code="g">Pt. I.</subfield><subfield code="t">Gulf History and Society --</subfield><subfield code="g">1.</subfield><subfield code="t">The Archaeology and Early History of the Persian Gulf /</subfield><subfield code="r">D. T. Potts --</subfield><subfield code="g">2.</subfield><subfield code="t">The Persian Gulf in Late Antiquity: The Sasanian Era (200-700 C.E.) /</subfield><subfield code="r">Touraj Daryaee --</subfield><subfield code="g">3.</subfield><subfield code="t">The Gulf in the Early Islamic Period: The Contribution of Archaeology to Regional History /</subfield><subfield code="r">Donald Whitcomb --</subfield><subfield code="g">4.</subfield><subfield code="t">The Kings of Hormuz: From the Beginning until the Arrival of the Portuguese /</subfield><subfield code="r">Mohammad Bagher Vosoughi --</subfield><subfield code="g">5.</subfield><subfield code="t">Boom and Bust: The Port of Basra in the Sixteenth and Seventeenth Centuries /</subfield><subfield code="r">Rudi Matthee --</subfield><subfield code="g">6.</subfield><subfield code="t">The Arab Presence on the Iranian Coast of the Persian Gulf /</subfield><subfield code="r">Shahnaz Razieh Nadjmabadi --</subfield><subfield code="g">7.</subfield><subfield code="t">Gulf Society: An Anthropological View of the Khalijis - Their Evolution and Way of Life /</subfield><subfield code="r">William O. Beeman --</subfield><subfield code="g">Pt. II.</subfield><subfield code="t">The Gulf and the Indian Ocean --</subfield><subfield code="g">8.</subfield><subfield code="t">The Cultural Unity of the Gulf and the Indian Ocean: A Longue Duree Historical Perspective /</subfield><subfield code="r">M. Redha Bhacker --</subfield><subfield code="g">9.</subfield><subfield code="t">The Persian Gulf and the Swahili Coast: A History of Acculturation over the Longue Duree /</subfield><subfield code="r">Abdul Sheriff --</subfield><subfield code="g">10.</subfield><subfield code="t">India and the Gulf: Encounters from the Mid-Sixteenth to the Mid-Twentieth Centuries /</subfield><subfield code="r">Patricia Risso --</subfield><subfield code="g">Pt. III.</subfield><subfield code="t">The Role of Outsiders --</subfield><subfield code="g">11.</subfield><subfield code="t">The Portuguese Presence in the Persian Gulf /</subfield><subfield code="r">Joao Teles e Cunha --</subfield><subfield code="g">12.</subfield><subfield code="t">Dutch Relations with the Persian Gulf /</subfield><subfield code="r">Willem Floor --</subfield><subfield code="g">13.</subfield><subfield code="t">The Ottoman Role in the Gulf /</subfield><subfield code="r">Frederick Anscombe --</subfield><subfield code="g">14.</subfield><subfield code="t">Britain and the Gulf: At the Periphery of Empire /</subfield><subfield code="r">J. E. Peterson --</subfield><subfield code="g">15.</subfield><subfield code="t">The United States and the Persian Gulf in the Twentieth Century /</subfield><subfield code="r">Gary Sick.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">Persian Gulf Region</subfield><subfield code="x">History.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Potter, Lawrence G.</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Contributor biographical information</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-b.html</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Publisher description</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-d.html</subfield></datafield><datafield tag="856" ind1="4" ind2="1"><subfield code="3">Table of contents only</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-t.html</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield><subfield code="b">TOC</subfield></datafield><datafield tag="960" ind1=" " ind2=" "><subfield code="f">617420</subfield><subfield code="o">1</subfield><subfield code="s">72.41</subfield><subfield code="t">sho</subfield><subfield code="u">2576B</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20090210</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20090804</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20100726</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">DS</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">DS326 .P4745 2009</subfield><subfield code="b">loc+DS-+0326+00000000+P4745000+002009</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein [Butler] &gt;&gt; DS326 .P4745 2009|DELIM|9336454</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; DS326 .P4745 2009|DELIM|9902579</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Lehman</subfield><subfield code="b">Lehman &gt;&gt; DS326 .P4745 2009|DELIM|10336040</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2010-07-26T00:00:00.000Z</subfield></datafield></record>','text'=>['DS326 .P4745 2009','953.6 22','The Persian Gulf in history / edited by Lawrence G. Potter.','1st ed.','New York : Palgrave Macmillan, 2009.','iv, 326 p. : ill., maps ; 25 cm.','Includes bibliographical references and index.','Introduction / Lawrence G. Potter -- Pt. I. Gulf History and Society -- 1. The Archaeology and Early History of the Persian Gulf / D. T. Potts -- 2. The Persian Gulf in Late Antiquity: The Sasanian Era (200-700 C.E.) / Touraj Daryaee -- 3. The Gulf in the Early Islamic Period: The Contribution of Archaeology to Regional History / Donald Whitcomb -- 4. The Kings of Hormuz: From the Beginning until the Arrival of the Portuguese / Mohammad Bagher Vosoughi -- 5. Boom and Bust: The Port of Basra in the Sixteenth and Seventeenth Centuries / Rudi Matthee -- 6. The Arab Presence on the Iranian Coast of the Persian Gulf / Shahnaz Razieh Nadjmabadi -- 7. Gulf Society: An Anthropological View of the Khalijis - Their Evolution and Way of Life / William O. Beeman -- Pt. II. The Gulf and the Indian Ocean -- 8. The Cultural Unity of the Gulf and the Indian Ocean: A Longue Duree Historical Perspective / M. Redha Bhacker -- 9. The Persian Gulf and the Swahili Coast: A History of Acculturation over the Longue Duree / Abdul Sheriff -- 10. India and the Gulf: Encounters from the Mid-Sixteenth to the Mid-Twentieth Centuries / Patricia Risso -- Pt. III. The Role of Outsiders -- 11. The Portuguese Presence in the Persian Gulf / Joao Teles e Cunha -- 12. Dutch Relations with the Persian Gulf / Willem Floor -- 13. The Ottoman Role in the Gulf / Frederick Anscombe -- 14. Britain and the Gulf: At the Periphery of Empire / J. E. Peterson -- 15. The United States and the Persian Gulf in the Twentieth Century / Gary Sick.','Persian Gulf Region History.','Potter, Lawrence G.','Contributor biographical information http://www.loc.gov/catdir/enhancements/fy0834/2008021284-b.html','Publisher description http://www.loc.gov/catdir/enhancements/fy0834/2008021284-d.html','Table of contents only http://www.loc.gov/catdir/enhancements/fy0834/2008021284-t.html','AUTH TOC','617420 1 72.41 sho 2576B','20090210 c sl13 MPS','20090804 a rad1 MPS','20100726 a rad1 MPS'],'author_addl_txt'=>['Potter, Lawrence G.'],'author_facet'=>['Potter, Lawrence G.'],'author_sort'=>'Persian Gulf in history edited by Lawrence G. Potter','title_txt'=>['The Persian Gulf in history /'],'title_display'=>['The Persian Gulf in history'],'title_filing_txt'=>['Persian Gulf in history /'],'title_filing_full_txt'=>['Persian Gulf in history /'],'title_first_facet'=>['P'],'title_addl_txt'=>['The Persian Gulf in history /'],'title_sort'=>'persian gulf in history','subject_txt'=>['Persian Gulf Region History'],'subject_topic_facet'=>['History'],'subject_geo_facet'=>['Persian Gulf Region'],'pub_place_display'=>['New York'],'pub_name_display'=>['Palgrave Macmillan'],'pub_year_display'=>['2009'],'pub_place_txt'=>['New York'],'pub_name_txt'=>['Palgrave Macmillan'],'pub_year_txt'=>['2009'],'pub_date_txt'=>['2009'],'language_facet'=>['English'],'format'=>['Book'],'lc_1letter_facet'=>['D - World History'],'lc_2letter_facet'=>['DS - Asia (History)'],'lc_subclass_facet'=>['DS - Asia (History)'],'clio_id_display'=>'6871895','acq_dt'=>'2010-07-26T00:00:00Z','source_facet'=>['catalog'],'source_display'=>['catalog'],'isbn_txt'=>['1403972451','9781403972453'],'isbn_display'=>['1403972451','9781403972453'],'lccn_display'=>['2008021284'],'lccn_txt'=>['2008021284'],'oclc_txt'=>['ocn228427351','228427351'],'oclc_display'=>['ocn228427351','228427351'],'full_publisher_display'=>['New York : Palgrave Macmillan, 2009.'],'location_call_number_id_display'=>['Milstein [Butler] >> DS326 .P4745 2009|DELIM|9336454','Butler Stacks (Enter at the Butler Circulation Desk) >> DS326 .P4745 2009|DELIM|9902579','Lehman >> DS326 .P4745 2009|DELIM|10336040'],'location_call_number_txt'=>['Milstein [Butler] >> DS326 .P4745 2009','Butler Stacks (Enter at the Butler Circulation Desk) >> DS326 .P4745 2009','Lehman >> DS326 .P4745 2009'],'call_number_txt'=>['DS326 .P4745 2009','DS326 .P4745 2009','DS326 .P4745 2009'],'call_number_display'=>['DS326 .P4745 2009','DS326 .P4745 2009','DS326 .P4745 2009'],'location_facet'=>['Milstein','Butler Stacks','Lehman'],'location_txt'=>['Milstein [Butler] >> DS326 .P4745 2009','Butler Stacks (Enter at the Butler Circulation Desk) >> DS326 .P4745 2009','Lehman >> DS326 .P4745 2009'],'url_munged_display'=>['2|||Contributor biographical information|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-b.html|||','2|||Publisher description|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-d.html|||','1|||Table of contents only|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-t.html|||'],'shelfkey'=>['loc+ds-+0326+00000000+p4745000+002009+6871895'],'reverse_shelfkey'=>['ebn~m7~~zwxt~zzzzzzzz~avsvuzzz~zzxzzq~trsyrqu~~~~~'],'item_display'=>['DS326 .P4745 2009 | loc+ds-+0326+00000000+p4745000+002009+6871895 | ebn~m7~~zwxt~zzzzzzzz~avsvuzzz~zzxzzq~trsyrqu~~~~~'],'timestamp'=>'2016-05-23T20:04:37.776Z','authorities_dt'=>'2016-05-25T00:03:28Z','author_variant_txt'=>['Potter, Lawrence Goddard'],'subject_variant_txt'=>['Annals Auxiliary sciences of history'],'_version_'=>1535256411298070528}]}}
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:05 GMT
+  recorded_at: Fri, 01 Jul 2016 20:48:58 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/6871895"
@@ -456,11 +915,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      - HTTPClient/1.0 (2.8.0, ruby 2.2.1 (2015-02-26))
       Accept:
       - "*/*"
       Date:
-      - Tue, 22 Sep 2015 19:33:06 GMT
+      - Fri, 01 Jul 2016 20:48:58 GMT
   response:
     status:
       code: 200
@@ -472,30 +931,36 @@ http_interactions:
       - chunked
       Connection:
       - keep-alive
+      Vary:
+      - Accept-Encoding
       Status:
-      - '200'
-      X-Powered-By:
-      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
+      - 200 OK
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - W/"a01770f721f4a51a61ea62c5f93029d6"
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
       - 1; mode=block
       X-Content-Type-Options:
       - nosniff
-      Access-Control-Allow-Origin:
-      - "*"
+      X-Runtime:
+      - '1.251821'
       Access-Control-Request-Method:
       - "*"
-      Etag:
-      - W/"a01770f721f4a51a61ea62c5f93029d6"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 7309d4bf-460c-47c5-ac57-825b688976da
-      X-Runtime:
-      - '1.653005'
+      - 52bc750c-b2e1-41cd-82da-c6f8633b25fa
+      Date:
+      - Fri, 01 Jul 2016 20:49:00 GMT
+      X-Powered-By:
+      - Phusion Passenger
       Server:
-      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+      - nginx + Phusion Passenger
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubdomains; preload
     body:
       encoding: UTF-8
       string: '{"6871895":{"condensed_holdings_full":[{"location_name":"Butler Stacks
@@ -504,31 +969,5 @@ http_interactions:
         .P4745 2009","status":"available","holding_id":["10336040"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]},{"location_name":"Milstein
         [Butler]","location_note":"","call_number":"DS326 .P4745 2009","status":"available","holding_id":["9336454"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]}]}}'
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:08 GMT
-- request:
-    method: get
-    uri: "<solr_config>/select?id=10104738&qt=document&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 26 Apr 2016 20:58:40 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'10104738','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+e--+0302+60000000+m7000000+c3700000+002013+10104738','clm+ce-+0000+00000000+mo830000+10104738'],'location_call_number_id_display'=>['Rare Book, Butler 6th Fl. East (Non-Circulating)|DELIM|13180928','University Archives, Butler 6th Fl. East (Non-Circulating) >> CE Mo83|DELIM|13945799'],'acq_dt'=>'2014-08-08T00:00:00Z','item_display'=>['E302.6.M7 C37 2013 | loc+e--+0302+60000000+m7000000+c3700000+002013+10104738 | ebn~l~~~zwzx~tzzzzzzz~dszzzzzz~nwszzzzz~zzxzyw~yzyzvswr','CE Mo83 | clm+ce-+0000+00000000+mo830000+10104738 | ned~nl~~zzzz~zzzzzzzz~dbrwzzzz~yzyzvswr~~~~~~~~~~~'],'title_display'=>['The young Gouverneur Morris : two essays'],'clio_id_display'=>'10104738','subject_topic_facet'=>['Morris, Gouverneur, 1752-1816','United States','Signers','Statesmen','History','Politics and government'],'pub_place_display'=>['Portola Valley, Calif'],'format'=>['Book'],'oclc_display'=>['ocn830538751','830538751'],'title_first_facet'=>['Y'],'full_publisher_display'=>['Portola Valley, Calif. : Galloway Hills Press, c2013.'],'pub_date_sort'=>2013,'pub_year_display'=>['c2013'],'id'=>'10104738','reverse_shelfkey'=>['ebn~l~~~zwzx~tzzzzzzz~dszzzzzz~nwszzzzz~zzxzyw~yzyzvswr','ned~nl~~zzzz~zzzzzzzz~dbrwzzzz~yzyzvswr~~~~~~~~~~~'],'subject_geo_facet'=>['United States','New York (State)'],'call_number_display'=>['CE Mo83'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01541cam a2200385Ma 4500</leader><controlfield tag="001">10104738</controlfield><controlfield tag="005">20140922151551.0</controlfield><controlfield tag="008">121217s2013    caua     b    000 0 eng d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn830538751</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)830538751</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)10104738</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">NHi</subfield><subfield code="b">eng</subfield><subfield code="c">N15</subfield><subfield code="d">OCLCO</subfield></datafield><datafield tag="050" ind1="1" ind2="4"><subfield code="a">E302.6.M7</subfield><subfield code="b">C37 2013</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Carnochan, W. B.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The young Gouverneur Morris :</subfield><subfield code="b">two essays.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Portola Valley, Calif. :</subfield><subfield code="b">Galloway Hills Press,</subfield><subfield code="c">c2013.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">[10], 44 p., [2] leaves of plates :</subfield><subfield code="b">ill. ;</subfield><subfield code="c">23 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Morris, Gouverneur,</subfield><subfield code="d">1752-1816.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Statesmen</subfield><subfield code="z">United States</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="610" ind1="1" ind2="0"><subfield code="a">United States.</subfield><subfield code="t">Constitution</subfield><subfield code="x">Signers</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">History</subfield><subfield code="y">Revolution, 1775-1783</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">New York (State)</subfield><subfield code="x">History</subfield><subfield code="y">Revolution, 1775-1783</subfield><subfield code="v">Biography.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">Politics and government</subfield><subfield code="y">1775-1783.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">United States</subfield><subfield code="x">Politics and government</subfield><subfield code="y">1783-1789.</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20140808</subfield><subfield code="b">c</subfield><subfield code="c">cep2</subfield><subfield code="d">OSMC</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">E</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">E302.6.M7 C37 2013</subfield><subfield code="b">loc+E--+0302+60000000+M7000000+C3700000+002013</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">CE Mo83</subfield><subfield code="b">clm+CE-+0000+00000000+MO830000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Rare Book</subfield><subfield code="b">Rare Book, Butler 6th Fl. East (Non-Circulating)|DELIM|13180928</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Other</subfield><subfield code="b">University Archives, Butler 6th Fl. East (Non-Circulating) &gt;&gt; CE Mo83|DELIM|13945799</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2014-08-08T00:00:00.000Z</subfield></datafield></record></collection>','author_display'=>['Carnochan, W. B.'],'pub_name_display'=>['Galloway Hills Press'],'source_display'=>['catalog'],'material_type_display'=>['[10], 44 p., [2] leaves of plates'],'language_facet'=>['English'],'_version_'=>1522798412189138944,'timestamp'=>'2016-01-08T11:48:54.768Z'}]}}
-    http_version: 
-  recorded_at: Tue, 26 Apr 2016 20:58:40 GMT
+  recorded_at: Fri, 01 Jul 2016 20:49:00 GMT
 recorded_with: VCR 3.0.1
