@@ -30,19 +30,14 @@ env:
     # LIBRARY_API_PATH
     - secure: E04d3CX7q2po3xtZmSmeOvNJ6zJyBX6R9C/dj729UvCf8SGxO3Gcd19Wh86NBRRm4ucnDBg1aq7vazjRDvOuFCdNqrB/I4caYUohSxLTgX2SmfSd74LebERii9FXsHwKrhvEh8me16kqsF+h9OoAcEvDn4e4f2ybiZfbSuqdUpc=
     # AC2_SOLR_URL
-    # - secure: XUMiorwZ3XGSf6ta/KHHHlq3lVQvkpESDiKD8lMyKsxJ96rTIjikstq8lTdJJ6W1c3dW8Di2Aq2Q/84TI2uuJWB8VcuyKfOaqKV31odDLSd+fOkl8Fthxvl7fUBCVBrAlsktANE/jdPSm77AgZrdIYGKNCi0EjWSyT8OhXEDCw4=
+    - secure: XUMiorwZ3XGSf6ta/KHHHlq3lVQvkpESDiKD8lMyKsxJ96rTIjikstq8lTdJJ6W1c3dW8Di2Aq2Q/84TI2uuJWB8VcuyKfOaqKV31odDLSd+fOkl8Fthxvl7fUBCVBrAlsktANE/jdPSm77AgZrdIYGKNCi0EjWSyT8OhXEDCw4=
     # SUMMON__ACCESS_ID
-    #- secure: Dr+TiUUDOOw8QDZeSLEu2HxKWF0yEfIMJCmnhhHTh6r+Tlt175QWHf80WSyPw/4ogUWRrFnnho+owPVw1aEDc8fpCZme0yj8G6qvWZPy1+hnkOWeZ5GGqBvjq6h+Jr5AE1IY3k6yQb7N07rN8M/n2PFw3LzC1pgpZwqmj4Xl2po=
-    # # SUMMON__SECRET_KEY
-    # - secure: EfrKkxv6wbeU9Db9Bt4H5g/hACaHFVM7hs4bAi/4cpt4oOy6PEtjpZ4RPvrD6JW3jpLxHpLHXa0fk82dGO9b8RBhYhUwrBjBV0ZZOnxHSXvOdPvCId7Ljn98T9BHKAcOwHalGz1uBBoxC7tjc1/Wx3jSEg7S2B/Czlryx+E1Q3Q=
+    - secure: Dr+TiUUDOOw8QDZeSLEu2HxKWF0yEfIMJCmnhhHTh6r+Tlt175QWHf80WSyPw/4ogUWRrFnnho+owPVw1aEDc8fpCZme0yj8G6qvWZPy1+hnkOWeZ5GGqBvjq6h+Jr5AE1IY3k6yQb7N07rN8M/n2PFw3LzC1pgpZwqmj4Xl2po=
     # SUMMON__SECRET_KEY
-    #- secure: FDNmfO1d/PpcH/WmkGd5Gnd+ejEDudewVnZnW5HLI3RYN2ZDgKvAvO7O+CmmK3aTAC9CvI104rFgjbYmnmV6mANSUfkYyZTEXWF/ky0EGScZmUlAySG5DuGUp2p+wmxlMf2Dw/edor1SY4OVittRhM4aPeuz4kvXpVS07vqGowU=
-    # # CLIO_BACKEND_URL
-    # - secure: AX2z9hDTJ54rm5IrhjIeIrRh/Z/A65QWQ04o6t69+1Oy0yOyzNm7eRZ+ww94mXpHJdBiOsOm03u7jwo7zaEg8IkezmVdyvdExxVOYeSv3dOgn7bsj9nISTRtcrZ7zVZSKCASq+uuclo4ZepNFDiEIgsubJ91YAwhwx5J0EQfIjk=
+    - secure: FDNmfO1d/PpcH/WmkGd5Gnd+ejEDudewVnZnW5HLI3RYN2ZDgKvAvO7O+CmmK3aTAC9CvI104rFgjbYmnmV6mANSUfkYyZTEXWF/ky0EGScZmUlAySG5DuGUp2p+wmxlMf2Dw/edor1SY4OVittRhM4aPeuz4kvXpVS07vqGowU=
     # SOLR_URL
     # generated with:  $ travis encrypt SOLR_URL=http://pr-sv-1.lib.columbia.edu:8989/solr-4.8.3/spec_prd_mstr
-    #- secure: hqMFUbVTVeWZgZxW48UGXQWqCS+/P/ocVA4avyGBCbx2OXKHNOx9HgGN2qtdxGAI8EHtpoVReqn9NJz+nCcJCnKDalwKQ0ke7KV/G8bGiYujBDa12jCqmj9vi52MOgi2bhZ38pDC6twiYASdJ2vosUmIN5RSPveMd0n810p3Ft8=
-    #- secure: "SI87PQ6jZeklO97A8AnEx9DSf3voNin0s/zSb3zobBy0c/2PfkBtI/bjxLGPwdIjh8H7ieEC3KJR8dXtGhXKYsWcqIf8XxUBhcUa6UO/+DEp5CKLCs0No8vU7yIbM3f1Z38N43wOFjNPRHfia7OjyJ0zXcpipDJAvqHwbcEr+/w="
+    - secure: "SI87PQ6jZeklO97A8AnEx9DSf3voNin0s/zSb3zobBy0c/2PfkBtI/bjxLGPwdIjh8H7ieEC3KJR8dXtGhXKYsWcqIf8XxUBhcUa6UO/+DEp5CKLCs0No8vU7yIbM3f1Z38N43wOFjNPRHfia7OjyJ0zXcpipDJAvqHwbcEr+/w="
     # CLIO_BACKEND_URL
     - secure: g4oxrzPM1+06tOxAxZFep0Po71yx5hcrn9kyJJzzP/qBVuCyvBqasSSE13KssuGzTTpScnTgwokkWAWBTNQUWPzQzWNSk0/FBL5OnojcR3geZ1d1CdLTafd4YTQ8VtYzr/3vzK7wuh6Br8LpbolCQvRTrcX68bP7i5VZeZd7ruE=
 
