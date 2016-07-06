@@ -5,7 +5,7 @@ class CreateLocations < ActiveRecord::Migration
       t.text :found_in
       t.integer :library_id
       t.string :category, limit: 10
-      t.timestamps, null: true
+      t.timestamps null: true
     end
 
     add_index :locations, :name
