@@ -47,10 +47,6 @@ gem 'devise_cas_authenticatable'
 # for debugging, use local version...
 # gem 'devise_cas_authenticatable', path: '/Users/marquis/src/devise_cas_authenticatable'
 
-# Not being used, turn it off.
-# # Locally developed library code to interface with ClickTale analytics
-# gem 'clicktale', path: "lib/clicktale"
-
 gem 'json'
 
 # Always include sqlite, deploy to all servers, so that we can use dummy databases

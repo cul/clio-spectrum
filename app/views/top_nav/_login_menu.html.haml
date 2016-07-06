@@ -3,10 +3,10 @@
   %a.dropdown-toggle.menu(data-toggle="dropdown" href="#")
 
     - if current_user
-      %span.visible-xs.clicktale_masked
+      %span.visible-xs
         #{current_user.login}
         %b.caret
-      %span.hidden-xs.clicktale_masked
+      %span.hidden-xs
         #{current_user.name} (#{current_user.login})
         %b.caret
     - else
