@@ -39,7 +39,7 @@ VCR.configure do |c|
 
 
   # Not working?  Use this to spew debugging to console
-  # c.debug_logger = $stdout
+  c.debug_logger = $stdout
 
 
 end
