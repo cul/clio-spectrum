@@ -5,6 +5,8 @@ describe 'Database Highlights', :vcr do
 
   it "Should show highlighting in QuickSearch", :js do
     visit quicksearch_index_path('q' => 'medline ipswich')
+    expect(page).to have_css('.result_set', count: 4)
+    expect(page).to have_css('.nested_result_set', count: 4)
     within('.nested_result_set[data-source=catalog]') do
       find('.result.database_record', text: 'MEDLINE')
     end

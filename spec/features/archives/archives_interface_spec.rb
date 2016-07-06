@@ -37,6 +37,7 @@ describe 'Archives Search', :vcr do
     # save_and_open_page # debug
     # save_and_open_screenshot # debug
 
+    expect(page).to have_text '2 of '
     expect(find('#search_info')).to have_text '2 of '
     expect(page).to have_css('#search_info a', text: 'Previous')
     expect(page).to have_css('#search_info a', text: 'Next')

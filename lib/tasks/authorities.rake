@@ -344,6 +344,9 @@ def add_variants_to_biblist(biblist, age)
     end
   end
 
+  # Add a newline after printing all the status dots
+  puts ""
+
   # A final commit after the full biblist is processed
   begin
     BIB_SOLR.commit  # Slow......

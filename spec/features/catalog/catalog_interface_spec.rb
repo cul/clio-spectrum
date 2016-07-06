@@ -79,17 +79,11 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     visit catalog_path('513297')
 
     expect(page).to have_css('.holdings-container .holdings #clio_holdings')
-
-    # Debugging
-    # puts "JS Console Messages:"
-    # page.driver.console_messages.each { |m| puts m.inspect }
-    # puts "JS Error Messages:"
-    # page.driver.error_messages.each { |m| puts m.inspect }
-
     expect(page).to have_css('.holdings-container .holdings #google_holdings')
     expect(page).to have_css('.holdings-container .holdings #hathi_holdings')
 
     # Should see the 'Full View' message in the Hathi Holdings box
+    expect(page).to have_css('#hathi_holdings #hathi_data')
     expect(find('#hathi_holdings #hathi_data')).to have_content('Full view')
 
     # visit this specific item
@@ -363,14 +357,14 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   it "should show Series Title when searching by Series Title" do
     # Basic Search
     visit catalog_index_path('q' => 'Black Sea', 'search_field' => 'series_title')
-    expect(page).to have_text('Series Title Black Sea studies')
+    expect(page).to have_text('Series Black Sea studies')
 
     # Advanced Search
     series_title_clause = {"field" => "series_title", "value" => "black sea"}
     adv_search_fields = {"1" => series_title_clause}
     visit catalog_index_path('search_field' => 'advanced', 'adv' => adv_search_fields)
     # save_and_open_page
-    expect(page).to have_text('Series Title Black Sea studies')
+    expect(page).to have_text('Series Black Sea studies')
   end
 
   # NEXT-1043 - Better handling of extremely long queries

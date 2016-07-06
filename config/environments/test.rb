@@ -15,9 +15,11 @@ Clio::Application.configure do
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
 
-  # Caching??
-  # config.action_controller.perform_caching = false
-  config.action_controller.perform_caching = true
+  # Caching?  No, not during rspec testing.
+  # If remote datasource is down, or display logic is updated,
+  # cached fragment will have a broken or stale version of the page.
+  config.action_controller.perform_caching = false
+  # config.action_controller.perform_caching = true
 
   # Asset approach for test runs
   config.assets.compile = true
