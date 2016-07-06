@@ -34,7 +34,7 @@ class AddDeviseToUsers < ActiveRecord::Migration
       # t.string :authentication_token
 
       # Uncomment below if timestamps were not included in your original model.
-      # t.timestamps
+      # t.timestamps, null: true
     end
 
     add_index :users, :email,                unique: true

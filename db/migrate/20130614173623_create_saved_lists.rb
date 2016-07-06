@@ -8,7 +8,7 @@ class CreateSavedLists < ActiveRecord::Migration
       t.string :sort_by
       t.string :permissions, default: 'private'
 
-      t.timestamps
+      t.timestamps, null: true
     end
 
     add_index :saved_lists, [:owner, :slug], unique: true, name: 'savedlist_url'

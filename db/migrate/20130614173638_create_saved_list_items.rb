@@ -6,7 +6,7 @@ class CreateSavedListItems < ActiveRecord::Migration
       t.string :item_key, limit: 200
       t.integer :sort_order
 
-      t.timestamps
+      t.timestamps, null: true
     end
 
     add_index :saved_list_items, [:saved_list_id, :item_key], unique: true

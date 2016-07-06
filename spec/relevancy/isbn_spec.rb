@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'ISBN Searching' do
+describe 'ISBN Searching', :skip_travis do
 
   # Support fielded ISBN searches to hit on 020$z, "Canceled/invalid ISBN"
   # NEXT-1050 - Search for invalid ISBN
@@ -36,9 +36,6 @@ describe 'ISBN Searching' do
 
 
   # Searching by dash-delimited ISBN should work !!!
-
-
-
 
 end
 

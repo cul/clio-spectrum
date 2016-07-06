@@ -6,7 +6,7 @@ class CreateBookmarks < ActiveRecord::Migration
       t.string :document_id
       t.string :title
       t.text :notes
-      t.timestamps
+      t.timestamps, null: true
     end
   end
 

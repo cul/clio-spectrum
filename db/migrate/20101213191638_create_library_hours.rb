@@ -7,7 +7,7 @@ class CreateLibraryHours < ActiveRecord::Migration
       t.datetime :closes
       t.text :note
 
-      t.timestamps
+      t.timestamps, null: true
     end
 
     add_index :library_hours, [:library_id, :date]

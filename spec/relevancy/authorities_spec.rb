@@ -31,7 +31,7 @@ describe 'Authority support for Author variants', :skip_travis do
 
 end
 
-describe 'Authority support for Subject variants' do
+describe 'Authority support for Subject variants', :skip_travis do
 
   expectedHits = {
     'Heart Attack'  => 200,
@@ -50,7 +50,7 @@ describe 'Authority support for Subject variants' do
 end
 
 
-describe 'Authority support for Author authorities used as Subjects' do
+describe 'Authority support for Author authorities used as Subjects', :skip_travis do
 
   # pending("Solr schema reconfig has to happen first")
 

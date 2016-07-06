@@ -385,7 +385,8 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     expect(page).to have_text ("You searched for: #{too_long}")
   end
 
-  it "supports 'random query' feature", vcr: false do
+  # it "supports 'random query' feature", vcr: false, :skip_travis do
+  it "supports 'random query' feature", :skip_travis, vcr: false do
     visit catalog_index_path(random_q: true)
     expect(page).to have_css('li.datasource_link.selected[source="catalog"]')
     expect(page).to have_css('span.constraints-label', text: "You searched for:")
