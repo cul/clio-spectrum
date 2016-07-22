@@ -459,8 +459,11 @@ def lookup_subject_variants(bib_subjects)
 end
 
 def lookup_variants(authorized_form, authorized_field_name, variant_field_name)
-  # safe_authorized_form = authorized_form.gsub(/"/, '\"')
-  safe_authorized_form = CGI.escape authorized_form
+  safe_authorized_form = authorized_form.gsub(/"/, '\"')
+  #safe_authorized_form = CGI.escape authorized_form
+  # CGI.escape() does too much.  It produces the following:
+  #   :q=>"authorized_t:\"Aleksievich%2C+Svetlana%2C+1948-\""
+  # which doesn't hit in Solr
   params = { qt: 'select', rows: 1,
       q: "#{authorized_field_name}:\"#{safe_authorized_form}\"",
       fl: "id,#{authorized_field_name},#{variant_field_name}",

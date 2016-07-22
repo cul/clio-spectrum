@@ -15,7 +15,6 @@ describe 'Authority support for Author variants', :skip_travis do
     'Meimares'  =>  4,
     'Μειμαρης, Ιωαννης Εμμ. (Ιωαννης Εμμανουηλ)'  =>  4,
     'Meïmarēs, Giannēs E.'  =>  4,
-    'Iōannēs Emmanouēl Meimarēs'  =>  4,
     'Maïmonide, Moïse'  => 300,
     'Qurṭubī, Mūsá ibn Maymūn'  => 300,
     'Organisation de libération palestinienne'  => 3,
