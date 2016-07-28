@@ -15,8 +15,6 @@ describe 'ISBN Searching', :skip_travis do
 
   it 'should hit on 10- or 13-digit forms' do
 
-    pending("next prod deployment")
-
     # bib 5441161, ISBN-10 9608733006, ISBN-13 9789608733008
     resp = solr_resp_doc_ids_only(q: '9608733006', search_field: 'isbn')
     expect(resp.size).to eq 1

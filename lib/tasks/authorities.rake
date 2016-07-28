@@ -417,13 +417,14 @@ def add_variants_to_bib(bib, age = 365)
              authorities_dt: {set: Time.now.utc.iso8601}
             }
   if author_variants && author_variants.size > 0
-    params[:author_variant_txt] = {set: author_variants.flatten.uniq.join(' ') }
+    params[:author_variant_txt] = {set: author_variants.flatten.uniq }
   end
   if subject_variants && subject_variants.size > 0
-    # params[:subject_variant_txt] = {set: subject_variants.flatten.uniq.join(' ') }
     params[:subject_variant_txt] = {set: subject_variants.flatten.uniq }
   end
-  # puts "DEBUG  params:\n#{params}"
+  if ENV["DEBUG_AUTHORITIES"]
+    puts "DEBUG_AUTHORITIES: params:\n#{params}"
+  end
 
   # timing metrics...
   startTime = Time.now

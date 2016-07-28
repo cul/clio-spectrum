@@ -51,8 +51,6 @@ end
 
 describe 'Authority support for Author authorities used as Subjects', :skip_travis do
 
-  # pending("Solr schema reconfig has to happen first")
-
   expectedHits = {
     'Gaddafi'  => 1,
     'Keneday family' =>  1,

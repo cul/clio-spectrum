@@ -424,7 +424,6 @@ module DisplayHelper
   def add_row(title, value, options = {})
     options.reverse_merge!(@add_row_options) if @add_row_options.kind_of?(Hash)
     options.reverse_merge!(
-      display_blank: false,
       join: nil,
       abbreviate: nil,
       html_safe: true,
@@ -438,7 +437,7 @@ module DisplayHelper
     spans = options[:spans]
 
     result = ''
-    if options[:display_blank] || !value_txt.empty?
+    if !value_txt.empty?
       if options[:style] == :text
         result = (title.to_s + ': ' + value_txt.to_s + "\n").html_safe
       else
