@@ -36,6 +36,9 @@
   = add_row("Changed back to", generate_value_links(display_marc_field(marc, 'changed_back_to'), :serial))
 
   = add_row("Series", generate_value_links(display_marc_field(marc, 'series'), :series_title))
+
+  = add_row("In", display_marc_field(marc, 'in'))
+
   = add_row("Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_LC')))
   = add_row("Medical Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_mesh')))
   = add_row("Subjects (Genre)", generate_value_links_subject(display_marc_field(marc, 'subject_genre')))

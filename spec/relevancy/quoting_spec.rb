@@ -3,7 +3,7 @@ require 'spec_helper'
 
 # NEXT-824 - Apostrophe character
 # Variations in character used in place of simple apostophe should all work
-describe "Apostrophe-like character searching" do
+describe "Apostrophe-like character searching", :skip_travis do
   characterList = [
     "\x27",          # APOSTROPHE
     "\xCA\xBC",      # MODIFIER LETTER APOSTROPHE
@@ -25,7 +25,6 @@ describe "Apostrophe-like character searching" do
         # puts "unquoted lookalike=[#{lookalike}]"
         query = "Qur#{lookalike}anic and non-Qur#{lookalike}anic Islam"
         resp = solr_resp_doc_ids_only('q' => query)
-        
         expect(rank(resp, 2043563)).to be < 10
       end
     end
@@ -35,7 +34,6 @@ describe "Apostrophe-like character searching" do
       # puts "quoted lookalike=[#{lookalike}]"
       query = "Qur#{lookalike}anic and non-Qur#{lookalike}anic Islam"
       resp = solr_resp_doc_ids_only('q' => '"' + query + '"')
-      
       expect(rank(resp, 2043563)).to be < 10
     end
   end
@@ -51,15 +49,11 @@ end
 # they are now the same as 2354899.  Update expectations accordingly.
 # We have no other exmples of near-misses - we're not really testing
 # proper quote handling any longer here.
-describe 'Searching of N.Y. Subject Strings' do
+describe 'Searching of N.Y. Subject Strings', :skip_travis do
   baseTerm = 'Pennsylvania Station New York,'
 
   it "should work for:  N.Y., unquoted" do
     resp = solr_resp_doc_ids_only( subject_search_args("#{baseTerm} N.Y.") )
-    
-    
-    
-    
     expect(resp.size).to be >= 15
     expect(rank(resp, 2354899)).to be <= 3
     expect(rank(resp, 3460633)).to be <= 30
@@ -68,10 +62,6 @@ describe 'Searching of N.Y. Subject Strings' do
 
   it "should work for:  N. Y., unquoted" do
     resp = solr_resp_doc_ids_only( subject_search_args("#{baseTerm} N. Y.") )
-    
-    
-    
-    
     expect(resp.size).to be >= 15
     expect(rank(resp, 2354899)).to be <= 3
     expect(rank(resp, 3460633)).to be <= 30
@@ -80,10 +70,6 @@ describe 'Searching of N.Y. Subject Strings' do
 
   it "should work for:  NY, unquoted" do
     resp = solr_resp_doc_ids_only( subject_search_args("#{baseTerm} NY") )
-    
-    
-    
-    
     expect(resp.size).to be >= 15
     expect(rank(resp, 2354899)).to be <= 3
     expect(rank(resp, 3460633)).to be <= 30
@@ -111,7 +97,7 @@ end
 
 
 # NEXT-998 - single-quote within double-quotes
-describe 'Variants of query: "if i can\'t dance" revolution' do
+describe 'Variants of query: "if i can\'t dance" revolution', :skip_travis do
   variants = [
     '"if i can\'t dance" revolution',
     '"if i can\'t dance " revolution',
@@ -124,7 +110,6 @@ describe 'Variants of query: "if i can\'t dance" revolution' do
   variants.each do |variant|
     it "should work for: #{variant}" do
       resp = solr_resp_doc_ids_only('q' => variant)
-      
       expect(rank(resp, 9560671)).to be == 1
     end
   end
@@ -133,49 +118,43 @@ end
 
 
 # NEXT-999 - single-quote within double-quotes
-describe 'NEXT-999: Queries with embedded single-quotes' do
+describe 'NEXT-999: Queries with embedded single-quotes', :skip_travis do
   query = "Memoires de l'association francaise d'archeologie merovingienne"
   it "should have >=5 hits for unquoted #{query}" do
     resp = solr_resp_doc_ids_only('q' => query)
-    
     expect(resp.size).to be >= 5
   end
   it "should have >=5 hits for quoted #{query}" do
     resp = solr_resp_doc_ids_only('q' => '"' + query + '"')
-    
     expect(resp.size).to be >= 5
   end
 end
 
 
 # NEXT-1023 - single-quote within double-quotes
-describe 'NEXT-1023: Queries with embedded single-quotes' do
+describe 'NEXT-1023: Queries with embedded single-quotes', :skip_travis do
   query = "storia dell'urbanistica"
   it "should have >50 hits for unquoted #{query}" do
     resp = solr_resp_doc_ids_only('q' => query)
-    
     expect(resp.size).to be >= 50
   end
   it "should have >50 hits for quoted #{query}" do
     resp = solr_resp_doc_ids_only('q' => '"' + query + '"')
-    
     expect(resp.size).to be >= 50
   end
 end
 
 
 # NEXT-1034 - single-quote within double-quotes
-describe 'NEXT-1034: Queries with embedded single-quotes' do
+describe 'NEXT-1034: Queries with embedded single-quotes', :skip_travis do
   query = "dictionnaire de l'ameublement"
 
   it "should work for unquoted #{query}" do
     resp = solr_resp_doc_ids_only('q' => query)
-    
     expect(rank(resp, 3108332)).to be == 1
   end
   it "should work for quoted #{query}" do
     resp = solr_resp_doc_ids_only('q' => '"' + query + '"')
-    
     expect(rank(resp, 3108332)).to be == 1
   end
 

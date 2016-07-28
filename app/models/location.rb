@@ -12,7 +12,14 @@ class Location < ActiveRecord::Base
   #   library ? library.is_open?(check_at) : false
   # end
 
-  def self.match_location_text(location = nil)
+  # Given a string location, e.g., "Butler Mezzanine",
+  # query the Location table for a partial match (e.g., "Butler%"),
+  # return the Location object
+  def self.match_location_text(location_text = nil)
+    return unless location_text && location_text.length > 2
+
+    location_text = location_text.strip
+
     # move this out to the caller
     # # location comes from URL, and so will be escaped (e.g., spaces will be '+')
     # unescaped_location = CGI.unescape(location)
@@ -20,10 +27,10 @@ class Location < ActiveRecord::Base
 
     if connection.adapter_name.downcase.include?('mysql')
       # matches = find(:all, conditions: ["? LIKE CONCAT(locations.name, '%')", location], include: :library)
-      matches = where("? LIKE CONCAT(locations.name, '%')", location).joins('LEFT OUTER JOIN libraries ON libraries.id = locations.library_id')
+      matches = where("? LIKE CONCAT(locations.name, '%')", location_text).joins('LEFT OUTER JOIN libraries ON libraries.id = locations.library_id')
     else
       # matches = find(:all, conditions: ["? LIKE locations.name || '%'", location], include: :library)
-      matches = where("? LIKE locations.name || '%'", location).joins('LEFT OUTER JOIN libraries ON libraries.id = locations.library_id')
+      matches = where("? LIKE locations.name || '%'", location_text).joins('LEFT OUTER JOIN libraries ON libraries.id = locations.library_id')
     end
 
     max_length = matches.map { |m| m.name.length }.max
@@ -56,6 +63,9 @@ class Location < ActiveRecord::Base
     fixture = YAML.load_file('config/locations_fixture.yml')
 
     fixture.each do |location_hash|
+      # puts "vvv"
+      # puts location_hash.inspect
+      # puts "^^^"
       library = Library.find_by_hours_db_code(location_hash[:library_code]) if location_hash[:library_code]
 
       location = Location.create!(
@@ -66,12 +76,13 @@ class Location < ActiveRecord::Base
         location_code: location_hash[:location_code]
       )
 
-      if location
-
+      # Add links to this location, if they exist
+      if location && location_hash[:links]
         location_hash[:links].each_pair do |name, url|
           location.links.create(name: name, value: url)
         end
       end
+
     end
   end
 end

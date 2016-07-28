@@ -26,7 +26,6 @@ RSpec.configure do |config|
   connection_config = { url: solr_url }
 
   SOLR = RSolr.connect(connection_config)
-  puts "Solr URL: #{SOLR.uri}"
 end
 
 
@@ -93,8 +92,11 @@ def solr_resp_ids_full_titles(solr_params)
   solr_response(solr_params.merge(doc_ids_full_titles))
 end
 
+# def author_search_args(query_str)
+#   { 'q' => "{!qf=$qf_author pf=$pf_author pf3=$pf3_author pf2=$pf2_author}#{query_str}", 'qt' => 'search' }
+# end
 def author_search_args(query_str)
-  { 'q' => "{!qf=$qf_author pf=$pf_author pf3=$pf3_author pf2=$pf2_author}#{query_str}", 'qt' => 'search' }
+  { 'q' => "{!qf=$qf_author pf=$pf_author}#{query_str}"}
 end
 
 def title_search_args(query_str)

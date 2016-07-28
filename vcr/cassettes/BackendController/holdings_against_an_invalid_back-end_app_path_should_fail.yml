@@ -8,11 +8,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      - HTTPClient/1.0 (2.8.0, ruby 2.2.1 (2015-02-26))
       Accept:
       - "*/*"
       Date:
-      - Tue, 22 Sep 2015 19:24:03 GMT
+      - Fri, 01 Jul 2016 20:52:53 GMT
   response:
     status:
       code: 404
@@ -20,20 +20,22 @@ http_interactions:
     headers:
       Content-Type:
       - text/html; charset=utf-8
+      Content-Length:
+      - '728'
       Connection:
       - keep-alive
       Status:
-      - '404'
-      X-Powered-By:
-      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
-      Content-Length:
-      - '728'
-      X-Request-Id:
-      - 8d73256f-2473-4878-ae8f-6032588521a0
+      - 404 Not Found
       X-Runtime:
-      - '0.009805'
+      - '0.003501'
+      X-Request-Id:
+      - 68bbea10-f809-4e56-9963-44e922a91de5
+      Date:
+      - Fri, 01 Jul 2016 20:52:53 GMT
+      X-Powered-By:
+      - Phusion Passenger
       Server:
-      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+      - nginx + Phusion Passenger
     body:
       encoding: UTF-8
       string: |
@@ -64,5 +66,5 @@ http_interactions:
         </body>
         </html>
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:24:03 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Fri, 01 Jul 2016 20:52:53 GMT
+recorded_with: VCR 3.0.1

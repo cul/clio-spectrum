@@ -79,17 +79,11 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     visit solr_document_path('513297')
 
     expect(page).to have_css('.holdings-container .holdings #clio_holdings')
-
-    # Debugging
-    # puts "JS Console Messages:"
-    # page.driver.console_messages.each { |m| puts m.inspect }
-    # puts "JS Error Messages:"
-    # page.driver.error_messages.each { |m| puts m.inspect }
-
     expect(page).to have_css('.holdings-container .holdings #google_holdings')
     expect(page).to have_css('.holdings-container .holdings #hathi_holdings')
 
     # Should see the 'Full View' message in the Hathi Holdings box
+    expect(page).to have_css('#hathi_holdings #hathi_data')
     expect(find('#hathi_holdings #hathi_data')).to have_content('Full view')
 
     # visit this specific item
@@ -271,26 +265,26 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
       find('button[type=submit]').click
     end
 
-    expect(page).to have_text '1 - 9 of 9'
+    expect(page).to have_text '1 - 10 of 10'
 
-    click_link('The patience of Maigret')
-    expect(page).to have_text 'Back to Results | 1 of 9 | Next'
-    expect(page).to have_text 'Title The patience of Maigret'
+    click_link('Maigret mystified')
+    expect(page).to have_text 'Back to Results | 1 of 10 | Next'
+    expect(page).to have_text 'Title Maigret mystified'
 
     click_link('Display In')
     click_link('MARC View')
-    expect(page).to have_text 'Back to Results | 1 of 9 | Next'
-    expect(page).to have_text '245 1 4 |a The patience of Maigret'
+    expect(page).to have_text 'Back to Results | 1 of 10 | Next'
+    expect(page).to have_text '245 1 0 |a Maigret mystified'
 
     within '#show_toolbar' do
       click_link('Next')
     end
-    expect(page).to have_text 'Back to Results | « Previous | 2 of 9 | Next »'
-    expect(page).to have_text '245 1 4 |a Les vacances de Maigret'
+    expect(page).to have_text 'Back to Results | « Previous | 2 of 10 | Next »'
+    expect(page).to have_text '245 1 4 |a The patience of Maigret'
 
     click_link('Return to Patron View')
-    expect(page).to have_text 'Back to Results | « Previous | 2 of 9 | Next »'
-    expect(page).to have_text 'Title Les vacances de Maigret'
+    expect(page).to have_text 'Back to Results | « Previous | 2 of 10 | Next »'
+    expect(page).to have_text 'Title The patience of Maigret'
 
   end
 
@@ -363,14 +357,14 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   it "should show Series Title when searching by Series Title" do
     # Basic Search
     visit catalog_index_path('q' => 'Black Sea', 'search_field' => 'series_title')
-    expect(page).to have_text('Series Title Black Sea studies')
+    expect(page).to have_text('Series Black Sea studies')
 
     # Advanced Search
     series_title_clause = {"field" => "series_title", "value" => "black sea"}
     adv_search_fields = {"1" => series_title_clause}
     visit catalog_index_path('search_field' => 'advanced', 'adv' => adv_search_fields)
     # save_and_open_page
-    expect(page).to have_text('Series Title Black Sea studies')
+    expect(page).to have_text('Series Black Sea studies')
   end
 
   # NEXT-1043 - Better handling of extremely long queries
@@ -379,7 +373,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     # This will be 10 x 20 = 200, plus 1 == 201 
     too_long = "123456789 " * 20 + "X"
     visit catalog_index_path(q: too_long)
-    expect(page).to have_text ("Your query was automatically truncated to the first 200 letters")
+    expect(page).to have_text ("You searched for: #{too_long}")
   end
 
   # NEXT-1043 - Better handling of extremely long queries
@@ -388,10 +382,11 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     # This will be 1 x 30 = 30, plus 1 == 31 
     too_long = "asdf " * 30 + "X"
     visit catalog_index_path(q: too_long)
-    expect(page).to have_text ("Your query was automatically truncated to the first 30 words")
+    expect(page).to have_text ("You searched for: #{too_long}")
   end
 
-  it "supports 'random query' feature", vcr: false do
+  # it "supports 'random query' feature", vcr: false, :skip_travis do
+  it "supports 'random query' feature", :skip_travis, vcr: false do
     visit catalog_index_path(random_q: true)
     expect(page).to have_css('li.datasource_link.selected[source="catalog"]')
     expect(page).to have_css('span.constraints-label', text: "You searched for:")
@@ -412,7 +407,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
   #   NEXT-1140 - Special character not sorting properly
   it "Author sort should disregard diacritics" do
-    ahmad = 'Aḥmad Muḥammad ʻAbd al-ʻĀl'.mb_chars.normalize(:d)
+    ahmad = 'ʻAbd "al-ʻĀl, Aḥmad Muḥammad "'.mb_chars.normalize(:d)
     # Hooray, there are alternative unicode forms returned!
     # Use an either/or "satisfy" block below.
     abd1 = 'ʻAbd al-ʻĀl, Aḥmad Muḥammad'.mb_chars.normalize(:d)
@@ -420,7 +415,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
     # There should be at least 10 records with this author, and they
     # should be first alphabetically.
-    visit catalog_index_path(q: ahmad, sort: 'author_sort asc', rows: 10)
+    visit catalog_index_path(q: ahmad, search_field: 'author', sort: 'author_sort asc', rows: 30)
     expect(page).to have_css('#documents .document.result')
     all('#documents .document.result .row .details').each do |details|
       expect(details.text).to satisfy { |detail_text|
@@ -500,6 +495,12 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     visit solr_document_path(622349)
     expect(page).to have_text "Uniform Title
       Arkitektur (Stockholm, Sweden : 1959)"
+  end
+
+  # NEXT-911 - Display uniform title in serial records
+  it 'shows 773 ("In") in non-archival records' do
+    visit catalog_path(10139859)
+    expect(page).to have_text "In Meg McLagan Collection"
   end
 
 end

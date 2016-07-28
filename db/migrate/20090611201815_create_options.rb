@@ -6,7 +6,7 @@ class CreateOptions < ActiveRecord::Migration
       t.string :association_type, limit: 30
       t.string :name, null: false
       t.text :value
-      t.timestamps
+      t.timestamps null: true
     end
 
     add_index :options, [:entity_type, :entity_id, :association_type, :name], name: 'entity_association_name'

@@ -18,8 +18,11 @@
     
 
 
-= render "marc_view", :document => @document
+= render '/marc_view', document: @document
 
+%br
+%br
+%br
 
-
+= render '/authority_variants', document: @document
 

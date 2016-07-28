@@ -9,7 +9,7 @@ class CreateItemAlerts < ActiveRecord::Migration
       t.datetime :end_date
       t.text :message
 
-      t.timestamps
+      t.timestamps null: true
     end
 
     add_index :item_alerts, [:source, :item_key]

@@ -4,7 +4,11 @@
     %b.caret
   %ul.dropdown-menu
     %li= link_to "Send to Email", email_savedlist_path(), {:id => "emailLink", :name => "email", :class => "lightboxLink", :onclick => "return appendSelectedToURL(this);"}
+<<<<<<< HEAD
     %li= link_to "Export to EndNote", endnote_solr_document_path(:format => 'endnote'), {:id => "endnoteLink", :onclick => "return appendSelectedToURL(this);"}
+=======
+    %li= link_to "Export Citation(s)", endnote_catalog_path(:format => 'endnote'), {:id => "endnoteLink", :onclick => "return appendSelectedToURL(this);"}
+>>>>>>> develop
 
     %li.nav-divider
 

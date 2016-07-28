@@ -10,7 +10,7 @@ describe 'The home page' do
   # it "will keep the text in a box across different sources on the landing pages" => true do
   # end
 
-  it 'will switch the visible search box when a datasource is clicked upon' do
+  it 'will switch the visible search box when a datasource is clicked upon', :vcr do
     visit catalog_index_path
 
     expect(find('#catalog_q')).to be_visible

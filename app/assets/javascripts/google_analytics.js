@@ -9,7 +9,7 @@ $(document).ready(function() {
 
   // Point our running instance to the appropriate GA property definition
   //
-  if ($("body").data("rails-env") == 'development'){
+  if ($("body").data('environment') == 'development'){
     ga('create', google_analytics_web_property_id, 'none');
   }
   else{
@@ -64,7 +64,7 @@ $(document).ready(function() {
       event.preventDefault(); // don't open the link yet
     }
 
-    logToConsole("ga('send','event','"+category+"','"+action+"','"+label+"')");
+    debug_log("ga('send','event','"+category+"','"+action+"','"+label+"')");
     ga('send', 'event', category, action, label);
 
     if (open_new_window){
@@ -91,8 +91,8 @@ $(document).ready(function() {
 });
 
 
-function logToConsole(message) {
-  if ($("body").data("rails-env") == 'development') {
+function debug_log(message) {
+  if ($("body").data('environment') == 'development') {
     console.log(message)
   }
 }

@@ -176,7 +176,7 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
     expect(page).to have_text "Series Collezione Confronti/consensi ; 15."
 
     click_link "Collezione Confronti/consensi ; 15."
-    expect(page).to have_text "You searched for: Series: Collezione Confronti/consensi"
+    expect(find('.constraints-container')).to have_text("Collezione Confronti/consensi")
     expect(page).to_not have_text('No results')
     expect(page).to_not have_text('1 of 5')
     expect(find('#documents')).to have_text 'Lo specchio acceso : narrativa italiana'
@@ -193,7 +193,7 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
     expect(page).to have_text(series_decomposed)
 
     click_link(series_decomposed)
-    expect(page).to have_text "You searched for: Series: #{series_decomposed}"
+    expect(find('.constraints-container')).to have_text(series_decomposed)
     expect(page).to_not have_text('No results')
     expect(page).to have_text('1 - 4 of 4')
     # list out four title snippets to look for...
@@ -211,21 +211,36 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
     visit solr_document_path(10322893)
     # "Also Listed Under Çıpa, H. Erdem, 1971-"
     click_link('H. Erdem, 1971')
-    expect(page).to have_text('1 - 4 of 4')
+    expect(page).to have_text('1 - 5  of 5')
     within('#facet-author li', text: 'Erdem') do
       expect(find('.facet-label')).to have_text "Çıpa, H. Erdem, 1971"
-      expect(find('.facet-count')).to have_text "4"
+      expect(find('.facet-count')).to have_text "5"
     end
 
     visit solr_document_path(10551688)
     # "Also Listed Under Çıpa, H. Erdem, 1971-"
     click_link('H. Erdem, 1971')
-    expect(page).to have_text('1 - 4 of 4')
+    expect(page).to have_text('1 - 5 of 5')
     within('#facet-author li', text: 'Erdem') do
       expect(find('.facet-label')).to have_text "Çıpa, H. Erdem, 1971"
-      expect(find('.facet-count')).to have_text "4"
+      expect(find('.facet-count')).to have_text "5"
     end
   end
+
+  # NEXT-1317 - Incorrect search results for series with parenthesis.
+  it "should handle parens within series title" do
+    target = 'Monograph (British Institute of Archaeology at Ankara)'
+    visit catalog_path(10904345)
+    # Click a series with parenthesized words...
+    click_link(target)
+    expect(find('.constraints-container')).to have_text(target)
+
+    page_entries = find('.page_links .page_entries').text
+    # page_entries should be something like "1 - 25 of 37"
+    shown, of, total = page_entries.partition(/ of /)
+    expect(total.to_i).to be < 50
+  end
+
 end
 
 

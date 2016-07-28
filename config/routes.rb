@@ -183,6 +183,17 @@ Rails.application.routes.draw do
   # (Didn't have to do this with Rails 3 - what changed???)
   get 'catalog/advanced', to: 'catalog#index', as: :catalog_advanced, defaults: { q: '', show_advanced: 'true' }
 
+  # authorities
+  resources :authorities, only: [:index, :show]
+
+  # fetch by term, instead of id
+  get 'authorities/author/:author', to: 'authorities#author', as: :author_authorities
+  get 'authorities/subject/:subject', to: 'authorities#subject'
+
+  # and the MARC "librarian view" for each
+  get 'authorities/author_marc/:author', to: 'authorities#author_marc'
+  get 'authorities/subject_marc/:subject', to: 'authorities#subject_marc'
+
 end
 
 

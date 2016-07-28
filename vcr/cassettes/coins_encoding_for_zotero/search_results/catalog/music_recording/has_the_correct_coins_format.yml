@@ -2,63 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: "<clio_backend_url>/holdings/retrieve/102437"
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 19:28:43 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Status:
-      - '200'
-      X-Powered-By:
-      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Request-Method:
-      - "*"
-      Etag:
-      - W/"d6508a69605249feb3d7eb613c6a76f0"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - ab6ab27f-484a-4aba-947e-1265837aa169
-      X-Runtime:
-      - '7.413631'
-      Server:
-      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
-    body:
-      encoding: UTF-8
-      string: "{\"102437\":{\"condensed_holdings_full\":[{\"location_name\":\"Offsite
-        - Place Request for delivery within 2 business days\",\"location_note\":\"\",\"call_number\":\"No
-        call number assigned\",\"status\":\"available\",\"holding_id\":[\"150214\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}},\"notes\":\"Notes:
-        150887\"}],\"services\":[\"offsite\"]}]}}"
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:28:51 GMT
-- request:
-    method: get
-    uri: "<solr_config>/select?id=102437&qt=document&wt=ruby"
+    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2015-07-01T00:00:00Z%20TO%20*%5D&fq=format:%22Music%20Recording%22&q=psalm%2021%20meyerbeer&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -69,221 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 19:28:51 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
-        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
-        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9PicxMDI0Mzcn
-        LCdxdCc9Pidkb2N1bWVudCcsJ3d0Jz0+J3J1YnknfX0sJ3Jlc3BvbnNlJz0+
-        eydudW1Gb3VuZCc9PjEsJ3N0YXJ0Jz0+MCwnZG9jcyc9Plt7J2xvY2F0aW9u
-        X2NhbGxfbnVtYmVyX2lkX2Rpc3BsYXknPT5bJ09mZnNpdGUgLSBQbGFjZSBS
-        ZXF1ZXN0IGZvciBkZWxpdmVyeSB3aXRoaW4gMiBidXNpbmVzcyBkYXlzID4+
-        IE5vIGNhbGwgbnVtYmVyIGFzc2lnbmVkfERFTElNfDE1MDIxNCddLCdwdWJf
-        eWVhcl9kaXNwbGF5Jz0+WycxOTgzJ10sJ3RpdGxlX2Rpc3BsYXknPT5bJ0J1
-        bGdhcnNraSBuYXJvZG5pIHBlc25pIG90IHNlbGF0YSBraWF6aG5hIGkgdmFs
-        aWEgZHJhZ3VsdWktcnVtaWVuaWlhJ10sJ2lkJz0+JzEwMjQzNycsJ2NsaW9f
-        aWRfZGlzcGxheSc9PicxMDI0MzcnLCdjYWxsX251bWJlcl9kaXNwbGF5Jz0+
-        WydObyBjYWxsIG51bWJlciBhc3NpZ25lZCddLCdwdWJfcGxhY2VfZGlzcGxh
-        eSc9PlsnU29maWEnXSwnbWFyY19kaXNwbGF5Jz0+Jzw/eG1sIHZlcnNpb249
-        IjEuMCIgZW5jb2Rpbmc9IlVURi04Ij8+PGNvbGxlY3Rpb24geG1sbnM9Imh0
-        dHA6Ly93d3cubG9jLmdvdi9NQVJDMjEvc2xpbSI+PHJlY29yZD48bGVhZGVy
-        PjAwNjgzY2FtIGEyMjAwMjI5IHUgNDUwMDwvbGVhZGVyPjxjb250cm9sZmll
-        bGQgdGFnPSIwMDEiPjEwMjQzNzwvY29udHJvbGZpZWxkPjxjb250cm9sZmll
-        bGQgdGFnPSIwMDUiPjIwMTIxMDE3MjExMzE5LjA8L2NvbnRyb2xmaWVsZD48
-        Y29udHJvbGZpZWxkIHRhZz0iMDA4Ij44MjA5MjhzMTk5MSAgICBibCB8fHx8
-        fHx8fHx8fHx8fCB8fGJ1bHx8PC9jb250cm9sZmllbGQ+PGRhdGFmaWVsZCB0
-        YWc9IjAyMCIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEi
-        Pjk1NDQzMDA2OTQ8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
-        dGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJh
-        Ij4oT0NvTEMpMjYxMzEzMTQ8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRh
-        ZmllbGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBj
-        b2RlPSJhIj4oT0NvTEMpb2NtMjYxMzEzMTQ8L3N1YmZpZWxkPjwvZGF0YWZp
-        ZWxkPjxkYXRhZmllbGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9IiAiPjxz
-        dWJmaWVsZCBjb2RlPSJhIj4oQ1N0UkxJTilOWUNHODItQjQ0OTMyPC9zdWJm
-        aWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDM1IiBpbmQxPSIg
-        IiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iOSI+QUFMODkwOENVPC9zdWJm
-        aWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDM1IiBpbmQxPSIg
-        IiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+KE5OQykxMDI0Mzc8L3N1
-        YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIxMDAiIGluZDE9
-        IjEiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5JzaFVZnUsIFpsYXRr
-        YS48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIyNDUi
-        IGluZDE9IjAiIGluZDI9IjAiPjxzdWJmaWVsZCBjb2RlPSJhIj5CdWxnYXJz
-        a2kgbmFyb2RuaSBwZXNuaSBvdCBzZWxhdGEga2lhemhuYSBpIHZhbGlhIGRy
-        YWd1bHVpLXJ1bWllbmlpYSAvPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0
-        YWZpZWxkIHRhZz0iMjYwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQg
-        Y29kZT0iYSI+U29maWE6PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+
-        QkFOLDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImMiPjE5ODMuPC9zdWJm
-        aWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMzAwIiBpbmQxPSIg
-        IiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+MzUyIHAuPC9zdWJmaWVs
-        ZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTAwIiBpbmQxPSIgIiBp
-        bmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+QVVUSDwvc3ViZmllbGQ+PC9k
-        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MiIgaW5kMT0iICIgaW5kMj0i
-        ICI+PHN1YmZpZWxkIGNvZGU9ImEiPk9mZnNpdGU8L3N1YmZpZWxkPjxzdWJm
-        aWVsZCBjb2RlPSJiIj5PZmZzaXRlIC0gUGxhY2UgUmVxdWVzdCBmb3IgZGVs
-        aXZlcnkgd2l0aGluIDIgYnVzaW5lc3MgZGF5cyAmZ3Q7Jmd0OyBObyBjYWxs
-        IG51bWJlciBhc3NpZ25lZHxERUxJTXwxNTAyMTQ8L3N1YmZpZWxkPjwvZGF0
-        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTMiIGluZDE9IiAiIGluZDI9IiAi
-        PjxzdWJmaWVsZCBjb2RlPSJhIj5Cb29rPC9zdWJmaWVsZD48L2RhdGFmaWVs
-        ZD48ZGF0YWZpZWxkIHRhZz0iOTk1IiBpbmQxPSIgIiBpbmQyPSIgIj48c3Vi
-        ZmllbGQgY29kZT0iYSI+Y2F0YWxvZzwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+
-        PC9yZWNvcmQ+PC9jb2xsZWN0aW9uPicsJ2F1dGhvcl9kaXNwbGF5Jz0+WydJ
-        zaFVZnUsIFpsYXRrYSddLCdwdWJfbmFtZV9kaXNwbGF5Jz0+WydCQU4nXSwn
-        Zm9ybWF0Jz0+WydCb29rJ10sJ3NvdXJjZV9kaXNwbGF5Jz0+WydjYXRhbG9n
-        J10sJ21hdGVyaWFsX3R5cGVfZGlzcGxheSc9PlsnMzUyIHAuJ10sJ29jbGNf
-        ZGlzcGxheSc9PlsnMjYxMzEzMTQnLCdvY20yNjEzMTMxNCddLCd0aXRsZV9m
-        aXJzdF9mYWNldCc9PlsnQiddLCdwdWJfZGF0ZV9zb3J0Jz0+MTk5MSwnZnVs
-        bF9wdWJsaXNoZXJfZGlzcGxheSc9PlsnU29maWE6IEJBTiwgMTk4My4nXSwn
-        bGFuZ3VhZ2VfZmFjZXQnPT5bJ0J1bGdhcmlhbiddLCdpc2JuX2Rpc3BsYXkn
-        PT5bJzk1NDQzMDA2OTQnXSwnX3ZlcnNpb25fJz0+MTUwMTg5MjgxNzI4NDIz
-        NTI2NCwndGltZXN0YW1wJz0+JzIwMTUtMDUtMjJUMTc6NDM6MjUuODM5Wid9
-        XX19Cg==
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:28:51 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/9544300694.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 19:28:51 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:28:51 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        19:38:51 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:28:51 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/26131314.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 19:28:51 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:28:51 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        19:38:52 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:28:52 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocm26131314.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 19:28:52 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:28:52 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        19:38:52 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:28:52 GMT
-- request:
-    method: get
-    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2014-09-22T00:00:00Z%20TO%20*%5D&fq=format:%22Music%20Recording%22&q=psalm%2021%20meyerbeer&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:28:52 GMT
+      - Fri, 01 Jul 2016 19:01:23 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -293,7 +23,33 @@ http_interactions:
     body:
       encoding: UTF-8
       string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>4,'params'=>{'f.subject_form_facet.facet.limit'=>'11','facet'=>'true','sort'=>'score desc, pub_date_sort desc, title_sort asc','stats'=>'true','f.subject_topic_facet.facet.limit'=>'11','f.language_facet.facet.limit'=>'6','f.lc_1letter_facet.facet.limit'=>'31','f.pub_date_sort.facet.limit'=>'4','f.location_facet.facet.limit'=>'6','wt'=>'ruby','f.lc_subclass_facet.facet.limit'=>'501','rows'=>'25','f.subject_geo_facet.facet.limit'=>'11','facet.query'=>['acq_dt:[2015-09-15T00:00:00Z TO *]','acq_dt:[2015-08-22T00:00:00Z TO *]','acq_dt:[2015-03-22T00:00:00Z TO *]','acq_dt:[2014-09-22T00:00:00Z TO *]'],'stats.field'=>'pub_date_sort','q'=>'psalm 21 meyerbeer','f.author_facet.facet.limit'=>'6','facet.field'=>['format','pub_date_sort','author_facet','location_facet','language_facet','subject_topic_facet','subject_geo_facet','subject_era_facet','subject_form_facet','lc_1letter_facet','lc_subclass_facet'],'qt'=>'search','fq'=>'format:"Music Recording"','f.subject_era_facet.facet.limit'=>'11','f.format.facet.limit'=>'6'}},'response'=>{'numFound'=>0,'start'=>0,'maxScore'=>0.0,'docs'=>[]},'facet_counts'=>{'facet_queries'=>{'acq_dt:[2015-09-15T00:00:00Z TO *]'=>0,'acq_dt:[2015-08-22T00:00:00Z TO *]'=>0,'acq_dt:[2015-03-22T00:00:00Z TO *]'=>0,'acq_dt:[2014-09-22T00:00:00Z TO *]'=>0},'facet_fields'=>{'format'=>[],'pub_date_sort'=>[],'author_facet'=>[],'location_facet'=>[],'language_facet'=>[],'subject_topic_facet'=>[],'subject_geo_facet'=>[],'subject_era_facet'=>[],'subject_form_facet'=>[],'lc_1letter_facet'=>[],'lc_subclass_facet'=>[]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>nil}}}
+        {'responseHeader'=>{'status'=>0,'QTime'=>17,'params'=>{'f.subject_form_facet.facet.limit'=>'11','facet'=>'true','sort'=>'score desc, pub_date_sort desc, title_sort asc','stats'=>'true','f.subject_topic_facet.facet.limit'=>'11','f.language_facet.facet.limit'=>'6','f.lc_1letter_facet.facet.limit'=>'31','f.pub_date_sort.facet.limit'=>'4','f.location_facet.facet.limit'=>'6','wt'=>'ruby','rows'=>'25','f.lc_subclass_facet.facet.limit'=>'501','f.subject_geo_facet.facet.limit'=>'11','facet.query'=>['acq_dt:[2016-06-24T00:00:00Z TO *]','acq_dt:[2016-06-01T00:00:00Z TO *]','acq_dt:[2016-01-01T00:00:00Z TO *]','acq_dt:[2015-07-01T00:00:00Z TO *]'],'stats.field'=>'pub_date_sort','q'=>'psalm 21 meyerbeer','f.author_facet.facet.limit'=>'6','facet.field'=>['format','pub_date_sort','author_facet','location_facet','language_facet','subject_topic_facet','subject_geo_facet','subject_era_facet','subject_form_facet','lc_1letter_facet','lc_subclass_facet'],'qt'=>'search','fq'=>'format:"Music Recording"','f.subject_era_facet.facet.limit'=>'11','f.format.facet.limit'=>'6'}},'response'=>{'numFound'=>0,'start'=>0,'maxScore'=>0.0,'docs'=>[]},'facet_counts'=>{'facet_queries'=>{'acq_dt:[2016-06-24T00:00:00Z TO *]'=>0,'acq_dt:[2016-06-01T00:00:00Z TO *]'=>0,'acq_dt:[2016-01-01T00:00:00Z TO *]'=>0,'acq_dt:[2015-07-01T00:00:00Z TO *]'=>0},'facet_fields'=>{'format'=>[],'pub_date_sort'=>[],'author_facet'=>[],'location_facet'=>[],'language_facet'=>[],'subject_topic_facet'=>[],'subject_geo_facet'=>[],'subject_era_facet'=>[],'subject_form_facet'=>[],'lc_1letter_facet'=>[],'lc_subclass_facet'=>[]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>nil}}}
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:28:53 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Fri, 01 Jul 2016 19:01:23 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2015-07-01T00:00:00Z%20TO%20*%5D&fq=format:%22Music%20Recording%22&q=psalm%2021%20meyerbeer&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 01 Jul 2016 19:01:23 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>38,'params'=>{'f.subject_form_facet.facet.limit'=>'11','facet'=>'true','sort'=>'score desc, pub_date_sort desc, title_sort asc','stats'=>'true','f.subject_topic_facet.facet.limit'=>'11','f.language_facet.facet.limit'=>'6','f.lc_1letter_facet.facet.limit'=>'31','f.pub_date_sort.facet.limit'=>'4','f.location_facet.facet.limit'=>'6','wt'=>'ruby','rows'=>'25','f.lc_subclass_facet.facet.limit'=>'501','f.subject_geo_facet.facet.limit'=>'11','facet.query'=>['acq_dt:[2016-06-24T00:00:00Z TO *]','acq_dt:[2016-06-01T00:00:00Z TO *]','acq_dt:[2016-01-01T00:00:00Z TO *]','acq_dt:[2015-07-01T00:00:00Z TO *]'],'stats.field'=>'pub_date_sort','q'=>'psalm 21 meyerbeer','f.author_facet.facet.limit'=>'6','facet.field'=>['format','pub_date_sort','author_facet','location_facet','language_facet','subject_topic_facet','subject_geo_facet','subject_era_facet','subject_form_facet','lc_1letter_facet','lc_subclass_facet'],'qt'=>'search','fq'=>'format:"Music Recording"','f.subject_era_facet.facet.limit'=>'11','f.format.facet.limit'=>'6'}},'response'=>{'numFound'=>0,'start'=>0,'maxScore'=>0.0,'docs'=>[]},'facet_counts'=>{'facet_queries'=>{'acq_dt:[2016-06-24T00:00:00Z TO *]'=>0,'acq_dt:[2016-06-01T00:00:00Z TO *]'=>0,'acq_dt:[2016-01-01T00:00:00Z TO *]'=>0,'acq_dt:[2015-07-01T00:00:00Z TO *]'=>0},'facet_fields'=>{'format'=>[],'pub_date_sort'=>[],'author_facet'=>[],'location_facet'=>[],'language_facet'=>[],'subject_topic_facet'=>[],'subject_geo_facet'=>[],'subject_era_facet'=>[],'subject_form_facet'=>[],'lc_1letter_facet'=>[],'lc_subclass_facet'=>[]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>nil}}}
+    http_version: 
+  recorded_at: Fri, 01 Jul 2016 19:01:23 GMT
+recorded_with: VCR 3.0.1

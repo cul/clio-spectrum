@@ -6,7 +6,7 @@ class CreateLibraries < ActiveRecord::Migration
       t.text :comment
       t.text :url
 
-      t.timestamps
+      t.timestamps null: true
     end
 
     add_index :libraries, :hours_db_code

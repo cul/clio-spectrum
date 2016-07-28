@@ -2,7 +2,7 @@ require 'spec_helper'
 
 include Warden::Test::Helpers
 
-describe 'Saved List Interface' do
+describe 'Saved List Interface', :vcr do
 
   before(:each) do
     @autodidact = FactoryGirl.create(:user, login: 'autodidact')
@@ -164,7 +164,7 @@ describe 'Saved List Interface' do
       visit solr_document_path("4359539")
       login_as @blatteroon
       click_on('Export')
-      click_on('Export to EndNote')
+      click_on('Export Citation(s)')
       click_on('Add to My Saved List')
       expect(page).to have_css(".alert", :text => "1 item added to list Bookbag")
     end

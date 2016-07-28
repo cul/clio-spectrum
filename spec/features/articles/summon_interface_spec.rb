@@ -78,6 +78,7 @@ describe 'Summon searches', :vcr do
       find('.dropdown-toggle', text: 'Display Options').click
       click_link 'Display Options'
       click_link '50 per page'
+      # expect(page).to have_text '1 - 50 of'
     end
 
     # Confirm 50-items returned upon next search
@@ -91,6 +92,7 @@ describe 'Summon searches', :vcr do
       find('.dropdown-toggle', text: 'Display Options').click
       click_link 'Display Options'
       click_link '10 per page'
+      # expect(find('#current_item_info')).to have_text '1 - 10 of'
     end
 
     # Confirm 10-items returned upon next search

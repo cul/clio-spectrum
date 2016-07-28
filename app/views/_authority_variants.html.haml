@@ -1,0 +1,11 @@
+%h4= "Authority Variants"
+
+#authority_variants
+
+  - none = '-- none --'
+  - author_variants = Array(document['author_variant_txt']).join.present? ? document['author_variant_txt'] : none
+  - subject_variants = Array(document['subject_variant_txt']).join.present? ? document['subject_variant_txt'] : none
+
+  = add_row('Author Variants', author_variants)
+  = add_row('Subject Variants', subject_variants)
+

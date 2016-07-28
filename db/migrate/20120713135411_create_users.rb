@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :first_name, limit: 40
       t.string :last_name, limit: 40
       t.string :login, limit: 10
-      t.timestamps
+      t.timestamps null: true
     end
 
     add_index :users, :login

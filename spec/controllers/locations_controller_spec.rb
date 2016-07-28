@@ -22,7 +22,12 @@ describe LocationsController, :vcr do
 
       it "assigns current marker" do
         controller.build_markers
-        expect(assigns(:current_marker_index)).to eq(0)
+        # What's the numeric position of "avery" in an 
+        # alphabetical list of markers?
+        # expect(assigns(:current_marker_index)).to eq(0)
+        # Now that "art-properties" has been added, 
+        # "avery" is bumped to array index position 1
+        expect(assigns(:current_marker_index)).to eq(1)
       end
 
       it 'should not have a marker for location that does not have a map' do

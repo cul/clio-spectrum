@@ -8,11 +8,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      - HTTPClient/1.0 (2.8.0, ruby 2.2.1 (2015-02-26))
       Accept:
       - "*/*"
       Date:
-      - Tue, 22 Sep 2015 19:24:01 GMT
+      - Fri, 01 Jul 2016 20:52:51 GMT
   response:
     status:
       code: 404
@@ -24,31 +24,35 @@ http_interactions:
       - chunked
       Connection:
       - keep-alive
+      Vary:
+      - Accept-Encoding
       Status:
-      - '404'
-      X-Powered-By:
-      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Request-Method:
-      - "*"
+      - 404 Not Found
       Cache-Control:
       - no-cache
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Xss-Protection:
+      - 1; mode=block
       X-Request-Id:
-      - 8e745ebe-0d4e-4a84-891d-dbea8919db26
+      - a52baecb-1679-4fd7-b8f1-b890a006ad0b
       X-Runtime:
-      - '1.561599'
+      - '0.914281'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Request-Method:
+      - "*"
+      Date:
+      - Fri, 01 Jul 2016 20:52:53 GMT
+      X-Powered-By:
+      - Phusion Passenger
       Server:
-      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+      - nginx + Phusion Passenger
     body:
       encoding: UTF-8
       string: "{}"
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:24:03 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Fri, 01 Jul 2016 20:52:52 GMT
+recorded_with: VCR 3.0.1

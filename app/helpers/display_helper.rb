@@ -65,7 +65,8 @@ module DisplayHelper
     'Computer Program' => 'computer-file',
     'Loose-leaf' => 'journal',
     'US Government Document' => 'govdoc2',
-    'NY State/City Government Document' => 'govdoc2'
+    'NY State/City Government Document' => 'govdoc2',
+    'Art Work (Original)' => 'art-work'
   }
 
   def formats_with_icons(document, format_field = 'format')
@@ -142,7 +143,8 @@ module DisplayHelper
 
     'Video' => 'video',
     'Map/Globe' => 'map_globe',
-    'Book' => 'book'
+    'Book' => 'book',
+    'Art Work (Original)' => 'art_work'
   }
 
   SUMMON_FORMAT_LIST = {
@@ -150,7 +152,7 @@ module DisplayHelper
     'Journal Article' => 'article'
   }
 
-  FORMAT_RANKINGS = %w(ac database map_globe manuscript_archive video music_recording music serial book clio ebooks article articles summon lweb)
+  FORMAT_RANKINGS = %w(ac database art_work map_globe manuscript_archive video music_recording music serial book clio ebooks article articles summon lweb)
 
   def format_online_results(link_hash)
     non_circ_img = image_tag('icons/noncirc.png', class: 'availability')
@@ -205,7 +207,7 @@ module DisplayHelper
     url = 'http://pegasus.law.columbia.edu'
     if document && document.id
       # NEXT-996 - Rename "Pegasus" link
-      return link_to 'Check Law catalog for status',
+      return link_to t('blacklight.law.check_message'),
                      "#{url}/record=#{document.id}",
                      :'data-ga-category' => 'Pegasus Link',
                      :'data-ga-action' => context,
@@ -294,16 +296,22 @@ module DisplayHelper
           out << display_value
 
         else
+          # "Info" span linking to authorities page
+          author_authority_link = buildAuthorAuthorityLink(search_value)
+          author_authority_link = ''
+
           # remove punctuation to match entries in author_facet
           # using solrmarc removeTrailingPunc rule
           search_value = remove_punctuation(search_value)
 
-          out << link_to(display_value, url_for(:controller => 'catalog', :action => 'index', 'f[author_facet][]' => search_value))
+          out << link_to(display_value, url_for(:controller => 'catalog', :action => 'index', 'f[author_facet][]' => search_value)) + author_authority_link
         end
 
 
       when :series_title
-        q = search_value
+        # NEXT-1317 - Incorrect search results for series with parenthesis
+        # q = search_value
+        q = '"' + search_value.gsub(/"/, '') + '"'
         out << link_to(display_value, url_for(controller: 'catalog', action: 'index', q: q, search_field: 'series_title', commit: 'search'))
 
       when :serial
@@ -416,7 +424,6 @@ module DisplayHelper
   def add_row(title, value, options = {})
     options.reverse_merge!(@add_row_options) if @add_row_options.kind_of?(Hash)
     options.reverse_merge!(
-      display_blank: false,
       join: nil,
       abbreviate: nil,
       html_safe: true,
@@ -430,7 +437,7 @@ module DisplayHelper
     spans = options[:spans]
 
     result = ''
-    if options[:display_blank] || !value_txt.empty?
+    if !value_txt.empty?
       if options[:style] == :text
         result = (title.to_s + ': ' + value_txt.to_s + "\n").html_safe
       else
@@ -538,7 +545,10 @@ module DisplayHelper
         fields.push("rft.au=#{ CGI.escape(author) }")
       end
     else
+      # NEXT-1264 - Zotero shows "unknown" author for edited works
+      # (contradicts NEXT-606, see discussion in ticket)
       fields.push("rft.au=#{ CGI.escape('unknown') }")
+      # fields.push("rft.au=")
     end
 
     document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
@@ -729,6 +739,27 @@ module DisplayHelper
 
 
 
+  def buildAuthorAuthorityLink(value)
+    return nil unless value and value.length > 2
+
+    auth_url = author_authorities_path(author: value)
+    box = content_tag(:span, 'Info', class: 'label label-info')
+    return link_to box, auth_url, class: 'lightboxLink'
+  end
+
+  # def author_auth(value)
+  #   raise "expected Array input!" unless value.is_a? Array
+  #   # value may be string or array
+  #   value.map do |value|
+  #     raise
+  #     # value may be simple string, or delimited display/search values
+  #     value = value.split(DELIM).first
+  #     auth_url = author_authorities_path(author: value)
+  #     box = content_tag(:span, 'Info', class: 'label label-info')
+  #     auth_link = link_to box, auth_url
+  #     value + '&nbsp;' + auth_link
+  #   end
+  # end
 
 
 end

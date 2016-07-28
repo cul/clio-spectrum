@@ -15,7 +15,7 @@ class SpectrumController < ApplicationController
   include Blacklight::Controller
   include Blacklight::Catalog
   include Blacklight::Configurable
-  # include BlacklightRangeLimit::ControllerOverride
+
   layout 'quicksearch'
 
   def search
@@ -179,7 +179,8 @@ class SpectrumController < ApplicationController
     #   # LibraryWeb QuickSearch will pass us "search_field=all_fields",
     #   # which means to do a Summon search against 's.q'
     if params['q'] && params['search_field'] && (params['search_field'] != 'all_fields')
-      hash = Rack::Utils.parse_nested_query("#{params['search_field']}=#{params['q']}")
+      escaped_params = URI.escape("#{params['search_field']}=#{params['q']}" )
+      hash = Rack::Utils.parse_nested_query(escaped_params)
       params.merge! hash
       # params.delete('q') unless params['search_field'] == 'q'
     end

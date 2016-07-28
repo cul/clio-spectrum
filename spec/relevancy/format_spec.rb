@@ -3,7 +3,7 @@ require 'spec_helper'
 
 # Fix up Computer Program, Computer File, etc.
 # NEXT-970 - Some bibs assigned format "Computer File" instead of "Other"
-describe 'Format assignments for types of "Computer Files"' do
+describe 'Format assignments for types of "Computer Files"', :skip_travis do
 
   bibList = [2972693, 3105451]
   bibList.each do |bib|
@@ -47,7 +47,7 @@ end
 
 # NEXT-975 - Serial records coded as "monographic series."
 # Monographic Series should be treated as 'Journal/Periodical', and not Book.
-describe 'Format assignments for Monographic Series' do
+describe 'Format assignments for Monographic Series', :skip_travis do
   bibList = [130062, 774424, 2237522, 3948829]
   bibList.each do |bib|
 
@@ -62,7 +62,7 @@ end
 
 
 # NEXT-1141 - Improve Format Assignment
-describe "Updated Format Assignments" do
+describe "Updated Format Assignments", :skip_travis do
   {
   8761270 => 'Book',
   8761542 => 'Book',
@@ -91,7 +91,7 @@ describe "Updated Format Assignments" do
 
   3740193 => ['Book', 'Microformat'],
   10819290 => ['Book', 'Microformat'],
-  'b786949' => ['Book', 'Microformat'],
+  'b487643' => ['Book', 'Microformat'],
   'b786897' => ['Book', 'Microformat'],
   }.each do |bib, formatValue|
 

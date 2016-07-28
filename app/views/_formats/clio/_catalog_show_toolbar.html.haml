@@ -75,7 +75,11 @@
             /  %li=link_to "Export to RefWorks", refworks_export_url(@document)
             - if document.export_formats.keys.include?(:endnote)
               -any_cites = true
+<<<<<<< HEAD
               %li=link_to "Export to EndNote", solr_document_path(id, :format => "endnote")
+=======
+              %li=link_to "Export Citation", catalog_path(id, :format => "endnote")
+>>>>>>> develop
   
             - unless any_cites
               %li=link_to "No citations available", "#"

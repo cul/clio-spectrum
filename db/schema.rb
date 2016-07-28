@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150604161023) do
 
-  create_table "bookmarks", force: true do |t|
+  create_table "bookmarks", force: :cascade do |t|
     t.integer  "user_id",       null: false
     t.string   "document_id"
     t.string   "title"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150604161023) do
 
   add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id"
 
-  create_table "item_alerts", force: true do |t|
+  create_table "item_alerts", force: :cascade do |t|
     t.string   "source",     limit: 20, null: false
     t.string   "item_key",   limit: 32, null: false
     t.string   "alert_type",            null: false
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20150604161023) do
   add_index "item_alerts", ["source", "item_key"], name: "index_item_alerts_on_source_and_item_key"
   add_index "item_alerts", ["start_date", "end_date"], name: "index_item_alerts_on_start_date_and_end_date"
 
-  create_table "libraries", force: true do |t|
+  create_table "libraries", force: :cascade do |t|
     t.string   "hours_db_code", null: false
     t.string   "name"
     t.text     "comment"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20150604161023) do
 
   add_index "libraries", ["hours_db_code"], name: "index_libraries_on_hours_db_code"
 
-  create_table "library_hours", force: true do |t|
+  create_table "library_hours", force: :cascade do |t|
     t.integer  "library_id", null: false
     t.date     "date",       null: false
     t.datetime "opens"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20150604161023) do
 
   add_index "library_hours", ["library_id", "date"], name: "index_library_hours_on_library_id_and_date"
 
-  create_table "locations", force: true do |t|
+  create_table "locations", force: :cascade do |t|
     t.string   "name"
     t.text     "found_in"
     t.integer  "library_id"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20150604161023) do
   add_index "locations", ["library_id"], name: "index_locations_on_library_id"
   add_index "locations", ["name"], name: "index_locations_on_name"
 
-  create_table "options", force: true do |t|
+  create_table "options", force: :cascade do |t|
     t.integer  "entity_id"
     t.string   "entity_type",      limit: 30
     t.string   "association_type", limit: 30
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20150604161023) do
 
   add_index "options", ["entity_type", "entity_id", "association_type", "name"], name: "entity_association_name"
 
-  create_table "saved_list_items", force: true do |t|
+  create_table "saved_list_items", force: :cascade do |t|
     t.integer  "saved_list_id"
     t.string   "item_source"
     t.string   "item_key",      limit: 200
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 20150604161023) do
 
   add_index "saved_list_items", ["saved_list_id", "item_key"], name: "index_saved_list_items_on_saved_list_id_and_item_key", unique: true
 
-  create_table "saved_lists", force: true do |t|
+  create_table "saved_lists", force: :cascade do |t|
     t.string   "owner",       limit: 20,                      null: false
     t.string   "name",        limit: 200,                     null: false
     t.string   "slug",        limit: 200,                     null: false
@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20150604161023) do
   add_index "saved_lists", ["owner", "name"], name: "savedlist_name", unique: true
   add_index "saved_lists", ["owner", "slug"], name: "savedlist_url", unique: true
 
-  create_table "searches", force: true do |t|
+  create_table "searches", force: :cascade do |t|
     t.text     "query_params"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 20150604161023) do
 
   add_index "searches", ["user_id"], name: "index_searches_on_user_id"
 
-  create_table "sessions", force: true do |t|
+  create_table "sessions", force: :cascade do |t|
     t.string   "session_id", null: false
     t.text     "data"
     t.datetime "created_at"
@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(version: 20150604161023) do
   add_index "sessions", ["session_id"], name: "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "first_name",             limit: 40
     t.string   "last_name",              limit: 40
     t.string   "login",                  limit: 10
@@ -156,7 +156,7 @@ ActiveRecord::Schema.define(version: 20150604161023) do
   add_index "users", ["login"], name: "index_users_on_login"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
-  create_table "versions", force: true do |t|
+  create_table "versions", force: :cascade do |t|
     t.string   "item_type",  null: false
     t.integer  "item_id",    null: false
     t.string   "event",      null: false

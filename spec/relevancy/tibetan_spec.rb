@@ -4,39 +4,33 @@ require 'spec_helper'
 # Tibetan issues, as captured by
 # NEXT-824 - Apostrophe character
 # NEXT-941 - Problems displaying parallel titles (e.g., Tibetan)
-describe 'Testing tibetan support' do
+describe 'Testing tibetan support', :skip_travis do
 
   it "q of \"krun go'i bod ljons\" should retrieve correct record" do
     # unquoted
     resp = solr_resp_doc_ids_only('q' => 'krun go\'i bod ljons')
-    
     expect(rank(resp, 2725279)).to be <= 1
 
     # quoted
     resp = solr_resp_doc_ids_only('q' => '"krun go\'i bod ljons"')
-    
     expect(rank(resp, 2725279)).to be <= 1
   end
 
   it "q of 'gun than bstan pa'i sgron me'i gsun 'bum' should retrieve correct record" do
     # unquoted
     resp = solr_resp_doc_ids_only('q' => 'gun than bstan pa\'i sgron me\'i gsun \'bum')
-    
     expect(rank(resp, 6074253)).to be <= 1
     # quoted
     resp = solr_resp_doc_ids_only('q' => '"gun than bstan pa\'i sgron me\'i gsun \'bum"')
-    
     expect(rank(resp, 6074253)).to be <= 1
   end
 
   it "q of 'krun go'i bod kyi gso rig' should retrieve correct record" do
     # unquoted
     resp = solr_resp_doc_ids_only('q' => 'krun go\'i bod kyi gso rig')
-    
     expect(rank(resp, 6316211)).to be <= 1
     # quoted
     resp = solr_resp_doc_ids_only('q' => '"krun go\'i bod kyi gso rig"')
-    
     expect(rank(resp, 6316211)).to be <= 1
   end
 
@@ -53,8 +47,6 @@ describe 'Testing tibetan support' do
 
     # # I don't know why matching on "loṅ" is failing, but since this test is only
     # # about the punctuation, I'm wild-carding it out and moving on.
-    
-    
 
     # put unicode into de-composed ("d") form to match against Solr reponse
     normalized = 'gsal me loṅ = Zang zu bu'.mb_chars.normalize(:d)

@@ -202,19 +202,10 @@ module HoldingsHelper
   def add_display_elements(entries)
     entries.each do |entry|
 
-      # location links
-      location = Location.match_location_text(entry['location_name'])
-      entry['location'] = location
+      # location links, hours
+      location = Location.match_location_text( entry['location_name'] )
 
-      if location && location.category == 'physical'
-        # NEXT-1041 - Icon or other visual cue
-        # %span.glyphicon.glyphicon-map-marker.text-primary
-        map_marker = content_tag(:span, "".html_safe, class: 'glyphicon glyphicon-map-marker text-primary').html_safe
-
-        entry['location_link'] = link_to(map_marker + entry['location_name'], location_display_path(CGI.escape(entry['location_name'])), class: :location_display)
-      else
-        entry['location_link'] = entry['location_name']
-      end
+      entry['location_link'] = format_location_link( entry['location_name'] )
 
       if location && location.library && (hours = location.library.hours.find_by_date(Date.today))
         entry['hours'] = hours.to_opens_closes
@@ -397,6 +388,41 @@ module HoldingsHelper
       Rails.logger.error "Error fetching #{hathi_brief_url}: #{error.message}"
       return nil
     end
+  end
+
+  def format_temp_location_note(temp_location)
+    label_text = location = ''
+
+    # This is the old behavior of backend, being replaced soon with Hash, below.
+    if temp_location.is_a? String
+      # hard-coded reliance on exact text of voyager_api
+      what, shelved_in, location_name = temp_location.match(/(.*)(Shelved in)(.*)/i).captures
+      label_text = "#{what}shelved in:"
+    end
+
+    if temp_location.is_a? Hash
+      label_text = temp_location['itemLabel'] + " shelved in:"
+      location_name = temp_location['tempLocation']
+    end
+
+    label_text = label_text.strip.sub(/./, &:capitalize)
+    label = content_tag(:span, label_text, class: 'holdings_label')
+    location = format_location_link( location_name )
+
+    return label + location
+  end
+
+
+  def format_location_link(location_name)
+    return '' unless location_name
+
+    location = Location.match_location_text(location_name)
+    return location_name unless location && location.category == 'physical'
+
+    map_marker = content_tag(:span, "".html_safe, class: 'glyphicon glyphicon-map-marker text-primary').html_safe
+    location_link = link_to(map_marker + location_name, location_display_path(CGI.escape(location.name)), class: :location_display, target: '_blank')
+
+    return location_link
   end
 
 end

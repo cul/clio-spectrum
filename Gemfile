@@ -10,21 +10,24 @@ gem 'blacklight', '~>6.0'
 
 gem 'blacklight-marc'
 
-# # gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :tag => 'v2.1.0'
-# 
-# # gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'master'
-# gem 'blacklight_range_limit', :git => 'git://github.com/projectblacklight/blacklight_range_limit.git', :branch => 'blacklight-master'
-
+# local testing...
+# gem 'blacklight_range_limit', path: '/Users/marquis/src/blacklight_range_limit'
 gem 'blacklight_range_limit'
 
-# The next blacklight_range_limit requires blacklight 5.15
-# gem 'blacklight_range_limit', :github => 'projectblacklight/blacklight_range_limit', :tag => 'v5.2.0'
 
 
 #  ###  BLACKLIGHT (end)  ###
 
+<<<<<<< HEAD
 # RSolr should be in your gemfile. Blacklight 6.0 will not load rsolr by default
 gem 'rsolr'
+=======
+# basic library to parse, create and manage MARC records
+gem 'marc'
+
+# MARC indexing in pure ruby
+gem "traject"
+>>>>>>> develop
 
 # Only used for Google Maps location pages
 gem 'rest-client'
@@ -48,10 +51,6 @@ gem 'devise-encryptable'
 gem 'devise_cas_authenticatable'
 # for debugging, use local version...
 # gem 'devise_cas_authenticatable', path: '/Users/marquis/src/devise_cas_authenticatable'
-
-# Not being used, turn it off.
-# # Locally developed library code to interface with ClickTale analytics
-# gem 'clicktale', path: "lib/clicktale"
 
 gem 'json'
 
@@ -174,6 +173,8 @@ gem 'rack'
 gem 'rack-attack'
 
 
+gem 'library_stdnums'
+
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
@@ -217,6 +218,9 @@ group :development do
   # I don't use it, remove it.
   # # port of ruby-debug that works on 1.9.2 and 1.9.3
   # gem 'debugger'
+
+  # For code-level debugging in console
+  gem 'byebug'
 
   # "A fist full of code metrics"
   # gem 'metric_fu'
@@ -289,6 +293,6 @@ group :test do
   
   # Record API responses, use saved responses for tests
   gem 'vcr'
-  gem 'webmock'
+  gem 'webmock', '~>1.0'
 end
 

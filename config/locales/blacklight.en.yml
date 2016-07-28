@@ -114,6 +114,7 @@ en:
       success: "Email Sent"
 
       errors:
+        invalid: 'Invalid input'
         to:
           invalid: 'You must enter a valid email address'
           blank: 'You must enter a recipient in order to send this message'
@@ -233,5 +234,11 @@ en:
       back_to_item: '« Back to Item View'
       unavailable: 'Virtual Shelf browse is unavailable from this record'
       unavailable_description: 'Items which are not (or not yet) associated with a shelving location cannot be used to launch a virtual shelf browse view.'
+
+    law:
+      # check_message: 'Check Law catalog for status'
+      check_message: 'Check Law catalog for location and status'
+
+
 
 

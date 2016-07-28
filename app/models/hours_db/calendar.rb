@@ -28,7 +28,7 @@ class HoursDb::Calendar < ActiveRecord::Base
     # cal_close.nil? ? nil : cal_date + (cal_close.hour.hours == 0 ? 24.hours : (cal_close.hour.hours + cal_close.min.minutes))
   end
 
-  def to_new_books_fmt
+  def to_clio_fmt
     {
       library_id: library.library.id,
       date: cal_date,

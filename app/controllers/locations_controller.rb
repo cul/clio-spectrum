@@ -14,7 +14,6 @@ class LocationsController < ApplicationController
     # @location = Location.match_location_text(params[:id])
     @location = Location.match_location_text(raw_location)
     if @location
-      @map_url = @location.find_link_value('Map URL')
       @library = @location.library
 
       @markers = build_markers
@@ -28,7 +27,7 @@ class LocationsController < ApplicationController
       end
 
       @display_title = @library ? @library.name : @location.name
-      @links = @location.links.reject { |location| location.name == 'Map URL' }
+      @links = @location.links.reject { |link| link.name == 'Map URL' }
 
       # @location_notes = Location.get_app_config_location_notes(@location['name']).html_safe
       @location_notes = Location.get_app_config_location_notes(raw_location)
@@ -87,7 +86,6 @@ class LocationsController < ApplicationController
                                            locals: {library_info: location,  default_image_path: default_image_url})
         marker.json({ :location_code => location['locationID'] })
       end
-
       @current_marker_index = markers.find_index{|mark| mark[:location_code] == @location.location_code}
       markers.to_json
     end

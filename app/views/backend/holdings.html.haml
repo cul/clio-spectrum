@@ -36,13 +36,14 @@
       .call_number
         %span.holdings_label Call Number: 
         = entry['call_number']
+
     -# Each 'copy' is a group of 1-or-more equivalent items (same call num, etc.)
     - entry['copies'].each do |copy|
       .copy
         -# If there are any temp locations for this item, print them out
         - unless copy['temp_locations'].nil?
-          - copy['temp_locations'].each do |t|
-            .message= t
+          - copy['temp_locations'].each do |temp_location|
+            .temp_location= format_temp_location_note(temp_location)
         -# If there are any special notes, print them out
         - ['orders', 'summary_holdings', 'supplements', 'indexes', 'notes',
 	       'reproduction_note', 'current_issues'].each do |type|

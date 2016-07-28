@@ -2,237 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: "<solr_config>/select?id=6871895&qt=document&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:33:08 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'6871895','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+ds-+0326+00000000+p4745000+002009+6871895'],'location_call_number_id_display'=>['Milstein [Butler] >> DS326 .P4745 2009|DELIM|9336454','Butler Stacks (Enter at the Butler Circulation Desk) >> DS326 .P4745 2009|DELIM|9902579','Lehman >> DS326 .P4745 2009|DELIM|10336040'],'lccn_display'=>['2008021284'],'acq_dt'=>'2010-07-26T00:00:00Z','item_display'=>['DS326 .P4745 2009 | loc+ds-+0326+00000000+p4745000+002009+6871895 | ebn~m7~~zwxt~zzzzzzzz~avsvuzzz~zzxzzq~trsyrqu~~~~~'],'title_display'=>['The Persian Gulf in history'],'clio_id_display'=>'6871895','subject_topic_facet'=>['History'],'pub_place_display'=>['New York'],'format'=>['Book'],'oclc_display'=>['ocn228427351','228427351'],'url_munged_display'=>['2|||Contributor biographical information|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-b.html|||','2|||Publisher description|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-d.html|||','1|||Table of contents only|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-t.html|||'],'title_first_facet'=>['P'],'pub_date_sort'=>2009,'full_publisher_display'=>['New York : Palgrave Macmillan, 2009.'],'isbn_display'=>['1403972451','9781403972453'],'pub_year_display'=>['2009'],'id'=>'6871895','reverse_shelfkey'=>['ebn~m7~~zwxt~zzzzzzzz~avsvuzzz~zzxzzq~trsyrqu~~~~~'],'subject_geo_facet'=>['Persian Gulf Region'],'call_number_display'=>['DS326 .P4745 2009'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>03377cam a22004814a 4500</leader><controlfield tag="001">6871895</controlfield><controlfield tag="005">20100818145900.0</controlfield><controlfield tag="008">080519s2009    nyuab    b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2008021284</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1403972451</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781403972453</subfield></datafield><datafield tag="024" ind1=" " ind2=" "><subfield code="a">40016299031</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn228427351</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)228427351</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)6871895</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">BAKER</subfield><subfield code="d">BTCTA</subfield><subfield code="d">C#P</subfield><subfield code="d">BWX</subfield><subfield code="d">OrLoB-B</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">ap-----</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">DS326</subfield><subfield code="b">.P4745 2009</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">953.6</subfield><subfield code="2">22</subfield></datafield><datafield tag="245" ind1="0" ind2="4"><subfield code="a">The Persian Gulf in history /</subfield><subfield code="c">edited by Lawrence G. Potter.</subfield></datafield><datafield tag="250" ind1=" " ind2=" "><subfield code="a">1st ed.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Palgrave Macmillan,</subfield><subfield code="c">2009.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">iv, 326 p. :</subfield><subfield code="b">ill., maps ;</subfield><subfield code="c">25 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="505" ind1="0" ind2="0"><subfield code="t">Introduction /</subfield><subfield code="r">Lawrence G. Potter --</subfield><subfield code="g">Pt. I.</subfield><subfield code="t">Gulf History and Society --</subfield><subfield code="g">1.</subfield><subfield code="t">The Archaeology and Early History of the Persian Gulf /</subfield><subfield code="r">D. T. Potts --</subfield><subfield code="g">2.</subfield><subfield code="t">The Persian Gulf in Late Antiquity: The Sasanian Era (200-700 C.E.) /</subfield><subfield code="r">Touraj Daryaee --</subfield><subfield code="g">3.</subfield><subfield code="t">The Gulf in the Early Islamic Period: The Contribution of Archaeology to Regional History /</subfield><subfield code="r">Donald Whitcomb --</subfield><subfield code="g">4.</subfield><subfield code="t">The Kings of Hormuz: From the Beginning until the Arrival of the Portuguese /</subfield><subfield code="r">Mohammad Bagher Vosoughi --</subfield><subfield code="g">5.</subfield><subfield code="t">Boom and Bust: The Port of Basra in the Sixteenth and Seventeenth Centuries /</subfield><subfield code="r">Rudi Matthee --</subfield><subfield code="g">6.</subfield><subfield code="t">The Arab Presence on the Iranian Coast of the Persian Gulf /</subfield><subfield code="r">Shahnaz Razieh Nadjmabadi --</subfield><subfield code="g">7.</subfield><subfield code="t">Gulf Society: An Anthropological View of the Khalijis - Their Evolution and Way of Life /</subfield><subfield code="r">William O. Beeman --</subfield><subfield code="g">Pt. II.</subfield><subfield code="t">The Gulf and the Indian Ocean --</subfield><subfield code="g">8.</subfield><subfield code="t">The Cultural Unity of the Gulf and the Indian Ocean: A Longue Duree Historical Perspective /</subfield><subfield code="r">M. Redha Bhacker --</subfield><subfield code="g">9.</subfield><subfield code="t">The Persian Gulf and the Swahili Coast: A History of Acculturation over the Longue Duree /</subfield><subfield code="r">Abdul Sheriff --</subfield><subfield code="g">10.</subfield><subfield code="t">India and the Gulf: Encounters from the Mid-Sixteenth to the Mid-Twentieth Centuries /</subfield><subfield code="r">Patricia Risso --</subfield><subfield code="g">Pt. III.</subfield><subfield code="t">The Role of Outsiders --</subfield><subfield code="g">11.</subfield><subfield code="t">The Portuguese Presence in the Persian Gulf /</subfield><subfield code="r">Joao Teles e Cunha --</subfield><subfield code="g">12.</subfield><subfield code="t">Dutch Relations with the Persian Gulf /</subfield><subfield code="r">Willem Floor --</subfield><subfield code="g">13.</subfield><subfield code="t">The Ottoman Role in the Gulf /</subfield><subfield code="r">Frederick Anscombe --</subfield><subfield code="g">14.</subfield><subfield code="t">Britain and the Gulf: At the Periphery of Empire /</subfield><subfield code="r">J. E. Peterson --</subfield><subfield code="g">15.</subfield><subfield code="t">The United States and the Persian Gulf in the Twentieth Century /</subfield><subfield code="r">Gary Sick.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">Persian Gulf Region</subfield><subfield code="x">History.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Potter, Lawrence G.</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Contributor biographical information</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-b.html</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Publisher description</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-d.html</subfield></datafield><datafield tag="856" ind1="4" ind2="1"><subfield code="3">Table of contents only</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-t.html</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield><subfield code="b">TOC</subfield></datafield><datafield tag="960" ind1=" " ind2=" "><subfield code="f">617420</subfield><subfield code="o">1</subfield><subfield code="s">72.41</subfield><subfield code="t">sho</subfield><subfield code="u">2576B</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20090210</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20090804</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20100726</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">DS</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">DS326 .P4745 2009</subfield><subfield code="b">loc+DS-+0326+00000000+P4745000+002009</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein [Butler] &gt;&gt; DS326 .P4745 2009|DELIM|9336454</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; DS326 .P4745 2009|DELIM|9902579</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Lehman</subfield><subfield code="b">Lehman &gt;&gt; DS326 .P4745 2009|DELIM|10336040</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2010-07-26T00:00:00.000Z</subfield></datafield></record></collection>','pub_name_display'=>['Palgrave Macmillan'],'source_display'=>['catalog'],'material_type_display'=>['iv, 326 p.'],'language_facet'=>['English'],'_version_'=>1503691827719438336,'timestamp'=>'2015-06-11T14:17:55.885Z'}]}}
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:08 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/1403972451.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 19:33:08 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:33:09 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        19:43:09 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:09 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/9781403972453.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 19:33:09 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:33:09 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        19:43:09 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:09 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocn228427351.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 19:33:09 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:33:09 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        19:43:09 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:09 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/228427351.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 19:33:09 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:33:09 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        19:43:09 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:09 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/lccn/2008021284.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 22 Sep 2015 19:33:09 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 22 Sep 2015 19:33:09 GMT
-      Server:
-      - Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.45-0+deb7u1
-      X-Powered-By:
-      - PHP/5.4.45-0+deb7u1
-      Content-Length:
-      - '33'
-      Content-Type:
-      - text/html
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 22-Sep-2015
-        19:43:09 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |2-
-
-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:09 GMT
-- request:
-    method: get
     uri: "<solr_config>/select?id=5602687&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
@@ -244,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Sep 2015 19:33:09 GMT
+      - Fri, 01 Jul 2016 20:49:01 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -252,11 +21,199 @@ http_interactions:
       Server:
       - Jetty(8.1.8.v20121106)
     body:
-      encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'5602687','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'shelfkey'=>['loc+pn-+6727+00000000+c5730000+r6350000+001998+5602687'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> PN6727.C573 R635 1998|DELIM|6714432'],'summary_display'=>['In Depression-era Chicago, the most fearsome hitman in town learns that the mob intends to kill his twelve-year-old son'],'item_display'=>['PN6727.C573 R635 1998 | loc+pn-+6727+00000000+c5730000+r6350000+001998+5602687 | ebn~ac~~tsxs~zzzzzzzz~nuswzzzz~8twuzzzz~zzyqqr~utzxtrs'],'title_display'=>['Road to perdition'],'clio_id_display'=>'5602687','subject_topic_facet'=>['Gangsters','Graphic novels','Comic books, strips, etc'],'pub_place_display'=>['New York'],'format'=>['Book'],'oclc_display'=>['ocm52060886','52060886'],'title_first_facet'=>['R'],'pub_date_sort'=>1998,'full_publisher_display'=>['New York : Paradox Press, c1998.'],'isbn_display'=>['1563894491','9781563894497'],'pub_year_display'=>['c1998'],'title_series_display'=>['Road to perdition'],'id'=>'5602687','reverse_shelfkey'=>['ebn~ac~~tsxs~zzzzzzzz~nuswzzzz~8twuzzzz~zzyqqr~utzxtrs'],'subject_geo_facet'=>['Illinois','Chicago'],'call_number_display'=>['PN6727.C573 R635 1998'],'marc_display'=>'<?xml version="1.0" encoding="UTF-8"?><collection xmlns="http://www.loc.gov/MARC21/slim"><record><leader>01508cam a2200397 a 4500</leader><controlfield tag="001">5602687</controlfield><controlfield tag="005">20121217162351.0</controlfield><controlfield tag="008">030415s1998    nyua     6    000 1 eng  </controlfield><datafield tag="019" ind1=" " ind2=" "><subfield code="a">144544293</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1563894491 (pbk.)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781563894497 (pbk.)</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm52060886</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)52060886</subfield><subfield code="z">(OCoLC)144544293</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)5602687</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DVA</subfield><subfield code="c">DVA</subfield><subfield code="d">BAKER</subfield><subfield code="d">XY4</subfield><subfield code="d">OSU</subfield><subfield code="d">BTCTA</subfield><subfield code="d">CQU</subfield><subfield code="d">YDXCP</subfield><subfield code="d">NNC</subfield></datafield><datafield tag="050" ind1=" " ind2="4"><subfield code="a">PN6727.C5796</subfield><subfield code="b">R63 1998</subfield></datafield><datafield tag="082" ind1="0" ind2="4"><subfield code="a">741.5973</subfield><subfield code="2">21</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Collins, Max Allan.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Road to perdition /</subfield><subfield code="c">written by Max Allan Collins ; art by Richard Piers Rayner ; lettering by Bob Lappan.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Paradox Press,</subfield><subfield code="c">c1998.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">302 p. :</subfield><subfield code="b">chiefly ill. ;</subfield><subfield code="c">21 cm.</subfield></datafield><datafield tag="490" ind1="1" ind2=" "><subfield code="a">Road to perdition</subfield></datafield><datafield tag="520" ind1=" " ind2=" "><subfield code="a">In Depression-era Chicago, the most fearsome hitman in town learns that the mob intends to kill his twelve-year-old son.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Gangsters</subfield><subfield code="z">Illinois</subfield><subfield code="z">Chicago</subfield><subfield code="v">Fiction</subfield><subfield code="v">Comic books, strips, etc.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Graphic novels.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Comic books, strips, etc.</subfield><subfield code="v">Fiction.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Rayner, Richard,</subfield><subfield code="d">1955-</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Lappan, Robert.</subfield></datafield><datafield tag="830" ind1=" " ind2="0"><subfield code="a">Road to perdition.</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20060622</subfield><subfield code="b">c</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">PN</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">PN6727.C573 R635 1998</subfield><subfield code="b">loc+PN-+6727+00000000+C5730000+R6350000+001998</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; PN6727.C573 R635 1998|DELIM|6714432</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record></collection>','author_display'=>['Collins, Max Allan'],'pub_name_display'=>['Paradox Press'],'source_display'=>['catalog'],'material_type_display'=>['302 p.'],'language_facet'=>['English'],'_version_'=>1501948622513635328,'timestamp'=>'2015-05-23T08:30:25.852Z'}]}}
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
+        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
+        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic1NjAyNjg3
+        JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
+        PnsnbnVtRm91bmQnPT4xLCdzdGFydCc9PjAsJ2RvY3MnPT5beydpZCc9Pic1
+        NjAyNjg3JywnbWFyY19kaXNwbGF5Jz0+JzxyZWNvcmQ+PGxlYWRlcj4wMTUw
+        OGNhbSBhMjIwMDM5NyBhIDQ1MDA8L2xlYWRlcj48Y29udHJvbGZpZWxkIHRh
+        Zz0iMDAxIj41NjAyNjg3PC9jb250cm9sZmllbGQ+PGNvbnRyb2xmaWVsZCB0
+        YWc9IjAwNSI+MjAxMjEyMTcxNjIzNTEuMDwvY29udHJvbGZpZWxkPjxjb250
+        cm9sZmllbGQgdGFnPSIwMDgiPjAzMDQxNXMxOTk4ICAgIG55dWEgICAgIDYg
+        ICAgMDAwIDEgZW5nICA8L2NvbnRyb2xmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
+        MDE5IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+MTQ0
+        NTQ0MjkzPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
+        MDIwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+MTU2
+        Mzg5NDQ5MSAocGJrLik8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmll
+        bGQgdGFnPSIwMjAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2Rl
+        PSJhIj45NzgxNTYzODk0NDk3IChwYmsuKTwvc3ViZmllbGQ+PC9kYXRhZmll
+        bGQ+PGRhdGFmaWVsZCB0YWc9IjAzNSIgaW5kMT0iICIgaW5kMj0iICI+PHN1
+        YmZpZWxkIGNvZGU9ImEiPihPQ29MQylvY201MjA2MDg4Njwvc3ViZmllbGQ+
+        PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAzNSIgaW5kMT0iICIgaW5k
+        Mj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPihPQ29MQyk1MjA2MDg4Njwvc3Vi
+        ZmllbGQ+PHN1YmZpZWxkIGNvZGU9InoiPihPQ29MQykxNDQ1NDQyOTM8L3N1
+        YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwMzUiIGluZDE9
+        IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4oTk5DKTU2MDI2ODc8
+        L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwNDAiIGlu
+        ZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5EVkE8L3N1YmZp
+        ZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5EVkE8L3N1YmZpZWxkPjxzdWJmaWVs
+        ZCBjb2RlPSJkIj5CQUtFUjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImQi
+        PlhZNDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImQiPk9TVTwvc3ViZmll
+        bGQ+PHN1YmZpZWxkIGNvZGU9ImQiPkJUQ1RBPC9zdWJmaWVsZD48c3ViZmll
+        bGQgY29kZT0iZCI+Q1FVPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZCI+
+        WURYQ1A8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj5OTkM8L3N1YmZp
+        ZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwNTAiIGluZDE9IiAi
+        IGluZDI9IjQiPjxzdWJmaWVsZCBjb2RlPSJhIj5QTjY3MjcuQzU3OTY8L3N1
+        YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5SNjMgMTk5ODwvc3ViZmllbGQ+
+        PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjA4MiIgaW5kMT0iMCIgaW5k
+        Mj0iNCI+PHN1YmZpZWxkIGNvZGU9ImEiPjc0MS41OTczPC9zdWJmaWVsZD48
+        c3ViZmllbGQgY29kZT0iMiI+MjE8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxk
+        YXRhZmllbGQgdGFnPSIxMDAiIGluZDE9IjEiIGluZDI9IiAiPjxzdWJmaWVs
+        ZCBjb2RlPSJhIj5Db2xsaW5zLCBNYXggQWxsYW4uPC9zdWJmaWVsZD48L2Rh
+        dGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMjQ1IiBpbmQxPSIxIiBpbmQyPSIw
+        Ij48c3ViZmllbGQgY29kZT0iYSI+Um9hZCB0byBwZXJkaXRpb24gLzwvc3Vi
+        ZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImMiPndyaXR0ZW4gYnkgTWF4IEFsbGFu
+        IENvbGxpbnMgOyBhcnQgYnkgUmljaGFyZCBQaWVycyBSYXluZXIgOyBsZXR0
+        ZXJpbmcgYnkgQm9iIExhcHBhbi48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxk
+        YXRhZmllbGQgdGFnPSIyNjAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVs
+        ZCBjb2RlPSJhIj5OZXcgWW9yayA6PC9zdWJmaWVsZD48c3ViZmllbGQgY29k
+        ZT0iYiI+UGFyYWRveCBQcmVzcyw8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2Rl
+        PSJjIj5jMTk5OC48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
+        dGFnPSIzMDAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJh
+        Ij4zMDIgcC4gOjwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPmNoaWVm
+        bHkgaWxsLiA7PC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYyI+MjEgY20u
+        PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNDkwIiBp
+        bmQxPSIxIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+Um9hZCB0byBw
+        ZXJkaXRpb248L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFn
+        PSI1MjAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5J
+        biBEZXByZXNzaW9uLWVyYSBDaGljYWdvLCB0aGUgbW9zdCBmZWFyc29tZSBo
+        aXRtYW4gaW4gdG93biBsZWFybnMgdGhhdCB0aGUgbW9iIGludGVuZHMgdG8g
+        a2lsbCBoaXMgdHdlbHZlLXllYXItb2xkIHNvbi48L3N1YmZpZWxkPjwvZGF0
+        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI2NTAiIGluZDE9IiAiIGluZDI9IjAi
+        PjxzdWJmaWVsZCBjb2RlPSJhIj5HYW5nc3RlcnM8L3N1YmZpZWxkPjxzdWJm
+        aWVsZCBjb2RlPSJ6Ij5JbGxpbm9pczwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
+        ZGU9InoiPkNoaWNhZ288L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ2Ij5G
+        aWN0aW9uPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0idiI+Q29taWMgYm9v
+        a3MsIHN0cmlwcywgZXRjLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFm
+        aWVsZCB0YWc9IjY1MCIgaW5kMT0iICIgaW5kMj0iMCI+PHN1YmZpZWxkIGNv
+        ZGU9ImEiPkdyYXBoaWMgbm92ZWxzLjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+
+        PGRhdGFmaWVsZCB0YWc9IjY1MCIgaW5kMT0iICIgaW5kMj0iMCI+PHN1YmZp
+        ZWxkIGNvZGU9ImEiPkNvbWljIGJvb2tzLCBzdHJpcHMsIGV0Yy48L3N1YmZp
+        ZWxkPjxzdWJmaWVsZCBjb2RlPSJ2Ij5GaWN0aW9uLjwvc3ViZmllbGQ+PC9k
+        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjcwMCIgaW5kMT0iMSIgaW5kMj0i
+        ICI+PHN1YmZpZWxkIGNvZGU9ImEiPlJheW5lciwgUmljaGFyZCw8L3N1YmZp
+        ZWxkPjxzdWJmaWVsZCBjb2RlPSJkIj4xOTU1LTwvc3ViZmllbGQ+PC9kYXRh
+        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjcwMCIgaW5kMT0iMSIgaW5kMj0iICI+
+        PHN1YmZpZWxkIGNvZGU9ImEiPkxhcHBhbiwgUm9iZXJ0Ljwvc3ViZmllbGQ+
+        PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjgzMCIgaW5kMT0iICIgaW5k
+        Mj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEiPlJvYWQgdG8gcGVyZGl0aW9uLjwv
+        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk0OCIgaW5k
+        MT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPjIwMDYwNjIyPC9z
+        dWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+Yzwvc3ViZmllbGQ+PHN1YmZp
+        ZWxkIGNvZGU9ImMiPnJhZDE8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJk
+        Ij5NUFM8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5
+        MDAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5BVVRI
+        PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTkwIiBp
+        bmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+UE48L3N1YmZp
+        ZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTEiIGluZDE9IiAi
+        IGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5QTjY3MjcuQzU3MyBSNjM1
+        IDE5OTg8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJiIj5sb2MrUE4tKzY3
+        MjcrMDAwMDAwMDArQzU3MzAwMDArUjYzNTAwMDArMDAxOTk4PC9zdWJmaWVs
+        ZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTkyIiBpbmQxPSIgIiBp
+        bmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+QnV0bGVyIFN0YWNrczwvc3Vi
+        ZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImIiPkJ1dGxlciBTdGFja3MgKEVudGVy
+        IGF0IHRoZSBCdXRsZXIgQ2lyY3VsYXRpb24gRGVzaykgJmd0OyZndDsgUE42
+        NzI3LkM1NzMgUjYzNSAxOTk4fERFTElNfDY3MTQ0MzI8L3N1YmZpZWxkPjwv
+        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTMiIGluZDE9IiAiIGluZDI9
+        IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5Cb29rPC9zdWJmaWVsZD48L2RhdGFm
+        aWVsZD48ZGF0YWZpZWxkIHRhZz0iOTk1IiBpbmQxPSIgIiBpbmQyPSIgIj48
+        c3ViZmllbGQgY29kZT0iYSI+Y2F0YWxvZzwvc3ViZmllbGQ+PC9kYXRhZmll
+        bGQ+PC9yZWNvcmQ+JywndGV4dCc9PlsnUE42NzI3LkM1Nzk2IFI2MyAxOTk4
+        JywnNzQxLjU5NzMgMjEnLCdDb2xsaW5zLCBNYXggQWxsYW4uJywnUm9hZCB0
+        byBwZXJkaXRpb24gLyB3cml0dGVuIGJ5IE1heCBBbGxhbiBDb2xsaW5zIDsg
+        YXJ0IGJ5IFJpY2hhcmQgUGllcnMgUmF5bmVyIDsgbGV0dGVyaW5nIGJ5IEJv
+        YiBMYXBwYW4uJywnTmV3IFlvcmsgOiBQYXJhZG94IFByZXNzLCBjMTk5OC4n
+        LCczMDIgcC4gOiBjaGllZmx5IGlsbC4gOyAyMSBjbS4nLCdSb2FkIHRvIHBl
+        cmRpdGlvbicsJ0luIERlcHJlc3Npb24tZXJhIENoaWNhZ28sIHRoZSBtb3N0
+        IGZlYXJzb21lIGhpdG1hbiBpbiB0b3duIGxlYXJucyB0aGF0IHRoZSBtb2Ig
+        aW50ZW5kcyB0byBraWxsIGhpcyB0d2VsdmUteWVhci1vbGQgc29uLicsJ0dh
+        bmdzdGVycyBJbGxpbm9pcyBDaGljYWdvIEZpY3Rpb24gQ29taWMgYm9va3Ms
+        IHN0cmlwcywgZXRjLicsJ0dyYXBoaWMgbm92ZWxzLicsJ0NvbWljIGJvb2tz
+        LCBzdHJpcHMsIGV0Yy4gRmljdGlvbi4nLCdSYXluZXIsIFJpY2hhcmQsIDE5
+        NTUtJywnTGFwcGFuLCBSb2JlcnQuJywnUm9hZCB0byBwZXJkaXRpb24uJywn
+        MjAwNjA2MjIgYyByYWQxIE1QUycsJ0FVVEgnXSwnYXV0aG9yX3R4dCc9Plsn
+        Q29sbGlucywgTWF4IEFsbGFuLiddLCdhdXRob3JfYWRkbF90eHQnPT5bJ1Jh
+        eW5lciwgUmljaGFyZCwnLCdMYXBwYW4sIFJvYmVydC4nXSwnYXV0aG9yX2Zh
+        Y2V0Jz0+WydDb2xsaW5zLCBNYXggQWxsYW4nLCdSYXluZXIsIFJpY2hhcmQs
+        IDE5NTUtJywnTGFwcGFuLCBSb2JlcnQnXSwnYXV0aG9yX2Rpc3BsYXknPT5b
+        J0NvbGxpbnMsIE1heCBBbGxhbiddLCdhdXRob3Jfc29ydCc9PidDb2xsaW5z
+        LCBNYXggQWxsYW4uICAgUm9hZCB0byBwZXJkaXRpb24gd3JpdHRlbiBieSBN
+        YXggQWxsYW4gQ29sbGlucyA7IGFydCBieSBSaWNoYXJkIFBpZXJzIFJheW5l
+        ciA7IGxldHRlcmluZyBieSBCb2IgTGFwcGFuJywndGl0bGVfdHh0Jz0+WydS
+        b2FkIHRvIHBlcmRpdGlvbiAvJ10sJ3RpdGxlX2Rpc3BsYXknPT5bJ1JvYWQg
+        dG8gcGVyZGl0aW9uJ10sJ3RpdGxlX2ZpbGluZ190eHQnPT5bJ1JvYWQgdG8g
+        cGVyZGl0aW9uIC8nXSwndGl0bGVfZmlsaW5nX2Z1bGxfdHh0Jz0+WydSb2Fk
+        IHRvIHBlcmRpdGlvbiAvJ10sJ3RpdGxlX2ZpcnN0X2ZhY2V0Jz0+WydSJ10s
+        J3RpdGxlX2FkZGxfdHh0Jz0+WydSb2FkIHRvIHBlcmRpdGlvbiAvJ10sJ3Rp
+        dGxlX3Nlcmllc190eHQnPT5bJ1JvYWQgdG8gcGVyZGl0aW9uJ10sJ3RpdGxl
+        X3Nlcmllc19kaXNwbGF5Jz0+WydSb2FkIHRvIHBlcmRpdGlvbiddLCd0aXRs
+        ZV9zb3J0Jz0+J3JvYWQgdG8gcGVyZGl0aW9uJywnc3ViamVjdF90eHQnPT5b
+        J0dhbmdzdGVycyBJbGxpbm9pcyBDaGljYWdvIEZpY3Rpb24gQ29taWMgYm9v
+        a3MsIHN0cmlwcywgZXRjJywnR3JhcGhpYyBub3ZlbHMnLCdDb21pYyBib29r
+        cywgc3RyaXBzLCBldGMuIEZpY3Rpb24nXSwnc3ViamVjdF90b3BpY19mYWNl
+        dCc9PlsnR2FuZ3N0ZXJzJywnR3JhcGhpYyBub3ZlbHMnLCdDb21pYyBib29r
+        cywgc3RyaXBzLCBldGMnXSwnc3ViamVjdF9nZW9fZmFjZXQnPT5bJ0lsbGlu
+        b2lzJywnQ2hpY2FnbyddLCdzdWJqZWN0X2Zvcm1fZmFjZXQnPT5bJ0ZpY3Rp
+        b24nLCdDb21pYyBib29rcywgc3RyaXBzLCBldGMnXSwnc3ViamVjdF9mb3Jt
+        X3R4dCc9PlsnRmljdGlvbicsJ0NvbWljIGJvb2tzLCBzdHJpcHMsIGV0Yydd
+        LCdwdWJfcGxhY2VfZGlzcGxheSc9PlsnTmV3IFlvcmsnXSwncHViX25hbWVf
+        ZGlzcGxheSc9PlsnUGFyYWRveCBQcmVzcyddLCdwdWJfeWVhcl9kaXNwbGF5
+        Jz0+WydjMTk5OCddLCdwdWJfcGxhY2VfdHh0Jz0+WydOZXcgWW9yayddLCdw
+        dWJfbmFtZV90eHQnPT5bJ1BhcmFkb3ggUHJlc3MnXSwncHViX3llYXJfdHh0
+        Jz0+WydjMTk5OCddLCdwdWJfZGF0ZV90eHQnPT5bJzE5OTgnXSwnbGFuZ3Vh
+        Z2VfZmFjZXQnPT5bJ0VuZ2xpc2gnXSwnZm9ybWF0Jz0+WydCb29rJ10sJ2xj
+        XzFsZXR0ZXJfZmFjZXQnPT5bJ1AgLSBMYW5ndWFnZSAmIExpdGVyYXR1cmUn
+        XSwnbGNfMmxldHRlcl9mYWNldCc9PlsnUE4gLSBMaXRlcmF0dXJlIChHZW5l
+        cmFsKSddLCdsY19zdWJjbGFzc19mYWNldCc9PlsnUE4gLSBMaXRlcmF0dXJl
+        IChHZW5lcmFsKSddLCdjbGlvX2lkX2Rpc3BsYXknPT4nNTYwMjY4NycsJ3Nv
+        dXJjZV9mYWNldCc9PlsnY2F0YWxvZyddLCdzb3VyY2VfZGlzcGxheSc9Plsn
+        Y2F0YWxvZyddLCdzdW1tYXJ5X2Rpc3BsYXknPT5bJ0luIERlcHJlc3Npb24t
+        ZXJhIENoaWNhZ28sIHRoZSBtb3N0IGZlYXJzb21lIGhpdG1hbiBpbiB0b3du
+        IGxlYXJucyB0aGF0IHRoZSBtb2IgaW50ZW5kcyB0byBraWxsIGhpcyB0d2Vs
+        dmUteWVhci1vbGQgc29uLiddLCdpc2JuX3R4dCc9PlsnMTU2Mzg5NDQ5MScs
+        Jzk3ODE1NjM4OTQ0OTcnXSwnaXNibl9kaXNwbGF5Jz0+WycxNTYzODk0NDkx
+        JywnOTc4MTU2Mzg5NDQ5NyddLCdvY2xjX3R4dCc9Plsnb2NtNTIwNjA4ODYn
+        LCc1MjA2MDg4NiddLCdvY2xjX2Rpc3BsYXknPT5bJ29jbTUyMDYwODg2Jywn
+        NTIwNjA4ODYnXSwnZnVsbF9wdWJsaXNoZXJfZGlzcGxheSc9PlsnTmV3IFlv
+        cmsgOiBQYXJhZG94IFByZXNzLCBjMTk5OC4nXSwnbG9jYXRpb25fY2FsbF9u
+        dW1iZXJfaWRfZGlzcGxheSc9PlsnQnV0bGVyIFN0YWNrcyAoRW50ZXIgYXQg
+        dGhlIEJ1dGxlciBDaXJjdWxhdGlvbiBEZXNrKSA+PiBQTjY3MjcuQzU3MyBS
+        NjM1IDE5OTh8REVMSU18NjcxNDQzMiddLCdsb2NhdGlvbl9jYWxsX251bWJl
+        cl90eHQnPT5bJ0J1dGxlciBTdGFja3MgKEVudGVyIGF0IHRoZSBCdXRsZXIg
+        Q2lyY3VsYXRpb24gRGVzaykgPj4gUE42NzI3LkM1NzMgUjYzNSAxOTk4J10s
+        J2NhbGxfbnVtYmVyX3R4dCc9PlsnUE42NzI3LkM1NzMgUjYzNSAxOTk4J10s
+        J2NhbGxfbnVtYmVyX2Rpc3BsYXknPT5bJ1BONjcyNy5DNTczIFI2MzUgMTk5
+        OCddLCdsb2NhdGlvbl9mYWNldCc9PlsnQnV0bGVyIFN0YWNrcyddLCdsb2Nh
+        dGlvbl90eHQnPT5bJ0J1dGxlciBTdGFja3MgKEVudGVyIGF0IHRoZSBCdXRs
+        ZXIgQ2lyY3VsYXRpb24gRGVzaykgPj4gUE42NzI3LkM1NzMgUjYzNSAxOTk4
+        J10sJ3NoZWxma2V5Jz0+Wydsb2MrcG4tKzY3MjcrMDAwMDAwMDArYzU3MzAw
+        MDArcjYzNTAwMDArMDAxOTk4KzU2MDI2ODcnXSwncmV2ZXJzZV9zaGVsZmtl
+        eSc9PlsnZWJufmFjfn50c3hzfnp6enp6enp6fm51c3d6enp6fjh0d3V6enp6
+        fnp6eXFxcn51dHp4dHJzJ10sJ2l0ZW1fZGlzcGxheSc9PlsnUE42NzI3LkM1
+        NzMgUjYzNSAxOTk4IHwgbG9jK3BuLSs2NzI3KzAwMDAwMDAwK2M1NzMwMDAw
+        K3I2MzUwMDAwKzAwMTk5OCs1NjAyNjg3IHwgZWJufmFjfn50c3hzfnp6enp6
+        enp6fm51c3d6enp6fjh0d3V6enp6fnp6eXFxcn51dHp4dHJzJ10sJ3RpbWVz
+        dGFtcCc9PicyMDE2LTA1LTIzVDIwOjA0OjM2Ljc5MlonLCdhdXRob3JpdGll
+        c19kdCc9PicyMDE2LTA1LTI0VDE4OjE4OjQ0WicsJ2F1dGhvcl92YXJpYW50
+        X3R4dCc9PlsnQ29sbGlucywgTWF4IENvbGxpbnMsIE1heCBBLiDjg57jg4Pj
+        gq/jgrnjg7vjgqLjg6njg7Pjg7vjgrPjg6rjg7PjgrogQ3VsaGFuZSwgUGF0
+        cmljaywgMTk0OC0gQWxsYW4sIEJhcmJhcmEgIExhcHBhbiwgQm9iJ10sJ3N1
+        YmplY3RfdmFyaWFudF90eHQnPT5bJ0NyaW1pbmFscyBDb21pYyBib29rIG5v
+        dmVscyBGaWN0aW9uIGdyYXBoaWMgbm92ZWxzIEZpY3RpdmUgZ3JhcGhpYyBu
+        b3ZlbHMgR3JhcGhpYyBhbGJ1bXMgR3JhcGhpYyBmaWN0aW9uIEdyYXBoaWMg
+        bm9uZmljdGlvbiBHcmFwaGljIG5vdmVsbGFzIE5vbmZpY3Rpb24gZ3JhcGhp
+        YyBub3ZlbHMgQ29taWMgYm9va3MsIHN0cmlwcywgZXRjLiBGaWN0aW9uIFBv
+        cHVsYXIgbGl0ZXJhdHVyZSBDb21pYyBzdHJpcHMgQ29taWNzIEZ1bm5pZXMg
+        TWFuZ2EgKENvbWljIGJvb2tzLCBzdHJpcHMsIGV0Yy4pIE1hbmh1YSAoQ29t
+        aWMgYm9va3MsIHN0cmlwcywgZXRjLikgTWFuaHdhIChDb21pYyBib29rcywg
+        c3RyaXBzLCBldGMuKSBTZXJpYWwgcGljdHVyZSBib29rcyBDYXJpY2F0dXJl
+        cyBhbmQgY2FydG9vbnMgV2l0IGFuZCBodW1vciwgUGljdG9yaWFsJ10sJ192
+        ZXJzaW9uXyc9PjE1MzUyMzQ3MjI2NzU4MTg0OTZ9XX19Cg==
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:09 GMT
+  recorded_at: Fri, 01 Jul 2016 20:49:00 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/5602687"
@@ -265,11 +222,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.6.0.1, ruby 2.1.0 (2013-12-25))
+      - HTTPClient/1.0 (2.8.0, ruby 2.2.1 (2015-02-26))
       Accept:
       - "*/*"
       Date:
-      - Tue, 22 Sep 2015 19:33:09 GMT
+      - Fri, 01 Jul 2016 20:49:01 GMT
   response:
     status:
       code: 200
@@ -281,37 +238,43 @@ http_interactions:
       - chunked
       Connection:
       - keep-alive
+      Vary:
+      - Accept-Encoding
       Status:
-      - '200'
-      X-Powered-By:
-      - Phusion Passenger (mod_rails/mod_rack) 3.0.11
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Request-Method:
-      - "*"
-      Etag:
-      - W/"475e44221af84dc72157d875e31dc5ab"
+      - 200 OK
       Cache-Control:
       - max-age=0, private, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Xss-Protection:
+      - 1; mode=block
       X-Request-Id:
-      - 37475dc4-8aa6-492a-9411-7ada0c4937c4
+      - 2f261668-2c8a-4b10-8449-5ccbb842ba58
+      Etag:
+      - W/"475e44221af84dc72157d875e31dc5ab"
+      X-Frame-Options:
+      - SAMEORIGIN
       X-Runtime:
-      - '1.863238'
+      - '1.155235'
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Request-Method:
+      - "*"
+      Date:
+      - Fri, 01 Jul 2016 20:49:02 GMT
+      X-Powered-By:
+      - Phusion Passenger
       Server:
-      - nginx/1.0.11 + Phusion Passenger 3.0.11 (mod_rails/mod_rack)
+      - nginx + Phusion Passenger
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubdomains; preload
     body:
       encoding: UTF-8
-      string: "{\"5602687\":{\"condensed_holdings_full\":[{\"location_name\":\"Butler
-        Stacks (Enter at the Butler Circulation Desk)\",\"location_note\":\"\",\"call_number\":\"PN6727.C573
-        R635 1998\",\"status\":\"available\",\"holding_id\":[\"6714432\"],\"copies\":[{\"items\":{\"Available\":{\"status\":\"available\",\"count\":1}},\"donor_info\":\"Donor:
-        Gift; Paul Levitz; 2012.\",\"donor_info_icon\":[{\"message\":\"Paul Levitz;
-        2012.\",\"url\":\"\"}],\"summary_holdings\":\"Library has: v.1-2\"}],\"services\":[\"doc_delivery\"]}]}}"
+      string: '{"5602687":{"condensed_holdings_full":[{"location_name":"Butler Stacks
+        (Enter at the Butler Circulation Desk)","location_note":"","call_number":"PN6727.C573
+        R635 1998","status":"available","holding_id":["6714432"],"copies":[{"items":{"Available":{"status":"available","count":1}},"donor_info":"Donor:
+        Gift; Paul Levitz; 2012.","donor_info_icon":[{"message":"Paul Levitz; 2012.","url":""}],"summary_holdings":"Library
+        has: v.1-2"}],"services":["doc_delivery"]}]}}'
     http_version: 
-  recorded_at: Tue, 22 Sep 2015 19:33:12 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Fri, 01 Jul 2016 20:49:02 GMT
+recorded_with: VCR 3.0.1
