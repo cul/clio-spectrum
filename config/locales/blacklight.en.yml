@@ -235,4 +235,10 @@ en:
       unavailable: 'Virtual Shelf browse is unavailable from this record'
       unavailable_description: 'Items which are not (or not yet) associated with a shelving location cannot be used to launch a virtual shelf browse view.'
 
+    law:
+      # check_message: 'Check Law catalog for status'
+      check_message: 'Check Law catalog for location and status'
+
+
+
 

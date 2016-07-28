@@ -13,7 +13,7 @@ describe 'CLIO support for Law records', :vcr do
     expect(page).to have_css('.result.document')
     all('.result.document').each do |result_document|
       expect(result_document).to have_text 'Law'
-      expect(result_document).to have_link('Check Law catalog for status')
+      expect(result_document).to have_link(t('blacklight.law.check_message'))
     end
 
     # Now dismiss "supr* cour*", to get full listing of all law records...
@@ -47,7 +47,7 @@ describe 'CLIO support for Law records', :vcr do
   it 'should link to precise bib for known item' do
     visit catalog_index_path('q' => 'supr* cour* felix aime')
     expect(find('.result.document')).to have_text 'Law Trials C5453'
-    expect(find('.result.document')).to have_link('Check Law catalog for status', href: 'http://pegasus.law.columbia.edu/record=b402660')
+    expect(find('.result.document')).to have_link(t('blacklight.law.check_message'), href: 'http://pegasus.law.columbia.edu/record=b402660')
   end
 
   it 'should replace "Requests" menu with link to Law Library' do

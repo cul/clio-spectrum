@@ -207,7 +207,7 @@ module DisplayHelper
     url = 'http://pegasus.law.columbia.edu'
     if document && document.id
       # NEXT-996 - Rename "Pegasus" link
-      return link_to 'Check Law catalog for status',
+      return link_to t('blacklight.law.check_message'),
                      "#{url}/record=#{document.id}",
                      :'data-ga-category' => 'Pegasus Link',
                      :'data-ga-action' => context,
