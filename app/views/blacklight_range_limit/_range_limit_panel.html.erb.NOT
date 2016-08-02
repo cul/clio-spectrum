@@ -1,3 +1,5 @@
+
+
 <%- # requires solr_config local passed in
   field_config = range_config(solr_field)
 -%>

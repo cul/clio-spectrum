@@ -62,28 +62,40 @@ module Spectrum
       end
 
       # Create new params for the inversion of facet_field=value
+      # For:
+      #   @params = {"f"=>{"format"=>["Book", "Online"]}, ...etc... }
+      #   facet_field = format
+      #   value = Book
+      # Return:
+      #   @params = {"f"=>{"-format"=>["Book"], "format"=>["Online"]}, ...etc... }
+      # 
       def invert_facet_value(facet_field, value)
-        # start with our current params...
-        new_params = @params.deep_clone
-        # remove what we don't want...
-        new_params.delete(:page)
-        new_params.delete(:id)
-        Blacklight::Solr::FacetPaginator.request_keys.values.each do |paginator_key|
-          new_params.delete(paginator_key)
-        end
-        # send them to the index (search results)
-        new_params[:action] = 'index'
-
-
+        # # start with our current params...
+        # new_params = @params.deep_clone
+        # 
+        # # remove what we don't want...
+        # new_params.delete(:page)
+        # new_params.delete(:id)
+        # Blacklight::Solr::FacetPaginator.request_keys.values.each do |paginator_key|
+        #   new_params.delete(paginator_key)
+        # end
+        # # send them to the index (search results)
+        # new_params[:action] = 'index'
+        # 
+        # # Remove 
+        # 
         # deprecated
         # new_params = remove_facet_params(facet_field, value, new_params)
-        new_params = Blacklight::SearchState.new(new_params, blacklight_config).
-                     remove_facet_params(facet_field, value)
+        search_state = Blacklight::SearchState.new(@params, blacklight_config)
+        new_params = search_state.remove_facet_params(facet_field, value)
 
-        # deprecated
-        # new_params = add_facet_params(inverted_facet_field(facet_field), value, new_params)
-        new_params = Blacklight::SearchState.new(new_params, blacklight_config).
-                     add_facet_params(inverted_facet_field(facet_field), value)
+        search_state = Blacklight::SearchState.new(new_params.to_h, blacklight_config)
+        new_params = search_state.add_facet_params(inverted_facet_field(facet_field), value)
+
+        # # deprecated
+        # # new_params = add_facet_params(inverted_facet_field(facet_field), value, new_params)
+        # new_params = Blacklight::SearchState.new(new_params, blacklight_config).
+        #              add_facet_params(inverted_facet_field(facet_field), value)
         new_params
       end
 

@@ -18,16 +18,14 @@ gem 'blacklight_range_limit'
 
 #  ###  BLACKLIGHT (end)  ###
 
-<<<<<<< HEAD
 # RSolr should be in your gemfile. Blacklight 6.0 will not load rsolr by default
 gem 'rsolr'
-=======
+
 # basic library to parse, create and manage MARC records
 gem 'marc'
 
 # MARC indexing in pure ruby
 gem "traject"
->>>>>>> develop
 
 # Only used for Google Maps location pages
 gem 'rest-client'

@@ -15,13 +15,9 @@ describe 'Item Locations should show correct library hours', :vcr, :skip_travis 
   # end
 
   it 'for Avery Drawings & Archives', :js do
-<<<<<<< HEAD
     visit solr_document_path('8277276')
-=======
     target = 'Avery Drawings & Archives - By appt. (Non-Circulating)'
 
-    visit catalog_path('8277276')
->>>>>>> develop
     # page.save_and_open_page # debug
     expect(find('.holdings-container')).to have_text(target)
 
@@ -39,19 +35,12 @@ describe 'Item Locations should show correct library hours', :vcr, :skip_travis 
   it 'for Avery Classics', :js do
     target = 'Avery Classics'
     # Pull up the item-detail page, follow link to Location page...
-<<<<<<< HEAD
     visit solr_document_path('565036')
-    expect(find('.holdings-container')).to have_text('Avery Classics')
-    within('.location_box .location', text: 'Avery Classics') do
-      click_link('Avery Classics')
-=======
-    visit catalog_path('565036')
     expect(find('.holdings-container')).to have_text(target)
     within('.location_box .location', text: target) do
       # Can't use click_link(), because location pages open in new window
       location_page_url = find('a.location_display', text: target)[:href]
       visit location_page_url
->>>>>>> develop
     end
 
     # Check out the Location page...

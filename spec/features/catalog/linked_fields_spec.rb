@@ -230,7 +230,7 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
   # NEXT-1317 - Incorrect search results for series with parenthesis.
   it "should handle parens within series title" do
     target = 'Monograph (British Institute of Archaeology at Ankara)'
-    visit catalog_path(10904345)
+    visit solr_document_path(10904345)
     # Click a series with parenthesized words...
     click_link(target)
     expect(find('.constraints-container')).to have_text(target)

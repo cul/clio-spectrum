@@ -190,11 +190,7 @@ GEM
     launchy (2.4.3)
       addressable (~> 2.3)
     library_stdnums (1.4.1)
-<<<<<<< HEAD
-    libv8 (3.16.14.13)
-=======
     libv8 (3.16.14.15)
->>>>>>> develop
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -368,13 +364,10 @@ GEM
       marc-fastxmlwriter (~> 1.0)
       slop (>= 3.4.5, < 4.0)
       yell
-<<<<<<< HEAD
     twitter-typeahead-rails (0.11.1)
       actionpack (>= 3.1)
       jquery-rails
       railties (>= 3.1)
-=======
->>>>>>> develop
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (3.0.0)

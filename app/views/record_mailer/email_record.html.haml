@@ -18,7 +18,7 @@
   -# EMAIL SOLRDOCUMENT / CATALOG ITEM
   - if document.kind_of?(SolrDocument)
     = document['title_display'].listify.join("\r\n") || document.id
-    = "CLIO: " + catalog_url(document[:id], @url_gen_params)
+    = "CLIO: " + solr_document_url(document[:id], @url_gen_params)
     \
     - if (online_links = online_link_hash(document)).any?
       Online:

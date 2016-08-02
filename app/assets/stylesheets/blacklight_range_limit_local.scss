@@ -4,15 +4,20 @@ https://github.com/projectblacklight/blacklight_range_limit/blob/master/app/asse
     - customize styles for CLIO
 */
 
+/* leave room for buttons not to collide on line wrap */
+/*
 form.range_limit {
-  /* leave room for buttons not to collide on line wrap */
   line-height: 3;
 }
+*/
 
+/*
 .range_limit input.range_begin, .range_limit input.range_end {
   display: inline-block;
   width: 4.5em;
 }
+*/
+
 
 /*
 .limit_content .subsection {

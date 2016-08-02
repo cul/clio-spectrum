@@ -23,12 +23,12 @@ xml.feed("xmlns" => "http://www.w3.org/2005/Atom") do
       # updated is required, for now we'll just set it to now, sorry
       xml.updated Time.now.strftime("%Y-%m-%dT%H:%M:%SZ")
 
-      xml.link    "rel" => "alternate", "type" => "text/html", "href" => catalog_url(doc)
+      xml.link    "rel" => "alternate", "type" => "text/html", "href" => solr_document_url(doc)
       # add other doc-specific formats, atom only lets us have one per
       # content type, so the first one in the list wins.
       xml << render_link_rel_alternates(doc, :unique => true)
 
-      xml.id      catalog_url(doc[:id])
+      xml.id      solr_document_url(doc[:id])
 
 
       if doc.to_semantic_values[:author][0]

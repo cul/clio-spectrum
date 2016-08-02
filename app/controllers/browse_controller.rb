@@ -176,7 +176,8 @@ class BrowseController < ApplicationController
     # Run the query in slices, merge them.
     solr_document_list = []
     key_list.each_slice(20) { |slice|
-      response, slice_document_list = get_solr_response_for_field_values(fieldname, slice, solr_params)
+      # response, slice_document_list = get_solr_response_for_field_values(fieldname, slice, solr_params)
+      response, slice_document_list = fetch(slice, solr_params)
       solr_document_list += slice_document_list
     }
 
