@@ -96,7 +96,8 @@ en:
 
     email:
       form:
-        title: 'Email This'
+        # title: 'Email This'
+        title: 'Share selected item(s) via email'
         to: 'Email:'
         message: 'Message:'
         submit: 'Send'
