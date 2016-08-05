@@ -61,7 +61,8 @@ each_record do |record, context|
           # Do we have at least one tracing, with an 'a' subfield?
           if (record[see_from].present? and record[see_from]['a'].present?) or (record[see_also].present? and record[see_also]['a'].present?)
             # ... if yes, then KEEP THIS RECORD!
-            puts "KEEP auth id #{record['001'].value} (\"#{name}\")"
+            # DEBUG
+            # puts "KEEP auth id #{record['001'].value} (\"#{name}\")"
             skip = false
           end
 
@@ -125,21 +126,25 @@ end
 # This is the matcher field.
 # Full authorized terms from the bib record will be matched against this.
 # We need to bring in many subfields for better precision in matching.
+# If doing exact string match (_s), query term must include the same subfields.
 to_field "authorized_t", extract_marc("100abcdgqu:110abcdgnu:111acdegjnqu:150a:151a", trim_punctuation: false)
+to_field "authorized_s", extract_marc("100abcdgqu:110abcdgnu:111acdegjnqu:150a:151a", trim_punctuation: false)
 
 # The Variant list is used to improve retrieval from patron queries.
 # Keep this focused on what a patron might search by, that is,
 # omit special code subfields.
 to_field "variant_t" do |record, accumulator, context|
 
-  puts "started variant_t for #{record['001'].value}"
+  # DEBUG
+  # puts "started variant_t for #{record['001'].value}"
 
   # 4xx - See From Tracing Fields
   # 5xx - See Also Tracing Fields
   record.fields(['400','410','411','450','451',
                  '500','510','511','550','551']).each do |field|
 
-    puts "-- record #{record['001'].value}, field #{field}"
+    # DEBUG
+    # puts "-- record #{record['001'].value}, field #{field}"
     # We need a name/term field
     next unless field['a']
 
@@ -154,7 +159,8 @@ to_field "variant_t" do |record, accumulator, context|
     # it's not useful for improving retrieval.
     # e.g:  110 1#  $a Honduras.  $b Oficina de Estudios Territoriales
     #       410 1#  $a Honduras.  $b Estudios Territoriales, Oficina de
-    puts "-- 000000  skipping #{field['a']} for #{record['001'].value}" if field['a'] == record[authorized_field]['a']
+    # DEBUG
+    # puts "-- 000000  skipping #{field['a']} for #{record['001'].value}" if field['a'] == record[authorized_field]['a']
     next if field['a'] == record[authorized_field]['a']
 
     # Check all the subfields of this field...
@@ -174,8 +180,8 @@ to_field "variant_t" do |record, accumulator, context|
     # That may lead to retrieving too many records.
     # Let's keep it simpler.  How about just 'a'?  Let's try.
     variant_string = ['a'].map {|code| field[code]}.compact.join(' ')
-    # puts "-- variant_string=#{variant_string}..."
-    puts "-- adding  variant_string:#{field}"
+    # DEBUG
+    # puts "-- adding  variant_string:#{field}"
     accumulator << variant_string
   end
 

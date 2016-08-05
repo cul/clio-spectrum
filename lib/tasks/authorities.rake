@@ -143,7 +143,7 @@ namespace :authorities do
       raise "usage:  authorities:add_to_bib:by_query['Miocardial infarction']" unless query
 
       puts "querying bib solr for '#{query}'..."
-      cutoff = 1000
+      cutoff = 10000
       response = BIB_SOLR.get 'select', params: {q: query, fl: 'id', rows: cutoff}
       raise "Error querying Bib Solr!" unless
           response && response['response'] && response['response']['docs']
@@ -447,7 +447,7 @@ def lookup_author_variants(bib_authors)
   return unless bib_authors
   bib_authors.map { |author|
     # lookup_variants(author, 'author_t', 'author_variant_t')
-    lookup_variants(author, 'authorized_t', 'variant_t')
+    lookup_variants(author, 'authorized_s', 'variant_t')
   }
 end
 
@@ -455,7 +455,7 @@ def lookup_subject_variants(bib_subjects)
   return unless bib_subjects
   bib_subjects.map { |subject|
     # lookup_variants(subject, 'subject_t', 'subject_variant_t')
-    lookup_variants(subject, 'authorized_t', 'variant_t')
+    lookup_variants(subject, 'authorized_s', 'variant_t')
   }
 end
 
