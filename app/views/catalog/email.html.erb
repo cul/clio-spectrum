@@ -1,5 +1,6 @@
 <div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-  <h1>Share selected item(s) via email</h1>
+  <button type="button" class="ajax-modal-close close" data-dismiss="modal" aria-hidden="true">×</button>
+  <h4 class="modal-title"><%= t('blacklight.email.form.title') %></h4>
 </div>
-<%= render 'email_form' %>
+
+<%= render :partial => 'email_form' %>
