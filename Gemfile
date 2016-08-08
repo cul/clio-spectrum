@@ -103,8 +103,9 @@ gem 'haml'
 # CSS replacement language
 gem 'sass'
 
-# use Redis for our cache store
-gem 'redis-rails'
+# nope, not ready for this
+# # use Redis for our cache store
+# gem 'redis-rails'
 
 # are we using this anywhere?
 # gem 'unicode'
