@@ -262,7 +262,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     within '#facets' do
       find('.panel-heading', text: 'Publication Date').click
       fill_in 'range[pub_date_sort][end]', with: '1950'
-      find('button[type=submit]').click
+      find('input.btn.submit').click
     end
 
     expect(page).to have_text '1 - 10 of 10'

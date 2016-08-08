@@ -55,14 +55,18 @@ module CulCatalogHelper
   #   link_to label, url, document_link_params(doc, opts)
   # end
 
-  def catalog_index_path(options = {})
-    filtered_options = options.reject do |key, value|
-      key.in?('controller', 'action', 'source_override')
-    end
-    source = options['source_override'] || @active_source
 
-    "/#{source}?#{filtered_options.to_query}"
-  end
+# WHY????
+  # def catalog_index_path(options = {})
+  #   filtered_options = options.reject do |key, value|
+  #     key.in?('controller', 'action', 'source_override')
+  #   end
+  #   source = options['source_override'] || @active_source
+  # 
+  #   "/#{source}?#{filtered_options.to_query}"
+  # end
+
+
 
   def render_document_index_label(doc, opts)
     label = nil

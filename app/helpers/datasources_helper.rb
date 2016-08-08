@@ -206,6 +206,7 @@ module DatasourcesHelper
       when 'quicksearch'
         quicksearch_index_path(q: query)
       when 'catalog'
+        # raise
         catalog_index_path(q: query)
       when 'databases'
         databases_index_path(q: query)

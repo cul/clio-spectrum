@@ -72,7 +72,7 @@ describe 'Item Locations should show correct library hours', :vcr, :skip_travis 
     expect(page).to have_text(target)
     expect(page).to have_link('Home Page', href: 'http://library.columbia.edu/locations/avery/art-properties.html')
     expect(page).to have_link('Floorplans', href: 'http://library.columbia.edu/locations/avery/floorplans.html')
-    expect(page).to have_link('Full Hours Info', href: 'http://www.columbia.edu/cu/lweb/services/hours/index.html?library=art-properties')
+    expect(page).to have_link('Full Hours Info', href: 'http://www.columbia.edu/cu/lweb/services/hours/index.html?library=avery-art-properties')
     expect(page).to have_css('.gmap_container')
   end
 
