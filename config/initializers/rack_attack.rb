@@ -11,30 +11,30 @@
 # https://github.com/kickstarter/rack-attack/blob/master/README.md
 # http://www.kickstarter.com/backing-and-hacking/rack-attack-protection-from-abusive-clients
 
-# Always allow requests from localhost (blacklist & throttles are skipped)
-Rack::Attack.whitelist('allow from localhost') do |req|
+# Always allow requests from localhost (blocklist & throttles are skipped)
+Rack::Attack.safelist('allow from localhost') do |req|
   '127.0.0.1' == req.ip || '::1' == req.ip
 end
 
 # Don't apply throttling to our own AJAX requests
-Rack::Attack.whitelist('allow from CLIO') do |req|
+Rack::Attack.safelist('allow from CLIO') do |req|
   '128.59.222.208' == req.ip
 end
 
 # Deny all access to IP Addresses in our bad-address list
-Rack::Attack.blacklist('block bad IPs') do |req|
+Rack::Attack.blocklist('block bad IPs') do |req|
   APP_CONFIG['BAD_IP_LIST'].include? req.ip
 end
 
 # Deny all access to User Agents in our bad-agent list
-Rack::Attack.blacklist('block bad User Agents') do |req|
+Rack::Attack.blocklist('block bad User Agents') do |req|
   APP_CONFIG['BAD_USER_AGENT_LIST'].include? req.user_agent
 end
 
 # Deny all access to ANY "Java/1.x.y" User Agent - looking at the logs,
 # these are predominately phishing or spidering.  If we find examples of
 # legitimate use, we can fine-tune these rules.
-Rack::Attack.blacklist('block all Java User Agents') do |req|
+Rack::Attack.blocklist('block all Java User Agents') do |req|
   req.user_agent && req.user_agent.start_with?('Java/')
 end
 
@@ -52,7 +52,7 @@ end
 #
 # There's no legitimate reason for any of these patterns to show up,
 # block the source IP on FIRST attempt, and for a long time.
-Rack::Attack.blacklist('pentest') do |request|
+Rack::Attack.blocklist('pentest') do |request|
   Rack::Attack::Fail2Ban.filter(
       # "pentest",                  # namespace for cache key
       request.ip,                 # count matching requests based on IP
@@ -74,7 +74,7 @@ Rack::Attack.blacklist('pentest') do |request|
   end
 end
 
-# Rack::Attack.blacklist('fail2ban pentesters') do |req|
+# Rack::Attack.blocklist('fail2ban pentesters') do |req|
 #   # `filter` returns truthy value if request fails, or if it's from a previously banned IP
 #   # so the request is blocked
 #   Rack::Attack::Fail2Ban.filter(req.ip, :maxretry => 3, :findtime => 10.minutes, :bantime => 5.minutes) do
@@ -87,7 +87,7 @@ end
 #
 # # Block requests containing '/etc/password' in the params.
 # # After 3 blocked requests in 10 minutes, block all requests from that IP for 5 minutes.
-# Rack::Attack.blacklist('fail2ban pentesters') do |req|
+# Rack::Attack.blocklist('fail2ban pentesters') do |req|
 #   # `filter` returns truthy value if request fails, or if it's from a previously banned IP
 #   # so the request is blocked
 #   Rack::Attack::Fail2Ban.filter(req.ip, :maxretry => 3, :findtime => 10.minutes, :bantime => 5.minutes) do
@@ -129,9 +129,9 @@ end
 # end
 #
 #
-# Rack::Attack.blacklisted_response = lambda do |env|
+# Rack::Attack.blocklisted_response = lambda do |env|
 #   # Using 503 because it may make attacker think that they have successfully
-#   # DOSed the site. Rack::Attack returns 401 for blacklists by default
+#   # DOSed the site. Rack::Attack returns 401 for blocklists by default
 #   [ 503, {}, ['Blocked']]
 # end
 #
