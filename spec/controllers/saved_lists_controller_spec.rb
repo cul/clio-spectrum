@@ -26,7 +26,7 @@ describe SavedListsController do
 
   it 'authenticated users can interact...' do
 
-    # use Devise::TestHelpers methods for Controller tests
+    # use Devise::Test::ControllerHelpers methods for Controller tests
     # sign_in :user, @first_user
     spec_login @first_user
 

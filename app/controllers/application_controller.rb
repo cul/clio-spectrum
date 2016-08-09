@@ -24,6 +24,10 @@ class ApplicationController < ActionController::Base
   before_filter :log_additional_data
   before_filter :set_user_characteristics
   before_filter :condense_advanced_search_params
+  
+  # https://github.com/airblade/paper_trail/#4a-finding-out-who-was-responsible-for-a-change
+  before_filter :set_paper_trail_whodunnit
+  
 
   # NEXT-537 - logging in should not redirect you to the root path
   # from the Devise how-to docs...

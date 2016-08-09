@@ -5,8 +5,8 @@ include Warden::Test::Helpers
 Warden.test_mode!
 
 RSpec.configure do |config|
-  # config.include Devise::TestHelpers
-  config.include Devise::TestHelpers, type: :controller
+  # config.include Devise::Test::ControllerHelpers
+  config.include Devise::Test::ControllerHelpers, type: :controller
 end
 
 # Use these in Capybara Feature specs
@@ -25,7 +25,7 @@ end
 
 def spec_login(user)
   spec_logout
-  sign_in :user, user
+  sign_in(user, scope: :user)
   user
 end
 
@@ -41,7 +41,7 @@ end
 # module ValidUserRequestHelper
 #     # Define a method which signs in as a valid user.
 #     def login(user)
-#       # sign_in, sign_out are provided by Devise::TestHelpers, to
+#       # sign_in, sign_out are provided by Devise::Test::ControllerHelpers, to
 #       # give you a session without navigating through the app's
 #       # login screens.
 #       sign_out :user
