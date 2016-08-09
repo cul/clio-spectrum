@@ -61,6 +61,7 @@ describe 'Item Locations should show correct library hours', :vcr, :skip_travis 
     # We're now on the item-detail page
     expect(page).to have_text('Back to Results')
     expect(page).to have_text('Format Art Work (Original)')
+    # save_and_open_screenshot
     expect(page).to have_css('#clio_holdings .holding')
     within ('#clio_holdings .location') do
       # Can't use click_link(), because location pages open in new window

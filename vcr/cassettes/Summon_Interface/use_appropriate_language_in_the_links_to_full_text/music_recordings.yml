@@ -279,4 +279,276 @@ http_interactions:
         {}}}'
     http_version: 
   recorded_at: Fri, 01 Jul 2016 18:31:05 GMT
-recorded_with: VCR 3.0.1
+- request:
+    method: get
+    uri: http://api.summon.serialssolutions.com/2.0.0/search?adv=%7B%7D&s.ff=SubjectTerms,and,1,10&s.fvf=IsFullText,true&s.ho=t&s.role=authenticated&spellcheck=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf8
+      X-Summon-Date:
+      - Mon, 08 Aug 2016 19:55:33 GMT
+      X-Summon-Session-Id:
+      - SUMMON-SESSION-Magpie.local-43544-27
+      X-Summon-Request-Id:
+      - ''
+      Authorization:
+      - Summon columbia;rcnD+sWg3WvCBkUIivSGBAEkX20=
+      Host:
+      - api.summon.serialssolutions.com:80
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Datacenter:
+      - DFW1
+      - IAD1
+      Date:
+      - Mon, 08 Aug 2016 19:55:32 GMT
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"version": "2.0.0","sessionId": "SUMMON-SESSION-Magpie.local-43544-27","elapsedQueryTime":
+        6,"queryTime": 306,"totalRequestTime": 310,"pageCount": 4200,"recordCount":
+        42000,"query": {"queryString": "s.ho=t&s.role=authenticated&s.ff=ContentType%2Cand%2C1%2C10&s.ff=Language%2Cand%2C1%2C5&s.ff=SubjectTerms%2Cand%2C1%2C10&s.fvf=ContentType%2CMusic+Recording%2Cf&s.fvf=IsFullText%2Ctrue%2Cf","pageNumber":
+        1,"pageSize": 10,"isHoldingsOnlyEnabled": true,"textQueries": [],"searchTerms":
+        [],"textFilters": [],"rangeFilters": [],"facetValueFilters": [{"fieldName":
+        "ContentType","value": "Music Recording","isNegated": false,"removeCommand":
+        "removeFacetValueFilter(ContentType,Music Recording)","negateCommand": "negateFacetValueFilter(ContentType,Music
+        Recording)"},{"fieldName": "IsFullText","value": "true","isNegated": false,"removeCommand":
+        "removeFacetValueFilter(IsFullText,true)","negateCommand": "negateFacetValueFilter(IsFullText,true)"}],"inclusiveFacetValueFilters":
+        [],"facetValueGroupFilters": [],"facetFields": [{"fieldName": "ContentType","combineMode":
+        "and","pageNumber": 1,"pageSize": 10,"removeCommand": "removeFacetField(ContentType)"},{"fieldName":
+        "Language","combineMode": "and","pageNumber": 1,"pageSize": 5,"removeCommand":
+        "removeFacetField(Language)"},{"fieldName": "SubjectTerms","combineMode":
+        "and","pageNumber": 1,"pageSize": 10,"removeCommand": "removeFacetField(SubjectTerms)"}],"rangeFacetFields":
+        [],"sort": []},"facetFields": [{"fieldName": "Language_s","displayName": "Language","combineMode":
+        "and","pageNumber": 1,"pageSize": 5,"hasLimitingValue": true,"hasAppliedValue":
+        false,"removeCommand": "removeFacetField(Language)","listValuesCommand": "listFacetValues(Language,and)","removeValueFiltersCommand":
+        "removeFacetValueFilter(Language)","counts": [{"value": "English","count":
+        1,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(Language,English)","applyNegatedCommand": "addFacetValueFilters(Language,English:t)"}]},{"fieldName":
+        "SubjectTerms_mfacet","displayName": "SubjectTerms","combineMode": "and","pageNumber":
+        1,"pageSize": 10,"hasLimitingValue": true,"hasAppliedValue": false,"removeCommand":
+        "removeFacetField(SubjectTerms)","listValuesCommand": "listFacetValues(SubjectTerms,and)","removeValueFiltersCommand":
+        "removeFacetValueFilter(SubjectTerms)","counts": [{"value": "contemporary
+        jazz","count": 41726,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,contemporary jazz)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,contemporary jazz:t)"},{"value": "classical
+        music","count": 496,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,classical music)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,classical music:t)"},{"value": "jazz legends","count":
+        199,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,jazz legends)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,jazz
+        legends:t)"},{"value": "vocal","count": 166,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,vocal)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,vocal:t)"},{"value": "world","count": 159,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,world)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,world:t)"},{"value": "pop and rock","count":
+        132,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,pop and rock)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,pop
+        and rock:t)"},{"value": "chamber music","count": 119,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,chamber
+        music)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,chamber
+        music:t)"},{"value": "spoken commentary","count": 117,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,spoken
+        commentary)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,spoken
+        commentary:t)"},{"value": "orchestral","count": 66,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,orchestral)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,orchestral:t)"},{"value": "instrumental","count":
+        57,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,instrumental)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,instrumental:t)"}]},{"fieldName":
+        "ContentType_mfacet","displayName": "ContentType","combineMode": "and","pageNumber":
+        1,"pageSize": 10,"hasLimitingValue": false,"hasAppliedValue": true,"removeCommand":
+        "removeFacetField(ContentType)","listValuesCommand": "listFacetValues(ContentType,and)","removeValueFiltersCommand":
+        "removeFacetValueFilter(ContentType)","counts": [{"value": "Music Recording","count":
+        42000,"isApplied": true,"isNegated": false,"isFurtherLimiting": false,"removeCommand":
+        "removeFacetValueFilter(ContentType,Music Recording)","negateCommand": "negateFacetValueFilter(ContentType,Music
+        Recording)"}]}],"rangeFacetFields": [],"didYouMeanSuggestions": [],"recommendationLists":
+        {},"documents": [{"hasFullText": true,"isFullTextHit": false,"isPrint": false,"inHoldings":
+        true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Don%27t+Know+What+To+Do&rft.jtitle=J.J.+BARNES+%2F+STEVE+MANCHA+%2F+DARRELL+BANKS%3A+THE+SOUND+OF+DETROIT&rft.au=Banks%2C+Darrell&rft.pub=Fantasy&rft.externalDBID=n%2Fa&rft.externalDocID=322310-Z80273_17","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPfBPTCzJT9cBlsy6wdjYx0TVCO3aRAXZdqjMoSyZlJvr5-njp-SVW5BeDrzuGreEHldxeiVVV8I3dpangG8sgZ2YDozHY2UUXmCKBZQuoWLYE9n5A87ehjsCmZx7INKS6w02AoQb5UIQKoPGlOUArIC5AWlCNdDIjFd0nyMAP1qsA6WcCKyohBqbUPBEGUZf8PPUSBdC11wqg87sVQvIVXPJFGZTcXEOcPXTB_ojPAtoSD8yMwNaZbpQF6FCaeENzYzEG3kTQwvi8EvAGuhQJBoWktFQLYA1klpwIrKxN0owtzcyNEpMtUswNU02SLI3MJBmk8ZgohVdWhoGlpKg0VRZYpUPDBQB5pphW","URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=SCD-88010-2"],"Author":
+        ["Banks, Darrell"],"Score": ["0.01"],"IsScholarly": ["false"],"IsPeerReviewed":
+        ["false"],"DBID": ["CUA"],"ID": ["FETCH-naxos_jazz_322310-Z80273_173"],"PublicationTitle":
+        ["J.J. BARNES / STEVE MANCHA / DARRELL BANKS: THE SOUND OF DETROIT"],"Publisher":
+        ["Fantasy"],"SourceType": ["Publisher"],"Publisher_xml": [{"name": "Fantasy"}],"SubjectTerms":
+        ["Contemporary Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_322310-Z80273_173"],"Author_xml":
+        [{"sequence": "1","fullname": "Banks, Darrell"}],"ContentType": ["Music Recording"],"Title":
+        ["Don''t Know What To Do"],"ExternalDocumentID": ["322310-Z80273_17"],"Database_xml":
+        [{"sequence": "1","name": "Naxos Music Library Jazz","dbid": "CUA","url":
+        "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42LgTQStzc4rAe_hSuFkEHXJz1MvUQBd46wAOo9aISRfwSWfm0HJzTXE2UM3L7Eivzg-K7GqKh6YuICtDd0oC9AhK_GGoLvMiVAEAJRNILI"],"DatabaseName":
+        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Prisoner+Of+Love&rft.jtitle=ART+TATUM%3A+THE+TATUM+GROUP+MASTERPIECES%2C+VOL.+4&rft.au=Tatum%2C+Art&rft.pub=Fantasy&rft.externalDBID=n%2Fa&rft.externalDocID=116515-Z076380_04","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPfBPTCzJT9cBlsy6wdjYx0TVCO3aRAbbj2hmUJZMyE_18fbz0_BIr8ovB1x3D1vCDSm6vxKoq-Mbu0lTwjWWQM7NBw8WOzi6gCQNTXRMjc11Q0WwJ7AGB5nBDHYHNzzyQiTyI4tBNgAG2sAy2biS5NAdoDcQVSIuqkU5npLIbBRn4wfoVIP1NYIUlxMCUmifCIBAAvoUwtUjBP03BJ78sVZRB2c01xNlDF-yN-CygJfGg03MMTXWjDIDlBOikTxNjMQbeRNDi-LwS8Ca6FAkGhaS0VAtgLWSWnAissE3SjC3NzI0Sky1SzA1TTZIsjcwkGWTwGSmFX1qGgaWkqDRVFlixQ0MGAIuGmaE","URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=PACD-2405-427-2"],"Author":
+        ["Tatum, Art"],"Score": ["0.01"],"IsScholarly": ["false"],"IsPeerReviewed":
+        ["false"],"DBID": ["CUA"],"ID": ["FETCH-naxos_jazz_116515-Z076380_043"],"PublicationTitle":
+        ["ART TATUM: THE TATUM GROUP MASTERPIECES, VOL. 4"],"Publisher": ["Fantasy"],"SourceType":
+        ["Publisher"],"Publisher_xml": [{"name": "Fantasy"}],"SubjectTerms": ["Contemporary
+        Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_116515-Z076380_043"],"Author_xml":
+        [{"sequence": "1","fullname": "Tatum, Art"}],"ContentType": ["Music Recording"],"Title":
+        ["Prisoner Of Love"],"ExternalDocumentID": ["116515-Z076380_04"],"Database_xml":
+        [{"sequence": "1","name": "Naxos Music Library Jazz","dbid": "CUA","url":
+        "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42LgTQStzc4rAe_hSuFkEAgA36aXWqTgn6bgk18GLPaU3VxDnD108xIr8ovjsxKrquJBp8AYmupGAbvVxqATK0G7aIhRBQBPgiAX"],"DatabaseName":
+        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Chihuahua+Dreams&rft.jtitle=OREGON%3A+45th+Parallel&rft.au=Moore%2C+Glen&rft.au=Oregon&rft.au=Moore%2C+Glen&rft.pub=veraBra+Records&rft.externalDBID=n%2Fa&rft.externalDocID=451038-Q35600_106","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPfBPTCzJT9cBlsy6wdjYx0TVCO3aRAXZnqzMoSyZlJvr5-njp-SVW5BeDrzuGreEHldxeiVVV8I3dpangG8sgZ2aDNqs5FYFOotUFFcqWwL4PaPY21BHY8MwDmcWDKBDdBBiqkI9EqAAaXpoDtABiP9JyaqRzGanmOkEGfrBOBUgfE1hJCTEwpeaJMAg4Z2RmlCYCkYILsNGYWyzKoOzmGuLsoQv2QHwW0Ph4E9ApeBa6gcag1ko8sE9nLMbAmwhaEJ9XAt44lyLBoJCUlmoBrHnMkhOBlbRJmrGlmblRYrJFirlhqkmSpZGZJIMMPiOl8EvLMLCUFJWmygIrc2iYAABjCJfX","URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=vBr2048-2"],"Author":
+        ["Oregon","Moore, Glen"],"Score": ["0.01"],"IsScholarly": ["false"],"IsPeerReviewed":
+        ["false"],"DBID": ["CUA"],"ID": ["FETCH-naxos_jazz_451038-Q35600_1063"],"PublicationTitle":
+        ["OREGON: 45th Parallel"],"Publisher": ["veraBra Records"],"SourceType": ["Publisher"],"Publisher_xml":
+        [{"name": "veraBra Records"}],"SubjectTerms": ["Contemporary Jazz"],"MergedId":
+        ["FETCHMERGED-naxos_jazz_451038-Q35600_1063"],"Author_xml": [{"sequence":
+        "1","fullname": "Moore, Glen"},{"sequence": "2","fullname": "Oregon"},{"sequence":
+        "3","fullname": "Moore, Glen"}],"ContentType": ["Music Recording"],"Title":
+        ["Chihuahua Dreams"],"ExternalDocumentID": ["451038-Q35600_106"],"Database_xml":
+        [{"sequence": "1","name": "Naxos Music Library Jazz","dbid": "CUA","url":
+        "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42LgTQStzc4rAe_hSuFkEHDOyMwoTQQiBRdgQyi3mJtB2c01xNlDNy-xIr84PiuxqireBHSym4VuoDGoBo4H9lOMiVMFAFqcICo"],"DatabaseName":
+        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Broadway&rft.jtitle=J.+J.+JOHNSON+%2F+KAI+WINDING+%2F+BENNIE+GREEN%3A+TROMBONE+BY+THREE&rft.au=Johnson%2C+J.+J.&rft.au=Winding%2C+Kai&rft.au=Green%2C+Bennie&rft.pub=Fantasy&rft.externalDBID=n%2Fa&rft.externalDocID=107659-Z077133_13","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPfBPTCzJT9cBlsy6wdjYx0TVCO3aRAXZdqjMoSyZlJvr5-njp-SVW5BeDrzuGreEHldxeiVVV8I3dpangG8sgZ2YDo9Hfy9nZRRdYB-qCimVLYO8HNH8b6ghseuaBTONBFI1uAgw1yIciVACNL80BWgFxAdKCaqSTGanoPkEGfrBeBUg_E1hRCTEwpeaJMHAAO-CJKeWJlaIMym6uIc4eumCnx2cBDY4H9tbMTC11owzMQb3LeCAWY-BNBC2GzysBb5pLkWBQSEpLtQDWOmbJicAK2iTN2NLM3Cgx2SLF3DDVJMnSyEySQQafkVL4pWUYWEqKSlNlgRU5NDQA1RqVoQ","URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=OJCCD-091-2"],"Author":
+        ["Johnson, J. J.","Green, Bennie","Winding, Kai"],"Score": ["0.01"],"IsScholarly":
+        ["false"],"IsPeerReviewed": ["false"],"DBID": ["CUA"],"ID": ["FETCH-naxos_jazz_107659-Z077133_133"],"PublicationTitle":
+        ["J. J. JOHNSON / KAI WINDING / BENNIE GREEN: TROMBONE BY THREE"],"Publisher":
+        ["Fantasy"],"SourceType": ["Publisher"],"Publisher_xml": [{"name": "Fantasy"}],"SubjectTerms":
+        ["Contemporary Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_107659-Z077133_133"],"Author_xml":
+        [{"sequence": "1","fullname": "Johnson, J. J."},{"sequence": "2","fullname":
+        "Winding, Kai"},{"sequence": "3","fullname": "Green, Bennie"}],"ContentType":
+        ["Music Recording"],"Title": ["Broadway"],"ExternalDocumentID": ["107659-Z077133_13"],"Database_xml":
+        [{"sequence": "1","name": "Naxos Music Library Jazz","dbid": "CUA","url":
+        "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42LgTQStzc4rAe_hSuFk4AB2KBNTyhOBjR5lN9cQZw_dvMSK_OL4rMSqqnhg78PM1FI3ysAc1FuKNwRdYEuMKgAz6B13"],"DatabaseName":
+        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Samba+Mom+Mom+%28Never+Before+Released%29&rft.jtitle=ART+PEPPER%3A+THE+COMPLETE+GALAXY+RECORDINGS&rft.au=Pepper%2C+Art&rft.pub=Fantasy&rft.externalDBID=n%2Fa&rft.externalDocID=99395-Z076528F08","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPfBPTCzJT9cBlsy6wdjYx0TVCO3YRvrPOGZQlkzIT_Xx9vPT8Eivyi8HXHcPW8INKbq_Eqir4xu7SVPCNZZAzs0FTqmbuzi66oB6pLqhctgR2f0ATuKGOwLZnHsg4HkQZ6SbAAFssBVs0klyaA7QD4gSkFdVIRzNS04GCDPxgzQqQniawqhJiYErNE2FQDU7MTUpU8M3PBWMNv1RgslZwSgU2Y1OBinNAEzcpmqIMSm6uIc4eumCPxWcBrY0HtjYsTXWjDMzNTI0s3IDNKzEG3kTQUvm8EvCWuhQJBoWktFQLYJ1klpwIrL5N0owtzcyNEpMtUswNU02SLI3MJBmk8ZgohVdWhoGlpKg0VRZYyUMDCgD0-Z5_","URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=16GCD-1016-2"],"Author":
+        ["Pepper, Art"],"Score": ["0.01"],"IsScholarly": ["false"],"IsPeerReviewed":
+        ["false"],"DBID": ["CUA"],"ID": ["FETCH-naxos_jazz_99395-Z076528F083"],"PublicationTitle":
+        ["ART PEPPER: THE COMPLETE GALAXY RECORDINGS"],"Publisher": ["Fantasy"],"SourceType":
+        ["Publisher"],"Publisher_xml": [{"name": "Fantasy"}],"SubjectTerms": ["Contemporary
+        Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_99395-Z076528F083"],"Author_xml":
+        [{"sequence": "1","fullname": "Pepper, Art"}],"ContentType": ["Music Recording"],"Title":
+        ["Samba Mom Mom (Never Before Released)"],"ExternalDocumentID": ["99395-Z076528F08"],"Database_xml":
+        [{"sequence": "1","name": "Naxos Music Library Jazz","dbid": "CUA","url":
+        "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42LgTQStzc4rAe_hSuFkUA1OzE1KVPDNzwVjDb9UYCQpOKUCG2WpCkHAwhVYXKdocjMoubmGOHvo5iVW5BfHZyVWVcUD605LU90oYFfb1MjCzQB0tB8RigBAHSaK"],"DatabaseName":
+        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Nibe&rft.jtitle=KALANIEMI%2C+Maria%3A+Ahma&rft.au=Varis%2C+Olli&rft.au=Lievemaa%2C+Tommi&rft.au=Kalaniemi%2C+Maria&rft.au=Pohto%2C+Heikki&rft.pub=Intuition&rft.externalDBID=n%2Fa&rft.externalDocID=727926-QV7993_001","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPfBPTCzJT9cBlsy6wdjYx0TVCO3aRAXZnqzMoSyZlJvr5-njp-SVW5BeDrzuGreEHldxeiVVV8I3dpangG8sgZ2YDo9HTLwTYQQfGPbBQtgT2fUCzt6GOwIZnHsgsHkRB6SbAUIV8JEIF0PDSHKAFEPuRllMjnctINdcJMvCDdSpA-pjASkqIgSk1T4SBxS8zKVWUQdnNNcTZQxfs6PgsoJHx5qCD_sx0A8PMgQ0K0EI0YzEG3kTQIvi8EvBmuRQJBoWktFQLYG1jlpwIrJhN0owtzcyNEpMtUswNU02SgNolGWTwGSmFX1qGgaWkqDRVFliBQ8MBADM8k3A","URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=INT3308-2"],"Author":
+        ["Lappalainen, Matti","Makela, Matti","Kalaniemi, Maria","Varis, Olli","Jarvela,
+        Mauno","Lievemaa, Tommi","Tiirikainen, Jukka","Soininen, Antii","Lahti, Pentti","Gobel,
+        Marion","Ketola, Markus","Aldargaz","Pohto, Heikki"],"Score": ["0.01"],"IsScholarly":
+        ["false"],"IsPeerReviewed": ["false"],"DBID": ["CUA"],"ID": ["FETCH-naxos_jazz_727926-QV7993_0013"],"PublicationTitle":
+        ["KALANIEMI, Maria: Ahma"],"Publisher": ["Intuition"],"SourceType": ["Publisher"],"Publisher_xml":
+        [{"name": "Intuition"}],"SubjectTerms": ["Contemporary Jazz"],"MergedId":
+        ["FETCHMERGED-naxos_jazz_727926-QV7993_0013"],"Author_xml": [{"sequence":
+        "1","fullname": "Varis, Olli"},{"sequence": "2","fullname": "Lievemaa, Tommi"},{"sequence":
+        "3","fullname": "Kalaniemi, Maria"},{"sequence": "4","fullname": "Pohto, Heikki"},{"sequence":
+        "5","fullname": "Tiirikainen, Jukka"},{"sequence": "6","fullname": "Lahti,
+        Pentti"},{"sequence": "7","fullname": "Lappalainen, Matti"},{"sequence": "8","fullname":
+        "Jarvela, Mauno"},{"sequence": "9","fullname": "Makela, Matti"},{"sequence":
+        "10","fullname": "Soininen, Antii"},{"sequence": "11","fullname": "Gobel,
+        Marion"},{"sequence": "12","fullname": "Ketola, Markus"},{"sequence": "13","fullname":
+        "Aldargaz"},{"sequence": "14","fullname": "Varis, Olli"}],"ContentType": ["Music
+        Recording"],"Title": ["Nibe"],"ExternalDocumentID": ["727926-QV7993_001"],"Database_xml":
+        [{"sequence": "1","name": "Naxos Music Library Jazz","dbid": "CUA","url":
+        "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42LgTQStzc4rAe_hSuFkYPHLTAIWdcpuriHOHrp5iRX5xfFZiVVV8eagw-vMdAPDzIGVJGhxlTFxqgCYDBwE"],"DatabaseName":
+        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Terrestrial&rft.jtitle=ODEON+POPE+TRIO%3A+Ninety-Six&rft.au=Odean+Pope+Trio&rft.au=Pope%2C+Odean&rft.pub=Yellowbird&rft.externalDBID=n%2Fa&rft.externalDocID=623114-QR0190_106","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPfBPTCzJT9cBlsy6wdjYx0TVCO3aRAXaggjMoSyZlJvr5-njp-SVW5BeDrzuGreEHldxeiVVV8I3dpangG8sgZ2YDozHS1UnXElgF6oJKZUtg5wc0fRvqCGx55oEM40GUmG4CDNXIZyJUAE0vzQHaAHEA0npqpIMZqec8QQZ-sFYFSC8TWE0JMTCl5okwcIekgm_lACU_UQZlN9cQZw9dsOPjs4BGxwObK8AujG5gEGgTeDywQ2csxsCbCFoNn1cC3jWXIsGgkJSWagGsdsySE4E1tEmasaWZuVFiskWKuWGqSZKlkZkkgww-I6XwS8swsJQUlabKAmtyaHgAAMpnlns","URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=YEB-9091-2"],"Author":
+        ["Odean Pope Trio","Pope, Odean"],"Score": ["0.01"],"IsScholarly": ["false"],"IsPeerReviewed":
+        ["false"],"DBID": ["CUA"],"ID": ["FETCH-naxos_jazz_623114-QR0190_1063"],"PublicationTitle":
+        ["ODEON POPE TRIO: Ninety-Six"],"Publisher": ["Yellowbird"],"SourceType":
+        ["Publisher"],"Publisher_xml": [{"name": "Yellowbird"}],"SubjectTerms": ["Contemporary
+        Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_623114-QR0190_1063"],"Author_xml":
+        [{"sequence": "1","fullname": "Odean Pope Trio"},{"sequence": "2","fullname":
+        "Pope, Odean"}],"ContentType": ["Music Recording"],"Title": ["Terrestrial"],"ExternalDocumentID":
+        ["623114-QR0190_106"],"Database_xml": [{"sequence": "1","name": "Naxos Music
+        Library Jazz","dbid": "CUA","url": "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42LgTQStzc4rAe_hSuFk4A5JBd8zAQpQbgZlN9cQZw_dvMSK_OL4rMSqqnhgBQxslOsGBoG2NccDuyjGxKkCALpTHt4"],"DatabaseName":
+        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=ESP&rft.jtitle=CHET+BAKER%3A+ONCE+UPON+A+SUMMERTIME&rft.au=Baker%2C+Chet&rft.pub=Fantasy&rft.externalDBID=n%2Fa&rft.externalDocID=112117-Z077349_03","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPfBPTCzJT9cBlsy6wdjYx0TVCO3aRAXZdqjMoSyZlJvr5-njp-SVW5BeDrzuGreEHldxeiVVV8I3dpangG8sgZ2YDo9Hfy9nZBdgnMtUFFcuWwN4PaP421BHY9MwDmcaDKDrdBBhqkA9FqAAaX5oDtALiAqQF1UgnM1LRfYIM_GC9CpB-JrCiEmJgSs0TAbboggNEGZTdXEOcPXTBro7PApoJbKsDO2vmulEG5ubGJpbxBsbGYgy8iaB18Hkl4P1yKRIMCklpqRbACscsORFYN5ukGVuamRslJlukmBummiRZGplJMsjgM1IKv7QMA0tJUWmqLLAOhwYEAEnOkzg","URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=OJCCD-405-2"],"Author":
+        ["Baker, Chet"],"Score": ["0.01"],"IsScholarly": ["false"],"IsPeerReviewed":
+        ["false"],"DBID": ["CUA"],"ID": ["FETCH-naxos_jazz_112117-Z077349_033"],"PublicationTitle":
+        ["CHET BAKER: ONCE UPON A SUMMERTIME"],"Publisher": ["Fantasy"],"SourceType":
+        ["Publisher"],"Publisher_xml": [{"name": "Fantasy"}],"SubjectTerms": ["Contemporary
+        Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_112117-Z077349_033"],"Author_xml":
+        [{"sequence": "1","fullname": "Baker, Chet"}],"ContentType": ["Music Recording"],"Title":
+        ["ESP"],"ExternalDocumentID": ["112117-Z077349_03"],"Database_xml": [{"sequence":
+        "1","name": "Naxos Music Library Jazz","dbid": "CUA","url": "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42LgTQStzc4rAe_hSuEEtlCCA7gZlN1cQ5w9dPMSK_KL47MSq6qAbU9g58NcN8rA3NzYxDLeAHR3LTGqAFgFGxM"],"DatabaseName":
+        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Lock+Up+And+Bow+Out&rft.jtitle=ERIC+ALEXANDER%3A+NIGHTLIFE+IN+TOKYO&rft.au=Alexander%2C+Eric&rft.pub=Fantasy&rft.externalDBID=n%2Fa&rft.externalDocID=105989-Z659238_08","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPfBPTCzJT9cBlsy6wdjYx0TVCO3aRAXaggjMoSyZlJvr5-njp-SVW5BeDrzuGreEHldxeiVVV8I3dpangG8sgZ2YDo9HX2UUX1EXXBZXKlsDOD2j6NtQR2PLMAxnGgyhB3QQYqpHPRKgAml6aA7QB4gCk9dRIBzNSz3mCDPxgrQqQXiawmhJiYErNE2EQ9gGWgwqhBQqOeSkKTvnlCv6lJaIMym6uIc4eumBPxGcBrYgHtYssLHWjQNOixhbxwJaUGANvImhVfF4JePdcigSDQlJaqgWw-jFLTgTW1CZpxpZm5kaJyRYp5oapJkmWRmaSDDL4jJTCLy3DwFJSVJoqC6zRoeECAA2dmD8","URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=MCD-9330-2"],"Author":
+        ["Alexander, Eric"],"Score": ["0.01"],"IsScholarly": ["false"],"IsPeerReviewed":
+        ["false"],"DBID": ["CUA"],"ID": ["FETCH-naxos_jazz_105989-Z659238_083"],"PublicationTitle":
+        ["ERIC ALEXANDER: NIGHTLIFE IN TOKYO"],"Publisher": ["Fantasy"],"SourceType":
+        ["Publisher"],"Publisher_xml": [{"name": "Fantasy"}],"SubjectTerms": ["Contemporary
+        Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_105989-Z659238_083"],"Author_xml":
+        [{"sequence": "1","fullname": "Alexander, Eric"}],"ContentType": ["Music Recording"],"Title":
+        ["Lock Up And Bow Out"],"ExternalDocumentID": ["105989-Z659238_08"],"Database_xml":
+        [{"sequence": "1","name": "Naxos Music Library Jazz","dbid": "CUA","url":
+        "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42LgTQStzc4rAe_hSuFkEPYB5myF0AIFx7wUBaf8cgX_UmAjTtnNNcTZQzcvsSK_OD4rsaoqHlTTW1jqRoEm-owt4g1AJ_kRowoAj1Igsg"],"DatabaseName":
+        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=STEWART%2C+Slam+%2F+MAJOR+HOLLEY%3A+Shut+Yo%27+Mouth%21+featuring+Dick+Hyman+and+Oliver+Jackson&rft.au=Hyman%2C+Dick&rft.au=Jackson%2C+Oliver&rft.au=Major+Holley&rft.au=Stewart%2C+Slam&rft.pub=Delos&rft.externalDBID=n%2Fa&rft.externalDocID=DE1024","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPfBPTCzJT9cBlsy6wdjYx0TVCO3aRAXa9lTMoSyZlJvr5-njp-SVW5BeDrzuGreEHldxeiVVV8I3dpangG8sgZ2YDo9HFFVhhgk4HtQR2fEBTt6GOwFZnHsgg5BLWTYChHPlAhAqg0aU5QOMhtiMtpkY6lZE6bhNk4AdrU4B0L4H1kxADU2qeCENocIhrOLARq6MQDEwLCvoKvo5e_kEKHv4-wJaqlUJwRmmJQmS-uoIv6Go9RYW0VNDBn0DtCi6ZydkKHpW5iXkKiXkpCv45oAUdCtAt-qIMEm6uIc4euuAwiM8COjAe4hBjMQbeRNAq-rwS8G67FAkGhaS0VAtgdWWWnAis2U3SjC3NzI0Sky1SzA1TTZIsjcwkGQQxzJHCIibDwFJSVJoqC6zroYEGAIJwpKI","Author":
+        ["Stewart, Slam","Shavers, Charles","Major Holley","Barris, Harry","Warren,
+        Harry","Donaldson, Walter","Woods, Harry M","Hyman, Dick","Garner, Erroll","Archer,
+        Harry","Petkere, Bernice","Strouse, Charles","Jackson, Oliver"],"Score": ["0.01"],"DBID":
+        ["CUA"],"IsPeerReviewed": ["false"],"Publisher": ["Delos"],"AbstractList":
+        ["Annie: Tomorrow - Close Your Eyes - Undecided - Misty - Little Jessie James:
+        I love you - Would you like to take a walk? - Wrap Your Troubles in Dreams
+        (And Dream Your Troubles Away) - Side by Side - My Blue Heaven"],"SourceType":
+        ["Publisher"],"Publisher_xml": [{"name": "Delos"}],"Snippet": ["Annie: Tomorrow
+        - Close Your Eyes - Undecided - Misty - Little Jessie James: I love you -
+        Would you like to take a walk? - Wrap Your Troubles in Dreams (And..."],"URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=DE1024"],"IsScholarly":
+        ["false"],"ID": ["FETCH-naxos_jazz_DE10243"],"Abstract": ["Annie: Tomorrow
+        - Close Your Eyes - Undecided - Misty - Little Jessie James: I love you -
+        Would you like to take a walk? - Wrap Your Troubles in Dreams (And Dream Your
+        Troubles Away) - Side by Side - My Blue Heaven"],"DatabaseTitleList": [""],"SubjectTerms":
+        ["Contemporary Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_DE10243"],"Author_xml":
+        [{"sequence": "1","fullname": "Hyman, Dick"},{"sequence": "2","fullname":
+        "Jackson, Oliver"},{"sequence": "3","fullname": "Major Holley"},{"sequence":
+        "4","fullname": "Stewart, Slam"},{"sequence": "5","fullname": "Archer, Harry"},{"sequence":
+        "6","fullname": "Barris, Harry"},{"sequence": "7","fullname": "Donaldson,
+        Walter"},{"sequence": "8","fullname": "Garner, Erroll"},{"sequence": "9","fullname":
+        "Petkere, Bernice"},{"sequence": "10","fullname": "Shavers, Charles"},{"sequence":
+        "11","fullname": "Strouse, Charles"},{"sequence": "12","fullname": "Warren,
+        Harry"},{"sequence": "13","fullname": "Woods, Harry M"}],"ContentType": ["Music
+        Recording"],"Title": ["STEWART, Slam / MAJOR HOLLEY: Shut Yo'' Mouth! featuring
+        Dick Hyman and Oliver Jackson"],"ExternalDocumentID": ["DE1024"],"thumbnail_s":
+        ["http://columbia.summon.serialssolutions.com/2.0.0/image/custom?url=http%3A%2F%2Fserialssolutions.naxosmusiclibrary.com%2Fjazz%2Fsharedfiles%2Fimages%2Fcds%2Fothers%2FDE1024.gif"],"thumbnail_l":
+        ["http://columbia.summon.serialssolutions.com/2.0.0/image/custom?url=http%3A%2F%2Fserialssolutions.naxosmusiclibrary.com%2Fjazz%2Fsharedfiles%2Fimages%2Fcds%2Fhires%2FDE1024.jpg"],"Database_xml":
+        [{"sequence": "1","name": "Naxos Music Library Jazz","dbid": "CUA","url":
+        "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42LgTQStzc4rAe_hSuFkCA0OcQ0Hts50FIKBnlTQV_B19PIPUvDw9wE2wawUgjNKSxQi89UVfEF3xikqpKWCTrQEltsKLpnJ2QoelbmJeQrAXrWCfw5opYICdO85N4OEm2uIs4duXmJFfnF8VmJVVbyLqyHogD08UgA6TDE8"],"DatabaseName":
+        ["Naxos Music Library Jazz"]}],"rollups": {"image": {},"reference": {},"newspaper":
+        {}}}'
+    http_version: 
+  recorded_at: Mon, 08 Aug 2016 19:55:33 GMT
+recorded_with: VCR 3.0.3

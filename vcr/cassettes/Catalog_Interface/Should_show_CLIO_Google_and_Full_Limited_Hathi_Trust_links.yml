@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 06 Jul 2016 17:13:46 GMT
+      - Tue, 09 Aug 2016 17:48:01 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -153,28 +153,22 @@ http_interactions:
         cXh6fnV5d3hxc35+fn5+ficsJzgxMkM1OSBNMzYgfCBnbHgrODEyKzAwMDAw
         MDAwK2M1OTAwMDAwK20zNjAwMDAwKzUxMzI5NyB8IGplMn5yeXh+enp6enp6
         enp+bnVxenp6enp+ZHd0enp6enp+dXl3eHFzfn5+fn5+fn5+J10sJ3RpbWVz
-        dGFtcCc9PicyMDE2LTA1LTIzVDIwOjA0OjMwLjc0MVonLCdhdXRob3JpdGll
-        c19kdCc9PicyMDE2LTA1LTIzVDIwOjU0OjM3WicsJ2F1dGhvcl92YXJpYW50
-        X3R4dCc9PlsnVHZlzIduLCBNYXJrLCAxODM1LTE5MTAgVHVlzIdpzIZuLCBN
-        YXJrLCAxODM1LTE5MTAgVHV3YXluLCBNYcyEcmssIDE4MzUtMTkxMCBUd2F5
-        biwgTWHMhHJrLCAxODM1LTE5MTAgVMq7dS13ZW4sIE1hLWvKu28sIDE4MzUt
-        MTkxMCBUdmVuLCBNLiAoTWFyayksIDE4MzUtMTkxMCBUb3VlbiwgTWFrdcyE
-        LCAxODM1LTE5MTAgVHdhaW4sIE1hcmVrLCAxODM1LTE5MTAgTWFrZSBUdXdl
-        biwgMTgzNS0xOTEwIFR1d2VuLCBNYWtlLCAxODM1LTE5MTAgTWFrZSBUZXZp
-        aW4sIDE4MzUtMTkxMCDQotCy0LXQvSwg0JzQsNGA0LosIDE4MzUtMTkxMCBU
-        b3VhaW4sIE1hcmssIDE4MzUtMTkxMCDXmNeR15/Wtywg157XqNenLCAxODM1
-        LTE5MTAg15jXldeV15nXmdefLCDXnteQ16jXpywgMTgzNS0xOTEwINeY15XX
-        ldeZ15nXnywg157XqNenLCAxODM1LTE5MTAg15jXldeV15nXnywg157XkNeo
-        16csIDE4MzUtMTkxMCDXmNeV15XXmdefLCDXnteo16csIDE4MzUtMTkxMCDX
-        mNeV15XXotefLCDXnteQ16jXpywgMTgzNS0xOTEwINeY15XXmdefLCDXnteo
-        16csIDE4MzUtMTkxMCDXmNew16LXnywg157XkNeo16csIDE4MzUtMTkxMCDX
-        mNew17LXnywg157XkNeo16csIDE4MzUtMTkxMCDppqzlhYvlkJDmuKksIDE4
-        MzUtMTkxMCBDbGVtZW5zLCBTYW11ZWwgTGFuZ2hvcm5lLCAxODM1LTE5MTAg
-        U25vZGdyYXNzLCBRdWludHVzIEN1cnRpdXMsIDE4MzUtMTkxMCBDb250ZSwg
-        TG91aXMgZGUsIDE4MzUtMTkxMCBCacyEZ2FsdcyEIFBheW4sIDE4NjEtMTkz
-        NyddLCdfdmVyc2lvbl8nPT4xNTM1MTUzOTY2NTY1ODE4MzY4fV19fQo=
+        dGFtcCc9PicyMDE2LTA3LTA2VDIxOjA4OjI0Ljc1M1onLCdhdXRob3JpdGll
+        c19kdCc9PicyMDE2LTA3LTI4VDE2OjQxOjMwWicsJ2F1dGhvcl92YXJpYW50
+        X3R4dCc9PlsnVHZlzIduLCBNYXJrLCBUdWXMh2nMhm4sIE1hcmssIFR1d2F5
+        biwgTWHMhHJrLCBUd2F5biwgTWHMhHJrLCBUyrt1LXdlbiwgTWEta8q7bywg
+        VHZlbiwgTS4gVG91ZW4sIE1ha3XMhCwgVHdhaW4sIE1hcmVrLCBNYWtlIFR1
+        d2VuLCBUdXdlbiwgTWFrZSwgTWFrZSBUZXZpaW4sINCi0LLQtdC9LCDQnNCw
+        0YDQuiwgVG91YWluLCBNYXJrLCDXmNeR15/Wtywg157XqNenLCDXmNeV15XX
+        mdeZ158sINee15DXqNenLCDXmNeV15XXmdeZ158sINee16jXpywg15jXldeV
+        15nXnywg157XkNeo16csINeY15XXldeZ158sINee16jXpywg15jXldeV16LX
+        nywg157XkNeo16csINeY15XXmdefLCDXnteo16csINeY17DXotefLCDXnteQ
+        16jXpywg15jXsNey158sINee15DXqNenLCDppqzlhYvlkJDmuKksIENsZW1l
+        bnMsIFNhbXVlbCBMYW5naG9ybmUsIFNub2RncmFzcywgUXVpbnR1cyBDdXJ0
+        aXVzLCBDb250ZSwgTG91aXMgZGUsIEJpzIRnYWx1zIQgUGF5biwnXSwnX3Zl
+        cnNpb25fJz0+MTU0MTExNzQwODA2MTY4NTc2MH1dfX0K
     http_version: 
-  recorded_at: Wed, 06 Jul 2016 17:13:45 GMT
+  recorded_at: Tue, 09 Aug 2016 17:48:01 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/513297"
@@ -183,11 +177,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.0, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
       Accept:
       - "*/*"
       Date:
-      - Wed, 06 Jul 2016 17:13:49 GMT
+      - Tue, 09 Aug 2016 17:48:01 GMT
   response:
     status:
       code: 200
@@ -199,8 +193,6 @@ http_interactions:
       - chunked
       Connection:
       - keep-alive
-      Vary:
-      - Accept-Encoding
       Status:
       - 200 OK
       Cache-Control:
@@ -210,23 +202,23 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       X-Request-Id:
-      - e9261e9b-2ca5-436f-8c51-bab3d854dd10
+      - 4b63d24b-4dab-431b-b331-9604147f6a32
       Etag:
       - W/"a9775ee0e2fcc118128a8bd4a182c20f"
       X-Frame-Options:
       - SAMEORIGIN
       X-Runtime:
-      - '1.004688'
+      - '1.369277'
       X-Content-Type-Options:
       - nosniff
       Access-Control-Request-Method:
       - "*"
       Date:
-      - Wed, 06 Jul 2016 17:13:51 GMT
+      - Tue, 09 Aug 2016 17:48:03 GMT
       X-Powered-By:
-      - Phusion Passenger
+      - Phusion Passenger 5.0.7
       Server:
-      - nginx + Phusion Passenger
+      - nginx + Phusion Passenger 5.0.7
       Strict-Transport-Security:
       - max-age=63072000; includeSubdomains; preload
     body:
@@ -235,7 +227,7 @@ http_interactions:
         Request for delivery within 2 business days","location_note":"","call_number":"812C59
         M36","status":"available","holding_id":["673960"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["offsite"]}]}}'
     http_version: 
-  recorded_at: Wed, 06 Jul 2016 17:13:51 GMT
+  recorded_at: Tue, 09 Aug 2016 17:48:03 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=513297&qt=document&wt=ruby"
@@ -249,7 +241,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 06 Jul 2016 17:13:51 GMT
+      - Tue, 09 Aug 2016 17:48:03 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -389,28 +381,22 @@ http_interactions:
         cXh6fnV5d3hxc35+fn5+ficsJzgxMkM1OSBNMzYgfCBnbHgrODEyKzAwMDAw
         MDAwK2M1OTAwMDAwK20zNjAwMDAwKzUxMzI5NyB8IGplMn5yeXh+enp6enp6
         enp+bnVxenp6enp+ZHd0enp6enp+dXl3eHFzfn5+fn5+fn5+J10sJ3RpbWVz
-        dGFtcCc9PicyMDE2LTA1LTIzVDIwOjA0OjMwLjc0MVonLCdhdXRob3JpdGll
-        c19kdCc9PicyMDE2LTA1LTIzVDIwOjU0OjM3WicsJ2F1dGhvcl92YXJpYW50
-        X3R4dCc9PlsnVHZlzIduLCBNYXJrLCAxODM1LTE5MTAgVHVlzIdpzIZuLCBN
-        YXJrLCAxODM1LTE5MTAgVHV3YXluLCBNYcyEcmssIDE4MzUtMTkxMCBUd2F5
-        biwgTWHMhHJrLCAxODM1LTE5MTAgVMq7dS13ZW4sIE1hLWvKu28sIDE4MzUt
-        MTkxMCBUdmVuLCBNLiAoTWFyayksIDE4MzUtMTkxMCBUb3VlbiwgTWFrdcyE
-        LCAxODM1LTE5MTAgVHdhaW4sIE1hcmVrLCAxODM1LTE5MTAgTWFrZSBUdXdl
-        biwgMTgzNS0xOTEwIFR1d2VuLCBNYWtlLCAxODM1LTE5MTAgTWFrZSBUZXZp
-        aW4sIDE4MzUtMTkxMCDQotCy0LXQvSwg0JzQsNGA0LosIDE4MzUtMTkxMCBU
-        b3VhaW4sIE1hcmssIDE4MzUtMTkxMCDXmNeR15/Wtywg157XqNenLCAxODM1
-        LTE5MTAg15jXldeV15nXmdefLCDXnteQ16jXpywgMTgzNS0xOTEwINeY15XX
-        ldeZ15nXnywg157XqNenLCAxODM1LTE5MTAg15jXldeV15nXnywg157XkNeo
-        16csIDE4MzUtMTkxMCDXmNeV15XXmdefLCDXnteo16csIDE4MzUtMTkxMCDX
-        mNeV15XXotefLCDXnteQ16jXpywgMTgzNS0xOTEwINeY15XXmdefLCDXnteo
-        16csIDE4MzUtMTkxMCDXmNew16LXnywg157XkNeo16csIDE4MzUtMTkxMCDX
-        mNew17LXnywg157XkNeo16csIDE4MzUtMTkxMCDppqzlhYvlkJDmuKksIDE4
-        MzUtMTkxMCBDbGVtZW5zLCBTYW11ZWwgTGFuZ2hvcm5lLCAxODM1LTE5MTAg
-        U25vZGdyYXNzLCBRdWludHVzIEN1cnRpdXMsIDE4MzUtMTkxMCBDb250ZSwg
-        TG91aXMgZGUsIDE4MzUtMTkxMCBCacyEZ2FsdcyEIFBheW4sIDE4NjEtMTkz
-        NyddLCdfdmVyc2lvbl8nPT4xNTM1MTUzOTY2NTY1ODE4MzY4fV19fQo=
+        dGFtcCc9PicyMDE2LTA3LTA2VDIxOjA4OjI0Ljc1M1onLCdhdXRob3JpdGll
+        c19kdCc9PicyMDE2LTA3LTI4VDE2OjQxOjMwWicsJ2F1dGhvcl92YXJpYW50
+        X3R4dCc9PlsnVHZlzIduLCBNYXJrLCBUdWXMh2nMhm4sIE1hcmssIFR1d2F5
+        biwgTWHMhHJrLCBUd2F5biwgTWHMhHJrLCBUyrt1LXdlbiwgTWEta8q7bywg
+        VHZlbiwgTS4gVG91ZW4sIE1ha3XMhCwgVHdhaW4sIE1hcmVrLCBNYWtlIFR1
+        d2VuLCBUdXdlbiwgTWFrZSwgTWFrZSBUZXZpaW4sINCi0LLQtdC9LCDQnNCw
+        0YDQuiwgVG91YWluLCBNYXJrLCDXmNeR15/Wtywg157XqNenLCDXmNeV15XX
+        mdeZ158sINee15DXqNenLCDXmNeV15XXmdeZ158sINee16jXpywg15jXldeV
+        15nXnywg157XkNeo16csINeY15XXldeZ158sINee16jXpywg15jXldeV16LX
+        nywg157XkNeo16csINeY15XXmdefLCDXnteo16csINeY17DXotefLCDXnteQ
+        16jXpywg15jXsNey158sINee15DXqNenLCDppqzlhYvlkJDmuKksIENsZW1l
+        bnMsIFNhbXVlbCBMYW5naG9ybmUsIFNub2RncmFzcywgUXVpbnR1cyBDdXJ0
+        aXVzLCBDb250ZSwgTG91aXMgZGUsIEJpzIRnYWx1zIQgUGF5biwnXSwnX3Zl
+        cnNpb25fJz0+MTU0MTExNzQwODA2MTY4NTc2MH1dfX0K
     http_version: 
-  recorded_at: Wed, 06 Jul 2016 17:13:51 GMT
+  recorded_at: Tue, 09 Aug 2016 17:48:03 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/2218446.json
@@ -419,18 +405,18 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.0, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
       Accept:
       - "*/*"
       Date:
-      - Wed, 06 Jul 2016 17:13:51 GMT
+      - Tue, 09 Aug 2016 17:48:03 GMT
   response:
     status:
       code: 302
       message: Found
     headers:
       Date:
-      - Wed, 06 Jul 2016 17:13:52 GMT
+      - Tue, 09 Aug 2016 17:48:04 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Location:
@@ -440,8 +426,8 @@ http_interactions:
       Content-Type:
       - text/html; charset=iso-8859-1
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63d545525d5f4f58455e445a4a423660;expires=Wed, 06-Jul-2016
-        17:23:52 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 09-Aug-2016
+        17:58:04 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |
@@ -455,7 +441,7 @@ http_interactions:
         <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
         </body></html>
     http_version: 
-  recorded_at: Wed, 06 Jul 2016 17:13:52 GMT
+  recorded_at: Tue, 09 Aug 2016 17:48:04 GMT
 - request:
     method: get
     uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/2218446.json
@@ -464,20 +450,20 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.0, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
       Accept:
       - "*/*"
       Date:
-      - Wed, 06 Jul 2016 17:13:52 GMT
+      - Tue, 09 Aug 2016 17:48:04 GMT
       Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63d545525d5f4f58455e445a4a423660
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Wed, 06 Jul 2016 17:13:53 GMT
+      - Tue, 09 Aug 2016 17:48:04 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Access-Control-Allow-Origin:
@@ -487,8 +473,8 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63d545525d5f4f58455e445a4a42378b;expires=Wed, 06-Jul-2016
-        17:23:53 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Tue, 09-Aug-2016
+        17:58:04 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: '{"records":{"000663268":{"recordURL":"https:\/\/catalog.hathitrust.org\/Record\/000663268","titles":["Moments
@@ -498,7 +484,7 @@ http_interactions:
         view"},{"orig":"Cornell University","fromRecord":"000663268","htid":"coo1.ark:\/13960\/t3jw8xr2k","itemURL":"https:\/\/hdl.handle.net\/2027\/coo1.ark:\/13960\/t3jw8xr2k","rightsCode":"pdus","lastUpdate":"20150719","enumcron":false,"usRightsString":"Full
         view"}]}'
     http_version: 
-  recorded_at: Wed, 06 Jul 2016 17:13:52 GMT
+  recorded_at: Tue, 09 Aug 2016 17:48:04 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=4043762&qt=document&wt=ruby"
@@ -512,7 +498,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 06 Jul 2016 17:13:53 GMT
+      - Tue, 09 Aug 2016 17:48:04 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -638,47 +624,48 @@ http_interactions:
         Z3ksIFNvY2lhbCAmIFB1YmxpYyBXZWxmYXJlLCBDcmltaW5vbG9neSddLCdj
         bGlvX2lkX2Rpc3BsYXknPT4nNDA0Mzc2MicsJ3NvdXJjZV9mYWNldCc9Plsn
         Y2F0YWxvZyddLCdzb3VyY2VfZGlzcGxheSc9PlsnY2F0YWxvZyddLCdpc2Ju
-        X3R4dCc9PlsnMDQ2NTAxMDQxNSddLCdpc2JuX2Rpc3BsYXknPT5bJzA0NjUw
-        MTA0MTUnXSwnbGNjbl9kaXNwbGF5Jz0+Wyc3MzA4Mjg5NCAvL3I4NzInXSwn
-        bGNjbl90eHQnPT5bJzczMDgyODk0IC8vcjg3MiddLCdvY2xjX3R4dCc9Plsn
-        b2NtMDA4Nzc5ODQnXSwnb2NsY19kaXNwbGF5Jz0+WydvY20wMDg3Nzk4NCdd
-        LCdmdWxsX3B1Ymxpc2hlcl9kaXNwbGF5Jz0+WydOZXcgWW9yaywgQmFzaWMg
-        Qm9va3MgWzE5NzRdJ10sJ2xvY2F0aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3Bs
-        YXknPT5bJ09mZnNpdGUgLSBQbGFjZSBSZXF1ZXN0IGZvciBkZWxpdmVyeSB3
-        aXRoaW4gMiBidXNpbmVzcyBkYXlzID4+IEhWNzQxIC5TY2g2IDE5NzR8REVM
-        SU18NDU3OTcyOSddLCdsb2NhdGlvbl9jYWxsX251bWJlcl90eHQnPT5bJ09m
-        ZnNpdGUgLSBQbGFjZSBSZXF1ZXN0IGZvciBkZWxpdmVyeSB3aXRoaW4gMiBi
-        dXNpbmVzcyBkYXlzID4+IEhWNzQxIC5TY2g2IDE5NzQnXSwnY2FsbF9udW1i
-        ZXJfdHh0Jz0+WydIVjc0MSAuU2NoNiAxOTc0J10sJ2NhbGxfbnVtYmVyX2Rp
-        c3BsYXknPT5bJ0hWNzQxIC5TY2g2IDE5NzQnXSwnbG9jYXRpb25fZmFjZXQn
-        PT5bJ09mZnNpdGUnXSwnbG9jYXRpb25fdHh0Jz0+WydPZmZzaXRlIC0gUGxh
-        Y2UgUmVxdWVzdCBmb3IgZGVsaXZlcnkgd2l0aGluIDIgYnVzaW5lc3MgZGF5
-        cyA+PiBIVjc0MSAuU2NoNiAxOTc0J10sJ3NoZWxma2V5Jz0+Wydsb2MraHYt
-        KzA3NDErMDAwMDAwMDArc2NoNjAwMDArMDAxOTc0KzQwNDM3NjInXSwncmV2
-        ZXJzZV9zaGVsZmtleSc9PlsnZWJufmk0fn56c3Z5fnp6enp6enp6fjduaXR6
-        enp6fnp6eXFzdn52enZ3c3R4fn5+fn4nXSwnaXRlbV9kaXNwbGF5Jz0+WydI
-        Vjc0MSAuU2NoNiAxOTc0IHwgbG9jK2h2LSswNzQxKzAwMDAwMDAwK3NjaDYw
-        MDAwKzAwMTk3NCs0MDQzNzYyIHwgZWJufmk0fn56c3Z5fnp6enp6enp6fjdu
-        aXR6enp6fnp6eXFzdn52enZ3c3R4fn5+fn4nXSwndGltZXN0YW1wJz0+JzIw
-        MTYtMDUtMjNUMjA6MDQ6MzQuNzk4WicsJ2F1dGhvcml0aWVzX2R0Jz0+JzIw
-        MTYtMDUtMjVUMDc6MDk6MjdaJywnYXV0aG9yX3ZhcmlhbnRfdHh0Jz0+WydT
-        Y2hvcnIsIEFsdmluLCAxOTIxLSddLCdzdWJqZWN0X3ZhcmlhbnRfdHh0Jz0+
-        WydDaGlsZGhvb2QgS2lkcyAoQ2hpbGRyZW4pIFBlZG9sb2d5IChDaGlsZCBz
-        dHVkeSkgWW91bmdzdGVycyBBZ2UgZ3JvdXBzIEZhbWlsaWVzIExpZmUgY3lj
-        bGUsIEh1bWFuIEp1dmVuaWxlcywgUG9saWNlIHNlcnZpY2VzIGZvciBQb2xp
-        Y2Ugc29jaWFsIHdvcmsgd2l0aCBqdXZlbmlsZXMgQ2hpbGRyZW4gVGVlbmFn
-        ZXJzIEJlbmV2b2xlbnQgaW5zdGl0dXRpb25zIENhcmUsIEluc3RpdHV0aW9u
-        YWwgQ2hhcml0YWJsZSBpbnN0aXR1dGlvbnMgSG9tZXMgKEluc3RpdHV0aW9u
-        cykgQ2hhcml0aWVzIFB1YmxpYyBpbnN0aXR1dGlvbnMgUHVibGljIHdlbGZh
-        cmUgRGVpbnN0aXR1dGlvbmFsaXphdGlvbiBDaGlsZCBjYXJlIGNlbnRlcnMg
-        Q2hpbGRyZW5cJ3MgZGF5IGNhcmUgY2VudGVycyBDcmXMgGNoZXMgKERheSBu
-        dXJzZXJpZXMpIERheSBudXJzZXJpZXMgRGF5Y2FyZSBjZW50ZXJzIEZvc3Rl
-        ciBkYXkgY2FyZSBDaGlsZCBjYXJlIHNlcnZpY2VzIEVtcGxveWVyLXN1cHBv
-        cnRlZCBkYXkgY2FyZSBOdXJzZXJ5IHNjaG9vbHMgQ2FyZSBvZiBjaGlsZHJl
-        biBDaGlsZGNhcmUnXSwnX3ZlcnNpb25fJz0+MTUzNTI4MzIxMTk1MTY2OTI0
-        OH1dfX0K
+        X3R4dCc9PlsnOTc4MDQ2NTAxMDQxNycsJzA0NjUwMTA0MTUnXSwnaXNibl9k
+        aXNwbGF5Jz0+WycwNDY1MDEwNDE1J10sJ2xjY25fZGlzcGxheSc9PlsnNzMw
+        ODI4OTQgLy9yODcyJ10sJ2xjY25fdHh0Jz0+Wyc3MzA4Mjg5NCAvL3I4NzIn
+        XSwnb2NsY190eHQnPT5bJ29jbTAwODc3OTg0J10sJ29jbGNfZGlzcGxheSc9
+        Plsnb2NtMDA4Nzc5ODQnXSwnZnVsbF9wdWJsaXNoZXJfZGlzcGxheSc9Plsn
+        TmV3IFlvcmssIEJhc2ljIEJvb2tzIFsxOTc0XSddLCdsb2NhdGlvbl9jYWxs
+        X251bWJlcl9pZF9kaXNwbGF5Jz0+WydPZmZzaXRlIC0gUGxhY2UgUmVxdWVz
+        dCBmb3IgZGVsaXZlcnkgd2l0aGluIDIgYnVzaW5lc3MgZGF5cyA+PiBIVjc0
+        MSAuU2NoNiAxOTc0fERFTElNfDQ1Nzk3MjknXSwnbG9jYXRpb25fY2FsbF9u
+        dW1iZXJfdHh0Jz0+WydPZmZzaXRlIC0gUGxhY2UgUmVxdWVzdCBmb3IgZGVs
+        aXZlcnkgd2l0aGluIDIgYnVzaW5lc3MgZGF5cyA+PiBIVjc0MSAuU2NoNiAx
+        OTc0J10sJ2NhbGxfbnVtYmVyX3R4dCc9PlsnSFY3NDEgLlNjaDYgMTk3NCdd
+        LCdjYWxsX251bWJlcl9kaXNwbGF5Jz0+WydIVjc0MSAuU2NoNiAxOTc0J10s
+        J2xvY2F0aW9uX2ZhY2V0Jz0+WydPZmZzaXRlJ10sJ2xvY2F0aW9uX3R4dCc9
+        PlsnT2Zmc2l0ZSAtIFBsYWNlIFJlcXVlc3QgZm9yIGRlbGl2ZXJ5IHdpdGhp
+        biAyIGJ1c2luZXNzIGRheXMgPj4gSFY3NDEgLlNjaDYgMTk3NCddLCdzaGVs
+        ZmtleSc9PlsnbG9jK2h2LSswNzQxKzAwMDAwMDAwK3NjaDYwMDAwKzAwMTk3
+        NCs0MDQzNzYyJ10sJ3JldmVyc2Vfc2hlbGZrZXknPT5bJ2Vibn5pNH5+enN2
+        eX56enp6enp6en43bml0enp6en56enlxc3Z+dnp2d3N0eH5+fn5+J10sJ2l0
+        ZW1fZGlzcGxheSc9PlsnSFY3NDEgLlNjaDYgMTk3NCB8IGxvYytodi0rMDc0
+        MSswMDAwMDAwMCtzY2g2MDAwMCswMDE5NzQrNDA0Mzc2MiB8IGVibn5pNH5+
+        enN2eX56enp6enp6en43bml0enp6en56enlxc3Z+dnp2d3N0eH5+fn5+J10s
+        J3RpbWVzdGFtcCc9PicyMDE2LTA3LTA2VDIxOjA4OjI3LjE3OFonLCdhdXRo
+        b3JpdGllc19kdCc9PicyMDE2LTA3LTI4VDE2OjQxOjQ2WicsJ2F1dGhvcl92
+        YXJpYW50X3R4dCc9PlsnU2Nob3JyLCBBbHZpbiwnXSwnc3ViamVjdF92YXJp
+        YW50X3R4dCc9PlsnQ2hpbGRob29kJywnS2lkcyAoQ2hpbGRyZW4pJywnUGVk
+        b2xvZ3kgKENoaWxkIHN0dWR5KScsJ1lvdW5nc3RlcnMnLCdBZ2UgZ3JvdXBz
+        JywnRmFtaWxpZXMnLCdMaWZlIGN5Y2xlLCBIdW1hbicsJ0p1dmVuaWxlcywg
+        UG9saWNlIHNlcnZpY2VzIGZvcicsJ1BvbGljZSBzb2NpYWwgd29yayB3aXRo
+        IGp1dmVuaWxlcycsJ0NoaWxkcmVuJywnVGVlbmFnZXJzJywnQmVuZXZvbGVu
+        dCBpbnN0aXR1dGlvbnMnLCdDYXJlLCBJbnN0aXR1dGlvbmFsJywnQ2hhcml0
+        YWJsZSBpbnN0aXR1dGlvbnMnLCdIb21lcyAoSW5zdGl0dXRpb25zKScsJ0No
+        YXJpdGllcycsJ1B1YmxpYyBpbnN0aXR1dGlvbnMnLCdQdWJsaWMgd2VsZmFy
+        ZScsJ0RlaW5zdGl0dXRpb25hbGl6YXRpb24nLCdDaGlsZCBjYXJlIGNlbnRl
+        cnMnLCdDaGlsZHJlblwncyBkYXkgY2FyZSBjZW50ZXJzJywnQ3JlzIBjaGVz
+        IChEYXkgbnVyc2VyaWVzKScsJ0RheSBudXJzZXJpZXMnLCdEYXljYXJlIGNl
+        bnRlcnMnLCdGb3N0ZXIgZGF5IGNhcmUnLCdDaGlsZCBjYXJlIHNlcnZpY2Vz
+        JywnRW1wbG95ZXItc3VwcG9ydGVkIGRheSBjYXJlJywnTnVyc2VyeSBzY2hv
+        b2xzJywnQ2FyZSBvZiBjaGlsZHJlbicsJ0NoaWxkY2FyZSddLCdfdmVyc2lv
+        bl8nPT4xNTQxMTE3NDI0ODk3NjIyMDE2fV19fQo=
     http_version: 
-  recorded_at: Wed, 06 Jul 2016 17:13:52 GMT
+  recorded_at: Tue, 09 Aug 2016 17:48:04 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/4043762"
@@ -687,11 +674,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.0, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
       Accept:
       - "*/*"
       Date:
-      - Wed, 06 Jul 2016 17:13:53 GMT
+      - Tue, 09 Aug 2016 17:48:04 GMT
   response:
     status:
       code: 200
@@ -703,34 +690,32 @@ http_interactions:
       - chunked
       Connection:
       - keep-alive
-      Vary:
-      - Accept-Encoding
       Status:
       - 200 OK
       Cache-Control:
       - max-age=0, private, must-revalidate
       Access-Control-Allow-Origin:
       - "*"
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 52a8029b-8be4-43d8-b5ef-174578ea94b4
       Etag:
       - W/"cda4c671a7f868edeb1e074b1cc946e9"
       X-Frame-Options:
       - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
+      X-Runtime:
+      - '1.116905'
       X-Content-Type-Options:
       - nosniff
-      X-Runtime:
-      - '0.004226'
       Access-Control-Request-Method:
       - "*"
-      X-Request-Id:
-      - 843b72a5-631d-4806-afd4-a3845fd69868
       Date:
-      - Wed, 06 Jul 2016 17:13:53 GMT
+      - Tue, 09 Aug 2016 17:48:05 GMT
       X-Powered-By:
-      - Phusion Passenger
+      - Phusion Passenger 5.0.7
       Server:
-      - nginx + Phusion Passenger
+      - nginx + Phusion Passenger 5.0.7
       Strict-Transport-Security:
       - max-age=63072000; includeSubdomains; preload
     body:
@@ -739,7 +724,7 @@ http_interactions:
         Place Request for delivery within 2 business days","location_note":"","call_number":"HV741
         .Sch6 1974","status":"available","holding_id":["4579729"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["offsite"]}]}}'
     http_version: 
-  recorded_at: Wed, 06 Jul 2016 17:13:53 GMT
+  recorded_at: Tue, 09 Aug 2016 17:48:05 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=4043762&qt=document&wt=ruby"
@@ -753,7 +738,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 06 Jul 2016 17:13:53 GMT
+      - Tue, 09 Aug 2016 17:48:06 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -763,7 +748,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
         YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
         eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic0MDQzNzYy
         JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
@@ -879,47 +864,48 @@ http_interactions:
         Z3ksIFNvY2lhbCAmIFB1YmxpYyBXZWxmYXJlLCBDcmltaW5vbG9neSddLCdj
         bGlvX2lkX2Rpc3BsYXknPT4nNDA0Mzc2MicsJ3NvdXJjZV9mYWNldCc9Plsn
         Y2F0YWxvZyddLCdzb3VyY2VfZGlzcGxheSc9PlsnY2F0YWxvZyddLCdpc2Ju
-        X3R4dCc9PlsnMDQ2NTAxMDQxNSddLCdpc2JuX2Rpc3BsYXknPT5bJzA0NjUw
-        MTA0MTUnXSwnbGNjbl9kaXNwbGF5Jz0+Wyc3MzA4Mjg5NCAvL3I4NzInXSwn
-        bGNjbl90eHQnPT5bJzczMDgyODk0IC8vcjg3MiddLCdvY2xjX3R4dCc9Plsn
-        b2NtMDA4Nzc5ODQnXSwnb2NsY19kaXNwbGF5Jz0+WydvY20wMDg3Nzk4NCdd
-        LCdmdWxsX3B1Ymxpc2hlcl9kaXNwbGF5Jz0+WydOZXcgWW9yaywgQmFzaWMg
-        Qm9va3MgWzE5NzRdJ10sJ2xvY2F0aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3Bs
-        YXknPT5bJ09mZnNpdGUgLSBQbGFjZSBSZXF1ZXN0IGZvciBkZWxpdmVyeSB3
-        aXRoaW4gMiBidXNpbmVzcyBkYXlzID4+IEhWNzQxIC5TY2g2IDE5NzR8REVM
-        SU18NDU3OTcyOSddLCdsb2NhdGlvbl9jYWxsX251bWJlcl90eHQnPT5bJ09m
-        ZnNpdGUgLSBQbGFjZSBSZXF1ZXN0IGZvciBkZWxpdmVyeSB3aXRoaW4gMiBi
-        dXNpbmVzcyBkYXlzID4+IEhWNzQxIC5TY2g2IDE5NzQnXSwnY2FsbF9udW1i
-        ZXJfdHh0Jz0+WydIVjc0MSAuU2NoNiAxOTc0J10sJ2NhbGxfbnVtYmVyX2Rp
-        c3BsYXknPT5bJ0hWNzQxIC5TY2g2IDE5NzQnXSwnbG9jYXRpb25fZmFjZXQn
-        PT5bJ09mZnNpdGUnXSwnbG9jYXRpb25fdHh0Jz0+WydPZmZzaXRlIC0gUGxh
-        Y2UgUmVxdWVzdCBmb3IgZGVsaXZlcnkgd2l0aGluIDIgYnVzaW5lc3MgZGF5
-        cyA+PiBIVjc0MSAuU2NoNiAxOTc0J10sJ3NoZWxma2V5Jz0+Wydsb2MraHYt
-        KzA3NDErMDAwMDAwMDArc2NoNjAwMDArMDAxOTc0KzQwNDM3NjInXSwncmV2
-        ZXJzZV9zaGVsZmtleSc9PlsnZWJufmk0fn56c3Z5fnp6enp6enp6fjduaXR6
-        enp6fnp6eXFzdn52enZ3c3R4fn5+fn4nXSwnaXRlbV9kaXNwbGF5Jz0+WydI
-        Vjc0MSAuU2NoNiAxOTc0IHwgbG9jK2h2LSswNzQxKzAwMDAwMDAwK3NjaDYw
-        MDAwKzAwMTk3NCs0MDQzNzYyIHwgZWJufmk0fn56c3Z5fnp6enp6enp6fjdu
-        aXR6enp6fnp6eXFzdn52enZ3c3R4fn5+fn4nXSwndGltZXN0YW1wJz0+JzIw
-        MTYtMDUtMjNUMjA6MDQ6MzQuNzk4WicsJ2F1dGhvcml0aWVzX2R0Jz0+JzIw
-        MTYtMDUtMjVUMDc6MDk6MjdaJywnYXV0aG9yX3ZhcmlhbnRfdHh0Jz0+WydT
-        Y2hvcnIsIEFsdmluLCAxOTIxLSddLCdzdWJqZWN0X3ZhcmlhbnRfdHh0Jz0+
-        WydDaGlsZGhvb2QgS2lkcyAoQ2hpbGRyZW4pIFBlZG9sb2d5IChDaGlsZCBz
-        dHVkeSkgWW91bmdzdGVycyBBZ2UgZ3JvdXBzIEZhbWlsaWVzIExpZmUgY3lj
-        bGUsIEh1bWFuIEp1dmVuaWxlcywgUG9saWNlIHNlcnZpY2VzIGZvciBQb2xp
-        Y2Ugc29jaWFsIHdvcmsgd2l0aCBqdXZlbmlsZXMgQ2hpbGRyZW4gVGVlbmFn
-        ZXJzIEJlbmV2b2xlbnQgaW5zdGl0dXRpb25zIENhcmUsIEluc3RpdHV0aW9u
-        YWwgQ2hhcml0YWJsZSBpbnN0aXR1dGlvbnMgSG9tZXMgKEluc3RpdHV0aW9u
-        cykgQ2hhcml0aWVzIFB1YmxpYyBpbnN0aXR1dGlvbnMgUHVibGljIHdlbGZh
-        cmUgRGVpbnN0aXR1dGlvbmFsaXphdGlvbiBDaGlsZCBjYXJlIGNlbnRlcnMg
-        Q2hpbGRyZW5cJ3MgZGF5IGNhcmUgY2VudGVycyBDcmXMgGNoZXMgKERheSBu
-        dXJzZXJpZXMpIERheSBudXJzZXJpZXMgRGF5Y2FyZSBjZW50ZXJzIEZvc3Rl
-        ciBkYXkgY2FyZSBDaGlsZCBjYXJlIHNlcnZpY2VzIEVtcGxveWVyLXN1cHBv
-        cnRlZCBkYXkgY2FyZSBOdXJzZXJ5IHNjaG9vbHMgQ2FyZSBvZiBjaGlsZHJl
-        biBDaGlsZGNhcmUnXSwnX3ZlcnNpb25fJz0+MTUzNTI4MzIxMTk1MTY2OTI0
-        OH1dfX0K
+        X3R4dCc9PlsnOTc4MDQ2NTAxMDQxNycsJzA0NjUwMTA0MTUnXSwnaXNibl9k
+        aXNwbGF5Jz0+WycwNDY1MDEwNDE1J10sJ2xjY25fZGlzcGxheSc9PlsnNzMw
+        ODI4OTQgLy9yODcyJ10sJ2xjY25fdHh0Jz0+Wyc3MzA4Mjg5NCAvL3I4NzIn
+        XSwnb2NsY190eHQnPT5bJ29jbTAwODc3OTg0J10sJ29jbGNfZGlzcGxheSc9
+        Plsnb2NtMDA4Nzc5ODQnXSwnZnVsbF9wdWJsaXNoZXJfZGlzcGxheSc9Plsn
+        TmV3IFlvcmssIEJhc2ljIEJvb2tzIFsxOTc0XSddLCdsb2NhdGlvbl9jYWxs
+        X251bWJlcl9pZF9kaXNwbGF5Jz0+WydPZmZzaXRlIC0gUGxhY2UgUmVxdWVz
+        dCBmb3IgZGVsaXZlcnkgd2l0aGluIDIgYnVzaW5lc3MgZGF5cyA+PiBIVjc0
+        MSAuU2NoNiAxOTc0fERFTElNfDQ1Nzk3MjknXSwnbG9jYXRpb25fY2FsbF9u
+        dW1iZXJfdHh0Jz0+WydPZmZzaXRlIC0gUGxhY2UgUmVxdWVzdCBmb3IgZGVs
+        aXZlcnkgd2l0aGluIDIgYnVzaW5lc3MgZGF5cyA+PiBIVjc0MSAuU2NoNiAx
+        OTc0J10sJ2NhbGxfbnVtYmVyX3R4dCc9PlsnSFY3NDEgLlNjaDYgMTk3NCdd
+        LCdjYWxsX251bWJlcl9kaXNwbGF5Jz0+WydIVjc0MSAuU2NoNiAxOTc0J10s
+        J2xvY2F0aW9uX2ZhY2V0Jz0+WydPZmZzaXRlJ10sJ2xvY2F0aW9uX3R4dCc9
+        PlsnT2Zmc2l0ZSAtIFBsYWNlIFJlcXVlc3QgZm9yIGRlbGl2ZXJ5IHdpdGhp
+        biAyIGJ1c2luZXNzIGRheXMgPj4gSFY3NDEgLlNjaDYgMTk3NCddLCdzaGVs
+        ZmtleSc9PlsnbG9jK2h2LSswNzQxKzAwMDAwMDAwK3NjaDYwMDAwKzAwMTk3
+        NCs0MDQzNzYyJ10sJ3JldmVyc2Vfc2hlbGZrZXknPT5bJ2Vibn5pNH5+enN2
+        eX56enp6enp6en43bml0enp6en56enlxc3Z+dnp2d3N0eH5+fn5+J10sJ2l0
+        ZW1fZGlzcGxheSc9PlsnSFY3NDEgLlNjaDYgMTk3NCB8IGxvYytodi0rMDc0
+        MSswMDAwMDAwMCtzY2g2MDAwMCswMDE5NzQrNDA0Mzc2MiB8IGVibn5pNH5+
+        enN2eX56enp6enp6en43bml0enp6en56enlxc3Z+dnp2d3N0eH5+fn5+J10s
+        J3RpbWVzdGFtcCc9PicyMDE2LTA3LTA2VDIxOjA4OjI3LjE3OFonLCdhdXRo
+        b3JpdGllc19kdCc9PicyMDE2LTA3LTI4VDE2OjQxOjQ2WicsJ2F1dGhvcl92
+        YXJpYW50X3R4dCc9PlsnU2Nob3JyLCBBbHZpbiwnXSwnc3ViamVjdF92YXJp
+        YW50X3R4dCc9PlsnQ2hpbGRob29kJywnS2lkcyAoQ2hpbGRyZW4pJywnUGVk
+        b2xvZ3kgKENoaWxkIHN0dWR5KScsJ1lvdW5nc3RlcnMnLCdBZ2UgZ3JvdXBz
+        JywnRmFtaWxpZXMnLCdMaWZlIGN5Y2xlLCBIdW1hbicsJ0p1dmVuaWxlcywg
+        UG9saWNlIHNlcnZpY2VzIGZvcicsJ1BvbGljZSBzb2NpYWwgd29yayB3aXRo
+        IGp1dmVuaWxlcycsJ0NoaWxkcmVuJywnVGVlbmFnZXJzJywnQmVuZXZvbGVu
+        dCBpbnN0aXR1dGlvbnMnLCdDYXJlLCBJbnN0aXR1dGlvbmFsJywnQ2hhcml0
+        YWJsZSBpbnN0aXR1dGlvbnMnLCdIb21lcyAoSW5zdGl0dXRpb25zKScsJ0No
+        YXJpdGllcycsJ1B1YmxpYyBpbnN0aXR1dGlvbnMnLCdQdWJsaWMgd2VsZmFy
+        ZScsJ0RlaW5zdGl0dXRpb25hbGl6YXRpb24nLCdDaGlsZCBjYXJlIGNlbnRl
+        cnMnLCdDaGlsZHJlblwncyBkYXkgY2FyZSBjZW50ZXJzJywnQ3JlzIBjaGVz
+        IChEYXkgbnVyc2VyaWVzKScsJ0RheSBudXJzZXJpZXMnLCdEYXljYXJlIGNl
+        bnRlcnMnLCdGb3N0ZXIgZGF5IGNhcmUnLCdDaGlsZCBjYXJlIHNlcnZpY2Vz
+        JywnRW1wbG95ZXItc3VwcG9ydGVkIGRheSBjYXJlJywnTnVyc2VyeSBzY2hv
+        b2xzJywnQ2FyZSBvZiBjaGlsZHJlbicsJ0NoaWxkY2FyZSddLCdfdmVyc2lv
+        bl8nPT4xNTQxMTE3NDI0ODk3NjIyMDE2fV19fQo=
     http_version: 
-  recorded_at: Wed, 06 Jul 2016 17:13:53 GMT
+  recorded_at: Tue, 09 Aug 2016 17:48:06 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/0465010415.json
@@ -928,18 +914,18 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.0, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
       Accept:
       - "*/*"
       Date:
-      - Wed, 06 Jul 2016 17:13:53 GMT
+      - Tue, 09 Aug 2016 17:48:06 GMT
   response:
     status:
       code: 302
       message: Found
     headers:
       Date:
-      - Wed, 06 Jul 2016 17:13:53 GMT
+      - Tue, 09 Aug 2016 17:48:06 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Location:
@@ -949,8 +935,8 @@ http_interactions:
       Content-Type:
       - text/html; charset=iso-8859-1
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63d545525d5f4f58455e445a4a423660;expires=Wed, 06-Jul-2016
-        17:23:53 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 09-Aug-2016
+        17:58:06 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |
@@ -964,7 +950,7 @@ http_interactions:
         <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
         </body></html>
     http_version: 
-  recorded_at: Wed, 06 Jul 2016 17:13:53 GMT
+  recorded_at: Tue, 09 Aug 2016 17:48:06 GMT
 - request:
     method: get
     uri: https://catalog.hathitrust.org/api/volumes/brief/isbn/0465010415.json
@@ -973,20 +959,20 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.0, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
       Accept:
       - "*/*"
       Date:
-      - Wed, 06 Jul 2016 17:13:53 GMT
+      - Tue, 09 Aug 2016 17:48:06 GMT
       Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63d545525d5f4f58455e445a4a423660
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Wed, 06 Jul 2016 17:13:54 GMT
+      - Tue, 09 Aug 2016 17:48:06 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Access-Control-Allow-Origin:
@@ -996,8 +982,8 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63d545525d5f4f58455e445a4a42378b;expires=Wed, 06-Jul-2016
-        17:23:54 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Tue, 09-Aug-2016
+        17:58:06 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: '{"records":{"001132545":{"recordURL":"https:\/\/catalog.hathitrust.org\/Record\/001132545","titles":["Children
@@ -1005,5 +991,5 @@ http_interactions:
         of Michigan","fromRecord":"001132545","htid":"mdp.39015050732331","itemURL":"https:\/\/hdl.handle.net\/2027\/mdp.39015050732331","rightsCode":"ic","lastUpdate":"20130809","enumcron":false,"usRightsString":"Limited
         (search-only)"}]}'
     http_version: 
-  recorded_at: Wed, 06 Jul 2016 17:13:53 GMT
-recorded_with: VCR 3.0.1
+  recorded_at: Tue, 09 Aug 2016 17:48:06 GMT
+recorded_with: VCR 3.0.3
