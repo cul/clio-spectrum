@@ -7,7 +7,7 @@
   <ul class="dropdown-menu">
 
   <%- blacklight_config.sort_fields.each do |sort_key, field| %>
-    <li><%= link_to(field.label, url_for(params_for_search.merge(:sort => sort_key))) %></li>
+    <li><%= link_to(field.label, url_for(search_state.params_for_search.merge(:sort => sort_key))) %></li>
   <%- end -%>
 
   </ul>
