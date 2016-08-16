@@ -17,23 +17,28 @@ class SearchBuilder < Blacklight::SearchBuilder
 
   # NEXT-1043 - Better handling of extremely long queries
   def trim_long_queries(solr_parameters)
-    # raise
-    if solr_parameters['q']
-      # Truncate queries longer than N letters
-      maxLetters = 200
-      if solr_parameters['q'].size > maxLetters
-        # flash.now[:error] = "Your query was automatically truncated to the first #{maxLetters} letters. Letters beyond this do not help to further narrow the result set."
-        solr_parameters['q'] = solr_parameters['q'].first(maxLetters)
-      end
 
-      # Truncate queries longer than N words
-      maxTerms = 30
-      terms = solr_parameters['q'].split(' ')
-      if terms.size > maxTerms
-        # flash.now[:error] = "Your query was automatically truncated to the first #{maxTerms} words.  Terms beyond this do not help to further narrow the result set."
-        solr_parameters['q'] = terms[0,maxTerms].join(' ')
-      end
+    # If there's no 'q', don't do anything
+    return unless solr_parameters['q']
+
+    # For shelf-browse we construct monstrous queries against the shelfkey field
+    return if solr_parameters['q'].include? "shelfkey:"
+
+    # Truncate queries longer than N letters
+    maxLetters = 200
+    if solr_parameters['q'].size > maxLetters
+      # flash.now[:error] = "Your query was automatically truncated to the first #{maxLetters} letters. Letters beyond this do not help to further narrow the result set."
+      solr_parameters['q'] = solr_parameters['q'].first(maxLetters)
     end
+
+    # Truncate queries longer than N words
+    maxTerms = 30
+    terms = solr_parameters['q'].split(' ')
+    if terms.size > maxTerms
+      # flash.now[:error] = "Your query was automatically truncated to the first #{maxTerms} words.  Terms beyond this do not help to further narrow the result set."
+      solr_parameters['q'] = terms[0,maxTerms].join(' ')
+    end
+
   end
 
   def add_debug_to_solr(solr_parameters)

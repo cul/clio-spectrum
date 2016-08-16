@@ -112,13 +112,13 @@ module CulCatalogHelper
     current_per_page = @response.rows || 25
 
     # we need these to compute the correct new_page_number, below.
-    current_page = [params_for_search[:page].to_i, 1].max
+    current_page = [search_state.params_for_search[:page].to_i, 1].max
     first_record_on_page = (current_per_page * (current_page - 1)) + 1
 
     # do the math such that the current 1st item is still in the set
     new_page_number = (first_record_on_page / per_page).to_i + 1
 
-    href = url_for(params_for_search.merge(rows: per_page, page: new_page_number))
+    href = url_for(search_state.params_for_search.merge(rows: per_page, page: new_page_number))
 
     per_page_link(href, per_page, current_per_page)
   end
