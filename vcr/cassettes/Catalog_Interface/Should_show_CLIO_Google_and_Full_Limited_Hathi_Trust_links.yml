@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:54:37 GMT
+      - Tue, 09 Aug 2016 17:48:01 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -168,7 +168,7 @@ http_interactions:
         aXVzLCBDb250ZSwgTG91aXMgZGUsIEJpzIRnYWx1zIQgUGF5biwnXSwnX3Zl
         cnNpb25fJz0+MTU0MTExNzQwODA2MTY4NTc2MH1dfX0K
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:54:37 GMT
+  recorded_at: Tue, 09 Aug 2016 17:48:01 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/513297"
@@ -181,7 +181,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 17:54:38 GMT
+      - Tue, 09 Aug 2016 17:48:01 GMT
   response:
     status:
       code: 200
@@ -193,8 +193,6 @@ http_interactions:
       - chunked
       Connection:
       - keep-alive
-      Vary:
-      - Accept-Encoding
       Status:
       - 200 OK
       Cache-Control:
@@ -204,23 +202,23 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       X-Request-Id:
-      - df96ffc5-c9e7-4458-94bb-e7740ebed153
+      - 4b63d24b-4dab-431b-b331-9604147f6a32
       Etag:
       - W/"a9775ee0e2fcc118128a8bd4a182c20f"
       X-Frame-Options:
       - SAMEORIGIN
       X-Runtime:
-      - '1.813953'
+      - '1.369277'
       X-Content-Type-Options:
       - nosniff
       Access-Control-Request-Method:
       - "*"
       Date:
-      - Tue, 16 Aug 2016 17:54:40 GMT
+      - Tue, 09 Aug 2016 17:48:03 GMT
       X-Powered-By:
-      - Phusion Passenger
+      - Phusion Passenger 5.0.7
       Server:
-      - nginx + Phusion Passenger
+      - nginx + Phusion Passenger 5.0.7
       Strict-Transport-Security:
       - max-age=63072000; includeSubdomains; preload
     body:
@@ -229,7 +227,7 @@ http_interactions:
         Request for delivery within 2 business days","location_note":"","call_number":"812C59
         M36","status":"available","holding_id":["673960"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["offsite"]}]}}'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:54:40 GMT
+  recorded_at: Tue, 09 Aug 2016 17:48:03 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=513297&qt=document&wt=ruby"
@@ -243,7 +241,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:54:40 GMT
+      - Tue, 09 Aug 2016 17:48:03 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -398,7 +396,7 @@ http_interactions:
         aXVzLCBDb250ZSwgTG91aXMgZGUsIEJpzIRnYWx1zIQgUGF5biwnXSwnX3Zl
         cnNpb25fJz0+MTU0MTExNzQwODA2MTY4NTc2MH1dfX0K
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:54:41 GMT
+  recorded_at: Tue, 09 Aug 2016 17:48:03 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/2218446.json
@@ -411,14 +409,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 17:54:41 GMT
+      - Tue, 09 Aug 2016 17:48:03 GMT
   response:
     status:
       code: 302
       message: Found
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:54:41 GMT
+      - Tue, 09 Aug 2016 17:48:04 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Location:
@@ -428,8 +426,8 @@ http_interactions:
       Content-Type:
       - text/html; charset=iso-8859-1
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660;expires=Tue, 16-Aug-2016
-        18:04:33 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 09-Aug-2016
+        17:58:04 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |
@@ -443,7 +441,7 @@ http_interactions:
         <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
         </body></html>
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:54:41 GMT
+  recorded_at: Tue, 09 Aug 2016 17:48:04 GMT
 - request:
     method: get
     uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/2218446.json
@@ -456,16 +454,16 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 17:54:41 GMT
+      - Tue, 09 Aug 2016 17:48:04 GMT
       Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:54:41 GMT
+      - Tue, 09 Aug 2016 17:48:04 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Access-Control-Allow-Origin:
@@ -475,8 +473,8 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a42378b;expires=Tue, 16-Aug-2016
-        18:04:33 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Tue, 09-Aug-2016
+        17:58:04 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: '{"records":{"000663268":{"recordURL":"https:\/\/catalog.hathitrust.org\/Record\/000663268","titles":["Moments
@@ -486,7 +484,7 @@ http_interactions:
         view"},{"orig":"Cornell University","fromRecord":"000663268","htid":"coo1.ark:\/13960\/t3jw8xr2k","itemURL":"https:\/\/hdl.handle.net\/2027\/coo1.ark:\/13960\/t3jw8xr2k","rightsCode":"pdus","lastUpdate":"20150719","enumcron":false,"usRightsString":"Full
         view"}]}'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:54:42 GMT
+  recorded_at: Tue, 09 Aug 2016 17:48:04 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=4043762&qt=document&wt=ruby"
@@ -500,7 +498,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:54:42 GMT
+      - Tue, 09 Aug 2016 17:48:04 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -649,24 +647,25 @@ http_interactions:
         MSswMDAwMDAwMCtzY2g2MDAwMCswMDE5NzQrNDA0Mzc2MiB8IGVibn5pNH5+
         enN2eX56enp6enp6en43bml0enp6en56enlxc3Z+dnp2d3N0eH5+fn5+J10s
         J3RpbWVzdGFtcCc9PicyMDE2LTA3LTA2VDIxOjA4OjI3LjE3OFonLCdhdXRo
-        b3JpdGllc19kdCc9PicyMDE2LTA4LTEwVDE1OjUyOjQ4WicsJ2F1dGhvcl92
+        b3JpdGllc19kdCc9PicyMDE2LTA3LTI4VDE2OjQxOjQ2WicsJ2F1dGhvcl92
         YXJpYW50X3R4dCc9PlsnU2Nob3JyLCBBbHZpbiwnXSwnc3ViamVjdF92YXJp
         YW50X3R4dCc9PlsnQ2hpbGRob29kJywnS2lkcyAoQ2hpbGRyZW4pJywnUGVk
         b2xvZ3kgKENoaWxkIHN0dWR5KScsJ1lvdW5nc3RlcnMnLCdBZ2UgZ3JvdXBz
-        JywnRmFtaWxpZXMnLCdMaWZlIGN5Y2xlLCBIdW1hbicsJ1BvbGljZSBzb2Np
-        YWwgd29yayB3aXRoIG1pbm9yaXRpZXMnLCdNaW5vcml0aWVzJywnQmVuZXZv
-        bGVudCBpbnN0aXR1dGlvbnMnLCdDYXJlLCBJbnN0aXR1dGlvbmFsJywnQ2hh
-        cml0YWJsZSBpbnN0aXR1dGlvbnMnLCdIb21lcyAoSW5zdGl0dXRpb25zKScs
-        J0NoYXJpdGllcycsJ1B1YmxpYyBpbnN0aXR1dGlvbnMnLCdQdWJsaWMgd2Vs
-        ZmFyZScsJ0RlaW5zdGl0dXRpb25hbGl6YXRpb24nLCdDaGlsZCBjYXJlIGNl
-        bnRlcnMnLCdDaGlsZHJlblwncyBkYXkgY2FyZSBjZW50ZXJzJywnQ3JlzIBj
-        aGVzIChEYXkgbnVyc2VyaWVzKScsJ0RheSBudXJzZXJpZXMnLCdEYXljYXJl
-        IGNlbnRlcnMnLCdGb3N0ZXIgZGF5IGNhcmUnLCdDaGlsZCBjYXJlIHNlcnZp
-        Y2VzJywnRW1wbG95ZXItc3VwcG9ydGVkIGRheSBjYXJlJywnTnVyc2VyeSBz
-        Y2hvb2xzJywnQ2FyZSBvZiBjaGlsZHJlbicsJ0NoaWxkY2FyZSddLCdfdmVy
-        c2lvbl8nPT4xNTQyMjkyMTA0Mjc3OTE3Njk2fV19fQo=
+        JywnRmFtaWxpZXMnLCdMaWZlIGN5Y2xlLCBIdW1hbicsJ0p1dmVuaWxlcywg
+        UG9saWNlIHNlcnZpY2VzIGZvcicsJ1BvbGljZSBzb2NpYWwgd29yayB3aXRo
+        IGp1dmVuaWxlcycsJ0NoaWxkcmVuJywnVGVlbmFnZXJzJywnQmVuZXZvbGVu
+        dCBpbnN0aXR1dGlvbnMnLCdDYXJlLCBJbnN0aXR1dGlvbmFsJywnQ2hhcml0
+        YWJsZSBpbnN0aXR1dGlvbnMnLCdIb21lcyAoSW5zdGl0dXRpb25zKScsJ0No
+        YXJpdGllcycsJ1B1YmxpYyBpbnN0aXR1dGlvbnMnLCdQdWJsaWMgd2VsZmFy
+        ZScsJ0RlaW5zdGl0dXRpb25hbGl6YXRpb24nLCdDaGlsZCBjYXJlIGNlbnRl
+        cnMnLCdDaGlsZHJlblwncyBkYXkgY2FyZSBjZW50ZXJzJywnQ3JlzIBjaGVz
+        IChEYXkgbnVyc2VyaWVzKScsJ0RheSBudXJzZXJpZXMnLCdEYXljYXJlIGNl
+        bnRlcnMnLCdGb3N0ZXIgZGF5IGNhcmUnLCdDaGlsZCBjYXJlIHNlcnZpY2Vz
+        JywnRW1wbG95ZXItc3VwcG9ydGVkIGRheSBjYXJlJywnTnVyc2VyeSBzY2hv
+        b2xzJywnQ2FyZSBvZiBjaGlsZHJlbicsJ0NoaWxkY2FyZSddLCdfdmVyc2lv
+        bl8nPT4xNTQxMTE3NDI0ODk3NjIyMDE2fV19fQo=
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:54:42 GMT
+  recorded_at: Tue, 09 Aug 2016 17:48:04 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/4043762"
@@ -679,7 +678,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 17:54:43 GMT
+      - Tue, 09 Aug 2016 17:48:04 GMT
   response:
     status:
       code: 200
@@ -691,8 +690,6 @@ http_interactions:
       - chunked
       Connection:
       - keep-alive
-      Vary:
-      - Accept-Encoding
       Status:
       - 200 OK
       Cache-Control:
@@ -702,23 +699,23 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       X-Request-Id:
-      - 97ef40b3-427d-4e90-8348-66c1c5c175a3
+      - 52a8029b-8be4-43d8-b5ef-174578ea94b4
       Etag:
       - W/"cda4c671a7f868edeb1e074b1cc946e9"
       X-Frame-Options:
       - SAMEORIGIN
       X-Runtime:
-      - '1.560805'
+      - '1.116905'
       X-Content-Type-Options:
       - nosniff
       Access-Control-Request-Method:
       - "*"
       Date:
-      - Tue, 16 Aug 2016 17:54:44 GMT
+      - Tue, 09 Aug 2016 17:48:05 GMT
       X-Powered-By:
-      - Phusion Passenger
+      - Phusion Passenger 5.0.7
       Server:
-      - nginx + Phusion Passenger
+      - nginx + Phusion Passenger 5.0.7
       Strict-Transport-Security:
       - max-age=63072000; includeSubdomains; preload
     body:
@@ -727,7 +724,7 @@ http_interactions:
         Place Request for delivery within 2 business days","location_note":"","call_number":"HV741
         .Sch6 1974","status":"available","holding_id":["4579729"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["offsite"]}]}}'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:54:45 GMT
+  recorded_at: Tue, 09 Aug 2016 17:48:05 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=4043762&qt=document&wt=ruby"
@@ -741,7 +738,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:54:44 GMT
+      - Tue, 09 Aug 2016 17:48:06 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -890,24 +887,25 @@ http_interactions:
         MSswMDAwMDAwMCtzY2g2MDAwMCswMDE5NzQrNDA0Mzc2MiB8IGVibn5pNH5+
         enN2eX56enp6enp6en43bml0enp6en56enlxc3Z+dnp2d3N0eH5+fn5+J10s
         J3RpbWVzdGFtcCc9PicyMDE2LTA3LTA2VDIxOjA4OjI3LjE3OFonLCdhdXRo
-        b3JpdGllc19kdCc9PicyMDE2LTA4LTEwVDE1OjUyOjQ4WicsJ2F1dGhvcl92
+        b3JpdGllc19kdCc9PicyMDE2LTA3LTI4VDE2OjQxOjQ2WicsJ2F1dGhvcl92
         YXJpYW50X3R4dCc9PlsnU2Nob3JyLCBBbHZpbiwnXSwnc3ViamVjdF92YXJp
         YW50X3R4dCc9PlsnQ2hpbGRob29kJywnS2lkcyAoQ2hpbGRyZW4pJywnUGVk
         b2xvZ3kgKENoaWxkIHN0dWR5KScsJ1lvdW5nc3RlcnMnLCdBZ2UgZ3JvdXBz
-        JywnRmFtaWxpZXMnLCdMaWZlIGN5Y2xlLCBIdW1hbicsJ1BvbGljZSBzb2Np
-        YWwgd29yayB3aXRoIG1pbm9yaXRpZXMnLCdNaW5vcml0aWVzJywnQmVuZXZv
-        bGVudCBpbnN0aXR1dGlvbnMnLCdDYXJlLCBJbnN0aXR1dGlvbmFsJywnQ2hh
-        cml0YWJsZSBpbnN0aXR1dGlvbnMnLCdIb21lcyAoSW5zdGl0dXRpb25zKScs
-        J0NoYXJpdGllcycsJ1B1YmxpYyBpbnN0aXR1dGlvbnMnLCdQdWJsaWMgd2Vs
-        ZmFyZScsJ0RlaW5zdGl0dXRpb25hbGl6YXRpb24nLCdDaGlsZCBjYXJlIGNl
-        bnRlcnMnLCdDaGlsZHJlblwncyBkYXkgY2FyZSBjZW50ZXJzJywnQ3JlzIBj
-        aGVzIChEYXkgbnVyc2VyaWVzKScsJ0RheSBudXJzZXJpZXMnLCdEYXljYXJl
-        IGNlbnRlcnMnLCdGb3N0ZXIgZGF5IGNhcmUnLCdDaGlsZCBjYXJlIHNlcnZp
-        Y2VzJywnRW1wbG95ZXItc3VwcG9ydGVkIGRheSBjYXJlJywnTnVyc2VyeSBz
-        Y2hvb2xzJywnQ2FyZSBvZiBjaGlsZHJlbicsJ0NoaWxkY2FyZSddLCdfdmVy
-        c2lvbl8nPT4xNTQyMjkyMTA0Mjc3OTE3Njk2fV19fQo=
+        JywnRmFtaWxpZXMnLCdMaWZlIGN5Y2xlLCBIdW1hbicsJ0p1dmVuaWxlcywg
+        UG9saWNlIHNlcnZpY2VzIGZvcicsJ1BvbGljZSBzb2NpYWwgd29yayB3aXRo
+        IGp1dmVuaWxlcycsJ0NoaWxkcmVuJywnVGVlbmFnZXJzJywnQmVuZXZvbGVu
+        dCBpbnN0aXR1dGlvbnMnLCdDYXJlLCBJbnN0aXR1dGlvbmFsJywnQ2hhcml0
+        YWJsZSBpbnN0aXR1dGlvbnMnLCdIb21lcyAoSW5zdGl0dXRpb25zKScsJ0No
+        YXJpdGllcycsJ1B1YmxpYyBpbnN0aXR1dGlvbnMnLCdQdWJsaWMgd2VsZmFy
+        ZScsJ0RlaW5zdGl0dXRpb25hbGl6YXRpb24nLCdDaGlsZCBjYXJlIGNlbnRl
+        cnMnLCdDaGlsZHJlblwncyBkYXkgY2FyZSBjZW50ZXJzJywnQ3JlzIBjaGVz
+        IChEYXkgbnVyc2VyaWVzKScsJ0RheSBudXJzZXJpZXMnLCdEYXljYXJlIGNl
+        bnRlcnMnLCdGb3N0ZXIgZGF5IGNhcmUnLCdDaGlsZCBjYXJlIHNlcnZpY2Vz
+        JywnRW1wbG95ZXItc3VwcG9ydGVkIGRheSBjYXJlJywnTnVyc2VyeSBzY2hv
+        b2xzJywnQ2FyZSBvZiBjaGlsZHJlbicsJ0NoaWxkY2FyZSddLCdfdmVyc2lv
+        bl8nPT4xNTQxMTE3NDI0ODk3NjIyMDE2fV19fQo=
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:54:45 GMT
+  recorded_at: Tue, 09 Aug 2016 17:48:06 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/0465010415.json
@@ -920,14 +918,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 17:54:45 GMT
+      - Tue, 09 Aug 2016 17:48:06 GMT
   response:
     status:
       code: 302
       message: Found
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:54:45 GMT
+      - Tue, 09 Aug 2016 17:48:06 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Location:
@@ -937,8 +935,8 @@ http_interactions:
       Content-Type:
       - text/html; charset=iso-8859-1
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660;expires=Tue, 16-Aug-2016
-        18:04:36 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 09-Aug-2016
+        17:58:06 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |
@@ -952,7 +950,7 @@ http_interactions:
         <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
         </body></html>
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:54:45 GMT
+  recorded_at: Tue, 09 Aug 2016 17:48:06 GMT
 - request:
     method: get
     uri: https://catalog.hathitrust.org/api/volumes/brief/isbn/0465010415.json
@@ -965,16 +963,16 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 17:54:45 GMT
+      - Tue, 09 Aug 2016 17:48:06 GMT
       Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:54:45 GMT
+      - Tue, 09 Aug 2016 17:48:06 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Access-Control-Allow-Origin:
@@ -984,8 +982,8 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a42378b;expires=Tue, 16-Aug-2016
-        18:04:37 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Tue, 09-Aug-2016
+        17:58:06 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: '{"records":{"001132545":{"recordURL":"https:\/\/catalog.hathitrust.org\/Record\/001132545","titles":["Children
@@ -993,5 +991,5 @@ http_interactions:
         of Michigan","fromRecord":"001132545","htid":"mdp.39015050732331","itemURL":"https:\/\/hdl.handle.net\/2027\/mdp.39015050732331","rightsCode":"ic","lastUpdate":"20130809","enumcron":false,"usRightsString":"Limited
         (search-only)"}]}'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:54:45 GMT
+  recorded_at: Tue, 09 Aug 2016 17:48:06 GMT
 recorded_with: VCR 3.0.3

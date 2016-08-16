@@ -7,7 +7,7 @@ VCR.configure do |c|
   ## VCR on/off toggle
   ## Do this, and VCR is enacted on specs tagged with :vcr
   ## Comment this out to test directly against live backends
-  c.configure_rspec_metadata!
+  # c.configure_rspec_metadata!
 
   c.cassette_library_dir = 'vcr/cassettes'
   c.hook_into :webmock
@@ -24,7 +24,7 @@ VCR.configure do |c|
   # Ignore all facet.query params - is this the only one?
   c.default_cassette_options = {
     # Un-comment this line to trigger re-recording of ALL cassettes
-    :re_record_interval => 1.days,
+    # :re_record_interval => 1.days,
     :match_requests_on => [:method,
       VCR.request_matchers.uri_without_param('facet.query')]
   }

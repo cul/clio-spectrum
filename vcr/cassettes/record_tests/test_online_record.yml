@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:00:25 GMT
+      - Fri, 01 Jul 2016 20:58:07 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -23,7 +23,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
         YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
         eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic1NjU2OTkz
         JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
@@ -176,13 +176,13 @@ http_interactions:
         ZmFjZXQnPT5bJ09ubGluZSddLCdsb2NhdGlvbl90eHQnPT5bJ09ubGluZSA+
         PiBFQk9PS1MnXSwndXJsX211bmdlZF9kaXNwbGF5Jz0+WycwfHx8fHx8aHR0
         cDovL3d3dy5jb2x1bWJpYS5lZHUvY2dpLWJpbi9jdWwvcmVzb2x2ZT9jbGlv
-        NTY1Njk5M3x8fCddLCd0aW1lc3RhbXAnPT4nMjAxNi0wNy0wNlQyMTowODoz
-        MC4wOTFaJywnYXV0aG9yaXRpZXNfZHQnPT4nMjAxNi0wOC0xMFQyMjozMTow
-        N1onLCdhdXRob3JfdmFyaWFudF90eHQnPT5bJ1RheWxlciwgRnJhbmNpcywn
-        LCdUYXlsZXJ1cywgRnJhbmNpc2N1cywnXSwnc3ViamVjdF92YXJpYW50X3R4
-        dCc9PlsnTWVkaXRhdGlvbnMsIENocmlzdGlhbicsJ0Rldm90aW9uYWwgbGl0
-        ZXJhdHVyZSddLCdfdmVyc2lvbl8nPT4xNTQyMzE3MTY0NjY0NDU1MTY4fV19
-        fQo=
+        NTY1Njk5M3x8fCddLCd0aW1lc3RhbXAnPT4nMjAxNi0wNS0yM1QyMDowNDoz
+        Ni43OTJaJywnYXV0aG9yaXRpZXNfZHQnPT4nMjAxNi0wNS0yNFQxODozMDox
+        NFonLCdhdXRob3JfdmFyaWFudF90eHQnPT5bJ1RheWxlciwgRnJhbmNpcywg
+        MTU5MC0xNjU2IFRheWxlcnVzLCBGcmFuY2lzY3VzLCAxNTkwLTE2NTYnXSwn
+        c3ViamVjdF92YXJpYW50X3R4dCc9PlsnTWVkaXRhdGlvbnMsIENocmlzdGlh
+        biBEZXZvdGlvbmFsIGxpdGVyYXR1cmUnXSwnX3ZlcnNpb25fJz0+MTUzNTIz
+        NTQ0NjIxOTQ3Mjg5Nn1dfX0K
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:26 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Fri, 01 Jul 2016 20:58:07 GMT
+recorded_with: VCR 3.0.1

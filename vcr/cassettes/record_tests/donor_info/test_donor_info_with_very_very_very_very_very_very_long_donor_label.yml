@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:00:55 GMT
+      - Fri, 01 Jul 2016 20:49:04 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -165,41 +165,42 @@ http_interactions:
         ZXQnPT5bJ0UgLSBIaXN0b3J5IG9mIHRoZSBBbWVyaWNhcyAoR2VuZXJhbCkn
         XSwnY2xpb19pZF9kaXNwbGF5Jz0+JzM2MTE0Jywnc291cmNlX2ZhY2V0Jz0+
         WydjYXRhbG9nJ10sJ3NvdXJjZV9kaXNwbGF5Jz0+WydjYXRhbG9nJ10sJ2lz
-        Ym5fdHh0Jz0+Wyc5NzgwODE0NzQ5OTQ0JywnMDgxNDc0OTk0MScsJzA4MTQ3
-        NDk5NDEgOiddLCdpc2JuX2Rpc3BsYXknPT5bJzA4MTQ3NDk5NDEnXSwnbGNj
-        bl9kaXNwbGF5Jz0+Wyc3OTA1MzU3OSddLCdsY2NuX3R4dCc9PlsnNzkwNTM1
-        NzknXSwnb2NsY190eHQnPT5bJzU2NzgyNDYnLCdvY20wNTY3ODI0NiddLCdv
-        Y2xjX2Rpc3BsYXknPT5bJzU2NzgyNDYnLCdvY20wNTY3ODI0NiddLCdmdWxs
-        X3B1Ymxpc2hlcl9kaXNwbGF5Jz0+WydOZXcgWW9yayA6IE5ldyBZb3JrIFVu
-        aXZlcnNpdHkgUHJlc3MsIGMxOTgwLiddLCdsb2NhdGlvbl9jYWxsX251bWJl
-        cl9pZF9kaXNwbGF5Jz0+WydCdXRsZXIgU3RhY2tzIChFbnRlciBhdCB0aGUg
-        QnV0bGVyIENpcmN1bGF0aW9uIERlc2spID4+IEUyNjMuTjYgTDM4fERFTElN
-        fDUzOTI2JywnT2Zmc2l0ZSA8QXZlcnk+IChOb24tQ2lyY3VsYXRpbmcpIFBs
-        YWNlIFJlcXVlc3QgZm9yIGRlbGl2ZXJ5ID4+IEUyNjMuTjYgTDM4fERFTElN
-        fDEyNzYyMjQzJ10sJ2xvY2F0aW9uX2NhbGxfbnVtYmVyX3R4dCc9PlsnQnV0
-        bGVyIFN0YWNrcyAoRW50ZXIgYXQgdGhlIEJ1dGxlciBDaXJjdWxhdGlvbiBE
-        ZXNrKSA+PiBFMjYzLk42IEwzOCcsJ09mZnNpdGUgPEF2ZXJ5PiAoTm9uLUNp
-        cmN1bGF0aW5nKSBQbGFjZSBSZXF1ZXN0IGZvciBkZWxpdmVyeSA+PiBFMjYz
-        Lk42IEwzOCddLCdjYWxsX251bWJlcl90eHQnPT5bJ0UyNjMuTjYgTDM4Jywn
-        RTI2My5ONiBMMzgnXSwnY2FsbF9udW1iZXJfZGlzcGxheSc9PlsnRTI2My5O
-        NiBMMzgnLCdFMjYzLk42IEwzOCddLCdsb2NhdGlvbl9mYWNldCc9PlsnQnV0
-        bGVyIFN0YWNrcycsJ09mZnNpdGUnXSwnbG9jYXRpb25fdHh0Jz0+WydCdXRs
-        ZXIgU3RhY2tzIChFbnRlciBhdCB0aGUgQnV0bGVyIENpcmN1bGF0aW9uIERl
-        c2spID4+IEUyNjMuTjYgTDM4JywnT2Zmc2l0ZSA8QXZlcnk+IChOb24tQ2ly
-        Y3VsYXRpbmcpIFBsYWNlIFJlcXVlc3QgZm9yIGRlbGl2ZXJ5ID4+IEUyNjMu
-        TjYgTDM4J10sJ3NoZWxma2V5Jz0+Wydsb2MrZS0tKzAyNjMrMDAwMDAwMDAr
-        bjYwMDAwMDArbDM4MDAwMDArMzYxMTQnXSwncmV2ZXJzZV9zaGVsZmtleSc9
-        PlsnZWJufmx+fn56eHR3fnp6enp6enp6fmN0enp6enp6fmV3cnp6enp6fnd0
-        eXl2fn5+fn4nXSwnaXRlbV9kaXNwbGF5Jz0+WydFMjYzLk42IEwzOCB8IGxv
-        YytlLS0rMDI2MyswMDAwMDAwMCtuNjAwMDAwMCtsMzgwMDAwMCszNjExNCB8
-        IGVibn5sfn5+enh0d356enp6enp6en5jdHp6enp6en5ld3J6enp6en53dHl5
-        dn5+fn5+J10sJ3RpbWVzdGFtcCc9PicyMDE2LTA3LTA2VDIxOjA4OjI0LjIx
-        N1onLCdhdXRob3JpdGllc19kdCc9PicyMDE2LTA4LTA1VDE3OjU2OjU5Wics
-        J2F1dGhvcl92YXJpYW50X3R4dCc9PlsnU2NodcyIcmVyLCBMZW9wb2xkIFMu
-        IExhdW5pdHotLCcsJ0xhdW5pdHotU2NodcyIcmVyLCBMZW9wb2xkIFNpZG5l
-        eSwnXSwnX3ZlcnNpb25fJz0+MTU0MTg0NjkyNTkzNjk1MTI5Nn1dfX0K
+        Ym5fdHh0Jz0+WycwODE0NzQ5OTQxJ10sJ2lzYm5fZGlzcGxheSc9PlsnMDgx
+        NDc0OTk0MSddLCdsY2NuX2Rpc3BsYXknPT5bJzc5MDUzNTc5J10sJ2xjY25f
+        dHh0Jz0+Wyc3OTA1MzU3OSddLCdvY2xjX3R4dCc9PlsnNTY3ODI0NicsJ29j
+        bTA1Njc4MjQ2J10sJ29jbGNfZGlzcGxheSc9PlsnNTY3ODI0NicsJ29jbTA1
+        Njc4MjQ2J10sJ2Z1bGxfcHVibGlzaGVyX2Rpc3BsYXknPT5bJ05ldyBZb3Jr
+        IDogTmV3IFlvcmsgVW5pdmVyc2l0eSBQcmVzcywgYzE5ODAuJ10sJ2xvY2F0
+        aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3BsYXknPT5bJ0J1dGxlciBTdGFja3Mg
+        KEVudGVyIGF0IHRoZSBCdXRsZXIgQ2lyY3VsYXRpb24gRGVzaykgPj4gRTI2
+        My5ONiBMMzh8REVMSU18NTM5MjYnLCdPZmZzaXRlIDxBdmVyeT4gKE5vbi1D
+        aXJjdWxhdGluZykgUGxhY2UgUmVxdWVzdCBmb3IgZGVsaXZlcnkgPj4gRTI2
+        My5ONiBMMzh8REVMSU18MTI3NjIyNDMnXSwnbG9jYXRpb25fY2FsbF9udW1i
+        ZXJfdHh0Jz0+WydCdXRsZXIgU3RhY2tzIChFbnRlciBhdCB0aGUgQnV0bGVy
+        IENpcmN1bGF0aW9uIERlc2spID4+IEUyNjMuTjYgTDM4JywnT2Zmc2l0ZSA8
+        QXZlcnk+IChOb24tQ2lyY3VsYXRpbmcpIFBsYWNlIFJlcXVlc3QgZm9yIGRl
+        bGl2ZXJ5ID4+IEUyNjMuTjYgTDM4J10sJ2NhbGxfbnVtYmVyX3R4dCc9Plsn
+        RTI2My5ONiBMMzgnLCdFMjYzLk42IEwzOCddLCdjYWxsX251bWJlcl9kaXNw
+        bGF5Jz0+WydFMjYzLk42IEwzOCcsJ0UyNjMuTjYgTDM4J10sJ2xvY2F0aW9u
+        X2ZhY2V0Jz0+WydCdXRsZXIgU3RhY2tzJywnT2Zmc2l0ZSddLCdsb2NhdGlv
+        bl90eHQnPT5bJ0J1dGxlciBTdGFja3MgKEVudGVyIGF0IHRoZSBCdXRsZXIg
+        Q2lyY3VsYXRpb24gRGVzaykgPj4gRTI2My5ONiBMMzgnLCdPZmZzaXRlIDxB
+        dmVyeT4gKE5vbi1DaXJjdWxhdGluZykgUGxhY2UgUmVxdWVzdCBmb3IgZGVs
+        aXZlcnkgPj4gRTI2My5ONiBMMzgnXSwnc2hlbGZrZXknPT5bJ2xvYytlLS0r
+        MDI2MyswMDAwMDAwMCtuNjAwMDAwMCtsMzgwMDAwMCszNjExNCddLCdyZXZl
+        cnNlX3NoZWxma2V5Jz0+WydlYm5+bH5+fnp4dHd+enp6enp6enp+Y3R6enp6
+        enp+ZXdyenp6enp+d3R5eXZ+fn5+fiddLCdpdGVtX2Rpc3BsYXknPT5bJ0Uy
+        NjMuTjYgTDM4IHwgbG9jK2UtLSswMjYzKzAwMDAwMDAwK242MDAwMDAwK2wz
+        ODAwMDAwKzM2MTE0IHwgZWJufmx+fn56eHR3fnp6enp6enp6fmN0enp6enp6
+        fmV3cnp6enp6fnd0eXl2fn5+fn4nXSwndGltZXN0YW1wJz0+JzIwMTYtMDUt
+        MjNUMjA6MDQ6MjkuODQ5WicsJ2F1dGhvcml0aWVzX2R0Jz0+JzIwMTYtMDUt
+        MjNUMjA6NTM6NTJaJywnYXV0aG9yX3ZhcmlhbnRfdHh0Jz0+WydTY2h1zIhy
+        ZXIsIExlb3BvbGQgUy4gTGF1bml0ei0sIDE5NDItIExhdW5pdHotU2NodcyI
+        cmVyLCBMZW9wb2xkIFNpZG5leSwgMTk0Mi0nXSwnc3ViamVjdF92YXJpYW50
+        X3R4dCc9PlsnJ10sJ192ZXJzaW9uXyc9PjE1MzUxNTM5MTg5NDQ3MzkzMjh9
+        XX19Cg==
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:55 GMT
+  recorded_at: Fri, 01 Jul 2016 20:49:04 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/36114"
@@ -208,11 +209,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.0, ruby 2.2.1 (2015-02-26))
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 18:00:55 GMT
+      - Fri, 01 Jul 2016 20:49:04 GMT
   response:
     status:
       code: 200
@@ -232,22 +233,22 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Access-Control-Allow-Origin:
       - "*"
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 88ebf2be-a0c8-47f4-868f-0fa6fd8e0bab
       Etag:
       - W/"6c16009ad960d5e1ac11a6cf9d818f5a"
       X-Frame-Options:
       - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
+      X-Runtime:
+      - '2.570262'
       X-Content-Type-Options:
       - nosniff
-      X-Runtime:
-      - '2.250421'
       Access-Control-Request-Method:
       - "*"
-      X-Request-Id:
-      - ce663ff3-40f0-4e0f-b573-256bb81619b0
       Date:
-      - Tue, 16 Aug 2016 18:00:57 GMT
+      - Fri, 01 Jul 2016 20:49:07 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -265,5 +266,5 @@ http_interactions:
         Old York Library Collection, Avery Architectural \u0026 Fine Arts Library,
         Columbia University.","url":"https://dlc.library.columbia.edu/durst"}]}],"services":["offsite"]}]}}'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:58 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Fri, 01 Jul 2016 20:49:07 GMT
+recorded_with: VCR 3.0.1

@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:55:59 GMT
+      - Fri, 01 Jul 2016 20:56:15 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -330,21 +330,21 @@ http_interactions:
         eHd2cX5+fn4nLCdBQiBBcjM5NCB8IGF2ZWZheCthYi0rMDAwMCswMDAwMDAw
         MCthcjM5NDAwMCs2MjIzNDkgfCBwNGxrcDJ+cG9+fnp6enp+enp6enp6enp+
         cDh3cXZ6enp+dHh4d3Zxfn5+fn5+fn5+fiddLCd0aW1lc3RhbXAnPT4nMjAx
-        Ni0wNy0wNlQyMTowODoyNC43NTNaJywnYXV0aG9yaXRpZXNfZHQnPT4nMjAx
-        Ni0wNy0yOFQxNjo0MTozMVonLCdhdXRob3JfdmFyaWFudF90eHQnPT5bJyBV
+        Ni0wNi0xMlQxMDoxMDo1Ny42MDVaJywnYXV0aG9yaXRpZXNfZHQnPT4nMjAx
+        Ni0wNi0xMlQxMjowMzowNlonLCdhdXRob3JfdmFyaWFudF90eHQnPT5bJyBV
         dGlsaXRhcyBWZXJpdGF0aXNxdWUgU29jaWV0YXMgKFN0b2NraG9sbSwgU3dl
         ZGVuKSBUZWtub2xvZ2lza2EgaW5zdGl0dXRldCAoU3RvY2tob2xtLCBTd2Vk
         ZW4pIFRla25vbG9nZm/MiHJlbmluZ2VuIChTdG9ja2hvbG0sIFN3ZWRlbikg
         U3ZlbnNrYSB0ZWtub2xvZ2ZvzIhyZW5pbmdlbiwgU3RvY2tob2xtIFN2ZW5z
-        a2EgdGVrbm9sb2dmb8yIcmVuaW5nZW4uJ10sJ3N1YmplY3RfdmFyaWFudF90
-        eHQnPT5bJ0FyY2hpdGVjdHVyZSwgV2VzdGVybiAoV2VzdGVybiBjb3VudHJp
-        ZXMpJywnQnVpbGRpbmcgZGVzaWduJywnQ29uc3RydWN0aW9uJywnV2VzdGVy
-        biBhcmNoaXRlY3R1cmUgKFdlc3Rlcm4gY291bnRyaWVzKScsJ0FydCcsJ0J1
-        aWxkaW5nJywnQnVpbGRpbmdzJywnQXJjaGl0ZWN0dXJhbCBlbmdpbmVlcmlu
-        ZycsJ0VuZ2luZWVyaW5nLCBBcmNoaXRlY3R1cmFsJywnU3RydWN0dXJhbCBk
-        ZXNpZ24nLCdTdHJ1Y3R1cmFsIGVuZ2luZWVyaW5nJywnQXJjaGl0ZWN0dXJl
-        JywnQ29uc3RydWN0aW9uIGluZHVzdHJ5J10sJ192ZXJzaW9uXyc9PjE1NDEx
-        MTc0MDg1NjcwOTkzOTJ9XX19Cg==
+        a2EgdGVrbm9sb2dmb8yIcmVuaW5nZW4uIFN2ZW5za2EgYXJraXRla3Rmb8yI
+        cmVuaW5nZW4nXSwnc3ViamVjdF92YXJpYW50X3R4dCc9PlsnQXJjaGl0ZWN0
+        dXJlLCBXZXN0ZXJuIChXZXN0ZXJuIGNvdW50cmllcykgQnVpbGRpbmcgZGVz
+        aWduIENvbnN0cnVjdGlvbiBXZXN0ZXJuIGFyY2hpdGVjdHVyZSAoV2VzdGVy
+        biBjb3VudHJpZXMpIEFydCBCdWlsZGluZyBCdWlsZGluZ3MgQXJjaGl0ZWN0
+        dXJhbCBlbmdpbmVlcmluZyBFbmdpbmVlcmluZywgQXJjaGl0ZWN0dXJhbCBT
+        dHJ1Y3R1cmFsIGRlc2lnbiBTdHJ1Y3R1cmFsIGVuZ2luZWVyaW5nIEFyY2hp
+        dGVjdHVyZSBDb25zdHJ1Y3Rpb24gaW5kdXN0cnknXSwnX3ZlcnNpb25fJz0+
+        MTUzNjkzMjQzMjAwNzEzNTIzMn1dfX0K
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:56:00 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Fri, 01 Jul 2016 20:56:15 GMT
+recorded_with: VCR 3.0.1

@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:55:35 GMT
+      - Fri, 01 Jul 2016 20:56:04 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -302,46 +302,43 @@ http_interactions:
         bmcgZGlzdGFuY2Ugb2YgdGhlIGZyb250IGFuZCB0aGUgc2Vjb25kIGluIGFu
         IHVyYmFuIGFwYXJ0bWVudCBob3VzZSBpbiBjZW50cmFsIFRlaHJhbiItLVBy
         b3ZpZGVkIGJ5IHB1Ymxpc2hlci4nXSwnaXNibl90eHQnPT5bJzk3ODE1Njg1
-        OTI3MzInLCcxNTY4NTkyNzM2JywnOTc4MTU2ODU5MjczMiAoYWxrYWxpbmUg
-        cGFwZXIpJywnMTU2ODU5MjczNiAoYWxrYWxpbmUgcGFwZXIpJ10sJ2lzYm5f
-        ZGlzcGxheSc9PlsnOTc4MTU2ODU5MjczMicsJzE1Njg1OTI3MzYnXSwnbGNj
-        bl9kaXNwbGF5Jz0+WycyMDE0MDEzNDY4J10sJ2xjY25fdHh0Jz0+WycyMDE0
-        MDEzNDY4J10sJ29jbGNfdHh0Jz0+Wyc4NzY5MDA5MTAnLCdvY244NzY5MDA5
-        MTAnXSwnb2NsY19kaXNwbGF5Jz0+Wyc4NzY5MDA5MTAnLCdvY244NzY5MDA5
-        MTAnXSwnZnVsbF9wdWJsaXNoZXJfZGlzcGxheSc9PlsnQ29zdGEgTWVzYSwg
-        Q2FsaWZvcm5pYSA6IE1hemRhIFB1Ymxpc2hlcnMsIDIwMTQuJ10sJ2xvY2F0
-        aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3BsYXknPT5bJ0J1dGxlciBTdGFja3Mg
-        KEVudGVyIGF0IHRoZSBCdXRsZXIgQ2lyY3VsYXRpb24gRGVzaykgPj4gQ1Qx
-        ODg4Lkg4NzQgQTMgMjAxNHxERUxJTXwxMzkyNzAwNiddLCdsb2NhdGlvbl9j
-        YWxsX251bWJlcl90eHQnPT5bJ0J1dGxlciBTdGFja3MgKEVudGVyIGF0IHRo
-        ZSBCdXRsZXIgQ2lyY3VsYXRpb24gRGVzaykgPj4gQ1QxODg4Lkg4NzQgQTMg
-        MjAxNCddLCdjYWxsX251bWJlcl90eHQnPT5bJ0NUMTg4OC5IODc0IEEzIDIw
-        MTQnXSwnY2FsbF9udW1iZXJfZGlzcGxheSc9PlsnQ1QxODg4Lkg4NzQgQTMg
-        MjAxNCddLCdsb2NhdGlvbl9mYWNldCc9PlsnQnV0bGVyIFN0YWNrcyddLCds
-        b2NhdGlvbl90eHQnPT5bJ0J1dGxlciBTdGFja3MgKEVudGVyIGF0IHRoZSBC
-        dXRsZXIgQ2lyY3VsYXRpb24gRGVzaykgPj4gQ1QxODg4Lkg4NzQgQTMgMjAx
-        NCddLCdzaGVsZmtleSc9PlsnbG9jK2N0LSsxODg4KzAwMDAwMDAwK2g4NzQw
-        MDAwK2EzMDAwMDAwKzAwMjAxNCsxMDg3Nzg3NSddLCdyZXZlcnNlX3NoZWxm
-        a2V5Jz0+WydlYm5+bjZ+fnlycnJ+enp6enp6enp+aXJzdnp6enp+cHd6enp6
-        enp+enp4enl2fnl6cnNzcnN1J10sJ2l0ZW1fZGlzcGxheSc9PlsnQ1QxODg4
-        Lkg4NzQgQTMgMjAxNCB8IGxvYytjdC0rMTg4OCswMDAwMDAwMCtoODc0MDAw
-        MCthMzAwMDAwMCswMDIwMTQrMTA4Nzc4NzUgfCBlYm5+bjZ+fnlycnJ+enp6
-        enp6enp+aXJzdnp6enp+cHd6enp6enp+enp4enl2fnl6cnNzcnN1J10sJ3Rp
-        bWVzdGFtcCc9PicyMDE2LTA3LTA2VDIxOjA4OjMyLjIyMlonLCdhdXRob3Jp
-        dGllc19kdCc9PicyMDE2LTA3LTI4VDE2OjQyOjE1WicsJ2F1dGhvcl92YXJp
-        YW50X3R4dCc9PlsnSMyjdXNheW5pzIQsIFNheXlpZGFoIFphaHJhzIQsINit
-        2LPZidmG2YnYjCDYstmH2LHYpyDYrdiz2YnZhtmJ2IzYs9mK2K/ZhyDYstmH
-        2LHYpyBIb3NleW5pLCBTZXl5ZWRlaCBaYWhyYSwgSXNwcmFrbWFuLCBQYcyE
-        bCddLCdzdWJqZWN0X3ZhcmlhbnRfdHh0Jz0+WydIzKN1c2F5bmnMhCwgU2F5
-        eWlkYWggWmFocmHMhCwnLCfYrdiz2YnZhtmJ2Iwg2LLZh9ix2KcnLCfYrdiz
-        2YnZhtmJ2IzYs9mK2K/ZhyDYstmH2LHYpycsJ0hvc2V5bmksIFNleXllZGVo
-        IFphaHJhLCcsJ0d1bGYgV2FyLCAxOTgwLTE5ODgnLCdJcmFuaWFuLUlyYXFp
-        IENvbmZsaWN0LCAxOTgwLTE5ODgnLCdJcmFxLUlyYW4gV2FyLCAxOTgwLTE5
-        ODgnLCdJcmFxaS1JcmFuaWFuIENvbmZsaWN0LCAxOTgwLTE5ODgnLCdQZXJz
-        aWFuIEd1bGYgV2FyLCAxOTgwLTE5ODgnLCdJcmFuaWFucycsJ0t1cmRpc2gg
-        d29tZW4nXSwnX3ZlcnNpb25fJz0+MTU0MTExNzQ1NTEwMDgwNTEyMH1dfX0K
+        OTI3MzInLCcxNTY4NTkyNzM2J10sJ2lzYm5fZGlzcGxheSc9PlsnOTc4MTU2
+        ODU5MjczMicsJzE1Njg1OTI3MzYnXSwnbGNjbl9kaXNwbGF5Jz0+WycyMDE0
+        MDEzNDY4J10sJ2xjY25fdHh0Jz0+WycyMDE0MDEzNDY4J10sJ29jbGNfdHh0
+        Jz0+Wyc4NzY5MDA5MTAnLCdvY244NzY5MDA5MTAnXSwnb2NsY19kaXNwbGF5
+        Jz0+Wyc4NzY5MDA5MTAnLCdvY244NzY5MDA5MTAnXSwnZnVsbF9wdWJsaXNo
+        ZXJfZGlzcGxheSc9PlsnQ29zdGEgTWVzYSwgQ2FsaWZvcm5pYSA6IE1hemRh
+        IFB1Ymxpc2hlcnMsIDIwMTQuJ10sJ2xvY2F0aW9uX2NhbGxfbnVtYmVyX2lk
+        X2Rpc3BsYXknPT5bJ0J1dGxlciBTdGFja3MgKEVudGVyIGF0IHRoZSBCdXRs
+        ZXIgQ2lyY3VsYXRpb24gRGVzaykgPj4gQ1QxODg4Lkg4NzQgQTMgMjAxNHxE
+        RUxJTXwxMzkyNzAwNiddLCdsb2NhdGlvbl9jYWxsX251bWJlcl90eHQnPT5b
+        J0J1dGxlciBTdGFja3MgKEVudGVyIGF0IHRoZSBCdXRsZXIgQ2lyY3VsYXRp
+        b24gRGVzaykgPj4gQ1QxODg4Lkg4NzQgQTMgMjAxNCddLCdjYWxsX251bWJl
+        cl90eHQnPT5bJ0NUMTg4OC5IODc0IEEzIDIwMTQnXSwnY2FsbF9udW1iZXJf
+        ZGlzcGxheSc9PlsnQ1QxODg4Lkg4NzQgQTMgMjAxNCddLCdsb2NhdGlvbl9m
+        YWNldCc9PlsnQnV0bGVyIFN0YWNrcyddLCdsb2NhdGlvbl90eHQnPT5bJ0J1
+        dGxlciBTdGFja3MgKEVudGVyIGF0IHRoZSBCdXRsZXIgQ2lyY3VsYXRpb24g
+        RGVzaykgPj4gQ1QxODg4Lkg4NzQgQTMgMjAxNCddLCdzaGVsZmtleSc9Plsn
+        bG9jK2N0LSsxODg4KzAwMDAwMDAwK2g4NzQwMDAwK2EzMDAwMDAwKzAwMjAx
+        NCsxMDg3Nzg3NSddLCdyZXZlcnNlX3NoZWxma2V5Jz0+WydlYm5+bjZ+fnly
+        cnJ+enp6enp6enp+aXJzdnp6enp+cHd6enp6enp+enp4enl2fnl6cnNzcnN1
+        J10sJ2l0ZW1fZGlzcGxheSc9PlsnQ1QxODg4Lkg4NzQgQTMgMjAxNCB8IGxv
+        YytjdC0rMTg4OCswMDAwMDAwMCtoODc0MDAwMCthMzAwMDAwMCswMDIwMTQr
+        MTA4Nzc4NzUgfCBlYm5+bjZ+fnlycnJ+enp6enp6enp+aXJzdnp6enp+cHd6
+        enp6enp+enp4enl2fnl6cnNzcnN1J10sJ3RpbWVzdGFtcCc9PicyMDE2LTA1
+        LTIzVDIwOjA0OjQxLjEyN1onLCdhdXRob3JpdGllc19kdCc9PicyMDE2LTA1
+        LTIzVDIxOjA5OjI2WicsJ2F1dGhvcl92YXJpYW50X3R4dCc9PlsnSMyjdXNh
+        eW5pzIQsIFNheXlpZGFoIFphaHJhzIQsIDE5NjMgb3IgMTk2NC0g2K3Ys9mJ
+        2YbZidiMINiy2YfYsdinINit2LPZidmG2YnYjNiz2YrYr9mHINiy2YfYsdin
+        IEhvc2V5bmksIFNleXllZGVoIFphaHJhLCAxOTYzIG9yIDE5NjQtIElzcHJh
+        a21hbiwgUGHMhGwnXSwnc3ViamVjdF92YXJpYW50X3R4dCc9PlsnIEd1bGYg
+        V2FyLCAxOTgwLTE5ODggSXJhbmlhbi1JcmFxaSBDb25mbGljdCwgMTk4MC0x
+        OTg4IElyYXEtSXJhbiBXYXIsIDE5ODAtMTk4OCBJcmFxaS1JcmFuaWFuIENv
+        bmZsaWN0LCAxOTgwLTE5ODggUGVyc2lhbiBHdWxmIFdhciwgMTk4MC0xOTg4
+        IElyYW5pYW5zIEt1cmRpc2ggd29tZW4nXSwnX3ZlcnNpb25fJz0+MTUzNTE1
+        NDg5Nzk4NTQ3MDQ2NH1dfX0K
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:55:35 GMT
+  recorded_at: Fri, 01 Jul 2016 20:56:04 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=6217943&qt=document&wt=ruby"
@@ -355,7 +352,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:55:35 GMT
+      - Fri, 01 Jul 2016 20:56:04 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -365,7 +362,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
         YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
         eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic2MjE3OTQz
         JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
@@ -537,14 +534,15 @@ http_interactions:
         LlQ5IFU0MyAyMDA3ZyB8IGxvYytwcS0rMDE0NSs3MDAwMDAwMCt0OTAwMDAw
         MCt1NDMwMDAwMCswMDIwMDcrNjIxNzk0MyB8IGVibn5hOX5+enl2dX5zenp6
         enp6en42cXp6enp6en41dnd6enp6en56enh6enN+dHh5c3F2dyddLCd0aW1l
-        c3RhbXAnPT4nMjAxNi0wNy0wNlQyMTowODozMC4zODlaJywnYXV0aG9yaXRp
-        ZXNfZHQnPT4nMjAxNi0wOC0xMVQxNDo0Mjo1MFonLCdhdXRob3JfdmFyaWFu
-        dF90eHQnPT5bJ1VsdWFnzIZsaSwgU2VyaGF0LCddLCdzdWJqZWN0X3Zhcmlh
-        bnRfdHh0Jz0+WydGcmVuY2ggbGl0ZXJhdHVyZScsJ0xpZmUgc3R5bGUgaW4g
-        bGl0ZXJhdHVyZScsJ0ZyZW5jaCB0cmF2ZWxlcnNcJyB3cml0aW5ncyddLCdf
-        dmVyc2lvbl8nPT4xNTQyMzc4Mjk5Mjc5Mjc4MDgwfV19fQo=
+        c3RhbXAnPT4nMjAxNi0wNS0yM1QyMDowNDozNy4yNTJaJywnYXV0aG9yaXRp
+        ZXNfZHQnPT4nMjAxNi0wNS0yNFQyMDo0MDo0N1onLCdhdXRob3JfdmFyaWFu
+        dF90eHQnPT5bJ1VsdWFnzIZsaSwgU2VyaGF0LCAxOTY4LSddLCdzdWJqZWN0
+        X3ZhcmlhbnRfdHh0Jz0+WydGcmVuY2ggbGl0ZXJhdHVyZSAgSG90ZWxzLCB0
+        YXZlcm5zLCBldGMuLCBpbiBsaXRlcmF0dXJlIEZyZW5jaCB0cmF2ZWxlcnNc
+        JyB3cml0aW5ncyddLCdfdmVyc2lvbl8nPT4xNTM1MjQzNjU5MjM5MjI3Mzky
+        fV19fQo=
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:55:36 GMT
+  recorded_at: Fri, 01 Jul 2016 20:56:05 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=6094212&qt=document&wt=ruby"
@@ -558,7 +556,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:55:35 GMT
+      - Fri, 01 Jul 2016 20:56:05 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -692,17 +690,16 @@ http_interactions:
         J0JQMTMwIC5TNDQgMTkwOSB8IGxvYyticC0rMDEzMCswMDAwMDAwMCtzNDQw
         MDAwMCswMDE5MDkrNjA5NDIxMiB8IGVibn5vYX5+enl3en56enp6enp6en43
         dnZ6enp6en56enlxenF+dHpxdnh5eH5+fn5+J10sJ3RpbWVzdGFtcCc9Picy
-        MDE2LTA3LTA2VDIxOjA4OjMwLjM4OVonLCdhdXRob3JpdGllc19kdCc9Picy
-        MDE2LTA4LTExVDE0OjEyOjAzWicsJ2F1dGhvcl92YXJpYW50X3R4dCc9Plsn
-        Q0xTJywnQy5MLlMuIChDaHJpc3RpYW4gTGl0ZXJhdHVyZSBTb2NpZXR5KScs
-        J0NocmlzdGlhbiBMaXRlcmF0dXJlIFNvY2lldHkgKEluZGlhKScsJ0tpcsyy
-        aXN0YXZhIElsYWtraXlhYyBDYW7Mh2thbScsJ0NocmlzdGlhbiBWZXJuYWN1
-        bGFyIEVkdWNhdGlvbiBTb2NpZXR5IGZvciBJbmRpYScsJ0NocmlzdGlhbiBM
-        aXRlcmF0dXJlIFNvY2lldHkgZm9yIEluZGlhIGFuZCBBZnJpY2EnXSwnc3Vi
-        amVjdF92YXJpYW50X3R4dCc9PlsnUXVyyrxhbiBob2xkZXJzJywnUXVyyrxh
-        biByZWFkaW5nIGRlc2tzJywnS29yYW4gc3RhbmRzJywnU3RhbmRzIChGdXJu
-        aXR1cmUpJ10sJ192ZXJzaW9uXyc9PjE1NDIzNzYzNjI0MDIxMTk2ODB9XX19
-        Cg==
+        MDE2LTA1LTIzVDIwOjA0OjM3LjI1MlonLCdhdXRob3JpdGllc19kdCc9Picy
+        MDE2LTA1LTI0VDIwOjE1OjI3WicsJ2F1dGhvcl92YXJpYW50X3R4dCc9Plsn
+        IENMUyBDLkwuUy4gKENocmlzdGlhbiBMaXRlcmF0dXJlIFNvY2lldHkpIENo
+        cmlzdGlhbiBMaXRlcmF0dXJlIFNvY2lldHkgKEluZGlhKSBLaXLMsmlzdGF2
+        YSBJbGFra2l5YWMgQ2FuzIdrYW0gQ2hyaXN0aWFuIFZlcm5hY3VsYXIgRWR1
+        Y2F0aW9uIFNvY2lldHkgZm9yIEluZGlhIENocmlzdGlhbiBMaXRlcmF0dXJl
+        IFNvY2lldHkgZm9yIEluZGlhIGFuZCBBZnJpY2EnXSwnc3ViamVjdF92YXJp
+        YW50X3R4dCc9PlsnUXVyyrxhbiBob2xkZXJzIFF1csq8YW4gcmVhZGluZyBk
+        ZXNrcyBLb3JhbiBzdGFuZHMgU3RhbmRzIChGdXJuaXR1cmUpJ10sJ192ZXJz
+        aW9uXyc9PjE1MzUyNDIwNjU3OTI3MjkwODh9XX19Cg==
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:55:36 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Fri, 01 Jul 2016 20:56:05 GMT
+recorded_with: VCR 3.0.1

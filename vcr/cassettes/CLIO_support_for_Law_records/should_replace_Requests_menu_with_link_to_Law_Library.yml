@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:57:36 GMT
+      - Fri, 01 Jul 2016 19:02:36 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -21,153 +21,11 @@ http_interactions:
       Server:
       - Jetty(8.1.8.v20121106)
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
-        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
-        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9PiczMjQ2OCcs
-        J3F0Jz0+J2RvY3VtZW50Jywnd3QnPT4ncnVieSd9fSwncmVzcG9uc2UnPT57
-        J251bUZvdW5kJz0+MSwnc3RhcnQnPT4wLCdkb2NzJz0+W3snaWQnPT4nMzI0
-        NjgnLCdtYXJjX2Rpc3BsYXknPT4nPHJlY29yZD48bGVhZGVyPjAxMTMyY2Ft
-        IGEyMjAwMzczIGkgNDUwMDwvbGVhZGVyPjxjb250cm9sZmllbGQgdGFnPSIw
-        MDEiPjMyNDY4PC9jb250cm9sZmllbGQ+PGNvbnRyb2xmaWVsZCB0YWc9IjAw
-        NSI+MjAxMDAyMjUyMjE2NTAuMDwvY29udHJvbGZpZWxkPjxjb250cm9sZmll
-        bGQgdGFnPSIwMDgiPjgwMTAxNnMxOTc4ICAgIGN0dSAgICAgIGIgICAgMDAx
-        IDAgZW5nICA8L2NvbnRyb2xmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDEwIiBp
-        bmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+ICAgNzcwOTEx
-        MDYgPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDIw
-        IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+MDMxMzIw
-        MDQ2Nzwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjAz
-        NSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPihPQ29M
-        QykzNjMxMzAzPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
-        Zz0iMDM1IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+
-        KE9Db0xDKW9jbTAzNjMxMzAzPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0
-        YWZpZWxkIHRhZz0iMDM1IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQg
-        Y29kZT0iYSI+KENTdFJMSU4pTllDRzE5MTAzMDUwLUI8L3N1YmZpZWxkPjwv
-        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9
-        IiAiPjxzdWJmaWVsZCBjb2RlPSI5Ij5BQUQzOTU5Q1U8L3N1YmZpZWxkPjwv
-        ZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIwMzUiIGluZDE9IiAiIGluZDI9
-        IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj4oTk5DKTMyNDY4PC9zdWJmaWVsZD48
-        L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iMDQzIiBpbmQxPSIgIiBpbmQy
-        PSIgIj48c3ViZmllbGQgY29kZT0iYSI+bi11cy0tLTwvc3ViZmllbGQ+PC9k
-        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjA1MCIgaW5kMT0iMCIgaW5kMj0i
-        ICI+PHN1YmZpZWxkIGNvZGU9ImEiPktGODc0Mjwvc3ViZmllbGQ+PHN1YmZp
-        ZWxkIGNvZGU9ImIiPi5NNTQ8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRh
-        ZmllbGQgdGFnPSIwODIiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBj
-        b2RlPSJhIj4zNDcvLjczLzI2PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0
-        YWZpZWxkIHRhZz0iMDkwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQg
-        Y29kZT0iYSI+S0Y4NzQyPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+
-        Lk01NDwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjEw
-        MCIgaW5kMT0iMSIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPk1pbGxl
-        ciwgQXJ0aHVyIFNlbHd5biw8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJk
-        Ij4xOTE3LTwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9
-        IjI0NSIgaW5kMT0iMSIgaW5kMj0iNCI+PHN1YmZpZWxkIGNvZGU9ImEiPlRo
-        ZSBTdXByZW1lIENvdXJ0IDo8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJi
-        Ij5teXRoIGFuZCByZWFsaXR5IC88L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2Rl
-        PSJjIj5BcnRodXIgU2Vsd3luIE1pbGxlci48L3N1YmZpZWxkPjwvZGF0YWZp
-        ZWxkPjxkYXRhZmllbGQgdGFnPSIyNjAiIGluZDE9IiAiIGluZDI9IiAiPjxz
-        dWJmaWVsZCBjb2RlPSJhIj5XZXN0cG9ydCwgQ29ubi4gOjwvc3ViZmllbGQ+
-        PHN1YmZpZWxkIGNvZGU9ImIiPkdyZWVud29vZCBQcmVzcyw8L3N1YmZpZWxk
-        PjxzdWJmaWVsZCBjb2RlPSJjIj4xOTc4Ljwvc3ViZmllbGQ+PC9kYXRhZmll
-        bGQ+PGRhdGFmaWVsZCB0YWc9IjMwMCIgaW5kMT0iICIgaW5kMj0iICI+PHN1
-        YmZpZWxkIGNvZGU9ImEiPnh2aWksIDM4OCBwLiA7PC9zdWJmaWVsZD48c3Vi
-        ZmllbGQgY29kZT0iYyI+MjQgY20uPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48
-        ZGF0YWZpZWxkIHRhZz0iNDkwIiBpbmQxPSIxIiBpbmQyPSIgIj48c3ViZmll
-        bGQgY29kZT0iYSI+Q29udHJpYnV0aW9ucyBpbiBBbWVyaWNhbiBzdHVkaWVz
-        LDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9IngiPjAwODQtOTIyNyA7PC9z
-        dWJmaWVsZD48c3ViZmllbGQgY29kZT0idiI+bm8uIDM4PC9zdWJmaWVsZD48
-        L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNTAwIiBpbmQxPSIgIiBpbmQy
-        PSIgIj48c3ViZmllbGQgY29kZT0iYSI+SW5jbHVkZXMgaW5kZXguPC9zdWJm
-        aWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNTA0IiBpbmQxPSIg
-        IiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+QmlibGlvZ3JhcGh5OiBw
-        LiBbMzc5XS0zODIuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxk
-        IHRhZz0iNjEwIiBpbmQxPSIxIiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0i
-        YSI+VW5pdGVkIFN0YXRlcy48L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJi
-        Ij5TdXByZW1lIENvdXJ0Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFm
-        aWVsZCB0YWc9IjgzMCIgaW5kMT0iICIgaW5kMj0iMCI+PHN1YmZpZWxkIGNv
-        ZGU9ImEiPkNvbnRyaWJ1dGlvbnMgaW4gQW1lcmljYW4gc3R1ZGllcyA7PC9z
-        dWJmaWVsZD48c3ViZmllbGQgY29kZT0idiI+bm8uIDM4Ljwvc3ViZmllbGQ+
-        PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjkwMCIgaW5kMT0iICIgaW5k
-        Mj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkFVVEg8L3N1YmZpZWxkPjwvZGF0
-        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTAiIGluZDE9IiAiIGluZDI9IiAi
-        PjxzdWJmaWVsZCBjb2RlPSJhIj5LRjwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+
-        PGRhdGFmaWVsZCB0YWc9Ijk5MSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZp
-        ZWxkIGNvZGU9ImEiPktGODc0MiAuTTU0PC9zdWJmaWVsZD48c3ViZmllbGQg
-        Y29kZT0iYiI+bG9jK0tGLSs4NzQyKzAwMDAwMDAwK001NDAwMDAwPC9zdWJm
-        aWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTkyIiBpbmQxPSIg
-        IiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+TGVobWFuPC9zdWJmaWVs
-        ZD48c3ViZmllbGQgY29kZT0iYiI+TGVobWFuICZndDsmZ3Q7IEtGODc0MiAu
-        TTU0fERFTElNfDQ4ODQ2PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZp
-        ZWxkIHRhZz0iOTkzIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29k
-        ZT0iYSI+Qm9vazwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0
-        YWc9Ijk5NSIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEi
-        PmNhdGFsb2c8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjwvcmVjb3JkPicsJ3Rl
-        eHQnPT5bJ0tGODc0MiAuTTU0JywnMzQ3Ly43My8yNicsJ0tGODc0MiAuTTU0
-        JywnTWlsbGVyLCBBcnRodXIgU2Vsd3luLCAxOTE3LScsJ1RoZSBTdXByZW1l
-        IENvdXJ0IDogbXl0aCBhbmQgcmVhbGl0eSAvIEFydGh1ciBTZWx3eW4gTWls
-        bGVyLicsJ1dlc3Rwb3J0LCBDb25uLiA6IEdyZWVud29vZCBQcmVzcywgMTk3
-        OC4nLCd4dmlpLCAzODggcC4gOyAyNCBjbS4nLCdDb250cmlidXRpb25zIGlu
-        IEFtZXJpY2FuIHN0dWRpZXMsIDAwODQtOTIyNyA7IG5vLiAzOCcsJ0luY2x1
-        ZGVzIGluZGV4LicsJ0JpYmxpb2dyYXBoeTogcC4gWzM3OV0tMzgyLicsJ1Vu
-        aXRlZCBTdGF0ZXMuIFN1cHJlbWUgQ291cnQuJywnQ29udHJpYnV0aW9ucyBp
-        biBBbWVyaWNhbiBzdHVkaWVzIDsgbm8uIDM4LicsJ0FVVEgnXSwnYXV0aG9y
-        X3R4dCc9PlsnTWlsbGVyLCBBcnRodXIgU2Vsd3luLCddLCdhdXRob3JfZmFj
-        ZXQnPT5bJ01pbGxlciwgQXJ0aHVyIFNlbHd5biwgMTkxNy0nXSwnYXV0aG9y
-        X2Rpc3BsYXknPT5bJ01pbGxlciwgQXJ0aHVyIFNlbHd5biwgMTkxNy0nXSwn
-        YXV0aG9yX3NvcnQnPT4nTWlsbGVyLCBBcnRodXIgU2Vsd3luLCAxOTE3LSAg
-        IFN1cHJlbWUgQ291cnQgbXl0aCBhbmQgcmVhbGl0eSBBcnRodXIgU2Vsd3lu
-        IE1pbGxlcicsJ3RpdGxlX3R4dCc9PlsnVGhlIFN1cHJlbWUgQ291cnQgOidd
-        LCd0aXRsZV9kaXNwbGF5Jz0+WydUaGUgU3VwcmVtZSBDb3VydCA6IG15dGgg
-        YW5kIHJlYWxpdHknXSwndGl0bGVfZmlsaW5nX3R4dCc9PlsnU3VwcmVtZSBD
-        b3VydCA6J10sJ3RpdGxlX2ZpbGluZ19mdWxsX3R4dCc9PlsnU3VwcmVtZSBD
-        b3VydCA6IG15dGggYW5kIHJlYWxpdHkgLyddLCdzdWJ0aXRsZV90eHQnPT5b
-        J215dGggYW5kIHJlYWxpdHknXSwndGl0bGVfZmlyc3RfZmFjZXQnPT5bJ1Mn
-        XSwndGl0bGVfYWRkbF90eHQnPT5bJ1RoZSBTdXByZW1lIENvdXJ0IDogbXl0
-        aCBhbmQgcmVhbGl0eSAvJ10sJ3RpdGxlX3Nlcmllc190eHQnPT5bJ0NvbnRy
-        aWJ1dGlvbnMgaW4gQW1lcmljYW4gc3R1ZGllcyA7IG5vLiAzOCddLCd0aXRs
-        ZV9zZXJpZXNfZGlzcGxheSc9PlsnQ29udHJpYnV0aW9ucyBpbiBBbWVyaWNh
-        biBzdHVkaWVzIDsgbm8uIDM4J10sJ3RpdGxlX3NvcnQnPT4nc3VwcmVtZSBj
-        b3VydCAgbXl0aCBhbmQgcmVhbGl0eScsJ3N1YmplY3RfdHh0Jz0+WydVbml0
-        ZWQgU3RhdGVzLiBTdXByZW1lIENvdXJ0J10sJ3N1YmplY3RfdG9waWNfZmFj
-        ZXQnPT5bJ1VuaXRlZCBTdGF0ZXMuIFN1cHJlbWUgQ291cnQnXSwncHViX3Bs
-        YWNlX2Rpc3BsYXknPT5bJ1dlc3Rwb3J0LCBDb25uJ10sJ3B1Yl9uYW1lX2Rp
-        c3BsYXknPT5bJ0dyZWVud29vZCBQcmVzcyddLCdwdWJfeWVhcl9kaXNwbGF5
-        Jz0+WycxOTc4J10sJ3B1Yl9wbGFjZV90eHQnPT5bJ1dlc3Rwb3J0LCBDb25u
-        J10sJ3B1Yl9uYW1lX3R4dCc9PlsnR3JlZW53b29kIFByZXNzJ10sJ3B1Yl95
-        ZWFyX3R4dCc9PlsnMTk3OCddLCdwdWJfZGF0ZV90eHQnPT5bJzE5NzgnXSwn
-        bGFuZ3VhZ2VfZmFjZXQnPT5bJ0VuZ2xpc2gnXSwnZm9ybWF0Jz0+WydCb29r
-        J10sJ2xjXzFsZXR0ZXJfZmFjZXQnPT5bJ0sgLSBMYXcnXSwnbGNfMmxldHRl
-        cl9mYWNldCc9PlsnS0YgLSBMYXcgb2YgdGhlIFUuUy4nXSwnbGNfc3ViY2xh
-        c3NfZmFjZXQnPT5bJ0tGIC0gTGF3IG9mIHRoZSBVLlMuJ10sJ2NsaW9faWRf
-        ZGlzcGxheSc9PiczMjQ2OCcsJ3NvdXJjZV9mYWNldCc9PlsnY2F0YWxvZydd
-        LCdzb3VyY2VfZGlzcGxheSc9PlsnY2F0YWxvZyddLCdpc2JuX3R4dCc9Plsn
-        OTc4MDMxMzIwMDQ2NScsJzAzMTMyMDA0NjcnXSwnaXNibl9kaXNwbGF5Jz0+
-        WycwMzEzMjAwNDY3J10sJ2xjY25fZGlzcGxheSc9PlsnNzcwOTExMDYnXSwn
-        bGNjbl90eHQnPT5bJzc3MDkxMTA2J10sJ29jbGNfdHh0Jz0+WyczNjMxMzAz
-        Jywnb2NtMDM2MzEzMDMnXSwnb2NsY19kaXNwbGF5Jz0+WyczNjMxMzAzJywn
-        b2NtMDM2MzEzMDMnXSwnZnVsbF9wdWJsaXNoZXJfZGlzcGxheSc9PlsnV2Vz
-        dHBvcnQsIENvbm4uIDogR3JlZW53b29kIFByZXNzLCAxOTc4LiddLCdsb2Nh
-        dGlvbl9jYWxsX251bWJlcl9pZF9kaXNwbGF5Jz0+WydMZWhtYW4gPj4gS0Y4
-        NzQyIC5NNTR8REVMSU18NDg4NDYnXSwnbG9jYXRpb25fY2FsbF9udW1iZXJf
-        dHh0Jz0+WydMZWhtYW4gPj4gS0Y4NzQyIC5NNTQnXSwnY2FsbF9udW1iZXJf
-        dHh0Jz0+WydLRjg3NDIgLk01NCddLCdjYWxsX251bWJlcl9kaXNwbGF5Jz0+
-        WydLRjg3NDIgLk01NCddLCdsb2NhdGlvbl9mYWNldCc9PlsnTGVobWFuJ10s
-        J2xvY2F0aW9uX3R4dCc9PlsnTGVobWFuID4+IEtGODc0MiAuTTU0J10sJ3No
-        ZWxma2V5Jz0+Wydsb2Mra2YtKzg3NDIrMDAwMDAwMDArbTU0MDAwMDArMzI0
-        NjgnXSwncmV2ZXJzZV9zaGVsZmtleSc9PlsnZWJufmZrfn5yc3Z4fnp6enp6
-        enp6fmR1dnp6enp6fnd4dnRyfn5+fn5+fn5+fn5+fn4nXSwnaXRlbV9kaXNw
-        bGF5Jz0+WydLRjg3NDIgLk01NCB8IGxvYytrZi0rODc0MiswMDAwMDAwMCtt
-        NTQwMDAwMCszMjQ2OCB8IGVibn5ma35+cnN2eH56enp6enp6en5kdXZ6enp6
-        en53eHZ0cn5+fn5+fn5+fn5+fn5+J10sJ3RpbWVzdGFtcCc9PicyMDE2LTA3
-        LTA2VDIxOjA4OjI0LjIxN1onLCdhdXRob3JpdGllc19kdCc9PicyMDE2LTA4
-        LTA1VDE3OjQzOjQwWicsJ2F1dGhvcl92YXJpYW50X3R4dCc9PlsnTWlsbGVy
-        LCBBcnRodXIgUy4nXSwnc3ViamVjdF92YXJpYW50X3R4dCc9PlsnU3VwcmVt
-        ZSBDb3VydCAoVS5TLiknLCdDaGllZiBKdXN0aWNlIG9mIHRoZSBVbml0ZWQg
-        U3RhdGVzJywnU3VwcmVtZSBDb3VydCBvZiB0aGUgVW5pdGVkIFN0YXRlcycs
-        J+e+juWciy4nXSwnX3ZlcnNpb25fJz0+MTU0MTg0NjA4NzM5NDkxODQwMH1d
-        fX0K
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'32468','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'32468','marc_display'=>'<record><leader>01132cam a2200373 i 4500</leader><controlfield tag="001">32468</controlfield><controlfield tag="005">20100225221650.0</controlfield><controlfield tag="008">801016s1978    ctu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   77091106 </subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0313200467</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)3631303</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm03631303</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG19103050-B</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAD3959CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)32468</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">n-us---</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">KF8742</subfield><subfield code="b">.M54</subfield></datafield><datafield tag="082" ind1=" " ind2=" "><subfield code="a">347/.73/26</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="a">KF8742</subfield><subfield code="b">.M54</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Miller, Arthur Selwyn,</subfield><subfield code="d">1917-</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The Supreme Court :</subfield><subfield code="b">myth and reality /</subfield><subfield code="c">Arthur Selwyn Miller.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Westport, Conn. :</subfield><subfield code="b">Greenwood Press,</subfield><subfield code="c">1978.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xvii, 388 p. ;</subfield><subfield code="c">24 cm.</subfield></datafield><datafield tag="490" ind1="1" ind2=" "><subfield code="a">Contributions in American studies,</subfield><subfield code="x">0084-9227 ;</subfield><subfield code="v">no. 38</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Includes index.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Bibliography: p. [379]-382.</subfield></datafield><datafield tag="610" ind1="1" ind2="0"><subfield code="a">United States.</subfield><subfield code="b">Supreme Court.</subfield></datafield><datafield tag="830" ind1=" " ind2="0"><subfield code="a">Contributions in American studies ;</subfield><subfield code="v">no. 38.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">KF</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">KF8742 .M54</subfield><subfield code="b">loc+KF-+8742+00000000+M5400000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Lehman</subfield><subfield code="b">Lehman &gt;&gt; KF8742 .M54|DELIM|48846</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record>','text'=>['KF8742 .M54','347/.73/26','KF8742 .M54','Miller, Arthur Selwyn, 1917-','The Supreme Court : myth and reality / Arthur Selwyn Miller.','Westport, Conn. : Greenwood Press, 1978.','xvii, 388 p. ; 24 cm.','Contributions in American studies, 0084-9227 ; no. 38','Includes index.','Bibliography: p. [379]-382.','United States. Supreme Court.','Contributions in American studies ; no. 38.','AUTH'],'author_txt'=>['Miller, Arthur Selwyn,'],'author_facet'=>['Miller, Arthur Selwyn, 1917-'],'author_display'=>['Miller, Arthur Selwyn, 1917-'],'author_sort'=>'Miller, Arthur Selwyn, 1917-   Supreme Court myth and reality Arthur Selwyn Miller','title_txt'=>['The Supreme Court :'],'title_display'=>['The Supreme Court : myth and reality'],'title_filing_txt'=>['Supreme Court :'],'title_filing_full_txt'=>['Supreme Court : myth and reality /'],'subtitle_txt'=>['myth and reality'],'title_first_facet'=>['S'],'title_addl_txt'=>['The Supreme Court : myth and reality /'],'title_series_txt'=>['Contributions in American studies ; no. 38'],'title_series_display'=>['Contributions in American studies ; no. 38'],'title_sort'=>'supreme court  myth and reality','subject_txt'=>['United States. Supreme Court'],'subject_topic_facet'=>['United States. Supreme Court'],'pub_place_display'=>['Westport, Conn'],'pub_name_display'=>['Greenwood Press'],'pub_year_display'=>['1978'],'pub_place_txt'=>['Westport, Conn'],'pub_name_txt'=>['Greenwood Press'],'pub_year_txt'=>['1978'],'pub_date_txt'=>['1978'],'language_facet'=>['English'],'format'=>['Book'],'lc_1letter_facet'=>['K - Law'],'lc_2letter_facet'=>['KF - Law of the U.S.'],'lc_subclass_facet'=>['KF - Law of the U.S.'],'clio_id_display'=>'32468','source_facet'=>['catalog'],'source_display'=>['catalog'],'isbn_txt'=>['0313200467'],'isbn_display'=>['0313200467'],'lccn_display'=>['77091106'],'lccn_txt'=>['77091106'],'oclc_txt'=>['3631303','ocm03631303'],'oclc_display'=>['3631303','ocm03631303'],'full_publisher_display'=>['Westport, Conn. : Greenwood Press, 1978.'],'location_call_number_id_display'=>['Lehman >> KF8742 .M54|DELIM|48846'],'location_call_number_txt'=>['Lehman >> KF8742 .M54'],'call_number_txt'=>['KF8742 .M54'],'call_number_display'=>['KF8742 .M54'],'location_facet'=>['Lehman'],'location_txt'=>['Lehman >> KF8742 .M54'],'shelfkey'=>['loc+kf-+8742+00000000+m5400000+32468'],'reverse_shelfkey'=>['ebn~fk~~rsvx~zzzzzzzz~duvzzzzz~wxvtr~~~~~~~~~~~~~~'],'item_display'=>['KF8742 .M54 | loc+kf-+8742+00000000+m5400000+32468 | ebn~fk~~rsvx~zzzzzzzz~duvzzzzz~wxvtr~~~~~~~~~~~~~~'],'timestamp'=>'2016-05-23T20:04:29.849Z','authorities_dt'=>'2016-05-23T20:53:49Z','author_variant_txt'=>['Miller, Arthur S. (Arthur Selwyn), 1917-'],'subject_variant_txt'=>[''],'_version_'=>1535153916229976064}]}}
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:57:37 GMT
+  recorded_at: Fri, 01 Jul 2016 19:02:36 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=b276194&qt=document&wt=ruby"
@@ -181,7 +39,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:57:37 GMT
+      - Fri, 01 Jul 2016 19:02:36 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -191,7 +49,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'b276194','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'b276194','marc_display'=>'<record><leader>00617nam a2200229   4500</leader><controlfield tag="001">b276194</controlfield><controlfield tag="005">20140530074538.0</controlfield><controlfield tag="008">890823s1963    nyu           000 1 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">63009276</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">.b2761944</subfield><subfield code="b">06-15-16</subfield><subfield code="c">02-08-90</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">.b2761944</subfield><subfield code="b">04-05-09</subfield><subfield code="c">02-08-90</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">NYCL89-B13237</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="c">AzF</subfield></datafield><datafield tag="099" ind1=" " ind2=" "><subfield code="a">T</subfield><subfield code="b">T828s</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Tully, Andrew,</subfield><subfield code="d">1914-1993.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Supreme Court :</subfield><subfield code="b">a novel /</subfield><subfield code="c">by Andrew Tully.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">New American Library,</subfield><subfield code="c">[c1963]</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">351 p. ;</subfield><subfield code="c">22 cm.</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Law</subfield><subfield code="b">Law &gt;&gt; T T828s</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">law</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record>','text'=>['T T828s','Tully, Andrew, 1914-1993.','Supreme Court : a novel / by Andrew Tully.','New York : New American Library, [c1963]','351 p. ; 22 cm.'],'author_txt'=>['Tully, Andrew,'],'author_facet'=>['Tully, Andrew, 1914-1993'],'author_display'=>['Tully, Andrew, 1914-1993'],'author_sort'=>'Tully, Andrew, 1914-1993.   Supreme Court a novel by Andrew Tully','title_txt'=>['Supreme Court :'],'title_display'=>['Supreme Court : a novel'],'title_filing_txt'=>['Supreme Court :'],'title_filing_full_txt'=>['Supreme Court : a novel /'],'subtitle_txt'=>['a novel'],'title_first_facet'=>['S'],'title_addl_txt'=>['Supreme Court : a novel /'],'title_sort'=>'supreme court  a novel','pub_place_display'=>['New York'],'pub_name_display'=>['New American Library'],'pub_year_display'=>['c1963'],'pub_place_txt'=>['New York'],'pub_name_txt'=>['New American Library'],'pub_year_txt'=>['c1963'],'pub_date_txt'=>['1963'],'language_facet'=>['English'],'format'=>['Book'],'clio_id_display'=>'b276194','source_facet'=>['law','catalog'],'source_display'=>['law','catalog'],'lccn_display'=>['63009276'],'lccn_txt'=>['63009276'],'full_publisher_display'=>['New York : New American Library, [c1963]'],'location_call_number_id_display'=>['Law >> T T828s'],'location_facet'=>['Law'],'_version_'=>1542559229050617856,'timestamp'=>'2016-08-13T14:38:38.186Z'}]}}
+        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'b276194','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'b276194','marc_display'=>'<record><leader>00617nam a2200229   4500</leader><controlfield tag="001">b276194</controlfield><controlfield tag="005">20140530074538.0</controlfield><controlfield tag="008">890823s1963    nyu           000 1 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">63009276</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">.b2761944</subfield><subfield code="b">06-15-16</subfield><subfield code="c">02-08-90</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">.b2761944</subfield><subfield code="b">04-05-09</subfield><subfield code="c">02-08-90</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">NYCL89-B13237</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="c">AzF</subfield></datafield><datafield tag="099" ind1=" " ind2=" "><subfield code="a">T</subfield><subfield code="b">T828s</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Tully, Andrew,</subfield><subfield code="d">1914-1993.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Supreme Court :</subfield><subfield code="b">a novel /</subfield><subfield code="c">by Andrew Tully.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">New American Library,</subfield><subfield code="c">[c1963]</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">351 p. ;</subfield><subfield code="c">22 cm.</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Law</subfield><subfield code="b">Law &gt;&gt; T T828s</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">law</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record>','text'=>['T T828s','Tully, Andrew, 1914-1993.','Supreme Court : a novel / by Andrew Tully.','New York : New American Library, [c1963]','351 p. ; 22 cm.'],'author_txt'=>['Tully, Andrew,'],'author_facet'=>['Tully, Andrew, 1914-1993'],'author_display'=>['Tully, Andrew, 1914-1993'],'author_sort'=>'Tully, Andrew, 1914-1993.   Supreme Court a novel by Andrew Tully','title_txt'=>['Supreme Court :'],'title_display'=>['Supreme Court : a novel'],'title_filing_txt'=>['Supreme Court :'],'title_filing_full_txt'=>['Supreme Court : a novel /'],'subtitle_txt'=>['a novel'],'title_first_facet'=>['S'],'title_addl_txt'=>['Supreme Court : a novel /'],'title_sort'=>'supreme court  a novel','pub_place_display'=>['New York'],'pub_name_display'=>['New American Library'],'pub_year_display'=>['c1963'],'pub_place_txt'=>['New York'],'pub_name_txt'=>['New American Library'],'pub_year_txt'=>['c1963'],'pub_date_txt'=>['1963'],'language_facet'=>['English'],'format'=>['Book'],'clio_id_display'=>'b276194','source_facet'=>['law','catalog'],'source_display'=>['law','catalog'],'lccn_display'=>['63009276'],'lccn_txt'=>['63009276'],'full_publisher_display'=>['New York : New American Library, [c1963]'],'location_call_number_id_display'=>['Law >> T T828s'],'location_facet'=>['Law'],'_version_'=>1538119989229256704,'timestamp'=>'2016-06-25T14:38:49.182Z'}]}}
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:57:37 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Fri, 01 Jul 2016 19:02:36 GMT
+recorded_with: VCR 3.0.1

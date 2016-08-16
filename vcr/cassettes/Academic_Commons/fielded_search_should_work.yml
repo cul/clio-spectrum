@@ -15,15 +15,15 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Last-Modified:
-      - Mon, 15 Aug 2016 18:45:58 GMT
+      - Fri, 01 Jul 2016 19:01:50 GMT
       Etag:
-      - '"MTFiZDRmMDAwMDAwMDAwMFNvbHI="'
+      - '"ZjgxZDRmMDAwMDAwMDAwMFNvbHI="'
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Date:
-      - Tue, 16 Aug 2016 17:51:47 GMT
+      - Fri, 01 Jul 2016 19:10:13 GMT
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -43,7 +43,7 @@ http_interactions:
         Y2V0J10sJ2Yuc3ViamVjdF9mYWNldC5mYWNldC5saW1pdCc9PicxMScsJ3F0
         Jz0+J3NlYXJjaCcsJ2YuZGVwYXJ0bWVudF9mYWNldC5mYWNldC5saW1pdCc9
         Pic2J319LCdyZXNwb25zZSc9PnsnbnVtRm91bmQnPT4yLCdzdGFydCc9PjAs
-        J21heFNjb3JlJz0+MC4zMTc0NTQzNywnZG9jcyc9Plt7J2lkJz0+J2FjOjE2
+        J21heFNjb3JlJz0+MC4zMTc4MTYxNCwnZG9jcyc9Plt7J2lkJz0+J2FjOjE2
         MTIyNScsJ3JlY29yZF9jcmVhdGlvbl9kYXRlJz0+JzIwMTEtMTEtMDlUMTY6
         NDQ6NDhaJywnbGFuZ3VhZ2UnPT4nRW5nbGlzaCcsJ2RhdGVfaXNzdWVkJz0+
         JzIwMTEnLCdoYW5kbGUnPT4naHR0cDovL2hkbC5oYW5kbGUubmV0LzEwMDIy
@@ -166,7 +166,7 @@ http_interactions:
         dCddLCd0eXBlX29mX3Jlc291cmNlX2ZhY2V0Jz0+WydUZXh0J10sJ29yZ2Fu
         aXphdGlvbl9mYWNldCc9PlsnQ29sdW1iaWEgVW5pdmVyc2l0eSddLCdkZXBh
         cnRtZW50X2ZhY2V0Jz0+WydFYXJ0aCBhbmQgRW52aXJvbm1lbnRhbCBFbmdp
-        bmVlcmluZyddLCdzY29yZSc9PjAuMzE3NDU0Mzd9LHsnaWQnPT4nYWM6MTk4
+        bmVlcmluZyddLCdzY29yZSc9PjAuMzE3ODE2MTR9LHsnaWQnPT4nYWM6MTk4
         MTEzJywncmVjb3JkX2NyZWF0aW9uX2RhdGUnPT4nMjAxNi0wNC0yOVQyMTox
         NDo0MVonLCdsYW5ndWFnZSc9PidFbmdsaXNoJywnZGF0ZV9pc3N1ZWQnPT4n
         MjAxNicsJ2hhbmRsZSc9PidodHRwOi8vZHguZG9pLm9yZy8xMC43OTE2L0Q4
@@ -334,23 +334,23 @@ http_interactions:
         Wyd0ZXh0J10sJ3R5cGVfb2ZfcmVzb3VyY2VfZmFjZXQnPT5bJ1RleHQnXSwn
         b3JnYW5pemF0aW9uX2ZhY2V0Jz0+WydDb2x1bWJpYSBVbml2ZXJzaXR5J10s
         J2RlcGFydG1lbnRfZmFjZXQnPT5bJ0VhcnRoIGFuZCBFbnZpcm9ubWVudGFs
-        IEVuZ2luZWVyaW5nJ10sJ3Njb3JlJz0+MC4wMDMyMTU1NTA3fV19LCdmYWNl
-        dF9jb3VudHMnPT57J2ZhY2V0X3F1ZXJpZXMnPT57fSwnZmFjZXRfZmllbGRz
-        Jz0+eydhdXRob3JfZmFjZXQnPT5bJ0Jyb3R0bywgQXJpYW5lIENvZWxobycs
-        MSwnTHUsIEh1aWppZScsMV0sJ3B1Yl9kYXRlX3NvcnQnPT5bJzIwMTEnLDEs
-        JzIwMTYnLDFdLCdkZXBhcnRtZW50X2ZhY2V0Jz0+WydFYXJ0aCBhbmQgRW52
-        aXJvbm1lbnRhbCBFbmdpbmVlcmluZycsMl0sJ3N1YmplY3RfZmFjZXQnPT5b
-        J0Vudmlyb25tZW50YWwgZW5naW5lZXJpbmcnLDIsJ01pY3JvYmlvbG9neScs
-        MV0sJ2dlbnJlX2ZhY2V0Jz0+WydEaXNzZXJ0YXRpb25zJywyXSwnc2VyaWVz
-        X2ZhY2V0Jz0+W119LCdmYWNldF9kYXRlcyc9Pnt9LCdmYWNldF9yYW5nZXMn
-        PT57fX0sJ3N0YXRzJz0+eydzdGF0c19maWVsZHMnPT57J3B1Yl9kYXRlX3Nv
-        cnQnPT57J21pbic9PjIwMTEuMCwnbWF4Jz0+MjAxNi4wLCdjb3VudCc9PjIs
-        J21pc3NpbmcnPT4wLCdzdW0nPT40MDI3LjAsJ3N1bU9mU3F1YXJlcyc9Pjgx
-        MDgzNzcuMCwnbWVhbic9PjIwMTMuNSwnc3RkZGV2Jz0+My41MzU1MzM5MDU5
-        MzI3Mzc4LCdmYWNldHMnPT57fX19fSwnc3BlbGxjaGVjayc9Pnsnc3VnZ2Vz
-        dGlvbnMnPT5bJ2NvcnJlY3RseVNwZWxsZWQnLHRydWVdfX0K
+        IEVuZ2luZWVyaW5nJ10sJ3Njb3JlJz0+MC4wMDMyMTM3NzZ9XX0sJ2ZhY2V0
+        X2NvdW50cyc9PnsnZmFjZXRfcXVlcmllcyc9Pnt9LCdmYWNldF9maWVsZHMn
+        PT57J2F1dGhvcl9mYWNldCc9PlsnQnJvdHRvLCBBcmlhbmUgQ29lbGhvJywx
+        LCdMdSwgSHVpamllJywxXSwncHViX2RhdGVfc29ydCc9PlsnMjAxMScsMSwn
+        MjAxNicsMV0sJ2RlcGFydG1lbnRfZmFjZXQnPT5bJ0VhcnRoIGFuZCBFbnZp
+        cm9ubWVudGFsIEVuZ2luZWVyaW5nJywyXSwnc3ViamVjdF9mYWNldCc9Plsn
+        RW52aXJvbm1lbnRhbCBlbmdpbmVlcmluZycsMiwnTWljcm9iaW9sb2d5Jywx
+        XSwnZ2VucmVfZmFjZXQnPT5bJ0Rpc3NlcnRhdGlvbnMnLDJdLCdzZXJpZXNf
+        ZmFjZXQnPT5bXX0sJ2ZhY2V0X2RhdGVzJz0+e30sJ2ZhY2V0X3Jhbmdlcyc9
+        Pnt9fSwnc3RhdHMnPT57J3N0YXRzX2ZpZWxkcyc9PnsncHViX2RhdGVfc29y
+        dCc9PnsnbWluJz0+MjAxMS4wLCdtYXgnPT4yMDE2LjAsJ2NvdW50Jz0+Miwn
+        bWlzc2luZyc9PjAsJ3N1bSc9PjQwMjcuMCwnc3VtT2ZTcXVhcmVzJz0+ODEw
+        ODM3Ny4wLCdtZWFuJz0+MjAxMy41LCdzdGRkZXYnPT4zLjUzNTUzMzkwNTkz
+        MjczNzgsJ2ZhY2V0cyc9Pnt9fX19LCdzcGVsbGNoZWNrJz0+eydzdWdnZXN0
+        aW9ucyc9PlsnY29ycmVjdGx5U3BlbGxlZCcsdHJ1ZV19fQo=
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:51:48 GMT
+  recorded_at: Fri, 01 Jul 2016 19:10:14 GMT
 - request:
     method: get
     uri: "<ac2_solr_url>/select?f.author_facet.facet.limit=6&f.department_facet.facet.limit=6&f.genre_facet.facet.limit=11&f.pub_date_sort.facet.limit=4&f.series_facet.facet.limit=11&f.subject_facet.facet.limit=11&facet=true&facet.field=series_facet&q=%7B!qf=$title_qf%20pf=$title_pf%7DStructural%20and%20Functional%20Microbial%20Ecology&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck.q=Structural%20and%20Functional%20Microbial%20Ecology&stats=true&stats.field=pub_date_sort&wt=ruby"
@@ -366,19 +366,19 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Last-Modified:
-      - Mon, 15 Aug 2016 18:45:58 GMT
+      - Fri, 01 Jul 2016 19:01:50 GMT
       Etag:
-      - '"MTFiZDRmMDAwMDAwMDAwMFNvbHI="'
+      - '"ZjgxZDRmMDAwMDAwMDAwMFNvbHI="'
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Date:
-      - Tue, 16 Aug 2016 17:51:47 GMT
+      - Fri, 01 Jul 2016 19:10:13 GMT
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4yLCdw
         YXJhbXMnPT57J2ZhY2V0Jz0+J3RydWUnLCdzb3J0Jz0+J3Njb3JlIGRlc2Ms
         IHB1Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdmLnNlcmll
         c19mYWNldC5mYWNldC5saW1pdCc9PicxMScsJ3N0YXRzJz0+J3RydWUnLCdz
@@ -394,7 +394,7 @@ http_interactions:
         Y2V0J10sJ2Yuc3ViamVjdF9mYWNldC5mYWNldC5saW1pdCc9PicxMScsJ3F0
         Jz0+J3NlYXJjaCcsJ2YuZGVwYXJ0bWVudF9mYWNldC5mYWNldC5saW1pdCc9
         Pic2J319LCdyZXNwb25zZSc9PnsnbnVtRm91bmQnPT4yLCdzdGFydCc9PjAs
-        J21heFNjb3JlJz0+MC4zMTc0NTQzNywnZG9jcyc9Plt7J2lkJz0+J2FjOjE2
+        J21heFNjb3JlJz0+MC4zMTc4MTYxNCwnZG9jcyc9Plt7J2lkJz0+J2FjOjE2
         MTIyNScsJ3JlY29yZF9jcmVhdGlvbl9kYXRlJz0+JzIwMTEtMTEtMDlUMTY6
         NDQ6NDhaJywnbGFuZ3VhZ2UnPT4nRW5nbGlzaCcsJ2RhdGVfaXNzdWVkJz0+
         JzIwMTEnLCdoYW5kbGUnPT4naHR0cDovL2hkbC5oYW5kbGUubmV0LzEwMDIy
@@ -517,7 +517,7 @@ http_interactions:
         dCddLCd0eXBlX29mX3Jlc291cmNlX2ZhY2V0Jz0+WydUZXh0J10sJ29yZ2Fu
         aXphdGlvbl9mYWNldCc9PlsnQ29sdW1iaWEgVW5pdmVyc2l0eSddLCdkZXBh
         cnRtZW50X2ZhY2V0Jz0+WydFYXJ0aCBhbmQgRW52aXJvbm1lbnRhbCBFbmdp
-        bmVlcmluZyddLCdzY29yZSc9PjAuMzE3NDU0Mzd9LHsnaWQnPT4nYWM6MTk4
+        bmVlcmluZyddLCdzY29yZSc9PjAuMzE3ODE2MTR9LHsnaWQnPT4nYWM6MTk4
         MTEzJywncmVjb3JkX2NyZWF0aW9uX2RhdGUnPT4nMjAxNi0wNC0yOVQyMTox
         NDo0MVonLCdsYW5ndWFnZSc9PidFbmdsaXNoJywnZGF0ZV9pc3N1ZWQnPT4n
         MjAxNicsJ2hhbmRsZSc9PidodHRwOi8vZHguZG9pLm9yZy8xMC43OTE2L0Q4
@@ -685,21 +685,21 @@ http_interactions:
         Wyd0ZXh0J10sJ3R5cGVfb2ZfcmVzb3VyY2VfZmFjZXQnPT5bJ1RleHQnXSwn
         b3JnYW5pemF0aW9uX2ZhY2V0Jz0+WydDb2x1bWJpYSBVbml2ZXJzaXR5J10s
         J2RlcGFydG1lbnRfZmFjZXQnPT5bJ0VhcnRoIGFuZCBFbnZpcm9ubWVudGFs
-        IEVuZ2luZWVyaW5nJ10sJ3Njb3JlJz0+MC4wMDMyMTU1NTA3fV19LCdmYWNl
-        dF9jb3VudHMnPT57J2ZhY2V0X3F1ZXJpZXMnPT57fSwnZmFjZXRfZmllbGRz
-        Jz0+eydhdXRob3JfZmFjZXQnPT5bJ0Jyb3R0bywgQXJpYW5lIENvZWxobycs
-        MSwnTHUsIEh1aWppZScsMV0sJ3B1Yl9kYXRlX3NvcnQnPT5bJzIwMTEnLDEs
-        JzIwMTYnLDFdLCdkZXBhcnRtZW50X2ZhY2V0Jz0+WydFYXJ0aCBhbmQgRW52
-        aXJvbm1lbnRhbCBFbmdpbmVlcmluZycsMl0sJ3N1YmplY3RfZmFjZXQnPT5b
-        J0Vudmlyb25tZW50YWwgZW5naW5lZXJpbmcnLDIsJ01pY3JvYmlvbG9neScs
-        MV0sJ2dlbnJlX2ZhY2V0Jz0+WydEaXNzZXJ0YXRpb25zJywyXSwnc2VyaWVz
-        X2ZhY2V0Jz0+W119LCdmYWNldF9kYXRlcyc9Pnt9LCdmYWNldF9yYW5nZXMn
-        PT57fX0sJ3N0YXRzJz0+eydzdGF0c19maWVsZHMnPT57J3B1Yl9kYXRlX3Nv
-        cnQnPT57J21pbic9PjIwMTEuMCwnbWF4Jz0+MjAxNi4wLCdjb3VudCc9PjIs
-        J21pc3NpbmcnPT4wLCdzdW0nPT40MDI3LjAsJ3N1bU9mU3F1YXJlcyc9Pjgx
-        MDgzNzcuMCwnbWVhbic9PjIwMTMuNSwnc3RkZGV2Jz0+My41MzU1MzM5MDU5
-        MzI3Mzc4LCdmYWNldHMnPT57fX19fSwnc3BlbGxjaGVjayc9Pnsnc3VnZ2Vz
-        dGlvbnMnPT5bJ2NvcnJlY3RseVNwZWxsZWQnLHRydWVdfX0K
+        IEVuZ2luZWVyaW5nJ10sJ3Njb3JlJz0+MC4wMDMyMTM3NzZ9XX0sJ2ZhY2V0
+        X2NvdW50cyc9PnsnZmFjZXRfcXVlcmllcyc9Pnt9LCdmYWNldF9maWVsZHMn
+        PT57J2F1dGhvcl9mYWNldCc9PlsnQnJvdHRvLCBBcmlhbmUgQ29lbGhvJywx
+        LCdMdSwgSHVpamllJywxXSwncHViX2RhdGVfc29ydCc9PlsnMjAxMScsMSwn
+        MjAxNicsMV0sJ2RlcGFydG1lbnRfZmFjZXQnPT5bJ0VhcnRoIGFuZCBFbnZp
+        cm9ubWVudGFsIEVuZ2luZWVyaW5nJywyXSwnc3ViamVjdF9mYWNldCc9Plsn
+        RW52aXJvbm1lbnRhbCBlbmdpbmVlcmluZycsMiwnTWljcm9iaW9sb2d5Jywx
+        XSwnZ2VucmVfZmFjZXQnPT5bJ0Rpc3NlcnRhdGlvbnMnLDJdLCdzZXJpZXNf
+        ZmFjZXQnPT5bXX0sJ2ZhY2V0X2RhdGVzJz0+e30sJ2ZhY2V0X3Jhbmdlcyc9
+        Pnt9fSwnc3RhdHMnPT57J3N0YXRzX2ZpZWxkcyc9PnsncHViX2RhdGVfc29y
+        dCc9PnsnbWluJz0+MjAxMS4wLCdtYXgnPT4yMDE2LjAsJ2NvdW50Jz0+Miwn
+        bWlzc2luZyc9PjAsJ3N1bSc9PjQwMjcuMCwnc3VtT2ZTcXVhcmVzJz0+ODEw
+        ODM3Ny4wLCdtZWFuJz0+MjAxMy41LCdzdGRkZXYnPT4zLjUzNTUzMzkwNTkz
+        MjczNzgsJ2ZhY2V0cyc9Pnt9fX19LCdzcGVsbGNoZWNrJz0+eydzdWdnZXN0
+        aW9ucyc9PlsnY29ycmVjdGx5U3BlbGxlZCcsdHJ1ZV19fQo=
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:51:49 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Fri, 01 Jul 2016 19:10:14 GMT
+recorded_with: VCR 3.0.1

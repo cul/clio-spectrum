@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:57:41 GMT
+      - Fri, 01 Jul 2016 20:47:46 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -21,416 +21,11 @@ http_interactions:
       Server:
       - Jetty(8.1.8.v20121106)
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
-        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
-        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic4Mjc3Mjc2
-        JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
-        PnsnbnVtRm91bmQnPT4xLCdzdGFydCc9PjAsJ2RvY3MnPT5beydpZCc9Pic4
-        Mjc3Mjc2JywnbWFyY19kaXNwbGF5Jz0+JzxyZWNvcmQ+PGxlYWRlcj4wNDcw
-        NGNiY2FhMjIwMDY3MyBhIDQ1MDA8L2xlYWRlcj48Y29udHJvbGZpZWxkIHRh
-        Zz0iMDAxIj44Mjc3Mjc2PC9jb250cm9sZmllbGQ+PGNvbnRyb2xmaWVsZCB0
-        YWc9IjAwNSI+MjAxNDAyMTkxMzE5MDkuMDwvY29udHJvbGZpZWxkPjxjb250
-        cm9sZmllbGQgdGFnPSIwMDgiPjEwMTIyMGkxOTQ0MjAxMCAgICAgICAgICAg
-        ICAgICAgICAgICAgICA8L2NvbnRyb2xmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
-        MDM1IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+KE5O
-        Qyk4Mjc3Mjc2PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
-        Zz0iMDQwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+
-        Tk5DLUE8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5OTkMtQTwvc3Vi
-        ZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImUiPmRhY3M8L3N1YmZpZWxkPjwvZGF0
-        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIxMDAiIGluZDE9IjEiIGluZDI9IiAi
-        PjxzdWJmaWVsZCBjb2RlPSJhIj5Hb3Jkb24sIE1heCw8L3N1YmZpZWxkPjxz
-        dWJmaWVsZCBjb2RlPSJkIj4xOTMxLTE5OTAuPC9zdWJmaWVsZD48L2RhdGFm
-        aWVsZD48ZGF0YWZpZWxkIHRhZz0iMjQ1IiBpbmQxPSIwIiBpbmQyPSIwIj48
-        c3ViZmllbGQgY29kZT0iYSI+TWF4IEdvcmRvbiBhcmNoaXRlY3R1cmFsIHJl
-        Y29yZHMgYW5kIHBhcGVycyw8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJm
-        Ij4xOTQ0LTIwMTAsPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZyI+YnVs
-        ayAxOTQ0LTE5OTA8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
-        dGFnPSIyNjAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJj
-        Ij4xOTQ0LTIwMTA8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
-        dGFnPSIzMDAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJh
-        Ij4xMDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImYiPmxpbmVhciBmZWV0
-        LDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImEiPjEyMjk8L3N1YmZpZWxk
-        PjxzdWJmaWVsZCBjb2RlPSJmIj5kcmF3aW5ncyw8L3N1YmZpZWxkPjxzdWJm
-        aWVsZCBjb2RlPSJhIj45Mjk8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJm
-        Ij5waG90b2dyYXBoaWMgaXRlbXMuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48
-        ZGF0YWZpZWxkIHRhZz0iNTQ1IiBpbmQxPSIwIiBpbmQyPSIgIj48c3ViZmll
-        bGQgY29kZT0iYSI+TWF4IEdvcmRvbiB3YXMgYW4gaW50ZXJuYXRpb25hbGx5
-        IGtub3duIGFyY2hpdGVjdCB3aG8gc3BlY2lhbGl6ZWQgaW4gdGhlIGRlc2ln
-        biBvZiBnYWxsZXJpZXMgYW5kIGV4aGliaXRpb24gc3BhY2VzIGZvciBtb2Rl
-        cm4gYW5kIGNvbnRlbXBvcmFyeSBhcnQuPC9zdWJmaWVsZD48L2RhdGFmaWVs
-        ZD48ZGF0YWZpZWxkIHRhZz0iNTQ1IiBpbmQxPSIwIiBpbmQyPSIgIj48c3Vi
-        ZmllbGQgY29kZT0iYSI+SGlzIG1vc3QgcHJvbWluZW50IGNvbW1pc3Npb25z
-        IGluY2x1ZGUsIGFtb25nIG90aGVycywgQW5uZWx5IEp1ZGEgRmluZSBBcnQs
-        IEJyb29rZS1BbGV4YW5kZXIgR2FsbGVyeSwgUGF1bGEgQ29vcGVyIEdhbGxl
-        cnksIEphbWVzIENvcmNvcmFuIEdhbGxlcnksIEZpc2hlciBMYW5kYXUgQ2Vu
-        dGVyLCBLb3VyeS1XaW5nYXRlIEdhbGxlcnksIExvcmVuY2UtTW9uayBHYWxs
-        ZXJ5LCBMdWhyaW5nLUF1Z3VzdGluZSBHYWxsZXJ5LCBNYWVnaHQtTGVsb25n
-        IEdhbGxlcnksIE1hcmxib3JvdWdoIEZpbmUgQXJ0IEdhbGxlcmllcywgU2Fh
-        dGNoaSBHYWxsZXJ5LCBhbmQgZ2FsbGVyeSBzcGFjZSBmb3IgdGhlIENlbnRy
-        byBkXCdBcnRlIFJlaW5hIFNvcGhpYS4gIEdvcmRvbiBhbHNvIGRpZCBzaWdu
-        aWZpY2FudCByZXNpZGVudGlhbCBkZXNpZ24gd29yayBmb3IgY2xpZW50cyBz
-        dWNoIGFzIGFydGlzdCBSaWNoYXJkIFNlcnJhLCBKb2VsIFNoYXBpcm8sIGFu
-        ZCBKZW5uaWZlciBCYXJsZXR0LCBhcnQgY29sbGVjdG9ycyBBc2hlciBFZGVs
-        bWFuIGFuZCBMZXdpcyBNYW5pbG93LCBhbmQgbXVzaWNpYW4gQnJpYW4gRmVy
-        cnkuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNTIw
-        IiBpbmQxPSIyIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+VGhlIGNv
-        bGxlY3Rpb24gaXMgb3JnYW5pemVkIGludG8gZm91ciBzZXJpZXM6IFByb2pl
-        Y3QgUmVjb3JkcywgT2ZmaWNlIFJlY29yZHMsIFN0dWRlbnQgV29yaywgYW5k
-        IFBlcnNvbmFsIFBhcGVycyBhbmQgaXMgY29tcG9zZWQgcHJpbWFyaWx5IG9m
-        IHByb2plY3QgZmlsZXMsIGFyY2hpdGVjdHVyYWwgZHJhd2luZ3MsIHBob3Rv
-        Z3JhcGhzLCBjb3JyZXNwb25kZW5jZSwgbGVnYWwgcGFwZXJzLCBwZXJzb25h
-        bCBkaWFyaWVzLCBhbmQgc3R1ZGVudCBza2V0Y2hib29rcy48L3N1YmZpZWxk
-        PjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1NDEiIGluZDE9IiAiIGlu
-        ZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJjIj5Eb25hdGVkOzwvc3ViZmllbGQ+
-        PHN1YmZpZWxkIGNvZGU9ImEiPkRhdmlkIEdvcmRvbjs8L3N1YmZpZWxkPjxz
-        dWJmaWVsZCBjb2RlPSJkIj4yMDEwOzwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
-        ZGU9ImUiPjIwMTAuMDI0PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZp
-        ZWxkIHRhZz0iNTA2IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29k
-        ZT0iYSI+VGhpcyBjb2xsZWN0aW9uIGlzIGF2YWlsYWJsZSBmb3IgdXNlIGJ5
-        IGFwcG9pbnRtZW50IGluIHRoZSBEZXBhcnRtZW50IG9mIERyYXdpbmdzICZh
-        bXA7IEFyY2hpdmVzLCBBdmVyeSBBcmNoaXRlY3R1cmFsIGFuZCBGaW5lIEFy
-        dHMgTGlicmFyeSwgQ29sdW1iaWEgVW5pdmVyc2l0eS4gRm9yIGZ1cnRoZXIg
-        aW5mb3JtYXRpb24gYW5kIHRvIG1ha2UgYW4gYXBwb2ludG1lbnQsIHBsZWFz
-        ZSBjYWxsICgyMTIpIDg1NC00MTEwIG9yIGVtYWlsIGF2ZXJ5LWRyYXdpbmdz
-        QGxpYnJhcmllcy5jb2x1bWJpYS5lZHUuPC9zdWJmaWVsZD48L2RhdGFmaWVs
-        ZD48ZGF0YWZpZWxkIHRhZz0iNTQwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3Vi
-        ZmllbGQgY29kZT0iYSI+UGVybWlzc2lvbiB0byBwdWJsaXNoIG11c3QgYmUg
-        b2J0YWluZWQgaW4gd3JpdGluZyBmcm9tIHRoZSBEaXJlY3RvciwgQXZlcnkg
-        QXJjaGl0ZWN0dXJhbCAmYW1wOyBGaW5lIEFydHMgTGlicmFyeSwgQ29sdW1i
-        aWEgVW5pdmVyc2l0eSwgMTE3MiBBbXN0ZXJkYW0gQXZlLiwgTUMgMDMwMSwg
-        TmV3IFlvcmssIE5ZIDEwMDI3Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRh
-        dGFmaWVsZCB0YWc9IjU0NCIgaW5kMT0iMSIgaW5kMj0iMCI+PHN1YmZpZWxk
-        IGNvZGU9ImEiPlJlc2VhcmNoZXJzIGludGVyZXN0ZWQgaW4gTWF4IEdvcmRv
-        blwncyBpbnZvbHZlbWVudCB3aXRoIHRoZSBhZHZpc29yeSBib2FyZCBvZiB0
-        aGUgTXVzZXVtIG9mIE1vZGVybiBBcnQsIE5ldyBZb3JrIGFuZCB0aGUgYWR2
-        aXNvcnkgYm9hcmQgYXNzb2NpYXRlZCB3aXRoIHRoZSBjb25zdHJ1Y3Rpb24g
-        b2YgdGhlIE11c2VvIE5hY2lvbmFsIENlbnRybyBkZSBBcnRlIFJlaW5hIFNv
-        cGhpYSwgTWFkcmlkIHNob3VsZCBjb25zdWx0IHRoZSBQYXBlcnMgb2YgdGhl
-        IGFyY2hpdGVjdCBNYXggR29yZG9uIGxvY2F0ZWQgYXQgdGhlIFRhdGUgQXJj
-        aGl2ZSwgTG9uZG9uLiAgVGhlIGNvbGxlY3Rpb24gaG91c2VkIGF0IHRoZSBU
-        YXRlIEFyY2hpdmUgYWxzbyBkb2N1bWVudHMgR29yZG9uXCdzIHJvbGUgYXMg
-        YSBwYXRyb24sIGN1cmF0b3IgYW5kIGNvbGxlY3RvciBhbmQgaW5jbHVkZSBj
-        b3JyZXNwb25kZW5jZSwgaW52b2ljZXMsIHBsYW5zIGFuZCBwaG90b2dyYXBo
-        cywgbGVjdHVyZSBub3RlcyBhbmQgcHJpbnRlZCBtYXRlcmlhbC48L3N1YmZp
-        ZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1NTUiIGluZDE9IjAi
-        IGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5GaW5kaW5nIGFpZCBhdmFp
-        bGFibGUgb25saW5lLiAgU2VlIE9ubGluZSBMaW5rLjwvc3ViZmllbGQ+PC9k
-        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjYwMCIgaW5kMT0iMSIgaW5kMj0i
-        MCI+PHN1YmZpZWxkIGNvZGU9ImEiPkdvcmRvbiwgTWF4LDwvc3ViZmllbGQ+
-        PHN1YmZpZWxkIGNvZGU9ImQiPjE5MzEtMTk5MC48L3N1YmZpZWxkPjwvZGF0
-        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI2MDAiIGluZDE9IjEiIGluZDI9IjAi
-        PjxzdWJmaWVsZCBjb2RlPSJhIj5CYXJ0bGV0dCwgSmVubmlmZXIsPC9zdWJm
-        aWVsZD48c3ViZmllbGQgY29kZT0iZCI+MTk0MS08L3N1YmZpZWxkPjwvZGF0
-        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI2MDAiIGluZDE9IjEiIGluZDI9IjAi
-        PjxzdWJmaWVsZCBjb2RlPSJhIj5GZWlnZW4sIFJpY2hhcmQgTC4sPC9zdWJm
-        aWVsZD48c3ViZmllbGQgY29kZT0iZCI+MTkzMC08L3N1YmZpZWxkPjwvZGF0
-        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI2MDAiIGluZDE9IjEiIGluZDI9IjAi
-        PjxzdWJmaWVsZCBjb2RlPSJhIj5NYW5pbG93LCBMZXdpcyw8L3N1YmZpZWxk
-        PjxzdWJmaWVsZCBjb2RlPSJkIj4xOTI3LTwvc3ViZmllbGQ+PC9kYXRhZmll
-        bGQ+PGRhdGFmaWVsZCB0YWc9IjYwMCIgaW5kMT0iMSIgaW5kMj0iMCI+PHN1
-        YmZpZWxkIGNvZGU9ImEiPkpvYW5ub3UsIERha2lzLjwvc3ViZmllbGQ+PC9k
-        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjYwMCIgaW5kMT0iMSIgaW5kMj0i
-        MCI+PHN1YmZpZWxkIGNvZGU9ImEiPkpvaG5zLCBKYXNwZXIsPC9zdWJmaWVs
-        ZD48c3ViZmllbGQgY29kZT0iZCI+MTkzMC08L3N1YmZpZWxkPjwvZGF0YWZp
-        ZWxkPjxkYXRhZmllbGQgdGFnPSI2MTAiIGluZDE9IjIiIGluZDI9IjAiPjxz
-        dWJmaWVsZCBjb2RlPSJhIj5TYWF0Y2hpIEdhbGxlcnkuPC9zdWJmaWVsZD48
-        L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNjEwIiBpbmQxPSIyIiBpbmQy
-        PSIwIj48c3ViZmllbGQgY29kZT0iYSI+QW5uZWx5IEp1ZGEgRmluZSBBcnQu
-        PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNjEwIiBp
-        bmQxPSIyIiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0iYSI+RmlzaGVyIExh
-        bmRhdSBDZW50ZXIuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxk
-        IHRhZz0iNjEwIiBpbmQxPSIyIiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0i
-        YSI+TWFybGJvcm91Z2ggRmluZSBBcnQgKExvbmRvbikgTHRkLjwvc3ViZmll
-        bGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjYxMCIgaW5kMT0iMiIg
-        aW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEiPldoaXRlY2hhcGVsIEFydCBH
-        YWxsZXJ5Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9
-        IjY1MCIgaW5kMT0iICIgaW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEiPkFw
-        YXJ0bWVudCBob3VzZXM8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ6Ij5F
-        bmdsYW5kPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0ieiI+TG9uZG9uLjwv
-        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjY1MCIgaW5k
-        MT0iICIgaW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEiPkFwYXJ0bWVudCBo
-        b3VzZXM8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ6Ij5OZXcgWW9yayAo
-        U3RhdGUpPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0ieiI+TmV3IFlvcmsu
-        PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNjUwIiBp
-        bmQxPSIgIiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0iYSI+QXJjaGl0ZWN0
-        dXJlPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0ieiI+RW5nbGFuZDwvc3Vi
-        ZmllbGQ+PHN1YmZpZWxkIGNvZGU9InYiPkRlc2lnbnMgYW5kIHBsYW5zLjwv
-        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjY1MCIgaW5k
-        MT0iICIgaW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEiPkFyY2hpdGVjdHVy
-        ZTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9InoiPlVuaXRlZCBTdGF0ZXM8
-        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ2Ij5EZXNpZ25zIGFuZCBwbGFu
-        cy48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI2NTAi
-        IGluZDE9IiAiIGluZDI9IjciPjxzdWJmaWVsZCBjb2RlPSJhIj5BcnQgR2Fs
-        bGVyaWVzIChidWlsZGluZ3MpPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
-        MiI+YWF0PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
-        NjUwIiBpbmQxPSIgIiBpbmQyPSI3Ij48c3ViZmllbGQgY29kZT0iYSI+RXho
-        aWJpdGlvbiBidWlsZGluZyBzcGFjZXM8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
-        b2RlPSIyIj5hYXQ8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
-        dGFnPSI2NTAiIGluZDE9IiAiIGluZDI9IjAiPjxzdWJmaWVsZCBjb2RlPSJh
-        Ij5HYWxsZXJpZXMgKEFyY2hpdGVjdHVyZSk8L3N1YmZpZWxkPjwvZGF0YWZp
-        ZWxkPjxkYXRhZmllbGQgdGFnPSI2NTUiIGluZDE9IiAiIGluZDI9IjciPjxz
-        dWJmaWVsZCBjb2RlPSJhIj5BcmNoaXRlY3R1cmFsIGRyYXdpbmdzLjwvc3Vi
-        ZmllbGQ+PHN1YmZpZWxkIGNvZGU9IjIiPmFhdDwvc3ViZmllbGQ+PC9kYXRh
-        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjY1NSIgaW5kMT0iICIgaW5kMj0iNyI+
-        PHN1YmZpZWxkIGNvZGU9ImEiPkRpYXJpZXMuPC9zdWJmaWVsZD48c3ViZmll
-        bGQgY29kZT0iMiI+YWF0PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZp
-        ZWxkIHRhZz0iNjU1IiBpbmQxPSIgIiBpbmQyPSI3Ij48c3ViZmllbGQgY29k
-        ZT0iYSI+UGhvdG9ncmFwaHMuPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
-        MiI+YWF0PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
-        NjU1IiBpbmQxPSIgIiBpbmQyPSI3Ij48c3ViZmllbGQgY29kZT0iYSI+U3R1
-        ZGVudCBkcmF3aW5ncy48L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSIyIj5h
-        YXQ8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI3MTAi
-        IGluZDE9IjIiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5DaGFwbWFu
-        LCBUYXlsb3IgUGFydG5lcnMuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0
-        YWZpZWxkIHRhZz0iNzEwIiBpbmQxPSIyIiBpbmQyPSIgIj48c3ViZmllbGQg
-        Y29kZT0iYSI+UmljaGFyZCBHbHVja21hbiBBcmNoaXRlY3RzLjwvc3ViZmll
-        bGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijg1MiIgaW5kMT0iNCIg
-        aW5kMj0iMiI+PHN1YmZpZWxkIGNvZGU9ImEiPkNvbHVtYmlhIFVuaXZlcnNp
-        dHkuPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+QXZlcnkgQXJjaGl0
-        ZWN0dXJhbCBhbmQgRmluZSBBcnRzIExpYnJhcnksIERlcHQuIG9mIERyYXdp
-        bmdzICZhbXA7IEFyY2hpdmVzLDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9
-        ImUiPk5ldyBZb3JrLCBOWS48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRh
-        ZmllbGQgdGFnPSI4NTYiIGluZDE9IjQiIGluZDI9IjIiPjxzdWJmaWVsZCBj
-        b2RlPSIzIj5PbmxpbmUgRmluZGluZyBBaWQ8L3N1YmZpZWxkPjxzdWJmaWVs
-        ZCBjb2RlPSJ1Ij5odHRwOi8vZmluZGluZ2FpZHMuY3VsLmNvbHVtYmlhLmVk
-        dS9lYWQvbm5jLWEvbGRwZF84Mjc3Mjc2PC9zdWJmaWVsZD48L2RhdGFmaWVs
-        ZD48ZGF0YWZpZWxkIHRhZz0iODU2IiBpbmQxPSI0IiBpbmQyPSIyIj48c3Vi
-        ZmllbGQgY29kZT0iMyI+Rm9yIGFkZGl0aW9uYWwgZ3VpZGFuY2Ugb24gcmVz
-        dHJpY3Rpb25zIGFuZCBwZXJtaXNzaW9ucyBzZWUgQ29sdW1iaWEgVW5pdmVy
-        c2l0eSBMaWJyYXJpZXMgUHVibGljYXRpb24gYW5kIERpZ2l0YWwgUmVwcm9k
-        dWN0aW9uIFBvbGljeSBhbmQgUHJvY2VkdXJlczwvc3ViZmllbGQ+PHN1YmZp
-        ZWxkIGNvZGU9InUiPmh0dHA6Ly93d3cuY29sdW1iaWEuZWR1L2N1L2x3ZWIv
-        c2VydmljZXMvcHJlc2VydmF0aW9uL3B1YmxpY2F0aW9uc1BvbGljeS5odG1s
-        PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTAwIiBp
-        bmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+QVVUSDwvc3Vi
-        ZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MSIgaW5kMT0i
-        ICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkQmYW1wO0EgR29yZG9u
-        IFJlQ0FQPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+YXZlZmF4K0Rf
-        QSswMDAwKzAwMDAwMDAwK0dPUkRPTitSRUNBUDA8L3N1YmZpZWxkPjwvZGF0
-        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTEiIGluZDE9IiAiIGluZDI9IiAi
-        PjxzdWJmaWVsZCBjb2RlPSJhIj5EJmFtcDtBIEdvcmRvbjwvc3ViZmllbGQ+
-        PHN1YmZpZWxkIGNvZGU9ImIiPmF2ZWZheCtEX0ErMDAwMCswMDAwMDAwMCtH
-        T1JET048L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5
-        OTIiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5BdmVy
-        eSwgRmluZSBBcnRzLCBXYXJlPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
-        YiI+QXZlcnkgRHJhd2luZ3MgJmFtcDsgQXJjaGl2ZXMgLSBCeSBhcHB0LiAo
-        Tm9uLUNpcmN1bGF0aW5nKSAmZ3Q7Jmd0OyBEJmFtcDtBIEdvcmRvbnxERUxJ
-        TXwxMTQyNDQ4Njwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0
-        YWc9Ijk5MiIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEi
-        PkF2ZXJ5LCBGaW5lIEFydHMsIFdhcmU8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
-        b2RlPSJiIj5BdmVyeSBEcmF3aW5ncyZhbXA7QXJjaGl2ZXMgJmx0O09mZnNp
-        dGUmZ3Q7IFJlcXVlc3QgYXQgRCZhbXA7QSAoTm9uLUNpcmMpICZndDsmZ3Q7
-        IEQmYW1wO0EgR29yZG9uIFJlQ0FQfERFTElNfDExNDg5MDUxPC9zdWJmaWVs
-        ZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTkzIiBpbmQxPSIgIiBp
-        bmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+TWFudXNjcmlwdC9BcmNoaXZl
-        PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTk1IiBp
-        bmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+Y2F0YWxvZzwv
-        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5NSIgaW5k
-        MT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPmFyY2hpdmU8L3N1
-        YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTYiIGluZDE9
-        IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5BdmVyeSBEcmF3aW5n
-        cyAmYW1wOyBBcmNoaXZlczwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFm
-        aWVsZCB0YWc9Ijk5NyIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNv
-        ZGU9ImEiPjIwMTEtMDEtMTBUMDA6MDA6MDAuMDAwWjwvc3ViZmllbGQ+PC9k
-        YXRhZmllbGQ+PC9yZWNvcmQ+JywndGV4dCc9PlsnR29yZG9uLCBNYXgsIDE5
-        MzEtMTk5MC4nLCdNYXggR29yZG9uIGFyY2hpdGVjdHVyYWwgcmVjb3JkcyBh
-        bmQgcGFwZXJzLCAxOTQ0LTIwMTAsIGJ1bGsgMTk0NC0xOTkwJywnMTk0NC0y
-        MDEwJywnMTAgbGluZWFyIGZlZXQsIDEyMjkgZHJhd2luZ3MsIDkyOSBwaG90
-        b2dyYXBoaWMgaXRlbXMuJywnTWF4IEdvcmRvbiB3YXMgYW4gaW50ZXJuYXRp
-        b25hbGx5IGtub3duIGFyY2hpdGVjdCB3aG8gc3BlY2lhbGl6ZWQgaW4gdGhl
-        IGRlc2lnbiBvZiBnYWxsZXJpZXMgYW5kIGV4aGliaXRpb24gc3BhY2VzIGZv
-        ciBtb2Rlcm4gYW5kIGNvbnRlbXBvcmFyeSBhcnQuJywnSGlzIG1vc3QgcHJv
-        bWluZW50IGNvbW1pc3Npb25zIGluY2x1ZGUsIGFtb25nIG90aGVycywgQW5u
-        ZWx5IEp1ZGEgRmluZSBBcnQsIEJyb29rZS1BbGV4YW5kZXIgR2FsbGVyeSwg
-        UGF1bGEgQ29vcGVyIEdhbGxlcnksIEphbWVzIENvcmNvcmFuIEdhbGxlcnks
-        IEZpc2hlciBMYW5kYXUgQ2VudGVyLCBLb3VyeS1XaW5nYXRlIEdhbGxlcnks
-        IExvcmVuY2UtTW9uayBHYWxsZXJ5LCBMdWhyaW5nLUF1Z3VzdGluZSBHYWxs
-        ZXJ5LCBNYWVnaHQtTGVsb25nIEdhbGxlcnksIE1hcmxib3JvdWdoIEZpbmUg
-        QXJ0IEdhbGxlcmllcywgU2FhdGNoaSBHYWxsZXJ5LCBhbmQgZ2FsbGVyeSBz
-        cGFjZSBmb3IgdGhlIENlbnRybyBkXCdBcnRlIFJlaW5hIFNvcGhpYS4gIEdv
-        cmRvbiBhbHNvIGRpZCBzaWduaWZpY2FudCByZXNpZGVudGlhbCBkZXNpZ24g
-        d29yayBmb3IgY2xpZW50cyBzdWNoIGFzIGFydGlzdCBSaWNoYXJkIFNlcnJh
-        LCBKb2VsIFNoYXBpcm8sIGFuZCBKZW5uaWZlciBCYXJsZXR0LCBhcnQgY29s
-        bGVjdG9ycyBBc2hlciBFZGVsbWFuIGFuZCBMZXdpcyBNYW5pbG93LCBhbmQg
-        bXVzaWNpYW4gQnJpYW4gRmVycnkuJywnVGhlIGNvbGxlY3Rpb24gaXMgb3Jn
-        YW5pemVkIGludG8gZm91ciBzZXJpZXM6IFByb2plY3QgUmVjb3JkcywgT2Zm
-        aWNlIFJlY29yZHMsIFN0dWRlbnQgV29yaywgYW5kIFBlcnNvbmFsIFBhcGVy
-        cyBhbmQgaXMgY29tcG9zZWQgcHJpbWFyaWx5IG9mIHByb2plY3QgZmlsZXMs
-        IGFyY2hpdGVjdHVyYWwgZHJhd2luZ3MsIHBob3RvZ3JhcGhzLCBjb3JyZXNw
-        b25kZW5jZSwgbGVnYWwgcGFwZXJzLCBwZXJzb25hbCBkaWFyaWVzLCBhbmQg
-        c3R1ZGVudCBza2V0Y2hib29rcy4nLCdEb25hdGVkOyBEYXZpZCBHb3Jkb247
-        IDIwMTA7IDIwMTAuMDI0JywnVGhpcyBjb2xsZWN0aW9uIGlzIGF2YWlsYWJs
-        ZSBmb3IgdXNlIGJ5IGFwcG9pbnRtZW50IGluIHRoZSBEZXBhcnRtZW50IG9m
-        IERyYXdpbmdzICYgQXJjaGl2ZXMsIEF2ZXJ5IEFyY2hpdGVjdHVyYWwgYW5k
-        IEZpbmUgQXJ0cyBMaWJyYXJ5LCBDb2x1bWJpYSBVbml2ZXJzaXR5LiBGb3Ig
-        ZnVydGhlciBpbmZvcm1hdGlvbiBhbmQgdG8gbWFrZSBhbiBhcHBvaW50bWVu
-        dCwgcGxlYXNlIGNhbGwgKDIxMikgODU0LTQxMTAgb3IgZW1haWwgYXZlcnkt
-        ZHJhd2luZ3NAbGlicmFyaWVzLmNvbHVtYmlhLmVkdS4nLCdQZXJtaXNzaW9u
-        IHRvIHB1Ymxpc2ggbXVzdCBiZSBvYnRhaW5lZCBpbiB3cml0aW5nIGZyb20g
-        dGhlIERpcmVjdG9yLCBBdmVyeSBBcmNoaXRlY3R1cmFsICYgRmluZSBBcnRz
-        IExpYnJhcnksIENvbHVtYmlhIFVuaXZlcnNpdHksIDExNzIgQW1zdGVyZGFt
-        IEF2ZS4sIE1DIDAzMDEsIE5ldyBZb3JrLCBOWSAxMDAyNy4nLCdSZXNlYXJj
-        aGVycyBpbnRlcmVzdGVkIGluIE1heCBHb3Jkb25cJ3MgaW52b2x2ZW1lbnQg
-        d2l0aCB0aGUgYWR2aXNvcnkgYm9hcmQgb2YgdGhlIE11c2V1bSBvZiBNb2Rl
-        cm4gQXJ0LCBOZXcgWW9yayBhbmQgdGhlIGFkdmlzb3J5IGJvYXJkIGFzc29j
-        aWF0ZWQgd2l0aCB0aGUgY29uc3RydWN0aW9uIG9mIHRoZSBNdXNlbyBOYWNp
-        b25hbCBDZW50cm8gZGUgQXJ0ZSBSZWluYSBTb3BoaWEsIE1hZHJpZCBzaG91
-        bGQgY29uc3VsdCB0aGUgUGFwZXJzIG9mIHRoZSBhcmNoaXRlY3QgTWF4IEdv
-        cmRvbiBsb2NhdGVkIGF0IHRoZSBUYXRlIEFyY2hpdmUsIExvbmRvbi4gIFRo
-        ZSBjb2xsZWN0aW9uIGhvdXNlZCBhdCB0aGUgVGF0ZSBBcmNoaXZlIGFsc28g
-        ZG9jdW1lbnRzIEdvcmRvblwncyByb2xlIGFzIGEgcGF0cm9uLCBjdXJhdG9y
-        IGFuZCBjb2xsZWN0b3IgYW5kIGluY2x1ZGUgY29ycmVzcG9uZGVuY2UsIGlu
-        dm9pY2VzLCBwbGFucyBhbmQgcGhvdG9ncmFwaHMsIGxlY3R1cmUgbm90ZXMg
-        YW5kIHByaW50ZWQgbWF0ZXJpYWwuJywnRmluZGluZyBhaWQgYXZhaWxhYmxl
-        IG9ubGluZS4gIFNlZSBPbmxpbmUgTGluay4nLCdHb3Jkb24sIE1heCwgMTkz
-        MS0xOTkwLicsJ0JhcnRsZXR0LCBKZW5uaWZlciwgMTk0MS0nLCdGZWlnZW4s
-        IFJpY2hhcmQgTC4sIDE5MzAtJywnTWFuaWxvdywgTGV3aXMsIDE5MjctJywn
-        Sm9hbm5vdSwgRGFraXMuJywnSm9obnMsIEphc3BlciwgMTkzMC0nLCdTYWF0
-        Y2hpIEdhbGxlcnkuJywnQW5uZWx5IEp1ZGEgRmluZSBBcnQuJywnRmlzaGVy
-        IExhbmRhdSBDZW50ZXIuJywnTWFybGJvcm91Z2ggRmluZSBBcnQgKExvbmRv
-        bikgTHRkLicsJ1doaXRlY2hhcGVsIEFydCBHYWxsZXJ5LicsJ0FwYXJ0bWVu
-        dCBob3VzZXMgRW5nbGFuZCBMb25kb24uJywnQXBhcnRtZW50IGhvdXNlcyBO
-        ZXcgWW9yayAoU3RhdGUpIE5ldyBZb3JrLicsJ0FyY2hpdGVjdHVyZSBFbmds
-        YW5kIERlc2lnbnMgYW5kIHBsYW5zLicsJ0FyY2hpdGVjdHVyZSBVbml0ZWQg
-        U3RhdGVzIERlc2lnbnMgYW5kIHBsYW5zLicsJ0FydCBHYWxsZXJpZXMgKGJ1
-        aWxkaW5ncykgYWF0JywnRXhoaWJpdGlvbiBidWlsZGluZyBzcGFjZXMgYWF0
-        JywnR2FsbGVyaWVzIChBcmNoaXRlY3R1cmUpJywnQXJjaGl0ZWN0dXJhbCBk
-        cmF3aW5ncy4gYWF0JywnRGlhcmllcy4gYWF0JywnUGhvdG9ncmFwaHMuIGFh
-        dCcsJ1N0dWRlbnQgZHJhd2luZ3MuIGFhdCcsJ0NoYXBtYW4sIFRheWxvciBQ
-        YXJ0bmVycy4nLCdSaWNoYXJkIEdsdWNrbWFuIEFyY2hpdGVjdHMuJywnQ29s
-        dW1iaWEgVW5pdmVyc2l0eS4gQXZlcnkgQXJjaGl0ZWN0dXJhbCBhbmQgRmlu
-        ZSBBcnRzIExpYnJhcnksIERlcHQuIG9mIERyYXdpbmdzICYgQXJjaGl2ZXMs
-        IE5ldyBZb3JrLCBOWS4nLCdPbmxpbmUgRmluZGluZyBBaWQgaHR0cDovL2Zp
-        bmRpbmdhaWRzLmN1bC5jb2x1bWJpYS5lZHUvZWFkL25uYy1hL2xkcGRfODI3
-        NzI3NicsJ0ZvciBhZGRpdGlvbmFsIGd1aWRhbmNlIG9uIHJlc3RyaWN0aW9u
-        cyBhbmQgcGVybWlzc2lvbnMgc2VlIENvbHVtYmlhIFVuaXZlcnNpdHkgTGli
-        cmFyaWVzIFB1YmxpY2F0aW9uIGFuZCBEaWdpdGFsIFJlcHJvZHVjdGlvbiBQ
-        b2xpY3kgYW5kIFByb2NlZHVyZXMgaHR0cDovL3d3dy5jb2x1bWJpYS5lZHUv
-        Y3UvbHdlYi9zZXJ2aWNlcy9wcmVzZXJ2YXRpb24vcHVibGljYXRpb25zUG9s
-        aWN5Lmh0bWwnLCdBVVRIJ10sJ2F1dGhvcl90eHQnPT5bJ0dvcmRvbiwgTWF4
-        LCddLCdhdXRob3JfYWRkbF90eHQnPT5bJ0NoYXBtYW4sIFRheWxvciBQYXJ0
-        bmVycy4nLCdSaWNoYXJkIEdsdWNrbWFuIEFyY2hpdGVjdHMuJ10sJ2F1dGhv
-        cl9mYWNldCc9PlsnR29yZG9uLCBNYXgsIDE5MzEtMTk5MCcsJ0NoYXBtYW4s
-        IFRheWxvciBQYXJ0bmVycycsJ1JpY2hhcmQgR2x1Y2ttYW4gQXJjaGl0ZWN0
-        cyddLCdhdXRob3JfZGlzcGxheSc9PlsnR29yZG9uLCBNYXgsIDE5MzEtMTk5
-        MCddLCdhdXRob3Jfc29ydCc9PidHb3Jkb24sIE1heCwgMTkzMS0xOTkwLiAg
-        IE1heCBHb3Jkb24gYXJjaGl0ZWN0dXJhbCByZWNvcmRzIGFuZCBwYXBlcnMg
-        MTk0NC0yMDEwIGJ1bGsgMTk0NC0xOTkwJywndGl0bGVfdHh0Jz0+WydNYXgg
-        R29yZG9uIGFyY2hpdGVjdHVyYWwgcmVjb3JkcyBhbmQgcGFwZXJzLCAxOTQ0
-        LTIwMTAsJ10sJ3RpdGxlX2Rpc3BsYXknPT5bJ01heCBHb3Jkb24gYXJjaGl0
-        ZWN0dXJhbCByZWNvcmRzIGFuZCBwYXBlcnMsIDE5NDQtMjAxMCddLCd0aXRs
-        ZV9maWxpbmdfdHh0Jz0+WydNYXggR29yZG9uIGFyY2hpdGVjdHVyYWwgcmVj
-        b3JkcyBhbmQgcGFwZXJzLCddLCd0aXRsZV9maWxpbmdfZnVsbF90eHQnPT5b
-        J01heCBHb3Jkb24gYXJjaGl0ZWN0dXJhbCByZWNvcmRzIGFuZCBwYXBlcnMs
-        J10sJ3RpdGxlX2ZpcnN0X2ZhY2V0Jz0+WydNJ10sJ3RpdGxlX2FkZGxfdHh0
-        Jz0+WydNYXggR29yZG9uIGFyY2hpdGVjdHVyYWwgcmVjb3JkcyBhbmQgcGFw
-        ZXJzLCddLCd0aXRsZV9zb3J0Jz0+J21heCBnb3Jkb24gYXJjaGl0ZWN0dXJh
-        bCByZWNvcmRzIGFuZCBwYXBlcnMnLCdzdWJqZWN0X3R4dCc9PlsnR29yZG9u
-        LCBNYXgsIDE5MzEtMTk5MCcsJ0JhcnRsZXR0LCBKZW5uaWZlciwgMTk0MS0n
-        LCdGZWlnZW4sIFJpY2hhcmQgTC4sIDE5MzAtJywnTWFuaWxvdywgTGV3aXMs
-        IDE5MjctJywnSm9hbm5vdSwgRGFraXMnLCdKb2hucywgSmFzcGVyLCAxOTMw
-        LScsJ1NhYXRjaGkgR2FsbGVyeScsJ0FubmVseSBKdWRhIEZpbmUgQXJ0Jywn
-        RmlzaGVyIExhbmRhdSBDZW50ZXInLCdNYXJsYm9yb3VnaCBGaW5lIEFydCAo
-        TG9uZG9uKSBMdGQnLCdXaGl0ZWNoYXBlbCBBcnQgR2FsbGVyeScsJ0FwYXJ0
-        bWVudCBob3VzZXMgRW5nbGFuZCBMb25kb24nLCdBcGFydG1lbnQgaG91c2Vz
-        IE5ldyBZb3JrIChTdGF0ZSkgTmV3IFlvcmsnLCdBcmNoaXRlY3R1cmUgRW5n
-        bGFuZCBEZXNpZ25zIGFuZCBwbGFucycsJ0FyY2hpdGVjdHVyZSBVbml0ZWQg
-        U3RhdGVzIERlc2lnbnMgYW5kIHBsYW5zJywnQXJ0IEdhbGxlcmllcyAoYnVp
-        bGRpbmdzKScsJ0V4aGliaXRpb24gYnVpbGRpbmcgc3BhY2VzJywnR2FsbGVy
-        aWVzIChBcmNoaXRlY3R1cmUpJywnQXJjaGl0ZWN0dXJhbCBkcmF3aW5ncycs
-        J0RpYXJpZXMnLCdQaG90b2dyYXBocycsJ1N0dWRlbnQgZHJhd2luZ3MnXSwn
-        c3ViamVjdF90b3BpY19mYWNldCc9PlsnR29yZG9uLCBNYXgsIDE5MzEtMTk5
-        MCcsJ0JhcnRsZXR0LCBKZW5uaWZlciwgMTk0MS0nLCdGZWlnZW4sIFJpY2hh
-        cmQgTC4sIDE5MzAtJywnTWFuaWxvdywgTGV3aXMsIDE5MjctJywnSm9hbm5v
-        dSwgRGFraXMnLCdKb2hucywgSmFzcGVyLCAxOTMwLScsJ1NhYXRjaGkgR2Fs
-        bGVyeScsJ0FubmVseSBKdWRhIEZpbmUgQXJ0JywnRmlzaGVyIExhbmRhdSBD
-        ZW50ZXInLCdNYXJsYm9yb3VnaCBGaW5lIEFydCAoTG9uZG9uKSBMdGQnLCdX
-        aGl0ZWNoYXBlbCBBcnQgR2FsbGVyeScsJ0FwYXJ0bWVudCBob3VzZXMnLCdB
-        cmNoaXRlY3R1cmUnLCdBcnQgR2FsbGVyaWVzIChidWlsZGluZ3MpJywnRXho
-        aWJpdGlvbiBidWlsZGluZyBzcGFjZXMnLCdHYWxsZXJpZXMgKEFyY2hpdGVj
-        dHVyZSknXSwnc3ViamVjdF9nZW9fZmFjZXQnPT5bJ0VuZ2xhbmQnLCdMb25k
-        b24nLCdOZXcgWW9yayAoU3RhdGUpJywnTmV3IFlvcmsnLCdVbml0ZWQgU3Rh
-        dGVzJ10sJ3N1YmplY3RfZm9ybV9mYWNldCc9PlsnRGVzaWducyBhbmQgcGxh
-        bnMnLCdBcmNoaXRlY3R1cmFsIGRyYXdpbmdzJywnRGlhcmllcycsJ1Bob3Rv
-        Z3JhcGhzJywnU3R1ZGVudCBkcmF3aW5ncyddLCdzdWJqZWN0X2Zvcm1fdHh0
-        Jz0+WydEZXNpZ25zIGFuZCBwbGFucycsJ0FyY2hpdGVjdHVyYWwgZHJhd2lu
-        Z3MnLCdEaWFyaWVzJywnUGhvdG9ncmFwaHMnLCdTdHVkZW50IGRyYXdpbmdz
-        J10sJ3B1Yl95ZWFyX2Rpc3BsYXknPT5bJzE5NDQtMjAxMCddLCdwdWJfeWVh
-        cl90eHQnPT5bJzE5NDQtMjAxMCddLCdwdWJfZGF0ZV90eHQnPT5bJzE5NDQn
-        XSwnZm9ybWF0Jz0+WydNYW51c2NyaXB0L0FyY2hpdmUnXSwnY2xpb19pZF9k
-        aXNwbGF5Jz0+JzgyNzcyNzYnLCdhY3FfZHQnPT4nMjAxMS0wMS0xMFQwMDow
-        MDowMFonLCdzb3VyY2VfZmFjZXQnPT5bJ2NhdGFsb2cnLCdhcmNoaXZlJ10s
-        J3NvdXJjZV9kaXNwbGF5Jz0+WydjYXRhbG9nJywnYXJjaGl2ZSddLCdyZXBv
-        c2l0b3J5X2ZhY2V0Jz0+WydBdmVyeSBEcmF3aW5ncyAmIEFyY2hpdmVzJ10s
-        J3JlcG9zaXRvcnlfZGlzcGxheSc9PlsnQXZlcnkgRHJhd2luZ3MgJiBBcmNo
-        aXZlcyddLCdkYXRhYmFzZV9yZXN0cmljdGlvbnNfZGlzcGxheSc9PlsnVGhp
-        cyBjb2xsZWN0aW9uIGlzIGF2YWlsYWJsZSBmb3IgdXNlIGJ5IGFwcG9pbnRt
-        ZW50IGluIHRoZSBEZXBhcnRtZW50IG9mIERyYXdpbmdzICYgQXJjaGl2ZXMs
-        IEF2ZXJ5IEFyY2hpdGVjdHVyYWwgYW5kIEZpbmUgQXJ0cyBMaWJyYXJ5LCBD
-        b2x1bWJpYSBVbml2ZXJzaXR5LiBGb3IgZnVydGhlciBpbmZvcm1hdGlvbiBh
-        bmQgdG8gbWFrZSBhbiBhcHBvaW50bWVudCwgcGxlYXNlIGNhbGwgKDIxMikg
-        ODU0LTQxMTAgb3IgZW1haWwgYXZlcnktZHJhd2luZ3NAbGlicmFyaWVzLmNv
-        bHVtYmlhLmVkdS4nXSwnc3VtbWFyeV9kaXNwbGF5Jz0+WydUaGUgY29sbGVj
-        dGlvbiBpcyBvcmdhbml6ZWQgaW50byBmb3VyIHNlcmllczogUHJvamVjdCBS
-        ZWNvcmRzLCBPZmZpY2UgUmVjb3JkcywgU3R1ZGVudCBXb3JrLCBhbmQgUGVy
-        c29uYWwgUGFwZXJzIGFuZCBpcyBjb21wb3NlZCBwcmltYXJpbHkgb2YgcHJv
-        amVjdCBmaWxlcywgYXJjaGl0ZWN0dXJhbCBkcmF3aW5ncywgcGhvdG9ncmFw
-        aHMsIGNvcnJlc3BvbmRlbmNlLCBsZWdhbCBwYXBlcnMsIHBlcnNvbmFsIGRp
-        YXJpZXMsIGFuZCBzdHVkZW50IHNrZXRjaGJvb2tzLiddLCdmdWxsX3B1Ymxp
-        c2hlcl9kaXNwbGF5Jz0+WycxOTQ0LTIwMTAnXSwnbG9jYXRpb25fY2FsbF9u
-        dW1iZXJfaWRfZGlzcGxheSc9PlsnQXZlcnkgRHJhd2luZ3MgJiBBcmNoaXZl
-        cyAtIEJ5IGFwcHQuIChOb24tQ2lyY3VsYXRpbmcpID4+IEQmQSBHb3Jkb258
-        REVMSU18MTE0MjQ0ODYnLCdBdmVyeSBEcmF3aW5ncyZBcmNoaXZlcyA8T2Zm
-        c2l0ZT4gUmVxdWVzdCBhdCBEJkEgKE5vbi1DaXJjKSA+PiBEJkEgR29yZG9u
-        IFJlQ0FQfERFTElNfDExNDg5MDUxJ10sJ2xvY2F0aW9uX2NhbGxfbnVtYmVy
-        X3R4dCc9PlsnQXZlcnkgRHJhd2luZ3MgJiBBcmNoaXZlcyAtIEJ5IGFwcHQu
-        IChOb24tQ2lyY3VsYXRpbmcpID4+IEQmQSBHb3Jkb24nLCdBdmVyeSBEcmF3
-        aW5ncyZBcmNoaXZlcyA8T2Zmc2l0ZT4gUmVxdWVzdCBhdCBEJkEgKE5vbi1D
-        aXJjKSA+PiBEJkEgR29yZG9uIFJlQ0FQJ10sJ2NhbGxfbnVtYmVyX3R4dCc9
-        PlsnRCZBIEdvcmRvbicsJ0QmQSBHb3Jkb24gUmVDQVAnXSwnY2FsbF9udW1i
-        ZXJfZGlzcGxheSc9PlsnRCZBIEdvcmRvbicsJ0QmQSBHb3Jkb24gUmVDQVAn
-        XSwnbG9jYXRpb25fZmFjZXQnPT5bJ0F2ZXJ5LCBGaW5lIEFydHMsIFdhcmUn
-        XSwnbG9jYXRpb25fdHh0Jz0+WydBdmVyeSBEcmF3aW5ncyAmIEFyY2hpdmVz
-        IC0gQnkgYXBwdC4gKE5vbi1DaXJjdWxhdGluZykgPj4gRCZBIEdvcmRvbics
-        J0F2ZXJ5IERyYXdpbmdzJkFyY2hpdmVzIDxPZmZzaXRlPiBSZXF1ZXN0IGF0
-        IEQmQSAoTm9uLUNpcmMpID4+IEQmQSBHb3Jkb24gUmVDQVAnXSwndXJsX211
-        bmdlZF9kaXNwbGF5Jz0+WycyfHx8T25saW5lIEZpbmRpbmcgQWlkfHx8aHR0
-        cDovL2ZpbmRpbmdhaWRzLmN1bC5jb2x1bWJpYS5lZHUvZWFkL25uYy1hL2xk
-        cGRfODI3NzI3Nnx8fCcsJzJ8fHxGb3IgYWRkaXRpb25hbCBndWlkYW5jZSBv
-        biByZXN0cmljdGlvbnMgYW5kIHBlcm1pc3Npb25zIHNlZSBDb2x1bWJpYSBV
-        bml2ZXJzaXR5IExpYnJhcmllcyBQdWJsaWNhdGlvbiBhbmQgRGlnaXRhbCBS
-        ZXByb2R1Y3Rpb24gUG9saWN5IGFuZCBQcm9jZWR1cmVzfHx8aHR0cDovL3d3
-        dy5jb2x1bWJpYS5lZHUvY3UvbHdlYi9zZXJ2aWNlcy9wcmVzZXJ2YXRpb24v
-        cHVibGljYXRpb25zUG9saWN5Lmh0bWx8fHwnXSwnc2hlbGZrZXknPT5bJ2F2
-        ZWZheCtkX2ErMDAwMCswMDAwMDAwMCtnb3Jkb24rcmVjYXAwKzgyNzcyNzYn
-        LCdhdmVmYXgrZF9hKzAwMDArMDAwMDAwMDArZ29yZG9uKzgyNzcyNzYnXSwn
-        cmV2ZXJzZV9zaGVsZmtleSc9PlsncDRsa3Ayfm1+cH56enp6fnp6enp6enp6
-        fmpiOG1iY344bG5wYXp+cnhzc3hzdH5+fn4nLCdwNGxrcDJ+bX5wfnp6enp+
-        enp6enp6enp+amI4bWJjfnJ4c3N4c3R+fn5+fn5+fn5+fiddLCdpdGVtX2Rp
-        c3BsYXknPT5bJ0QmQSBHb3Jkb24gUmVDQVAgfCBhdmVmYXgrZF9hKzAwMDAr
-        MDAwMDAwMDArZ29yZG9uK3JlY2FwMCs4Mjc3Mjc2IHwgcDRsa3Ayfm1+cH56
-        enp6fnp6enp6enp6fmpiOG1iY344bG5wYXp+cnhzc3hzdH5+fn4nLCdEJkEg
-        R29yZG9uIHwgYXZlZmF4K2RfYSswMDAwKzAwMDAwMDAwK2dvcmRvbis4Mjc3
-        Mjc2IHwgcDRsa3Ayfm1+cH56enp6fnp6enp6enp6fmpiOG1iY35yeHNzeHN0
-        fn5+fn5+fn5+fn4nXSwndGltZXN0YW1wJz0+JzIwMTYtMDctMDZUMjE6MDg6
-        MzEuMzY3WicsJ2F1dGhvcml0aWVzX2R0Jz0+JzIwMTYtMDctMjhUMTY6NDI6
-        MDdaJywnYXV0aG9yX3ZhcmlhbnRfdHh0Jz0+WycgR2x1Y2ttYW4gQXJjaGl0
-        ZWN0cyddLCdzdWJqZWN0X3ZhcmlhbnRfdHh0Jz0+WydJb8yEYW5ub3UsIETM
-        smFrZcyEcycsJ0p1ZGEgRmluZSBBcnQnLCdNYXJsYm9yb3VnaCBGaW5lIEFy
-        dCAoTG9uZG9uKSBMaW1pdGVkJywnTWFybGJvcm91Z2ggRmluZSBBcnQgTHRk
-        LicsJ1doaXRlY2hhcGVsIEdhbGxlcnknLCdXaGl0ZWNoYXBlbCBBcnQgR2Fs
-        bGVyeSwgTG9uZG9uJywnQXBhcnRtZW50IGJ1aWxkaW5ncycsJ011bHRpLWZh
-        bWlseSBob3VzaW5nJywnTXVsdGlmYW1pbHkgaG91c2luZycsJ011bHRpcGxl
-        IGR3ZWxsaW5ncycsJ0FyY2hpdGVjdHVyZSwgRG9tZXN0aWMnLCdEd2VsbGlu
-        Z3MnLCdBcmNoaXRlY3R1cmUsIFdlc3Rlcm4gKFdlc3Rlcm4gY291bnRyaWVz
-        KScsJ0J1aWxkaW5nIGRlc2lnbicsJ0NvbnN0cnVjdGlvbicsJ1dlc3Rlcm4g
-        YXJjaGl0ZWN0dXJlIChXZXN0ZXJuIGNvdW50cmllcyknLCdBcnQnLCdCdWls
-        ZGluZycsJ0J1aWxkaW5ncycsJ0FyY2hpdGVjdHVyZScsJ1Jvb21zJ10sJ192
-        ZXJzaW9uXyc9PjE1NDExMTc0NDcwNDY2OTI4NjR9XX19Cg==
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'8277276','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'8277276','marc_display'=>'<record><leader>04704cbcaa2200673 a 4500</leader><controlfield tag="001">8277276</controlfield><controlfield tag="005">20140219131909.0</controlfield><controlfield tag="008">101220i19442010                         </controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)8277276</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">NNC-A</subfield><subfield code="c">NNC-A</subfield><subfield code="e">dacs</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Gordon, Max,</subfield><subfield code="d">1931-1990.</subfield></datafield><datafield tag="245" ind1="0" ind2="0"><subfield code="a">Max Gordon architectural records and papers,</subfield><subfield code="f">1944-2010,</subfield><subfield code="g">bulk 1944-1990</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="c">1944-2010</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">10</subfield><subfield code="f">linear feet,</subfield><subfield code="a">1229</subfield><subfield code="f">drawings,</subfield><subfield code="a">929</subfield><subfield code="f">photographic items.</subfield></datafield><datafield tag="545" ind1="0" ind2=" "><subfield code="a">Max Gordon was an internationally known architect who specialized in the design of galleries and exhibition spaces for modern and contemporary art.</subfield></datafield><datafield tag="545" ind1="0" ind2=" "><subfield code="a">His most prominent commissions include, among others, Annely Juda Fine Art, Brooke-Alexander Gallery, Paula Cooper Gallery, James Corcoran Gallery, Fisher Landau Center, Koury-Wingate Gallery, Lorence-Monk Gallery, Luhring-Augustine Gallery, Maeght-Lelong Gallery, Marlborough Fine Art Galleries, Saatchi Gallery, and gallery space for the Centro d\'Arte Reina Sophia.  Gordon also did significant residential design work for clients such as artist Richard Serra, Joel Shapiro, and Jennifer Barlett, art collectors Asher Edelman and Lewis Manilow, and musician Brian Ferry.</subfield></datafield><datafield tag="520" ind1="2" ind2=" "><subfield code="a">The collection is organized into four series: Project Records, Office Records, Student Work, and Personal Papers and is composed primarily of project files, architectural drawings, photographs, correspondence, legal papers, personal diaries, and student sketchbooks.</subfield></datafield><datafield tag="541" ind1=" " ind2=" "><subfield code="c">Donated;</subfield><subfield code="a">David Gordon;</subfield><subfield code="d">2010;</subfield><subfield code="e">2010.024</subfield></datafield><datafield tag="506" ind1=" " ind2=" "><subfield code="a">This collection is available for use by appointment in the Department of Drawings &amp; Archives, Avery Architectural and Fine Arts Library, Columbia University. For further information and to make an appointment, please call (212) 854-4110 or email avery-drawings@libraries.columbia.edu.</subfield></datafield><datafield tag="540" ind1=" " ind2=" "><subfield code="a">Permission to publish must be obtained in writing from the Director, Avery Architectural &amp; Fine Arts Library, Columbia University, 1172 Amsterdam Ave., MC 0301, New York, NY 10027.</subfield></datafield><datafield tag="544" ind1="1" ind2="0"><subfield code="a">Researchers interested in Max Gordon\'s involvement with the advisory board of the Museum of Modern Art, New York and the advisory board associated with the construction of the Museo Nacional Centro de Arte Reina Sophia, Madrid should consult the Papers of the architect Max Gordon located at the Tate Archive, London.  The collection housed at the Tate Archive also documents Gordon\'s role as a patron, curator and collector and include correspondence, invoices, plans and photographs, lecture notes and printed material.</subfield></datafield><datafield tag="555" ind1="0" ind2=" "><subfield code="a">Finding aid available online.  See Online Link.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Gordon, Max,</subfield><subfield code="d">1931-1990.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Bartlett, Jennifer,</subfield><subfield code="d">1941-</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Feigen, Richard L.,</subfield><subfield code="d">1930-</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Manilow, Lewis,</subfield><subfield code="d">1927-</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Joannou, Dakis.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Johns, Jasper,</subfield><subfield code="d">1930-</subfield></datafield><datafield tag="610" ind1="2" ind2="0"><subfield code="a">Saatchi Gallery.</subfield></datafield><datafield tag="610" ind1="2" ind2="0"><subfield code="a">Annely Juda Fine Art.</subfield></datafield><datafield tag="610" ind1="2" ind2="0"><subfield code="a">Fisher Landau Center.</subfield></datafield><datafield tag="610" ind1="2" ind2="0"><subfield code="a">Marlborough Fine Art (London) Ltd.</subfield></datafield><datafield tag="610" ind1="2" ind2="0"><subfield code="a">Whitechapel Art Gallery.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Apartment houses</subfield><subfield code="z">England</subfield><subfield code="z">London.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Apartment houses</subfield><subfield code="z">New York (State)</subfield><subfield code="z">New York.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Architecture</subfield><subfield code="z">England</subfield><subfield code="v">Designs and plans.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Architecture</subfield><subfield code="z">United States</subfield><subfield code="v">Designs and plans.</subfield></datafield><datafield tag="650" ind1=" " ind2="7"><subfield code="a">Art Galleries (buildings)</subfield><subfield code="2">aat</subfield></datafield><datafield tag="650" ind1=" " ind2="7"><subfield code="a">Exhibition building spaces</subfield><subfield code="2">aat</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Galleries (Architecture)</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Architectural drawings.</subfield><subfield code="2">aat</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Diaries.</subfield><subfield code="2">aat</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Photographs.</subfield><subfield code="2">aat</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Student drawings.</subfield><subfield code="2">aat</subfield></datafield><datafield tag="710" ind1="2" ind2=" "><subfield code="a">Chapman, Taylor Partners.</subfield></datafield><datafield tag="710" ind1="2" ind2=" "><subfield code="a">Richard Gluckman Architects.</subfield></datafield><datafield tag="852" ind1="4" ind2="2"><subfield code="a">Columbia University.</subfield><subfield code="b">Avery Architectural and Fine Arts Library, Dept. of Drawings &amp; Archives,</subfield><subfield code="e">New York, NY.</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Online Finding Aid</subfield><subfield code="u">http://findingaids.cul.columbia.edu/ead/nnc-a/ldpd_8277276</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">For additional guidance on restrictions and permissions see Columbia University Libraries Publication and Digital Reproduction Policy and Procedures</subfield><subfield code="u">http://www.columbia.edu/cu/lweb/services/preservation/publicationsPolicy.html</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">D&amp;A Gordon ReCAP</subfield><subfield code="b">avefax+D_A+0000+00000000+GORDON+RECAP0</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">D&amp;A Gordon</subfield><subfield code="b">avefax+D_A+0000+00000000+GORDON</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Avery, Fine Arts, Ware</subfield><subfield code="b">Avery Drawings &amp; Archives - By appt. (Non-Circulating) &gt;&gt; D&amp;A Gordon|DELIM|11424486</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Avery, Fine Arts, Ware</subfield><subfield code="b">Avery Drawings&amp;Archives &lt;Offsite&gt; Request at D&amp;A (Non-Circ) &gt;&gt; D&amp;A Gordon ReCAP|DELIM|11489051</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Manuscript/Archive</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">archive</subfield></datafield><datafield tag="996" ind1=" " ind2=" "><subfield code="a">Avery Drawings &amp; Archives</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2011-01-10T00:00:00.000Z</subfield></datafield></record>','text'=>['Gordon, Max, 1931-1990.','Max Gordon architectural records and papers, 1944-2010, bulk 1944-1990','1944-2010','10 linear feet, 1229 drawings, 929 photographic items.','Max Gordon was an internationally known architect who specialized in the design of galleries and exhibition spaces for modern and contemporary art.','His most prominent commissions include, among others, Annely Juda Fine Art, Brooke-Alexander Gallery, Paula Cooper Gallery, James Corcoran Gallery, Fisher Landau Center, Koury-Wingate Gallery, Lorence-Monk Gallery, Luhring-Augustine Gallery, Maeght-Lelong Gallery, Marlborough Fine Art Galleries, Saatchi Gallery, and gallery space for the Centro d\'Arte Reina Sophia.  Gordon also did significant residential design work for clients such as artist Richard Serra, Joel Shapiro, and Jennifer Barlett, art collectors Asher Edelman and Lewis Manilow, and musician Brian Ferry.','The collection is organized into four series: Project Records, Office Records, Student Work, and Personal Papers and is composed primarily of project files, architectural drawings, photographs, correspondence, legal papers, personal diaries, and student sketchbooks.','Donated; David Gordon; 2010; 2010.024','This collection is available for use by appointment in the Department of Drawings & Archives, Avery Architectural and Fine Arts Library, Columbia University. For further information and to make an appointment, please call (212) 854-4110 or email avery-drawings@libraries.columbia.edu.','Permission to publish must be obtained in writing from the Director, Avery Architectural & Fine Arts Library, Columbia University, 1172 Amsterdam Ave., MC 0301, New York, NY 10027.','Researchers interested in Max Gordon\'s involvement with the advisory board of the Museum of Modern Art, New York and the advisory board associated with the construction of the Museo Nacional Centro de Arte Reina Sophia, Madrid should consult the Papers of the architect Max Gordon located at the Tate Archive, London.  The collection housed at the Tate Archive also documents Gordon\'s role as a patron, curator and collector and include correspondence, invoices, plans and photographs, lecture notes and printed material.','Finding aid available online.  See Online Link.','Gordon, Max, 1931-1990.','Bartlett, Jennifer, 1941-','Feigen, Richard L., 1930-','Manilow, Lewis, 1927-','Joannou, Dakis.','Johns, Jasper, 1930-','Saatchi Gallery.','Annely Juda Fine Art.','Fisher Landau Center.','Marlborough Fine Art (London) Ltd.','Whitechapel Art Gallery.','Apartment houses England London.','Apartment houses New York (State) New York.','Architecture England Designs and plans.','Architecture United States Designs and plans.','Art Galleries (buildings) aat','Exhibition building spaces aat','Galleries (Architecture)','Architectural drawings. aat','Diaries. aat','Photographs. aat','Student drawings. aat','Chapman, Taylor Partners.','Richard Gluckman Architects.','Columbia University. Avery Architectural and Fine Arts Library, Dept. of Drawings & Archives, New York, NY.','Online Finding Aid http://findingaids.cul.columbia.edu/ead/nnc-a/ldpd_8277276','For additional guidance on restrictions and permissions see Columbia University Libraries Publication and Digital Reproduction Policy and Procedures http://www.columbia.edu/cu/lweb/services/preservation/publicationsPolicy.html','AUTH'],'author_txt'=>['Gordon, Max,'],'author_addl_txt'=>['Chapman, Taylor Partners.','Richard Gluckman Architects.'],'author_facet'=>['Gordon, Max, 1931-1990','Chapman, Taylor Partners','Richard Gluckman Architects'],'author_display'=>['Gordon, Max, 1931-1990'],'author_sort'=>'Gordon, Max, 1931-1990.   Max Gordon architectural records and papers 1944-2010 bulk 1944-1990','title_txt'=>['Max Gordon architectural records and papers, 1944-2010,'],'title_display'=>['Max Gordon architectural records and papers, 1944-2010'],'title_filing_txt'=>['Max Gordon architectural records and papers,'],'title_filing_full_txt'=>['Max Gordon architectural records and papers,'],'title_first_facet'=>['M'],'title_addl_txt'=>['Max Gordon architectural records and papers,'],'title_sort'=>'max gordon architectural records and papers','subject_txt'=>['Gordon, Max, 1931-1990','Bartlett, Jennifer, 1941-','Feigen, Richard L., 1930-','Manilow, Lewis, 1927-','Joannou, Dakis','Johns, Jasper, 1930-','Saatchi Gallery','Annely Juda Fine Art','Fisher Landau Center','Marlborough Fine Art (London) Ltd','Whitechapel Art Gallery','Apartment houses England London','Apartment houses New York (State) New York','Architecture England Designs and plans','Architecture United States Designs and plans','Art Galleries (buildings)','Exhibition building spaces','Galleries (Architecture)','Architectural drawings','Diaries','Photographs','Student drawings'],'subject_topic_facet'=>['Gordon, Max, 1931-1990','Bartlett, Jennifer, 1941-','Feigen, Richard L., 1930-','Manilow, Lewis, 1927-','Joannou, Dakis','Johns, Jasper, 1930-','Saatchi Gallery','Annely Juda Fine Art','Fisher Landau Center','Marlborough Fine Art (London) Ltd','Whitechapel Art Gallery','Apartment houses','Architecture','Art Galleries (buildings)','Exhibition building spaces','Galleries (Architecture)'],'subject_geo_facet'=>['England','London','New York (State)','New York','United States'],'subject_form_facet'=>['Designs and plans','Architectural drawings','Diaries','Photographs','Student drawings'],'subject_form_txt'=>['Designs and plans','Architectural drawings','Diaries','Photographs','Student drawings'],'pub_year_display'=>['1944-2010'],'pub_year_txt'=>['1944-2010'],'pub_date_txt'=>['1944'],'format'=>['Manuscript/Archive'],'clio_id_display'=>'8277276','acq_dt'=>'2011-01-10T00:00:00Z','source_facet'=>['catalog','archive'],'source_display'=>['catalog','archive'],'repository_facet'=>['Avery Drawings & Archives'],'repository_display'=>['Avery Drawings & Archives'],'database_restrictions_display'=>['This collection is available for use by appointment in the Department of Drawings & Archives, Avery Architectural and Fine Arts Library, Columbia University. For further information and to make an appointment, please call (212) 854-4110 or email avery-drawings@libraries.columbia.edu.'],'summary_display'=>['The collection is organized into four series: Project Records, Office Records, Student Work, and Personal Papers and is composed primarily of project files, architectural drawings, photographs, correspondence, legal papers, personal diaries, and student sketchbooks.'],'full_publisher_display'=>['1944-2010'],'location_call_number_id_display'=>['Avery Drawings & Archives - By appt. (Non-Circulating) >> D&A Gordon|DELIM|11424486','Avery Drawings&Archives <Offsite> Request at D&A (Non-Circ) >> D&A Gordon ReCAP|DELIM|11489051'],'location_call_number_txt'=>['Avery Drawings & Archives - By appt. (Non-Circulating) >> D&A Gordon','Avery Drawings&Archives <Offsite> Request at D&A (Non-Circ) >> D&A Gordon ReCAP'],'call_number_txt'=>['D&A Gordon','D&A Gordon ReCAP'],'call_number_display'=>['D&A Gordon','D&A Gordon ReCAP'],'location_facet'=>['Avery, Fine Arts, Ware'],'location_txt'=>['Avery Drawings & Archives - By appt. (Non-Circulating) >> D&A Gordon','Avery Drawings&Archives <Offsite> Request at D&A (Non-Circ) >> D&A Gordon ReCAP'],'url_munged_display'=>['2|||Online Finding Aid|||http://findingaids.cul.columbia.edu/ead/nnc-a/ldpd_8277276|||','2|||For additional guidance on restrictions and permissions see Columbia University Libraries Publication and Digital Reproduction Policy and Procedures|||http://www.columbia.edu/cu/lweb/services/preservation/publicationsPolicy.html|||'],'shelfkey'=>['avefax+d_a+0000+00000000+gordon+recap0+8277276','avefax+d_a+0000+00000000+gordon+8277276'],'reverse_shelfkey'=>['p4lkp2~m~p~zzzz~zzzzzzzz~jb8mbc~8lnpaz~rxssxst~~~~','p4lkp2~m~p~zzzz~zzzzzzzz~jb8mbc~rxssxst~~~~~~~~~~~'],'item_display'=>['D&A Gordon ReCAP | avefax+d_a+0000+00000000+gordon+recap0+8277276 | p4lkp2~m~p~zzzz~zzzzzzzz~jb8mbc~8lnpaz~rxssxst~~~~','D&A Gordon | avefax+d_a+0000+00000000+gordon+8277276 | p4lkp2~m~p~zzzz~zzzzzzzz~jb8mbc~rxssxst~~~~~~~~~~~'],'timestamp'=>'2016-05-23T20:04:39.565Z','authorities_dt'=>'2016-05-23T22:34:37Z','author_variant_txt'=>[' Gluckman Architects'],'subject_variant_txt'=>[' Apartment buildings Multi-family housing Multifamily housing Multiple dwellings Architecture, Domestic Dwellings Architecture, Western (Western countries) Building design Construction Western architecture (Western countries) Art Building Buildings Architecture Rooms'],'_version_'=>1535160223871795200}]}}
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:57:42 GMT
+  recorded_at: Fri, 01 Jul 2016 20:47:45 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/8277276"
@@ -439,11 +34,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.0, ruby 2.2.1 (2015-02-26))
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 17:57:42 GMT
+      - Fri, 01 Jul 2016 20:47:45 GMT
   response:
     status:
       code: 200
@@ -472,13 +67,13 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       X-Runtime:
-      - '2.440937'
+      - '1.385382'
       Access-Control-Request-Method:
       - "*"
       X-Request-Id:
-      - 2ab44d69-a9ce-4a28-8e15-145faed4b82e
+      - 55258c53-186c-4347-a5c4-588911cbcec9
       Date:
-      - Tue, 16 Aug 2016 17:57:44 GMT
+      - Fri, 01 Jul 2016 20:47:47 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -498,7 +93,7 @@ http_interactions:
         target=\"_blank\"\u003eAvery Drawings \u0026 Archives webpage\u003c/a\u003e","call_number":"D\u0026A
         Gordon ReCAP","status":"available","holding_id":["11489051"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":[]}]}}'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:57:45 GMT
+  recorded_at: Fri, 01 Jul 2016 20:47:47 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=8277276&qt=document&wt=ruby"
@@ -512,7 +107,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:57:44 GMT
+      - Fri, 01 Jul 2016 20:47:47 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -520,416 +115,11 @@ http_interactions:
       Server:
       - Jetty(8.1.8.v20121106)
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
-        YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
-        eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic4Mjc3Mjc2
-        JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
-        PnsnbnVtRm91bmQnPT4xLCdzdGFydCc9PjAsJ2RvY3MnPT5beydpZCc9Pic4
-        Mjc3Mjc2JywnbWFyY19kaXNwbGF5Jz0+JzxyZWNvcmQ+PGxlYWRlcj4wNDcw
-        NGNiY2FhMjIwMDY3MyBhIDQ1MDA8L2xlYWRlcj48Y29udHJvbGZpZWxkIHRh
-        Zz0iMDAxIj44Mjc3Mjc2PC9jb250cm9sZmllbGQ+PGNvbnRyb2xmaWVsZCB0
-        YWc9IjAwNSI+MjAxNDAyMTkxMzE5MDkuMDwvY29udHJvbGZpZWxkPjxjb250
-        cm9sZmllbGQgdGFnPSIwMDgiPjEwMTIyMGkxOTQ0MjAxMCAgICAgICAgICAg
-        ICAgICAgICAgICAgICA8L2NvbnRyb2xmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
-        MDM1IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+KE5O
-        Qyk4Mjc3Mjc2PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRh
-        Zz0iMDQwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+
-        Tk5DLUE8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJjIj5OTkMtQTwvc3Vi
-        ZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImUiPmRhY3M8L3N1YmZpZWxkPjwvZGF0
-        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSIxMDAiIGluZDE9IjEiIGluZDI9IiAi
-        PjxzdWJmaWVsZCBjb2RlPSJhIj5Hb3Jkb24sIE1heCw8L3N1YmZpZWxkPjxz
-        dWJmaWVsZCBjb2RlPSJkIj4xOTMxLTE5OTAuPC9zdWJmaWVsZD48L2RhdGFm
-        aWVsZD48ZGF0YWZpZWxkIHRhZz0iMjQ1IiBpbmQxPSIwIiBpbmQyPSIwIj48
-        c3ViZmllbGQgY29kZT0iYSI+TWF4IEdvcmRvbiBhcmNoaXRlY3R1cmFsIHJl
-        Y29yZHMgYW5kIHBhcGVycyw8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJm
-        Ij4xOTQ0LTIwMTAsPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iZyI+YnVs
-        ayAxOTQ0LTE5OTA8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
-        dGFnPSIyNjAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJj
-        Ij4xOTQ0LTIwMTA8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
-        dGFnPSIzMDAiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJh
-        Ij4xMDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImYiPmxpbmVhciBmZWV0
-        LDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9ImEiPjEyMjk8L3N1YmZpZWxk
-        PjxzdWJmaWVsZCBjb2RlPSJmIj5kcmF3aW5ncyw8L3N1YmZpZWxkPjxzdWJm
-        aWVsZCBjb2RlPSJhIj45Mjk8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJm
-        Ij5waG90b2dyYXBoaWMgaXRlbXMuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48
-        ZGF0YWZpZWxkIHRhZz0iNTQ1IiBpbmQxPSIwIiBpbmQyPSIgIj48c3ViZmll
-        bGQgY29kZT0iYSI+TWF4IEdvcmRvbiB3YXMgYW4gaW50ZXJuYXRpb25hbGx5
-        IGtub3duIGFyY2hpdGVjdCB3aG8gc3BlY2lhbGl6ZWQgaW4gdGhlIGRlc2ln
-        biBvZiBnYWxsZXJpZXMgYW5kIGV4aGliaXRpb24gc3BhY2VzIGZvciBtb2Rl
-        cm4gYW5kIGNvbnRlbXBvcmFyeSBhcnQuPC9zdWJmaWVsZD48L2RhdGFmaWVs
-        ZD48ZGF0YWZpZWxkIHRhZz0iNTQ1IiBpbmQxPSIwIiBpbmQyPSIgIj48c3Vi
-        ZmllbGQgY29kZT0iYSI+SGlzIG1vc3QgcHJvbWluZW50IGNvbW1pc3Npb25z
-        IGluY2x1ZGUsIGFtb25nIG90aGVycywgQW5uZWx5IEp1ZGEgRmluZSBBcnQs
-        IEJyb29rZS1BbGV4YW5kZXIgR2FsbGVyeSwgUGF1bGEgQ29vcGVyIEdhbGxl
-        cnksIEphbWVzIENvcmNvcmFuIEdhbGxlcnksIEZpc2hlciBMYW5kYXUgQ2Vu
-        dGVyLCBLb3VyeS1XaW5nYXRlIEdhbGxlcnksIExvcmVuY2UtTW9uayBHYWxs
-        ZXJ5LCBMdWhyaW5nLUF1Z3VzdGluZSBHYWxsZXJ5LCBNYWVnaHQtTGVsb25n
-        IEdhbGxlcnksIE1hcmxib3JvdWdoIEZpbmUgQXJ0IEdhbGxlcmllcywgU2Fh
-        dGNoaSBHYWxsZXJ5LCBhbmQgZ2FsbGVyeSBzcGFjZSBmb3IgdGhlIENlbnRy
-        byBkXCdBcnRlIFJlaW5hIFNvcGhpYS4gIEdvcmRvbiBhbHNvIGRpZCBzaWdu
-        aWZpY2FudCByZXNpZGVudGlhbCBkZXNpZ24gd29yayBmb3IgY2xpZW50cyBz
-        dWNoIGFzIGFydGlzdCBSaWNoYXJkIFNlcnJhLCBKb2VsIFNoYXBpcm8sIGFu
-        ZCBKZW5uaWZlciBCYXJsZXR0LCBhcnQgY29sbGVjdG9ycyBBc2hlciBFZGVs
-        bWFuIGFuZCBMZXdpcyBNYW5pbG93LCBhbmQgbXVzaWNpYW4gQnJpYW4gRmVy
-        cnkuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNTIw
-        IiBpbmQxPSIyIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+VGhlIGNv
-        bGxlY3Rpb24gaXMgb3JnYW5pemVkIGludG8gZm91ciBzZXJpZXM6IFByb2pl
-        Y3QgUmVjb3JkcywgT2ZmaWNlIFJlY29yZHMsIFN0dWRlbnQgV29yaywgYW5k
-        IFBlcnNvbmFsIFBhcGVycyBhbmQgaXMgY29tcG9zZWQgcHJpbWFyaWx5IG9m
-        IHByb2plY3QgZmlsZXMsIGFyY2hpdGVjdHVyYWwgZHJhd2luZ3MsIHBob3Rv
-        Z3JhcGhzLCBjb3JyZXNwb25kZW5jZSwgbGVnYWwgcGFwZXJzLCBwZXJzb25h
-        bCBkaWFyaWVzLCBhbmQgc3R1ZGVudCBza2V0Y2hib29rcy48L3N1YmZpZWxk
-        PjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1NDEiIGluZDE9IiAiIGlu
-        ZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJjIj5Eb25hdGVkOzwvc3ViZmllbGQ+
-        PHN1YmZpZWxkIGNvZGU9ImEiPkRhdmlkIEdvcmRvbjs8L3N1YmZpZWxkPjxz
-        dWJmaWVsZCBjb2RlPSJkIj4yMDEwOzwvc3ViZmllbGQ+PHN1YmZpZWxkIGNv
-        ZGU9ImUiPjIwMTAuMDI0PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZp
-        ZWxkIHRhZz0iNTA2IiBpbmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29k
-        ZT0iYSI+VGhpcyBjb2xsZWN0aW9uIGlzIGF2YWlsYWJsZSBmb3IgdXNlIGJ5
-        IGFwcG9pbnRtZW50IGluIHRoZSBEZXBhcnRtZW50IG9mIERyYXdpbmdzICZh
-        bXA7IEFyY2hpdmVzLCBBdmVyeSBBcmNoaXRlY3R1cmFsIGFuZCBGaW5lIEFy
-        dHMgTGlicmFyeSwgQ29sdW1iaWEgVW5pdmVyc2l0eS4gRm9yIGZ1cnRoZXIg
-        aW5mb3JtYXRpb24gYW5kIHRvIG1ha2UgYW4gYXBwb2ludG1lbnQsIHBsZWFz
-        ZSBjYWxsICgyMTIpIDg1NC00MTEwIG9yIGVtYWlsIGF2ZXJ5LWRyYXdpbmdz
-        QGxpYnJhcmllcy5jb2x1bWJpYS5lZHUuPC9zdWJmaWVsZD48L2RhdGFmaWVs
-        ZD48ZGF0YWZpZWxkIHRhZz0iNTQwIiBpbmQxPSIgIiBpbmQyPSIgIj48c3Vi
-        ZmllbGQgY29kZT0iYSI+UGVybWlzc2lvbiB0byBwdWJsaXNoIG11c3QgYmUg
-        b2J0YWluZWQgaW4gd3JpdGluZyBmcm9tIHRoZSBEaXJlY3RvciwgQXZlcnkg
-        QXJjaGl0ZWN0dXJhbCAmYW1wOyBGaW5lIEFydHMgTGlicmFyeSwgQ29sdW1i
-        aWEgVW5pdmVyc2l0eSwgMTE3MiBBbXN0ZXJkYW0gQXZlLiwgTUMgMDMwMSwg
-        TmV3IFlvcmssIE5ZIDEwMDI3Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRh
-        dGFmaWVsZCB0YWc9IjU0NCIgaW5kMT0iMSIgaW5kMj0iMCI+PHN1YmZpZWxk
-        IGNvZGU9ImEiPlJlc2VhcmNoZXJzIGludGVyZXN0ZWQgaW4gTWF4IEdvcmRv
-        blwncyBpbnZvbHZlbWVudCB3aXRoIHRoZSBhZHZpc29yeSBib2FyZCBvZiB0
-        aGUgTXVzZXVtIG9mIE1vZGVybiBBcnQsIE5ldyBZb3JrIGFuZCB0aGUgYWR2
-        aXNvcnkgYm9hcmQgYXNzb2NpYXRlZCB3aXRoIHRoZSBjb25zdHJ1Y3Rpb24g
-        b2YgdGhlIE11c2VvIE5hY2lvbmFsIENlbnRybyBkZSBBcnRlIFJlaW5hIFNv
-        cGhpYSwgTWFkcmlkIHNob3VsZCBjb25zdWx0IHRoZSBQYXBlcnMgb2YgdGhl
-        IGFyY2hpdGVjdCBNYXggR29yZG9uIGxvY2F0ZWQgYXQgdGhlIFRhdGUgQXJj
-        aGl2ZSwgTG9uZG9uLiAgVGhlIGNvbGxlY3Rpb24gaG91c2VkIGF0IHRoZSBU
-        YXRlIEFyY2hpdmUgYWxzbyBkb2N1bWVudHMgR29yZG9uXCdzIHJvbGUgYXMg
-        YSBwYXRyb24sIGN1cmF0b3IgYW5kIGNvbGxlY3RvciBhbmQgaW5jbHVkZSBj
-        b3JyZXNwb25kZW5jZSwgaW52b2ljZXMsIHBsYW5zIGFuZCBwaG90b2dyYXBo
-        cywgbGVjdHVyZSBub3RlcyBhbmQgcHJpbnRlZCBtYXRlcmlhbC48L3N1YmZp
-        ZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI1NTUiIGluZDE9IjAi
-        IGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5GaW5kaW5nIGFpZCBhdmFp
-        bGFibGUgb25saW5lLiAgU2VlIE9ubGluZSBMaW5rLjwvc3ViZmllbGQ+PC9k
-        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjYwMCIgaW5kMT0iMSIgaW5kMj0i
-        MCI+PHN1YmZpZWxkIGNvZGU9ImEiPkdvcmRvbiwgTWF4LDwvc3ViZmllbGQ+
-        PHN1YmZpZWxkIGNvZGU9ImQiPjE5MzEtMTk5MC48L3N1YmZpZWxkPjwvZGF0
-        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI2MDAiIGluZDE9IjEiIGluZDI9IjAi
-        PjxzdWJmaWVsZCBjb2RlPSJhIj5CYXJ0bGV0dCwgSmVubmlmZXIsPC9zdWJm
-        aWVsZD48c3ViZmllbGQgY29kZT0iZCI+MTk0MS08L3N1YmZpZWxkPjwvZGF0
-        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI2MDAiIGluZDE9IjEiIGluZDI9IjAi
-        PjxzdWJmaWVsZCBjb2RlPSJhIj5GZWlnZW4sIFJpY2hhcmQgTC4sPC9zdWJm
-        aWVsZD48c3ViZmllbGQgY29kZT0iZCI+MTkzMC08L3N1YmZpZWxkPjwvZGF0
-        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI2MDAiIGluZDE9IjEiIGluZDI9IjAi
-        PjxzdWJmaWVsZCBjb2RlPSJhIj5NYW5pbG93LCBMZXdpcyw8L3N1YmZpZWxk
-        PjxzdWJmaWVsZCBjb2RlPSJkIj4xOTI3LTwvc3ViZmllbGQ+PC9kYXRhZmll
-        bGQ+PGRhdGFmaWVsZCB0YWc9IjYwMCIgaW5kMT0iMSIgaW5kMj0iMCI+PHN1
-        YmZpZWxkIGNvZGU9ImEiPkpvYW5ub3UsIERha2lzLjwvc3ViZmllbGQ+PC9k
-        YXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjYwMCIgaW5kMT0iMSIgaW5kMj0i
-        MCI+PHN1YmZpZWxkIGNvZGU9ImEiPkpvaG5zLCBKYXNwZXIsPC9zdWJmaWVs
-        ZD48c3ViZmllbGQgY29kZT0iZCI+MTkzMC08L3N1YmZpZWxkPjwvZGF0YWZp
-        ZWxkPjxkYXRhZmllbGQgdGFnPSI2MTAiIGluZDE9IjIiIGluZDI9IjAiPjxz
-        dWJmaWVsZCBjb2RlPSJhIj5TYWF0Y2hpIEdhbGxlcnkuPC9zdWJmaWVsZD48
-        L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNjEwIiBpbmQxPSIyIiBpbmQy
-        PSIwIj48c3ViZmllbGQgY29kZT0iYSI+QW5uZWx5IEp1ZGEgRmluZSBBcnQu
-        PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNjEwIiBp
-        bmQxPSIyIiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0iYSI+RmlzaGVyIExh
-        bmRhdSBDZW50ZXIuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxk
-        IHRhZz0iNjEwIiBpbmQxPSIyIiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0i
-        YSI+TWFybGJvcm91Z2ggRmluZSBBcnQgKExvbmRvbikgTHRkLjwvc3ViZmll
-        bGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjYxMCIgaW5kMT0iMiIg
-        aW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEiPldoaXRlY2hhcGVsIEFydCBH
-        YWxsZXJ5Ljwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9
-        IjY1MCIgaW5kMT0iICIgaW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEiPkFw
-        YXJ0bWVudCBob3VzZXM8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ6Ij5F
-        bmdsYW5kPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0ieiI+TG9uZG9uLjwv
-        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjY1MCIgaW5k
-        MT0iICIgaW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEiPkFwYXJ0bWVudCBo
-        b3VzZXM8L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ6Ij5OZXcgWW9yayAo
-        U3RhdGUpPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0ieiI+TmV3IFlvcmsu
-        PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iNjUwIiBp
-        bmQxPSIgIiBpbmQyPSIwIj48c3ViZmllbGQgY29kZT0iYSI+QXJjaGl0ZWN0
-        dXJlPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0ieiI+RW5nbGFuZDwvc3Vi
-        ZmllbGQ+PHN1YmZpZWxkIGNvZGU9InYiPkRlc2lnbnMgYW5kIHBsYW5zLjwv
-        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjY1MCIgaW5k
-        MT0iICIgaW5kMj0iMCI+PHN1YmZpZWxkIGNvZGU9ImEiPkFyY2hpdGVjdHVy
-        ZTwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9InoiPlVuaXRlZCBTdGF0ZXM8
-        L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSJ2Ij5EZXNpZ25zIGFuZCBwbGFu
-        cy48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI2NTAi
-        IGluZDE9IiAiIGluZDI9IjciPjxzdWJmaWVsZCBjb2RlPSJhIj5BcnQgR2Fs
-        bGVyaWVzIChidWlsZGluZ3MpPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
-        MiI+YWF0PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
-        NjUwIiBpbmQxPSIgIiBpbmQyPSI3Ij48c3ViZmllbGQgY29kZT0iYSI+RXho
-        aWJpdGlvbiBidWlsZGluZyBzcGFjZXM8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
-        b2RlPSIyIj5hYXQ8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQg
-        dGFnPSI2NTAiIGluZDE9IiAiIGluZDI9IjAiPjxzdWJmaWVsZCBjb2RlPSJh
-        Ij5HYWxsZXJpZXMgKEFyY2hpdGVjdHVyZSk8L3N1YmZpZWxkPjwvZGF0YWZp
-        ZWxkPjxkYXRhZmllbGQgdGFnPSI2NTUiIGluZDE9IiAiIGluZDI9IjciPjxz
-        dWJmaWVsZCBjb2RlPSJhIj5BcmNoaXRlY3R1cmFsIGRyYXdpbmdzLjwvc3Vi
-        ZmllbGQ+PHN1YmZpZWxkIGNvZGU9IjIiPmFhdDwvc3ViZmllbGQ+PC9kYXRh
-        ZmllbGQ+PGRhdGFmaWVsZCB0YWc9IjY1NSIgaW5kMT0iICIgaW5kMj0iNyI+
-        PHN1YmZpZWxkIGNvZGU9ImEiPkRpYXJpZXMuPC9zdWJmaWVsZD48c3ViZmll
-        bGQgY29kZT0iMiI+YWF0PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZp
-        ZWxkIHRhZz0iNjU1IiBpbmQxPSIgIiBpbmQyPSI3Ij48c3ViZmllbGQgY29k
-        ZT0iYSI+UGhvdG9ncmFwaHMuPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
-        MiI+YWF0PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0i
-        NjU1IiBpbmQxPSIgIiBpbmQyPSI3Ij48c3ViZmllbGQgY29kZT0iYSI+U3R1
-        ZGVudCBkcmF3aW5ncy48L3N1YmZpZWxkPjxzdWJmaWVsZCBjb2RlPSIyIj5h
-        YXQ8L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI3MTAi
-        IGluZDE9IjIiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5DaGFwbWFu
-        LCBUYXlsb3IgUGFydG5lcnMuPC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0
-        YWZpZWxkIHRhZz0iNzEwIiBpbmQxPSIyIiBpbmQyPSIgIj48c3ViZmllbGQg
-        Y29kZT0iYSI+UmljaGFyZCBHbHVja21hbiBBcmNoaXRlY3RzLjwvc3ViZmll
-        bGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijg1MiIgaW5kMT0iNCIg
-        aW5kMj0iMiI+PHN1YmZpZWxkIGNvZGU9ImEiPkNvbHVtYmlhIFVuaXZlcnNp
-        dHkuPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+QXZlcnkgQXJjaGl0
-        ZWN0dXJhbCBhbmQgRmluZSBBcnRzIExpYnJhcnksIERlcHQuIG9mIERyYXdp
-        bmdzICZhbXA7IEFyY2hpdmVzLDwvc3ViZmllbGQ+PHN1YmZpZWxkIGNvZGU9
-        ImUiPk5ldyBZb3JrLCBOWS48L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRh
-        ZmllbGQgdGFnPSI4NTYiIGluZDE9IjQiIGluZDI9IjIiPjxzdWJmaWVsZCBj
-        b2RlPSIzIj5PbmxpbmUgRmluZGluZyBBaWQ8L3N1YmZpZWxkPjxzdWJmaWVs
-        ZCBjb2RlPSJ1Ij5odHRwOi8vZmluZGluZ2FpZHMuY3VsLmNvbHVtYmlhLmVk
-        dS9lYWQvbm5jLWEvbGRwZF84Mjc3Mjc2PC9zdWJmaWVsZD48L2RhdGFmaWVs
-        ZD48ZGF0YWZpZWxkIHRhZz0iODU2IiBpbmQxPSI0IiBpbmQyPSIyIj48c3Vi
-        ZmllbGQgY29kZT0iMyI+Rm9yIGFkZGl0aW9uYWwgZ3VpZGFuY2Ugb24gcmVz
-        dHJpY3Rpb25zIGFuZCBwZXJtaXNzaW9ucyBzZWUgQ29sdW1iaWEgVW5pdmVy
-        c2l0eSBMaWJyYXJpZXMgUHVibGljYXRpb24gYW5kIERpZ2l0YWwgUmVwcm9k
-        dWN0aW9uIFBvbGljeSBhbmQgUHJvY2VkdXJlczwvc3ViZmllbGQ+PHN1YmZp
-        ZWxkIGNvZGU9InUiPmh0dHA6Ly93d3cuY29sdW1iaWEuZWR1L2N1L2x3ZWIv
-        c2VydmljZXMvcHJlc2VydmF0aW9uL3B1YmxpY2F0aW9uc1BvbGljeS5odG1s
-        PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTAwIiBp
-        bmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+QVVUSDwvc3Vi
-        ZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5MSIgaW5kMT0i
-        ICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPkQmYW1wO0EgR29yZG9u
-        IFJlQ0FQPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0iYiI+YXZlZmF4K0Rf
-        QSswMDAwKzAwMDAwMDAwK0dPUkRPTitSRUNBUDA8L3N1YmZpZWxkPjwvZGF0
-        YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTEiIGluZDE9IiAiIGluZDI9IiAi
-        PjxzdWJmaWVsZCBjb2RlPSJhIj5EJmFtcDtBIEdvcmRvbjwvc3ViZmllbGQ+
-        PHN1YmZpZWxkIGNvZGU9ImIiPmF2ZWZheCtEX0ErMDAwMCswMDAwMDAwMCtH
-        T1JET048L3N1YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5
-        OTIiIGluZDE9IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5BdmVy
-        eSwgRmluZSBBcnRzLCBXYXJlPC9zdWJmaWVsZD48c3ViZmllbGQgY29kZT0i
-        YiI+QXZlcnkgRHJhd2luZ3MgJmFtcDsgQXJjaGl2ZXMgLSBCeSBhcHB0LiAo
-        Tm9uLUNpcmN1bGF0aW5nKSAmZ3Q7Jmd0OyBEJmFtcDtBIEdvcmRvbnxERUxJ
-        TXwxMTQyNDQ4Njwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0
-        YWc9Ijk5MiIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEi
-        PkF2ZXJ5LCBGaW5lIEFydHMsIFdhcmU8L3N1YmZpZWxkPjxzdWJmaWVsZCBj
-        b2RlPSJiIj5BdmVyeSBEcmF3aW5ncyZhbXA7QXJjaGl2ZXMgJmx0O09mZnNp
-        dGUmZ3Q7IFJlcXVlc3QgYXQgRCZhbXA7QSAoTm9uLUNpcmMpICZndDsmZ3Q7
-        IEQmYW1wO0EgR29yZG9uIFJlQ0FQfERFTElNfDExNDg5MDUxPC9zdWJmaWVs
-        ZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTkzIiBpbmQxPSIgIiBp
-        bmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+TWFudXNjcmlwdC9BcmNoaXZl
-        PC9zdWJmaWVsZD48L2RhdGFmaWVsZD48ZGF0YWZpZWxkIHRhZz0iOTk1IiBp
-        bmQxPSIgIiBpbmQyPSIgIj48c3ViZmllbGQgY29kZT0iYSI+Y2F0YWxvZzwv
-        c3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFmaWVsZCB0YWc9Ijk5NSIgaW5k
-        MT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNvZGU9ImEiPmFyY2hpdmU8L3N1
-        YmZpZWxkPjwvZGF0YWZpZWxkPjxkYXRhZmllbGQgdGFnPSI5OTYiIGluZDE9
-        IiAiIGluZDI9IiAiPjxzdWJmaWVsZCBjb2RlPSJhIj5BdmVyeSBEcmF3aW5n
-        cyAmYW1wOyBBcmNoaXZlczwvc3ViZmllbGQ+PC9kYXRhZmllbGQ+PGRhdGFm
-        aWVsZCB0YWc9Ijk5NyIgaW5kMT0iICIgaW5kMj0iICI+PHN1YmZpZWxkIGNv
-        ZGU9ImEiPjIwMTEtMDEtMTBUMDA6MDA6MDAuMDAwWjwvc3ViZmllbGQ+PC9k
-        YXRhZmllbGQ+PC9yZWNvcmQ+JywndGV4dCc9PlsnR29yZG9uLCBNYXgsIDE5
-        MzEtMTk5MC4nLCdNYXggR29yZG9uIGFyY2hpdGVjdHVyYWwgcmVjb3JkcyBh
-        bmQgcGFwZXJzLCAxOTQ0LTIwMTAsIGJ1bGsgMTk0NC0xOTkwJywnMTk0NC0y
-        MDEwJywnMTAgbGluZWFyIGZlZXQsIDEyMjkgZHJhd2luZ3MsIDkyOSBwaG90
-        b2dyYXBoaWMgaXRlbXMuJywnTWF4IEdvcmRvbiB3YXMgYW4gaW50ZXJuYXRp
-        b25hbGx5IGtub3duIGFyY2hpdGVjdCB3aG8gc3BlY2lhbGl6ZWQgaW4gdGhl
-        IGRlc2lnbiBvZiBnYWxsZXJpZXMgYW5kIGV4aGliaXRpb24gc3BhY2VzIGZv
-        ciBtb2Rlcm4gYW5kIGNvbnRlbXBvcmFyeSBhcnQuJywnSGlzIG1vc3QgcHJv
-        bWluZW50IGNvbW1pc3Npb25zIGluY2x1ZGUsIGFtb25nIG90aGVycywgQW5u
-        ZWx5IEp1ZGEgRmluZSBBcnQsIEJyb29rZS1BbGV4YW5kZXIgR2FsbGVyeSwg
-        UGF1bGEgQ29vcGVyIEdhbGxlcnksIEphbWVzIENvcmNvcmFuIEdhbGxlcnks
-        IEZpc2hlciBMYW5kYXUgQ2VudGVyLCBLb3VyeS1XaW5nYXRlIEdhbGxlcnks
-        IExvcmVuY2UtTW9uayBHYWxsZXJ5LCBMdWhyaW5nLUF1Z3VzdGluZSBHYWxs
-        ZXJ5LCBNYWVnaHQtTGVsb25nIEdhbGxlcnksIE1hcmxib3JvdWdoIEZpbmUg
-        QXJ0IEdhbGxlcmllcywgU2FhdGNoaSBHYWxsZXJ5LCBhbmQgZ2FsbGVyeSBz
-        cGFjZSBmb3IgdGhlIENlbnRybyBkXCdBcnRlIFJlaW5hIFNvcGhpYS4gIEdv
-        cmRvbiBhbHNvIGRpZCBzaWduaWZpY2FudCByZXNpZGVudGlhbCBkZXNpZ24g
-        d29yayBmb3IgY2xpZW50cyBzdWNoIGFzIGFydGlzdCBSaWNoYXJkIFNlcnJh
-        LCBKb2VsIFNoYXBpcm8sIGFuZCBKZW5uaWZlciBCYXJsZXR0LCBhcnQgY29s
-        bGVjdG9ycyBBc2hlciBFZGVsbWFuIGFuZCBMZXdpcyBNYW5pbG93LCBhbmQg
-        bXVzaWNpYW4gQnJpYW4gRmVycnkuJywnVGhlIGNvbGxlY3Rpb24gaXMgb3Jn
-        YW5pemVkIGludG8gZm91ciBzZXJpZXM6IFByb2plY3QgUmVjb3JkcywgT2Zm
-        aWNlIFJlY29yZHMsIFN0dWRlbnQgV29yaywgYW5kIFBlcnNvbmFsIFBhcGVy
-        cyBhbmQgaXMgY29tcG9zZWQgcHJpbWFyaWx5IG9mIHByb2plY3QgZmlsZXMs
-        IGFyY2hpdGVjdHVyYWwgZHJhd2luZ3MsIHBob3RvZ3JhcGhzLCBjb3JyZXNw
-        b25kZW5jZSwgbGVnYWwgcGFwZXJzLCBwZXJzb25hbCBkaWFyaWVzLCBhbmQg
-        c3R1ZGVudCBza2V0Y2hib29rcy4nLCdEb25hdGVkOyBEYXZpZCBHb3Jkb247
-        IDIwMTA7IDIwMTAuMDI0JywnVGhpcyBjb2xsZWN0aW9uIGlzIGF2YWlsYWJs
-        ZSBmb3IgdXNlIGJ5IGFwcG9pbnRtZW50IGluIHRoZSBEZXBhcnRtZW50IG9m
-        IERyYXdpbmdzICYgQXJjaGl2ZXMsIEF2ZXJ5IEFyY2hpdGVjdHVyYWwgYW5k
-        IEZpbmUgQXJ0cyBMaWJyYXJ5LCBDb2x1bWJpYSBVbml2ZXJzaXR5LiBGb3Ig
-        ZnVydGhlciBpbmZvcm1hdGlvbiBhbmQgdG8gbWFrZSBhbiBhcHBvaW50bWVu
-        dCwgcGxlYXNlIGNhbGwgKDIxMikgODU0LTQxMTAgb3IgZW1haWwgYXZlcnkt
-        ZHJhd2luZ3NAbGlicmFyaWVzLmNvbHVtYmlhLmVkdS4nLCdQZXJtaXNzaW9u
-        IHRvIHB1Ymxpc2ggbXVzdCBiZSBvYnRhaW5lZCBpbiB3cml0aW5nIGZyb20g
-        dGhlIERpcmVjdG9yLCBBdmVyeSBBcmNoaXRlY3R1cmFsICYgRmluZSBBcnRz
-        IExpYnJhcnksIENvbHVtYmlhIFVuaXZlcnNpdHksIDExNzIgQW1zdGVyZGFt
-        IEF2ZS4sIE1DIDAzMDEsIE5ldyBZb3JrLCBOWSAxMDAyNy4nLCdSZXNlYXJj
-        aGVycyBpbnRlcmVzdGVkIGluIE1heCBHb3Jkb25cJ3MgaW52b2x2ZW1lbnQg
-        d2l0aCB0aGUgYWR2aXNvcnkgYm9hcmQgb2YgdGhlIE11c2V1bSBvZiBNb2Rl
-        cm4gQXJ0LCBOZXcgWW9yayBhbmQgdGhlIGFkdmlzb3J5IGJvYXJkIGFzc29j
-        aWF0ZWQgd2l0aCB0aGUgY29uc3RydWN0aW9uIG9mIHRoZSBNdXNlbyBOYWNp
-        b25hbCBDZW50cm8gZGUgQXJ0ZSBSZWluYSBTb3BoaWEsIE1hZHJpZCBzaG91
-        bGQgY29uc3VsdCB0aGUgUGFwZXJzIG9mIHRoZSBhcmNoaXRlY3QgTWF4IEdv
-        cmRvbiBsb2NhdGVkIGF0IHRoZSBUYXRlIEFyY2hpdmUsIExvbmRvbi4gIFRo
-        ZSBjb2xsZWN0aW9uIGhvdXNlZCBhdCB0aGUgVGF0ZSBBcmNoaXZlIGFsc28g
-        ZG9jdW1lbnRzIEdvcmRvblwncyByb2xlIGFzIGEgcGF0cm9uLCBjdXJhdG9y
-        IGFuZCBjb2xsZWN0b3IgYW5kIGluY2x1ZGUgY29ycmVzcG9uZGVuY2UsIGlu
-        dm9pY2VzLCBwbGFucyBhbmQgcGhvdG9ncmFwaHMsIGxlY3R1cmUgbm90ZXMg
-        YW5kIHByaW50ZWQgbWF0ZXJpYWwuJywnRmluZGluZyBhaWQgYXZhaWxhYmxl
-        IG9ubGluZS4gIFNlZSBPbmxpbmUgTGluay4nLCdHb3Jkb24sIE1heCwgMTkz
-        MS0xOTkwLicsJ0JhcnRsZXR0LCBKZW5uaWZlciwgMTk0MS0nLCdGZWlnZW4s
-        IFJpY2hhcmQgTC4sIDE5MzAtJywnTWFuaWxvdywgTGV3aXMsIDE5MjctJywn
-        Sm9hbm5vdSwgRGFraXMuJywnSm9obnMsIEphc3BlciwgMTkzMC0nLCdTYWF0
-        Y2hpIEdhbGxlcnkuJywnQW5uZWx5IEp1ZGEgRmluZSBBcnQuJywnRmlzaGVy
-        IExhbmRhdSBDZW50ZXIuJywnTWFybGJvcm91Z2ggRmluZSBBcnQgKExvbmRv
-        bikgTHRkLicsJ1doaXRlY2hhcGVsIEFydCBHYWxsZXJ5LicsJ0FwYXJ0bWVu
-        dCBob3VzZXMgRW5nbGFuZCBMb25kb24uJywnQXBhcnRtZW50IGhvdXNlcyBO
-        ZXcgWW9yayAoU3RhdGUpIE5ldyBZb3JrLicsJ0FyY2hpdGVjdHVyZSBFbmds
-        YW5kIERlc2lnbnMgYW5kIHBsYW5zLicsJ0FyY2hpdGVjdHVyZSBVbml0ZWQg
-        U3RhdGVzIERlc2lnbnMgYW5kIHBsYW5zLicsJ0FydCBHYWxsZXJpZXMgKGJ1
-        aWxkaW5ncykgYWF0JywnRXhoaWJpdGlvbiBidWlsZGluZyBzcGFjZXMgYWF0
-        JywnR2FsbGVyaWVzIChBcmNoaXRlY3R1cmUpJywnQXJjaGl0ZWN0dXJhbCBk
-        cmF3aW5ncy4gYWF0JywnRGlhcmllcy4gYWF0JywnUGhvdG9ncmFwaHMuIGFh
-        dCcsJ1N0dWRlbnQgZHJhd2luZ3MuIGFhdCcsJ0NoYXBtYW4sIFRheWxvciBQ
-        YXJ0bmVycy4nLCdSaWNoYXJkIEdsdWNrbWFuIEFyY2hpdGVjdHMuJywnQ29s
-        dW1iaWEgVW5pdmVyc2l0eS4gQXZlcnkgQXJjaGl0ZWN0dXJhbCBhbmQgRmlu
-        ZSBBcnRzIExpYnJhcnksIERlcHQuIG9mIERyYXdpbmdzICYgQXJjaGl2ZXMs
-        IE5ldyBZb3JrLCBOWS4nLCdPbmxpbmUgRmluZGluZyBBaWQgaHR0cDovL2Zp
-        bmRpbmdhaWRzLmN1bC5jb2x1bWJpYS5lZHUvZWFkL25uYy1hL2xkcGRfODI3
-        NzI3NicsJ0ZvciBhZGRpdGlvbmFsIGd1aWRhbmNlIG9uIHJlc3RyaWN0aW9u
-        cyBhbmQgcGVybWlzc2lvbnMgc2VlIENvbHVtYmlhIFVuaXZlcnNpdHkgTGli
-        cmFyaWVzIFB1YmxpY2F0aW9uIGFuZCBEaWdpdGFsIFJlcHJvZHVjdGlvbiBQ
-        b2xpY3kgYW5kIFByb2NlZHVyZXMgaHR0cDovL3d3dy5jb2x1bWJpYS5lZHUv
-        Y3UvbHdlYi9zZXJ2aWNlcy9wcmVzZXJ2YXRpb24vcHVibGljYXRpb25zUG9s
-        aWN5Lmh0bWwnLCdBVVRIJ10sJ2F1dGhvcl90eHQnPT5bJ0dvcmRvbiwgTWF4
-        LCddLCdhdXRob3JfYWRkbF90eHQnPT5bJ0NoYXBtYW4sIFRheWxvciBQYXJ0
-        bmVycy4nLCdSaWNoYXJkIEdsdWNrbWFuIEFyY2hpdGVjdHMuJ10sJ2F1dGhv
-        cl9mYWNldCc9PlsnR29yZG9uLCBNYXgsIDE5MzEtMTk5MCcsJ0NoYXBtYW4s
-        IFRheWxvciBQYXJ0bmVycycsJ1JpY2hhcmQgR2x1Y2ttYW4gQXJjaGl0ZWN0
-        cyddLCdhdXRob3JfZGlzcGxheSc9PlsnR29yZG9uLCBNYXgsIDE5MzEtMTk5
-        MCddLCdhdXRob3Jfc29ydCc9PidHb3Jkb24sIE1heCwgMTkzMS0xOTkwLiAg
-        IE1heCBHb3Jkb24gYXJjaGl0ZWN0dXJhbCByZWNvcmRzIGFuZCBwYXBlcnMg
-        MTk0NC0yMDEwIGJ1bGsgMTk0NC0xOTkwJywndGl0bGVfdHh0Jz0+WydNYXgg
-        R29yZG9uIGFyY2hpdGVjdHVyYWwgcmVjb3JkcyBhbmQgcGFwZXJzLCAxOTQ0
-        LTIwMTAsJ10sJ3RpdGxlX2Rpc3BsYXknPT5bJ01heCBHb3Jkb24gYXJjaGl0
-        ZWN0dXJhbCByZWNvcmRzIGFuZCBwYXBlcnMsIDE5NDQtMjAxMCddLCd0aXRs
-        ZV9maWxpbmdfdHh0Jz0+WydNYXggR29yZG9uIGFyY2hpdGVjdHVyYWwgcmVj
-        b3JkcyBhbmQgcGFwZXJzLCddLCd0aXRsZV9maWxpbmdfZnVsbF90eHQnPT5b
-        J01heCBHb3Jkb24gYXJjaGl0ZWN0dXJhbCByZWNvcmRzIGFuZCBwYXBlcnMs
-        J10sJ3RpdGxlX2ZpcnN0X2ZhY2V0Jz0+WydNJ10sJ3RpdGxlX2FkZGxfdHh0
-        Jz0+WydNYXggR29yZG9uIGFyY2hpdGVjdHVyYWwgcmVjb3JkcyBhbmQgcGFw
-        ZXJzLCddLCd0aXRsZV9zb3J0Jz0+J21heCBnb3Jkb24gYXJjaGl0ZWN0dXJh
-        bCByZWNvcmRzIGFuZCBwYXBlcnMnLCdzdWJqZWN0X3R4dCc9PlsnR29yZG9u
-        LCBNYXgsIDE5MzEtMTk5MCcsJ0JhcnRsZXR0LCBKZW5uaWZlciwgMTk0MS0n
-        LCdGZWlnZW4sIFJpY2hhcmQgTC4sIDE5MzAtJywnTWFuaWxvdywgTGV3aXMs
-        IDE5MjctJywnSm9hbm5vdSwgRGFraXMnLCdKb2hucywgSmFzcGVyLCAxOTMw
-        LScsJ1NhYXRjaGkgR2FsbGVyeScsJ0FubmVseSBKdWRhIEZpbmUgQXJ0Jywn
-        RmlzaGVyIExhbmRhdSBDZW50ZXInLCdNYXJsYm9yb3VnaCBGaW5lIEFydCAo
-        TG9uZG9uKSBMdGQnLCdXaGl0ZWNoYXBlbCBBcnQgR2FsbGVyeScsJ0FwYXJ0
-        bWVudCBob3VzZXMgRW5nbGFuZCBMb25kb24nLCdBcGFydG1lbnQgaG91c2Vz
-        IE5ldyBZb3JrIChTdGF0ZSkgTmV3IFlvcmsnLCdBcmNoaXRlY3R1cmUgRW5n
-        bGFuZCBEZXNpZ25zIGFuZCBwbGFucycsJ0FyY2hpdGVjdHVyZSBVbml0ZWQg
-        U3RhdGVzIERlc2lnbnMgYW5kIHBsYW5zJywnQXJ0IEdhbGxlcmllcyAoYnVp
-        bGRpbmdzKScsJ0V4aGliaXRpb24gYnVpbGRpbmcgc3BhY2VzJywnR2FsbGVy
-        aWVzIChBcmNoaXRlY3R1cmUpJywnQXJjaGl0ZWN0dXJhbCBkcmF3aW5ncycs
-        J0RpYXJpZXMnLCdQaG90b2dyYXBocycsJ1N0dWRlbnQgZHJhd2luZ3MnXSwn
-        c3ViamVjdF90b3BpY19mYWNldCc9PlsnR29yZG9uLCBNYXgsIDE5MzEtMTk5
-        MCcsJ0JhcnRsZXR0LCBKZW5uaWZlciwgMTk0MS0nLCdGZWlnZW4sIFJpY2hh
-        cmQgTC4sIDE5MzAtJywnTWFuaWxvdywgTGV3aXMsIDE5MjctJywnSm9hbm5v
-        dSwgRGFraXMnLCdKb2hucywgSmFzcGVyLCAxOTMwLScsJ1NhYXRjaGkgR2Fs
-        bGVyeScsJ0FubmVseSBKdWRhIEZpbmUgQXJ0JywnRmlzaGVyIExhbmRhdSBD
-        ZW50ZXInLCdNYXJsYm9yb3VnaCBGaW5lIEFydCAoTG9uZG9uKSBMdGQnLCdX
-        aGl0ZWNoYXBlbCBBcnQgR2FsbGVyeScsJ0FwYXJ0bWVudCBob3VzZXMnLCdB
-        cmNoaXRlY3R1cmUnLCdBcnQgR2FsbGVyaWVzIChidWlsZGluZ3MpJywnRXho
-        aWJpdGlvbiBidWlsZGluZyBzcGFjZXMnLCdHYWxsZXJpZXMgKEFyY2hpdGVj
-        dHVyZSknXSwnc3ViamVjdF9nZW9fZmFjZXQnPT5bJ0VuZ2xhbmQnLCdMb25k
-        b24nLCdOZXcgWW9yayAoU3RhdGUpJywnTmV3IFlvcmsnLCdVbml0ZWQgU3Rh
-        dGVzJ10sJ3N1YmplY3RfZm9ybV9mYWNldCc9PlsnRGVzaWducyBhbmQgcGxh
-        bnMnLCdBcmNoaXRlY3R1cmFsIGRyYXdpbmdzJywnRGlhcmllcycsJ1Bob3Rv
-        Z3JhcGhzJywnU3R1ZGVudCBkcmF3aW5ncyddLCdzdWJqZWN0X2Zvcm1fdHh0
-        Jz0+WydEZXNpZ25zIGFuZCBwbGFucycsJ0FyY2hpdGVjdHVyYWwgZHJhd2lu
-        Z3MnLCdEaWFyaWVzJywnUGhvdG9ncmFwaHMnLCdTdHVkZW50IGRyYXdpbmdz
-        J10sJ3B1Yl95ZWFyX2Rpc3BsYXknPT5bJzE5NDQtMjAxMCddLCdwdWJfeWVh
-        cl90eHQnPT5bJzE5NDQtMjAxMCddLCdwdWJfZGF0ZV90eHQnPT5bJzE5NDQn
-        XSwnZm9ybWF0Jz0+WydNYW51c2NyaXB0L0FyY2hpdmUnXSwnY2xpb19pZF9k
-        aXNwbGF5Jz0+JzgyNzcyNzYnLCdhY3FfZHQnPT4nMjAxMS0wMS0xMFQwMDow
-        MDowMFonLCdzb3VyY2VfZmFjZXQnPT5bJ2NhdGFsb2cnLCdhcmNoaXZlJ10s
-        J3NvdXJjZV9kaXNwbGF5Jz0+WydjYXRhbG9nJywnYXJjaGl2ZSddLCdyZXBv
-        c2l0b3J5X2ZhY2V0Jz0+WydBdmVyeSBEcmF3aW5ncyAmIEFyY2hpdmVzJ10s
-        J3JlcG9zaXRvcnlfZGlzcGxheSc9PlsnQXZlcnkgRHJhd2luZ3MgJiBBcmNo
-        aXZlcyddLCdkYXRhYmFzZV9yZXN0cmljdGlvbnNfZGlzcGxheSc9PlsnVGhp
-        cyBjb2xsZWN0aW9uIGlzIGF2YWlsYWJsZSBmb3IgdXNlIGJ5IGFwcG9pbnRt
-        ZW50IGluIHRoZSBEZXBhcnRtZW50IG9mIERyYXdpbmdzICYgQXJjaGl2ZXMs
-        IEF2ZXJ5IEFyY2hpdGVjdHVyYWwgYW5kIEZpbmUgQXJ0cyBMaWJyYXJ5LCBD
-        b2x1bWJpYSBVbml2ZXJzaXR5LiBGb3IgZnVydGhlciBpbmZvcm1hdGlvbiBh
-        bmQgdG8gbWFrZSBhbiBhcHBvaW50bWVudCwgcGxlYXNlIGNhbGwgKDIxMikg
-        ODU0LTQxMTAgb3IgZW1haWwgYXZlcnktZHJhd2luZ3NAbGlicmFyaWVzLmNv
-        bHVtYmlhLmVkdS4nXSwnc3VtbWFyeV9kaXNwbGF5Jz0+WydUaGUgY29sbGVj
-        dGlvbiBpcyBvcmdhbml6ZWQgaW50byBmb3VyIHNlcmllczogUHJvamVjdCBS
-        ZWNvcmRzLCBPZmZpY2UgUmVjb3JkcywgU3R1ZGVudCBXb3JrLCBhbmQgUGVy
-        c29uYWwgUGFwZXJzIGFuZCBpcyBjb21wb3NlZCBwcmltYXJpbHkgb2YgcHJv
-        amVjdCBmaWxlcywgYXJjaGl0ZWN0dXJhbCBkcmF3aW5ncywgcGhvdG9ncmFw
-        aHMsIGNvcnJlc3BvbmRlbmNlLCBsZWdhbCBwYXBlcnMsIHBlcnNvbmFsIGRp
-        YXJpZXMsIGFuZCBzdHVkZW50IHNrZXRjaGJvb2tzLiddLCdmdWxsX3B1Ymxp
-        c2hlcl9kaXNwbGF5Jz0+WycxOTQ0LTIwMTAnXSwnbG9jYXRpb25fY2FsbF9u
-        dW1iZXJfaWRfZGlzcGxheSc9PlsnQXZlcnkgRHJhd2luZ3MgJiBBcmNoaXZl
-        cyAtIEJ5IGFwcHQuIChOb24tQ2lyY3VsYXRpbmcpID4+IEQmQSBHb3Jkb258
-        REVMSU18MTE0MjQ0ODYnLCdBdmVyeSBEcmF3aW5ncyZBcmNoaXZlcyA8T2Zm
-        c2l0ZT4gUmVxdWVzdCBhdCBEJkEgKE5vbi1DaXJjKSA+PiBEJkEgR29yZG9u
-        IFJlQ0FQfERFTElNfDExNDg5MDUxJ10sJ2xvY2F0aW9uX2NhbGxfbnVtYmVy
-        X3R4dCc9PlsnQXZlcnkgRHJhd2luZ3MgJiBBcmNoaXZlcyAtIEJ5IGFwcHQu
-        IChOb24tQ2lyY3VsYXRpbmcpID4+IEQmQSBHb3Jkb24nLCdBdmVyeSBEcmF3
-        aW5ncyZBcmNoaXZlcyA8T2Zmc2l0ZT4gUmVxdWVzdCBhdCBEJkEgKE5vbi1D
-        aXJjKSA+PiBEJkEgR29yZG9uIFJlQ0FQJ10sJ2NhbGxfbnVtYmVyX3R4dCc9
-        PlsnRCZBIEdvcmRvbicsJ0QmQSBHb3Jkb24gUmVDQVAnXSwnY2FsbF9udW1i
-        ZXJfZGlzcGxheSc9PlsnRCZBIEdvcmRvbicsJ0QmQSBHb3Jkb24gUmVDQVAn
-        XSwnbG9jYXRpb25fZmFjZXQnPT5bJ0F2ZXJ5LCBGaW5lIEFydHMsIFdhcmUn
-        XSwnbG9jYXRpb25fdHh0Jz0+WydBdmVyeSBEcmF3aW5ncyAmIEFyY2hpdmVz
-        IC0gQnkgYXBwdC4gKE5vbi1DaXJjdWxhdGluZykgPj4gRCZBIEdvcmRvbics
-        J0F2ZXJ5IERyYXdpbmdzJkFyY2hpdmVzIDxPZmZzaXRlPiBSZXF1ZXN0IGF0
-        IEQmQSAoTm9uLUNpcmMpID4+IEQmQSBHb3Jkb24gUmVDQVAnXSwndXJsX211
-        bmdlZF9kaXNwbGF5Jz0+WycyfHx8T25saW5lIEZpbmRpbmcgQWlkfHx8aHR0
-        cDovL2ZpbmRpbmdhaWRzLmN1bC5jb2x1bWJpYS5lZHUvZWFkL25uYy1hL2xk
-        cGRfODI3NzI3Nnx8fCcsJzJ8fHxGb3IgYWRkaXRpb25hbCBndWlkYW5jZSBv
-        biByZXN0cmljdGlvbnMgYW5kIHBlcm1pc3Npb25zIHNlZSBDb2x1bWJpYSBV
-        bml2ZXJzaXR5IExpYnJhcmllcyBQdWJsaWNhdGlvbiBhbmQgRGlnaXRhbCBS
-        ZXByb2R1Y3Rpb24gUG9saWN5IGFuZCBQcm9jZWR1cmVzfHx8aHR0cDovL3d3
-        dy5jb2x1bWJpYS5lZHUvY3UvbHdlYi9zZXJ2aWNlcy9wcmVzZXJ2YXRpb24v
-        cHVibGljYXRpb25zUG9saWN5Lmh0bWx8fHwnXSwnc2hlbGZrZXknPT5bJ2F2
-        ZWZheCtkX2ErMDAwMCswMDAwMDAwMCtnb3Jkb24rcmVjYXAwKzgyNzcyNzYn
-        LCdhdmVmYXgrZF9hKzAwMDArMDAwMDAwMDArZ29yZG9uKzgyNzcyNzYnXSwn
-        cmV2ZXJzZV9zaGVsZmtleSc9PlsncDRsa3Ayfm1+cH56enp6fnp6enp6enp6
-        fmpiOG1iY344bG5wYXp+cnhzc3hzdH5+fn4nLCdwNGxrcDJ+bX5wfnp6enp+
-        enp6enp6enp+amI4bWJjfnJ4c3N4c3R+fn5+fn5+fn5+fiddLCdpdGVtX2Rp
-        c3BsYXknPT5bJ0QmQSBHb3Jkb24gUmVDQVAgfCBhdmVmYXgrZF9hKzAwMDAr
-        MDAwMDAwMDArZ29yZG9uK3JlY2FwMCs4Mjc3Mjc2IHwgcDRsa3Ayfm1+cH56
-        enp6fnp6enp6enp6fmpiOG1iY344bG5wYXp+cnhzc3hzdH5+fn4nLCdEJkEg
-        R29yZG9uIHwgYXZlZmF4K2RfYSswMDAwKzAwMDAwMDAwK2dvcmRvbis4Mjc3
-        Mjc2IHwgcDRsa3Ayfm1+cH56enp6fnp6enp6enp6fmpiOG1iY35yeHNzeHN0
-        fn5+fn5+fn5+fn4nXSwndGltZXN0YW1wJz0+JzIwMTYtMDctMDZUMjE6MDg6
-        MzEuMzY3WicsJ2F1dGhvcml0aWVzX2R0Jz0+JzIwMTYtMDctMjhUMTY6NDI6
-        MDdaJywnYXV0aG9yX3ZhcmlhbnRfdHh0Jz0+WycgR2x1Y2ttYW4gQXJjaGl0
-        ZWN0cyddLCdzdWJqZWN0X3ZhcmlhbnRfdHh0Jz0+WydJb8yEYW5ub3UsIETM
-        smFrZcyEcycsJ0p1ZGEgRmluZSBBcnQnLCdNYXJsYm9yb3VnaCBGaW5lIEFy
-        dCAoTG9uZG9uKSBMaW1pdGVkJywnTWFybGJvcm91Z2ggRmluZSBBcnQgTHRk
-        LicsJ1doaXRlY2hhcGVsIEdhbGxlcnknLCdXaGl0ZWNoYXBlbCBBcnQgR2Fs
-        bGVyeSwgTG9uZG9uJywnQXBhcnRtZW50IGJ1aWxkaW5ncycsJ011bHRpLWZh
-        bWlseSBob3VzaW5nJywnTXVsdGlmYW1pbHkgaG91c2luZycsJ011bHRpcGxl
-        IGR3ZWxsaW5ncycsJ0FyY2hpdGVjdHVyZSwgRG9tZXN0aWMnLCdEd2VsbGlu
-        Z3MnLCdBcmNoaXRlY3R1cmUsIFdlc3Rlcm4gKFdlc3Rlcm4gY291bnRyaWVz
-        KScsJ0J1aWxkaW5nIGRlc2lnbicsJ0NvbnN0cnVjdGlvbicsJ1dlc3Rlcm4g
-        YXJjaGl0ZWN0dXJlIChXZXN0ZXJuIGNvdW50cmllcyknLCdBcnQnLCdCdWls
-        ZGluZycsJ0J1aWxkaW5ncycsJ0FyY2hpdGVjdHVyZScsJ1Jvb21zJ10sJ192
-        ZXJzaW9uXyc9PjE1NDExMTc0NDcwNDY2OTI4NjR9XX19Cg==
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'8277276','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'8277276','marc_display'=>'<record><leader>04704cbcaa2200673 a 4500</leader><controlfield tag="001">8277276</controlfield><controlfield tag="005">20140219131909.0</controlfield><controlfield tag="008">101220i19442010                         </controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)8277276</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">NNC-A</subfield><subfield code="c">NNC-A</subfield><subfield code="e">dacs</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Gordon, Max,</subfield><subfield code="d">1931-1990.</subfield></datafield><datafield tag="245" ind1="0" ind2="0"><subfield code="a">Max Gordon architectural records and papers,</subfield><subfield code="f">1944-2010,</subfield><subfield code="g">bulk 1944-1990</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="c">1944-2010</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">10</subfield><subfield code="f">linear feet,</subfield><subfield code="a">1229</subfield><subfield code="f">drawings,</subfield><subfield code="a">929</subfield><subfield code="f">photographic items.</subfield></datafield><datafield tag="545" ind1="0" ind2=" "><subfield code="a">Max Gordon was an internationally known architect who specialized in the design of galleries and exhibition spaces for modern and contemporary art.</subfield></datafield><datafield tag="545" ind1="0" ind2=" "><subfield code="a">His most prominent commissions include, among others, Annely Juda Fine Art, Brooke-Alexander Gallery, Paula Cooper Gallery, James Corcoran Gallery, Fisher Landau Center, Koury-Wingate Gallery, Lorence-Monk Gallery, Luhring-Augustine Gallery, Maeght-Lelong Gallery, Marlborough Fine Art Galleries, Saatchi Gallery, and gallery space for the Centro d\'Arte Reina Sophia.  Gordon also did significant residential design work for clients such as artist Richard Serra, Joel Shapiro, and Jennifer Barlett, art collectors Asher Edelman and Lewis Manilow, and musician Brian Ferry.</subfield></datafield><datafield tag="520" ind1="2" ind2=" "><subfield code="a">The collection is organized into four series: Project Records, Office Records, Student Work, and Personal Papers and is composed primarily of project files, architectural drawings, photographs, correspondence, legal papers, personal diaries, and student sketchbooks.</subfield></datafield><datafield tag="541" ind1=" " ind2=" "><subfield code="c">Donated;</subfield><subfield code="a">David Gordon;</subfield><subfield code="d">2010;</subfield><subfield code="e">2010.024</subfield></datafield><datafield tag="506" ind1=" " ind2=" "><subfield code="a">This collection is available for use by appointment in the Department of Drawings &amp; Archives, Avery Architectural and Fine Arts Library, Columbia University. For further information and to make an appointment, please call (212) 854-4110 or email avery-drawings@libraries.columbia.edu.</subfield></datafield><datafield tag="540" ind1=" " ind2=" "><subfield code="a">Permission to publish must be obtained in writing from the Director, Avery Architectural &amp; Fine Arts Library, Columbia University, 1172 Amsterdam Ave., MC 0301, New York, NY 10027.</subfield></datafield><datafield tag="544" ind1="1" ind2="0"><subfield code="a">Researchers interested in Max Gordon\'s involvement with the advisory board of the Museum of Modern Art, New York and the advisory board associated with the construction of the Museo Nacional Centro de Arte Reina Sophia, Madrid should consult the Papers of the architect Max Gordon located at the Tate Archive, London.  The collection housed at the Tate Archive also documents Gordon\'s role as a patron, curator and collector and include correspondence, invoices, plans and photographs, lecture notes and printed material.</subfield></datafield><datafield tag="555" ind1="0" ind2=" "><subfield code="a">Finding aid available online.  See Online Link.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Gordon, Max,</subfield><subfield code="d">1931-1990.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Bartlett, Jennifer,</subfield><subfield code="d">1941-</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Feigen, Richard L.,</subfield><subfield code="d">1930-</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Manilow, Lewis,</subfield><subfield code="d">1927-</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Joannou, Dakis.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Johns, Jasper,</subfield><subfield code="d">1930-</subfield></datafield><datafield tag="610" ind1="2" ind2="0"><subfield code="a">Saatchi Gallery.</subfield></datafield><datafield tag="610" ind1="2" ind2="0"><subfield code="a">Annely Juda Fine Art.</subfield></datafield><datafield tag="610" ind1="2" ind2="0"><subfield code="a">Fisher Landau Center.</subfield></datafield><datafield tag="610" ind1="2" ind2="0"><subfield code="a">Marlborough Fine Art (London) Ltd.</subfield></datafield><datafield tag="610" ind1="2" ind2="0"><subfield code="a">Whitechapel Art Gallery.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Apartment houses</subfield><subfield code="z">England</subfield><subfield code="z">London.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Apartment houses</subfield><subfield code="z">New York (State)</subfield><subfield code="z">New York.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Architecture</subfield><subfield code="z">England</subfield><subfield code="v">Designs and plans.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Architecture</subfield><subfield code="z">United States</subfield><subfield code="v">Designs and plans.</subfield></datafield><datafield tag="650" ind1=" " ind2="7"><subfield code="a">Art Galleries (buildings)</subfield><subfield code="2">aat</subfield></datafield><datafield tag="650" ind1=" " ind2="7"><subfield code="a">Exhibition building spaces</subfield><subfield code="2">aat</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Galleries (Architecture)</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Architectural drawings.</subfield><subfield code="2">aat</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Diaries.</subfield><subfield code="2">aat</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Photographs.</subfield><subfield code="2">aat</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Student drawings.</subfield><subfield code="2">aat</subfield></datafield><datafield tag="710" ind1="2" ind2=" "><subfield code="a">Chapman, Taylor Partners.</subfield></datafield><datafield tag="710" ind1="2" ind2=" "><subfield code="a">Richard Gluckman Architects.</subfield></datafield><datafield tag="852" ind1="4" ind2="2"><subfield code="a">Columbia University.</subfield><subfield code="b">Avery Architectural and Fine Arts Library, Dept. of Drawings &amp; Archives,</subfield><subfield code="e">New York, NY.</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Online Finding Aid</subfield><subfield code="u">http://findingaids.cul.columbia.edu/ead/nnc-a/ldpd_8277276</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">For additional guidance on restrictions and permissions see Columbia University Libraries Publication and Digital Reproduction Policy and Procedures</subfield><subfield code="u">http://www.columbia.edu/cu/lweb/services/preservation/publicationsPolicy.html</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">D&amp;A Gordon ReCAP</subfield><subfield code="b">avefax+D_A+0000+00000000+GORDON+RECAP0</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">D&amp;A Gordon</subfield><subfield code="b">avefax+D_A+0000+00000000+GORDON</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Avery, Fine Arts, Ware</subfield><subfield code="b">Avery Drawings &amp; Archives - By appt. (Non-Circulating) &gt;&gt; D&amp;A Gordon|DELIM|11424486</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Avery, Fine Arts, Ware</subfield><subfield code="b">Avery Drawings&amp;Archives &lt;Offsite&gt; Request at D&amp;A (Non-Circ) &gt;&gt; D&amp;A Gordon ReCAP|DELIM|11489051</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Manuscript/Archive</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">archive</subfield></datafield><datafield tag="996" ind1=" " ind2=" "><subfield code="a">Avery Drawings &amp; Archives</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2011-01-10T00:00:00.000Z</subfield></datafield></record>','text'=>['Gordon, Max, 1931-1990.','Max Gordon architectural records and papers, 1944-2010, bulk 1944-1990','1944-2010','10 linear feet, 1229 drawings, 929 photographic items.','Max Gordon was an internationally known architect who specialized in the design of galleries and exhibition spaces for modern and contemporary art.','His most prominent commissions include, among others, Annely Juda Fine Art, Brooke-Alexander Gallery, Paula Cooper Gallery, James Corcoran Gallery, Fisher Landau Center, Koury-Wingate Gallery, Lorence-Monk Gallery, Luhring-Augustine Gallery, Maeght-Lelong Gallery, Marlborough Fine Art Galleries, Saatchi Gallery, and gallery space for the Centro d\'Arte Reina Sophia.  Gordon also did significant residential design work for clients such as artist Richard Serra, Joel Shapiro, and Jennifer Barlett, art collectors Asher Edelman and Lewis Manilow, and musician Brian Ferry.','The collection is organized into four series: Project Records, Office Records, Student Work, and Personal Papers and is composed primarily of project files, architectural drawings, photographs, correspondence, legal papers, personal diaries, and student sketchbooks.','Donated; David Gordon; 2010; 2010.024','This collection is available for use by appointment in the Department of Drawings & Archives, Avery Architectural and Fine Arts Library, Columbia University. For further information and to make an appointment, please call (212) 854-4110 or email avery-drawings@libraries.columbia.edu.','Permission to publish must be obtained in writing from the Director, Avery Architectural & Fine Arts Library, Columbia University, 1172 Amsterdam Ave., MC 0301, New York, NY 10027.','Researchers interested in Max Gordon\'s involvement with the advisory board of the Museum of Modern Art, New York and the advisory board associated with the construction of the Museo Nacional Centro de Arte Reina Sophia, Madrid should consult the Papers of the architect Max Gordon located at the Tate Archive, London.  The collection housed at the Tate Archive also documents Gordon\'s role as a patron, curator and collector and include correspondence, invoices, plans and photographs, lecture notes and printed material.','Finding aid available online.  See Online Link.','Gordon, Max, 1931-1990.','Bartlett, Jennifer, 1941-','Feigen, Richard L., 1930-','Manilow, Lewis, 1927-','Joannou, Dakis.','Johns, Jasper, 1930-','Saatchi Gallery.','Annely Juda Fine Art.','Fisher Landau Center.','Marlborough Fine Art (London) Ltd.','Whitechapel Art Gallery.','Apartment houses England London.','Apartment houses New York (State) New York.','Architecture England Designs and plans.','Architecture United States Designs and plans.','Art Galleries (buildings) aat','Exhibition building spaces aat','Galleries (Architecture)','Architectural drawings. aat','Diaries. aat','Photographs. aat','Student drawings. aat','Chapman, Taylor Partners.','Richard Gluckman Architects.','Columbia University. Avery Architectural and Fine Arts Library, Dept. of Drawings & Archives, New York, NY.','Online Finding Aid http://findingaids.cul.columbia.edu/ead/nnc-a/ldpd_8277276','For additional guidance on restrictions and permissions see Columbia University Libraries Publication and Digital Reproduction Policy and Procedures http://www.columbia.edu/cu/lweb/services/preservation/publicationsPolicy.html','AUTH'],'author_txt'=>['Gordon, Max,'],'author_addl_txt'=>['Chapman, Taylor Partners.','Richard Gluckman Architects.'],'author_facet'=>['Gordon, Max, 1931-1990','Chapman, Taylor Partners','Richard Gluckman Architects'],'author_display'=>['Gordon, Max, 1931-1990'],'author_sort'=>'Gordon, Max, 1931-1990.   Max Gordon architectural records and papers 1944-2010 bulk 1944-1990','title_txt'=>['Max Gordon architectural records and papers, 1944-2010,'],'title_display'=>['Max Gordon architectural records and papers, 1944-2010'],'title_filing_txt'=>['Max Gordon architectural records and papers,'],'title_filing_full_txt'=>['Max Gordon architectural records and papers,'],'title_first_facet'=>['M'],'title_addl_txt'=>['Max Gordon architectural records and papers,'],'title_sort'=>'max gordon architectural records and papers','subject_txt'=>['Gordon, Max, 1931-1990','Bartlett, Jennifer, 1941-','Feigen, Richard L., 1930-','Manilow, Lewis, 1927-','Joannou, Dakis','Johns, Jasper, 1930-','Saatchi Gallery','Annely Juda Fine Art','Fisher Landau Center','Marlborough Fine Art (London) Ltd','Whitechapel Art Gallery','Apartment houses England London','Apartment houses New York (State) New York','Architecture England Designs and plans','Architecture United States Designs and plans','Art Galleries (buildings)','Exhibition building spaces','Galleries (Architecture)','Architectural drawings','Diaries','Photographs','Student drawings'],'subject_topic_facet'=>['Gordon, Max, 1931-1990','Bartlett, Jennifer, 1941-','Feigen, Richard L., 1930-','Manilow, Lewis, 1927-','Joannou, Dakis','Johns, Jasper, 1930-','Saatchi Gallery','Annely Juda Fine Art','Fisher Landau Center','Marlborough Fine Art (London) Ltd','Whitechapel Art Gallery','Apartment houses','Architecture','Art Galleries (buildings)','Exhibition building spaces','Galleries (Architecture)'],'subject_geo_facet'=>['England','London','New York (State)','New York','United States'],'subject_form_facet'=>['Designs and plans','Architectural drawings','Diaries','Photographs','Student drawings'],'subject_form_txt'=>['Designs and plans','Architectural drawings','Diaries','Photographs','Student drawings'],'pub_year_display'=>['1944-2010'],'pub_year_txt'=>['1944-2010'],'pub_date_txt'=>['1944'],'format'=>['Manuscript/Archive'],'clio_id_display'=>'8277276','acq_dt'=>'2011-01-10T00:00:00Z','source_facet'=>['catalog','archive'],'source_display'=>['catalog','archive'],'repository_facet'=>['Avery Drawings & Archives'],'repository_display'=>['Avery Drawings & Archives'],'database_restrictions_display'=>['This collection is available for use by appointment in the Department of Drawings & Archives, Avery Architectural and Fine Arts Library, Columbia University. For further information and to make an appointment, please call (212) 854-4110 or email avery-drawings@libraries.columbia.edu.'],'summary_display'=>['The collection is organized into four series: Project Records, Office Records, Student Work, and Personal Papers and is composed primarily of project files, architectural drawings, photographs, correspondence, legal papers, personal diaries, and student sketchbooks.'],'full_publisher_display'=>['1944-2010'],'location_call_number_id_display'=>['Avery Drawings & Archives - By appt. (Non-Circulating) >> D&A Gordon|DELIM|11424486','Avery Drawings&Archives <Offsite> Request at D&A (Non-Circ) >> D&A Gordon ReCAP|DELIM|11489051'],'location_call_number_txt'=>['Avery Drawings & Archives - By appt. (Non-Circulating) >> D&A Gordon','Avery Drawings&Archives <Offsite> Request at D&A (Non-Circ) >> D&A Gordon ReCAP'],'call_number_txt'=>['D&A Gordon','D&A Gordon ReCAP'],'call_number_display'=>['D&A Gordon','D&A Gordon ReCAP'],'location_facet'=>['Avery, Fine Arts, Ware'],'location_txt'=>['Avery Drawings & Archives - By appt. (Non-Circulating) >> D&A Gordon','Avery Drawings&Archives <Offsite> Request at D&A (Non-Circ) >> D&A Gordon ReCAP'],'url_munged_display'=>['2|||Online Finding Aid|||http://findingaids.cul.columbia.edu/ead/nnc-a/ldpd_8277276|||','2|||For additional guidance on restrictions and permissions see Columbia University Libraries Publication and Digital Reproduction Policy and Procedures|||http://www.columbia.edu/cu/lweb/services/preservation/publicationsPolicy.html|||'],'shelfkey'=>['avefax+d_a+0000+00000000+gordon+recap0+8277276','avefax+d_a+0000+00000000+gordon+8277276'],'reverse_shelfkey'=>['p4lkp2~m~p~zzzz~zzzzzzzz~jb8mbc~8lnpaz~rxssxst~~~~','p4lkp2~m~p~zzzz~zzzzzzzz~jb8mbc~rxssxst~~~~~~~~~~~'],'item_display'=>['D&A Gordon ReCAP | avefax+d_a+0000+00000000+gordon+recap0+8277276 | p4lkp2~m~p~zzzz~zzzzzzzz~jb8mbc~8lnpaz~rxssxst~~~~','D&A Gordon | avefax+d_a+0000+00000000+gordon+8277276 | p4lkp2~m~p~zzzz~zzzzzzzz~jb8mbc~rxssxst~~~~~~~~~~~'],'timestamp'=>'2016-05-23T20:04:39.565Z','authorities_dt'=>'2016-05-23T22:34:37Z','author_variant_txt'=>[' Gluckman Architects'],'subject_variant_txt'=>[' Apartment buildings Multi-family housing Multifamily housing Multiple dwellings Architecture, Domestic Dwellings Architecture, Western (Western countries) Building design Construction Western architecture (Western countries) Art Building Buildings Architecture Rooms'],'_version_'=>1535160223871795200}]}}
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:57:45 GMT
+  recorded_at: Fri, 01 Jul 2016 20:47:47 GMT
 - request:
     method: get
     uri: "<library_api_path>?locationID=alllocations&qt=location"
@@ -938,20 +128,18 @@ http_interactions:
       string: ''
     headers:
       Accept:
-      - "*/*"
+      - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.0 (darwin14.1.0 x86_64) ruby/2.2.1p85
-      Host:
-      - api.library.columbia.edu
+      - Ruby
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:57:45 GMT
+      - Fri, 01 Jul 2016 20:47:48 GMT
       Server:
       - Apache
       Access-Control-Allow-Origin:
@@ -959,14 +147,14 @@ http_interactions:
       Cache-Control:
       - max-age=0
       Expires:
-      - Tue, 16 Aug 2016 17:57:45 GMT
+      - Fri, 01 Jul 2016 20:47:48 GMT
       Transfer-Encoding:
       - chunked
       Content-Type:
       - application/json;charset=utf-8
       Set-Cookie:
-      - BIGipServer~CUIT~library.columbia.edu-128.59.105.210.443-pool=3059628928.47873.0000;
-        expires=Tue, 16-Aug-2016 19:57:45 GMT; path=/
+      - BIGipServer~CUIT~library.columbia.edu-128.59.105.210.443-pool=3042851712.47873.0000;
+        expires=Fri, 01-Jul-2016 22:47:48 GMT; path=/
     body:
       encoding: UTF-8
       string: |2-
@@ -974,7 +162,7 @@ http_interactions:
 
 
 
-        {"locations":[{"showOnMap":false,"zip":"","directionsURL":"http://www.columbia.edu/node/58.html","phone":"","building":"","fax":"","imagePath":"/content/dam/locations/culis.jpg","mapURL":"","state":"","address1":"","locationID":"cu-morningside","locationURL":"http://www.columbia.edu","address2":"","city":"","hoursURL":"","email":"","floorRoom":"","longitude":"-73.962443","latitude":"40.80741","displayName":"Columbia's Morningside Campus","officialName":"Columbia University - Morningside Campus","note":"Centered at 116th St. between Broadway and Amsterdam, the Morningside campus is home to most of Columbia&apos;s libraries.<br/><br/>Other library locations:<br/><a href=\"#\" onclick=\"showInfoWindow('healthsciences'); return false;\">Health Sciences Library<\/a>, <a href=\"#\" onclick=\"showInfoWindow('geoscience'); return false;\">Lamont-Doherty Geoscience Library<\/a>, <a href=\"http://library.columbia.edu/find/request/off-site.html\">Offsite Shelving Facility<\/a>","locationIDClean":"cumorningside"},{"showOnMap":false,"zip":"10027","directionsURL":"http://www.columbia.edu/node/58.html","phone":"(212) 854-7309","building":"","fax":"(212) 854-9099","imagePath":"/content/dam/locations/culis.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"culis","locationURL":"http://library.columbia.edu","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu","email":"","floorRoom":"","longitude":"-73.962443","latitude":"40.80741","displayName":"Columbia University Libraries","officialName":"Columbia University Libraries / Information Services","note":"","locationIDClean":"culis"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/global/africa/floorplan","phone":"(212) 854-8045","building":"Lehman Library","fax":"","imagePath":"/content/dam/libraryweb/locations/area/africa/african_studies_postcard2.jpg","mapURL":"","state":"NY","address1":"420 West 118th St.","locationID":"african-studies","locationURL":"http://library.columbia.edu/locations/global/africa.html","address2":"","city":"New York","hoursURL":"","email":"africa@library.columbia.edu","floorRoom":"","longitude":"-73.960087","latitude":"40.807396","displayName":"African Studies","officialName":"African Studies","note":"","locationIDClean":"africanstudies"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/avery/directions","phone":"212.854.2877","building":"Avery","fax":"","imagePath":"https://blogs.cul.columbia.edu/avery/files/2014/06/netsuke-1-1024x768.jpg","mapURL":"","state":"NY","address1":"1172 Amsterdam Avenue","locationID":"avery-art-properties","locationURL":"http://library.columbia.edu/locations/avery/art-properties.html","address2":"M.C. 0301","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=avery-art-properties","email":"artproperties@library.columbia.edu","floorRoom":"300","longitude":"-73.960929","latitude":"40.808456","displayName":"Art Properties","officialName":"Art Properties","note":"","locationIDClean":"averyartproperties"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-6199","building":"Avery","fax":"","imagePath":"/content/dam/locations/avery.jpg","mapURL":"","state":"NY","address1":"1172 Amsterdam Avenue","locationID":"avery","locationURL":"http://library.columbia.edu/indiv/avery.html","address2":"M.C. 0301","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=avery","email":"avery@library.columbia.edu","floorRoom":"300","longitude":"-73.960884","latitude":"40.808381","displayName":"Avery Library","officialName":"Avery Architectural & Fine Arts Library","note":"","locationIDClean":"avery"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/avery/directions","phone":"(212) 854-8409","building":"Avery Library","fax":"","imagePath":"/content/dam/libraryweb/locations/avery/classics/Orders of architecture.jpg","mapURL":"","state":"NY","address1":"Columbia University","locationID":"avery-classics","locationURL":"http://library.columbia.edu/locations/avery/avery-classics.html","address2":"1172 Amsterdam Ave., MC0301","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=avery-classics","email":"avery-classics@library.columbia.edu","floorRoom":"Rm. 234","longitude":"-73.960801","latitude":"40.808407","displayName":"Avery Classics Collection","officialName":"Avery Classics Collection","note":"","locationIDClean":"averyclassics"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/avery/directions","phone":"(212) 854-4110","building":"Avery Library","fax":"","imagePath":"/content/dam/libraryweb/locations/avery/Fallingwater.jpg","mapURL":"","state":"NY","address1":"Columbia University","locationID":"avery-drawings-archives","locationURL":"http://library.columbia.edu/locations/avery/drawings-archives.html","address2":"1172 Amsterdam Ave., MC0301","city":"New York","hoursURL":"http://hours.library.columbia.edu/index.php?library=avery-drawings-archives","email":"avery-drawings@library.columbia.edu","floorRoom":"Rm. 213","longitude":"-73.960908","latitude":"40.808494","displayName":"Avery Drawings & Archives","officialName":"Drawing & Archives Department Avery Architectural & Fine Arts Library","note":"","locationIDClean":"averydrawingsarchives"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/avery/directions","phone":"","building":"Avery Library","fax":"","imagePath":"/content/dam/libraryweb/locations/avery/avery_index/Anniversary-logo-WEB--2.jpg","mapURL":"","state":"NY","address1":"Columbia University","locationID":"avery-index","locationURL":"http://library.columbia.edu/locations/avery/avery-index.html","address2":"1172 Amsterdam Ave., MC0301","city":"New York","hoursURL":"","email":"avery-index@library.columbia.edu","floorRoom":"Rm. 226","longitude":"-73.960761","latitude":"40.808423","displayName":"Avery Index to Architectural Periodicals","officialName":"Avery Index to Architectural Periodicals","note":"","locationIDClean":"averyindex"},{"showOnMap":true,"zip":"10027","directionsURL":"http://library.barnard.edu/about-the-library/map","phone":"(212) 854-3953","building":"LeFrak Center, Barnard Hall, first floor","fax":"","imagePath":"/content/dam/locations/barnard.jpg","mapURL":"","state":"NY","address1":"3009 Broadway","locationID":"barnard","locationURL":"http://library.barnard.edu/","address2":"","city":"New York ","hoursURL":"https://library.barnard.edu/access/hours","email":"library@barnard.edu","floorRoom":"","longitude":"-73.963939","latitude":"40.809097","displayName":"Barnard College Library","officialName":"Barnard Library & Academic Information Systems","note":"","locationIDClean":"barnard"},{"showOnMap":false,"zip":"10027","directionsURL":"","phone":"(212) 854-2067","building":"Barnard Hall","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"3009 Broadway","locationID":"barnard-bcrw","locationURL":"http://bcrw.barnard.edu","address2":"","city":"New York","hoursURL":"","email":"bcrw@barnard.edu","floorRoom":"101","longitude":"-73.963955","latitude":"40.809154","displayName":"","officialName":"Barnard Center For Research On Women","note":"","locationIDClean":"barnardbcrw"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7535","building":"","fax":"","imagePath":"/content/dam/locations/borrowdirect.jpg","mapURL":"","state":"NY","address1":"307 Butler Library","locationID":"borrow-direct","locationURL":"http://library.columbia.edu/find/request/borrow-direct.html","address2":"535 W. 114th Street","city":"New York","hoursURL":"","email":"borrowdirect@columbia.edu","floorRoom":"","longitude":"-73.96325","latitude":"40.806225","displayName":"Borrow Direct Office","officialName":"Borrow Direct Office","note":"","locationIDClean":"borrowdirect"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/burke/directions","phone":"(212) 851-5606","building":"Union Theological Seminary","fax":"","imagePath":"/content/dam/locations/burke.jpg","mapURL":"","state":"NY","address1":"3041 Broadway","locationID":"burke","locationURL":"http://library.columbia.edu/locations/burke.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=burke","email":"burke@library.columbia.edu","floorRoom":"","longitude":"-73.961876","latitude":"40.811353","displayName":"The Burke Library","officialName":"The Burke Theological Library","note":"","locationIDClean":"burke"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/business/directions","phone":"(212) 854-7804","building":"Uris Hall","fax":"","imagePath":"/content/dam/locations/business.jpg","mapURL":"","state":"NY","address1":"3022 Broadway","locationID":"business","locationURL":"http://library.columbia.edu/locations/business.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=business","email":"business@library.columbia.edu","floorRoom":"130","longitude":"-73.961147","latitude":"40.809231","displayName":"Business & Economics Library","officialName":"Business & Economics Library","note":"","locationIDClean":"business"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler-circulation/directions","phone":"(212) 854-2235","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/butler-circulation.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"butler-circulation","locationURL":"http://library.columbia.edu/locations/butler-circulation.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler","email":"circulation@columbia.edu","floorRoom":"Circulation Department","longitude":"-73.963156","latitude":"40.806507","displayName":"Butler Library Circulation","officialName":"Butler Library Circulation","note":"","locationIDClean":"butlercirculation"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7309","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/butler.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"butler","locationURL":"http://library.columbia.edu/locations/butler.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler","email":"butler@library.columbia.edu","floorRoom":"","longitude":"-73.963225","latitude":"40.806422","displayName":"Butler Library","officialName":"Nicholas Murray Butler Library","note":"","locationIDClean":"butler"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler-reference/directions","phone":"(212) 854-2241","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/butler-reference.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"butler-reference","locationURL":"http://library.columbia.edu/locations/butler-reference.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler-reference","email":"ref-ref@columbia.edu","floorRoom":"301","longitude":"-73.963159","latitude":"40.8066","displayName":"Butler Library Research Services","officialName":"Butler Library Research Services","note":"","locationIDClean":"butlerreference"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler-reserves/floorplan","phone":"(212) 854-5327","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/butler-reserves.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"butler-reserves","locationURL":"http://library.columbia.edu/locations/butler-reserves.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler-reserves","email":"butlres@library.columbia.edu","floorRoom":"208 ","longitude":"-73.963024","latitude":"40.80617","displayName":"Butler Library Reserves","officialName":"Butler Library Reserves","note":"","locationIDClean":"butlerreserves"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-5327","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/media-services.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"media-services","locationURL":"http://library.columbia.edu/locations/butler/media-services.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=bmc","email":"bmc@library.columbia.edu","floorRoom":"208B ","longitude":"-73.963035","latitude":"40.806117","displayName":"Butler Media Center","officialName":"Butler Media Center","note":"","locationIDClean":"mediaservices"},{"showOnMap":false,"zip":"10027","directionsURL":"","phone":"","building":"International Affairs","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"420 West 118th Street","locationID":"cdrs","locationURL":"http://cdrs.columbia.edu","address2":"","city":"New York","hoursURL":"","email":"info@cdrs.columbia.edu","floorRoom":"201 (Lehman Library)","longitude":"-73.959728","latitude":"40.807418","displayName":"","officialName":"Center for Digital Research and Scholarship","note":"","locationIDClean":"cdrs"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-3630","building":"International Affairs","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"420 West 118 St.","locationID":"chrdr","locationURL":"http://library.columbia.edu/locations/chrdr.html","address2":"","city":"New York","hoursURL":"","email":"chrdr@columbia.edu","floorRoom":"318","longitude":"-73.960144","latitude":"40.807772","displayName":"Center for Human Rights Documentation & Research","officialName":"Center for Human Rights Documentation & Research","note":"","locationIDClean":"chrdr"},{"showOnMap":false,"zip":"10027","directionsURL":"http://ctl.columbia.edu/about/contact/","phone":"(212) 854-9058","building":"Butler Library","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"535 West 114th Street","locationID":"ctl","locationURL":"http://ccnmtl.columbia.edu/","address2":"","city":"New York","hoursURL":"","email":"ccnmtl@columbia.edu","floorRoom":"Faculty Support Lab, room 204,<br/>Staff Offices, room 505","longitude":"-73.962872","latitude":"40.806269","displayName":"","officialName":"Center for Teaching and Learning","note":"","locationIDClean":"ctl"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-5590","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/ccoh.jpg","mapURL":"","state":"NY","address1":"535 West 114th Street","locationID":"ccoh","locationURL":"http://library.columbia.edu/locations/ccoh.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=rbml","email":"oralhist@library.columbia.edu","floorRoom":"6th Floor East","longitude":"-73.963172","latitude":"40.806194","displayName":"Columbia Center for Oral History","officialName":"Columbia Center for Oral History","note":"The Columbia Center for Oral History was recently relocated to the Rare Book & Manuscript Library (RBML) on the 6th floor of Butler Library. ","locationIDClean":"ccoh"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/cuarchives/research.html#directions","phone":"(212) 854-3786 ","building":"Butler Library","fax":"(212) 854-1365","imagePath":"/content/dam/libraryweb/general/images/libphotos/columbiana.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"cuarchives","locationURL":"http://library.columbia.edu/locations/cuarchives.html","address2":"M.C. 1127","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=cuarchives","email":"uarchives@columbia.edu","floorRoom":"6th Floor","longitude":"-73.963088","latitude":"40.806204","displayName":"Columbia University Archives","officialName":"Columbia University Archives","note":"","locationIDClean":"cuarchives"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-5289","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/communications.jpg","mapURL":"","state":"NY ","address1":"535 West 114th St.","locationID":"communications","locationURL":"library.columbia.edu/news","address2":"","city":"New York","hoursURL":"","email":"news@library.columbia.edu","floorRoom":"507","longitude":"-73.96333","latitude":"40.806255","displayName":"Media Inquiries","officialName":"Columbia University Libraries Communications Office","note":"","locationIDClean":"communications"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7309","building":"Butler Library","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"535 West 114th Street","locationID":"copyright","locationURL":"http://copyright.columbia.edu","address2":"","city":"New York","hoursURL":"","email":"copyright@columbia.edu","floorRoom":"507D","longitude":"-73.963373","latitude":"40.806271","displayName":"","officialName":"Copyright Advisory Office","note":"","locationIDClean":"copyright"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/dhc/directions.html","phone":"(212) 854-7547","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/dhc.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"dhc","locationURL":"http://library.columbia.edu/locations/dhc.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=dhc","email":"dhc@library.columbia.edu","floorRoom":"305","longitude":"-73.962995","latitude":"40.806119","displayName":"Digital Humanities Center","officialName":"Digital Humanities Center","note":"","locationIDClean":"dhc"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-5327","building":"","fax":"","imagePath":"/content/dam/locations/document-delivery.jpg","mapURL":"","state":"NY","address1":"208 Butler Library","locationID":"document-delivery","locationURL":"http://library.columbia.edu/find/request/document-delivery.html","address2":"535 W. 114th Street","city":"New York","hoursURL":"","email":"doc-del@library.columbia.edu","floorRoom":"","longitude":"-73.963067","latitude":"40.80615","displayName":"Scan & Deliver Electronic Document Delivery","officialName":"Electronic Document Delivery Office","note":"","locationIDClean":"documentdelivery"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/science-engineering/directions.html","phone":"(212) 851-2950","building":"Northwest Corner Building","fax":"","imagePath":"/content/dam/locations/dsc.jpg","mapURL":"","state":"NY","address1":"550 West 120th Street ","locationID":"dsc","locationURL":"http://library.columbia.edu/locations/dsc.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=science-engineering","email":"ref-sci@columbia.edu","floorRoom":"401","longitude":"-73.962107","latitude":"40.80995","displayName":"","officialName":"Digital Science Center","note":"","locationIDClean":"dsc"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-8043","building":"International Affairs","fax":"","imagePath":"/content/dam/locations/dssc.jpg","mapURL":"","state":"NY","address1":"420 W. 118th St.","locationID":"dssc","locationURL":"http://library.columbia.edu/locations/dssc.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=lehman","email":"dssc@library.columbia.edu","floorRoom":"300","longitude":"-73.959283","latitude":"40.807573","displayName":"Digital Social Science Center (DSSC)","officialName":"Digital Social Science Center","note":"","locationIDClean":"dssc"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/lehman/directions","phone":"212-854-6012","building":"International Affairs","fax":"","imagePath":"/content/dam/locations/dssc-data.jpg","mapURL":"","state":"NY","address1":"420 W. 118th St.","locationID":"dssc-data","locationURL":"http://library.columbia.edu/locations/dssc/data.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=dssc-data","email":"dssc.data@columbia.edu","floorRoom":"215","longitude":"-73.959843","latitude":"40.807439","displayName":"DSSC Data Service","officialName":"Digital Social Science Center Data Service","note":"","locationIDClean":"dsscdata"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/eastasian/directions.html","phone":"(212) 854-4318","building":"Kent Hall","fax":"(212) 662-6286","imagePath":"/content/dam/locations/eastasian.jpg","mapURL":"","state":"NY","address1":"1140 Amsterdam Ave","locationID":"eastasian","locationURL":"http://library.columbia.edu/locations/eastasian.html","address2":"M.C. 3901","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=eastasian","email":"starr@library.columbia.edu","floorRoom":"300","longitude":"-73.961517","latitude":"40.807297","displayName":"C.V. Starr East Asian Library","officialName":"C.V. Starr East Asian Library","note":"","locationIDClean":"eastasian"},{"showOnMap":false,"zip":"10027","directionsURL":"","phone":"(212) 854-2976","building":"S. W. Mudd","fax":"","imagePath":"/content/dam/locations/engineering.jpg","mapURL":"","state":"NY","address1":"500 West 120th St.","locationID":"engineering","locationURL":"http://library.columbia.edu/locations/engineering.html","address2":"","city":"New York","hoursURL":"http://hours.cul.columbia.edu/?library=engineering","email":"engineering@library.columbia.edu","floorRoom":"422","longitude":"-73.959849","latitude":"40.809414","displayName":"Engineering Library","officialName":"Engineering Library","note":"","locationIDClean":"engineering"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/geology/directions.html","phone":"(212) 854-4713","building":"Schermerhorn","fax":"","imagePath":"/content/dam/locations/geology.jpg","mapURL":"","state":"NY","address1":"1190 Amsterdam Ave.","locationID":"geology","locationURL":"http://library.columbia.edu/locations/geology.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=geology","email":"geology@library.columbia.edu","floorRoom":"601","longitude":"-73.960688","latitude":"40.808667","displayName":"Geology Library","officialName":"Geology Library","note":"","locationIDClean":"geology"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-3630","building":"Lehman Library","fax":"","imagePath":"/content/dam/libraryweb/locations/area/featured_content_images/global-studies.jpg","mapURL":"","state":"NY","address1":"420 West 118th St.","locationID":"global-studies","locationURL":"http://library.columbia.edu/locations/global.html","address2":"International Affairs Building","city":"New York","hoursURL":"","email":"global@library.columbia.edu","floorRoom":"","longitude":"-73.959902","latitude":"40.807364","displayName":"Global Studies","officialName":"Global Studies","note":"","locationIDClean":"globalstudies"},{"showOnMap":true,"zip":"10032","directionsURL":"http://library.cumc.columbia.edu/directions-subway-bus-or-shuttle","phone":"(212) 305-3692","building":"Columbia University","fax":"","imagePath":"/content/dam/locations/health-sciences.jpg","mapURL":"","state":"NY","address1":"701 W. 168th St","locationID":"health-sciences","locationURL":"http://library.cumc.columbia.edu/","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=health-sciences","email":"hs-library@columbia.edu","floorRoom":"Lobby Level","longitude":"-73.942618","latitude":"40.842663","displayName":"Health Sciences Library","officialName":"Health Sciences Library","note":"","locationIDClean":"healthsciences"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7535","building":"","fax":"(212) 854-3313","imagePath":"/content/dam/locations/ill.jpg","mapURL":"","state":"NY","address1":"307 Butler Library","locationID":"ill","locationURL":"http://library.columbia.edu/find/request/ill.html","address2":"535 W. 114th Street","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=ill","email":"ill@library.columbia.edu","floorRoom":"","longitude":"-73.963271","latitude":"40.806235","displayName":"Interlibrary Loan Office","officialName":"Interlibrary Loan Office","note":"","locationIDClean":"ill"},{"showOnMap":false,"zip":"10027","directionsURL":"","phone":"(212) 854-8046","building":"304 International Affairs","fax":"","imagePath":"/content/dam/locations/jewish-studies.jpg","mapURL":"","state":"NY ","address1":"420 West 118th St.","locationID":"jewish-studies","locationURL":"http://library.columbia.edu/locations/global/jewishstudies.html","address2":"","city":"New York","hoursURL":"","email":"jewishstudies@library.columbia.edu","floorRoom":"","longitude":"-73.960023","latitude":"40.80737","displayName":"Jewish Studies","officialName":"Jewish Studies","note":"","locationIDClean":"jewishstudies"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 678-8000","building":"","fax":"","imagePath":"/content/dam/libraryweb/general/images/libphotos/jewish.jpg","mapURL":"","state":"NY","address1":"3080 Broadway","locationID":"jts","locationURL":"http://www.jtsa.edu/The_Library.xml","address2":"","city":"New York","hoursURL":"http://www.jtsa.edu/The_Library/Location_Hours_and_Contact.xml","email":"communications@jtsa.edu","floorRoom":"","longitude":"-73.960525","latitude":"40.812072","displayName":"","officialName":"Jewish Theological Seminary Library","note":"","locationIDClean":"jts"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-0390","building":"Pulitzer Hall (Journalism)","fax":"","imagePath":"/content/dam/locations/journalism.jpg","mapURL":"","state":"NY","address1":"2950 Broadway","locationID":"journalism","locationURL":"http://library.columbia.edu/locations/journalism.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=journalism","email":"journalism@library.columbia.edu","floorRoom":"204","longitude":"-73.963724","latitude":"40.807648","displayName":"","officialName":"Journalism Library","note":"","locationIDClean":"journalism"},{"showOnMap":true,"zip":"10027","directionsURL":"http://web.law.columbia.edu/library/about/directions","phone":"(212) 854-2640","building":"Jerome L. Greene Hall","fax":"","imagePath":"/content/dam/locations/law.jpg","mapURL":"","state":"NY","address1":"435 West 116th St.","locationID":"law","locationURL":"http://web.law.columbia.edu/library","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=law","email":"law@library.columbia.edu","floorRoom":"3rd Floor","longitude":"-73.960633","latitude":"40.806878","displayName":"Law Library","officialName":"Arthur W. Diamond Law Library","note":"","locationIDClean":"law"},{"showOnMap":false,"zip":"10025","directionsURL":"","phone":"(212) 854-1679","building":"","fax":"","imagePath":"/content/dam/locations/latinamerican-studies.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"latinamerican-studies","locationURL":"http://library.columbia.edu/locations/global/latinamerica.html","address2":"","city":"New York","hoursURL":"","email":"latam@library.columbia.edu","floorRoom":"309 International Affairs","longitude":"-73.9599588","latitude":"40.807344","displayName":"Latin American & Iberian Studies","officialName":"Latin American & Iberian Studies","note":"","locationIDClean":"latinamericanstudies"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/lehman/directions","phone":"(212) 854-3794","building":"International Affairs","fax":"","imagePath":"/content/dam/locations/lehman.jpg","mapURL":"","state":"NY","address1":"420 W. 118th St.","locationID":"lehman","locationURL":"http://library.columbia.edu/locations/lehman.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=lehman","email":"lehman@library.columbia.edu","floorRoom":"300","longitude":"-73.959798","latitude":"40.80752","displayName":"Lehman Social Sciences Library","officialName":"Lehman Social Sciences Library","note":"","locationIDClean":"lehman"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/lehman/floorplan","phone":"(212) 854-8043","building":"International Affairs","fax":"","imagePath":"/content/dam/locations/lehman-maps.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"lehman-maps","locationURL":"http://library.columbia.edu/locations/maps.html","address2":"","city":"New York","hoursURL":"http://library.columbia.edu/locations/maps/hours.html","email":"dssc.data@columbia.edu","floorRoom":"300","longitude":"-73.959331","latitude":"40.807502","displayName":"Lehman Library Map Collection","officialName":"Lehman Library Map Collection","note":"","locationIDClean":"lehmanmaps"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7309","building":"","fax":"","imagePath":"/content/dam/locations/lio.jpg","mapURL":"","state":"NY","address1":"201 Butler Library","locationID":"lio","locationURL":"http://library.columbia.edu/services/lio.html","address2":"535 West 114th St.","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=lio","email":"lio@columbia.edu","floorRoom":"","longitude":"-73.962982","latitude":"40.806558","displayName":"Library Information Office","officialName":"Library Information Office","note":"","locationIDClean":"lio"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/math/directions","phone":"(212) 854-4712","building":"Mathematics","fax":"","imagePath":"/content/dam/locations/math.jpg","mapURL":"","state":"NY","address1":"2990 Broadway","locationID":"math","locationURL":"http://library.columbia.edu/locations/math.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=math","email":"math@library.columbia.edu","floorRoom":"303","longitude":"-73.962783","latitude":"40.808988","displayName":"Mathematics Library","officialName":"Mathematics Library","note":"","locationIDClean":"math"},{"showOnMap":false,"zip":"10025","directionsURL":"/content/libraryweb/locations/global/mideast/floorplan.html","phone":"(212) 854-3995","building":"Lehman Library","fax":"","imagePath":"/content/dam/locations/mideast-studies.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"mideast-studies","locationURL":"http://library.columbia.edu/locations/global/mideast.html","address2":"","city":"New York","hoursURL":"","email":"mideast@library.columbia.edu","floorRoom":"","longitude":"-73.959891","latitude":"40.807315","displayName":"Middle East & Islamic Studies","officialName":"Middle East & Islamic Studies","note":"","locationIDClean":"mideaststudies"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/music/directions","phone":"(212) 854-4711","building":"Dodge","fax":"","imagePath":"/content/dam/locations/music.jpg","mapURL":"","state":"NY","address1":"2960 Broadway","locationID":"music","locationURL":"http://library.columbia.edu/locations/music.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=music","email":"music@library.columbia.edu","floorRoom":"701","longitude":"-73.963185","latitude":"40.807959","displayName":"Music & Arts Library","officialName":"The Gabe M. Wiener Music & Arts Library","note":"","locationIDClean":"music"},{"showOnMap":false,"zip":"10032","directionsURL":"","phone":"(212) 305-3294","building":"NewYork-Presbyterian Hospital","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"622 W 168th Street","locationID":"cumc-orthopaedic","locationURL":"http://www.columbiaortho.org/departments/russell-hibbs-memorial-library","address2":"","city":"New York","hoursURL":"","email":"aom1@columbia.edu","floorRoom":"PH11-1139","longitude":"-73.940824","latitude":"40.841558","displayName":"Russell A. Hibbs Memorial Library","officialName":"Russell A. Hibbs Memorial Library - Department of Orthopedic Surgery","note":"","locationIDClean":"cumcorthopaedic"},{"showOnMap":false,"zip":"10032","directionsURL":"http://nyspi.org/library/directions.htm","phone":"(646) 774-8613","building":"Columbia Presbyterian Medical Center","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"1051 Riverside Drive (at 168th Street)","locationID":"nyspi","locationURL":"http://nyspi.org/library/","address2":"","city":"New York","hoursURL":"http://nyspi.org/library/about.htm","email":"MinayaL@pi.cpmc.columbia.edu","floorRoom":"Room 6300 / 6th Floor","longitude":"-73.944558","latitude":"40.842921","displayName":"","officialName":"NYS Psychiatric Institute Library","note":"","locationIDClean":"nyspi"},{"showOnMap":false,"zip":"08540","directionsURL":"","phone":"(609) 258-3388","building":"","fax":"","imagePath":"/content/dam/locations/off-site.png","mapURL":"","state":"NJ","address1":"400 Forrestal Road","locationID":"off-site","locationURL":"http://library.columbia.edu/find/request/offsite.html","address2":"","city":"Princeton","hoursURL":"","email":"recap@library.columbia.edu","floorRoom":"","longitude":"-74.613870","latitude":"40.344253","displayName":"","officialName":"Off-site Library Shelving Facility (ReCAP)","note":"","locationIDClean":"offsite"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 851-5621","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/recap-office.png","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"recap-office","locationURL":"http://library.columbia.edu/find/request/offsite.html","address2":"","city":"New York","hoursURL":"","email":"recap@library.columbia.edu","floorRoom":"101","longitude":"-73.96285","latitude":"40.806255","displayName":"Office of the ReCAP Coordinator","officialName":"Office of the ReCAP Coordinator","note":"","locationIDClean":"recapoffice"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/pmrr/directions","phone":"(212) 854-4704","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/pmrr.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"pmrr","locationURL":"http://library.columbia.edu/locations/pmrr.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=pmrr","email":"pmrr@library.columbia.edu","floorRoom":"401","longitude":"-73.962799","latitude":"40.80631","displayName":"Periodicals & Microforms Reading Room","officialName":"Periodicals & Microforms Reading Room","note":"","locationIDClean":"pmrr"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/rbml/about/directions","phone":"(212) 854-5590","building":"Butler Library","fax":"(212) 854-1365","imagePath":"/content/dam/locations/rbml.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"rbml","locationURL":"http://library.columbia.edu/locations/rbml.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=rbml","email":"rbml@library.columbia.edu","floorRoom":"6th Floor East","longitude":"-73.963123","latitude":"40.806174","displayName":"Rare Book & Manuscript Library","officialName":"Rare Book & Manuscript Library","note":"","locationIDClean":"rbml"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/global/slavic/floorplan.html","phone":"(212) 854-4701","building":"","fax":"","imagePath":"/content/dam/locations/slavic-studies.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"slavic-studies","locationURL":"http://library.columbia.edu/locations/global/slavic.html","address2":"","city":"New York","hoursURL":"","email":"slavic@library.columbia.edu","floorRoom":"306 International Affairs","longitude":"-73.959822","latitude":"40.807288","displayName":"Russian, Eurasian, & East European Studies","officialName":"Russian, Eurasian, & East European Studies","note":"","locationIDClean":"slavicstudies"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/science-engineering/directions","phone":"(212) 851-2950","building":"Northwest Corner Building","fax":"","imagePath":"/content/dam/locations/science-library.jpg","mapURL":"","state":"NY","address1":"550 West 120th Street ","locationID":"science-engineering","locationURL":"http://library.columbia.edu/locations/science-library.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=science-engineering","email":"scieng@library.columbia.edu","floorRoom":"401","longitude":"-73.962015","latitude":"40.810075","displayName":"Science & Engineering Library","officialName":"Science & Engineering Library","note":"","locationIDClean":"scienceengineering"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/social-work/directions","phone":"(212) 851-2194","building":"2nd Floor, School of Social Work","fax":"","imagePath":"/content/dam/locations/social-work.jpg","mapURL":"","state":"NY ","address1":"1255 Amsterdam Avenue","locationID":"social-work","locationURL":"http://library.columbia.edu/locations/social-work.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=social-work","email":"socwk@library.columbia.edu","floorRoom":"","longitude":"-73.958191","latitude":"40.810277","displayName":"Social Work Library","officialName":"Social Work Library","note":"","locationIDClean":"socialwork"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/global/southasia/floorplan.html","phone":"(212) 854-8401","building":"International Affairs Building (Lehman Library)","fax":"","imagePath":"/content/dam/locations/southasian-studies.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"southasia-studies","locationURL":"http://library.columbia.edu/locations/global/southasia.html","address2":"","city":"New York","hoursURL":"","email":"southasia@library.columbia.edu","floorRoom":"309","longitude":"-73.95976","latitude":"40.807258","displayName":"South & Southeast Asian Studies","officialName":"South & Southeast Asian Studies","note":"","locationIDClean":"southasiastudies"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 678-3494 ","building":"Teacher's College","fax":"","imagePath":"/content/dam/locations/teachers-college.jpg","mapURL":"","state":"NY ","address1":"525 W. 120th St. ","locationID":"teachers-college","locationURL":"http://library.tc.columbia.edu/","address2":"","city":"New York","hoursURL":"http://library.tc.columbia.edu/info.php","email":"","floorRoom":"","longitude":"-73.959862","latitude":"40.80992","displayName":"Teacher's College Library","officialName":"Teacher's College Library","note":"","locationIDClean":"teacherscollege"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/undergraduate/floorplan","phone":"(212) 854-0520","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/undergraduate.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"undergraduate","locationURL":"http://library.columbia.edu/locations/undergraduate.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler-24","email":"undergrad@library.columbia.edu","floorRoom":"","longitude":"-73.963526","latitude":"40.806334","displayName":"Undergraduate Library Services","officialName":"Undergraduate Library Services","note":"","locationIDClean":"undergraduate"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/usgd/directions","phone":"(212) 854-3794","building":"Lehman Social Sciences Library","fax":"","imagePath":"/content/dam/locations/usgd.jpg","mapURL":"","state":"NY","address1":"300 International Affairs","locationID":"usgd","locationURL":"http://library.columbia.edu/locations/usgd.html","address2":"420 W. 118th St.","city":"New York","hoursURL":"http://library.columbia.edu/locations/usgd/hours.html","email":"usgd@library.columbia.edu","floorRoom":"","longitude":"-73.959302","latitude":"40.807538","displayName":"","officialName":"U.S. Government Documents","note":"","locationIDClean":"usgd"}],"defaultImageURL":"http://library.columbia.edu/content/dam/locations/location.png"}
+        {"locations":[{"showOnMap":false,"zip":"","directionsURL":"http://www.columbia.edu/node/58.html","phone":"","building":"","fax":"","imagePath":"/content/dam/locations/culis.jpg","mapURL":"","state":"","address1":"","locationID":"cu-morningside","locationURL":"http://www.columbia.edu","address2":"","city":"","hoursURL":"","email":"","floorRoom":"","longitude":"-73.962443","latitude":"40.80741","displayName":"Columbia's Morningside Campus","officialName":"Columbia University - Morningside Campus","note":"Centered at 116th St. between Broadway and Amsterdam, the Morningside campus is home to most of Columbia&apos;s libraries.<br/><br/>Other library locations:<br/><a href=\"#\" onclick=\"showInfoWindow('healthsciences'); return false;\">Health Sciences Library<\/a>, <a href=\"#\" onclick=\"showInfoWindow('geoscience'); return false;\">Lamont-Doherty Geoscience Library<\/a>, <a href=\"http://library.columbia.edu/find/request/off-site.html\">Offsite Shelving Facility<\/a>","locationIDClean":"cumorningside"},{"showOnMap":false,"zip":"10027","directionsURL":"http://www.columbia.edu/node/58.html","phone":"(212) 854-7309","building":"","fax":"(212) 854-9099","imagePath":"/content/dam/locations/culis.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"culis","locationURL":"http://library.columbia.edu","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu","email":"","floorRoom":"","longitude":"-73.962443","latitude":"40.80741","displayName":"Columbia University Libraries","officialName":"Columbia University Libraries / Information Services","note":"","locationIDClean":"culis"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/global/africa/floorplan","phone":"(212) 854-8045","building":"Lehman Library","fax":"","imagePath":"/content/dam/libraryweb/locations/area/africa/african_studies_postcard2.jpg","mapURL":"","state":"NY","address1":"420 West 118th St.","locationID":"african-studies","locationURL":"http://library.columbia.edu/locations/global/africa.html","address2":"","city":"New York","hoursURL":"","email":"africa@library.columbia.edu","floorRoom":"","longitude":"-73.960087","latitude":"40.807396","displayName":"African Studies","officialName":"African Studies","note":"","locationIDClean":"africanstudies"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/avery/directions","phone":"212.854.2877","building":"Avery","fax":"","imagePath":"https://blogs.cul.columbia.edu/avery/files/2014/06/netsuke-1-1024x768.jpg","mapURL":"","state":"NY","address1":"1172 Amsterdam Avenue","locationID":"art-properties","locationURL":"http://library.columbia.edu/locations/avery/art-properties.html","address2":"M.C. 0301","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=art-properties","email":"artproperties@library.columbia.edu","floorRoom":"300","longitude":"-73.960929","latitude":"40.808456","displayName":"Art Properties","officialName":"Art Properties","note":"","locationIDClean":"artproperties"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-6199","building":"Avery","fax":"","imagePath":"/content/dam/locations/avery.jpg","mapURL":"","state":"NY","address1":"1172 Amsterdam Avenue","locationID":"avery","locationURL":"http://library.columbia.edu/indiv/avery.html","address2":"M.C. 0301","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=avery","email":"avery@library.columbia.edu","floorRoom":"300","longitude":"-73.960884","latitude":"40.808381","displayName":"Avery Library","officialName":"Avery Architectural & Fine Arts Library","note":"","locationIDClean":"avery"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/avery/directions","phone":"(212) 854-8409","building":"Avery Library","fax":"","imagePath":"/content/dam/libraryweb/locations/avery/classics/Orders of architecture.jpg","mapURL":"","state":"NY","address1":"Columbia University","locationID":"avery-classics","locationURL":"http://library.columbia.edu/locations/avery/avery-classics.html","address2":"1172 Amsterdam Ave., MC0301","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=avery-classics","email":"avery-classics@library.columbia.edu","floorRoom":"Rm. 234","longitude":"-73.960801","latitude":"40.808407","displayName":"Avery Classics Collection","officialName":"Avery Classics Collection","note":"","locationIDClean":"averyclassics"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/avery/directions","phone":"(212) 854-4110","building":"Avery Library","fax":"","imagePath":"/content/dam/libraryweb/locations/avery/Fallingwater.jpg","mapURL":"","state":"NY","address1":"Columbia University","locationID":"avery-drawings-archives","locationURL":"http://library.columbia.edu/locations/avery/drawings-archives.html","address2":"1172 Amsterdam Ave., MC0301","city":"New York","hoursURL":"http://hours.library.columbia.edu/index.php?library=avery-drawings-archives","email":"avery-drawings@library.columbia.edu","floorRoom":"Rm. 213","longitude":"-73.960908","latitude":"40.808494","displayName":"Avery Drawings & Archives","officialName":"Drawing & Archives Department Avery Architectural & Fine Arts Library","note":"","locationIDClean":"averydrawingsarchives"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/avery/directions","phone":"","building":"Avery Library","fax":"","imagePath":"/content/dam/libraryweb/locations/avery/avery_index/Anniversary-logo-WEB--2.jpg","mapURL":"","state":"NY","address1":"Columbia University","locationID":"avery-index","locationURL":"http://library.columbia.edu/locations/avery/avery-index.html","address2":"1172 Amsterdam Ave., MC0301","city":"New York","hoursURL":"","email":"avery-index@library.columbia.edu","floorRoom":"Rm. 226","longitude":"-73.960761","latitude":"40.808423","displayName":"Avery Index to Architectural Periodicals","officialName":"Avery Index to Architectural Periodicals","note":"","locationIDClean":"averyindex"},{"showOnMap":true,"zip":"10027","directionsURL":"http://library.barnard.edu/about-the-library/map","phone":"(212) 854-3953","building":"LeFrak Center, Barnard Hall, first floor","fax":"","imagePath":"/content/dam/locations/barnard.jpg","mapURL":"","state":"NY","address1":"3009 Broadway","locationID":"barnard","locationURL":"http://library.barnard.edu/","address2":"","city":"New York ","hoursURL":"https://library.barnard.edu/access/hours","email":"library@barnard.edu","floorRoom":"","longitude":"-73.963939","latitude":"40.809097","displayName":"Barnard College Library","officialName":"Barnard Library & Academic Information Systems","note":"","locationIDClean":"barnard"},{"showOnMap":false,"zip":"10027","directionsURL":"","phone":"(212) 854-2067","building":"Barnard Hall","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"3009 Broadway","locationID":"barnard-bcrw","locationURL":"http://bcrw.barnard.edu","address2":"","city":"New York","hoursURL":"","email":"bcrw@barnard.edu","floorRoom":"101","longitude":"-73.963955","latitude":"40.809154","displayName":"","officialName":"Barnard Center For Research On Women","note":"","locationIDClean":"barnardbcrw"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7535","building":"","fax":"","imagePath":"/content/dam/locations/borrowdirect.jpg","mapURL":"","state":"NY","address1":"307 Butler Library","locationID":"borrow-direct","locationURL":"http://library.columbia.edu/find/request/borrow-direct.html","address2":"535 W. 114th Street","city":"New York","hoursURL":"","email":"borrowdirect@columbia.edu","floorRoom":"","longitude":"-73.96325","latitude":"40.806225","displayName":"Borrow Direct Office","officialName":"Borrow Direct Office","note":"","locationIDClean":"borrowdirect"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/burke/directions","phone":"(212) 851-5606","building":"Union Theological Seminary","fax":"","imagePath":"/content/dam/locations/burke.jpg","mapURL":"","state":"NY","address1":"3041 Broadway","locationID":"burke","locationURL":"http://library.columbia.edu/locations/burke.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=burke","email":"burke@library.columbia.edu","floorRoom":"","longitude":"-73.961876","latitude":"40.811353","displayName":"The Burke Library","officialName":"The Burke Theological Library","note":"","locationIDClean":"burke"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/business/directions","phone":"(212) 854-7804","building":"Uris Hall","fax":"","imagePath":"/content/dam/locations/business.jpg","mapURL":"","state":"NY","address1":"3022 Broadway","locationID":"business","locationURL":"http://library.columbia.edu/locations/business.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=business","email":"business@library.columbia.edu","floorRoom":"130","longitude":"-73.961147","latitude":"40.809231","displayName":"Business & Economics Library","officialName":"Business & Economics Library","note":"","locationIDClean":"business"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler-circulation/directions","phone":"(212) 854-2235","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/butler-circulation.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"butler-circulation","locationURL":"http://library.columbia.edu/locations/butler-circulation.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler","email":"circulation@columbia.edu","floorRoom":"Circulation Department","longitude":"-73.963156","latitude":"40.806507","displayName":"Butler Library Circulation","officialName":"Butler Library Circulation","note":"","locationIDClean":"butlercirculation"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7309","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/butler.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"butler","locationURL":"http://library.columbia.edu/locations/butler.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler","email":"butler@library.columbia.edu","floorRoom":"","longitude":"-73.963225","latitude":"40.806422","displayName":"Butler Library","officialName":"Nicholas Murray Butler Library","note":"","locationIDClean":"butler"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler-reference/directions","phone":"(212) 854-2241","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/butler-reference.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"butler-reference","locationURL":"http://library.columbia.edu/locations/butler-reference.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler-reference","email":"ref-ref@columbia.edu","floorRoom":"301","longitude":"-73.963159","latitude":"40.8066","displayName":"Butler Library Research Services","officialName":"Butler Library Research Services","note":"","locationIDClean":"butlerreference"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler-reserves/floorplan","phone":"(212) 854-5327","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/butler-reserves.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"butler-reserves","locationURL":"http://library.columbia.edu/locations/butler-reserves.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler-reserves","email":"butlres@library.columbia.edu","floorRoom":"208 ","longitude":"-73.963024","latitude":"40.80617","displayName":"Butler Library Reserves","officialName":"Butler Library Reserves","note":"","locationIDClean":"butlerreserves"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-5327","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/media-services.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"media-services","locationURL":"http://library.columbia.edu/locations/butler/media-services.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=bmc","email":"bmc@library.columbia.edu","floorRoom":"208B ","longitude":"-73.963035","latitude":"40.806117","displayName":"Butler Media Center","officialName":"Butler Media Center","note":"","locationIDClean":"mediaservices"},{"showOnMap":false,"zip":"10027","directionsURL":"","phone":"","building":"International Affairs","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"420 West 118th Street","locationID":"cdrs","locationURL":"http://cdrs.columbia.edu","address2":"","city":"New York","hoursURL":"","email":"info@cdrs.columbia.edu","floorRoom":"201 (Lehman Library)","longitude":"-73.959728","latitude":"40.807418","displayName":"","officialName":"Center for Digital Research and Scholarship","note":"","locationIDClean":"cdrs"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-3630","building":"International Affairs","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"420 West 118 St.","locationID":"chrdr","locationURL":"http://library.columbia.edu/locations/chrdr.html","address2":"","city":"New York","hoursURL":"","email":"chrdr@columbia.edu","floorRoom":"318","longitude":"-73.960144","latitude":"40.807772","displayName":"Center for Human Rights Documentation & Research","officialName":"Center for Human Rights Documentation & Research","note":"","locationIDClean":"chrdr"},{"showOnMap":false,"zip":"10027","directionsURL":"http://ctl.columbia.edu/about/contact/","phone":"(212) 854-9058","building":"Butler Library","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"535 West 114th Street","locationID":"ctl","locationURL":"http://ccnmtl.columbia.edu/","address2":"","city":"New York","hoursURL":"","email":"ccnmtl@columbia.edu","floorRoom":"Faculty Support Lab, room 204,<br/>Staff Offices, room 505","longitude":"-73.962872","latitude":"40.806269","displayName":"","officialName":"Center for Teaching and Learning","note":"","locationIDClean":"ctl"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-5590","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/ccoh.jpg","mapURL":"","state":"NY","address1":"535 West 114th Street","locationID":"ccoh","locationURL":"http://library.columbia.edu/locations/ccoh.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=rbml","email":"oralhist@library.columbia.edu","floorRoom":"6th Floor East","longitude":"-73.963172","latitude":"40.806194","displayName":"Columbia Center for Oral History","officialName":"Columbia Center for Oral History","note":"The Columbia Center for Oral History was recently relocated to the Rare Book & Manuscript Library (RBML) on the 6th floor of Butler Library. ","locationIDClean":"ccoh"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/cuarchives/directions","phone":"(212) 854-3786 ","building":"Butler Library","fax":"(212) 854-1365","imagePath":"/content/dam/libraryweb/general/images/libphotos/columbiana.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"cuarchives","locationURL":"http://library.columbia.edu/locations/cuarchives.html","address2":"M.C. 1127","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=cuarchives","email":"uarchives@columbia.edu","floorRoom":"6th Floor","longitude":"-73.963088","latitude":"40.806204","displayName":"Columbia University Archives","officialName":"Columbia University Archives","note":"","locationIDClean":"cuarchives"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-5289","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/communications.jpg","mapURL":"","state":"NY ","address1":"535 West 114th St.","locationID":"communications","locationURL":"library.columbia.edu/news","address2":"","city":"New York","hoursURL":"","email":"news@library.columbia.edu","floorRoom":"507","longitude":"-73.96333","latitude":"40.806255","displayName":"Media Inquiries","officialName":"Columbia University Libraries Communications Office","note":"","locationIDClean":"communications"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7309","building":"Butler Library","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"535 West 114th Street","locationID":"copyright","locationURL":"http://copyright.columbia.edu","address2":"","city":"New York","hoursURL":"","email":"copyright@columbia.edu","floorRoom":"507D","longitude":"-73.963373","latitude":"40.806271","displayName":"","officialName":"Copyright Advisory Office","note":"","locationIDClean":"copyright"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/dhc/directions.html","phone":"(212) 854-7547","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/dhc.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"dhc","locationURL":"http://library.columbia.edu/locations/dhc.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=dhc","email":"dhc@library.columbia.edu","floorRoom":"305","longitude":"-73.962995","latitude":"40.806119","displayName":"Digital Humanities Center","officialName":"Digital Humanities Center","note":"","locationIDClean":"dhc"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-5327","building":"","fax":"","imagePath":"/content/dam/locations/document-delivery.jpg","mapURL":"","state":"NY","address1":"208 Butler Library","locationID":"document-delivery","locationURL":"http://library.columbia.edu/find/request/document-delivery.html","address2":"535 W. 114th Street","city":"New York","hoursURL":"","email":"doc-del@library.columbia.edu","floorRoom":"","longitude":"-73.963067","latitude":"40.80615","displayName":"Scan & Deliver Electronic Document Delivery","officialName":"Electronic Document Delivery Office","note":"","locationIDClean":"documentdelivery"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/science-engineering/directions.html","phone":"(212) 851-2950","building":"Northwest Corner Building","fax":"","imagePath":"/content/dam/locations/dsc.jpg","mapURL":"","state":"NY","address1":"550 West 120th Street ","locationID":"dsc","locationURL":"http://library.columbia.edu/locations/dsc.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=science-engineering","email":"ref-sci@columbia.edu","floorRoom":"401","longitude":"-73.962107","latitude":"40.80995","displayName":"","officialName":"Digital Science Center","note":"","locationIDClean":"dsc"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-8043","building":"International Affairs","fax":"","imagePath":"/content/dam/locations/dssc.jpg","mapURL":"","state":"NY","address1":"420 W. 118th St.","locationID":"dssc","locationURL":"http://library.columbia.edu/locations/dssc.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=lehman","email":"dssc@library.columbia.edu","floorRoom":"300","longitude":"-73.959283","latitude":"40.807573","displayName":"Digital Social Science Center (DSSC)","officialName":"Digital Social Science Center","note":"","locationIDClean":"dssc"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/lehman/directions","phone":"212-854-6012","building":"International Affairs","fax":"","imagePath":"/content/dam/locations/dssc-data.jpg","mapURL":"","state":"NY","address1":"420 W. 118th St.","locationID":"dssc-data","locationURL":"http://library.columbia.edu/locations/dssc/data.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=dssc-data","email":"dssc.data@columbia.edu","floorRoom":"215","longitude":"-73.959843","latitude":"40.807439","displayName":"DSSC Data Service","officialName":"Digital Social Science Center Data Service","note":"","locationIDClean":"dsscdata"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/eastasian/directions.html","phone":"(212) 854-4318","building":"Kent Hall","fax":"(212) 662-6286","imagePath":"/content/dam/locations/eastasian.jpg","mapURL":"","state":"NY","address1":"1140 Amsterdam Ave","locationID":"eastasian","locationURL":"http://library.columbia.edu/locations/eastasian.html","address2":"M.C. 3901","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=eastasian","email":"starr@library.columbia.edu","floorRoom":"300","longitude":"-73.961517","latitude":"40.807297","displayName":"C.V. Starr East Asian Library","officialName":"C.V. Starr East Asian Library","note":"","locationIDClean":"eastasian"},{"showOnMap":false,"zip":"10027","directionsURL":"","phone":"(212) 854-2976","building":"S. W. Mudd","fax":"","imagePath":"/content/dam/locations/engineering.jpg","mapURL":"","state":"NY","address1":"500 West 120th St.","locationID":"engineering","locationURL":"http://library.columbia.edu/locations/engineering.html","address2":"","city":"New York","hoursURL":"http://hours.cul.columbia.edu/?library=engineering","email":"engineering@library.columbia.edu","floorRoom":"422","longitude":"-73.959849","latitude":"40.809414","displayName":"Engineering Library","officialName":"Engineering Library","note":"","locationIDClean":"engineering"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/geology/directions.html","phone":"(212) 854-4713","building":"Schermerhorn","fax":"","imagePath":"/content/dam/locations/geology.jpg","mapURL":"","state":"NY","address1":"1190 Amsterdam Ave.","locationID":"geology","locationURL":"http://library.columbia.edu/locations/geology.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=geology","email":"geology@library.columbia.edu","floorRoom":"601","longitude":"-73.960688","latitude":"40.808667","displayName":"Geology Library","officialName":"Geology Library","note":"","locationIDClean":"geology"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-3630","building":"Lehman Library","fax":"","imagePath":"/content/dam/libraryweb/locations/area/featured_content_images/global-studies.jpg","mapURL":"","state":"NY","address1":"420 West 118th St.","locationID":"global-studies","locationURL":"http://library.columbia.edu/locations/global.html","address2":"International Affairs Building","city":"New York","hoursURL":"","email":"global@library.columbia.edu","floorRoom":"","longitude":"-73.959902","latitude":"40.807364","displayName":"Global Studies","officialName":"Global Studies","note":"","locationIDClean":"globalstudies"},{"showOnMap":true,"zip":"10032","directionsURL":"http://library.cumc.columbia.edu/directions-subway-bus-or-shuttle","phone":"(212) 305-3692","building":"Columbia University","fax":"","imagePath":"/content/dam/locations/health-sciences.jpg","mapURL":"","state":"NY","address1":"701 W. 168th St","locationID":"health-sciences","locationURL":"http://library.cumc.columbia.edu/","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=health-sciences","email":"hs-library@columbia.edu","floorRoom":"Lobby Level","longitude":"-73.942618","latitude":"40.842663","displayName":"Health Sciences Library","officialName":"Health Sciences Library","note":"","locationIDClean":"healthsciences"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7535","building":"","fax":"(212) 854-3313","imagePath":"/content/dam/locations/ill.jpg","mapURL":"","state":"NY","address1":"307 Butler Library","locationID":"ill","locationURL":"http://library.columbia.edu/find/request/ill.html","address2":"535 W. 114th Street","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=ill","email":"ill@library.columbia.edu","floorRoom":"","longitude":"-73.963271","latitude":"40.806235","displayName":"Interlibrary Loan Office","officialName":"Interlibrary Loan Office","note":"","locationIDClean":"ill"},{"showOnMap":false,"zip":"10027","directionsURL":"","phone":"(212) 854-8046","building":"304 International Affairs","fax":"","imagePath":"/content/dam/locations/jewish-studies.jpg","mapURL":"","state":"NY ","address1":"420 West 118th St.","locationID":"jewish-studies","locationURL":"http://library.columbia.edu/locations/global/jewishstudies.html","address2":"","city":"New York","hoursURL":"","email":"jewishstudies@library.columbia.edu","floorRoom":"","longitude":"-73.960023","latitude":"40.80737","displayName":"Jewish Studies","officialName":"Jewish Studies","note":"","locationIDClean":"jewishstudies"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 678-8000","building":"","fax":"","imagePath":"/content/dam/libraryweb/general/images/libphotos/jewish.jpg","mapURL":"","state":"NY","address1":"3080 Broadway","locationID":"jts","locationURL":"http://www.jtsa.edu/The_Library.xml","address2":"","city":"New York","hoursURL":"http://www.jtsa.edu/The_Library/Location_Hours_and_Contact.xml","email":"communications@jtsa.edu","floorRoom":"","longitude":"-73.960525","latitude":"40.812072","displayName":"","officialName":"Jewish Theological Seminary Library","note":"","locationIDClean":"jts"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-0390","building":"Pulitzer Hall (Journalism)","fax":"","imagePath":"/content/dam/locations/journalism.jpg","mapURL":"","state":"NY","address1":"2950 Broadway","locationID":"journalism","locationURL":"http://library.columbia.edu/locations/journalism.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=journalism","email":"journalism@library.columbia.edu","floorRoom":"204","longitude":"-73.963724","latitude":"40.807648","displayName":"","officialName":"Journalism Library","note":"","locationIDClean":"journalism"},{"showOnMap":true,"zip":"10027","directionsURL":"http://web.law.columbia.edu/library/about/directions","phone":"(212) 854-2640","building":"Jerome L. Greene Hall","fax":"","imagePath":"/content/dam/locations/law.jpg","mapURL":"","state":"NY","address1":"435 West 116th St.","locationID":"law","locationURL":"http://web.law.columbia.edu/library","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=law","email":"law@library.columbia.edu","floorRoom":"3rd Floor","longitude":"-73.960633","latitude":"40.806878","displayName":"Law Library","officialName":"Arthur W. Diamond Law Library","note":"","locationIDClean":"law"},{"showOnMap":false,"zip":"10025","directionsURL":"","phone":"(212) 854-1679","building":"","fax":"","imagePath":"/content/dam/locations/latinamerican-studies.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"latinamerican-studies","locationURL":"http://library.columbia.edu/locations/global/latinamerica.html","address2":"","city":"New York","hoursURL":"","email":"latam@library.columbia.edu","floorRoom":"309 International Affairs","longitude":"-73.9599588","latitude":"40.807344","displayName":"Latin American & Iberian Studies","officialName":"Latin American & Iberian Studies","note":"","locationIDClean":"latinamericanstudies"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/lehman/directions","phone":"(212) 854-3794","building":"International Affairs","fax":"","imagePath":"/content/dam/locations/lehman.jpg","mapURL":"","state":"NY","address1":"420 W. 118th St.","locationID":"lehman","locationURL":"http://library.columbia.edu/locations/lehman.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=lehman","email":"lehman@library.columbia.edu","floorRoom":"300","longitude":"-73.959798","latitude":"40.80752","displayName":"Lehman Social Sciences Library","officialName":"Lehman Social Sciences Library","note":"","locationIDClean":"lehman"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/lehman/floorplan","phone":"(212) 854-8043","building":"International Affairs","fax":"","imagePath":"/content/dam/locations/lehman-maps.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"lehman-maps","locationURL":"http://library.columbia.edu/locations/maps.html","address2":"","city":"New York","hoursURL":"http://library.columbia.edu/locations/maps/hours.html","email":"dssc.data@columbia.edu","floorRoom":"300","longitude":"-73.959331","latitude":"40.807502","displayName":"Lehman Library Map Collection","officialName":"Lehman Library Map Collection","note":"","locationIDClean":"lehmanmaps"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7309","building":"","fax":"","imagePath":"/content/dam/locations/lio.jpg","mapURL":"","state":"NY","address1":"201 Butler Library","locationID":"lio","locationURL":"http://library.columbia.edu/services/lio.html","address2":"535 West 114th St.","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=lio","email":"lio@columbia.edu","floorRoom":"","longitude":"-73.962982","latitude":"40.806558","displayName":"Library Information Office","officialName":"Library Information Office","note":"","locationIDClean":"lio"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/math/directions","phone":"(212) 854-4712","building":"Mathematics","fax":"","imagePath":"/content/dam/locations/math.jpg","mapURL":"","state":"NY","address1":"2990 Broadway","locationID":"math","locationURL":"http://library.columbia.edu/locations/math.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=math","email":"math@library.columbia.edu","floorRoom":"303","longitude":"-73.962783","latitude":"40.808988","displayName":"Mathematics Library","officialName":"Mathematics Library","note":"","locationIDClean":"math"},{"showOnMap":false,"zip":"10025","directionsURL":"/content/libraryweb/locations/global/mideast/floorplan.html","phone":"(212) 854-3995","building":"Lehman Library","fax":"","imagePath":"/content/dam/locations/mideast-studies.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"mideast-studies","locationURL":"http://library.columbia.edu/locations/global/mideast.html","address2":"","city":"New York","hoursURL":"","email":"mideast@library.columbia.edu","floorRoom":"","longitude":"-73.959891","latitude":"40.807315","displayName":"Middle East & Islamic Studies","officialName":"Middle East & Islamic Studies","note":"","locationIDClean":"mideaststudies"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/music/directions","phone":"(212) 854-4711","building":"Dodge","fax":"","imagePath":"/content/dam/locations/music.jpg","mapURL":"","state":"NY","address1":"2960 Broadway","locationID":"music","locationURL":"http://library.columbia.edu/locations/music.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=music","email":"music@library.columbia.edu","floorRoom":"701","longitude":"-73.963185","latitude":"40.807959","displayName":"Music & Arts Library","officialName":"The Gabe M. Wiener Music & Arts Library","note":"","locationIDClean":"music"},{"showOnMap":false,"zip":"10032","directionsURL":"","phone":"(212) 305-3294","building":"NewYork-Presbyterian Hospital","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"622 W 168th Street","locationID":"cumc-orthopaedic","locationURL":"http://www.columbiaortho.org/departments/russell-hibbs-memorial-library","address2":"","city":"New York","hoursURL":"","email":"aom1@columbia.edu","floorRoom":"PH11-1139","longitude":"-73.940824","latitude":"40.841558","displayName":"Russell A. Hibbs Memorial Library","officialName":"Russell A. Hibbs Memorial Library - Department of Orthopedic Surgery","note":"","locationIDClean":"cumcorthopaedic"},{"showOnMap":false,"zip":"10032","directionsURL":"http://nyspi.org/library/directions.htm","phone":"(646) 774-8613","building":"Columbia Presbyterian Medical Center","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"1051 Riverside Drive (at 168th Street)","locationID":"nyspi","locationURL":"http://nyspi.org/library/","address2":"","city":"New York","hoursURL":"http://nyspi.org/library/about.htm","email":"MinayaL@pi.cpmc.columbia.edu","floorRoom":"Room 6300 / 6th Floor","longitude":"-73.944558","latitude":"40.842921","displayName":"","officialName":"NYS Psychiatric Institute Library","note":"","locationIDClean":"nyspi"},{"showOnMap":false,"zip":"08540","directionsURL":"","phone":"(609) 258-3388","building":"","fax":"","imagePath":"/content/dam/locations/off-site.png","mapURL":"","state":"NJ","address1":"400 Forrestal Road","locationID":"off-site","locationURL":"http://library.columbia.edu/find/request/offsite.html","address2":"","city":"Princeton","hoursURL":"","email":"recap@library.columbia.edu","floorRoom":"","longitude":"-74.613870","latitude":"40.344253","displayName":"","officialName":"Off-site Library Shelving Facility (ReCAP)","note":"","locationIDClean":"offsite"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 851-5621","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/recap-office.png","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"recap-office","locationURL":"http://library.columbia.edu/find/request/offsite.html","address2":"","city":"New York","hoursURL":"","email":"recap@library.columbia.edu","floorRoom":"101","longitude":"-73.96285","latitude":"40.806255","displayName":"Office of the ReCAP Coordinator","officialName":"Office of the ReCAP Coordinator","note":"","locationIDClean":"recapoffice"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/pmrr/directions","phone":"(212) 854-4704","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/pmrr.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"pmrr","locationURL":"http://library.columbia.edu/locations/pmrr.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=pmrr","email":"pmrr@library.columbia.edu","floorRoom":"401","longitude":"-73.962799","latitude":"40.80631","displayName":"Periodicals & Microforms Reading Room","officialName":"Periodicals & Microforms Reading Room","note":"","locationIDClean":"pmrr"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/rbml/about/directions","phone":"(212) 854-5590","building":"Butler Library","fax":"(212) 854-1365","imagePath":"/content/dam/locations/rbml.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"rbml","locationURL":"http://library.columbia.edu/locations/rbml.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=rbml","email":"rbml@library.columbia.edu","floorRoom":"6th Floor East","longitude":"-73.963123","latitude":"40.806174","displayName":"Rare Book & Manuscript Library","officialName":"Rare Book & Manuscript Library","note":"","locationIDClean":"rbml"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/global/slavic/floorplan.html","phone":"(212) 854-4701","building":"","fax":"","imagePath":"/content/dam/locations/slavic-studies.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"slavic-studies","locationURL":"http://library.columbia.edu/locations/global/slavic.html","address2":"","city":"New York","hoursURL":"","email":"slavic@library.columbia.edu","floorRoom":"306 International Affairs","longitude":"-73.959822","latitude":"40.807288","displayName":"Russian, Eurasian, & East European Studies","officialName":"Russian, Eurasian, & East European Studies","note":"","locationIDClean":"slavicstudies"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/science-engineering/directions","phone":"(212) 851-2950","building":"Northwest Corner Building","fax":"","imagePath":"/content/dam/locations/science-library.jpg","mapURL":"","state":"NY","address1":"550 West 120th Street ","locationID":"science-engineering","locationURL":"http://library.columbia.edu/locations/science-library.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=science-engineering","email":"scieng@library.columbia.edu","floorRoom":"401","longitude":"-73.962015","latitude":"40.810075","displayName":"Science & Engineering Library","officialName":"Science & Engineering Library","note":"","locationIDClean":"scienceengineering"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/social-work/directions","phone":"(212) 851-2194","building":"2nd Floor, School of Social Work","fax":"","imagePath":"/content/dam/locations/social-work.jpg","mapURL":"","state":"NY ","address1":"1255 Amsterdam Avenue","locationID":"social-work","locationURL":"http://library.columbia.edu/locations/social-work.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=social-work","email":"socwk@library.columbia.edu","floorRoom":"","longitude":"-73.958191","latitude":"40.810277","displayName":"Social Work Library","officialName":"Social Work Library","note":"","locationIDClean":"socialwork"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/global/southasia/floorplan.html","phone":"(212) 854-8401","building":"International Affairs Building (Lehman Library)","fax":"","imagePath":"/content/dam/locations/southasian-studies.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"southasia-studies","locationURL":"http://library.columbia.edu/locations/global/southasia.html","address2":"","city":"New York","hoursURL":"","email":"southasia@library.columbia.edu","floorRoom":"309","longitude":"-73.95976","latitude":"40.807258","displayName":"South & Southeast Asian Studies","officialName":"South & Southeast Asian Studies","note":"","locationIDClean":"southasiastudies"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 678-3494 ","building":"Teacher's College","fax":"","imagePath":"/content/dam/locations/teachers-college.jpg","mapURL":"","state":"NY ","address1":"525 W. 120th St. ","locationID":"teachers-college","locationURL":"http://library.tc.columbia.edu/","address2":"","city":"New York","hoursURL":"http://library.tc.columbia.edu/info.php","email":"","floorRoom":"","longitude":"-73.959862","latitude":"40.80992","displayName":"Teacher's College Library","officialName":"Teacher's College Library","note":"","locationIDClean":"teacherscollege"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/undergraduate/floorplan","phone":"(212) 854-0520","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/undergraduate.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"undergraduate","locationURL":"http://library.columbia.edu/locations/undergraduate.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler-24","email":"undergrad@library.columbia.edu","floorRoom":"","longitude":"-73.963526","latitude":"40.806334","displayName":"Undergraduate Library Services","officialName":"Undergraduate Library Services","note":"","locationIDClean":"undergraduate"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/usgd/directions","phone":"(212) 854-3794","building":"Lehman Social Sciences Library","fax":"","imagePath":"/content/dam/locations/usgd.jpg","mapURL":"","state":"NY","address1":"300 International Affairs","locationID":"usgd","locationURL":"http://library.columbia.edu/locations/usgd.html","address2":"420 W. 118th St.","city":"New York","hoursURL":"http://library.columbia.edu/locations/usgd/hours.html","email":"usgd@library.columbia.edu","floorRoom":"","longitude":"-73.959302","latitude":"40.807538","displayName":"","officialName":"U.S. Government Documents","note":"","locationIDClean":"usgd"}],"defaultImageURL":"http://library.columbia.edu/content/dam/locations/location.png"}
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:57:46 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Fri, 01 Jul 2016 20:47:48 GMT
+recorded_with: VCR 3.0.1

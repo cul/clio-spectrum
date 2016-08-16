@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:55:36 GMT
+      - Fri, 01 Jul 2016 20:56:05 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -23,7 +23,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
         YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
         eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9PicxMDczNTc2
         MycsJ3F0Jz0+J2RvY3VtZW50Jywnd3QnPT4ncnVieSd9fSwncmVzcG9uc2Un
@@ -234,18 +234,17 @@ http_interactions:
         fCBsb2Mrbi0tKzc3NjMrMDAwMDAwMDArZDU2MDAwMDArYjgzMDAwMDArMDAy
         MDEzKzEwNzM1NzYzIHwgZWJufmN+fn5zc3R3fnp6enp6enp6fm11dHp6enp6
         fm9yd3p6enp6fnp6eHp5d355enN3dXN0dyddLCd0aW1lc3RhbXAnPT4nMjAx
-        Ni0wNy0wNlQyMTowODozMi4yMjJaJywnYXV0aG9yaXRpZXNfZHQnPT4nMjAx
-        Ni0wNy0yOFQxNjo0MjoxNVonLCdhdXRob3JfdmFyaWFudF90eHQnPT5bJydd
-        LCdzdWJqZWN0X3ZhcmlhbnRfdHh0Jz0+WydTbWlsZSBpbiBsaXRlcmF0dXJl
-        JywnQmFiYXNzdWXMgiAoQ3VsdCknLCdBZnJvLUJyYXppbGlhbiBjdWx0cycs
-        J1JlbGlnaW9uLCBQcmltaXRpdmUnLCdBdGhlaXNtJywnR29kJywnSXJyZWxp
-        Z2lvbicsJ1JlbGlnaW9ucycsJ1RoZW9sb2d5JywnQXJjaGFlb2xvZ2ljYWwg
-        c3BlY2ltZW5zJywnQXJ0ZWZhY3RzIChBbnRpcXVpdGllcyknLCdBcnRpZmFj
-        dHMgKEFudGlxdWl0aWVzKScsJ1NwZWNpbWVucywgQXJjaGFlb2xvZ2ljYWwn
-        LCdNYXRlcmlhbCBjdWx0dXJlJywnQXJjaGFlb2xvZ3knXSwnX3ZlcnNpb25f
-        Jz0+MTU0MTExNzQ1NDgwNzIwMzg0MH1dfX0K
+        Ni0wNS0yM1QyMDowNDo0MS4xMjdaJywnYXV0aG9yaXRpZXNfZHQnPT4nMjAx
+        Ni0wNS0yM1QyMTowOToyMVonLCdhdXRob3JfdmFyaWFudF90eHQnPT5bJydd
+        LCdzdWJqZWN0X3ZhcmlhbnRfdHh0Jz0+WycgSG90ZWxzLCB0YXZlcm5zLCBl
+        dGMuLCBpbiBsaXRlcmF0dXJlIEFmcm8tQnJhemlsaWFuIGN1bHRzIFJlbGln
+        aW9uLCBQcmltaXRpdmUgQXRoZWlzbSBHb2QgSXJyZWxpZ2lvbiBSZWxpZ2lv
+        bnMgVGhlb2xvZ3kgQXJjaGFlb2xvZ2ljYWwgc3BlY2ltZW5zIEFydGVmYWN0
+        cyAoQW50aXF1aXRpZXMpIEFydGlmYWN0cyAoQW50aXF1aXRpZXMpIFNwZWNp
+        bWVucywgQXJjaGFlb2xvZ2ljYWwgTWF0ZXJpYWwgY3VsdHVyZSBBcmNoYWVv
+        bG9neSddLCdfdmVyc2lvbl8nPT4xNTM1MTU0ODkyNjM1NjM1NzEyfV19fQo=
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:55:36 GMT
+  recorded_at: Fri, 01 Jul 2016 20:56:05 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=10840&qt=document&wt=ruby"
@@ -259,7 +258,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:55:36 GMT
+      - Fri, 01 Jul 2016 20:56:05 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -423,28 +422,19 @@ http_interactions:
         fn5+fn4nXSwnaXRlbV9kaXNwbGF5Jz0+WydERDIzMi5BMjUgfCBsb2MrZGQt
         KzAyMzIrMDAwMDAwMDArYTI1MDAwMDArMTA4NDAgfCBlYm5+bW1+fnp4d3h+
         enp6enp6enp+cHh1enp6enp+eXpydnp+fn5+fn5+fn5+fn5+fiddLCd0aW1l
-        c3RhbXAnPT4nMjAxNi0wNy0wNlQyMTowODoyMy45M1onLCdhdXRob3JpdGll
-        c19kdCc9PicyMDE2LTA4LTA1VDE2OjI0OjE3WicsJ2F1dGhvcl92YXJpYW50
-        X3R4dCc9PlsnQWJ1c2gsIEFsZWtzYW5kdcyGcicsJ1JlaW5oYXJkdCwgRXJu
-        c3QsJ10sJ3N1YmplY3RfdmFyaWFudF90eHQnPT5bJ0RpbWl0cm92LCBHZW9y
-        Z2lpzIYsJywnRGltaXRyb2ZmLCBHZW9yZ2ksJywnRGltaXRyb3YsIEdlb3Jn
-        ZXMsJywnRGltaXRyb3YsIEdpb3JnaW8sJywnRGltaXRyb3YsIEppcsyMacyB
-        LCcsJ0RpbWl0cm92LCBKb3JnZSwnLCdEaW1pdHJvdywgR2VvcmdpLCcsJ0R5
-        bXl0cm92LCBIZW9yaGlpzIYsJywnRHppbWl0cm92LCBIZW9yaGlpzIYsJywn
-        RGnMhG1pzIR0cnXMhGYsIEdoaXl1zIRyZ2hpzIQsJywnRGVpbWl0b3JvZnUs
-        IEcuLCcsJ0RpbWl0b3JvZnUsJywn0JTQuNC80LjRgtGA0L7Qsiwg0JPQtdC+
-        0YDQs9C4LCcsJ9eT15nXnteZ15jXqNeQ1rjXsCwg15LXoteQ1rjXqNeS15kn
-        LCfXk9eZ157XmdeY16jXkNeV15UsINeSJywn15PXmdee15nXmNeo15DXsCwg
-        15InLCflraPnsbPnibnmtJvlpKssJywnQ29tbW9ucyAoU29jaWFsIG9yZGVy
-        KScsJ0xhYm9yIGFuZCBsYWJvcmluZyBjbGFzc2VzJywnTGFib3JpbmcgY2xh
-        c3MnLCdMYWJvdXJpbmcgY2xhc3MnLCdXb3JraW5nIGNsYXNzZXMnLCdTb2Np
-        YWwgY2xhc3NlcycsJ0xhYm9yJywnTWFyeGlzbScsJ1NvY2lhbCBkZW1vY3Jh
-        Y3knLCdTb2NpYWxpc3QgbW92ZW1lbnRzJywnQ29sbGVjdGl2aXNtJywnQW5h
-        cmNoaXNtJywnQ29tbXVuaXNtJywnQ3JpdGljYWwgdGhlb3J5JywnQW5uYWxz
-        JywnQXV4aWxpYXJ5IHNjaWVuY2VzIG9mIGhpc3RvcnknXSwnX3ZlcnNpb25f
-        Jz0+MTU0MTg0MTA5MzQ1OTQ0MzcxMn1dfX0K
+        c3RhbXAnPT4nMjAxNi0wNS0yM1QyMDowNDoyOC45NTFaJywnYXV0aG9yaXRp
+        ZXNfZHQnPT4nMjAxNi0wNS0yM1QyMDo1MzoxMlonLCdhdXRob3JfdmFyaWFu
+        dF90eHQnPT5bJ0FidXNoLCBBbGVrc2FuZHXMhnIgUmVpbmhhcmR0LCBFcm5z
+        dCwgMTkwMi0nXSwnc3ViamVjdF92YXJpYW50X3R4dCc9PlsnIENvbW1vbnMg
+        KFNvY2lhbCBvcmRlcikgTGFib3IgYW5kIGxhYm9yaW5nIGNsYXNzZXMgTGFi
+        b3JpbmcgY2xhc3MgTGFib3VyaW5nIGNsYXNzIFdvcmtpbmcgY2xhc3NlcyBT
+        b2NpYWwgY2xhc3NlcyBMYWJvciBNYXJ4aXNtIFNvY2lhbCBkZW1vY3JhY3kg
+        U29jaWFsaXN0IG1vdmVtZW50cyBDb2xsZWN0aXZpc20gQW5hcmNoaXNtIENv
+        bW11bmlzbSBDcml0aWNhbCB0aGVvcnkgQW5uYWxzIEF1eGlsaWFyeSBzY2ll
+        bmNlcyBvZiBoaXN0b3J5J10sJ192ZXJzaW9uXyc9PjE1MzUxNTM4NzY3NTQy
+        MzUzOTJ9XX19Cg==
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:55:36 GMT
+  recorded_at: Fri, 01 Jul 2016 20:56:05 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=11638&qt=document&wt=ruby"
@@ -458,7 +448,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:55:36 GMT
+      - Fri, 01 Jul 2016 20:56:05 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -619,51 +609,38 @@ http_interactions:
         SFMgLSBTb2NpZXRpZXMnXSwnbGNfc3ViY2xhc3NfZmFjZXQnPT5bJ0hTIC0g
         U29jaWV0aWVzJ10sJ2NsaW9faWRfZGlzcGxheSc9PicxMTYzOCcsJ3NvdXJj
         ZV9mYWNldCc9PlsnY2F0YWxvZyddLCdzb3VyY2VfZGlzcGxheSc9PlsnY2F0
-        YWxvZyddLCdpc2JuX3R4dCc9PlsnOTc4Mzg3MDUwMTE0MycsJzM4NzA1MDEx
-        NDYnLCczODcwNTAxMTQ2IDonXSwnaXNibl9kaXNwbGF5Jz0+WyczODcwNTAx
-        MTQ2J10sJ2xjY25fZGlzcGxheSc9PlsnNzY0ODUzMjInXSwnbGNjbl90eHQn
-        PT5bJzc2NDg1MzIyJ10sJ29jbGNfdHh0Jz0+WycyNjQ4MjU4Jywnb2NtMDI2
-        NDgyNTgnXSwnb2NsY19kaXNwbGF5Jz0+WycyNjQ4MjU4Jywnb2NtMDI2NDgy
-        NTgnXSwnZnVsbF9wdWJsaXNoZXJfZGlzcGxheSc9PlsnSGFtYnVyZyA6IEJh
-        dWh1zIh0dGVuLVZlcmxhZywgMTk3Ni4nXSwnbG9jYXRpb25fY2FsbF9udW1i
-        ZXJfaWRfZGlzcGxheSc9PlsnT2Zmc2l0ZSAtIFBsYWNlIFJlcXVlc3QgZm9y
-        IGRlbGl2ZXJ5IHdpdGhpbiAyIGJ1c2luZXNzIGRheXMgPj4gSFM2MDcuRzQ0
-        IDE5NzZ8REVMSU18MTgwNTQnXSwnbG9jYXRpb25fY2FsbF9udW1iZXJfdHh0
-        Jz0+WydPZmZzaXRlIC0gUGxhY2UgUmVxdWVzdCBmb3IgZGVsaXZlcnkgd2l0
-        aGluIDIgYnVzaW5lc3MgZGF5cyA+PiBIUzYwNy5HNDQgMTk3NiddLCdjYWxs
-        X251bWJlcl90eHQnPT5bJ0hTNjA3Lkc0NCAxOTc2J10sJ2NhbGxfbnVtYmVy
-        X2Rpc3BsYXknPT5bJ0hTNjA3Lkc0NCAxOTc2J10sJ2xvY2F0aW9uX2ZhY2V0
-        Jz0+WydPZmZzaXRlJ10sJ2xvY2F0aW9uX3R4dCc9PlsnT2Zmc2l0ZSAtIFBs
-        YWNlIFJlcXVlc3QgZm9yIGRlbGl2ZXJ5IHdpdGhpbiAyIGJ1c2luZXNzIGRh
-        eXMgPj4gSFM2MDcuRzQ0IDE5NzYnXSwnc2hlbGZrZXknPT5bJ2xvYytocy0r
-        MDYwNyswMDAwMDAwMCtnNDQwMDAwMCswMDE5NzYrMTE2MzgnXSwncmV2ZXJz
-        ZV9zaGVsZmtleSc9PlsnZWJufmk3fn56dHpzfnp6enp6enp6fmp2dnp6enp6
-        fnp6eXFzdH55eXR3cn5+fn5+fn4nXSwnaXRlbV9kaXNwbGF5Jz0+WydIUzYw
-        Ny5HNDQgMTk3NiB8IGxvYytocy0rMDYwNyswMDAwMDAwMCtnNDQwMDAwMCsw
-        MDE5NzYrMTE2MzggfCBlYm5+aTd+fnp0enN+enp6enp6enp+anZ2enp6enp+
-        enp5cXN0fnl5dHdyfn5+fn5+fiddLCd0aW1lc3RhbXAnPT4nMjAxNi0wNy0w
-        NlQyMTowODoyMy45M1onLCdhdXRob3JpdGllc19kdCc9PicyMDE2LTA4LTA1
-        VDE2OjI3OjE1WicsJ3N1YmplY3RfdmFyaWFudF90eHQnPT5bJ0EuRi4gJiBB
-        Lk0uJywnQS5MLkEuTS4nLCdBRiBhbmQgQU0nLCdBTEFNIChTZWNyZXQgb3Jk
-        ZXIpJywnQW5jaWVudCBGcmVlIGFuZCBBY2NlcHRlZCBNYXNvbnMnLCdBbnRp
-        Y2hpIGxpYmVyaSBhY2NldHRhdGkgbXVyYXRvcmknLCdGLiAmIEEuTS4nLCdG
-        LiBhbmQgQS5NLicsJ0ZhcmHMhG1hzIRzdcyEbmhhzIQnLCdGcmFuYy1NYWPM
-        p29ubmVyaWUgKFNlY3JldCBvcmRlciknLCdGcmFuY21hc29uZXJpYScsJ0Zy
-        YW5jcy1NYWPMp29ucycsJ0ZyZWUgJiBBY2NlcHRlZCBNYXNvbnMnLCdGcmVl
-        IGFuZCBBY2NlcHRlZCBNYXNvbnMnLCdGcmVlIE1hc29ucnknLCdGcmVlbWFz
-        b25hcmknLCdGcmVlbWFzb25hcnknLCdGcmVpbWF1cmVyJywnRnJlaW1hdXJl
-        ci1HZXNlbGxzY2hhZnQnLCdGcmltdXJlcmUnLCdGdXJpzIRtZcyEc29uJywn
-        TWFjzKdvbmFyaWEnLCdNYWPMp29ucycsJ01hc29uZXJpYcyBJywnTWFzb25p
-        YScsJ01hc29ucyAoU2VjcmV0IG9yZGVyKScsJ01hc29uc3R2bycsJ01hc29u
-        eScsJ01hc3NvbmVyaWEnLCdNYcyEc3XMhG5pzIR5YWgnLCdNb3N0IEFuY2ll
-        bnQgYW5kIEhvbm91cmFibGUgRnJhdGVybml0eSBvZiBGcmVlIGFuZCBBY2Nl
-        cHRlZCBNYXNvbnMnLCdPcmRlbmEgVm9syrlueWtoIGthbWVuc2hjaGlrb3Yn
-        LCdTemFiYWRrb8yLbXXMi3Zlc3NlzIFnJywnVGVrdG9uaXNtb3MnLCdWb2zK
-        uW55ZSBrYW1lbnNoY2hpa2knLCdBbm5hbHMnLCdBdXhpbGlhcnkgc2NpZW5j
-        ZXMgb2YgaGlzdG9yeScsJ09ub21hdG9sb2d5JywnTmFtZXMnLCdPbm9tYXNp
-        b2xvZ3knXSwnX3ZlcnNpb25fJz0+MTU0MTg0MTI4MDM5MTE4NDM4NH1dfX0K
+        YWxvZyddLCdpc2JuX3R4dCc9PlsnMzg3MDUwMTE0NiddLCdpc2JuX2Rpc3Bs
+        YXknPT5bJzM4NzA1MDExNDYnXSwnbGNjbl9kaXNwbGF5Jz0+Wyc3NjQ4NTMy
+        MiddLCdsY2NuX3R4dCc9PlsnNzY0ODUzMjInXSwnb2NsY190eHQnPT5bJzI2
+        NDgyNTgnLCdvY20wMjY0ODI1OCddLCdvY2xjX2Rpc3BsYXknPT5bJzI2NDgy
+        NTgnLCdvY20wMjY0ODI1OCddLCdmdWxsX3B1Ymxpc2hlcl9kaXNwbGF5Jz0+
+        WydIYW1idXJnIDogQmF1aHXMiHR0ZW4tVmVybGFnLCAxOTc2LiddLCdsb2Nh
+        dGlvbl9jYWxsX251bWJlcl9pZF9kaXNwbGF5Jz0+WydPZmZzaXRlIC0gUGxh
+        Y2UgUmVxdWVzdCBmb3IgZGVsaXZlcnkgd2l0aGluIDIgYnVzaW5lc3MgZGF5
+        cyA+PiBIUzYwNy5HNDQgMTk3NnxERUxJTXwxODA1NCddLCdsb2NhdGlvbl9j
+        YWxsX251bWJlcl90eHQnPT5bJ09mZnNpdGUgLSBQbGFjZSBSZXF1ZXN0IGZv
+        ciBkZWxpdmVyeSB3aXRoaW4gMiBidXNpbmVzcyBkYXlzID4+IEhTNjA3Lkc0
+        NCAxOTc2J10sJ2NhbGxfbnVtYmVyX3R4dCc9PlsnSFM2MDcuRzQ0IDE5NzYn
+        XSwnY2FsbF9udW1iZXJfZGlzcGxheSc9PlsnSFM2MDcuRzQ0IDE5NzYnXSwn
+        bG9jYXRpb25fZmFjZXQnPT5bJ09mZnNpdGUnXSwnbG9jYXRpb25fdHh0Jz0+
+        WydPZmZzaXRlIC0gUGxhY2UgUmVxdWVzdCBmb3IgZGVsaXZlcnkgd2l0aGlu
+        IDIgYnVzaW5lc3MgZGF5cyA+PiBIUzYwNy5HNDQgMTk3NiddLCdzaGVsZmtl
+        eSc9PlsnbG9jK2hzLSswNjA3KzAwMDAwMDAwK2c0NDAwMDAwKzAwMTk3Nisx
+        MTYzOCddLCdyZXZlcnNlX3NoZWxma2V5Jz0+WydlYm5+aTd+fnp0enN+enp6
+        enp6enp+anZ2enp6enp+enp5cXN0fnl5dHdyfn5+fn5+fiddLCdpdGVtX2Rp
+        c3BsYXknPT5bJ0hTNjA3Lkc0NCAxOTc2IHwgbG9jK2hzLSswNjA3KzAwMDAw
+        MDAwK2c0NDAwMDAwKzAwMTk3NisxMTYzOCB8IGVibn5pN35+enR6c356enp6
+        enp6en5qdnZ6enp6en56enlxc3R+eXl0d3J+fn5+fn5+J10sJ3RpbWVzdGFt
+        cCc9PicyMDE2LTA1LTIzVDIwOjA0OjI4Ljk1MVonLCdhdXRob3JpdGllc19k
+        dCc9PicyMDE2LTA1LTIzVDIwOjUzOjE0WicsJ2F1dGhvcl92YXJpYW50X3R4
+        dCc9PlsnJ10sJ3N1YmplY3RfdmFyaWFudF90eHQnPT5bJ0Fmcm8tQW1lcmlj
+        YW4gZnJlZW1hc29ucyBGcmVlbWFzb25zLCBBZnJpY2FuIEFtZXJpY2FuIEZy
+        ZWVtYXNvbnMsIEFmcm8tQW1lcmljYW4gRnJlZW1hc29ucywgTmVncm8gQW5u
+        YWxzIEF1eGlsaWFyeSBzY2llbmNlcyBvZiBoaXN0b3J5IE9ub21hdG9sb2d5
+        IE5hbWVzIE9ub21hc2lvbG9neSddLCdfdmVyc2lvbl8nPT4xNTM1MTUzODc4
+        OTExMTU2MjI0fV19fQo=
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:55:37 GMT
+  recorded_at: Fri, 01 Jul 2016 20:56:05 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=6974&qt=document&wt=ruby"
@@ -677,7 +654,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:55:36 GMT
+      - Fri, 01 Jul 2016 20:56:06 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -687,9 +664,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'6974','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'6974','marc_display'=>'<record><leader>01723cam a2200421 i 4500</leader><controlfield tag="001">6974</controlfield><controlfield tag="005">20100310071716.0</controlfield><controlfield tag="008">790816s1978    nyua     b    101 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   77018700 </subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0306345218</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)3543536</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm03543536</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG11754184-B</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAA7260CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)6974</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="d">CStRLIN</subfield><subfield code="d">NNC</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">UF526</subfield><subfield code="b">.S3 no. 21</subfield><subfield code="a">TS200;</subfield></datafield><datafield tag="082" ind1=" " ind2=" "><subfield code="a">623/.028 s</subfield><subfield code="a">671.3</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="a">TS200</subfield><subfield code="b">.S33 1974</subfield></datafield><datafield tag="111" ind1="2" ind2=" "><subfield code="a">Sagamore Army Materials Research Conference</subfield><subfield code="n">(21st :</subfield><subfield code="d">1974 :</subfield><subfield code="c">Raquette Lake, N.Y.)</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Advances in deformation processing :</subfield><subfield code="b">[proceedings of the Twenty-first Sagamore Army Materials Research Conference, held at Sagamore Conference Center, Raquette Lake, New York, August 13-16, 1974] /</subfield><subfield code="c">edited by John J. Burke and Volker Weiss.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Plenum Press,</subfield><subfield code="c">c1978.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">x, 596 p. :</subfield><subfield code="b">ill. ;</subfield><subfield code="c">26 cm.</subfield></datafield><datafield tag="490" ind1="1" ind2=" "><subfield code="a">Sagamore Army Materials Research Conference proceedings ;</subfield><subfield code="v">21</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Metal-work</subfield><subfield code="v">Congresses.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Deformations (Mechanics)</subfield><subfield code="v">Congresses.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Manufacturing processes</subfield><subfield code="v">Congresses.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Burke, John J.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Weiss, Volker,</subfield><subfield code="d">1930-</subfield></datafield><datafield tag="811" ind1="2" ind2=" "><subfield code="a">Sagamore Army Materials Research Conference.</subfield><subfield code="t">Sagamore Army Materials Research Conference proceedings ;</subfield><subfield code="v">21st.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">TS</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">TS200 .S33 1974</subfield><subfield code="b">loc+TS-+0200+00000000+S3300000+001974</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Offsite</subfield><subfield code="b">Offsite - Place Request for delivery within 2 business days &gt;&gt; TS200 .S33 1974|DELIM|11046</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Conference Proceedings</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record>','text'=>['UF526 .S3 no. 21 TS200;','623/.028 s 671.3','TS200 .S33 1974','Sagamore Army Materials Research Conference (21st : 1974 : Raquette Lake, N.Y.)','Advances in deformation processing : [proceedings of the Twenty-first Sagamore Army Materials Research Conference, held at Sagamore Conference Center, Raquette Lake, New York, August 13-16, 1974] / edited by John J. Burke and Volker Weiss.','New York : Plenum Press, c1978.','x, 596 p. : ill. ; 26 cm.','Sagamore Army Materials Research Conference proceedings ; 21','Includes bibliographical references and index.','Metal-work Congresses.','Deformations (Mechanics) Congresses.','Manufacturing processes Congresses.','Burke, John J.','Weiss, Volker, 1930-','Sagamore Army Materials Research Conference. Sagamore Army Materials Research Conference proceedings ; 21st.','AUTH'],'author_txt'=>['Sagamore Army Materials Research Conference (21st : 1974 : Raquette Lake, N.Y.)'],'author_addl_txt'=>['Burke, John J.','Weiss, Volker,'],'author_facet'=>['Sagamore Army Materials Research Conference (21st : 1974 : Raquette Lake, N.Y.)','Burke, John J.','Weiss, Volker, 1930-'],'author_display'=>['Sagamore Army Materials Research Conference (21st : 1974 : Raquette Lake, N.Y.)'],'author_sort'=>'Sagamore Army Materials Research Conference (21st : 1974 : Raquette Lake, N.Y.)   Advances in deformation processing proceedings of the Twenty-first Sagamore Army Materials Research Conference, held at Sagamore Conference Center, Raquette Lake, New York, August 13-16, 1974 edited by John J. Burke and Volker Weiss','title_txt'=>['Advances in deformation processing :'],'title_display'=>['Advances in deformation processing : [proceedings of the Twenty-first Sagamore Army Materials Research Conference, held at Sagamore Conference Center, Raquette Lake, New York, August 13-16, 1974]'],'title_filing_txt'=>['Advances in deformation processing :'],'title_filing_full_txt'=>['Advances in deformation processing : [proceedings of the Twenty-first Sagamore Army Materials Research Conference, held at Sagamore Conference Center, Raquette Lake, New York, August 13-16, 1974] /'],'subtitle_txt'=>['proceedings of the Twenty-first Sagamore Army Materials Research Conference, held at Sagamore Conference Center, Raquette Lake, New York, August 13-16, 1974'],'title_first_facet'=>['A'],'title_addl_txt'=>['Advances in deformation processing : [proceedings of the Twenty-first Sagamore Army Materials Research Conference, held at Sagamore Conference Center, Raquette Lake, New York, August 13-16, 1974] /'],'title_sort'=>'advances in deformation processing  proceedings of the twentyfirst sagamore army materials research conference held at sagamore conference center raquette lake new york august 1316 1974','subject_txt'=>['Metal-work Congresses','Deformations (Mechanics) Congresses','Manufacturing processes Congresses'],'subject_topic_facet'=>['Metal-work','Deformations (Mechanics)','Manufacturing processes'],'subject_form_facet'=>['Congresses'],'subject_form_txt'=>['Congresses'],'pub_place_display'=>['New York'],'pub_name_display'=>['Plenum Press'],'pub_year_display'=>['c1978'],'pub_place_txt'=>['New York'],'pub_name_txt'=>['Plenum Press'],'pub_year_txt'=>['c1978'],'pub_date_txt'=>['1978'],'language_facet'=>['English'],'format'=>['Book','Conference Proceedings'],'lc_1letter_facet'=>['T - Technology'],'lc_2letter_facet'=>['TS - Manufactures'],'lc_subclass_facet'=>['TS - Manufactures'],'clio_id_display'=>'6974','source_facet'=>['catalog'],'source_display'=>['catalog'],'isbn_txt'=>['9780306345210','0306345218'],'isbn_display'=>['0306345218'],'lccn_display'=>['77018700'],'lccn_txt'=>['77018700'],'oclc_txt'=>['3543536','ocm03543536'],'oclc_display'=>['3543536','ocm03543536'],'full_publisher_display'=>['New York : Plenum Press, c1978.'],'location_call_number_id_display'=>['Offsite - Place Request for delivery within 2 business days >> TS200 .S33 1974|DELIM|11046'],'location_call_number_txt'=>['Offsite - Place Request for delivery within 2 business days >> TS200 .S33 1974'],'call_number_txt'=>['TS200 .S33 1974'],'call_number_display'=>['TS200 .S33 1974'],'location_facet'=>['Offsite'],'location_txt'=>['Offsite - Place Request for delivery within 2 business days >> TS200 .S33 1974'],'shelfkey'=>['loc+ts-+0200+00000000+s3300000+001974+6974'],'reverse_shelfkey'=>['ebn~67~~zxzz~zzzzzzzz~7wwzzzzz~zzyqsv~tqsv~~~~~~~~'],'item_display'=>['TS200 .S33 1974 | loc+ts-+0200+00000000+s3300000+001974+6974 | ebn~67~~zxzz~zzzzzzzz~7wwzzzzz~zzyqsv~tqsv~~~~~~~~'],'timestamp'=>'2016-07-06T21:08:23.93Z','authorities_dt'=>'2016-08-05T16:09:52Z','author_variant_txt'=>['Weiss, V.'],'subject_variant_txt'=>['Metalwork','Decoration and ornament','Manufacturing processes','Elastic solids','Mechanics','Rheology','Strains and stresses','Structural failures','Industrial processing','Manufacture','Process engineering (Manufactures)','Processes, Manufacturing','Processing, Industrial','Production processes','Industrial arts','Production engineering','Machine-tools','Materials'],'_version_'=>1541840186591150080}]}}
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'6974','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'6974','marc_display'=>'<record><leader>01723cam a2200421 i 4500</leader><controlfield tag="001">6974</controlfield><controlfield tag="005">20100310071716.0</controlfield><controlfield tag="008">790816s1978    nyua     b    101 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   77018700 </subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0306345218</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)3543536</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm03543536</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG11754184-B</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAA7260CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)6974</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="d">CStRLIN</subfield><subfield code="d">NNC</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">UF526</subfield><subfield code="b">.S3 no. 21</subfield><subfield code="a">TS200;</subfield></datafield><datafield tag="082" ind1=" " ind2=" "><subfield code="a">623/.028 s</subfield><subfield code="a">671.3</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="a">TS200</subfield><subfield code="b">.S33 1974</subfield></datafield><datafield tag="111" ind1="2" ind2=" "><subfield code="a">Sagamore Army Materials Research Conference</subfield><subfield code="n">(21st :</subfield><subfield code="d">1974 :</subfield><subfield code="c">Raquette Lake, N.Y.)</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Advances in deformation processing :</subfield><subfield code="b">[proceedings of the Twenty-first Sagamore Army Materials Research Conference, held at Sagamore Conference Center, Raquette Lake, New York, August 13-16, 1974] /</subfield><subfield code="c">edited by John J. Burke and Volker Weiss.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Plenum Press,</subfield><subfield code="c">c1978.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">x, 596 p. :</subfield><subfield code="b">ill. ;</subfield><subfield code="c">26 cm.</subfield></datafield><datafield tag="490" ind1="1" ind2=" "><subfield code="a">Sagamore Army Materials Research Conference proceedings ;</subfield><subfield code="v">21</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Metal-work</subfield><subfield code="v">Congresses.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Deformations (Mechanics)</subfield><subfield code="v">Congresses.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Manufacturing processes</subfield><subfield code="v">Congresses.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Burke, John J.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Weiss, Volker,</subfield><subfield code="d">1930-</subfield></datafield><datafield tag="811" ind1="2" ind2=" "><subfield code="a">Sagamore Army Materials Research Conference.</subfield><subfield code="t">Sagamore Army Materials Research Conference proceedings ;</subfield><subfield code="v">21st.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">TS</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">TS200 .S33 1974</subfield><subfield code="b">loc+TS-+0200+00000000+S3300000+001974</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Offsite</subfield><subfield code="b">Offsite - Place Request for delivery within 2 business days &gt;&gt; TS200 .S33 1974|DELIM|11046</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Conference Proceedings</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record>','text'=>['UF526 .S3 no. 21 TS200;','623/.028 s 671.3','TS200 .S33 1974','Sagamore Army Materials Research Conference (21st : 1974 : Raquette Lake, N.Y.)','Advances in deformation processing : [proceedings of the Twenty-first Sagamore Army Materials Research Conference, held at Sagamore Conference Center, Raquette Lake, New York, August 13-16, 1974] / edited by John J. Burke and Volker Weiss.','New York : Plenum Press, c1978.','x, 596 p. : ill. ; 26 cm.','Sagamore Army Materials Research Conference proceedings ; 21','Includes bibliographical references and index.','Metal-work Congresses.','Deformations (Mechanics) Congresses.','Manufacturing processes Congresses.','Burke, John J.','Weiss, Volker, 1930-','Sagamore Army Materials Research Conference. Sagamore Army Materials Research Conference proceedings ; 21st.','AUTH'],'author_txt'=>['Sagamore Army Materials Research Conference (21st : 1974 : Raquette Lake, N.Y.)'],'author_addl_txt'=>['Burke, John J.','Weiss, Volker,'],'author_facet'=>['Sagamore Army Materials Research Conference (21st : 1974 : Raquette Lake, N.Y.)','Burke, John J.','Weiss, Volker, 1930-'],'author_display'=>['Sagamore Army Materials Research Conference (21st : 1974 : Raquette Lake, N.Y.)'],'author_sort'=>'Sagamore Army Materials Research Conference (21st : 1974 : Raquette Lake, N.Y.)   Advances in deformation processing proceedings of the Twenty-first Sagamore Army Materials Research Conference, held at Sagamore Conference Center, Raquette Lake, New York, August 13-16, 1974 edited by John J. Burke and Volker Weiss','title_txt'=>['Advances in deformation processing :'],'title_display'=>['Advances in deformation processing : [proceedings of the Twenty-first Sagamore Army Materials Research Conference, held at Sagamore Conference Center, Raquette Lake, New York, August 13-16, 1974]'],'title_filing_txt'=>['Advances in deformation processing :'],'title_filing_full_txt'=>['Advances in deformation processing : [proceedings of the Twenty-first Sagamore Army Materials Research Conference, held at Sagamore Conference Center, Raquette Lake, New York, August 13-16, 1974] /'],'subtitle_txt'=>['proceedings of the Twenty-first Sagamore Army Materials Research Conference, held at Sagamore Conference Center, Raquette Lake, New York, August 13-16, 1974'],'title_first_facet'=>['A'],'title_addl_txt'=>['Advances in deformation processing : [proceedings of the Twenty-first Sagamore Army Materials Research Conference, held at Sagamore Conference Center, Raquette Lake, New York, August 13-16, 1974] /'],'title_sort'=>'advances in deformation processing  proceedings of the twentyfirst sagamore army materials research conference held at sagamore conference center raquette lake new york august 1316 1974','subject_txt'=>['Metal-work Congresses','Deformations (Mechanics) Congresses','Manufacturing processes Congresses'],'subject_topic_facet'=>['Metal-work','Deformations (Mechanics)','Manufacturing processes'],'subject_form_facet'=>['Congresses'],'subject_form_txt'=>['Congresses'],'pub_place_display'=>['New York'],'pub_name_display'=>['Plenum Press'],'pub_year_display'=>['c1978'],'pub_place_txt'=>['New York'],'pub_name_txt'=>['Plenum Press'],'pub_year_txt'=>['c1978'],'pub_date_txt'=>['1978'],'language_facet'=>['English'],'format'=>['Book','Conference Proceedings'],'lc_1letter_facet'=>['T - Technology'],'lc_2letter_facet'=>['TS - Manufactures'],'lc_subclass_facet'=>['TS - Manufactures'],'clio_id_display'=>'6974','source_facet'=>['catalog'],'source_display'=>['catalog'],'isbn_txt'=>['0306345218'],'isbn_display'=>['0306345218'],'lccn_display'=>['77018700'],'lccn_txt'=>['77018700'],'oclc_txt'=>['3543536','ocm03543536'],'oclc_display'=>['3543536','ocm03543536'],'full_publisher_display'=>['New York : Plenum Press, c1978.'],'location_call_number_id_display'=>['Offsite - Place Request for delivery within 2 business days >> TS200 .S33 1974|DELIM|11046'],'location_call_number_txt'=>['Offsite - Place Request for delivery within 2 business days >> TS200 .S33 1974'],'call_number_txt'=>['TS200 .S33 1974'],'call_number_display'=>['TS200 .S33 1974'],'location_facet'=>['Offsite'],'location_txt'=>['Offsite - Place Request for delivery within 2 business days >> TS200 .S33 1974'],'shelfkey'=>['loc+ts-+0200+00000000+s3300000+001974+6974'],'reverse_shelfkey'=>['ebn~67~~zxzz~zzzzzzzz~7wwzzzzz~zzyqsv~tqsv~~~~~~~~'],'item_display'=>['TS200 .S33 1974 | loc+ts-+0200+00000000+s3300000+001974+6974 | ebn~67~~zxzz~zzzzzzzz~7wwzzzzz~zzyqsv~tqsv~~~~~~~~'],'timestamp'=>'2016-05-23T20:04:28.951Z','authorities_dt'=>'2016-05-23T20:52:56Z','author_variant_txt'=>[' Burke, John Joseph, 1875-1936 Weiss, V. (Volker), 1930-'],'subject_variant_txt'=>['Metalwork Decoration and ornament Manufacturing processes Elastic solids Mechanics Rheology Strains and stresses Structural failures Industrial processing Manufacture Process engineering (Manufactures) Processes, Manufacturing Processing, Industrial Production processes Industrial arts Production engineering Machine-tools Materials'],'_version_'=>1535153860209803264}]}}
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:55:37 GMT
+  recorded_at: Fri, 01 Jul 2016 20:56:06 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=8887&qt=document&wt=ruby"
@@ -703,7 +680,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:55:36 GMT
+      - Fri, 01 Jul 2016 20:56:06 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -713,7 +690,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
         YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
         eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic4ODg3Jywn
         cXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9Pnsn
@@ -862,23 +839,16 @@ http_interactions:
         enp6fnJycnN+fn5+fn5+fn5+fn5+fn4nXSwnaXRlbV9kaXNwbGF5Jz0+WydE
         RzU1Mi42IC5ONDggfCBsb2MrZGctKzA1NTIrNjAwMDAwMDArbjQ4MDAwMDAr
         ODg4NyB8IGVibn5tan5+enV1eH50enp6enp6en5jdnJ6enp6en5ycnJzfn5+
-        fn5+fn5+fn5+fn5+J10sJ3RpbWVzdGFtcCc9PicyMDE2LTA3LTA2VDIxOjA4
-        OjIzLjkzWicsJ2F1dGhvcml0aWVzX2R0Jz0+JzIwMTYtMDgtMDVUMTY6MTc6
-        MDZaJywnYXV0aG9yX3ZhcmlhbnRfdHh0Jz0+WydOZXZsZXIsIFZsYWRpbWly
-        IEVmaW1vdmljaCcsJ1ZpbGluJywnVmlsaW4sIFYuIEUuJywnVmlsaW4sIFZs
-        YWRpbWlyIEVmaW1vdmljaCcsJ9eg16LXldeV15zXoteoLCDXldeVJ10sJ3N1
-        YmplY3RfdmFyaWFudF90eHQnPT5bJ0dhaXJpzIQgVmHMhGxkzKNpzIQsJywn
-        R2FyaWJhbMq5ZGksIER6aHV6ZXBwZSwnLCdHYXJpYmFsZGksIEhvdnNlzIRw
-        yrssJywnR2FyaWJhbMq5ZGksIElvc2lmLCcsJ0dhcmliYWxkaSwgSm9zZcyB
-        LCcsJ0dhcmliYWxkaSwgWW92c2XMhHDKuywnLCfXkteo15HXnNeT15ksINeT
-        15bXs9eV15bXpNeVICjXmdeV16HXoyknLCdCcm93biwgR2lvcmdpbyBSb3Nz
-        aSwnLCdNYXRzaW5pLCBEemh1emVwZSwnLCdNYXp6aW5pLCBKb3NlcGgsJywn
-        Um9zc2kgQnJvd24sIEdpb3JnaW8sJywnTWFkemluaSwgRHpodXplcHBlLCcs
-        J01henppbmksIEdpdXplcHBlLCcsJ01henppbmksIEp1b3phcGFzLCcsJ01l
-        asyCaGluacyELCBKb3NlcGhhLCcsJ0pvc2VwaGEgTWXMgmpoaW5pzIQsJywn
-        TWF6emluaSwgSm9zZcyBLCcsJ01hY2luaSwgxJB1emVwZSwnLCdBbm5hbHMn
-        LCdBdXhpbGlhcnkgc2NpZW5jZXMgb2YgaGlzdG9yeSddLCdfdmVyc2lvbl8n
-        PT4xNTQxODQwNjQxMTU4MjgzMjY0fV19fQo=
+        fn5+fn5+fn5+fn5+J10sJ3RpbWVzdGFtcCc9PicyMDE2LTA1LTIzVDIwOjA0
+        OjI4Ljk1MVonLCdhdXRob3JpdGllc19kdCc9PicyMDE2LTA1LTIzVDIwOjUz
+        OjA2WicsJ2F1dGhvcl92YXJpYW50X3R4dCc9PlsnTmV2bGVyLCBWbGFkaW1p
+        ciBFZmltb3ZpY2ggVmlsaW4gVmlsaW4sIFYuIEUuIChWbGFkaW1pciBFZmlt
+        b3ZpY2gpIFZpbGluLCBWbGFkaW1pciBFZmltb3ZpY2gg16DXoteV15XXnNei
+        16gsINeV15UnXSwnc3ViamVjdF92YXJpYW50X3R4dCc9PlsnIEFubmFscyBB
+        dXhpbGlhcnkgc2NpZW5jZXMgb2YgaGlzdG9yeSBDb25mbGljdCwgSW50ZXJn
+        cm91cCBJbnRlcmdyb3VwIGNvbmZsaWN0IFJlbGF0aW9ucywgSW50ZXJncm91
+        cCBTb2NpYWwgaW50ZXJhY3Rpb24nXSwnX3ZlcnNpb25fJz0+MTUzNTE1Mzg3
+        MDkxOTk1ODUyOH1dfX0K
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:55:37 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Fri, 01 Jul 2016 20:56:06 GMT
+recorded_with: VCR 3.0.1
