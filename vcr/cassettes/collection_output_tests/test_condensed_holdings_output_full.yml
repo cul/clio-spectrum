@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 01 Jul 2016 20:48:43 GMT
+      - Tue, 16 Aug 2016 17:59:57 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -23,9 +23,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'8430339','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'8430339','marc_display'=>'<record><leader>01868cam a2200457 a 4500</leader><controlfield tag="001">8430339</controlfield><controlfield tag="005">20110428163253.0</controlfield><controlfield tag="008">100525s2011    nyu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2010021750</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781416596158 (alk. paper)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1416596151 (alk. paper)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="z">9781439101704 (ebook)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="z">1439101701 (ebook)</subfield></datafield><datafield tag="024" ind1=" " ind2=" "><subfield code="a">99941660047</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)464593183</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn464593183</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)8430339</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">YDX</subfield><subfield code="d">BTCTA</subfield><subfield code="d">YDXCP</subfield><subfield code="d">MOF</subfield><subfield code="d">MLY</subfield><subfield code="d">CDX</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">BL80.3</subfield><subfield code="b">.D74 2011</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">200</subfield><subfield code="2">22</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Dreyfus, Hubert L.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">All things shining :</subfield><subfield code="b">reading the Western classics to find meaning in a secular age /</subfield><subfield code="c">Hubert Dreyfus and Sean Dorrance Kelly.</subfield></datafield><datafield tag="250" ind1=" " ind2=" "><subfield code="a">1st Free Press hardcover ed.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Free Press,</subfield><subfield code="c">c2011.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xi, 254 p. ;</subfield><subfield code="c">22 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references (p. 227-243) and index.</subfield></datafield><datafield tag="505" ind1="0" ind2=" "><subfield code="a">Our contemporary nihilism -- David Foster Wallace\'s nihilism -- Homer\'s polytheism -- From Aeschylus to Augustine : monotheism on the rise -- From Dante to Kant : the attractions and dangers of autonomy -- Fanaticism, polytheism, and Melville\'s "evil art" -- Conclusion : lives worth living in a secular age.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Religions.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Religion.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Meaning (Philosophy)</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Kelly, Sean</subfield><subfield code="q">(Sean D.)</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20110308</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20110317</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">BL</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">BL80.3 .D74 2011</subfield><subfield code="b">loc+BL-+0080+30000000+D7400000+002011</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; BL80.3 .D74 2011|DELIM|11515363</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein [Butler] &gt;&gt; BL80.3 .D74 2011|DELIM|11580964</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2011-03-17T00:00:00.000Z</subfield></datafield></record>','text'=>['BL80.3 .D74 2011','200 22','Dreyfus, Hubert L.','All things shining : reading the Western classics to find meaning in a secular age / Hubert Dreyfus and Sean Dorrance Kelly.','1st Free Press hardcover ed.','New York : Free Press, c2011.','xi, 254 p. ; 22 cm.','Includes bibliographical references (p. 227-243) and index.','Our contemporary nihilism -- David Foster Wallace\'s nihilism -- Homer\'s polytheism -- From Aeschylus to Augustine : monotheism on the rise -- From Dante to Kant : the attractions and dangers of autonomy -- Fanaticism, polytheism, and Melville\'s "evil art" -- Conclusion : lives worth living in a secular age.','Religions.','Religion.','Meaning (Philosophy)','Kelly, Sean (Sean D.)','20110308 c sl13 MPS','20110317 c sl13 MPS','AUTH'],'author_txt'=>['Dreyfus, Hubert L.'],'author_addl_txt'=>['Kelly, Sean (Sean D.)'],'author_facet'=>['Dreyfus, Hubert L.','Kelly, Sean (Sean D.)'],'author_display'=>['Dreyfus, Hubert L.'],'author_sort'=>'Dreyfus, Hubert L.   All things shining reading the Western classics to find meaning in a secular age Hubert Dreyfus and Sean Dorrance Kelly','title_txt'=>['All things shining :'],'title_display'=>['All things shining : reading the Western classics to find meaning in a secular age'],'title_filing_txt'=>['All things shining :'],'title_filing_full_txt'=>['All things shining : reading the Western classics to find meaning in a secular age /'],'subtitle_txt'=>['reading the Western classics to find meaning in a secular age'],'title_first_facet'=>['A'],'title_addl_txt'=>['All things shining : reading the Western classics to find meaning in a secular age /'],'title_sort'=>'all things shining  reading the western classics to find meaning in a secular age','subject_txt'=>['Religions','Religion','Meaning (Philosophy)'],'subject_topic_facet'=>['Religions','Religion','Meaning (Philosophy)'],'pub_place_display'=>['New York'],'pub_name_display'=>['Free Press'],'pub_year_display'=>['c2011'],'pub_place_txt'=>['New York'],'pub_name_txt'=>['Free Press'],'pub_year_txt'=>['c2011'],'pub_date_txt'=>['2011'],'language_facet'=>['English'],'format'=>['Book'],'lc_1letter_facet'=>['B - Philosophy, Psychology, Religion'],'lc_2letter_facet'=>['BL - Religions (General)'],'lc_subclass_facet'=>['BL - Religions (General)'],'clio_id_display'=>'8430339','acq_dt'=>'2011-03-17T00:00:00Z','source_facet'=>['catalog'],'source_display'=>['catalog'],'isbn_txt'=>['9781416596158','1416596151','9781439101704','1439101701'],'isbn_display'=>['9781416596158','1416596151'],'lccn_display'=>['2010021750'],'lccn_txt'=>['2010021750'],'oclc_txt'=>['464593183','ocn464593183'],'oclc_display'=>['464593183','ocn464593183'],'full_publisher_display'=>['New York : Free Press, c2011.'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011|DELIM|11515363','Milstein [Butler] >> BL80.3 .D74 2011|DELIM|11580964'],'location_call_number_txt'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011','Milstein [Butler] >> BL80.3 .D74 2011'],'call_number_txt'=>['BL80.3 .D74 2011','BL80.3 .D74 2011'],'call_number_display'=>['BL80.3 .D74 2011','BL80.3 .D74 2011'],'location_facet'=>['Butler Stacks','Milstein'],'location_txt'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011','Milstein [Butler] >> BL80.3 .D74 2011'],'shelfkey'=>['loc+bl-+0080+30000000+d7400000+002011+8430339'],'reverse_shelfkey'=>['ebn~oe~~zzrz~wzzzzzzz~msvzzzzz~zzxzyy~rvwzwwq~~~~~'],'item_display'=>['BL80.3 .D74 2011 | loc+bl-+0080+30000000+d7400000+002011+8430339 | ebn~oe~~zzrz~wzzzzzzz~msvzzzzz~zzxzyy~rvwzwwq~~~~~'],'timestamp'=>'2016-05-23T20:04:39.565Z','authorities_dt'=>'2016-05-23T23:12:34Z','author_variant_txt'=>['Dreyfus, Hubert '],'subject_variant_txt'=>['Comparative religion Denominations, Religious Religion, Comparative Religions, Comparative Religious denominations World religions Civilization Gods Religion Religion, Primitive Atheism God Irreligion Religions Theology Philosophy Semantics (Philosophy)'],'_version_'=>1535162611657605120}]}}
+        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'8430339','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'8430339','marc_display'=>'<record><leader>01868cam a2200457 a 4500</leader><controlfield tag="001">8430339</controlfield><controlfield tag="005">20110428163253.0</controlfield><controlfield tag="008">100525s2011    nyu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2010021750</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781416596158 (alk. paper)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1416596151 (alk. paper)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="z">9781439101704 (ebook)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="z">1439101701 (ebook)</subfield></datafield><datafield tag="024" ind1=" " ind2=" "><subfield code="a">99941660047</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)464593183</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn464593183</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)8430339</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">YDX</subfield><subfield code="d">BTCTA</subfield><subfield code="d">YDXCP</subfield><subfield code="d">MOF</subfield><subfield code="d">MLY</subfield><subfield code="d">CDX</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">BL80.3</subfield><subfield code="b">.D74 2011</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">200</subfield><subfield code="2">22</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Dreyfus, Hubert L.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">All things shining :</subfield><subfield code="b">reading the Western classics to find meaning in a secular age /</subfield><subfield code="c">Hubert Dreyfus and Sean Dorrance Kelly.</subfield></datafield><datafield tag="250" ind1=" " ind2=" "><subfield code="a">1st Free Press hardcover ed.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Free Press,</subfield><subfield code="c">c2011.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xi, 254 p. ;</subfield><subfield code="c">22 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references (p. 227-243) and index.</subfield></datafield><datafield tag="505" ind1="0" ind2=" "><subfield code="a">Our contemporary nihilism -- David Foster Wallace\'s nihilism -- Homer\'s polytheism -- From Aeschylus to Augustine : monotheism on the rise -- From Dante to Kant : the attractions and dangers of autonomy -- Fanaticism, polytheism, and Melville\'s "evil art" -- Conclusion : lives worth living in a secular age.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Religions.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Religion.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Meaning (Philosophy)</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Kelly, Sean</subfield><subfield code="q">(Sean D.)</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20110308</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20110317</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">BL</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">BL80.3 .D74 2011</subfield><subfield code="b">loc+BL-+0080+30000000+D7400000+002011</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; BL80.3 .D74 2011|DELIM|11515363</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein [Butler] &gt;&gt; BL80.3 .D74 2011|DELIM|11580964</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2011-03-17T00:00:00.000Z</subfield></datafield></record>','text'=>['BL80.3 .D74 2011','200 22','Dreyfus, Hubert L.','All things shining : reading the Western classics to find meaning in a secular age / Hubert Dreyfus and Sean Dorrance Kelly.','1st Free Press hardcover ed.','New York : Free Press, c2011.','xi, 254 p. ; 22 cm.','Includes bibliographical references (p. 227-243) and index.','Our contemporary nihilism -- David Foster Wallace\'s nihilism -- Homer\'s polytheism -- From Aeschylus to Augustine : monotheism on the rise -- From Dante to Kant : the attractions and dangers of autonomy -- Fanaticism, polytheism, and Melville\'s "evil art" -- Conclusion : lives worth living in a secular age.','Religions.','Religion.','Meaning (Philosophy)','Kelly, Sean (Sean D.)','20110308 c sl13 MPS','20110317 c sl13 MPS','AUTH'],'author_txt'=>['Dreyfus, Hubert L.'],'author_addl_txt'=>['Kelly, Sean (Sean D.)'],'author_facet'=>['Dreyfus, Hubert L.','Kelly, Sean (Sean D.)'],'author_display'=>['Dreyfus, Hubert L.'],'author_sort'=>'Dreyfus, Hubert L.   All things shining reading the Western classics to find meaning in a secular age Hubert Dreyfus and Sean Dorrance Kelly','title_txt'=>['All things shining :'],'title_display'=>['All things shining : reading the Western classics to find meaning in a secular age'],'title_filing_txt'=>['All things shining :'],'title_filing_full_txt'=>['All things shining : reading the Western classics to find meaning in a secular age /'],'subtitle_txt'=>['reading the Western classics to find meaning in a secular age'],'title_first_facet'=>['A'],'title_addl_txt'=>['All things shining : reading the Western classics to find meaning in a secular age /'],'title_sort'=>'all things shining  reading the western classics to find meaning in a secular age','subject_txt'=>['Religions','Religion','Meaning (Philosophy)'],'subject_topic_facet'=>['Religions','Religion','Meaning (Philosophy)'],'pub_place_display'=>['New York'],'pub_name_display'=>['Free Press'],'pub_year_display'=>['c2011'],'pub_place_txt'=>['New York'],'pub_name_txt'=>['Free Press'],'pub_year_txt'=>['c2011'],'pub_date_txt'=>['2011'],'language_facet'=>['English'],'format'=>['Book'],'lc_1letter_facet'=>['B - Philosophy, Psychology, Religion'],'lc_2letter_facet'=>['BL - Religions (General)'],'lc_subclass_facet'=>['BL - Religions (General)'],'clio_id_display'=>'8430339','acq_dt'=>'2011-03-17T00:00:00Z','source_facet'=>['catalog'],'source_display'=>['catalog'],'isbn_txt'=>['9781416596158','1416596151','9781439101704','1439101701','9781416596158 (alk. paper)','1416596151 (alk. paper)','9781439101704 (ebook)','1439101701 (ebook)'],'isbn_display'=>['9781416596158','1416596151'],'lccn_display'=>['2010021750'],'lccn_txt'=>['2010021750'],'oclc_txt'=>['464593183','ocn464593183'],'oclc_display'=>['464593183','ocn464593183'],'full_publisher_display'=>['New York : Free Press, c2011.'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011|DELIM|11515363','Milstein [Butler] >> BL80.3 .D74 2011|DELIM|11580964'],'location_call_number_txt'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011','Milstein [Butler] >> BL80.3 .D74 2011'],'call_number_txt'=>['BL80.3 .D74 2011','BL80.3 .D74 2011'],'call_number_display'=>['BL80.3 .D74 2011','BL80.3 .D74 2011'],'location_facet'=>['Butler Stacks','Milstein'],'location_txt'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011','Milstein [Butler] >> BL80.3 .D74 2011'],'shelfkey'=>['loc+bl-+0080+30000000+d7400000+002011+8430339'],'reverse_shelfkey'=>['ebn~oe~~zzrz~wzzzzzzz~msvzzzzz~zzxzyy~rvwzwwq~~~~~'],'item_display'=>['BL80.3 .D74 2011 | loc+bl-+0080+30000000+d7400000+002011+8430339 | ebn~oe~~zzrz~wzzzzzzz~msvzzzzz~zzxzyy~rvwzwwq~~~~~'],'timestamp'=>'2016-07-06T21:08:31.367Z','authorities_dt'=>'2016-07-28T16:42:08Z','author_variant_txt'=>['Dreyfus, Hubert '],'subject_variant_txt'=>['Comparative religion','Denominations, Religious','Religion, Comparative','Religions, Comparative','Religious denominations','World religions','Civilization','Gods','Religion','Religion, Primitive','Atheism','God','Irreligion','Religions','Theology','Philosophy','Semantics (Philosophy)'],'_version_'=>1541117447659061248}]}}
     http_version: 
-  recorded_at: Fri, 01 Jul 2016 20:48:42 GMT
+  recorded_at: Tue, 16 Aug 2016 17:59:59 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/8430339"
@@ -34,11 +34,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.0, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
       Accept:
       - "*/*"
       Date:
-      - Fri, 01 Jul 2016 20:48:43 GMT
+      - Tue, 16 Aug 2016 17:59:59 GMT
   response:
     status:
       code: 200
@@ -58,22 +58,22 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Access-Control-Allow-Origin:
       - "*"
-      Etag:
-      - W/"179b6c288c1de65779680def58b3dd74"
-      X-Frame-Options:
-      - SAMEORIGIN
       X-Xss-Protection:
       - 1; mode=block
+      X-Request-Id:
+      - 5fbede33-765a-41cd-bbbb-d57e453cb66c
+      Etag:
+      - W/"1fd6c8fe0476e460a71b1f3eed6aa1fb"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Runtime:
+      - '3.069186'
       X-Content-Type-Options:
       - nosniff
-      X-Runtime:
-      - '1.424185'
       Access-Control-Request-Method:
       - "*"
-      X-Request-Id:
-      - 2b8e3b00-6157-470e-b198-505e9b9c5bd4
       Date:
-      - Fri, 01 Jul 2016 20:48:45 GMT
+      - Tue, 16 Aug 2016 18:00:02 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -84,11 +84,10 @@ http_interactions:
       encoding: UTF-8
       string: '{"8430339":{"condensed_holdings_full":[{"location_name":"Butler Stacks
         (Enter at the Butler Circulation Desk)","location_note":"","call_number":"BL80.3
-        .D74 2011","status":"not_available","holding_id":["11515363"],"copies":[{"items":{"Checked
-        out, due 2016-10-03":{"status":"not_available","count":1}}}],"services":["recall_hold"]},{"location_name":"Milstein
+        .D74 2011","status":"available","holding_id":["11515363"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]},{"location_name":"Milstein
         [Butler]","location_note":"","call_number":"BL80.3 .D74 2011","status":"available","holding_id":["11580964"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]}]}}'
     http_version: 
-  recorded_at: Fri, 01 Jul 2016 20:48:44 GMT
+  recorded_at: Tue, 16 Aug 2016 18:00:03 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=8430339&qt=document&wt=ruby"
@@ -102,7 +101,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 01 Jul 2016 20:48:45 GMT
+      - Tue, 16 Aug 2016 18:00:02 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -112,9 +111,439 @@ http_interactions:
     body:
       encoding: UTF-8
       string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'8430339','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'8430339','marc_display'=>'<record><leader>01868cam a2200457 a 4500</leader><controlfield tag="001">8430339</controlfield><controlfield tag="005">20110428163253.0</controlfield><controlfield tag="008">100525s2011    nyu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2010021750</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781416596158 (alk. paper)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1416596151 (alk. paper)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="z">9781439101704 (ebook)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="z">1439101701 (ebook)</subfield></datafield><datafield tag="024" ind1=" " ind2=" "><subfield code="a">99941660047</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)464593183</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn464593183</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)8430339</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">YDX</subfield><subfield code="d">BTCTA</subfield><subfield code="d">YDXCP</subfield><subfield code="d">MOF</subfield><subfield code="d">MLY</subfield><subfield code="d">CDX</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">BL80.3</subfield><subfield code="b">.D74 2011</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">200</subfield><subfield code="2">22</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Dreyfus, Hubert L.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">All things shining :</subfield><subfield code="b">reading the Western classics to find meaning in a secular age /</subfield><subfield code="c">Hubert Dreyfus and Sean Dorrance Kelly.</subfield></datafield><datafield tag="250" ind1=" " ind2=" "><subfield code="a">1st Free Press hardcover ed.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Free Press,</subfield><subfield code="c">c2011.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xi, 254 p. ;</subfield><subfield code="c">22 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references (p. 227-243) and index.</subfield></datafield><datafield tag="505" ind1="0" ind2=" "><subfield code="a">Our contemporary nihilism -- David Foster Wallace\'s nihilism -- Homer\'s polytheism -- From Aeschylus to Augustine : monotheism on the rise -- From Dante to Kant : the attractions and dangers of autonomy -- Fanaticism, polytheism, and Melville\'s "evil art" -- Conclusion : lives worth living in a secular age.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Religions.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Religion.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Meaning (Philosophy)</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Kelly, Sean</subfield><subfield code="q">(Sean D.)</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20110308</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20110317</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">BL</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">BL80.3 .D74 2011</subfield><subfield code="b">loc+BL-+0080+30000000+D7400000+002011</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; BL80.3 .D74 2011|DELIM|11515363</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein [Butler] &gt;&gt; BL80.3 .D74 2011|DELIM|11580964</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2011-03-17T00:00:00.000Z</subfield></datafield></record>','text'=>['BL80.3 .D74 2011','200 22','Dreyfus, Hubert L.','All things shining : reading the Western classics to find meaning in a secular age / Hubert Dreyfus and Sean Dorrance Kelly.','1st Free Press hardcover ed.','New York : Free Press, c2011.','xi, 254 p. ; 22 cm.','Includes bibliographical references (p. 227-243) and index.','Our contemporary nihilism -- David Foster Wallace\'s nihilism -- Homer\'s polytheism -- From Aeschylus to Augustine : monotheism on the rise -- From Dante to Kant : the attractions and dangers of autonomy -- Fanaticism, polytheism, and Melville\'s "evil art" -- Conclusion : lives worth living in a secular age.','Religions.','Religion.','Meaning (Philosophy)','Kelly, Sean (Sean D.)','20110308 c sl13 MPS','20110317 c sl13 MPS','AUTH'],'author_txt'=>['Dreyfus, Hubert L.'],'author_addl_txt'=>['Kelly, Sean (Sean D.)'],'author_facet'=>['Dreyfus, Hubert L.','Kelly, Sean (Sean D.)'],'author_display'=>['Dreyfus, Hubert L.'],'author_sort'=>'Dreyfus, Hubert L.   All things shining reading the Western classics to find meaning in a secular age Hubert Dreyfus and Sean Dorrance Kelly','title_txt'=>['All things shining :'],'title_display'=>['All things shining : reading the Western classics to find meaning in a secular age'],'title_filing_txt'=>['All things shining :'],'title_filing_full_txt'=>['All things shining : reading the Western classics to find meaning in a secular age /'],'subtitle_txt'=>['reading the Western classics to find meaning in a secular age'],'title_first_facet'=>['A'],'title_addl_txt'=>['All things shining : reading the Western classics to find meaning in a secular age /'],'title_sort'=>'all things shining  reading the western classics to find meaning in a secular age','subject_txt'=>['Religions','Religion','Meaning (Philosophy)'],'subject_topic_facet'=>['Religions','Religion','Meaning (Philosophy)'],'pub_place_display'=>['New York'],'pub_name_display'=>['Free Press'],'pub_year_display'=>['c2011'],'pub_place_txt'=>['New York'],'pub_name_txt'=>['Free Press'],'pub_year_txt'=>['c2011'],'pub_date_txt'=>['2011'],'language_facet'=>['English'],'format'=>['Book'],'lc_1letter_facet'=>['B - Philosophy, Psychology, Religion'],'lc_2letter_facet'=>['BL - Religions (General)'],'lc_subclass_facet'=>['BL - Religions (General)'],'clio_id_display'=>'8430339','acq_dt'=>'2011-03-17T00:00:00Z','source_facet'=>['catalog'],'source_display'=>['catalog'],'isbn_txt'=>['9781416596158','1416596151','9781439101704','1439101701'],'isbn_display'=>['9781416596158','1416596151'],'lccn_display'=>['2010021750'],'lccn_txt'=>['2010021750'],'oclc_txt'=>['464593183','ocn464593183'],'oclc_display'=>['464593183','ocn464593183'],'full_publisher_display'=>['New York : Free Press, c2011.'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011|DELIM|11515363','Milstein [Butler] >> BL80.3 .D74 2011|DELIM|11580964'],'location_call_number_txt'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011','Milstein [Butler] >> BL80.3 .D74 2011'],'call_number_txt'=>['BL80.3 .D74 2011','BL80.3 .D74 2011'],'call_number_display'=>['BL80.3 .D74 2011','BL80.3 .D74 2011'],'location_facet'=>['Butler Stacks','Milstein'],'location_txt'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011','Milstein [Butler] >> BL80.3 .D74 2011'],'shelfkey'=>['loc+bl-+0080+30000000+d7400000+002011+8430339'],'reverse_shelfkey'=>['ebn~oe~~zzrz~wzzzzzzz~msvzzzzz~zzxzyy~rvwzwwq~~~~~'],'item_display'=>['BL80.3 .D74 2011 | loc+bl-+0080+30000000+d7400000+002011+8430339 | ebn~oe~~zzrz~wzzzzzzz~msvzzzzz~zzxzyy~rvwzwwq~~~~~'],'timestamp'=>'2016-05-23T20:04:39.565Z','authorities_dt'=>'2016-05-23T23:12:34Z','author_variant_txt'=>['Dreyfus, Hubert '],'subject_variant_txt'=>['Comparative religion Denominations, Religious Religion, Comparative Religions, Comparative Religious denominations World religions Civilization Gods Religion Religion, Primitive Atheism God Irreligion Religions Theology Philosophy Semantics (Philosophy)'],'_version_'=>1535162611657605120}]}}
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'8430339','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'8430339','marc_display'=>'<record><leader>01868cam a2200457 a 4500</leader><controlfield tag="001">8430339</controlfield><controlfield tag="005">20110428163253.0</controlfield><controlfield tag="008">100525s2011    nyu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2010021750</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781416596158 (alk. paper)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1416596151 (alk. paper)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="z">9781439101704 (ebook)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="z">1439101701 (ebook)</subfield></datafield><datafield tag="024" ind1=" " ind2=" "><subfield code="a">99941660047</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)464593183</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn464593183</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)8430339</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">YDX</subfield><subfield code="d">BTCTA</subfield><subfield code="d">YDXCP</subfield><subfield code="d">MOF</subfield><subfield code="d">MLY</subfield><subfield code="d">CDX</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">BL80.3</subfield><subfield code="b">.D74 2011</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">200</subfield><subfield code="2">22</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Dreyfus, Hubert L.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">All things shining :</subfield><subfield code="b">reading the Western classics to find meaning in a secular age /</subfield><subfield code="c">Hubert Dreyfus and Sean Dorrance Kelly.</subfield></datafield><datafield tag="250" ind1=" " ind2=" "><subfield code="a">1st Free Press hardcover ed.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Free Press,</subfield><subfield code="c">c2011.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xi, 254 p. ;</subfield><subfield code="c">22 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references (p. 227-243) and index.</subfield></datafield><datafield tag="505" ind1="0" ind2=" "><subfield code="a">Our contemporary nihilism -- David Foster Wallace\'s nihilism -- Homer\'s polytheism -- From Aeschylus to Augustine : monotheism on the rise -- From Dante to Kant : the attractions and dangers of autonomy -- Fanaticism, polytheism, and Melville\'s "evil art" -- Conclusion : lives worth living in a secular age.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Religions.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Religion.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Meaning (Philosophy)</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Kelly, Sean</subfield><subfield code="q">(Sean D.)</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20110308</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20110317</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">BL</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">BL80.3 .D74 2011</subfield><subfield code="b">loc+BL-+0080+30000000+D7400000+002011</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; BL80.3 .D74 2011|DELIM|11515363</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein [Butler] &gt;&gt; BL80.3 .D74 2011|DELIM|11580964</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2011-03-17T00:00:00.000Z</subfield></datafield></record>','text'=>['BL80.3 .D74 2011','200 22','Dreyfus, Hubert L.','All things shining : reading the Western classics to find meaning in a secular age / Hubert Dreyfus and Sean Dorrance Kelly.','1st Free Press hardcover ed.','New York : Free Press, c2011.','xi, 254 p. ; 22 cm.','Includes bibliographical references (p. 227-243) and index.','Our contemporary nihilism -- David Foster Wallace\'s nihilism -- Homer\'s polytheism -- From Aeschylus to Augustine : monotheism on the rise -- From Dante to Kant : the attractions and dangers of autonomy -- Fanaticism, polytheism, and Melville\'s "evil art" -- Conclusion : lives worth living in a secular age.','Religions.','Religion.','Meaning (Philosophy)','Kelly, Sean (Sean D.)','20110308 c sl13 MPS','20110317 c sl13 MPS','AUTH'],'author_txt'=>['Dreyfus, Hubert L.'],'author_addl_txt'=>['Kelly, Sean (Sean D.)'],'author_facet'=>['Dreyfus, Hubert L.','Kelly, Sean (Sean D.)'],'author_display'=>['Dreyfus, Hubert L.'],'author_sort'=>'Dreyfus, Hubert L.   All things shining reading the Western classics to find meaning in a secular age Hubert Dreyfus and Sean Dorrance Kelly','title_txt'=>['All things shining :'],'title_display'=>['All things shining : reading the Western classics to find meaning in a secular age'],'title_filing_txt'=>['All things shining :'],'title_filing_full_txt'=>['All things shining : reading the Western classics to find meaning in a secular age /'],'subtitle_txt'=>['reading the Western classics to find meaning in a secular age'],'title_first_facet'=>['A'],'title_addl_txt'=>['All things shining : reading the Western classics to find meaning in a secular age /'],'title_sort'=>'all things shining  reading the western classics to find meaning in a secular age','subject_txt'=>['Religions','Religion','Meaning (Philosophy)'],'subject_topic_facet'=>['Religions','Religion','Meaning (Philosophy)'],'pub_place_display'=>['New York'],'pub_name_display'=>['Free Press'],'pub_year_display'=>['c2011'],'pub_place_txt'=>['New York'],'pub_name_txt'=>['Free Press'],'pub_year_txt'=>['c2011'],'pub_date_txt'=>['2011'],'language_facet'=>['English'],'format'=>['Book'],'lc_1letter_facet'=>['B - Philosophy, Psychology, Religion'],'lc_2letter_facet'=>['BL - Religions (General)'],'lc_subclass_facet'=>['BL - Religions (General)'],'clio_id_display'=>'8430339','acq_dt'=>'2011-03-17T00:00:00Z','source_facet'=>['catalog'],'source_display'=>['catalog'],'isbn_txt'=>['9781416596158','1416596151','9781439101704','1439101701','9781416596158 (alk. paper)','1416596151 (alk. paper)','9781439101704 (ebook)','1439101701 (ebook)'],'isbn_display'=>['9781416596158','1416596151'],'lccn_display'=>['2010021750'],'lccn_txt'=>['2010021750'],'oclc_txt'=>['464593183','ocn464593183'],'oclc_display'=>['464593183','ocn464593183'],'full_publisher_display'=>['New York : Free Press, c2011.'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011|DELIM|11515363','Milstein [Butler] >> BL80.3 .D74 2011|DELIM|11580964'],'location_call_number_txt'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011','Milstein [Butler] >> BL80.3 .D74 2011'],'call_number_txt'=>['BL80.3 .D74 2011','BL80.3 .D74 2011'],'call_number_display'=>['BL80.3 .D74 2011','BL80.3 .D74 2011'],'location_facet'=>['Butler Stacks','Milstein'],'location_txt'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011','Milstein [Butler] >> BL80.3 .D74 2011'],'shelfkey'=>['loc+bl-+0080+30000000+d7400000+002011+8430339'],'reverse_shelfkey'=>['ebn~oe~~zzrz~wzzzzzzz~msvzzzzz~zzxzyy~rvwzwwq~~~~~'],'item_display'=>['BL80.3 .D74 2011 | loc+bl-+0080+30000000+d7400000+002011+8430339 | ebn~oe~~zzrz~wzzzzzzz~msvzzzzz~zzxzyy~rvwzwwq~~~~~'],'timestamp'=>'2016-07-06T21:08:31.367Z','authorities_dt'=>'2016-07-28T16:42:08Z','author_variant_txt'=>['Dreyfus, Hubert '],'subject_variant_txt'=>['Comparative religion','Denominations, Religious','Religion, Comparative','Religions, Comparative','Religious denominations','World religions','Civilization','Gods','Religion','Religion, Primitive','Atheism','God','Irreligion','Religions','Theology','Philosophy','Semantics (Philosophy)'],'_version_'=>1541117447659061248}]}}
     http_version: 
-  recorded_at: Fri, 01 Jul 2016 20:48:45 GMT
+  recorded_at: Tue, 16 Aug 2016 18:00:03 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/9781416596158.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 16 Aug 2016 18:00:03 GMT
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Tue, 16 Aug 2016 18:00:03 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Location:
+      - https://catalog.hathitrust.org/api/volumes/brief/isbn/9781416596158.json
+      Content-Length:
+      - '344'
+      Content-Type:
+      - text/html; charset=iso-8859-1
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660;expires=Tue, 16-Aug-2016
+        18:09:55 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>302 Found</title>
+        </head><body>
+        <h1>Found</h1>
+        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/isbn/9781416596158.json">here</a>.</p>
+        <hr>
+        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
+        </body></html>
+    http_version: 
+  recorded_at: Tue, 16 Aug 2016 18:00:04 GMT
+- request:
+    method: get
+    uri: https://catalog.hathitrust.org/api/volumes/brief/isbn/9781416596158.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 16 Aug 2016 18:00:04 GMT
+      Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 16 Aug 2016 18:00:03 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '31'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a42378b;expires=Tue, 16-Aug-2016
+        18:09:55 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 16 Aug 2016 18:00:04 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/1416596151.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 16 Aug 2016 18:00:04 GMT
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Tue, 16 Aug 2016 18:00:03 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Location:
+      - https://catalog.hathitrust.org/api/volumes/brief/isbn/1416596151.json
+      Content-Length:
+      - '341'
+      Content-Type:
+      - text/html; charset=iso-8859-1
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660;expires=Tue, 16-Aug-2016
+        18:09:55 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>302 Found</title>
+        </head><body>
+        <h1>Found</h1>
+        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/isbn/1416596151.json">here</a>.</p>
+        <hr>
+        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
+        </body></html>
+    http_version: 
+  recorded_at: Tue, 16 Aug 2016 18:00:04 GMT
+- request:
+    method: get
+    uri: https://catalog.hathitrust.org/api/volumes/brief/isbn/1416596151.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 16 Aug 2016 18:00:04 GMT
+      Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 16 Aug 2016 18:00:03 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '31'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a42378b;expires=Tue, 16-Aug-2016
+        18:09:55 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 16 Aug 2016 18:00:04 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/464593183.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 16 Aug 2016 18:00:04 GMT
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Tue, 16 Aug 2016 18:00:04 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Location:
+      - https://catalog.hathitrust.org/api/volumes/brief/oclc/464593183.json
+      Content-Length:
+      - '340'
+      Content-Type:
+      - text/html; charset=iso-8859-1
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660;expires=Tue, 16-Aug-2016
+        18:09:55 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>302 Found</title>
+        </head><body>
+        <h1>Found</h1>
+        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/oclc/464593183.json">here</a>.</p>
+        <hr>
+        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
+        </body></html>
+    http_version: 
+  recorded_at: Tue, 16 Aug 2016 18:00:04 GMT
+- request:
+    method: get
+    uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/464593183.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 16 Aug 2016 18:00:04 GMT
+      Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 16 Aug 2016 18:00:04 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '31'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a42378b;expires=Tue, 16-Aug-2016
+        18:09:56 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 16 Aug 2016 18:00:04 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocn464593183.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 16 Aug 2016 18:00:04 GMT
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Tue, 16 Aug 2016 18:00:04 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Location:
+      - https://catalog.hathitrust.org/api/volumes/brief/oclc/ocn464593183.json
+      Content-Length:
+      - '343'
+      Content-Type:
+      - text/html; charset=iso-8859-1
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660;expires=Tue, 16-Aug-2016
+        18:09:56 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>302 Found</title>
+        </head><body>
+        <h1>Found</h1>
+        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/oclc/ocn464593183.json">here</a>.</p>
+        <hr>
+        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
+        </body></html>
+    http_version: 
+  recorded_at: Tue, 16 Aug 2016 18:00:04 GMT
+- request:
+    method: get
+    uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/ocn464593183.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 16 Aug 2016 18:00:04 GMT
+      Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 16 Aug 2016 18:00:04 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '31'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a42378b;expires=Tue, 16-Aug-2016
+        18:09:56 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 16 Aug 2016 18:00:05 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/lccn/2010021750.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 16 Aug 2016 18:00:05 GMT
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Tue, 16 Aug 2016 18:00:04 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Location:
+      - https://catalog.hathitrust.org/api/volumes/brief/lccn/2010021750.json
+      Content-Length:
+      - '341'
+      Content-Type:
+      - text/html; charset=iso-8859-1
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660;expires=Tue, 16-Aug-2016
+        18:09:56 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>302 Found</title>
+        </head><body>
+        <h1>Found</h1>
+        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/lccn/2010021750.json">here</a>.</p>
+        <hr>
+        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
+        </body></html>
+    http_version: 
+  recorded_at: Tue, 16 Aug 2016 18:00:05 GMT
+- request:
+    method: get
+    uri: https://catalog.hathitrust.org/api/volumes/brief/lccn/2010021750.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 16 Aug 2016 18:00:05 GMT
+      Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 16 Aug 2016 18:00:04 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '31'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a42378b;expires=Tue, 16-Aug-2016
+        18:09:56 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 16 Aug 2016 18:00:05 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=1052500&qt=document&wt=ruby"
@@ -128,7 +557,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 01 Jul 2016 20:48:45 GMT
+      - Tue, 16 Aug 2016 18:00:04 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -138,9 +567,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'1052500','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'1052500','marc_display'=>'<record><leader>03081mas a2200721 a 4500</leader><controlfield tag="001">1052500</controlfield><controlfield tag="005">20040217104614.0</controlfield><controlfield tag="008">750921c18579999nyudr1ne      0   a0eng d</controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">sn 78004456 </subfield></datafield><datafield tag="012" ind1=" " ind2=" "><subfield code="b">3</subfield><subfield code="e">n</subfield><subfield code="k">1</subfield><subfield code="l">1</subfield><subfield code="m">1</subfield></datafield><datafield tag="022" ind1="0" ind2=" "><subfield code="a">0362-4331</subfield></datafield><datafield tag="030" ind1=" " ind2=" "><subfield code="a">NYTIAO</subfield></datafield><datafield tag="032" ind1=" " ind2=" "><subfield code="a">383520</subfield><subfield code="b">USPS</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm01645522</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AFV9210CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)1052500</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">MUL</subfield><subfield code="c">MUL</subfield><subfield code="d">NSD</subfield><subfield code="d">IUL</subfield><subfield code="d">DLC</subfield><subfield code="d">SER</subfield><subfield code="d">AIP</subfield><subfield code="d">SER</subfield><subfield code="d">AIP</subfield><subfield code="d">NPI</subfield><subfield code="d">IUL</subfield><subfield code="d">AIP</subfield><subfield code="d">NPI</subfield><subfield code="d">NPX</subfield><subfield code="d">NPA</subfield><subfield code="d">DLC</subfield><subfield code="d">AIP</subfield><subfield code="d">UNP</subfield><subfield code="d">OCL</subfield><subfield code="d">DLC</subfield><subfield code="d">NSD</subfield><subfield code="d">DLC</subfield><subfield code="d">NSD</subfield><subfield code="d">AGL</subfield><subfield code="d">NSD</subfield><subfield code="d">AGL</subfield><subfield code="d">MGN</subfield><subfield code="d">NYS</subfield><subfield code="d">NYG</subfield><subfield code="d">MXC</subfield><subfield code="d">OCL</subfield><subfield code="d">HUL</subfield><subfield code="d">CUS</subfield><subfield code="d">NYG</subfield></datafield><datafield tag="042" ind1=" " ind2=" "><subfield code="a">nsdp</subfield><subfield code="a">lc</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">n-us-ny</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">Newspaper</subfield></datafield><datafield tag="210" ind1="0" ind2=" "><subfield code="a">N. Y. times</subfield></datafield><datafield tag="222" ind1=" " ind2="4"><subfield code="a">The New York times</subfield></datafield><datafield tag="245" ind1="0" ind2="4"><subfield code="a">The New York times.</subfield></datafield><datafield tag="246" ind1="1" ind2=" "><subfield code="i">Issues for Sept. 19-26, 1923 published jointly with other newspapers as:</subfield><subfield code="a">Combined New York morning newspapers</subfield></datafield><datafield tag="246" ind1="1" ind2=" "><subfield code="i">Issue for Sept. 23, 1923 published jointly with other newspapers as:</subfield><subfield code="a">Combined New York Sunday newspapers</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New-York [N.Y. :</subfield><subfield code="b">H.J. Raymond &amp; Co.],</subfield><subfield code="c">1857-</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">v. :</subfield><subfield code="b">ill. ;</subfield><subfield code="c">59 cm.</subfield></datafield><datafield tag="310" ind1=" " ind2=" "><subfield code="a">Daily,</subfield><subfield code="b">1861-</subfield></datafield><datafield tag="321" ind1=" " ind2=" "><subfield code="a">Daily (except Sunday),</subfield><subfield code="b">1857-1861</subfield></datafield><datafield tag="362" ind1="0" ind2=" "><subfield code="a">Vol. 6, no. 1868 (Sept. 14, 1857)-</subfield></datafield><datafield tag="510" ind1="1" ind2=" "><subfield code="a">Biography index</subfield><subfield code="x">0006-3053</subfield></datafield><datafield tag="510" ind1="1" ind2=" "><subfield code="a">National newspaper index</subfield><subfield code="b">1979-</subfield></datafield><datafield tag="510" ind1="1" ind2=" "><subfield code="a">NEXIS</subfield><subfield code="b">June 1, 1980-</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Bibliography of agriculture</subfield><subfield code="x">0006-1530</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">BioBusiness</subfield><subfield code="b">1990-</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Book review index</subfield><subfield code="x">0524-0581</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Chemical industry notes</subfield><subfield code="x">0045-639X</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Energy information abstracts</subfield><subfield code="x">0147-6521</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Environment abstracts</subfield><subfield code="x">0093-3287</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Film literature index</subfield><subfield code="x">0093-6758</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Infobank</subfield><subfield code="b">Jan. 1969-</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Predicasts</subfield></datafield><datafield tag="515" ind1=" " ind2=" "><subfield code="a">Suspended Dec. 12-28, 1958; Dec. 20, 1962-Mar. 1963; Sept. 17-Oct. 10, 1965; and Aug. 10-Nov. 5, 1978.</subfield></datafield><datafield tag="530" ind1=" " ind2=" "><subfield code="a">Also available on microfilm from University Microfilms International and in an online version.</subfield></datafield><datafield tag="580" ind1=" " ind2=" "><subfield code="a">Issued monthly reduced size publication titled: Little times, &lt;1924-1928&gt;.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">New York (N.Y.)</subfield><subfield code="v">Newspapers.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">New York County (N.Y.)</subfield><subfield code="v">Newspapers.</subfield></datafield><datafield tag="752" ind1=" " ind2=" "><subfield code="a">United States</subfield><subfield code="b">New York</subfield><subfield code="c">New York</subfield><subfield code="d">New York.</subfield></datafield><datafield tag="775" ind1="0" ind2=" "><subfield code="t">Semi-weekly times (New York, N.Y.)</subfield><subfield code="g">1857-1867</subfield><subfield code="w">(DLC)sn 83045440</subfield><subfield code="w">(OCoLC)9475039</subfield></datafield><datafield tag="775" ind1="0" ind2=" "><subfield code="t">New-York weekly times</subfield><subfield code="g">1857-&lt;1896&gt;</subfield><subfield code="w">(OCoLC)9447647</subfield><subfield code="w">(DLC)sn 83045332</subfield></datafield><datafield tag="776" ind1="1" ind2=" "><subfield code="t">New York times on the Web</subfield><subfield code="w">(OCoLC)34107580</subfield></datafield><datafield tag="777" ind1="1" ind2=" "><subfield code="t">Little times</subfield><subfield code="w">(DLC)sn 92061532</subfield><subfield code="w">(OCoLC)1756036</subfield></datafield><datafield tag="780" ind1="0" ind2="0"><subfield code="t">New-York daily times</subfield><subfield code="w">(DLC)sn 83030746</subfield><subfield code="w">(OCoLC)7919228</subfield></datafield><datafield tag="850" ind1=" " ind2=" "><subfield code="a">DNAL</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">MICROFLM FN 41</subfield><subfield code="b">mic+FN--+-+00000041</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Lehman</subfield><subfield code="b">Lehman &gt;&gt; NEWSPAPERS|DELIM|1320823</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Journalism</subfield><subfield code="b">Journalism &gt;&gt; NEWSPAPERS|DELIM|1320826</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Other</subfield><subfield code="b">Butler Current Periodicals, 401 Butler (Non-Circulating)|DELIM|4817248</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Microform Read Rm</subfield><subfield code="b">Butler Microforms, 401 Butler &gt;&gt; MICROFLM FN 41|DELIM|4817249</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Journal/Periodical</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Newspaper</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record>','text'=>['Newspaper','N. Y. times','The New York times','The New York times.','Issues for Sept. 19-26, 1923 published jointly with other newspapers as: Combined New York morning newspapers','Issue for Sept. 23, 1923 published jointly with other newspapers as: Combined New York Sunday newspapers','New-York [N.Y. : H.J. Raymond & Co.], 1857-','v. : ill. ; 59 cm.','Daily, 1861-','Daily (except Sunday), 1857-1861','Vol. 6, no. 1868 (Sept. 14, 1857)-','Biography index 0006-3053','National newspaper index 1979-','NEXIS June 1, 1980-','Bibliography of agriculture 0006-1530','BioBusiness 1990-','Book review index 0524-0581','Chemical industry notes 0045-639X','Energy information abstracts 0147-6521','Environment abstracts 0093-3287','Film literature index 0093-6758','Infobank Jan. 1969-','Predicasts','Suspended Dec. 12-28, 1958; Dec. 20, 1962-Mar. 1963; Sept. 17-Oct. 10, 1965; and Aug. 10-Nov. 5, 1978.','Also available on microfilm from University Microfilms International and in an online version.','Issued monthly reduced size publication titled: Little times, <1924-1928>.','New York (N.Y.) Newspapers.','New York County (N.Y.) Newspapers.','United States New York New York New York.','Semi-weekly times (New York, N.Y.) 1857-1867 (DLC)sn 83045440 (OCoLC)9475039','New-York weekly times 1857-<1896> (OCoLC)9447647 (DLC)sn 83045332','New York times on the Web (OCoLC)34107580','Little times (DLC)sn 92061532 (OCoLC)1756036','New-York daily times (DLC)sn 83030746 (OCoLC)7919228','DNAL','AUTH'],'author_sort'=>'New York times','title_txt'=>['The New York times.'],'title_display'=>['The New York times'],'title_filing_txt'=>['New York times.'],'title_filing_full_txt'=>['New York times.'],'title_first_facet'=>['N'],'title_addl_txt'=>['N. Y. times','The New York times','The New York times.','Combined New York morning newspapers','Combined New York Sunday newspapers','New-York daily times (DLC)sn 83030746 (OCoLC)7919228'],'title_sort'=>'new york times','subject_txt'=>['New York (N.Y.) Newspapers','New York County (N.Y.) Newspapers'],'subject_geo_facet'=>['New York (N.Y.)','New York County (N.Y.)'],'subject_form_facet'=>['Newspapers'],'subject_form_txt'=>['Newspapers'],'pub_place_display'=>['New-York [N.Y.'],'pub_name_display'=>['H.J. Raymond & Co.'],'pub_year_display'=>['1857-'],'pub_place_txt'=>['New-York [N.Y.'],'pub_name_txt'=>['H.J. Raymond & Co.'],'pub_year_txt'=>['1857-'],'pub_date_txt'=>['1857'],'language_facet'=>['English'],'format'=>['Journal/Periodical','Newspaper'],'clio_id_display'=>'1052500','source_facet'=>['catalog'],'source_display'=>['catalog'],'issn_txt'=>['0362-4331'],'issn_display'=>['0362-4331'],'lccn_display'=>['sn 78004456'],'lccn_txt'=>['sn 78004456'],'oclc_txt'=>['ocm01645522'],'oclc_display'=>['ocm01645522'],'full_publisher_display'=>['New-York [N.Y. : H.J. Raymond & Co.], 1857-'],'location_call_number_id_display'=>['Lehman >> NEWSPAPERS|DELIM|1320823','Journalism >> NEWSPAPERS|DELIM|1320826','Butler Current Periodicals, 401 Butler (Non-Circulating)|DELIM|4817248','Butler Microforms, 401 Butler >> MICROFLM FN 41|DELIM|4817249'],'location_call_number_txt'=>['Lehman >> NEWSPAPERS','Journalism >> NEWSPAPERS','Butler Current Periodicals, 401 Butler (Non-Circulating)','Butler Microforms, 401 Butler >> MICROFLM FN 41'],'call_number_txt'=>['NEWSPAPERS','NEWSPAPERS','MICROFLM FN 41'],'call_number_display'=>['NEWSPAPERS','NEWSPAPERS','MICROFLM FN 41'],'location_facet'=>['Lehman','Journalism','Other','Butler Microform Read Rm'],'location_txt'=>['Lehman >> NEWSPAPERS','Journalism >> NEWSPAPERS','Butler Current Periodicals, 401 Butler (Non-Circulating)','Butler Microforms, 401 Butler >> MICROFLM FN 41'],'shelfkey'=>['mic+fn--+-+00000041+1052500'],'reverse_shelfkey'=>['dhn~kc~~~~~zzzzzzvy~yzuxuzz~~~~~~~~~~~~~~~~~~~~~~~'],'item_display'=>['MICROFLM FN 41 | mic+fn--+-+00000041+1052500 | dhn~kc~~~~~zzzzzzvy~yzuxuzz~~~~~~~~~~~~~~~~~~~~~~~'],'timestamp'=>'2016-06-26T10:10:54.222Z','authorities_dt'=>'2016-06-26T12:02:22Z','_version_'=>1538200743533608960}]}}
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'1052500','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'1052500','marc_display'=>'<record><leader>03081mas a2200721 a 4500</leader><controlfield tag="001">1052500</controlfield><controlfield tag="005">20040217104614.0</controlfield><controlfield tag="008">750921c18579999nyudr1ne      0   a0eng d</controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">sn 78004456 </subfield></datafield><datafield tag="012" ind1=" " ind2=" "><subfield code="b">3</subfield><subfield code="e">n</subfield><subfield code="k">1</subfield><subfield code="l">1</subfield><subfield code="m">1</subfield></datafield><datafield tag="022" ind1="0" ind2=" "><subfield code="a">0362-4331</subfield></datafield><datafield tag="030" ind1=" " ind2=" "><subfield code="a">NYTIAO</subfield></datafield><datafield tag="032" ind1=" " ind2=" "><subfield code="a">383520</subfield><subfield code="b">USPS</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm01645522</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AFV9210CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)1052500</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">MUL</subfield><subfield code="c">MUL</subfield><subfield code="d">NSD</subfield><subfield code="d">IUL</subfield><subfield code="d">DLC</subfield><subfield code="d">SER</subfield><subfield code="d">AIP</subfield><subfield code="d">SER</subfield><subfield code="d">AIP</subfield><subfield code="d">NPI</subfield><subfield code="d">IUL</subfield><subfield code="d">AIP</subfield><subfield code="d">NPI</subfield><subfield code="d">NPX</subfield><subfield code="d">NPA</subfield><subfield code="d">DLC</subfield><subfield code="d">AIP</subfield><subfield code="d">UNP</subfield><subfield code="d">OCL</subfield><subfield code="d">DLC</subfield><subfield code="d">NSD</subfield><subfield code="d">DLC</subfield><subfield code="d">NSD</subfield><subfield code="d">AGL</subfield><subfield code="d">NSD</subfield><subfield code="d">AGL</subfield><subfield code="d">MGN</subfield><subfield code="d">NYS</subfield><subfield code="d">NYG</subfield><subfield code="d">MXC</subfield><subfield code="d">OCL</subfield><subfield code="d">HUL</subfield><subfield code="d">CUS</subfield><subfield code="d">NYG</subfield></datafield><datafield tag="042" ind1=" " ind2=" "><subfield code="a">nsdp</subfield><subfield code="a">lc</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">n-us-ny</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">Newspaper</subfield></datafield><datafield tag="210" ind1="0" ind2=" "><subfield code="a">N. Y. times</subfield></datafield><datafield tag="222" ind1=" " ind2="4"><subfield code="a">The New York times</subfield></datafield><datafield tag="245" ind1="0" ind2="4"><subfield code="a">The New York times.</subfield></datafield><datafield tag="246" ind1="1" ind2=" "><subfield code="i">Issues for Sept. 19-26, 1923 published jointly with other newspapers as:</subfield><subfield code="a">Combined New York morning newspapers</subfield></datafield><datafield tag="246" ind1="1" ind2=" "><subfield code="i">Issue for Sept. 23, 1923 published jointly with other newspapers as:</subfield><subfield code="a">Combined New York Sunday newspapers</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New-York [N.Y. :</subfield><subfield code="b">H.J. Raymond &amp; Co.],</subfield><subfield code="c">1857-</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">v. :</subfield><subfield code="b">ill. ;</subfield><subfield code="c">59 cm.</subfield></datafield><datafield tag="310" ind1=" " ind2=" "><subfield code="a">Daily,</subfield><subfield code="b">1861-</subfield></datafield><datafield tag="321" ind1=" " ind2=" "><subfield code="a">Daily (except Sunday),</subfield><subfield code="b">1857-1861</subfield></datafield><datafield tag="362" ind1="0" ind2=" "><subfield code="a">Vol. 6, no. 1868 (Sept. 14, 1857)-</subfield></datafield><datafield tag="510" ind1="1" ind2=" "><subfield code="a">Biography index</subfield><subfield code="x">0006-3053</subfield></datafield><datafield tag="510" ind1="1" ind2=" "><subfield code="a">National newspaper index</subfield><subfield code="b">1979-</subfield></datafield><datafield tag="510" ind1="1" ind2=" "><subfield code="a">NEXIS</subfield><subfield code="b">June 1, 1980-</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Bibliography of agriculture</subfield><subfield code="x">0006-1530</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">BioBusiness</subfield><subfield code="b">1990-</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Book review index</subfield><subfield code="x">0524-0581</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Chemical industry notes</subfield><subfield code="x">0045-639X</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Energy information abstracts</subfield><subfield code="x">0147-6521</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Environment abstracts</subfield><subfield code="x">0093-3287</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Film literature index</subfield><subfield code="x">0093-6758</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Infobank</subfield><subfield code="b">Jan. 1969-</subfield></datafield><datafield tag="510" ind1="2" ind2=" "><subfield code="a">Predicasts</subfield></datafield><datafield tag="515" ind1=" " ind2=" "><subfield code="a">Suspended Dec. 12-28, 1958; Dec. 20, 1962-Mar. 1963; Sept. 17-Oct. 10, 1965; and Aug. 10-Nov. 5, 1978.</subfield></datafield><datafield tag="530" ind1=" " ind2=" "><subfield code="a">Also available on microfilm from University Microfilms International and in an online version.</subfield></datafield><datafield tag="580" ind1=" " ind2=" "><subfield code="a">Issued monthly reduced size publication titled: Little times, &lt;1924-1928&gt;.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">New York (N.Y.)</subfield><subfield code="v">Newspapers.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">New York County (N.Y.)</subfield><subfield code="v">Newspapers.</subfield></datafield><datafield tag="752" ind1=" " ind2=" "><subfield code="a">United States</subfield><subfield code="b">New York</subfield><subfield code="c">New York</subfield><subfield code="d">New York.</subfield></datafield><datafield tag="775" ind1="0" ind2=" "><subfield code="t">Semi-weekly times (New York, N.Y.)</subfield><subfield code="g">1857-1867</subfield><subfield code="w">(DLC)sn 83045440</subfield><subfield code="w">(OCoLC)9475039</subfield></datafield><datafield tag="775" ind1="0" ind2=" "><subfield code="t">New-York weekly times</subfield><subfield code="g">1857-&lt;1896&gt;</subfield><subfield code="w">(OCoLC)9447647</subfield><subfield code="w">(DLC)sn 83045332</subfield></datafield><datafield tag="776" ind1="1" ind2=" "><subfield code="t">New York times on the Web</subfield><subfield code="w">(OCoLC)34107580</subfield></datafield><datafield tag="777" ind1="1" ind2=" "><subfield code="t">Little times</subfield><subfield code="w">(DLC)sn 92061532</subfield><subfield code="w">(OCoLC)1756036</subfield></datafield><datafield tag="780" ind1="0" ind2="0"><subfield code="t">New-York daily times</subfield><subfield code="w">(DLC)sn 83030746</subfield><subfield code="w">(OCoLC)7919228</subfield></datafield><datafield tag="850" ind1=" " ind2=" "><subfield code="a">DNAL</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">MICROFLM FN 41</subfield><subfield code="b">mic+FN--+-+00000041</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Lehman</subfield><subfield code="b">Lehman &gt;&gt; NEWSPAPERS|DELIM|1320823</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Journalism</subfield><subfield code="b">Journalism &gt;&gt; NEWSPAPERS|DELIM|1320826</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Other</subfield><subfield code="b">Butler Current Periodicals, 401 Butler (Non-Circulating)|DELIM|4817248</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Microform Read Rm</subfield><subfield code="b">Butler Microforms, 401 Butler &gt;&gt; MICROFLM FN 41|DELIM|4817249</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Journal/Periodical</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Newspaper</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record>','text'=>['Newspaper','N. Y. times','The New York times','The New York times.','Issues for Sept. 19-26, 1923 published jointly with other newspapers as: Combined New York morning newspapers','Issue for Sept. 23, 1923 published jointly with other newspapers as: Combined New York Sunday newspapers','New-York [N.Y. : H.J. Raymond & Co.], 1857-','v. : ill. ; 59 cm.','Daily, 1861-','Daily (except Sunday), 1857-1861','Vol. 6, no. 1868 (Sept. 14, 1857)-','Biography index 0006-3053','National newspaper index 1979-','NEXIS June 1, 1980-','Bibliography of agriculture 0006-1530','BioBusiness 1990-','Book review index 0524-0581','Chemical industry notes 0045-639X','Energy information abstracts 0147-6521','Environment abstracts 0093-3287','Film literature index 0093-6758','Infobank Jan. 1969-','Predicasts','Suspended Dec. 12-28, 1958; Dec. 20, 1962-Mar. 1963; Sept. 17-Oct. 10, 1965; and Aug. 10-Nov. 5, 1978.','Also available on microfilm from University Microfilms International and in an online version.','Issued monthly reduced size publication titled: Little times, <1924-1928>.','New York (N.Y.) Newspapers.','New York County (N.Y.) Newspapers.','United States New York New York New York.','Semi-weekly times (New York, N.Y.) 1857-1867 (DLC)sn 83045440 (OCoLC)9475039','New-York weekly times 1857-<1896> (OCoLC)9447647 (DLC)sn 83045332','New York times on the Web (OCoLC)34107580','Little times (DLC)sn 92061532 (OCoLC)1756036','New-York daily times (DLC)sn 83030746 (OCoLC)7919228','DNAL','AUTH'],'author_sort'=>'New York times','title_txt'=>['The New York times.'],'title_display'=>['The New York times'],'title_filing_txt'=>['New York times.'],'title_filing_full_txt'=>['New York times.'],'title_first_facet'=>['N'],'title_addl_txt'=>['N. Y. times','The New York times','The New York times.','Combined New York morning newspapers','Combined New York Sunday newspapers','New-York daily times (DLC)sn 83030746 (OCoLC)7919228'],'title_sort'=>'new york times','subject_txt'=>['New York (N.Y.) Newspapers','New York County (N.Y.) Newspapers'],'subject_geo_facet'=>['New York (N.Y.)','New York County (N.Y.)'],'subject_form_facet'=>['Newspapers'],'subject_form_txt'=>['Newspapers'],'pub_place_display'=>['New-York [N.Y.'],'pub_name_display'=>['H.J. Raymond & Co.'],'pub_year_display'=>['1857-'],'pub_place_txt'=>['New-York [N.Y.'],'pub_name_txt'=>['H.J. Raymond & Co.'],'pub_year_txt'=>['1857-'],'pub_date_txt'=>['1857'],'language_facet'=>['English'],'format'=>['Journal/Periodical','Newspaper'],'clio_id_display'=>'1052500','source_facet'=>['catalog'],'source_display'=>['catalog'],'issn_txt'=>['0362-4331'],'issn_display'=>['0362-4331'],'lccn_display'=>['sn 78004456'],'lccn_txt'=>['sn 78004456'],'oclc_txt'=>['ocm01645522'],'oclc_display'=>['ocm01645522'],'full_publisher_display'=>['New-York [N.Y. : H.J. Raymond & Co.], 1857-'],'location_call_number_id_display'=>['Lehman >> NEWSPAPERS|DELIM|1320823','Journalism >> NEWSPAPERS|DELIM|1320826','Butler Current Periodicals, 401 Butler (Non-Circulating)|DELIM|4817248','Butler Microforms, 401 Butler >> MICROFLM FN 41|DELIM|4817249'],'location_call_number_txt'=>['Lehman >> NEWSPAPERS','Journalism >> NEWSPAPERS','Butler Current Periodicals, 401 Butler (Non-Circulating)','Butler Microforms, 401 Butler >> MICROFLM FN 41'],'call_number_txt'=>['NEWSPAPERS','NEWSPAPERS','MICROFLM FN 41'],'call_number_display'=>['NEWSPAPERS','NEWSPAPERS','MICROFLM FN 41'],'location_facet'=>['Lehman','Journalism','Other','Butler Microform Read Rm'],'location_txt'=>['Lehman >> NEWSPAPERS','Journalism >> NEWSPAPERS','Butler Current Periodicals, 401 Butler (Non-Circulating)','Butler Microforms, 401 Butler >> MICROFLM FN 41'],'shelfkey'=>['mic+fn--+-+00000041+1052500'],'reverse_shelfkey'=>['dhn~kc~~~~~zzzzzzvy~yzuxuzz~~~~~~~~~~~~~~~~~~~~~~~'],'item_display'=>['MICROFLM FN 41 | mic+fn--+-+00000041+1052500 | dhn~kc~~~~~zzzzzzvy~yzuxuzz~~~~~~~~~~~~~~~~~~~~~~~'],'timestamp'=>'2016-08-14T10:11:16.411Z','authorities_dt'=>'2016-08-14T12:19:54Z','_version_'=>1542641097729114112}]}}
     http_version: 
-  recorded_at: Fri, 01 Jul 2016 20:48:45 GMT
+  recorded_at: Tue, 16 Aug 2016 18:00:05 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/1052500"
@@ -149,11 +578,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.0, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
       Accept:
       - "*/*"
       Date:
-      - Fri, 01 Jul 2016 20:48:45 GMT
+      - Tue, 16 Aug 2016 18:00:05 GMT
   response:
     status:
       code: 200
@@ -173,22 +602,22 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Access-Control-Allow-Origin:
       - "*"
-      Etag:
-      - W/"744b346bd4073da468180ada08bdea7a"
-      X-Frame-Options:
-      - SAMEORIGIN
       X-Xss-Protection:
       - 1; mode=block
+      X-Request-Id:
+      - db101eea-553d-426a-8241-df75545039f4
+      Etag:
+      - W/"e5e330290cd0ceddf8cca26976c0ac34"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Runtime:
+      - '7.014365'
       X-Content-Type-Options:
       - nosniff
-      X-Runtime:
-      - '3.249448'
       Access-Control-Request-Method:
       - "*"
-      X-Request-Id:
-      - 88903719-22bc-4d68-8e88-bf28d0b0d9b3
       Date:
-      - Fri, 01 Jul 2016 20:48:49 GMT
+      - Tue, 16 Aug 2016 18:00:12 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -206,11 +635,11 @@ http_interactions:
         Current issues in Periodicals Reading Room. -- Microfilm. Ann Arbor, Mich.
         : University Microfilms, 19  -    . reels ;  35 mm.","summary_holdings":"Library
         has: v.1851:Sept.-2003:Dec.14, 2004:Jan.-2013:Nov.15, 2013:Dec.1-31-2015:Dec.,
-        2016:Jan.16/31-2016:Apr.15"}],"services":["ill"]},{"location_name":"Journalism","location_note":"","call_number":"NEWSPAPERS","status":"none","holding_id":["1320826"],"copies":[{"items":{"Status
+        2016:Jan.16/31-2016:May 15"}],"services":["ill"]},{"location_name":"Journalism","location_note":"","call_number":"NEWSPAPERS","status":"none","holding_id":["1320826"],"copies":[{"items":{"Status
         unknown":{"status":"none","count":1}},"notes":"Notes: Current two weeks only.
         -- Shelved alphabetically by title."}],"services":[]},{"location_name":"Lehman","location_note":"","call_number":"NEWSPAPERS","status":"none","holding_id":["1320823"],"copies":[{"items":{"Status
         unknown":{"status":"none","count":1}},"notes":"Notes: Current issues on Reserves.","summary_holdings":"Library
         has: current 2 weeks only"}],"services":[]}]}}'
     http_version: 
-  recorded_at: Fri, 01 Jul 2016 20:48:49 GMT
-recorded_with: VCR 3.0.1
+  recorded_at: Tue, 16 Aug 2016 18:00:13 GMT
+recorded_with: VCR 3.0.3

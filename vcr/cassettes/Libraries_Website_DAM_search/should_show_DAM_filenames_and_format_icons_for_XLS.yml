@@ -8,18 +8,18 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.0, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
       Accept:
       - "*/*"
       Date:
-      - Fri, 01 Jul 2016 19:02:36 GMT
+      - Tue, 16 Aug 2016 17:57:37 GMT
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Fri, 01 Jul 2016 19:02:36 GMT
+      - Tue, 16 Aug 2016 17:57:37 GMT
       Server:
       - Google Search Appliance
       Cache-Control:
@@ -31,7 +31,7 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Content-Length:
-      - '9108'
+      - '9110'
       X-Cnection:
       - close
       X-Pad:
@@ -42,7 +42,7 @@ http_interactions:
         <?xml version="1.0" encoding="UTF-8" standalone="no"?>
         <!DOCTYPE GSP SYSTEM "google.dtd">
         <GSP VER="3.2">
-        <TM>0.026869</TM><Q>dam sheet1 xlsx</Q>
+        <TM>0.052234</TM><Q>dam sheet1 xlsx</Q>
         <PARAM name="as_dt" value="i" original_value="i"/>
         <PARAM name="client" value="cul_libraryweb" original_value="cul_libraryweb"/>
         <PARAM name="filter" value="0" original_value="0"/>
@@ -58,7 +58,7 @@ http_interactions:
         <PARAM name="start" value="0" original_value="0"/>
         <PARAM name="q" value="dam sheet1 xlsx" original_value="dam+sheet1+xlsx"/>
         <PARAM name="ulang" value="" original_value=""/>
-        <PARAM name="ip" value="209.6.149.207" original_value="209.6.149.207"/>
+        <PARAM name="ip" value="128.59.251.146" original_value="128.59.251.146"/>
         <PARAM name="access" value="p" original_value="p"/>
         <PARAM name="entqr" value="3" original_value="3"/>
         <PARAM name="entqrm" value="0" original_value="0"/>
@@ -72,5 +72,5 @@ http_interactions:
         <R N="1" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/locations/eastasian/koreanstudies/Conant%20Film%20Reels%20-Final.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/locations/eastasian/koreanstudies/Conant%2520Film%2520Reels%2520-Final.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M. 1, LIST OF THEODORE CONANT&lt;br&gt; FILMS, 2, Digitization: Y -Completed, N-incompleted, 3, 4, Box No. &lt;b&gt;...&lt;/b&gt;  </S><LANG>en</LANG><HAS><L/><C SZ="133k" CID="FpEoEYZTNRcJ" ENC="UTF-8"/></HAS></R><R N="2" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_Movie_Theater_Handbills.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_Movie_Theater_Handbills.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P. 1, Series, s_id, Subseries,&lt;br&gt; ss_id, cont01_type, cont01_value, cont02_type, cont02_value, &lt;b&gt;...&lt;/b&gt;  </S><LANG>ja</LANG><HAS><L/><C SZ="415k" CID="QEIU0RlBS_wJ" ENC="UTF-8"/></HAS></R><R N="3" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_11_Subject_Files_Censorship.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_11_Subject_Files_Censorship.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q. 1, Series, s_id, Subseries,&lt;br&gt; ss_id, cont01_type, cont01_value, cont02_type, cont02_value, &lt;b&gt;...&lt;/b&gt;  </S><LANG>ja</LANG><HAS><L/><C SZ="168k" CID="pDkmpDsPCakJ" ENC="UTF-8"/></HAS></R><R N="4" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2010_Subject_Files_Amateur_Films,_Kogata_Eiga.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2010_Subject_Files_Amateur_Films,_Kogata_Eiga.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P. 1, Series, s_id, Subseries,&lt;br&gt; ss_id, cont01_type, cont01_value, cont02_type, cont02_value, &lt;b&gt;...&lt;/b&gt;  </S><LANG>ja</LANG><HAS><L/><C SZ="111k" CID="Q7XXJslGUKYJ" ENC="UTF-8"/></HAS></R><R N="5" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2010_Subject_Files_Documentary_Film.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2010_Subject_Files_Documentary_Film.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q. 1, Series, s_id, Subseries,&lt;br&gt; ss_id, cont01_type, cont01_value, cont02_type, cont02_value, &lt;b&gt;...&lt;/b&gt;  </S><LANG>ja</LANG><HAS><L/><C SZ="336k" CID="eRzCRrwpGIsJ" ENC="UTF-8"/></HAS></R><R N="6" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_11_Subject_Files_Censorship-chronological.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_11_Subject_Files_Censorship-chronological.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q. 1, (Type of Box), (Box&lt;br&gt; No.), (Folder), (Folder No.), (Description), (yyyy-mm-dd or &lt;b&gt;...&lt;/b&gt;  </S><LANG>ja</LANG><HAS><L/><C SZ="168k" CID="mLt15O9nKnoJ" ENC="UTF-8"/></HAS></R><R N="7" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2011_Subject_Files_Animation_Manga.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2011_Subject_Files_Animation_Manga.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P. 1, Series, s_id, Subseries,&lt;br&gt; ss_id, cont01_type, cont01_value, cont02_type, cont02_value, &lt;b&gt;...&lt;/b&gt;  </S><LANG>ja</LANG><HAS><L/><C SZ="443k" CID="Xw7uuk8IVU8J" ENC="UTF-8"/></HAS></R><R N="8" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_10_Subject_Files_Music_Songbooks.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_10_Subject_Files_Music_Songbooks.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O. 1, Series, s_id, Subseries, ss_id,&lt;br&gt; cont01_type, cont01_value, cont02_type, cont02_value, &lt;b&gt;...&lt;/b&gt;  </S><LANG>ja</LANG><HAS><L/><C SZ="143k" CID="owdvBQ4DjE4J" ENC="UTF-8"/></HAS></R><R N="9" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_Handbills_shows_revues.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_Handbills_shows_revues.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P. 1, Series, s_id, Subseries,&lt;br&gt; ss_id, cont01_type, cont01_value, cont02_type, cont02_value, &lt;b&gt;...&lt;/b&gt;  </S><LANG>ja</LANG><HAS><L/><C SZ="76k" CID="ZbkcMlCS3kgJ" ENC="UTF-8"/></HAS></R><R N="10" MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><U>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_Subject_Files_University_Files.xlsx</U><UE>http://library.columbia.edu/content/dam/libraryweb/archival/fa/eastasian/makino/item_descriptions_2009_Subject_Files_University_Files.xlsx</UE><T>&lt;b&gt;Sheet1&lt;/b&gt;</T><RK>7</RK><ENT_SOURCE>T4-BWMXW7XQDYSQL</ENT_SOURCE><S>&lt;b&gt;Sheet1&lt;/b&gt;. A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q. 1, Series, s_id, Subseries,&lt;br&gt; ss_id, cont01_type, cont01_value, cont02_type, cont02_value, &lt;b&gt;...&lt;/b&gt;  </S><LANG>ja</LANG><HAS><L/><C SZ="153k" CID="-H1GUSakvzMJ" ENC="UTF-8"/></HAS></R></RES>
         </GSP>
     http_version: 
-  recorded_at: Fri, 01 Jul 2016 19:02:36 GMT
-recorded_with: VCR 3.0.1
+  recorded_at: Tue, 16 Aug 2016 17:57:38 GMT
+recorded_with: VCR 3.0.3
