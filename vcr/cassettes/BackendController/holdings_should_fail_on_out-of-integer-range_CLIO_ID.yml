@@ -8,11 +8,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.0, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
       Accept:
       - "*/*"
       Date:
-      - Fri, 01 Jul 2016 20:52:51 GMT
+      - Tue, 16 Aug 2016 17:51:37 GMT
   response:
     status:
       code: 404
@@ -35,9 +35,9 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       X-Request-Id:
-      - a52baecb-1679-4fd7-b8f1-b890a006ad0b
+      - 2f4ca863-824c-4319-839b-c243c8168106
       X-Runtime:
-      - '0.914281'
+      - '3.888705'
       X-Frame-Options:
       - SAMEORIGIN
       X-Content-Type-Options:
@@ -45,7 +45,7 @@ http_interactions:
       Access-Control-Request-Method:
       - "*"
       Date:
-      - Fri, 01 Jul 2016 20:52:53 GMT
+      - Tue, 16 Aug 2016 17:51:41 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -54,5 +54,5 @@ http_interactions:
       encoding: UTF-8
       string: "{}"
     http_version: 
-  recorded_at: Fri, 01 Jul 2016 20:52:52 GMT
-recorded_with: VCR 3.0.1
+  recorded_at: Tue, 16 Aug 2016 17:51:41 GMT
+recorded_with: VCR 3.0.3

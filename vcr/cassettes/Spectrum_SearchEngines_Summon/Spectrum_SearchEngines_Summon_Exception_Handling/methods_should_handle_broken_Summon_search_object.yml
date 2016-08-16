@@ -16,13 +16,13 @@ http_interactions:
       Content-Type:
       - application/x-www-form-urlencoded; charset=utf8
       X-Summon-Date:
-      - Fri, 01 Jul 2016 19:07:19 GMT
+      - Tue, 16 Aug 2016 18:01:19 GMT
       X-Summon-Session-Id:
-      - SUMMON-SESSION-Sprite.local-683-58
+      - SUMMON-SESSION-Sprite.local-74812-63
       X-Summon-Request-Id:
       - ''
       Authorization:
-      - Summon columbia;hz8SNwtRdt/eHjoFwS/Zl/lIMfM=
+      - Summon columbia;Hl8BhE9306pbUVmBBKGz4BK4nO0=
       Host:
       - api.summon.serialssolutions.com:80
   response:
@@ -35,7 +35,7 @@ http_interactions:
       Datacenter:
       - IAD1
       Date:
-      - Fri, 01 Jul 2016 19:07:19 GMT
+      - Tue, 16 Aug 2016 18:01:18 GMT
       Content-Length:
       - '1065'
     body:
@@ -53,5 +53,5 @@ http_interactions:
         <u>This request requires HTTP authentication (Invalid ID, secret key or client
         hash).</u></p><HR size="1" noshade="noshade"><h3>Apache Tomcat/6.0.20</h3></body></html>'
     http_version: 
-  recorded_at: Fri, 01 Jul 2016 19:07:19 GMT
-recorded_with: VCR 3.0.1
+  recorded_at: Tue, 16 Aug 2016 18:01:19 GMT
+recorded_with: VCR 3.0.3

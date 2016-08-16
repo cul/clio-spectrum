@@ -2,285 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.summon.serialssolutions.com/2.0.0/search?adv=%7B%7D&s.ff=SubjectTerms,and,1,10&s.fvf=IsFullText,true&s.ho=t&spellcheck=true
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - application/json
-      User-Agent:
-      - Ruby
-      Content-Type:
-      - application/x-www-form-urlencoded; charset=utf8
-      X-Summon-Date:
-      - Fri, 01 Jul 2016 18:31:05 GMT
-      X-Summon-Session-Id:
-      - SUMMON-SESSION-Sprite.local-66765-28
-      X-Summon-Request-Id:
-      - ''
-      Authorization:
-      - Summon columbia;ld7It6SRnDX/3r0bl2ayi/NehHY=
-      Host:
-      - api.summon.serialssolutions.com:80
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json;charset=utf-8
-      Datacenter:
-      - IAD1
-      Date:
-      - Fri, 01 Jul 2016 18:31:06 GMT
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: '{"version": "2.0.0","sessionId": "SUMMON-SESSION-Sprite.local-66765-28","elapsedQueryTime":
-        82,"queryTime": 68,"totalRequestTime": 196,"pageCount": 4202,"recordCount":
-        42020,"query": {"queryString": "s.ho=t&s.ff=SubjectTerms%2Cand%2C1%2C10&s.ff=Language%2Cand%2C1%2C5&s.ff=ContentType%2Cand%2C1%2C10&s.fvf=ContentType%2CMusic+Recording%2Cf&s.fvf=IsFullText%2Ctrue%2Cf","pageNumber":
-        1,"pageSize": 10,"isHoldingsOnlyEnabled": true,"textQueries": [],"searchTerms":
-        [],"textFilters": [],"rangeFilters": [],"facetValueFilters": [{"fieldName":
-        "ContentType","value": "Music Recording","isNegated": false,"removeCommand":
-        "removeFacetValueFilter(ContentType,Music Recording)","negateCommand": "negateFacetValueFilter(ContentType,Music
-        Recording)"},{"fieldName": "IsFullText","value": "true","isNegated": false,"removeCommand":
-        "removeFacetValueFilter(IsFullText,true)","negateCommand": "negateFacetValueFilter(IsFullText,true)"}],"inclusiveFacetValueFilters":
-        [],"facetValueGroupFilters": [],"facetFields": [{"fieldName": "SubjectTerms","combineMode":
-        "and","pageNumber": 1,"pageSize": 10,"removeCommand": "removeFacetField(SubjectTerms)"},{"fieldName":
-        "Language","combineMode": "and","pageNumber": 1,"pageSize": 5,"removeCommand":
-        "removeFacetField(Language)"},{"fieldName": "ContentType","combineMode": "and","pageNumber":
-        1,"pageSize": 10,"removeCommand": "removeFacetField(ContentType)"}],"rangeFacetFields":
-        [],"sort": []},"facetFields": [{"fieldName": "Language_s","displayName": "Language","combineMode":
-        "and","pageNumber": 1,"pageSize": 5,"hasLimitingValue": true,"hasAppliedValue":
-        false,"removeCommand": "removeFacetField(Language)","listValuesCommand": "listFacetValues(Language,and)","removeValueFiltersCommand":
-        "removeFacetValueFilter(Language)","counts": [{"value": "English","count":
-        1,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
-        "addFacetValueFilters(Language,English)","applyNegatedCommand": "addFacetValueFilters(Language,English:t)"}]},{"fieldName":
-        "SubjectTerms_mfacet","displayName": "SubjectTerms","combineMode": "and","pageNumber":
-        1,"pageSize": 10,"hasLimitingValue": true,"hasAppliedValue": false,"removeCommand":
-        "removeFacetField(SubjectTerms)","listValuesCommand": "listFacetValues(SubjectTerms,and)","removeValueFiltersCommand":
-        "removeFacetValueFilter(SubjectTerms)","counts": [{"value": "contemporary
-        jazz","count": 41746,"isApplied": false,"isNegated": false,"isFurtherLimiting":
-        true,"applyCommand": "addFacetValueFilters(SubjectTerms,contemporary jazz)","applyNegatedCommand":
-        "addFacetValueFilters(SubjectTerms,contemporary jazz:t)"},{"value": "classical
-        music","count": 496,"isApplied": false,"isNegated": false,"isFurtherLimiting":
-        true,"applyCommand": "addFacetValueFilters(SubjectTerms,classical music)","applyNegatedCommand":
-        "addFacetValueFilters(SubjectTerms,classical music:t)"},{"value": "jazz legends","count":
-        201,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
-        "addFacetValueFilters(SubjectTerms,jazz legends)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,jazz
-        legends:t)"},{"value": "vocal","count": 167,"isApplied": false,"isNegated":
-        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,vocal)","applyNegatedCommand":
-        "addFacetValueFilters(SubjectTerms,vocal:t)"},{"value": "world","count": 160,"isApplied":
-        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,world)","applyNegatedCommand":
-        "addFacetValueFilters(SubjectTerms,world:t)"},{"value": "pop and rock","count":
-        132,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
-        "addFacetValueFilters(SubjectTerms,pop and rock)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,pop
-        and rock:t)"},{"value": "chamber music","count": 119,"isApplied": false,"isNegated":
-        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,chamber
-        music)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,chamber
-        music:t)"},{"value": "spoken commentary","count": 117,"isApplied": false,"isNegated":
-        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,spoken
-        commentary)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,spoken
-        commentary:t)"},{"value": "orchestral","count": 66,"isApplied": false,"isNegated":
-        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,orchestral)","applyNegatedCommand":
-        "addFacetValueFilters(SubjectTerms,orchestral:t)"},{"value": "instrumental","count":
-        57,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
-        "addFacetValueFilters(SubjectTerms,instrumental)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,instrumental:t)"}]},{"fieldName":
-        "ContentType_mfacet","displayName": "ContentType","combineMode": "and","pageNumber":
-        1,"pageSize": 10,"hasLimitingValue": false,"hasAppliedValue": true,"removeCommand":
-        "removeFacetField(ContentType)","listValuesCommand": "listFacetValues(ContentType,and)","removeValueFiltersCommand":
-        "removeFacetValueFilter(ContentType)","counts": [{"value": "Music Recording","count":
-        42020,"isApplied": true,"isNegated": false,"isFurtherLimiting": false,"removeCommand":
-        "removeFacetValueFilter(ContentType,Music Recording)","negateCommand": "negateFacetValueFilter(ContentType,Music
-        Recording)"}]}],"rangeFacetFields": [],"didYouMeanSuggestions": [],"recommendationLists":
-        {},"documents": [{"hasFullText": true,"isFullTextHit": false,"isPrint": false,"inHoldings":
-        true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=SONNY+TERRY+%2F+BROWNIE+MCGHEE%3A+BROWNIE+MCGHEE+AND+SONNY+TERRY+AT+THE+2ND+FRET&rft.au=McGhee%2C+Brownie&rft.au=Terry%2C+Sonny&rft.pub=Fantasy&rft.externalDBID=n%2Fa&rft.externalDocID=OBCCD-561-2","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfGck0rGLDLDrUp1BWTIpM9HP18dLzy-xIr8YfN0xbA0_qOT2Sqyqgm_sLk0F31gGOTMbGI3-Ts7OLrrANoEuqFi2BPZ-QPO3oY7ApmceyDSkusNNgKEG-VCECqDxpTlAKyAuQFpQjXQyIxXdJ8jAD9arAOlnAisqIQam1DwRBp9gfz-_SAVgazYoUkFfwSnIP9zP01XB19ndw9XVCo2v4OjnooCswTFEIcTDVcEIKOwW5BoiyiDr5hri7KEL9n58FtBx8UiOMJZgUEhJMk9ONDZLNjE1BvbVkiwsTEAH2CRbGiWnGBokJ1lKMohh1yyFS0KGgaWkqDRVFljVQ8MLADcSnZ8","Author":
-        ["McGhee, Brownie","Terry, Sonny"],"Score": ["0.01"],"IsPeerReviewed": ["false"],"DBID":
-        ["CUA"],"Publisher": ["Fantasy"],"AbstractList": ["Evil Hearted Me - Sick
-        Man - Barking Bull Dog - Spread The News Around - Backwater Blues - Custard
-        Pie - Wholesale Dealin'' Papa - Motorcycle Blues - Hand In Hand - I Woke Up
-        One Morning And I Could Hardly See"],"SourceType": ["Publisher"],"Publisher_xml":
-        [{"name": "Fantasy"}],"Snippet": ["Evil Hearted Me - Sick Man - Barking Bull
-        Dog - Spread The News Around - Backwater Blues - Custard Pie - Wholesale Dealin''
-        Papa - Motorcycle Blues - Hand In..."],"URI": ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=OBCCD-561-2"],"IsScholarly":
-        ["false"],"ID": ["FETCH-naxos_jazz_OBCCD-561-23"],"DatabaseTitleList": [""],"Abstract":
-        ["Evil Hearted Me - Sick Man - Barking Bull Dog - Spread The News Around -
-        Backwater Blues - Custard Pie - Wholesale Dealin'' Papa - Motorcycle Blues
-        - Hand In Hand - I Woke Up One Morning And I Could Hardly See"],"SubjectTerms":
-        ["Contemporary Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_OBCCD-561-23"],"Author_xml":
-        [{"sequence": "1","fullname": "McGhee, Brownie"},{"sequence": "2","fullname":
-        "Terry, Sonny"}],"ContentType": ["Music Recording"],"Title": ["SONNY TERRY
-        / BROWNIE MCGHEE: BROWNIE MCGHEE AND SONNY TERRY AT THE 2ND FRET"],"ExternalDocumentID":
-        ["OBCCD-561-2"],"Database_xml": [{"sequence": "1","name": "Naxos Music Library
-        Jazz","dbid": "CUA","url": "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
-        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42TwCfb384tUALbGgiIV9BWcgvzD_TxdFXyd3T1cXa3Q-AqOfi4KyBocQxRCPFwVjIDCbkGuIdwMsm6uIc4eunmJFfnF8VmJVVXx_k7Ozi66wIpfF3TJEH55AJdJJqs"],"DatabaseName":
-        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
-        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Hej+Blej&rft.jtitle=MAGGI+OLIN+BAND%3A+Le+Specialite&rft.au=Olin%2C+Maggi&rft.au=Almqvist%2C+Karl-Martin&rft.au=Broo%2C+Magnus&rft.au=Tollbom%2C+P-A&rft.pub=Prophone&rft.externalDBID=n%2Fa&rft.externalDocID=181389-PCD079_02","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfGck0rGLDLDrrZxBWTIpM9HP18dLzy-xIr8YfN0xbA0_qOT2Sqyqgm_sLk0F31gGOTMbNFzs7GJgDtrOZwns-ICmbkMdga3OPJBBPIhS0E2AoRz5PIQKoMmlOUDTIZYjraVGOpSROk4TZOAHa1OA9C6B1ZMQA1NqnggDh0dqloJTTmqWKIOSm2uIs4cu2NXxWUAz44HVMLBhoQsxIh5YzUowKKQkmScnGpslm5gaA7tYSRYWJqBzZ5ItjZJTDA2SkywlGaTxmCCFV1aGgaWkqDRVFlhXQ30NALULjT4","URI":
-        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=PCD079"],"Author":
-        ["Almqvist, Karl-Martin","Welin, Mattias","Tollbom, P-A","Broo, Magnus","Olin,
-        Maggi"],"Score": ["0.01"],"IsScholarly": ["false"],"DBID": ["CUA"],"IsPeerReviewed":
-        ["false"],"ID": ["FETCH-naxos_jazz_181389-PCD079_023"],"PublicationTitle":
-        ["MAGGI OLIN BAND: Le Specialite"],"Publisher": ["Prophone"],"SourceType":
-        ["Publisher"],"Publisher_xml": [{"name": "Prophone"}],"SubjectTerms": ["Contemporary
-        Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_181389-PCD079_023"],"Author_xml":
-        [{"sequence": "1","fullname": "Olin, Maggi"},{"sequence": "2","fullname":
-        "Almqvist, Karl-Martin"},{"sequence": "3","fullname": "Broo, Magnus"},{"sequence":
-        "4","fullname": "Tollbom, P-A"},{"sequence": "5","fullname": "Welin, Mattias"},{"sequence":
-        "6","fullname": "Olin, Maggi"}],"ContentType": ["Music Recording"],"Title":
-        ["Hej Blej"],"ExternalDocumentID": ["181389-PCD079_02"],"Database_xml": [{"sequence":
-        "1","name": "Naxos Music Library Jazz","dbid": "CUA","url": "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
-        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42Tg8EjNUnDKSc3iZlBycw1x9tDNS6zIL47PSqyqigdWKMAqUjfA2cXA3DLeAHRLEBGKAN-qF0Y"],"DatabaseName":
-        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
-        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Attack+of+the+Shrews&rft.jtitle=HARRIS%2C+Kevin+Bruce%3A+Folk+Songs%2C+Folk+Tales&rft.au=Harris%2C+Kevin+Bruce&rft.au=Wilson%2C+Steve&rft.au=Caine%2C+Uri&rft.au=Peterson%2C+Jr.%2C+Ralph&rft.pub=Tip+Toe&rft.externalDBID=n%2Fa&rft.externalDocID=600817-Q90170_101","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfGck0rGLDLADFZxBWTIpM9HP18dLzy-xIr8YfN0xbA0_qOT2Sqyqgm_sLk0F31gGOTMbGI0hngG6wD6dBXh_uSWw8wOavg11BLY880CG8SBKRDcBhmrkMxEqgKaX5gBtgDgAaT010sGM1HOeIAM_WKsCpJcJrKaEGJhS80QYRBxLShKTsxXy0xSALUCFYGCMlheLMii7uYY4e-iCfRGfBbQj3gxUm5vrBlqCTsABrdQylmBQSEkyT040Nks2MTUG9ruSLCxMQIfRJFsaJacYGiQnWUoyyOAzQgq_tAwDS0lRaaossAqHBgQA3EyTyQ","URI":
-        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=TIP-888807"],"Author":
-        ["Wilson, Steve","Peterson, Jr., Ralph","Caine, Uri","Harris, Kevin Bruce"],"Score":
-        ["0.01"],"IsScholarly": ["false"],"DBID": ["CUA"],"IsPeerReviewed": ["false"],"ID":
-        ["FETCH-naxos_jazz_600817-Q90170_1013"],"PublicationTitle": ["HARRIS, Kevin
-        Bruce: Folk Songs, Folk Tales"],"Publisher": ["Tip Toe"],"SourceType": ["Publisher"],"Publisher_xml":
-        [{"name": "Tip Toe"}],"SubjectTerms": ["Contemporary Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_600817-Q90170_1013"],"Author_xml":
-        [{"sequence": "1","fullname": "Harris, Kevin Bruce"},{"sequence": "2","fullname":
-        "Wilson, Steve"},{"sequence": "3","fullname": "Caine, Uri"},{"sequence": "4","fullname":
-        "Peterson, Jr., Ralph"},{"sequence": "5","fullname": "Harris, Kevin Bruce"}],"ContentType":
-        ["Music Recording"],"Title": ["Attack of the Shrews"],"ExternalDocumentID":
-        ["600817-Q90170_101"],"Database_xml": [{"sequence": "1","name": "Naxos Music
-        Library Jazz","dbid": "CUA","url": "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
-        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42QQcQTdSp-tkJ-mAGzDKAQD3QQ6VFPZzTXE2UM3L7Eivzg-K7GqKt4MVB-Z6wZags5wAa01MiZOFQCjGhvw"],"DatabaseName":
-        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
-        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Sophisticated+Lady&rft.jtitle=THELONIOUS+MONK%3A+THELONIOUS+MONK+PLAYS+DUKE+ELLINGTON&rft.au=Monk%2C+Thelonious&rft.pub=Fantasy&rft.externalDBID=n%2Fa&rft.externalDocID=107245-Z077077_02","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfGck0rGLDLDrUp1BWTIpM9HP18dLzy-xIr8YfN0xbA0_qOT2Sqyqgm_sLk0F31gGOTMbGI3-Xs7OLrrAekcXVCxbAns_oPnbUEdg0zMPZBoPomh0E2CoQT4UoQJofGkO0AqIC5AWVCOdzEhF9wky8IP1KkD6mcCKSoiBKTVPhEEoOL8gA3xKM7C1maLgk5hSKcqg7OYa4uyhC_ZEfBbQinhgv83IxFQ3ysDc3AB0XreRsQSDQkqSeXKisVmyiakxsN-VZGFhAjqMJtnSKDnF0CA5yVKSQQafEVL4pWUYWEqKSlNlgVU4NBwAxf2T-Q","URI":
-        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=OJCCD-024-2"],"Author":
-        ["Monk, Thelonious"],"Score": ["0.01"],"IsScholarly": ["false"],"DBID": ["CUA"],"IsPeerReviewed":
-        ["false"],"ID": ["FETCH-naxos_jazz_107245-Z077077_023"],"PublicationTitle":
-        ["THELONIOUS MONK: THELONIOUS MONK PLAYS DUKE ELLINGTON"],"Publisher": ["Fantasy"],"SourceType":
-        ["Publisher"],"Publisher_xml": [{"name": "Fantasy"}],"SubjectTerms": ["Contemporary
-        Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_107245-Z077077_023"],"Author_xml":
-        [{"sequence": "1","fullname": "Monk, Thelonious"}],"ContentType": ["Music
-        Recording"],"Title": ["Sophisticated Lady"],"ExternalDocumentID": ["107245-Z077077_02"],"Database_xml":
-        [{"sequence": "1","name": "Naxos Music Library Jazz","dbid": "CUA","url":
-        "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
-        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42QQCs4vyACfMgxsLaUo-CSmAJs7ym6uIc4eunmJFfnF8VmJVVXxwH6HkYmpbpSBubkB6Lxp0IVBxKgCAIesG8Q"],"DatabaseName":
-        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
-        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Straight%2C+No+Chaser&rft.jtitle=ART+PEPPER%3A+THE+COMPLETE+GALAXY+RECORDINGS&rft.au=Pepper%2C+Art&rft.pub=Fantasy&rft.externalDBID=n%2Fa&rft.externalDocID=99289-Z076528203","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfGck0rGL8J11zqAsmZSZ6Ofr46Xnl1iRXwy-7hi2hh9UcnslVlXBN3aXpoJvLIOcmQ2aUjVzd3bRBfVIdUHlsiWw-wOawA11BLY980DG8SDKSDcBBthiKdiikeTSHKAdECcgrahGOpqRmg4UZOAHa1aA9DSBVZUQA1NqngiDMOhkWlDfXEfBL1_BOQNYnxWJMii5uYY4e-iCvRGfBbQk3tIS2F3SjTIABimw52RgbCzBoJCSZJ6caGyWbGJqDOx5JVlYmICOo0m2NEpOMTRITrKUZJDGY4IUXlkZBpaSotJUWWAVDg0GAN2rkus","URI":
-        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=16GCD-1016-2"],"Author":
-        ["Pepper, Art"],"Score": ["0.01"],"IsScholarly": ["false"],"DBID": ["CUA"],"IsPeerReviewed":
-        ["false"],"ID": ["FETCH-naxos_jazz_99289-Z0765282033"],"PublicationTitle":
-        ["ART PEPPER: THE COMPLETE GALAXY RECORDINGS"],"Publisher": ["Fantasy"],"SourceType":
-        ["Publisher"],"Publisher_xml": [{"name": "Fantasy"}],"SubjectTerms": ["Contemporary
-        Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_99289-Z0765282033"],"Author_xml":
-        [{"sequence": "1","fullname": "Pepper, Art"}],"ContentType": ["Music Recording"],"Title":
-        ["Straight, No Chaser"],"ExternalDocumentID": ["99289-Z076528203"],"Database_xml":
-        [{"sequence": "1","name": "Naxos Music Library Jazz","dbid": "CUA","url":
-        "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
-        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42QQBp2rCupZ6ij45Ss4ZwBLY2D5ruTmGuLsoZuXWJFfHJ-VWFUVb2kJbOzrRgE70qbAdr8B6OpaIhQBAEGMGvY"],"DatabaseName":
-        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
-        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Body+And+Soul&rft.jtitle=MILT+JACKSON+%2F+OSCAR+PETERSON+%2F+RAY+BROWN+%2F+GRADY+TATE%3A+AIN%27T+BUT+A+FEW+OF+US+LEFT&rft.au=Jackson%2C+Milt&rft.au=Peterson%2C+Oscar&rft.au=Brown%2C+Ray&rft.au=Tate%2C+Grady&rft.pub=Fantasy&rft.externalDBID=n%2Fa&rft.externalDocID=114060-Z077619_04","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfGck0rGLDLDrUp1BWTIpM9HP18dLzy-xIr8YfN0xbA0_qOT2Sqyqgm_sLk0F31gGOTMbGI3-Xs7OLrrmFkArgMWyJbD3A5q_DXUENj3zQKbxIIpKNwGGGuRDESqAxpfmAK2AuABpQTXSyYxUdJ8gAz9YrwKknwmsqIQYmFLzRBh4nfJTKhUc81IUgvNLc0QZlN1cQ5w9dMHuj88Cmg7aSWxgZqAbBTqKx9Ay3sDEWIJBISXJPDnR2CzZxNQY2OVKsrAwAZ1Dk2xplJxiaJCcZCnJIIPPCCn80jIMLCVFpamywNobGgQAT0iRjw","URI":
-        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=OJCCD-785-2"],"Author":
-        ["Brown, Ray","Jackson, Milt","Peterson, Oscar","Tate, Grady"],"Score": ["0.01"],"IsScholarly":
-        ["false"],"DBID": ["CUA"],"IsPeerReviewed": ["false"],"ID": ["FETCH-naxos_jazz_114060-Z077619_043"],"PublicationTitle":
-        ["MILT JACKSON / OSCAR PETERSON / RAY BROWN / GRADY TATE: AIN''T BUT A FEW
-        OF US LEFT"],"Publisher": ["Fantasy"],"SourceType": ["Publisher"],"Publisher_xml":
-        [{"name": "Fantasy"}],"SubjectTerms": ["Contemporary Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_114060-Z077619_043"],"Author_xml":
-        [{"sequence": "1","fullname": "Jackson, Milt"},{"sequence": "2","fullname":
-        "Peterson, Oscar"},{"sequence": "3","fullname": "Brown, Ray"},{"sequence":
-        "4","fullname": "Tate, Grady"}],"ContentType": ["Music Recording"],"Title":
-        ["Body And Soul"],"ExternalDocumentID": ["114060-Z077619_04"],"Database_xml":
-        [{"sequence": "1","name": "Naxos Music Library Jazz","dbid": "CUA","url":
-        "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
-        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42TgdcpPqVRwzEtRCM4vzeFmUHZzDXH20M1LrMgvjs9KrKoC7YQ1MDPQjQIdJWNoGW8A2jJDjCoAoqMZPw"],"DatabaseName":
-        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
-        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Fire+with+Fire&rft.jtitle=BURNETT%2C+Fiona%3A+Sound+Inspirations&rft.au=Burnett%2C+Fiona&rft.au=Jones%2C+David&rft.au=Burnett%2C+Fiona&rft.pub=ABC+Classics&rft.externalDBID=n%2Fa&rft.externalDocID=560765-Q77315_108","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfGck0rGLDLADFZxBWTIpM9HP18dLzy-xIr8YfN0xbA0_qOT2Sqyqgm_sLk0F31gGOTMbGI2OTs4m5mZmFuCrrS2BnR_Q9G2oI7DlmQcyjAdRYroJMFQjn4lQATS9NAdoA8QBSOupkQ5mpJ7zBBn4wVoVIL1MYDUlxMCUmifCwOcGLOoUQIOwCiCWKIOym2uIs4cu2P3xWUDT44GNFFAgBpqbGxuagk74NJZgUEhJMk9ONDZLNjE1Bva4kiwsTEDH0CRbGiWnGBokJ1lKMsjgM0IKv7QMA0tJUWmqLLDyhgYBAMZ3kXM","URI":
-        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=ABC4766814"],"Author":
-        ["Jones, David","Burnett, Fiona"],"Score": ["0.01"],"IsScholarly": ["false"],"DBID":
-        ["CUA"],"IsPeerReviewed": ["false"],"ID": ["FETCH-naxos_jazz_560765-Q77315_1083"],"PublicationTitle":
-        ["BURNETT, Fiona: Sound Inspirations"],"Publisher": ["ABC Classics"],"SourceType":
-        ["Publisher"],"Publisher_xml": [{"name": "ABC Classics"}],"SubjectTerms":
-        ["Contemporary Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_560765-Q77315_1083"],"Author_xml":
-        [{"sequence": "1","fullname": "Burnett, Fiona"},{"sequence": "2","fullname":
-        "Jones, David"},{"sequence": "3","fullname": "Burnett, Fiona"}],"ContentType":
-        ["Music Recording"],"Title": ["Fire with Fire"],"ExternalDocumentID": ["560765-Q77315_108"],"Database_xml":
-        [{"sequence": "1","name": "Naxos Music Library Jazz","dbid": "CUA","url":
-        "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
-        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42TgcwNmVgXQMKICiMXNoOzmGuLsoZuXWJFfHJ-VWFUVD6xmzc1MdQPNzY0NTUFnVBoTpwoA04UZ0A"],"DatabaseName":
-        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
-        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=%28Un%29+Easy+Does+It&rft.jtitle=COUNT+BASIE+TRIO%3A+FOR+THE+FIRST+TIME&rft.au=Count+Basie+Orchestra&rft.pub=Fantasy&rft.externalDBID=n%2Fa&rft.externalDocID=325519-Z80991_11","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfGck0rGLDLAd186gLJmUmejn6-Ol55dYkV8Mvu4YtoYfVHJ7JVZVwTd2l6aCbyyDnJkNGi52dHbRBTVZdM0NjXRBRbMlsAcEmsMNdQQ2P_NAJvIgik83AQbYwjLYupHk0hygNRBXIC2qRjqdkcpuFGTgB-tXgPQ3gRWWEANTap4Ig6BGaJ6mgmticaWCS35qsYJniSiDkptriLOHLtgf8VlAW-KNgX0CQ0vdKAtgU88Q2J43lmBQSEkyT040Nks2MTUG9r6SLCxMQEfSJFsaJacYGiQnWUoySOMxQQqvrAwDS0lRaaossBqHhgMAR5uTKA","URI":
-        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=PACD-2310-712-2"],"Author":
-        ["Count Basie Orchestra"],"Score": ["0.01"],"IsScholarly": ["false"],"DBID":
-        ["CUA"],"IsPeerReviewed": ["false"],"ID": ["FETCH-naxos_jazz_325519-Z80991_113"],"PublicationTitle":
-        ["COUNT BASIE TRIO: FOR THE FIRST TIME"],"Publisher": ["Fantasy"],"SourceType":
-        ["Publisher"],"Publisher_xml": [{"name": "Fantasy"}],"SubjectTerms": ["Contemporary
-        Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_325519-Z80991_113"],"Author_xml":
-        [{"sequence": "1","fullname": "Count Basie Orchestra"}],"ContentType": ["Music
-        Recording"],"Title": ["(Un) Easy Does It"],"ExternalDocumentID": ["325519-Z80991_11"],"Database_xml":
-        [{"sequence": "1","name": "Naxos Music Library Jazz","dbid": "CUA","url":
-        "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
-        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42QQ1AjN01RwTSyuVHDJTy1W8AQ22ZTcXEOcPXTzEivyi-OzEquq4o2BbVlDS90oC2ATxRDYDjUmShEAwMAZuw"],"DatabaseName":
-        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
-        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Long+As+You+Pay&rft.jtitle=CITROEN%2C+Soesja%3A+Don%27t+Cry+Baby&rft.au=Citroen%2C+Soesja&rft.au=Citroen%2C+Soesja&rft.au=Ouwehand%2C+Ruud&rft.au=Berg%2C+Berend+van+den&rft.pub=Challenge+Classics&rft.externalDBID=n%2Fa&rft.externalDocID=472448-Q44522_114","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfGck0rGLDLBbUZ1BWTIpM9HP18dLzy-xIr8YfN0xbA0_qOT2Sqyqgm_sLk0F31gGOTMbGI3OHkHmoMlUYJlsCez6gCZvQx2B7c48kFE8iPLTTYABNhoBWzCSXJoDNB9iPdJqaqRjGanlOEEGfrBGBUgPE1hFCTEwpeaJMPD75OelKzgWKwBzukJAYqUog7Kba4izhy7Y-fFZQMPjTcyBFbKFbqAJ6Ch00J5iYwkGhZQk8-REY7NkE1NjoGSShYUJ6AyaZEuj5BRDg-QkS0kGGXxGSOGXlmFgKSkqTZUF1tzQEAAAVNeQog","URI":
-        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=CHR70127"],"Author":
-        ["Berg, Berend van den","Ouwehand, Ruud","Citroen, Soesja"],"Score": ["0.01"],"IsScholarly":
-        ["false"],"DBID": ["CUA"],"IsPeerReviewed": ["false"],"ID": ["FETCH-naxos_jazz_472448-Q44522_1143"],"PublicationTitle":
-        ["CITROEN, Soesja: Don''t Cry Baby"],"Publisher": ["Challenge Classics"],"SourceType":
-        ["Publisher"],"Publisher_xml": [{"name": "Challenge Classics"}],"SubjectTerms":
-        ["Contemporary Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_472448-Q44522_1143"],"Author_xml":
-        [{"sequence": "1","fullname": "Citroen, Soesja"},{"sequence": "2","fullname":
-        "Citroen, Soesja"},{"sequence": "3","fullname": "Ouwehand, Ruud"},{"sequence":
-        "4","fullname": "Berg, Berend van den"},{"sequence": "5","fullname": "Citroen,
-        Soesja"}],"ContentType": ["Music Recording"],"Title": ["Long As You Pay"],"ExternalDocumentID":
-        ["472448-Q44522_114"],"Database_xml": [{"sequence": "1","name": "Naxos Music
-        Library Jazz","dbid": "CUA","url": "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
-        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42Tg98nPS1dwLFYApleFgERgW0fZzTXE2UM3L7Eivzg-K7GqKt7EHFitWOgGmoAO9AbtjDUmThUA1YoZwg"],"DatabaseName":
-        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
-        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=SOFIA%3A+Cosas+del+alma&rft.au=Sofia&rft.au=Studio+ensemble&rft.au=Cantoral%2C+Roberto&rft.au=Carrillo%2C+Alvaro&rft.pub=Urtext&rft.externalDBID=n%2Fa&rft.externalDocID=JBCC114","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF7Sk0lQXfGck0rGLDLDrjpxBWTIpM9HP18dLzy-xIr8YfN0xbA0_qOT2Sqyqgm_sLk0F31gGOTMbtL3LydnZEHyvtSWw5wOauw11BDY780AmIRexbgIMsIEG2IKR5NIcoPkQ65FWUyMdy0glxwky8IP1KUA6mMAaSoiBKTVPhEE02N_N09FKwTm_OLFYISU1RyExJzdRlEHSzTXE2UMX7In4LKAN8VCTjCUYFFKSzJMTjc2STUyNgT2tJAsLE9DxM8mWRskphgbJSZaSDEKYGqWwCcowsJQUlabKAitoqEcB9OKL9A","Author":
-        ["Cantoral, Roberto","Pous, Miguel","Studio ensemble","Lecuona, Ernesto","Barrera,
-        Abraham","Sofia","Valdelamar, Emma Elena","Gutierrez, Ignacio","Manzanero,
-        Armando","Matamoros, Miguel","Carrillo, Alvaro","Delgado, Pepe","Dominguez,
-        Frank","Touzet, Rene","Garrido, Vicente"],"Score": ["0.01"],"IsPeerReviewed":
-        ["false"],"DBID": ["CUA"],"Publisher": ["Urtext"],"AbstractList": ["Mucho
-        corazon - Tu me acostumbraste - Eso - Regalame esta noche - Cosas del alma
-        - En mi soledad - Como un lunar - No te importe saber - Como yo te ame - Puedo
-        fallar - El verdadero amor - Lagrimas Negras - Siboney"],"SourceType": ["Publisher"],"Publisher_xml":
-        [{"name": "Urtext"}],"Snippet": ["Mucho corazon - Tu me acostumbraste - Eso
-        - Regalame esta noche - Cosas del alma - En mi soledad - Como un lunar - No
-        te importe saber - Como yo te ame - Puedo..."],"URI": ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=JBCC114"],"IsScholarly":
-        ["false"],"ID": ["FETCH-naxos_jazz_JBCC1143"],"DatabaseTitleList": [""],"Abstract":
-        ["Mucho corazon - Tu me acostumbraste - Eso - Regalame esta noche - Cosas
-        del alma - En mi soledad - Como un lunar - No te importe saber - Como yo te
-        ame - Puedo fallar - El verdadero amor - Lagrimas Negras - Siboney"],"SubjectTerms":
-        ["Contemporary Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_JBCC1143"],"Author_xml":
-        [{"sequence": "1","fullname": "Sofia"},{"sequence": "2","fullname": "Studio
-        ensemble"},{"sequence": "3","fullname": "Cantoral, Roberto"},{"sequence":
-        "4","fullname": "Carrillo, Alvaro"},{"sequence": "5","fullname": "Delgado,
-        Pepe"},{"sequence": "6","fullname": "Dominguez, Frank"},{"sequence": "7","fullname":
-        "Garrido, Vicente"},{"sequence": "8","fullname": "Lecuona, Ernesto"},{"sequence":
-        "9","fullname": "Manzanero, Armando"},{"sequence": "10","fullname": "Matamoros,
-        Miguel"},{"sequence": "11","fullname": "Pous, Miguel"},{"sequence": "12","fullname":
-        "Touzet, Rene"},{"sequence": "13","fullname": "Valdelamar, Emma Elena"},{"sequence":
-        "14","fullname": "Barrera, Abraham"},{"sequence": "15","fullname": "Gutierrez,
-        Ignacio"}],"ContentType": ["Music Recording"],"Title": ["SOFIA: Cosas del
-        alma"],"ExternalDocumentID": ["JBCC114"],"thumbnail_s": ["http://columbia.summon.serialssolutions.com/2.0.0/image/custom?url=http%3A%2F%2Fserialssolutions.naxosmusiclibrary.com%2Fjazz%2Fsharedfiles%2Fimages%2Fcds%2Fothers%2FJBCC114.gif"],"thumbnail_l":
-        ["http://columbia.summon.serialssolutions.com/2.0.0/image/custom?url=http%3A%2F%2Fserialssolutions.naxosmusiclibrary.com%2Fjazz%2Fsharedfiles%2Fimages%2Fcds%2Fhires%2FJBCC114.jpg"],"Database_xml":
-        [{"sequence": "1","name": "Naxos Music Library Jazz","dbid": "CUA","url":
-        "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
-        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42QQDfZ383S0UnDOL04sVkhJzVFIzAGdYSrp5hri7KGbl1iRXxyflVhVFe_l5OxsCN4wg1sOAJklF2w"],"DatabaseName":
-        ["Naxos Music Library Jazz"]}],"rollups": {"image": {},"reference": {},"newspaper":
-        {}}}'
-    http_version: 
-  recorded_at: Fri, 01 Jul 2016 18:31:05 GMT
-- request:
-    method: get
     uri: http://api.summon.serialssolutions.com/2.0.0/search?adv=%7B%7D&s.ff=SubjectTerms,and,1,10&s.fvf=IsFullText,true&s.ho=t&s.role=authenticated&spellcheck=true
     body:
       encoding: US-ASCII
@@ -551,4 +272,247 @@ http_interactions:
         {}}}'
     http_version: 
   recorded_at: Mon, 08 Aug 2016 19:55:33 GMT
+- request:
+    method: get
+    uri: http://api.summon.serialssolutions.com/2.0.0/search?adv=%7B%7D&s.ff=SubjectTerms,and,1,10&s.fvf=IsFullText,true&s.ho=t&spellcheck=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf8
+      X-Summon-Date:
+      - Tue, 16 Aug 2016 17:52:33 GMT
+      X-Summon-Session-Id:
+      - SUMMON-SESSION-Sprite.local-74812-29
+      X-Summon-Request-Id:
+      - ''
+      Authorization:
+      - Summon columbia;BKwc5uBqV3uIt69BjnoNS7Nk6ow=
+      Host:
+      - api.summon.serialssolutions.com:80
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Datacenter:
+      - IAD1
+      Date:
+      - Tue, 16 Aug 2016 17:52:32 GMT
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"version": "2.0.0","sessionId": "SUMMON-SESSION-Sprite.local-74812-29","elapsedQueryTime":
+        8,"queryTime": 319,"totalRequestTime": 92,"pageCount": 4200,"recordCount":
+        41996,"query": {"queryString": "s.ho=t&s.ff=SubjectTerms%2Cand%2C1%2C10&s.ff=Language%2Cand%2C1%2C5&s.ff=ContentType%2Cand%2C1%2C10&s.fvf=ContentType%2CMusic+Recording%2Cf&s.fvf=IsFullText%2Ctrue%2Cf","pageNumber":
+        1,"pageSize": 10,"isHoldingsOnlyEnabled": true,"textQueries": [],"searchTerms":
+        [],"textFilters": [],"rangeFilters": [],"facetValueFilters": [{"fieldName":
+        "ContentType","value": "Music Recording","isNegated": false,"removeCommand":
+        "removeFacetValueFilter(ContentType,Music Recording)","negateCommand": "negateFacetValueFilter(ContentType,Music
+        Recording)"},{"fieldName": "IsFullText","value": "true","isNegated": false,"removeCommand":
+        "removeFacetValueFilter(IsFullText,true)","negateCommand": "negateFacetValueFilter(IsFullText,true)"}],"inclusiveFacetValueFilters":
+        [],"facetValueGroupFilters": [],"facetFields": [{"fieldName": "SubjectTerms","combineMode":
+        "and","pageNumber": 1,"pageSize": 10,"removeCommand": "removeFacetField(SubjectTerms)"},{"fieldName":
+        "Language","combineMode": "and","pageNumber": 1,"pageSize": 5,"removeCommand":
+        "removeFacetField(Language)"},{"fieldName": "ContentType","combineMode": "and","pageNumber":
+        1,"pageSize": 10,"removeCommand": "removeFacetField(ContentType)"}],"rangeFacetFields":
+        [],"sort": []},"facetFields": [{"fieldName": "SubjectTerms_mfacet","displayName":
+        "SubjectTerms","combineMode": "and","pageNumber": 1,"pageSize": 10,"hasLimitingValue":
+        true,"hasAppliedValue": false,"removeCommand": "removeFacetField(SubjectTerms)","listValuesCommand":
+        "listFacetValues(SubjectTerms,and)","removeValueFiltersCommand": "removeFacetValueFilter(SubjectTerms)","counts":
+        [{"value": "contemporary jazz","count": 41723,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,contemporary
+        jazz)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,contemporary
+        jazz:t)"},{"value": "classical music","count": 496,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,classical
+        music)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,classical
+        music:t)"},{"value": "jazz legends","count": 201,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,jazz
+        legends)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,jazz legends:t)"},{"value":
+        "vocal","count": 167,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,vocal)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,vocal:t)"},{"value": "world","count": 160,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,world)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,world:t)"},{"value": "pop and rock","count":
+        132,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,pop and rock)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,pop
+        and rock:t)"},{"value": "chamber music","count": 119,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,chamber
+        music)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,chamber
+        music:t)"},{"value": "spoken commentary","count": 117,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,spoken
+        commentary)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,spoken
+        commentary:t)"},{"value": "orchestral","count": 66,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,orchestral)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,orchestral:t)"},{"value": "instrumental","count":
+        57,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,instrumental)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,instrumental:t)"}]},{"fieldName":
+        "ContentType_mfacet","displayName": "ContentType","combineMode": "and","pageNumber":
+        1,"pageSize": 10,"hasLimitingValue": false,"hasAppliedValue": true,"removeCommand":
+        "removeFacetField(ContentType)","listValuesCommand": "listFacetValues(ContentType,and)","removeValueFiltersCommand":
+        "removeFacetValueFilter(ContentType)","counts": [{"value": "Music Recording","count":
+        41996,"isApplied": true,"isNegated": false,"isFurtherLimiting": false,"removeCommand":
+        "removeFacetValueFilter(ContentType,Music Recording)","negateCommand": "negateFacetValueFilter(ContentType,Music
+        Recording)"}]}],"rangeFacetFields": [],"didYouMeanSuggestions": [],"recommendationLists":
+        {},"documents": [{"hasFullText": true,"isFullTextHit": false,"isPrint": false,"inHoldings":
+        true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Turn+Out+The+Stars&rft.jtitle=MARTIN+WIND+QUARTET%3A+Salt+%27N+Pepper&rft.au=Martin+Wind+Quartet&rft.au=Evans%2C+Bill&rft.pub=Challenge+Classics&rft.externalDBID=n%2Fa&rft.externalDocID=591677-Q86882_104","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-LBqpGMXGWDXHTmDsmRSZqKfr4-Xnl9iRX4x-Lpj2Bp-UMntlVhVBd_YXZoKvrEMcmY2MBqdg8yNjcxBRbIlsOcDmrsNdQQ2O_NAJiHVG24CDLBxBth6keTSHKDxENuRFlMjncpIJbcJMvCD9SlA-pfACkqIgSk1T4RBCHS3vYJ_aYkCMIUoANuaRcWiDMpuriHOHrpgD8RnAY2PNwU26MzNdQMtzICN43hgb8pYgkHBIAXYdEg0NQB2jYH9AxPjJONUy2TjREvDpCQzk1QTS0kGGXxGSOGXlmFgKSkqTZUFVt3QMAAAPbyRog","URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=CR73272"],"Author":
+        ["Martin Wind Quartet","Evans, Bill"],"Score": ["0.01"],"IsScholarly": ["false"],"IsPeerReviewed":
+        ["false"],"DBID": ["CUA"],"ID": ["FETCH-naxos_jazz_591677-Q86882_1043"],"PublicationTitle":
+        ["MARTIN WIND QUARTET: Salt ''N Pepper"],"Publisher": ["Challenge Classics"],"SourceType":
+        ["Publisher"],"Publisher_xml": [{"name": "Challenge Classics"}],"SubjectTerms":
+        ["Contemporary Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_591677-Q86882_1043"],"Author_xml":
+        [{"sequence": "1","fullname": "Martin Wind Quartet"},{"sequence": "2","fullname":
+        "Evans, Bill"}],"ContentType": ["Music Recording"],"Title": ["Turn Out The
+        Stars"],"ExternalDocumentID": ["591677-Q86882_104"],"Database_xml": [{"sequence":
+        "1","name": "Naxos Music Library Jazz","dbid": "CUA","url": "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42QQAt3RruBfWqIA9KkCsM1UVMzNoOzmGuLsoZuXWJFfHJ-VWFUVbwpsmJib6wZamAEbefHAXoExcaoAWdEbUQ"],"DatabaseName":
+        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=The+Dyin%27+Crapshooter%27s+Blues&rft.jtitle=BLIND+WILLIE+MCTELL%3A+LAST+SESSION&rft.au=McTell%2C+Blind+Willie&rft.pub=Fantasy&rft.externalDBID=n%2Fa&rft.externalDocID=106186-Z076407_02","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-LBqpGMXGWDXpTqDsmRSZqKfr4-Xnl9iRX4x-Lpj2Bp-UMntlVhVBd_YXZoKvrEMcmY2MBr9nZydXXRNgSUvqFi2BPZ-QPO3oY7ApmceyDQeRFHoJsBQg3woQgXQ-NIcoBUQFyAtqEY6mZGK7hNk4AfrVYD0M4EVlRADU2qeCIMsMIEouFRm5qkrOBclFhRn5OcDg1i9WMEpB1hTiDIou7mGOHvogv0TnwW0LR7UrbMw040yMAdNy8UDq2EJBgWDFGBrItHUANhbBnYZTIyTjFMtk40TLQ2TksxMUk0sJRlk8BkhhV9ahoGlpKg0VRZYm0ODBABNppdJ","URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=OBCCD-517-2"],"Author":
+        ["McTell, Blind Willie"],"Score": ["0.01"],"IsScholarly": ["false"],"IsPeerReviewed":
+        ["false"],"DBID": ["CUA"],"ID": ["FETCH-naxos_jazz_106186-Z076407_023"],"PublicationTitle":
+        ["BLIND WILLIE MCTELL: LAST SESSION"],"Publisher": ["Fantasy"],"SourceType":
+        ["Publisher"],"Publisher_xml": [{"name": "Fantasy"}],"SubjectTerms": ["Contemporary
+        Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_106186-Z076407_023"],"Author_xml":
+        [{"sequence": "1","fullname": "McTell, Blind Willie"}],"ContentType": ["Music
+        Recording"],"Title": ["The Dyin'' Crapshooter''s Blues"],"ExternalDocumentID":
+        ["106186-Z076407_02"],"Database_xml": [{"sequence": "1","name": "Naxos Music
+        Library Jazz","dbid": "CUA","url": "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42SQBXpQwaUyM09dwbkosaA4Iz8fqES9WMEpB1jScTMou7mGOHvo5iVW5BfHZyVWVcWDuiUWZrpRwD41sH8RbwC6O4gYVQDfuh8q"],"DatabaseName":
+        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Rapunzel&rft.jtitle=BRAZIL+ALL-STARS+RIO+STRUT&rft.au=Brazil+All&rft.pub=Fantasy&rft.externalDBID=n%2Fa&rft.externalDocID=323057-Z80257_03","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-LBqpGMXGWAHKjiDsmRSZqKfr4-Xnl9iRX4x-Lpj2Bp-UMntlVhVBd_YXZoKvrEMcmY2MBp9nV10gS0SY11QqWwJ7PyApm9DHYEtzzyQYTyIEtFNgKEa-UyECqDppTlAGyAOQFpPjXQwI_WcJ8jAD9aqAOllAqspIQam1DwRBo6gxILSvKrUHFEGJTfXEGcPXbDL47OA5sYDtQLbV7pRFsCWinm8gbGxBIOCQQqw1ZBoagDsFQO7BibGScaplsnGiZaGSUlmJqkmlpIM0nhMkMIrK8PAUlJUmioLrLOhPgcAhJmO5w","URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=MCD-9323-2"],"Author":
+        ["Brazil All"],"Score": ["0.01"],"IsScholarly": ["false"],"IsPeerReviewed":
+        ["false"],"DBID": ["CUA"],"ID": ["FETCH-naxos_jazz_323057-Z80257_033"],"PublicationTitle":
+        ["BRAZIL ALL-STARS RIO STRUT"],"Publisher": ["Fantasy"],"SourceType": ["Publisher"],"Publisher_xml":
+        [{"name": "Fantasy"}],"SubjectTerms": ["Contemporary Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_323057-Z80257_033"],"Author_xml":
+        [{"sequence": "1","fullname": "Brazil All"}],"ContentType": ["Music Recording"],"Title":
+        ["Rapunzel"],"ExternalDocumentID": ["323057-Z80257_03"],"Database_xml": [{"sequence":
+        "1","name": "Naxos Music Library Jazz","dbid": "CUA","url": "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42TgCEosKM2rSs3hZlBycw1x9tDNS6zIL47PSqyqijcGNnlNzXWjLIB1rXm8Aei-WiIUAQAI_Bej"],"DatabaseName":
+        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=The+Sunny+Murray-Cecil+Taylor+Dancing+Lesson&rft.jtitle=GONZALEZ%2C+Dennis%3A+Catechism&rft.au=Gonzalez%2C+Dennis&rft.au=Dean%2C+Elton&rft.au=Dallas&rft.au=Bendiks%2C+Gerard&rft.pub=Music+and+Arts+Programs+of+America&rft.externalDBID=n%2Fa&rft.externalDocID=497595-Q52728_102","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-LBqpGMXGWDXHTmDsmRSZqKfr4-Xnl9iRX4x-Lpj2Bp-UMntlVhVBd_YXZoKvrEMcmY2MBqdXXRNLMGX2FoCez6gudtQR2CzMw9kEg-iWHQTYICNM8DWiySX5gCNh9iOtJga6VRGKrlNkIEfrE8B0r8EVlBCDEypeSIMOsCEoRAMbLZWKgADuSixUtc5NTkzRwHSdVcApQKgYgUfYAmYnyfKoOzmGuLsoQv2WnwW0OJ4E0tzU0tT3UBTI3Mji3jQmQwSDAoGKcBGRaKpAbDTDOw5mBgnGadaJhsnWhomJZmZpJpYSjLI4DNCCr-0DANLSVFpqiywUoeGDgDteJsi","URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=CD-4913"],"Author":
+        ["Dallas","Bendiks, Gerard","Gonzalez, Dennis","Dean, Elton"],"Score": ["0.01"],"IsScholarly":
+        ["false"],"IsPeerReviewed": ["false"],"DBID": ["CUA"],"ID": ["FETCH-naxos_jazz_497595-Q52728_1023"],"PublicationTitle":
+        ["GONZALEZ, Dennis: Catechism"],"Publisher": ["Music and Arts Programs of
+        America"],"SourceType": ["Publisher"],"Publisher_xml": [{"name": "Music and
+        Arts Programs of America"}],"SubjectTerms": ["Contemporary Jazz"],"MergedId":
+        ["FETCHMERGED-naxos_jazz_497595-Q52728_1023"],"Author_xml": [{"sequence":
+        "1","fullname": "Gonzalez, Dennis"},{"sequence": "2","fullname": "Dean, Elton"},{"sequence":
+        "3","fullname": "Dallas"},{"sequence": "4","fullname": "Bendiks, Gerard"}],"ContentType":
+        ["Music Recording"],"Title": ["The Sunny Murray-Cecil Taylor Dancing Lesson"],"ExternalDocumentID":
+        ["497595-Q52728_102"],"Database_xml": [{"sequence": "1","name": "Naxos Music
+        Library Jazz","dbid": "CUA","url": "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42TQAXpQIRjY_KpUACouSqzUdU5NzsxRgHRBFUC-AZbKCj7AnAyaFVR2cw1x9tDNS6zIL47PSqyqijexNDe1NNUNNDUyN7KIB50tQJwqAGtiJP4"],"DatabaseName":
+        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Big+Fat+Lady&rft.jtitle=RED+HOLLOWAY%3A+LEGENDS+OF+ACID+JAZZ&rft.au=Holloway%2C+James+%27Red%27&rft.pub=Fantasy&rft.externalDBID=n%2Fa&rft.externalDocID=118204-Z192448_11","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-LBqpGMX4TvrnEFZMikz0c_Xx0vPL7Eivxh83TFsDT-o5PZKrKqCb-wuTQXfWAY5Mxs0XBzk7KILrJQsLXVB5bIlsPsDmsANdQS2PfNAxvEgykg3AQbYYinYopHk0hygHRAnIK2oRjqakZoOFGTgB2tWgPQ0gVWVEANTap4IA49TZrqCW2KJgk9iSqUog7Kba4izhy7Y_fFZQNPjQb0CAxPdKFDvycQCyDWWYFAwSAE2HxJNDYDdY2AfwcQ4yTjVMtk40dIwKcnMJNXEUpJBBp8RUvilZRhYSopKU2WB1Tc0CABhDpFH","URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=PRCD-24199-2"],"Author":
+        ["Holloway, James ''Red''"],"Score": ["0.01"],"IsScholarly": ["false"],"IsPeerReviewed":
+        ["false"],"DBID": ["CUA"],"ID": ["FETCH-naxos_jazz_118204-Z192448_113"],"PublicationTitle":
+        ["RED HOLLOWAY: LEGENDS OF ACID JAZZ"],"Publisher": ["Fantasy"],"SourceType":
+        ["Publisher"],"Publisher_xml": [{"name": "Fantasy"}],"SubjectTerms": ["Contemporary
+        Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_118204-Z192448_113"],"Author_xml":
+        [{"sequence": "1","fullname": "Holloway, James ''Red''"}],"ContentType": ["Music
+        Recording"],"Title": ["Big Fat Lady"],"ExternalDocumentID": ["118204-Z192448_11"],"Database_xml":
+        [{"sequence": "1","name": "Naxos Music Library Jazz","dbid": "CUA","url":
+        "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42TgccpMV3BLLFHwSUwBNnSU3VxDnD108xIr8ovjsxKrquJBbVoDE90oUNvfxALINSZOFQBykhix"],"DatabaseName":
+        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Know+What+I+Mean%3F+%28Take+Re-7+-+Originally+Issued%29&rft.jtitle=BILL+EVANS%3A+THE+COMPLETE+RIVERSIDE+RECORDINGS&rft.au=Evans%2C+Bill&rft.pub=Fantasy&rft.externalDBID=n%2Fa&rft.externalDocID=98876-Z076298502","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-LBqpGMXGWDXpTqDsmRSZqKfr4-Xnl9iRX4x-Lpj2Bp-UMntlVhVBd_YXZoKvrEMcmY2aErVKMjZBdg9BsY-sFi2BPZ-QPO3oY7ApmceyDQeRFHpJsBQg3woQgXQ-NIcoBUQFyAtqEY6mZGK7hNk4AfrVYD0M4EVlRADU2qeCIMh6MJrBdDJ3QqeCr6piXn2ChohidmpQIW65gq6Cv7QG7NyKhXAN_SlaIoyKLm5hjh76IL9GJ8FdEG8JbD0MNONMgAWdpYWpsCaWYJBwSAF2MBINDUAdqCBvQgT4yTjVMtk40RLw6QkM5NUE0tJBmk8JkjhlZVhYCkpKk2VBVbv0DACADqBm9g","URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=12RCD-018-2"],"Author":
+        ["Evans, Bill"],"Score": ["0.01"],"IsScholarly": ["false"],"IsPeerReviewed":
+        ["false"],"DBID": ["CUA"],"ID": ["FETCH-naxos_jazz_98876-Z0762985023"],"PublicationTitle":
+        ["BILL EVANS: THE COMPLETE RIVERSIDE RECORDINGS"],"Publisher": ["Fantasy"],"SourceType":
+        ["Publisher"],"Publisher_xml": [{"name": "Fantasy"}],"SubjectTerms": ["Contemporary
+        Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_98876-Z0762985023"],"Author_xml":
+        [{"sequence": "1","fullname": "Evans, Bill"}],"ContentType": ["Music Recording"],"Title":
+        ["Know What I Mean? (Take Re-7 - Originally Issued)"],"ExternalDocumentID":
+        ["98876-Z076298502"],"Database_xml": [{"sequence": "1","name": "Naxos Music
+        Library Jazz","dbid": "CUA","url": "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42QwBF3YrAA6eVrBU8E3NTHPXkEjJDE7VSEoVddcQVfBH3rjU06lAviGuRRNbgYlN9cQZw_dvMSK_OL4rMSqqnhLYOo3040CdrONLC1MDUDXCRGhCAA29yQ-"],"DatabaseName":
+        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=El+Hombre&rft.jtitle=SADIGURSKY%2C+Sam%3A+Words+Project+III+Miniatures&rft.au=Williams%2C+William+Carlos&rft.au=Heidemann%2C+Monika&rft.au=Satterwhite%2C+Roland&rft.au=Cruz%2C+Sebastian&rft.pub=New+Amsterdam&rft.externalDBID=n%2Fa&rft.externalDocID=813741-QA0486_001","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-LBqpGMXGWDXHTmDsmRSZqKfr4-Xnl9iRX4x-Lpj2Bp-UMntlVhVBd_YXZoKvrEMcmY2MBr9wh19DcCngFoCez6gudtQR2CzMw9kEg-iuHQTYICNM8DWiySX5gCNh9iOtJga6VRGKrlNkIEfrE8B0r8EVlBCDEypeSIMnK45Ch75ucCesCiDsptriLOHLtjd8VlAU-MtDI2Blb9uoCPojDzQSjRjCQYFgxRgiyHR1ADYIwZ2C0yMk4xTLZONEy0Nk5LMTFJNLCUZZPAZIYVfWoaBpaSoNFUWWGNDvQ4AFJSOoA","URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=NWAM019"],"Author":
+        ["Sadigursky, Sam","Leonhart, Michael","Loomis, Dan","Heidemann, Monika","Cruz,
+        Sebastian","Satterwhite, Roland","Williams, William Carlos"],"Score": ["0.01"],"IsScholarly":
+        ["false"],"IsPeerReviewed": ["false"],"DBID": ["CUA"],"ID": ["FETCH-naxos_jazz_813741-QA0486_0013"],"PublicationTitle":
+        ["SADIGURSKY, Sam: Words Project III Miniatures"],"Publisher": ["New Amsterdam"],"SourceType":
+        ["Publisher"],"Publisher_xml": [{"name": "New Amsterdam"}],"SubjectTerms":
+        ["Contemporary Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_813741-QA0486_0013"],"Author_xml":
+        [{"sequence": "1","fullname": "Williams, William Carlos"},{"sequence": "2","fullname":
+        "Heidemann, Monika"},{"sequence": "3","fullname": "Satterwhite, Roland"},{"sequence":
+        "4","fullname": "Cruz, Sebastian"},{"sequence": "5","fullname": "Loomis, Dan"},{"sequence":
+        "6","fullname": "Sadigursky, Sam"},{"sequence": "7","fullname": "Leonhart,
+        Michael"},{"sequence": "8","fullname": "Sadigursky, Sam"}],"ContentType":
+        ["Music Recording"],"Title": ["El Hombre"],"ExternalDocumentID": ["813741-QA0486_001"],"Database_xml":
+        [{"sequence": "1","name": "Naxos Music Library Jazz","dbid": "CUA","url":
+        "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42TgdM1R8MjPTQKdSqns5hri7KGbl1iRXxyflVhVFW9haAysxHQDHUFnvYFWVBkTpwoALesX7w"],"DatabaseName":
+        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Think+Deep&rft.jtitle=COLEMAN+HAWKINS%3A+THE+HAWK+FLIES+HIGH&rft.au=Hawkins%2C+Coleman&rft.pub=Fantasy&rft.externalDBID=n%2Fa&rft.externalDocID=107271-Z077079_03","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-LBqpGMXGWDXpTqDsmRSZqKfr4-Xnl9iRX4x-Lpj2Bp-UMntlVhVBd_YXZoKvrEMcmY2MBr9vZydXUDzkrqgYtkS2PsBzd-GOgKbnnkg03gQRaebAEMN8qEIFUDjS3OAVkBcgLSgGulkRiq6T5CBH6xXAdLPBFZUQgxMqXkiDFygGzuzFVxSUwtEGZTdXEOcPXTBjo_PAhodD-yvGZkb6kYZmIMOt4s3MDaWYFAwSAE2HRJNDYBdY2D_wMQ4yTjVMtk40dIwKcnMJNXEUpJBBp8RUvilZRhYSopKU2WBVTfU_wBoo5CO","URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=OJCCD-027-2"],"Author":
+        ["Hawkins, Coleman"],"Score": ["0.01"],"IsScholarly": ["false"],"IsPeerReviewed":
+        ["false"],"DBID": ["CUA"],"ID": ["FETCH-naxos_jazz_107271-Z077079_033"],"PublicationTitle":
+        ["COLEMAN HAWKINS: THE HAWK FLIES HIGH"],"Publisher": ["Fantasy"],"SourceType":
+        ["Publisher"],"Publisher_xml": [{"name": "Fantasy"}],"SubjectTerms": ["Contemporary
+        Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_107271-Z077079_033"],"Author_xml":
+        [{"sequence": "1","fullname": "Hawkins, Coleman"}],"ContentType": ["Music
+        Recording"],"Title": ["Think Deep"],"ExternalDocumentID": ["107271-Z077079_03"],"Database_xml":
+        [{"sequence": "1","name": "Naxos Music Library Jazz","dbid": "CUA","url":
+        "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42TgAt04ma3gkppawM2g7OYa4uyhm5dYkV8cn5VYVRUP7G8YmRvqRhmYgw5nizcAXVlLjCoAUwcYXg"],"DatabaseName":
+        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Trinkle%2C+Trinkle&rft.jtitle=BARRON%2C+Kenny%3A+What+if&rft.au=Barron%2C+Kenny&rft.au=Roney%2C+Wallace&rft.au=Stubblefield%2C+John&rft.au=McBee%2C+Cecil&rft.pub=Enja&rft.externalDBID=n%2Fa&rft.externalDocID=634631-QR4326_001","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-LBqpGMXGWC3ojqDsmRSZqKfr4-Xnl9iRX4x-Lpj2Bp-UMntlVhVBd_YXZoKvrEMcmY2MBpd_bx0QYeIActkS2DXBzR5G-oIbHfmgYziQZSfbgIMsNEI2IKR5NIcoPkQ65FWUyMdy0gtxwky8IM1KkB6mMAqSoiBKTVPhEEgpAjYAc1J1VGAMkQZlN1cQ5w9dMHuj88Cmh5vZmxiZmyoGxhkAmx5gZakGUswKBikAJsOiaYGwK4xsH9gYpxknGqZbJxoaZiUZGaSamIpySCDzwgp_NIyDCwlRaWpssCqGxoEADjlka4","URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=ENJ-2142"],"Author":
+        ["Roney, Wallace","Barron, Kenny","Lewis, Victor","Monk, Thelonious","Stubblefield,
+        John","McBee, Cecil"],"Score": ["0.01"],"IsScholarly": ["false"],"IsPeerReviewed":
+        ["false"],"DBID": ["CUA"],"ID": ["FETCH-naxos_jazz_634631-QR4326_0013"],"PublicationTitle":
+        ["BARRON, Kenny: What if"],"Publisher": ["Enja"],"SourceType": ["Publisher"],"Publisher_xml":
+        [{"name": "Enja"}],"SubjectTerms": ["Contemporary Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_634631-QR4326_0013"],"Author_xml":
+        [{"sequence": "1","fullname": "Barron, Kenny"},{"sequence": "2","fullname":
+        "Roney, Wallace"},{"sequence": "3","fullname": "Stubblefield, John"},{"sequence":
+        "4","fullname": "McBee, Cecil"},{"sequence": "5","fullname": "Lewis, Victor"},{"sequence":
+        "6","fullname": "Monk, Thelonious"}],"ContentType": ["Music Recording"],"Title":
+        ["Trinkle, Trinkle"],"ExternalDocumentID": ["634631-QR4326_001"],"Database_xml":
+        [{"sequence": "1","name": "Naxos Music Library Jazz","dbid": "CUA","url":
+        "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42QQCCkCdqNyUnUUoAxuBmU31xBnD928xIr84visxKqqeDNjEzNjQ93AIBNg-wG0sMqYOFUALcoa4A"],"DatabaseName":
+        ["Naxos Music Library Jazz"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Re%3A+Person+I+Knew&rft.jtitle=BILL+EVANS%3A+JAZZ+SHOWCASE&rft.au=Evans%2C+Bill&rft.pub=Fantasy&rft.externalDBID=n%2Fa&rft.externalDocID=112836-Z159866_05","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-LBqpGMX4TvrnEFZMikz0c_Xx0vPL7Eivxh83TFsDT-o5PZKrKqCb-wuTQXfWAY5MxsYjf5ezs4uusBOhokuqFy2BHZ_QBO4oY7AtmceyDjkctZNgAG2Wgq2aiS5NAdoCcQNSEuqkc5mpKYLBRn4wZoVIF1NYF0lxMCUmifCIBiUaqUQAG5yK3gqeAMb2KIMym6uIc4eumBfxGcBrQA23oFtAzPdKEPQGetm8cDsJMGgYJACbEQkmhoAO8nAnoKJcZJxqmWycaKlYVKSmUmqiaUkgww-I6TwS8swsJQUlabKAitxaDgAAN4Xk00","URI":
+        ["http://serialssolutions.naxosmusiclibrary.com/jazz/catalogue/item.asp?cid=OJCCD-6014-2"],"Author":
+        ["Evans, Bill"],"Score": ["0.01"],"IsScholarly": ["false"],"IsPeerReviewed":
+        ["false"],"DBID": ["CUA"],"ID": ["FETCH-naxos_jazz_112836-Z159866_053"],"PublicationTitle":
+        ["BILL EVANS: JAZZ SHOWCASE"],"Publisher": ["Fantasy"],"SourceType": ["Publisher"],"Publisher_xml":
+        [{"name": "Fantasy"}],"SubjectTerms": ["Contemporary Jazz"],"MergedId": ["FETCHMERGED-naxos_jazz_112836-Z159866_053"],"Author_xml":
+        [{"sequence": "1","fullname": "Evans, Bill"}],"ContentType": ["Music Recording"],"Title":
+        ["Re: Person I Knew"],"ExternalDocumentID": ["112836-Z159866_05"],"Database_xml":
+        [{"sequence": "1","name": "Naxos Music Library Jazz","dbid": "CUA","url":
+        "http://ezproxy.cul.columbia.edu/login?url=http://ColumbiaNMLJ.NaxosMusicLibrary.com/Jazz/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42QQDEq1UggAtxcVPBW8ga1DbgZlN9cQZw_dvMSK_OL4rMSqKmDLE1ixmelGGYIOCDeLNwDdTkyMKgAQ1RqD"],"DatabaseName":
+        ["Naxos Music Library Jazz"]}],"rollups": {"image": {},"reference": {},"newspaper":
+        {}}}'
+    http_version: 
+  recorded_at: Tue, 16 Aug 2016 17:52:33 GMT
 recorded_with: VCR 3.0.3

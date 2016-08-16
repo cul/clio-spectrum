@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 01 Jul 2016 20:48:52 GMT
+      - Tue, 16 Aug 2016 18:00:25 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -214,32 +214,23 @@ http_interactions:
         enp6enp+dHh2cXF4c35+fn5+fn5+fn5+fiddLCdpdGVtX2Rpc3BsYXknPT5b
         J0pDMzEyIC5DNTUgfCBsb2MramMtKzAzMTIrMDAwMDAwMDArYzU1MDAwMDAr
         NjI0OTkyNyB8IGVibn5nbn5+end5eH56enp6enp6en5udXV6enp6en50eHZx
-        cXhzfn5+fn5+fn5+fn5+J10sJ3RpbWVzdGFtcCc9PicyMDE2LTA1LTIzVDIw
-        OjA0OjM3LjI1MlonLCdhdXRob3JpdGllc19kdCc9PicyMDE2LTA1LTI0VDIw
-        OjQ2OjQ0WicsJ2F1dGhvcl92YXJpYW50X3R4dCc9PlsnRXRobmljIEdyb3Vw
-        cyBVbml0eSBQdWJsaXNoaW5nIEhvdXNlIOawkeaXj+Wboue7k+adguW/l+ek
-        viDmsJHml4/lm6Lnu5PmnYLoqoznpL4g5rCR5peP5ZyY57WQ6Zuc6KqM56S+
-        IENoaW5hLiBHdW8gamlhIG1pbiB6dSBzaGkgd3Ugd2VpIHl1YW4gaHVpIENo
-        aW5hLiBTdGF0ZSBOYXRpb25hbGl0aWVzIEFmZmFpcnMgQ29tbWlzc2lvbiBD
-        aGluYS4gS3Vra2EgTWluam9rIFNhbXUgV2l3b8yGbmhvZSBHdW8gamlhIG1p
-        biB3ZWkgKENoaW5hKSBDaGluYS4gTmF0aW9uYWxpdGllcyBBZmZhaXJzIENv
-        bW1pc3Npb24sIFN0YXRlIENoaW5hLiBDb21taXNzaW9uLCBTdGF0ZSBOYXRp
-        b25hbGl0aWVzIEFmZmFpcnMgQ2hpbmEuIFN0YXRlIEV0aG5pYyBBZmZhaXJz
-        IENvbW1pc3Npb24gQ2hpbmEuIEt1byBjaGlhIG1pbiB3ZWkg5Lit5ZuvLiDl
-        m6/lrrbmsJHlp5Qg5Lit5Zu9LiDlnIvlrrbmsJHlp5Qg5Lit5ZyLLiDlm73l
-        rrbmsJHlp5Qg5Lit5ZyLLiDlnIvlrrbmsJHlp5QgQ2hpbmEuIOWbr+Wutuaw
-        keWnlCBDaGluYS4g5Zu95a625rCR5aeUIENoaW5hLiDlm73lrrbmsJHml4/k
-        uovliqHlp5TlkZjkvJogQ2hpbmEuIFVsdXMtdW4gVcyHbmR1zIdzdcyHdGVu
-        LXXMhyBLZXJlZyBFcmtpbGVrdcyHIEpvzIdibGVsJ10sJ3N1YmplY3RfdmFy
-        aWFudF90eHQnPT5bJ0V0aG5pYyBtaW5vcml0aWVzIEZvcmVpZ24gcG9wdWxh
-        dGlvbiBNaW5vcml0eSBncm91cHMgUGVyc29ucyBBc3NpbWlsYXRpb24gKFNv
-        Y2lvbG9neSkgRGlzY3JpbWluYXRpb24gRXRobmljIHJlbGF0aW9ucyBNYWpv
-        cml0aWVzIFBsZWJpc2NpdGUgUmFjZSByZWxhdGlvbnMgU2VncmVnYXRpb24g
-        Q3VsdHVyYWwgYW50aHJvcG9sb2d5IEV0aG5vZ3JhcGh5IFJhY2VzIG9mIG1h
-        biBTb2NpYWwgYW50aHJvcG9sb2d5IEFudGhyb3BvbG9neSBIdW1hbiBiZWlu
-        Z3MnXSwnX3ZlcnNpb25fJz0+MTUzNTI0NDAzNDAyNDQwNzA0MH1dfX0K
+        cXhzfn5+fn5+fn5+fn5+J10sJ3RpbWVzdGFtcCc9PicyMDE2LTA3LTA2VDIx
+        OjA4OjMwLjM4OVonLCdhdXRob3JpdGllc19kdCc9PicyMDE2LTA4LTExVDE0
+        OjQ5OjIzWicsJ2F1dGhvcl92YXJpYW50X3R4dCc9PlsnRXRobmljIEdyb3Vw
+        cyBVbml0eSBQdWJsaXNoaW5nIEhvdXNlJywn5rCR5peP5Zui57uT5p2C5b+X
+        56S+Jywn5rCR5peP5Zui57uT5p2C6KqM56S+Jywn5rCR5peP5ZyY57WQ6Zuc
+        6KqM56S+JywnR3VvIGppYSBtaW4gd2VpIChDaGluYSknLCfkuK3lm68uJywn
+        5Lit5Zu9LicsJ+S4reWciy4nXSwnc3ViamVjdF92YXJpYW50X3R4dCc9Plsn
+        RXRobmljIG1pbm9yaXRpZXMnLCdGb3JlaWduIHBvcHVsYXRpb24nLCdNaW5v
+        cml0eSBncm91cHMnLCdQZXJzb25zJywnQXNzaW1pbGF0aW9uIChTb2Npb2xv
+        Z3kpJywnRGlzY3JpbWluYXRpb24nLCdFdGhuaWMgcmVsYXRpb25zJywnTWFq
+        b3JpdGllcycsJ1BsZWJpc2NpdGUnLCdSYWNlIHJlbGF0aW9ucycsJ1NlZ3Jl
+        Z2F0aW9uJywnQ3VsdHVyYWwgYW50aHJvcG9sb2d5JywnRXRobm9ncmFwaHkn
+        LCdSYWNlcyBvZiBtYW4nLCdTb2NpYWwgYW50aHJvcG9sb2d5JywnQW50aHJv
+        cG9sb2d5JywnSHVtYW4gYmVpbmdzJ10sJ192ZXJzaW9uXyc9PjE1NDIzNzg3
+        MTEzNDU1Mjg4MzJ9XX19Cg==
     http_version: 
-  recorded_at: Fri, 01 Jul 2016 20:48:52 GMT
+  recorded_at: Tue, 16 Aug 2016 18:00:26 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/6249927"
@@ -248,11 +239,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.0, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
       Accept:
       - "*/*"
       Date:
-      - Fri, 01 Jul 2016 20:48:52 GMT
+      - Tue, 16 Aug 2016 18:00:26 GMT
   response:
     status:
       code: 200
@@ -275,19 +266,19 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       X-Request-Id:
-      - f940e02d-d98c-45cb-994f-f4b070549e9e
+      - d159fe71-a4c9-4e68-b979-2db80f3f7e64
       Etag:
       - W/"05b020c76ec660c5cad0d6e0dbdd1246"
       X-Frame-Options:
       - SAMEORIGIN
       X-Runtime:
-      - '2.193067'
+      - '1.381266'
       X-Content-Type-Options:
       - nosniff
       Access-Control-Request-Method:
       - "*"
       Date:
-      - Fri, 01 Jul 2016 20:48:55 GMT
+      - Tue, 16 Aug 2016 18:00:27 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -305,5 +296,5 @@ http_interactions:
         has: v.2 (2003), v.5:no.3 (2007)-v.7:no.3 (2009), v.8:no.2-4 (2010) -- 2011,
         2012:no.3"}],"services":["offsite"]}]}}'
     http_version: 
-  recorded_at: Fri, 01 Jul 2016 20:48:54 GMT
-recorded_with: VCR 3.0.1
+  recorded_at: Tue, 16 Aug 2016 18:00:28 GMT
+recorded_with: VCR 3.0.3
