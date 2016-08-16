@@ -85,17 +85,10 @@ describe 'Catalog Advanced Search', :vcr do
     'Location' => 'Dakhla Library',
   }.each_pair do |searchField, searchValue|
 
-
     it "supports fielded search by #{searchField}", :js do
       visit catalog_index_path
-#       # find('btn', text: "All Fields").click
-# 
-#       within('.search_row') do
-#         find('li', text: /\A#{searchField}\z/).click
-#       end
 
       select searchField, :from => "search_field"
-
       fill_in 'q', with: searchValue
       find('button[type=submit]').click
 
@@ -106,6 +99,7 @@ describe 'Catalog Advanced Search', :vcr do
 
     it "supports advanced search by #{searchField}" do
       visit catalog_index_path
+
       find('.search_box.catalog .advanced_search_toggle').click
       within '.landing_page.catalog .advanced_search' do
         select(searchField, from: 'adv_1_field')

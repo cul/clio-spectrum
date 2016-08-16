@@ -292,6 +292,7 @@ group :test do
   
   # Record API responses, use saved responses for tests
   gem 'vcr'
-  gem 'webmock', '~>1.0'
+  # gem 'webmock', '~>1.0'
+  gem 'webmock'
 end
 

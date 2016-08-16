@@ -13,101 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:54:28 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4yOSwn
-        cGFyYW1zJz0+eydmLnN1YmplY3RfZm9ybV9mYWNldC5mYWNldC5saW1pdCc9
-        PicxMScsJ2ZhY2V0Jz0+J3RydWUnLCdzb3J0Jz0+J3Njb3JlIGRlc2MsIHB1
-        Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdzdGF0cyc9Pid0
-        cnVlJywnZi5zdWJqZWN0X3RvcGljX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzEx
-        Jywnc3BlbGxjaGVjay5xJz0+JzIwMTIzNTEyNScsJ2YubGFuZ3VhZ2VfZmFj
-        ZXQuZmFjZXQubGltaXQnPT4nNicsJ2YubGNfMWxldHRlcl9mYWNldC5mYWNl
-        dC5saW1pdCc9PiczMScsJ2YucHViX2RhdGVfc29ydC5mYWNldC5saW1pdCc9
-        Pic0JywnZi5sb2NhdGlvbl9mYWNldC5mYWNldC5saW1pdCc9Pic2Jywnd3Qn
-        PT4ncnVieScsJ3Jvd3MnPT4nMjUnLCdmLmxjX3N1YmNsYXNzX2ZhY2V0LmZh
-        Y2V0LmxpbWl0Jz0+JzUwMScsJ2Yuc3ViamVjdF9nZW9fZmFjZXQuZmFjZXQu
-        bGltaXQnPT4nMTEnLCdmYWNldC5xdWVyeSc9PlsnYWNxX2R0OlsyMDE2LTA4
-        LTA5VDAwOjAwOjAwWiBUTyAqXScsJ2FjcV9kdDpbMjAxNi0wNy0xNlQwMDow
-        MDowMFogVE8gKl0nLCdhY3FfZHQ6WzIwMTYtMDItMTZUMDA6MDA6MDBaIFRP
-        ICpdJywnYWNxX2R0OlsyMDE1LTA4LTE2VDAwOjAwOjAwWiBUTyAqXSddLCdz
-        dGF0cy5maWVsZCc9PidwdWJfZGF0ZV9zb3J0JywncSc9Pid7IXFmPWlzYm5f
-        dHh0IHBmPWlzYm5fdHh0fTIwMTIzNTEyNScsJ2YuYXV0aG9yX2ZhY2V0LmZh
-        Y2V0LmxpbWl0Jz0+JzYnLCdmYWNldC5maWVsZCc9PlsnZm9ybWF0JywncHVi
-        X2RhdGVfc29ydCcsJ2F1dGhvcl9mYWNldCcsJ2xvY2F0aW9uX2ZhY2V0Jywn
-        bGFuZ3VhZ2VfZmFjZXQnLCdzdWJqZWN0X3RvcGljX2ZhY2V0Jywnc3ViamVj
-        dF9nZW9fZmFjZXQnLCdzdWJqZWN0X2VyYV9mYWNldCcsJ3N1YmplY3RfZm9y
-        bV9mYWNldCcsJ2xjXzFsZXR0ZXJfZmFjZXQnLCdsY19zdWJjbGFzc19mYWNl
-        dCddLCdxdCc9PidzZWFyY2gnLCdmLnN1YmplY3RfZXJhX2ZhY2V0LmZhY2V0
-        LmxpbWl0Jz0+JzExJywnZi5mb3JtYXQuZmFjZXQubGltaXQnPT4nNid9fSwn
-        cmVzcG9uc2UnPT57J251bUZvdW5kJz0+MSwnc3RhcnQnPT4wLCdtYXhTY29y
-        ZSc9PjE2LjI4NDQ0MywnZG9jcyc9Plt7J2lkJz0+JzI4MDY5NjcnLCdhdXRo
-        b3JfZmFjZXQnPT5bJ0pvYW5uZSwgQWRvbHBoZSBMYXVyZW50LCAxODEzLTE4
-        ODEnXSwnYXV0aG9yX2Rpc3BsYXknPT5bJ0pvYW5uZSwgQWRvbHBoZSBMYXVy
-        ZW50LCAxODEzLTE4ODEnXSwndGl0bGVfZGlzcGxheSc9PlsnR2XMgW9ncmFw
-        aGllIGR1IFRlcnJpdG9pcmUgZGUgQmVsZm9ydCA6IGF2ZWMgdW5lIGNhcnRl
-        IGNvbG9yaWXMgWUgZXQgNiBncmF2dXJlcyddLCdzdWJqZWN0X3RvcGljX2Zh
-        Y2V0Jz0+WydEZXNjcmlwdGlvbiBhbmQgdHJhdmVsJ10sJ3N1YmplY3RfZ2Vv
-        X2ZhY2V0Jz0+WydCZWxmb3J0IChGcmFuY2UgOiBUZXJyaXRvcnkpJ10sJ3B1
-        Yl9wbGFjZV9kaXNwbGF5Jz0+WydQYXJpcyddLCdwdWJfbmFtZV9kaXNwbGF5
-        Jz0+WydIYWNoZXR0ZSddLCdwdWJfeWVhcl9kaXNwbGF5Jz0+WycxODg4J10s
-        J2xhbmd1YWdlX2ZhY2V0Jz0+WydGcmVuY2gnXSwnZm9ybWF0Jz0+WydCb29r
-        J10sJ2NsaW9faWRfZGlzcGxheSc9PicyODA2OTY3Jywnc291cmNlX2Rpc3Bs
-        YXknPT5bJ2NhdGFsb2cnXSwnb2NsY19kaXNwbGF5Jz0+WydvY20zNjI0MDEw
-        MSddLCdmdWxsX3B1Ymxpc2hlcl9kaXNwbGF5Jz0+WydQYXJpcyA6IEhhY2hl
-        dHRlLCAxODg4LiddLCdsb2NhdGlvbl9jYWxsX251bWJlcl9pZF9kaXNwbGF5
-        Jz0+WydPZmZzaXRlIDxBdmVyeT4gKE5vbi1DaXJjdWxhdGluZykgUGxhY2Ug
-        UmVxdWVzdCBmb3IgZGVsaXZlcnkgPj4gQUg0NCBBNTcgdi4xNHxERUxJTXwz
-        MzE2MjU3J10sJ2xvY2F0aW9uX2ZhY2V0Jz0+WydPZmZzaXRlJ10sJ3NoZWxm
-        a2V5Jz0+WydhdmVmYXgrYWgtKzAwNDQrMDAwMDAwMDArYTU3MDAwMDArdjAw
-        MDAwKzAwMDAxNCsyODA2OTY3J10sJ3JldmVyc2Vfc2hlbGZrZXknPT5bJ3A0
-        bGtwMn5waX5+enp2dn56enp6enp6en5wdXN6enp6en40enp6enp+enp6enl2
-        fnhyenRxdHMnXSwnaXRlbV9kaXNwbGF5Jz0+WydBSDQ0IEE1NyB2LjE0IHwg
-        YXZlZmF4K2FoLSswMDQ0KzAwMDAwMDAwK2E1NzAwMDAwK3YwMDAwMCswMDAw
-        MTQrMjgwNjk2NyB8IHA0bGtwMn5waX5+enp2dn56enp6enp6en5wdXN6enp6
-        en40enp6enp+enp6enl2fnhyenRxdHMnXSwnc2NvcmUnPT4xNi4yODQ0NDN9
-        XX0sJ2ZhY2V0X2NvdW50cyc9PnsnZmFjZXRfcXVlcmllcyc9PnsnYWNxX2R0
-        OlsyMDE2LTA4LTA5VDAwOjAwOjAwWiBUTyAqXSc9PjAsJ2FjcV9kdDpbMjAx
-        Ni0wNy0xNlQwMDowMDowMFogVE8gKl0nPT4wLCdhY3FfZHQ6WzIwMTYtMDIt
-        MTZUMDA6MDA6MDBaIFRPICpdJz0+MCwnYWNxX2R0OlsyMDE1LTA4LTE2VDAw
-        OjAwOjAwWiBUTyAqXSc9PjB9LCdmYWNldF9maWVsZHMnPT57J2Zvcm1hdCc9
-        PlsnQm9vaycsMV0sJ3B1Yl9kYXRlX3NvcnQnPT5bJzE4ODgnLDFdLCdhdXRo
-        b3JfZmFjZXQnPT5bJ0pvYW5uZSwgQWRvbHBoZSBMYXVyZW50LCAxODEzLTE4
-        ODEnLDFdLCdsb2NhdGlvbl9mYWNldCc9PlsnT2Zmc2l0ZScsMV0sJ2xhbmd1
-        YWdlX2ZhY2V0Jz0+WydGcmVuY2gnLDFdLCdzdWJqZWN0X3RvcGljX2ZhY2V0
-        Jz0+WydEZXNjcmlwdGlvbiBhbmQgdHJhdmVsJywxXSwnc3ViamVjdF9nZW9f
-        ZmFjZXQnPT5bJ0JlbGZvcnQgKEZyYW5jZSA6IFRlcnJpdG9yeSknLDFdLCdz
-        dWJqZWN0X2VyYV9mYWNldCc9PltdLCdzdWJqZWN0X2Zvcm1fZmFjZXQnPT5b
-        XSwnbGNfMWxldHRlcl9mYWNldCc9PltdLCdsY19zdWJjbGFzc19mYWNldCc9
-        PltdfSwnZmFjZXRfZGF0ZXMnPT57fSwnZmFjZXRfcmFuZ2VzJz0+e319LCdz
-        dGF0cyc9Pnsnc3RhdHNfZmllbGRzJz0+eydwdWJfZGF0ZV9zb3J0Jz0+eydt
-        aW4nPT4xODg4LjAsJ21heCc9PjE4ODguMCwnY291bnQnPT4xLCdtaXNzaW5n
-        Jz0+MCwnc3VtJz0+MTg4OC4wLCdzdW1PZlNxdWFyZXMnPT4zNTY0NTQ0LjAs
-        J21lYW4nPT4xODg4LjAsJ3N0ZGRldic9PjAuMCwnZmFjZXRzJz0+e319fX19
-        Cg==
-    http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:54:28 GMT
-- request:
-    method: get
-    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2015-08-16T00:00:00Z%20TO%20*%5D&q=%7B!qf=isbn_txt%20pf=isbn_txt%7D201235125&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck.q=201235125&stats=true&stats.field=pub_date_sort&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 16 Aug 2016 17:54:28 GMT
+      - Tue, 16 Aug 2016 20:25:48 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -187,5 +93,5 @@ http_interactions:
         J21lYW4nPT4xODg4LjAsJ3N0ZGRldic9PjAuMCwnZmFjZXRzJz0+e319fX19
         Cg==
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:54:28 GMT
+  recorded_at: Tue, 16 Aug 2016 20:25:49 GMT
 recorded_with: VCR 3.0.3

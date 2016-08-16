@@ -1805,13 +1805,13 @@ http_interactions:
       Content-Type:
       - application/x-www-form-urlencoded; charset=utf8
       X-Summon-Date:
-      - Tue, 16 Aug 2016 17:52:28 GMT
+      - Tue, 16 Aug 2016 18:50:27 GMT
       X-Summon-Session-Id:
-      - SUMMON-SESSION-Sprite.local-74812-24
+      - SUMMON-SESSION-Sprite.local-75079-24
       X-Summon-Request-Id:
       - ''
       Authorization:
-      - Summon columbia;BJ0xhJKksORDTzdeoxvibSgL27Q=
+      - Summon columbia;3FLARmRK8cOjtwRuIwSjwce5KrY=
       Host:
       - api.summon.serialssolutions.com:80
   response:
@@ -1824,14 +1824,14 @@ http_interactions:
       Datacenter:
       - IAD1
       Date:
-      - Tue, 16 Aug 2016 17:52:29 GMT
+      - Tue, 16 Aug 2016 18:50:28 GMT
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"version": "2.0.0","sessionId": "SUMMON-SESSION-Sprite.local-74812-24","elapsedQueryTime":
-        589,"queryTime": 555,"totalRequestTime": 930,"pageCount": 199,"recordCount":
-        9911,"query": {"queryString": "s.ho=t&s.ps=50&s.ff=SubjectTerms%2Cand%2C1%2C10&s.ff=ContentType%2Cand%2C1%2C10&s.ff=Language%2Cand%2C1%2C5&s.q=Aardvark&s.pn=20&s.fvf=ContentType%2CNewspaper+Article%2Ct","pageNumber":
+      string: '{"version": "2.0.0","sessionId": "SUMMON-SESSION-Sprite.local-75079-24","elapsedQueryTime":
+        1065,"queryTime": 1029,"totalRequestTime": 1657,"pageCount": 199,"recordCount":
+        9911,"query": {"queryString": "s.ho=t&s.ps=50&s.ff=SubjectTerms%2Cand%2C1%2C10&s.ff=Language%2Cand%2C1%2C5&s.ff=ContentType%2Cand%2C1%2C10&s.q=Aardvark&s.pn=20&s.fvf=ContentType%2CNewspaper+Article%2Ct","pageNumber":
         20,"pageSize": 50,"isHoldingsOnlyEnabled": true,"textQueries": [{"textQuery":
         "Aardvark","removeCommand": "removeTextQuery(Aardvark)"}],"searchTerms": [],"textFilters":
         [],"rangeFilters": [],"facetValueFilters": [{"fieldName": "ContentType","value":
@@ -1839,9 +1839,9 @@ http_interactions:
         Article)","negateCommand": "negateFacetValueFilter(ContentType,Newspaper Article)"}],"inclusiveFacetValueFilters":
         [],"facetValueGroupFilters": [],"facetFields": [{"fieldName": "SubjectTerms","combineMode":
         "and","pageNumber": 1,"pageSize": 10,"removeCommand": "removeFacetField(SubjectTerms)"},{"fieldName":
-        "ContentType","combineMode": "and","pageNumber": 1,"pageSize": 10,"removeCommand":
-        "removeFacetField(ContentType)"},{"fieldName": "Language","combineMode": "and","pageNumber":
-        1,"pageSize": 5,"removeCommand": "removeFacetField(Language)"}],"rangeFacetFields":
+        "Language","combineMode": "and","pageNumber": 1,"pageSize": 5,"removeCommand":
+        "removeFacetField(Language)"},{"fieldName": "ContentType","combineMode": "and","pageNumber":
+        1,"pageSize": 10,"removeCommand": "removeFacetField(ContentType)"}],"rangeFacetFields":
         [],"sort": []},"facetFields": [{"fieldName": "Language_s","displayName": "Language","combineMode":
         "and","pageNumber": 1,"pageSize": 5,"hasLimitingValue": true,"hasAppliedValue":
         false,"removeCommand": "removeFacetField(Language)","listValuesCommand": "listFacetValues(Language,and)","removeValueFiltersCommand":
@@ -1922,7 +1922,7 @@ http_interactions:
         Article)"}]}],"rangeFacetFields": [],"didYouMeanSuggestions": [],"recommendationLists":
         {},"documents": [{"hasFullText": true,"isFullTextHit": false,"isPrint": false,"inHoldings":
         true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+SMOKY+MTN+CABINS&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5PrDiBaY_E1MTY_uCQl3QvVGg-VXYJRqJ0MsVQHM0wCYFMwMrsDK3AC3yMw-PRClomYwMoNWHmwBDFfK5CBWVesmlOUBLgeVCUmYi0ppqpMMZqeZEQQY2SCNbiIEpNU-EQcEmw87RMcglzDHI20Y_w04h2NffO1LBN8RPwdnRCdiXF2VQcnMNcfbQhdkdD51XiEfYayzBoGCRmmqUAqx4U43SgO2xpBSLpDTzRAuDVDODJGDrwCJNkkEajwlSeGWlGbiMwBdCgBZNyDCwlBSVpsoCq3RokAEAcVqYdQ","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PrAiheY_kxMTYztCwp1QfdGgeZXYZdoJEIvVwDN0QCbFMwMrMDK3AK0yM88PBKloGUyMoBWH24CDFXI5yJUVOoll-YALQWWC0mZiUhrqpEOZ6SaEwUZ2CCNbCEGptQ8EQYFmww7R8cglzDHIG8b_Qw7hWBff-9IBd8QPwVnRydgX16UQcnNNcTZQxdmdzx0XiEeYa-xBIOCZWJqUpKRuZFZirmFiVFyKrAFaGmaCGz3pFimJZkYWEgySOMxQQqvrDQDlxH4QgjQogkZBpaSotJUWWCVDg0yAFiQmCI","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -1952,7 +1952,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+VETERINARY+CLINIC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqEp6Kw7c3MLE_uCQl3QvVGg-VXYJRqJ0MsVQHM0wCYFMwMrsDK3AC3yMw-PRClomYwMoKWhmwBDFfK5CBWVesmlOUBLgeVCUmYi0ppqpMMZqeZEQQY2SCNbiIEpNU-EQdEmw87RMcglzDHI20Y_w04hzDUEdK6UY1CkgrOPp5-nsyiDkptriLOHLszyeOjEQjzCYmMJBgWL1FSjFGDNm2qUBmyQJaVYJKWZJ1oYpJoZJAGbBxZpkgzSeEyQwisrzcBlBL4RArRqQoaBpaSoNFUWWKdDwwwARJeZEg","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGpqCz7szNLUzsCwp1QfdGgeZXYZdoJEIvVwDN0QCbFMwMrMDK3AK0yM88PBKloGUyMoCWhm4CDFXI5yJUVOoll-YALQWWC0mZiUhrqpEOZ6SaEwUZ2CCNbCEGptQ8EQZFmww7R8cglzDHIG8b_Qw7hTDXENC5Uo5BkQrOPp5-ns6iDEpuriHOHrowy-OhEwvxCIuNJRgULBNTk5KMzI3MUoACRsmpwCagpWkisOGTYpmWZGJgIckgjccEKbyy0gxcRuAbIUCrJmQYWEqKSlNlgXU6NMwAK9OYvw","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -1983,7 +1983,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+OF+UTAH+L.L.C&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqGpBWTrtrF9QaEu6N4o0Pwq7BKNROjlCqA5GmCTgpmBFViZW4AW-ZmHR6IUtExGBtBS0U2AoQr5XISKSr3k0hygpcByISkzEWlNNdLhjFRzoiADG6SRLcTAlJonwiBrk2Hn6BjkEuYY5G2jn2Gn4O-mEBri6KHgo-ej5yzKoOTmGuLsoQuzOB46qRCPsNRYgkHBIjXVKAVY66YapQEbY0kpFklp5okWBqlmBknApoFFmiSDNB4TpPDKSjNwGYFvgwCtmJBhYCkpKk2VBdbn0PACAElblwk","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGphaQrdvG9gWFuqB7o0Dzq7BLNBKhlyuA5miATQpmBlZgZW4BWuRnHh6JUtAyGRlAS0U3AYYq5HMRKir1kktzgJYCy4WkzESkNdVIhzNSzYmCDGyQRrYQA1NqngiDrE2GnaNjkEuYY5C3jX6GnYK_m0JoiKOHgo-ej56zKIOSm2uIs4cuzOJ46KRCPMJSYwkGBcvE1KQkI3MjsxRzCxOj5FRg88_SNBHY6EmxTEsyMbCQZJDGY4IUXllpBi4j8G0QoBUTMgwsJUWlqbLA-hwaXgAwf5a2","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2016,7 +2016,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=A-AARDVARK+SEWER&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqGpBTAxmRkYm9gXFOqC7o0Cza_CLtFIhF6uAJqjATYpmBlYgZW5BWiRn3l4JEpBy2RkAC0d3QQYqpDPRaio1EsuzQFaCiwXkjITkdZUIx3OSDUnCjKwQRrZQgxMqXkiDOKOujYZdo6OQS5hjkHeNvoZdgrBruGuQaIMSm6uIc4eujAr46HTCfEI64wlGBQsUlONUoD1bapRGrAZlpRikZRmnmhhkGpmkARsFFikSTJI4zFBCq-sNAOXEfgeCNBaCRkGlpKi0lRZYE0ODSkANZGWAA","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGphbAxGRmYGxiX1CoC7o3CjS_CrtEIxF6uQJojgbYpGBmYAVW5hagRX7m4ZEoBS2TkQG0dHQTYKhCPheholIvuTQHaCmwXEjKTERaU410OCPVnCjIwAZpZAsxMKXmiTCIO-raZNg5Oga5hDkGedvoZ9gpBLuGuwaJMii5uYY4e-jCrIyHTifEI6wzlmBQsExMTUoyMjcySzG3MDFKTgU2_CxNE4HNnRTLtCQTAwtJBmk8JkjhlZVm4DIC3wMBWishw8BSUlSaKgusyaEhBQAckZWt","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2046,7 +2046,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+GENERAL+CONTRACTING%2C+INC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqGpuYkZKBGa2BcU6oLujQLNr8Iu0UiEXq4AmqMBNimYGViBlbkFaJGfeXgkSkHLZGQALSXdBBiqkM9FqKjUSy7NAVoKLBeSMhOR1lQjHc5INScKMrBBGtlCDEypeSIMGjYZdo6OQS5hjkHeNvoZdgrQxWsKzv5-IUGgNSV-7joKwL6-KIOSm2uIs4cuzA3x0PmFeIT9xhIMChapqUYpwAo41SgN2C5LSrFISjNPtDBINTNIArYSLNIkGaTxmCCFV1aagcsIfDEEaPGEDANLSVFpqiywaocGHQD1d5pT","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGpuYmZqBEaGJfUKgLujcKNL8Ku0QjEXq5AmiOBtikYGZgBVbmFqBFfubhkSgFLZORAbSUdBNgqEI-F6GiUi-5NAdoKbBcSMpMRFpTjXQ4I9WcKMjABmlkCzEwpeaJMGjYZNg5Oga5hDkGedvoZ9gpQBevKTj7-4UEgdaU-LnrKAD7-qIMSm6uIc4eujA3xEPnF-IR9htLMChYJqYmJRmZG5mlmFuYGCWnAluClqaJwPZPimVakomBhSSDNB4TpPDKSjNwGYEvhgAtnpBhYCkpKk2VBVbt0KADANzdmgA","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2079,7 +2079,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+TELECOM+INC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5viGw5W1uAex_W9oXFOqC7o0Cza_CLtFIhF6uAJqjATYpmBlYgZW5BWiRn3l4JEpBy2RkAC0t3QQYqpDPRaio1EsuzQFaCiwXkjITkdZUIx3OSDUnCjKwQRrZQgxMqXkiDNI2GXaOjkEuYY5B3jb6GXYKIa4-rs7-vgrA7r0og5Kba4izhy7M2njolEI8wkpjCQYFi9RUoxRgnZtqlAZsiiWlWCSlmSdaGKSaGSQBGwYWaZIM0nhMkMIrK83AZQS-CwK0XkKGgaWkqDRVFlibQ0MLAHnvlwE","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGwJa3uQWw_21pX1CoC7o3CjS_CrtEIxF6uQJojgbYpGBmYAVW5hagRX7m4ZEoBS2TkQG0tHQTYKhCPheholIvuTQHaCmwXEjKTERaU410OCPVnCjIwAZpZAsxMKXmiTBI22TYOToGuYQ5Bnnb6GfYKYS4-rg6-_sqALv3ogxKbq4hzh66MGvjoVMK8QgrjSUYFCwTU5OSjMyNzFLMLUyMklOBjT9L00RgkyfFMi3JxMBCkkEajwlSeGWlGbiMwHdBgNZLyDCwlBSVpsoCa3NoaAEAYQeWrg","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2111,7 +2111,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+FAMILY%2C+LLC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqEpqLVgaWRhYV9QqAu6Nwo0vwq7RCMRerkCaI4G2KRgZmAFVuYWoEV-5uGRKAUtk5EBtNR0E2CoQj4XoaJSL7k0B2gpsFxIykxEWlONdDgj1ZwoyMAGaWQLMTCl5okwSNtk2Dk6BrmEOQZ52-hn2Cm4Ofp6-kTqKPj4OIsyKLm5hjh76MKsjYdOKcQjrDSWYFCwSE01SgHWualGacCmWFKKRVKaeaKFQaqZQRKwYWCRJskgjccEKbyy0gxcRuC7IEDrJWQYWEqKSlNlgbU5NLQAiRWXFQ","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGpqDWgqWRhYV9QaEu6N4o0Pwq7BKNROjlCqA5GmCTgpmBFViZW4AW-ZmHR6IUtExGBtBS002AoQr5XISKSr3k0hygpcByISkzEWlNNdLhjFRzoiADG6SRLcTAlJonwiBtk2Hn6BjkEuYY5G2jn2Gn4Obo6-kTqaPg4-MsyqDk5hri7KELszYeOqUQj7DSWIJBwTIxNSnJyNzILMXcwsQoORXY-LM0TQQ2eVIs05JMDCwkGaTxmCCFV1aagcsIfBcEaL2EDANLSVFpqiywNoeGFgBwLZbC","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2142,7 +2142,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+PRINTONS+INC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqGphaU5ePe2fUGhLujeKND8KuwSjUTo5QqgORpgk4KZgRVYmVuAFvmZh0eiFLRMRgbQ0tNNgKEK-VyEikq95NIcoKXAciEpMxFpTTXS4YxUc6IgAxukkS3EwJSaJ8IgY5Nh5-gY5BLmGORto59hpwBaDxHi7xesAOzfizIoubmGOHvowuyNh84pxCPsNJZgULBITTVKAVa6qUZpwLZYUopFUpp5ooVBqplBErBlYJEmySCNxwQpvLLSDFxG4MsgQAsmZBhYSopKU2WB1Tk0uAAuN5dz","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGphaW5uDd2_YFhbqge6NA86uwSzQSoZcrgOZogE0KZgZWYGVuAVrkZx4eiVLQMhkZQEtPNwGGKuRzESoq9ZJLc4CWAsuFpMxEpDXVSIczUs2JggxskEa2EANTap4Ig4xNhp2jY5BLmGOQt41-hp0CaD1EiL9fsAKwfy_KoOTmGuLsoQuzNx46pxCPsNNYgkHBMjE1KcnI3MgsxdzCxCg5Fdj6szRNBLZ5UizTkkwMLCQZpPGYIIVXVpqBywh8GQRowYQMA0tJUWmqLLA6hwYXABVVlyA","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2173,7 +2173,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+INDUSTRIES+LLC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqEpsBw1Bm1psy8o1AXdGwWaX4VdopEIvVwBNEcDbFIwM7ACK3ML0CI_8_BIlIKWycgAWoq6CTBUIZ-LUFGpl1yaA7QUWC4kZSYiralGOpyRak4UZGCDNLKFGJhS80QY5Gwy7Bwdg1zCHIO8bfQz7BQ8_VxANycDm4UKPj7OogxKbq4hzh66MJvjobMK8QhbjSUYFCxSU41SgNVuqlEasDWWlGKRlGaeaGGQamaQBGwbWKRJMkjjMUEKr6w0A5cR-DoI0JIJGQaWkqLSVFlghQ4NMABxSJgi","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGpsBy1Bi0pc2-oFAXdG8UaH4VdolGIvRyBdAcDbBJwczACqzMLUCL_MzDI1EKWiYjA2gp6ibAUIV8LkJFpV5yaQ7QUmC5kJSZiLSmGulwRqo5UZCBDdLIFmJgSs0TYZCzybBzdAxyCXMM8rbRz7BT8PRzAd2cDGwWKvj4OIsyKLm5hjh76MJsjofOKsQjbDWWYFCwTExNSjIyNzJLMbcwMUpOBbb_LE0Tga2eFMu0JBMDC0kGaTwmSOGVlWbgMgJfBwFaMiHDwFJSVJoqC6zQoQEGAFhyl88","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2203,7 +2203,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+TECHNICAL+SERVICES+LL&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqGphaWBMbCFbWxfUKgLujcKNL8Ku0QjEXq5AmiOBtikYGZgBVbmFqBFfubhkSgFLZORAaykdRNgqEI-GKGiUi-5NAdoK7BgSMpMRFpUjXQ6I9XcKMjABmllCzEwpeaJMKjaZNg5Oga5hDkGedvoZ9gphLg6e_iBjkVQCHYNCvN0dg1W8PERZVBycw1x9tCFOSAeOrsQj7DcWIJBwSI11SgFWP2mGqUBW2VJKRZJaeaJFgapZgZJwDaCRZokgzQeE6TwykozcBmBr4UALZ2QYWApKSpNlQVW7NBwAwDeYpoP","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGphaWBsbAFraxfUGhLujeKND8KuwSjUTo5QqgORpgk4KZgRVYmVuAFvmZh0eiFLRMRgawktZNgKEK-WCEikq95NIcoK3AgiEpMxFpUTXS6YxUc6MgAxuklS3EwJSaJ8KgapNh5-gY5BLmGORto59hpxDi6uzhBzoWQSHYNSjM09k1WMHHR5RByc01xNlDF-aAeOjsQjzCcmMJBgXLxNSkJCNzI7MUcwsTo-RUYDvQ0jQR2PpJsUxLMjGwkGSQxmOCFF5ZaQYuI_C1EKClEzIMLCVFpamywIodGm4AxbyZvA","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2235,7 +2235,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+BAIL+BONOS+INC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5viHogkvQgUem9gWFuqB7o0Dzq7BLNBKhlyuA5miATQpmBlZgZW4BWuRnHh6JUtAyGRnA9uS4CTBUIR-MUFGpl1yaA7QVWDAkZSYiLapGOp2Ram4UZGCDtLKFGJhS80QY5Gwy7Bwdg1zCHIO8bfQz7BScHD19FJz8_fyDFYBdfFEGJTfXEGcPXZjN8dBphXiErcYSDAoWqalGKcB6N9UoDdgcS0qxSEozT7QwSDUzSAI2DizSJBmk8ZgghVdWmoHLCHwfBGjNhAwDS0lRaaossEaHBhgAe0SXww","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGoAsuQQcemdoXFOqC7o0Cza_CLtFIhF6uAJqjATYpmBlYgZW5BWiRn3l4JEpBy2RkANuT4ybAUIV8MEJFpV5yaQ7QVmDBkJSZiLSoGul0Rqq5UZCBDdLKFmJgSs0TYZCzybBzdAxyCXMM8rbRz7BTcHL09FFw8vfzD1YAdvFFGZTcXEOcPXRhNsdDpxXiEbYaSzAoWCamJiUZmRuZpZhbmBglpwIbgJamicBmT4plWpKJgYUkgzQeE6TwykozcBmB74MArZmQYWApKSpNlQXW6NAAAwBidJdw","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2267,7 +2267,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+PRODUCTIONS+CO&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqGpubEZ6IApU_uCQl3QvVGg-VXYJRqJ0MsVQHM0wCYFMwMrsDK3AC3yMw-PRClomYwMYDtQ3AQYqpAPRqio1EsuzQHaCiwYkjITkRZVI53OSDU3CjKwQVrZQgxMqXkiDHI2GXaOjkEuYY5B3jb6GXYKAUH-LqHgtSTBCs7-ogxKbq4hzh66MJvjodMK8QhbjSUYFCxSU41SgPVuqlEasDmWlGKRlGaeaGGQamaQBGwcWKRJMkjjMUEKr6w0A5cR-D4I0JoJGQaWkqLSVFlgjQ4NMAC8n5gi","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGpubGZqADpkztCwp1QfdGgeZXYZdoJEIvVwDN0QCbFMwMrMDK3AK0yM88PBKloGUyMoDtQHETYKhCPhiholIvuTQHaCuwYEjKTERaVI10OiPV3CjIwAZpZQsxMKXmiTDI2WTYOToGuYQ5Bnnb6GfYKQQE-buEgteSBCs4-4syKLm5hjh76MJsjodOK8QjbDWWYFCwTExNSjIyNzJLMbcwMUpOBTYALU0Tgc2eFMu0JBMDC0kGaTwmSOGVlWbgMgLfBwFaMyHDwFJSVJoqC6zRoQEGAKPPl88","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2298,7 +2298,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+EXCAVATION+%26+REMODEL&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5viGwZWFhaQbsgdsXFOqC7o0Cza_CLtFIhF6uAJqjATYpmBlYgZW5BWiRn3l4JEpBy2RkAFvm7CbAUIV8MEJFpV5yaQ7QVmDBkJSZiLSoGul0Rqq5UZCBDdLKFmJgSs0TYVCxybBzdAxyCXMM8rbRz7BTcI1wdgwDD1UpqCkEufr6u7j6iDIoubmGOHvowuyPh04uxCPsNpZgULBITTVKAda-qUZpwEZZUopFUpp5ooVBqplBErCJYJEmySCNxwQpvLLSDFxG4FshQCsnZBhYSopKU2WB9To02ABXj5nc","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGwJaFhaUZsAduX1CoC7o3CjS_CrtEIxF6uQJojgbYpGBmYAVW5hagRX7m4ZEoBS2TkQFsmbObAEMV8sEIFZV6yaU5QFuBBUNSZiLSomqk0xmp5kZBBjZIK1uIgSk1T4RBxSbDztExyCXMMcjbRj_DTsE1wtkxDDxUpaCmEOTq6-_i6iPKoOTmGuLsoQuzPx46uRCPsNtYgkHBMjE1KcnI3MgsxdzCxCg5FdgMtDRNBDZ-UizTkkwMLCQZpPGYIIVXVpqBywh8KwRo5YQMA0tJUWmqLLBehwYbAD7jmYk","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2329,7 +2329,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+ACTIVE+WEBS+INC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqEpaFsoML0Z2hcU6oLujQLNr8Iu0UiEXq4AmqMBNimYGViBlbkFaJGfeXgkSkHLZGQAW-foJsBQhXwwQkWlXnJpDtBWYMGQlJmItKga6XRGqrlRkIEN0soWYmBKzRNhkLfJsHN0DHIJcwzyttHPsFMArSMJc1UId3UKVgD28UUZlNxcQ5w9dGFWx0PnFeIR1hpLMChYpKYapQAr3lSjNGB7LCnFIinNPNHCINXMIAnYOrBIk2SQxmOCFF5ZaQYuI_CFEKBFEzIMLCVFpamywCodGmIAHIiYFg","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGpqBtocD0ZmhfUKgLujcKNL8Ku0QjEXq5AmiOBtikYGZgBVbmFqBFfubhkSgFLZORAWydo5sAQxXywQgVlXrJpTlAW4EFQ1JmItKiaqTTGanmRkEGNkgrW4iBKTVPhEHeJsPO0THIJcwxyNtGP8NOAbSOJMxVIdzVKVgB2McXZVBycw1x9tCFWR0PnVeIR1hrLMGgYJmYmpRkZG5klmJuYWKUnApsAVqaJgLbPSmWaUkmBhaSDNJ4TJDCKyvNwGUEvhACtGhChoGlpKg0VRZYpUNDDAADvpfD","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2361,7 +2361,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+POOL+SERVICE&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5viGwZQGsYYAJ0L6gUBd0bxRofhV2iUYi9HIF0BwNsEnBzMAKrMwtQIv8zMMjUQpaJiMD2IJDNwGGKuSDESoq9ZJLc4C2AguGpMxEpEXVSKczUs2NggxskFa2EANTap4Ig4xNhp2jY5BLmGOQt41-hp1CgL-_j0Kwa1CYp7OrKIOSm2uIs4cuzN546KRCPMJOYwkGBYvUVKMUYK2bapQGbIwlpVgkpZknWhikmhkkAZsGFmmSDNJ4TJDCKyvNwGUEvg0CtGJChoGlpKg0VRZYn0ODCwB0IZdp","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGwJYFsIYBJkD7gkJd0L1RoPlV2CUaidDLFUBzNMAmBTMDK7AytwAt8jMPj0QpaJmMDGALDt0EGKqQD0aoqNRLLs0B2gosGJIyE5EWVSOdzkg1NwoysEFa2UIMTKl5IgwyNhl2jo5BLmGOQd42-hl2CgH-_j4Kwa5BYZ7OrqIMSm6uIc4eujB746GTCvEIO40lGBQsE1OTkozMjcxSzC1MjJJTgc0_S9NEYKMnxTItycTAQpJBGo8JUnhlpRm4jMC3QYBWTMgwsJQUlabKAutzaHABAFtFlxY","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2392,7 +2392,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+BUILDERS+INC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqGpuTHobBljC_uCQl3QvVGg-VXYJRqJ0MsVQHM0wCYFMwMrsDK3AC3yMw-PRClomYwMYGu13AQYqpAPRqio1EsuzQHaCiwYkjITkRZVI53OSDU3CjKwQVrZQgxMqXkiDDI2GXaOjkEuYY5B3jb6GXYKTqGePqCdBgrADr4og5Kba4izhy7M3njopEI8wk5jCQYFi9RUoxRgrZtqlAZsjCWlWCSlmSdaGKSaGSQBmwYWaZIM0nhMkMIrK83AZQS-DQK0YkKGgaWkqDRVFlifQ4MLAJ4nl6M","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGpubGoLNljC3sCwp1QfdGgeZXYZdoJEIvVwDN0QCbFMwMrMDK3AK0yM88PBKloGUyMoCt1XITYKhCPhiholIvuTQHaCuwYEjKTERaVI10OiPV3CjIwAZpZQsxMKXmiTDI2GTYOToGuYQ5Bnnb6GfYKTiFevqAdhooADv4ogxKbq4hzh66MHvjoZMK8Qg7jSUYFCwTU5OSjMyNzFLMLUyMklOBzT9L00RgoyfFMi3JxMBCkkEajwlSeGWlGbiMwLdBgFZMyDCwlBSVpsoC63NocAEAhUuXUA","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2423,7 +2423,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+CARPET+CLEANING&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqGpBWgazNLC2L6gUBd0bxRofhV2iUYi9HIF0BwNsEnBzMAKrMwtQIv8zMMjUQpaJiMD2OSqmwBDFfLBCBWVesmlOUBbgQVDUmYi0qJqpNMZqeZGQQY2SCtbiIEpNU-EQd4mw87RMcglzDHI20Y_w07B2TEowDVEwdnH1dHP089dlEHJzTXE2UMXZnU8dF4hHmGtsQSDgkVqqlEKsOJNNUoDtseSUiyS0swTLQxSzQySgK0DizRJBmk8JkjhlZVm4DICXwgBWjQhw8BSUlSaKgus0qEhBgBIrZhV","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGphagaTBLC2P7gkJd0L1RoPlV2CUaidDLFUBzNMAmBTMDK7AytwAt8jMPj0QpaJmMDGCTq24CDFXIByNUVOoll-YAbQUWDEmZiUiLqpFOZ6SaGwUZ2CCtbCEGptQ8EQZ5mww7R8cglzDHIG8b_Qw7BWfHoADXEAVnH1dHP08_d1EGJTfXEGcPXZjV8dB5hXiEtcYSDAqWialJSUbmRmYp5hYmRsmpwBagpWkisN2TYpmWZGJgIckgjccEKbyy0gxcRuALIUCLJmQYWEqKSlNlgVU6NMQAL-OYAg","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2454,7 +2454,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=A+AARDVARK+GUTTER+CLEANIN&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5viGwrjQB1u8WxvYFhbqge6NA86uwSzQSoZcrgOZogE0KZgZWYGVuAVrkZx4eiVLQMhkZwMpVNwGGKuSDESoq9ZJLc4C2AguGpMxEpEXVSKczUs2NggxskFa2EANTap4Ig4Kjgk2GnaNjkEuYY5C3jX6GnYJ7aAiwVavg7OPq6OfpJ8qg5OYa4uyhC7M7HjqxEI-w11iCQcEiNdUoBVjzphqlARtkSSkWSWnmiRYGqWYGScDmgUWaJIM0HhOk8MpKM3AZgW-EAK2akGFgKSkqTZUF1unQIAMA1sCYkg","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGwLrSBFi_WxjbFxTqgu6NAs2vwi7RSIRergCaowE2KZgZWIGVuQVokZ95eCRKQctkZAArV90EGKqQD0aoqNRLLs0B2gosGJIyE5EWVSOdzkg1NwoysEFa2UIMTKl5IgwKjgo2GXaOjkEuYY5B3jb6GXYK7qEhwFatgrOPq6Ofp58og5Kba4izhy7M7njoxEI8wl5jCQYFy8TUpCQjcyOzFHMLE6PkVGAT0NI0EdjwSbFMSzIxsJBkkMZjghReWWkGLiPwjRCgVRMyDCwlRaWpssA6HRpkAL38mD8","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2485,7 +2485,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=TA+AARDVARK+GLASS&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5PrDiNTQ0szA3t7QvKNQF3RsFml-FXaKRCL1cATRHA2xSMDOwAitzC9AiP_PwSJSClsnIAFbAugkwVCEfjFBRqZdcmgO0FVgwJGUmIi2qRjqdkWpuFGRgg7SyhRiYUvNEGCRCHBVsMuwcHYNcwhyDvG30M-wU3H0cg4NFGZTcXEOcPXRhdsZDJxTiEfYZSzAoWKSmGqUAa9xUozRgQywpxSIpzTzRwiDVzCAJ2CywSJNkkMZjghReWWkGLiPwTRCg1RIyDCwlRaWpssC6HBpUAFVflps","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PrAitfQ0MzC3NzSvqBQF3RvFGh-FXaJRiL0cgXQHA2wScHMwAqszC1Ai_zMwyNRClomIwNYAesmwFCFfDBCRaVecmkO0FZgwZCUmYi0qBrpdEaquVGQgQ3SyhZiYErNE2GQCHFUsMmwc3QMcglzDPK20c-wU3D3cQwOFmVQcnMNcfbQhdkZD51QiEfYZyzBoGCZmJqUZGRuZJZibmFilJwKbPpZmiYCGzwplmlJJgYWkgzSeEyQwisrzcBlBL4JArRaQoaBpaSoNFUWWJdDgwoAPGuWSA","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2515,7 +2515,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+RECOVERY+%26+TOWIN&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqEZ-AY5C2MT-4JCXdC9UaD5VdglGonQyxVAczTAJgUzAyuwMrcALfIzD49EKWiZjAxg85xuAgxVyAcjVFTqJZfmAG0FFgxJmYlIi6qRTmekmhsFGdggrWwhBqbUPBEGBZsMO0fHIJcwxyBvG_0MO4UgV2f_MNegSAU1hRD_cE8_UQYlN9cQZw9dmN3x0ImFeIS9xhIMChapqUYpwJo31SgN2CBLSrFISjNPtDBINTNIAjYPLNIkGaTxmCCFV1aagcsIfCMEaNWEDANLSVFpqiywTocGGQDJsZiC","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGZuAb5CyMTewLCnVB90aB5ldhl2gkQi9XAM3RAJsUzAyswMrcArTIzzw8EqWgZTIygM1zugkwVCEfjFBRqZdcmgO0FVgwJGUmIi2qRjqdkWpuFGRgg7SyhRiYUvNEGBRsMuwcHYNcwhyDvG30M-wUglyd_cNcgyIV1BRC_MM9_UQZlNxcQ5w9dGF2x0MnFuIR9hpLMChYJqYmJRmZG5mlmFuYGCWnApuAlqaJwIZPimVakomBhSSDNB4TpPDKSjNwGYFvhACtmpBhYCkpKk2VBdbp0CADALDtmC8","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2545,7 +2545,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+TELECOM+INC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqEpMC2ZGQMLUPuCQl3QvVGg-VXYJRqJ0MsVQHM0wCYFMwMrsDK3AC3yMw-PRClomYwMYMOlbgIMVcgHI1RU6iWX5gBtBRYMSZmJSIuqkU5npJobBRnYIK1sIQam1DwRBmmbDDtHxyCXMMcgbxv9DDuFEFcfV2d_XwVg_16UQcnNNcTZQxdmbTx0TiEeYaWxBIOCRWqqUQqw0k01SgO2xZJSLJLSzBMtDFLNDJKALQOLNEkGaTwmSOGVlWbgMgJfBgFaMCHDwFJSVJoqC6zOoaEFAP9Ul1I","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGpsC0ZGYMLEDtCwp1QfdGgeZXYZdoJEIvVwDN0QCbFMwMrMDK3AK0yM88PBKloGUyMoANl7oJMFQhH4xQUamXXJoDtBVYMCRlJiItqkY6nZFqbhRkYIO0soUYmFLzRBikbTLsHB2DXMIcg7xt9DPsFEJcfVyd_X0VgP17UQYlN9cQZw9dmLXx0DmFeISVxhIMCpaJqUlJRuZGZinmFiZGyanA1p-laSKwzZNimZZkYmAhySCNxwQpvLLSDFxG4MsgQAsmZBhYSopKU2WB1Tk0tADmcpb_","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2577,7 +2577,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+TELECOM+INC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqGpBbDuMbKwMLMvKNQF3RsFml-FXaKRCL1cATRHA2xSMDOwAitzC9AiP_PwSJSClsnIANZsdBNgqEI-GKGiUi-5NAdoK7BgSMpMRFpUjXQ6I9XcKMjABmllCzEwpeaJMEjbZNg5Oga5hDkGedvoZ9gphLj6uDr7-yoA-_eiDEpuriHOHrowa-OhcwrxCCuNJRgULFJTjVKAlW6qURqwLZaUYpGUZp5oYZBqZpAEbBlYpEkySOMxQQqvrDQDlxH4MgjQggkZBpaSotJUWWB1Dg0tAPzPl04","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGphbAusfIwsLMvqBQF3RvFGh-FXaJRiL0cgXQHA2wScHMwAqszC1Ai_zMwyNRClomIwNYs9FNgKEK-WCEikq95NIcoK3AgiEpMxFpUTXS6YxUc6MgAxuklS3EwJSaJ8IgbZNh5-gY5BLmGORto59hpxDi6uPq7O-rAOzfizIoubmGOHvowqyNh84pxCOsNJZgULBMTE1KMjI3MksxtzAxSk4Ftv4sTROBbZ4Uy7QkEwMLSQZpPCZI4ZWVZuAyAl8GAVowIcPAUlJUmioLrM6hoQUA4-2W-w","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2607,7 +2607,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+MOTORCYCLES+SALVAGE&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqGphTGwR2VuaGRfUKgLujcKNL8Ku0QjEXq5AmiOBtikYGZgBVbmFqBFfubhkSgFLZORAaxKcRNgqEI-GKGiUi-5NAdoK7BgSMpMRFpUjXQ6I9XcKMjABmllCzEwpeaJMCjbZNg5Oga5hDkGedvoZ9gp-PqH-Ac5Rzr7uAYrBDv6hDm6u4oyKLm5hjh76MKsj4fOLcQjrDaWYFCwSE01SgFWvqlGacA2WVKKRVKaeaKFQaqZQRKwhWCRJskgjccEKbyy0gxcRuBLIUALJ2QYWEqKSlNlgdU6NNQAskuZhQ","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGphbGwB6VuaGRfUGhLujeKND8KuwSjUTo5QqgORpgk4KZgRVYmVuAFvmZh0eiFLRMRgawKsVNgKEK-WCEikq95NIcoK3AgiEpMxFpUTXS6YxUc6MgAxuklS3EwJSaJ8KgbJNh5-gY5BLmGORto59hp-DrH-If5Bzp7OMarBDs6BPm6O4qyqDk5hri7KELsz4eOrcQj7DaWIJBwTIxNSnJyNzILMXcwsQoORXYCrQ0TQS2fVIs05JMDCwkGaTxmCCFV1aagcsIfCkEaOGEDANLSVFpqiywWoeGGgCZmZky","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2638,7 +2638,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+LANDSCAPING+AND+SNOWPLO&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqEZqK4C1vCm9gWFuqB7o0Dzq7BLNBKhlyuA5miATQpmBlZgZW4BWuRnHh6JUtAyGRnAWp9uAgxVyAcjVFTqJZfmAG0FFgxJmYlIi6qRTmekmhsFGdggrWwhBqbUPBEGdZsMO0fHIJcwxyBvG_0MOwXQnRnBzo7A_r27ApCpEOznHx7g4y_KoOTmGuLsoQtzQjx0fiEeYb2xBIOCRWqqUQqwAk41SgO2y5JSLJLSzBMtDFLNDJKArQSLNEkGaTwmSOGVlWbgMgJfDAFaPCHDwFJSVJoqC6zaoSEHANiSmk8","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGZqC6CljDm9oXFOqC7o0Cza_CLtFIhF6uAJqjATYpmBlYgZW5BWiRn3l4JEpBy2RkAGt9ugkwVCEfjFBRqZdcmgO0FVgwJGUmIi2qRjqdkWpuFGRgg7SyhRiYUvNEGNRtMuwcHYNcwhyDvG30M-wUQHdmBDs7Avv37gpApkKwn394gI-_KIOSm2uIs4cuzAnx0PmFeIT1xhIMCpaJqUlJRuZGZinmFiZGyanAlqClaSKw_ZNimZZkYmAhySCNxwQpvLLSDFxG4IshQIsnZBhYSopKU2WBVTs05AC_-Jn8","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2670,7 +2670,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+PROMOTIONS+INC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqEZ6PwyYH4wsS8o1AXdGwWaX4VdopEIvVwBNEcDbFIwM7ACK3ML0CI_8_BIlIKWycgAVpy6CTBUIR-MUFGpl1yaA7QVWDAkZSYiLapGOp2Ram4UZGCDtLKFGJhS80QY5Gwy7Bwdg1zCHIO8bfQz7BQCgvx9_cG7iRWAXXxRBiU31xBnD12YzfHQaYV4hK3GEgwKFqmpRinAejfVKA3YHEtKsUhKM0-0MEg1M0gCNg4s0iQZpPGYIIVXVpqBywh8HwRozYQMA0tJUWmqLLBGhwYYAMNsmCk","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGZqDzy4D5wcS-oFAXdG8UaH4VdolGIvRyBdAcDbBJwczACqzMLUCL_MzDI1EKWiYjA1hx6ibAUIV8MEJFpV5yaQ7QVmDBkJSZiLSoGul0Rqq5UZCBDdLKFmJgSs0TYZCzybBzdAxyCXMM8rbRz7BTCAjy9_UH7yZWAHbxRRmU3FxDnD10YTbHQ6cV4hG2GkswKFgmpiYlGZkbmaWYW5gYJacCG4CWponAZk-KZVqSiYGFJIM0HhOk8MpKM3AZge-DAK2ZkGFgKSkqTZUF1ujQAAMAqpyX1g","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2700,7 +2700,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+PACK+AND+SHIP&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-08-08&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqEZsH4BtpbNzO0LCnVB90aB5ldhl2gkQi9XAM3RAJsUzAyswMrcArTIzzw8EqWgZTIyABWnoOLSTYChCvlghIpKveTSHKCtwIIhKTMRaVE10umMVHOjIAMbpJUtxMCUmifCIGuTYefoGOQS5hjkbaOfYacQ4OjsreDo56IQ7OEZIMqg5OYa4uyhC7M4HjqrEI-w1FiCQcEiNdUoBVjtphqlAVtjSSkWSWnmiRYGqWYGScC2gUWaJIM0HhOk8MpKM3AZga-DAJ1qLcPAUlJUmioLrNCh4QUA8eeXiQ","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGZsD6BdhaNjO3LyjUBd0bBZpfhV2ikQi9XAE0RwNsUjAzsAIrcwvQIj_z8EiUgpbJyABUnIKKSzcBhirkgxEqKvWSS3OAtgILhqTMRKRF1UinM1LNjYIMbJBWthADU2qeCIOsTYado2OQS5hjkLeNfoadQoCjs7eCo5-LQrCHZ4Aog5Kba4izhy7M4njorEI8wlJjCQYFy8TUpCQjcyOzFHMLE6PkVGD7z9I0EdjqSbFMSzIxsJBkkMZjghReWWkGLiPwdRCgU61lGFhKikpTZYEVOjS8ANkRlzY","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2730,7 +2730,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=A-AARDVARKS+MUSIC+CTR&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2016-03-02&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5viHobCwTc0sLA_uCQl3QvVGg-VXYJRqJ0MsVQHM0wCYFMwMrsDK3AC3yMw-PRClomYwMQMUpqNh0E2CoQj4YoaJSL7k0B2grsGBIykxEWlSNdDoj1dwoyMAGaWULMTCl5okwyDjq2mTYOToGuYQ5BnkH2-hn2Cn4hgZ7Ois4hwSJMii5uYY4e-jC7I2HTirEI-w0lmBQsEhNNUoB1rqpRmnAxlhSikVSmnmihUGqmUESsGlgkSbJII3HBCm8stIMXMD2ghl4CZaRDANLSVFpqiywPocGFwC3vpfA","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGoLOxTMwtLQzsCwp1QfdGgeZXYZdoJEIvVwDN0QCbFMwMrMDK3AK0yM88PBKloGUyMgAVp6Bi002AoQr5YISKSr3k0hygrcCCISkzEWlRNdLpjFRzoyADG6SVLcTAlJonwiDjqGuTYefoGOQS5hjkHWyjn2Gn4Bsa7Oms4BwSJMqg5OYa4uyhC7M3HjqpEI-w01iCQcEyMTUpycjcyCzF3MLEKDkV2PyzNE0ENnpSLNOSTAwsJBmk8ZgghVdWmoEL2F4wAy_BMpJhYCkpKk2VBdbn0OACAJ7il20","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2762,7 +2762,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=ISLAND+AARDVARKS+LLC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2016-03-01&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5PuhCZBNLYAPXzL6gUBd0bxRofhV2iUYi9HIF0BwNsEnBzMAKrMwtQIv8zMMjUQpaJiMDUHEKKj7dBBiqkA9GqKjUSy7NAdoKLBiSMhORFlUjnc5INTcKMrBBWtlCDEypeSIM0p7BoFsyFGwy7Bwdg1zCHIO8g230M-wUfHycRRmU3FxDnD10YdbGQ-cU4hFWGkswKFikphqlACvdVKM0YFssKcUiKc080cIg1cwgCdgysEiTZJDGY4IUXllpBi5gc8EMsgJLhoGlpKg0VRZYnUNDCwADgpdL","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqgC5FNLIENXDP7gkJd0L1RoPlV2CUaidDLFUBzNMAmBTMDK7AytwAt8jMPj0QpaJmMDEDFKaj4dBNgqEI-GKGiUi-5NAdoK7BgSMpMRFpUjXQ6I9XcKMjABmllCzEwpeaJMEh7BoNuyVCwybBzdAxyCXMM8g620c-wU_DxcRZlUHJzDXH20IVZGw-dU4hHWGkswaBgmZialGRkbmSWYm5hYpScCmz9WZomAts8KZZpSSYGFpIM0nhMkMIrK83ABWwumEFWYMkwsJQUlabKAqtzaGgBAOqRlvg","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2795,7 +2795,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+MOBILE+MOVING+%26+STGE&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2015-03-07&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5viGwpjYCna1iYV9QqAu6Nwo0vwq7RCMRerkCaI4G2KRgZmAFVuYWoEV-5uGRKAUtk5EBqDgFFaNuAgxVyAcjVFTqJZfmAG0FFgxJmYlIi6qRTmekmhsFGdggrWwhBqbUPBEGFZsMO0fHIJcwxyBvG_0MOwVffydPH1cgFebp566gphAc4u4qyqDk5hri7KELsz8eOrkQj7DbWIJBwSI11SgFWPumGqUBG2VJKRZJaeaJFgapZgZJwCaCRZokgzQeE6TwykozcAHbDabgpVjmMgwsJUWlqbLAeh0abAAZo5l5","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGwJraCHS2ioV9QaEu6N4o0Pwq7BKNROjlCqA5GmCTgpmBFViZW4AW-ZmHR6IUtExGBqDiFFSMugkwVCEfjFBRqZdcmgO0FVgwJGUmIi2qRjqdkWpuFGRgg7SyhRiYUvNEGFRsMuwcHYNcwhyDvG30M-wUfP2dPH1cgVSYp5-7gppCcIi7qyiDkptriLOHLsz-eOjkQjzCbmMJBgXLxNSkJCNzI7MUcwsTo-RUYDPQ0jQR2PhJsUxLMjGwkGSQxmOCFF5ZaQYuYLvBFLwUy1yGgaWkqDRVFlivQ4MNAAD3mSY","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2829,7 +2829,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=ROCHESTER+AARDVARKS+RUGBY&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2016-02-13&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5viGwprYEXRZjZl9QqAu6Nwo0vwq7RCMRerkCaI4G2KRgZmAFVuYWoEV-5uGRKAUtk5EBsDg1BpW0bgIMVcgHI1RU6iWX5gBtBRYMSZmJSIuqkU5npJobBRnYIK1sIQam1DwRBoUgf2cP12BgM1bBJsPO0THIJcwxyDvYRj_DTiEo1N0pUpRByc01xNlDF2Z3PHRiIR5hr7EEg4JFaqpRCrDmTTVKAzbIklIsktLMEy0MUs0MkoDNA4s0SQZpPCZI4ZWVZuACthnAC5cNjWUYWEqKSlNlgXU6NMgAIQqY9w","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGwJraEnRZjJl9QaEu6N4o0Pwq7BKNROjlCqA5GmCTgpmBFViZW4AW-ZmHR6IUtExGBsDi1BhU0roJMFQhH4xQUamXXJoDtBVYMCRlJiItqkY6nZFqbhRkYIO0soUYmFLzRBgUgvydPVyDgc1YBZsMO0fHIJcwxyDvYBv9DDuFoFB3p0hRBiU31xBnD12Y3fHQiYV4hL3GEgwKlompSUlG5kZmKeYWJkbJqcAmoKVpIrDhk2KZlmRiYCHJII3HBCm8stIMXMA2A3jhsqGxDANLSVFpqiywTocGGQAIRpik","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2862,7 +2862,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+AVIATION%2C+INC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-06-30&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqGpBbCxbAmswewLCnVB90aB5ldhl2gkQi9XAM3RAJsUzAyswMrcArTIzzw8EqWgZTIyABanxqD6w02AoQr5YISKSr3k0hygrcCCISkzEWlRNdLpjFRzoyADG6SVLcTAlJonwiBrk2Hn6BjkEuYY5G2jn2Gn4BjmCR6o0lEA9vBFGZTcXEOcPXRhFsdDZxXiEZYaSzAoWKSmGqUAq91UozRgaywpxSIpzTzRwiDVzCAJ2DawSJNkkMZjghReWWkGLiPIdRC6xgYyDCwlRaWpssAKHRpeABVFl7c","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGphbAxrIlsAazLyjUBd0bBZpfhV2ikQi9XAE0RwNsUjAzsAIrcwvQIj_z8EiUgpbJyABYnBqD6g83AYYq5IMRKir1kktzgLYCC4akzESkRdVIpzNSzY2CDGyQVrYQA1NqngiDrE2GnaNjkEuYY5C3jX6GnYJjmCd4oEpHAdjDF2VQcnMNcfbQhVkcD51ViEdYaizBoGCZmJqUZGRuZJZibmFilJwKbP9ZmiYCWz0plmlJJgYWkgzSeEyQwisrzcBlBLkOQtfYQIaBpaSoNFUWWKFDwwsA_GCXZA","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2895,7 +2895,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK%2C+LLC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2010-03-04&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5PrDiNQRWt6YWlvYFhbqge6NA86uwSzQSoZcrgOZogE0KZgZWYGVuAVrkZx4eiVLQMhkZAItTY1Bx6CbAUIV8MEJFpV5yaQ7QVmDBkJSZiLSoGul0Rqq5UZCBDdLKFmJgSs0TYRCxybBzdAxyCXMM8rbRz7DTUfDxcRZlUHJzDXH20IXZFw-dTIhH2GUswaBgkZpqlAKsbVON0oCNsKQUi6Q080QLg1QzgyRgk8AiTZJBGo8JUnhlpRm4IJPmxroGJjIMLCVFpamywHocGkwA38uVPw","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PrAitcQWN2aWljaFxTqgu6NAs2vwi7RSIRergCaowE2KZgZWIGVuQVokZ95eCRKQctkZAAsTo1BxaGbAEMV8sEIFZV6yaU5QFuBBUNSZiLSomqk0xmp5kZBBjZIK1uIgSk1T4RBxCbDztExyCXMMcjbRj_DTkfBx8dZlEHJzTXE2UMXZl88dDIhHmGXsQSDgmVialKSkbmRWYq5hYlRciqw2Wdpmghs7KRYpiWZGFhIMkjjMUEKr6w0Axdk0txY18BEhoGlpKg0VRZYj0ODCQDGv5Ts","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2925,7 +2925,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+AUTO+GLASS&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-06-28&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5viGw72BqDKrB7QsKdUH3RoHmV2GXaCRCL1cAzdEAmxTMDKzAytwCtMjPPDwSpaBlMjIAFqfGoGLRTYChCvlghIpKveTSHKCtwIIhKTMRaVE10umMVHOjIAMbpJUtxMCUmifCIGWTYefoGOQS5hjkbaOfYacATKL-Cu4-jsHBogxKbq4hzh66MFvjoVMK8QgbjSUYFCxSU41SgHVuqlEasCmWlGKRlGaeaGGQamaQBGwYWKRJMkjjMUEKr6w0A5cR5C4IXSMLGQaWkqLSVFlgbQ4NLABACZbO","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGwL6DqTGoBrcvKNQF3RsFml-FXaKRCL1cATRHA2xSMDOwAitzC9AiP_PwSJSClsnIAFicGoOKRTcBhirkgxEqKvWSS3OAtgILhqTMRKRF1UinM1LNjYIMbJBWthADU2qeCIOUTYado2OQS5hjkLeNfoadAjCJ-iu4-zgGB4syKLm5hjh76MJsjYdOKcQjbDSWYFCwTExNSjIyNzJLMbcwMUpOBTb-LE0TgU2eFMu0JBMDC0kGaTwmSOGVlWbgMoLcBaFrZCHDwFJSVJoqC6zNoYEFACchlns","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2955,7 +2955,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+SWEEPING+SERVICES%2C+LLC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-06-13&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5PugoNBPQRJyZfUGhLujeKND8KuwSjUTo5QqgORpgk4KZgRVYmVuAFvmZh0eiFLRMRgbA4tQYVDy6CTBUIR-MUFGpl1yaA7QVWDAkZSYiLapGOp2Ram4UZGCDtLKFGJhS80QY1Gwy7Bwdg1zCHIO8bfQz7BSCw11dgZ17d4Vg16AwT2fXYB0FHx9nUQYlN9cQZw9dmAviodML8QjbjSUYFCxSU41SgPVvqlEasFmWlGKRlGaeaGGQamaQBGwkWKRJMkjjMUEKr6w0A5cR5F4IXUNjGQaWkqLSVFlgzQ4NOAB1MJpG","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5Pqgo9BMQBNxZvYFhbqge6NA86uwSzQSoZcrgOZogE0KZgZWYGVuAVrkZx4eiVLQMhkZAItTY1Dx6CbAUIV8MEJFpV5yaQ7QVmDBkJSZiLSoGul0Rqq5UZCBDdLKFmJgSs0TYVCzybBzdAxyCXMM8rbRz7BTCA53dQV27t0Vgl2DwjydXYN1FHx8nEUZlNxcQ5w9dGEuiIdOL8QjbDeWYFCwTExNSjIyNzJLMbcwMUpOBTYELU0Tgc2fFMu0JBMDC0kGaTwmSOGVlWbgMoLcC6FraCzDwFJSVJoqC6zZoQEHAFyQmfM","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -2987,7 +2987,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+ANIMAL+HOSPTAL+%26+RE&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2015-01-20&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5viGwrW0JyryG9gWFuqB7o0Dzq7BLNBKhlyuA5miATQpmBlZgZW4BWuRnHh6JUtAyGRkAi1NjUDHpJsBQhXwwQkWlXnJpDtBWYMGQlJmItKga6XRGqrlRkIEN0soWYmBKzRNhULbJsHN0DHIJcwzyttHPsFNw9PP0dfRR8PAPDggB0moKQa6iDEpuriHOHrow6-OhcwvxCKuNJRgULFJTjVKAlW-qURqwTZaUYpGUZp5oYZBqZpAEbCFYpEkySOMxQQqvrDQDF7DZAFrzB8xjMgwsJUWlqbLAah0aagCBJJkr","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGwLa2JSjzGtoXFOqC7o0Cza_CLtFIhF6uAJqjATYpmBlYgZW5BWiRn3l4JEpBy2RkACxOjUHFpJsAQxXywQgVlXrJpTlAW4EFQ1JmItKiaqTTGanmRkEGNkgrW4iBKTVPhEHZJsPO0THIJcwxyNtGP8NOwdHP09fRR8HDPzggBEirKQS5ijIoubmGOHvowqyPh84txCOsNpZgULBMTE1KMjI3MksxtzAxSk4FtgItTROBbZ8Uy7QkEwMLSQZpPCZI4ZWVZuACNhtAa_6AeUyGgaWkqDRVFlitQ0MNAGhymNg","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -3018,7 +3018,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARKS+CO+OP&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2016-01-05&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5viGwMgOtqTK2tC8o1AXdGwWaX4VdopEIvVwBNEcDbFIwM7ACK3ML0CI_8_BIlIKWycgAWJwag4pLNwGGKuSDESoq9ZJLc4C2AguGpMxEpEXVSKczUs2NggxskFa2EANTap4Ig5hNhp2jY5BLmGOQd7CNfoadgrO_gn-AKIOSm2uIs4cuzMZ46HRCPMI2YwkGBYvUVKMUYH2bapQGbIYlpVgkpZknWhikmhkkARsFFmmSDNJ4TJDCKyvNwAVsKUDGHkxlGFhKikpTZYE1OTSgACBblfE","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGwMoMtKbK2NK-oFAXdG8UaH4VdolGIvRyBdAcDbBJwczACqzMLUCL_MzDI1EKWiYjA2BxagwqLt0EGKqQD0aoqNRLLs0B2gosGJIyE5EWVSOdzkg1NwoysEFa2UIMTKl5IgxiNhl2jo5BLmGOQd7BNvoZdgrO_gr-AaIMSm6uIc4eujAb46HTCfEI24wlGBQsE1OTkozMjcxSzC1MjJJTgQ0_S9NEYHMnxTItycTAQpJBGo8JUnhlpRm4gC0FyNiDqQwDS0lRaaossCaHBhQAB1uVng","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -3049,7 +3049,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=alarm%3Aclock%3A+Google+Buys+Social+Search%27s+Aardvark+For+%2450M&rft.jtitle=Newstex+Global+Business+Blogs&rft.date=2010-02-11&rft.pub=Newstex&rft.externalDocID=1960563541","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWC3okKjF1YqgovqlPxk0Ci5vqEF6JolExNT-4JCXdC1UaDpVdgdGonQuxVAUzTAFgUzA6sR6JgTYAI3j3BCKWeZjAyApakxqNR0E2CAjUnAlo0kl-YALQWWC0mZiUhrqpEOZ6SWEwUZeMJTkxRgo_RCDEypeSIMjonADm2uVTIwtLKtFNzz89NzUhWcSiuLFSDbdRUgq5DVixVsMuwcgYmoLLEo20Y_w07BLb9IQcXUwFeUQd3NNcTZQxfmwnhgggHNAiTmpeaXFsfD3WgswaBgkZpqlAKso1ON0oBNt6QUi6Q080QLg1QzgyRgQ8IiTZJBgZAxUoSVSDNwQSbdjXQNDWUYWEqKSlNlge0AaDgDABQdrf8","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3YoKjV5YqQguqlPyk0Gj5PqGFqBrlkxMTO0LCnVB10aBpldhd2gkQu9WAE3RAFsUzAysRqBjToAJ3DzCCaWcZTIyAJamxqBS002AATYmAVs2klyaA7QUWC4kZSYiralGOpyRWk4UZOAJT01SgI3SCzEwpeaJMDgmAju0uVbJwNDKtlJwz89Pz0lVcCqtLFaAbNdVgKxCVi9WsMmwcwQmorLEomwb_Qw7Bbf8IgUVUwNfUQZ1N9cQZw9dmAvjgQkGNAuQmJeaX1ocD3ejsQSDgmVialKSkbmRWYq5hYlRciqwsWhpmghsIqVYpiWZGFhIMigQMkaKsBJpBi7IpLuRrqGhDANLSVFpqiywHQANZwD5CK2s","DatabaseTitle":
         ["ProQuest Entrepreneurship (Alumni Edition)","ProQuest Business Collection","ProQuest
         Central Basic","ProQuest Business Collection (Alumni Edition)","ABI/INFORM
         Dateline","ABI/INFORM Complete - Professional Edition","ABI/INFORM Complete
@@ -3114,7 +3114,7 @@ http_interactions:
         Dateline (Alumni Edition)","Entrepreneurship Database (Alumni Edition)","Business
         Premium Collection","Entrepreneurship Database"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+LIMOUSINE+SVC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-05-08&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5PrCnAawsjc1NjewLCnVB90aB5ldhl2gkQi9XAM3RAJsUzAyswMrcArTIzzw8EqWgZTIyABanxqDi002AoQr5YISKSr3k0hygrcCCISkzEWlRNdLpjFRzoyADG6SVLcTAlJonwiBrk2Hn6BjkEuYY5G2jn2GnACy__MG3bygEhzmLMii5uYY4e-jCLI6HzirEIyw1lmBQsEhNNUoBVrupRmnA1lhSikVSmnmihUGqmUESsG1gkSbJII3HBCm8stIMXEbg6yBMdQ0sZBhYSopKU2WBFTo0vABQAZgM","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PrAngawsjQ2NzWyLyjUBd0bBZpfhV2ikQi9XAE0RwNsUjAzsAIrcwvQIj_z8EiUgpbJyABYnBqDik83AYYq5IMRKir1kktzgLYCC4akzESkRdVIpzNSzY2CDGyQVrYQA1NqngiDrE2GnaNjkEuYY5C3jX6GnQKw_PIH376hEBzmLMqg5OYa4uyhC7M4HjqrEI-w1FiCQcEyMTUpycjcyCzF3MLEKDkV2P6zNE0EtnpSLNOSTAwsJBmk8ZgghVdWmoHLCHwdhKmugYUMA0tJUWmqLLBCh4YXADcrl7k","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -3145,7 +3145,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+JDK+LLC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-05-08&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5viHoZBFzc2CCsi8o1AXdGwWaX4VdopEIvVwBNEcDbFIwM7ACK3ML0CI_8_BIlIKWycgAWJwag4pRNwGGKuSDESoq9ZJLc4C2AguGpMxEpEXVSKczUs2NggxskFa2EANTap4Ig7hNhp2jY5BLmGOQt41-hp2Cl4u3go-PsyiDkptriLOHLszKeOh8QjzCOmMJBgWL1FSjFGCFm2qUBmyHJaVYJKWZJ1oYpJoZJAFbBRZpkgzSeEyQwisrzcBlBL4IwlTXwEKGgaWkqDRVFliVQ0MKAMy0lls","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGoJNFzM2BCcq-oFAXdG8UaH4VdolGIvRyBdAcDbBJwczACqzMLUCL_MzDI1EKWiYjA2BxagwqRt0EGKqQD0aoqNRLLs0B2gosGJIyE5EWVSOdzkg1NwoysEFa2UIMTKl5IgziNhl2jo5BLmGOQd42-hl2Cl4u3go-Ps6iDEpuriHOHrowK-Oh8wnxCOuMJRgULBNTk5KMzI3MUswtTIySU4EtP0vTRGB7J8UyLcnEwEKSQRqPCVJ4ZaUZuIzAF0GY6hpYyDCwlBSVpsoCq3JoSAEAs7qWCA","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -3176,7 +3176,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+PLANT+LEASING&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-04-16&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqGphSGw-W1iamhfUKgLujcKNL8Ku0QjEXq5AmiOBtikYGZgBVbmFqBFfubhkSgFLZORAbA4NQGVtG4CDFXIByNUVOoll-YAbQUWDEmZiUiLqpFOZ6SaGwUZ2CCtbCEGptQ8EQZZmww7R8cglzDHIG8b_Qw7hQAfR78QBR9Xx2BPP3dRBiU31xBnD12YxfHQWYV4hKXGEgwKFqmpRinAajfVKA3YGktKsUhKM0-0MEg1M0gCtg0s0iQZpPGYIIVXVpqBywh8HYSJrqGZDANLSVFpqiywQoeGFwAVc5e8","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGphaGwOa3iamhfUGhLujeKND8KuwSjUTo5QqgORpgk4KZgRVYmVuAFvmZh0eiFLRMRgbA4tQEVNK6CTBUIR-MUFGpl1yaA7QVWDAkZSYiLapGOp2Ram4UZGCDtLKFGJhS80QYZG0y7Bwdg1zCHIO8bfQz7BQCfBz9QhR8XB2DPf3cRRmU3FxDnD10YRbHQ2cV4hGWGkswKFgmpiYlGZkbmaWYW5gYJacC23-WponAVk-KZVqSiYGFJIM0HhOk8MpKM3AZga-DMNE1NJNhYCkpKk2VBVbo0PACAPyOl2k","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -3209,7 +3209,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+SECURITY+SYSTEMS+LLC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-04-13&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5viGorjQwNzIytC8o1AXdGwWaX4VdopEIvVwBNEcDbFIwM7ACK3ML0CI_8_BIlIKWycgAWJyagOoPNwGGKuSDESoq9ZJLc4C2AguGpMxEpEXVSKczUs2NggxskFa2EANTap4Ig4pNhp2jY5BLmGOQt41-hp1CsKtzaJBnSKRCcGRwiKtvsIKPj7Mog5Kba4izhy7M_njo5EI8wm5jCQYFi9RUoxRg7ZtqlAZslCWlWCSlmSdaGKSaGSQBmwgWaZIM0nhMkMIrK83AZQS-FcJE19BYhoGlpKg0VRZYr0ODDQBag5nb","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGoLrSwNzIyNC-oFAXdG8UaH4VdolGIvRyBdAcDbBJwczACqzMLUCL_MzDI1EKWiYjA2BxagKqP9wEGKqQD0aoqNRLLs0B2gosGJIyE5EWVSOdzkg1NwoysEFa2UIMTKl5IgwqNhl2jo5BLmGOQd42-hl2CsGuzqFBniGRCsGRwSGuvsEKPj7OogxKbq4hzh66MPvjoZML8Qi7jSUYFCwTU5OSjMyNzFLMLUyMklOBzUBL00Rg4yfFMi3JxMBCkkEajwlSeGWlGbiMwLdCmOgaGsswsJQUlabKAut1aLABAEHXmYg","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -3242,7 +3242,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=A+AARDVARK+GOUNER+INDUSTRIES&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-04-03&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5PrDitTQGHShmYF9QqAu6Nwo0vwq7RCMRerkCaI4G2KRgZmAFVuYWoEV-5uGRKAUtk5EBsDg1ARWHbgIMVcgHI1RU6iWX5gBtBRYMSZmJSIuqkU5npJobBRnYIK1sIQam1DwRBmVHBZsMO0fHIJcwxyBvG_0MOwV3_1A_1yAFTz8X0B3KwAaiKIOSm2uIs4cuzPp46NxCPMJqYwkGBYvUVKMUYOWbapQGbJMlpVgkpZknWhikmhkkAVsIFmmSDNJ4TJDCKyvNwGUEvhTCRNfAWIaBpaSoNFUWWK1DQw0AyB6ZoQ","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PrAitfSGHSgmIF9QaEu6N4o0Pwq7BKNROjlCqA5GmCTgpmBFViZW4AW-ZmHR6IUtExGBsDi1ARUHLoJMFQhH4xQUamXXJoDtBVYMCRlJiItqkY6nZFqbhRkYIO0soUYmFLzRBiUHRVsMuwcHYNcwhyDvG30M-wU3P1D_VyDFDz9XEB3KAMbiKIMSm6uIc4eujDr46FzC_EIq40lGBQsE1OTkozMjcxSzC1MjJJTga1AS9NEYNsnxTItycTAQpJBGo8JUnhlpRm4jMCXQpjoGhjLMLCUFJWmygKrdWioAQCvbJlO","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -3272,7 +3272,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+SPA+SERVICE&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-03-31&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqGpuTno-C5zI_uCQl3QvVGg-VXYJRqJ0MsVQHM0wCYFMwMrsDK3AC3yMw-PRClomYwMgMWpCahYdBNgqEI-GKGiUi-5NAdoK7BgSMpMRFpUjXQ6I9XcKMjABmllCzEwpeaJMEjbZNg5Oga5hDkGedvoZ9gpBAc4KgS7BoV5OruKMii5uYY4e-jCrI2HzinEI6w0lmBQsEhNNUoBVrqpRmnAtlhSikVSmnmihUGqmUESsGVgkSbJII3HBCm8stIMXEbgyyBAO_JkGFhKikpTZYHVOTS0AA96l14","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGpubmoOO7zI3sCwp1QfdGgeZXYZdoJEIvVwDN0QCbFMwMrMDK3AK0yM88PBKloGUyMgAWpyagYtFNgKEK-WCEikq95NIcoK3AgiEpMxFpUTXS6YxUc6MgAxuklS3EwJSaJ8IgbZNh5-gY5BLmGORto59hpxAc4KgQ7BoU5unsKsqg5OYa4uyhC7M2HjqnEI-w0liCQcEyMTUpCcg2SzG3MDFKTgW2_ixNE4FtnhTLtCQTAwtJBmk8JkjhlZVm4DICXwYB2pEnw8BSUlSaKguszqGhBQD2iZcL","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -3302,7 +3302,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+VIDEO+REPAIR&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2013-03-31&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5viGwZWFmBuwumNgXFOqC7o0Cza_CLtFIhF6uAJqjATYpmBlYgZW5BWiRn3l4JEpBy2RkACxOTUDFo5sAQxXywQgVlXrJpTlAW4EFQ1JmItKiaqTTGanmRkEGNkgrW4iBKTVPhEHGJsPO0THIJcwxyNtGP8NOIczTxdVfIcg1wNEzSJRByc01xNlDF2ZvPHRSIR5hp7EEg4JFaqpRCrDWTTVKAzbGklIsktLMEy0MUs0MkoBNA4s0SQZpPCZI4ZWVZuAyAt8GAdqSJ8PAUlJUmioLrM-hwQUApaWXpQ","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGwJaFmRmwu2BiX1CoC7o3CjS_CrtEIxF6uQJojgbYpGBmYAVW5hagRX7m4ZEoBS2TkQGwODUBFY9uAgxVyAcjVFTqJZfmAG0FFgxJmYlIi6qRTmekmhsFGdggrWwhBqbUPBEGGZsMO0fHIJcwxyBvG_0MO4UwTxdXf4Ug1wBHzyBRBiU31xBnD12YvfHQSYV4hJ3GEgwKlompSUlG5kZmKeYWJkbJqcDmn6VpIrDRk2KZlmRiYCHJII3HBCm8stIMXEbg2yBAW_JkGFhKikpTZYH1OTS4AIzJl1I","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -3333,7 +3333,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Aardvark+expands+acetal+resin+line&rft.jtitle=Plastics+News&rft.date=2006-10-30&rft.pub=Crain+Communications%2C+Inc&rft.issn=1042-802X&rft.volume=18&rft.issue=35&rft.spage=16&rft.externalDBID=XI7&rft.externalDocID=A153694567","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGTzgQxd52XqgohGxpyGxoKBYPyU_Wd8RmDnNLIEVvrm-k6erPdIFGqW2yaCsnJSZWMrMwGpoYWkIussgwhPe9QI2iyDzy6DNKBYGRhHQApgHNN8JLFtNQGWmmwADbNYCtogkuTRHD2Y00gprpKMaKXawIAM_tOmp4AhJK0IMTKl5wgycsJ3JxcIM3EiHE4owaNpk2DkC009ZYlG2jX6GnUJqRQFoX7BCYnIqsMWuAOynZ-YpgFqpogw6bq4hzh66IBfGQ6-1BBLFoI5_cXpiaXFxPMKVxhIMChapqUYpwEo71SgN2JZLSrFISjNPtDBINTNIArYsLNIkGVSJMkuKSHXSDFzgQQ1QbWAgw8BSUlSaKgtsIkCDBwA36rMv","Volume":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWTwgA9d5GXrgYpGxJ6GxIKCYv2U_GR9R2DmNLMEVvjm-k6ervZIF2iU2iaDsnJSZmIpMwOroYWlIegugwhPeNcL2CyCzC-DNqNYGBhFQAtgHtB8J7BsNQGVmW4CDLBZC9gikuTSHD2Y0UgrrJGOaqTYwYIM_NCmp4IjJK0IMTCl5gkzcMJ2JhcLM3AjHU4owqBpk2HnCEw_ZYlF2Tb6GXYKqRUFoH3BConJqcAWuwKwn56ZpwBqpYoy6Li5hjh76IJcGA-91hJIFIM6_sXpiaXFxfEIVxpLMChYJqYmJRmZG5mlmFuYGCWnAluPlqaJwDZTimVakomBhSSDKlFmSRGpTpqBCzyoAaoNDGQYWEqKSlNlgU0EaPAAABoMstw","Volume":
         ["18"],"Language": ["English"],"Score": ["19.45815"],"Copyright": ["COPYRIGHT
         2006 Crain Communications, Inc."],"IsPeerReviewed": ["false"],"DBID": ["XI7"],"PublicationDate":
         ["20061030"],"PublicationDate_xml": [{"text": "20061030","month": "10","year":
@@ -3348,15 +3348,15 @@ http_interactions:
         ["2006"],"Audience": ["Trade"],"MergedId": ["FETCHMERGED-gale_businessinsightsgauss_A1536945673"],"PublicationDecade":
         ["2000"],"ContentType": ["Journal Article"],"Title": ["<h>Aardvark</h> expands
         acetal resin line"],"ISSN": ["1042-802X"],"ExternalDocumentID": ["A153694567"],"SSID":
-        ["ssj0008034"],"StartPage": ["16"],"thumbnail_s": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=1042-802X&client=summon"],"thumbnail_l":
-        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=1042-802X&client=summon"],"thumbnail_m":
-        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=1042-802X&client=summon"],"Database_xml":
+        ["ssj0008034"],"StartPage": ["16"],"thumbnail_s": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=1042-802X&client=summon"],"thumbnail_m":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=1042-802X&client=summon"],"thumbnail_l":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=1042-802X&client=summon"],"Database_xml":
         [{"sequence": "1","name": "Business Insights: Essentials","dbid": "XI7","url":
         "http://ezproxy.cul.columbia.edu/login?url=http://infotrac.galegroup.com/itweb/columbiau?db=BIE","sourceTypes":
         ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMwYwHv_gfmMgOjCA5YkWhhYGzCyaDkCPR0WWJRtkJqRQFoI6tCYnIqsImpAOxYZuYpgJpV3Aw6bq4hzh66oOIxHnoPI5AoBvVUi9MTS4uL4x2BmdTMEljxg-46J0k5AAXSMJA"]},{"hasFullText":
         true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
         "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+DIRT+%26+GRASSWORKS+LLC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2014-11-07&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqGpObCtYgzsstgXFOqC7o0Cza_CLtFIhF6uAJqjATYpmBlYgZW5BWiRn3l4JEpBy2RkACxOTUDFpZsAQxXywQgVlXrJpTlAW4EFQ1JmItKiaqTTGanmRkEGNkgrW4iBKTVPhEHVJsPO0THIJcwxyNtGP8NOwcUzKERBTcE9yDE4ONw_yDtYwcfHWZRByc01xNlDF-aAeOjsQjzCcmMJBgWL1FSjFGD1m2qUBmyVJaVYJKWZJ1oYpJoZJAHbCBZpkgzSeEyQwisrzcAFbDiYgPfkmcswsJQUlabKAit2aLgBAM2cmeo","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGpubAtooxsMtiX1CoC7o3CjS_CrtEIxF6uQJojgbYpGBmYAVW5hagRX7m4ZEoBS2TkQGwODUBFZduAgxVyAcjVFTqJZfmAG0FFgxJmYlIi6qRTmekmhsFGdggrWwhBqbUPBEGVZsMO0fHIJcwxyBvG_0MOwUXz6AQBTUF9yDH4OBw_yDvYAUfH2dRBiU31xBnD12YA-KhswvxCMuNJRgULBNTk5KMzI3MUswtTIySU4HtQEvTRGDrJ8UyLcnEwEKSQRqPCVJ4ZaUZuIANBxPwnjxzGQaWkqLSVFlgxQ4NNwC09pmX","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -3389,7 +3389,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+CHILD+CARE+AND+LEARNING+CENTER+INC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2016-06-20&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5PrAuArYHjIB1kn1BoS7o3ijQ_CrsEo1E6OUKoDkaYJOCmYEVWJlbgBb5mYdHohS0TEYGwOLUBFRsugkwVCEfjFBRqZdcmgO0FVgwJGUmIi2qRjqdkWpuFGRgg7SyhRiYUvNEGIxsMuwcHYNcwhyDvG30M-wUnD08fVwUnB2DXBUc_VwUfFwdg_w8_dwVnF1Bx-UqALv9ogxKbq4hzh66MNfEQ6ca4hEuMZZgULBITTVKAdbFqUZpwCZaUopFUpp5ooVBqplBErDBYJEmySCNxwQpvLLSDFzAVoQZaP2UkYEMA0tJUWmqLLCWhwYiAEm5nQk","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PrAugjYHjAC1kn2BYW6oHujQPOrsEs0EqGXK4DmaIBNCmYGVmBlbgFa5GceHolS0DIZGQCLUxNQsekmwFCFfDBCRaVecmkO0FZgwZCUmYi0qBrpdEaquVGQgQ3SyhZiYErNE2Ewssmwc3QMcglzDPK20c-wU3D28PRxUXB2DHJVcPRzUfBxdQzy8_RzV3B2BR2XqwDs9osyKLm5hjh76MJcEw-daohHuMRYgkHBMjE1KcnI3MgsxdzCxCg5FdgotDRNBDaFUizTkkwMLCQZpPGYIIVXVpqBC9iKMAOtnzIykGFgKSkqTZUF1vLQQAQAMWGctg","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -3421,7 +3421,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+RESIDENTIAL+%26+COMMERCIAL+SERVICES%2C+INC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2016-06-17&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5vqGpObC_BjqJx76gUBd0bxRofhV2iUYi9HIF0BwNsEnBzMAKrMwtQIv8zMMjUQpaJiMDYHFqAio-3QQYqpAPRqio1EsuzQHaCiwYkjITkRZVI53OSDU3CjKwQVrZQgxMqXkiDGY2GXaOjkEuYY5B3jb6GXYKwDjwdHH1C_F09FFQU3D29_V1DXIGcYJdg8I8nV2DdRSAXX9RBiU31xBnD12Yi-Kh0w3xCNcYSzAoWKSmGqUA6-NUozRgMy0pxSIpzTzRwiDVzCAJ2GiwSJNkkMZjghReWWkGLmBLwgy0hsrQXIaBpaSoNFUWWNNDAxIAKfmeuw","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGpubA_hroJB77gkJd0L1RoPlV2CUaidDLFUBzNMAmBTMDK7AytwAt8jMPj0QpaJmMDIDFqQmo-HQTYKhCPhiholIvuTQHaCuwYEjKTERaVI10OiPV3CjIwAZpZQsxMKXmiTCY2WTYOToGuYQ5Bnnb6GfYKQDjwNPF1S_E09FHQU3B2d_X1zXIGcQJdg0K83R2DdZRAHb9RRmU3FxDnD10YS6Kh043xCNcYyzBoGCZmJqUZGRuZJZibmFilJwKbBhamiYCm0MplmlJJgYWkgzSeEyQwisrzcAFbEmYgdZQGZrLMLCUFJWmygJremhAAgARuZ5o","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -3455,7 +3455,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=A+%26+A+AARDVARK+BAIL+AGENCY&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2016-06-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5viGwpja2NAO27-0LCnVB90aB5ldhl2gkQi9XAM3RAJsUzAyswMrcArTIzzw8EqWgZTIyABanJqBi1E2AoQr5YISKSr3k0hygrcCCISkzEWlRNdLpjFRzoyADG6SVLcTAlJonwqDoqKCm4Khgk2Hn6BjkEuYY5G2jn2Gn4OTo6aPg6O7q5xwpyqDk5hri7KELszweOrMQj7DYWIJBwSI11SgFWPWmGqUBW2RJKRZJaeaJFgapZgZJwPaBRZokgzQeE6TwykozcAEbDWbg5VKWMgwsJUWlqbLASh0aZgDzV5gv","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PqGwJra2NIM2L63LyjUBd0bBZpfhV2ikQi9XAE0RwNsUjAzsAIrcwvQIj_z8EiUgpbJyABYnJqAilE3AYYq5IMRKir1kktzgLYCC4akzESkRdVIpzNSzY2CDGyQVrYQA1NqngiDoqOCmoKjgk2GnaNjkEuYY5C3jX6GnYKTo6ePgqO7q59zpCiDkptriLOHLszyeOjMQjzCYmMJBgXLxNSkJCNzI7MUcwsTo-RUYBvQ0jQR2PJJsUxLMjGwkGSQxmOCFF5ZaQYuYKPBDLxcylKGgaWkqDRVFlipQ8MMANqZl9w","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -3489,7 +3489,7 @@ http_interactions:
         Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
         Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
         false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=AARDVARK+FACILITY+%26+PROPERTY+MAINTENANCE%2C+LLC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2016-06-09&rft.pub=Experian+Information+Solutions%2C+Inc","link":
-        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LIZdHSloZEu-K5DpGMXGWB3tkKjF1YqgovqlPxk0Ci5PrCnAWoeAHtU9gWFuqB7o0Dzq7BLNBKhlyuA5miATQpmBlYjkHpgCjcPj0QpaJmMDIDFqSmopHUTYKhCPhiholIvuTQHaCuwYEjKTERaVI10OiPV3CjIwAZpZQsxMKXmiTCY2GTYOToGuYQ5Bnnb6GfYKbg5Onv6eIZEKqgpBICW9QUBmb6OoLNy_UA31-go-Pg4izIoubmGOHvowtwTD51siEe4xViCQcEiNdUoBVgbpxqlARtpSSkWSWnmiRYGqWYGScAmg0WaJIM0HhOk8MpKM3AB2xFm4BVUljIMLCVFpamywHoeGowAyJGeAQ","DatabaseTitle":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZF1hBmYOG9FGPXWSA3dkKjV5YqQguqlPyk0Gj5PrAngaoeQDsUdkXFOqC7o0Cza_CLtFIhF6uAJqjATYpmBlYjUDqgSncPDwSpaBlMjIAFqemoJLWTYChCvlghIpKveTSHKCtwIIhKTMRaVE10umMVHOjIAMbpJUtxMCUmifCYGKTYefoGOQS5hjkbaOfYafg5ujs6eMZEqmgphAAWtYXBGT6OoLOyvUD3Vyjo-Dj4yzKoOTmGuLsoQtzTzx0siEe4RZjCQYFy8TUpCQjcyOzFHMLE6PkVGCz0NI0EdgYSrFMSzIxsJBkkMZjghReWWkGLmA7wgy8gspShoGlpKg0VRZYz0ODEQCwRZ2u","DatabaseTitle":
         ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
         Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
         Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
@@ -3524,7 +3524,7 @@ http_interactions:
         Trade & Industry (Alumni Edition)"]}],"rollups": {"image": {},"reference":
         {},"newspaper": {}}}'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:52:30 GMT
+  recorded_at: Tue, 16 Aug 2016 18:50:30 GMT
 - request:
     method: get
     uri: http://api.summon.serialssolutions.com/2.0.0/search?adv=%7B%7D&s.ff=SubjectTerms,and,1,10&s.fvf=ContentType,%20Newspaper%20Article,t&s.ho=t&s.pn=21&s.ps=50&s.q=Aardvark&spellcheck=true
@@ -3541,13 +3541,13 @@ http_interactions:
       Content-Type:
       - application/x-www-form-urlencoded; charset=utf8
       X-Summon-Date:
-      - Tue, 16 Aug 2016 17:52:31 GMT
+      - Tue, 16 Aug 2016 18:50:30 GMT
       X-Summon-Session-Id:
-      - SUMMON-SESSION-Sprite.local-74812-25
+      - SUMMON-SESSION-Sprite.local-75079-25
       X-Summon-Request-Id:
       - ''
       Authorization:
-      - Summon columbia;VeXVrVxU07zLx+fbTtqWVqJu8Dk=
+      - Summon columbia;9Xru+xUrJZ7fjQ2iRWt2Q6Syx2M=
       Host:
       - api.summon.serialssolutions.com:80
   response:
@@ -3560,18 +3560,18 @@ http_interactions:
       Datacenter:
       - IAD1
       Date:
-      - Tue, 16 Aug 2016 17:52:30 GMT
+      - Tue, 16 Aug 2016 18:50:30 GMT
       Transfer-Encoding:
       - chunked
       Connection:
       - close
     body:
       encoding: UTF-8
-      string: '{"version": "2.0.0","sessionId": "SUMMON-SESSION-Sprite.local-74812-25","errors":
+      string: '{"version": "2.0.0","sessionId": "SUMMON-SESSION-Sprite.local-75079-25","errors":
         [{"message": "Maximum supported returned results set size is 1000 (provided
         size is 1050).","code": "results.size.too.large"}]}'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:52:31 GMT
+  recorded_at: Tue, 16 Aug 2016 18:50:30 GMT
 - request:
     method: get
     uri: http://api.summon.serialssolutions.com/2.0.0/search?adv=%7B%7D&s.ff=SubjectTerms,and,1,10&s.fvf=ContentType,%20Newspaper%20Article,t&s.ho=t&s.pn=20&s.ps=51&s.q=Aardvark&spellcheck=true
@@ -3588,13 +3588,13 @@ http_interactions:
       Content-Type:
       - application/x-www-form-urlencoded; charset=utf8
       X-Summon-Date:
-      - Tue, 16 Aug 2016 17:52:31 GMT
+      - Tue, 16 Aug 2016 18:50:30 GMT
       X-Summon-Session-Id:
-      - SUMMON-SESSION-Sprite.local-74812-26
+      - SUMMON-SESSION-Sprite.local-75079-26
       X-Summon-Request-Id:
       - ''
       Authorization:
-      - Summon columbia;N/XjCbzwqBCOnphuhfxTfy6AMxw=
+      - Summon columbia;3y+Uk+BYQP4/ZSNRiaiYb2Q/swk=
       Host:
       - api.summon.serialssolutions.com:80
   response:
@@ -3607,16 +3607,16 @@ http_interactions:
       Datacenter:
       - IAD1
       Date:
-      - Tue, 16 Aug 2016 17:52:29 GMT
+      - Tue, 16 Aug 2016 18:50:30 GMT
       Transfer-Encoding:
       - chunked
       Connection:
       - close
     body:
       encoding: UTF-8
-      string: '{"version": "2.0.0","sessionId": "SUMMON-SESSION-Sprite.local-74812-26","errors":
+      string: '{"version": "2.0.0","sessionId": "SUMMON-SESSION-Sprite.local-75079-26","errors":
         [{"message": "Maximum supported page size is 50 (provided size is 51).","code":
         "page.size.too.large"}]}'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:52:31 GMT
+  recorded_at: Tue, 16 Aug 2016 18:50:30 GMT
 recorded_with: VCR 3.0.3

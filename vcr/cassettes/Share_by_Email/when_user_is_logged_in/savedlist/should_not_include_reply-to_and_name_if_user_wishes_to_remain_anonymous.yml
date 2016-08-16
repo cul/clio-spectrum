@@ -199,7 +199,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:57:10 GMT
+      - Tue, 16 Aug 2016 18:53:11 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -209,7 +209,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4zMCwn
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4yOSwn
         cGFyYW1zJz0+eydmLnN1YmplY3RfZm9ybV9mYWNldC5mYWNldC5saW1pdCc9
         PicxMScsJ3NwZWxsY2hlY2snPT4nZmFsc2UnLCdmYWNldCc9Pid0cnVlJywn
         c29ydCc9PidzY29yZSBkZXNjLCBwdWJfZGF0ZV9zb3J0IGRlc2MsIHRpdGxl
@@ -393,7 +393,7 @@ http_interactions:
         PjE5NzcuMCwnc3VtT2ZTcXVhcmVzJz0+MzkwODUyOS4wLCdtZWFuJz0+MTk3
         Ny4wLCdzdGRkZXYnPT4wLjAsJ2ZhY2V0cyc9Pnt9fX19fQo=
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:57:10 GMT
+  recorded_at: Tue, 16 Aug 2016 18:53:12 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=12345&qt=document&wt=ruby"
@@ -407,7 +407,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:57:10 GMT
+      - Tue, 16 Aug 2016 18:53:12 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -563,5 +563,5 @@ http_interactions:
         gdqp2KfYjCDZgdix2KfZhtiy2IwnXSwnX3ZlcnNpb25fJz0+MTU0MTg0MTQ0
         NjU1Mzc4MDIyNH1dfX0K
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:57:10 GMT
+  recorded_at: Tue, 16 Aug 2016 18:53:12 GMT
 recorded_with: VCR 3.0.3

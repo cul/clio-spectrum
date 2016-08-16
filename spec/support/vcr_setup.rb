@@ -4,6 +4,9 @@ require 'vcr'
 
 VCR.configure do |c|
 
+  # Not working?  Use this to spew debugging to console
+  # c.debug_logger = $stdout
+
   ## VCR on/off toggle
   ## Do this, and VCR is enacted on specs tagged with :vcr
   ## Comment this out to test directly against live backends
@@ -38,8 +41,6 @@ VCR.configure do |c|
   c.filter_sensitive_data("<solr_config>") { SOLR_CONFIG['test']['url'] }
 
 
-  # Not working?  Use this to spew debugging to console
-  # c.debug_logger = $stdout
 
 
 end

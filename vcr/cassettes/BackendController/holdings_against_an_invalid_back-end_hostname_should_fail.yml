@@ -44,7 +44,7 @@ http_interactions:
   recorded_at: Fri, 01 Jul 2016 18:30:06 GMT
 - request:
     method: get
-    uri: "<clio_backend_url>/holdings/retrieve/123"
+    uri: https://clio-backend.cul.columbia.edu/foo/bar/holdings/retrieve/123
     body:
       encoding: UTF-8
       string: ''
@@ -84,4 +84,46 @@ http_interactions:
         </body></html>
     http_version: 
   recorded_at: Tue, 16 Aug 2016 17:51:42 GMT
+- request:
+    method: get
+    uri: "<clio_backend_url>/holdings/retrieve/123"
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 16 Aug 2016 18:49:48 GMT
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Tue, 16 Aug 2016 18:49:47 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '338'
+      Content-Type:
+      - text/html; charset=iso-8859-1
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>404 Not Found</title>
+        </head><body>
+        <h1>Not Found</h1>
+        <p>The requested URL /holdings/retrieve/123 was not found on this server.</p>
+        <p>Additionally, a 404 Not Found
+        error was encountered while trying to use an ErrorDocument to handle the request.</p>
+        </body></html>
+    http_version: 
+  recorded_at: Tue, 16 Aug 2016 18:49:48 GMT
 recorded_with: VCR 3.0.3

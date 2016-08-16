@@ -13,32 +13,6 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 01 Jul 2016 20:45:32 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'7686002','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'7686002','marc_display'=>'<record><leader>01426ctm a2200409Ia 4500</leader><controlfield tag="001">7686002</controlfield><controlfield tag="005">20100622162458.0</controlfield><controlfield tag="008">100304m18711875ctu           000 0 eng d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)611939163</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn611939163</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)7686002</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">NNC</subfield><subfield code="c">NNC</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">n-us-ct</subfield></datafield><datafield tag="110" ind1="2" ind2=" "><subfield code="a">Allen and Morris (Firm)</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Account books</subfield><subfield code="h">[manuscript].</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Waterbury, Connecticut,</subfield><subfield code="c">1871-1875.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">2 v. ;</subfield><subfield code="c">40 cm.</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Manuscript on paper.</subfield></datafield><datafield tag="505" ind1="0" ind2=" "><subfield code="a">v.1. Daybook and journal, March - Oct. 1871, 268 p. --v.2. Daybook, 1874-1875, 499 p.</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Account books.</subfield><subfield code="2">aat</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Daybooks.</subfield><subfield code="2">aat</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Journals (accounts)</subfield><subfield code="2">aat</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Manuscripts</subfield><subfield code="y">1871.</subfield><subfield code="2">lcsh</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Manuscripts, American.</subfield><subfield code="2">lcsh</subfield></datafield><datafield tag="710" ind1="2" ind2=" "><subfield code="a">Columbia University.</subfield><subfield code="b">Rare Book and Manuscript Library.</subfield></datafield><datafield tag="710" ind1="2" ind2=" "><subfield code="a">Montgomery Manuscripts (Columbia University. Rare Book and Manuscript Library)</subfield><subfield code="5">NNC</subfield></datafield><datafield tag="752" ind1=" " ind2=" "><subfield code="a">United States</subfield><subfield code="b">Connecticut</subfield><subfield code="d">Waterbury.</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20100304</subfield><subfield code="b">e</subfield><subfield code="c">scmc3</subfield><subfield code="d">SCMC</subfield></datafield><datafield tag="965" ind1=" " ind2=" "><subfield code="a">RECON</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20100304</subfield><subfield code="b">n</subfield><subfield code="c">rjb57</subfield><subfield code="d">SCMC</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">MONTGOM 675</subfield><subfield code="b">rbx+MONTGOM-----+675+00000000+00000000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Rare Book</subfield><subfield code="b">Rare Book, Butler 6th Fl. East (Non-Circulating) &gt;&gt; Ms MONTGOM 675|DELIM|10794534</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Manuscript/Archive</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2010-03-04T00:00:00.000Z</subfield></datafield></record>','text'=>['Allen and Morris (Firm)','Account books [manuscript].','Waterbury, Connecticut, 1871-1875.','2 v. ; 40 cm.','Manuscript on paper.','v.1. Daybook and journal, March - Oct. 1871, 268 p. --v.2. Daybook, 1874-1875, 499 p.','Account books. aat','Daybooks. aat','Journals (accounts) aat','Manuscripts 1871. lcsh','Manuscripts, American. lcsh','Columbia University. Rare Book and Manuscript Library.','Montgomery Manuscripts (Columbia University. Rare Book and Manuscript Library) NNC','United States Connecticut Waterbury.','20100304 e scmc3 SCMC','RECON','20100304 n rjb57 SCMC','AUTH'],'author_txt'=>['Allen and Morris (Firm)'],'author_addl_txt'=>['Columbia University. Rare Book and Manuscript Library.','Montgomery Manuscripts (Columbia University. Rare Book and Manuscript Library)'],'author_facet'=>['Allen and Morris (Firm)','Columbia University. Rare Book and Manuscript Library','Montgomery Manuscripts (Columbia University. Rare Book and Manuscript Library)'],'author_display'=>['Allen and Morris (Firm)'],'author_sort'=>'Allen and Morris (Firm)   Account books manuscript','title_txt'=>['Account books'],'title_display'=>['Account books [manuscript]'],'title_filing_txt'=>['Account books'],'title_filing_full_txt'=>['Account books'],'title_first_facet'=>['A'],'title_addl_txt'=>['Account books'],'title_sort'=>'account books','subject_txt'=>['Account books','Daybooks','Journals (accounts)','Manuscripts 1871','Manuscripts, American'],'subject_era_facet'=>['1871'],'subject_form_facet'=>['Account books','Daybooks','Journals (accounts)','Manuscripts','Manuscripts, American'],'subject_form_txt'=>['Account books','Daybooks','Journals (accounts)','Manuscripts','Manuscripts, American'],'pub_place_display'=>['Waterbury, Connecticut'],'pub_year_display'=>['1871-1875'],'pub_place_txt'=>['Waterbury, Connecticut'],'pub_year_txt'=>['1871-1875'],'pub_date_txt'=>['1871'],'language_facet'=>['English'],'format'=>['Book','Manuscript/Archive'],'clio_id_display'=>'7686002','acq_dt'=>'2010-03-04T00:00:00Z','source_facet'=>['catalog'],'source_display'=>['catalog'],'oclc_txt'=>['611939163','ocn611939163'],'oclc_display'=>['611939163','ocn611939163'],'full_publisher_display'=>['Waterbury, Connecticut, 1871-1875.'],'location_call_number_id_display'=>['Rare Book, Butler 6th Fl. East (Non-Circulating) >> Ms MONTGOM 675|DELIM|10794534'],'location_call_number_txt'=>['Rare Book, Butler 6th Fl. East (Non-Circulating) >> Ms MONTGOM 675'],'call_number_txt'=>['Ms MONTGOM 675'],'call_number_display'=>['Ms MONTGOM 675'],'location_facet'=>['Rare Book'],'location_txt'=>['Rare Book, Butler 6th Fl. East (Non-Circulating) >> Ms MONTGOM 675'],'shelfkey'=>['rbx+montgom-----+675+00000000+00000000+7686002'],'reverse_shelfkey'=>['8o2~dbc6jbd~~~~~~tsu~zzzzzzzz~zzzzzzzz~strtzzx~~~~'],'item_display'=>['MONTGOM 675 | rbx+montgom-----+675+00000000+00000000+7686002 | 8o2~dbc6jbd~~~~~~tsu~zzzzzzzz~zzzzzzzz~strtzzx~~~~'],'timestamp'=>'2016-05-23T20:04:38.983Z','authorities_dt'=>'2016-05-24T13:58:04Z','author_variant_txt'=>[' Columbia University. Libraries. Rare Book and Manuscript Library'],'_version_'=>1535218322796183552}]}}
-    http_version: 
-  recorded_at: Fri, 01 Jul 2016 20:45:32 GMT
-- request:
-    method: get
-    uri: "<solr_config>/select?id=7686002&qt=document&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
       - Tue, 16 Aug 2016 18:00:18 GMT
       Content-Type:
       - text/plain;charset=UTF-8
@@ -54,6 +28,32 @@ http_interactions:
   recorded_at: Tue, 16 Aug 2016 18:00:19 GMT
 - request:
     method: get
+    uri: "<solr_config>/select?id=7686002&qt=document&wt=ruby"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 16 Aug 2016 18:54:48 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: |
+        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'7686002','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'7686002','marc_display'=>'<record><leader>01426ctm a2200409Ia 4500</leader><controlfield tag="001">7686002</controlfield><controlfield tag="005">20100622162458.0</controlfield><controlfield tag="008">100304m18711875ctu           000 0 eng d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)611939163</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn611939163</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)7686002</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">NNC</subfield><subfield code="c">NNC</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">n-us-ct</subfield></datafield><datafield tag="110" ind1="2" ind2=" "><subfield code="a">Allen and Morris (Firm)</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Account books</subfield><subfield code="h">[manuscript].</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Waterbury, Connecticut,</subfield><subfield code="c">1871-1875.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">2 v. ;</subfield><subfield code="c">40 cm.</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Manuscript on paper.</subfield></datafield><datafield tag="505" ind1="0" ind2=" "><subfield code="a">v.1. Daybook and journal, March - Oct. 1871, 268 p. --v.2. Daybook, 1874-1875, 499 p.</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Account books.</subfield><subfield code="2">aat</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Daybooks.</subfield><subfield code="2">aat</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Journals (accounts)</subfield><subfield code="2">aat</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Manuscripts</subfield><subfield code="y">1871.</subfield><subfield code="2">lcsh</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Manuscripts, American.</subfield><subfield code="2">lcsh</subfield></datafield><datafield tag="710" ind1="2" ind2=" "><subfield code="a">Columbia University.</subfield><subfield code="b">Rare Book and Manuscript Library.</subfield></datafield><datafield tag="710" ind1="2" ind2=" "><subfield code="a">Montgomery Manuscripts (Columbia University. Rare Book and Manuscript Library)</subfield><subfield code="5">NNC</subfield></datafield><datafield tag="752" ind1=" " ind2=" "><subfield code="a">United States</subfield><subfield code="b">Connecticut</subfield><subfield code="d">Waterbury.</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20100304</subfield><subfield code="b">e</subfield><subfield code="c">scmc3</subfield><subfield code="d">SCMC</subfield></datafield><datafield tag="965" ind1=" " ind2=" "><subfield code="a">RECON</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20100304</subfield><subfield code="b">n</subfield><subfield code="c">rjb57</subfield><subfield code="d">SCMC</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">MONTGOM 675</subfield><subfield code="b">rbx+MONTGOM-----+675+00000000+00000000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Rare Book</subfield><subfield code="b">Rare Book, Butler 6th Fl. East (Non-Circulating) &gt;&gt; Ms MONTGOM 675|DELIM|10794534</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Manuscript/Archive</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2010-03-04T00:00:00.000Z</subfield></datafield></record>','text'=>['Allen and Morris (Firm)','Account books [manuscript].','Waterbury, Connecticut, 1871-1875.','2 v. ; 40 cm.','Manuscript on paper.','v.1. Daybook and journal, March - Oct. 1871, 268 p. --v.2. Daybook, 1874-1875, 499 p.','Account books. aat','Daybooks. aat','Journals (accounts) aat','Manuscripts 1871. lcsh','Manuscripts, American. lcsh','Columbia University. Rare Book and Manuscript Library.','Montgomery Manuscripts (Columbia University. Rare Book and Manuscript Library) NNC','United States Connecticut Waterbury.','20100304 e scmc3 SCMC','RECON','20100304 n rjb57 SCMC','AUTH'],'author_txt'=>['Allen and Morris (Firm)'],'author_addl_txt'=>['Columbia University. Rare Book and Manuscript Library.','Montgomery Manuscripts (Columbia University. Rare Book and Manuscript Library)'],'author_facet'=>['Allen and Morris (Firm)','Columbia University. Rare Book and Manuscript Library','Montgomery Manuscripts (Columbia University. Rare Book and Manuscript Library)'],'author_display'=>['Allen and Morris (Firm)'],'author_sort'=>'Allen and Morris (Firm)   Account books manuscript','title_txt'=>['Account books'],'title_display'=>['Account books [manuscript]'],'title_filing_txt'=>['Account books'],'title_filing_full_txt'=>['Account books'],'title_first_facet'=>['A'],'title_addl_txt'=>['Account books'],'title_sort'=>'account books','subject_txt'=>['Account books','Daybooks','Journals (accounts)','Manuscripts 1871','Manuscripts, American'],'subject_era_facet'=>['1871'],'subject_form_facet'=>['Account books','Daybooks','Journals (accounts)','Manuscripts','Manuscripts, American'],'subject_form_txt'=>['Account books','Daybooks','Journals (accounts)','Manuscripts','Manuscripts, American'],'pub_place_display'=>['Waterbury, Connecticut'],'pub_year_display'=>['1871-1875'],'pub_place_txt'=>['Waterbury, Connecticut'],'pub_year_txt'=>['1871-1875'],'pub_date_txt'=>['1871'],'language_facet'=>['English'],'format'=>['Book','Manuscript/Archive'],'clio_id_display'=>'7686002','acq_dt'=>'2010-03-04T00:00:00Z','source_facet'=>['catalog'],'source_display'=>['catalog'],'oclc_txt'=>['611939163','ocn611939163'],'oclc_display'=>['611939163','ocn611939163'],'full_publisher_display'=>['Waterbury, Connecticut, 1871-1875.'],'location_call_number_id_display'=>['Rare Book, Butler 6th Fl. East (Non-Circulating) >> Ms MONTGOM 675|DELIM|10794534'],'location_call_number_txt'=>['Rare Book, Butler 6th Fl. East (Non-Circulating) >> Ms MONTGOM 675'],'call_number_txt'=>['Ms MONTGOM 675'],'call_number_display'=>['Ms MONTGOM 675'],'location_facet'=>['Rare Book'],'location_txt'=>['Rare Book, Butler 6th Fl. East (Non-Circulating) >> Ms MONTGOM 675'],'shelfkey'=>['rbx+montgom-----+675+00000000+00000000+7686002'],'reverse_shelfkey'=>['8o2~dbc6jbd~~~~~~tsu~zzzzzzzz~zzzzzzzz~strtzzx~~~~'],'item_display'=>['MONTGOM 675 | rbx+montgom-----+675+00000000+00000000+7686002 | 8o2~dbc6jbd~~~~~~tsu~zzzzzzzz~zzzzzzzz~strtzzx~~~~'],'timestamp'=>'2016-07-06T21:08:31.042Z','authorities_dt'=>'2016-07-28T16:42:04Z','author_variant_txt'=>[''],'_version_'=>1541117443353608192}]}}
+    http_version: 
+  recorded_at: Tue, 16 Aug 2016 18:54:49 GMT
+- request:
+    method: get
     uri: "<clio_backend_url>/holdings/retrieve/7686002"
     body:
       encoding: UTF-8
@@ -64,7 +64,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 18:00:19 GMT
+      - Tue, 16 Aug 2016 18:54:50 GMT
   response:
     status:
       code: 200
@@ -84,22 +84,22 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Access-Control-Allow-Origin:
       - "*"
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 49a459d8-be3b-42fe-8bf9-e28bffb9eb2f
       Etag:
       - W/"8ab08b927aa1dc7fafd3dd9a46d52b39"
       X-Frame-Options:
       - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
+      X-Runtime:
+      - '1.319764'
       X-Content-Type-Options:
       - nosniff
-      X-Runtime:
-      - '1.413137'
       Access-Control-Request-Method:
       - "*"
-      X-Request-Id:
-      - 94a41f0e-3028-46cd-865b-e09cfd75eeea
       Date:
-      - Tue, 16 Aug 2016 18:00:20 GMT
+      - Tue, 16 Aug 2016 18:54:51 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -113,5 +113,5 @@ http_interactions:
         MONTGOM 675","status":"none","holding_id":["10794534"],"copies":[{"items":{"Status
         unknown":{"status":"none","count":1}},"summary_holdings":"Library has: v.1-2"}],"services":["spec_coll"]}]}}'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:21 GMT
+  recorded_at: Tue, 16 Aug 2016 18:54:51 GMT
 recorded_with: VCR 3.0.3

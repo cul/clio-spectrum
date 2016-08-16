@@ -45,7 +45,7 @@ module Spectrum
         Rails.logger.info "[Spectrum][Solr] source: #{@source} params: #{@params}"
 # ###
 # For better-errors debugging, perform the search outside the begin/rescue/end
-perform_search
+# perform_search
 # ###
         begin
           # here's the actual search, defined below in this file
