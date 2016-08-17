@@ -70,10 +70,10 @@ module CulCatalogHelper
 
   def render_document_index_label(doc, opts)
     label = nil
-    label ||= doc.get(opts[:label]) if opts[:label].instance_of? Symbol
+    label ||= doc.fetch(opts[:label]) if opts[:label].instance_of? Symbol
     label ||= opts[:label].call(doc, opts) if opts[:label].instance_of? Proc
     label ||= opts[:label] if opts[:label].is_a? String
-    label ||= doc.get('id')
+    label ||= doc.fetch('id')
     label.listify.join(' ').to_s
   end
 

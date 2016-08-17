@@ -558,7 +558,7 @@ class ApplicationController < ActionController::Base
       next unless ItemAlert::ALERT_TYPES.key?(this_alert_type)
 
       document = documents.find do |doc|
-        doc.get('id').to_s == alert.item_key.to_s
+        doc.fetch('id').to_s == alert.item_key.to_s
       end
 
       document['_item_alerts'][this_alert_type] << alert
