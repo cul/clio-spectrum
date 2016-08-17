@@ -3,13 +3,27 @@ https://github.com/projectblacklight/blacklight_range_limit/blob/master/app/asse
     - rename from .css.scss to .scss
     - customize styles for CLIO
 */
+/* USED FOR OVERRIDES */
 
 /* leave room for buttons not to collide on line wrap */
-/*
+
 form.range_limit {
-  line-height: 3;
+  line-height: 0;
 }
-*/
+
+.limit_content.range_limit ul,
+.limit_content.range_limit form,
+.limit_content.range_limit div p
+{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.limit_content.range_limit input {
+  @extend .input-sm;
+/*  font-size:80%;*/
+}
+
 
 /*
 .range_limit input.range_begin, .range_limit input.range_end {

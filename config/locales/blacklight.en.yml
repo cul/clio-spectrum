@@ -240,6 +240,7 @@ en:
       # check_message: 'Check Law catalog for status'
       check_message: 'Check Law catalog for location and status'
 
-
+    # range_limit:
+    #   submit_limit: 'L'
 
 

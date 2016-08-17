@@ -417,8 +417,7 @@ module Spectrum
           # NEXT-698 - :segments key is searched for at top, not within range
           config.add_facet_field 'pub_date_sort',
                                  label: 'Publication Date', limit: 3,
-                                 # range: { segments: false }, segments: false
-                                 range: true
+                                 range: { segments: false }, segments: false
           config.add_facet_field 'author_facet',
                                  label: 'Author', limit: 5
           config.add_facet_field 'acq_dt',
