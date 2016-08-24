@@ -22,7 +22,7 @@
       %td=i
       %td=eval(i)
 
-- if Rails.cache.is_a? ActiveSupport::Cache::RedisStore
+- if Rails.cache.class.to_s == "ActiveSupport::Cache::RedisStore"
   %h4 Full Redis Cache Stats
   %pre
     = Rails.cache.stats.to_yaml
