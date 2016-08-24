@@ -33,7 +33,7 @@ end
 describe 'Authority support for Subject variants', :skip_travis do
 
   expectedHits = {
-    'Heart Attack'  => 200,
+    'Heart Attack'  => 150,
     'Sarakole Language' =>  4,
     'Fakism'  =>  2,
     'Senior citizens' =>  5000,
@@ -55,7 +55,7 @@ describe 'Authority support for Author authorities used as Subjects', :skip_trav
     'Gaddafi'  => 1,
     'Keneday family' =>  1,
     'Palestine Liberation Organization'  =>  1,
-    # 'COP21' =>  1,
+    'COP21' =>  1,
     'Kyiv' =>  1,
   }
 

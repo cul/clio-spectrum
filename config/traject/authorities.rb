@@ -9,39 +9,41 @@ extend Traject::Macros::MarcFormats
 
 Marc21 = Traject::Macros::Marc21 # shortcut
 
+# Which authorized heading fields do we care about? 
+# Any kind of person, any topic, or any Geo term,
+# because any of these could be used in a bib record's
+# author field or subject field.
+# see: https://www.loc.gov/marc/authority/ad1xx3xx.html
+#   - 100 - Personal Name
+#   - 110 - Corporate Name
+#   - 111 - Meeting Name
+#   - 150 - Topical Term
+#   - 151 - Geographic Name
+interesting_fields = [ '100', '110', '111', '150', '151']
+# for faster testing, use a subset...
+# interesting_fields = ['151']
+
 # Any fields with any of these subfields should be ignored for 
 # our purposes.  (Subdivisions, Title, etc.)
 disqualifying_subfields = ['k', 't', 'v', 'x', 'y', 'z']
 
-# Don't process records we're not interested in.
+# Loop to skip over any Authority records we're not interested in.
 # For now only:
 # - Name Authority records, but not qualified Name records
-# - Subject Authority Records, Topical or Geographic, unqualified
+# - Subject Authority Records, Topical or Geographic, also unqualified
 # - And skip if there are no variants
 each_record do |record, context|
   # # abort after a certain number of records
-  # raise "EARLY ABORT FOR TESTING" if context.position > 1000
-
-  # https://www.loc.gov/marc/authority/ad1xx3xx.html
-  # 100 - Personal Name
-  # 110 - Corporate Name
-  # 111 - Meeting Name
-  # 150 - Topical Term
-  # 151 - Geographic Name
-  interesting_fields = [ '100', '110', '111', '150', '151']
-  # for faster testing, use a subset...
-  # interesting_fields = ['151']
+  # raise "EARLY ABORT FOR TESTING" if context.position > 100
 
   # assume we're going to skip this record, unless we find something interesting.
   skip = true
+  # store subfield 'a' for debugging
   name = nil
 
   interesting_fields.each { |field|
-    # determine the tracings from the field tag
-    see_from = field.sub(/^1/, '4')
-    see_also = field.sub(/^1/, '5')
 
-    # Is one of the heading fields in the record?
+    # Is one of the interesting authorized headings found in the record?
     if record[field].present?
       # ... with a name subfield ($a)?
       if record[field]['a'].present?
@@ -51,7 +53,7 @@ each_record do |record, context|
         # (intersection must be empty)
         if (all_subfields & disqualifying_subfields).empty?
 
-          # OK, looks like this record has an authorized term we should care about.
+          # OK, looks like this record has an authorized term we might care about.
           # Now, are there also any variant forms present?
 
           # (determine the tracings from the field tag)
@@ -80,45 +82,34 @@ each_record do |record, context|
 
 end
 
-
+# We've now skipped over 90% of the input records.  That'll help
+# with size/performance/etc.  
+# The current authority record is potentially useful.
+# Now we'll get specific about how to build the Solr authority record.
 
 to_field "id", extract_marc("001", :first => true)
 
 # Authority records can be huge.
-# Geographic Authority record 198484, Turkey, is over the 32K limit on String fields.
-#  to_field "marc_display", serialized_marc(:format => "xml")
-# Text fields have a higher limit.  Although we don't really want to analyze the full
-# MARC record, we need to use this field-type.
+# Geographic Authority record 198484, Turkey, is over the 32K limit 
+# on Solr 'String' fields.
+# Solr 'Text' fields have a higher limit.  Although we don't really 
+# want to analyze the full MARC record, we need to use this field-type.
 to_field "marc_txt", serialized_marc(:format => "xml")
 
-
-
+# This might be useful in the future.
 to_field "text", extract_all_marc_values
 
 
+###  Store authorized forms separately
 
-###  SEPERATE AUTHOR / SUBJECT FIELDS
-
+# Author Authorized form (Personal, Corporate or Meeting Name)
 to_field "author_t", extract_marc("100abcdgqu:110abcdgnu:111acdegjnqu", trim_punctuation: false)
 
-to_field "author_variant_t", extract_marc("400abcdq:410abcd:411acde:500abcdq:510abcd:511acde", trim_punctuation: false)
-
+# Subject Authorized form (Topical Term)
 to_field "subject_t", extract_marc("150a", trim_punctuation: false)
 
-to_field "subject_variant_t" do |record, accumulator, context|
-  record.fields(['450','550']).each do |field|
-    next unless field['a']
-
-    # Check all the subfields of this field...
-    all_subfields = field.subfields.map{ |subfield| subfield.code }
-    # ... against the "disqualifying" list.  (intersection must be empty)
-    next unless (all_subfields & disqualifying_subfields).empty?
-
-    # ok, there's a "a", and no bad subfields, so yes, we want this variant...
-    accumulator << field['a']
-  end
-end
-
+# Geo Authorized form (Geographic Name)
+to_field "geo_t", extract_marc("151a", trim_punctuation: false)
 
 
 ###  COMBINED AUTHOR+SUBJECT FIELDS
@@ -127,7 +118,9 @@ end
 # Full authorized terms from the bib record will be matched against this.
 # We need to bring in many subfields for better precision in matching.
 # If doing exact string match (_s), query term must include the same subfields.
-to_field "authorized_t", extract_marc("100abcdgqu:110abcdgnu:111acdegjnqu:150a:151a", trim_punctuation: false)
+# Solr text field allowed fuzzy matching (American == American Airlines)
+# to_field "authorized_t", extract_marc("100abcdgqu:110abcdgnu:111acdegjnqu:150a:151a", trim_punctuation: false)
+# Solr string field for precise match only (American != American Airlines)
 to_field "authorized_s", extract_marc("100abcdgqu:110abcdgnu:111acdegjnqu:150a:151a", trim_punctuation: false)
 
 # The Variant list is used to improve retrieval from patron queries.
@@ -140,8 +133,9 @@ to_field "variant_t" do |record, accumulator, context|
 
   # 4xx - See From Tracing Fields
   # 5xx - See Also Tracing Fields
+  # NEXT-1331 - Drop the '550' altogether
   record.fields(['400','410','411','450','451',
-                 '500','510','511','550','551']).each do |field|
+                 '500','510','511',      '551']).each do |field|
 
     # DEBUG
     # puts "-- record #{record['001'].value}, field #{field}"
@@ -171,7 +165,7 @@ to_field "variant_t" do |record, accumulator, context|
     # Exclude certain 5XX fields - e.g., Hierarachical superior
     next if field['i'].present? && field['i'] == 'Hierarchical superior'
 
-    # Ok, there's a "a", and no bad subfields, so yes, we want this variant.
+    # Ok, there's an "a", and no bad subfields, so yes, we want this variant.
     # Gather up any subfields that might be useful
     # Start with abcdeq, see how this goes...
     # accumulator << field['abcdeq']  <--- can't do this
