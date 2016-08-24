@@ -21,8 +21,10 @@ class SearchBuilder < Blacklight::SearchBuilder
     # If there's no 'q', don't do anything
     return unless solr_parameters['q']
 
-    # For shelf-browse we construct monstrous queries against the shelfkey field
-    return if solr_parameters['q'].include? "shelfkey:"
+    # Some generated queries OR together many, many terms.
+    # These are are marked as raw lucene queries.
+    # Allow these to have unlimited letters/words
+    return if solr_parameters['q'].include? '{!lucene}'
 
     # Truncate queries longer than N letters
     maxLetters = 200
