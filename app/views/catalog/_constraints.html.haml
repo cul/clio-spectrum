@@ -26,7 +26,6 @@
             - else
               #{query[:label]}: #{query[:value]}
             =link_to content_tag(:span, '', :class => 'glyphicon glyphicon-remove'), query[:remove]
-        %span.chrome-fix
 
 
     - @query.filters.each_pair do |filter_key, filter|
@@ -58,7 +57,6 @@
             = value[:label]
             -# Add a "remove" icon to turn off this facet filter
             =link_to content_tag(:span, '', :class => 'glyphicon glyphicon-remove'), value[:remove]
-          %span.chrome-fix
 
     - @query.ranges.each_pair do |range_key, range|
       %div.constraint-box
