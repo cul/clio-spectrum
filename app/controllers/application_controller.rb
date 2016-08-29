@@ -388,6 +388,8 @@ class ApplicationController < ActionController::Base
   end
 
   def ids_to_documents(id_array = [])
+    # Array-ize single id inputs: '123' --> [ '123' ] 
+    id_array = Array.wrap(id_array)
     document_array = []
     return document_array unless id_array.kind_of?(Array)
     return document_array if id_array.empty?
