@@ -5,7 +5,11 @@
   - none = '-- none --'
   - author_variants = Array(document['author_variant_txt']).join.present? ? document['author_variant_txt'] : none
   - subject_variants = Array(document['subject_variant_txt']).join.present? ? document['subject_variant_txt'] : none
+  - geo_variants = Array(document['geo_variant_txt']).join.present? ? document['geo_variant_txt'] : none
+  - last_varient_update = document['authorities_dt'].to_datetime.strftime("%F %l:%M%P")
 
   = add_row('Author Variants', author_variants)
   = add_row('Subject Variants', subject_variants)
+  = add_row('Geographic Variants', geo_variants)
+  = add_row('Last Variant Update', last_varient_update)
 

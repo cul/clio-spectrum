@@ -76,7 +76,7 @@ each_record do |record, context|
   # When "skip" is still true, we never found a reason to keep this record.
   if skip
     note = name.nil? ? '(no authorized name field)' : "(\"#{name}\")"
-    context.skip!("skipping auth id #{record['001'].value} #{note}")
+    # context.skip!("skipping auth id #{record['001'].value} #{note}")
     next
   end
 
@@ -122,6 +122,7 @@ to_field "geo_t", extract_marc("151a", trim_punctuation: false)
 # to_field "authorized_t", extract_marc("100abcdgqu:110abcdgnu:111acdegjnqu:150a:151a", trim_punctuation: false)
 # Solr string field for precise match only (American != American Airlines)
 to_field "authorized_s", extract_marc("100abcdgqu:110abcdgnu:111acdegjnqu:150a:151a", trim_punctuation: false)
+to_field "authorized_ss", extract_marc("100abcdgqu:110abcdgnu:111acdegjnqu:150a:151a:781zz", trim_punctuation: false)
 
 # The Variant list is used to improve retrieval from patron queries.
 # Keep this focused on what a patron might search by, that is,

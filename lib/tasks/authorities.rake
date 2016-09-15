@@ -372,7 +372,7 @@ def add_variants_to_bib(bib, age = 365)
 
   # fetch the authorizied forms from the bib
   params = {q: "id:#{bib}", facet: 'off',
-      fl: 'author_facet,subject_topic_facet,authorities_dt'
+      fl: 'id,author_facet,subject_topic_facet,subject_geo_facet,geo_subdivision_txt,authorities_dt'
   }
 
   # timing metrics...
@@ -393,6 +393,8 @@ def add_variants_to_bib(bib, age = 365)
   authorities_dt = response["response"]["docs"].first['authorities_dt']
   bib_authors = response["response"]["docs"].first['author_facet']
   bib_subjects = response["response"]["docs"].first['subject_topic_facet']
+  bib_geos = response["response"]["docs"].first['subject_geo_facet'] || []
+  bib_geo_subdivs = response["response"]["docs"].first['geo_subdivision_txt'] || []
 
   # If the age of the record is less than threshold, don't update it
   # puts "DEBUG  authorities_dt=[#{authorities_dt}]  age=[#{age}]"
@@ -400,19 +402,32 @@ def add_variants_to_bib(bib, age = 365)
     return "skipped"
   end
 
+  if ENV["DEBUG_AUTHORITIES"]
+    puts "DEBUG_AUTHORITIES --- bib values ---"
+    puts "DEBUG_AUTHORITIES: id=#{response["response"]["docs"].first['id']}"
+    puts "DEBUG_AUTHORITIES: bib_authors=#{bib_authors}"
+    puts "DEBUG_AUTHORITIES: bib_subjects=#{bib_subjects}"
+    puts "DEBUG_AUTHORITIES: bib_geos=#{bib_geos}"
+    puts "DEBUG_AUTHORITIES: bib_geo_subdivs=#{bib_geo_subdivs}"
+  end
+
   # Lookup variants in the authorities datastore
-  author_variants = lookup_author_variants(bib_authors)
-  subject_variants = lookup_subject_variants(bib_subjects)
+  # author_variants = lookup_author_variants(bib_authors)
+  # subject_variants = lookup_subject_variants(bib_subjects)
+  # geo_variants = lookup_geo_variants(bib_geos + bib_geo_subdivs)
+  author_variants   = lookup_variants(bib_authors)
+  subject_variants  = lookup_variants(bib_subjects)
+  geo_variants      = lookup_variants(bib_geos + bib_geo_subdivs)
 
   if ENV["DEBUG_AUTHORITIES"]
-    puts "DEBUG_AUTHORITIES: bib_authors=#{bib_authors}"
+    puts "DEBUG_AUTHORITIES --- variants found ---"
     puts "DEBUG_AUTHORITIES: author_variants=#{author_variants}"
-    puts "DEBUG_AUTHORITIES: bib_subjects=#{bib_subjects}"
     puts "DEBUG_AUTHORITIES: subject_variants=#{subject_variants}"
+    puts "DEBUG_AUTHORITIES: geo_variants=#{geo_variants}"
   end
 
   # Always update the bib record with today's timestamp for last-lookup date.
-  # Also add any author or subject variants that we found.
+  # Also add any author / subject / geo variants that we found.
   params = { id: bib,
              authorities_dt: {set: Time.now.utc.iso8601}
             }
@@ -421,6 +436,9 @@ def add_variants_to_bib(bib, age = 365)
   end
   if subject_variants && subject_variants.size > 0
     params[:subject_variant_txt] = {set: subject_variants.flatten.uniq }
+  end
+  if geo_variants && geo_variants.size > 0
+    params[:geo_variant_txt] = {set: geo_variants.flatten.uniq }
   end
   if ENV["DEBUG_AUTHORITIES"]
     puts "DEBUG_AUTHORITIES: params:\n#{params}"
@@ -443,35 +461,50 @@ def add_variants_to_bib(bib, age = 365)
   return "success"
 end
 
-def lookup_author_variants(bib_authors)
-  return unless bib_authors
-  bib_authors.map { |author|
-    # lookup_variants(author, 'author_t', 'author_variant_t')
-    lookup_variants(author, 'authorized_s', 'variant_t')
-  }
-end
+# def lookup_author_variants(bib_authors)
+#   return unless bib_authors
+#   bib_authors.map { |author|
+#     # lookup_variants(author, 'author_t', 'author_variant_t')
+#     lookup_variants(author, 'authorized_ss', 'variant_t')
+#   }
+# end
+# 
+# def lookup_subject_variants(bib_subjects)
+#   return unless bib_subjects
+#   bib_subjects.map { |subject|
+#     # lookup_variants(subject, 'subject_t', 'subject_variant_t')
+#     lookup_variants(subject, 'authorized_ss', 'variant_t')
+#   }
+# end
+# 
+# def lookup_geo_variants(bib_geos)
+#   return unless bib_geos
+#   bib_geos.map { |geo|
+#     # lookup_variants(geo, 'geo_t', 'geo_variant_t')
+#     lookup_variants(geo, 'authorized_ss', 'variant_t')
+#   }
+# end
 
-def lookup_subject_variants(bib_subjects)
-  return unless bib_subjects
-  bib_subjects.map { |subject|
-    # lookup_variants(subject, 'subject_t', 'subject_variant_t')
-    lookup_variants(subject, 'authorized_s', 'variant_t')
-  }
-end
+# def lookup_variants(authorized_forms, authorized_field_name, variant_field_name)
+def lookup_variants(authorized_forms)
+  return unless authorized_forms
 
-def lookup_variants(authorized_form, authorized_field_name, variant_field_name)
-  safe_authorized_form = authorized_form.gsub(/"/, '\"')
+  query = build_authorized_forms_query(authorized_forms)
+
+  # safe_authorized_form = authorized_form.gsub(/"/, '\"')
   #safe_authorized_form = CGI.escape authorized_form
   # CGI.escape() does too much.  It produces the following:
   #   :q=>"authorized_t:\"Aleksievich%2C+Svetlana%2C+1948-\""
   # which doesn't hit in Solr
   params = { qt: 'select', rows: 1,
-      q: "#{authorized_field_name}:\"#{safe_authorized_form}\"",
-      fl: "id,#{authorized_field_name},#{variant_field_name}",
+      # q: "#{authorized_field_name}:\"#{safe_authorized_form}\"",
+      # fl: "id,#{authorized_field_name},#{variant_field_name}",
+      q: query,
+      fl: 'id,authorized_ss,variant_t',
       facet: 'off'
   }
   if ENV["DEBUG_AUTHORITIES"]
-    puts "DEBUG_AUTHORITIES: lookup_variants() params=#{params}"
+    puts "DEBUG_AUTHORITIES: >>>  lookup_variants() params=#{params}"
   end
 
   # timing metrics...
@@ -481,14 +514,28 @@ def lookup_variants(authorized_form, authorized_field_name, variant_field_name)
 
   # timing metrics...
   elapsed = Time.now - startTime
-  key = "#{authorized_field_name} lookups total time (sec)"
+  # key = "#{authorized_field_name} lookups total time (sec)"
+  key = "authorized_ss lookups total time (sec)"
   @stats[key] = (@stats[key] || 0) + elapsed.round(2)
-  key = "#{authorized_field_name} lookups count"
+  # key = "#{authorized_field_name} lookups count"
+  key = "authorized_ss lookups count"
   @stats[key] = (@stats[key] || 0) + 1
 
   # puts "DEBUG: response=#{response}"
   return unless response &&
               response['response']['docs'].size > 0 &&
-              response['response']['docs'].first[variant_field_name]
-  return response['response']['docs'].first[variant_field_name]
+              response['response']['docs'].first['variant_t']
+  return response['response']['docs'].first['variant_t']
 end
+
+
+def build_authorized_forms_query(authorized_forms)
+  authorized_forms.delete_if(&:blank?)
+
+  authorized_forms.map { |term|
+    'authorized_ss:"' + term.gsub(/"/, '\"') + '"'
+  }.join(' OR ')
+
+end
+
+
