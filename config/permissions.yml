@@ -6,8 +6,6 @@ site:
     - slt0
     # SysAdmins
     - ttp2113
-    - lh2669
-    - pat2149
     # Pseudo-user for use in Specs
     - test_mngr
 
