@@ -402,13 +402,13 @@ def add_variants_to_bib(bib, age = 365)
     return "skipped"
   end
 
-  if ENV["DEBUG_AUTHORITIES"]
-    puts "DEBUG_AUTHORITIES --- bib values ---"
-    puts "DEBUG_AUTHORITIES: id=#{response["response"]["docs"].first['id']}"
-    puts "DEBUG_AUTHORITIES: bib_authors=#{bib_authors}"
-    puts "DEBUG_AUTHORITIES: bib_subjects=#{bib_subjects}"
-    puts "DEBUG_AUTHORITIES: bib_geos=#{bib_geos}"
-    puts "DEBUG_AUTHORITIES: bib_geo_subdivs=#{bib_geo_subdivs}"
+  if ENV["AUTHORITIES_DEBUG"]
+    puts "AUTHORITIES_DEBUG --- bib values ---"
+    puts "AUTHORITIES_DEBUG: id=#{response["response"]["docs"].first['id']}"
+    puts "AUTHORITIES_DEBUG: bib_authors=#{bib_authors}"
+    puts "AUTHORITIES_DEBUG: bib_subjects=#{bib_subjects}"
+    puts "AUTHORITIES_DEBUG: bib_geos=#{bib_geos}"
+    puts "AUTHORITIES_DEBUG: bib_geo_subdivs=#{bib_geo_subdivs}"
   end
 
   # Lookup variants in the authorities datastore
@@ -419,11 +419,11 @@ def add_variants_to_bib(bib, age = 365)
   subject_variants  = lookup_variants(bib_subjects)
   geo_variants      = lookup_variants(bib_geos + bib_geo_subdivs)
 
-  if ENV["DEBUG_AUTHORITIES"]
-    puts "DEBUG_AUTHORITIES --- variants found ---"
-    puts "DEBUG_AUTHORITIES: author_variants=#{author_variants}"
-    puts "DEBUG_AUTHORITIES: subject_variants=#{subject_variants}"
-    puts "DEBUG_AUTHORITIES: geo_variants=#{geo_variants}"
+  if ENV["AUTHORITIES_DEBUG"]
+    puts "AUTHORITIES_DEBUG --- variants found ---"
+    puts "AUTHORITIES_DEBUG: author_variants=#{author_variants}"
+    puts "AUTHORITIES_DEBUG: subject_variants=#{subject_variants}"
+    puts "AUTHORITIES_DEBUG: geo_variants=#{geo_variants}"
   end
 
   # Always update the bib record with today's timestamp for last-lookup date.
@@ -440,8 +440,8 @@ def add_variants_to_bib(bib, age = 365)
   if geo_variants && geo_variants.size > 0
     params[:geo_variant_txt] = {set: geo_variants.flatten.uniq }
   end
-  if ENV["DEBUG_AUTHORITIES"]
-    puts "DEBUG_AUTHORITIES: params:\n#{params}"
+  if ENV["AUTHORITIES_DEBUG"]
+    puts "AUTHORITIES_DEBUG: params:\n#{params}"
   end
 
   # timing metrics...
@@ -503,8 +503,8 @@ def lookup_variants(authorized_forms)
       fl: 'id,authorized_ss,variant_t',
       facet: 'off'
   }
-  if ENV["DEBUG_AUTHORITIES"]
-    puts "DEBUG_AUTHORITIES: >>>  lookup_variants() params=#{params}"
+  if ENV["AUTHORITIES_DEBUG"]
+    puts "AUTHORITIES_DEBUG: >>>  lookup_variants() params=#{params}"
   end
 
   # timing metrics...
@@ -532,7 +532,7 @@ end
 def build_authorized_forms_query(authorized_forms)
   authorized_forms.delete_if(&:blank?)
 
-  authorized_forms.map { |term|
+  authorized_forms.uniq.map { |term|
     'authorized_ss:"' + term.gsub(/"/, '\"') + '"'
   }.join(' OR ')
 

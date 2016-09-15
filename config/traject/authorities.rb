@@ -26,6 +26,7 @@ interesting_fields = [ '100', '110', '111', '150', '151']
 # Any fields with any of these subfields should be ignored for 
 # our purposes.  (Subdivisions, Title, etc.)
 disqualifying_subfields = ['k', 't', 'v', 'x', 'y', 'z']
+disqualifiers = disqualifying_subfields.join
 
 # Loop to skip over any Authority records we're not interested in.
 # For now only:
@@ -76,7 +77,10 @@ each_record do |record, context|
   # When "skip" is still true, we never found a reason to keep this record.
   if skip
     note = name.nil? ? '(no authorized name field)' : "(\"#{name}\")"
-    # context.skip!("skipping auth id #{record['001'].value} #{note}")
+    # noisy, tells us about skipped records
+    ## context.skip!("skipping auth id #{record['001'].value} #{note}")
+    # silent, skips w/out any notification
+    context.skip!
     next
   end
 
@@ -121,8 +125,14 @@ to_field "geo_t", extract_marc("151a", trim_punctuation: false)
 # Solr text field allowed fuzzy matching (American == American Airlines)
 # to_field "authorized_t", extract_marc("100abcdgqu:110abcdgnu:111acdegjnqu:150a:151a", trim_punctuation: false)
 # Solr string field for precise match only (American != American Airlines)
-to_field "authorized_s", extract_marc("100abcdgqu:110abcdgnu:111acdegjnqu:150a:151a", trim_punctuation: false)
-to_field "authorized_ss", extract_marc("100abcdgqu:110abcdgnu:111acdegjnqu:150a:151a:781zz", trim_punctuation: false)
+# AND:  we'll add the disqualifying subfields here as a backup safety measure.
+#  If by mistake "$a India $x Foreign relations" isn't skipped (as it should
+# have been above), then insert with authorized form "India Foreign relations"
+# instead of "India", so it doesn't clobber our base "India" record.
+# SWITCH from _s to _ss, because this is now a multivalued field.
+# (multivalued?  yes, for Geo we support both the 151a and the 781zz as authorized)
+# to_field "authorized_s", extract_marc("100abcdgqu:110abcdgnu:111acdegjnqu:150a:151a", trim_punctuation: false)
+to_field "authorized_ss", extract_marc("100abcdgqu#{disqualifiers}:110abcdgnu#{disqualifiers}:111acdegjnqu#{disqualifiers}:150a#{disqualifiers}:151a#{disqualifiers}:781zz", trim_punctuation: false)
 
 # The Variant list is used to improve retrieval from patron queries.
 # Keep this focused on what a patron might search by, that is,
