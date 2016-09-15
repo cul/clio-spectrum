@@ -75,12 +75,11 @@ each_record do |record, context|
   }
 
   # When "skip" is still true, we never found a reason to keep this record.
+  # context.skip is noisy - it'll print a line of output to DEBUG for each
+  # record skipped.  We may as well try to output useful details.
   if skip
     note = name.nil? ? '(no authorized name field)' : "(\"#{name}\")"
-    # noisy, tells us about skipped records
-    ## context.skip!("skipping auth id #{record['001'].value} #{note}")
-    # silent, skips w/out any notification
-    context.skip!
+    context.skip!("skipping auth id #{record['001'].value} #{note}")
     next
   end
 
