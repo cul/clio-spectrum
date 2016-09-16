@@ -496,7 +496,10 @@ def lookup_variants(authorized_forms)
   # CGI.escape() does too much.  It produces the following:
   #   :q=>"authorized_t:\"Aleksievich%2C+Svetlana%2C+1948-\""
   # which doesn't hit in Solr
-  params = { qt: 'select', rows: 1,
+  params = { qt: 'select',
+      # Theoretically, our query is precise enough that we don't need
+      # to restrict to only the first returned row.
+      # rows: 1,
       # q: "#{authorized_field_name}:\"#{safe_authorized_form}\"",
       # fl: "id,#{authorized_field_name},#{variant_field_name}",
       q: query,
@@ -522,10 +525,23 @@ def lookup_variants(authorized_forms)
   @stats[key] = (@stats[key] || 0) + 1
 
   # puts "DEBUG: response=#{response}"
+  # return nil unless we at least got something
   return unless response &&
               response['response']['docs'].size > 0 &&
               response['response']['docs'].first['variant_t']
-  return response['response']['docs'].first['variant_t']
+
+  # Given that we got something....
+
+  # - validate that the number of rows returned.  For each term, we could 
+  #   potentially find a term in LCSH and in MESH (any others?)
+  #   So, it's an error if we get back more than 2 x the number of input terms
+  if response['response']['docs'].size > (authorized_forms.size * 2)
+    raise "Too many authority records retrieved.  query=[#{query}] retrieved #{response['response']['docs'].size} rows."
+  end
+
+  # - merge all variants from all returned rows, return the array.
+  # return response['response']['docs'].first['variant_t']
+  return response['response']['docs'].map { |doc| doc['variant_t'] }.flatten
 end
 
 
