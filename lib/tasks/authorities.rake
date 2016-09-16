@@ -533,9 +533,10 @@ def lookup_variants(authorized_forms)
   # Given that we got something....
 
   # - validate that the number of rows returned.  For each term, we could 
-  #   potentially find a term in LCSH and in MESH (any others?)
-  #   So, it's an error if we get back more than 2 x the number of input terms
-  if response['response']['docs'].size > (authorized_forms.size * 2)
+  #   potentially find a term in LCSH and in LC Names and in MESH.
+  #   There's a upper bound of three authority records per authorized term.
+  #   If we find more than 3x records, that's an error.
+  if response['response']['docs'].size > (authorized_forms.size * 3)
     raise "Too many authority records retrieved.  query=[#{query}] retrieved #{response['response']['docs'].size} rows."
   end
 
