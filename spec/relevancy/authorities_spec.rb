@@ -55,7 +55,7 @@ describe 'Authority support for Author authorities used as Subjects', :skip_trav
     'Gaddafi'  => 1,
     'Keneday family' =>  1,
     'Palestine Liberation Organization'  =>  1,
-    'COP21' =>  1,
+    # 'COP21' =>  1,
     'Kyiv' =>  1,
   }
 

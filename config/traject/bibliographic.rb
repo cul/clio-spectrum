@@ -89,6 +89,8 @@ to_field "subject_geo_facet", extract_marc("600z:610z:611z:630z:650z:651a:651z:6
 to_field "subject_form_facet", extract_marc("600v:610v:611v:630v:650v:651v:655ab:655v", trim_punctuation: true, alternate_script: false)
 to_field "subject_form_txt", extract_marc("600v:610v:611v:630v:650v:651v:655ab:655v", trim_punctuation: true, alternate_script: false)
 
+# 781z - geographic subfield divisions, need the value as query into authorities solr
+to_field "geo_subdivision_txt", extract_marc("600zz:610zz:611zz:630zz:650zz:651zz:655zz", trim_punctuation: true)
 
 to_field "pub_place_display", extract_marc("260a:264a", trim_punctuation: true, alternate_script: false)
 to_field "pub_name_display", extract_marc("260b:264b", trim_punctuation: true, alternate_script: false)
