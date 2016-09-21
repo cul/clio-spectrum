@@ -10,8 +10,41 @@ module Spectrum
       # s.ff - how many options to retrieve for each filter field
       SUMMON_FIXED_PARAMS = {
         'spellcheck' => true,
-        's.ff' => ['ContentType,and,1,10', 'SubjectTerms,and,1,10', 'Language,and,1,5']
-      }.freeze
+        # 's.ff' => ['ContentType,and,1,10', 'SubjectTerms,and,1,10', 'Language,and,1,5']
+        's.ff' => [
+
+# THESE DON'T SHOW UP
+          # 'Audience,and,1,10',
+          # 'Author,and,1,10',
+          # 'CorporateAuthor,and,1,10',
+          # 'Genre,and,1,10',
+          # 'GeographicLocations,and,1,10',
+          # 'Institution,and,1,10',
+          # 'Library,and,1,10',
+          # 'SourceType,and,1,10',
+          # 'TemporalSubjectTerms,and,1,10'
+
+# THESE DO SHOW UP
+          'SubjectTerms,and,1,10',
+          'ContentType,and,1,10',
+          'Language,and,1,10',
+          'SourceName,and,1,10',
+          'PublicationTitle,and,1,10',
+          'Discipline,and,1,10',
+          'DatabaseName,and,1,10',
+
+          # These are IDs, not appropriate for patron display
+          # 'SourcePackageID,and,1,10',
+          # 'SourceID,and,1,10',
+          # 'PackageID,and,1,10',
+
+
+          # 'IsPeerReviewed,and,1,10',
+          # 'IsScholarly,and,1,10',
+
+        ]
+
+     }.freeze
 
       # These source-specific params are ONLY FOR NEW SEARCHES
       # s.ho=<boolean>     Holdings Only Parameter, a.k.a., "Columbia's collection only"
@@ -137,10 +170,10 @@ module Spectrum
         end
       end
 
-      FACET_ORDER = %w(ContentType_mfacet SubjectTerms_mfacet Language_s)
+      FACET_ORDER = %w(ContentType SubjectTerms Language)
 
       def facets
-        @search.facets.sort_by { |facet| (ind = FACET_ORDER.index(facet.field_name)) ? ind : 999 }
+        @search.facets.sort_by { |facet| (ind = FACET_ORDER.index(facet.display_name)) ? ind : 999 }
       end
 
       # The "pre-facet-options" are the four checkboxes which precede the facets.
