@@ -35,6 +35,7 @@ resource_types:
   np: Newspaper Collections
   nu: Statistical Resources
   nw: Articles (Newspapers)
+  sg: Subject Guides 
   sr: Sound Collections
   tc: Text Collections
   wb: Websites

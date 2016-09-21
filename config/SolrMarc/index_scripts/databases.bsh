@@ -114,6 +114,8 @@ Set translate_resource_type(Record record)
         break;
       case "nw": result.add("Articles (Newspapers)");
         break;
+      case "sg": result.add("Subject Guides");
+        break;
       case "sr": result.add("Sound Collections");
         break;
       case "tc": result.add("Text Collections");
