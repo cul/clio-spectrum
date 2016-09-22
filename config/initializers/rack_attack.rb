@@ -74,6 +74,22 @@ Rack::Attack.blocklist('pentest') do |request|
   end
 end
 
+
+# Lockout IP addresses that are abusing CLIO's email facility.
+# After X requests in Y minutes, block all requests from that IP for Z hours.
+Rack::Attack.blocklist('allow2ban email abusers') do |req|
+  # `filter` returns false value if request is to your login page (but still
+  # increments the count) so request below the limit are not blocked until
+  # they hit the limit.  At that point, filter will return true and block.
+  Rack::Attack::Allow2Ban.filter(req.ip, :maxretry => 10, :findtime => 10.minute, :bantime => 1.hour) do
+    # The count for the IP is incremented if the return value is truthy.
+    req.path == '/catalog/email' and req.post?
+  end
+end
+
+
+
+
 # Rack::Attack.blocklist('fail2ban pentesters') do |req|
 #   # `filter` returns truthy value if request fails, or if it's from a previously banned IP
 #   # so the request is blocked
