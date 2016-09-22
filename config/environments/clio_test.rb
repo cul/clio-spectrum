@@ -36,8 +36,8 @@ Clio::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'localhost',
-    domain: 'berlioz.cc.columbia.edu',
+    address: 'smtp.library.columbia.edu',
+    domain: 'library.columbia.edu',
     port: '25'
   }
 
