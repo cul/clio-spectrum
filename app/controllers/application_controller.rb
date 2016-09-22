@@ -24,10 +24,10 @@ class ApplicationController < ActionController::Base
   before_filter :log_additional_data
   before_filter :set_user_characteristics
   before_filter :condense_advanced_search_params
-  
+
   # https://github.com/airblade/paper_trail/#4a-finding-out-who-was-responsible-for-a-change
   before_filter :set_paper_trail_whodunnit
-  
+
 
   # NEXT-537 - logging in should not redirect you to the root path
   # from the Devise how-to docs...
@@ -350,8 +350,12 @@ class ApplicationController < ActionController::Base
         if mail_to.match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/)
           # IDs may be Catalog Bib keys or Summon FETCH IDs...
           @documents = ids_to_documents(params[:id])
-          message_text = params[:message]
-          email = RecordMailer.email_record(@documents, { to: mail_to, reply_to: reply_to.format, message: message_text }, url_gen_params)
+          if @documents.nil? || @documents.empty?
+            flash[:error] = I18n.t('blacklight.email.errors.invalid')
+          else
+            message_text = params[:message]
+            email = RecordMailer.email_record(@documents, { to: mail_to, reply_to: reply_to.format, message: message_text }, url_gen_params)
+          end
         else
           flash[:error] = I18n.t('blacklight.email.errors.to.invalid', to: mail_to)
         end
