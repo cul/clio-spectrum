@@ -36,3 +36,8 @@ public/assets
 spec/reports
 spec/examples.txt
 token.txt
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
