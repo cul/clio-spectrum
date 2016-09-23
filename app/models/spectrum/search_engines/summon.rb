@@ -9,11 +9,13 @@ module Spectrum
       # These are ALWAYS in effect for Summon API queries
       # s.ff - how many options to retrieve for each filter field
       SUMMON_FIXED_PARAMS = {
-        'spellcheck' => true,
-        # 's.ff' => ['ContentType,and,1,10', 'SubjectTerms,and,1,10', 'Language,and,1,5']
-        's.ff' => [
-
-# THESE DON'T SHOW UP
+        # 'spellcheck' => true,
+        # # 's.ff' => ['ContentType,and,1,10', 'SubjectTerms,and,1,10', 'Language,and,1,5']
+        # # Use helper function, to configure more flexibly
+        # 's.ff' => summon_facets_to_params(get_summon_facets)
+        # 
+          # [
+          # THESE DON'T SHOW UP
           # 'Audience,and,1,10',
           # 'Author,and,1,10',
           # 'CorporateAuthor,and,1,10',
@@ -24,25 +26,24 @@ module Spectrum
           # 'SourceType,and,1,10',
           # 'TemporalSubjectTerms,and,1,10'
 
-# THESE DO SHOW UP
-          'SubjectTerms,and,1,10',
-          'ContentType,and,1,10',
-          'Language,and,1,10',
-          'SourceName,and,1,10',
-          'PublicationTitle,and,1,10',
-          'Discipline,and,1,10',
-          'DatabaseName,and,1,10',
+          # THESE DO SHOW UP
+          # 'SubjectTerms,and,1,10',
+          # 'ContentType,and,1,10',
+          # 'Language,and,1,10',
+          # 'SourceName,and,1,10',
+          # 'PublicationTitle,and,1,10',
+          # 'Discipline,and,1,10',
+          # 'DatabaseName,and,1,10',
 
           # These are IDs, not appropriate for patron display
           # 'SourcePackageID,and,1,10',
           # 'SourceID,and,1,10',
           # 'PackageID,and,1,10',
 
-
+          # These we control via checkboxes, not facets
           # 'IsPeerReviewed,and,1,10',
           # 'IsScholarly,and,1,10',
-
-        ]
+          # ]
 
      }.freeze
 
@@ -92,7 +93,8 @@ module Spectrum
         end
 
         # These are ALWAYS in effect for Summon API queries
-        @params.merge!(SUMMON_FIXED_PARAMS)
+        # @params.merge!(SUMMON_FIXED_PARAMS)
+        @params.merge!(summon_fixed_params)
 
         @config = options.delete('config') || APP_CONFIG['summon']
 
@@ -170,10 +172,10 @@ module Spectrum
         end
       end
 
-      FACET_ORDER = %w(ContentType SubjectTerms Language)
+      # FACET_ORDER = %w(ContentType SubjectTerms Language)
 
       def facets
-        @search.facets.sort_by { |facet| (ind = FACET_ORDER.index(facet.display_name)) ? ind : 999 }
+        @search.facets.sort_by { |facet| (ind = get_summon_facets.keys.index(facet.display_name)) ? ind : 999 }
       end
 
       # The "pre-facet-options" are the four checkboxes which precede the facets.
@@ -448,13 +450,45 @@ module Spectrum
 
       def summon_search_link(params = {})
         # These are ALWAYS in effect for Summon API queries
-        params.merge!(SUMMON_FIXED_PARAMS)
+        # params.merge!(SUMMON_FIXED_PARAMS)
+        params.merge!(summon_fixed_params)
         articles_index_path(params)
       end
 
       def summon_facet_link(params = {})
         articles_facet_path(params)
       end
+
+      # SUMMON_FIXED_PARAMS = {
+      #   'spellcheck' => true,
+      #   # 's.ff' => ['ContentType,and,1,10', 'SubjectTerms,and,1,10', 'Language,and,1,5']
+      #   # Use helper function, to configure more flexibly
+      #   's.ff' => summon_facets_to_params(get_summon_facets)
+
+      def summon_fixed_params
+        {
+          spellcheck: true,
+          's.ff' => summon_facets_to_params(get_summon_facets)
+        }
+      end
+
+      DEFAULT_SUMMON_FACETS = {
+        'ContentType' => 10, 'SubjectTerms' => 10, 'Language' => 10
+      }
+      def get_summon_facets
+        APP_CONFIG['summon_facets'] || DEFAULT_SUMMON_FACETS || []
+      end
+
+      # { ContentType: 10, SubjectTerms: 10, Language: 10 }
+      # to
+      # ['ContentType,and,1,10', 'SubjectTerms,and,1,10', 'Language,and,1,5']
+      def summon_facets_to_params(facets)
+        facets.map { |facet_name, facet_count|
+          "#{facet_name},and,1,#{facet_count}"
+        }
+      end
+
+
 
     end
   end
