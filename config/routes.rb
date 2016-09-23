@@ -97,8 +97,6 @@ Rails.application.routes.draw do
   # Support for persisent selected-item lists
   match 'selected_items', via: [:get, :post], to: 'application#selected_items_handler'
 
-  # Is this redundant with above "evise_for :users, controllers:..." ?
-  # devise_for :users
 
   get 'databases', to: 'catalog#index', as: :databases_index
   get 'databases/:id(.:format)', via: [:get], to: 'catalog#show', as: :databases_show
@@ -119,6 +117,12 @@ Rails.application.routes.draw do
   get 'academic_commons', to: 'catalog#index', as: :academic_commons_index
   get 'academic_commons/range_limit(.:format)', to: 'catalog#range_limit', as: :academic_range_limit
   get 'academic_commons/facet/:id(.format)', to: 'catalog#facet', as: :academic_commons_facet
+
+  get 'geo', to: 'catalog#index', as: :geo_index
+  get 'geo/facet/:id(.format)', to: 'catalog#facet', as: :geo_facet
+
+  get 'dlc', to: 'catalog#index', as: :dlc_index
+  get 'dlc/facet/:id(.format)', to: 'catalog#facet', as: :dlc_facet
 
   get 'archives', to: 'catalog#index', as: :archives_index
   get 'archives/:id(.:format)', via: [:get], to: 'catalog#show', as: :archives_show

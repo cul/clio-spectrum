@@ -150,8 +150,30 @@ datasources:
         author: Author
         subject: Subject
 
+  geo:
+    name: GeoData
+    search_box:
+      route: geo_index_path
+      placeholder: Geographic names, subjects
+      search_type: blacklight
+      # search_fields:
+      #   all_fields: All Fields
+      #   title: Title
+      #   name: Name
 
-datasource_bar:
+  dlc:
+    name: DigLibCol
+    search_box:
+      route: dlc_index_path
+      # placeholder: dlc
+      search_type: blacklight
+      # search_fields:
+      #   all_fields: All Fields
+      #   title: Title
+      #   name: Name
+
+
+default_datasource_bar:
   major_sources:
     - quicksearch
     - catalog

@@ -1,10 +1,15 @@
 # encoding: UTF-8
 module DatasourcesHelper
 
+  def get_datasource_bar
+    APP_CONFIG['datasource_bar'] ||
+      DATASOURCES_CONFIG['default_datasource_bar'] || []
+  end
+
   def datasource_list(category = :all)
     results = []
-    results |= DATASOURCES_CONFIG['datasource_bar']['major_sources'] if category.in?(:all, :major)
-    results |= DATASOURCES_CONFIG['datasource_bar']['minor_sources'] if category.in?(:all, :minor)
+    results |= get_datasource_bar['major_sources'] if category.in?(:all, :major)
+    results |= get_datasource_bar['minor_sources'] if category.in?(:all, :minor)
 
     results
   end
@@ -144,7 +149,7 @@ module DatasourcesHelper
     li_classes << 'selected' if source == options[:active_source]
 
     # li_classes << 'subsource' if options[:subsource]
-    li_classes << 'subsource' if DATASOURCES_CONFIG['datasource_bar']['subsources'].include?(source)
+    li_classes << 'subsource' if get_datasource_bar['subsources'].include?(source)
 
     href = datasource_landing_page_path(source, query)
 
@@ -183,6 +188,7 @@ module DatasourcesHelper
     # end
 
     fail "no source data found for #{source}" unless DATASOURCES_CONFIG['datasources'][source]
+
     content_tag(:li,
                 link_to(DATASOURCES_CONFIG['datasources'][source]['name'],
                         href,
@@ -200,37 +206,45 @@ module DatasourcesHelper
     # NEXT-954 - Improve Landing Page access
     if query.empty?
       # Don't carry-over the null query, just link to new datasource's landing page
-      "/#{source}"
-    else
-      case source
-      when 'quicksearch'
-        quicksearch_index_path(q: query)
-      when 'catalog'
-        # raise
-        catalog_index_path(q: query)
-      when 'databases'
-        databases_index_path(q: query)
-      when 'articles'
-        # articles_index_path('s.q' => query, 'new_search' => true)
-        articles_index_path('q' => query, 'new_search' => true)
-      when 'journals'
-        journals_index_path(q: query)
-      when 'ebooks'
-        ebooks_index_path(q: query)
-      when 'dissertations'
-        dissertations_index_path(q: query)
-      when 'new_arrivals'
-        new_arrivals_index_path(q: query)
-      when 'academic_commons'
-        academic_commons_index_path(q: query)
-      when 'library_web'
-        library_web_index_path(q: query)
-      when 'archives'
-        archives_index_path(q: query)
-      else
-        fail "datasource_landing_page_path() passed unknown source [#{source}]"
-      end
+      return "/#{source}"
     end
+
+    if source == 'articles'
+      return articles_index_path('q' => query, 'new_search' => true)
+    end
+
+    return "/#{source}?" + {q: query}.to_query
+
+    # else
+    #   case source
+    #   when 'quicksearch'
+    #     quicksearch_index_path(q: query)
+    #   when 'catalog'
+    #     # raise
+    #     catalog_index_path(q: query)
+    #   when 'databases'
+    #     databases_index_path(q: query)
+    #   when 'articles'
+    #     # articles_index_path('s.q' => query, 'new_search' => true)
+    #     articles_index_path('q' => query, 'new_search' => true)
+    #   when 'journals'
+    #     journals_index_path(q: query)
+    #   when 'ebooks'
+    #     ebooks_index_path(q: query)
+    #   when 'dissertations'
+    #     dissertations_index_path(q: query)
+    #   when 'new_arrivals'
+    #     new_arrivals_index_path(q: query)
+    #   when 'academic_commons'
+    #     academic_commons_index_path(q: query)
+    #   when 'library_web'
+    #     library_web_index_path(q: query)
+    #   when 'archives'
+    #     archives_index_path(q: query)
+    #   else
+    #     fail "datasource_landing_page_path() passed unknown source [#{source}]"
+    #   end
+    # end
   end
 
   def datasource_switch_link(title, source, *args)
