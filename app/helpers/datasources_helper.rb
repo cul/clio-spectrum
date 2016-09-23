@@ -40,7 +40,7 @@ module DatasourcesHelper
       search_config = SEARCHES_CONFIG['sources'][source]
       warning = search_config ? search_config['warning'] : nil
       content_tag(:div,
-                  render(partial: "/_search/landing_pages/#{source}",
+                  render(partial: "/landing_pages/#{source}",
                          locals: { warning: warning }),
                   class: classes.join(' '),
                   data: { 'ga-action' => 'Landing Page Click' }
