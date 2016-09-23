@@ -36,10 +36,14 @@ module Spectrum
 
         # allow pass-in override solr url
         @solr_url = options.delete('solr_url')
-        # generate a Solr object
-        connection()
+
+# do we need?
+        # # generate a Solr object
+        # connection()
+
         # generate a Solr config object
         connection_config()
+
         @params = options
         @params.symbolize_keys!
         Rails.logger.info "[Spectrum][Solr] source: #{@source} params: #{@params}"
@@ -80,10 +84,10 @@ module Spectrum
         @repository
       end
 
-      def connection
-        Rails.logger.debug "Spectrum::SearchEngine::Solr#connection()"
-        @solr ||= Solr.generate_rsolr(@source, @solr_url)
-      end
+      # def connection
+      #   Rails.logger.debug "Spectrum::SearchEngine::Solr#connection()"
+      #   @solr ||= Solr.generate_rsolr(@source, @solr_url)
+      # end
 
       def connection_config
         # Rails.logger.debug "Spectrum::SearchEngine::Solr#connection_config()"
@@ -197,16 +201,16 @@ module Spectrum
         self
       end
 
-      def self.generate_rsolr(source, solr_url = nil)
-        Rails.logger.debug "generate_rsolr(#{source}) - new RSolr.connect()"
-        if source.in?('academic_commons', 'ac_dissertations')
-          RSolr.connect(url: APP_CONFIG['ac2_solr_url'])
-        elsif solr_url
-          RSolr.connect(url: solr_url)
-        else
-          RSolr.connect(Blacklight.connection_config)
-        end
-      end
+      # def self.generate_rsolr(source, solr_url = nil)
+      #   Rails.logger.debug "Spectrum::SearchEngines::Solr#generate_rsolr(#{source})"
+      #   if source.in?('academic_commons', 'ac_dissertations')
+      #     RSolr.connect(url: APP_CONFIG['ac2_solr_url'])
+      #   elsif solr_url
+      #     RSolr.connect(url: solr_url)
+      #   else
+      #     RSolr.connect(Blacklight.connection_config)
+      #   end
+      # end
 
       # Default config has already been created, now add in the field-scoped
       # config settings specific to each fielded search being offered

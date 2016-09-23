@@ -14,11 +14,13 @@ module Spectrum
       # Spectrum::SearchEngines::Solr#connection
       # @solr ||= Solr.generate_rsolr(@source, @solr_url)
 
-       @connection ||= generate_rsolr(@source, @solr_url)
+       @connection ||= build_connection(@source, @solr_url)
     end
 
-    def generate_rsolr(source, solr_url = nil)
-      Rails.logger.debug "Spectrum::SolrRepository#generate_rsolr(#{source})"
+    protected
+
+    def build_connection(source, solr_url = nil)
+      Rails.logger.debug "Spectrum::SolrRepository#build_connection(#{source})"
       if source.in?('academic_commons', 'ac_dissertations')
         RSolr.connect(url: APP_CONFIG['ac2_solr_url'])
       elsif solr_url
