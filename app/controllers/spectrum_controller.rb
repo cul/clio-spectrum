@@ -234,51 +234,17 @@ class SpectrumController < ApplicationController
       %w(layout commit source sources controller action).each do |param_name|
         fixed_params.delete(param_name)
       end
-      fixed_params.delete(:source)
+
+      fixed_params['source'] = source
+
       # "results" is not the search results, it's the Search Engine object, in a
       # post-search-execution state.
       results = case source
-        when 'dissertations'
-          fixed_params['source'] = 'dissertations'
+        when 'articles', 'dissertations', 'ebooks'
           fixed_params = fix_summon_params(fixed_params)
           Spectrum::SearchEngines::Summon.new(fixed_params)
 
-        when 'articles'
-          fixed_params['source'] = 'articles'
-          fixed_params = fix_summon_params(fixed_params)
-          Spectrum::SearchEngines::Summon.new(fixed_params)
-
-        when 'ebooks'
-          fixed_params['source'] = 'ebooks'
-          fixed_params = fix_summon_params(fixed_params)
-          Spectrum::SearchEngines::Summon.new(fixed_params)
-
-        when 'catalog_ebooks'
-          fixed_params['source'] = 'catalog_ebooks'
-          blacklight_search(fixed_params)
-
-        when 'databases'
-          fixed_params['source'] = 'databases'
-          blacklight_search(fixed_params)
-
-        when 'journals'
-          fixed_params['source'] = 'journals'
-          blacklight_search(fixed_params)
-
-        when 'catalog_dissertations'
-          fixed_params['source'] = 'catalog_dissertations'
-          blacklight_search(fixed_params)
-
-        when 'catalog'
-          fixed_params['source'] = 'catalog'
-          blacklight_search(fixed_params)
-
-        when 'academic_commons'
-          fixed_params['source'] = 'academic_commons'
-          blacklight_search(fixed_params)
-
-        when 'ac_dissertations'
-          fixed_params['source'] = 'ac_dissertations'
+        when 'catalog', 'databases', 'journals', 'catalog_ebooks', 'catalog_dissertations', 'academic_commons', 'ac_dissertations'
           blacklight_search(fixed_params)
 
         when 'library_web'

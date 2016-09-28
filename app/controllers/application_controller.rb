@@ -278,43 +278,6 @@ class ApplicationController < ActionController::Base
       return 'quicksearch'
     end
 
-    # active_source_from_params = params['active_source']
-    # if active_source_from_params
-    #   @active_source = active_source_from_params.underscore
-    # else
-    #   path_minus_advanced = request.path.to_s.gsub(/^\/advanced/, '')
-    #   @active_source = case path_minus_advanced
-    #   when /^\/databases/
-    #     'databases'
-    #   when /^\/new_arrivals/
-    #     'new_arrivals'
-    #   when /^\/catalog/
-    #     'catalog'
-    #   when /^\/articles/
-    #     'articles'
-    #   when /^\/journals/
-    #     'journals'
-    #   when /^\/dissertations/
-    #     'dissertations'
-    #   when /^\/ebooks/
-    #     'ebooks'
-    #   when /^\/academic_commons/
-    #     'academic_commons'
-    #   when /^\/library_web/
-    #     'library_web'
-    #   when /^\/newspapers/
-    #     # re-direct bookmarked newspaper urls to articles
-    #     'articles'
-    #   when /^\/archives/
-    #     'archives'
-    #   # Browse (Shelf-Browse, Call-Number Browse) is assumed to act like Catalog
-    #   when /^\/browse/
-    #     'catalog'
-    #   else
-    #     active_source_from_params || 'quicksearch'
-    #   end
-    # end
-
   end
 
   # def connection(source = @active_source)

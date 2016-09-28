@@ -202,6 +202,10 @@ Rails.application.routes.draw do
   get 'authorities/author_marc/:author', to: 'authorities#author_marc'
   get 'authorities/subject_marc/:subject', to: 'authorities#subject_marc'
 
+  # resources :saved_list_items
+  resources :preferences
+
+
 end
 
 

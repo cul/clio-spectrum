@@ -23,6 +23,10 @@ module Spectrum
       Rails.logger.debug "Spectrum::SolrRepository#build_connection(#{source})"
       if source.in?('academic_commons', 'ac_dissertations')
         RSolr.connect(url: APP_CONFIG['ac2_solr_url'])
+      elsif source.in?('geo')
+        RSolr.connect(url: APP_CONFIG['geo_solr_url'])
+      elsif source.in?('dlc')
+        RSolr.connect(url: APP_CONFIG['dlc_solr_url'])
       elsif solr_url
         RSolr.connect(url: solr_url)
       else

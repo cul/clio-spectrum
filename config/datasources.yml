@@ -162,7 +162,7 @@ datasources:
       #   name: Name
 
   dlc:
-    name: DigLibCol
+    name: Digital Library Collections
     search_box:
       route: dlc_index_path
       # placeholder: dlc

@@ -99,7 +99,7 @@ module Spectrum
       end
 
       def search_path
-        @search_url || summon_search_link(@params)
+        @search_url || by_source_search_link(@params)
       end
 
       def total_items
@@ -122,7 +122,7 @@ module Spectrum
 
       private
 
-      def summon_search_link(params = {})
+      def by_source_search_link(params = {})
         case @source
         when 'catalog'
           catalog_index_path(params)
@@ -141,6 +141,10 @@ module Spectrum
           params['f'] ||= {}
           params['f']['genre_facet'] = ['Dissertations']
           academic_commons_index_path(params)
+        when 'geo'
+          geo_index_path(params)
+        when 'dlc'
+          dlc_index_path(params)
         when 'journals'
           journals_index_path(params)
         when 'databases'
@@ -780,6 +784,71 @@ module Spectrum
                                     label: 'Title A-Z'
               config.add_sort_field 'title_sort desc, pub_date_sort desc',
                                     label: 'Title Z-A'
+
+
+            when 'geo'
+
+              config.default_solr_params = {
+                :start => 0,
+                :rows => 10,
+                'q.alt' => '*:*'
+              }
+              config.default_document_solr_params = {
+               :qt => 'document',
+               :q => '{!raw f=layer_slug_s v=$id}'
+              }
+
+              config.index.title_field = 'dc_title_s'
+              config.show.display_type_field = 'format'
+              # config.index.document_presenter_class = Geoblacklight::DocumentPresenter
+              config.add_facet_field 'dct_provenance_s', label: 'Institution', limit: 8
+              config.add_facet_field 'dc_creator_sm', :label => 'Author', :limit => 8
+              config.add_facet_field 'dc_subject_sm', :label => 'Subject', :limit => 8
+              config.add_facet_field 'dct_spatial_sm', :label => 'Place', :limit => 8
+              config.add_facet_field 'dct_isPartOf_sm', :label => 'Collection', :limit => 8
+              config.add_facet_field 'solr_year_i', :label => 'Year', :limit => 10
+              config.add_facet_field 'dc_rights_s', label: 'Access', limit: 8
+              config.add_facet_field 'layer_geom_type_s', label: 'Data type', limit: 8
+
+              config.add_sort_field 'score desc, dc_title_sort asc', :label => 'relevance'
+              config.add_sort_field "solr_year_i desc, dc_title_sort asc", :label => 'year'
+              config.add_sort_field "dc_publisher_s asc, dc_title_sort asc", :label => 'publisher'
+              config.add_sort_field 'dc_title_sort asc', :label => 'title'
+
+
+            when 'dlc'
+              add_search_fields(config, 'dlc_title', 'dlc_name')
+
+              config.default_solr_params = {
+                qt: 'search',
+                rows: 25,
+                qf: 'all_text_teim',
+                pf: 'all_text_teim',
+              }
+
+              config.show.title_field = 'title_display_ssm'
+              config.show.display_type_field = 'lib_format_ssm'
+              # config.show.genre = 'genre_facet'
+              config.show.author = 'name_corporate_ssm'
+              config.index.title_field = 'title_display_ssm'
+              config.index.display_type_field = 'lib_format_ssm'
+              config.add_facet_field 'lib_project_short_ssim',
+                                     label: 'Digital Project', limit: 5
+              config.add_facet_field 'lib_collection_sim',
+                                     label: 'Collection', limit: 5
+              config.add_facet_field 'lib_repo_short_ssim',
+                                     label: 'Library Location', limit: 5
+              config.add_facet_field 'lib_name_sim',
+                                     label: 'Name', limit: 10
+              config.add_facet_field 'lib_format_sim',
+                                     label: 'Format', limit: 10
+              config.add_sort_field 'score desc, title_si asc, lib_date_dtsi desc',
+                                    label: 'relevance'
+              config.add_sort_field 'title_si asc, lib_date_dtsi desc',
+                                    label: 'Title A-Z'
+              config.add_sort_field 'title_si desc, lib_date_dtsi desc',
+                                    label: 'Title Z-A'
+
 
             end # case source
 

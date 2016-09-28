@@ -1,0 +1,19 @@
+= display_search_boxes('dlc')
+
+.row
+  .landing_main.col-sm-8
+    .title Digital Collection Viewer
+
+    = render partial: '/datasource_warning', locals: {warning: warning}
+
+    %p DLC - the gateway to a limited set of miscellaneous content
+
+  .landing_side.col-sm-4
+    .well.sidebar-nav
+      .nav
+        %ul.nav.nav-list
+          %li.nav-header DCV
+          %li=link_to "DCV homepage", "https://dlc.library.columbia.edu/", :target => "_blank"
+          %li.nav-divider
+
+

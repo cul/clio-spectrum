@@ -1,6 +1,8 @@
 class SolrDocument
   def id
-    self[self.class.unique_key].listify.first
+    # Cope with GeoBlacklight SolrDocuments
+    return self[:layer_slug_s] || self[self.class.unique_key]
+    # self[self.class.unique_key].listify.first
   end
 
   include Blacklight::Solr::Document

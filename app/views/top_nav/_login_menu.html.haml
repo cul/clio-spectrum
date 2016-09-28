@@ -21,6 +21,8 @@
     %li= link_to "CLIO Legacy Saved Lists", "http://clio.cul.columbia.edu:7018/vwebv/myList", :target => "_blank"
     - if current_user
       %li.nav-divider
+      - if current_user.has_role?('site', 'admin')
+        %li= link_to "CLIO Preferences", destroy_user_session_path, :method => :delete
       %li= link_to "Logout", destroy_user_session_path, :method => :delete
 
 

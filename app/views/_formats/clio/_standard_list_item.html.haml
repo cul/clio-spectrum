@@ -7,14 +7,17 @@
 -# maybe handy to have a per-item anchor?
 -# %a{name: document.fetch(:id)}
 
-.result.document{class: "#{render_document_class(document)} #{'database_record' if document.is_database?}", source: 'catalog', item_id: document.fetch(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
+-# TODO - this logic doesn't belong here
+- document_id = document.has_key?(:id) ? document.fetch(:id) : document.fetch(:layer_slug_s)
+
+.result.document{class: "#{render_document_class(document)} #{'database_record' if document.is_database?}", source: 'catalog', item_id: document_id, standard_ids: extract_standard_bibkeys(document).join(",")}
 
   .row
     .title.col-sm-12
       = render '/coins', document: document
 
       .item_anchor
-        = render '/saved_lists/item_select_checkbox', item_id: document[:id], counter: counter
+        = render '/saved_lists/item_select_checkbox', item_id: document_id, counter: counter
 
       .item_select_allowance
         -# This is how core Blacklight would do it...
