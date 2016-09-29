@@ -1,9 +1,9 @@
 -# container for a single doc - within AGGREGATE views, e.g., QuickSearch
 
-.result{source: 'dlc', item_id: document.get(:id)}
+.result{source: 'dlc', item_id: document.id}
 
   -# https://dlc.library.columbia.edu/catalog/ldpd:166321
-  .result_title= link_to document.fetch('title_display_ssm'), APP_CONFIG['dlc_catalog_url'] + document['id']
+  .result_title= link_to document.fetch('title_display_ssm'), APP_CONFIG['dlc_catalog_url'] + document.id
 
 
   / main container for doc partial view

@@ -26,7 +26,7 @@ describe SpectrumController do
     #   get 'fetch', layout: 'No Such Layout', datasource: 'catalog'
     #   expect(response).to be_success
     #   expect(response.body).to match(/search layout invalid/i)
-      get 'searchjson', layout: 'qucksearch', datasource: 'catalog'
+      get 'searchjson', layout: 'quicksearch', datasource: 'catalog'
       expect(response).to be_success
     end
 

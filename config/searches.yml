@@ -1,4 +1,4 @@
-search_layouts:
+default_search_layouts:
 
   articles:
     style: summon
@@ -141,4 +141,15 @@ sources:
     render_options:
       format: article
 
+  geo:
+    title: GeoData
+    description: Columbia's catalog of geospatial data sets 
+    render_options:
+      format: geo
+
+  dlc:
+    title: DLC
+    description: Digital Collection Viewer (Beta) 
+    render_options:
+      format: dlc
 
