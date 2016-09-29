@@ -1,83 +1,56 @@
-layouts:
+search_layouts:
+
   articles:
     style: summon
-    # obsolete
-    # has_facets: true
     columns:
       - searches:
           - source: articles 
+
   library_web:
-    style: single
+    style: lweb
     columns:
       - searches:
           - source: library_web 
-            # let per-page (row count) be parameterized
-            # count: 10
+
   quicksearch:
     style: aggregate
     columns:
-      - width: 6
-        searches:
+      - searches:
           - source: catalog
             count: 10
             display_footer: true
-            row_opts:
-              spans: [3,9] 
-      - width: 6
-        searches:
+      - searches:
           - source: articles
             count: 3
-            row_opts:
-              spans: [3,9] 
-
           - source: academic_commons
             count: 3
-            row_opts:
-              spans: [3,9]
-
           - source: library_web
             count: 3
-            row_opts:
-              spans: [3,9]
-
 
   dissertations:
     style: aggregate
     columns:
-      - width: 6
-        searches:
+      - searches:
           - source: catalog_dissertations
             count: 10
             display_footer: true
-            row_opts:
-              spans: [3,9] 
-      - width: 6
-        searches:
-          - source: dissertations
+      - searches:
+          - source: summon_dissertations
             count: 3
-            row_opts:
-              spans: [3,9] 
           - source: ac_dissertations 
             count: 3
-            row_opts:
-              spans: [3,9] 
   ebooks:
     style: aggregate
     columns:
-      - width: 6
-        searches:
+      - searches:
           - source: catalog_ebooks 
             count: 10
             display_footer: true
-            row_opts:
-              spans: [3,9] 
-      - width: 6
-        searches:
-          - source: ebooks 
+      - searches:
+          - source: summon_ebooks 
             count: 10
             display_footer: true
-            row_opts:
-              spans: [3,9]
+
 
 
 sources:
@@ -95,7 +68,6 @@ sources:
     title: Catalog
     description: Library books, journals, music, videos, databases, archival collections, and online resources
     Xwarning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
-    holdings_check: true
     render_options:
       format: clio
 
@@ -112,7 +84,6 @@ sources:
     warningXX:  Item Status unavailable due to system upgrades.  AC.
     render_options:
       format: ac
-      check_fedora: true
 
   library_web:
     title: Libraries Website
@@ -127,9 +98,8 @@ sources:
     warningXX:  Item Status unavailable due to system upgrades.  AC-DISS.
     render_options:
       format: ac
-      check_fedora: true
 
-  dissertations:
+  summon_dissertations:
     title: Summon
     description: Dissertations and theses from the Articles database. Many are full-text.
     warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.  ArtyDiss.
@@ -164,11 +134,11 @@ sources:
     render_options:
       format: clio 
 
-  ebooks:
+  summon_ebooks:
     title: Summon
     description: E-books from the Articles database
     warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.  eboo.
     render_options:
-      format: ebooks
+      format: article
 
 

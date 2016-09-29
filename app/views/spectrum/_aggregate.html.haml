@@ -1,6 +1,6 @@
 .row
   - @search_layout['columns'].each do |column|
-    %div{:class => get_column_classes(column)}
+    %div{:class => "result_column col-sm-6"}
       - column['searches'].each do |search|
 
         - result = @results[search['source']]
@@ -8,21 +8,11 @@
           - source = SEARCHES_CONFIG['sources'][search['source']]
           - warning = source ? source['warning'] : nil;
 
-          - if session[:async_off]
-            -# Async-Off?  We're never going back to this!
-            .result_set
-            = render partial: "/spectrum/aggregate/result_header", locals: {source: search['source'], result: result, title: source['title'], description: source['description']}
-            = render partial: "/spectrum/aggregate/result_docs", locals: {result: result, render_opts: search_render_options(search, source), row_opts: search['row_opts']}
-            -# - if search['display_footer'] && result
-            -#   = render partial: "/spectrum/aggregate/result_footer", :result => result
+          .result_set.async_result_set{:"data-result-set" => spectrum_searchjson_path(Blacklight::Parameters.sanitize(params).to_hash.merge(:datasource => search['source'] )), :"data-source" => search['source']}
+            = render partial: "/spectrum/aggregate/result_header_async", locals: {source: search['source'], result: result, title: source['title'], description: source['description']}
+            = render partial: '/datasource_warning', locals: {warning: warning}
 
-          - else
-            -# Async == YES, that is, all current traffic comes here
-            .result_set.async_result_set{:"data-result-set" => spectrum_searchjson_path(Blacklight::Parameters.sanitize(params).to_hash.merge(:datasource => search['source'] )), :"data-source" => search['source']}
-              = render partial: "/spectrum/aggregate/result_header_async", locals: {source: search['source'], result: result, title: source['title'], description: source['description']}
-              = render partial: '/datasource_warning', locals: {warning: warning}
-
-              .loading_block
-                Loading...
-                =image_tag('ajax-indicator.gif')
+            .loading_block
+              Loading...
+              =image_tag('ajax-indicator.gif')
 

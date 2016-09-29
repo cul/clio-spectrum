@@ -39,7 +39,7 @@ class SpectrumController < ApplicationController
 
     session['search'] = params
 
-    @search_layout = SEARCHES_CONFIG['layouts'][params['layout']]
+    @search_layout = SEARCHES_CONFIG['search_layouts'][params['layout']]
 
     # First, try to detect if we should go to the landing page.
     # But... Facet-Only searches are still searches.
@@ -53,7 +53,6 @@ class SpectrumController < ApplicationController
       redirect_to root_path
     else
       @search_style = @search_layout['style']
-      # @has_facets = @search_layout['has_facets']
       sources =  @search_layout['columns'].map do |col|
         col['searches'].map do |search|
           search['source']
@@ -76,16 +75,13 @@ class SpectrumController < ApplicationController
   end
 
   def searchjson
-    @search_layout = SEARCHES_CONFIG['layouts'][params[:layout]]
+    @search_layout = SEARCHES_CONFIG['search_layouts'][params[:layout]]
 
     @datasource = params[:datasource]
 
     if @search_layout.nil?
       render text: 'Search layout invalid.'
     else
-      # seems to be unused for JSON results?
-      # @fetch_action = true
-
       # Need this to help partials select which template to render
       @search_style = @search_layout['style']
 
@@ -184,38 +180,6 @@ class SpectrumController < ApplicationController
       params.merge! hash
       # params.delete('q') unless params['search_field'] == 'q'
     end
-    #  # seeing a "q" param means a submit directly from the basic search box
-    #  # OR from a direct link
-    #  # (instead of from a facet, or a sort/paginate link, or advanced search)
-    # q_param = params['q']
-    # if q_param
-    #   # which search field was selected from the drop-down?  default s.q
-    #   search_field = params['search_field'] ||= 's.q'
-    #   # LibraryWeb QuickSearch will pass us "search_field=all_fields",
-    #   # which means to do a Summon search against 's.q'
-    #   search_field = 's.q' if search_field == 'all_fields'
-    # 
-    #   if search_field == 's.q'
-    #     # If s.q (default simple summon search)...
-    #     # move the CLIO-interface "q" to what Summon works with, "s.q"
-    #     params['s.q']            = q_param
-    #     session['search']['s.q'] = q_param
-    #   else
-    #     # If the search field is a filter query (s.fq), e.g. "s.fq[TitleCombined]"...
-    #     hash = Rack::Utils.parse_nested_query("#{search_field}=#{q_param}")
-    #     params.merge! hash
-    #     # explicitly set base query s.q to emtpy string
-    #     params['s.q'] = ''
-    #     session['search']['s.q'] = ''
-    #   end
-    # 
-    #   # why knock these out?
-    #   # So that this isn't passed along in the built navigation URLs,
-    #   # which interferes when we try to "X" our keyword term.
-    #   params.delete('q')
-    #   # This we want to leave in (don't delete), so our selected field remains?
-    #   # params.delete('search_field')
-    # end
 
     if params['pub_date']
       params['s.cmd'] = "setRangeFilter(PublicationDate,#{params['pub_date']['min_value']}:#{params['pub_date']['max_value']})"
@@ -239,8 +203,9 @@ class SpectrumController < ApplicationController
 
       # "results" is not the search results, it's the Search Engine object, in a
       # post-search-execution state.
+      # TODO: drive this case statement off yml config files
       results = case source
-        when 'articles', 'dissertations', 'ebooks'
+        when 'articles', 'summon_dissertations', 'summon_ebooks'
           fixed_params = fix_summon_params(fixed_params)
           Spectrum::SearchEngines::Summon.new(fixed_params)
 

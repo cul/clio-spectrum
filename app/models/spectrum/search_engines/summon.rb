@@ -57,13 +57,13 @@ module Spectrum
           's.fvf' => ['ContentType, Newspaper Article,t']
         }.freeze,
 
-        'ebooks' => { 
+        'summon_ebooks' => { 
           's.ho' => 't',
           's.cmd' => 'addFacetValueFilters(IsFullText, true)',
           's.fvf' => ['ContentType,eBook']
         }.freeze,
 
-        'dissertations' => {
+        'summon_dissertations' => {
           's.ho' => 't',
           's.fvf' => ['ContentType,Dissertation']
         }.freeze
@@ -83,7 +83,7 @@ module Spectrum
 
         # These sources only come from bento-box aggregate searches, so enforce
         # the source-specific params without requires 'new_search' CGI param
-        if @source && (@source == 'ebooks' || @source == 'dissertations')
+        if @source && (@source == 'summon_ebooks' || @source == 'summon_dissertations')
           @params = SUMMON_DEFAULT_PARAMS[@source].dup
 
         # Otherwise, when source is Articles or Newspapers, we set source-specific default

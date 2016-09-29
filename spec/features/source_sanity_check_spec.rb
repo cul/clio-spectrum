@@ -206,6 +206,8 @@ describe 'Switching between data-source', :vcr do
 
     expect(page).to have_css('.result_set', count: 3)
     expect(page).to have_css('.nested_result_set', count: 3)
+# page.save_and_open_screenshot
+# page.save_and_open_page
     all('.result_set').each do |result_set|
       expect(result_set).to have_css('.result')
     end

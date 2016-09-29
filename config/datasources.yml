@@ -173,6 +173,8 @@ datasources:
       #   name: Name
 
 
+# This is the _default_ sidebar.
+# It can be overridden in app_config, and eventually by user preference.
 default_datasource_bar:
   major_sources:
     - quicksearch

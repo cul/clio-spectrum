@@ -1,5 +1,5 @@
 - if result.successful?
-  - @add_row_options = row_opts.symbolize_keys! if row_opts.kind_of?(Hash)
+  -# - @add_row_options = row_opts.symbolize_keys! if row_opts.kind_of?(Hash)
 
   - truncated_documents = render_opts['count'] ? result.documents[0,render_opts['count']] : result.documents
   - if truncated_documents.empty?

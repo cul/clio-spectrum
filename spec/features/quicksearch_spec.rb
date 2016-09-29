@@ -126,7 +126,7 @@ describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
       find('img').click
       expect(find('.category_title')).to have_text "Dissertations from the library catalog"
     end
-    within('.results_header[data-source=dissertations]') do
+    within('.results_header[data-source=summon_dissertations]') do
       find('img').click
       expect(find('.category_title')).to have_text "Dissertations and theses from the Articles database. Many are full-text."
     end
@@ -145,7 +145,7 @@ describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
       find('img').click
       expect(find('.category_title')).to have_text "E-books from the library catalog"
     end
-    within('.results_header[data-source=ebooks]') do
+    within('.results_header[data-source=summon_ebooks]') do
       find('img').click
       expect(find('.category_title')).to have_text "E-books from the Articles database"
     end

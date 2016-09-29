@@ -16,16 +16,16 @@
       = render partial: '/datasource_warning', locals: {warning: warning}
   
       -# .result_set
-      = render partial: '/spectrum/single/constraints', locals: {result: result}
+      = render partial: '/spectrum/lweb/constraints', locals: {result: result}
       
       - if result.total_items == 0
-        = render partial: '/spectrum/single/no_results_blurb', locals: {result: result}
+        = render partial: '/spectrum/lweb/no_results_blurb', locals: {result: result}
       - else
-        = render partial: '/spectrum/single/index_toolbar', locals: {result: result}
+        = render partial: '/spectrum/lweb/index_toolbar', locals: {result: result}
       
         #documents{:data => {'ga-action' => 'Search Results Click'} }
-          = render partial: "/spectrum/single/result_docs", locals: {result: result, render_opts: search_render_options(search, source), row_opts: search['row_opts']}
-        = render partial: '/spectrum/single/index_toolbar', locals: {result: result}
+          = render partial: "/spectrum/lweb/result_docs", locals: {result: result, render_opts: search_render_options(search, source)}
+        = render partial: '/spectrum/lweb/index_toolbar', locals: {result: result}
       
   
     - else

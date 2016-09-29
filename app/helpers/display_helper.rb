@@ -1,9 +1,10 @@
 # encoding: utf-8
 
 module DisplayHelper
+
   def get_column_classes(column)
     # "result_column span#{column['width']}"
-    "result_column col-sm-#{column['width']}"
+    "result_column col-sm-6"
   end
 
   MIME_MAPPINGS = {
@@ -429,7 +430,7 @@ module DisplayHelper
   end
 
   def add_row(title, value, options = {})
-    options.reverse_merge!(@add_row_options) if @add_row_options.kind_of?(Hash)
+    # options.reverse_merge!(@add_row_options) if @add_row_options.kind_of?(Hash)
     options.reverse_merge!(
       join: nil,
       abbreviate: nil,
