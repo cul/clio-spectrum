@@ -1,0 +1,20 @@
+
+%p{id: 'notice'}= notice
+
+
+
+%h3 Preferences for #{current_user.login}
+
+
+
+- if @preference.nil?
+  System Defaults
+  = link_to 'New Preference', new_preference_path
+
+- else
+  <pre>
+  = @preference.settings
+  </pre>
+
+  = link_to 'Update Preferences', edit_preference_path(@preference)
+

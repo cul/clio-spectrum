@@ -40,7 +40,7 @@ class SpectrumController < ApplicationController
     session['search'] = params
 
     # @search_layout = SEARCHES_CONFIG['search_layouts'][params['layout']]
-    @search_layout = get_search_layout_config( params['layout'] )
+    @search_layout = get_search_layout( params['layout'] )
 
     # First, try to detect if we should go to the landing page.
     # But... Facet-Only searches are still searches.
@@ -77,7 +77,7 @@ class SpectrumController < ApplicationController
 
   def searchjson
     # @search_layout = SEARCHES_CONFIG['search_layouts'][params[:layout]]
-    @search_layout = get_search_layout_config( params['layout'] )
+    @search_layout = get_search_layout( params['layout'] )
 
     @datasource = params[:datasource]
 
@@ -209,7 +209,7 @@ class SpectrumController < ApplicationController
       results = case source
         when 'articles', 'summon_dissertations', 'summon_ebooks'
           fixed_params = fix_summon_params(fixed_params)
-          Spectrum::SearchEngines::Summon.new(fixed_params)
+          Spectrum::SearchEngines::Summon.new(fixed_params, get_summon_facets)
 
         when 'catalog', 'databases', 'journals', 'catalog_ebooks', 'catalog_dissertations', 'academic_commons', 'ac_dissertations', 'geo', 'dlc'
           blacklight_search(fixed_params)
@@ -232,30 +232,29 @@ class SpectrumController < ApplicationController
 
   private
 
-  def get_search_layout_config(layout)
-    return nil unless layout
+  # moved to preferences_support module,
+  # included in application controller
+  # 
+  # def get_search_layout_config(layout)
+  #   return nil unless layout
+  # 
+  #   # environment-specific app_config.yml
+  #   if APP_CONFIG.has_key?('search_layouts') &&
+  #      APP_CONFIG['search_layouts'].has_key?(layout)
+  #     return APP_CONFIG['search_layouts'][layout]
+  #   end
+  # 
+  #   # defaults file - searches.yml
+  #   if SEARCHES_CONFIG.has_key?('default_search_layouts') &&
+  #      SEARCHES_CONFIG['default_search_layouts'].has_key?(layout)
+  #     return SEARCHES_CONFIG['default_search_layouts'][layout]
+  #   end
+  # 
+  #   # We didn't find a configuration for this layout!
+  #   Rails.logger.error("get_search_layout_config(#{layout}) - configuration not found")
+  #   return nil
+  # end
 
-    # environment-specific app_config.yml
-    if APP_CONFIG.has_key?('search_layouts') &&
-       APP_CONFIG['search_layouts'].has_key?(layout)
-      return APP_CONFIG['search_layouts'][layout]
-    end
 
-    # defaults file - searches.yml
-    if SEARCHES_CONFIG.has_key?('default_search_layouts') &&
-       SEARCHES_CONFIG['default_search_layouts'].has_key?(layout)
-      return SEARCHES_CONFIG['default_search_layouts'][layout]
-    end
-
-    # We didn't find a configuration for this layout!
-    Rails.logger.error("get_search_layout_config(#{layout}) - configuration not found")
-    return nil
-
-    # return #user_preferences['search_layouts'][layout] ||
-    #        APP_CONFIG['search_layouts'][layout] ||
-    #        SEARCHES_CONFIG['default_search_layouts'][layout] ||
-    #        raise("search layout for #{layout} undefined")
-
-  end
 
 end

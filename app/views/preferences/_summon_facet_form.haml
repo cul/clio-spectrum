@@ -1,0 +1,25 @@
+
+
+
+-# - all = Spectrum::SearchEngines::Summon::AVAILABLE_SUMMON_FACETS
+-# - system = Spectrum::SearchEngines::Summon.get_system_summon_facets
+-# - user = get_user_summon_facets || system
+
+%table.table
+  %tr
+    %th name
+    %th system default
+    %th user pref
+  -@all_summon_facets.each do |facet|
+    %tr.facet
+      %td=facet
+      %td
+        = @system_summon_facets[facet] || '-'
+      %td
+        - user_value = @user_summon_facets[facet] || 0
+        = text_field_tag("summon_facets[#{facet}]", user_value, size: 2)
+  
+
+
+
+

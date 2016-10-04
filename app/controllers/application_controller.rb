@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   include Blacklight::Configurable
 
   include BrowseSupport
+  include PreferenceSupport
 
   # Please be sure to impelement current_user and user_session. Blacklight depends on
   # these methods in order to perform user specific actions.

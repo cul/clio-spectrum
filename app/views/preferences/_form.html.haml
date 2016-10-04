@@ -1,0 +1,32 @@
+
+-# We never reference the preference object - so we
+-# do not really need this:
+= form_for(@preference) do |f|
+
+  - if @preference.errors.any?
+    .id#error_explanation
+      %h5
+        = pluralize(@preference.errors.count, "error")
+        prohibited this preference from being saved:
+      %ul
+        - @preference.errors.full_messages.each do |message|
+          %li= message
+
+
+  %h4 Quicksearch Bentos
+  = render 'quicksearch_bentos_form'
+
+  %h4 Summon Facets
+  = render 'summon_facet_form'
+
+  %h4 Datasource Sidebar
+  = render 'datasource_sidebar_form', f: f
+
+
+
+  .actions
+    = f.submit
+
+
+
+

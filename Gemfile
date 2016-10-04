@@ -148,8 +148,8 @@ gem 'rack-utf8_sanitizer'
 # (blacklight_range_limit brings this in anyway - no way to switch to CDN)
 gem 'jquery-rails'
 
-# # jQuery UI - JavaScript, CSS, Images
-# gem 'jquery-ui-rails'
+# jQuery UI
+gem 'jquery-ui-rails'
 
 # Assets processing
 gem 'sass-rails'

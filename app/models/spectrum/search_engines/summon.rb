@@ -2,6 +2,8 @@
 module Spectrum
   module SearchEngines
     class Summon
+
+
       include ActionView::Helpers::NumberHelper
       include Rails.application.routes.url_helpers
       Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
@@ -76,9 +78,12 @@ module Spectrum
       # returns @search - a filled-in search structure, including query results.
       # input "options" are the CGI-param inputs, while
       # @params is a built-up parameters hash to pass to the Summon API
-      def initialize(options = {})
+      def initialize(options = {}, summon_facets)
+        # raise
         Rails.logger.debug "initialize() options=#{options.inspect}"
         @source = options.delete('source') || options.delete(:source)
+        @summon_facets = summon_facets
+
         @params = {}
 
         # These sources only come from bento-box aggregate searches, so enforce
@@ -175,7 +180,9 @@ module Spectrum
       # FACET_ORDER = %w(ContentType SubjectTerms Language)
 
       def facets
-        @search.facets.sort_by { |facet| (ind = get_summon_facets.keys.index(facet.display_name)) ? ind : 999 }
+        # raise
+        # @search.facets.sort_by { |facet| (ind = Spectrum::SearchEngines::Summon.get_summon_facets.keys.index(facet.display_name)) ? ind : 999 }
+        @search.facets.sort_by { |facet| (ind = @summon_facets.keys.index(facet.display_name)) ? ind : 999 }
       end
 
       # The "pre-facet-options" are the four checkboxes which precede the facets.
@@ -441,7 +448,43 @@ module Spectrum
         params
       end
 
+      AVAILABLE_SUMMON_FACETS = [
+        'SubjectTerms',
+        'ContentType',
+        'Language',
+        'SourceName',
+        'PublicationTitle',
+        'Discipline',
+        'DatabaseName',
+
+        # These are IDs, not appropriate for patron display
+        'SourcePackageID',
+        'SourceID',
+        'PackageID',
+
+        # These we control via checkboxes, not facets
+        'IsPeerReviewed',
+        'IsScholarly',
+      ]
+      # DEFAULT_SUMMON_FACETS = {
+      #   'ContentType' => 10, 'SubjectTerms' => 10, 'Language' => 10
+      # }
+      # # Application defaults
+      # def self.get_system_summon_facets
+      #   APP_CONFIG['summon_facets'] ||
+      #   DEFAULT_SUMMON_FACETS ||
+      #   []
+      # end
+      # # Application defaults with user overrides
+      # def self.get_summon_facets
+      #   # get_user_summon_facets() ||
+      #   get_system_summon_facets() ||
+      #   []
+      # end
+
+
       private
+
 
       def facet_value(field_name)
         fvf = @search.query.facet_value_filters.find { |x| x.field_name == field_name }
@@ -468,16 +511,11 @@ module Spectrum
       def summon_fixed_params
         {
           spellcheck: true,
-          's.ff' => summon_facets_to_params(get_summon_facets)
+          # 's.ff' => summon_facets_to_params(Spectrum::SearchEngines::Summon.get_summon_facets)
+          's.ff' => summon_facets_to_params(@summon_facets)
         }
       end
 
-      DEFAULT_SUMMON_FACETS = {
-        'ContentType' => 10, 'SubjectTerms' => 10, 'Language' => 10
-      }
-      def get_summon_facets
-        APP_CONFIG['summon_facets'] || DEFAULT_SUMMON_FACETS || []
-      end
 
       # { ContentType: 10, SubjectTerms: 10, Language: 10 }
       # to

@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
 
 
+  resources :preferences do
+    collection do
+      post 'bentos'
+      get 'bentos'
+    end
+  end
+
   concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
 
   ##### COPIED FROM VANILLA BLACKLIGHT 6.0 APP
@@ -202,8 +209,6 @@ Rails.application.routes.draw do
   get 'authorities/author_marc/:author', to: 'authorities#author_marc'
   get 'authorities/subject_marc/:subject', to: 'authorities#subject_marc'
 
-  # resources :saved_list_items
-  resources :preferences
 
 
 end

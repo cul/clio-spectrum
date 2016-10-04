@@ -1,0 +1,41 @@
+
+- left = @user_quicksearch_layout['columns'][0]['searches'] || []
+- right = @user_quicksearch_layout['columns'][1]['searches'] || []
+- inactive = @all_bentos
+
+.row
+  .col-sm-4
+    %h4 Left Column
+
+    %ul#bento_left.bento_list
+      - left.each do |search|
+        - inactive.delete(search['source'])
+        %li{id: search['source']}
+          = search['source']
+          = text_field_tag("#{search['source']}_count", search['count'], size: 2)
+          
+
+  .col-sm-4
+    %h4 Right Column
+
+    %ul#bento_right.bento_list
+      - right.each do |search|
+        - inactive.delete(search['source'])
+        %li{id: search['source']}
+          = search['source']
+          = text_field_tag("#{search['source']}_count", search['count'], size: 2)
+          
+
+
+  .col-sm-4
+    %h4 Inactive
+
+    %ul#bento_inactive.bento_list
+      - inactive.each do |source|
+        %li{id: source}
+          = source
+          = text_field_tag("#{source}_count",0, size: 2)
+          
+.btn.btn-default#serialize{data: {'bento-url' => bentos_preferences_path}}
+  Save Bento Layout
+    

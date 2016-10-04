@@ -7,6 +7,7 @@
 // Follow installation instructions:  https://github.com/rails/jquery-rails
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/sortable
 
 // from project Blacklight
 //= require blacklight/blacklight
@@ -58,6 +59,7 @@
 //= require nearby
 //= require saved_lists
 //= require scroll_memory
+//= require preferences
 
 
 // was used in support of JavaScript landing-page switching,
