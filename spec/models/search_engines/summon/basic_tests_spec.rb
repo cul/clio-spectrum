@@ -1,13 +1,17 @@
 # encoding: utf-8
 require 'spec_helper'
 
+SUMMON_FACETS_FOR_SPECS = {
+  'ContentType' => 10, 'SubjectTerms' => 10, 'Language' => 10
+}
+
 describe 'Spectrum::SearchEngines::Summon', :vcr do
 
   describe 'with parameters' do
 
     it 'should default to a clean search' do
 
-      sum = Spectrum::SearchEngines::Summon.new
+      sum = Spectrum::SearchEngines::Summon.new({}, SUMMON_FACETS_FOR_SPECS)
       expect(sum.source).to be_nil
 
       # We always have our facets applied...
@@ -19,7 +23,7 @@ describe 'Spectrum::SearchEngines::Summon', :vcr do
 
     it 'should load in default options as necessary' do
       # should not load in options unless it's a new search
-      sum = Spectrum::SearchEngines::Summon.new('source' => 'articles')
+      sum = Spectrum::SearchEngines::Summon.new({'source' => 'articles'}, SUMMON_FACETS_FOR_SPECS)
       expect(sum.source).to eq('articles')
       # should always have our facets applied...
       expect(sum.params).to have_key('s.ff')
@@ -27,7 +31,7 @@ describe 'Spectrum::SearchEngines::Summon', :vcr do
       expect(sum.params).to_not have_key('s.ho')
 
       # should load in options with a new search
-      sum = Spectrum::SearchEngines::Summon.new('source' => 'articles', 'new_search' => true)
+      sum = Spectrum::SearchEngines::Summon.new({'source' => 'articles', 'new_search' => true}, SUMMON_FACETS_FOR_SPECS)
       expect(sum.source).to eq('articles')
       # should have, as always, facets applied...
       expect(sum.params).to have_key('s.ff')
@@ -39,7 +43,7 @@ describe 'Spectrum::SearchEngines::Summon', :vcr do
 
   describe 'basic articles search' do
     before(:each) do
-      @sum = Spectrum::SearchEngines::Summon.new('source' => 'articles', 's.q' => 'hardnose dictator', 'new_search' => true)
+      @sum = Spectrum::SearchEngines::Summon.new({'source' => 'articles', 's.q' => 'hardnose dictator', 'new_search' => true}, SUMMON_FACETS_FOR_SPECS)
     end
 
     it 'should find results' do
@@ -63,7 +67,7 @@ describe 'Spectrum::SearchEngines::Summon', :vcr do
 
     it 'should catch error when auth fails' do
       APP_CONFIG['summon']['secret_key'] = 'BROKEN'
-      sum = Spectrum::SearchEngines::Summon.new('source' => 'articles', 's.q' => 'Dog')
+      sum = Spectrum::SearchEngines::Summon.new({'source' => 'articles', 's.q' => 'Dog'}, SUMMON_FACETS_FOR_SPECS)
       expect(sum.successful?).to be false
       expect(sum.errors).to eq('401: Unauthorized')
     end
