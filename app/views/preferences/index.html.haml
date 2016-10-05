@@ -3,13 +3,15 @@
 
 
 
-%h3 Preferences for #{current_user.login}
+%h3 CLIO Preference settings for #{current_user.login}
 
 
 
 - if @preference.nil?
-  System Defaults
-  = link_to 'New Preference', new_preference_path
+  No personal preferences set.
+  Using system defaults
+  %br
+  = link_to 'Set Preferences', new_preference_path
 
 - else
   <pre>

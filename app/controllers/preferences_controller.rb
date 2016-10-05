@@ -76,14 +76,14 @@ class PreferencesController < ApplicationController
       
       @preference = Preference.find_by(login: current_user.login )
       # @settings = YAML.parse(@preference['settings']) || {}
-      
+
       # make available throughout view forms
-      
+
       # - for bentos
       @all_bentos = BENTO_DATASOURCES
       @system_quicksearch_layout = get_system_search_layout('quicksearch')
       @user_quicksearch_layout = get_user_search_layout('quicksearch') || @system_quicksearch_layout
-      
+
       # - for summon
       @all_summon_facets = Spectrum::SearchEngines::Summon::AVAILABLE_SUMMON_FACETS
       @system_summon_facets = get_system_summon_facets
@@ -94,8 +94,9 @@ class PreferencesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def preference_params
-      saved_preferences = Preference.find_by(login: current_user.login )
-      settings_hash = YAML.load(saved_preferences['settings']) || {}
+      saved_preferences = Preference.find_by(login: current_user.login ) || ''
+      settings_string = saved_preferences['settings'] || ''
+      settings_hash = YAML.load(settings_string) || {}
 
 settings_hash.delete('search_layouts')
       # # cleanup accidental nils
