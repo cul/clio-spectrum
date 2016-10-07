@@ -97,6 +97,32 @@ class SpectrumController < ApplicationController
    end
   end
 
+
+  # Simplified version of 'searchjson' - just run a query against
+  # a datasource to get a hit count.
+  def hits
+    source = params[:source]
+
+    # we don't need any rows of results.  
+    # (but zero might be iffy with some datasources)
+    params['rows'] = 1
+
+    results = case source
+      when 'catalog', 'academic_commons', 'geo', 'dlc'
+        blacklight_search(params)
+      # when 'academic_commons'
+      #   blacklight_search(params)
+      when 'articles'
+        Spectrum::SearchEngines::Summon.new(fix_summon_params(params))
+      when 'library_web'
+        Spectrum::SearchEngines::GoogleAppliance.new(fix_ga_params(params))
+      end
+
+    @hits = results.total_items || 0
+    render 'hits', layout: 'js_return'
+  end
+
+
   def facet
     # render values of a facet, nothing else.
 

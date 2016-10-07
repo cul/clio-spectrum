@@ -22,15 +22,6 @@ module DatasourcesHelper
     )
   end
 
-  # switch from loading all landing-pages/switching via javascript
-  # to loading only single-source landing-page, select with page-fetch
-  # def add_all_datasource_landing_pages
-  #   content_tag('div', :class => 'landing_pages') do
-  #     datasource_list(:all).collect do |source|
-  #       datasource_landing_page(source)
-  #     end.join('').html_safe
-  #   end
-  # end
 
   # Output the HTML of a single landing page for the passed data-source
   def datasource_landing_page(source = @active_source)
@@ -106,14 +97,10 @@ module DatasourcesHelper
   end
 
   def sidebar_span(source = @active_source)
-    # source_has_facets?(source) ? 'col-sm-3' : 'span2_5'
-    # Our local custom span2_5/span9_5 broke with Bootstrap 3
     'col-sm-3'
   end
 
   def main_span(source = @active_source)
-    # source_has_facets?(source) ? 'col-sm-9' : 'span9_5'
-    # Our local custom span2_5/span9_5 broke with Bootstrap 3
     'col-sm-9'
   end
 
@@ -121,12 +108,6 @@ module DatasourcesHelper
   # No, if we're on the landing page, or if the datasource has no facets.
   # Otherwise, yes.
   def source_has_facets?(source = @active_source)
-    # old mystery
-    # (@has_facets || !DATASOURCES_CONFIG['datasources'][source]['no_facets'] && !@show_landing_pages)
-
-    # mysterious
-    # return true if @has_facets
-
     # No facets if we're showing the landing pages instead of query results
     return false if @show_landing_pages
 
@@ -141,63 +122,65 @@ module DatasourcesHelper
   # Should be an <li>, with an <a href> inside it.
   # The link should re-run the current search against the new data-source.
   def single_datasource_list_item(source, options)
-    classes = []
-    classes << 'minor_source' if options[:minor]
+    link_classes = []
+    link_classes << 'subsource' if get_datasource_bar['subsources'].include?(source)
+
     query = options[:query]
 
     li_classes = %w(datasource_link)
     li_classes << 'selected' if source == options[:active_source]
 
     # li_classes << 'subsource' if options[:subsource]
-    li_classes << 'subsource' if get_datasource_bar['subsources'].include?(source)
+    # li_classes << 'subsource' if get_datasource_bar['subsources'].include?(source)
 
     href = datasource_landing_page_path(source, query)
+    datasource_link = single_datasource_link(source, href, link_classes)
+    datasource_hits = single_datasource_hits(source, query)
 
     # What parts of a query should we carry-over between data-sources?
     # -- Any basic query term, yes, query it against the newly selected datasources
     # -- Any facets?  Drop them, clear all filtering when switching datasources.
     # NEXT-954 - Improve Landing Page access
-    # href = if query.empty?
-      # Don't carry-over the null query, just link to new datasource's landing page
-    #   "/#{source}"
-    # else
-      # case source
-      # when 'quicksearch'
-      #   quicksearch_index_path(:q => query)
-      # when 'catalog'
-      #   catalog_index_path(:q => query)
-      # when 'databases'
-      #   databases_index_path(:q => query)
-      # when 'articles'
-      #   articles_index_path('s.q' => query, 'new_search' => true)
-      # when 'journals'
-      #   journals_index_path(:q => query)
-      # when 'ebooks'
-      #   ebooks_index_path(:q => query)
-      # when 'dissertations'
-      #   dissertations_index_path(:q => query)
-      # when 'new_arrivals'
-      #   new_arrivals_index_path(:q => query)
-      # when 'academic_commons'
-      #   academic_commons_index_path(:q => query)
-      # when 'library_web'
-      #   library_web_index_path(:q => query)
-      # when 'archives'
-      #   archives_index_path(:q => query)
-      # end
-    # end
 
     fail "no source data found for #{source}" unless DATASOURCES_CONFIG['datasources'][source]
 
     content_tag(:li,
-                link_to(DATASOURCES_CONFIG['datasources'][source]['name'],
-                        href,
-                        class: classes.join(' ')
-                ),
+                datasource_link + datasource_hits,
                 source: source,
                 class: li_classes.join(' ')
     )
   end
+
+
+
+  def single_datasource_link(source, href, link_classes)
+    link = link_to(DATASOURCES_CONFIG['datasources'][source]['name'],
+            href,
+            class: link_classes.join(' ')
+    )
+    content_tag(:span, link, class: 'datasource-label')
+  end
+
+  def single_datasource_hits(source, query)
+    span_class = 'datasource-hits'
+    span_data = { datasource: source }
+
+    if get_datasource_bar['major_sources'].include?(source)
+      if get_datasource_bar['subsources'].exclude?(source)
+        if source != @active_source
+          if query && query.length > 1
+            span_data[:query] = query + "&souce=#{source}&new_search=true"
+            span_class = span_class + ' fetch'
+          end
+        end
+      end
+    end
+
+    content_tag(:span, '', class: span_class, data: span_data)
+  end
+
+
+
 
   def datasource_landing_page_path(source, query = '')
     # What parts of a query should we carry-over between data-sources?
@@ -214,37 +197,6 @@ module DatasourcesHelper
     end
 
     return "/#{source}?" + {q: query}.to_query
-
-    # else
-    #   case source
-    #   when 'quicksearch'
-    #     quicksearch_index_path(q: query)
-    #   when 'catalog'
-    #     # raise
-    #     catalog_index_path(q: query)
-    #   when 'databases'
-    #     databases_index_path(q: query)
-    #   when 'articles'
-    #     # articles_index_path('s.q' => query, 'new_search' => true)
-    #     articles_index_path('q' => query, 'new_search' => true)
-    #   when 'journals'
-    #     journals_index_path(q: query)
-    #   when 'ebooks'
-    #     ebooks_index_path(q: query)
-    #   when 'dissertations'
-    #     dissertations_index_path(q: query)
-    #   when 'new_arrivals'
-    #     new_arrivals_index_path(q: query)
-    #   when 'academic_commons'
-    #     academic_commons_index_path(q: query)
-    #   when 'library_web'
-    #     library_web_index_path(q: query)
-    #   when 'archives'
-    #     archives_index_path(q: query)
-    #   else
-    #     fail "datasource_landing_page_path() passed unknown source [#{source}]"
-    #   end
-    # end
   end
 
   def datasource_switch_link(title, source, *args)
