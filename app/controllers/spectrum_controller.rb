@@ -110,12 +110,12 @@ class SpectrumController < ApplicationController
     results = case source
       when 'catalog', 'academic_commons', 'geo', 'dlc'
         blacklight_search(params)
-      # when 'academic_commons'
-      #   blacklight_search(params)
       when 'articles'
         Spectrum::SearchEngines::Summon.new(fix_summon_params(params))
       when 'library_web'
         Spectrum::SearchEngines::GoogleAppliance.new(fix_ga_params(params))
+      else
+        render nothing: true and return
       end
 
     @hits = results.total_items || 0

@@ -31,14 +31,18 @@ $ ->
 
 
   $('.datasource-hits.fetch').each ->
-    datasource = $(this).data('datasource')
-    query = $(this).data('query')
+    # datasource = $(this).data('datasource')
+    # query = $(this).data('query')
+    # url = '/spectrum/hits/' + datasource+ '?q=' + query
 
     hit_span = $(this)
-    url = '/spectrum/hits/' + datasource+ '?q=' + query
-    $.get(url, (data) ->
-      hit_span.html(data)
-    )
+    hits_url = $(this).data('hits-url')
 
+    # alert(hits_url)
+    if typeof hits_url != 'undefined'
+      $.get(hits_url, (data) ->
+        hit_span.html(data)
+      )
+    
 
 

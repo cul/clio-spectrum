@@ -1,29 +1,95 @@
 
 #datasources
-  :margin 0em 0em 1em 0
+  //:margin 0em 0em 1em 0
   :padding 0
-  margin-right: 0
+  //margin-right: 0
 
   li
     :list-style none
-    background: inherit
+    //background: inherit
     color: #111
     :font-size 1.1em
-    //:padding 5px 10px 5px 10px
     display: table-row
+    // When you use display:table-row, the height of the DIV is 
+    // solely determined by the height of the table-cell elements in it. 
+    // Thus, margin, padding, and height on those elements have no effect.
+    //:padding 5px 10px 5px 10px
 
-    a
-      color: #111
-      //display: inline-block
-      //width: 100%
-      :border-bottom none
+  li.selected 
+    font-weight: bold
+    background: #e3e8f1
 
-    .title
-      font-weight: bold
-      font-size: 1.4em
-      text-transform: lowercase
-      font-variant: small-caps
-      color: #888
+  li.hover
+    :background #f0f0f0
+    //  :background #f0f0f0 image_url("ds_pointer.png") no-repeat center right
+
+
+  li .datasource-label
+    border-left: 5px solid white
+
+  li.selected .datasource-label
+    border-left: 5px solid gold
+    
+
+  //li.selected .datasoure-hits
+  //  background: #e3e8f1 image_url("ds_pointer.png") no-repeat center right
+    //  a
+    //    margin-left: -3px 
+    //    font-weight: bold
+
+  li.subsource .datasource-label
+    font-size: 90%
+    //margin-left: 1em
+    padding-left: 2em
+
+
+  li a
+    color: #111
+    //display: inline-block
+    //width: 100%
+    :border-bottom none
+    :text-decoration none
+
+  //li a:hover
+  //  :text-decoration none
+
+
+  li .datasource-label
+    display: table-cell
+    padding-left: 5px
+    padding-top: 5px
+    padding-bottom: 5px
+    //padding-right: 1em
+
+    //text-indent: -15px
+    //padding-left: 15px
+    //padding-top: 5px
+    //padding-bottom: 5px
+
+
+  li .datasource-hits
+    display: table-cell
+    //vertical-align: top
+    text-align: right
+    padding-left: 10px
+    padding-right: 25px
+
+  li.selected .datasource-hits
+    background: #e3e8f1 image_url("ds_pointer.png") no-repeat center right
+  li.hover .datasource-hits
+    background: #f0f0f0 image_url("ds_pointer.png") no-repeat center right
+
+
+    //padding-top: 5px
+    //padding-bottom: 5px
+    //background: #e3e8f1 image_url("ds_pointer.png") no-repeat center right
+
+    //.title
+    //  font-weight: bold
+    //  font-size: 1.4em
+    //  text-transform: lowercase
+    //  font-variant: small-caps
+    //  color: #888
 
     //&.hover
     //  :background #f0f0f0 image_url("ds_pointer.png") no-repeat center right
@@ -35,40 +101,10 @@
     //    margin-left: -3px 
     //    font-weight: bold
 
-    .subsource
-      font-size: 1.0em
-      margin-left: 1em
-
-    a:hover
-      :text-decoration none
-
-
 
     //.hits
     //  display: table-cell
 
-    .datasource-label
-      display: table-cell
-      padding-right: 1em
-
-      text-indent: -15px
-      padding-left: 15px
-      padding-top: 5px
-      padding-bottom: 5px
-
-      &.selected, &.selected.hover
-        background: #e3e8f1 image_url("ds_pointer.png") no-repeat center right
-        border-left: 5px solid gold
-      //  a
-      //    margin-left: -3px 
-      //    font-weight: bold
-
-    .datasource-hits
-      display: table-cell
-      vertical-align: top
-      text-align: right
-      padding-top: 5px
-      padding-bottom: 5px
 
 
 

@@ -123,12 +123,13 @@ module DatasourcesHelper
   # The link should re-run the current search against the new data-source.
   def single_datasource_list_item(source, options)
     link_classes = []
-    link_classes << 'subsource' if get_datasource_bar['subsources'].include?(source)
+    # link_classes << 'subsource' if get_datasource_bar['subsources'].include?(source)
 
     query = options[:query]
 
     li_classes = %w(datasource_link)
     li_classes << 'selected' if source == options[:active_source]
+    li_classes << 'subsource' if get_datasource_bar['subsources'].include?(source)
 
     # li_classes << 'subsource' if options[:subsource]
     # li_classes << 'subsource' if get_datasource_bar['subsources'].include?(source)
@@ -162,21 +163,36 @@ module DatasourcesHelper
   end
 
   def single_datasource_hits(source, query)
-    span_class = 'datasource-hits'
-    span_data = { datasource: source }
+    hits_class = 'datasource-hits'
+    hits_data = ''
 
-    if get_datasource_bar['major_sources'].include?(source)
-      if get_datasource_bar['subsources'].exclude?(source)
-        if source != @active_source
-          if query && query.length > 1
-            span_data[:query] = query + "&souce=#{source}&new_search=true"
-            span_class = span_class + ' fetch'
-          end
-        end
-      end
+    fetch_hits = true
+    fetch_hits = false if source == @active_source
+    fetch_hits = false if query.nil? || query.length < 2
+    fetch_hits = false if source == 'quicksearch'
+    fetch_hits = false if get_datasource_bar['major_sources'].exclude?(source)
+    fetch_hits = false if get_datasource_bar['minor_sources'].include?(source)
+
+    if fetch_hits
+      hits_url = spectrum_hits_path(source: source, q: query, new_search: true)
+      hits_data = { hits_url: hits_url }
+      hits_class = hits_class + ' fetch'
     end
 
-    content_tag(:span, '', class: span_class, data: span_data)
+    # if get_datasource_bar['major_sources'].include?(source)
+    #   if get_datasource_bar['subsources'].exclude?(source)
+    #     if source != @active_source
+    #       if query && query.length > 1
+    #         hits_url = spectrum_hits_path(source: source, q: query, new_search: true)
+    #         hits_data = { hits_url: hits_url }
+    #         # span_data[:query] = query.merge( {source: source, new_search: true} )
+    #         hits_class = hits_class + ' fetch'
+    #       end
+    #     end
+    #   end
+    # end
+
+    content_tag(:span, '', class: hits_class, data: hits_data)
   end
 
 

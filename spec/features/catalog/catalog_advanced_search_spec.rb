@@ -64,7 +64,8 @@ describe 'Catalog Advanced Search', :vcr do
   end
 
   # Test each individual advanced-search option
-  { 'Title' => 'smith',
+  { 
+    'Title' => 'smith',
     'Journal Title' => 'Journal',
     'Author' => 'Smith',
     'Series' => 'Series',
