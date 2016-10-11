@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:00:33 GMT
+      - Tue, 11 Oct 2016 20:55:21 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -23,7 +23,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
         YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
         eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic2MjAxOTc1
         JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
@@ -392,34 +392,21 @@ http_interactions:
         KzAwMjAwNys2MjAxOTc1IHwgZWJufmx+fn56cXp4fnp6enp6enp6fmp0c3p6
         enp6fnp6eHp6c350eHp5cXN1fn5+fn4nXSwndGltZXN0YW1wJz0+JzIwMTYt
         MDctMDZUMjE6MDg6MzAuMzg5WicsJ2F1dGhvcml0aWVzX2R0Jz0+JzIwMTYt
-        MDgtMTFUMTQ6Mzk6MzZaJywnYXV0aG9yX3ZhcmlhbnRfdHh0Jz0+WydHb3Jl
+        MDgtMzFUMDA6NDc6MTNaJywnYXV0aG9yX3ZhcmlhbnRfdHh0Jz0+WydHb3Jl
         LCBBbGJlcnQsJywnR29yZSwgQWxiZXJ0IEFybm9sZCwnLCfQk9C+0YAsINCQ
         0LvRjNCx0LXRgNGCLCcsJ9CT0L7RgCwg0JDQuywnXSwnc3ViamVjdF92YXJp
-        YW50X3R4dCc9PlsnQ3VsdHVyZScsJ1BvbGl0aWNhbCBzY2llbmNlJywnU2Vs
-        Zi1nb3Zlcm5tZW50JywnRXF1YWxpdHknLCdSZXByZXNlbnRhdGl2ZSBnb3Zl
-        cm5tZW50IGFuZCByZXByZXNlbnRhdGlvbicsJ1JlcHVibGljcycsJ01pbmQn
-        LCdJbnRlbGxlY3QnLCdSYXRpb25hbGlzbScsJ1NBSEFSQScsJ0FsbGlhbmNl
-        IHBvdXIgbGEgcmVjaGVyY2hlIGRlcyBhc3BlY3RzIHNvY2lhdXggZHUgVklI
-        L1NJREEnLCdFbnZpcm9ubWVudGFsLCBTb2Npb2Vjb25vbWljLCBhbmQgUG9s
-        aXRpY2FsIEFzcGVjdHMgb2YgUGVzdCBNYW5hZ2VtZW50IFN5c3RlbXMsIFN5
-        bXBvc2l1bSBvbicsJ1N5bXBvc2l1bSBvbiBFbnZpcm9ubWVudGFsLCBTb2Np
-        b2Vjb25vbWljLCBhbmQgUG9saXRpY2FsIEFzcGVjdHMgb2YgUGVzdCBNYW5h
-        Z2VtZW50IFN5c3RlbXMsJywnRnJpZ2h0JywnRW1vdGlvbnMnLCdBbnhpZXR5
-        JywnSG9ycm9yJywnRGlzY2xvc2luZyBvZmZpY2lhbCBzZWNyZXRzJywnR292
-        ZXJubWVudCBzZWNyZWN5JywnU2VjcmVjeSBpbiBnb3Zlcm5tZW50JywnU2Vj
-        cmV0cywgT2ZmaWNpYWwnLCdTZWNyZXRzIG9mIHN0YXRlJywnQ29uZmlkZW50
-        aWFsIGNvbW11bmljYXRpb25zJywnQ3JpbWluYWwgbGF3JywnR292ZXJubWVu
-        dCBhbmQgdGhlIHByZXNzJywnR292ZXJubWVudCBpbmZvcm1hdGlvbicsJ01p
-        bmlzdGVyaWFsIHJlc3BvbnNpYmlsaXR5JywnU2VjcmVjeScsJ0J1c2gsIEdl
-        b3JnZSwnLCdCdXNoLCBHZW8sJywnQnVzaCwgRHpob3JkemggVW9rZXIsJywn
-        QnVzaCwgRHpoLiBVLicsJ0J1c2gsIER6aC4nLCdCdXNoLCcsJ0J1c2hpLCBR
-        aWFvemhpIFcuLCcsJ0J1c2gsIFpob3J6aCwnLCdBcmJ1c3RvLCBKb3JnZSBX
-        LiwnLCdCdXNoLCBYaG9yeGggVy4sJywnRnVuZGFtZW50YWxpc20sIFJlbGln
-        aW91cycsJ0Z1bmRhbWVudGFsaXN0IG1vdmVtZW50cywgUmVsaWdpb3VzJywn
-        UmVsaWdpb24nXSwnX3ZlcnNpb25fJz0+MTU0MjM3ODA5NjI3MzkxNTkwNH1d
-        fX0K
+        YW50X3R4dCc9PlsnU2VsZi1nb3Zlcm5tZW50JywnTWluZCcsJ0ZyaWdodCcs
+        J0Rpc2Nsb3Npbmcgb2ZmaWNpYWwgc2VjcmV0cycsJ0dvdmVybm1lbnQgc2Vj
+        cmVjeScsJ1NlY3JlY3kgaW4gZ292ZXJubWVudCcsJ1NlY3JldHMsIE9mZmlj
+        aWFsJywnU2VjcmV0cyBvZiBzdGF0ZScsJ0J1c2gsIEdlb3JnZSwnLCdCdXNo
+        LCBHZW8sJywnQnVzaCwgRHpob3JkemggVW9rZXIsJywnQnVzaCwgRHpoLiBV
+        LicsJ0J1c2gsIER6aC4nLCdCdXNoLCcsJ0J1c2hpLCBRaWFvemhpIFcuLCcs
+        J0J1c2gsIFpob3J6aCwnLCdBcmJ1c3RvLCBKb3JnZSBXLiwnLCdCdXNoLCBY
+        aG9yeGggVy4sJywnRnVuZGFtZW50YWxpc20sIFJlbGlnaW91cycsJ0Z1bmRh
+        bWVudGFsaXN0IG1vdmVtZW50cywgUmVsaWdpb3VzJ10sJ192ZXJzaW9uXyc9
+        PjE1NDQxMzc2NjY4MDAzODYwNDh9XX19Cg==
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:34 GMT
+  recorded_at: Tue, 11 Oct 2016 20:55:20 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/6201975"
@@ -428,11 +415,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 18:00:35 GMT
+      - Tue, 11 Oct 2016 20:55:21 GMT
   response:
     status:
       code: 200
@@ -455,19 +442,20 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       X-Request-Id:
-      - 0a2262d5-0a4d-42c5-b6e7-0a6bf0545e95
+      - 2c9e82f0-4828-4203-8e31-d08bc00353ac
       Etag:
       - W/"c8e11e05d0b650e10227a96bc8ba1b78"
       X-Frame-Options:
       - SAMEORIGIN
       X-Runtime:
-      - '3.371174'
+      - '1.889401'
       X-Content-Type-Options:
+      - nosniff
       - nosniff
       Access-Control-Request-Method:
       - "*"
       Date:
-      - Tue, 16 Aug 2016 18:00:38 GMT
+      - Tue, 11 Oct 2016 20:55:24 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -482,7 +470,7 @@ http_interactions:
         .G67 2007","status":"available","holding_id":["8043304"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]},{"location_name":"Milstein
         [Butler]","location_note":"","call_number":"E902 .G67 2007","status":"available","holding_id":["8115214"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]}]}}'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:39 GMT
+  recorded_at: Tue, 11 Oct 2016 20:55:23 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=6201975&qt=document&wt=ruby"
@@ -496,7 +484,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:00:38 GMT
+      - Tue, 11 Oct 2016 20:55:24 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -506,7 +494,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
         YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
         eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic2MjAxOTc1
         JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
@@ -875,34 +863,21 @@ http_interactions:
         KzAwMjAwNys2MjAxOTc1IHwgZWJufmx+fn56cXp4fnp6enp6enp6fmp0c3p6
         enp6fnp6eHp6c350eHp5cXN1fn5+fn4nXSwndGltZXN0YW1wJz0+JzIwMTYt
         MDctMDZUMjE6MDg6MzAuMzg5WicsJ2F1dGhvcml0aWVzX2R0Jz0+JzIwMTYt
-        MDgtMTFUMTQ6Mzk6MzZaJywnYXV0aG9yX3ZhcmlhbnRfdHh0Jz0+WydHb3Jl
+        MDgtMzFUMDA6NDc6MTNaJywnYXV0aG9yX3ZhcmlhbnRfdHh0Jz0+WydHb3Jl
         LCBBbGJlcnQsJywnR29yZSwgQWxiZXJ0IEFybm9sZCwnLCfQk9C+0YAsINCQ
         0LvRjNCx0LXRgNGCLCcsJ9CT0L7RgCwg0JDQuywnXSwnc3ViamVjdF92YXJp
-        YW50X3R4dCc9PlsnQ3VsdHVyZScsJ1BvbGl0aWNhbCBzY2llbmNlJywnU2Vs
-        Zi1nb3Zlcm5tZW50JywnRXF1YWxpdHknLCdSZXByZXNlbnRhdGl2ZSBnb3Zl
-        cm5tZW50IGFuZCByZXByZXNlbnRhdGlvbicsJ1JlcHVibGljcycsJ01pbmQn
-        LCdJbnRlbGxlY3QnLCdSYXRpb25hbGlzbScsJ1NBSEFSQScsJ0FsbGlhbmNl
-        IHBvdXIgbGEgcmVjaGVyY2hlIGRlcyBhc3BlY3RzIHNvY2lhdXggZHUgVklI
-        L1NJREEnLCdFbnZpcm9ubWVudGFsLCBTb2Npb2Vjb25vbWljLCBhbmQgUG9s
-        aXRpY2FsIEFzcGVjdHMgb2YgUGVzdCBNYW5hZ2VtZW50IFN5c3RlbXMsIFN5
-        bXBvc2l1bSBvbicsJ1N5bXBvc2l1bSBvbiBFbnZpcm9ubWVudGFsLCBTb2Np
-        b2Vjb25vbWljLCBhbmQgUG9saXRpY2FsIEFzcGVjdHMgb2YgUGVzdCBNYW5h
-        Z2VtZW50IFN5c3RlbXMsJywnRnJpZ2h0JywnRW1vdGlvbnMnLCdBbnhpZXR5
-        JywnSG9ycm9yJywnRGlzY2xvc2luZyBvZmZpY2lhbCBzZWNyZXRzJywnR292
-        ZXJubWVudCBzZWNyZWN5JywnU2VjcmVjeSBpbiBnb3Zlcm5tZW50JywnU2Vj
-        cmV0cywgT2ZmaWNpYWwnLCdTZWNyZXRzIG9mIHN0YXRlJywnQ29uZmlkZW50
-        aWFsIGNvbW11bmljYXRpb25zJywnQ3JpbWluYWwgbGF3JywnR292ZXJubWVu
-        dCBhbmQgdGhlIHByZXNzJywnR292ZXJubWVudCBpbmZvcm1hdGlvbicsJ01p
-        bmlzdGVyaWFsIHJlc3BvbnNpYmlsaXR5JywnU2VjcmVjeScsJ0J1c2gsIEdl
-        b3JnZSwnLCdCdXNoLCBHZW8sJywnQnVzaCwgRHpob3JkemggVW9rZXIsJywn
-        QnVzaCwgRHpoLiBVLicsJ0J1c2gsIER6aC4nLCdCdXNoLCcsJ0J1c2hpLCBR
-        aWFvemhpIFcuLCcsJ0J1c2gsIFpob3J6aCwnLCdBcmJ1c3RvLCBKb3JnZSBX
-        LiwnLCdCdXNoLCBYaG9yeGggVy4sJywnRnVuZGFtZW50YWxpc20sIFJlbGln
-        aW91cycsJ0Z1bmRhbWVudGFsaXN0IG1vdmVtZW50cywgUmVsaWdpb3VzJywn
-        UmVsaWdpb24nXSwnX3ZlcnNpb25fJz0+MTU0MjM3ODA5NjI3MzkxNTkwNH1d
-        fX0K
+        YW50X3R4dCc9PlsnU2VsZi1nb3Zlcm5tZW50JywnTWluZCcsJ0ZyaWdodCcs
+        J0Rpc2Nsb3Npbmcgb2ZmaWNpYWwgc2VjcmV0cycsJ0dvdmVybm1lbnQgc2Vj
+        cmVjeScsJ1NlY3JlY3kgaW4gZ292ZXJubWVudCcsJ1NlY3JldHMsIE9mZmlj
+        aWFsJywnU2VjcmV0cyBvZiBzdGF0ZScsJ0J1c2gsIEdlb3JnZSwnLCdCdXNo
+        LCBHZW8sJywnQnVzaCwgRHpob3JkemggVW9rZXIsJywnQnVzaCwgRHpoLiBV
+        LicsJ0J1c2gsIER6aC4nLCdCdXNoLCcsJ0J1c2hpLCBRaWFvemhpIFcuLCcs
+        J0J1c2gsIFpob3J6aCwnLCdBcmJ1c3RvLCBKb3JnZSBXLiwnLCdCdXNoLCBY
+        aG9yeGggVy4sJywnRnVuZGFtZW50YWxpc20sIFJlbGlnaW91cycsJ0Z1bmRh
+        bWVudGFsaXN0IG1vdmVtZW50cywgUmVsaWdpb3VzJ10sJ192ZXJzaW9uXyc9
+        PjE1NDQxMzc2NjY4MDAzODYwNDh9XX19Cg==
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:39 GMT
+  recorded_at: Tue, 11 Oct 2016 20:55:23 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/9781594201226.json
@@ -911,18 +886,18 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 18:00:39 GMT
+      - Tue, 11 Oct 2016 20:55:23 GMT
   response:
     status:
       code: 302
       message: Found
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:00:39 GMT
+      - Tue, 11 Oct 2016 20:55:24 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Location:
@@ -932,8 +907,8 @@ http_interactions:
       Content-Type:
       - text/html; charset=iso-8859-1
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660;expires=Tue, 16-Aug-2016
-        18:10:31 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 11-Oct-2016
+        21:05:24 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |
@@ -947,7 +922,7 @@ http_interactions:
         <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
         </body></html>
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:39 GMT
+  recorded_at: Tue, 11 Oct 2016 20:55:23 GMT
 - request:
     method: get
     uri: https://catalog.hathitrust.org/api/volumes/brief/isbn/9781594201226.json
@@ -956,20 +931,20 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 18:00:39 GMT
+      - Tue, 11 Oct 2016 20:55:23 GMT
       Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:00:39 GMT
+      - Tue, 11 Oct 2016 20:55:24 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Access-Control-Allow-Origin:
@@ -979,8 +954,8 @@ http_interactions:
       Content-Type:
       - text/html; charset=UTF-8
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a42378b;expires=Tue, 16-Aug-2016
-        18:10:31 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Tue, 11-Oct-2016
+        21:05:24 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |-
@@ -988,7 +963,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:40 GMT
+  recorded_at: Tue, 11 Oct 2016 20:55:24 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/1594201226.json
@@ -997,18 +972,18 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 18:00:40 GMT
+      - Tue, 11 Oct 2016 20:55:24 GMT
   response:
     status:
       code: 302
       message: Found
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:00:39 GMT
+      - Tue, 11 Oct 2016 20:55:24 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Location:
@@ -1018,8 +993,8 @@ http_interactions:
       Content-Type:
       - text/html; charset=iso-8859-1
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660;expires=Tue, 16-Aug-2016
-        18:10:31 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 11-Oct-2016
+        21:05:24 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |
@@ -1033,7 +1008,7 @@ http_interactions:
         <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
         </body></html>
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:40 GMT
+  recorded_at: Tue, 11 Oct 2016 20:55:24 GMT
 - request:
     method: get
     uri: https://catalog.hathitrust.org/api/volumes/brief/isbn/1594201226.json
@@ -1042,20 +1017,20 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 18:00:40 GMT
+      - Tue, 11 Oct 2016 20:55:24 GMT
       Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:00:39 GMT
+      - Tue, 11 Oct 2016 20:55:25 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Access-Control-Allow-Origin:
@@ -1065,8 +1040,8 @@ http_interactions:
       Content-Type:
       - text/html; charset=UTF-8
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a42378b;expires=Tue, 16-Aug-2016
-        18:10:31 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Tue, 11-Oct-2016
+        21:05:25 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |-
@@ -1074,7 +1049,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:40 GMT
+  recorded_at: Tue, 11 Oct 2016 20:55:24 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocm81252666.json
@@ -1083,18 +1058,18 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 18:00:40 GMT
+      - Tue, 11 Oct 2016 20:55:24 GMT
   response:
     status:
       code: 302
       message: Found
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:00:39 GMT
+      - Tue, 11 Oct 2016 20:55:25 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Location:
@@ -1104,8 +1079,8 @@ http_interactions:
       Content-Type:
       - text/html; charset=iso-8859-1
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660;expires=Tue, 16-Aug-2016
-        18:10:31 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 11-Oct-2016
+        21:05:25 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |
@@ -1119,7 +1094,7 @@ http_interactions:
         <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
         </body></html>
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:40 GMT
+  recorded_at: Tue, 11 Oct 2016 20:55:24 GMT
 - request:
     method: get
     uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/ocm81252666.json
@@ -1128,20 +1103,20 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 18:00:40 GMT
+      - Tue, 11 Oct 2016 20:55:24 GMT
       Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:00:40 GMT
+      - Tue, 11 Oct 2016 20:55:25 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Access-Control-Allow-Origin:
@@ -1151,8 +1126,8 @@ http_interactions:
       Content-Type:
       - text/html; charset=UTF-8
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a42378b;expires=Tue, 16-Aug-2016
-        18:10:32 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Tue, 11-Oct-2016
+        21:05:25 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |-
@@ -1160,7 +1135,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:40 GMT
+  recorded_at: Tue, 11 Oct 2016 20:55:24 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/81252666.json
@@ -1169,18 +1144,18 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 18:00:40 GMT
+      - Tue, 11 Oct 2016 20:55:24 GMT
   response:
     status:
       code: 302
       message: Found
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:00:40 GMT
+      - Tue, 11 Oct 2016 20:55:25 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Location:
@@ -1190,8 +1165,8 @@ http_interactions:
       Content-Type:
       - text/html; charset=iso-8859-1
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660;expires=Tue, 16-Aug-2016
-        18:10:32 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 11-Oct-2016
+        21:05:25 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |
@@ -1205,7 +1180,7 @@ http_interactions:
         <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
         </body></html>
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:40 GMT
+  recorded_at: Tue, 11 Oct 2016 20:55:24 GMT
 - request:
     method: get
     uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/81252666.json
@@ -1214,20 +1189,20 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 18:00:40 GMT
+      - Tue, 11 Oct 2016 20:55:24 GMT
       Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:00:40 GMT
+      - Tue, 11 Oct 2016 20:55:25 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Access-Control-Allow-Origin:
@@ -1237,8 +1212,8 @@ http_interactions:
       Content-Type:
       - text/html; charset=UTF-8
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a42378b;expires=Tue, 16-Aug-2016
-        18:10:32 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Tue, 11-Oct-2016
+        21:05:25 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |-
@@ -1246,7 +1221,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:41 GMT
+  recorded_at: Tue, 11 Oct 2016 20:55:25 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/lccn/2007003261.json
@@ -1255,18 +1230,18 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 18:00:41 GMT
+      - Tue, 11 Oct 2016 20:55:25 GMT
   response:
     status:
       code: 302
       message: Found
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:00:40 GMT
+      - Tue, 11 Oct 2016 20:55:26 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Location:
@@ -1276,8 +1251,8 @@ http_interactions:
       Content-Type:
       - text/html; charset=iso-8859-1
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660;expires=Tue, 16-Aug-2016
-        18:10:32 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 11-Oct-2016
+        21:05:26 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |
@@ -1291,7 +1266,7 @@ http_interactions:
         <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
         </body></html>
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:41 GMT
+  recorded_at: Tue, 11 Oct 2016 20:55:25 GMT
 - request:
     method: get
     uri: https://catalog.hathitrust.org/api/volumes/brief/lccn/2007003261.json
@@ -1300,20 +1275,20 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 18:00:41 GMT
+      - Tue, 11 Oct 2016 20:55:25 GMT
       Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a423660
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:00:40 GMT
+      - Tue, 11 Oct 2016 20:55:26 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Access-Control-Allow-Origin:
@@ -1323,8 +1298,8 @@ http_interactions:
       Content-Type:
       - text/html; charset=UTF-8
       Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ea245525d5f4f58455e445a4a42378b;expires=Tue, 16-Aug-2016
-        18:10:32 GMT;path=/;httponly
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Tue, 11-Oct-2016
+        21:05:26 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |-
@@ -1332,7 +1307,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:41 GMT
+  recorded_at: Tue, 11 Oct 2016 20:55:25 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=6871895&qt=document&wt=ruby"
@@ -1346,7 +1321,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:00:40 GMT
+      - Tue, 11 Oct 2016 20:55:26 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -1355,10 +1330,161 @@ http_interactions:
       - Jetty(8.1.8.v20121106)
     body:
       encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'6871895','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'6871895','marc_display'=>'<record><leader>03377cam a22004814a 4500</leader><controlfield tag="001">6871895</controlfield><controlfield tag="005">20100818145900.0</controlfield><controlfield tag="008">080519s2009    nyuab    b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2008021284</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">1403972451</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781403972453</subfield></datafield><datafield tag="024" ind1=" " ind2=" "><subfield code="a">40016299031</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn228427351</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)228427351</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)6871895</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield code="d">BAKER</subfield><subfield code="d">BTCTA</subfield><subfield code="d">C#P</subfield><subfield code="d">BWX</subfield><subfield code="d">OrLoB-B</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">ap-----</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">DS326</subfield><subfield code="b">.P4745 2009</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield code="a">953.6</subfield><subfield code="2">22</subfield></datafield><datafield tag="245" ind1="0" ind2="4"><subfield code="a">The Persian Gulf in history /</subfield><subfield code="c">edited by Lawrence G. Potter.</subfield></datafield><datafield tag="250" ind1=" " ind2=" "><subfield code="a">1st ed.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">Palgrave Macmillan,</subfield><subfield code="c">2009.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">iv, 326 p. :</subfield><subfield code="b">ill., maps ;</subfield><subfield code="c">25 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="505" ind1="0" ind2="0"><subfield code="t">Introduction /</subfield><subfield code="r">Lawrence G. Potter --</subfield><subfield code="g">Pt. I.</subfield><subfield code="t">Gulf History and Society --</subfield><subfield code="g">1.</subfield><subfield code="t">The Archaeology and Early History of the Persian Gulf /</subfield><subfield code="r">D. T. Potts --</subfield><subfield code="g">2.</subfield><subfield code="t">The Persian Gulf in Late Antiquity: The Sasanian Era (200-700 C.E.) /</subfield><subfield code="r">Touraj Daryaee --</subfield><subfield code="g">3.</subfield><subfield code="t">The Gulf in the Early Islamic Period: The Contribution of Archaeology to Regional History /</subfield><subfield code="r">Donald Whitcomb --</subfield><subfield code="g">4.</subfield><subfield code="t">The Kings of Hormuz: From the Beginning until the Arrival of the Portuguese /</subfield><subfield code="r">Mohammad Bagher Vosoughi --</subfield><subfield code="g">5.</subfield><subfield code="t">Boom and Bust: The Port of Basra in the Sixteenth and Seventeenth Centuries /</subfield><subfield code="r">Rudi Matthee --</subfield><subfield code="g">6.</subfield><subfield code="t">The Arab Presence on the Iranian Coast of the Persian Gulf /</subfield><subfield code="r">Shahnaz Razieh Nadjmabadi --</subfield><subfield code="g">7.</subfield><subfield code="t">Gulf Society: An Anthropological View of the Khalijis - Their Evolution and Way of Life /</subfield><subfield code="r">William O. Beeman --</subfield><subfield code="g">Pt. II.</subfield><subfield code="t">The Gulf and the Indian Ocean --</subfield><subfield code="g">8.</subfield><subfield code="t">The Cultural Unity of the Gulf and the Indian Ocean: A Longue Duree Historical Perspective /</subfield><subfield code="r">M. Redha Bhacker --</subfield><subfield code="g">9.</subfield><subfield code="t">The Persian Gulf and the Swahili Coast: A History of Acculturation over the Longue Duree /</subfield><subfield code="r">Abdul Sheriff --</subfield><subfield code="g">10.</subfield><subfield code="t">India and the Gulf: Encounters from the Mid-Sixteenth to the Mid-Twentieth Centuries /</subfield><subfield code="r">Patricia Risso --</subfield><subfield code="g">Pt. III.</subfield><subfield code="t">The Role of Outsiders --</subfield><subfield code="g">11.</subfield><subfield code="t">The Portuguese Presence in the Persian Gulf /</subfield><subfield code="r">Joao Teles e Cunha --</subfield><subfield code="g">12.</subfield><subfield code="t">Dutch Relations with the Persian Gulf /</subfield><subfield code="r">Willem Floor --</subfield><subfield code="g">13.</subfield><subfield code="t">The Ottoman Role in the Gulf /</subfield><subfield code="r">Frederick Anscombe --</subfield><subfield code="g">14.</subfield><subfield code="t">Britain and the Gulf: At the Periphery of Empire /</subfield><subfield code="r">J. E. Peterson --</subfield><subfield code="g">15.</subfield><subfield code="t">The United States and the Persian Gulf in the Twentieth Century /</subfield><subfield code="r">Gary Sick.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">Persian Gulf Region</subfield><subfield code="x">History.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Potter, Lawrence G.</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Contributor biographical information</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-b.html</subfield></datafield><datafield tag="856" ind1="4" ind2="2"><subfield code="3">Publisher description</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-d.html</subfield></datafield><datafield tag="856" ind1="4" ind2="1"><subfield code="3">Table of contents only</subfield><subfield code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-t.html</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield><subfield code="b">TOC</subfield></datafield><datafield tag="960" ind1=" " ind2=" "><subfield code="f">617420</subfield><subfield code="o">1</subfield><subfield code="s">72.41</subfield><subfield code="t">sho</subfield><subfield code="u">2576B</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20090210</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20090804</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20100726</subfield><subfield code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">DS</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">DS326 .P4745 2009</subfield><subfield code="b">loc+DS-+0326+00000000+P4745000+002009</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein [Butler] &gt;&gt; DS326 .P4745 2009|DELIM|9336454</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; DS326 .P4745 2009|DELIM|9902579</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Lehman</subfield><subfield code="b">Lehman &gt;&gt; DS326 .P4745 2009|DELIM|10336040</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2010-07-26T00:00:00.000Z</subfield></datafield></record>','text'=>['DS326 .P4745 2009','953.6 22','The Persian Gulf in history / edited by Lawrence G. Potter.','1st ed.','New York : Palgrave Macmillan, 2009.','iv, 326 p. : ill., maps ; 25 cm.','Includes bibliographical references and index.','Introduction / Lawrence G. Potter -- Pt. I. Gulf History and Society -- 1. The Archaeology and Early History of the Persian Gulf / D. T. Potts -- 2. The Persian Gulf in Late Antiquity: The Sasanian Era (200-700 C.E.) / Touraj Daryaee -- 3. The Gulf in the Early Islamic Period: The Contribution of Archaeology to Regional History / Donald Whitcomb -- 4. The Kings of Hormuz: From the Beginning until the Arrival of the Portuguese / Mohammad Bagher Vosoughi -- 5. Boom and Bust: The Port of Basra in the Sixteenth and Seventeenth Centuries / Rudi Matthee -- 6. The Arab Presence on the Iranian Coast of the Persian Gulf / Shahnaz Razieh Nadjmabadi -- 7. Gulf Society: An Anthropological View of the Khalijis - Their Evolution and Way of Life / William O. Beeman -- Pt. II. The Gulf and the Indian Ocean -- 8. The Cultural Unity of the Gulf and the Indian Ocean: A Longue Duree Historical Perspective / M. Redha Bhacker -- 9. The Persian Gulf and the Swahili Coast: A History of Acculturation over the Longue Duree / Abdul Sheriff -- 10. India and the Gulf: Encounters from the Mid-Sixteenth to the Mid-Twentieth Centuries / Patricia Risso -- Pt. III. The Role of Outsiders -- 11. The Portuguese Presence in the Persian Gulf / Joao Teles e Cunha -- 12. Dutch Relations with the Persian Gulf / Willem Floor -- 13. The Ottoman Role in the Gulf / Frederick Anscombe -- 14. Britain and the Gulf: At the Periphery of Empire / J. E. Peterson -- 15. The United States and the Persian Gulf in the Twentieth Century / Gary Sick.','Persian Gulf Region History.','Potter, Lawrence G.','Contributor biographical information http://www.loc.gov/catdir/enhancements/fy0834/2008021284-b.html','Publisher description http://www.loc.gov/catdir/enhancements/fy0834/2008021284-d.html','Table of contents only http://www.loc.gov/catdir/enhancements/fy0834/2008021284-t.html','AUTH TOC','617420 1 72.41 sho 2576B','20090210 c sl13 MPS','20090804 a rad1 MPS','20100726 a rad1 MPS'],'author_addl_txt'=>['Potter, Lawrence G.'],'author_facet'=>['Potter, Lawrence G.'],'author_sort'=>'Persian Gulf in history edited by Lawrence G. Potter','title_txt'=>['The Persian Gulf in history /'],'title_display'=>['The Persian Gulf in history'],'title_filing_txt'=>['Persian Gulf in history /'],'title_filing_full_txt'=>['Persian Gulf in history /'],'title_first_facet'=>['P'],'title_addl_txt'=>['The Persian Gulf in history /'],'title_sort'=>'persian gulf in history','subject_txt'=>['Persian Gulf Region History'],'subject_topic_facet'=>['History'],'subject_geo_facet'=>['Persian Gulf Region'],'pub_place_display'=>['New York'],'pub_name_display'=>['Palgrave Macmillan'],'pub_year_display'=>['2009'],'pub_place_txt'=>['New York'],'pub_name_txt'=>['Palgrave Macmillan'],'pub_year_txt'=>['2009'],'pub_date_txt'=>['2009'],'language_facet'=>['English'],'format'=>['Book'],'lc_1letter_facet'=>['D - World History'],'lc_2letter_facet'=>['DS - Asia (History)'],'lc_subclass_facet'=>['DS - Asia (History)'],'clio_id_display'=>'6871895','acq_dt'=>'2010-07-26T00:00:00Z','source_facet'=>['catalog'],'source_display'=>['catalog'],'isbn_txt'=>['9781403972453','1403972451'],'isbn_display'=>['1403972451','9781403972453'],'lccn_display'=>['2008021284'],'lccn_txt'=>['2008021284'],'oclc_txt'=>['ocn228427351','228427351'],'oclc_display'=>['ocn228427351','228427351'],'full_publisher_display'=>['New York : Palgrave Macmillan, 2009.'],'location_call_number_id_display'=>['Milstein [Butler] >> DS326 .P4745 2009|DELIM|9336454','Butler Stacks (Enter at the Butler Circulation Desk) >> DS326 .P4745 2009|DELIM|9902579','Lehman >> DS326 .P4745 2009|DELIM|10336040'],'location_call_number_txt'=>['Milstein [Butler] >> DS326 .P4745 2009','Butler Stacks (Enter at the Butler Circulation Desk) >> DS326 .P4745 2009','Lehman >> DS326 .P4745 2009'],'call_number_txt'=>['DS326 .P4745 2009','DS326 .P4745 2009','DS326 .P4745 2009'],'call_number_display'=>['DS326 .P4745 2009','DS326 .P4745 2009','DS326 .P4745 2009'],'location_facet'=>['Milstein','Butler Stacks','Lehman'],'location_txt'=>['Milstein [Butler] >> DS326 .P4745 2009','Butler Stacks (Enter at the Butler Circulation Desk) >> DS326 .P4745 2009','Lehman >> DS326 .P4745 2009'],'url_munged_display'=>['2|||Contributor biographical information|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-b.html|||','2|||Publisher description|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-d.html|||','1|||Table of contents only|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-t.html|||'],'shelfkey'=>['loc+ds-+0326+00000000+p4745000+002009+6871895'],'reverse_shelfkey'=>['ebn~m7~~zwxt~zzzzzzzz~avsvuzzz~zzxzzq~trsyrqu~~~~~'],'item_display'=>['DS326 .P4745 2009 | loc+ds-+0326+00000000+p4745000+002009+6871895 | ebn~m7~~zwxt~zzzzzzzz~avsvuzzz~zzxzzq~trsyrqu~~~~~'],'timestamp'=>'2016-07-06T21:08:29.349Z','authorities_dt'=>'2016-08-11T18:29:08Z','author_variant_txt'=>['Potter, Lawrence Goddard'],'subject_variant_txt'=>['Annals','Auxiliary sciences of history'],'_version_'=>1542392537622249472}]}}
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
+        f=id v=$id}'',''rows''=>''1'',''id''=>''6871895'',''qt''=>''document'',''wt''=>''ruby''}},''response''=>{''numFound''=>1,''start''=>0,''docs''=>[{''id''=>''6871895'',''marc_display''=>''<record><leader>03377cam
+        a22004814a 4500</leader><controlfield tag="001">6871895</controlfield><controlfield
+        tag="005">20100818145900.0</controlfield><controlfield tag="008">080519s2009    nyuab    b    001
+        0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2008021284</subfield></datafield><datafield
+        tag="020" ind1=" " ind2=" "><subfield code="a">1403972451</subfield></datafield><datafield
+        tag="020" ind1=" " ind2=" "><subfield code="a">9781403972453</subfield></datafield><datafield
+        tag="024" ind1=" " ind2=" "><subfield code="a">40016299031</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn228427351</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)228427351</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)6871895</subfield></datafield><datafield
+        tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield
+        code="d">BAKER</subfield><subfield code="d">BTCTA</subfield><subfield code="d">C#P</subfield><subfield
+        code="d">BWX</subfield><subfield code="d">OrLoB-B</subfield></datafield><datafield
+        tag="043" ind1=" " ind2=" "><subfield code="a">ap-----</subfield></datafield><datafield
+        tag="050" ind1="0" ind2="0"><subfield code="a">DS326</subfield><subfield code="b">.P4745
+        2009</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield
+        code="a">953.6</subfield><subfield code="2">22</subfield></datafield><datafield
+        tag="245" ind1="0" ind2="4"><subfield code="a">The Persian Gulf in history
+        /</subfield><subfield code="c">edited by Lawrence G. Potter.</subfield></datafield><datafield
+        tag="250" ind1=" " ind2=" "><subfield code="a">1st ed.</subfield></datafield><datafield
+        tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield
+        code="b">Palgrave Macmillan,</subfield><subfield code="c">2009.</subfield></datafield><datafield
+        tag="300" ind1=" " ind2=" "><subfield code="a">iv, 326 p. :</subfield><subfield
+        code="b">ill., maps ;</subfield><subfield code="c">25 cm.</subfield></datafield><datafield
+        tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references
+        and index.</subfield></datafield><datafield tag="505" ind1="0" ind2="0"><subfield
+        code="t">Introduction /</subfield><subfield code="r">Lawrence G. Potter --</subfield><subfield
+        code="g">Pt. I.</subfield><subfield code="t">Gulf History and Society --</subfield><subfield
+        code="g">1.</subfield><subfield code="t">The Archaeology and Early History
+        of the Persian Gulf /</subfield><subfield code="r">D. T. Potts --</subfield><subfield
+        code="g">2.</subfield><subfield code="t">The Persian Gulf in Late Antiquity:
+        The Sasanian Era (200-700 C.E.) /</subfield><subfield code="r">Touraj Daryaee
+        --</subfield><subfield code="g">3.</subfield><subfield code="t">The Gulf in
+        the Early Islamic Period: The Contribution of Archaeology to Regional History
+        /</subfield><subfield code="r">Donald Whitcomb --</subfield><subfield code="g">4.</subfield><subfield
+        code="t">The Kings of Hormuz: From the Beginning until the Arrival of the
+        Portuguese /</subfield><subfield code="r">Mohammad Bagher Vosoughi --</subfield><subfield
+        code="g">5.</subfield><subfield code="t">Boom and Bust: The Port of Basra
+        in the Sixteenth and Seventeenth Centuries /</subfield><subfield code="r">Rudi
+        Matthee --</subfield><subfield code="g">6.</subfield><subfield code="t">The
+        Arab Presence on the Iranian Coast of the Persian Gulf /</subfield><subfield
+        code="r">Shahnaz Razieh Nadjmabadi --</subfield><subfield code="g">7.</subfield><subfield
+        code="t">Gulf Society: An Anthropological View of the Khalijis - Their Evolution
+        and Way of Life /</subfield><subfield code="r">William O. Beeman --</subfield><subfield
+        code="g">Pt. II.</subfield><subfield code="t">The Gulf and the Indian Ocean
+        --</subfield><subfield code="g">8.</subfield><subfield code="t">The Cultural
+        Unity of the Gulf and the Indian Ocean: A Longue Duree Historical Perspective
+        /</subfield><subfield code="r">M. Redha Bhacker --</subfield><subfield code="g">9.</subfield><subfield
+        code="t">The Persian Gulf and the Swahili Coast: A History of Acculturation
+        over the Longue Duree /</subfield><subfield code="r">Abdul Sheriff --</subfield><subfield
+        code="g">10.</subfield><subfield code="t">India and the Gulf: Encounters from
+        the Mid-Sixteenth to the Mid-Twentieth Centuries /</subfield><subfield code="r">Patricia
+        Risso --</subfield><subfield code="g">Pt. III.</subfield><subfield code="t">The
+        Role of Outsiders --</subfield><subfield code="g">11.</subfield><subfield
+        code="t">The Portuguese Presence in the Persian Gulf /</subfield><subfield
+        code="r">Joao Teles e Cunha --</subfield><subfield code="g">12.</subfield><subfield
+        code="t">Dutch Relations with the Persian Gulf /</subfield><subfield code="r">Willem
+        Floor --</subfield><subfield code="g">13.</subfield><subfield code="t">The
+        Ottoman Role in the Gulf /</subfield><subfield code="r">Frederick Anscombe
+        --</subfield><subfield code="g">14.</subfield><subfield code="t">Britain and
+        the Gulf: At the Periphery of Empire /</subfield><subfield code="r">J. E.
+        Peterson --</subfield><subfield code="g">15.</subfield><subfield code="t">The
+        United States and the Persian Gulf in the Twentieth Century /</subfield><subfield
+        code="r">Gary Sick.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield
+        code="a">Persian Gulf Region</subfield><subfield code="x">History.</subfield></datafield><datafield
+        tag="700" ind1="1" ind2=" "><subfield code="a">Potter, Lawrence G.</subfield></datafield><datafield
+        tag="856" ind1="4" ind2="2"><subfield code="3">Contributor biographical information</subfield><subfield
+        code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-b.html</subfield></datafield><datafield
+        tag="856" ind1="4" ind2="2"><subfield code="3">Publisher description</subfield><subfield
+        code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-d.html</subfield></datafield><datafield
+        tag="856" ind1="4" ind2="1"><subfield code="3">Table of contents only</subfield><subfield
+        code="u">http://www.loc.gov/catdir/enhancements/fy0834/2008021284-t.html</subfield></datafield><datafield
+        tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield><subfield code="b">TOC</subfield></datafield><datafield
+        tag="960" ind1=" " ind2=" "><subfield code="f">617420</subfield><subfield
+        code="o">1</subfield><subfield code="s">72.41</subfield><subfield code="t">sho</subfield><subfield
+        code="u">2576B</subfield></datafield><datafield tag="948" ind1="1" ind2="
+        "><subfield code="a">20090210</subfield><subfield code="b">c</subfield><subfield
+        code="c">sl13</subfield><subfield code="d">MPS</subfield></datafield><datafield
+        tag="948" ind1="2" ind2=" "><subfield code="a">20090804</subfield><subfield
+        code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield
+        tag="948" ind1="2" ind2=" "><subfield code="a">20100726</subfield><subfield
+        code="b">a</subfield><subfield code="c">rad1</subfield><subfield code="d">MPS</subfield></datafield><datafield
+        tag="990" ind1=" " ind2=" "><subfield code="a">DS</subfield></datafield><datafield
+        tag="991" ind1=" " ind2=" "><subfield code="a">DS326 .P4745 2009</subfield><subfield
+        code="b">loc+DS-+0326+00000000+P4745000+002009</subfield></datafield><datafield
+        tag="992" ind1=" " ind2=" "><subfield code="a">Milstein</subfield><subfield
+        code="b">Milstein [Butler] &gt;&gt; DS326 .P4745 2009|DELIM|9336454</subfield></datafield><datafield
+        tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield
+        code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; DS326
+        .P4745 2009|DELIM|9902579</subfield></datafield><datafield tag="992" ind1="
+        " ind2=" "><subfield code="a">Lehman</subfield><subfield code="b">Lehman &gt;&gt;
+        DS326 .P4745 2009|DELIM|10336040</subfield></datafield><datafield tag="993"
+        ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield
+        tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield
+        tag="997" ind1=" " ind2=" "><subfield code="a">2010-07-26T00:00:00.000Z</subfield></datafield></record>'',''text''=>[''DS326
+        .P4745 2009'',''953.6 22'',''The Persian Gulf in history / edited by Lawrence
+        G. Potter.'',''1st ed.'',''New York : Palgrave Macmillan, 2009.'',''iv, 326
+        p. : ill., maps ; 25 cm.'',''Includes bibliographical references and index.'',''Introduction
+        / Lawrence G. Potter -- Pt. I. Gulf History and Society -- 1. The Archaeology
+        and Early History of the Persian Gulf / D. T. Potts -- 2. The Persian Gulf
+        in Late Antiquity: The Sasanian Era (200-700 C.E.) / Touraj Daryaee -- 3.
+        The Gulf in the Early Islamic Period: The Contribution of Archaeology to Regional
+        History / Donald Whitcomb -- 4. The Kings of Hormuz: From the Beginning until
+        the Arrival of the Portuguese / Mohammad Bagher Vosoughi -- 5. Boom and Bust:
+        The Port of Basra in the Sixteenth and Seventeenth Centuries / Rudi Matthee
+        -- 6. The Arab Presence on the Iranian Coast of the Persian Gulf / Shahnaz
+        Razieh Nadjmabadi -- 7. Gulf Society: An Anthropological View of the Khalijis
+        - Their Evolution and Way of Life / William O. Beeman -- Pt. II. The Gulf
+        and the Indian Ocean -- 8. The Cultural Unity of the Gulf and the Indian Ocean:
+        A Longue Duree Historical Perspective / M. Redha Bhacker -- 9. The Persian
+        Gulf and the Swahili Coast: A History of Acculturation over the Longue Duree
+        / Abdul Sheriff -- 10. India and the Gulf: Encounters from the Mid-Sixteenth
+        to the Mid-Twentieth Centuries / Patricia Risso -- Pt. III. The Role of Outsiders
+        -- 11. The Portuguese Presence in the Persian Gulf / Joao Teles e Cunha --
+        12. Dutch Relations with the Persian Gulf / Willem Floor -- 13. The Ottoman
+        Role in the Gulf / Frederick Anscombe -- 14. Britain and the Gulf: At the
+        Periphery of Empire / J. E. Peterson -- 15. The United States and the Persian
+        Gulf in the Twentieth Century / Gary Sick.'',''Persian Gulf Region History.'',''Potter,
+        Lawrence G.'',''Contributor biographical information http://www.loc.gov/catdir/enhancements/fy0834/2008021284-b.html'',''Publisher
+        description http://www.loc.gov/catdir/enhancements/fy0834/2008021284-d.html'',''Table
+        of contents only http://www.loc.gov/catdir/enhancements/fy0834/2008021284-t.html'',''AUTH
+        TOC'',''617420 1 72.41 sho 2576B'',''20090210 c sl13 MPS'',''20090804 a rad1
+        MPS'',''20100726 a rad1 MPS''],''author_addl_txt''=>[''Potter, Lawrence G.''],''author_facet''=>[''Potter,
+        Lawrence G.''],''author_sort''=>''Persian Gulf in history edited by Lawrence
+        G. Potter'',''title_txt''=>[''The Persian Gulf in history /''],''title_display''=>[''The
+        Persian Gulf in history''],''title_filing_txt''=>[''Persian Gulf in history
+        /''],''title_filing_full_txt''=>[''Persian Gulf in history /''],''title_first_facet''=>[''P''],''title_addl_txt''=>[''The
+        Persian Gulf in history /''],''title_sort''=>''persian gulf in history'',''subject_txt''=>[''Persian
+        Gulf Region History''],''subject_topic_facet''=>[''History''],''subject_geo_facet''=>[''Persian
+        Gulf Region''],''pub_place_display''=>[''New York''],''pub_name_display''=>[''Palgrave
+        Macmillan''],''pub_year_display''=>[''2009''],''pub_place_txt''=>[''New York''],''pub_name_txt''=>[''Palgrave
+        Macmillan''],''pub_year_txt''=>[''2009''],''pub_date_txt''=>[''2009''],''language_facet''=>[''English''],''format''=>[''Book''],''lc_1letter_facet''=>[''D
+        - World History''],''lc_2letter_facet''=>[''DS - Asia (History)''],''lc_subclass_facet''=>[''DS
+        - Asia (History)''],''clio_id_display''=>''6871895'',''acq_dt''=>''2010-07-26T00:00:00Z'',''source_facet''=>[''catalog''],''source_display''=>[''catalog''],''isbn_txt''=>[''9781403972453'',''1403972451''],''isbn_display''=>[''1403972451'',''9781403972453''],''lccn_display''=>[''2008021284''],''lccn_txt''=>[''2008021284''],''oclc_txt''=>[''ocn228427351'',''228427351''],''oclc_display''=>[''ocn228427351'',''228427351''],''full_publisher_display''=>[''New
+        York : Palgrave Macmillan, 2009.''],''location_call_number_id_display''=>[''Milstein
+        [Butler] >> DS326 .P4745 2009|DELIM|9336454'',''Butler Stacks (Enter at the
+        Butler Circulation Desk) >> DS326 .P4745 2009|DELIM|9902579'',''Lehman >>
+        DS326 .P4745 2009|DELIM|10336040''],''location_call_number_txt''=>[''Milstein
+        [Butler] >> DS326 .P4745 2009'',''Butler Stacks (Enter at the Butler Circulation
+        Desk) >> DS326 .P4745 2009'',''Lehman >> DS326 .P4745 2009''],''call_number_txt''=>[''DS326
+        .P4745 2009'',''DS326 .P4745 2009'',''DS326 .P4745 2009''],''call_number_display''=>[''DS326
+        .P4745 2009'',''DS326 .P4745 2009'',''DS326 .P4745 2009''],''location_facet''=>[''Milstein'',''Butler
+        Stacks'',''Lehman''],''location_txt''=>[''Milstein [Butler] >> DS326 .P4745
+        2009'',''Butler Stacks (Enter at the Butler Circulation Desk) >> DS326 .P4745
+        2009'',''Lehman >> DS326 .P4745 2009''],''url_munged_display''=>[''2|||Contributor
+        biographical information|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-b.html|||'',''2|||Publisher
+        description|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-d.html|||'',''1|||Table
+        of contents only|||http://www.loc.gov/catdir/enhancements/fy0834/2008021284-t.html|||''],''shelfkey''=>[''loc+ds-+0326+00000000+p4745000+002009+6871895''],''reverse_shelfkey''=>[''ebn~m7~~zwxt~zzzzzzzz~avsvuzzz~zzxzzq~trsyrqu~~~~~''],''item_display''=>[''DS326
+        .P4745 2009 | loc+ds-+0326+00000000+p4745000+002009+6871895 | ebn~m7~~zwxt~zzzzzzzz~avsvuzzz~zzxzzq~trsyrqu~~~~~''],''timestamp''=>''2016-07-06T21:08:29.349Z'',''authorities_dt''=>''2016-08-31T04:04:12Z'',''author_variant_txt''=>[''Potter,
+        Lawrence Goddard''],''subject_variant_txt''=>[''Annals''],''_version_''=>1544150059966267392}]}}
+
+'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:41 GMT
+  recorded_at: Tue, 11 Oct 2016 20:55:25 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/6871895"
@@ -1367,11 +1493,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 18:00:41 GMT
+      - Tue, 11 Oct 2016 20:55:26 GMT
   response:
     status:
       code: 200
@@ -1399,14 +1525,15 @@ http_interactions:
       - 1; mode=block
       X-Content-Type-Options:
       - nosniff
+      - nosniff
       X-Runtime:
-      - '1.193796'
+      - '1.127719'
       Access-Control-Request-Method:
       - "*"
       X-Request-Id:
-      - dc0c05ba-850d-4e2e-96d6-a17ab532df85
+      - f243b004-bb45-4aa6-9388-97358f52927f
       Date:
-      - Tue, 16 Aug 2016 18:00:42 GMT
+      - Tue, 11 Oct 2016 20:55:28 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -1421,5 +1548,5 @@ http_interactions:
         .P4745 2009","status":"available","holding_id":["10336040"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]},{"location_name":"Milstein
         [Butler]","location_note":"","call_number":"DS326 .P4745 2009","status":"available","holding_id":["9336454"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]}]}}'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:43 GMT
+  recorded_at: Tue, 11 Oct 2016 20:55:27 GMT
 recorded_with: VCR 3.0.3

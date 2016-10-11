@@ -188,7 +188,7 @@ http_interactions:
   recorded_at: Fri, 01 Jul 2016 19:02:04 GMT
 - request:
     method: get
-    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2015-08-16T00:00:00Z%20TO%20*%5D&fl=*&q=%7B!lucene%7Did:(12345)&qt=search&rows=1&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck=false&stats=true&stats.field=pub_date_sort&wt=ruby"
+    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2015-10-11T00:00:00Z%20TO%20*%5D&fl=*&q=%7B!lucene%7Did:(12345)&qt=search&rows=1&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck=false&stats=true&stats.field=pub_date_sort&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -199,7 +199,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:53:10 GMT
+      - Tue, 11 Oct 2016 20:50:13 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -209,7 +209,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4yOSwn
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4zMSwn
         cGFyYW1zJz0+eydmLnN1YmplY3RfZm9ybV9mYWNldC5mYWNldC5saW1pdCc9
         PicxMScsJ3NwZWxsY2hlY2snPT4nZmFsc2UnLCdmYWNldCc9Pid0cnVlJywn
         c29ydCc9PidzY29yZSBkZXNjLCBwdWJfZGF0ZV9zb3J0IGRlc2MsIHRpdGxl
@@ -221,9 +221,9 @@ http_interactions:
         eScsJ3Jvd3MnPT4nMScsJ2YubGNfc3ViY2xhc3NfZmFjZXQuZmFjZXQubGlt
         aXQnPT4nNTAxJywnZmwnPT4nKicsJ2Yuc3ViamVjdF9nZW9fZmFjZXQuZmFj
         ZXQubGltaXQnPT4nMTEnLCdmYWNldC5xdWVyeSc9PlsnYWNxX2R0OlsyMDE2
-        LTA4LTA5VDAwOjAwOjAwWiBUTyAqXScsJ2FjcV9kdDpbMjAxNi0wNy0xNlQw
-        MDowMDowMFogVE8gKl0nLCdhY3FfZHQ6WzIwMTYtMDItMTZUMDA6MDA6MDBa
-        IFRPICpdJywnYWNxX2R0OlsyMDE1LTA4LTE2VDAwOjAwOjAwWiBUTyAqXSdd
+        LTEwLTA0VDAwOjAwOjAwWiBUTyAqXScsJ2FjcV9kdDpbMjAxNi0wOS0xMVQw
+        MDowMDowMFogVE8gKl0nLCdhY3FfZHQ6WzIwMTYtMDQtMTFUMDA6MDA6MDBa
+        IFRPICpdJywnYWNxX2R0OlsyMDE1LTEwLTExVDAwOjAwOjAwWiBUTyAqXSdd
         LCdzdGF0cy5maWVsZCc9PidwdWJfZGF0ZV9zb3J0JywncSc9Pid7IWx1Y2Vu
         ZX1pZDooMTIzNDUpJywnZi5hdXRob3JfZmFjZXQuZmFjZXQubGltaXQnPT4n
         NicsJ2ZhY2V0LmZpZWxkJz0+Wydmb3JtYXQnLCdwdWJfZGF0ZV9zb3J0Jywn
@@ -359,7 +359,7 @@ http_interactions:
         KzAwMDAwMDAwK2EyNjAwMDAwK3M0NDAwMDAwKzEyMzQ1IHwgZWJufmE2fn54
         dHh5fnp6enp6enp6fnB4dHp6enp6fjd2dnp6enp6fnl4d3Z1fn5+fn4nXSwn
         dGltZXN0YW1wJz0+JzIwMTYtMDctMTFUMDY6MTA6NDEuODI5WicsJ2F1dGhv
-        cml0aWVzX2R0Jz0+JzIwMTYtMDgtMDVUMTY6Mjk6NTRaJywnc3ViamVjdF92
+        cml0aWVzX2R0Jz0+JzIwMTYtMDgtMzFUMTU6NDk6NDZaJywnc3ViamVjdF92
         YXJpYW50X3R4dCc9PlsnS8yjYWZrzKNhLCBGcmFudHMsJywnS8q7YXDKu3XM
         hmvKu2EsJywnS2Fma2EsIEYuJywnS2FwaGthLCBQaHJhbnRzLCcsJ0vMo2Fm
         a8yjYSwgQW1zaGVsLCcsJ0thZmthLCBGcmFuYywnLCdLyrthLWZ1LWvKu2Es
@@ -372,12 +372,12 @@ http_interactions:
         16jXoNelJywn16fXpNen15AsINek16jXoNel1r7WvteR16fXqNeqINeV16TX
         qNep16DXldeqJywn16fXpNen15AsINek16jXoNelLCcsJ9mD2KfZgdmD2KfY
         jCDZgdix2KfZhtiq2LMnLCfZg9mB2YPYp9iMINmB2LHZhtiyJywn2qnYp9mB
-        2qnYp9iMINmB2LHYp9mG2LLYjCddLCdfdmVyc2lvbl8nPT4xNTQxODQxNDQ2
-        NTUzNzgwMjI0fV19LCdmYWNldF9jb3VudHMnPT57J2ZhY2V0X3F1ZXJpZXMn
-        PT57J2FjcV9kdDpbMjAxNi0wOC0wOVQwMDowMDowMFogVE8gKl0nPT4wLCdh
-        Y3FfZHQ6WzIwMTYtMDctMTZUMDA6MDA6MDBaIFRPICpdJz0+MCwnYWNxX2R0
-        OlsyMDE2LTAyLTE2VDAwOjAwOjAwWiBUTyAqXSc9PjAsJ2FjcV9kdDpbMjAx
-        NS0wOC0xNlQwMDowMDowMFogVE8gKl0nPT4wfSwnZmFjZXRfZmllbGRzJz0+
+        2qnYp9iMINmB2LHYp9mG2LLYjCddLCdfdmVyc2lvbl8nPT4xNTQ0MTk0NDQ5
+        NTM3NDk5MTM2fV19LCdmYWNldF9jb3VudHMnPT57J2ZhY2V0X3F1ZXJpZXMn
+        PT57J2FjcV9kdDpbMjAxNi0xMC0wNFQwMDowMDowMFogVE8gKl0nPT4wLCdh
+        Y3FfZHQ6WzIwMTYtMDktMTFUMDA6MDA6MDBaIFRPICpdJz0+MCwnYWNxX2R0
+        OlsyMDE2LTA0LTExVDAwOjAwOjAwWiBUTyAqXSc9PjAsJ2FjcV9kdDpbMjAx
+        NS0xMC0xMVQwMDowMDowMFogVE8gKl0nPT4wfSwnZmFjZXRfZmllbGRzJz0+
         eydmb3JtYXQnPT5bJ0Jvb2snLDFdLCdwdWJfZGF0ZV9zb3J0Jz0+WycxOTc3
         JywxXSwnYXV0aG9yX2ZhY2V0Jz0+WydOaWNvbGFpLCBSYWxmIFIuJywxXSwn
         bG9jYXRpb25fZmFjZXQnPT5bJ09mZnNpdGUnLDFdLCdsYW5ndWFnZV9mYWNl
@@ -393,7 +393,7 @@ http_interactions:
         PjE5NzcuMCwnc3VtT2ZTcXVhcmVzJz0+MzkwODUyOS4wLCdtZWFuJz0+MTk3
         Ny4wLCdzdGRkZXYnPT4wLjAsJ2ZhY2V0cyc9Pnt9fX19fQo=
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:53:11 GMT
+  recorded_at: Tue, 11 Oct 2016 20:50:12 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=12345&qt=document&wt=ruby"
@@ -407,7 +407,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:53:10 GMT
+      - Tue, 11 Oct 2016 20:50:13 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -547,7 +547,7 @@ http_interactions:
         MSswMDAwMDAwMCthMjYwMDAwMCtzNDQwMDAwMCsxMjM0NSB8IGVibn5hNn5+
         eHR4eX56enp6enp6en5weHR6enp6en43dnZ6enp6en55eHd2dX5+fn5+J10s
         J3RpbWVzdGFtcCc9PicyMDE2LTA3LTExVDA2OjEwOjQxLjgyOVonLCdhdXRo
-        b3JpdGllc19kdCc9PicyMDE2LTA4LTA1VDE2OjI5OjU0WicsJ3N1YmplY3Rf
+        b3JpdGllc19kdCc9PicyMDE2LTA4LTMxVDE1OjQ5OjQ2WicsJ3N1YmplY3Rf
         dmFyaWFudF90eHQnPT5bJ0vMo2Fma8yjYSwgRnJhbnRzLCcsJ0vKu2Fwyrt1
         zIZryrthLCcsJ0thZmthLCBGLicsJ0thcGhrYSwgUGhyYW50cywnLCdLzKNh
         ZmvMo2EsIEFtc2hlbCwnLCdLYWZrYSwgRnJhbmMsJywnS8q7YS1mdS1ryrth
@@ -560,8 +560,8 @@ http_interactions:
         pNeo16DXpScsJ9en16TXp9eQLCDXpNeo16DXpda+1r7Xkden16jXqiDXldek
         16jXqdeg15XXqicsJ9en16TXp9eQLCDXpNeo16DXpSwnLCfZg9in2YHZg9in
         2Iwg2YHYsdin2YbYqtizJywn2YPZgdmD2KfYjCDZgdix2YbYsicsJ9qp2KfZ
-        gdqp2KfYjCDZgdix2KfZhtiy2IwnXSwnX3ZlcnNpb25fJz0+MTU0MTg0MTQ0
-        NjU1Mzc4MDIyNH1dfX0K
+        gdqp2KfYjCDZgdix2KfZhtiy2IwnXSwnX3ZlcnNpb25fJz0+MTU0NDE5NDQ0
+        OTUzNzQ5OTEzNn1dfX0K
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:53:11 GMT
+  recorded_at: Tue, 11 Oct 2016 20:50:12 GMT
 recorded_with: VCR 3.0.3

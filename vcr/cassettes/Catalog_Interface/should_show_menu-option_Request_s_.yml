@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:55:26 GMT
+      - Tue, 11 Oct 2016 20:48:19 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -480,18 +480,13 @@ http_interactions:
         MDIwMTQrMTA5MDUyMzggfCBlYm5+YTl+fnR6dHV+enp6enp6enp+aXV2enp6
         enp+enp4enl2fnl6cXp1eHdyfn5+fiddLCd0aW1lc3RhbXAnPT4nMjAxNi0w
         Ny0wNlQyMTowODozMi4yMjJaJywnYXV0aG9yaXRpZXNfZHQnPT4nMjAxNi0w
-        Ny0yOFQxNjo0MjoxNVonLCdhdXRob3JfdmFyaWFudF90eHQnPT5bJyBMYXNo
-        ZXJhcywgQW50b25pbyBQZcyBcmV6J10sJ3N1YmplY3RfdmFyaWFudF90eHQn
-        PT5bJ1NwYW5pc2ggTGl0ZXJhdHVyZSwgQ29sbG9xdWl1bSBvbicsJ0dvzIFu
-        Z29yYSwgTHVpcyBkZSwnLCdBcmdvdGUsIEx1aXMgZGUgR2/MgW5nb3JhLCcs
-        J0NhcnJlaXJhIFZlzIFsZXosIEFudG9uaW8sJywnV2Vya2tyZWlzIEFyYmVp
-        dHN3ZWx0JywnV2Vya2tyZWlzIFNpZWJ6aWcnLCdUYWxsZXIgIkxpdGVyYXR1
-        cmEgZGVsIE11bmRvIGRlbCBUcmFiYWpvIicsJ1NpbXBvc2lvIEhpc3Bhbm8t
-        QXVzdHJpYWNvJywnQUlTTycsJ0Fzb2NpYWNpb8yBbiBJbnRlcm5hY2lvbmFs
-        IGRlbCBTaWdsbyBkZSBPcm8nXSwnX3ZlcnNpb25fJz0+MTU0MTExNzQ1NTUz
-        MjgxODQzMn1dfX0K
+        OC0zMVQxMzo0NDoyOVonLCdhdXRob3JfdmFyaWFudF90eHQnPT5bJ0xhc2hl
+        cmFzLCBBbnRvbmlvIFBlzIFyZXonXSwnc3ViamVjdF92YXJpYW50X3R4dCc9
+        PlsnR2/MgW5nb3JhLCBMdWlzIGRlLCcsJ0FyZ290ZSwgTHVpcyBkZSBHb8yB
+        bmdvcmEsJywnQ2FycmVpcmEgVmXMgWxleiwgQW50b25pbywnXSwnX3ZlcnNp
+        b25fJz0+MTU0NDE4NjU2ODMyMzg5MTIwMH1dfX0K
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:55:26 GMT
+  recorded_at: Tue, 11 Oct 2016 20:48:18 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/10905238"
@@ -500,11 +495,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 17:55:27 GMT
+      - Tue, 11 Oct 2016 20:48:18 GMT
   response:
     status:
       code: 200
@@ -532,14 +527,15 @@ http_interactions:
       - 1; mode=block
       X-Content-Type-Options:
       - nosniff
+      - nosniff
       X-Runtime:
-      - '1.300148'
+      - '1.131158'
       Access-Control-Request-Method:
       - "*"
       X-Request-Id:
-      - 31602131-cfea-4d29-a774-10e696c11ae5
+      - 15b5d1a5-3b74-4def-9ae4-12359e9af84f
       Date:
-      - Tue, 16 Aug 2016 17:55:28 GMT
+      - Tue, 11 Oct 2016 20:48:20 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -553,5 +549,5 @@ http_interactions:
         .H54 2014g","status":"available","holding_id":["13950055"],"copies":[{"items":{"Available":{"status":"available","count":1}},"summary_holdings":"Library
         has: v.1-2"}],"services":["offsite"]}]}}'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:55:29 GMT
+  recorded_at: Tue, 11 Oct 2016 20:48:20 GMT
 recorded_with: VCR 3.0.3

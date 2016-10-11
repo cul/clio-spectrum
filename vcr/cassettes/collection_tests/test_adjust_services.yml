@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:00:18 GMT
+      - Tue, 11 Oct 2016 20:54:39 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -22,10 +22,77 @@ http_interactions:
       - Jetty(8.1.8.v20121106)
     body:
       encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'9702637','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'9702637','marc_display'=>'<record><leader>01218cam a2200361 a 4500</leader><controlfield tag="001">9702637</controlfield><controlfield tag="005">20130318143748.0</controlfield><controlfield tag="008">120709s2012    sa            000 p eng c</controlfield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781920397401 (pbk.)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">192039740X (pbk.)</subfield></datafield><datafield tag="029" ind1="1" ind2=" "><subfield code="a">AU@</subfield><subfield code="b">000050210767</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn798561180</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)798561180</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)9702637</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">OI@</subfield><subfield code="c">OI@</subfield><subfield code="d">OI@</subfield><subfield code="d">CLU</subfield><subfield code="d">YDXCP</subfield><subfield code="d">BWX</subfield><subfield code="d">IQU</subfield></datafield><datafield tag="042" ind1=" " ind2=" "><subfield code="a">pcc</subfield></datafield><datafield tag="050" ind1=" " ind2="4"><subfield code="a">PR9369.3.S6</subfield><subfield code="b">A28 2012</subfield></datafield><datafield tag="082" ind1="0" ind2="4"><subfield code="a">821.914</subfield><subfield code="2">23</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Sole, Kelwyn,</subfield><subfield code="d">1951-</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Absent tongues /</subfield><subfield code="c">by Kelwyn Sole.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Athlone, South Africa :</subfield><subfield code="b">Hands-On Books,</subfield><subfield code="c">2012.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">76 p. ;</subfield><subfield code="c">22 cm.</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">Poems.</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20121101</subfield><subfield code="b">c</subfield><subfield code="c">as2107</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="948" ind1="2" ind2=" "><subfield code="a">20130228</subfield><subfield code="b">a</subfield><subfield code="c">vt2130</subfield><subfield code="d">MPS</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">PR</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">PR9369.3.S6 A28 2012g</subfield><subfield code="b">loc+PR-+9369+30000000+S6000000+A2800000+002012</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; PR9369.3.S6 A28 2012g|DELIM|12747868</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Offsite</subfield><subfield code="b">Offsite - Place Request for delivery within 2 business days &gt;&gt; PR9369.3.S6 A28 2012g|DELIM|13256207</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2013-02-28T00:00:00.000Z</subfield></datafield></record>','text'=>['PR9369.3.S6 A28 2012','821.914 23','Sole, Kelwyn, 1951-','Absent tongues / by Kelwyn Sole.','Athlone, South Africa : Hands-On Books, 2012.','76 p. ; 22 cm.','Poems.','20121101 c as2107 MPS','20130228 a vt2130 MPS','AUTH'],'author_txt'=>['Sole, Kelwyn,'],'author_facet'=>['Sole, Kelwyn, 1951-'],'author_display'=>['Sole, Kelwyn, 1951-'],'author_sort'=>'Sole, Kelwyn, 1951-   Absent tongues by Kelwyn Sole','title_txt'=>['Absent tongues /'],'title_display'=>['Absent tongues'],'title_filing_txt'=>['Absent tongues /'],'title_filing_full_txt'=>['Absent tongues /'],'title_first_facet'=>['A'],'title_addl_txt'=>['Absent tongues /'],'title_sort'=>'absent tongues','pub_place_display'=>['Athlone, South Africa'],'pub_name_display'=>['Hands-On Books'],'pub_year_display'=>['2012'],'pub_place_txt'=>['Athlone, South Africa'],'pub_name_txt'=>['Hands-On Books'],'pub_year_txt'=>['2012'],'pub_date_txt'=>['2012'],'language_facet'=>['English'],'format'=>['Book'],'lc_1letter_facet'=>['P - Language & Literature'],'lc_2letter_facet'=>['PR - English Literature'],'lc_subclass_facet'=>['PR - English Literature'],'clio_id_display'=>'9702637','acq_dt'=>'2013-02-28T00:00:00Z','source_facet'=>['catalog'],'source_display'=>['catalog'],'isbn_txt'=>['9781920397401','192039740X','9781920397401 (pbk.)','192039740X (pbk.)'],'isbn_display'=>['9781920397401','192039740X'],'oclc_txt'=>['ocn798561180','798561180'],'oclc_display'=>['ocn798561180','798561180'],'full_publisher_display'=>['Athlone, South Africa : Hands-On Books, 2012.'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> PR9369.3.S6 A28 2012g|DELIM|12747868','Offsite - Place Request for delivery within 2 business days >> PR9369.3.S6 A28 2012g|DELIM|13256207'],'location_call_number_txt'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> PR9369.3.S6 A28 2012g','Offsite - Place Request for delivery within 2 business days >> PR9369.3.S6 A28 2012g'],'call_number_txt'=>['PR9369.3.S6 A28 2012g','PR9369.3.S6 A28 2012g'],'call_number_display'=>['PR9369.3.S6 A28 2012g','PR9369.3.S6 A28 2012g'],'location_facet'=>['Butler Stacks','Offsite'],'location_txt'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> PR9369.3.S6 A28 2012g','Offsite - Place Request for delivery within 2 business days >> PR9369.3.S6 A28 2012g'],'shelfkey'=>['loc+pr-+9369+30000000+s6000000+a2800000+002012+9702637'],'reverse_shelfkey'=>['ebn~a8~~qwtq~wzzzzzzz~7tzzzzzz~pxrzzzzz~zzxzyx~qszxtws'],'item_display'=>['PR9369.3.S6 A28 2012g | loc+pr-+9369+30000000+s6000000+a2800000+002012+9702637 | ebn~a8~~qwtq~wzzzzzzz~7tzzzzzz~pxrzzzzz~zzxzyx~qszxtws'],'timestamp'=>'2016-07-06T21:08:31.987Z','authorities_dt'=>'2016-07-28T16:42:12Z','author_variant_txt'=>[''],'_version_'=>1541117451770527744}]}}
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
+        f=id v=$id}'',''rows''=>''1'',''id''=>''9702637'',''qt''=>''document'',''wt''=>''ruby''}},''response''=>{''numFound''=>1,''start''=>0,''docs''=>[{''id''=>''9702637'',''marc_display''=>''<record><leader>01218cam
+        a2200361 a 4500</leader><controlfield tag="001">9702637</controlfield><controlfield
+        tag="005">20130318143748.0</controlfield><controlfield tag="008">120709s2012    sa            000
+        p eng c</controlfield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781920397401
+        (pbk.)</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield
+        code="a">192039740X (pbk.)</subfield></datafield><datafield tag="029" ind1="1"
+        ind2=" "><subfield code="a">AU@</subfield><subfield code="b">000050210767</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn798561180</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)798561180</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)9702637</subfield></datafield><datafield
+        tag="040" ind1=" " ind2=" "><subfield code="a">OI@</subfield><subfield code="c">OI@</subfield><subfield
+        code="d">OI@</subfield><subfield code="d">CLU</subfield><subfield code="d">YDXCP</subfield><subfield
+        code="d">BWX</subfield><subfield code="d">IQU</subfield></datafield><datafield
+        tag="042" ind1=" " ind2=" "><subfield code="a">pcc</subfield></datafield><datafield
+        tag="050" ind1=" " ind2="4"><subfield code="a">PR9369.3.S6</subfield><subfield
+        code="b">A28 2012</subfield></datafield><datafield tag="082" ind1="0" ind2="4"><subfield
+        code="a">821.914</subfield><subfield code="2">23</subfield></datafield><datafield
+        tag="100" ind1="1" ind2=" "><subfield code="a">Sole, Kelwyn,</subfield><subfield
+        code="d">1951-</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield
+        code="a">Absent tongues /</subfield><subfield code="c">by Kelwyn Sole.</subfield></datafield><datafield
+        tag="260" ind1=" " ind2=" "><subfield code="a">Athlone, South Africa :</subfield><subfield
+        code="b">Hands-On Books,</subfield><subfield code="c">2012.</subfield></datafield><datafield
+        tag="300" ind1=" " ind2=" "><subfield code="a">76 p. ;</subfield><subfield
+        code="c">22 cm.</subfield></datafield><datafield tag="500" ind1=" " ind2="
+        "><subfield code="a">Poems.</subfield></datafield><datafield tag="948" ind1="1"
+        ind2=" "><subfield code="a">20121101</subfield><subfield code="b">c</subfield><subfield
+        code="c">as2107</subfield><subfield code="d">MPS</subfield></datafield><datafield
+        tag="948" ind1="2" ind2=" "><subfield code="a">20130228</subfield><subfield
+        code="b">a</subfield><subfield code="c">vt2130</subfield><subfield code="d">MPS</subfield></datafield><datafield
+        tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield
+        tag="990" ind1=" " ind2=" "><subfield code="a">PR</subfield></datafield><datafield
+        tag="991" ind1=" " ind2=" "><subfield code="a">PR9369.3.S6 A28 2012g</subfield><subfield
+        code="b">loc+PR-+9369+30000000+S6000000+A2800000+002012</subfield></datafield><datafield
+        tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield
+        code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; PR9369.3.S6
+        A28 2012g|DELIM|12747868</subfield></datafield><datafield tag="992" ind1="
+        " ind2=" "><subfield code="a">Offsite</subfield><subfield code="b">Offsite
+        - Place Request for delivery within 2 business days &gt;&gt; PR9369.3.S6 A28
+        2012g|DELIM|13256207</subfield></datafield><datafield tag="993" ind1=" " ind2="
+        "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1="
+        " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997"
+        ind1=" " ind2=" "><subfield code="a">2013-02-28T00:00:00.000Z</subfield></datafield></record>'',''text''=>[''PR9369.3.S6
+        A28 2012'',''821.914 23'',''Sole, Kelwyn, 1951-'',''Absent tongues / by Kelwyn
+        Sole.'',''Athlone, South Africa : Hands-On Books, 2012.'',''76 p. ; 22 cm.'',''Poems.'',''20121101
+        c as2107 MPS'',''20130228 a vt2130 MPS'',''AUTH''],''author_txt''=>[''Sole,
+        Kelwyn,''],''author_facet''=>[''Sole, Kelwyn, 1951-''],''author_display''=>[''Sole,
+        Kelwyn, 1951-''],''author_sort''=>''Sole, Kelwyn, 1951-   Absent tongues by
+        Kelwyn Sole'',''title_txt''=>[''Absent tongues /''],''title_display''=>[''Absent
+        tongues''],''title_filing_txt''=>[''Absent tongues /''],''title_filing_full_txt''=>[''Absent
+        tongues /''],''title_first_facet''=>[''A''],''title_addl_txt''=>[''Absent
+        tongues /''],''title_sort''=>''absent tongues'',''pub_place_display''=>[''Athlone,
+        South Africa''],''pub_name_display''=>[''Hands-On Books''],''pub_year_display''=>[''2012''],''pub_place_txt''=>[''Athlone,
+        South Africa''],''pub_name_txt''=>[''Hands-On Books''],''pub_year_txt''=>[''2012''],''pub_date_txt''=>[''2012''],''language_facet''=>[''English''],''format''=>[''Book''],''lc_1letter_facet''=>[''P
+        - Language & Literature''],''lc_2letter_facet''=>[''PR - English Literature''],''lc_subclass_facet''=>[''PR
+        - English Literature''],''clio_id_display''=>''9702637'',''acq_dt''=>''2013-02-28T00:00:00Z'',''source_facet''=>[''catalog''],''source_display''=>[''catalog''],''isbn_txt''=>[''9781920397401'',''192039740X'',''9781920397401
+        (pbk.)'',''192039740X (pbk.)''],''isbn_display''=>[''9781920397401'',''192039740X''],''oclc_txt''=>[''ocn798561180'',''798561180''],''oclc_display''=>[''ocn798561180'',''798561180''],''full_publisher_display''=>[''Athlone,
+        South Africa : Hands-On Books, 2012.''],''location_call_number_id_display''=>[''Butler
+        Stacks (Enter at the Butler Circulation Desk) >> PR9369.3.S6 A28 2012g|DELIM|12747868'',''Offsite
+        - Place Request for delivery within 2 business days >> PR9369.3.S6 A28 2012g|DELIM|13256207''],''location_call_number_txt''=>[''Butler
+        Stacks (Enter at the Butler Circulation Desk) >> PR9369.3.S6 A28 2012g'',''Offsite
+        - Place Request for delivery within 2 business days >> PR9369.3.S6 A28 2012g''],''call_number_txt''=>[''PR9369.3.S6
+        A28 2012g'',''PR9369.3.S6 A28 2012g''],''call_number_display''=>[''PR9369.3.S6
+        A28 2012g'',''PR9369.3.S6 A28 2012g''],''location_facet''=>[''Butler Stacks'',''Offsite''],''location_txt''=>[''Butler
+        Stacks (Enter at the Butler Circulation Desk) >> PR9369.3.S6 A28 2012g'',''Offsite
+        - Place Request for delivery within 2 business days >> PR9369.3.S6 A28 2012g''],''shelfkey''=>[''loc+pr-+9369+30000000+s6000000+a2800000+002012+9702637''],''reverse_shelfkey''=>[''ebn~a8~~qwtq~wzzzzzzz~7tzzzzzz~pxrzzzzz~zzxzyx~qszxtws''],''item_display''=>[''PR9369.3.S6
+        A28 2012g | loc+pr-+9369+30000000+s6000000+a2800000+002012+9702637 | ebn~a8~~qwtq~wzzzzzzz~7tzzzzzz~pxrzzzzz~zzxzyx~qszxtws''],''timestamp''=>''2016-07-06T21:08:31.987Z'',''authorities_dt''=>''2016-08-31T12:42:21Z'',''_version_''=>1544182658538405888}]}}
+
+'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:18 GMT
+  recorded_at: Tue, 11 Oct 2016 20:54:38 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=9420109&qt=document&wt=ruby"
@@ -39,7 +106,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:00:18 GMT
+      - Tue, 11 Oct 2016 20:54:39 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -264,14 +331,13 @@ http_interactions:
         K2M2NDAwMDAwKzAwMjAxMis5NDIwMTA5IHwgZWJufm9kfn56eXFzfnV6enp6
         enp6fm50dnp6enp6fnp6eHp5eH5xdnh6eXpxfn5+fn4nXSwndGltZXN0YW1w
         Jz0+JzIwMTYtMDctMDZUMjE6MDg6MzEuNjczWicsJ2F1dGhvcml0aWVzX2R0
-        Jz0+JzIwMTYtMDctMjhUMTY6NDI6MTFaJywnYXV0aG9yX3ZhcmlhbnRfdHh0
-        Jz0+WycnXSwnc3ViamVjdF92YXJpYW50X3R4dCc9PlsnSGlzdG9yaWNhbCBK
-        dWRhaXNtJywnSnVkYWlzbSwgQ29uc2VydmF0aXZlJywnUG9zaXRpdmUtSGlz
-        dG9yaWNhbCBKdWRhaXNtJywnSmV3aXNoIHNlY3RzJywnQW5uYWxzJywnQXV4
-        aWxpYXJ5IHNjaWVuY2VzIG9mIGhpc3RvcnknLCdTY2hlY2h0ZXIsIFNvbG9t
-        b24sJywnU2hla2h0zKNlciwgU2hlbmXKvHVyIFphbG1hbiwnLCfXqdeb15jX
-        qCwg16nXnNee15QnLCfXqdeb15jXqCwg16nXoNeZ15DXldeoINeW15zXntef
-        J10sJ192ZXJzaW9uXyc9PjE1NDExMTc0NTA3NTg2NTE5MDR9XX19Cg==
+        Jz0+JzIwMTYtMDgtMzFUMTI6MDA6NTVaJywnc3ViamVjdF92YXJpYW50X3R4
+        dCc9PlsnSGlzdG9yaWNhbCBKdWRhaXNtJywnSnVkYWlzbSwgQ29uc2VydmF0
+        aXZlJywnUG9zaXRpdmUtSGlzdG9yaWNhbCBKdWRhaXNtJywnQW5uYWxzJywn
+        U2NoZWNodGVyLCBTb2xvbW9uLCcsJ1NoZWtodMyjZXIsIFNoZW5lyrx1ciBa
+        YWxtYW4sJywn16nXm9eY16gsINep15zXnteUJywn16nXm9eY16gsINep16DX
+        mdeQ15XXqCDXltec157XnyddLCdfdmVyc2lvbl8nPT4xNTQ0MTgwMDUxNzE5
+        NzQ5NjMyfV19fQo=
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:19 GMT
+  recorded_at: Tue, 11 Oct 2016 20:54:38 GMT
 recorded_with: VCR 3.0.3

@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 18:00:44 GMT
+      - Tue, 11 Oct 2016 20:55:32 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -197,24 +197,17 @@ http_interactions:
         MDAxOTk4KzU2MDI2ODcgfCBlYm5+YWN+fnRzeHN+enp6enp6enp+bnVzd3p6
         enp+OHR3dXp6enp+enp5cXFyfnV0enh0cnMnXSwndGltZXN0YW1wJz0+JzIw
         MTYtMDgtMTRUMTA6MTQ6MDMuMjAxWicsJ2F1dGhvcml0aWVzX2R0Jz0+JzIw
-        MTYtMDgtMTRUMTI6NTM6MTlaJywnYXV0aG9yX3ZhcmlhbnRfdHh0Jz0+WydD
+        MTYtMDgtMzBUMjI6Mzk6NDBaJywnYXV0aG9yX3ZhcmlhbnRfdHh0Jz0+WydD
         b2xsaW5zLCBNYXgnLCdDb2xsaW5zLCBNYXggQS4nLCfjg57jg4Pjgq/jgrnj
         g7vjgqLjg6njg7Pjg7vjgrPjg6rjg7PjgronLCdDdWxoYW5lLCBQYXRyaWNr
         LCcsJ0FsbGFuLCBCYXJiYXJhJywnTGFwcGFuLCBCb2InXSwnc3ViamVjdF92
-        YXJpYW50X3R4dCc9PlsnQ3JpbWluYWxzJywnQ29taWMgYm9vayBub3ZlbHMn
-        LCdGaWN0aW9uIGdyYXBoaWMgbm92ZWxzJywnRmljdGl2ZSBncmFwaGljIG5v
-        dmVscycsJ0dyYXBoaWMgYWxidW1zJywnR3JhcGhpYyBmaWN0aW9uJywnR3Jh
-        cGhpYyBub25maWN0aW9uJywnR3JhcGhpYyBub3ZlbGxhcycsJ05vbmZpY3Rp
-        b24gZ3JhcGhpYyBub3ZlbHMnLCdDb21pYyBib29rcywgc3RyaXBzLCBldGMu
-        JywnRmljdGlvbicsJ1BvcHVsYXIgbGl0ZXJhdHVyZScsJ0NvbWljIHN0cmlw
-        cycsJ0NvbWljcycsJ0Z1bm5pZXMnLCdNYW5nYSAoQ29taWMgYm9va3MsIHN0
-        cmlwcywgZXRjLiknLCdNYW5odWEgKENvbWljIGJvb2tzLCBzdHJpcHMsIGV0
-        Yy4pJywnTWFuaHdhIChDb21pYyBib29rcywgc3RyaXBzLCBldGMuKScsJ1Nl
-        cmlhbCBwaWN0dXJlIGJvb2tzJywnQ2FyaWNhdHVyZXMgYW5kIGNhcnRvb25z
-        JywnV2l0IGFuZCBodW1vciwgUGljdG9yaWFsJ10sJ192ZXJzaW9uXyc9PjE1
-        NDI2NDMyMDAwODIwNTEwNzJ9XX19Cg==
+        YXJpYW50X3R4dCc9PlsnQ29taWMgYm9vayBub3ZlbHMnLCdGaWN0aW9uIGdy
+        YXBoaWMgbm92ZWxzJywnRmljdGl2ZSBncmFwaGljIG5vdmVscycsJ0dyYXBo
+        aWMgYWxidW1zJywnR3JhcGhpYyBmaWN0aW9uJywnR3JhcGhpYyBub25maWN0
+        aW9uJywnR3JhcGhpYyBub3ZlbGxhcycsJ05vbmZpY3Rpb24gZ3JhcGhpYyBu
+        b3ZlbHMnXSwnX3ZlcnNpb25fJz0+MTU0NDEyOTY0MTgzMzI5OTk2OH1dfX0K
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:45 GMT
+  recorded_at: Tue, 11 Oct 2016 20:55:32 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/5602687"
@@ -223,11 +216,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 18:00:45 GMT
+      - Tue, 11 Oct 2016 20:55:32 GMT
   response:
     status:
       code: 200
@@ -247,22 +240,23 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Access-Control-Allow-Origin:
       - "*"
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Request-Id:
-      - 2aee7d36-40cc-4091-8f31-ee672d947541
       Etag:
       - W/"475e44221af84dc72157d875e31dc5ab"
       X-Frame-Options:
       - SAMEORIGIN
-      X-Runtime:
-      - '3.625494'
+      X-Xss-Protection:
+      - 1; mode=block
       X-Content-Type-Options:
       - nosniff
+      - nosniff
+      X-Runtime:
+      - '2.731270'
       Access-Control-Request-Method:
       - "*"
+      X-Request-Id:
+      - 8a389312-34a0-4401-8271-6db3e64de638
       Date:
-      - Tue, 16 Aug 2016 18:00:48 GMT
+      - Tue, 11 Oct 2016 20:55:36 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -277,5 +271,5 @@ http_interactions:
         Gift; Paul Levitz; 2012.","donor_info_icon":[{"message":"Paul Levitz; 2012.","url":""}],"summary_holdings":"Library
         has: v.1-2"}],"services":["doc_delivery"]}]}}'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:49 GMT
+  recorded_at: Tue, 11 Oct 2016 20:55:35 GMT
 recorded_with: VCR 3.0.3

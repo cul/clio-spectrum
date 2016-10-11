@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:57:46 GMT
+      - Tue, 11 Oct 2016 20:51:16 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -22,10 +22,374 @@ http_interactions:
       - Jetty(8.1.8.v20121106)
     body:
       encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'565036','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'565036','marc_display'=>'<record><leader>01533cam a22003491  4500</leader><controlfield tag="001">565036</controlfield><controlfield tag="005">20100304211112.0</controlfield><controlfield tag="008">870114r19141913nyua          000 0 eng d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)38944852</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm38944852</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG87-B4506</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">ACL8299CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)565036</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">NN</subfield><subfield code="c">CMalG</subfield><subfield code="d">NNC</subfield></datafield><datafield tag="110" ind1="2" ind2=" "><subfield code="a">Avery Library.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The Avery Architectural Library,</subfield><subfield code="b">Columbia University, New York City</subfield><subfield code="c">[by] C. Matlack Price [and] George Leland Hunter...</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">[New York:]</subfield><subfield code="b">Printed for the library,</subfield><subfield code="c">1914.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">38 p.</subfield><subfield code="b">illus. (incl. plans.)</subfield><subfield code="c">29 cm.</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">"Reprinted from \'The Architectural record,\' June 1913."</subfield></datafield><datafield tag="505" ind1="0" ind2=" "><subfield code="a">The design of the Avery Architectural Library, by C. M. Price.--Notes of the collection of the Avery Architectural Library, by G. L. Hunter.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Library architecture</subfield><subfield code="z">New York (State)</subfield><subfield code="z">New York.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Price, Charles Matlack.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Hunter, George Leland,</subfield><subfield code="d">1867-1927.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="965" ind1=" " ind2=" "><subfield code="a">(NNC)RECONB287</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">CP Av32Q</subfield><subfield code="b">clm+CP-+0000+00000000+AV32Q000</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">AA2303 P93</subfield><subfield code="b">avefax+AA-+2303+00000000+P9300000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Avery, Fine Arts, Ware</subfield><subfield code="b">Avery Classics - By appt. (Non-Circulating) &gt;&gt; AA2303 P93|DELIM|741046</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Other</subfield><subfield code="b">University Archives, Butler 6th Fl. East (Non-Circulating) &gt;&gt; CP Av32Q|DELIM|7319125</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Avery, Fine Arts, Ware</subfield><subfield code="b">Avery Classics - By appt. (Non-Circulating) &gt;&gt; AA2303 P93|DELIM|8427229</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record>','text'=>['Avery Library.','The Avery Architectural Library, Columbia University, New York City [by] C. Matlack Price [and] George Leland Hunter...','[New York:] Printed for the library, 1914.','38 p. illus. (incl. plans.) 29 cm.','"Reprinted from \'The Architectural record,\' June 1913."','The design of the Avery Architectural Library, by C. M. Price.--Notes of the collection of the Avery Architectural Library, by G. L. Hunter.','Library architecture New York (State) New York.','Price, Charles Matlack.','Hunter, George Leland, 1867-1927.','AUTH','(NNC)RECONB287'],'author_txt'=>['Avery Library.'],'author_addl_txt'=>['Price, Charles Matlack.','Hunter, George Leland,'],'author_facet'=>['Avery Library','Price, Charles Matlack','Hunter, George Leland, 1867-1927'],'author_display'=>['Avery Library'],'author_sort'=>'Avery Library.   Avery Architectural Library Columbia University, New York City [by] C. Matlack Price [and] George Leland Hunter..','title_txt'=>['The Avery Architectural Library,'],'title_display'=>['The Avery Architectural Library, Columbia University, New York City'],'title_filing_txt'=>['Avery Architectural Library,'],'title_filing_full_txt'=>['Avery Architectural Library, Columbia University, New York City'],'subtitle_txt'=>['Columbia University, New York City'],'title_first_facet'=>['A'],'title_addl_txt'=>['The Avery Architectural Library, Columbia University, New York City'],'title_sort'=>'avery architectural library columbia university new york city','subject_txt'=>['Library architecture New York (State) New York'],'subject_topic_facet'=>['Library architecture'],'subject_geo_facet'=>['New York (State)','New York'],'pub_place_display'=>['New York:'],'pub_name_display'=>['Printed for the library'],'pub_year_display'=>['1914'],'pub_place_txt'=>['New York:'],'pub_name_txt'=>['Printed for the library'],'pub_year_txt'=>['1914'],'pub_date_txt'=>['1913'],'language_facet'=>['English'],'format'=>['Book'],'clio_id_display'=>'565036','source_facet'=>['catalog'],'source_display'=>['catalog'],'oclc_txt'=>['38944852','ocm38944852'],'oclc_display'=>['38944852','ocm38944852'],'full_publisher_display'=>['[New York:] Printed for the library, 1914.'],'location_call_number_id_display'=>['Avery Classics - By appt. (Non-Circulating) >> AA2303 P93|DELIM|741046','University Archives, Butler 6th Fl. East (Non-Circulating) >> CP Av32Q|DELIM|7319125','Avery Classics - By appt. (Non-Circulating) >> AA2303 P93|DELIM|8427229'],'location_call_number_txt'=>['Avery Classics - By appt. (Non-Circulating) >> AA2303 P93','University Archives, Butler 6th Fl. East (Non-Circulating) >> CP Av32Q','Avery Classics - By appt. (Non-Circulating) >> AA2303 P93'],'call_number_txt'=>['AA2303 P93','CP Av32Q','AA2303 P93'],'call_number_display'=>['AA2303 P93','CP Av32Q','AA2303 P93'],'location_facet'=>['Avery, Fine Arts, Ware','Other'],'location_txt'=>['Avery Classics - By appt. (Non-Circulating) >> AA2303 P93','University Archives, Butler 6th Fl. East (Non-Circulating) >> CP Av32Q','Avery Classics - By appt. (Non-Circulating) >> AA2303 P93'],'shelfkey'=>['clm+cp-+0000+00000000+av32q000+565036','avefax+aa-+2303+00000000+p9300000+565036'],'reverse_shelfkey'=>['ned~na~~zzzz~zzzzzzzz~p4wx9zzz~utuzwt~~~~~~~~~~~~~','p4lkp2~pp~~xwzw~zzzzzzzz~aqwzzzzz~utuzwt~~~~~~~~~~'],'item_display'=>['CP Av32Q | clm+cp-+0000+00000000+av32q000+565036 | ned~na~~zzzz~zzzzzzzz~p4wx9zzz~utuzwt~~~~~~~~~~~~~','AA2303 P93 | avefax+aa-+2303+00000000+p9300000+565036 | p4lkp2~pp~~xwzw~zzzzzzzz~aqwzzzzz~utuzwt~~~~~~~~~~'],'timestamp'=>'2016-07-06T21:08:24.753Z','authorities_dt'=>'2016-07-28T16:41:30Z','author_variant_txt'=>['Columbia University. Avery Memorial Architectural Library Avery Architectural Library Avery Art and Architectural Library Avery Architectural and Fine Arts Library Columbia University Price, Matlack Price, C. Matlack Hunter, G. L.'],'subject_variant_txt'=>['Architecture'],'_version_'=>1541117408348995584}]}}
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
+        f=id v=$id}'',''rows''=>''1'',''id''=>''565036'',''qt''=>''document'',''wt''=>''ruby''}},''response''=>{''numFound''=>1,''start''=>0,''docs''=>[{''id''=>''565036'',''marc_display''=>''<record><leader>01533cam
+        a22003491  4500</leader><controlfield tag="001">565036</controlfield><controlfield
+        tag="005">20100304211112.0</controlfield><controlfield tag="008">870114r19141913nyua          000
+        0 eng d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)38944852</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm38944852</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG87-B4506</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="9">ACL8299CU</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)565036</subfield></datafield><datafield
+        tag="040" ind1=" " ind2=" "><subfield code="a">NN</subfield><subfield code="c">CMalG</subfield><subfield
+        code="d">NNC</subfield></datafield><datafield tag="110" ind1="2" ind2=" "><subfield
+        code="a">Avery Library.</subfield></datafield><datafield tag="245" ind1="1"
+        ind2="4"><subfield code="a">The Avery Architectural Library,</subfield><subfield
+        code="b">Columbia University, New York City</subfield><subfield code="c">[by]
+        C. Matlack Price [and] George Leland Hunter...</subfield></datafield><datafield
+        tag="260" ind1=" " ind2=" "><subfield code="a">[New York:]</subfield><subfield
+        code="b">Printed for the library,</subfield><subfield code="c">1914.</subfield></datafield><datafield
+        tag="300" ind1=" " ind2=" "><subfield code="a">38 p.</subfield><subfield code="b">illus.
+        (incl. plans.)</subfield><subfield code="c">29 cm.</subfield></datafield><datafield
+        tag="500" ind1=" " ind2=" "><subfield code="a">"Reprinted from \''The Architectural
+        record,\'' June 1913."</subfield></datafield><datafield tag="505" ind1="0"
+        ind2=" "><subfield code="a">The design of the Avery Architectural Library,
+        by C. M. Price.--Notes of the collection of the Avery Architectural Library,
+        by G. L. Hunter.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield
+        code="a">Library architecture</subfield><subfield code="z">New York (State)</subfield><subfield
+        code="z">New York.</subfield></datafield><datafield tag="700" ind1="1" ind2="
+        "><subfield code="a">Price, Charles Matlack.</subfield></datafield><datafield
+        tag="700" ind1="1" ind2=" "><subfield code="a">Hunter, George Leland,</subfield><subfield
+        code="d">1867-1927.</subfield></datafield><datafield tag="900" ind1=" " ind2="
+        "><subfield code="a">AUTH</subfield></datafield><datafield tag="965" ind1="
+        " ind2=" "><subfield code="a">(NNC)RECONB287</subfield></datafield><datafield
+        tag="991" ind1=" " ind2=" "><subfield code="a">CP Av32Q</subfield><subfield
+        code="b">clm+CP-+0000+00000000+AV32Q000</subfield></datafield><datafield tag="991"
+        ind1=" " ind2=" "><subfield code="a">AA2303 P93</subfield><subfield code="b">avefax+AA-+2303+00000000+P9300000</subfield></datafield><datafield
+        tag="992" ind1=" " ind2=" "><subfield code="a">Avery, Fine Arts, Ware</subfield><subfield
+        code="b">Avery Classics - By appt. (Non-Circulating) &gt;&gt; AA2303 P93|DELIM|741046</subfield></datafield><datafield
+        tag="992" ind1=" " ind2=" "><subfield code="a">Other</subfield><subfield code="b">University
+        Archives, Butler 6th Fl. East (Non-Circulating) &gt;&gt; CP Av32Q|DELIM|7319125</subfield></datafield><datafield
+        tag="992" ind1=" " ind2=" "><subfield code="a">Avery, Fine Arts, Ware</subfield><subfield
+        code="b">Avery Classics - By appt. (Non-Circulating) &gt;&gt; AA2303 P93|DELIM|8427229</subfield></datafield><datafield
+        tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield
+        tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record>'',''text''=>[''Avery
+        Library.'',''The Avery Architectural Library, Columbia University, New York
+        City [by] C. Matlack Price [and] George Leland Hunter...'',''[New York:] Printed
+        for the library, 1914.'',''38 p. illus. (incl. plans.) 29 cm.'',''"Reprinted
+        from \''The Architectural record,\'' June 1913."'',''The design of the Avery
+        Architectural Library, by C. M. Price.--Notes of the collection of the Avery
+        Architectural Library, by G. L. Hunter.'',''Library architecture New York
+        (State) New York.'',''Price, Charles Matlack.'',''Hunter, George Leland, 1867-1927.'',''AUTH'',''(NNC)RECONB287''],''author_txt''=>[''Avery
+        Library.''],''author_addl_txt''=>[''Price, Charles Matlack.'',''Hunter, George
+        Leland,''],''author_facet''=>[''Avery Library'',''Price, Charles Matlack'',''Hunter,
+        George Leland, 1867-1927''],''author_display''=>[''Avery Library''],''author_sort''=>''Avery
+        Library.   Avery Architectural Library Columbia University, New York City
+        [by] C. Matlack Price [and] George Leland Hunter..'',''title_txt''=>[''The
+        Avery Architectural Library,''],''title_display''=>[''The Avery Architectural
+        Library, Columbia University, New York City''],''title_filing_txt''=>[''Avery
+        Architectural Library,''],''title_filing_full_txt''=>[''Avery Architectural
+        Library, Columbia University, New York City''],''subtitle_txt''=>[''Columbia
+        University, New York City''],''title_first_facet''=>[''A''],''title_addl_txt''=>[''The
+        Avery Architectural Library, Columbia University, New York City''],''title_sort''=>''avery
+        architectural library columbia university new york city'',''subject_txt''=>[''Library
+        architecture New York (State) New York''],''subject_topic_facet''=>[''Library
+        architecture''],''subject_geo_facet''=>[''New York (State)'',''New York''],''pub_place_display''=>[''New
+        York:''],''pub_name_display''=>[''Printed for the library''],''pub_year_display''=>[''1914''],''pub_place_txt''=>[''New
+        York:''],''pub_name_txt''=>[''Printed for the library''],''pub_year_txt''=>[''1914''],''pub_date_txt''=>[''1913''],''language_facet''=>[''English''],''format''=>[''Book''],''clio_id_display''=>''565036'',''source_facet''=>[''catalog''],''source_display''=>[''catalog''],''oclc_txt''=>[''38944852'',''ocm38944852''],''oclc_display''=>[''38944852'',''ocm38944852''],''full_publisher_display''=>[''[New
+        York:] Printed for the library, 1914.''],''location_call_number_id_display''=>[''Avery
+        Classics - By appt. (Non-Circulating) >> AA2303 P93|DELIM|741046'',''University
+        Archives, Butler 6th Fl. East (Non-Circulating) >> CP Av32Q|DELIM|7319125'',''Avery
+        Classics - By appt. (Non-Circulating) >> AA2303 P93|DELIM|8427229''],''location_call_number_txt''=>[''Avery
+        Classics - By appt. (Non-Circulating) >> AA2303 P93'',''University Archives,
+        Butler 6th Fl. East (Non-Circulating) >> CP Av32Q'',''Avery Classics - By
+        appt. (Non-Circulating) >> AA2303 P93''],''call_number_txt''=>[''AA2303 P93'',''CP
+        Av32Q'',''AA2303 P93''],''call_number_display''=>[''AA2303 P93'',''CP Av32Q'',''AA2303
+        P93''],''location_facet''=>[''Avery, Fine Arts, Ware'',''Other''],''location_txt''=>[''Avery
+        Classics - By appt. (Non-Circulating) >> AA2303 P93'',''University Archives,
+        Butler 6th Fl. East (Non-Circulating) >> CP Av32Q'',''Avery Classics - By
+        appt. (Non-Circulating) >> AA2303 P93''],''shelfkey''=>[''clm+cp-+0000+00000000+av32q000+565036'',''avefax+aa-+2303+00000000+p9300000+565036''],''reverse_shelfkey''=>[''ned~na~~zzzz~zzzzzzzz~p4wx9zzz~utuzwt~~~~~~~~~~~~~'',''p4lkp2~pp~~xwzw~zzzzzzzz~aqwzzzzz~utuzwt~~~~~~~~~~''],''item_display''=>[''CP
+        Av32Q | clm+cp-+0000+00000000+av32q000+565036 | ned~na~~zzzz~zzzzzzzz~p4wx9zzz~utuzwt~~~~~~~~~~~~~'',''AA2303
+        P93 | avefax+aa-+2303+00000000+p9300000+565036 | p4lkp2~pp~~xwzw~zzzzzzzz~aqwzzzzz~utuzwt~~~~~~~~~~''],''timestamp''=>''2016-08-26T19:44:20.34Z'',''authorities_dt''=>''2016-08-28T16:02:44Z'',''author_variant_txt''=>[''Columbia
+        University.'',''Avery Memorial Architectural Library'',''Avery Architectural
+        Library'',''Avery Art and Architectural Library'',''Avery Architectural and
+        Fine Arts Library'',''Columbia University'',''Price, Matlack'',''Price, C.
+        Matlack'',''Hunter, G. L.''],''_version_''=>1543923474930597888}]}}
+
+'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:57:46 GMT
+  recorded_at: Tue, 11 Oct 2016 20:51:15 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?id=565036&qt=document&wt=ruby"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 11 Oct 2016 20:51:16 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
+        f=id v=$id}'',''rows''=>''1'',''id''=>''565036'',''qt''=>''document'',''wt''=>''ruby''}},''response''=>{''numFound''=>1,''start''=>0,''docs''=>[{''id''=>''565036'',''marc_display''=>''<record><leader>01533cam
+        a22003491  4500</leader><controlfield tag="001">565036</controlfield><controlfield
+        tag="005">20100304211112.0</controlfield><controlfield tag="008">870114r19141913nyua          000
+        0 eng d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)38944852</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm38944852</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG87-B4506</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="9">ACL8299CU</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)565036</subfield></datafield><datafield
+        tag="040" ind1=" " ind2=" "><subfield code="a">NN</subfield><subfield code="c">CMalG</subfield><subfield
+        code="d">NNC</subfield></datafield><datafield tag="110" ind1="2" ind2=" "><subfield
+        code="a">Avery Library.</subfield></datafield><datafield tag="245" ind1="1"
+        ind2="4"><subfield code="a">The Avery Architectural Library,</subfield><subfield
+        code="b">Columbia University, New York City</subfield><subfield code="c">[by]
+        C. Matlack Price [and] George Leland Hunter...</subfield></datafield><datafield
+        tag="260" ind1=" " ind2=" "><subfield code="a">[New York:]</subfield><subfield
+        code="b">Printed for the library,</subfield><subfield code="c">1914.</subfield></datafield><datafield
+        tag="300" ind1=" " ind2=" "><subfield code="a">38 p.</subfield><subfield code="b">illus.
+        (incl. plans.)</subfield><subfield code="c">29 cm.</subfield></datafield><datafield
+        tag="500" ind1=" " ind2=" "><subfield code="a">"Reprinted from \''The Architectural
+        record,\'' June 1913."</subfield></datafield><datafield tag="505" ind1="0"
+        ind2=" "><subfield code="a">The design of the Avery Architectural Library,
+        by C. M. Price.--Notes of the collection of the Avery Architectural Library,
+        by G. L. Hunter.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield
+        code="a">Library architecture</subfield><subfield code="z">New York (State)</subfield><subfield
+        code="z">New York.</subfield></datafield><datafield tag="700" ind1="1" ind2="
+        "><subfield code="a">Price, Charles Matlack.</subfield></datafield><datafield
+        tag="700" ind1="1" ind2=" "><subfield code="a">Hunter, George Leland,</subfield><subfield
+        code="d">1867-1927.</subfield></datafield><datafield tag="900" ind1=" " ind2="
+        "><subfield code="a">AUTH</subfield></datafield><datafield tag="965" ind1="
+        " ind2=" "><subfield code="a">(NNC)RECONB287</subfield></datafield><datafield
+        tag="991" ind1=" " ind2=" "><subfield code="a">CP Av32Q</subfield><subfield
+        code="b">clm+CP-+0000+00000000+AV32Q000</subfield></datafield><datafield tag="991"
+        ind1=" " ind2=" "><subfield code="a">AA2303 P93</subfield><subfield code="b">avefax+AA-+2303+00000000+P9300000</subfield></datafield><datafield
+        tag="992" ind1=" " ind2=" "><subfield code="a">Avery, Fine Arts, Ware</subfield><subfield
+        code="b">Avery Classics - By appt. (Non-Circulating) &gt;&gt; AA2303 P93|DELIM|741046</subfield></datafield><datafield
+        tag="992" ind1=" " ind2=" "><subfield code="a">Other</subfield><subfield code="b">University
+        Archives, Butler 6th Fl. East (Non-Circulating) &gt;&gt; CP Av32Q|DELIM|7319125</subfield></datafield><datafield
+        tag="992" ind1=" " ind2=" "><subfield code="a">Avery, Fine Arts, Ware</subfield><subfield
+        code="b">Avery Classics - By appt. (Non-Circulating) &gt;&gt; AA2303 P93|DELIM|8427229</subfield></datafield><datafield
+        tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield
+        tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record>'',''text''=>[''Avery
+        Library.'',''The Avery Architectural Library, Columbia University, New York
+        City [by] C. Matlack Price [and] George Leland Hunter...'',''[New York:] Printed
+        for the library, 1914.'',''38 p. illus. (incl. plans.) 29 cm.'',''"Reprinted
+        from \''The Architectural record,\'' June 1913."'',''The design of the Avery
+        Architectural Library, by C. M. Price.--Notes of the collection of the Avery
+        Architectural Library, by G. L. Hunter.'',''Library architecture New York
+        (State) New York.'',''Price, Charles Matlack.'',''Hunter, George Leland, 1867-1927.'',''AUTH'',''(NNC)RECONB287''],''author_txt''=>[''Avery
+        Library.''],''author_addl_txt''=>[''Price, Charles Matlack.'',''Hunter, George
+        Leland,''],''author_facet''=>[''Avery Library'',''Price, Charles Matlack'',''Hunter,
+        George Leland, 1867-1927''],''author_display''=>[''Avery Library''],''author_sort''=>''Avery
+        Library.   Avery Architectural Library Columbia University, New York City
+        [by] C. Matlack Price [and] George Leland Hunter..'',''title_txt''=>[''The
+        Avery Architectural Library,''],''title_display''=>[''The Avery Architectural
+        Library, Columbia University, New York City''],''title_filing_txt''=>[''Avery
+        Architectural Library,''],''title_filing_full_txt''=>[''Avery Architectural
+        Library, Columbia University, New York City''],''subtitle_txt''=>[''Columbia
+        University, New York City''],''title_first_facet''=>[''A''],''title_addl_txt''=>[''The
+        Avery Architectural Library, Columbia University, New York City''],''title_sort''=>''avery
+        architectural library columbia university new york city'',''subject_txt''=>[''Library
+        architecture New York (State) New York''],''subject_topic_facet''=>[''Library
+        architecture''],''subject_geo_facet''=>[''New York (State)'',''New York''],''pub_place_display''=>[''New
+        York:''],''pub_name_display''=>[''Printed for the library''],''pub_year_display''=>[''1914''],''pub_place_txt''=>[''New
+        York:''],''pub_name_txt''=>[''Printed for the library''],''pub_year_txt''=>[''1914''],''pub_date_txt''=>[''1913''],''language_facet''=>[''English''],''format''=>[''Book''],''clio_id_display''=>''565036'',''source_facet''=>[''catalog''],''source_display''=>[''catalog''],''oclc_txt''=>[''38944852'',''ocm38944852''],''oclc_display''=>[''38944852'',''ocm38944852''],''full_publisher_display''=>[''[New
+        York:] Printed for the library, 1914.''],''location_call_number_id_display''=>[''Avery
+        Classics - By appt. (Non-Circulating) >> AA2303 P93|DELIM|741046'',''University
+        Archives, Butler 6th Fl. East (Non-Circulating) >> CP Av32Q|DELIM|7319125'',''Avery
+        Classics - By appt. (Non-Circulating) >> AA2303 P93|DELIM|8427229''],''location_call_number_txt''=>[''Avery
+        Classics - By appt. (Non-Circulating) >> AA2303 P93'',''University Archives,
+        Butler 6th Fl. East (Non-Circulating) >> CP Av32Q'',''Avery Classics - By
+        appt. (Non-Circulating) >> AA2303 P93''],''call_number_txt''=>[''AA2303 P93'',''CP
+        Av32Q'',''AA2303 P93''],''call_number_display''=>[''AA2303 P93'',''CP Av32Q'',''AA2303
+        P93''],''location_facet''=>[''Avery, Fine Arts, Ware'',''Other''],''location_txt''=>[''Avery
+        Classics - By appt. (Non-Circulating) >> AA2303 P93'',''University Archives,
+        Butler 6th Fl. East (Non-Circulating) >> CP Av32Q'',''Avery Classics - By
+        appt. (Non-Circulating) >> AA2303 P93''],''shelfkey''=>[''clm+cp-+0000+00000000+av32q000+565036'',''avefax+aa-+2303+00000000+p9300000+565036''],''reverse_shelfkey''=>[''ned~na~~zzzz~zzzzzzzz~p4wx9zzz~utuzwt~~~~~~~~~~~~~'',''p4lkp2~pp~~xwzw~zzzzzzzz~aqwzzzzz~utuzwt~~~~~~~~~~''],''item_display''=>[''CP
+        Av32Q | clm+cp-+0000+00000000+av32q000+565036 | ned~na~~zzzz~zzzzzzzz~p4wx9zzz~utuzwt~~~~~~~~~~~~~'',''AA2303
+        P93 | avefax+aa-+2303+00000000+p9300000+565036 | p4lkp2~pp~~xwzw~zzzzzzzz~aqwzzzzz~utuzwt~~~~~~~~~~''],''timestamp''=>''2016-08-26T19:44:20.34Z'',''authorities_dt''=>''2016-08-28T16:02:44Z'',''author_variant_txt''=>[''Columbia
+        University.'',''Avery Memorial Architectural Library'',''Avery Architectural
+        Library'',''Avery Art and Architectural Library'',''Avery Architectural and
+        Fine Arts Library'',''Columbia University'',''Price, Matlack'',''Price, C.
+        Matlack'',''Hunter, G. L.''],''_version_''=>1543923474930597888}]}}
+
+'
+    http_version: 
+  recorded_at: Tue, 11 Oct 2016 20:51:16 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/38944852.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 11 Oct 2016 20:51:16 GMT
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Tue, 11 Oct 2016 20:51:17 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Location:
+      - https://catalog.hathitrust.org/api/volumes/brief/oclc/38944852.json
+      Content-Length:
+      - '339'
+      Content-Type:
+      - text/html; charset=iso-8859-1
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 11-Oct-2016
+        21:00:38 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>302 Found</title>
+        </head><body>
+        <h1>Found</h1>
+        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/oclc/38944852.json">here</a>.</p>
+        <hr>
+        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
+        </body></html>
+    http_version: 
+  recorded_at: Tue, 11 Oct 2016 20:51:16 GMT
+- request:
+    method: get
+    uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/38944852.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 11 Oct 2016 20:51:16 GMT
+      Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 11 Oct 2016 20:51:17 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '31'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a42378b;expires=Tue, 11-Oct-2016
+        21:00:38 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 11 Oct 2016 20:51:16 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocm38944852.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 11 Oct 2016 20:51:16 GMT
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Tue, 11 Oct 2016 20:51:17 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Location:
+      - https://catalog.hathitrust.org/api/volumes/brief/oclc/ocm38944852.json
+      Content-Length:
+      - '342'
+      Content-Type:
+      - text/html; charset=iso-8859-1
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 11-Oct-2016
+        21:00:38 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>302 Found</title>
+        </head><body>
+        <h1>Found</h1>
+        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/oclc/ocm38944852.json">here</a>.</p>
+        <hr>
+        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
+        </body></html>
+    http_version: 
+  recorded_at: Tue, 11 Oct 2016 20:51:17 GMT
+- request:
+    method: get
+    uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/ocm38944852.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 11 Oct 2016 20:51:17 GMT
+      Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 11 Oct 2016 20:51:18 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '31'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a42378b;expires=Tue, 11-Oct-2016
+        21:00:38 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Tue, 11 Oct 2016 20:51:17 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/565036"
@@ -34,11 +398,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 17:57:47 GMT
+      - Tue, 11 Oct 2016 20:51:17 GMT
   response:
     status:
       code: 200
@@ -61,19 +425,20 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       X-Request-Id:
-      - bd8d8ebf-67d9-4f8a-983b-b08494d1905b
+      - 5ef4a36a-d0e5-4ccd-a2e6-b44645183fd6
       Etag:
       - W/"ca7c56cb4cb8e2947f958f931155832c"
       X-Frame-Options:
       - SAMEORIGIN
       X-Runtime:
-      - '9.212789'
+      - '1.227832'
       X-Content-Type-Options:
+      - nosniff
       - nosniff
       Access-Control-Request-Method:
       - "*"
       Date:
-      - Tue, 16 Aug 2016 17:57:56 GMT
+      - Tue, 11 Oct 2016 20:51:19 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -91,205 +456,7 @@ http_interactions:
         Av32Q","status":"none","holding_id":["7319125"],"copies":[{"items":{"Status
         unknown":{"status":"none","count":1}}}],"services":["spec_coll"]}]}}'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:57:56 GMT
-- request:
-    method: get
-    uri: "<solr_config>/select?id=565036&qt=document&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 16 Aug 2016 17:57:56 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'565036','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'565036','marc_display'=>'<record><leader>01533cam a22003491  4500</leader><controlfield tag="001">565036</controlfield><controlfield tag="005">20100304211112.0</controlfield><controlfield tag="008">870114r19141913nyua          000 0 eng d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)38944852</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm38944852</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG87-B4506</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">ACL8299CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)565036</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">NN</subfield><subfield code="c">CMalG</subfield><subfield code="d">NNC</subfield></datafield><datafield tag="110" ind1="2" ind2=" "><subfield code="a">Avery Library.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The Avery Architectural Library,</subfield><subfield code="b">Columbia University, New York City</subfield><subfield code="c">[by] C. Matlack Price [and] George Leland Hunter...</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">[New York:]</subfield><subfield code="b">Printed for the library,</subfield><subfield code="c">1914.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">38 p.</subfield><subfield code="b">illus. (incl. plans.)</subfield><subfield code="c">29 cm.</subfield></datafield><datafield tag="500" ind1=" " ind2=" "><subfield code="a">"Reprinted from \'The Architectural record,\' June 1913."</subfield></datafield><datafield tag="505" ind1="0" ind2=" "><subfield code="a">The design of the Avery Architectural Library, by C. M. Price.--Notes of the collection of the Avery Architectural Library, by G. L. Hunter.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Library architecture</subfield><subfield code="z">New York (State)</subfield><subfield code="z">New York.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Price, Charles Matlack.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Hunter, George Leland,</subfield><subfield code="d">1867-1927.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="965" ind1=" " ind2=" "><subfield code="a">(NNC)RECONB287</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">CP Av32Q</subfield><subfield code="b">clm+CP-+0000+00000000+AV32Q000</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">AA2303 P93</subfield><subfield code="b">avefax+AA-+2303+00000000+P9300000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Avery, Fine Arts, Ware</subfield><subfield code="b">Avery Classics - By appt. (Non-Circulating) &gt;&gt; AA2303 P93|DELIM|741046</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Other</subfield><subfield code="b">University Archives, Butler 6th Fl. East (Non-Circulating) &gt;&gt; CP Av32Q|DELIM|7319125</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Avery, Fine Arts, Ware</subfield><subfield code="b">Avery Classics - By appt. (Non-Circulating) &gt;&gt; AA2303 P93|DELIM|8427229</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record>','text'=>['Avery Library.','The Avery Architectural Library, Columbia University, New York City [by] C. Matlack Price [and] George Leland Hunter...','[New York:] Printed for the library, 1914.','38 p. illus. (incl. plans.) 29 cm.','"Reprinted from \'The Architectural record,\' June 1913."','The design of the Avery Architectural Library, by C. M. Price.--Notes of the collection of the Avery Architectural Library, by G. L. Hunter.','Library architecture New York (State) New York.','Price, Charles Matlack.','Hunter, George Leland, 1867-1927.','AUTH','(NNC)RECONB287'],'author_txt'=>['Avery Library.'],'author_addl_txt'=>['Price, Charles Matlack.','Hunter, George Leland,'],'author_facet'=>['Avery Library','Price, Charles Matlack','Hunter, George Leland, 1867-1927'],'author_display'=>['Avery Library'],'author_sort'=>'Avery Library.   Avery Architectural Library Columbia University, New York City [by] C. Matlack Price [and] George Leland Hunter..','title_txt'=>['The Avery Architectural Library,'],'title_display'=>['The Avery Architectural Library, Columbia University, New York City'],'title_filing_txt'=>['Avery Architectural Library,'],'title_filing_full_txt'=>['Avery Architectural Library, Columbia University, New York City'],'subtitle_txt'=>['Columbia University, New York City'],'title_first_facet'=>['A'],'title_addl_txt'=>['The Avery Architectural Library, Columbia University, New York City'],'title_sort'=>'avery architectural library columbia university new york city','subject_txt'=>['Library architecture New York (State) New York'],'subject_topic_facet'=>['Library architecture'],'subject_geo_facet'=>['New York (State)','New York'],'pub_place_display'=>['New York:'],'pub_name_display'=>['Printed for the library'],'pub_year_display'=>['1914'],'pub_place_txt'=>['New York:'],'pub_name_txt'=>['Printed for the library'],'pub_year_txt'=>['1914'],'pub_date_txt'=>['1913'],'language_facet'=>['English'],'format'=>['Book'],'clio_id_display'=>'565036','source_facet'=>['catalog'],'source_display'=>['catalog'],'oclc_txt'=>['38944852','ocm38944852'],'oclc_display'=>['38944852','ocm38944852'],'full_publisher_display'=>['[New York:] Printed for the library, 1914.'],'location_call_number_id_display'=>['Avery Classics - By appt. (Non-Circulating) >> AA2303 P93|DELIM|741046','University Archives, Butler 6th Fl. East (Non-Circulating) >> CP Av32Q|DELIM|7319125','Avery Classics - By appt. (Non-Circulating) >> AA2303 P93|DELIM|8427229'],'location_call_number_txt'=>['Avery Classics - By appt. (Non-Circulating) >> AA2303 P93','University Archives, Butler 6th Fl. East (Non-Circulating) >> CP Av32Q','Avery Classics - By appt. (Non-Circulating) >> AA2303 P93'],'call_number_txt'=>['AA2303 P93','CP Av32Q','AA2303 P93'],'call_number_display'=>['AA2303 P93','CP Av32Q','AA2303 P93'],'location_facet'=>['Avery, Fine Arts, Ware','Other'],'location_txt'=>['Avery Classics - By appt. (Non-Circulating) >> AA2303 P93','University Archives, Butler 6th Fl. East (Non-Circulating) >> CP Av32Q','Avery Classics - By appt. (Non-Circulating) >> AA2303 P93'],'shelfkey'=>['clm+cp-+0000+00000000+av32q000+565036','avefax+aa-+2303+00000000+p9300000+565036'],'reverse_shelfkey'=>['ned~na~~zzzz~zzzzzzzz~p4wx9zzz~utuzwt~~~~~~~~~~~~~','p4lkp2~pp~~xwzw~zzzzzzzz~aqwzzzzz~utuzwt~~~~~~~~~~'],'item_display'=>['CP Av32Q | clm+cp-+0000+00000000+av32q000+565036 | ned~na~~zzzz~zzzzzzzz~p4wx9zzz~utuzwt~~~~~~~~~~~~~','AA2303 P93 | avefax+aa-+2303+00000000+p9300000+565036 | p4lkp2~pp~~xwzw~zzzzzzzz~aqwzzzzz~utuzwt~~~~~~~~~~'],'timestamp'=>'2016-07-06T21:08:24.753Z','authorities_dt'=>'2016-07-28T16:41:30Z','author_variant_txt'=>['Columbia University. Avery Memorial Architectural Library Avery Architectural Library Avery Art and Architectural Library Avery Architectural and Fine Arts Library Columbia University Price, Matlack Price, C. Matlack Hunter, G. L.'],'subject_variant_txt'=>['Architecture'],'_version_'=>1541117408348995584}]}}
-    http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:57:56 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/38944852.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 16 Aug 2016 17:57:56 GMT
-  response:
-    status:
-      code: 302
-      message: Found
-    headers:
-      Date:
-      - Tue, 16 Aug 2016 17:57:56 GMT
-      Server:
-      - Apache/2.4.10 (Debian)
-      Location:
-      - https://catalog.hathitrust.org/api/volumes/brief/oclc/38944852.json
-      Content-Length:
-      - '339'
-      Content-Type:
-      - text/html; charset=iso-8859-1
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63d545525d5f4f58455e445a4a423660;expires=Tue, 16-Aug-2016
-        18:07:56 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |
-        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-        <html><head>
-        <title>302 Found</title>
-        </head><body>
-        <h1>Found</h1>
-        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/oclc/38944852.json">here</a>.</p>
-        <hr>
-        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
-        </body></html>
-    http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:57:57 GMT
-- request:
-    method: get
-    uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/38944852.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 16 Aug 2016 17:57:57 GMT
-      Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63d545525d5f4f58455e445a4a423660
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 16 Aug 2016 17:57:57 GMT
-      Server:
-      - Apache/2.4.10 (Debian)
-      Access-Control-Allow-Origin:
-      - "*"
-      Content-Length:
-      - '31'
-      Content-Type:
-      - text/html; charset=UTF-8
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63d545525d5f4f58455e445a4a42378b;expires=Tue, 16-Aug-2016
-        18:07:57 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:57:57 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocm38944852.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 16 Aug 2016 17:57:57 GMT
-  response:
-    status:
-      code: 302
-      message: Found
-    headers:
-      Date:
-      - Tue, 16 Aug 2016 17:57:57 GMT
-      Server:
-      - Apache/2.4.10 (Debian)
-      Location:
-      - https://catalog.hathitrust.org/api/volumes/brief/oclc/ocm38944852.json
-      Content-Length:
-      - '342'
-      Content-Type:
-      - text/html; charset=iso-8859-1
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63d545525d5f4f58455e445a4a423660;expires=Tue, 16-Aug-2016
-        18:07:57 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |
-        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-        <html><head>
-        <title>302 Found</title>
-        </head><body>
-        <h1>Found</h1>
-        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/oclc/ocm38944852.json">here</a>.</p>
-        <hr>
-        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
-        </body></html>
-    http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:57:57 GMT
-- request:
-    method: get
-    uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/ocm38944852.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 16 Aug 2016 17:57:57 GMT
-      Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63d545525d5f4f58455e445a4a423660
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 16 Aug 2016 17:57:57 GMT
-      Server:
-      - Apache/2.4.10 (Debian)
-      Access-Control-Allow-Origin:
-      - "*"
-      Content-Length:
-      - '31'
-      Content-Type:
-      - text/html; charset=UTF-8
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63d545525d5f4f58455e445a4a42378b;expires=Tue, 16-Aug-2016
-        18:07:57 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:57:58 GMT
+  recorded_at: Tue, 11 Oct 2016 20:51:18 GMT
 - request:
     method: get
     uri: "<library_api_path>?locationID=alllocations&qt=location"
@@ -302,7 +469,7 @@ http_interactions:
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.0 (darwin14.1.0 x86_64) ruby/2.2.1p85
+      - rest-client/2.0.0 (darwin13.4.0 x86_64) ruby/2.3.0p0
       Host:
       - api.library.columbia.edu
   response:
@@ -311,7 +478,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:57:57 GMT
+      - Tue, 11 Oct 2016 20:51:19 GMT
       Server:
       - Apache
       Access-Control-Allow-Origin:
@@ -319,14 +486,14 @@ http_interactions:
       Cache-Control:
       - max-age=0
       Expires:
-      - Tue, 16 Aug 2016 17:57:57 GMT
+      - Tue, 11 Oct 2016 20:51:19 GMT
       Transfer-Encoding:
       - chunked
       Content-Type:
       - application/json;charset=utf-8
       Set-Cookie:
       - BIGipServer~CUIT~library.columbia.edu-128.59.105.210.443-pool=3059628928.47873.0000;
-        expires=Tue, 16-Aug-2016 19:57:57 GMT; path=/
+        expires=Tue, 11-Oct-2016 22:51:19 GMT; path=/
     body:
       encoding: UTF-8
       string: |2-
@@ -334,7 +501,7 @@ http_interactions:
 
 
 
-        {"locations":[{"showOnMap":false,"zip":"","directionsURL":"http://www.columbia.edu/node/58.html","phone":"","building":"","fax":"","imagePath":"/content/dam/locations/culis.jpg","mapURL":"","state":"","address1":"","locationID":"cu-morningside","locationURL":"http://www.columbia.edu","address2":"","city":"","hoursURL":"","email":"","floorRoom":"","longitude":"-73.962443","latitude":"40.80741","displayName":"Columbia's Morningside Campus","officialName":"Columbia University - Morningside Campus","note":"Centered at 116th St. between Broadway and Amsterdam, the Morningside campus is home to most of Columbia&apos;s libraries.<br/><br/>Other library locations:<br/><a href=\"#\" onclick=\"showInfoWindow('healthsciences'); return false;\">Health Sciences Library<\/a>, <a href=\"#\" onclick=\"showInfoWindow('geoscience'); return false;\">Lamont-Doherty Geoscience Library<\/a>, <a href=\"http://library.columbia.edu/find/request/off-site.html\">Offsite Shelving Facility<\/a>","locationIDClean":"cumorningside"},{"showOnMap":false,"zip":"10027","directionsURL":"http://www.columbia.edu/node/58.html","phone":"(212) 854-7309","building":"","fax":"(212) 854-9099","imagePath":"/content/dam/locations/culis.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"culis","locationURL":"http://library.columbia.edu","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu","email":"","floorRoom":"","longitude":"-73.962443","latitude":"40.80741","displayName":"Columbia University Libraries","officialName":"Columbia University Libraries / Information Services","note":"","locationIDClean":"culis"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/global/africa/floorplan","phone":"(212) 854-8045","building":"Lehman Library","fax":"","imagePath":"/content/dam/libraryweb/locations/area/africa/african_studies_postcard2.jpg","mapURL":"","state":"NY","address1":"420 West 118th St.","locationID":"african-studies","locationURL":"http://library.columbia.edu/locations/global/africa.html","address2":"","city":"New York","hoursURL":"","email":"africa@library.columbia.edu","floorRoom":"","longitude":"-73.960087","latitude":"40.807396","displayName":"African Studies","officialName":"African Studies","note":"","locationIDClean":"africanstudies"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/avery/directions","phone":"212.854.2877","building":"Avery","fax":"","imagePath":"https://blogs.cul.columbia.edu/avery/files/2014/06/netsuke-1-1024x768.jpg","mapURL":"","state":"NY","address1":"1172 Amsterdam Avenue","locationID":"avery-art-properties","locationURL":"http://library.columbia.edu/locations/avery/art-properties.html","address2":"M.C. 0301","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=avery-art-properties","email":"artproperties@library.columbia.edu","floorRoom":"300","longitude":"-73.960929","latitude":"40.808456","displayName":"Art Properties","officialName":"Art Properties","note":"","locationIDClean":"averyartproperties"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-6199","building":"Avery","fax":"","imagePath":"/content/dam/locations/avery.jpg","mapURL":"","state":"NY","address1":"1172 Amsterdam Avenue","locationID":"avery","locationURL":"http://library.columbia.edu/indiv/avery.html","address2":"M.C. 0301","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=avery","email":"avery@library.columbia.edu","floorRoom":"300","longitude":"-73.960884","latitude":"40.808381","displayName":"Avery Library","officialName":"Avery Architectural & Fine Arts Library","note":"","locationIDClean":"avery"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/avery/directions","phone":"(212) 854-8409","building":"Avery Library","fax":"","imagePath":"/content/dam/libraryweb/locations/avery/classics/Orders of architecture.jpg","mapURL":"","state":"NY","address1":"Columbia University","locationID":"avery-classics","locationURL":"http://library.columbia.edu/locations/avery/avery-classics.html","address2":"1172 Amsterdam Ave., MC0301","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=avery-classics","email":"avery-classics@library.columbia.edu","floorRoom":"Rm. 234","longitude":"-73.960801","latitude":"40.808407","displayName":"Avery Classics Collection","officialName":"Avery Classics Collection","note":"","locationIDClean":"averyclassics"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/avery/directions","phone":"(212) 854-4110","building":"Avery Library","fax":"","imagePath":"/content/dam/libraryweb/locations/avery/Fallingwater.jpg","mapURL":"","state":"NY","address1":"Columbia University","locationID":"avery-drawings-archives","locationURL":"http://library.columbia.edu/locations/avery/drawings-archives.html","address2":"1172 Amsterdam Ave., MC0301","city":"New York","hoursURL":"http://hours.library.columbia.edu/index.php?library=avery-drawings-archives","email":"avery-drawings@library.columbia.edu","floorRoom":"Rm. 213","longitude":"-73.960908","latitude":"40.808494","displayName":"Avery Drawings & Archives","officialName":"Drawing & Archives Department Avery Architectural & Fine Arts Library","note":"","locationIDClean":"averydrawingsarchives"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/avery/directions","phone":"","building":"Avery Library","fax":"","imagePath":"/content/dam/libraryweb/locations/avery/avery_index/Anniversary-logo-WEB--2.jpg","mapURL":"","state":"NY","address1":"Columbia University","locationID":"avery-index","locationURL":"http://library.columbia.edu/locations/avery/avery-index.html","address2":"1172 Amsterdam Ave., MC0301","city":"New York","hoursURL":"","email":"avery-index@library.columbia.edu","floorRoom":"Rm. 226","longitude":"-73.960761","latitude":"40.808423","displayName":"Avery Index to Architectural Periodicals","officialName":"Avery Index to Architectural Periodicals","note":"","locationIDClean":"averyindex"},{"showOnMap":true,"zip":"10027","directionsURL":"http://library.barnard.edu/about-the-library/map","phone":"(212) 854-3953","building":"LeFrak Center, Barnard Hall, first floor","fax":"","imagePath":"/content/dam/locations/barnard.jpg","mapURL":"","state":"NY","address1":"3009 Broadway","locationID":"barnard","locationURL":"http://library.barnard.edu/","address2":"","city":"New York ","hoursURL":"https://library.barnard.edu/access/hours","email":"library@barnard.edu","floorRoom":"","longitude":"-73.963939","latitude":"40.809097","displayName":"Barnard College Library","officialName":"Barnard Library & Academic Information Systems","note":"","locationIDClean":"barnard"},{"showOnMap":false,"zip":"10027","directionsURL":"","phone":"(212) 854-2067","building":"Barnard Hall","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"3009 Broadway","locationID":"barnard-bcrw","locationURL":"http://bcrw.barnard.edu","address2":"","city":"New York","hoursURL":"","email":"bcrw@barnard.edu","floorRoom":"101","longitude":"-73.963955","latitude":"40.809154","displayName":"","officialName":"Barnard Center For Research On Women","note":"","locationIDClean":"barnardbcrw"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7535","building":"","fax":"","imagePath":"/content/dam/locations/borrowdirect.jpg","mapURL":"","state":"NY","address1":"307 Butler Library","locationID":"borrow-direct","locationURL":"http://library.columbia.edu/find/request/borrow-direct.html","address2":"535 W. 114th Street","city":"New York","hoursURL":"","email":"borrowdirect@columbia.edu","floorRoom":"","longitude":"-73.96325","latitude":"40.806225","displayName":"Borrow Direct Office","officialName":"Borrow Direct Office","note":"","locationIDClean":"borrowdirect"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/burke/directions","phone":"(212) 851-5606","building":"Union Theological Seminary","fax":"","imagePath":"/content/dam/locations/burke.jpg","mapURL":"","state":"NY","address1":"3041 Broadway","locationID":"burke","locationURL":"http://library.columbia.edu/locations/burke.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=burke","email":"burke@library.columbia.edu","floorRoom":"","longitude":"-73.961876","latitude":"40.811353","displayName":"The Burke Library","officialName":"The Burke Theological Library","note":"","locationIDClean":"burke"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/business/directions","phone":"(212) 854-7804","building":"Uris Hall","fax":"","imagePath":"/content/dam/locations/business.jpg","mapURL":"","state":"NY","address1":"3022 Broadway","locationID":"business","locationURL":"http://library.columbia.edu/locations/business.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=business","email":"business@library.columbia.edu","floorRoom":"130","longitude":"-73.961147","latitude":"40.809231","displayName":"Business & Economics Library","officialName":"Business & Economics Library","note":"","locationIDClean":"business"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler-circulation/directions","phone":"(212) 854-2235","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/butler-circulation.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"butler-circulation","locationURL":"http://library.columbia.edu/locations/butler-circulation.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler","email":"circulation@columbia.edu","floorRoom":"Circulation Department","longitude":"-73.963156","latitude":"40.806507","displayName":"Butler Library Circulation","officialName":"Butler Library Circulation","note":"","locationIDClean":"butlercirculation"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7309","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/butler.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"butler","locationURL":"http://library.columbia.edu/locations/butler.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler","email":"butler@library.columbia.edu","floorRoom":"","longitude":"-73.963225","latitude":"40.806422","displayName":"Butler Library","officialName":"Nicholas Murray Butler Library","note":"","locationIDClean":"butler"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler-reference/directions","phone":"(212) 854-2241","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/butler-reference.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"butler-reference","locationURL":"http://library.columbia.edu/locations/butler-reference.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler-reference","email":"ref-ref@columbia.edu","floorRoom":"301","longitude":"-73.963159","latitude":"40.8066","displayName":"Butler Library Research Services","officialName":"Butler Library Research Services","note":"","locationIDClean":"butlerreference"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler-reserves/floorplan","phone":"(212) 854-5327","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/butler-reserves.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"butler-reserves","locationURL":"http://library.columbia.edu/locations/butler-reserves.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler-reserves","email":"butlres@library.columbia.edu","floorRoom":"208 ","longitude":"-73.963024","latitude":"40.80617","displayName":"Butler Library Reserves","officialName":"Butler Library Reserves","note":"","locationIDClean":"butlerreserves"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-5327","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/media-services.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"media-services","locationURL":"http://library.columbia.edu/locations/butler/media-services.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=bmc","email":"bmc@library.columbia.edu","floorRoom":"208B ","longitude":"-73.963035","latitude":"40.806117","displayName":"Butler Media Center","officialName":"Butler Media Center","note":"","locationIDClean":"mediaservices"},{"showOnMap":false,"zip":"10027","directionsURL":"","phone":"","building":"International Affairs","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"420 West 118th Street","locationID":"cdrs","locationURL":"http://cdrs.columbia.edu","address2":"","city":"New York","hoursURL":"","email":"info@cdrs.columbia.edu","floorRoom":"201 (Lehman Library)","longitude":"-73.959728","latitude":"40.807418","displayName":"","officialName":"Center for Digital Research and Scholarship","note":"","locationIDClean":"cdrs"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-3630","building":"International Affairs","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"420 West 118 St.","locationID":"chrdr","locationURL":"http://library.columbia.edu/locations/chrdr.html","address2":"","city":"New York","hoursURL":"","email":"chrdr@columbia.edu","floorRoom":"318","longitude":"-73.960144","latitude":"40.807772","displayName":"Center for Human Rights Documentation & Research","officialName":"Center for Human Rights Documentation & Research","note":"","locationIDClean":"chrdr"},{"showOnMap":false,"zip":"10027","directionsURL":"http://ctl.columbia.edu/about/contact/","phone":"(212) 854-9058","building":"Butler Library","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"535 West 114th Street","locationID":"ctl","locationURL":"http://ccnmtl.columbia.edu/","address2":"","city":"New York","hoursURL":"","email":"ccnmtl@columbia.edu","floorRoom":"Faculty Support Lab, room 204,<br/>Staff Offices, room 505","longitude":"-73.962872","latitude":"40.806269","displayName":"","officialName":"Center for Teaching and Learning","note":"","locationIDClean":"ctl"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-5590","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/ccoh.jpg","mapURL":"","state":"NY","address1":"535 West 114th Street","locationID":"ccoh","locationURL":"http://library.columbia.edu/locations/ccoh.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=rbml","email":"oralhist@library.columbia.edu","floorRoom":"6th Floor East","longitude":"-73.963172","latitude":"40.806194","displayName":"Columbia Center for Oral History","officialName":"Columbia Center for Oral History","note":"The Columbia Center for Oral History was recently relocated to the Rare Book & Manuscript Library (RBML) on the 6th floor of Butler Library. ","locationIDClean":"ccoh"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/cuarchives/research.html#directions","phone":"(212) 854-3786 ","building":"Butler Library","fax":"(212) 854-1365","imagePath":"/content/dam/libraryweb/general/images/libphotos/columbiana.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"cuarchives","locationURL":"http://library.columbia.edu/locations/cuarchives.html","address2":"M.C. 1127","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=cuarchives","email":"uarchives@columbia.edu","floorRoom":"6th Floor","longitude":"-73.963088","latitude":"40.806204","displayName":"Columbia University Archives","officialName":"Columbia University Archives","note":"","locationIDClean":"cuarchives"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-5289","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/communications.jpg","mapURL":"","state":"NY ","address1":"535 West 114th St.","locationID":"communications","locationURL":"library.columbia.edu/news","address2":"","city":"New York","hoursURL":"","email":"news@library.columbia.edu","floorRoom":"507","longitude":"-73.96333","latitude":"40.806255","displayName":"Media Inquiries","officialName":"Columbia University Libraries Communications Office","note":"","locationIDClean":"communications"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7309","building":"Butler Library","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"535 West 114th Street","locationID":"copyright","locationURL":"http://copyright.columbia.edu","address2":"","city":"New York","hoursURL":"","email":"copyright@columbia.edu","floorRoom":"507D","longitude":"-73.963373","latitude":"40.806271","displayName":"","officialName":"Copyright Advisory Office","note":"","locationIDClean":"copyright"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/dhc/directions.html","phone":"(212) 854-7547","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/dhc.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"dhc","locationURL":"http://library.columbia.edu/locations/dhc.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=dhc","email":"dhc@library.columbia.edu","floorRoom":"305","longitude":"-73.962995","latitude":"40.806119","displayName":"Digital Humanities Center","officialName":"Digital Humanities Center","note":"","locationIDClean":"dhc"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-5327","building":"","fax":"","imagePath":"/content/dam/locations/document-delivery.jpg","mapURL":"","state":"NY","address1":"208 Butler Library","locationID":"document-delivery","locationURL":"http://library.columbia.edu/find/request/document-delivery.html","address2":"535 W. 114th Street","city":"New York","hoursURL":"","email":"doc-del@library.columbia.edu","floorRoom":"","longitude":"-73.963067","latitude":"40.80615","displayName":"Scan & Deliver Electronic Document Delivery","officialName":"Electronic Document Delivery Office","note":"","locationIDClean":"documentdelivery"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/science-engineering/directions.html","phone":"(212) 851-2950","building":"Northwest Corner Building","fax":"","imagePath":"/content/dam/locations/dsc.jpg","mapURL":"","state":"NY","address1":"550 West 120th Street ","locationID":"dsc","locationURL":"http://library.columbia.edu/locations/dsc.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=science-engineering","email":"ref-sci@columbia.edu","floorRoom":"401","longitude":"-73.962107","latitude":"40.80995","displayName":"","officialName":"Digital Science Center","note":"","locationIDClean":"dsc"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-8043","building":"International Affairs","fax":"","imagePath":"/content/dam/locations/dssc.jpg","mapURL":"","state":"NY","address1":"420 W. 118th St.","locationID":"dssc","locationURL":"http://library.columbia.edu/locations/dssc.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=lehman","email":"dssc@library.columbia.edu","floorRoom":"300","longitude":"-73.959283","latitude":"40.807573","displayName":"Digital Social Science Center (DSSC)","officialName":"Digital Social Science Center","note":"","locationIDClean":"dssc"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/lehman/directions","phone":"212-854-6012","building":"International Affairs","fax":"","imagePath":"/content/dam/locations/dssc-data.jpg","mapURL":"","state":"NY","address1":"420 W. 118th St.","locationID":"dssc-data","locationURL":"http://library.columbia.edu/locations/dssc/data.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=dssc-data","email":"dssc.data@columbia.edu","floorRoom":"215","longitude":"-73.959843","latitude":"40.807439","displayName":"DSSC Data Service","officialName":"Digital Social Science Center Data Service","note":"","locationIDClean":"dsscdata"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/eastasian/directions.html","phone":"(212) 854-4318","building":"Kent Hall","fax":"(212) 662-6286","imagePath":"/content/dam/locations/eastasian.jpg","mapURL":"","state":"NY","address1":"1140 Amsterdam Ave","locationID":"eastasian","locationURL":"http://library.columbia.edu/locations/eastasian.html","address2":"M.C. 3901","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=eastasian","email":"starr@library.columbia.edu","floorRoom":"300","longitude":"-73.961517","latitude":"40.807297","displayName":"C.V. Starr East Asian Library","officialName":"C.V. Starr East Asian Library","note":"","locationIDClean":"eastasian"},{"showOnMap":false,"zip":"10027","directionsURL":"","phone":"(212) 854-2976","building":"S. W. Mudd","fax":"","imagePath":"/content/dam/locations/engineering.jpg","mapURL":"","state":"NY","address1":"500 West 120th St.","locationID":"engineering","locationURL":"http://library.columbia.edu/locations/engineering.html","address2":"","city":"New York","hoursURL":"http://hours.cul.columbia.edu/?library=engineering","email":"engineering@library.columbia.edu","floorRoom":"422","longitude":"-73.959849","latitude":"40.809414","displayName":"Engineering Library","officialName":"Engineering Library","note":"","locationIDClean":"engineering"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/geology/directions.html","phone":"(212) 854-4713","building":"Schermerhorn","fax":"","imagePath":"/content/dam/locations/geology.jpg","mapURL":"","state":"NY","address1":"1190 Amsterdam Ave.","locationID":"geology","locationURL":"http://library.columbia.edu/locations/geology.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=geology","email":"geology@library.columbia.edu","floorRoom":"601","longitude":"-73.960688","latitude":"40.808667","displayName":"Geology Library","officialName":"Geology Library","note":"","locationIDClean":"geology"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-3630","building":"Lehman Library","fax":"","imagePath":"/content/dam/libraryweb/locations/area/featured_content_images/global-studies.jpg","mapURL":"","state":"NY","address1":"420 West 118th St.","locationID":"global-studies","locationURL":"http://library.columbia.edu/locations/global.html","address2":"International Affairs Building","city":"New York","hoursURL":"","email":"global@library.columbia.edu","floorRoom":"","longitude":"-73.959902","latitude":"40.807364","displayName":"Global Studies","officialName":"Global Studies","note":"","locationIDClean":"globalstudies"},{"showOnMap":true,"zip":"10032","directionsURL":"http://library.cumc.columbia.edu/directions-subway-bus-or-shuttle","phone":"(212) 305-3692","building":"Columbia University","fax":"","imagePath":"/content/dam/locations/health-sciences.jpg","mapURL":"","state":"NY","address1":"701 W. 168th St","locationID":"health-sciences","locationURL":"http://library.cumc.columbia.edu/","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=health-sciences","email":"hs-library@columbia.edu","floorRoom":"Lobby Level","longitude":"-73.942618","latitude":"40.842663","displayName":"Health Sciences Library","officialName":"Health Sciences Library","note":"","locationIDClean":"healthsciences"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7535","building":"","fax":"(212) 854-3313","imagePath":"/content/dam/locations/ill.jpg","mapURL":"","state":"NY","address1":"307 Butler Library","locationID":"ill","locationURL":"http://library.columbia.edu/find/request/ill.html","address2":"535 W. 114th Street","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=ill","email":"ill@library.columbia.edu","floorRoom":"","longitude":"-73.963271","latitude":"40.806235","displayName":"Interlibrary Loan Office","officialName":"Interlibrary Loan Office","note":"","locationIDClean":"ill"},{"showOnMap":false,"zip":"10027","directionsURL":"","phone":"(212) 854-8046","building":"304 International Affairs","fax":"","imagePath":"/content/dam/locations/jewish-studies.jpg","mapURL":"","state":"NY ","address1":"420 West 118th St.","locationID":"jewish-studies","locationURL":"http://library.columbia.edu/locations/global/jewishstudies.html","address2":"","city":"New York","hoursURL":"","email":"jewishstudies@library.columbia.edu","floorRoom":"","longitude":"-73.960023","latitude":"40.80737","displayName":"Jewish Studies","officialName":"Jewish Studies","note":"","locationIDClean":"jewishstudies"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 678-8000","building":"","fax":"","imagePath":"/content/dam/libraryweb/general/images/libphotos/jewish.jpg","mapURL":"","state":"NY","address1":"3080 Broadway","locationID":"jts","locationURL":"http://www.jtsa.edu/The_Library.xml","address2":"","city":"New York","hoursURL":"http://www.jtsa.edu/The_Library/Location_Hours_and_Contact.xml","email":"communications@jtsa.edu","floorRoom":"","longitude":"-73.960525","latitude":"40.812072","displayName":"","officialName":"Jewish Theological Seminary Library","note":"","locationIDClean":"jts"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-0390","building":"Pulitzer Hall (Journalism)","fax":"","imagePath":"/content/dam/locations/journalism.jpg","mapURL":"","state":"NY","address1":"2950 Broadway","locationID":"journalism","locationURL":"http://library.columbia.edu/locations/journalism.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=journalism","email":"journalism@library.columbia.edu","floorRoom":"204","longitude":"-73.963724","latitude":"40.807648","displayName":"","officialName":"Journalism Library","note":"","locationIDClean":"journalism"},{"showOnMap":true,"zip":"10027","directionsURL":"http://web.law.columbia.edu/library/about/directions","phone":"(212) 854-2640","building":"Jerome L. Greene Hall","fax":"","imagePath":"/content/dam/locations/law.jpg","mapURL":"","state":"NY","address1":"435 West 116th St.","locationID":"law","locationURL":"http://web.law.columbia.edu/library","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=law","email":"law@library.columbia.edu","floorRoom":"3rd Floor","longitude":"-73.960633","latitude":"40.806878","displayName":"Law Library","officialName":"Arthur W. Diamond Law Library","note":"","locationIDClean":"law"},{"showOnMap":false,"zip":"10025","directionsURL":"","phone":"(212) 854-1679","building":"","fax":"","imagePath":"/content/dam/locations/latinamerican-studies.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"latinamerican-studies","locationURL":"http://library.columbia.edu/locations/global/latinamerica.html","address2":"","city":"New York","hoursURL":"","email":"latam@library.columbia.edu","floorRoom":"309 International Affairs","longitude":"-73.9599588","latitude":"40.807344","displayName":"Latin American & Iberian Studies","officialName":"Latin American & Iberian Studies","note":"","locationIDClean":"latinamericanstudies"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/lehman/directions","phone":"(212) 854-3794","building":"International Affairs","fax":"","imagePath":"/content/dam/locations/lehman.jpg","mapURL":"","state":"NY","address1":"420 W. 118th St.","locationID":"lehman","locationURL":"http://library.columbia.edu/locations/lehman.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=lehman","email":"lehman@library.columbia.edu","floorRoom":"300","longitude":"-73.959798","latitude":"40.80752","displayName":"Lehman Social Sciences Library","officialName":"Lehman Social Sciences Library","note":"","locationIDClean":"lehman"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/lehman/floorplan","phone":"(212) 854-8043","building":"International Affairs","fax":"","imagePath":"/content/dam/locations/lehman-maps.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"lehman-maps","locationURL":"http://library.columbia.edu/locations/maps.html","address2":"","city":"New York","hoursURL":"http://library.columbia.edu/locations/maps/hours.html","email":"dssc.data@columbia.edu","floorRoom":"300","longitude":"-73.959331","latitude":"40.807502","displayName":"Lehman Library Map Collection","officialName":"Lehman Library Map Collection","note":"","locationIDClean":"lehmanmaps"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7309","building":"","fax":"","imagePath":"/content/dam/locations/lio.jpg","mapURL":"","state":"NY","address1":"201 Butler Library","locationID":"lio","locationURL":"http://library.columbia.edu/services/lio.html","address2":"535 West 114th St.","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=lio","email":"lio@columbia.edu","floorRoom":"","longitude":"-73.962982","latitude":"40.806558","displayName":"Library Information Office","officialName":"Library Information Office","note":"","locationIDClean":"lio"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/math/directions","phone":"(212) 854-4712","building":"Mathematics","fax":"","imagePath":"/content/dam/locations/math.jpg","mapURL":"","state":"NY","address1":"2990 Broadway","locationID":"math","locationURL":"http://library.columbia.edu/locations/math.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=math","email":"math@library.columbia.edu","floorRoom":"303","longitude":"-73.962783","latitude":"40.808988","displayName":"Mathematics Library","officialName":"Mathematics Library","note":"","locationIDClean":"math"},{"showOnMap":false,"zip":"10025","directionsURL":"/content/libraryweb/locations/global/mideast/floorplan.html","phone":"(212) 854-3995","building":"Lehman Library","fax":"","imagePath":"/content/dam/locations/mideast-studies.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"mideast-studies","locationURL":"http://library.columbia.edu/locations/global/mideast.html","address2":"","city":"New York","hoursURL":"","email":"mideast@library.columbia.edu","floorRoom":"","longitude":"-73.959891","latitude":"40.807315","displayName":"Middle East & Islamic Studies","officialName":"Middle East & Islamic Studies","note":"","locationIDClean":"mideaststudies"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/music/directions","phone":"(212) 854-4711","building":"Dodge","fax":"","imagePath":"/content/dam/locations/music.jpg","mapURL":"","state":"NY","address1":"2960 Broadway","locationID":"music","locationURL":"http://library.columbia.edu/locations/music.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=music","email":"music@library.columbia.edu","floorRoom":"701","longitude":"-73.963185","latitude":"40.807959","displayName":"Music & Arts Library","officialName":"The Gabe M. Wiener Music & Arts Library","note":"","locationIDClean":"music"},{"showOnMap":false,"zip":"10032","directionsURL":"","phone":"(212) 305-3294","building":"NewYork-Presbyterian Hospital","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"622 W 168th Street","locationID":"cumc-orthopaedic","locationURL":"http://www.columbiaortho.org/departments/russell-hibbs-memorial-library","address2":"","city":"New York","hoursURL":"","email":"aom1@columbia.edu","floorRoom":"PH11-1139","longitude":"-73.940824","latitude":"40.841558","displayName":"Russell A. Hibbs Memorial Library","officialName":"Russell A. Hibbs Memorial Library - Department of Orthopedic Surgery","note":"","locationIDClean":"cumcorthopaedic"},{"showOnMap":false,"zip":"10032","directionsURL":"http://nyspi.org/library/directions.htm","phone":"(646) 774-8613","building":"Columbia Presbyterian Medical Center","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"1051 Riverside Drive (at 168th Street)","locationID":"nyspi","locationURL":"http://nyspi.org/library/","address2":"","city":"New York","hoursURL":"http://nyspi.org/library/about.htm","email":"MinayaL@pi.cpmc.columbia.edu","floorRoom":"Room 6300 / 6th Floor","longitude":"-73.944558","latitude":"40.842921","displayName":"","officialName":"NYS Psychiatric Institute Library","note":"","locationIDClean":"nyspi"},{"showOnMap":false,"zip":"08540","directionsURL":"","phone":"(609) 258-3388","building":"","fax":"","imagePath":"/content/dam/locations/off-site.png","mapURL":"","state":"NJ","address1":"400 Forrestal Road","locationID":"off-site","locationURL":"http://library.columbia.edu/find/request/offsite.html","address2":"","city":"Princeton","hoursURL":"","email":"recap@library.columbia.edu","floorRoom":"","longitude":"-74.613870","latitude":"40.344253","displayName":"","officialName":"Off-site Library Shelving Facility (ReCAP)","note":"","locationIDClean":"offsite"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 851-5621","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/recap-office.png","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"recap-office","locationURL":"http://library.columbia.edu/find/request/offsite.html","address2":"","city":"New York","hoursURL":"","email":"recap@library.columbia.edu","floorRoom":"101","longitude":"-73.96285","latitude":"40.806255","displayName":"Office of the ReCAP Coordinator","officialName":"Office of the ReCAP Coordinator","note":"","locationIDClean":"recapoffice"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/pmrr/directions","phone":"(212) 854-4704","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/pmrr.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"pmrr","locationURL":"http://library.columbia.edu/locations/pmrr.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=pmrr","email":"pmrr@library.columbia.edu","floorRoom":"401","longitude":"-73.962799","latitude":"40.80631","displayName":"Periodicals & Microforms Reading Room","officialName":"Periodicals & Microforms Reading Room","note":"","locationIDClean":"pmrr"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/rbml/about/directions","phone":"(212) 854-5590","building":"Butler Library","fax":"(212) 854-1365","imagePath":"/content/dam/locations/rbml.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"rbml","locationURL":"http://library.columbia.edu/locations/rbml.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=rbml","email":"rbml@library.columbia.edu","floorRoom":"6th Floor East","longitude":"-73.963123","latitude":"40.806174","displayName":"Rare Book & Manuscript Library","officialName":"Rare Book & Manuscript Library","note":"","locationIDClean":"rbml"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/global/slavic/floorplan.html","phone":"(212) 854-4701","building":"","fax":"","imagePath":"/content/dam/locations/slavic-studies.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"slavic-studies","locationURL":"http://library.columbia.edu/locations/global/slavic.html","address2":"","city":"New York","hoursURL":"","email":"slavic@library.columbia.edu","floorRoom":"306 International Affairs","longitude":"-73.959822","latitude":"40.807288","displayName":"Russian, Eurasian, & East European Studies","officialName":"Russian, Eurasian, & East European Studies","note":"","locationIDClean":"slavicstudies"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/science-engineering/directions","phone":"(212) 851-2950","building":"Northwest Corner Building","fax":"","imagePath":"/content/dam/locations/science-library.jpg","mapURL":"","state":"NY","address1":"550 West 120th Street ","locationID":"science-engineering","locationURL":"http://library.columbia.edu/locations/science-library.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=science-engineering","email":"scieng@library.columbia.edu","floorRoom":"401","longitude":"-73.962015","latitude":"40.810075","displayName":"Science & Engineering Library","officialName":"Science & Engineering Library","note":"","locationIDClean":"scienceengineering"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/social-work/directions","phone":"(212) 851-2194","building":"2nd Floor, School of Social Work","fax":"","imagePath":"/content/dam/locations/social-work.jpg","mapURL":"","state":"NY ","address1":"1255 Amsterdam Avenue","locationID":"social-work","locationURL":"http://library.columbia.edu/locations/social-work.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=social-work","email":"socwk@library.columbia.edu","floorRoom":"","longitude":"-73.958191","latitude":"40.810277","displayName":"Social Work Library","officialName":"Social Work Library","note":"","locationIDClean":"socialwork"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/global/southasia/floorplan.html","phone":"(212) 854-8401","building":"International Affairs Building (Lehman Library)","fax":"","imagePath":"/content/dam/locations/southasian-studies.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"southasia-studies","locationURL":"http://library.columbia.edu/locations/global/southasia.html","address2":"","city":"New York","hoursURL":"","email":"southasia@library.columbia.edu","floorRoom":"309","longitude":"-73.95976","latitude":"40.807258","displayName":"South & Southeast Asian Studies","officialName":"South & Southeast Asian Studies","note":"","locationIDClean":"southasiastudies"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 678-3494 ","building":"Teacher's College","fax":"","imagePath":"/content/dam/locations/teachers-college.jpg","mapURL":"","state":"NY ","address1":"525 W. 120th St. ","locationID":"teachers-college","locationURL":"http://library.tc.columbia.edu/","address2":"","city":"New York","hoursURL":"http://library.tc.columbia.edu/info.php","email":"","floorRoom":"","longitude":"-73.959862","latitude":"40.80992","displayName":"Teacher's College Library","officialName":"Teacher's College Library","note":"","locationIDClean":"teacherscollege"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/undergraduate/floorplan","phone":"(212) 854-0520","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/undergraduate.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"undergraduate","locationURL":"http://library.columbia.edu/locations/undergraduate.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler-24","email":"undergrad@library.columbia.edu","floorRoom":"","longitude":"-73.963526","latitude":"40.806334","displayName":"Undergraduate Library Services","officialName":"Undergraduate Library Services","note":"","locationIDClean":"undergraduate"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/usgd/directions","phone":"(212) 854-3794","building":"Lehman Social Sciences Library","fax":"","imagePath":"/content/dam/locations/usgd.jpg","mapURL":"","state":"NY","address1":"300 International Affairs","locationID":"usgd","locationURL":"http://library.columbia.edu/locations/usgd.html","address2":"420 W. 118th St.","city":"New York","hoursURL":"http://library.columbia.edu/locations/usgd/hours.html","email":"usgd@library.columbia.edu","floorRoom":"","longitude":"-73.959302","latitude":"40.807538","displayName":"","officialName":"U.S. Government Documents","note":"","locationIDClean":"usgd"}],"defaultImageURL":"http://library.columbia.edu/content/dam/locations/location.png"}
+        {"locations":[{"showOnMap":false,"zip":"","directionsURL":"http://www.columbia.edu/node/58.html","phone":"","building":"","fax":"","imagePath":"/content/dam/locations/culis.jpg","mapURL":"","state":"","address1":"","locationID":"cu-morningside","locationURL":"http://www.columbia.edu","address2":"","city":"","hoursURL":"","email":"","floorRoom":"","longitude":"-73.962443","latitude":"40.80741","displayName":"Columbia's Morningside Campus","officialName":"Columbia University - Morningside Campus","note":"Centered at 116th St. between Broadway and Amsterdam, the Morningside campus is home to most of Columbia&apos;s libraries.<br/><br/>Other library locations:<br/><a href=\"#\" onclick=\"showInfoWindow('healthsciences'); return false;\">Health Sciences Library<\/a>, <a href=\"#\" onclick=\"showInfoWindow('geoscience'); return false;\">Lamont-Doherty Geoscience Library<\/a>, <a href=\"http://library.columbia.edu/find/request/off-site.html\">Offsite Shelving Facility<\/a>","locationIDClean":"cumorningside"},{"showOnMap":false,"zip":"10027","directionsURL":"http://www.columbia.edu/node/58.html","phone":"(212) 854-7309","building":"","fax":"(212) 854-9099","imagePath":"/content/dam/locations/culis.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"culis","locationURL":"http://library.columbia.edu","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu","email":"","floorRoom":"","longitude":"-73.962443","latitude":"40.80741","displayName":"Columbia University Libraries","officialName":"Columbia University Libraries / Information Services","note":"","locationIDClean":"culis"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/global/africa/floorplan","phone":"(212) 854-8045","building":"Lehman Library","fax":"","imagePath":"/content/dam/libraryweb/locations/area/africa/african_studies_postcard2.jpg","mapURL":"","state":"NY","address1":"420 West 118th St.","locationID":"african-studies","locationURL":"http://library.columbia.edu/locations/global/africa.html","address2":"","city":"New York","hoursURL":"","email":"africa@library.columbia.edu","floorRoom":"","longitude":"-73.960087","latitude":"40.807396","displayName":"African Studies","officialName":"African Studies","note":"","locationIDClean":"africanstudies"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/avery/directions","phone":"212.854.2877","building":"Avery","fax":"","imagePath":"https://blogs.cul.columbia.edu/avery/files/2014/06/netsuke-1-1024x768.jpg","mapURL":"","state":"NY","address1":"1172 Amsterdam Avenue","locationID":"avery-art-properties","locationURL":"http://library.columbia.edu/locations/avery/art-properties.html","address2":"M.C. 0301","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=avery-art-properties","email":"artproperties@library.columbia.edu","floorRoom":"300","longitude":"-73.960929","latitude":"40.808456","displayName":"Art Properties","officialName":"Art Properties","note":"","locationIDClean":"averyartproperties"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-6199","building":"Avery","fax":"","imagePath":"/content/dam/locations/avery.jpg","mapURL":"","state":"NY","address1":"1172 Amsterdam Avenue","locationID":"avery","locationURL":"http://library.columbia.edu/indiv/avery.html","address2":"M.C. 0301","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=avery","email":"avery@library.columbia.edu","floorRoom":"300","longitude":"-73.960884","latitude":"40.808381","displayName":"Avery Library","officialName":"Avery Architectural & Fine Arts Library","note":"","locationIDClean":"avery"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/avery/directions","phone":"(212) 854-8409","building":"Avery Library","fax":"","imagePath":"/content/dam/libraryweb/locations/avery/classics/Orders of architecture.jpg","mapURL":"","state":"NY","address1":"Columbia University","locationID":"avery-classics","locationURL":"http://library.columbia.edu/locations/avery/avery-classics.html","address2":"1172 Amsterdam Ave., MC0301","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=avery-classics","email":"avery-classics@library.columbia.edu","floorRoom":"Rm. 234","longitude":"-73.960801","latitude":"40.808407","displayName":"Avery Classics Collection","officialName":"Avery Classics Collection","note":"","locationIDClean":"averyclassics"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/avery/directions","phone":"(212) 854-4110","building":"Avery Library","fax":"","imagePath":"/content/dam/libraryweb/locations/avery/Fallingwater.jpg","mapURL":"","state":"NY","address1":"Columbia University","locationID":"avery-drawings-archives","locationURL":"http://library.columbia.edu/locations/avery/drawings-archives.html","address2":"1172 Amsterdam Ave., MC0301","city":"New York","hoursURL":"http://hours.library.columbia.edu/index.php?library=avery-drawings-archives","email":"avery-drawings@library.columbia.edu","floorRoom":"Rm. 213","longitude":"-73.960908","latitude":"40.808494","displayName":"Avery Drawings & Archives","officialName":"Drawing & Archives Department Avery Architectural & Fine Arts Library","note":"","locationIDClean":"averydrawingsarchives"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/avery/directions","phone":"212-854-8407","building":"Avery Library","fax":"","imagePath":"/content/dam/libraryweb/locations/avery/avery_index/Anniversary-logo-WEB--2.jpg","mapURL":"","state":"NY","address1":"Columbia University","locationID":"avery-index","locationURL":"http://library.columbia.edu/locations/avery/avery-index.html","address2":"1172 Amsterdam Ave., MC0301","city":"New York","hoursURL":"","email":"avery-index@library.columbia.edu","floorRoom":"Rm. 226","longitude":"-73.960761","latitude":"40.808423","displayName":"Avery Index to Architectural Periodicals","officialName":"Avery Index to Architectural Periodicals","note":"","locationIDClean":"averyindex"},{"showOnMap":true,"zip":"10027","directionsURL":"http://library.barnard.edu/about-the-library/map","phone":"(212) 854-3953","building":"LeFrak Center, Barnard Hall, first floor","fax":"","imagePath":"/content/dam/locations/barnard.jpg","mapURL":"","state":"NY","address1":"3009 Broadway","locationID":"barnard","locationURL":"http://library.barnard.edu/","address2":"","city":"New York ","hoursURL":"https://library.barnard.edu/access/hours","email":"library@barnard.edu","floorRoom":"","longitude":"-73.963939","latitude":"40.809097","displayName":"Barnard College Library","officialName":"Barnard Library & Academic Information Systems","note":"","locationIDClean":"barnard"},{"showOnMap":false,"zip":"10027","directionsURL":"","phone":"(212) 854-2067","building":"Barnard Hall","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"3009 Broadway","locationID":"barnard-bcrw","locationURL":"http://bcrw.barnard.edu","address2":"","city":"New York","hoursURL":"","email":"bcrw@barnard.edu","floorRoom":"101","longitude":"-73.963955","latitude":"40.809154","displayName":"","officialName":"Barnard Center For Research On Women","note":"","locationIDClean":"barnardbcrw"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7535","building":"","fax":"","imagePath":"/content/dam/locations/borrowdirect.jpg","mapURL":"","state":"NY","address1":"307 Butler Library","locationID":"borrow-direct","locationURL":"http://library.columbia.edu/find/request/borrow-direct.html","address2":"535 W. 114th Street","city":"New York","hoursURL":"","email":"borrowdirect@columbia.edu","floorRoom":"","longitude":"-73.96325","latitude":"40.806225","displayName":"Borrow Direct Office","officialName":"Borrow Direct Office","note":"","locationIDClean":"borrowdirect"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/burke/directions","phone":"(212) 851-5606","building":"Union Theological Seminary","fax":"","imagePath":"/content/dam/locations/burke.jpg","mapURL":"","state":"NY","address1":"3041 Broadway","locationID":"burke","locationURL":"http://library.columbia.edu/locations/burke.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=burke","email":"burke@library.columbia.edu","floorRoom":"","longitude":"-73.961876","latitude":"40.811353","displayName":"The Burke Library","officialName":"The Burke Theological Library","note":"","locationIDClean":"burke"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/business/directions","phone":"(212) 854-7804","building":"Uris Hall","fax":"","imagePath":"/content/dam/locations/business.jpg","mapURL":"","state":"NY","address1":"3022 Broadway","locationID":"business","locationURL":"http://library.columbia.edu/locations/business.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=business","email":"business@library.columbia.edu","floorRoom":"130","longitude":"-73.961147","latitude":"40.809231","displayName":"Business & Economics Library","officialName":"Business & Economics Library","note":"","locationIDClean":"business"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler-circulation/directions","phone":"(212) 854-2235","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/butler-circulation.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"butler-circulation","locationURL":"http://library.columbia.edu/locations/butler-circulation.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler","email":"circulation@columbia.edu","floorRoom":"Circulation Department","longitude":"-73.963156","latitude":"40.806507","displayName":"Butler Library Circulation","officialName":"Butler Library Circulation","note":"","locationIDClean":"butlercirculation"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7309","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/butler.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"butler","locationURL":"http://library.columbia.edu/locations/butler.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler","email":"butler@library.columbia.edu","floorRoom":"","longitude":"-73.963225","latitude":"40.806422","displayName":"Butler Library","officialName":"Nicholas Murray Butler Library","note":"","locationIDClean":"butler"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler-reference/directions","phone":"(212) 854-2241","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/butler-reference.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"butler-reference","locationURL":"http://library.columbia.edu/locations/butler-reference.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler-reference","email":"ref-ref@columbia.edu","floorRoom":"301","longitude":"-73.963159","latitude":"40.8066","displayName":"Butler Library Research Services","officialName":"Butler Library Research Services","note":"","locationIDClean":"butlerreference"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler-reserves/floorplan","phone":"(212) 854-5327","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/butler-reserves.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"butler-reserves","locationURL":"http://library.columbia.edu/locations/butler-reserves.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler-reserves","email":"butlres@library.columbia.edu","floorRoom":"208 ","longitude":"-73.963024","latitude":"40.80617","displayName":"Butler Library Reserves","officialName":"Butler Library Reserves","note":"","locationIDClean":"butlerreserves"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-5327","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/media-services.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"media-services","locationURL":"http://library.columbia.edu/locations/butler/media-services.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=bmc","email":"bmc@library.columbia.edu","floorRoom":"208B ","longitude":"-73.963035","latitude":"40.806117","displayName":"Butler Media Center","officialName":"Butler Media Center","note":"","locationIDClean":"mediaservices"},{"showOnMap":false,"zip":"10027","directionsURL":"","phone":"","building":"International Affairs","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"420 West 118th Street","locationID":"cdrs","locationURL":"http://cdrs.columbia.edu","address2":"","city":"New York","hoursURL":"","email":"info@cdrs.columbia.edu","floorRoom":"201 (Lehman Library)","longitude":"-73.959728","latitude":"40.807418","displayName":"","officialName":"Center for Digital Research and Scholarship","note":"","locationIDClean":"cdrs"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-3630","building":"International Affairs","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"420 West 118 St.","locationID":"chrdr","locationURL":"http://library.columbia.edu/locations/chrdr.html","address2":"","city":"New York","hoursURL":"","email":"chrdr@columbia.edu","floorRoom":"318","longitude":"-73.960144","latitude":"40.807772","displayName":"Center for Human Rights Documentation & Research","officialName":"Center for Human Rights Documentation & Research","note":"","locationIDClean":"chrdr"},{"showOnMap":false,"zip":"10027","directionsURL":"http://ctl.columbia.edu/about/contact/","phone":"(212) 854-9058","building":"Butler Library","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"535 West 114th Street","locationID":"ctl","locationURL":"http://ccnmtl.columbia.edu/","address2":"","city":"New York","hoursURL":"","email":"ccnmtl@columbia.edu","floorRoom":"Faculty Support Lab, room 204,<br/>Staff Offices, room 505","longitude":"-73.962872","latitude":"40.806269","displayName":"","officialName":"Center for Teaching and Learning","note":"","locationIDClean":"ctl"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-5590","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/ccoh.jpg","mapURL":"","state":"NY","address1":"535 West 114th Street","locationID":"ccoh","locationURL":"http://library.columbia.edu/locations/ccoh.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=rbml","email":"oralhist@library.columbia.edu","floorRoom":"6th Floor East","longitude":"-73.963172","latitude":"40.806194","displayName":"Columbia Center for Oral History Archives","officialName":"Columbia Center for Oral History Archives","note":"The Columbia Center for Oral History was recently relocated to the Rare Book & Manuscript Library (RBML) on the 6th floor of Butler Library. ","locationIDClean":"ccoh"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/cuarchives/research.html#directions","phone":"(212) 854-3786 ","building":"Butler Library","fax":"(212) 854-1365","imagePath":"/content/dam/libraryweb/general/images/libphotos/columbiana.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"cuarchives","locationURL":"http://library.columbia.edu/locations/cuarchives.html","address2":"M.C. 1127","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=cuarchives","email":"uarchives@columbia.edu","floorRoom":"6th Floor","longitude":"-73.963088","latitude":"40.806204","displayName":"Columbia University Archives","officialName":"Columbia University Archives","note":"","locationIDClean":"cuarchives"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-5289","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/communications.jpg","mapURL":"","state":"NY ","address1":"535 West 114th St.","locationID":"communications","locationURL":"library.columbia.edu/news","address2":"","city":"New York","hoursURL":"","email":"news@library.columbia.edu","floorRoom":"507","longitude":"-73.96333","latitude":"40.806255","displayName":"Media Inquiries","officialName":"Columbia University Libraries Communications Office","note":"","locationIDClean":"communications"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7309","building":"Butler Library","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"535 West 114th Street","locationID":"copyright","locationURL":"http://copyright.columbia.edu","address2":"","city":"New York","hoursURL":"","email":"copyright@columbia.edu","floorRoom":"507D","longitude":"-73.963373","latitude":"40.806271","displayName":"","officialName":"Copyright Advisory Office","note":"","locationIDClean":"copyright"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/dhc/directions.html","phone":"(212) 854-7547","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/dhc.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"dhc","locationURL":"http://library.columbia.edu/locations/dhc.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=dhc","email":"dhc@library.columbia.edu","floorRoom":"305","longitude":"-73.962995","latitude":"40.806119","displayName":"Digital Humanities Center","officialName":"Digital Humanities Center","note":"","locationIDClean":"dhc"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-5327","building":"","fax":"","imagePath":"/content/dam/locations/document-delivery.jpg","mapURL":"","state":"NY","address1":"208 Butler Library","locationID":"document-delivery","locationURL":"http://library.columbia.edu/find/request/document-delivery.html","address2":"535 W. 114th Street","city":"New York","hoursURL":"","email":"doc-del@library.columbia.edu","floorRoom":"","longitude":"-73.963067","latitude":"40.80615","displayName":"Scan & Deliver Electronic Document Delivery","officialName":"Electronic Document Delivery Office","note":"","locationIDClean":"documentdelivery"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/science-engineering/directions.html","phone":"(212) 851-2950","building":"Northwest Corner Building","fax":"","imagePath":"/content/dam/locations/dsc.jpg","mapURL":"","state":"NY","address1":"550 West 120th Street ","locationID":"dsc","locationURL":"http://library.columbia.edu/locations/dsc.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=science-engineering","email":"ref-sci@columbia.edu","floorRoom":"401","longitude":"-73.962107","latitude":"40.80995","displayName":"","officialName":"Digital Science Center","note":"","locationIDClean":"dsc"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-8043","building":"International Affairs","fax":"","imagePath":"/content/dam/locations/dssc.jpg","mapURL":"","state":"NY","address1":"420 W. 118th St.","locationID":"dssc","locationURL":"http://library.columbia.edu/locations/dssc.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=lehman","email":"dssc@library.columbia.edu","floorRoom":"300","longitude":"-73.959283","latitude":"40.807573","displayName":"Digital Social Science Center (DSSC)","officialName":"Digital Social Science Center","note":"","locationIDClean":"dssc"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/lehman/directions","phone":"212-854-6012","building":"International Affairs","fax":"","imagePath":"/content/dam/locations/dssc-data.jpg","mapURL":"","state":"NY","address1":"420 W. 118th St.","locationID":"dssc-data","locationURL":"http://library.columbia.edu/locations/dssc/data.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=dssc-data","email":"dssc.data@columbia.edu","floorRoom":"215","longitude":"-73.959843","latitude":"40.807439","displayName":"DSSC Data Service","officialName":"Digital Social Science Center Data Service","note":"","locationIDClean":"dsscdata"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/eastasian/directions.html","phone":"(212) 854-4318","building":"Kent Hall","fax":"(212) 662-6286","imagePath":"/content/dam/locations/eastasian.jpg","mapURL":"","state":"NY","address1":"1140 Amsterdam Ave","locationID":"eastasian","locationURL":"http://library.columbia.edu/locations/eastasian.html","address2":"M.C. 3901","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=eastasian","email":"starr@library.columbia.edu","floorRoom":"300","longitude":"-73.961517","latitude":"40.807297","displayName":"C.V. Starr East Asian Library","officialName":"C.V. Starr East Asian Library","note":"","locationIDClean":"eastasian"},{"showOnMap":false,"zip":"10027","directionsURL":"","phone":"(212) 854-2976","building":"S. W. Mudd","fax":"","imagePath":"/content/dam/locations/engineering.jpg","mapURL":"","state":"NY","address1":"500 West 120th St.","locationID":"engineering","locationURL":"http://library.columbia.edu/locations/engineering.html","address2":"","city":"New York","hoursURL":"http://hours.cul.columbia.edu/?library=engineering","email":"engineering@library.columbia.edu","floorRoom":"422","longitude":"-73.959849","latitude":"40.809414","displayName":"Engineering Library","officialName":"Engineering Library","note":"","locationIDClean":"engineering"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/geology/directions.html","phone":"(212) 854-4713","building":"Schermerhorn","fax":"","imagePath":"/content/dam/locations/geology.jpg","mapURL":"","state":"NY","address1":"1190 Amsterdam Ave.","locationID":"geology","locationURL":"http://library.columbia.edu/locations/geology.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=geology","email":"geology@library.columbia.edu","floorRoom":"601","longitude":"-73.960688","latitude":"40.808667","displayName":"Geology Library","officialName":"Geology Library","note":"","locationIDClean":"geology"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-3630","building":"Lehman Library","fax":"","imagePath":"/content/dam/libraryweb/locations/area/featured_content_images/global-studies.jpg","mapURL":"","state":"NY","address1":"420 West 118th St.","locationID":"global-studies","locationURL":"http://library.columbia.edu/locations/global.html","address2":"International Affairs Building","city":"New York","hoursURL":"","email":"global@library.columbia.edu","floorRoom":"","longitude":"-73.959902","latitude":"40.807364","displayName":"Global Studies","officialName":"Global Studies","note":"","locationIDClean":"globalstudies"},{"showOnMap":true,"zip":"10032","directionsURL":"http://library.cumc.columbia.edu/directions-subway-bus-or-shuttle","phone":"(212) 305-3692","building":"Columbia University","fax":"","imagePath":"/content/dam/locations/health-sciences.jpg","mapURL":"","state":"NY","address1":"701 W. 168th St","locationID":"health-sciences","locationURL":"http://library.cumc.columbia.edu/","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=health-sciences","email":"hs-library@columbia.edu","floorRoom":"Lobby Level","longitude":"-73.942618","latitude":"40.842663","displayName":"Health Sciences Library","officialName":"Health Sciences Library","note":"","locationIDClean":"healthsciences"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7535","building":"","fax":"(212) 854-3313","imagePath":"/content/dam/locations/ill.jpg","mapURL":"","state":"NY","address1":"307 Butler Library","locationID":"ill","locationURL":"http://library.columbia.edu/find/request/ill.html","address2":"535 W. 114th Street","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=ill","email":"ill@library.columbia.edu","floorRoom":"","longitude":"-73.963271","latitude":"40.806235","displayName":"Interlibrary Loan Office","officialName":"Interlibrary Loan Office","note":"","locationIDClean":"ill"},{"showOnMap":false,"zip":"10027","directionsURL":"","phone":"(212) 854-8046","building":"304 International Affairs","fax":"","imagePath":"/content/dam/locations/jewish-studies.jpg","mapURL":"","state":"NY ","address1":"420 West 118th St.","locationID":"jewish-studies","locationURL":"http://library.columbia.edu/locations/global/jewishstudies.html","address2":"","city":"New York","hoursURL":"","email":"jewishstudies@library.columbia.edu","floorRoom":"","longitude":"-73.960023","latitude":"40.80737","displayName":"Jewish Studies","officialName":"Jewish Studies","note":"","locationIDClean":"jewishstudies"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 678-8000","building":"","fax":"","imagePath":"/content/dam/libraryweb/general/images/libphotos/jewish.jpg","mapURL":"","state":"NY","address1":"3080 Broadway","locationID":"jts","locationURL":"http://www.jtsa.edu/The_Library.xml","address2":"","city":"New York","hoursURL":"http://www.jtsa.edu/The_Library/Location_Hours_and_Contact.xml","email":"communications@jtsa.edu","floorRoom":"","longitude":"-73.960525","latitude":"40.812072","displayName":"","officialName":"Jewish Theological Seminary Library","note":"","locationIDClean":"jts"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 854-0390","building":"Pulitzer Hall (Journalism)","fax":"","imagePath":"/content/dam/locations/journalism.jpg","mapURL":"","state":"NY","address1":"2950 Broadway","locationID":"journalism","locationURL":"http://library.columbia.edu/locations/journalism.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=journalism","email":"journalism@library.columbia.edu","floorRoom":"204","longitude":"-73.963724","latitude":"40.807648","displayName":"","officialName":"Journalism Library","note":"","locationIDClean":"journalism"},{"showOnMap":true,"zip":"10027","directionsURL":"http://web.law.columbia.edu/library/about/directions","phone":"(212) 854-2640","building":"Jerome L. Greene Hall","fax":"","imagePath":"/content/dam/locations/law.jpg","mapURL":"","state":"NY","address1":"435 West 116th St.","locationID":"law","locationURL":"http://web.law.columbia.edu/library","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=law","email":"law@library.columbia.edu","floorRoom":"3rd Floor","longitude":"-73.960633","latitude":"40.806878","displayName":"Law Library","officialName":"Arthur W. Diamond Law Library","note":"","locationIDClean":"law"},{"showOnMap":false,"zip":"10025","directionsURL":"","phone":"(212) 854-1679","building":"","fax":"","imagePath":"/content/dam/locations/latinamerican-studies.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"latinamerican-studies","locationURL":"http://library.columbia.edu/locations/global/latinamerica.html","address2":"","city":"New York","hoursURL":"","email":"latam@library.columbia.edu","floorRoom":"309 International Affairs","longitude":"-73.9599588","latitude":"40.807344","displayName":"Latin American & Iberian Studies","officialName":"Latin American & Iberian Studies","note":"","locationIDClean":"latinamericanstudies"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/lehman/directions","phone":"(212) 854-3794","building":"International Affairs","fax":"","imagePath":"/content/dam/locations/lehman.jpg","mapURL":"","state":"NY","address1":"420 W. 118th St.","locationID":"lehman","locationURL":"http://library.columbia.edu/locations/lehman.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=lehman","email":"lehman@library.columbia.edu","floorRoom":"300","longitude":"-73.959798","latitude":"40.80752","displayName":"Lehman Social Sciences Library","officialName":"Lehman Social Sciences Library","note":"","locationIDClean":"lehman"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/lehman/floorplan","phone":"(212) 854-8043","building":"International Affairs","fax":"","imagePath":"/content/dam/locations/lehman-maps.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"lehman-maps","locationURL":"http://library.columbia.edu/locations/maps.html","address2":"","city":"New York","hoursURL":"http://library.columbia.edu/locations/maps/hours.html","email":"dssc.data@columbia.edu","floorRoom":"300","longitude":"-73.959331","latitude":"40.807502","displayName":"Lehman Library Map Collection","officialName":"Lehman Library Map Collection","note":"","locationIDClean":"lehmanmaps"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-7309","building":"","fax":"","imagePath":"/content/dam/locations/lio.jpg","mapURL":"","state":"NY","address1":"201 Butler Library","locationID":"lio","locationURL":"http://library.columbia.edu/services/lio.html","address2":"535 West 114th St.","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=lio","email":"lio@columbia.edu","floorRoom":"","longitude":"-73.962982","latitude":"40.806558","displayName":"Library Information Office","officialName":"Library Information Office","note":"","locationIDClean":"lio"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/math/directions","phone":"(212) 854-4712","building":"Mathematics","fax":"","imagePath":"/content/dam/locations/math.jpg","mapURL":"","state":"NY","address1":"2990 Broadway","locationID":"math","locationURL":"http://library.columbia.edu/locations/math.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=math","email":"math@library.columbia.edu","floorRoom":"303","longitude":"-73.962783","latitude":"40.808988","displayName":"Mathematics Library","officialName":"Mathematics Library","note":"","locationIDClean":"math"},{"showOnMap":false,"zip":"10025","directionsURL":"/content/libraryweb/locations/global/mideast/floorplan.html","phone":"(212) 854-3995","building":"Lehman Library","fax":"","imagePath":"/content/dam/locations/mideast-studies.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"mideast-studies","locationURL":"http://library.columbia.edu/locations/global/mideast.html","address2":"","city":"New York","hoursURL":"","email":"mideast@library.columbia.edu","floorRoom":"","longitude":"-73.959891","latitude":"40.807315","displayName":"Middle East & Islamic Studies","officialName":"Middle East & Islamic Studies","note":"","locationIDClean":"mideaststudies"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/music/directions","phone":"(212) 854-4711","building":"Dodge","fax":"","imagePath":"/content/dam/locations/music.jpg","mapURL":"","state":"NY","address1":"2960 Broadway","locationID":"music","locationURL":"http://library.columbia.edu/locations/music.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=music","email":"music@library.columbia.edu","floorRoom":"701","longitude":"-73.963185","latitude":"40.807959","displayName":"Music & Arts Library","officialName":"The Gabe M. Wiener Music & Arts Library","note":"","locationIDClean":"music"},{"showOnMap":false,"zip":"10032","directionsURL":"","phone":"(212) 305-3294","building":"NewYork-Presbyterian Hospital","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"622 W 168th Street","locationID":"cumc-orthopaedic","locationURL":"http://www.columbiaortho.org/departments/russell-hibbs-memorial-library","address2":"","city":"New York","hoursURL":"","email":"aom1@columbia.edu","floorRoom":"PH11-1139","longitude":"-73.940824","latitude":"40.841558","displayName":"Russell A. Hibbs Memorial Library","officialName":"Russell A. Hibbs Memorial Library - Department of Orthopedic Surgery","note":"","locationIDClean":"cumcorthopaedic"},{"showOnMap":false,"zip":"10032","directionsURL":"http://nyspi.org/library/directions.htm","phone":"(646) 774-8613","building":"Columbia Presbyterian Medical Center","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"1051 Riverside Drive (at 168th Street)","locationID":"nyspi","locationURL":"http://nyspi.org/library/","address2":"","city":"New York","hoursURL":"http://nyspi.org/library/about.htm","email":"MinayaL@pi.cpmc.columbia.edu","floorRoom":"Room 6300 / 6th Floor","longitude":"-73.944558","latitude":"40.842921","displayName":"","officialName":"NYS Psychiatric Institute Library","note":"","locationIDClean":"nyspi"},{"showOnMap":false,"zip":"08540","directionsURL":"","phone":"(609) 258-3388","building":"","fax":"","imagePath":"/content/dam/locations/off-site.png","mapURL":"","state":"NJ","address1":"400 Forrestal Road","locationID":"off-site","locationURL":"http://library.columbia.edu/find/request/offsite.html","address2":"","city":"Princeton","hoursURL":"","email":"recap@library.columbia.edu","floorRoom":"","longitude":"-74.613870","latitude":"40.344253","displayName":"","officialName":"Off-site Library Shelving Facility (ReCAP)","note":"","locationIDClean":"offsite"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 851-5621","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/recap-office.png","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"recap-office","locationURL":"http://library.columbia.edu/find/request/offsite.html","address2":"","city":"New York","hoursURL":"","email":"recap@library.columbia.edu","floorRoom":"101","longitude":"-73.96285","latitude":"40.806255","displayName":"Office of the ReCAP Coordinator","officialName":"Office of the ReCAP Coordinator","note":"","locationIDClean":"recapoffice"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/pmrr/directions","phone":"(212) 854-4704","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/pmrr.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"pmrr","locationURL":"http://library.columbia.edu/locations/pmrr.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=pmrr","email":"pmrr@library.columbia.edu","floorRoom":"401","longitude":"-73.962799","latitude":"40.80631","displayName":"Periodicals & Microforms Reading Room","officialName":"Periodicals & Microforms Reading Room","note":"","locationIDClean":"pmrr"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/rbml/about/directions","phone":"(212) 854-5590","building":"Butler Library","fax":"(212) 854-1365","imagePath":"/content/dam/locations/rbml.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"rbml","locationURL":"http://library.columbia.edu/locations/rbml.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=rbml","email":"rbml@library.columbia.edu","floorRoom":"6th Floor East","longitude":"-73.963123","latitude":"40.806174","displayName":"Rare Book & Manuscript Library","officialName":"Rare Book & Manuscript Library","note":"","locationIDClean":"rbml"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/global/slavic/floorplan.html","phone":"(212) 854-4701","building":"","fax":"","imagePath":"/content/dam/locations/slavic-studies.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"slavic-studies","locationURL":"http://library.columbia.edu/locations/global/slavic.html","address2":"","city":"New York","hoursURL":"","email":"slavic@library.columbia.edu","floorRoom":"306 International Affairs","longitude":"-73.959822","latitude":"40.807288","displayName":"Russian, Eurasian, & East European Studies","officialName":"Russian, Eurasian, & East European Studies","note":"","locationIDClean":"slavicstudies"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/science-engineering/directions","phone":"(212) 851-2950","building":"Northwest Corner Building","fax":"","imagePath":"/content/dam/locations/science-library.jpg","mapURL":"","state":"NY","address1":"550 West 120th Street ","locationID":"science-engineering","locationURL":"http://library.columbia.edu/locations/science-library.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=science-engineering","email":"scieng@library.columbia.edu","floorRoom":"401","longitude":"-73.962015","latitude":"40.810075","displayName":"Science & Engineering Library","officialName":"Science & Engineering Library","note":"","locationIDClean":"scienceengineering"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/social-work/directions","phone":"(212) 851-2194","building":"2nd Floor, School of Social Work","fax":"","imagePath":"/content/dam/locations/social-work.jpg","mapURL":"","state":"NY ","address1":"1255 Amsterdam Avenue","locationID":"social-work","locationURL":"http://library.columbia.edu/locations/social-work.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=social-work","email":"socwk@library.columbia.edu","floorRoom":"","longitude":"-73.958191","latitude":"40.810277","displayName":"Social Work Library","officialName":"Social Work Library","note":"","locationIDClean":"socialwork"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/global/southasia/floorplan.html","phone":"(212) 854-8401","building":"International Affairs Building (Lehman Library)","fax":"","imagePath":"/content/dam/locations/southasian-studies.jpg","mapURL":"","state":"NY ","address1":"420 W. 118th St.","locationID":"southasia-studies","locationURL":"http://library.columbia.edu/locations/global/southasia.html","address2":"","city":"New York","hoursURL":"","email":"southasia@library.columbia.edu","floorRoom":"309","longitude":"-73.95976","latitude":"40.807258","displayName":"South & Southeast Asian Studies","officialName":"South & Southeast Asian Studies","note":"","locationIDClean":"southasiastudies"},{"showOnMap":true,"zip":"10027","directionsURL":"","phone":"(212) 678-3494 ","building":"Teacher's College","fax":"","imagePath":"/content/dam/locations/teachers-college.jpg","mapURL":"","state":"NY ","address1":"525 W. 120th St. ","locationID":"teachers-college","locationURL":"http://library.tc.columbia.edu/","address2":"","city":"New York","hoursURL":"http://library.tc.columbia.edu/info.php","email":"","floorRoom":"","longitude":"-73.959862","latitude":"40.80992","displayName":"Teacher's College Library","officialName":"Teacher's College Library","note":"","locationIDClean":"teacherscollege"},{"showOnMap":true,"zip":"10027","directionsURL":"/content/libraryweb/locations/undergraduate/floorplan","phone":"(212) 854-0520","building":"Butler Library","fax":"","imagePath":"/content/dam/locations/undergraduate.jpg","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"undergraduate","locationURL":"http://library.columbia.edu/locations/undergraduate.html","address2":"","city":"New York","hoursURL":"http://hours.library.columbia.edu/?library=butler-24","email":"undergrad@library.columbia.edu","floorRoom":"","longitude":"-73.963526","latitude":"40.806334","displayName":"Undergraduate Library Services","officialName":"Undergraduate Library Services","note":"","locationIDClean":"undergraduate"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/usgd/directions","phone":"(212) 854-3794","building":"Lehman Social Sciences Library","fax":"","imagePath":"/content/dam/locations/usgd.jpg","mapURL":"","state":"NY","address1":"300 International Affairs","locationID":"usgd","locationURL":"http://library.columbia.edu/locations/usgd.html","address2":"420 W. 118th St.","city":"New York","hoursURL":"http://library.columbia.edu/locations/usgd/hours.html","email":"usgd@library.columbia.edu","floorRoom":"","longitude":"-73.959302","latitude":"40.807538","displayName":"","officialName":"U.S. Government Documents","note":"","locationIDClean":"usgd"},{"showOnMap":false,"zip":"10027","directionsURL":"/content/libraryweb/locations/butler/directions","phone":"(212) 854-2460","building":"Butler Library","fax":"","imagePath":"","mapURL":"","state":"NY","address1":"535 West 114th St.","locationID":"web-archives","locationURL":"http://library.columbia.edu/find/articles","address2":"","city":"New York","hoursURL":"","email":"webarchiving@library.columbia.edu","floorRoom":"102","longitude":"-73.96333","latitude":"40.806255","displayName":"Web Resources Collection Coordinator","officialName":"Web Archiving at Columbia","note":"","locationIDClean":"webarchives"}],"defaultImageURL":"http://library.columbia.edu/content/dam/locations/location.png"}
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:57:58 GMT
+  recorded_at: Tue, 11 Oct 2016 20:51:18 GMT
 recorded_with: VCR 3.0.3

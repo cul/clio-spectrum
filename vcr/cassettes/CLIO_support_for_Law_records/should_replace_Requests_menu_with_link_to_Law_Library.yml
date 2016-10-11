@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:57:36 GMT
+      - Tue, 11 Oct 2016 20:51:06 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -160,14 +160,14 @@ http_interactions:
         NTQwMDAwMCszMjQ2OCB8IGVibn5ma35+cnN2eH56enp6enp6en5kdXZ6enp6
         en53eHZ0cn5+fn5+fn5+fn5+fn5+J10sJ3RpbWVzdGFtcCc9PicyMDE2LTA3
         LTA2VDIxOjA4OjI0LjIxN1onLCdhdXRob3JpdGllc19kdCc9PicyMDE2LTA4
-        LTA1VDE3OjQzOjQwWicsJ2F1dGhvcl92YXJpYW50X3R4dCc9PlsnTWlsbGVy
+        LTMxVDE1OjU0OjQ2WicsJ2F1dGhvcl92YXJpYW50X3R4dCc9PlsnTWlsbGVy
         LCBBcnRodXIgUy4nXSwnc3ViamVjdF92YXJpYW50X3R4dCc9PlsnU3VwcmVt
         ZSBDb3VydCAoVS5TLiknLCdDaGllZiBKdXN0aWNlIG9mIHRoZSBVbml0ZWQg
         U3RhdGVzJywnU3VwcmVtZSBDb3VydCBvZiB0aGUgVW5pdGVkIFN0YXRlcycs
-        J+e+juWciy4nXSwnX3ZlcnNpb25fJz0+MTU0MTg0NjA4NzM5NDkxODQwMH1d
+        J+e+juWciy4nXSwnX3ZlcnNpb25fJz0+MTU0NDE5NDc2NDkxMjQ1OTc3Nn1d
         fX0K
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:57:37 GMT
+  recorded_at: Tue, 11 Oct 2016 20:51:05 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=b276194&qt=document&wt=ruby"
@@ -181,7 +181,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:57:37 GMT
+      - Tue, 11 Oct 2016 20:51:06 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -190,8 +190,8 @@ http_interactions:
       - Jetty(8.1.8.v20121106)
     body:
       encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'b276194','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'b276194','marc_display'=>'<record><leader>00617nam a2200229   4500</leader><controlfield tag="001">b276194</controlfield><controlfield tag="005">20140530074538.0</controlfield><controlfield tag="008">890823s1963    nyu           000 1 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">63009276</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">.b2761944</subfield><subfield code="b">06-15-16</subfield><subfield code="c">02-08-90</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">.b2761944</subfield><subfield code="b">04-05-09</subfield><subfield code="c">02-08-90</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">NYCL89-B13237</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="c">AzF</subfield></datafield><datafield tag="099" ind1=" " ind2=" "><subfield code="a">T</subfield><subfield code="b">T828s</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Tully, Andrew,</subfield><subfield code="d">1914-1993.</subfield></datafield><datafield tag="245" ind1="1" ind2="0"><subfield code="a">Supreme Court :</subfield><subfield code="b">a novel /</subfield><subfield code="c">by Andrew Tully.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield code="b">New American Library,</subfield><subfield code="c">[c1963]</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">351 p. ;</subfield><subfield code="c">22 cm.</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Law</subfield><subfield code="b">Law &gt;&gt; T T828s</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">law</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record>','text'=>['T T828s','Tully, Andrew, 1914-1993.','Supreme Court : a novel / by Andrew Tully.','New York : New American Library, [c1963]','351 p. ; 22 cm.'],'author_txt'=>['Tully, Andrew,'],'author_facet'=>['Tully, Andrew, 1914-1993'],'author_display'=>['Tully, Andrew, 1914-1993'],'author_sort'=>'Tully, Andrew, 1914-1993.   Supreme Court a novel by Andrew Tully','title_txt'=>['Supreme Court :'],'title_display'=>['Supreme Court : a novel'],'title_filing_txt'=>['Supreme Court :'],'title_filing_full_txt'=>['Supreme Court : a novel /'],'subtitle_txt'=>['a novel'],'title_first_facet'=>['S'],'title_addl_txt'=>['Supreme Court : a novel /'],'title_sort'=>'supreme court  a novel','pub_place_display'=>['New York'],'pub_name_display'=>['New American Library'],'pub_year_display'=>['c1963'],'pub_place_txt'=>['New York'],'pub_name_txt'=>['New American Library'],'pub_year_txt'=>['c1963'],'pub_date_txt'=>['1963'],'language_facet'=>['English'],'format'=>['Book'],'clio_id_display'=>'b276194','source_facet'=>['law','catalog'],'source_display'=>['law','catalog'],'lccn_display'=>['63009276'],'lccn_txt'=>['63009276'],'full_publisher_display'=>['New York : New American Library, [c1963]'],'location_call_number_id_display'=>['Law >> T T828s'],'location_facet'=>['Law'],'_version_'=>1542559229050617856,'timestamp'=>'2016-08-13T14:38:38.186Z'}]}}
+      string: "{'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw
+        f=id v=$id}','rows'=>'1','id'=>'b276194','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>0,'start'=>0,'docs'=>[]}}\n"
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:57:37 GMT
+  recorded_at: Tue, 11 Oct 2016 20:51:05 GMT
 recorded_with: VCR 3.0.3

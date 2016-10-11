@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:55:56 GMT
+      - Tue, 11 Oct 2016 20:48:39 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -262,15 +262,14 @@ http_interactions:
         MzcwIHwgbXNyK3JibWxfY29tcG9zZXJzZm9ydW1fMTk1ODAxMThfODU0MDM3
         MCs4NTQwMzcwIHwgZDc4fjhvZGV+bmJkYWI3bDg3a2I4NWR+eXF1cnp5eXJ+
         cnV2endzen5ydXZ6d3N6fn4nXSwndGltZXN0YW1wJz0+JzIwMTYtMDctMDZU
-        MjE6MDg6MzEuMzY3WicsJ2F1dGhvcml0aWVzX2R0Jz0+JzIwMTYtMDctMjhU
-        MTY6NDI6MDhaJywnYXV0aG9yX3ZhcmlhbnRfdHh0Jz0+WydXZWluZXIsIFll
-        aHVkaSwgIFdlYmVyLCBELiBLbGVpbiwgRnJlZCddLCdzdWJqZWN0X3Zhcmlh
-        bnRfdHh0Jz0+WydTb25hdGFzIChWaW9sYSBhbmQgdmlvbG9uY2VsbG8pJywn
-        V29vZHdpbmQgcXVpbnRldHMgKEJhc3Nvb24sIGNsYXJpbmV0LCBmbHV0ZSwg
-        aG9ybiwgb2JvZSknXSwnX3ZlcnNpb25fJz0+MTU0MTExNzQ0Nzc5NjQyNDcw
-        NH1dfX0K
+        MjE6MDg6MzEuMzY3WicsJ2F1dGhvcml0aWVzX2R0Jz0+JzIwMTYtMDgtMzFU
+        MDk6Mjk6MzNaJywnYXV0aG9yX3ZhcmlhbnRfdHh0Jz0+WydXZWluZXIsIFll
+        aHVkaSwnLCdXZWJlciwgRC4nLCdLbGVpbiwgRnJlZCddLCdzdWJqZWN0X3Zh
+        cmlhbnRfdHh0Jz0+WydXb29kd2luZCBxdWludGV0cyAoQmFzc29vbiwgY2xh
+        cmluZXQsIGZsdXRlLCBob3JuLCBvYm9lKSddLCdfdmVyc2lvbl8nPT4xNTQ0
+        MTcwNTI4NDUxODU0MzM2fV19fQo=
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:55:56 GMT
+  recorded_at: Tue, 11 Oct 2016 20:48:38 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=4079060&qt=document&wt=ruby"
@@ -284,7 +283,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:55:56 GMT
+      - Tue, 11 Oct 2016 20:48:40 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -293,8 +292,102 @@ http_interactions:
       - Jetty(8.1.8.v20121106)
     body:
       encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'4079060','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'4079060','marc_display'=>'<record><leader>01938cbc a2200493ua 4500</leader><controlfield tag="001">4079060</controlfield><controlfield tag="005">20100226143651.0</controlfield><controlfield tag="008">890802i19581968nyu                 eng d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)122571388</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn122571388</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCR89-A560</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAB1821RB</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)4079060</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">NIC</subfield><subfield code="c">NIC</subfield><subfield code="e">appm</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="b">Ms Coll\\McClure</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">McClure, Michael.</subfield></datafield><datafield tag="245" ind1="0" ind2="0"><subfield code="k">Papers,</subfield><subfield code="f">1958-1968.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">93 items (1 box)</subfield></datafield><datafield tag="545" ind1=" " ind2=" "><subfield code="a">Poet.</subfield><subfield code="b">McClure was born in 1932.</subfield></datafield><datafield tag="520" ind1=" " ind2=" "><subfield code="a">Letters from McClure to David Meltzer discussing McClure\'s writings, especially during a visit to New York in 1961.  Also, three poems sent to Meltzer; one letter, dated 1965, and addressed to Joe Pinelli; letters from McClure to his agent, Max Gartenberg, 1965-1967, concerning his negotiations with Grove Press; and 43 drafts of his MEAT SCIENCE ESSAYS, published by City Lights Books in 1963 and 1966.</subfield></datafield><datafield tag="541" ind1=" " ind2=" "><subfield code="d">04/24/81</subfield><subfield code="e">M-81-04-24</subfield><subfield code="a">409622C</subfield><subfield code="c">Purchase</subfield></datafield><datafield tag="583" ind1=" " ind2=" "><subfield code="a">Cataloged</subfield><subfield code="c">08/--/89</subfield><subfield code="k">Christina Hilton Fenn</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Meltzer, David.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Pinelli, Joe.</subfield></datafield><datafield tag="600" ind1="1" ind2="0"><subfield code="a">Gartenberg, Max.</subfield></datafield><datafield tag="610" ind1="2" ind2="0"><subfield code="a">Grove Press.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Literary agents.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">American poetry</subfield><subfield code="y">20th century.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Literature publishing.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Publishers and publishing.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Bohemianism.</subfield></datafield><datafield tag="651" ind1=" " ind2="0"><subfield code="a">New York (N.Y.)</subfield><subfield code="x">Description and travel.</subfield></datafield><datafield tag="655" ind1=" " ind2="7"><subfield code="a">Poems.</subfield><subfield code="2">ftamc</subfield></datafield><datafield tag="656" ind1=" " ind2="7"><subfield code="a">Poets, American.</subfield><subfield code="2">lcsh</subfield></datafield><datafield tag="690" ind1=" " ind2="4"><subfield code="a">Beats.</subfield></datafield><datafield tag="690" ind1=" " ind2="4"><subfield code="a">Beat literature.</subfield></datafield><datafield tag="852" ind1=" " ind2=" "><subfield code="a">Columbia University.</subfield><subfield code="b">Rare Book and Manuscript Library,</subfield><subfield code="e">New York, NY.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">Ms Coll McClure</subfield><subfield code="b">rbms+MS COLL MCCLURE</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Rare Book</subfield><subfield code="b">Rare Book, Butler 6th Fl. East (Non-Circulating) &gt;&gt; Ms Coll McClure|DELIM|4616283</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Manuscript/Archive</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">archive</subfield></datafield><datafield tag="996" ind1=" " ind2=" "><subfield code="a">Rare Book &amp; Manuscript Library</subfield></datafield></record>','text'=>['Ms Coll\\McClure','McClure, Michael.','Papers, 1958-1968.','93 items (1 box)','Poet. McClure was born in 1932.','Letters from McClure to David Meltzer discussing McClure\'s writings, especially during a visit to New York in 1961.  Also, three poems sent to Meltzer; one letter, dated 1965, and addressed to Joe Pinelli; letters from McClure to his agent, Max Gartenberg, 1965-1967, concerning his negotiations with Grove Press; and 43 drafts of his MEAT SCIENCE ESSAYS, published by City Lights Books in 1963 and 1966.','04/24/81 M-81-04-24 409622C Purchase','Cataloged 08/--/89 Christina Hilton Fenn','Meltzer, David.','Pinelli, Joe.','Gartenberg, Max.','Grove Press.','Literary agents.','American poetry 20th century.','Literature publishing.','Publishers and publishing.','Bohemianism.','New York (N.Y.) Description and travel.','Poems. ftamc','Poets, American. lcsh','Beats.','Beat literature.','Columbia University. Rare Book and Manuscript Library, New York, NY.','AUTH'],'author_txt'=>['McClure, Michael.'],'author_facet'=>['McClure, Michael'],'author_display'=>['McClure, Michael'],'author_sort'=>'McClure, Michael.   Papers 1958-1968','title_txt'=>['Papers, 1958-1968.'],'title_display'=>['Papers, 1958-1968'],'title_first_facet'=>['P'],'title_sort'=>'papers','subject_txt'=>['Meltzer, David','Pinelli, Joe','Gartenberg, Max','Grove Press','Literary agents','American poetry 20th century','Literature publishing','Publishers and publishing','Bohemianism','New York (N.Y.) Description and travel','Poems'],'subject_topic_facet'=>['Meltzer, David','Pinelli, Joe','Gartenberg, Max','Grove Press','Literary agents','American poetry','Literature publishing','Publishers and publishing','Bohemianism','Description and travel'],'subject_era_facet'=>['20th century'],'subject_geo_facet'=>['New York (N.Y.)'],'subject_form_facet'=>['Poems'],'subject_form_txt'=>['Poems'],'pub_date_txt'=>['1958'],'language_facet'=>['English'],'format'=>['Manuscript/Archive'],'clio_id_display'=>'4079060','source_facet'=>['catalog','archive'],'source_display'=>['catalog','archive'],'repository_facet'=>['Rare Book & Manuscript Library'],'repository_display'=>['Rare Book & Manuscript Library'],'summary_display'=>['Letters from McClure to David Meltzer discussing McClure\'s writings, especially during a visit to New York in 1961.  Also, three poems sent to Meltzer; one letter, dated 1965, and addressed to Joe Pinelli; letters from McClure to his agent, Max Gartenberg, 1965-1967, concerning his negotiations with Grove Press; and 43 drafts of his MEAT SCIENCE ESSAYS, published by City Lights Books in 1963 and 1966.'],'oclc_txt'=>['122571388','ocn122571388'],'oclc_display'=>['122571388','ocn122571388'],'location_call_number_id_display'=>['Rare Book, Butler 6th Fl. East (Non-Circulating) >> Ms Coll McClure|DELIM|4616283'],'location_call_number_txt'=>['Rare Book, Butler 6th Fl. East (Non-Circulating) >> Ms Coll McClure'],'call_number_txt'=>['Ms Coll McClure'],'call_number_display'=>['Ms Coll McClure'],'location_facet'=>['Rare Book'],'location_txt'=>['Rare Book, Butler 6th Fl. East (Non-Circulating) >> Ms Coll McClure'],'shelfkey'=>['rbms+ms coll mcclure+4079060'],'reverse_shelfkey'=>['8od7~d7~nbee~dnne58l~vzsqztz~~~~~~~~~~~~~~~~~~~~~~'],'item_display'=>['Ms Coll McClure | rbms+ms coll mcclure+4079060 | 8od7~d7~nbee~dnne58l~vzsqztz~~~~~~~~~~~~~~~~~~~~~~'],'timestamp'=>'2016-07-06T21:08:27.534Z','authorities_dt'=>'2016-08-10T16:05:51Z','subject_variant_txt'=>['Agents, Literary','Commercial agents','Litterateurs','Authors and publishers','Theatrical agents','American literature','Literary publishing','Publishers and publishing','Book publishing','Book industries and trade','Booksellers and bookselling','Manners and customs','Hippies'],'_version_'=>1542292925533126656}]}}
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
+        f=id v=$id}'',''rows''=>''1'',''id''=>''4079060'',''qt''=>''document'',''wt''=>''ruby''}},''response''=>{''numFound''=>1,''start''=>0,''docs''=>[{''id''=>''4079060'',''marc_display''=>''<record><leader>01938cbc
+        a2200493ua 4500</leader><controlfield tag="001">4079060</controlfield><controlfield
+        tag="005">20100226143651.0</controlfield><controlfield tag="008">890802i19581968nyu                 eng
+        d</controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)122571388</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn122571388</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCR89-A560</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="9">AAB1821RB</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)4079060</subfield></datafield><datafield
+        tag="040" ind1=" " ind2=" "><subfield code="a">NIC</subfield><subfield code="c">NIC</subfield><subfield
+        code="e">appm</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield
+        code="b">Ms Coll\\McClure</subfield></datafield><datafield tag="100" ind1="1"
+        ind2=" "><subfield code="a">McClure, Michael.</subfield></datafield><datafield
+        tag="245" ind1="0" ind2="0"><subfield code="k">Papers,</subfield><subfield
+        code="f">1958-1968.</subfield></datafield><datafield tag="300" ind1=" " ind2="
+        "><subfield code="a">93 items (1 box)</subfield></datafield><datafield tag="545"
+        ind1=" " ind2=" "><subfield code="a">Poet.</subfield><subfield code="b">McClure
+        was born in 1932.</subfield></datafield><datafield tag="520" ind1=" " ind2="
+        "><subfield code="a">Letters from McClure to David Meltzer discussing McClure\''s
+        writings, especially during a visit to New York in 1961.  Also, three poems
+        sent to Meltzer; one letter, dated 1965, and addressed to Joe Pinelli; letters
+        from McClure to his agent, Max Gartenberg, 1965-1967, concerning his negotiations
+        with Grove Press; and 43 drafts of his MEAT SCIENCE ESSAYS, published by City
+        Lights Books in 1963 and 1966.</subfield></datafield><datafield tag="541"
+        ind1=" " ind2=" "><subfield code="d">04/24/81</subfield><subfield code="e">M-81-04-24</subfield><subfield
+        code="a">409622C</subfield><subfield code="c">Purchase</subfield></datafield><datafield
+        tag="583" ind1=" " ind2=" "><subfield code="a">Cataloged</subfield><subfield
+        code="c">08/--/89</subfield><subfield code="k">Christina Hilton Fenn</subfield></datafield><datafield
+        tag="600" ind1="1" ind2="0"><subfield code="a">Meltzer, David.</subfield></datafield><datafield
+        tag="600" ind1="1" ind2="0"><subfield code="a">Pinelli, Joe.</subfield></datafield><datafield
+        tag="600" ind1="1" ind2="0"><subfield code="a">Gartenberg, Max.</subfield></datafield><datafield
+        tag="610" ind1="2" ind2="0"><subfield code="a">Grove Press.</subfield></datafield><datafield
+        tag="650" ind1=" " ind2="0"><subfield code="a">Literary agents.</subfield></datafield><datafield
+        tag="650" ind1=" " ind2="0"><subfield code="a">American poetry</subfield><subfield
+        code="y">20th century.</subfield></datafield><datafield tag="650" ind1=" "
+        ind2="0"><subfield code="a">Literature publishing.</subfield></datafield><datafield
+        tag="650" ind1=" " ind2="0"><subfield code="a">Publishers and publishing.</subfield></datafield><datafield
+        tag="650" ind1=" " ind2="0"><subfield code="a">Bohemianism.</subfield></datafield><datafield
+        tag="651" ind1=" " ind2="0"><subfield code="a">New York (N.Y.)</subfield><subfield
+        code="x">Description and travel.</subfield></datafield><datafield tag="655"
+        ind1=" " ind2="7"><subfield code="a">Poems.</subfield><subfield code="2">ftamc</subfield></datafield><datafield
+        tag="656" ind1=" " ind2="7"><subfield code="a">Poets, American.</subfield><subfield
+        code="2">lcsh</subfield></datafield><datafield tag="690" ind1=" " ind2="4"><subfield
+        code="a">Beats.</subfield></datafield><datafield tag="690" ind1=" " ind2="4"><subfield
+        code="a">Beat literature.</subfield></datafield><datafield tag="852" ind1="
+        " ind2=" "><subfield code="a">Columbia University.</subfield><subfield code="b">Rare
+        Book and Manuscript Library,</subfield><subfield code="e">New York, NY.</subfield></datafield><datafield
+        tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield
+        tag="991" ind1=" " ind2=" "><subfield code="a">Ms Coll McClure</subfield><subfield
+        code="b">rbms+MS COLL MCCLURE</subfield></datafield><datafield tag="992" ind1="
+        " ind2=" "><subfield code="a">Rare Book</subfield><subfield code="b">Rare
+        Book, Butler 6th Fl. East (Non-Circulating) &gt;&gt; Ms Coll McClure|DELIM|4616283</subfield></datafield><datafield
+        tag="993" ind1=" " ind2=" "><subfield code="a">Manuscript/Archive</subfield></datafield><datafield
+        tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield
+        tag="995" ind1=" " ind2=" "><subfield code="a">archive</subfield></datafield><datafield
+        tag="996" ind1=" " ind2=" "><subfield code="a">Rare Book &amp; Manuscript
+        Library</subfield></datafield></record>'',''text''=>[''Ms Coll\\McClure'',''McClure,
+        Michael.'',''Papers, 1958-1968.'',''93 items (1 box)'',''Poet. McClure was
+        born in 1932.'',''Letters from McClure to David Meltzer discussing McClure\''s
+        writings, especially during a visit to New York in 1961.  Also, three poems
+        sent to Meltzer; one letter, dated 1965, and addressed to Joe Pinelli; letters
+        from McClure to his agent, Max Gartenberg, 1965-1967, concerning his negotiations
+        with Grove Press; and 43 drafts of his MEAT SCIENCE ESSAYS, published by City
+        Lights Books in 1963 and 1966.'',''04/24/81 M-81-04-24 409622C Purchase'',''Cataloged
+        08/--/89 Christina Hilton Fenn'',''Meltzer, David.'',''Pinelli, Joe.'',''Gartenberg,
+        Max.'',''Grove Press.'',''Literary agents.'',''American poetry 20th century.'',''Literature
+        publishing.'',''Publishers and publishing.'',''Bohemianism.'',''New York (N.Y.)
+        Description and travel.'',''Poems. ftamc'',''Poets, American. lcsh'',''Beats.'',''Beat
+        literature.'',''Columbia University. Rare Book and Manuscript Library, New
+        York, NY.'',''AUTH''],''author_txt''=>[''McClure, Michael.''],''author_facet''=>[''McClure,
+        Michael''],''author_display''=>[''McClure, Michael''],''author_sort''=>''McClure,
+        Michael.   Papers 1958-1968'',''title_txt''=>[''Papers, 1958-1968.''],''title_display''=>[''Papers,
+        1958-1968''],''title_first_facet''=>[''P''],''title_sort''=>''papers'',''subject_txt''=>[''Meltzer,
+        David'',''Pinelli, Joe'',''Gartenberg, Max'',''Grove Press'',''Literary agents'',''American
+        poetry 20th century'',''Literature publishing'',''Publishers and publishing'',''Bohemianism'',''New
+        York (N.Y.) Description and travel'',''Poems''],''subject_topic_facet''=>[''Meltzer,
+        David'',''Pinelli, Joe'',''Gartenberg, Max'',''Grove Press'',''Literary agents'',''American
+        poetry'',''Literature publishing'',''Publishers and publishing'',''Bohemianism'',''Description
+        and travel''],''subject_era_facet''=>[''20th century''],''subject_geo_facet''=>[''New
+        York (N.Y.)''],''subject_form_facet''=>[''Poems''],''subject_form_txt''=>[''Poems''],''pub_date_txt''=>[''1958''],''language_facet''=>[''English''],''format''=>[''Manuscript/Archive''],''clio_id_display''=>''4079060'',''source_facet''=>[''catalog'',''archive''],''source_display''=>[''catalog'',''archive''],''repository_facet''=>[''Rare
+        Book & Manuscript Library''],''repository_display''=>[''Rare Book & Manuscript
+        Library''],''summary_display''=>[''Letters from McClure to David Meltzer discussing
+        McClure\''s writings, especially during a visit to New York in 1961.  Also,
+        three poems sent to Meltzer; one letter, dated 1965, and addressed to Joe
+        Pinelli; letters from McClure to his agent, Max Gartenberg, 1965-1967, concerning
+        his negotiations with Grove Press; and 43 drafts of his MEAT SCIENCE ESSAYS,
+        published by City Lights Books in 1963 and 1966.''],''oclc_txt''=>[''122571388'',''ocn122571388''],''oclc_display''=>[''122571388'',''ocn122571388''],''location_call_number_id_display''=>[''Rare
+        Book, Butler 6th Fl. East (Non-Circulating) >> Ms Coll McClure|DELIM|4616283''],''location_call_number_txt''=>[''Rare
+        Book, Butler 6th Fl. East (Non-Circulating) >> Ms Coll McClure''],''call_number_txt''=>[''Ms
+        Coll McClure''],''call_number_display''=>[''Ms Coll McClure''],''location_facet''=>[''Rare
+        Book''],''location_txt''=>[''Rare Book, Butler 6th Fl. East (Non-Circulating)
+        >> Ms Coll McClure''],''shelfkey''=>[''rbms+ms coll mcclure+4079060''],''reverse_shelfkey''=>[''8od7~d7~nbee~dnne58l~vzsqztz~~~~~~~~~~~~~~~~~~~~~~''],''item_display''=>[''Ms
+        Coll McClure | rbms+ms coll mcclure+4079060 | 8od7~d7~nbee~dnne58l~vzsqztz~~~~~~~~~~~~~~~~~~~~~~''],''timestamp''=>''2016-07-06T21:08:27.534Z'',''authorities_dt''=>''2016-08-30T05:52:44Z'',''subject_variant_txt''=>[''Agents,
+        Literary'',''Literary publishing'',''Book publishing''],''_version_''=>1544066291299516416}]}}
+
+'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:55:57 GMT
+  recorded_at: Tue, 11 Oct 2016 20:48:39 GMT
 recorded_with: VCR 3.0.3

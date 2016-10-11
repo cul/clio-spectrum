@@ -26,8 +26,19 @@ http_interactions:
       - Tue, 16 Aug 2016 17:56:35 GMT
     body:
       encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>2,'params'=>{'facet'=>'true','sort'=>'score desc, pub_date_sort desc, title_sort asc','f.series_facet.facet.limit'=>'11','stats'=>'true','spellcheck.q'=>'Chorale Labyrinth','f.pub_date_sort.facet.limit'=>'4','wt'=>'ruby','rows'=>'25','stats.field'=>'pub_date_sort','q'=>'{!qf=$title_qf pf=$title_pf}Chorale Labyrinth','f.author_facet.facet.limit'=>'6','f.genre_facet.facet.limit'=>'11','facet.field'=>['author_facet','pub_date_sort','department_facet','subject_facet','genre_facet','series_facet'],'f.subject_facet.facet.limit'=>'11','qt'=>'search','f.department_facet.facet.limit'=>'6'}},'response'=>{'numFound'=>1,'start'=>0,'maxScore'=>1.037275,'docs'=>[{'id'=>'ac:155943','record_creation_date'=>'2013-01-30T14:20:41Z','language'=>'English','date_issued'=>'2013','handle'=>'http://hdl.handle.net/10022/AC:P:18868','title_display'=>'Chorale Labyrinth','author_info'=>['Patterson, Nick J. : njp2 : Columbia University. Wiener Music and Arts Library'],'author_facet'=>['Patterson, Nick J.'],'author_display'=>'Patterson, Nick J.','pub_date_facet'=>['2013'],'genre_facet'=>['Musical compositions'],'abstract'=>'Piece for 4 viols. Written for NYC-based viol ensemble Parthenia. Premiered in 2006.','subject_facet'=>['Music'],'type_of_resource_mods'=>['sound recording--musical'],'type_of_resource_facet'=>['sound recording--musical'],'organization_facet'=>['Columbia University'],'department_facet'=>['Wiener Music and Arts Library'],'score'=>1.037275}]},'facet_counts'=>{'facet_queries'=>{},'facet_fields'=>{'author_facet'=>['Patterson, Nick J.',1],'pub_date_sort'=>['2013',1],'department_facet'=>['Wiener Music and Arts Library',1],'subject_facet'=>['Music',1],'genre_facet'=>['Musical compositions',1],'series_facet'=>[]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>{'min'=>2013.0,'max'=>2013.0,'count'=>1,'missing'=>0,'sum'=>2013.0,'sumOfSquares'=>4052169.0,'mean'=>2013.0,'stddev'=>0.0,'facets'=>{}}}},'spellcheck'=>{'suggestions'=>['correctlySpelled',true]}}
+      string: "{'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'facet'=>'true','sort'=>'score
+        desc, pub_date_sort desc, title_sort asc','f.series_facet.facet.limit'=>'11','stats'=>'true','spellcheck.q'=>'Chorale
+        Labyrinth','f.pub_date_sort.facet.limit'=>'4','wt'=>'ruby','rows'=>'25','stats.field'=>'pub_date_sort','q'=>'{!qf=$title_qf
+        pf=$title_pf}Chorale Labyrinth','f.author_facet.facet.limit'=>'6','f.genre_facet.facet.limit'=>'11','facet.field'=>['author_facet','pub_date_sort','department_facet','subject_facet','genre_facet','series_facet'],'f.subject_facet.facet.limit'=>'11','qt'=>'search','f.department_facet.facet.limit'=>'6'}},'response'=>{'numFound'=>1,'start'=>0,'maxScore'=>1.037275,'docs'=>[{'id'=>'ac:155943','record_creation_date'=>'2013-01-30T14:20:41Z','language'=>'English','date_issued'=>'2013','handle'=>'http://hdl.handle.net/10022/AC:P:18868','title_display'=>'Chorale
+        Labyrinth','author_info'=>['Patterson, Nick J. : njp2 : Columbia University.
+        Wiener Music and Arts Library'],'author_facet'=>['Patterson, Nick J.'],'author_display'=>'Patterson,
+        Nick J.','pub_date_facet'=>['2013'],'genre_facet'=>['Musical compositions'],'abstract'=>'Piece
+        for 4 viols. Written for NYC-based viol ensemble Parthenia. Premiered in 2006.','subject_facet'=>['Music'],'type_of_resource_mods'=>['sound
+        recording--musical'],'type_of_resource_facet'=>['sound recording--musical'],'organization_facet'=>['Columbia
+        University'],'department_facet'=>['Wiener Music and Arts Library'],'score'=>1.037275}]},'facet_counts'=>{'facet_queries'=>{},'facet_fields'=>{'author_facet'=>['Patterson,
+        Nick J.',1],'pub_date_sort'=>['2013',1],'department_facet'=>['Wiener Music
+        and Arts Library',1],'subject_facet'=>['Music',1],'genre_facet'=>['Musical
+        compositions',1],'series_facet'=>[]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>{'min'=>2013.0,'max'=>2013.0,'count'=>1,'missing'=>0,'sum'=>2013.0,'sumOfSquares'=>4052169.0,'mean'=>2013.0,'stddev'=>0.0,'facets'=>{}}}},'spellcheck'=>{'suggestions'=>['correctlySpelled',true]}}\n"
     http_version: 
   recorded_at: Tue, 16 Aug 2016 17:56:36 GMT
 - request:
@@ -45,19 +56,30 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Last-Modified:
-      - Mon, 15 Aug 2016 18:45:58 GMT
+      - Tue, 11 Oct 2016 20:02:33 GMT
       Etag:
-      - '"MTFiZDRmMDAwMDAwMDAwMFNvbHI="'
+      - '"MjAxMmVmMDAwMDAwMDAwMFNvbHI="'
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Date:
-      - Tue, 16 Aug 2016 17:56:35 GMT
+      - Tue, 11 Oct 2016 20:49:26 GMT
     body:
       encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>1,'params'=>{'facet'=>'true','sort'=>'score desc, pub_date_sort desc, title_sort asc','f.series_facet.facet.limit'=>'11','stats'=>'true','spellcheck.q'=>'Chorale Labyrinth','f.pub_date_sort.facet.limit'=>'4','wt'=>'ruby','rows'=>'25','stats.field'=>'pub_date_sort','q'=>'{!qf=$title_qf pf=$title_pf}Chorale Labyrinth','f.author_facet.facet.limit'=>'6','f.genre_facet.facet.limit'=>'11','facet.field'=>['author_facet','pub_date_sort','department_facet','subject_facet','genre_facet','series_facet'],'f.subject_facet.facet.limit'=>'11','qt'=>'search','f.department_facet.facet.limit'=>'6'}},'response'=>{'numFound'=>1,'start'=>0,'maxScore'=>1.037275,'docs'=>[{'id'=>'ac:155943','record_creation_date'=>'2013-01-30T14:20:41Z','language'=>'English','date_issued'=>'2013','handle'=>'http://hdl.handle.net/10022/AC:P:18868','title_display'=>'Chorale Labyrinth','author_info'=>['Patterson, Nick J. : njp2 : Columbia University. Wiener Music and Arts Library'],'author_facet'=>['Patterson, Nick J.'],'author_display'=>'Patterson, Nick J.','pub_date_facet'=>['2013'],'genre_facet'=>['Musical compositions'],'abstract'=>'Piece for 4 viols. Written for NYC-based viol ensemble Parthenia. Premiered in 2006.','subject_facet'=>['Music'],'type_of_resource_mods'=>['sound recording--musical'],'type_of_resource_facet'=>['sound recording--musical'],'organization_facet'=>['Columbia University'],'department_facet'=>['Wiener Music and Arts Library'],'score'=>1.037275}]},'facet_counts'=>{'facet_queries'=>{},'facet_fields'=>{'author_facet'=>['Patterson, Nick J.',1],'pub_date_sort'=>['2013',1],'department_facet'=>['Wiener Music and Arts Library',1],'subject_facet'=>['Music',1],'genre_facet'=>['Musical compositions',1],'series_facet'=>[]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>{'min'=>2013.0,'max'=>2013.0,'count'=>1,'missing'=>0,'sum'=>2013.0,'sumOfSquares'=>4052169.0,'mean'=>2013.0,'stddev'=>0.0,'facets'=>{}}}},'spellcheck'=>{'suggestions'=>['correctlySpelled',true]}}
+      string: "{'responseHeader'=>{'status'=>0,'QTime'=>2,'params'=>{'facet'=>'true','sort'=>'score
+        desc, pub_date_sort desc, title_sort asc','f.series_facet.facet.limit'=>'11','stats'=>'true','spellcheck.q'=>'Chorale
+        Labyrinth','f.pub_date_sort.facet.limit'=>'4','wt'=>'ruby','rows'=>'25','stats.field'=>'pub_date_sort','q'=>'{!qf=$title_qf
+        pf=$title_pf}Chorale Labyrinth','f.author_facet.facet.limit'=>'6','f.genre_facet.facet.limit'=>'11','facet.field'=>['author_facet','pub_date_sort','department_facet','subject_facet','genre_facet','series_facet'],'f.subject_facet.facet.limit'=>'11','qt'=>'search','f.department_facet.facet.limit'=>'6'}},'response'=>{'numFound'=>1,'start'=>0,'maxScore'=>0.9738816,'docs'=>[{'id'=>'ac:155943','record_creation_date'=>'2013-01-30T14:20:41Z','language'=>'English','date_issued'=>'2013','handle'=>'http://hdl.handle.net/10022/AC:P:18868','title_display'=>'Chorale
+        Labyrinth','author_info'=>['Patterson, Nick J. : njp2 : Columbia University.
+        Wiener Music and Arts Library'],'author_facet'=>['Patterson, Nick J.'],'author_display'=>'Patterson,
+        Nick J.','pub_date_facet'=>['2013'],'genre_facet'=>['Musical compositions'],'abstract'=>'Piece
+        for 4 viols. Written for NYC-based viol ensemble Parthenia. Premiered in 2006.','subject_facet'=>['Music'],'type_of_resource_mods'=>['sound
+        recording--musical'],'type_of_resource_facet'=>['sound recording--musical'],'organization_facet'=>['Columbia
+        University'],'department_facet'=>['Wiener Music and Arts Library'],'score'=>0.9738816}]},'facet_counts'=>{'facet_queries'=>{},'facet_fields'=>{'author_facet'=>['Patterson,
+        Nick J.',1],'pub_date_sort'=>['2013',1],'department_facet'=>['Wiener Music
+        and Arts Library',1],'subject_facet'=>['Music',1],'genre_facet'=>['Musical
+        compositions',1],'series_facet'=>[]},'facet_dates'=>{},'facet_ranges'=>{}},'stats'=>{'stats_fields'=>{'pub_date_sort'=>{'min'=>2013.0,'max'=>2013.0,'count'=>1,'missing'=>0,'sum'=>2013.0,'sumOfSquares'=>4052169.0,'mean'=>2013.0,'stddev'=>0.0,'facets'=>{}}}},'spellcheck'=>{'suggestions'=>['correctlySpelled',true]}}\n"
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:56:36 GMT
+  recorded_at: Tue, 11 Oct 2016 20:49:26 GMT
 recorded_with: VCR 3.0.3

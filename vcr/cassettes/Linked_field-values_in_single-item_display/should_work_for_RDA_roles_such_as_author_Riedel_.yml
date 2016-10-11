@@ -2,176 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: "<solr_config>/select?id=10288244&qt=document&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 16 Aug 2016 17:56:16 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'10288244','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'10288244','marc_display'=>'<record><leader>02235cas a2200577 i 4500</leader><controlfield tag="001">10288244</controlfield><controlfield tag="005">20130617224547.0</controlfield><controlfield tag="006">m     |  d        </controlfield><controlfield tag="007">cr |||||||||||</controlfield><controlfield tag="008">130509c20129999nyu x p o     |   a0eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2013200913</subfield></datafield><datafield tag="012" ind1=" " ind2=" "><subfield code="l">1</subfield></datafield><datafield tag="022" ind1="0" ind2=" "><subfield code="a">2328-8167</subfield><subfield code="2">1</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn841579591</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)841579591</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)10288244</subfield></datafield><datafield tag="037" ind1=" " ind2=" "><subfield code="b">Center for Iranian Studies, Columbia University, 450 Riverside Drive, Suite 4, New York, NY 10027</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="b">eng</subfield><subfield code="c">DLC</subfield><subfield code="e">rda</subfield><subfield code="d">OCLCO</subfield></datafield><datafield tag="042" ind1=" " ind2=" "><subfield code="a">pcc</subfield><subfield code="a">nsdp</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield code="a">DS41</subfield></datafield><datafield tag="082" ind1="1" ind2="0"><subfield code="a">956</subfield><subfield code="2">23</subfield></datafield><datafield tag="222" ind1=" " ind2="0"><subfield code="a">Islamic books</subfield></datafield><datafield tag="245" ind1="0" ind2="0"><subfield code="a">Islamic books :</subfield><subfield code="b">a research blog about manuscripts, printed books, and ephemera in Arabic script /</subfield><subfield code="c">Dagmar A. Riedel, Columbia University, Center for Iranian Studies.</subfield></datafield><datafield tag="264" ind1=" " ind2="1"><subfield code="a">[New York] :</subfield><subfield code="b">[Columbia University Libraries],</subfield><subfield code="c">[2012]-</subfield></datafield><datafield tag="310" ind1=" " ind2=" "><subfield code="a">Irregular</subfield></datafield><datafield tag="336" ind1=" " ind2=" "><subfield code="a">text</subfield><subfield code="b">txt</subfield><subfield code="2">rdacontent</subfield></datafield><datafield tag="337" ind1=" " ind2=" "><subfield code="a">computer</subfield><subfield code="b">c</subfield><subfield code="2">rdamedia</subfield></datafield><datafield tag="338" ind1=" " ind2=" "><subfield code="a">online resource</subfield><subfield code="b">cr</subfield><subfield code="2">rdacarrier</subfield></datafield><datafield tag="362" ind1="1" ind2=" "><subfield code="a">Began with: February 12, 2012.</subfield></datafield><datafield tag="520" ind1=" " ind2=" "><subfield code="a">Explore the history of Islamic books within the wider perspectives of the cultural and intellectual history of the transmission of knowledge between the Near East, Europe, and North America.</subfield></datafield><datafield tag="588" ind1=" " ind2=" "><subfield code="a">Description based on: February 12, 2012; title from banner (researchblogs.cul.columbia.edu/islamicbooks website, viewed May 3, 2013).</subfield></datafield><datafield tag="588" ind1=" " ind2=" "><subfield code="a">Latest issue consulted: April 12, 2013 (viewed May 3, 2013).</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Islam</subfield><subfield code="v">Blogs.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Islamic civilization</subfield><subfield code="v">Blogs.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Islamic literature</subfield><subfield code="v">Blogs.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Printing</subfield><subfield code="z">Islamic countries</subfield><subfield code="v">Blogs.</subfield></datafield><datafield tag="700" ind1="1" ind2=" "><subfield code="a">Riedel, Dagmar A.,</subfield><subfield code="e">author.</subfield></datafield><datafield tag="850" ind1=" " ind2=" "><subfield code="a">DLC</subfield></datafield><datafield tag="852" ind1=" " ind2=" "><subfield code="x">pm2650</subfield></datafield><datafield tag="856" ind1="4" ind2="0"><subfield code="u">http://www.columbia.edu/cgi-bin/cul/resolve?clio10288244</subfield></datafield><datafield tag="920" ind1="4" ind2="0"><subfield code="u">https://researchblogs.cul.columbia.edu/islamicbooks/</subfield></datafield><datafield tag="965" ind1=" " ind2=" "><subfield code="a">ircrc</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield code="a">20130523</subfield><subfield code="b">c</subfield><subfield code="c">mw2064</subfield><subfield code="d">OSMC</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">DS</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">DS41</subfield><subfield code="b">loc+DS-+0041+00000000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Online</subfield><subfield code="b">Online &gt;&gt; ERESOURCES|DELIM|13356395</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Journal/Periodical</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Online</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield tag="997" ind1=" " ind2=" "><subfield code="a">2013-05-23T00:00:00.000Z</subfield></datafield></record>','text'=>['DS41','956 23','Islamic books','Islamic books : a research blog about manuscripts, printed books, and ephemera in Arabic script / Dagmar A. Riedel, Columbia University, Center for Iranian Studies.','[New York] : [Columbia University Libraries], [2012]-','Irregular','text txt rdacontent','computer c rdamedia','online resource cr rdacarrier','Began with: February 12, 2012.','Explore the history of Islamic books within the wider perspectives of the cultural and intellectual history of the transmission of knowledge between the Near East, Europe, and North America.','Description based on: February 12, 2012; title from banner (researchblogs.cul.columbia.edu/islamicbooks website, viewed May 3, 2013).','Latest issue consulted: April 12, 2013 (viewed May 3, 2013).','Islam Blogs.','Islamic civilization Blogs.','Islamic literature Blogs.','Printing Islamic countries Blogs.','Riedel, Dagmar A., author.','DLC','pm2650','http://www.columbia.edu/cgi-bin/cul/resolve?clio10288244','https://researchblogs.cul.columbia.edu/islamicbooks/','ircrc','20130523 c mw2064 OSMC','AUTH'],'author_addl_txt'=>['Riedel, Dagmar A., author.'],'author_facet'=>['Riedel, Dagmar A.'],'author_sort'=>'Islamic books a research blog about manuscripts, printed books, and ephemera in Arabic script Dagmar A. Riedel, Columbia University, Center for Iranian Studies','title_txt'=>['Islamic books :'],'title_display'=>['Islamic books : a research blog about manuscripts, printed books, and ephemera in Arabic script'],'title_filing_txt'=>['Islamic books :'],'title_filing_full_txt'=>['Islamic books : a research blog about manuscripts, printed books, and ephemera in Arabic script /'],'subtitle_txt'=>['a research blog about manuscripts, printed books, and ephemera in Arabic script'],'title_first_facet'=>['I'],'title_addl_txt'=>['Islamic books','Islamic books : a research blog about manuscripts, printed books, and ephemera in Arabic script /'],'title_sort'=>'islamic books  a research blog about manuscripts printed books and ephemera in arabic script','subject_txt'=>['Islam Blogs','Islamic civilization Blogs','Islamic literature Blogs','Printing Islamic countries Blogs'],'subject_topic_facet'=>['Islam','Islamic civilization','Islamic literature','Printing'],'subject_geo_facet'=>['Islamic countries'],'subject_form_facet'=>['Blogs'],'subject_form_txt'=>['Blogs'],'pub_place_display'=>['New York'],'pub_name_display'=>['Columbia University Libraries'],'pub_year_display'=>['[2012]-'],'pub_place_txt'=>['New York'],'pub_name_txt'=>['Columbia University Libraries'],'pub_year_txt'=>['[2012]-'],'pub_date_txt'=>['2012'],'language_facet'=>['English'],'format'=>['Journal/Periodical','Online'],'lc_1letter_facet'=>['D - World History'],'lc_2letter_facet'=>['DS - Asia (History)'],'lc_subclass_facet'=>['DS - Asia (History)'],'clio_id_display'=>'10288244','acq_dt'=>'2013-05-23T00:00:00Z','source_facet'=>['catalog'],'source_display'=>['catalog'],'summary_display'=>['Explore the history of Islamic books within the wider perspectives of the cultural and intellectual history of the transmission of knowledge between the Near East, Europe, and North America.'],'issn_txt'=>['2328-8167'],'issn_display'=>['2328-8167'],'lccn_display'=>['2013200913'],'lccn_txt'=>['2013200913'],'oclc_txt'=>['ocn841579591','841579591'],'oclc_display'=>['ocn841579591','841579591'],'full_publisher_display'=>['[New York] : [Columbia University Libraries], [2012]-'],'location_call_number_id_display'=>['Online >> ERESOURCES|DELIM|13356395'],'location_call_number_txt'=>['Online >> ERESOURCES'],'call_number_txt'=>['ERESOURCES'],'call_number_display'=>['ERESOURCES'],'location_facet'=>['Online'],'location_txt'=>['Online >> ERESOURCES'],'url_munged_display'=>['0||||||http://www.columbia.edu/cgi-bin/cul/resolve?clio10288244|||'],'shelfkey'=>['loc+ds-+0041+00000000+10288244'],'reverse_shelfkey'=>['ebn~m7~~zzvy~zzzzzzzz~yzxrrxvv~~~~~~~~~~~~~~~~~~~~'],'item_display'=>['DS41 | loc+ds-+0041+00000000+10288244 | ebn~m7~~zzvy~zzzzzzzz~yzxrrxvv~~~~~~~~~~~~~~~~~~~~'],'timestamp'=>'2016-07-06T21:08:31.987Z','authorities_dt'=>'2016-07-28T16:42:13Z','author_variant_txt'=>[''],'subject_variant_txt'=>['Mohammedanism','Muhammadanism','Muslimism','Mussulmanism','Religions','Muslims','Civilization, Islamic','Muslim civilization','Civilization','Civilization, Arab','Muslim literature','Religious literature','Printing, Practical','Typography','Graphic arts'],'_version_'=>1541117452947030016}]}}
-    http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:56:16 GMT
-- request:
-    method: get
-    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2015-08-16T00:00:00Z%20TO%20*%5D&fq=author_facet:%22Riedel,%20Dagmar%20A.%22&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 16 Aug 2016 17:56:16 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4zMiwn
-        cGFyYW1zJz0+eydmLnN1YmplY3RfZm9ybV9mYWNldC5mYWNldC5saW1pdCc9
-        PicxMScsJ2ZhY2V0Jz0+J3RydWUnLCdzb3J0Jz0+J3Njb3JlIGRlc2MsIHB1
-        Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdzdGF0cyc9Pid0
-        cnVlJywnZi5zdWJqZWN0X3RvcGljX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzEx
-        JywnZi5sYW5ndWFnZV9mYWNldC5mYWNldC5saW1pdCc9Pic2JywnZi5sY18x
-        bGV0dGVyX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzMxJywnZi5wdWJfZGF0ZV9z
-        b3J0LmZhY2V0LmxpbWl0Jz0+JzQnLCdmLmxvY2F0aW9uX2ZhY2V0LmZhY2V0
-        LmxpbWl0Jz0+JzYnLCd3dCc9PidydWJ5Jywncm93cyc9PicyNScsJ2YubGNf
-        c3ViY2xhc3NfZmFjZXQuZmFjZXQubGltaXQnPT4nNTAxJywnZi5zdWJqZWN0
-        X2dlb19mYWNldC5mYWNldC5saW1pdCc9PicxMScsJ2ZhY2V0LnF1ZXJ5Jz0+
-        WydhY3FfZHQ6WzIwMTYtMDgtMDlUMDA6MDA6MDBaIFRPICpdJywnYWNxX2R0
-        OlsyMDE2LTA3LTE2VDAwOjAwOjAwWiBUTyAqXScsJ2FjcV9kdDpbMjAxNi0w
-        Mi0xNlQwMDowMDowMFogVE8gKl0nLCdhY3FfZHQ6WzIwMTUtMDgtMTZUMDA6
-        MDA6MDBaIFRPICpdJ10sJ3N0YXRzLmZpZWxkJz0+J3B1Yl9kYXRlX3NvcnQn
-        LCdmLmF1dGhvcl9mYWNldC5mYWNldC5saW1pdCc9Pic2JywnZmFjZXQuZmll
-        bGQnPT5bJ2Zvcm1hdCcsJ3B1Yl9kYXRlX3NvcnQnLCdhdXRob3JfZmFjZXQn
-        LCdsb2NhdGlvbl9mYWNldCcsJ2xhbmd1YWdlX2ZhY2V0Jywnc3ViamVjdF90
-        b3BpY19mYWNldCcsJ3N1YmplY3RfZ2VvX2ZhY2V0Jywnc3ViamVjdF9lcmFf
-        ZmFjZXQnLCdzdWJqZWN0X2Zvcm1fZmFjZXQnLCdsY18xbGV0dGVyX2ZhY2V0
-        JywnbGNfc3ViY2xhc3NfZmFjZXQnXSwncXQnPT4nc2VhcmNoJywnZnEnPT4n
-        YXV0aG9yX2ZhY2V0OiJSaWVkZWwsIERhZ21hciBBLiInLCdmLnN1YmplY3Rf
-        ZXJhX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzExJywnZi5mb3JtYXQuZmFjZXQu
-        bGltaXQnPT4nNid9fSwncmVzcG9uc2UnPT57J251bUZvdW5kJz0+Miwnc3Rh
-        cnQnPT4wLCdtYXhTY29yZSc9PjEuMCwnZG9jcyc9Plt7J2lkJz0+JzEwMjE2
-        ODE0JywnYXV0aG9yX2ZhY2V0Jz0+WydSaWVkZWwsIERhZ21hciBBLicsJ0J1
-        cmtlIExpYnJhcnkgKFVuaW9uIFRoZW9sb2dpY2FsIFNlbWluYXJ5KSddLCd0
-        aXRsZV9kaXNwbGF5Jz0+WydUaGUgUXVyYW4gaW4gRWFzdCBhbmQgV2VzdCA6
-        IG1hbnVzY3JpcHRzIGFuZCBwcmludGVkIGJvb2tzJ10sJ3N1YmplY3RfdG9w
-        aWNfZmFjZXQnPT5bJ1F1csq8YW4nLCdNYW51c2NyaXB0cycsJ1JhcmUgYm9v
-        a3MnLCdCdXJrZSBMaWJyYXJ5IChVbmlvbiBUaGVvbG9naWNhbCBTZW1pbmFy
-        eSknXSwnc3ViamVjdF9nZW9fZmFjZXQnPT5bJ05ldyBZb3JrIChTdGF0ZSkn
-        LCdOZXcgWW9yayddLCdwdWJfcGxhY2VfZGlzcGxheSc9PlsnTmV3IFlvcmss
-        IE5ZJ10sJ3B1Yl9uYW1lX2Rpc3BsYXknPT5bJ1RoZSBCdXJrZSBMaWJyYXJ5
-        IChDb2x1bWJpYSBVbml2ZXJzaXR5IExpYnJhcmllcyknXSwncHViX3llYXJf
-        ZGlzcGxheSc9PlsnMjAxMyddLCdsYW5ndWFnZV9mYWNldCc9PlsnRW5nbGlz
-        aCddLCdmb3JtYXQnPT5bJ0Jvb2snLCdPbmxpbmUnXSwnY2xpb19pZF9kaXNw
-        bGF5Jz0+JzEwMjE2ODE0JywnYWNxX2R0Jz0+JzIwMTMtMDQtMDNUMDA6MDA6
-        MDBaJywnc291cmNlX2Rpc3BsYXknPT5bJ2NhdGFsb2cnXSwnc3VtbWFyeV9k
-        aXNwbGF5Jz0+WyciRHVyaW5nIHRoZSBtb250aCBvZiBSYW1hZMyjYcyEbiwg
-        TXVzbGltcyBjb21tZW1vcmF0ZSB0aGUgcmV2ZWxhdGlvbiBvZiB0aGUgUXVy
-        YW4gdG8gdGhlIHByb3BoZXQgTXVozKNhbW1hZC4gIEluIEZhbGwgMjAwNSwg
-        ZnJvbSBPY3RvYmVyIDQgdW50aWwgTm92ZW1iZXIgMiwgQnVya2UgTGlicmFy
-        eSBleGhpYml0ZWQgc29tZSBvZiBpdHMgUXVyYW5zIHRvIGV4cGxvcmUgZHVy
-        aW5nIFJhbWFkzKNhzIRuIDE0MjYgQUggaG93IGF0dGl0dWRlcyB0b3dhcmQg
-        SXNsYW0gYXJlIHJlZmxlY3RlZCBpbiB0aGUgYm9va3MgdGhhdCBnaXZlIHJl
-        YWRlcnMgYWNjZXNzIHRvIGl0cyByZXZlbGF0aW9uLiInXSwnb2NsY19kaXNw
-        bGF5Jz0+WydvY244MzUxMzczOTcnLCc4MzUxMzczOTcnXSwnZnVsbF9wdWJs
-        aXNoZXJfZGlzcGxheSc9PlsnTmV3IFlvcmssIE5ZIDogVGhlIEJ1cmtlIExp
-        YnJhcnkgKENvbHVtYmlhIFVuaXZlcnNpdHkgTGlicmFyaWVzKSwgWzIwMTNd
-        J10sJ2xvY2F0aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3BsYXknPT5bJ09ubGlu
-        ZSA+PiBFUkVTT1VSQ0VTfERFTElNfDEzMjg3ODY2J10sJ2xvY2F0aW9uX2Zh
-        Y2V0Jz0+WydPbmxpbmUnXSwndXJsX211bmdlZF9kaXNwbGF5Jz0+WycwfHx8
-        fHx8aHR0cDovL3d3dy5jb2x1bWJpYS5lZHUvY2dpLWJpbi9jdWwvcmVzb2x2
-        ZT9jbGlvMTAyMTY4MTR8fHwnXSwnc2hlbGZrZXknPT5bJ2xvYyticC0rMDEz
-        MCswMDAwMDAwMCsxMDIxNjgxNCddLCdyZXZlcnNlX3NoZWxma2V5Jz0+Wydl
-        Ym5+b2F+fnp5d3p+enp6enp6enp+eXp4eXRyeXZ+fn5+fn5+fn5+fn5+fn5+
-        fn5+fiddLCdpdGVtX2Rpc3BsYXknPT5bJ0JQMTMwIHwgbG9jK2JwLSswMTMw
-        KzAwMDAwMDAwKzEwMjE2ODE0IHwgZWJufm9hfn56eXd6fnp6enp6enp6fnl6
-        eHl0cnl2fn5+fn5+fn5+fn5+fn5+fn5+fn4nXSwnc2NvcmUnPT4xLjB9LHsn
-        aWQnPT4nMTAyODgyNDQnLCdhdXRob3JfZmFjZXQnPT5bJ1JpZWRlbCwgRGFn
-        bWFyIEEuJ10sJ3RpdGxlX2Rpc3BsYXknPT5bJ0lzbGFtaWMgYm9va3MgOiBh
-        IHJlc2VhcmNoIGJsb2cgYWJvdXQgbWFudXNjcmlwdHMsIHByaW50ZWQgYm9v
-        a3MsIGFuZCBlcGhlbWVyYSBpbiBBcmFiaWMgc2NyaXB0J10sJ3N1YmplY3Rf
-        dG9waWNfZmFjZXQnPT5bJ0lzbGFtJywnSXNsYW1pYyBjaXZpbGl6YXRpb24n
-        LCdJc2xhbWljIGxpdGVyYXR1cmUnLCdQcmludGluZyddLCdzdWJqZWN0X2dl
-        b19mYWNldCc9PlsnSXNsYW1pYyBjb3VudHJpZXMnXSwncHViX3BsYWNlX2Rp
-        c3BsYXknPT5bJ05ldyBZb3JrJ10sJ3B1Yl9uYW1lX2Rpc3BsYXknPT5bJ0Nv
-        bHVtYmlhIFVuaXZlcnNpdHkgTGlicmFyaWVzJ10sJ3B1Yl95ZWFyX2Rpc3Bs
-        YXknPT5bJ1syMDEyXS0nXSwnbGFuZ3VhZ2VfZmFjZXQnPT5bJ0VuZ2xpc2gn
-        XSwnZm9ybWF0Jz0+WydKb3VybmFsL1BlcmlvZGljYWwnLCdPbmxpbmUnXSwn
-        Y2xpb19pZF9kaXNwbGF5Jz0+JzEwMjg4MjQ0JywnYWNxX2R0Jz0+JzIwMTMt
-        MDUtMjNUMDA6MDA6MDBaJywnc291cmNlX2Rpc3BsYXknPT5bJ2NhdGFsb2cn
-        XSwnc3VtbWFyeV9kaXNwbGF5Jz0+WydFeHBsb3JlIHRoZSBoaXN0b3J5IG9m
-        IElzbGFtaWMgYm9va3Mgd2l0aGluIHRoZSB3aWRlciBwZXJzcGVjdGl2ZXMg
-        b2YgdGhlIGN1bHR1cmFsIGFuZCBpbnRlbGxlY3R1YWwgaGlzdG9yeSBvZiB0
-        aGUgdHJhbnNtaXNzaW9uIG9mIGtub3dsZWRnZSBiZXR3ZWVuIHRoZSBOZWFy
-        IEVhc3QsIEV1cm9wZSwgYW5kIE5vcnRoIEFtZXJpY2EuJ10sJ2xjY25fZGlz
-        cGxheSc9PlsnMjAxMzIwMDkxMyddLCdvY2xjX2Rpc3BsYXknPT5bJ29jbjg0
-        MTU3OTU5MScsJzg0MTU3OTU5MSddLCdmdWxsX3B1Ymxpc2hlcl9kaXNwbGF5
-        Jz0+WydbTmV3IFlvcmtdIDogW0NvbHVtYmlhIFVuaXZlcnNpdHkgTGlicmFy
-        aWVzXSwgWzIwMTJdLSddLCdsb2NhdGlvbl9jYWxsX251bWJlcl9pZF9kaXNw
-        bGF5Jz0+WydPbmxpbmUgPj4gRVJFU09VUkNFU3xERUxJTXwxMzM1NjM5NSdd
-        LCdsb2NhdGlvbl9mYWNldCc9PlsnT25saW5lJ10sJ3VybF9tdW5nZWRfZGlz
-        cGxheSc9PlsnMHx8fHx8fGh0dHA6Ly93d3cuY29sdW1iaWEuZWR1L2NnaS1i
-        aW4vY3VsL3Jlc29sdmU/Y2xpbzEwMjg4MjQ0fHx8J10sJ3NoZWxma2V5Jz0+
-        Wydsb2MrZHMtKzAwNDErMDAwMDAwMDArMTAyODgyNDQnXSwncmV2ZXJzZV9z
-        aGVsZmtleSc9PlsnZWJufm03fn56enZ5fnp6enp6enp6fnl6eHJyeHZ2fn5+
-        fn5+fn5+fn5+fn5+fn5+fn4nXSwnaXRlbV9kaXNwbGF5Jz0+WydEUzQxIHwg
-        bG9jK2RzLSswMDQxKzAwMDAwMDAwKzEwMjg4MjQ0IHwgZWJufm03fn56enZ5
-        fnp6enp6enp6fnl6eHJyeHZ2fn5+fn5+fn5+fn5+fn5+fn5+fn4nXSwnc2Nv
-        cmUnPT4xLjB9XX0sJ2ZhY2V0X2NvdW50cyc9PnsnZmFjZXRfcXVlcmllcyc9
-        PnsnYWNxX2R0OlsyMDE2LTA4LTA5VDAwOjAwOjAwWiBUTyAqXSc9PjAsJ2Fj
-        cV9kdDpbMjAxNi0wNy0xNlQwMDowMDowMFogVE8gKl0nPT4wLCdhY3FfZHQ6
-        WzIwMTYtMDItMTZUMDA6MDA6MDBaIFRPICpdJz0+MCwnYWNxX2R0OlsyMDE1
-        LTA4LTE2VDAwOjAwOjAwWiBUTyAqXSc9PjB9LCdmYWNldF9maWVsZHMnPT57
-        J2Zvcm1hdCc9PlsnT25saW5lJywyLCdCb29rJywxLCdKb3VybmFsL1Blcmlv
-        ZGljYWwnLDFdLCdwdWJfZGF0ZV9zb3J0Jz0+WycyMDEyJywxLCcyMDEzJywx
-        XSwnYXV0aG9yX2ZhY2V0Jz0+WydSaWVkZWwsIERhZ21hciBBLicsMiwnQnVy
-        a2UgTGlicmFyeSAoVW5pb24gVGhlb2xvZ2ljYWwgU2VtaW5hcnkpJywxXSwn
-        bG9jYXRpb25fZmFjZXQnPT5bJ09ubGluZScsMl0sJ2xhbmd1YWdlX2ZhY2V0
-        Jz0+WydFbmdsaXNoJywyXSwnc3ViamVjdF90b3BpY19mYWNldCc9PlsnQnVy
-        a2UgTGlicmFyeSAoVW5pb24gVGhlb2xvZ2ljYWwgU2VtaW5hcnkpJywxLCdJ
-        c2xhbScsMSwnSXNsYW1pYyBjaXZpbGl6YXRpb24nLDEsJ0lzbGFtaWMgbGl0
-        ZXJhdHVyZScsMSwnTWFudXNjcmlwdHMnLDEsJ1ByaW50aW5nJywxLCdRdXLK
-        vGFuJywxLCdSYXJlIGJvb2tzJywxXSwnc3ViamVjdF9nZW9fZmFjZXQnPT5b
-        J0lzbGFtaWMgY291bnRyaWVzJywxLCdOZXcgWW9yaycsMSwnTmV3IFlvcmsg
-        KFN0YXRlKScsMV0sJ3N1YmplY3RfZXJhX2ZhY2V0Jz0+W10sJ3N1YmplY3Rf
-        Zm9ybV9mYWNldCc9PlsnQmlibGlvZ3JhcGh5JywxLCdCbG9ncycsMSwnRXho
-        aWJpdGlvbnMnLDFdLCdsY18xbGV0dGVyX2ZhY2V0Jz0+WydCIC0gUGhpbG9z
-        b3BoeSwgUHN5Y2hvbG9neSwgUmVsaWdpb24nLDEsJ0QgLSBXb3JsZCBIaXN0
-        b3J5JywxXSwnbGNfc3ViY2xhc3NfZmFjZXQnPT5bJ0JQIC0gSXNsYW0sIEJh
-        aGFpc20sIFRoZW9zb3BoeSwgZXRjLicsMSwnRFMgLSBBc2lhIChIaXN0b3J5
-        KScsMV19LCdmYWNldF9kYXRlcyc9Pnt9LCdmYWNldF9yYW5nZXMnPT57fX0s
-        J3N0YXRzJz0+eydzdGF0c19maWVsZHMnPT57J3B1Yl9kYXRlX3NvcnQnPT57
-        J21pbic9PjIwMTIuMCwnbWF4Jz0+MjAxMy4wLCdjb3VudCc9PjIsJ21pc3Np
-        bmcnPT4wLCdzdW0nPT40MDI1LjAsJ3N1bU9mU3F1YXJlcyc9PjgxMDAzMTMu
-        MCwnbWVhbic9PjIwMTIuNSwnc3RkZGV2Jz0+MC43MDcxMDY3ODExODY1NDc2
-        LCdmYWNldHMnPT57fX19fX0K
-    http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:56:17 GMT
-- request:
-    method: get
     uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2015-08-16T00:00:00Z%20TO%20*%5D&fq=author_facet:%22Riedel,%20Dagmar%20A.%22&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
     body:
       encoding: US-ASCII
@@ -314,4 +144,280 @@ http_interactions:
         LCdmYWNldHMnPT57fX19fX0K
     http_version: 
   recorded_at: Tue, 16 Aug 2016 17:56:17 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?id=10288244&qt=document&wt=ruby"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 11 Oct 2016 20:49:05 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
+        f=id v=$id}'',''rows''=>''1'',''id''=>''10288244'',''qt''=>''document'',''wt''=>''ruby''}},''response''=>{''numFound''=>1,''start''=>0,''docs''=>[{''id''=>''10288244'',''marc_display''=>''<record><leader>02235cas
+        a2200577 i 4500</leader><controlfield tag="001">10288244</controlfield><controlfield
+        tag="005">20130617224547.0</controlfield><controlfield tag="006">m     |  d        </controlfield><controlfield
+        tag="007">cr |||||||||||</controlfield><controlfield tag="008">130509c20129999nyu
+        x p o     |   a0eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield
+        code="a">  2013200913</subfield></datafield><datafield tag="012" ind1=" "
+        ind2=" "><subfield code="l">1</subfield></datafield><datafield tag="022" ind1="0"
+        ind2=" "><subfield code="a">2328-8167</subfield><subfield code="2">1</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn841579591</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)841579591</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)10288244</subfield></datafield><datafield
+        tag="037" ind1=" " ind2=" "><subfield code="b">Center for Iranian Studies,
+        Columbia University, 450 Riverside Drive, Suite 4, New York, NY 10027</subfield></datafield><datafield
+        tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="b">eng</subfield><subfield
+        code="c">DLC</subfield><subfield code="e">rda</subfield><subfield code="d">OCLCO</subfield></datafield><datafield
+        tag="042" ind1=" " ind2=" "><subfield code="a">pcc</subfield><subfield code="a">nsdp</subfield></datafield><datafield
+        tag="050" ind1="0" ind2="0"><subfield code="a">DS41</subfield></datafield><datafield
+        tag="082" ind1="1" ind2="0"><subfield code="a">956</subfield><subfield code="2">23</subfield></datafield><datafield
+        tag="222" ind1=" " ind2="0"><subfield code="a">Islamic books</subfield></datafield><datafield
+        tag="245" ind1="0" ind2="0"><subfield code="a">Islamic books :</subfield><subfield
+        code="b">a research blog about manuscripts, printed books, and ephemera in
+        Arabic script /</subfield><subfield code="c">Dagmar A. Riedel, Columbia University,
+        Center for Iranian Studies.</subfield></datafield><datafield tag="264" ind1="
+        " ind2="1"><subfield code="a">[New York] :</subfield><subfield code="b">[Columbia
+        University Libraries],</subfield><subfield code="c">[2012]-</subfield></datafield><datafield
+        tag="310" ind1=" " ind2=" "><subfield code="a">Irregular</subfield></datafield><datafield
+        tag="336" ind1=" " ind2=" "><subfield code="a">text</subfield><subfield code="b">txt</subfield><subfield
+        code="2">rdacontent</subfield></datafield><datafield tag="337" ind1=" " ind2="
+        "><subfield code="a">computer</subfield><subfield code="b">c</subfield><subfield
+        code="2">rdamedia</subfield></datafield><datafield tag="338" ind1=" " ind2="
+        "><subfield code="a">online resource</subfield><subfield code="b">cr</subfield><subfield
+        code="2">rdacarrier</subfield></datafield><datafield tag="362" ind1="1" ind2="
+        "><subfield code="a">Began with: February 12, 2012.</subfield></datafield><datafield
+        tag="520" ind1=" " ind2=" "><subfield code="a">Explore the history of Islamic
+        books within the wider perspectives of the cultural and intellectual history
+        of the transmission of knowledge between the Near East, Europe, and North
+        America.</subfield></datafield><datafield tag="588" ind1=" " ind2=" "><subfield
+        code="a">Description based on: February 12, 2012; title from banner (researchblogs.cul.columbia.edu/islamicbooks
+        website, viewed May 3, 2013).</subfield></datafield><datafield tag="588" ind1="
+        " ind2=" "><subfield code="a">Latest issue consulted: April 12, 2013 (viewed
+        May 3, 2013).</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield
+        code="a">Islam</subfield><subfield code="v">Blogs.</subfield></datafield><datafield
+        tag="650" ind1=" " ind2="0"><subfield code="a">Islamic civilization</subfield><subfield
+        code="v">Blogs.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield
+        code="a">Islamic literature</subfield><subfield code="v">Blogs.</subfield></datafield><datafield
+        tag="650" ind1=" " ind2="0"><subfield code="a">Printing</subfield><subfield
+        code="z">Islamic countries</subfield><subfield code="v">Blogs.</subfield></datafield><datafield
+        tag="700" ind1="1" ind2=" "><subfield code="a">Riedel, Dagmar A.,</subfield><subfield
+        code="e">author.</subfield></datafield><datafield tag="850" ind1=" " ind2="
+        "><subfield code="a">DLC</subfield></datafield><datafield tag="852" ind1="
+        " ind2=" "><subfield code="x">pm2650</subfield></datafield><datafield tag="856"
+        ind1="4" ind2="0"><subfield code="u">http://www.columbia.edu/cgi-bin/cul/resolve?clio10288244</subfield></datafield><datafield
+        tag="920" ind1="4" ind2="0"><subfield code="u">https://researchblogs.cul.columbia.edu/islamicbooks/</subfield></datafield><datafield
+        tag="965" ind1=" " ind2=" "><subfield code="a">ircrc</subfield></datafield><datafield
+        tag="948" ind1="1" ind2=" "><subfield code="a">20130523</subfield><subfield
+        code="b">c</subfield><subfield code="c">mw2064</subfield><subfield code="d">OSMC</subfield></datafield><datafield
+        tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield
+        tag="990" ind1=" " ind2=" "><subfield code="a">DS</subfield></datafield><datafield
+        tag="991" ind1=" " ind2=" "><subfield code="a">DS41</subfield><subfield code="b">loc+DS-+0041+00000000</subfield></datafield><datafield
+        tag="992" ind1=" " ind2=" "><subfield code="a">Online</subfield><subfield
+        code="b">Online &gt;&gt; ERESOURCES|DELIM|13356395</subfield></datafield><datafield
+        tag="993" ind1=" " ind2=" "><subfield code="a">Journal/Periodical</subfield></datafield><datafield
+        tag="993" ind1=" " ind2=" "><subfield code="a">Online</subfield></datafield><datafield
+        tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield
+        tag="997" ind1=" " ind2=" "><subfield code="a">2013-05-23T00:00:00.000Z</subfield></datafield></record>'',''text''=>[''DS41'',''956
+        23'',''Islamic books'',''Islamic books : a research blog about manuscripts,
+        printed books, and ephemera in Arabic script / Dagmar A. Riedel, Columbia
+        University, Center for Iranian Studies.'',''[New York] : [Columbia University
+        Libraries], [2012]-'',''Irregular'',''text txt rdacontent'',''computer c rdamedia'',''online
+        resource cr rdacarrier'',''Began with: February 12, 2012.'',''Explore the
+        history of Islamic books within the wider perspectives of the cultural and
+        intellectual history of the transmission of knowledge between the Near East,
+        Europe, and North America.'',''Description based on: February 12, 2012; title
+        from banner (researchblogs.cul.columbia.edu/islamicbooks website, viewed May
+        3, 2013).'',''Latest issue consulted: April 12, 2013 (viewed May 3, 2013).'',''Islam
+        Blogs.'',''Islamic civilization Blogs.'',''Islamic literature Blogs.'',''Printing
+        Islamic countries Blogs.'',''Riedel, Dagmar A., author.'',''DLC'',''pm2650'',''http://www.columbia.edu/cgi-bin/cul/resolve?clio10288244'',''https://researchblogs.cul.columbia.edu/islamicbooks/'',''ircrc'',''20130523
+        c mw2064 OSMC'',''AUTH''],''author_addl_txt''=>[''Riedel, Dagmar A., author.''],''author_facet''=>[''Riedel,
+        Dagmar A.''],''author_sort''=>''Islamic books a research blog about manuscripts,
+        printed books, and ephemera in Arabic script Dagmar A. Riedel, Columbia University,
+        Center for Iranian Studies'',''title_txt''=>[''Islamic books :''],''title_display''=>[''Islamic
+        books : a research blog about manuscripts, printed books, and ephemera in
+        Arabic script''],''title_filing_txt''=>[''Islamic books :''],''title_filing_full_txt''=>[''Islamic
+        books : a research blog about manuscripts, printed books, and ephemera in
+        Arabic script /''],''subtitle_txt''=>[''a research blog about manuscripts,
+        printed books, and ephemera in Arabic script''],''title_first_facet''=>[''I''],''title_addl_txt''=>[''Islamic
+        books'',''Islamic books : a research blog about manuscripts, printed books,
+        and ephemera in Arabic script /''],''title_sort''=>''islamic books  a research
+        blog about manuscripts printed books and ephemera in arabic script'',''subject_txt''=>[''Islam
+        Blogs'',''Islamic civilization Blogs'',''Islamic literature Blogs'',''Printing
+        Islamic countries Blogs''],''subject_topic_facet''=>[''Islam'',''Islamic civilization'',''Islamic
+        literature'',''Printing''],''subject_geo_facet''=>[''Islamic countries''],''subject_form_facet''=>[''Blogs''],''subject_form_txt''=>[''Blogs''],''pub_place_display''=>[''New
+        York''],''pub_name_display''=>[''Columbia University Libraries''],''pub_year_display''=>[''[2012]-''],''pub_place_txt''=>[''New
+        York''],''pub_name_txt''=>[''Columbia University Libraries''],''pub_year_txt''=>[''[2012]-''],''pub_date_txt''=>[''2012''],''language_facet''=>[''English''],''format''=>[''Journal/Periodical'',''Online''],''lc_1letter_facet''=>[''D
+        - World History''],''lc_2letter_facet''=>[''DS - Asia (History)''],''lc_subclass_facet''=>[''DS
+        - Asia (History)''],''clio_id_display''=>''10288244'',''acq_dt''=>''2013-05-23T00:00:00Z'',''source_facet''=>[''catalog''],''source_display''=>[''catalog''],''summary_display''=>[''Explore
+        the history of Islamic books within the wider perspectives of the cultural
+        and intellectual history of the transmission of knowledge between the Near
+        East, Europe, and North America.''],''issn_txt''=>[''2328-8167''],''issn_display''=>[''2328-8167''],''lccn_display''=>[''2013200913''],''lccn_txt''=>[''2013200913''],''oclc_txt''=>[''ocn841579591'',''841579591''],''oclc_display''=>[''ocn841579591'',''841579591''],''full_publisher_display''=>[''[New
+        York] : [Columbia University Libraries], [2012]-''],''location_call_number_id_display''=>[''Online
+        >> ERESOURCES|DELIM|13356395''],''location_call_number_txt''=>[''Online >>
+        ERESOURCES''],''call_number_txt''=>[''ERESOURCES''],''call_number_display''=>[''ERESOURCES''],''location_facet''=>[''Online''],''location_txt''=>[''Online
+        >> ERESOURCES''],''url_munged_display''=>[''0||||||http://www.columbia.edu/cgi-bin/cul/resolve?clio10288244|||''],''shelfkey''=>[''loc+ds-+0041+00000000+10288244''],''reverse_shelfkey''=>[''ebn~m7~~zzvy~zzzzzzzz~yzxrrxvv~~~~~~~~~~~~~~~~~~~~''],''item_display''=>[''DS41
+        | loc+ds-+0041+00000000+10288244 | ebn~m7~~zzvy~zzzzzzzz~yzxrrxvv~~~~~~~~~~~~~~~~~~~~''],''timestamp''=>''2016-07-06T21:08:31.987Z'',''authorities_dt''=>''2016-08-31T13:27:11Z'',''subject_variant_txt''=>[''Mohammedanism'',''Muhammadanism'',''Muslimism'',''Mussulmanism'',''Civilization,
+        Islamic'',''Muslim civilization'',''Muslim literature'',''Printing, Practical'',''Typography''],''_version_''=>1544185479035879424}]}}
+
+'
+    http_version: 
+  recorded_at: Tue, 11 Oct 2016 20:49:04 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2015-10-11T00:00:00Z%20TO%20*%5D&fq=author_facet:%22Riedel,%20Dagmar%20A.%22&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 11 Oct 2016 20:49:06 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4zNCwn
+        cGFyYW1zJz0+eydmLnN1YmplY3RfZm9ybV9mYWNldC5mYWNldC5saW1pdCc9
+        PicxMScsJ2ZhY2V0Jz0+J3RydWUnLCdzb3J0Jz0+J3Njb3JlIGRlc2MsIHB1
+        Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdzdGF0cyc9Pid0
+        cnVlJywnZi5zdWJqZWN0X3RvcGljX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzEx
+        JywnZi5sYW5ndWFnZV9mYWNldC5mYWNldC5saW1pdCc9Pic2JywnZi5sY18x
+        bGV0dGVyX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzMxJywnZi5wdWJfZGF0ZV9z
+        b3J0LmZhY2V0LmxpbWl0Jz0+JzQnLCdmLmxvY2F0aW9uX2ZhY2V0LmZhY2V0
+        LmxpbWl0Jz0+JzYnLCd3dCc9PidydWJ5Jywncm93cyc9PicyNScsJ2YubGNf
+        c3ViY2xhc3NfZmFjZXQuZmFjZXQubGltaXQnPT4nNTAxJywnZi5zdWJqZWN0
+        X2dlb19mYWNldC5mYWNldC5saW1pdCc9PicxMScsJ2ZhY2V0LnF1ZXJ5Jz0+
+        WydhY3FfZHQ6WzIwMTYtMTAtMDRUMDA6MDA6MDBaIFRPICpdJywnYWNxX2R0
+        OlsyMDE2LTA5LTExVDAwOjAwOjAwWiBUTyAqXScsJ2FjcV9kdDpbMjAxNi0w
+        NC0xMVQwMDowMDowMFogVE8gKl0nLCdhY3FfZHQ6WzIwMTUtMTAtMTFUMDA6
+        MDA6MDBaIFRPICpdJ10sJ3N0YXRzLmZpZWxkJz0+J3B1Yl9kYXRlX3NvcnQn
+        LCdmLmF1dGhvcl9mYWNldC5mYWNldC5saW1pdCc9Pic2JywnZmFjZXQuZmll
+        bGQnPT5bJ2Zvcm1hdCcsJ3B1Yl9kYXRlX3NvcnQnLCdhdXRob3JfZmFjZXQn
+        LCdsb2NhdGlvbl9mYWNldCcsJ2xhbmd1YWdlX2ZhY2V0Jywnc3ViamVjdF90
+        b3BpY19mYWNldCcsJ3N1YmplY3RfZ2VvX2ZhY2V0Jywnc3ViamVjdF9lcmFf
+        ZmFjZXQnLCdzdWJqZWN0X2Zvcm1fZmFjZXQnLCdsY18xbGV0dGVyX2ZhY2V0
+        JywnbGNfc3ViY2xhc3NfZmFjZXQnXSwncXQnPT4nc2VhcmNoJywnZnEnPT4n
+        YXV0aG9yX2ZhY2V0OiJSaWVkZWwsIERhZ21hciBBLiInLCdmLnN1YmplY3Rf
+        ZXJhX2ZhY2V0LmZhY2V0LmxpbWl0Jz0+JzExJywnZi5mb3JtYXQuZmFjZXQu
+        bGltaXQnPT4nNid9fSwncmVzcG9uc2UnPT57J251bUZvdW5kJz0+Miwnc3Rh
+        cnQnPT4wLCdtYXhTY29yZSc9PjEuMCwnZG9jcyc9Plt7J2lkJz0+JzEwMjE2
+        ODE0JywnYXV0aG9yX2ZhY2V0Jz0+WydSaWVkZWwsIERhZ21hciBBLicsJ0J1
+        cmtlIExpYnJhcnkgKFVuaW9uIFRoZW9sb2dpY2FsIFNlbWluYXJ5KSddLCd0
+        aXRsZV9kaXNwbGF5Jz0+WydUaGUgUXVyYW4gaW4gRWFzdCBhbmQgV2VzdCA6
+        IG1hbnVzY3JpcHRzIGFuZCBwcmludGVkIGJvb2tzJ10sJ3N1YmplY3RfdG9w
+        aWNfZmFjZXQnPT5bJ1F1csq8YW4nLCdNYW51c2NyaXB0cycsJ1JhcmUgYm9v
+        a3MnLCdCdXJrZSBMaWJyYXJ5IChVbmlvbiBUaGVvbG9naWNhbCBTZW1pbmFy
+        eSknXSwnc3ViamVjdF9nZW9fZmFjZXQnPT5bJ05ldyBZb3JrIChTdGF0ZSkn
+        LCdOZXcgWW9yayddLCdwdWJfcGxhY2VfZGlzcGxheSc9PlsnTmV3IFlvcmss
+        IE5ZJ10sJ3B1Yl9uYW1lX2Rpc3BsYXknPT5bJ1RoZSBCdXJrZSBMaWJyYXJ5
+        IChDb2x1bWJpYSBVbml2ZXJzaXR5IExpYnJhcmllcyknXSwncHViX3llYXJf
+        ZGlzcGxheSc9PlsnMjAxMyddLCdsYW5ndWFnZV9mYWNldCc9PlsnRW5nbGlz
+        aCddLCdmb3JtYXQnPT5bJ0Jvb2snLCdPbmxpbmUnXSwnY2xpb19pZF9kaXNw
+        bGF5Jz0+JzEwMjE2ODE0JywnYWNxX2R0Jz0+JzIwMTMtMDQtMDNUMDA6MDA6
+        MDBaJywnc291cmNlX2Rpc3BsYXknPT5bJ2NhdGFsb2cnXSwnc3VtbWFyeV9k
+        aXNwbGF5Jz0+WyciRHVyaW5nIHRoZSBtb250aCBvZiBSYW1hZMyjYcyEbiwg
+        TXVzbGltcyBjb21tZW1vcmF0ZSB0aGUgcmV2ZWxhdGlvbiBvZiB0aGUgUXVy
+        YW4gdG8gdGhlIHByb3BoZXQgTXVozKNhbW1hZC4gIEluIEZhbGwgMjAwNSwg
+        ZnJvbSBPY3RvYmVyIDQgdW50aWwgTm92ZW1iZXIgMiwgQnVya2UgTGlicmFy
+        eSBleGhpYml0ZWQgc29tZSBvZiBpdHMgUXVyYW5zIHRvIGV4cGxvcmUgZHVy
+        aW5nIFJhbWFkzKNhzIRuIDE0MjYgQUggaG93IGF0dGl0dWRlcyB0b3dhcmQg
+        SXNsYW0gYXJlIHJlZmxlY3RlZCBpbiB0aGUgYm9va3MgdGhhdCBnaXZlIHJl
+        YWRlcnMgYWNjZXNzIHRvIGl0cyByZXZlbGF0aW9uLiInXSwnb2NsY19kaXNw
+        bGF5Jz0+WydvY244MzUxMzczOTcnLCc4MzUxMzczOTcnXSwnZnVsbF9wdWJs
+        aXNoZXJfZGlzcGxheSc9PlsnTmV3IFlvcmssIE5ZIDogVGhlIEJ1cmtlIExp
+        YnJhcnkgKENvbHVtYmlhIFVuaXZlcnNpdHkgTGlicmFyaWVzKSwgWzIwMTNd
+        J10sJ2xvY2F0aW9uX2NhbGxfbnVtYmVyX2lkX2Rpc3BsYXknPT5bJ09ubGlu
+        ZSA+PiBFUkVTT1VSQ0VTfERFTElNfDEzMjg3ODY2J10sJ2xvY2F0aW9uX2Zh
+        Y2V0Jz0+WydPbmxpbmUnXSwndXJsX211bmdlZF9kaXNwbGF5Jz0+WycwfHx8
+        fHx8aHR0cDovL3d3dy5jb2x1bWJpYS5lZHUvY2dpLWJpbi9jdWwvcmVzb2x2
+        ZT9jbGlvMTAyMTY4MTR8fHwnXSwnc2hlbGZrZXknPT5bJ2xvYyticC0rMDEz
+        MCswMDAwMDAwMCsxMDIxNjgxNCddLCdyZXZlcnNlX3NoZWxma2V5Jz0+Wydl
+        Ym5+b2F+fnp5d3p+enp6enp6enp+eXp4eXRyeXZ+fn5+fn5+fn5+fn5+fn5+
+        fn5+fiddLCdpdGVtX2Rpc3BsYXknPT5bJ0JQMTMwIHwgbG9jK2JwLSswMTMw
+        KzAwMDAwMDAwKzEwMjE2ODE0IHwgZWJufm9hfn56eXd6fnp6enp6enp6fnl6
+        eHl0cnl2fn5+fn5+fn5+fn5+fn5+fn5+fn4nXSwnc2NvcmUnPT4xLjB9LHsn
+        aWQnPT4nMTAyODgyNDQnLCdhdXRob3JfZmFjZXQnPT5bJ1JpZWRlbCwgRGFn
+        bWFyIEEuJ10sJ3RpdGxlX2Rpc3BsYXknPT5bJ0lzbGFtaWMgYm9va3MgOiBh
+        IHJlc2VhcmNoIGJsb2cgYWJvdXQgbWFudXNjcmlwdHMsIHByaW50ZWQgYm9v
+        a3MsIGFuZCBlcGhlbWVyYSBpbiBBcmFiaWMgc2NyaXB0J10sJ3N1YmplY3Rf
+        dG9waWNfZmFjZXQnPT5bJ0lzbGFtJywnSXNsYW1pYyBjaXZpbGl6YXRpb24n
+        LCdJc2xhbWljIGxpdGVyYXR1cmUnLCdQcmludGluZyddLCdzdWJqZWN0X2dl
+        b19mYWNldCc9PlsnSXNsYW1pYyBjb3VudHJpZXMnXSwncHViX3BsYWNlX2Rp
+        c3BsYXknPT5bJ05ldyBZb3JrJ10sJ3B1Yl9uYW1lX2Rpc3BsYXknPT5bJ0Nv
+        bHVtYmlhIFVuaXZlcnNpdHkgTGlicmFyaWVzJ10sJ3B1Yl95ZWFyX2Rpc3Bs
+        YXknPT5bJ1syMDEyXS0nXSwnbGFuZ3VhZ2VfZmFjZXQnPT5bJ0VuZ2xpc2gn
+        XSwnZm9ybWF0Jz0+WydKb3VybmFsL1BlcmlvZGljYWwnLCdPbmxpbmUnXSwn
+        Y2xpb19pZF9kaXNwbGF5Jz0+JzEwMjg4MjQ0JywnYWNxX2R0Jz0+JzIwMTMt
+        MDUtMjNUMDA6MDA6MDBaJywnc291cmNlX2Rpc3BsYXknPT5bJ2NhdGFsb2cn
+        XSwnc3VtbWFyeV9kaXNwbGF5Jz0+WydFeHBsb3JlIHRoZSBoaXN0b3J5IG9m
+        IElzbGFtaWMgYm9va3Mgd2l0aGluIHRoZSB3aWRlciBwZXJzcGVjdGl2ZXMg
+        b2YgdGhlIGN1bHR1cmFsIGFuZCBpbnRlbGxlY3R1YWwgaGlzdG9yeSBvZiB0
+        aGUgdHJhbnNtaXNzaW9uIG9mIGtub3dsZWRnZSBiZXR3ZWVuIHRoZSBOZWFy
+        IEVhc3QsIEV1cm9wZSwgYW5kIE5vcnRoIEFtZXJpY2EuJ10sJ2xjY25fZGlz
+        cGxheSc9PlsnMjAxMzIwMDkxMyddLCdvY2xjX2Rpc3BsYXknPT5bJ29jbjg0
+        MTU3OTU5MScsJzg0MTU3OTU5MSddLCdmdWxsX3B1Ymxpc2hlcl9kaXNwbGF5
+        Jz0+WydbTmV3IFlvcmtdIDogW0NvbHVtYmlhIFVuaXZlcnNpdHkgTGlicmFy
+        aWVzXSwgWzIwMTJdLSddLCdsb2NhdGlvbl9jYWxsX251bWJlcl9pZF9kaXNw
+        bGF5Jz0+WydPbmxpbmUgPj4gRVJFU09VUkNFU3xERUxJTXwxMzM1NjM5NSdd
+        LCdsb2NhdGlvbl9mYWNldCc9PlsnT25saW5lJ10sJ3VybF9tdW5nZWRfZGlz
+        cGxheSc9PlsnMHx8fHx8fGh0dHA6Ly93d3cuY29sdW1iaWEuZWR1L2NnaS1i
+        aW4vY3VsL3Jlc29sdmU/Y2xpbzEwMjg4MjQ0fHx8J10sJ3NoZWxma2V5Jz0+
+        Wydsb2MrZHMtKzAwNDErMDAwMDAwMDArMTAyODgyNDQnXSwncmV2ZXJzZV9z
+        aGVsZmtleSc9PlsnZWJufm03fn56enZ5fnp6enp6enp6fnl6eHJyeHZ2fn5+
+        fn5+fn5+fn5+fn5+fn5+fn4nXSwnaXRlbV9kaXNwbGF5Jz0+WydEUzQxIHwg
+        bG9jK2RzLSswMDQxKzAwMDAwMDAwKzEwMjg4MjQ0IHwgZWJufm03fn56enZ5
+        fnp6enp6enp6fnl6eHJyeHZ2fn5+fn5+fn5+fn5+fn5+fn5+fn4nXSwnc2Nv
+        cmUnPT4xLjB9XX0sJ2ZhY2V0X2NvdW50cyc9PnsnZmFjZXRfcXVlcmllcyc9
+        PnsnYWNxX2R0OlsyMDE2LTEwLTA0VDAwOjAwOjAwWiBUTyAqXSc9PjAsJ2Fj
+        cV9kdDpbMjAxNi0wOS0xMVQwMDowMDowMFogVE8gKl0nPT4wLCdhY3FfZHQ6
+        WzIwMTYtMDQtMTFUMDA6MDA6MDBaIFRPICpdJz0+MCwnYWNxX2R0OlsyMDE1
+        LTEwLTExVDAwOjAwOjAwWiBUTyAqXSc9PjB9LCdmYWNldF9maWVsZHMnPT57
+        J2Zvcm1hdCc9PlsnT25saW5lJywyLCdCb29rJywxLCdKb3VybmFsL1Blcmlv
+        ZGljYWwnLDFdLCdwdWJfZGF0ZV9zb3J0Jz0+WycyMDEyJywxLCcyMDEzJywx
+        XSwnYXV0aG9yX2ZhY2V0Jz0+WydSaWVkZWwsIERhZ21hciBBLicsMiwnQnVy
+        a2UgTGlicmFyeSAoVW5pb24gVGhlb2xvZ2ljYWwgU2VtaW5hcnkpJywxXSwn
+        bG9jYXRpb25fZmFjZXQnPT5bJ09ubGluZScsMl0sJ2xhbmd1YWdlX2ZhY2V0
+        Jz0+WydFbmdsaXNoJywyXSwnc3ViamVjdF90b3BpY19mYWNldCc9PlsnQnVy
+        a2UgTGlicmFyeSAoVW5pb24gVGhlb2xvZ2ljYWwgU2VtaW5hcnkpJywxLCdJ
+        c2xhbScsMSwnSXNsYW1pYyBjaXZpbGl6YXRpb24nLDEsJ0lzbGFtaWMgbGl0
+        ZXJhdHVyZScsMSwnTWFudXNjcmlwdHMnLDEsJ1ByaW50aW5nJywxLCdRdXLK
+        vGFuJywxLCdSYXJlIGJvb2tzJywxXSwnc3ViamVjdF9nZW9fZmFjZXQnPT5b
+        J0lzbGFtaWMgY291bnRyaWVzJywxLCdOZXcgWW9yaycsMSwnTmV3IFlvcmsg
+        KFN0YXRlKScsMV0sJ3N1YmplY3RfZXJhX2ZhY2V0Jz0+W10sJ3N1YmplY3Rf
+        Zm9ybV9mYWNldCc9PlsnQmlibGlvZ3JhcGh5JywxLCdCbG9ncycsMSwnRXho
+        aWJpdGlvbnMnLDFdLCdsY18xbGV0dGVyX2ZhY2V0Jz0+WydCIC0gUGhpbG9z
+        b3BoeSwgUHN5Y2hvbG9neSwgUmVsaWdpb24nLDEsJ0QgLSBXb3JsZCBIaXN0
+        b3J5JywxXSwnbGNfc3ViY2xhc3NfZmFjZXQnPT5bJ0JQIC0gSXNsYW0sIEJh
+        aGFpc20sIFRoZW9zb3BoeSwgZXRjLicsMSwnRFMgLSBBc2lhIChIaXN0b3J5
+        KScsMV19LCdmYWNldF9kYXRlcyc9Pnt9LCdmYWNldF9yYW5nZXMnPT57fX0s
+        J3N0YXRzJz0+eydzdGF0c19maWVsZHMnPT57J3B1Yl9kYXRlX3NvcnQnPT57
+        J21pbic9PjIwMTIuMCwnbWF4Jz0+MjAxMy4wLCdjb3VudCc9PjIsJ21pc3Np
+        bmcnPT4wLCdzdW0nPT40MDI1LjAsJ3N1bU9mU3F1YXJlcyc9PjgxMDAzMTMu
+        MCwnbWVhbic9PjIwMTIuNSwnc3RkZGV2Jz0+MC43MDcxMDY3ODExODY1NDc2
+        LCdmYWNldHMnPT57fX19fX0K
+    http_version: 
+  recorded_at: Tue, 11 Oct 2016 20:49:05 GMT
 recorded_with: VCR 3.0.3

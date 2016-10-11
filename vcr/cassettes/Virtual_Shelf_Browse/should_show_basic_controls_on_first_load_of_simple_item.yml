@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 16 Aug 2016 17:56:24 GMT
+      - Tue, 11 Oct 2016 20:49:16 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -22,8 +22,81 @@ http_interactions:
       - Jetty(8.1.8.v20121106)
     body:
       encoding: UTF-8
-      string: |
-        {'responseHeader'=>{'status'=>0,'QTime'=>0,'params'=>{'fl'=>'*','echoParams'=>'all','q'=>'{!raw f=id v=$id}','rows'=>'1','id'=>'1234','qt'=>'document','wt'=>'ruby'}},'response'=>{'numFound'=>1,'start'=>0,'docs'=>[{'id'=>'1234','marc_display'=>'<record><leader>01240cam a2200361 i 4500</leader><controlfield tag="001">1234</controlfield><controlfield tag="005">20140424164936.0</controlfield><controlfield tag="008">790426s1978    ilu      b    001 0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   78016335 </subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0809308835</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)4056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm04056043</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG10505040-B</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="9">AAA1293CU</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)1234</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="082" ind1=" " ind2=" "><subfield code="a">801/.95</subfield></datafield><datafield tag="090" ind1=" " ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield tag="100" ind1="1" ind2=" "><subfield code="a">Rosenblatt, Louise M.</subfield><subfield code="q">(Louise Michelle),</subfield><subfield code="d">1904-2005.</subfield></datafield><datafield tag="245" ind1="1" ind2="4"><subfield code="a">The reader, the text, the poem :</subfield><subfield code="b">the transactional theory of the literary work /</subfield><subfield code="c">Louise M. Rosenblatt.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="a">Carbondale :</subfield><subfield code="b">Southern Illinois University Press,</subfield><subfield code="c">c1978.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">xv, 196 p. ;</subfield><subfield code="c">24 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Literature</subfield><subfield code="x">Philosophy.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Criticism.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Reading.</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield code="a">PN</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield code="a">PN45 .R587</subfield><subfield code="b">loc+PN-+0045+00000000+R5870000</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; PN45 .R587|DELIM|1934</subfield></datafield><datafield tag="992" ind1=" " ind2=" "><subfield code="a">Barnard</subfield><subfield code="b">Milstein &lt;Barnard Library Collection&gt;, Butler 406A, 406, 409 &gt;&gt; PN45 .R587|DELIM|1936</subfield></datafield><datafield tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record>','text'=>['PN45 .R587','801/.95','PN45 .R587','Rosenblatt, Louise M. (Louise Michelle), 1904-2005.','The reader, the text, the poem : the transactional theory of the literary work / Louise M. Rosenblatt.','Carbondale : Southern Illinois University Press, c1978.','xv, 196 p. ; 24 cm.','Includes bibliographical references and index.','Literature Philosophy.','Criticism.','Reading.','AUTH'],'author_txt'=>['Rosenblatt, Louise M. (Louise Michelle),'],'author_facet'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005'],'author_display'=>['Rosenblatt, Louise M. (Louise Michelle), 1904-2005'],'author_sort'=>'Rosenblatt, Louise M. (Louise Michelle), 1904-2005.   reader, the text, the poem the transactional theory of the literary work Louise M. Rosenblatt','title_txt'=>['The reader, the text, the poem :'],'title_display'=>['The reader, the text, the poem : the transactional theory of the literary work'],'title_filing_txt'=>['reader, the text, the poem :'],'title_filing_full_txt'=>['reader, the text, the poem : the transactional theory of the literary work /'],'subtitle_txt'=>['the transactional theory of the literary work'],'title_first_facet'=>['R'],'title_addl_txt'=>['The reader, the text, the poem : the transactional theory of the literary work /'],'title_sort'=>'reader the text the poem  the transactional theory of the literary work','subject_txt'=>['Literature Philosophy','Criticism','Reading'],'subject_topic_facet'=>['Literature','Philosophy','Criticism','Reading'],'pub_place_display'=>['Carbondale'],'pub_name_display'=>['Southern Illinois University Press'],'pub_year_display'=>['c1978'],'pub_place_txt'=>['Carbondale'],'pub_name_txt'=>['Southern Illinois University Press'],'pub_year_txt'=>['c1978'],'pub_date_txt'=>['1978'],'language_facet'=>['English'],'format'=>['Book'],'lc_1letter_facet'=>['P - Language & Literature'],'lc_2letter_facet'=>['PN - Literature (General)'],'lc_subclass_facet'=>['PN - Literature (General)'],'clio_id_display'=>'1234','source_facet'=>['catalog'],'source_display'=>['catalog'],'isbn_txt'=>['9780809308835','0809308835'],'isbn_display'=>['0809308835'],'lccn_display'=>['78016335'],'lccn_txt'=>['78016335'],'oclc_txt'=>['4056043','ocm04056043'],'oclc_display'=>['4056043','ocm04056043'],'full_publisher_display'=>['Carbondale : Southern Illinois University Press, c1978.'],'location_call_number_id_display'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> PN45 .R587|DELIM|1934','Milstein <Barnard Library Collection>, Butler 406A, 406, 409 >> PN45 .R587|DELIM|1936'],'location_call_number_txt'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> PN45 .R587','Milstein <Barnard Library Collection>, Butler 406A, 406, 409 >> PN45 .R587'],'call_number_txt'=>['PN45 .R587','PN45 .R587'],'call_number_display'=>['PN45 .R587','PN45 .R587'],'location_facet'=>['Butler Stacks','Barnard'],'location_txt'=>['Butler Stacks (Enter at the Butler Circulation Desk) >> PN45 .R587','Milstein <Barnard Library Collection>, Butler 406A, 406, 409 >> PN45 .R587'],'shelfkey'=>['loc+pn-+0045+00000000+r5870000+1234'],'reverse_shelfkey'=>['ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'item_display'=>['PN45 .R587 | loc+pn-+0045+00000000+r5870000+1234 | ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~'],'timestamp'=>'2016-07-06T21:08:23.616Z','authorities_dt'=>'2016-08-05T15:48:44Z','author_variant_txt'=>['Rosenblatt, Louise','Rosenblatt, Louise Michelle'],'subject_variant_txt'=>['Belles-lettres','Western literature (Western countries)','World literature','Philology','Authors','Authorship','Mental philosophy','Humanities','Appraisal of books','Evaluation of literature','Literary criticism','Literature','Rhetoric','Aesthetics','Style, Literary','Language arts','Elocution'],'_version_'=>1541838856990490624}]}}
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
+        f=id v=$id}'',''rows''=>''1'',''id''=>''1234'',''qt''=>''document'',''wt''=>''ruby''}},''response''=>{''numFound''=>1,''start''=>0,''docs''=>[{''id''=>''1234'',''marc_display''=>''<record><leader>01240cam
+        a2200361 i 4500</leader><controlfield tag="001">1234</controlfield><controlfield
+        tag="005">20140424164936.0</controlfield><controlfield tag="008">790426s1978    ilu      b    001
+        0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">   78016335
+        </subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="a">0809308835</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)4056043</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm04056043</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG10505040-B</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="9">AAA1293CU</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)1234</subfield></datafield><datafield
+        tag="050" ind1="0" ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield
+        tag="082" ind1=" " ind2=" "><subfield code="a">801/.95</subfield></datafield><datafield
+        tag="090" ind1=" " ind2=" "><subfield code="a">PN45</subfield><subfield code="b">.R587</subfield></datafield><datafield
+        tag="100" ind1="1" ind2=" "><subfield code="a">Rosenblatt, Louise M.</subfield><subfield
+        code="q">(Louise Michelle),</subfield><subfield code="d">1904-2005.</subfield></datafield><datafield
+        tag="245" ind1="1" ind2="4"><subfield code="a">The reader, the text, the poem
+        :</subfield><subfield code="b">the transactional theory of the literary work
+        /</subfield><subfield code="c">Louise M. Rosenblatt.</subfield></datafield><datafield
+        tag="260" ind1=" " ind2=" "><subfield code="a">Carbondale :</subfield><subfield
+        code="b">Southern Illinois University Press,</subfield><subfield code="c">c1978.</subfield></datafield><datafield
+        tag="300" ind1=" " ind2=" "><subfield code="a">xv, 196 p. ;</subfield><subfield
+        code="c">24 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2="
+        "><subfield code="a">Includes bibliographical references and index.</subfield></datafield><datafield
+        tag="650" ind1=" " ind2="0"><subfield code="a">Literature</subfield><subfield
+        code="x">Philosophy.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield
+        code="a">Criticism.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield
+        code="a">Reading.</subfield></datafield><datafield tag="900" ind1=" " ind2="
+        "><subfield code="a">AUTH</subfield></datafield><datafield tag="990" ind1="
+        " ind2=" "><subfield code="a">PN</subfield></datafield><datafield tag="991"
+        ind1=" " ind2=" "><subfield code="a">PN45 .R587</subfield><subfield code="b">loc+PN-+0045+00000000+R5870000</subfield></datafield><datafield
+        tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield
+        code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; PN45
+        .R587|DELIM|1934</subfield></datafield><datafield tag="992" ind1=" " ind2="
+        "><subfield code="a">Barnard</subfield><subfield code="b">Milstein &lt;Barnard
+        Library Collection&gt;, Butler 406A, 406, 409 &gt;&gt; PN45 .R587|DELIM|1936</subfield></datafield><datafield
+        tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield
+        tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record>'',''text''=>[''PN45
+        .R587'',''801/.95'',''PN45 .R587'',''Rosenblatt, Louise M. (Louise Michelle),
+        1904-2005.'',''The reader, the text, the poem : the transactional theory of
+        the literary work / Louise M. Rosenblatt.'',''Carbondale : Southern Illinois
+        University Press, c1978.'',''xv, 196 p. ; 24 cm.'',''Includes bibliographical
+        references and index.'',''Literature Philosophy.'',''Criticism.'',''Reading.'',''AUTH''],''author_txt''=>[''Rosenblatt,
+        Louise M. (Louise Michelle),''],''author_facet''=>[''Rosenblatt, Louise M.
+        (Louise Michelle), 1904-2005''],''author_display''=>[''Rosenblatt, Louise
+        M. (Louise Michelle), 1904-2005''],''author_sort''=>''Rosenblatt, Louise M.
+        (Louise Michelle), 1904-2005.   reader, the text, the poem the transactional
+        theory of the literary work Louise M. Rosenblatt'',''title_txt''=>[''The reader,
+        the text, the poem :''],''title_display''=>[''The reader, the text, the poem
+        : the transactional theory of the literary work''],''title_filing_txt''=>[''reader,
+        the text, the poem :''],''title_filing_full_txt''=>[''reader, the text, the
+        poem : the transactional theory of the literary work /''],''subtitle_txt''=>[''the
+        transactional theory of the literary work''],''title_first_facet''=>[''R''],''title_addl_txt''=>[''The
+        reader, the text, the poem : the transactional theory of the literary work
+        /''],''title_sort''=>''reader the text the poem  the transactional theory
+        of the literary work'',''subject_txt''=>[''Literature Philosophy'',''Criticism'',''Reading''],''subject_topic_facet''=>[''Literature'',''Philosophy'',''Criticism'',''Reading''],''pub_place_display''=>[''Carbondale''],''pub_name_display''=>[''Southern
+        Illinois University Press''],''pub_year_display''=>[''c1978''],''pub_place_txt''=>[''Carbondale''],''pub_name_txt''=>[''Southern
+        Illinois University Press''],''pub_year_txt''=>[''c1978''],''pub_date_txt''=>[''1978''],''language_facet''=>[''English''],''format''=>[''Book''],''lc_1letter_facet''=>[''P
+        - Language & Literature''],''lc_2letter_facet''=>[''PN - Literature (General)''],''lc_subclass_facet''=>[''PN
+        - Literature (General)''],''clio_id_display''=>''1234'',''source_facet''=>[''catalog''],''source_display''=>[''catalog''],''isbn_txt''=>[''9780809308835'',''0809308835''],''isbn_display''=>[''0809308835''],''lccn_display''=>[''78016335''],''lccn_txt''=>[''78016335''],''oclc_txt''=>[''4056043'',''ocm04056043''],''oclc_display''=>[''4056043'',''ocm04056043''],''full_publisher_display''=>[''Carbondale
+        : Southern Illinois University Press, c1978.''],''location_call_number_id_display''=>[''Butler
+        Stacks (Enter at the Butler Circulation Desk) >> PN45 .R587|DELIM|1934'',''Milstein
+        <Barnard Library Collection>, Butler 406A, 406, 409 >> PN45 .R587|DELIM|1936''],''location_call_number_txt''=>[''Butler
+        Stacks (Enter at the Butler Circulation Desk) >> PN45 .R587'',''Milstein <Barnard
+        Library Collection>, Butler 406A, 406, 409 >> PN45 .R587''],''call_number_txt''=>[''PN45
+        .R587'',''PN45 .R587''],''call_number_display''=>[''PN45 .R587'',''PN45 .R587''],''location_facet''=>[''Butler
+        Stacks'',''Barnard''],''location_txt''=>[''Butler Stacks (Enter at the Butler
+        Circulation Desk) >> PN45 .R587'',''Milstein <Barnard Library Collection>,
+        Butler 406A, 406, 409 >> PN45 .R587''],''shelfkey''=>[''loc+pn-+0045+00000000+r5870000+1234''],''reverse_shelfkey''=>[''ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~''],''item_display''=>[''PN45
+        .R587 | loc+pn-+0045+00000000+r5870000+1234 | ebn~ac~~zzvu~zzzzzzzz~8urszzzz~yxwv~~~~~~~~~~~~~~~''],''timestamp''=>''2016-07-06T21:08:23.616Z'',''authorities_dt''=>''2016-08-31T15:46:54Z'',''author_variant_txt''=>[''Rosenblatt,
+        Louise'',''Rosenblatt, Louise Michelle''],''subject_variant_txt''=>[''Belles-lettres'',''Western
+        literature (Western countries)'',''World literature'',''Mental philosophy'',''Appraisal
+        of books'',''Evaluation of literature'',''Literary criticism''],''_version_''=>1544194269598711808}]}}
+
+'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:56:24 GMT
+  recorded_at: Tue, 11 Oct 2016 20:49:15 GMT
 recorded_with: VCR 3.0.3

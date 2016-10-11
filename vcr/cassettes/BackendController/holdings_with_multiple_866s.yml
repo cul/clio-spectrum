@@ -8,11 +8,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
       Accept:
       - "*/*"
       Date:
-      - Tue, 16 Aug 2016 17:51:34 GMT
+      - Tue, 11 Oct 2016 20:42:25 GMT
   response:
     status:
       code: 200
@@ -33,21 +33,22 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Etag:
-      - W/"4bb192361abf501f531753b1c1aa33df"
+      - W/"930a17935f09c90e83880378c72bd9eb"
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
       - 1; mode=block
       X-Content-Type-Options:
       - nosniff
+      - nosniff
       X-Runtime:
-      - '0.008325'
+      - '4.327967'
       Access-Control-Request-Method:
       - "*"
       X-Request-Id:
-      - e14cfa38-c763-4dd9-9855-4a0478aad678
+      - e6fe9935-43e6-4409-92fd-d43a93617ac1
       Date:
-      - Tue, 16 Aug 2016 17:51:34 GMT
+      - Tue, 11 Oct 2016 20:42:31 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -61,24 +62,21 @@ http_interactions:
         Un3","status":"available","holding_id":["980107"],"copies":[{"items":{"Available":{"status":"available","count":1}},"summary_holdings":"Library
         has: Indexes: 1861/99, 1900/18, 1939/1945"}],"services":[]},{"location_name":"Butler
         Stacks (Enter at the Butler Circulation Desk)","location_note":"","call_number":"JX233
-        .A3","status":"some_available","holding_id":["980108"],"copies":[{"items":{"1947:v.7
-        In Conservation":{"status":"some_available","count":1},"1969/1976:v.32 Unavailable
-        2014-03-31":{"status":"some_available","count":1},"1918 At Bindery":{"status":"some_available","count":1},"1977-1980:v.26
-        In transit to library":{"status":"some_available","count":1}},"notes":"Notes:
-        For vols. 17, 18, 20 and 21 microfiche supplement for Near East, Africa microfiche
-        supplement, see Microfiche FX3 6159.","summary_holdings":"Library has: 1918,
-        1918:Russia:v.1-3, 1927:v.2, 1929:v.1-3, 1934:v.2, 4-5, 1938:v.1, 4-5, 1939:v.1,
-        1940:v.5, 1941:v.1, 4, 6-7, 1942:v.1-3, 5-6, 1943:v.1-6, 1944:v.1-7, 1945:1,
-        3-9, 1946:v.1-6, 8, 10-11, 1947:v.2-4, 6-8, 1948:v.1-3, 5-9, 1949:v.1-4, 7-9,
-        1950:v.4-7, 1951:v.1-7, -- 1952/1954:v.1-5, 11-16, 1955/1957:v.1-11, 13-15,
-        18-25, 27, 1958/1960:v.1-19; 1961/1963: v.1-25; 1964/1968:v.1-9, 11, 15, 17-34,
-        1969/1973:v.21, 1969/1976:v.1-7, 9-12, 14-20, 23-38:pt.1-2, 39-41, 1977/1980:v.1-3,
-        6, 8, 13, 21, 26 -- Special issues: 1919:Paris Peace Conference v.1-4, 7,
-        10-11; 1931/1941:Japan v.1; 1933/1939:Soviet Union; 1941/1943:Conferences
-        at Washington and Casablanca; 1943:China, Conferences at Cairo and Tehran,
-        Conferences at Washington and Quebec, 1944:Conference at Quebec, 1945:Conference
-        of Berlin (Potsdam) v.1-2, Conferences at Malta and Yalta; 1950/1955:The intelligence
-        community; 1952/1954:Guatemala"}],"services":["recall_hold"]},{"location_name":"Lehman","location_note":"","call_number":"MICFICHE
+        .A3","status":"some_available","holding_id":["980108"],"copies":[{"items":{"1918
+        At Bindery":{"status":"some_available","count":1}},"notes":"Notes: For vols.
+        17, 18, 20 and 21 microfiche supplement for Near East, Africa microfiche supplement,
+        see Microfiche FX3 6159.","summary_holdings":"Library has: 1918, 1918:Russia:v.1-3,
+        1927:v.2, 1929:v.1-3, 1934:v.2, 4-5, 1938:v.1, 4-5, 1939:v.1, 1940:v.5, 1941:v.1,
+        4, 6-7, 1942:v.1-3, 5-6, 1943:v.1-6, 1944:v.1-7, 1945:1, 3-9, 1946:v.1-6,
+        8, 10-11, 1947:v.2-4, 6-8, 1948:v.1-3, 5-9, 1949:v.1-4, 7-9, 1950:v.4-7, 1951:v.1-7,
+        -- 1952/1954:v.1-5, 11-16, 1955/1957:v.1-11, 13-15, 18-25, 27, 1958/1960:v.1-19;
+        1961/1963: v.1-25; 1964/1968:v.1-9, 11, 15, 17-34, 1969/1973:v.21, 1969/1976:v.1-7,
+        9-12, 14-20, 23-38:pt.1-2, 39-41, 1977/1980:v.1-3, 6, 8, 13, 21, 26 -- Special
+        issues: 1919:Paris Peace Conference v.1-4, 7, 10-11; 1931/1941:Japan v.1;
+        1933/1939:Soviet Union; 1941/1943:Conferences at Washington and Casablanca;
+        1943:China, Conferences at Cairo and Tehran, Conferences at Washington and
+        Quebec, 1944:Conference at Quebec, 1945:Conference of Berlin (Potsdam) v.1-2,
+        Conferences at Malta and Yalta; 1950/1955:The intelligence community; 1952/1954:Guatemala"}],"services":[]},{"location_name":"Lehman","location_note":"","call_number":"MICFICHE
         FX3 6159","status":"available","holding_id":["6898133"],"copies":[{"items":{"Available":{"status":"available","count":1}},"supplements":"Supplements:
         1958/1960:v.3,5,11,15/16:pt.2,19, 1961/1963:v.7-15,17-18,20-22,24","summary_holdings":"Library
         has: Microfiche."}],"services":[]},{"location_name":"Offsite - Place Request
@@ -106,5 +104,5 @@ http_interactions:
         (Suppl. to v.4)","temp_locations":[{"itemLabel":"1969-1976:v.11","tempLocation":"Lehman
         Reference (Non-Circulating)"}]}],"services":["offsite"]}]}}'
     http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:51:35 GMT
+  recorded_at: Tue, 11 Oct 2016 20:42:30 GMT
 recorded_with: VCR 3.0.3
