@@ -84,6 +84,9 @@ namespace :bibliographic do
          provide "log.level", 'debug'
          provide 'processing_thread_pool', '0'
          provide "solr_writer.commit_on_close", "true"
+         # How many records skipped due to errors before we 
+         #   bail out with a fatal error?
+         provide "solr_writer.max_skipped", "100"
       end
 
       # load Traject config file (indexing rules)
