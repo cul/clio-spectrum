@@ -555,11 +555,13 @@ module DisplayHelper
     else
       # NEXT-1264 - Zotero shows "unknown" author for edited works
       # (contradicts NEXT-606, see discussion in ticket)
-      if Rails.env == 'clio_test'
-        fields.push("rft.au=")
-      else
-        fields.push("rft.au=#{ CGI.escape('unknown') }")
-      end
+      # if Rails.env == 'clio_test'
+      #   fields.push("rft.au=")
+      # else
+      #   fields.push("rft.au=#{ CGI.escape('unknown') }")
+      # end
+      # 10/2016 decision - go prod with this change
+      fields.push("rft.au=")
     end
 
     document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
