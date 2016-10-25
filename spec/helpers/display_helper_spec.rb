@@ -49,7 +49,7 @@ describe DisplayHelper do
       allow(document).to receive(:[]).with(:subject_geo_facet).and_return(["Antarctica"])
       allow(document).to receive(:[]).with(:subject_era_facet).and_return(["Ice Age"])
       coin = catalog_to_openurl_ctx_kev(document)
-      expect(coin).to match('rft.au=unknown')
+      expect(coin).to match('rft.au=')
     end
     context 'music recording' do
       it 'should return correct coin' do
@@ -66,7 +66,7 @@ describe DisplayHelper do
         allow(document).to receive(:[]).with(:subject_geo_facet).and_return(["Antarctica"])
         allow(document).to receive(:[]).with(:subject_era_facet).and_return(["Ice Age"])
         coin = catalog_to_openurl_ctx_kev(document)
-        music_coin = /ctx_ver=Z39\.88-2004&rft.au=unknown&rft\.title=Norton\+recorded\+anthology\+of\+western\+music&rft\.pub=Naxos&rft.pub=W.W.+Norton&rft\.date=2014&rft\.date=%E2%84%972014&rft\.place=United\+States&rft\.place=New\+York&rft\.isbn=9780393936872&rft\.isbn=0393936872&rft\.isbn=9780393936889&rft\.isbn=0393936880&rft\.isbn=9780393936896&rft.subject=Musical\+analysis&rft.subject=Music\+appreciation&rft.subject=Music\+collections&rft.subject=Antarctica&rft.subject=Ice\+Age&rft_val_fmt=info\:ofi\/fmt\:kev\:mtx\:dc&rft\.type=audioRecording$/
+        music_coin = /ctx_ver=Z39\.88-2004&rft.au=&rft\.title=Norton\+recorded\+anthology\+of\+western\+music&rft\.pub=Naxos&rft.pub=W.W.+Norton&rft\.date=2014&rft\.date=%E2%84%972014&rft\.place=United\+States&rft\.place=New\+York&rft\.isbn=9780393936872&rft\.isbn=0393936872&rft\.isbn=9780393936889&rft\.isbn=0393936880&rft\.isbn=9780393936896&rft.subject=Musical\+analysis&rft.subject=Music\+appreciation&rft.subject=Music\+collections&rft.subject=Antarctica&rft.subject=Ice\+Age&rft_val_fmt=info\:ofi\/fmt\:kev\:mtx\:dc&rft\.type=audioRecording$/
         expect(coin).to match(music_coin)
       end
     end
@@ -105,7 +105,7 @@ describe DisplayHelper do
         allow(document).to receive(:[]).with(:subject_geo_facet)
         allow(document).to receive(:[]).with(:subject_era_facet)
         coin = catalog_to_openurl_ctx_kev(document)
-        video_coin = /ctx_ver=Z39\.88-2004&rft\.au=unknown&rft\.title=Labyrinth\+%5Bvideorecording\+%28DVD%29%5D&rft\.pub=Columbia\+TriStar\+Home\+Entertainment&rft\.date=2003&rft\.place=Culver\+City%2C\+Calif\.&rft_val_fmt=info:ofi\/fmt:kev:mtx:dc&rft\.type=videoRecording$/
+        video_coin = /ctx_ver=Z39\.88-2004&rft\.au=&rft\.title=Labyrinth\+%5Bvideorecording\+%28DVD%29%5D&rft\.pub=Columbia\+TriStar\+Home\+Entertainment&rft\.date=2003&rft\.place=Culver\+City%2C\+Calif\.&rft_val_fmt=info:ofi\/fmt:kev:mtx:dc&rft\.type=videoRecording$/
         expect(coin).to match(video_coin)
       end
     end

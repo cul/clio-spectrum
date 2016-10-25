@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe DatasourcesHelper do
 
-  it 'should throw exception on unknown datasource' do
+  it 'should throw be silent on unknown datasource' do
     expect do
       datasource_landing_page_path('NoSuchDatasource', 'MySearchQuery')
-    end.to raise_error(RuntimeError)
+    end.not_to raise_error()
   end
 
 end
