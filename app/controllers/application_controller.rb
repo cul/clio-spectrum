@@ -320,7 +320,7 @@ class ApplicationController < ActionController::Base
       reply_to.display_name = params[:name]
     end
     # We got a post - that is, a submitted form, with a "To" - send the email!
-    if request.post?
+    if request.post? && verify_recaptcha
       if mail_to
         url_gen_params = { host: request.host_with_port, protocol: request.protocol }
 

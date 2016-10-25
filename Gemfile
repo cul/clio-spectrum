@@ -172,6 +172,10 @@ gem 'rack'
 gem 'rack-attack'
 
 
+# Too much spam using our record emailer
+gem "recaptcha", require: "recaptcha/rails"
+
+
 gem 'library_stdnums'
 
 # Bundle gems for the local environment. Make sure to
