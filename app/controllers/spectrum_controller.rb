@@ -75,6 +75,7 @@ class SpectrumController < ApplicationController
     @show_landing_pages = true if @results.empty?
   end
 
+
   def searchjson
     # @search_layout = SEARCHES_CONFIG['search_layouts'][params[:layout]]
     @search_layout = get_search_layout( params['layout'] )
@@ -87,12 +88,14 @@ class SpectrumController < ApplicationController
       # Need this to help partials select which template to render
       @search_style = @search_layout['style']
 
-      # @has_facets = @search_layout['has_facets']
-      sources =  @search_layout['columns'].map do |col|
-        col['searches'].map { |item| item['source'] }
-      end.flatten.select { |source| source == @datasource }
+#       # @has_facets = @search_layout['has_facets']
+#       sources =  @search_layout['columns'].map do |col|
+#         col['searches'].map { |item| item['source'] }
+#       end.flatten.select { |source| source == @datasource }
+# puts "XXXXXXXXXXXXXXX searchjson() sources=#{sources.inspect}"
 
-      @results = get_results(sources)
+      @results = get_results(@datasource)
+
       render 'searchjson', layout: 'js_return'
    end
   end
@@ -104,14 +107,15 @@ class SpectrumController < ApplicationController
     source = params[:source]
 
     # we don't need any rows of results.  
-    # (but zero might be iffy with some datasources)
-    params['rows'] = 1
+    # params['rows'] = 1
+    # ...but resetting this value can overwrite user default rows
 
     results = case source
       when 'catalog', 'academic_commons', 'geo', 'dlc'
         blacklight_search(params)
       when 'articles'
-        Spectrum::SearchEngines::Summon.new(fix_summon_params(params))
+        fixed_params = fix_summon_params(params)
+        Spectrum::SearchEngines::Summon.new(fixed_params, get_summon_facets)
       when 'library_web'
         Spectrum::SearchEngines::GoogleAppliance.new(fix_ga_params(params))
       else

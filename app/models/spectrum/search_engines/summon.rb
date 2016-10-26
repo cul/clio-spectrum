@@ -511,6 +511,8 @@ module Spectrum
       def summon_fixed_params
         {
           spellcheck: true,
+          # undocumented - should help with incorrect facet values (database name)
+          's.cache' => false,
           # 's.ff' => summon_facets_to_params(Spectrum::SearchEngines::Summon.get_summon_facets)
           's.ff' => summon_facets_to_params(@summon_facets)
         }
