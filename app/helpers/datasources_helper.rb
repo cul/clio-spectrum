@@ -166,7 +166,8 @@ module DatasourcesHelper
     hits_class = 'datasource-hits'
     hits_data = ''
 
-    fetch_hits = true
+    # Set default based on app_config control.  If unset, disable feature.
+    fetch_hits = APP_CONFIG['fetch_datasource_hits'] || false
     fetch_hits = false if source == @active_source
     fetch_hits = false if query.nil? || query.length < 2
     fetch_hits = false if source == 'quicksearch'
