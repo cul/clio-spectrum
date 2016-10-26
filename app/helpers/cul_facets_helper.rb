@@ -1,17 +1,20 @@
 module CulFacetsHelper
-  
-  # 
-  ##  OVERRIDE Blacklight::FacetsHelperBehavior 
-  # 
-  # Are any facet restrictions for a field in the query parameters?
-  # 
-  # @param [String] facet field
-  # @return [Boolean]
-  # def facet_field_in_params? field
-  #   # Support positive or negative, that is, "-location_facet"
-  #   params[:f] and ( params[:f][field] || params[:f]["-#{field}"])
-  # end
-  
+
+
+  # CUL local view partials call cul_facet_field_in_params?,
+  # which calls BL facet_field_in_params? against field and negated-field
+  def cul_facet_field_in_params? field
+    return true if facet_field_in_params?(field)
+
+    negated_field = "-#{field}"
+    # Can't do this - blacklight_range_limit assumes that the string
+    # passed in to facet_field_in_params?() is a valid Solr field name.
+    # facet_field_in_params?(field) || facet_field_in_params?(negated_field)
+    return true if params[:f] and params[:f][negated_field]
+    return false
+  end
+
+
   ##
   # Check if the query parameters have the given facet field with the 
   # given value.
