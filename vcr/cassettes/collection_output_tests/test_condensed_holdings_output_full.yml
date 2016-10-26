@@ -2,78 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: "<clio_backend_url>/holdings/retrieve/1052500"
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.8.1, ruby 2.2.1 (2015-02-26))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 16 Aug 2016 18:00:05 GMT
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Vary:
-      - Accept-Encoding
-      Status:
-      - 200 OK
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Access-Control-Allow-Origin:
-      - "*"
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Request-Id:
-      - db101eea-553d-426a-8241-df75545039f4
-      Etag:
-      - W/"e5e330290cd0ceddf8cca26976c0ac34"
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Runtime:
-      - '7.014365'
-      X-Content-Type-Options:
-      - nosniff
-      Access-Control-Request-Method:
-      - "*"
-      Date:
-      - Tue, 16 Aug 2016 18:00:12 GMT
-      X-Powered-By:
-      - Phusion Passenger
-      Server:
-      - nginx + Phusion Passenger
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubdomains; preload
-    body:
-      encoding: UTF-8
-      string: '{"1052500":{"condensed_holdings_full":[{"location_name":"Butler Current
-        Periodicals, 401 Butler (Non-Circulating)","location_note":"","call_number":"","status":"none","holding_id":["4817248"],"copies":[{"items":{"Status
-        unknown":{"status":"none","count":1}},"notes":"Notes: Current issues only.
-        Previous issues on microfilm in Microfilm Reading Room."}],"services":[]},{"location_name":"Butler
-        Microforms, 401 Butler","location_note":"","call_number":"MICROFLM FN 41","status":"some_available","holding_id":["4817249"],"copies":[{"items":{"Jun,
-        16-30 1995 Unavailable":{"status":"some_available","count":1}},"notes":"Notes:
-        Current issues in Periodicals Reading Room. -- Microfilm. Ann Arbor, Mich.
-        : University Microfilms, 19  -    . reels ;  35 mm.","summary_holdings":"Library
-        has: v.1851:Sept.-2003:Dec.14, 2004:Jan.-2013:Nov.15, 2013:Dec.1-31-2015:Dec.,
-        2016:Jan.16/31-2016:May 15"}],"services":["ill"]},{"location_name":"Journalism","location_note":"","call_number":"NEWSPAPERS","status":"none","holding_id":["1320826"],"copies":[{"items":{"Status
-        unknown":{"status":"none","count":1}},"notes":"Notes: Current two weeks only.
-        -- Shelved alphabetically by title."}],"services":[]},{"location_name":"Lehman","location_note":"","call_number":"NEWSPAPERS","status":"none","holding_id":["1320823"],"copies":[{"items":{"Status
-        unknown":{"status":"none","count":1}},"notes":"Notes: Current issues on Reserves.","summary_holdings":"Library
-        has: current 2 weeks only"}],"services":[]}]}}'
-    http_version: 
-  recorded_at: Tue, 16 Aug 2016 18:00:13 GMT
-- request:
-    method: get
     uri: "<solr_config>/select?id=8430339&qt=document&wt=ruby"
     body:
       encoding: US-ASCII
@@ -85,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 26 Oct 2016 17:50:35 GMT
+      - Wed, 26 Oct 2016 17:57:41 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -196,7 +124,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Wed, 26 Oct 2016 17:50:34 GMT
+  recorded_at: Wed, 26 Oct 2016 17:57:41 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/8430339"
@@ -209,7 +137,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 26 Oct 2016 17:50:34 GMT
+      - Wed, 26 Oct 2016 17:57:41 GMT
   response:
     status:
       code: 200
@@ -239,13 +167,13 @@ http_interactions:
       - nosniff
       - nosniff
       X-Runtime:
-      - '1.645980'
+      - '0.004942'
       Access-Control-Request-Method:
       - "*"
       X-Request-Id:
-      - b290f15d-e140-4f84-9aaf-a496e7651780
+      - 883c30bf-eacf-4a21-9178-1bfc034afe5b
       Date:
-      - Wed, 26 Oct 2016 17:50:37 GMT
+      - Wed, 26 Oct 2016 17:57:42 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -260,7 +188,7 @@ http_interactions:
         out, due 2017-01-17":{"status":"not_available","count":1}}}],"services":["recall_hold"]},{"location_name":"Milstein
         [Butler]","location_note":"","call_number":"BL80.3 .D74 2011","status":"available","holding_id":["11580964"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]}]}}'
     http_version: 
-  recorded_at: Wed, 26 Oct 2016 17:50:36 GMT
+  recorded_at: Wed, 26 Oct 2016 17:57:42 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=8430339&qt=document&wt=ruby"
@@ -274,7 +202,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 26 Oct 2016 17:50:37 GMT
+      - Wed, 26 Oct 2016 17:57:43 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -385,7 +313,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Wed, 26 Oct 2016 17:50:36 GMT
+  recorded_at: Wed, 26 Oct 2016 17:57:42 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/9781416596158.json
@@ -398,14 +326,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 26 Oct 2016 17:50:36 GMT
+      - Wed, 26 Oct 2016 17:57:42 GMT
   response:
     status:
       code: 302
       message: Found
     headers:
       Date:
-      - Wed, 26 Oct 2016 17:50:37 GMT
+      - Wed, 26 Oct 2016 17:57:43 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Location:
@@ -416,7 +344,7 @@ http_interactions:
       - text/html; charset=iso-8859-1
       Set-Cookie:
       - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Wed, 26-Oct-2016
-        18:00:37 GMT;path=/;httponly
+        18:07:43 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |
@@ -430,7 +358,7 @@ http_interactions:
         <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
         </body></html>
     http_version: 
-  recorded_at: Wed, 26 Oct 2016 17:50:36 GMT
+  recorded_at: Wed, 26 Oct 2016 17:57:42 GMT
 - request:
     method: get
     uri: https://catalog.hathitrust.org/api/volumes/brief/isbn/9781416596158.json
@@ -443,7 +371,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 26 Oct 2016 17:50:36 GMT
+      - Wed, 26 Oct 2016 17:57:42 GMT
       Cookie:
       - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
   response:
@@ -452,7 +380,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 26 Oct 2016 17:50:37 GMT
+      - Wed, 26 Oct 2016 17:57:44 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Access-Control-Allow-Origin:
@@ -463,7 +391,7 @@ http_interactions:
       - text/html; charset=UTF-8
       Set-Cookie:
       - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Wed, 26-Oct-2016
-        18:00:37 GMT;path=/;httponly
+        18:07:44 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |-
@@ -471,7 +399,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Wed, 26 Oct 2016 17:50:37 GMT
+  recorded_at: Wed, 26 Oct 2016 17:57:43 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/1416596151.json
@@ -484,14 +412,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 26 Oct 2016 17:50:37 GMT
+      - Wed, 26 Oct 2016 17:57:43 GMT
   response:
     status:
       code: 302
       message: Found
     headers:
       Date:
-      - Wed, 26 Oct 2016 17:50:38 GMT
+      - Wed, 26 Oct 2016 17:57:44 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Location:
@@ -502,7 +430,7 @@ http_interactions:
       - text/html; charset=iso-8859-1
       Set-Cookie:
       - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Wed, 26-Oct-2016
-        18:00:38 GMT;path=/;httponly
+        18:07:44 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |
@@ -516,7 +444,7 @@ http_interactions:
         <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
         </body></html>
     http_version: 
-  recorded_at: Wed, 26 Oct 2016 17:50:37 GMT
+  recorded_at: Wed, 26 Oct 2016 17:57:43 GMT
 - request:
     method: get
     uri: https://catalog.hathitrust.org/api/volumes/brief/isbn/1416596151.json
@@ -529,7 +457,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 26 Oct 2016 17:50:37 GMT
+      - Wed, 26 Oct 2016 17:57:43 GMT
       Cookie:
       - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
   response:
@@ -538,7 +466,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 26 Oct 2016 17:50:38 GMT
+      - Wed, 26 Oct 2016 17:57:44 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Access-Control-Allow-Origin:
@@ -549,7 +477,7 @@ http_interactions:
       - text/html; charset=UTF-8
       Set-Cookie:
       - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Wed, 26-Oct-2016
-        18:00:38 GMT;path=/;httponly
+        18:07:44 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |-
@@ -557,7 +485,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Wed, 26 Oct 2016 17:50:37 GMT
+  recorded_at: Wed, 26 Oct 2016 17:57:43 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/464593183.json
@@ -570,14 +498,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 26 Oct 2016 17:50:37 GMT
+      - Wed, 26 Oct 2016 17:57:43 GMT
   response:
     status:
       code: 302
       message: Found
     headers:
       Date:
-      - Wed, 26 Oct 2016 17:50:38 GMT
+      - Wed, 26 Oct 2016 17:57:44 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Location:
@@ -588,7 +516,7 @@ http_interactions:
       - text/html; charset=iso-8859-1
       Set-Cookie:
       - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Wed, 26-Oct-2016
-        18:00:38 GMT;path=/;httponly
+        18:07:44 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |
@@ -602,7 +530,7 @@ http_interactions:
         <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
         </body></html>
     http_version: 
-  recorded_at: Wed, 26 Oct 2016 17:50:38 GMT
+  recorded_at: Wed, 26 Oct 2016 17:57:43 GMT
 - request:
     method: get
     uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/464593183.json
@@ -615,7 +543,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 26 Oct 2016 17:50:38 GMT
+      - Wed, 26 Oct 2016 17:57:43 GMT
       Cookie:
       - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
   response:
@@ -624,7 +552,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 26 Oct 2016 17:50:39 GMT
+      - Wed, 26 Oct 2016 17:57:44 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Access-Control-Allow-Origin:
@@ -635,7 +563,7 @@ http_interactions:
       - text/html; charset=UTF-8
       Set-Cookie:
       - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Wed, 26-Oct-2016
-        18:00:39 GMT;path=/;httponly
+        18:07:44 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |-
@@ -643,7 +571,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Wed, 26 Oct 2016 17:50:38 GMT
+  recorded_at: Wed, 26 Oct 2016 17:57:43 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocn464593183.json
@@ -656,14 +584,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 26 Oct 2016 17:50:38 GMT
+      - Wed, 26 Oct 2016 17:57:43 GMT
   response:
     status:
       code: 302
       message: Found
     headers:
       Date:
-      - Wed, 26 Oct 2016 17:50:39 GMT
+      - Wed, 26 Oct 2016 17:57:44 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Location:
@@ -674,7 +602,7 @@ http_interactions:
       - text/html; charset=iso-8859-1
       Set-Cookie:
       - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Wed, 26-Oct-2016
-        18:00:39 GMT;path=/;httponly
+        18:07:44 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |
@@ -688,7 +616,7 @@ http_interactions:
         <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
         </body></html>
     http_version: 
-  recorded_at: Wed, 26 Oct 2016 17:50:39 GMT
+  recorded_at: Wed, 26 Oct 2016 17:57:44 GMT
 - request:
     method: get
     uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/ocn464593183.json
@@ -701,7 +629,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 26 Oct 2016 17:50:39 GMT
+      - Wed, 26 Oct 2016 17:57:44 GMT
       Cookie:
       - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
   response:
@@ -710,7 +638,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 26 Oct 2016 17:50:40 GMT
+      - Wed, 26 Oct 2016 17:57:45 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Access-Control-Allow-Origin:
@@ -721,7 +649,7 @@ http_interactions:
       - text/html; charset=UTF-8
       Set-Cookie:
       - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Wed, 26-Oct-2016
-        18:00:40 GMT;path=/;httponly
+        18:07:45 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |-
@@ -729,7 +657,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Wed, 26 Oct 2016 17:50:40 GMT
+  recorded_at: Wed, 26 Oct 2016 17:57:44 GMT
 - request:
     method: get
     uri: http://catalog.hathitrust.org/api/volumes/brief/lccn/2010021750.json
@@ -742,14 +670,14 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 26 Oct 2016 17:50:40 GMT
+      - Wed, 26 Oct 2016 17:57:44 GMT
   response:
     status:
       code: 302
       message: Found
     headers:
       Date:
-      - Wed, 26 Oct 2016 17:50:41 GMT
+      - Wed, 26 Oct 2016 17:57:45 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Location:
@@ -760,7 +688,7 @@ http_interactions:
       - text/html; charset=iso-8859-1
       Set-Cookie:
       - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Wed, 26-Oct-2016
-        18:00:41 GMT;path=/;httponly
+        18:07:45 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |
@@ -774,7 +702,7 @@ http_interactions:
         <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
         </body></html>
     http_version: 
-  recorded_at: Wed, 26 Oct 2016 17:50:40 GMT
+  recorded_at: Wed, 26 Oct 2016 17:57:44 GMT
 - request:
     method: get
     uri: https://catalog.hathitrust.org/api/volumes/brief/lccn/2010021750.json
@@ -787,7 +715,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 26 Oct 2016 17:50:40 GMT
+      - Wed, 26 Oct 2016 17:57:44 GMT
       Cookie:
       - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
   response:
@@ -796,7 +724,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 26 Oct 2016 17:50:41 GMT
+      - Wed, 26 Oct 2016 17:57:45 GMT
       Server:
       - Apache/2.4.10 (Debian)
       Access-Control-Allow-Origin:
@@ -807,7 +735,7 @@ http_interactions:
       - text/html; charset=UTF-8
       Set-Cookie:
       - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Wed, 26-Oct-2016
-        18:00:41 GMT;path=/;httponly
+        18:07:45 GMT;path=/;httponly
     body:
       encoding: UTF-8
       string: |-
@@ -815,7 +743,7 @@ http_interactions:
          "records": {}, "items": []
         }
     http_version: 
-  recorded_at: Wed, 26 Oct 2016 17:50:41 GMT
+  recorded_at: Wed, 26 Oct 2016 17:57:44 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=1052500&qt=document&wt=ruby"
@@ -829,7 +757,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 26 Oct 2016 17:50:42 GMT
+      - Wed, 26 Oct 2016 17:57:45 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -839,7 +767,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
         YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
         eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9PicxMDUyNTAw
         JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
@@ -1141,5 +1069,78 @@ http_interactions:
         Tml1LXl1zIhlaCAoTi5ZLiknLCdOb3d5IEpvcmsgKE4uWS4pJ10sJ192ZXJz
         aW9uXyc9PjE1NDg5ODE2NTk2MzU4MTAzMDR9XX19Cg==
     http_version: 
-  recorded_at: Wed, 26 Oct 2016 17:50:41 GMT
+  recorded_at: Wed, 26 Oct 2016 17:57:44 GMT
+- request:
+    method: get
+    uri: "<clio_backend_url>/holdings/retrieve/1052500"
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 26 Oct 2016 17:57:46 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - W/"1fdd405cb8e5dd51e8b0c8361a09bf08"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Runtime:
+      - '0.006061'
+      Access-Control-Request-Method:
+      - "*"
+      X-Request-Id:
+      - d4e79153-5c33-4a94-b519-2568026a4bb0
+      Date:
+      - Wed, 26 Oct 2016 17:57:47 GMT
+      X-Powered-By:
+      - Phusion Passenger
+      Server:
+      - nginx + Phusion Passenger
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubdomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"1052500":{"condensed_holdings_full":[{"location_name":"Butler Current
+        Periodicals, 401 Butler (Non-Circulating)","location_note":"","call_number":"","status":"none","holding_id":["4817248"],"copies":[{"items":{"Status
+        unknown":{"status":"none","count":1}},"notes":"Notes: Current issues only.
+        Previous issues on microfilm in Microfilm Reading Room."}],"services":[]},{"location_name":"Butler
+        Microforms, 401 Butler","location_note":"","call_number":"MICROFLM FN 41","status":"some_available","holding_id":["4817249"],"copies":[{"items":{"Jun,
+        16-30 1995 Unavailable":{"status":"some_available","count":1}},"notes":"Notes:
+        Current issues in Periodicals Reading Room. -- Microfilm. Ann Arbor, Mich.
+        : University Microfilms, 19  -    . reels ;  35 mm.","summary_holdings":"Library
+        has: v.1851:Sept.-2003:Dec.14, 2004:Jan.-2013:Nov.15, 2013:Dec.1-31-2015:Dec.,
+        2016:Jan.16/31-2016:July 31, 2016:Aug.16-31"}],"services":["ill"]},{"location_name":"Journalism","location_note":"","call_number":"NEWSPAPERS","status":"none","holding_id":["1320826"],"copies":[{"items":{"Status
+        unknown":{"status":"none","count":1}},"notes":"Notes: Current two weeks only.
+        -- Shelved alphabetically by title."}],"services":[]},{"location_name":"Lehman","location_note":"","call_number":"NEWSPAPERS","status":"none","holding_id":["1320823"],"copies":[{"items":{"Status
+        unknown":{"status":"none","count":1}},"notes":"Notes: Current issues on Reserves.","summary_holdings":"Library
+        has: current 2 weeks only"}],"services":[]}]}}'
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:57:46 GMT
 recorded_with: VCR 3.0.3
