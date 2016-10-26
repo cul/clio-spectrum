@@ -2950,4 +2950,485 @@ http_interactions:
         ImltYWdlIjoge30sInJlZmVyZW5jZSI6IHt9LCJuZXdzcGFwZXIiOiB7fX19
     http_version: 
   recorded_at: Tue, 11 Oct 2016 20:44:14 GMT
+- request:
+    method: get
+    uri: http://api.summon.serialssolutions.com/2.0.0/search?adv=%7B%7D&s.cache=false&s.ff=SubjectTerms,and,1,10&s.fvf=IsFullText,true&s.ho=t&spellcheck=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf8
+      X-Summon-Date:
+      - Wed, 26 Oct 2016 17:41:36 GMT
+      X-Summon-Session-Id:
+      - SUMMON-SESSION-Sprite.local-44373-34
+      X-Summon-Request-Id:
+      - ''
+      Authorization:
+      - Summon columbia;/XbIVPuGXRvAbKQQD+qz/wdFr2g=
+      Host:
+      - api.summon.serialssolutions.com:80
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Datacenter:
+      - IAD1
+      Date:
+      - Wed, 26 Oct 2016 17:41:38 GMT
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"version": "2.0.0","sessionId": "SUMMON-SESSION-Sprite.local-44373-34","elapsedQueryTime":
+        1284,"queryTime": 1269,"totalRequestTime": 1482,"pageCount": 14673726,"recordCount":
+        146737255,"query": {"queryString": "s.cache=f&s.ho=t&s.ff=Language%2Cand%2C1%2C10&s.ff=PublicationTitle%2Cand%2C1%2C10&s.ff=SubjectTerms%2Cand%2C1%2C10&s.ff=SourceName%2Cand%2C1%2C10&s.ff=Discipline%2Cand%2C1%2C10&s.ff=DatabaseName%2Cand%2C1%2C10&s.ff=ContentType%2Cand%2C1%2C10&s.fvf=ContentType%2CJournal+Article%2Cf&s.fvf=IsFullText%2Ctrue%2Cf","pageNumber":
+        1,"pageSize": 10,"isHoldingsOnlyEnabled": true,"textQueries": [],"searchTerms":
+        [],"textFilters": [],"rangeFilters": [],"facetValueFilters": [{"fieldName":
+        "ContentType","value": "Journal Article","isNegated": false,"removeCommand":
+        "removeFacetValueFilter(ContentType,Journal Article)","negateCommand": "negateFacetValueFilter(ContentType,Journal
+        Article)"},{"fieldName": "IsFullText","value": "true","isNegated": false,"removeCommand":
+        "removeFacetValueFilter(IsFullText,true)","negateCommand": "negateFacetValueFilter(IsFullText,true)"}],"inclusiveFacetValueFilters":
+        [],"facetValueGroupFilters": [],"facetFields": [{"fieldName": "DatabaseName","combineMode":
+        "and","pageNumber": 1,"pageSize": 10,"removeCommand": "removeFacetField(DatabaseName)"},{"fieldName":
+        "Language","combineMode": "and","pageNumber": 1,"pageSize": 10,"removeCommand":
+        "removeFacetField(Language)"},{"fieldName": "PublicationTitle","combineMode":
+        "and","pageNumber": 1,"pageSize": 10,"removeCommand": "removeFacetField(PublicationTitle)"},{"fieldName":
+        "SourceName","combineMode": "and","pageNumber": 1,"pageSize": 10,"removeCommand":
+        "removeFacetField(SourceName)"},{"fieldName": "SubjectTerms","combineMode":
+        "and","pageNumber": 1,"pageSize": 10,"removeCommand": "removeFacetField(SubjectTerms)"},{"fieldName":
+        "Discipline","combineMode": "and","pageNumber": 1,"pageSize": 10,"removeCommand":
+        "removeFacetField(Discipline)"},{"fieldName": "ContentType","combineMode":
+        "and","pageNumber": 1,"pageSize": 10,"removeCommand": "removeFacetField(ContentType)"}],"rangeFacetFields":
+        [],"sort": []},"facetFields": [{"fieldName": "sys_source_id","displayName":
+        "SourceName","combineMode": "and","pageNumber": 1,"pageSize": 10,"hasLimitingValue":
+        true,"hasAppliedValue": false,"removeCommand": "removeFacetField(SourceName)","listValuesCommand":
+        "listFacetValues(SourceName,and)","removeValueFiltersCommand": "removeFacetValueFilter(SourceName)","counts":
+        [{"value": "ProQuest","count": 47315031,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SourceName,ProQuest)","applyNegatedCommand":
+        "addFacetValueFilters(SourceName,ProQuest:t)"},{"value": "CrossRef","count":
+        40258133,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SourceName,CrossRef)","applyNegatedCommand": "addFacetValueFilters(SourceName,CrossRef:t)"},{"value":
+        "Chongqing VIP Information","count": 32053021,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SourceName,Chongqing
+        VIP Information)","applyNegatedCommand": "addFacetValueFilters(SourceName,Chongqing
+        VIP Information:t)"},{"value": "Elsevier Scopus","count": 31606490,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SourceName,Elsevier
+        Scopus)","applyNegatedCommand": "addFacetValueFilters(SourceName,Elsevier
+        Scopus:t)"},{"value": "Gale/Cengage","count": 22288886,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SourceName,Gale/Cengage)","applyNegatedCommand":
+        "addFacetValueFilters(SourceName,Gale/Cengage:t)"},{"value": "Thompson Scientific  -
+        Web of Science","count": 22254951,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SourceName,Thompson Scientific  -
+        Web of Science)","applyNegatedCommand": "addFacetValueFilters(SourceName,Thompson
+        Scientific  - Web of Science:t)"},{"value": "PubMed","count": 17425179,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SourceName,PubMed)","applyNegatedCommand":
+        "addFacetValueFilters(SourceName,PubMed:t)"},{"value": "Elsevier","count":
+        10330156,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SourceName,Elsevier)","applyNegatedCommand": "addFacetValueFilters(SourceName,Elsevier:t)"},{"value":
+        "NewsRx","count": 7765294,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SourceName,NewsRx)","applyNegatedCommand":
+        "addFacetValueFilters(SourceName,NewsRx:t)"},{"value": "JSTOR","count": 6333888,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SourceName,JSTOR)","applyNegatedCommand":
+        "addFacetValueFilters(SourceName,JSTOR:t)"}]},{"fieldName": "PublicationTitle_sfacet","displayName":
+        "PublicationTitle","combineMode": "and","pageNumber": 1,"pageSize": 10,"hasLimitingValue":
+        true,"hasAppliedValue": false,"removeCommand": "removeFacetField(PublicationTitle)","listValuesCommand":
+        "listFacetValues(PublicationTitle,and)","removeValueFiltersCommand": "removeFacetValueFilter(PublicationTitle)","counts":
+        [{"value": "variety","count": 1896839,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(PublicationTitle,variety)","applyNegatedCommand":
+        "addFacetValueFilters(PublicationTitle,variety:t)"},{"value": "journal of
+        engineering","count": 785435,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(PublicationTitle,journal of engineering)","applyNegatedCommand":
+        "addFacetValueFilters(PublicationTitle,journal of engineering:t)"},{"value":
+        "obesity, fitness & wellness week","count": 761359,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(PublicationTitle,obesity\\,
+        fitness & wellness week)","applyNegatedCommand": "addFacetValueFilters(PublicationTitle,obesity\\,
+        fitness & wellness week:t)"},{"value": "life science weekly","count": 697743,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(PublicationTitle,life
+        science weekly)","applyNegatedCommand": "addFacetValueFilters(PublicationTitle,life
+        science weekly:t)"},{"value": "the lancet","count": 586004,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(PublicationTitle,the
+        lancet)","applyNegatedCommand": "addFacetValueFilters(PublicationTitle,the
+        lancet:t)"},{"value": "health & medicine week","count": 558401,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(PublicationTitle,health
+        & medicine week)","applyNegatedCommand": "addFacetValueFilters(PublicationTitle,health
+        & medicine week:t)"},{"value": "nature","count": 498992,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(PublicationTitle,nature)","applyNegatedCommand":
+        "addFacetValueFilters(PublicationTitle,nature:t)"},{"value": "investment weekly
+        news","count": 445077,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(PublicationTitle,investment weekly
+        news)","applyNegatedCommand": "addFacetValueFilters(PublicationTitle,investment
+        weekly news:t)"},{"value": "india business insight","count": 438328,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(PublicationTitle,india
+        business insight)","applyNegatedCommand": "addFacetValueFilters(PublicationTitle,india
+        business insight:t)"},{"value": "british medical journal","count": 422452,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(PublicationTitle,british
+        medical journal)","applyNegatedCommand": "addFacetValueFilters(PublicationTitle,british
+        medical journal:t)"}]},{"fieldName": "Language_s","displayName": "Language","combineMode":
+        "and","pageNumber": 1,"pageSize": 10,"hasLimitingValue": true,"hasAppliedValue":
+        false,"removeCommand": "removeFacetField(Language)","listValuesCommand": "listFacetValues(Language,and)","removeValueFiltersCommand":
+        "removeFacetValueFilter(Language)","counts": [{"value": "English","count":
+        95851920,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(Language,English)","applyNegatedCommand": "addFacetValueFilters(Language,English:t)"},{"value":
+        "Chinese","count": 32152421,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(Language,Chinese)","applyNegatedCommand":
+        "addFacetValueFilters(Language,Chinese:t)"},{"value": "Korean","count": 3165355,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(Language,Korean)","applyNegatedCommand":
+        "addFacetValueFilters(Language,Korean:t)"},{"value": "French","count": 2363891,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(Language,French)","applyNegatedCommand":
+        "addFacetValueFilters(Language,French:t)"},{"value": "German","count": 2282871,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(Language,German)","applyNegatedCommand":
+        "addFacetValueFilters(Language,German:t)"},{"value": "Spanish","count": 1560729,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(Language,Spanish)","applyNegatedCommand":
+        "addFacetValueFilters(Language,Spanish:t)"},{"value": "Portuguese","count":
+        412191,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(Language,Portuguese)","applyNegatedCommand": "addFacetValueFilters(Language,Portuguese:t)"},{"value":
+        "Japanese","count": 407877,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(Language,Japanese)","applyNegatedCommand":
+        "addFacetValueFilters(Language,Japanese:t)"},{"value": "Italian","count":
+        344735,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(Language,Italian)","applyNegatedCommand": "addFacetValueFilters(Language,Italian:t)"},{"value":
+        "Polish","count": 71516,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(Language,Polish)","applyNegatedCommand":
+        "addFacetValueFilters(Language,Polish:t)"}]},{"fieldName": "SubjectTerms_mfacet","displayName":
+        "SubjectTerms","combineMode": "and","pageNumber": 1,"pageSize": 10,"hasLimitingValue":
+        true,"hasAppliedValue": false,"removeCommand": "removeFacetField(SubjectTerms)","listValuesCommand":
+        "listFacetValues(SubjectTerms,and)","removeValueFiltersCommand": "removeFacetValueFilter(SubjectTerms)","counts":
+        [{"value": "article","count": 3359466,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,article)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,article:t)"},{"value": "analysis","count":
+        2298251,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,analysis)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,analysis:t)"},{"value":
+        "research","count": 2205943,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,research)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,research:t)"},{"value": "index medicus","count":
+        1572561,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,index medicus)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,index medicus:t)"},{"value": "united states","count":
+        1504409,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,united states)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,united states:t)"},{"value": "studies","count":
+        1448127,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,studies)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,studies:t)"},{"value":
+        "humans","count": 1190334,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,humans)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,humans:t)"},{"value": "asia","count": 1180994,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,asia)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,asia:t)"},{"value": "management","count":
+        1168951,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,management)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,management:t)"},{"value":
+        "biochemistry & molecular biology","count": 1102207,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(SubjectTerms,biochemistry
+        & molecular biology)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,biochemistry
+        & molecular biology:t)"}]},{"fieldName": "Discipline_mfacet","displayName":
+        "Discipline","combineMode": "and","pageNumber": 1,"pageSize": 10,"hasLimitingValue":
+        true,"hasAppliedValue": false,"removeCommand": "removeFacetField(Discipline)","listValuesCommand":
+        "listFacetValues(Discipline,and)","removeValueFiltersCommand": "removeFacetValueFilter(Discipline)","counts":
+        [{"value": "medicine","count": 18904761,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(Discipline,medicine)","applyNegatedCommand":
+        "addFacetValueFilters(Discipline,medicine:t)"},{"value": "engineering","count":
+        12617665,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(Discipline,engineering)","applyNegatedCommand": "addFacetValueFilters(Discipline,engineering:t)"},{"value":
+        "chemistry","count": 8013975,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(Discipline,chemistry)","applyNegatedCommand":
+        "addFacetValueFilters(Discipline,chemistry:t)"},{"value": "economics","count":
+        6520358,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(Discipline,economics)","applyNegatedCommand": "addFacetValueFilters(Discipline,economics:t)"},{"value":
+        "business","count": 6422312,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(Discipline,business)","applyNegatedCommand":
+        "addFacetValueFilters(Discipline,business:t)"},{"value": "biology","count":
+        6421536,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(Discipline,biology)","applyNegatedCommand": "addFacetValueFilters(Discipline,biology:t)"},{"value":
+        "physics","count": 6151089,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(Discipline,physics)","applyNegatedCommand":
+        "addFacetValueFilters(Discipline,physics:t)"},{"value": "anatomy & physiology","count":
+        3565935,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(Discipline,anatomy & physiology)","applyNegatedCommand":
+        "addFacetValueFilters(Discipline,anatomy & physiology:t)"},{"value": "history
+        & archaeology","count": 3529213,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(Discipline,history & archaeology)","applyNegatedCommand":
+        "addFacetValueFilters(Discipline,history & archaeology:t)"},{"value": "languages
+        & literatures","count": 3468672,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(Discipline,languages & literatures)","applyNegatedCommand":
+        "addFacetValueFilters(Discipline,languages & literatures:t)"}]},{"fieldName":
+        "ContentType_mfacet","displayName": "ContentType","combineMode": "and","pageNumber":
+        1,"pageSize": 10,"hasLimitingValue": true,"hasAppliedValue": true,"removeCommand":
+        "removeFacetField(ContentType)","listValuesCommand": "listFacetValues(ContentType,and)","removeValueFiltersCommand":
+        "removeFacetValueFilter(ContentType)","counts": [{"value": "Journal Article","count":
+        146737255,"isApplied": true,"isNegated": false,"isFurtherLimiting": false,"removeCommand":
+        "removeFacetValueFilter(ContentType,Journal Article)","negateCommand": "negateFacetValueFilter(ContentType,Journal
+        Article)"},{"value": "Book Review","count": 1533318,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(ContentType,Book
+        Review)","applyNegatedCommand": "addFacetValueFilters(ContentType,Book Review:t)"},{"value":
+        "Newspaper Article","count": 1171150,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(ContentType,Newspaper Article)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Newspaper Article:t)"},{"value": "Conference
+        Proceeding","count": 443187,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(ContentType,Conference Proceeding)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Conference Proceeding:t)"},{"value": "Magazine
+        Article","count": 343792,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(ContentType,Magazine Article)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Magazine Article:t)"},{"value": "Trade Publication
+        Article","count": 257497,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(ContentType,Trade Publication Article)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Trade Publication Article:t)"},{"value":
+        "Paper","count": 118862,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(ContentType,Paper)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Paper:t)"},{"value": "Book Chapter","count":
+        99376,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(ContentType,Book Chapter)","applyNegatedCommand": "addFacetValueFilters(ContentType,Book
+        Chapter:t)"},{"value": "Electronic Resource","count": 1038,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(ContentType,Electronic
+        Resource)","applyNegatedCommand": "addFacetValueFilters(ContentType,Electronic
+        Resource:t)"},{"value": "Dissertation","count": 912,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(ContentType,Dissertation)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Dissertation:t)"}]},{"fieldName": "DBID","displayName":
+        "DatabaseName","combineMode": "and","pageNumber": 1,"pageSize": 10,"hasLimitingValue":
+        true,"hasAppliedValue": false,"removeCommand": "removeFacetField(DatabaseName)","listValuesCommand":
+        "listFacetValues(DatabaseName,and)","removeValueFiltersCommand": "removeFacetValueFilter(DatabaseName)","counts":
+        [{"value": "HathiTrust (Public Domain within US only)","count": 116029,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(DatabaseName,HathiTrust
+        \\(Public Domain within US only\\))","applyNegatedCommand": "addFacetValueFilters(DatabaseName,HathiTrust
+        \\(Public Domain within US only\\):t)"},{"value": "ProQuest Central (purchase
+        pre-March 2016)","count": 103166,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(DatabaseName,ProQuest Central \\(purchase
+        pre-March 2016\\))","applyNegatedCommand": "addFacetValueFilters(DatabaseName,ProQuest
+        Central \\(purchase pre-March 2016\\):t)"},{"value": "Periodicals Index Online","count":
+        70039,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(DatabaseName,Periodicals Index Online)","applyNegatedCommand":
+        "addFacetValueFilters(DatabaseName,Periodicals Index Online:t)"},{"value":
+        "Science Citation Index Expanded","count": 61684,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(DatabaseName,Science
+        Citation Index Expanded)","applyNegatedCommand": "addFacetValueFilters(DatabaseName,Science
+        Citation Index Expanded:t)"},{"value": "ProQuest Research Library","count":
+        54610,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(DatabaseName,ProQuest Research Library)","applyNegatedCommand":
+        "addFacetValueFilters(DatabaseName,ProQuest Research Library:t)"},{"value":
+        "Annual Bibliography of English Language and Literature","count": 51440,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(DatabaseName,Annual
+        Bibliography of English Language and Literature)","applyNegatedCommand": "addFacetValueFilters(DatabaseName,Annual
+        Bibliography of English Language and Literature:t)"},{"value": "Periodicals
+        Archive Online","count": 47193,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(DatabaseName,Periodicals Archive
+        Online)","applyNegatedCommand": "addFacetValueFilters(DatabaseName,Periodicals
+        Archive Online:t)"},{"value": "Social Sciences Citation Index","count": 37649,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(DatabaseName,Social
+        Sciences Citation Index)","applyNegatedCommand": "addFacetValueFilters(DatabaseName,Social
+        Sciences Citation Index:t)"},{"value": "ABI/INFORM Collection","count": 35322,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(DatabaseName,ABI/INFORM
+        Collection)","applyNegatedCommand": "addFacetValueFilters(DatabaseName,ABI/INFORM
+        Collection:t)"},{"value": "MLA International Bibliography","count": 28788,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(DatabaseName,MLA
+        International Bibliography)","applyNegatedCommand": "addFacetValueFilters(DatabaseName,MLA
+        International Bibliography:t)"}]}],"rangeFacetFields": [],"didYouMeanSuggestions":
+        [],"recommendationLists": {},"documents": [{"hasFullText": true,"isFullTextHit":
+        false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Preface&rft.jtitle=Annals+of+the+New+York+Academy+of+Sciences&rft.au=ROSSI%2C+CLAUDIO&rft.au=TIEZZI%2C+ENZO&rft.date=1999-06-01&rft.pub=Blackwell+Publishing+Ltd&rft.issn=0077-8923&rft.eissn=1749-6632&rft.volume=879&rft.issue=1&rft.spage=ix&rft.epage=x&rft_id=info:doi/10.1111%2Fj.1749-6632.1999.tb10400.x&rft.externalDocID=NYASIX","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZ1wR0lI4u-CglpGMX4VfJIcRoGtNAMWBcg3bOkhDbcEOBAkA2MM6BJDDWgSRR8R4ArPISk1EW-CAOSYataAQf1OSI2EwCzeGIde_-wEAFj6H6OAJbjP7w_r2na1QUWMLVL8ofMWIAPWUAecQAbWQQMtKFWEMELibNgVWXJWQjsF4qpGQ0N7HUBTZPUIpOC8hFMChpBFIQZlYgVakV-MtqmMmgnZOWeiVJhqCCBbaKE-UsbL9Ix2DPCGZgF9sC2NFm9fEM8XCFzxmBKlpwvQt1PPSIWfi6LayWoPZJwI2KEEEGfmhvQMEREo1CDEypecIM7JD7QSuFGYRg8aKgAT0eXFOEgR0aw6IMdm6uIc4eumCT4wsgx4bEI3W3gI6JBzkmHuSYeKhj4iviIf4zlmBQSDW1MAMdhmcE6jKaJ5smGqYBy2aLNOMUE2OT1MQ0SQZzMk2XIlunNAMXIjnJMLCUFJWmygKbc6C0kJSZCAALfzI9","Volume":
+        ["879"],"Language": ["English"],"Author": ["ROSSI, CLAUDIO","TIEZZI, ENZO"],"PublicationPlace":
+        ["Oxford, UK"],"AuthorAffiliation_xml": [{"name": "Department of Chemical
+        and Biosystems Sciences, University of Siena, Pian dei Mantellini, 44, 53100
+        Siena, Italy"}],"Score": ["0.01"],"DOI": ["10.1111/j.1749-6632.1999.tb10400.x"],"PageCount":
+        ["2"],"IsPeerReviewed": ["true"],"PublicationDate_xml": [{"text": "June 1999","month":
+        "06","year": "1999"}],"PublicationDate": ["June 1999"],"PublicationCentury":
+        ["1900"],"Publisher": ["Blackwell Publishing Ltd"],"SourceType": ["Publisher"],"Publisher_xml":
+        [{"name": "Blackwell Publishing Ltd"}],"URI": ["http://onlinelibrary.wiley.com/doi/10.1111/j.1749-6632.1999.tb10400.x/abstract"],"IsScholarly":
+        ["true"],"ID": ["FETCH-wiley_primary_10_1111_j_1749_6632_1999_tb10400_x_NYASIX3"],"PublicationTitle":
+        ["Annals of the New York Academy of Sciences"],"Issue": ["1"],"Discipline":
+        ["Sciences (General)","Biology"],"PublicationYear": ["1999"],"Genre": ["article"],"PublicationPlace_xml":
+        [{"name": "Oxford, UK"}],"AuthorAffiliation": ["Department of Chemical and
+        Biosystems Sciences, University of Siena, Pian dei Mantellini, 44, 53100 Siena,
+        Italy"],"EISSN": ["1749-6632"],"MergedId": ["FETCHMERGED-wiley_primary_10_1111_j_1749_6632_1999_tb10400_x_NYASIX3"],"Author_xml":
+        [{"sequence": "1","givenname": "CLAUDIO","surname": "ROSSI","fullname": "ROSSI,
+        CLAUDIO"},{"sequence": "2","givenname": "ENZO","surname": "TIEZZI","fullname":
+        "TIEZZI, ENZO"}],"PublicationDecade": ["1990"],"ContentType": ["Journal Article"],"Title":
+        ["Preface"],"ISSN": ["0077-8923"],"ExternalDocumentID": ["NYASIX"],"SSID":
+        ["ssj0012847"],"StartPage": ["ix"],"EndPage": ["x"],"thumbnail_m": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0077-8923&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0077-8923&client=summon"],"thumbnail_l":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0077-8923&client=summon"],"LinkModel":
+        ["OpenURL"],"BookMark": ["ePnHCXMwY4Ac7AlfLWOpC6zTjECb4iz1SpIMQWlGr4IJvEsRIsUCKirNgUUlsKnBARv_BxWanAzsAcBaIhHUcLRzcw1x9tAFNx_jCyDnMMQjtV-BhsWDDIsH2RMPtSe-It4v0jHYM8KYYgMAJ7k3UQ"]},{"hasFullText":
+        true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=ANNOUNCEMENTS&rft.jtitle=Victorian+Review&rft.date=1993-07-01&rft.pub=Victorian+Studies+Association+of+Western+Canada&rft.issn=0848-1512&rft.eissn=1923-3280&rft.volume=19&rft.issue=1&rft.spage=88","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZ1wR0lI4u-CglpGMX4VeLIcRoGtNAMWBcg3bOkhDbcEOBAkA2MM6BJDDWgSRR8e7o5-cf6ucMPqQ_GLnpGZYJGp_PBA_Zw-cDUqAb4Izha0MhMYRQDF1oiByPoAZmOOSEBW3w6QaJyMWJCbC_aApdtJwKKe6AzTtdYyPIXUrw8tASI94hhZuFBTOwc2sB6uIa-VnCR7IMjC3NINPKcCswKjZw5RMiyMAPbWYrOELCR4iBKTVPmEHcBzo4W6ygpuADP0-6WISBFyXURBmU3VxDnD10YabHQ0O-ON4QdO0W0H5jQ2MJBoVUUwsz0FlyRqAel3myaaJhGrBos0gzTjExNklNTJNkkMFnhBR-aWkGLkTMyDCwlBSVpsoC2zWg8EvKTAQAXhjteQ","DatabaseTitle":
+        ["Periodicals Index Online Segment 33","Periodicals Index Online"],"Volume":
+        ["19"],"Language": ["English"],"PublicationPlace": ["Edmonton"],"Score": ["0.01"],"IsPeerReviewed":
+        ["true"],"DBID": ["JQCIK","K30"],"PublicationDate": ["19930701"],"PublicationDate_xml":
+        [{"text": "19930701","month": "07","year": "1993","day": "01"}],"PublicationCentury":
+        ["1900"],"Publisher": ["Victorian Studies Association of Western Canada"],"SourceType":
+        ["Aggregation Database"],"Publisher_xml": [{"name": "Victorian Studies Association
+        of Western Canada"}],"PQPubID": ["1823079"],"URI": ["http://search.proquest.com/docview/1292084831"],"IsScholarly":
+        ["true"],"ID": ["FETCH-proquest_journals_12920848313"],"PublicationTitle":
+        ["Victorian Review"],"Issue": ["1"],"Discipline": ["Languages & Literatures"],"PublicationYear":
+        ["1993"],"PublicationPlace_xml": [{"name": "Edmonton"}],"PQID": ["1292084831"],"EISSN":
+        ["1923-3280"],"MergedId": ["FETCHMERGED-proquest_journals_12920848313"],"PublicationDecade":
+        ["1990"],"ContentType": ["Journal Article"],"Title": ["ANNOUNCEMENTS"],"ISSN":
+        ["0848-1512"],"SSID": ["ssj0000396212"],"StartPage": ["88"],"thumbnail_m":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0848-1512&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0848-1512&client=summon"],"thumbnail_l":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0848-1512&client=summon"],"Database_xml":
+        [{"sequence": "1","name": "Periodicals Index Online","dbid": "K30","url":
+        "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/pio","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["OpenURL"],"BookMark": ["ePnHCXMwYwLN4hoZ6xobWRiwgFpwJsBeCrBW4YANfBgYW5oBy0tOBl5HPz__UD9n8Kn1wdwMym6uIc4eurASMR4amMXxhqAblYDmGIPuICBGFQDXQiJW"],"DatabaseName":
+        ["Periodicals Index Online Segment 33","Periodicals Index Online"]},{"hasFullText":
+        true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Article+2+--+No+Title&rft.jtitle=The+Etude+%281885-1895%29&rft.date=1885-01-01&rft.pub=Center+for+Research+Libraries&rft.volume=3&rft.issue=1&rft.spage=8&rft.externalDocID=1691308662","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZ1wR0lI4u-CglpGMXGWC3okKjF1YqgovqlPxk0Ci5PqgkBdYulhb2BYW6oGujQNOrsDs0EqF3K4CmaIAtCmYGViNgRQbKqb6GThjlLLhMdBNggI1IwBaNJJfmAK0ElgpJmYlIK6qRjmaklgMFGfihLU4FR0gSEWJgSs0TYRCFchWMFHR1FfzyFUJAiUaUQd3NNcTZQxdmcTwwFYCG9hPzUvNLi-PhVhtLMCikmlqYgQ5SMwJ1N8yTTRMN04D52iLNOMXE2CQ1MU2SQYGQMVKElUiD9uNbmEKGI2QYWEqKSlNlgZU7NPgAd6GerQ","DatabaseTitle":
+        ["American Periodicals from the Center for Research Libraries (Collection
+        II)","American Periodicals"],"Volume": ["3"],"Language": ["English"],"PublicationPlace":
+        ["Lynchburg"],"Score": ["0.01"],"IsPeerReviewed": ["false"],"DBID": ["M1B","D1Z"],"PublicationDate":
+        ["18850101"],"PublicationDate_xml": [{"text": "18850101","month": "01","year":
+        "1885","day": "01"}],"PublicationCentury": ["1800"],"Publisher": ["Center
+        for Research Libraries"],"SourceType": ["Aggregation Database"],"Publisher_xml":
+        [{"name": "Center for Research Libraries"}],"PQPubID": ["40298"],"URI": ["http://search.proquest.com/docview/128418598"],"IsScholarly":
+        ["false"],"ID": ["FETCH-proquest_miscellaneous_1284185983"],"PublicationTitle":
+        ["The Etude (1885-1895)"],"Issue": ["1"],"PublicationYear": ["1885"],"PublicationPlace_xml":
+        [{"name": "Lynchburg"}],"PQID": ["128418598"],"MergedId": ["FETCHMERGED-proquest_miscellaneous_1284185983"],"PublicationDecade":
+        ["1880"],"ContentType": ["Journal Article"],"Title": ["Article 2 -- No Title"],"ExternalDocumentID":
+        ["1691308662"],"StartPage": ["8"],"Database_xml": [{"sequence": "1","name":
+        "American Periodicals from the Center for Research Libraries (Collection II)","dbid":
+        "M1B","url": "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/americanperiodicals/advanced?accountid=10226","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42QQdYT4WcFIQVdXwS9fIQTkbW4GdTfXEGcPXViJFw_0B2hwOjEvFdjHjQeVk8C6wxJ0fh-xKgH-HCHM"],"DatabaseName":
+        ["American Periodicals from the Center for Research Libraries (Collection
+        II)","American Periodicals"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Contributors&rft.jtitle=Pedagogy%3A+Critical+Approaches+to+Teaching+Literature%2C+Language%2C+Composition%2C+and+Culture&rft.date=2001-04-01&rft.issn=1531-4200&rft.eissn=1533-6255&rft.volume=1&rft.issue=2&rft.spage=439&rft.epage=443&rft_id=info:doi/10.1215%2F15314200-1-2-439&rft.externalDBID=n%2Fa&rft.externalDocID=10_1215_15314200_1_2_439","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZ1wR0lI4u-CglpGMX4bf0IcRoGtNAMWBcg3bOkhDbcEOBAkA2MM6BJDDWgSRR8Q46bgp8iVU-dJ4G2vIMSE1JTAdtTDF21Ibfb-AIPVEccs5DCGxlpQ_8rGXI1mnIkCZ4TBVYfECXecHWfUIO5UxFGT4wRFp1AivxgJ1IyHGhwAoBJmasC-wYmaIUk0ipwQipyDOBHEYErT1NIIcuYRTMkDMsQJaB7AL2W0F7tSwRlRBs4h2tboKvGAT1VYBmxMNMiDeMN4oHmsAM7G5bgDrdvqHBiP2wluB72eBeg05PA_Xro7sAqTnCg6g2QwQZ-KEdAgVHSEwKMTCl5gmD7tKGrrsRZhCHhX-xgpoCImaKRRh4kONalMHAzTXE2UMXZlF8AeQgkXhcnjKWYFBINbUwA52GZwTqM5onmyYapgELZ4s04xQTY5PUxDRJBk2izZMiQa00AxcimcgwsJQUlabKAgMJlAiSMhMB0IQrbQ","Volume":
+        ["1"],"DatabaseTitle": ["CrossRef"],"Language": ["English"],"Score": ["0.01"],"DOI":
+        ["10.1215/15314200-1-2-439"],"IsPeerReviewed": ["true"],"PublicationDate":
+        ["2001-04-01"],"PublicationDate_xml": [{"text": "2001-04-01","month": "04","year":
+        "2001","day": "01"}],"PublicationCentury": ["2000"],"SourceType": ["Aggregation
+        Database"],"IsScholarly": ["true"],"ID": ["FETCH-crossref_primary_10_1215_15314200_1_2_4393"],"PublicationTitle":
+        ["Pedagogy: Critical Approaches to Teaching Literature, Language, Composition,
+        and Culture"],"Issue": ["2"],"Discipline": ["Education","Languages & Literatures"],"PublicationYear":
+        ["2001"],"EISSN": ["1533-6255"],"MergedId": ["FETCHMERGED-crossref_primary_10_1215_15314200_1_2_4393"],"PublicationDecade":
+        ["2000"],"ContentType": ["Journal Article"],"Title": ["Contributors"],"ExternalDocumentID":
+        ["10_1215_15314200_1_2_439"],"ISSN": ["1531-4200"],"SSID": ["ssj0004996"],"StartPage":
+        ["439"],"EndPage": ["443"],"thumbnail_m": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=1531-4200&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=1531-4200&client=summon"],"thumbnail_l":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=1531-4200&client=summon"],"LinkModel":
+        ["OpenURL"],"BookMark": ["ePnHCXMwY4BMBQJrEn1gZjI0AcYCsJcC2pljyQQ-utRYF9jkNmUBs4HdF6A8B3wfI7DxzcnAAzqXCXzbU35RMTeDgZtriLOHLqzSiC-AnMIQD2q9Am2Jh9kSbxhvFA-0xZgMLQCxPS3X"]},{"hasFullText":
+        true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Abstract&rft.jtitle=Journal+of+the+American+College+of+Cardiology&rft.date=1997-02-01&rft.issn=0735-1097&rft.eissn=1558-3597&rft.volume=29&rft.spage=438&rft_id=info:doi/10.1016%2FS0735-1097%2897%2987496-7&rft.externalDBID=n%2Fa&rft.externalDocID=10_1016_S0735_1097_97_87496_7","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZ1wR0lI4u-CglpGMXGfRxzOCD9_KaG4MOy7Q017A017QwN7E00wXtHgcdbAc61tHFCV7ymlmAL_KAa0Ds2MFuClJdxIMoO90EGGBr6mGLSZJLc4AJAFhaJGUmIq20RjqykViHCzLwQ1uaCo6QpCHEwJSaJ8zA4QudSxdh4HBMAg1zJJeIMpi6uYY4e-jCXBlfADmCIh6xNgtoB2QWGYjAdsSbG0swKKSaWpiBDlMzAnU5zJNNEw3TgHnbIs04xcTYJDUxTZJBjzRDpUjVIM3ABTnqFbT0Q4aBpaSoNFUWGODQYAQAxsiRfQ","Volume":
+        ["29"],"DatabaseTitle": ["CrossRef"],"Language": ["English"],"Score": ["0.01"],"DOI":
+        ["10.1016/S0735-1097(97)87496-7"],"IsPeerReviewed": ["true"],"PublicationDate":
+        ["1997-02-00"],"PublicationDate_xml": [{"text": "1997-02-00","month": "02","year":
+        "1997"}],"PublicationCentury": ["1900"],"SourceType": ["Aggregation Database"],"IsScholarly":
+        ["true"],"ID": ["FETCH-crossref_primary_10_1016_S0735_1097_97_87496_73"],"PublicationTitle":
+        ["Journal of the American College of Cardiology"],"Discipline": ["Medicine"],"PublicationYear":
+        ["1997"],"EISSN": ["1558-3597"],"MergedId": ["FETCHMERGED-crossref_primary_10_1016_S0735_1097_97_87496_73"],"PublicationDecade":
+        ["1990"],"ContentType": ["Journal Article"],"Title": ["Abstract"],"ExternalDocumentID":
+        ["10_1016_S0735_1097_97_87496_7"],"ISSN": ["0735-1097"],"SSID": ["ssj0006819"],"StartPage":
+        ["438"],"thumbnail_m": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0735-1097&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0735-1097&client=summon"],"thumbnail_l":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0735-1097&client=summon"],"LinkModel":
+        ["DirectLink"],"BookMark": ["ePnHCXMwY4DvktEPBiYf0DGXluYaluaaFuYmlma65kyg80tNLXSNgS1ZFtARmVAlHLDi0wxYR3EycDgmgbr6ycDmnqmba4izhy6s1ogvgBzDEI9YnwQ0AzKTCkRga-JB16CTpw8AfXwwSw"]},{"hasFullText":
+        true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=MARRIAGES&rft.jtitle=The+New+-+England+Galaxy+and+United+States+Literary+Advertiser+%281830-1836%29&rft.date=1835-03-28&rft.pub=American+Periodicals+Series+II&rft.volume=18&rft.issue=13&rft.spage=3&rft.externalDocID=1628662892","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZ1wR0lI4u-CglpGMXGWC3okKjF1YqgovqlPxk0Ci5vqGRuaWZqbmRhX1BoS7o2ijQ9CrsDo1E6N0KoCkaYIuCmYEV2HAxAyV58whjjHIWXFa6CTDARiRgi0aSS3OAVgJLhaTMRKQV1UhHM1LLgYIM_NAWp4IjJIkIMTCl5okwcPo6BgV5Orq7BosyqLu5hjh76MIsiwfGPGg4PzEvNb-0OB5unbEEg0KqqYUZ6PA0I1AXwzzZNNEwDZiXLdKMU0yMTVIT0yQZFAgZI0VYiTRoD76xKWgNlpGFDANLSVFpqiywQocGGQDa_5q-","Volume":
+        ["18"],"DatabaseTitle": ["American Periodicals","American Periodicals Series
+        (Collection I)"],"Language": ["English"],"PublicationPlace": ["Boston"],"Score":
+        ["0.01"],"IsPeerReviewed": ["false"],"DBID": ["7X3","D1Z"],"PublicationDate":
+        ["18350328"],"PublicationDate_xml": [{"text": "18350328","month": "03","year":
+        "1835","day": "28"}],"PublicationCentury": ["1800"],"Publisher": ["American
+        Periodicals Series II"],"SourceType": ["Aggregation Database"],"Publisher_xml":
+        [{"name": "American Periodicals Series II"}],"PQPubID": ["26344"],"URI": ["http://search.proquest.com/docview/127965728"],"IsScholarly":
+        ["false"],"ID": ["FETCH-proquest_miscellaneous_1279657283"],"PublicationTitle":
+        ["The New - England Galaxy and United States Literary Advertiser (1830-1836)"],"Issue":
+        ["13"],"PublicationYear": ["1835"],"PublicationPlace_xml": [{"name": "Boston"}],"PQID":
+        ["127965728"],"MergedId": ["FETCHMERGED-proquest_miscellaneous_1279657283"],"PublicationDecade":
+        ["1830"],"ContentType": ["Journal Article"],"Title": ["MARRIAGES"],"ExternalDocumentID":
+        ["1628662892"],"StartPage": ["3"],"Database_xml": [{"sequence": "1","name":
+        "American Periodicals Series (Collection I)","dbid": "7X3","url": "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/americanperiodicals/advanced?accountid=10226","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42Tg9HUMCvJ0dHcN5mZQd3MNcfbQhZVy8UC3gwakE_NSgf3aeEMjc0szU3Mj0Jl9xKoEAHFhHc4"],"DatabaseName":
+        ["American Periodicals"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Unindexed+Middle+Matter&rft.jtitle=The+Nation+and+Athenaeum&rft.date=1929-09-28&rft.pub=The+Nation+Ltd.%2C+etc&rft.volume=45&rft.issue=26","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZ1wR0lI4u-CglpGMXGWB3tkKjF1YqgovqlPxk0Ci5PmiKzcIS1CWxLyjUBd0bBZpfhV2ikQi9XAE0RwNsUjAzsBqZmBqDTtOvC7DAKGjBhaabAEMV8rEIFZV6yaU5QDuBxUJSZiLSkmqksxmp5kJBBn5om1PBEZJIhBiYUvNEGMSBrU3QSYmpKQq-4EEKBV_wUZuiDBpuriHOHrowu-OBKQE0vJ-Yl5pfWhyPsN1YgkEh1dTCDHSamhGoz2GebJpomAbM3BZpxikmxiapiWmSDIoEzZEiQo00AxewkQhedmVkIcPAUlJUmioLrOOhgQgA4byh6A","Volume":
+        ["45"],"DatabaseTitle": ["PAO Collection 8","Periodicals Index Online Segment
+        18","Periodicals Archive Online","Periodicals Index Online"],"Language": ["English"],"PublicationPlace":
+        ["London"],"Score": ["0.01"],"IsPeerReviewed": ["false"],"DBID": ["~P8","K30","HGTKA","9Z1"],"PublicationDate":
+        ["19290928"],"PublicationDate_xml": [{"text": "19290928","month": "09","year":
+        "1929","day": "28"}],"PublicationCentury": ["1900"],"Publisher": ["The Nation
+        Ltd., etc"],"SourceType": ["Aggregation Database"],"Publisher_xml": [{"name":
+        "The Nation Ltd., etc"}],"PQPubID": ["1816933"],"URI": ["http://search.proquest.com/docview/1302892184"],"IsScholarly":
+        ["false"],"ID": ["FETCH-proquest_miscellaneous_13028921843"],"PublicationTitle":
+        ["The Nation and Athenaeum"],"Issue": ["26"],"PublicationYear": ["1929"],"PublicationPlace_xml":
+        [{"name": "London"}],"PQID": ["1302892184"],"MergedId": ["FETCHMERGED-proquest_miscellaneous_13028921843"],"PublicationDecade":
+        ["1920"],"ContentType": ["Journal Article"],"Title": ["Unindexed Middle Matter"],"Database_xml":
+        [{"sequence": "1","name": "Periodicals Archive Online","dbid": "9Z1","url":
+        "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/pao/advanced","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42QQB7aWQCf9paYo-II72Qq-4KMiuRk03FxDnD10YWVePNAnoOHpxLxUYC8XNLECbP2DuhzGJCgFAA2mJDE"],"DatabaseName":
+        ["PAO Collection 8","Periodicals Index Online","Periodicals Index Online Segment
+        18","Periodicals Archive Online"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Editorial+Board&rft.jtitle=Journal+of+Crystal+Growth&rft.date=2003&rft.pub=Elsevier+B.V&rft.issn=0022-0248&rft.eissn=1873-5002&rft.volume=257&rft.issue=3&rft.spage=ii&rft.epage=ii&rft_id=info:doi/10.1016%2FS0022-0248%2803%2901639-7&rft.externalDocID=doi_10_1016_S0022_0248_03_01639_7","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwpV3LCsIwEFzEiw_wDT7Bgwc9VGvT2t7EJ36A91A1hYKoiP6_u2lio0e9hmSzacN0ms5OAQZfeEAnVA8xlthsuWSlY0krJcN2MamFUapKBf0JpEuwVi0TdTEntzimEl_HIUMu4vT0dYpKqZHMk9PjevkGYyQ0tjYMp95pEU8SQTYObTaSQSzfeCYVU5jdlkELn7S-5Pg8Y24IIIc4NMTXhovjH2upQEnx0f4i6VeFjLjUILfSv4GrQcFwLKxDaXOKyVYEhyyvuLkaMN9u9qudpZfDP3LhiJg8VXjh_JwS4DbjMgXusyb0hRfMyJLNoRcX_-iF0wgRIojYyWWuCKMWBL-Gb_8-tAN5KamTByFdyD7uT9FDWqHuxgsqvbfE","Volume":
+        ["257"],"Language": ["English"],"Score": ["0.01"],"DOI": ["10.1016/S0022-0248(03)01639-7"],"IsPeerReviewed":
+        ["true"],"PublicationDate": ["2003"],"PublicationDate_xml": [{"text": "2003","year":
+        "2003"}],"PublicationCentury": ["2000"],"Publisher": ["Elsevier B.V"],"SourceType":
+        ["Publisher"],"Publisher_xml": [{"name": "Elsevier B.V"}],"URI": ["http://www.sciencedirect.com/science/article/pii/S0022024803016397"],"IsScholarly":
+        ["true"],"ID": ["FETCH-elsevier_sciencedirect_doi_10_1016_S0022_0248_03_01639_73"],"PublicationTitle":
+        ["Journal of Crystal Growth"],"Issue": ["3"],"Discipline": ["Engineering","Chemistry"],"PublicationYear":
+        ["2003"],"EISSN": ["1873-5002"],"MergedId": ["FETCHMERGED-elsevier_sciencedirect_doi_10_1016_S0022_0248_03_01639_73"],"PublicationDecade":
+        ["2000"],"ContentType": ["Journal Article"],"Title": ["Editorial Board"],"ExternalDocumentID":
+        ["doi_10_1016_S0022_0248_03_01639_7"],"ISSN": ["0022-0248"],"SSID": ["ssj0001610"],"StartPage":
+        ["ii"],"EndPage": ["ii"],"thumbnail_m": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0022-0248&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0022-0248&client=summon"],"thumbnail_l":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0022-0248&client=summon"],"LinkModel":
+        ["DirectLink"],"BookMark": ["ePnHCXMwY4DvkgHtwgX2dECHZmkYGGsCRYwtdc2ZgB0gC3NjXVOgJAv0JG-QEg5Y8QlsghhwMvC7pmSCTslIzFFwygeGFTeDvZtriLOHLqzGiIfWEJCSPx5YAMQjFiwBDY0HGRpvYBwPtjcedC86pSYAAJlCOfI"]},{"hasFullText":
+        true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Announcement&rft.jtitle=Journal+of+the+Marine+Biological+Association+of+the+United+Kingdom&rft.au=Smith%2C+J.+D.+D&rft.date=1996-11-01&rft.pub=Cambridge+University+Press&rft.issn=0025-3154&rft.eissn=1469-7769&rft.volume=76&rft.issue=4&rft.spage=1115&rft.epage=1116&rft_id=info:doi/10.1017%2FS002531540004100X&rft.externalDocID=S002531540004100X","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZ1wR0lI4u-CglpGMXGWC39EEDEBjcsB1LkLOCk0D9_uSSeNDcIjDVAJsZoIOiDAwimIFNIlNQyvb094eXwIawEtgINMtragKbzQQfFY1mAPKZCjyIAtZNgAG2SBS2oiS5NAeYCoBFRlJmItJya6RzG0l2vSADP7TdqeAISShCDEypecIM7JCbKCtFGHgc8_KA-T4ZPFgoyqDt5hri7KELtyAeZiem4cYSDAqpphZmoDPVjEA9D_Nk00TDNGAWt0gzTjExNklNTJNkUCHGKCnilEkzcIEXNYO36skwsJQUlabKAut7aKABAKW9lmE","Volume":
+        ["76"],"Language": ["English"],"Author": ["Smith, J. D. D"],"Score": ["0.01"],"DOI":
+        ["10.1017/S002531540004100X"],"IsPeerReviewed": ["true"],"PublicationDate":
+        ["19961101"],"PublicationDate_xml": [{"text": "19961101","month": "11","year":
+        "1996","day": "1"}],"PublicationCentury": ["1900"],"Publisher": ["Cambridge
+        University Press"],"SourceType": ["Publisher"],"Publisher_xml": [{"name":
+        "Cambridge University Press"}],"URI": ["http://journals.cambridge.org/abstract_S002531540004100X"],"IsScholarly":
+        ["true"],"ID": ["FETCH-cambridge_journals_S002531540004100X3"],"PublicationTitle":
+        ["Journal of the Marine Biological Association of the United Kingdom"],"Issue":
+        ["4"],"Discipline": ["Biology"],"PublicationYear": ["1996"],"EISSN": ["1469-7769"],"MergedId":
+        ["FETCHMERGED-cambridge_journals_S002531540004100X3"],"Author_xml": [{"sequence":
+        "1","givenname": "J. D. D","surname": "Smith","fullname": "Smith, J. D. D"}],"PublicationDecade":
+        ["1990"],"ContentType": ["Journal Article"],"Title": ["Announcement"],"ISSN":
+        ["0025-3154"],"ExternalDocumentID": ["S002531540004100X"],"SSID": ["ssj0001678"],"StartPage":
+        ["1115"],"EndPage": ["1116"],"thumbnail_m": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0025-3154&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0025-3154&client=summon"],"thumbnail_l":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0025-3154&client=summon"],"LinkModel":
+        ["DirectLink"],"BookMark": ["ePnHCXMwY4DOHIKPZQZWqMbAOhp8ybGBQQQTeKePJbBFZwZMgJCrVEHyHLCi0xBYdHIy8Djm5QGTejJ4fIybQdvNNcTZQxd-8kE8NJSL4zEsMCZNNQA3LStw"]},{"hasFullText":
+        true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=NEWS+ITEMS&rft.jtitle=Southwestern+Historical+Quarterly&rft.date=1919-01-01&rft.pub=Texas+State+Historical+Association&rft.issn=0038-478X&rft.eissn=1558-9560&rft.volume=23&rft.issue=1&rft.spage=312","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQQSsPQCNUJal64LJZ1wR0lI4u-CglpGMX4VdGIcRoGtNAMWBcg3bOkhDbcEOBAkA2MM6BJDDWgSRR8e7nGh6sDSyPoIPNWbBduKUlGdBTEZCPBkFd05kC2Q4H2nCE0vsPSa1ILIa0S5E1o0cttPAzBg2kgW_yBRb90PLOFFjemUKO9IcViJANwCgRDyndjEHXOTObWoA6uW5BAbAaD9QFhZzKDrUAR70WIsjAD21mKzhCwkeIgSk1T5hBFOL2SgU1BdCBu4ngS40rRRi4QGGmAA4zUQZlN9cQZw9dmMnx0EAvjgc2WYC9UGDL1tBYgkEh1dTCDHSMnBGos2WebJpomAYs1SzSjFNMjE1SE9MkGWTwGSGFX1qagQsRDTIMLCVFpamywCYNKOSSMhMByhDtCw","DatabaseTitle":
+        ["Periodicals Index Online Segment 30","Periodicals Index Online Segment 04","Periodicals
+        Index Online Segment 01","Periodicals Index Online"],"Volume": ["23"],"Language":
+        ["English"],"PublicationPlace": ["Austin, Tex"],"Score": ["0.01"],"IsPeerReviewed":
+        ["true"],"DBID": ["EOLOZ","IZSXY","K30","FKUCP"],"PublicationDate": ["19190101"],"PublicationDate_xml":
+        [{"text": "19190101","month": "01","year": "1919","day": "01"}],"PublicationCentury":
+        ["1900"],"Publisher": ["Texas State Historical Association"],"SourceType":
+        ["Aggregation Database"],"Publisher_xml": [{"name": "Texas State Historical
+        Association"}],"PQPubID": ["1817175"],"URI": ["http://search.proquest.com/docview/1291561501"],"IsScholarly":
+        ["true"],"ID": ["FETCH-proquest_journals_12915615013"],"PublicationTitle":
+        ["Southwestern Historical Quarterly"],"Issue": ["1"],"Discipline": ["History
+        & Archaeology"],"PublicationYear": ["1919"],"PublicationPlace_xml": [{"name":
+        "Austin, Tex"}],"PQID": ["1291561501"],"EISSN": ["1558-9560"],"MergedId":
+        ["FETCHMERGED-proquest_journals_12915615013"],"PublicationDecade": ["1910"],"ContentType":
+        ["Journal Article"],"Title": ["NEWS ITEMS"],"ISSN": ["0038-478X"],"SSID":
+        ["ssj0040202"],"StartPage": ["312"],"thumbnail_m": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0038-478X&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0038-478X&client=summon"],"thumbnail_l":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0038-478X&client=summon"],"Database_xml":
+        [{"sequence": "1","name": "Periodicals Index Online","dbid": "K30","url":
+        "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/pio","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["OpenURL"],"BookMark": ["ePnHCXMwYwKdT2oKzETAqpQFfCQiaPTGIoIDWjyC-itGnAxcfq7hwQrA3OkbzM2g7OYa4uyhCysL46HBWBwPrIyA_QtgmwV0-wAxqgAxWyDY"],"DatabaseName":
+        ["Periodicals Index Online Segment 01","Periodicals Index Online Segment 30","Periodicals
+        Index Online","Periodicals Index Online Segment 04"]}],"rollups": {"image":
+        {},"reference": {},"newspaper": {}}}'
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:41:38 GMT
 recorded_with: VCR 3.0.3

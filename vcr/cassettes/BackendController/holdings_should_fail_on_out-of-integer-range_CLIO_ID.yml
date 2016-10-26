@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 11 Oct 2016 20:42:49 GMT
+      - Wed, 26 Oct 2016 17:40:09 GMT
   response:
     status:
       code: 404
@@ -32,20 +32,20 @@ http_interactions:
       - no-cache
       Access-Control-Allow-Origin:
       - "*"
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Request-Id:
-      - f43c18f7-264e-4299-bbcb-6af4d2f327cd
       X-Runtime:
-      - '1.004672'
+      - '4.500725'
       X-Frame-Options:
       - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
       X-Content-Type-Options:
       - nosniff
       Access-Control-Request-Method:
       - "*"
+      X-Request-Id:
+      - f213a6d1-6d8e-47c0-af0e-cd5cfb150fb3
       Date:
-      - Tue, 11 Oct 2016 20:42:51 GMT
+      - Wed, 26 Oct 2016 17:40:15 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -54,5 +54,5 @@ http_interactions:
       encoding: UTF-8
       string: "{}"
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:42:50 GMT
+  recorded_at: Wed, 26 Oct 2016 17:40:14 GMT
 recorded_with: VCR 3.0.3

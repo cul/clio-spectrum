@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 11 Oct 2016 20:42:47 GMT
+      - Wed, 26 Oct 2016 17:40:07 GMT
   response:
     status:
       code: 200
@@ -42,13 +42,13 @@ http_interactions:
       - nosniff
       - nosniff
       X-Runtime:
-      - '1.112285'
+      - '2.284005'
       Access-Control-Request-Method:
       - "*"
       X-Request-Id:
-      - 87d30de6-2cd7-4ca0-827b-885756baa767
+      - bb8d36cc-563d-46bd-bf3a-fb699bae6165
       Date:
-      - Tue, 11 Oct 2016 20:42:49 GMT
+      - Wed, 26 Oct 2016 17:40:10 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -62,7 +62,7 @@ http_interactions:
         .P74 1982","status":"available","holding_id":["177302"],"copies":[{"items":{"Available":{"status":"available","count":1}},"summary_holdings":"Library
         has: v.1 -- 1982"}],"services":["offsite"]}]}}'
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:42:49 GMT
+  recorded_at: Wed, 26 Oct 2016 17:40:09 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/763577"
@@ -75,7 +75,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 11 Oct 2016 20:42:49 GMT
+      - Wed, 26 Oct 2016 17:40:09 GMT
   response:
     status:
       code: 200
@@ -105,13 +105,13 @@ http_interactions:
       - nosniff
       - nosniff
       X-Runtime:
-      - '0.007043'
+      - '0.005421'
       Access-Control-Request-Method:
       - "*"
       X-Request-Id:
-      - faf5d699-bde5-441b-81ea-5f466c1f9b45
+      - 0e3af965-90ce-49e8-9977-d5cceb4aca3a
       Date:
-      - Tue, 11 Oct 2016 20:42:50 GMT
+      - Wed, 26 Oct 2016 17:40:10 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -167,5 +167,5 @@ http_interactions:
         (Suppl. to v.4)","temp_locations":[{"itemLabel":"1969-1976:v.11","tempLocation":"Lehman
         Reference (Non-Circulating)"}]}],"services":["offsite"]}]}}'
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:42:49 GMT
+  recorded_at: Wed, 26 Oct 2016 17:40:09 GMT
 recorded_with: VCR 3.0.3

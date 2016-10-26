@@ -109,7 +109,7 @@ http_interactions:
   recorded_at: Tue, 16 Aug 2016 19:43:58 GMT
 - request:
     method: get
-    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2015-10-11T00:00:00Z%20TO%20*%5D&fq=acq_dt:%5B2015-10-11T00:00:00Z%20TO%20*%5D&q=kittens&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
+    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2015-10-26T00:00:00Z%20TO%20*%5D&fq=acq_dt:%5B2015-10-26T00:00:00Z%20TO%20*%5D&q=kittens&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -120,7 +120,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:48:42 GMT
+      - Wed, 26 Oct 2016 17:45:12 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -130,7 +130,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT40MCwn
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT40NCwn
         cGFyYW1zJz0+eydmLnN1YmplY3RfZm9ybV9mYWNldC5mYWNldC5saW1pdCc9
         PicxMScsJ2ZhY2V0Jz0+J3RydWUnLCdzb3J0Jz0+J3Njb3JlIGRlc2MsIHB1
         Yl9kYXRlX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MnLCdzdGF0cyc9Pid0
@@ -141,9 +141,9 @@ http_interactions:
         LmxpbWl0Jz0+JzYnLCd3dCc9PidydWJ5Jywncm93cyc9PicyNScsJ2YubGNf
         c3ViY2xhc3NfZmFjZXQuZmFjZXQubGltaXQnPT4nNTAxJywnZi5zdWJqZWN0
         X2dlb19mYWNldC5mYWNldC5saW1pdCc9PicxMScsJ2ZhY2V0LnF1ZXJ5Jz0+
-        WydhY3FfZHQ6WzIwMTYtMTAtMDRUMDA6MDA6MDBaIFRPICpdJywnYWNxX2R0
-        OlsyMDE2LTA5LTExVDAwOjAwOjAwWiBUTyAqXScsJ2FjcV9kdDpbMjAxNi0w
-        NC0xMVQwMDowMDowMFogVE8gKl0nLCdhY3FfZHQ6WzIwMTUtMTAtMTFUMDA6
+        WydhY3FfZHQ6WzIwMTYtMTAtMTlUMDA6MDA6MDBaIFRPICpdJywnYWNxX2R0
+        OlsyMDE2LTA5LTI2VDAwOjAwOjAwWiBUTyAqXScsJ2FjcV9kdDpbMjAxNi0w
+        NC0yNlQwMDowMDowMFogVE8gKl0nLCdhY3FfZHQ6WzIwMTUtMTAtMjZUMDA6
         MDA6MDBaIFRPICpdJ10sJ3N0YXRzLmZpZWxkJz0+J3B1Yl9kYXRlX3NvcnQn
         LCdxJz0+J2tpdHRlbnMnLCdmLmF1dGhvcl9mYWNldC5mYWNldC5saW1pdCc9
         Pic2JywnZmFjZXQuZmllbGQnPT5bJ2Zvcm1hdCcsJ3B1Yl9kYXRlX3NvcnQn
@@ -151,10 +151,10 @@ http_interactions:
         Y2V0Jywnc3ViamVjdF90b3BpY19mYWNldCcsJ3N1YmplY3RfZ2VvX2ZhY2V0
         Jywnc3ViamVjdF9lcmFfZmFjZXQnLCdzdWJqZWN0X2Zvcm1fZmFjZXQnLCds
         Y18xbGV0dGVyX2ZhY2V0JywnbGNfc3ViY2xhc3NfZmFjZXQnXSwncXQnPT4n
-        c2VhcmNoJywnZnEnPT4nYWNxX2R0OlsyMDE1LTEwLTExVDAwOjAwOjAwWiBU
+        c2VhcmNoJywnZnEnPT4nYWNxX2R0OlsyMDE1LTEwLTI2VDAwOjAwOjAwWiBU
         TyAqXScsJ2Yuc3ViamVjdF9lcmFfZmFjZXQuZmFjZXQubGltaXQnPT4nMTEn
         LCdmLmZvcm1hdC5mYWNldC5saW1pdCc9Pic2J319LCdyZXNwb25zZSc9Pnsn
-        bnVtRm91bmQnPT4zLCdzdGFydCc9PjAsJ21heFNjb3JlJz0+Mi43OTM0MDQ2
+        bnVtRm91bmQnPT4zLCdzdGFydCc9PjAsJ21heFNjb3JlJz0+Mi44MDIxODEy
         RS01LCdkb2NzJz0+W3snaWQnPT4nMTE3OTQyNTInLCdhdXRob3JfZmFjZXQn
         PT5bJ0RlIEFuZGEsIERpYW5lJywnR3V0aWVycmV6LUdvbnphbGV6LCBKb3N1
         ZSddLCdhdXRob3JfZGlzcGxheSc9PlsnRGUgQW5kYSwgRGlhbmUnXSwndGl0
@@ -187,7 +187,7 @@ http_interactions:
         dXh+fn5+J10sJ2l0ZW1fZGlzcGxheSc9PlsnUFo3MyAuRDM4NjMgMjAxMSB8
         IGxvYytwei0rMDA3MyswMDAwMDAwMCtkMzg2MzAwMCswMDIwMTErMTE3OTQy
         NTIgfCBlYm5+YTB+fnp6c3d+enp6enp6enp+bXdydHd6enp+enp4enl5fnl5
-        c3F2eHV4fn5+fiddLCdzY29yZSc9PjIuNzkzNDA0NkUtNX0seydpZCc9Picx
+        c3F2eHV4fn5+fiddLCdzY29yZSc9PjIuODAyMTgxMkUtNX0seydpZCc9Picx
         MTczNDU0MCcsJ2F1dGhvcl9mYWNldCc9PlsnRG91Z2xhcywgU3VzYW4gSi4g
         KFN1c2FuIEplYW5uZSksIDE5NTAtJ10sJ2F1dGhvcl9kaXNwbGF5Jz0+WydE
         b3VnbGFzLCBTdXNhbiBKLiAoU3VzYW4gSmVhbm5lKSwgMTk1MC0nXSwndGl0
@@ -236,107 +236,107 @@ http_interactions:
         enl5fnl5c3d2dXZ6fn5+fiddLCdpdGVtX2Rpc3BsYXknPT5bJ0hRMTIzMyAu
         RDY4NCAyMDExZyB8IGxvYytocS0rMTIzMyswMDAwMDAwMCtkNjg0MDAwMCsw
         MDIwMTErMTE3MzQ1NDAgfCBlYm5+aTl+fnl4d3d+enp6enp6enp+bXRydnp6
-        enp+enp4enl5fnl5c3d2dXZ6fn5+fiddLCdzY29yZSc9PjIuNDQ0MjI5RS01
-        fSx7J2lkJz0+JzExOTM0NTM5JywnYXV0aG9yX2ZhY2V0Jz0+WydMYW5kYXUs
-        IElkYW4nLCdTcHJpbmdlckxpbmsgKE9ubGluZSBzZXJ2aWNlKSddLCdhdXRo
-        b3JfZGlzcGxheSc9PlsnTGFuZGF1LCBJZGFuJ10sJ3RpdGxlX2Rpc3BsYXkn
-        PT5bJ0VsZW1lbnRzIG9mIENvbnRyb2wgW2VsZWN0cm9uaWMgcmVzb3VyY2Vd
-        IDogU3RydWN0dXJlIGFuZCBNZWFuaW5nIGluIEluZmluaXRpdmFsIENvbnN0
-        cnVjdGlvbnMnXSwndGl0bGVfc2VyaWVzX2Rpc3BsYXknPT5bJ1N0dWRpZXMg
-        aW4gTmF0dXJhbCBMYW5ndWFnZSBhbmQgTGluZ3Vpc3RpYyBUaGVvcnksIDA5
-        MjQtNDY3MCA7IDUxJ10sJ3N1YmplY3RfdG9waWNfZmFjZXQnPT5bJ0xpbmd1
-        aXN0aWNzJywnU2VtYW50aWNzJywnR3JhbW1hciwgQ29tcGFyYXRpdmUgYW5k
-        IGdlbmVyYWwnLCdTeW50YXgnLCdUaGVvcmV0aWNhbCBMYW5ndWFnZXMnXSwn
-        cHViX3BsYWNlX2Rpc3BsYXknPT5bJ0RvcmRyZWNodCddLCdwdWJfbmFtZV9k
-        aXNwbGF5Jz0+WydTcHJpbmdlciBOZXRoZXJsYW5kcycsJ0ltcHJpbnQ6IFNw
-        cmluZ2VyJ10sJ3B1Yl95ZWFyX2Rpc3BsYXknPT5bJzIwMDAnXSwnbGFuZ3Vh
-        Z2VfZmFjZXQnPT5bJ0VuZ2xpc2gnXSwnZm9ybWF0Jz0+WydCb29rJywnT25s
-        aW5lJ10sJ2NsaW9faWRfZGlzcGxheSc9PicxMTkzNDUzOScsJ2FjcV9kdCc9
-        PicyMDE2LTA1LTI1VDAwOjAwOjAwWicsJ3NvdXJjZV9kaXNwbGF5Jz0+Wydj
-        YXRhbG9nJ10sJ2RhdGFiYXNlX3Jlc3RyaWN0aW9uc19kaXNwbGF5Jz0+WydM
-        aWNlbnNlIHJlc3RyaWN0aW9ucyBtYXkgbGltaXQgYWNjZXNzLiddLCdzdW1t
-        YXJ5X2Rpc3BsYXknPT5bJzEuIFRIRSBGVU5EQU1FTlRBTCBRVUVTVElPTlMg
-        T0YgQ09OVFJPTCBJbWFnaW5lIHlvdSBhcmUgYSBjaGlsZCBmYWNlZCB3aXRo
-        IHRoZSBkYXVudGluZyB0YXNrIG9mIGFjcXVpcmluZyB0aGUgZ3JhbW1hciBv
-        ZiBjb250cm9sIGluIHlvdXIgbGFuZ3VhZ2UuIFlvdSB0b2RkbGUgYXJvdW5k
-        IGJ1b3lhbnRseSAoeW91IHNob3VsZCBiZSBwYXN0IDMgYnkgbm93KSwgb2Nj
-        YXNpb25hbGx5IGJ1bXBpbmcgaW50byBhY291c3RpYyBzaWduYWxzIHRoYXQg
-        bWlyYWN1bG91c2x5IG1hcCB0byAibGluZ3Vpc3RpYyBpbnB1dCIuIFNvbWUg
-        b2YgdGhlbSBzb3VuZCBsaWtlIHRoaXM6ICgxKSBhLiBSb2JpbiwgZG8geW91
-        IHdhbnQgXyB0byBwbGF5IHdpdGggS2l0dGllIHRvZ2V0aGVyPyBiLiBDb21l
-        IG9uLCBsZXQgbWUgc2hvdyB5b3UgaG93IF8gdG8gZmVlZCBoZXIuIGMuIE5v
-        IFJvYmluLCBLaXR0aWUgZG9lc25cJ3QgbGlrZSBfIHRvIGJlIHNtYWNrZWQu
-        IGQuIFJvYmluLCBsb29rIHdoYXQgeW91XCd2ZSBkb25lISBCYWQgYm95ISBU
-        aW1lIF8gdG8gZ28gdG8gYmVkLiBGcm9tIHlvdXIgc2hlbHRlciB1bmRlciB0
-        aGUga2l0Y2hlbiB0YWJsZSwgeW91IG1heSBkcmF3IHRoZSBmb2xsb3dpbmcg
-        Y29uY2x1c2lvbnM6IGkpIE1vbW15IGlzIHZlcnkgbWFkIG5vdzsgaWkpIEtp
-        dHRlbnMgbWFrZSByb3R0ZW4gdG95czsgaWlpKSBNeSBuYW1lIG11c3QgYmUg
-        Um9iaW4uIEFwYXJ0IGZyb20gdGhlIGxlc3NvbiBpbiBwYXJlbnRhbCBjb250
-        cm9sLCB5b3UgYWxzbyBvdWdodCB0byBsZWFybiBzb21ldGhpbmcgYWJvdXQg
-        Z3JhbW1hdGljYWwgY29udHJvbC4gSW4gZWFjaCBvZiB0aGUgc2VudGVuY2Vz
-        IGFib3ZlLCBhbiBlbGVtZW50IGlzIG1pc3NpbmcgKGZyb20gdGhlIHVuZGVy
-        bGluZWQgcG9zaXRpb24pIHRoYXQgaXMgbm9uZXRoZWxlc3MgImZpbGxlZC1p
-        biIgYnkgeW91ciB0YXJnZXQgZ3JhbW1hci4gVGhpcyBpcyB3aGF0IGxpbmd1
-        aXN0cyB0ZXJtIHRoZSAidW5kZXJzdG9vZCBzdWJqZWN0IiBvZiB0aGUgaW5m
-        aW5pdGl2ZS4gSW4gb3JkZXIgdG8gYmUgYWJsZSB0byB1bmRlcnN0YW5kIHN1
-        Y2ggc2VudGVuY2VzIGFuZCBwcm9kdWNlIHNpbWlsYXIgb25lcyB5b3Vyc2Vs
-        ZiwgeW91IGhhdmUgdG8gZmlndXJlIG91dCB0aGUgcmVmZXJlbmNlIG9mIHRo
-        ZSB1bmRlcnN0b29kIHN1YmplY3QgaW4gZXZlcnkgY2FzZS4gVGh1cywgdW5s
-        ZXNzIHlvdSBhcmUgYWZ0ZXIgc29tZSBiaWcgdHJvdWJsZSB3aXRoIE1vbW15
-        LCB5b3UgaGFkIGJldHRlciBjb25jbHVkZSB0aGF0IHRoZSB1bmRlcnN0b29k
-        IHN1YmplY3QgaXMgUm9iaW4gYW5kIE1vbW15IGluIChsYSksIFJvYmluIGlu
-        IChJYiksIEtpdHRpZSBpbiAoSWMpIGFuZCBldmVyeW9uZSAoZXNwZWNpYWxs
-        eSBSb2JpbiEpIGluIChsZCkuJ10sJ2lzYm5fZGlzcGxheSc9PlsnOTc4OTQw
-        MTEzOTQzNCcsJzk3ODE0MDIwMDI5MzknXSwnZnVsbF9wdWJsaXNoZXJfZGlz
-        cGxheSc9PlsnRG9yZHJlY2h0IDogU3ByaW5nZXIgTmV0aGVybGFuZHMgOiBJ
-        bXByaW50OiBTcHJpbmdlciwgMjAwMC4nXSwnbG9jYXRpb25fY2FsbF9udW1i
-        ZXJfaWRfZGlzcGxheSc9PlsnT25saW5lID4+IEVCT09LU3xERUxJTXwxNDk3
-        MTk2NyddLCdsb2NhdGlvbl9mYWNldCc9PlsnT25saW5lJ10sJ3VybF9tdW5n
-        ZWRfZGlzcGxheSc9PlsnMHx8fHx8fGh0dHA6Ly93d3cuY29sdW1iaWEuZWR1
-        L2NnaS1iaW4vY3VsL3Jlc29sdmU/Y2xpbzExOTM0NTM5fHx8RnVsbCB0ZXh0
-        IGF2YWlsYWJsZSBmcm9tIFNwcmluZ2VyTGluayBlYm9va3MgLSBIdW1hbml0
-        aWVzLCBTb2NpYWwgU2NpZW5jZXMgYW5kIExhdyAoQXJjaGl2ZSknXSwnc2hl
-        bGZrZXknPT5bJ2xvYytwLS0rMjkxLTI5OCswMDAwMDAwMCsxMTkzNDUzOSdd
-        LCdyZXZlcnNlX3NoZWxma2V5Jz0+WydlYm5+YX5+fnhxeX54cXJ+enp6enp6
-        enp+eXlxd3Z1d3F+fn5+fn5+fn5+fn5+fn5+fiddLCdpdGVtX2Rpc3BsYXkn
-        PT5bJ1AyOTEtMjk4IHwgbG9jK3AtLSsyOTEtMjk4KzAwMDAwMDAwKzExOTM0
-        NTM5IHwgZWJufmF+fn54cXl+eHFyfnp6enp6enp6fnl5cXd2dXdxfn5+fn5+
-        fn5+fn5+fn5+fn4nXSwnc2NvcmUnPT4xLjc0NTg3NzlFLTV9XX0sJ2ZhY2V0
-        X2NvdW50cyc9PnsnZmFjZXRfcXVlcmllcyc9PnsnYWNxX2R0OlsyMDE2LTEw
-        LTA0VDAwOjAwOjAwWiBUTyAqXSc9PjAsJ2FjcV9kdDpbMjAxNi0wOS0xMVQw
-        MDowMDowMFogVE8gKl0nPT4wLCdhY3FfZHQ6WzIwMTYtMDQtMTFUMDA6MDA6
-        MDBaIFRPICpdJz0+MSwnYWNxX2R0OlsyMDE1LTEwLTExVDAwOjAwOjAwWiBU
-        TyAqXSc9PjN9LCdmYWNldF9maWVsZHMnPT57J2Zvcm1hdCc9PlsnQm9vaycs
-        MywnT25saW5lJywyXSwncHViX2RhdGVfc29ydCc9PlsnMjAwMCcsMSwnMjAx
-        MCcsMSwnMjAxMScsMV0sJ2F1dGhvcl9mYWNldCc9PlsnRGUgQW5kYSwgRGlh
-        bmUnLDEsJ0RvdWdsYXMsIFN1c2FuIEouIChTdXNhbiBKZWFubmUpLCAxOTUw
-        LScsMSwnR3V0aWVycmV6LUdvbnphbGV6LCBKb3N1ZScsMSwnTGFuZGF1LCBJ
-        ZGFuJywxLCdTcHJpbmdlckxpbmsgKE9ubGluZSBzZXJ2aWNlKScsMV0sJ2xv
-        Y2F0aW9uX2ZhY2V0Jz0+WydPbmxpbmUnLDIsJ0xlaG1hbicsMV0sJ2xhbmd1
-        YWdlX2ZhY2V0Jz0+WydFbmdsaXNoJywzLCdTcGFuaXNoJywxXSwnc3ViamVj
-        dF90b3BpY19mYWNldCc9PlsnQmlsaW5ndWFsJywxLCdDaGlsZHJlblwncyBz
-        dG9yaWVzLCBBbWVyaWNhbicsMSwnRmFtaWx5IGxpZmUnLDEsJ0ZlbWluaXNt
-        JywxLCdHcmFtbWFyLCBDb21wYXJhdGl2ZSBhbmQgZ2VuZXJhbCcsMSwnSGlz
-        cGFuaWMgQW1lcmljYW5zJywxLCdMaW5ndWlzdGljcycsMSwnTWFzcyBtZWRp
-        YSBhbmQgd29tZW4nLDEsJ015c3RlcnkgYW5kIGRldGVjdGl2ZSBzdG9yaWVz
-        JywxLCdTZW1hbnRpY3MnLDEsJ1Nob3J0IHN0b3JpZXMnLDFdLCdzdWJqZWN0
-        X2dlb19mYWNldCc9PlsnVW5pdGVkIFN0YXRlcycsMV0sJ3N1YmplY3RfZXJh
-        X2ZhY2V0Jz0+W10sJ3N1YmplY3RfZm9ybV9mYWNldCc9PlsnRmljdGlvbics
-        MV0sJ2xjXzFsZXR0ZXJfZmFjZXQnPT5bJ0ggLSBTb2NpYWwgU2NpZW5jZXMn
-        LDEsJ1AgLSBMYW5ndWFnZSAmIExpdGVyYXR1cmUnLDJdLCdsY19zdWJjbGFz
-        c19mYWNldCc9PlsnSFEgLSBUaGUgRmFtaWx5LCBNYXJyaWFnZSwgV29tYW4n
-        LDEsJ1AgLSBMYW5ndWFnZSAmIExpdGVyYXR1cmUnLDEsJ1BaIC0gRmljdGlv
-        biAmIENoaWxkcmVuXCdzIExpdGVyYXR1cmUnLDFdfSwnZmFjZXRfZGF0ZXMn
-        PT57fSwnZmFjZXRfcmFuZ2VzJz0+e319LCdzdGF0cyc9Pnsnc3RhdHNfZmll
-        bGRzJz0+eydwdWJfZGF0ZV9zb3J0Jz0+eydtaW4nPT4yMDAwLjAsJ21heCc9
-        PjIwMTEuMCwnY291bnQnPT4zLCdtaXNzaW5nJz0+MCwnc3VtJz0+NjAyMS4w
-        LCdzdW1PZlNxdWFyZXMnPT4xLjIwODQyMjFFNywnbWVhbic9PjIwMDcuMCwn
-        c3RkZGV2Jz0+Ni4wODI3NjI1MzAyOTgyMTksJ2ZhY2V0cyc9Pnt9fX19fQo=
+        enp+enp4enl5fnl5c3d2dXZ6fn5+fiddLCdzY29yZSc9PjIuNDUxOTA4NkUt
+        NX0seydpZCc9PicxMTkzNDUzOScsJ2F1dGhvcl9mYWNldCc9PlsnTGFuZGF1
+        LCBJZGFuJywnU3ByaW5nZXJMaW5rIChPbmxpbmUgc2VydmljZSknXSwnYXV0
+        aG9yX2Rpc3BsYXknPT5bJ0xhbmRhdSwgSWRhbiddLCd0aXRsZV9kaXNwbGF5
+        Jz0+WydFbGVtZW50cyBvZiBDb250cm9sIFtlbGVjdHJvbmljIHJlc291cmNl
+        XSA6IFN0cnVjdHVyZSBhbmQgTWVhbmluZyBpbiBJbmZpbml0aXZhbCBDb25z
+        dHJ1Y3Rpb25zJ10sJ3RpdGxlX3Nlcmllc19kaXNwbGF5Jz0+WydTdHVkaWVz
+        IGluIE5hdHVyYWwgTGFuZ3VhZ2UgYW5kIExpbmd1aXN0aWMgVGhlb3J5LCAw
+        OTI0LTQ2NzAgOyA1MSddLCdzdWJqZWN0X3RvcGljX2ZhY2V0Jz0+WydMaW5n
+        dWlzdGljcycsJ1NlbWFudGljcycsJ0dyYW1tYXIsIENvbXBhcmF0aXZlIGFu
+        ZCBnZW5lcmFsJywnU3ludGF4JywnVGhlb3JldGljYWwgTGFuZ3VhZ2VzJ10s
+        J3B1Yl9wbGFjZV9kaXNwbGF5Jz0+WydEb3JkcmVjaHQnXSwncHViX25hbWVf
+        ZGlzcGxheSc9PlsnU3ByaW5nZXIgTmV0aGVybGFuZHMnLCdJbXByaW50OiBT
+        cHJpbmdlciddLCdwdWJfeWVhcl9kaXNwbGF5Jz0+WycyMDAwJ10sJ2xhbmd1
+        YWdlX2ZhY2V0Jz0+WydFbmdsaXNoJ10sJ2Zvcm1hdCc9PlsnQm9vaycsJ09u
+        bGluZSddLCdjbGlvX2lkX2Rpc3BsYXknPT4nMTE5MzQ1MzknLCdhY3FfZHQn
+        PT4nMjAxNi0wNS0yNVQwMDowMDowMFonLCdzb3VyY2VfZGlzcGxheSc9Plsn
+        Y2F0YWxvZyddLCdkYXRhYmFzZV9yZXN0cmljdGlvbnNfZGlzcGxheSc9Plsn
+        TGljZW5zZSByZXN0cmljdGlvbnMgbWF5IGxpbWl0IGFjY2Vzcy4nXSwnc3Vt
+        bWFyeV9kaXNwbGF5Jz0+WycxLiBUSEUgRlVOREFNRU5UQUwgUVVFU1RJT05T
+        IE9GIENPTlRST0wgSW1hZ2luZSB5b3UgYXJlIGEgY2hpbGQgZmFjZWQgd2l0
+        aCB0aGUgZGF1bnRpbmcgdGFzayBvZiBhY3F1aXJpbmcgdGhlIGdyYW1tYXIg
+        b2YgY29udHJvbCBpbiB5b3VyIGxhbmd1YWdlLiBZb3UgdG9kZGxlIGFyb3Vu
+        ZCBidW95YW50bHkgKHlvdSBzaG91bGQgYmUgcGFzdCAzIGJ5IG5vdyksIG9j
+        Y2FzaW9uYWxseSBidW1waW5nIGludG8gYWNvdXN0aWMgc2lnbmFscyB0aGF0
+        IG1pcmFjdWxvdXNseSBtYXAgdG8gImxpbmd1aXN0aWMgaW5wdXQiLiBTb21l
+        IG9mIHRoZW0gc291bmQgbGlrZSB0aGlzOiAoMSkgYS4gUm9iaW4sIGRvIHlv
+        dSB3YW50IF8gdG8gcGxheSB3aXRoIEtpdHRpZSB0b2dldGhlcj8gYi4gQ29t
+        ZSBvbiwgbGV0IG1lIHNob3cgeW91IGhvdyBfIHRvIGZlZWQgaGVyLiBjLiBO
+        byBSb2JpbiwgS2l0dGllIGRvZXNuXCd0IGxpa2UgXyB0byBiZSBzbWFja2Vk
+        LiBkLiBSb2JpbiwgbG9vayB3aGF0IHlvdVwndmUgZG9uZSEgQmFkIGJveSEg
+        VGltZSBfIHRvIGdvIHRvIGJlZC4gRnJvbSB5b3VyIHNoZWx0ZXIgdW5kZXIg
+        dGhlIGtpdGNoZW4gdGFibGUsIHlvdSBtYXkgZHJhdyB0aGUgZm9sbG93aW5n
+        IGNvbmNsdXNpb25zOiBpKSBNb21teSBpcyB2ZXJ5IG1hZCBub3c7IGlpKSBL
+        aXR0ZW5zIG1ha2Ugcm90dGVuIHRveXM7IGlpaSkgTXkgbmFtZSBtdXN0IGJl
+        IFJvYmluLiBBcGFydCBmcm9tIHRoZSBsZXNzb24gaW4gcGFyZW50YWwgY29u
+        dHJvbCwgeW91IGFsc28gb3VnaHQgdG8gbGVhcm4gc29tZXRoaW5nIGFib3V0
+        IGdyYW1tYXRpY2FsIGNvbnRyb2wuIEluIGVhY2ggb2YgdGhlIHNlbnRlbmNl
+        cyBhYm92ZSwgYW4gZWxlbWVudCBpcyBtaXNzaW5nIChmcm9tIHRoZSB1bmRl
+        cmxpbmVkIHBvc2l0aW9uKSB0aGF0IGlzIG5vbmV0aGVsZXNzICJmaWxsZWQt
+        aW4iIGJ5IHlvdXIgdGFyZ2V0IGdyYW1tYXIuIFRoaXMgaXMgd2hhdCBsaW5n
+        dWlzdHMgdGVybSB0aGUgInVuZGVyc3Rvb2Qgc3ViamVjdCIgb2YgdGhlIGlu
+        ZmluaXRpdmUuIEluIG9yZGVyIHRvIGJlIGFibGUgdG8gdW5kZXJzdGFuZCBz
+        dWNoIHNlbnRlbmNlcyBhbmQgcHJvZHVjZSBzaW1pbGFyIG9uZXMgeW91cnNl
+        bGYsIHlvdSBoYXZlIHRvIGZpZ3VyZSBvdXQgdGhlIHJlZmVyZW5jZSBvZiB0
+        aGUgdW5kZXJzdG9vZCBzdWJqZWN0IGluIGV2ZXJ5IGNhc2UuIFRodXMsIHVu
+        bGVzcyB5b3UgYXJlIGFmdGVyIHNvbWUgYmlnIHRyb3VibGUgd2l0aCBNb21t
+        eSwgeW91IGhhZCBiZXR0ZXIgY29uY2x1ZGUgdGhhdCB0aGUgdW5kZXJzdG9v
+        ZCBzdWJqZWN0IGlzIFJvYmluIGFuZCBNb21teSBpbiAobGEpLCBSb2JpbiBp
+        biAoSWIpLCBLaXR0aWUgaW4gKEljKSBhbmQgZXZlcnlvbmUgKGVzcGVjaWFs
+        bHkgUm9iaW4hKSBpbiAobGQpLiddLCdpc2JuX2Rpc3BsYXknPT5bJzk3ODk0
+        MDExMzk0MzQnLCc5NzgxNDAyMDAyOTM5J10sJ2Z1bGxfcHVibGlzaGVyX2Rp
+        c3BsYXknPT5bJ0RvcmRyZWNodCA6IFNwcmluZ2VyIE5ldGhlcmxhbmRzIDog
+        SW1wcmludDogU3ByaW5nZXIsIDIwMDAuJ10sJ2xvY2F0aW9uX2NhbGxfbnVt
+        YmVyX2lkX2Rpc3BsYXknPT5bJ09ubGluZSA+PiBFQk9PS1N8REVMSU18MTQ5
+        NzE5NjcnXSwnbG9jYXRpb25fZmFjZXQnPT5bJ09ubGluZSddLCd1cmxfbXVu
+        Z2VkX2Rpc3BsYXknPT5bJzB8fHx8fHxodHRwOi8vd3d3LmNvbHVtYmlhLmVk
+        dS9jZ2ktYmluL2N1bC9yZXNvbHZlP2NsaW8xMTkzNDUzOXx8fEZ1bGwgdGV4
+        dCBhdmFpbGFibGUgZnJvbSBTcHJpbmdlckxpbmsgZWJvb2tzIC0gSHVtYW5p
+        dGllcywgU29jaWFsIFNjaWVuY2VzIGFuZCBMYXcgKEFyY2hpdmUpJ10sJ3No
+        ZWxma2V5Jz0+Wydsb2MrcC0tKzI5MS0yOTgrMDAwMDAwMDArMTE5MzQ1Mzkn
+        XSwncmV2ZXJzZV9zaGVsZmtleSc9PlsnZWJufmF+fn54cXl+eHFyfnp6enp6
+        enp6fnl5cXd2dXdxfn5+fn5+fn5+fn5+fn5+fn4nXSwnaXRlbV9kaXNwbGF5
+        Jz0+WydQMjkxLTI5OCB8IGxvYytwLS0rMjkxLTI5OCswMDAwMDAwMCsxMTkz
+        NDUzOSB8IGVibn5hfn5+eHF5fnhxcn56enp6enp6en55eXF3dnV3cX5+fn5+
+        fn5+fn5+fn5+fn5+J10sJ3Njb3JlJz0+MS43NTEzNjMyRS01fV19LCdmYWNl
+        dF9jb3VudHMnPT57J2ZhY2V0X3F1ZXJpZXMnPT57J2FjcV9kdDpbMjAxNi0x
+        MC0xOVQwMDowMDowMFogVE8gKl0nPT4wLCdhY3FfZHQ6WzIwMTYtMDktMjZU
+        MDA6MDA6MDBaIFRPICpdJz0+MCwnYWNxX2R0OlsyMDE2LTA0LTI2VDAwOjAw
+        OjAwWiBUTyAqXSc9PjEsJ2FjcV9kdDpbMjAxNS0xMC0yNlQwMDowMDowMFog
+        VE8gKl0nPT4zfSwnZmFjZXRfZmllbGRzJz0+eydmb3JtYXQnPT5bJ0Jvb2sn
+        LDMsJ09ubGluZScsMl0sJ3B1Yl9kYXRlX3NvcnQnPT5bJzIwMDAnLDEsJzIw
+        MTAnLDEsJzIwMTEnLDFdLCdhdXRob3JfZmFjZXQnPT5bJ0RlIEFuZGEsIERp
+        YW5lJywxLCdEb3VnbGFzLCBTdXNhbiBKLiAoU3VzYW4gSmVhbm5lKSwgMTk1
+        MC0nLDEsJ0d1dGllcnJlei1Hb256YWxleiwgSm9zdWUnLDEsJ0xhbmRhdSwg
+        SWRhbicsMSwnU3ByaW5nZXJMaW5rIChPbmxpbmUgc2VydmljZSknLDFdLCds
+        b2NhdGlvbl9mYWNldCc9PlsnT25saW5lJywyLCdMZWhtYW4nLDFdLCdsYW5n
+        dWFnZV9mYWNldCc9PlsnRW5nbGlzaCcsMywnU3BhbmlzaCcsMV0sJ3N1Ympl
+        Y3RfdG9waWNfZmFjZXQnPT5bJ0JpbGluZ3VhbCcsMSwnQ2hpbGRyZW5cJ3Mg
+        c3RvcmllcywgQW1lcmljYW4nLDEsJ0ZhbWlseSBsaWZlJywxLCdGZW1pbmlz
+        bScsMSwnR3JhbW1hciwgQ29tcGFyYXRpdmUgYW5kIGdlbmVyYWwnLDEsJ0hp
+        c3BhbmljIEFtZXJpY2FucycsMSwnTGluZ3Vpc3RpY3MnLDEsJ01hc3MgbWVk
+        aWEgYW5kIHdvbWVuJywxLCdNeXN0ZXJ5IGFuZCBkZXRlY3RpdmUgc3Rvcmll
+        cycsMSwnU2VtYW50aWNzJywxLCdTaG9ydCBzdG9yaWVzJywxXSwnc3ViamVj
+        dF9nZW9fZmFjZXQnPT5bJ1VuaXRlZCBTdGF0ZXMnLDFdLCdzdWJqZWN0X2Vy
+        YV9mYWNldCc9PltdLCdzdWJqZWN0X2Zvcm1fZmFjZXQnPT5bJ0ZpY3Rpb24n
+        LDFdLCdsY18xbGV0dGVyX2ZhY2V0Jz0+WydIIC0gU29jaWFsIFNjaWVuY2Vz
+        JywxLCdQIC0gTGFuZ3VhZ2UgJiBMaXRlcmF0dXJlJywyXSwnbGNfc3ViY2xh
+        c3NfZmFjZXQnPT5bJ0hRIC0gVGhlIEZhbWlseSwgTWFycmlhZ2UsIFdvbWFu
+        JywxLCdQIC0gTGFuZ3VhZ2UgJiBMaXRlcmF0dXJlJywxLCdQWiAtIEZpY3Rp
+        b24gJiBDaGlsZHJlblwncyBMaXRlcmF0dXJlJywxXX0sJ2ZhY2V0X2RhdGVz
+        Jz0+e30sJ2ZhY2V0X3Jhbmdlcyc9Pnt9fSwnc3RhdHMnPT57J3N0YXRzX2Zp
+        ZWxkcyc9PnsncHViX2RhdGVfc29ydCc9PnsnbWluJz0+MjAwMC4wLCdtYXgn
+        PT4yMDExLjAsJ2NvdW50Jz0+MywnbWlzc2luZyc9PjAsJ3N1bSc9PjYwMjEu
+        MCwnc3VtT2ZTcXVhcmVzJz0+MS4yMDg0MjIxRTcsJ21lYW4nPT4yMDA3LjAs
+        J3N0ZGRldic9PjYuMDgyNzYyNTMwMjk4MjE5LCdmYWNldHMnPT57fX19fX0K
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:48:41 GMT
+  recorded_at: Wed, 26 Oct 2016 17:45:11 GMT
 - request:
     method: get
-    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2015-10-11T00:00:00Z%20TO%20*%5D&fq=-acq_dt:%5B2015-10-11T00:00:00Z%20TO%20*%5D&q=kittens&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
+    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2015-10-26T00:00:00Z%20TO%20*%5D&fq=-acq_dt:%5B2015-10-26T00:00:00Z%20TO%20*%5D&q=kittens&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&stats=true&stats.field=pub_date_sort&wt=ruby"
     body:
       encoding: US-ASCII
       string: ''
@@ -347,7 +347,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:48:42 GMT
+      - Wed, 26 Oct 2016 17:45:13 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -356,11 +356,11 @@ http_interactions:
       - Jetty(8.1.8.v20121106)
     body:
       encoding: UTF-8
-      string: '{''responseHeader''=>{''status''=>0,''QTime''=>51,''params''=>{''f.subject_form_facet.facet.limit''=>''11'',''facet''=>''true'',''sort''=>''score
-        desc, pub_date_sort desc, title_sort asc'',''stats''=>''true'',''f.subject_topic_facet.facet.limit''=>''11'',''f.language_facet.facet.limit''=>''6'',''f.lc_1letter_facet.facet.limit''=>''31'',''f.pub_date_sort.facet.limit''=>''4'',''f.location_facet.facet.limit''=>''6'',''wt''=>''ruby'',''rows''=>''25'',''f.lc_subclass_facet.facet.limit''=>''501'',''f.subject_geo_facet.facet.limit''=>''11'',''facet.query''=>[''acq_dt:[2016-10-04T00:00:00Z
-        TO *]'',''acq_dt:[2016-09-11T00:00:00Z TO *]'',''acq_dt:[2016-04-11T00:00:00Z
-        TO *]'',''acq_dt:[2015-10-11T00:00:00Z TO *]''],''stats.field''=>''pub_date_sort'',''q''=>''kittens'',''f.author_facet.facet.limit''=>''6'',''facet.field''=>[''format'',''pub_date_sort'',''author_facet'',''location_facet'',''language_facet'',''subject_topic_facet'',''subject_geo_facet'',''subject_era_facet'',''subject_form_facet'',''lc_1letter_facet'',''lc_subclass_facet''],''qt''=>''search'',''fq''=>''-acq_dt:[2015-10-11T00:00:00Z
-        TO *]'',''f.subject_era_facet.facet.limit''=>''11'',''f.format.facet.limit''=>''6''}},''response''=>{''numFound''=>90,''start''=>0,''maxScore''=>2.856347,''docs''=>[{''id''=>''89123'',''author_facet''=>[''Floyd,
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>243,''params''=>{''f.subject_form_facet.facet.limit''=>''11'',''facet''=>''true'',''sort''=>''score
+        desc, pub_date_sort desc, title_sort asc'',''stats''=>''true'',''f.subject_topic_facet.facet.limit''=>''11'',''f.language_facet.facet.limit''=>''6'',''f.lc_1letter_facet.facet.limit''=>''31'',''f.pub_date_sort.facet.limit''=>''4'',''f.location_facet.facet.limit''=>''6'',''wt''=>''ruby'',''rows''=>''25'',''f.lc_subclass_facet.facet.limit''=>''501'',''f.subject_geo_facet.facet.limit''=>''11'',''facet.query''=>[''acq_dt:[2016-10-19T00:00:00Z
+        TO *]'',''acq_dt:[2016-09-26T00:00:00Z TO *]'',''acq_dt:[2016-04-26T00:00:00Z
+        TO *]'',''acq_dt:[2015-10-26T00:00:00Z TO *]''],''stats.field''=>''pub_date_sort'',''q''=>''kittens'',''f.author_facet.facet.limit''=>''6'',''facet.field''=>[''format'',''pub_date_sort'',''author_facet'',''location_facet'',''language_facet'',''subject_topic_facet'',''subject_geo_facet'',''subject_era_facet'',''subject_form_facet'',''lc_1letter_facet'',''lc_subclass_facet''],''qt''=>''search'',''fq''=>''-acq_dt:[2015-10-26T00:00:00Z
+        TO *]'',''f.subject_era_facet.facet.limit''=>''11'',''f.format.facet.limit''=>''6''}},''response''=>{''numFound''=>90,''start''=>0,''maxScore''=>2.8553803,''docs''=>[{''id''=>''89123'',''author_facet''=>[''Floyd,
         Grace C.''],''author_display''=>[''Floyd, Grace C.''],''title_display''=>[''Three
         little kittens''],''title_series_display''=>[''Father Tuck\''s storyland series''],''pub_place_display''=>[''New
         York''],''pub_name_display''=>[''R. Tuck''],''pub_year_display''=>[''ca. 1912''],''language_facet''=>[''English''],''format''=>[''Book''],''clio_id_display''=>''89123'',''source_display''=>[''catalog''],''oclc_display''=>[''123183506'',''ocn123183506''],''full_publisher_display''=>[''New
@@ -369,7 +369,7 @@ http_interactions:
         Book''],''shelfkey''=>[''rbx+histchil----+pr-+6011+00000000+l6900000+t4000000+001912+89123'',''loc+pr-+6011+00000000+l6900000+t4000000+001912+89123''],''reverse_shelfkey''=>[''8o2~ih76nihe~~~~~a8~~tzyy~zzzzzzzz~etqzzzzz~6vzzzzzz~zzyqyx~rqyxw'',''ebn~a8~~tzyy~zzzzzzzz~etqzzzzz~6vzzzzzz~zzyqyx~rqyxw''],''item_display''=>[''HISTCHIL
         PR6011.L69 T4 1912 | rbx+histchil----+pr-+6011+00000000+l6900000+t4000000+001912+89123
         | 8o2~ih76nihe~~~~~a8~~tzyy~zzzzzzzz~etqzzzzz~6vzzzzzz~zzyqyx~rqyxw'',''PR6011.L69
-        T4 1912 | loc+pr-+6011+00000000+l6900000+t4000000+001912+89123 | ebn~a8~~tzyy~zzzzzzzz~etqzzzzz~6vzzzzzz~zzyqyx~rqyxw''],''score''=>2.856347},{''id''=>''159887'',''author_facet''=>[''Godden,
+        T4 1912 | loc+pr-+6011+00000000+l6900000+t4000000+001912+89123 | ebn~a8~~tzyy~zzzzzzzz~etqzzzzz~6vzzzzzz~zzyqyx~rqyxw''],''score''=>2.8553803},{''id''=>''159887'',''author_facet''=>[''Godden,
         Rumer, 1907-1998'',''Byrnes, Lynne''],''author_display''=>[''Godden, Rumer,
         1907-1998''],''title_display''=>[''A kindle of kittens''],''subject_topic_facet''=>[''Cats'',''Folklore''],''pub_place_display''=>[''New
         York''],''pub_name_display''=>[''Viking Press''],''pub_year_display''=>[''1979,
@@ -380,20 +380,20 @@ http_interactions:
         Book''],''shelfkey''=>[''rbx+histchil----+pr-+6013+00000000+o2000000+k4900000+001979+159887'',''loc+pr-+6013+00000000+o2000000+k4900000+001979+159887''],''reverse_shelfkey''=>[''8o2~ih76nihe~~~~~a8~~tzyw~zzzzzzzz~bxzzzzzz~fvqzzzzz~zzyqsq~yuqrrs'',''ebn~a8~~tzyw~zzzzzzzz~bxzzzzzz~fvqzzzzz~zzyqsq~yuqrrs''],''item_display''=>[''HISTCHIL
         PR6013.O2 K49 1979 | rbx+histchil----+pr-+6013+00000000+o2000000+k4900000+001979+159887
         | 8o2~ih76nihe~~~~~a8~~tzyw~zzzzzzzz~bxzzzzzz~fvqzzzzz~zzyqsq~yuqrrs'',''PR6013.O2
-        K49 1979 | loc+pr-+6013+00000000+o2000000+k4900000+001979+159887 | ebn~a8~~tzyw~zzzzzzzz~bxzzzzzz~fvqzzzzz~zzyqsq~yuqrrs''],''score''=>2.8562653},{''id''=>''6139363'',''author_facet''=>[''Clymer,
+        K49 1979 | loc+pr-+6013+00000000+o2000000+k4900000+001979+159887 | ebn~a8~~tzyw~zzzzzzzz~bxzzzzzz~fvqzzzzz~zzyqsq~yuqrrs''],''score''=>2.8552985},{''id''=>''6139363'',''author_facet''=>[''Clymer,
         Eleanor Lowenton, 1906-'',''Bendick, Jeanne''],''author_display''=>[''Clymer,
         Eleanor Lowenton, 1906-''],''title_display''=>[''The country kittens''],''subject_topic_facet''=>[''Bendick,
         Jeanne''],''pub_place_display''=>[''New York''],''pub_name_display''=>[''R.M.McBride''],''pub_year_display''=>[''1947''],''language_facet''=>[''English''],''format''=>[''Book''],''clio_id_display''=>''6139363'',''source_display''=>[''catalog''],''lccn_display''=>[''47012464''],''oclc_display''=>[''ocm01596344''],''full_publisher_display''=>[''New
         York, R.M.McBride [1947]''],''location_call_number_id_display''=>[''Rare Book,
         Butler 6th Fl. East (Non-Circulating) >> HISTCHIL Unclassified|DELIM|7784059''],''location_facet''=>[''Rare
         Book''],''shelfkey''=>[''loc+pz-+0010+30000000+c6125000+co0000+6139363''],''reverse_shelfkey''=>[''ebn~a0~~zzyz~wzzzzzzz~ntyxuzzz~nbzzzz~tywqwtw~~~~~''],''item_display''=>[''PZ10.3.C6125
-        Co | loc+pz-+0010+30000000+c6125000+co0000+6139363 | ebn~a0~~zzyz~wzzzzzzz~ntyxuzzz~nbzzzz~tywqwtw~~~~~''],''score''=>2.8562653},{''id''=>''6157976'',''author_facet''=>[''Frees,
+        Co | loc+pz-+0010+30000000+c6125000+co0000+6139363 | ebn~a0~~zzyz~wzzzzzzz~ntyxuzzz~nbzzzz~tywqwtw~~~~~''],''score''=>2.8552985},{''id''=>''6157976'',''author_facet''=>[''Frees,
         Harry Whittier''],''author_display''=>[''Frees, Harry Whittier''],''title_display''=>[''Four
         little kittens''],''pub_place_display''=>[''Chicago''],''pub_name_display''=>[''Rand
         McNally & Company''],''pub_year_display''=>[''1936 [c1934]''],''language_facet''=>[''English''],''format''=>[''Book''],''clio_id_display''=>''6157976'',''source_display''=>[''catalog''],''oclc_display''=>[''ocn123159574'',''123159574''],''full_publisher_display''=>[''Chicago,
         Rand McNally & Company, 1936 [c1934]''],''location_call_number_id_display''=>[''Rare
         Book, Butler 6th Fl. East (Non-Circulating) >> HISTCHIL Unclassified|DELIM|7799693''],''location_facet''=>[''Rare
-        Book''],''score''=>2.8562653},{''id''=>''49216'',''author_facet''=>[''Newberry,
+        Book''],''score''=>2.8552985},{''id''=>''49216'',''author_facet''=>[''Newberry,
         Clare Turlay, 1903-''],''author_display''=>[''Newberry, Clare Turlay, 1903-''],''title_display''=>[''April\''s
         kittens''],''pub_place_display''=>[''New York and'',''London''],''pub_name_display''=>[''Harper
         & brothers''],''pub_year_display''=>[''1940''],''language_facet''=>[''English''],''format''=>[''Book''],''clio_id_display''=>''49216'',''source_display''=>[''catalog''],''summary_display''=>[''Three
@@ -404,14 +404,14 @@ http_interactions:
         Book''],''shelfkey''=>[''rbx+histchil----+ps-+3527+00000000+e5130000+a6000000+49216'',''loc+ps-+3527+00000000+e5130000+a6000000+49216''],''reverse_shelfkey''=>[''8o2~ih76nihe~~~~~a7~~wuxs~zzzzzzzz~luywzzzz~ptzzzzzz~vqxyt'',''ebn~a7~~wuxs~zzzzzzzz~luywzzzz~ptzzzzzz~vqxyt~~~~~''],''item_display''=>[''HISTCHIL
         PS3527.E513 A6 | rbx+histchil----+ps-+3527+00000000+e5130000+a6000000+49216
         | 8o2~ih76nihe~~~~~a7~~wuxs~zzzzzzzz~luywzzzz~ptzzzzzz~vqxyt'',''PS3527.E513
-        A6 | loc+ps-+3527+00000000+e5130000+a6000000+49216 | ebn~a7~~wuxs~zzzzzzzz~luywzzzz~ptzzzzzz~vqxyt~~~~~''],''score''=>2.856265},{''id''=>''8974883'',''author_facet''=>[''Greenaway,
+        A6 | loc+ps-+3527+00000000+e5130000+a6000000+49216 | ebn~a7~~wuxs~zzzzzzzz~luywzzzz~ptzzzzzz~vqxyt~~~~~''],''score''=>2.8552983},{''id''=>''8974883'',''author_facet''=>[''Greenaway,
         Kate, 1846-1901''],''author_display''=>[''Greenaway, Kate, 1846-1901''],''title_display''=>[''3
         little kittens''],''pub_place_display''=>[''Place of publication not identified''],''pub_name_display''=>[''McLoughlin
         Bros''],''pub_year_display''=>[''1890''],''format''=>[''Book'',''Online''],''clio_id_display''=>''8974883'',''acq_dt''=>''2011-09-07T00:00:00Z'',''source_display''=>[''catalog''],''database_restrictions_display''=>[''License
         restrictions may limit access.''],''full_publisher_display''=>[''[Place of
         publication not identified] : McLoughlin Bros., 1890.''],''location_call_number_id_display''=>[''Online
         >> EBOOKS|DELIM|12048513''],''location_facet''=>[''Online''],''url_munged_display''=>[''0||||||http://www.columbia.edu/cgi-bin/cul/resolve?clio8974883|||Full
-        text available from Project Gutenberg Online Catalog''],''score''=>2.856265},{''id''=>''1108806'',''author_facet''=>[''Tilton,
+        text available from Project Gutenberg Online Catalog''],''score''=>2.8552983},{''id''=>''1108806'',''author_facet''=>[''Tilton,
         Theodore, 1835-1907'',''Stephens, H. L. (Henry Louis), 1824-1882''],''author_display''=>[''Tilton,
         Theodore, 1835-1907''],''title_display''=>[''The two hungry kittens [microform]''],''subject_topic_facet''=>[''Cats'',''Children\''s
         poetry''],''pub_place_display''=>[''New York''],''pub_name_display''=>[''Tibbals
@@ -419,11 +419,11 @@ http_interactions:
         York : Tibbals & Whiting, 1866.''],''location_call_number_id_display''=>[''Butler
         Microforms, 401 Butler >> F b6331 pt.3, no.3120|DELIM|1387873''],''location_facet''=>[''Butler
         Microform Read Rm''],''shelfkey''=>[''mic+f---+b+00006331+pt00+0003+no00+3120+1108806''],''reverse_shelfkey''=>[''dhn~k~~~~o~zzzztwwy~a6zz~zzzw~cbzz~wyxz~yyzrrzt~~~''],''item_display''=>[''F
-        b6331 pt.3, no.3120 | mic+f---+b+00006331+pt00+0003+no00+3120+1108806 | dhn~k~~~~o~zzzztwwy~a6zz~zzzw~cbzz~wyxz~yyzrrzt~~~''],''score''=>2.856265},{''id''=>''6158939'',''title_display''=>[''The
+        b6331 pt.3, no.3120 | mic+f---+b+00006331+pt00+0003+no00+3120+1108806 | dhn~k~~~~o~zzzztwwy~a6zz~zzzw~cbzz~wyxz~yyzrrzt~~~''],''score''=>2.8552983},{''id''=>''6158939'',''title_display''=>[''The
         little kittens''],''pub_place_display''=>[''New York''],''pub_name_display''=>[''McLoughlin''],''pub_year_display''=>[''18--?''],''language_facet''=>[''English''],''format''=>[''Book''],''clio_id_display''=>''6158939'',''source_display''=>[''catalog''],''oclc_display''=>[''ocn123233876'',''123233876''],''full_publisher_display''=>[''New
         York, McLoughlin [18--?]''],''location_call_number_id_display''=>[''Rare Book,
         Butler 6th Fl. East (Non-Circulating) >> HISTCHIL Unclassified|DELIM|7800662''],''location_facet''=>[''Rare
-        Book''],''score''=>2.8560855},{''id''=>''8503124'',''author_facet''=>[''Grover,
+        Book''],''score''=>2.8551188},{''id''=>''8503124'',''author_facet''=>[''Grover,
         Eulalie Osgood, 1873-1958''],''author_display''=>[''Grover, Eulalie Osgood,
         1873-1958''],''title_display''=>[''Kittens and cats [electronic resource]
         : a book of tales''],''subject_topic_facet''=>[''Cats''],''pub_place_display''=>[''Boston''],''pub_name_display''=>[''Houghton
@@ -431,12 +431,12 @@ http_interactions:
         : Houghton Mifflin, c1911.''],''location_call_number_id_display''=>[''Online
         >> EBOOKS|DELIM|11586522''],''location_facet''=>[''Online''],''url_munged_display''=>[''0|||HathiTrust
         Digital Library|||http://catalog.hathitrust.org/api/volumes/oclc/18663735.html|||''],''shelfkey''=>[''loc+pz-+0010+30000000+g7980000+ki0000+8503124''],''reverse_shelfkey''=>[''ebn~a0~~zzyz~wzzzzzzz~jsqrzzzz~fhzzzz~ruzwyxv~~~~~''],''item_display''=>[''PZ10.3.G798
-        Ki | loc+pz-+0010+30000000+g7980000+ki0000+8503124 | ebn~a0~~zzyz~wzzzzzzz~jsqrzzzz~fhzzzz~ruzwyxv~~~~~''],''score''=>2.8559277},{''id''=>''6158949'',''title_display''=>[''The
+        Ki | loc+pz-+0010+30000000+g7980000+ki0000+8503124 | ebn~a0~~zzyz~wzzzzzzz~jsqrzzzz~fhzzzz~ruzwyxv~~~~~''],''score''=>2.8549612},{''id''=>''6158949'',''title_display''=>[''The
         three white kittens''],''pub_place_display''=>[''New York''],''pub_name_display''=>[''McLoughlin
         Bros''],''pub_year_display''=>[''18--''],''language_facet''=>[''English''],''format''=>[''Book''],''clio_id_display''=>''6158949'',''source_display''=>[''catalog''],''oclc_display''=>[''ocn123233980'',''123233980''],''full_publisher_display''=>[''New
         York, McLoughlin Bros. [18--]''],''location_call_number_id_display''=>[''Rare
         Book, Butler 6th Fl. East (Non-Circulating) >> HISTCHIL Unclassified|DELIM|7800672''],''location_facet''=>[''Rare
-        Book''],''score''=>2.8557596},{''id''=>''8280350'',''author_facet''=>[''Fleuron,
+        Book''],''score''=>2.854793},{''id''=>''8280350'',''author_facet''=>[''Fleuron,
         Svend, b. 1874'',''Pritchard, David''],''author_display''=>[''Fleuron, Svend,
         b. 1874''],''title_display''=>[''Kittens: a family chronicle, [electronic
         resource]''],''subject_topic_facet''=>[''Cats'',''Katten''],''pub_place_display''=>[''New
@@ -444,7 +444,7 @@ http_interactions:
         York, A.A. Knopf, 1922.''],''location_call_number_id_display''=>[''Online
         >> EBOOKS|DELIM|11357981''],''location_facet''=>[''Online''],''url_munged_display''=>[''0|||HathiTrust
         Digital Library|||http://catalog.hathitrust.org/api/volumes/oclc/8989901.html|||''],''shelfkey''=>[''loc+ql-+0795+00000000+c2000000+f5000000+8280350''],''reverse_shelfkey''=>[''ebn~9e~~zsqu~zzzzzzzz~nxzzzzzz~kuzzzzzz~rxrzwuz~~~''],''item_display''=>[''QL795.C2
-        F5 | loc+ql-+0795+00000000+c2000000+f5000000+8280350 | ebn~9e~~zsqu~zzzzzzzz~nxzzzzzz~kuzzzzzz~rxrzwuz~~~''],''score''=>2.8557591},{''id''=>''10521044'',''author_facet''=>[''Dante
+        F5 | loc+ql-+0795+00000000+c2000000+f5000000+8280350 | ebn~9e~~zsqu~zzzzzzzz~nxzzzzzz~kuzzzzzz~rxrzwuz~~~''],''score''=>2.8547924},{''id''=>''10521044'',''author_facet''=>[''Dante
         Alighieri, 1265-1321''],''author_display''=>[''Dante Alighieri, 1265-1321''],''title_display''=>[''Serenade
         for sex kittens [sound recording]''],''subject_topic_facet''=>[''Popular instrumental
         music''],''subject_era_facet''=>[''1951-1960''],''pub_place_display''=>[''New
@@ -452,7 +452,7 @@ http_interactions:
         - Recording''],''clio_id_display''=>''10521044'',''source_display''=>[''catalog''],''oclc_display''=>[''ocm35049486'',''35049486''],''full_publisher_display''=>[''[New
         York] : Carlton, [195-?]''],''location_call_number_id_display''=>[''Offsite
         <Music Recording> Place Request for delivery >> SNK10861|DELIM|13581953''],''location_facet''=>[''Offsite''],''shelfkey''=>[''msr+snk-+00010861+10521044''],''reverse_shelfkey''=>[''d78~7cf~~zzzyzrty~yzuxyzvv~~~~~~~~~~~~~~~~~~~~~~~~''],''item_display''=>[''SNK10861
-        | msr+snk-+00010861+10521044 | d78~7cf~~zzzyzrty~yzuxyzvv~~~~~~~~~~~~~~~~~~~~~~~~''],''score''=>2.855211},{''id''=>''3191310'',''author_facet''=>[''Duffy,
+        | msr+snk-+00010861+10521044 | d78~7cf~~zzzyzrty~yzuxyzvv~~~~~~~~~~~~~~~~~~~~~~~~''],''score''=>2.8542445},{''id''=>''3191310'',''author_facet''=>[''Duffy,
         Patricia Lynne, 1952-''],''author_display''=>[''Duffy, Patricia Lynne, 1952-''],''title_display''=>[''Blue
         cats and chartreuse kittens : how synesthetes color their worlds''],''subject_topic_facet''=>[''Synesthesia'',''Color
         vision'',''Perception''],''pub_place_display''=>[''New York''],''pub_name_display''=>[''Times
@@ -477,21 +477,14 @@ http_interactions:
         York : Times Books, 2001.''],''location_call_number_id_display''=>[''Science
         & Engineering [NWC Building] >> BF497 .D84 2001|DELIM|3711833''],''location_facet''=>[''Science
         & Engineering''],''shelfkey''=>[''loc+bf-+0497+00000000+d8400000+002001+3191310''],''reverse_shelfkey''=>[''ebn~ok~~zvqs~zzzzzzzz~mrvzzzzz~zzxzzy~wyqywyz~~~~~''],''item_display''=>[''BF497
-        .D84 2001 | loc+bf-+0497+00000000+d8400000+002001+3191310 | ebn~ok~~zvqs~zzzzzzzz~mrvzzzzz~zzxzzy~wyqywyz~~~~~''],''score''=>2.4988947},{''id''=>''7499807'',''author_facet''=>[''Herford,
+        .D84 2001 | loc+bf-+0497+00000000+d8400000+002001+3191310 | ebn~ok~~zvqs~zzzzzzzz~mrvzzzzz~zzxzzy~wyqywyz~~~~~''],''score''=>2.4980488},{''id''=>''7499807'',''author_facet''=>[''Herford,
         Oliver''],''author_display''=>[''Herford, Oliver''],''title_display''=>[''Kitten\''s
         Garden of Verses''],''pub_place_display''=>[''Place of publication not identified''],''pub_name_display''=>[''Project
         Gutenberg''],''pub_year_display''=>[''2007''],''format''=>[''Book'',''Online''],''clio_id_display''=>''7499807'',''source_display''=>[''catalog''],''database_restrictions_display''=>[''License
         restrictions may limit access.''],''full_publisher_display''=>[''[Place of
         publication not identified] : Project Gutenberg, 2007.''],''location_call_number_id_display''=>[''Online
         >> EBOOKS|DELIM|10611878''],''location_facet''=>[''Online''],''url_munged_display''=>[''0||||||http://www.columbia.edu/cgi-bin/cul/resolve?clio7499807|||Full
-        text available from Project Gutenberg Online Catalog''],''score''=>2.142199},{''id''=>''8998328'',''author_facet''=>[''Grimalkin,
-        Tabitha'',''Billings, Hammatt, 1818-1874'',''Baker, William Jay''],''author_display''=>[''Grimalkin,
-        Tabitha''],''title_display''=>[''Tales From Catland, for Little Kittens''],''pub_place_display''=>[''Place
-        of publication not identified''],''pub_name_display''=>[''publisher not identified''],''pub_year_display''=>[''1853''],''format''=>[''Book'',''Online''],''clio_id_display''=>''8998328'',''acq_dt''=>''2011-09-08T00:00:00Z'',''source_display''=>[''catalog''],''database_restrictions_display''=>[''License
-        restrictions may limit access.''],''full_publisher_display''=>[''[Place of
-        publication not identified] : [publisher not identified], 1853.''],''location_call_number_id_display''=>[''Online
-        >> EBOOKS|DELIM|12071675''],''location_facet''=>[''Online''],''url_munged_display''=>[''0||||||http://www.columbia.edu/cgi-bin/cul/resolve?clio8998328|||Full
-        text available from Project Gutenberg Online Catalog''],''score''=>2.142199},{''id''=>''446063'',''author_facet''=>[''Herford,
+        text available from Project Gutenberg Online Catalog''],''score''=>2.1414738},{''id''=>''446063'',''author_facet''=>[''Herford,
         Oliver, 1863-1935''],''author_display''=>[''Herford, Oliver, 1863-1935''],''title_display''=>[''The
         kitten\''s garden of verses [microform]''],''pub_place_display''=>[''New York''],''pub_name_display''=>[''C.
         Scribner\''s Sons''],''pub_year_display''=>[''1911''],''language_facet''=>[''English''],''format''=>[''Book'',''Microformat''],''clio_id_display''=>''446063'',''source_display''=>[''catalog''],''lccn_display''=>[''11022342''],''oclc_display''=>[''16846413'',''ocm16846413''],''full_publisher_display''=>[''New
@@ -499,13 +492,20 @@ http_interactions:
         Microforms, 401 Butler >> MICROFLM F b993|DELIM|591415''],''location_facet''=>[''Butler
         Microform Read Rm''],''shelfkey''=>[''mic+f---+b+00000993+446063'',''loc+pz-+0008+00000000+h4210000+j00000+446063''],''reverse_shelfkey''=>[''dhn~k~~~~o~zzzzzqqw~vvtztw~~~~~~~~~~~~~~~~~~~~~~~~'',''ebn~a0~~zzzr~zzzzzzzz~ivxyzzzz~gzzzzz~vvtztw~~~~~~''],''item_display''=>[''MICROFLM
         F b993 | mic+f---+b+00000993+446063 | dhn~k~~~~o~zzzzzqqw~vvtztw~~~~~~~~~~~~~~~~~~~~~~~~'',''PZ8.H421
-        J | loc+pz-+0008+00000000+h4210000+j00000+446063 | ebn~a0~~zzzr~zzzzzzzz~ivxyzzzz~gzzzzz~vvtztw~~~~~~''],''score''=>2.1421988},{''id''=>''8406050'',''author_facet''=>[''Pratt-Chadwick,
+        J | loc+pz-+0008+00000000+h4210000+j00000+446063 | ebn~a0~~zzzr~zzzzzzzz~ivxyzzzz~gzzzzz~vvtztw~~~~~~''],''score''=>2.1414738},{''id''=>''8406050'',''author_facet''=>[''Pratt-Chadwick,
         Mara L.''],''author_display''=>[''Pratt-Chadwick, Mara L.''],''title_display''=>[''Three
         little kittens [and] chicken little [electronic resource]''],''subject_topic_facet''=>[''Readers''],''subject_era_facet''=>[''1870-1950''],''pub_place_display''=>[''Boston''],''pub_name_display''=>[''Educational
         Pub. Co''],''pub_year_display''=>[''1905''],''language_facet''=>[''English''],''format''=>[''Book'',''Online''],''clio_id_display''=>''8406050'',''acq_dt''=>''2011-01-26T00:00:00Z'',''source_display''=>[''catalog''],''oclc_display''=>[''ocn613043090'',''613043090''],''full_publisher_display''=>[''Boston
         : Educational Pub. Co., 1905.''],''location_call_number_id_display''=>[''Online
         >> EBOOKS|DELIM|11491971''],''location_facet''=>[''Online''],''url_munged_display''=>[''0|||HathiTrust
-        Digital Library|||http://catalog.hathitrust.org/api/volumes/oclc/27093385.html|||''],''score''=>2.1421988},{''id''=>''1683264'',''author_facet''=>[''Shuey,
+        Digital Library|||http://catalog.hathitrust.org/api/volumes/oclc/27093385.html|||''],''score''=>2.1414738},{''id''=>''8998328'',''author_facet''=>[''Grimalkin,
+        Tabitha'',''Billings, Hammatt, 1818-1874'',''Baker, William Jay''],''author_display''=>[''Grimalkin,
+        Tabitha''],''title_display''=>[''Tales From Catland, for Little Kittens''],''pub_place_display''=>[''Place
+        of publication not identified''],''pub_name_display''=>[''publisher not identified''],''pub_year_display''=>[''1853''],''format''=>[''Book'',''Online''],''clio_id_display''=>''8998328'',''acq_dt''=>''2011-09-08T00:00:00Z'',''source_display''=>[''catalog''],''database_restrictions_display''=>[''License
+        restrictions may limit access.''],''full_publisher_display''=>[''[Place of
+        publication not identified] : [publisher not identified], 1853.''],''location_call_number_id_display''=>[''Online
+        >> EBOOKS|DELIM|12071675''],''location_facet''=>[''Online''],''url_munged_display''=>[''0||||||http://www.columbia.edu/cgi-bin/cul/resolve?clio8998328|||Full
+        text available from Project Gutenberg Online Catalog''],''score''=>2.1414738},{''id''=>''1683264'',''author_facet''=>[''Shuey,
         Audrey M. (Audrey Mary), 1900-'',''Columbia University. Department of Psychology''],''author_display''=>[''Shuey,
         Audrey M. (Audrey Mary), 1900-''],''title_display''=>[''The limits of learning
         ability in kittens''],''title_series_display''=>[''Genetic psychology monographs
@@ -514,11 +514,11 @@ http_interactions:
         Mass., Clark university, c1931.''],''location_call_number_id_display''=>[''Temporarily
         unavailable. Try Borrow Direct or ILL >> Serials G v.10 no.4|DELIM|2073361''],''location_facet''=>[''Other''],''shelfkey''=>[''loc+lb-+1101+00000000+g4000000+v00000+000010+no0000+000004+1683264''],''reverse_shelfkey''=>[''ebn~eo~~yyzy~zzzzzzzz~jvzzzzzz~4zzzzz~zzzzyz~cbzzzz~zzzzzv~ytrwxtv''],''item_display''=>[''LB1101
         .G4 v.10,no.4 | loc+lb-+1101+00000000+g4000000+v00000+000010+no0000+000004+1683264
-        | ebn~eo~~yyzy~zzzzzzzz~jvzzzzzz~4zzzzz~zzzzyz~cbzzzz~zzzzzv~ytrwxtv''],''score''=>2.142141},{''id''=>''6158812'',''title_display''=>[''Three
+        | ebn~eo~~yyzy~zzzzzzzz~jvzzzzzz~4zzzzz~zzzzyz~cbzzzz~zzzzzv~ytrwxtv''],''score''=>2.141416},{''id''=>''6158812'',''title_display''=>[''Three
         little kittens and Mr. Fox''],''pub_place_display''=>[''New York''],''pub_name_display''=>[''McLoughlin''],''pub_year_display''=>[''1912?''],''language_facet''=>[''English''],''format''=>[''Book''],''clio_id_display''=>''6158812'',''source_display''=>[''catalog''],''oclc_display''=>[''ocn123230669'',''123230669''],''full_publisher_display''=>[''New
         York, McLoughlin [1912?]''],''location_call_number_id_display''=>[''Rare Book,
         Butler 6th Fl. East (Non-Circulating) >> HISTCHIL Unclassified|DELIM|7800534''],''location_facet''=>[''Rare
-        Book''],''score''=>2.1420307},{''id''=>''1933866'',''author_facet''=>[''Shuey,
+        Book''],''score''=>2.1413054},{''id''=>''1933866'',''author_facet''=>[''Shuey,
         Audrey M. (Audrey Mary), 1900-'',''Columbia University. Department of Psychology''],''author_display''=>[''Shuey,
         Audrey M. (Audrey Mary), 1900-''],''title_display''=>[''The limits of learning
         ability in kittens; from the Aminal laboratory of the Department of psychology,
@@ -531,7 +531,7 @@ http_interactions:
         Book''],''shelfkey''=>[''loc+ql-+0785+00000000+s4800000+001931+1933866'',''glx+378+70000000+cxo00000+sh900000+1933866'',''dic+cxo-+sh900000+1933866''],''reverse_shelfkey''=>[''ebn~9e~~zsru~zzzzzzzz~7vrzzzzz~zzyqwy~yqwwrtt~~~~~'',''je2~wsr~szzzzzzz~n2bzzzzz~7iqzzzzz~yqwwrtt~~~~~~~~'',''mhn~n2b~~7iqzzzzz~yqwwrtt~~~~~~~~~~~~~~~~~~~~~~~~~''],''item_display''=>[''QL785
         .S48 1931a | loc+ql-+0785+00000000+s4800000+001931+1933866 | ebn~9e~~zsru~zzzzzzzz~7vrzzzzz~zzyqwy~yqwwrtt~~~~~'',''378.7CXO
         Sh9 | glx+378+70000000+cxo00000+sh900000+1933866 | je2~wsr~szzzzzzz~n2bzzzzz~7iqzzzzz~yqwwrtt~~~~~~~~'',''CXO
-        Sh9 | dic+cxo-+sh900000+1933866 | mhn~n2b~~7iqzzzzz~yqwwrtt~~~~~~~~~~~~~~~~~~~~~~~~~''],''score''=>2.1417773},{''id''=>''6252298'',''author_facet''=>[''Baker,
+        Sh9 | dic+cxo-+sh900000+1933866 | mhn~n2b~~7iqzzzzz~yqwwrtt~~~~~~~~~~~~~~~~~~~~~~~~~''],''score''=>2.1410522},{''id''=>''6252298'',''author_facet''=>[''Baker,
         Kyle''],''author_display''=>[''Baker, Kyle''],''title_display''=>[''The Bakers
         : babies and kittens''],''subject_topic_facet''=>[''Families'',''Kittens'',''Cat
         adoption'',''Graphic novels''],''pub_place_display''=>[''Berkeley, Calif''],''pub_name_display''=>[''Image
@@ -543,7 +543,7 @@ http_interactions:
         baby and the fuzzy kitten, and no Baker is safe!"--P. [4] of cover.''],''isbn_display''=>[''9781582408132'',''1582408130''],''oclc_display''=>[''154704431'',''ocn154704431''],''full_publisher_display''=>[''Berkeley,
         Calif. : Image Comics, 2007.''],''location_call_number_id_display''=>[''Offsite
         - Place Request for delivery within 2 business days >> PN6727.B33 B35 2007g|DELIM|8042393''],''location_facet''=>[''Offsite''],''shelfkey''=>[''loc+pn-+6727+00000000+b3300000+b3500000+002007+6252298''],''reverse_shelfkey''=>[''ebn~ac~~tsxs~zzzzzzzz~owwzzzzz~owuzzzzz~zzxzzs~txuxxqr''],''item_display''=>[''PN6727.B33
-        B35 2007g | loc+pn-+6727+00000000+b3300000+b3500000+002007+6252298 | ebn~ac~~tsxs~zzzzzzzz~owwzzzzz~owuzzzzz~zzxzzs~txuxxqr''],''score''=>1.6858834},{''id''=>''6031849'',''author_facet''=>[''Peril,
+        B35 2007g | loc+pn-+6727+00000000+b3300000+b3500000+002007+6252298 | ebn~ac~~tsxs~zzzzzzzz~owwzzzzz~owuzzzzz~zzxzzs~txuxxqr''],''score''=>1.6853888},{''id''=>''6031849'',''author_facet''=>[''Peril,
         Lynn''],''author_display''=>[''Peril, Lynn''],''title_display''=>[''College
         girls : bluestockings, sex kittens, and coeds, then and now''],''subject_topic_facet''=>[''Women
         college students'',''Attitudes'',''Women'',''Identity'',''Education (Higher)'',''History'',''Education,
@@ -554,7 +554,7 @@ http_interactions:
         <Barnard Library Collection>, Butler 406A, 406, 409 >> LC1756 .P47 2006|DELIM|7470092'',''Butler
         Stacks (Enter at the Butler Circulation Desk) >> LC1756 .P47 2006|DELIM|7472168''],''location_facet''=>[''Barnard'',''Butler
         Stacks''],''url_munged_display''=>[''1|||Table of contents|||http://www.loc.gov/catdir/toc/ecip0615/2006018896.html|||''],''shelfkey''=>[''loc+lc-+1756+00000000+p4700000+002006+6031849''],''reverse_shelfkey''=>[''ebn~en~~ysut~zzzzzzzz~avszzzzz~zzxzzt~tzwyrvq~~~~~''],''item_display''=>[''LC1756
-        .P47 2006 | loc+lc-+1756+00000000+p4700000+002006+6031849 | ebn~en~~ysut~zzzzzzzz~avszzzzz~zzxzzt~tzwyrvq~~~~~''],''score''=>1.053683},{''id''=>''6166380'',''author_facet''=>[''Absolon,
+        .P47 2006 | loc+lc-+1756+00000000+p4700000+002006+6031849 | ebn~en~~ysut~zzzzzzzz~avszzzzz~zzxzzt~tzwyrvq~~~~~''],''score''=>1.0533739},{''id''=>''6166380'',''author_facet''=>[''Absolon,
         John, 1815-1895'',''Weir, Harrison, 1824-1906'',''Mason, Walter George, 1820-1866'',''Evans
         and Dickerson, publisher''],''title_display''=>[''The cat and the mouse who
         played in the farm-house ; and, The three little kittens who lost their mittens''],''subject_topic_facet''=>[''Cats''],''subject_era_facet''=>[''1854''],''subject_geo_facet''=>[''New
@@ -563,7 +563,7 @@ http_interactions:
         and 1855''],''language_facet''=>[''English''],''format''=>[''Book''],''clio_id_display''=>''6166380'',''source_display''=>[''catalog''],''oclc_display''=>[''ocm82899902'',''82899902''],''full_publisher_display''=>[''[New
         York] : Evans & Dickerson, 697, Broadway, New York, [between 1854 and 1855]''],''location_call_number_id_display''=>[''Rare
         Book, Butler 6th Fl. East (Non-Circulating) >> HISTCHIL Unclassified|DELIM|7811238''],''location_facet''=>[''Rare
-        Book''],''score''=>1.0535554},{''id''=>''142266'',''title_display''=>[''Nelson\''s
+        Book''],''score''=>1.0532463},{''id''=>''142266'',''title_display''=>[''Nelson\''s
         oil-colour picture book for the nursery : comprising three little kittens,
         four-footed favourites, nursery rhymes, children in the wood''],''subject_topic_facet''=>[''Lithography''],''subject_era_facet''=>[''19th
         century''],''pub_place_display''=>[''London'',''New York''],''pub_name_display''=>[''T.
@@ -572,7 +572,7 @@ http_interactions:
         Book, Butler 6th Fl. East (Non-Circulating) >> HISTCHIL PR3991 .N4|DELIM|203453''],''location_facet''=>[''Rare
         Book''],''shelfkey''=>[''rbx+histchil----+pr-+3991+00000000+n4000000+142266'',''loc+pr-+3991+00000000+n4000000+142266''],''reverse_shelfkey''=>[''8o2~ih76nihe~~~~~a8~~wqqy~zzzzzzzz~cvzzzzzz~yvxxtt'',''ebn~a8~~wqqy~zzzzzzzz~cvzzzzzz~yvxxtt~~~~~~~~~~~~~''],''item_display''=>[''HISTCHIL
         PR3991 .N4 | rbx+histchil----+pr-+3991+00000000+n4000000+142266 | 8o2~ih76nihe~~~~~a8~~wqqy~zzzzzzzz~cvzzzzzz~yvxxtt'',''PR3991
-        .N4 | loc+pr-+3991+00000000+n4000000+142266 | ebn~a8~~wqqy~zzzzzzzz~cvzzzzzz~yvxxtt~~~~~~~~~~~~~''],''score''=>0.8427779},{''id''=>''7478412'',''author_facet''=>[''Weil,
+        .N4 | loc+pr-+3991+00000000+n4000000+142266 | ebn~a8~~wqqy~zzzzzzzz~cvzzzzzz~yvxxtt~~~~~~~~~~~~~''],''score''=>0.84253067},{''id''=>''7478412'',''author_facet''=>[''Weil,
         Oscar, 1840-1921'',''Bunner, H. C. (Henry Cuyler), 1855-1896''],''author_display''=>[''Weil,
         Oscar, 1840-1921''],''title_display''=>[''Three operettas''],''subject_topic_facet''=>[''Musicals'',''Operas''],''pub_place_display''=>[''New
         York''],''pub_name_display''=>[''Harper & Brothers''],''pub_year_display''=>[''1897''],''language_facet''=>[''English''],''format''=>[''Music
@@ -581,9 +581,9 @@ http_interactions:
         Book, Butler 6th Fl. East (Non-Circulating) >> DRAMLIB D782.7 B88|DELIM|10590507''],''location_facet''=>[''Rare
         Book''],''shelfkey''=>[''rbx+dramlib-----+d782+70000000+00000000+b8800000+7478412'',''loc+m--+1503+00000000+w4000000+7478412''],''reverse_shelfkey''=>[''8o2~m8pdeho~~~~~~msrx~szzzzzzz~zzzzzzzz~orrzzzzz~svsrvyx'',''ebn~d~~~yuzw~zzzzzzzz~3vzzzzzz~svsrvyx~~~~~~~~~~~~''],''item_display''=>[''DRAMLIB
         D782.7 B88 | rbx+dramlib-----+d782+70000000+00000000+b8800000+7478412 | 8o2~m8pdeho~~~~~~msrx~szzzzzzz~zzzzzzzz~orrzzzzz~svsrvyx'',''M1503
-        .W4 | loc+m--+1503+00000000+w4000000+7478412 | ebn~d~~~yuzw~zzzzzzzz~3vzzzzzz~svsrvyx~~~~~~~~~~~~''],''score''=>0.05901654}]},''facet_counts''=>{''facet_queries''=>{''acq_dt:[2016-10-04T00:00:00Z
-        TO *]''=>0,''acq_dt:[2016-09-11T00:00:00Z TO *]''=>0,''acq_dt:[2016-04-11T00:00:00Z
-        TO *]''=>0,''acq_dt:[2015-10-11T00:00:00Z TO *]''=>0},''facet_fields''=>{''format''=>[''Book'',71,''Online'',19,''Music
+        .W4 | loc+m--+1503+00000000+w4000000+7478412 | ebn~d~~~yuzw~zzzzzzzz~3vzzzzzz~svsrvyx~~~~~~~~~~~~''],''score''=>0.058995605}]},''facet_counts''=>{''facet_queries''=>{''acq_dt:[2016-10-19T00:00:00Z
+        TO *]''=>0,''acq_dt:[2016-09-26T00:00:00Z TO *]''=>0,''acq_dt:[2016-04-26T00:00:00Z
+        TO *]''=>0,''acq_dt:[2015-10-26T00:00:00Z TO *]''=>0},''facet_fields''=>{''format''=>[''Book'',71,''Online'',19,''Music
         - Recording'',8,''Video'',6,''Microformat'',4,''Music - Score'',3],''pub_date_sort''=>[''2008'',7,''2000'',5,''2007'',4,''2011'',4],''author_facet''=>[''Alexander
         Street Press'',7,''Tomasi di Lampedusa, Giuseppe, 1896-1957'',3,''Abey, Dennis'',2,''BBC
         Video (Firm)'',2,''Bunner, H. C. (Henry Cuyler), 1855-1896'',2,''Coates, John'',2],''location_facet''=>[''Offsite'',25,''Online'',19,''Rare
@@ -609,5 +609,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:48:41 GMT
+  recorded_at: Wed, 26 Oct 2016 17:45:12 GMT
 recorded_with: VCR 3.0.3

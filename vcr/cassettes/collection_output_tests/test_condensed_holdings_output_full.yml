@@ -85,7 +85,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:54:16 GMT
+      - Wed, 26 Oct 2016 17:50:35 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -196,562 +196,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:54:16 GMT
-- request:
-    method: get
-    uri: "<solr_config>/select?id=8430339&qt=document&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 11 Oct 2016 20:54:18 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: UTF-8
-      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
-        f=id v=$id}'',''rows''=>''1'',''id''=>''8430339'',''qt''=>''document'',''wt''=>''ruby''}},''response''=>{''numFound''=>1,''start''=>0,''docs''=>[{''id''=>''8430339'',''marc_display''=>''<record><leader>01868cam
-        a2200457 a 4500</leader><controlfield tag="001">8430339</controlfield><controlfield
-        tag="005">20110428163253.0</controlfield><controlfield tag="008">100525s2011    nyu      b    001
-        0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2010021750</subfield></datafield><datafield
-        tag="020" ind1=" " ind2=" "><subfield code="a">9781416596158 (alk. paper)</subfield></datafield><datafield
-        tag="020" ind1=" " ind2=" "><subfield code="a">1416596151 (alk. paper)</subfield></datafield><datafield
-        tag="020" ind1=" " ind2=" "><subfield code="z">9781439101704 (ebook)</subfield></datafield><datafield
-        tag="020" ind1=" " ind2=" "><subfield code="z">1439101701 (ebook)</subfield></datafield><datafield
-        tag="024" ind1=" " ind2=" "><subfield code="a">99941660047</subfield></datafield><datafield
-        tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)464593183</subfield></datafield><datafield
-        tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn464593183</subfield></datafield><datafield
-        tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)8430339</subfield></datafield><datafield
-        tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield
-        code="d">YDX</subfield><subfield code="d">BTCTA</subfield><subfield code="d">YDXCP</subfield><subfield
-        code="d">MOF</subfield><subfield code="d">MLY</subfield><subfield code="d">CDX</subfield></datafield><datafield
-        tag="050" ind1="0" ind2="0"><subfield code="a">BL80.3</subfield><subfield
-        code="b">.D74 2011</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield
-        code="a">200</subfield><subfield code="2">22</subfield></datafield><datafield
-        tag="100" ind1="1" ind2=" "><subfield code="a">Dreyfus, Hubert L.</subfield></datafield><datafield
-        tag="245" ind1="1" ind2="0"><subfield code="a">All things shining :</subfield><subfield
-        code="b">reading the Western classics to find meaning in a secular age /</subfield><subfield
-        code="c">Hubert Dreyfus and Sean Dorrance Kelly.</subfield></datafield><datafield
-        tag="250" ind1=" " ind2=" "><subfield code="a">1st Free Press hardcover ed.</subfield></datafield><datafield
-        tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield
-        code="b">Free Press,</subfield><subfield code="c">c2011.</subfield></datafield><datafield
-        tag="300" ind1=" " ind2=" "><subfield code="a">xi, 254 p. ;</subfield><subfield
-        code="c">22 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2="
-        "><subfield code="a">Includes bibliographical references (p. 227-243) and
-        index.</subfield></datafield><datafield tag="505" ind1="0" ind2=" "><subfield
-        code="a">Our contemporary nihilism -- David Foster Wallace\''s nihilism --
-        Homer\''s polytheism -- From Aeschylus to Augustine : monotheism on the rise
-        -- From Dante to Kant : the attractions and dangers of autonomy -- Fanaticism,
-        polytheism, and Melville\''s "evil art" -- Conclusion : lives worth living
-        in a secular age.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield
-        code="a">Religions.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield
-        code="a">Religion.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield
-        code="a">Meaning (Philosophy)</subfield></datafield><datafield tag="700" ind1="1"
-        ind2=" "><subfield code="a">Kelly, Sean</subfield><subfield code="q">(Sean
-        D.)</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield
-        code="a">20110308</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield
-        code="d">MPS</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield
-        code="a">20110317</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield
-        code="d">MPS</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield
-        code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield
-        code="a">BL</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield
-        code="a">BL80.3 .D74 2011</subfield><subfield code="b">loc+BL-+0080+30000000+D7400000+002011</subfield></datafield><datafield
-        tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield
-        code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; BL80.3
-        .D74 2011|DELIM|11515363</subfield></datafield><datafield tag="992" ind1="
-        " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein
-        [Butler] &gt;&gt; BL80.3 .D74 2011|DELIM|11580964</subfield></datafield><datafield
-        tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield
-        tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield
-        tag="997" ind1=" " ind2=" "><subfield code="a">2011-03-17T00:00:00.000Z</subfield></datafield></record>'',''text''=>[''BL80.3
-        .D74 2011'',''200 22'',''Dreyfus, Hubert L.'',''All things shining : reading
-        the Western classics to find meaning in a secular age / Hubert Dreyfus and
-        Sean Dorrance Kelly.'',''1st Free Press hardcover ed.'',''New York : Free
-        Press, c2011.'',''xi, 254 p. ; 22 cm.'',''Includes bibliographical references
-        (p. 227-243) and index.'',''Our contemporary nihilism -- David Foster Wallace\''s
-        nihilism -- Homer\''s polytheism -- From Aeschylus to Augustine : monotheism
-        on the rise -- From Dante to Kant : the attractions and dangers of autonomy
-        -- Fanaticism, polytheism, and Melville\''s "evil art" -- Conclusion : lives
-        worth living in a secular age.'',''Religions.'',''Religion.'',''Meaning (Philosophy)'',''Kelly,
-        Sean (Sean D.)'',''20110308 c sl13 MPS'',''20110317 c sl13 MPS'',''AUTH''],''author_txt''=>[''Dreyfus,
-        Hubert L.''],''author_addl_txt''=>[''Kelly, Sean (Sean D.)''],''author_facet''=>[''Dreyfus,
-        Hubert L.'',''Kelly, Sean (Sean D.)''],''author_display''=>[''Dreyfus, Hubert
-        L.''],''author_sort''=>''Dreyfus, Hubert L.   All things shining reading the
-        Western classics to find meaning in a secular age Hubert Dreyfus and Sean
-        Dorrance Kelly'',''title_txt''=>[''All things shining :''],''title_display''=>[''All
-        things shining : reading the Western classics to find meaning in a secular
-        age''],''title_filing_txt''=>[''All things shining :''],''title_filing_full_txt''=>[''All
-        things shining : reading the Western classics to find meaning in a secular
-        age /''],''subtitle_txt''=>[''reading the Western classics to find meaning
-        in a secular age''],''title_first_facet''=>[''A''],''title_addl_txt''=>[''All
-        things shining : reading the Western classics to find meaning in a secular
-        age /''],''title_sort''=>''all things shining  reading the western classics
-        to find meaning in a secular age'',''subject_txt''=>[''Religions'',''Religion'',''Meaning
-        (Philosophy)''],''subject_topic_facet''=>[''Religions'',''Religion'',''Meaning
-        (Philosophy)''],''pub_place_display''=>[''New York''],''pub_name_display''=>[''Free
-        Press''],''pub_year_display''=>[''c2011''],''pub_place_txt''=>[''New York''],''pub_name_txt''=>[''Free
-        Press''],''pub_year_txt''=>[''c2011''],''pub_date_txt''=>[''2011''],''language_facet''=>[''English''],''format''=>[''Book''],''lc_1letter_facet''=>[''B
-        - Philosophy, Psychology, Religion''],''lc_2letter_facet''=>[''BL - Religions
-        (General)''],''lc_subclass_facet''=>[''BL - Religions (General)''],''clio_id_display''=>''8430339'',''acq_dt''=>''2011-03-17T00:00:00Z'',''source_facet''=>[''catalog''],''source_display''=>[''catalog''],''isbn_txt''=>[''9781416596158'',''1416596151'',''9781439101704'',''1439101701'',''9781416596158
-        (alk. paper)'',''1416596151 (alk. paper)'',''9781439101704 (ebook)'',''1439101701
-        (ebook)''],''isbn_display''=>[''9781416596158'',''1416596151''],''lccn_display''=>[''2010021750''],''lccn_txt''=>[''2010021750''],''oclc_txt''=>[''464593183'',''ocn464593183''],''oclc_display''=>[''464593183'',''ocn464593183''],''full_publisher_display''=>[''New
-        York : Free Press, c2011.''],''location_call_number_id_display''=>[''Butler
-        Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011|DELIM|11515363'',''Milstein
-        [Butler] >> BL80.3 .D74 2011|DELIM|11580964''],''location_call_number_txt''=>[''Butler
-        Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011'',''Milstein
-        [Butler] >> BL80.3 .D74 2011''],''call_number_txt''=>[''BL80.3 .D74 2011'',''BL80.3
-        .D74 2011''],''call_number_display''=>[''BL80.3 .D74 2011'',''BL80.3 .D74
-        2011''],''location_facet''=>[''Butler Stacks'',''Milstein''],''location_txt''=>[''Butler
-        Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011'',''Milstein
-        [Butler] >> BL80.3 .D74 2011''],''shelfkey''=>[''loc+bl-+0080+30000000+d7400000+002011+8430339''],''reverse_shelfkey''=>[''ebn~oe~~zzrz~wzzzzzzz~msvzzzzz~zzxzyy~rvwzwwq~~~~~''],''item_display''=>[''BL80.3
-        .D74 2011 | loc+bl-+0080+30000000+d7400000+002011+8430339 | ebn~oe~~zzrz~wzzzzzzz~msvzzzzz~zzxzyy~rvwzwwq~~~~~''],''timestamp''=>''2016-07-06T21:08:31.367Z'',''authorities_dt''=>''2016-08-31T09:05:34Z'',''author_variant_txt''=>[''Dreyfus,
-        Hubert''],''subject_variant_txt''=>[''Comparative religion'',''Denominations,
-        Religious'',''Religion, Comparative'',''Religions, Comparative'',''Religious
-        denominations'',''World religions'',''Religion, Primitive''],''_version_''=>1544169020262973440}]}}
-
-'
-    http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:54:17 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/9781416596158.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 11 Oct 2016 20:54:17 GMT
-  response:
-    status:
-      code: 302
-      message: Found
-    headers:
-      Date:
-      - Tue, 11 Oct 2016 20:54:18 GMT
-      Server:
-      - Apache/2.4.10 (Debian)
-      Location:
-      - https://catalog.hathitrust.org/api/volumes/brief/isbn/9781416596158.json
-      Content-Length:
-      - '344'
-      Content-Type:
-      - text/html; charset=iso-8859-1
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 11-Oct-2016
-        21:04:18 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |
-        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-        <html><head>
-        <title>302 Found</title>
-        </head><body>
-        <h1>Found</h1>
-        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/isbn/9781416596158.json">here</a>.</p>
-        <hr>
-        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
-        </body></html>
-    http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:54:17 GMT
-- request:
-    method: get
-    uri: https://catalog.hathitrust.org/api/volumes/brief/isbn/9781416596158.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 11 Oct 2016 20:54:17 GMT
-      Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 11 Oct 2016 20:54:18 GMT
-      Server:
-      - Apache/2.4.10 (Debian)
-      Access-Control-Allow-Origin:
-      - "*"
-      Content-Length:
-      - '31'
-      Content-Type:
-      - text/html; charset=UTF-8
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Tue, 11-Oct-2016
-        21:04:18 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:54:18 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/1416596151.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 11 Oct 2016 20:54:18 GMT
-  response:
-    status:
-      code: 302
-      message: Found
-    headers:
-      Date:
-      - Tue, 11 Oct 2016 20:54:19 GMT
-      Server:
-      - Apache/2.4.10 (Debian)
-      Location:
-      - https://catalog.hathitrust.org/api/volumes/brief/isbn/1416596151.json
-      Content-Length:
-      - '341'
-      Content-Type:
-      - text/html; charset=iso-8859-1
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 11-Oct-2016
-        21:04:19 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |
-        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-        <html><head>
-        <title>302 Found</title>
-        </head><body>
-        <h1>Found</h1>
-        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/isbn/1416596151.json">here</a>.</p>
-        <hr>
-        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
-        </body></html>
-    http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:54:18 GMT
-- request:
-    method: get
-    uri: https://catalog.hathitrust.org/api/volumes/brief/isbn/1416596151.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 11 Oct 2016 20:54:18 GMT
-      Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 11 Oct 2016 20:54:19 GMT
-      Server:
-      - Apache/2.4.10 (Debian)
-      Access-Control-Allow-Origin:
-      - "*"
-      Content-Length:
-      - '31'
-      Content-Type:
-      - text/html; charset=UTF-8
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Tue, 11-Oct-2016
-        21:04:19 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:54:18 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/464593183.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 11 Oct 2016 20:54:18 GMT
-  response:
-    status:
-      code: 302
-      message: Found
-    headers:
-      Date:
-      - Tue, 11 Oct 2016 20:54:19 GMT
-      Server:
-      - Apache/2.4.10 (Debian)
-      Location:
-      - https://catalog.hathitrust.org/api/volumes/brief/oclc/464593183.json
-      Content-Length:
-      - '340'
-      Content-Type:
-      - text/html; charset=iso-8859-1
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 11-Oct-2016
-        21:04:19 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |
-        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-        <html><head>
-        <title>302 Found</title>
-        </head><body>
-        <h1>Found</h1>
-        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/oclc/464593183.json">here</a>.</p>
-        <hr>
-        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
-        </body></html>
-    http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:54:18 GMT
-- request:
-    method: get
-    uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/464593183.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 11 Oct 2016 20:54:18 GMT
-      Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 11 Oct 2016 20:54:19 GMT
-      Server:
-      - Apache/2.4.10 (Debian)
-      Access-Control-Allow-Origin:
-      - "*"
-      Content-Length:
-      - '31'
-      Content-Type:
-      - text/html; charset=UTF-8
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Tue, 11-Oct-2016
-        21:04:19 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:54:19 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocn464593183.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 11 Oct 2016 20:54:19 GMT
-  response:
-    status:
-      code: 302
-      message: Found
-    headers:
-      Date:
-      - Tue, 11 Oct 2016 20:54:19 GMT
-      Server:
-      - Apache/2.4.10 (Debian)
-      Location:
-      - https://catalog.hathitrust.org/api/volumes/brief/oclc/ocn464593183.json
-      Content-Length:
-      - '343'
-      Content-Type:
-      - text/html; charset=iso-8859-1
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 11-Oct-2016
-        21:04:19 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |
-        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-        <html><head>
-        <title>302 Found</title>
-        </head><body>
-        <h1>Found</h1>
-        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/oclc/ocn464593183.json">here</a>.</p>
-        <hr>
-        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
-        </body></html>
-    http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:54:19 GMT
-- request:
-    method: get
-    uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/ocn464593183.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 11 Oct 2016 20:54:19 GMT
-      Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 11 Oct 2016 20:54:20 GMT
-      Server:
-      - Apache/2.4.10 (Debian)
-      Access-Control-Allow-Origin:
-      - "*"
-      Content-Length:
-      - '31'
-      Content-Type:
-      - text/html; charset=UTF-8
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Tue, 11-Oct-2016
-        21:04:20 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:54:19 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/lccn/2010021750.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 11 Oct 2016 20:54:19 GMT
-  response:
-    status:
-      code: 302
-      message: Found
-    headers:
-      Date:
-      - Tue, 11 Oct 2016 20:54:20 GMT
-      Server:
-      - Apache/2.4.10 (Debian)
-      Location:
-      - https://catalog.hathitrust.org/api/volumes/brief/lccn/2010021750.json
-      Content-Length:
-      - '341'
-      Content-Type:
-      - text/html; charset=iso-8859-1
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Tue, 11-Oct-2016
-        21:04:20 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |
-        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-        <html><head>
-        <title>302 Found</title>
-        </head><body>
-        <h1>Found</h1>
-        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/lccn/2010021750.json">here</a>.</p>
-        <hr>
-        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
-        </body></html>
-    http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:54:19 GMT
-- request:
-    method: get
-    uri: https://catalog.hathitrust.org/api/volumes/brief/lccn/2010021750.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 11 Oct 2016 20:54:19 GMT
-      Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 11 Oct 2016 20:54:20 GMT
-      Server:
-      - Apache/2.4.10 (Debian)
-      Access-Control-Allow-Origin:
-      - "*"
-      Content-Length:
-      - '31'
-      Content-Type:
-      - text/html; charset=UTF-8
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Tue, 11-Oct-2016
-        21:04:20 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:54:19 GMT
+  recorded_at: Wed, 26 Oct 2016 17:50:34 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/8430339"
@@ -764,7 +209,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 11 Oct 2016 20:54:19 GMT
+      - Wed, 26 Oct 2016 17:50:34 GMT
   response:
     status:
       code: 200
@@ -794,13 +239,13 @@ http_interactions:
       - nosniff
       - nosniff
       X-Runtime:
-      - '2.209346'
+      - '1.645980'
       Access-Control-Request-Method:
       - "*"
       X-Request-Id:
-      - fcf20221-081c-4fbc-9106-a6779b806c32
+      - b290f15d-e140-4f84-9aaf-a496e7651780
       Date:
-      - Tue, 11 Oct 2016 20:54:23 GMT
+      - Wed, 26 Oct 2016 17:50:37 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -815,7 +260,562 @@ http_interactions:
         out, due 2017-01-17":{"status":"not_available","count":1}}}],"services":["recall_hold"]},{"location_name":"Milstein
         [Butler]","location_note":"","call_number":"BL80.3 .D74 2011","status":"available","holding_id":["11580964"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]}]}}'
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:54:22 GMT
+  recorded_at: Wed, 26 Oct 2016 17:50:36 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?id=8430339&qt=document&wt=ruby"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 26 Oct 2016 17:50:37 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
+        f=id v=$id}'',''rows''=>''1'',''id''=>''8430339'',''qt''=>''document'',''wt''=>''ruby''}},''response''=>{''numFound''=>1,''start''=>0,''docs''=>[{''id''=>''8430339'',''marc_display''=>''<record><leader>01868cam
+        a2200457 a 4500</leader><controlfield tag="001">8430339</controlfield><controlfield
+        tag="005">20110428163253.0</controlfield><controlfield tag="008">100525s2011    nyu      b    001
+        0 eng  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2010021750</subfield></datafield><datafield
+        tag="020" ind1=" " ind2=" "><subfield code="a">9781416596158 (alk. paper)</subfield></datafield><datafield
+        tag="020" ind1=" " ind2=" "><subfield code="a">1416596151 (alk. paper)</subfield></datafield><datafield
+        tag="020" ind1=" " ind2=" "><subfield code="z">9781439101704 (ebook)</subfield></datafield><datafield
+        tag="020" ind1=" " ind2=" "><subfield code="z">1439101701 (ebook)</subfield></datafield><datafield
+        tag="024" ind1=" " ind2=" "><subfield code="a">99941660047</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)464593183</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn464593183</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)8430339</subfield></datafield><datafield
+        tag="040" ind1=" " ind2=" "><subfield code="a">DLC</subfield><subfield code="c">DLC</subfield><subfield
+        code="d">YDX</subfield><subfield code="d">BTCTA</subfield><subfield code="d">YDXCP</subfield><subfield
+        code="d">MOF</subfield><subfield code="d">MLY</subfield><subfield code="d">CDX</subfield></datafield><datafield
+        tag="050" ind1="0" ind2="0"><subfield code="a">BL80.3</subfield><subfield
+        code="b">.D74 2011</subfield></datafield><datafield tag="082" ind1="0" ind2="0"><subfield
+        code="a">200</subfield><subfield code="2">22</subfield></datafield><datafield
+        tag="100" ind1="1" ind2=" "><subfield code="a">Dreyfus, Hubert L.</subfield></datafield><datafield
+        tag="245" ind1="1" ind2="0"><subfield code="a">All things shining :</subfield><subfield
+        code="b">reading the Western classics to find meaning in a secular age /</subfield><subfield
+        code="c">Hubert Dreyfus and Sean Dorrance Kelly.</subfield></datafield><datafield
+        tag="250" ind1=" " ind2=" "><subfield code="a">1st Free Press hardcover ed.</subfield></datafield><datafield
+        tag="260" ind1=" " ind2=" "><subfield code="a">New York :</subfield><subfield
+        code="b">Free Press,</subfield><subfield code="c">c2011.</subfield></datafield><datafield
+        tag="300" ind1=" " ind2=" "><subfield code="a">xi, 254 p. ;</subfield><subfield
+        code="c">22 cm.</subfield></datafield><datafield tag="504" ind1=" " ind2="
+        "><subfield code="a">Includes bibliographical references (p. 227-243) and
+        index.</subfield></datafield><datafield tag="505" ind1="0" ind2=" "><subfield
+        code="a">Our contemporary nihilism -- David Foster Wallace\''s nihilism --
+        Homer\''s polytheism -- From Aeschylus to Augustine : monotheism on the rise
+        -- From Dante to Kant : the attractions and dangers of autonomy -- Fanaticism,
+        polytheism, and Melville\''s "evil art" -- Conclusion : lives worth living
+        in a secular age.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield
+        code="a">Religions.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield
+        code="a">Religion.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield
+        code="a">Meaning (Philosophy)</subfield></datafield><datafield tag="700" ind1="1"
+        ind2=" "><subfield code="a">Kelly, Sean</subfield><subfield code="q">(Sean
+        D.)</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield
+        code="a">20110308</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield
+        code="d">MPS</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield
+        code="a">20110317</subfield><subfield code="b">c</subfield><subfield code="c">sl13</subfield><subfield
+        code="d">MPS</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield
+        code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield
+        code="a">BL</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield
+        code="a">BL80.3 .D74 2011</subfield><subfield code="b">loc+BL-+0080+30000000+D7400000+002011</subfield></datafield><datafield
+        tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield
+        code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; BL80.3
+        .D74 2011|DELIM|11515363</subfield></datafield><datafield tag="992" ind1="
+        " ind2=" "><subfield code="a">Milstein</subfield><subfield code="b">Milstein
+        [Butler] &gt;&gt; BL80.3 .D74 2011|DELIM|11580964</subfield></datafield><datafield
+        tag="993" ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield
+        tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield
+        tag="997" ind1=" " ind2=" "><subfield code="a">2011-03-17T00:00:00.000Z</subfield></datafield></record>'',''text''=>[''BL80.3
+        .D74 2011'',''200 22'',''Dreyfus, Hubert L.'',''All things shining : reading
+        the Western classics to find meaning in a secular age / Hubert Dreyfus and
+        Sean Dorrance Kelly.'',''1st Free Press hardcover ed.'',''New York : Free
+        Press, c2011.'',''xi, 254 p. ; 22 cm.'',''Includes bibliographical references
+        (p. 227-243) and index.'',''Our contemporary nihilism -- David Foster Wallace\''s
+        nihilism -- Homer\''s polytheism -- From Aeschylus to Augustine : monotheism
+        on the rise -- From Dante to Kant : the attractions and dangers of autonomy
+        -- Fanaticism, polytheism, and Melville\''s "evil art" -- Conclusion : lives
+        worth living in a secular age.'',''Religions.'',''Religion.'',''Meaning (Philosophy)'',''Kelly,
+        Sean (Sean D.)'',''20110308 c sl13 MPS'',''20110317 c sl13 MPS'',''AUTH''],''author_txt''=>[''Dreyfus,
+        Hubert L.''],''author_addl_txt''=>[''Kelly, Sean (Sean D.)''],''author_facet''=>[''Dreyfus,
+        Hubert L.'',''Kelly, Sean (Sean D.)''],''author_display''=>[''Dreyfus, Hubert
+        L.''],''author_sort''=>''Dreyfus, Hubert L.   All things shining reading the
+        Western classics to find meaning in a secular age Hubert Dreyfus and Sean
+        Dorrance Kelly'',''title_txt''=>[''All things shining :''],''title_display''=>[''All
+        things shining : reading the Western classics to find meaning in a secular
+        age''],''title_filing_txt''=>[''All things shining :''],''title_filing_full_txt''=>[''All
+        things shining : reading the Western classics to find meaning in a secular
+        age /''],''subtitle_txt''=>[''reading the Western classics to find meaning
+        in a secular age''],''title_first_facet''=>[''A''],''title_addl_txt''=>[''All
+        things shining : reading the Western classics to find meaning in a secular
+        age /''],''title_sort''=>''all things shining  reading the western classics
+        to find meaning in a secular age'',''subject_txt''=>[''Religions'',''Religion'',''Meaning
+        (Philosophy)''],''subject_topic_facet''=>[''Religions'',''Religion'',''Meaning
+        (Philosophy)''],''pub_place_display''=>[''New York''],''pub_name_display''=>[''Free
+        Press''],''pub_year_display''=>[''c2011''],''pub_place_txt''=>[''New York''],''pub_name_txt''=>[''Free
+        Press''],''pub_year_txt''=>[''c2011''],''pub_date_txt''=>[''2011''],''language_facet''=>[''English''],''format''=>[''Book''],''lc_1letter_facet''=>[''B
+        - Philosophy, Psychology, Religion''],''lc_2letter_facet''=>[''BL - Religions
+        (General)''],''lc_subclass_facet''=>[''BL - Religions (General)''],''clio_id_display''=>''8430339'',''acq_dt''=>''2011-03-17T00:00:00Z'',''source_facet''=>[''catalog''],''source_display''=>[''catalog''],''isbn_txt''=>[''9781416596158'',''1416596151'',''9781439101704'',''1439101701'',''9781416596158
+        (alk. paper)'',''1416596151 (alk. paper)'',''9781439101704 (ebook)'',''1439101701
+        (ebook)''],''isbn_display''=>[''9781416596158'',''1416596151''],''lccn_display''=>[''2010021750''],''lccn_txt''=>[''2010021750''],''oclc_txt''=>[''464593183'',''ocn464593183''],''oclc_display''=>[''464593183'',''ocn464593183''],''full_publisher_display''=>[''New
+        York : Free Press, c2011.''],''location_call_number_id_display''=>[''Butler
+        Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011|DELIM|11515363'',''Milstein
+        [Butler] >> BL80.3 .D74 2011|DELIM|11580964''],''location_call_number_txt''=>[''Butler
+        Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011'',''Milstein
+        [Butler] >> BL80.3 .D74 2011''],''call_number_txt''=>[''BL80.3 .D74 2011'',''BL80.3
+        .D74 2011''],''call_number_display''=>[''BL80.3 .D74 2011'',''BL80.3 .D74
+        2011''],''location_facet''=>[''Butler Stacks'',''Milstein''],''location_txt''=>[''Butler
+        Stacks (Enter at the Butler Circulation Desk) >> BL80.3 .D74 2011'',''Milstein
+        [Butler] >> BL80.3 .D74 2011''],''shelfkey''=>[''loc+bl-+0080+30000000+d7400000+002011+8430339''],''reverse_shelfkey''=>[''ebn~oe~~zzrz~wzzzzzzz~msvzzzzz~zzxzyy~rvwzwwq~~~~~''],''item_display''=>[''BL80.3
+        .D74 2011 | loc+bl-+0080+30000000+d7400000+002011+8430339 | ebn~oe~~zzrz~wzzzzzzz~msvzzzzz~zzxzyy~rvwzwwq~~~~~''],''timestamp''=>''2016-07-06T21:08:31.367Z'',''authorities_dt''=>''2016-08-31T09:05:34Z'',''author_variant_txt''=>[''Dreyfus,
+        Hubert''],''subject_variant_txt''=>[''Comparative religion'',''Denominations,
+        Religious'',''Religion, Comparative'',''Religions, Comparative'',''Religious
+        denominations'',''World religions'',''Religion, Primitive''],''_version_''=>1544169020262973440}]}}
+
+'
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:50:36 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/9781416596158.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 26 Oct 2016 17:50:36 GMT
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Wed, 26 Oct 2016 17:50:37 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Location:
+      - https://catalog.hathitrust.org/api/volumes/brief/isbn/9781416596158.json
+      Content-Length:
+      - '344'
+      Content-Type:
+      - text/html; charset=iso-8859-1
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Wed, 26-Oct-2016
+        18:00:37 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>302 Found</title>
+        </head><body>
+        <h1>Found</h1>
+        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/isbn/9781416596158.json">here</a>.</p>
+        <hr>
+        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
+        </body></html>
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:50:36 GMT
+- request:
+    method: get
+    uri: https://catalog.hathitrust.org/api/volumes/brief/isbn/9781416596158.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 26 Oct 2016 17:50:36 GMT
+      Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 26 Oct 2016 17:50:37 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '31'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Wed, 26-Oct-2016
+        18:00:37 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:50:37 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/isbn/1416596151.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 26 Oct 2016 17:50:37 GMT
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Wed, 26 Oct 2016 17:50:38 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Location:
+      - https://catalog.hathitrust.org/api/volumes/brief/isbn/1416596151.json
+      Content-Length:
+      - '341'
+      Content-Type:
+      - text/html; charset=iso-8859-1
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Wed, 26-Oct-2016
+        18:00:38 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>302 Found</title>
+        </head><body>
+        <h1>Found</h1>
+        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/isbn/1416596151.json">here</a>.</p>
+        <hr>
+        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
+        </body></html>
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:50:37 GMT
+- request:
+    method: get
+    uri: https://catalog.hathitrust.org/api/volumes/brief/isbn/1416596151.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 26 Oct 2016 17:50:37 GMT
+      Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 26 Oct 2016 17:50:38 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '31'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Wed, 26-Oct-2016
+        18:00:38 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:50:37 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/464593183.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 26 Oct 2016 17:50:37 GMT
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Wed, 26 Oct 2016 17:50:38 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Location:
+      - https://catalog.hathitrust.org/api/volumes/brief/oclc/464593183.json
+      Content-Length:
+      - '340'
+      Content-Type:
+      - text/html; charset=iso-8859-1
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Wed, 26-Oct-2016
+        18:00:38 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>302 Found</title>
+        </head><body>
+        <h1>Found</h1>
+        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/oclc/464593183.json">here</a>.</p>
+        <hr>
+        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
+        </body></html>
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:50:38 GMT
+- request:
+    method: get
+    uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/464593183.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 26 Oct 2016 17:50:38 GMT
+      Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 26 Oct 2016 17:50:39 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '31'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Wed, 26-Oct-2016
+        18:00:39 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:50:38 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocn464593183.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 26 Oct 2016 17:50:38 GMT
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Wed, 26 Oct 2016 17:50:39 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Location:
+      - https://catalog.hathitrust.org/api/volumes/brief/oclc/ocn464593183.json
+      Content-Length:
+      - '343'
+      Content-Type:
+      - text/html; charset=iso-8859-1
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Wed, 26-Oct-2016
+        18:00:39 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>302 Found</title>
+        </head><body>
+        <h1>Found</h1>
+        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/oclc/ocn464593183.json">here</a>.</p>
+        <hr>
+        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
+        </body></html>
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:50:39 GMT
+- request:
+    method: get
+    uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/ocn464593183.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 26 Oct 2016 17:50:39 GMT
+      Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 26 Oct 2016 17:50:40 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '31'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Wed, 26-Oct-2016
+        18:00:40 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:50:40 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/lccn/2010021750.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 26 Oct 2016 17:50:40 GMT
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Wed, 26 Oct 2016 17:50:41 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Location:
+      - https://catalog.hathitrust.org/api/volumes/brief/lccn/2010021750.json
+      Content-Length:
+      - '341'
+      Content-Type:
+      - text/html; charset=iso-8859-1
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660;expires=Wed, 26-Oct-2016
+        18:00:41 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>302 Found</title>
+        </head><body>
+        <h1>Found</h1>
+        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/lccn/2010021750.json">here</a>.</p>
+        <hr>
+        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
+        </body></html>
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:50:40 GMT
+- request:
+    method: get
+    uri: https://catalog.hathitrust.org/api/volumes/brief/lccn/2010021750.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 26 Oct 2016 17:50:40 GMT
+      Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a423660
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 26 Oct 2016 17:50:41 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '31'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff854c63df45525d5f4f58455e445a4a42378b;expires=Wed, 26-Oct-2016
+        18:00:41 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:50:41 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=1052500&qt=document&wt=ruby"
@@ -829,7 +829,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:54:23 GMT
+      - Wed, 26 Oct 2016 17:50:42 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -839,7 +839,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
         YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
         eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9PicxMDUyNTAw
         JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
@@ -1130,8 +1130,8 @@ http_interactions:
         dXp6fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn4nXSwnaXRlbV9kaXNwbGF5Jz0+
         WydNSUNST0ZMTSBGTiA0MSB8IG1pYytmbi0tKy0rMDAwMDAwNDErMTA1MjUw
         MCB8IGRobn5rY35+fn5+enp6enp6dnl+eXp1eHV6en5+fn5+fn5+fn5+fn5+
-        fn5+fn5+fn5+J10sJ3RpbWVzdGFtcCc9PicyMDE2LTEwLTA5VDEwOjEwOjU2
-        LjM5MlonLCdhdXRob3JpdGllc19kdCc9PicyMDE2LTEwLTA5VDEyOjAyOjI4
+        fn5+fn5+fn5+J10sJ3RpbWVzdGFtcCc9PicyMDE2LTEwLTIzVDEwOjEwOjQ0
+        LjE5NFonLCdhdXRob3JpdGllc19kdCc9PicyMDE2LTEwLTIzVDEyOjAwOjI1
         WicsJ2dlb192YXJpYW50X3R4dCc9PlsnTmV3IFlvcmsgKENpdHkpJywnTmV3
         IEFtc3RlcmRhbSAoTi5ZLiknLCdOae+4oHXvuKEgScyGb3JrIChOLlkuKScs
         J05vdmkgSm9yayAoTi5ZLiknLCdOb3ZhIElvcnF1ZSAoTi5ZLiknLCdOeXUt
@@ -1139,7 +1139,7 @@ http_interactions:
         IChOLlkuKScsJ055dXlvayAoTi5ZLiknLCdOdXlvcmvMoyAoTi5ZLiknLCdO
         ZXcgWW9yayBDaXR5IChOLlkuKScsJ05peXXMhCBZdcyEcmsgKE4uWS4pJywn
         Tml1LXl1zIhlaCAoTi5ZLiknLCdOb3d5IEpvcmsgKE4uWS4pJ10sJ192ZXJz
-        aW9uXyc9PjE1NDc3MTM0MzA3ODc0NTcwMjR9XX19Cg==
+        aW9uXyc9PjE1NDg5ODE2NTk2MzU4MTAzMDR9XX19Cg==
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:54:22 GMT
+  recorded_at: Wed, 26 Oct 2016 17:50:41 GMT
 recorded_with: VCR 3.0.3

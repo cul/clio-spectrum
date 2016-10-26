@@ -2448,4 +2448,1431 @@ http_interactions:
         IHt9LCJuZXdzcGFwZXIiOiB7fX19
     http_version: 
   recorded_at: Tue, 11 Oct 2016 20:56:18 GMT
+- request:
+    method: get
+    uri: http://api.summon.serialssolutions.com/2.0.0/search?s.cache=false&s.ff=SubjectTerms,and,1,10&spellcheck=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf8
+      X-Summon-Date:
+      - Wed, 26 Oct 2016 17:51:56 GMT
+      X-Summon-Session-Id:
+      - SUMMON-SESSION-Sprite.local-44373-128
+      X-Summon-Request-Id:
+      - ''
+      Authorization:
+      - Summon columbia;wnYnFX8Q1vNjOstcbQX+T43BNy0=
+      Host:
+      - api.summon.serialssolutions.com:80
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Datacenter:
+      - IAD1
+      Date:
+      - Wed, 26 Oct 2016 17:51:59 GMT
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJ2ZXJzaW9uIjogIjIuMC4wIiwic2Vzc2lvbklkIjogIlNVTU1PTi1TRVNT
+        SU9OLVNwcml0ZS5sb2NhbC00NDM3My0xMjgiLCJlbGFwc2VkUXVlcnlUaW1l
+        IjogMTk5MiwicXVlcnlUaW1lIjogMTk4NywidG90YWxSZXF1ZXN0VGltZSI6
+        IDIxNTEsInBhZ2VDb3VudCI6IDE1NTMyOTcyNywicmVjb3JkQ291bnQiOiAx
+        NTUzMjk3MjcwLCJxdWVyeSI6IHsicXVlcnlTdHJpbmciOiAicy5jYWNoZT1m
+        JnMuZmY9TGFuZ3VhZ2UlMkNhbmQlMkMxJTJDMTAmcy5mZj1TdWJqZWN0VGVy
+        bXMlMkNhbmQlMkMxJTJDMTAmcy5mZj1Db250ZW50VHlwZSUyQ2FuZCUyQzEl
+        MkMxMCIsInBhZ2VOdW1iZXIiOiAxLCJwYWdlU2l6ZSI6IDEwLCJ0ZXh0UXVl
+        cmllcyI6IFtdLCJzZWFyY2hUZXJtcyI6IFtdLCJ0ZXh0RmlsdGVycyI6IFtd
+        LCJyYW5nZUZpbHRlcnMiOiBbXSwiZmFjZXRWYWx1ZUZpbHRlcnMiOiBbXSwi
+        aW5jbHVzaXZlRmFjZXRWYWx1ZUZpbHRlcnMiOiBbXSwiZmFjZXRWYWx1ZUdy
+        b3VwRmlsdGVycyI6IFtdLCJmYWNldEZpZWxkcyI6IFt7ImZpZWxkTmFtZSI6
+        ICJMYW5ndWFnZSIsImNvbWJpbmVNb2RlIjogImFuZCIsInBhZ2VOdW1iZXIi
+        OiAxLCJwYWdlU2l6ZSI6IDEwLCJyZW1vdmVDb21tYW5kIjogInJlbW92ZUZh
+        Y2V0RmllbGQoTGFuZ3VhZ2UpIn0seyJmaWVsZE5hbWUiOiAiU3ViamVjdFRl
+        cm1zIiwiY29tYmluZU1vZGUiOiAiYW5kIiwicGFnZU51bWJlciI6IDEsInBh
+        Z2VTaXplIjogMTAsInJlbW92ZUNvbW1hbmQiOiAicmVtb3ZlRmFjZXRGaWVs
+        ZChTdWJqZWN0VGVybXMpIn0seyJmaWVsZE5hbWUiOiAiQ29udGVudFR5cGUi
+        LCJjb21iaW5lTW9kZSI6ICJhbmQiLCJwYWdlTnVtYmVyIjogMSwicGFnZVNp
+        emUiOiAxMCwicmVtb3ZlQ29tbWFuZCI6ICJyZW1vdmVGYWNldEZpZWxkKENv
+        bnRlbnRUeXBlKSJ9XSwicmFuZ2VGYWNldEZpZWxkcyI6IFtdLCJzb3J0Ijog
+        W119LCJmYWNldEZpZWxkcyI6IFt7ImZpZWxkTmFtZSI6ICJMYW5ndWFnZV9z
+        IiwiZGlzcGxheU5hbWUiOiAiTGFuZ3VhZ2UiLCJjb21iaW5lTW9kZSI6ICJh
+        bmQiLCJwYWdlTnVtYmVyIjogMSwicGFnZVNpemUiOiAxMCwiaGFzTGltaXRp
+        bmdWYWx1ZSI6IHRydWUsImhhc0FwcGxpZWRWYWx1ZSI6IGZhbHNlLCJyZW1v
+        dmVDb21tYW5kIjogInJlbW92ZUZhY2V0RmllbGQoTGFuZ3VhZ2UpIiwibGlz
+        dFZhbHVlc0NvbW1hbmQiOiAibGlzdEZhY2V0VmFsdWVzKExhbmd1YWdlLGFu
+        ZCkiLCJyZW1vdmVWYWx1ZUZpbHRlcnNDb21tYW5kIjogInJlbW92ZUZhY2V0
+        VmFsdWVGaWx0ZXIoTGFuZ3VhZ2UpIiwiY291bnRzIjogW3sidmFsdWUiOiAi
+        RW5nbGlzaCIsImNvdW50IjogMTIyNTMwNjExMiwiaXNBcHBsaWVkIjogZmFs
+        c2UsImlzTmVnYXRlZCI6IGZhbHNlLCJpc0Z1cnRoZXJMaW1pdGluZyI6IHRy
+        dWUsImFwcGx5Q29tbWFuZCI6ICJhZGRGYWNldFZhbHVlRmlsdGVycyhMYW5n
+        dWFnZSxFbmdsaXNoKSIsImFwcGx5TmVnYXRlZENvbW1hbmQiOiAiYWRkRmFj
+        ZXRWYWx1ZUZpbHRlcnMoTGFuZ3VhZ2UsRW5nbGlzaDp0KSJ9LHsidmFsdWUi
+        OiAiR2VybWFuIiwiY291bnQiOiAxMDk0NTkwNTAsImlzQXBwbGllZCI6IGZh
+        bHNlLCJpc05lZ2F0ZWQiOiBmYWxzZSwiaXNGdXJ0aGVyTGltaXRpbmciOiB0
+        cnVlLCJhcHBseUNvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoTGFu
+        Z3VhZ2UsR2VybWFuKSIsImFwcGx5TmVnYXRlZENvbW1hbmQiOiAiYWRkRmFj
+        ZXRWYWx1ZUZpbHRlcnMoTGFuZ3VhZ2UsR2VybWFuOnQpIn0seyJ2YWx1ZSI6
+        ICJDaGluZXNlIiwiY291bnQiOiA2NDI3MTc5MiwiaXNBcHBsaWVkIjogZmFs
+        c2UsImlzTmVnYXRlZCI6IGZhbHNlLCJpc0Z1cnRoZXJMaW1pdGluZyI6IHRy
+        dWUsImFwcGx5Q29tbWFuZCI6ICJhZGRGYWNldFZhbHVlRmlsdGVycyhMYW5n
+        dWFnZSxDaGluZXNlKSIsImFwcGx5TmVnYXRlZENvbW1hbmQiOiAiYWRkRmFj
+        ZXRWYWx1ZUZpbHRlcnMoTGFuZ3VhZ2UsQ2hpbmVzZTp0KSJ9LHsidmFsdWUi
+        OiAiU3BhbmlzaCIsImNvdW50IjogMzI0NzM1MjcsImlzQXBwbGllZCI6IGZh
+        bHNlLCJpc05lZ2F0ZWQiOiBmYWxzZSwiaXNGdXJ0aGVyTGltaXRpbmciOiB0
+        cnVlLCJhcHBseUNvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoTGFu
+        Z3VhZ2UsU3BhbmlzaCkiLCJhcHBseU5lZ2F0ZWRDb21tYW5kIjogImFkZEZh
+        Y2V0VmFsdWVGaWx0ZXJzKExhbmd1YWdlLFNwYW5pc2g6dCkifSx7InZhbHVl
+        IjogIkphcGFuZXNlIiwiY291bnQiOiAyNzkxNTAzMiwiaXNBcHBsaWVkIjog
+        ZmFsc2UsImlzTmVnYXRlZCI6IGZhbHNlLCJpc0Z1cnRoZXJMaW1pdGluZyI6
+        IHRydWUsImFwcGx5Q29tbWFuZCI6ICJhZGRGYWNldFZhbHVlRmlsdGVycyhM
+        YW5ndWFnZSxKYXBhbmVzZSkiLCJhcHBseU5lZ2F0ZWRDb21tYW5kIjogImFk
+        ZEZhY2V0VmFsdWVGaWx0ZXJzKExhbmd1YWdlLEphcGFuZXNlOnQpIn0seyJ2
+        YWx1ZSI6ICJGcmVuY2giLCJjb3VudCI6IDIxNDc3Nzg5LCJpc0FwcGxpZWQi
+        OiBmYWxzZSwiaXNOZWdhdGVkIjogZmFsc2UsImlzRnVydGhlckxpbWl0aW5n
+        IjogdHJ1ZSwiYXBwbHlDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJz
+        KExhbmd1YWdlLEZyZW5jaCkiLCJhcHBseU5lZ2F0ZWRDb21tYW5kIjogImFk
+        ZEZhY2V0VmFsdWVGaWx0ZXJzKExhbmd1YWdlLEZyZW5jaDp0KSJ9LHsidmFs
+        dWUiOiAiSXRhbGlhbiIsImNvdW50IjogMTE3NjU5MzcsImlzQXBwbGllZCI6
+        IGZhbHNlLCJpc05lZ2F0ZWQiOiBmYWxzZSwiaXNGdXJ0aGVyTGltaXRpbmci
+        OiB0cnVlLCJhcHBseUNvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMo
+        TGFuZ3VhZ2UsSXRhbGlhbikiLCJhcHBseU5lZ2F0ZWRDb21tYW5kIjogImFk
+        ZEZhY2V0VmFsdWVGaWx0ZXJzKExhbmd1YWdlLEl0YWxpYW46dCkifSx7InZh
+        bHVlIjogIlBvcnR1Z3Vlc2UiLCJjb3VudCI6IDQ3ODQ3MTgsImlzQXBwbGll
+        ZCI6IGZhbHNlLCJpc05lZ2F0ZWQiOiBmYWxzZSwiaXNGdXJ0aGVyTGltaXRp
+        bmciOiB0cnVlLCJhcHBseUNvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRl
+        cnMoTGFuZ3VhZ2UsUG9ydHVndWVzZSkiLCJhcHBseU5lZ2F0ZWRDb21tYW5k
+        IjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKExhbmd1YWdlLFBvcnR1Z3Vlc2U6
+        dCkifSx7InZhbHVlIjogIktvcmVhbiIsImNvdW50IjogNDU5NzQwNiwiaXNB
+        cHBsaWVkIjogZmFsc2UsImlzTmVnYXRlZCI6IGZhbHNlLCJpc0Z1cnRoZXJM
+        aW1pdGluZyI6IHRydWUsImFwcGx5Q29tbWFuZCI6ICJhZGRGYWNldFZhbHVl
+        RmlsdGVycyhMYW5ndWFnZSxLb3JlYW4pIiwiYXBwbHlOZWdhdGVkQ29tbWFu
+        ZCI6ICJhZGRGYWNldFZhbHVlRmlsdGVycyhMYW5ndWFnZSxLb3JlYW46dCki
+        fSx7InZhbHVlIjogIlJ1c3NpYW4iLCJjb3VudCI6IDQwMDY1MDQsImlzQXBw
+        bGllZCI6IGZhbHNlLCJpc05lZ2F0ZWQiOiBmYWxzZSwiaXNGdXJ0aGVyTGlt
+        aXRpbmciOiB0cnVlLCJhcHBseUNvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZp
+        bHRlcnMoTGFuZ3VhZ2UsUnVzc2lhbikiLCJhcHBseU5lZ2F0ZWRDb21tYW5k
+        IjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKExhbmd1YWdlLFJ1c3NpYW46dCki
+        fV19LHsiZmllbGROYW1lIjogIlN1YmplY3RUZXJtc19tZmFjZXQiLCJkaXNw
+        bGF5TmFtZSI6ICJTdWJqZWN0VGVybXMiLCJjb21iaW5lTW9kZSI6ICJhbmQi
+        LCJwYWdlTnVtYmVyIjogMSwicGFnZVNpemUiOiAxMCwiaGFzTGltaXRpbmdW
+        YWx1ZSI6IHRydWUsImhhc0FwcGxpZWRWYWx1ZSI6IGZhbHNlLCJyZW1vdmVD
+        b21tYW5kIjogInJlbW92ZUZhY2V0RmllbGQoU3ViamVjdFRlcm1zKSIsImxp
+        c3RWYWx1ZXNDb21tYW5kIjogImxpc3RGYWNldFZhbHVlcyhTdWJqZWN0VGVy
+        bXMsYW5kKSIsInJlbW92ZVZhbHVlRmlsdGVyc0NvbW1hbmQiOiAicmVtb3Zl
+        RmFjZXRWYWx1ZUZpbHRlcihTdWJqZWN0VGVybXMpIiwiY291bnRzIjogW3si
+        dmFsdWUiOiAiYXRobGV0ZXMiLCJjb3VudCI6IDk0NTExNzUsImlzQXBwbGll
+        ZCI6IGZhbHNlLCJpc05lZ2F0ZWQiOiBmYWxzZSwiaXNGdXJ0aGVyTGltaXRp
+        bmciOiB0cnVlLCJhcHBseUNvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRl
+        cnMoU3ViamVjdFRlcm1zLGF0aGxldGVzKSIsImFwcGx5TmVnYXRlZENvbW1h
+        bmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoU3ViamVjdFRlcm1zLGF0aGxl
+        dGVzOnQpIn0seyJ2YWx1ZSI6ICJyZXNlYXJjaCIsImNvdW50IjogODc2MjU4
+        OCwiaXNBcHBsaWVkIjogZmFsc2UsImlzTmVnYXRlZCI6IGZhbHNlLCJpc0Z1
+        cnRoZXJMaW1pdGluZyI6IHRydWUsImFwcGx5Q29tbWFuZCI6ICJhZGRGYWNl
+        dFZhbHVlRmlsdGVycyhTdWJqZWN0VGVybXMscmVzZWFyY2gpIiwiYXBwbHlO
+        ZWdhdGVkQ29tbWFuZCI6ICJhZGRGYWNldFZhbHVlRmlsdGVycyhTdWJqZWN0
+        VGVybXMscmVzZWFyY2g6dCkifSx7InZhbHVlIjogImJvb2tzIiwiY291bnQi
+        OiA1OTE4MDgzLCJpc0FwcGxpZWQiOiBmYWxzZSwiaXNOZWdhdGVkIjogZmFs
+        c2UsImlzRnVydGhlckxpbWl0aW5nIjogdHJ1ZSwiYXBwbHlDb21tYW5kIjog
+        ImFkZEZhY2V0VmFsdWVGaWx0ZXJzKFN1YmplY3RUZXJtcyxib29rcykiLCJh
+        cHBseU5lZ2F0ZWRDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKFN1
+        YmplY3RUZXJtcyxib29rczp0KSJ9LHsidmFsdWUiOiAicmVwb3J0cyIsImNv
+        dW50IjogNTg4MjM5OSwiaXNBcHBsaWVkIjogZmFsc2UsImlzTmVnYXRlZCI6
+        IGZhbHNlLCJpc0Z1cnRoZXJMaW1pdGluZyI6IHRydWUsImFwcGx5Q29tbWFu
+        ZCI6ICJhZGRGYWNldFZhbHVlRmlsdGVycyhTdWJqZWN0VGVybXMscmVwb3J0
+        cykiLCJhcHBseU5lZ2F0ZWRDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0
+        ZXJzKFN1YmplY3RUZXJtcyxyZXBvcnRzOnQpIn0seyJ2YWx1ZSI6ICJoaXN0
+        b3J5IiwiY291bnQiOiA1MzAyNzAwLCJpc0FwcGxpZWQiOiBmYWxzZSwiaXNO
+        ZWdhdGVkIjogZmFsc2UsImlzRnVydGhlckxpbWl0aW5nIjogdHJ1ZSwiYXBw
+        bHlDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKFN1YmplY3RUZXJt
+        cyxoaXN0b3J5KSIsImFwcGx5TmVnYXRlZENvbW1hbmQiOiAiYWRkRmFjZXRW
+        YWx1ZUZpbHRlcnMoU3ViamVjdFRlcm1zLGhpc3Rvcnk6dCkifSx7InZhbHVl
+        IjogInBhdGVudHMiLCJjb3VudCI6IDUxNTc4NTMsImlzQXBwbGllZCI6IGZh
+        bHNlLCJpc05lZ2F0ZWQiOiBmYWxzZSwiaXNGdXJ0aGVyTGltaXRpbmciOiB0
+        cnVlLCJhcHBseUNvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoU3Vi
+        amVjdFRlcm1zLHBhdGVudHMpIiwiYXBwbHlOZWdhdGVkQ29tbWFuZCI6ICJh
+        ZGRGYWNldFZhbHVlRmlsdGVycyhTdWJqZWN0VGVybXMscGF0ZW50czp0KSJ9
+        LHsidmFsdWUiOiAiYm9vayByZXZpZXdzIiwiY291bnQiOiA1MDEwMDk3LCJp
+        c0FwcGxpZWQiOiBmYWxzZSwiaXNOZWdhdGVkIjogZmFsc2UsImlzRnVydGhl
+        ckxpbWl0aW5nIjogdHJ1ZSwiYXBwbHlDb21tYW5kIjogImFkZEZhY2V0VmFs
+        dWVGaWx0ZXJzKFN1YmplY3RUZXJtcyxib29rIHJldmlld3MpIiwiYXBwbHlO
+        ZWdhdGVkQ29tbWFuZCI6ICJhZGRGYWNldFZhbHVlRmlsdGVycyhTdWJqZWN0
+        VGVybXMsYm9vayByZXZpZXdzOnQpIn0seyJ2YWx1ZSI6ICJ1bml2ZXJzaXRp
+        ZXMgYW5kIGNvbGxlZ2VzIiwiY291bnQiOiA0ODE4MTMzLCJpc0FwcGxpZWQi
+        OiBmYWxzZSwiaXNOZWdhdGVkIjogZmFsc2UsImlzRnVydGhlckxpbWl0aW5n
+        IjogdHJ1ZSwiYXBwbHlDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJz
+        KFN1YmplY3RUZXJtcyx1bml2ZXJzaXRpZXMgYW5kIGNvbGxlZ2VzKSIsImFw
+        cGx5TmVnYXRlZENvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoU3Vi
+        amVjdFRlcm1zLHVuaXZlcnNpdGllcyBhbmQgY29sbGVnZXM6dCkifSx7InZh
+        bHVlIjogInVuaXRlZCBzdGF0ZXMiLCJjb3VudCI6IDQ4MDU3ODIsImlzQXBw
+        bGllZCI6IGZhbHNlLCJpc05lZ2F0ZWQiOiBmYWxzZSwiaXNGdXJ0aGVyTGlt
+        aXRpbmciOiB0cnVlLCJhcHBseUNvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZp
+        bHRlcnMoU3ViamVjdFRlcm1zLHVuaXRlZCBzdGF0ZXMpIiwiYXBwbHlOZWdh
+        dGVkQ29tbWFuZCI6ICJhZGRGYWNldFZhbHVlRmlsdGVycyhTdWJqZWN0VGVy
+        bXMsdW5pdGVkIHN0YXRlczp0KSJ9LHsidmFsdWUiOiAic2VydmljZSBpbmR1
+        c3RyaWVzIiwiY291bnQiOiA0NTAxMzIzLCJpc0FwcGxpZWQiOiBmYWxzZSwi
+        aXNOZWdhdGVkIjogZmFsc2UsImlzRnVydGhlckxpbWl0aW5nIjogdHJ1ZSwi
+        YXBwbHlDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKFN1YmplY3RU
+        ZXJtcyxzZXJ2aWNlIGluZHVzdHJpZXMpIiwiYXBwbHlOZWdhdGVkQ29tbWFu
+        ZCI6ICJhZGRGYWNldFZhbHVlRmlsdGVycyhTdWJqZWN0VGVybXMsc2Vydmlj
+        ZSBpbmR1c3RyaWVzOnQpIn1dfSx7ImZpZWxkTmFtZSI6ICJDb250ZW50VHlw
+        ZV9tZmFjZXQiLCJkaXNwbGF5TmFtZSI6ICJDb250ZW50VHlwZSIsImNvbWJp
+        bmVNb2RlIjogImFuZCIsInBhZ2VOdW1iZXIiOiAxLCJwYWdlU2l6ZSI6IDEw
+        LCJoYXNMaW1pdGluZ1ZhbHVlIjogdHJ1ZSwiaGFzQXBwbGllZFZhbHVlIjog
+        ZmFsc2UsInJlbW92ZUNvbW1hbmQiOiAicmVtb3ZlRmFjZXRGaWVsZChDb250
+        ZW50VHlwZSkiLCJsaXN0VmFsdWVzQ29tbWFuZCI6ICJsaXN0RmFjZXRWYWx1
+        ZXMoQ29udGVudFR5cGUsYW5kKSIsInJlbW92ZVZhbHVlRmlsdGVyc0NvbW1h
+        bmQiOiAicmVtb3ZlRmFjZXRWYWx1ZUZpbHRlcihDb250ZW50VHlwZSkiLCJj
+        b3VudHMiOiBbeyJ2YWx1ZSI6ICJOZXdzcGFwZXIgQXJ0aWNsZSIsImNvdW50
+        IjogODU0NDM3ODA2LCJpc0FwcGxpZWQiOiBmYWxzZSwiaXNOZWdhdGVkIjog
+        ZmFsc2UsImlzRnVydGhlckxpbWl0aW5nIjogdHJ1ZSwiYXBwbHlDb21tYW5k
+        IjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKENvbnRlbnRUeXBlLE5ld3NwYXBl
+        ciBBcnRpY2xlKSIsImFwcGx5TmVnYXRlZENvbW1hbmQiOiAiYWRkRmFjZXRW
+        YWx1ZUZpbHRlcnMoQ29udGVudFR5cGUsTmV3c3BhcGVyIEFydGljbGU6dCki
+        fSx7InZhbHVlIjogIkpvdXJuYWwgQXJ0aWNsZSIsImNvdW50IjogMjMyMjYy
+        ODcxLCJpc0FwcGxpZWQiOiBmYWxzZSwiaXNOZWdhdGVkIjogZmFsc2UsImlz
+        RnVydGhlckxpbWl0aW5nIjogdHJ1ZSwiYXBwbHlDb21tYW5kIjogImFkZEZh
+        Y2V0VmFsdWVGaWx0ZXJzKENvbnRlbnRUeXBlLEpvdXJuYWwgQXJ0aWNsZSki
+        LCJhcHBseU5lZ2F0ZWRDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJz
+        KENvbnRlbnRUeXBlLEpvdXJuYWwgQXJ0aWNsZTp0KSJ9LHsidmFsdWUiOiAi
+        TWFudXNjcmlwdCIsImNvdW50IjogOTMwODQ4MzEsImlzQXBwbGllZCI6IGZh
+        bHNlLCJpc05lZ2F0ZWQiOiBmYWxzZSwiaXNGdXJ0aGVyTGltaXRpbmciOiB0
+        cnVlLCJhcHBseUNvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoQ29u
+        dGVudFR5cGUsTWFudXNjcmlwdCkiLCJhcHBseU5lZ2F0ZWRDb21tYW5kIjog
+        ImFkZEZhY2V0VmFsdWVGaWx0ZXJzKENvbnRlbnRUeXBlLE1hbnVzY3JpcHQ6
+        dCkifSx7InZhbHVlIjogIlBhdGVudCIsImNvdW50IjogNzYzNzc1MjEsImlz
+        QXBwbGllZCI6IGZhbHNlLCJpc05lZ2F0ZWQiOiBmYWxzZSwiaXNGdXJ0aGVy
+        TGltaXRpbmciOiB0cnVlLCJhcHBseUNvbW1hbmQiOiAiYWRkRmFjZXRWYWx1
+        ZUZpbHRlcnMoQ29udGVudFR5cGUsUGF0ZW50KSIsImFwcGx5TmVnYXRlZENv
+        bW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoQ29udGVudFR5cGUsUGF0
+        ZW50OnQpIn0seyJ2YWx1ZSI6ICJSZXBvcnQiLCJjb3VudCI6IDU2NTAzOTI1
+        LCJpc0FwcGxpZWQiOiBmYWxzZSwiaXNOZWdhdGVkIjogZmFsc2UsImlzRnVy
+        dGhlckxpbWl0aW5nIjogdHJ1ZSwiYXBwbHlDb21tYW5kIjogImFkZEZhY2V0
+        VmFsdWVGaWx0ZXJzKENvbnRlbnRUeXBlLFJlcG9ydCkiLCJhcHBseU5lZ2F0
+        ZWRDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0ZXJzKENvbnRlbnRUeXBl
+        LFJlcG9ydDp0KSJ9LHsidmFsdWUiOiAiQm9vayAvIGVCb29rIiwiY291bnQi
+        OiA0NTY1MzE1MCwiaXNBcHBsaWVkIjogZmFsc2UsImlzTmVnYXRlZCI6IGZh
+        bHNlLCJpc0Z1cnRoZXJMaW1pdGluZyI6IHRydWUsImFwcGx5Q29tbWFuZCI6
+        ICJhZGRGYWNldFZhbHVlRmlsdGVycyhDb250ZW50VHlwZSxCb29rIC8gZUJv
+        b2spIiwiYXBwbHlOZWdhdGVkQ29tbWFuZCI6ICJhZGRGYWNldFZhbHVlRmls
+        dGVycyhDb250ZW50VHlwZSxCb29rIC8gZUJvb2s6dCkifSx7InZhbHVlIjog
+        Ik1hZ2F6aW5lIEFydGljbGUiLCJjb3VudCI6IDM3OTgzMDIzLCJpc0FwcGxp
+        ZWQiOiBmYWxzZSwiaXNOZWdhdGVkIjogZmFsc2UsImlzRnVydGhlckxpbWl0
+        aW5nIjogdHJ1ZSwiYXBwbHlDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0
+        ZXJzKENvbnRlbnRUeXBlLE1hZ2F6aW5lIEFydGljbGUpIiwiYXBwbHlOZWdh
+        dGVkQ29tbWFuZCI6ICJhZGRGYWNldFZhbHVlRmlsdGVycyhDb250ZW50VHlw
+        ZSxNYWdhemluZSBBcnRpY2xlOnQpIn0seyJ2YWx1ZSI6ICJOZXdzbGV0dGVy
+        IiwiY291bnQiOiAyNDY1NTkyNCwiaXNBcHBsaWVkIjogZmFsc2UsImlzTmVn
+        YXRlZCI6IGZhbHNlLCJpc0Z1cnRoZXJMaW1pdGluZyI6IHRydWUsImFwcGx5
+        Q29tbWFuZCI6ICJhZGRGYWNldFZhbHVlRmlsdGVycyhDb250ZW50VHlwZSxO
+        ZXdzbGV0dGVyKSIsImFwcGx5TmVnYXRlZENvbW1hbmQiOiAiYWRkRmFjZXRW
+        YWx1ZUZpbHRlcnMoQ29udGVudFR5cGUsTmV3c2xldHRlcjp0KSJ9LHsidmFs
+        dWUiOiAiQm9vayBSZXZpZXciLCJjb3VudCI6IDI0MDg3NDk5LCJpc0FwcGxp
+        ZWQiOiBmYWxzZSwiaXNOZWdhdGVkIjogZmFsc2UsImlzRnVydGhlckxpbWl0
+        aW5nIjogdHJ1ZSwiYXBwbHlDb21tYW5kIjogImFkZEZhY2V0VmFsdWVGaWx0
+        ZXJzKENvbnRlbnRUeXBlLEJvb2sgUmV2aWV3KSIsImFwcGx5TmVnYXRlZENv
+        bW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMoQ29udGVudFR5cGUsQm9v
+        ayBSZXZpZXc6dCkifSx7InZhbHVlIjogIlJlZmVyZW5jZSIsImNvdW50Ijog
+        MTU3OTM5ODQsImlzQXBwbGllZCI6IGZhbHNlLCJpc05lZ2F0ZWQiOiBmYWxz
+        ZSwiaXNGdXJ0aGVyTGltaXRpbmciOiB0cnVlLCJhcHBseUNvbW1hbmQiOiAi
+        YWRkRmFjZXRWYWx1ZUZpbHRlcnMoQ29udGVudFR5cGUsUmVmZXJlbmNlKSIs
+        ImFwcGx5TmVnYXRlZENvbW1hbmQiOiAiYWRkRmFjZXRWYWx1ZUZpbHRlcnMo
+        Q29udGVudFR5cGUsUmVmZXJlbmNlOnQpIn1dfV0sInJhbmdlRmFjZXRGaWVs
+        ZHMiOiBbXSwiZGlkWW91TWVhblN1Z2dlc3Rpb25zIjogW10sInJlY29tbWVu
+        ZGF0aW9uTGlzdHMiOiB7fSwiZG9jdW1lbnRzIjogW3siaGFzRnVsbFRleHQi
+        OiB0cnVlLCJpc0Z1bGxUZXh0SGl0IjogZmFsc2UsImlzUHJpbnQiOiBmYWxz
+        ZSwiaW5Ib2xkaW5ncyI6IHRydWUsIm9wZW5VcmwiOiAiY3R4X3Zlcj1aMzku
+        ODgtMjAwNCZjdHhfZW5jPWluZm8lM0FvZmklMkZlbmMlM0FVVEYtOCZyZnJf
+        aWQ9aW5mbyUzQXNpZCUyRnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbSZy
+        ZnRfdmFsX2ZtdD1pbmZvJTNBb2ZpJTJGZm10JTNBa2V2JTNBbXR4JTNBam91
+        cm5hbCZyZnQuZ2VucmU9YXJ0aWNsZSZyZnQuYXRpdGxlPVN0b2NrK1F1b3Rl
+        KzEwKy0tK05vK1RpdGxlJnJmdC5qdGl0bGU9TG9zK0FuZ2VsZXMrVGltZXMr
+        JTI4MTkyMy1DdXJyZW50K0ZpbGUlMjkmcmZ0LmRhdGU9MTk3NS0xMi0zMCZy
+        ZnQucHViPVRpbWVzK01pcnJvcitDb21wYW55JnJmdC5pc3NuPTA0NTgtMzAz
+        NSZyZnQuZWlzc249MjE2NS0xNzM2JnJmdC5zcGFnZT1EMTEmcmZ0LmV4dGVy
+        bmFsRG9jSUQ9NjA5NjQzMjMyIiwibGluayI6ICJodHRwOi8vY29sdW1iaWEu
+        c3VtbW9uLnNlcmlhbHNzb2x1dGlvbnMuY29tLzIuMC4wL2xpbmsvMC9lTHZI
+        Q1hNd1kyQlFSU3NQUUNOVUphbDY0TEpaMXdSMGxJNHU1TkpJcEhNWEdXRFhv
+        a0xqRjFZc2dzdnFsUHhrMERDNXZpRXdkVmtZbVJ1WjJoY1U2b0x1alFMTnI4
+        SXUwVWlFWHE0QW1xTUJOaW1ZR1ZpQmpXSEk5SzJ4SzZKc05nYXZRZ1RORHVv
+        Q0MyOVRqQklZWEsyNENUREF4aXBneTBtU1MzT0FiZ0dXRjBtWmlVaHJyWkVP
+        YmFTV3l3VVpCRUhsVzBGaVFXcVJnaU1rLVFneE1LWG1pVEJJQlpjQUMwbUZ3
+        Tkw4a2xRRlF3TUZYVjBGdjN5RkVGQ3FFbVdRZFhNTmNmYlFoZGtmbjVGWEVB
+        LTMxMWlDUWNIY010RTgyZEF3TWNYSUl0bkV6REF0eVN6RkxOSFNPTkhZUE5r
+        OEpTM0pVSkpCREx0bUtWd1MwZ3hjaHBibXB1QnpEdzFrR0ZoS2lrcFRaWUgx
+        T3pTY0FQQU5taVkiLCJEYXRhYmFzZVRpdGxlIjogWyJQcm9RdWVzdCBIaXN0
+        b3JpY2FsIE5ld3NwYXBlcnM6IExvcyBBbmdlbGVzIFRpbWVzICgxODgxLTE5
+        OTApIl0sIkxhbmd1YWdlIjogWyJFbmdsaXNoIl0sIlB1YmxpY2F0aW9uUGxh
+        Y2UiOiBbIkxvcyBBbmdlbGVzLCBDYWxpZiJdLCJTY29yZSI6IFsiMC4wMSJd
+        LCJEQklEIjogWyJDM0UiXSwiSXNQZWVyUmV2aWV3ZWQiOiBbImZhbHNlIl0s
+        IlB1YmxpY2F0aW9uRGF0ZV94bWwiOiBbeyJ0ZXh0IjogIjE5NzUxMjMwIiwi
+        bW9udGgiOiAiMTIiLCJ5ZWFyIjogIjE5NzUiLCJkYXkiOiAiMzAifV0sIlB1
+        YmxpY2F0aW9uRGF0ZSI6IFsiMTk3NTEyMzAiXSwiUHVibGljYXRpb25DZW50
+        dXJ5IjogWyIxOTAwIl0sIlB1Ymxpc2hlciI6IFsiVGltZXMgTWlycm9yIENv
+        bXBhbnkiXSwiU291cmNlVHlwZSI6IFsiQWdncmVnYXRpb24gRGF0YWJhc2Ui
+        XSwiUHVibGlzaGVyX3htbCI6IFt7Im5hbWUiOiAiVGltZXMgTWlycm9yIENv
+        bXBhbnkifV0sIk5ld3NwYXBlclNlY3Rpb24iOiBbIlBBUlQgSUlJIl0sIlVS
+        SSI6IFsiaHR0cDovL3NlYXJjaC5wcm9xdWVzdC5jb20vZG9jdmlldy8xNTc4
+        ODI3MjUiXSwiUFFQdWJJRCI6IFsiNDcwMDEiXSwiSXNTY2hvbGFybHkiOiBb
+        ImZhbHNlIl0sIklEIjogWyJGRVRDSC1wcm9xdWVzdF9obnBfMTU3ODgyNzI1
+        MyJdLCJQdWJsaWNhdGlvblRpdGxlIjogWyJMb3MgQW5nZWxlcyBUaW1lcyAo
+        MTkyMy1DdXJyZW50IEZpbGUpIl0sIlB1YmxpY2F0aW9uWWVhciI6IFsiMTk3
+        NSJdLCJHZW5yZSI6IFsiU3RvY2sgUXVvdGUiXSwiUHVibGljYXRpb25QbGFj
+        ZV94bWwiOiBbeyJuYW1lIjogIkxvcyBBbmdlbGVzLCBDYWxpZiJ9XSwiUFFJ
+        RCI6IFsiMTU3ODgyNzI1Il0sIkVJU1NOIjogWyIyMTY1LTE3MzYiXSwiTWVy
+        Z2VkSWQiOiBbIkZFVENITUVSR0VELXByb3F1ZXN0X2hucF8xNTc4ODI3MjUz
+        Il0sIlB1YmxpY2F0aW9uRGVjYWRlIjogWyIxOTcwIl0sIkNvbnRlbnRUeXBl
+        IjogWyJOZXdzcGFwZXIgQXJ0aWNsZSJdLCJUaXRsZSI6IFsiU3RvY2sgUXVv
+        dGUgMTAgLS0gTm8gVGl0bGUiXSwiSVNTTiI6IFsiMDQ1OC0zMDM1Il0sIkV4
+        dGVybmFsRG9jdW1lbnRJRCI6IFsiNjA5NjQzMjMyIl0sIlNTSUQiOiBbInNz
+        ajAwMDAzMDIiXSwiU3RhcnRQYWdlIjogWyJEMTEiXSwidGh1bWJuYWlsX20i
+        OiBbImh0dHA6Ly9jb3ZlcnMtY2RuLnN1bW1vbi5zZXJpYWxzc29sdXRpb25z
+        LmNvbS9pbmRleC5hc3B4P2lzYm49L21jLmdpZiZpc3NuPTA0NTgtMzAzNSZj
+        bGllbnQ9c3VtbW9uIl0sInRodW1ibmFpbF9zIjogWyJodHRwOi8vY292ZXJz
+        LWNkbi5zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20vaW5kZXguYXNweD9p
+        c2JuPS9zYy5naWYmaXNzbj0wNDU4LTMwMzUmY2xpZW50PXN1bW1vbiJdLCJ0
+        aHVtYm5haWxfbCI6IFsiaHR0cDovL2NvdmVycy1jZG4uc3VtbW9uLnNlcmlh
+        bHNzb2x1dGlvbnMuY29tL2luZGV4LmFzcHg/aXNibj0vbGMuZ2lmJmlzc249
+        MDQ1OC0zMDM1JmNsaWVudD1zdW1tb24iXSwiRGF0YWJhc2VfeG1sIjogW3si
+        c2VxdWVuY2UiOiAiMSIsIm5hbWUiOiAiUHJvUXVlc3QgSGlzdG9yaWNhbCBO
+        ZXdzcGFwZXJzOiBMb3MgQW5nZWxlcyBUaW1lcyAoMTg4MS0xOTkwKSIsImRi
+        aWQiOiAiQzNFIiwidXJsIjogImh0dHA6Ly9lenByb3h5LmN1bC5jb2x1bWJp
+        YS5lZHUvbG9naW4/dXJsPWh0dHA6Ly9zZWFyY2gucHJvcXVlc3QuY29tL2hu
+        cGNoaWNhZ290cmlidW5lL2FkdmFuY2VkP2FjY291bnRpZD0xMDIyNiIsInNv
+        dXJjZVR5cGVzIjogWyJBZ2dyZWdhdGlvbiBEYXRhYmFzZSJdfV0sIkxpbmtN
+        b2RlbCI6IFsiRGlyZWN0TGluayJdLCJCb29rTWFyayI6IFsiZVBuSENYTXdZ
+        MkxnTkRJME05VTFORGNHSmpoTzBEeWNMckNZTk9XQUY0X0dCa2FjREZMQkpj
+        RDhyaEJZbWwtU3FtQm9vS0NycS1DWHJ4QUNDaUJ1QmxrMzF4Qm5EMTFZMlJp
+        ZmtWY1Fid2hNV2haRzVrYWdXNHp4eXdNQW82RWhZQSJdLCJEYXRhYmFzZU5h
+        bWUiOiBbIlByb1F1ZXN0IEhpc3RvcmljYWwgTmV3c3BhcGVyczogTG9zIEFu
+        Z2VsZXMgVGltZXMgKDE4ODEtMTk5MCkiXX0seyJoYXNGdWxsVGV4dCI6IGZh
+        bHNlLCJpc0Z1bGxUZXh0SGl0IjogZmFsc2UsImlzUHJpbnQiOiBmYWxzZSwi
+        aW5Ib2xkaW5ncyI6IGZhbHNlLCJvcGVuVXJsIjogImN0eF92ZXI9WjM5Ljg4
+        LTIwMDQmY3R4X2VuYz1pbmZvJTNBb2ZpJTJGZW5jJTNBVVRGLTgmcmZyX2lk
+        PWluZm8lM0FzaWQlMkZzdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20mcmZ0
+        X3ZhbF9mbXQ9aW5mbyUzQW9maSUyRmZtdCUzQWtldiUzQW10eCUzQWpvdXJu
+        YWwmcmZ0LmdlbnJlPWFydGljbGUmcmZ0LmF0aXRsZT1NdW5jaWUrQ2hldnJv
+        bGV0K1BsYW50K2VtcGxveWVlcythbmQrbWFjaGluZXJ5JnJmdC5kYXRlPTE5
+        NTAtMDEtMDEmcmZ0LmV4dGVybmFsREJJRD1uJTJGYSZyZnQuZXh0ZXJuYWxE
+        b2NJRD1saWJ4X2JzdV9lZHVfY2RtX3JlZl9jb2xsZWN0aW9uX0NoZXZ5UGxh
+        bnRfaWRfMzkwIiwibGluayI6ICJodHRwOi8vY29sdW1iaWEuc3VtbW9uLnNl
+        cmlhbHNzb2x1dGlvbnMuY29tLzIuMC4wL2xpbmsvMC9lTHZIQ1hNd3BWMDlE
+        NEl3RUwxSVhOdzBtdmlaZEhFRVJBakk1R0FrT3JpNU55MHQwUUVHUlNQXzNy
+        c3F3Yml5a3ZUNlV0cDN1Y3ZMUFlEbEh4OVFoNnJVanVGbU82QlJPdmJITlBK
+        bjdpSnNtdDdGeTVGMWZhaHlGX09FUzBkaWhFbUZ1N3ZvWjBWLVBxV0xQd3NM
+        ZGd2ckxiSk5zV1E5ODg4UVhkS0g3akhISnptQWppNkc0SndlWkhiTGFEM3A5
+        a3BtZ2pEOTlkVzlNeXpjV1c0RWpQcFdqU0JKOXVmZHdjYW9uRVRqbUFGVXpn
+        a2RwMC1JamlNNmp1aDRnNDQzNkRnWjRzYXIxUmhZRklzbzlUeWgxcHMwQ0wx
+        TWhpb1VzU184S0kxVUpyMEpiRnZ1TW0wZFlRWTk4b1A5OUJibTBNM3c3dXNG
+        cG1xaVNIa1ZielUzbUgwIiwiTGFuZ3VhZ2UiOiBbIkVuZ2xpc2giXSwiTGli
+        cmFyeSI6IFsiRGlnaXRhbCBNZWRpYSBSZXBvc2l0b3J5Il0sIlNjb3JlIjog
+        WyIwLjAxIl0sIkNvcHlyaWdodCI6IFsiQ29weXJpZ2h0IDIwMTEsIEJhbGwg
+        U3RhdGUgVW5pdmVyc2l0eS4gQWxsIHJpZ2h0cyByZXNlcnZlZC4gVG8gb3Jk
+        ZXIgYSByZXByb2R1Y3Rpb24gZnJvbSB0aGUgYXJjaGl2YWwgZmlsZSwgaW5x
+        dWlyZSBhYm91dCBwZXJtaXNzaW9ucywgb3IgZm9yIGluZm9ybWF0aW9uIGFi
+        b3V0IHByaWNlcywgY29udGFjdCBBcmNoaXZlcyBhbmQgU3BlY2lhbCBDb2xs
+        ZWN0aW9ucywgQmFsbCBTdGF0ZSBVbml2ZXJzaXR5IExpYnJhcmllcyBhdCAo
+        NzY1KSAyODUtNTA3OCBvciBzZW5kIGUtbWFpbCB0byBsaWJhcmNoaXZlc0Bi
+        c3UuZWR1LiJdLCJJc1BlZXJSZXZpZXdlZCI6IFsiZmFsc2UiXSwiREJJRCI6
+        IFsiS0pCIl0sIlB1YmxpY2F0aW9uRGF0ZSI6IFsiMTk1MHMtMTk3MHMiXSwi
+        UHVibGljYXRpb25EYXRlX3htbCI6IFt7InRleHQiOiAiIDE5NTBzLTE5NzBz
+        IiwieWVhciI6ICIxOTUwIn1dLCJQdWJsaWNhdGlvbkNlbnR1cnkiOiBbIjE5
+        MDAiXSwiQ29weXJpZ2h0X3htbCI6IFt7Im5vdGljZSI6ICJDb3B5cmlnaHQg
+        MjAxMSwgQmFsbCBTdGF0ZSBVbml2ZXJzaXR5LiBBbGwgcmlnaHRzIHJlc2Vy
+        dmVkLiBUbyBvcmRlciBhIHJlcHJvZHVjdGlvbiBmcm9tIHRoZSBhcmNoaXZh
+        bCBmaWxlLCBpbnF1aXJlIGFib3V0IHBlcm1pc3Npb25zLCBvciBmb3IgaW5m
+        b3JtYXRpb24gYWJvdXQgcHJpY2VzLCBjb250YWN0IEFyY2hpdmVzIGFuZCBT
+        cGVjaWFsIENvbGxlY3Rpb25zLCBCYWxsIFN0YXRlIFVuaXZlcnNpdHkgTGli
+        cmFyaWVzIGF0ICg3NjUpIDI4NS01MDc4IG9yIHNlbmQgZS1tYWlsIHRvIGxp
+        YmFyY2hpdmVzQGJzdS5lZHUuIn1dLCJOb3RlcyI6IFsiUDI1OS0wODQuanBn
+        IiwiQmFsbCBTdGF0ZSBVbml2ZXJzaXR5LiBVbml2ZXJzaXR5IExpYnJhcmll
+        cy4gQXJjaGl2ZXMgYW5kIFNwZWNpYWwgQ29sbGVjdGlvbnMiLCJQLjI1OSIs
+        Ik11bmNpZTsgRGVsYXdhcmUgQ291bnR5OyBJbmRpYW5hOyBVbml0ZWQgU3Rh
+        dGVzOyBOb3J0aCBhbmQgQ2VudHJhbCBBbWVyaWNhIiwiTXVuY2llLCBJbmRp
+        YW5hIENoZXZyb2xldCBNb3RvciBDb21wYW55IHBob3RvZ3JhcGhzIiwiUGhv
+        dG9ncmFwaGljIHByaW50czsgUGhvdG9ncmFwaHM7IEJsYWNrIGFuZCB3aGl0
+        ZSBpbWFnZXMiLCJUd2VudGlldGggY2VudHVyeSwgQy4gRS4iLCJNdW5jaWUg
+        Q2hldnJvbGV0IFBsYW50IFBob3RvZ3JhcGhzIENvbGxlY3Rpb24iLCJodHRw
+        Oi8vbGlieC5ic3UuZWR1L2NvbGxlY3Rpb24ucGhwP0NJU09ST09UPS9DaGV2
+        eVBsYW50Il0sIlNvdXJjZVR5cGUiOiBbIkluc3RpdHV0aW9uYWwgUmVwb3Np
+        dG9yeSJdLCJUZW1wb3JhbFN1YmplY3RUZXJtcyI6IFsiVHdlbnRpZXRoIGNl
+        bnR1cnksIEMuIEUiXSwiR2VvZ3JhcGhpY0xvY2F0aW9ucyI6IFsiVW5pdGVk
+        IFN0YXRlcyIsIkluZGlhbmEiLCJNdW5jaWUiLCJOb3J0aCBhbmQgQ2VudHJh
+        bCBBbWVyaWNhIiwiRGVsYXdhcmUgQ291bnR5Il0sIlVSSSI6IFsiaHR0cDov
+        L2xpYnguYnN1LmVkdS9jZG0vcmVmL2NvbGxlY3Rpb24vQ2hldnlQbGFudC9p
+        ZC8zOTAiXSwiSXNTY2hvbGFybHkiOiBbImZhbHNlIl0sIklEIjogWyJGRVRD
+        SC1ic3VfY29udGVudGRtX2xpYnhfYnN1X2VkdV9jZG1fcmVmX2NvbGxlY3Rp
+        b25fQ2hldnlQbGFudF9pZF8zOTAwIl0sIkdlb2dyYXBoaWNMb2NhdGlvbnNf
+        eG1sIjogW3sibmFtZSI6ICJOb3J0aCBhbmQgQ2VudHJhbCBBbWVyaWNhIn0s
+        eyJuYW1lIjogIkluZGlhbmEifSx7Im5hbWUiOiAiRGVsYXdhcmUgQ291bnR5
+        In0seyJuYW1lIjogIk11bmNpZSJ9LHsibmFtZSI6ICJVbml0ZWQgU3RhdGVz
+        In1dLCJQdWJsaWNhdGlvblllYXIiOiBbIjE5NTAiXSwiU3ViamVjdFRlcm1z
+        IjogWyJGYWN0b3JpZXMiLCJHZW5lcmFsIE1vdG9ycyBDb3Jwb3JhdGlvbi4g
+        Q2hldnJvbGV0IE1vdG9yIERpdmlzaW9uIiwiTWVuIiwiTWFjaGluZXJ5Iiwi
+        TGFib3JlcnMiXSwiTWVyZ2VkSWQiOiBbIkZFVENITUVSR0VELWJzdV9jb250
+        ZW50ZG1fbGlieF9ic3VfZWR1X2NkbV9yZWZfY29sbGVjdGlvbl9DaGV2eVBs
+        YW50X2lkXzM5MDAiXSwiUHVibGljYXRpb25EZWNhZGUiOiBbIjE5NTAiXSwi
+        Q29udGVudFR5cGUiOiBbIkltYWdlIl0sIlRpdGxlIjogWyJNdW5jaWUgQ2hl
+        dnJvbGV0IFBsYW50IGVtcGxveWVlcyBhbmQgbWFjaGluZXJ5Il0sIkV4dGVy
+        bmFsRG9jdW1lbnRJRCI6IFsibGlieF9ic3VfZWR1X2NkbV9yZWZfY29sbGVj
+        dGlvbl9DaGV2eVBsYW50X2lkXzM5MCJdLCJ0aHVtYm5haWxfcyI6IFsiaHR0
+        cDovL2NvbHVtYmlhLnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbS8yLjAu
+        MC9pbWFnZS9jdXN0b20/dXJsPWh0dHAlM0ElMkYlMkZsaWJ4LmJzdS5lZHUl
+        MkZjZ2ktYmluJTJGdGh1bWJuYWlsLmV4ZSUzRkNJU09ST09UJTNEJTJGQ2hl
+        dnlQbGFudCUyNkNJU09QVFIlM0QzOTAiXSwiTGlua01vZGVsIjogWyJEaXJl
+        Y3RMaW5rIl0sIkJvb2tNYXJrIjogWyJlUG5IQ1hNdzQyVFE4eTBGM1N1cjRK
+        eVJXZ1phSWxlaUFMcF9wMFFoRlhxRmJiRUNzSS1za0F0ZUs1Z0sydUhqNXVZ
+        YTR1eWhtMVJjR2c5YW53MHNiRk55NDRHOXhZcDRrQkN3eEkxUEJnb0FLNHg0
+        VU5pQVZ5amx4WU5NcndRYkhBLTZlOVlTdEVXTlNnWUJBQmxtUi1nIl0sIkRh
+        dGFiYXNlTmFtZSI6IFsiQmFsbCBTdGF0ZSBVbml2ZXJzaXR5IExpYnJhcmll
+        cycgRGlnaXRhbCBNZWRpYSBSZXBvc2l0b3J5Il19LHsiaGFzRnVsbFRleHQi
+        OiB0cnVlLCJpc0Z1bGxUZXh0SGl0IjogZmFsc2UsImlzUHJpbnQiOiBmYWxz
+        ZSwiaW5Ib2xkaW5ncyI6IHRydWUsIm9wZW5VcmwiOiAiY3R4X3Zlcj1aMzku
+        ODgtMjAwNCZjdHhfZW5jPWluZm8lM0FvZmklMkZlbmMlM0FVVEYtOCZyZnJf
+        aWQ9aW5mbyUzQXNpZCUyRnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbSZy
+        ZnRfdmFsX2ZtdD1pbmZvJTNBb2ZpJTJGZm10JTNBa2V2JTNBbXR4JTNBam91
+        cm5hbCZyZnQuZ2VucmU9YXJ0aWNsZSZyZnQuYXRpdGxlPVRoZStXZWF0aGVy
+        K1JlcG9ydCZyZnQuanRpdGxlPUNoaWNhZ28rVHJpYnVuZSslMjgxOTYzLUN1
+        cnJlbnQrZmlsZSUyOSZyZnQuZGF0ZT0xOTg1LTAxLTMxJnJmdC5wdWI9VHJp
+        YnVuZStQdWJsaXNoaW5nK0NvbXBhbnkrTExDJnJmdC5pc3NuPTEwODUtNjcw
+        NiZyZnQuZWlzc249MjE2NS0xNzFYJnJmdC5zcGFnZT0xNiZyZnQuZXh0ZXJu
+        YWxEb2NJRD03NjczNDczMTIiLCJsaW5rIjogImh0dHA6Ly9jb2x1bWJpYS5z
+        dW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20vMi4wLjAvbGluay8wL2VMdkhD
+        WE13WTJCUVJTc1BRQ05VSmFsNjRMSloxd1IwbEk0dTVOSklwSE1YR1dEWG9r
+        TGpGMVlzZ3N2cWxQeGswREM1dmlHd3kyMEJUSkNtOWdXRnVxQjdvMER6cTdC
+        TE5CS2hseXVBNW1pQVRRcG1CbFpqMEZFajRJTWZmZUh6Q3FoTDdnM01NRXBn
+        Y0ducEpzQUFHNnVBTFNkSkxzMEJ1Z1ZZWGlSbEppS3R0VVk2dEpGYUxoZGtF
+        QVNWYndXSkJhbEZDbzZRNUNQRXdKU2FKOElnQkV3NkN1R1FwcUVDcElFdXlp
+        RHI1aHJpN0tFTHN6Yy1JNjhnSG02ZnNRU0Rncmxsb25teW9XRmlpcEZGc29t
+        WllWcVNXWXBab3FWeG9yRjVzbmxLV3BLaEpJTVlkczFTdUNTa0diZ01MUzFB
+        aV82QVJiZ01BMHRKVVdtcUxMQmVoNFlQQUkzYW1IbyIsIkRhdGFiYXNlVGl0
+        bGUiOiBbIlByb1F1ZXN0IEhpc3RvcmljYWwgTmV3c3BhcGVyczogQ2hpY2Fn
+        byBUcmlidW5lICgxODQ5LTE5OTApIl0sIkxhbmd1YWdlIjogWyJFbmdsaXNo
+        Il0sIlB1YmxpY2F0aW9uUGxhY2UiOiBbIkNoaWNhZ28sIElsbCJdLCJTY29y
+        ZSI6IFsiMC4wMSJdLCJEQklEIjogWyJGMU0iXSwiSXNQZWVyUmV2aWV3ZWQi
+        OiBbImZhbHNlIl0sIlB1YmxpY2F0aW9uRGF0ZV94bWwiOiBbeyJ0ZXh0Ijog
+        IjE5ODUwMTMxIiwibW9udGgiOiAiMDEiLCJ5ZWFyIjogIjE5ODUiLCJkYXki
+        OiAiMzEifV0sIlB1YmxpY2F0aW9uRGF0ZSI6IFsiMTk4NTAxMzEiXSwiUHVi
+        bGljYXRpb25DZW50dXJ5IjogWyIxOTAwIl0sIlB1Ymxpc2hlciI6IFsiVHJp
+        YnVuZSBQdWJsaXNoaW5nIENvbXBhbnkgTExDIl0sIkFic3RyYWN0TGlzdCI6
+        IFsiVGh1cnNkYXkgd2lsbCBiZSBwYXJ0bHkgY2xvdWR5IHdpdGggc25vdyBz
+        aG93ZXJzLiBUaGUgaGlnaCB3aWxsIGJlLTUgZGVncmVlcyB3ZXN0IHRvIDE1
+        IGVhc3QgYW5kIG5vcnRoIHdpbmRzIHdpbGwgYmUgMTUgdG8gMzAgbWlsZXMg
+        YW4gaG91ciBhbmQgZ3VzdHksIGJyaW5naW5nIHdpbmQgY2hpbGxzIHRvLTYw
+        IHRvLTMwLiBDbGVhciBUaHVyc2RheSBuaWdodCB3aXRoIGEgbG93IG9mLTE1
+        IHdlc3QgYW5kIDEwIGF0IHRoZSBsYWtlLiBOb3J0aCB3aW5kcyB3aWxsIGJl
+        IDE1IHRvIDIwIG0ucC5oLiBhbmQgZGltaW5pc2hpbmcgYW5kIHdpbmQgY2hp
+        bGxzIGJlY29tZS00MCB0by0xMC4gRnJpZGF5IHdpbGwgYmUgY291ZHkgd2l0
+        aCBzbm93IHNob3dlcnMsIHBvc3NpYmx5IGhlYXZ5IG5lYXIgdGhlIGxha2Ug
+        YW5kLi4uIl0sIlNvdXJjZVR5cGUiOiBbIkFnZ3JlZ2F0aW9uIERhdGFiYXNl
+        Il0sIlB1Ymxpc2hlcl94bWwiOiBbeyJuYW1lIjogIlRyaWJ1bmUgUHVibGlz
+        aGluZyBDb21wYW55IExMQyJ9XSwiU25pcHBldCI6IFsiVGh1cnNkYXkgd2ls
+        bCBiZSBwYXJ0bHkgY2xvdWR5IHdpdGggc25vdyBzaG93ZXJzLiBUaGUgaGln
+        aCB3aWxsIGJlLTUgZGVncmVlcyB3ZXN0IHRvIDE1IGVhc3QgYW5kIG5vcnRo
+        IHdpbmRzIHdpbGwgYmUgMTUgdG8gMzAgbWlsZXMgYW4gaG91ciBhbmQgZ3Vz
+        dHksIGJyaW5naW5nLi4uIl0sIkdlb2dyYXBoaWNMb2NhdGlvbnMiOiBbIkNI
+        SUNBR08iXSwiVVJJIjogWyJodHRwOi8vc2VhcmNoLnByb3F1ZXN0LmNvbS9k
+        b2N2aWV3LzE3NjE4MzAxNSJdLCJQUVB1YklEIjogWyI0Njg1NCJdLCJJc1Nj
+        aG9sYXJseSI6IFsiZmFsc2UiXSwiSUQiOiBbIkZFVENILXByb3F1ZXN0X2hu
+        cF8xNzYxODMwMTUzIl0sIlB1YmxpY2F0aW9uVGl0bGUiOiBbIkNoaWNhZ28g
+        VHJpYnVuZSAoMTk2My1DdXJyZW50IGZpbGUpIl0sIlB1YmxpY2F0aW9uWWVh
+        ciI6IFsiMTk4NSJdLCJQdWJsaWNhdGlvblBsYWNlX3htbCI6IFt7Im5hbWUi
+        OiAiQ2hpY2FnbywgSWxsIn1dLCJQUUlEIjogWyIxNzYxODMwMTUiXSwiRGF0
+        YWJhc2VUaXRsZUxpc3QiOiBbIlByb1F1ZXN0IEhpc3RvcmljYWwgTmV3c3Bh
+        cGVyczogQ2hpY2FnbyBUcmlidW5lICgxODQ5LTE5OTApIl0sIkFic3RyYWN0
+        IjogWyJUaHVyc2RheSB3aWxsIGJlIHBhcnRseSBjbG91ZHkgd2l0aCBzbm93
+        IHNob3dlcnMuIFRoZSBoaWdoIHdpbGwgYmUtNSBkZWdyZWVzIHdlc3QgdG8g
+        MTUgZWFzdCBhbmQgbm9ydGggd2luZHMgd2lsbCBiZSAxNSB0byAzMCBtaWxl
+        cyBhbiBob3VyIGFuZCBndXN0eSwgYnJpbmdpbmcgd2luZCBjaGlsbHMgdG8t
+        NjAgdG8tMzAuIENsZWFyIFRodXJzZGF5IG5pZ2h0IHdpdGggYSBsb3cgb2Yt
+        MTUgd2VzdCBhbmQgMTAgYXQgdGhlIGxha2UuIE5vcnRoIHdpbmRzIHdpbGwg
+        YmUgMTUgdG8gMjAgbS5wLmguIGFuZCBkaW1pbmlzaGluZyBhbmQgd2luZCBj
+        aGlsbHMgYmVjb21lLTQwIHRvLTEwLiBGcmlkYXkgd2lsbCBiZSBjb3VkeSB3
+        aXRoIHNub3cgc2hvd2VycywgcG9zc2libHkgaGVhdnkgbmVhciB0aGUgbGFr
+        ZSBhbmQuLi4iXSwiRUlTU04iOiBbIjIxNjUtMTcxWCJdLCJNZXJnZWRJZCI6
+        IFsiRkVUQ0hNRVJHRUQtcHJvcXVlc3RfaG5wXzE3NjE4MzAxNTMiXSwiUHVi
+        bGljYXRpb25EZWNhZGUiOiBbIjE5ODAiXSwiQ29udGVudFR5cGUiOiBbIk5l
+        d3NwYXBlciBBcnRpY2xlIl0sIlRpdGxlIjogWyJUaGUgV2VhdGhlciBSZXBv
+        cnQiXSwiSVNTTiI6IFsiMTA4NS02NzA2Il0sIkV4dGVybmFsRG9jdW1lbnRJ
+        RCI6IFsiNzY3MzQ3MzEyIl0sIlNTSUQiOiBbInNzajAwMTY3NDMiXSwiU3Rh
+        cnRQYWdlIjogWyIxNiJdLCJTdWJ0aXRsZSI6IFsiQ2hpY2FnbyBhcmVhIGZv
+        cmVjYXN0cyJdLCJ0aHVtYm5haWxfbSI6IFsiaHR0cDovL2NvdmVycy1jZG4u
+        c3VtbW9uLnNlcmlhbHNzb2x1dGlvbnMuY29tL2luZGV4LmFzcHg/aXNibj0v
+        bWMuZ2lmJmlzc249MTA4NS02NzA2JmNsaWVudD1zdW1tb24iXSwidGh1bWJu
+        YWlsX3MiOiBbImh0dHA6Ly9jb3ZlcnMtY2RuLnN1bW1vbi5zZXJpYWxzc29s
+        dXRpb25zLmNvbS9pbmRleC5hc3B4P2lzYm49L3NjLmdpZiZpc3NuPTEwODUt
+        NjcwNiZjbGllbnQ9c3VtbW9uIl0sInRodW1ibmFpbF9sIjogWyJodHRwOi8v
+        Y292ZXJzLWNkbi5zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20vaW5kZXgu
+        YXNweD9pc2JuPS9sYy5naWYmaXNzbj0xMDg1LTY3MDYmY2xpZW50PXN1bW1v
+        biJdLCJEYXRhYmFzZV94bWwiOiBbeyJzZXF1ZW5jZSI6ICIxIiwibmFtZSI6
+        ICJQcm9RdWVzdCBIaXN0b3JpY2FsIE5ld3NwYXBlcnM6IENoaWNhZ28gVHJp
+        YnVuZSIsImRiaWQiOiAiRjFNIiwidXJsIjogImh0dHA6Ly9lenByb3h5LmN1
+        bC5jb2x1bWJpYS5lZHUvbG9naW4/dXJsPWh0dHA6Ly9zZWFyY2gucHJvcXVl
+        c3QuY29tL2hucGNoaWNhZ290cmlidW5lL2FkdmFuY2VkP2FjY291bnRpZD0x
+        MDIyNiIsInNvdXJjZVR5cGVzIjogWyJBZ2dyZWdhdGlvbiBEYXRhYmFzZSJd
+        fV0sIkxpbmtNb2RlbCI6IFsiRGlyZWN0TGluayJdLCJCb29rTWFyayI6IFsi
+        ZVBuSENYTXdZMkxnTkRJME05VTFORGVNWUlFdmJqY3c0NEFON1lOV3ZYTXlD
+        QUZEUVNFYzBzcFJnTFExdVJsazNWeERuRDEwWVdWaWZFWmVRYndoc0o5dEFV
+        eUZvTnVMOGNzREFPdk5IX1EiXSwiRGF0YWJhc2VOYW1lIjogWyJQcm9RdWVz
+        dCBIaXN0b3JpY2FsIE5ld3NwYXBlcnM6IENoaWNhZ28gVHJpYnVuZSJdfSx7
+        Imhhc0Z1bGxUZXh0IjogdHJ1ZSwiaXNGdWxsVGV4dEhpdCI6IGZhbHNlLCJp
+        c1ByaW50IjogZmFsc2UsImluSG9sZGluZ3MiOiB0cnVlLCJvcGVuVXJsIjog
+        ImN0eF92ZXI9WjM5Ljg4LTIwMDQmY3R4X2VuYz1pbmZvJTNBb2ZpJTJGZW5j
+        JTNBVVRGLTgmcmZyX2lkPWluZm8lM0FzaWQlMkZzdW1tb24uc2VyaWFsc3Nv
+        bHV0aW9ucy5jb20mcmZ0X3ZhbF9mbXQ9aW5mbyUzQW9maSUyRmZtdCUzQWtl
+        diUzQW10eCUzQWpvdXJuYWwmcmZ0LmdlbnJlPWFydGljbGUmcmZ0LmF0aXRs
+        ZT1PdGhlciszKy0tK05vK1RpdGxlJnJmdC5qdGl0bGU9TmV3K1lvcmsrVGlt
+        ZXMrJTI4MTg1Ny0xOTIyJTI5JnJmdC5kYXRlPTE5MDktMDktMDUmcmZ0LnB1
+        Yj1OZXcrWW9yaytUaW1lcytDb21wYW55JnJmdC5pc3NuPTAzNjItNDMzMSZy
+        ZnQuZWlzc249MTU1My04MDk1JnJmdC5zcGFnZT1DNiZyZnQuZXh0ZXJuYWxE
+        b2NJRD0xMDE3NDQ2NTkiLCJsaW5rIjogImh0dHA6Ly9jb2x1bWJpYS5zdW1t
+        b24uc2VyaWFsc3NvbHV0aW9ucy5jb20vMi4wLjAvbGluay8wL2VMdkhDWE13
+        WTJCUVJTc1BRQ05VSmFsNjRMSloxd1IwbEk0dTVOSklwSE1YR1dEM0hVSGpG
+        MVlzZ3N2cWxQeGswREM1UHVnZ0YzTWpBd3Y3Z2tKZDBMVlJvT2xWMkIwYWlk
+        QzdGVUJUTk1BV0JUTURLN0F0YkF6S3FSYVdydGpQazRKZExJZGNBSU1MVFRj
+        QkJ0Z29CR3cxU1hKcER0QXB3T0lpS1RNUmFhazEwcG1OVkhLNElJTWdxSFFy
+        U0N4SUxWSndoQ1FlSVFhbTFEd1JCbUZfVUpOUXdWaEJWMWZCTDE4aEJKU1lS
+        QmxrM0Z4RG5EMTBZZmJHWi1RVnhNUHNNNVpnVURDM1REUlBOalJNVERHeVNE
+        WXhNMHhMTWtzeFM3UTBUalEyVHpaUFNVc3lsR1FReGFwWENvZTROQU1Yc0Ew
+        QldXWmxLc1BBVWxKVW1pb0xyTk9oZ1FNQTF5R1cyQSIsIkRhdGFiYXNlVGl0
+        bGUiOiBbIlByb1F1ZXN0IEhpc3RvcmljYWwgTmV3c3BhcGVyczogVGhlIE5l
+        dyBZb3JrIFRpbWVzICgxODUxIC0gMjAwOSkgKEFsdW1uaSBFZGl0aW9uKSIs
+        IlByb1F1ZXN0IEhpc3RvcmljYWwgTmV3c3BhcGVyczogVGhlIE5ldyBZb3Jr
+        IFRpbWVzICgxODUxLTIwMTEpIiwiUHJvUXVlc3QgSGlzdG9yaWNhbCBOZXdz
+        cGFwZXJzOiBUaGUgTmV3IFlvcmsgVGltZXMgKDE4NTEtMjAxMCkgd2l0aCBJ
+        bmRleCAoMTg1MS0xOTkzKSIsIlByb1F1ZXN0IEhpc3RvcmljYWwgTmV3c3Bh
+        cGVyczogVGhlIE5ldyBZb3JrIFRpbWVzICgxODUxLTE5MjIpIl0sIkxhbmd1
+        YWdlIjogWyJFbmdsaXNoIl0sIlB1YmxpY2F0aW9uUGxhY2UiOiBbIk5ldyBZ
+        b3JrLCBOLlkiXSwiU2NvcmUiOiBbIjAuMDEiXSwiREJJRCI6IFsiODlEIiwi
+        QzNGIiwiUTdGIiwiODlFIl0sIklzUGVlclJldmlld2VkIjogWyJmYWxzZSJd
+        LCJQdWJsaWNhdGlvbkRhdGVfeG1sIjogW3sidGV4dCI6ICIxOTA5MDkwNSIs
+        Im1vbnRoIjogIjA5IiwieWVhciI6ICIxOTA5IiwiZGF5IjogIjA1In1dLCJQ
+        dWJsaWNhdGlvbkRhdGUiOiBbIjE5MDkwOTA1Il0sIlB1YmxpY2F0aW9uQ2Vu
+        dHVyeSI6IFsiMTkwMCJdLCJQdWJsaXNoZXIiOiBbIk5ldyBZb3JrIFRpbWVz
+        IENvbXBhbnkiXSwiU291cmNlVHlwZSI6IFsiQWdncmVnYXRpb24gRGF0YWJh
+        c2UiXSwiUHVibGlzaGVyX3htbCI6IFt7Im5hbWUiOiAiTmV3IFlvcmsgVGlt
+        ZXMgQ29tcGFueSJ9XSwiTmV3c3BhcGVyU2VjdGlvbiI6IFsiU3BlY2lhbCBD
+        YWJsZSBOZXdzIFNlY3Rpb24iXSwiVVJJIjogWyJodHRwOi8vc2VhcmNoLnBy
+        b3F1ZXN0LmNvbS9kb2N2aWV3Lzk2OTY3MjA4Il0sIlBRUHViSUQiOiBbIjU1
+        NDI4Il0sIklzU2Nob2xhcmx5IjogWyJmYWxzZSJdLCJJRCI6IFsiRkVUQ0gt
+        cHJvcXVlc3RfaG5wXzk2OTY3MjA4MyJdLCJQdWJsaWNhdGlvblRpdGxlIjog
+        WyJOZXcgWW9yayBUaW1lcyAoMTg1Ny0xOTIyKSJdLCJQdWJsaWNhdGlvblll
+        YXIiOiBbIjE5MDkiXSwiR2VucmUiOiBbIkdlbmVyYWwgSW5mb3JtYXRpb24i
+        XSwiUHVibGljYXRpb25QbGFjZV94bWwiOiBbeyJuYW1lIjogIk5ldyBZb3Jr
+        LCBOLlkifV0sIlBRSUQiOiBbIjk2OTY3MjA4Il0sIkVJU1NOIjogWyIxNTUz
+        LTgwOTUiXSwiTWVyZ2VkSWQiOiBbIkZFVENITUVSR0VELXByb3F1ZXN0X2hu
+        cF85Njk2NzIwODMiXSwiUHVibGljYXRpb25EZWNhZGUiOiBbIjE5MDAiXSwi
+        Q29udGVudFR5cGUiOiBbIk5ld3NwYXBlciBBcnRpY2xlIl0sIlRpdGxlIjog
+        WyJPdGhlciAzIC0tIE5vIFRpdGxlIl0sIklTU04iOiBbIjAzNjItNDMzMSJd
+        LCJFeHRlcm5hbERvY3VtZW50SUQiOiBbIjEwMTc0NDY1OSJdLCJTU0lEIjog
+        WyJzc2owMDAwMTY0Il0sIlN0YXJ0UGFnZSI6IFsiQzYiXSwidGh1bWJuYWls
+        X20iOiBbImh0dHA6Ly9jb3ZlcnMtY2RuLnN1bW1vbi5zZXJpYWxzc29sdXRp
+        b25zLmNvbS9pbmRleC5hc3B4P2lzYm49L21jLmdpZiZpc3NuPTAzNjItNDMz
+        MSZjbGllbnQ9c3VtbW9uIl0sInRodW1ibmFpbF9zIjogWyJodHRwOi8vY292
+        ZXJzLWNkbi5zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20vaW5kZXguYXNw
+        eD9pc2JuPS9zYy5naWYmaXNzbj0wMzYyLTQzMzEmY2xpZW50PXN1bW1vbiJd
+        LCJ0aHVtYm5haWxfbCI6IFsiaHR0cDovL2NvdmVycy1jZG4uc3VtbW9uLnNl
+        cmlhbHNzb2x1dGlvbnMuY29tL2luZGV4LmFzcHg/aXNibj0vbGMuZ2lmJmlz
+        c249MDM2Mi00MzMxJmNsaWVudD1zdW1tb24iXSwiRGF0YWJhc2VfeG1sIjog
+        W3sic2VxdWVuY2UiOiAiMSIsIm5hbWUiOiAiUHJvUXVlc3QgSGlzdG9yaWNh
+        bCBOZXdzcGFwZXJzOiBOZXcgWW9yayBUaW1lcywgVGhlICgxODUxLTE5MjIp
+        IiwiZGJpZCI6ICI4OUUiLCJ1cmwiOiAiaHR0cDovL2V6cHJveHkuY3VsLmNv
+        bHVtYmlhLmVkdS9sb2dpbj91cmw9aHR0cDovL3NlYXJjaC5wcm9xdWVzdC5j
+        b20vaG5wbmV3eW9ya3RpbWVzL2FkdmFuY2VkP2FjY291bnRpZD0xMDIyNiIs
+        InNvdXJjZVR5cGVzIjogWyJBZ2dyZWdhdGlvbiBEYXRhYmFzZSJdfV0sIkxp
+        bmtNb2RlbCI6IFsiRGlyZWN0TGluayJdLCJCb29rTWFyayI6IFsiZVBuSENY
+        TXdZd0tkVDJwcURDejVMRTFaWUVjM0dSc2JjaUNmNmNUSklPd1BhdDhvR0N2
+        bzZpcjQ1U3VFZ0VLR20wSEd6VFhFMlVNWFZpakdaLVFWeElPT2J6RTNNZ0Nk
+        NjRkWEdnQnJhaDZpIl0sIkRhdGFiYXNlTmFtZSI6IFsiUHJvUXVlc3QgSGlz
+        dG9yaWNhbCBOZXdzcGFwZXJzOiBOZXcgWW9yayBUaW1lcywgVGhlICgxODUx
+        LTIwMDMpIChBbHVtbmkpIiwiUHJvUXVlc3QgSGlzdG9yaWNhbCBOZXdzcGFw
+        ZXJzOiBUaGUgTmV3IFlvcmsgVGltZXMiLCJQcm9RdWVzdCBIaXN0b3JpY2Fs
+        IE5ld3NwYXBlcnM6IFRoZSBOZXcgWW9yayBUaW1lcyB3aXRoIEluZGV4Iiwi
+        UHJvUXVlc3QgSGlzdG9yaWNhbCBOZXdzcGFwZXJzOiBOZXcgWW9yayBUaW1l
+        cywgVGhlICgxODUxLTE5MjIpIl19LHsiaGFzRnVsbFRleHQiOiB0cnVlLCJp
+        c0Z1bGxUZXh0SGl0IjogZmFsc2UsImlzUHJpbnQiOiBmYWxzZSwiaW5Ib2xk
+        aW5ncyI6IHRydWUsIm9wZW5VcmwiOiAiY3R4X3Zlcj1aMzkuODgtMjAwNCZj
+        dHhfZW5jPWluZm8lM0FvZmklMkZlbmMlM0FVVEYtOCZyZnJfaWQ9aW5mbyUz
+        QXNpZCUyRnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbSZyZnRfdmFsX2Zt
+        dD1pbmZvJTNBb2ZpJTJGZm10JTNBa2V2JTNBbXR4JTNBam91cm5hbCZyZnQu
+        Z2VucmU9YXJ0aWNsZSZyZnQuYXRpdGxlPUZST00rRVVST1BFJnJmdC5qdGl0
+        bGU9Q29ubmVjdGljdXQrQ291cmFudCslMjgxNzkxLTE4MzclMjkmcmZ0LmRh
+        dGU9MTgyOS0wNy0yOCZyZnQucHViPUhhcnRmb3JkK0NvdXJhbnQmcmZ0LnNw
+        YWdlPTImcmZ0LmV4dGVybmFsRG9jSUQ9ODQ3MTc1MjcyIiwibGluayI6ICJo
+        dHRwOi8vY29sdW1iaWEuc3VtbW9uLnNlcmlhbHNzb2x1dGlvbnMuY29tLzIu
+        MC4wL2xpbmsvMC9lTHZIQ1hNd1kyQlFSU3NQUUNOVUphbDY0TEpaMXdSMGxJ
+        NHU1TkpJcEhNWEdXRG5RRURqRjFZc2dzdnFsUHhrMERDNXZpbm9JQk5nZzhi
+        U3ZxQlFGM1J2RkdoLUZYcUpCak1EcXpHb3RnYnRGVWZzakFSMlhxQzN4eUdY
+        c3VBUzBrMkFBVGFOREZzeWtseWFBN1FQV0NZa1pTWWlyYWRHT3BpUlhOY0pN
+        Z2lDeXF5Q3hJTFVJZ1ZIU0pJUVltQkt6Uk5oNEhZTDh2ZFZnQ3piRTJXUWRY
+        TU5jZmJRaFZrUW41RlhFQTgzMkZpQ1FjSGNNdEU4MmRBd01jWElJdG5FekRB
+        dHlTekZMTkhTT05IWVBOazhKUzNKVUpKQkRMdG1LVndTMHFCOTlVYWduVXk2
+        UmhZeURDd2xSYVdwc3NCS0dob1FBUHM4aVVFIiwiRGF0YWJhc2VUaXRsZSI6
+        IFsiUHJvUXVlc3QgSGlzdG9yaWNhbCBOZXdzcGFwZXJzOiBIYXJ0Zm9yZCBD
+        b3VyYW50ICgxNzY0LTE5ODgpIiwiUHJvUXVlc3QgSGlzdG9yaWNhbCBOZXdz
+        cGFwZXJzOiBIYXJ0Zm9yZCBDb3VyYW50ICgxNzY0LTE5MjIpIl0sIkxhbmd1
+        YWdlIjogWyJFbmdsaXNoIl0sIlB1YmxpY2F0aW9uUGxhY2UiOiBbIkhhcnRm
+        b3JkLCBDb25uIl0sIlNjb3JlIjogWyIwLjAxIl0sIklzUGVlclJldmlld2Vk
+        IjogWyJmYWxzZSJdLCJEQklEIjogWyI4OTMiLCI4OTIiXSwiUHVibGljYXRp
+        b25EYXRlIjogWyIxODI5MDcyOCJdLCJQdWJsaWNhdGlvbkRhdGVfeG1sIjog
+        W3sidGV4dCI6ICIxODI5MDcyOCIsIm1vbnRoIjogIjA3IiwieWVhciI6ICIx
+        ODI5IiwiZGF5IjogIjI4In1dLCJQdWJsaWNhdGlvbkNlbnR1cnkiOiBbIjE4
+        MDAiXSwiUHVibGlzaGVyIjogWyJIYXJ0Zm9yZCBDb3VyYW50Il0sIkFic3Ry
+        YWN0TGlzdCI6IFsiVGhlIGZvbGxvd2luZyBzdW1tYXJ5IGlzIGZyb20gTG9u
+        ZG9uIHBhcGVycyB0byB0aGUgN3RoIG9mIEp1bmUsIHJlY2VpdmVkIGJ5IHRo
+        ZSBzaGlwIE1vbm9uZ2FoZWxhLCBhdCBQaGlsYWRlbHBoaWEuIl0sIlNvdXJj
+        ZVR5cGUiOiBbIkFnZ3JlZ2F0aW9uIERhdGFiYXNlIl0sIlB1Ymxpc2hlcl94
+        bWwiOiBbeyJuYW1lIjogIkhhcnRmb3JkIENvdXJhbnQifV0sIlNuaXBwZXQi
+        OiBbIlRoZSBmb2xsb3dpbmcgc3VtbWFyeSBpcyBmcm9tIExvbmRvbiBwYXBl
+        cnMgdG8gdGhlIDd0aCBvZiBKdW5lLCByZWNlaXZlZCBieSB0aGUgc2hpcCBN
+        b25vbmdhaGVsYSwgYXQgUGhpbGFkZWxwaGlhLiJdLCJHZW9ncmFwaGljTG9j
+        YXRpb25zIjogWyJKdWx5IDI0Il0sIlBRUHViSUQiOiBbIjQ1NDE3Il0sIlVS
+        SSI6IFsiaHR0cDovL3NlYXJjaC5wcm9xdWVzdC5jb20vZG9jdmlldy81NDg1
+        NTk5OTkiXSwiSXNTY2hvbGFybHkiOiBbImZhbHNlIl0sIklEIjogWyJGRVRD
+        SC1wcm9xdWVzdF9obnBfNTQ4NTU5OTk5MyJdLCJQdWJsaWNhdGlvblRpdGxl
+        IjogWyJDb25uZWN0aWN1dCBDb3VyYW50ICgxNzkxLTE4MzcpIl0sIlB1Ymxp
+        Y2F0aW9uWWVhciI6IFsiMTgyOSJdLCJQdWJsaWNhdGlvblBsYWNlX3htbCI6
+        IFt7Im5hbWUiOiAiSGFydGZvcmQsIENvbm4ifV0sIlBRSUQiOiBbIjU0ODU1
+        OTk5OSJdLCJEYXRhYmFzZVRpdGxlTGlzdCI6IFsiUHJvUXVlc3QgSGlzdG9y
+        aWNhbCBOZXdzcGFwZXJzOiBIYXJ0Zm9yZCBDb3VyYW50ICgxNzY0LTE5ODgp
+        Il0sIkFic3RyYWN0IjogWyJUaGUgZm9sbG93aW5nIHN1bW1hcnkgaXMgZnJv
+        bSBMb25kb24gcGFwZXJzIHRvIHRoZSA3dGggb2YgSnVuZSwgcmVjZWl2ZWQg
+        YnkgdGhlIHNoaXAgTW9ub25nYWhlbGEsIGF0IFBoaWxhZGVscGhpYS4iXSwi
+        TWVyZ2VkSWQiOiBbIkZFVENITUVSR0VELXByb3F1ZXN0X2hucF81NDg1NTk5
+        OTkzIl0sIlB1YmxpY2F0aW9uRGVjYWRlIjogWyIxODIwIl0sIkNvbnRlbnRU
+        eXBlIjogWyJOZXdzcGFwZXIgQXJ0aWNsZSJdLCJUaXRsZSI6IFsiRlJPTSBF
+        VVJPUEUiXSwiRXh0ZXJuYWxEb2N1bWVudElEIjogWyI4NDcxNzUyNzIiXSwi
+        U1NJRCI6IFsic3NqMDA0MDkzMSJdLCJTdGFydFBhZ2UiOiBbIjIiXSwiRGF0
+        YWJhc2VfeG1sIjogW3sic2VxdWVuY2UiOiAiMSIsIm5hbWUiOiAiUHJvUXVl
+        c3QgSGlzdG9yaWNhbCBOZXdzcGFwZXJzOiBIYXJ0Zm9yZCBDb3VyYW50ICgx
+        NzY0LTE5ODgpIiwiZGJpZCI6ICI4OTMiLCJ1cmwiOiAiaHR0cDovL2V6cHJv
+        eHkuY3VsLmNvbHVtYmlhLmVkdS9sb2dpbj91cmw9aHR0cDovL3NlYXJjaC5w
+        cm9xdWVzdC5jb20vIiwic291cmNlVHlwZXMiOiBbIkFnZ3JlZ2F0aW9uIERh
+        dGFiYXNlIl19XSwiTGlua01vZGVsIjogWyJEaXJlY3RMaW5rIl0sIkJvb2tN
+        YXJrIjogWyJlUG5IQ1hNdzQ0QVdnOEItZzdFaEp3TzNXNUNfcndKa1ZSbzNn
+        NnliYTRpemh5NnMwSXZQeUN1SU53VWRUd0pzcG9DbWZ2SExBd0FydUJqTSJd
+        LCJEYXRhYmFzZU5hbWUiOiBbIlByb1F1ZXN0IEhpc3RvcmljYWwgTmV3c3Bh
+        cGVyczogSGFydGZvcmQgQ291cmFudCAoMTc2NC0xOTg4KSIsIlByb1F1ZXN0
+        IEhpc3RvcmljYWwgTmV3c3BhcGVyczogSGFydGZvcmQgQ291cmFudCAoMTc2
+        NC0xOTIyKSJdfSx7Imhhc0Z1bGxUZXh0IjogZmFsc2UsImlzRnVsbFRleHRI
+        aXQiOiBmYWxzZSwiaXNQcmludCI6IGZhbHNlLCJpbkhvbGRpbmdzIjogZmFs
+        c2UsIm9wZW5VcmwiOiAiY3R4X3Zlcj1aMzkuODgtMjAwNCZjdHhfZW5jPWlu
+        Zm8lM0FvZmklMkZlbmMlM0FVVEYtOCZyZnJfaWQ9aW5mbyUzQXNpZCUyRnN1
+        bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbSZyZnRfdmFsX2ZtdD1pbmZvJTNB
+        b2ZpJTJGZm10JTNBa2V2JTNBbXR4JTNBam91cm5hbCZyZnQuZ2VucmU9YXJ0
+        aWNsZSZyZnQuYXRpdGxlPUluZGlhbmlhbitpbitDb250ZXN0JnJmdC5qdGl0
+        bGU9Q2luY2lubmF0aStFbnF1aXJlcislMjgxODcyLTE5MjIlMjkmcmZ0LmRh
+        dGU9MTkxOC0wMi0xMiZyZnQucHViPUdhbm5ldHQrQ28uJTJDK0luYyZyZnQu
+        c3BhZ2U9MyZyZnQuZXh0ZXJuYWxEb2NJRD0yMDgxMjE5MDgyIiwibGluayI6
+        ICJodHRwOi8vY29sdW1iaWEuc3VtbW9uLnNlcmlhbHNzb2x1dGlvbnMuY29t
+        LzIuMC4wL2xpbmsvMC9lTHZIQ1hNd1kyQlFSU3NQUUNOVUphbDY0TEpaMXdS
+        MGxJNHU1TkpJcEhNWEdldWdVWTBRbzJsVUE4V0FrUTNhT2t0Q2RNTU5CUW9B
+        MmNCSUI1TEFhQWVTUkVXOFp4NG95a0g1RnJLaHJ3UTJnUVE3andBMHVwNEhH
+        Z1RVZGdXdkF3WWRKZ0U2cmNuY1NCZllFRE9DalEya1FQYkdHVnJvZ2k4bWdV
+        ZWVleUpvSjA4SjBHZzk1SVdVa0pMSkdGSGd3NWZoR1FIYkE4QVNDOWdLWUFi
+        MldzMHRNT29qY0owU0lzZ2dDQ3B4Q3hJTFVvc1VIQ0gtRW1KZ1NzMFRZUkNC
+        LTBraE0wOEI2aWRSQmxrMzF4Qm5EMTJZWWZFWmVRWHhGbWFtb0ZPVWdGMGVD
+        UVlGYzh0RTgyUkR3OFFVSTR0a0V6UER0Q1N6RkxORVMtTkVZX05rODVTMEpF
+        TkpCakhzbXFWd1NVZ3pjQ0dDUklhQk5RMFluYW15d01ZR3FKQlB5a3dFQU1C
+        bXpjcyIsIkRhdGFiYXNlVGl0bGUiOiBbIlByb1F1ZXN0IEhpc3RvcmljYWwg
+        TmV3c3BhcGVyczogVGhlIENpbmNpbm5hdGkgRW5xdWlyZXIgKDE4NDEgLSAx
+        OTIyKSJdLCJMYW5ndWFnZSI6IFsiRW5nbGlzaCJdLCJQdWJsaWNhdGlvblBs
+        YWNlIjogWyJDaW5jaW5uYXRpLCBPaGlvIl0sIlNjb3JlIjogWyIwLjAxIl0s
+        IklzUGVlclJldmlld2VkIjogWyJmYWxzZSJdLCJEQklEIjogWyJ+RzMiXSwi
+        UHVibGljYXRpb25EYXRlIjogWyIxOTE4MDIxMiJdLCJQdWJsaWNhdGlvbkRh
+        dGVfeG1sIjogW3sidGV4dCI6ICIxOTE4MDIxMiIsIm1vbnRoIjogIjAyIiwi
+        eWVhciI6ICIxOTE4IiwiZGF5IjogIjEyIn1dLCJQdWJsaWNhdGlvbkNlbnR1
+        cnkiOiBbIjE5MDAiXSwiUHVibGlzaGVyIjogWyJHYW5uZXR0IENvLiwgSW5j
+        Il0sIlNvdXJjZVR5cGUiOiBbIkFnZ3JlZ2F0aW9uIERhdGFiYXNlIl0sIlB1
+        Ymxpc2hlcl94bWwiOiBbeyJuYW1lIjogIkdhbm5ldHQgQ28uLCBJbmMifV0s
+        IlBRUHViSUQiOiBbIjQyNjc4NiJdLCJVUkkiOiBbImh0dHA6Ly9zZWFyY2gu
+        cHJvcXVlc3QuY29tL2RvY3ZpZXcvODY1MzczODIzIl0sIklzU2Nob2xhcmx5
+        IjogWyJmYWxzZSJdLCJJRCI6IFsiRkVUQ0gtcHJvcXVlc3RfaG5wXzg2NTM3
+        MzgyMzAiXSwiUHVibGljYXRpb25UaXRsZSI6IFsiQ2luY2lubmF0aSBFbnF1
+        aXJlciAoMTg3Mi0xOTIyKSJdLCJQdWJsaWNhdGlvblllYXIiOiBbIjE5MTgi
+        XSwiUHVibGljYXRpb25QbGFjZV94bWwiOiBbeyJuYW1lIjogIkNpbmNpbm5h
+        dGksIE9oaW8ifV0sIlBRSUQiOiBbIjg2NTM3MzgyMyJdLCJNZXJnZWRJZCI6
+        IFsiRkVUQ0hNRVJHRUQtcHJvcXVlc3RfaG5wXzg2NTM3MzgyMzAiXSwiUHVi
+        bGljYXRpb25EZWNhZGUiOiBbIjE5MTAiXSwiQ29udGVudFR5cGUiOiBbIk5l
+        d3NwYXBlciBBcnRpY2xlIl0sIlRpdGxlIjogWyJJbmRpYW5pYW4gaW4gQ29u
+        dGVzdCJdLCJFeHRlcm5hbERvY3VtZW50SUQiOiBbIjIwODEyMTkwODIiXSwi
+        U3RhcnRQYWdlIjogWyIzIl0sIkxpbmtNb2RlbCI6IFsiT3BlblVSTCJdLCJC
+        b29rTWFyayI6IFsiZVBuSENYTXc0MlFROGN3RGVRMklGREx6Rk1DSExJRmFi
+        Ykp1cmlIT0hycXdBaTgtSTY4ZzNzTE1GSFN5amhGb0RUSi1lUUNWS2hwRyJd
+        LCJEYXRhYmFzZU5hbWUiOiBbIlByb1F1ZXN0IEhpc3RvcmljYWwgTmV3c3Bh
+        cGVyczogQ2luY2lubmF0aSBFbnF1aXJlciJdfSx7Imhhc0Z1bGxUZXh0Ijog
+        dHJ1ZSwiaXNGdWxsVGV4dEhpdCI6IGZhbHNlLCJpc1ByaW50IjogZmFsc2Us
+        ImluSG9sZGluZ3MiOiB0cnVlLCJvcGVuVXJsIjogImN0eF92ZXI9WjM5Ljg4
+        LTIwMDQmY3R4X2VuYz1pbmZvJTNBb2ZpJTJGZW5jJTNBVVRGLTgmcmZyX2lk
+        PWluZm8lM0FzaWQlMkZzdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20mcmZ0
+        X3ZhbF9mbXQ9aW5mbyUzQW9maSUyRmZtdCUzQWtldiUzQW10eCUzQWpvdXJu
+        YWwmcmZ0LmdlbnJlPWFydGljbGUmcmZ0LmF0aXRsZT1Ecml2ZS11cHMlMjcr
+        ZGF5cythcHBlYXIrbnVtYmVyZWQmcmZ0Lmp0aXRsZT1UaGUrQWxidXF1ZXJx
+        dWUrVHJpYnVuZSslMjhBbGJ1cXVlcnF1ZSUyQytOTSUyOSZyZnQuZGF0ZT0x
+        OTk4LTA0LTMwJnJmdC5wdWI9QWxidXF1ZXJxdWUrVHJpYnVuZSZyZnQuaXNz
+        bj0xMDk3LTIwNDgmcmZ0LnNwYWdlPUExJnJmdC5leHRlcm5hbERCSUQ9WEk3
+        JnJmdC5leHRlcm5hbERvY0lEPUExMDgzNjcxNDMiLCJsaW5rIjogImh0dHA6
+        Ly9jb2x1bWJpYS5zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20vMi4wLjAv
+        bGluay8wL2VMdkhDWE13WTJCUVJTc1BRQ05VSmFsNjRMSloxd1IwbEk0dTVO
+        SklwSE1YR1R6Z1l4ZDUyWHFnc2hHeHFTR3hvS0JZUHlVX1dkX1JFSFNVTXVq
+        Q2JuMG5UMWQ3cEJzMFNtMlRRWGs1S1RPeGxKbUIxZERDd2hLMHVpdkNFOTcz
+        QWlZODhLR2ZvUGxXWGRCWnRkQVNtQWRSaExvSk1NQW1MV0JyU0pKTGNfUmdC
+        aU10c0VZNnFaRmk1d295Q0lKS3M0TEVndFFpQlVkSVloRmlZRXJORTJHUWR5
+        a0NGbmk2cFFYRjZnb3BpWlhGQ2tDVGdhbGZBWEpWU0dxS0tJT09tMnVJczRj
+        dXlQNTQ2SjJWUUtJWTFLc3ZUazhzTFM2T1I3akJXSUpCd2R3eTBUelowREF4
+        eGNnaTJjVE1NQzNKTE1VczBkSTQwZGc4MlR3bExjbFFra0dWS0xPa2lGUW56
+        Y0FGMmNJSG1ueVJZV0FwS1NwTmxRWFdfMURQQXdCelNhZzYiLCJMYW5ndWFn
+        ZSI6IFsiRW5nbGlzaCJdLCJTY29yZSI6IFsiMC4wMSJdLCJDb3B5cmlnaHQi
+        OiBbIkNPUFlSSUdIVCAxOTk4IEFsYnVxdWVycXVlIFRyaWJ1bmUiXSwiSXNQ
+        ZWVyUmV2aWV3ZWQiOiBbImZhbHNlIl0sIkRCSUQiOiBbIlhJNyJdLCJQdWJs
+        aWNhdGlvbkRhdGUiOiBbIjE5OTgwNDMwIl0sIlB1YmxpY2F0aW9uRGF0ZV94
+        bWwiOiBbeyJ0ZXh0IjogIjE5OTgwNDMwIiwibW9udGgiOiAiMDQiLCJ5ZWFy
+        IjogIjE5OTgiLCJkYXkiOiAiMzAifV0sIlB1YmxpY2F0aW9uQ2VudHVyeSI6
+        IFsiMTkwMCJdLCJDb3B5cmlnaHRfeG1sIjogW3sibm90aWNlIjogIkNPUFlS
+        SUdIVCAxOTk4IEFsYnVxdWVycXVlIFRyaWJ1bmUifV0sIlB1Ymxpc2hlciI6
+        IFsiQWxidXF1ZXJxdWUgVHJpYnVuZSJdLCJTb3VyY2VUeXBlIjogWyJBZ2dy
+        ZWdhdGlvbiBEYXRhYmFzZSJdLCJQdWJsaXNoZXJfeG1sIjogW3sibmFtZSI6
+        ICJBbGJ1cXVlcnF1ZSBUcmlidW5lIn1dLCJJc1NjaG9sYXJseSI6IFsiZmFs
+        c2UiXSwiSUQiOiBbIkZFVENILWdhbGVfYnVzaW5lc3NpbnNpZ2h0c2dhdXNz
+        X0ExMDgzNjcxNDMzIl0sIlB1YmxpY2F0aW9uVGl0bGUiOiBbIlRoZSBBbGJ1
+        cXVlcnF1ZSBUcmlidW5lIChBbGJ1cXVlcnF1ZSwgTk0pIl0sIlB1YmxpY2F0
+        aW9uWWVhciI6IFsiMTk5OCJdLCJBdWRpZW5jZSI6IFsiR2VuZXJhbCJdLCJN
+        ZXJnZWRJZCI6IFsiRkVUQ0hNRVJHRUQtZ2FsZV9idXNpbmVzc2luc2lnaHRz
+        Z2F1c3NfQTEwODM2NzE0MzMiXSwiUHVibGljYXRpb25EZWNhZGUiOiBbIjE5
+        OTAiXSwiQ29udGVudFR5cGUiOiBbIk5ld3NwYXBlciBBcnRpY2xlIl0sIlRp
+        dGxlIjogWyJEcml2ZS11cHMnIGRheXMgYXBwZWFyIG51bWJlcmVkIl0sIklT
+        U04iOiBbIjEwOTctMjA0OCJdLCJFeHRlcm5hbERvY3VtZW50SUQiOiBbIkEx
+        MDgzNjcxNDMiXSwiU1NJRCI6IFsic3NqMDAxMDE1NyJdLCJTdGFydFBhZ2Ui
+        OiBbIkExIl0sInRodW1ibmFpbF9tIjogWyJodHRwOi8vY292ZXJzLWNkbi5z
+        dW1tb24uc2VyaWFsc3NvbHV0aW9ucy5jb20vaW5kZXguYXNweD9pc2JuPS9t
+        Yy5naWYmaXNzbj0xMDk3LTIwNDgmY2xpZW50PXN1bW1vbiJdLCJ0aHVtYm5h
+        aWxfcyI6IFsiaHR0cDovL2NvdmVycy1jZG4uc3VtbW9uLnNlcmlhbHNzb2x1
+        dGlvbnMuY29tL2luZGV4LmFzcHg/aXNibj0vc2MuZ2lmJmlzc249MTA5Ny0y
+        MDQ4JmNsaWVudD1zdW1tb24iXSwidGh1bWJuYWlsX2wiOiBbImh0dHA6Ly9j
+        b3ZlcnMtY2RuLnN1bW1vbi5zZXJpYWxzc29sdXRpb25zLmNvbS9pbmRleC5h
+        c3B4P2lzYm49L2xjLmdpZiZpc3NuPTEwOTctMjA0OCZjbGllbnQ9c3VtbW9u
+        Il0sIkRhdGFiYXNlX3htbCI6IFt7InNlcXVlbmNlIjogIjEiLCJuYW1lIjog
+        IkJ1c2luZXNzIEluc2lnaHRzOiBFc3NlbnRpYWxzIiwiZGJpZCI6ICJYSTci
+        LCJ1cmwiOiAiaHR0cDovL2V6cHJveHkuY3VsLmNvbHVtYmlhLmVkdS9sb2dp
+        bj91cmw9aHR0cDovL2luZm90cmFjLmdhbGVncm91cC5jb20vaXR3ZWIvY29s
+        dW1iaWF1P2RiPUJJRSIsInNvdXJjZVR5cGVzIjogWyJBZ2dyZWdhdGlvbiBE
+        YXRhYmFzZSJdfV0sIkxpbmtNb2RlbCI6IFsiRGlyZWN0TGluayJdLCJCb29r
+        TWFyayI6IFsiZVBuSENYTXdZd0hOTGxxYTY0SU9oT1dBWHlWZ2FHck95U0R2
+        VWdUTXdicWxCY1hxQ2ltSmxjVUtpUVVGd09oVWdOeDlBU3I3ZGR4Y1E1dzlk
+        RUZsWXp6MEVrWWdVUXpxcGhhbko1WVdGOGM3R29LT1V3WmQybTFNb25JQVBE
+        MHZDQSJdfSx7Imhhc0Z1bGxUZXh0IjogdHJ1ZSwiaXNGdWxsVGV4dEhpdCI6
+        IGZhbHNlLCJpc1ByaW50IjogZmFsc2UsImluSG9sZGluZ3MiOiB0cnVlLCJv
+        cGVuVXJsIjogImN0eF92ZXI9WjM5Ljg4LTIwMDQmY3R4X2VuYz1pbmZvJTNB
+        b2ZpJTJGZW5jJTNBVVRGLTgmcmZyX2lkPWluZm8lM0FzaWQlMkZzdW1tb24u
+        c2VyaWFsc3NvbHV0aW9ucy5jb20mcmZ0X3ZhbF9mbXQ9aW5mbyUzQW9maSUy
+        RmZtdCUzQWtldiUzQW10eCUzQWpvdXJuYWwmcmZ0LmdlbnJlPWFydGljbGUm
+        cmZ0LmF0aXRsZT1JTVBFUklBTCtDT05GRVJFTkNFJnJmdC5qdGl0bGU9VGhl
+        K01hbmNoZXN0ZXIrR3VhcmRpYW4rJTI4MTkwMS0xOTU5JTI5JnJmdC5kYXRl
+        PTE5MjYtMDEtMTYmcmZ0LnB1Yj1HdWFyZGlhbitOZXdzKyUyNitNZWRpYStM
+        aW1pdGVkJnJmdC5zcGFnZT0xMSZyZnQuZXh0ZXJuYWxEb2NJRD0xMzYwMzcz
+        ODYyIiwibGluayI6ICJodHRwOi8vY29sdW1iaWEuc3VtbW9uLnNlcmlhbHNz
+        b2x1dGlvbnMuY29tLzIuMC4wL2xpbmsvMC9lTHZIQ1hNd1kyQlFSU3NQUUNO
+        VUphbDY0TEpaMXdSMGxJNHU1TkpJcEhNWEdXRFhva0xqRjFZc2dzdnFsUHhr
+        MERDNXZvazVzTzloQ2V4VjJSY1U2b0x1alFMTnI4SXUwVWlFWHE0QW1xTUJO
+        aW1ZR1ZpQmpXRkQwR1VPRnBhR0dBVXR1UEIwRTJDQURVbkFWbzBrbC1ZQXJR
+        UVdDMG1aaVVoTHFwSE9acVNXQXdVWkJFSEZXRUZpUVdxUmdpTWtsUWd4TUtY
+        bWlUQUllX29HQUh0eGpqNEt6djUtYnE1Qm9MRW1VUVpaTjljUVp3OWRtTVh4
+        R1hrRjhYQUxqU1VZRk13dEU4MlREUTBUVTR3c2trM01ETk9TekZMTUVpMk5F
+        NDNOazgxVDBwSU1KUm5Fc0d1V3dpVWh6Y0FGYkFDQ1J4d016V1FZV0VxS1Ns
+        TmxnZlUzTklBQWVSMlNudyIsIkRhdGFiYXNlVGl0bGUiOiBbIlByb1F1ZXN0
+        IEhpc3RvcmljYWwgTmV3c3BhcGVyczogVGhlIEd1YXJkaWFuICgxODIxLTIw
+        MDMpIGFuZCBUaGUgT2JzZXJ2ZXIgKDE3OTEtMjAwMykiXSwiTGFuZ3VhZ2Ui
+        OiBbIkVuZ2xpc2giXSwiUHVibGljYXRpb25QbGFjZSI6IFsiTWFuY2hlc3Rl
+        ciAoVUspIl0sIlNjb3JlIjogWyIwLjAxIl0sIkRCSUQiOiBbIjg5MSJdLCJJ
+        c1BlZXJSZXZpZXdlZCI6IFsiZmFsc2UiXSwiUHVibGljYXRpb25EYXRlIjog
+        WyIxOTI2MDExNiJdLCJQdWJsaWNhdGlvbkRhdGVfeG1sIjogW3sidGV4dCI6
+        ICIxOTI2MDExNiIsIm1vbnRoIjogIjAxIiwieWVhciI6ICIxOTI2IiwiZGF5
+        IjogIjE2In1dLCJQdWJsaWNhdGlvbkNlbnR1cnkiOiBbIjE5MDAiXSwiUHVi
+        bGlzaGVyIjogWyJHdWFyZGlhbiBOZXdzICYgTWVkaWEgTGltaXRlZCJdLCJT
+        b3VyY2VUeXBlIjogWyJBZ2dyZWdhdGlvbiBEYXRhYmFzZSJdLCJQdWJsaXNo
+        ZXJfeG1sIjogW3sibmFtZSI6ICJHdWFyZGlhbiBOZXdzICYgTWVkaWEgTGlt
+        aXRlZCJ9XSwiUFFQdWJJRCI6IFsiNDQyNjEiXSwiVVJJIjogWyJodHRwOi8v
+        c2VhcmNoLnByb3F1ZXN0LmNvbS9kb2N2aWV3LzQ3NzE3OTcxMyJdLCJJc1Nj
+        aG9sYXJseSI6IFsiZmFsc2UiXSwiSUQiOiBbIkZFVENILXByb3F1ZXN0X2hu
+        cF80NzcxNzk3MTMzIl0sIlB1YmxpY2F0aW9uVGl0bGUiOiBbIlRoZSBNYW5j
+        aGVzdGVyIEd1YXJkaWFuICgxOTAxLTE5NTkpIl0sIlB1YmxpY2F0aW9uWWVh
+        ciI6IFsiMTkyNiJdLCJQdWJsaWNhdGlvblBsYWNlX3htbCI6IFt7Im5hbWUi
+        OiAiTWFuY2hlc3RlciAoVUspIn1dLCJQUUlEIjogWyI0NzcxNzk3MTMiXSwi
+        TWVyZ2VkSWQiOiBbIkZFVENITUVSR0VELXByb3F1ZXN0X2hucF80NzcxNzk3
+        MTMzIl0sIlB1YmxpY2F0aW9uRGVjYWRlIjogWyIxOTIwIl0sIkNvbnRlbnRU
+        eXBlIjogWyJOZXdzcGFwZXIgQXJ0aWNsZSJdLCJUaXRsZSI6IFsiSU1QRVJJ
+        QUwgQ09ORkVSRU5DRSJdLCJFeHRlcm5hbERvY3VtZW50SUQiOiBbIjEzNjAz
+        NzM4NjIiXSwiU3RhcnRQYWdlIjogWyIxMSJdLCJTdWJ0aXRsZSI6IFsiU291
+        dGggQWZyaWNhbiBVbmlvbiB0byBiZSBSZXByZXNlbnRlZCJdLCJEYXRhYmFz
+        ZV94bWwiOiBbeyJzZXF1ZW5jZSI6ICIxIiwibmFtZSI6ICJQcm9RdWVzdCBI
+        aXN0b3JpY2FsIE5ld3NwYXBlcnM6IEd1YXJkaWFuLCBUaGUgKDE4MjEtMjAw
+        MykgYW5kIE9ic2VydmVyLCBUaGUgKDE3OTEtMjAwMykiLCJkYmlkIjogIjg5
+        MSIsInVybCI6ICJodHRwOi8vZXpwcm94eS5jdWwuY29sdW1iaWEuZWR1L2xv
+        Z2luP3VybD1odHRwOi8vc2VhcmNoLnByb3F1ZXN0LmNvbS9obnBndWFyZGlh
+        bm9ic2VydmVyL2FkdmFuY2VkP2FjY291bnRpZD0xMDIyNiIsInNvdXJjZVR5
+        cGVzIjogWyJBZ2dyZWdhdGlvbiBEYXRhYmFzZSJdfV0sIkxpbmtNb2RlbCI6
+        IFsiRGlyZWN0TGluayJdLCJCb29rTWFyayI6IFsiZVBuSENYTXc0MlFROXZR
+        TkFIWkNISDBVblAzOTNGeURRRU1sM0F5eWJxNGh6aDY2c1BJdVBpT3ZJTjdF
+        SE5pWnNBUjFrd2pKQXdEdkp4Z1ciXSwiRGF0YWJhc2VOYW1lIjogWyJQcm9R
+        dWVzdCBIaXN0b3JpY2FsIE5ld3NwYXBlcnM6IEd1YXJkaWFuLCBUaGUgKDE4
+        MjEtMjAwMykgYW5kIE9ic2VydmVyLCBUaGUgKDE3OTEtMjAwMykiXX0seyJo
+        YXNGdWxsVGV4dCI6IHRydWUsImlzRnVsbFRleHRIaXQiOiBmYWxzZSwiaXNQ
+        cmludCI6IGZhbHNlLCJpbkhvbGRpbmdzIjogdHJ1ZSwib3BlblVybCI6ICJj
+        dHhfdmVyPVozOS44OC0yMDA0JmN0eF9lbmM9aW5mbyUzQW9maSUyRmVuYyUz
+        QVVURi04JnJmcl9pZD1pbmZvJTNBc2lkJTJGc3VtbW9uLnNlcmlhbHNzb2x1
+        dGlvbnMuY29tJnJmdF92YWxfZm10PWluZm8lM0FvZmklMkZmbXQlM0FrZXYl
+        M0FtdHglM0Fqb3VybmFsJnJmdC5nZW5yZT1hcnRpY2xlJnJmdC5hdGl0bGU9
+        RUxBQyt0bytIb3N0K0FydCtTaG93JnJmdC5qdGl0bGU9TG9zK0FuZ2VsZXMr
+        VGltZXMrJTI4MTkyMy1DdXJyZW50K0ZpbGUlMjkmcmZ0LmRhdGU9MTk3NS0x
+        MC0xOSZyZnQucHViPVRpbWVzK01pcnJvcitDb21wYW55JnJmdC5pc3NuPTA0
+        NTgtMzAzNSZyZnQuZWlzc249MjE2NS0xNzM2JnJmdC5zcGFnZT1TRTImcmZ0
+        LmV4dGVybmFsRG9jSUQ9NjAwNjA1NTgyIiwibGluayI6ICJodHRwOi8vY29s
+        dW1iaWEuc3VtbW9uLnNlcmlhbHNzb2x1dGlvbnMuY29tLzIuMC4wL2xpbmsv
+        MC9lTHZIQ1hNd1kyQlFSU3NQUUNOVUphbDY0TEpaMXdSMGxJNHU1TkpJcEhN
+        WEdXRFhva0xqRjFZc2dzdnFsUHhrMERDNXZxR3BPYkJ4YldsaVlGOVFxQXU2
+        TndvMHZ3cTdSQ01SZXJrQ2FJNEcyS1JnWm1BRk5vWWgwN2ZHcm9peTJSaThD
+        aEUwTzZnTExMeE5NVXBnY09ucUpzQUFHNnVBTFNkSkxzMEJ1Z1ZZWGlSbEpp
+        S3R0VVk2dEpGYUxoZGtFQVNWYndXSkJhbEZDbzZRNUNQRXdKU2FKOElnNnVy
+        ajZLeFFrcV9na1Y5Y0FwSlRDTTdJTHhkbGtIVnpEWEgyMElWWkhaLVJWeEFQ
+        dDlKWWdrSEIzRExSUE5uUU1ESEZ5Q0xaeE13d0xja3N4U3pSMGpqUjJEelpQ
+        Q1V0eVZDU1FReTdaaWxjRXRJTVhJYVc1dUJEVEEwdFpSaFlTb3BLVTJXQlZU
+        czBpQUR5YzVqTSIsIkRhdGFiYXNlVGl0bGUiOiBbIlByb1F1ZXN0IEhpc3Rv
+        cmljYWwgTmV3c3BhcGVyczogTG9zIEFuZ2VsZXMgVGltZXMgKDE4ODEtMTk5
+        MCkiXSwiTGFuZ3VhZ2UiOiBbIkVuZ2xpc2giXSwiUHVibGljYXRpb25QbGFj
+        ZSI6IFsiTG9zIEFuZ2VsZXMsIENhbGlmIl0sIlNjb3JlIjogWyIwLjAxIl0s
+        IklzUGVlclJldmlld2VkIjogWyJmYWxzZSJdLCJEQklEIjogWyJDM0UiXSwi
+        UHVibGljYXRpb25EYXRlIjogWyIxOTc1MTAxOSJdLCJQdWJsaWNhdGlvbkRh
+        dGVfeG1sIjogW3sidGV4dCI6ICIxOTc1MTAxOSIsIm1vbnRoIjogIjEwIiwi
+        eWVhciI6ICIxOTc1IiwiZGF5IjogIjE5In1dLCJQdWJsaWNhdGlvbkNlbnR1
+        cnkiOiBbIjE5MDAiXSwiUHVibGlzaGVyIjogWyJUaW1lcyBNaXJyb3IgQ29t
+        cGFueSJdLCJTb3VyY2VUeXBlIjogWyJBZ2dyZWdhdGlvbiBEYXRhYmFzZSJd
+        LCJQdWJsaXNoZXJfeG1sIjogW3sibmFtZSI6ICJUaW1lcyBNaXJyb3IgQ29t
+        cGFueSJ9XSwiTmV3c3BhcGVyU2VjdGlvbiI6IFsiU291dGhlYXN0Il0sIlBR
+        UHViSUQiOiBbIjQ3MDAxIl0sIlVSSSI6IFsiaHR0cDovL3NlYXJjaC5wcm9x
+        dWVzdC5jb20vZG9jdmlldy8xNTc3NTM5NDAiXSwiSXNTY2hvbGFybHkiOiBb
+        ImZhbHNlIl0sIklEIjogWyJGRVRDSC1wcm9xdWVzdF9obnBfMTU3NzUzOTQw
+        MyJdLCJQdWJsaWNhdGlvblRpdGxlIjogWyJMb3MgQW5nZWxlcyBUaW1lcyAo
+        MTkyMy1DdXJyZW50IEZpbGUpIl0sIlB1YmxpY2F0aW9uWWVhciI6IFsiMTk3
+        NSJdLCJQdWJsaWNhdGlvblBsYWNlX3htbCI6IFt7Im5hbWUiOiAiTG9zIEFu
+        Z2VsZXMsIENhbGlmIn1dLCJQUUlEIjogWyIxNTc3NTM5NDAiXSwiRUlTU04i
+        OiBbIjIxNjUtMTczNiJdLCJNZXJnZWRJZCI6IFsiRkVUQ0hNRVJHRUQtcHJv
+        cXVlc3RfaG5wXzE1Nzc1Mzk0MDMiXSwiUHVibGljYXRpb25EZWNhZGUiOiBb
+        IjE5NzAiXSwiQ29udGVudFR5cGUiOiBbIk5ld3NwYXBlciBBcnRpY2xlIl0s
+        IlRpdGxlIjogWyJFTEFDIHRvIEhvc3QgQXJ0IFNob3ciXSwiSVNTTiI6IFsi
+        MDQ1OC0zMDM1Il0sIkV4dGVybmFsRG9jdW1lbnRJRCI6IFsiNjAwNjA1NTgy
+        Il0sIlNTSUQiOiBbInNzajAwMDAzMDIiXSwiU3RhcnRQYWdlIjogWyJTRTIi
+        XSwidGh1bWJuYWlsX20iOiBbImh0dHA6Ly9jb3ZlcnMtY2RuLnN1bW1vbi5z
+        ZXJpYWxzc29sdXRpb25zLmNvbS9pbmRleC5hc3B4P2lzYm49L21jLmdpZiZp
+        c3NuPTA0NTgtMzAzNSZjbGllbnQ9c3VtbW9uIl0sInRodW1ibmFpbF9zIjog
+        WyJodHRwOi8vY292ZXJzLWNkbi5zdW1tb24uc2VyaWFsc3NvbHV0aW9ucy5j
+        b20vaW5kZXguYXNweD9pc2JuPS9zYy5naWYmaXNzbj0wNDU4LTMwMzUmY2xp
+        ZW50PXN1bW1vbiJdLCJ0aHVtYm5haWxfbCI6IFsiaHR0cDovL2NvdmVycy1j
+        ZG4uc3VtbW9uLnNlcmlhbHNzb2x1dGlvbnMuY29tL2luZGV4LmFzcHg/aXNi
+        bj0vbGMuZ2lmJmlzc249MDQ1OC0zMDM1JmNsaWVudD1zdW1tb24iXSwiRGF0
+        YWJhc2VfeG1sIjogW3sic2VxdWVuY2UiOiAiMSIsIm5hbWUiOiAiUHJvUXVl
+        c3QgSGlzdG9yaWNhbCBOZXdzcGFwZXJzOiBMb3MgQW5nZWxlcyBUaW1lcyAo
+        MTg4MS0xOTkwKSIsImRiaWQiOiAiQzNFIiwidXJsIjogImh0dHA6Ly9lenBy
+        b3h5LmN1bC5jb2x1bWJpYS5lZHUvbG9naW4/dXJsPWh0dHA6Ly9zZWFyY2gu
+        cHJvcXVlc3QuY29tL2hucGNoaWNhZ290cmlidW5lL2FkdmFuY2VkP2FjY291
+        bnRpZD0xMDIyNiIsInNvdXJjZVR5cGVzIjogWyJBZ2dyZWdhdGlvbiBEYXRh
+        YmFzZSJdfV0sIkxpbmtNb2RlbCI6IFsiRGlyZWN0TGluayJdLCJCb29rTWFy
+        ayI6IFsiZVBuSENYTXdZMkxnTkRJME05VTFORGNHSmpoTzBEeWNMckNZTk9X
+        QUY0X0dCa2FjREtLdVBvN09DaVg1Q2g3NXhTVUtqa1VsQ3NFWi1lWGNETEp1
+        cmlIT0hycXdZakUtSTY4ZzN0RFVITmlvdGpRQlhXeUZYeDRBQXBzZ0JRIl0s
+        IkRhdGFiYXNlTmFtZSI6IFsiUHJvUXVlc3QgSGlzdG9yaWNhbCBOZXdzcGFw
+        ZXJzOiBMb3MgQW5nZWxlcyBUaW1lcyAoMTg4MS0xOTkwKSJdfSx7Imhhc0Z1
+        bGxUZXh0IjogZmFsc2UsImlzRnVsbFRleHRIaXQiOiBmYWxzZSwiaXNQcmlu
+        dCI6IGZhbHNlLCJpbkhvbGRpbmdzIjogZmFsc2UsIm9wZW5VcmwiOiAiY3R4
+        X3Zlcj1aMzkuODgtMjAwNCZjdHhfZW5jPWluZm8lM0FvZmklMkZlbmMlM0FV
+        VEYtOCZyZnJfaWQ9aW5mbyUzQXNpZCUyRnN1bW1vbi5zZXJpYWxzc29sdXRp
+        b25zLmNvbSZyZnRfdmFsX2ZtdD1pbmZvJTNBb2ZpJTJGZm10JTNBa2V2JTNB
+        bXR4JTNBYm9vayZyZnQuZ2VucmU9ZGlzc2VydGF0aW9uJnJmdC50aXRsZT1Q
+        JUM1JTk5JUMzJUFEcHJhdmErYStyZWFsaXphY2UrcHJvamVrdHUrQ3VsdHVy
+        ZWEmcmZ0LkRCSUQ9NS1UJnJmdC5hdT0lQzQlOENlcm4lQzMlQTElMkMrS2F0
+        ZSVDNSU5OWluYSZyZnQuZGF0ZT0yMDE0LTAxLTMxJnJmdC5wdWI9VW5pdmVy
+        eml0YStUb20lQzMlQTElQzUlQTFlK0JhdGkrdmUrWmwlQzMlQURuJUM0JTlC
+        JnJmdC5hZHZpc29yPUtvY291cmVrJTJDK0pvc2VmJnJmdC5leHRlcm5hbERC
+        SUQ9biUyRmEmcmZ0LmV4dGVybmFsRG9jSUQ9b2FpX2RpZ2lsaWJfa191dGJf
+        Y3pfMTA1NjNfMzA0NDAiLCJsaW5rIjogImh0dHA6Ly9jb2x1bWJpYS5zdW1t
+        b24uc2VyaWFsc3NvbHV0aW9ucy5jb20vMi4wLjAvbGluay8wL2VMdkhDWE13
+        WTJCUVJTc1BRQ05VSmFsNjRMSloxd1IwbEk0dTVOSklwSE1YNGFkRnB3RHpV
+        WEtxWHJaZWFVbVNYbktWUHVTc0FYM1FfZkRHLXNhZy01R1pnUjBzMEQwcHpD
+        VkpwY2lscHBzZ0E0OEwwaHkyRUFOVGNyRUlnMGJBMFptSDF4WVVKWllsS2lR
+        cUFCdGlvTlZTeWFrSzRJR083SkpTQmNqUmxhbUpvZ3pHYnE0aHpoNjZRSFBq
+        SWM0d2lnY2R2cHlTbVE0NjZqWS1PeDdvcHZqa3FuaXdZLUxCampHUVlGQXd0
+        MHcwVHpZMFRFd3hza2cyTVROTVN6SkxNVXUwTkU0ME5rODJUMGxMTXBSazBD
+        SEZTQ25TbEVzemNBSHJjTkJLRW1CeEtzUEFtZ1pNdGFteXdFb1dWTGdsWlNZ
+        Q0FKcFdkc0kiLCJMYW5ndWFnZSI6IFsiQ3plY2giXSwiQXV0aG9yIjogWyLE
+        jGVybsOhLCBLYXRlxZlpbmEiXSwiU2NvcmUiOiBbIjAuMDEiXSwiQ29weXJp
+        Z2h0IjogWyJCZXogb21lemVuw60iXSwiSXNQZWVyUmV2aWV3ZWQiOiBbImZh
+        bHNlIl0sIkRpc3NlcnRhdGlvbkFkdmlzb3JfeG1sIjogW3sic2VxdWVuY2Ui
+        OiAiMSIsImZ1bGxuYW1lIjogIsWgdmlyw6Frb3bDoSwgRXZhIn0seyJzZXF1
+        ZW5jZSI6ICIyIiwiZnVsbG5hbWUiOiAiS29jb3VyZWssIEpvc2VmIn1dLCJE
+        QklEIjogWyI1LVQiXSwiUHVibGljYXRpb25EYXRlIjogWyIyMDE0LTAxLTMx
+        Il0sIlB1YmxpY2F0aW9uRGF0ZV94bWwiOiBbeyJ0ZXh0IjogIjIwMTQtMDEt
+        MzEiLCJtb250aCI6ICIwMSIsInllYXIiOiAiMjAxNCIsImRheSI6ICIzMSJ9
+        XSwiUHVibGljYXRpb25DZW50dXJ5IjogWyIyMDAwIl0sIkNvcHlyaWdodF94
+        bWwiOiBbeyJub3RpY2UiOiAiQmV6IG9tZXplbsOtIn1dLCJQdWJsaXNoZXIi
+        OiBbIlVuaXZlcnppdGEgVG9tw6HFoWUgQmF0aSB2ZSBabMOtbsSbIl0sIkFi
+        c3RyYWN0TGlzdCI6IFsiUHLDoWNlIHNlIHbEm251amUgcm96ZWJyw6Fuw60g
+        cGlsb3Ruw61obyByb8SNbsOta3UgcHJvamVrdHUgQ3VsdHVyZWEuIFNuYcW+
+        w60gc2UgcG9zb3VkaXQsIGpha291IG3DrXJ1IHZsaXZ1IG3DoSB2w71ixJty
+        IGEgdmVkZW7DrSBsaW5pb3bDvWNoIG1hbmHFvmVyxa8gbmEgZG9zYcW+ZW7D
+        rSBwxZllZGVtIHN0YW5vdmVuw71jaCBjw61sxa8gcHJvamVrdHUuIFRlb3Jl
+        dGlja8OhIMSNw6FzdCBwb2plZG7DoXbDoSBvIHByb2pla3RvdsOpbSBtYW5h
+        Z2VtZW50dSwgcm96ZWLDrXLDoSBobGF2bsOtIHNvdcSNw6FzdGkgdmVkZW7D
+        rSBsaWTDrSBhIHTDvW3FryB0ai4gcHJvY2VzeSB2xa9kY292c3R2w60sIG1v
+        dGl2YWNlLCBhc2VydGl2aXR5LCBrb211bmlrYWNlIGEgZGFsxaHDrS4gUHJh
+        a3RpY2vDoSDEjcOhc3QgcHLDoWNlIHNlIHphYsO9dsOhIHByb2pla3RlbSBD
+        dWx0dXJlYS4gQW5hbHl6dWplIHbDvXN0dXB5IHByb2pla3R1IGRsZSB2eXR2
+        b8WZZW7DvWNoIHByb2pla3RvLXbDvWNoIGRva3VtZW50xa8gYSBwb21vY8Ot
+        IHPDqW1hbnRpY2vDvWNoIGRpZmVyZW5jacOhbMWvIHprb3Vtw6EgbcSba2vD
+        qSBkb3ZlZG5vc3RpIMSNbGVuxa8gdMO9bXUgQ3VsdHVyZWEgMjAxMy4gVGhl
+        IHRoZXNpcyBhbmFseXNlcyBlc3RhYmxpc2htZW50IGFuZCBpbmNlcHRpb24g
+        b2YgYSBzdHVkZW50IHByb2plY3QgQ3VsdHVyZWEuIEl0cyBvYmplY3RpdmVz
+        IGFyZSB0byBldmFsdWF0ZSB0aGUgaW50ZXJkZXBlbmRlbmNlIHdpdGhpbiBj
+        aG9pY2UgYW5kIG1hbmFnZW1lbnQgb2YgbWFuYWdlcnMgKHRlYW0gbWVtYmVy
+        cyksIGFuZCBhY2hpZXZlbWVudCBvZiBwcmUtZGVmaW5lZCB0YXJnZXRzIG9m
+        IHRoZSBwcm9qZWN0LiBUaGUgdGhlb3JldGljYWwgcGFydCBkaXNjdXNzZXMg
+        Y29uY2VwdGlvbiBvZiBwcm9qZWN0IG1hbmFnZW1lbnQsIGh1bWFuIG1hbmFn
+        ZW1lbnQgLSBsZWFkaW5nIHN0eWxlcywgbW90aXZhLXRpb24sIGFzc2VydGl2
+        ZW5lc3MsIGNvbW11bmljYXRpb24sIGV0Yy4gVGhlIHByYWN0aWNhbCBwYXJ0
+        IGZvY3VzZXMgb24gdGhlIHByb2plY3QgQ3VsdHVyZWEuIEF1dGhvciBvZiB0
+        aGlzIHRoZXNpcyBhbmFseXNlcyBwcm9qZWN0J3MgcmVzdWx0LCBhY2NvcmRp
+        bmcgdG8gcHJlcGFyZWQgcHJvamVjdCBkb2N1bWVudHMgYW5kIHNvZnQgc2tp
+        bGxzIG9mIHRlYW0gbWVtYmVycyB0aHJvdWdoIGEgc2VtYW50aWMgZGlmZmVy
+        ZW50aWFsLiDDmnN0YXYgbWFya2V0aW5nb3bDvWNoIGtvbXVuaWthY8OtIl0s
+        IlNvdXJjZVR5cGUiOiBbIkluc3RpdHV0aW9uYWwgUmVwb3NpdG9yeSJdLCJQ
+        dWJsaXNoZXJfeG1sIjogW3sibmFtZSI6ICJVbml2ZXJ6aXRhIFRvbcOhxaFl
+        IEJhdGkgdmUgWmzDrW7EmyJ9XSwiU25pcHBldCI6IFsiUHLDoWNlIHNlIHbE
+        m251amUgcm96ZWJyw6Fuw60gcGlsb3Ruw61obyByb8SNbsOta3UgcHJvamVr
+        dHUgQ3VsdHVyZWEuIFNuYcW+w60gc2UgcG9zb3VkaXQsIGpha291IG3DrXJ1
+        IHZsaXZ1IG3DoSB2w71ixJtyIGEgdmVkZW7DrSBsaW5pb3bDvWNoIG1hbmHF
+        vmVyxa8gbmEgZG9zYcW+ZW7DrSBwxZllZGVtLi4uIl0sIkRpc3NlcnRhdGlv
+        bkFkdmlzb3IiOiBbIktvY291cmVrLCBKb3NlZiIsIsWgdmlyw6Frb3bDoSwg
+        RXZhIl0sIlVSSSI6IFsiaHR0cDovL2RzcGFjZS5rLnV0Yi5jei9oYW5kbGUv
+        MTA1NjMvMzA0NDAiXSwiSXNTY2hvbGFybHkiOiBbImZhbHNlIl0sIklEIjog
+        WyJGRVRDSC10YnVfZHNwYWNlMl9vYWlfZGlnaWxpYl9rX3V0Yl9jel8xMDU2
+        M18zMDQ0MDAiXSwiUHVibGljYXRpb25ZZWFyIjogWyIyMDE0Il0sIkRhdGFi
+        YXNlVGl0bGVMaXN0IjogWyIiXSwiQWJzdHJhY3QiOiBbIlByw6FjZSBzZSB2
+        xJtudWplIHJvemVicsOhbsOtIHBpbG90bsOtaG8gcm/EjW7DrWt1IHByb2pl
+        a3R1IEN1bHR1cmVhLiBTbmHFvsOtIHNlIHBvc291ZGl0LCBqYWtvdSBtw61y
+        dSB2bGl2dSBtw6EgdsO9YsSbciBhIHZlZGVuw60gbGluaW92w71jaCBtYW5h
+        xb5lcsWvIG5hIGRvc2HFvmVuw60gcMWZZWRlbSBzdGFub3ZlbsO9Y2ggY8Ot
+        bMWvIHByb2pla3R1LiBUZW9yZXRpY2vDoSDEjcOhc3QgcG9qZWRuw6F2w6Eg
+        byBwcm9qZWt0b3bDqW0gbWFuYWdlbWVudHUsIHJvemViw61yw6EgaGxhdm7D
+        rSBzb3XEjcOhc3RpIHZlZGVuw60gbGlkw60gYSB0w71txa8gdGouIHByb2Nl
+        c3kgdsWvZGNvdnN0dsOtLCBtb3RpdmFjZSwgYXNlcnRpdml0eSwga29tdW5p
+        a2FjZSBhIGRhbMWhw60uIFByYWt0aWNrw6EgxI3DoXN0IHByw6FjZSBzZSB6
+        YWLDvXbDoSBwcm9qZWt0ZW0gQ3VsdHVyZWEuIEFuYWx5enVqZSB2w71zdHVw
+        eSBwcm9qZWt0dSBkbGUgdnl0dm/FmWVuw71jaCBwcm9qZWt0by12w71jaCBk
+        b2t1bWVudMWvIGEgcG9tb2PDrSBzw6ltYW50aWNrw71jaCBkaWZlcmVuY2nD
+        oWzFryB6a291bcOhIG3Em2trw6kgZG92ZWRub3N0aSDEjWxlbsWvIHTDvW11
+        IEN1bHR1cmVhIDIwMTMuIFRoZSB0aGVzaXMgYW5hbHlzZXMgZXN0YWJsaXNo
+        bWVudCBhbmQgaW5jZXB0aW9uIG9mIGEgc3R1ZGVudCBwcm9qZWN0IEN1bHR1
+        cmVhLiBJdHMgb2JqZWN0aXZlcyBhcmUgdG8gZXZhbHVhdGUgdGhlIGludGVy
+        ZGVwZW5kZW5jZSB3aXRoaW4gY2hvaWNlIGFuZCBtYW5hZ2VtZW50IG9mIG1h
+        bmFnZXJzICh0ZWFtIG1lbWJlcnMpLCBhbmQgYWNoaWV2ZW1lbnQgb2YgcHJl
+        LWRlZmluZWQgdGFyZ2V0cyBvZiB0aGUgcHJvamVjdC4gVGhlIHRoZW9yZXRp
+        Y2FsIHBhcnQgZGlzY3Vzc2VzIGNvbmNlcHRpb24gb2YgcHJvamVjdCBtYW5h
+        Z2VtZW50LCBodW1hbiBtYW5hZ2VtZW50IC0gbGVhZGluZyBzdHlsZXMsIG1v
+        dGl2YS10aW9uLCBhc3NlcnRpdmVuZXNzLCBjb21tdW5pY2F0aW9uLCBldGMu
+        IFRoZSBwcmFjdGljYWwgcGFydCBmb2N1c2VzIG9uIHRoZSBwcm9qZWN0IEN1
+        bHR1cmVhLiBBdXRob3Igb2YgdGhpcyB0aGVzaXMgYW5hbHlzZXMgcHJvamVj
+        dCdzIHJlc3VsdCwgYWNjb3JkaW5nIHRvIHByZXBhcmVkIHByb2plY3QgZG9j
+        dW1lbnRzIGFuZCBzb2Z0IHNraWxscyBvZiB0ZWFtIG1lbWJlcnMgdGhyb3Vn
+        aCBhIHNlbWFudGljIGRpZmZlcmVudGlhbC4gw5pzdGF2IG1hcmtldGluZ292
+        w71jaCBrb211bmlrYWPDrSJdLCJNZXJnZWRJZCI6IFsiRkVUQ0hNRVJHRUQt
+        dGJ1X2RzcGFjZTJfb2FpX2RpZ2lsaWJfa191dGJfY3pfMTA1NjNfMzA0NDAw
+        Il0sIkF1dGhvcl94bWwiOiBbeyJzZXF1ZW5jZSI6ICIxIiwiZnVsbG5hbWUi
+        OiAixIxlcm7DoSwgS2F0ZcWZaW5hIn1dLCJQdWJsaWNhdGlvbkRlY2FkZSI6
+        IFsiMjAxMCJdLCJDb250ZW50VHlwZSI6IFsiRGlzc2VydGF0aW9uIl0sIlRp
+        dGxlIjogWyJQxZnDrXByYXZhIGEgcmVhbGl6YWNlIHByb2pla3R1IEN1bHR1
+        cmVhIl0sIkV4dGVybmFsRG9jdW1lbnRJRCI6IFsib2FpX2RpZ2lsaWJfa191
+        dGJfY3pfMTA1NjNfMzA0NDAiXSwiTGlua01vZGVsIjogWyJEaXJlY3RMaW5r
+        Il0sIkJvb2tNYXJrIjogWyJlUG5IQ1hNdzQyVFFDRGc2OF9EYWdxTEVza1NG
+        UkFWZzB3ZTBQaWs1VlFFOHRKQmRVcW9BT1N3eUZWZ1ZHTHU1aGpoNzZKWWts
+        Y2FuQUROUWNxcFJQT2k0NDVUTWRORGhzdkhaOGFVbFNmSEpWZkdnNi1HTjQ0
+        MUIxeU1ia0tjTEFQZ3NNN3ciXSwiRGF0YWJhc2VOYW1lIjogWyJUb21hcyBC
+        YXRhIFVuaXZlcnNpdHkgVEJVIERTcGFjZSJdfV0sInJvbGx1cHMiOiB7Imlt
+        YWdlIjoge30sInJlZmVyZW5jZSI6IHt9LCJuZXdzcGFwZXIiOiB7fX19
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:51:59 GMT
+- request:
+    method: get
+    uri: http://api.summon.serialssolutions.com/2.0.0/search?s.cache=false&s.ff=SubjectTerms,and,1,10&s.fvf=ContentType,%20Newspaper%20Article,t&s.ho=t&spellcheck=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf8
+      X-Summon-Date:
+      - Wed, 26 Oct 2016 17:51:59 GMT
+      X-Summon-Session-Id:
+      - SUMMON-SESSION-Sprite.local-44373-129
+      X-Summon-Request-Id:
+      - ''
+      Authorization:
+      - Summon columbia;4QujB5fRN3KbjHRmELXgwFKo8l0=
+      Host:
+      - api.summon.serialssolutions.com:80
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Datacenter:
+      - IAD1
+      Date:
+      - Wed, 26 Oct 2016 17:52:01 GMT
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"version": "2.0.0","sessionId": "SUMMON-SESSION-Sprite.local-44373-129","elapsedQueryTime":
+        1550,"queryTime": 1544,"totalRequestTime": 1706,"pageCount": 41375318,"recordCount":
+        413753171,"query": {"queryString": "s.cache=f&s.ho=t&s.ff=Language%2Cand%2C1%2C10&s.ff=SubjectTerms%2Cand%2C1%2C10&s.ff=ContentType%2Cand%2C1%2C10&s.fvf=ContentType%2CNewspaper+Article%2Ct","pageNumber":
+        1,"pageSize": 10,"isHoldingsOnlyEnabled": true,"textQueries": [],"searchTerms":
+        [],"textFilters": [],"rangeFilters": [],"facetValueFilters": [{"fieldName":
+        "ContentType","value": "Newspaper Article","isNegated": true,"removeCommand":
+        "removeFacetValueFilter(ContentType,Newspaper Article)","negateCommand": "negateFacetValueFilter(ContentType,Newspaper
+        Article)"}],"inclusiveFacetValueFilters": [],"facetValueGroupFilters": [],"facetFields":
+        [{"fieldName": "Language","combineMode": "and","pageNumber": 1,"pageSize":
+        10,"removeCommand": "removeFacetField(Language)"},{"fieldName": "SubjectTerms","combineMode":
+        "and","pageNumber": 1,"pageSize": 10,"removeCommand": "removeFacetField(SubjectTerms)"},{"fieldName":
+        "ContentType","combineMode": "and","pageNumber": 1,"pageSize": 10,"removeCommand":
+        "removeFacetField(ContentType)"}],"rangeFacetFields": [],"sort": []},"facetFields":
+        [{"fieldName": "Language_s","displayName": "Language","combineMode": "and","pageNumber":
+        1,"pageSize": 10,"hasLimitingValue": true,"hasAppliedValue": false,"removeCommand":
+        "removeFacetField(Language)","listValuesCommand": "listFacetValues(Language,and)","removeValueFiltersCommand":
+        "removeFacetValueFilter(Language)","counts": [{"value": "English","count":
+        264819680,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(Language,English)","applyNegatedCommand": "addFacetValueFilters(Language,English:t)"},{"value":
+        "German","count": 79790431,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(Language,German)","applyNegatedCommand":
+        "addFacetValueFilters(Language,German:t)"},{"value": "Chinese","count": 35889194,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(Language,Chinese)","applyNegatedCommand":
+        "addFacetValueFilters(Language,Chinese:t)"},{"value": "French","count": 9193261,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(Language,French)","applyNegatedCommand":
+        "addFacetValueFilters(Language,French:t)"},{"value": "Korean","count": 3768974,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(Language,Korean)","applyNegatedCommand":
+        "addFacetValueFilters(Language,Korean:t)"},{"value": "Spanish","count": 3243992,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(Language,Spanish)","applyNegatedCommand":
+        "addFacetValueFilters(Language,Spanish:t)"},{"value": "Italian","count": 1858535,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(Language,Italian)","applyNegatedCommand":
+        "addFacetValueFilters(Language,Italian:t)"},{"value": "Russian","count": 978138,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(Language,Russian)","applyNegatedCommand":
+        "addFacetValueFilters(Language,Russian:t)"},{"value": "Japanese","count":
+        860923,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(Language,Japanese)","applyNegatedCommand": "addFacetValueFilters(Language,Japanese:t)"},{"value":
+        "Portuguese","count": 781376,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(Language,Portuguese)","applyNegatedCommand":
+        "addFacetValueFilters(Language,Portuguese:t)"}]},{"fieldName": "SubjectTerms_mfacet","displayName":
+        "SubjectTerms","combineMode": "and","pageNumber": 1,"pageSize": 10,"hasLimitingValue":
+        true,"hasAppliedValue": false,"removeCommand": "removeFacetField(SubjectTerms)","listValuesCommand":
+        "listFacetValues(SubjectTerms,and)","removeValueFiltersCommand": "removeFacetValueFilter(SubjectTerms)","counts":
+        [{"value": "research","count": 6963111,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,research)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,research:t)"},{"value": "service industries","count":
+        4446631,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,service industries)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,service industries:t)"},{"value": "article","count":
+        4051683,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,article)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,article:t)"},{"value":
+        "retailing industry","count": 4012165,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,retailing industry)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,retailing industry:t)"},{"value": "book
+        reviews","count": 3942675,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,book reviews)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,book reviews:t)"},{"value": "books","count":
+        3866873,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,books)","applyNegatedCommand": "addFacetValueFilters(SubjectTerms,books:t)"},{"value":
+        "reports","count": 3779566,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,reports)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,reports:t)"},{"value": "universities and
+        colleges","count": 3598332,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,universities and colleges)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,universities and colleges:t)"},{"value":
+        "analysis","count": 3547540,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(SubjectTerms,analysis)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,analysis:t)"},{"value": "construction industry","count":
+        2839777,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(SubjectTerms,construction industry)","applyNegatedCommand":
+        "addFacetValueFilters(SubjectTerms,construction industry:t)"}]},{"fieldName":
+        "ContentType_mfacet","displayName": "ContentType","combineMode": "and","pageNumber":
+        1,"pageSize": 10,"hasLimitingValue": true,"hasAppliedValue": true,"removeCommand":
+        "removeFacetField(ContentType)","listValuesCommand": "listFacetValues(ContentType,and)","removeValueFiltersCommand":
+        "removeFacetValueFilter(ContentType)","counts": [{"value": "Journal Article","count":
+        164813730,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(ContentType,Journal Article)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Journal Article:t)"},{"value": "Patent","count":
+        76369165,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(ContentType,Patent)","applyNegatedCommand": "addFacetValueFilters(ContentType,Patent:t)"},{"value":
+        "Report","count": 55028093,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(ContentType,Report)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Report:t)"},{"value": "Magazine Article","count":
+        27913945,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(ContentType,Magazine Article)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Magazine Article:t)"},{"value": "Newsletter","count":
+        20632925,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(ContentType,Newsletter)","applyNegatedCommand": "addFacetValueFilters(ContentType,Newsletter:t)"},{"value":
+        "Book Review","count": 19972925,"isApplied": false,"isNegated": false,"isFurtherLimiting":
+        true,"applyCommand": "addFacetValueFilters(ContentType,Book Review)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Book Review:t)"},{"value": "Book / eBook","count":
+        6572949,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(ContentType,Book / eBook)","applyNegatedCommand": "addFacetValueFilters(ContentType,Book
+        / eBook:t)"},{"value": "Government Document","count": 6064616,"isApplied":
+        false,"isNegated": false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(ContentType,Government
+        Document)","applyNegatedCommand": "addFacetValueFilters(ContentType,Government
+        Document:t)"},{"value": "Dissertation","count": 5888188,"isApplied": false,"isNegated":
+        false,"isFurtherLimiting": true,"applyCommand": "addFacetValueFilters(ContentType,Dissertation)","applyNegatedCommand":
+        "addFacetValueFilters(ContentType,Dissertation:t)"},{"value": "Web Resource","count":
+        5627635,"isApplied": false,"isNegated": false,"isFurtherLimiting": true,"applyCommand":
+        "addFacetValueFilters(ContentType,Web Resource)","applyNegatedCommand": "addFacetValueFilters(ContentType,Web
+        Resource:t)"},{"value": "Newspaper Article","count": 0,"isApplied": true,"isNegated":
+        true,"isFurtherLimiting": false,"removeCommand": "removeFacetValueFilter(ContentType,Newspaper
+        Article)","negateCommand": "negateFacetValueFilter(ContentType,Newspaper Article)"}]}],"rangeFacetFields":
+        [],"didYouMeanSuggestions": [],"recommendationLists": {},"documents": [{"hasFullText":
+        true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=Preface&rft.jtitle=Annals+of+the+New+York+Academy+of+Sciences&rft.au=ROSSI%2C+CLAUDIO&rft.au=TIEZZI%2C+ENZO&rft.date=1999-06-01&rft.pub=Blackwell+Publishing+Ltd&rft.issn=0077-8923&rft.eissn=1749-6632&rft.volume=879&rft.issue=1&rft.spage=ix&rft.epage=x&rft_id=info:doi/10.1111%2Fj.1749-6632.1999.tb10400.x&rft.externalDocID=NYASIX","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRSsPQCNUJal64LJZ1wR0lI6uIfi0aqRzF-F3ySHEaBrVQDFgZIO2zpIQ3XBDgQJANjDSgSQw2oEkUREfAKzzEpNRVvggTkmGLWkEn9TkiNhNAs3iiIXv_sBQBQ-i-jgCm4z-8A6-p2tUFFjC1S_KHzFkAD1mAHnIAG1oEDLUhVhEBC4nzYF1lyVkJ7BeKqRoNDex1AW2T1DKTgvITTAoiQRSEmZWINWpFfgLa5jJoK2TlnolSYagkgW2jBPlMGy_SMdgzwhmYB_bAtjTZvXxDPFwhU8agWpacMULdTz0jFn4wi2slqB2SsCtihBBBn5od0DBERKNQgxMqXnCDOyQC0IrhRmEYPGioAE9H1xThIEdGsOiDHZuriHOHrpgk-MLIOeGxCP1t4COiQc5Jh7kmHioY-Ir4iH-M5ZgUDAyTgPtCga2XoEtMAuT1KQU8zRLMxOz5EQjsyTLNAtJBnMyTZciW6c0AxciOckwsJQUlabKAttzoLSQlJkIAO_YMoI","Volume":
+        ["879"],"Language": ["English"],"Author": ["ROSSI, CLAUDIO","TIEZZI, ENZO"],"PublicationPlace":
+        ["Oxford, UK"],"AuthorAffiliation_xml": [{"name": "Department of Chemical
+        and Biosystems Sciences, University of Siena, Pian dei Mantellini, 44, 53100
+        Siena, Italy"}],"Score": ["0.01"],"DOI": ["10.1111/j.1749-6632.1999.tb10400.x"],"PageCount":
+        ["2"],"IsPeerReviewed": ["true"],"PublicationDate_xml": [{"text": "June 1999","month":
+        "06","year": "1999"}],"PublicationDate": ["June 1999"],"PublicationCentury":
+        ["1900"],"Publisher": ["Blackwell Publishing Ltd"],"SourceType": ["Publisher"],"Publisher_xml":
+        [{"name": "Blackwell Publishing Ltd"}],"URI": ["http://onlinelibrary.wiley.com/doi/10.1111/j.1749-6632.1999.tb10400.x/abstract"],"IsScholarly":
+        ["true"],"ID": ["FETCH-wiley_primary_10_1111_j_1749_6632_1999_tb10400_x_NYASIX3"],"PublicationTitle":
+        ["Annals of the New York Academy of Sciences"],"Issue": ["1"],"Discipline":
+        ["Sciences (General)","Biology"],"PublicationYear": ["1999"],"Genre": ["article"],"PublicationPlace_xml":
+        [{"name": "Oxford, UK"}],"AuthorAffiliation": ["Department of Chemical and
+        Biosystems Sciences, University of Siena, Pian dei Mantellini, 44, 53100 Siena,
+        Italy"],"EISSN": ["1749-6632"],"MergedId": ["FETCHMERGED-wiley_primary_10_1111_j_1749_6632_1999_tb10400_x_NYASIX3"],"Author_xml":
+        [{"sequence": "1","givenname": "CLAUDIO","surname": "ROSSI","fullname": "ROSSI,
+        CLAUDIO"},{"sequence": "2","givenname": "ENZO","surname": "TIEZZI","fullname":
+        "TIEZZI, ENZO"}],"PublicationDecade": ["1990"],"ContentType": ["Journal Article"],"Title":
+        ["Preface"],"ISSN": ["0077-8923"],"ExternalDocumentID": ["NYASIX"],"SSID":
+        ["ssj0012847"],"StartPage": ["ix"],"EndPage": ["x"],"thumbnail_l": ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/lc.gif&issn=0077-8923&client=summon"],"thumbnail_m":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/mc.gif&issn=0077-8923&client=summon"],"thumbnail_s":
+        ["http://covers-cdn.summon.serialssolutions.com/index.aspx?isbn=/sc.gif&issn=0077-8923&client=summon"],"LinkModel":
+        ["OpenURL"],"BookMark": ["ePnHCXMwY4Ac7AlfLWOpC6zTjECb4iz1SpIMQWlGr4IJvEsRIsUCKirNgUUlsKnBARv_BxWanAzsAcBaIhHUcLRzcw1x9tAFNx_jCyDnMMQjtV-BhsWDDIsH2RMPtSe-It4v0jHYM8KYYgMAJ7k3UQ"]},{"hasFullText":
+        true,"isFullTextHit": false,"isPrint": false,"inHoldings": true,"openUrl":
+        "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Apatent&rft.title=Method+for+determining+a+load+line+based+variable+voltage+input+for+an+integrated+circuit+product&rft.inventor=Osburn%2C+Edward+P&rft.inventor=Stapleton%2C+Michael+A&rft.number=6472899&rft.date=2002-10-29&rft.externalDBID=n%2Fa&rft.externalDocID=06472899","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwfV1NS8NAEF1EBPWkKFg_YC7mltqkIW0OQUSMEaqNtnfZJhsaiGlIN0L_vW-2tYigpyzZGTKH5c28sPNGiOtfeMB_qLTqGmy2PZbSsR2jVv1Dd1F8T-yqpcZ32mWtF-ZaJfi5BCm8qeq5nYDqqeZ2AiRww2Q6dqz1Mn6ajqPIqhFkG7KcKHzm-qPEElbcH2sOjY2ytezyhtXANA8frZJVT7MwuRuNrDeVT2AVrtTSem1VswqTF_iyvDo4CUDecQaGX0XxodhHhKgFK725NW3ANToSe4l5eyx2VHUi5LOZAk0oPynb3G5BQiJJ5UJmxHUkcbLK6BPEmFulCJikASRUVHWrjaOsaKsckVFaNGlbaKrXerCngqKH6X1sb-N5hyE_epvA-2eC3H7OHaaohJDNh56aZYM88D0_la4_C_JhR3T-9D__Z-9CHKyHo_RsN7gUu7pp1RXyO-PqrJBfpbeduA","Language":
+        ["English"],"IsOpenAccess": ["true"],"Author": ["Stapleton, Michael A","Osburn,
+        Edward P"],"Score": ["0.01"],"References_xml": [{"ident": "5528509","year":
+        "19960600","contributor": {"fullname": "Sawai et al."}},{"ident": "5905384","year":
+        "19990500","contributor": {"fullname": "Inoue et al."}},{"ident": "6049219","year":
+        "20000400","contributor": {"fullname": "Hwang et al."}},{"ident": "4637020","year":
+        "19870100","contributor": {"fullname": "Schinabeck"}}],"IsPeerReviewed": ["false"],"DBID":
+        ["EFH"],"PublicationDate": ["20021029"],"PublicationDate_xml": [{"text": "20021029","month":
+        "10","year": "2002","day": "29"}],"PublicationCentury": ["2000"],"References":
+        ["Schinabeck (4637020) 19870100","Inoue et al. (5905384) 19990500","Hwang
+        et al. (6049219) 20000400","Intel Pentium III Processor for the PGA370 Socket
+        at 500 MHz to 1 GHz Datasheet, Oct. 2000, pp. 1-80, Order No. 245264-007.","Sawai
+        et al. (5528509) 19960600"],"PatentNumber": ["6472899"],"AbstractList": ["The
+        present invention provides a method or process for determining a load line
+        based variable voltage input for an Integrated Circuit (IC) product. More
+        particularly, the present invention provides a method/process for determining
+        a variable load line that defines voltage input (Vcc) as a function of current
+        draw (Icc) for an IC product. In one embodiment, the method includes defining
+        a minimum voltage relative to a reference voltage level for an IC product
+        at a maximum current draw Icc of the IC product. A maximum voltage relative
+        to the reference voltage level for the IC product, at a minimum current draw
+        Icc of the IC product, is also defined. Next, a load line based upon the maximum
+        and minimum voltages and current draws, respectively, is calculated. The load
+        line defines the voltage requirements for the IC product as a function of
+        current draw Icc."],"SourceType": ["Open Access Repository"],"Snippet": ["The
+        present invention provides a method or process for determining a load line
+        based variable voltage input for an Integrated Circuit (IC) product. More..."],"URI":
+        ["http://patft.uspto.gov/netacgi/nph-Parser?Sect2=PTO1&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-bool.html&r=1&f=G&l=50&d=PALL&RefSrch=yes&Query=PN%2F6472899"],"IsScholarly":
+        ["false"],"CorporateAuthor": ["Intel Corporation"],"ID": ["FETCH-uspatents_grants_064728993"],"PublicationYear":
+        ["2002"],"DatabaseTitleList": [""],"Abstract": ["The present invention provides
+        a method or process for determining a load line based variable voltage input
+        for an Integrated Circuit (IC) product. More particularly, the present invention
+        provides a method/process for determining a variable load line that defines
+        voltage input (Vcc) as a function of current draw (Icc) for an IC product.
+        In one embodiment, the method includes defining a minimum voltage relative
+        to a reference voltage level for an IC product at a maximum current draw Icc
+        of the IC product. A maximum voltage relative to the reference voltage level
+        for the IC product, at a minimum current draw Icc of the IC product, is also
+        defined. Next, a load line based upon the maximum and minimum voltages and
+        current draws, respectively, is calculated. The load line defines the voltage
+        requirements for the IC product as a function of current draw Icc."],"MergedId":
+        ["FETCHMERGED-uspatents_grants_064728993"],"Author_xml": [{"sequence": "1","givenname":
+        "Edward P","surname": "Osburn","fullname": "Osburn, Edward P"},{"sequence":
+        "2","givenname": "Michael A","surname": "Stapleton","fullname": "Stapleton,
+        Michael A"}],"PublicationDecade": ["2000"],"ContentType": ["Patent"],"Title":
+        ["Method for determining a load line based variable voltage input for an integrated
+        circuit product"],"ExternalDocumentID": ["06472899"],"CorporateAuthor_xml":
+        [{"name": "Intel Corporation"}],"Database_xml": [{"sequence": "1","name":
+        "USPTO Issued Patents","dbid": "EFH","url": "http://www.uspto.gov/patft/index.html","sourceTypes":
+        ["Open Access Repository"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42RI9AXffawAbHQppEDXdACLYYVEhZz8xBQFUOtJAVREpyiUAbuDoA1CCsCcWALMPgqZeQWlJWCNiXkK8PMSUhSSM4uSSzNLFAogp6ByMyi4uYY4e-iWAnNdCWjBQTxQIYgCbZ0EdSGMiVACAAYROlY"],"DatabaseName":
+        ["USPTO Issued Patents"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=INNS+OF+AURORA+THE&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2016-01-05&rft.pub=Experian+Information+Solutions%2C+Inc","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRSsPQCNUJal64LJZ1wR0lI6uIfi0aqRzFxlgl7ZC4xdWLILL6pT8ZNAwub4hsLFtYmlkbmBhX1CoC7o4CjTBCrtFIxF6uwJokgbYpmBmYAXW5uag2xzMwyMxSlpwqegmwFCFfC5CRaVecmkO0E5guZCUmYi0phrpcEaquVCQgQ3SyBZiYErNE2EQ8vTzC1bwd1NwDA3yD3JUCPFwFWVQcnMNcfbQhdkWD51JiEfYZCzBoGBknAbaQgps6gCrawuT1KQU8zRLMxOz5EQjsyTLNAtJBmk8JkjhlZVm4AI2EiDDDqYyDCwlRaWpssBKHBpIANEHk7I","DatabaseTitle":
+        ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
+        Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
+        Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
+        (Alumni)","ProQuest Central","ABI/INFORM Complete","ABI/INFORM Trade & Industry","Business
+        Premium Collection","ProQuest Central (Alumni Edition)","Business Premium
+        Collection (Alumni)"],"Language": ["English"],"PublicationPlace": ["Costa
+        Mesa"],"Score": ["0.01"],"IsPeerReviewed": ["false"],"DBID": ["Q9U","7XB","K6~","8FL","8FK","ABUWG","FRNLG","M0F","BENPR","DWQXO","K60","7WY","3V.","BEZIV","883"],"PublicationDate":
+        ["20160105"],"PublicationDate_xml": [{"text": "20160105","month": "01","year":
+        "2016","day": "05"}],"PublicationCentury": ["2000"],"Publisher": ["Experian
+        Information Solutions, Inc"],"SourceType": ["Aggregation Database"],"Publisher_xml":
+        [{"name": "Experian Information Solutions, Inc"}],"GeographicLocations": ["SYRACUS
+        NY"],"PQPubID": ["2032612"],"URI": ["http://search.proquest.com/docview/1606492708"],"IsScholarly":
+        ["false"],"ID": ["FETCH-proquest_reports_16064927083"],"PublicationTitle":
+        ["Experian Commercial Risk Database"],"GeographicLocations_xml": [{"name":
+        "SYRACUS NY"}],"PublicationYear": ["2016"],"Genre": ["Company Profile"],"PublicationPlace_xml":
+        [{"name": "Costa Mesa"}],"PQID": ["1606492708"],"MergedId": ["FETCHMERGED-proquest_reports_16064927083"],"PublicationDecade":
+        ["2010"],"ContentType": ["Report"],"Title": ["INNS OF AURORA THE"],"Database_xml":
+        [{"sequence": "1","name": "ABI/INFORM Collection","dbid": "7WY","url": "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/abicomplete/advanced?accountid=10226","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42QQ8vTzC1bwd1NwDA3yD3JUCPFw5WZQcnMNcfbQhRV38dAR8XhDYAPaxNLI3AB0bh8RigDzUhuY"],"DatabaseName":
+        ["ProQuest Central Basic","ProQuest Central (purchase pre-March 2016)","ProQuest
+        Business Collection","ABI/INFORM Collection (Alumni Edition)","ProQuest Central
+        (Alumni) (purchase pre-March 2016)","ProQuest Central (Alumni Edition)","Business
+        Premium Collection (Alumni)","ABI/INFORM Trade & Industry","ProQuest Central","ProQuest
+        Central Korea","ProQuest Business Collection (Alumni Edition)","ABI/INFORM
+        Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
+        Trade & Industry (Alumni Edition)"]},{"hasFullText": false,"isFullTextHit":
+        false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Apatent&rft.title=RADIOACTIVE+POWER+SOURCE&rft.date=1968-07-01&rft.externalDocID=4485572","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRSsPQCNUJal64LJZ1wR0lI6uIfi0aqRzFxHn5JSX6-UDEzd4TSWwEgCdZKqflJmUk5mvbwI6yMQcWN6yAhOpJei6AqBJwKIUpJ4HUea5CTKwBQAbanklQgxMqXnCDALQBp0CNLsUCzNwI532J8IgEeTo4ukPWrUR5qoQ4B_uGqQQ7B8a5OwqyqDk5hri7KELsiIe6pxk0AqU5JJ4qHOMJBgUjIzTQFs4gU0NYHVpYZKalGKeZmlmYpacaGSWZJlmIckgjccEKbyy0gxcwFxiAVkiKsPAmgZMlqmywFoUVHolZSYCANCKZbs","Language":
+        ["English"],"IsOpenAccess": ["true"],"PublicationPlace": ["United Kingdom"],"Score":
+        ["0.01"],"IsPeerReviewed": ["false"],"DBID": ["3-1"],"PublicationDate_xml":
+        [{"text": "1968-07-01","month": "07","year": "1968","day": "01"}],"PublicationDate":
+        ["1968-07-01"],"PublicationCentury": ["1900"],"SourceType": ["Publisher"],"URI":
+        ["http://www.osti.gov/scitech/biblio/4485572"],"IsScholarly": ["false"],"ID":
+        ["FETCH-osti_scitechconnect_44855722"],"Discipline": ["Engineering","Applied
+        Sciences"],"PublicationYear": ["1968"],"PublicationPlace_xml": [{"name": "United
+        Kingdom"}],"SubjectTerms": ["DESIGN","STRONTIUM ISOTOPES Sr","Power Sources","STRONTIUM
+        FUEL CAPSULES","CLOSURES","GENERATORS","DECAY","OPENINGS","ISOTOPES","Isotope
+        Technology","Engineering","POWER","FUEL CANS","RADIOACTIVITY","OPERATION","ELECTRONS","BETA
+        PARTICLES"],"MergedId": ["FETCHMERGED-osti_scitechconnect_44855722"],"PublicationDecade":
+        ["1960"],"ContentType": ["Patent"],"Title": ["RADIOACTIVE POWER SOURCE"],"ExternalDocumentID":
+        ["4485572"],"Database_xml": [{"sequence": "1","name": "SciTech Connect","dbid":
+        "3-1","url": "http://ezproxy.cul.columbia.edu/login?url=http://www.osti.gov/scitech/","sourceTypes":
+        ["Publisher"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42SQCHJ08fQHrYEIc1UI8A93DVII9g8NcnblZlBycw1x9tDNB6beeGAJDzqmNBm0niO5JN4EdEqJOegOWyIUAQC9qR5R"],"DatabaseName":
+        ["SciTech Connect"]},{"hasFullText": true,"isFullTextHit": false,"isPrint":
+        false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=UPLAND+TITLE%2C+LLC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2016-08-03&rft.pub=Experian+Information+Solutions%2C+Inc","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRSsPQCNUJal64LJZ1wR0lI6uIfi0aqRzFxlgl7ZC4xdWLILL6pT8ZNAwub6hGbD9AazfzEzsCwp1QRdHgSZYYbdoJEJvVwBN0gDbFMwMrMDa3Bx0m4N5eCRGSQsuJd0EGKqQz0WoqNRLLs0B2gksF5IyE5HWVCMdzkg1FwoysEEa2UIMTKl5IgyCoQGgSzIUQjxDfFx1FHx8nEUZlNxcQ5w9dGGWxUMnEuIRFhlLMCgYGaeBdpACWzrA2trCJDUpxTzN0szELDnRyCzJMs1CkkEajwlSeGWlGbiAbQQz8Jo3YxkGlpKi0lRZYB0ODSMAJ32TSg","DatabaseTitle":
+        ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
+        Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
+        Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
+        (Alumni)","ProQuest Central","ABI/INFORM Complete","ABI/INFORM Trade & Industry","Business
+        Premium Collection","ProQuest Central (Alumni Edition)","Business Premium
+        Collection (Alumni)"],"Language": ["English"],"PublicationPlace": ["Costa
+        Mesa"],"Score": ["0.01"],"RelatedPersons_xml": [{"fullname": "LONEY, JOSEPH
+        R"}],"IsPeerReviewed": ["false"],"DBID": ["Q9U","7XB","K6~","8FL","8FK","ABUWG","FRNLG","M0F","BENPR","DWQXO","K60","7WY","3V.","BEZIV","883"],"PublicationDate":
+        ["20160803"],"PublicationDate_xml": [{"text": "20160803","month": "08","year":
+        "2016","day": "03"}],"PublicationCentury": ["2000"],"RelatedPersons": ["LONEY,
+        JOSEPH R"],"Publisher": ["Experian Information Solutions, Inc"],"SourceType":
+        ["Aggregation Database"],"Publisher_xml": [{"name": "Experian Information
+        Solutions, Inc"}],"GeographicLocations": ["LOUISVILLE KY-IN"],"PQPubID": ["2032612"],"URI":
+        ["http://search.proquest.com/docview/1604509164"],"IsScholarly": ["false"],"ID":
+        ["FETCH-proquest_reports_16045091643"],"PublicationTitle": ["Experian Commercial
+        Risk Database"],"GeographicLocations_xml": [{"name": "LOUISVILLE KY-IN"}],"PublicationYear":
+        ["2016"],"Genre": ["Company Profile"],"PublicationPlace_xml": [{"name": "Costa
+        Mesa"}],"PQID": ["1604509164"],"MergedId": ["FETCHMERGED-proquest_reports_16045091643"],"PublicationDecade":
+        ["2010"],"ContentType": ["Report"],"Title": ["UPLAND TITLE, LLC"],"Database_xml":
+        [{"sequence": "1","name": "ABI/INFORM Collection","dbid": "7WY","url": "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/abicomplete/advanced?accountid=10226","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42QQDA0AXfagEOIZ4uOqo-Dj48zNoOTmGuLsoQsr7eKhA-LxhmbAJgWwyjID7ZohQhEA2A4bPg"],"DatabaseName":
+        ["ProQuest Central Basic","ProQuest Central (purchase pre-March 2016)","ProQuest
+        Business Collection","ABI/INFORM Collection (Alumni Edition)","ProQuest Central
+        (Alumni) (purchase pre-March 2016)","ProQuest Central (Alumni Edition)","Business
+        Premium Collection (Alumni)","ABI/INFORM Trade & Industry","ProQuest Central","ProQuest
+        Central Korea","ProQuest Business Collection (Alumni Edition)","ABI/INFORM
+        Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
+        Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
+        false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=WHEATON+FRANCISCAN+SE+WISCOSIN+INC&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2012-12-01&rft.pub=Experian+Information+Solutions%2C+Inc","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRSsPQCNUJal64LJZ1wR0lI6uIfi0aqRzFxlgl7ZC4xdWLILL6pT8ZNAwub4h-PQrC0sLC_uCQl3QxVGgCVbYLRqJ0NsVQJM0wDYFMwMrsDY3B93mYB4eiVHSgktLNwGGKuRzESoq9ZJLc4B2AsuFpMxEpDXVSIczUs2FggxskEa2EANTap4Ig1K4h6tjiL-fAnSNnrOjn0Kwq0I4kOUf7OmnAOzlizIoubmGOHvowmyPh84sxCNsNpZgUDAyTgNtKQU2fYDVt4VJalKKeZqlmYlZcqKRWZJlmoUkgzQeE6TwykozcAEbDUaQJR0yDCwlRaWpssBKHRpoAFNFmF4","DatabaseTitle":
+        ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
+        Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
+        Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
+        (Alumni)","ProQuest Central","ABI/INFORM Complete","ABI/INFORM Trade & Industry","Business
+        Premium Collection","ProQuest Central (Alumni Edition)","Business Premium
+        Collection (Alumni)"],"Language": ["English"],"PublicationPlace": ["Costa
+        Mesa"],"Score": ["0.01"],"IsPeerReviewed": ["false"],"DBID": ["Q9U","7XB","K6~","8FL","8FK","ABUWG","FRNLG","M0F","BENPR","DWQXO","K60","7WY","3V.","BEZIV","883"],"PublicationDate":
+        ["20121201"],"PublicationDate_xml": [{"text": "20121201","month": "12","year":
+        "2012","day": "01"}],"PublicationCentury": ["2000"],"Publisher": ["Experian
+        Information Solutions, Inc"],"SourceType": ["Aggregation Database"],"Publisher_xml":
+        [{"name": "Experian Information Solutions, Inc"}],"GeographicLocations": ["MILWAUKEE-WAUKESHA
+        WI"],"PQPubID": ["2032612"],"URI": ["http://search.proquest.com/docview/1601648988"],"IsScholarly":
+        ["false"],"ID": ["FETCH-proquest_reports_16016489883"],"PublicationTitle":
+        ["Experian Commercial Risk Database"],"GeographicLocations_xml": [{"name":
+        "MILWAUKEE-WAUKESHA WI"}],"PublicationYear": ["2012"],"Genre": ["Company Profile"],"PublicationPlace_xml":
+        [{"name": "Costa Mesa"}],"PQID": ["1601648988"],"MergedId": ["FETCHMERGED-proquest_reports_16016489883"],"PublicationDecade":
+        ["2010"],"ContentType": ["Report"],"Title": ["WHEATON FRANCISCAN SE WISCOSIN
+        INC"],"Database_xml": [{"sequence": "1","name": "ABI/INFORM Collection","dbid":
+        "7WY","url": "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/abicomplete/advanced?accountid=10226","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42RQCvdwdQzx91OArjVzdvRTCHZVCAey_IM9_RSAvVVuBiU31xBnD11Y8RcPHSGPNwSfcGVhaQE6x48IRQC92iAv"],"DatabaseName":
+        ["ProQuest Central Basic","ProQuest Central (purchase pre-March 2016)","ProQuest
+        Business Collection","ABI/INFORM Collection (Alumni Edition)","ProQuest Central
+        (Alumni) (purchase pre-March 2016)","ProQuest Central (Alumni Edition)","Business
+        Premium Collection (Alumni)","ABI/INFORM Trade & Industry","ProQuest Central","ProQuest
+        Central Korea","ProQuest Business Collection (Alumni Edition)","ABI/INFORM
+        Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
+        Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
+        false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=FRONTIER+DEVICES&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2014-02-10&rft.pub=Experian+Information+Solutions%2C+Inc","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRSsPQCNUJal64LJZ1wR0lI6uIfi0aqRzFxlgl7ZC4xdWLILL6pT8ZNAwub6hGfj8c2Cb3r6gUBd0cRRoghV2i0Yi9HYF0CQNsE3BzMAKrM3NQbc5mIdHYpS04FLTTYChCvlchIpKveTSHKCdwHIhKTMRaU010uGMVHOhIAMbpJEtxMCUmifCIOAW5O8X4ukapODiGubp7BosyqDk5hri7KELsyseOo8Qj7DHWIJBwcg4DbSBFNjQAVbWFiapSSnmaZZmJmbJiUZmSZZpFpIM0nhMkMIrK83ABWwimIDWKRsayDCwlBSVpsoCq3BoEAEA23uTYw","DatabaseTitle":
+        ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
+        Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
+        Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
+        (Alumni)","ProQuest Central","ABI/INFORM Complete","ABI/INFORM Trade & Industry","Business
+        Premium Collection","ProQuest Central (Alumni Edition)","Business Premium
+        Collection (Alumni)"],"Language": ["English"],"PublicationPlace": ["Costa
+        Mesa"],"Score": ["0.01"],"IsPeerReviewed": ["false"],"DBID": ["Q9U","7XB","K6~","8FL","8FK","ABUWG","FRNLG","M0F","BENPR","DWQXO","K60","7WY","3V.","BEZIV","883"],"PublicationDate":
+        ["20140210"],"PublicationDate_xml": [{"text": "20140210","month": "02","year":
+        "2014","day": "10"}],"PublicationCentury": ["2000"],"Publisher": ["Experian
+        Information Solutions, Inc"],"SourceType": ["Aggregation Database"],"Publisher_xml":
+        [{"name": "Experian Information Solutions, Inc"}],"GeographicLocations": ["BIRMINGHAM
+        AL"],"PQPubID": ["2032612"],"URI": ["http://search.proquest.com/docview/1604837149"],"IsScholarly":
+        ["false"],"ID": ["FETCH-proquest_reports_16048371493"],"PublicationTitle":
+        ["Experian Commercial Risk Database"],"GeographicLocations_xml": [{"name":
+        "BIRMINGHAM AL"}],"PublicationYear": ["2014"],"Genre": ["Company Profile"],"PublicationPlace_xml":
+        [{"name": "Costa Mesa"}],"PQID": ["1604837149"],"MergedId": ["FETCHMERGED-proquest_reports_16048371493"],"PublicationDecade":
+        ["2010"],"ContentType": ["Report"],"Title": ["FRONTIER DEVICES"],"Database_xml":
+        [{"sequence": "1","name": "ABI/INFORM Collection","dbid": "7WY","url": "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/abicomplete/advanced?accountid=10226","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42QQcAvy9wvxdA1ScHEN83R2DeZmUHJzDXH20IUVdvHQ8fB4QzPwiebAVroxUYoA1S8bSg"],"DatabaseName":
+        ["ProQuest Central Basic","ProQuest Central (purchase pre-March 2016)","ProQuest
+        Business Collection","ABI/INFORM Collection (Alumni Edition)","ProQuest Central
+        (Alumni) (purchase pre-March 2016)","ProQuest Central (Alumni Edition)","Business
+        Premium Collection (Alumni)","ABI/INFORM Trade & Industry","ProQuest Central","ProQuest
+        Central Korea","ProQuest Business Collection (Alumni Edition)","ABI/INFORM
+        Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
+        Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
+        false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=FRIENDLY+FIRE+GAME+CENTER&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2016-08-12&rft.pub=Experian+Information+Solutions%2C+Inc","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRSsPQCNUJal64LJZ1wR0lI6uIfi0aqRzFxlgl7ZC4xdWLILL6pT8ZNAwub6hqYWlqam5paGlfUGhLujiKNAEK-wWjUTo7QqgSRpgm4KZgRVYm5uDbnMwD4_EKGnBpaebAEMV8rkIFZV6yaU5QDuB5UJSZiLSmmqkwxmp5kJBBjZII1uIgSk1T4RB0i3I09XPxSdSwc0zyFXB3dHXVcHZFXQwriiDkptriLOHLszSeOiEQjzCQmMJBgUj4zTQTlJgiwdYa1uYpCalmKdZmpmYJScamSVZpllIMkjjMUEKr6w0AxewrWAGGk41NJJhYCkpKk2VBdbl0LACABghlfk","DatabaseTitle":
+        ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
+        Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
+        Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
+        (Alumni)","ProQuest Central","ABI/INFORM Complete","ABI/INFORM Trade & Industry","Business
+        Premium Collection","ProQuest Central (Alumni Edition)","Business Premium
+        Collection (Alumni)"],"Language": ["English"],"PublicationPlace": ["Costa
+        Mesa"],"Score": ["0.01"],"RelatedPersons_xml": [{"fullname": "KEENER, DAN"}],"IsPeerReviewed":
+        ["false"],"DBID": ["Q9U","7XB","K6~","8FL","8FK","ABUWG","FRNLG","M0F","BENPR","DWQXO","K60","7WY","3V.","BEZIV","883"],"PublicationDate":
+        ["20160812"],"PublicationDate_xml": [{"text": "20160812","month": "08","year":
+        "2016","day": "12"}],"PublicationCentury": ["2000"],"RelatedPersons": ["KEENER,
+        DAN"],"Publisher": ["Experian Information Solutions, Inc"],"SourceType": ["Aggregation
+        Database"],"Publisher_xml": [{"name": "Experian Information Solutions, Inc"}],"GeographicLocations":
+        ["HARTFORD CT"],"PQPubID": ["2032612"],"URI": ["http://search.proquest.com/docview/1589557919"],"IsScholarly":
+        ["false"],"ID": ["FETCH-proquest_reports_15895579193"],"PublicationTitle":
+        ["Experian Commercial Risk Database"],"GeographicLocations_xml": [{"name":
+        "HARTFORD CT"}],"PublicationYear": ["2016"],"Genre": ["Company Profile"],"PublicationPlace_xml":
+        [{"name": "Costa Mesa"}],"PQID": ["1589557919"],"SubjectTerms": ["Entertainment
+        industry","Retailing industry"],"MergedId": ["FETCHMERGED-proquest_reports_15895579193"],"PublicationDecade":
+        ["2010"],"ContentType": ["Report"],"Title": ["FRIENDLY FIRE GAME CENTER"],"Database_xml":
+        [{"sequence": "1","name": "ABI/INFORM Collection","dbid": "7WY","url": "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/abicomplete/advanced?accountid=10226","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42SQdAvydPVz8YlUcPMMclVwd_R1VXB2BR3wys2g5OYa4uyhCyv14qED4_GGphaWpqbmluAJYCIUAQCwex2l"],"DatabaseName":
+        ["ProQuest Central Basic","ProQuest Central (purchase pre-March 2016)","ProQuest
+        Business Collection","ABI/INFORM Collection (Alumni Edition)","ProQuest Central
+        (Alumni) (purchase pre-March 2016)","ProQuest Central (Alumni Edition)","Business
+        Premium Collection (Alumni)","ABI/INFORM Trade & Industry","ProQuest Central","ProQuest
+        Central Korea","ProQuest Business Collection (Alumni Edition)","ABI/INFORM
+        Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
+        Trade & Industry (Alumni Edition)"]},{"hasFullText": true,"isFullTextHit":
+        false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.genre=article&rft.atitle=ROYAL+SMOOTHIES&rft.jtitle=Experian+Commercial+Risk+Database&rft.date=2015-09-23&rft.pub=Experian+Information+Solutions%2C+Inc","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRSsPQCNUJal64LJZ1wR0lI6uIfi0aqRzFxlgl7ZC4xdWLILL6pT8ZNAwub6hubGJubkxsM6yLyjUBV0cBZpghd2ikQi9XQE0SQNsUzAzsAJrc3PQbQ7m4ZEYJS24FHUTYKhCPheholIvuTQHaCewXEjKTERaU410OCPVXCjIwAZpZAsxMKXmiTDwB_lHOvooBPv6-4d4ANuCogxKbq4hzh66MKviodMI8QhrjCUYFIyM00D7R4HtHGBdbWGSmpRinmZpZmKWnGhklmSZZiHJII3HBCm8stIMXMAWgilogYSRsQwDS0lRaaossAaHhhAAXH-TQQ","DatabaseTitle":
+        ["ProQuest Central Basic","ProQuest Business Collection","ProQuest Business
+        Collection (Alumni Edition)","ABI/INFORM Complete (Alumni Edition)","ProQuest
+        Central Korea","ABI/INFORM Trade & Industry (Alumni Edition)","ProQuest Central
+        (Alumni)","ProQuest Central","ABI/INFORM Complete","ABI/INFORM Trade & Industry","Business
+        Premium Collection","ProQuest Central (Alumni Edition)","Business Premium
+        Collection (Alumni)"],"Language": ["English"],"PublicationPlace": ["Costa
+        Mesa"],"Score": ["0.01"],"DBID": ["Q9U","7XB","K6~","8FL","8FK","ABUWG","FRNLG","M0F","BENPR","DWQXO","K60","7WY","3V.","BEZIV","883"],"IsPeerReviewed":
+        ["false"],"PublicationDate": ["20150923"],"PublicationDate_xml": [{"text":
+        "20150923","month": "09","year": "2015","day": "23"}],"PublicationCentury":
+        ["2000"],"Publisher": ["Experian Information Solutions, Inc"],"SourceType":
+        ["Aggregation Database"],"Publisher_xml": [{"name": "Experian Information
+        Solutions, Inc"}],"PQPubID": ["2032612"],"URI": ["http://search.proquest.com/docview/1734773820"],"IsScholarly":
+        ["false"],"ID": ["FETCH-proquest_reports_17347738203"],"PublicationTitle":
+        ["Experian Commercial Risk Database"],"PublicationYear": ["2015"],"Genre":
+        ["Company Profile"],"PublicationPlace_xml": [{"name": "Costa Mesa"}],"PQID":
+        ["1734773820"],"MergedId": ["FETCHMERGED-proquest_reports_17347738203"],"PublicationDecade":
+        ["2010"],"ContentType": ["Report"],"Title": ["ROYAL SMOOTHIES"],"Database_xml":
+        [{"sequence": "1","name": "ABI/INFORM Collection","dbid": "7WY","url": "http://ezproxy.cul.columbia.edu/login?url=http://search.proquest.com/abicomplete/advanced?accountid=10226","sourceTypes":
+        ["Aggregation Database"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42TgD_KPdPRRCPb19w_xALZpuBmU3FxDnD10YWVdPHQ4PN7Q3NjE3NwYWAkZE6UIAMS2Gx0"],"DatabaseName":
+        ["ProQuest Central Basic","ProQuest Central (purchase pre-March 2016)","ProQuest
+        Business Collection","ABI/INFORM Collection (Alumni Edition)","ProQuest Central
+        (Alumni) (purchase pre-March 2016)","ProQuest Central (Alumni Edition)","Business
+        Premium Collection (Alumni)","ABI/INFORM Trade & Industry","ProQuest Central","ProQuest
+        Central Korea","ProQuest Business Collection (Alumni Edition)","ABI/INFORM
+        Collection","ProQuest Central (Corporate)","Business Premium Collection","ABI/INFORM
+        Trade & Industry (Alumni Edition)"]},{"hasFullText": false,"isFullTextHit":
+        false,"isPrint": false,"inHoldings": true,"openUrl": "ctx_ver=Z39.88-2004&ctx_enc=info%3Aofi%2Fenc%3AUTF-8&rfr_id=info%3Asid%2Fsummon.serialssolutions.com&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Apatent&rft.title=N-HYDROXYUREA+COMPOUND&rft.inventor=KOMATSU+TOSHIYA&rft.inventor=HARA+NORIE&rft.inventor=TAKANO+MICHITAKA&rft.inventor=FUJII+TSUTOMU&rft.inventor=KAWAHARA+YOSHIKAZU&rft.date=1996-08-13&rft.externalDocID=JPH08208607A","link":
+        "http://columbia.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwY2BQRSsPQCNUJal64LJZ1wR0lI6uIfi0aqRzFxlgW67B54SWgw9HBOaoZGB-LwGX15B4D0otLs0pKbZ3cbJ1DfB38XdWA6_UTi6xTQNGVqoasCgtqrT1CvAAVWwWZuBd5sAaHJTyXcOcQDtQCvKRS1o3QQa2AGCbLq9EiIEpJVWYgdMZds2aMAOHL3R2G8iEZrRiEQYxP12PSJcg_4jI0CBXRwVnf98A_1A_F1EGRTfXEGcPXaAN8XCnxyM5xdFIgkHByDgNtNcT2CYB1qsWJqlJKeZplmYmZsmJRmZJlmkWkgxSuA2QwicpzcAFWVAM7BQayzCwggNEFljZggq5pMxEAKcTcOA","Language":
+        ["German"],"Edition": ["6"],"Author": ["FUJII TSUTOMU","KAWAHARA YOSHIKAZU","HARA
+        NORIE","TAKANO MICHITAKA","KOMATSU TOSHIYA"],"Score": ["0.01"],"IsPeerReviewed":
+        ["false"],"DBID": ["EVB"],"PublicationDate": ["19960813"],"PublicationDate_xml":
+        [{"text": "19960813","month": "08","year": "1996","day": "13"}],"PublicationCentury":
+        ["1900"],"AbstractList": ["PURPOSE: To obtain a new agent presenting lipoxygenase-inhibitory
+        action and thromboxane synthase-inhibitory action, thus useful for treating
+        or mitigating allergic or inflammatory diseases. CONSTITUTION: This new compound,
+        an N-hydroxyurea compound (or a pharmacologically permissible salt thereof),
+        is expressed by formula I (R is an aryl, the substituted site on the benzene
+        ring being meta or para site), e.g. N- 4-[(2-benzo[b]thienyl-(3-pyridyl)methoxymethyl]benzyl}-N-hydroxyurea
+        of formula II. The compouned of formula II is obtained by the following process:
+        benzo[b]thiophene is reacted with an organometallic reagent to synthesize
+        2- lithiobenzo[b]thiophene, which is then reacted with pyridine-3-aldehyde
+        to effect conversion into the corresponding alcohol, which is, in turn, reacted
+        with an &alpha -halomethylbenzoic acid ester into the corresponding ester,
+        which is then reduced into the corresponding alcohol, which is, in turn, reacted
+        with N, O-bis(t- butoxycarbonyl)hydroxylamine to effect conversion into the
+        corresponding hydroxylamine, which is finally reacted with trimethylsilyl
+        isocyanate."],"Notes": ["Application Number: JP19950035859"],"SourceType":
+        ["Open Access Repository"],"Snippet": ["PURPOSE: To obtain a new agent presenting
+        lipoxygenase-inhibitory action and thromboxane synthase-inhibitory action,
+        thus useful for treating or mitigating..."],"URI": ["http://worldwide.espacenet.com/searchResults?DB=EPODOC&compact=false&query=JPH08208607"],"IsScholarly":
+        ["false"],"ID": ["FETCH-epo_espacenet_JPH08208607A2"],"Discipline": ["Chemistry","Sciences","Medicine"],"PublicationYear":
+        ["1996"],"DatabaseTitleList": [""],"Abstract": ["PURPOSE: To obtain a new
+        agent presenting lipoxygenase-inhibitory action and thromboxane synthase-inhibitory
+        action, thus useful for treating or mitigating allergic or inflammatory diseases.
+        CONSTITUTION: This new compound, an N-hydroxyurea compound (or a pharmacologically
+        permissible salt thereof), is expressed by formula I (R is an aryl, the substituted
+        site on the benzene ring being meta or para site), e.g. N- 4-[(2-benzo[b]thienyl-(3-pyridyl)methoxymethyl]benzyl}-N-hydroxyurea
+        of formula II. The compouned of formula II is obtained by the following process:
+        benzo[b]thiophene is reacted with an organometallic reagent to synthesize
+        2- lithiobenzo[b]thiophene, which is then reacted with pyridine-3-aldehyde
+        to effect conversion into the corresponding alcohol, which is, in turn, reacted
+        with an &alpha -halomethylbenzoic acid ester into the corresponding ester,
+        which is then reduced into the corresponding alcohol, which is, in turn, reacted
+        with N, O-bis(t- butoxycarbonyl)hydroxylamine to effect conversion into the
+        corresponding hydroxylamine, which is finally reacted with trimethylsilyl
+        isocyanate."],"MergedId": ["FETCHMERGED-epo_espacenet_JPH08208607A2"],"Author_xml":
+        [{"fullname": "KOMATSU TOSHIYA"},{"fullname": "HARA NORIE"},{"fullname": "TAKANO
+        MICHITAKA"},{"fullname": "FUJII TSUTOMU"},{"fullname": "KAWAHARA YOSHIKAZU"}],"PublicationDecade":
+        ["1990"],"ContentType": ["Patent"],"Title": ["N-HYDROXYUREA COMPOUND"],"ExternalDocumentID":
+        ["JPH08208607A"],"Database_xml": [{"sequence": "1","name": "esp@cenet","dbid":
+        "EVB","url": "http://worldwide.espacenet.com/singleLineSearch?locale=en_EP","sourceTypes":
+        ["Open Access Repository"]}],"LinkModel": ["DirectLink"],"BookMark": ["ePnHCXMw42QQ89P1iHQJ8o-IDA1ydVRw9vcN8A_1c-FmUHRzDXH20AU2LONTgdklGZiZS-K9AjxAtZCFmYG5oxExagAdoRtm"],"DatabaseName":
+        ["esp@cenet"]}],"rollups": {"image": {},"reference": {},"newspaper": {}}}'
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:52:01 GMT
 recorded_with: VCR 3.0.3

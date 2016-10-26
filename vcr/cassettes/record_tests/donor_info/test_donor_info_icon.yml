@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:55:38 GMT
+      - Wed, 26 Oct 2016 17:51:40 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -22,7 +22,7 @@ http_interactions:
       - Jetty(8.1.8.v20121106)
     body:
       encoding: UTF-8
-      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>1,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
         f=id v=$id}'',''rows''=>''1'',''id''=>''9576776'',''qt''=>''document'',''wt''=>''ruby''}},''response''=>{''numFound''=>1,''start''=>0,''docs''=>[{''id''=>''9576776'',''marc_display''=>''<record><leader>01867cas
         a2200529 a 4500</leader><controlfield tag="001">9576776</controlfield><controlfield
         tag="005">20140121191026.0</controlfield><controlfield tag="008">950208c199u9999ncuqr
@@ -122,7 +122,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:55:37 GMT
+  recorded_at: Wed, 26 Oct 2016 17:51:40 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/9576776"
@@ -135,7 +135,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 11 Oct 2016 20:55:38 GMT
+      - Wed, 26 Oct 2016 17:51:40 GMT
   response:
     status:
       code: 200
@@ -155,23 +155,23 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Access-Control-Allow-Origin:
       - "*"
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Request-Id:
-      - 12fee024-e1c9-4ccc-a70b-1d56b0ea82b3
       Etag:
       - W/"a7ac2e4dd65e507f3a8041d94aaad8b3"
       X-Frame-Options:
       - SAMEORIGIN
-      X-Runtime:
-      - '2.286567'
+      X-Xss-Protection:
+      - 1; mode=block
       X-Content-Type-Options:
       - nosniff
       - nosniff
+      X-Runtime:
+      - '1.972913'
       Access-Control-Request-Method:
       - "*"
+      X-Request-Id:
+      - 836fd563-5bd9-4cd8-b725-79b753a9b3f1
       Date:
-      - Tue, 11 Oct 2016 20:55:41 GMT
+      - Wed, 26 Oct 2016 17:51:43 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -188,5 +188,5 @@ http_interactions:
         (2001:Mar.)-v.10:no.38 (2003:Spring), v.11:no.40 (2004:Summer)-v.13:no.46
         (2006:Summer), v.14:no.49 (2007:Fall), v.15:no.51 (2008:Fall)-v.19:no.59 (2012:Summer)"}],"services":["doc_delivery"]}]}}'
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:55:40 GMT
+  recorded_at: Wed, 26 Oct 2016 17:51:42 GMT
 recorded_with: VCR 3.0.3

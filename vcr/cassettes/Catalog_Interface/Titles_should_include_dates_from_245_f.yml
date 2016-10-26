@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:48:39 GMT
+      - Wed, 26 Oct 2016 17:45:10 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -23,7 +23,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
         YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
         eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9Pic4NTQwMzcw
         JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
@@ -269,7 +269,7 @@ http_interactions:
         cmluZXQsIGZsdXRlLCBob3JuLCBvYm9lKSddLCdfdmVyc2lvbl8nPT4xNTQ0
         MTcwNTI4NDUxODU0MzM2fV19fQo=
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:48:38 GMT
+  recorded_at: Wed, 26 Oct 2016 17:45:09 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=4079060&qt=document&wt=ruby"
@@ -283,7 +283,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:48:40 GMT
+      - Wed, 26 Oct 2016 17:45:10 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -292,7 +292,7 @@ http_interactions:
       - Jetty(8.1.8.v20121106)
     body:
       encoding: UTF-8
-      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>1,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
         f=id v=$id}'',''rows''=>''1'',''id''=>''4079060'',''qt''=>''document'',''wt''=>''ruby''}},''response''=>{''numFound''=>1,''start''=>0,''docs''=>[{''id''=>''4079060'',''marc_display''=>''<record><leader>01938cbc
         a2200493ua 4500</leader><controlfield tag="001">4079060</controlfield><controlfield
         tag="005">20100226143651.0</controlfield><controlfield tag="008">890802i19581968nyu                 eng
@@ -389,5 +389,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:48:39 GMT
+  recorded_at: Wed, 26 Oct 2016 17:45:09 GMT
 recorded_with: VCR 3.0.3

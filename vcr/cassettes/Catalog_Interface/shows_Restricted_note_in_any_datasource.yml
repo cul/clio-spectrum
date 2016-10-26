@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:48:40 GMT
+      - Wed, 26 Oct 2016 17:45:10 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -138,7 +138,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:48:39 GMT
+  recorded_at: Wed, 26 Oct 2016 17:45:10 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=7000423&qt=document&wt=ruby"
@@ -152,7 +152,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:48:40 GMT
+      - Wed, 26 Oct 2016 17:45:11 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -277,7 +277,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:48:40 GMT
+  recorded_at: Wed, 26 Oct 2016 17:45:10 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=7000423&qt=document&wt=ruby"
@@ -291,7 +291,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:48:41 GMT
+      - Wed, 26 Oct 2016 17:45:11 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -416,7 +416,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:48:40 GMT
+  recorded_at: Wed, 26 Oct 2016 17:45:10 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=7000423&qt=document&wt=ruby"
@@ -430,7 +430,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:48:41 GMT
+      - Wed, 26 Oct 2016 17:45:11 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -555,7 +555,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:48:40 GMT
+  recorded_at: Wed, 26 Oct 2016 17:45:11 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=7000423&qt=document&wt=ruby"
@@ -569,7 +569,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:48:41 GMT
+      - Wed, 26 Oct 2016 17:45:11 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -694,5 +694,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:48:40 GMT
+  recorded_at: Wed, 26 Oct 2016 17:45:11 GMT
 recorded_with: VCR 3.0.3

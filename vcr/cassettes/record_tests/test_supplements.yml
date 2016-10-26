@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:54:49 GMT
+      - Wed, 26 Oct 2016 17:51:03 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -23,7 +23,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4wLCdw
+        eydyZXNwb25zZUhlYWRlcic9Pnsnc3RhdHVzJz0+MCwnUVRpbWUnPT4xLCdw
         YXJhbXMnPT57J2ZsJz0+JyonLCdlY2hvUGFyYW1zJz0+J2FsbCcsJ3EnPT4n
         eyFyYXcgZj1pZCB2PSRpZH0nLCdyb3dzJz0+JzEnLCdpZCc9PicyMTIwMDE4
         JywncXQnPT4nZG9jdW1lbnQnLCd3dCc9PidydWJ5J319LCdyZXNwb25zZSc9
@@ -179,7 +179,7 @@ http_interactions:
         aywgRGVjb3JhdGl2ZSddLCdfdmVyc2lvbl8nPT4xNTQ0MDM4NjA2MzE1NzE2
         NjA4fV19fQo=
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:54:48 GMT
+  recorded_at: Wed, 26 Oct 2016 17:51:02 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/2120018"
@@ -192,7 +192,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 11 Oct 2016 20:54:49 GMT
+      - Wed, 26 Oct 2016 17:51:02 GMT
   response:
     status:
       code: 200
@@ -212,23 +212,23 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Access-Control-Allow-Origin:
       - "*"
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Request-Id:
-      - 829ad2bc-5e51-46d7-9ad1-ce8549bfacb0
       Etag:
       - W/"cee965942a23c1152ea5575b07e23809"
       X-Frame-Options:
       - SAMEORIGIN
-      X-Runtime:
-      - '4.082246'
+      X-Xss-Protection:
+      - 1; mode=block
       X-Content-Type-Options:
       - nosniff
       - nosniff
+      X-Runtime:
+      - '1.749128'
       Access-Control-Request-Method:
       - "*"
+      X-Request-Id:
+      - f3ce205d-3ddc-416e-935e-54b475546f75
       Date:
-      - Tue, 11 Oct 2016 20:54:54 GMT
+      - Wed, 26 Oct 2016 17:51:05 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -247,5 +247,5 @@ http_interactions:
         année 23 (1901)-année 36 (1914)"},{"items":{"Available":{"status":"available","count":1}},"summary_holdings":"Library
         has: année 2 (1880)"}],"services":[]}]}}'
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:54:53 GMT
+  recorded_at: Wed, 26 Oct 2016 17:51:04 GMT
 recorded_with: VCR 3.0.3

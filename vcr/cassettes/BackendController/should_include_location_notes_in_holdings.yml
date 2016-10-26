@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 11 Oct 2016 20:42:32 GMT
+      - Wed, 26 Oct 2016 17:39:47 GMT
   response:
     status:
       code: 200
@@ -32,23 +32,23 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Access-Control-Allow-Origin:
       - "*"
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Request-Id:
-      - aea22d77-2475-4989-a03a-ce2c18e9d60e
       Etag:
       - W/"bd45fe1437688e37a47b4b327b06747c"
       X-Frame-Options:
       - SAMEORIGIN
-      X-Runtime:
-      - '3.722005'
+      X-Xss-Protection:
+      - 1; mode=block
       X-Content-Type-Options:
       - nosniff
       - nosniff
+      X-Runtime:
+      - '1.980967'
       Access-Control-Request-Method:
       - "*"
+      X-Request-Id:
+      - 1c5e693a-1e19-4f03-92df-269dcd344fd1
       Date:
-      - Tue, 11 Oct 2016 20:42:37 GMT
+      - Wed, 26 Oct 2016 17:39:50 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -64,7 +64,7 @@ http_interactions:
         M.I.A.U./LAB News Service","status":"none","holding_id":["7243915"],"copies":[{"items":{"Status
         unknown":{"status":"none","count":1}}}],"services":[]}]}}'
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:42:36 GMT
+  recorded_at: Wed, 26 Oct 2016 17:39:49 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/6703227"
@@ -77,7 +77,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 11 Oct 2016 20:42:36 GMT
+      - Wed, 26 Oct 2016 17:39:49 GMT
   response:
     status:
       code: 200
@@ -97,23 +97,23 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Access-Control-Allow-Origin:
       - "*"
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Request-Id:
-      - 41c772cd-7d2b-4e6e-aff2-55a0478a092b
       Etag:
       - W/"75c25c9f9bda6cf1c0ba1d5e2808a1ed"
       X-Frame-Options:
       - SAMEORIGIN
-      X-Runtime:
-      - '3.249953'
+      X-Xss-Protection:
+      - 1; mode=block
       X-Content-Type-Options:
       - nosniff
       - nosniff
+      X-Runtime:
+      - '4.267489'
       Access-Control-Request-Method:
       - "*"
+      X-Request-Id:
+      - 46257009-b407-474c-b1cd-45a39e986c00
       Date:
-      - Tue, 11 Oct 2016 20:42:40 GMT
+      - Wed, 26 Oct 2016 17:39:54 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -128,7 +128,7 @@ http_interactions:
         target=\"_blank\"\u003eBurke Library special collections page\u003c/a\u003e","call_number":"869CC","status":"none","holding_id":["8997715"],"copies":[{"items":{"Status
         unknown":{"status":"none","count":1}}}],"services":[]}]}}'
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:42:40 GMT
+  recorded_at: Wed, 26 Oct 2016 17:39:53 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/9020317"
@@ -141,7 +141,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 11 Oct 2016 20:42:40 GMT
+      - Wed, 26 Oct 2016 17:39:53 GMT
   response:
     status:
       code: 200
@@ -171,13 +171,13 @@ http_interactions:
       - nosniff
       - nosniff
       X-Runtime:
-      - '1.195510'
+      - '6.386753'
       Access-Control-Request-Method:
       - "*"
       X-Request-Id:
-      - 558f1d57-9498-40ab-adb4-02f16021c857
+      - 77397cca-2b20-4662-8b89-a00f8f3becdb
       Date:
-      - Tue, 11 Oct 2016 20:42:42 GMT
+      - Wed, 26 Oct 2016 17:40:01 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -196,7 +196,7 @@ http_interactions:
         unknown":{"status":"none","count":1}},"summary_holdings":"Library has: 1925,
         1928-1930"}],"services":[]}]}}'
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:42:41 GMT
+  recorded_at: Wed, 26 Oct 2016 17:40:00 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/10654375"
@@ -209,7 +209,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 11 Oct 2016 20:42:41 GMT
+      - Wed, 26 Oct 2016 17:40:00 GMT
   response:
     status:
       code: 200
@@ -229,23 +229,23 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Access-Control-Allow-Origin:
       - "*"
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Request-Id:
-      - 624eabba-5e73-42ad-bf6b-1577dd0db8da
       Etag:
       - W/"8bcd9df1df2c3787ed00d6880d767811"
       X-Frame-Options:
       - SAMEORIGIN
-      X-Runtime:
-      - '1.072841'
+      X-Xss-Protection:
+      - 1; mode=block
       X-Content-Type-Options:
       - nosniff
       - nosniff
+      X-Runtime:
+      - '3.110760'
       Access-Control-Request-Method:
       - "*"
+      X-Request-Id:
+      - a46a5879-2c4b-47b2-b999-fa841cc659c9
       Date:
-      - Tue, 11 Oct 2016 20:42:43 GMT
+      - Wed, 26 Oct 2016 17:40:04 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -262,7 +262,7 @@ http_interactions:
         Bound with other titles; for a complete listing search by the call number
         using the Call Number search.","summary_holdings":"Library has: no.5 (1820)"}],"services":[]}]}}'
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:42:42 GMT
+  recorded_at: Wed, 26 Oct 2016 17:40:03 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/4584787"
@@ -275,7 +275,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 11 Oct 2016 20:42:42 GMT
+      - Wed, 26 Oct 2016 17:40:03 GMT
   response:
     status:
       code: 200
@@ -305,13 +305,13 @@ http_interactions:
       - nosniff
       - nosniff
       X-Runtime:
-      - '4.828260'
+      - '3.216891'
       Access-Control-Request-Method:
       - "*"
       X-Request-Id:
-      - 4bf6fdea-a0b8-49e7-8ba3-a8039381c6d6
+      - 316d32e2-0596-4443-982d-907e2bcc1148
       Date:
-      - Tue, 11 Oct 2016 20:42:48 GMT
+      - Wed, 26 Oct 2016 17:40:07 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -330,5 +330,5 @@ http_interactions:
         target=\"_blank\"\u003eBurke Library special collections page\u003c/a\u003e","call_number":"VN57
         R93 1848","status":"available","holding_id":["5217280"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":[]}]}}'
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:42:47 GMT
+  recorded_at: Wed, 26 Oct 2016 17:40:07 GMT
 recorded_with: VCR 3.0.3

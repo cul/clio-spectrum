@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:47:17 GMT
+      - Wed, 26 Oct 2016 17:43:48 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -111,291 +111,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:47:16 GMT
-- request:
-    method: get
-    uri: "<solr_config>/select?id=382300&qt=document&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 11 Oct 2016 20:47:17 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: UTF-8
-      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
-        f=id v=$id}'',''rows''=>''1'',''id''=>''382300'',''qt''=>''document'',''wt''=>''ruby''}},''response''=>{''numFound''=>1,''start''=>0,''docs''=>[{''id''=>''382300'',''marc_display''=>''<record><leader>01602cam
-        a2200433   4500</leader><controlfield tag="001">382300</controlfield><controlfield
-        tag="005">20100226124951.0</controlfield><controlfield tag="008">850827s1985    nyuaf    b   l000
-        0 eng  </controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)35088165</subfield></datafield><datafield
-        tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm35088165</subfield></datafield><datafield
-        tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG85-B84564</subfield></datafield><datafield
-        tag="035" ind1=" " ind2=" "><subfield code="9">ABR9929CU</subfield></datafield><datafield
-        tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)382300</subfield></datafield><datafield
-        tag="040" ind1=" " ind2=" "><subfield code="a">NNC</subfield><subfield code="c">NNC</subfield></datafield><datafield
-        tag="043" ind1=" " ind2=" "><subfield code="a">n-us-ny</subfield></datafield><datafield
-        tag="110" ind1="1" ind2=" "><subfield code="a">New York (N.Y.).</subfield><subfield
-        code="b">Landmarks Preservation Commission.</subfield></datafield><datafield
-        tag="245" ind1="1" ind2="0"><subfield code="a">Century Apartments :</subfield><subfield
-        code="b">[report].</subfield></datafield><datafield tag="260" ind1=" " ind2="
-        "><subfield code="a">[New York, N.Y.] :</subfield><subfield code="b">The Commission,</subfield><subfield
-        code="c">1985.</subfield></datafield><datafield tag="300" ind1=" " ind2="
-        "><subfield code="a">10 leaves, [4] leaves of plates :</subfield><subfield
-        code="b">ill. ;</subfield><subfield code="c">28 cm.</subfield></datafield><datafield
-        tag="490" ind1="1" ind2=" "><subfield code="a">Designation list / Landmarks
-        Preservation Commission ;</subfield><subfield code="v">181</subfield></datafield><datafield
-        tag="500" ind1=" " ind2=" "><subfield code="a">Caption title.</subfield></datafield><datafield
-        tag="500" ind1=" " ind2=" "><subfield code="a">"Report prepared by Andrew
-        S. Dolkart"--Leaf 8.</subfield></datafield><datafield tag="504" ind1=" " ind2="
-        "><subfield code="a">Bibliography: leaf 10.</subfield></datafield><datafield
-        tag="500" ind1=" " ind2=" "><subfield code="a">"Architect Irwin S. Chanin"--Leaf
-        [1].</subfield></datafield><datafield tag="590" ind1=" " ind2=" "><subfield
-        code="a">"LP-1517."</subfield></datafield><datafield tag="610" ind1="2" ind2="0"><subfield
-        code="a">Century Apartments (New York, N.Y.)</subfield></datafield><datafield
-        tag="651" ind1=" " ind2="0"><subfield code="a">New York (N.Y.)</subfield><subfield
-        code="x">Buildings, structures, etc.</subfield></datafield><datafield tag="650"
-        ind1=" " ind2="0"><subfield code="a">Apartment houses</subfield><subfield
-        code="z">New York (State)</subfield><subfield code="z">New York.</subfield></datafield><datafield
-        tag="600" ind1="1" ind2="0"><subfield code="a">Chanin, Irwin S.</subfield></datafield><datafield
-        tag="700" ind1="1" ind2=" "><subfield code="a">Dolkart, Andrew.</subfield></datafield><datafield
-        tag="700" ind1="1" ind2=" "><subfield code="a">Chainin, Irwin S.</subfield></datafield><datafield
-        tag="810" ind1="1" ind2=" "><subfield code="a">New York (N.Y.).</subfield><subfield
-        code="b">Landmarks Preservation Commission.</subfield><subfield code="t">Designation
-        list ;</subfield><subfield code="v">181.</subfield></datafield><datafield
-        tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield
-        tag="991" ind1=" " ind2=" "><subfield code="a">AA735 N4 ZC33</subfield><subfield
-        code="b">avefax+AA-+0735+00000000+N4000000+ZC330000</subfield></datafield><datafield
-        tag="992" ind1=" " ind2=" "><subfield code="a">Offsite</subfield><subfield
-        code="b">Offsite &lt;Avery&gt; (Non-Circulating) Place Request for delivery
-        &gt;&gt; AA735 N4 ZC33|DELIM|511019</subfield></datafield><datafield tag="992"
-        ind1=" " ind2=" "><subfield code="a">Online</subfield><subfield code="b">Online
-        &gt;&gt; EBOOKS|DELIM|10158201</subfield></datafield><datafield tag="993"
-        ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield
-        tag="993" ind1=" " ind2=" "><subfield code="a">NY State/City Government Document</subfield></datafield><datafield
-        tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record>'',''text''=>[''New
-        York (N.Y.). Landmarks Preservation Commission.'',''Century Apartments : [report].'',''[New
-        York, N.Y.] : The Commission, 1985.'',''10 leaves, [4] leaves of plates :
-        ill. ; 28 cm.'',''Designation list / Landmarks Preservation Commission ; 181'',''Caption
-        title.'',''"Report prepared by Andrew S. Dolkart"--Leaf 8.'',''Bibliography:
-        leaf 10.'',''"Architect Irwin S. Chanin"--Leaf [1].'',''"LP-1517."'',''Century
-        Apartments (New York, N.Y.)'',''New York (N.Y.) Buildings, structures, etc.'',''Apartment
-        houses New York (State) New York.'',''Chanin, Irwin S.'',''Dolkart, Andrew.'',''Chainin,
-        Irwin S.'',''New York (N.Y.). Landmarks Preservation Commission. Designation
-        list ; 181.'',''AUTH''],''author_txt''=>[''New York (N.Y.). Landmarks Preservation
-        Commission.''],''author_addl_txt''=>[''Dolkart, Andrew.'',''Chainin, Irwin
-        S.''],''author_facet''=>[''New York (N.Y.). Landmarks Preservation Commission'',''Dolkart,
-        Andrew'',''Chainin, Irwin S.''],''author_display''=>[''New York (N.Y.). Landmarks
-        Preservation Commission''],''author_sort''=>''New York (N.Y.). Landmarks Preservation
-        Commission.   Century Apartments report'',''title_txt''=>[''Century Apartments
-        :''],''title_display''=>[''Century Apartments : [report]''],''title_filing_txt''=>[''Century
-        Apartments :''],''title_filing_full_txt''=>[''Century Apartments : [report].''],''subtitle_txt''=>[''report''],''title_first_facet''=>[''C''],''title_addl_txt''=>[''Century
-        Apartments : [report].''],''title_sort''=>''century apartments  report'',''subject_txt''=>[''Century
-        Apartments (New York, N.Y.)'',''New York (N.Y.) Buildings, structures, etc'',''Apartment
-        houses New York (State) New York'',''Chanin, Irwin S.''],''subject_topic_facet''=>[''Century
-        Apartments (New York, N.Y.)'',''Buildings, structures, etc'',''Apartment houses'',''Chanin,
-        Irwin S.''],''subject_geo_facet''=>[''New York (N.Y.)'',''New York (State)'',''New
-        York''],''pub_place_display''=>[''New York, N.Y.''],''pub_name_display''=>[''The
-        Commission''],''pub_year_display''=>[''1985''],''pub_place_txt''=>[''New York,
-        N.Y.''],''pub_name_txt''=>[''The Commission''],''pub_year_txt''=>[''1985''],''pub_date_txt''=>[''1985''],''language_facet''=>[''English''],''format''=>[''Book'',''NY
-        State/City Government Document''],''clio_id_display''=>''382300'',''source_facet''=>[''catalog''],''source_display''=>[''catalog''],''oclc_txt''=>[''35088165'',''ocm35088165''],''oclc_display''=>[''35088165'',''ocm35088165''],''full_publisher_display''=>[''[New
-        York, N.Y.] : The Commission, 1985.''],''location_call_number_id_display''=>[''Offsite
-        <Avery> (Non-Circulating) Place Request for delivery >> AA735 N4 ZC33|DELIM|511019'',''Online
-        >> EBOOKS|DELIM|10158201''],''location_call_number_txt''=>[''Offsite <Avery>
-        (Non-Circulating) Place Request for delivery >> AA735 N4 ZC33'',''Online >>
-        EBOOKS''],''call_number_txt''=>[''AA735 N4 ZC33'',''EBOOKS''],''call_number_display''=>[''AA735
-        N4 ZC33'',''EBOOKS''],''location_facet''=>[''Offsite'',''Online''],''location_txt''=>[''Offsite
-        <Avery> (Non-Circulating) Place Request for delivery >> AA735 N4 ZC33'',''Online
-        >> EBOOKS''],''shelfkey''=>[''avefax+aa-+0735+00000000+n4000000+zc330000+382300''],''reverse_shelfkey''=>[''p4lkp2~pp~~zswu~zzzzzzzz~cvzzzzzz~0nwwzzzz~wrxwzz~''],''item_display''=>[''AA735
-        N4 ZC33 | avefax+aa-+0735+00000000+n4000000+zc330000+382300 | p4lkp2~pp~~zswu~zzzzzzzz~cvzzzzzz~0nwwzzzz~wrxwzz~''],''timestamp''=>''2016-08-26T19:30:53.174Z'',''authorities_dt''=>''2016-08-28T15:22:28Z'',''author_variant_txt''=>[''New
-        York (City).'',''Landmarks Preservation Commission (New York, N.Y.)''],''subject_variant_txt''=>[''Apartment
-        buildings'',''Multi-family housing'',''Multifamily housing'',''Multiple dwellings''],''_version_''=>1543920941406355456}]}}
-
-'
-    http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:47:16 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/35088165.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 11 Oct 2016 20:47:16 GMT
-  response:
-    status:
-      code: 302
-      message: Found
-    headers:
-      Date:
-      - Tue, 11 Oct 2016 20:47:17 GMT
-      Server:
-      - Apache/2.4.10 (Debian)
-      Location:
-      - https://catalog.hathitrust.org/api/volumes/brief/oclc/35088165.json
-      Content-Length:
-      - '339'
-      Content-Type:
-      - text/html; charset=iso-8859-1
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 11-Oct-2016
-        20:56:38 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |
-        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-        <html><head>
-        <title>302 Found</title>
-        </head><body>
-        <h1>Found</h1>
-        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/oclc/35088165.json">here</a>.</p>
-        <hr>
-        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
-        </body></html>
-    http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:47:16 GMT
-- request:
-    method: get
-    uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/35088165.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 11 Oct 2016 20:47:16 GMT
-      Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 11 Oct 2016 20:47:17 GMT
-      Server:
-      - Apache/2.4.10 (Debian)
-      Access-Control-Allow-Origin:
-      - "*"
-      Content-Length:
-      - '31'
-      Content-Type:
-      - text/html; charset=UTF-8
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a42378b;expires=Tue, 11-Oct-2016
-        20:56:38 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:47:17 GMT
-- request:
-    method: get
-    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocm35088165.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 11 Oct 2016 20:47:17 GMT
-  response:
-    status:
-      code: 302
-      message: Found
-    headers:
-      Date:
-      - Tue, 11 Oct 2016 20:47:18 GMT
-      Server:
-      - Apache/2.4.10 (Debian)
-      Location:
-      - https://catalog.hathitrust.org/api/volumes/brief/oclc/ocm35088165.json
-      Content-Length:
-      - '342'
-      Content-Type:
-      - text/html; charset=iso-8859-1
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Tue, 11-Oct-2016
-        20:56:38 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |
-        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-        <html><head>
-        <title>302 Found</title>
-        </head><body>
-        <h1>Found</h1>
-        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/oclc/ocm35088165.json">here</a>.</p>
-        <hr>
-        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
-        </body></html>
-    http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:47:17 GMT
-- request:
-    method: get
-    uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/ocm35088165.json
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 11 Oct 2016 20:47:17 GMT
-      Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 11 Oct 2016 20:47:18 GMT
-      Server:
-      - Apache/2.4.10 (Debian)
-      Access-Control-Allow-Origin:
-      - "*"
-      Content-Length:
-      - '31'
-      Content-Type:
-      - text/html; charset=UTF-8
-      Set-Cookie:
-      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a42378b;expires=Tue, 11-Oct-2016
-        20:56:39 GMT;path=/;httponly
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-         "records": {}, "items": []
-        }
-    http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:47:17 GMT
+  recorded_at: Wed, 26 Oct 2016 17:43:48 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/382300"
@@ -408,7 +124,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 11 Oct 2016 20:47:17 GMT
+      - Wed, 26 Oct 2016 17:43:48 GMT
   response:
     status:
       code: 200
@@ -428,23 +144,23 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Access-Control-Allow-Origin:
       - "*"
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Request-Id:
-      - b23bb069-b4eb-48e9-8c39-67eb7bb4e6a1
       Etag:
       - W/"5289980f17c236e4f851c7fa660eacc2"
       X-Frame-Options:
       - SAMEORIGIN
-      X-Runtime:
-      - '2.937794'
+      X-Xss-Protection:
+      - 1; mode=block
       X-Content-Type-Options:
       - nosniff
       - nosniff
+      X-Runtime:
+      - '2.121698'
       Access-Control-Request-Method:
       - "*"
+      X-Request-Id:
+      - 6d4a552d-a61a-4918-99c8-bf297fba27a7
       Date:
-      - Tue, 11 Oct 2016 20:47:21 GMT
+      - Wed, 26 Oct 2016 17:43:51 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -457,7 +173,291 @@ http_interactions:
         (Non-Circulating) Place Request for delivery","location_note":"","call_number":"AA735
         N4 ZC33","status":"available","holding_id":["511019"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["offsite"]},{"location_name":"Online","location_note":"","call_number":"EBOOKS","status":"online","holding_id":["10158201"],"copies":[{"items":{},"urls":[{"ind1":"4","ind2":"0","url":"http://www.neighborhoodpreservationcenter.org/db/bb_files/CA047.pdf","link_text":"http://www.neighborhoodpreservationcenter.org/db/bb_files/CA047.pdf"}]}],"services":[]}]}}'
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:47:21 GMT
+  recorded_at: Wed, 26 Oct 2016 17:43:50 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?id=382300&qt=document&wt=ruby"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 26 Oct 2016 17:43:51 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
+        f=id v=$id}'',''rows''=>''1'',''id''=>''382300'',''qt''=>''document'',''wt''=>''ruby''}},''response''=>{''numFound''=>1,''start''=>0,''docs''=>[{''id''=>''382300'',''marc_display''=>''<record><leader>01602cam
+        a2200433   4500</leader><controlfield tag="001">382300</controlfield><controlfield
+        tag="005">20100226124951.0</controlfield><controlfield tag="008">850827s1985    nyuaf    b   l000
+        0 eng  </controlfield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)35088165</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)ocm35088165</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(CStRLIN)NYCG85-B84564</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="9">ABR9929CU</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)382300</subfield></datafield><datafield
+        tag="040" ind1=" " ind2=" "><subfield code="a">NNC</subfield><subfield code="c">NNC</subfield></datafield><datafield
+        tag="043" ind1=" " ind2=" "><subfield code="a">n-us-ny</subfield></datafield><datafield
+        tag="110" ind1="1" ind2=" "><subfield code="a">New York (N.Y.).</subfield><subfield
+        code="b">Landmarks Preservation Commission.</subfield></datafield><datafield
+        tag="245" ind1="1" ind2="0"><subfield code="a">Century Apartments :</subfield><subfield
+        code="b">[report].</subfield></datafield><datafield tag="260" ind1=" " ind2="
+        "><subfield code="a">[New York, N.Y.] :</subfield><subfield code="b">The Commission,</subfield><subfield
+        code="c">1985.</subfield></datafield><datafield tag="300" ind1=" " ind2="
+        "><subfield code="a">10 leaves, [4] leaves of plates :</subfield><subfield
+        code="b">ill. ;</subfield><subfield code="c">28 cm.</subfield></datafield><datafield
+        tag="490" ind1="1" ind2=" "><subfield code="a">Designation list / Landmarks
+        Preservation Commission ;</subfield><subfield code="v">181</subfield></datafield><datafield
+        tag="500" ind1=" " ind2=" "><subfield code="a">Caption title.</subfield></datafield><datafield
+        tag="500" ind1=" " ind2=" "><subfield code="a">"Report prepared by Andrew
+        S. Dolkart"--Leaf 8.</subfield></datafield><datafield tag="504" ind1=" " ind2="
+        "><subfield code="a">Bibliography: leaf 10.</subfield></datafield><datafield
+        tag="500" ind1=" " ind2=" "><subfield code="a">"Architect Irwin S. Chanin"--Leaf
+        [1].</subfield></datafield><datafield tag="590" ind1=" " ind2=" "><subfield
+        code="a">"LP-1517."</subfield></datafield><datafield tag="610" ind1="2" ind2="0"><subfield
+        code="a">Century Apartments (New York, N.Y.)</subfield></datafield><datafield
+        tag="651" ind1=" " ind2="0"><subfield code="a">New York (N.Y.)</subfield><subfield
+        code="x">Buildings, structures, etc.</subfield></datafield><datafield tag="650"
+        ind1=" " ind2="0"><subfield code="a">Apartment houses</subfield><subfield
+        code="z">New York (State)</subfield><subfield code="z">New York.</subfield></datafield><datafield
+        tag="600" ind1="1" ind2="0"><subfield code="a">Chanin, Irwin S.</subfield></datafield><datafield
+        tag="700" ind1="1" ind2=" "><subfield code="a">Dolkart, Andrew.</subfield></datafield><datafield
+        tag="700" ind1="1" ind2=" "><subfield code="a">Chainin, Irwin S.</subfield></datafield><datafield
+        tag="810" ind1="1" ind2=" "><subfield code="a">New York (N.Y.).</subfield><subfield
+        code="b">Landmarks Preservation Commission.</subfield><subfield code="t">Designation
+        list ;</subfield><subfield code="v">181.</subfield></datafield><datafield
+        tag="900" ind1=" " ind2=" "><subfield code="a">AUTH</subfield></datafield><datafield
+        tag="991" ind1=" " ind2=" "><subfield code="a">AA735 N4 ZC33</subfield><subfield
+        code="b">avefax+AA-+0735+00000000+N4000000+ZC330000</subfield></datafield><datafield
+        tag="992" ind1=" " ind2=" "><subfield code="a">Offsite</subfield><subfield
+        code="b">Offsite &lt;Avery&gt; (Non-Circulating) Place Request for delivery
+        &gt;&gt; AA735 N4 ZC33|DELIM|511019</subfield></datafield><datafield tag="992"
+        ind1=" " ind2=" "><subfield code="a">Online</subfield><subfield code="b">Online
+        &gt;&gt; EBOOKS|DELIM|10158201</subfield></datafield><datafield tag="993"
+        ind1=" " ind2=" "><subfield code="a">Book</subfield></datafield><datafield
+        tag="993" ind1=" " ind2=" "><subfield code="a">NY State/City Government Document</subfield></datafield><datafield
+        tag="995" ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield></record>'',''text''=>[''New
+        York (N.Y.). Landmarks Preservation Commission.'',''Century Apartments : [report].'',''[New
+        York, N.Y.] : The Commission, 1985.'',''10 leaves, [4] leaves of plates :
+        ill. ; 28 cm.'',''Designation list / Landmarks Preservation Commission ; 181'',''Caption
+        title.'',''"Report prepared by Andrew S. Dolkart"--Leaf 8.'',''Bibliography:
+        leaf 10.'',''"Architect Irwin S. Chanin"--Leaf [1].'',''"LP-1517."'',''Century
+        Apartments (New York, N.Y.)'',''New York (N.Y.) Buildings, structures, etc.'',''Apartment
+        houses New York (State) New York.'',''Chanin, Irwin S.'',''Dolkart, Andrew.'',''Chainin,
+        Irwin S.'',''New York (N.Y.). Landmarks Preservation Commission. Designation
+        list ; 181.'',''AUTH''],''author_txt''=>[''New York (N.Y.). Landmarks Preservation
+        Commission.''],''author_addl_txt''=>[''Dolkart, Andrew.'',''Chainin, Irwin
+        S.''],''author_facet''=>[''New York (N.Y.). Landmarks Preservation Commission'',''Dolkart,
+        Andrew'',''Chainin, Irwin S.''],''author_display''=>[''New York (N.Y.). Landmarks
+        Preservation Commission''],''author_sort''=>''New York (N.Y.). Landmarks Preservation
+        Commission.   Century Apartments report'',''title_txt''=>[''Century Apartments
+        :''],''title_display''=>[''Century Apartments : [report]''],''title_filing_txt''=>[''Century
+        Apartments :''],''title_filing_full_txt''=>[''Century Apartments : [report].''],''subtitle_txt''=>[''report''],''title_first_facet''=>[''C''],''title_addl_txt''=>[''Century
+        Apartments : [report].''],''title_sort''=>''century apartments  report'',''subject_txt''=>[''Century
+        Apartments (New York, N.Y.)'',''New York (N.Y.) Buildings, structures, etc'',''Apartment
+        houses New York (State) New York'',''Chanin, Irwin S.''],''subject_topic_facet''=>[''Century
+        Apartments (New York, N.Y.)'',''Buildings, structures, etc'',''Apartment houses'',''Chanin,
+        Irwin S.''],''subject_geo_facet''=>[''New York (N.Y.)'',''New York (State)'',''New
+        York''],''pub_place_display''=>[''New York, N.Y.''],''pub_name_display''=>[''The
+        Commission''],''pub_year_display''=>[''1985''],''pub_place_txt''=>[''New York,
+        N.Y.''],''pub_name_txt''=>[''The Commission''],''pub_year_txt''=>[''1985''],''pub_date_txt''=>[''1985''],''language_facet''=>[''English''],''format''=>[''Book'',''NY
+        State/City Government Document''],''clio_id_display''=>''382300'',''source_facet''=>[''catalog''],''source_display''=>[''catalog''],''oclc_txt''=>[''35088165'',''ocm35088165''],''oclc_display''=>[''35088165'',''ocm35088165''],''full_publisher_display''=>[''[New
+        York, N.Y.] : The Commission, 1985.''],''location_call_number_id_display''=>[''Offsite
+        <Avery> (Non-Circulating) Place Request for delivery >> AA735 N4 ZC33|DELIM|511019'',''Online
+        >> EBOOKS|DELIM|10158201''],''location_call_number_txt''=>[''Offsite <Avery>
+        (Non-Circulating) Place Request for delivery >> AA735 N4 ZC33'',''Online >>
+        EBOOKS''],''call_number_txt''=>[''AA735 N4 ZC33'',''EBOOKS''],''call_number_display''=>[''AA735
+        N4 ZC33'',''EBOOKS''],''location_facet''=>[''Offsite'',''Online''],''location_txt''=>[''Offsite
+        <Avery> (Non-Circulating) Place Request for delivery >> AA735 N4 ZC33'',''Online
+        >> EBOOKS''],''shelfkey''=>[''avefax+aa-+0735+00000000+n4000000+zc330000+382300''],''reverse_shelfkey''=>[''p4lkp2~pp~~zswu~zzzzzzzz~cvzzzzzz~0nwwzzzz~wrxwzz~''],''item_display''=>[''AA735
+        N4 ZC33 | avefax+aa-+0735+00000000+n4000000+zc330000+382300 | p4lkp2~pp~~zswu~zzzzzzzz~cvzzzzzz~0nwwzzzz~wrxwzz~''],''timestamp''=>''2016-08-26T19:30:53.174Z'',''authorities_dt''=>''2016-08-28T15:22:28Z'',''author_variant_txt''=>[''New
+        York (City).'',''Landmarks Preservation Commission (New York, N.Y.)''],''subject_variant_txt''=>[''Apartment
+        buildings'',''Multi-family housing'',''Multifamily housing'',''Multiple dwellings''],''_version_''=>1543920941406355456}]}}
+
+'
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:43:51 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/35088165.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 26 Oct 2016 17:43:51 GMT
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Wed, 26 Oct 2016 17:43:51 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Location:
+      - https://catalog.hathitrust.org/api/volumes/brief/oclc/35088165.json
+      Content-Length:
+      - '339'
+      Content-Type:
+      - text/html; charset=iso-8859-1
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Wed, 26-Oct-2016
+        17:53:05 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>302 Found</title>
+        </head><body>
+        <h1>Found</h1>
+        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/oclc/35088165.json">here</a>.</p>
+        <hr>
+        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
+        </body></html>
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:43:51 GMT
+- request:
+    method: get
+    uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/35088165.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 26 Oct 2016 17:43:51 GMT
+      Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 26 Oct 2016 17:43:52 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '31'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a42378b;expires=Wed, 26-Oct-2016
+        17:53:06 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:43:51 GMT
+- request:
+    method: get
+    uri: http://catalog.hathitrust.org/api/volumes/brief/oclc/ocm35088165.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 26 Oct 2016 17:43:51 GMT
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Wed, 26 Oct 2016 17:43:52 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Location:
+      - https://catalog.hathitrust.org/api/volumes/brief/oclc/ocm35088165.json
+      Content-Length:
+      - '342'
+      Content-Type:
+      - text/html; charset=iso-8859-1
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Wed, 26-Oct-2016
+        17:53:06 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>302 Found</title>
+        </head><body>
+        <h1>Found</h1>
+        <p>The document has moved <a href="https://catalog.hathitrust.org/api/volumes/brief/oclc/ocm35088165.json">here</a>.</p>
+        <hr>
+        <address>Apache/2.4.10 (Debian) Server at catalog.hathitrust.org Port 80</address>
+        </body></html>
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:43:51 GMT
+- request:
+    method: get
+    uri: https://catalog.hathitrust.org/api/volumes/brief/oclc/ocm35088165.json
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 26 Oct 2016 17:43:51 GMT
+      Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 26 Oct 2016 17:43:52 GMT
+      Server:
+      - Apache/2.4.10 (Debian)
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '31'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Set-Cookie:
+      - NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a42378b;expires=Wed, 26-Oct-2016
+        17:53:06 GMT;path=/;httponly
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+         "records": {}, "items": []
+        }
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:43:51 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=10099362&qt=document&wt=ruby"
@@ -471,7 +471,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:47:23 GMT
+      - Wed, 26 Oct 2016 17:43:52 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -480,7 +480,7 @@ http_interactions:
       - Jetty(8.1.8.v20121106)
     body:
       encoding: UTF-8
-      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>1,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
         f=id v=$id}'',''rows''=>''1'',''id''=>''10099362'',''qt''=>''document'',''wt''=>''ruby''}},''response''=>{''numFound''=>1,''start''=>0,''docs''=>[{''id''=>''10099362'',''marc_display''=>''<record><leader>02722cpcaa2200493Ii
         4500</leader><controlfield tag="001">10099362</controlfield><controlfield
         tag="005">20130617214314.0</controlfield><controlfield tag="008">121114k20109999nyu                 eng
@@ -630,5 +630,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:47:22 GMT
+  recorded_at: Wed, 26 Oct 2016 17:43:51 GMT
 recorded_with: VCR 3.0.3

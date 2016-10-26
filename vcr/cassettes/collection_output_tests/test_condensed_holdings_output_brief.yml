@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:54:36 GMT
+      - Wed, 26 Oct 2016 17:50:54 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -124,7 +124,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:54:35 GMT
+  recorded_at: Wed, 26 Oct 2016 17:50:53 GMT
 - request:
     method: get
     uri: "<clio_backend_url>/holdings/retrieve/8430339"
@@ -137,7 +137,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 11 Oct 2016 20:54:36 GMT
+      - Wed, 26 Oct 2016 17:50:53 GMT
   response:
     status:
       code: 200
@@ -167,13 +167,13 @@ http_interactions:
       - nosniff
       - nosniff
       X-Runtime:
-      - '0.004845'
+      - '0.007441'
       Access-Control-Request-Method:
       - "*"
       X-Request-Id:
-      - a81b3581-67de-4789-b75c-8e81329f1064
+      - f1c6d00a-5f86-4ecb-9f6a-3cbf86780ba5
       Date:
-      - Tue, 11 Oct 2016 20:54:37 GMT
+      - Wed, 26 Oct 2016 17:50:54 GMT
       X-Powered-By:
       - Phusion Passenger
       Server:
@@ -188,5 +188,5 @@ http_interactions:
         out, due 2017-01-17":{"status":"not_available","count":1}}}],"services":["recall_hold"]},{"location_name":"Milstein
         [Butler]","location_note":"","call_number":"BL80.3 .D74 2011","status":"available","holding_id":["11580964"],"copies":[{"items":{"Available":{"status":"available","count":1}}}],"services":["doc_delivery"]}]}}'
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:54:36 GMT
+  recorded_at: Wed, 26 Oct 2016 17:50:53 GMT
 recorded_with: VCR 3.0.3

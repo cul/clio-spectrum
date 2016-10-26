@@ -203,7 +203,7 @@ http_interactions:
   recorded_at: Tue, 16 Aug 2016 18:49:48 GMT
 - request:
     method: get
-    uri: "<clio_backend_url>/holdings/retrieve/123"
+    uri: https://clio-backend.cul.columbia.edu/holdings/retrieve/123
     body:
       encoding: UTF-8
       string: ''
@@ -268,4 +268,71 @@ http_interactions:
         </html>
     http_version: 
   recorded_at: Tue, 11 Oct 2016 20:42:50 GMT
+- request:
+    method: get
+    uri: "<clio_backend_url>/holdings/retrieve/123"
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.0 (2015-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 26 Oct 2016 17:40:14 GMT
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+      Content-Length:
+      - '728'
+      Connection:
+      - keep-alive
+      Status:
+      - 404 Not Found
+      X-Runtime:
+      - '0.005761'
+      X-Request-Id:
+      - 70810292-a71e-4455-abf4-825d8bdbacfe
+      Date:
+      - Wed, 26 Oct 2016 17:40:15 GMT
+      X-Powered-By:
+      - Phusion Passenger
+      Server:
+      - nginx + Phusion Passenger
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>The page you were looking for doesn't exist (404)</title>
+          <style type="text/css">
+            body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
+            div.dialog {
+              width: 25em;
+              padding: 0 4em;
+              margin: 4em auto 0 auto;
+              border: 1px solid #ccc;
+              border-right-color: #999;
+              border-bottom-color: #999;
+            }
+            h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+          </style>
+        </head>
+
+        <body>
+          <!-- This file lives in public/404.html -->
+          <div class="dialog">
+            <h1>The page you were looking for doesn't exist.</h1>
+            <p>You may have mistyped the address or the page may have moved.</p>
+          </div>
+        </body>
+        </html>
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:40:14 GMT
 recorded_with: VCR 3.0.3

@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:49:28 GMT
+      - Wed, 26 Oct 2016 17:45:39 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -821,5 +821,5 @@ http_interactions:
         aXMnLCdBcHByZWNpYXRpb24gb2YgbXVzaWMnLCdNdXNpY2FsIGFwcHJlY2lh
         dGlvbiddLCdfdmVyc2lvbl8nPT4xNTQ0MTg2Njk1NzYwNDc4MjA4fV19fQo=
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:49:28 GMT
+  recorded_at: Wed, 26 Oct 2016 17:45:39 GMT
 recorded_with: VCR 3.0.3

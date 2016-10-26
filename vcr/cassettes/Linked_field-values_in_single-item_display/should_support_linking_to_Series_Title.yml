@@ -2,208 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2015-08-16T00:00:00Z%20TO%20*%5D&q=%7B!qf=title_series_txt%20pf=title_series_txt%7D%22Collezione%20Confronti/consensi%20%3B%22&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck.q=%22Collezione%20Confronti/consensi%20%3B%22&stats=true&stats.field=pub_date_sort&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 16 Aug 2016 17:56:19 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: UTF-8
-      string: '{''responseHeader''=>{''status''=>0,''QTime''=>35,''params''=>{''f.subject_form_facet.facet.limit''=>''11'',''facet''=>''true'',''sort''=>''score
-        desc, pub_date_sort desc, title_sort asc'',''stats''=>''true'',''f.subject_topic_facet.facet.limit''=>''11'',''spellcheck.q''=>''"Collezione
-        Confronti/consensi ;"'',''f.language_facet.facet.limit''=>''6'',''f.lc_1letter_facet.facet.limit''=>''31'',''f.pub_date_sort.facet.limit''=>''4'',''f.location_facet.facet.limit''=>''6'',''wt''=>''ruby'',''rows''=>''25'',''f.lc_subclass_facet.facet.limit''=>''501'',''f.subject_geo_facet.facet.limit''=>''11'',''facet.query''=>[''acq_dt:[2016-08-09T00:00:00Z
-        TO *]'',''acq_dt:[2016-07-16T00:00:00Z TO *]'',''acq_dt:[2016-02-16T00:00:00Z
-        TO *]'',''acq_dt:[2015-08-16T00:00:00Z TO *]''],''stats.field''=>''pub_date_sort'',''q''=>''{!qf=title_series_txt
-        pf=title_series_txt}"Collezione Confronti/consensi ;"'',''f.author_facet.facet.limit''=>''6'',''facet.field''=>[''format'',''pub_date_sort'',''author_facet'',''location_facet'',''language_facet'',''subject_topic_facet'',''subject_geo_facet'',''subject_era_facet'',''subject_form_facet'',''lc_1letter_facet'',''lc_subclass_facet''],''qt''=>''search'',''f.subject_era_facet.facet.limit''=>''11'',''f.format.facet.limit''=>''6''}},''response''=>{''numFound''=>6,''start''=>0,''maxScore''=>23.577744,''docs''=>[{''id''=>''11546303'',''title_display''=>[''Su
-        Pietro Barcellona, ovvero, Riverberi del meno : atti del convegno di studi
-        su alcune opere di Pietro Barcellona, Giarre - Catania 24/25 ottobre 2014''],''title_series_display''=>[''Collezione
-        Confronti/consensi ; 36''],''subject_topic_facet''=>[''Barcellona, Pietro'',''Intellectuals'',''Politicians'',''Politics
-        and government''],''subject_era_facet''=>[''20th century''],''subject_geo_facet''=>[''Italy''],''pub_place_display''=>[''Catania''],''pub_name_display''=>[''Prova
-        d\''autore''],''pub_year_display''=>[''aprile 2015''],''language_facet''=>[''Italian''],''format''=>[''Book'',''Conference
-        Proceedings''],''clio_id_display''=>''11546303'',''acq_dt''=>''2015-08-24T00:00:00Z'',''source_display''=>[''catalog''],''isbn_display''=>[''9788862821544''],''oclc_display''=>[''915336952''],''full_publisher_display''=>[''Catania
-        : Prova d\''autore, aprile 2015.''],''location_call_number_id_display''=>[''Offsite
-        - Place Request for delivery within 2 business days >> DG575.B318 S82 2015|DELIM|14560624''],''location_facet''=>[''Offsite''],''url_munged_display''=>[''2|||TOC|||http://www.columbia.edu/cgi-bin/cul/resolve?clio11546303|||''],''shelfkey''=>[''loc+dg-+0575+00000000+b3180000+s8200000+002015+11546303''],''reverse_shelfkey''=>[''ebn~mj~~zusu~zzzzzzzz~owyrzzzz~7rxzzzzz~zzxzyu~yyuvtwzw''],''item_display''=>[''DG575.B318
-        S82 2015 | loc+dg-+0575+00000000+b3180000+s8200000+002015+11546303 | ebn~mj~~zusu~zzzzzzzz~owyrzzzz~7rxzzzzz~zzxzyu~yyuvtwzw''],''score''=>23.577744},{''id''=>''9646827'',''author_facet''=>[''Imbalzano,
-        Ella''],''author_display''=>[''Imbalzano, Ella''],''title_display''=>[''Lo
-        specchio acceso : narrativa italiana, 1984-2006''],''title_series_display''=>[''Collezione
-        Confronti/consensi ; 15''],''subject_topic_facet''=>[''Italian fiction'',''History
-        and criticism''],''subject_era_facet''=>[''20th century''],''subject_geo_facet''=>[''Italy,
-        Southern''],''pub_place_display''=>[''Catania''],''pub_name_display''=>[''Prova
-        d\''autore''],''pub_year_display''=>[''2012''],''language_facet''=>[''Italian''],''format''=>[''Book''],''clio_id_display''=>''9646827'',''acq_dt''=>''2012-09-25T00:00:00Z'',''source_display''=>[''catalog''],''isbn_display''=>[''9788862820660''],''lccn_display''=>[''2012375791''],''oclc_display''=>[''801440179'',''ocn801440179''],''full_publisher_display''=>[''Catania
-        : Prova d\''autore, 2012.''],''location_call_number_id_display''=>[''Butler
-        Stacks (Enter at the Butler Circulation Desk) >> PQ4174 .I43 2012|DELIM|12693696''],''location_facet''=>[''Butler
-        Stacks''],''url_munged_display''=>[''2|||TOC|||http://www.columbia.edu/cgi-bin/cul/resolve?clio9646827|||''],''shelfkey''=>[''loc+pq-+4174+00000000+i4300000+002012+9646827''],''reverse_shelfkey''=>[''ebn~a9~~vysv~zzzzzzzz~hvwzzzzz~zzxzyx~qtvtrxs~~~~~''],''item_display''=>[''PQ4174
-        .I43 2012 | loc+pq-+4174+00000000+i4300000+002012+9646827 | ebn~a9~~vysv~zzzzzzzz~hvwzzzzz~zzxzyx~qtvtrxs~~~~~''],''score''=>23.577744},{''id''=>''8635020'',''author_facet''=>[''Saitta,
-        Daniela''],''author_display''=>[''Saitta, Daniela''],''title_display''=>[''Rosa
-        e giallo a Torino : il poliziesco di Fruttero & Lucentini''],''title_series_display''=>[''Collezione
-        Confronti/consensi ; 11''],''subject_topic_facet''=>[''Fruttero, Carlo'',''Criticism
-        and interpretation'',''Lucentini, Franco'',''Detective and mystery stories,
-        Italian'',''History and criticism''],''subject_geo_facet''=>[''Italy'',''Turin''],''pub_place_display''=>[''Catania''],''pub_name_display''=>[''Prova
-        d\''autore''],''pub_year_display''=>[''2010''],''language_facet''=>[''Italian''],''format''=>[''Book''],''clio_id_display''=>''8635020'',''acq_dt''=>''2011-05-27T00:00:00Z'',''source_display''=>[''catalog''],''isbn_display''=>[''9788862820493''],''oclc_display''=>[''711513918'',''ocn711513918''],''full_publisher_display''=>[''Catania
-        : Prova d\''autore, 2010.''],''location_call_number_id_display''=>[''Butler
-        Stacks (Enter at the Butler Circulation Desk) >> PQ4866.R8 Z57 2010|DELIM|11714996''],''location_facet''=>[''Butler
-        Stacks''],''url_munged_display''=>[''2|||TOC|||http://www.columbia.edu/cgi-bin/cul/resolve?clio8635020|||''],''shelfkey''=>[''loc+pq-+4866+00000000+r8000000+z5700000+002010+8635020''],''reverse_shelfkey''=>[''ebn~a9~~vrtt~zzzzzzzz~8rzzzzzz~0uszzzzz~zzxzyz~rtwuzxz''],''item_display''=>[''PQ4866.R8
-        Z57 2010 | loc+pq-+4866+00000000+r8000000+z5700000+002010+8635020 | ebn~a9~~vrtt~zzzzzzzz~8rzzzzzz~0uszzzzz~zzxzyz~rtwuzxz''],''score''=>23.577744},{''id''=>''6765649'',''author_facet''=>[''Caruso,
-        Maria Grazia''],''author_display''=>[''Caruso, Maria Grazia''],''title_display''=>[''L\''infinito
-        in cerchio : la poesia di Edoardo Cacciatore''],''title_series_display''=>[''Collezione
-        Confronti/consensi ; 9.''],''subject_topic_facet''=>[''Cacciatore, Edoardo'',''Criticism
-        and interpretation''],''pub_place_display''=>[''Catania''],''pub_name_display''=>[''Prova
-        d\''Autore''],''pub_year_display''=>[''2008''],''language_facet''=>[''Italian''],''format''=>[''Book''],''clio_id_display''=>''6765649'',''source_display''=>[''catalog''],''isbn_display''=>[''9788862820080'',''8862820089''],''lccn_display''=>[''2008355418''],''oclc_display''=>[''227926329'',''ocn227926329''],''full_publisher_display''=>[''Catania
-        : Prova d\''Autore, [2008]''],''location_call_number_id_display''=>[''Butler
-        Stacks (Enter at the Butler Circulation Desk) >> PQ4863.A24 Z635 2008|DELIM|9100062''],''location_facet''=>[''Butler
-        Stacks''],''url_munged_display''=>[''1|||Table of contents|||http://www.columbia.edu/cgi-bin/cul/resolve?clio6765649.001|||'',''2|||TOC|||http://www.columbia.edu/cgi-bin/cul/resolve?clio6765649.002|||''],''shelfkey''=>[''loc+pq-+4863+00000000+a2400000+z6350000+002008+6765649''],''reverse_shelfkey''=>[''ebn~a9~~vrtw~zzzzzzzz~pxvzzzzz~0twuzzzz~zzxzzr~tstutvq''],''item_display''=>[''PQ4863.A24
-        Z635 2008 | loc+pq-+4863+00000000+a2400000+z6350000+002008+6765649 | ebn~a9~~vrtw~zzzzzzzz~pxvzzzzz~0twuzzzz~zzxzzr~tstutvq''],''score''=>23.577744},{''id''=>''6427055'',''author_facet''=>[''Calcaterra,
-        Domenico''],''author_display''=>[''Calcaterra, Domenico''],''title_display''=>[''Vincenzo
-        Consolo : le parole, il tono, la cadenza''],''title_series_display''=>[''Collezione
-        Confronti/consensi ; 7.''],''subject_topic_facet''=>[''Consolo, Vincenzo,
-        1933-2012'',''Criticism and interpretation'',''Literary style''],''pub_place_display''=>[''Catania''],''pub_name_display''=>[''Prova
-        d\''autore''],''pub_year_display''=>[''2007''],''language_facet''=>[''Italian''],''format''=>[''Book''],''clio_id_display''=>''6427055'',''source_display''=>[''catalog''],''isbn_display''=>[''9788888555898'',''8888555897''],''lccn_display''=>[''2008363159''],''oclc_display''=>[''ocn133431022'',''133431022''],''full_publisher_display''=>[''Catania
-        : Prova d\''autore, [2007]''],''location_call_number_id_display''=>[''Butler
-        Stacks (Enter at the Butler Circulation Desk) >> PQ4863.O48 Z62 2007|DELIM|8425340''],''location_facet''=>[''Butler
-        Stacks''],''url_munged_display''=>[''1|||Table of contents|||http://www.columbia.edu/cgi-bin/cul/resolve?clio6427055.001|||'',''2|||TOC|||http://www.columbia.edu/cgi-bin/cul/resolve?clio6427055.002|||''],''shelfkey''=>[''loc+pq-+4863+00000000+o4800000+z6200000+002007+6427055''],''reverse_shelfkey''=>[''ebn~a9~~vrtw~zzzzzzzz~bvrzzzzz~0txzzzzz~zzxzzs~tvxszuu''],''item_display''=>[''PQ4863.O48
-        Z62 2007 | loc+pq-+4863+00000000+o4800000+z6200000+002007+6427055 | ebn~a9~~vrtw~zzzzzzzz~bvrzzzzz~0txzzzzz~zzxzzs~tvxszuu''],''score''=>23.577744},{''id''=>''2308439'',''author_facet''=>[''Ternullo,
-        Concetto''],''author_display''=>[''Ternullo, Concetto''],''title_display''=>[''Vincenzo
-        Consolo : dalla Ferita allo Spasimo''],''title_series_display''=>[''Collezione
-        Confronti/consensi ; 1.''],''subject_topic_facet''=>[''Consolo, Vincenzo,
-        1933-2012'',''Criticism and interpretation''],''pub_place_display''=>[''Catania''],''pub_name_display''=>[''Prova
-        d\''autore''],''pub_year_display''=>[''1998''],''language_facet''=>[''Italian''],''format''=>[''Book''],''clio_id_display''=>''2308439'',''source_display''=>[''catalog''],''isbn_display''=>[''8886140371''],''oclc_display''=>[''ocm40647539''],''full_publisher_display''=>[''Catania
-        : Prova d\''autore, 1998.''],''location_call_number_id_display''=>[''Offsite
-        - Place Request for delivery within 2 business days >> PQ4863.O48 Z85 1998g|DELIM|2787280''],''location_facet''=>[''Offsite''],''shelfkey''=>[''loc+pq-+4863+00000000+o4800000+z8500000+001998+2308439''],''reverse_shelfkey''=>[''ebn~a9~~vrtw~zzzzzzzz~bvrzzzzz~0ruzzzzz~zzyqqr~xwzrvwq''],''item_display''=>[''PQ4863.O48
-        Z85 1998g | loc+pq-+4863+00000000+o4800000+z8500000+001998+2308439 | ebn~a9~~vrtw~zzzzzzzz~bvrzzzzz~0ruzzzzz~zzyqqr~xwzrvwq''],''score''=>23.577744}]},''facet_counts''=>{''facet_queries''=>{''acq_dt:[2016-08-09T00:00:00Z
-        TO *]''=>0,''acq_dt:[2016-07-16T00:00:00Z TO *]''=>0,''acq_dt:[2016-02-16T00:00:00Z
-        TO *]''=>0,''acq_dt:[2015-08-16T00:00:00Z TO *]''=>1},''facet_fields''=>{''format''=>[''Book'',6,''Conference
-        Proceedings'',1],''pub_date_sort''=>[''1998'',1,''2007'',1,''2008'',1,''2010'',1],''author_facet''=>[''Calcaterra,
-        Domenico'',1,''Caruso, Maria Grazia'',1,''Imbalzano, Ella'',1,''Saitta, Daniela'',1,''Ternullo,
-        Concetto'',1],''location_facet''=>[''Butler Stacks'',4,''Offsite'',2],''language_facet''=>[''Italian'',6],''subject_topic_facet''=>[''Criticism
-        and interpretation'',4,''Consolo, Vincenzo, 1933-2012'',2,''History and criticism'',2,''Barcellona,
-        Pietro'',1,''Cacciatore, Edoardo'',1,''Detective and mystery stories, Italian'',1,''Fruttero,
-        Carlo'',1,''Intellectuals'',1,''Italian fiction'',1,''Literary style'',1,''Lucentini,
-        Franco'',1],''subject_geo_facet''=>[''Italy'',2,''Italy, Southern'',1,''Turin'',1],''subject_era_facet''=>[''20th
-        century'',2],''subject_form_facet''=>[''Congresses'',1],''lc_1letter_facet''=>[''D
-        - World History'',1,''P - Language & Literature'',5],''lc_subclass_facet''=>[''DG
-        - Italy (History)'',1,''PQ - French, Italian, Spanish & Portuguese Literature'',5]},''facet_dates''=>{},''facet_ranges''=>{}},''stats''=>{''stats_fields''=>{''pub_date_sort''=>{''min''=>1998.0,''max''=>2015.0,''count''=>6,''missing''=>0,''sum''=>12050.0,''sumOfSquares''=>2.4200586E7,''mean''=>2008.3333333333333,''stddev''=>5.819507424745385,''facets''=>{}}}}}
-
-'
-    http_version: 
-  recorded_at: Tue, 16 Aug 2016 17:56:20 GMT
-- request:
-    method: get
-    uri: "<solr_config>/select?id=9646827&qt=document&wt=ruby"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 11 Oct 2016 20:49:08 GMT
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - Jetty(8.1.8.v20121106)
-    body:
-      encoding: UTF-8
-      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
-        f=id v=$id}'',''rows''=>''1'',''id''=>''9646827'',''qt''=>''document'',''wt''=>''ruby''}},''response''=>{''numFound''=>1,''start''=>0,''docs''=>[{''id''=>''9646827'',''marc_display''=>''<record><leader>01375cam
-        a2200385 a 4500</leader><controlfield tag="001">9646827</controlfield><controlfield
-        tag="005">20121119220501.0</controlfield><controlfield tag="008">120727s2012    it       b    000
-        0 ita d</controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2012375791</subfield></datafield><datafield
-        tag="020" ind1=" " ind2=" "><subfield code="a">9788862820660 :</subfield><subfield
-        code="c">16.00 EUR</subfield></datafield><datafield tag="035" ind1=" " ind2="
-        "><subfield code="a">(OCoLC)801440179</subfield></datafield><datafield tag="035"
-        ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn801440179</subfield></datafield><datafield
-        tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)9646827</subfield></datafield><datafield
-        tag="040" ind1=" " ind2=" "><subfield code="a">ItFiC</subfield><subfield code="c">ItFiC</subfield><subfield
-        code="d">NNC</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield
-        code="a">e-it---</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield
-        code="a">PQ4174</subfield><subfield code="b">.I43 2012</subfield></datafield><datafield
-        tag="100" ind1="1" ind2=" "><subfield code="a">Imbalzano, Ella.</subfield></datafield><datafield
-        tag="245" ind1="1" ind2="3"><subfield code="a">Lo specchio acceso :</subfield><subfield
-        code="b">narrativa italiana, 1984-2006 /</subfield><subfield code="c">Ella
-        Imbalzano.</subfield></datafield><datafield tag="250" ind1=" " ind2=" "><subfield
-        code="a">1. ed.</subfield></datafield><datafield tag="260" ind1=" " ind2="
-        "><subfield code="a">Catania :</subfield><subfield code="b">Prova d\''autore,</subfield><subfield
-        code="c">2012.</subfield></datafield><datafield tag="300" ind1=" " ind2="
-        "><subfield code="a">184 p. ;</subfield><subfield code="c">22 cm.</subfield></datafield><datafield
-        tag="490" ind1="1" ind2=" "><subfield code="a">Biblioteca moderna Prova d\''autore.
-        Collezione Consensi ;</subfield><subfield code="v">15</subfield></datafield><datafield
-        tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references.</subfield></datafield><datafield
-        tag="650" ind1=" " ind2="0"><subfield code="a">Italian fiction</subfield><subfield
-        code="y">20th century</subfield><subfield code="x">History and criticism.</subfield></datafield><datafield
-        tag="650" ind1=" " ind2="0"><subfield code="a">Italian fiction</subfield><subfield
-        code="z">Italy, Southern</subfield><subfield code="x">History and criticism.</subfield></datafield><datafield
-        tag="830" ind1=" " ind2="0"><subfield code="a">Collezione Confronti/consensi
-        ;</subfield><subfield code="v">15.</subfield></datafield><datafield tag="856"
-        ind1="4" ind2="2"><subfield code="u">http://www.columbia.edu/cgi-bin/cul/resolve?clio9646827</subfield><subfield
-        code="3">TOC</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield
-        code="a">20120925</subfield><subfield code="b">c</subfield><subfield code="c">rad1</subfield><subfield
-        code="d">MPS</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield
-        code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield
-        code="a">PQ</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield
-        code="a">PQ4174 .I43 2012</subfield><subfield code="b">loc+PQ-+4174+00000000+I4300000+002012</subfield></datafield><datafield
-        tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield
-        code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; PQ4174
-        .I43 2012|DELIM|12693696</subfield></datafield><datafield tag="993" ind1="
-        " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995"
-        ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield
-        tag="997" ind1=" " ind2=" "><subfield code="a">2012-09-25T00:00:00.000Z</subfield></datafield></record>'',''text''=>[''PQ4174
-        .I43 2012'',''Imbalzano, Ella.'',''Lo specchio acceso : narrativa italiana,
-        1984-2006 / Ella Imbalzano.'',''1. ed.'',''Catania : Prova d\''autore, 2012.'',''184
-        p. ; 22 cm.'',''Biblioteca moderna Prova d\''autore. Collezione Consensi ;
-        15'',''Includes bibliographical references.'',''Italian fiction 20th century
-        History and criticism.'',''Italian fiction Italy, Southern History and criticism.'',''Collezione
-        Confronti/consensi ; 15.'',''http://www.columbia.edu/cgi-bin/cul/resolve?clio9646827
-        TOC'',''20120925 c rad1 MPS'',''AUTH''],''author_txt''=>[''Imbalzano, Ella.''],''author_facet''=>[''Imbalzano,
-        Ella''],''author_display''=>[''Imbalzano, Ella''],''author_sort''=>''Imbalzano,
-        Ella.   specchio acceso narrativa italiana, 1984-2006 Ella Imbalzano'',''title_txt''=>[''Lo
-        specchio acceso :''],''title_display''=>[''Lo specchio acceso : narrativa
-        italiana, 1984-2006''],''title_filing_txt''=>[''specchio acceso :''],''title_filing_full_txt''=>[''specchio
-        acceso : narrativa italiana, 1984-2006 /''],''subtitle_txt''=>[''narrativa
-        italiana, 1984-2006''],''title_first_facet''=>[''S''],''title_addl_txt''=>[''Lo
-        specchio acceso : narrativa italiana, 1984-2006 /''],''title_series_txt''=>[''Collezione
-        Confronti/consensi ; 15''],''title_series_display''=>[''Collezione Confronti/consensi
-        ; 15''],''title_sort''=>''specchio acceso  narrativa italiana 19842006'',''subject_txt''=>[''Italian
-        fiction 20th century History and criticism'',''Italian fiction Italy, Southern
-        History and criticism''],''subject_topic_facet''=>[''Italian fiction'',''History
-        and criticism''],''subject_era_facet''=>[''20th century''],''subject_geo_facet''=>[''Italy,
-        Southern''],''pub_place_display''=>[''Catania''],''pub_name_display''=>[''Prova
-        d\''autore''],''pub_year_display''=>[''2012''],''pub_place_txt''=>[''Catania''],''pub_name_txt''=>[''Prova
-        d\''autore''],''pub_year_txt''=>[''2012''],''pub_date_txt''=>[''2012''],''language_facet''=>[''Italian''],''format''=>[''Book''],''lc_1letter_facet''=>[''P
-        - Language & Literature''],''lc_2letter_facet''=>[''PQ - French, Italian,
-        Spanish & Portuguese Literature''],''lc_subclass_facet''=>[''PQ - French,
-        Italian, Spanish & Portuguese Literature''],''clio_id_display''=>''9646827'',''acq_dt''=>''2012-09-25T00:00:00Z'',''source_facet''=>[''catalog''],''source_display''=>[''catalog''],''isbn_txt''=>[''9788862820660'',''8862820666'',''9788862820660
-        :''],''isbn_display''=>[''9788862820660''],''lccn_display''=>[''2012375791''],''lccn_txt''=>[''2012375791''],''oclc_txt''=>[''801440179'',''ocn801440179''],''oclc_display''=>[''801440179'',''ocn801440179''],''full_publisher_display''=>[''Catania
-        : Prova d\''autore, 2012.''],''location_call_number_id_display''=>[''Butler
-        Stacks (Enter at the Butler Circulation Desk) >> PQ4174 .I43 2012|DELIM|12693696''],''location_call_number_txt''=>[''Butler
-        Stacks (Enter at the Butler Circulation Desk) >> PQ4174 .I43 2012''],''call_number_txt''=>[''PQ4174
-        .I43 2012''],''call_number_display''=>[''PQ4174 .I43 2012''],''location_facet''=>[''Butler
-        Stacks''],''location_txt''=>[''Butler Stacks (Enter at the Butler Circulation
-        Desk) >> PQ4174 .I43 2012''],''url_munged_display''=>[''2|||TOC|||http://www.columbia.edu/cgi-bin/cul/resolve?clio9646827|||''],''shelfkey''=>[''loc+pq-+4174+00000000+i4300000+002012+9646827''],''reverse_shelfkey''=>[''ebn~a9~~vysv~zzzzzzzz~hvwzzzzz~zzxzyx~qtvtrxs~~~~~''],''item_display''=>[''PQ4174
-        .I43 2012 | loc+pq-+4174+00000000+i4300000+002012+9646827 | ebn~a9~~vysv~zzzzzzzz~hvwzzzzz~zzxzyx~qtvtrxs~~~~~''],''timestamp''=>''2016-07-06T21:08:31.987Z'',''authorities_dt''=>''2016-08-31T12:36:56Z'',''_version_''=>1544182318462140416}]}}
-
-'
-    http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:49:07 GMT
-- request:
-    method: get
     uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2015-10-11T00:00:00Z%20TO%20*%5D&q=%7B!qf=title_series_txt%20pf=title_series_txt%7D%22Collezione%20Confronti/consensi%20%3B%22&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck.q=%22Collezione%20Confronti/consensi%20%3B%22&stats=true&stats.field=pub_date_sort&wt=ruby"
     body:
       encoding: US-ASCII
@@ -301,4 +99,206 @@ http_interactions:
 '
     http_version: 
   recorded_at: Tue, 11 Oct 2016 20:49:08 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?id=9646827&qt=document&wt=ruby"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 26 Oct 2016 17:45:30 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>1,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
+        f=id v=$id}'',''rows''=>''1'',''id''=>''9646827'',''qt''=>''document'',''wt''=>''ruby''}},''response''=>{''numFound''=>1,''start''=>0,''docs''=>[{''id''=>''9646827'',''marc_display''=>''<record><leader>01375cam
+        a2200385 a 4500</leader><controlfield tag="001">9646827</controlfield><controlfield
+        tag="005">20121119220501.0</controlfield><controlfield tag="008">120727s2012    it       b    000
+        0 ita d</controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">  2012375791</subfield></datafield><datafield
+        tag="020" ind1=" " ind2=" "><subfield code="a">9788862820660 :</subfield><subfield
+        code="c">16.00 EUR</subfield></datafield><datafield tag="035" ind1=" " ind2="
+        "><subfield code="a">(OCoLC)801440179</subfield></datafield><datafield tag="035"
+        ind1=" " ind2=" "><subfield code="a">(OCoLC)ocn801440179</subfield></datafield><datafield
+        tag="035" ind1=" " ind2=" "><subfield code="a">(NNC)9646827</subfield></datafield><datafield
+        tag="040" ind1=" " ind2=" "><subfield code="a">ItFiC</subfield><subfield code="c">ItFiC</subfield><subfield
+        code="d">NNC</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield
+        code="a">e-it---</subfield></datafield><datafield tag="050" ind1="0" ind2="0"><subfield
+        code="a">PQ4174</subfield><subfield code="b">.I43 2012</subfield></datafield><datafield
+        tag="100" ind1="1" ind2=" "><subfield code="a">Imbalzano, Ella.</subfield></datafield><datafield
+        tag="245" ind1="1" ind2="3"><subfield code="a">Lo specchio acceso :</subfield><subfield
+        code="b">narrativa italiana, 1984-2006 /</subfield><subfield code="c">Ella
+        Imbalzano.</subfield></datafield><datafield tag="250" ind1=" " ind2=" "><subfield
+        code="a">1. ed.</subfield></datafield><datafield tag="260" ind1=" " ind2="
+        "><subfield code="a">Catania :</subfield><subfield code="b">Prova d\''autore,</subfield><subfield
+        code="c">2012.</subfield></datafield><datafield tag="300" ind1=" " ind2="
+        "><subfield code="a">184 p. ;</subfield><subfield code="c">22 cm.</subfield></datafield><datafield
+        tag="490" ind1="1" ind2=" "><subfield code="a">Biblioteca moderna Prova d\''autore.
+        Collezione Consensi ;</subfield><subfield code="v">15</subfield></datafield><datafield
+        tag="504" ind1=" " ind2=" "><subfield code="a">Includes bibliographical references.</subfield></datafield><datafield
+        tag="650" ind1=" " ind2="0"><subfield code="a">Italian fiction</subfield><subfield
+        code="y">20th century</subfield><subfield code="x">History and criticism.</subfield></datafield><datafield
+        tag="650" ind1=" " ind2="0"><subfield code="a">Italian fiction</subfield><subfield
+        code="z">Italy, Southern</subfield><subfield code="x">History and criticism.</subfield></datafield><datafield
+        tag="830" ind1=" " ind2="0"><subfield code="a">Collezione Confronti/consensi
+        ;</subfield><subfield code="v">15.</subfield></datafield><datafield tag="856"
+        ind1="4" ind2="2"><subfield code="u">http://www.columbia.edu/cgi-bin/cul/resolve?clio9646827</subfield><subfield
+        code="3">TOC</subfield></datafield><datafield tag="948" ind1="1" ind2=" "><subfield
+        code="a">20120925</subfield><subfield code="b">c</subfield><subfield code="c">rad1</subfield><subfield
+        code="d">MPS</subfield></datafield><datafield tag="900" ind1=" " ind2=" "><subfield
+        code="a">AUTH</subfield></datafield><datafield tag="990" ind1=" " ind2=" "><subfield
+        code="a">PQ</subfield></datafield><datafield tag="991" ind1=" " ind2=" "><subfield
+        code="a">PQ4174 .I43 2012</subfield><subfield code="b">loc+PQ-+4174+00000000+I4300000+002012</subfield></datafield><datafield
+        tag="992" ind1=" " ind2=" "><subfield code="a">Butler Stacks</subfield><subfield
+        code="b">Butler Stacks (Enter at the Butler Circulation Desk) &gt;&gt; PQ4174
+        .I43 2012|DELIM|12693696</subfield></datafield><datafield tag="993" ind1="
+        " ind2=" "><subfield code="a">Book</subfield></datafield><datafield tag="995"
+        ind1=" " ind2=" "><subfield code="a">catalog</subfield></datafield><datafield
+        tag="997" ind1=" " ind2=" "><subfield code="a">2012-09-25T00:00:00.000Z</subfield></datafield></record>'',''text''=>[''PQ4174
+        .I43 2012'',''Imbalzano, Ella.'',''Lo specchio acceso : narrativa italiana,
+        1984-2006 / Ella Imbalzano.'',''1. ed.'',''Catania : Prova d\''autore, 2012.'',''184
+        p. ; 22 cm.'',''Biblioteca moderna Prova d\''autore. Collezione Consensi ;
+        15'',''Includes bibliographical references.'',''Italian fiction 20th century
+        History and criticism.'',''Italian fiction Italy, Southern History and criticism.'',''Collezione
+        Confronti/consensi ; 15.'',''http://www.columbia.edu/cgi-bin/cul/resolve?clio9646827
+        TOC'',''20120925 c rad1 MPS'',''AUTH''],''author_txt''=>[''Imbalzano, Ella.''],''author_facet''=>[''Imbalzano,
+        Ella''],''author_display''=>[''Imbalzano, Ella''],''author_sort''=>''Imbalzano,
+        Ella.   specchio acceso narrativa italiana, 1984-2006 Ella Imbalzano'',''title_txt''=>[''Lo
+        specchio acceso :''],''title_display''=>[''Lo specchio acceso : narrativa
+        italiana, 1984-2006''],''title_filing_txt''=>[''specchio acceso :''],''title_filing_full_txt''=>[''specchio
+        acceso : narrativa italiana, 1984-2006 /''],''subtitle_txt''=>[''narrativa
+        italiana, 1984-2006''],''title_first_facet''=>[''S''],''title_addl_txt''=>[''Lo
+        specchio acceso : narrativa italiana, 1984-2006 /''],''title_series_txt''=>[''Collezione
+        Confronti/consensi ; 15''],''title_series_display''=>[''Collezione Confronti/consensi
+        ; 15''],''title_sort''=>''specchio acceso  narrativa italiana 19842006'',''subject_txt''=>[''Italian
+        fiction 20th century History and criticism'',''Italian fiction Italy, Southern
+        History and criticism''],''subject_topic_facet''=>[''Italian fiction'',''History
+        and criticism''],''subject_era_facet''=>[''20th century''],''subject_geo_facet''=>[''Italy,
+        Southern''],''pub_place_display''=>[''Catania''],''pub_name_display''=>[''Prova
+        d\''autore''],''pub_year_display''=>[''2012''],''pub_place_txt''=>[''Catania''],''pub_name_txt''=>[''Prova
+        d\''autore''],''pub_year_txt''=>[''2012''],''pub_date_txt''=>[''2012''],''language_facet''=>[''Italian''],''format''=>[''Book''],''lc_1letter_facet''=>[''P
+        - Language & Literature''],''lc_2letter_facet''=>[''PQ - French, Italian,
+        Spanish & Portuguese Literature''],''lc_subclass_facet''=>[''PQ - French,
+        Italian, Spanish & Portuguese Literature''],''clio_id_display''=>''9646827'',''acq_dt''=>''2012-09-25T00:00:00Z'',''source_facet''=>[''catalog''],''source_display''=>[''catalog''],''isbn_txt''=>[''9788862820660'',''8862820666'',''9788862820660
+        :''],''isbn_display''=>[''9788862820660''],''lccn_display''=>[''2012375791''],''lccn_txt''=>[''2012375791''],''oclc_txt''=>[''801440179'',''ocn801440179''],''oclc_display''=>[''801440179'',''ocn801440179''],''full_publisher_display''=>[''Catania
+        : Prova d\''autore, 2012.''],''location_call_number_id_display''=>[''Butler
+        Stacks (Enter at the Butler Circulation Desk) >> PQ4174 .I43 2012|DELIM|12693696''],''location_call_number_txt''=>[''Butler
+        Stacks (Enter at the Butler Circulation Desk) >> PQ4174 .I43 2012''],''call_number_txt''=>[''PQ4174
+        .I43 2012''],''call_number_display''=>[''PQ4174 .I43 2012''],''location_facet''=>[''Butler
+        Stacks''],''location_txt''=>[''Butler Stacks (Enter at the Butler Circulation
+        Desk) >> PQ4174 .I43 2012''],''url_munged_display''=>[''2|||TOC|||http://www.columbia.edu/cgi-bin/cul/resolve?clio9646827|||''],''shelfkey''=>[''loc+pq-+4174+00000000+i4300000+002012+9646827''],''reverse_shelfkey''=>[''ebn~a9~~vysv~zzzzzzzz~hvwzzzzz~zzxzyx~qtvtrxs~~~~~''],''item_display''=>[''PQ4174
+        .I43 2012 | loc+pq-+4174+00000000+i4300000+002012+9646827 | ebn~a9~~vysv~zzzzzzzz~hvwzzzzz~zzxzyx~qtvtrxs~~~~~''],''timestamp''=>''2016-07-06T21:08:31.987Z'',''authorities_dt''=>''2016-08-31T12:36:56Z'',''_version_''=>1544182318462140416}]}}
+
+'
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:45:29 GMT
+- request:
+    method: get
+    uri: "<solr_config>/select?f.author_facet.facet.limit=6&f.format.facet.limit=6&f.language_facet.facet.limit=6&f.lc_1letter_facet.facet.limit=31&f.lc_subclass_facet.facet.limit=501&f.location_facet.facet.limit=6&f.pub_date_sort.facet.limit=4&f.subject_era_facet.facet.limit=11&f.subject_form_facet.facet.limit=11&f.subject_geo_facet.facet.limit=11&f.subject_topic_facet.facet.limit=11&facet=true&facet.field=lc_subclass_facet&facet.query=acq_dt:%5B2015-10-26T00:00:00Z%20TO%20*%5D&q=%7B!qf=title_series_txt%20pf=title_series_txt%7D%22Collezione%20Confronti/consensi%20%3B%22&qt=search&rows=25&sort=score%20desc,%20pub_date_sort%20desc,%20title_sort%20asc&spellcheck.q=%22Collezione%20Confronti/consensi%20%3B%22&stats=true&stats.field=pub_date_sort&wt=ruby"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 26 Oct 2016 17:45:30 GMT
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(8.1.8.v20121106)
+    body:
+      encoding: UTF-8
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>42,''params''=>{''f.subject_form_facet.facet.limit''=>''11'',''facet''=>''true'',''sort''=>''score
+        desc, pub_date_sort desc, title_sort asc'',''stats''=>''true'',''f.subject_topic_facet.facet.limit''=>''11'',''spellcheck.q''=>''"Collezione
+        Confronti/consensi ;"'',''f.language_facet.facet.limit''=>''6'',''f.lc_1letter_facet.facet.limit''=>''31'',''f.pub_date_sort.facet.limit''=>''4'',''f.location_facet.facet.limit''=>''6'',''wt''=>''ruby'',''rows''=>''25'',''f.lc_subclass_facet.facet.limit''=>''501'',''f.subject_geo_facet.facet.limit''=>''11'',''facet.query''=>[''acq_dt:[2016-10-19T00:00:00Z
+        TO *]'',''acq_dt:[2016-09-26T00:00:00Z TO *]'',''acq_dt:[2016-04-26T00:00:00Z
+        TO *]'',''acq_dt:[2015-10-26T00:00:00Z TO *]''],''stats.field''=>''pub_date_sort'',''q''=>''{!qf=title_series_txt
+        pf=title_series_txt}"Collezione Confronti/consensi ;"'',''f.author_facet.facet.limit''=>''6'',''facet.field''=>[''format'',''pub_date_sort'',''author_facet'',''location_facet'',''language_facet'',''subject_topic_facet'',''subject_geo_facet'',''subject_era_facet'',''subject_form_facet'',''lc_1letter_facet'',''lc_subclass_facet''],''qt''=>''search'',''f.subject_era_facet.facet.limit''=>''11'',''f.format.facet.limit''=>''6''}},''response''=>{''numFound''=>6,''start''=>0,''maxScore''=>23.515667,''docs''=>[{''id''=>''11546303'',''title_display''=>[''Su
+        Pietro Barcellona, ovvero, Riverberi del meno : atti del convegno di studi
+        su alcune opere di Pietro Barcellona, Giarre - Catania 24/25 ottobre 2014''],''title_series_display''=>[''Collezione
+        Confronti/consensi ; 36''],''subject_topic_facet''=>[''Barcellona, Pietro'',''Intellectuals'',''Politicians'',''Politics
+        and government''],''subject_era_facet''=>[''20th century''],''subject_geo_facet''=>[''Italy''],''pub_place_display''=>[''Catania''],''pub_name_display''=>[''Prova
+        d\''autore''],''pub_year_display''=>[''aprile 2015''],''language_facet''=>[''Italian''],''format''=>[''Book'',''Conference
+        Proceedings''],''clio_id_display''=>''11546303'',''acq_dt''=>''2015-08-24T00:00:00Z'',''source_display''=>[''catalog''],''isbn_display''=>[''9788862821544''],''oclc_display''=>[''915336952''],''full_publisher_display''=>[''Catania
+        : Prova d\''autore, aprile 2015.''],''location_call_number_id_display''=>[''Offsite
+        - Place Request for delivery within 2 business days >> DG575.B318 S82 2015|DELIM|14560624''],''location_facet''=>[''Offsite''],''url_munged_display''=>[''2|||TOC|||http://www.columbia.edu/cgi-bin/cul/resolve?clio11546303|||''],''shelfkey''=>[''loc+dg-+0575+00000000+b3180000+s8200000+002015+11546303''],''reverse_shelfkey''=>[''ebn~mj~~zusu~zzzzzzzz~owyrzzzz~7rxzzzzz~zzxzyu~yyuvtwzw''],''item_display''=>[''DG575.B318
+        S82 2015 | loc+dg-+0575+00000000+b3180000+s8200000+002015+11546303 | ebn~mj~~zusu~zzzzzzzz~owyrzzzz~7rxzzzzz~zzxzyu~yyuvtwzw''],''score''=>23.515667},{''id''=>''9646827'',''author_facet''=>[''Imbalzano,
+        Ella''],''author_display''=>[''Imbalzano, Ella''],''title_display''=>[''Lo
+        specchio acceso : narrativa italiana, 1984-2006''],''title_series_display''=>[''Collezione
+        Confronti/consensi ; 15''],''subject_topic_facet''=>[''Italian fiction'',''History
+        and criticism''],''subject_era_facet''=>[''20th century''],''subject_geo_facet''=>[''Italy,
+        Southern''],''pub_place_display''=>[''Catania''],''pub_name_display''=>[''Prova
+        d\''autore''],''pub_year_display''=>[''2012''],''language_facet''=>[''Italian''],''format''=>[''Book''],''clio_id_display''=>''9646827'',''acq_dt''=>''2012-09-25T00:00:00Z'',''source_display''=>[''catalog''],''isbn_display''=>[''9788862820660''],''lccn_display''=>[''2012375791''],''oclc_display''=>[''801440179'',''ocn801440179''],''full_publisher_display''=>[''Catania
+        : Prova d\''autore, 2012.''],''location_call_number_id_display''=>[''Butler
+        Stacks (Enter at the Butler Circulation Desk) >> PQ4174 .I43 2012|DELIM|12693696''],''location_facet''=>[''Butler
+        Stacks''],''url_munged_display''=>[''2|||TOC|||http://www.columbia.edu/cgi-bin/cul/resolve?clio9646827|||''],''shelfkey''=>[''loc+pq-+4174+00000000+i4300000+002012+9646827''],''reverse_shelfkey''=>[''ebn~a9~~vysv~zzzzzzzz~hvwzzzzz~zzxzyx~qtvtrxs~~~~~''],''item_display''=>[''PQ4174
+        .I43 2012 | loc+pq-+4174+00000000+i4300000+002012+9646827 | ebn~a9~~vysv~zzzzzzzz~hvwzzzzz~zzxzyx~qtvtrxs~~~~~''],''score''=>23.515667},{''id''=>''8635020'',''author_facet''=>[''Saitta,
+        Daniela''],''author_display''=>[''Saitta, Daniela''],''title_display''=>[''Rosa
+        e giallo a Torino : il poliziesco di Fruttero & Lucentini''],''title_series_display''=>[''Collezione
+        Confronti/consensi ; 11''],''subject_topic_facet''=>[''Fruttero, Carlo'',''Criticism
+        and interpretation'',''Lucentini, Franco'',''Detective and mystery stories,
+        Italian'',''History and criticism''],''subject_geo_facet''=>[''Italy'',''Turin''],''pub_place_display''=>[''Catania''],''pub_name_display''=>[''Prova
+        d\''autore''],''pub_year_display''=>[''2010''],''language_facet''=>[''Italian''],''format''=>[''Book''],''clio_id_display''=>''8635020'',''acq_dt''=>''2011-05-27T00:00:00Z'',''source_display''=>[''catalog''],''isbn_display''=>[''9788862820493''],''oclc_display''=>[''711513918'',''ocn711513918''],''full_publisher_display''=>[''Catania
+        : Prova d\''autore, 2010.''],''location_call_number_id_display''=>[''Butler
+        Stacks (Enter at the Butler Circulation Desk) >> PQ4866.R8 Z57 2010|DELIM|11714996''],''location_facet''=>[''Butler
+        Stacks''],''url_munged_display''=>[''2|||TOC|||http://www.columbia.edu/cgi-bin/cul/resolve?clio8635020|||''],''shelfkey''=>[''loc+pq-+4866+00000000+r8000000+z5700000+002010+8635020''],''reverse_shelfkey''=>[''ebn~a9~~vrtt~zzzzzzzz~8rzzzzzz~0uszzzzz~zzxzyz~rtwuzxz''],''item_display''=>[''PQ4866.R8
+        Z57 2010 | loc+pq-+4866+00000000+r8000000+z5700000+002010+8635020 | ebn~a9~~vrtt~zzzzzzzz~8rzzzzzz~0uszzzzz~zzxzyz~rtwuzxz''],''score''=>23.515667},{''id''=>''6765649'',''author_facet''=>[''Caruso,
+        Maria Grazia''],''author_display''=>[''Caruso, Maria Grazia''],''title_display''=>[''L\''infinito
+        in cerchio : la poesia di Edoardo Cacciatore''],''title_series_display''=>[''Collezione
+        Confronti/consensi ; 9.''],''subject_topic_facet''=>[''Cacciatore, Edoardo'',''Criticism
+        and interpretation''],''pub_place_display''=>[''Catania''],''pub_name_display''=>[''Prova
+        d\''Autore''],''pub_year_display''=>[''2008''],''language_facet''=>[''Italian''],''format''=>[''Book''],''clio_id_display''=>''6765649'',''source_display''=>[''catalog''],''isbn_display''=>[''9788862820080'',''8862820089''],''lccn_display''=>[''2008355418''],''oclc_display''=>[''227926329'',''ocn227926329''],''full_publisher_display''=>[''Catania
+        : Prova d\''Autore, [2008]''],''location_call_number_id_display''=>[''Butler
+        Stacks (Enter at the Butler Circulation Desk) >> PQ4863.A24 Z635 2008|DELIM|9100062''],''location_facet''=>[''Butler
+        Stacks''],''url_munged_display''=>[''1|||Table of contents|||http://www.columbia.edu/cgi-bin/cul/resolve?clio6765649.001|||'',''2|||TOC|||http://www.columbia.edu/cgi-bin/cul/resolve?clio6765649.002|||''],''shelfkey''=>[''loc+pq-+4863+00000000+a2400000+z6350000+002008+6765649''],''reverse_shelfkey''=>[''ebn~a9~~vrtw~zzzzzzzz~pxvzzzzz~0twuzzzz~zzxzzr~tstutvq''],''item_display''=>[''PQ4863.A24
+        Z635 2008 | loc+pq-+4863+00000000+a2400000+z6350000+002008+6765649 | ebn~a9~~vrtw~zzzzzzzz~pxvzzzzz~0twuzzzz~zzxzzr~tstutvq''],''score''=>23.515667},{''id''=>''6427055'',''author_facet''=>[''Calcaterra,
+        Domenico''],''author_display''=>[''Calcaterra, Domenico''],''title_display''=>[''Vincenzo
+        Consolo : le parole, il tono, la cadenza''],''title_series_display''=>[''Collezione
+        Confronti/consensi ; 7.''],''subject_topic_facet''=>[''Consolo, Vincenzo,
+        1933-2012'',''Criticism and interpretation'',''Literary style''],''pub_place_display''=>[''Catania''],''pub_name_display''=>[''Prova
+        d\''autore''],''pub_year_display''=>[''2007''],''language_facet''=>[''Italian''],''format''=>[''Book''],''clio_id_display''=>''6427055'',''source_display''=>[''catalog''],''isbn_display''=>[''9788888555898'',''8888555897''],''lccn_display''=>[''2008363159''],''oclc_display''=>[''ocn133431022'',''133431022''],''full_publisher_display''=>[''Catania
+        : Prova d\''autore, [2007]''],''location_call_number_id_display''=>[''Butler
+        Stacks (Enter at the Butler Circulation Desk) >> PQ4863.O48 Z62 2007|DELIM|8425340''],''location_facet''=>[''Butler
+        Stacks''],''url_munged_display''=>[''1|||Table of contents|||http://www.columbia.edu/cgi-bin/cul/resolve?clio6427055.001|||'',''2|||TOC|||http://www.columbia.edu/cgi-bin/cul/resolve?clio6427055.002|||''],''shelfkey''=>[''loc+pq-+4863+00000000+o4800000+z6200000+002007+6427055''],''reverse_shelfkey''=>[''ebn~a9~~vrtw~zzzzzzzz~bvrzzzzz~0txzzzzz~zzxzzs~tvxszuu''],''item_display''=>[''PQ4863.O48
+        Z62 2007 | loc+pq-+4863+00000000+o4800000+z6200000+002007+6427055 | ebn~a9~~vrtw~zzzzzzzz~bvrzzzzz~0txzzzzz~zzxzzs~tvxszuu''],''score''=>23.515667},{''id''=>''2308439'',''author_facet''=>[''Ternullo,
+        Concetto''],''author_display''=>[''Ternullo, Concetto''],''title_display''=>[''Vincenzo
+        Consolo : dalla Ferita allo Spasimo''],''title_series_display''=>[''Collezione
+        Confronti/consensi ; 1.''],''subject_topic_facet''=>[''Consolo, Vincenzo,
+        1933-2012'',''Criticism and interpretation''],''pub_place_display''=>[''Catania''],''pub_name_display''=>[''Prova
+        d\''autore''],''pub_year_display''=>[''1998''],''language_facet''=>[''Italian''],''format''=>[''Book''],''clio_id_display''=>''2308439'',''source_display''=>[''catalog''],''isbn_display''=>[''8886140371''],''oclc_display''=>[''ocm40647539''],''full_publisher_display''=>[''Catania
+        : Prova d\''autore, 1998.''],''location_call_number_id_display''=>[''Offsite
+        - Place Request for delivery within 2 business days >> PQ4863.O48 Z85 1998g|DELIM|2787280''],''location_facet''=>[''Offsite''],''shelfkey''=>[''loc+pq-+4863+00000000+o4800000+z8500000+001998+2308439''],''reverse_shelfkey''=>[''ebn~a9~~vrtw~zzzzzzzz~bvrzzzzz~0ruzzzzz~zzyqqr~xwzrvwq''],''item_display''=>[''PQ4863.O48
+        Z85 1998g | loc+pq-+4863+00000000+o4800000+z8500000+001998+2308439 | ebn~a9~~vrtw~zzzzzzzz~bvrzzzzz~0ruzzzzz~zzyqqr~xwzrvwq''],''score''=>23.515667}]},''facet_counts''=>{''facet_queries''=>{''acq_dt:[2016-10-19T00:00:00Z
+        TO *]''=>0,''acq_dt:[2016-09-26T00:00:00Z TO *]''=>0,''acq_dt:[2016-04-26T00:00:00Z
+        TO *]''=>0,''acq_dt:[2015-10-26T00:00:00Z TO *]''=>0},''facet_fields''=>{''format''=>[''Book'',6,''Conference
+        Proceedings'',1],''pub_date_sort''=>[''1998'',1,''2007'',1,''2008'',1,''2010'',1],''author_facet''=>[''Calcaterra,
+        Domenico'',1,''Caruso, Maria Grazia'',1,''Imbalzano, Ella'',1,''Saitta, Daniela'',1,''Ternullo,
+        Concetto'',1],''location_facet''=>[''Butler Stacks'',4,''Offsite'',2],''language_facet''=>[''Italian'',6],''subject_topic_facet''=>[''Criticism
+        and interpretation'',4,''Consolo, Vincenzo, 1933-2012'',2,''History and criticism'',2,''Barcellona,
+        Pietro'',1,''Cacciatore, Edoardo'',1,''Detective and mystery stories, Italian'',1,''Fruttero,
+        Carlo'',1,''Intellectuals'',1,''Italian fiction'',1,''Literary style'',1,''Lucentini,
+        Franco'',1],''subject_geo_facet''=>[''Italy'',2,''Italy, Southern'',1,''Turin'',1],''subject_era_facet''=>[''20th
+        century'',2],''subject_form_facet''=>[''Congresses'',1],''lc_1letter_facet''=>[''D
+        - World History'',1,''P - Language & Literature'',5],''lc_subclass_facet''=>[''DG
+        - Italy (History)'',1,''PQ - French, Italian, Spanish & Portuguese Literature'',5]},''facet_dates''=>{},''facet_ranges''=>{}},''stats''=>{''stats_fields''=>{''pub_date_sort''=>{''min''=>1998.0,''max''=>2015.0,''count''=>6,''missing''=>0,''sum''=>12050.0,''sumOfSquares''=>2.4200586E7,''mean''=>2008.3333333333333,''stddev''=>5.819507424745385,''facets''=>{}}}}}
+
+'
+    http_version: 
+  recorded_at: Wed, 26 Oct 2016 17:45:29 GMT
 recorded_with: VCR 3.0.3

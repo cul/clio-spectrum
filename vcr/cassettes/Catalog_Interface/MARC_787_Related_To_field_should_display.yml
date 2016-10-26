@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:47:01 GMT
+      - Wed, 26 Oct 2016 17:43:37 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -22,7 +22,7 @@ http_interactions:
       - Jetty(8.1.8.v20121106)
     body:
       encoding: UTF-8
-      string: '{''responseHeader''=>{''status''=>0,''QTime''=>1,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0,''params''=>{''fl''=>''*'',''echoParams''=>''all'',''q''=>''{!raw
         f=id v=$id}'',''rows''=>''1'',''id''=>''7419929'',''qt''=>''document'',''wt''=>''ruby''}},''response''=>{''numFound''=>1,''start''=>0,''docs''=>[{''id''=>''7419929'',''marc_display''=>''<record><leader>01523cas
         a2200421Ma 4500</leader><controlfield tag="001">7419929</controlfield><controlfield
         tag="005">20130722162234.0</controlfield><controlfield tag="008">080821d20082009gw
@@ -107,5 +107,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:47:01 GMT
+  recorded_at: Wed, 26 Oct 2016 17:43:36 GMT
 recorded_with: VCR 3.0.3

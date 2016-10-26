@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:48:24 GMT
+      - Wed, 26 Oct 2016 17:44:51 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -201,7 +201,7 @@ http_interactions:
         bnRfdHh0Jz0+WydGcmVuY2ggdHJhdmVsZXJzXCcgd3JpdGluZ3MnXSwnX3Zl
         cnNpb25fJz0+MTU0NDEzNzgyMjc4MTMwODkyOH1dfX0K
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:48:23 GMT
+  recorded_at: Wed, 26 Oct 2016 17:44:50 GMT
 - request:
     method: get
     uri: "<solr_config>/select?id=6094212&qt=document&wt=ruby"
@@ -215,7 +215,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Oct 2016 20:48:24 GMT
+      - Wed, 26 Oct 2016 17:44:51 GMT
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
@@ -358,5 +358,5 @@ http_interactions:
         aXRlcmF0dXJlIFNvY2lldHkgZm9yIEluZGlhIGFuZCBBZnJpY2EnXSwnX3Zl
         cnNpb25fJz0+MTU0NDEzNjM4MjE5NzI2ODQ4MH1dfX0K
     http_version: 
-  recorded_at: Tue, 11 Oct 2016 20:48:23 GMT
+  recorded_at: Wed, 26 Oct 2016 17:44:50 GMT
 recorded_with: VCR 3.0.3
