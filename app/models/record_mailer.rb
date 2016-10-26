@@ -18,7 +18,12 @@ class RecordMailer < ActionMailer::Base
   def email_record(documents, details, url_gen_params)
     # raise
     if documents.size == 1
-      subject = "CLIO: #{documents.first.to_semantic_values[:title].join(", ") rescue 'N/A'}"
+      title_for_subject = if documents.first.kind_of?(Summon::Document)
+        documents.first.title
+      else
+        documents.first['title_display'].first
+      end
+      subject = "CLIO: #{title_for_subject rescue 'N/A'}"
     else
       subject = "CLIO: #{documents.size} Item Records"
     end
