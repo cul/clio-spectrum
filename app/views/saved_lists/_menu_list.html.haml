@@ -11,7 +11,6 @@
     #{get_permissions_label(menu_list.permissions)}
   .col-sm-2.text-right
     -# NEXT-1232 - RSS for saved lists
-    -# Not yet approved for prod release
-    -# - if menu_list.permissions == 'public'
-    -#   = link_to image_tag('rss-feed-icon-14x14.png', size: "13x13"), menu_list.url + '.atom', :class => "rss-feed"
+    - if menu_list.permissions == 'public'
+      = link_to image_tag('rss-feed-icon-14x14.png', size: "13x13"), menu_list.url + '.atom', :class => "rss-feed"
 
