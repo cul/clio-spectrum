@@ -6,7 +6,8 @@
 %table.table.table-bordered
   - ['RUBY_VERSION', 'Rails.version', 'Blacklight.version',
      'Rails.env',
-     'request.protocol', 'request.fullpath', 'request.url',
+     'request.protocol', 'request.fullpath', 
+     'request.url', 'request.remote_addr',
      'Process.pid', 'Process.uid',
      'clio_uptime',
      'Etc.getpwuid(Process.uid).name'].each do |i|
@@ -32,5 +33,10 @@
   Full ENV
   %pre
     = ENV.sort.to_h.to_yaml
+
+%h4
+  Full APP_CONFIG
+  %pre
+    = APP_CONFIG.to_yaml
 
 
