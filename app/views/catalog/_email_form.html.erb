@@ -49,10 +49,10 @@
             </div>
           </div>
         </div>
-        <% unless current_user.present? %>
+        <% unless current_user || @user_characteristics[:on_campus] %>
         <div class="form-group row">
           <div class="col-xs-7">
-          <%= recaptcha_tags unless current_user || @user_characteristics[:on_campus] %>
+          <%= recaptcha_tags %>
           </div>
           <div class="col-xs-5">
             <h5>
