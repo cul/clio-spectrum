@@ -52,7 +52,7 @@
         <% unless current_user.present? %>
         <div class="form-group row">
           <div class="col-xs-7">
-          <%= recaptcha_tags unless current_user.present? %>
+          <%= recaptcha_tags unless current_user || @user_characteristics[:on_campus] %>
           </div>
           <div class="col-xs-5">
             <h5>
