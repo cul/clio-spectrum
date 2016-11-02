@@ -34,6 +34,7 @@
   = add_row("Also Listed Under", generate_value_links(display_marc_field(marc, 'author_other'), :author))
   = add_row("Includes", generate_value_links(display_marc_field(marc, 'contains'), :all))
 
+  = add_row("Former Title", display_marc_field(marc, 'title_former'))
   = add_row("Other Titles", display_marc_field(marc, 'title_other'))
 
   = add_row("Language", document["language_facet"], :join   => '; ')

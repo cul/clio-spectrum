@@ -6,6 +6,7 @@
   - marc = document.to_marc
   = add_row("Author", generate_value_links(display_marc_field(marc, 'author'), :author))
   = add_row("Title", display_marc_field(marc, 'title'))
+  = add_row("Former Title", display_marc_field(marc, 'title_former'))
   = add_row("Other Titles", display_marc_field(marc, 'title_other'))
   = add_row("Edition", display_marc_field(marc, 'edition'))
   = add_row("Published", display_marc_field(marc, 'publish'))

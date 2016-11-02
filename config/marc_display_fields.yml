@@ -595,14 +595,15 @@ title_other:
         display: abfghinp
         ind1: '01'
         ind2: ' 3'
-    -   tag: 247
-        display: abfghnp
     -   tag: 730
         ind1: :all
         ind2: ' 013'
         display: adfghklmnoprst
     -   tag: 740
         display: ahnp
+title_former:
+  -   tag: 247
+      display: abfghnp
 title_parallel:
     -   tag: 246
         ind1: '01'

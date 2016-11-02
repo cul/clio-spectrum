@@ -8,6 +8,7 @@
   = add_row("Creator", generate_value_links(display_marc_field(marc, 'creator'), :author))
   = add_row("Title", display_marc_field(marc, 'title'))
   = add_row("Alternate Title", display_marc_field(marc, 'title_other'))
+  = add_row("Former Title", display_marc_field(marc, 'title_former'))
   = add_row("Produced", display_marc_field(marc, 'publish_produce'))
   = add_row("Physical Properties", display_marc_field(marc, 'description'))
   = add_row("Inscription", display_marc_field(marc, 'inscription'))
