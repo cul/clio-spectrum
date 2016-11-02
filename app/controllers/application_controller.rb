@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
 
     Rails.logger.warn "request.format = #{request.format}"
     Rails.logger.warn "#{exception}"
-    render nothing: true and return
+    render nothing: true
   end
 
   def apply_random_q
@@ -68,9 +68,11 @@ class ApplicationController < ActionController::Base
   end
 
   def condense_advanced_search_params
+    advanced_search_params = params['adv'] || {}
+    advanced_search_params = {} if advanced_search_params == '{}'
     new_hash = {}
     counter = 1
-    (params['adv'] || {}).each_pair do |adv_field_number, attrs|
+    advanced_search_params.each_pair do |adv_field_number, attrs|
 
       if attrs && !attrs['field'].to_s.empty? && !attrs['value'].to_s.empty?
         new_hash[counter.to_s] = attrs

@@ -67,7 +67,7 @@ module Spectrum
           if ['academic_commons', 'ac_dissertations'].include?(@source)
             @errors = ex.message.truncate(40)
           else
-            raise 'Error searching Solr'
+            raise "Error searching Solr (#{ex.message})"
           end
         end
       end

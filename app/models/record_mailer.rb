@@ -20,8 +20,10 @@ class RecordMailer < ActionMailer::Base
     if documents.size == 1
       title_for_subject = if documents.first.kind_of?(Summon::Document)
         documents.first.title
-      else
+      elsif documents.first.has_key?('title_display')
         documents.first['title_display'].first
+      else
+        'Single Item'
       end
       subject = "CLIO: #{title_for_subject rescue 'N/A'}"
     else
