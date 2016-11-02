@@ -1,5 +1,7 @@
 _all_environments:
 
+  # Turn this OFF for testing - the AJAX lookups confuse VCR
+  fetch_datasource_hits:  false
 
   web_authentication: cas
   cas_base_url: https://cas.columbia.edu
