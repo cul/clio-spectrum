@@ -253,8 +253,6 @@ class CatalogController < ApplicationController
           q = "\"#{ q }\""
         end
       end
-      q.gsub!(/\?\s+/, ' ')  # remove trailing question-marks
-      q.gsub!(/\?$/, '')     # remove trailing question-marks (end of line)
       q.gsub!(/(\w+)-(\w+\*)/, '\1 \2')     # remove hyphen from wildcarded phrase
       params['q'] = q
     end

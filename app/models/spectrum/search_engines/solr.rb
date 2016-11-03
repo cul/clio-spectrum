@@ -47,19 +47,21 @@ module Spectrum
         @params = options
         @params.symbolize_keys!
         Rails.logger.info "[Spectrum][Solr] source: #{@source} params: #{@params}"
-# ###
-# For better-errors debugging, perform the search outside the begin/rescue/end
-# perform_search
-# ###
+
         begin
           # here's the actual search, defined below in this file
           perform_search
         rescue => ex
-          Rails.logger.error "#{self.class}##{__method__} [Spectrum][Solr] error: #{ex.message}"
+          # During localhost development, just re-throw the exception.
+          if ['development', 'test'].include? Rails.env
+            raise ex
+          end
+
+          # In server environments, log and build 
+
+          # Log the error, and capture to instance variable for end-user display
+          Rails.logger.error "#{self.class}##{__method__} error: #{ex.message}"
           @errors = ex.message
-          # Re-raising the same error will be caught by Blacklight::Base.rsolr_request_error()
-          # which will log, flash and redirect_to root_path.  We don't want that.
-          # raise ex
 
           # The Academic Commons Solr has been down so often, and generating
           # so many emails to the CLIO group, that we're going to special-case

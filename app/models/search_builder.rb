@@ -3,7 +3,7 @@ class SearchBuilder < Blacklight::SearchBuilder
   include Blacklight::Solr::SearchBuilderBehavior
   include BlacklightRangeLimit::RangeLimitBuilder
 
-
+  self.default_processor_chain += [:remove_trailing_question_marks]
   self.default_processor_chain += [:add_advanced_search_to_solr]
   # self.default_processor_chain += [:add_range_limit_params]
   self.default_processor_chain += [:add_debug_to_solr]
@@ -14,6 +14,15 @@ class SearchBuilder < Blacklight::SearchBuilder
   # Their job is to fill this hash with keys/values, based
   # on another hash - blacklight_params - which is available
   # to subclasses of Blacklight::Solr::SearchBuilder
+
+
+  # Remove any pattern of question-marks and whitespace from end of q.
+  # We don't need single-character-wildcards, and this was breaking searches.
+  def remove_trailing_question_marks(solr_parameters)
+    return unless solr_parameters['q']
+    solr_parameters['q'] = solr_parameters['q'].sub(/[\?\s]*$/, '')
+  end
+
 
   # NEXT-1043 - Better handling of extremely long queries
   def trim_long_queries(solr_parameters)
