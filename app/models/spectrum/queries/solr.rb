@@ -181,10 +181,18 @@ module Spectrum
               end
             end
             # raise
+            # # deprecated
+            # # new_params = remove_facet_params(facet_field, value, new_params)
+            # search_state = Blacklight::SearchState.new(@params, blacklight_config)
+            # new_params = search_state.remove_facet_params(facet_field, value)
+            # 
+            # search_state.remove_facet_params(facet_field, value)
+            # ... trying to cleanup deprecation ...
+            search_state = Blacklight::SearchState.new(@params, blacklight_config)
             @filters[base_facet_field][:values] << {
               invert_label: is_inverted?(facet_field) ? 'Is Not' : 'Is',
               label: display_value,
-              remove: remove_facet_params(facet_field, value, @params),
+              remove: search_state.remove_facet_params(facet_field, value),
               # Each invert_link is an array of [label, link]
               invert_links: facet_value_invert_links(facet_field, value)
             }

@@ -1,7 +1,7 @@
 
 - if @results.empty?
-  - cache("datasource_landing_page_#{@active_source}_#{params_digest}") do
-    = datasource_landing_page(@active_source)
+  - cache("datasource_landing_page_#{$active_source}_#{params_digest}") do
+    = datasource_landing_page($active_source)
 
 - else
   = render :partial => "/spectrum/#{@search_layout['style']}"

@@ -6,8 +6,8 @@
 - debug_timestamp('views/catalog/index.html.haml begin')
 
 -  unless has_search_parameters?
-  - cache("datasource_landing_page_#{@active_source}_#{params_digest}") do
-    = datasource_landing_page(@active_source)
+  - cache("datasource_landing_page_#{$active_source}_#{params_digest}") do
+    = datasource_landing_page($active_source)
 
 - else
 
@@ -15,7 +15,7 @@
 
   - @page_title = application_name + " Search Results"
   - session['search'] ||= {}
-  - session['search'][:active_source] = @active_source
+  - session['search'][:active_source] = $active_source
 
   - unless response.nil?
     = fix_catalog_links(render('constraints', :localized_params=>params ))
@@ -49,7 +49,7 @@
   - if @errors
     .alert.alert-danger
       Unexpected Error during search.
-      Please #{link_to "restart your search", datasource_landing_page_path(@active_source)}
+      Please #{link_to "restart your search", datasource_landing_page_path($active_source)}
 
 - debug_timestamp('views/catalog/index.html.haml complete.')
 

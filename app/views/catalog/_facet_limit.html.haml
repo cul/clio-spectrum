@@ -1,44 +1,6 @@
 
 -# This is views/catalog/_facet_limit_html.haml
 
--# 
--# #############   BLACKLIGHT 4   #############
--# 
-
--# %ul
--#   -# - config = facet_configuration_for_field(solr_field)
--#   -# 
--#   -# - if (config && config.respond_to?(:open) && config.open == true) || expand_all_facets?
--#   - if render_facet_open?(facet_field)
--#     %span.selected
--# 
--#   - if params[:f_operator] && params[:f_operator][solr_field] == "OR"
--#     .or_operator Any of:
--#   - excluded_solr_field = "-#{solr_field}"
--#   - Array.wrap(params['f'] && params['f'][excluded_solr_field]).each do |value|
--#     %li
--#       %span.selected
--#         NOT #{value}
--#         = link_to content_tag(:i, '', :class => "icon-remove") + content_tag(:span, '[remove]', :class => 'hide-text'), remove_facet_params(excluded_solr_field, value, params)
--# 
--#   - paginator = Blacklight::Solr::FacetPaginator.new(display_facet.items,  :limit => facet_limit_for(solr_field))
--#   - paginator.items.each do |item|
--#     %li
--#       - if facet_in_params?( solr_field, item.value )
--#         = render_selected_facet_value(solr_field, item)
--#       - else
--#         = render_facet_value(solr_field, item)
--# 
--#   - unless(paginator.last_page?)
--#     %li.more_facets_link
--#       = link_to('See more »', params.merge(:id => solr_field, :action=>"facet"), :class => "more_facets_link")
-
-
-
--# 
--# #############   BLACKLIGHT 5   #############
--# 
-
 %ul.facet-values.list-unstyled
 
   -# Support for Excluded facet values (negated facets)
@@ -49,7 +11,7 @@
         = render_selected_excluded_facet_value(excluded_solr_field, item)
 
   - paginator = facet_paginator(facet_field, display_facet)
-  - paginator.items.each do |item| 
+  - paginator.items.each do |item|
     %li
       - if facet_in_params?( solr_field, item.value )
         = render_selected_facet_value(solr_field, item)

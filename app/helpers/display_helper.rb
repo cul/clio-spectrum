@@ -88,14 +88,14 @@ module DisplayHelper
     action = options.delete(:action) || fail('Must specify action')
 
     # Assume view-style is the configured default, or "standard_list" if no default configured...
-    viewstyle = DATASOURCES_CONFIG['datasources'][@active_source]['default_viewstyle'] ||
+    viewstyle = DATASOURCES_CONFIG['datasources'][$active_source]['default_viewstyle'] ||
                 'standard_list'
 
     # ... but if an alternative view-style option is saved to browser options,
     # and if this data-source has a configuration which includes that view-style,
     # then use it instead.
     saved_viewstyle_option = get_browser_option('viewstyle')
-    datasource_viewstyles = DATASOURCES_CONFIG['datasources'][@active_source]['viewstyles']
+    datasource_viewstyles = DATASOURCES_CONFIG['datasources'][$active_source]['viewstyles']
 
     # 10/2015 - it's been a year - remove this.
     # # (10/2014 - support forward-conversion of renamed viewstyle names...)
@@ -103,7 +103,7 @@ module DisplayHelper
     # saved_viewstyle_option = 'compact_list'  if saved_viewstyle_option && (saved_viewstyle_option == 'compact')
 
     if saved_viewstyle_option &&
-       (datasource_viewstyles = DATASOURCES_CONFIG['datasources'][@active_source]['viewstyles']) &&
+       (datasource_viewstyles = DATASOURCES_CONFIG['datasources'][$active_source]['viewstyles']) &&
        datasource_viewstyles.key?(saved_viewstyle_option)
       viewstyle = saved_viewstyle_option
     end
@@ -120,8 +120,8 @@ module DisplayHelper
     template = options.delete(:template) || fail('Must specify template')
     formats = determine_formats(document, options.delete(:format))
 
-    # Render based on @active_source -- unless an alternative is passed in
-    options[:source] ||= @active_source
+    # Render based on $active_source -- unless an alternative is passed in
+    options[:source] ||= $active_source
 
     partial_list = formats.map { |format| "/_formats/#{format}/#{template}" }
     @add_row_style = options[:style]
@@ -204,7 +204,7 @@ module DisplayHelper
     end
   end
 
-  def pegasus_item_link(document, context = @active_source)
+  def pegasus_item_link(document, context = $active_source)
     url = 'http://pegasus.law.columbia.edu'
     if document && document.id
       # NEXT-996 - Rename "Pegasus" link
@@ -222,17 +222,17 @@ module DisplayHelper
     formats = defaults.listify
 
     # AC records, from the AC Solr, don't self-identify.
-    formats << 'ac' if @active_source == 'academic_commons'
+    formats << 'ac' if $active_source == 'academic_commons'
     # geo records
-    formats << 'geo' if @active_source == 'geo'
+    formats << 'geo' if $active_source == 'geo'
     # dlc records
-    formats << 'dlc' if @active_source == 'dlc'
+    formats << 'dlc' if $active_source == 'dlc'
 
 
     # Database items - from the Voyager feed - will identify themselves,
     # via their "source", which we should respect no matter the current
     # GUI-selected datasource
-    # formats << "database" if @active_source == "databases"
+    # formats << "database" if $active_source == "databases"
     case document
     when SolrDocument
       formats << 'clio'

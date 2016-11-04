@@ -1,7 +1,7 @@
 # encoding: UTF-8
 #
 module CulCatalogHelper
-  def fix_catalog_links(text, source = @active_source)
+  def fix_catalog_links(text, source = $active_source)
     text.to_s.gsub('/catalog', "/#{source}").html_safe
   end
 
@@ -43,14 +43,14 @@ module CulCatalogHelper
   def link_to_source_document(doc, opts = { label: nil, counter: nil, results_view: true, source: nil })
     # Rails.logger.debug "link_to_source_document() opts=[#{opts.inspect}]"
     blacklight_link = link_to_document(doc, opts[:label], counter: opts[:counter])
-    source = opts[:source] || @active_source
+    source = opts[:source] || $active_source
     fix_catalog_links(blacklight_link, source)
   end
 
   # def link_to_source_document(doc, opts = { label: nil, counter: nil, source: nil })
   #   label ||= blacklight_config.index.title_field.to_sym
   #   label = render_document_index_label doc, opts
-  #   source = opts[:source] || @active_source
+  #   source = opts[:source] || $active_source
   #   url = "/#{source}/#{doc['id'].listify.first.to_s}"
   #   link_to label, url, document_link_params(doc, opts)
   # end
@@ -61,7 +61,7 @@ module CulCatalogHelper
   #   filtered_options = options.reject do |key, value|
   #     key.in?('controller', 'action', 'source_override')
   #   end
-  #   source = options['source_override'] || @active_source
+  #   source = options['source_override'] || $active_source
   # 
   #   "/#{source}?#{filtered_options.to_query}"
   # end
@@ -125,7 +125,7 @@ module CulCatalogHelper
 
   def viewstyle_link(viewstyle, label)
     current_viewstyle = get_browser_option('viewstyle') ||
-                        DATASOURCES_CONFIG['datasources'][@active_source]['default_viewstyle'] ||
+                        DATASOURCES_CONFIG['datasources'][$active_source]['default_viewstyle'] ||
                         'standard_list'
 
     # (support forward-conversion of renamed viewstyle names...)

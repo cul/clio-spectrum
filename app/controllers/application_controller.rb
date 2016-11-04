@@ -178,7 +178,7 @@ class ApplicationController < ActionController::Base
     # raise
     Rails.logger.debug "ApplicationController#blacklight_search(sent_options=#{sent_options.inspect})"
     options = sent_options.deep_clone
-    options['source'] = @active_source unless options['source']
+    options['source'] = $active_source unless options['source']
     options['debug_mode'] = @debug_mode
     options['current_user'] = current_user
 
@@ -197,7 +197,7 @@ class ApplicationController < ActionController::Base
 
         # Currently, item-alerts only show within the Databases data source.
         # Why?
-        if @active_source.present? && @active_source == 'databases'
+        if $active_source.present? && $active_source == 'databases'
           add_alerts_to_documents(@results)
         end
       end
@@ -269,8 +269,10 @@ class ApplicationController < ActionController::Base
   end
 
   def determine_active_source
+    return params['datasource'] if params.has_key? 'datasource'
+
     source_from_path = request.path.to_s.gsub(/^\//, '').gsub(/\/.*/, '')
-    # redirect...
+    # shelf-browse is part of the catalog datasource
     if source_from_path == 'browse'
       source_from_path = 'catalog'
     end
@@ -283,7 +285,7 @@ class ApplicationController < ActionController::Base
 
   end
 
-  # def connection(source = @active_source)
+  # def connection(source = $active_source)
   #   if self.respond_to?(:blacklight_config)
   #     @connections ||= {}
   #     @connections[source] || (@connections[source] = Spectrum::SearchEngines::Solr.generate_rsolr(source))
@@ -291,11 +293,10 @@ class ApplicationController < ActionController::Base
   # end
 
   def repository_class
-    raise
     Spectrum::SolrRepository
   end
 
-  def blacklight_config(source = @active_source)
+  def blacklight_config(source = $active_source)
     @blacklight_configs ||= {}
     @blacklight_configs[source] || (@blacklight_configs[source] = Spectrum::SearchEngines::Solr.generate_config(source))
   end
@@ -475,7 +476,7 @@ class ApplicationController < ActionController::Base
   private
 
   def by_source_config
-    @active_source = determine_active_source
+    $active_source = determine_active_source
   end
 
   # NEXT-537 - logging in should not redirect you to the root path

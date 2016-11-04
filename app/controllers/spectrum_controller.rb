@@ -50,7 +50,7 @@ class SpectrumController < ApplicationController
     # (Compare logic from SearchHelper#has_search_parameters?)
     if params['q'].nil? && params['s.q'].nil? &&
        params['s.fq'].nil? && params['s.ff'].nil? ||
-      (params['q'].to_s.empty? && @active_source == 'library_web')
+      (params['q'].to_s.empty? && $active_source == 'library_web')
       flash[:error] = 'You cannot search with an empty string.' if params['commit']
     elsif @search_layout.nil?
       flash[:error] = 'No search layout specified'
@@ -185,7 +185,7 @@ class SpectrumController < ApplicationController
     end
 
     # Article searches within QuickSearch should act as New searches
-    params['new_search'] = 'true' if @active_source == 'quicksearch'
+    params['new_search'] = 'true' if $active_source == 'quicksearch'
     # QuickSearch is only one of may possible Aggregates - so maybe this instead?
     # params['new_search'] = 'true' if @search_style == 'aggregate'
 

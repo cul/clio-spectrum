@@ -24,10 +24,10 @@ module DatasourcesHelper
 
 
   # Output the HTML of a single landing page for the passed data-source
-  def datasource_landing_page(source = @active_source)
+  def datasource_landing_page(source = $active_source)
     content_tag('div', class: 'landing_pages') do
       classes = ['landing_page', source]
-      classes << 'selected' if source == @active_source
+      classes << 'selected' if source == $active_source
       search_config = SEARCHES_CONFIG['sources'][source]
       warning = search_config ? search_config['warning'] : nil
       content_tag(:div,
@@ -60,7 +60,7 @@ module DatasourcesHelper
   # Called from several layouts to add the stack of datasources to the sidebar.
   # Takes as arg the source to mark as active.
   # Returns an HTML <UL> list of datasources
-  def add_datasources(active_source = @active_source)
+  def add_datasources(active_source = $active_source)
     options = {
       active_source: active_source,
       query: params['q'] || params['s.q'] || ''
@@ -96,18 +96,18 @@ module DatasourcesHelper
     )
   end
 
-  def sidebar_span(source = @active_source)
+  def sidebar_span(source = $active_source)
     'col-sm-3'
   end
 
-  def main_span(source = @active_source)
+  def main_span(source = $active_source)
     'col-sm-9'
   end
 
   # Will there be any facets shown for this datasource?
   # No, if we're on the landing page, or if the datasource has no facets.
   # Otherwise, yes.
-  def source_has_facets?(source = @active_source)
+  def source_has_facets?(source = $active_source)
     # No facets if we're showing the landing pages instead of query results
     return false if @show_landing_pages
 
@@ -168,7 +168,7 @@ module DatasourcesHelper
 
     # Set default based on app_config control.  If unset, disable feature.
     fetch_hits = APP_CONFIG['fetch_datasource_hits'] || false
-    fetch_hits = false if source == @active_source
+    fetch_hits = false if source == $active_source
     fetch_hits = false if query.nil? || query.length < 2
     fetch_hits = false if source == 'quicksearch'
     fetch_hits = false if get_datasource_bar['major_sources'].exclude?(source)
@@ -182,7 +182,7 @@ module DatasourcesHelper
 
     # if get_datasource_bar['major_sources'].include?(source)
     #   if get_datasource_bar['subsources'].exclude?(source)
-    #     if source != @active_source
+    #     if source != $active_source
     #       if query && query.length > 1
     #         hits_url = spectrum_hits_path(source: source, q: query, new_search: true)
     #         hits_data = { hits_url: hits_url }

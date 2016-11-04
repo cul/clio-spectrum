@@ -78,7 +78,7 @@
               -# = fix_catalog_links(render 'per_page_widget')
   
               -# Allow "selections" for any Catalog-based data source, NOT for AC
-              - if @active_source != 'academic_commons'
+              - if $active_source != 'academic_commons'
                 = render '/catalog/selections_widget'
 
       

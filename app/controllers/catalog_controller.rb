@@ -100,7 +100,7 @@ class CatalogController < ApplicationController
     end
 
     # reach into search config to find possible source-specific service alert warning
-    search_config = SEARCHES_CONFIG['sources'][@active_source]
+    search_config = SEARCHES_CONFIG['sources'][$active_source]
     warning = search_config ? search_config['warning'] : nil
 # raise
     respond_to do |format|
@@ -122,7 +122,7 @@ class CatalogController < ApplicationController
     # But our per-page/rows value is persisted here:
     session[:search]['per_page'] = get_browser_option('catalog_per_page')
 
-    path = case @active_source
+    path = case $active_source
     when 'databases'
        databases_show_path
     when 'journals'
@@ -171,7 +171,7 @@ class CatalogController < ApplicationController
     add_alerts_to_documents(@document)
 
     # reach into search config to find possible source-specific service alert warning
-    search_config = SEARCHES_CONFIG['sources'][@active_source]
+    search_config = SEARCHES_CONFIG['sources'][$active_source]
     warning = search_config ? search_config['warning'] : nil
 
     respond_to do |format|

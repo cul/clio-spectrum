@@ -32,15 +32,15 @@ module Spectrum
 
       @blacklight_config = blacklight_config
 
+# 
+# # both of these need to know what datasource we're working with
+#       @blacklight_config.connection_config[:url] = .....
 
-# both of these need to know what datasource we're working with
-      @blacklight_config.connection_config[:url] = .....
-
-      @source = @active_source
+      @source = $active_source
 
 
       Rails.logger.debug "REPO  Spectrum::SolrRepository#initialize @source=[#{@source}]"
-raise
+# raise
     end
 
     def connection
