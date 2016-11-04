@@ -290,6 +290,11 @@ class ApplicationController < ActionController::Base
   #   end
   # end
 
+  def repository_class
+    raise
+    Spectrum::SolrRepository
+  end
+
   def blacklight_config(source = @active_source)
     @blacklight_configs ||= {}
     @blacklight_configs[source] || (@blacklight_configs[source] = Spectrum::SearchEngines::Solr.generate_config(source))

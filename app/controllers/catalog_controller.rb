@@ -16,8 +16,9 @@ class CatalogController < ApplicationController
   # Bring in endnote export, etc.
   include Blacklight::Marc::Catalog
 
-  include Blacklight::Catalog
-  include Blacklight::Configurable
+  # done in application_controller
+  # include Blacklight::Catalog
+  # include Blacklight::Configurable
 
   # load last, to override any BlackLight methods included above
   include LocalSolrHelperExtension
@@ -209,6 +210,7 @@ class CatalogController < ApplicationController
   # Override Blacklight::Catalog.facet()
   #   [ Why do we need to ??? ]
   def facet
+    # raise
     @facet = blacklight_config.facet_fields[params[:id]]
 
     # Allow callers to pass in extra params, that won't be sanitized-out by

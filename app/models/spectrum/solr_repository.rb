@@ -2,9 +2,51 @@ module Spectrum
   class SolrRepository < Blacklight::Solr::Repository
     attr_accessor :source, :solr_url
 
+
+    # Blacklight search_helper has this:
+    # 
+    # def repository_class
+    #   blacklight_config.repository_class
+    # end
+    # 
+    # def repository
+    #   @repository ||= repository_class.new(blacklight_config)
+    # end
+
+    # Our application controller over-rides repository_class to point
+    # to this class.
+
+    # So... this class needs to handle new() in a CLIO-specific way.
+
+    def initialize blacklight_config
+      # BL
+      # @blacklight_config = blacklight_config
+
+      # CLIO
+      # def repository
+      #   @repository ||= Spectrum::SolrRepository.new(blacklight_config)
+      #   @repository.source = @source
+      #   @repository.solr_url = @solr_url
+      #   @repository
+      # end
+
+      @blacklight_config = blacklight_config
+
+
+# both of these need to know what datasource we're working with
+      @blacklight_config.connection_config[:url] = .....
+
+      @source = @active_source
+
+
+      Rails.logger.debug "REPO  Spectrum::SolrRepository#initialize @source=[#{@source}]"
+raise
+    end
+
     def connection
-      Rails.logger.debug "Spectrum::SolrRepository#connection()"
-      Rails.logger.debug "@connection=#{@connection.inspect}"
+      # raise
+      Rails.logger.debug "REPO  Spectrum::SolrRepository#connection()"
+      Rails.logger.debug "REPO  @connection=#{@connection.inspect}"
 
       # Blacklight::SolrRepository#connection
       # @connection ||= RSolr.connect(connection_config)
@@ -20,7 +62,8 @@ module Spectrum
     protected
 
     def build_connection(source, solr_url = nil)
-      Rails.logger.debug "Spectrum::SolrRepository#build_connection(#{source})"
+      # raise
+      Rails.logger.debug "REPO  Spectrum::SolrRepository#build_connection(#{source})"
       if source.in?('academic_commons', 'ac_dissertations')
         RSolr.connect(url: APP_CONFIG['ac2_solr_url'])
       elsif source.in?('geo')

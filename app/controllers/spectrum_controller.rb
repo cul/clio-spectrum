@@ -12,13 +12,16 @@
 #   - does the same thing, but for AJAX calls, returning JSON
 #
 class SpectrumController < ApplicationController
-  include Blacklight::Controller
-  include Blacklight::Catalog
-  include Blacklight::Configurable
+  # done in ApplicationController
+  # include Blacklight::Controller
+  # include Blacklight::Catalog
+  # include Blacklight::Configurable
 
   layout 'quicksearch'
 
   def search
+
+# raise
     @results = []
 
     # process any Filter Queries - turn Summon API Array of key:value pairs into

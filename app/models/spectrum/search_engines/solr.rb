@@ -8,9 +8,6 @@ module Spectrum
       include Blacklight::Configurable
       include LocalSolrHelperExtension
 
-      # # Because BL core includes it, we're obliged to?
-      # include ActiveSupport::Benchmarkable
-
       attr_reader :source, :documents, :search, :errors, :debug_mode, :debug_entries
       attr_accessor :params
 
@@ -19,6 +16,12 @@ module Spectrum
       # it is not, unless I do this.
       def logger
         Rails.logger
+      end
+
+      # This is setup in already ApplicationController,
+      # but this class isn't a subclass of that.
+      def repository_class
+        Spectrum::SolrRepository
       end
 
       # Invoked when ApplicationController::blacklight_search() calls:
@@ -74,17 +77,18 @@ module Spectrum
         end
       end
 
-      def repository
-        # raise
-        Rails.logger.debug "Spectrum::SearchEngine::Solr#repository()"
-        # Rails.logger.debug "before: @repository=#{@repository.inspect}"
-        @repository ||= Spectrum::SolrRepository.new(blacklight_config)
-        @repository.source = @source
-        @repository.solr_url = @solr_url
-
-        # Rails.logger.debug "after: @repository=#{@repository.inspect}"
-        @repository
-      end
+      # moved into Spectrum::SolrRepository#initialize()
+      # def repository
+      #   raise
+      #   Rails.logger.debug "Spectrum::SearchEngine::Solr#repository()"
+      #   # Rails.logger.debug "before: @repository=#{@repository.inspect}"
+      #   @repository ||= Spectrum::SolrRepository.new(blacklight_config)
+      #   @repository.source = @source
+      #   @repository.solr_url = @solr_url
+      # 
+      #   # Rails.logger.debug "after: @repository=#{@repository.inspect}"
+      #   @repository
+      # end
 
       # def connection
       #   Rails.logger.debug "Spectrum::SearchEngine::Solr#connection()"
