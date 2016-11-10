@@ -2,11 +2,8 @@
 
 # Despite living under /app/models, this is not a Model, it's a Mailer.
 class RecordMailer < ActionMailer::Base
-  # this doesnt' work.
-  # # let the Mailer use fragments that use caching
-  # include MailerFragmentCaching
 
-  default from: 'CLIO <no-reply@libraries.cul.columbia.edu>'
+  default from: 'CLIO <delete@library.columbia.edu>'
 
   add_template_helper(ApplicationHelper)
   add_template_helper(DisplayHelper)
@@ -30,7 +27,6 @@ class RecordMailer < ActionMailer::Base
       subject = "CLIO: #{documents.size} Item Records"
     end
 
-    # These instance variables are used in views/record_mailer/email_record
     @documents      = documents
     @message        = details[:message]
     @url_gen_params = url_gen_params
@@ -39,28 +35,35 @@ class RecordMailer < ActionMailer::Base
     mail(to: details[:to], reply_to: details[:reply_to], subject: subject)
   end
 
+  # def OLD_sms_record(documents, details, url_gen_params)
+  #   if sms_mapping[details[:carrier]]
+  #     to = "#{details[:to]}@#{sms_mapping[details[:carrier]]}"
+  #   end
+  # 
+  #   @documents      = documents
+  #   @host           = 'libraries.cul.columbia.edu'
+  #   @url_gen_params = url_gen_params
+  # 
+  #   mail(to: to, subject: '')
+  # end
+
+  # BL 6
   def sms_record(documents, details, url_gen_params)
-    if sms_mapping[details[:carrier]]
-      to = "#{details[:to]}@#{sms_mapping[details[:carrier]]}"
-    end
-
     @documents      = documents
-    @host           = 'libraries.cul.columbia.edu'
     @url_gen_params = url_gen_params
-
-    mail(to: to, subject: '')
+    mail(:to => details[:to], :subject => "")
   end
 
-  protected
-
-  def sms_mapping
-    { 'virgin' => 'vmobl.com',
-      'att'     => 'txt.att.net',
-      'verizon' => 'vtext.com',
-      'nextel'  => 'messaging.nextel.com',
-      'sprint'  => 'messaging.sprintpcs.com',
-      'tmobile' => 'tmomail.net',
-      'alltel'  => 'message.alltel.com',
-      'cricket' => 'mms.mycricket.com' }
-  end
+  # protected
+  # 
+  # def OLD_sms_mapping
+  #   { 'virgin' => 'vmobl.com',
+  #     'att'     => 'txt.att.net',
+  #     'verizon' => 'vtext.com',
+  #     'nextel'  => 'messaging.nextel.com',
+  #     'sprint'  => 'messaging.sprintpcs.com',
+  #     'tmobile' => 'tmomail.net',
+  #     'alltel'  => 'message.alltel.com',
+  #     'cricket' => 'mms.mycricket.com' }
+  # end
 end

@@ -121,7 +121,7 @@ en:
           blank: 'You must enter a recipient in order to send this message'
     sms:
       form:
-        title: 'SMS This'
+        title: 'Send to Phone'
         to: 'Phone Number:'
         carrier: 'Carrier'
         carrier_prompt: 'Please select your carrier'

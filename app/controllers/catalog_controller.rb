@@ -152,7 +152,7 @@ class CatalogController < ApplicationController
 
   def show
     @response, @document = fetch params[:id]
-
+# raise
     # In support of "nearby" / "virtual shelf browse", remember this bib
     # as our focus bib.
     session[:browse] = {} unless session[:browse].is_a?(Hash)
@@ -304,6 +304,25 @@ class CatalogController < ApplicationController
     respond_to do |format|
       format.html { render layout: false }
     end
+  end
+
+  # Override BL6 Blacklight::Catalog concern
+  def validate_sms_params
+    # raise
+    case
+    when params[:to].blank?
+      flash[:error] = I18n.t('blacklight.sms.errors.to.blank')
+    when params[:carrier].blank?
+      flash[:error] = I18n.t('blacklight.sms.errors.carrier.blank')
+    when params[:to].gsub(/[^\d]/, '').length != 10
+      flash[:error] = I18n.t('blacklight.sms.errors.to.invalid', :to => params[:to])
+    when !sms_mappings.values.include?(params[:carrier])
+      flash[:error] = I18n.t('blacklight.sms.errors.carrier.invalid')
+    when current_user.blank? && !@user_characteristics[:on_campus] && !verify_recaptcha
+      flash[:error] = "reCAPTCHA verify error"
+    end
+
+    flash[:error].blank?
   end
 
 end

@@ -27,9 +27,10 @@ class SolrDocument
   # At Columbia, these are replaced by code within the record_mailer views
   # # Email uses the semantic field mappings below to generate the body of an email.
   # SolrDocument.use_extension( Blacklight::Solr::Document::Email )
-  #
-  # # SMS uses the semantic field mappings below to generate the body of an SMS email.
-  # SolrDocument.use_extension( Blacklight::Solr::Document::Sms )
+
+  # SMS uses the semantic field mappings below to generate the body of an SMS email.
+  SolrDocument.use_extension( Blacklight::Document::Sms )
+
 
   # DublinCore uses the semantic field mappings below to assemble an OAI-compliant Dublin Core document
   # Semantic mappings of solr stored fields. Fields may be multi or
@@ -44,6 +45,7 @@ class SolrDocument
   field_semantics.merge!(
                          # :identifier => "id",  # suggested mapping is ISBN or ISSN
                          title: 'title_display',
+                         author: "author_display",
                          contributor: 'author_display',
                          publisher: 'full_publisher_display',
                          language: 'language_facet',
