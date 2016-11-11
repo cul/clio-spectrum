@@ -17,6 +17,10 @@ class SolrDocument
            Array(self['source_display']).include?("database")
   end
 
+  def call_numbers
+    Array(self['call_number_display']).sort.uniq.join(' / ')
+  end
+
   # The following shows how to setup this blacklight document to display marc documents
   extension_parameters[:marc_source_field] = :marc_display
   extension_parameters[:marc_format_type] = :marcxml

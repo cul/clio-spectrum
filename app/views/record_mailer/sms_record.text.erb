@@ -1,6 +1,5 @@
 <% @documents.each do |document| %>
-<%= document.to_sms_text %>
-<!-- Override to add Location/Call-Number -->
-<%= Array(document.location_call_number_txt).join(' / ') %>
-<%= t('blacklight.sms.text.url', :url => polymorphic_url(document, @url_gen_params) ) %>
+  <%= t('blacklight.sms.text.url', :url => polymorphic_url(document, @url_gen_params) ) %>
+  <%= document.to_sms_text %>
+  <%= document.call_numbers %>
 <% end %>
