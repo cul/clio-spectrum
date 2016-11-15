@@ -3,7 +3,7 @@
 # Despite living under /app/models, this is not a Model, it's a Mailer.
 class RecordMailer < ActionMailer::Base
 
-  default from: 'CLIO <delete@library.columbia.edu>'
+  default from: 'CLIO <noreply@library.columbia.edu>'
 
   add_template_helper(ApplicationHelper)
   add_template_helper(DisplayHelper)
