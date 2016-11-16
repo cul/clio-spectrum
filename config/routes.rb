@@ -152,7 +152,7 @@ Rails.application.routes.draw do
 
   get 'catalog/hathi_holdings/:id' => 'catalog#hathi_holdings', :as => 'hathi_holdings'
 
-  get 'spectrum/hits/:source', to: 'spectrum#hits', as: 'spectrum_hits'
+  get 'spectrum/hits/:datasource', to: 'spectrum#hits', as: 'spectrum_hits'
 
   get 'spectrum/searchjson/:layout/:datasource', to: 'spectrum#searchjson', as: 'spectrum_searchjson'
 

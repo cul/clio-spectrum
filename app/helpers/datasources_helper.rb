@@ -24,14 +24,14 @@ module DatasourcesHelper
 
 
   # Output the HTML of a single landing page for the passed data-source
-  def datasource_landing_page(source = $active_source)
+  def datasource_landing_page(datasource = $active_source)
     content_tag('div', class: 'landing_pages') do
-      classes = ['landing_page', source]
-      classes << 'selected' if source == $active_source
-      search_config = SEARCHES_CONFIG['sources'][source]
+      classes = ['landing_page', datasource]
+      classes << 'selected' if datasource == $active_source
+      search_config = SEARCHES_CONFIG['sources'][datasource]
       warning = search_config ? search_config['warning'] : nil
       content_tag(:div,
-                  render(partial: "/landing_pages/#{source}",
+                  render(partial: "/landing_pages/#{datasource}",
                          locals: { warning: warning }),
                   class: classes.join(' '),
                   data: { 'ga-action' => 'Landing Page Click' }
@@ -121,61 +121,61 @@ module DatasourcesHelper
   # Build up the HTML of a single datasource link, to be used along the left-side menu.
   # Should be an <li>, with an <a href> inside it.
   # The link should re-run the current search against the new data-source.
-  def single_datasource_list_item(source, options)
+  def single_datasource_list_item(datasource, options)
     link_classes = []
     # link_classes << 'subsource' if get_datasource_bar['subsources'].include?(source)
 
     query = options[:query]
 
     li_classes = %w(datasource_link)
-    li_classes << 'selected' if source == options[:active_source]
-    li_classes << 'subsource' if get_datasource_bar['subsources'].include?(source)
+    li_classes << 'selected' if datasource == options[:active_source]
+    li_classes << 'subsource' if get_datasource_bar['subsources'].include?(datasource)
 
     # li_classes << 'subsource' if options[:subsource]
     # li_classes << 'subsource' if get_datasource_bar['subsources'].include?(source)
 
-    href = datasource_landing_page_path(source, query)
-    datasource_link = single_datasource_link(source, href, link_classes)
-    datasource_hits = single_datasource_hits(source, query)
+    href = datasource_landing_page_path(datasource, query)
+    datasource_link = single_datasource_link(datasource, href, link_classes)
+    datasource_hits = single_datasource_hits(datasource, query)
 
     # What parts of a query should we carry-over between data-sources?
     # -- Any basic query term, yes, query it against the newly selected datasources
     # -- Any facets?  Drop them, clear all filtering when switching datasources.
     # NEXT-954 - Improve Landing Page access
 
-    fail "no source data found for #{source}" unless DATASOURCES_CONFIG['datasources'][source]
+    fail "no source data found for #{datasource}" unless DATASOURCES_CONFIG['datasources'][datasource]
 
     content_tag(:li,
                 datasource_link + datasource_hits,
-                source: source,
+                datasource: datasource,
                 class: li_classes.join(' ')
     )
   end
 
 
 
-  def single_datasource_link(source, href, link_classes)
-    link = link_to(DATASOURCES_CONFIG['datasources'][source]['name'],
+  def single_datasource_link(datasource, href, link_classes)
+    link = link_to(DATASOURCES_CONFIG['datasources'][datasource]['name'],
             href,
             class: link_classes.join(' ')
     )
     content_tag(:span, link, class: 'datasource-label')
   end
 
-  def single_datasource_hits(source, query)
+  def single_datasource_hits(datasource, query)
     hits_class = 'datasource-hits'
     hits_data = ''
 
     # Set default based on app_config control.  If unset, disable feature.
     fetch_hits = APP_CONFIG['fetch_datasource_hits'] || false
-    fetch_hits = false if source == $active_source
+    fetch_hits = false if datasource == $active_source
     fetch_hits = false if query.nil? || query.length < 2
-    fetch_hits = false if source == 'quicksearch'
-    fetch_hits = false if get_datasource_bar['major_sources'].exclude?(source)
-    fetch_hits = false if get_datasource_bar['minor_sources'].include?(source)
+    fetch_hits = false if datasource == 'quicksearch'
+    fetch_hits = false if get_datasource_bar['major_sources'].exclude?(datasource)
+    fetch_hits = false if get_datasource_bar['minor_sources'].include?(datasource)
 
     if fetch_hits
-      hits_url = spectrum_hits_path(source: source, q: query, new_search: true)
+      hits_url = spectrum_hits_path(datasource: datasource, q: query, new_search: true)
       hits_data = { hits_url: hits_url }
       hits_class = hits_class + ' fetch'
     end

@@ -107,13 +107,13 @@ class SpectrumController < ApplicationController
   # Simplified version of 'searchjson' - just run a query against
   # a datasource to get a hit count.
   def hits
-    source = params[:source]
+    datasource = params[:datasource]
 
     # we don't need any rows of results.  
     # params['rows'] = 1
     # ...but resetting this value can overwrite user default rows
 
-    results = case source
+    results = case datasource
       when 'catalog', 'academic_commons', 'geo', 'dlc'
         blacklight_search(params)
       when 'articles'
