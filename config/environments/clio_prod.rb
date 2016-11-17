@@ -68,17 +68,10 @@ Clio::Application.configure do
 
 end
 
-# Exception Notifier - Upgrading to 4.x version
-#   https://github.com/smartinez87/exception_notification/blob/master/README.md
-# Clio::Application.config.middleware.use ExceptionNotifier,
-#    :email_prefix => "[Clio Prod] ",
-#    :sender_address => %{"notifier" <spectrum-tech@libraries.cul.columbia.edu>},
-#    :exception_recipients => %w{spectrum-tech@libraries.cul.columbia.edu},
-#    :ignore_crawlers => %w{Googlebot bingbot}
-
+#   https://github.com/smartinez87/exception_notification
 Clio::Application.config.middleware.use ExceptionNotification::Rack,
-  ignore_exceptions: ['Errno::EHOSTUNREACH', 'Mail::Field::ParseError'] + ExceptionNotifier.ignored_exceptions,
-  ignore_crawlers: %w(Googlebot bingbot archive.org_bot Blogtrottr),
+  ignore_exceptions: ['Errno::EHOSTUNREACH', 'Mail::Field::ParseError', 'ActionController::BadRequest'] + ExceptionNotifier.ignored_exceptions,
+  ignore_crawlers: %w(Googlebot bingbot archive.org_bot Blogtrottr Sogou Baidu Yandex),
   email: {
     email_prefix: '[Clio Prod] ',
     sender_address: %("notifier" <spectrum-tech@libraries.cul.columbia.edu>),
