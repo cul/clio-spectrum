@@ -100,7 +100,7 @@ class CatalogController < ApplicationController
     end
 
     # reach into search config to find possible source-specific service alert warning
-    search_config = SEARCHES_CONFIG['sources'][$active_source]
+    search_config = DATASOURCES_CONFIG['datasources'][$active_source]
     warning = search_config ? search_config['warning'] : nil
 # raise
     respond_to do |format|
@@ -171,7 +171,7 @@ class CatalogController < ApplicationController
     add_alerts_to_documents(@document)
 
     # reach into search config to find possible source-specific service alert warning
-    search_config = SEARCHES_CONFIG['sources'][$active_source]
+    search_config = DATASOURCES_CONFIG['datasources'][$active_source]
     warning = search_config ? search_config['warning'] : nil
 
     respond_to do |format|

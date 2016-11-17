@@ -61,7 +61,8 @@ module SearchHelper
 
 
   def display_basic_search_form(source)
-    options = DATASOURCES_CONFIG['datasources'][source]['search_box'] || {}
+    datasource_config = DATASOURCES_CONFIG['datasources'][$active_source] || {}
+    options = datasource_config['search_box'] || {}
 
     search_params = determine_search_params
     div_classes = ['search_box', source]

@@ -28,7 +28,7 @@ module DatasourcesHelper
     content_tag('div', class: 'landing_pages') do
       classes = ['landing_page', datasource]
       classes << 'selected' if datasource == $active_source
-      search_config = SEARCHES_CONFIG['sources'][datasource]
+      search_config = DATASOURCES_CONFIG['datasources'][datasource]
       warning = search_config ? search_config['warning'] : nil
       content_tag(:div,
                   render(partial: "/landing_pages/#{datasource}",
@@ -110,6 +110,9 @@ module DatasourcesHelper
   def source_has_facets?(source = $active_source)
     # No facets if we're showing the landing pages instead of query results
     return false if @show_landing_pages
+
+    # If this 'source' doesn't have a configuration, then no facets
+    return false unless DATASOURCES_CONFIG['datasources'][source]
 
     # No facets, if this datasource explicitly says so
     return false if DATASOURCES_CONFIG['datasources'][source]['no_facets']

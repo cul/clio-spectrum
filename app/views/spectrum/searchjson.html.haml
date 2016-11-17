@@ -3,7 +3,7 @@
 
     - result = @results[search['source']]
     - if result
-      - source = SEARCHES_CONFIG['sources'][search['source']]
+      - source = DATASOURCES_CONFIG['datasources'][search['source']]
       - warning = source ? source['warning'] : nil;
 
       .nested_result_set{:data => {'source' => search['source']}}

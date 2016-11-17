@@ -20,6 +20,55 @@ datasources:
 
   articles:
     name: Articles
+    title: Articles
+    description: Articles, e-books, dissertations, music, images, and more from a mostly full-text database
+    warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.
+    render_options:
+      format: article
+    search_box:
+      route: articles_index_path
+      placeholder: Articles
+      search_type: summon
+      advanced: true
+      # search_category: articles
+      search_fields:
+        q: Keywords
+        s.fq[AuthorCombined]: Author
+        s.fq[TitleCombined]: Title
+        # NEXT-581 - articles search by publication title
+        s.fq[PublicationTitle]: Publication Title
+        s.fq[ISBN]: ISBN
+        s.fq[ISSN]: ISSN
+
+  summon_dissertations:
+    name: Articles
+    title: Summon
+    description: Dissertations and theses from the Articles database. Many are full-text.
+    warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.
+    render_options:
+      format: article
+    search_box:
+      route: articles_index_path
+      placeholder: Articles
+      search_type: summon
+      advanced: true
+      # search_category: articles
+      search_fields:
+        q: Keywords
+        s.fq[AuthorCombined]: Author
+        s.fq[TitleCombined]: Title
+        # NEXT-581 - articles search by publication title
+        s.fq[PublicationTitle]: Publication Title
+        s.fq[ISBN]: ISBN
+        s.fq[ISSN]: ISSN
+
+  summon_ebooks:
+    name: Articles
+    title: Summon
+    description: E-books from the Articles database
+    warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.  eboo.
+    render_options:
+      format: article
     search_box:
       route: articles_index_path
       placeholder: Articles
@@ -51,6 +100,11 @@ datasources:
 
   catalog:
     name: Catalog
+    title: Catalog
+    description: Library books, journals, music, videos, databases, archival collections, and online resources
+    Xwarning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
+    render_options:
+      format: clio
     viewstyles: 
       standard_list: Standard View
       compact_list: Compact View
@@ -77,6 +131,74 @@ datasources:
         call_number: Call Number
         location: Location
 
+  catalog_dissertations:
+    name: Catalog
+    title: Catalog
+    description: Dissertations from the library catalog
+    warningXX:  Item Status unavailable due to system upgrades.  CAT-DISS.
+    render_options:
+      format: clio
+    viewstyles: 
+      standard_list: Standard View
+      compact_list: Compact View
+    default_viewstyle: standard_list
+    search_box:
+      route: catalog_index_path
+      placeholder: Catalog
+      search_type: blacklight
+      advanced: true
+      search_fields:
+        all_fields: All Fields
+        title: Title
+        journal_title: Journal Title
+        author: Author
+        series_title: Series
+        title_starts_with: Title Begins With
+        subject: Subject
+        form_genre: Form/Genre
+        publication_place: Publication Place
+        publisher: Publisher
+        publication_year: Publication Year
+        isbn: ISBN
+        issn: ISSN
+        call_number: Call Number
+        location: Location
+
+  catalog_ebooks:
+    name: Catalog
+    title: Catalog
+    description: E-books from the library catalog
+    warningXX:  Item Status unavailable due to system upgrades.  CAT-EBOO.
+    render_options:
+      format: clio
+    viewstyles: 
+      standard_list: Standard View
+      compact_list: Compact View
+    default_viewstyle: standard_list
+    search_box:
+      route: catalog_index_path
+      placeholder: Catalog
+      search_type: blacklight
+      advanced: true
+      search_fields:
+        all_fields: All Fields
+        title: Title
+        journal_title: Journal Title
+        author: Author
+        series_title: Series
+        title_starts_with: Title Begins With
+        subject: Subject
+        form_genre: Form/Genre
+        publication_place: Publication Place
+        publisher: Publisher
+        publication_year: Publication Year
+        isbn: ISBN
+        issn: ISSN
+        call_number: Call Number
+        location: Location
+
+
+
   archives:
     name: Archives
     search_box:
@@ -92,6 +214,11 @@ datasources:
 
   databases:
     name: Databases
+    title: Databases
+    description: Electronic resources
+    Xwarning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
+    render_options:
+      format: clio
     search_box:
       advanced: true
       route: databases_index_path 
@@ -105,6 +232,11 @@ datasources:
 
   journals:
     name: E-Journal Titles
+    title: Journal Titles
+    description: Electronic Journals Held By Columbia
+    Xwarning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
+    render_options:
+      format: clio 
     search_box:
       advanced: true
       route: journals_index_path
@@ -119,6 +251,11 @@ datasources:
 
   library_web:
     name: Libraries Website
+    title: Libraries Website
+    description: Information about the libraries from the Libraries Website
+    warningXX:  Item Status unavailable due to system upgrades.  LWEB.
+    render_options:
+      format: lweb
     no_facets: true
     search_box:
       route: library_web_index_path
@@ -126,6 +263,28 @@ datasources:
 
   academic_commons:
     name: Academic Commons
+    title: Academic Commons
+    description: Publications and other research output from Columbia University's digital repository 
+    warningXX:  Item Status unavailable due to system upgrades.  AC.
+    render_options:
+      format: ac
+    search_box:
+      route: academic_commons_index_path
+      placeholder: Academic Commons
+      search_type: blacklight
+      search_fields:
+        all_fields: All Fields
+        title: Title
+        author: Author
+        subject: Subject
+
+  ac_dissertations:
+    name: Academic Commons
+    title: Academic Commons
+    description: Dissertations deposited in Columbia's digital repository, primarily 2011-present.
+    warningXX:  Item Status unavailable due to system upgrades.  AC-DISS.
+    render_options:
+      format: ac
     search_box:
       route: academic_commons_index_path
       placeholder: Academic Commons

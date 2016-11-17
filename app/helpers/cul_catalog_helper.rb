@@ -128,10 +128,6 @@ module CulCatalogHelper
                         DATASOURCES_CONFIG['datasources'][$active_source]['default_viewstyle'] ||
                         'standard_list'
 
-    # (support forward-conversion of renamed viewstyle names...)
-    current_viewstyle = 'standard_list' if current_viewstyle == 'list'
-    current_viewstyle = 'compact_list'  if current_viewstyle == 'compact'
-
     if viewstyle == current_viewstyle
       checkmark = content_tag(:span, '', :class => 'glyphicon glyphicon-ok')
       content_tag(:a, (checkmark + ' ' + label), href: '#')
