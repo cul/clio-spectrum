@@ -147,7 +147,7 @@ module DatasourcesHelper
 
     content_tag(:li,
                 datasource_link + datasource_hits,
-                datasource: datasource,
+                source: datasource,
                 class: li_classes.join(' ')
     )
   end
