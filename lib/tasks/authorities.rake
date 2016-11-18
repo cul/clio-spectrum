@@ -321,7 +321,8 @@ def add_variants_to_biblist(biblist, age)
   counter = 0
   statuses = {}
   statuses['failure'] = 0
-  failure_limit = 5
+  # How many lookup/replace failures before giving up?
+  failure_limit = 20
   biblist.each do |bib|
     begin
       counter = counter + 1
