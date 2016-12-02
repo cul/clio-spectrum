@@ -171,7 +171,10 @@ module DatasourcesHelper
 
     # Set default based on app_config control.  If unset, disable feature.
     fetch_hits = APP_CONFIG['fetch_datasource_hits'] || false
-    fetch_hits = false if datasource == $active_source
+
+    # Breck asks that we display hit-count for current source
+    # fetch_hits = false if datasource == $active_source
+
     fetch_hits = false if query.nil? || query.length < 2
     fetch_hits = false if datasource == 'quicksearch'
     fetch_hits = false if get_datasource_bar['major_sources'].exclude?(datasource)
