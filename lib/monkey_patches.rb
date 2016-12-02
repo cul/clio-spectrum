@@ -204,8 +204,45 @@ module Traject::Macros
       return str
     end
   end
-
-
 end
+
+# # Override for debugging... 
+# module MARC
+#   class Reader
+# 
+#     def each_raw
+#       unless block_given?
+#         return self.enum_for(:each_raw)
+#       else
+#         while rec_length_s = @handle.read(5)
+#           # make sure the record length looks like an integer
+#           rec_length_i = rec_length_s.to_i
+#           if rec_length_i == 0
+#             puts "rec_length_s=[#{rec_length_s}]"
+#             puts "rec_length_s.length=[#{rec_length_s.length}]"
+# 
+#             puts "rec_length_s[0]=[#{rec_length_s[0]}]"
+#             puts "rec_length_s[1]=[#{rec_length_s[1]}]"
+#             puts "rec_length_s[2]=[#{rec_length_s[2]}]"
+#             puts "rec_length_s[3]=[#{rec_length_s[3]}]"
+#             puts "rec_length_s[4]=[#{rec_length_s[4]}]"
+# 
+#             puts "rec_length_s.bytes.inspect=[#{rec_length_s.bytes.inspect}]"
+# 
+#             puts "rec_length_i=[#{rec_length_i}]"
+#             puts "@handle.eof?=[#{@handle.eof?}]"
+#             raise MARC::Exception.new("invalid record length: #{rec_length_s}")
+#           end
+# 
+#           # get the raw MARC21 for a record back from the file
+#           # using the record length
+#           raw = rec_length_s + @handle.read(rec_length_i-5)
+#           yield raw
+#         end
+#       end
+#     end
+# 
+#   end
+# end
 
 

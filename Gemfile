@@ -27,7 +27,7 @@ gem 'rsolr'
 gem 'marc'
 
 # MARC indexing in pure ruby
-gem "traject"
+gem 'traject'
 
 # Only used for Google Maps location pages
 gem 'rest-client'

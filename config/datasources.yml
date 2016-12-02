@@ -311,14 +311,21 @@ datasources:
 
   geo:
     name: GeoData
+    title: GeoData
+    description: Columbia's catalog of geospatial data sets
+    # warning: Datasource Unavailable
+    render_options:
+      format: geo
+    no_facets: true
     search_box:
       route: geo_index_path
       placeholder: Geographic names, subjects
       search_type: blacklight
-      # search_fields:
-      #   all_fields: All Fields
-      #   title: Title
-      #   name: Name
+      search_fields:
+        all_fields: All Fields
+        title: Title
+        name: Name
+
 
   dlc:
     name: Digital Library Collections
