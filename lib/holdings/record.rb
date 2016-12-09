@@ -296,7 +296,7 @@ module Voyager
         supplements = []
 
         marc.each_by_tag('867') do |t867|
-          supplements.push( t867.subfields.collect {|s| s.value if ['a', 'z'].contains? s.code}.join(' ').strip )
+          supplements.push( t867.subfields.collect {|s| s.value if ['a', 'z'].include? s.code}.join(' ').strip )
         end
         # 
         # tag867.each do |field|
@@ -357,7 +357,7 @@ module Voyager
         # collect subfields in input order; only ouput certain subfields
         # tag843.css("slim|subfield").collect { |subfield| subfield.content if subfield.attr("code").match(/[abcdefmn3]/)}.join(' ')
 
-        tag892.subfields.collect {|s| s.value if 'abcdefmn3'.contains? s.code}.join(' ').strip
+        tag892.subfields.collect {|s| s.value if 'abcdefmn3'.include? s.code}.join(' ').strip
 
       end
 
@@ -385,7 +385,7 @@ module Voyager
           sub3 = t893['3']
 
           if subu
-            url = subu.value
+            url = subu
             link_text = [sub3, subz].compact.collect { |subfield| subfield.value }.join(' ')
             link_text = url if link_text.empty?
             urls << {ind1: ind1, ind2: ind2, url: url, link_text: link_text}
@@ -470,11 +470,11 @@ module Voyager
 
           # collect subfields in input order; only ouput certain subfields
           # do not include subfield c and 3 in brief message (use with gift icon)
-          message = t891.subfields.collect {|s| s.value if 'acd3'.contains? s.code}.compact.join(' ').strip
-          message_brief = t891.subfields.collect {|s| s.value if 'ad'.contains? s.code}.compact.join(' ').strip
+          message = t891.subfields.collect {|s| s.value if 'acd3'.include? s.code}.compact.join(' ').strip
+          message_brief = t891.subfields.collect {|s| s.value if 'ad'.include? s.code}.compact.join(' ').strip
           sube = t891['e']
           code = ''
-          code = sube.value.strip if sube
+          code = sube.strip if sube
           # get the name coded after 'plate:'
           name = ''
           name = $1.strip if code.downcase.match(/^plate:(.+)/)

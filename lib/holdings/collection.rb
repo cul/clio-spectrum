@@ -150,8 +150,10 @@ module Voyager
 
         holdings.each do |holding|
           if [:summary_holdings, :supplements, :indexes, :notes,
-              :reproduction_note, :current_issues, :temp_locations,
-              :orders, :donor_info, :urls].any? { |key| !holding[key].empty?}
+              :reproduction_note, :current_issues,
+              # TODO
+              # :temp_locations, :orders, 
+              :donor_info, :urls].any? { |key| !holding[key].empty?}
             complexity = :complex
           end
         end

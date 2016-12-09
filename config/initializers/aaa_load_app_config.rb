@@ -27,3 +27,4 @@ blacklight_config_file = Rails.root.to_s + '/config/blacklight.yml'
 SOLR_CONFIG ||= YAML.load(ERB.new(IO.read(blacklight_config_file)).result) || {}
 
 
+DONOR_INFO ||= YAML.load(File.read(Rails.root.to_s + '/config/donor_info.yml'))
