@@ -352,6 +352,7 @@ default_datasource_bar:
     - articles
     - academic_commons
     - library_web
+    - geo
   minor_sources:
     - dissertations
     - ebooks

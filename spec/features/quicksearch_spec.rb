@@ -14,8 +14,8 @@ describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
   # NEXT-612 - Quick search page doesn't let you start over
   it "should have a 'Start Over' link", :js do
     visit quicksearch_index_path('q' => 'borneo')
-    expect(page).to have_css('.result_set', count: 4)
-    expect(page).to have_css('.nested_result_set', count: 4)
+    expect(page).to have_css('.result_set', count: 5)
+    expect(page).to have_css('.nested_result_set', count: 5)
 
     all('.result_set').each do |result_set|
       expect(result_set).to have_css('.result')
@@ -38,8 +38,8 @@ describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
   # *** CATALOG ***
   it "should link to Catalog results correctly", :js do
     visit quicksearch_index_path('q' => 'kitty')
-    expect(page).to have_css('.result_set', count: 4)
-    expect(page).to have_css('.nested_result_set', count: 4)
+    expect(page).to have_css('.result_set', count: 5)
+    expect(page).to have_css('.nested_result_set', count: 5)
     # page.save_and_open_page
     within('.results_header', :text => "Catalog") do
       click_link "View and filter all"
@@ -50,8 +50,8 @@ describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
   # *** ARTICLES ***
   it "should link to Articles results correctly", :js do
     visit quicksearch_index_path('q' => 'indefinite')
-    expect(page).to have_css('.result_set', count: 4)
-    expect(page).to have_css('.nested_result_set', count: 4)
+    expect(page).to have_css('.result_set', count: 5)
+    expect(page).to have_css('.nested_result_set', count: 5)
 
     expect(page).to have_css('.results_header', :text => "Articles")
     within('.results_header', :text => "Articles") do
@@ -63,8 +63,8 @@ describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
   # *** ACADEMIC COMMONS ***
   it "should link to Academic Commons results correctly", :js do
     visit quicksearch_index_path('q' => 'uncommon')
-    expect(page).to have_css('.result_set', count: 4)
-    expect(page).to have_css('.nested_result_set', count: 4)
+    expect(page).to have_css('.result_set', count: 5)
+    expect(page).to have_css('.nested_result_set', count: 5)
 
     # page.save_and_open_page
     within('.results_header', :text => "Academic Commons") do
@@ -76,8 +76,8 @@ describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
   # *** LIBRARIES WEBSITE ***
   it "should link to Libraries Website results correctly", :js do
     visit quicksearch_index_path('q' => 'public')
-    expect(page).to have_css('.result_set', count: 4)
-    expect(page).to have_css('.nested_result_set', count: 4)
+    expect(page).to have_css('.result_set', count: 5)
+    expect(page).to have_css('.nested_result_set', count: 5)
 
     within('.result_set[data-source=library_web]') do
       expect(page).to have_css('.results_header', :text => "Libraries Website")
@@ -94,7 +94,7 @@ describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
   it "should show popover i-button text in QuickSearch", :js do
     # QUICKSEARCH
     visit quicksearch_index_path('q' => 'horse')
-    expect(page).to have_css('.nested_result_set', count: 4)
+    expect(page).to have_css('.nested_result_set', count: 5)
 
     within('.results_header[data-source=catalog]') do
       find('img').click
@@ -157,7 +157,7 @@ describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
     click_button 'Search'
 
     # make sure the AJAX lookups all return
-    expect(page).to have_css('.result_set', count: 4)
+    expect(page).to have_css('.result_set', count: 5)
 
     # expect(page).to have_css('.result_title')
 

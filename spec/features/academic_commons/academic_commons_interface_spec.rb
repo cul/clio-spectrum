@@ -57,8 +57,8 @@ describe 'Academic Commons', :vcr do
     visit quicksearch_index_path('q' => 'portuguese')
 
     # Make sure things load...
-    expect(page).to have_css('.result_set', count: 4, wait: 10)
-    expect(page).to have_css('.nested_result_set', count: 4, wait: 10)
+    expect(page).to have_css('.result_set', count: 5, wait: 10)
+    expect(page).to have_css('.nested_result_set', count: 5, wait: 10)
 
     within('.nested_result_set[data-source=academic_commons]') do
       # We should find at least one of these...
