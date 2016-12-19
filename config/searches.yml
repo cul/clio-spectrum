@@ -16,16 +16,17 @@ default_search_layouts:
     style: aggregate
     columns:
       - searches:
-          - source: catalog
-            count: 10
-            display_footer: true
+        - source: catalog
+          count: 5
+        - source: geo
+          count: 3
       - searches:
-          - source: articles
-            count: 3
-          - source: academic_commons
-            count: 3
-          - source: library_web
-            count: 3
+        - source: articles
+          count: 3
+        - source: academic_commons
+          count: 3
+        - source: library_web
+          count: 3
 
   dissertations:
     style: aggregate

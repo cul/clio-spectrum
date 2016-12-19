@@ -48,7 +48,7 @@ end
 # NEXT-975 - Serial records coded as "monographic series."
 # Monographic Series should be treated as 'Journal/Periodical', and not Book.
 describe 'Format assignments for Monographic Series', :skip_travis do
-  bibList = [130062, 774424, 2237522, 3948829]
+  bibList = [774424, 2237522, 3948829]
   bibList.each do |bib|
 
     it "bib #{bib} should have format 'Journal/Periodical'" do

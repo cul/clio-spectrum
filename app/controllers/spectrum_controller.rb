@@ -63,10 +63,11 @@ class SpectrumController < ApplicationController
         end
       end.flatten
 
-      @action_has_async = true if @search_style == 'aggregate'
+      # @action_has_async = true if @search_style == 'aggregate'
 
-      if @search_style == 'aggregate' && !session[:async_off]
-        @action_has_async = true
+      # if @search_style == 'aggregate' && !session[:async_off]
+      #   @action_has_async = true
+      if @search_style == 'aggregate'
         @results = {}
         sources.each { |source| @results[source] = {} }
       else

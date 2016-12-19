@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   skip_authorization_check
 
   before_filter :apply_random_q
-  before_filter :trigger_async_mode
+  # before_filter :trigger_async_mode
   before_filter :trigger_debug_mode
   before_filter :by_source_config
   before_filter :log_additional_data
@@ -213,13 +213,13 @@ class ApplicationController < ActionController::Base
     search_engine
   end
 
-  def trigger_async_mode
-    if params.delete('async_off') == 'true'
-      session[:async_off] = true
-    elsif params.delete('async_on') == 'true'
-      session[:async_off] = nil
-    end
-  end
+  # def trigger_async_mode
+  #   if params.delete('async_off') == 'true'
+  #     session[:async_off] = true
+  #   elsif params.delete('async_on') == 'true'
+  #     session[:async_off] = nil
+  #   end
+  # end
 
   def trigger_debug_mode
     # RSolr::Client.send(:include, RSolr::Ext::Notifications)
@@ -269,16 +269,27 @@ class ApplicationController < ActionController::Base
   end
 
   def determine_active_source
-    return params['datasource'] if params.has_key? 'datasource'
+    # return params['datasource'] if params.has_key? 'datasource'
 
-    source_from_path = request.path.to_s.gsub(/^\//, '').gsub(/\/.*/, '')
-    # shelf-browse is part of the catalog datasource
-    if source_from_path == 'browse'
-      source_from_path = 'catalog'
+    # Try to find the datasource,
+    # first in the params,
+    # second in the path
+    source = if params.has_key? 'datasource'
+      params['datasource']
+    else
+      request.path.to_s.gsub(/^\//, '').gsub(/\/.*/, '')
     end
 
-    if DATASOURCES_CONFIG['datasources'].keys.include?(source_from_path)
-      return source_from_path
+    # Remap as necessary...
+    # shelf-browse is part of the catalog datasource
+    if source == 'browse'
+      source = 'catalog'
+    end
+
+    # If what we found is a real source, use it.
+    # Otherwise, fall back to quicksearch as a default.
+    if DATASOURCES_CONFIG['datasources'].has_key?(source)
+      return source
     else
       return 'quicksearch'
     end

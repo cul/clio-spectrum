@@ -16,21 +16,21 @@ describe 'Testing tibetan support', :skip_travis do
     expect(rank(resp, 2725279)).to be <= 1
   end
 
-  it "q of 'Gung-thang Bstan-pa'i-sgron-me'i gsung 'bum' should retrieve correct record" do
+  it "q of 'gun-than bstan-pa\'i-sgron-me\'i gsun \'bum' should retrieve correct record" do
     # unquoted
-    resp = solr_resp_doc_ids_only('q' => 'gung thang bstan pa\'i sgron me\'i gsung \'bum')
+    resp = solr_resp_doc_ids_only('q' => 'gun-than bstan-pa\'i-sgron-me\'i gsun \'bum')
     expect(rank(resp, 6074253)).to be <= 1
     # quoted
-    resp = solr_resp_doc_ids_only('q' => '"gung thang bstan pa\'i sgron me\'i gsung \'bum"')
+    resp = solr_resp_doc_ids_only('q' => '"gun-than bstan-pa\'i-sgron-me\'i gsun \'bum"')
     expect(rank(resp, 6074253)).to be <= 1
   end
 
-  it "q of 'Krung-go'i Bod kyi gso rig' should retrieve correct record" do
+  it "q of 'krun-go\'i bod kyi gso rig' should retrieve correct record" do
     # unquoted
-    resp = solr_resp_doc_ids_only('q' => 'krung go\'i bod kyi gso rig')
+    resp = solr_resp_doc_ids_only('q' => 'krun-go\'i bod kyi gso rig')
     expect(rank(resp, 6316211)).to be <= 1
     # quoted
-    resp = solr_resp_doc_ids_only('q' => '"krung go\'i bod kyi gso rig"')
+    resp = solr_resp_doc_ids_only('q' => '"krun-go\'i bod kyi gso rig"')
     expect(rank(resp, 6316211)).to be <= 1
   end
 
@@ -49,7 +49,7 @@ describe 'Testing tibetan support', :skip_travis do
     # # about the punctuation, I'm wild-carding it out and moving on.
 
     # put unicode into de-composed ("d") form to match against Solr reponse
-    normalized = 'gsal me long = Zang zu bu'.mb_chars.normalize(:d)
+    normalized = 'gsal me loṅ = Zang zu bu'.mb_chars.normalize(:d)
     expect(first['title_display'].first).to match /#{normalized}/
 
     normalized = 'gsal me loṅ = 藏族部落曼秀族谱明镜'.mb_chars.normalize(:d)
