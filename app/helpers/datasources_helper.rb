@@ -175,8 +175,10 @@ module DatasourcesHelper
     # Breck asks that we display hit-count for current source
     # fetch_hits = false if datasource == $active_source
 
-    fetch_hits = false if query.nil? || query.length < 2
-    fetch_hits = false if datasource == 'quicksearch'
+    # NEXT-1359 - hit counts
+    # fetch_hits = false if query.nil? || query.length < 2
+    # fetch_hits = false if datasource == 'quicksearch'
+
     fetch_hits = false if get_datasource_bar['major_sources'].exclude?(datasource)
     fetch_hits = false if get_datasource_bar['minor_sources'].include?(datasource)
 
