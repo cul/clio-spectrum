@@ -31,6 +31,8 @@ function parseResponse(bookInfo)
 
   var paragraph = document.createElement('p');
 
+  var hathiURL = document.createElement("a");
+
   /* You only get here if you have something to display
   if ( records.length == 0) {
     message = "No hathi trust record for this book";
@@ -57,16 +59,19 @@ function parseResponse(bookInfo)
   for (i in items)
   {
     // remember the best rights yet (none, limited, full)
-      if ( (items[i].usRightsString == "Full view") ||
-	   (items[i].usRightsString == "Full View") ) {
-      usRightsString = items[i].usRightsString;
+    if ( (items[i].usRightsString == "Full view") || (items[i].usRightsString == "Full View") ) {
+      // usRightsString = items[i].usRightsString;
     }
-    if (items[i].usRightsString != "Full View") {
-      if (usRightsString == "") { usRightsString = items[i].usRightsString; }
-    }
+
+    // NEXT-1357 - In Hathi Trust records, display only "Full View" links
+    // if (items[i].usRightsString != "Full View") {
+    //   if (usRightsString == "") { 
+    //     usRightsString = items[i].usRightsString;
+    //   }
+    // }
+
   }
 
-  var hathiURL = document.createElement("a");
   hathiURL.href = url;
   hathiURL.setAttribute("target", "_hathi");  // opens in a new window
   hathiDiv.appendChild(hathiURL);
@@ -76,7 +81,6 @@ function parseResponse(bookInfo)
   // Cleaner message?  Better HTML?
   textNode = document.createTextNode(usRightsString + " access at Hathi Trust");
   hathiURL.appendChild(textNode);
-
 
   // now display row
   // document.getElementById('hathi_holdings').style.display = '';
@@ -217,8 +221,9 @@ function isEmpty(obj) {
 
 
 
-$(document).ready(function() {
-  hathiBookSearch()
-});
+// $(document).ready(function() {
+//   alert("Redundant?")
+//   hathiBookSearch()
+// });
 
 
