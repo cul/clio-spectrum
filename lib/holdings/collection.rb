@@ -4,31 +4,22 @@ module Voyager
       attr_reader :records, :xml
 
 
-      # # Invoke GetHoldingsService
-      # def self.new_from_opac(bibid, conn = nil, url = VOYAGER_API_SERVER + VOYAGER_HOLDINGS_SERVICE)
-      #   conn ||= Voyager::Connection.new
-      #   Collection.new(conn.request(url, :bibId => bibid))
-      # end
+      def initialize(document, circ_status)
+        raise "Voyager::Holdings::Collection got nil/empty document" unless document
 
-      # # Convert raw xml from GetHoldingsService to xml record object
-      # def initialize(raw_xml)
-      #   raise "Voyager::Holdings::Collection got nil/empty raw_xml" unless raw_xml
-      #   # transform raw_xml String into Nokogiri XML Document
-      #   xml = Nokogiri::XML(raw_xml)
-      #   raise "Voyager::Holdings::Collection retrieved nil/invalid XML" unless xml and xml.root
-      # 
-      #   # transform raw_xml String into Nokogiri XML Document
-      #   @xml = add_xml_namespaces(xml)
-      #   parse_xml
-      # end
+        document_marc = document.to_marc
+        document_status = circ_status[document.id] || {}
+        # collect mfhd records
+        @records = []
+        document_marc.each_by_tag('852') do |t852|
+          # Sequence - MFHD ID used to gather all associated fields
+          mfhd_id = t852['0']
+          mfhd_status = document_status[mfhd_id] || {}
+          # Rails.logger.debug "parse_marc:  mfhd_id=[#{mfhd_id}]"
+          @records << Record.new(mfhd_id, document_marc, mfhd_status)
+        end
 
-      def self.new_from_marc(marc)
-        Collection.new(marc)
-      end
 
-      def initialize(marc)
-        raise "Voyager::Holdings::Collection got nil/empty marc" unless marc
-        parse_marc(marc)
       end
 
       # Generate output hash from Record class instances
@@ -65,8 +56,7 @@ module Voyager
           end
         end
 
-        output
-
+        output.with_indifferent_access
       end
 
       private
@@ -95,19 +85,18 @@ module Voyager
       #   adjust_services(@records) if @records.length > 1
       # end
 
-      def parse_marc(marc)
-        # Rails.logger.debug "parse_marc() marc:\n#{marc.inspect}\n"
-        # collect mfhd records
-        @records = []
-        marc.each_by_tag('852') do |t852|
-          # Sequence - MFHD ID used to gather all associated fields
-          mfhd_id = t852['0']
-          Rails.logger.debug "parse_marc:  mfhd_id=[#{mfhd_id}]"
-          @records << Record.new(mfhd_id, marc)
-        end
-        # raise
-
-      end
+      # def parse_marc(marc)
+      #   # Rails.logger.debug "parse_marc() marc:\n#{marc.inspect}\n"
+      #   # collect mfhd records
+      #   @records = []
+      #   marc.each_by_tag('852') do |t852|
+      #     # Sequence - MFHD ID used to gather all associated fields
+      #     mfhd_id = t852['0']
+      #     Rails.logger.debug "parse_marc:  mfhd_id=[#{mfhd_id}]"
+      #     @records << Record.new(mfhd_id, marc)
+      #   end
+      # 
+      # end
 
 
       # For records with multiple holdings, based on the overall content, adjust as follows:
@@ -135,35 +124,29 @@ module Voyager
       end
 
       def condense_holdings(holdings,options)
-
         # processing varies depending on complexity
         complexity = determine_complexity(holdings)
-        process_holdings(holdings,complexity,options)
-
+        process_holdings(holdings, complexity, options)
       end
 
       def determine_complexity(holdings)
-
         # holdings are complex if anything other than item_status has a value
-
         complexity = :simple
 
         holdings.each do |holding|
           if [:summary_holdings, :supplements, :indexes, :notes,
               :reproduction_note, :current_issues,
-              # TODO
-              # :temp_locations, :orders, 
+              :temp_locations,
+              :orders,
               :donor_info, :urls].any? { |key| !holding[key].empty?}
             complexity = :complex
           end
         end
 
         complexity
-
       end
 
       def process_holdings(holdings,complexity,options)
-
         entries = []
         holdings.each do |holding|
           # test for location and call number
@@ -239,11 +222,10 @@ module Voyager
         entries.each { |entry| entry[:services] = entry[:services].flatten.uniq }
 
         output_condensed_holdings(entries,options[:content_type])
-
       end
 
-      def add_holdings_elements(out,holding,type,message_type)
 
+      def add_holdings_elements(out,holding,type,message_type)
         case type
         when :current_issues
           out[type] = "Current Issues: " + holding[type].join(' -- ') unless holding[type].empty?
@@ -279,9 +261,8 @@ module Voyager
           out[type] = "Supplements: " + holding[type].join(' -- ') unless holding[type].empty?
         when :summary_holdings
           out[type] = "Library has: " + holding[type].join(' -- ') unless holding[type].empty?
-        # TODO
-        # when :temp_locations
-        #   out[type] = holding[type] unless holding[type].empty?
+        when :temp_locations
+          out[type] = holding[type] unless holding[type].empty?
         when :urls
           out[type] = holding[type] unless holding[type].empty?
         else

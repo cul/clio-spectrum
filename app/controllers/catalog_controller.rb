@@ -153,6 +153,14 @@ class CatalogController < ApplicationController
   def show
     @response, @document = fetch params[:id]
 # raise
+
+    circ_status = BackendController.circ_status(params[:id])
+
+    # Use static holdings data within MARC and dynamic circ status
+    # to build @holdings object
+    @holdings = Voyager::Holdings::Collection.new(@document, circ_status)
+    @holdings_hash = @holdings.to_hash(:output_type => :condensed, :message_type => :short_message)
+
     # In support of "nearby" / "virtual shelf browse", remember this bib
     # as our focus bib.
     session[:browse] = {} unless session[:browse].is_a?(Hash)

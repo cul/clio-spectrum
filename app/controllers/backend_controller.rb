@@ -2,16 +2,24 @@
 # holdings information.  The Backend Controller in turn makes calls to
 # a different web application, clio_backend, to get this data.
 class BackendController < ApplicationController
-  def url_for_id(id = nil)
-    # raise
+
+  def url_for_id(id)
+    BackendController.url_for_id(id)
+  end
+
+  def self.url_for_id(id = nil, action = 'retrieve')
     if clio_backend_url = APP_CONFIG['clio_backend_url']
-      return "#{clio_backend_url}/holdings/retrieve/#{id}"
+      return "#{clio_backend_url}/holdings/#{action}/#{id}"
     else
       fail 'clio_backend_url not found in APP_CONFIG'
     end
   end
 
-  def holdings_httpclient
+  def backend_httpclient
+    BackendController.backend_httpclient
+  end
+
+  def self.backend_httpclient
     hc = HTTPClient.new
     # The default is to wait 60/120 seconds - but we expect an instant response,
     # anything else means trouble, and we should give up immediately so as not
@@ -21,6 +29,34 @@ class BackendController < ApplicationController
     hc.receive_timeout = 10 # default 60
     hc
   end
+
+  # Need to support this kind of call:
+  # @circ_status = BackendController.circ_status(params[:id])
+
+  def self.circ_status(id)
+    unless id.match(/^\d+$/)
+      logger.error "BackendController#circ_status passed non-numeric id: #{id}"
+      return nil
+    end
+
+    backend_url = url_for_id(id, 'circ_status')
+    begin
+      json_results = backend_httpclient.get_content(backend_url)
+      backend_results = JSON.parse(json_results).with_indifferent_access
+    rescue => ex
+      logger.error "BackendController#circ_status #{ex} URL: #{backend_url}"
+      return nil
+    end
+
+    if backend_results.nil? or backend_results.empty?
+      logger.error "BackendController#circ_status URL: #{backend_url} nothing returned"
+      return nil
+    end
+
+    # data retrieved successfully...
+    return backend_results
+  end
+
 
   def holdings
     @id = params[:id]
@@ -32,19 +68,16 @@ class BackendController < ApplicationController
 
     backend_url = url_for_id(@id)
     begin
-      json_holdings = holdings_httpclient.get_content(backend_url)
+      json_holdings = backend_httpclient.get_content(backend_url)
       backend_holdings = JSON.parse(json_holdings)[@id]
     rescue HTTPClient::BadResponseError => ex
       logger.error "BackendController#holdings HTTPClient::BadResponseError URL: #{backend_url}  Exception: #{ex}"
-      # render nothing: true and return
       head :bad_request and return
     rescue HTTPClient::ReceiveTimeoutError => ex
       logger.error "HTTPClient::ReceiveTimeoutError URL: #{backend_url}"
-      # render nothing: true and return
       head :bad_request and return
     rescue => ex
       logger.error "BackendController error fetching holdings from #{backend_url}: #{ex.message}"
-      # render nothing: true and return
       head :bad_request and return
     end
 
@@ -53,25 +86,25 @@ class BackendController < ApplicationController
       render nothing: true and return
     end
 
-    # # data retrieved successfully!  render an html snippet.
-    # render 'backend/holdings', locals: {holdings: backend_holdings}, layout: false
+    # data retrieved successfully!  render an html snippet.
+    render 'backend/holdings', locals: {holdings: backend_holdings}, layout: false
 
-    # HOLDINGS REVISION PROJECT
-    # fetch holdings from solr document
-    @response, @document = fetch params[:id]
-    solr_holdings = get_document_holdings(@document)
-    if solr_holdings.nil?
-      logger.debug "BackendController#holdings: no solr holdings for id: #{@id}"
-    end
+    # # HOLDINGS REVISION PROJECT
+    # # fetch holdings from solr document
+    # @response, @document = fetch params[:id]
+    # solr_holdings = get_document_holdings(@document)
+    # if solr_holdings.nil?
+    #   logger.debug "BackendController#holdings: no solr holdings for id: #{@id}"
+    # end
+    # 
+    # # Render BOTH holdings blocks, one on top of the other
+    # render 'backend/holdings', locals: {backend_holdings: backend_holdings, solr_holdings: solr_holdings}, layout: false
 
-    # Render BOTH holdings blocks, one on top of the other
-    render 'backend/holdings', locals: {backend_holdings: backend_holdings, solr_holdings: solr_holdings}, layout: false
-
-    if backend_holdings != solr_holdings
-      logger.debug "Holdings Mismatch"
-      logger.debug "backend holdings:\n#{backend_holdings.inspect}\n"
-      logger.debug "solr holdings:\n#{solr_holdings.inspect}\n"
-    end
+    # if backend_holdings != solr_holdings
+    #   logger.debug "Holdings Mismatch"
+    #   logger.debug "backend holdings:\n#{backend_holdings.inspect}\n"
+    #   logger.debug "solr holdings:\n#{solr_holdings.inspect}\n"
+    # end
   end
 
   private

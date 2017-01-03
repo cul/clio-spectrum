@@ -1,23 +1,17 @@
 module Voyager
   module Holdings
     class Record
-      attr_reader :holding_id, :location_name, :call_number, :summary_holdings, :notes_852, :notes_866, :notes,
-                  :shelving_title, :supplements, :indexes, :reproduction_note, :urls, :item_count, :temp_locations,
-                  :item_status, :orders, :current_issues, :services, :bibid, :donor_info, :location_note, :temp_loc_flag
+      attr_reader :holding_id, :location_name, :call_number,
+                  :summary_holdings, :notes_852, :notes_866, :notes,
+                  :shelving_title, :supplements, :indexes,
+                  :reproduction_note, :urls, :item_count, :temp_locations,
+                  :item_status, :orders, :current_issues, :services,
+                  :bibid, :donor_info, :location_note, :temp_loc_flag
 
-      # # Record class initializing method
-      # # Populates instance variables from the mfhd:marcRecord node of the mfhd:mfhdRecord node.
-      # # Also instantiates Otem and Order classes for the mfhd:mfhdRecord node.
-      # #
-      # # * *Args*    :
-      # #   - +xml_node+ -> mfhd:mfhdRecord node
-      # #
-      # def initialize(xml_node,leader)
-
-      def initialize(mfhd_id, marc)
+      def initialize(mfhd_id, marc, mfhd_status)
         @bibid = marc['001'].value
         @holding_id = mfhd_id
-
+# raise
         tag852 = nil
         marc.each_by_tag('852') do |this852|
           tag852 = this852 if this852['0'] == mfhd_id
@@ -28,19 +22,10 @@ module Voyager
           tag866 = this866 if this866['0'] == mfhd_id
         end
 
-        # @location_name = xml_node.at_css("mfhd|mfhdData[@name='locationDisplayName']").content
         @location_name = tag852['a']
-        # location_code = xml_node.at_css("mfhd|mfhdData[@name='locationCode']").content
         location_code = tag852['b']
-        # create_operator_id = xml_node.at_css("mfhd|mfhdData[@name='createOperatorId']").content
-        # # marc record node
-        # marc = xml_node.at_css("mfhd|marcRecord")
-        # 
-        # # 852 holdings tag node
-        # tag852 = marc.at_css("slim|datafield[@tag='852']")
-        # # 866 holdings tag node
-        # tag866 = marc.css("slim|datafield[@tag='866']")
 
+        # create_operator_id = xml_node.at_css("mfhd|mfhdData[@name='createOperatorId']").content
 
         @call_number = parse_call_number(tag852)    # string
         @summary_holdings = parse_summary_holdings(tag866)  # array
@@ -53,19 +38,11 @@ module Voyager
         holdings_tags = ['867', '868',
                          '876',
                          '891', '892', '893', '894', '895']
-        # holdings_fields = marc(holdings_tags).select { |tag|
-        #   tag['0'] == mfhd_id
-        # }
-
-        # holdings_fields = []
 
         holdings_marc = MARC::Record.new()
         marc.each_by_tag(holdings_tags) do |tag|
-          # push(holdings_fields, tag) if tag['0'] == mfhd_id
           holdings_marc.append(tag) if tag['0'] == mfhd_id
         end
-
-        # holdings_marc = MARC::Record.new(holdings_fields)
 
         # 867$a
         @supplements = parse_supplements(holdings_marc)    # array
@@ -82,36 +59,37 @@ module Voyager
 
         # information from item level records
         # item = Item.new(xml_node,@location_name)
-        item = Item.new(mfhd_id, holdings_marc)
+        item = Item.new(mfhd_id, holdings_marc, mfhd_status)
 
         @item_count = item.item_count
-        # TODO
-        # @temp_locations = item.temp_locations
+
+        @temp_locations = item.temp_locations
         @item_status = item.item_status
 
         # TODO
-        # # flag for services processing (doc_delivery assignment)
-        # # NEXT-1234: revised logic
-        # @temp_loc_flag = 'N'
-        # unless @temp_locations.empty?
-        #   # if all items have temp locations we can't determine doc delivery status (no location codes available in item information) 
-        #   @temp_loc_flag = 'Y' if @temp_locations.length.to_s == @item_count
-        #   # special case for single temp location
-        #   if @item_count == '1'
-        #     # # temp location begins 'Shelved in' if it is not for a part
-        #     # if @temp_locations.first.match(/^Shelved/)
-        #     #   # remove 'Shelved in' and replace location_name with temp location
-        #     #   @location_name = @temp_locations.first.gsub(/^Shelved in /, '')
-        #     #   @temp_locations.clear
-        #     # end
-        #     # itemLabel will be empty if it is not for a part
-        #     if @temp_locations.first[:itemLabel].nil? ||  @temp_locations.first[:itemLabel].length == 0
-        #       # replace location_name with temp location, clear temp location
-        #         @location_name = @temp_locations.first[:tempLocation]
-        #         @temp_locations.clear
-        #     end
-        #   end
-        # end
+        # flag for services processing (doc_delivery assignment)
+        # NEXT-1234: revised logic
+        @temp_loc_flag = 'N'
+        if @temp_locations.size > 0
+
+          # if all items have temp locations we can't determine doc delivery status (no location codes available in item information) 
+          @temp_loc_flag = 'Y' if @temp_locations.length == @item_count
+          # special case for single temp location
+          if @item_count == 1
+            # # temp location begins 'Shelved in' if it is not for a part
+            # if @temp_locations.first.match(/^Shelved/)
+            #   # remove 'Shelved in' and replace location_name with temp location
+            #   @location_name = @temp_locations.first.gsub(/^Shelved in /, '')
+            #   @temp_locations.clear
+            # end
+            # itemLabel will be empty if it is not for a part
+            if @temp_locations.first[:itemLabel].nil? ||  @temp_locations.first[:itemLabel].length == 0
+              # replace location_name with temp location, clear temp location
+                @location_name = @temp_locations.first[:tempLocation]
+                @temp_locations.clear
+            end
+          end
+        end
 
         # set item status for online items
         if @location_name.match(/^Online/)
@@ -119,11 +97,11 @@ module Voyager
           @item_status[:messages].clear
         end
 
-        # # information from order/receipt records
-        # order = Order.new(xml_node)
+        # information from order/receipt records
         order = Order.new(holdings_marc)
 
         @current_issues = order.current_issues
+
         # TODO
         # @orders = order.orders
 
@@ -171,11 +149,11 @@ module Voyager
           :urls => @urls,
           :donor_info => @donor_info,
           :item_count => @item_count,
-          # :temp_locations => @temp_locations,
+          :temp_locations => @temp_locations,
           :item_status => @item_status,
           :services => @services,
           :current_issues => @current_issues,
-          # :orders => @orders
+          :orders => @orders
         }
       end
 
@@ -203,7 +181,7 @@ module Voyager
         # m = tag852.css("slim|subfield[@code='m']").collect { |subfield| subfield.content }
 
         # subfields need to be output in this order even though they may not appear in this order
-        [k,g,h,i,m].flatten.join(' ')
+        [k,g,h,i,m].flatten.join(' ').strip
 
       end
 
@@ -220,6 +198,7 @@ module Voyager
 
         summary = tag866.subfields.collect {|s| s.value if s.code == 'a'}
         summary.compact.collect { |subfield| subfield.strip }
+        # raise
       end
 
       # Extract public notes from 852 field, subfield z
