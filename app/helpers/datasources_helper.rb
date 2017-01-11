@@ -183,7 +183,7 @@ module DatasourcesHelper
     fetch_hits = false if get_datasource_bar['minor_sources'].include?(datasource)
 
     # NEXT-1366 - zero hit count for website null search
-    fetch_hits = false if datasource = 'library_web' && (query.nil? || query.empty?)
+    fetch_hits = false if (datasource == 'library_web' && (query.nil? || query.empty?))
 
     if fetch_hits
       hits_url = spectrum_hits_path(datasource: datasource, q: query, new_search: true)
