@@ -185,6 +185,11 @@ module DatasourcesHelper
     # NEXT-1366 - zero hit count for website null search
     fetch_hits = false if (datasource == 'library_web' && (query.nil? || query.empty?))
 
+    # NEXT-1368 - suppress data source hit counts in certain situations
+    # If the params have any of the no-hits keys, don't do hits.
+    no_hits = [ 'f', 'range', ]
+    fetch_hits = false if no_hits.any? { |nope| params.key? nope }
+
     if fetch_hits
       hits_url = spectrum_hits_path(datasource: datasource, q: query, new_search: true)
       hits_data = { hits_url: hits_url }
