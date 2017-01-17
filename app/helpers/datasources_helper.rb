@@ -63,7 +63,7 @@ module DatasourcesHelper
   def add_datasources(active_source = $active_source)
     options = {
       active_source: active_source,
-      query: params['q'] || params['s.q'] || ''
+      query: params['q'] || params['s.q'] || nil
     }
 
     has_facets = source_has_facets?(active_source)
@@ -215,13 +215,20 @@ module DatasourcesHelper
 
 
 
-  def datasource_landing_page_path(source, query = '')
+  def datasource_landing_page_path(source, query = nil)
     # What parts of a query should we carry-over between data-sources?
     # -- Any basic query term, yes, query it against the newly selected datasources
     # -- Any facets?  No, Drop them, clear all filtering when switching datasources.
-    # NEXT-954 - Improve Landing Page access
-    if query.empty?
-      # Don't carry-over the null query, just link to new datasource's landing page
+
+    # # NEXT-954 - Improve Landing Page access
+    # if query.empty?
+    #   # Don't carry-over the null query, just link to new datasource's landing page
+    #   return "/#{source}"
+    # end
+
+    # NEXT-1367 - Re-execute null search in new datasources
+    if query.nil?
+      # When there's no query, link to datasource's landing page
       return "/#{source}"
     end
 
