@@ -7,15 +7,7 @@
     = render partial: '/datasource_warning', locals: {warning: warning}
 
     %p Quicksearch performs a combined search of:
-    %ul
-      %li #{datasource_switch_link('Catalog', 'catalog')} (books, journals, online resources, videos, and more)
-      %li #{datasource_switch_link('Articles', 'articles')} (journal articles, e-books, dissertations, and more)
-      %li #{datasource_switch_link('Academic Commons', 'academic_commons')} (digital repository of Columbia research)
-      %li #{datasource_switch_link('Libraries Website', 'library_web')} (Information about the libraries from the Libraries Website)
-      %li #{datasource_switch_link('GeoData', 'geo')} (Columbia's catalog of geospatial data sets)
-
-    %br
-    %p Quicksearch performs a combined search of:
+ 
     %dl.dl-horizontal
       %dt #{datasource_switch_link('Catalog', 'catalog')}
       %dd Books, journals, online resources, videos, and more
