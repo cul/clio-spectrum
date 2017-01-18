@@ -190,6 +190,10 @@ module DatasourcesHelper
     no_hits = [ 'f', 'range', ]
     fetch_hits = false if no_hits.any? { |nope| params.key? nope }
 
+    # I'm having trouble generating accurate hit-counts for Summon queries.
+    # Disable for now.
+    fetch_hits = false if datasource == 'articles'
+
     if fetch_hits
       hits_url = spectrum_hits_path(datasource: datasource, q: query, new_search: true)
       hits_data = { hits_url: hits_url }
