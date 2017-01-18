@@ -191,8 +191,8 @@ module DatasourcesHelper
     fetch_hits = false if no_hits.any? { |nope| params.key? nope }
 
     # I'm having trouble generating accurate hit-counts for Summon queries.
-    # Disable for now.
-    fetch_hits = false if datasource == 'articles'
+    # Disable for now - show no hitcounts within Summon
+    fetch_hits = false if $active_source == 'articles'
 
     if fetch_hits
       hits_url = spectrum_hits_path(datasource: datasource, q: query, new_search: true)
