@@ -15,12 +15,13 @@ describe 'Anchored searches', :skip_travis do
       expect(rank(resp, 6613582)).to be <= 3
       expect(rank(resp, 8364149)).to be <= 3
       expect(rank(resp, 10026137)).to be <= 3
+      expect(rank(resp, 12309484)).to be <= 4
 
       # NOT:  "Wills hospital eye manual for nurses"
       expect(rank(resp, 4019811)).to be > 3
 
       # If we ever get more in our catalog, bump this up.
-      expect(resp.size).to eq 3
+      expect(resp.size).to eq 4
     }
 
   end

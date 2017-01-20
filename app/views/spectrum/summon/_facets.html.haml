@@ -2,18 +2,18 @@
 -# FACETS FOR ARTICLES DATASOURCE (SUMMON)
 
 #facets.facets.sidenav
-  -# %h4{:'data-target' => '.summon-facets-collapse', :'data-toggle'=> "collapse"}
-  -#   %a.btn.btn-navbar
-  -#     %span.icon-bar
-  -#     %span.icon-bar
-  -#   Refine
-  .top-panel-heading.panel-heading
-    %button.facets-toggle{type: 'button', data: {toggle: 'collapse', target: '#facet-panel-collapse'}}
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
 
-    %h4 Refine
+  -# .top-panel-heading.panel-heading
+  -#   %button.facets-toggle{type: 'button', data: {toggle: 'collapse', target: '#facet-panel-collapse'}}
+  -#     %span.icon-bar
+  -#     %span.icon-bar
+  -#     %span.icon-bar
+  -# 
+  -#   %h4 Refine
+
+  .top-panel-heading.panel-heading.clearfix{style: 'border: 0px;'}
+    .visible-xs.facets-toggle{type: 'button', data: {toggle: 'collapse', target: '#facet-panel-collapse'}}
+      Refine your search
   
   #facet-panel-collapse.collapse.panel-group
 

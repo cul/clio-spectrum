@@ -316,7 +316,6 @@ datasources:
     # warning: Datasource Unavailable
     render_options:
       format: geo
-    no_facets: true
     search_box:
       route: geo_index_path
       placeholder: Geographic names, subjects

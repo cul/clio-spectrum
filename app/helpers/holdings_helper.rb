@@ -372,7 +372,7 @@ module HoldingsHelper
     http_client.send_timeout    = 5 # default 120
     http_client.receive_timeout = 5 # default 60
 
-    Rails.logger.debug "get_content(#{hathi_brief_url})"
+    Rails.logger.debug "fetch_hathi_brief() get_content(#{hathi_brief_url})"
     begin
       json_data = http_client.get_content(hathi_brief_url)
       hathi_holdings_data = JSON.parse(json_data)
@@ -383,6 +383,13 @@ module HoldingsHelper
       return nil unless hathi_holdings_data &&
                         hathi_holdings_data['records'] &&
                         hathi_holdings_data['records'].size > 0
+
+      # Only build Hathi display if we have 'Full view' records
+      found_full_view = hathi_holdings_data['items'].any? { |item|
+        item['usRightsString'].casecmp("Full view").zero?
+      }
+      return nil unless found_full_view
+
       return hathi_holdings_data
     rescue => error
       Rails.logger.error "Error fetching #{hathi_brief_url}: #{error.message}"

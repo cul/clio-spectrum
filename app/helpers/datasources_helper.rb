@@ -63,7 +63,7 @@ module DatasourcesHelper
   def add_datasources(active_source = $active_source)
     options = {
       active_source: active_source,
-      query: params['q'] || params['s.q'] || ''
+      query: params['q'] || params['s.q'] || nil
     }
 
     has_facets = source_has_facets?(active_source)
@@ -175,10 +175,24 @@ module DatasourcesHelper
     # Breck asks that we display hit-count for current source
     # fetch_hits = false if datasource == $active_source
 
-    fetch_hits = false if query.nil? || query.length < 2
-    fetch_hits = false if datasource == 'quicksearch'
+    # NEXT-1359 - hit counts
+    # fetch_hits = false if query.nil? || query.length < 2
+    # fetch_hits = false if datasource == 'quicksearch'
+
     fetch_hits = false if get_datasource_bar['major_sources'].exclude?(datasource)
     fetch_hits = false if get_datasource_bar['minor_sources'].include?(datasource)
+
+    # NEXT-1366 - zero hit count for website null search
+    fetch_hits = false if (datasource == 'library_web' && (query.nil? || query.empty?))
+
+    # NEXT-1368 - suppress data source hit counts in certain situations
+    # If the params have any of the no-hits keys, don't do hits.
+    no_hits = [ 'f', 'range', ]
+    fetch_hits = false if no_hits.any? { |nope| params.key? nope }
+
+    # I'm having trouble generating accurate hit-counts for Summon queries.
+    # Disable for now - show no hitcounts within Summon
+    fetch_hits = false if $active_source == 'articles'
 
     if fetch_hits
       hits_url = spectrum_hits_path(datasource: datasource, q: query, new_search: true)
@@ -205,13 +219,20 @@ module DatasourcesHelper
 
 
 
-  def datasource_landing_page_path(source, query = '')
+  def datasource_landing_page_path(source, query = nil)
     # What parts of a query should we carry-over between data-sources?
     # -- Any basic query term, yes, query it against the newly selected datasources
     # -- Any facets?  No, Drop them, clear all filtering when switching datasources.
-    # NEXT-954 - Improve Landing Page access
-    if query.empty?
-      # Don't carry-over the null query, just link to new datasource's landing page
+
+    # # NEXT-954 - Improve Landing Page access
+    # if query.empty?
+    #   # Don't carry-over the null query, just link to new datasource's landing page
+    #   return "/#{source}"
+    # end
+
+    # NEXT-1367 - Re-execute null search in new datasources
+    if query.nil?
+      # When there's no query, link to datasource's landing page
       return "/#{source}"
     end
 
