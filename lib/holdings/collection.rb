@@ -134,11 +134,11 @@ module Voyager
         complexity = :simple
 
         holdings.each do |holding|
-          if [:summary_holdings, :supplements, :indexes, :notes,
+          if [:summary_holdings, :supplements, :indexes, :public_notes,
               :reproduction_note, :current_issues,
               :temp_locations,
               :orders,
-              :donor_info, :urls].any? { |key| !holding[key].empty?}
+              :donor_info, :urls].any? { |key| holding[key].present?}
             complexity = :complex
           end
         end
@@ -204,7 +204,7 @@ module Voyager
               end
             end
             # add other elements to :copies array
-            [:current_issues, :donor_info, :indexes, :notes, :orders, :reproduction_note, :supplements,
+            [:current_issues, :donor_info, :indexes, :public_notes, :orders, :reproduction_note, :supplements,
               :summary_holdings, :temp_locations, :urls].each { |type| add_holdings_elements(out,holding,type,options[:message_type]) }
 
             entry[:copies] << out
@@ -247,7 +247,7 @@ module Voyager
           end
         when :indexes
           out[type] = "Indexes: " + holding[type].join(' -- ') unless holding[type].empty?
-        when :notes
+        when :public_notes
           out[type] = "Notes: " + holding[type].join(' -- ') unless holding[type].empty?
         # TODO
         # when :orders

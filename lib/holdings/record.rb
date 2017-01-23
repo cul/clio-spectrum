@@ -2,7 +2,7 @@ module Voyager
   module Holdings
     class Record
       attr_reader :holding_id, :location_name, :call_number,
-                  :summary_holdings, :notes_852, :notes_866, :notes,
+                  :summary_holdings, :public_notes,
                   :shelving_title, :supplements, :indexes,
                   :reproduction_note, :urls, :item_count, :temp_locations,
                   :item_status, :orders, :current_issues, :services,
@@ -17,9 +17,14 @@ module Voyager
           tag852 = this852 if this852['0'] == mfhd_id
         end
 
-        tag866 = nil
+        tag866list = []
         marc.each_by_tag('866') do |this866|
-          tag866 = this866 if this866['0'] == mfhd_id
+          tag866list.push(this866) if this866['0'] == mfhd_id
+        end
+
+        tag890list = []
+        marc.each_by_tag('890') do |this890|
+          tag890list.push(this890) if this890['0'] == mfhd_id
         end
 
         @location_name = tag852['a']
@@ -28,11 +33,12 @@ module Voyager
         # create_operator_id = xml_node.at_css("mfhd|mfhdData[@name='createOperatorId']").content
 
         @call_number = parse_call_number(tag852)    # string
-        @summary_holdings = parse_summary_holdings(tag866)  # array
-        @notes_852 = parse_notes_852(tag852)    # array
-        @notes_866 = parse_notes_866(tag866)    # array
+        @summary_holdings = parse_summary_holdings(tag866list)  # array
+        # @notes_852 = parse_notes_852(tag852)    # array
+        # @notes_866 = parse_notes_866(tag866list)    # array
         # combine notes into a single array
-        @notes = @notes_852 + @notes_866        # array
+        # @public_notes = @notes_852 + @notes_866        # array
+        @public_notes = parse_public_notes(tag890list)        # array
         @shelving_title = parse_shelving_title(tag852)  # string
 
         holdings_tags = ['867', '868',
@@ -124,7 +130,7 @@ module Voyager
 
         # TODO
         # add available services
-        # @services = determine_services(@location_name,location_code,@temp_loc_flag,@call_number,@item_status,@orders,@bibid,fmt)
+        @services = determine_services(@location_name,location_code,@temp_loc_flag,@call_number,@item_status,@orders,@bibid,fmt)
 
       end
 
@@ -144,7 +150,7 @@ module Voyager
           :summary_holdings => @summary_holdings,
           :supplements => @supplements,
           :indexes => @indexes,
-          :notes => @notes,
+          :public_notes => @public_notes,
           :reproduction_note => @reproduction_note,
           :urls => @urls,
           :donor_info => @donor_info,
@@ -188,61 +194,81 @@ module Voyager
       # Extract summary holdings from 866 field
       #
       # * *Args*    :
-      #   - +tag866+ -> 866 field node; repeatable
+      #   - +tag866list+ -> Array of 866 field nodes, 
       # * *Returns* :
       #   - Array of summary holdings statements
       #   - Empty array if there are no summary holdings
       #
-      def parse_summary_holdings(tag866)
-        return [] unless tag866 && tag866['a']
+      def parse_summary_holdings(tag866list)
+        return [] unless tag866list && tag866list.size > 0
 
-        summary = tag866.subfields.collect {|s| s.value if s.code == 'a'}
-        summary.compact.collect { |subfield| subfield.strip }
+        summary = tag866list.collect { |tag866|
+          tag866.subfields.select {|s| s.code == 'a'  && ! s.value.empty?}.collect{|s| s.value }
+        }.flatten
+
+# raise
+        # summary = tag866.subfields.collect {|s| s.value if s.code == 'a'}
+        # summary.compact.collect { |subfield| subfield.strip }
         # raise
       end
 
-      # Extract public notes from 852 field, subfield z
-      #
-      # * *Args*    :
-      #   - +tag852+ -> 852 field node; not repeatable
-      # * *Returns* :
-      #   - Array of note statements
-      #   - Empty array if there are no notes
-      #
-      def parse_notes_852(tag852)
-        return [] unless tag852 && tag852['z']
+      def parse_public_notes(tag890list)
+        return [] unless tag890list && tag890list.size > 0
 
-        notes = tag852.subfields.collect {|s| s.value if s.code == 'z'}
-        notes.compact.collect { |subfield| subfield.strip }
-
-        # subz = tag852.css("slim|subfield[@code='z']")
-        # # there can be multiple z's
-        # subz.collect { |subfield| subfield.content }
-      end
-
-      # Extract public notes from 866 fields, subfield z
-      #
-      # * *Args*    :
-      #   - +tag866+ -> 866 field node; repeatable
-      # * *Returns* :
-      #   - Array of note statements
-      #   - Empty array if there are no notes
-      #
-      def parse_notes_866(tag866)
-        return [] unless tag866 && tag866['z']
-
-        notes = tag866.subfields.collect {|s| s.value if s.code == 'z'}
-        notes.compact.collect { |subfield| subfield.strip }
-
-        # return [] unless tag866
-        # 
-        # notes = tag866.collect do |field|
-        #   field.at_css("slim|subfield[@code='z']")
-        # end
-        # 
-        # notes.compact.collect { |subfield| subfield.content }
+        public_notes = tag890list.collect { |tag890|
+          tag890.subfields.select {|s| s.code == 'a'  && ! s.value.empty?}.collect{|s| s.value }
+        }.flatten
 
       end
+
+      # # Extract public notes from 852 field, subfield z
+      # #
+      # # * *Args*    :
+      # #   - +tag852+ -> 852 field node; not repeatable
+      # # * *Returns* :
+      # #   - Array of note statements
+      # #   - Empty array if there are no notes
+      # #
+      # def parse_notes_852(tag852)
+      #   return [] unless tag852 && tag852['z']
+      # 
+      #   notes = tag852.subfields.collect {|s| s.value if s.code == 'z'}
+      #   notes.compact.collect { |subfield| subfield.strip }
+      # 
+      #   # subz = tag852.css("slim|subfield[@code='z']")
+      #   # # there can be multiple z's
+      #   # subz.collect { |subfield| subfield.content }
+      # end
+      # 
+      # # Extract public notes from 866 fields, subfield z
+      # #
+      # # * *Args*    :
+      # #   - +tag866+ -> 866 field node; repeatable
+      # # * *Returns* :
+      # #   - Array of note statements
+      # #   - Empty array if there are no notes
+      # #
+      # def parse_notes_866(tag866list)
+      #   return [] unless tag866list && tag866list.size > 0
+      # 
+      #   summary = tag866list.collect { |tag866|
+      #     tag866.subfields.select {|s| s.code == 'z'  && ! s.value.empty?}.collect{|s| s.value }
+      #   }.flatten
+      # 
+      #   # return [] unless tag866 && tag866['z']
+      #   # 
+      #   # notes = tag866.subfields.collect {|s| s.value if s.code == 'z'}
+      #   # notes.compact.collect { |subfield| subfield.strip }
+      # 
+      #   # return [] unless tag866
+      #   # 
+      #   # notes = tag866.collect do |field|
+      #   #   field.at_css("slim|subfield[@code='z']")
+      #   # end
+      #   # 
+      #   # notes.compact.collect { |subfield| subfield.content }
+      # 
+      # end
 
       # Extract shelving title
       #
@@ -545,11 +571,11 @@ module Voyager
 
         location_note
       end
-      
+
+
       def determine_services(location_name,location_code,temp_loc_flag,call_number,item_status,orders,bibid,fmt)
-        
         services = []
-        
+
         # NEXT-1229 - make this the first test
         # special collections request service [only service available for items from these locations]
         if ['rbx','off,rbx','rbms','off,rbms','rbi','uacl','off,uacl','clm','dic','dic4off','gax','oral',
@@ -557,7 +583,7 @@ module Voyager
           return ['spec_coll']
         end
 
-        unless orders.empty?
+        if orders.present?
           orders.each do |order|
             parms = ORDER_STATUS_CODES[order[:status_code]]
             raise "Status code not found in config/order_status_codes.yml" unless parms
@@ -570,7 +596,7 @@ module Voyager
 
         status = item_status[:status]
         messages = item_status[:messages]
-        
+
         case status
         when 'online'
         when 'none'
@@ -583,34 +609,37 @@ module Voyager
           services << scan_messages(messages)
         else
         end
-        
+
         services = services.flatten.uniq
-        
+
         # only provide borrow direct request for printed books and scores
         unless fmt == 'am' || fmt == 'cm'
           services.delete('borrow_direct')
         end
-        
+
         services
-        
+
       end
-      
+
+
       def process_for_services(location_name,location_code,temp_loc_flag,bibid,messages)
-        
+
         services = []
+# raise
         # offsite
         if location_name.match(/^Offsite/) &&
             HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + bibid) == "1"
           services << 'offsite'
+
         # precat
         elsif location_name.match(/^Precat/)
            services << 'precat'
+
         # doc delivery
-        # bar,mil added
-        # glxn added
-        # bar added
-        elsif ['glx','mil','ave','avelc','bar','bar,mil','bus','eal','eax','eng','fax','faxlc','glg','glxn','gsc','jou','leh',
-          'mat','leh,bdis','mus','sci','swx','uts','uts,per','uts,unn','war'].include?(location_code) &&
+        elsif ['ave', 'avelc', 'bar', 'bar,mil', 'bus', 'eal', 'eax', 'eng',
+               'fax', 'faxlc', 'glg', 'glx', 'glxn', 'gsc', 'jou',
+               'leh', 'leh,bdis', 'mat', 'mil', 'mus', 'sci', 'swx',
+               'uts', 'uts,per', 'uts,unn', 'war' ].include?(location_code) &&
           temp_loc_flag == 'N'
           services << 'doc_delivery'
         end
@@ -618,9 +647,10 @@ module Voyager
         services << scan_messages(messages) unless messages.empty?
 
         services
-        
+
       end
-      
+
+
       def scan_messages(messages)
         services = []
         messages.each do |message|
@@ -635,8 +665,8 @@ module Voyager
         end
         services
       end
-      
-      
+
+
       def scan_message(message)
 
         out = []
@@ -649,8 +679,8 @@ module Voyager
         out
 
       end
-      
+
     end
-    
+
   end
 end

@@ -1,0 +1,25 @@
+'0':
+    short_message: 'In the Pre-Order Process'
+    long_message: 'In the Pre-Order Process. Try Borrow Direct or ILL.'
+    services:
+        -   borrow_direct
+        -   ill
+'1':
+    short_message: 'Received %DATE'
+    long_message: 'Received %DATE. Place an In Process item request.'
+    services:
+        -   in_process
+'4':
+    short_message: 'Not yet received; claimed %DATE'
+    long_message: 'Not yet received; claimed %DATE. Try Borrow Direct or ILL.'
+    services:
+        -   on_order
+        -   borrow_direct
+        -   ill
+'8':
+    short_message: 'Copy On Order %DATE'
+    long_message: 'Copy On Order %DATE. Try Borrow Direct or ILL.'
+    services:
+        -   on_order
+        -   borrow_direct
+        -   ill

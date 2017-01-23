@@ -64,7 +64,7 @@
 
         - if copy['donor_info_icon'].present?
           .donor_info
-            = render 'donor_info', copy: copy
+            = render 'catalog/donor_info', copy: copy
 
         -# Different 'urls' with a 'copy' have different details...
         - if copy['urls'].present?
