@@ -8,6 +8,7 @@ module Voyager
                   :item_status, :orders, :current_issues, :services,
                   :bibid, :donor_info, :location_note, :temp_loc_flag
 
+
       def initialize(mfhd_id, marc, mfhd_status)
         @bibid = marc['001'].value
         @holding_id = mfhd_id
@@ -72,7 +73,6 @@ module Voyager
         @temp_locations = item.temp_locations
         @item_status = item.item_status
 
-        # TODO
         # flag for services processing (doc_delivery assignment)
         # NEXT-1234: revised logic
         @temp_loc_flag = 'N'
@@ -128,7 +128,6 @@ module Voyager
         # get format codes from leader
         fmt = marc.leader[6..7]
 
-        # TODO
         # add available services
         @services = determine_services(@location_name,location_code,@temp_loc_flag,@call_number,@item_status,@orders,@bibid,fmt)
 
@@ -644,10 +643,9 @@ module Voyager
           services << 'doc_delivery'
         end
 
-        services << scan_messages(messages) unless messages.empty?
+        services += scan_messages(messages) if messages.present?
 
         services
-
       end
 
 

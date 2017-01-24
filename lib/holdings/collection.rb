@@ -19,6 +19,7 @@ module Voyager
           @records << Record.new(mfhd_id, document_marc, mfhd_status)
         end
 
+        adjust_services(@records) if @records.length > 1
 
       end
 
