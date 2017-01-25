@@ -41,6 +41,7 @@ datasources:
         s.fq[ISSN]: ISSN
 
   summon_dissertations:
+    supersource: articles
     name: Articles
     title: Summon
     description: Dissertations and theses from the Articles database. Many are full-text.
@@ -63,6 +64,7 @@ datasources:
         s.fq[ISSN]: ISSN
 
   summon_ebooks:
+    supersource: articles
     name: Articles
     title: Summon
     description: E-books from the Articles database
@@ -132,6 +134,7 @@ datasources:
         location: Location
 
   catalog_dissertations:
+    supersource: catalog
     name: Catalog
     title: Catalog
     description: Dissertations from the library catalog
@@ -165,6 +168,7 @@ datasources:
         location: Location
 
   catalog_ebooks:
+    supersource: catalog
     name: Catalog
     title: Catalog
     description: E-books from the library catalog
@@ -279,6 +283,7 @@ datasources:
         subject: Subject
 
   ac_dissertations:
+    supersource: academic_commons
     name: Academic Commons
     title: Academic Commons
     description: Dissertations deposited in Columbia's digital repository, primarily 2011-present.

@@ -289,7 +289,13 @@ class ApplicationController < ActionController::Base
     # If what we found is a real source, use it.
     # Otherwise, fall back to quicksearch as a default.
     if DATASOURCES_CONFIG['datasources'].has_key?(source)
-      return source
+      # Some pseudo-sources (e.g., 'catalog_dissertations') are just 
+      # customizations of their super-sources.  Check for that.
+      if DATASOURCES_CONFIG['datasources'][source].has_key?('supersource')
+        return DATASOURCES_CONFIG['datasources'][source]['supersource']
+      else
+        return source
+      end
     else
       return 'quicksearch'
     end
