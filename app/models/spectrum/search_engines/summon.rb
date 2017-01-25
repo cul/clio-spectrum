@@ -81,7 +81,7 @@ module Spectrum
       def initialize(options = {}, summon_facets)
         # raise
         Rails.logger.debug "initialize() options=#{options.inspect}"
-        @source = options.delete('source') || options.delete(:source)
+        @source = options.delete('source') || options.delete(:source) || options.delete('datasource') || options.delete(:datasource)
         @summon_facets = summon_facets
 
         @params = {}
