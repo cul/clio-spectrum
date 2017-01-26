@@ -172,6 +172,9 @@ module DatasourcesHelper
     # Set default based on app_config control.  If unset, disable feature.
     fetch_hits = APP_CONFIG['fetch_datasource_hits'] || false
 
+    # Generate an empty hit-count span, to be filled-in by Javascript
+    fill_in = false
+
     # NEXT-1359 - hit counts
     # fetch_hits = false if query.nil? || query.length < 2
     # fetch_hits = false if datasource == 'quicksearch'
@@ -179,8 +182,6 @@ module DatasourcesHelper
     fetch_hits = false if get_datasource_bar['minor_sources'].include?(datasource)
     fetch_hits = false if get_datasource_bar['subsources'].include?(datasource)
 
-    # NEXT-1366 - zero hit count for website null search
-    fetch_hits = false if (datasource == 'library_web' && (query.nil? || query.empty?))
 
     # NEXT-1368 - suppress data source hit counts in certain situations
     # If the params have any of the no-hits keys, don't do hits.
@@ -197,16 +198,28 @@ module DatasourcesHelper
     # If a datasource is being directly queried, don't fetch hits
     # with a redundant second query.
     # -- for single sources
-    if datasource == $active_source
-      fetch_hits = false
-      hits_class = hits_class + ' fill_in'
-    end
+    fill_in = true if datasource == $active_source
+    #   fetch_hits = false
+    #   hits_class = hits_class + ' fill_in'
+    # end
     # -- for aggregate sources
     if is_aggregate(@search_layout)
-      if get_aggregate_sources(@search_layout).include?(datasource)
-        fetch_hits = false
-        hits_class = hits_class + ' fill_in'
-      end
+      fill_in = true if get_aggregate_sources(@search_layout).include?(datasource)
+      #   fetch_hits = false
+      #   hits_class = hits_class + ' fill_in'
+      # end
+    end
+
+    # NEXT-1366 - zero hit count for website null search
+    # fetch_hits = false 
+    if (datasource == 'library_web' && (query.nil? || query.empty?))
+      fetch_hits = false
+      fill_in = false
+    end
+
+    if fill_in
+      fetch_hits = false
+      hits_class = hits_class + ' fill_in'
     end
 
     if fetch_hits
