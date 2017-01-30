@@ -73,7 +73,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   # NEXT-640 - Records in CLIO should include links to Hathi Trust
   #  Full View examples:  513297, 1862548, 2081553
   #  Limited examples:  70744 (?), 4043762, 2517624
-  it "Should show CLIO, Google, and 'Full' & NOT 'Limited' Hathi Trust links", :js do
+  it "Should show CLIO, Google, and 'Full' (only) Hathi Trust links", :js do
 
     # visit this specific item
     visit solr_document_path('513297')
@@ -84,7 +84,8 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
     # Should see the 'Full View' message in the Hathi Holdings box
     expect(page).to have_css('#hathi_holdings #hathi_data')
-    expect(find('#hathi_holdings #hathi_data')).to have_content('Full view')
+    expect(find('#hathi_holdings #hathi_data')).to have_content('Full View')
+    expect(find('#hathi_holdings #hathi_data')).not_to have_content('Limited')
 
     # visit this specific item
     visit solr_document_path('4043762')
