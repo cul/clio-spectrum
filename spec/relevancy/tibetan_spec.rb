@@ -16,21 +16,21 @@ describe 'Testing tibetan support', :skip_travis do
     expect(rank(resp, 2725279)).to be <= 1
   end
 
-  it "q of 'gun-than bstan-pa\'i-sgron-me\'i gsun \'bum' should retrieve correct record" do
+  it "q of 'gung-thang bstan-pa\'i-sgron-me\'i gsun \'bum' should retrieve correct record" do
     # unquoted
-    resp = solr_resp_doc_ids_only('q' => 'gun-than bstan-pa\'i-sgron-me\'i gsun \'bum')
+    resp = solr_resp_doc_ids_only('q' => 'gung-thang bstan-pa\'i-sgron-me\'i gsung \'bum')
     expect(rank(resp, 6074253)).to be <= 1
     # quoted
-    resp = solr_resp_doc_ids_only('q' => '"gun-than bstan-pa\'i-sgron-me\'i gsun \'bum"')
+    resp = solr_resp_doc_ids_only('q' => '"gung-thang bstan-pa\'i-sgron-me\'i gsung \'bum"')
     expect(rank(resp, 6074253)).to be <= 1
   end
 
-  it "q of 'krun-go\'i bod kyi gso rig' should retrieve correct record" do
+  it "q of 'krung-go\'i bod kyi gso rig' should retrieve correct record" do
     # unquoted
-    resp = solr_resp_doc_ids_only('q' => 'krun-go\'i bod kyi gso rig')
+    resp = solr_resp_doc_ids_only('q' => 'krung-go\'i bod kyi gso rig')
     expect(rank(resp, 6316211)).to be <= 1
     # quoted
-    resp = solr_resp_doc_ids_only('q' => '"krun-go\'i bod kyi gso rig"')
+    resp = solr_resp_doc_ids_only('q' => '"krung-go\'i bod kyi gso rig"')
     expect(rank(resp, 6316211)).to be <= 1
   end
 

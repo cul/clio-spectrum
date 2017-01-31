@@ -10,7 +10,7 @@ VCR.configure do |c|
   ## VCR on/off toggle
   ## Do this, and VCR is enacted on specs tagged with :vcr
   ## Comment this out to test directly against live backends
-  c.configure_rspec_metadata!
+  # c.configure_rspec_metadata!
 
   c.cassette_library_dir = 'vcr/cassettes'
   c.hook_into :webmock
