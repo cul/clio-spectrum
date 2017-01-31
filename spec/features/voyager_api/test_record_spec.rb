@@ -96,13 +96,13 @@ describe 'record tests', vcr: { allow_playback_repeats: true } do
                             href: 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?6201975')
     end
 
-    # visit solr_document_path('6871895')
-    # expect(page).to have_css('#clio_holdings .holding')
-    # within ('div#clio_holdings') do
-    #   expect(page).to have_link('Scan & Deliver',
-    #                         href: 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?6871895',
-    #                         count: 3)
-    # end
+    visit solr_document_path('6871895')
+    expect(page).to have_css('#clio_holdings .holding')
+    within ('div#clio_holdings') do
+      expect(page).to have_link('Scan & Deliver',
+                            href: 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?6871895',
+                            count: 3)
+    end
 
   end
 

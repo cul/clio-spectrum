@@ -17,12 +17,12 @@ describe 'Summon Interface', :vcr do
       end
     end
 
-    it "audio recordings" do
+    it "music recordings" do
       visit articles_index_path('q' =>  '',
-                                's.fvf'    => ['IsFullText,true', 'ContentType,Audio Recording'])
+                                's.fvf'    => ['IsFullText,true', 'ContentType,Music Recording'])
       expect(page).to have_css('div.details')
       all('div.details').each do |detail|
-        expect(detail).to have_text 'Audio Recording: Available Online'
+        expect(detail).to have_text 'Music Recording: Available Online'
       end
     end
 
