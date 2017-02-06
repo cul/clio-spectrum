@@ -92,13 +92,21 @@ namespace :bibliographic do
       # load Traject config file (indexing rules)
       indexer.load_config_file(File.join(Rails.root, "config/traject/bibliographic.rb"))
 
+      puts_and_log("- processing #{files_to_read.size} files...", :info)
+
       # index each file 
       files_to_read.each do |filename|
-        puts "- processing #{filename}..."
-        File.open(filename) do |file|
-          indexer.process(file)
+
+        begin
+          puts_and_log("--- processing #{filename}...", :info)
+          File.open(filename) do |file|
+            indexer.process(file)
+          end
+        rescue => e
+          puts_and_log("indexer.process(#{filename}): " + e.inspect, :error)
         end
       end
+      puts_and_log("- finished processing #{files_to_read.size} files.", :info)
     end
 
     desc "download and ingest latest files"
