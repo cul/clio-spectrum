@@ -18,6 +18,7 @@
   - session['search'][:active_source] = $active_source
 
   - unless response.nil?
+    %span{id: 'hits', class: $active_source, data: {total: "#{number_with_delimiter(@response.total)}"}}
     = fix_catalog_links(render('constraints', :localized_params=>params ))
 
     - if @document_list.nil? || @document_list.empty?

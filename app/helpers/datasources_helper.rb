@@ -166,52 +166,68 @@ module DatasourcesHelper
   end
 
   def single_datasource_hits(datasource, query)
-    hits_class = 'datasource-hits'
-    hits_data = ''
+    hits_class = datasource + ' datasource-hits'
+    hits_data = {source: datasource}
 
     # Set default based on app_config control.  If unset, disable feature.
     fetch_hits = APP_CONFIG['fetch_datasource_hits'] || false
 
-    # Breck asks that we display hit-count for current source
-    # fetch_hits = false if datasource == $active_source
+    # Generate an empty hit-count span, to be filled-in by Javascript
+    fill_in = false
 
     # NEXT-1359 - hit counts
     # fetch_hits = false if query.nil? || query.length < 2
     # fetch_hits = false if datasource == 'quicksearch'
-
     fetch_hits = false if get_datasource_bar['major_sources'].exclude?(datasource)
     fetch_hits = false if get_datasource_bar['minor_sources'].include?(datasource)
+    fetch_hits = false if get_datasource_bar['subsources'].include?(datasource)
 
-    # NEXT-1366 - zero hit count for website null search
-    fetch_hits = false if (datasource == 'library_web' && (query.nil? || query.empty?))
 
     # NEXT-1368 - suppress data source hit counts in certain situations
     # If the params have any of the no-hits keys, don't do hits.
     no_hits = [ 'f', 'range', ]
     fetch_hits = false if no_hits.any? { |nope| params.key? nope }
 
-    # I'm having trouble generating accurate hit-counts for Summon queries.
-    # Disable for now - show no hitcounts within Summon
-    fetch_hits = false if $active_source == 'articles'
+    # # Breck asks that we display hit-count for current source
+    # # fetch_hits = false if datasource == $active_source
+    # 
+    # # I'm having trouble generating accurate hit-counts for Summon queries.
+    # # Disable for now - show no hitcounts within Summon
+    # fetch_hits = false if $active_source == 'articles'
+
+    # If a datasource is being directly queried, don't fetch hits
+    # with a redundant second query.
+    # -- for single sources
+    fill_in = true if datasource == $active_source
+    #   fetch_hits = false
+    #   hits_class = hits_class + ' fill_in'
+    # end
+    # -- for aggregate sources
+    if is_aggregate(@search_layout)
+      fill_in = true if get_aggregate_sources(@search_layout).include?(datasource)
+      #   fetch_hits = false
+      #   hits_class = hits_class + ' fill_in'
+      # end
+    end
+
+    # NEXT-1366 - zero hit count for website null search
+    # fetch_hits = false 
+    if (datasource == 'library_web' && (query.nil? || query.empty?))
+      fetch_hits = false
+      fill_in = false
+    end
+
+    if fill_in
+      fetch_hits = false
+      hits_class = hits_class + ' fill_in'
+    end
 
     if fetch_hits
       hits_url = spectrum_hits_path(datasource: datasource, q: query, new_search: true)
-      hits_data = { hits_url: hits_url }
+      # hits_data = { hits_url: hits_url }
+      hits_data['hits_url'] = hits_url
       hits_class = hits_class + ' fetch'
     end
-
-    # if get_datasource_bar['major_sources'].include?(source)
-    #   if get_datasource_bar['subsources'].exclude?(source)
-    #     if source != $active_source
-    #       if query && query.length > 1
-    #         hits_url = spectrum_hits_path(source: source, q: query, new_search: true)
-    #         hits_data = { hits_url: hits_url }
-    #         # span_data[:query] = query.merge( {source: source, new_search: true} )
-    #         hits_class = hits_class + ' fetch'
-    #       end
-    #     end
-    #   end
-    # end
 
     content_tag(:span, '', class: hits_class, data: hits_data)
   end
@@ -260,4 +276,36 @@ module DatasourcesHelper
   def params_digest
     return Digest::SHA1.hexdigest(params.sort.flatten.join("_"))
   end
+
+  private
+
+  def base_source(source = nil)
+    return nil unless source.present?
+    return nil unless DATASOURCES_CONFIG['datasources'][source].present?
+
+    if DATASOURCES_CONFIG['datasources'][source].has_key?('supersource')
+      return DATASOURCES_CONFIG['datasources'][source]['supersource']
+    else
+      return source
+    end
+  end
+
+  def is_aggregate(layout = nil)
+    return false unless layout.present? && layout.has_key?('style')
+    return false unless layout.has_key?('style') && layout['style'].present?
+
+    return layout['style'] == 'aggregate'
+  end
+
+  def get_aggregate_sources(layout = nil)
+    sources = []
+    return sources unless layout and layout.has_key?('columns')
+    layout['columns'].each { |column|
+      column['searches'].each { |search|
+        sources << base_source( search['source'] )
+      }
+    }
+    return sources
+  end
+
 end

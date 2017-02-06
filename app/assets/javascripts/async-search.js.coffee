@@ -8,5 +8,6 @@ $ ->
       # re-activate popovers on the re-written html:
       $("a[rel='popover']").popover()
       async_lookup_item_details(result_set)
+      async_fill_in_hit_count(result_set)
     )
 

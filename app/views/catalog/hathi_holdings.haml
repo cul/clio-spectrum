@@ -17,7 +17,7 @@
         %a{href: "#{recordURL}"} Summary Page
 
       .holdings_subtitle
-        Viewability
+        Full View Items
       
       - item_count = hathi_holdings_data['items'].size
       - show_count = 25
@@ -33,11 +33,11 @@
           -# be hidden inside a hide/show expander.
           - visibility = (i >= show_count) ? 'expander_more' : ''
           %tr.hathi_holdings_row{class: visibility}
-            %td.hathi_holdings_cell
-              %a{href: "#{item['itemURL']}"}= item['usRightsString']
+            -# %td.hathi_holdings_cell
+            -#   %a{href: "#{item['itemURL']}"}= item['usRightsString']
             %td.hathi_holdings_cell
               -# enum-cron is 'false' for bookish items
-              %a{href: "#{item['itemURL']}"}= item['enumcron'] || ''
+              %a{href: "#{item['itemURL']}"}= item['enumcron'] || 'Full view'
             %td.hathi_holdings_cell
               - if item['orig']
                 %em= "(original from #{item['orig']})"

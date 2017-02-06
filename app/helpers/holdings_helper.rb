@@ -384,11 +384,16 @@ module HoldingsHelper
                         hathi_holdings_data['records'] &&
                         hathi_holdings_data['records'].size > 0
 
-      # Only build Hathi display if we have 'Full view' records
-      found_full_view = hathi_holdings_data['items'].any? { |item|
-        item['usRightsString'].casecmp("Full view").zero?
+      # NEXT-1357 - Only display 'Full View' Hathi Trust records
+      hathi_holdings_data['items'].delete_if { |item|
+        item['usRightsString'].downcase.include?('limited')
       }
-      return nil unless found_full_view
+
+      # Only display Hathi 'Full view' holdings.
+      # If there are none, supress any Hathi data.
+      return nil unless hathi_holdings_data &&
+                  hathi_holdings_data['items'] &&
+                  hathi_holdings_data['items'].size > 0
 
       return hathi_holdings_data
     rescue => error

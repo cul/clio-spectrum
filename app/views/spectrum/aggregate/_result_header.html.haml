@@ -1,4 +1,5 @@
 .results_header{:data => {'source' => source}}
+  %span{id: 'hits', data: {'source' => base_source(source), 'total' => "#{number_with_delimiter(result.total_items)}"}}
   .category_title
     #{title}
     - if defined?(description)
