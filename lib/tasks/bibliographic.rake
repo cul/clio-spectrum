@@ -87,6 +87,9 @@ namespace :bibliographic do
          # How many records skipped due to errors before we 
          #   bail out with a fatal error?
          provide "solr_writer.max_skipped", "100"
+
+         # DEBUG -- write all output to STDOUT instead of Solr
+         # provide "writer_class_name", "Traject::DebugWriter"
       end
 
       # load Traject config file (indexing rules)

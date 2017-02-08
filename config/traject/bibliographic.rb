@@ -25,6 +25,14 @@ to_field "id", extract_marc("001", first: true)
 
 to_field "marc_display", serialized_marc(:format => "xml")
 
+# This calculates a single timestamp and applies it to all records
+# to_field "marc_dt", literal(Time.now.utc.iso8601)
+# This calculates a timestamp for each record as it is processed
+to_field "marc_dt" do |record, accumulator|
+   accumulator << Time.now.utc.iso8601
+end
+
+
 to_field "text", extract_all_marc_values(from: '050', to: '966')
 
 to_field "author_txt", extract_marc("100abcegqu:110abcdegnu:111acdegjnqu", trim_punctuation: false)
