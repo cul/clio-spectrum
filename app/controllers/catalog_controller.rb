@@ -157,9 +157,11 @@ class CatalogController < ApplicationController
     circ_status = BackendController.circ_status(params[:id])
 
     # Use static holdings data within MARC and dynamic circ status
-    # to build @holdings object
-    @holdings = Voyager::Holdings::Collection.new(@document, circ_status)
-    @holdings_hash = @holdings.to_hash(:output_type => :condensed, :message_type => :short_message)
+    # to build @holdings object.
+    if @document && circ_status
+      @holdings = Voyager::Holdings::Collection.new(@document, circ_status)
+      @holdings_hash = @holdings.to_hash(:output_type => :condensed, :message_type => :short_message)
+    end
 
     # In support of "nearby" / "virtual shelf browse", remember this bib
     # as our focus bib.

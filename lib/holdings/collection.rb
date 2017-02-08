@@ -6,6 +6,7 @@ module Voyager
 
       def initialize(document, circ_status)
         raise "Voyager::Holdings::Collection got nil/empty document" unless document
+        raise "Voyager::Holdings::Collection got nil/empty circ_status" unless circ_status
 
         document_marc = document.to_marc
         document_status = circ_status[document.id] || {}
