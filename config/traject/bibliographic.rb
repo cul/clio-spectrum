@@ -21,6 +21,18 @@ lookups = 0
 
 ATOZ = ('a'..'z').to_a.join('')
 
+
+# # DEBUGGING
+# each_record do |record, context|
+#   # --- read all records but do no indexing
+#   # context.skip!("bib #{record['001'].value}")
+#   # --- read & skip all records except for a specific bib
+#   # if record['001'].value != '402647'
+#   #   context.skip!
+#   # end
+# end
+
+
 to_field "id", extract_marc("001", first: true)
 
 to_field "marc_display", serialized_marc(:format => "xml")

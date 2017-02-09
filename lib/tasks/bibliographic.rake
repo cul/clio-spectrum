@@ -89,7 +89,7 @@ namespace :bibliographic do
          provide "solr_writer.max_skipped", "100"
 
          # DEBUG -- write all output to STDOUT instead of Solr
-         # provide "writer_class_name", "Traject::DebugWriter"
+         provide "writer_class_name", "Traject::DebugWriter"
       end
 
       # load Traject config file (indexing rules)
@@ -107,6 +107,8 @@ namespace :bibliographic do
           end
         rescue => e
           puts_and_log("indexer.process(#{filename}): " + e.inspect, :error)
+          # don't raise, so rake can continue processing other files
+          # raise e
         end
       end
       puts_and_log("- finished processing #{files_to_read.size} files.", :info)
