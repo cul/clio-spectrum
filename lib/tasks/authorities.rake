@@ -112,10 +112,10 @@ namespace :authorities do
       biblist = []
       extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.mrc"))
       puts_and_log("- processing #{extract_files.size} files...", :info)
-      extract_files.each do |file|
-        puts_and_log("-- processing #{file}...", :info)
+      extract_files.each do |filename|
+        puts_and_log("-- processing #{filename}...", :info)
         begin
-          reader = MARC::Reader.new(file)
+          reader = MARC::Reader.new(filename)
           for record in reader
             biblist.push record['001'].value
           end
