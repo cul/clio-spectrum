@@ -51,7 +51,7 @@ module Voyager
         holdings_marc.each_by_tag('876') do |t876|
           # subfield l has tempLocation
           if t876['l']
-            tempLocations << { itemLabel: t876['3'], tempLocation: t876['l'] }
+            tempLocations << { itemLabel: (t876['3'] || ''), tempLocation: t876['l'] }
           end
         end
 
