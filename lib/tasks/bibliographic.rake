@@ -71,7 +71,7 @@ namespace :bibliographic do
     desc "ingest latest bibliographic records"
     task :ingest => :environment do
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
-      extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.mrc")) if extract
+      extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.{mrc,xml}")) if extract
       files_to_read = (ENV["INGEST_FILE"] || extract_files).listify
 
       # create new traject indexer
@@ -99,19 +99,27 @@ namespace :bibliographic do
 
       # index each file 
       files_to_read.each do |filename|
-
         begin
           puts_and_log("--- processing #{filename}...", :info)
           File.open(filename) do |file|
+            case File.extname(file)
+            when '.mrc'
+              indexer.settings['marc_source.type'] = 'binary'
+            when '.xml'
+              indexer.settings['marc_source.type'] = 'xml'
+            end
             indexer.process(file)
           end
+          puts_and_log("--- finished #{filename}.", :info)
         rescue => e
           puts_and_log("indexer.process(#{filename}): " + e.inspect, :error)
           # don't raise, so rake can continue processing other files
           # raise e
         end
       end
+
       puts_and_log("- finished processing #{files_to_read.size} files.", :info)
+
     end
 
     desc "download and ingest latest files"
