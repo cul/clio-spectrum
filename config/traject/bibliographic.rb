@@ -285,6 +285,9 @@ to_field "item_display" do |record, accumulator|
   }
 end
 
+# https://wiki.library.columbia.edu/display/cliogroup/Holdings+Revision+project
+# 852$0 - Traject extraction specification:  8520
+to_field "mfhd_id", extract_marc("8520")
 
 
 
