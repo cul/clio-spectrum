@@ -549,9 +549,9 @@ class ApplicationController < ActionController::Base
 
     # initialize
     documents.each do |doc|
-      doc['_item_alerts'] = {}
+      doc.to_h['_item_alerts'] ||= {}
       ItemAlert::ALERT_TYPES.each do |alert_type, label|
-        doc['_item_alerts'][alert_type] = []
+        doc.to_h['_item_alerts'][alert_type] = []
       end
     end
 
