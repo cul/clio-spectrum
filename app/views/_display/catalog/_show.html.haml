@@ -37,13 +37,13 @@
       - if document.fetch('_active_item_alert_count', nil) && document.fetch('_active_item_alert_count', nil) > 0
         .well
           -# "alert" alerts
-          - document.fetch('_item_alerts', nil)[:alert].each do | alert |
+          - document.item_alerts[:alert].each do | alert |
             - if alert.active?
               .alert_alert
                 = "ALERT:  #{alert[:message]}".html_safe
   
           -# "access requirements" alerts
-          - document.fetch('_item_alerts', nil)[:access_requirements].each do | alert |
+          - document.item_alerts[:access_requirements].each do | alert |
             - if alert.active?
               = add_row(ItemAlert::ALERT_TYPES['access_requirements'], alert[:message], options = {:html_safe => true})
   

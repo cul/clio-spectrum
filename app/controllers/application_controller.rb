@@ -547,13 +547,14 @@ class ApplicationController < ActionController::Base
     documents = Array.wrap(documents)
     return if documents.length == 0
 
-    # initialize
-    documents.each do |doc|
-      doc.to_h['_item_alerts'] ||= {}
-      ItemAlert::ALERT_TYPES.each do |alert_type, label|
-        doc.to_h['_item_alerts'][alert_type] = []
-      end
-    end
+    # # initialize
+    # documents.each do |doc|
+    #   raise
+    #   doc.to_h['_item_alerts'] = {}
+    #   ItemAlert::ALERT_TYPES.each do |alert_type, label|
+    #     doc['_item_alerts'][alert_type] = []
+    #   end
+    # end
 
     # fetch all alerts for current doc-set, in single query
     alerts = ItemAlert.where(source: 'catalog',
@@ -570,7 +571,7 @@ class ApplicationController < ActionController::Base
         doc.fetch('id').to_s == alert.item_key.to_s
       end
 
-      document['_item_alerts'][this_alert_type] << alert
+      document.item_alerts[this_alert_type] << alert
 
       document['_active_item_alert_count'] ||= 0
       document['_active_item_alert_count'] += 1 if alert.active?

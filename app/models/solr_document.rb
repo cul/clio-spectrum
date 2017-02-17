@@ -1,4 +1,18 @@
 class SolrDocument
+
+  attr_accessor :item_alerts
+
+  # method signiture copied from module Blacklight::Document
+  def initialize(source_doc={}, response=nil)
+    super(source_doc, response)
+
+    # item_alert hash has to be ready for access by type
+    self.item_alerts = Hash.new
+    ItemAlert::ALERT_TYPES.each do |alert_type, label|
+      self.item_alerts[alert_type] = []
+    end
+  end
+
   def id
     # Cope with GeoBlacklight SolrDocuments
     return self[:layer_slug_s] || self[self.class.unique_key]
