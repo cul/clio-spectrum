@@ -87,7 +87,7 @@ describe 'Catalog Advanced Search', :vcr do
   }.each_pair do |searchField, searchValue|
 
     it "supports fielded search by #{searchField}", :js do
-      visit catalog_index_path
+      visit search_catalog_path
 
       select searchField, :from => "search_field"
       fill_in 'q', with: searchValue
@@ -99,7 +99,7 @@ describe 'Catalog Advanced Search', :vcr do
 
 
     it "supports advanced search by #{searchField}" do
-      visit catalog_index_path
+      visit search_catalog_path
 
       find('.search_box.catalog .advanced_search_toggle').click
       within '.landing_page.catalog .advanced_search' do
@@ -128,7 +128,7 @@ describe 'Catalog Advanced Search', :vcr do
   ].each do |locationSearch|
 
     it "supports fielded Location search for #{locationSearch}", :js do
-      visit catalog_index_path
+      visit search_catalog_path
       # find('btn', text: "All Fields").click
       # within('.search_row') do
       #   find('li', text: 'Location').click
@@ -143,7 +143,7 @@ describe 'Catalog Advanced Search', :vcr do
 
 
     it "supports advanced Location search for #{locationSearch}" do
-      visit catalog_index_path
+      visit search_catalog_path
       find('.search_box.catalog .advanced_search_toggle').click
       within '.landing_page.catalog .advanced_search' do
         select('Location', from: 'adv_1_field')
@@ -216,7 +216,7 @@ describe 'Catalog Advanced Search', :vcr do
   it 'should allow basic fielded ISBN search against "invalid" ISBN', :js do
     isbn_z = '201235125'
 
-    visit catalog_index_path
+    visit search_catalog_path
     # find('btn', text: "All Fields").click
     # within('.search_row') do
     #   find('li', text: "ISBN").click

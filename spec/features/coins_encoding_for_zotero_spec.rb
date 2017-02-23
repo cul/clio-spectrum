@@ -8,7 +8,7 @@ describe 'coins encoding for zotero', :vcr do
 
       context 'music recording' do
         it 'has the correct coins format' do
-          visit catalog_index_path('q' => 'psalm 21 meyerbeer', 'f[format][]' => 'Music Recording')
+          visit search_catalog_path('q' => 'psalm 21 meyerbeer', 'f[format][]' => 'Music Recording')
           coins = all "//span[@class='Z3988']"
           coins.each do |coin|
             expect(coin[:title]).to have_text 'fmt:kev:mtx:dc&rft.type=audioRecording'
@@ -19,7 +19,7 @@ describe 'coins encoding for zotero', :vcr do
 
       context 'printed book' do
         it 'has the correct coins format' do
-          visit catalog_index_path('q' => 'penguins', 'f[format][]' => 'Book')
+          visit search_catalog_path('q' => 'penguins', 'f[format][]' => 'Book')
           coins = all "//span[@class='Z3988']"
           coins.each do |coin|
             expect(coin[:title]).to have_text 'fmt:kev:mtx:dc&rft.type=book'
@@ -29,7 +29,7 @@ describe 'coins encoding for zotero', :vcr do
 
       context 'video recording' do
         it 'has the correct coins format' do
-          visit catalog_index_path('q' => 'Labyrinth', 'f[format][]' => 'Video')
+          visit search_catalog_path('q' => 'Labyrinth', 'f[format][]' => 'Video')
           coins = all "//span[@class='Z3988']"
           coins.each do |coin|
             expect(coin[:title]).to have_text 'fmt:kev:mtx:dc&rft.type=videoRecording'

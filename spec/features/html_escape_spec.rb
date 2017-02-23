@@ -9,7 +9,7 @@ describe 'Special HTML characters in MARC data should be escaped', :vcr do
   # Should cataloging correct that record, this spec will begin to fail,
   # and "red" tests should be removed.
   it 'embedded HTML should not be interpretted' do
-  visit catalog_index_path('q' => 'Auszug aus dem Lager zur uberwindung')
+  visit search_catalog_path('q' => 'Auszug aus dem Lager zur uberwindung')
   expect(page).to have_css('.result')
   expect(page).to have_css('.result', count: 1)
   expect(page).to have_text('modernen Raumparadigmas')

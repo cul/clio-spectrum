@@ -19,7 +19,7 @@
   <% end %>
 
   <% unless params["range"] && params["range"][solr_field] && params["range"][solr_field]["missing"] %>
-    <%= form_tag catalog_index_path, :method => :get, :class=>"range_limit subsection range_#{solr_field} form-inline" do %>
+    <%= form_tag search_catalog_path, :method => :get, :class=>"range_limit subsection range_#{solr_field} form-inline" do %>
       <%= render_hash_as_hidden_fields(params_for_search) %>
 
       <!-- we need to include a dummy search_field parameter if none exists,

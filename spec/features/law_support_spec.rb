@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'CLIO support for Law records', :vcr do
 
   it 'should include Law in Location facet', :js do
-    visit catalog_index_path('q' => 'supr* cour*')
+    visit search_catalog_path('q' => 'supr* cour*')
     within '.facets.sidenav' do
       find('h5', text: 'Location').click
     end
@@ -45,7 +45,7 @@ describe 'CLIO support for Law records', :vcr do
   end
 
   it 'should link to precise bib for known item' do
-    visit catalog_index_path('q' => 'supr* cour* felix aime')
+    visit search_catalog_path('q' => 'supr* cour* felix aime')
     expect(find('.result.document')).to have_text 'Law Trials C5453'
     expect(find('.result.document')).to have_link(I18n.t('blacklight.law.check_message'), href: 'http://pegasus.law.columbia.edu/record=b402660')
   end

@@ -321,9 +321,9 @@ module DisplayHelper
       when :serial
         q = search_value
         # out << link_to(display_value, url_for(controller: 'journals', action: 'index', q: q, search_field: 'title', commit: 'search'))
-        # out << link_to(display_value, catalog_index_path( {q: q, search_field: 'journal_title'} ))
+        # out << link_to(display_value, search_catalog_path( {q: q, search_field: 'journal_title'} ))
         # NEXT-1345 - Continued by link here misleads researchers
-        out << link_to(display_value, catalog_index_path( {q: q, search_field: 'title'} ))
+        out << link_to(display_value, search_catalog_path( {q: q, search_field: 'title'} ))
 
       else
         fail 'invalid category specified for generate_value_links'

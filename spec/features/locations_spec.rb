@@ -24,7 +24,7 @@ describe 'Locations', vcr: { allow_playback_repeats: true } do
     # NEW WAY - SUPPLIED FROM BACKEND - SHOWS ONLY ON ITEM DETAIL PAGE
     it 'should show backend-supplied location_notes in holdings box', :js do
       # Search for "By Appointment" items
-      visit catalog_index_path( {q: 'Avery Classics By appt', search_field: 'location'} )
+      visit search_catalog_path( {q: 'Avery Classics By appt', search_field: 'location'} )
       # Go to the item-detail page of the first item found
       within all('.result.document').first do
         all('a').first.click

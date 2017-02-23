@@ -37,11 +37,11 @@ module Spectrum
         if @query_operator == 'AND'
           [
             ['All Of', '#'],
-            ['Any Of', catalog_index_path(change_params_and_redirect({ advanced_operator: 'OR' }, @params))]
+            ['Any Of', search_catalog_path(change_params_and_redirect({ advanced_operator: 'OR' }, @params))]
           ]
         else
           [
-            ['All Of', catalog_index_path(change_params_and_redirect({ advanced_operator: 'AND' }, @params))],
+            ['All Of', search_catalog_path(change_params_and_redirect({ advanced_operator: 'AND' }, @params))],
             ['Any Of', '#']
           ]
         end
@@ -104,12 +104,12 @@ module Spectrum
         if  is_inverted?(facet_field)
           [
             ['Is Not', '#'],
-            ['Is', catalog_index_path(invert_facet_value(facet_field, value))]
+            ['Is', search_catalog_path(invert_facet_value(facet_field, value))]
           ]
         else
           [
             ['Is', '#'],
-            ['Is Not', catalog_index_path(invert_facet_value(facet_field, value))]
+            ['Is Not', search_catalog_path(invert_facet_value(facet_field, value))]
           ]
         end
       end
@@ -120,13 +120,13 @@ module Spectrum
           new_facet_operators[raw_facet_field] = 'OR'
           [
             ['All Of', '#'],
-            ['Any Of', catalog_index_path(change_params_and_redirect({ f_operator: new_facet_operators }, @params))]
+            ['Any Of', search_catalog_path(change_params_and_redirect({ f_operator: new_facet_operators }, @params))]
           ]
         else
           new_facet_operators = (@params[:f_operator] || {}).dup
           new_facet_operators[raw_facet_field] = 'AND'
           [
-            ['All Of', catalog_index_path(change_params_and_redirect({ f_operator: new_facet_operators }, @params))],
+            ['All Of', search_catalog_path(change_params_and_redirect({ f_operator: new_facet_operators }, @params))],
             ['Any Of', '#']
           ]
 
@@ -221,7 +221,7 @@ module Spectrum
               @queries << {
                 field: field,
                 value: value,
-                remove: catalog_index_path(remove_params)
+                remove: search_catalog_path(remove_params)
               }
             end
 
@@ -238,7 +238,7 @@ module Spectrum
             remove_params.delete(:page)
             remove_params.delete(:id)
             field = @params[:search_field] || 'all_fields'
-            @queries = [{ field: field, value: @params[:q], remove: catalog_index_path(remove_params) }]
+            @queries = [{ field: field, value: @params[:q], remove: search_catalog_path(remove_params) }]
           end
         end
 

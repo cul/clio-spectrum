@@ -11,28 +11,28 @@ describe 'Saved List Interface', :vcr do
 
   it 'Capybara should let us login and logout and login again' do
     # Not yet logged in - navbar shows un-authenticated message
-    visit catalog_index_path
+    visit search_catalog_path
     expect(find('#topnavbar')).to have_text 'My Library Account'
 
     # Login as the first user, verify the name shows in the nav bar
     feature_login @autodidact
 
-    visit catalog_index_path
+    visit search_catalog_path
     expect(find('#topnavbar')).to have_text @autodidact.login
 
     # Logout - navbar shows un-authenticated message
     feature_logout
-    visit catalog_index_path
+    visit search_catalog_path
     expect(find('#topnavbar')).to have_text 'My Library Account'
 
     # Login as the second user, verify the (second user's) name shows in the nav bar
     feature_login @blatteroon
-    visit catalog_index_path
+    visit search_catalog_path
     expect(find('#topnavbar')).to have_text @blatteroon.login
 
     # Logout - navbar shows un-authenticated message
     feature_logout
-    visit catalog_index_path
+    visit search_catalog_path
     expect(find('#topnavbar')).to have_text 'My Library Account'
   end
 
@@ -64,7 +64,7 @@ describe 'Saved List Interface', :vcr do
     expect(page).to have_text('Bookbag')
 
     # Next, do a catalog search, Add all found items to our Bookbag
-    visit catalog_index_path('q' => 'aardvark war')
+    visit search_catalog_path('q' => 'aardvark war')
     click_link('Selected Items')
     click_link('Select All Items')
     click_link('Selected Items')
@@ -109,20 +109,20 @@ describe 'Saved List Interface', :vcr do
     # Next, do a new, different catalog search,
     # Add all found items to our Bookbag,
     # which should still be private
-    visit catalog_index_path('q' => 'aardvark war')
+    visit search_catalog_path('q' => 'aardvark war')
     click_link('Selected Items')
     click_link('Select All Items')
     click_link('Selected Items')
     click_link('Add to My Saved List')
 
-    # visit catalog_index_path()
+    # visit search_catalog_path()
 
     #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #
     # # Login as a different user
     #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #
 
     feature_login @blatteroon
-    visit catalog_index_path
+    visit search_catalog_path
     # save_and_open_page
 
     # Try to visit a non-existant list

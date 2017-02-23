@@ -58,7 +58,7 @@ describe 'Summon Search Option Filter Settings', :vcr do
 
 
   it 'should default from Other DataSource' do
-    visit catalog_index_path('q' => $q)
+    visit search_catalog_path('q' => $q)
     within('#datasources') do
       click_link('Articles')
     end

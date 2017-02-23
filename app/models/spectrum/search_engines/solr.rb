@@ -131,16 +131,16 @@ module Spectrum
       def by_source_search_link(params = {})
         case @source
         when 'catalog'
-          catalog_index_path(params)
+          search_catalog_path(params)
         when 'catalog_ebooks'
           params['f'] ||= {}
           params['f']['format'] = %w(Book Online)
-          catalog_index_path(params)
+          search_catalog_path(params)
 
         when 'catalog_dissertations'
           params['f'] ||= {}
           params['f']['format'] = ['Thesis']
-          catalog_index_path(params)
+          search_catalog_path(params)
         when 'academic_commons'
           academic_commons_index_path(params)
         when 'ac_dissertations'
