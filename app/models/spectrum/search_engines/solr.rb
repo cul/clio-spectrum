@@ -428,10 +428,9 @@ module Spectrum
         if elements.include?(:facets)
           config.add_facet_field 'format',
                                  label: 'Format', limit: 5, collapse: false
-          # NEXT-698 - :segments key is searched for at top, not within range
           config.add_facet_field 'pub_date_sort',
                                  label: 'Publication Date', limit: 3,
-                                 range: { segments: false }, segments: false
+                                 range: { segments: false }
           config.add_facet_field 'author_facet',
                                  label: 'Author', limit: 5
           config.add_facet_field 'acq_dt',
@@ -623,10 +622,9 @@ module Spectrum
               config.add_facet_field 'format',
                                      # label: 'Format', limit: 3, open: true
                                      label: 'Format', limit: 3, collapse: false
-              # NEXT-698 - :segments key is searched for at top, not within range
               config.add_facet_field 'pub_date_sort',
                                      label: 'Publication Date', limit: 3,
-                                     range: { segments: false }, segments: false
+                                     range: { segments: false }
               config.add_facet_field 'author_facet',
                                      label: 'Author', limit: 3
               config.add_facet_field 'repository_facet',
@@ -677,9 +675,9 @@ module Spectrum
               config.add_facet_field 'format',
                                      # label: 'Format', limit: 5, open: true
                                      label: 'Format', limit: 5, collapse: false
-              # NEXT-698 - :segments key is searched for at top, not within range
               config.add_facet_field 'pub_date_sort',
-                                     label: 'Publication Date', limit: 3, range: { segments: false }, segments: false
+                                     label: 'Publication Date', limit: 3,
+                                     range: { segments: false }
               config.add_facet_field 'author_facet',
                                      label: 'Author', limit: 5
               config.add_facet_field 'location_facet',
@@ -722,10 +720,9 @@ module Spectrum
               config.add_facet_field 'author_facet',
                                      # label: 'Author', open: true, limit: 5
                                      label: 'Author', collapse: false, limit: 5
-              # NEXT-698 - :segments key is searched for at top, not within range
               config.add_facet_field 'pub_date_sort',
                                      label: 'Publication Date', limit: 3,
-                                     range: { segments: false }, segments: false
+                                     range: { segments: false }
               config.add_facet_field 'department_facet',
                                      label: 'Department', limit: 5
               config.add_facet_field 'subject_facet',
@@ -772,7 +769,7 @@ module Spectrum
                                      label: 'Author', collapse: false, limit: 5
               config.add_facet_field 'pub_date_sort',
                                      label: 'Publication Date', limit: 3,
-                                     range: { segments: false }, segments: false
+                                     range: { segments: false }
               config.add_facet_field 'department_facet',
                                      label: 'Department', limit: 5
               config.add_facet_field 'subject_facet',
