@@ -11,7 +11,7 @@ describe 'The home page' do
   # end
 
   it 'will switch the visible search box when a datasource is clicked upon', :vcr do
-    visit search_catalog_path
+    visit catalog_index_path
 
     expect(find('#catalog_q')).to be_visible
     expect(page).to have_no_selector('#articles_q')

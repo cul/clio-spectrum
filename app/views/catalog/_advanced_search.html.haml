@@ -3,7 +3,7 @@
 
 
 .search_box{ :class => ("selected" if has_advanced_params?) }
-  = form_tag search_catalog_path, :class => "form-horizontal", :method => "GET" do
+  = form_tag catalog_index_path, :class => "form-horizontal", :method => "GET" do
 
     = standard_hidden_keys_for_search
 

@@ -14,7 +14,7 @@ describe 'Database Highlights', :vcr do
 
 
   it "Should show highlighting in Catalog search" do
-    visit search_catalog_path('q' => 'medline ipswich')
+    visit catalog_index_path('q' => 'medline ipswich')
     within('#documents') do
       find('.result.database_record', text: 'MEDLINE')
     end

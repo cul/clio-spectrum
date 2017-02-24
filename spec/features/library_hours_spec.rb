@@ -53,7 +53,7 @@ describe 'Item Locations should show correct library hours', :vcr, :skip_travis 
   it 'for Art Properties', :js do
     target = 'Avery Art Properties'
 
-    visit search_catalog_path( {q: target, search_field: 'location'} )
+    visit catalog_index_path( {q: target, search_field: 'location'} )
 
     # Now on search-results page.  Click first title link.
     all('#documents .document .title a').first.click

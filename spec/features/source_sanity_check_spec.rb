@@ -80,7 +80,7 @@ describe 'Simple query should retrieve results', :vcr do
   end
 
   it 'in catalog datasource' do
-    visit search_catalog_path('q' => 'test')
+    visit catalog_index_path('q' => 'test')
     expect(page).to have_css('.result')
   end
 

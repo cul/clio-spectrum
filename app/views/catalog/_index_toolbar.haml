@@ -18,8 +18,8 @@
 
         = fix_catalog_links(render :partial => "paginate_compact", :object => @response)
       
-        -# = fix_catalog_links(link_to image_tag('rss-feed-icon-14x14.png', :size => "13x13"), search_catalog_path(params.merge(:format => 'atom')), :class => "rss-feed hidden-xs")
-        = fix_catalog_links(link_to image_tag('rss-feed-icon-14x14.png', :size => "13x13"), search_catalog_path(search_state.params_for_search(format: 'atom')), :class => "rss-feed hidden-xs")
+        -# = fix_catalog_links(link_to image_tag('rss-feed-icon-14x14.png', :size => "13x13"), catalog_index_path(params.merge(:format => 'atom')), :class => "rss-feed hidden-xs")
+        = fix_catalog_links(link_to image_tag('rss-feed-icon-14x14.png', :size => "13x13"), catalog_index_path(search_state.params_for_search(format: 'atom')), :class => "rss-feed hidden-xs")
       
 
 
@@ -37,6 +37,6 @@
             = render 'selections_widget'
 
       .navbar-text.visible-xs
-        = link_to "Start Over", search_catalog_path
+        = link_to "Start Over", catalog_index_path
       
 

@@ -22,7 +22,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
   # NEXT-917 - Summary showing up twice for video records
   it 'Video Records should show Summary only once' do
-    visit search_catalog_path('q' => 'summary')
+    visit catalog_index_path('q' => 'summary')
     within all('div.facet_limit.blacklight-format.panel').first do
       find('a.more_facets_link').click
     end
@@ -40,7 +40,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   # this test is awefully tight - any cataloging/labeling change will break it.
   it "Item Links should show 'version of resource' and 'related resource'" do
     # on the search-results page
-    visit search_catalog_path('q' => 'Introduction to high-energy astrophysics stephan rosswog')
+    visit catalog_index_path('q' => 'Introduction to high-energy astrophysics stephan rosswog')
     expect(page).to have_text('Table of contents (version of resource)')
     expect(page).to have_text('Publisher description (related resource)')
 
@@ -52,7 +52,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
   # NEXT-619 - improvements to 'Manuscript' facet
   it 'Should find many Manuscripts for Call Number range X893' do
-    visit search_catalog_path('q' => 'X893')
+    visit catalog_index_path('q' => 'X893')
     within '.search_box.catalog' do
       # find('btn.dropdown-toggle').click
       # within '.dropdown-menu' do
@@ -135,7 +135,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     troublesome2 = 'Offsite <Fine Arts> (Non-Circ) Place Request for delivery'
 
     # go to the search-results page..
-    visit search_catalog_path(q: target1, search_field: 'title_starts_with')
+    visit catalog_index_path(q: target1, search_field: 'title_starts_with')
 
     # should see the full location
     expect(find('#documents')).to have_content(troublesome1)
@@ -150,7 +150,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     # And again, with slightly different sample...
 
     # go to the search-results page..
-    visit search_catalog_path('q' => target2)
+    visit catalog_index_path('q' => target2)
 
     # should see the full location
     expect(find('#documents')).to have_content(troublesome2)
@@ -163,7 +163,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   end
 
   it "supports alternative viewstyle options ('Standard' or 'Compact')", :js do
-    visit search_catalog_path('q' => "the'end")
+    visit catalog_index_path('q' => "the'end")
 
     click_link 'Display Options'
     click_link 'Standard View'
@@ -225,12 +225,12 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   end
 
   it 'supports a debug mode' do
-    visit search_catalog_path('q' => 'prim')
+    visit catalog_index_path('q' => 'prim')
 
     expect(page).to_not have_css('div.debug_instruction')
     expect(page).to_not have_css('div.debug_entries')
 
-    visit search_catalog_path('q' => 'sneak', 'debug_mode' => 'on')
+    visit catalog_index_path('q' => 'sneak', 'debug_mode' => 'on')
 
     # We should still NOT have a debug session, since this only works for
     # authenticated users who are in the admin group
@@ -241,7 +241,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     @test_manager = FactoryGirl.create(:user, login: 'test_mngr')
     feature_login @test_manager
 
-    visit search_catalog_path('q' => 'approved', 'debug_mode' => 'on')
+    visit catalog_index_path('q' => 'approved', 'debug_mode' => 'on')
 
     expect(page).to have_css('div.debug_instruction')
     expect(page).to have_css('div.debug_entries')
@@ -260,7 +260,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   it 'should support next/previous navigation from MARC view', :js do
 
     # locate a fairly static set of records for a stable test suite
-    visit search_catalog_path('q' => 'maigret simenon')
+    visit catalog_index_path('q' => 'maigret simenon')
     within '#facets' do
       find('.panel-heading', text: 'Publication Date').click
       fill_in 'range[pub_date_sort][end]', with: '1950'
@@ -358,13 +358,13 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   # NEXT-977 - Series Title does not display via basic search
   it "should show Series Title when searching by Series Title" do
     # Basic Search
-    visit search_catalog_path('q' => 'Black Sea', 'search_field' => 'series_title')
+    visit catalog_index_path('q' => 'Black Sea', 'search_field' => 'series_title')
     expect(page).to have_text('Series Black Sea studies')
 
     # Advanced Search
     series_title_clause = {"field" => "series_title", "value" => "black sea"}
     adv_search_fields = {"1" => series_title_clause}
-    visit search_catalog_path('search_field' => 'advanced', 'adv' => adv_search_fields)
+    visit catalog_index_path('search_field' => 'advanced', 'adv' => adv_search_fields)
     # save_and_open_page
     expect(page).to have_text('Series Black Sea studies')
   end
@@ -374,7 +374,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   it "should truncate queries with too many letters" do
     # This will be 10 x 20 = 200, plus 1 == 201 
     too_long = "123456789 " * 20 + "X"
-    visit search_catalog_path(q: too_long)
+    visit catalog_index_path(q: too_long)
     expect(page).to have_text ("You searched for: #{too_long}")
   end
 
@@ -383,13 +383,13 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   it "should truncate queries with too many words" do
     # This will be 1 x 30 = 30, plus 1 == 31 
     too_long = "asdf " * 30 + "X"
-    visit search_catalog_path(q: too_long)
+    visit catalog_index_path(q: too_long)
     expect(page).to have_text ("You searched for: #{too_long}")
   end
 
   # it "supports 'random query' feature", vcr: false, :skip_travis do
   it "supports 'random query' feature", :skip_travis, vcr: false do
-    visit search_catalog_path(random_q: true)
+    visit catalog_index_path(random_q: true)
     expect(page).to have_css('li.datasource_link.selected[source="catalog"]')
     expect(page).to have_css('span.constraints-label', text: "You searched for:")
   end
@@ -399,7 +399,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     rizq = 'Rizq, Yūnān Labīb'.mb_chars.normalize(:d)
     yahud = 'al-Yahūd fī Miṣr'.mb_chars.normalize(:d)
 
-    visit search_catalog_path(q: rizq, search_field: 'author', sort: 'title_sort desc', rows: 10)
+    visit catalog_index_path(q: rizq, search_field: 'author', sort: 'title_sort desc', rows: 10)
     expect(page).to have_css('#documents .document.result')
 
     # The title-sort of this record begins with "Yahud".
@@ -417,7 +417,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
     # There should be at least 10 records with this author, and they
     # should be first alphabetically.
-    visit search_catalog_path(q: ahmad, search_field: 'author', sort: 'author_sort asc', rows: 30)
+    visit catalog_index_path(q: ahmad, search_field: 'author', sort: 'author_sort asc', rows: 30)
     expect(page).to have_css('#documents .document.result')
     all('#documents .document.result .row .details').each do |details|
       expect(details.text).to satisfy { |detail_text|
@@ -430,7 +430,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
   # NEXT-1157 - Quotation mark not sorting properly
   it "Title sort should disregard punctuation" do
-    visit search_catalog_path(q: 'Cairo papers in social science', search_field: 'title', sort: 'title_sort asc', rows: 10)
+    visit catalog_index_path(q: 'Cairo papers in social science', search_field: 'title', sort: 'title_sort asc', rows: 10)
     expect(page).to have_css('#documents .document.result')
     expect( all('#documents .document.result').first ).to_not have_text "Just a gaze"
   end
@@ -470,7 +470,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   # For this one, both "facet.query=acq_dt" and "fq=acq_dt" need
   # to be ignored by the VCR cassette matcher.
   it "allows acquisition date to be negated", :vcr => {:match_requests_on => [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')]} do
-    visit search_catalog_path(q: 'kittens', 'f[acq_dt][]' => 'years_1')
+    visit catalog_index_path(q: 'kittens', 'f[acq_dt][]' => 'years_1')
     expect(page).to have_css('#documents .document.result')
     recent_title = all('#documents .document.result .row .title').first.text
 

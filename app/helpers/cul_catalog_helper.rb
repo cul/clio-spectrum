@@ -57,7 +57,7 @@ module CulCatalogHelper
 
 
 # WHY????
-  # def search_catalog_path(options = {})
+  # def catalog_index_path(options = {})
   #   filtered_options = options.reject do |key, value|
   #     key.in?('controller', 'action', 'source_override')
   #   end
