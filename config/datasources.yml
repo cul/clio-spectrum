@@ -205,6 +205,8 @@ datasources:
 
   archives:
     name: Archives
+    render_options:
+      format: clio
     search_box:
       advanced: true
       route: archives_index_path
@@ -302,6 +304,8 @@ datasources:
 
   new_arrivals:
     name: New Arrivals
+    render_options:
+      format: clio
     search_box:
       route: new_arrivals_index_path
       placeholder: New Arrivals
