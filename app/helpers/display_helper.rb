@@ -305,7 +305,6 @@ module DisplayHelper
           author_authority_link = ''
 
           # remove punctuation to match entries in author_facet
-          # using solrmarc removeTrailingPunc rule
           search_value = remove_punctuation(search_value)
 
           out << link_to(display_value, url_for(:controller => 'catalog', :action => 'index', 'f[author_facet][]' => search_value)) + author_authority_link
@@ -335,8 +334,6 @@ module DisplayHelper
   end
 
   def remove_punctuation(value)
-    # matches edit from SolrMARC removeTrailingPunc method: Utils.cleanData
-    #
     # Removes trailing characters (space, comma, slash, semicolon, colon) and
     #  trailing period if it is preceded by at least three (two?) letters
 
