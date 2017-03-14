@@ -1,0 +1,44 @@
+# Configuration file for Offsite Request related functionality
+
+# publically requestable offsite locations
+offsite_locations:
+  - off,ave
+  - off,bio
+  - off,bmc
+  - off,bssc
+  - off,bus
+  - off,che
+  - off,docs
+  - off,eal
+  - off,ean
+  - off,eax
+  - off,eng
+  - off,fax
+  - off,glg
+  - off,glx
+  - off,gsc
+  - off,hsl
+  - off,hsr
+  - off,jou
+  - off,leh
+  - off,les
+  - off,mat
+  - off,mrr
+  - off,msc
+  - off,msr
+  - off,mus
+  - off,mvr
+  - off,phy
+  - off,psy
+  - off,ref
+  - off,sci
+  - off,sls
+  - off,swx
+  - off,unr
+  - off,utmrl
+  - off,utn
+  - off,utp
+  - off,uts
+  - off,war
+
+

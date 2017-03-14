@@ -89,10 +89,10 @@ module Voyager
             #   @temp_locations.clear
             # end
             # itemLabel will be empty if it is not for a part
-            if @temp_locations.first[:itemLabel].nil? ||  @temp_locations.first[:itemLabel].length == 0
+            if @temp_locations.first[:itemLabel].blank?
               # replace location_name with temp location, clear temp location
-                @location_name = @temp_locations.first[:tempLocation]
-                @temp_locations.clear
+              @location_name = @temp_locations.first[:tempLocation]
+              @temp_locations.clear
             end
           end
         end
@@ -129,7 +129,7 @@ module Voyager
         fmt = marc.leader[6..7]
 
         # add available services
-        @services = determine_services(@location_name,location_code,@temp_loc_flag,@call_number,@item_status,@orders,@bibid,fmt)
+        @services = determine_services(@location_name, location_code, @temp_loc_flag, @call_number, @item_status, @orders, @bibid, fmt)
 
       end
 
@@ -537,9 +537,8 @@ module Voyager
       end
 
       def assign_location_note(location_code)
-         
         location_note = ''
-         
+
         # Avery Art Properties (NEXT-1318)
         if location_code == 'avap'
           location_note = 'By appointment only. See the <a href="http://library.columbia.edu/locations/avery/art-properties.html" target="_blank">Avery Art Properties webpage</a>'
@@ -572,7 +571,7 @@ module Voyager
       end
 
 
-      def determine_services(location_name,location_code,temp_loc_flag,call_number,item_status,orders,bibid,fmt)
+      def determine_services(location_name, location_code, temp_loc_flag, call_number, item_status, orders, bibid, fmt)
         services = []
 
         # NEXT-1229 - make this the first test
@@ -582,21 +581,23 @@ module Voyager
           return ['spec_coll']
         end
 
+        # Orders such as "Pre-Order", "On-Order", etc.  
+        # List of available services per order status hardcoded into yml config file.
         if orders.present?
           orders.each do |order|
-            parms = ORDER_STATUS_CODES[order[:status_code]]
-            raise "Status code not found in config/order_status_codes.yml" unless parms
-            services << parms['services'] unless parms['services'].nil?
+            order_config = ORDER_STATUS_CODES[order[:status_code]]
+            raise "Status code not found in config/order_status_codes.yml" unless order_config
+            services << order_config['services'] unless order_config['services'].nil?
           end
           return services.flatten.uniq
         end
 
+        # Scan for things like "Recall", "Hold", etc.
         services << scan_message(location_name)
 
-        status = item_status[:status]
         messages = item_status[:messages]
 
-        case status
+        case item_status[:status]
         when 'online'
         when 'none'
           services << 'in_process' if call_number.match(/in process/i)
@@ -605,30 +606,28 @@ module Voyager
         when 'some_available'
           services << process_for_services(location_name,location_code,temp_loc_flag,bibid,messages)
         when 'not_available'
-          services << scan_messages(messages)
+          services << scan_messages(messages) if messages.present?
         else
         end
-
-        services = services.flatten.uniq
 
         # only provide borrow direct request for printed books and scores
         unless fmt == 'am' || fmt == 'cm'
           services.delete('borrow_direct')
         end
 
-        services
-
+        # return the cleaned up list
+        services = services.flatten.uniq
       end
 
 
       def process_for_services(location_name,location_code,temp_loc_flag,bibid,messages)
-
         services = []
-# raise
+
         # offsite
-        if location_name.match(/^Offsite/) &&
-            HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + bibid) == "1"
-          services << 'offsite'
+        # if location_name.match(/^Offsite/) &&
+        #     HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + bibid) == "1"
+        if location_name.match(/^Offsite/) && OFFSITE_CONFIG['offsite_locations'].include?(location_code)
+            services << 'offsite'
 
         # precat
         elsif location_name.match(/^Precat/)
@@ -639,11 +638,11 @@ module Voyager
                'fax', 'faxlc', 'glg', 'glx', 'glxn', 'gsc', 'jou',
                'leh', 'leh,bdis', 'mat', 'mil', 'mus', 'sci', 'swx',
                'uts', 'uts,per', 'uts,unn', 'war' ].include?(location_code) &&
-          temp_loc_flag == 'N'
+               temp_loc_flag == 'N'
           services << 'doc_delivery'
         end
 
-        services += scan_messages(messages) if messages.present?
+        services << scan_messages(messages) if messages.present?
 
         services
       end
@@ -656,26 +655,23 @@ module Voyager
           if message[:status_code] == 'sp'
             services << scan_message(message[:long_message])
           else
-            parms = ITEM_STATUS_CODES[message[:status_code]]
-            raise "Status code not found in config/order_status_codes.yml" unless parms
-            services << parms['services'] unless parms['services'].nil?
+            status_code_config = ITEM_STATUS_CODES[message[:status_code]]
+            raise "Status code not found in config/order_status_codes.yml" unless status_code_config
+            services << status_code_config['services'] unless status_code_config['services'].nil?
           end
         end
         services
       end
 
-
+      # Scan item message string for things like "Recall", "Hold", etc.
       def scan_message(message)
-
         out = []
-        out << 'recall_hold' if message =~ /Recall/i
-        out << 'recall_hold' if message =~ /hold /
-        out << 'borrow_direct' if message =~ /Borrow/
-        out << 'ill' if message =~ /ILL/
-        out << 'in_process' if message =~ /In Process/
-
+        out << 'recall_hold'    if message =~ /Recall/i
+        out << 'recall_hold'    if message =~ /hold /
+        out << 'borrow_direct'  if message =~ /Borrow/
+        out << 'ill'            if message =~ /ILL/
+        out << 'in_process'     if message =~ /In Process/
         out
-
       end
 
     end
