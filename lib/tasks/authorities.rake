@@ -35,7 +35,7 @@ namespace :authorities do
       puts_and_log("Unknown extract: #{ENV['EXTRACT']}", :error) unless extract
 
       extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.mrc")) if extract
-      files_to_read = (ENV["INGEST_FILE"] || extract_files).listify
+      files_to_read = (ENV["INGEST_FILE"] || extract_files).listify.sort
       puts "transforming #{files_to_read.size} files from MARC to MARCXML"
 
       xmldir = File.join(Rails.root, "tmp/extracts/#{extract}/xml")
@@ -64,7 +64,7 @@ namespace :authorities do
       puts_and_log("Unknown extract: #{ENV['EXTRACT']}", :error) unless extract
 
       extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.mrc")) if extract
-      files_to_read = (ENV["INGEST_FILE"] || extract_files).listify
+      files_to_read = (ENV["INGEST_FILE"] || extract_files).listify.sort
 
       # create new traject indexer
       indexer = Traject::Indexer.new
