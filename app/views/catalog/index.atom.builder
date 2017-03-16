@@ -57,7 +57,8 @@ xml.feed("xmlns" => "http://www.w3.org/2005/Atom",
       xml.link    "rel" => "alternate", "type" => "text/html", "href" => solr_document_url(doc)
       # add other doc-specific formats, atom only lets us have one per
       # content type, so the first one in the list wins.
-      xml << render_link_rel_alternates(doc, :unique => true)
+      # ERROR xml << render_link_rel_alternates(doc, :unique => true)
+      xml << show_presenter(doc).link_rel_alternates(unique: true)      
 
       xml.id      solr_document_url(doc[:id])
 
