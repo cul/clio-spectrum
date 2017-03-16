@@ -31,4 +31,6 @@ DONOR_INFO ||= YAML.load(File.read(Rails.root.to_s + '/config/donor_info.yml'))
 ITEM_STATUS_CODES ||= YAML.load(File.read(Rails.root.to_s + '/config/item_status_codes.yml'))
 ORDER_STATUS_CODES ||= YAML.load(File.read(Rails.root.to_s + '/config/order_status_codes.yml'))
 
+OFFSITE_CONFIG ||= YAML.load(File.read(Rails.root.to_s + '/config/offsite.yml'))
+
 

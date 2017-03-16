@@ -38,7 +38,7 @@ namespace :bibliographic do
     task :deletes => :environment do
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
       extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*delete*")) if extract
-      files_to_read = (ENV["DELETES_FILE"] || extract_files).listify
+      files_to_read = (ENV["DELETES_FILE"] || extract_files).listify.sort
 
       puts_and_log("No delete files found.", :info) if files_to_read.empty?
 
@@ -72,7 +72,7 @@ namespace :bibliographic do
     task :ingest => :environment do
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
       extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.{mrc,xml}")) if extract
-      files_to_read = (ENV["INGEST_FILE"] || extract_files).listify
+      files_to_read = (ENV["INGEST_FILE"] || extract_files).listify.sort
 
       # create new traject indexer
       indexer = Traject::Indexer.new

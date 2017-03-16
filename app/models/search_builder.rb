@@ -5,7 +5,6 @@ class SearchBuilder < Blacklight::SearchBuilder
 
   self.default_processor_chain += [:remove_trailing_question_marks]
   self.default_processor_chain += [:add_advanced_search_to_solr]
-  # self.default_processor_chain += [:add_range_limit_params]
   self.default_processor_chain += [:add_debug_to_solr]
   self.default_processor_chain += [:trim_long_queries]
 
@@ -131,15 +130,14 @@ class SearchBuilder < Blacklight::SearchBuilder
   # Local CLIO override of Blacklight method, 
   # to support negative (excluded) facets
   def add_facet_fq_to_solr(solr_parameters)
-    user_params = blacklight_params
     # convert a String value into an Array
     if solr_parameters[:fq].is_a? String
       solr_parameters[:fq] = [solr_parameters[:fq]]
     end
 
     # :fq, map from :f.
-    if  user_params[:f]
-      f_request_params = user_params[:f]
+    if blacklight_params[:f]
+      f_request_params = blacklight_params[:f]
 
       solr_parameters[:fq] ||= []
 
@@ -149,7 +147,7 @@ class SearchBuilder < Blacklight::SearchBuilder
         values = Array(f_request_params[facet_key]).reject(&:empty?)
 
         excluded_values = Array(f_request_params["-#{facet_key}"])
-        operator = user_params[:f_operator] && user_params[:f_operator][facet_key] || 'AND'
+        operator = blacklight_params[:f_operator] && blacklight_params[:f_operator][facet_key] || 'AND'
         solr_parameters[:fq] |= facet_value_to_fq_string(facet_key, values, excluded_values, operator)
       end
     end

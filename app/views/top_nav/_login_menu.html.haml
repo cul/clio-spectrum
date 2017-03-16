@@ -18,7 +18,7 @@
     %li= link_to "My Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087-1", :target => "_blank"
     %li= link_to "My Saved Lists", lists_path
     %li= link_to "My CLIO", new_user_session_path
-    %li= link_to "CLIO Legacy Saved Lists", "http://clio.cul.columbia.edu:7018/vwebv/myList", :target => "_blank"
+    -# %li= link_to "CLIO Legacy Saved Lists", "http://clio.cul.columbia.edu:7018/vwebv/myList", :target => "_blank"
     - if current_user
       %li.nav-divider
       - if current_user.has_role?('site', 'pilot')

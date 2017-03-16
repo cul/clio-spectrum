@@ -211,19 +211,19 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
     visit solr_document_path(10322893)
     # "Also Listed Under Çıpa, H. Erdem, 1971-"
     click_link('H. Erdem, 1971')
-    expect(page).to have_text('1 - 5  of 5')
+    expect(page).to have_text('1 - 6  of 6')
     within('#facet-author li', text: 'Erdem') do
       expect(find('.facet-label')).to have_text "Çıpa, H. Erdem, 1971"
-      expect(find('.facet-count')).to have_text "5"
+      expect(find('.facet-count')).to have_text "6"
     end
 
     visit solr_document_path(10551688)
     # "Also Listed Under Çıpa, H. Erdem, 1971-"
     click_link('H. Erdem, 1971')
-    expect(page).to have_text('1 - 5 of 5')
+    expect(page).to have_text('1 - 6 of 6')
     within('#facet-author li', text: 'Erdem') do
       expect(find('.facet-label')).to have_text "Çıpa, H. Erdem, 1971"
-      expect(find('.facet-count')).to have_text "5"
+      expect(find('.facet-count')).to have_text "6"
     end
   end
 

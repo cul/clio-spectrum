@@ -221,9 +221,6 @@ class ApplicationController < ActionController::Base
   # end
 
   def trigger_debug_mode
-    # RSolr::Client.send(:include, RSolr::Ext::Notifications)
-    # RSolr::Client.enable_notifications!
-
     params_debug_mode = params['debug_mode']
 
     if params_debug_mode == 'on'

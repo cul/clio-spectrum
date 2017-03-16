@@ -2,25 +2,10 @@
 
 -# "SELECTED ITEMS" DROPDOWN MENU ON SEARCH-RESULTS SCREEN
 
-
--# Using Blacklight Dropdowns
-
--# #actions-dropdown.dropdown.navbar-right.hidden-xs
--#   %ul.css-dropdown
--#     %li.btn.btn-link
--#       Selected Items...
--#       %span.caret
--#       %ul
--#         %li= link_to "Send to Email", email_path(), {:id => "emailLink", :name => "email", :class => "lightboxLink", :onclick => "return appendSelectedToURL(this);"}
--#         %li= link_to "Export to EndNote", endnote_solr_document_path(:format => 'endnote'), {:id => "endnoteLink", :onclick => "return appendSelectedToURL(this);"}
--#         %li.nav-divider
--#         %li= link_to "Save to #{SavedList::DEFAULT_LIST_NAME}", "#", :onclick => "saveSelectedToNamedList('#{SavedList::DEFAULT_LIST_NAME}'); return false;"
--#         %li.nav-divider
--#         %li= link_to "Select All Items", "#", :onclick => "selectAll(); return false;"
--#         %li= link_to "Clear All Items", "#", :onclick => "deselectAll(); return false;"
--# 
-
--# Using Bootstrap Dropdowns
+-# Possibly called from different datasources,
+-# figure out which so we can render appropriately.
+- datasource_config = DATASOURCES_CONFIG['datasources'][$active_source] || {}
+- render_options = datasource_config['render_options'] || {}
 
 %li#actions-dropdown.dropdown.navbar-right
 
@@ -38,9 +23,10 @@
     -# -# %li= link_to "Save to #{SavedList::DEFAULT_LIST_NAME}", "#", :onclick => "saveSelectedToNamedList('#{SavedList::DEFAULT_LIST_NAME}'); return false;"
     -# %li= link_to "Add to My Saved List", "#", :onclick => "saveSelectedToNamedList('#{SavedList::DEFAULT_LIST_NAME}'); return false;"
 
-    %li.nav-divider
-    %li= link_to "Add to My Saved List", "#", class: 'saved_list_add'
-
+    -# Only CLIO has saved lists
+    - if render_options['format'] == 'clio'
+      %li.nav-divider
+      %li= link_to "Add to My Saved List", "#", class: 'saved_list_add'
 
     %li.nav-divider
 
