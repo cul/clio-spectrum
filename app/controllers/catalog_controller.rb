@@ -100,7 +100,7 @@ class CatalogController < ApplicationController
     end
 
     # reach into search config to find possible source-specific service alert warning
-    search_config = SEARCHES_CONFIG['sources'][$active_source]
+    search_config = DATASOURCES_CONFIG['datasources'][$active_source]
     warning = search_config ? search_config['warning'] : nil
 # raise
     respond_to do |format|
@@ -152,7 +152,20 @@ class CatalogController < ApplicationController
 
   def show
     @response, @document = fetch params[:id]
-# raise
+
+    # If our Solr document has static holdings...
+    if @document && @document.has_key?(:mfhd_id)
+      # Try to fetch circ status from backend...
+      circ_status = BackendController.circ_status(params[:id])
+      if circ_status
+        # Use static holdings data from MARC
+        # together with dynamic circ status from Oracle query
+        # to build @holdings object
+        @holdings = Voyager::Holdings::Collection.new(@document, circ_status)
+        @holdings_hash = @holdings.to_hash(:output_type => :condensed, :message_type => :short_message)
+      end
+    end
+
     # In support of "nearby" / "virtual shelf browse", remember this bib
     # as our focus bib.
     session[:browse] = {} unless session[:browse].is_a?(Hash)
@@ -171,7 +184,7 @@ class CatalogController < ApplicationController
     add_alerts_to_documents(@document)
 
     # reach into search config to find possible source-specific service alert warning
-    search_config = SEARCHES_CONFIG['sources'][$active_source]
+    search_config = DATASOURCES_CONFIG['datasources'][$active_source]
     warning = search_config ? search_config['warning'] : nil
 
     respond_to do |format|

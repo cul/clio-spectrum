@@ -705,7 +705,8 @@ module Spectrum
 
               config.default_solr_params = {
                 qt: 'search',
-                fq: ['{!raw f=genre_facet}Dissertations']
+                fq: ['{!raw f=genre_facet}Dissertations',
+                     '{!raw f=has_model_ssim}info:fedora/ldpd:ContentAggregator']
               }
 
               config.show.title_field = 'title_display'
@@ -751,6 +752,11 @@ module Spectrum
 
             when 'academic_commons'
               default_catalog_config(config, :solr_params, :search_fields)
+
+              config.default_solr_params = {
+                qt: 'search',
+                fq: ['{!raw f=has_model_ssim}info:fedora/ldpd:ContentAggregator']
+              }
 
               config.show.title_field = 'title_display'
               config.show.display_type_field = 'format'

@@ -7,6 +7,19 @@
   -# = render "/_formats/clio/catalog_show_holdings_online" , :online_links => online_link_hash(document), :is_database => (document['source_display'].include? "database")
   = render "/_formats/clio/catalog_show_holdings_online" , :online_links => online_link_hash(document), :is_database => document.is_database?
 
+  -# If CatalogController was able to build Holdings from Solr MARC, 
+  -# render this non-ajax Holdings block
+  - if @holdings && @holdings_hash
+    .bg-success
+      %h5
+        [Solr-based Holdings, non-ajax]
+      -# - marc = document.to_marc
+      -# - result = Voyager::Holdings::Collection.new_from_marc(marc)
+      -# - result_hash = result.to_hash(:output_type => :condensed, :message_type => :short_message)
+      -# - solr_holdings = result_hash.with_indifferent_access
+    
+      = render '/backend/holdings', holdings: @holdings_hash
+
   -# NEXT-113 - Do not make api request for online-only resources
   -# NEXT-961 - Incorporate Law records into CLIO
   - if has_loadable_holdings?(document)

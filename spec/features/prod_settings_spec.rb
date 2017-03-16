@@ -26,6 +26,9 @@ describe 'Prod Environment' do
     Rails.env = 'clio_prod'
     load File.join(Rails.root, 'config/initializers/google_analytics.rb')
     expect(GoogleAnalytics.web_property_id).to eq('UA-28923110-1')
+
+    # reset
+    Rails.env = 'test'
   end
 
 end

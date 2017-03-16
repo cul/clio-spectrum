@@ -3,14 +3,15 @@
 
     - result = @results[search['source']]
     - if result
-      - source = SEARCHES_CONFIG['sources'][search['source']]
+      - source = DATASOURCES_CONFIG['datasources'][search['source']]
       - warning = source ? source['warning'] : nil;
+      - render_options = (source && source.has_key?('render_options')) ? source['render_options'] : {};
 
       .nested_result_set{:data => {'source' => search['source']}}
         = render partial: "/spectrum/aggregate/result_header", locals: {source: search['source'], result: result, title: source['title'], description: source['description'], warning: warning}
         = render partial: '/datasource_warning', locals: {warning: warning}
         -# - raise
-        = render partial: '/summon_warning' if source['render_options']['format'] == 'article'
+        = render partial: '/summon_warning' if render_options['format'] == 'article'
 
         = render partial: "/spectrum/aggregate/result_docs", locals: {result: result, render_opts: search_render_options(search, source)}
         - if search['display_footer']

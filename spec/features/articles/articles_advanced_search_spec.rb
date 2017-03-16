@@ -42,9 +42,6 @@ describe 'Articles Search', :vcr do
     end
     expect(find('#articles_q')).to be_visible
 
-    # TODO
-    # expect(page).to have_no_selector('.landing_page.articles .advanced_search')
-
     find('.search_box.articles .advanced_search_toggle').click
     expect(find('.landing_page.articles .advanced_search')).to be_visible
     within '.landing_page.articles .advanced_search' do

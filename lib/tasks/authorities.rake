@@ -110,12 +110,32 @@ namespace :authorities do
       raise "usage:  authorities:add_to_bib:by_extract[incremental]" unless extract
 
       biblist = []
-      extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.mrc"))
-      extract_files.each do |file|
-        puts "file #{file}..."
-        reader = MARC::Reader.new(file)
-        for record in reader
-          biblist.push record['001'].value
+      extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.{mrc,xml}"))
+      puts_and_log("- processing #{extract_files.size} files...", :info)
+      extract_files.each do |filename|
+        puts_and_log("-- processing #{filename}...", :info)
+        begin
+
+          case File.extname(filename)
+          when '.mrc'
+            reader = MARC::Reader.new(filename)
+            for record in reader
+              biblist.push record['001'].value
+            end
+          when '.xml'
+            # <controlfield tag="001">2</controlfield>
+            open(filename) do |file|
+              file.each_line do |line|
+                if match = line.match(/<controlfield tag=.001.>(.*)<.controlfield>/i)
+                  biblist.push match.captures.first
+                  # puts match.captures.first
+                end
+              end
+            end
+          end
+
+        rescue => e
+          puts_and_log("MARC::Reader.new(#{filename}): " + e.inspect, :error)
         end
       end
 
@@ -321,7 +341,8 @@ def add_variants_to_biblist(biblist, age)
   counter = 0
   statuses = {}
   statuses['failure'] = 0
-  failure_limit = 5
+  # How many lookup/replace failures before giving up?
+  failure_limit = 20
   biblist.each do |bib|
     begin
       counter = counter + 1

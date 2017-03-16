@@ -11,7 +11,9 @@
     -blacklight_config.per_page.each do |per_page|
       %li= catalog_per_page_link(per_page)
 
-    -if viewstyles = DATASOURCES_CONFIG['datasources'][$active_source]['viewstyles']
+
+    - datasource_config = DATASOURCES_CONFIG['datasources'][$active_source] || {}
+    -if viewstyles = datasource_config['viewstyles']
       %li.nav-divider
       -viewstyles.each do |viewstyle, label|
         %li= viewstyle_link(viewstyle, label)

@@ -372,7 +372,7 @@ module HoldingsHelper
     http_client.send_timeout    = 5 # default 120
     http_client.receive_timeout = 5 # default 60
 
-    Rails.logger.debug "get_content(#{hathi_brief_url})"
+    Rails.logger.debug "fetch_hathi_brief() get_content(#{hathi_brief_url})"
     begin
       json_data = http_client.get_content(hathi_brief_url)
       hathi_holdings_data = JSON.parse(json_data)
@@ -383,6 +383,18 @@ module HoldingsHelper
       return nil unless hathi_holdings_data &&
                         hathi_holdings_data['records'] &&
                         hathi_holdings_data['records'].size > 0
+
+      # NEXT-1357 - Only display 'Full View' Hathi Trust records
+      hathi_holdings_data['items'].delete_if { |item|
+        item['usRightsString'].downcase.include?('limited')
+      }
+
+      # Only display Hathi 'Full view' holdings.
+      # If there are none, supress any Hathi data.
+      return nil unless hathi_holdings_data &&
+                  hathi_holdings_data['items'] &&
+                  hathi_holdings_data['items'].size > 0
+
       return hathi_holdings_data
     rescue => error
       Rails.logger.error "Error fetching #{hathi_brief_url}: #{error.message}"
@@ -424,6 +436,8 @@ module HoldingsHelper
 
     return location_link
   end
+
+
 
 end
 

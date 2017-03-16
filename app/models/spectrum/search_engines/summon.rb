@@ -81,7 +81,7 @@ module Spectrum
       def initialize(options = {}, summon_facets)
         # raise
         Rails.logger.debug "initialize() options=#{options.inspect}"
-        @source = options.delete('source') || options.delete(:source)
+        @source = options.delete('source') || options.delete(:source) || options.delete('datasource') || options.delete(:datasource)
         @summon_facets = summon_facets
 
         @params = {}
@@ -414,11 +414,12 @@ module Spectrum
       end
 
       def summon_facet_cmd(cmdText)
-        summon_facet_modify('s.cmd' => cmdText)
-      end
-
-      def summon_facet_modify(extra_params = {})
-        params = summon_params_modify(extra_params)
+      #   summon_facet_modify('s.cmd' => cmdText)
+      # end
+      # 
+      # def summon_facet_modify(extra_params = {})
+      #   params = summon_params_modify(extra_params)
+        params = summon_params_modify('s.cmd' => cmdText)
         # pass along the built-up params to a source-specific URL builder
         summon_facet_link(params)
       end
@@ -435,6 +436,8 @@ module Spectrum
         # The only exception is the Next/Prev page links, which will
         # reset s.pn via the passed input param cmd, below
         params.merge!('s.pn' => 1)
+        # Re-include page-size - this is sometimes dropped by the Summon API
+        params.merge!('s.ps' => @search.query.page_size)
         # merge in whatever new command overlays current summon state
         params.merge!(extra_params)
         # raise

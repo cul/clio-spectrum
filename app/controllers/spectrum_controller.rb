@@ -63,10 +63,11 @@ class SpectrumController < ApplicationController
         end
       end.flatten
 
-      @action_has_async = true if @search_style == 'aggregate'
+      # @action_has_async = true if @search_style == 'aggregate'
 
-      if @search_style == 'aggregate' && !session[:async_off]
-        @action_has_async = true
+      # if @search_style == 'aggregate' && !session[:async_off]
+      #   @action_has_async = true
+      if @search_style == 'aggregate'
         @results = {}
         sources.each { |source| @results[source] = {} }
       else
@@ -118,6 +119,7 @@ class SpectrumController < ApplicationController
         blacklight_search(params)
       when 'articles'
         fixed_params = fix_summon_params(params)
+        fixed_params['new_search'] = 'true'
         Spectrum::SearchEngines::Summon.new(fixed_params, get_summon_facets)
       when 'library_web'
         Spectrum::SearchEngines::GoogleAppliance.new(fix_ga_params(params))
@@ -184,10 +186,9 @@ class SpectrumController < ApplicationController
       end
     end
 
-    # Article searches within QuickSearch should act as New searches
-    params['new_search'] = 'true' if $active_source == 'quicksearch'
-    # QuickSearch is only one of may possible Aggregates - so maybe this instead?
-    # params['new_search'] = 'true' if @search_style == 'aggregate'
+    # moved elsewhere
+    # # Article searches within QuickSearch should act as New searches
+    # params['new_search'] = 'true' if $active_source == 'quicksearch'
 
     # If we're coming from the LWeb Search Widget - or any other external
     # source - mark it as a New Search for the Summon search engine.
@@ -242,6 +243,7 @@ class SpectrumController < ApplicationController
       results = case source
         when 'articles', 'summon_dissertations', 'summon_ebooks'
           fixed_params = fix_summon_params(fixed_params)
+          fixed_params['new_search'] = true if params['layout'] == 'quicksearch'
           Spectrum::SearchEngines::Summon.new(fixed_params, get_summon_facets)
 
         when 'catalog', 'databases', 'journals', 'catalog_ebooks', 'catalog_dissertations', 'academic_commons', 'ac_dissertations', 'geo', 'dlc'

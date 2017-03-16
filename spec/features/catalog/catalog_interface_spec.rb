@@ -73,7 +73,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   # NEXT-640 - Records in CLIO should include links to Hathi Trust
   #  Full View examples:  513297, 1862548, 2081553
   #  Limited examples:  70744 (?), 4043762, 2517624
-  it "Should show CLIO, Google, and 'Full' & 'Limited' Hathi Trust links", :js do
+  it "Should show CLIO, Google, and 'Full' (only) Hathi Trust links", :js do
 
     # visit this specific item
     visit solr_document_path('513297')
@@ -84,7 +84,8 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
     # Should see the 'Full View' message in the Hathi Holdings box
     expect(page).to have_css('#hathi_holdings #hathi_data')
-    expect(find('#hathi_holdings #hathi_data')).to have_content('Full view')
+    expect(find('#hathi_holdings #hathi_data')).to have_content('Full View')
+    expect(find('#hathi_holdings #hathi_data')).not_to have_content('Limited')
 
     # visit this specific item
     visit solr_document_path('4043762')
@@ -92,8 +93,9 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     expect(page).to have_css('.holdings-container .holdings #google_holdings', visible: false)
     expect(page).to have_css('.holdings-container .holdings #hathi_holdings')
 
-    # Should see the 'Limited (search-only)' message in the Hathi Holdings box
-    expect(find('#hathi_holdings #hathi_data')).to have_content('Limited (search-only)')
+    # Should NOT see the 'Limited (search-only)' message in the Hathi Holdings box
+    expect(page).not_to have_css('#hathi_holdings #hathi_data')
+    # expect(find('#hathi_holdings #hathi_data')).to_not have_content('Limited (search-only)')
   end
 
 

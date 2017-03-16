@@ -1,0 +1,172 @@
+1n:
+    short_message: Available
+    long_message: Not checked out
+1r:
+    short_message: 'Available (Requests: %REQS)'
+    long_message: 'Not checked out (Requests: %REQS)'
+2n:
+    short_message: 'Checked out, due %DATE'
+    long_message: 'Checked out, due %DATE - Recall, or try Borrow Direct or ILL.'
+    services:
+        -   recall_hold
+        -   borrow_direct
+        -   ill
+2r:
+    short_message: 'Checked out, due %DATE (Requests: %REQS)'
+    long_message: 'Checked out, due %DATE (Requests: %REQS). Try Borrow Direct or ILL.'
+    services:
+        -   borrow_direct
+        -   ill
+3n:
+    short_message: 'Checked out, due %DATE'
+    long_message: 'Checked out, due %DATE - Recall, or try Borrow Direct or ILL.'
+    services:
+        -   recall_hold
+        -   borrow_direct
+        -   ill
+3r:
+    short_message: 'Checked out, due %DATE (Requests: %REQS)'
+    long_message: 'Checked out, due %DATE (Requests: %REQS). Try Borrow Direct or ILL.'
+    services:
+        -   borrow_direct
+        -   ill
+4n:
+    short_message: 'Overdue as of %DATE'
+    long_message: 'Overdue as of %DATE - Recall, or try Borrow Direct.'
+    services:
+        -   recall_hold
+        -   borrow_direct
+4r:
+    short_message: 'Overdue as of %DATE (Requests: %REQS)'
+    long_message: 'Overdue as of %DATE (Requests: %REQS). Try Borrow Direct or ILL.'
+    services:
+        -   borrow_direct
+        -   ill
+5n:
+        short_message: 'Requests: %REQS'
+        long_message: 'Requests: %REQS'
+5r:
+        short_message: 'Checked out, due %DATE (Requests: %REQS)'
+        long_message: 'Checked out, due %DATE (Requests: %REQS). Try Borrow Direct or ILL.'
+        services:
+            -   borrow_direct
+            -   ill
+6n:
+        short_message: 'Requests: %REQS'
+        long_message: 'Requests: %REQS'
+6r:
+        short_message: 'Checked out, due %DATE (Requests: %REQS)'
+        long_message: 'Checked out, due %DATE (Requests: %REQS). Try Borrow Direct or ILL.'
+        services:
+            -   borrow_direct
+            -   ill
+7n:
+        short_message: 'On hold at %LOC'
+        long_message: 'On hold at %LOC. Try Borrow Direct or ILL.'
+        services:
+            -   borrow_direct
+            -   ill
+7r:
+        short_message: 'On hold at %LOC (Requests: %REQS)'
+        long_message: 'On hold at %LOC (Requests: %REQS). Try Borrow Direct or ILL.'
+        services:
+            -   borrow_direct
+            -   ill
+8n:
+        short_message: 'In transit %DATE'
+        long_message: 'In transit %DATE. Place a hold request.'
+        services:
+            -   recall_hold
+8r:
+        short_message: 'In transit %DATE (Requests: %REQS)'
+        long_message: 'In transit %DATE (Requests: %REQS). Try Borrow Direct or ILL.'
+        services:
+            -   borrow_direct
+            -   ill
+9n:
+        short_message: 'In transit to %LOC %DATE'
+        long_message: 'In transit to %LOC %DATE. Place a hold request.'
+        services:
+            -   recall_hold
+9r:
+        short_message: 'In transit to %LOC %DATE (Requests: %REQS)'
+        long_message: 'In transit to %LOC %DATE (Requests: %REQS). Try Borrow Direct.'
+        services:
+            -   borrow_direct
+10n:
+        short_message: 'In transit to %LOC %DATE. Place a hold request.'
+        long_message: 'In transit to %LOC %DATE. Place a hold request.'
+        services:
+            -   recall_hold
+10r:
+        short_message: 'In transit to %LOC %DATE (Requests: %REQS)'
+        long_message: 'In transit to %LOC %DATE (Requests: %REQS). Try Borrow Direct.'
+        services:
+            -   borrow_direct
+11n:
+        short_message: 'Returned %DATE'
+        long_message: 'Returned %DATE'
+11r:
+        short_message: 'Returned %DATE (Requests: %REQS)'
+        long_message: 'Returned %DATE (Requests: %REQS). Try Borrow Direct or ILL.'
+        services:
+            -   borrow_direct
+            -   ill
+12n:
+        short_message: 'Missing %DATE'
+        long_message: 'Missing %DATE. Try Borrow Direct or ILL.'
+        services:
+            -   borrow_direct
+            -   ill
+12r:
+        short_message: 'Missing %DATE (Requests: %REQS)'
+        long_message: 'Missing %DATE (Requests: %REQS). Try Borrow Direct or ILL.'
+        services:
+            -   borrow_direct
+            -   ill
+13n:
+        short_message: 'Unavailable %DATE'
+        long_message: 'Unavailable %DATE. Try Borrow Direct or ILL.'
+        services:
+            -   borrow_direct
+            -   ill
+13r:
+        short_message: 'Unavailable %DATE (Requests: %REQS)'
+        long_message: 'Unavailable %DATE (Requests: %REQS). Try Borrow Direct or ILL.'
+        services:
+            -   borrow_direct
+            -   ill
+14n:
+        short_message: 'Unavailable %DATE'
+        long_message: 'Unavailable %DATE. Try Borrow Direct or ILL.'
+        services:
+            -   borrow_direct
+            -   ill
+14r:
+        short_message: 'Unavailable %DATE (Requests: %REQS)'
+        long_message: 'Unavailable %DATE (Requests: %REQS). Try Borrow Direct or ILL.'
+        services:
+            -   borrow_direct
+            -   ill
+18n:
+        short_message: 'Sent to bindery for 1 month on %DATE'
+        long_message: 'Sent to bindery for 1 month on %DATE. Try Borrow Direct or ILL. '
+        services:
+            -   borrow_direct
+            -   ill
+18r:
+        short_message: 'Sent to bindery for 1 month on %DATE (Requests: %REQS)'
+        long_message: 'Sent to bindery for 1 month on %DATE (Requests: %REQS). Try Borrow Direct or ILL.'
+        services:
+            -   borrow_direct
+            -   ill
+22n:
+        short_message: 'In Process %DATE'
+        long_message: 'In Process %DATE. Place an In Process item request.'
+        services:
+            -   in_process
+22r:
+        short_message: 'In Process %DATE (Requests: %REQS)'
+        long_message: 'In Process %DATE (Requests: %REQS). Place an In Process item request.'
+        services:
+            -   in_process

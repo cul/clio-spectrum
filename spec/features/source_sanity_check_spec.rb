@@ -72,8 +72,8 @@ describe 'Simple query should retrieve results', :vcr do
 
   it 'in quicksearch datasource', :js do
     visit quicksearch_index_path(q: 'test')
-    expect(page).to have_css('.result_set', count: 4)
-    expect(page).to have_css('.nested_result_set', count: 4)
+    expect(page).to have_css('.result_set', count: 5)
+    expect(page).to have_css('.nested_result_set', count: 5)
     all('.result_set').each do |result_set|
       expect(result_set).to have_css('.result')
     end
@@ -152,8 +152,8 @@ describe 'Switching between data-source', :vcr do
     # terminal newline submits form
     fill_in 'q', with: "test\n"
 
-    expect(page).to have_css('.result_set', count: 4)
-    expect(page).to have_css('.nested_result_set', count: 4)
+    expect(page).to have_css('.result_set', count: 5)
+    expect(page).to have_css('.nested_result_set', count: 5)
     all('.result_set').each do |result_set|
       expect(result_set).to have_css('.result')
     end

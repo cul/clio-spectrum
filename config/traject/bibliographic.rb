@@ -21,9 +21,29 @@ lookups = 0
 
 ATOZ = ('a'..'z').to_a.join('')
 
+
+# # DEBUGGING
+# each_record do |record, context|
+#   # --- read all records but do no indexing
+#   # context.skip!("bib #{record['001'].value}")
+#   # --- read & skip all records except for a specific bib
+#   # if record['001'].value != '402647'
+#   #   context.skip!
+#   # end
+# end
+
+
 to_field "id", extract_marc("001", first: true)
 
 to_field "marc_display", serialized_marc(:format => "xml")
+
+# This calculates a single timestamp and applies it to all records
+# to_field "marc_dt", literal(Time.now.utc.iso8601)
+# This calculates a timestamp for each record as it is processed
+to_field "marc_dt" do |record, accumulator|
+   accumulator << Time.now.utc.iso8601
+end
+
 
 to_field "text", extract_all_marc_values(from: '050', to: '966')
 
@@ -265,7 +285,9 @@ to_field "item_display" do |record, accumulator|
   }
 end
 
-
+# https://wiki.library.columbia.edu/display/cliogroup/Holdings+Revision+project
+# 852$0 - Traject extraction specification:  8520
+to_field "mfhd_id", extract_marc("8520")
 
 
 

@@ -43,7 +43,7 @@
           - copy['temp_locations'].each do |temp_location|
             .temp_location= format_temp_location_note(temp_location)
         -# If there are any special notes, print them out
-        - ['orders', 'summary_holdings', 'supplements', 'indexes', 'notes',
+        - ['orders', 'summary_holdings', 'supplements', 'indexes', 'public_notes',
 	       'reproduction_note', 'current_issues'].each do |type|
           - unless copy[type].nil?
             - message = copy[type]
@@ -76,7 +76,7 @@
                 = link_to url_details["link_text"], url_details["url"]
 
     -# Service links for this entry (not for each copy)
-    - unless (svc_links = service_links(entry['services'], @id)).empty?
+    - unless (svc_links = service_links(entry['services'], @document.id)).empty?
       .services
         %span.holdings_label= "#{'Request'.pluralize(svc_links.size)}: "
         - svc_links.each do |link|

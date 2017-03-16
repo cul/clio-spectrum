@@ -6,7 +6,7 @@ gem 'activerecord-session_store'
 
 #  ###  BLACKLIGHT (begin)  ###
 
-gem 'blacklight', '~>6.0.0'
+gem 'blacklight', '~>6.7.0'
 # gem 'blacklight', path: '/Users/marquis/src/blacklight'
 
 
@@ -27,7 +27,7 @@ gem 'rsolr'
 gem 'marc'
 
 # MARC indexing in pure ruby
-gem "traject"
+gem 'traject'
 
 # Only used for Google Maps location pages
 gem 'rest-client'
@@ -117,7 +117,8 @@ gem 'sass'
 
 # fork local branch, to add network timeouts
 # gem 'summon'
-gem 'summon', :git => 'git://github.com/cul/summon.git'
+# gem 'summon', :git => 'git://github.com/cul/summon.git'
+gem 'summon', git: 'https://github.com/cul/summon.git'
 # Point to local copy during development...
 # gem 'summon', :path => "/Users/marquis/src/summon"
 
@@ -195,13 +196,13 @@ group :development do
   # http://capistranorb.com/documentation/upgrading/
   gem 'capistrano', '~> 3.0', require: false
   # Rails and Bundler integrations were moved out from Capistrano 3
-  gem 'capistrano-rails',   '~> 1.1', require: false
-  gem 'capistrano-bundler', '~> 1.1', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
   # "idiomatic support for your preferred ruby version manager"
-  gem 'capistrano-rvm',   '~> 0.1', require: false
+  gem 'capistrano-rvm', require: false
   # The `deploy:restart` hook for passenger applications is now in a separate gem
   # Just add it to your Gemfile and require it in your Capfile.
-  gem 'capistrano-passenger',   '~> 0.1', require: false
+  gem 'capistrano-passenger', require: false
 
 
   # Rails 4 - use config.action_view.logger instead

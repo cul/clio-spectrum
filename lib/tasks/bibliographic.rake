@@ -71,7 +71,7 @@ namespace :bibliographic do
     desc "ingest latest bibliographic records"
     task :ingest => :environment do
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
-      extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.mrc")) if extract
+      extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.{mrc,xml}")) if extract
       files_to_read = (ENV["INGEST_FILE"] || extract_files).listify
 
       # create new traject indexer
@@ -87,18 +87,39 @@ namespace :bibliographic do
          # How many records skipped due to errors before we 
          #   bail out with a fatal error?
          provide "solr_writer.max_skipped", "100"
+
+         # # DEBUG -- write all output to STDOUT instead of Solr
+         # provide "writer_class_name", "Traject::DebugWriter"
       end
 
       # load Traject config file (indexing rules)
       indexer.load_config_file(File.join(Rails.root, "config/traject/bibliographic.rb"))
 
+      puts_and_log("- processing #{files_to_read.size} files...", :info)
+
       # index each file 
       files_to_read.each do |filename|
-        puts "- processing #{filename}..."
-        File.open(filename) do |file|
-          indexer.process(file)
+        begin
+          puts_and_log("--- processing #{filename}...", :info)
+          File.open(filename) do |file|
+            case File.extname(file)
+            when '.mrc'
+              indexer.settings['marc_source.type'] = 'binary'
+            when '.xml'
+              indexer.settings['marc_source.type'] = 'xml'
+            end
+            indexer.process(file)
+          end
+          puts_and_log("--- finished #{filename}.", :info)
+        rescue => e
+          puts_and_log("indexer.process(#{filename}): " + e.inspect, :error)
+          # don't raise, so rake can continue processing other files
+          # raise e
         end
       end
+
+      puts_and_log("- finished processing #{files_to_read.size} files.", :info)
+
     end
 
     desc "download and ingest latest files"

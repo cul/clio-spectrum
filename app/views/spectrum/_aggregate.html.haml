@@ -5,7 +5,7 @@
 
         - result = @results[search['source']]
         - if result
-          - source = SEARCHES_CONFIG['sources'][search['source']]
+          - source = DATASOURCES_CONFIG['datasources'][search['source']]
           - warning = source ? source['warning'] : nil;
 
           .result_set.async_result_set{:"data-result-set" => spectrum_searchjson_path(Blacklight::Parameters.sanitize(params).to_hash.merge(:datasource => search['source'] )), :"data-source" => search['source']}

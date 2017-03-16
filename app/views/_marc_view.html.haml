@@ -30,3 +30,6 @@
               %span.sub_code= '|' + h(sub.code)
               = h(sub.value)
 
+-# = document.keys.to_yaml
+- last_marc_update = document['marc_dt'].present? ? Time.zone.parse(document['marc_dt']).strftime("%F %l:%M%P") : ''
+= add_row('MARC Record Load', last_marc_update)

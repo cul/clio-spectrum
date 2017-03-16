@@ -1,7 +1,7 @@
 
 
-
-- @page_title = "#{@document ? document_show_html_title.listify.join('') : ''} - #{application_name}".html_safe
+- title = @document.has_key?('title_display') ? @document['title_display'].first : ''
+- @page_title = "#{title} - #{application_name}".html_safe
 
 
 = render "_formats/clio/catalog_show_toolbar", :document => @document
