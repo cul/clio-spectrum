@@ -7,7 +7,7 @@ class SolrDocument
     super(source_doc, response)
 
     # item_alert hash has to be ready for access by type
-    self.item_alerts = Hash.new
+    self.item_alerts = HashWithIndifferentAccess.new
     ItemAlert::ALERT_TYPES.each do |alert_type, label|
       self.item_alerts[alert_type] = []
     end
