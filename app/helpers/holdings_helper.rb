@@ -142,12 +142,14 @@ module HoldingsHelper
 #    links.sort { |x,y| x.first <=> y.first }
   end
 
-  SERVICE_ORDER = %w(offsite spec_coll precat on_order borrow_direct recall_hold ill in_process doc_delivery)
+  SERVICE_ORDER = %w(offsite offsite_valet spec_coll precat on_order borrow_direct recall_hold ill in_process doc_delivery)
 
   # parameters: title, link (url or javascript)
   SERVICES = {
     'offsite' => ['Offsite',
                   'http://www.columbia.edu/cgi-bin/cul/offsite2?'],
+    'offsite_valet' => ['Offsite (Valet)',
+                  'https://valet-dev.cul.columbia.edu/offsite_requests/new?bib_id='],
     'spec_coll' => ['Special Collections',
                     'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
     'precat' => %w(Precataloging OpenPrecatRequest),

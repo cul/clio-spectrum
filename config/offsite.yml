@@ -1,6 +1,8 @@
 # Configuration file for Offsite Request related functionality
 
 # publically requestable offsite locations
+# that is, items in any of these locations are eligible
+# for a "request from offsite" link.
 offsite_locations:
   - off,ave
   - off,bio
