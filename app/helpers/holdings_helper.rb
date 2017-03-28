@@ -149,7 +149,7 @@ module HoldingsHelper
     'offsite' => ['Offsite',
                   'http://www.columbia.edu/cgi-bin/cul/offsite2?'],
     'offsite_valet' => ['Offsite (Valet)',
-                  'https://valet-dev.cul.columbia.edu/offsite_requests/new?bib_id='],
+                  'https://valet-dev.cul.columbia.edu/offsite_requests/bib?bib_id='],
     'spec_coll' => ['Special Collections',
                     'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
     'precat' => %w(Precataloging OpenPrecatRequest),
