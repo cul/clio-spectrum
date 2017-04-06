@@ -4,6 +4,10 @@
 # that is, items in any of these locations are eligible
 # for a "request from offsite" link.
 offsite_locations:
+  # location codes for the two ReCAP partners
+  - scsb-nypl
+  - scsb-pul
+  # Columbia's Voyager offsite location codes
   - off,ave
   - off,bio
   - off,bmc

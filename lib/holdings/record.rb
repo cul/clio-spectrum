@@ -28,7 +28,7 @@ module Voyager
           tag890list.push(this890) if this890['0'] == mfhd_id
         end
 
-        @location_name = tag852['a']
+        @location_name = tag852['a'] || tag852['b']
         location_code = tag852['b']
 
         # create_operator_id = xml_node.at_css("mfhd|mfhdData[@name='createOperatorId']").content
@@ -626,6 +626,7 @@ module Voyager
         # offsite
         # if location_name.match(/^Offsite/) &&
         #     HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + bibid) == "1"
+        raise
         if location_name.match(/^Offsite/) && OFFSITE_CONFIG['offsite_locations'].include?(location_code)
           services << 'offsite'
           services << 'offsite_valet'
@@ -672,6 +673,8 @@ module Voyager
         out << 'borrow_direct'  if message =~ /Borrow/
         out << 'ill'            if message =~ /ILL/
         out << 'in_process'     if message =~ /In Process/
+        # ReCAP Partners
+        out << 'offsite_valet'  if message =~ /scsb/
         out
       end
 

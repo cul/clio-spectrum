@@ -137,8 +137,14 @@ class CatalogController < ApplicationController
     # If our Solr document has static holdings...
     if @document && @document.has_key?(:mfhd_id)
       # Try to fetch circ status from backend...
-      circ_status = BackendController.circ_status(params[:id])
-      if circ_status
+      # TODO - cleanup hacky ReCAP logic
+      circ_status = if @document.id.start_with? 'SCSB'
+        {}
+      else
+        BackendController.circ_status(params[:id])
+      end
+      # circ_status = BackendController.circ_status(params[:id])
+      if circ_status || @document.id.start_with?('SCSB')
         # Use static holdings data from MARC
         # together with dynamic circ status from Oracle query
         # to build @holdings object
