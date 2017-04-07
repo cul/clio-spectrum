@@ -626,7 +626,6 @@ module Voyager
         # offsite
         # if location_name.match(/^Offsite/) &&
         #     HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + bibid) == "1"
-        raise
         if location_name.match(/^Offsite/) && OFFSITE_CONFIG['offsite_locations'].include?(location_code)
           services << 'offsite'
           services << 'offsite_valet'
