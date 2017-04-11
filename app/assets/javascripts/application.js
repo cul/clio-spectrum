@@ -70,6 +70,8 @@
 // be hitting on anything anymore?
 // # require modall_manager_override
 
+//= require astroids
+//= require konami
 
 
 
