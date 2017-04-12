@@ -6,7 +6,7 @@ gem 'activerecord-session_store'
 
 #  ###  BLACKLIGHT (begin)  ###
 
-gem 'blacklight', '~>6.7.0'
+gem 'blacklight', '~>6.8.0'
 # gem 'blacklight', path: '/Users/marquis/src/blacklight'
 
 
@@ -186,12 +186,6 @@ gem 'library_stdnums'
 # and rake tasks are available in development mode:
 group :development do
 
-  # # Deploy with Capistrano
-  # gem 'capistrano', '~>2'
-  # gem 'capistrano-ext'
-  # # fixes [morrison.cul.columbia.edu] sh: bundle: command not found
-  # gem 'rvm-capistrano'
-
   # Upgrade to Capistrano 3.x
   # http://capistranorb.com/documentation/upgrading/
   gem 'capistrano', '~> 3.0', require: false
@@ -272,8 +266,6 @@ group :test do
   # reset database tables between test runs
   gem 'database_cleaner'
 
-  gem 'rb-fsevent'
-
   # Not doing anything with profiling just now, but when we get back to it,
   # reread:   https://www.coffeepowered.net/2013/08/02/ruby-prof-for-rails/
   # gem 'ruby-prof'
@@ -299,7 +291,6 @@ group :test do
   
   # Record API responses, use saved responses for tests
   gem 'vcr'
-  # gem 'webmock', '~>1.0'
   gem 'webmock'
 end
 

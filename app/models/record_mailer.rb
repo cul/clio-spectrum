@@ -14,7 +14,7 @@ class RecordMailer < ActionMailer::Base
 
   def email_record(documents, details, url_gen_params)
     # raise
-    if documents.size == 1
+    if documents.size == 1 && documents.first.present?
       title_for_subject = if documents.first.kind_of?(Summon::Document)
         documents.first.title
       elsif documents.first.has_key?('title_display')
