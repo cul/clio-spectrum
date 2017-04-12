@@ -1,8 +1,9 @@
 # clio-spectrum
 
-
+<!--
 [![Build Status](https://travis-ci.org/cul/clio-spectrum.svg?branch=master)](https://travis-ci.org/cul/clio-spectrum)  [![Coverage Status](https://coveralls.io/repos/cul/clio-spectrum/badge.svg?branch=master&service=github)](https://coveralls.io/github/cul/clio-spectrum?branch=master)
-  [![Code Climate](https://codeclimate.com/github/cul/clio-spectrum/badges/gpa.svg)](https://codeclimate.com/github/cul/clio-spectrum)
+  [![Code Climate](https://codeclimate.com/github/cul/clio-spectrum/badges/gpa.svg)](https://codeclimate.com/github/cul/clio-spectrum) 
+-->
 
 
 Columbia Libraries Unified Search &amp; Discovery

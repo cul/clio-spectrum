@@ -12,9 +12,9 @@ describe 'Anchored searches', :skip_travis do
 
     [q1, q2, q3, q4].each { |q|
       resp = solr_resp_doc_ids_only(q: "#{starts_with}#{q}")
-      expect(rank(resp, 6613582)).to be <= 3
-      expect(rank(resp, 8364149)).to be <= 3
-      expect(rank(resp, 10026137)).to be <= 3
+      expect(rank(resp, 6613582)).to be <= 4
+      expect(rank(resp, 8364149)).to be <= 4
+      expect(rank(resp, 10026137)).to be <= 4
       expect(rank(resp, 12309484)).to be <= 4
 
       # NOT:  "Wills hospital eye manual for nurses"

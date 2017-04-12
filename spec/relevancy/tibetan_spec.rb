@@ -38,18 +38,10 @@ describe 'Testing tibetan support', :skip_travis do
     resp = solr_response('q' => 'Sman sul rigs rus cho bran mtha bral',
                          'fl' => 'id,title_display,title_vern_display',
                          'facet' => false, :rows => 1)
-
-    # ugh, lots of knowledge of the internal structure hard-coded here,
-    # there aren't Rails 4 compatible ways to get at what I need.
-    first = resp["response"]["docs"].first
-    # puts    first.inspect
-    # puts    first['title_display'].inspect
-
-    # # I don't know why matching on "loṅ" is failing, but since this test is only
-    # # about the punctuation, I'm wild-carding it out and moving on.
+    first = resp['response']['docs'].first
 
     # put unicode into de-composed ("d") form to match against Solr reponse
-    normalized = 'gsal me loṅ = Zang zu bu'.mb_chars.normalize(:d)
+    normalized = 'gsal me long = Zang zu bu'.mb_chars.normalize(:d)
     expect(first['title_display'].first).to match /#{normalized}/
 
     normalized = 'gsal me loṅ = 藏族部落曼秀族谱明镜'.mb_chars.normalize(:d)

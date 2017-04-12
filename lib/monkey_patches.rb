@@ -41,11 +41,13 @@ class String
   end
 end
 
-class DateTime
-  def to_solr_s
-    to_s.gsub('+00:00', 'Z')
-  end
-end
+
+# class DateTime
+#   def to_solr_s
+#     to_s.gsub('+00:00', 'Z')
+#   end
+# end
+
 
 # module Enumerable
 #   # checks to see if any of the values in the enumerable are in

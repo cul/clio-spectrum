@@ -1,22 +1,23 @@
-require 'simplecov'
-require 'coveralls'
-require 'codeclimate-test-reporter'
 
-# Using Coveralls with SimpleCov, per:
-#   https://coveralls.zendesk.com/hc/en-us/articles/201769485-Ruby-Rails
-# Whoa!  Using all three?
-#   https://coderwall.com/p/vwhuqq/using-code-climate
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  Coveralls::SimpleCov::Formatter,
-  SimpleCov::Formatter::HTMLFormatter,
-  CodeClimate::TestReporter::Formatter
-])
-SimpleCov.start 'rails' do
-  # don't do coverage of our testing code
-  add_filter '/spec/'
-  # don't do coverage of our rake tasks
-  add_filter '/lib/tasks/'
-end
+# require 'simplecov'
+# require 'coveralls'
+# require 'codeclimate-test-reporter'
+
+# # Using Coveralls with SimpleCov, per:
+# #   https://coveralls.zendesk.com/hc/en-us/articles/201769485-Ruby-Rails
+# # Whoa!  Using all three?
+# #   https://coderwall.com/p/vwhuqq/using-code-climate
+# SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+#   Coveralls::SimpleCov::Formatter,
+#   SimpleCov::Formatter::HTMLFormatter,
+#   CodeClimate::TestReporter::Formatter
+# ])
+# SimpleCov.start 'rails' do
+#   # don't do coverage of our testing code
+#   add_filter '/spec/'
+#   # don't do coverage of our rake tasks
+#   add_filter '/lib/tasks/'
+# end
 
 # Don't know why this is here - try removing it
 # require 'rubygems'

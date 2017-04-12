@@ -436,10 +436,10 @@ module Spectrum
           config.add_facet_field 'acq_dt',
                                  label: 'Acquisition Date',
                                  query: {
-                                   week_1: { label: 'within 1 Week', fq: "acq_dt:[#{(Date.today - 1.weeks).to_datetime.utc.to_solr_s} TO *]" },
-                                   month_1: { label: 'within 1 Month', fq: "acq_dt:[#{(Date.today - 1.months).to_datetime.utc.to_solr_s} TO *]" },
-                                   months_6: { label: 'within 6 Months', fq: "acq_dt:[#{(Date.today - 6.months).to_datetime.utc.to_solr_s} TO *]" },
-                                   years_1: { label: 'within 1 Year', fq: "acq_dt:[#{(Date.today - 1.years).to_datetime.utc.to_solr_s} TO *]" },
+                                   week_1: { label: 'within 1 Week', fq: "acq_dt:[#{(Date.today - 1.weeks).to_datetime.utc.strftime("%Y-%m-%dT%H:%M:%SZ")} TO *]" },
+                                   month_1: { label: 'within 1 Month', fq: "acq_dt:[#{(Date.today - 1.months).to_datetime.utc.strftime("%Y-%m-%dT%H:%M:%SZ")} TO *]" },
+                                   months_6: { label: 'within 6 Months', fq: "acq_dt:[#{(Date.today - 6.months).to_datetime.utc.strftime("%Y-%m-%dT%H:%M:%SZ")} TO *]" },
+                                   years_1: { label: 'within 1 Year', fq: "acq_dt:[#{(Date.today - 1.years).to_datetime.utc.strftime("%Y-%m-%dT%H:%M:%SZ")} TO *]" },
                                  }
           config.add_facet_field 'location_facet',
                                  label: 'Location', limit: 5
@@ -657,8 +657,8 @@ module Spectrum
               config.default_solr_params = {
                 qt: 'search',
                 # NEXT-845 - New Arrivals timeframe (6 month count == 1 year count)
-                # :fq  => ["acq_dt:[#{(Date.today - 6.months).to_datetime.utc.to_solr_s} TO *]"]
-                fq: ["acq_dt:[#{(Date.today - 1.year).to_datetime.utc.to_solr_s} TO *]"]
+                # :fq  => ["acq_dt:[#{(Date.today - 6.months).to_datetime.utc.strftime("%Y-%m-%dT%H:%M:%SZ")} TO *]"]
+                fq: ["acq_dt:[#{(Date.today - 1.year).to_datetime.utc.strftime("%Y-%m-%dT%H:%M:%SZ")} TO *]"]
               }
 
               default_catalog_config(config, :display_fields, :search_fields, :sorts)
@@ -667,10 +667,10 @@ module Spectrum
                                     # label: 'Acquisition Date', open: true, 
                                     label: 'Acquisition Date', collapse: false,
                                     query: {
-                week_1: { label: 'within 1 Week', fq: "acq_dt:[#{(Date.today - 1.weeks).to_datetime.utc.to_solr_s} TO *]" },
-                month_1: { label: 'within 1 Month', fq: "acq_dt:[#{(Date.today - 1.months).to_datetime.utc.to_solr_s} TO *]" },
-                months_6: { label: 'within 6 Months', fq: "acq_dt:[#{(Date.today - 6.months).to_datetime.utc.to_solr_s} TO *]" },
-                years_1: { label: 'within 1 Year', fq: "acq_dt:[#{(Date.today - 1.years).to_datetime.utc.to_solr_s} TO *]" },
+                week_1: { label: 'within 1 Week', fq: "acq_dt:[#{(Date.today - 1.weeks).to_datetime.utc.strftime("%Y-%m-%dT%H:%M:%SZ")} TO *]" },
+                month_1: { label: 'within 1 Month', fq: "acq_dt:[#{(Date.today - 1.months).to_datetime.utc.strftime("%Y-%m-%dT%H:%M:%SZ")} TO *]" },
+                months_6: { label: 'within 6 Months', fq: "acq_dt:[#{(Date.today - 6.months).to_datetime.utc.strftime("%Y-%m-%dT%H:%M:%SZ")} TO *]" },
+                years_1: { label: 'within 1 Year', fq: "acq_dt:[#{(Date.today - 1.years).to_datetime.utc.strftime("%Y-%m-%dT%H:%M:%SZ")} TO *]" },
               }
               config.add_facet_field 'format',
                                      # label: 'Format', limit: 5, open: true

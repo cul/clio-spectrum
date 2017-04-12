@@ -278,8 +278,8 @@ group :test do
   # reread:   https://www.coffeepowered.net/2013/08/02/ruby-prof-for-rails/
   # gem 'ruby-prof'
 
-  # code coverage
-  gem 'simplecov'
+  # # code coverage
+  # gem 'simplecov'
 
   # CI servers want XML output from rspecs
   # gem 'ci_reporter'
@@ -288,14 +288,14 @@ group :test do
   #  http://docs.travis-ci.com/user/languages/ruby/
   gem 'rake'
 
-  # Travis can use this to send coverage data over to Code Climate
-  # http://docs.travis-ci.com/user/code-climate/
-  # https://codeclimate.com/repos/556c823fe30ba007ad0069ee/coverage_setup
-  gem "codeclimate-test-reporter", require: nil
+  # # Travis can use this to send coverage data over to Code Climate
+  # # http://docs.travis-ci.com/user/code-climate/
+  # # https://codeclimate.com/repos/556c823fe30ba007ad0069ee/coverage_setup
+  # gem "codeclimate-test-reporter", require: nil
 
-  # Coveralls for Code Coverage
-  # https://coveralls.zendesk.com/hc/en-us/articles/201769485-Ruby-Rails
-  gem 'coveralls', require: false
+  # # Coveralls for Code Coverage
+  # # https://coveralls.zendesk.com/hc/en-us/articles/201769485-Ruby-Rails
+  # gem 'coveralls', require: false
   
   # Record API responses, use saved responses for tests
   gem 'vcr'
