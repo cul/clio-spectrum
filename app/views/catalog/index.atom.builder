@@ -19,7 +19,7 @@ xml.feed("xmlns" => "http://www.w3.org/2005/Atom",
 
   xml.link( "rel" => "next",
             "href" => url_for(params.merge(:only_path => false, :page => (page_info.current_page + 1).to_s))
-           ) if  page_info.num_pages > page_info.current_page
+           ) if  page_info.total_pages > page_info.current_page
 
   xml.link( "rel" => "previous",
             "href" => url_for(params.merge(:only_path => false, :page => (page_info.current_page - 1).to_s))
@@ -29,7 +29,7 @@ xml.feed("xmlns" => "http://www.w3.org/2005/Atom",
             "href" => url_for(params.merge(:only_path => false, :page => "1")))
 
   xml.link( "rel" => "last",
-            "href" => url_for(params.merge(:only_path => false, :page => page_info.num_pages.to_s)))
+            "href" => url_for(params.merge(:only_path => false, :page => page_info.total_pages.to_s)))
 
   # "search" doesn't seem to actually be legal, but is very common, and
   # used as an example in opensearch docs
