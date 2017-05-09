@@ -5,6 +5,7 @@
   - if truncated_documents.empty?
     .result_empty
       %h5 No results found.
+      %h5= datasource_explore_link(source)
   - else
     - truncated_documents.each_with_index do |doc, doc_index|
       = render_document_view(doc, render_opts.merge(counter: doc_index ))

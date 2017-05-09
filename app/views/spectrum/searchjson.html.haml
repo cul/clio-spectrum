@@ -13,6 +13,6 @@
         -# - raise
         = render partial: '/summon_warning' if render_options['format'] == 'article'
 
-        = render partial: "/spectrum/aggregate/result_docs", locals: {result: result, render_opts: search_render_options(search, source)}
+        = render partial: "/spectrum/aggregate/result_docs", locals: {source: source, result: result, render_opts: search_render_options(search, source)}
         - if search['display_footer']
           = render partial: "/spectrum/aggregate/result_footer", locals: {result: result}
