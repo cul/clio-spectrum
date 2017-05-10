@@ -6,7 +6,7 @@ gem 'activerecord-session_store'
 
 #  ###  BLACKLIGHT (begin)  ###
 
-gem 'blacklight', '~>6.8.0'
+gem 'blacklight', '~>6.9.0'
 # gem 'blacklight', path: '/Users/marquis/src/blacklight'
 
 

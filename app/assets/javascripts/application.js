@@ -7,7 +7,7 @@
 // Follow installation instructions:  https://github.com/rails/jquery-rails
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui/sortable
+//= require jquery-ui/widgets/sortable
 
 // from project Blacklight
 //= require blacklight/blacklight
