@@ -156,14 +156,16 @@ module Spectrum
           # @config.merge!(log: Rails.logger)
 
           Rails.logger.debug "[Spectrum][Summon] config: #{@config}"
-          Rails.logger.debug "[Spectrum][Summon] params: #{@params}"
           @service = ::Summon::Service.new(@config)
 
           ### THIS is the actual call to the Summon service to do the search
           start_time = Time.now
           @search = @service.search(@params)
           end_time = Time.now
-          Rails.logger.debug "[Spectrum][Summon] search took: #{(end_time - start_time).round(2)} sec"
+          # May, 2017 - TODO - put these back to 'debug' after we've
+          # spent a bit of time looking into Summon query performance.
+          Rails.logger.warn "[Spectrum][Summon] params: #{@params}"
+          Rails.logger.warn "[Spectrum][Summon] search took: #{(end_time - start_time).round(2)} sec"
 
           # if do_benchmarking
           #   bench.output
