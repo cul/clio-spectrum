@@ -30,13 +30,18 @@
     = Rails.cache.stats.to_yaml
 
 %h4
-  Full ENV
+  Full SOLR_CONFIG
   %pre
-    = ENV.sort.to_h.to_yaml
+    = SOLR_CONFIG.to_yaml
 
 %h4
   Full APP_CONFIG
   %pre
     = APP_CONFIG.to_yaml
+
+%h4
+  Full ENV
+  %pre
+    = ENV.sort.to_h.to_yaml
 
 
