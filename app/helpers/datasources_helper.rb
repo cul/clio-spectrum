@@ -233,12 +233,13 @@ module DatasourcesHelper
   end
 
 
-  def datasource_explore_link(source)
-    return '' unless source
-
-    content_tag(:a, "Explore #{source['name']}",
-                href: datasource_landing_page_path($active_source) )
-  end
+  # Nope, moved to _result_header.html.haml, no helper method needed
+  # def datasource_explore_link(source)
+  #   return '' unless source
+  # 
+  #   content_tag(:a, "Explore #{source['name']}",
+  #               href: datasource_landing_page_path($active_source) )
+  # end
 
 
   def datasource_landing_page_path(source, query = nil)

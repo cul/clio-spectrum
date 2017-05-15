@@ -15,4 +15,5 @@
 
         = render partial: "/spectrum/aggregate/result_docs", locals: {source: source, result: result, render_opts: search_render_options(search, source)}
         - if search['display_footer']
-          = render partial: "/spectrum/aggregate/result_footer", locals: {result: result}
+          - if result && result.total_items.to_i > 0
+            = render partial: "/spectrum/aggregate/result_footer", locals: {result: result}
