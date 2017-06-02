@@ -178,8 +178,11 @@ gem 'rack-attack'
 # Too much spam using our record emailer
 gem "recaptcha", require: "recaptcha/rails"
 
-
+# works with Traject to extract id numbers from MARC
 gem 'library_stdnums'
+
+# keep cron scheduling within application
+gem 'whenever'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
