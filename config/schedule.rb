@@ -9,10 +9,10 @@ set :environment, Rails.env
 # Give our jobs nice subject lines
 set :subject, 'cron output'
 set :recipient, 'clio-dev@library.columbia.edu'
-set :job_template, "/usr/local/bin/mailifoutput -s ':subject (:environment)' :recipient ':job'"
+set :job_template, "/usr/local/bin/mailifoutput -s ':subject (:environment)' :recipient  /bin/bash -c ':job'"
 
-# CLIO DEV
-if @environment == 'clio_dev'
+# CLIO DEV, CLIO TEST
+if @environment != 'clio_prod'
 
   # Still to do....
   # - cleanup search records
