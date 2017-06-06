@@ -88,6 +88,8 @@ namespace :bibliographic do
          # How many records skipped due to errors before we 
          #   bail out with a fatal error?
          provide "solr_writer.max_skipped", "100"
+         # 10 x default batch sizes, sees some gains
+         provide "solr_writer.batch_size", "1000"
 
          # # DEBUG -- write all output to STDOUT instead of Solr
          # provide "writer_class_name", "Traject::DebugWriter"
