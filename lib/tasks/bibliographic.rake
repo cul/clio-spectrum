@@ -125,7 +125,7 @@ namespace :bibliographic do
 
     desc "download and ingest latest files"
     task :process => :environment do
-      Rake::Task["bibliographic:extract:download"].execute
+      Rake::Task["bibliographic:extract:fetch"].execute
       puts_and_log("Downloading successful.")
 
       Rake::Task["bibliographic:extract:deletes"].execute
