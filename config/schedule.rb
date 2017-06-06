@@ -26,30 +26,30 @@ if @environment != 'clio_prod'
     rake 'bibliographic:extract:process EXTRACT=incremental', subject: 'daily incremental'
   end
   # Weekly cumulative, catch-up run in case we missed anything
-  every :sunday, at: '4am' do
+  every :day, at: '4am' do
     rake 'bibliographic:extract:process EXTRACT=cumulative', subject: 'weekly cumulative'
   end
 
   #  ===  AUTHORITIES  ===
 
-  #  Add authority variants after each daily/weekly load 
+  #  Add authority variants after each daily load 
   every :day, at: '2am' do
     rake 'authorities:add_to_bib:by_extract[incremental]', subject: 'daily authorities'
   end
-  # Weekly catch-up against cumulative
-  every :sunday, at: '6am' do
+  # Weekly authority catch-up against cumulative
+  every :day, at: '6am' do
     rake 'authorities:add_to_bib:by_extract[cumulative]', subject: 'weekly authorities'
   end
 
   # == LAW ==
 
   # Weekly full load of all Law records
-  every :sunday, at: '8am' do
+  every :day, at: '8am' do
     rake 'bibliographic:extract:process EXTRACT=law', subject: 'law load'
   end
   # Weekly Delete of all stale Law records (3 week grace period)
   # (TODO: this should definitely be coded into a rake task!)
-  every :sunday, at: '10am' do
+  every :day, at: '10am' do
     command '/usr/bin/curl --silent "http://lito-solr-dev1.cul.columbia.edu:8983/solr/clio_dev/update?commit=true" -H "Content-Type: text/xml" --data-binary "<delete><query>timestamp:[* TO NOW/DAY-21DAYS] AND location_facet:Law</query></delete>"', subject: 'law purge'
   end
 
