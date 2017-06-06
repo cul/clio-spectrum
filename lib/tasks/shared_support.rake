@@ -4,7 +4,7 @@ require 'marc'
 
 require File.join(Rails.root.to_s, 'config', 'initializers/aaa_load_app_config.rb')
 
-EXTRACT_SCP_SOURCE = APP_CONFIG['extract_scp_source']
+# EXTRACT_SCP_SOURCE = APP_CONFIG['extract_scp_source']
 
 EXTRACTS =  ["full", "incremental", "cumulative", "subset", "law", "test",
              "auth_incremental", "auth_full", "auth_subset"]

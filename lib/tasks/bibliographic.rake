@@ -5,10 +5,11 @@ namespace :bibliographic do
 
   namespace :extract do
 
-    desc "download the latest bibliographic extract from EXTRACT_SCP_SOURCE"
-    task :download  do
+    desc "fetch the latest bibliographic extract from EXTRACT_HOME"
+    task :fetch  do
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
       puts_and_log("Extract not specified", :error, :alarm => true) unless extract
+      extract_dir = APP_CONFIG['extract_home'] + "/" + extract
 
       temp_dir_name = File.join(Rails.root, "tmp/extracts/#{extract}/current/")
       temp_old_dir_name = File.join(Rails.root, "tmp/extracts/#{extract}/old/")
@@ -16,12 +17,12 @@ namespace :bibliographic do
       FileUtils.rm_rf(temp_old_dir_name)
       FileUtils.mv(temp_dir_name, temp_old_dir_name) if File.exists?(temp_dir_name)
       FileUtils.mkdir_p(temp_dir_name)
-      scp_command = "scp #{EXTRACT_SCP_SOURCE}/#{extract}/* " + temp_dir_name
-      puts scp_command
-      if system(scp_command)
-        puts_and_log("Download successful.", :info)
+      cp_command = "/bin/cp #{extract_dir}/* " + temp_dir_name
+      puts cp_command
+      if system(cp_command)
+        puts_and_log("Fetch successful.", :info)
       else
-        puts_and_log("Download unsucessful", :error, :alarm => true)
+        puts_and_log("Fetch unsucessful", :error, :alarm => true)
       end
 
 
