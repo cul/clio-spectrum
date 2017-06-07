@@ -30,6 +30,11 @@ if @environment != 'clio_prod'
   #   rake 'bibliographic:extract:process EXTRACT=cumulative', subject: 'weekly cumulative'
   # end
 
+  # FULL - to be included as needed
+  every :day, at: '2:35pm' do
+    rake 'bibliographic:extract:process EXTRACT=full', subject: 'FULL'
+  end
+
   #  ===  AUTHORITIES  ===
 
   # #  Add authority variants after each daily load 
