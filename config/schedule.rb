@@ -31,7 +31,7 @@ if @environment != 'clio_prod'
   # end
 
   # FULL - to be included as needed
-  every :day, at: '2:35pm' do
+  every :day, at: '3:00pm' do
     rake 'bibliographic:extract:process EXTRACT=full', subject: 'FULL'
   end
 
