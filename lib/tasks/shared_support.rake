@@ -36,7 +36,8 @@ def solr_delete_ids(ids)
 end
 
 def puts_and_log(msg, level = :info, params = {})
-  full_msg = level.to_s + ": " + msg.to_s
+  time = Time.now.to_formatted_s(:time)
+  full_msg = time + " " + level.to_s + ": " + msg.to_s
   puts full_msg
   unless @logger
     @logger = Logger.new(File.join(Rails.root, "log", "#{Rails.env}_ingest.log"))
