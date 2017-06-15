@@ -1,4 +1,3 @@
-
 require 'time'    # gives us ISO time formatting
 require 'marc'
 
@@ -58,3 +57,33 @@ def puts_and_log(msg, level = :info, params = {})
   end
 
 end
+
+def xml_clean(filename)
+  raise "xml_clean() passed empty filename!" if filename.empty?
+
+  # clean_file = "#{filename}.clean"
+  # File.open(filename).each do |line|
+  #   tempfile.puts line.gsub(regexp, replacement)
+  # end
+
+  File.open("#{filename}.clean", 'w') do |tempfile|
+    File.open(filename).each do |line|
+      tempfile.puts line.gsub(/[\x01-\x08]/, '?')
+    end
+    tempfile.fsync
+    tempfile.close
+    # stat = File.stat(filename)
+    # FileUtils.chown stat.uid, stat.gid, tempfile.path
+    # FileUtils.chmod stat.mode, tempfile.path
+    FileUtils.mv tempfile.path, filename
+  end
+
+end
+
+
+
+
+
+
+
+

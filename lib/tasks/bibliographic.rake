@@ -82,7 +82,8 @@ namespace :bibliographic do
       indexer.settings do
          provide "solr.url", Blacklight.connection_config[:url]
          provide 'debug_ascii_progress', true
-         provide "log.level", 'debug'
+         # 'debug' echoes full options, gives more details...
+         provide "log.level", 'info'
          provide 'processing_thread_pool', '0'
          provide "solr_writer.commit_on_close", "true"
          # How many records skipped due to errors before we 
@@ -104,6 +105,13 @@ namespace :bibliographic do
       files_to_read.each do |filename|
         begin
           puts_and_log("--- processing #{filename}...", :info)
+
+          # Nokogiri XML parser can't handle illegal control chars
+          if filename.ends_with?('.xml')
+            # puts_and_log("----- cleaning #{filename}...", :info)
+            xml_clean(filename)
+          end
+
           File.open(filename) do |file|
             case File.extname(file)
             when '.mrc'
@@ -111,6 +119,8 @@ namespace :bibliographic do
             when '.xml'
               indexer.settings['marc_source.type'] = 'xml'
             end
+
+            # puts_and_log("----- indexing #{filename}...", :info)
             indexer.process(file)
           end
           puts_and_log("--- finished #{filename}.", :info)
