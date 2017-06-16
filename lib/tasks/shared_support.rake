@@ -12,23 +12,35 @@ BIB_SOLR_URL = Blacklight.connection_config[:url]
 BIB_SOLR = RSolr.connect(url: BIB_SOLR_URL)
 AUTHORITIES_SOLR = RSolr.connect(url: APP_CONFIG['authorities_solr_url'])
 
+Rails.logger = Logger.new(STDERR)
+
+Rails.logger.formatter = Logger::Formatter.new
+
+ingest_log_file = File.join(Rails.root, "log", "#{Rails.env}_ingest.log")
+# Rails.logger = Logger.new(ingest_log)
+ingest_log_logger = Logger.new(ingest_log_file)
+# Rails.logger.level = INFO
+Rails.logger.extend(ActiveSupport::Logger.broadcast(ingest_log_logger))
+
+
 def solr_delete_ids(ids)
   retries = 5
   begin
     ids = ids.listify.collect { |x| x.strip}
-    puts_and_log(ids.length.to_s + " deleting", :debug)
+    Rails.logger.debug(ids.length.to_s + " deleting")
     Blacklight.default_index.connection.delete_by_id(ids)
 
-    puts_and_log("Committing changes", :debug)
+    Rails.logger.debug("Committing changes")
     Blacklight.default_index.connection.commit
 
   rescue Timeout::Error
-    puts_and_log("Timed out!", :info)
+    Rails.logger.info("Timed out!")
     if retries <= 0
-      puts_and_log("Out of retries, stopping delete process.", :error, :alarm => true)
+      Rails.logger.error("Out of retries, stopping delete process.")
+      raise
     end
 
-    puts_and_log("Trying again.", :info)
+    Rails.logger.info("Trying again.")
     retries -= 1
     retry
   end
@@ -43,6 +55,7 @@ def puts_and_log(msg, level = :info, params = {})
     @logger.formatter = Logger::Formatter.new
   end
 
+  # This writes to the app's regular log file
   if defined?(Rails) && Rails.logger
     Rails.logger.send(level, msg)
   end
@@ -50,9 +63,6 @@ def puts_and_log(msg, level = :info, params = {})
   @logger.send(level, msg)
 
   if params[:alarm]
-    if ENV["EMAIL_ON_ERROR"] == "TRUE"
-      IngestErrorNotifier.deliver_generic_error(:error => full_msg)
-    end
     raise full_msg
   end
 

@@ -54,31 +54,6 @@ to_field "author_display", extract_marc("100abcdq:110#{ATOZ}:111#{ATOZ}", trim_p
 to_field "author_vern_display", extract_marc("100abcdq:110#{ATOZ}:111#{ATOZ}", trim_punctuation: true, alternate_script: :only)
 to_field "author_sort", marc_sortable_author
 
-# ### authority variants are not inserted at original index time ###
-# authorities_solr = RSolr.connect(url: APP_CONFIG['authorities_solr_url'])
-# puts_and_log("authorities_solr=#{authorities_solr}")
-# to_field "author_variants_txt" do |record, accumulator|
-#   bibs = bibs + 1
-#   id = Traject::Macros::Marc21.extract_marc_from(record, "001", first: true)
-#   author = ::Traject::Macros::Marc21.extract_marc_from(record, "100abcegqu:110abcdegnu:111acdegjnqu", :trim_punctuation => true, alternate_script: false, first: true).first
-#   # next
-#   if author.present?
-#     # Lookup each authorized heading against authorities, retrieve variants
-#     response = authorities_solr.get 'select', params: {fq: "author_t:#{CGI.escape author}", fl: 'author_variant_t', rows: 1, qt: 'select'}
-#     lookups = lookups + 1
-#     # puts response.inspect
-#     if response["response"]["docs"].size > 0
-#       variants = response["response"]["docs"].first['author_variant_t']
-#       if variants && variants.size > 0
-#         puts_and_log("(#{id.first}) author [#{author}] ==> variants [#{variants.join(' / ')}]", :debug)
-#         accumulator << variants
-#         puts "total bibs #{bibs} / lookups #{lookups}"
-#       end
-#     end
-#   end
-# end
-
-
 to_field "title_txt", extract_marc("245afknp", trim_punctuation: false, alternate_script: true)
 to_field "title_display", extract_marc("245abfhknp", trim_punctuation: true, alternate_script: false)
 to_field "title_vern_display", extract_marc("245abfhknp", trim_punctuation: true, alternate_script: :only)

@@ -1,14 +1,23 @@
 
 
-
 namespace :bibliographic do
 
   namespace :extract do
 
+    # Used to test logging
+    # task :noisy do
+    #   Rails.logger.debug "noisy debug"
+    #   Rails.logger.info "noisy info"
+    #   Rails.logger.error "noisy error"
+    # end
+
     desc "fetch the latest bibliographic extract from EXTRACT_HOME"
     task :fetch  do
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
-      puts_and_log("Extract not specified", :error, :alarm => true) unless extract
+      unless extract
+        Rails.logger.error("Extract not specified")
+        raise
+      end
       extract_dir = APP_CONFIG['extract_home'] + "/" + extract
 
       temp_dir_name = File.join(Rails.root, "tmp/extracts/#{extract}/current/")
@@ -18,18 +27,20 @@ namespace :bibliographic do
       FileUtils.mv(temp_dir_name, temp_old_dir_name) if File.exists?(temp_dir_name)
       FileUtils.mkdir_p(temp_dir_name)
       cp_command = "/bin/cp #{extract_dir}/* " + temp_dir_name
-      puts cp_command
+      # puts cp_command
       if system(cp_command)
-        puts_and_log("Fetch successful.", :info)
+        Rails.logger.info("Fetch successful.")
       else
-        puts_and_log("Fetch unsucessful", :error, :alarm => true)
+        Rails.logger.error("Fetch unsucessful")
+        raise "Fetch unsucessful"
       end
 
 
-      if  system("gunzip " + temp_dir_name + "*.gz")
-        puts_and_log("Gunzip successful", :info)
+      if system("gunzip " + temp_dir_name + "*.gz")
+        Rails.logger.info("Gunzip successful")
       else
-        puts_and_log("Gunzip unsuccessful", :error, :alarm => true)
+        Rails.logger.error("Gunzip unsuccessful")
+        raise "Gunzip unsuccessful"
       end
 
     end
@@ -41,30 +52,29 @@ namespace :bibliographic do
       extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*delete*")) if extract
       files_to_read = (ENV["DELETES_FILE"] || extract_files).listify.sort
 
-      puts_and_log("No delete files found.", :info) if files_to_read.empty?
+      Rails.logger.info("No delete files found.") if files_to_read.empty?
 
       files_to_read.each do |file|
-        if File.exists?(file)
-          puts_and_log("Processing file: #{file}", :info)
-          ids_to_delete = []
+        raise "File does not exist: #{file}" unless File.exists?(file)
 
-          File.open(file, "r").each do |line|
-            ids_to_delete << line
-          end
+        Rails.logger.info("Processing file: #{file}")
+        ids_to_delete = []
 
-          ids_to_delete.uniq!
-
-          puts_and_log(ids_to_delete.length.to_s + " ids to delete.", :info)
-          begin
-            solr_delete_ids(ids_to_delete)
-            puts_and_log(ids_to_delete.length.to_s + " ids deleted (if in index)", :info)
-          rescue => e
-            puts_and_log("delete error: " + e.inspect, :error, :alarm => true)
-          end
-
-        else
-          puts_and_log("File does not exist: #{file}", :error)
+        File.open(file, "r").each do |line|
+          ids_to_delete << line
         end
+
+        ids_to_delete.uniq!
+
+        Rails.logger.info(ids_to_delete.length.to_s + " ids to delete.")
+        begin
+          solr_delete_ids(ids_to_delete)
+          Rails.logger.info(ids_to_delete.length.to_s + " ids deleted (if in index)")
+        rescue => e
+          Rails.logger.error("Error during delete: " + e.inspect)
+          raise e
+        end
+
       end
     end
 
@@ -82,8 +92,10 @@ namespace :bibliographic do
       indexer.settings do
          provide "solr.url", Blacklight.connection_config[:url]
          provide 'debug_ascii_progress', true
-         # 'debug' echoes full options, gives more details...
-         provide "log.level", 'info'
+         # 'debug' to echo full options
+         provide 'log.level', 'info'
+         # match our default application log format
+         provide 'log.format', [ '%d [%L] %m', '%Y-%m-%d %H:%M:%S' ]
          provide 'processing_thread_pool', '0'
          provide "solr_writer.commit_on_close", "true"
          # How many records skipped due to errors before we 
@@ -99,16 +111,17 @@ namespace :bibliographic do
       # load Traject config file (indexing rules)
       indexer.load_config_file(File.join(Rails.root, "config/traject/bibliographic.rb"))
 
-      puts_and_log("- processing #{files_to_read.size} files...", :info)
+
+      Rails.logger.info("- processing #{files_to_read.size} files...")
 
       # index each file 
       files_to_read.each do |filename|
         begin
-          puts_and_log("--- processing #{filename}...", :info)
+          Rails.logger.info("--- processing #{filename}...")
 
           # Nokogiri XML parser can't handle illegal control chars
           if filename.ends_with?('.xml')
-            # puts_and_log("----- cleaning #{filename}...", :info)
+            Rails.logger.debug("----- cleaning #{filename}...")
             xml_clean(filename)
           end
 
@@ -120,31 +133,31 @@ namespace :bibliographic do
               indexer.settings['marc_source.type'] = 'xml'
             end
 
-            # puts_and_log("----- indexing #{filename}...", :info)
+            Rails.logger.debug("----- indexing #{filename}...")
             indexer.process(file)
           end
-          puts_and_log("--- finished #{filename}.", :info)
+          Rails.logger.info("--- finished #{filename}.")
         rescue => e
-          puts_and_log("indexer.process(#{filename}): " + e.inspect, :error)
+          Rails.logger.error("Error during indexing (#{filename}): " + e.inspect)
           # don't raise, so rake can continue processing other files
           # raise e
         end
       end
 
-      puts_and_log("- finished processing #{files_to_read.size} files.", :info)
+      Rails.logger.info("- finished processing #{files_to_read.size} files.")
 
     end
 
     desc "download and ingest latest files"
     task :process => :environment do
       Rake::Task["bibliographic:extract:fetch"].execute
-      puts_and_log("Downloading successful.")
+      Rails.logger.info("Downloading successful.")
 
       Rake::Task["bibliographic:extract:deletes"].execute
-      puts_and_log("Deletes successful.")
+      Rails.logger.info("Deletes successful.")
 
       Rake::Task["bibliographic:extract:ingest"].execute
-      puts_and_log("Ingest successful.")
+      Rails.logger.info("Ingest successful.")
 
 
     end

@@ -3,7 +3,7 @@ namespace :locations do
 
     task :load => :environment do
       locations = Location.clear_and_load_fixtures!
-      puts_and_log(locations.count.to_s + " locations loaded.")
+      Rails.logger.info(locations.count.to_s + " locations loaded.")
     end
 
   end

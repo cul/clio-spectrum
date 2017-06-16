@@ -6,7 +6,7 @@ namespace :authorities do
     desc "download the latest extract from EXTRACT_SCP_SOURCE"
     task :download  do
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
-      puts_and_log("Extract not specified", :error, :alarm => true) unless extract
+      puts_and_log("Extract not specified", :error, alarm: true) unless extract
 
       temp_dir_name = File.join(Rails.root, "tmp/extracts/#{extract}/current/")
       temp_old_dir_name = File.join(Rails.root, "tmp/extracts/#{extract}/old/")
@@ -17,15 +17,15 @@ namespace :authorities do
       scp_command = "scp #{EXTRACT_SCP_SOURCE}/#{extract}/* " + temp_dir_name
       puts scp_command
       if system(scp_command)
-        puts_and_log("Download successful.", :info)
+        Rails.logger.info("Download successful.")
       else
-        puts_and_log("Download unsucessful", :error, :alarm => true)
+        puts_and_log("Download unsucessful", :error, alarm: true)
       end
 
       if  system("gunzip " + temp_dir_name + "*.gz")
-        puts_and_log("Gunzip successful", :info)
+        Rails.logger.info("Gunzip successful")
       else
-        puts_and_log("Gunzip unsuccessful", :error, :alarm => true)
+        puts_and_log("Gunzip unsuccessful", :error, alarm: true)
       end
     end
 
@@ -73,13 +73,16 @@ namespace :authorities do
       indexer.settings do
          provide "solr.url", APP_CONFIG['authorities_solr_url']
          provide 'debug_ascii_progress', true
-         provide "log.level", 'debug'
-         # Set to true (or "true") if you want to commit at the
-         #   end of the indexing run.
+         # 'debug' to see full traject options
+         provide "log.level", 'info'
+         # match our default application log format
+         provide 'log.format', [ '%d [%L] %m', '%Y-%m-%d %H:%M:%S' ]
          provide "solr_writer.commit_on_close", "true"
          # How many records skipped due to errors before we 
          #   bail out with a fatal error?
          provide "solr_writer.max_skipped", "100"
+         # 10 x default batch sizes, sees some gains
+         provide "solr_writer.batch_size", "1000"
       end
 
       # load authorities config file (indexing rules)
@@ -96,10 +99,10 @@ namespace :authorities do
     desc "download and ingest latest authority files"
     task :process => :environment do
       Rake::Task["authorities:extract:download"].execute
-      puts_and_log("Downloading successful.")
+      Rails.logger.info("Downloading successful.")
 
       Rake::Task["authorities:extract:ingest"].execute
-      puts_and_log("Ingest successful.")
+      Rails.logger.info("Ingest successful.")
     end
   end
 
@@ -111,9 +114,9 @@ namespace :authorities do
 
       biblist = []
       extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.{mrc,xml}"))
-      puts_and_log("- processing #{extract_files.size} files...", :info)
+      Rails.logger.info("- processing #{extract_files.size} files...")
       extract_files.each do |filename|
-        puts_and_log("-- processing #{filename}...", :info)
+        Rails.logger.info("-- processing #{filename}...")
         begin
 
           case File.extname(filename)

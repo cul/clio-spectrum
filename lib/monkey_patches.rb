@@ -88,6 +88,16 @@ class Hash
   end
 end
 
+# Override default logging format via monkey patch,
+# (instead of writing & using new custom class)
+class Logger
+  def format_message(severity, timestamp, program, message)
+    "#{timestamp.to_formatted_s(:db)} [#{severity}] #{message}\n"
+  end
+end
+
+
+
 # class ActiveSupport::Cache::MemoryStore
 class ActiveSupport::Cache::Store
 
