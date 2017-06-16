@@ -13,6 +13,7 @@ namespace :bibliographic do
 
     desc "fetch the latest bibliographic extract from EXTRACT_HOME"
     task :fetch  do
+      setup_ingest_logger
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
       unless extract
         Rails.logger.error("Extract not specified")
@@ -48,6 +49,7 @@ namespace :bibliographic do
 
     desc "process deletes file"
     task :deletes => :environment do
+      setup_ingest_logger
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
       extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*delete*")) if extract
       files_to_read = (ENV["DELETES_FILE"] || extract_files).listify.sort
@@ -81,6 +83,7 @@ namespace :bibliographic do
 
     desc "ingest latest bibliographic records"
     task :ingest => :environment do
+      setup_ingest_logger
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
       extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.{mrc,xml}")) if extract
       files_to_read = (ENV["INGEST_FILE"] || extract_files).listify.sort
@@ -97,7 +100,7 @@ namespace :bibliographic do
          # match our default application log format
          provide 'log.format', [ '%d [%L] %m', '%Y-%m-%d %H:%M:%S' ]
          provide 'processing_thread_pool', '0'
-         provide "solr_writer.commit_on_close", "true"
+         provide "solr_writer.commit_on_close", 'true'
          # How many records skipped due to errors before we 
          #   bail out with a fatal error?
          provide "solr_writer.max_skipped", "100"
@@ -150,6 +153,7 @@ namespace :bibliographic do
 
     desc "download and ingest latest files"
     task :process => :environment do
+      setup_ingest_logger
       Rake::Task["bibliographic:extract:fetch"].execute
       Rails.logger.info("Downloading successful.")
 

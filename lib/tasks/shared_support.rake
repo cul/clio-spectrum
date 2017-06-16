@@ -12,16 +12,14 @@ BIB_SOLR_URL = Blacklight.connection_config[:url]
 BIB_SOLR = RSolr.connect(url: BIB_SOLR_URL)
 AUTHORITIES_SOLR = RSolr.connect(url: APP_CONFIG['authorities_solr_url'])
 
-Rails.logger = Logger.new(STDERR)
-
-Rails.logger.formatter = Logger::Formatter.new
-
-ingest_log_file = File.join(Rails.root, "log", "#{Rails.env}_ingest.log")
-# Rails.logger = Logger.new(ingest_log)
-ingest_log_logger = Logger.new(ingest_log_file)
-# Rails.logger.level = INFO
-Rails.logger.extend(ActiveSupport::Logger.broadcast(ingest_log_logger))
-
+def setup_ingest_logger
+  # Redirect logger to stderr for our ingest tasks tasks
+  Rails.logger = Logger.new(STDERR)
+  # Then also write messages to a distinct 'ingest' log file 
+  ingest_log_file = File.join(Rails.root, "log", "#{Rails.env}_ingest.log")
+  ingest_log_logger = Logger.new(ingest_log_file)
+  Rails.logger.extend(ActiveSupport::Logger.broadcast(ingest_log_logger))
+end
 
 def solr_delete_ids(ids)
   retries = 5
