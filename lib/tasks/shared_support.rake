@@ -68,7 +68,7 @@ def xml_clean(filename)
 
   File.open("#{filename}.clean", 'w') do |tempfile|
     File.open(filename).each do |line|
-      tempfile.puts line.gsub(/[\x01-\x08]/, '?')
+      tempfile.puts line.gsub(/[\x01-\x08\x0b\x0c\x0e-\x1f]/, '?')
     end
     tempfile.fsync
     tempfile.close
