@@ -5,6 +5,7 @@ namespace :authorities do
 
     desc "download the latest extract from EXTRACT_SCP_SOURCE"
     task :download  do
+      setup_ingest_logger
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
       puts_and_log("Extract not specified", :error, alarm: true) unless extract
 
@@ -31,6 +32,8 @@ namespace :authorities do
 
     desc "rewrite marc files to marcxml"
     task :to_xml do
+      setup_ingest_logger
+      
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
       puts_and_log("Unknown extract: #{ENV['EXTRACT']}", :error) unless extract
 
@@ -60,6 +63,7 @@ namespace :authorities do
 
     desc "ingest latest authority records"
     task :ingest => :environment do
+      setup_ingest_logger
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
       puts_and_log("Unknown extract: #{ENV['EXTRACT']}", :error) unless extract
 
@@ -98,6 +102,7 @@ namespace :authorities do
 
     desc "download and ingest latest authority files"
     task :process => :environment do
+      setup_ingest_logger
       Rake::Task["authorities:extract:download"].execute
       Rails.logger.info("Downloading successful.")
 
@@ -109,6 +114,7 @@ namespace :authorities do
   namespace :add_to_bib do
 
     task :by_extract, [:extract, :age] do |t, args|
+      setup_ingest_logger
       extract = args[:extract]
       raise "usage:  authorities:add_to_bib:by_extract[incremental]" unless extract
 
@@ -146,6 +152,7 @@ namespace :authorities do
     end
 
     task :by_range, [:start, :stop, :age] do |t, args|
+      setup_ingest_logger
       raise "usage:  authorities:add_by_range[10000,11000]" unless args[:start] and args[:stop]
       biblist = ( args[:start] .. args[:stop] ).to_a
 
@@ -153,6 +160,7 @@ namespace :authorities do
     end
 
     task :by_bibfile, [:bib_file, :age] do |t, args|
+      setup_ingest_logger
       bibfile = args[:bib_file]
       # biblist = IO.readlines bibfile
       biblist = File.open(bibfile).readlines.map(&:strip)
@@ -162,6 +170,7 @@ namespace :authorities do
 
     desc "Get list of bib ids by running query against bib solr"
     task :by_query,  [:query, :age] do |t, args|
+      setup_ingest_logger
       query = args[:query]
       raise "usage:  authorities:add_to_bib:by_query['Miocardial infarction']" unless query
 
