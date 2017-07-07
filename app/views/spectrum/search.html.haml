@@ -1,5 +1,5 @@
 
-- if @results.empty?
+- if @results.nil? || @results.empty?
   - cache("datasource_landing_page_#{$active_source}_#{params_digest}") do
     = datasource_landing_page($active_source)
 

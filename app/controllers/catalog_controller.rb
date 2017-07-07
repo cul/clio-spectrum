@@ -202,8 +202,11 @@ class CatalogController < ApplicationController
 
   # when a request for /catalog/BAD_DOCUMENT_ID is made, this method is executed...
   def invalid_document_id_error
-    flash[:notice] = t('blacklight.search.errors.invalid_solr_id')
-    redirect_to root_path
+    flash.now[:notice] = t('blacklight.search.errors.invalid_solr_id')
+    @show_landing_pages = true
+    render 'spectrum/search', status: :not_found
+    # render controller: 'spectrum', action: 'search', status: :not_found
+    # redirect_to root_path
   end
 
 
