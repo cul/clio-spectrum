@@ -9,7 +9,7 @@
 
 
 # server 'berlioz.cul.columbia.edu', user: 'deployer', roles: %w{app db web}
-server 'clio-test.cul.columbia.edu', user: 'litoserv', roles: %w{app db web}
+server 'clio-test.cul.columbia.edu', user: 'clioserv', roles: %w{app db web}
 
 # set :deploy_to, '/var/www/my_app_name'
 # set :deploy_to, '/opt/passenger/clio_test'
