@@ -4,7 +4,7 @@
   -# NEXT-1012 - use handle for item link in AC records
   -# .result_title= link_to document.fetch('title_display', nil), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
 
-  .result_title= link_to document.fetch('title_display', nil), academic_commons_title_link(document)
+  .result_title= link_to document.fetch('title_display', nil), academic_commons_document_link(document)
 
 
   / main container for doc partial view

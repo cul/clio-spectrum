@@ -41,11 +41,7 @@ describe 'Academic Commons', :vcr do
       # The example title should be a link to the item's handle
       expect(page).to have_link(search_title_text)
       href = find_link(search_title_text)[:href]
-      expect(href).to match /http:\/\/hdl.handle.net\/10022\/AC:P:/
-
-      # There should also be a Handle link to handle.net
-      href = find_link('http://hdl.handle.net/10022/AC:P:')[:href]
-      expect(href).to match /http:\/\/hdl.handle.net\/10022\/AC:P:/
+      expect(href).to match /https:\/\/doi.org\/10./
     end
 
     # We can't validate remote websites without adding extra gems to our
@@ -66,7 +62,7 @@ describe 'Academic Commons', :vcr do
       # and each one we find must satisfy this assertion.
       all('.result_title a').each do |link|
         expect(link['href']).to satisfy { |url|
-          url.match(/http:\/\/dx.doi.org\//)  || url.match(/http:\/\/hdl.handle.net\//) || url.match(/http:\/\/academiccommons.columbia.edu\//)
+          url.match(/http:\/\/dx.doi.org\//)  || url.match(/https:\/\/doi.org\//)  || url.match(/http:\/\/hdl.handle.net\//) || url.match(/http:\/\/academiccommons.columbia.edu\//)
         }
       end
     end

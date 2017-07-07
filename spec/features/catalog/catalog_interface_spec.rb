@@ -470,7 +470,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   # For this one, both "facet.query=acq_dt" and "fq=acq_dt" need
   # to be ignored by the VCR cassette matcher.
   it "allows acquisition date to be negated", :vcr => {:match_requests_on => [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')]} do
-    visit catalog_index_path(q: 'kittens', 'f[acq_dt][]' => 'years_1')
+    visit catalog_index_path(q: 'text', 'f[acq_dt][]' => 'years_1')
     expect(page).to have_css('#documents .document.result')
     recent_title = all('#documents .document.result .row .title').first.text
 

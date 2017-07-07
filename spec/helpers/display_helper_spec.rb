@@ -130,17 +130,17 @@ describe DisplayHelper do
     end
   end
 
-  describe '#academic_commons_title_link' do
+  describe '#academic_commons_document_link' do
     let(:document) { stub_model SolrDocument }
     it 'links to academiccommons when it has no handle' do
       allow(document).to receive(:[]).with("handle").and_return(nil)
       allow(document).to receive(:[]).with("id").and_return('ac:1234')
-      expect(academic_commons_title_link(document)).to eq("http://academiccommons.columbia.edu/catalog/#{document["id"]}")
+      expect(academic_commons_document_link(document)).to eq("http://academiccommons.columbia.edu/catalog/#{document["id"]}")
     end
     it 'links to handle when it has one' do
       allow(document).to receive(:[]).with("handle").and_return("http://hdl.handle.net/ac:22007")
       allow(document).to receive(:[]).with("id").and_return('ac:1234')
-      expect(academic_commons_title_link(document)).to eq("http://hdl.handle.net/ac:22007")
+      expect(academic_commons_document_link(document)).to eq("http://hdl.handle.net/ac:22007")
     end
 
   end

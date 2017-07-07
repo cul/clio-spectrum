@@ -19,15 +19,16 @@
         - fedora_id = document['id'].listify.first
         -# NEXT-1012 - use handle for item link in AC records
         -# = link_to document.fetch('title_display', nil), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
-        = link_to document.fetch('title_display', nil), document['handle']
-
+        = link_to document.fetch('title_display', nil), academic_commons_document_link(document)
 
   / main container for doc partial view
 
   .details
     = add_row('Author', document['author_display'])
     = add_row('Date', document['pub_date_facet'])
-    = add_row('Identifier', document['handle'].listify.collect { |url| link_to(url, url) })
+    -# = add_row('Identifier', document['handle'].listify.collect { |url| link_to(url, url) })
+    - doc_link = academic_commons_document_link(document)
+    = add_row('Identifier', link_to(doc_link, doc_link))
     = add_row('Subject', document['subject_facet'], :join => ', ')
     = add_row('Type', document['genre_facet'])
     = add_row('Publisher', document['publisher'])

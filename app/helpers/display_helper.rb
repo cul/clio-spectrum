@@ -672,24 +672,24 @@ module DisplayHelper
       fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
     end
 
-    document[ :title_display] && Array.wrap(document[ :title_display]).each do |title|
+    document[:title_display] && Array.wrap(document[:title_display]).each do |title|
       fields.push("#{title_key}=#{ CGI.escape(title) }")
     end
 
-    Array.wrap(document[ :id]).each do |id|
+    Array.wrap(document[:id]).each do |id|
       document_url = academic_commons_url(id)
       fields.push("rft_id=#{ CGI.escape(document_url) }")
     end
 
-    document[ :author_facet] && Array.wrap(document[ :author_facet]).each do |author|
+    document[:author_facet] && Array.wrap(document[:author_facet]).each do |author|
       fields.push("rft.au=#{ CGI.escape(author) }")
     end
 
-    document[ :publisher] && Array.wrap(document[ :publisher]).each do |publisher|
+    document[:publisher] && Array.wrap(document[:publisher]).each do |publisher|
       fields.push("rft.pub=#{ CGI.escape(publisher) }")
     end
 
-    document[ :pub_date_sort] && Array.wrap(document[ :pub_date_sort]).each do |pub_date_sort|
+    document[:pub_date_sort] && Array.wrap(document[:pub_date_sort]).each do |pub_date_sort|
       fields.push("rft.date=#{ CGI.escape(pub_date_sort) }")
     end
 
@@ -700,9 +700,12 @@ module DisplayHelper
     'http://academiccommons.columbia.edu/catalog/' + id
   end
 
-  def academic_commons_title_link(document)
+  def academic_commons_document_link(document)
     if document['handle'].present?
       title_link = document['handle']
+      if title_link.starts_with?('10.')
+        title_link = 'https://doi.org/' + title_link
+      end
     else
       title_link = academic_commons_url(document['id'])
     end
