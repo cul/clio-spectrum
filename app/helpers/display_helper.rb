@@ -709,6 +709,7 @@ module DisplayHelper
     else
       title_link = academic_commons_url(document['id'])
     end
+    return title_link
   end
 
   # Our versions of link_to_previous_document/link_to_next_document,
