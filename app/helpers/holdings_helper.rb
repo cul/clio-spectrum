@@ -142,14 +142,25 @@ module HoldingsHelper
 #    links.sort { |x,y| x.first <=> y.first }
   end
 
+  def self.valet_label
+    APP_CONFIG['valet_label'] ||
+      'Offsite (Valet)'
+  end
+
+  def self.valet_link
+    APP_CONFIG['valet_link'] ||
+      'https://valet.cul.columbia.edu/offsite_requests/bib?bib_id='
+  end
+
   SERVICE_ORDER = %w(offsite offsite_valet spec_coll precat on_order borrow_direct recall_hold ill in_process doc_delivery)
 
   # parameters: title, link (url or javascript)
   SERVICES = {
     'offsite' => ['Offsite',
                   'http://www.columbia.edu/cgi-bin/cul/offsite2?'],
-    'offsite_valet' => ['Offsite (Valet)',
-                  'https://valet-dev.cul.columbia.edu/offsite_requests/bib?bib_id='],
+    # 'offsite_valet' => ['Offsite (Valet)',
+    #               'https://valet-dev.cul.columbia.edu/offsite_requests/bib?bib_id='],
+    'offsite_valet' => [ valet_label(), valet_link() ],
     'spec_coll' => ['Special Collections',
                     'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
     'precat' => %w(Precataloging OpenPrecatRequest),
