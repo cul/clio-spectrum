@@ -45,7 +45,7 @@ to_field "marc_dt" do |record, accumulator|
 end
 
 
-to_field "text", extract_all_marc_values(from: '050', to: '966')
+to_field "text", extract_all_marc_values(from: '050', to: '850')
 
 to_field "author_txt", extract_marc("100abcegqu:110abcdegnu:111acdegjnqu", trim_punctuation: false)
 to_field "author_addl_txt", extract_marc("700abcegqu:710abcdegnu:711acdegjnqu", trim_punctuation: false)
