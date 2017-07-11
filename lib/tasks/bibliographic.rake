@@ -36,12 +36,8 @@ namespace :bibliographic do
         raise "Fetch unsucessful"
       end
 
-
       if system("gunzip " + temp_dir_name + "*.gz")
         Rails.logger.info("Gunzip successful")
-      else
-        Rails.logger.error("Gunzip unsuccessful")
-        raise "Gunzip unsuccessful"
       end
 
     end

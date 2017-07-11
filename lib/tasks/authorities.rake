@@ -25,8 +25,6 @@ namespace :authorities do
 
       if  system("gunzip " + temp_dir_name + "*.gz")
         Rails.logger.info("Gunzip successful")
-      else
-        puts_and_log("Gunzip unsuccessful", :error, alarm: true)
       end
     end
 
