@@ -2,4 +2,4 @@
 # Is there a way to get the elapsed time that
 # a Rails server has been running for?
 
-Clio::BOOTED_AT = Time.now
+BOOTED_AT = Time.now

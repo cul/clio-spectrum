@@ -29,8 +29,4 @@ module ApplicationHelper
     @clio_sidebar_items ||= []
   end
 
-  def clio_uptime
-    time_ago_in_words(Clio::BOOTED_AT)
-  end
-
 end

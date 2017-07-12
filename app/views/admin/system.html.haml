@@ -1,4 +1,6 @@
 
+- database_configuration = Rails.configuration.database_configuration[Rails.env]
+
 
 %h2
   System Details
@@ -9,8 +11,12 @@
      'request.protocol', 'request.fullpath', 
      'request.url', 'request.remote_addr',
      'Process.pid', 'Process.uid',
-     'clio_uptime',
-     'Etc.getpwuid(Process.uid).name'].each do |i|
+     'time_ago_in_words(BOOTED_AT)',
+     'Etc.getpwuid(Process.uid).name',
+     'database_configuration["adapter"]',
+     'database_configuration["host"]',
+     'database_configuration["database"]',
+     'database_configuration["username"]'  ].each do |i|
     %tr
       %td=i
       %td=eval(i)
