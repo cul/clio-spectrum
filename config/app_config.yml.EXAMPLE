@@ -6,9 +6,9 @@
 # the Rails application running in development, test, or production.
 _all_environments:
 
-  # SCP source for new record extract files, used by solr_ingest.rake,
+  # Source for new record extract files, used by solr_ingest.rake,
   # only needed when reloading records to the Solr search engine
-  extract_scp_source: service@extracts.cul.columbia.edu:/libraries/clio/spectrum
+  extract_home: /libraries/clio/spectrum
 
   # URL to the Solr search engine for Academic Commons, Columbia's 
   # institutional repository, available at http://academiccommons.columbia.edu, 

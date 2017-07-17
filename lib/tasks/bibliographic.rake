@@ -28,6 +28,7 @@ namespace :bibliographic do
       FileUtils.mv(temp_dir_name, temp_old_dir_name) if File.exists?(temp_dir_name)
       FileUtils.mkdir_p(temp_dir_name)
       cp_command = "/bin/cp #{extract_dir}/* " + temp_dir_name
+      Rails.logger.info("Fetching from #{extract_dir}")
       # puts cp_command
       if system(cp_command)
         Rails.logger.info("Fetch successful.")
