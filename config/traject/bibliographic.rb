@@ -45,7 +45,17 @@ to_field "marc_dt" do |record, accumulator|
 end
 
 
-to_field "text", extract_all_marc_values(from: '050', to: '850')
+# to_field "text", extract_all_marc_values(from: '050', to: '850')
+to_field "text", extract_all_marc_values(from: '050', to: '850') do |record, accumulator|
+  # 852$x - ???
+  accumulator << extract_marc('852x')
+  # 876$p - Barcode
+  accumulator << extract_marc('876p')
+  # 948$??? - ???
+  accumulator << extract_marc("948#{ATOZ}")
+  # 965$a - Collection Description
+  accumulator << extract_marc('965a')
+end
 
 to_field "author_txt", extract_marc("100abcegqu:110abcdegnu:111acdegjnqu", trim_punctuation: false)
 to_field "author_addl_txt", extract_marc("700abcegqu:710abcdegnu:711acdegjnqu", trim_punctuation: false)
