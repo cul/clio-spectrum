@@ -37,7 +37,8 @@ namespace :bibliographic do
         raise "Fetch unsucessful"
       end
 
-      if system("gunzip " + temp_dir_name + "*.gz")
+      # We don't expect .gz files, but if found, unzip them.
+      if system("gunzip -q " + temp_dir_name + "*.gz")
         Rails.logger.info("Gunzip successful")
       end
 
