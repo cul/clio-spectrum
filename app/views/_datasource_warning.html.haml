@@ -2,4 +2,4 @@
 - if defined?(warning) && warning
   .alert.alert-danger
     = image_tag('warning_icon.png', :size => "20x20")
-    &nbsp; #{warning}
+    &nbsp; #{warning.html_safe}
