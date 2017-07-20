@@ -23,7 +23,7 @@ namespace :authorities do
         puts_and_log("Download unsucessful", :error, alarm: true)
       end
 
-      if  system("gunzip " + temp_dir_name + "*.gz")
+      if system("gunzip " + temp_dir_name + "*.gz")
         Rails.logger.info("Gunzip successful")
       end
     end
@@ -31,7 +31,7 @@ namespace :authorities do
     desc "rewrite marc files to marcxml"
     task :to_xml do
       setup_ingest_logger
-      
+
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
       puts_and_log("Unknown extract: #{ENV['EXTRACT']}", :error) unless extract
 
