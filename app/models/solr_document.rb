@@ -31,6 +31,19 @@ class SolrDocument
            Array(self['source_display']).include?("database")
   end
 
+  # Is this a Columbia record?  (v.s. ReCAP partner record)
+  def columbia?
+    # Columbia bib ids are numeric, partner data is "SCSB-xxxx"
+    return ! id.start_with?('SCSB')
+  end
+
+  # Does this Solr Document have Holdings data within it's MARC fields?
+  def has_marc_holdings?
+    # mfhd_id is a repeated field, once per holding.
+    # we only care if it's present at all.
+    return self.has_key?(:mfhd_id)
+  end
+
   def call_numbers
     Array(self['call_number_display']).sort.uniq.join(' / ')
   end

@@ -6,10 +6,12 @@ module Voyager
 
       def initialize(document, circ_status)
         raise "Voyager::Holdings::Collection got nil/empty document" unless document
-        raise "Voyager::Holdings::Collection got nil/empty circ_status" unless circ_status
+        # raise "Voyager::Holdings::Collection got nil/empty circ_status" unless circ_status
 
-        document_marc = document.to_marc
+        circ_status ||= {}
         document_status = circ_status[document.id] || {}
+        document_marc = document.to_marc
+
         # collect mfhd records
         @records = []
         document_marc.each_by_tag('852') do |t852|

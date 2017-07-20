@@ -47,9 +47,13 @@
             - if alert.active?
               = add_row(ItemAlert::ALERT_TYPES['access_requirements'], alert[:message], options = {:html_safe => true})
   
-      -# this partial renders, in turn, static html for holdings-online,
-      -# holdings-display (Voyager), holdings-google, and holdings-hathi
-      = render "_formats/clio/catalog_show_holdings", :document => document
+      -# this partial renders each holdings block in turn:
+      -# - online holdings
+      -# - physical holdings (either Solr MARC Holdings or AJAX call)
+      -# - law holdings
+      -# - google holdings
+      -# - hathi holdings
+      = render "_formats/clio/catalog_show_holdings", document: document
       
   .clear-both
 

@@ -1,3 +1,8 @@
+
+THIS FILE IS UNUSED
+
+
+
 -# MOVED code from view holdings.html.haml to partial _holdings.html.haml
 -# so that we can call that partial twice -- during testing and deployment
 -# of the Holdings Revision project.  After this is done, this can be put

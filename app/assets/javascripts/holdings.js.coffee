@@ -46,17 +46,17 @@ $ ->
 
 @load_clio_holdings = (id) ->
   $("span.holding_spinner").show
-  $("#clio_holdings .holdings_error").hide
+  $("#legacy_clio_holdings .holdings_error").hide
 
   $.ajax
     url: '/backend/holdings/' + id
 
     success: (data) ->
-        $('#clio_holdings').html(data)
+        $('#legacy_clio_holdings').html(data)
 
     error: (data) ->
         $("span.holding_spinner").hide()
-        $('#clio_holdings .holdings_error').show()
+        $('#legacy_clio_holdings .holdings_error').show()
 
 @load_hathi_holdings = (id) ->
   $(".hathi_holdings_check").show

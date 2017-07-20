@@ -15,7 +15,7 @@ VCR.configure do |c|
   c.cassette_library_dir = 'vcr/cassettes'
   c.hook_into :webmock
 
-  # VCR will ignore HTTP requests unless excplitly called
+  # VCR will ignore HTTP requests unless explicitly called
   c.allow_http_connections_when_no_cassette = true
 
   # Tell VCR not to pay attention to any localhost connection,

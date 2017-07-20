@@ -53,16 +53,16 @@ describe 'Spectrum::SearchEngines::Solr', :vcr do
   end
 
   # NEXT-404 - "Wildcarding MARC fields (960) does not appear to work"
-  # 2165B   - 1868 records ()
-  # 2165BAP -  444 records
-  # 2165B*  - 2125 records
-  describe 'search for "2165B*" in Catalog' do
-    it 'should find more than 2165B or 2165BAP alone' do
-      eng_b = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => '2165B', :search_field => 'all_fields', 'solr_url' => solr_url)
-      eng_bap = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => '2165BAP', :search_field => 'all_fields', 'solr_url' => solr_url)
-      eng_wildcard = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => '2165B*', :search_field => 'all_fields', 'solr_url' => solr_url)
-      expect(eng_wildcard.total_items).to be > eng_b.total_items
-      expect(eng_wildcard.total_items).to be > eng_bap.total_items
+  # RECONS185 - 6K records
+  # RECONS186 - 3K records
+  # RECONS18* - 15K records
+  describe 'search for "RECONS18*" in Catalog' do
+    it 'should find more than RECONS185 or RECONS186 alone' do
+      r185 = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'RECONS185', :search_field => 'all_fields', 'solr_url' => solr_url)
+      r186 = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'RECONS186', :search_field => 'all_fields', 'solr_url' => solr_url)
+      r_wildcard = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'RECONS18*', :search_field => 'all_fields', 'solr_url' => solr_url)
+      expect(r_wildcard.total_items).to be > r185.total_items
+      expect(r_wildcard.total_items).to be > r186.total_items
     end
   end
 

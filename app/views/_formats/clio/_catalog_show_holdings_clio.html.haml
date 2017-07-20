@@ -1,0 +1,85 @@
+
+#clio_holdings
+
+
+  -# Each 'entry' is one location (e.g., 'Avery', or 'Online')
+  - Array(add_display_elements(holdings['condensed_holdings_full'])).each do |entry|
+
+    -# IF this is an Online, but there is no Holdings-level URL, skip this entry
+    - next if holdings_online_without_url?(entry)
+
+    .holding{:class => alternating_line}
+      .location_box
+        .location
+          -# -# NEXT-1041 - Icon or other visual cue
+          -# %span.glyphicon.glyphicon-map-marker.text-primary
+          = entry['location_link']
+        - if entry['hours']
+          .hours
+            %span.holdings_label Today's Hours: 
+            = entry['hours']
+
+        .location_notes
+          -# Include location-notes, if any
+          -# They may be simple strings, or a link (hash with keys "text" and "url")
+          - entry['location_note'] && Array.wrap(entry['location_note']).each do |note|
+            .location_note
+              - if note.is_a? String
+                = note
+              - if note.is_a? Hash
+                - if note["text"] && note["url"]
+                  = link_to note["text"], note["url"]
+                - elsif note["text"]
+                  = note["text"]
+
+      - if entry['call_number'].length > 0
+        .call_number
+          %span.holdings_label Call Number: 
+          = entry['call_number']
+
+      -# Each 'copy' is a group of 1-or-more equivalent items (same call num, etc.)
+      - entry['copies'].each do |copy|
+        .copy
+          -# If there are any temp locations for this item, print them out
+          - unless copy['temp_locations'].nil?
+            - copy['temp_locations'].each do |temp_location|
+              .temp_location= format_temp_location_note(temp_location)
+          -# If there are any special notes, print them out
+          - ['orders', 'summary_holdings', 'supplements', 'indexes', 'public_notes',
+  	       'reproduction_note', 'current_issues'].each do |type|
+            - unless copy[type].nil?
+              - message = copy[type]
+              -# NEXT-1009 -Multiple 866 fields in the holding records
+              -# CLIO Backend will join multiple fields with this delimeter
+              - message = message.gsub(/ -- /, '<br/>').html_safe
+              .message=  message
+
+          -# Different 'items' with a 'copy' have varying statuses (Available, In-Transit, etc.)
+          - copy['items'].each do |item|
+            .status
+              - message, details = item
+              - unless message =~ /^Status unknown/
+                = details['image_link']
+                = message
+                - if details['count'] >1
+                  (#{details['count']} copies)
+
+          - if copy['donor_info_icon'].present?
+            .donor_info
+              = render 'catalog/donor_info', copy: copy
+
+          -# Different 'urls' with a 'copy' have different details...
+          - if copy['urls'].present?
+            .container
+            - copy['urls'].each do |url_details|
+              .row
+                .url_link
+                  = image_tag "icons/online.png"
+                  = link_to url_details["link_text"], url_details["url"]
+
+      -# Service links for this entry (not for each copy)
+      - unless (svc_links = service_links(entry['services'], @document.id)).empty?
+        .services
+          %span.holdings_label= "#{'Request'.pluralize(svc_links.size)}: "
+          - svc_links.each do |link|
+            .service= link

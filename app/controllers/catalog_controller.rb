@@ -124,7 +124,7 @@ class CatalogController < ApplicationController
 
     redirect_to path, :status => 303
   end
- 
+
 
   def librarian_view_track
     session[:search]['counter'] = params[:counter]
@@ -134,23 +134,36 @@ class CatalogController < ApplicationController
   def show
     @response, @document = fetch params[:id]
 
-    # If our Solr document has static holdings...
-    if @document && @document.has_key?(:mfhd_id)
-      # Try to fetch circ status from backend...
-      # TODO - cleanup hacky ReCAP logic
-      circ_status = if @document.id.start_with? 'SCSB'
-        {}
-      else
-        BackendController.circ_status(params[:id])
+    # If the Solr document contains holdings fields,
+    # - fetch real-time circulation status
+    # - build Holdings data structure
+
+    if @document.has_marc_holdings?
+      circ_status = nil
+      # Don't check Voyager circ status for non-Columbia records
+      if @document.columbia?
+        circ_status = BackendController.circ_status(params[:id])
       end
-      # circ_status = BackendController.circ_status(params[:id])
-      if circ_status || @document.id.start_with?('SCSB')
-        # Use static holdings data from MARC
-        # together with dynamic circ status from Oracle query
-        # to build @holdings object
-        @holdings = Voyager::Holdings::Collection.new(@document, circ_status)
-        @holdings_hash = @holdings.to_hash(:output_type => :condensed, :message_type => :short_message)
-      end
+
+      # # Try to fetch circ status from backend...
+      # # TODO - cleanup hacky ReCAP logic
+      # circ_status = if @document.id.start_with? 'SCSB'
+      #   {}
+      # else
+      #   BackendController.circ_status(params[:id])
+      # end
+
+      # if circ_status || @document.id.start_with?('SCSB')
+      #   # Use static holdings data from MARC
+      #   # together with dynamic circ status from Oracle query
+      #   # to build @holdings object
+      #   @collection = Voyager::Holdings::Collection.new(@document, circ_status)
+      #   @holdings = @collection.to_hash(output_type: :condensed, message_type: :short_message)
+      # end
+
+      @collection = Voyager::Holdings::Collection.new(@document, circ_status)
+      @holdings = @collection.to_hash(output_type: :condensed, message_type: :short_message)
+
     end
 
     # In support of "nearby" / "virtual shelf browse", remember this bib

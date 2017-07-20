@@ -120,8 +120,10 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     expect(find('div#online_holdings')).to have_content('Online')
 
     # within CLIO HOLDINGS, should NOT see an 'Online' block
-    # Now, Online-Only items no longer have any CLIO Holdings div at all!
-    expect(page).to have_no_selector('div#clio_holdings')
+    expect(find('div#clio_holdings')).not_to have_content('Online')
+
+    # # Now, Online-Only items no longer have any CLIO Holdings div at all!
+    # expect(page).to have_no_selector('div#clio_holdings')
 
   end
 

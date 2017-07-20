@@ -10,6 +10,8 @@ module Voyager
 
 
       def initialize(mfhd_id, marc, mfhd_status)
+        mfhd_status ||= {}
+
         @bibid = marc['001'].value
         @holding_id = mfhd_id
 # raise
