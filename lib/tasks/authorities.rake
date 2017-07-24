@@ -122,11 +122,11 @@ namespace :authorities do
       end
     end
 
-    desc "download and ingest latest authority files"
+    desc "fetch and ingest latest authority files"
     task :process => :environment do
       setup_ingest_logger
-      Rake::Task["authorities:extract:download"].execute
-      Rails.logger.info("Downloading successful.")
+      Rake::Task["authorities:extract:fetch"].execute
+      Rails.logger.info("Fetch successful.")
 
       Rake::Task["authorities:extract:ingest"].execute
       Rails.logger.info("Ingest successful.")
