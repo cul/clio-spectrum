@@ -3,11 +3,15 @@ namespace :authorities do
 
   namespace :extract do
 
-    desc "download the latest extract from EXTRACT_SCP_SOURCE"
-    task :download  do
+    desc "fetch the latest authorities extract from EXTRACT_HOME"
+    task :fetch  do
       setup_ingest_logger
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
-      puts_and_log("Extract not specified", :error, alarm: true) unless extract
+      unless extract
+        Rails.logger.error("Extract not specified")
+        raise
+      end
+      extract_dir = APP_CONFIG['extract_home'] + "/" + extract
 
       temp_dir_name = File.join(Rails.root, "tmp/extracts/#{extract}/current/")
       temp_old_dir_name = File.join(Rails.root, "tmp/extracts/#{extract}/old/")
@@ -15,14 +19,24 @@ namespace :authorities do
       FileUtils.rm_rf(temp_old_dir_name)
       FileUtils.mv(temp_dir_name, temp_old_dir_name) if File.exists?(temp_dir_name)
       FileUtils.mkdir_p(temp_dir_name)
-      scp_command = "scp #{EXTRACT_SCP_SOURCE}/#{extract}/* " + temp_dir_name
-      puts scp_command
-      if system(scp_command)
-        Rails.logger.info("Download successful.")
+      cp_command = "/bin/cp #{extract_dir}/* " + temp_dir_name
+      Rails.logger.info("Fetching from #{extract_dir}")
+      # puts cp_command
+      if system(cp_command)
+        Rails.logger.info("Fetch successful.")
       else
-        puts_and_log("Download unsucessful", :error, alarm: true)
+        Rails.logger.error("Fetch unsucessful")
+        raise "Fetch unsucessful"
       end
+      # scp_command = "scp #{EXTRACT_SCP_SOURCE}/#{extract}/* " + temp_dir_name
+      # puts scp_command
+      # if system(scp_command)
+      #   Rails.logger.info("Download successful.")
+      # else
+      #   puts_and_log("Download unsucessful", :error, alarm: true)
+      # end
 
+      # We don't expect .gz files, but if found, unzip them.
       if system("gunzip " + temp_dir_name + "*.gz")
         Rails.logger.info("Gunzip successful")
       end
@@ -85,16 +99,26 @@ namespace :authorities do
          provide "solr_writer.max_skipped", "100"
          # 10 x default batch sizes, sees some gains
          provide "solr_writer.batch_size", "1000"
+
+         if ENV["DEBUG"]
+           Rails.logger.info("- DEBUG set, writing to stdout")
+           provide "writer_class_name", "Traject::DebugWriter"
+         end
       end
 
       # load authorities config file (indexing rules)
       indexer.load_config_file(File.join(Rails.root, "config/traject/authorities.rb"))
 
+      Rails.logger.info("- processing #{files_to_read.size} files...")
+
       # index each file 
       files_to_read.each do |filename|
+        Rails.logger.info("--- processing #{filename}...")
         File.open(filename) do |file|
+          Rails.logger.debug("----- indexing #{filename}...")
           indexer.process(file)
         end
+        Rails.logger.info("--- finished #{filename}.")
       end
     end
 

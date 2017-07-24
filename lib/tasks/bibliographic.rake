@@ -105,8 +105,10 @@ namespace :bibliographic do
          # 10 x default batch sizes, sees some gains
          provide "solr_writer.batch_size", "1000"
 
-         # # DEBUG -- write all output to STDOUT instead of Solr
-         # provide "writer_class_name", "Traject::DebugWriter"
+         if ENV["DEBUG"]
+           Rails.logger.info("- DEBUG set, writing to stdout")
+           provide "writer_class_name", "Traject::DebugWriter"
+         end
       end
 
       # load Traject config file (indexing rules)
