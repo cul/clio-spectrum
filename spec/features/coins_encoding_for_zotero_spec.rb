@@ -84,7 +84,7 @@ describe 'coins encoding for zotero', :vcr do
 
     context 'ebook' do
       it 'has the correct coins format' do
-        visit solr_document_path 7928264
+        visit solr_document_path 11095272
         coins = find("//span[@class='Z3988']")['title']
         expect(coins).to have_text 'fmt:kev:mtx:dc&rft.type=book'
       end

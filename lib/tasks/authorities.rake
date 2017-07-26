@@ -194,7 +194,7 @@ namespace :authorities do
     task :by_query,  [:query, :age] do |t, args|
       setup_ingest_logger
       query = args[:query]
-      raise "usage:  authorities:add_to_bib:by_query['Miocardial infarction']" unless query
+      raise "usage:  authorities:add_to_bib:by_query['Myocardial infarction']" unless query
 
       puts "querying bib solr for '#{query}'..."
       cutoff = 10000

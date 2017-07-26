@@ -28,10 +28,9 @@ describe 'record tests', vcr: { allow_playback_repeats: true } do
       expect(page).to have_text('Online')
     end
     # Online only, no clio-holdings div at all!
-    # within ('div#clio_holdings') do
-    #   expect(page).to_not have_text('Online')
-    # end
-    expect(page).to have_no_selector('div#clio_holdings')
+    within ('div#clio_holdings') do
+      expect(page).to_not have_text('Online')
+    end
   end
 
   it 'test services offsite', :js do

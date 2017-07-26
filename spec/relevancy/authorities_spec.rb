@@ -1,5 +1,24 @@
 require 'spec_helper'
 
+# Prepare the Solr index with:
+#  bundle exec rake authorities:add_to_bib:by_query['Alexievich']
+#  bundle exec rake authorities:add_to_bib:by_query['Dostoyevsky']
+#  bundle exec rake authorities:add_to_bib:by_query['Gary Morson']
+#  bundle exec rake authorities:add_to_bib:by_query['Ghaddafi']
+#  bundle exec rake authorities:add_to_bib:by_query['Qaddafi']
+#  bundle exec rake authorities:add_to_bib:by_query['Ghannushi']
+#  bundle exec rake authorities:add_to_bib:by_query['Ghannouchi']
+#  bundle exec rake authorities:add_to_bib:by_query['ISIS']
+#  bundle exec rake authorities:add_to_bib:by_query['Kennedy family']
+#  bundle exec rake authorities:add_to_bib:by_query['Maimonides']
+#  bundle exec rake authorities:add_to_bib:by_query['Meimaris']
+#  bundle exec rake authorities:add_to_bib:by_query['Munaẓẓamat']
+#  bundle exec rake authorities:add_to_bib:by_query['Myocardial infarction']
+#  bundle exec rake authorities:add_to_bib:by_query['neo-geo']
+#  bundle exec rake authorities:add_to_bib:by_query['Older people']
+#  bundle exec rake authorities:add_to_bib:by_query['PLO']
+#  bundle exec rake authorities:add_to_bib:by_query['Soninke']
+
 describe 'Authority support for Author variants', :skip_travis do
 
   expectedHits = {
