@@ -109,25 +109,28 @@ class BackendController < ApplicationController
 
   private
 
-  # HOLDINGS REVISION PROJECT
-
-  def get_document_holdings(document)
-    # Build holdings by working with full MARC record
-    # We haven't pulled out Solr fields yet.
-    marc = document.to_marc
-    return get_marc_holdings(marc)
-  end
-
-  def get_marc_holdings(marc)
-    # voyager_api is used within clio_backend like so:
-    #   result = Voyager::Holdings::Collection.new_from_opac(bibid, @conn, api_server + holdings_service)
-    #   result_hash = result.to_hash(:output_type => :condensed, :message_type => :short_message)
-
-    result = Voyager::Holdings::Collection.new_from_marc(marc)
-    result_hash = result.to_hash(:output_type => :condensed, :message_type => :short_message)
-
-    return result_hash.with_indifferent_access
-  end
+# This is done directly in catalog controller, 
+# not in a separate call to backend controller
+  # # HOLDINGS REVISION PROJECT
+  # 
+  # def get_document_holdings(document)
+  #   # Build holdings by working with full MARC record
+  #   # We haven't pulled out Solr fields yet.
+  #   marc = document.to_marc
+  #   return get_marc_holdings(marc)
+  # end
+  # 
+  # def get_marc_holdings(marc)
+  #   # voyager_api is used within clio_backend like so:
+  #   #   result = Voyager::Holdings::Collection.new_from_opac(bibid, @conn, api_server + holdings_service)
+  #   #   result_hash = result.to_hash(:output_type => :condensed, :message_type => :short_message)
+  # 
+  #   result = Voyager::Holdings::Collection.new_from_marc(marc)
+  #   # result_hash = result.to_hash(:output_type => :condensed, :message_type => :short_message)
+  #   result_hash = result.to_hash(:output_type => :condensed, :message_type => :long_message)
+  # 
+  #   return result_hash.with_indifferent_access
+  # end
 
 
 end

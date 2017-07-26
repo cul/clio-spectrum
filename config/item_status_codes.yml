@@ -46,8 +46,8 @@
         short_message: 'Requests: %REQS'
         long_message: 'Requests: %REQS'
 5r:
-        short_message: 'Checked out, due %DATE (Requests: %REQS)'
-        long_message: 'Checked out, due %DATE (Requests: %REQS). Try Borrow Direct or ILL.'
+        short_message: 'Requests: %REQS'
+        long_message: 'Requests: %REQS. Try Borrow Direct or ILL.'
         services:
             -   borrow_direct
             -   ill
@@ -55,8 +55,8 @@
         short_message: 'Requests: %REQS'
         long_message: 'Requests: %REQS'
 6r:
-        short_message: 'Checked out, due %DATE (Requests: %REQS)'
-        long_message: 'Checked out, due %DATE (Requests: %REQS). Try Borrow Direct or ILL.'
+        short_message: 'Requests: %REQS'
+        long_message: 'Requests: %REQS. Try Borrow Direct or ILL.'
         services:
             -   borrow_direct
             -   ill
@@ -84,23 +84,23 @@
             -   borrow_direct
             -   ill
 9n:
-        short_message: 'In transit to %LOC %DATE'
-        long_message: 'In transit to %LOC %DATE. Place a hold request.'
+        short_message: 'In transit %DATE'
+        long_message: 'In transit %DATE. Place a hold request.'
         services:
             -   recall_hold
 9r:
-        short_message: 'In transit to %LOC %DATE (Requests: %REQS)'
-        long_message: 'In transit to %LOC %DATE (Requests: %REQS). Try Borrow Direct.'
+        short_message: 'In transit %DATE (Requests: %REQS)'
+        long_message: 'In transit %DATE (Requests: %REQS). Try Borrow Direct.'
         services:
             -   borrow_direct
 10n:
-        short_message: 'In transit to %LOC %DATE. Place a hold request.'
-        long_message: 'In transit to %LOC %DATE. Place a hold request.'
+        short_message: 'In transit %DATE'
+        long_message: 'In transit %DATE. Place a hold request.'
         services:
             -   recall_hold
 10r:
-        short_message: 'In transit to %LOC %DATE (Requests: %REQS)'
-        long_message: 'In transit to %LOC %DATE (Requests: %REQS). Try Borrow Direct.'
+        short_message: 'In transit %DATE (Requests: %REQS)'
+        long_message: 'In transit %DATE (Requests: %REQS). Try Borrow Direct.'
         services:
             -   borrow_direct
 11n:

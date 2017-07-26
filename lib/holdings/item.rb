@@ -210,7 +210,6 @@ module Voyager
       #     :long_message => long version of message
       #
       def generate_message(item)
-
         short_message = ''
         long_message = ''
         code = ''
@@ -245,6 +244,11 @@ module Voyager
         # add labels
         short_message = add_label(short_message, item)
         long_message = add_label(long_message, item)
+
+        if Rails.env != 'clio_prod'
+          short_message = short_message + " (#{code}/short)"
+          long_message = long_message + " (#{code}/long)"
+        end
 
         return { :status_code => code,
                  :short_message => short_message,
