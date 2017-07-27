@@ -630,7 +630,7 @@ module Voyager
         #     HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + bibid) == "1"
         if location_name.match(/^Offsite/) && OFFSITE_CONFIG['offsite_locations'].include?(location_code)
           services << 'offsite'
-          services << 'offsite_valet'
+          # services << 'offsite_valet'
 
         # precat
         elsif location_name.match(/^Precat/)
