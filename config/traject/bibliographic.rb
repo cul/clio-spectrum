@@ -277,6 +277,8 @@ end
 # https://wiki.library.columbia.edu/display/cliogroup/Holdings+Revision+project
 # 852$0 - Traject extraction specification:  8520
 to_field "mfhd_id", extract_marc("8520")
+# 876$p - Barcode, if physical.  Repeated field.
+to_field "barcode_txt", extract_marc("876p")
 
 
 
