@@ -152,13 +152,15 @@ module HoldingsHelper
       'https://valet.cul.columbia.edu/offsite_requests/bib?bib_id='
   end
 
-  SERVICE_ORDER = %w(offsite spec_coll precat on_order borrow_direct recall_hold ill in_process doc_delivery)
+  SERVICE_ORDER = %w(offsite offsite_valet spec_coll precat on_order borrow_direct recall_hold ill in_process doc_delivery)
 
   # parameters: title, link (url or javascript)
   SERVICES = {
     'offsite' => ['Offsite',
                   'http://www.columbia.edu/cgi-bin/cul/offsite2?'],
-    # 'offsite_valet' => [ valet_label(), valet_link() ],
+
+    'offsite_valet' => [ valet_label(), valet_link() ],
+
     'spec_coll' => ['Special Collections',
                     'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
     'precat' => %w(Precataloging OpenPrecatRequest),

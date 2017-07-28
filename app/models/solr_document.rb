@@ -41,7 +41,7 @@ class SolrDocument
   def has_marc_holdings?
     # mfhd_id is a repeated field, once per holding.
     # we only care if it's present at all.
-    return self.has_key?(:mfhd_id)
+    return self.has_key?(:mfhd_id) && self.has_key?(:barcode_txt)
   end
 
   def call_numbers
