@@ -31,6 +31,27 @@ class SearchBuilder < Blacklight::SearchBuilder
     end
   end
 
+  # NEXT-1412 - Solr OOM error
+  MAX_PAGES = 3
+  def page=(value)
+    params_will_change!
+    @page = value.to_i
+    @page = 1 if @page < 1
+    @page = [@page, MAX_PAGES].min
+  end
+
+  # @param [#to_i] value
+  def page(value = nil)
+    if value
+      # self.page = value
+      self.page = [value, MAX_PAGES].min
+      return self
+    end
+    @page ||= blacklight_params[:page].blank? ? 1 : blacklight_params[:page].to_i
+    @page = [@page, MAX_PAGES].min
+  end
+
+
   # NEXT-1043 - Better handling of extremely long queries
   def trim_long_queries(solr_parameters)
 
