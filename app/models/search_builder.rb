@@ -7,6 +7,7 @@ class SearchBuilder < Blacklight::SearchBuilder
   self.default_processor_chain += [:add_advanced_search_to_solr]
   self.default_processor_chain += [:add_debug_to_solr]
   self.default_processor_chain += [:trim_long_queries]
+  self.default_processor_chain += [:clear_mm_for_boolean_or]
 
   # These methods are passed a hash, which will
   # become the Solr request parameters.
@@ -22,6 +23,13 @@ class SearchBuilder < Blacklight::SearchBuilder
     solr_parameters['q'] = solr_parameters['q'].sub(/[\?\s]*$/, '')
   end
 
+  # NEXT-1411 - Incomplete search results
+  def clear_mm_for_boolean_or(solr_parameters)
+    return unless solr_parameters['q']
+    if solr_parameters['q'].include?(' OR ')
+      solr_parameters['mm'] = '0'
+    end
+  end
 
   # NEXT-1043 - Better handling of extremely long queries
   def trim_long_queries(solr_parameters)
