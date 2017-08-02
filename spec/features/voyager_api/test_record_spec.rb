@@ -8,8 +8,8 @@ describe 'record tests', vcr: { allow_playback_repeats: true } do
 # page.save_and_open_page
 # page.save_and_open_screenshot
 
-    expect(page).to have_css('#clio_holdings .holding')
-    within ('div#clio_holdings') do
+    expect(page).to have_css('#legacy_clio_holdings .holding')
+    within ('div#legacy_clio_holdings') do
       expect(page).to have_text('Ms MONTGOM 675')
     end
   end
@@ -27,10 +27,11 @@ describe 'record tests', vcr: { allow_playback_repeats: true } do
     within ('div.location_box') do
       expect(page).to have_text('Online')
     end
+    # within ('div#clio_holdings') do
+    #   expect(page).to_not have_text('Online')
+    # end
     # Online only, no clio-holdings div at all!
-    within ('div#clio_holdings') do
-      expect(page).to_not have_text('Online')
-    end
+    expect(page).to have_no_selector('div#clio_holdings')
   end
 
   it 'test services offsite', :js do

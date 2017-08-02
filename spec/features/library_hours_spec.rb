@@ -62,8 +62,8 @@ describe 'Item Locations should show correct library hours', :vcr, :skip_travis 
     expect(page).to have_text('Back to Results')
     expect(page).to have_text('Format Art Work (Original)')
     # save_and_open_screenshot
-    expect(page).to have_css('#clio_holdings .holding')
-    within ('#clio_holdings .location') do
+    expect(page).to have_css('#legacy_clio_holdings .holding')
+    within ('#legacy_clio_holdings .location') do
       # Can't use click_link(), because location pages open in new window
       location_page_url = find('a.location_display', text: target)[:href]
       visit location_page_url
