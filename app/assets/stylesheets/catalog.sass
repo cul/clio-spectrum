@@ -1,170 +1,170 @@
 
 .lweb_dam_document
-  :margin-top 5px
-  :margin-bottom 5px
+  margin-top: 5px
+  margin-bottom: 5px
 
 .law_blurb
-  :margin 10px
+  margin: 10px
   a
-    :margin 20px
+    margin: 20px
   a:hover
-    :text-decoration underline
+    text-decoration: underline
 
 // A lot of styling for:
 // NEXT-983 - database discovery improvement using color and different text
 .selected_item
-  :background-color #EEE !important
+  background-color: #EEE !important
 
 .show-document
-  :padding-left 10px
-  :padding-right 10px
-  :padding-bottom 10px
+  padding-left: 10px
+  padding-right: 10px
+  padding-bottom: 10px
   //.title
-  //  :padding-left 1em
+  //  padding-left: 1em
 
 // Database records, in search-resulsts lists
 .result.document.database_record
-  :margin-bottom 5px
+  margin-bottom: 5px
 
 // Database records, on single-item detail pages
 .show-document.database_record
-  :margin-top 10px
-  :margin-bottom 5px
-  :border-top 1px solid #458046
-  :border-bottom 1px solid #458046
+  margin-top: 10px
+  margin-bottom: 5px
+  border-top: 1px solid #458046
+  border-bottom: 1px solid #458046
   :border-right 1px solid #458046
 
 .database_record
   // Orange
-  //:border-left 7px solid #FFA500
-  //:background-color #FFF6E6 // !important
+  //border-left: 7px solid #FFA500
+  //background-color: #FFF6E6 // !important
   // Green
   // Make the thick dark green left-bar important,
   // to override any other border-based record outlining
-  :border-left 7px solid #458046 !important
-  :background-color #EDEDE5 // !important
+  border-left: 7px solid #458046 !important
+  background-color: #EDEDE5 // !important
 
 // Specific to "nested", within an Aggregate view,
 // needs some extra hints to display nicely
 .nested_result_set .database_record.result
-  :border-left 7px solid #458046
-  :background-color #EDEDE5 // !important
-  :padding-left 5px
-  :margin-top 5px
+  border-left: 7px solid #458046
+  background-color: #EDEDE5 // !important
+  padding-left: 5px
+  margin-top: 5px
 
 .database_record .database_link
   // Orange
-  //:color #E69400 !important
+  //color: #E69400 !important
   // Green
-  :color #458046 !important
-  :font-weight bold
+  color: #458046 !important
+  font-weight: bold
 
 .database_record.show
-  :padding 10px
-  :padding-top 5px
+  padding: 10px
+  padding-top: 5px
 
 //.show
 //  .title
-//    :padding-left 20px
+//    padding-left: 20px
 //
   
 //.holdings-container
-//  :margin 10px
+//  margin: 10px
 
 // Override Bootstrap's grey (color: #777777) with our body default
 .navbar-text
-  :color #505050
+  color: #505050
 
 .navbar-text .disabled
-  :color #999999
+  color: #999999
 
 // Override Bootstrap's very wide spacing in our index_toolbar navs
 .index_toolbar.navbar .nav > li > a
-  :padding 11px 10px 11px
+  padding: 11px 10px 11px
 
 
 // Used for expand/collapse sections (e.g., DB Summaries)
 .teaser
-  :display none
+  display: none
 
 // Used for "Please Wait" messages (used for, e.g., AJAX loads)
 .busy
-  :display none
-  :position fixed
-  //:width 600px
-  //:height 80px
-  :top 35%
-  :left 50%
-  :margin-top -50px
-  :margin-left -100px
-  :z-index 100
-  :background #e3e8f1
-  :border 4px #779bc3 outset
-  :padding 10px
-  :vertical-align middle
+  display: none
+  position: fixed
+  //width: 600px
+  //height: 80px
+  top: 35%
+  left: 50%
+  margin-top: -50px
+  margin-left: -100px
+  z-index: 100
+  background: #e3e8f1
+  border: 4px #779bc3 outset
+  padding: 10px
+  vertical-align: middle
 
 .busy-image
-  :display block
-  :margin-left auto
-  :margin-right auto
-  //:padding-top 10px
+  display: block
+  margin-left: auto
+  margin-right: auto
+  //padding-top: 10px
 
 .busy-text
-  :font-size 160%
-  :text-align center
-  :padding-top 20px
+  font-size: 160%
+  text-align: center
+  padding-top: 20px
  
 
 // used for debugging
 .black
-  :border black 1px dashed
+  border: black 1px dashed
 
 
 // the enclosing div
 .item_anchor
-  :float left
-  :padding 0px 5px
-  :margin 0px !important
+  float: left
+  padding: 0px 5px
+  margin: 0px !important
 
 // the form, the checkbox
 .item_select_form
-  :display inline
-  :padding 0px !important
-  :margin 0px !important
+  display: inline
+  padding: 0px !important
+  margin: 0px !important
 
 //.item_select_label
 //  @extend small
 //  @extend muted
 
 .item_select_checkbox
-  :padding 0px !important
-  :margin 0px !important
+  padding: 0px !important
+  margin: 0px !important
 
 // used on the title following the checkbox-plus-number
 .item_select_allowance
-  :padding-left 3em !important
+  padding-left: 3em !important
 
 // used on the title following the number-alone
 .item_number_allowance
-  :padding-left 2em !important
+  padding-left: 2em !important
 
 
 //// used to justify "checked" menu-options (the currenly-selected option)
 //.menu_checkmark_allowance
-//  :padding-left 2px !important
+//  padding-left: 2px !important
 
 // No - use this instead, attach to front of all non-checked items
 .glyphicon-spacer
-  :min-width 13px
+  min-width: 13px
 
 
 .boxed_search_results
-  :border-bottom 1px solid #ccc
-  :border-bottom-style dotted
-  :padding 0.5em
+  border-bottom: 1px solid #ccc
+  border-bottom-style: dotted
+  padding: 0.5em
 
 //div.boxed_search_results + div.boxed_search_results
-//  :border-top 0
+//  border-top: 0
 
 
 
@@ -173,50 +173,50 @@
 // bottom-padding form elements and setting a 28px min-height on all spans.
 // (e.g., to make the compact view yet more compact.)
 .no-bottom-space
-  :min-height 0px !important
-  :margin-bottom 2px !important
+  min-height: 0px !important
+  margin-bottom: 2px !important
 
 //a.rss-feed
-//  :margin-left 0.25em
+//  margin-left: 0.25em
 
 #startOverLink.catalog_startOverLink
-  :padding-top 1em
+  padding-top: 1em
 
 .databases_browse_by
   +clearfix
-  :clear both
-  :padding-top 1em
+  clear: both
+  padding-top: 1em
 
   .browse_label
-    :float left
-    :margin-top 0.4em
-    :width 13em
+    float: left
+    margin-top: 0.4em
+    width: 13em
 
   //div
-  //  :padding-bottom 1em
+  //  padding-bottom: 1em
   
   select
-    :width 250px !important
+    width: 250px !important
 
 .search_row
-  :position inherit
-  :width 100%
+  position: inherit
+  width: 100%
   .search_q
-    :position inherit
+    position: inherit
 
 .advanced_search_button
-  :margin-left 1em
+  margin-left: 1em
 
 .static-this
-  :position static
+  position: static
 
 .search-constraint
-  :padding-top 3px
-  :padding-bottom 3px
+  padding-top: 3px
+  padding-bottom: 3px
 
 // No, leave modal-handling to core Blacklight
 //.modal.fade.in
-//  :position absolute
+//  position: absolute
 //
 //@media (min-width: 769px) and (max-width:979px)
 //  .modal.fade.in
@@ -225,71 +225,71 @@
 //    right: 20% !important
 
 #show_toolbar ul.nav > li > a
-  :padding-left 8px
-  :padding-right 8px
+  padding-left: 8px
+  padding-right: 8px
 
 .toggle_all
-  :float right
-  :margin-top 0px
+  float: right
+  margin-top: 0px
 
 .links_label
-  :float left
-  :display inline
-  :padding-top 3px
-  :padding-right 3em
+  float: left
+  display: inline
+  padding-top: 3px
+  padding-right: 3em
 
 // This is the "Refine your search" text
 //#facets
 //  h4
-//    :padding-top 0.5em
-//    :min-height 1.5em
+//    padding-top: 0.5em
+//    min-height: 1.5em
 
 #appliedParams.constraints-container, .well.well-constraints
   +clearfix
-  :background-color #fff
-  :border none
+  background-color: #fff
+  border: none
   :box-shadow none
-  :padding 0
-  :margin-bottom 10px
+  padding: 0
+  margin-bottom: 10px
 
 .advanced_search_row
-  :padding-bottom 0.5em
+  padding-bottom: 0.5em
 
 .advanced_search
   .title
-    :font-weight bold
-    :font-size 1.1em
-    :padding-bottom 0.5em
+    font-weight: bold
+    font-size: 1.1em
+    padding-bottom: 0.5em
 
 #toolbar-container
-  :margin-top 1em
-  :background-color #F6F6FF
+  margin-top: 1em
+  background-color: #F6F6FF
 
   .box
-    :padding 6px 15px 10px 15px
-    :border 1px solid #ccc
+    padding: 6px 15px 10px 15px
+    border: 1px solid #ccc
 
     &.hover
       background: #D6D6D6
 
     a
-      :border-bottom none
+      border-bottom: none
 
   #navigation
-    :float right
-    :padding 6px 0px 6px 15px
+    float: right
+    padding: 6px 0px 6px 15px
 
     div
-      :display inline
+      display: inline
     .back_to_results
-      :margin-right .50em
+      margin-right: .50em
       .pull-right
-        :margin-right 0px
+        margin-right: 0px
     .previous
-      :margin-left .50em
-      :margin-right .50em
+      margin-left: .50em
+      margin-right: .50em
     .next
-      :margin-right .75em
+      margin-right: .75em
 
 #facets
   padding-top: 0em
@@ -297,18 +297,18 @@
 
 
 .expander_more
-  :display none
+  display: none
 
 #show-toolbar
 
 
   li.right.help
     ul li
-      :margin-left -123px
+      margin-left: -123px
 
   li.right
-    :float right
-    :border-left 1px solid #ccc
+    float: right
+    border-left: 1px solid #ccc
 
 .document
   .title
@@ -321,134 +321,134 @@
 
 #clio_holdings
   .holdings_check
-    :margin-left 1em
-    :min-height 5em
+    margin-left: 1em
+    min-height: 5em
   .holdings_error
-    :color red
-    :display none
+    color: red
+    display: none
 
 img.availability
-  :padding-right .25em
+  padding-right: .25em
 
 .show
   .book_cover
     .gbs_cover
-      :margin-bottom 1em
-      :margin-top 1em
+      margin-bottom: 1em
+      margin-top: 1em
     .gbs_search_form
-      :display none
+      display: none
 
 .url_link_note
-  :font-style italic
-  :color #777777
-  :padding-left 10px
+  font-style: italic
+  color: #777777
+  padding-left: 10px
 
 
 .holdings
   h5
-    :margin-top 0em
+    margin-top: 0em
   .holding
-    :margin-bottom 1.5em
+    margin-bottom: 1.5em
 
     .location_box
-      :padding-bottom 0em
+      padding-bottom: 0em
 
       .hours
-        :padding-left 1em
+        padding-left: 1em
 
       .location_notes
-        :padding-left 1.0em
-        //:padding-bottom 0em
+        padding-left: 1.0em
+        //padding-bottom: 0em
         .location_note
           // to be consistent with .holdings_label
-          :font-weight bold
-          :font-size 90%
+          font-weight: bold
+          font-size: 90%
 
     .call_number
-      :padding-left 1.0em
-      :padding-bottom 0em
+      padding-left: 1.0em
+      padding-bottom: 0em
 
     .url_link
-      :word-wrap break-word
-      :word-break break-all
+      word-wrap: break-word
+      word-break: break-all
 
     .copy
-      :padding-top 0.25em
-      :padding-bottom 0.5em
-      :padding-left 1.0em
+      padding-top: 0.25em
+      padding-bottom: 0.5em
+      padding-left: 1.0em
 
       .message
-        :text-indent -2em
-        :padding-left 2em
-        :word-wrap break-word
+        text-indent: -2em
+        padding-left: 2em
+        word-wrap: break-word
 
       .status
-        :padding-left 1em
-        :font-style italic
+        padding-left: 1em
+        font-style: italic
 
     .services
-      :padding-left 1em
-      //:font-size .9em
+      padding-left: 1em
+      //font-size: .9em
 
       .label
-        :display inline
-        :font-weight bold
+        display: inline
+        font-weight: bold
 
       .service
-        //:display inline
-        :padding-left 1.0em
+        //display: inline
+        padding-left: 1.0em
 
 .holdings_label
   //:font-variant small-caps
-  :font-size 90%
-  :font-weight bold
-  :padding-right 0.5em
-  :width 100px
-  //:color #666
+  font-size: 90%
+  font-weight: bold
+  padding-right: 0.5em
+  width: 100px
+  //color: #666
 
 .coins_wrapper
-  :display none
+  display: none
 
 .prev_next_links
   .btn.disabled
-    :opacity .50
-    :color #999999
+    opacity: .50
+    color: #999999
 
 
 // Nearby / Virtual Shelf Browse
 
 .browse_title
-  :float left
-  :font-weight bold
+  float: left
+  font-weight: bold
   // No blue - looks too much like a link
-  //:color #2855A2
-  :padding-right 0.5em
+  //color: #2855A2
+  padding-right: 0.5em
 
 .full_screen_link
-  :margin-left 2em
-  :margin-right 2em
+  margin-left: 2em
+  margin-right: 2em
 
 // Titlely scope the browse_focus, to up priority of this style
 #documents .result.document.browse_focus
-  :border 1px solid black
+  border: 1px solid black
 
 .browse_focus_bookmark
-  :margin-right 0.5em
+  margin-right: 0.5em
 
 .call_number_toggle
-  :margin-right 2em
+  margin-right: 2em
 
 .call_number_tag
-  :font-style italic
-  :color #555
-  :font-size 90%
+  font-style: italic
+  color: #555
+  font-size: 90%
   
 // Load hidden.  user action will call JQuery's show().
 #mini_browse_list, 
 #nearby .nearby_spinner, 
 #nearby .nearby_error, 
 #nearby .nearby_content
-  :display none
+  display: none
 
 
 /*

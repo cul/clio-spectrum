@@ -2,55 +2,55 @@
  */
 
 form.range_limit
-  :padding-left 0.5em
+  padding-left: 0.5em
 
 .range_limit
   .current
-    :padding-left 0.5em
+    padding-left: 0.5em
   .profile
-    :padding-left 0.5em
+    padding-left: 0.5em
 
 .constraint-box
-  :display inline-block
-  :margin 3px 5px 3px 5px
-  :width auto
-  :background-color #f0f3ff
-  //:padding 9px 4px 9px 4px
+  display: inline-block
+  margin: 3px 5px 3px 5px
+  width: auto
+  background-color: #f0f3ff
+  //padding: 9px 4px 9px 4px
   //+border-radius(3px)
-  :border-radius 3px
-  :border 1px solid #ccccff
-  :color #2855a2
-  :padding 4px 4px 4px 4px
+  border-radius: 3px
+  border: 1px solid #ccccff
+  color: #2855a2
+  padding: 4px 4px 4px 4px
 
 
   &.with-dropdown
-    //:padding 10px 4px 4px 4px
+    //padding: 10px 4px 4px 4px
 
   .dropdown
     span.caret
-      :margin-left 0 
+      margin-left: 0 
 
   // No more CSS-Dropdown, native bootstrap instead
   //ul.css-dropdown
   //  li
-  //    :padding-left 2px
-  //    :padding-right 2px
+  //    padding-left: 2px
+  //    padding-right: 2px
   //    ul
-  //      :z-index 5000
+  //      z-index: 5000
   //
   //  li.hovering, li:hover
   //    ul
-  //      :width 70px
+  //      width: 70px
 
 
 
   .inner-dropdown
     //+border-radius(2px)
-    :border-radius 2px
-    :padding 3px
-    :border 1px solid #ccccff
-    :margin-right 3px
-    :margin-left 3px
+    border-radius: 2px
+    padding: 3px
+    border: 1px solid #ccccff
+    margin-right: 3px
+    margin-left: 3px
 
 
 .facet_action
@@ -58,64 +58,64 @@ form.range_limit
 
 .facet_limit
   .panel-heading
-    :padding 5px 10px
+    padding: 5px 10px
   .panel-body
-    :padding 10px 10px
+    padding: 10px 10px
 
   li
     img
 
-      :vertical-align middle
+      vertical-align: middle
     .facet_label
-      :padding-left 0em
-      :vertical-align middle
+      padding-left: 0em
+      vertical-align: middle
     .facet_cancel
-      :padding-bottom .25em
-      :padding-left .25em
-      :padding-right .25em
+      padding-bottom: .25em
+      padding-left: .25em
+      padding-right: .25em
 
   li.facet_selected
-    :padding-top .25em
-    :padding-bottom .25em
-    :background #f0fff0
+    padding-top: .25em
+    padding-bottom: .25em
+    background: #f0fff0
 
   li.facet_negated
-    :padding-top .25em
-    :padding-bottom .25em
-    :background #fff0f0
+    padding-top: .25em
+    padding-bottom: .25em
+    background: #fff0f0
 
 
 ul.facet_extended_list
   .facet_line
     +clearfix
-    :vertical-align middle
-    :padding_bottom 0.5em
-    :clear both
+    vertical-align: middle
+    padding_bottom: 0.5em
+    clear: both
   span.facet_select
-    :padding-top 1em
+    padding-top: 1em
   .actions
-    :padding-left 1em
-    :float right 
+    padding-left: 1em
+    float: right 
 
 
 .refine_callnumber_header
-  :margin-top 1em
-  :font-weight bold
-  :padding-left 40px
+  margin-top: 1em
+  font-weight: bold
+  padding-left: 40px
 
 li.callnumber_subclass
   .facet-label
-    :font-size 90%
-    :margin-left 10px
-    :border-left 5px solid #E3E8F1
-    :padding-left 30px
+    font-size: 90%
+    margin-left: 10px
+    border-left: 5px solid #E3E8F1
+    padding-left: 30px
   .facet-count
-    :font-size 90%
-    :padding-right 10px
-    :margin-right 10px
+    font-size: 90%
+    padding-right: 10px
+    margin-right: 10px
   
 #facets.facets.sidenav
-  //:border 1px solid #D4D4D4
+  //border: 1px solid #D4D4D4
   padding-bottom: 0px
 
 #facets .top-panel-heading
@@ -129,12 +129,12 @@ li.callnumber_subclass
   //font-weight: bold
   
 .facets_limit.panel
-  :border-top 1px solid #D4D4D4
+  border-top: 1px solid #D4D4D4
 
 
 //// Override styles from Blacklight Range Limit gem
 //.limit_content .subsection
-//  :margin-top 0em
+//  margin-top: 0em
 //
 
 
@@ -157,28 +157,28 @@ li.callnumber_subclass
 //.facets-collapse
 //
 //  .icon-turnbuckle
-//    :float right
-//    :margin-top 2px
-//    :margin-right -6px
-//    :opacity .25
+//    float: right
+//    margin-top: 2px
+//    margin-right: -6px
+//    opacity: .25
 //
 //  .icon-turnbuckle
 //    @extend .icon-plus
-//    :opacity .5
+//    opacity: .5
 //
 //  .twiddle-open .icon-turnbuckle
 //    @extend .icon-minus
-//    :opacity 1
-//    :padding-right 2px
+//    opacity: 1
+//    padding-right: 2px
 //
 //  /* hide the turnbuckle when js isn't supported */
 //  .no-js & .icon-turnbuckle
 //    @extend .icon-minus
-//    :padding-right 2px
+//    padding-right: 2px
 //
 //  h5:hover .icon-turnbuckle,
 //  .twiddle-open .icon-turnbuckle
-//    :opacity 1
+//    opacity: 1
 
 
 // Override the following, from Blacklight 5.2.0, facets.css.scss

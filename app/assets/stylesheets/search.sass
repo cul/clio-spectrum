@@ -2,69 +2,69 @@
 
 // Just like .title from header.css.sass, but not so big
 .search_title
-  //:padding-top 8px
-  :font-weight bold
-  //:font-size 150%
-  :margin-bottom 1em
+  //padding-top: 8px
+  font-weight: bold
+  //font-size: 150%
+  margin-bottom: 1em
 
 .advanced_search_toggle
-  :font-weight normal
-  //:font-size 11px
+  font-weight: normal
+  //font-size: 11px
 
 //// to support debugging
 //.search_boxes
-//  :border 1px solid red
-//  //:background-color red
+//  border: 1px solid red
+//  //background-color: red
 //.basic_search
-//  :background-color green
+//  background-color: green
 //.advanced_search
-//  :background-color orange
+//  background-color: orange
 
 
 .source-info
-  :padding-top 0
-  :padding-left 0
-  :padding-right 0.25em
+  padding-top: 0
+  padding-left: 0
+  padding-right: 0.25em
 
 .result_empty
-  :margin-top 0.5em
-  :margin-bottom 1.5em
+  margin-top: 0.5em
+  margin-bottom: 1.5em
 
 //.async_change
-//  :text-align center
-//  :margin-left auto
-//  :margin-right auto
-//  :width 100%
-//  :background-color #fcfcff
-//  :padding 1em
+//  text-align: center
+//  margin-left: auto
+//  margin-right: auto
+//  width: 100%
+//  background-color: #fcfcff
+//  padding: 1em
 
 
 
 // unused?
 //.value
 //  h
-//    :font-style italic
-//    :background-color #fff68f
+//    font-style: italic
+//    background-color: #fff68f
 
 //.value_box
 .value
-  :word-wrap break-word
+  word-wrap: break-word
 
 .field
-  :word-wrap break-word
+  word-wrap: break-word
 
 
 .pageEntriesInfo.non_catalog
-  :padding 1em 0 .5em
-  :border-bottom 1px solid #ccc
-  :margin-left auto
-  :margin-right auto
+  padding: 1em 0 .5em
+  border-bottom: 1px solid #ccc
+  margin-left: auto
+  margin-right: auto
 
 .loading_block
-  :margin-top 1em
-  :padding 1em 0 1em 0.25em
-  :background-color #fcfcff
-  :font-size 1.2em
+  margin-top: 1em
+  padding: 1em 0 1em 0.25em
+  background-color: #fcfcff
+  font-size: 1.2em
 
 
 .result_column
@@ -72,41 +72,41 @@
 
 .result_footer
   +clearfix
-  :padding-top 0.5em
-  :padding-bottom 0.5em
-  :float right
+  padding-top: 0.5em
+  padding-bottom: 0.5em
+  float: right
 
 
 .result
   +clearfix
 
 .document-row
-  :clear left
+  clear: left
   .field
-    :float left
+    float: left
     // NEXT-861 - "Access Requirements" word-break display issue
     // Some field labels are too long for 6em.  Try 7em?
-    //:width 6em
+    //width: 6em
     // Why not back-away from a hard-coded width altogether, 
     // and let the bootstrap spanX do what it's supposed to?
-    //:width 7em
+    //width: 7em
     // Avoiding setting width is pretty good, but long word still
     // break oddly when screen gets really narrow.  
     // We can prevent word-breaks with this:
-    :word-wrap normal
+    word-wrap: normal
     // but then the field-text overlaps with the value text.
     // is this better?  It's kind of an edge case anyway.
 
-    :padding-right 0.5em
-    :color #777
-    :min-height 1em !important
+    padding-right: 0.5em
+    color: #777
+    min-height: 1em !important
 
 
   .value
-    :float left
-    :padding-right .25em
-    :min-height 1em !important
-    :padding-bottom .25em
+    float: left
+    padding-right: .25em
+    min-height: 1em !important
+    padding-bottom: .25em
 
 
 // Moved into explicit CSS class` within the html
@@ -118,10 +118,10 @@
 @media (min-width:768px)
   .document-row
     .field
-      :text-align right
+      text-align: right
 
 .result_set
-  :margin-bottom 1em
+  margin-bottom: 1em
 
 
 .results_header
@@ -135,13 +135,13 @@
   color: #2855A2
 
   .category_title
-    :font-weight bold
-    :float left
+    font-weight: bold
+    float: left
 
 
   .result_count
-    :float right
-    :padding-top 7px
+    float: right
+    padding-top: 7px
 
     a
       //font-weight: 550
@@ -151,38 +151,38 @@
   +alternating-line-colors(#fff, #f9f9f9)
 
 .result
-  :padding-bottom .1em
+  padding-bottom: .1em
 
   .result_title
-    :font-weight bold
-    //:font-size 1.1em
-    :padding-top .5em
-    :padding-bottom .5em
+    font-weight: bold
+    //font-size: 1.1em
+    padding-top: .5em
+    padding-bottom: .5em
 
   .availability
-    :padding-right .25em
+    padding-right: .25em
 
 .a_to_z
   .label
-    :float left
-    :font-weight bold
-    :margin-top .25em
-    :margin-right .5em
+    float: left
+    font-weight: bold
+    margin-top: .25em
+    margin-right: .5em
   .links
-    :float left
-    :padding .2em .5em .2em .5em
-    :background-color #f0f0f0
+    float: left
+    padding: .2em .5em .2em .5em
+    background-color: #f0f0f0
     //+border-radius(1em)
-    :border-radius 1em
+    border-radius: 1em
 
 .on_search
   .a_to_z
-    :display block
-    :clear both
-    :float left
-    :margin-top 1.5em
-    :font-size 1.2em
+    display: block
+    clear: both
+    float: left
+    margin-top: 1.5em
+    font-size: 1.2em
 
 span.glyphicon
-  :min-width 5px
-  :min-height 5px
+  min-width: 5px
+  min-height: 5px
