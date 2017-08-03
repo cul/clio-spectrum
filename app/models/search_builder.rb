@@ -32,7 +32,7 @@ class SearchBuilder < Blacklight::SearchBuilder
   end
 
   # NEXT-1412 - Solr OOM error
-  MAX_PAGES = 3
+  MAX_PAGES = 100
   def page=(value)
     params_will_change!
     @page = value.to_i
