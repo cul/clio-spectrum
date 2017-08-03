@@ -22,7 +22,7 @@
       = render "/_formats/clio/catalog_show_holdings_display", clio_id: clio_id
 
   -# LAW HOLDINGS (NEXT-961)
-  - if in_pegasus?(document)
+  - if document.in_pegasus?
     = render "/_formats/clio/catalog_show_holdings_pegasus", document: document
 
   -# GOOGLE HOLDINGS

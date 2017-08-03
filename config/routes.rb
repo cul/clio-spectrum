@@ -148,7 +148,7 @@ Rails.application.routes.draw do
   get 'new_arrivals/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_new_arrivals"
   match 'new_arrivals/:id/librarian_view_track', via: [:post], to: 'new_arrivals#librarian_view_track'
 
-  get 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
+  # get 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
 
   get 'catalog/hathi_holdings/:id' => 'catalog#hathi_holdings', :as => 'hathi_holdings'
 

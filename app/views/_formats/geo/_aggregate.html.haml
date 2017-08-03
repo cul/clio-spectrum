@@ -9,7 +9,7 @@
   / main container for doc partial view
 
   -# What do we want in QuickSearch panel?
-  = add_row('Description', document['dc_description_s'].abbreviate(120))
+  = add_row('Description', document['dc_description_s'].to_s.abbreviate(120))
   = add_row('Publisher', document['dc_publisher_s'])
   
   -# = add_row('Library Location', document['lib_repo_short_ssim'])

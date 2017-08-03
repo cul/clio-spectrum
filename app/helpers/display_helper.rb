@@ -179,7 +179,7 @@ module DisplayHelper
     location_notes = []
 
     # Law records need a link back to their native catalog
-    if document && in_pegasus?(document)
+    if document && document.in_pegasus?
       location_notes << content_tag(:span, pegasus_item_link(document, 'Search Results'), class: 'url_link_note')
     end
 
@@ -195,7 +195,7 @@ module DisplayHelper
   # Any additional special note, for this document at this location
   def additional_brief_location_note(document, location)
     # Law records need a link back to their native catalog
-    if document && in_pegasus?(document)
+    if document && document.in_pegasus?
       return content_tag(:span, pegasus_item_link(document, 'Search Results'), class: 'url_link_note')
     end
   end

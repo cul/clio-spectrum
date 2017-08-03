@@ -73,25 +73,25 @@ module HoldingsHelper
     false
   end
 
-  # Detect Law records, cataloged in Pegasus (http://pegasus.law.columbia.edu/)
-  def in_pegasus?(document)
-    # raise
-    # Document must have an id, which must be a "b" followed by a number...
-    return false unless document.id and document.id.match /^b\d{3,9}$/
-
-    # And, confirm that the Location is "Law"
-
-    # pull out the Location/call-number/holdings-id field...
-    return false unless location_call_number_id = document[:location_call_number_id_display]
-    # unpack, and confirm each occurrance ()
-    Array.wrap(location_call_number_id).each do |portmanteau|
-      location = portmanteau.partition(' >>').first
-      # If we find any location that's not Law, this is NOT pegasus
-      return false if location and location != 'Law'
-    end
-
-    true
-  end
+  # # Detect Law records, cataloged in Pegasus (http://pegasus.law.columbia.edu/)
+  # def document.in_pegasus?
+  #   # raise
+  #   # Document must have an id, which must be a "b" followed by a number...
+  #   return false unless document.id and document.id.match /^b\d{3,9}$/
+  # 
+  #   # And, confirm that the Location is "Law"
+  # 
+  #   # pull out the Location/call-number/holdings-id field...
+  #   return false unless location_call_number_id = document[:location_call_number_id_display]
+  #   # unpack, and confirm each occurrance ()
+  #   Array.wrap(location_call_number_id).each do |portmanteau|
+  #     location = portmanteau.partition(' >>').first
+  #     # If we find any location that's not Law, this is NOT pegasus
+  #     return false if location and location != 'Law'
+  #   end
+  # 
+  #   true
+  # end
 
   def online_link_hash(document)
     links = []

@@ -37,11 +37,40 @@ class SolrDocument
     return ! id.start_with?('SCSB')
   end
 
+  # Detect Law records, cataloged in Pegasus (http://pegasus.law.columbia.edu/)
+  def in_pegasus?
+    # Document must have an id, which must be a "b" followed by a number...
+    return false unless id and id.match /^b\d{3,9}$/
+  
+    # And, confirm that the Location is "Law"
+  
+    # pull out the Location/call-number/holdings-id field...
+    return false unless location_call_number_id = self[:location_call_number_id_display]
+    # unpack, and confirm each occurrance ()
+    Array.wrap(location_call_number_id).each do |portmanteau|
+      location = portmanteau.partition(' >>').first
+      # If we find any location that's not Law, this is NOT pegasus
+      return false if location and location != 'Law'
+    end
+  
+    true
+  end
+
   # Does this Solr Document have Holdings data within it's MARC fields?
   def has_marc_holdings?
     # mfhd_id is a repeated field, once per holding.
     # we only care if it's present at all.
-    return self.has_key?(:mfhd_id) && self.has_key?(:barcode_txt)
+    return self.has_key?(:mfhd_id)
+  end
+
+  # Does Voyager have live circ status for this document?
+  def has_circ_status?
+    # If we hit a document w/out MARC holdings, it won't have circ status either
+    return false unless self.has_marc_holdings?
+    # Only Columbia items will be found in our local Voyager
+    return false unless self.columbia?
+    # Only documents with barcoded items are tracked in Voyager circ system
+    return self.has_key?(:barcode_txt)
   end
 
   def call_numbers

@@ -60,6 +60,8 @@ class BackendController < ApplicationController
 
   def holdings
     @id = params[:id]
+ 
+    logger.error "Legacy BackendController#holdings called for id: #{@id}"
 
     unless @id.match(/^\d+$/)
       logger.error "BackendController#holdings passed non-numeric id: #{@id}"

@@ -134,6 +134,7 @@ class CatalogController < ApplicationController
   def show
     @response, @document = fetch params[:id]
 
+
     # If the Solr document contains holdings fields,
     # - fetch real-time circulation status
     # - build Holdings data structure
@@ -141,7 +142,7 @@ class CatalogController < ApplicationController
     if @document.has_marc_holdings?
       circ_status = nil
       # Don't check Voyager circ status for non-Columbia records
-      if @document.columbia?
+      if @document.has_circ_status?
         circ_status = BackendController.circ_status(params[:id])
       end
 
@@ -164,6 +165,12 @@ class CatalogController < ApplicationController
       @collection = Voyager::Holdings::Collection.new(@document, circ_status)
       @holdings = @collection.to_hash(output_type: :condensed, message_type: :short_message)
 
+   else
+     # Pegasus (Law) documents have no MARC holdings.
+     # Everything else is supposed to.
+      unless @document.in_pegasus?
+        Rails.logger.error "Document #{@document.id} has no MARC holdings!"
+      end
     end
 
     # In support of "nearby" / "virtual shelf browse", remember this bib
