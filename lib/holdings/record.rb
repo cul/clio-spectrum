@@ -630,6 +630,11 @@ module Voyager
         #     HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + bibid) == "1"
         if location_name.match(/^Offsite/) && OFFSITE_CONFIG['offsite_locations'].include?(location_code)
           services << 'offsite'
+          
+          # Valet Admins get pre-release access to Valet
+          if current_user.valet_admin?
+            services << 'offsite_valet'  unless services.include? 'offsite_valet'
+          end
           # services << 'offsite_valet'
 
         # precat

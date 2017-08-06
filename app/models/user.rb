@@ -47,7 +47,19 @@ class User < ActiveRecord::Base
 
   def has_role?(area, role, admin_okay = true)
     login.in?(PERMISSIONS_CONFIG[area][role]) ||
-      (admin_okay && login.in?(PERMISSIONS_CONFIG['site']['manage']))
+      (admin_okay && self.admin?)
+  end
+
+  # developers and sysadmins
+  def admin?
+    login.in?(PERMISSIONS_CONFIG['site']['manage'])
+  end
+
+  # application-level admin permissions
+  def valet_admin?
+    return true if self.admin?
+    valet_admins = Array(APP_CONFIG['valet_admins']) || []
+    return valet_admins.include? login
   end
 
   def to_s
