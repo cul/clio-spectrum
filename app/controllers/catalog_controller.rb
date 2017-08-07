@@ -162,7 +162,8 @@ class CatalogController < ApplicationController
       #   @holdings = @collection.to_hash(output_type: :condensed, message_type: :short_message)
       # end
 
-      @collection = Voyager::Holdings::Collection.new(@document, circ_status)
+      # Documents may look different depending on who you are.  Pass in current_user.
+      @collection = Voyager::Holdings::Collection.new(@document, circ_status, current_user)
       @holdings = @collection.to_hash(output_type: :condensed, message_type: :short_message)
 
    else

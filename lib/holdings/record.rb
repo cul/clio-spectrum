@@ -9,12 +9,14 @@ module Voyager
                   :bibid, :donor_info, :location_note, :temp_loc_flag
 
 
-      def initialize(mfhd_id, marc, mfhd_status)
+      # Documents may look different depending on who you are.  Pass in current_user.
+      def initialize(mfhd_id, marc, mfhd_status, current_user=nil)
+        @current_user = current_user
         mfhd_status ||= {}
 
         @bibid = marc['001'].value
         @holding_id = mfhd_id
-# raise
+
         tag852 = nil
         marc.each_by_tag('852') do |this852|
           tag852 = this852 if this852['0'] == mfhd_id
@@ -33,16 +35,10 @@ module Voyager
         @location_name = tag852['a'] || tag852['b']
         location_code = tag852['b']
 
-        # create_operator_id = xml_node.at_css("mfhd|mfhdData[@name='createOperatorId']").content
-
-        @call_number = parse_call_number(tag852)    # string
+        @call_number      = parse_call_number(tag852)           # string
         @summary_holdings = parse_summary_holdings(tag866list)  # array
-        # @notes_852 = parse_notes_852(tag852)    # array
-        # @notes_866 = parse_notes_866(tag866list)    # array
-        # combine notes into a single array
-        # @public_notes = @notes_852 + @notes_866        # array
-        @public_notes = parse_public_notes(tag890list)        # array
-        @shelving_title = parse_shelving_title(tag852)  # string
+        @public_notes     = parse_public_notes(tag890list)      # array
+        @shelving_title   = parse_shelving_title(tag852)        # string
 
         holdings_tags = ['867', '868',
                          '876',
@@ -67,7 +63,6 @@ module Voyager
         @location_note = assign_location_note(location_code)  #string
 
         # information from item level records
-        # item = Item.new(xml_node,@location_name)
         item = Item.new(mfhd_id, holdings_marc, mfhd_status)
 
         @item_count = item.item_count
@@ -136,10 +131,6 @@ module Voyager
       end
 
       # Collect data from all variables into a hash
-      #
-      # * *Returns* :
-      #   - Hash
-      #
       def to_hash
         {
           :bibid => @bibid,
@@ -174,22 +165,14 @@ module Voyager
       #   - Call number string
       #
       def parse_call_number(tag852)
-
         g = tag852.subfields.collect {|s| s.value if s.code == 'g'}
         h = tag852.subfields.collect {|s| s.value if s.code == 'h'}
         i = tag852.subfields.collect {|s| s.value if s.code == 'i'}
         k = tag852.subfields.collect {|s| s.value if s.code == 'k'}
         m = tag852.subfields.collect {|s| s.value if s.code == 'm'}
 
-        # g = tag852.css("slim|subfield[@code='g']").collect { |subfield| subfield.content }
-        # h = tag852.css("slim|subfield[@code='h']").collect { |subfield| subfield.content }
-        # i = tag852.css("slim|subfield[@code='i']").collect { |subfield| subfield.content }
-        # k = tag852.css("slim|subfield[@code='k']").collect { |subfield| subfield.content }
-        # m = tag852.css("slim|subfield[@code='m']").collect { |subfield| subfield.content }
-
         # subfields need to be output in this order even though they may not appear in this order
         [k,g,h,i,m].flatten.join(' ').strip
-
       end
 
       # Extract summary holdings from 866 field
@@ -206,11 +189,6 @@ module Voyager
         summary = tag866list.collect { |tag866|
           tag866.subfields.select {|s| s.code == 'a'  && ! s.value.empty?}.collect{|s| s.value }
         }.flatten
-
-# raise
-        # summary = tag866.subfields.collect {|s| s.value if s.code == 'a'}
-        # summary.compact.collect { |subfield| subfield.strip }
-        # raise
       end
 
       def parse_public_notes(tag890list)
@@ -219,7 +197,6 @@ module Voyager
         public_notes = tag890list.collect { |tag890|
           tag890.subfields.select {|s| s.code == 'a'  && ! s.value.empty?}.collect{|s| s.value }
         }.flatten
-
       end
 
       # # Extract public notes from 852 field, subfield z
@@ -282,9 +259,6 @@ module Voyager
         return '' unless tag852 && tag852['l']
 
         return tag852['l'].strip
-
-        # subl = tag852.at_css("slim|subfield[@code='l']")
-        # subl ? subl.content : ''
       end
 
       # Extract supplement holdings from field 867
@@ -304,14 +278,8 @@ module Voyager
         marc.each_by_tag('867') do |t867|
           supplements.push( t867.subfields.collect {|s| s.value if ['a', 'z'].include? s.code}.join(' ').strip )
         end
-        # 
-        # tag867.each do |field|
-        #   subs = field.css("slim|subfield").collect { |subfield| subfield.content if subfield.attr("code").match(/[az]/)}
-        #     supplements << subs.join(" ").strip unless subs.empty?
-        # end
 
         supplements
-
       end
 
       # Extract index holdings from field 868
@@ -333,20 +301,6 @@ module Voyager
         end
 
         indexes
-
-
-        # tag868 = marc.css("slim|datafield[@tag='868']")
-        # 
-        # return [] unless tag868
-        # 
-        # indexes = []
-        # tag868.each do |field|
-        #   subs = field.css("slim|subfield").collect { |subfield| subfield.content if subfield.attr("code").match(/[az]/)}
-        #     indexes << subs.join(" ").strip unless subs.empty?
-        # end
-        # 
-        # indexes
-
       end
 
       # Extract reproduction note from field 843
@@ -361,10 +315,7 @@ module Voyager
         return '' unless tag892
 
         # collect subfields in input order; only ouput certain subfields
-        # tag843.css("slim|subfield").collect { |subfield| subfield.content if subfield.attr("code").match(/[abcdefmn3]/)}.join(' ')
-
         tag892.subfields.collect {|s| s.value if 'abcdefmn3'.include? s.code}.join(' ').strip
-
       end
 
       # Extract URLs from 856 fields in the marc holdings record
@@ -382,6 +333,7 @@ module Voyager
         return [] unless tag893
 
         urls = []
+
         marc.each_by_tag('893') do |t893|
           ind1 = t893.indicator1
           ind2 = t893.indicator2
@@ -397,64 +349,8 @@ module Voyager
             urls << {ind1: ind1, ind2: ind2, url: url, link_text: link_text}
           end
         end
+
         urls
-
-        # # tag856 = marc.css("slim|datafield[@tag='856']")
-        # # 
-        # # return [] unless tag856
-        # 
-        # urls = []
-        # 
-        # tag856.each do |field|
-        # 
-        #   ind1 = field.attr("ind1")
-        #   ind2 = field.attr("ind2")
-        # 
-        #   subu = field.at_css("slim|subfield[@code='u']")
-        #   subz = field.at_css("slim|subfield[@code='z']")
-        #   sub3 = field.at_css("slim|subfield[@code='3']")
-        # 
-        #   # only process if there is a url
-        #   if subu
-        # 
-        #     url = subu.content
-        # 
-        #     link_text = [sub3, subz].compact.collect { |subfield| subfield.content }
-        # 
-        #     if link_text.empty?
-        #       link_text << url
-        #     end
-        # 
-        #     urls << { :ind1 => ind1, :ind2 => ind2, :url => url, :link_text => link_text.join(' ') }
-        # 
-        #   end
-        # 
-        #   # # only process idicators 40
-        #   # if field.attr("ind1") == '4' and field.attr("ind2") == '0'
-        #   #   
-        #   #   subu = field.at_css("slim|subfield[@code='u']")
-        #   #   subz = field.at_css("slim|subfield[@code='z']")
-        #   #   sub3 = field.at_css("slim|subfield[@code='3']")
-        #   #  
-        #   #   # only process if there is a url
-        #   #   if subu
-        #   #   
-        #   #     url = subu.content
-        #   #     
-        #   #     link_text = [sub3, subz].compact.collect { |subfield| subfield.content }
-        #   # 
-        #   #     if link_text.empty?
-        #   #       link_text << url
-        #   #     end
-        #   #     
-        #   #     urls << { :url => url, :link_text => link_text.join(' ') }
-        #   #   
-        #   #   end
-        #   # end
-        # end
-        # 
-        # urls
-
       end
 
       # Extract donor note & code from field 541
@@ -497,45 +393,6 @@ module Voyager
         end
 
         donor_info
-
-
-        # tag541 = marc.css("slim|datafield[@tag='541']")
-        # 
-        # return [] unless tag541
-        # 
-        # donor_info = []
-        # 
-        # tag541.each do |field|
-        # 
-        #   # only process if first idicator 1
-        #   if field.attr("ind1") == '1'
-        # 
-        #     # collect subfields in input order; only ouput certain subfields
-        #     # do not include subfield c and 3 in brief message (use with gift icon)
-        #     message = field.css("slim|subfield").collect { |subfield| subfield.content if subfield.attr("code").match(/[acd3]/)}.compact.join(' ').strip
-        #     message_brief = field.css("slim|subfield").collect { |subfield| subfield.content if subfield.attr("code").match(/[ad]/)}.compact.join(' ').strip
-        #     sube = field.at_css("slim|subfield[@code='e']")
-        #     code = ''
-        #     code = sube.content.strip if sube
-        #     # get the name coded after 'plate:'
-        #     name = ''
-        #     name = $1.strip if code.downcase.match(/^plate:(.+)/)
-        #     # use name to see if there is a url to a donor page or a special text
-        #     url = ''
-        #     unless name.empty?
-        #       entry = DONOR_INFO[name]
-        #       unless entry.nil?
-        #         url = entry['url']
-        #         message_brief = entry['txt'] unless entry['txt'].empty?
-        #       end
-        #     end
-        #     donor_info << { :message => message, :message_brief => message_brief, :code => code, :url => url }
-        #   end
-        # 
-        # end
-        # 
-        # donor_info
-
       end
 
       def assign_location_note(location_code)
@@ -546,25 +403,32 @@ module Voyager
           location_note = 'By appointment only. See the <a href="http://library.columbia.edu/locations/avery/art-properties.html" target="_blank">Avery Art Properties webpage</a>'
           return location_note
         end
+
         # Avery Classics
-        if ['avr','avr,cage','avr,rrm','avr,stor','far','far,cage','far,rrm','far,stor','off,avr','off,far'].include?(location_code)
+        if ['avr', 'avr,cage', 'avr,rrm', 'avr,stor', 'far', 'far,cage', 'far,rrm',
+            'far,stor', 'off,avr', 'off,far'].include?(location_code)
           location_note = 'By appointment only. See the <a href="http://library.columbia.edu/locations/avery/classics.html" target="_blank">Avery Classics Collection webpage</a>'
           return location_note
         end
+
         # Avery Drawings & Archives (NEXT-1318)
-        if ['avda','ava','off,avda'].include?(location_code)
+        if ['avda', 'ava', 'off,avda'].include?(location_code)
           location_note = 'By appointment only. See the <a href="http://library.columbia.edu/locations/avery/da.html" target="_blank">Avery Drawings & Archives webpage</a>'
           return location_note
         end
+
         # Barnard Archives
-        if ['bar,bda','bar,spec','bara'].include?(location_code)
+        if ['bar,bda', 'bar,spec', 'bara'].include?(location_code)
           location_note = 'In off-site storage - Request from <a href="http://archives.barnard.edu/about-us/contact-us">Barnard Archives</a>'
           return location_note
         end
+
         # Burke
-        if ['uts,arc','uts,essxx1','uts,essxx2','uts,essxx3','uts,gil','uts,mac','uts,macxfp','uts,macxxf','uts,macxxp',
-            'uts,map','uts,mrldr','uts,mrldxf','uts,mrlor','uts,mrloxf','uts,mrls','uts,mrlxxp','uts,mss','uts,perr','uts,perrxf',
-            'uts,reled','uts,tms','uts,twr','uts,twrxxf','uts,unnr','uts,unnrxf','uts,unnrxp'].include?(location_code)
+        if ['uts,arc', 'uts,essxx1', 'uts,essxx2', 'uts,essxx3', 'uts,gil', 'uts,mac',
+            'uts,macxfp', 'uts,macxxf', 'uts,macxxp', 'uts,map', 'uts,mrldr', 'uts,mrldxf',
+            'uts,mrlor', 'uts,mrloxf', 'uts,mrls', 'uts,mrlxxp', 'uts,mss', 'uts,perr',
+            'uts,perrxf', 'uts,reled', 'uts,tms', 'uts,twr', 'uts,twrxxf',
+            'uts,unnr', 'uts,unnrxf', 'uts,unnrxp'].include?(location_code)
           location_note = 'By appointment only. See the <a href="http://library.columbia.edu/locations/burke/access_circulation/special-collections-access.html" target="_blank">Burke Library special collections page</a>'
           return location_note
         end
@@ -630,9 +494,9 @@ module Voyager
         #     HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + bibid) == "1"
         if location_name.match(/^Offsite/) && OFFSITE_CONFIG['offsite_locations'].include?(location_code)
           services << 'offsite'
-          
+
           # Valet Admins get pre-release access to Valet
-          if current_user && current_user.valet_admin?
+          if @current_user && @current_user.valet_admin?
             services << 'offsite_valet'  unless services.include? 'offsite_valet'
           end
           # services << 'offsite_valet'
