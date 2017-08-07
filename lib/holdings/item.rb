@@ -245,9 +245,9 @@ module Voyager
         short_message = add_label(short_message, item)
         long_message = add_label(long_message, item)
 
-        if Rails.env != 'clio_prod'
-          short_message = short_message + " (#{code}/short)"
-          long_message = long_message + " (#{code}/long)"
+        if Rails.env == 'clio_dev'
+          short_message = short_message + " (status code #{code})"
+          long_message = long_message + " (status code #{code})"
         end
 
         return { :status_code => code,

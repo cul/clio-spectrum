@@ -632,7 +632,7 @@ module Voyager
           services << 'offsite'
           
           # Valet Admins get pre-release access to Valet
-          if current_user.valet_admin?
+          if current_user && current_user.valet_admin?
             services << 'offsite_valet'  unless services.include? 'offsite_valet'
           end
           # services << 'offsite_valet'
