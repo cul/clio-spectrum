@@ -57,9 +57,9 @@ module Voyager
           holdings = @records.collect { |rec| rec.to_hash }
           case options[:content_type]
           when :full
-            output[:condensed_holdings_full] = condense_holdings(holdings,options)
+            output[:condensed_holdings_full] = condense_holdings(holdings, options)
           when :brief
-            output[:condensed_holdings_brief] = condense_holdings(holdings,options)
+            output[:condensed_holdings_brief] = condense_holdings(holdings, options)
           end
         end
 
@@ -130,9 +130,11 @@ module Voyager
 
       end
 
-      def condense_holdings(holdings,options)
+      def condense_holdings(holdings, options)
         # processing varies depending on complexity
         complexity = determine_complexity(holdings)
+Rails.logger.debug "HOLDINGS=#{holdings}"
+Rails.logger.debug "COMPLEXITY=#{complexity}"
         process_holdings(holdings, complexity, options)
       end
 
@@ -201,6 +203,7 @@ module Voyager
             out[:items] = {}
             messages.each do |message|
               text = message[options[:message_type]]
+Rails.logger.debug "LOOP text=[#{text}] out[items]=[#{out[:items]}]"
               if out[:items].has_key?(text)
                 out[:items][text][:count] += 1
               else
@@ -211,8 +214,11 @@ module Voyager
               end
             end
             # add other elements to :copies array
-            [:current_issues, :donor_info, :indexes, :public_notes, :orders, :reproduction_note, :supplements,
-              :summary_holdings, :temp_locations, :urls].each { |type| add_holdings_elements(out,holding,type,options[:message_type]) }
+            [ :current_issues, :donor_info, :indexes, :public_notes, :orders, 
+              :reproduction_note, :supplements, :summary_holdings, 
+              :temp_locations, :urls ].each { |type|
+              add_holdings_elements(out, holding, type)
+            }
 
             entry[:copies] << out
 
@@ -228,11 +234,11 @@ module Voyager
         # condense services list
         entries.each { |entry| entry[:services] = entry[:services].flatten.uniq }
 
-        output_condensed_holdings(entries,options[:content_type])
+        output_condensed_holdings(entries, options[:content_type])
       end
 
 
-      def add_holdings_elements(out,holding,type,message_type)
+      def add_holdings_elements(out, holding, type)
         case type
         when :current_issues
           out[type] = "Current Issues: " + holding[type].join(' -- ') unless holding[type].empty?
@@ -325,18 +331,18 @@ module Voyager
 
       end
 
-      def output_condensed_holdings(entries,type)
+      def output_condensed_holdings(entries, type)
 
         case type
         when :full
           entries
         when :brief
           entries.collect do |entry|
-            { :holding_id => entry[:holding_id],
+            { :holding_id    => entry[:holding_id],
               :location_name => entry[:location_name],
-              :call_number => entry[:call_number],
-              :status => entry[:status],
-              :services => entry[:services] }
+              :call_number   => entry[:call_number],
+              :status        => entry[:status],
+              :services      => entry[:services] }
           end
         end
 

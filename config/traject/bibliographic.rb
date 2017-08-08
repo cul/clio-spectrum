@@ -57,6 +57,9 @@ to_field "text", extract_all_marc_values(from: '050', to: '850') do |record, acc
   extra_fields << Marc21.extract_marc_from(record, "948#{ATOZ}")
   # 965$a - Collection Description
   extra_fields << Marc21.extract_marc_from(record, '965a')
+  # 960$f - Invoice Number
+  extra_fields << Marc21.extract_marc_from(record, '960f')
+  
 
   accumulator << extra_fields.flatten.join(' ')
 end

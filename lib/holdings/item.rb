@@ -3,20 +3,10 @@ module Voyager
     class Item
       attr_reader :holding_id, :item_count, :temp_locations, :item_status
 
-      # # Item class initializing method
-      # # Populates instance variables from the mfhd:mfhdRecord node.
-      # #
-      # # * *Args*    :
-      # #   - +xml_node+ -> mfhd:mfhdRecord node
-      # #
-      # def initialize(xml_node,location)
+      # Item class initializing method
       def initialize(mfhd_id, holdings_marc, mfhd_status)
 
-        # @holding_id = xml_node.attributes["mfhdId"].value
         @holding_id = mfhd_id
-
-        # # the item collecction
-        # item = xml_node.at_css("mfhd|itemCollection")
 
         items = []
         holdings_marc.each_by_tag('876') do |t876|
@@ -24,7 +14,6 @@ module Voyager
         end
 
         # number of item records
-        # @item_count = item.at_css("item|itemCount").content
         @item_count = items.size
 
         # TODO
@@ -56,43 +45,6 @@ module Voyager
         end
 
         return tempLocations
-
-        # # item:itemLocation nodes
-        # # reject nodes that do not have the tmpLoc attribute set
-        # # itemLocation = item.css("item|itemLocation").reject { |loc| loc.at_css("item|itemLocationData[@name='tmpLoc']").content.empty? }
-        # # reject nodes that match the mfhd display location
-        # itemLocation = item.css("item|itemLocation").reject { |loc|
-        #   loc.at_css("item|itemLocationData[@name='tempLocation']").content == location
-        # }
-        # 
-        # return [] unless itemLocation.length > 0
-        # 
-        # # messages = []
-        # tempLocations = []
-        # 
-        # itemLocation.each do |loc|
-        #   # label is descriptive information for items; optional
-        #   itemDetails = []
-        #   ['itemEnum', 'itemChron','itemYear', 'itemCaption', 'itemFreeText'].each do |type|
-        #     loc_data = loc.at_css("item|itemLocationData[@name=#{type}]")
-        #     itemDetails << loc_data.content unless loc_data.content.empty?
-        #   end
-        # 
-        #   itemLabel = itemDetails.join(' ')
-        #   tempLocation = loc.at_css("item|itemLocationData[@name='tempLocation']").content
-        #   tempLocations << { itemLabel: itemLabel, tempLocation: tempLocation }
-        # 
-        #   # # generate message
-        #   # if label.empty?
-        #   #   messages << "Shelved in " + tempLocation
-        #   # else
-        #   #   messages << itemLabel + " Shelved in " + tempLocation
-        #   # end
-        # end
-        # 
-        # # messages
-        # tempLocations
-
       end
 
       # Isolates item:itemRecord nodes in the mfhd:itemCollection,
@@ -118,20 +70,8 @@ module Voyager
                 }
         end
 
-        # # item:itemRecord nodes
-        # itemRecord = item.css("item|itemRecord")
-        # 
-        # # generate an arry of hashes for ease of handling
-        # records = itemRecord.collect do |record|
-        #   data = {}
-        #   record.css("item|itemData").each do |rec|
-        #     data[rec.attr("name").to_sym] = rec.content
-        #   end
-        #   data
-        # end
-
         # determine overall status
-        status = determine_status(mfhd_status)
+        status = determine_overall_status(mfhd_status)
         # generate messages
         messages = generate_messages(mfhd_status)
 
@@ -147,8 +87,7 @@ module Voyager
       # * *Returns* :
       #   - Overall circulation status
       #
-      def determine_status(mfhd_status)
-
+      def determine_overall_status(mfhd_status)
         unavailable_count = 0
         mfhd_status.each do |item_id, item|
           statusCode = item[:statusCode].to_i
@@ -163,23 +102,6 @@ module Voyager
         else
           return 'some_available'
         end
-
-
-        # # assume available
-        # status = 'available'
-        # unavailable = 0
-        # # if statusCode > 1 some item status is set so some item may not be available; 11 (returned) is the exception
-        # records.each { |record| unavailable += 1 if record[:statusCode].to_i > 1 && record[:statusCode].to_i != 11 }
-        # unless unavailable == 0
-        #   if unavailable == item_count.to_i
-        #     status = 'not_available'
-        #   else
-        #     status = 'some_available'
-        #   end
-        # end
-        # 
-        # status
-
       end
 
       # Generate circulation messages
@@ -196,7 +118,6 @@ module Voyager
           messages << generate_message(item)
         end
         messages
-
       end
 
       # Generate message from a record (item:itemRecord node)
@@ -213,7 +134,7 @@ module Voyager
         short_message = ''
         long_message = ''
         code = ''
-
+Rails.logger.debug "generate_message() ITEM=#{item}"
         # status patron message otherwise regular message
         if item[:statusPatronMessage].present?
           code = 'sp'
@@ -237,7 +158,7 @@ module Voyager
           raise "Status code not found in config/item_status_codes.yml" unless parms
 
           short_message = make_substitutions(parms['short_message'], item)
-          long_message = make_substitutions(parms['long_message'], item)
+          # long_message = make_substitutions(parms['long_message'], item)
 
         end
 
@@ -304,18 +225,27 @@ module Voyager
       end
 
       def add_label(message, item)
+Rails.logger.debug "add_label() MESSAGE=#{message}"
+Rails.logger.debug "add_label() ITEM=#{item}"
 
-        # label is descriptive information for items; optional
-        labels = []
-        [:enumeration, :chronology, :year, :caption, :text].each do |type|
-          labels << item[type] if item[type]
+        # # label is descriptive information for items; optional
+        # labels = []
+        # [:enumeration, :chronology, :year, :caption, :text].each do |type|
+        #   labels << item[type] if item[type]
+        # end
+        # labels.empty? ? label = '' : label = labels.join(' ') + ' '
+        
+        label = item[:itemLabel]
+        if label.empty?
+          message
+        else
+          "#{label} #{message}"
         end
-        labels.empty? ? label = '' : label = labels.join(' ') + ' '
 
-        # add label
-        message.insert(0, label) unless label.empty?
-
-        message
+        # # add label
+        # message.insert(0, "#{label} ") unless label.empty?
+        # 
+        # message
       end
 
     end
