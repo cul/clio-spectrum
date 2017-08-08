@@ -256,12 +256,8 @@ module Voyager
           out[type] = "Indexes: " + holding[type].join(' -- ') unless holding[type].empty?
         when :public_notes
           out[type] = "Notes: " + holding[type].join(' -- ') unless holding[type].empty?
-        # TODO
-        # when :orders
-        #   unless holding[type].empty?
-        #      messages = holding[type].each.collect { |message| message[message_type] }
-        #      out[type] = "Order Information: " + messages.join(' -- ')
-        #   end
+        when :orders
+          out[type] = "Order Information: " + holding[type].join(' -- ') unless holding[type].empty?
         when :reproduction_note
           out[type] = holding[type] unless holding[type].empty?
         when :supplements
