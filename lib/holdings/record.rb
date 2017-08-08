@@ -452,18 +452,16 @@ module Voyager
         end
 
         # Orders such as "Pre-Order", "On-Order", etc.  
-        order_status_map = {
-          '0' => 'In the Pre-Order Process',
-          '1' => 'Received',
-          '4' => 'Not yet received',
-          '8' => 'Copy On Order',
-        }
         # List of available services per order status hardcoded into yml config file.
         if orders.present?
           orders.each do |order|
-            order_status = order_status_map.select { |k,v| order.starts_with?(v) }.keys.first
-            order_config = ORDER_STATUS_CODES[order_status]
             # order_config = ORDER_STATUS_CODES[order[:status_code]]
+            # We no longer have the status as lookup key.
+            # Do string match againt message found in MARC field to find config.
+            order_config = ORDER_STATUS_CODES.values.select { |status_config|
+              status_config['short_message'][0,5] == order[0,5]
+            }.first
+
             raise "Status code not found in config/order_status_codes.yml" unless order_config
             services << order_config['services'] unless order_config['services'].nil?
           end
