@@ -172,7 +172,12 @@ module Voyager
         m = tag852.subfields.collect {|s| s.value if s.code == 'm'}
 
         # subfields need to be output in this order even though they may not appear in this order
-        [k,g,h,i,m].flatten.join(' ').strip
+        call_number = [k,g,h,i,m].flatten.join(' ').strip
+
+        # NEXT-1416 - Suppress "no call number" message
+        return '' if call_number.match /no.*call.*num/i
+
+        return call_number
       end
 
       # Extract summary holdings from 866 field
