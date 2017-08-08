@@ -104,9 +104,7 @@ module Voyager
         order = Order.new(holdings_marc)
 
         @current_issues = order.current_issues
-
-        # TODO
-        # @orders = order.orders
+        @orders = order.orders
 
         # TODO
         # # NEXT-1170
@@ -447,16 +445,25 @@ module Voyager
 
         # NEXT-1229 - make this the first test
         # special collections request service [only service available for items from these locations]
-        if ['rbx','off,rbx','rbms','off,rbms','rbi','uacl','off,uacl','clm','dic','dic4off','gax','oral',
-          'rbx4off','off,dic','off,oral'].include?(location_code)
+        if ['rbx', 'off,rbx', 'rbms', 'off,rbms', 'rbi', 'uacl', 'off,uacl',
+            'clm', 'dic', 'dic4off', 'gax', 'oral', 'rbx4off', 'off,dic',
+            'off,oral' ].include?(location_code)
           return ['spec_coll']
         end
 
         # Orders such as "Pre-Order", "On-Order", etc.  
+        order_status_map = {
+          '0' => 'In the Pre-Order Process',
+          '1' => 'Received',
+          '4' => 'Not yet received',
+          '8' => 'Copy On Order',
+        }
         # List of available services per order status hardcoded into yml config file.
         if orders.present?
           orders.each do |order|
-            order_config = ORDER_STATUS_CODES[order[:status_code]]
+            order_status = order_status_map.select { |k,v| order.starts_with?(v) }.keys.first
+            order_config = ORDER_STATUS_CODES[order_status]
+            # order_config = ORDER_STATUS_CODES[order[:status_code]]
             raise "Status code not found in config/order_status_codes.yml" unless order_config
             services << order_config['services'] unless order_config['services'].nil?
           end
