@@ -106,8 +106,6 @@ module Voyager
 
       # Generate circulation messages
       #
-      # * *Args*    :
-      #   - +records+ -> Array of hashes for data in item:itemRecord nodes
       # * *Returns* :
       #   - Array of circulation messages
       #

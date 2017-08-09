@@ -106,7 +106,9 @@
               -# NewRelic shows that calling this CGI script is taking 4% of total server cpu.
               -# Just show this for everyone.
               -# if HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + clio_id) == "1"
-              %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{clio_id}", :target => "_blank"
+
+              - # DISABLE OFFSITE REQUESTS DURING BLACKOUT
+              - # %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{clio_id}", :target => "_blank"
   
               %li= link_to "Item Feedback", "#", :onclick => "OpenItemFeedback(#{clio_id}); return false;"
   

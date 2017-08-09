@@ -156,8 +156,9 @@ module HoldingsHelper
 
   # parameters: title, link (url or javascript)
   SERVICES = {
-    'offsite' => ['Offsite',
-                  'http://www.columbia.edu/cgi-bin/cul/offsite2?'],
+    # DISABLE OFFSITE REQUESTS DURING BLACKOUT
+    # 'offsite' => ['Offsite',
+    #               'http://www.columbia.edu/cgi-bin/cul/offsite2?'],
 
     'offsite_valet' => [ valet_label(), valet_link() ],
 
@@ -296,22 +297,6 @@ module HoldingsHelper
     bibkeys << extract_by_key(document, 'issn')
     bibkeys << extract_by_key(document, 'oclc')
     bibkeys << extract_by_key(document, 'lccn')
-
-    # unless document['isbn_display'].nil?
-    #   bibkeys << Array.wrap(document['isbn_display']).map { |isbn| 'isbn:' + isbn }.uniq
-    # end
-    # 
-    # unless document['issn_display'].nil?
-    #   bibkeys << Array.wrap(document['issn_display']).map { |issn| 'issn:' + issn }.uniq
-    # end
-    # 
-    # unless document['oclc_display'].nil?
-    #   bibkeys << document['oclc_display'].map { |oclc| 'oclc:' + oclc.gsub(/^oc[mn]/, '') }.uniq
-    # end
-    # 
-    # unless document['lccn_display'].nil?
-    #   bibkeys << document['lccn_display'].map { |lccn| 'lccn:' + lccn.gsub(/\s/, '').gsub(/\/.+$/, '') }
-    # end
 
     # Some Hathi records were directly loaded into Voyager.
     # These have direct Hathi links in their 856 - and these

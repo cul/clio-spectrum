@@ -1,7 +1,7 @@
 module Voyager
   module Holdings
     class Collection
-      attr_reader :records, :xml
+      attr_reader :records
 
 
       # Documents may look different depending on who you are.  Pass in current_user.
@@ -221,11 +221,9 @@ Rails.logger.debug "LOOP text=[#{text}] out[items]=[#{out[:items]}]"
             }
 
             entry[:copies] << out
-
           end
 
           entry[:services] << holding[:services]
-
         end
 
         # get overall status of each location entry

@@ -125,8 +125,8 @@ module Voyager
 
         # add available services
         @services = determine_services(@location_name, location_code, @temp_loc_flag, @call_number, @item_status, @orders, @bibid, fmt)
-
       end
+
 
       # Collect data from all variables into a hash
       def to_hash
@@ -194,6 +194,7 @@ module Voyager
         }.flatten
       end
 
+
       def parse_public_notes(tag890list)
         return [] unless tag890list && tag890list.size > 0
 
@@ -201,6 +202,7 @@ module Voyager
           tag890.subfields.select {|s| s.code == 'a'  && ! s.value.empty?}.collect{|s| s.value }
         }.flatten
       end
+
 
       # # Extract public notes from 852 field, subfield z
       # #
@@ -503,7 +505,8 @@ module Voyager
         # if location_name.match(/^Offsite/) &&
         #     HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + bibid) == "1"
         if location_name.match(/^Offsite/) && OFFSITE_CONFIG['offsite_locations'].include?(location_code)
-          services << 'offsite'
+          # DISABLE OFFSITE REQUESTS DURING BLACKOUT
+          # services << 'offsite'
 
           # Valet Admins get pre-release access to Valet
           if @current_user && @current_user.valet_admin?
