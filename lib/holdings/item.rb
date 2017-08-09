@@ -132,7 +132,6 @@ module Voyager
         short_message = ''
         long_message = ''
         code = ''
-Rails.logger.debug "generate_message() ITEM=#{item}"
         # status patron message otherwise regular message
         if item[:statusPatronMessage].present?
           code = 'sp'
@@ -223,10 +222,12 @@ Rails.logger.debug "generate_message() ITEM=#{item}"
       end
 
       def add_label(message, item)
-Rails.logger.debug "add_label() MESSAGE=#{message}"
-Rails.logger.debug "add_label() ITEM=#{item}"
 
-        # # label is descriptive information for items; optional
+        # temporary, until we work out multi-volume serial display
+        return message
+
+        # label is descriptive information for items; optional
+
         # labels = []
         # [:enumeration, :chronology, :year, :caption, :text].each do |type|
         #   labels << item[type] if item[type]

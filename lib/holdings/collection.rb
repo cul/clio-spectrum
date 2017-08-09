@@ -133,8 +133,6 @@ module Voyager
       def condense_holdings(holdings, options)
         # processing varies depending on complexity
         complexity = determine_complexity(holdings)
-Rails.logger.debug "HOLDINGS=#{holdings}"
-Rails.logger.debug "COMPLEXITY=#{complexity}"
         process_holdings(holdings, complexity, options)
       end
 
@@ -203,7 +201,6 @@ Rails.logger.debug "COMPLEXITY=#{complexity}"
             out[:items] = {}
             messages.each do |message|
               text = message[options[:message_type]]
-Rails.logger.debug "LOOP text=[#{text}] out[items]=[#{out[:items]}]"
               if out[:items].has_key?(text)
                 out[:items][text][:count] += 1
               else
