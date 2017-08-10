@@ -59,6 +59,10 @@ module Voyager
         @urls = parse_urls(holdings_marc)    # array of hashes
         # 891
         @donor_info = parse_donor_info(holdings_marc)  # array of hashes
+        # 894$a
+        @orders = parse_orders(holdings_marc)
+        # 895$a
+        @current_issues = parse_current_issues(holdings_marc)
 
         @location_note = assign_location_note(location_code)  #string
 
@@ -100,25 +104,6 @@ module Voyager
           @item_status[:messages].clear
         end
 
-        # information from order/receipt records
-        order = Order.new(holdings_marc)
-
-        @current_issues = order.current_issues
-        @orders = order.orders
-
-        # TODO
-        # # NEXT-1170
-        # # test for approval records without purchase orders (holdomgs with call numbers do not need to be tested)
-        # # the second test is in place to make sure no additional processing has occurred
-        # if @call_number.empty? && create_operator_id.match("APPR") && @orders.empty?
-        #   if [@summary_holdings, @notes, @shelving_title, @supplements, @indexes, @reproduction_note,
-        #       @urls, @donor_info, @current_issues].all? { |var| var.empty? }
-        #     # treat as pre-order record
-        #     @orders << { :status_code => '0', 
-        #                   :short_message => 'In the Pre-Order Process', 
-        #                   :long_message => 'In the Pre-Order Process. Try Borrow Direct or ILL.' }
-        #   end
-        # end
 
         # get format codes from leader
         fmt = marc.leader[6..7]
@@ -399,6 +384,29 @@ module Voyager
 
         donor_info
       end
+
+      def parse_current_issues(marc)
+        return [] unless marc
+
+        current_issues = []
+        marc.each_by_tag('895') do |t895|
+          current_issues << t895['a']
+        end
+
+        current_issues
+      end
+
+      def parse_orders(marc)
+        return [] unless marc
+
+        orders = []
+        marc.each_by_tag('894') do |t894|
+          orders << t894['a']
+        end
+
+        orders
+      end
+
 
       def assign_location_note(location_code)
         location_note = ''
