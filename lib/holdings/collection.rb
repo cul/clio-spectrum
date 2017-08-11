@@ -95,11 +95,17 @@ module Voyager
 
       def process_holdings(holdings, complexity)
         entries = []
-        holdings.each do |holding|
-          # test for location and call number
-          entry = entries.find { |this_entry| this_entry[:location_name] == holding[:location_name] &&
-            this_entry[:call_number] == holding[:call_number] }
 
+        # Look at each Holding in turn...
+        holdings.each do |holding|
+
+          # Do we already have an entry for this holding-location and holding-call-number?
+          entry = entries.find { |this_entry| 
+            this_entry[:location_name] == holding[:location_name] &&
+              this_entry[:call_number] == holding[:call_number] 
+          }
+
+          # If we're seeing this location/call-num for the first time, initialize an 'entry'
           unless entry
             entry = {
               :location_name => holding[:location_name],
@@ -120,9 +126,10 @@ module Voyager
           # for simple holdings put consolidated status information in the first copy
           if complexity == :simple
             item_status = holding[:item_status]
-            messages = item_status[:messages]
+            messages    = item_status[:messages]
+            # loop over "messages", that is, item-status-data-structures
             messages.each do |message|
-              text = message[options[:message_type]]
+              text = message[:short_message]
               if entry[:copies].first[:items].has_key?(text)
                 entry[:copies].first[:items][text][:count] += 1
               else
@@ -140,25 +147,24 @@ module Voyager
             messages = item_status[:messages]
             out[:items] = {}
             messages.each do |message|
-              text = message[options[:message_type]]
               if out[:items].has_key?(text)
                 out[:items][text][:count] += 1
+              text = message[:short_message]
               else
-                out[:items][text] = {
-                  :status => item_status[:status],
-                  :count => 1
-                }
+                copy[:items][text] = { status: item_status[:status], count: 1 }
               end
             end
+
             # add other elements to :copies array
             [ :current_issues, :donor_info, :indexes, :public_notes, :orders, 
               :reproduction_note, :supplements, :summary_holdings, 
-              :temp_locations, :urls ].each { |type|
-              add_holdings_elements(out, holding, type)
+              :temp_locations, :urls ].each { |element|
+              add_holdings_elements(copy, holding, element)
             }
 
             entry[:copies] << out
           end
+          end # end complexity == :complex
 
           entry[:services] << holding[:services]
         end
