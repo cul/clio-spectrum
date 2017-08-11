@@ -159,14 +159,14 @@ module Voyager
 
         end
 
-        # add labels
-        short_message = add_label(short_message, item)
-        long_message = add_label(long_message, item)
+        # add labels - but not for "Available" items
+        short_message = add_label(short_message, item) unless short_message == 'Available'
+        # long_message = add_label(long_message, item)
 
-        if Rails.env == 'clio_dev'
-          short_message = short_message + " (status code #{code})"
-          long_message = long_message + " (status code #{code})"
-        end
+        # if Rails.env == 'clio_dev'
+        #   short_message = short_message + " (status code #{code})"
+        #   long_message = long_message + " (status code #{code})"
+        # end
 
         return { :status_code => code,
                  :short_message => short_message,
@@ -222,10 +222,6 @@ module Voyager
       end
 
       def add_label(message, item)
-
-        # temporary, until we work out multi-volume serial display
-        return message
-
         # label is descriptive information for items; optional
 
         # labels = []
