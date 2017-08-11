@@ -164,7 +164,8 @@ class CatalogController < ApplicationController
 
       # Documents may look different depending on who you are.  Pass in current_user.
       @collection = Voyager::Holdings::Collection.new(@document, circ_status, current_user)
-      @holdings = @collection.to_hash(output_type: :condensed, message_type: :short_message)
+
+      @holdings = @collection.to_holdings()
 
    else
      # Pegasus (Law) documents have no MARC holdings.

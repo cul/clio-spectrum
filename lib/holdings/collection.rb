@@ -29,81 +29,20 @@ module Voyager
 
       end
 
-      # Generate output hash from Record class instances
-      def to_hash(options = {})
-        options.reverse_merge!(:output_type => :raw, :content_type => :full, :message_type => :long_message)
-
-        # :output_type --> :raw (default) | :condensed
-        # 
-        # if :output_type == :condensed
-        #   :content_type --> :brief | :full (default)
-        #     :brief  -->  basic elements: currently location_name, call_number, overall location status, services
-        #     :full   -->  all elements
-        #   if :content_type == :full
-        #     :message_type --> :short_message | :long_message (default)
-        #   
-
-        raise ":output_type not defined" unless options[:output_type] == :raw || options[:output_type] == :condensed
-        raise ":content_type not defined" unless options[:content_type] == :full || options[:content_type] == :brief
-        raise ":message_type not defined" unless options[:message_type] == :long_message || options[:message_type] == :short_message
+      # Generate output holdings data structure from array of Record objects
+      def to_holdings()
 
         output = {}
 
-        case options[:output_type]
-        when :raw
-          output[:records] = @records.collect { |rec| rec.to_hash }
-        when :condensed
-          # convert @records into a holdings hash
-          holdings = @records.collect { |rec| rec.to_hash }
-          case options[:content_type]
-          when :full
-            output[:condensed_holdings_full] = condense_holdings(holdings, options)
-          when :brief
-            output[:condensed_holdings_brief] = condense_holdings(holdings, options)
-          end
-        end
+        holdings = @records.collect { |rec| rec.to_hash }
+# raise
+        output[:condensed_holdings_full] = condense_holdings(holdings)
 
         output.with_indifferent_access
       end
 
+
       private
-
-      # # Add searchable namespaces to xml object
-      # def add_xml_namespaces(xml)
-      #   xml.root.add_namespace_definition("hol", "http://www.endinfosys.com/Voyager/holdings")
-      #   xml.root.add_namespace_definition("mfhd", "http://www.endinfosys.com/Voyager/mfhd")
-      #   xml.root.add_namespace_definition("item", "http://www.endinfosys.com/Voyager/item")
-      #   xml.root.add_namespace_definition("slim", "http://www.loc.gov/MARC21/slim")
-      #   return xml
-      # end
-
-      # # Collect Record class instances for each mfhd:mfhdRecord node in xml record objext
-      # def parse_xml
-      #   # First, look for any service messages - raise them as an error
-      #   if first_ser_message = @xml.at_xpath('//ser:messages/ser:message')
-      #     # just throw as Rails default StandardError, with details in the message
-      #     raise "#{first_ser_message.attr('errorCode')} #{first_ser_message.content}"
-      #   end
-      # 
-      #   leader = @xml.at_css("hol|bibRecord>hol|marcRecord>slim|leader").content
-      #   @records = @xml.css("hol|mfhdCollection>mfhd|mfhdRecord").collect do |record_node|
-      #     Record.new(record_node,leader)
-      #   end
-      #   adjust_services(@records) if @records.length > 1
-      # end
-
-      # def parse_marc(marc)
-      #   # Rails.logger.debug "parse_marc() marc:\n#{marc.inspect}\n"
-      #   # collect mfhd records
-      #   @records = []
-      #   marc.each_by_tag('852') do |t852|
-      #     # Sequence - MFHD ID used to gather all associated fields
-      #     mfhd_id = t852['0']
-      #     Rails.logger.debug "parse_marc:  mfhd_id=[#{mfhd_id}]"
-      #     @records << Record.new(mfhd_id, marc)
-      #   end
-      # 
-      # end
 
 
       # For records with multiple holdings, based on the overall content, adjust as follows:
@@ -130,16 +69,17 @@ module Voyager
 
       end
 
-      def condense_holdings(holdings, options)
+      def condense_holdings(holdings)
         # processing varies depending on complexity
         complexity = determine_complexity(holdings)
-        process_holdings(holdings, complexity, options)
+        entries = process_holdings(holdings, complexity)
+        return entries
       end
 
       def determine_complexity(holdings)
         # holdings are complex if anything other than item_status has a value
         complexity = :simple
-
+      
         holdings.each do |holding|
           if [:summary_holdings, :supplements, :indexes, :public_notes,
               :reproduction_note, :current_issues,
@@ -149,11 +89,11 @@ module Voyager
             complexity = :complex
           end
         end
-
+      
         complexity
       end
 
-      def process_holdings(holdings,complexity,options)
+      def process_holdings(holdings, complexity)
         entries = []
         holdings.each do |holding|
           # test for location and call number
@@ -170,7 +110,7 @@ module Voyager
               :copies => [],
               :services => []
             }
-            entry[:copies] << {:items => {}} if complexity == :simple
+            entry[:copies] << { :items => {} } if complexity == :simple
             entries << entry
           end
 
@@ -223,13 +163,21 @@ module Voyager
           entry[:services] << holding[:services]
         end
 
+        # Now that multiple same-location holdings have been merged into entries,
+        # rationalize some of the entry fields
+
         # get overall status of each location entry
-        entries.each { |entry| determine_overall_status(entry) }
+        entries.each { |entry|
+          entry[:status] = determine_overall_status(entry)
+        }
 
         # condense services list
-        entries.each { |entry| entry[:services] = entry[:services].flatten.uniq }
-
-        output_condensed_holdings(entries, options[:content_type])
+        entries.each { |entry|
+          entry[:services] = entry[:services].flatten.uniq
+        }
+        
+        # output_condensed_holdings(entries, options[:content_type])
+        return entries
       end
 
 
@@ -322,25 +270,7 @@ module Voyager
           status = 'some_available'
         end
 
-        entry[:status] = status
-
-      end
-
-      def output_condensed_holdings(entries, type)
-
-        case type
-        when :full
-          entries
-        when :brief
-          entries.collect do |entry|
-            { :holding_id    => entry[:holding_id],
-              :location_name => entry[:location_name],
-              :call_number   => entry[:call_number],
-              :status        => entry[:status],
-              :services      => entry[:services] }
-          end
-        end
-
+        return status
       end
 
     end
