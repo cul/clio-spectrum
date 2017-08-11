@@ -61,8 +61,8 @@
               - unless message =~ /^Status unknown/
                 = details['image_link']
                 = message
-                - if details['count'] >1
-                  (#{details['count']} copies)
+                - if details['copy_count'] > 1
+                  (#{details['copy_count']} copies)
 
           - if copy['donor_info_icon'].present?
             .donor_info

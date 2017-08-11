@@ -130,14 +130,48 @@ module Voyager
             # loop over "messages", that is, item-status-data-structures
             messages.each do |message|
               text = message[:short_message]
-              if entry[:copies].first[:items].has_key?(text)
-                entry[:copies].first[:items][text][:count] += 1
-              else
+
+              # If an item is 'Available', but marked as 'some_available',
+              # then it can be omitted from display,
+              # since there'll be some kind of more interesting unavailable item.
+
+              # Group items by "text", i.e., by string status label.
+
+              # If we're seeing this text for the first time, it's a new item
+              if ! entry[:copies].first[:items].has_key?(text)
                 entry[:copies].first[:items][text] = {
                   :status => item_status[:status],
-                  :count => 1
+                  :count => 1,
+                  :copy_count => 1,
+                  :mfhd_id_list => [ holding[:holding_id] ]
                 }
+              
+              # Otherwise, if we're seeing this text another time...
+              else
+                # Is this item another same-status item from the same holding?
+                # If so, then just bump up the item (volume, part, etc.) count.
+                mfhd_id_list = entry[:copies].first[:items][text][:mfhd_id_list]
+                if mfhd_id_list.include?(holding[:holding_id])
+                  entry[:copies].first[:items][text][:count] += 1
+
+                # Otherwise, if it's from a different holding, then it's a new copy
+                else
+                  entry[:copies].first[:items][text][:copy_count] += 1
+                  entry[:copies].first[:items][text][:mfhd_id_list].push holding[:holding_id]
+                end
+
               end
+
+              # -- conflates copies with volumes --
+              # if entry[:copies].first[:items].has_key?(text)
+              #   entry[:copies].first[:items][text][:count] += 1
+              # else
+              #   entry[:copies].first[:items][text] = {
+              #     :status => item_status[:status],
+              #     :count => 1
+              #   }
+              # end
+
             end
           # for complex holdings create hash of elements for each copy and add to entry :copies array
           else
@@ -148,11 +182,46 @@ module Voyager
             messages = item_status[:messages]
             messages.each do |message|
               text = message[:short_message]
-              if copy[:items].has_key?(text)
-                copy[:items][text][:count] += 1
+
+              # If an item is 'Available', but marked as 'some_available',
+              # then it can be omitted from display,
+              # since there'll be some kind of more interesting unavailable item.
+              # ### next if text == 'Available'
+              next if item_status[:status] == 'some_available' && text == 'Available'
+              # raise
+
+              # If we're seeing this text for the first time, it's a new item
+              if ! copy[:items].has_key?(text)
+                copy[:items][text] = {
+                  :status => item_status[:status],
+                  :count => 1,
+                  :copy_count => 1,
+                  :mfhd_id_list => [ holding[:holding_id] ]
+                }
+              
+              # Otherwise, if we're seeing this text another time...
               else
-                copy[:items][text] = { status: item_status[:status], count: 1 }
+                # Is this item another same-status item from the same holding?
+                # If so, then just bump up the item (volume, part, etc.) count.
+                mfhd_id_list = copy[:items][text][:mfhd_id_list]
+                if mfhd_id_list.include?(holding[:holding_id])
+                  copy[:items][text][:count] += 1
+                
+                  # Otherwise, if it's from a different holding, then it's a new copy
+                else
+                  copy[:items][text][:copy_count] += 1
+                  copy[:items][text][:mfhd_id_list].push holding[:holding_id]
+                end
+                # Is 
               end
+
+              # # -- conflates copies with volumes --
+              # if copy[:items].has_key?(text)
+              #   copy[:items][text][:count] += 1
+              # else
+              #   copy[:items][text] = { status: item_status[:status], count: 1 }
+              # end
+
             end
 
             # add other elements to :copies array
