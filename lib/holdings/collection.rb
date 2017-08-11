@@ -141,15 +141,15 @@ module Voyager
             end
           # for complex holdings create hash of elements for each copy and add to entry :copies array
           else
-            out = {}
+            copy = { items: {} }
+
             # process status messages
             item_status = holding[:item_status]
             messages = item_status[:messages]
-            out[:items] = {}
             messages.each do |message|
-              if out[:items].has_key?(text)
-                out[:items][text][:count] += 1
               text = message[:short_message]
+              if copy[:items].has_key?(text)
+                copy[:items][text][:count] += 1
               else
                 copy[:items][text] = { status: item_status[:status], count: 1 }
               end
@@ -162,8 +162,7 @@ module Voyager
               add_holdings_elements(copy, holding, element)
             }
 
-            entry[:copies] << out
-          end
+            entry[:copies] << copy
           end # end complexity == :complex
 
           entry[:services] << holding[:services]
