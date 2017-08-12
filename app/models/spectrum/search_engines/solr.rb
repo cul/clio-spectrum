@@ -145,7 +145,7 @@ module Spectrum
           academic_commons_index_path(params)
         when 'ac_dissertations'
           params['f'] ||= {}
-          params['f']['genre_facet'] = ['Dissertations']
+          params['f']['genre_facet'] = ['Theses']
           academic_commons_index_path(params)
         when 'geo'
           geo_index_path(params)
@@ -703,7 +703,7 @@ module Spectrum
 
               config.default_solr_params = {
                 qt: 'search',
-                fq: ['{!raw f=genre_facet}Dissertations',
+                fq: ['{!raw f=genre_facet}Theses',
                      '{!raw f=has_model_ssim}info:fedora/ldpd:ContentAggregator']
               }
 
