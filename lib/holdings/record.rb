@@ -334,7 +334,8 @@ module Voyager
 
           if subu
             url = subu
-            link_text = [sub3, subz].compact.collect { |subfield| subfield.value }.join(' ')
+            # link_text = [sub3, subz].compact.collect { |subfield| subfield.value }.join(' ')
+            link_text = [sub3, subz].compact.join(' ')
             link_text = url if link_text.empty?
             urls << {ind1: ind1, ind2: ind2, url: url, link_text: link_text}
           end
