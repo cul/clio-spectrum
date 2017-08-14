@@ -142,14 +142,20 @@ module HoldingsHelper
 #    links.sort { |x,y| x.first <=> y.first }
   end
 
-  def self.valet_label
+  def self.valet_label()
     APP_CONFIG['valet_label'] ||
       'Offsite'
   end
+  def valet_label()
+    HoldingsHelper.valet_label()
+  end
 
-  def self.valet_link
+  def self.valet_link(bib_id = '')
     APP_CONFIG['valet_link'] ||
-      'https://valet.cul.columbia.edu/offsite_requests/bib?bib_id='
+      "https://valet.cul.columbia.edu/offsite_requests/bib?bib_id=#{bib_id}"
+  end
+  def valet_link(bib_id)
+    HoldingsHelper.valet_link(bib_id)
   end
 
   SERVICE_ORDER = %w(offsite offsite_valet spec_coll precat on_order borrow_direct recall_hold ill in_process doc_delivery)

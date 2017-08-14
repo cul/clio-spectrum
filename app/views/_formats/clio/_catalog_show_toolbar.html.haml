@@ -107,8 +107,9 @@
               -# Just show this for everyone.
               -# if HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + clio_id) == "1"
 
-              - # DISABLE OFFSITE REQUESTS DURING BLACKOUT
-              - # %li= link_to "Off-site request", "http://www.columbia.edu/cgi-bin/cul/offsite2?#{clio_id}", :target => "_blank"
+              -# Offsite requests via Valet
+              %li= link_to valet_label(), valet_link(clio_id), target: "_blank"
+              
   
               %li= link_to "Item Feedback", "#", :onclick => "OpenItemFeedback(#{clio_id}); return false;"
   
