@@ -105,7 +105,7 @@ datasources:
     title: Catalog
     description: Library books, journals, music, videos, databases, archival collections, and online resources
     Xwarning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
-    warning: "Please note: Due to a service upgrade, it will not be possible to place Offsite requests (for both electronic and physical delivery) between 8/9 and 8/13.<br>If you plan to pickup or use Offsite materials between those dates please place any requests by <b>2:00pm on Monday, August 7.</b>"
+    # warning: "Please note: Due to a service upgrade, it will not be possible to place Offsite requests (for both electronic and physical delivery) between 8/9 and 8/13.<br>If you plan to pickup or use Offsite materials between those dates please place any requests by <b>2:00pm on Monday, August 7.</b>"
     render_options:
       format: clio
     viewstyles: 
@@ -218,7 +218,7 @@ datasources:
         title: Title
         author: Author
         subject: Subject
-    warning: "Please note: Due to a service upgrade, it will not be possible to place Offsite requests (for both electronic and physical delivery) between 8/9 and 8/13.<br>If you plan to pickup or use Offsite materials between those dates please place any requests by <b>2:00pm on Monday, August 7.</b>"
+    # warning: "Please note: Due to a service upgrade, it will not be possible to place Offsite requests (for both electronic and physical delivery) between 8/9 and 8/13.<br>If you plan to pickup or use Offsite materials between those dates please place any requests by <b>2:00pm on Monday, August 7.</b>"
 
   databases:
     name: Databases
@@ -256,7 +256,7 @@ datasources:
         title_starts_with: Title Begins With
         subject: Subject
         issn: ISSN
-    warning: "Please note: Due to a service upgrade, it will not be possible to place Offsite requests (for both electronic and physical delivery) between 8/9 and 8/13.<br>If you plan to pickup or use Offsite materials between those dates please place any requests by <b>2:00pm on Monday, August 7.</b>"
+    # warning: "Please note: Due to a service upgrade, it will not be possible to place Offsite requests (for both electronic and physical delivery) between 8/9 and 8/13.<br>If you plan to pickup or use Offsite materials between those dates please place any requests by <b>2:00pm on Monday, August 7.</b>"
 
   library_web:
     name: Libraries Website

@@ -144,7 +144,7 @@ module HoldingsHelper
 
   def self.valet_label
     APP_CONFIG['valet_label'] ||
-      'Offsite (Valet)'
+      'Offsite'
   end
 
   def self.valet_link

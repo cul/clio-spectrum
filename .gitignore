@@ -42,3 +42,4 @@ token.txt
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 TUNNELS
+EXAMPLES.txt
