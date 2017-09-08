@@ -131,7 +131,9 @@ $ ->
   item_keys_as_params = item_key_list.map ( item_key ) -> "id[]=" + item_key
   item_key_param_list = item_keys_as_params.join('&')
   _href = a_element.href.split("?")[0]
-  a_element.href = _href + '?' + item_key_param_list
+  # add 'rows' param, so we don't default to 25 max
+  rows_param = '&rows=' + item_key_list.length
+  a_element.href = _href + '?' + item_key_param_list + rows_param
   return true
 
 # AJAX - add list of item-keys to named list
