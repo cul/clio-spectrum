@@ -7,8 +7,17 @@
 
   = add_row("Creator", generate_value_links(display_marc_field(marc, 'creator'), :author))
   = add_row("Title", display_marc_field(marc, 'title'))
-  = add_row("Alternate Title", display_marc_field(marc, 'title_other'))
+
+  -# NEXT-1423 - various kinds of titles
   = add_row("Former Title", display_marc_field(marc, 'title_former'))
+  = add_row("Other Titles", display_marc_field(marc, 'title_other'))
+  = add_row("Distinctive Title", display_marc_field(marc, 'title_distinctive'))
+  = add_row("Cover Title", display_marc_field(marc, 'title_cover'))
+  = add_row("Added Title Page", display_marc_field(marc, 'title_added'))
+  = add_row("Caption Title", display_marc_field(marc, 'title_caption'))
+  = add_row("Running Title", display_marc_field(marc, 'title_running'))
+  = add_row("Spine Title", display_marc_field(marc, 'title_spine'))
+
   = add_row("Produced", display_marc_field(marc, 'publish_produce'))
   = add_row("Physical Properties", display_marc_field(marc, 'description'))
   = add_row("Inscription", display_marc_field(marc, 'inscription'))

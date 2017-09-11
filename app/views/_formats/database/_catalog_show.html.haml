@@ -32,8 +32,17 @@
 
   = add_row("Summary", display_marc_field(marc, 'summary'))
   = add_row("Contents", display_marc_field(marc, 'contents'))
+
+  -# NEXT-1423 - various kinds of titles
   = add_row("Former Title", display_marc_field(marc, 'title_former'))
   = add_row("Other Titles", display_marc_field(marc, 'title_other'))
+  = add_row("Distinctive Title", display_marc_field(marc, 'title_distinctive'))
+  = add_row("Cover Title", display_marc_field(marc, 'title_cover'))
+  = add_row("Added Title Page", display_marc_field(marc, 'title_added'))
+  = add_row("Caption Title", display_marc_field(marc, 'title_caption'))
+  = add_row("Running Title", display_marc_field(marc, 'title_running'))
+  = add_row("Spine Title", display_marc_field(marc, 'title_spine'))
+
   = add_row("Notes", display_marc_field(marc, 'notes'))
   = add_row("Credits", display_marc_field(marc, 'credits'))
   = add_row("Language", document["language_facet"], options = {:join => '; '})

@@ -8,8 +8,17 @@
   = add_row("Composer", generate_value_links(display_marc_field(marc, 'author'), :author))
   = add_row("Uniform Title", display_marc_field(marc, 'title_uniform'))
   = add_row("Title", display_marc_field(marc, 'title'))
+
+  -# NEXT-1423 - various kinds of titles
   = add_row("Former Title", display_marc_field(marc, 'title_former'))
   = add_row("Other Titles", display_marc_field(marc, 'title_other'))
+  = add_row("Distinctive Title", display_marc_field(marc, 'title_distinctive'))
+  = add_row("Cover Title", display_marc_field(marc, 'title_cover'))
+  = add_row("Added Title Page", display_marc_field(marc, 'title_added'))
+  = add_row("Caption Title", display_marc_field(marc, 'title_caption'))
+  = add_row("Running Title", display_marc_field(marc, 'title_running'))
+  = add_row("Spine Title", display_marc_field(marc, 'title_spine'))
+
   = add_row("Edition", display_marc_field(marc, 'edition'))
   = add_row("Published", display_marc_field(marc, 'publish'))
   = add_row("Produced", display_marc_field(marc, 'publish_produce'))
