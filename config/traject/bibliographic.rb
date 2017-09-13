@@ -7,6 +7,9 @@ extend  Traject::Macros::Marc21Semantics
 require 'traject/macros/marc_format_classifier'
 extend Traject::Macros::MarcFormats
 
+# Columbia's local format classification rules
+extend FormatMacro
+
 # require 'traject/macros/marc21'
 # extend  Traject::Macros::Marc21
 require 'traject/indexer'
@@ -14,7 +17,9 @@ require 'traject/macros/marc21'
 
 require 'traject_utility'
 
-Marc21 = Traject::Macros::Marc21 # shortcut
+# shortcuts
+Marc21 = Traject::Macros::Marc21
+MarcFormats = Traject::Macros::MarcFormats
 
 bibs = 0
 lookups = 0
@@ -35,7 +40,7 @@ ATOZ = ('a'..'z').to_a.join('')
 
 to_field "id", extract_marc("001", first: true)
 
-to_field "marc_display", serialized_marc(:format => "xml")
+to_field "marc_display", serialized_marc(format: "xml")
 
 # This calculates a single timestamp and applies it to all records
 # to_field "marc_dt", literal(Time.now.utc.iso8601)
@@ -117,7 +122,21 @@ to_field "pub_date_txt", marc_publication_date(estimate_tolerance: 100)
 
 to_field "language_facet", extract_marc("008[35-37]:041a:041d", translation_map: 'language_map')
 
-to_field "format", extract_marc("993a")
+# Look for format in CUL custom 993 field.
+# If not found, classify using Traject macro.
+to_field "format", extract_marc("993a") do |record, accumulator|
+  # If we didn't find any CUL-custom 993$a format, use Traject's format
+  if accumulator.empty?
+    MarcFormats.marc_formats do |format|
+      accumulator << format
+    end
+  end
+end
+# Store Traject's format classification too, for comparison
+to_field 'format_traject', marc_formats
+# Rails rewrite of Columbia format classificaiton rules
+to_field 'format_columbia', columbia_format
+
 
 to_field "lc_1letter_facet", extract_marc("990a") do |record, accumulator|
   accumulator.map!{ |value|
