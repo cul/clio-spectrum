@@ -122,10 +122,8 @@ module FormatMacro
       ## check for serials if no format has been set up to now
       if formats.empty? && leader07 == 's'&& f008.present?
         type = f008[21]
-        puts "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO type=[#{type}]  f008=[#{f008}]"
         if type && ' mnp|'.include?(type)
           formats << :serial
-          puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
         end
         if type == 'n'
           formats << :news
