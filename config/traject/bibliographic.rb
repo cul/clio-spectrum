@@ -132,8 +132,8 @@ to_field "format", extract_marc("993a") do |record, accumulator|
     end
   end
 end
-# Store Traject's format classification too, for comparison
-to_field 'format_traject', marc_formats
+# # Store Traject's format classification too, for comparison
+# to_field 'format_traject', marc_formats
 # Rails rewrite of Columbia format classificaiton rules
 to_field 'format_columbia', columbia_format
 
