@@ -36,5 +36,22 @@ module TrajectUtility
 
   end
 
+  def self.location_code_to_label(code)
+    return '' unless code
+    case code
+    # Princeton
+    when 'scsbpul'
+      return 'ReCAP Shared Collection (Princeton)'
+    when 'scsb-pul'
+      return 'ReCAP Shared Collection (Princeton)'
+    # NYPL
+    when 'scsbnypl'
+      return 'ReCAP Shared Collection (NYPL)'
+    when 'scsb-nypl'
+      return 'ReCAP Shared Collection (NYPL)'
+    end
+    return ''
+  end
+
 end
 

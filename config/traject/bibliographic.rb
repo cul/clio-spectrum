@@ -134,7 +134,8 @@ to_field "language_facet", extract_marc("008[35-37]:041a:041d", translation_map:
 # end
 # # Store Traject's format classification too, for comparison
 # to_field 'format_traject', marc_formats
-# Rails rewrite of Columbia format classificaiton rules
+# Rails rewrite of Columbia format classificaiton rules from the original Perl
+# (found in lib/format_macro.rb)
 to_field 'format', columbia_format
 
 
@@ -253,13 +254,41 @@ to_field "call_number_display", extract_marc("992b", trim_punctuation: true) do 
   }
 end
 
-to_field "location_facet", extract_marc("992a", trim_punctuation: true)
+
+
+to_field "location_facet", extract_marc("992a", trim_punctuation: true) do |record, accumulator|
+
+  # If no local CUL location, try to find a SCSB partner location
+  if accumulator.empty?
+    Marc21.extract_marc_from(record, "852b").each do |location_code|
+      label = TrajectUtility.location_code_to_label(location_code)
+      if label.present?
+        accumulator << label
+        break
+      end
+    end
+  end
+
+end
+
 to_field "location_txt", extract_marc("992b", trim_punctuation: true) do |record, accumulator|
   accumulator.map!{ |value|
     if clean_value = value.match(LOCATION_CALL_NUMBER)
       clean_value[1]
     end
   }
+
+  # If no local CUL location, try to find a SCSB partner location
+  if accumulator.empty?
+    Marc21.extract_marc_from(record, "852b").each do |location_code|
+      label = TrajectUtility.location_code_to_label(location_code)
+      if label.present?
+        accumulator << label
+        break
+      end
+    end
+  end
+
 end
 
 to_field "url_munged_display" do |record, accumulator|
