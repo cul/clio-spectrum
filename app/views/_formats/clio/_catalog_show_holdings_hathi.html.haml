@@ -39,7 +39,7 @@
 - content_for :jstemplates do
   :javascript
     $(document).ready(function() {
-      load_hathi_holdings(#{clio_id});
+      load_hathi_holdings('#{clio_id}');
     });
 
 #hathi_holdings
@@ -49,7 +49,7 @@
       -# %span.holding_spinner=image_tag ("ajax-indicator.gif")
     .hathi_holdings_error
       Unable to load.
-      = link_to "Retry?", "#", :onclick => "javascript:load_hathi_holdings(#{h(clio_id)});"
+      = link_to "Retry?", "#", :onclick => "javascript:load_hathi_holdings('#{h(clio_id)}');"
     
 
 
