@@ -122,20 +122,20 @@ to_field "pub_date_txt", marc_publication_date(estimate_tolerance: 100)
 
 to_field "language_facet", extract_marc("008[35-37]:041a:041d", translation_map: 'language_map')
 
-# Look for format in CUL custom 993 field.
-# If not found, classify using Traject macro.
-to_field "format", extract_marc("993a") do |record, accumulator|
-  # If we didn't find any CUL-custom 993$a format, use Traject's format
-  if accumulator.empty?
-    MarcFormats.marc_formats do |format|
-      accumulator << format
-    end
-  end
-end
+# # Look for format in CUL custom 993 field.
+# # If not found, classify using Traject macro.
+# to_field "format", extract_marc("993a") do |record, accumulator|
+#   # If we didn't find any CUL-custom 993$a format, use Traject's format
+#   if accumulator.empty?
+#     MarcFormats.marc_formats do |format|
+#       accumulator << format
+#     end
+#   end
+# end
 # # Store Traject's format classification too, for comparison
 # to_field 'format_traject', marc_formats
 # Rails rewrite of Columbia format classificaiton rules
-to_field 'format_columbia', columbia_format
+to_field 'format', columbia_format
 
 
 to_field "lc_1letter_facet", extract_marc("990a") do |record, accumulator|

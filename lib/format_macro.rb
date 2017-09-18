@@ -149,9 +149,11 @@ module FormatMacro
         if this007.starts_with? 'cr'
           formats << :online
           formats.delete(:data)
+          break
         end
         if this007.starts_with? 'h'
           formats << :micro
+          break
         end
       end
 
@@ -544,18 +546,18 @@ end
 # 
 #     ## set online / microformats
 #     if (my @t007 = $rec->field('007')) {
-#   foreach (@t007) {
-#       my $t007data = $_->data();
-#       if ($t007data =~ /^cr/) {
-#     $formats{online} = 1;
-#     $formats{data} = 0;
-#     last;
+#       foreach (@t007) {
+#         my $t007data = $_->data();
+#         if ($t007data =~ /^cr/) {
+#           $formats{online} = 1;
+#           $formats{data} = 0;
+#           last;
+#         }
+#         if ($t007data =~ /^h/) {
+#           $formats{micro} = 1;
+#           last;
+#         }
 #       }
-#       if ($t007data =~ /^h/) {
-#     $formats{micro} = 1;
-#     last;
-#       }
-#   }
 #     }
 # 
 #     ## government documents
