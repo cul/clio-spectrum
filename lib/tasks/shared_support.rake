@@ -67,23 +67,29 @@ def puts_and_log(msg, level = :info, params = {})
 
 end
 
-def xml_clean(filename)
-  raise "xml_clean() passed empty filename!" if filename.empty?
-
-  # clean_file = "#{filename}.clean"
-  # File.open(filename).each do |line|
-  #   tempfile.puts line.gsub(regexp, replacement)
-  # end
+def clean_ingest_file(filename)
+  raise "clean_ingest_file() passed empty filename!" if filename.empty?
 
   File.open("#{filename}.clean", 'w') do |tempfile|
     File.open(filename).each do |line|
+
+      # cleanup bad chars in leader
+      if match = line.match(/(.*<leader>)(.+)(<\/leader>.*)/)
+        before, leader, after = match.captures
+        leader[5]  = 'n' unless leader[5].match /[acdnp]/
+        leader[8]  = ' ' unless leader[8].match /[ a]/
+        leader[9]  = 'a' unless leader[9].match /[ a]/
+        leader[17] = 'u' unless leader[17].match /[ a-zA-Z0-9]/
+        leader[18] = 'u' unless leader[18].match /[ acinpru]/
+        leader[20..23] = '4500'
+        line = before + leader + after
+      end
+      
+      # replace invalid bytes throughout
       tempfile.puts line.gsub(/[\x01-\x08\x0b\x0c\x0e-\x1f]/, '?')
     end
     tempfile.fsync
     tempfile.close
-    # stat = File.stat(filename)
-    # FileUtils.chown stat.uid, stat.gid, tempfile.path
-    # FileUtils.chmod stat.mode, tempfile.path
     FileUtils.mv tempfile.path, filename
   end
 

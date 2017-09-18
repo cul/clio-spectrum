@@ -125,7 +125,7 @@ namespace :bibliographic do
           # Nokogiri XML parser can't handle illegal control chars
           if filename.ends_with?('.xml')
             Rails.logger.debug("----- cleaning #{filename}...")
-            xml_clean(filename)
+            clean_ingest_file(filename)
           end
 
           File.open(filename) do |file|
