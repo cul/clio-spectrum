@@ -1,16 +1,25 @@
 
 namespace :recap do
 
+  task :list do
+    sftp = get_sftp()
+    # list the entries in a directory
+    sftp.dir.foreach( APP_CONFIG['recap']['sftp_path'] ) do |entry|
+      puts entry.longname
+    end
+  end
+
   namespace :fetch do
 
-    task :filename, [:filename] do |t, args|
+    task :filename, [:filename, :local_dir] do |t, args|
       raise "recap:fetch:filename not passed filename!" unless args[:filename]
       
       sftp = get_sftp()
 
       # download a file or directory from the remote host
       remote_file = APP_CONFIG['recap']['sftp_path'] + '/' + args[:filename]
-      local_file = '/tmp/' + args[:filename]
+      local_dir = args[:local_dir] || '/tmp'
+      local_file = local_dir + '/' + args[:filename]
       sftp.download!(remote_file, local_file)
     end
 
