@@ -213,6 +213,8 @@ GEM
     net-ldap (0.16.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
+    net-sftp (2.1.2)
+      net-ssh (>= 2.6.5)
     net-ssh (4.1.0)
     netrc (0.11.0)
     nokogiri (1.8.0)
@@ -408,6 +410,7 @@ DEPENDENCIES
   marc
   mysql2
   net-ldap
+  net-sftp
   nokogiri
   paper_trail
   quiet_assets
@@ -437,4 +440,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.14.6
+   1.15.4

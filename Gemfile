@@ -135,7 +135,12 @@ gem 'cancan'
 # but it doesn't.
 
 gem 'exception_notification'
+
+# Lookup Columbia user details
 gem 'net-ldap'
+
+# Fetch feed files from ReCAP
+gem 'net-sftp'
 
 # 10/15 - not giving us insight beyond our debug_timestamp info
 # # 3/15, comment out for now to simplify output,
