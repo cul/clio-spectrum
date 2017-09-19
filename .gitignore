@@ -3,6 +3,7 @@ config/app_config.yml
 config/solr.yml
 config/blacklight.yml
 config/secrets.yml
+config/recapftp_rsa
 config/initializers/secret_token.rb
 config/*.sphinx.conf
 config/s3_credentials.yml
