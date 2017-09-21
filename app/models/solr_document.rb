@@ -73,6 +73,18 @@ class SolrDocument
     return self.has_key?(:barcode_txt)
   end
 
+  # This triggers a call to fetch real time availabilty from the SCSB API
+  def has_offsite_holdings?
+    # string regexp against the location field
+    self[:location_facet].each do |location_facet|
+      return true if location_facet.match /^Offsite/
+      return true if location_facet.match /ReCAP/
+    end
+    
+    # No offsite location found
+    return false
+  end
+
   def call_numbers
     Array(self['call_number_display']).sort.uniq.join(' / ')
   end

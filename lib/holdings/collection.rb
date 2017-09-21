@@ -5,13 +5,14 @@ module Voyager
 
 
       # Documents may look different depending on who you are.  Pass in current_user.
-      def initialize(document, circ_status, current_user=nil)
+      def initialize(document, circ_status, scsb_status, current_user=nil)
         raise "Voyager::Holdings::Collection got nil/empty document" unless document
         # raise "Voyager::Holdings::Collection got nil/empty circ_status" unless circ_status
 
         @current_user = current_user
 
         circ_status ||= {}
+        scsb_status ||= {}
         document_status = circ_status[document.id] || {}
         document_marc = document.to_marc
 
@@ -22,7 +23,7 @@ module Voyager
           mfhd_id = t852['0']
           mfhd_status = document_status[mfhd_id] || {}
           # Rails.logger.debug "parse_marc:  mfhd_id=[#{mfhd_id}]"
-          @records << Record.new(mfhd_id, document_marc, mfhd_status, @current_user)
+          @records << Record.new(mfhd_id, document_marc, mfhd_status, scsb_status, @current_user)
         end
 
         adjust_services(@records) if @records.length > 1
@@ -49,7 +50,6 @@ module Voyager
       # -- remove document delivery options if there is an available offsite copy
       # -- remove borrowdirect and ill options if there is an available non-reserve, circulating copy
       def adjust_services(records)
-
         # set flags
         offsite_copy = "N"
         available_copy = "N"

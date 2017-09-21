@@ -7,6 +7,9 @@ offsite_locations:
   # location codes for the two ReCAP partners
   - scsb-nypl
   - scsb-pul
+  # (we seem to have switched to non-hyphenated forms)
+  - scsbnypl
+  - scsbpul
   # Columbia's Voyager offsite location codes
   - off,ave
   - off,bio

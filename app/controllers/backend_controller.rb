@@ -58,6 +58,38 @@ class BackendController < ApplicationController
   end
 
 
+  # The SCSB availability API returns an array looks like this:
+  # [
+  #   {
+  #     "itemBarcode": "CU18799175",
+  #     "itemAvailabilityStatus": "Available",
+  #     "errorMessage": null
+  #   }
+  # ]
+  # but our code simplifies this into a simple hash, like this:
+  # {
+  #   "CU18799175"  =>  "Available"
+  # }
+  def self.scsb_status(id)
+    if id.empty?
+      logger.error "BackendController#scsb_status passed empty id"
+      return nil
+    end
+    
+    bibliographicId = id.to_s
+
+    # Default - assume Columbia material
+    institutionId = 'CUL'
+
+    # But if it's a SCSB Id...
+    if bibliographicId.match /^SCSB\-/
+      institutionId, dash, bibliographicId = bibliographicId.partition('-')
+    end
+
+    scsb_status = Recap::ScsbRest.get_bib_availability(bibliographicId, institutionId) || {}
+  end
+
+
   def holdings
     @id = params[:id]
  

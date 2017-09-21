@@ -4,18 +4,58 @@ module Voyager
       attr_reader :holding_id, :item_count, :temp_locations, :item_status
 
       # Item class initializing method
-      def initialize(mfhd_id, holdings_marc, mfhd_status)
+      def initialize(mfhd_id, holdings_marc, mfhd_status, scsb_status)
 
         @holding_id = mfhd_id
 
-        items = []
+        # mfhd_status is a hash map of item-id to item-detail-hash
+        # {
+        #   7814714: {
+        #     holdLocation: "",
+        #     itemLabel: "",
+        #     requestCount: 0,
+        #     statusCode: 1,
+        #     statusDate: "2017-07-27",
+        #     statusPatronMessage: ""
+        #   }
+        # }
+        
+        # scsb_status is a hash map of barcode-to-ReCAP availability
+        # {
+        #   "CU18799175"  =>  "Available"
+        # }
+        
+        @item_count = 0
         holdings_marc.each_by_tag('876') do |t876|
-          items << t876
+          @item_count = @item_count + 1
+
+          item_id = t876['a']
+          barcode = t876['p']
+
+          # If holdings status doesn't yet have an entry for this item id, 
+          # create it.
+          unless mfhd_status[item_id].present?
+            mfhd_status[item_id] = { }
+          end
+          
+          
+          # If this item has a SCSB status, overwrite Voyager's statusCode
+          # Possible SCSB statuses are 'Available' or 'Unavailable',
+          # which map to 1 and 13 in item_status_codes.yml
+          if availability = scsb_status[ barcode ]
+            case availability
+            when 'Available'
+              mfhd_status[item_id][:statusCode] = 1
+            when 'Unavailable'
+              mfhd_status[item_id][:statusCode] = 13
+            end
+          end
+
         end
 
-        # number of item records
-        @item_count = items.size
-
+        # # number of item records
+        # @item_count = item_count
+# raise
         # TODO
         @temp_locations = parse_for_temp_locations(holdings_marc)  # array
         @item_status = parse_for_circ_status(mfhd_status)  # hash
@@ -147,7 +187,11 @@ module Voyager
         else
           code = item[:statusCode].to_s
           # append suffix to indicate whether there are requests - n = no requests, r = requests
-          item[:requestCount] == 0 ? code += 'n' : code += 'r'
+          if item[:requestCount] && item[:requestCount] > 0
+            code += 'r'
+          else
+            code += 'n'
+          end
 
           # get parms for the message being processed
           parms = ITEM_STATUS_CODES[code]
@@ -203,13 +247,13 @@ module Voyager
       def make_substitutions(message, item)
 
         # substitute values for tokens in message strings
+
         # date
         datetime = format_datetime(item)
-        if datetime.present?
-          message = message.gsub('%DATE', datetime)
-        end
+        message = message.gsub('%DATE', datetime || '')
+
         # number of requests
-        if item[:requestCount] > 0
+        if item[:requestCount] && item[:requestCount] > 0
           message = message.gsub('%REQS', item[:requestCount].to_s)
         end
         # hold location
@@ -230,7 +274,7 @@ module Voyager
         # end
         # labels.empty? ? label = '' : label = labels.join(' ') + ' '
         
-        label = item[:itemLabel]
+        label = item[:itemLabel] || ''
         if label.empty?
           message
         else

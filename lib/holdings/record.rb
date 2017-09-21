@@ -10,7 +10,7 @@ module Voyager
 
 
       # Documents may look different depending on who you are.  Pass in current_user.
-      def initialize(mfhd_id, marc, mfhd_status, current_user=nil)
+      def initialize(mfhd_id, marc, mfhd_status, scsb_status, current_user=nil)
         @current_user = current_user
         mfhd_status ||= {}
 
@@ -67,7 +67,7 @@ module Voyager
         @location_note = assign_location_note(location_code)  #string
 
         # information from item level records
-        item = Item.new(mfhd_id, holdings_marc, mfhd_status)
+        item = Item.new(mfhd_id, holdings_marc, mfhd_status, scsb_status)
 
         @item_count = item.item_count
 
@@ -509,19 +509,13 @@ module Voyager
 
       def process_for_services(location_name,location_code,temp_loc_flag,bibid,messages)
         services = []
-
         # offsite
-        # if location_name.match(/^Offsite/) &&
-        #     HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + bibid) == "1"
-        if location_name.match(/^Offsite/) && OFFSITE_CONFIG['offsite_locations'].include?(location_code)
-          # DISABLE OFFSITE REQUESTS DURING BLACKOUT
-          # services << 'offsite'
-
+        if OFFSITE_CONFIG['offsite_locations'].include?(location_code)
           # # Valet Admins get pre-release access to Valet
           # if @current_user && @current_user.valet_admin?
           #   services << 'offsite_valet'  unless services.include? 'offsite_valet'
           # end
-          services << 'offsite_valet'
+          services << 'offsite'
 
         # precat
         elsif location_name.match(/^Precat/)
@@ -565,8 +559,10 @@ module Voyager
         out << 'borrow_direct'  if message =~ /Borrow/
         out << 'ill'            if message =~ /ILL/
         out << 'in_process'     if message =~ /In Process/
-        # ReCAP Partners
-        out << 'offsite_valet'  if message =~ /scsb/
+        
+        # No, don't depend on the location_name including "scsb"
+        # # ReCAP Partners
+        # # out << 'offsite_valet'  if message =~ /scsb/
         out
       end
 

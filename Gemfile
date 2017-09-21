@@ -142,6 +142,10 @@ gem 'net-ldap'
 # Fetch feed files from ReCAP
 gem 'net-sftp'
 
+# Talk to SCSB REST API
+gem 'faraday'
+
+
 # 10/15 - not giving us insight beyond our debug_timestamp info
 # # 3/15, comment out for now to simplify output,
 # #  we can turn it back on when we want it again.

@@ -144,6 +144,30 @@ class CatalogController < ApplicationController
       # Don't check Voyager circ status for non-Columbia records
       if @document.has_circ_status?
         circ_status = BackendController.circ_status(params[:id])
+        # The circ_status hash looks like this:
+        # {
+        #   123: {
+        #     144: {
+        #       540: {
+        #         holdLocation: "",
+        #         itemLabel: "",
+        #         requestCount: 0,
+        #         statusCode: 1,
+        #         statusDate: "",
+        #         statusPatronMessage: ""
+        #       }
+        #     }
+        #   }
+        # }
+      end
+
+      if @document.has_offsite_holdings?
+        # Lookup SCSB availability
+        scsb_status = BackendController.scsb_status(params[:id])
+        # Simple hash to map barcode to "Available"/"Unavailable"
+        # {
+        #   "CU18799175"  =>  "Available"
+        # }
       end
 
       # # Try to fetch circ status from backend...
@@ -163,7 +187,7 @@ class CatalogController < ApplicationController
       # end
 
       # Documents may look different depending on who you are.  Pass in current_user.
-      @collection = Voyager::Holdings::Collection.new(@document, circ_status, current_user)
+      @collection = Voyager::Holdings::Collection.new(@document, circ_status, scsb_status, current_user)
 
       @holdings = @collection.to_holdings()
 
