@@ -102,7 +102,7 @@ class User < ActiveRecord::Base
 
       if entry
         _mail = entry[:mail].to_s
-        if _mail.length > 6 and _mail.match(/^[\w.]+[@][\w.]+$/)
+        if _mail.length > 6 and _mail.match(/^.+@.+$/)
           self.email = _mail
         else
           # self.email = wind_login + '@columbia.edu'
