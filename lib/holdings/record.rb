@@ -34,6 +34,11 @@ module Voyager
 
         @location_name = tag852['a'] || tag852['b']
         location_code = tag852['b']
+        
+        # ReCAP partner records don't have an 852$a
+        if @location_name.match /^scsb/i
+          @location_name = TrajectUtility.recap_location_code_to_label(@location_name)
+        end
 
         @call_number      = parse_call_number(tag852)           # string
         @summary_holdings = parse_summary_holdings(tag866list)  # array
