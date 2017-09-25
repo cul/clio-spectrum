@@ -17,4 +17,7 @@
   = add_row('Subject', document['subject_facet'], :join => ', ')
   -# = add_row('Type', document['genre_facet'])
   -# = add_row('Publisher', document['publisher'])
-  = add_row('Downloads', "<span class='fedora_#{fedora_id.gsub(':','')}'>Loading... " + image_tag("ajax-indicator.gif",:size => "12x12") + "</span>")
+
+  -# = add_row('Downloads', "<span class='fedora_#{fedora_id.gsub(':','')}'>Loading... " + image_tag("ajax-indicator.gif",:size => "12x12") + "</span>")
+  - downloads_link = link_to "Downloadable content", academic_commons_document_link(document)
+  = add_row('Downloads', downloads_link)
