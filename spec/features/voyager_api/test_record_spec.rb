@@ -37,7 +37,7 @@ describe 'record tests', vcr: { allow_playback_repeats: true } do
     expect(page).to have_css('#clio_holdings .holding', wait: 20)
     within ('div#clio_holdings') do
       expect(page).to have_link('Offsite',
-                            href: 'http://www.columbia.edu/cgi-bin/cul/offsite2?6249927')
+                            href: 'https://valet.cul.columbia.edu/offsite_requests/bib?bib_id=6249927')
     end
   end
 
