@@ -360,6 +360,8 @@ module DisplayHelper
           curr = curr.chop
         elsif curr =~ /\p{Punct}\.$/
           curr = curr.chop
+        elsif curr =~ /\p{ModifierLetter}\.$/
+          curr = curr.chop
         end
       end
 
