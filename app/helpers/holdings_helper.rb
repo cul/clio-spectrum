@@ -430,12 +430,13 @@ module HoldingsHelper
 
   def format_location_link(location_name)
     return '' unless location_name
-    
-    # ReCAP partner locations
-    # Just a label now, but we could link to some kind of info box/page
-    if location_name.starts_with? 'scsb'
-      return TrajectUtility.recap_location_code_to_label(location_name)
-    end
+
+    # This shouldn't happen - location_name should already be the display-label
+    # # ReCAP partner locations
+    # # Just a label now, but we could link to some kind of info box/page
+    # if location_name.starts_with? 'scsb'
+    #   return TrajectUtility.recap_location_code_to_label(location_name)
+    # end
 
     location = Location.match_location_text(location_name)
     return location_name unless location && location.category == 'physical'
