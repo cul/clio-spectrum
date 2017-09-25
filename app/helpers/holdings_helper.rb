@@ -434,7 +434,7 @@ module HoldingsHelper
     # ReCAP partner locations
     # Just a label now, but we could link to some kind of info box/page
     if location_name.starts_with? 'scsb'
-      return TrajectUtility.location_code_to_label(location_name)
+      return TrajectUtility.recap_location_code_to_label(location_name)
     end
 
     location = Location.match_location_text(location_name)

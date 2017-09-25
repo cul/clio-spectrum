@@ -36,7 +36,7 @@ module TrajectUtility
 
   end
 
-  def self.location_code_to_label(code)
+  def self.recap_location_code_to_label(code)
     return '' unless code
     case code
     # Princeton

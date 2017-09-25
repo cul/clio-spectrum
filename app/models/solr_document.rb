@@ -78,7 +78,9 @@ class SolrDocument
     # string regexp against the location field
     self[:location_facet].each do |location_facet|
       return true if location_facet.match /^Offsite/
-      return true if location_facet.match /ReCAP/
+      return true if location_facet.match /ReCAP/i
+      # (this should not really happen)
+      return true if location_facet.match /scsb/i
     end
     
     # No offsite location found

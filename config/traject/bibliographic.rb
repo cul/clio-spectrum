@@ -37,6 +37,18 @@ ATOZ = ('a'..'z').to_a.join('')
 #   # end
 # end
 
+# Set any local variables to be used repeatedly in below logic
+recap_location_code = ''
+recap_location_name = ''
+each_record do |record, context|
+  # SCSB ReCAP
+  first_location_code = Marc21.extract_marc_from(record, "852b", first: true).first
+  if first_location_code.present? && first_location_code.match(/^scsb/)
+    recap_location_code = first_location_code
+    recap_location_name = TrajectUtility.recap_location_code_to_label(recap_location_code)
+  end
+end
+
 
 to_field "id", extract_marc("001", first: true)
 
@@ -230,13 +242,29 @@ to_field "full_publisher_display", extract_marc("260#{ATOZ}:264#{ATOZ}", trim_pu
 LOCATION_CALL_NUMBER = /^(.*)\|DELIM\|.*/
 CALL_NUMBER_ONLY = /^.* \>\> (.*)\|DELIM\|.*/
 
-to_field "location_call_number_id_display", extract_marc("992b", trim_punctuation: true)
+
+
+# Local field 992 is created by the exract processing.
+# $b is a composite: location-label,  '>>', call-number, '|DELIM|', holdings-id
+# e.g.
+# Offsite - Place Request for delivery within 2 business days >> GR359 .G64 1999g|DELIM|3507870
+to_field "location_call_number_id_display", extract_marc("992b", trim_punctuation: true) do |record, accumulator|
+  # If no local CUL location, try to find a SCSB partner location
+  if accumulator.empty?  && recap_location_code.present?
+    accumulator << recap_location_name
+  end
+end
+
 to_field "location_call_number_txt", extract_marc("992b", trim_punctuation: true) do |record, accumulator|
   accumulator.map!{ |value|
     if clean_value = value.match(LOCATION_CALL_NUMBER)
       clean_value[1]
     end
   }
+  # If no local CUL location, try to find a SCSB partner location
+  if accumulator.empty?  && recap_location_code.present?
+    accumulator << recap_location_name
+  end
 end
 
 to_field "call_number_txt", extract_marc("992b", trim_punctuation: true) do |record, accumulator|
@@ -259,14 +287,15 @@ end
 to_field "location_facet", extract_marc("992a", trim_punctuation: true) do |record, accumulator|
 
   # If no local CUL location, try to find a SCSB partner location
-  if accumulator.empty?
-    Marc21.extract_marc_from(record, "852b").each do |location_code|
-      label = TrajectUtility.location_code_to_label(location_code)
-      if label.present?
-        accumulator << label
-        break
-      end
-    end
+  if accumulator.empty?  && recap_location_name.present?
+    accumulator << recap_location_name
+    # Marc21.extract_marc_from(record, "852b").each do |location_code|
+    #   label = TrajectUtility.recap_location_code_to_label(location_code)
+    #   if label.present?
+    #     accumulator << label
+    #     break
+    #   end
+    # end
   end
 
 end
@@ -279,15 +308,19 @@ to_field "location_txt", extract_marc("992b", trim_punctuation: true) do |record
   }
 
   # If no local CUL location, try to find a SCSB partner location
-  if accumulator.empty?
-    Marc21.extract_marc_from(record, "852b").each do |location_code|
-      label = TrajectUtility.location_code_to_label(location_code)
-      if label.present?
-        accumulator << label
-        break
-      end
-    end
+  if accumulator.empty?  && recap_location_name.present?
+    accumulator << recap_location_name
   end
+
+  # if accumulator.empty?
+  #   Marc21.extract_marc_from(record, "852b").each do |location_code|
+  #     label = TrajectUtility.recap_location_code_to_label(location_code)
+  #     if label.present?
+  #       accumulator << label
+  #       break
+  #     end
+  #   end
+  # end
 
 end
 
