@@ -161,7 +161,14 @@ to_field "lc_subclass_facet", extract_marc("990a", translation_map: 'callnumber_
 
 to_field 'clio_id_display', extract_marc("001", trim_punctuation: true)
 
-to_field 'acq_dt', extract_marc("997a", trim_punctuation: true)
+to_field "acq_dt" do |record, accumulator|
+  tag997a = Marc21.extract_marc_from(record, "997a", first: true, trim_punctuation: true).first
+  # Acquisition Date should look like:  2017-08-20T00:00:00.000Z
+  if tag997a =~ /[\d\-]+T[\d\:]+Z/
+    accumulator << tag997a
+  end
+end
+
 
 to_field 'source_facet', extract_marc("995a", trim_punctuation: true)
 to_field 'source_display', extract_marc("995a", trim_punctuation: true)
