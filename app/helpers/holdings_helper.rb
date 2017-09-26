@@ -151,10 +151,11 @@ module HoldingsHelper
   end
 
   def self.valet_link(bib_id = '')
-    APP_CONFIG['valet_link'] ||
-      "https://valet.cul.columbia.edu/offsite_requests/bib?bib_id=#{bib_id}"
+    valet_url = APP_CONFIG['valet_link'] ||
+      "https://valet.cul.columbia.edu/offsite_requests/bib?bib_id="
+    return valet_url + bib_id
   end
-  def valet_link(bib_id)
+  def valet_link(bib_id = '')
     HoldingsHelper.valet_link(bib_id)
   end
 
@@ -165,7 +166,8 @@ module HoldingsHelper
     # 'offsite_legacy' => ['Offsite',
     #               'http://www.columbia.edu/cgi-bin/cul/offsite2?'],
 
-    'offsite' => [ valet_label(), valet_link() ],
+    # 'offsite' => [ valet_label(), valet_link() ],
+    'offsite' => [ valet_label(), 'OpenValet', valet_link() ],
 
     'spec_coll' => ['Special Collections',
                     'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
@@ -188,14 +190,18 @@ module HoldingsHelper
     return [] unless services && clio_id
 
     services.select { |svc| SERVICE_ORDER.index(svc) }.sort_by { |svc| SERVICE_ORDER.index(svc) }.map do |svc|
-      title, link = SERVICES[svc]
+      title, link, extra = SERVICES[svc]
       bibid = clio_id.to_s
+      # URL services
       if link.match(/^http/)
         link += bibid
         link_to title, link, target: '_blank'
       else
-        jscript = "#{link}(#{bibid}); return false;"
-        link_to title, '#', onclick: jscript
+        # JavaScript services (open url in pop-up window)
+        # Some functions (e.g., Valet) accept additional arg to pass along to the JS function
+        js_function = extra.present? ? "#{link}('#{bibid}', '#{extra}')" : "#{link}('#{bibid}')"
+        onclick_js = "#{js_function}; return false;"
+        link_to title, '#', onclick: onclick_js
       end
     end
   end

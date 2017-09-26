@@ -101,19 +101,20 @@
               %li= link_to "ILL", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?#{clio_id}", :target => "_blank"
               %li= link_to "Scan & Deliver", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?#{clio_id}", :target => "_blank"
               %li= link_to "Inter-Campus Delivery", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0013", :target => "_blank"
-              %li= link_to "In-Process / On Order", "#", :onclick => "OpenInprocessRequest(#{clio_id}); return false;"
-              %li= link_to "Precataloging", "#", :onclick => "OpenPrecatRequest(#{clio_id}); return false;"
+              %li= link_to "In-Process / On Order", "#", :onclick => "OpenInprocessRequest('#{clio_id}'); return false;"
+              %li= link_to "Precataloging", "#", :onclick => "OpenPrecatRequest('#{clio_id}'); return false;"
               -# NewRelic shows that calling this CGI script is taking 4% of total server cpu.
               -# Just show this for everyone.
               -# if HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + clio_id) == "1"
 
               -# Offsite requests via Valet
-              %li= link_to valet_label(), valet_link(clio_id), target: "_blank"
+              -# %li= link_to valet_label(), valet_link(clio_id), target: "_blank"
+              %li= link_to valet_label(), '#', :onclick => "OpenValet('#{clio_id}', '#{valet_link()}'); return false;"
               
   
-              %li= link_to "Item Feedback", "#", :onclick => "OpenItemFeedback(#{clio_id}); return false;"
+              %li= link_to "Item Feedback", "#", :onclick => "OpenItemFeedback('#{clio_id}'); return false;"
   
-              %li= link_to "Item Not On Shelf?", "#", :onclick => "OpenSearchRequest(#{clio_id}); return false;"
+              %li= link_to "Item Not On Shelf?", "#", :onclick => "OpenSearchRequest('#{clio_id}'); return false;"
   
 
         -# %ul.nav.navbar-nav.navbar-right
