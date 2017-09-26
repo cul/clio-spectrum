@@ -46,7 +46,7 @@ module Voyager
             case availability
             when 'Available'
               mfhd_status[item_id][:statusCode] = 1
-            when 'Unavailable'
+            when 'Unavailable', 'Not Available'
               mfhd_status[item_id][:statusCode] = 13
             end
           end

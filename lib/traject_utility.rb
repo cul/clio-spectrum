@@ -40,14 +40,10 @@ module TrajectUtility
     return '' unless code
     case code
     # Princeton
-    when 'scsbpul'
-      return 'ReCAP Shared Collection (Princeton)'
-    when 'scsb-pul'
+    when 'scsbpul', 'scsb-pul'
       return 'ReCAP Shared Collection (Princeton)'
     # NYPL
-    when 'scsbnypl'
-      return 'ReCAP Shared Collection (NYPL)'
-    when 'scsb-nypl'
+    when 'scsbnypl', 'scsb-nypl'
       return 'ReCAP Shared Collection (NYPL)'
     end
     return ''
