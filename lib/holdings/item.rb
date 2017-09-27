@@ -33,9 +33,13 @@ module Voyager
           barcode = t876['p']
 
           # If holdings status doesn't yet have an entry for this item id, 
-          # create it.
+          # create it. 
+          # Either the live Voyager status (mfhd) or the live ReCAP status (scsb)
+          # needs to positively set to 'Available', otherwise assume it's not. (13)
           unless mfhd_status[item_id].present?
-            mfhd_status[item_id] = { }
+            mfhd_status[item_id] = { 
+              statusCode:  '13'  # Unavailable
+              }
           end
           
           
@@ -196,7 +200,7 @@ module Voyager
           # get parms for the message being processed
           parms = ITEM_STATUS_CODES[code]
 
-          raise "Status code not found in config/item_status_codes.yml" unless parms
+          raise "Status code [#{code}] not found in config/item_status_codes.yml" unless parms
 
           short_message = make_substitutions(parms['short_message'], item)
           # long_message = make_substitutions(parms['long_message'], item)
