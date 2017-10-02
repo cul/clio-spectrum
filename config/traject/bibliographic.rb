@@ -50,7 +50,7 @@ each_record do |record, context|
 end
 
 
-to_field "id", extract_marc("001", first: true)
+to_field "id", extract_marc("001", first: true).first
 
 to_field "marc_display", serialized_marc(format: "xml")
 
