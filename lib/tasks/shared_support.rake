@@ -84,6 +84,9 @@ def clean_ingest_file(filename)
         leader[20..23] = '4500'
         line = before + leader + after
       end
+
+      # NEXT-1446, random one-off failure (subfield '"')
+      next if line.match(/code="""/)
       
       # replace invalid bytes throughout
       tempfile.puts line.gsub(/[\x01-\x08\x0b\x0c\x0e-\x1f]/, '?')
