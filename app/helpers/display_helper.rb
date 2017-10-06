@@ -698,6 +698,70 @@ module DisplayHelper
     fields.join('&')
   end
 
+
+  def voyager_to_openurl_ctx_kev(item)
+    return '' unless item
+
+    # if item[:format]
+    #   format = item[:format].first ||= 'book'
+    # else
+    #   format = 'Other'
+    # end
+
+    fields = []
+    fields.push('ctx_ver=Z39.88-2004')
+
+    if item[:author]
+      fields.push("rft.au=#{ CGI.escape(item[:author]) }")
+    end
+
+    if item[:title]
+      fields.push("rft.title=#{ CGI.escape(item[:title]) }")
+    end
+
+
+    if item[:pub_name]
+      fields.push("rft.pub=#{ CGI.escape(item[:pub_name]) }")
+    end
+    if item[:pub_date]
+      fields.push("rft.date=#{ CGI.escape(item[:pub_date]) }")
+    end
+    if item[:pub_place]
+      fields.push("rft.place=#{ CGI.escape(item[:pub_place]) }")
+    end
+    if item[:isbn]
+      fields.push("rft.isbn=#{ CGI.escape(item[:isbn]) }")
+    end
+
+    # Until we add better logic
+    format = 'book'
+    
+    if format =~ /journal/i
+      fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:journal')
+      item[ :title_display] && Array.wrap(item[ :title_display]).each do |title|
+        fields.push("rft.atitle=#{ CGI.escape(title) }")
+      end
+    elsif format =~ /Recording/i
+      fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:dc')
+      fields.push('rft.type=audioRecording')
+    elsif format =~ /Video/i
+      fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:dc')
+      fields.push('rft.type=videoRecording')
+    else
+      fields.push('rft_val_fmt=info:ofi/fmt:kev:mtx:dc')
+      fields.push('rft.type=book')
+      if item[:title]
+        fields.push("rft.btitle=#{ CGI.escape(item[:title]) }")
+      end
+    end
+
+    genre = format_to_rft_genre(format)
+    fields.push("rft.genre=#{ CGI.escape(genre) }") if genre
+
+    fields.join('&')
+  end
+  
+  
   def academic_commons_url(id)
     'http://academiccommons.columbia.edu/catalog/' + id
   end

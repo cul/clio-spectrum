@@ -7,9 +7,9 @@ class BackendController < ApplicationController
     BackendController.url_for_id(id)
   end
 
-  def self.url_for_id(id = nil, action = 'retrieve')
+  def self.url_for_id(id = nil, action = 'holdings/retrieve')
     if clio_backend_url = APP_CONFIG['clio_backend_url']
-      return "#{clio_backend_url}/holdings/#{action}/#{id}"
+      return "#{clio_backend_url}/#{action}/#{id}"
     else
       fail 'clio_backend_url not found in APP_CONFIG'
     end
@@ -39,7 +39,7 @@ class BackendController < ApplicationController
       return nil
     end
 
-    backend_url = url_for_id(id, 'circ_status')
+    backend_url = url_for_id(id, 'holdings/circ_status')
     begin
       json_results = backend_httpclient.get_content(backend_url)
       backend_results = JSON.parse(json_results).with_indifferent_access
@@ -91,6 +91,9 @@ class BackendController < ApplicationController
 
 
   def holdings
+    # LEGACY
+    # LEGACY
+    # LEGACY
     @id = params[:id]
  
     logger.error "Legacy BackendController#holdings called for id: #{@id}"
@@ -141,30 +144,35 @@ class BackendController < ApplicationController
     # end
   end
 
+
+  # https://clio-backend-dev.cul.columbia.edu/voyager/checked_out_bibs/ma3179
+  def self.getCheckedOutBibs(uni = '')
+    unless uni.present?
+      logger.error "BackendController#getCheckedOutBibs() called with no uni!"
+      return []
+    end
+
+# DEBUG   
+# uni = 'ma3179'
+
+    backend_url = url_for_id(uni, 'voyager/checked_out_bibs')
+
+    begin
+      json_results = backend_httpclient.get_content(backend_url)
+      bibs = JSON.parse(json_results)
+    rescue => ex
+      logger.error "BackendController#getCheckedOutBibs(#{uni}) #{ex} URL: #{backend_url}"
+      return nil
+    end
+
+    bibs.map! { |item| item.with_indifferent_access }
+    # return list of bib keys
+    return bibs
+  end
+  
+
   private
 
-# This is done directly in catalog controller, 
-# not in a separate call to backend controller
-  # # HOLDINGS REVISION PROJECT
-  # 
-  # def get_document_holdings(document)
-  #   # Build holdings by working with full MARC record
-  #   # We haven't pulled out Solr fields yet.
-  #   marc = document.to_marc
-  #   return get_marc_holdings(marc)
-  # end
-  # 
-  # def get_marc_holdings(marc)
-  #   # voyager_api is used within clio_backend like so:
-  #   #   result = Voyager::Holdings::Collection.new_from_opac(bibid, @conn, api_server + holdings_service)
-  #   #   result_hash = result.to_hash(:output_type => :condensed, :message_type => :short_message)
-  # 
-  #   result = Voyager::Holdings::Collection.new_from_marc(marc)
-  #   # result_hash = result.to_hash(:output_type => :condensed, :message_type => :short_message)
-  #   result_hash = result.to_hash(:output_type => :condensed, :message_type => :long_message)
-  # 
-  #   return result_hash.with_indifferent_access
-  # end
 
 
 end

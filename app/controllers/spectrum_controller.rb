@@ -147,6 +147,12 @@ class SpectrumController < ApplicationController
 
   end
 
+  def checked_out_items
+    @checked_out_items = BackendController.getCheckedOutBibs(current_user) || []
+  end
+  
+  
+
   private
 
   def fix_ga_params(params)
@@ -264,32 +270,6 @@ class SpectrumController < ApplicationController
 
     @result_hash
   end
-
-  private
-
-  # moved to preferences_support module,
-  # included in application controller
-  # 
-  # def get_search_layout_config(layout)
-  #   return nil unless layout
-  # 
-  #   # environment-specific app_config.yml
-  #   if APP_CONFIG.has_key?('search_layouts') &&
-  #      APP_CONFIG['search_layouts'].has_key?(layout)
-  #     return APP_CONFIG['search_layouts'][layout]
-  #   end
-  # 
-  #   # defaults file - searches.yml
-  #   if SEARCHES_CONFIG.has_key?('default_search_layouts') &&
-  #      SEARCHES_CONFIG['default_search_layouts'].has_key?(layout)
-  #     return SEARCHES_CONFIG['default_search_layouts'][layout]
-  #   end
-  # 
-  #   # We didn't find a configuration for this layout!
-  #   Rails.logger.error("get_search_layout_config(#{layout}) - configuration not found")
-  #   return nil
-  # end
-
 
 
 end

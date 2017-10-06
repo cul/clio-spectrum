@@ -1,0 +1,40 @@
+
+.results_header
+  %h4
+    Checked Out Items
+  %h5
+    You have #{pluralize(@checked_out_items.size, 'item')} checked out 
+    (as of #{Time.now.strftime('%m/%d/%Y %H:%M%P')})
+  Visit 
+  %b
+    = link_to "My Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087-1", :target => "_blank"
+  for further details and services
+    
+
+#documents
+
+  - @checked_out_items.each_with_index do |item, index|
+    - counter = index + 1
+
+    .result.document
+
+      .row
+        .title.col-sm-12
+
+          %span.coins_wrapper
+            <!-- COinS -->
+            %span.Z3988{:title => voyager_to_openurl_ctx_kev(item)}
+
+          .item_anchor
+            = render '/item_number', :counter => counter
+
+          .item_number_allowance
+            = item[:title]
+  
+      .row
+        -# = add_row('Title', item[:title])
+        = add_row('Author', item[:author])
+        = add_row('Publisher', item[:pub_name])
+        = add_row('Publication Date', item[:pub_date])
+        = add_row('Publication Place', item[:pub_placev])
+
