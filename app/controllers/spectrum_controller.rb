@@ -148,6 +148,7 @@ class SpectrumController < ApplicationController
   end
 
   def checked_out_items
+    authenticate_user! 
     @checked_out_items = BackendController.getCheckedOutBibs(current_user) || []
   end
   
