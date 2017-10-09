@@ -33,7 +33,7 @@ module Voyager
           barcode = t876['p']
 
           # If holdings status doesn't yet have an entry for this item id, 
-          # create it. 
+          # create it, with default values. 
           # Either the live Voyager status (mfhd) or the live ReCAP status (scsb)
           # needs to positively set to 'Available', otherwise assume it's not. (13)
           unless mfhd_status[item_id].present?
@@ -42,20 +42,27 @@ module Voyager
               }
           end
           
-          
-          # If this item has a SCSB status, overwrite Voyager's statusCode
-          # Possible SCSB statuses are 'Available' or 'Unavailable',
-          # which map to 1 and 13 in item_status_codes.yml
-          if availability = scsb_status[ barcode ]
-            case availability
-            when 'Available'
-              mfhd_status[item_id][:statusCode] = 1
-            when 'Unavailable', 'Not Available'
+          # If SCSB holds a status for this item, then it's an offsite item.
+          # SCSB availability status may be:  Available, Unavailable, Not Available (?)
+          case scsb_status[ barcode ]
+
+          # Available, status code 1
+          when 'Available'
+            mfhd_status[item_id][:statusCode] = 1
+
+          # NEXT-1447
+          # - If it's Unavailable, but Voyager doesn't know it, it's a partner checkout
+          # - If it's Unavailable, and Voyager knows it's not available (not status code == 1), 
+          #   then just defer to Voyager - leave the mfhd status code as-is, don't overwrite.
+          when 'Unavailable', 'Not Available'
+            # Voyager says "1" (available), so it's a partner checkout
+            if mfhd_status[item_id][:statusCode] == 1
               mfhd_status[item_id][:statusCode] = 13
             end
           end
 
         end
+
 
         # # number of item records
         # @item_count = item_count
