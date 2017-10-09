@@ -157,9 +157,8 @@ namespace :authorities do
             # <controlfield tag="001">2</controlfield>
             open(filename) do |file|
               file.each_line do |line|
-                if match = line.match(/<controlfield tag=.001.>(.*)<.controlfield>/i)
+                if match = line.match(/controlfield tag=.001.>(.*)</i)
                   biblist.push match.captures.first
-                  # puts match.captures.first
                 end
               end
             end
