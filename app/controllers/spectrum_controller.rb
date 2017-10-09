@@ -149,7 +149,16 @@ class SpectrumController < ApplicationController
 
   def checked_out_items
     authenticate_user! 
-    @checked_out_items = BackendController.getCheckedOutBibs(current_user) || []
+    patron = current_user
+    @label = 'You have'
+
+    # Admins can snoop other people's checked-out items
+    if current_user.admin? && params[:uni]
+      patron = params[:uni] 
+      @label = "#{patron} has"
+    end
+
+    @checked_out_items = BackendController.getCheckedOutBibs(patron) || []
   end
   
   

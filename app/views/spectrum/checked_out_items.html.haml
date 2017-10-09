@@ -3,7 +3,8 @@
   %h4
     Checked Out Items
   %h5
-    You have #{pluralize(@checked_out_items.size, 'item')} checked out 
+    - label = ()
+    #{@label} #{pluralize(@checked_out_items.size, 'item')} checked out 
     (as of #{Time.now.strftime('%m/%d/%Y %H:%M%P')})
   Visit 
   %b
