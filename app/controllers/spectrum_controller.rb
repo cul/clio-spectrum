@@ -149,7 +149,7 @@ class SpectrumController < ApplicationController
 
   def checked_out_items
     authenticate_user! 
-    patron = current_user
+    patron = current_user.login
     @label = 'You have'
 
     # Admins can snoop other people's checked-out items
