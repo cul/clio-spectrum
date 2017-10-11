@@ -45,7 +45,7 @@ describe 'CLIO support for Law records', :vcr do
   end
 
   it 'should link to precise bib for known item' do
-    visit catalog_index_path('q' => 'supr* cour* felix aime')
+    visit catalog_index_path('q' => 'supr* cour* felix colliard aime legoux')
     expect(find('.result.document')).to have_text 'Law Trials C5453'
     expect(find('.result.document')).to have_link(I18n.t('blacklight.law.check_message'), href: 'http://pegasus.law.columbia.edu/record=b402660')
   end

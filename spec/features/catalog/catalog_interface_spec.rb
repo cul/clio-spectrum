@@ -265,25 +265,25 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
       find('input.btn.submit').click
     end
 
-    expect(page).to have_text '1 - 10 of 10'
+    expect(page).to have_text '1 - 12 of 12'
 
     click_link('Maigret mystified')
-    expect(page).to have_text 'Back to Results | 1 of 10 | Next'
+    expect(page).to have_text 'Back to Results | 1 of 12 | Next'
     expect(page).to have_text 'Title Maigret mystified'
 
     click_link('Display In')
     click_link('MARC View')
-    expect(page).to have_text 'Back to Results | 1 of 10 | Next'
+    expect(page).to have_text 'Back to Results | 1 of 12 | Next'
     expect(page).to have_text '245 1 0 |a Maigret mystified'
 
     within '#show_toolbar' do
       click_link('Next')
     end
-    expect(page).to have_text 'Back to Results | « Previous | 2 of 10 | Next »'
+    expect(page).to have_text 'Back to Results | « Previous | 2 of 12 | Next »'
     expect(page).to have_text '245 1 4 |a The patience of Maigret'
 
     click_link('Return to Patron View')
-    expect(page).to have_text 'Back to Results | « Previous | 2 of 10 | Next »'
+    expect(page).to have_text 'Back to Results | « Previous | 2 of 12 | Next »'
     expect(page).to have_text 'Title The patience of Maigret'
 
   end
