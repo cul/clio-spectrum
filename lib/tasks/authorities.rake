@@ -163,6 +163,7 @@ namespace :authorities do
               end
             end
           end
+          Rails.logger.info("   biblist now #{biblist.size} bibs")
 
         rescue => e
           puts_and_log("MARC::Reader.new(#{filename}): " + e.inspect, :error)

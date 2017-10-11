@@ -161,7 +161,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   end
 
   it "supports alternative viewstyle options ('Standard' or 'Compact')", :js do
-    visit catalog_index_path('q' => "the'end")
+    visit catalog_index_path('q' => "the aardvark and the caravan")
 
     click_link 'Display Options'
     click_link 'Standard View'
