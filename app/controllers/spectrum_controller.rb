@@ -181,7 +181,7 @@ class SpectrumController < ApplicationController
       next if bibs_seen.include?(bib_id)
 
       # For ReCAP Partner items, lookup bib details in Solr by barcode
-      if item[:title].present?  && item[:title].include?('[RECXAP]')
+      if item[:title].present?  && item[:title].include?('[RECAP]')
         barcode = item[:barcode]
         params = {q: "barcode_txt:#{barcode}", facet: 'off'}
         result = blacklight_search(params)
