@@ -30,7 +30,7 @@
             = render '/item_number', :counter => counter
 
           .item_number_allowance
-            = item[:title]
+            = item[:title].gsub(/[\/\s]+$/, '')
   
       .row
         -# = add_row('Title', item[:title])

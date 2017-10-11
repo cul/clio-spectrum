@@ -145,34 +145,67 @@ class BackendController < ApplicationController
   end
 
 
-  # https://clio-backend-dev.cul.columbia.edu/voyager/checked_out_bibs/ma3179
-  def self.getCheckedOutBibs(uni = '')
+  # https://clio-backend-dev.cul.columbia.edu/voyager/checked_out_items/ma3179
+  def self.getCheckedOutItems(uni = '')
     unless uni.present?
-      logger.error "BackendController#getCheckedOutBibs() called with no uni!"
+      logger.error "BackendController#getCheckedOutItems() called with no uni!"
       return []
     end
 
 # DEBUG   
 # uni = 'ma3179'
 
-    backend_url = url_for_id(uni, 'voyager/checked_out_bibs')
+    backend_url = url_for_id(uni, 'voyager/checked_out_items')
 
     begin
       json_results = backend_httpclient.get_content(backend_url)
-      bibs = JSON.parse(json_results)
+      items = JSON.parse(json_results)
     rescue => ex
-      logger.error "BackendController#getCheckedOutBibs(#{uni}) #{ex} URL: #{backend_url}"
+      logger.error "BackendController#getCheckedOutItems(#{uni}) #{ex} URL: #{backend_url}"
       return nil
     end
 
-    bibs.map! { |item| item.with_indifferent_access }
-    # return list of bib keys
-    return bibs
+    items.map! { |item| item.with_indifferent_access }
+    return items
   end
   
-
-  private
-
-
+#   def self.getCheckedOutBibs(uni = '')
+#     items = BackendController.getCheckedOutItems(uni) || []
+#     
+#     bibs = []
+#     bibs_seen = []
+#     items.each do |item|
+#       bib_id = item[:bib_id]
+#       next if bibs_seen.include?(bib_id)
+#       
+#       # For ReCAP Partner items, lookup bib details in Solr by barcode
+#       if item[:title].present?  && item[:title].include?('[RECAP]')
+#         barcode = item[:barcode]
+#         params = {q: 'barcode_txt:33433074813555'}
+#         response, documents = search_results(params)
+#         if documents.present? && documents.size > 0
+# 
+# raise
+#           # item[:bib_id]    = row['BIB_ID'] || 0
+#           # item[:barcode]   = row['ITEM_BARCODE'] || 0
+#           # item[:author]    = documents.first.['AUTHOR'] || ''
+#           # item[:title]     = row['TITLE_BRIEF'] || ''
+#           # item[:author]    = row['AUTHOR'] || ''
+#           # item[:pub_name]  = row['PUBLISHER'] || ''
+#           # item[:pub_date]  = row['PUBLISHER_DATE'] || ''
+#           # item[:pub_place] = row['PUB_PLACE'] || ''
+#           # item[:isbn]      = row['ISBN'] || ''
+#           # item[:issn]      = row['ISSN'] || ''
+#         end
+#       end
+# 
+#       bibs << item
+#       bibs_seen << bib_id
+# 
+#     end
+#     
+    
 
 end
+
+

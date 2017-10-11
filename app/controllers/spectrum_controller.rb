@@ -147,6 +147,7 @@ class SpectrumController < ApplicationController
 
   end
 
+
   def checked_out_items
     authenticate_user! 
     patron = current_user.login
@@ -158,12 +159,53 @@ class SpectrumController < ApplicationController
       @label = "#{patron} has"
     end
 
-    @checked_out_items = BackendController.getCheckedOutBibs(patron) || []
+    # @checked_out_items = BackendController.getCheckedOutItems(patron) || []
+    @checked_out_items = checked_out_bibs(patron)
   end
   
   
 
   private
+
+
+  def checked_out_bibs(patron = '')
+    return [] unless patron.present?
+
+    items = BackendController.getCheckedOutItems(patron) || []
+
+    # Map Items to Bibs
+    bibs = []
+    bibs_seen = []
+    items.each do |item|
+      bib_id = item[:bib_id]
+      next if bibs_seen.include?(bib_id)
+
+      # For ReCAP Partner items, lookup bib details in Solr by barcode
+      if item[:title].present?  && item[:title].include?('[RECXAP]')
+        barcode = item[:barcode]
+        params = {q: "barcode_txt:#{barcode}", facet: 'off'}
+        result = blacklight_search(params)
+        documents = result.documents || nil
+        if documents.present? && documents.size > 0
+          item[:bib_id]     = documents.id
+          item[:author]     = documents.first[:author_display].join(', ')
+          item[:title]      = documents.first[:title_display].join(' / ')
+          item[:pub_name]   = documents.first[:pub_name_display].join(', ')
+          item[:pub_date]   = documents.first[:pub_year_display].join(', ')
+          item[:pub_place]  = documents.first[:pub_place_display].join(', ')
+          item[:pub_place]  = documents.first[:pub_place_display].join(', ')
+          item[:pub_place]  = documents.first[:pub_place_display].join(', ')
+        end
+      end
+
+      bibs << item
+      bibs_seen << bib_id
+    end
+
+    return bibs
+  end
+
+
 
   def fix_ga_params(params)
     # items-per-page ("rows" param) should be a persisent browser setting
