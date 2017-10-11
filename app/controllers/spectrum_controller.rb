@@ -187,7 +187,7 @@ class SpectrumController < ApplicationController
         result = blacklight_search(params)
         documents = result.documents || nil
         if documents.present? && documents.size > 0
-          item[:bib_id]     = documents.id
+          item[:bib_id]     = documents.first.id
           item[:author]     = documents.first[:author_display].join(', ')
           item[:title]      = documents.first[:title_display].join(' / ')
           item[:pub_name]   = documents.first[:pub_name_display].join(', ')
