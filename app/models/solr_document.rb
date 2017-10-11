@@ -75,6 +75,8 @@ class SolrDocument
 
   # This triggers a call to fetch real time availabilty from the SCSB API
   def has_offsite_holdings?
+    return false unless self[:location_facet].present?
+
     # string regexp against the location field
     self[:location_facet].each do |location_facet|
       return true if location_facet.match /^Offsite/
