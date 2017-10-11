@@ -6,7 +6,7 @@ describe 'Testing rsolr-rspec support', :skip_travis do
     resp = solr_resp_doc_ids_only('q' => 'Buddhism')
 
     expect(resp.size).to be > 18000
-    expect(resp.size).to be < 25000
+    expect(resp.size).to be < 30000
 
   end
 

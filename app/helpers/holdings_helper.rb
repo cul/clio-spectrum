@@ -201,7 +201,7 @@ module HoldingsHelper
         # Some functions (e.g., Valet) accept additional arg to pass along to the JS function
         js_function = extra.present? ? "#{link}('#{bibid}', '#{extra}')" : "#{link}('#{bibid}')"
         onclick_js = "#{js_function}; return false;"
-        link_to title, '#', onclick: onclick_js
+        link_to title, '#', onclick: onclick_js.html_safe
       end
     end
   end

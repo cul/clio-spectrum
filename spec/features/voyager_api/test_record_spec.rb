@@ -36,8 +36,9 @@ describe 'record tests', vcr: { allow_playback_repeats: true } do
     visit solr_document_path('6249927')
     expect(page).to have_css('#clio_holdings .holding', wait: 20)
     within ('div#clio_holdings') do
-      expect(page).to have_link('Offsite',
-                            href: 'https://valet.cul.columbia.edu/offsite_requests/bib?bib_id=6249927')
+      expect(page).to have_link('Offsite')
+      # The href is blank - the Valet URL is in the onclick JS code
+      # href: 'https://valet.cul.columbia.edu/offsite_requests/bib?bib_id=6249927')
     end
   end
 
