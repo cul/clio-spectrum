@@ -502,13 +502,21 @@ module Voyager
         else
         end
 
+        # cleanup the list
+        services = services.flatten.uniq
+
         # only provide borrow direct request for printed books and scores
         unless fmt == 'am' || fmt == 'cm'
           services.delete('borrow_direct')
         end
 
+        # # We don't know how to recall PUL or NYPL ReCAP items
+        # if ['scsbpul', 'scsbnypl'].include?(location_code)
+        #   services.delete('recall_hold')
+        # end
+
         # return the cleaned up list
-        services = services.flatten.uniq
+        return services
       end
 
 

@@ -170,3 +170,11 @@
         long_message: 'In Process %DATE (Requests: %REQS). Place an In Process item request.'
         services:
             -   in_process
+
+# ReCAP Partner item.  No due-date available.  No Recall/Hold available.
+# Artificial CLIO status-code, not found in Voyager's ITEM_STATUS_TYPE table.
+99n:
+    short_message: 'Checked out'
+    services:
+        -   borrow_direct
+        -   ill

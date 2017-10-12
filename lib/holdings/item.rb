@@ -32,14 +32,11 @@ module Voyager
           item_id = t876['a']
           barcode = t876['p']
 
-          # If holdings status doesn't yet have an entry for this item id, 
-          # create it, with default values. 
-          # Either the live Voyager status (mfhd) or the live ReCAP status (scsb)
-          # needs to positively set to 'Available', otherwise assume it's not. (13)
+          # If Voyager holdings status doesn't yet have an entry for this item id, 
+          # create it.  (This shouldn't happen.)  
+          # Try creating empty hash.  We'll insert default keys/values if we find we need some.
           unless mfhd_status[item_id].present?
-            mfhd_status[item_id] = { 
-              statusCode:  '13'  # Unavailable
-              }
+            mfhd_status[item_id] = { }
           end
           
           # If SCSB holds a status for this item, then it's an offsite item.
@@ -55,19 +52,18 @@ module Voyager
           # - If it's Unavailable, and Voyager knows it's not available (not status code == 1), 
           #   then just defer to Voyager - leave the mfhd status code as-is, don't overwrite.
           when 'Unavailable', 'Not Available'
-            # Voyager says "1" (available), so it's a partner checkout
-            if mfhd_status[item_id][:statusCode] == 1
-              mfhd_status[item_id][:statusCode] = 13
+            # If Voyager has no status, or Voyager says "1" (available), it's a partner checkout
+            if mfhd_status[item_id][:statusCode].nil? || (mfhd_status[item_id][:statusCode] == 1)
+              # Special "99" status code for ReCAP checkouts
+              mfhd_status[item_id][:statusCode] = 99
             end
+            # Else, if Voyager Holdings status is non-1, then leave it as-is.  
+            # (CUL offsite item checked out to CUL patron)
           end
 
         end
 
 
-        # # number of item records
-        # @item_count = item_count
-# raise
-        # TODO
         @temp_locations = parse_for_temp_locations(holdings_marc)  # array
         @item_status = parse_for_circ_status(mfhd_status)  # hash
       end
