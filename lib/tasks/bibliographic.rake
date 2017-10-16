@@ -64,7 +64,7 @@ namespace :bibliographic do
           ids_to_delete << line
         end
 
-        ids_to_delete.uniq!
+        ids_to_delete.sort.uniq!
 
         Rails.logger.info(ids_to_delete.length.to_s + " ids to delete.")
         begin

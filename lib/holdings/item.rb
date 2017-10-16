@@ -60,6 +60,14 @@ module Voyager
             # Else, if Voyager Holdings status is non-1, then leave it as-is.  
             # (CUL offsite item checked out to CUL patron)
           end
+          
+          # Finally, if the statusCode could not be determined through any of the above logic,
+          #  fill in a default of Unavailable - status code 13.
+          # Not sure why this would happen.
+          if mfhd_status[item_id][:statusCode].blank?
+            mfhd_status[item_id][:statusCode] = 13
+            Rails.logger.warn "No mfhd status code for holding_id #{mfhd_id}, item_id #{item_id}, barcode #{barcode} - defaulting to 'Unavailable'"
+          end
 
         end
 
