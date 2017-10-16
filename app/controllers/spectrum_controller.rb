@@ -187,14 +187,13 @@ class SpectrumController < ApplicationController
         result = blacklight_search(params)
         documents = result.documents || nil
         if documents.present? && documents.size > 0
-          item[:bib_id]     = documents.first.id
-          item[:author]     = documents.first[:author_display].join(', ')
-          item[:title]      = documents.first[:title_display].join(' / ')
-          item[:pub_name]   = documents.first[:pub_name_display].join(', ')
-          item[:pub_date]   = documents.first[:pub_year_display].join(', ')
-          item[:pub_place]  = documents.first[:pub_place_display].join(', ')
-          item[:pub_place]  = documents.first[:pub_place_display].join(', ')
-          item[:pub_place]  = documents.first[:pub_place_display].join(', ')
+          document = documents.first
+          item[:bib_id]     = document.id
+          item[:author]     = doc_field(document, :author_display)
+          item[:title]      = doc_field(document, :title_display)
+          item[:pub_name]   = doc_field(document, :pub_name_display)
+          item[:pub_date]   = doc_field(document, :pub_year_display)
+          item[:pub_place]  = doc_field(document, :pub_place_display)
         end
       end
 
@@ -203,6 +202,14 @@ class SpectrumController < ApplicationController
     end
 
     return bibs
+  end
+  
+  def doc_field(doc = nil, field = nil)
+    return '' if doc.blank? || field.blank?
+    doc = doc.first if doc.is_array?
+    value = doc[field] || ''
+    value = value.join(', ') if value.is_array
+    return value
   end
 
 
