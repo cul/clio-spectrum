@@ -127,7 +127,15 @@ module Recap
       end
 
       # parse returned array of item-info hashes into simple barcode->status hash
-      response_data = JSON.parse(response.body)
+      response_data = []
+      begin
+        response_data = JSON.parse(response.body)
+      rescue => ex
+        Rails.logger.error "ERROR:  JSON.parse(response.body) #{ex.message}"
+        Rails.logger.error "ERROR DETAILS: " + response.body
+        return
+      end
+
       availabilities = Hash.new
       response_data.each do |item|
         availabilities[ item['itemBarcode'] ] = item['itemAvailabilityStatus']
