@@ -79,7 +79,7 @@ namespace :authorities do
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
       puts_and_log("Unknown extract: #{ENV['EXTRACT']}", :error) unless extract
 
-      extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.mrc")) if extract
+      extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.{mrc,xml}")) if extract
       files_to_read = (ENV["INGEST_FILE"] || extract_files).listify.sort
 
       # create new traject indexer
