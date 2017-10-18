@@ -37,10 +37,10 @@ namespace :bibliographic do
         raise "Fetch unsucessful"
       end
 
-      # We don't expect .gz files, but if found, unzip them.
-      if system("gunzip -q " + temp_dir_name + "*.gz")
-        Rails.logger.info("Gunzip successful")
-      end
+      # # We don't expect .gz files, but if found, unzip them.
+      # if system("gunzip -q " + temp_dir_name + "*.gz")
+      #   Rails.logger.info("Gunzip successful")
+      # end
 
     end
 
@@ -113,7 +113,6 @@ namespace :bibliographic do
 
       # load Traject config file (indexing rules)
       indexer.load_config_file(File.join(Rails.root, "config/traject/bibliographic.rb"))
-
 
       Rails.logger.info("- processing #{files_to_read.size} files...")
 

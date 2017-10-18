@@ -36,42 +36,42 @@ namespace :authorities do
       #   puts_and_log("Download unsucessful", :error, alarm: true)
       # end
 
-      # We don't expect .gz files, but if found, unzip them.
-      if system("gunzip " + temp_dir_name + "*.gz")
-        Rails.logger.info("Gunzip successful")
-      end
+      # # We don't expect .gz files, but if found, unzip them.
+      # if system("gunzip " + temp_dir_name + "*.gz")
+      #   Rails.logger.info("Gunzip successful")
+      # end
     end
 
-    desc "rewrite marc files to marcxml"
-    task :to_xml do
-      setup_ingest_logger
-
-      extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
-      puts_and_log("Unknown extract: #{ENV['EXTRACT']}", :error) unless extract
-
-      extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.mrc")) if extract
-      files_to_read = (ENV["INGEST_FILE"] || extract_files).listify.sort
-      puts "transforming #{files_to_read.size} files from MARC to MARCXML"
-
-      xmldir = File.join(Rails.root, "tmp/extracts/#{extract}/xml")
-      FileUtils.rm_rf(xmldir)
-      FileUtils.mkdir_p(xmldir)
-
-      files_to_read.each do |filename|
-        puts "- transforming #{filename}..."
-        xmlfile = File.join(xmldir, File.basename(filename, '.mrc') + ".xml")
-
-        reader = MARC::Reader.new(filename)
-        writer = MARC::XMLWriter.new(xmlfile)
-
-        for record in reader
-          writer.write(record)
-        end
-
-        writer.close()
-      end
-      puts "done."
-    end
+    # desc "rewrite marc files to marcxml"
+    # task :to_xml do
+    #   setup_ingest_logger
+    # 
+    #   extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
+    #   puts_and_log("Unknown extract: #{ENV['EXTRACT']}", :error) unless extract
+    # 
+    #   extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.mrc")) if extract
+    #   files_to_read = (ENV["INGEST_FILE"] || extract_files).listify.sort
+    #   puts "transforming #{files_to_read.size} files from MARC to MARCXML"
+    # 
+    #   xmldir = File.join(Rails.root, "tmp/extracts/#{extract}/xml")
+    #   FileUtils.rm_rf(xmldir)
+    #   FileUtils.mkdir_p(xmldir)
+    # 
+    #   files_to_read.each do |filename|
+    #     puts "- transforming #{filename}..."
+    #     xmlfile = File.join(xmldir, File.basename(filename, '.mrc') + ".xml")
+    # 
+    #     reader = MARC::Reader.new(filename)
+    #     writer = MARC::XMLWriter.new(xmlfile)
+    # 
+    #     for record in reader
+    #       writer.write(record)
+    #     end
+    # 
+    #     writer.close()
+    #   end
+    #   puts "done."
+    # end
 
     desc "ingest latest authority records"
     task :ingest => :environment do
@@ -113,13 +113,30 @@ namespace :authorities do
 
       # index each file 
       files_to_read.each do |filename|
-        Rails.logger.info("--- processing #{filename}...")
-        File.open(filename) do |file|
-          Rails.logger.debug("----- indexing #{filename}...")
-          indexer.process(file)
+        begin
+          Rails.logger.info("--- processing #{filename}...")
+
+          File.open(filename) do |file|
+            case File.extname(file)
+            when '.mrc'
+              indexer.settings['marc_source.type'] = 'binary'
+            when '.xml'
+              indexer.settings['marc_source.type'] = 'xml'
+            end
+
+            Rails.logger.debug("----- indexing #{filename}...")
+            indexer.process(file)
+          end
+          Rails.logger.info("--- finished #{filename}.")
+        rescue => e
+          Rails.logger.error("Error during indexing (#{filename}): " + e.inspect)
+          # don't raise, so rake can continue processing other files
+          # raise e
         end
-        Rails.logger.info("--- finished #{filename}.")
       end
+
+      Rails.logger.info("- finished processing #{files_to_read.size} files.")
+
     end
 
     desc "fetch and ingest latest authority files"
