@@ -100,6 +100,13 @@ datasources:
       route: dissertations_index_path
       placeholder: Dissertations
 
+  research_data:
+    name: Research Data
+    no_facets: true
+    search_box:
+      route: data_index_path
+      placeholder: Reseach Data
+
   catalog:
     name: Catalog
     title: Catalog
@@ -167,6 +174,41 @@ datasources:
         issn: ISSN
         call_number: Call Number
         location: Location
+
+  catalog_data:
+    supersource: catalog
+    name: Catalog
+    title: Data Sets from the Columbia Catalog
+    description: Research Data from the library catalog
+    warningXX:  Item Status unavailable due to system upgrades.  CAT-DISS.
+    render_options:
+      format: clio
+    viewstyles: 
+      standard_list: Standard View
+      compact_list: Compact View
+    default_viewstyle: standard_list
+    search_box:
+      route: catalog_index_path
+      placeholder: Catalog
+      search_type: blacklight
+      advanced: true
+      search_fields:
+        all_fields: All Fields
+        title: Title
+        journal_title: Journal Title
+        author: Author
+        series_title: Series
+        title_starts_with: Title Begins With
+        subject: Subject
+        form_genre: Form/Genre
+        publication_place: Publication Place
+        publisher: Publisher
+        publication_year: Publication Year
+        isbn: ISBN
+        issn: ISSN
+        call_number: Call Number
+        location: Location
+  
 
   catalog_ebooks:
     supersource: catalog
@@ -305,6 +347,24 @@ datasources:
         author: Author
         subject: Subject
 
+  ac_data:
+    supersource: academic_commons
+    name: Academic Commons
+    title: Academic Commons data sets
+    description: Dissertations deposited in Columbia's digital repository, primarily 2011-present.
+    warningXX:  Item Status unavailable due to system upgrades.  AC-DISS.
+    render_options:
+      format: ac
+    search_box:
+      route: academic_commons_index_path
+      placeholder: Academic Commons
+      search_type: blacklight
+      search_fields:
+        all_fields: All Fields
+        title: Title
+        author: Author
+        subject: Subject
+
   new_arrivals:
     name: New Arrivals
     render_options:
@@ -325,6 +385,23 @@ datasources:
     name: GeoData
     title: GeoData
     description: Columbia's catalog of geospatial data sets
+    # warning: Datasource Unavailable
+    render_options:
+      format: geo
+    search_box:
+      route: geo_index_path
+      placeholder: Geographic names, subjects
+      search_type: blacklight
+      search_fields:
+        all_fields: All Fields
+        title: Title
+        name: Name
+
+  geo_cul:
+    supersource: geo
+    name: GeoData
+    title: Columbia's GeoData data sets
+    description: Columbia's own geospatial data sets
     # warning: Datasource Unavailable
     render_options:
       format: geo

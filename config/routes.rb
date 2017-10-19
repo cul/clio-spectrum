@@ -165,6 +165,8 @@ Rails.application.routes.draw do
 
   get 'ebooks', to: 'spectrum#search', as: :ebooks_index, defaults: { layout: 'ebooks' }
   get 'dissertations', to: 'spectrum#search', as: :dissertations_index, defaults: { layout: 'dissertations' }
+  get 'research_data', to: 'spectrum#search', as: :data_index, defaults: { layout: 'research_data' }
+
   # redirect newspapers to articles
   get '/newspapers', to: redirect('/articles')
 

@@ -69,7 +69,7 @@ module Spectrum
           # The Academic Commons Solr has been down so often, and generating
           # so many emails to the CLIO group, that we're going to special-case
           # this to swallow AC connection errors, and partially report to patron.
-          if ['academic_commons', 'ac_dissertations'].include?(@source)
+          if ['academic_commons', 'ac_dissertations', 'ac_data'].include?(@source)
             @errors = ex.message.truncate(40)
           else
             raise "Error searching Solr (#{ex.message})"
@@ -141,13 +141,27 @@ module Spectrum
           params['f'] ||= {}
           params['f']['format'] = ['Thesis']
           catalog_index_path(params)
+        when 'catalog_data'
+          params['f'] ||= {}
+          params['f']['format'] = ['Computer File']
+          catalog_index_path(params)
         when 'academic_commons'
           academic_commons_index_path(params)
         when 'ac_dissertations'
           params['f'] ||= {}
           params['f']['genre_facet'] = ['Theses']
+          params['f']['has_model_ssim'] = ['info:fedora/ldpd:ContentAggregator']
+          academic_commons_index_path(params)
+        when 'ac_data'
+          params['f'] ||= {}
+          params['f']['genre_facet'] = ['Data (information)']
+          params['f']['has_model_ssim'] = ['info:fedora/ldpd:ContentAggregator']
           academic_commons_index_path(params)
         when 'geo'
+          geo_index_path(params)
+        when 'geo_cul'
+          params['f'] ||= {}
+          params['f']['dct_provenance_s'] = ['Columbia']
           geo_index_path(params)
         when 'dlc'
           dlc_index_path(params)
@@ -490,7 +504,7 @@ module Spectrum
 
       def self.generate_config(source)
         # If we're in one of the hybrid-source bento-box searches....
-        if source.in?('quicksearch', 'ebooks', 'dissertations')
+        if source.in?('quicksearch', 'ebooks', 'dissertations', 'research_data')
           self.blacklight_config = Blacklight::Configuration.new do |config|
 
             # Add the "All Fields" seach field first, then append all the other default searches
@@ -538,6 +552,12 @@ module Spectrum
               config.default_solr_params = {
                 qt: 'search',
                 fq: ['{!raw f=format}Thesis']
+              }
+            when 'catalog_data'
+              default_catalog_config(config, :display_fields, :facets, :search_fields, :sorts)
+              config.default_solr_params = {
+                qt: 'search',
+                fq: ['{!raw f=format}Computer File']
               }
             when 'journals'
               default_catalog_config(config, :display_fields, :sorts)
@@ -746,6 +766,54 @@ module Spectrum
                                     label: 'Title A-Z'
               config.add_sort_field 'title_sort desc, pub_date_sort desc',
                                     label: 'Title Z-A'
+            when 'ac_data'
+              default_catalog_config(config, :search_fields)
+
+              config.default_solr_params = {
+                qt: 'search',
+                fq: ['{!raw f=genre_facet}Data (information)',
+                     '{!raw f=has_model_ssim}info:fedora/ldpd:ContentAggregator']
+              }
+
+              config.show.title_field = 'title_display'
+              config.show.title_field = 'title_display'
+              config.show.display_type_field = 'format'
+
+              config.show.genre = 'genre_facet'
+              config.show.author = 'author_display'
+
+              config.index.title_field = 'title_display'
+              config.index.display_type_field = 'format'
+
+              config.add_facet_field 'author_facet',
+                                     # label: 'Author', open: true, limit: 5
+                                     label: 'Author', collapse: false, limit: 5
+              config.add_facet_field 'pub_date_sort',
+                                     label: 'Publication Date', limit: 3,
+                                     range: { segments: false }
+              config.add_facet_field 'department_facet',
+                                     label: 'Department', limit: 5
+              config.add_facet_field 'subject_facet',
+                                     label: 'Subject', limit: 10
+              config.add_facet_field 'genre_facet',
+                                     label: 'Content Type', limit: 10
+              config.add_facet_field 'series_facet',
+                                     label: 'Series', limit: 10
+
+              config.add_sort_field 'score desc, pub_date_sort desc, title_sort asc',
+                                    label: 'relevance'
+              config.add_sort_field 'pub_date_sort asc, title_sort asc',
+                                    label: 'Published Earliest'
+              config.add_sort_field 'pub_date_sort desc, title_sort asc',
+                                    label: 'Published Latest'
+              config.add_sort_field 'author_sort asc, title_sort asc',
+                                    label: 'Author A-Z'
+              config.add_sort_field 'author_sort desc, title_sort asc',
+                                    label: 'Author Z-A'
+              config.add_sort_field 'title_sort asc, pub_date_sort desc',
+                                    label: 'Title A-Z'
+              config.add_sort_field 'title_sort desc, pub_date_sort desc',
+                                    label: 'Title Z-A'
 
             when 'academic_commons'
               default_catalog_config(config, :solr_params, :search_fields)
@@ -796,7 +864,6 @@ module Spectrum
 
 
             when 'geo'
-
               config.default_solr_params = {
                 :start => 0,
                 :rows => 10,
@@ -824,6 +891,34 @@ module Spectrum
               config.add_sort_field "dc_publisher_s asc, dc_title_sort asc", :label => 'publisher'
               config.add_sort_field 'dc_title_sort asc', :label => 'title'
 
+            when 'geo_cul'
+              config.default_solr_params = {
+                :start => 0,
+                :rows => 10,
+                'q.alt' => '*:*',
+                fq: ['{!raw f=dct_provenance_s}Columbia']
+              }
+              config.default_document_solr_params = {
+               :qt => 'document',
+               :q => '{!raw f=layer_slug_s v=$id}'
+              }
+
+              config.index.title_field = 'dc_title_s'
+              config.show.display_type_field = 'format'
+              # config.index.document_presenter_class = Geoblacklight::DocumentPresenter
+              config.add_facet_field 'dct_provenance_s', label: 'Institution', limit: 8
+              config.add_facet_field 'dc_creator_sm', :label => 'Author', :limit => 8
+              config.add_facet_field 'dc_subject_sm', :label => 'Subject', :limit => 8
+              config.add_facet_field 'dct_spatial_sm', :label => 'Place', :limit => 8
+              config.add_facet_field 'dct_isPartOf_sm', :label => 'Collection', :limit => 8
+              config.add_facet_field 'solr_year_i', :label => 'Year', :limit => 10
+              config.add_facet_field 'dc_rights_s', label: 'Access', limit: 8
+              config.add_facet_field 'layer_geom_type_s', label: 'Data type', limit: 8
+
+              config.add_sort_field 'score desc, dc_title_sort asc', :label => 'relevance'
+              config.add_sort_field "solr_year_i desc, dc_title_sort asc", :label => 'year'
+              config.add_sort_field "dc_publisher_s asc, dc_title_sort asc", :label => 'publisher'
+              config.add_sort_field 'dc_title_sort asc', :label => 'title'
 
             when 'dlc'
               add_search_fields(config, 'dlc_title', 'dlc_name')

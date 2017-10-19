@@ -40,6 +40,7 @@ default_search_layouts:
             count: 3
           - source: ac_dissertations 
             count: 3
+
   ebooks:
     style: aggregate
     columns:
@@ -52,6 +53,18 @@ default_search_layouts:
             count: 10
             display_footer: true
 
+  research_data:
+    style: aggregate
+    columns:
+      - searches:
+          - source: catalog_data
+            count: 10
+            display_footer: true
+      - searches:
+          - source: ac_data
+            count: 3
+          - source: geo_cul
+            count: 3
 
 
 # 11/2016 - folded "sources" configurations into datasources.yml

@@ -311,7 +311,7 @@ class SpectrumController < ApplicationController
           fixed_params['new_search'] = true if params['layout'] == 'quicksearch'
           Spectrum::SearchEngines::Summon.new(fixed_params, get_summon_facets)
 
-        when 'catalog', 'databases', 'journals', 'catalog_ebooks', 'catalog_dissertations', 'academic_commons', 'ac_dissertations', 'geo', 'dlc'
+        when 'catalog', 'databases', 'journals', 'catalog_ebooks', 'catalog_dissertations', 'catalog_data', 'academic_commons', 'ac_dissertations', 'ac_data', 'geo', 'geo_cul', 'dlc'
           blacklight_search(fixed_params)
 
         when 'library_web'

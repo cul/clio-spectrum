@@ -1,0 +1,25 @@
+= display_search_boxes('research_data')
+
+.row
+
+  .landing_main.col-sm-8
+    .title Research Data
+
+    = render partial: '/datasource_warning', locals: {warning: warning}
+
+    %p This search queries online research data from GeoData, Academic Commons, and our library catalog.
+
+  .landing_side.col-sm-4
+    .well.sidebar-nav
+      .nav
+        %ul.nav.nav-list
+          -# %li.nav-header Guide
+          -# %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/clio/guides/dissertations-guide/", :target => "_blank"
+          -# %li.nav-divider
+
+        %ul.nav.nav-list
+          %li.nav-header Related Links
+          %li=link_to "Columbia Research Data Services", "http://library.columbia.edu/services/research-data-services.html"
+          %li=link_to "Research Data Store", "https://cuit.columbia.edu/content/university-data-store/rds"
+          %li=link_to "Office of the Executive Vice President for Research", "https://research.columbia.edu/"
+
