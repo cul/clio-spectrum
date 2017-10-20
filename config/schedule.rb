@@ -46,17 +46,24 @@ if ['clio_dev', 'clio_test', 'clio_prod'].include?(@environment)
     rake 'authorities:add_to_bib:by_extract[cumulative]', subject: 'weekly authorities'
   end
 
+
   # == LAW ==
 
   # Weekly full load of all Law records
   every :sunday, at: '8am' do
     rake 'bibliographic:extract:process EXTRACT=law', subject: 'law load'
   end
-  # Weekly Delete of all stale Law records (3 week grace period)
-  # (TODO: this should definitely be coded into a rake task!)
+
+  # Add authority variants to the Law records after each load
   every :sunday, at: '10am' do
-    command '/usr/bin/curl --silent "http://lito-solr-dev1.cul.columbia.edu:8983/solr/clio_dev/update?commit=true" -H "Content-Type: text/xml" --data-binary "<delete><query>timestamp:[* TO NOW/DAY-21DAYS] AND location_facet:Law</query></delete>"', subject: 'law purge'
+    rake 'authorities:add_to_bib:by_extract[law]', subject: 'weekly law authorities'
   end
+
+  # # Weekly Delete of all stale Law records (3 week grace period)
+  # # (TODO: this should definitely be coded into a rake task!)
+  # every :sunday, at: '10am' do
+  #   command '/usr/bin/curl --silent "http://lito-solr-dev1.cul.columbia.edu:8983/solr/clio_dev/update?commit=true" -H "Content-Type: text/xml" --data-binary "<delete><query>timestamp:[* TO NOW/DAY-21DAYS] AND location_facet:Law</query></delete>"', subject: 'law purge'
+  # end
 
 end
 
