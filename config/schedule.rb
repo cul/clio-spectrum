@@ -12,7 +12,7 @@ set :recipient, 'clio-dev@library.columbia.edu'
 set :job_template, "/usr/local/bin/mailifoutput -s ':subject (:environment)' :recipient  /bin/bash -c ':job'"
 
 # CLIO DEV, CLIO TEST
-if @environment != 'clio_prod'
+if ['clio_dev', 'clio_test', 'clio_prod'].includes?(@environment)
 
   # Still to do....
   # - cleanup search records
