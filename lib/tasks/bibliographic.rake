@@ -91,7 +91,7 @@ namespace :bibliographic do
 
       # explicity set the settings
       indexer.settings do
-         provide "solr.url", Blacklight.connection_config[:url]
+         provide "solr.url", Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
          provide 'debug_ascii_progress', true
          # 'debug' to echo full options
          provide 'log.level', 'info'

@@ -87,23 +87,23 @@ namespace :authorities do
 
       # explicity set the settings
       indexer.settings do
-         provide "solr.url", APP_CONFIG['authorities_solr_url']
-         provide 'debug_ascii_progress', true
-         # 'debug' to see full traject options
-         provide "log.level", 'info'
-         # match our default application log format
-         provide 'log.format', [ '%d [%L] %m', '%Y-%m-%d %H:%M:%S' ]
-         provide "solr_writer.commit_on_close", "true"
-         # How many records skipped due to errors before we 
-         #   bail out with a fatal error?
-         provide "solr_writer.max_skipped", "100"
-         # 10 x default batch sizes, sees some gains
-         provide "solr_writer.batch_size", "1000"
+        provide "solr.url", APP_CONFIG['authorities_solr_url']
+        provide 'debug_ascii_progress', true
+        # 'debug' to see full traject options
+        provide "log.level", 'info'
+        # match our default application log format
+        provide 'log.format', [ '%d [%L] %m', '%Y-%m-%d %H:%M:%S' ]
+        provide "solr_writer.commit_on_close", "true"
+        # How many records skipped due to errors before we 
+        #   bail out with a fatal error?
+        provide "solr_writer.max_skipped", "100"
+        # 10 x default batch sizes, sees some gains
+        provide "solr_writer.batch_size", "1000"
 
-         if ENV["DEBUG"]
-           Rails.logger.info("- DEBUG set, writing to stdout")
-           provide "writer_class_name", "Traject::DebugWriter"
-         end
+        if ENV["DEBUG"]
+         Rails.logger.info("- DEBUG set, writing to stdout")
+         provide "writer_class_name", "Traject::DebugWriter"
+        end
       end
 
       # load authorities config file (indexing rules)
