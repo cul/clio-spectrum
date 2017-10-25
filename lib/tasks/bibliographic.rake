@@ -68,7 +68,9 @@ namespace :bibliographic do
 
         Rails.logger.info(ids_to_delete.length.to_s + " ids to delete.")
         begin
-          solr_delete_ids(ids_to_delete)
+          solr_url = Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
+          solr_connection = RSolr.connect(url: solr_url)
+          solr_delete_ids(solr_connection, ids_to_delete)
           Rails.logger.info(ids_to_delete.length.to_s + " ids deleted (if in index)")
         rescue => e
           Rails.logger.error("Error during delete: " + e.inspect)

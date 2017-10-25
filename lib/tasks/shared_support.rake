@@ -22,15 +22,17 @@ def setup_ingest_logger
   Rails.logger.extend(ActiveSupport::Logger.broadcast(ingest_log_logger))
 end
 
-def solr_delete_ids(ids)
-  retries = 5
+def solr_delete_ids(solr_connection, ids)
+  retries = 3
   begin
     ids = ids.listify.collect { |x| x.strip}
     Rails.logger.debug(ids.length.to_s + " deleting")
-    Blacklight.default_index.connection.delete_by_id(ids)
+    # Blacklight.default_index.connection.delete_by_id(ids)
+    solr_connection.delete_by_id(ids)
 
     Rails.logger.debug("Committing changes")
-    Blacklight.default_index.connection.commit
+    # Blacklight.default_index.connection.commit
+    solr_connection.commit
 
   rescue Timeout::Error
     Rails.logger.info("Timed out!")
