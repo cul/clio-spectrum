@@ -9,7 +9,8 @@ begin
   all_config = loaded_config['_all_environments'] || {}
   env_config = loaded_config[Rails.env] || {}
   APP_CONFIG ||= all_config.merge(env_config)
-rescue
+rescue => ex
+  puts "ERROR reading app_config.yml: #{ex}"
   APP_CONFIG = {}
 end
 
