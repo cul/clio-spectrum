@@ -79,8 +79,8 @@ namespace :recap do
     extract_dir = APP_CONFIG['extract_home'] + "/recap"
     full_path = extract_dir + '/' + filename
 
-    raise "recap:ingest[:filename] not passed filename!" unless filename
-    raise "recap:ingest[:filename] passed non-existant filename #{filename}" unless File.exist?(full_path)
+    abort("recap:ingest[:filename] not passed filename!") unless filename
+    abort("recap:ingest[:filename] passed non-existant filename #{filename}") unless File.exist?(full_path)
     
     Rails.logger.info("- ingesting ReCAP file #{filename}")
 
@@ -98,7 +98,7 @@ namespace :recap do
       Rails.logger.info("--- unzip successful")
     else
       Rails.logger.error("--- unzip unsucessful")
-      raise "Unzip unsucessful"
+      abort("Unzip unsucessful")
     end    
 
     Rails.logger.info("--- calling bibliographic:extract:ingest")
@@ -122,16 +122,16 @@ namespace :recap do
     # read in our 'last-ingest-file' file - or abort if not found.
     # this file tells us the last file that was ingested.
     last_ingest_file = extract_dir + '/last-ingest.txt'
-    raise "Can't find last-ingest-file #{last_ingest_file}" unless File.exist?(last_ingest_file)
+    abort("Can't find last-ingest-file #{last_ingest_file}") unless File.exist?(last_ingest_file)
     Rails.logger.info("--- found last_ingest_file: #{last_ingest_file}")
 
     last_ingest = File.read(last_ingest_file).strip
-    raise "Cannot find last-ingest in last-ingest-file #{last_ingest_file}" if last_ingest.blank?
+    abort("Cannot find last-ingest in last-ingest-file #{last_ingest_file}") if last_ingest.blank?
     Rails.logger.info("--- last ingest: #{last_ingest}")
     
     # retrieve the list of files, sorted (alphanumeric sort == chronological sort)
     all_files = Dir.glob("#{extract_dir}/PUL-NYPL*.zip").map { |f| File.basename(f)}.sort
-    raise "Can't find any ingest files in #{extract_dir}" if all_files.size == 0
+    abort("Can't find any ingest files in #{extract_dir}") if all_files.size == 0
     Rails.logger.info("--- found #{all_files.size} total files.")
     # puts all_files.inspect
     
@@ -225,7 +225,7 @@ def get_sftp()
 
   Rails.logger.info("--- opening SFTP connection to #{sftp_user}@#{sftp_host}:#{sftp_port}")
   sftp  = Net::SFTP.start(sftp_host, sftp_user, port: sftp_port, keys: [sftp_keyfile] )  
-  raise "get_sftp() failed!" unless sftp
+  abort("get_sftp() failed!") unless sftp
 
   return sftp  
 end
