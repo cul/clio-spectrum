@@ -121,7 +121,7 @@ namespace :recap do
 
     # read in our 'last-ingest-file' file - or abort if not found.
     # this file tells us the last file that was ingested.
-    last_ingest_file = extract_dir + '/last-ingest.txt'
+    last_ingest_file = extract_dir + "/last-ingest.#{Rails.env}.txt"
     abort("Can't find last-ingest-file #{last_ingest_file}") unless File.exist?(last_ingest_file)
     Rails.logger.info("--- found last_ingest_file: #{last_ingest_file}")
 
