@@ -151,16 +151,21 @@ namespace :recap do
     # For each file in the list, ingest it.
     files_to_ingest = new_files[0,count]
     files_to_ingest.each do |filename|
+      Rails.logger.info('-' * 100)
       Rails.logger.info("--- Rake::Task[recap:ingest].invoke(#{filename})")
+      Rails.logger.info('-' * 100)
       Rake::Task["recap:ingest"].reenable
       Rake::Task["recap:ingest"].invoke(filename)
     end
+    Rails.logger.info('-' * 100)
 
     # Voila.  Now, record what we've done by writing out the last-ingested filename
+    Rails.logger.info("--- updating #{last_ingest_file} with latest ingest (#{files_to_ingest.last})")
     File.open(last_ingest_file, 'w') do |f|
       f.puts(files_to_ingest.last)
     end
 
+    Rails.logger.info("- index_new complete.")
   end
   
 
