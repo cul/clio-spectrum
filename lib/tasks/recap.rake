@@ -152,6 +152,7 @@ namespace :recap do
     files_to_ingest = new_files[0,count]
     files_to_ingest.each do |filename|
       Rails.logger.info("--- Rake::Task[recap:ingest].invoke(#{filename})")
+      Rake::Task["recap:ingest"].reenable
       Rake::Task["recap:ingest"].invoke(filename)
     end
 
