@@ -31,32 +31,37 @@ namespace :recap do
     sftp = get_sftp()
     # list the entries in a directory
     count = 0
-    sftp.dir.foreach( APP_CONFIG['recap']['sftp_path'] ) do |entry|
-      puts entry.longname
+    files = sftp.dir.entries( APP_CONFIG['recap']['sftp_path'] )
+    files.sort{|f1, f2| f1.attributes.mtime <=> f2.attributes.mtime}.each do |file|
+      puts file.longname
       count = count + 1
     end
-    Rails.logger.info("- done.  #{count} files found.")
+    Rails.logger.info("- done.  #{files.size} files found.")
   end
 
-  desc "download all new ReCAP extract files to local storage"
+  desc "download all new ReCAP extract/delete files to local storage"
   task :download do
     setup_ingest_logger
     # fetch from this location
     sftp_path = APP_CONFIG['recap']['sftp_path']
-    # Only retrieve files with this suffix
-    suffix = "zip"
-    Rails.logger.info("- downloading ALL remote ReCAP files with suffix #{suffix}")
+    # Nope, just pull everything down, sort it out locally.
+    # # # Only retrieve files with this suffix
+    # # suffix = "zip"
+    # # Rails.logger.info("- downloading ALL remote ReCAP files with suffix #{suffix}")
+    Rails.logger.info("- downloading ALL remote ReCAP files")
     extract_dir = APP_CONFIG['extract_home'] + "/" + 'recap'
     Rails.logger.info("- saving files to  #{extract_dir}")
 
     sftp = get_sftp()
     already_have = []
     need_to_download  = []
-    sftp.dir.glob(sftp_path, "*.#{suffix}") do |entry|
-      if File.exist?("#{extract_dir}/#{entry.name}")
-        already_have << entry.name
+    # sftp.dir.glob(sftp_path, "*.#{suffix}") do |entry|
+    files = sftp.dir.entries( APP_CONFIG['recap']['sftp_path'] )
+    files.each do |file|
+      if File.exist?("#{extract_dir}/#{file.name}")
+        already_have << file.name
       else
-        need_to_download << entry.name
+        need_to_download << file.name
       end
     end
 
@@ -81,6 +86,7 @@ namespace :recap do
 
     abort("recap:ingest[:filename] not passed filename!") unless filename
     abort("recap:ingest[:filename] passed non-existant filename #{filename}") unless File.exist?(full_path)
+    abort("recap:ingest[:filename] not a ReCAP .zip extract file!") unless filename.ends_with?('.zip')
     
     Rails.logger.info("- ingesting ReCAP file #{filename}")
 
@@ -110,7 +116,7 @@ namespace :recap do
   end
 
 
-  desc "ingest new ReCAP zip files that haven't yet been ingested"
+  desc "ingest new ReCAP .zip files that haven't yet been ingested"
   task :ingest_new, [:count] do |t, args|
     setup_ingest_logger
 
