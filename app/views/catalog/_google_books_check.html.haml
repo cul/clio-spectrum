@@ -1,5 +1,6 @@
 
 - bibkeys_to_check = documents.listify.collect { |d| extract_standard_bibkeys(d) }.compact.flatten.uniq
+- quoted_bibkeys = bibkeys_to_check.map { |bibkey| "'" + bibkey + "'" }
 
 
 - content_for :jstemplates do
@@ -13,7 +14,7 @@
         _GBSBookInfo = data;
     }
 
-    quoted_bibkeys = [#{bibkeys_to_check.collect { |i| "'#{i}'" }.join(",")}];
+    quoted_bibkeys = [#{raw(quoted_bibkeys.join(','))}];
 
     api_url= books_url + "?jscmd=viewapi&bibkeys=#{h(bibkeys_to_check.join(","))}" + "&callback=google_books_response_handler";
 
