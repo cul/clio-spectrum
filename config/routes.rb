@@ -149,6 +149,7 @@ Rails.application.routes.draw do
   match 'new_arrivals/:id/librarian_view_track', via: [:post], to: 'new_arrivals#librarian_view_track'
 
   get 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
+  get 'backend/offsite/:id' => 'backend#offsite', :as => 'backend_offsite', constraints: { :id => /.+/}
 
   get 'catalog/hathi_holdings/:id' => 'catalog#hathi_holdings', :as => 'hathi_holdings'
 

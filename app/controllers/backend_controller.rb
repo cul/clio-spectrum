@@ -89,7 +89,55 @@ class BackendController < ApplicationController
     scsb_status = Recap::ScsbRest.get_bib_availability(bibliographicId, institutionId) || {}
   end
 
+  # Called with multiple ids, slash-separated:
+  #   http://cliobeta.columbia.edu:3001/backend/offsite/1645852/766626
+  # SCSB will give a status for each item (barcode) within the bib.
+  # Simplify this, down to a hash map of just bib-to-status:
+  #   { 123: 'available', 456: 'unavailable', 789: 'some_available'}
+  def offsite
+    bibids = params['id'].to_s.split('/').collect { |bibid| bibid.strip }
+    statuses = {}
 
+    bibids.each do |bib|
+      availables = unavailables = 0
+      begin
+        scsb_status = BackendController.scsb_status(bib)
+      rescue => e
+        statuses[bib] = 'unavailable'
+        next
+      end
+      scsb_status.each { |barcode, availability|
+        if availability == 'Available'
+          availables += 1
+        else
+          unavailables += 1
+        end
+      }
+
+      bib_status = case
+        when availables > 0 && unavailables > 0
+          'some_available'
+        when availables > 0 && unavailables == 0
+          'available'
+        else
+          'unavailable'
+      end
+
+      statuses[bib] = bib_status
+    end
+    # connection = get_oracle_connection()
+    # holdings = Voyager::Request.simple_holdings_check(connection: connection, bibids: @bibids)
+    render json: statuses
+
+    # rescue => e
+    #   # When we encounter an internal error,
+    #   # what do we want our caller, CLIO, to see?
+    #   # Probably nothing - just return empty JSON data, with HTTP 500
+    #   render json: {}, status: :internal_server_error
+    #   logger.error "Error calling BackendController#offsite(#{@bibids}): #{e}"
+    # end
+  end
+  
   def holdings
     # LEGACY
     # LEGACY

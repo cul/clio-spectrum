@@ -90,7 +90,12 @@ module Recap
 
 
     # Return a hash:
-    #   { barcode: availability, barcode: availability, ...}
+    #   { 
+    #     barcode: availability,
+    #     barcode: availability, 
+    #     ...
+    #   }
+    #
 
     # BIB NOT FOUND - Response Code 200, Response Body:
     # [

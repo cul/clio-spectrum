@@ -7,7 +7,7 @@
 -# maybe handy to have a per-item anchor?
 -# %a{name: document.fetch(:id)}
 
-.result.document{class: "#{render_document_class(document)} #{'database_record' if document.is_database?}", source: 'catalog', item_id: document.id, standard_ids: extract_standard_bibkeys(document).join(",")}
+.result.document{class: "#{render_document_class(document)} #{'database_record' if document.is_database?}", source: 'catalog', item_id: document.id, data: document_data_attributes(document), standard_ids: extract_standard_bibkeys(document).join(",")}
 
   .row
     .title.col-sm-12

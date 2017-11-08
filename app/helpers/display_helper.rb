@@ -165,8 +165,11 @@ module DisplayHelper
 
       loc_display, hold_id = location.split('|DELIM|')
 
+      # boolean for whether this particular holding is offsite or not
+      offsite_indicator = loc_display.starts_with?('Offsite', 'ReCAP') ? 'offsite' : ''
+
       image_tag('icons/none.png',
-                class: "availability holding_#{hold_id}") +
+                class: "availability bib_#{document.id} holding_#{hold_id} #{offsite_indicator}") +
         process_holdings_location(loc_display) +
         additional_brief_location_note(document, location)
         # Can't do this without more work...
@@ -839,5 +842,17 @@ module DisplayHelper
   #   end
   # end
 
+  def document_data_attributes(document)
+    attr = {}
+    
+    # To add this to the div.document.result:  data-foo="bar"
+    # do this:
+    #     attr['foo'] = 'bar'
+    
+    attr['onsite']  = 'true' if document.has_onsite_holdings?
+    attr['offsite'] = 'true' if document.has_offsite_holdings?
+
+    return attr
+  end
 
 end

@@ -9,23 +9,28 @@ $ ->
 
 @async_lookup_item_details = (element) ->
   fedora_items = []
-  catalog_items = []
+  onsite_catalog_items = []
+  offsite_catalog_items = []
   standard_id_sets = []
   $(element).find('.result').each ->
     res = $(this)
     source = res.attr('source')
-    item = res.attr('item_id')
-
-    # alert("item:" + item)
+    item_id = res.attr('item_id')
+    # each record may have both onsite and/or offsite holdings
+    onsite  = res.data('onsite')
+    offsite = res.data('offsite')
 
     if source == 'academic_commons'
-      fedora_items.push(item)
+      fedora_items.push(item_id)
     else if source == 'catalog'
-      # alert("numeric item:" + item)
       # exclude Law records from the catalog holdings check
       # (but leave them in standard_id_set_csv, for Google, et.al.)
-      if $.isNumeric(item)
-        catalog_items.push(item)
+      if $.isNumeric(item_id)
+      # A bib item may have BOTH onsite and offsite holdings
+        if (onsite)
+          onsite_catalog_items.push(item_id)
+        if (offsite)
+          offsite_catalog_items.push(item_id)
       # a set of zero or more IDs (ISBN, OCLC, or LCCN)
       standard_id_set_csv = res.attr('standard_ids')
       if (standard_id_set_csv)
@@ -34,8 +39,11 @@ $ ->
   if fedora_items.length
     retrieve_fedora_resources(fedora_items)
 
-  if catalog_items.length
-    retrieve_holdings(catalog_items)
+  if onsite_catalog_items.length
+    retrieve_holdings(onsite_catalog_items)
+
+  if offsite_catalog_items.length
+    retrieve_offsite_availability(offsite_catalog_items)
 
   if standard_id_sets.length
     retrieve_google_jackets(standard_id_sets)
@@ -110,15 +118,32 @@ $ ->
 @retrieve_holdings = (bibids) ->
   url = clio_backend_url + '/holdings/status/' + bibids.join('/');
 
-
   $.getJSON url, (data) ->
     for bib, holdings of data
       for holding_id, status of data[bib].statuses
-        selector = "img.availability.holding_" + holding_id
+        selector = "img.availability.holding_" + holding_id + ":not(.offsite)"
         status_upcase = status.charAt(0).toUpperCase() + status.slice(1)
         $(selector).attr("src", "/static-icons/" + status + ".png")
         $(selector).attr("title", status_upcase)
         $(selector).attr("alt", status_upcase)
+
+# Offsite availability comes from a SCSB API call
+# Return json data is just simple bib-to-status map:
+#   { 123: 'available', 456: 'unavailable', 789: 'some_available'}
+@retrieve_offsite_availability = (bibids) ->
+  url =  '/backend/offsite/' + bibids.join('/');
+
+  $.getJSON url, (data) ->
+    for bib, status of data
+      # We need to:
+      # - select the %div.document.result for item_id=bib
+      # - within that, find any img.availability for OFFSITE holdings
+      # - ignore any img.availability NOT for offsite items (how?)
+      selector = "img.availability.offsite.bib_" + bib
+      $(selector).attr("src", "/static-icons/" + status + ".png")
+      status_upcase = status.charAt(0).toUpperCase() + status.slice(1)
+      $(selector).attr("title", status_upcase)
+      $(selector).attr("alt", status_upcase)
 
 
 # Called from _google_books_check.html.haml, to update the

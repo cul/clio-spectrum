@@ -89,6 +89,27 @@ class SolrDocument
     return false
   end
 
+  # Does this item have any holdings in non-offsite locations?
+  def has_onsite_holdings?
+    return false unless self[:location_facet].present?
+
+    # consider each location for this record....
+    self[:location_facet].each do |location_facet|
+      # skip over anything that's offsite...
+      next if location_facet.match /^Offsite/
+      next if location_facet.match /ReCAP/i
+
+      # skip over Online locations (e.g., just links)
+      next if location_facet.match /Online/i
+
+      # If we got here, we found somthing that's onsite!
+      return true
+    end
+    
+    # If we dropped down to here, we only found offsite locations.
+    return false
+  end
+
   def call_numbers
     Array(self['call_number_display']).sort.uniq.join(' / ')
   end
