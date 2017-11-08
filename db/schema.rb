@@ -14,35 +14,21 @@
 ActiveRecord::Schema.define(version: 20160930143849) do
 
   create_table "bookmarks", force: :cascade do |t|
-    t.integer  "user_id",                   null: false
-    t.string   "document_id",   limit: 255
-    t.string   "title",         limit: 255
+    t.integer  "user_id",       null: false
+    t.string   "document_id"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "user_type",     limit: 255
-    t.string   "document_type", limit: 255
+    t.string   "user_type"
+    t.string   "document_type"
   end
 
   add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id"
 
-  create_table "content_providers", force: :cascade do |t|
-    t.string   "name",            limit: 255
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
-    t.string   "eds_database_id", limit: 255
-    t.datetime "last_seen"
-    t.boolean  "active",                      default: false
-  end
-
-  create_table "content_providers_quick_sets", id: false, force: :cascade do |t|
-    t.integer "content_provider_id"
-    t.integer "quick_set_id"
-  end
-
   create_table "item_alerts", force: :cascade do |t|
-    t.string   "source",     limit: 20,  null: false
-    t.string   "item_key",   limit: 32,  null: false
-    t.string   "alert_type", limit: 255, null: false
+    t.string   "source",     limit: 20, null: false
+    t.string   "item_key",   limit: 32, null: false
+    t.string   "alert_type",            null: false
     t.integer  "author_id"
     t.datetime "start_date"
     t.datetime "end_date"
@@ -55,8 +41,8 @@ ActiveRecord::Schema.define(version: 20160930143849) do
   add_index "item_alerts", ["start_date", "end_date"], name: "index_item_alerts_on_start_date_and_end_date"
 
   create_table "libraries", force: :cascade do |t|
-    t.string   "hours_db_code", limit: 255, null: false
-    t.string   "name",          limit: 255
+    t.string   "hours_db_code", null: false
+    t.string   "name"
     t.text     "comment"
     t.text     "url"
     t.datetime "created_at"
@@ -78,7 +64,7 @@ ActiveRecord::Schema.define(version: 20160930143849) do
   add_index "library_hours", ["library_id", "date"], name: "index_library_hours_on_library_id_and_date"
 
   create_table "locations", force: :cascade do |t|
-    t.string   "name",          limit: 255
+    t.string   "name"
     t.text     "found_in"
     t.integer  "library_id"
     t.string   "category",      limit: 12
@@ -94,7 +80,7 @@ ActiveRecord::Schema.define(version: 20160930143849) do
     t.integer  "entity_id"
     t.string   "entity_type",      limit: 30
     t.string   "association_type", limit: 30
-    t.string   "name",             limit: 255, null: false
+    t.string   "name",                        null: false
     t.text     "value"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -111,17 +97,9 @@ ActiveRecord::Schema.define(version: 20160930143849) do
 
   add_index "preferences", ["login"], name: "index_preferences_on_login", unique: true
 
-  create_table "quick_sets", force: :cascade do |t|
-    t.string   "name",        limit: 255,                null: false
-    t.text     "description"
-    t.boolean  "suppressed",              default: true
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-  end
-
   create_table "saved_list_items", force: :cascade do |t|
     t.integer  "saved_list_id"
-    t.string   "item_source",   limit: 255
+    t.string   "item_source"
     t.string   "item_key",      limit: 200
     t.integer  "sort_order"
     t.datetime "created_at"
@@ -134,9 +112,9 @@ ActiveRecord::Schema.define(version: 20160930143849) do
     t.string   "owner",       limit: 20,                      null: false
     t.string   "name",        limit: 200,                     null: false
     t.string   "slug",        limit: 200,                     null: false
-    t.string   "description", limit: 255, default: ""
-    t.string   "sort_by",     limit: 255
-    t.string   "permissions", limit: 255, default: "private"
+    t.string   "description",             default: ""
+    t.string   "sort_by"
+    t.string   "permissions",             default: "private"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -149,13 +127,13 @@ ActiveRecord::Schema.define(version: 20160930143849) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "user_type",    limit: 255
+    t.string   "user_type"
   end
 
   add_index "searches", ["user_id"], name: "index_searches_on_user_id"
 
   create_table "sessions", force: :cascade do |t|
-    t.string   "session_id", limit: 255, null: false
+    t.string   "session_id", null: false
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -170,17 +148,17 @@ ActiveRecord::Schema.define(version: 20160930143849) do
     t.string   "login",                  limit: 10
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                             default: "", null: false
+    t.string   "encrypted_password",                default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0
+    t.integer  "sign_in_count",                     default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.string   "password_salt",          limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "password_salt"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
@@ -188,10 +166,10 @@ ActiveRecord::Schema.define(version: 20160930143849) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "versions", force: :cascade do |t|
-    t.string   "item_type",  limit: 255, null: false
-    t.integer  "item_id",                null: false
-    t.string   "event",      limit: 255, null: false
-    t.string   "whodunnit",  limit: 255
+    t.string   "item_type",  null: false
+    t.integer  "item_id",    null: false
+    t.string   "event",      null: false
+    t.string   "whodunnit"
     t.text     "object"
     t.datetime "created_at"
   end
