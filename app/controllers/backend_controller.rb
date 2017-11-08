@@ -104,12 +104,6 @@ class BackendController < ApplicationController
     statuses = {}
 
     bibids.each do |bib|
-      
-      # Don't lookup ReCAP Partner item status until approved by committee.
-      if Rails.env == 'clio_prod'
-        next if bib.match(/SCSB/i)
-      end
-      
       availables = unavailables = 0
       begin
         scsb_status = BackendController.scsb_status(bib)
