@@ -107,7 +107,7 @@ class BackendController < ApplicationController
       
       # Don't lookup ReCAP Partner item status until approved by committee.
       if Rails.env == 'clio_prod'
-        next if bib.match(/ReCAP/i)
+        next if bib.match(/SCSB/i)
       end
       
       availables = unavailables = 0
