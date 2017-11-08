@@ -25,7 +25,8 @@ $ ->
     else if source == 'catalog'
       # exclude Law records from the catalog holdings check
       # (but leave them in standard_id_set_csv, for Google, et.al.)
-      if $.isNumeric(item_id)
+      # if $.isNumeric(item_id)
+	    if item_id.charAt(0) != 'b'
       # A bib item may have BOTH onsite and offsite holdings
         if (onsite)
           onsite_catalog_items.push(item_id)

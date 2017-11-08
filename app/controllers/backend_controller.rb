@@ -94,11 +94,22 @@ class BackendController < ApplicationController
   # SCSB will give a status for each item (barcode) within the bib.
   # Simplify this, down to a hash map of just bib-to-status:
   #   { 123: 'available', 456: 'unavailable', 789: 'some_available'}
+  # This code assumes that anything that's not "Available" shouild be
+  # marked as "Unavailable".  We also have the option of marking some
+  # material as "none", which won't get a green-check or red-X marking.
+  # (Librarians also don't like the word "Unavailable" for material that
+  # is not available, so they might not like the img alt text.)
   def offsite
     bibids = params['id'].to_s.split('/').collect { |bibid| bibid.strip }
     statuses = {}
 
     bibids.each do |bib|
+      
+      # Don't lookup ReCAP Partner item status until approved by committee.
+      if Rails.env == 'clio_prod'
+        next if bib.match(/ReCAP/i)
+      end
+      
       availables = unavailables = 0
       begin
         scsb_status = BackendController.scsb_status(bib)
