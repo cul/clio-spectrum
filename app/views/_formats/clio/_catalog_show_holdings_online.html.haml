@@ -3,7 +3,7 @@
 
 -# Skip Hathi links found in the 856 field.
 -# These will be handled by catalog_show_holdings_hathi
-- online_links_except_hathi = online_links.delete_if { |link| link[:title].match(/HathiTrust/) }
+- online_links_except_hathi = online_links.delete_if { |link| link[:title].match(/HathiTrust/) || link[:url].match(/catalog.hathitrust.org/) }
 
 - unless online_links_except_hathi.empty?
   #online_holdings
