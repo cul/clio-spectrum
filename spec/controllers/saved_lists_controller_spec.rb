@@ -4,9 +4,9 @@ describe SavedListsController do
 
   before(:each) do
     @first_user_name = 'user_alpha'
-    @first_user = FactoryGirl.create(:user, login: @first_user_name)
+    @first_user = FactoryBot.create(:user, login: @first_user_name)
     @second_user_name = 'user_beta'
-    @second_user = FactoryGirl.create(:user, login: @second_user_name)
+    @second_user = FactoryBot.create(:user, login: @second_user_name)
   end
 
   it "anonymous users can't do much" do

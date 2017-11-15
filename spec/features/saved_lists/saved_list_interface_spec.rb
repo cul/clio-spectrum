@@ -5,8 +5,8 @@ include Warden::Test::Helpers
 describe 'Saved List Interface', :vcr do
 
   before(:each) do
-    @autodidact = FactoryGirl.create(:user, login: 'autodidact')
-    @blatteroon = FactoryGirl.create(:user, login: 'blatteroon')
+    @autodidact = FactoryBot.create(:user, login: 'autodidact')
+    @blatteroon = FactoryBot.create(:user, login: 'blatteroon')
   end
 
   it 'Capybara should let us login and logout and login again' do

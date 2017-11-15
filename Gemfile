@@ -256,7 +256,7 @@ group :test, :development do
 end
 
 group :test do
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
 
   # Copy Stanford's approach to Solr relevancy testing
   gem 'rspec-solr'

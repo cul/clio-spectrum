@@ -5,8 +5,8 @@ describe ItemAlertsController do
   describe 'Create, Read, Update, Delete...' do
 
     before(:each) do
-      @unpriv_user = FactoryGirl.create(:user, login: 'stranger')
-      @priv_user = FactoryGirl.create(:user, login: 'test_mngr')
+      @unpriv_user = FactoryBot.create(:user, login: 'stranger')
+      @priv_user = FactoryBot.create(:user, login: 'test_mngr')
     end
 
     it 'unpriv user cannot see index' do
@@ -29,42 +29,42 @@ describe ItemAlertsController do
     end
 
     it "excercise 'active' logic" do
-      item_alert = FactoryGirl.create(:item_alert)
+      item_alert = FactoryBot.create(:item_alert)
       expect(item_alert).to_not be_nil
       expect(item_alert.active?).to eq true
 
       # Starts in the future - NOT ACTIVE
-      item_alert = FactoryGirl.create(:item_alert,
+      item_alert = FactoryBot.create(:item_alert,
                                       start_date: '2050-01-01', end_date: nil)
       expect(item_alert.active?).to eq false
 
       # Starts in the past - ACTIVE
-      item_alert = FactoryGirl.create(:item_alert,
+      item_alert = FactoryBot.create(:item_alert,
                                       start_date: '2000-01-01', end_date: nil)
       expect(item_alert.active?).to eq true
 
       # Ends in the past - NOT ACTIVE
-      item_alert = FactoryGirl.create(:item_alert,
+      item_alert = FactoryBot.create(:item_alert,
                                       start_date: nil, end_date: '2000-01-01')
       expect(item_alert.active?).to eq false
 
       # Ends in the future - ACTIVE
-      item_alert = FactoryGirl.create(:item_alert,
+      item_alert = FactoryBot.create(:item_alert,
                                       start_date: nil, end_date: '2050-01-01')
       expect(item_alert.active?).to eq true
 
       # No times set - ACTIVE
-      item_alert = FactoryGirl.create(:item_alert,
+      item_alert = FactoryBot.create(:item_alert,
                                       start_date: nil, end_date: nil)
       expect(item_alert.active?).to eq true
 
       # From past to future - ACTIVE
-      item_alert = FactoryGirl.create(:item_alert,
+      item_alert = FactoryBot.create(:item_alert,
                                       start_date: '2000-01-01', end_date: '2050-01-01')
       expect(item_alert.active?).to eq true
 
       # From future to past - NOT ACTIVE
-      item_alert = FactoryGirl.create(:item_alert,
+      item_alert = FactoryBot.create(:item_alert,
                                       start_date: '2050-01-01', end_date: '2000-01-01')
       expect(item_alert.active?).to eq false
 
@@ -110,19 +110,19 @@ describe ItemAlertsController do
 
       # Item Alerts should have author_id, message, source, and item_key.
       # Each of the following should be invalid (unprocessable_entity, 422)
-      item_alert_attrs = FactoryGirl.attributes_for(:item_alert, author_id: nil)
+      item_alert_attrs = FactoryBot.attributes_for(:item_alert, author_id: nil)
       post :create, item_alert: item_alert_attrs, format: :json
       expect(response.status).to be(422)
 
-      item_alert_attrs = FactoryGirl.attributes_for(:item_alert, message: nil)
+      item_alert_attrs = FactoryBot.attributes_for(:item_alert, message: nil)
       post :create, item_alert: item_alert_attrs, format: :json
       expect(response.status).to be(422)
 
-      item_alert_attrs = FactoryGirl.attributes_for(:item_alert, source: nil)
+      item_alert_attrs = FactoryBot.attributes_for(:item_alert, source: nil)
       post :create, item_alert: item_alert_attrs, format: :json
       expect(response.status).to be(422)
 
-      item_alert_attrs = FactoryGirl.attributes_for(:item_alert, item_key: nil)
+      item_alert_attrs = FactoryBot.attributes_for(:item_alert, item_key: nil)
       post :create, item_alert: item_alert_attrs, format: :json
       expect(response.status).to be(422)
     end
@@ -132,12 +132,12 @@ describe ItemAlertsController do
 
       # create an alert, using complete set of attributes, should succeed.
       # In HTML, get a redirect to the show page.
-      item_alert_attrs = FactoryGirl.attributes_for(:item_alert, author_id: @priv_user.id)
+      item_alert_attrs = FactoryBot.attributes_for(:item_alert, author_id: @priv_user.id)
       post :create, item_alert: item_alert_attrs, format: :html
       expect(response.status).to be(302)
 
       # In JSON, get a 200.
-      item_alert_attrs = FactoryGirl.attributes_for(:item_alert, author_id: @priv_user.id)
+      item_alert_attrs = FactoryBot.attributes_for(:item_alert, author_id: @priv_user.id)
       post :create, item_alert: item_alert_attrs, format: :json
       expect(response).to be_success
 
@@ -158,13 +158,13 @@ describe ItemAlertsController do
       expect(response).to render_template('edit')
 
       # new BROKEN attributes, re-post to same ID, attempt an update
-      item_alert_attrs = FactoryGirl.attributes_for(:item_alert, author_id: @priv_user.id, message: nil)
+      item_alert_attrs = FactoryBot.attributes_for(:item_alert, author_id: @priv_user.id, message: nil)
       put :update, id: item_alert['id'], item_alert: item_alert_attrs, format: :json
       # expect JSON failure reponse - unprocessable_entity (422)
       expect(response.status).to be(422)
 
       # new VALID attributes, re-post to same ID, to do an update
-      item_alert_attrs = FactoryGirl.attributes_for(:item_alert, author_id: @priv_user.id, message: 'New Updated Message')
+      item_alert_attrs = FactoryBot.attributes_for(:item_alert, author_id: @priv_user.id, message: 'New Updated Message')
       put :update, id: item_alert['id'], item_alert: item_alert_attrs, format: :html
       # success means redirect to show page for this record
       expect(response.status).to be(302)

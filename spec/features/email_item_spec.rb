@@ -6,7 +6,7 @@ describe 'Share by Email', :vcr do
   ['solr_document', 'savedlist'].each do |path|
     context 'when user is logged in' do
       before do
-        @autodidact = FactoryGirl.create(:user, login: 'autodidact',
+        @autodidact = FactoryBot.create(:user, login: 'autodidact',
                                          first_name: 'Auto',
                                          last_name: 'Didact'
                                         )
