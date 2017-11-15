@@ -110,4 +110,9 @@ describe 'Boosts', :skip_travis do
     expect(rank(resp, 4759811)).to be <= 1
   end
 
+  it "agricola" do
+    resp = solr_resp_doc_ids_only('q' => 'agricola')
+    expect(rank(resp, 1671254)).to be <= 1
+  end
+
 end
