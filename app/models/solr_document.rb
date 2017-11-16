@@ -33,7 +33,8 @@ class SolrDocument
 
   # Is this a Columbia record?  (v.s. ReCAP partner record)
   def columbia?
-    # Columbia bib ids are numeric, partner data is "SCSB-xxxx"
+    # Columbia bib ids are numeric, or numeric with 'b' prefix for Law,
+    # ReCAP partner data is "SCSB-xxxx"
     return ! id.start_with?('SCSB')
   end
 
