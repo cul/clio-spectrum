@@ -26,6 +26,7 @@ class SearchBuilder < Blacklight::SearchBuilder
   # NEXT-1411 - Incomplete search results
   def clear_mm_for_boolean_or(solr_parameters)
     return unless solr_parameters['q']
+
     if solr_parameters['q'].include?(' OR ')
       solr_parameters['mm'] = '0'
     end
@@ -99,7 +100,9 @@ class SearchBuilder < Blacklight::SearchBuilder
       !value || (value.strip.length == 0)
     end.map do |query|
       field_name, value = *query
-      search_field_def = blacklight_config.search_fields[field_name]
+
+      # if they submitted a quoted value, escape their quotes for them
+      value.gsub!(/"/, '\"')
 
       # The search_field_def may look something like this:
       # <Blacklight::Configuration::SearchField 
@@ -112,6 +115,7 @@ class SearchBuilder < Blacklight::SearchBuilder
       #    label="Journal Title",
       #    unless=false, 
       #    qt="search">
+      search_field_def = blacklight_config.search_fields[field_name]
 
       # ==> process the solr_local_parameters
       # does searching by this field oblige us to merge
@@ -131,15 +135,25 @@ class SearchBuilder < Blacklight::SearchBuilder
           key.to_s + '=' + solr_param_quote(val, quote: "'")
         end.join(' ')
 
-        # This has problems. Why "_query_"?  Why dismax?
-        # No comments, no explanation.
-
+        # Strange syntax needed for boolean composition (and/or) of dismax queries.
+        # For details see "Build a query of queries" here:
+        #   http://robotlibrarian.billdueber.com/2012/03/using-localparams-in-solr-sst-2
+        
+        # basic search: 
+        #  "q" => "{!qf=location_txt pf=location_txt}barnard reference"
+        # advanced search: 
+        #  "q" => "_query_:\"{!dismax qf=location_txt pf=location_txt}barnard reference\""}
+        
         # "_query_:\"{!dismax #{local_params}}#{value}\""
-        # if they submitted a quoted value, escape their quotes for them
-        "_query_:\"{!dismax #{local_params}}#{value.gsub(/"/, '\"')}\""
 
-        # # testing....
-        # "{!#{local_params}}#{value.gsub(/"/, '\"')}"
+        # When connecting subqueries with an 'OR',
+        # we need to prevent OR's mm=0 (must-match) from taking affect
+        # also on these subqueries!
+        "_query_:\"{!dismax mm=-10% #{local_params}}#{value}\""
+
+        # # ok, going to try this simpler form, see what happens...
+        # "{!#{local_params}}#{value}"
+        # It doesn't do well with boolean 
 
       else
         value.to_s
