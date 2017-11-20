@@ -58,6 +58,16 @@ if ['clio_dev', 'clio_test', 'clio_prod'].include?(@environment)
   end
 
 
+  # == RECAP ==
+  #  Add authority variants after each daily load 
+  every :day, at: '3am' do
+    rake 'recap:ingest_new[2]', subject: 'daily recap ingest'
+  end
+  #  Add authority variants after each daily load 
+  every :day, at: '4am' do
+    rake 'authorities:add_to_bib:by_extract[recap]', subject: 'daily recap authorities'
+  end
+
   # == LAW ==
 
   # Weekly full load of all Law records
