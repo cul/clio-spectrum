@@ -26,12 +26,10 @@ def solr_delete_ids(solr_connection, ids)
   retries = 3
   begin
     ids = ids.listify.collect { |x| x.strip}
-    Rails.logger.debug(ids.length.to_s + " deleting")
-    # Blacklight.default_index.connection.delete_by_id(ids)
+    Rails.logger.debug("deleting #{ids.size} records...")
     solr_connection.delete_by_id(ids)
 
-    Rails.logger.debug("Committing changes")
-    # Blacklight.default_index.connection.commit
+    Rails.logger.debug("committing changes...")
     solr_connection.commit
 
   rescue Timeout::Error

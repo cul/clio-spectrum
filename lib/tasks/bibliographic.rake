@@ -65,16 +65,22 @@ namespace :bibliographic do
         end
 
         ids_to_delete.sort.uniq!
+        id_count = ids_to_delete.size
 
-        Rails.logger.info(ids_to_delete.length.to_s + " ids to delete.")
-        begin
-          solr_url = Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
-          solr_connection = RSolr.connect(url: solr_url)
-          solr_delete_ids(solr_connection, ids_to_delete)
-          Rails.logger.info(ids_to_delete.length.to_s + " ids deleted (if in index)")
-        rescue => e
-          Rails.logger.error("Error during delete: " + e.inspect)
-          raise e
+        SLICE = 1000
+        Rails.logger.info("#{id_count} ids to delete.")
+        Rails.logger.info("(deleting in slices of #{SLICE} ids)") if id_count > SLICE
+        
+        ids_to_delete.each_slice(SLICE) do |slice|
+          begin
+            solr_url = Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
+            solr_connection = RSolr.connect(url: solr_url)
+            solr_delete_ids(solr_connection, slice)
+            Rails.logger.info("#{slice.size} ids deleted (if in index)")
+          rescue => e
+            Rails.logger.error("Error during delete: " + e.inspect)
+            raise e
+          end
         end
 
       end
