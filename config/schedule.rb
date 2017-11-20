@@ -19,6 +19,17 @@ if ['clio_dev', 'clio_test', 'clio_prod'].include?(@environment)
   # - cleanup sessions
   # - sync library hours
 
+  # == DATABASE MAINTENANCE ==
+  every :day, at: '2:10am' do
+    rake 'blacklight:delete_old_searches[1]', subject: 'blacklight:delete_old_searches'
+  end
+  every :day, at: '2:20am' do
+    rake 'sessions:cleanup[1]', subject: 'sessions:cleanup'
+  end
+  every :day, at: '2:30am' do
+    rake 'hours:sync', subject: 'hours:sync'
+  end
+
   # == BIBLIOGRAPHIC ==
 
   # Nightly incremental
@@ -65,6 +76,18 @@ if ['clio_dev', 'clio_test', 'clio_prod'].include?(@environment)
   #   command '/usr/bin/curl --silent "http://lito-solr-dev1.cul.columbia.edu:8983/solr/clio_dev/update?commit=true" -H "Content-Type: text/xml" --data-binary "<delete><query>timestamp:[* TO NOW/DAY-21DAYS] AND location_facet:Law</query></delete>"', subject: 'law purge'
   # end
 
+end
+
+# Anything for PROD only?
+if ['clio_prod'].include?(@environment)
+
+  #   RECAP
+  # Only download ReCAP extract files from SCSB once.
+  # Then each environment can index from this local location individually.
+  every :day, at: '11:30pm' do
+    rake 'recap:download', subject: 'recap download'
+  end
+  
 end
 
 
