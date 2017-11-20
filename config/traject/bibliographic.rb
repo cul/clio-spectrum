@@ -245,8 +245,7 @@ end
 
 to_field "full_publisher_display", extract_marc("260#{ATOZ}:264#{ATOZ}", trim_punctuation: false, alternate_script: false)
 
-
-LOCATION_CALL_NUMBER = /^(.*)\|DELIM\|.*/
+# LOCATION_CALL_NUMBER = /^(.*)\|DELIM\|.*/
 CALL_NUMBER_ONLY = /^.* \>\> (.*)\|DELIM\|.*/
 
 
@@ -264,7 +263,8 @@ end
 
 to_field "location_call_number_txt", extract_marc("992b", trim_punctuation: true) do |record, accumulator|
   accumulator.map!{ |value|
-    if clean_value = value.match(LOCATION_CALL_NUMBER)
+    # if clean_value = value.match(LOCATION_CALL_NUMBER)
+    if clean_value = value.split('|DELIM|').first
       clean_value[1]
     end
   }
@@ -290,26 +290,17 @@ to_field "call_number_display", extract_marc("992b", trim_punctuation: true) do 
 end
 
 
-
 to_field "location_facet", extract_marc("992a", trim_punctuation: true) do |record, accumulator|
-
   # If no local CUL location, try to find a SCSB partner location
   if accumulator.empty?  && recap_location_name.present?
     accumulator << recap_location_name
-    # Marc21.extract_marc_from(record, "852b").each do |location_code|
-    #   label = TrajectUtility.recap_location_code_to_label(location_code)
-    #   if label.present?
-    #     accumulator << label
-    #     break
-    #   end
-    # end
   end
-
 end
 
 to_field "location_txt", extract_marc("992b", trim_punctuation: true) do |record, accumulator|
   accumulator.map!{ |value|
-    if clean_value = value.match(LOCATION_CALL_NUMBER)
+    # if clean_value = value.match(LOCATION_CALL_NUMBER)
+    if clean_value = value.split('|DELIM|').first
       clean_value[1]
     end
   }
@@ -318,17 +309,6 @@ to_field "location_txt", extract_marc("992b", trim_punctuation: true) do |record
   if accumulator.empty?  && recap_location_name.present?
     accumulator << recap_location_name
   end
-
-  # if accumulator.empty?
-  #   Marc21.extract_marc_from(record, "852b").each do |location_code|
-  #     label = TrajectUtility.recap_location_code_to_label(location_code)
-  #     if label.present?
-  #       accumulator << label
-  #       break
-  #     end
-  #   end
-  # end
-
 end
 
 to_field "url_munged_display" do |record, accumulator|
