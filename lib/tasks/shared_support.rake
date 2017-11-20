@@ -1,5 +1,6 @@
 require 'time'    # gives us ISO time formatting
 require 'marc'
+require 'open3'
 
 require File.join(Rails.root.to_s, 'config', 'initializers/aaa_load_app_config.rb')
 

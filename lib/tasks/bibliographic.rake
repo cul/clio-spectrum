@@ -133,6 +133,13 @@ namespace :bibliographic do
           if filename.ends_with?('.xml')
             Rails.logger.debug("----- cleaning #{filename}...")
             clean_ingest_file(filename)
+            Rails.logger.debug("----- running xmllint against #{filename}...")
+            output, status = Open3.capture2e("xmllint --noout #{filename}")
+            if status != 0
+                Rails.logger.error("Input file #{filename} failed well-formedness check!")
+                Rails.logger.error(output)
+                raise 
+            end
           end
 
           File.open(filename) do |file|
