@@ -89,19 +89,26 @@ module Recap
     end
 
 
-    # Return a hash:
-    #   { 
-    #     barcode: availability,
-    #     barcode: availability, 
-    #     ...
-    #   }
+    # The SCSB status API returns an array looks like this:
+    # [
+    #   {
+    #     "itemBarcode": "CU18799175",
+    #     "itemAvailabilityStatus": "Available",
+    #     "collectionGroupDesignation": "Open",
+    #     "errorMessage": null
+    #   },
+    #   {
+    #      ...
+    #   },
+    #   ...
+    # ]
     #
-
-    # BIB NOT FOUND - Response Code 200, Response Body:
+    # Special case - BIB NOT FOUND - Response Code 200, Response Body:
     # [
     #   {
     #     "itemBarcode": "",
     #     "itemAvailabilityStatus": null,
+    #     "collectionGroupDesignation": "Open",
     #     "errorMessage": "Bib Id doesn't exist in SCSB database."
     #   }
     # ]
@@ -141,13 +148,15 @@ module Recap
         return
       end
 
-      availabilities = Hash.new
-      response_data.each do |item|
-        availabilities[ item['itemBarcode'] ] = item['itemAvailabilityStatus']
-        # for testing...
-        # availabilities[ item['itemBarcode'] ] = 'Unavailable'
-      end
-      return availabilities
+      return response_data
+
+      # availabilities = Hash.new
+      # response_data.each do |item|
+      #   availabilities[ item['itemBarcode'] ] = item['itemAvailabilityStatus']
+      #   # for testing...
+      #   # availabilities[ item['itemBarcode'] ] = 'Unavailable'
+      # end
+      # return availabilities
     end
 
 

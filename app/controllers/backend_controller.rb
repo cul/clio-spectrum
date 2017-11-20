@@ -58,18 +58,15 @@ class BackendController < ApplicationController
   end
 
 
-  # The SCSB availability API returns an array looks like this:
+  # The SCSB status API returns an array looks like this:
   # [
   #   {
   #     "itemBarcode": "CU18799175",
   #     "itemAvailabilityStatus": "Available",
+  #     "collectionGroupDesignation": "Open",
   #     "errorMessage": null
   #   }
   # ]
-  # but our code simplifies this into a simple hash, like this:
-  # {
-  #   "CU18799175"  =>  "Available"
-  # }
   def self.scsb_status(id)
     if id.empty?
       logger.error "BackendController#scsb_status passed empty id"
@@ -86,7 +83,36 @@ class BackendController < ApplicationController
       institutionId, dash, bibliographicId = bibliographicId.partition('-')
     end
 
-    scsb_status = Recap::ScsbRest.get_bib_availability(bibliographicId, institutionId) || {}
+    scsb_status = Recap::ScsbRest.get_bib_availability(bibliographicId, institutionId) || []
+  end
+  
+  # The SCSB status API returns an array looks like this:
+  # [
+  #   {
+  #     "itemBarcode": "CU18799175",
+  #     "itemAvailabilityStatus": "Available",
+  #     "collectionGroupDesignation": "Open",
+  #     "errorMessage": null
+  #   }
+  # ]
+  # but our code simplifies this into a simple hash, like this:
+  # {
+  #   "CU18799175"  =>  "Available"
+  # }
+  def self.scsb_availabilities(id)
+    if id.empty?
+      logger.error "BackendController#scsb_availabilities passed empty id"
+      return nil
+    end
+    scsb_status = BackendController.scsb_status(id)
+
+    availabilities = Hash.new
+    scsb_status.each do |item|
+      availabilities[ item['itemBarcode'] ] = item['itemAvailabilityStatus']
+      # for testing...
+      # availabilities[ item['itemBarcode'] ] = 'Unavailable'
+    end
+    return availabilities
   end
 
   # Called with multiple ids, slash-separated:
@@ -106,7 +132,7 @@ class BackendController < ApplicationController
     bibids.each do |bib|
       availables = unavailables = 0
       begin
-        scsb_status = BackendController.scsb_status(bib)
+        scsb_status = BackendController.scsb_availabilities(bib)
       rescue => e
         statuses[bib] = 'unavailable'
         next

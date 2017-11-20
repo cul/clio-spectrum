@@ -162,8 +162,8 @@ class CatalogController < ApplicationController
       end
 
       if @document.has_offsite_holdings?
-        # Lookup SCSB availability
-        scsb_status = BackendController.scsb_status(params[:id])
+        # Lookup SCSB availability hash (simplification of full status)
+        scsb_status = BackendController.scsb_availabilities(params[:id])
         # Simple hash to map barcode to "Available"/"Unavailable"
         # {
         #   "CU18799175"  =>  "Available"
@@ -331,6 +331,22 @@ class CatalogController < ApplicationController
   # Override Blacklight's definition, to assign custom layout
   def librarian_view
     @response, @document = fetch params[:id]
+
+    # Staff want to see Collection Group Designation in the librarian view
+    @barcode2cgd = Hash.new()
+    if @document.has_offsite_holdings?
+      # Fetch full array of status hashes
+      scsb_status = BackendController.scsb_status(params[:id])
+      scsb_status.each { |item|
+        @barcode2cgd[ item['itemBarcode'] ] = item['collectionGroupDesignation']
+      }
+      # Simple hash to map barcode to "Open"/"Shared"/"Closed"
+      # {
+      #   "CU18799175"  =>  "Available"
+      # }
+    end
+
+
     respond_to do |format|
       format.html do
         # This Blacklight function re-runs the current query, twice,

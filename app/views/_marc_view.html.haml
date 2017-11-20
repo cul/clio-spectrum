@@ -25,10 +25,18 @@
           .ind1= !field.indicator1.blank? ? field.indicator1 : "&nbsp;&nbsp;".html_safe
           .ind2= !field.indicator2.blank? ? field.indicator2 : "&nbsp;&nbsp;".html_safe
         .subfields
+          - barcode = ''
           - field.each do |sub|
+            - barcode = sub.value if sub.code == 'p'
             %span.sub_code
               %span.sub_code= '|' + h(sub.code)
               = h(sub.value)
+          - if field.tag == '876' && barcode2cgd[barcode].present?
+            %span.sub_code
+              %strong
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                CGD: 
+                = barcode2cgd[barcode]
 
 -# = document.keys.to_yaml
 - last_marc_update = document['marc_dt'].present? ? Time.zone.parse(document['marc_dt']).strftime("%F %l:%M%P") : ''
