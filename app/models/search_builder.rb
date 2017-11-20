@@ -62,7 +62,10 @@ class SearchBuilder < Blacklight::SearchBuilder
     # Some generated queries OR together many, many terms.
     # These are are marked as raw lucene queries.
     # Allow these to have unlimited letters/words
-    return if solr_parameters['q'].include? '{!lucene}'
+    return if solr_parameters['q'].include?('{!lucene}')
+
+    # Advanced queries composed of subqueries grow to be very, very long
+    return if blacklight_params['adv'] && solr_parameters['q'].include?('_query_:')
 
     # Truncate queries longer than N letters
     maxLetters = 200
