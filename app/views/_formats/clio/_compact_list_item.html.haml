@@ -5,7 +5,7 @@
 -# maybe handy to have a per-item anchor?
 -# %a{name: document.fetch(:id)}
 
-.boxed_search_results.result.document{:class => ("database_record" if document.is_database?), source: 'catalog', item_id: document.fetch(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
+.boxed_search_results.result.document{:class => ("database_record" if document.is_database?), source: 'catalog', item_id: document.fetch(:id), data: document_data_attributes(document), standard_ids: extract_standard_bibkeys(document).join(",")}
 
   .row
 

@@ -22,7 +22,7 @@
 / container for a SINGLE doc
 - database_class = document.is_database? ? 'database_record' : ''
 - focus_class = (document.id == highlight_bib) ? 'browse_focus' : ''
-.result.document{class: "#{database_class} #{focus_class}", source: 'catalog', item_id: document.fetch(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
+.result.document{class: "#{database_class} #{focus_class}", source: 'catalog', item_id: document.fetch(:id), data: document_data_attributes(document), standard_ids: extract_standard_bibkeys(document).join(",")}
 
   .row
     .title.col-sm-9

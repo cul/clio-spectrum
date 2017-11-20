@@ -2,7 +2,7 @@
 -# - classlist = "#{classlist} database_record" if document['source_display'].include? 'database'
 -# .result{class: classlist, source: 'catalog', item_id: document.fetch(:id), standard_ids: extract_standard_bibkeys(document)}
 
-.result.database_record{class: alternating_line("catalog"), source: 'catalog', item_id: document.fetch(:id), standard_ids: extract_standard_bibkeys(document)}
+.result.database_record{class: alternating_line("catalog"), source: 'catalog', item_id: document.fetch(:id), data: document_data_attributes(document), standard_ids: extract_standard_bibkeys(document)}
 
   .result_title= link_to document.first('title_display'), {:controller => 'catalog', :action => 'show', :id => document.id, :counter => (counter + 1)}
 

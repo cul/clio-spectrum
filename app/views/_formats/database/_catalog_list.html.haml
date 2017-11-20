@@ -1,7 +1,7 @@
 -# FORMATS/DATABASE
 
 / container for a SINGLE doc
-.result.document.database_record{class: render_document_class(document), source: 'catalog', item_id: document.fetch(:id), standard_ids: extract_standard_bibkeys(document).join(",")}
+.result.document.database_record{class: render_document_class(document), source: 'catalog', item_id: document.fetch(:id), data: document_data_attributes(document), standard_ids: extract_standard_bibkeys(document).join(",")}
 
   .row
     .title.col-sm-12
