@@ -8,6 +8,7 @@ class SearchBuilder < Blacklight::SearchBuilder
   self.default_processor_chain += [:add_debug_to_solr]
   self.default_processor_chain += [:trim_long_queries]
   self.default_processor_chain += [:clear_mm_for_boolean_or]
+  self.default_processor_chain += [:validate_qt]
 
   # These methods are passed a hash, which will
   # become the Solr request parameters.
@@ -29,6 +30,13 @@ class SearchBuilder < Blacklight::SearchBuilder
 
     if solr_parameters['q'].include?(' OR ')
       solr_parameters['mm'] = '0'
+    end
+  end
+
+  def validate_qt(solr_parameters)
+    unless ['search', 'select', 'document'].include?(solr_parameters[:qt])
+      Rails.logger.warn "rewriting illegal qt param ('#{solr_parameters[:qt]}') as 'search'"
+      solr_parameters[:qt] = 'search'
     end
   end
 
