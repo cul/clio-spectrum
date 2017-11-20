@@ -237,6 +237,9 @@ class ApplicationController < ActionController::Base
       @debug_mode = false
     end
 
+    # 11/2017 - CUD wants to see debug details
+    @debug_mode = true if current_user && current_user.has_role?('site', 'pilot')
+
     session['debug_mode'] = @debug_mode
 
     @current_user = current_user

@@ -11,12 +11,15 @@ site:
 
   # for any pre-production features we want to play with
   pilot:
+    # CLIO dev team
     - gb8
     - sam119
     - slt0
+    # spectrum planning
+    - asb2154
+    - fd2102
     - hhb2119
-    - jrl2132
-    - trd2119
+    - jc2120
     - mw18
     - shs4
     - witte
