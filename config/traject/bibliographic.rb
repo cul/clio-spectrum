@@ -132,6 +132,9 @@ to_field "pub_year_txt", extract_marc("260c:264c", trim_punctuation: true, alter
 
 to_field "pub_date_txt", marc_publication_date(estimate_tolerance: 100)
 
+to_field "pub_country_facet", extract_marc("008[15-17]", translation_map: 'country_map')
+
+
 to_field "language_facet", extract_marc("008[35-37]:041a:041d", translation_map: 'language_map')
 
 # # Look for format in CUL custom 993 field.
@@ -144,8 +147,10 @@ to_field "language_facet", extract_marc("008[35-37]:041a:041d", translation_map:
 #     end
 #   end
 # end
-# # Store Traject's format classification too, for comparison
-# to_field 'format_traject', marc_formats
+
+# Store Traject's format classification too, for comparison
+to_field 'format_traject', marc_formats
+
 # Rails rewrite of Columbia format classificaiton rules from the original Perl
 # (found in lib/format_macro.rb)
 to_field 'format', columbia_format
@@ -263,10 +268,7 @@ end
 
 to_field "location_call_number_txt", extract_marc("992b", trim_punctuation: true) do |record, accumulator|
   accumulator.map!{ |value|
-    # if clean_value = value.match(LOCATION_CALL_NUMBER)
-    if clean_value = value.split('|DELIM|').first
-      clean_value[1]
-    end
+    value.split('|DELIM|').first
   }
   # If no local CUL location, try to find a SCSB partner location
   if accumulator.empty?  && recap_location_code.present?
@@ -299,10 +301,7 @@ end
 
 to_field "location_txt", extract_marc("992b", trim_punctuation: true) do |record, accumulator|
   accumulator.map!{ |value|
-    # if clean_value = value.match(LOCATION_CALL_NUMBER)
-    if clean_value = value.split('|DELIM|').first
-      clean_value[1]
-    end
+    value.split('|DELIM|').first
   }
 
   # If no local CUL location, try to find a SCSB partner location
@@ -317,6 +316,7 @@ to_field "url_munged_display" do |record, accumulator|
     accumulator << [ field856.indicator2, field856['3'], field856['u'], field856['z'] ].join('|||')
   }
 end
+
 
 
 # Shelf Browse support fields
@@ -354,6 +354,36 @@ to_field "mfhd_id", extract_marc("8520")
 to_field "barcode_txt", extract_marc("876p")
 
 
+# Count of URLs (856 fields) within this record
+to_field "urls_i" do |record, accumulator|
+  count = 0
+  record.fields('856').each { |field856|
+    next unless field856.indicator1 == '4'
+    count += 1
+  }
+  accumulator << count
+end
+
+# Count of Holdings (852$0) within this record
+to_field "holdings_i" do |record, accumulator|
+  count = 0
+  record.fields('852').each { |field852|
+    next unless field852 && field852['0']
+    count += 1
+  }
+  accumulator << count
+end
+
+# Count of Items (876$a) within this record
+# (not really all that reliable...)
+to_field "items_i" do |record, accumulator|
+  count = 0
+  record.fields('876').each { |field876|
+    next unless field876 && field876['a']
+    count += 1
+  }
+  accumulator << count
+end
 
 
 
