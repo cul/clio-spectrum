@@ -17,6 +17,10 @@ require 'traject/macros/marc21'
 
 require 'traject_utility'
 
+# Try U.Mich's more detailed format classifier
+require 'traject/umich_format'
+extend Traject::UMichFormat::Macros
+
 # shortcuts
 Marc21 = Traject::Macros::Marc21
 MarcFormats = Traject::Macros::MarcFormats
@@ -149,7 +153,11 @@ to_field "language_facet", extract_marc("008[35-37]:041a:041d", translation_map:
 # end
 
 # Store Traject's format classification too, for comparison
-to_field 'format_traject', marc_formats
+to_field 'traject_format_facet', marc_formats
+
+# U.Mich's more detailed format classifier
+to_field 'umich_format_facet', umich_format
+to_field 'umich_type_facet', umich_types
 
 # Rails rewrite of Columbia format classificaiton rules from the original Perl
 # (found in lib/format_macro.rb)
