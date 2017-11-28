@@ -133,12 +133,20 @@ namespace :bibliographic do
           if filename.ends_with?('.xml')
             Rails.logger.debug("----- cleaning #{filename}...")
             clean_ingest_file(filename)
-            Rails.logger.debug("----- running xmllint against #{filename}...")
-            output, status = Open3.capture2e("xmllint --noout #{filename}")
-            if status != 0
-                Rails.logger.error("Input file #{filename} failed well-formedness check!")
-                Rails.logger.error(output)
-                raise 
+            Rails.logger.debug("----- XML well-formedness check...")
+            if File.exist?('/usr/bin/xmlwf')
+              # Rails.logger.debug("----- running xmllint against #{filename}...")
+              # output, status = Open3.capture2e("xmllint --noout #{filename}")
+              command = "xmlwf -r #{filename}"
+              output, status = Open3.capture2e(command)
+              if status != 0
+                  Rails.logger.error("XML file failed well-formedness check!")
+                  Rails.logger.error("command: #{command}")
+                  Rails.logger.error("output: #{output}")
+                  raise 
+              end
+            else
+              Rails.logger.debug("----- xmlwf not found - skipping well-formedness check!")
             end
           end
 
