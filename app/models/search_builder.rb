@@ -112,8 +112,6 @@ class SearchBuilder < Blacklight::SearchBuilder
     end.map do |query|
       field_name, value = *query
 
-      # if they submitted a quoted value, escape their quotes for them
-      value.gsub!(/"/, '\"')
 
       # The search_field_def may look something like this:
       # <Blacklight::Configuration::SearchField 
@@ -145,6 +143,10 @@ class SearchBuilder < Blacklight::SearchBuilder
         local_params = hash.map do |key, val|
           key.to_s + '=' + solr_param_quote(val, quote: "'")
         end.join(' ')
+
+        # if they submitted a quoted value, escape their quotes for them,
+        # before wrapping in the outer quotes of our dismax construction, below.
+        value.gsub!(/"/, '\"')
 
         # Strange syntax needed for boolean composition (and/or) of dismax queries.
         # For details see "Build a query of queries" here:
