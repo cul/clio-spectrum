@@ -61,7 +61,7 @@ module FormatMacro
         when /b/
           formats << :serial
         when /i/
-          if f008[21] == 'l'
+          if f008 && f008[21] == 'l'
             formats << :serial
             formats << :lleaf
           end
@@ -73,7 +73,7 @@ module FormatMacro
       when /[ef]/
         formats << :map
       when /g/
-        if f008[33] && 'mv'.include?( f008[33] )
+        if f008 && f008[33] && 'mv'.include?( f008[33] )
           formats << :video
         end
       when /i/
@@ -81,15 +81,15 @@ module FormatMacro
       when /j/
         formats << :music
       when /k/
-        if f008[33] == 'a'
+        if f008 && f008[33] == 'a'
           formats << :art
         end
-        if f008[33] && 'ciklnoz'.include?( f008[33] )
+        if f008 && f008[33] && 'ciklnoz'.include?( f008[33] )
           formats << :image
         end
       when /m/
         if f008.present?
-          if f008[26] == 'b'
+          if f008 && f008[26] == 'b'
             formats << :prog
           else
             formats << :data
@@ -98,7 +98,7 @@ module FormatMacro
       when /o/
         formats << :other
       when /r/
-        if f008[33] == 'a'
+        if f008 && f008[33] == 'a'
           formats << :art
         else
           formats << :other
