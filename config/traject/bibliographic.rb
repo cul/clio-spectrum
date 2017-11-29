@@ -139,7 +139,16 @@ to_field "pub_year_txt", extract_marc("260c:264c", trim_punctuation: true, alter
 
 to_field "pub_date_txt", marc_publication_date(estimate_tolerance: 100)
 
+to_field "pub_country_facet" do |record, accumulator|
+  if record['008']
+    value = record['008'].value[15..17]
+    next unless value
+    # Need to pre-process country code to strip spaces, etc. before table lookup.
     country = country_map[value.gsub(/[^a-z]/, '')]
+    # country may be string ("Peru") or array (["Canada", "Canada - Alberta"]),
+    # support either with: .concat( Array(X) ) 
+    accumulator.concat( Array(country) )
+  end
 end
 
 to_field "language_facet", extract_marc("008[35-37]:041a:041d", translation_map: 'language_map')
