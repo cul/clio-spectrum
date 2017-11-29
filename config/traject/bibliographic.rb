@@ -30,6 +30,9 @@ lookups = 0
 
 ATOZ = ('a'..'z').to_a.join('')
 
+# Pre-load translation maps once, not once per record
+country_map = Traject::TranslationMap.new("country_map")
+callnumber_map = Traject::TranslationMap.new("callnumber_map")
 
 # # DEBUGGING
 # each_record do |record, context|
@@ -136,8 +139,8 @@ to_field "pub_year_txt", extract_marc("260c:264c", trim_punctuation: true, alter
 
 to_field "pub_date_txt", marc_publication_date(estimate_tolerance: 100)
 
-to_field "pub_country_facet", extract_marc("008[15-17]", translation_map: 'country_map')
-
+    country = country_map[value.gsub(/[^a-z]/, '')]
+end
 
 to_field "language_facet", extract_marc("008[35-37]:041a:041d", translation_map: 'language_map')
 
@@ -166,8 +169,9 @@ to_field 'format', columbia_format
 
 to_field "lc_1letter_facet", extract_marc("990a") do |record, accumulator|
   accumulator.map!{ |value|
-    Traject::TranslationMap.new("callnumber_map")[value.first]
-     }
+    # Traject::TranslationMap.new("callnumber_map")[value.first]
+    callnumber_map[value.first]
+  }
 end
 to_field "lc_2letter_facet", extract_marc("990a", translation_map: 'callnumber_full_map')
 to_field "lc_subclass_facet", extract_marc("990a", translation_map: 'callnumber_full_map')
