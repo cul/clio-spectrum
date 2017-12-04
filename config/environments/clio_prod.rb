@@ -70,7 +70,7 @@ end
 
 #   https://github.com/smartinez87/exception_notification
 Clio::Application.config.middleware.use ExceptionNotification::Rack,
-  ignore_exceptions: ['Errno::EHOSTUNREACH', 'Mail::Field::ParseError', 'ActionController::BadRequest'] + ExceptionNotifier.ignored_exceptions,
+  ignore_exceptions: ['Errno::EHOSTUNREACH', 'Mail::Field::ParseError', 'Mail::Field::IncompleteParseError', 'ActionController::BadRequest'] + ExceptionNotifier.ignored_exceptions,
   ignore_crawlers: %w(Googlebot bingbot archive.org_bot Blogtrottr Sogou Baidu Yandex),
   email: {
     email_prefix: '[Clio Prod] ',
