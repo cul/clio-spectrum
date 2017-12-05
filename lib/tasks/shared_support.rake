@@ -10,6 +10,9 @@ EXTRACT_SCP_SOURCE = APP_CONFIG['extract_scp_source']
 EXTRACTS =  ["full", "incremental", "cumulative", "subset", 
              "law", "auth", "recap"]
 
+# process large 'deletes' files in batches of this many
+DELETES_SLICE = 1000
+
 BIB_SOLR_URL = Blacklight.connection_config[:url]
 BIB_SOLR = RSolr.connect(url: BIB_SOLR_URL)
 AUTHORITIES_SOLR = RSolr.connect(url: APP_CONFIG['authorities_solr_url'])

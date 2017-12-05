@@ -61,6 +61,9 @@ if ['clio_dev', 'clio_test', 'clio_prod'].include?(@environment)
   # == RECAP ==
   #  Add authority variants after each daily load 
   every :day, at: '3am' do
+    rake 'recap:delete_new[2]', subject: 'daily recap delete'
+  end
+  every :day, at: '3:10am' do
     rake 'recap:ingest_new[2]', subject: 'daily recap ingest'
   end
   #  Add authority variants after each daily load 
