@@ -6,7 +6,7 @@ gem 'activerecord-session_store'
 
 #  ###  BLACKLIGHT (begin)  ###
 
-gem 'blacklight', '~>6.9.0'
+gem 'blacklight', '~>6.10.0'
 # gem 'blacklight', path: '/Users/marquis/src/blacklight'
 
 
@@ -21,7 +21,8 @@ gem 'blacklight_range_limit'
 #  ###  BLACKLIGHT (end)  ###
 
 # RSolr should be in your gemfile. Blacklight 6.0 will not load rsolr by default
-gem 'rsolr'
+# Pin at 1.x, 2.x gave me errors:  "solr" is not registered on Faraday::Adapter
+gem 'rsolr', '~>1.0'
 
 # basic library to parse, create and manage MARC records
 gem 'marc'
@@ -38,6 +39,7 @@ gem 'gmaps4rails'
 # pagination
 gem 'kaminari'
 
+# Auth
 gem 'devise'
 gem 'devise-encryptable'
 
@@ -76,23 +78,7 @@ group :development, :clio_dev do
 end
 
 
-# "Associates a hash of options with an ActiveRecord model"
-# Used for... apparently, just the list of links for each location?
-# locally developed - and no longer on Github...
-# should try to eliminate at some point.
-# 3/15, moved to local library code
-# gem 'has_options'
-
-# I think this had been added to allow JavaScript specs. But with
-#  our current capybara-webkit driver, this is no longer needed.
-# Oops.  This is needed for assets pre-compilation on bruckner.
-# assets precompilation works on clio-dev and clio-test, but
-# not on clio-prod.  Maybe difference in local gems?
-# OK, node now installed on bruckner, try deploy w/out this.
-# @#$%, something happened to the deploy environments, and 
-# /usr/local/bin dropped from the path - no node, broken CLIO.
-# Just put this back in there, it's a bit more code, but it
-# defends us against unstable server environments.
+# include JS runtime via bundler - server environment is unreliable
 gem 'therubyracer'
 
 gem 'httpclient'
@@ -102,11 +88,6 @@ gem 'nokogiri'
 # HTML replacement language
 gem 'haml'
 
-# 3/15 - I never looked at this before, but now that it's causing
-# version dependency problems, maybe try removing it
-# "Haml-rails provides Haml generators for Rails 4"
-# gem 'haml-rails'
-
 # CSS replacement language
 gem 'sass'
 
@@ -114,8 +95,6 @@ gem 'sass'
 # # use Redis for our cache store
 # gem 'redis-rails'
 
-# are we using this anywhere?
-# gem 'unicode'
 
 # fork local branch, to add network timeouts
 # gem 'summon'
@@ -126,15 +105,6 @@ gem 'summon', git: 'https://github.com/cul/summon.git'
 
 # auth library
 gem 'cancan'
-
-# doesn't work in Rails 4 ??
-# RecordMailer uses partials that do fragment caching... but somehow
-# this just doesn't work in stock rails.
-# 3/15
-# gem 'caching_mailer'
-# Here's one that's supposed to work for Rails 4.
-# gem 'mailer_fragment_caching'
-# but it doesn't.
 
 gem 'exception_notification'
 
@@ -224,14 +194,6 @@ group :development do
   # http://railscasts.com/episodes/402-better-errors-railspanel
   gem 'better_errors'
   gem 'binding_of_caller'
-
-  # Works with the Rails Panel plugin for Chrome
-  # gem 'meta_request'
-
-  # Trouble building on Yosemite 10.10, and since 
-  # I don't use it, remove it.
-  # # port of ruby-debug that works on 1.9.2 and 1.9.3
-  # gem 'debugger'
 
   # For code-level debugging in console
   gem 'byebug'

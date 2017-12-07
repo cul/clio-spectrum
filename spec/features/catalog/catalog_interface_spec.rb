@@ -192,7 +192,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
   describe 'share by email' do
     it 'supports an email function, directly' do
-      visit email_solr_document_path(id: 12_345)
+      visit email_solr_document_path(id: 12345)
       expect(page).to have_text('Share selected item(s) via email')
       within '#email_form' do
         fill_in 'to', with: 'marquis@columbia.edu'
@@ -248,9 +248,10 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
       click_link 'off'
     end
 
-    # clicking "off" should reload the page automatically
-    expect(page).to_not have_css('div.debug_instruction')
-    expect(page).to_not have_css('div.debug_entries')
+    # Nope, disabled "off" to help CUD do relevancy testing
+    # # clicking "off" should reload the page automatically
+    # expect(page).to_not have_css('div.debug_instruction')
+    # expect(page).to_not have_css('div.debug_entries')
 
   end
 
@@ -412,7 +413,6 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     # Use an either/or "satisfy" block below.
     abd1 = 'ʻAbd al-ʻĀl, Aḥmad Muḥammad'.mb_chars.normalize(:d)
     abd2 = 'ʼAbd al-ʼĀl, Aḥmad Muḥammad'.mb_chars.normalize(:d)
-
     # There should be at least 10 records with this author, and they
     # should be first alphabetically.
     visit catalog_index_path(q: ahmad, search_field: 'author', sort: 'author_sort asc', rows: 30)

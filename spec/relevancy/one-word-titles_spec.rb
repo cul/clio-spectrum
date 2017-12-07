@@ -33,13 +33,13 @@ describe 'Searching for one-word titles: ', :skip_travis do
 
   it 'Nature' do
     resp = solr_resp_ids_from_query('Nature')
-    expect(rank(resp, 3385138)).to be <= 1
+    expect(rank(resp, 3385138)).to be <= 5
 
     resp = solr_resp_ids_from_journal_title_query('Nature')
-    expect(rank(resp, 3385138)).to be <= 2
+    expect(rank(resp, 3385138)).to be <= 5
 
     resp = solr_resp_ejournal_ids_only('q' => 'Nature')
-    expect(rank(resp, 3385138)).to be <= 1
+    expect(rank(resp, 3385138)).to be <= 5
   end
 
   it 'Heart' do
@@ -91,10 +91,10 @@ describe 'Searching for one-word titles: ', :skip_travis do
     expect(rank(resp, 3429848)).to be <= 10
 
     resp = solr_resp_ids_from_journal_title_query('JAMA')
-    expect(rank(resp, 3429848)).to be <= 1
+    expect(rank(resp, 3429848)).to be <= 2
 
     resp = solr_resp_ejournal_ids_only('q' => 'JAMA')
-    expect(rank(resp, 3429848)).to be <= 1
+    expect(rank(resp, 3429848)).to be <= 2
   end
 
   it 'Brain' do
@@ -113,21 +113,21 @@ describe 'Searching for one-word titles: ', :skip_travis do
     expect(rank(resp, 3429912)).to be <= 5
 
     resp = solr_resp_ids_from_journal_title_query('Lancet')
-    expect(rank(resp, 3429912)).to be <= 3
+    expect(rank(resp, 3429912)).to be <= 5
 
     resp = solr_resp_ejournal_ids_only('q' => 'Lancet')
-    expect(rank(resp, 3429912)).to be <= 2
+    expect(rank(resp, 3429912)).to be <= 5
   end
 
   it 'Nation' do
     resp = solr_resp_ids_from_query('Nation')
-    expect(rank(resp, 3327456)).to be <= 9
+    expect(rank(resp, 3327456)).to be <= 20
 
     resp = solr_resp_ids_from_journal_title_query('Nation')
-    expect(rank(resp, 3327456)).to be <= 9
+    expect(rank(resp, 3327456)).to be <= 20
 
     resp = solr_resp_ejournal_ids_only('q' => 'Nation')
-    expect(rank(resp, 3327456)).to be <= 9
+    expect(rank(resp, 3327456)).to be <= 20
   end
 
 end
