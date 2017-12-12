@@ -561,6 +561,8 @@ end
 def lookup_variants(authorized_forms)
   return unless authorized_forms
 
+  @stats ||= {}
+  
   query = build_authorized_forms_query(authorized_forms)
 
   # safe_authorized_form = authorized_form.gsub(/"/, '\"')
@@ -619,6 +621,7 @@ end
 
 
 def build_authorized_forms_query(authorized_forms)
+  authorized_forms = Array(authorized_forms)
   authorized_forms.delete_if(&:blank?)
 
   authorized_forms.uniq.map { |term|

@@ -46,16 +46,17 @@ if ['clio_dev', 'clio_test', 'clio_prod'].include?(@environment)
   #   rake 'bibliographic:extract:process EXTRACT=full', subject: 'FULL'
   # end
 
-  #  ===  AUTHORITIES  ===
-
-  #  Add authority variants after each daily load 
-  every :day, at: '2am' do
-    rake 'authorities:add_to_bib:by_extract[incremental]', subject: 'daily authorities'
-  end
-  # Weekly authority catch-up against cumulative
-  every :sunday, at: '6am' do
-    rake 'authorities:add_to_bib:by_extract[cumulative]', subject: 'weekly authorities'
-  end
+  # We've moved Authority variant lookups into the bibliographic ingest
+  # #  ===  AUTHORITIES  ===
+  # 
+  # #  Add authority variants after each daily load 
+  # every :day, at: '2am' do
+  #   rake 'authorities:add_to_bib:by_extract[incremental]', subject: 'daily authorities'
+  # end
+  # # Weekly authority catch-up against cumulative
+  # every :sunday, at: '6am' do
+  #   rake 'authorities:add_to_bib:by_extract[cumulative]', subject: 'weekly authorities'
+  # end
 
 
   # == RECAP ==
@@ -78,10 +79,10 @@ if ['clio_dev', 'clio_test', 'clio_prod'].include?(@environment)
     rake 'bibliographic:extract:process EXTRACT=law', subject: 'law load'
   end
 
-  # Add authority variants to the Law records after each load
-  every :sunday, at: '10am' do
-    rake 'authorities:add_to_bib:by_extract[law]', subject: 'weekly law authorities'
-  end
+  # # Add authority variants to the Law records after each load
+  # every :sunday, at: '10am' do
+  #   rake 'authorities:add_to_bib:by_extract[law]', subject: 'weekly law authorities'
+  # end
 
   # # Weekly Delete of all stale Law records (3 week grace period)
   # # (TODO: this should definitely be coded into a rake task!)
