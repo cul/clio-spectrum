@@ -11,13 +11,14 @@ set :subject, 'cron output'
 set :recipient, 'clio-dev@library.columbia.edu'
 set :job_template, "/usr/local/bin/mailifoutput -s ':subject (:environment)' :recipient  /bin/bash -c ':job'"
 
-# CLIO DEV, CLIO TEST
-if ['clio_dev', 'clio_test', 'clio_prod'].include?(@environment)
+# Our batch processing environments
+if ['clio_app_dev', 'clio_test', 'clio_prod'].include?(@environment)
 
-  # Still to do....
-  # - cleanup search records
-  # - cleanup sessions
-  # - sync library hours
+  # Fetch a fresh "full" extract, once a week.
+  # We'll run this in bits througout the month
+  every :sunday, at: '1am' do
+    rake 'bibliographic:extract:fetch EXTRACT=full', subject: 'weekly fetch full'
+  end
 
   # == DATABASE MAINTENANCE ==
   every :day, at: '2:10am' do
@@ -67,10 +68,10 @@ if ['clio_dev', 'clio_test', 'clio_prod'].include?(@environment)
   every :day, at: '3:10am' do
     rake 'recap:ingest_new[2]', subject: 'daily recap ingest'
   end
-  #  Add authority variants after each daily load 
-  every :day, at: '4am' do
-    rake 'authorities:add_to_bib:by_extract[recap]', subject: 'daily recap authorities'
-  end
+  # #  Add authority variants after each daily load 
+  # every :day, at: '4am' do
+  #   rake 'authorities:add_to_bib:by_extract[recap]', subject: 'daily recap authorities'
+  # end
 
   # == LAW ==
 
