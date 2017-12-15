@@ -11,8 +11,11 @@ set :subject, 'cron output'
 set :recipient, 'clio-dev@library.columbia.edu'
 set :job_template, "/usr/local/bin/mailifoutput -s ':subject (:environment)' :recipient  /bin/bash -c ':job'"
 
+# We need to do some time offsets, so that our three server environments 
+# don't fire off the same job at the same moment
+
 # Our batch processing environments
-if ['clio_app_dev', 'clio_test', 'clio_prod'].include?(@environment)
+if ['clio_app_dev', 'clio_app_test', 'clio_prod'].include?(@environment)
 
   # Fetch a fresh "full" extract, once a week.
   # We'll run this in bits througout the month

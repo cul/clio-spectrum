@@ -204,7 +204,7 @@ namespace :bibliographic do
     # There are about 130 full files currently.
     # If we do ten per night, we can cover all the files in half a month.
     desc "ingest a partial slice of the 'full' extract (run this every day!)"
-    task :ingest_full_slice => :environment do
+    task :ingest_full_slice, [:monthday] => :environment do |t, args|
       setup_ingest_logger
       Rails.logger.info("- begin task bibliographic:extract:ingest_full_slice")
 
@@ -214,6 +214,14 @@ namespace :bibliographic do
       # Create a range of ten files, based on day-of-the-month
       # E.g., on the 12th, we'll look for "111" through "120"
       monthday = Date.today.strftime('%d')
+      if args[:monthday]
+        Rails.logger.warn("- MONTHDAY OVERRIDE - was #{monthday}, override with #{args[:monthday]}")
+        monthday = args[:monthday]
+        unless monthday.match(/^\d+$/) && monthday.to_i > 0 && monthday.to_i < 32
+          Rails.logger.error("- illegal monthday override value [#{monthday}] - aborting.")
+          next
+        end
+      end
       slice_end = 10 * monthday.to_i
       slice_start = slice_end - 9
       Rails.logger.info("- indexing full extract files numbered #{slice_start} through #{slice_end}")
@@ -227,7 +235,7 @@ namespace :bibliographic do
       Rails.logger.info("- looking under #{full_dir}") if todays_slice_of_full.size < 10
 
       next if todays_slice_of_full.size == 0
-
+next
       todays_slice_of_full.each do |filename|
         Rails.logger.info('-' * 60)
         Rake::Task["bibliographic:extract:ingest_file"].reenable
