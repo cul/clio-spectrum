@@ -222,6 +222,7 @@ namespace :bibliographic do
           next
         end
       end
+      Rails.logger.info("- Day of the Month is:  #{monthday}")
       slice_end = 10 * monthday.to_i
       slice_start = slice_end - 9
       Rails.logger.info("- indexing full extract files numbered #{slice_start} through #{slice_end}")
@@ -235,7 +236,7 @@ namespace :bibliographic do
       Rails.logger.info("- looking under #{full_dir}") if todays_slice_of_full.size < 10
 
       next if todays_slice_of_full.size == 0
-next
+
       todays_slice_of_full.each do |filename|
         Rails.logger.info('-' * 60)
         Rake::Task["bibliographic:extract:ingest_file"].reenable
