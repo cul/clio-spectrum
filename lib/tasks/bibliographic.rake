@@ -29,6 +29,7 @@ namespace :bibliographic do
       FileUtils.mkdir_p(temp_dir_name)
       cp_command = "/bin/cp #{extract_dir}/* " + temp_dir_name
       Rails.logger.info("Fetching from #{extract_dir}")
+      Rails.logger.info("to #{temp_dir_name}")
       # puts cp_command
       if system(cp_command)
         Rails.logger.info("Fetch successful.")
@@ -85,13 +86,39 @@ namespace :bibliographic do
       end
     end
 
-
     desc "ingest latest bibliographic records"
     task :ingest => :environment do
       setup_ingest_logger
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
-      extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.{mrc,xml}")) if extract
+      Rails.logger.info("- begin task bibliographic:extract:ingest with extract=#{extract}")
+
+      extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.xml")) if extract
       files_to_read = (ENV["INGEST_FILE"] || extract_files).listify.sort
+      Rails.logger.info("- processing #{files_to_read.size} files...")
+
+      # index each file 
+      files_to_read.each do |filename|
+        # Rails.logger.info("- Rake::Task[bibliographic:extract:ingest_file].invoke(#{filename})")
+        Rails.logger.info('-' * 60)
+        Rake::Task["bibliographic:extract:ingest_file"].reenable
+        Rake::Task["bibliographic:extract:ingest_file"].invoke(filename)
+      end
+      Rails.logger.info('-' * 60)
+
+      Rails.logger.info("- finished processing #{files_to_read.size} files.")
+
+    end
+
+    desc "ingest single specified MARC file"
+    task :ingest_file, [:filename] => :environment do |t, args|
+      setup_ingest_logger
+      Rails.logger.info("---- begin task bibliographic:extract:ingest_file")
+
+      filename = args[:filename]
+      abort("bibliographic:extract:ingest_file[:filename] not passed filename!") unless filename
+      abort("bibliographic:extract:ingest_file[:filename] passed non-existant filename #{filename}") unless File.exist?(filename)
+      abort("bibliographic:extract:ingest_file[:filename] not an XML file!") unless filename.ends_with?('.xml')
+      Rails.logger.info("---- filename: #{filename}")
 
       # create new traject indexer
       indexer = Traject::Indexer.new
@@ -111,9 +138,11 @@ namespace :bibliographic do
          provide "solr_writer.max_skipped", "100"
          # 10 x default batch sizes, sees some gains
          provide "solr_writer.batch_size", "1000"
+         # 12/2017 - drop support for .mrc, only .xml henceforth
+         provide 'marc_source.type', 'xml'
 
          if ENV["DEBUG"]
-           Rails.logger.info("- DEBUG set, writing to stdout")
+           Rails.logger.info("---- *** DEBUG set, writing to stdout ***")
            provide "writer_class_name", "Traject::DebugWriter"
          end
       end
@@ -121,56 +150,40 @@ namespace :bibliographic do
       # load Traject config file (indexing rules)
       indexer.load_config_file(File.join(Rails.root, "config/traject/bibliographic.rb"))
 
-      Rails.logger.info("- processing #{files_to_read.size} files...")
-
-      # index each file 
-      files_to_read.each do |filename|
-        begin
-          Rails.logger.info("--- processing #{filename}...")
-
-          # Nokogiri XML parser can't handle illegal control chars
-          if filename.ends_with?('.xml')
-            Rails.logger.debug("----- cleaning #{filename}...")
-            clean_ingest_file(filename)
-            Rails.logger.debug("----- XML well-formedness check...")
-            if File.exist?('/usr/bin/xmlwf')
-              # Rails.logger.debug("----- running xmllint against #{filename}...")
-              # output, status = Open3.capture2e("xmllint --noout #{filename}")
-              command = "xmlwf -r #{filename}"
-              output, status = Open3.capture2e(command)
-              if status != 0
-                  Rails.logger.error("XML file failed well-formedness check!")
-                  Rails.logger.error("command: #{command}")
-                  Rails.logger.error("output: #{output}")
-                  raise 
-              end
-            else
-              Rails.logger.debug("----- xmlwf not found - skipping well-formedness check!")
+      begin
+        # Nokogiri XML parser can't handle illegal control chars
+        if filename.ends_with?('.xml')
+          Rails.logger.debug("---- cleaning #{filename}...")
+          clean_ingest_file(filename)
+          Rails.logger.debug("---- XML well-formedness check...")
+          if File.exist?('/usr/bin/xmlwf')
+            # Rails.logger.debug("----- running xmllint against #{filename}...")
+            # output, status = Open3.capture2e("xmllint --noout #{filename}")
+            command = "xmlwf -r #{filename}"
+            output, status = Open3.capture2e(command)
+            if status != 0
+                Rails.logger.error("XML file failed well-formedness check!")
+                Rails.logger.error("command: #{command}")
+                Rails.logger.error("output: #{output}")
+                raise 
             end
+          else
+            Rails.logger.debug("---- xmlwf not found - skipping well-formedness check!")
           end
-
-          File.open(filename) do |file|
-            case File.extname(file)
-            when '.mrc'
-              indexer.settings['marc_source.type'] = 'binary'
-            when '.xml'
-              indexer.settings['marc_source.type'] = 'xml'
-            end
-
-            Rails.logger.debug("----- indexing #{filename}...")
-            indexer.process(file)
-          end
-          Rails.logger.info("--- finished #{filename}.")
-        rescue => e
-          Rails.logger.error("Error during indexing (#{filename}): " + e.inspect)
-          # don't raise, so rake can continue processing other files
-          # raise e
         end
+
+        Rails.logger.debug("---- indexing #{filename}...")
+        File.open(filename) do |file|
+          indexer.process(file)
+        end
+        Rails.logger.info("---- finished #{filename}.")
+      rescue => e
+        Rails.logger.error("Error during indexing (#{filename}): " + e.inspect)
+        # don't raise, so rake can continue processing other files
+        # raise e
       end
-
-      Rails.logger.info("- finished processing #{files_to_read.size} files.")
-
     end
+
 
     desc "download and ingest latest files"
     task :process => :environment do
@@ -183,12 +196,53 @@ namespace :bibliographic do
 
       Rake::Task["bibliographic:extract:ingest"].execute
       Rails.logger.info("Ingest successful.")
-
-
     end
+
+
+    # Each day of the month (1-N), ingest some of the files from 'full', 
+    # so that within each month we'll have re-processed the complete 'full'.
+    # There are about 130 full files currently.
+    # If we do ten per night, we can cover all the files in half a month.
+    desc "ingest a partial slice of the 'full' extract (run this every day!)"
+    task :ingest_full_slice => :environment do
+      setup_ingest_logger
+      Rails.logger.info("- begin task bibliographic:extract:ingest_full_slice")
+
+      full_dir = 'tmp/extracts/full/current'
+      todays_slice_of_full = []
+      
+      # Create a range of ten files, based on day-of-the-month
+      # E.g., on the 12th, we'll look for "111" through "120"
+      monthday = Date.today.strftime('%d')
+      slice_end = 10 * monthday.to_i
+      slice_start = slice_end - 9
+      Rails.logger.info("- indexing full extract files numbered #{slice_start} through #{slice_end}")
+      (slice_start..slice_end).to_a.each do |counter|
+        extract_file = sprintf("extract-%03d.xml", counter)
+        filename = "#{full_dir}/#{extract_file}"
+        todays_slice_of_full.push(filename) if File.exists?(filename)
+      end
+      Rails.logger.info("- processing #{todays_slice_of_full.size} extract files found within this range")
+      # provide additional hints if they might be useful
+      Rails.logger.info("- looking under #{full_dir}") if todays_slice_of_full.size < 10
+
+      next if todays_slice_of_full.size == 0
+
+      todays_slice_of_full.each do |filename|
+        Rails.logger.info('-' * 60)
+        Rake::Task["bibliographic:extract:ingest_file"].reenable
+        Rake::Task["bibliographic:extract:ingest_file"].invoke(filename)
+      end
+      Rails.logger.info('-' * 60)
+      
+      Rails.logger.info("- finished processing #{todays_slice_of_full.size} files.")
+    end
+
+
+  # end 'extract'
   end
 
-
+# end 'bibliographic'
 end
 
 
