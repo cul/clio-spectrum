@@ -4,31 +4,16 @@ require 'resolv'
 class User < ActiveRecord::Base
   include Devise::Models::DatabaseAuthenticatable
 
+  include Devise::Models::Timeoutable
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
 
-  if APP_CONFIG['web_authentication'] == 'wind'
-    devise :wind_authenticatable, :encryptable, authentication_keys: [:login]
-    # CUIT Broke Wind, 2015-02-09
-    # wind_host 'wind.columbia.edu'
-    # wind_service 'culscv'
-    # Allow us to adjust more quickly to the shifting sands of central support...
-    wind_host APP_CONFIG['wind_host']
-    wind_service APP_CONFIG['wind_service']
-  end
-
   if APP_CONFIG['web_authentication'] == 'cas'
-    # CAS is ready.  No more wind.
     # devise :cas_authenticatable, :encryptable, authentication_keys: [:login]
     devise :cas_authenticatable, authentication_keys: [:login]
   end
-
-
-  # Rails 4 - don't do this.  Will our gems do it for us?
-  # # Setup accessible (or protected) attributes for your model
-  # attr_accessible :email, :password, :password_confirmation, :remember_me
-  # attr_accessible :first_name, :last_name, :login
 
   validates :login, uniqueness: true, presence: true
 

@@ -43,18 +43,12 @@ gem 'kaminari'
 gem 'devise'
 gem 'devise-encryptable'
 
-# CAS is ready.  No more wind.
-# ... but try to run them both during transition
-# # pull from rubygems...
-# # gem 'devise_wind'
-# # Local copy relaxes rails version requirements (allows 4.x)
-# # gem "devise_wind", :path => "/Users/marquis/src/devise_wind"
-# # New branch to recover from when CUIT broke wind
-# gem "devise_wind", :git => 'git://github.com/cul/devise_wind.git', :branch => 'broke_wind'
+# Client-side JS timeouts
+gem 'auto-session-timeout'
+
 # CAS is ready.
-gem 'devise_cas_authenticatable'
-# for debugging, use local version...
 # gem 'devise_cas_authenticatable', path: '/Users/marquis/src/devise_cas_authenticatable'
+gem 'devise_cas_authenticatable'
 
 gem 'json'
 

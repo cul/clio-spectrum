@@ -14,6 +14,9 @@
 
 = yield(:jstemplates)
 
+- if current_user && Rails.env != 'clio_prod'
+  -# = auto_session_timeout_js frequency: 5
+  = auto_session_timeout_js
 
 /
 / end _common_tail 

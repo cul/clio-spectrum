@@ -5,6 +5,7 @@
 #main-flashes
   .flash_messages
     - flash.each do |type, message|
+      - next if type.to_s == 'timedout'
       - display_class = flash_map[type] || type
       .alert{ class: "alert-#{display_class}"}
         = message

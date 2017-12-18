@@ -390,4 +390,5 @@ class CatalogController < ApplicationController
     flash[:error].blank?
   end
 
+
 end
