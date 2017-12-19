@@ -40,6 +40,7 @@ class ApplicationController < ActionController::Base
   # How-To:-Redirect-back-to-current-page-after-sign-in,-sign-out,-sign-up,-update
   before_filter :store_location
 
+  # Polling for logged-in-status shouldn't update the devise last-activity tracker
   prepend_before_action :skip_timeout, only: [:render_session_status, :render_session_timeout]
   def skip_timeout
     request.env["devise.skip_trackable"] = true
