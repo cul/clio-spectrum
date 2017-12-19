@@ -448,7 +448,7 @@ module Voyager
             'uts,mrlor', 'uts,mrloxf', 'uts,mrls', 'uts,mrlxxp', 'uts,mss', 'uts,perr',
             'uts,perrxf', 'uts,reled', 'uts,tms', 'uts,twr', 'uts,twrxxf',
             'uts,unnr', 'uts,unnrxf', 'uts,unnrxp'].include?(location_code)
-          location_note = 'By appointment only. See the <a href="http://library.columbia.edu/locations/burke/access_circulation/special-collections-access.html" target="_blank">Burke Library special collections page</a>'
+          location_note = 'By appointment only. See the <a href="http://library.columbia.edu/locations/burke/using-special-collections.html" target="_blank">Burke Library special collections page</a>'
           return location_note
         end
 
