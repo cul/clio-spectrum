@@ -203,7 +203,7 @@ namespace :bibliographic do
     # so that within each month we'll have re-processed the complete 'full'.
     # There are about 130 full files currently.
     # If we do ten per night, we can cover all the files in half a month.
-    desc "ingest a partial slice of the 'full' extract (run this every day!)"
+    desc "ingest a partial slice of the 'full' extract (run this every day)"
     task :ingest_full_slice, [:monthday] => :environment do |t, args|
       setup_ingest_logger
       Rails.logger.info("- begin task bibliographic:extract:ingest_full_slice")

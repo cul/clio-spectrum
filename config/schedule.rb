@@ -11,16 +11,18 @@ set :subject, 'cron output'
 set :recipient, 'clio-dev@library.columbia.edu'
 set :job_template, "/usr/local/bin/mailifoutput -s ':subject (:environment)' :recipient  /bin/bash -c ':job'"
 
+# TODO
 # We need to do some time offsets, so that our three server environments 
 # don't fire off the same job at the same moment
 
 # Our batch processing environments
 if ['clio_app_dev', 'clio_app_test', 'clio_prod'].include?(@environment)
 
-  # Fetch a fresh "full" extract, once a week.
-  # We'll run this in bits througout the month
-  every :sunday, at: '1am' do
-    rake 'bibliographic:extract:fetch EXTRACT=full', subject: 'weekly fetch full'
+
+  # Ingest a partial slice of the 'full' extract.
+  # Slice is based on day-of-the-month, so run this daily
+  every :day, at: '1am' do
+    rake 'bibliographic:extract:ingest_full_slice', subject: 'daily full slice'
   end
 
   # == DATABASE MAINTENANCE ==
@@ -37,18 +39,13 @@ if ['clio_app_dev', 'clio_app_test', 'clio_prod'].include?(@environment)
   # == BIBLIOGRAPHIC ==
 
   # Nightly incremental
-  every :day, at: '1am' do
+  every :day, at: '3am' do
     rake 'bibliographic:extract:process EXTRACT=incremental', subject: 'daily incremental'
   end
   # Weekly cumulative, catch-up run in case we missed anything
   every :sunday, at: '4am' do
     rake 'bibliographic:extract:process EXTRACT=cumulative', subject: 'weekly cumulative'
   end
-
-  # # FULL - to be included as needed
-  # every :foobarday, at: '3:00pm' do
-  #   rake 'bibliographic:extract:process EXTRACT=full', subject: 'FULL'
-  # end
 
   # We've moved Authority variant lookups into the bibliographic ingest
   # #  ===  AUTHORITIES  ===
@@ -62,13 +59,12 @@ if ['clio_app_dev', 'clio_app_test', 'clio_prod'].include?(@environment)
   #   rake 'authorities:add_to_bib:by_extract[cumulative]', subject: 'weekly authorities'
   # end
 
-
   # == RECAP ==
   #  Add authority variants after each daily load 
-  every :day, at: '3am' do
+  every :day, at: '5am' do
     rake 'recap:delete_new[2]', subject: 'daily recap delete'
   end
-  every :day, at: '3:10am' do
+  every :day, at: '6am' do
     rake 'recap:ingest_new[2]', subject: 'daily recap ingest'
   end
   # #  Add authority variants after each daily load 
@@ -94,6 +90,13 @@ if ['clio_app_dev', 'clio_app_test', 'clio_prod'].include?(@environment)
   #   command '/usr/bin/curl --silent "http://lito-solr-dev1.cul.columbia.edu:8983/solr/clio_dev/update?commit=true" -H "Content-Type: text/xml" --data-binary "<delete><query>timestamp:[* TO NOW/DAY-21DAYS] AND location_facet:Law</query></delete>"', subject: 'law purge'
   # end
 
+
+  # Fetch a fresh "full" extract, once a week.
+  # We'll run this in bits througout the month
+  every :saturday, at: '10am' do
+    rake 'bibliographic:extract:fetch EXTRACT=full', subject: 'weekly fetch full'
+  end
+
 end
 
 # Anything for PROD only?
@@ -109,17 +112,4 @@ if ['clio_prod'].include?(@environment)
 end
 
 
-# # Run on every host - dev, test, prod
-# every :day, at: '1am' do
-#   rake 'metadata:process', subject: 'GeoData metadata:process output'
-# end
 
-
-
-# Examples of per-environment cron commands
-# 
-# if @environment == "geoblacklight_dev"
-#     every :weekday, :at => '10pm' do
-#         # rake "foo:bar"
-#     end
-# end
