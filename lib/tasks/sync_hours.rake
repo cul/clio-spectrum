@@ -12,7 +12,15 @@ namespace :hours do
   task :libraries => :environment do
     puts "===  List of known libraries  ==="
     Library.all().each do |library|
-      printf("%-32s  %s\n", library.hours_db_code, library.name)
+      printf("%3d %-32s  %s\n", library.id, library.hours_db_code, library.name)
+    end
+  end
+
+  task :update_all => :environment do
+    Library.all().each do |library|
+      printf("Updating %3d %-30s  %s\n", library.id, library.hours_db_code, library.name)
+      Rake::Task["hours:update"].reenable
+      Rake::Task["hours:update"].invoke(library.hours_db_code)
     end
   end
 
@@ -60,12 +68,19 @@ namespace :hours do
 
     LibraryHours.where(library_id: library.id).destroy_all
     hours.each do |day|
+      # Assume closed, unless we have open/close times
+      opens = closes = nil
+      opens  = "#{day['date']} #{day['open_time']}"  if day['open_time']
+      closes = "#{day['date']} #{day['close_time']}" if day['close_time']
+      # But even so, the 'closed' field overrides any given hours
+      opens = closes = nil if day['closed']
+        
       daily_hours = {
         library_id: library.id,
         date:       day['date'],
-        opens:      "#{day['date']} #{day['open_time']}",
-        closes:     "#{day['date']} #{day['close_time']}",
-        note:       day['notes']
+        opens:      opens,
+        closes:     closes,
+        note:       day['note']
       }
       LibraryHours.create(daily_hours)
     end
@@ -109,7 +124,7 @@ def call_hours_api(library_code, start_date, end_date)
   end
 
   # puts "============"
-  # puts hours.inspect
+  # puts hours.to_yaml
   # puts "============"
 
   hours

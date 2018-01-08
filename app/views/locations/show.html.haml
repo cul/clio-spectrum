@@ -39,7 +39,7 @@
                     .row
                       .col-md-4= hour.to_day_of_week
                       .col-md-8= hour.to_opens_closes
-                      .hours_note= hour.note.to_s
+                      .col-md-12.hours_note= hour.note.to_s
 
   - else
     %h2 No location information for #{h(params[:id])}

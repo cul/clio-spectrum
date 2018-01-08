@@ -340,18 +340,18 @@
     Electronic Text Service
     
     305 Butler Library
-- :library_code: engineering
-  :location_code: engineering
-  :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionD.gif
-    Home Page: http://library.columbia.edu/locations/engineering.html
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionD.html
-  :category: physical
-  :location: Engineering
-  :found_in: |-
-    Engineering Library
-    
-    422 Mudd
+# - :library_code: engineering
+#   :location_code: engineering
+#   :links: 
+#     # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionD.gif
+#     Home Page: http://library.columbia.edu/locations/engineering.html
+#     # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionD.html
+#   :category: physical
+#   :location: Engineering
+#   :found_in: |-
+#     Engineering Library
+#     
+#     422 Mudd
 - :library_code: geology
   :location_code: geology
   :links: 
@@ -502,18 +502,18 @@
     Lehman Map Room
     
     300 International Affairs
-- :library_code: lehman-suite
-  :location_code: lehman-suite
-  :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionF.gif
-    Home Page: http://library.columbia.edu/locations/rbml/units/lehman.html
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
-  :category: physical
-  :location: Lehman Suite
-  :found_in: |-
-    Lehman Suite
-    
-    406 International Affairs
+# - :library_code: lehman-suite
+#   :location_code: lehman-suite
+#   :links: 
+#     # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionF.gif
+#     Home Page: http://library.columbia.edu/locations/rbml/units/lehman.html
+#     # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionF.html
+#   :category: physical
+#   :location: Lehman Suite
+#   :found_in: |-
+#     Lehman Suite
+#     
+#     406 International Affairs
 - :library_code: lehman
   :location_code: lehman
   :links: 
@@ -627,18 +627,18 @@
     Use green "Get From Offsite" link in record to retrieve items
     Non-affiliates please contact LIO for access, lio@columbia.edu or (212) 854-7309
 
-- :library_code: ccoh
-  :location_code: ccoh
-  :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    Home Page: http://library.columbia.edu/locations/ccoh.html
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
-  :category: physical
-  :location: Oral History
-  :found_in: |-
-    Oral History Research Office
-    
-    801 Butler Library
+# - :library_code: ccoh
+#   :location_code: ccoh
+#   :links: 
+#     # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
+#     Home Page: http://library.columbia.edu/locations/ccoh.html
+#     # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
+#   :category: physical
+#   :location: Oral History
+#   :found_in: |-
+#     Oral History Research Office
+#     
+#     801 Butler Library
 - :library_code: cumc-orthopaedic
   :location_code: cumc-orthopaedic
   :links: 
