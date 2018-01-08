@@ -33,7 +33,7 @@ if ['clio_app_dev', 'clio_app_test', 'clio_prod'].include?(@environment)
     rake 'sessions:cleanup[1]', subject: 'sessions:cleanup'
   end
   every :day, at: '2:30am' do
-    rake 'hours:sync', subject: 'hours:sync'
+    rake 'hours:update_all', subject: 'hours:update_all'
   end
 
   # == BIBLIOGRAPHIC ==
