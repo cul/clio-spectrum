@@ -44,6 +44,7 @@
 
 //= require advanced
 //= require articles
+//= require astroids
 //= require async-search
 //= require catalog
 //= require datasources
@@ -55,6 +56,7 @@
 //= require in_viewport
 //= require item_actions
 //= require item_alerts
+//= require konami
 //= require ldpd_feedback
 //= require nearby
 //= require saved_lists
@@ -62,16 +64,6 @@
 //= require preferences
 
 
-// was used in support of JavaScript landing-page switching,
-// to carry-over "q" between forms.  No longer used.
-// # require jquery.observe_field
-
-// something about centering modal popups... selector doesn't seem to
-// be hitting on anything anymore?
-// # require modall_manager_override
-
-//= require astroids
-//= require konami
 
 
 

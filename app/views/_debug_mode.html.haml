@@ -3,7 +3,8 @@
     Debug mode is on.
     - turn_off_link = request.fullpath.gsub(/.debug_mode=(on|off)/,'')
     - turn_off_link = turn_off_link.include?("?") ? turn_off_link + "&debug_mode=off" : turn_off_link + "?debug_mode=off"
-    Turn it #{link_to "off", turn_off_link}
+    // Hide the Debug On/Off Toggle, while CUD has debug access.
+    // Turn it #{link_to "off", turn_off_link}
   .debug_entries
     - @debug_entries.each do |key, values|
       - values = values.listify

@@ -7,17 +7,17 @@ set :bundle_env_variables, {
   }
 
 
-server 'clio-service-prod1.cul.columbia.edu', user: 'clioserv', roles: %w{app db web}
+server 'clio-service-test1.cul.columbia.edu', user: 'clioserv', roles: %w{app db web}
 
 # set :deploy_to, '/var/www/my_app_name'
 # set :deploy_to, '/opt/passenger/clio_prod'
-set :deploy_to, '/opt/app/clio_prod'
+set :deploy_to, '/opt/app/clio_test'
 
 # https://github.com/capistrano/rvm
 # set :rvm_type, :user                     # Defaults to: :auto
 # set :rvm_ruby_version, '2.0.0-p247'      # Defaults to: 'default'
 # set :rvm_custom_path, '~/.myveryownrvm'  # only needed if not detected
-set :rvm_ruby_version, 'clio_prod'
+set :rvm_ruby_version, 'clio_test'
 
 
 

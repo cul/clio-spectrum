@@ -214,6 +214,10 @@ Rails.application.routes.draw do
 
   get 'checked_out_items(/:uni)', to: 'spectrum#checked_out_items', as: :checked_out_items
 
+  # https://github.com/pelargir/auto-session-timeout
+  get 'active', to: 'application#render_session_status'
+  get 'timeout', to: 'application#render_session_timeout'
+
 end
 
 

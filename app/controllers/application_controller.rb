@@ -13,10 +13,14 @@ class ApplicationController < ActionController::Base
   include BrowseSupport
   include PreferenceSupport
 
-  # Please be sure to impelement current_user and user_session. Blacklight depends on
+  # Please be sure to implement current_user and user_session. Blacklight depends on
   # these methods in order to perform user specific actions.
   check_authorization
   skip_authorization_check
+
+  # Set headers to prevent all caching in authenticated sessions,
+  # so that people can't 'back' in the browser to see possibly secret stuff.
+  before_filter :set_cache_headers
 
   before_filter :apply_random_q
   # before_filter :trigger_async_mode
@@ -35,6 +39,12 @@ class ApplicationController < ActionController::Base
   # https://github.com/plataformatec/devise/wiki/
   # How-To:-Redirect-back-to-current-page-after-sign-in,-sign-out,-sign-up,-update
   before_filter :store_location
+
+  # Polling for logged-in-status shouldn't update the devise last-activity tracker
+  prepend_before_action :skip_timeout, only: [:render_session_status, :render_session_timeout]
+  def skip_timeout
+    request.env["devise.skip_trackable"] = true
+  end
 
   rescue_from CanCan::AccessDenied do |exception|
     # note - access denied gives a 302 redirect, not 403 forbidden.
@@ -489,7 +499,29 @@ class ApplicationController < ActionController::Base
     @search ? @search.documents : []
   end
 
+  # Render a true or false, for if the user is logged in
+  def render_session_status
+    Rails.logger.debug "status=#{!!current_user}"
+    response.headers["Etag"] = ""  # clear etags to prevent caching
+    render plain: !!current_user, status: 200
+  end
+
+  def render_session_timeout
+    flash[:notice] = "Authenticated session been has timed out.  Now browsing anonymously."
+    # redirect_to "/login"
+    redirect_to root_path
+  end
+
   private
+
+  def set_cache_headers
+    if current_user && Rails.env != 'clio_prod'
+      response.headers["Cache-Control"] = "no-cache, no-store"
+      response.headers["Pragma"] = "no-cache"
+      response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+    end
+  end
+
 
   def by_source_config
     $active_source = determine_active_source
@@ -523,7 +555,9 @@ class ApplicationController < ActionController::Base
       # old-style async ajax holdings lookups - obsolete?
       fullpath =~ /\/holdings/ or
       # Persistent selected-item lists
-      fullpath =~ /\/selected/
+      fullpath =~ /\/selected/ or
+      # auto-timeout polling
+      fullpath =~ /\/active/
   end
 
   # DEVISE callback

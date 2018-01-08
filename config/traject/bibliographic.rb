@@ -30,6 +30,11 @@ lookups = 0
 
 ATOZ = ('a'..'z').to_a.join('')
 
+# Authority counter variables
+author_variant_count = 0
+subject_variant_count = 0
+geo_variant_count = 0
+
 # Pre-load translation maps once, not once per record
 country_map = Traject::TranslationMap.new("country_map")
 callnumber_map = Traject::TranslationMap.new("callnumber_map")
@@ -47,13 +52,18 @@ callnumber_map = Traject::TranslationMap.new("callnumber_map")
 # Set any local variables to be used repeatedly in below logic
 recap_location_code = ''
 recap_location_name = ''
+
 each_record do |record, context|
-  # SCSB ReCAP
+  # SCSB ReCAP - re-set the value for each record
   first_location_code = Marc21.extract_marc_from(record, "852b", first: true).first
   if first_location_code.present? && first_location_code.match(/^scsb/)
     recap_location_code = first_location_code
     recap_location_name = TrajectUtility.recap_location_code_to_label(recap_location_code)
   end
+  # Reset authorities counter variables for each new record
+  author_variant_count = 0
+  subject_variant_count = 0
+  geo_variant_count = 0
 end
 
 
@@ -97,6 +107,28 @@ to_field "author_display", extract_marc("100abcdq:110#{ATOZ}:111#{ATOZ}", trim_p
 to_field "author_vern_display", extract_marc("100abcdq:110#{ATOZ}:111#{ATOZ}", trim_punctuation: true, alternate_script: :only)
 to_field "author_sort", marc_sortable_author
 
+# Using the same author forms as used for author_facet,
+# lookup each value to get a 
+to_field "author_variant_txt" do |record, accumulator|
+  # fetch all author forms from the various MARC fields
+  author_fields = "100abcdq:110#{ATOZ}:111#{ATOZ}:700abcdq:710#{ATOZ}:711#{ATOZ}"
+  all_authors = Marc21.extract_marc_from(record, author_fields, trim_punctuation: true, alternate_script: false).flatten.uniq
+
+  # Lookup variants for each author
+  # (Lookup each author, in one-by-one single-param queries?  
+  #  Or join all authors terms w/OR into a single giant Solr query?
+  #  For now, try simple single-term queries. Individually faster, and maybe better caching?)
+  all_variants = []
+  all_authors.each do |author|
+    all_variants << lookup_variants(author)
+  end
+
+  all_variants.flatten.uniq.each do |variant|
+    author_variant_count += 1
+    accumulator << variant
+  end
+end
+
 to_field "title_txt", extract_marc("245afknp", trim_punctuation: false, alternate_script: true)
 to_field "title_display", extract_marc("245abfhknp", trim_punctuation: true, alternate_script: false)
 to_field "title_vern_display", extract_marc("245abfhknp", trim_punctuation: true, alternate_script: :only)
@@ -127,8 +159,62 @@ to_field "subject_geo_facet", extract_marc("600z:610z:611z:630z:650z:651a:651z:6
 to_field "subject_form_facet", extract_marc("600v:610v:611v:630v:650v:651v:655ab:655v", trim_punctuation: true, alternate_script: false)
 to_field "subject_form_txt", extract_marc("600v:610v:611v:630v:650v:651v:655ab:655v", trim_punctuation: true, alternate_script: false)
 
+
+# Lookup subject variants, using the same subject terms as used for subject_topic_facet,
+to_field "subject_variant_txt" do |record, accumulator|
+  # fetch all subject (topic) forms from the various MARC fields
+  subject_fields = "600abcdq:600x:610ab:610x:611ab:611x:630a:630x:650a:650x:651x:655x"
+  all_subjects = Marc21.extract_marc_from(record, subject_fields, trim_punctuation: true, alternate_script: false).flatten.uniq
+
+  # Lookup variants for each subject
+  all_variants = []
+  all_subjects.each do |subject|
+    all_variants << lookup_variants(subject)
+  end
+
+  all_variants.flatten.uniq.each do |variant|
+    next unless variant.present?
+    subject_variant_count += 1
+    accumulator << variant
+    # DEBUG
+    # puts "subject_variant_count=#{subject_variant_count} variant=#{variant}"
+  end
+end
+
 # 781z - geographic subfield divisions, need the value as query into authorities solr
+# "For single subfield specifications, you force concatenation by
+#  repeating the subfield specification""
 to_field "geo_subdivision_txt", extract_marc("600zz:610zz:611zz:630zz:650zz:651zz:655zz", trim_punctuation: true)
+
+# Geo is tricky.
+# A Geo term in the Bib record might look like this:
+#    651 _0 ǂa Mumbai (India)
+# Or like this (in 'subdivision' format):
+#    6XX XX ... ǂz India ǂz Mumbai
+# The Authority record (indexed to the Authorites Solr) will have multiple forms, e.g:
+#    151 __ ǂa Mumbai (India)
+#    451 __ ǂa Asumumbay (India)
+#    551 __ ǂa Bombay (India)
+#    781 _0 ǂz India ǂz Mumbai
+# We need enable matches via either the Authority 151 or the Authority 781.
+# So we need to index our bib fields both as singletons and as concatenations.
+to_field "geo_variant_txt" do |record, accumulator|
+  geo_terms = '600z:610z:611z:630z:650z:651a:651z:655z'
+  geo_subdivs = '600zz:610zz:611zz:630zz:650zz:651zz:655zz'
+  geo_fields = "#{geo_terms}:#{geo_subdivs}"
+  all_geo = Marc21.extract_marc_from(record, geo_fields, trim_punctuation: true, alternate_script: false).flatten.uniq
+
+  # Lookup variants for each geo entry
+  all_variants = []
+  all_geo.each do |geo|
+    all_variants << lookup_variants(geo)
+  end
+
+  all_variants.flatten.uniq.each do |variant|
+    geo_variant_count += 1
+    accumulator << variant
+  end
+end
 
 to_field "pub_place_display", extract_marc("260a:264a", trim_punctuation: true, alternate_script: false)
 to_field "pub_name_display", extract_marc("260b:264b", trim_punctuation: true, alternate_script: false)
@@ -406,6 +492,20 @@ to_field "items_i" do |record, accumulator|
   accumulator << count
 end
 
+# Datestamp for when Authorities were filled in.
+to_field "authorities_dt" do |record, accumulator|
+  accumulator << Time.now.utc.iso8601
+end
+# Authority Counts
+to_field "author_variants_i" do |record, accumulator|
+  accumulator << author_variant_count
+end
+to_field "subject_variants_i" do |record, accumulator|
+  accumulator << subject_variant_count
+end
+to_field "geo_variants_i" do |record, accumulator|
+  accumulator << geo_variant_count
+end
 
 
 

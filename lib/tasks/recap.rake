@@ -274,9 +274,9 @@ namespace :recap do
     extract_dir = APP_CONFIG['extract_home'] + "/recap/" + sftp_updates_dir
     full_path = extract_dir + '/' + filename
 
-    abort("recap:ingest[:filename] not passed filename!") unless filename
-    abort("recap:ingest[:filename] passed non-existant filename #{filename}") unless File.exist?(full_path)
-    abort("recap:ingest[:filename] not a ReCAP .zip extract file!") unless filename.ends_with?('.zip')
+    abort("recap:ingest_file[:filename] not passed filename!") unless filename
+    abort("recap:ingest_file[:filename] passed non-existant filename #{filename}") unless File.exist?(full_path)
+    abort("recap:ingest_file[:filename] not a ReCAP .zip extract file!") unless filename.ends_with?('.zip')
     
     Rails.logger.info("- ingesting ReCAP file #{filename}")
 
