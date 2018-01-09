@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930143849) do
+ActiveRecord::Schema.define(version: 20180101010101) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer  "user_id",       null: false
@@ -52,15 +52,17 @@ ActiveRecord::Schema.define(version: 20160930143849) do
   add_index "libraries", ["hours_db_code"], name: "index_libraries_on_hours_db_code"
 
   create_table "library_hours", force: :cascade do |t|
-    t.integer  "library_id", null: false
-    t.date     "date",       null: false
+    t.integer  "library_id",   null: false
+    t.date     "date",         null: false
     t.datetime "opens"
     t.datetime "closes"
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "library_code"
   end
 
+  add_index "library_hours", ["library_code"], name: "index_library_hours_on_library_code"
   add_index "library_hours", ["library_id", "date"], name: "index_library_hours_on_library_id_and_date"
 
   create_table "locations", force: :cascade do |t|
@@ -71,8 +73,10 @@ ActiveRecord::Schema.define(version: 20160930143849) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "location_code"
+    t.string   "library_code"
   end
 
+  add_index "locations", ["library_code"], name: "index_locations_on_library_code"
   add_index "locations", ["library_id"], name: "index_locations_on_library_id"
   add_index "locations", ["name"], name: "index_locations_on_name"
 

@@ -54,13 +54,13 @@ describe 'Locations', vcr: { allow_playback_repeats: true } do
     it 'should have a map of Butler if Location is Milstein', :skip_travis do
       visit location_display_path("Milstein+%5BButler%5D")
       expect(page).to have_css('.gmap_container')
-      expect(page).to have_css('.well h1', text: "Butler Library")
+      expect(page).to have_css('.well h1', text: "Milstein")
     end
 
     it 'should have a map of Barnard if location is Barnard Archives', :skip_travis do
       visit location_display_path("Barnard+Archives+%28Non-Circulating%29")
       expect(page).to have_css('.gmap_container')
-      expect(page).to have_css('.well h1', text: "Barnard Archives and Special Collections")
+      expect(page).to have_css('.well h1', text: "Barnard Archives")
     end
 
     it 'should have a google map for a location with a map', :skip_travis do
@@ -83,10 +83,10 @@ describe 'Locations', vcr: { allow_playback_repeats: true } do
       expect(page).to have_css('.gmap_container')
     end
 
-    it 'should not show the map for Lehman Suites' do
-      visit location_display_path("Lehman+Suite%2C+406+SIA+%28Non-Circulating%29")
-      expect(page).not_to have_css('.gmap_container')
-    end
+    # it 'should not show the map for Lehman Suites' do
+    #   visit location_display_path("Lehman+Suite%2C+406+SIA+%28Non-Circulating%29")
+    #   expect(page).not_to have_css('.gmap_container')
+    # end
 
     it 'should show the map for Orthopaedic Surgery' do
       visit location_display_path("Orthopaedic+Surgery+%28Non-Circulating%29")
@@ -105,7 +105,7 @@ describe 'Locations', vcr: { allow_playback_repeats: true } do
 
     it 'shows the heading from the clio location data', :skip_travis do
       visit location_display_path("Butler+Stacks+%28Enter+at+the+Butler+Circulation+Desk%29")
-      expect(page).to have_css('.well h1', text: "Butler Library")
+      expect(page).to have_css('.well h1', text: "Butler Stacks")
     end
 
     it 'has mouseover text on pins' do

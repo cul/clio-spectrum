@@ -23,14 +23,3 @@ test:
   timeout: 5000
 
 
-# For real-time lookups of the hours of the different library buildings,
-# CLIO needs to connect to the production library hours database server.
-# This is not necessary during development.
-
-hours_db_prod:
-  adapter: mysql2
-  database: library_hours_prod
-  username: library_hours_readonly
-  password: VerySecretPassword
-  host: hours_database.cul.columbia.edu 
-  port: 3333

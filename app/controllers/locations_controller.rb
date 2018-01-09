@@ -14,17 +14,18 @@ class LocationsController < ApplicationController
     # @location = Location.match_location_text(params[:id])
     @location = Location.match_location_text(raw_location)
     if @location
-      @library = @location.library
+      # @library = @location.library
 
       @markers = build_markers
 
-      if @library
+      # if @library
         range_start = Date.today
-        @hours = @library.hours_for_range(range_start, range_start + 6.days)
+        # @hours = @library.hours_for_range(range_start, range_start + 6.days)
+        @hours = LibraryHours.hours_for_range(@location.library_code, range_start, range_start + 6.days)
         # debugging...
         # range_start = Date.today - 10
         # @hours = @library.hours_for_range(range_start, range_start + 20.days)
-      end
+      # end
 
       @display_title = @library ? @library.name : @location.name
       @links = @location.links.reject { |link| link.name == 'Map URL' }

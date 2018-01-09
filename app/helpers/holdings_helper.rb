@@ -232,8 +232,11 @@ module HoldingsHelper
 
       entry['location_link'] = format_location_link( entry['location_name'] )
 
-      if location && location.library && (hours = location.library.hours.find_by_date(Date.today))
-        entry['hours'] = hours.to_opens_closes
+      # if location && location.library && (hours = location.library.hours.find_by_date(Date.today))
+      if location && (hours = LibraryHours.where(library_code: location.library_code).where(date: Date.today))
+        unless hours.empty?
+          entry['hours'] = hours.first.to_opens_closes
+        end
       end
 
       # location notes

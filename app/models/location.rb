@@ -1,10 +1,10 @@
 class Location < ActiveRecord::Base
-  CATEGORIES = %w(library info)
+  # CATEGORIES = %w(library info)
 
   # Rails 4 - remove this
   # attr_accessible :name, :found_in, :library_id, :category, :location_code
 
-  belongs_to :library
+  # belongs_to :library
 
   has_options association_name: :links
 
@@ -27,10 +27,12 @@ class Location < ActiveRecord::Base
 
     if connection.adapter_name.downcase.include?('mysql')
       # matches = find(:all, conditions: ["? LIKE CONCAT(locations.name, '%')", location], include: :library)
-      matches = where("? LIKE CONCAT(locations.name, '%')", location_text).joins('LEFT OUTER JOIN libraries ON libraries.id = locations.library_id')
+      # matches = where("? LIKE CONCAT(locations.name, '%')", location_text).joins('LEFT OUTER JOIN libraries ON libraries.id = locations.library_id')
+      matches = where("? LIKE CONCAT(locations.name, '%')", location_text)
     else
       # matches = find(:all, conditions: ["? LIKE locations.name || '%'", location], include: :library)
-      matches = where("? LIKE locations.name || '%'", location_text).joins('LEFT OUTER JOIN libraries ON libraries.id = locations.library_id')
+      # matches = where("? LIKE locations.name || '%'", location_text).joins('LEFT OUTER JOIN libraries ON libraries.id = locations.library_id')
+      matches = where("? LIKE locations.name || '%'", location_text)
     end
 
     max_length = matches.map { |m| m.name.length }.max
@@ -66,14 +68,15 @@ class Location < ActiveRecord::Base
       # puts "vvv"
       # puts location_hash.inspect
       # puts "^^^"
-      library = Library.find_by_hours_db_code(location_hash[:library_code]) if location_hash[:library_code]
+      # library = Library.find_by_hours_db_code(location_hash[:library_code]) if location_hash[:library_code]
 
       location = Location.create!(
-        name: location_hash[:location],
-        found_in: location_hash[:found_in],
-        category: location_hash[:category],
-        library_id: (library.nil? ? nil : library.id),
-        location_code: location_hash[:location_code]
+        name:          location_hash[:location],
+        found_in:      location_hash[:found_in],
+        category:      location_hash[:category],
+        location_code: location_hash[:location_code],
+        library_code: location_hash[:library_code],
+        # library_id: (library.nil? ? nil : library.id)
       )
 
       # Add links to this location, if they exist

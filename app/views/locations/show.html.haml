@@ -28,10 +28,10 @@
               - @links.each do |link|
                 %a{href: link.value, class: 'list-group-item'}=link.name
           %p
-          - if @library
+          - if @hours
             .row
               .list_group
-                -full_hours_url="http://www.columbia.edu/cu/lweb/services/hours/index.html?library=#{h(@library.hours_db_code)}"
+                -full_hours_url="https://hours.library.columbia.edu/locations/#{h(@location.library_code)}"
                 %a{href: full_hours_url, class: 'list-group-item active'}Hours (Full Hours Info)
                 - @hours.each do |hour|
                   - today_class = hour.date == Date.today ? "list-group-item list-group-item-success" : "list-group-item"

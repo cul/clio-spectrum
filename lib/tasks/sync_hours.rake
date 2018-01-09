@@ -11,16 +11,26 @@ namespace :hours do
 
   task :libraries => :environment do
     puts "===  List of known libraries  ==="
-    Library.all().each do |library|
-      printf("%3d %-32s  %s\n", library.id, library.hours_db_code, library.name)
+    # Library.all().each do |library|
+    #   printf("%3d %-32s  %s\n", library.id, library.hours_db_code, library.name)
+    # end
+    Location.all().each do |location|
+      printf("%-32s  %s\n", location.library_code, location.name)
     end
   end
 
   task :update_all => :environment do
-    Library.all().each do |library|
-      printf("Updating %3d %-30s  %s\n", library.id, library.hours_db_code, library.name)
+    # Library.all().each do |library|
+    #   printf("Updating %3d %-30s  %s\n", library.id, library.hours_db_code, library.name)
+    #   Rake::Task["hours:update"].reenable
+    #   Rake::Task["hours:update"].invoke(library.hours_db_code)
+    # end
+    # Location.select(:location_code).uniq.each do |location|
+    library_codes = Location.select(:library_code).uniq.pluck(:library_code).compact.sort
+    library_codes.each do |library_code|
+      printf("Updating %s\n", library_code)
       Rake::Task["hours:update"].reenable
-      Rake::Task["hours:update"].invoke(library.hours_db_code)
+      Rake::Task["hours:update"].invoke(library_code)
     end
   end
 
@@ -29,26 +39,33 @@ namespace :hours do
       puts "must pass input arg :library_code (e.g.: rake hours:update[butler])" 
       next
     end
-    library = Library.where(hours_db_code: args[:library_code]).first
-    unless library
-      puts "input arg :library must be a valid library code (see: rake hours:libraries)"
+    # library = Library.where(hours_db_code: args[:library_code]).first
+    # unless library
+    #   puts "input arg :library must be a valid library code (see: rake hours:libraries)"
+    #   next
+    # end
+    location = Location.where(library_code: args[:library_code]).first
+    unless location
+      puts "input arg (#{args[:library_code]}) must be a valid library code (see: rake hours:libraries)"
       next
     end
+    library_code = location.library_code
+    puts "Looking up hours for library_code #{library_code}"
 
     # Setup our API params (one month of data)
     start_date = Date.yesterday.strftime('%F')
     end_date   = (Date.yesterday + 30).strftime('%F')
     # fetch this library's hours from the Hours API
-    json = call_hours_api(args[:library_code], start_date, end_date)
+    json = call_hours_api(library_code, start_date, end_date)
     unless json
-      puts "ERROR - no json data returned for library code #{args[:library_code]}"
+      puts "ERROR - no json data returned for library code #{library_code}"
       next
     end
 
     hours = nil
     begin
       library_data = json['data']
-      hours   = library_data[ args[:library_code] ]
+      hours   = library_data[ library_code ]
     rescue => ex
       puts "ERROR parsing returned json data: #{ex.message}"
       puts hours.inspect
@@ -56,17 +73,17 @@ namespace :hours do
     end
 
     if hours.blank? || hours.size == 0
-      puts "ERROR - no daily hours found for library code #{args[:library_code]}"
+      puts "ERROR - no daily hours found for library code #{library_code}"
       next
     end
 
-    puts "retrieved data for #{hours.size} days for #{args[:library_code]}" 
+    puts "retrieved data for #{hours.size} days for #{library_code}" 
 
     # OK, we have what looks like good hours.
     # Now, delete all currently saved hours,
     # insert each day of new hours.
 
-    LibraryHours.where(library_id: library.id).destroy_all
+    LibraryHours.where(library_code: library_code).destroy_all
     hours.each do |day|
       # Assume closed, unless we have open/close times
       opens = closes = nil
@@ -76,11 +93,12 @@ namespace :hours do
       opens = closes = nil if day['closed']
         
       daily_hours = {
-        library_id: library.id,
-        date:       day['date'],
-        opens:      opens,
-        closes:     closes,
-        note:       day['note']
+        library_id:   0,  # no longer used
+        library_code: library_code,
+        date:         day['date'],
+        opens:        opens,
+        closes:       closes,
+        note:         day['note']
       }
       LibraryHours.create(daily_hours)
     end
@@ -116,7 +134,13 @@ def call_hours_api(library_code, start_date, end_date)
   url = url + library_code + "?start_date=#{start_date}&end_date=#{end_date}"
   
   begin
-    json_holdings = client.get_content(url)
+    message = client.get(url)
+    if message.status == 404
+      puts "Hours for library [#{library_code}] not found (404 from API)"
+      return
+    end
+    # json_holdings = client.get_content(url)
+    json_holdings = message.body
     hours = JSON.parse(json_holdings)
   rescue => ex
     puts "ERROR calling #{url}: #{ex.message}"
