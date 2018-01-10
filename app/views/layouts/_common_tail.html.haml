@@ -14,7 +14,7 @@
 
 = yield(:jstemplates)
 
-- if current_user && Rails.env != 'clio_prod'
+- if current_user
   - if request.path.starts_with?('/lists') || request.path.starts_with?('/admin')
     -# = auto_session_timeout_js frequency: 5
     = auto_session_timeout_js

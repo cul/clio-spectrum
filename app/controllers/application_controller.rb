@@ -515,7 +515,7 @@ class ApplicationController < ActionController::Base
   private
 
   def set_cache_headers
-    if current_user && Rails.env != 'clio_prod'
+    if current_user
       response.headers["Cache-Control"] = "no-cache, no-store"
       response.headers["Pragma"] = "no-cache"
       response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
