@@ -175,6 +175,8 @@
 # Artificial CLIO status-code, not found in Voyager's ITEM_STATUS_TYPE table.
 99n:
     short_message: 'Checked out'
-    services:
-        -   borrow_direct
-        -   ill
+    # NEXT-1470 - Suppress broken BD and ILL links for ReCAP items
+    # Disable until BD & ILL scripts move from Voyager to Solr query.
+    # services:
+    #     -   borrow_direct
+    #     -   ill
