@@ -243,12 +243,14 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
     expect(page).to have_css('div.debug_instruction')
     expect(page).to have_css('div.debug_entries')
-    expect(find('.debug_instruction')).to have_text('Debug mode is on. Turn it off')
-    within('div.debug_instruction') do
-      click_link 'off'
-    end
 
     # Nope, disabled "off" to help CUD do relevancy testing
+    #
+    # expect(find('.debug_instruction')).to have_text('Debug mode is on. Turn it off')
+    # within('div.debug_instruction') do
+    #   click_link 'off'
+    # end
+    # 
     # # clicking "off" should reload the page automatically
     # expect(page).to_not have_css('div.debug_instruction')
     # expect(page).to_not have_css('div.debug_entries')

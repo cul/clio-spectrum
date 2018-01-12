@@ -117,7 +117,8 @@ describe 'Catalog Advanced Search', :vcr do
   # NEXT-1113 - location search
   # Specifically, test the ability to search beyond "base" location to 
   # sublocation text.
-  [ 'Barnard Reference',
+  [ # Not that many items located at Barnard Reference at the moment.
+    # 'Barnard Reference',
     'Lehman Reference',
     # 6/2015 - Barnard library material is being moved about
     # 'Barnard Alumnae Collection',

@@ -364,16 +364,16 @@
     Geology Library
     
     601 Schermerhorn
-- :library_code: geoscience
-  :location_code: geoscience
-  :links: 
-    Home Page: http://library.columbia.edu/locations/geoscience.html
-  :category: physical
-  :location: Geoscience
-  :found_in: |-
-    Geoscience Library, Lamont-Doherty
-    
-    Palisades, NY
+# - :library_code: geoscience
+#   :location_code: geoscience
+#   :links: 
+#     Home Page: http://library.columbia.edu/locations/geoscience.html
+#   :category: physical
+#   :location: Geoscience
+#   :found_in: |-
+#     Geoscience Library, Lamont-Doherty
+#     
+#     Palisades, NY
 - :library_code: health-sciences
   :location_code: health-sciences
   :links: 

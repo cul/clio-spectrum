@@ -37,11 +37,10 @@ describe LocationsController, :vcr do
 
       it "should return json for each location with a location id" do
         markers = controller.build_markers
-        cliolocs = Location.all.select{|loc| loc['library_code']}.map{|loc| loc['library_code']}.uniq
+        cliolocs = Location.all.select{|loc| loc['location_code']}.map{|loc| loc['location_code']}.uniq
         cliolocs.each do |loc|
-          unless(loc == "lehman-suite")
-            expect(markers).to match(loc)
-          end
+          puts "loc=[#{loc}] markers=[#{markers}]"
+          expect(markers).to match(loc)
         end
       end
     end
