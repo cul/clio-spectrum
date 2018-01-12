@@ -221,7 +221,7 @@
     Butler Media Services
     
     208B Butler Library
-- :library_code: pmrr
+- :library_code: butler
   :location_code: pmrr
   :links: 
     # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
@@ -273,7 +273,7 @@
     Butler Reference
 
     301 Butler Library
-- :library_code: butler-reserves
+- :library_code: butler
   :location_code: butler-reserves
   :links: 
     # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
