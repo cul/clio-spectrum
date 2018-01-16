@@ -39,7 +39,7 @@ describe LocationsController, :vcr do
         markers = controller.build_markers
         cliolocs = Location.all.select{|loc| loc['location_code']}.map{|loc| loc['location_code']}.uniq
         cliolocs.each do |loc|
-          puts "loc=[#{loc}] markers=[#{markers}]"
+          # puts "loc=[#{loc}] markers=[#{markers}]"
           expect(markers).to match(loc)
         end
       end
