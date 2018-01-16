@@ -35,7 +35,7 @@ class SearchBuilder < Blacklight::SearchBuilder
 
   def validate_qt(solr_parameters)
     unless ['search', 'select', 'document'].include?(solr_parameters[:qt])
-      Rails.logger.warn "rewriting illegal qt param ('#{solr_parameters[:qt]}') as 'search'"
+      # Rails.logger.warn "rewriting illegal qt param ('#{solr_parameters[:qt]}') as 'search'"
       solr_parameters[:qt] = 'search'
     end
   end
