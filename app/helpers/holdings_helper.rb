@@ -159,7 +159,7 @@ module HoldingsHelper
     HoldingsHelper.valet_link(bib_id)
   end
 
-  SERVICE_ORDER = %w(offsite_legacy offsite spec_coll precat on_order borrow_direct recall_hold ill in_process doc_delivery)
+  SERVICE_ORDER = %w(offsite_legacy offsite spec_coll precat on_order borrow_direct recall_hold ill ill_valet in_process doc_delivery)
 
   # parameters: title, link (url or javascript)
   SERVICES = {
@@ -180,6 +180,8 @@ module HoldingsHelper
                         'http://www.columbia.edu/cgi-bin/cul/borrowdirect?'],
     'ill' => ['ILL',
               'https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?'],
+    'ill_valet' => ['ILL (Valet)',
+                    'https://valet-test.cul.columbia.edu/ill_requests/new?bib_id='],
     'in_process' => ['In Process',
                      'OpenInprocessRequest'],
     'doc_delivery' => ['Scan & Deliver',
@@ -188,6 +190,12 @@ module HoldingsHelper
 
   def service_links(services, clio_id)
     return [] unless services && clio_id
+
+    if Rails.env != 'clio_prod'
+      if services.include?('ill')
+        services << 'ill_valet'
+      end
+    end
 
     services.select { |svc| SERVICE_ORDER.index(svc) }.sort_by { |svc| SERVICE_ORDER.index(svc) }.map do |svc|
       title, link, extra = SERVICES[svc]
