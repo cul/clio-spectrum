@@ -33,6 +33,11 @@ class ApplicationController < ActionController::Base
   # https://github.com/airblade/paper_trail/#4a-finding-out-who-was-responsible-for-a-change
   before_filter :set_paper_trail_whodunnit
 
+  # Access to the current ApplicationController instance from anywhere
+  # https://stackoverflow.com/a/33774123/1343906
+  cattr_accessor :current
+  before_filter { ApplicationController.current = self }
+  after_filter  { ApplicationController.current = nil  }
 
   # NEXT-537 - logging in should not redirect you to the root path
   # from the Devise how-to docs...

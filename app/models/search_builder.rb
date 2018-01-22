@@ -35,7 +35,9 @@ class SearchBuilder < Blacklight::SearchBuilder
 
   def validate_qt(solr_parameters)
     unless ['search', 'select', 'document'].include?(solr_parameters[:qt])
-      # Rails.logger.warn "rewriting illegal qt param ('#{solr_parameters[:qt]}') as 'search'"
+      if solr_parameters[:qt].present?
+        Rails.logger.warn "rewriting illegal qt param ('#{solr_parameters[:qt]}') as 'search'"
+      end
       solr_parameters[:qt] = 'search'
     end
   end
@@ -63,7 +65,6 @@ class SearchBuilder < Blacklight::SearchBuilder
 
   # NEXT-1043 - Better handling of extremely long queries
   def trim_long_queries(solr_parameters)
-
     # If there's no 'q', don't do anything
     return unless solr_parameters['q']
 
@@ -76,17 +77,17 @@ class SearchBuilder < Blacklight::SearchBuilder
     return if blacklight_params['adv'] && solr_parameters['q'].include?('_query_:')
 
     # Truncate queries longer than N letters
-    maxLetters = 200
-    if solr_parameters['q'].size > maxLetters
-      # flash.now[:error] = "Your query was automatically truncated to the first #{maxLetters} letters. Letters beyond this do not help to further narrow the result set."
+    maxLetters = 300
+    if (blacklight_params['q'] || '').size > maxLetters
+      ApplicationController.current.flash.now[:error] = "Your query had too many letters and was automatically truncated.  Please retry your query using fewer search terms."
       solr_parameters['q'] = solr_parameters['q'].first(maxLetters)
     end
 
     # Truncate queries longer than N words
-    maxTerms = 30
-    terms = solr_parameters['q'].split(' ')
+    maxTerms = 50
+    terms = (blacklight_params['q'] || '').split(' ')
     if terms.size > maxTerms
-      # flash.now[:error] = "Your query was automatically truncated to the first #{maxTerms} words.  Terms beyond this do not help to further narrow the result set."
+      ApplicationController.current.flash.now[:error] = "Your query had too many words and was automatically truncated.  Please retry your query using fewer search terms."
       solr_parameters['q'] = terms[0,maxTerms].join(' ')
     end
 
@@ -95,7 +96,6 @@ class SearchBuilder < Blacklight::SearchBuilder
   def add_debug_to_solr(solr_parameters)
     solr_parameters[:debugQuery] = :true if  blacklight_params[:debugQuery] == "true"
   end
-
 
   def add_advanced_search_to_solr(solr_parameters)
     # Only continue if the blacklight params indicate this is 
