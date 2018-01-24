@@ -23,7 +23,6 @@
     -# Do we use 'more_facets_link', which triggers a modal, or not?
     - more_facets_class = 'more_facets_link'
     - if Rails.env != 'clio_prod'
-    -# - if current_user && current_user.has_role?('site', 'pilot')
       - if solr_field == 'language_facet'
         - more_facets_class = ''
       
