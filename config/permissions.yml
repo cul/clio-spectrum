@@ -15,8 +15,9 @@ site:
     - gb8
     - sam119
     - slt0
-    # spectrum planning
+    # spectrum planning --> columbia unified discovery
     - asb2154
+    - cak2158
     - fd2102
     - hhb2119
     - jc2120
