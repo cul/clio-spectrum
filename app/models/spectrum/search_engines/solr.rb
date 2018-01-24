@@ -507,7 +507,9 @@ module Spectrum
         end
       end
 
-      def self.generate_config(source)
+      # The Blacklight configuration is different for each datasource,
+      # and also can be different depending on who's logged in.
+      def self.generate_config(source, current_user = nil)
         # If we're in one of the hybrid-source bento-box searches....
         if source.in?('quicksearch', 'ebooks', 'dissertations', 'research_data')
           self.blacklight_config = Blacklight::Configuration.new do |config|
@@ -525,6 +527,7 @@ module Spectrum
             config.per_page = [10, 25, 50, 100]
             config.default_per_page = 10
             config.spell_max = 0
+
           end
         # Else, we're in one of the single-source searches....
         else
@@ -966,6 +969,13 @@ module Spectrum
           end # Blacklight::Configuration.new do
 
         end # if/else bento-box/single-source
+
+        # Config settings independent of data source
+
+        # Pilot a much longer scrollable list of facet values
+        if Rails.env != 'clio_prod'
+          blacklight_config.default_more_limit = 500
+        end
 
         # Finally, return the config object
         return blacklight_config

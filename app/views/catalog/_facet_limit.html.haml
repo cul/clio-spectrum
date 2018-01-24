@@ -1,5 +1,6 @@
 
--# This is views/catalog/_facet_limit_html.haml
+// views/catalog/_facet_limit_html.haml for solr field "#{solr_field}"
+
 
 %ul.facet-values.list-unstyled
 
@@ -19,8 +20,15 @@
         = render_facet_value(solr_field, item)
 
   - unless paginator.last_page? || params[:action] == "facet"
-    %li.more_facets_link
-      = link_to(t('blacklight.search.facets.more'), params.merge(:id => solr_field, :action=>"facet", :page => nil), :class => "more_facets_link")
+    -# Do we use 'more_facets_link', which triggers a modal, or not?
+    - more_facets_class = 'more_facets_link'
+    - if Rails.env != 'clio_prod'
+    -# - if current_user && current_user.has_role?('site', 'pilot')
+      - if solr_field == 'language_facet'
+        - more_facets_class = ''
+      
+    %li{class: "#{more_facets_class}"}
+      = link_to(t('blacklight.search.facets.more'), params.merge(id: solr_field, action: "facet", page: nil, rows: nil), class: "#{more_facets_class}")
 
 
 
