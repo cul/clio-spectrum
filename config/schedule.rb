@@ -91,10 +91,10 @@ if ['clio_app_dev', 'clio_app_test', 'clio_prod'].include?(@environment)
   # end
 
 
-  # Fetch a fresh "full" extract, once a week.
-  # We'll run this in bits througout the month
-  every :saturday, at: '10am' do
-    rake 'bibliographic:extract:fetch EXTRACT=full', subject: 'weekly fetch full'
+  # Fetch a fresh "full" extract, daily, so that it's always ready to go.
+  # We'll run this in bits througout the month.
+  every :day, at: '1pm' do
+    rake 'bibliographic:extract:fetch EXTRACT=full', subject: 'daily fetch full'
   end
 
 end
