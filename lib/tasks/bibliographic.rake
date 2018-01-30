@@ -233,9 +233,9 @@ namespace :bibliographic do
       end
       Rails.logger.info("- processing #{todays_slice_of_full.size} extract files found within this range")
       # provide additional hints if they might be useful
-      Rails.logger.info("- looking under #{full_dir}") if todays_slice_of_full.size < 10
+      Rails.logger.info("- (within dir #{full_dir})") if todays_slice_of_full.size < 10
 
-      next if todays_slice_of_full.size == 0
+      # next if todays_slice_of_full.size == 0
 
       todays_slice_of_full.each do |filename|
         Rails.logger.info('-' * 60)
@@ -245,6 +245,14 @@ namespace :bibliographic do
       Rails.logger.info('-' * 60)
       
       Rails.logger.info("- finished processing #{todays_slice_of_full.size} files.")
+
+      Rails.logger.info("- running cumulative to catch-up...")
+
+      ENV['EXTRACT'] = 'cumulative'
+      Rake::Task["bibliographic:extract:process"].invoke
+      
+      Rails.logger.info("- completed cumulative to catch-up.")
+
     end
 
 
