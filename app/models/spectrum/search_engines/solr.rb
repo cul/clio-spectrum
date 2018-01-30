@@ -447,10 +447,8 @@ module Spectrum
                                  range: { segments: false }
           config.add_facet_field 'author_facet',
                                  label: 'Author', limit: 5
-          if Rails.env != 'clio_prod'
-            config.add_facet_field 'pub_country_facet',
-                                   label: 'Country of Publication', limit: 5
-          end
+          config.add_facet_field 'pub_country_facet',
+                                 label: 'Country of Publication', limit: 5
 
           config.add_facet_field 'acq_dt',
                                  label: 'Acquisition Date',
