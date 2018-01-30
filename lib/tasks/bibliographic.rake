@@ -235,7 +235,7 @@ namespace :bibliographic do
       # provide additional hints if they might be useful
       Rails.logger.info("- (within dir #{full_dir})") if todays_slice_of_full.size < 10
 
-      # next if todays_slice_of_full.size == 0
+      next if todays_slice_of_full.size == 0
 
       todays_slice_of_full.each do |filename|
         Rails.logger.info('-' * 60)
