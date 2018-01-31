@@ -19,6 +19,7 @@ class LibraryHours < ActiveRecord::Base
   end
 
   def self.hours_for_range(library_code, startdate, enddate)
+    return nil unless library_code && startdate && enddate
     # hours.find(:all, conditions: ['library_hours.date BETWEEN ? and ?', startdate.to_date, enddate.to_date]).sort { |x, y| x.date <=> y.date }
     self.where(library_code: library_code).where('library_hours.date BETWEEN ? and ?', startdate.to_date, enddate.to_date).sort { |x, y| x.date <=> y.date }
   end

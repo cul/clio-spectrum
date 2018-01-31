@@ -11,8 +11,6 @@
 - :library_code: butler
   :location_code: butler
   :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: African Studies
   :found_in: |-
@@ -22,8 +20,6 @@
 - :library_code: butler
   :location_code: butler
   :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Comp Lit
   :found_in: |-
@@ -32,29 +28,25 @@
 - :library_code: butler
   :location_code: butler
   :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Edward Said
   :found_in: |-
     Edward Said Reading Rm
     616 Butler (Non-Circulating)
+
 - :library_code: butler
   :location_code: butler
   :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Ancient/Medieval
   :found_in: |-
     Ancient/Medieval Reading Room
     603 Butler Library
+
 - :library_code: avery
   :location_code: avery
   :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
     Home Page: http://library.columbia.edu/locations/avery.html
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
     Floorplans: http://library.columbia.edu/locations/avery/floorplans.html
   :category: physical
   :location: Avery
@@ -67,9 +59,7 @@
 - :library_code: avery-art-properties
   :location_code: avery-art-properties
   :links: 
-    # # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
     Home Page: http://library.columbia.edu/locations/avery/art-properties.html
-    # # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
     Floorplans: http://library.columbia.edu/locations/avery/floorplans.html
   :category: physical
   :location: Avery Art Properties
@@ -79,13 +69,10 @@
     300 Avery Hall
 
 
-
 - :library_code: avery-drawings-archives
   :location_code: avery-drawings-archives
   :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
     Home Page: http://library.columbia.edu/locations/avery/da.html
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
     Floorplans: http://library.columbia.edu/locations/avery/floorplans.html
   :category: physical
   :location: Avery Drawings & Archives
@@ -93,12 +80,12 @@
     Avery Architectural & Fine Arts Library
 
     Avery Hall
+
+
 - :library_code: avery-classics
   :location_code: avery-classics
   :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionE.gif
     Home Page: http://library.columbia.edu/locations/avery/classics.html
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionE.html
     Floorplans: http://library.columbia.edu/locations/avery/floorplans.html
   :category: physical
   :location: Avery Classics
@@ -106,10 +93,11 @@
     Avery Architectural & Fine Arts Library
 
     Avery Hall
+
+
 - :library_code: barnard
   :location_code: barnard
   :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionC.gif
     Home Page: http://library.barnard.edu/
     Floorplan: http://library.barnard.edu/LeFrak-Center-First-Floor-Floorplan
   :category: physical
@@ -118,12 +106,11 @@
     Barnard College Library
     
     LeFrak Center, Barnard Hall
+
 - :library_code: barnard-archives
   :location_code: barnard
   :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionC.gif
     Home Page: http://library.barnard.edu/
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionC.html
     Floorplan: http://library.barnard.edu/using-library/floorplan
     Stacks Guide: http://library.barnard.edu/find-books/stacks
   :category: physical
@@ -135,9 +122,7 @@
 - :library_code: barnard-archives
   :location_code: barnard
   :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionC.gif
     Home Page: http://library.barnard.edu/
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionC.html
     Floorplan: http://library.barnard.edu/using-library/floorplan
     Stacks Guide: http://library.barnard.edu/find-books/stacks
   :category: physical
@@ -149,9 +134,7 @@
 - :library_code: barnard-archives
   :location_code: barnard
   :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionC.gif
     Home Page: http://library.barnard.edu/
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionC.html
     Floorplan: http://library.barnard.edu/using-library/floorplan
     Stacks Guide: http://library.barnard.edu/find-books/stacks
   :category: physical
@@ -160,22 +143,22 @@
     Barnard College Library
 
     Lehman Hall
-- :library_code: barnard-bcrw
-  :location_code: barnard-bcrw
-  :links: 
-    Home Page: http://bcrw.barnard.edu/
-  :category: physical
-  :location: Barnard Center For Research On Women
-  :found_in: |-
-    Barnard Center For Research On Women
-    
-    101 Barnard Hall
+
+# - :library_code: barnard-bcrw
+#   :location_code: barnard-bcrw
+#   :links: 
+#     Home Page: http://bcrw.barnard.edu/
+#   :category: physical
+#   :location: Barnard Center For Research On Women
+#   :found_in: |-
+#     Barnard Center For Research On Women
+#     
+#     101 Barnard Hall
+
 - :library_code: burke
   :location_code: burke
   :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionA.gif
     Home Page: http://library.columbia.edu/locations/burke.html
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionA.html
     Location Guide: http://library.columbia.edu/content/dam/libraryweb/floorplans/burke_location_guide.pdf
   :category: physical
   :location: Burke
@@ -183,12 +166,11 @@
     Union Theological Seminary, Burke Library
     
     3041 Broadway @ 121st Street
+
 - :library_code: business
   :location_code: business
   :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionD.gif
     Home Page: http://library.columbia.edu/locations/business.html
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionD.html
     Floorplans: http://library.columbia.edu/content/dam/libraryweb/floorplans/business_floorplan.pdf
   :category: physical
   :location: Business
@@ -196,12 +178,11 @@
     Business & Economics Library
     
     130 Uris
+
 - :library_code: butler
   :location_code: butler
   :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Home Page: http://library.columbia.edu/locations/butler.html
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
     Call Number Guide: http://library.columbia.edu/content/dam/libraryweb/libraries/butler/butler_stacks.pdf
   :category: physical
   :location: Butler
@@ -209,12 +190,11 @@
     Butler Library
     
     535 West 114th Street
+
 - :library_code: butler
   :location_code: butler
   :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Home Page: http://library.columbia.edu/locations/butler/media-services.html
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Butler Media
   :found_in: |-
@@ -224,41 +204,37 @@
 - :library_code: butler
   :location_code: pmrr
   :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Home Page: http://library.columbia.edu/locations/pmrr.html
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Butler Microforms
   :found_in: |-
     Butler Periodicals & Microforms Reading Room
     
     401 Butler Library
+
 - :library_code: butler
   :location_code: pmrr
   :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
     Home Page: http://library.columbia.edu/locations/pmrr.html
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Butler Periodicals
   :found_in: |-
     Butler Periodicals & Microforms Reading Room
     
     401 Butler Library
+
 - :library_code: butler-reference
   :location_code: butler-reference
   :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionG.gif
-    # Guides: http://library.columbia.edu/locations/butler-reference.html
     Call Number Guide: http://library.columbia.edu/content/dam/libraryweb/locations/butler/Butler%20Reference/301%26310.pdf
     Home Page: http://library.columbia.edu/locations/butler-reference.html
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionG.html
   :category: physical
   :location: Butler Reference Desk
   :found_in: |-
     Butler Reference
     
     301 Butler Library
+
 - :library_code: butler-24 
   :location_code: butler 
   :links: 
@@ -374,11 +350,11 @@
 #     Geoscience Library, Lamont-Doherty
 #     
 #     Palisades, NY
+
 - :library_code: health-sciences
   :location_code: health-sciences
   :links: 
     Home Page: http://library.cumc.columbia.edu/
-    # Floorplans: http://library.cumc.columbia.edu/library-floorplan
     Stacks Floorplan: http://library.cumc.columbia.edu/lower-level-2-floorplan
   :category: physical
   :location: Health Sciences
@@ -386,24 +362,23 @@
     Health Sciences Library
     
     701 West 168th Street
+
 - :library_code: health-sciences
   :location_code: health-sciences
   :links: 
     Home Page: http://library.cumc.columbia.edu/
-    # Floorplans: http://library.cumc.columbia.edu/library-floorplan
-    Floorplan: http://library.cumc.columbia.edu/library-floorplan
+    Library Floorplan: http://library.cumc.columbia.edu/library-floorplan
   :category: physical
   :location: Health Sciences Reserve
   :found_in: |-
     Health Sciences Library, Reserves
 
     701 West 168th Street
-- :library_code: health-sciences
+- :library_code:
   :location_code: health-sciences
   :links: 
-    Home Page: http://library.cumc.columbia.edu/
-    # Floorplans: http://library.cumc.columbia.edu/library-floorplan
-    Floorplan: http://library.cumc.columbia.edu/lower-level-1-floorplan
+    Home Page: http://library.cumc.columbia.edu/archives
+    Library Floorplan: http://library.cumc.columbia.edu/lower-level-1-floorplan
   :category: physical
   :location: Health Sciences Spec Coll
   :found_in: |-
@@ -464,7 +439,7 @@
     
     300 International Affairs
 
-- :library_code: lehman-business
+- :library_code: lehman
   :location_code: lehman
   :links: 
     # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionF.gif
@@ -604,18 +579,18 @@
     
     701 Dodge
 
-- :library_code: nyspi
-  :location_code: nyspi
-  :links: 
-    Home Page: http://nyspi.org/library/
-  :category: physical
-  :location: NYS Psychiatric Institute
-  :found_in: |-
-    NYS Psychiatric Institute Library
-
-    1051 Riverside Drive at 168th Street
-    Contact library for availability of items.
-    Call (646) 774 - 8613 between 9-5pm.
+# - :library_code: nyspi
+#   :location_code: nyspi
+#   :links: 
+#     Home Page: http://nyspi.org/library/
+#   :category: physical
+#   :location: NYS Psychiatric Institute
+#   :found_in: |-
+#     NYS Psychiatric Institute Library
+# 
+#     1051 Riverside Drive at 168th Street
+#     Contact library for availability of items.
+#     Call (646) 774 - 8613 between 9-5pm.
 
 - :links: 
     Home Page: http://library.columbia.edu/find/request/off-site.html
@@ -639,16 +614,16 @@
 #     Oral History Research Office
 #     
 #     801 Butler Library
-- :library_code: cumc-orthopaedic
-  :location_code: cumc-orthopaedic
-  :links: 
-    Home Page: http://www.columbiaortho.org/departments/russell-hibbs-memorial-library
-  :category: physical
-  :location: Orthopaedic Surgery
-  :found_in: |-
-    Russell A. Hibbs Memorial Library
-    
-    622 W 168th Street - PH11-1139
+# - :library_code: cumc-orthopaedic
+#   :location_code: cumc-orthopaedic
+#   :links: 
+#     Home Page: http://www.columbiaortho.org/departments/russell-hibbs-memorial-library
+#   :category: physical
+#   :location: Orthopaedic Surgery
+#   :found_in: |-
+#     Russell A. Hibbs Memorial Library
+#     
+#     622 W 168th Street - PH11-1139
 - :library_code: butler
   :location_code: butler
   :links: 
