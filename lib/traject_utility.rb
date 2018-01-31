@@ -41,10 +41,10 @@ module TrajectUtility
     case code
     # Princeton
     when 'scsbpul', 'scsb-pul'
-      return 'ReCAP Shared Collection (Princeton)'
+      return 'Offsite Shared Collection (Princeton)'
     # NYPL
     when 'scsbnypl', 'scsb-nypl'
-      return 'ReCAP Shared Collection (NYPL)'
+      return 'Offsite Shared Collection (NYPL)'
     end
     return ''
   end
