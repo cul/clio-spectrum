@@ -19,10 +19,9 @@ set :job_template, "/usr/local/bin/mailifoutput -s ':subject (:environment)' :re
 if ['clio_app_dev', 'clio_app_test', 'clio_prod'].include?(@environment)
 
 
-  # Ingest a partial slice of the 'full' extract.
-  # Slice is based on day-of-the-month, so run this daily
+  # Run all daily ingest tasks, together within one rake task
   every :day, at: '1am' do
-    rake 'bibliographic:extract:ingest_full_slice', subject: 'daily full slice'
+    rake 'bibliographic:daily', subject: 'daily ingest'
   end
 
   # == DATABASE MAINTENANCE ==
@@ -36,16 +35,16 @@ if ['clio_app_dev', 'clio_app_test', 'clio_prod'].include?(@environment)
     rake 'hours:update_all', subject: 'hours:update_all'
   end
 
-  # == BIBLIOGRAPHIC ==
-
-  # Nightly incremental
-  every :day, at: '3am' do
-    rake 'bibliographic:extract:process EXTRACT=incremental', subject: 'daily incremental'
-  end
-  # Weekly cumulative, catch-up run in case we missed anything
-  every :sunday, at: '4am' do
-    rake 'bibliographic:extract:process EXTRACT=cumulative', subject: 'weekly cumulative'
-  end
+  # # == BIBLIOGRAPHIC ==
+  # 
+  # # Nightly incremental
+  # every :day, at: '3am' do
+  #   rake 'bibliographic:extract:process EXTRACT=incremental', subject: 'daily incremental'
+  # end
+  # # Weekly cumulative, catch-up run in case we missed anything
+  # every :sunday, at: '4am' do
+  #   rake 'bibliographic:extract:process EXTRACT=cumulative', subject: 'weekly cumulative'
+  # end
 
   # We've moved Authority variant lookups into the bibliographic ingest
   # #  ===  AUTHORITIES  ===
@@ -91,11 +90,11 @@ if ['clio_app_dev', 'clio_app_test', 'clio_prod'].include?(@environment)
   # end
 
 
-  # Fetch a fresh "full" extract, daily, so that it's always ready to go.
-  # We'll run this in bits througout the month.
-  every :day, at: '1pm' do
-    rake 'bibliographic:extract:fetch EXTRACT=full', subject: 'daily fetch full'
-  end
+  # # Fetch a fresh "full" extract, daily, so that it's always ready to go.
+  # # We'll run this in bits througout the month.
+  # every :day, at: '1pm' do
+  #   rake 'bibliographic:extract:fetch EXTRACT=full', subject: 'daily fetch full'
+  # end
 
 end
 

@@ -1,6 +1,29 @@
 
 
 namespace :bibliographic do
+  
+  "Invoke a set of other rake tasks, to be executed daily"
+  task :daily => :environment do
+    startTime = Time.now
+    puts_datestamp "==== START bibliographic:daily ===="
+
+    puts_datestamp "---- bibliographic:extract:fetch (full) ----"
+    ENV['EXTRACT'] = 'full'
+    Rake::Task["bibliographic:extract:fetch"].invoke
+    Rake::Task["bibliographic:extract:fetch"].reenable
+
+    puts_datestamp "---- bibliographic:extract:ingest_full_slice ----"
+    Rake::Task["bibliographic:extract:ingest_full_slice"].invoke
+
+    puts_datestamp "---- bibliographic:extract:process (cumulative) ----"
+    ENV['EXTRACT'] = 'cumulative'
+    Rake::Task["bibliographic:extract:process"].invoke
+
+    elapsed_minutes = (Time.now - startTime).div(60).round
+    hrs, min = elapsed_minutes.divmod(60)
+    elapsed_note = "(#{hrs} hrs, #{min} min)"
+    puts_datestamp "==== END bibliographic:daily #{elapsed_note} ===="
+  end
 
   namespace :extract do
 
@@ -16,8 +39,8 @@ namespace :bibliographic do
       setup_ingest_logger
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
       unless extract
-        Rails.logger.error("Extract not specified")
-        raise
+        Rails.logger.error("Extract not specified -- aborting")
+        abort
       end
       extract_dir = APP_CONFIG['extract_home'] + "/" + extract
 
@@ -162,10 +185,10 @@ namespace :bibliographic do
             command = "xmlwf -r #{filename}"
             output, status = Open3.capture2e(command)
             if status != 0
-                Rails.logger.error("XML file failed well-formedness check!")
+                Rails.logger.error("XML file failed well-formedness check -- aborting!")
                 Rails.logger.error("command: #{command}")
                 Rails.logger.error("output: #{output}")
-                raise 
+                abort 
             end
           else
             Rails.logger.debug("---- xmlwf not found - skipping well-formedness check!")
@@ -245,14 +268,6 @@ namespace :bibliographic do
       Rails.logger.info('-' * 60)
       
       Rails.logger.info("- finished processing #{todays_slice_of_full.size} files.")
-
-      Rails.logger.info("- running cumulative to catch-up...")
-
-      ENV['EXTRACT'] = 'cumulative'
-      Rake::Task["bibliographic:extract:process"].invoke
-      
-      Rails.logger.info("- completed cumulative to catch-up.")
-
     end
 
 
@@ -263,4 +278,7 @@ namespace :bibliographic do
 end
 
 
+def puts_datestamp(msg)
+  puts "#{Time.now}   #{msg}"
+end
 
