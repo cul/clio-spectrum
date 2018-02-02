@@ -19,12 +19,21 @@ namespace :bibliographic do
     ENV['EXTRACT'] = 'cumulative'
     Rake::Task["bibliographic:extract:process"].invoke
 
+    puts_datestamp "---- bibliographic:optimize ----"
+    Rake::Task["bibliographic:optimize"].invoke
+
     elapsed_minutes = (Time.now - startTime).div(60).round
     hrs, min = elapsed_minutes.divmod(60)
     elapsed_note = "(#{hrs} hrs, #{min} min)"
     puts_datestamp "==== END bibliographic:daily #{elapsed_note} ===="
   end
 
+  task :optimize => :environment do
+    solr_url = Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
+    solr_connection = RSolr.connect(url: solr_url)
+    solr_connection.optimize
+  end
+  
   namespace :extract do
 
     # Used to test logging
