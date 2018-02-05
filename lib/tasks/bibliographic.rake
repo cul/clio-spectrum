@@ -30,7 +30,8 @@ namespace :bibliographic do
 
   task :optimize => :environment do
     solr_url = Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
-    solr_connection = RSolr.connect(url: solr_url)
+    # Optimize is really slow.  Try high timeouts
+    solr_connection = RSolr.connect(url: solr_url, read_timeout: 600)
     solr_connection.optimize
   end
   
