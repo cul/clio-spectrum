@@ -76,8 +76,8 @@ describe 'Testing Call Number Searching', :skip_travis do
     resp = solr_resp_doc_ids_only('q' => '{!qf=location_call_number_txt pf=location_call_number_txt}Zines')
     
     
-    expect(resp.size).to be >= 4000
-    expect(resp.size).to be <= 5000
+    expect(resp.size).to be >= 4500
+    expect(resp.size).to be <= 5500
 
     resp = solr_resp_doc_ids_only('q' => 'Zines W474o')
     
