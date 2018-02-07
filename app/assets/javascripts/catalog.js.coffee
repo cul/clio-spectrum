@@ -76,4 +76,13 @@ $ ->
       # console.log("click on ["+$(this).text()+"] tag["+facet_tag+"] - set_browser_option=closed")
       $.get('/set_browser_option?name=' + facet_tag + '&value=closed')
 
+  # When loading/reloading the Blacklight/Bootstrap AJAX modal,
+  # always position at the top, and always maintain focus,
+  # even if we're paginationg through long content w/in the modal.
+  $('body').on 'loaded.blacklight.ajax-modal',  ->
+      $('#ajax-modal').scrollTop(0)
+      $('#ajax-modal').focus()
+
+
+
 
