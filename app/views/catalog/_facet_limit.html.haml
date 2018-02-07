@@ -22,9 +22,10 @@
   - unless paginator.last_page? || params[:action] == "facet"
     -# Do we use 'more_facets_link', which triggers a modal, or not?
     - more_facets_class = 'more_facets_link'
-    - if Rails.env != 'clio_prod'
-      - if solr_field == 'language_facet'
-        - more_facets_class = ''
+    -# NEXT-908 - nope, no full-screen, use modal for all facets
+    -# - if Rails.env != 'clio_prod'
+    -#   - if solr_field == 'language_facet'
+    -#     - more_facets_class = ''
       
     %li{class: "#{more_facets_class}"}
       = link_to(t('blacklight.search.facets.more'), params.merge(id: solr_field, action: "facet", page: nil, rows: nil), class: "#{more_facets_class}")
