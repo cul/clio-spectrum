@@ -29,10 +29,19 @@ namespace :bibliographic do
   end
 
   task :optimize => :environment do
-    solr_url = Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
-    # Optimize is really slow.  Try high timeouts
-    solr_connection = RSolr.connect(url: solr_url, read_timeout: 600)
-    solr_connection.optimize
+    Rails.logger.info("-- requesting optimize...")
+    
+    begin
+      solr_url = Blacklight.connection_config[:indexing_url] ||
+                 Blacklight.connection_config[:url]
+      solr_connection = RSolr.connect(url: solr_url)
+      solr_connection.optimize
+    rescue Net::ReadTimeout
+      # Do nothing - we expect our client call to timeout
+      # while the server does an optimize of a 50GB+ index.
+    end
+    # We kicked it off, but can't tell if it's going to work or not.
+    Rails.logger.info("-- optimize requested.")
   end
   
   namespace :extract do
