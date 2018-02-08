@@ -274,7 +274,7 @@ class CatalogController < ApplicationController
     # 2/7/2017 - get some info on see-more sizes, hopefully to be
     # turned off pretty soon.  Hardcode test to current limit, 500)
     limit = (@display_facet.items.size == 501) ? ' - HIT LIMIT' : ''
-    Rails.logger.info "FACET-SEE-MORE name: #{@display_facet.name} count: #{@display_facet.items.size}#{limit}"
+    Rails.logger.warn "FACET-SEE-MORE name: #{@display_facet.name} count: #{@display_facet.items.size}#{limit}"
 
     respond_to do |format|
       # Draw the facet selector for users who have javascript disabled:
