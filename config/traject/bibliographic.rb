@@ -100,8 +100,8 @@ to_field "text", extract_all_marc_values(from: '050', to: '850') do |record, acc
   accumulator << extra_fields.flatten.join(' ')
 end
 
-to_field "author_txt", extract_marc("100abcegqu:110abcdegnu:111acdegjnqu", trim_punctuation: false)
-to_field "author_addl_txt", extract_marc("700abcegqu:710abcdegnu:711acdegjnqu", trim_punctuation: false)
+to_field "author_txt", extract_marc("100abcdjq:110abcdjq:111abcdjq", trim_punctuation: false)
+to_field "author_addl_txt", extract_marc("700abcdjq:710abcdjq:711abcdjq", trim_punctuation: false)
 to_field "author_facet", extract_marc("100abcdq:110#{ATOZ}:111#{ATOZ}:700abcdq:710#{ATOZ}:711#{ATOZ}", trim_punctuation: true, alternate_script: false)
 to_field "author_display", extract_marc("100abcdq:110#{ATOZ}:111#{ATOZ}", trim_punctuation: true, alternate_script: false)
 to_field "author_vern_display", extract_marc("100abcdq:110#{ATOZ}:111#{ATOZ}", trim_punctuation: true, alternate_script: :only)
