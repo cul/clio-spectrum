@@ -16,38 +16,39 @@ xml.feed("xmlns" => "http://www.w3.org/2005/Atom",
   xml.id      url_for(params.merge(:only_path => false, :format => "html", :content_format => nil, "type" => "text/html"))
 
   # Navigational and context links
+  if page_info && @response
+    xml.link( "rel" => "next",
+              "href" => url_for(params.merge(:only_path => false, :page => (page_info.current_page + 1).to_s))
+             ) if  page_info.total_pages > page_info.current_page
 
-  xml.link( "rel" => "next",
-            "href" => url_for(params.merge(:only_path => false, :page => (page_info.current_page + 1).to_s))
-           ) if  page_info.total_pages > page_info.current_page
+    xml.link( "rel" => "previous",
+              "href" => url_for(params.merge(:only_path => false, :page => (page_info.current_page - 1).to_s))
+             ) if page_info.current_page > 1
 
-  xml.link( "rel" => "previous",
-            "href" => url_for(params.merge(:only_path => false, :page => (page_info.current_page - 1).to_s))
-           ) if page_info.current_page > 1
+    xml.link( "rel" => "first",
+              "href" => url_for(params.merge(:only_path => false, :page => "1")))
 
-  xml.link( "rel" => "first",
-            "href" => url_for(params.merge(:only_path => false, :page => "1")))
+    xml.link( "rel" => "last",
+              "href" => url_for(params.merge(:only_path => false, :page => page_info.total_pages.to_s)))
 
-  xml.link( "rel" => "last",
-            "href" => url_for(params.merge(:only_path => false, :page => page_info.total_pages.to_s)))
+    # "search" doesn't seem to actually be legal, but is very common, and
+    # used as an example in opensearch docs
+    xml.link( "rel" => "search",
+              "type" => "application/opensearchdescription+xml",
+              "href" =>  url_for(:controller=>'catalog',:action => 'opensearch', :format => 'xml', :only_path => false))
 
-  # "search" doesn't seem to actually be legal, but is very common, and
-  # used as an example in opensearch docs
-  xml.link( "rel" => "search",
-            "type" => "application/opensearchdescription+xml",
-            "href" =>  url_for(:controller=>'catalog',:action => 'opensearch', :format => 'xml', :only_path => false))
+    # opensearch response elements
+    xml.opensearch :totalResults, @response.total.to_s
+    xml.opensearch :startIndex, @response.start.to_s
+    xml.opensearch :itemsPerPage, page_info.limit_value
+    xml.opensearch :Query, :role => "request", :searchTerms => params[:q], :startPage => page_info.current_page
 
-  # opensearch response elements
-  xml.opensearch :totalResults, @response.total.to_s
-  xml.opensearch :startIndex, @response.start.to_s
-  xml.opensearch :itemsPerPage, page_info.limit_value
-  xml.opensearch :Query, :role => "request", :searchTerms => params[:q], :startPage => page_info.current_page
-
+  end
 
   # updated is required, for now we'll just set it to now, sorry
   xml.updated Time.now.strftime("%Y-%m-%dT%H:%M:%SZ")
 
-  @document_list.each do |doc|
+  Array(@document_list).each do |doc|
     xml.entry do
       xml.title   doc.to_semantic_values[:title][0] || doc.id
 
