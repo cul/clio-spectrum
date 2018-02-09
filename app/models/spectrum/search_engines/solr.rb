@@ -970,10 +970,8 @@ module Spectrum
 
         # Config settings independent of data source
 
-        # Pilot a much longer scrollable list of facet values
-        if Rails.env != 'clio_prod'
-          blacklight_config.default_more_limit = 500
-        end
+        # Set a much longer scrollable list of facet values than BL default
+        blacklight_config.default_more_limit = 500
 
         # Finally, return the config object
         return blacklight_config
