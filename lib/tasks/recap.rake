@@ -246,14 +246,14 @@ namespace :recap do
       Rails.logger.info('-' * 60)
       Rake::Task["recap:delete_file"].reenable
       Rake::Task["recap:delete_file"].invoke(filename)
+
+      # Now, record what we've done by writing out the last-deleteed filename
+      Rails.logger.info("--- updating #{last_delete_file} with latest delete (#{files_to_delete.last})")
+      File.open(last_delete_file, 'w') do |f|
+        f.puts(files_to_delete.last)
+      end
     end
     Rails.logger.info('-' * 60)
-
-    # Voila.  Now, record what we've done by writing out the last-deleteed filename
-    Rails.logger.info("--- updating #{last_delete_file} with latest delete (#{files_to_delete.last})")
-    File.open(last_delete_file, 'w') do |f|
-      f.puts(files_to_delete.last)
-    end
 
     Rails.logger.info("- delete_new complete.")
   end
@@ -357,14 +357,14 @@ namespace :recap do
       Rails.logger.info('-' * 60)
       Rake::Task["recap:ingest_file"].reenable
       Rake::Task["recap:ingest_file"].invoke(filename)
+
+      # Now, record what we've done by writing out the last-ingested filename
+      Rails.logger.info("--- updating #{last_ingest_file} with latest ingest (#{files_to_ingest.last})")
+      File.open(last_ingest_file, 'w') do |f|
+        f.puts(files_to_ingest.last)
+      end
     end
     Rails.logger.info('-' * 60)
-
-    # Voila.  Now, record what we've done by writing out the last-ingested filename
-    Rails.logger.info("--- updating #{last_ingest_file} with latest ingest (#{files_to_ingest.last})")
-    File.open(last_ingest_file, 'w') do |f|
-      f.puts(files_to_ingest.last)
-    end
 
     Rails.logger.info("- recap:ingest_new complete.")
   end
