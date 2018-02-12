@@ -250,7 +250,7 @@ namespace :recap do
       # Now, record what we've done by writing out the last-deleteed filename
       Rails.logger.info("--- updating #{last_delete_file} with latest delete (#{files_to_delete.last})")
       File.open(last_delete_file, 'w') do |f|
-        f.puts(files_to_delete.last)
+        f.puts(filename)
       end
     end
     Rails.logger.info('-' * 60)
@@ -361,7 +361,7 @@ namespace :recap do
       # Now, record what we've done by writing out the last-ingested filename
       Rails.logger.info("--- updating #{last_ingest_file} with latest ingest (#{files_to_ingest.last})")
       File.open(last_ingest_file, 'w') do |f|
-        f.puts(files_to_ingest.last)
+        f.puts(filename)
       end
     end
     Rails.logger.info('-' * 60)
