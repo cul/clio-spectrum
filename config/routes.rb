@@ -121,6 +121,9 @@ Rails.application.routes.draw do
 
   get 'library_web', to: 'spectrum#search', as: :library_web_index, defaults: { layout: 'library_web' }
 
+  # Library Web via Custom Search API
+  get 'lweb', to: 'spectrum#search', as: :lweb_index, defaults: { layout: 'lweb' }
+
   get 'academic_commons', to: 'catalog#index', as: :academic_commons_index
   get 'academic_commons/range_limit(.:format)', to: 'catalog#range_limit', as: :academic_range_limit
   get 'academic_commons/facet/:id(.format)', to: 'catalog#facet', as: :academic_commons_facet

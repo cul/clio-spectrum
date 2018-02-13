@@ -312,6 +312,17 @@ datasources:
       route: library_web_index_path
       placeholder: Libraries Website
 
+  lweb:
+    name: Libraries Website (demo)
+    title: Libraries Website (demo)
+    description: Information about the libraries from the Libraries Website
+    render_options:
+      format: lweb
+    no_facets: true
+    search_box:
+      route: lweb_index_path
+      placeholder: Libraries Website
+
   academic_commons:
     name: Academic Commons
     title: Academic Commons

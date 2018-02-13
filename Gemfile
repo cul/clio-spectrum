@@ -111,6 +111,8 @@ gem 'net-sftp'
 # Talk to SCSB REST API
 gem 'faraday'
 
+# For, e.g., Google Custom Search API
+gem 'google-api-client'
 
 # 10/15 - not giving us insight beyond our debug_timestamp info
 # # 3/15, comment out for now to simplify output,

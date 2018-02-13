@@ -123,6 +123,8 @@ class SpectrumController < ApplicationController
         Spectrum::SearchEngines::Summon.new(fixed_params, get_summon_facets)
       when 'library_web'
         Spectrum::SearchEngines::GoogleAppliance.new(fix_ga_params(params))
+      when 'lweb'
+        Spectrum::SearchEngines::GoogleCustomSearch.new(params)
       else
         render nothing: true and return
       end
@@ -319,6 +321,9 @@ class SpectrumController < ApplicationController
           fixed_params['q'] ||= ''
           fixed_params = fix_ga_params(fixed_params)
           Spectrum::SearchEngines::GoogleAppliance.new(fixed_params)
+
+        when 'lweb'
+          Spectrum::SearchEngines::GoogleCustomSearch.new(fixed_params)
 
         else
           fail "SpectrumController#get_results() unhandled source: '#{source}'"
