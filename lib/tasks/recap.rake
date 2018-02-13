@@ -248,7 +248,7 @@ namespace :recap do
       Rake::Task["recap:delete_file"].invoke(filename)
 
       # Now, record what we've done by writing out the last-deleteed filename
-      Rails.logger.info("--- updating #{last_delete_file} with latest delete (#{files_to_delete.last})")
+      Rails.logger.info("--- updating #{last_delete_file} with latest delete (#{filename})")
       File.open(last_delete_file, 'w') do |f|
         f.puts(filename)
       end
@@ -283,7 +283,7 @@ namespace :recap do
     # get extracts directories ready
 
     current_dir = File.join(Rails.root, "tmp/extracts/recap/current/")
-    temp_old_dir_name = File.join(Rails.root, "tmp/extracts/recap/old/")
+    temp_old_dir_name = File.join(Rails.root, "tmp/extracts/recap/old")
 
     FileUtils.rm_rf(temp_old_dir_name)
     FileUtils.mv(current_dir, temp_old_dir_name) if File.exists?(current_dir)
@@ -359,7 +359,7 @@ namespace :recap do
       Rake::Task["recap:ingest_file"].invoke(filename)
 
       # Now, record what we've done by writing out the last-ingested filename
-      Rails.logger.info("--- updating #{last_ingest_file} with latest ingest (#{files_to_ingest.last})")
+      Rails.logger.info("--- updating #{last_ingest_file} with latest ingest (#{filename})")
       File.open(last_ingest_file, 'w') do |f|
         f.puts(filename)
       end
