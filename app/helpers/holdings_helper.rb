@@ -98,6 +98,9 @@ module HoldingsHelper
     # If we were passed, e.g., a Summon document object
     return links unless document.kind_of?(SolrDocument)
 
+    # ONLINE HOLDINGS - only for Columbia, suppress for ReCAP partner records
+    return links unless document.columbia?
+
     document['url_munged_display'].listify.each do |url_munge|
 
       # See parsable_856s.bsh for the serialization code, which we here undo

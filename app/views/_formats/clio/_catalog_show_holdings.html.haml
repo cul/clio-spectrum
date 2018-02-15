@@ -7,9 +7,8 @@
 
   %h5 Available from:
 
-  -# ONLINE HOLDINGS - only for Columbia, suppress for ReCAP partner records
-  - if document.columbia?
-    = render "/_formats/clio/catalog_show_holdings_online", online_links: online_link_hash(document), is_database: document.is_database?
+  -# ONLINE HOLDINGS
+  = render "/_formats/clio/catalog_show_holdings_online", online_links: online_link_hash(document), is_database: document.is_database?
 
   -# PHYSICAL HOLDINGS
   - if @holdings
