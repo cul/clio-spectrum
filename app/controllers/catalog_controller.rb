@@ -270,11 +270,12 @@ class CatalogController < ApplicationController
     @display_facet = @response.aggregations[@facet.key]
 
     @pagination = facet_paginator(@facet, @display_facet)
-    
-    # 2/7/2017 - get some info on see-more sizes, hopefully to be
-    # turned off pretty soon.  Hardcode test to current limit, 500)
-    limit = (@display_facet.items.size == 501) ? ' - HIT LIMIT' : ''
-    Rails.logger.warn "FACET-SEE-MORE name: #{@display_facet.name} count: #{@display_facet.items.size}#{limit}"
+
+    # 2/23/2017 - turned off after two weeks of data collection (NEXT-908)
+    # # 2/7/2017 - get some info on see-more sizes, hopefully to be
+    # # turned off pretty soon.  Hardcode test to current limit, 500)
+    # limit = (@display_facet.items.size == 501) ? ' - HIT LIMIT' : ''
+    # Rails.logger.warn "FACET-SEE-MORE name: #{@display_facet.name} count: #{@display_facet.items.size}#{limit}"
 
     respond_to do |format|
       # Draw the facet selector for users who have javascript disabled:
