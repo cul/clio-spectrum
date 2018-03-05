@@ -54,6 +54,9 @@ gem 'json'
 #  for simplified rails environments used in index rake cronjobs
 gem 'sqlite3'
 
+# Rails 5 requirement
+gem 'listen'
+
 group :clio_dev, :clio_app_dev, :clio_test, :clio_app_test, :clio_prod do
   gem 'mysql2'
 end
