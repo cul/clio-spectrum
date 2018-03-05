@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.2'
+gem 'rails', '~>5.1.0'
 
 gem 'activerecord-session_store'
 
@@ -18,11 +18,9 @@ gem 'blacklight_range_limit'
 
 
 
-#  ###  BLACKLIGHT (end)  ###
+ ###  BLACKLIGHT (end)  ###
 
-# RSolr should be in your gemfile. Blacklight 6.0 will not load rsolr by default
-# Pin at 1.x, 2.x gave me errors:  "solr" is not registered on Faraday::Adapter
-gem 'rsolr', '~>1.0'
+gem 'rsolr', '>= 1.0'
 
 # basic library to parse, create and manage MARC records
 gem 'marc'
@@ -177,14 +175,6 @@ group :development do
   # The `deploy:restart` hook for passenger applications is now in a separate gem
   # Just add it to your Gemfile and require it in your Capfile.
   gem 'capistrano-passenger', require: false
-
-
-  # Rails 4 - use config.action_view.logger instead
-  # # don't log every rendered view/partial
-  # gem 'quiet_assets'
-  # But rails outputs two blank lines to log?
-  # Ok, use this - but only for dev.
-  gem 'quiet_assets'
 
   # browser-based live debugger and REPL
   # http://railscasts.com/episodes/402-better-errors-railspanel
