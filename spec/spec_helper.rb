@@ -27,16 +27,23 @@
 # CodeClimate::TestReporter.start
 
 
+# shouldn't be necessary?
 ENV['RAILS_ENV'] ||= 'test'
+
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'capybara/rspec'
+
+# require 'rake'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
+  # # Some specs need a rake task run first to set up conditions
+  # Rails.application.load_tasks
+
   # Rails 4 - remove
   # config.treat_symbols_as_metadata_keys_with_true_values = true
   config.mock_with :rspec
@@ -47,6 +54,7 @@ RSpec.configure do |config|
     Capybara.current_driver = :selenium
     example.run
   end
+
   # Specify an alternative JS driver if we want to avoid selinium
   Capybara.javascript_driver = :webkit
   # Capybara.javascript_driver = :webkit_debug

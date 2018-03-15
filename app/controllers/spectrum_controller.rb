@@ -10,17 +10,10 @@
 #
 # SpectrumController#searchjson() - alternative entry point
 #   - does the same thing, but for AJAX calls, returning JSON
-#
 class SpectrumController < ApplicationController
-  # done in ApplicationController
-  # include Blacklight::Controller
-  # include Blacklight::Catalog
-  # include Blacklight::Configurable
-
   layout 'quicksearch'
-
+  
   def search
-
 # raise
     @results = []
 
@@ -42,7 +35,6 @@ class SpectrumController < ApplicationController
 
     session['search'] = params
 
-    # @search_layout = SEARCHES_CONFIG['search_layouts'][params['layout']]
     @search_layout = get_search_layout( params['layout'] )
 
     # First, try to detect if we should go to the landing page.
@@ -50,7 +42,7 @@ class SpectrumController < ApplicationController
     # (Compare logic from SearchHelper#has_search_parameters?)
     if params['q'].nil? && params['s.q'].nil? &&
        params['s.fq'].nil? && params['s.ff'].nil? ||
-      (params['q'].to_s.empty? && $active_source == 'library_web')
+      (params['q'].to_s.empty? && active_source == 'library_web')
       flash[:error] = 'You cannot search with an empty string.' if params['commit']
     elsif @search_layout.nil?
       flash[:error] = 'No search layout specified'
@@ -63,15 +55,12 @@ class SpectrumController < ApplicationController
         end
       end.flatten
 
-      # @action_has_async = true if @search_style == 'aggregate'
-
-      # if @search_style == 'aggregate' && !session[:async_off]
-      #   @action_has_async = true
       if @search_style == 'aggregate'
         @results = {}
         sources.each { |source| @results[source] = {} }
       else
-        @results = get_results(sources)
+        # Non-aggregate non-blacklight search (e.g., Summon)
+        @results = get_results(sources.first)
       end
 
     end
@@ -81,27 +70,23 @@ class SpectrumController < ApplicationController
 
 
   def searchjson
-    # @search_layout = SEARCHES_CONFIG['search_layouts'][params[:layout]]
+    # puts "MMMM  searchjson() Thread #{Thread.current.object_id} params[:datasource]=#{params[:datasource]}  self=#{self}"
+    # puts "AAA#{Thread.current.object_id} --- #{active_source} searchjson params=#{params}"
     @search_layout = get_search_layout( params['layout'] )
+    
+    return render plain: 'Search layout invalid.' if @search_layout.nil?
 
-    @datasource = params[:datasource]
+    # Need this to help partials select which template to render
+    @search_style = @search_layout['style']
 
-    if @search_layout.nil?
-      render text: 'Search layout invalid.'
-    else
-      # Need this to help partials select which template to render
-      @search_style = @search_layout['style']
+    # @datasource = params[:datasource]
+    @results = get_results(params[:datasource])
 
-#       # @has_facets = @search_layout['has_facets']
-#       sources =  @search_layout['columns'].map do |col|
-#         col['searches'].map { |item| item['source'] }
-#       end.flatten.select { |source| source == @datasource }
-# puts "XXXXXXXXXXXXXXX searchjson() sources=#{sources.inspect}"
 
-      @results = get_results(@datasource)
+# puts "MM MM MM searchjson() GOT RESULTS - Thread #{Thread.current.object_id} params[:datasource]=#{params[:datasource]}  self=#{self}"
 
-      render 'searchjson', layout: 'js_return'
-   end
+# puts "ZZZ#{Thread.current.object_id} --- active_source=#{active_source} @datasource=#{@datasource} active_source=#{active_source}"
+    render 'searchjson', layout: 'js_return'
   end
 
 
@@ -253,9 +238,6 @@ class SpectrumController < ApplicationController
       end
     end
 
-    # moved elsewhere
-    # # Article searches within QuickSearch should act as New searches
-    # params['new_search'] = 'true' if $active_source == 'quicksearch'
 
     # If we're coming from the LWeb Search Widget - or any other external
     # source - mark it as a New Search for the Summon search engine.
@@ -292,48 +274,52 @@ class SpectrumController < ApplicationController
     params
   end
 
-  def get_results(sources)
-    @result_hash = {}
-    new_params = params.to_hash
-    sources.listify.each do |source|
 
-      fixed_params = new_params.deep_clone
-      %w(layout commit source sources controller action).each do |param_name|
-        fixed_params.delete(param_name)
+  def get_results(source)
+    @result_hash = {}
+    new_params = params.to_unsafe_h
+
+    fixed_params = new_params.deep_clone
+    %w(layout commit source sources controller action).each do |param_name|
+      fixed_params.delete(param_name)
+    end
+
+    fixed_params['source'] = source
+
+    # "results" is not the search results, it's the Search Engine object, in a
+    # post-search-execution state.
+    # TODO: drive this case statement off yml config files
+    results = case source
+      when 'articles', 'summon_dissertations', 'summon_ebooks'
+        # puts "BBB#{Thread.current.object_id}  source #{source} - summon 'when' branch"
+        fixed_params = fix_summon_params(fixed_params)
+        fixed_params['new_search'] = true if params['layout'] == 'quicksearch'
+        Spectrum::SearchEngines::Summon.new(fixed_params, get_summon_facets)
+
+      when 'catalog', 'databases', 'journals', 'catalog_ebooks', 'catalog_dissertations', 'catalog_data', 'academic_commons', 'ac_dissertations', 'ac_data', 'geo', 'geo_cul', 'dlc'
+        # puts "BBB#{Thread.current.object_id}  source #{source} - blacklight_search 'when' branch"
+        blacklight_search(fixed_params)
+
+      when 'library_web'
+        # puts "BBB#{Thread.current.object_id}  source #{source} - library_web 'when' branch"
+        # GoogleAppliance search engine can't handle absent q param
+        fixed_params['q'] ||= ''
+        fixed_params = fix_ga_params(fixed_params)
+        Spectrum::SearchEngines::GoogleAppliance.new(fixed_params)
+
+      when 'lweb'
+        Spectrum::SearchEngines::GoogleCustomSearch.new(fixed_params)
+
+      else
+        fail "SpectrumController#get_results() unhandled source: '#{source}'"
       end
 
-      fixed_params['source'] = source
-
-      # "results" is not the search results, it's the Search Engine object, in a
-      # post-search-execution state.
-      # TODO: drive this case statement off yml config files
-      results = case source
-        when 'articles', 'summon_dissertations', 'summon_ebooks'
-          fixed_params = fix_summon_params(fixed_params)
-          fixed_params['new_search'] = true if params['layout'] == 'quicksearch'
-          Spectrum::SearchEngines::Summon.new(fixed_params, get_summon_facets)
-
-        when 'catalog', 'databases', 'journals', 'catalog_ebooks', 'catalog_dissertations', 'catalog_data', 'academic_commons', 'ac_dissertations', 'ac_data', 'geo', 'geo_cul', 'dlc'
-          blacklight_search(fixed_params)
-
-        when 'library_web'
-          # GoogleAppliance search engine can't handle absent q param
-          fixed_params['q'] ||= ''
-          fixed_params = fix_ga_params(fixed_params)
-          Spectrum::SearchEngines::GoogleAppliance.new(fixed_params)
-
-        when 'lweb'
-          Spectrum::SearchEngines::GoogleCustomSearch.new(fixed_params)
-
-        else
-          fail "SpectrumController#get_results() unhandled source: '#{source}'"
-        end
-
-      @result_hash[source] = results
-    end
+    @result_hash[source] = results
 
     @result_hash
   end
 
 
 end
+
+

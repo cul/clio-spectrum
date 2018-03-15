@@ -23,9 +23,9 @@ describe 'Testing Author Searching', :skip_travis do
   # 100 1  |a Reich, Steve, |d 1936- |e composer.
   it 'subfield 100$d (dates associated with a name)' do
     resp = solr_resp_doc_ids_only( author_search_args('steve reich 1936') )
-    expect(resp.size).to be <= 200
-    expect(rank(resp, 195395)).to be <= 50
-    expect(rank(resp, 12028590)).to be <= 20
+    expect(resp.size).to be <= 300
+    expect(rank(resp, 195395)).to be <= 100
+    expect(rank(resp, 12028590)).to be <= 50
   end
   
   # Portrait of a Man, Said to be Admiral Samuel Hood, Viscount Hood (1724-1816).

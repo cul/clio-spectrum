@@ -5,6 +5,7 @@ include Warden::Test::Helpers
 describe 'Saved List Interface', :vcr do
 
   before(:each) do
+    User.delete_all
     @autodidact = FactoryBot.create(:user, login: 'autodidact')
     @blatteroon = FactoryBot.create(:user, login: 'blatteroon')
   end
@@ -146,7 +147,7 @@ describe 'Saved List Interface', :vcr do
     # visit "/lists/#{@first_user_name}/bookbag"
     # expect(page).to have_text("Cannot access list #{@first_user_name}/bookbag")
     #
-
+    feature_logout
   end
 
   # This test triggers a file-download of the endnote file, then 

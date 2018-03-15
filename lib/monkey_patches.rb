@@ -257,4 +257,48 @@ end
 #   end
 # end
 
+class Resolv
+
+    TRACKER = Hash.new()
+
+    def self.getaddress(name)
+      TRACKER[name] = 1 + (TRACKER[name] || 0)
+      puts "\n===> Resolve#getaddress(#{name}) #{TRACKER[name]}"
+
+      if TRACKER[name] > 10
+        begin
+          raise "monkey"
+        rescue => e
+          puts e.message
+          puts e.backtrace.join("\n")
+          raise
+        end
+      end
+
+      DefaultResolver.getaddress(name)
+    end
+
+end
+
+# Turn on Faraday Debugging - different block depending on adapter
+
+# class Faraday::Adapter::NetHttp
+#   alias_method :old_net_http_connection, :net_http_connection
+#    def net_http_connection(env)
+#     conn = old_net_http_connection(env)
+#     conn.set_debug_output $stderr
+#     conn
+#   end
+# end
+# 
+# class Faraday::Adapter::NetHttpPersistent
+#   alias_method :old_net_http_connection, :net_http_connection
+#    def net_http_connection(env)
+#     conn = old_net_http_connection(env)
+#     conn.debug_output = $stderr
+#     conn
+#   end
+# end
+
+
 

@@ -4,14 +4,14 @@
 # This was originally based on the Blacklight CatalogController.
 
 class CatalogController < ApplicationController
+  attr_accessor :source
 
   include BlacklightRangeLimit::ControllerOverride
   layout 'quicksearch'
 
-  before_filter :by_source_config
   # use "prepend", or this comes AFTER included Blacklight filters,
   # (and then un-processed params are stored to session[:search])
-  prepend_before_filter :preprocess_search_params
+  prepend_before_action :preprocess_search_params
 
   # Bring in endnote export, etc.
   include Blacklight::Marc::Catalog
@@ -26,10 +26,12 @@ class CatalogController < ApplicationController
   # When a catalog search is submitted, this is the
   # very first point of code that's hit
   def index
+    @source = active_source
+    params['source'] = @source
     debug_timestamp('CatalogController#index() begin')
 
-    # very useful - shows the execution order of before filters
-    # logger.debug "#{   _process_action_callbacks.map(&:filter) }"
+    # this will show the execution order of before filters:
+    #   logger.debug "#{   _process_action_callbacks.map(&:filter) }"
 
     if params['q'] == ''
       params['commit'] ||= 'Search'
@@ -69,7 +71,7 @@ class CatalogController < ApplicationController
       # returns the engine with embedded results
       debug_timestamp('CatalogController#index() before blacklight_search()')
 
-      search_engine = blacklight_search(params)
+      search_engine = blacklight_search(params.to_unsafe_h)
       debug_timestamp('CatalogController#index() after blacklight_search()')
 
       # These will only be set if the search was successful
@@ -81,7 +83,7 @@ class CatalogController < ApplicationController
     end
 
     # reach into search config to find possible source-specific service alert warning
-    search_config = DATASOURCES_CONFIG['datasources'][$active_source]
+    search_config = DATASOURCES_CONFIG['datasources'][@source]
     warning = search_config ? search_config['warning'] : nil
 # raise
     respond_to do |format|
@@ -103,7 +105,7 @@ class CatalogController < ApplicationController
     # But our per-page/rows value is persisted here:
     session[:search]['per_page'] = get_browser_option('catalog_per_page')
 
-    path = case $active_source
+    path = case active_source
     when 'databases'
        databases_show_path
     when 'journals'
@@ -217,7 +219,7 @@ class CatalogController < ApplicationController
     add_alerts_to_documents(@document)
 
     # reach into search config to find possible source-specific service alert warning
-    search_config = DATASOURCES_CONFIG['datasources'][$active_source]
+    search_config = DATASOURCES_CONFIG['datasources'][active_source]
     warning = search_config ? search_config['warning'] : nil
 
     respond_to do |format|

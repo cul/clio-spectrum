@@ -1,7 +1,7 @@
 require 'ipaddr'
 require 'resolv'
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   include Devise::Models::DatabaseAuthenticatable
 
   include Devise::Models::Timeoutable

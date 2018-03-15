@@ -4,7 +4,7 @@
 
 -# Possibly called from different datasources,
 -# figure out which so we can render appropriately.
-- datasource_config = DATASOURCES_CONFIG['datasources'][$active_source] || {}
+- datasource_config = DATASOURCES_CONFIG['datasources'][active_source] || {}
 - render_options = datasource_config['render_options'] || {}
 
 %li#actions-dropdown.dropdown.navbar-right

@@ -2,10 +2,15 @@ require 'time'    # gives us ISO time formatting
 require 'marc'
 require 'open3'
 
+require 'rake'
+
+# Useful for debugging
+# require 'resolv-replace'
+
 require File.join(Rails.root.to_s, 'config', 'initializers/aaa_load_app_config.rb')
 
 # TODO: eliminate SCP
-EXTRACT_SCP_SOURCE = APP_CONFIG['extract_scp_source']
+# EXTRACT_SCP_SOURCE = APP_CONFIG['extract_scp_source']
 
 EXTRACTS =  ["full", "incremental", "cumulative", "subset", 
              "law", "auth", "recap"]
@@ -13,9 +18,11 @@ EXTRACTS =  ["full", "incremental", "cumulative", "subset",
 # process large 'deletes' files in batches of this many
 DELETES_SLICE = 1000
 
-BIB_SOLR_URL = Blacklight.connection_config[:url]
-BIB_SOLR = RSolr.connect(url: BIB_SOLR_URL)
-AUTHORITIES_SOLR = RSolr.connect(url: APP_CONFIG['authorities_solr_url'])
+# BIB_SOLR_URL = Blacklight.connection_config[:url]
+# BIB_SOLR = RSolr.connect(url: BIB_SOLR_URL)
+
+# AUTHORITIES_SOLR = RSolr.connect(url: APP_CONFIG['authorities_solr_url'])
+AUTHORITIES_SOLR = RSolr.connect(url: APP_CONFIG['authorities_solr_url'], adapter: :net_http_persistent)
 
 def setup_ingest_logger
   # Redirect logger to stderr for our ingest tasks tasks

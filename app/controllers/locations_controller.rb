@@ -14,7 +14,6 @@ class LocationsController < ApplicationController
     # @location = Location.match_location_text(params[:id])
     @location = Location.match_location_text(raw_location)
     if @location
-
       @markers = build_markers
       @hours = nil
 
@@ -65,7 +64,6 @@ class LocationsController < ApplicationController
     rescue => ex
       Rails.logger.error "LocationsController error fetching location data from #{library_api_path}: #{ex.message}"
     end
-
     # And get all location records...
     @locations = Location.all
     api_loc = library_api_info.select{|m| m['locationID'] == @location['location_code']}

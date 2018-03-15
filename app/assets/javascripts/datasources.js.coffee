@@ -58,8 +58,6 @@ $ ->
         # alert(total_hits)
         hit_span.html(total_hits)
 
-        # %span{id: 'hits', class: $active_source, data: {total: "#{@response.total}"}}
-
 # Find values, for each one seek out it's fill-in blank
 @async_fill_in_hit_count = (element) ->
   header = $(element).find('#hits')

@@ -28,8 +28,15 @@
     -#     - more_facets_class = ''
       
     %li{class: "#{more_facets_class}"}
-      = link_to(t('blacklight.search.facets.more'), params.merge(id: solr_field, action: "facet", page: nil, rows: nil), class: "#{more_facets_class}")
+      -# = link_to(t('blacklight.search.facets.more'), params.merge(id: solr_field, action: "facet", page: nil, rows: nil), class: "#{more_facets_class}")
+      = link_to(t('blacklight.search.facets.more'), search_facet_path(id: solr_field), class: "#{more_facets_class}")
 
+    -# Blacklight 6.10.1 code:
+    -# <li class="more_facets_link">
+    -#   <%= link_to t("more_#{field_name}_html", scope: 'blacklight.search.facets', default: :more_html, field_name: facet_field.label), 
+    -#     search_facet_path(id: facet_field.key), class: "more_facets_link" %>
+    -# </li>
+    
 
 
 

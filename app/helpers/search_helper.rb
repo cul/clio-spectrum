@@ -6,7 +6,7 @@ module SearchHelper
   #   (controller.controller_name == 'search' && controller.action_name == 'index') || (params['q'].to_s.empty?  && params['s.q'].to_s.empty? && params['commit'].to_s.empty?)
   # end
 
-  # 1/2014 - this is currently equivalent to $active_source alone
+  # 1/2014 - this is currently equivalent to active_source alone
   # def active_search_box
   #   con = controller.controller_name
   #   act = controller.action_name
@@ -16,7 +16,7 @@ module SearchHelper
   #   elsif act == 'ebooks' || con == 'ebooks'
   #     'ebooks'
   #   else
-  #     $active_source
+  #     active_source
   #   end
   # end
 
@@ -61,7 +61,7 @@ module SearchHelper
 
 
   def display_basic_search_form(source)
-    datasource_config = DATASOURCES_CONFIG['datasources'][$active_source] || {}
+    datasource_config = DATASOURCES_CONFIG['datasources'][active_source] || {}
     options = datasource_config['search_box'] || {}
 
     search_params = determine_search_params
@@ -71,11 +71,11 @@ module SearchHelper
     # The "selected" search_box hide/show was built for
     # javascript-based datasource switching.
     # Repurpose for basic/advanced load state.
-    # div_classes << "selected" if $active_source == source
+    # div_classes << "selected" if active_source == source
     div_classes << 'selected' unless has_advanced_params?
 
     result = ''.html_safe
-    if $active_source == source
+    if active_source == source
 
       # BASIC SEARCH INPUT BOX
       # raise
@@ -117,7 +117,7 @@ module SearchHelper
         end
 
         # insert hidden fields
-        result += hidden_field_tag 'source', $active_source || 'articles'
+        result += hidden_field_tag 'source', active_source || 'articles'
         result += hidden_field_tag 'form', 'basic'
       end
 
@@ -188,7 +188,7 @@ module SearchHelper
   end
 
 
-  def display_start_over_link(source = $active_source)
+  def display_start_over_link(source = active_source)
     link_to content_tag(:span, '', class: 'glyphicon glyphicon-backward') + ' Start Over',
             datasource_landing_page_path(source),
             class: 'btn btn-default'

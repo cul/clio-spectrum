@@ -76,7 +76,7 @@
           - counter = counter + 1
         - if document.instance_of?(SolrDocument)
           -# Need to specify the source for these documents - the
-          -# current $active_source is not meaningful within lists
+          -# current active_source is not meaningful within lists
           = render_document_view(document, :format => 'clio', :template => 'standard_list_item', :counter => counter, :source=>'catalog')
           - counter = counter + 1
 

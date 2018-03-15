@@ -6,7 +6,7 @@
 class AdminController < ApplicationController
   layout 'no_sidebar'
 
-  before_filter :authenticate_user!, except: [:format_icons]
+  before_action :authenticate_user!, except: [:format_icons]
 
   def system
     redirect_to root_path unless current_user.has_role?('site', 'admin')

@@ -252,7 +252,7 @@ end
 
 # use these Solr HTTP params to reduce the size of the Solr responses
 # response documents will only have id fields, and there will be no facets in the response
-DOC_IDS_ONLY = { 'fl' => 'id', 'facet' => 'false', 'rows' => '50' }
+DOC_IDS_ONLY = { 'fl' => 'id', 'facet' => 'false', 'rows' => '200' }
 DOC_IDS_TITLES = { 'fl' => 'id,title_display', 'facet' => 'false', 'rows' => '50' }
 # DOC_IDS_FULL_TITLES = {'fl'=>'id,title_full_display', 'facet'=>'false'}
 

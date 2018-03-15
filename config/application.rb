@@ -41,7 +41,6 @@ module Clio
     # require 'rsolr_notifications'
     require 'browse_support'
 
-
     require "holdings/collection"
     require "holdings/record"
     require "holdings/item"

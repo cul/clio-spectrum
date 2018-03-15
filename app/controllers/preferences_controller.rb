@@ -1,7 +1,7 @@
 class PreferencesController < ApplicationController
   layout 'quicksearch'
 
-  before_filter :authenticate_user!, except: [:get_summon_facet_preferences]
+  before_action :authenticate_user!, except: [:get_summon_facet_preferences]
 
   # before_action :set_preference, only: [:edit, :update, :destroy]
   before_action :set_preference

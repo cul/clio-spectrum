@@ -26,7 +26,7 @@
 
       -# # If we're at the Quicksearch landing page, building search-forms that will be
       -# # shown to the user via Javascript datasource switching, mark as "new_search"
-      - if $active_source == 'quicksearch'
+      - if active_source == 'quicksearch'
         = hidden_field_tag 'new_search', 'true'
 
       -# Map Summon Query Params to default field values for form fields, below.

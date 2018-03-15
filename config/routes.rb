@@ -88,10 +88,8 @@ Rails.application.routes.draw do
   resources :item_alerts
 
   get 'item_alerts/:id/show_table_row(.:format)', to: 'item_alerts#show_table_row', as: :item_alert_show_table_row
+
   get 'spectrum/search'
-
-
-
 
   get 'catalog', to: 'catalog#index', as: :catalog_index
 

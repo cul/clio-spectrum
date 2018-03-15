@@ -1,28 +1,22 @@
 require 'spec_helper'
 
+require 'rake'
+
 describe 'Locations', vcr: { allow_playback_repeats: true } do
-  context "\nYou may need to run 'rake hours:sync RAILS_ENV=test' and 'rake locations:load RAILS_ENV=test'.  See README.\n" do
+
+
+  context "\nYou may need to run 'rake hours:update_all RAILS_ENV=test' and 'rake locations:load RAILS_ENV=test'.  See README.\n" do
+    
+    before(:all) do
+      # DatabaseCleaner.clean
+      # Clio::Application.load_tasks
+      # Rake::Task['locations:load'].invoke
+      # Test suite doesn't rely on up-to-date hours content
+      # Rake::Task['hours:update_all'].invoke
+    end
 
     # NEXT-1118 - Avery link to "Make an Appointment"
-    # OLD WAY - FROM APP_CONFIG - SHOWED UP ON /LOCATIONS/ PAGE
-    # it 'should include Location Notes' do
-    #   # The full complete URL
-    #   visit location_display_path('Avery+Classics+-+By+appt.+%28Non-Circulating%29')
-    #   expect(page).to have_text("Located at: Avery Architectural & Fine Arts Library")
-    #   expect(find('.location_notes')).to have_text("By appointment only")
-    # 
-    #   # Test substring matching...
-    #   visit location_display_path('Avery+Classics+-+By+appt')
-    #   expect(page).to have_text("Located at: Avery Architectural & Fine Arts Library")
-    #   expect(find('.location_notes')).to have_text("By appointment only")
-    # 
-    #   # And a further substring that doesn't match our app_config.yml location note
-    #   visit location_display_path('Avery+Classics')
-    #   expect(page).to have_text("Located at: Avery Architectural & Fine Arts Library")
-    #   expect(page).to_not have_css('.location_notes')
-    # end
-    # NEW WAY - SUPPLIED FROM BACKEND - SHOWS ONLY ON ITEM DETAIL PAGE
-    it 'should show backend-supplied location_notes in holdings box', :js do
+    it 'should show backend-supplied location_notes in holdings box', js: true, focus: false do
       # Search for "By Appointment" items
       visit catalog_index_path( {q: 'Avery Classics By appt', search_field: 'location'} )
       # Go to the item-detail page of the first item found
@@ -39,17 +33,17 @@ describe 'Locations', vcr: { allow_playback_repeats: true } do
     end
 
 
-    # NEXT-1129 - Request to change text of NYSPI
-    it 'should show correct phone for NYS Psychiatric Inst' do
-
-    # The full complete URL
-    visit location_display_path('NYS+Psychiatric+Institute+Library+%28Circulation+Restricted%29')
-    expect(page).to have_text("Call (646) 774 - 8613 between 9-5pm")
-
-    # Test substring matching...
-    visit location_display_path('NYS+Psychiatric+Institute')
-    expect(page).to have_text("Call (646) 774 - 8613 between 9-5pm")
-  end
+    # # NEXT-1129 - Request to change text of NYSPI
+    # it 'should show correct phone for NYS Psychiatric Inst' do
+    # 
+    #   # The full complete URL
+    #   visit location_display_path('NYS+Psychiatric+Institute+Library+%28Circulation+Restricted%29')
+    #   expect(page).to have_text("Call (646) 774 - 8613 between 9-5pm")
+    # 
+    #   # Test substring matching...
+    #   visit location_display_path('NYS+Psychiatric+Institute')
+    #   expect(page).to have_text("Call (646) 774 - 8613 between 9-5pm")
+    # end
 
     it 'should have a map of Butler if Location is Milstein', :skip_travis do
       visit location_display_path("Milstein+%5BButler%5D")
@@ -88,15 +82,15 @@ describe 'Locations', vcr: { allow_playback_repeats: true } do
     #   expect(page).not_to have_css('.gmap_container')
     # end
 
-    it 'should show the map for Orthopaedic Surgery' do
-      visit location_display_path("Orthopaedic+Surgery+%28Non-Circulating%29")
-      expect(page).to have_css('.gmap_container')
-    end
+    # it 'should show the map for Orthopaedic Surgery' do
+    #   visit location_display_path("Orthopaedic+Surgery+%28Non-Circulating%29")
+    #   expect(page).to have_css('.gmap_container')
+    # end
 
-    it 'should show the map for NYS Psychiatric Institute' do
-      visit location_display_path("NYS+Psychiatric+Institute+Library+%28Circulation+Restricted%29")
-      expect(page).to have_css('.gmap_container')
-    end
+    # it 'should show the map for NYS Psychiatric Institute' do
+    #   visit location_display_path("NYS+Psychiatric+Institute+Library+%28Circulation+Restricted%29")
+    #   expect(page).to have_css('.gmap_container')
+    # end
 
     it 'should show the map for Barnard Center for Research on Women' do
       visit location_display_path("Barnard+Center+For+Research+On+Women%29")

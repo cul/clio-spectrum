@@ -1,4 +1,4 @@
-class SavedList < ActiveRecord::Base
+class SavedList < ApplicationRecord
   # attr_accessible :owner, :name, :slug, :description, :sort_by, :permissions
   has_many :saved_list_items, dependent: :destroy
   has_paper_trail

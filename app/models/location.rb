@@ -1,4 +1,4 @@
-class Location < ActiveRecord::Base
+class Location < ApplicationRecord
   # CATEGORIES = %w(library info)
 
   # Rails 4 - remove this

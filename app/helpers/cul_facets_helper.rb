@@ -79,7 +79,7 @@ module CulFacetsHelper
     get_browser_option('always_expand_facets') == 'true'
   end
 
-  def build_facet_tag(facet_field, datasource = $active_source)
+  def build_facet_tag(facet_field, datasource = active_source)
     facet_field_label = if facet_field.is_a? String
       facet_field
     elsif facet_field.respond_to?(:field)
@@ -92,8 +92,8 @@ module CulFacetsHelper
       ""
       raise
     end
-    # facet_tag = $active_source + '_' + facet_field.field.parameterize
-    facet_tag = $active_source + '_' + facet_field_label
+    # facet_tag = active_source + '_' + facet_field.field.parameterize
+    facet_tag = active_source + '_' + facet_field_label
   end
 
   ##
@@ -129,7 +129,7 @@ module CulFacetsHelper
     # NEXT-1028 - Make facet state (open/closed) sticky through a selection
     # Do we have an explicit browser-display setting saved?
     # If so, respect that saved setting ("Sticky").
-    facet_tag = build_facet_tag(facet_field, $active_source)
+    facet_tag = build_facet_tag(facet_field, active_source)
     return false if get_browser_option(facet_tag) == 'open'
     return true if get_browser_option(facet_tag) == 'closed'
 
@@ -146,7 +146,7 @@ module CulFacetsHelper
 
 
   # # Is there something telling us to render this facet as open?
-  # def render_facet_open?(facet_field, datasource = $active_source)
+  # def render_facet_open?(facet_field, datasource = active_source)
   #   # Do we have "Expand All Facets" turned on?
   #   return true if expand_all_facets?
   # 

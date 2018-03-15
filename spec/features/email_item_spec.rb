@@ -2,18 +2,18 @@ require 'spec_helper'
 
 include Warden::Test::Helpers
 
-describe 'Share by Email', :vcr do
+describe 'Share by Email', vcr: true, focus: false do
   ['solr_document', 'savedlist'].each do |path|
     context 'when user is logged in' do
       before do
-        @autodidact = FactoryBot.create(:user, login: 'autodidact',
+        @autodidact = FactoryBot.build(:user, login: 'autodidact',
                                          first_name: 'Auto',
                                          last_name: 'Didact'
                                         )
         feature_login @autodidact
         visit self.send("email_#{path}_path", id: 12345)
       end
-
+      
       context "#{path}" do
         it 'should have some instructions for the user' do
           expect(page).to have_text("Send to (comma-separated list of emails):")
@@ -43,7 +43,7 @@ describe 'Share by Email', :vcr do
         end
 
         it 'should pre-fill text fields with user email and name' do
-          expect(page.find("#reply_to").value).to eq('autodidact@columbia.edu')
+          expect(page.find("#reply_to").value).to eq('autodidact@example.com')
           expect(page.find("#name").value).to eq("Auto Didact")
         end
 
@@ -51,7 +51,7 @@ describe 'Share by Email', :vcr do
           within '#email_form' do
             fill_in 'to', with: 'marquis@columbia.edu'
             find('button[type=submit]').click
-            expect(ActionMailer::Base.deliveries[0].reply_to).to eq(['autodidact@columbia.edu'])
+            expect(ActionMailer::Base.deliveries[0].reply_to).to eq(['autodidact@example.com'])
             expect(ActionMailer::Base.deliveries[0].to_s).to match('Auto Didact')
           end
         end
@@ -80,6 +80,7 @@ describe 'Share by Email', :vcr do
       end
     end
   end
+
   context 'user is not logged in' do
     describe 'can email from catalog' do
       it 'should not include reply-to and name if user wishes to remain anonymous' do
@@ -98,4 +99,5 @@ describe 'Share by Email', :vcr do
       end
     end
   end
+
 end

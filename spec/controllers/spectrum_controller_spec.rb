@@ -9,7 +9,7 @@ describe SpectrumController do
     end
 
     it 'redirects on bad input' do
-      get 'search', q: 'dummy', layout: 'No Such Layout'
+      get 'search', params: { q: 'dummy', layout: 'No Such Layout' }
       expect(response.status).to be(302)
       expect(response).to redirect_to(root_path)
       expect(flash[:error]).to match(/no search layout/i)
@@ -26,12 +26,12 @@ describe SpectrumController do
     #   get 'fetch', layout: 'No Such Layout', datasource: 'catalog'
     #   expect(response).to be_success
     #   expect(response.body).to match(/search layout invalid/i)
-      get 'searchjson', layout: 'quicksearch', datasource: 'catalog'
+      get 'searchjson', params: { layout: 'quicksearch', datasource: 'catalog' }
       expect(response).to be_success
     end
 
     it 'errors on bad input' do
-      get 'searchjson', layout: 'No Such Layout', datasource: 'catalog'
+      get 'searchjson', params: { layout: 'No Such Layout', datasource: 'catalog' }
       expect(response).to be_success
       expect(response.body).to match(/search layout invalid/i)
     end

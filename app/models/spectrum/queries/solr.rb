@@ -13,7 +13,7 @@ module Spectrum
       attr_reader :params, :queries, :filters, :ranges, :query_operator
 
       def initialize(reg_params, blacklight_config)
-        @params = reg_params || HashWithIndifferentAccess.new
+        @params = reg_params.to_unsafe_h || HashWithIndifferentAccess.new
         @config = blacklight_config
         # raise
         parse_queries

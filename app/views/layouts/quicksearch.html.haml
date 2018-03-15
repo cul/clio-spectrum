@@ -5,7 +5,7 @@
     = render :partial => "/layouts/common_head"
   %body{onload: "focusIfInViewport($('.search_q'));", data: {'environment' => "#{ENV['RAILS_ENV']}"} }
     / Layout:  quicksearch
-    - add_datasources($active_source)
+    - add_datasources
 
     = render :partial => "/top_navigation_bar"
     #outer-container.container
@@ -20,7 +20,7 @@
             = clio_sidebar_items.join('').html_safe
         #main_with_sources{:class => main_span}
           - unless @show_landing_pages
-            = display_search_boxes($active_source)
+            = display_search_boxes(active_source)
       
           = render :partial=>'/layouts/messages'
 

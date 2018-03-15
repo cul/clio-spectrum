@@ -1,5 +1,5 @@
-class LibraryHours < ActiveRecord::Base
-  belongs_to :library
+class LibraryHours < ApplicationRecord
+  # belongs_to :library
 
   def to_day_of_week
     date.strftime('%A')

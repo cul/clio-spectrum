@@ -1,4 +1,4 @@
-# class HoursDb::HoursLibrary < ActiveRecord::Base
+# class HoursDb::HoursLibrary < ApplicationRecord
 #   establish_connection :hours_db_prod
 #   self.table_name = 'Libraries'
 #   belongs_to :library, class_name: 'Library', primary_key: 'hours_db_code', foreign_key: 'lib_code'

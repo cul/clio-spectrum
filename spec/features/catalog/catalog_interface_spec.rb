@@ -1,5 +1,9 @@
 require 'spec_helper'
 
+# require 'database_cleaner'
+# 
+# DatabaseCleaner.strategy = :truncation
+
 describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
   # NEXT-779 - Some 880 fields not showing up
@@ -236,7 +240,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     expect(page).to_not have_css('div.debug_entries')
 
     # Login as a site admin account....
-    @test_manager = FactoryBot.create(:user, login: 'test_mngr')
+    @test_manager = FactoryBot.build(:user, login: 'test_mngr')
     feature_login @test_manager
 
     visit catalog_index_path('q' => 'approved', 'debug_mode' => 'on')
@@ -255,6 +259,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     # expect(page).to_not have_css('div.debug_instruction')
     # expect(page).to_not have_css('div.debug_entries')
 
+    feature_logout
   end
 
     # NEXT-1015 - next from MARC

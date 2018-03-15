@@ -12,11 +12,11 @@ describe ApplicationController do
       expect(response).not_to be_success
       expect(response.status).to be(400)
 
-      get :set_browser_option_handler, name: 'foo'
+      get :set_browser_option_handler, params: { name: 'foo' }
       expect(response).not_to be_success
       expect(response.status).to be(400)
 
-      get :set_browser_option_handler, value: 'bar'
+      get :set_browser_option_handler, params: { value: 'bar' }
       expect(response).not_to be_success
       expect(response.status).to be(400)
 
@@ -26,17 +26,17 @@ describe ApplicationController do
       expect(response).not_to be_success
       expect(response.status).to be(400)
 
-      get :get_browser_option_handler, name: 'foo', value: 'bar'
+      get :get_browser_option_handler, params: { name: 'foo', value: 'bar' }
       expect(response).not_to be_success
       expect(response.status).to be(400)
 
-      get :get_browser_option_handler, value: 'bar'
+      get :get_browser_option_handler, params: { value: 'bar' }
       expect(response).not_to be_success
       expect(response.status).to be(400)
 
       # new, unique name should not be found (404)
       name = "name__#{DateTime.now.to_s}"
-      get :get_browser_option_handler, name: name
+      get :get_browser_option_handler, params: { name: name }
       expect(response).not_to be_success
       expect(response.status).to be(404)
 
@@ -47,10 +47,10 @@ describe ApplicationController do
       name = "name__#{DateTime.now.to_s}"
       value = "value__#{DateTime.now.to_s}"
 
-      get :set_browser_option_handler, name: name, value: value
+      get :set_browser_option_handler, params: { name: name, value: value }
       expect(response).to be_success
 
-      get :get_browser_option_handler, name: name
+      get :get_browser_option_handler, params: { name: name }
       expect(response).to be_success
       expect(response.header['Content-Type']).to match(/application\/json/)
       expect(response.body).to eq(value)

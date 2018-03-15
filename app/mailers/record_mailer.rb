@@ -1,7 +1,4 @@
-# -*- encoding : utf-8 -*-
-
-# Despite living under /app/models, this is not a Model, it's a Mailer.
-class RecordMailer < ActionMailer::Base
+class RecordMailer < ApplicationMailer
 
   default from: 'CLIO <noreply@library.columbia.edu>'
 
@@ -12,7 +9,7 @@ class RecordMailer < ActionMailer::Base
   add_template_helper(HoldingsHelper)
   add_template_helper(ArticlesHelper)
 
-  def email_record(documents, details, url_gen_params)
+  def email_record(documents, details, url_gen_params, active_source)
     # raise
     if documents.size == 1 && documents.first
       title_for_subject = if documents.first.kind_of?(Summon::Document)
@@ -30,6 +27,7 @@ class RecordMailer < ActionMailer::Base
     @documents      = documents
     @message        = details[:message]
     @url_gen_params = url_gen_params
+    @active_source  = active_source
 
     # Action Mailer base method, uses corresponding view to generate text of the messgae
     mail(to: details[:to], reply_to: details[:reply_to], subject: subject)

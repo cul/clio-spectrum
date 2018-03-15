@@ -2,8 +2,8 @@ class SavedListsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   # Devise protection...
-  before_filter :authenticate_user!, except: [:show]
-  before_filter :limited_show, only: [:show]
+  before_action :authenticate_user!, except: [:show]
+  before_action :limited_show, only: [:show]
 
   layout 'no_sidebar'
 

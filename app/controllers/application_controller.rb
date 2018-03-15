@@ -3,7 +3,7 @@
 # classes, etc.
 require 'mail'
 class ApplicationController < ActionController::Base
-  helper_method :set_browser_option, :get_browser_option, :debug_timestamp
+  helper_method :set_browser_option, :get_browser_option, :debug_timestamp, :active_source
 
   # Adds a few additional behaviors into the application controller
   include Blacklight::Controller
@@ -20,30 +20,30 @@ class ApplicationController < ActionController::Base
 
   # Set headers to prevent all caching in authenticated sessions,
   # so that people can't 'back' in the browser to see possibly secret stuff.
-  before_filter :set_cache_headers
+  before_action :set_cache_headers
 
-  before_filter :apply_random_q
-  # before_filter :trigger_async_mode
-  before_filter :trigger_debug_mode
-  before_filter :by_source_config
-  before_filter :log_additional_data
-  before_filter :set_user_characteristics
-  before_filter :condense_advanced_search_params
+  before_action :apply_random_q
+  # before_action :trigger_async_mode
+  before_action :trigger_debug_mode
+  # before_action :by_source_config
+  before_action :log_additional_data
+  before_action :set_user_characteristics
+  before_action :condense_advanced_search_params
 
   # https://github.com/airblade/paper_trail/#4a-finding-out-who-was-responsible-for-a-change
-  before_filter :set_paper_trail_whodunnit
+  before_action :set_paper_trail_whodunnit
 
   # Access to the current ApplicationController instance from anywhere
   # https://stackoverflow.com/a/33774123/1343906
   cattr_accessor :current
-  before_filter { ApplicationController.current = self }
-  after_filter  { ApplicationController.current = nil  }
+  before_action { ApplicationController.current = self }
+  after_action  { ApplicationController.current = nil  }
 
   # NEXT-537 - logging in should not redirect you to the root path
   # from the Devise how-to docs...
   # https://github.com/plataformatec/devise/wiki/
   # How-To:-Redirect-back-to-current-page-after-sign-in,-sign-out,-sign-up,-update
-  before_filter :store_location
+  before_action :store_location
 
   # Polling for logged-in-status shouldn't update the devise last-activity tracker
   prepend_before_action :skip_timeout, only: [:render_session_status, :render_session_timeout]
@@ -192,14 +192,16 @@ class ApplicationController < ActionController::Base
     # raise
     Rails.logger.debug "ApplicationController#blacklight_search(sent_options=#{sent_options.inspect})"
     options = sent_options.deep_clone
-    options['source'] = $active_source unless options['source']
+    # options['source'] = active_source unless options['source']
     options['debug_mode'] = @debug_mode
     options['current_user'] = current_user
 
     # this new() actually runs the search.
     # [ the Solr engine call perform_search() within it's initialize() ]
     debug_timestamp('blacklight_search() calling Solr.new()')
+# puts "QQQQ   blacklight_search(#{options['source']})"
     search_engine = Spectrum::SearchEngines::Solr.new(options)
+# puts "QQQQ   done(#{options['source']})"
     debug_timestamp('blacklight_search() Solr.new() complete.')
 
     if search_engine.successful?
@@ -211,7 +213,7 @@ class ApplicationController < ActionController::Base
 
         # Currently, item-alerts only show within the Databases data source.
         # Why?
-        if $active_source.present? && $active_source == 'databases'
+        if active_source.present? && active_source == 'databases'
           add_alerts_to_documents(@results)
         end
       end
@@ -282,9 +284,15 @@ class ApplicationController < ActionController::Base
     @debug_entries['timestamps'] << { label => "#{elapsed.round(0)} ms" }
   end
 
-  def determine_active_source
-    # return params['datasource'] if params.has_key? 'datasource'
 
+  def active_source
+    # puts "MMMM  active_source() Thread #{Thread.current.object_id}"
+    # Figure out the active source, then stash it into
+    # thread storage for access in non-CLIO-application contexts
+    Thread.current[:active_source] = determine_active_source()
+  end
+
+  def determine_active_source
     # Try to find the datasource,
     # first in the params,
     # second in the path
@@ -296,9 +304,7 @@ class ApplicationController < ActionController::Base
 
     # Remap as necessary...
     # shelf-browse is part of the catalog datasource
-    if source == 'browse'
-      source = 'catalog'
-    end
+    source = 'catalog' if source == 'browse'
 
     # If what we found is a real source, use it.
     # Otherwise, fall back to quicksearch as a default.
@@ -310,24 +316,18 @@ class ApplicationController < ActionController::Base
       else
         return source
       end
-    else
-      return 'quicksearch'
     end
 
+    return 'quicksearch'
   end
 
-  # def connection(source = $active_source)
-  #   if self.respond_to?(:blacklight_config)
-  #     @connections ||= {}
-  #     @connections[source] || (@connections[source] = Spectrum::SearchEngines::Solr.generate_rsolr(source))
-  #   end
-  # end
-
   def repository_class
+    Rails.logger.debug "ApplicationController#repository_class"
     Spectrum::SolrRepository
   end
 
-  def blacklight_config(source = $active_source)
+  def blacklight_config(source = active_source)
+    Rails.logger.debug "ApplicationController#blacklight_config"
     @blacklight_configs ||= {}
     @blacklight_configs[source] || (@blacklight_configs[source] = Spectrum::SearchEngines::Solr.generate_config(source))
   end
@@ -370,7 +370,7 @@ class ApplicationController < ActionController::Base
             flash[:error] = I18n.t('blacklight.email.errors.invalid')
           else
             message_text = params[:message]
-            email = RecordMailer.email_record(@documents, { to: mail_to, reply_to: reply_to.format, message: message_text }, url_gen_params)
+            email = RecordMailer.email_record(@documents, { to: mail_to, reply_to: reply_to.format, message: message_text }, url_gen_params, active_source)
           end
         else
           flash[:error] = I18n.t('blacklight.email.errors.to.invalid', to: mail_to)
@@ -437,7 +437,6 @@ class ApplicationController < ActionController::Base
       # NEXT-1067 - Saved Lists broken for very large lists (~400)
       # fix by breaking into slices
       catalog_item_ids.each_slice(100) { |slice|
-        # response, slice_document_list = get_solr_response_for_field_values(SolrDocument.unique_key, slice, extra_solr_params)
         response, slice_document_list = fetch(slice, extra_solr_params)
         catalog_document_list += slice_document_list
       }
@@ -488,10 +487,6 @@ class ApplicationController < ActionController::Base
     @errors = nil
     begin
       @service = ::Summon::Service.new(@config)
-
-      # Rails.logger.info "[Spectrum][Summon] config: #{@config}"
-      # Rails.logger.info "[Spectrum][Summon] params: #{@params}"
-
       ### THIS is the actual call to the Summon service to do the search
       @search = @service.search(@params)
 
@@ -528,9 +523,9 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def by_source_config
-    $active_source = determine_active_source
-  end
+  # def by_source_config
+  #   active_source = determine_active_source
+  # end
 
   # NEXT-537 - logging in should not redirect you to the root path
   # from the Devise how-to docs...

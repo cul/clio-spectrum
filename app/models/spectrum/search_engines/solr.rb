@@ -31,7 +31,6 @@ module Spectrum
 
         options = original_options.to_hash.deep_clone
         @source = options.delete('source') || options.delete(:source) || fail('Must specify source')
-        options.delete(:source)
         @debug_mode = options.delete(:debug_mode) || options.delete('debug_mode') || false
         @debug_entries = Hash.arbitrary_depth
         @current_user = options.delete('current_user')
@@ -40,10 +39,7 @@ module Spectrum
         # allow pass-in override solr url
         @solr_url = options.delete('solr_url')
 
-# do we need?
-        # # generate a Solr object
-        # connection()
-
+#  TODO TODO - we already have o config object?
         # generate a Solr config object
         connection_config()
 
@@ -53,6 +49,7 @@ module Spectrum
 
         begin
           # here's the actual search, defined below in this file
+# puts "1111111"
           perform_search
         rescue => ex
           # During localhost development, just re-throw the exception.
@@ -76,24 +73,6 @@ module Spectrum
           end
         end
       end
-
-      # moved into Spectrum::SolrRepository#initialize()
-      # def repository
-      #   raise
-      #   Rails.logger.debug "Spectrum::SearchEngine::Solr#repository()"
-      #   # Rails.logger.debug "before: @repository=#{@repository.inspect}"
-      #   @repository ||= Spectrum::SolrRepository.new(blacklight_config)
-      #   @repository.source = @source
-      #   @repository.solr_url = @solr_url
-      # 
-      #   # Rails.logger.debug "after: @repository=#{@repository.inspect}"
-      #   @repository
-      # end
-
-      # def connection
-      #   Rails.logger.debug "Spectrum::SearchEngine::Solr#connection()"
-      #   @solr ||= Solr.generate_rsolr(@source, @solr_url)
-      # end
 
       def connection_config
         # Rails.logger.debug "Spectrum::SearchEngine::Solr#connection_config()"
@@ -215,6 +194,7 @@ module Spectrum
           end
 
         else
+# puts "222222"
           # use blacklight gem to run the actual search against Solr,
           # call Blacklight::SearchHelper::search_results()
           @search, @documents = search_results(@params.merge(extra_controller_params).with_indifferent_access)
@@ -225,16 +205,6 @@ module Spectrum
         self
       end
 
-      # def self.generate_rsolr(source, solr_url = nil)
-      #   Rails.logger.debug "Spectrum::SearchEngines::Solr#generate_rsolr(#{source})"
-      #   if source.in?('academic_commons', 'ac_dissertations')
-      #     RSolr.connect(url: APP_CONFIG['ac2_solr_url'])
-      #   elsif solr_url
-      #     RSolr.connect(url: solr_url)
-      #   else
-      #     RSolr.connect(Blacklight.connection_config)
-      #   end
-      # end
 
       # Default config has already been created, now add in the field-scoped
       # config settings specific to each fielded search being offered
@@ -972,6 +942,8 @@ module Spectrum
 
         # Set a much longer scrollable list of facet values than BL default
         blacklight_config.default_more_limit = 500
+
+        blacklight_config.source = source
 
         # Finally, return the config object
         return blacklight_config

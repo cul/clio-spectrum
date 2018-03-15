@@ -1,4 +1,4 @@
-class ItemAlert < ActiveRecord::Base
+class ItemAlert < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
 
   # remove for Rails 4

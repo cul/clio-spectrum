@@ -9,7 +9,7 @@ class ItemAlertsController < ApplicationController
   check_authorization
   load_and_authorize_resource except: :create
 
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   layout 'no_sidebar'
 
   # GET /item_alerts

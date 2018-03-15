@@ -39,6 +39,13 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  #   # Asset approach for test runs
+  #   config.assets.compile = true
+  #   config.assets.compress = false
+  #   config.assets.debug = false
+  config.assets.digest = false
+
 end
 
 

@@ -6,8 +6,8 @@ gem 'activerecord-session_store'
 
 #  ###  BLACKLIGHT (begin)  ###
 
-gem 'blacklight', '~>6.10.0'
-# gem 'blacklight', path: '/Users/marquis/src/blacklight'
+# gem 'blacklight', '~>6.10.0'
+gem 'blacklight', path: '/Users/marquis/src/blacklight'
 
 
 gem 'blacklight-marc'
@@ -21,6 +21,10 @@ gem 'blacklight_range_limit'
  ###  BLACKLIGHT (end)  ###
 
 gem 'rsolr', '>= 1.0'
+# gem 'rsolr', path: "/Users/marquis/src/rsolr"
+
+# # Enable HTTP connection re-use within RSolr (Faraday)
+# gem 'net-http-persistent'
 
 # basic library to parse, create and manage MARC records
 gem 'marc'
@@ -54,8 +58,8 @@ gem 'json'
 #  for simplified rails environments used in index rake cronjobs
 gem 'sqlite3'
 
-# Rails 5 requirement
-gem 'listen'
+# # Rails 5 requirement
+# gem 'listen'
 
 group :clio_dev, :clio_app_dev, :clio_test, :clio_app_test, :clio_prod do
   gem 'mysql2'
@@ -99,7 +103,8 @@ gem 'summon', git: 'https://github.com/cul/summon.git'
 # gem 'summon', :path => "/Users/marquis/src/summon"
 
 # auth library
-gem 'cancan'
+# gem 'cancan'
+gem 'cancancan'
 
 gem 'exception_notification'
 
@@ -228,8 +233,8 @@ group :test do
   # Required to enable capybara's save_and_open_page() method
   gem 'launchy'
 
-  # reset database tables between test runs
-  gem 'database_cleaner'
+  # # reset database tables between test runs
+  # gem 'database_cleaner'
 
   # Not doing anything with profiling just now, but when we get back to it,
   # reread:   https://www.coffeepowered.net/2013/08/02/ruby-prof-for-rails/
@@ -257,5 +262,9 @@ group :test do
   # Record API responses, use saved responses for tests
   gem 'vcr'
   gem 'webmock'
+
+  # assert_template has been extracted to a gem. To continue using it,
+  #         add `gem 'rails-controller-testing'` to your Gemfile.
+  gem 'rails-controller-testing'
 end
 

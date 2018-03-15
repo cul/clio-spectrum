@@ -10,5 +10,5 @@
       - label = title.eql?("Libraries Website") ? 'View' : 'View and filter'
       = link_to "#{label} all <span class='hidden-xs'>#{number_with_delimiter(result.total_items)}</span> results".html_safe, result.search_path
     - else
-      %a{href: datasource_landing_page_path($active_source)}
+      %a{href: datasource_landing_page_path(active_source)}
         Explore #{title}

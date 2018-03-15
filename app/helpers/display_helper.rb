@@ -88,7 +88,7 @@ module DisplayHelper
     action = options.delete(:action) || fail('Must specify action')
 
     # Assume view-style is the configured default, or "standard_list" if no default configured...
-    datasource_config = DATASOURCES_CONFIG['datasources'][$active_source] || {}
+    datasource_config = DATASOURCES_CONFIG['datasources'][active_source] || {}
     viewstyle = datasource_config['default_viewstyle'] ||
                 'standard_list'
 
@@ -116,8 +116,9 @@ module DisplayHelper
     template = options.delete(:template) || fail('Must specify template')
     formats = determine_formats(document, options.delete(:format))
 
-    # Render based on $active_source -- unless an alternative is passed in
-    options[:source] ||= $active_source
+    # Render based on active_source -- unless an alternative is passed in
+    @active_source ||= active_source
+    options[:source] ||= @active_source
 
     partial_list = formats.map { |format| "/_formats/#{format}/#{template}" }
     @add_row_style = options[:style]
@@ -203,7 +204,7 @@ module DisplayHelper
     end
   end
 
-  def pegasus_item_link(document, context = $active_source)
+  def pegasus_item_link(document, context = '')
     url = 'http://pegasus.law.columbia.edu'
     if document && document.id
       # NEXT-996 - Rename "Pegasus" link
@@ -219,19 +220,21 @@ module DisplayHelper
 
   def determine_formats(document, defaults = [])
     formats = defaults.listify
+    
+    @active_source ||= active_source
 
     # AC records, from the AC Solr, don't self-identify.
-    formats << 'ac' if $active_source == 'academic_commons'
+    formats << 'ac' if @active_source == 'academic_commons'
     # geo records
-    formats << 'geo' if $active_source == 'geo'
+    formats << 'geo' if @active_source == 'geo'
     # dlc records
-    formats << 'dlc' if $active_source == 'dlc'
+    formats << 'dlc' if @active_source == 'dlc'
 
 
     # Database items - from the Voyager feed - will identify themselves,
     # via their "source", which we should respect no matter the current
     # GUI-selected datasource
-    # formats << "database" if $active_source == "databases"
+    # formats << "database" if active_source == "databases"
     case document
     when SolrDocument
       formats << 'clio'

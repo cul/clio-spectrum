@@ -24,10 +24,10 @@ module DatasourcesHelper
 
 
   # Output the HTML of a single landing page for the passed data-source
-  def datasource_landing_page(datasource = $active_source)
+  def datasource_landing_page(datasource = active_source)
     content_tag('div', class: 'landing_pages') do
       classes = ['landing_page', datasource]
-      classes << 'selected' if datasource == $active_source
+      classes << 'selected' if datasource == active_source
       search_config = DATASOURCES_CONFIG['datasources'][datasource]
       warning = search_config ? search_config['warning'] : nil
       content_tag(:div,
@@ -60,7 +60,7 @@ module DatasourcesHelper
   # Called from several layouts to add the stack of datasources to the sidebar.
   # Takes as arg the source to mark as active.
   # Returns an HTML <UL> list of datasources
-  def add_datasources(active_source = $active_source)
+  def add_datasources
     options = {
       active_source: active_source,
       query: params['q'] || params['s.q'] || nil
@@ -96,18 +96,18 @@ module DatasourcesHelper
     )
   end
 
-  def sidebar_span(source = $active_source)
+  def sidebar_span(source = active_source)
     'col-sm-3'
   end
 
-  def main_span(source = $active_source)
+  def main_span(source = active_source)
     'col-sm-9'
   end
 
   # Will there be any facets shown for this datasource?
   # No, if we're on the landing page, or if the datasource has no facets.
   # Otherwise, yes.
-  def source_has_facets?(source = $active_source)
+  def source_has_facets?(source = active_source)
     # No facets if we're showing the landing pages instead of query results
     return false if @show_landing_pages
 
@@ -189,16 +189,16 @@ module DatasourcesHelper
     fetch_hits = false if no_hits.any? { |nope| params.key? nope }
 
     # # Breck asks that we display hit-count for current source
-    # # fetch_hits = false if datasource == $active_source
+    # # fetch_hits = false if datasource == active_source
     # 
     # # I'm having trouble generating accurate hit-counts for Summon queries.
     # # Disable for now - show no hitcounts within Summon
-    # fetch_hits = false if $active_source == 'articles'
+    # fetch_hits = false if active_source == 'articles'
 
     # If a datasource is being directly queried, don't fetch hits
     # with a redundant second query.
     # -- for single sources
-    fill_in = true if datasource == $active_source
+    fill_in = true if datasource == active_source
     #   fetch_hits = false
     #   hits_class = hits_class + ' fill_in'
     # end
@@ -238,7 +238,7 @@ module DatasourcesHelper
   #   return '' unless source
   # 
   #   content_tag(:a, "Explore #{source['name']}",
-  #               href: datasource_landing_page_path($active_source) )
+  #               href: datasource_landing_page_path(active_source) )
   # end
 
 
@@ -281,7 +281,8 @@ module DatasourcesHelper
   # Fix bug of crawlers submitting bad params to landing-pages, creating
   # cached version of landing page with (invalid) embedded hidden query params.
   def params_digest
-    return Digest::SHA1.hexdigest(params.sort.flatten.join("_"))
+    # return Digest::SHA1.hexdigest(params.sort.flatten.join("_"))
+    return Digest::SHA1.hexdigest(params.to_s)
   end
 
   private

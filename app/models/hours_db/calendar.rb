@@ -1,4 +1,4 @@
-# class HoursDb::Calendar < ActiveRecord::Base
+# class HoursDb::Calendar < ApplicationRecord
 #   establish_connection :hours_db_prod
 #   self.table_name = 'Calendar'
 # 
