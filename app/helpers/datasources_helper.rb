@@ -177,7 +177,7 @@ module DatasourcesHelper
 
     # NEXT-1359 - hit counts
     # fetch_hits = false if query.nil? || query.length < 2
-    # fetch_hits = false if datasource == 'quicksearch'
+    fetch_hits = false if datasource == 'quicksearch'
     fetch_hits = false if get_datasource_bar['major_sources'].exclude?(datasource)
     fetch_hits = false if get_datasource_bar['minor_sources'].include?(datasource)
     fetch_hits = false if get_datasource_bar['subsources'].include?(datasource)

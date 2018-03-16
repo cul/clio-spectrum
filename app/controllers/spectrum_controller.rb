@@ -93,23 +93,25 @@ class SpectrumController < ApplicationController
   # Simplified version of 'searchjson' - just run a query against
   # a datasource to get a hit count.
   def hits
-    datasource = params[:datasource]
+    hit_params = params.to_unsafe_h
+    hit_params[:source] = hit_params[:datasource]
+    # datasource = params[:datasource]
 
     # we don't need any rows of results.  
     # params['rows'] = 1
     # ...but resetting this value can overwrite user default rows
 
-    results = case datasource
+    results = case hit_params[:datasource]
       when 'catalog', 'academic_commons', 'geo', 'dlc'
-        blacklight_search(params)
+        blacklight_search(hit_params)
       when 'articles'
-        fixed_params = fix_summon_params(params)
+        fixed_params = fix_summon_params(hit_params)
         fixed_params['new_search'] = 'true'
         Spectrum::SearchEngines::Summon.new(fixed_params, get_summon_facets)
       when 'library_web'
-        Spectrum::SearchEngines::GoogleAppliance.new(fix_ga_params(params))
+        Spectrum::SearchEngines::GoogleAppliance.new(fix_ga_params(hit_params))
       when 'lweb'
-        Spectrum::SearchEngines::GoogleCustomSearch.new(params)
+        Spectrum::SearchEngines::GoogleCustomSearch.new(hit_params)
       else
         render nothing: true and return
       end
