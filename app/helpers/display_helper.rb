@@ -113,14 +113,15 @@ module DisplayHelper
   # and from those figure out which partial should render the document.
   def render_document_view(document, options = {})
     options.symbolize_keys!
-    template = options.delete(:template) || fail('Must specify template')
-    formats = determine_formats(document, options.delete(:format))
 
     # Render based on active_source -- unless an alternative is passed in
     @active_source ||= active_source
     options[:source] ||= @active_source
 
+    template = options.delete(:template) || fail('Must specify template')
+    formats = determine_formats(document, @active_source, options.delete(:format))
     partial_list = formats.map { |format| "/_formats/#{format}/#{template}" }
+
     @add_row_style = options[:style]
     view = render_first_available_partial(partial_list, options.merge(document: document))
     @add_row_style = nil
@@ -218,18 +219,15 @@ module DisplayHelper
     end
   end
 
-  def determine_formats(document, defaults = [])
-    formats = defaults.listify
+  def determine_formats(document, source, formats = [])
+    formats = Array(formats)
     
-    @active_source ||= active_source
-
     # AC records, from the AC Solr, don't self-identify.
-    formats << 'ac' if @active_source == 'academic_commons'
+    formats << 'ac' if source == 'academic_commons'
     # geo records
-    formats << 'geo' if @active_source == 'geo'
+    formats << 'geo' if source == 'geo'
     # dlc records
-    formats << 'dlc' if @active_source == 'dlc'
-
+    formats << 'dlc' if source == 'dlc'
 
     # Database items - from the Voyager feed - will identify themselves,
     # via their "source", which we should respect no matter the current
@@ -239,12 +237,12 @@ module DisplayHelper
     when SolrDocument
       formats << 'clio'
 # raise
-      document['format'].listify.each do |format|
+      Array(document['format']).each do |format|
         formats << SOLR_FORMAT_LIST[format] if SOLR_FORMAT_LIST[format]
       end
       # What's the "home" datasource for this record?
       # Could be multiple (e.g., 'catalog' and 'database')
-      document['source_display'].listify.each do |source|
+      Array(document['source_display']).each do |source|
         formats << source if FORMAT_RANKINGS.include? source
       end
     when Summon::Document

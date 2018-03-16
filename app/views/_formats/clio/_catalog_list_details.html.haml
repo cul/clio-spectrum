@@ -28,11 +28,11 @@
 
 - if ['development', 'clio_dev'].include?(Rails.env)
   -# = add_row('testing', 'a b c d')
-  = add_row('Traject Format', document['traject_format_facet'], join: ', ')
-  = add_row('U.Mich Format', document['umich_format_facet'], join: ', ')
-  = add_row('U.Mich Type', document['umich_type_facet'], join: ', ')
-
-
+  -# - lap = (Time.now - Time.now.beginning_of_minute).to_f.round(3).to_s
+  -# = add_row('stopwatch', lap)
+  -# -#   = add_row('Traject Format', document['traject_format_facet'], join: ', ')
+  -# -#   = add_row('U.Mich Format', document['umich_format_facet'], join: ', ')
+  -# -#   = add_row('U.Mich Type', document['umich_type_facet'], join: ', ')
 
 - if @debug_mode  && @response && @response['debug'] && @response['debug']['explain'] && (score = @response['debug']['explain'][document.fetch('id', nil).to_s])
   = add_row('Score', score.gsub(/\n/,"").gsub(/\=.+$/,""))
