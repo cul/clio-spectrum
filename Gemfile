@@ -42,7 +42,7 @@ gem 'gmaps4rails'
 gem 'kaminari'
 
 # Auth
-gem 'devise'
+gem 'devise', '4.4.1'
 gem 'devise-encryptable'
 
 # Client-side JS timeouts
