@@ -190,7 +190,7 @@ class ApplicationController < ActionController::Base
   # and from CatalogController.index()
   def blacklight_search(sent_options = {})
     # raise
-    Rails.logger.debug "ApplicationController#blacklight_search(sent_options=#{sent_options.inspect})"
+    # Rails.logger.debug "ApplicationController#blacklight_configght_search(sent_options=#{sent_options.inspect})"
     options = sent_options.deep_clone
     # options['source'] = active_source unless options['source']
     options['debug_mode'] = @debug_mode
@@ -327,9 +327,9 @@ class ApplicationController < ActionController::Base
   end
 
   def blacklight_config(source = active_source)
-    Rails.logger.debug "ApplicationController#blacklight_config"
+    # Rails.logger.debug "ApplicationController#blacklight_config"
     @blacklight_configs ||= {}
-    @blacklight_configs[source] || (@blacklight_configs[source] = Spectrum::SearchEngines::Solr.generate_config(source))
+    @blacklight_configs[source] ||= Spectrum::SearchEngines::Solr.generate_config(source)
   end
 
   def catch_404s
