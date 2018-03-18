@@ -43,6 +43,7 @@
 
 
 //= require advanced
+//= require arrows
 //= require articles
 //= require astroids
 //= require async-search
