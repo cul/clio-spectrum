@@ -201,6 +201,16 @@ li.callnumber_subclass
 //}
 
 
+// Blacklight facet.html.erb outputs this, but _modal.scss sets display:none?
+#ajax-modal .facet_pagination.top
+  display: block
+  padding: 0px
+
+// Bootstrap default 15px
+#ajax-modal .modal-header
+  padding-bottom: 10px
+
+
 .panel-heading.collapse-toggle .panel-title:after
   /* symbol for "opening" panels */
   font-family: 'Glyphicons Halflings'  /* essential for enabling glyphicon */
