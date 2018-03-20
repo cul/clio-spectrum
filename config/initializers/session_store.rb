@@ -11,7 +11,8 @@ case Rails.env.to_s
   # which can't handle Sessions plus AJAX sessions:
   #     SQLite3::BusyException: database is locked
   when 'development'
-    Clio::Application.config.session_store :cookie_store, key: '_clio_session'
+    # Clio::Application.config.session_store :cookie_store, key: '_clio_session'
+    Clio::Application.config.session_store :active_record_store, key: '_clio_session'
   when 'test'
     Clio::Application.config.session_store :cookie_store, key: '_clio_session'
 
