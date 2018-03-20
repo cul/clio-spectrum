@@ -97,13 +97,17 @@ class CatalogController < ApplicationController
 
   # updates the search counter (allows the show view to paginate)
   def track
-    session[:search] = {} unless session[:search].is_a?(Hash)
-    session[:search]['counter'] = params[:counter]
+    # session[:search] = {} unless session[:search].is_a?(Hash)
+    # session[:search]['counter'] = params[:counter]
+    # 
+    # # Blacklight wants this....
+    # # session[:search]['per_page'] = params[:per_page]
+    # # But our per-page/rows value is persisted here:
+    # session[:search]['per_page'] = get_browser_option('catalog_per_page')
 
-    # Blacklight wants this....
-    # session[:search]['per_page'] = params[:per_page]
-    # But our per-page/rows value is persisted here:
-    session[:search]['per_page'] = get_browser_option('catalog_per_page')
+    search_session['counter'] = params[:counter]
+    search_session['id'] = params[:search_id]
+    search_session['per_page'] = get_browser_option('catalog_per_page')
 
     path = case active_source
     when 'databases'
