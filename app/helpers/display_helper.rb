@@ -71,8 +71,14 @@ module DisplayHelper
   }
 
   def formats_with_icons(document, format_field = 'format')
-    document[format_field].listify.map do |format|
+    formats = Array(document[format_field])
+    formats.map do |format|
       if (icon = FORMAT_ICON_MAPPINGS[format]) && @add_row_style != :text
+        # NEXT-239 - if Book + Online, 
+        # replace 'book.png' with 'ebook.png'
+        if format == 'Book' && formats.include?('Online')
+          icon = 'ebook'
+        end
         image_tag("icons/#{icon}.png", size: '16x16', alt: format.to_s) + " #{format}"
       else
         format.to_s
