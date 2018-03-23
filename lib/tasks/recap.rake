@@ -50,17 +50,17 @@ namespace :recap do
 
     # HTC puts update files in one directory, delete files in another.
     # And the directories are named after file-formats, not functions...    
-    sftp_updates_dir = APP_CONFIG['recap']['sftp_updates_dir']
+    sftp_incremental_dir = APP_CONFIG['recap']['sftp_incremental_dir']
     sftp_full_dir = APP_CONFIG['recap']['sftp_full_dir']
     sftp_deletes_dir = APP_CONFIG['recap']['sftp_deletes_dir']
  
-    unless extract_dir && sftp_updates_dir && sftp_full_dir&& sftp_deletes_dir
+    unless extract_dir && sftp_incremental_dir && sftp_full_dir&& sftp_deletes_dir
       abort("ERROR: app_config 'recap' section missing sftp params!")
     end
    
      # Repeat the same download steps, for Updates, for Fulls, and for Deletes
     Rake::Task["recap:download_dir"].reenable
-    Rake::Task["recap:download_dir"].invoke("Updates", sftp_updates_dir)
+    Rake::Task["recap:download_dir"].invoke("Updates", sftp_incremental_dir)
 
     Rake::Task["recap:download_dir"].reenable
     Rake::Task["recap:download_dir"].invoke("Fulls", sftp_full_dir)
@@ -273,12 +273,12 @@ namespace :recap do
 
     filename = args[:filename]
 
-    sftp_updates_dir = APP_CONFIG['recap']['sftp_updates_dir']
-    abort("ERROR: app_config missing recap/sftp_updates_dir!") unless sftp_updates_dir
+    sftp_incremental_dir = APP_CONFIG['recap']['sftp_incremental_dir']
+    abort("ERROR: app_config missing recap/sftp_incremental_dir!") unless sftp_incremental_dir
     extract_home = APP_CONFIG['extract_home']
     abort("ERROR: app_config missing extract_home!") unless extract_home
 
-    extract_dir = APP_CONFIG['extract_home'] + "/recap/" + sftp_updates_dir
+    extract_dir = APP_CONFIG['extract_home'] + "/recap/" + sftp_incremental_dir
     full_path = extract_dir + '/' + filename
 
     abort("recap:ingest_file[:filename] not passed filename!") unless filename
@@ -320,12 +320,12 @@ namespace :recap do
     count = (args[:count] || '1').to_i
     Rails.logger.info("- ingest_new - ingesting up to #{count} new files.")
 
-    sftp_updates_dir = APP_CONFIG['recap']['sftp_updates_dir']
-    abort("ERROR: app_config missing recap/sftp_updates_dir!") unless sftp_updates_dir
+    sftp_incremental_dir = APP_CONFIG['recap']['sftp_incremental_dir']
+    abort("ERROR: app_config missing recap/sftp_incremental_dir!") unless sftp_incremental_dir
     extract_home = APP_CONFIG['extract_home']
     abort("ERROR: app_config missing extract_home!") unless extract_home
 
-    extract_dir = extract_home + "/recap/" + sftp_updates_dir
+    extract_dir = extract_home + "/recap/" + sftp_incremental_dir
 
     # read in our 'last-*-file' file - or abort if not found.
     # this file tells us the last file that was ingested.
