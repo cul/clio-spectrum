@@ -11,7 +11,7 @@ EXTRACTS =  ["full", "incremental", "cumulative", "subset",
              "law", "auth", "recap"]
 
 # process large 'deletes' files in batches of this many
-DELETES_SLICE = 1000
+DELETES_SLICE = 2000
 
 BIB_SOLR_URL = Blacklight.connection_config[:url]
 BIB_SOLR = RSolr.connect(url: BIB_SOLR_URL)
@@ -30,10 +30,10 @@ def solr_delete_ids(solr_connection, ids)
   retries = 3
   begin
     ids = ids.listify.collect { |x| x.strip}
-    Rails.logger.debug("deleting #{ids.size} records...")
+    Rails.logger.debug("deleting #{ids.size} records...") if ENV['DEBUG']
     solr_connection.delete_by_id(ids)
 
-    Rails.logger.debug("committing changes...")
+    Rails.logger.debug("committing changes...") if ENV['DEBUG']
     solr_connection.commit
 
   rescue Timeout::Error
