@@ -134,6 +134,6 @@ module Clio
     config.log_tags = [:remote_ip]
 
     # Set a default.  This'll be set to true in per-environment files.
-    config.eager_load = false
+    config.eager_load = true
   end
 end
