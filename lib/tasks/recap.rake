@@ -39,7 +39,7 @@ namespace :recap do
     Rails.logger.info("- done.  #{files.size} files found.")
   end
 
-  desc "download all new ReCAP extract/delete files to local storage"
+  desc "download all new ReCAP update/full/delete files to local storage"
   task :download do
     setup_ingest_logger
 
@@ -50,16 +50,20 @@ namespace :recap do
 
     # HTC puts update files in one directory, delete files in another.
     # And the directories are named after file-formats, not functions...    
-    sftp_updates_dir = APP_CONFIG['recap']['sftp_updates_dir']
+    sftp_incremental_dir = APP_CONFIG['recap']['sftp_incremental_dir']
+    sftp_full_dir = APP_CONFIG['recap']['sftp_full_dir']
     sftp_deletes_dir = APP_CONFIG['recap']['sftp_deletes_dir']
  
-    unless extract_dir && sftp_updates_dir && sftp_deletes_dir
+    unless extract_dir && sftp_incremental_dir && sftp_full_dir&& sftp_deletes_dir
       abort("ERROR: app_config 'recap' section missing sftp params!")
     end
    
-     # Repeat the same download steps twice, once for Updates, once for Deletes
+     # Repeat the same download steps, for Updates, for Fulls, and for Deletes
     Rake::Task["recap:download_dir"].reenable
-    Rake::Task["recap:download_dir"].invoke("Updates", sftp_updates_dir)
+    Rake::Task["recap:download_dir"].invoke("Updates", sftp_incremental_dir)
+
+    Rake::Task["recap:download_dir"].reenable
+    Rake::Task["recap:download_dir"].invoke("Fulls", sftp_full_dir)
 
     Rake::Task["recap:download_dir"].reenable
     Rake::Task["recap:download_dir"].invoke("Deletes", sftp_deletes_dir)
@@ -80,11 +84,14 @@ namespace :recap do
 
     full_sftp_path = sftp_path + '/' + directory
     full_local_path = recap_extract_home + '/' + directory
+    puts "DEBUG full_sftp_path=[#{full_sftp_path}]" if ENV['DEBUG']
+    puts "DEBUG full_local_path=[#{full_local_path}]" if ENV['DEBUG']
     Rails.logger.info("-- saving to local dir #{full_local_path}")
 
     sftp = get_sftp()
     already_have = []
     need_to_download  = []
+    
     files = sftp.dir.entries(full_sftp_path)
     files.each do |file|
       if File.exist?("#{full_local_path}/#{file.name}")
@@ -266,12 +273,12 @@ namespace :recap do
 
     filename = args[:filename]
 
-    sftp_updates_dir = APP_CONFIG['recap']['sftp_updates_dir']
-    abort("ERROR: app_config missing recap/sftp_updates_dir!") unless sftp_updates_dir
+    sftp_incremental_dir = APP_CONFIG['recap']['sftp_incremental_dir']
+    abort("ERROR: app_config missing recap/sftp_incremental_dir!") unless sftp_incremental_dir
     extract_home = APP_CONFIG['extract_home']
     abort("ERROR: app_config missing extract_home!") unless extract_home
 
-    extract_dir = APP_CONFIG['extract_home'] + "/recap/" + sftp_updates_dir
+    extract_dir = APP_CONFIG['extract_home'] + "/recap/" + sftp_incremental_dir
     full_path = extract_dir + '/' + filename
 
     abort("recap:ingest_file[:filename] not passed filename!") unless filename
@@ -313,22 +320,22 @@ namespace :recap do
     count = (args[:count] || '1').to_i
     Rails.logger.info("- ingest_new - ingesting up to #{count} new files.")
 
-    sftp_updates_dir = APP_CONFIG['recap']['sftp_updates_dir']
-    abort("ERROR: app_config missing recap/sftp_updates_dir!") unless sftp_updates_dir
+    sftp_incremental_dir = APP_CONFIG['recap']['sftp_incremental_dir']
+    abort("ERROR: app_config missing recap/sftp_incremental_dir!") unless sftp_incremental_dir
     extract_home = APP_CONFIG['extract_home']
     abort("ERROR: app_config missing extract_home!") unless extract_home
 
-    extract_dir = extract_home + "/recap/" + sftp_updates_dir
+    extract_dir = extract_home + "/recap/" + sftp_incremental_dir
 
-    # read in our 'last-ingest-file' file - or abort if not found.
+    # read in our 'last-*-file' file - or abort if not found.
     # this file tells us the last file that was ingested.
-    last_ingest_file = extract_dir + "/last-ingest.#{Rails.env}.txt"
-    abort("Can't find last-ingest-file #{last_ingest_file}") unless File.exist?(last_ingest_file)
-    Rails.logger.info("--- found last_ingest_file: #{last_ingest_file}")
+    last_incremental_file = extract_dir + "/last-incremental.#{Rails.env}.txt"
+    abort("Can't find last-incremental-file #{last_incremental_file}") unless File.exist?(last_incremental_file)
+    Rails.logger.info("--- found last_incremental_file: #{last_incremental_file}")
 
-    last_ingest = File.read(last_ingest_file).strip
-    abort("Cannot find last-ingest in last-ingest-file #{last_ingest_file}") if last_ingest.blank?
-    Rails.logger.info("--- last ingest: #{last_ingest}")
+    last_incremental = File.read(last_incremental_file).strip
+    abort("Cannot find last-incremental in last-incremental-file #{last_incremental_file}") if last_incremental.blank?
+    Rails.logger.info("--- last ingest: #{last_incremental}")
     
     # retrieve the list of files, sorted (alphanumeric sort == chronological sort)
     all_files = Dir.glob("#{extract_dir}/PUL-NYPL*.zip").map { |f| File.basename(f)}.sort
@@ -336,8 +343,8 @@ namespace :recap do
     Rails.logger.info("--- found #{all_files.size} total files.")
     # puts all_files.inspect
     
-    # identify files that came after the last-ingest-file
-    new_files = all_files.select { |file| file > last_ingest }
+    # identify files that came after the last-incremental-file
+    new_files = all_files.select { |file| file > last_incremental }
     Rails.logger.info("--- found #{new_files.size} new files since last ingest.")
 
     if new_files.size == 0
@@ -358,9 +365,9 @@ namespace :recap do
       Rake::Task["recap:ingest_file"].reenable
       Rake::Task["recap:ingest_file"].invoke(filename)
 
-      # Now, record what we've done by writing out the last-ingested filename
-      Rails.logger.info("--- updating #{last_ingest_file} with latest ingest (#{filename})")
-      File.open(last_ingest_file, 'w') do |f|
+      # Now, record what we've done by writing out the last-incrementaled filename
+      Rails.logger.info("--- updating #{last_incremental_file} with latest ingest (#{filename})")
+      File.open(last_incremental_file, 'w') do |f|
         f.puts(filename)
       end
     end

@@ -2,7 +2,7 @@
 
 namespace :bibliographic do
   
-  "Invoke a set of other rake tasks, to be executed daily"
+  desc "Invoke a set of other rake tasks, to be executed daily"
   task :daily => :environment do
     startTime = Time.now
     puts_datestamp "==== START bibliographic:daily ===="
@@ -19,6 +19,9 @@ namespace :bibliographic do
     ENV['EXTRACT'] = 'cumulative'
     Rake::Task["bibliographic:extract:process"].invoke
 
+    puts_datestamp "---- bibliographic:prune_index ----"
+    Rake::Task["bibliographic:prune_index"].invoke
+
     puts_datestamp "---- bibliographic:optimize ----"
     Rake::Task["bibliographic:optimize"].invoke
 
@@ -28,6 +31,54 @@ namespace :bibliographic do
     puts_datestamp "==== END bibliographic:daily #{elapsed_note} ===="
   end
 
+  desc "delete stale records from the solr index"
+  task :prune_index => :environment do
+    setup_ingest_logger
+    Rails.logger.info("-- pruning index...")
+
+    solr_url = Blacklight.connection_config[:indexing_url] ||
+               Blacklight.connection_config[:url]
+    solr_connection = RSolr.connect(url: solr_url)
+    # puts "solr_connection=#{solr_connection}" if ENV['DEBUG']
+
+    if ENV['STALE_DAYS'] && ENV['STALE_DAYS'].to_i < 30
+      puts "ERROR: Environment variable STALE_DAYS set to [#{ENV['STALE_DAYS']}]"
+      puts "ERROR: Should be > 30, or unset to allow default setting."
+      puts "ERROR: Skipping prune_index step."
+      next
+    end
+    stale = (ENV['STALE_DAYS'] || 90).to_i
+    Rails.logger.info("-- pruning records older than [ #{stale} ] days.")
+    # TODO - SOLR RECORDS SHOULD SELF-IDENTIFY AS VOYAGER FEED RECORDS
+    query = "timestamp:[* TO NOW/DAY-#{stale}DAYS] AND id:[0 TO 999999]"
+    puts "DEBUG query=#{query}" if ENV['DEBUG']
+
+    # To be safe, refuse to delete over N records
+    response = solr_connection.get 'select', params: { q: query, rows: 0}
+    numFound = response['response']['numFound'].to_i
+
+    
+    prune_limit = (ENV['PRUNE_LIMIT'] || 1000).to_i
+    if numFound > prune_limit
+      message = "ERROR:  prune limit set to #{prune_limit}, found [#{numFound}] stale records!"
+      Rails.logger.error("-- #{message}")
+      puts message
+      abort "aborting!"
+      next
+    end
+
+    Rails.logger.info("-- found #{numFound} stale records.")
+
+    if numFound > 0
+      Rails.logger.info("-- pruning...")
+      solr_connection.delete_by_query query
+      solr_connection.commit
+    end
+
+    Rails.logger.info("-- pruning complete.")
+  end
+
+  desc "optimize the solr index"
   task :optimize => :environment do
     Rails.logger.info("-- requesting optimize...")
     
@@ -45,7 +96,6 @@ namespace :bibliographic do
   end
   
   namespace :extract do
-
     # Used to test logging
     # task :noisy do
     #   Rails.logger.debug "noisy debug"
@@ -183,7 +233,7 @@ namespace :bibliographic do
          # 12/2017 - drop support for .mrc, only .xml henceforth
          provide 'marc_source.type', 'xml'
 
-         if ENV["DEBUG"]
+         if ENV['DEBUG']
            Rails.logger.info("---- *** DEBUG set, writing to stdout ***")
            provide "writer_class_name", "Traject::DebugWriter"
          end

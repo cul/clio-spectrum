@@ -1,15 +1,18 @@
 
-.results_header
-  %h4
+.well
+  .h4{style: 'margin:0'}
     Checked Out Items
+
   %h5
-    - label = ()
+    -# @label is set in SpectrumController#checked_out_items()
     #{@label} #{pluralize(@checked_out_items.size, 'item')} checked out 
     (as of #{Time.now.strftime('%m/%d/%Y %H:%M%P')})
+
   Visit 
   %b
-    = link_to "My Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087-1", :target => "_blank"
-  for further details and services
+    = link_to "My Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087", :target => "_blank"
+  to Renew materials, see fines, and for other account details
+  -# for further details and services
     
 
 #documents

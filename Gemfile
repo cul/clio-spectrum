@@ -31,8 +31,8 @@ gem 'marc'
 
 # MARC indexing in pure ruby
 gem 'traject'
-# Try U.Mich's more detailed format classifier
-gem 'traject_umich_format'
+# # Try U.Mich's more detailed format classifier
+# gem 'traject_umich_format'
 
 # Only used for Google Maps location pages
 gem 'rest-client'
