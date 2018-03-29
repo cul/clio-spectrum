@@ -125,7 +125,7 @@ class SpectrumController < ApplicationController
     # render values of a facet, nothing else.
 
     # This is only used for Summon article facets
-    @results = get_results(['articles'])
+    @results = get_results('articles')
 
     respond_to do |format|
       # regular full-page view
