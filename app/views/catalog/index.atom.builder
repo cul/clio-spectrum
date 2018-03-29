@@ -11,25 +11,25 @@ xml.feed("xmlns" => "http://www.w3.org/2005/Atom",
   # an author is required, so we'll just use the app name
   xml.author { xml.name application_name }
 
-  xml.link    "rel" => "self", "href" => url_for(params.merge(:only_path => false))
-  xml.link    "rel" => "alternate", "href" => url_for(params.merge(:only_path => false, :format => "html")), "type" => "text/html"
-  xml.id      url_for(params.merge(:only_path => false, :format => "html", :content_format => nil, "type" => "text/html"))
+  xml.link    "rel" => "self", "href" => url_for(params.to_unsafe_hash.merge(:only_path => false))
+  xml.link    "rel" => "alternate", "href" => url_for(params.to_unsafe_hash.merge(:only_path => false, :format => "html")), "type" => "text/html"
+  xml.id      url_for(params.to_unsafe_hash.merge(:only_path => false, :format => "html", :content_format => nil, "type" => "text/html"))
 
   # Navigational and context links
   if page_info && @response
     xml.link( "rel" => "next",
-              "href" => url_for(params.merge(:only_path => false, :page => (page_info.current_page + 1).to_s))
+              "href" => url_for(params.to_unsafe_hash.merge(:only_path => false, :page => (page_info.current_page + 1).to_s))
              ) if  page_info.total_pages > page_info.current_page
 
     xml.link( "rel" => "previous",
-              "href" => url_for(params.merge(:only_path => false, :page => (page_info.current_page - 1).to_s))
+              "href" => url_for(params.to_unsafe_hash.merge(:only_path => false, :page => (page_info.current_page - 1).to_s))
              ) if page_info.current_page > 1
 
     xml.link( "rel" => "first",
-              "href" => url_for(params.merge(:only_path => false, :page => "1")))
+              "href" => url_for(params.to_unsafe_hash.merge(:only_path => false, :page => "1")))
 
     xml.link( "rel" => "last",
-              "href" => url_for(params.merge(:only_path => false, :page => page_info.total_pages.to_s)))
+              "href" => url_for(params.to_unsafe_hash.merge(:only_path => false, :page => page_info.total_pages.to_s)))
 
     # "search" doesn't seem to actually be legal, but is very common, and
     # used as an example in opensearch docs

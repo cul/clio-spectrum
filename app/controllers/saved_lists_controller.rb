@@ -190,7 +190,7 @@ class SavedListsController < ApplicationController
       # "referrer" was sometimes failing - revert.
       # redirect_to request.referrer , :flash => { :error => message } and return
       redirect_to after_sign_in_path_for, :flash => { :error => message } and return
-      # render text: 'Must specify items to be added', status: :bad_request and return
+      # render plain: 'Must specify items to be added', status: :bad_request and return
     end
 
     list_name = params[:name] ||= SavedList::DEFAULT_LIST_NAME
@@ -199,7 +199,7 @@ class SavedListsController < ApplicationController
       # "referrer" was sometimes failing - revert.
       # redirect_to request.referrer , :flash => { :error => message } and return
       redirect_to after_sign_in_path_for, :flash => { :error => message } and return
-      # render text: 'Cannot add to unnamed list', status: :unprocessable_entity and return
+      # render plain: 'Cannot add to unnamed list', status: :unprocessable_entity and return
     end
 
     # Find -- or CREATE -- a list with the right name
@@ -228,7 +228,7 @@ class SavedListsController < ApplicationController
     # needless complexity
     # # Special message if everything we were asked to add is already there
     # if new_item_adds == 0
-    #   render text: "#{items_count} already found in list #{view_context.link_to @list.name, @list.url}"
+    #   render plain: "#{items_count} already found in list #{view_context.link_to @list.name, @list.url}"
     #   return
     # end
 
@@ -241,7 +241,7 @@ class SavedListsController < ApplicationController
       # "referrer" was sometimes failing - revert.
       # format.html { redirect_to request.referrer, :flash => { :notice => message } }
       format.html { redirect_to after_sign_in_path_for, :flash => { :notice => message } }
-      format.json { render text: message, status: :ok }
+      format.json { render plain: message, status: :ok }
     end
   end
 

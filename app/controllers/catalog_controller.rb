@@ -244,7 +244,7 @@ class CatalogController < ApplicationController
         # It's important that the argument to send be a symbol;
         # if it's a string, it makes Rails unhappy for unclear reasons.
         format.send(format_name.to_sym) do
-          render text: @document.export_as(format_name),
+          render plain: @document.export_as(format_name),
                  layout: false
         end
       end

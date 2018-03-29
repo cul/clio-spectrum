@@ -7,9 +7,9 @@ xml.feed("xmlns" => "http://www.w3.org/2005/Atom") do
   # an author is required, so we'll just use the app name
   xml.author { xml.name  "List owner: " + @list.owner }
 
-  xml.link    "rel" => "self", "href" => url_for(params.merge(:only_path => false))
-  xml.link    "rel" => "alternate", "href" => url_for(params.merge(:only_path => false, :format => "html")), "type" => "text/html"
-  xml.id      url_for(params.merge(:only_path => false, :format => "html", :content_format => nil, "type" => "text/html"))
+  xml.link    "rel" => "self", "href" => url_for(params.to_unsafe_hash.merge(:only_path => false))
+  xml.link    "rel" => "alternate", "href" => url_for(params.to_unsafe_hash.merge(:only_path => false, :format => "html")), "type" => "text/html"
+  xml.id      url_for(params.to_unsafe_hash.merge(:only_path => false, :format => "html", :content_format => nil, "type" => "text/html"))
 
   # updated is required, for now we'll just set it to now, sorry
   xml.updated Time.now.strftime("%Y-%m-%dT%H:%M:%SZ")
