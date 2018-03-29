@@ -74,8 +74,8 @@ module Recap
       response = conn.post path, params.to_json
       if response.status != 200
         # Raise or just log error?
-        Rails.logger.error "ERROR:  API response status #{response.status}"
-        Rails.logger.error "ERROR DETAILS: " + response.body
+        Rails.logger.error "SCSB ERROR:  API response status #{response.status}"
+        Rails.logger.error "SCSB ERROR DETAILS: " + response.body
         return ''
       end
 
@@ -134,8 +134,8 @@ module Recap
 
       if response.status != 200
         # Raise or just log error?
-        Rails.logger.error "ERROR:  API response status #{response.status}"
-        Rails.logger.error "ERROR DETAILS: " + response.body
+        Rails.logger.error "SCSB ERROR:  API response status #{response.status}"
+        Rails.logger.error "SCSB ERROR DETAILS: " + response.body
         return
       end
 
@@ -144,8 +144,8 @@ module Recap
       begin
         response_data = JSON.parse(response.body)
       rescue => ex
-        Rails.logger.error "ERROR:  JSON.parse(response.body) #{ex.message}"
-        Rails.logger.error "ERROR DETAILS: " + response.body
+        Rails.logger.error "SCSB ERROR:  JSON.parse(response.body) #{ex.message}"
+        Rails.logger.error "SCSB ERROR DETAILS: " + response.body
         return
       end
 
@@ -181,8 +181,8 @@ module Recap
 
       if response.status != 200
         # Raise or just log error?
-        Rails.logger.error "ERROR:  API response status #{response.status}"
-        Rails.logger.error "ERROR DETAILS: " + response.body
+        Rails.logger.error "SCSB ERROR:  API response status #{response.status}"
+        Rails.logger.error "SCSB ERROR DETAILS: " + response.body
       end
 
       # Rails.logger.debug "response.body=\n#{response.body}"
@@ -216,8 +216,8 @@ module Recap
         # }
         
         # Log error, trust caller to look into response hash to do the right thing
-        Rails.logger.error "ERROR:  API response status #{response.status}"
-        Rails.logger.error "ERROR DETAILS: " + response.body
+        Rails.logger.error "SCSB ERROR:  API response status #{response.status}"
+        Rails.logger.error "SCSB ERROR DETAILS: " + response.body
       end
 
       # Rails.logger.debug "response.body=\n#{response.body}"
