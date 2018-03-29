@@ -21,8 +21,8 @@ DELETES_SLICE = 1000
 # BIB_SOLR_URL = Blacklight.connection_config[:url]
 # BIB_SOLR = RSolr.connect(url: BIB_SOLR_URL)
 
-# AUTHORITIES_SOLR = RSolr.connect(url: APP_CONFIG['authorities_solr_url'])
-AUTHORITIES_SOLR = RSolr.connect(url: APP_CONFIG['authorities_solr_url'], adapter: :net_http_persistent)
+AUTHORITIES_SOLR = RSolr.connect(url: APP_CONFIG['authorities_solr_url'])
+# AUTHORITIES_SOLR = RSolr.connect(url: APP_CONFIG['authorities_solr_url'], adapter: :net_http_persistent)
 
 def setup_ingest_logger
   # Redirect logger to stderr for our ingest tasks tasks
