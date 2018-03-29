@@ -27,5 +27,5 @@
 
 - unless (paginator.last_page?)
   .more_facets_link
-    = link_to(t('blacklight.search.facets.more'), params.merge(:id => solr_field, :action=>"facet"), :class => "more_facets_link")
+    = link_to(t('blacklight.search.facets.more'), params.to_unsafe_hash.merge(id: solr_field, action: 'facet'), class: 'more_facets_link')
 
