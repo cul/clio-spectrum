@@ -140,7 +140,6 @@ class CatalogController < ApplicationController
   def show
     @response, @document = fetch params[:id]
 
-
     # If the Solr document contains holdings fields,
     # - fetch real-time circulation status
     # - build Holdings data structure
@@ -150,7 +149,7 @@ class CatalogController < ApplicationController
       # Don't check Voyager circ status for non-Columbia records
       if @document.has_circ_status?
         circ_status = BackendController.circ_status(params[:id])
-        # The circ_status hash looks like this:
+        # The circ_status hash looks like this (bib/holding(s)/item(s)):
         # {
         #   123: {
         #     144: {

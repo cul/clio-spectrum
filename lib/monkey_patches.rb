@@ -7,7 +7,7 @@ class Object
     collection ? collection.include?(self) : false
   end
 
-  alias_method :one_of?, :in?
+  # alias_method :one_of?, :in?
 
   def listify(opts = {})
     case self
