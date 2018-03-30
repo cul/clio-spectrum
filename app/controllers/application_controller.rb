@@ -63,7 +63,7 @@ class ApplicationController < ActionController::Base
     else
       Rails.logger.warn "request.format = #{request.format}"
       Rails.logger.warn "#{exception}"
-      render nothing: true
+      render body: nil
     end
   end
 

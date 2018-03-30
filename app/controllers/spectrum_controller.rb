@@ -113,7 +113,7 @@ class SpectrumController < ApplicationController
       when 'lweb'
         Spectrum::SearchEngines::GoogleCustomSearch.new(hit_params)
       else
-        render nothing: true and return
+        render body: nil and return
       end
 
     @hits = results.total_items || 0

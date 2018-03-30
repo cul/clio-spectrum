@@ -18,20 +18,20 @@ class BrowseController < ApplicationController
   #### they have different URLs, so they cache distinctly in client browsers.
 
   def shelfkey_mini
-    render nothing: true and return unless request.xhr?
+    render body: nil and return unless request.xhr?
 
     shelfkey_browse('mini')
   end
 
   def shelfkey_full
-    render nothing: true and return if request.xhr?
+    render body: nil and return if request.xhr?
 
     shelfkey_browse('full')
   end
 
   def shelfkey_browse(mini_or_full)
   # def shelfkey_browse
-    render nothing: true and return unless params[:shelfkey].present?
+    render body: nil and return unless params[:shelfkey].present?
 
     # We'll use Session for storing state about our browse session
     session[:browse] = {} unless session[:browse].is_a?(Hash)
@@ -83,7 +83,7 @@ class BrowseController < ApplicationController
 
     # If the lookup by shelfkey failed, display nothing
     if @browse_item_list.nil? || (@browse_item_list.size == 0)
-      render nothing: true and return
+      render body: nil and return
     end
 
     # if mini_or_full == 'mini'
@@ -158,7 +158,11 @@ class BrowseController < ApplicationController
     # We must fetch a list of items
     return [] if key_list.nil? || key_list.size == 0
     # One of the items must be the original lookup key
-    return [] unless key_list.include? fieldvalue
+    if ! key_list.include? fieldvalue
+      Rails.logger.debug "BrowseController: requested #{fieldname} '#{fieldvalue}' not found!"
+      return []
+    end
+    # return [] unless key_list.include? fieldvalue
 
     key_list.each { |key|
       Rails.logger.debug "key=#{key.inspect} #{' ==> MATCH' if key == fieldvalue}"

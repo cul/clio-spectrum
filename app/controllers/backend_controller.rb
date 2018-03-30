@@ -179,7 +179,7 @@ class BackendController < ApplicationController
 
     unless @id.match(/^\d+$/)
       logger.error "BackendController#holdings passed non-numeric id: #{@id}"
-      render nothing: true and return
+      render body: nil and return
     end
 
     backend_url = url_for_id(@id)
@@ -199,7 +199,7 @@ class BackendController < ApplicationController
 
     if backend_holdings.nil?
       logger.error "BackendController#holdings failed to fetch holdings for id: #{@id}"
-      render nothing: true and return
+      render body: nil and return
     end
 
     # data retrieved successfully!  render an html snippet.

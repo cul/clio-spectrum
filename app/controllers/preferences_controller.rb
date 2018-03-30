@@ -61,7 +61,7 @@ class PreferencesController < ApplicationController
   # Map this to search_layout YAML
   def bentos
     @preference.update(preference_params)
-    render nothing: true and return
+    render body: nil and return
   end
 
 
