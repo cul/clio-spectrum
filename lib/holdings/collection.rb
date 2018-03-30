@@ -37,6 +37,14 @@ module Voyager
 
         holdings = @records.collect { |rec| rec.to_hash }
 # raise
+
+        # The SCSB MARC sometimes puts each item of an NYPL serial in it's own
+        # holdings record (results in 100's of holdings records)
+        # These holdings records can be consolidated for the CLIO display.
+        if holdings.first[:location_name].match /NYPL/
+          holdings = consolidate_nypl_holdings(holdings)
+        end
+
         output[:condensed_holdings_full] = condense_holdings(holdings)
 
         output.with_indifferent_access
@@ -45,6 +53,50 @@ module Voyager
 
       private
 
+      # This only consolidates duplicates into the first holding.
+      # It doesn't, e.g., consolidate holdings 4 with 6, if they match.
+      # We can build that if we find we need to.
+      def consolidate_nypl_holdings(original_holdings)
+        return [] unless original_holdings.present?
+        
+        # Below logic only for NYPL
+        return original_holdings unless original_holdings.first[:location_name].match /NYPL/
+        
+        holdings = []
+        first = original_holdings.shift
+        holdings << first
+        original_holdings.each do |holding|
+          # If this holding matches the first, consolidate
+          if nypl_holding_match(first, holding)
+            first[:item_count] = first[:item_count] + 1
+          else
+            holdings << holding
+          end
+        end
+        return holdings
+      end
+      
+      def nypl_holding_match(a, b)
+        return false unless a.present? && b.present?
+
+        # These fields should be non-blank, and equal between holdings
+        [:bibid, :location_name, :call_number].each { |key|
+          return false unless a[key].present? && b[key].present?
+          return false if a[key] != b[key]
+        }
+
+        # Summary Holdings may or may not be blank, but must match
+        return false if a[:summary_holdings] != b[:summary_holdings]
+        
+        # These fields should be blank in both holdings
+        [:supplements, :indexes, :public_notes, :reproduction_note, 
+         :current_issues, :temp_locations, :orders, :donor_info, :urls,
+         :shelving_title, :location_note].each { |key| 
+          return false if a[key].present? || b[key].present?
+        }
+
+        return true
+      end
 
       # For records with multiple holdings, based on the overall content, adjust as follows:
       # -- remove document delivery options if there is an available offsite copy
@@ -78,19 +130,21 @@ module Voyager
 
       def determine_complexity(holdings)
         # holdings are complex if anything other than item_status has a value
-        complexity = :simple
       
         holdings.each do |holding|
+          # If any of these fields are filled in for any holding, then this
+          # is a complex record.
           if [:summary_holdings, :supplements, :indexes, :public_notes,
               :reproduction_note, :current_issues,
               :temp_locations,
               :orders,
               :donor_info, :urls].any? { |key| holding[key].present?}
-            complexity = :complex
+            return :complex
           end
         end
       
-        complexity
+        # We didn't find anything complex, these holdings are simple.
+        return :simple
       end
 
       def process_holdings(holdings, complexity)
@@ -161,16 +215,6 @@ module Voyager
                 end
 
               end
-
-              # -- conflates copies with volumes --
-              # if entry[:copies].first[:items].has_key?(text)
-              #   entry[:copies].first[:items][text][:count] += 1
-              # else
-              #   entry[:copies].first[:items][text] = {
-              #     :status => item_status[:status],
-              #     :count => 1
-              #   }
-              # end
 
             end
           # for complex holdings create hash of elements for each copy and add to entry :copies array
