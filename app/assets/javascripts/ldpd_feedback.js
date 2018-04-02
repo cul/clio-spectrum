@@ -58,10 +58,11 @@ LWEB.setupFeedbackDialog = function() {
 		    'position':'absolute',
 		    'top':'0px',
 		    'left':'0px',
-		    'height':'120px',
+		    'height':'60px',
 		    'width':'100%',
-		    'background':'red',
-		    'opacity':'0.1'
+		    // DEBUG
+		    // 'background':'red',
+		    // 'opacity':'0.1'
 		    }
 	  );
 
