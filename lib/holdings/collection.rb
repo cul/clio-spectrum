@@ -302,12 +302,12 @@ module Voyager
       def add_holdings_elements(out, holding, type)
         case type
         when :current_issues
-          out[type] = "Current Issues: " + holding[type].join(' -- ') unless holding[type].empty?
+          out[type] = "Current Issues: " + holding[type].join('<br>') unless holding[type].empty?
         when :donor_info
           unless holding[type].empty?
             # for text display as note
             messages = holding[type].each.collect { |info| info[:message] }
-            out[type] = "Donor: " + messages.uniq.join(' -- ')
+            out[type] = "Donor: " + messages.uniq.join('<br>')
             # for display in conjunction with the Gift icon
             # this is set up to dedup but so far there have only been single donor info entries per holding
             out[:donor_info_icon] = []
@@ -320,17 +320,17 @@ module Voyager
             end
           end
         when :indexes
-          out[type] = "Indexes: " + holding[type].join(' -- ') unless holding[type].empty?
+          out[type] = "Indexes: " + holding[type].join('<br>') unless holding[type].empty?
         when :public_notes
-          out[type] = "Notes: " + holding[type].join(' -- ') unless holding[type].empty?
+          out[type] = "Notes: " + holding[type].join('<br>') unless holding[type].empty?
         when :orders
-          out[type] = "Order Information: " + holding[type].join(' -- ') unless holding[type].empty?
+          out[type] = "Order Information: " + holding[type].join('<br>') unless holding[type].empty?
         when :reproduction_note
           out[type] = holding[type] unless holding[type].empty?
         when :supplements
-          out[type] = "Supplements: " + holding[type].join(' -- ') unless holding[type].empty?
+          out[type] = "Supplements: " + holding[type].join('<br>') unless holding[type].empty?
         when :summary_holdings
-          out[type] = "Library has: " + holding[type].join(' -- ') unless holding[type].empty?
+          out[type] = "Library has: " + holding[type].join('<br>') unless holding[type].empty?
         when :temp_locations
           out[type] = holding[type] unless holding[type].empty?
         when :urls
