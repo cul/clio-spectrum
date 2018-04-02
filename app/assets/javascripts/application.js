@@ -65,6 +65,8 @@
 //= require preferences
 
 
+// Draggable, so we can move modal windows around
+//= require jquery-ui/widgets/draggable
 
 
 

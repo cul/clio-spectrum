@@ -29,7 +29,7 @@ LWEB.feedbackDialogIsSetup = false;
 LWEB.feedbackDialogIsVisible = false;
 
 LWEB.setupFeedbackDialog = function() {
-    $('<div id="feedback_dialog"><a id="close_feedback_dialog" href="#" onclick="LWEB.hideFeedbackDialog();"><span class="glyphicon glyphicon-remove"></span></a><iframe width="600" height="400" src="https://feedback.cul.columbia.edu/feedback_submission/clio?submitted_from_page=' + window.location.href + '"></iframe></div>').hide().appendTo('body');
+    $('<div id="feedback_dialog"><span id="dragme"></span><a id="close_feedback_dialog" href="#" onclick="LWEB.hideFeedbackDialog();"><span class="glyphicon glyphicon-remove"></span></a><span id="dragme"></span><iframe width="600" height="400" src="https://feedback.cul.columbia.edu/feedback_submission/clio?submitted_from_page=' + window.location.href + '"></iframe></div>').hide().appendTo('body');
     $('#feedback_dialog').css(
         {
         'z-index':'10000',
@@ -53,6 +53,18 @@ LWEB.setupFeedbackDialog = function() {
         }
     );
 
+    $('#dragme').css(
+    {
+		    'position':'absolute',
+		    'top':'0px',
+		    'left':'0px',
+		    'height':'120px',
+		    'width':'100%',
+		    'background':'red',
+		    'opacity':'0.1'
+		    }
+	  );
+
     $('#feedback_dialog #close_feedback_dialog').css(
         {
         'position':'absolute',
@@ -75,6 +87,7 @@ LWEB.showFeedbackDialog = function() {
 
     LWEB.centerFeedbackDialog();
     $('#feedback_dialog').show();
+    $('#feedback_dialog').draggable();
     LWEB.feedbackDialogIsVisible = true;
 
     return false;
