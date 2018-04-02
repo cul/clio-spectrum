@@ -96,11 +96,13 @@ LWEB.showFeedbackDialog = function() {
 LWEB.hideFeedbackDialog = function() {
     $('#feedback_dialog').hide();
     LWEB.feedbackDialogIsVisible = false;
-    // NEXT-668 - Can't submit more than one feedback on the same page
-    // reload the feedback form, away from thank-you, to empty form again,
-    // by setting it's src to itself, to force reload - in one line. 
-    //   http://stackoverflow.com/questions/4249809
-    $( '#feedback_dialog iframe' ).attr( 'src', function ( i, val ) { return val; });
+    // NEXT-936 - Keep the CLIO feedback button open while using CLIO
+    // We've now been asked to save state when the form is closed/reopened.
+    // // NEXT-668 - Can't submit more than one feedback on the same page
+    // // reload the feedback form, away from thank-you, to empty form again,
+    // // by setting it's src to itself, to force reload - in one line. 
+    // //   http://stackoverflow.com/questions/4249809
+    // $( '#feedback_dialog iframe' ).attr( 'src', function ( i, val ) { return val; });
 
     return false;
 };
