@@ -8,6 +8,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui/widgets/sortable
+// Draggable, so we can move modal windows around
+//= require jquery-ui/widgets/draggable
 
 // from project Blacklight
 //= require blacklight/blacklight
@@ -65,8 +67,6 @@
 //= require preferences
 
 
-// Draggable, so we can move modal windows around
-//= require jquery-ui/widgets/draggable
 
 
 
