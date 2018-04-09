@@ -99,6 +99,10 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # don't try to do file_store on an NFS mount
+  config.cache_store = :memory_store, { size: 32.megabytes }
+
 end
 
 #   https://github.com/smartinez87/exception_notification
