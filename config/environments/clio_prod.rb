@@ -99,6 +99,10 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+
+  config.cache_store = :memory_store, { size: 64.megabytes }
+
 end
 
 #   https://github.com/smartinez87/exception_notification
