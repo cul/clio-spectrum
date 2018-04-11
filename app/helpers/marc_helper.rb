@@ -13,13 +13,15 @@ module MarcHelper
     #
     # each field group is an array of hashes, one for each marc tag in the field group
     # each marc tag hash can have up to 5 keys:
-    #     tag         field tag                         required
-    #     ind1        first indicator                   optional  default = :all
-    #     ind2        second indicator                  optional  default = :all
-    #     display     subfield codes to display         optional  default = :all
-    #     search      subfield codes to redirect on     optional  default = ''
-    #     split       split value for breaking up       optional default = nil
-    #                   data in a field [e.g., contents]
+    #     tag               field tag                         required
+    #     ind1              first indicator                   optional  default = :all
+    #     ind2              second indicator                  optional  default = :all
+    #     display           subfield codes to display         optional  default = :all
+    #     search            subfield codes to redirect on     optional  default = ''
+    #     split             split value for breaking up       optional default = nil
+    #                         data in a field [e.g., contents]
+    #     require_sf        subfield must be present, and...  optional
+    #     require_sf_value  ...must have this value.          optional
     # only keys that vary from the defaults need to be specified in MARC_FIELDS but
     # ind1, ind2 must always be specified together
     #
@@ -39,6 +41,12 @@ module MarcHelper
       if field.key?('split')
         options[:split] = field['split']
       end
+      if field.key?('require_sf')
+        options[:require_sf] = field['require_sf'].to_s
+      end
+      if field.key?('require_sf_value')
+        options[:require_sf_value] = field['require_sf_value'].to_s
+      end
       if field_name.match(/^subject/)
         options[:subject] = true
       end
@@ -54,30 +62,40 @@ module MarcHelper
                            search_subfields: '',
                            subject: false,
                            indicators: [:all, :all],
-                           split: nil)
+                           split: nil,
+                           require_sf: nil,
+                           require_sf_value: nil)
     # get options
     ind1, ind2  = options[:indicators]
     search_subfields = options[:search_subfields]
 
     values = []
     marc.each_by_tag(tag) do |field|
+
       # test for indicators
-      if (ind1 == :all || ind1.include?(field.indicator1)) &&
-         (ind2 == :all || ind2.include?(field.indicator2))
-        display = process_field(field, display_subfields, search_subfields, options[:subject])
+      next unless ind1 == :all || ind1.include?(field.indicator1)
+      next unless ind2 == :all || ind2.include?(field.indicator2)
+
+      # test for required subfield, subfield value
+      if options[:require_sf]
+        next unless field[ options[:require_sf] ].present?
+        next unless field[ options[:require_sf] ] == options[:require_sf_value]
+      end
+
+      display = process_field(field, display_subfields, search_subfields, options[:subject])
+      unless display.empty?
+        options[:split] ? values << display.split(options[:split]) : values << display
+      end
+      # get matching script field if there is a subfield 6 (watch for missing subfields)
+      if options[:vernacular] &&
+         field.subfields.first &&
+         field.subfields.first.code == '6'
+        display = process_vernacular(marc, field, display_subfields, search_subfields, options[:subject])
         unless display.empty?
           options[:split] ? values << display.split(options[:split]) : values << display
         end
-        # get matching script field if there is a subfield 6 (watch for missing subfields)
-        if options[:vernacular] &&
-           field.subfields.first &&
-           field.subfields.first.code == '6'
-          display = process_vernacular(marc, field, display_subfields, search_subfields, options[:subject])
-          unless display.empty?
-            options[:split] ? values << display.split(options[:split]) : values << display
-          end
-        end
       end
+
     end
 
     values.flatten
