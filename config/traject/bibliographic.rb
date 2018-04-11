@@ -154,7 +154,7 @@ to_field "title_sort", marc_sortable_title do |record, accumulator|
 end
 
 
-to_field "subject_txt", extract_marc("600#{ATOZ}:610#{ATOZ}:611#{ATOZ}:630#{ATOZ}:650#{ATOZ}:651#{ATOZ}:653aa:654#{ATOZ}:655#{ATOZ}", trim_punctuation: true, alternate_script: true)
+to_field "subject_txt", extract_marc("600#{ATOZ}:610#{ATOZ}:611#{ATOZ}:630#{ATOZ}:648#{ATOZ}:650#{ATOZ}:651#{ATOZ}:653aa:654#{ATOZ}:655#{ATOZ}", trim_punctuation: true, alternate_script: true)
 to_field "subject_topic_facet", extract_marc("600abcdq:600x:610ab:610x:611ab:611x:630a:630x:650a:650x:651x:655x", trim_punctuation: true, alternate_script: false)
 to_field "subject_era_facet", extract_marc("600y:610y:611y:630y:650y:651y:655y", trim_punctuation: true, alternate_script: false)
 to_field "subject_geo_facet", extract_marc("600z:610z:611z:630z:650z:651a:651z:655z", trim_punctuation: true, alternate_script: false)
