@@ -29,13 +29,14 @@ LWEB.feedbackDialogIsSetup = false;
 LWEB.feedbackDialogIsVisible = false;
 
 LWEB.setupFeedbackDialog = function() {
-    $('<div id="feedback_dialog"><span id="dragme"></span><a id="close_feedback_dialog" href="#" onclick="LWEB.hideFeedbackDialog();"><span class="glyphicon glyphicon-remove"></span></a><span id="dragme"></span><iframe width="600" height="400" src="https://feedback.cul.columbia.edu/feedback_submission/clio?submitted_from_page=' + window.location.href + '"></iframe></div>').hide().appendTo('body');
+    $('<div id="feedback_dialog"><span id="dragme"></span><a id="close_feedback_dialog" href="#" onclick="LWEB.hideFeedbackDialog();"><span class="glyphicon glyphicon-remove"></span></a><span id="dragme"></span><iframe width="600" height="400" src="https://feedback.cul.columbia.edu/feedback_submission/clio?submitted_from_page=' + window.location.href + '"></iframe><div id="feedback_footer"></div></div>').hide().appendTo('body');
     $('#feedback_dialog').css(
         {
         'z-index':'10000',
         'position':'absolute',
-        'border': '3px solid rgb(187, 187, 187)' 
-        
+        'border': '3px solid rgb(187, 187, 187)',
+        'background-color':'#f8f8f8',
+        'padding-bottom':'40px',
         }
     );
 
@@ -54,7 +55,7 @@ LWEB.setupFeedbackDialog = function() {
     );
 
     $('#dragme').css(
-    {
+        {
 		    'position':'absolute',
 		    'top':'0px',
 		    'left':'0px',
@@ -65,6 +66,17 @@ LWEB.setupFeedbackDialog = function() {
 		    // 'opacity':'0.1'
 		    }
 	  );
+
+    $('#feedback_footer').css(
+        {
+		    'margin-left':'20px',
+		    'margin-right':'20px',
+		    // DEBUG
+		    // 'background':'pink'
+	  	  }
+	  );
+	
+	  $('#feedback_footer').html("Suggestions and Feedback may also be emailed to: <strong>cliofeedback@library.columbia.edu</strong>");
 
     $('#feedback_dialog #close_feedback_dialog').css(
         {
@@ -88,7 +100,7 @@ LWEB.showFeedbackDialog = function() {
 
     LWEB.centerFeedbackDialog();
     $('#feedback_dialog').show();
-    $('#feedback_dialog').draggable();
+    $('#feedback_dialog').draggable( { cancel: "#feedback_footer" } );
     LWEB.feedbackDialogIsVisible = true;
 
     return false;
