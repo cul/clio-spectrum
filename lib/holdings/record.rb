@@ -506,7 +506,17 @@ module Voyager
         services = services.flatten.uniq
 
         # only provide borrow direct request for printed books and scores
-        unless fmt == 'am' || fmt == 'cm'
+        # and CDs and DVDS (LIBSYS-1327)
+        # https://www.loc.gov/marc/bibliographic/bdleader.html
+        # leader 06 - Type of record
+        # a = Language material
+        # c = Notated music
+        # g = Projected medium
+        # j = Musical sound recording
+        # leader 07 - Bibliographic level
+        # m = Monograph/Item
+        # unless fmt == 'am' || fmt == 'cm'
+        unless ['am', 'cm', 'gm', 'jm'].include?(fmt)
           services.delete('borrow_direct')
         end
 
