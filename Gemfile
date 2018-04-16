@@ -6,7 +6,7 @@ gem 'activerecord-session_store'
 
 #  ###  BLACKLIGHT (begin)  ###
 
-gem 'blacklight', '~>6.11.0'
+gem 'blacklight', '~>6.10.0'
 # gem 'blacklight', path: '/Users/marquis/src/blacklight'
 
 
@@ -137,9 +137,6 @@ gem 'jquery-rails'
 # JQuery UI gives extra functionality, including draggable
 gem 'jquery-ui-rails'
 
-
-# jQuery UI
-gem 'jquery-ui-rails'
 
 # Assets processing
 gem 'sass-rails'
