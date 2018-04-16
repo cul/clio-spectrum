@@ -255,9 +255,13 @@ class CatalogController < ApplicationController
   def invalid_document_id_error
     flash.now[:notice] = t('blacklight.search.errors.invalid_solr_id')
     @show_landing_pages = true
-    render 'spectrum/search', status: :not_found
-    # render controller: 'spectrum', action: 'search', status: :not_found
-    # redirect_to root_path
+
+    # For .xml, .endnote, etc., don't return a webpage
+    if params['format']
+      render body: nil, status: :not_found 
+    else
+      render 'spectrum/search' , status: :not_found
+    end
   end
 
 
