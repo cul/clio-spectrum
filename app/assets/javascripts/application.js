@@ -49,6 +49,7 @@
 //= require articles
 //= require astroids
 //= require async-search
+//= require best_bets
 //= require catalog
 //= require datasources
 //= require dropdown_select

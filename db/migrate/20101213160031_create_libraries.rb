@@ -1,4 +1,4 @@
-class CreateLibraries < ActiveRecord::Migration
+class CreateLibraries < ActiveRecord::Migration[5.1]
   def self.up
     create_table :libraries do |t|
       t.string :hours_db_code, length: 30, null: false

@@ -1,4 +1,4 @@
-class LibraryCode < ActiveRecord::Migration
+class LibraryCode < ActiveRecord::Migration[5.1]
 
   def change
 
