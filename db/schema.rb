@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20180401010101) do
     t.text "keywords"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_best_bets_on_title", unique: true
   end
 
   create_table "bookmarks", force: :cascade do |t|

@@ -5,11 +5,11 @@ class BestBetsController < ApplicationController
 
     if ActiveRecord::Base.connection.adapter_name.match /sqlite/i
       wildcard = '%' + q.gsub(/ +/, '%') + '%'
-      @hits = BestBets.where('title LIKE ?', wildcard)
+      @hits = BestBets.where('title || url || description || keywords LIKE ?', wildcard)
     end
 
     if ActiveRecord::Base.connection.adapter_name.match /mysql/i
-      @hits = BestBets.where('match(title,url,description) against (?)', q)
+      @hits = BestBets.where('match(title,url,description,keywords) against (?)', q)
     end
 
   end

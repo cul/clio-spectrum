@@ -13,6 +13,8 @@ class BestBets < ActiveRecord::Migration[5.1]
       t.timestamps null: false
     end
 
+    add_index :best_bets, :title, unique: true
+
     if ActiveRecord::Base.connection.adapter_name.match /mysql/i
       add_index :best_bets, [:title, :url, :description, :keywords], name: 'fulltext', type: :fulltext
     end
