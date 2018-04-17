@@ -1,0 +1,12 @@
+
+-# AC API - CONSTRAINTS DISPLAY
+
+.well.well-constraints
+  %span.constraints-label You searched for:
+
+  - result.constraints_with_links.each do |text, link|
+
+    %div.constraint-box
+      %span.filterValue
+        =text
+        =link_to content_tag(:span, '', :class => 'glyphicon glyphicon-remove'), link

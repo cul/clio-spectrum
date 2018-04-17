@@ -18,6 +18,12 @@ default_search_layouts:
       - searches:
           - source: lweb 
 
+  ac:
+    style: ac
+    columns:
+      - searches:
+          - source: ac 
+
   quicksearch:
     style: aggregate
     columns:

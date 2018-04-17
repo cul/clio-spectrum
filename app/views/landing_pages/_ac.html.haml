@@ -1,0 +1,20 @@
+= display_search_boxes('ac')
+
+.row
+  .landing_main.col-sm-8
+    .title AC - API
+
+    = render partial: '/datasource_warning', locals: {warning: warning}
+
+    %p AC via API
+    %ul
+      %li For content by department: Try #{link_to 'Browse Academic Commons Content', 'http://academiccommons.columbia.edu/catalog/browse/departments'}
+
+  .landing_side.col-sm-4
+    .well.sidebar-nav
+      .nav
+        %ul.nav.nav-list
+          %li.nav-header Related Links
+          %li= link_to "Academic Commons Home", "http://academiccommons.columbia.edu"
+          %li= link_to "Self Deposit Page", "http://academiccommons.columbia.edu/deposit"
+          %li= link_to "Frequently Asked Questions", "https://academiccommons.columbia.edu/faq"

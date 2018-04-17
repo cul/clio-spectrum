@@ -323,6 +323,17 @@ datasources:
       route: lweb_index_path
       placeholder: Libraries Website
 
+  ac:
+    name: AC API
+    title: AC API
+    description: AC query via API
+    render_options:
+      format: ac
+    no_facets: true
+    search_box:
+      route: ac_index_path
+      placeholder: title or author
+
   academic_commons:
     name: Academic Commons
     title: Academic Commons

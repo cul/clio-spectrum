@@ -1,4 +1,4 @@
-class Lweb::Document
+class LwebDocument
   attr_accessor :url, :title, :summary, :mime
 
   def initialize(item = nil)

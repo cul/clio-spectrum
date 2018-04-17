@@ -112,6 +112,8 @@ class SpectrumController < ApplicationController
         Spectrum::SearchEngines::GoogleAppliance.new(fix_ga_params(hit_params))
       when 'lweb'
         Spectrum::SearchEngines::GoogleCustomSearch.new(hit_params)
+      when 'ac'
+        Spectrum::SearchEngines::Ac.new(hit_params)
       else
         render body: nil and return
       end
@@ -311,6 +313,9 @@ class SpectrumController < ApplicationController
 
       when 'lweb'
         Spectrum::SearchEngines::GoogleCustomSearch.new(fixed_params)
+
+      when 'ac'
+        Spectrum::SearchEngines::Ac.new(fixed_params)
 
       else
         fail "SpectrumController#get_results() unhandled source: '#{source}'"

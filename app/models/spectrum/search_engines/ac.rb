@@ -1,35 +1,35 @@
 module Spectrum
   module SearchEngines
-    class GoogleCustomSearch
-
-      require 'google/apis/customsearch_v1'
-      Customsearch = Google::Apis::CustomsearchV1
+    class Ac
 
       # include ActionView::Helpers::NumberHelper
       include Rails.application.routes.url_helpers
+
       # Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
       attr_reader  :documents, :search, :count, :errors
 
       def initialize(options = {})
-        @params = options
+        search_url = build_search_url(options)
 
-        q = options['q'] || fail('No query string specified')
-        @rows = (options['rows'] || 10).to_i
-        @start = (options['start'] || 1).to_i
-        cs_id  = APP_CONFIG['google']['custom_search_id']
-        cs_key = APP_CONFIG['google']['custom_search_key']
+        # SCSB calls use Faraday, and can get both response codes and content.
+        # @conn = Faraday.new(url: url)
+        # raise "Faraday.new(#{url}) failed!" unless @conn
+        # @conn.headers['Content-Type'] = 'application/json'
+        # @conn.headers['api_key'] = @scsb_args[:api_key]
+        # response = conn.post path, params.to_json
+        # response_data = JSON.parse(response.body)
 
-        # @search_url = build_search_url
-        @errors = nil
-        Rails.logger.debug "[Spectrum][GoogleCustomSearch] params: #{@search_url}"
+        client = HTTPClient.new
+        response = client.get search_url
+        status = response.status
+        body = response.body
 
-        service = Customsearch::CustomsearchService.new
-        service.key = cs_key
-        results = service.list_cses(q, cx: cs_id, start: @start, num: @rows)
-        # raise
-        @documents = Array(results.items).map { |item| LwebDocument.new(item) }
-        @count = results.search_information.total_results
-# raise
+        # @results = HTTPClient.new.get_content(search_url)raise
+        results = JSON.parse(response.body).with_indifferent_access
+
+        @documents = Array(results[:records]).map { |item| AcDocument.new(item) }
+        @count = results[:total_number_of_results]
+        
         # begin
         #   # @raw_xml = Nokogiri::XML(HTTPClient.new.get_content(@search_url))
         #   # @documents = @raw_xml.css('R').map { |xml_node| LibraryWeb::Document.new(xml_node) }
@@ -41,16 +41,16 @@ module Spectrum
       end
 
       def current_page
-        (@start.div @rows) + 1
+        @page
       end
 
       def page_size
-        @rows || 10
+        @per_page
       end
 
       # used by QuickSearch for "All Results" link
       def search_path
-        lweb_index_path(@params)
+        ac_index_path(@params)
       end
 
       # def start_over_link
@@ -58,7 +58,7 @@ module Spectrum
       # end
 
       def constraints_with_links
-        [[@q, lweb_index_path]]
+        [[@q, ac_index_path]]
       end
 
       def start_item
@@ -107,33 +107,28 @@ module Spectrum
         end
       end
 
-      # def build_search_url
-      #   default_params = {
-      #     'site'    => 'CUL_LibraryWeb',
-      #     'as_dt'   => 'i',
-      #     'client'  => 'cul_libraryweb',
-      #     'output'  => 'xml',
-      #     'ie'      => 'UTF-8',
-      #     'oe'      => 'UTF-8',
-      #     'filter'  => '0',
-      #     'sort'    => 'date:D:L:dl',
-      #     'x'       => '0',
-      #     'y'       => '0',
-      #   }
-      # 
-      #   # url = "http://search.columbia.edu/search?#{default_params.to_query}"
-      #   url = "#{@ga_url}?#{default_params.to_query}"
-      #   url += "&sitesearch=#{@sitesearch}"
-      #   url += "&num=#{@rows}"
-      #   url += "&start=#{@start}"
-      #   url += "&q=#{CGI.escape(@q)}"
-      #   url
-      # end
-
       private
 
+      # https://academiccommons-dev.cdrs.columbia.edu/api/v1/search?
+      #   search_type=keyword&q=test&page=1&per_page=25&sort=best_match&order=desc
+      
+      def build_search_url(options = {})
+        url  = APP_CONFIG['ac']['api_url']
+        search_path = APP_CONFIG['ac']['api_search_path']
+        search_url = "#{url}#{search_path}"
+
+        params = Hash.new
+        [ 'search_type', 'q', 'page', 'per_page', 
+          'sort', 'order'].each do |key|
+            params[key] = options[key] if options[key].present?
+        end
+        
+        search_url = "#{search_url}?#{params.to_query}" if params.present?
+      end
+
+
       def search_merge(params = {})
-        lweb_index_path(@params.merge(params))
+        ac_index_path(@params.merge(params))
       end
     end
   end
