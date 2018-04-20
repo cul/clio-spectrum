@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @best_bet.title %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @best_bet.url %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @best_bet.description %>
+</p>
+
+<p>
+  <strong>Keywords:</strong>
+  <%= @best_bet.keywords %>
+</p>
+
+<%= link_to 'Edit', edit_best_bet_path(@best_bet) %> |
+<%= link_to 'Back', best_bets_path %>

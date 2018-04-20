@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Best Bets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Url</th>
+      <th>Description</th>
+      <th>Keywords</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @best_bets.each do |best_bet| %>
+      <tr>
+        <td><%= best_bet.title %></td>
+        <td><%= best_bet.url %></td>
+        <td><%= best_bet.description %></td>
+        <td><%= best_bet.keywords %></td>
+        <td><%= link_to 'Show', best_bet %></td>
+        <td><%= link_to 'Edit', edit_best_bet_path(best_bet) %></td>
+        <td><%= link_to 'Destroy', best_bet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Best Bet', new_best_bet_path %>

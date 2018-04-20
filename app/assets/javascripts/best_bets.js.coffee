@@ -4,7 +4,7 @@
 $ ->
   q = $('#best_bets_query').data('query')
   if typeof q != 'undefined'
-    $.get('/best_bets?q=' + q, (data) ->
+    $.get('/best_bets/hits?q=' + q, (data) ->
 	    if data.length > 0
         $('#best_bets_hits').append(data)
         $('#best_bets_hits').slideDown(1000)
