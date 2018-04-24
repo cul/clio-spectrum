@@ -25,7 +25,7 @@ $(document).ready(function() {
 	  // datumTokenizer: Bloodhound.tokenizers.obj.whitespace( 'haystack' ),
 
 	  prefetch: {
-			url: 'http://cliobeta.columbia.edu:3001/best_bets.json',
+			url: best_bets_url,
 		  cache: false,
 		  // "time in ms to cache, default 86400000 (1 day)" - doesn't work?
 		  ttl: 1,
