@@ -626,6 +626,7 @@ def build_authorized_forms_query(authorized_forms)
   authorized_forms.delete_if(&:blank?)
 
   authorized_forms.uniq.map { |term|
+    term.gsub!(/\\/, '')
     'authorized_ss:"' + term.gsub(/"/, '\"') + '"'
   }.join(' OR ')
 
