@@ -2,6 +2,8 @@
 
 
 $ ->
+
+  # Best Bets panel
   q = $('#best_bets_query').data('query')
   if typeof q != 'undefined'
     $.get('/best_bets/hits?q=' + q, (data) ->
@@ -9,6 +11,35 @@ $ ->
         $('#best_bets_hits').append(data)
         $('#best_bets_hits').slideDown(1000)
 	  )
+
+  # Best Bets typeahead
+	bestBets = new Bloodhound
+	  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title', 'description', 'keywords'),
+	  queryTokenizer: Bloodhound.tokenizers.whitespace,
+	  prefetch: '/best_bets.json'
+
+	$('#catalog_q').typeahead(null, {
+		name: 'best-bets',
+		display: 'title',
+		source: bestBets,
+		templates: {
+	    header: '<h3>Header Template</h3>'
+	  }
+	  
+	})
+
+# {
+#   	# 	    minLength: 0,
+#   	# 	    highlight: true	
+#   	# }, {
+#    name: 'best-bets',
+#   	  display: 'title',
+#   	  source: bestBets
+#   }
+
+
+
+
 # $('#best_bets').appendChild(data)
 #     hit_span.html(data)
 #   )

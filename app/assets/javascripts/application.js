@@ -43,6 +43,8 @@
 // And, one specific Bootstrap-based add-on, installed locally
 //= require bootstrap-datepicker
 
+// Typeahead, for Best Bets, etc.
+//= require twitter/typeahead.min
 
 //= require advanced
 //= require arrows

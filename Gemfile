@@ -144,6 +144,11 @@ gem 'coffee-rails'
 gem 'uglifier'
 gem 'bootstrap-sass'
 
+# JSON APIs, for Best Bets, etc.
+gem 'jbuilder'
+
+# Typeahead - for Best Bets, etc.
+gem 'twitter-typeahead-rails'
 
 # To build slugs for saved-list URLs
 gem 'stringex'
