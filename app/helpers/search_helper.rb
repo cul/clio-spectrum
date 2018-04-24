@@ -78,10 +78,11 @@ module SearchHelper
     if active_source == source
 
       # BASIC SEARCH INPUT BOX
-      # raise
+      classes = 'search_q form-control'
+      classes = "#{classes} best_bets_typeahead" if APP_CONFIG['best_bets'].present?
       result += text_field_tag(:q,
                                search_params[:q] || '',
-                               class: "search_q form-control",
+                               class: "#{classes}",
                                id: "#{source}_q",
                                placeholder: options['placeholder'],
               # This focuses, but also selects-all-text in some browsers - yuck

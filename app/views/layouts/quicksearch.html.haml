@@ -24,7 +24,7 @@
       
           = render :partial=>'/layouts/messages'
 
-          = render '/layouts/best_bets'
+          = render '/layouts/best_bets' if APP_CONFIG['best_bets'].present?
 
           = yield
 

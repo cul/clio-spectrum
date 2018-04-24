@@ -9,7 +9,7 @@
 
 .result.document{class: "#{render_document_class(document)} #{'database_record' if document.is_database?}", source: 'catalog', item_id: document.id, data: document_data_attributes(document), standard_ids: extract_standard_bibkeys(document).join(",")}
 
-  - if ['development', 'clio_dev'].include?(Rails.env)
+  - if ['development'].include?(Rails.env)
     .row
       .span
         = "BEGIN: " + (Time.now - Time.now.beginning_of_minute).to_f.round(3).to_s
@@ -27,7 +27,7 @@
         -# We need the 'source' to setup a datasource-specific path
         = link_to_source_document document, label: document_show_link_field(document), counter: counter, source: source
 
-  - if ['development', 'clio_dev'].include?(Rails.env)
+  - if ['development'].include?(Rails.env)
     .row
       .span
         = "MID: " + (Time.now - Time.now.beginning_of_minute).to_f.round(3).to_s
@@ -46,7 +46,7 @@
         - else
           =image_tag("spacer.png", :class => "list_view bookjacket " + extract_standard_bibkeys(document).listify.collect { |x| "id_" + x.to_s.gsub(':','')}.join(" "))
 
-  - if ['development', 'clio_dev'].include?(Rails.env)
+  - if ['development'].include?(Rails.env)
     .row
       .span
         = "END: " + (Time.now - Time.now.beginning_of_minute).to_f.round(3).to_s
