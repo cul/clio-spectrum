@@ -6,11 +6,11 @@ class BestBetsController < ApplicationController
 
     if ActiveRecord::Base.connection.adapter_name.match /sqlite/i
       wildcard = '%' + q.gsub(/ +/, '%') + '%'
-      @hits = BestBets.where('title || url || description || keywords LIKE ?', wildcard)
+      @hits = BestBet.where('title || url || description || keywords LIKE ?', wildcard)
     end
 
     if ActiveRecord::Base.connection.adapter_name.match /mysql/i
-      @hits = BestBets.where('match(title,url,description,keywords) against (?)', q)
+      @hits = BestBet.where('match(title,url,description,keywords) against (?)', q)
     end
 
   end
@@ -18,7 +18,7 @@ class BestBetsController < ApplicationController
   # GET /best_bets
   # GET /best_bets.json
   def index
-    @best_bets = BestBets.all
+    @best_bets = BestBet.all
   end
 
   # GET /best_bets/1
@@ -28,7 +28,7 @@ class BestBetsController < ApplicationController
 
   # GET /best_bets/new
   def new
-    @best_bet = BestBets.new
+    @best_bet = BestBet.new
   end
 
   # GET /best_bets/1/edit
@@ -38,7 +38,7 @@ class BestBetsController < ApplicationController
   # POST /best_bets
   # POST /best_bets.json
   def create
-    @best_bet = BestBets.new(best_bet_params)
+    @best_bet = BestBet.new(best_bet_params)
 
     respond_to do |format|
       if @best_bet.save
@@ -78,12 +78,12 @@ class BestBetsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_best_bet
-      @best_bet = BestBets.find(params[:id])
+      @best_bet = BestBet.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def best_bet_params
-      params.require(:best_bets).permit(:title, :url, :description, :keywords)
+      params.require(:best_bet).permit(:title, :url, :description, :keywords)
     end
 
 

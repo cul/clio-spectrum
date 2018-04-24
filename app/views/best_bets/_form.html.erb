@@ -1,7 +1,7 @@
 <%= form_with(model: best_bet, local: true) do |form| %>
   <% if best_bet.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(best_bet.errors.count, "error") %> prohibited this best_bet from being saved:</h2>
+      <h2><%= pluralize(best_bets.errors.count, "error") %> prohibited this best_bet from being saved:</h2>
 
       <ul>
       <% best_bet.errors.full_messages.each do |message| %>

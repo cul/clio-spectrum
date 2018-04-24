@@ -1,2 +1,0 @@
-class BestBets < ApplicationRecord
-end
