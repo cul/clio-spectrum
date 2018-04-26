@@ -16,46 +16,47 @@ $(document).ready(function() {
 	};
 
 	// build Best Bets typeahead
-	// (1) build the search engine
-	var bestBets = new Bloodhound({
-	  queryTokenizer: Bloodhound.tokenizers.whitespace,
-		// Look for the query value in any of the list of fields
-	  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title', 'description', 'keywords'),
-		// or search a single concattenated field?
-	  // datumTokenizer: Bloodhound.tokenizers.obj.whitespace( 'haystack' ),
+  if (typeof(best_bets_url) != 'undefined') {
 
-	  prefetch: {
-			url: best_bets_url,
-		  cache: false,
-		  // "time in ms to cache, default 86400000 (1 day)" - doesn't work?
-		  ttl: 1,
-  	}
-    // for testing....
-	  // local: ['dog', 'pig', 'moose'],
-	  // local: [{title: 'dog'}, {title: 'pig'}, {title: 'moose'}],
-	});
+		// (1) build the search engine
+		var bestBets = new Bloodhound({
+		  queryTokenizer: Bloodhound.tokenizers.whitespace,
+			// Look for the query value in any of the list of fields
+		  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title', 'description', 'keywords'),
+			// or search a single concattenated field?
+		  // datumTokenizer: Bloodhound.tokenizers.obj.whitespace( 'haystack' ),
 
-  // bestBets.initialize(true);
+		  prefetch: {
+				url: best_bets_url,
+			  cache: false,
+			  // "time in ms to cache, default 86400000 (1 day)" - doesn't work?
+			  ttl: 1,
+	  	}
+	    // for testing....
+		  // local: ['dog', 'pig', 'moose'],
+		  // local: [{title: 'dog'}, {title: 'pig'}, {title: 'moose'}],
+		});
+
+	  // bestBets.initialize(true);
 
 
-
-  // (2) build the user interface
-	$('.best_bets_typeahead').typeahead(
-		{ minLength: 2,
-  	}, 
-		{	name: 'best-bets',
-			source: bestBets,
-			templates: {
-			  header: '<h4>Best Bets</h4>',
-	      suggestion: function (data) {
-		      snippet = buildSnippet(data);
-		      return snippet;
-  		  },
-	  	},
-			display: 'title',
-	  }
-	);
-
+	  // (2) build the user interface
+		$('.best_bets_typeahead').typeahead(
+			{ minLength: 2,
+	  	}, 
+			{	name: 'best-bets',
+				source: bestBets,
+				templates: {
+				  header: '<h4>Best Bets</h4>',
+		      suggestion: function (data) {
+			      snippet = buildSnippet(data);
+			      return snippet;
+	  		  },
+		  	},
+				display: 'title',
+		  }
+		);
+	}
 
   // nice formatting of each search suggestion
   function buildSnippet(data) {
@@ -67,7 +68,6 @@ $(document).ready(function() {
     var snippet = "<div>\n" + title + data.description + "\n" + url + "</div>\n";
     return snippet;
   };
-
 
 });
 
