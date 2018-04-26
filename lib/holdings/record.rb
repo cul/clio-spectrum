@@ -33,6 +33,10 @@ module Voyager
         end
 
         @location_name = tag852['a'] || tag852['b']
+        # TODO - undo this quick demo
+        if ['development', 'clio_dev'].include? Rails.env
+          @location_name = 'Barnard materials temporarily unavailable until library opens 9/4' if @location_name == 'Barnard'
+        end
         location_code = tag852['b']
         
         # ReCAP partner records don't have an 852$a
