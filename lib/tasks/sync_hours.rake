@@ -9,6 +9,7 @@ namespace :hours do
   # end
 
 
+  desc "list known libraries from locations table"
   task :libraries => :environment do
     puts "===  List of known libraries  ==="
     # Library.all().each do |library|
@@ -19,6 +20,7 @@ namespace :hours do
     end
   end
 
+  desc "update hours for all libraries in location table"
   task :update_all => :environment do
     # Library.all().each do |library|
     #   printf("Updating %3d %-30s  %s\n", library.id, library.hours_db_code, library.name)
@@ -34,6 +36,7 @@ namespace :hours do
     end
   end
 
+  desc "update hours for given libary_code (e.g., rake hours:update[bulter])"
   task :update, [:library_code] => :environment do |t, args|
     unless args[:library_code]
       puts "must pass input arg :library_code (e.g.: rake hours:update[butler])" 
