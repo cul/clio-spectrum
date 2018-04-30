@@ -4,7 +4,8 @@ module Voyager
       attr_reader :holding_id, :location_name, :call_number,
                   :summary_holdings, :public_notes,
                   :shelving_title, :supplements, :indexes,
-                  :reproduction_note, :urls, :item_count, :temp_locations,
+                  :reproduction_note, :urls, :item_count, 
+                  :temp_locations, :use_restrictions,
                   :item_status, :orders, :current_issues, :services,
                   :bibid, :donor_info, :location_note, :temp_loc_flag
 
@@ -81,6 +82,7 @@ module Voyager
         @item_count = item.item_count
 
         @temp_locations = item.temp_locations
+        @use_restrictions = item.use_restrictions
         @item_status = item.item_status
 
         # flag for services processing (doc_delivery assignment)
@@ -140,6 +142,7 @@ module Voyager
           :donor_info => @donor_info,
           :item_count => @item_count,
           :temp_locations => @temp_locations,
+          :use_restrictions => @use_restrictions,
           :item_status => @item_status,
           :services => @services,
           :current_issues => @current_issues,

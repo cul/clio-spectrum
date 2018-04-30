@@ -46,7 +46,6 @@ module Voyager
         end
 
         output[:condensed_holdings_full] = condense_holdings(holdings)
-
         output.with_indifferent_access
       end
 
@@ -90,7 +89,8 @@ module Voyager
         
         # These fields should be blank in both holdings
         [:supplements, :indexes, :public_notes, :reproduction_note, 
-         :current_issues, :temp_locations, :orders, :donor_info, :urls,
+         :current_issues, :temp_locations, :use_restrictions,
+         :orders, :donor_info, :urls,
          :shelving_title, :location_note].each { |key| 
           return false if a[key].present? || b[key].present?
         }
@@ -136,7 +136,7 @@ module Voyager
           # is a complex record.
           if [:summary_holdings, :supplements, :indexes, :public_notes,
               :reproduction_note, :current_issues,
-              :temp_locations,
+              :temp_locations, :use_restrictions,
               :orders,
               :donor_info, :urls].any? { |key| holding[key].present?}
             return :complex
@@ -271,7 +271,7 @@ module Voyager
             # add other elements to :copies array
             [ :current_issues, :donor_info, :indexes, :public_notes, :orders, 
               :reproduction_note, :supplements, :summary_holdings, 
-              :temp_locations, :urls ].each { |element|
+              :temp_locations, :use_restrictions, :urls ].each { |element|
               add_holdings_elements(copy, holding, element)
             }
 
@@ -332,6 +332,8 @@ module Voyager
         when :summary_holdings
           out[type] = "Library has: " + holding[type].join('<br>') unless holding[type].empty?
         when :temp_locations
+          out[type] = holding[type] unless holding[type].empty?
+        when :use_restrictions
           out[type] = holding[type] unless holding[type].empty?
         when :urls
           out[type] = holding[type] unless holding[type].empty?

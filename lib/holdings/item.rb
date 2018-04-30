@@ -1,7 +1,7 @@
 module Voyager
   module Holdings
     class Item
-      attr_reader :holding_id, :item_count, :temp_locations, :item_status
+      attr_reader :holding_id, :item_count, :temp_locations, :use_restrictions, :item_status
 
       # Item class initializing method
       def initialize(mfhd_id, holdings_marc, mfhd_status, scsb_status)
@@ -73,6 +73,7 @@ module Voyager
 
 
         @temp_locations = parse_for_temp_locations(holdings_marc)  # array
+        @use_restrictions = parse_for_use_restrictions(holdings_marc)  # array
         @item_status = parse_for_circ_status(mfhd_status)  # hash
       end
 
@@ -100,6 +101,51 @@ module Voyager
         end
 
         return tempLocations
+      end
+
+      def parse_for_use_restrictions(holdings_marc)
+        useRestrictions = []
+
+        item_count = 0
+        notes = Hash.new()
+        holdings_marc.each_by_tag('876') do |t876|
+          item_count += 1
+          # subfield h has Use Restrictions
+          next unless t876['h'].present?
+
+          note = t876['h']
+
+          # Ignore these use restriction codes
+          next if ['ENVE', 'TIED'].include? note
+
+          # Map use restriction codes to notes
+          note = 'In library use' if note == 'FRGL'
+          
+          if notes[note].present?
+            notes[note] += 1 
+          else
+            notes[note] = 1 
+          end
+          
+          # next unless t876['h']
+          # if t876['h'] == 'FRGL'
+          #   notes['In library use only'] != notes['In library use only']
+          #   useRestrictions << 'In library use only.'
+          # else
+          #   useRestrictions << t876['h']
+          # end
+        end
+
+        notes.each do |note, note_count|
+          note = note.titleize
+          if note_count == item_count
+            useRestrictions << "#{note.titleize} Only"
+          else
+            useRestrictions << "Some items #{note} Only"
+          end
+        end
+        
+        return useRestrictions
       end
 
       # Isolates item:itemRecord nodes in the mfhd:itemCollection,

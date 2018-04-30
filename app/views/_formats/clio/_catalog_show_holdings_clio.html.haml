@@ -40,6 +40,11 @@
       -# Each 'copy' is a group of 1-or-more equivalent items (same call num, etc.)
       - entry['copies'].each do |copy|
         .copy
+          - if copy['use_restrictions'].present?
+            - copy['use_restrictions'].each do |use_restriction|
+              .use_restriction
+                %span.holdings_label Use Restriction: 
+                = use_restriction
           -# If there are any temp locations for this item, print them out
           - unless copy['temp_locations'].nil?
             - copy['temp_locations'].each do |temp_location|
