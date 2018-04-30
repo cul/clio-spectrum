@@ -24,6 +24,8 @@
       
           = render :partial=>'/layouts/messages'
 
+          = render '/layouts/best_bets' if APP_CONFIG['best_bets'].present?
+
           = yield
 
       = render :partial => "/footer"

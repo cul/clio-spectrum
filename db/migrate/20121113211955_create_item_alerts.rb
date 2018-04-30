@@ -1,4 +1,4 @@
-class CreateItemAlerts < ActiveRecord::Migration
+class CreateItemAlerts < ActiveRecord::Migration[5.1]
   def change
     create_table :item_alerts do |t|
       t.string :source, null: false, limit: 20

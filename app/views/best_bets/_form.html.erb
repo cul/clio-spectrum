@@ -1,0 +1,37 @@
+<%= form_with(model: best_bet, local: true) do |form| %>
+  <% if best_bet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(best_bets.errors.count, "error") %> prohibited this best_bet from being saved:</h2>
+
+      <ul>
+      <% best_bet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :best_bet_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url, id: :best_bet_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :best_bet_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :keywords %>
+    <%= form.text_area :keywords, id: :best_bet_keywords %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
