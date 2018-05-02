@@ -162,7 +162,7 @@ module HoldingsHelper
     HoldingsHelper.valet_link(bib_id)
   end
 
-  SERVICE_ORDER = %w(offsite_legacy offsite spec_coll precat on_order borrow_direct recall_hold ill ill_valet in_process doc_delivery)
+  SERVICE_ORDER = %w(offsite_legacy offsite spec_coll precat on_order borrow_direct borrow_direct_test recall_hold ill ill_valet in_process doc_delivery)
 
   # parameters: title, link (url or javascript)
   SERVICES = {
@@ -181,6 +181,9 @@ module HoldingsHelper
                    'OpenInprocessRequest'],
     'borrow_direct' => ['Borrow Direct',
                         'http://www.columbia.edu/cgi-bin/cul/borrowdirect?'],
+    'borrow_direct_test' => ['Borrow Direct [TEST]',
+                        'https://www1.columbia.edu/sec-cgi-bin/cul/bd/BDauth_test?'],
+
     'ill' => ['ILL',
               'https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?'],
     'ill_valet' => ['ILL (Valet)',
