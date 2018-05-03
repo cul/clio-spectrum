@@ -34,10 +34,7 @@ module Voyager
         end
 
         @location_name = tag852['a'] || tag852['b']
-        # TODO - undo this quick demo
-        if ['development', 'clio_dev'].include? Rails.env
-          @location_name = 'Barnard materials temporarily unavailable until library opens 9/4' if @location_name == 'Barnard'
-        end
+
         location_code = tag852['b']
         
         # ReCAP partner records don't have an 852$a
@@ -84,6 +81,18 @@ module Voyager
         @temp_locations = item.temp_locations
         @use_restrictions = item.use_restrictions
         @item_status = item.item_status
+
+        # NEXT-1502 - display_helper.rb and record.rb
+        # Sometimes libraries become Unavailable (moves, renovations).
+        # Change OPAC display/services instead of updating ALL items in ILMS
+        unavailable_locations = APP_CONFIG['unavailable_locations'] || []
+        if unavailable_locations.include?(@location_name)
+          # Hardcode the full item status data-structure
+          @item_status = {status: "not_available", messages: [{status_code: "14n", short_message: "Unavailable"}]}
+          note = APP_CONFIG['unavailable_note']  # no default value
+          @location_note = note if note.present?
+        end
+
 
         # flag for services processing (doc_delivery assignment)
         # NEXT-1234: revised logic
