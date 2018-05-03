@@ -42,15 +42,11 @@ class LocationsController < ApplicationController
   end
 
   def library_api_info
-    # TODO after API upgrade
-      # change this to library_api_return["locations"]
-    @library_api_return.is_a?(Hash) ? @library_api_return["locations"] : @library_api_return
+    @library_api_return["locations"]
   end
 
   def default_image_url
-    # TODO after API upgrade
-      # change this to library_api_return["defaultImageURL"]
-    @library_api_return.is_a?(Hash) ? @library_api_return["defaultImageURL"] : "https://library.columbia.edu/content/dam/locations/location.png"
+    @library_api_return["defaultImageURL"]
   end
 
   def build_markers

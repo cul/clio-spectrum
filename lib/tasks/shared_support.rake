@@ -9,9 +9,6 @@ require 'rake'
 
 require File.join(Rails.root.to_s, 'config', 'initializers/aaa_load_app_config.rb')
 
-# TODO: eliminate SCP
-# EXTRACT_SCP_SOURCE = APP_CONFIG['extract_scp_source']
-
 EXTRACTS =  ["full", "incremental", "cumulative", "subset", 
              "law", "auth", "recap"]
 
