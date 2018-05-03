@@ -536,6 +536,13 @@ module Voyager
           services.delete('borrow_direct')
         end
 
+        # TESTING new Borrow Direct rules in non-prod environments
+        if ['clio_test', 'clio_dev', 'development'].include? Rails.env
+          if services.include?('borrow_direct')
+            services << 'borrow_direct_test'
+          end
+        end
+
         # # We don't know how to recall PUL or NYPL ReCAP items
         # if ['scsbpul', 'scsbnypl'].include?(location_code)
         #   services.delete('recall_hold')
