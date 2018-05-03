@@ -175,6 +175,22 @@ class CatalogController < ApplicationController
         # }
       end
 
+      # # Try to fetch circ status from backend...
+      # # TODO - cleanup hacky ReCAP logic
+      # circ_status = if @document.id.start_with? 'SCSB'
+      #   {}
+      # else
+      #   BackendController.circ_status(params[:id])
+      # end
+
+      # if circ_status || @document.id.start_with?('SCSB')
+      #   # Use static holdings data from MARC
+      #   # together with dynamic circ status from Oracle query
+      #   # to build @holdings object
+      #   @collection = Voyager::Holdings::Collection.new(@document, circ_status)
+      #   @holdings = @collection.to_hash(output_type: :condensed, message_type: :short_message)
+      # end
+
       # Documents may look different depending on who you are.  Pass in current_user.
       @collection = Voyager::Holdings::Collection.new(@document, circ_status, scsb_status, current_user)
 
