@@ -536,6 +536,13 @@ module Voyager
           services.delete('borrow_direct')
         end
 
+        # NEXT-1470 - Suppress BD and ILL links for Partner ReCAP items,
+        # but leave enabled for CUL offsite.
+        if ['scsbnypl', 'scsbpul'].include? location_code
+          services.delete('borrow_direct')
+          services.delete('ill')
+        end
+
         # TESTING new Borrow Direct rules in non-prod environments
         if ['clio_test', 'clio_dev', 'development'].include? Rails.env
           if services.include?('borrow_direct')
