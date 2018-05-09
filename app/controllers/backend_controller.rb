@@ -83,7 +83,14 @@ class BackendController < ApplicationController
       institutionId, dash, bibliographicId = bibliographicId.partition('-')
     end
 
-    scsb_status = Recap::ScsbRest.get_bib_availability(bibliographicId, institutionId) || []
+    cache_minutes = APP_CONFIG['scsb']['cache_minutes'] || 0
+    expiry = cache_minutes * 60
+
+    scsb_status = Rails.cache.fetch("scsb_status:#{id}", expires_in: expiry) do
+      Recap::ScsbRest.get_bib_availability(bibliographicId, institutionId) || []
+    end
+
+    return scsb_status
   end
   
   # The SCSB status API returns an array looks like this:
