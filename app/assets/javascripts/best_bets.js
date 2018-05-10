@@ -43,6 +43,7 @@ $(document).ready(function() {
 	  // (2) build the user interface
 		$('.best_bets_typeahead').typeahead(
 			{ minLength: 2,
+			  hint: false,
 	  	}, 
 			{	name: 'best-bets',
 				source: bestBets,
@@ -57,6 +58,34 @@ $(document).ready(function() {
 		  }
 		);
 	}
+
+	$('.best_bets_typeahead').bind('typeahead:select', function(ev, suggestion) { 
+    // $(this).typeahead('close');
+		console.log('typeahead:select triggered'); 
+    // console.log(suggestion);
+    if ('url' in suggestion) {
+      window.open(suggestion.url, '_blank');
+    }
+	}	);
+
+    
+  $('.best_bets_typeahead').bind('typeahead:cursorchange', function(ev, suggestion) {
+    console.log('typeahead:cursorchange'); 
+  });
+
+	$('.best_bets_typeahead').bind('typeahead:close', function(ev, suggestion) {
+	    console.log('typeahead:close'); 
+	    $(this).typeahead('val', '');
+	});
+
+
+	$('.best_bets_typeahead').bind('typeahead:active', function(ev, suggestion) {  console.log('typeahead:active'); });
+	$('.best_bets_typeahead').bind('typeahead:open', function(ev, suggestion) {  console.log('typeahead:open'); });
+	$('.best_bets_typeahead').bind('typeahead:change', function(ev, suggestion) {  console.log('typeahead:change'); });
+	$('.best_bets_typeahead').bind('typeahead:render', function(ev, suggestion) {  console.log('typeahead:render'); });
+
+	$('.best_bets_typeahead').bind('typeahead:autocomplete', function(ev, suggestion) {  console.log('typeahead:autocomplete'); });
+
 
   // nice formatting of each search suggestion
   function buildSnippet(data) {
