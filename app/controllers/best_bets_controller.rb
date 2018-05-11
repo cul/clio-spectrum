@@ -4,17 +4,15 @@ class BestBetsController < ApplicationController
   def hits
     q = params['q']
 
-    # if ActiveRecord::Base.connection.adapter_name.match /sqlite/i
-    #   wildcard = '%' + q.gsub(/ +/, '%') + '%'
-    #   @hits = BestBet.where('title || url || description || keywords LIKE ?', wildcard)
-    # end
-    # 
-    # if ActiveRecord::Base.connection.adapter_name.match /mysql/i
-    #   @hits = BestBet.where('match(title,url,description,keywords) against (?)', q)
-    # end
-
-    wildcard = q.strip.gsub(/ +/, '% ') + '%'
-    @hits = BestBet.where('title || url || description || keywords LIKE ?', wildcard)
+    if ActiveRecord::Base.connection.adapter_name.match /sqlite/i
+      wildcard = '%' + q.gsub(/ +/, '%') + '%'
+      @hits = BestBet.where('title || url || description || keywords LIKE ?', wildcard)
+    end
+    
+    if ActiveRecord::Base.connection.adapter_name.match /mysql/i
+      wildcard = '+' + q.gsub(/ /, ' +')
+      @hits = BestBet.where('match(title,url,description,keywords) against (? IN BOOLEAN MODE)', wildcard)
+    end
 
   end
 
