@@ -563,6 +563,17 @@ module Voyager
         #   services.delete('recall_hold')
         # end
 
+        # Unnecessary - just omit location codes from hardcoded list 
+        #     in process_for_services(), below
+        # # LIBSYS-1365 - Geology is closing, some services are no longer offered
+        # if location_name.match(/Geology/i) || location_code.starts_with?('geo')
+        #   services.delete('doc_delivery')
+        # end
+        # # NEXT-1502 - Barnard is moving this summer, all items are unavailable
+        # if location_name.match(/Barnard/i) || location_code == 'bar,mil'
+        #   services.delete('doc_delivery')
+        # end
+
         # return the cleaned up list
         return services
       end
@@ -583,8 +594,15 @@ module Voyager
            services << 'precat'
 
         # doc delivery
-        elsif ['ave', 'avelc', 'bar', 'bar,mil', 'bus', 'eal', 'eax', 'eng',
-               'fax', 'faxlc', 'glg', 'glx', 'glxn', 'gsc', 'jou',
+        # LIBSYS-1365 - Geology is closing, some services are no longer offered
+        # NEXT-1502 - Barnard is moving this summer, all items are unavailable
+        # elsif ['ave', 'avelc', 'bar', 'bar,mil', 'bus', 'eal', 'eax', 'eng',
+        #        'fax', 'faxlc', 'glg', 'glx', 'glxn', 'gsc', 'jou',
+        #        'leh', 'leh,bdis', 'mat', 'mil', 'mus', 'sci', 'swx',
+        #        'uts', 'uts,per', 'uts,unn', 'war' ].include?(location_code) &&
+        #        temp_loc_flag == 'N'
+        elsif ['ave', 'avelc', 'bus', 'eal', 'eax', 'eng',
+               'fax', 'faxlc', 'glx', 'glxn', 'gsc', 'jou',
                'leh', 'leh,bdis', 'mat', 'mil', 'mus', 'sci', 'swx',
                'uts', 'uts,per', 'uts,unn', 'war' ].include?(location_code) &&
                temp_loc_flag == 'N'
