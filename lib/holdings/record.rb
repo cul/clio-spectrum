@@ -469,9 +469,11 @@ module Voyager
         end
 
         # LIBSYS-1365 - Geology Library closure
-        if ['glg','glg,fol'].include?(location_code)
-          location_note = "Geology collection: to request this item <a href='https://library.columbia.edu/find/request/geology-collection-paging/form.html'>click here</a>"           
-          return location_note
+        unless APP_CONFIG['geology_not_yet'].present?
+          if ['glg','glg,fol'].include?(location_code)
+            location_note = "Geology collection: to request this item <em><a href='https://library.columbia.edu/find/request/geology-collection-paging/form.html'>click here</a></em>"
+            return location_note
+          end
         end
         
         location_note
