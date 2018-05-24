@@ -86,7 +86,7 @@ module Voyager
         # Sometimes libraries become Unavailable (moves, renovations).
         # Change OPAC display/services instead of updating ALL items in ILMS
         unavailable_locations = APP_CONFIG['unavailable_locations'] || []
-        if unavailable_locations.include?(@location_name)
+        if unavailable_locations.any? { |loc| @location_name.match(/^#{loc}/) }
           # Hardcode the full item status data-structure
           @item_status = {status: "not_available", messages: [{status_code: "14n", short_message: "Unavailable"}]}
           note = APP_CONFIG['unavailable_note']  # no default value

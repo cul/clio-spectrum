@@ -95,8 +95,8 @@
     Avery Hall
 
 
-- :library_code: barnard
-  :location_code: barnard
+- :location_code: barnard
+  # :library_code: barnard
   :links: 
     Home Page: http://library.barnard.edu/
     Floorplan: http://library.barnard.edu/LeFrak-Center-First-Floor-Floorplan
@@ -107,8 +107,8 @@
     
     LeFrak Center, Barnard Hall
 
-- :library_code: barnard-archives
-  :location_code: barnard
+- :location_code: barnard
+  # :library_code: barnard-archives
   :links: 
     Home Page: http://library.barnard.edu/
     Floorplan: http://library.barnard.edu/using-library/floorplan
@@ -119,8 +119,9 @@
     Barnard College Library
 
     Lehman Hall
-- :library_code: barnard-archives
-  :location_code: barnard
+
+- :location_code: barnard
+  # :library_code: barnard-archives
   :links: 
     Home Page: http://library.barnard.edu/
     Floorplan: http://library.barnard.edu/using-library/floorplan
@@ -131,8 +132,9 @@
     Barnard College Library
 
     Lehman Hall
-- :library_code: barnard-archives
-  :location_code: barnard
+
+- :location_code: barnard
+  # :library_code: barnard-archives
   :links: 
     Home Page: http://library.barnard.edu/
     Floorplan: http://library.barnard.edu/using-library/floorplan
@@ -327,18 +329,24 @@
 #     Engineering Library
 #     
 #     422 Mudd
-- :library_code: geology
-  :location_code: geology
-  :links: 
-    # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionD.gif
-    Home Page: http://library.columbia.edu/locations/geology.html
-    # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionD.html
-  :category: physical
-  :location: Geology
-  :found_in: |-
-    Geology Library
-    
-    601 Schermerhorn
+
+
+# Geology library is closed for good!
+# - :library_code: geology
+#   :location_code: geology
+#   :links: 
+#     # Map URL: http://www.columbia.edu/cu/lweb/data/services/maps/images/sectionD.gif
+#     Home Page: http://library.columbia.edu/locations/geology.html
+#     # Map: http://www.columbia.edu/cu/lweb/services/maps/sectionD.html
+#   :category: physical
+#   :location: Geology
+#   :found_in: |-
+#     Geology Library
+#     
+#     601 Schermerhorn
+
+
+
 # - :library_code: geoscience
 #   :location_code: geoscience
 #   :links: 
