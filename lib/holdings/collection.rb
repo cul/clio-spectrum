@@ -89,7 +89,7 @@ module Voyager
         
         # These fields should be blank in both holdings
         [:supplements, :indexes, :public_notes, :reproduction_note, 
-         :current_issues, :temp_locations, :use_restrictions,
+         :current_issues, :temp_locations, :use_restrictions, :bound_with,
          :orders, :donor_info, :urls,
          :shelving_title, :location_note].each { |key| 
           return false if a[key].present? || b[key].present?
@@ -136,7 +136,7 @@ module Voyager
           # is a complex record.
           if [:summary_holdings, :supplements, :indexes, :public_notes,
               :reproduction_note, :current_issues,
-              :temp_locations, :use_restrictions,
+              :temp_locations, :use_restrictions, :bound_with,
               :orders,
               :donor_info, :urls].any? { |key| holding[key].present?}
             return :complex
@@ -271,7 +271,7 @@ module Voyager
             # add other elements to :copies array
             [ :current_issues, :donor_info, :indexes, :public_notes, :orders, 
               :reproduction_note, :supplements, :summary_holdings, 
-              :temp_locations, :use_restrictions, :urls ].each { |element|
+              :temp_locations, :use_restrictions, :bound_with, :urls ].each { |element|
               add_holdings_elements(copy, holding, element)
             }
 
@@ -334,6 +334,8 @@ module Voyager
         when :temp_locations
           out[type] = holding[type] unless holding[type].empty?
         when :use_restrictions
+          out[type] = holding[type] unless holding[type].empty?
+        when :bound_with
           out[type] = holding[type] unless holding[type].empty?
         when :urls
           out[type] = holding[type] unless holding[type].empty?

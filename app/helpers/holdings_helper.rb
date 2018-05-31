@@ -149,6 +149,7 @@ module HoldingsHelper
     APP_CONFIG['valet_label'] ||
       'Offsite'
   end
+
   def valet_label()
     HoldingsHelper.valet_label()
   end
@@ -158,6 +159,7 @@ module HoldingsHelper
       "https://valet.cul.columbia.edu/offsite_requests/bib?bib_id="
     return valet_url + bib_id
   end
+
   def valet_link(bib_id = '')
     HoldingsHelper.valet_link(bib_id)
   end
@@ -470,6 +472,22 @@ module HoldingsHelper
     return location_link
   end
 
+
+  def valet_bound_with_url(title, enum_chron, barcode)
+    return unless title.present? && barcode.present?
+
+    valet_url = APP_CONFIG['valet_url']
+    return unless valet_url.present?
+
+    params = {
+      barcode:             barcode,
+      wanted_title:        title.first,
+      wanted_enum_chron:   enum_chron
+    }
+    valet_bound_with_url = "#{valet_url}/offsite_requests/barcode?#{params.to_query}"
+
+    return valet_bound_with_url
+  end
 
 
 end

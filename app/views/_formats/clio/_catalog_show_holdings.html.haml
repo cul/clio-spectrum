@@ -13,7 +13,7 @@
   -# PHYSICAL HOLDINGS
   - if @holdings
     -# Render holdings based on hash built from Solr MARC
-    = render "/_formats/clio/catalog_show_holdings_clio", holdings: @holdings
+    = render "/_formats/clio/catalog_show_holdings_clio", document: document, holdings: @holdings
     -# = render '/backend/holdings', holdings: @holdings
   - else
     -# LEGACY - call CLIO Backend via AJAX for holdings

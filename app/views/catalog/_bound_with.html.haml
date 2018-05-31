@@ -1,0 +1,28 @@
+/catalog/_bound_with.html.haml
+
+-# We want each bound-with to output a line that looks like this:
+-#    v.1 (1901) bound with different title; request barcode CUxxxxxxxx
+
+- if copy['bound_with'].present?
+
+  - copy['bound_with'].each do |bound_with|
+    .bound_with_item
+      - enum_chron = bound_with[:enum_chron]
+      - barcode = bound_with[:barcode]
+
+      - valet_bound_with_url = valet_bound_with_url(document[:title_display], enum_chron, barcode)
+      
+      - if enum_chron.present?
+        = enum_chron
+        bound with different title; 
+      - else
+        Bound with different title; 
+      
+      %span.bound_with_link
+        - if valet_bound_with_url.present?
+          = link_to "request barcode #{barcode}", valet_bound_with_url
+        - else
+          = link_to "search barcode #{barcode}", catalog_index_path(q: barcode)
+      
+      
+    

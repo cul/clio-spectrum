@@ -66,12 +66,24 @@ class SolrDocument
 
   # Does Voyager have live circ status for this document?
   def has_circ_status?
-    # If we hit a document w/out MARC holdings, it won't have circ status either
-    return false unless self.has_marc_holdings?
     # Only Columbia items will be found in our local Voyager
     return false unless self.columbia?
-    # Only documents with barcoded items are tracked in Voyager circ system
-    return self.has_key?(:barcode_txt)
+    # Pegasys (Law) will not have circ status
+    return false if self.in_pegasus?
+
+    # If we hit a document w/out MARC holdings, it won't have circ status either.
+    # This shouldn't happen anymore.
+    if not self.has_marc_holdings?
+      Rails.log.warn "Columbia bib record #{id} has no MARC holdings"
+      return false
+    end
+
+    # But the circ_status SQL code will still work for non-barcoded items,
+    # so why not just let it run?
+    # # Only documents with barcoded items are tracked in Voyager circ system
+    # return self.has_key?(:barcode_txt)
+
+    return true
   end
 
   # This triggers a call to fetch real time availabilty from the SCSB API
