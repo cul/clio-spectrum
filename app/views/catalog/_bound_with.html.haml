@@ -3,9 +3,9 @@
 -# We want each bound-with to output a line that looks like this:
 -#    v.1 (1901) bound with different title; request barcode CUxxxxxxxx
 
-- if copy['bound_with'].present?
+- if copy['bound_withs'].present?
 
-  - copy['bound_with'].each do |bound_with|
+  - copy['bound_withs'].each do |bound_with|
     .bound_with_item
       - enum_chron = bound_with[:enum_chron]
       - barcode = bound_with[:barcode]

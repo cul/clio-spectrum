@@ -2,7 +2,7 @@ module Voyager
   module Holdings
     class Item
       attr_reader :holding_id, :item_count, :item_status,
-                  :temp_locations, :use_restrictions, :bound_with
+                  :temp_locations, :use_restrictions, :bound_withs
 
       # Item class initializing method
       def initialize(mfhd_id, holdings_marc, mfhd_status, scsb_status)
@@ -80,8 +80,8 @@ module Voyager
 
         @temp_locations = parse_for_temp_locations(holdings_marc)  # array
         @use_restrictions = parse_for_use_restrictions(holdings_marc)  # array
-        @bound_with = parse_for_bound_with(holdings_marc)  # array
-        @item_status = parse_for_circ_status(mfhd_status)  # hash
+        @bound_withs = parse_for_bound_withs(holdings_marc)  # array
+        @item_status = parse_for_circ_status(mfhd_status, @bound_withs)  # hash
       end
 
       private
@@ -155,32 +155,34 @@ module Voyager
         return useRestrictions
       end
 
-      def parse_for_bound_with(holdings_marc)
-        bound_with = []
+      def parse_for_bound_withs(holdings_marc)
+        bound_withs = []
 
         holdings_marc.each_by_tag('876') do |t876|
           # subfield x has barcode of primary item for bound-withs
           if t876['x'].present?
-            bound_with << { enum_chron: (t876['3'] || ''), barcode: t876['x'] }
+            bound_withs << { item_id: t876['a'], enum_chron: (t876['3'] || ''), barcode: t876['x'] }
           end
         end
 
-        return bound_with
+        return bound_withs
       end
 
       # Isolates item:itemRecord nodes in the mfhd:itemCollection,
       # determines circulation status and generates messages
       #
-      # * *Args*    :
-      #   - +item+ -> mfhd:itemCollection node
-      #   - +item_count+ -> count of item records
-      # * *Returns* :
       #   - Hash containing overall circulation status and a list of circulation messages
       #     { :status => overall item status, :messages => [ one or more circulation messages ] }
       #   - Possible statuses are: 'none', 'available', 'not_available', 'some_avaialble'
       #   - An additional status, 'online', is set in the Record class
       #
-      def parse_for_circ_status(mfhd_status)
+      def parse_for_circ_status(mfhd_status, bound_withs = nil)
+
+        # First step - if there are any bound-withs, remove those from consideration.
+        # Those have unknown status, and shouldn't be part of the determination logic.
+        Array(bound_withs).each do |bound_with|
+          mfhd_status.delete( bound_with[:item_id] )
+        end
 
         # no items = no status available
         if mfhd_status.size == 0

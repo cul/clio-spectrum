@@ -61,8 +61,8 @@
               .message=  message
 
           -# Bound-With links
-          - if copy['bound_with'].present?
-            .bound_with
+          - if copy['bound_withs'].present?
+            .bound_withs
               = render 'catalog/bound_with', document: document, copy: copy
 
           -# Different 'items' with a 'copy' have varying statuses (Available, In-Transit, etc.)

@@ -5,7 +5,7 @@ module Voyager
                   :summary_holdings, :public_notes,
                   :shelving_title, :supplements, :indexes,
                   :reproduction_note, :urls, :item_count, 
-                  :temp_locations, :use_restrictions, :bound_with,
+                  :temp_locations, :use_restrictions, :bound_withs,
                   :item_status, :orders, :current_issues, :services,
                   :bibid, :donor_info, :location_note, :temp_loc_flag
 
@@ -80,7 +80,7 @@ module Voyager
 
         @temp_locations = item.temp_locations
         @use_restrictions = item.use_restrictions
-        @bound_with = item.bound_with
+        @bound_withs = item.bound_withs
         @item_status = item.item_status
 
         # NEXT-1502 - display_helper.rb and record.rb
@@ -153,7 +153,7 @@ module Voyager
           :item_count => @item_count,
           :temp_locations => @temp_locations,
           :use_restrictions => @use_restrictions,
-          :bound_with => @bound_with,
+          :bound_withs => @bound_withs,
           :item_status => @item_status,
           :services => @services,
           :current_issues => @current_issues,
