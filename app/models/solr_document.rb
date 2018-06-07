@@ -79,7 +79,10 @@ class SolrDocument
     end
 
     # But the circ_status SQL code will still work for non-barcoded items,
-    # so why not just let it run?
+    # and report items as 'Available'.
+    # So why not just let it run?  We have no evidence of unavailability,
+    # we may as well trust the 'available' status, and let unavailability be
+    # reported through normal workflow.
     # # Only documents with barcoded items are tracked in Voyager circ system
     # return self.has_key?(:barcode_txt)
 

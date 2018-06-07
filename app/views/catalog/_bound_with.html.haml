@@ -1,28 +1,33 @@
 /catalog/_bound_with.html.haml
 
--# We want each bound-with to output a line that looks like this:
--#    v.1 (1901) bound with different title; request barcode CUxxxxxxxx
+-# Don't try anything for, e.g., ReCAP partner records
+- return unless document.columbia?
 
 - if copy['bound_withs'].present?
 
-  - copy['bound_withs'].each do |bound_with|
-    .bound_with_item
-      - enum_chron = bound_with[:enum_chron]
-      - barcode = bound_with[:barcode]
+  .bound_withs
+    - copy['bound_withs'].each do |bound_with|
 
-      - valet_bound_with_url = valet_bound_with_url(document[:title_display], enum_chron, barcode)
+      -# We want each bound-with to output a line that looks like this:
+      -#    v.1 (1901) bound with different title; request barcode CUxxxxxxxx
+      .bound_with_item
+        - enum_chron = bound_with[:enum_chron]
+        - barcode = bound_with[:barcode]
+
+        - valet_bound_with_url = valet_bound_with_url(document[:title_display], enum_chron, barcode)
+        - requestable = OFFSITE_CONFIG['offsite_locations'].include?(entry['location_code'])
       
-      - if enum_chron.present?
-        = enum_chron
-        bound with different title; 
-      - else
-        Bound with different title; 
-      
-      %span.bound_with_link
-        - if valet_bound_with_url.present?
-          = link_to "request barcode #{barcode}", valet_bound_with_url
+        - if enum_chron.present?
+          = enum_chron
+          bound with different title; 
         - else
-          = link_to "search barcode #{barcode}", catalog_index_path(q: barcode)
+          Bound with different title; 
       
-      
-    
+        %span.bound_with_link
+          - if requestable && valet_bound_with_url.present?
+            = link_to "request barcode #{barcode}", valet_bound_with_url
+          - else
+            = link_to "search barcode #{barcode}", catalog_index_path(q: barcode)
+
+
+

@@ -163,6 +163,7 @@ module Voyager
           unless entry
             entry = {
               :location_name => holding[:location_name],
+              :location_code => holding[:location_code],
               :location_note => holding[:location_note],
               :call_number => holding[:call_number],
               :status => '',

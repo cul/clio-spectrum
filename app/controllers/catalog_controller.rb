@@ -149,23 +149,10 @@ class CatalogController < ApplicationController
       # Don't check Voyager circ status for non-Columbia records
       if @document.has_circ_status?
         circ_status = BackendController.circ_status(params[:id])
-        # The circ_status hash looks like this (bib/holding(s)/item(s)):
-        # {
-        #   123: {
-        #     144: {
-        #       540: {
-        #         holdLocation: "",
-        #         itemLabel: "",
-        #         requestCount: 0,
-        #         statusCode: 1,
-        #         statusDate: "",
-        #         statusPatronMessage: ""
-        #       }
-        #     }
-        #   }
-        # }
       end
 
+      # TODO:  What about bound-withs?  The blind barcode is usually that of
+      # an offsite item, which would have a SCSB status.
       if @document.has_offsite_holdings?
         # Lookup SCSB availability hash (simplification of full status)
         scsb_status = BackendController.scsb_availabilities(params[:id])
@@ -174,22 +161,6 @@ class CatalogController < ApplicationController
         #   "CU18799175"  =>  "Available"
         # }
       end
-
-      # # Try to fetch circ status from backend...
-      # # TODO - cleanup hacky ReCAP logic
-      # circ_status = if @document.id.start_with? 'SCSB'
-      #   {}
-      # else
-      #   BackendController.circ_status(params[:id])
-      # end
-
-      # if circ_status || @document.id.start_with?('SCSB')
-      #   # Use static holdings data from MARC
-      #   # together with dynamic circ status from Oracle query
-      #   # to build @holdings object
-      #   @collection = Voyager::Holdings::Collection.new(@document, circ_status)
-      #   @holdings = @collection.to_hash(output_type: :condensed, message_type: :short_message)
-      # end
 
       # Documents may look different depending on who you are.  Pass in current_user.
       @collection = Voyager::Holdings::Collection.new(@document, circ_status, scsb_status, current_user)
@@ -404,6 +375,5 @@ class CatalogController < ApplicationController
 
     flash[:error].blank?
   end
-
 
 end

@@ -35,7 +35,7 @@ module Voyager
 
         @location_name = tag852['a'] || tag852['b']
 
-        location_code = tag852['b']
+        @location_code = tag852['b']
         
         # ReCAP partner records don't have an 852$a
         if @location_name.match /^scsb/i
@@ -71,7 +71,7 @@ module Voyager
         # 895$a
         @current_issues = parse_current_issues(holdings_marc)
 
-        @location_note = assign_location_note(location_code)  #string
+        @location_note = assign_location_note(@location_code)  #string
 
         # information from item level records
         item = Item.new(mfhd_id, holdings_marc, mfhd_status, scsb_status)
@@ -130,7 +130,7 @@ module Voyager
         fmt = marc.leader[6..7]
 
         # add available services
-        @services = determine_services(@location_name, location_code, @temp_loc_flag, @call_number, @item_status, @orders, @bibid, fmt)
+        @services = determine_services(@location_name, @location_code, @temp_loc_flag, @call_number, @item_status, @orders, @bibid, fmt)
       end
 
 
@@ -140,6 +140,7 @@ module Voyager
           :bibid => @bibid,
           :holding_id => @holding_id,
           :location_name => @location_name,
+          :location_code => @location_code,
           :location_note => @location_note,
           :call_number => @call_number,
           :shelving_title => @shelving_title,

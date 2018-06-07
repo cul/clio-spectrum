@@ -32,7 +32,22 @@ class BackendController < ApplicationController
 
   # Need to support this kind of call:
   # @circ_status = BackendController.circ_status(params[:id])
-
+  # 
+  # The circ_status hash ("backend_results") looks like this (bib/holding(s)/item(s)):
+  # {
+  #   123: {
+  #     144: {
+  #       540: {
+  #         holdLocation: "",
+  #         itemLabel: "",
+  #         requestCount: 0,
+  #         statusCode: 1,
+  #         statusDate: "",
+  #         statusPatronMessage: ""
+  #       }
+  #     }
+  #   }
+  # }
   def self.circ_status(id)
     unless id.match(/^\d+$/)
       logger.error "BackendController#circ_status passed non-numeric id: #{id}"

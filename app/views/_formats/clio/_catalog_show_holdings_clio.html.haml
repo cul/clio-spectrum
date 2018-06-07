@@ -62,8 +62,9 @@
 
           -# Bound-With links
           - if copy['bound_withs'].present?
-            .bound_withs
-              = render 'catalog/bound_with', document: document, copy: copy
+            -# partial needs title from document, location code from entry,
+            -# and bound-with details from copy.
+            = render 'catalog/bound_with', document: document, entry: entry, copy: copy
 
           -# Different 'items' with a 'copy' have varying statuses (Available, In-Transit, etc.)
           - copy['items'].each do |item|
