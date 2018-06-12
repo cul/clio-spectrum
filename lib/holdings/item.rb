@@ -161,9 +161,9 @@ module Voyager
         holdings_marc.each_by_tag('876') do |t876|
           # subfield x has barcode of primary item for bound-withs
           if t876['x'].present?
-            # barcodes look like:  HR01335049
-            # regexp pattern:  2 letters, 1 letter-or-digit, 7 digits
-            next unless t876['x'].match(/^[A-Z]{2}\w{1}\d{7}$/)
+            # barcodes look like:  HR01335049, or 1001654853
+            # regexp pattern:  3 letter-or-digits, 7 digits
+            next unless t876['x'].match(/^\w{3}\d{7}$/)
             bound_withs << { item_id: t876['a'], enum_chron: (t876['3'] || ''), barcode: t876['x'] }
           end
         end
