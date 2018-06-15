@@ -139,7 +139,7 @@ module Clio
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins 'localhost', /https*:\/\/.*?columbia\.edu/
-        resource '/best-bets.json', headers: :any, methods: [:get, :post, :options]
+        resource '*', headers: :any, methods: [:get, :post, :options]
       end
     end
 
