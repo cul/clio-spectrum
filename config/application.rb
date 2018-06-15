@@ -134,5 +134,14 @@ module Clio
 
     # Set a default.  This'll be set to true in per-environment files.
     config.eager_load = true
+
+    # Access-Control-Allow-Origin
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'localhost', /https*:\/\/.*?columbia\.edu/
+        resource '/best-bets.json', headers: :any, methods: [:get, :post, :options]
+      end
+    end
+
   end
 end

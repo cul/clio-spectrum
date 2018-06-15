@@ -150,6 +150,9 @@ gem 'jbuilder'
 # Typeahead - for Best Bets, etc.
 gem 'twitter-typeahead-rails'
 
+# Cross-Origin Resource Sharing for Best Bets JSON
+gem 'rack-cors', require: 'rack/cors'
+
 # To build slugs for saved-list URLs
 gem 'stringex'
 
