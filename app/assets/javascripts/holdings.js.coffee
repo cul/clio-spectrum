@@ -20,9 +20,11 @@ $ ->
     onsite  = res.data('onsite')
     offsite = res.data('offsite')
 
-    if source == 'academic_commons'
-      fedora_items.push(item_id)
-    else if source == 'catalog'
+    # Nope - no more real-time lookup of fedora attached assets
+    # if source == 'academic_commons'
+    #   fedora_items.push(item_id)
+    # else if source == 'catalog'
+    if source == 'catalog'
       # exclude Law records from the catalog holdings check
       # (but leave them in standard_id_set_csv, for Google, et.al.)
       # if $.isNumeric(item_id)
@@ -37,8 +39,9 @@ $ ->
       if (standard_id_set_csv)
         standard_id_sets.push(standard_id_set_csv)
 
-  if fedora_items.length
-    retrieve_fedora_resources(fedora_items)
+  # Nope - no more real-time lookup of fedora attached assets
+  # if fedora_items.length
+  #   retrieve_fedora_resources(fedora_items)
 
   if onsite_catalog_items.length
     retrieve_holdings(onsite_catalog_items)
@@ -88,32 +91,32 @@ $ ->
         $('.hathi_holdings_error').show()
         $('#hathi_holdings').show()
 
-
-@retrieve_fedora_resources = (fedora_ids) ->
-  url = clio_backend_url + '/fedora/resources/' + fedora_ids.join('/');
-
-  $.getJSON url, (data) ->
-    for fedora_id, resources of data
-      fedora_selector = '.fedora_' + fedora_id.replace(':','')
-      $(fedora_selector).html('')
-      first_resource = true
-
-      # fix for NEXT-945 - Fedora non-PDF downloadable objects are given the PDF icon
-      format_icons = [ "pdf", "ppt", "doc", "mp3", "mp4"]
-
-      for i, resource of resources
-        first_resource = false
-        icon = "default"
-        filename = resource['filename']
-        if filename && filename.length > 3
-          extension = filename.substr(filename.length - 3).toLowerCase()
-          if $.inArray(extension, format_icons) >= 0
-            icon = extension
-        txt = '<div class="entry"><img src="/static-icons/' + icon + '.png" width="16" height="16"/> <a href="' + resource['download_path'] + '">' + resource['filename'] + '</a></div>'
-        $(fedora_selector).append(txt)
-
-      if first_resource
-        $(fedora_selector).html('No downloads found for this item.')
+# Nope - no more real-time lookup of fedora attached assets
+# @retrieve_fedora_resources = (fedora_ids) ->
+#   url = clio_backend_url + '/fedora/resources/' + fedora_ids.join('/');
+# 
+#   $.getJSON url, (data) ->
+#     for fedora_id, resources of data
+#       fedora_selector = '.fedora_' + fedora_id.replace(':','')
+#       $(fedora_selector).html('')
+#       first_resource = true
+# 
+#       # fix for NEXT-945 - Fedora non-PDF downloadable objects are given the PDF icon
+#       format_icons = [ "pdf", "ppt", "doc", "mp3", "mp4"]
+# 
+#       for i, resource of resources
+#         first_resource = false
+#         icon = "default"
+#         filename = resource['filename']
+#         if filename && filename.length > 3
+#           extension = filename.substr(filename.length - 3).toLowerCase()
+#           if $.inArray(extension, format_icons) >= 0
+#             icon = extension
+#         txt = '<div class="entry"><img src="/static-icons/' + icon + '.png" width="16" height="16"/> <a href="' + resource['download_path'] + '">' + resource['filename'] + '</a></div>'
+#         $(fedora_selector).append(txt)
+# 
+#       if first_resource
+#         $(fedora_selector).html('No downloads found for this item.')
 
 
 @retrieve_holdings = (bibids) ->
