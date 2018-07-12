@@ -228,8 +228,8 @@ group :test do
   # Copy Stanford's approach to Solr relevancy testing
   gem 'rspec-solr'
 
-  # pin to old version, or go with newest?
-  gem 'capybara'
+  # pin to 2.x to avoid having to install/use puma
+  gem 'capybara', '~>2.0'
 
   # Which Capybara driver for JS support?
   gem 'capybara-webkit'
