@@ -12,16 +12,16 @@ describe 'Anchored searches', :skip_travis do
 
     [q1, q2, q3, q4].each { |q|
       resp = solr_resp_doc_ids_only(q: "#{starts_with}#{q}")
-      expect(rank(resp, 6613582)).to be <= 5
-      expect(rank(resp, 8364149)).to be <= 5
-      expect(rank(resp, 10026137)).to be <= 5
-      expect(rank(resp, 12824250)).to be <= 5
+      expect(rank(resp, 6613582)).to be <= 6
+      expect(rank(resp, 8364149)).to be <= 6
+      expect(rank(resp, 10026137)).to be <= 6
+      expect(rank(resp, 12824250)).to be <= 6
 
       # NOT:  "Wills hospital eye manual for nurses"
       expect(rank(resp, 4019811)).to be > 3
 
       # If we ever get more in our catalog, bump this up.
-      expect(resp.size).to be <= 5
+      expect(resp.size).to be <= 6
     }
 
   end

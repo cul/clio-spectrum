@@ -79,9 +79,9 @@ describe 'New Arrivals Search', :vcr => {:match_requests_on => [:method, VCR.req
 
     find('#search_info a', text: 'Next').click
 
-    expect(find('#search_info')).to have_text '2 of '
     expect(page).to have_css('#search_info a', text: 'Previous')
     expect(page).to have_css('#search_info a', text: 'Next')
+    expect(find('#search_info')).to have_text '2 of '
 
     find('#search_info a', text: 'Previous').click
 
