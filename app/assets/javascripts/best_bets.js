@@ -3,18 +3,19 @@ $(document).ready(function() {
 
   // retrieve data embedded on page
   var best_bets_url = $('#best_bets').data('url')
-  var q = $('#best_bets').data('query')
 
-  // build Best Bets panel
-  if (typeof(q) != 'undefined'  &&  q.length > 2) {
-    $.get('/best_bets/hits?q=' + q, function(data) {
-      if (data.length > 0) {
-        $('#best_bets_hits').append("<em class='small'>top suggestions...</em>");
-        $('#best_bets_hits').append(data);
-        $('#best_bets_hits').slideDown(1000);
-      };
-    });
-  };
+  // NEXT-1499 - "drop down, no panel"
+  // // build Best Bets panel
+  // var q = $('#best_bets').data('query')
+  // if (typeof(q) != 'undefined'  &&  q.length > 2) {
+  //   $.get('/best_bets/hits?q=' + q, function(data) {
+  //     if (data.length > 0) {
+  //       $('#best_bets_hits').append("<em class='small'>top suggestions...</em>");
+  //       $('#best_bets_hits').append(data);
+  //       $('#best_bets_hits').slideDown(1000);
+  //     };
+  //   });
+  // };
 
   // build Best Bets typeahead
   if (typeof(best_bets_url) != 'undefined') {
