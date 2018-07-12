@@ -24,8 +24,7 @@
       
           = render :partial=>'/layouts/messages'
 
-          -# NEXT-1499 - "drop down, no panel"
-          -# = render '/layouts/best_bets' if APP_CONFIG['best_bets'].present?
+          = render '/layouts/best_bets' if APP_CONFIG['best_bets'].present?
 
           = yield
 
