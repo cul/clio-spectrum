@@ -1,5 +1,13 @@
 class BestBetsController < ApplicationController
+
+  before_action :authenticate_user!, except: [ :index ]
+  before_action :confirm_best_bets_admin!, except: [ :index ]
+
   before_action :set_best_bet, only: [:show, :edit, :update, :destroy]
+
+  before_action { @debug_mode = false }
+
+  layout 'no_sidebar'
 
   def hits
     q = params['q']
@@ -87,5 +95,9 @@ class BestBetsController < ApplicationController
       params.require(:best_bet).permit(:title, :url, :description, :keywords)
     end
 
+    def confirm_best_bets_admin!
+      return redirect_to(root_path) unless current_user
+      return redirect_to(root_path) unless current_user.has_role?('item_alerts', 'manage')
+    end
 
 end

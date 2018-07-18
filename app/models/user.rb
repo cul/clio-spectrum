@@ -31,7 +31,7 @@ class User < ApplicationRecord
   end
 
   def has_role?(area, role, admin_okay = true)
-    login.in?(PERMISSIONS_CONFIG[area][role]) ||
+    login && login.in?(PERMISSIONS_CONFIG[area][role]) ||
       (admin_okay && self.admin?)
   end
 

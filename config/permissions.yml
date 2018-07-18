@@ -24,6 +24,14 @@ site:
     - shs4
     - witte
 
+best_bets:
+  manage:
+    - bar2147
+    - bw12
+    - cak2158
+    - cjc2260
+    - rc13
+
 item_alerts:
   manage:
       - aj204

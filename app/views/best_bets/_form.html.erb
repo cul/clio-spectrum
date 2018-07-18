@@ -11,24 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :best_bet_title %>
+  <div class="field form-group">
+    <%= form.label :title, class: 'col-sm-2 control-label'  %>
+    <%= form.text_field :title, id: :best_bet_title, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :url %>
-    <%= form.text_field :url, id: :best_bet_url %>
+  <div class="field form-group">
+    <%= form.label :url, class: 'col-sm-2 control-label' %>
+    <%= form.text_field :url, id: :best_bet_url, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :best_bet_description %>
+  <div class="field form-group">
+    <%= form.label :description, class: 'col-sm-2 control-label' %>
+    <%= form.text_area :description, id: :best_bet_description, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :keywords %>
-    <%= form.text_area :keywords, id: :best_bet_keywords %>
+  <div class="field form-group">
+    <%= form.label :keywords, class: 'col-sm-2 control-label' %>
+    <%= form.text_area :keywords, id: :best_bet_keywords, class: 'form-control' %>
   </div>
 
   <div class="actions">
