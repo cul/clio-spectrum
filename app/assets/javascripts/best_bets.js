@@ -91,12 +91,15 @@ $(document).ready(function() {
 
   }  );
 
-  // CURSORCHANGE - DON'T REPLACE USER INPUT WITH TT HINT VALUE
+  // CURSORCHANGE (up/down within suggestion list) 
+  // - DON'T REPLACE USER INPUT WITH TT HINT VALUE
   $('.best_bets_typeahead').bind('typeahead:cursorchange', function(ev, suggestion) {
-    // console.log('>> typeahead:cursorchange'); 
+    console.log('>> typeahead:cursorchange'); 
     // console.log(ev);
     // console.log("val is now set to:" + $(this).typeahead('val')  );
     // console.log("ev.target.value is now set to:" + ev.target.value);
+    
+    // reset the input box value with the original value (not the suggestion)
     ev.target.value = $(this).typeahead('val');
   });
 
@@ -114,9 +117,15 @@ $(document).ready(function() {
   // $('.best_bets_typeahead').bind('typeahead:close', function(ev, suggestion) {
   //   console.log('>> typeahead:close'); 
   // });
-  // $('.best_bets_typeahead').bind('typeahead:active', function(ev, suggestion) {  console.log('>> typeahead:active'); });
-  // $('.best_bets_typeahead').bind('typeahead:open', function(ev, suggestion) {  console.log('>> typeahead:open'); });
-  // $('.best_bets_typeahead').bind('typeahead:change', function(ev, suggestion) {  console.log('>> typeahead:change'); });
+  $('.best_bets_typeahead').bind('typeahead:active', function(ev, suggestion) {
+    console.log('>> typeahead:active');
+    ev.preventDefault();
+  });
+
+  $('.best_bets_typeahead').bind('typeahead:open', function(ev, suggestion) {  console.log('>> typeahead:open'); });
+
+  $('.best_bets_typeahead').bind('typeahead:change', function(ev, suggestion) {  console.log('>> typeahead:change'); });
+
   // $('.best_bets_typeahead').bind('typeahead:render', function(ev, suggestion) {  console.log('>> typeahead:render'); });
   // $('.best_bets_typeahead').bind('typeahead:autocomplete', function(ev, suggestion) {  console.log('>> typeahead:autocomplete'); });
   // $('.best_bets_typeahead').bind('blurred', function(ev, suggestion) {  console.log('>> blurred'); });
