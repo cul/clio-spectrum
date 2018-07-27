@@ -24,9 +24,11 @@ $(document).ready(function() {
     var bestBets = new Bloodhound({
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       // Look for the query value in any of the list of fields
-      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title', 'description', 'keywords'),
+      // datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title', 'description', 'keywords'),
       // or search a single concattenated field?
       // datumTokenizer: Bloodhound.tokenizers.obj.whitespace( 'haystack' ),
+      // Nope, now they only want Title and Keywords
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title', 'keywords'),
 
       prefetch: {
         url: best_bets_url,
@@ -126,11 +128,11 @@ $(document).ready(function() {
     var title = "<span>" + data.title + "</span>\n";
     var description = "";
     if (typeof(data.description) != 'undefined' && data.description.length > 0) {
-      var description = "<span class='Xsmall'> - " + data.description + "</span>\n";
+      var description = "<span> - " + data.description + "</span>\n";
     }
     var url   = "";
     if (typeof(data.url) != 'undefined' && data.url.length > 0) {
-      url = "<br><a href='" + data.url + "' class='Xsmall'>" + data.url + "</a>\n";
+      url = "<br><a href='" + data.url + "'>" + data.url + "</a>\n";
     }
     var snippet = "<div class='best-bets-snippet'>\n" + title + description + "\n" + url + "</div>\n";
     return snippet;
