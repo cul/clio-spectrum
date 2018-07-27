@@ -46,13 +46,15 @@ $(document).ready(function() {
 
     // (2) build the user interface
     $('.best_bets_typeahead').typeahead(
-      { minLength: 2,
+      { 
+        // How many typed characters trigger Best Bets suggestions?
+        minLength: 4,
         hint: false,
       }, 
-      {  name: 'best-bets',
+      {  
+        name: 'best-bets',
         source: bestBets,
         templates: {
-          // header: '<h4>Best Bets</h4>',
           suggestion: function (data) {
             snippet = buildSnippet(data);
             return snippet;
