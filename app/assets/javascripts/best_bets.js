@@ -30,6 +30,13 @@ $(document).ready(function() {
       // Nope, now they only want Title and Keywords
       datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title', 'keywords'),
 
+      // Sort suggestions by their Title field, alphabetically
+      sorter: function (a, b) { 
+        var comp = a.title.localeCompare(b.title); 
+        // console.log("compare/" + a.title + "/" + b.title + "/" + comp);
+        return comp;
+      },
+
       prefetch: {
         url: best_bets_url,
         cache: false,
@@ -48,10 +55,10 @@ $(document).ready(function() {
     $('.best_bets_typeahead').typeahead(
       { 
         // How many typed characters trigger Best Bets suggestions?
-        minLength: 4,
+        minLength: 3,
         hint: false,
       }, 
-      {  
+      { 
         name: 'best-bets',
         source: bestBets,
         templates: {
@@ -60,6 +67,8 @@ $(document).ready(function() {
             return snippet;
           },
         },
+        // How many best-bet suggestions should be displayed?
+        limit: 7,
         display: 'title',
       }
     );
