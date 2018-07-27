@@ -32,9 +32,12 @@ $(document).ready(function() {
 
       // Sort suggestions by their Title field, alphabetically
       sorter: function (a, b) { 
-        var comp = a.title.localeCompare(b.title); 
-        // console.log("compare/" + a.title + "/" + b.title + "/" + comp);
-        return comp;
+        var stopwords = ['a', 'an', 'the'];
+        var stripper = new RegExp('\\b('+stopwords.join('|')+')\\b', 'ig')
+        var titleA = a.title.replace(stripper, '').trim();
+        var titleB = b.title.replace(stripper, '').trim();
+        var comparison = titleA.localeCompare(titleB); 
+        return comparison;
       },
 
       prefetch: {
