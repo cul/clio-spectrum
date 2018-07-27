@@ -28,7 +28,10 @@ $(document).ready(function() {
       // or search a single concattenated field?
       // datumTokenizer: Bloodhound.tokenizers.obj.whitespace( 'haystack' ),
       // Nope, now they only want Title and Keywords
-      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title', 'keywords'),
+      // datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title', 'keywords'),
+      // Nope.  The librarians need absolute control, so don't search on
+      // what the user sees at all, only on the managed key search terms.
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('keywords'),
 
       // Sort suggestions by their Title field, alphabetically
       sorter: function (a, b) { 
