@@ -1,21 +1,28 @@
 
-$(document).ready(function() {
+// $('.best_bets_typeahead').onInput = function() {
+//   alert('Edit to input field');
+// };
+
+$('.best_bets_typeahead').on("input", function(e) {
+
+
+  inputBox = e.target;
+
+  if (inputBox.classList.contains('tt-input')) {
+    // alert('tt-input already');
+    return;
+  }else {
+    // alert('no tt-input, adding...');
+  };
+  
+
+//   alert('try two');
+// });
+// 
+// $(document).ready(function() {
 
   // retrieve data embedded on page
   var best_bets_url = $('#best_bets').data('url')
-
-  // NEXT-1499 - "drop down, no panel"
-  // // build Best Bets panel
-  // var q = $('#best_bets').data('query')
-  // if (typeof(q) != 'undefined'  &&  q.length > 2) {
-  //   $.get('/best_bets/hits?q=' + q, function(data) {
-  //     if (data.length > 0) {
-  //       $('#best_bets_hits').append("<em class='small'>top suggestions...</em>");
-  //       $('#best_bets_hits').append(data);
-  //       $('#best_bets_hits').slideDown(1000);
-  //     };
-  //   });
-  // };
 
   // build Best Bets typeahead
   if (typeof(best_bets_url) != 'undefined') {
@@ -54,7 +61,6 @@ $(document).ready(function() {
       // local: [{title: 'dog'}, {title: 'pig'}, {title: 'moose'}],
     });
 
-    // bestBets.initialize(true);
 
 
     // (2) build the user interface
@@ -65,9 +71,9 @@ $(document).ready(function() {
         hint: false,
       }, 
       { 
-        name: 'best-bets',
-        source: bestBets,
-        templates: {
+         name: 'best-bets',
+         source: bestBets,
+         templates: {
           suggestion: function (data) {
             snippet = buildSnippet(data);
             return snippet;
@@ -78,75 +84,80 @@ $(document).ready(function() {
         display: 'title',
       }
     );
+
+    // SELECT - OPEN URL IN NEW WINDOW
+    $('.best_bets_typeahead').bind('typeahead:select', function(ev, suggestion) { 
+
+      // console.log('>> typeahead:select triggered'); 
+      // console.log("val is now set to:" + $(this).typeahead('val')  );
+      // console.log("ev.target.value is now set to:" + ev.target.value);
+      // console.log("ev.target.saved_value is now set to:" + ev.target.saved_value);
+      // console.log(suggestion);
+
+      // $(this).typeahead('val', ev.target.saved_value);
+      // ev.target.value = ev.target.saved_value
+
+      // if user has decided to use a best-best (click/enter), then...
+      if ('url' in suggestion && suggestion.url.length > 0) {
+        // (1) clear out the input field
+        $(this).typeahead('val', '');
+        // (2) jump to the URL in a new window
+        window.open(suggestion.url, '_blank');
+      }
+    
+      // console.log("** manually closing typeahead **")
+      // $(this).typeahead('close');
+      // console.log("** done **")
+
+    }  );
+
+    // CURSORCHANGE (up/down within suggestion list) 
+    // - DON'T REPLACE USER INPUT WITH TT HINT VALUE
+    $('.best_bets_typeahead').bind('typeahead:cursorchange', function(ev, suggestion) {
+      console.log('>> typeahead:cursorchange'); 
+      // console.log(ev);
+      // console.log("val is now set to:" + $(this).typeahead('val')  );
+      // console.log("ev.target.value is now set to:" + ev.target.value);
+    
+      // reset the input box value with the original value (not the suggestion)
+      ev.target.value = $(this).typeahead('val');
+    });
+
+
+    // Experiments w/saving user's input before TT replaces it.
+    // $('.best_bets_typeahead').bind('typeahead:beforeselect', function(ev, suggestion) { 
+    //   console.log('>> typeahead:beforeselect triggered'); 
+    //   console.log("val is now set to:" + $(this).typeahead('val')  );
+    //   console.log("ev.target.value is now set to:" + ev.target.value);
+    //   ev.target.saved_value = ev.target.value;
+    // }  );
+
+
+    // DEBUGGING
+    // $('.best_bets_typeahead').bind('typeahead:close', function(ev, suggestion) {
+    //   console.log('>> typeahead:close'); 
+    // });
+    $('.best_bets_typeahead').bind('typeahead:active', function(ev, suggestion) {
+      console.log('>> typeahead:active');
+      ev.preventDefault();
+    });
+
+    $('.best_bets_typeahead').bind('typeahead:open', function(ev, suggestion) {  console.log('>> typeahead:open'); });
+
+    $('.best_bets_typeahead').bind('typeahead:change', function(ev, suggestion) {  console.log('>> typeahead:change'); });
+
+    // $('.best_bets_typeahead').bind('typeahead:render', function(ev, suggestion) {  console.log('>> typeahead:render'); });
+    // $('.best_bets_typeahead').bind('typeahead:autocomplete', function(ev, suggestion) {  console.log('>> typeahead:autocomplete'); });
+    // $('.best_bets_typeahead').bind('blurred', function(ev, suggestion) {  console.log('>> blurred'); });
+    // $('.best_bets_typeahead').bind('typeahead:onBlurred', function(ev, suggestion) {  console.log('>> typeahead:onBlurred'); });
+    // $('.best_bets_typeahead').bind('typeahead:_onBlurred', function(ev, suggestion) {  console.log('>> typeahead:_onBlurred'); });
+
+    // Initializing the Typeahead looses element focus
+    setTimeout(function(){
+        $('.best_bets_typeahead.tt-input').focus();
+    }, 250);
+
   }
-
-  // SELECT - OPEN URL IN NEW WINDOW
-  $('.best_bets_typeahead').bind('typeahead:select', function(ev, suggestion) { 
-
-    // console.log('>> typeahead:select triggered'); 
-    // console.log("val is now set to:" + $(this).typeahead('val')  );
-    // console.log("ev.target.value is now set to:" + ev.target.value);
-    // console.log("ev.target.saved_value is now set to:" + ev.target.saved_value);
-    // console.log(suggestion);
-
-    // $(this).typeahead('val', ev.target.saved_value);
-    // ev.target.value = ev.target.saved_value
-
-    // if user has decided to use a best-best (click/enter), then...
-    if ('url' in suggestion && suggestion.url.length > 0) {
-      // (1) clear out the input field
-      $(this).typeahead('val', '');
-      // (2) jump to the URL in a new window
-      window.open(suggestion.url, '_blank');
-    }
-    
-    // console.log("** manually closing typeahead **")
-    // $(this).typeahead('close');
-    // console.log("** done **")
-
-  }  );
-
-  // CURSORCHANGE (up/down within suggestion list) 
-  // - DON'T REPLACE USER INPUT WITH TT HINT VALUE
-  $('.best_bets_typeahead').bind('typeahead:cursorchange', function(ev, suggestion) {
-    console.log('>> typeahead:cursorchange'); 
-    // console.log(ev);
-    // console.log("val is now set to:" + $(this).typeahead('val')  );
-    // console.log("ev.target.value is now set to:" + ev.target.value);
-    
-    // reset the input box value with the original value (not the suggestion)
-    ev.target.value = $(this).typeahead('val');
-  });
-
-
-  // Experiments w/saving user's input before TT replaces it.
-  // $('.best_bets_typeahead').bind('typeahead:beforeselect', function(ev, suggestion) { 
-  //   console.log('>> typeahead:beforeselect triggered'); 
-  //   console.log("val is now set to:" + $(this).typeahead('val')  );
-  //   console.log("ev.target.value is now set to:" + ev.target.value);
-  //   ev.target.saved_value = ev.target.value;
-  // }  );
-
-
-  // DEBUGGING
-  // $('.best_bets_typeahead').bind('typeahead:close', function(ev, suggestion) {
-  //   console.log('>> typeahead:close'); 
-  // });
-  $('.best_bets_typeahead').bind('typeahead:active', function(ev, suggestion) {
-    console.log('>> typeahead:active');
-    ev.preventDefault();
-  });
-
-  $('.best_bets_typeahead').bind('typeahead:open', function(ev, suggestion) {  console.log('>> typeahead:open'); });
-
-  $('.best_bets_typeahead').bind('typeahead:change', function(ev, suggestion) {  console.log('>> typeahead:change'); });
-
-  // $('.best_bets_typeahead').bind('typeahead:render', function(ev, suggestion) {  console.log('>> typeahead:render'); });
-  // $('.best_bets_typeahead').bind('typeahead:autocomplete', function(ev, suggestion) {  console.log('>> typeahead:autocomplete'); });
-  // $('.best_bets_typeahead').bind('blurred', function(ev, suggestion) {  console.log('>> blurred'); });
-  // $('.best_bets_typeahead').bind('typeahead:onBlurred', function(ev, suggestion) {  console.log('>> typeahead:onBlurred'); });
-  // $('.best_bets_typeahead').bind('typeahead:_onBlurred', function(ev, suggestion) {  console.log('>> typeahead:_onBlurred'); });
-
 
 
   // nice formatting of each best-bet suggestion
