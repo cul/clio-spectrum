@@ -169,7 +169,7 @@ $('.best_bets_typeahead').on("input", function(e) {
     }
     var url   = "";
     if (typeof(data.url) != 'undefined' && data.url.length > 0) {
-      url = "<br><a href='" + data.url + "'>" + data.url + "</a>\n";
+      url = "<br><a href='#'>" + data.url + "</a>\n";
     }
     var snippet = "<div class='best-bets-snippet'>\n" + title + description + "\n" + url + "</div>\n";
     return snippet;
