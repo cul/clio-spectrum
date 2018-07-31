@@ -86,10 +86,11 @@ $('.best_bets_typeahead').on("input", function(e) {
     // SELECT - OPEN URL IN NEW WINDOW
     $('.best_bets_typeahead').bind('typeahead:select', function(ev, suggestion) { 
       // console.log('>> typeahead:select triggered'); 
+      ev.preventDefault();
 
       var mouse_click = $( '.best_bets_typeahead' ).data( 'click' )
       // console.log("mouse_click:" +  mouse_click );
-      $( '.best_bets_typeahead' ).data( 'click', '' )
+      $( '.best_bets_typeahead' ).data( 'click', false )
 
       // if user has decided to use a best-best (click/enter), then...
       if ('url' in suggestion && suggestion.url.length > 0) {
@@ -98,12 +99,13 @@ $('.best_bets_typeahead').on("input", function(e) {
         
         // (2) jump to the URL in a new window
         // IF this is a Firefox Keyboard event...
-        console.log('one');
+        // console.log('one');
         if (navigator.userAgent.indexOf("Firefox") !== -1){
-          console.log('two: mouse_click=['+mouse_click+']');
-          if (mouse_click == undefined) {
-            console.log('three');
-            alert("Firefox, Keyboard");
+          // console.log('two: mouse_click=['+mouse_click+']');
+          if (mouse_click != true) {
+            // console.log('three');
+            // alert("Firefox, Keyboard");
+            bestBetModal(suggestion);
             return;
           };
         };
@@ -117,7 +119,7 @@ $('.best_bets_typeahead').on("input", function(e) {
     // CURSORCHANGE (up/down within suggestion list) 
     // - DON'T REPLACE USER INPUT WITH TT HINT VALUE
     $('.best_bets_typeahead').bind('typeahead:cursorchange', function(ev, suggestion) {
-      console.log('>> typeahead:cursorchange'); 
+      // console.log('>> typeahead:cursorchange'); 
     
       // reset the input box value with the original value (not the suggestion)
       ev.target.value = $(this).typeahead('val');
@@ -166,5 +168,45 @@ $('.best_bets_typeahead').on("input", function(e) {
     return snippet;
   };
 
+  function bestBetModal(suggestion) {
+    // Remove any previous best-bet modal...
+    // var old_modal = document.getElementById("best-bets-modal");
+    // if (old_modal != 'undefined') { old_modal.parentNode.removeChild(old_modal); } ;
+    
+    // Build the html for a modal form
+    var div = document.createElement('div');
+    div.setAttribute('class', 'modal fade');
+    div.setAttribute('id', 'best-bets-modal');
+    div.innerHTML = `
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+
+            <p>Follow link to resource:</p>
+
+            <form action="${suggestion.url}" target="_blank" onsubmit="$('#best-bets-modal').close();">
+              <input id="best_bets_goto" type="submit" value="${suggestion.url}" />
+            </form>
+
+            <p>Links will open in a new window.</p>
+
+          </div>
+        </div>
+      </div>
+    `;
+
+    // attach the HTML of the modal to the page
+    document.getElementById('outer-container').appendChild(div);
+
+    // open the modal
+    $('#best-bets-modal').modal();
+
+    // focus on the "go to" button on the modal
+    $('#best-bets-modal').on('shown.bs.modal', function () {
+      $('#best_bets_goto').focus()
+    })
+  }
+  
+  
 });
 
