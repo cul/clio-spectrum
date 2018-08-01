@@ -1,0 +1,22 @@
+<html>
+<head>
+
+<script type="text/javascript">
+  function redirect() {
+    url = decodeURIComponent(window.location.hash.substring(1));
+    window.location.replace(url);
+  }
+</script>
+
+</head>
+<body onLoad="redirect();">
+
+<script>
+  url = decodeURIComponent(window.location.hash.substring(1));
+  document.write('Redirecting to ');
+  document.write('<a href="' + url + '">' + url + '</a>');
+  document.write('...');
+</script>
+  
+</body>
+</html>

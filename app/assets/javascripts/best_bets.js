@@ -105,6 +105,7 @@ $('.best_bets_typeahead').on("input", function(e) {
       var mouse_click = $( '.best_bets_typeahead' ).data( 'click' )
       // console.log("mouse_click:" +  mouse_click );
       $( '.best_bets_typeahead' ).data( 'click', false )
+      // console.log("reset mouse_click:" +  $( '.best_bets_typeahead' ).data( 'click' ) );
 
       // if user has decided to use a best-best (click/enter), then...
       if ('url' in suggestion && suggestion.url.length > 0) {
@@ -183,44 +184,38 @@ $('.best_bets_typeahead').on("input", function(e) {
   };
 
   function bestBetModal(suggestion) {
-    // Remove any previous best-bet modal...
-    // var old_modal = document.getElementById("best-bets-modal");
-    // if (old_modal != 'undefined') { old_modal.parentNode.removeChild(old_modal); } ;
-
-    // Build the html for a modal form
-    var div = document.createElement('div');
-    div.setAttribute('class', 'modal fade');
-    div.setAttribute('id', 'best-bets-modal');
-    div.innerHTML = `
+    bounce_url = "/r.html#" + encodeURIComponent(suggestion.url);
+    
+    // Build the html for a bootstrap modal
+    modalDialog = `
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-body">
-
+    
             <p>Follow link to resource:</p>
-
-            <form action="${suggestion.url}" target="_blank" onsubmit="$('#best-bets-modal').close();">
+    
+            <form action="${bounce_url}" target="_blank" onsubmit="$('#best-bets-modal').close();">
               <input id="best_bets_goto" type="submit" value="${suggestion.url}" />
             </form>
-
+    
             <p>Links will open in a new window.</p>
-
+    
           </div>
         </div>
       </div>
     `;
-
+    
     // attach the HTML of the modal to the page
-    document.getElementById('outer-container').appendChild(div);
-
+    document.getElementById('best-bets-modal').innerHTML = modalDialog;
+    
     // open the modal
     $('#best-bets-modal').modal();
-
+    
     // focus on the "go to" button on the modal
     $('#best-bets-modal').on('shown.bs.modal', function () {
-      $('#best_bets_goto').focus()
+      $('#best_bets_goto').focus();
     })
   };
-
 
 
 });
