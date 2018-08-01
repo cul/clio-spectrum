@@ -32,19 +32,19 @@ $(document).ready(function() {
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('tokens'),
 
     // Sort suggestions by their Title field, alphabetically
-    sorter: function (a, b) { 
+    sorter: function (a, b) {
       var stopwords = ['a', 'an', 'the'];
       var stripper = new RegExp('\\b('+stopwords.join('|')+')\\b', 'ig')
       var titleA = a.title.replace(stripper, '').trim();
       var titleB = b.title.replace(stripper, '').trim();
-      var comparison = titleA.localeCompare(titleB); 
+      var comparison = titleA.localeCompare(titleB);
       return comparison;
     },
 
     prefetch: {
       url: best_bets_url,
-      // cache: false,
-      cache: true,
+      cache: false,
+      // cache: true,
       // "time in ms to cache, default 86400000 (1 day)" - doesn't work?
       // ttl: 1,
     }
@@ -68,7 +68,7 @@ $('.best_bets_typeahead').on("input", function(e) {
   } else {
     // alert('no tt-input, adding...');
   };
-  
+
   // retrieve data embedded on page
   var best_bets_url = $('#best_bets').data('url')
 
@@ -77,12 +77,12 @@ $('.best_bets_typeahead').on("input", function(e) {
 
     // (2) build the user interface
     $('.best_bets_typeahead').typeahead(
-      { 
+      {
         // How many typed characters trigger Best Bets suggestions?
         minLength: 3,
         hint: false,
-      }, 
-      { 
+      },
+      {
          name: 'best-bets',
          source: bestBetsBloodhound,
          templates: {
@@ -98,8 +98,8 @@ $('.best_bets_typeahead').on("input", function(e) {
     );
 
     // SELECT - OPEN URL IN NEW WINDOW
-    $('.best_bets_typeahead').bind('typeahead:select', function(ev, suggestion) { 
-      // console.log('>> typeahead:select triggered'); 
+    $('.best_bets_typeahead').bind('typeahead:select', function(ev, suggestion) {
+      // console.log('>> typeahead:select triggered');
       ev.preventDefault();
 
       var mouse_click = $( '.best_bets_typeahead' ).data( 'click' )
@@ -110,7 +110,7 @@ $('.best_bets_typeahead').on("input", function(e) {
       if ('url' in suggestion && suggestion.url.length > 0) {
         // (1) clear out the input field
         $(this).typeahead('val', '');
-        
+
         // (2) jump to the URL in a new window
         // IF this is a Firefox Keyboard event...
         // console.log('one');
@@ -123,18 +123,18 @@ $('.best_bets_typeahead').on("input", function(e) {
             return;
           };
         };
-        
+
         // ELSE, anything else, just a simple window.open
         window.open(suggestion.url, '_blank');
       }
-    
+
     }  );
 
-    // CURSORCHANGE (up/down within suggestion list) 
+    // CURSORCHANGE (up/down within suggestion list)
     // - DON'T REPLACE USER INPUT WITH TT HINT VALUE
     $('.best_bets_typeahead').bind('typeahead:cursorchange', function(ev, suggestion) {
-      // console.log('>> typeahead:cursorchange'); 
-    
+      // console.log('>> typeahead:cursorchange');
+
       // reset the input box value with the original value (not the suggestion)
       ev.target.value = $(this).typeahead('val');
     });
@@ -143,7 +143,7 @@ $('.best_bets_typeahead').on("input", function(e) {
 
     // DEBUGGING
     // $('.best_bets_typeahead').bind('typeahead:close', function(ev, suggestion) {
-    //   console.log('>> typeahead:close'); 
+    //   console.log('>> typeahead:close');
     // });
     // $('.best_bets_typeahead').bind('typeahead:active', function(ev, suggestion) {
     //   console.log('>> typeahead:active');
@@ -186,7 +186,7 @@ $('.best_bets_typeahead').on("input", function(e) {
     // Remove any previous best-bet modal...
     // var old_modal = document.getElementById("best-bets-modal");
     // if (old_modal != 'undefined') { old_modal.parentNode.removeChild(old_modal); } ;
-    
+
     // Build the html for a modal form
     var div = document.createElement('div');
     div.setAttribute('class', 'modal fade');
@@ -220,8 +220,8 @@ $('.best_bets_typeahead').on("input", function(e) {
       $('#best_bets_goto').focus()
     })
   };
-  
-  
-  
+
+
+
 });
 
