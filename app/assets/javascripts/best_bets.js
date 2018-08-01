@@ -13,7 +13,7 @@ $(document).ready(function() {
   // Custom tokenizer - elminate all spaces, break on commas
   function concatter(str) {
     tokens = str ? str.replace(/ /g, '').split(/\,/) : [];
-    console.log('inside concatter str=['+str+'] tokens=['+tokens+']');
+    // console.log('inside concatter str=['+str+'] tokens=['+tokens+']');
     return tokens;
     // return str ? str.replace(/ /g, '').split(/\,/) : [];
   };
@@ -27,9 +27,9 @@ $(document).ready(function() {
     // datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title', 'description', 'keywords'),
     // Nope.  The librarians need absolute control, so don't search on
     // what the user sees at all, only on the managed key search terms.
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('keywords'),
+    // datumTokenizer: Bloodhound.tokenizers.obj.whitespace('keywords'),
     // Use the pre-cooked "tokens" - split on commas, spaces removed
-    // datumTokenizer: Bloodhound.tokenizers.obj.whitespace('tokens'),
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('tokens'),
 
     // Sort suggestions by their Title field, alphabetically
     sorter: function (a, b) { 
