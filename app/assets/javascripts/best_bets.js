@@ -1,6 +1,7 @@
 
 var bestBetsBloodhound;
 
+
 $(document).ready(function() {
 
   // retrieve data embedded on page
@@ -9,14 +10,26 @@ $(document).ready(function() {
   // build Best Bets typeahead
   if (typeof(best_bets_url) == 'undefined') { return; }
 
+  // Custom tokenizer - elminate all spaces, break on commas
+  function concatter(str) {
+    tokens = str ? str.replace(/ /g, '').split(/\,/) : [];
+    console.log('inside concatter str=['+str+'] tokens=['+tokens+']');
+    return tokens;
+    // return str ? str.replace(/ /g, '').split(/\,/) : [];
+  };
+
   // (1) build the search engine
   bestBetsBloodhound = new Bloodhound({
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    // queryTokenizer: Bloodhound.tokenizers.whitespace,
+    queryTokenizer: concatter,
+
     // Look for the query value in any of the list of fields
     // datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title', 'description', 'keywords'),
     // Nope.  The librarians need absolute control, so don't search on
     // what the user sees at all, only on the managed key search terms.
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('keywords'),
+    // Use the pre-cooked "tokens" - split on commas, spaces removed
+    // datumTokenizer: Bloodhound.tokenizers.obj.whitespace('tokens'),
 
     // Sort suggestions by their Title field, alphabetically
     sorter: function (a, b) { 
@@ -30,6 +43,7 @@ $(document).ready(function() {
 
     prefetch: {
       url: best_bets_url,
+      // cache: false,
       cache: true,
       // "time in ms to cache, default 86400000 (1 day)" - doesn't work?
       // ttl: 1,
@@ -205,7 +219,8 @@ $('.best_bets_typeahead').on("input", function(e) {
     $('#best-bets-modal').on('shown.bs.modal', function () {
       $('#best_bets_goto').focus()
     })
-  }
+  };
+  
   
   
 });
