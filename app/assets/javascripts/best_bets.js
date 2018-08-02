@@ -51,7 +51,7 @@ $(document).ready(function() {
     // for testing....
     // local: ['dog', 'pig', 'moose'],
     // local: [{title: 'dog'}, {title: 'pig'}, {title: 'moose'}],
-  });
+  });  // new Bloodhound()
 
 });  // document.ready
 
@@ -95,7 +95,7 @@ $('.best_bets_typeahead').on("input", function(e) {
         limit: 7,
         display: 'title',
       }
-    );
+    );  // .typeahead()
 
     // SELECT - OPEN URL IN NEW WINDOW
     $('.best_bets_typeahead').bind('typeahead:select', function(ev, suggestion) {
@@ -160,7 +160,7 @@ $('.best_bets_typeahead').on("input", function(e) {
         $('.best_bets_typeahead.tt-input').focus();
     }, 1);
 
-  }
+  }  // if typeof(best_bets_url...
 
 
   // $('.best_bets_typeahead').bind('typeahead:beforeopen', function (event) {
@@ -183,40 +183,7 @@ $('.best_bets_typeahead').on("input", function(e) {
     return snippet;
   };
 
-  function bestBetModal(suggestion) {
-    bounce_url = "/r.html#" + encodeURIComponent(suggestion.url);
-    
-    // Build the html for a bootstrap modal
-    modalDialog = `
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-    
-            <p>Follow link to resource:</p>
-    
-            <form action="${bounce_url}" target="_blank" onsubmit="$('#best-bets-modal').close();">
-              <input id="best_bets_goto" type="submit" value="${suggestion.url}" />
-            </form>
-    
-            <p>Links will open in a new window.</p>
-    
-          </div>
-        </div>
-      </div>
-    `;
-    
-    // attach the HTML of the modal to the page
-    document.getElementById('best-bets-modal').innerHTML = modalDialog;
-    
-    // open the modal
-    $('#best-bets-modal').modal();
-    
-    // focus on the "go to" button on the modal
-    $('#best-bets-modal').on('shown.bs.modal', function () {
-      $('#best_bets_goto').focus();
-    })
-  };
 
 
-});
+});  // .best_bets_typeahead').on("input"...
 

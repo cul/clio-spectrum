@@ -69,6 +69,8 @@
 //= require scroll_memory
 //= require preferences
 
+// capybara-webkit doesn't support ES6 syntax
+<% require_asset 'es6_bits' unless Rails.env.test? %>
 
 
 
