@@ -79,7 +79,7 @@ module SearchHelper
 
       # BASIC SEARCH INPUT BOX
       classes = 'search_q form-control'
-      classes = "#{classes} best_bets_typeahead" if APP_CONFIG['best_bets'].present?
+      classes = "#{classes} best-bets-typeahead" if APP_CONFIG['best_bets'].present?
       result += text_field_tag(:q,
                                search_params[:q] || '',
                                class: "#{classes}",

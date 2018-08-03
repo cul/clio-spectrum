@@ -58,7 +58,7 @@ $(document).ready(function() {
 
 
 
-$('.best_bets_typeahead').on("input", function(e) {
+$('.best-bets-typeahead').on("input", function(e) {
 
   inputBox = e.target;
 
@@ -76,7 +76,7 @@ $('.best_bets_typeahead').on("input", function(e) {
   if (typeof(best_bets_url) != 'undefined') {
 
     // (2) build the user interface
-    $('.best_bets_typeahead').typeahead(
+    $('.best-bets-typeahead').typeahead(
       {
         // How many typed characters trigger Best Bets suggestions?
         minLength: 3,
@@ -98,14 +98,14 @@ $('.best_bets_typeahead').on("input", function(e) {
     );  // .typeahead()
 
     // SELECT - OPEN URL IN NEW WINDOW
-    $('.best_bets_typeahead').bind('typeahead:select', function(ev, suggestion) {
+    $('.best-bets-typeahead').bind('typeahead:select', function(ev, suggestion) {
       // console.log('>> typeahead:select triggered');
       ev.preventDefault();
 
-      var mouse_click = $( '.best_bets_typeahead' ).data( 'click' )
+      var mouse_click = $( '.best-bets-typeahead' ).data( 'click' )
       // console.log("mouse_click:" +  mouse_click );
-      $( '.best_bets_typeahead' ).data( 'click', false )
-      // console.log("reset mouse_click:" +  $( '.best_bets_typeahead' ).data( 'click' ) );
+      $( '.best-bets-typeahead' ).data( 'click', false )
+      // console.log("reset mouse_click:" +  $( '.best-bets-typeahead' ).data( 'click' ) );
 
       // if user has decided to use a best-best (click/enter), then...
       if ('url' in suggestion && suggestion.url.length > 0) {
@@ -133,7 +133,7 @@ $('.best_bets_typeahead').on("input", function(e) {
 
     // CURSORCHANGE (up/down within suggestion list)
     // - DON'T REPLACE USER INPUT WITH TT HINT VALUE
-    $('.best_bets_typeahead').bind('typeahead:cursorchange', function(ev, suggestion) {
+    $('.best-bets-typeahead').bind('typeahead:cursorchange', function(ev, suggestion) {
       // console.log('>> typeahead:cursorchange');
 
       // reset the input box value with the original value (not the suggestion)
@@ -143,34 +143,34 @@ $('.best_bets_typeahead').on("input", function(e) {
 
 
     // DEBUGGING
-    // $('.best_bets_typeahead').bind('typeahead:close', function(ev, suggestion) {
+    // $('.best-bets-typeahead').bind('typeahead:close', function(ev, suggestion) {
     //   console.log('>> typeahead:close');
     // });
-    // $('.best_bets_typeahead').bind('typeahead:active', function(ev, suggestion) {
+    // $('.best-bets-typeahead').bind('typeahead:active', function(ev, suggestion) {
     //   console.log('>> typeahead:active');
     //   ev.preventDefault();
     // });
 
-    // $('.best_bets_typeahead').bind('typeahead:open', function(ev, suggestion) {  console.log('>> typeahead:open'); });
-    // $('.best_bets_typeahead').bind('typeahead:change', function(ev, suggestion) {  console.log('>> typeahead:change'); });
+    // $('.best-bets-typeahead').bind('typeahead:open', function(ev, suggestion) {  console.log('>> typeahead:open'); });
+    // $('.best-bets-typeahead').bind('typeahead:change', function(ev, suggestion) {  console.log('>> typeahead:change'); });
 
 
     // Initializing the Typeahead looses element focus
     setTimeout(function(){
-        $('.best_bets_typeahead.tt-input').focus();
+        $('.best-bets-typeahead.tt-input').focus();
     }, 1);
 
   }  // if typeof(best_bets_url...
 
 
-  // $('.best_bets_typeahead').bind('typeahead:beforeopen', function (event) {
+  // $('.best-bets-typeahead').bind('typeahead:beforeopen', function (event) {
   //     event.preventDefault();
   // });
 
 
   // nice formatting of each best-bet suggestion
   function buildSnippet(data) {
-    var title = "<span>" + data.title + "</span>\n";
+    var title = "<span class='best-bets-title'>" + data.title + "</span>\n";
     var description = "";
     if (typeof(data.description) != 'undefined' && data.description.length > 0) {
       var description = "<span> - " + data.description + "</span>\n";
@@ -179,11 +179,11 @@ $('.best_bets_typeahead').on("input", function(e) {
     if (typeof(data.url) != 'undefined' && data.url.length > 0) {
       url = "<br><a href='#'>" + data.url + "</a>\n";
     }
-    var snippet = "<div class='best-bets-snippet' onclick='$(\".best_bets_typeahead\").data(\"click\",true);'>\n" + title + description + "\n" + url + "</div>\n";
+    var snippet = "<div class='best-bets-snippet' onclick='$(\".best-bets-typeahead\").data(\"click\",true);'>\n" + title + description + "\n" + url + "</div>\n";
     return snippet;
   };
 
 
 
-});  // .best_bets_typeahead').on("input"...
+});  // .best-bets-typeahead').on("input"...
 
