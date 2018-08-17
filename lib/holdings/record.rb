@@ -531,6 +531,10 @@ module Voyager
         else
         end
 
+        if location_code == APP_CONFIG['barnard_offsite_location']
+          services << 'barnard_offsite'
+        end
+
         # cleanup the list
         services = services.flatten.uniq
 
@@ -556,12 +560,13 @@ module Voyager
           services.delete('ill')
         end
 
-        # TESTING new Borrow Direct rules in non-prod environments
-        if ['clio_test', 'clio_dev', 'development'].include? Rails.env
-          if services.include?('borrow_direct')
-            services << 'borrow_direct_test'
-          end
-        end
+        # 8/2018 - not being actively tested, turn this off
+        # # TESTING new Borrow Direct rules in non-prod environments
+        # if ['clio_test', 'clio_dev', 'development'].include? Rails.env
+        #   if services.include?('borrow_direct')
+        #     services << 'borrow_direct_test'
+        #   end
+        # end
 
         # # We don't know how to recall PUL or NYPL ReCAP items
         # if ['scsbpul', 'scsbnypl'].include?(location_code)
