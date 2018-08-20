@@ -32,7 +32,22 @@ class BackendController < ApplicationController
 
   # Need to support this kind of call:
   # @circ_status = BackendController.circ_status(params[:id])
-
+  # 
+  # The circ_status hash ("backend_results") looks like this (bib/holding(s)/item(s)):
+  # {
+  #   123: {
+  #     144: {
+  #       540: {
+  #         holdLocation: "",
+  #         itemLabel: "",
+  #         requestCount: 0,
+  #         statusCode: 1,
+  #         statusDate: "",
+  #         statusPatronMessage: ""
+  #       }
+  #     }
+  #   }
+  # }
   def self.circ_status(id)
     unless id.match(/^\d+$/)
       logger.error "BackendController#circ_status passed non-numeric id: #{id}"
@@ -83,7 +98,14 @@ class BackendController < ApplicationController
       institutionId, dash, bibliographicId = bibliographicId.partition('-')
     end
 
-    scsb_status = Recap::ScsbRest.get_bib_availability(bibliographicId, institutionId) || []
+    cache_minutes = APP_CONFIG['scsb']['cache_minutes'] || 0
+    expiry = cache_minutes * 60
+
+    scsb_status = Rails.cache.fetch("scsb_status:#{id}", expires_in: expiry) do
+      Recap::ScsbRest.get_bib_availability(bibliographicId, institutionId) || []
+    end
+
+    return scsb_status
   end
   
   # The SCSB status API returns an array looks like this:

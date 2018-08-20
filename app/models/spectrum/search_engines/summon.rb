@@ -54,19 +54,19 @@ module Spectrum
       SUMMON_DEFAULT_PARAMS = {
 
         'articles' =>  { 
-          's.ho' => 't',
+          's.ho' => 'f',
           # 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)'
           's.fvf' => ['ContentType, Newspaper Article,t']
         }.freeze,
 
         'summon_ebooks' => { 
-          's.ho' => 't',
+          's.ho' => 'f',
           's.cmd' => 'addFacetValueFilters(IsFullText, true)',
           's.fvf' => ['ContentType,eBook']
         }.freeze,
 
         'summon_dissertations' => {
-          's.ho' => 't',
+          's.ho' => 'f',
           's.fvf' => ['ContentType,Dissertation']
         }.freeze
       }.freeze

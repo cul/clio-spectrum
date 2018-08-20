@@ -145,32 +145,40 @@ module HoldingsHelper
 #    links.sort { |x,y| x.first <=> y.first }
   end
 
-  def self.valet_label()
-    APP_CONFIG['valet_label'] ||
-      'Offsite'
-  end
-  def valet_label()
-    HoldingsHelper.valet_label()
-  end
+  # def self.valet_label()
+  #   APP_CONFIG['valet_label'] ||
+  #     'Offsite'
+  # end
 
-  def self.valet_link(bib_id = '')
-    valet_url = APP_CONFIG['valet_link'] ||
-      "https://valet.cul.columbia.edu/offsite_requests/bib?bib_id="
-    return valet_url + bib_id
-  end
-  def valet_link(bib_id = '')
-    HoldingsHelper.valet_link(bib_id)
-  end
+  # def valet_label
+  #   # HoldingsHelper.valet_label()
+  #   APP_CONFIG['valet_label'] || 'Offsite'
+  # end
 
-  SERVICE_ORDER = %w(offsite_legacy offsite spec_coll precat on_order borrow_direct recall_hold ill ill_valet in_process doc_delivery)
+  # def self.valet_link(bib_id = '')
+  #   valet_url = APP_CONFIG['valet_link'] ||
+  #     "https://valet.cul.columbia.edu/offsite_requests/bib?bib_id="
+  #   return valet_url + bib_id
+  # end
+  # 
+  # def valet_link(bib_id = '')
+  #   HoldingsHelper.valet_link(bib_id)
+  # end
+  
 
-  # parameters: title, link (url or javascript)
-  SERVICES = {
-    # 'offsite_legacy' => ['Offsite',
-    #               'http://www.columbia.edu/cgi-bin/cul/offsite2?'],
+  SERVICE_ORDER = %w(offsite barnard_offsite spec_coll precat on_order borrow_direct borrow_direct_test recall_hold ill ill_valet in_process doc_delivery)
 
-    # 'offsite' => [ valet_label(), valet_link() ],
-    'offsite' => [ valet_label(), 'OpenValet', valet_link() ],
+  # parameters: title, link (url or javascript), optional extra param
+  # When 2nd param is a JS function, 
+  # that function will be called with two args: current bib-id and extra param
+  # SERVICES = {
+  def serviceConfig()
+    # just return a hash, the same as the constant did, but
+    # now we can call methods as we build the config.
+    {
+    'offsite' => [ 'Offsite', 'OpenURL', offsite_link() ],
+
+    'barnard_offsite' => [ 'Offsite', 'OpenURL', barnard_offsite_link() ],
 
     'spec_coll' => ['Special Collections',
                     'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
@@ -181,6 +189,9 @@ module HoldingsHelper
                    'OpenInprocessRequest'],
     'borrow_direct' => ['Borrow Direct',
                         'http://www.columbia.edu/cgi-bin/cul/borrowdirect?'],
+    # 'borrow_direct_test' => ['Borrow Direct [TEST]',
+    #                     'https://www1.columbia.edu/sec-cgi-bin/cul/bd/BDauth_test?'],
+
     'ill' => ['ILL',
               'https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?'],
     'ill_valet' => ['ILL (Valet)',
@@ -189,7 +200,8 @@ module HoldingsHelper
                      'OpenInprocessRequest'],
     'doc_delivery' => ['Scan & Deliver',
                        'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?']
-  }
+    }
+  end
 
   def service_links(services, clio_id)
     return [] unless services && clio_id
@@ -201,7 +213,8 @@ module HoldingsHelper
     end
 
     services.select { |svc| SERVICE_ORDER.index(svc) }.sort_by { |svc| SERVICE_ORDER.index(svc) }.map do |svc|
-      title, link, extra = SERVICES[svc]
+      # title, link, extra = SERVICES[svc]
+      title, link, extra = serviceConfig[svc]
       bibid = clio_id.to_s
       # URL services
       if link.match(/^http/)
@@ -467,6 +480,38 @@ module HoldingsHelper
     return location_link
   end
 
+
+  def offsite_link
+    valet_url = APP_CONFIG['valet_url'] || "https://valet.cul.columbia.edu"
+    return "#{valet_url}/offsite_requests/bib?bib_id="
+    
+    # APP_CONFIG['valet_link'] ||
+    #   "https://valet.cul.columbia.edu/offsite_requests/bib?bib_id="
+  end
+  
+  def barnard_offsite_link
+    valet_url = APP_CONFIG['valet_url'] || "https://valet.cul.columbia.edu"
+    return "#{valet_url}/barnard_offsite_requests/bib?bib_id="
+
+    # APP_CONFIG['valet_link'] ||
+    #   "https://valet.cul.columbia.edu/offsite_requests/bib?bib_id="
+  end
+
+  def offsite_bound_with_url(title, enum_chron, barcode)
+    return unless title.present? && barcode.present?
+
+    valet_url = APP_CONFIG['valet_url']
+    return unless valet_url.present?
+
+    params = {
+      barcode:             barcode,
+      wanted_title:        title.first,
+      wanted_enum_chron:   enum_chron
+    }
+    offsite_bound_with_url = "#{valet_url}/offsite_requests/barcode?#{params.to_query}"
+
+    return offsite_bound_with_url
+  end
 
 
 end

@@ -26,7 +26,7 @@ describe 'Summon Search Option Filter Settings', :vcr do
           expect(find('input.search_option_action')).to be_checked
         end
         within('.search_option', text: "Columbia's collection only") do
-          expect(find('input.search_option_action')).to be_checked
+          expect(find('input.search_option_action')).to_not be_checked
         end
       end
     end

@@ -110,8 +110,7 @@
               -# if HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + clio_id) == "1"
 
               -# Offsite requests via Valet
-              -# %li= link_to valet_label(), valet_link(clio_id), target: "_blank"
-              %li= link_to valet_label(), '#', :onclick => "OpenValet('#{clio_id}', '#{valet_link()}'); return false;"
+              %li= link_to 'Offsite', '#', :onclick => "OpenURL('#{clio_id}', '#{offsite_link()}'); return false;"
               
   
               %li= link_to "Item Feedback", "#", :onclick => "OpenItemFeedback('#{clio_id}'); return false;"

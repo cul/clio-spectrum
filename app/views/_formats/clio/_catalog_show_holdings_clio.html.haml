@@ -39,7 +39,13 @@
 
       -# Each 'copy' is a group of 1-or-more equivalent items (same call num, etc.)
       - entry['copies'].each do |copy|
+        -# ========  BEGIN COPY ========
         .copy
+          - if copy['use_restrictions'].present?
+            - copy['use_restrictions'].each do |use_restriction|
+              .use_restriction
+                %span.holdings_label Use Restriction: 
+                = use_restriction
           -# If there are any temp locations for this item, print them out
           - unless copy['temp_locations'].nil?
             - copy['temp_locations'].each do |temp_location|
@@ -53,6 +59,12 @@
               -# CLIO Backend will join multiple fields with this delimeter
               - message = message.gsub(/ -- /, '<br/>').html_safe
               .message=  message
+
+          -# Bound-With links
+          - if copy['bound_withs'].present?
+            -# partial needs title from document, location code from entry,
+            -# and bound-with details from copy.
+            = render 'catalog/bound_with', document: document, entry: entry, copy: copy
 
           -# Different 'items' with a 'copy' have varying statuses (Available, In-Transit, etc.)
           - copy['items'].each do |item|
@@ -76,6 +88,9 @@
                 .url_link
                   = image_tag "icons/online.png"
                   = link_to url_details["link_text"], url_details["url"]
+
+        -# ========  END COPY ========
+
 
       -# Service links for this entry (not for each copy)
       - unless (svc_links = service_links(entry['services'], @document.id)).empty?

@@ -1,7 +1,7 @@
 site:
   manage:
     # CLIO dev team
-    - gb8
+    - ak4338
     - sam119
     - slt0
     # SysAdmins
@@ -12,7 +12,7 @@ site:
   # for any pre-production features we want to play with
   pilot:
     # CLIO dev team
-    - gb8
+    - ak4338
     - sam119
     - slt0
     # spectrum planning --> columbia unified discovery
@@ -23,6 +23,14 @@ site:
     - jc2120
     - shs4
     - witte
+
+best_bets:
+  manage:
+    - bar2147
+    - bw12
+    - cak2158
+    - cjc2260
+    - rc13
 
 item_alerts:
   manage:
@@ -49,7 +57,6 @@ item_alerts:
       - fd2102
       - fh2238
       - fj73
-      - gb8
       - hk368
       - hs2148
       - jc677

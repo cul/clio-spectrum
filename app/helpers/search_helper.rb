@@ -78,10 +78,11 @@ module SearchHelper
     if active_source == source
 
       # BASIC SEARCH INPUT BOX
-      # raise
+      classes = 'search_q form-control'
+      classes = "#{classes} best-bets-typeahead" if APP_CONFIG['best_bets'].present?
       result += text_field_tag(:q,
                                search_params[:q] || '',
-                               class: "search_q form-control",
+                               class: "#{classes}",
                                id: "#{source}_q",
                                placeholder: options['placeholder'],
               # This focuses, but also selects-all-text in some browsers - yuck
@@ -141,7 +142,7 @@ module SearchHelper
 
 
       result = content_tag(:div, result, class: "input-group")
-      result = content_tag(:div, result, class: "form-group", style: 'display: inline;')
+      # result = content_tag(:div, result, class: "form-group", style: 'display: inline;')
 
 
       # link to advanced search
@@ -151,7 +152,7 @@ module SearchHelper
         result += content_tag(:a, adv_text, class: 'btn btn-link advanced_search_toggle', href: '#')
       end
 
-      result = content_tag(:div, result, class: 'search_row input-append', escape: false)
+      result = content_tag(:div, result, class: 'search_row', escape: false)
 
       fail "no route in #{source} " unless options['route']
 

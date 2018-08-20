@@ -136,7 +136,7 @@ module Recap
         # Raise or just log error?
         Rails.logger.error "SCSB ERROR:  API response status #{response.status}"
         Rails.logger.error "SCSB ERROR DETAILS: " + response.body
-        return
+        return nil
       end
 
       # parse returned array of item-info hashes into simple barcode->status hash
@@ -146,7 +146,7 @@ module Recap
       rescue => ex
         Rails.logger.error "SCSB ERROR:  JSON.parse(response.body) #{ex.message}"
         Rails.logger.error "SCSB ERROR DETAILS: " + response.body
-        return
+        return nil
       end
 
       return response_data

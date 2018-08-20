@@ -11,7 +11,7 @@ describe 'Libraries Website DAM search', :vcr do
   end
 
   it 'should show DAM filenames and format icons for DOC' do
-    visit library_web_index_path('q' => 'hints doc dam')
+    visit library_web_index_path('q' => 'hints on researching doc dam')
     within all('.result.document').first do
       expect(find('img')['src']).to have_content 'doc.png'
       expect(find('.lweb_dam_document')).to have_text '.doc'

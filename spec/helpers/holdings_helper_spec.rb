@@ -10,7 +10,8 @@ describe HoldingsHelper do
 
     (0 .. non_http_services.length - 1).each do |i|
       # lookup definition, then from this infer the anchor text and href
-      definition = HoldingsHelper::SERVICES[ non_http_services[i]]
+      # definition = HoldingsHelper::SERVICES[ non_http_services[i]]
+      definition = serviceConfig[ non_http_services[i]]
       expected_text = definition[0]
       # back-slash the parens, so we can use as regexp text within match()
       expected_href = definition[1] + '\(\'' + fake_bib + '\'\)'

@@ -4,7 +4,8 @@ module Voyager
       attr_reader :holding_id, :location_name, :call_number,
                   :summary_holdings, :public_notes,
                   :shelving_title, :supplements, :indexes,
-                  :reproduction_note, :urls, :item_count, :temp_locations,
+                  :reproduction_note, :urls, :item_count, 
+                  :temp_locations, :use_restrictions, :bound_withs,
                   :item_status, :orders, :current_issues, :services,
                   :bibid, :donor_info, :location_note, :temp_loc_flag
 
@@ -33,7 +34,8 @@ module Voyager
         end
 
         @location_name = tag852['a'] || tag852['b']
-        location_code = tag852['b']
+
+        @location_code = tag852['b']
         
         # ReCAP partner records don't have an 852$a
         if @location_name.match /^scsb/i
@@ -69,7 +71,7 @@ module Voyager
         # 895$a
         @current_issues = parse_current_issues(holdings_marc)
 
-        @location_note = assign_location_note(location_code)  #string
+        @location_note = assign_location_note(@location_code)  #string
 
         # information from item level records
         item = Item.new(mfhd_id, holdings_marc, mfhd_status, scsb_status)
@@ -77,7 +79,23 @@ module Voyager
         @item_count = item.item_count
 
         @temp_locations = item.temp_locations
+        @use_restrictions = item.use_restrictions
+        @bound_withs = item.bound_withs
         @item_status = item.item_status
+
+        # NEXT-1502 - display_helper.rb and record.rb
+        # Sometimes libraries become Unavailable (moves, renovations).
+        # Change OPAC display/services instead of updating ALL items in ILMS
+        unavailable_locations = APP_CONFIG['unavailable_locations'] || []
+        unavailable_name = unavailable_locations.select { |loc| @location_name.match(/^#{loc}/) }.first
+        if unavailable_name.present?
+          # Hardcode the full item status data-structure
+          @item_status = {status: "not_available", messages: [{status_code: "14n", short_message: "Unavailable"}]}
+          all_notes = APP_CONFIG['unavailable_notes'] || []
+          note = all_notes[unavailable_name]
+          @location_note = note if note.present?
+        end
+
 
         # flag for services processing (doc_delivery assignment)
         # NEXT-1234: revised logic
@@ -114,7 +132,7 @@ module Voyager
         fmt = marc.leader[6..7]
 
         # add available services
-        @services = determine_services(@location_name, location_code, @temp_loc_flag, @call_number, @item_status, @orders, @bibid, fmt)
+        @services = determine_services(@location_name, @location_code, @temp_loc_flag, @call_number, @item_status, @orders, @bibid, fmt)
       end
 
 
@@ -124,6 +142,7 @@ module Voyager
           :bibid => @bibid,
           :holding_id => @holding_id,
           :location_name => @location_name,
+          :location_code => @location_code,
           :location_note => @location_note,
           :call_number => @call_number,
           :shelving_title => @shelving_title,
@@ -136,6 +155,8 @@ module Voyager
           :donor_info => @donor_info,
           :item_count => @item_count,
           :temp_locations => @temp_locations,
+          :use_restrictions => @use_restrictions,
+          :bound_withs => @bound_withs,
           :item_status => @item_status,
           :services => @services,
           :current_issues => @current_issues,
@@ -452,6 +473,14 @@ module Voyager
           return location_note
         end
 
+        # LIBSYS-1365 - Geology Library closure
+        unless APP_CONFIG['geology_not_yet'].present?
+          if ['glg','glg,fol'].include?(location_code)
+            location_note = "Geology collection: to request this item <em><a href='https://library.columbia.edu/find/request/geology-collection-paging/form.html'>click here</a></em>"
+            return location_note
+          end
+        end
+        
         location_note
       end
 
@@ -502,6 +531,10 @@ module Voyager
         else
         end
 
+        if location_code == APP_CONFIG['barnard_offsite_location']
+          services << 'barnard_offsite'
+        end
+
         # cleanup the list
         services = services.flatten.uniq
 
@@ -520,9 +553,35 @@ module Voyager
           services.delete('borrow_direct')
         end
 
+        # NEXT-1470 - Suppress BD and ILL links for Partner ReCAP items,
+        # but leave enabled for CUL offsite.
+        if ['scsbnypl', 'scsbpul'].include? location_code
+          services.delete('borrow_direct')
+          services.delete('ill')
+        end
+
+        # 8/2018 - not being actively tested, turn this off
+        # # TESTING new Borrow Direct rules in non-prod environments
+        # if ['clio_test', 'clio_dev', 'development'].include? Rails.env
+        #   if services.include?('borrow_direct')
+        #     services << 'borrow_direct_test'
+        #   end
+        # end
+
         # # We don't know how to recall PUL or NYPL ReCAP items
         # if ['scsbpul', 'scsbnypl'].include?(location_code)
         #   services.delete('recall_hold')
+        # end
+
+        # Unnecessary - just omit location codes from hardcoded list 
+        #     in process_for_services(), below
+        # # LIBSYS-1365 - Geology is closing, some services are no longer offered
+        # if location_name.match(/Geology/i) || location_code.starts_with?('geo')
+        #   services.delete('doc_delivery')
+        # end
+        # # NEXT-1502 - Barnard is moving this summer, all items are unavailable
+        # if location_name.match(/Barnard/i) || location_code == 'bar,mil'
+        #   services.delete('doc_delivery')
         # end
 
         # return the cleaned up list
@@ -545,8 +604,15 @@ module Voyager
            services << 'precat'
 
         # doc delivery
-        elsif ['ave', 'avelc', 'bar', 'bar,mil', 'bus', 'eal', 'eax', 'eng',
-               'fax', 'faxlc', 'glg', 'glx', 'glxn', 'gsc', 'jou',
+        # LIBSYS-1365 - Geology is closing, some services are no longer offered
+        # NEXT-1502 - Barnard is moving this summer, all items are unavailable
+        # elsif ['ave', 'avelc', 'bar', 'bar,mil', 'bus', 'eal', 'eax', 'eng',
+        #        'fax', 'faxlc', 'glg', 'glx', 'glxn', 'gsc', 'jou',
+        #        'leh', 'leh,bdis', 'mat', 'mil', 'mus', 'sci', 'swx',
+        #        'uts', 'uts,per', 'uts,unn', 'war' ].include?(location_code) &&
+        #        temp_loc_flag == 'N'
+        elsif ['ave', 'avelc', 'bus', 'eal', 'eax', 'eng',
+               'fax', 'faxlc', 'glx', 'glxn', 'gsc', 'jou',
                'leh', 'leh,bdis', 'mat', 'mil', 'mus', 'sci', 'swx',
                'uts', 'uts,per', 'uts,unn', 'war' ].include?(location_code) &&
                temp_loc_flag == 'N'

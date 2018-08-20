@@ -175,9 +175,24 @@ module DisplayHelper
 
       # boolean for whether this particular holding is offsite or not
       offsite_indicator = loc_display.starts_with?('Offsite', 'ReCAP') ? 'offsite' : ''
+      
+      # when this class is present, lookup real-time availability
+      lookup_availability = 'availability'
+      
+      # Image to use before JS lookup replaces w/real-time status indicator
+      image_url = 'icons/none.png'
 
-      image_tag('icons/none.png',
-                class: "availability bib_#{document.id} holding_#{hold_id} #{offsite_indicator}") +
+      # NEXT-1502 - display_helper.rb and record.rb
+      # Sometimes libraries become Unavailable (moves, renovations).
+      # Change OPAC display/services instead of updating ALL items in ILMS
+      unavailable_locations = APP_CONFIG['unavailable_locations'] || []
+      if unavailable_locations.any? { |loc| loc_display.match(/^#{loc}/) }
+        lookup_availability = '' # nope
+        image_url = '/static-icons/unavailable.png'
+      end
+
+      image_tag(image_url,
+                class: "#{lookup_availability} bib_#{document.id} holding_#{hold_id} #{offsite_indicator}") +
         process_holdings_location(loc_display) +
         additional_brief_location_note(document, location)
         # Can't do this without more work...

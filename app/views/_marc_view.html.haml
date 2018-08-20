@@ -9,6 +9,8 @@
 
   - fields = document.to_marc.find_all{|f| ('000'..'999') === f.tag }
   - fields.each do |field|
+    - # NEXT-1507 - suppress non-public gifts (here, and in extract code)
+    - next if field.tag == '891' && ['0', ' '].include?(field.indicator1)
     .field
       - if field.is_a?(MARC::ControlField)
         .tag_ind

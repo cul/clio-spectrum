@@ -1,4 +1,4 @@
-class CreateSavedLists < ActiveRecord::Migration
+class CreateSavedLists < ActiveRecord::Migration[5.1]
   def change
     create_table :saved_lists do |t|
       t.string :owner, null: false, limit: 20

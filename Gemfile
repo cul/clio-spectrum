@@ -144,6 +144,14 @@ gem 'coffee-rails'
 gem 'uglifier'
 gem 'bootstrap-sass'
 
+# JSON APIs, for Best Bets, etc.
+gem 'jbuilder'
+
+# Typeahead - for Best Bets, etc.
+gem 'twitter-typeahead-rails'
+
+# Cross-Origin Resource Sharing for Best Bets JSON
+gem 'rack-cors', require: 'rack/cors'
 
 # To build slugs for saved-list URLs
 gem 'stringex'
@@ -220,8 +228,8 @@ group :test do
   # Copy Stanford's approach to Solr relevancy testing
   gem 'rspec-solr'
 
-  # pin to old version, or go with newest?
-  gem 'capybara'
+  # pin to 2.x to avoid having to install/use puma
+  gem 'capybara', '~>2.0'
 
   # Which Capybara driver for JS support?
   gem 'capybara-webkit'

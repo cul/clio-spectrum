@@ -44,6 +44,7 @@
 
   = add_row("Language", document["language_facet"], :join => '; ')
   = add_row("Language Note", display_marc_field(marc, 'language'))
+  = add_row("References", display_marc_field(marc, 'references'))
   = add_row("LCCN", display_marc_field(marc, 'LCCN'))
   = add_row("Publisher No.", display_marc_field(marc, 'publisher_no'))
   = add_row("ISBN", display_marc_field(marc, 'ISBN'))

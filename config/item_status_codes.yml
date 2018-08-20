@@ -177,6 +177,8 @@
     short_message: 'Checked out'
     # NEXT-1470 - Suppress broken BD and ILL links for ReCAP items
     # Disable until BD & ILL scripts move from Voyager to Solr query.
-    # services:
-    #     -   borrow_direct
-    #     -   ill
+    # NEXT-1504 - CU items should not be suppressed.  S
+    # Suppress partner ReCAP items in adjust_services(), not in lookup table
+    services:
+        -   borrow_direct
+        -   ill

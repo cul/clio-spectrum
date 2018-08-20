@@ -83,6 +83,8 @@ end
 to_field "text", extract_all_marc_values(from: '050', to: '850') do |record, accumulator|
   extra_fields = []
 
+  # 035$a - System Control Number
+  extra_fields << Marc21.extract_marc_from(record, '035a')
   # 852$x - Staff Note
   extra_fields << Marc21.extract_marc_from(record, '852x')
   # 876$p - Barcode

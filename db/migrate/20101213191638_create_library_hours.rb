@@ -1,4 +1,4 @@
-class CreateLibraryHours < ActiveRecord::Migration
+class CreateLibraryHours < ActiveRecord::Migration[5.1]
   def self.up
     create_table :library_hours do |t|
       t.integer :library_id, null: false

@@ -435,6 +435,11 @@ publish_copyright:
 publisher_no:
     -   tag: '028'
         display: ab
+references:
+  -   tag: 510
+      ind1: :all
+      ind2: :all
+      display: abcux368
 related_to:
     -   tag: 787
         display: abcdghikmnorst

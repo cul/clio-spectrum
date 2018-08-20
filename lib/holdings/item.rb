@@ -1,7 +1,8 @@
 module Voyager
   module Holdings
     class Item
-      attr_reader :holding_id, :item_count, :temp_locations, :item_status
+      attr_reader :holding_id, :item_count, :item_status,
+                  :temp_locations, :use_restrictions, :bound_withs
 
       # Item class initializing method
       def initialize(mfhd_id, holdings_marc, mfhd_status, scsb_status)
@@ -52,15 +53,20 @@ module Voyager
           # - If it's Unavailable, and Voyager knows it's not available (not status code == 1), 
           #   then just defer to Voyager - leave the mfhd status code as-is, don't overwrite.
           when 'Unavailable', 'Not Available'
-            # If Voyager has no status, or Voyager says "1" (available), it's a partner checkout
+            # If Voyager has NO status, or Voyager says "1" (available), 
+            # then it's a partner checkout
             if mfhd_status[item_id][:statusCode].nil? || (mfhd_status[item_id][:statusCode] == 1)
               # Special "99" status code for ReCAP checkouts
               mfhd_status[item_id][:statusCode] = 99
+            else
+              # Else, if Voyager Holdings status is non-1, then leave it as-is.  
+              # (CUL offsite item checked out to CUL patron - trust Voyager's status)
             end
-            # Else, if Voyager Holdings status is non-1, then leave it as-is.  
-            # (CUL offsite item checked out to CUL patron)
+          else
+            # Did we get a value back from the SCSB API call other than Available/Unavailable?
+            Rails.logger.error "SCSB availability check for barcode #{barcode} returned unexpected status #{scsb_status[ barcode ]}"
           end
-          
+
           # Finally, if the statusCode could not be determined through any of the above logic,
           #  fill in a default of Unavailable - status code 13.
           # Not sure why this would happen.
@@ -73,7 +79,9 @@ module Voyager
 
 
         @temp_locations = parse_for_temp_locations(holdings_marc)  # array
-        @item_status = parse_for_circ_status(mfhd_status)  # hash
+        @use_restrictions = parse_for_use_restrictions(holdings_marc)  # array
+        @bound_withs = parse_for_bound_withs(holdings_marc)  # array
+        @item_status = parse_for_circ_status(mfhd_status, @bound_withs)  # hash
       end
 
       private
@@ -102,19 +110,82 @@ module Voyager
         return tempLocations
       end
 
+      def parse_for_use_restrictions(holdings_marc)
+        useRestrictions = []
+
+        item_count = 0
+        notes = Hash.new()
+        holdings_marc.each_by_tag('876') do |t876|
+          item_count += 1
+          # subfield h has Use Restrictions
+          next unless t876['h'].present?
+
+          note = t876['h']
+
+          # Ignore these use restriction codes
+          next if ['ENVE', 'TIED'].include? note
+
+          # Map use restriction codes to notes
+          note = 'In library use' if note == 'FRGL'
+          
+          if notes[note].present?
+            notes[note] += 1 
+          else
+            notes[note] = 1 
+          end
+          
+          # next unless t876['h']
+          # if t876['h'] == 'FRGL'
+          #   notes['In library use only'] != notes['In library use only']
+          #   useRestrictions << 'In library use only.'
+          # else
+          #   useRestrictions << t876['h']
+          # end
+        end
+
+        notes.each do |note, note_count|
+          note = note.titleize
+          if note_count == item_count
+            useRestrictions << "#{note.titleize} Only"
+          else
+            useRestrictions << "Some items #{note} Only"
+          end
+        end
+        
+        return useRestrictions
+      end
+
+      def parse_for_bound_withs(holdings_marc)
+        bound_withs = []
+
+        holdings_marc.each_by_tag('876') do |t876|
+          # subfield x has barcode of primary item for bound-withs
+          if t876['x'].present?
+            # barcodes look like:  HR01335049, or 1001654853
+            # regexp pattern:  3 letter-or-digits, 7 digits
+            next unless t876['x'].match(/^\w{3}\d{7}$/)
+            bound_withs << { item_id: t876['a'], enum_chron: (t876['3'] || ''), barcode: t876['x'] }
+          end
+        end
+
+        return bound_withs
+      end
+
       # Isolates item:itemRecord nodes in the mfhd:itemCollection,
       # determines circulation status and generates messages
       #
-      # * *Args*    :
-      #   - +item+ -> mfhd:itemCollection node
-      #   - +item_count+ -> count of item records
-      # * *Returns* :
       #   - Hash containing overall circulation status and a list of circulation messages
       #     { :status => overall item status, :messages => [ one or more circulation messages ] }
       #   - Possible statuses are: 'none', 'available', 'not_available', 'some_avaialble'
       #   - An additional status, 'online', is set in the Record class
       #
-      def parse_for_circ_status(mfhd_status)
+      def parse_for_circ_status(mfhd_status, bound_withs = nil)
+
+        # First step - if there are any bound-withs, remove those from consideration.
+        # Those have unknown status, and shouldn't be part of the determination logic.
+        Array(bound_withs).each do |bound_with|
+          mfhd_status.delete( bound_with[:item_id] )
+        end
 
         # no items = no status available
         if mfhd_status.size == 0

@@ -39,10 +39,12 @@
 
   = add_row("In", display_marc_field(marc, 'in'))
 
-  = add_row("Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_LC')))
+  - subjects = display_marc_field(marc, 'subject_LC')
+  - subjects = display_marc_field(marc, 'subject_fast') if subjects.blank?
+  = add_row("Subjects", generate_value_links_subject(subjects))
   = add_row("Medical Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_mesh')))
-  = add_row("Other Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_fast')))
   = add_row("Subjects (Genre)", generate_value_links_subject(display_marc_field(marc, 'subject_genre')))
+
   = add_row("Also Listed Under", generate_value_links(display_marc_field(marc, 'author_other'), :author))
   -# NEXT-911 - Display uniform title in serial records
   = add_row("Uniform Title", display_marc_field(marc, 'title_uniform'))
@@ -69,6 +71,7 @@
   = add_row("Cite As", display_marc_field(marc, 'cite_as'))
   = add_row("Language", document["language_facet"], :join => '; ')
   = add_row("Language Note", display_marc_field(marc, 'language'))
+  = add_row("References", display_marc_field(marc, 'references'))
   = add_row("LCCN", display_marc_field(marc, 'LCCN'))
   = add_row("ISSN", display_marc_field(marc, 'ISSN'))
   = add_row('Related To', display_marc_field(marc, 'related_to'))

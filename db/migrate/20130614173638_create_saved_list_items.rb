@@ -1,4 +1,4 @@
-class CreateSavedListItems < ActiveRecord::Migration
+class CreateSavedListItems < ActiveRecord::Migration[5.1]
   def change
     create_table :saved_list_items do |t|
       t.integer :saved_list_id
