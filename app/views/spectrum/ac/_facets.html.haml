@@ -1,0 +1,46 @@
+
+-# FACETS FOR AC API DATASOURCE
+
+#facets.facets.sidenav
+
+
+  .top-panel-heading.panel-heading.clearfix{style: 'border: 0px;'}
+    .visible-xs.facets-toggle{type: 'button', data: {toggle: 'collapse', target: '#facet-panel-collapse'}}
+      Refine your search
+
+  #facet-panel-collapse.collapse.panel-group
+
+    -# LOOP OVER ALL AVAILABLE AC FACETS...
+
+    -# "facet" is directly from the response object
+    - result.facet_config.each do |facet|
+
+      .panel.panel-default.facet_limit{class: "#{'facet_limit-active' if facet[:active]}"}
+    
+        .collapse-toggle.panel-heading{class: "#{'collapsed' unless facet[:active]}", data: {toggle: "collapse", target: "#facet-#{facet[:name]}", 'facet-tag' => build_facet_tag(facet[:name])}}
+    
+          %h5.panel-title
+            = link_to facet[:name].titleize, "#", :"data-no-turbolink" => true
+    
+        .panel-collapse.facet-content{id: "facet-#{facet[:name]}", class: "#{facet[:active] ? 'in' : 'collapse'}"}
+          .panel-body
+    
+            %ul.facet-values.list-unstyled
+              - facet[:values].each do |value|
+                %li
+                  %span.facet-label
+                    - if value[:active]
+                      %span.selected
+                        #{value[:name]}
+                      %a.remove{href: value[:remove_url]}
+                        %span.glyphicon.glyphicon-remove
+                    -else
+                      %a.facet_select{href: value[:add_url]} #{value[:name]}
+                  %span.facet-count #{number_with_delimiter(value[:count])}
+              -# Only show the "more..." link if we think there may be more.
+              -# - if facet.counts.size >= facet.src['pageSize']
+              -#   %li.more_facets_link
+              -#     %a.more_facets_link{:href => result.summon_facet_cmd(facet.list_values_command)} #{t('blacklight.search.facets.more')}
+
+
+

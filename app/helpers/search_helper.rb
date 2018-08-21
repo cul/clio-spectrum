@@ -122,6 +122,13 @@ module SearchHelper
         result += hidden_field_tag 'form', 'basic'
       end
 
+      # Pass along hidden tags for AC API
+      if source == 'ac'
+        # sticky sort-order when just changing query terms
+        result += hidden_field_tag 'sort', params['sort']
+        result += hidden_field_tag 'order', params['order']
+      end
+      
       # insert drop-down
       if options['search_fields'].kind_of?(Hash)
         # remove Bootstrap-Dropdown-Menu-as-Select-Tag

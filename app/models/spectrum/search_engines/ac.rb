@@ -6,10 +6,17 @@ module Spectrum
       include Rails.application.routes.url_helpers
 
       # Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
-      attr_reader  :documents, :search, :count, :errors
+      attr_reader  :documents, :search, :count, :errors, :filters, :facets, :facet_config
 
       def initialize(options = {})
         search_url = build_search_url(options)
+Rails.logger.debug "Spectrum::SearchEngines::Ac search_url=#{search_url}"
+        @params = options
+        @q = options['q'] || ''
+        @rows = (options['per_page'] || 10).to_i
+        @page = (options['page'] || 1).to_i
+        @start = ((@page - 1) * @rows) + 1
+        @errors = nil
 
         # SCSB calls use Faraday, and can get both response codes and content.
         # @conn = Faraday.new(url: url)
@@ -29,15 +36,14 @@ module Spectrum
 
         @documents = Array(results[:records]).map { |item| AcDocument.new(item) }
         @count = results[:total_number_of_results]
-        
-        # begin
-        #   # @raw_xml = Nokogiri::XML(HTTPClient.new.get_content(@search_url))
-        #   # @documents = @raw_xml.css('R').map { |xml_node| LibraryWeb::Document.new(xml_node) }
-        #   # @count = @raw_xml.at_css('M') ? @raw_xml.at_css('M').content.to_i : 0
-        # rescue => ex
-        #   Rails.logger.error "[Spectrum][GoogleCustomSearch] error: #{ex.message}"
-        #   @errors = ex.message
-        # end
+ 
+        # These are the applied facets
+        @filters = results['params']['filters']
+        # These are the facet values/counts from the full set of result docs
+        @facets = results['facets']
+        # complex facet structure, including active flags, enable/disable links, etc.
+        @facet_config = build_facet_config(@facets, @filters)
+      
       end
 
       def current_page
@@ -45,7 +51,7 @@ module Spectrum
       end
 
       def page_size
-        @per_page
+        @rows
       end
 
       # used by QuickSearch for "All Results" link
@@ -55,18 +61,46 @@ module Spectrum
 
       # def start_over_link
       #   library_web_index_path()
-      # end
+      # end_item
 
       def constraints_with_links
-        [[@q, ac_index_path]]
+        constraints = []
+
+        # Add the basic search term:
+        constraints << [@q, ac_index_path]
+        
+        # Add any facet filter contraints.
+        # Zero or more filter fields, each with possibly multiple values, e.g.:
+        #     "filters": {
+        #       "subject": [
+        #         "Medicine",
+        #         "Epidemiology"
+        #       ],
+        #       "department"; [
+        #         "Computer Science"
+        #       ]
+        #     }
+
+        @filters.each do |filter_name, filter_value_list|
+          filter_value_list.each do |value|
+            remove_facet_url = build_remove_facet_url(filter_name, value)
+            constraints << ["#{filter_name.titleize}: #{value}", remove_facet_url]
+            # new_params = @params.dup.except(filter_name)
+            # new_params.merge( filter_value_list.except(value) ) unless filter_value_list.size == 1
+            # constraints << ["#{filter_name.titleize}: #{value}", ac_index_path(new_params)]
+          end
+        end
+        
+        
+        return constraints
       end
 
       def start_item
-        [@start, total_items].min
+        [@start, @count].min
       end
 
       def end_item
-        [@start + @rows - 1, total_items].min
+        [@start + @rows - 1, @count].min
       end
 
       def next_page?
@@ -87,26 +121,72 @@ module Spectrum
       end
 
       def previous_page_path
-        search_merge('start' => [@start - @rows, 1].max)
+        search_merge(page: @page - 1)
       end
 
       def next_page_path
-        search_merge('start' => @start + @rows)
+        search_merge(page: @page + 1)
       end
 
       # List of paging options, turned into a drop-down in sorting/paging partial
       def page_size_with_links
-        # server-side limit of 10 results per page
-        # [10, 25, 50, 100].map do |page_size|
-        [10].map do |page_size|
+        [10, 25, 50, 100].map do |per_page|
           # do math so that current first item is still on screen.
           # (use zero-based params for talking to GA)
-          new_page_number = @start.div page_size
-          new_start_item = (new_page_number * page_size) + 1
-          [search_merge('rows' => page_size, 'start' => new_start_item), page_size]
+          new_page_number = (@start.div per_page) + 1
+          [search_merge('page' => new_page_number, 'per_page' => per_page), per_page]
         end
       end
 
+      # List of sort options, turned into a drop-down in index_toolbar partial
+      def sorts_with_links
+        [
+          [search_merge(sort: 'best_match', order: 'desc', page: '1'), 'Relevancy'],
+
+          [search_merge(sort: 'date', order: 'asc', page: '1'), 'Published Earliest'],
+          [search_merge(sort: 'date', order: 'desc', page: '1'), 'Published Latest'],
+
+          [search_merge(sort: 'title', order: 'asc', page: '1'), 'Title A-Z'],
+          [search_merge(sort: 'title', order: 'desc', page: '1'), 'Title Z-A'],
+        ]
+      end
+
+      def current_sort_name
+        sort = @params['sort'] || 'best_match'
+        order = @params['order'] || 'desc'
+        
+        case sort
+
+        # default case - relevancy sort, descending
+        when 'best_match'
+          return 'Relevancy'
+
+        # date sort - we label this "Published"
+        when 'date'
+          case order
+          when 'asc'
+            return 'Published Earliest'
+          else
+            return 'Published Latest'
+          end
+
+        # Title Sort - 
+        when 'title'
+          case order
+          when 'asc'
+            return 'Title A-Z'
+          else
+            return 'Title Z-A'
+          end
+
+        # Unrecognized?  Just echo to screen.
+        else
+          return "#{sort} #{order}".titleize
+        end
+
+      end 
+      
+      
       private
 
       # https://academiccommons-dev.cdrs.columbia.edu/api/v1/search?
@@ -123,6 +203,11 @@ module Spectrum
             params[key] = options[key] if options[key].present?
         end
         
+        filters = ['author', 'date', 'department', 'subject', 'type', 'columbia_series']
+        filters.each do |key|
+          params[key] = options[key] if options[key].present?
+        end 
+        
         search_url = "#{search_url}?#{params.to_query}" if params.present?
       end
 
@@ -130,6 +215,72 @@ module Spectrum
       def search_merge(params = {})
         ac_index_path(@params.merge(params))
       end
+
+      # complex facet structure, including active flags, enable/disable links, etc.
+      AC_FACET_LIMIT = 10
+      def build_facet_config(facets, filters)
+        
+        config = Hash.new
+        
+        config = facets.map { |facet_name, facet_value_list|
+          facet_active = @filters.key?(facet_name)
+          
+          new_value_list = []
+          facet_value_list.map { |value, count|
+            break if new_value_list.size > AC_FACET_LIMIT
+            
+            # each facet-value needs the following attribute fields:
+            new_value_list << { 
+              name:       value,
+              count:      count,
+              active:     facet_active && value.in?(@filters[facet_name]),
+              add_url:    build_add_facet_url(facet_name, value),
+              remove_url: build_remove_facet_url(facet_name, value)
+            }
+          }
+         
+          #  Return this hash structure for each facet filter
+          { name:    facet_name,
+            active:  facet_active,
+            values:  new_value_list
+          }
+          
+        }
+
+        return config
+      end
+
+      def build_add_facet_url(facet_name, value)
+        applied_values = Array( @filters[facet_name] )
+        # Don't add if it's already applied
+        return if value.in?(applied_values)
+        
+        new_params = @params.dup.except(facet_name)
+        new_params.merge!( facet_name => applied_values + Array(value) )
+
+        restart_ac_index_path(new_params)
+      end
+    
+      def build_remove_facet_url(facet_name, value)
+        return unless facet_name.in?(@filters)
+
+        applied_values = Array( @filters.dup[facet_name] )
+        # Don't remove if it's not applied
+        return unless value.in?(applied_values)
+
+        new_params = @params.dup.except(facet_name)
+        new_params.merge!( facet_name => applied_values - Array(value) ) if applied_values.size > 1
+
+        restart_ac_index_path(new_params)
+      end
+
+
+      def restart_ac_index_path(params)
+        # reset page number for new searches
+        params.delete('page')
+        ac_index_path(params)
+      end
+    
     end
   end
 end

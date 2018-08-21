@@ -325,14 +325,20 @@ datasources:
 
   ac:
     name: AC API
-    title: AC API
-    description: AC query via API
+    title: Academic Commons
+    description: Publications and other research output from Columbia University's digital repository 
     render_options:
       format: ac
-    no_facets: true
+    # no_facets: true
     search_box:
       route: ac_index_path
-      placeholder: title or author
+      placeholder: Academic Commons
+      search_fields:
+        all_fields: All Fields
+        title: Title
+        # Swagger docs say only keyword, title, or subject, no author search
+        # author: Author
+        subject: Subject
 
   academic_commons:
     name: Academic Commons

@@ -792,6 +792,12 @@ module DisplayHelper
   end
 
   def academic_commons_document_link(document)
+    # AC4
+    if document.respond_to? :persistent_url
+      return document.persistent_url
+    end
+    
+    # legacy
     if document['handle'].present?
       title_link = document['handle']
       if title_link.starts_with?('10.')
