@@ -271,6 +271,8 @@ module DisplayHelper
       document.content_types.each do |format|
         formats << SUMMON_FORMAT_LIST[format] if SUMMON_FORMAT_LIST[format]
       end
+    when AcDocument
+      formats << 'ac'
     end
 # raise
     formats.sort { |x, y| FORMAT_RANKINGS.index(x) <=> FORMAT_RANKINGS.index(y) }

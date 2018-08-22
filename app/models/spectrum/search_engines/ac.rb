@@ -10,9 +10,10 @@ module Spectrum
 
       def initialize(options = {})
         search_url = build_search_url(options)
-Rails.logger.debug "Spectrum::SearchEngines::Ac search_url=#{search_url}"
+
         @params = options
         @q = options['q'] || ''
+        @search_field = options['search_field']
         @rows = (options['per_page'] || 10).to_i
         @page = (options['page'] || 1).to_i
         @start = ((@page - 1) * @rows) + 1
@@ -66,8 +67,10 @@ Rails.logger.debug "Spectrum::SearchEngines::Ac search_url=#{search_url}"
       def constraints_with_links
         constraints = []
 
-        # Add the basic search term:
-        constraints << [@q, ac_index_path]
+        # Add the basic query term, possibly fielded.
+        query = @q.dup
+        query = "#{@search_field.titleize}: #{query}" if @search_field.in?(['title', 'subject'])
+        constraints << [query, ac_index_path]
         
         # Add any facet filter contraints.
         # Zero or more filter fields, each with possibly multiple values, e.g.:
@@ -192,23 +195,44 @@ Rails.logger.debug "Spectrum::SearchEngines::Ac search_url=#{search_url}"
       # https://academiccommons-dev.cdrs.columbia.edu/api/v1/search?
       #   search_type=keyword&q=test&page=1&per_page=25&sort=best_match&order=desc
       
+      # Build a search URL for querying the AC API
+      # Translate options (CGI params) to API params
       def build_search_url(options = {})
         url  = APP_CONFIG['ac']['api_url']
         search_path = APP_CONFIG['ac']['api_search_path']
         search_url = "#{url}#{search_path}"
 
-        params = Hash.new
-        [ 'search_type', 'q', 'page', 'per_page', 
-          'sort', 'order'].each do |key|
-            params[key] = options[key] if options[key].present?
+        api_params = Hash.new
+        
+        # basic query params
+        basics = [ 'q', 'page', 'per_page', 'sort', 'order']
+        basics.each do |key|
+            api_params[key] = options[key] if options[key].present?
         end
         
+        # *** remap params ***
+        # "SEARCH FIELD" V.S. "SEARCH TYPE"
+        remaps = {
+          'search_field' => 'search_type'
+        }
+        remaps.each do |clio_key, api_key|
+          api_params[api_key] = options[clio_key] if options[clio_key].present?
+        end
+        
+        
+        # facet filter params
         filters = ['author', 'date', 'department', 'subject', 'type', 'columbia_series']
         filters.each do |key|
-          params[key] = options[key] if options[key].present?
+          api_params[key] = options[key] if options[key].present?
         end 
-        
-        search_url = "#{search_url}?#{params.to_query}" if params.present?
+
+        # DISSERTATIONS
+        # hardcode filter to show only dissertations if we're in that datasource
+        api_params['type'] = 'Theses' if options['datasource'] == 'ac_dissertations'
+
+        search_url = "#{search_url}?#{api_params.to_query}" if api_params.present?
+        Rails.logger.debug "Spectrum::SearchEngines::Ac build_search_url(options)\n    #{search_url}"
+        return search_url
       end
 
 

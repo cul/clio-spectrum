@@ -2,15 +2,6 @@ require 'spec_helper'
 
 describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
 
-# No, it shouldn't.  The home page should show ONLY the QuickSearch search box.
-  # it "should display search fields for archives, catalog, new arrivals, journals" do
-  #   visit root_path
-  #   expect(page).to have_css(".search_box.catalog option")
-  #   expect(page).to have_css(".search_box.new_arrivals option")
-  #   expect(page).to have_css(".search_box.academic_commons option")
-  #   expect(page).to have_css(".search_box.journals option")
-  # end
-
   # NEXT-612 - Quick search page doesn't let you start over
   it "should have a 'Start Over' link", :js do
     visit quicksearch_index_path('q' => 'asia')
@@ -106,7 +97,7 @@ describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
       expect(page).to have_css('.category_title')
       expect(find('.category_title')).to have_text "Articles, e-books, dissertations, music, images, and more from a mostly full-text database"
     end
-    within('.results_header[data-source=academic_commons]') do
+    within('.results_header[data-source=ac]') do
       find('img').click
       # expect(find('.category_title')).to have_text "Publications and other research output from Columbia University's digital repository"
     end

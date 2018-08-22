@@ -14,7 +14,7 @@
         - enum_chron = bound_with[:enum_chron]
         - barcode = bound_with[:barcode]
 
-        - valet_bound_with_url = valet_bound_with_url(document[:title_display], enum_chron, barcode)
+        - offsite_bound_with_url = offsite_bound_with_url(document[:title_display], enum_chron, barcode)
         - requestable = OFFSITE_CONFIG['offsite_locations'].include?(entry['location_code'])
       
         - if enum_chron.present?
@@ -24,8 +24,8 @@
           Bound with different title; 
       
         %span.bound_with_link
-          - if requestable && valet_bound_with_url.present?
-            = link_to "request barcode #{barcode}", valet_bound_with_url
+          - if requestable && offsite_bound_with_url.present?
+            = link_to "request barcode #{barcode}", offsite_bound_with_url
           - else
             = link_to "search barcode #{barcode}", catalog_index_path(q: barcode)
 

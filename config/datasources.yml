@@ -4,6 +4,8 @@
 # Each datasource has a "name", optionally a "no_facets" indicator, 
 # optionally a list of supported "viewstyles" (standard_list, compact_list, grid?), and
 # a detailed configuration for it's "search_box"
+#   Name - how the datasource appears in the left datasources list
+#   Title - how the datasource appears as a panel header in a bento
 # 
 # Next, define the "datasource_bar", really the list
 # of datasources presented in the sidebar, divided
@@ -324,7 +326,7 @@ datasources:
       placeholder: Libraries Website
 
   ac:
-    name: AC API
+    name: Academic Commons
     title: Academic Commons
     description: Publications and other research output from Columbia University's digital repository 
     render_options:
@@ -334,63 +336,69 @@ datasources:
       route: ac_index_path
       placeholder: Academic Commons
       search_fields:
-        all_fields: All Fields
+        keyword: All Fields
         title: Title
-        # Swagger docs say only keyword, title, or subject, no author search
-        # author: Author
         subject: Subject
 
-  academic_commons:
-    name: Academic Commons
-    title: Academic Commons
-    description: Publications and other research output from Columbia University's digital repository 
-    warningXX:  Item Status unavailable due to system upgrades.  AC.
-    render_options:
-      format: ac
-    search_box:
-      route: academic_commons_index_path
-      placeholder: Academic Commons
-      search_type: blacklight
-      search_fields:
-        all_fields: All Fields
-        title: Title
-        author: Author
-        subject: Subject
+  # academic_commons:
+  #   name: Academic Commons
+  #   title: Academic Commons
+  #   description: Publications and other research output from Columbia University's digital repository 
+  #   warningXX:  Item Status unavailable due to system upgrades.  AC.
+  #   render_options:
+  #     format: ac
+  #   search_box:
+  #     route: academic_commons_index_path
+  #     placeholder: Academic Commons
+  #     search_type: blacklight
+  #     search_fields:
+  #       all_fields: All Fields
+  #       title: Title
+  #       author: Author
+  #       subject: Subject
 
   ac_dissertations:
-    supersource: academic_commons
-    name: Academic Commons
+    # supersource: academic_commons
+    supersource: ac
+    name: AC API - Dissertations
     title: Academic Commons
     description: Dissertations deposited in Columbia's digital repository, primarily 2011-present.
     warningXX:  Item Status unavailable due to system upgrades.  AC-DISS.
     render_options:
       format: ac
     search_box:
-      route: academic_commons_index_path
+      route: ac_index_path
       placeholder: Academic Commons
-      search_type: blacklight
+      # search_type: blacklight
       search_fields:
-        all_fields: All Fields
+        # all_fields: All Fields
+        # title: Title
+        # author: Author
+        # subject: Subject
+        keyword: All Fields
         title: Title
-        author: Author
         subject: Subject
 
   ac_data:
-    supersource: academic_commons
-    name: Academic Commons
+    # supersource: academic_commons
+    supersource: ac
+    name: AC API - Data Sets
     title: Academic Commons data sets
     description: Dissertations deposited in Columbia's digital repository, primarily 2011-present.
     warningXX:  Item Status unavailable due to system upgrades.  AC-DISS.
     render_options:
       format: ac
     search_box:
-      route: academic_commons_index_path
+      route: ac_index_path
       placeholder: Academic Commons
-      search_type: blacklight
+      # search_type: blacklight
       search_fields:
-        all_fields: All Fields
+        # all_fields: All Fields
+        # title: Title
+        # author: Author
+        # subject: Subject
+        keyword: All Fields
         title: Title
-        author: Author
         subject: Subject
 
   new_arrivals:
@@ -466,7 +474,8 @@ default_datasource_bar:
     - archives
     - new_arrivals
     - articles
-    - academic_commons
+    # - academic_commons
+    - ac
     - library_web
     - geo
   minor_sources:

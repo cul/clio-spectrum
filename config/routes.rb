@@ -123,11 +123,14 @@ Rails.application.routes.draw do
   get 'lweb', to: 'spectrum#search', as: :lweb_index, defaults: { layout: 'lweb' }
 
   # Academic Commons via API
+  # new url
   get 'ac', to: 'spectrum#search', as: :ac_index, defaults: { layout: 'ac' }
+  # support old url
+  get 'academic_commons', to: 'spectrum#search', as: :academic_commons_index, defaults: { layout: 'ac' }
 
-  get 'academic_commons', to: 'catalog#index', as: :academic_commons_index
-  get 'academic_commons/range_limit(.:format)', to: 'catalog#range_limit', as: :academic_range_limit
-  get 'academic_commons/facet/:id(.format)', to: 'catalog#facet', as: :academic_commons_facet
+  # get 'academic_commons', to: 'catalog#index', as: :academic_commons_index
+  # get 'academic_commons/range_limit(.:format)', to: 'catalog#range_limit', as: :academic_range_limit
+  # get 'academic_commons/facet/:id(.format)', to: 'catalog#facet', as: :academic_commons_facet
 
   get 'geo', to: 'catalog#index', as: :geo_index
   get 'geo/facet/:id(.format)', to: 'catalog#facet', as: :geo_facet

@@ -94,8 +94,8 @@ if source == 'articles' || source == 'library_web'
 end
 
      url = case source
-     when 'academic_commons', 'ac_dissertations'
-       APP_CONFIG['ac2_solr_url']
+     # when 'academic_commons', 'ac_dissertations'
+     #   APP_CONFIG['ac2_solr_url']
      when 'geo', 'geo_cul'
        APP_CONFIG['geo_solr_url']
      when 'dlc'

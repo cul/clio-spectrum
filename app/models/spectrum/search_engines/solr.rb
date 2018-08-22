@@ -126,6 +126,8 @@ module Spectrum
           catalog_index_path(params)
         when 'academic_commons'
           academic_commons_index_path(params)
+        when 'ac'
+          ac_index_path(params)
         when 'ac_dissertations'
           params['f'] ||= {}
           params['f']['genre_facet'] = ['Theses']
