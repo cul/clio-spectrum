@@ -11,7 +11,7 @@ function bestBetModal(suggestion) {
   
           <p>Follow link to resource:</p>
   
-          <form action="${bounce_url}" target="_blank" onsubmit="$('#best-bets-modal').close();">
+          <form action="${bounce_url}" target="_blank" onsubmit="$('#best-bets-modal').modal('toggle');">
             <input id="best_bets_goto" type="submit" value="${suggestion.url}" />
           </form>
   
