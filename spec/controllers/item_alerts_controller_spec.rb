@@ -16,20 +16,27 @@ describe ItemAlertsController do
 
     it 'unpriv user cannot see index' do
       spec_login @unpriv_user
+
+      # cannot see index listing
       get :index
-      expect(response).not_to be_success
+      expect(response).not_to be_successful
       expect(response.status).to be(302)
 
-      # for unpriv, showing non-existant ID raises exception
-      expect do
-        get :show_table_row, params: { id: '123' }
-      end.to raise_error(ActiveRecord::RecordNotFound)
+      # # for unpriv, showing non-existant ID raises exception
+      # expect do
+      #   get :show_table_row, params: { id: '123' }
+      # end.to raise_error(ActiveRecord::RecordNotFound)
+
+      # cannot see individual record
+      get :show_table_row, params: { id: '123' }
+      expect(response).not_to be_successful
+      expect(response.status).to be(302)
     end
 
     it 'priv user can see index' do
       user = spec_login @priv_user
       get :index
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(response).to render_template('index')
     end
 
@@ -92,7 +99,7 @@ describe ItemAlertsController do
       # NEW
       # JSON returns nulled-out object
       get :new, format: :json
-      expect(response).to be_success
+      expect(response).to be_successful
 
       # item_alert = JSON.parse(response.body)['item_alert']
       item_alert = JSON.parse(response.body)
@@ -108,7 +115,7 @@ describe ItemAlertsController do
 
       # HTML should send you to 'new' screen
       get :new, format: :html
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(response).to render_template('new')
     end
 
@@ -146,22 +153,22 @@ describe ItemAlertsController do
       # In JSON, get a 200.
       item_alert_attrs = FactoryBot.attributes_for(:item_alert, author_id: @priv_user.id)
       post :create, params: {item_alert: item_alert_attrs}, format: :json
-      expect(response).to be_success
+      expect(response).to be_successful
 
       # item_alert = JSON.parse(response.body)['item_alert']
       item_alert = JSON.parse(response.body)
 
       # fetch it back again, as html table row
       get :show_table_row, params: { id: item_alert['id'] }
-      expect(response).to be_success
+      expect(response).to be_successful
 
       # fetch it back again, as raw
       get :show, params: {id: item_alert['id']}
-      expect(response).to be_success
+      expect(response).to be_successful
 
       # EDIT - HTML req should load "edit" screen
       get :edit, format: :html, params: { id: item_alert['id'] }
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(response).to render_template('edit')
 
       # new BROKEN attributes, re-post to same ID, attempt an update
@@ -179,7 +186,7 @@ describe ItemAlertsController do
 
       # finally, delete the alert
       delete :destroy, format: :json, params: { id: item_alert['id'] }
-      expect(response).to be_success
+      expect(response).to be_successful
 
       # it should now be gone
       expect do

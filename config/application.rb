@@ -143,5 +143,7 @@ module Clio
       end
     end
 
+    # Leaving SQLite booleans as 't'/'f' is deprecated, must be integer
+    config.active_record.sqlite3.represent_boolean_as_integer = true
   end
 end

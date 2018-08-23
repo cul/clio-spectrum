@@ -18,7 +18,7 @@ describe BackendController, :vcr do
   # # NEXT-1009 - Multiple 866 fields in the holding records
   # it "holdings with multiple 866s" do
   #   get 'holdings', :id => '763577'
-  #   expect(response).to be_success
+  #   expect(response).to be_successful
   #   expect(response.body).to_not match /\-\-/
   #   expect(response.body).to match /<br\/>Special issues/
   # end
@@ -32,7 +32,7 @@ describe BackendController, :vcr do
   # 
   #   bibs.each do |bib|
   #     get 'holdings', :id => bib
-  #     expect(response).to be_success
+  #     expect(response).to be_successful
   #     expect(response.body).to have_text location_note
   #     expect(response.body).to have_link(link_text, href: link_href)
   #   end
@@ -43,13 +43,13 @@ describe BackendController, :vcr do
   # it "should label Call Numbers" do
   #   # Simple case
   #   get 'holdings', :id => '123456'
-  #   expect(response).to be_success
+  #   expect(response).to be_successful
   #   tagless = response.body.gsub(/<\/?[^>]+>/, '')
   #   expect(tagless).to match /Call Number:\s+HD1945/m
   # 
   #   # Complex case
   #   get 'holdings', :id => '763577'
-  #   expect(response).to be_success
+  #   expect(response).to be_successful
   #   tagless = response.body.gsub(/<\/?[^>]+>/, '')
   #   expect(tagless).to match /Call Number:\s+R341.273/m
   #   expect(tagless).to match /Call Number:\s+JX233/m
@@ -59,7 +59,7 @@ describe BackendController, :vcr do
   # it "holdings() should return silently absorb non-numeric CLIO ID" do
   #   # non-numeric value
   #   get 'holdings', :id => 'non-numeric'
-  #   expect(response).to be_success
+  #   expect(response).to be_successful
   #   expect(response.body.strip).to be_empty
   # end
   # 

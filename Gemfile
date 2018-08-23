@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~>5.1.0'
+gem 'rails', '~>5.2.0'
 
 gem 'activerecord-session_store'
 
@@ -42,7 +42,8 @@ gem 'gmaps4rails'
 gem 'kaminari'
 
 # Auth
-gem 'devise', '4.4.1'
+# gem 'devise', '4.4.1'
+gem 'devise', '~>4.4.1'
 gem 'devise-encryptable'
 
 # Client-side JS timeouts

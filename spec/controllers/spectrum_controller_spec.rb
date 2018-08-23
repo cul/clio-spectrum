@@ -5,7 +5,7 @@ describe SpectrumController do
   describe "GET 'search'" do
     it 'returns http success' do
       get 'search'
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'redirects on bad input' do
@@ -19,20 +19,20 @@ describe SpectrumController do
   describe "GET 'searchjson'" do
     it 'returns http success' do
     #   get 'fetch', layout: 'qucksearch', datasource: 'catalog'
-    #   expect(response).to be_success
+    #   expect(response).to be_successful
     # end
     # 
     # it 'errors on bad input' do
     #   get 'fetch', layout: 'No Such Layout', datasource: 'catalog'
-    #   expect(response).to be_success
+    #   expect(response).to be_successful
     #   expect(response.body).to match(/search layout invalid/i)
       get 'searchjson', params: { layout: 'quicksearch', datasource: 'catalog' }
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'errors on bad input' do
       get 'searchjson', params: { layout: 'No Such Layout', datasource: 'catalog' }
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(response.body).to match(/search layout invalid/i)
     end
   end
