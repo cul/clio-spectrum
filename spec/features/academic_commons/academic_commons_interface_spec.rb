@@ -10,12 +10,12 @@ describe 'Academic Commons', :vcr do
 
     visit root_path
 
-    within('li.datasource_link[source="academic_commons"]') do
+    within('li.datasource_link[source="ac"]') do
       click_link('Academic Commons')
     end
 
-    within '.search_box.academic_commons' do
-      expect(find('#academic_commons_q')).to be_visible
+    within '.search_box.ac' do
+      expect(find('#ac_q')).to be_visible
       fill_in 'q', with: search_title_text
       # find('btn.dropdown-toggle').click
       # within '.dropdown-menu' do
@@ -27,12 +27,12 @@ describe 'Academic Commons', :vcr do
     end
 
     # Search string and search field should be preserved
-    expect(find('#academic_commons_q').value).to eq search_title_text
+    expect(find('#ac_q').value).to eq search_title_text
     # expect(find('.btn.dropdown-toggle')).to have_content('Title')
     expect(page).to have_select('search_field', selected: 'Title')
 
     # The entered fielded search should be echoed on the results page
-    expect(find('.constraints-container')).to have_content('Title: ' + search_title_text)
+    expect(find('.constraint-box')).to have_content('Title: ' + search_title_text)
 
     # And the search results too
     expect(find('#documents')).to have_content(search_title_text)
@@ -56,7 +56,7 @@ describe 'Academic Commons', :vcr do
     expect(page).to have_css('.result_set', count: 5, wait: 10)
     expect(page).to have_css('.nested_result_set', count: 5, wait: 10)
 
-    within('.nested_result_set[data-source=academic_commons]') do
+    within('.nested_result_set[data-source=ac]') do
       # We should find at least one of these...
       expect(page).to have_css('.result_title a', count: 3)
       # and each one we find must satisfy this assertion.

@@ -20,10 +20,6 @@ $ ->
     onsite  = res.data('onsite')
     offsite = res.data('offsite')
 
-    # Nope - no more real-time lookup of fedora attached assets
-    # if source == 'academic_commons'
-    #   fedora_items.push(item_id)
-    # else if source == 'catalog'
     if source == 'catalog'
       # exclude Law records from the catalog holdings check
       # (but leave them in standard_id_set_csv, for Google, et.al.)

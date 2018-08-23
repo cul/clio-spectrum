@@ -9,35 +9,35 @@ describe ApplicationController do
       # Calling "set" without both name and value is a bad request (400)
 
       get :set_browser_option_handler
-      expect(response).not_to be_success
+      expect(response).not_to be_successful
       expect(response.status).to be(400)
 
       get :set_browser_option_handler, params: { name: 'foo' }
-      expect(response).not_to be_success
+      expect(response).not_to be_successful
       expect(response.status).to be(400)
 
       get :set_browser_option_handler, params: { value: 'bar' }
-      expect(response).not_to be_success
+      expect(response).not_to be_successful
       expect(response.status).to be(400)
 
       # Calling "get" with a value, or without a name, is a bad request (400)
 
       get :get_browser_option_handler
-      expect(response).not_to be_success
+      expect(response).not_to be_successful
       expect(response.status).to be(400)
 
       get :get_browser_option_handler, params: { name: 'foo', value: 'bar' }
-      expect(response).not_to be_success
+      expect(response).not_to be_successful
       expect(response.status).to be(400)
 
       get :get_browser_option_handler, params: { value: 'bar' }
-      expect(response).not_to be_success
+      expect(response).not_to be_successful
       expect(response.status).to be(400)
 
       # new, unique name should not be found (404)
       name = "name__#{DateTime.now.to_s}"
       get :get_browser_option_handler, params: { name: name }
-      expect(response).not_to be_success
+      expect(response).not_to be_successful
       expect(response.status).to be(404)
 
     end
@@ -48,10 +48,10 @@ describe ApplicationController do
       value = "value__#{DateTime.now.to_s}"
 
       get :set_browser_option_handler, params: { name: name, value: value }
-      expect(response).to be_success
+      expect(response).to be_successful
 
       get :get_browser_option_handler, params: { name: name }
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(response.header['Content-Type']).to match(/application\/json/)
       expect(response.body).to eq(value)
     end

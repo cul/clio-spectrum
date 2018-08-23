@@ -18,6 +18,12 @@ default_search_layouts:
       - searches:
           - source: lweb 
 
+  ac:
+    style: ac
+    columns:
+      - searches:
+          - source: ac 
+
   quicksearch:
     style: aggregate
     columns:
@@ -29,7 +35,7 @@ default_search_layouts:
       - searches:
         - source: articles
           count: 3
-        - source: academic_commons
+        - source: ac
           count: 3
         - source: library_web
           count: 3
@@ -72,105 +78,3 @@ default_search_layouts:
           - source: geo_cul
             count: 3
 
-
-# 11/2016 - folded "sources" configurations into datasources.yml
-# sources:
-# 
-#   quicksearch:
-#     warning: 
-# 
-#   archives:
-#     Xwarning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
-# 
-#   new_arrivals:
-#     Xwarning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
-# 
-#   catalog:
-#     title: Catalog
-#     description: Library books, journals, music, videos, databases, archival collections, and online resources
-#     Xwarning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
-#     render_options:
-#       format: clio
-# 
-#   articles:
-#     title: Articles
-#     description: Articles, e-books, dissertations, music, images, and more from a mostly full-text database
-#     warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.
-#     render_options:
-#       format: article
-# 
-#   academic_commons:
-#     title: Academic Commons
-#     description: Publications and other research output from Columbia University's digital repository 
-#     warningXX:  Item Status unavailable due to system upgrades.  AC.
-#     render_options:
-#       format: ac
-# 
-#   library_web:
-#     title: Libraries Website
-#     description: Information about the libraries from the Libraries Website
-#     warningXX:  Item Status unavailable due to system upgrades.  LWEB.
-#     render_options:
-#       format: lweb
-# 
-#   ac_dissertations:
-#     title: Academic Commons
-#     description: Dissertations deposited in Columbia's digital repository, primarily 2011-present.
-#     warningXX:  Item Status unavailable due to system upgrades.  AC-DISS.
-#     render_options:
-#       format: ac
-# 
-#   summon_dissertations:
-#     title: Summon
-#     description: Dissertations and theses from the Articles database. Many are full-text.
-#     warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.  ArtyDiss.
-#     render_options:
-#       format: article
-# 
-#   databases:
-#     title: Databases
-#     description: Electronic resources
-#     Xwarning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
-#     render_options:
-#       format: clio
-# 
-#   catalog_dissertations:
-#     title: Catalog
-#     description: Dissertations from the library catalog
-#     warningXX:  Item Status unavailable due to system upgrades.  CAT-DISS.
-#     render_options:
-#       format: clio
-# 
-#   catalog_ebooks:
-#     title: Catalog
-#     description: E-books from the library catalog
-#     warningXX:  Item Status unavailable due to system upgrades.  CAT-EBOO.
-#     render_options:
-#       format: clio
-# 
-#   journals:
-#     title: Journal Titles
-#     description: Electronic Journals Held By Columbia
-#     Xwarning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
-#     render_options:
-#       format: clio 
-# 
-#   summon_ebooks:
-#     title: Summon
-#     description: E-books from the Articles database
-#     warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.  eboo.
-#     render_options:
-#       format: article
-# 
-#   geo:
-#     title: GeoData
-#     description: Columbia's catalog of geospatial data sets 
-#     render_options:
-#       format: geo
-# 
-#   dlc:
-#     title: DLC
-#     description: Digital Collection Viewer (Beta) 
-#     render_options:
-#       format: dlc
-# 

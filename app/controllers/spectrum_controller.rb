@@ -112,6 +112,8 @@ class SpectrumController < ApplicationController
         Spectrum::SearchEngines::GoogleAppliance.new(fix_ga_params(hit_params))
       when 'lweb'
         Spectrum::SearchEngines::GoogleCustomSearch.new(hit_params)
+      when 'ac'
+        Spectrum::SearchEngines::Ac.new(hit_params)
       else
         render body: nil and return
       end
@@ -298,7 +300,7 @@ class SpectrumController < ApplicationController
         fixed_params['new_search'] = true if params['layout'] == 'quicksearch'
         Spectrum::SearchEngines::Summon.new(fixed_params, get_summon_facets)
 
-      when 'catalog', 'databases', 'journals', 'catalog_ebooks', 'catalog_dissertations', 'catalog_data', 'academic_commons', 'ac_dissertations', 'ac_data', 'geo', 'geo_cul', 'dlc'
+      when 'catalog', 'databases', 'journals', 'catalog_ebooks', 'catalog_dissertations', 'catalog_data', 'XXacademic_commons', 'XXac_dissertations', 'XXac_data', 'geo', 'geo_cul', 'dlc'
         # puts "BBB#{Thread.current.object_id}  source #{source} - blacklight_search 'when' branch"
         blacklight_search(fixed_params)
 
@@ -311,6 +313,9 @@ class SpectrumController < ApplicationController
 
       when 'lweb'
         Spectrum::SearchEngines::GoogleCustomSearch.new(fixed_params)
+
+      when 'ac', 'ac_dissertations', 'ac_data'
+        Spectrum::SearchEngines::Ac.new(fixed_params)
 
       else
         fail "SpectrumController#get_results() unhandled source: '#{source}'"

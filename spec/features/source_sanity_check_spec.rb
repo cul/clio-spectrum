@@ -35,7 +35,7 @@ describe 'Datasource Sanity', :vcr do
     end
 
     it 'ac' do
-      visit '/academic_commons'
+      visit '/ac'
       expect(find('.landing_main .title')).to have_text('Academic Commons')
     end
 
@@ -183,10 +183,10 @@ describe 'Switching between data-source', :vcr do
     expect(all('#documents .result').first['source']).to eq 'catalog'
 
     click_link('Academic Commons')
-    expect(find('input#academic_commons_q').value).to eq 'test'
+    expect(find('input#ac_q').value).to eq 'test'
     expect(find('.constraint-box')).to have_text('test')
     expect(page).to have_css('.result')
-    expect(all('#documents .result').first['source']).to eq 'academic_commons'
+    expect(all('#documents .result').first['source']).to eq 'ac'
 
     click_link('Libraries Website')
     expect(find('input#library_web_q').value).to eq 'test'

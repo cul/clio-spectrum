@@ -1,0 +1,32 @@
+-# ACADEMIC COMMONS - API RESULTS LIST
+
+/ _formats/ac/_ac.html.haml
+/ container for a SINGLE doc
+
+.result.document{source: 'ac', item_id: document.id}
+
+  .row
+    .title.col-sm-12
+
+      .item_anchor
+        = render '/item_number', :counter => counter
+
+      .item_number_allowance
+        - fedora_id = document.id
+        -# NEXT-1012 - use handle for item link in AC records
+        -# = link_to document.fetch('title_display', nil), "http://academiccommons.columbia.edu/catalog/#{fedora_id}"
+        = link_to document.title, academic_commons_document_link(document)
+
+  / main container for doc partial view
+
+  .details
+    = add_row('Author', document.authors, join: ', ')
+    = add_row('Date', document.date)
+
+    - doc_link = academic_commons_document_link(document)
+    = add_row('Identifier', link_to(doc_link, doc_link))
+
+    = add_row('Subject', document.subjects, join: ', ')
+    = add_row('Type', document.types, join: ', ')
+    = add_row('Department', document.departments, join: ', ')
+
