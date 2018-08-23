@@ -7,12 +7,14 @@
     = render partial: '/datasource_warning', locals: {warning: warning}
 
     %p Search over 23,000 documents in Columbia University's digital repository, where faculty, students, and staff of Columbia and its affiliate institutions can deposit the results of their scholarly work and research.
+    %ul
+      %li Visit Academic Commons:  #{link_to 'Academic Commons Home', 'http://academiccommons.columbia.edu'}
 
   .landing_side.col-sm-4
     .well.sidebar-nav
       .nav
         %ul.nav.nav-list
           %li.nav-header Related Links
-          %li= link_to "Academic Commons Home", "http://academiccommons.columbia.edu"
-          %li= link_to "Self Deposit Page", "http://academiccommons.columbia.edu/deposit"
+          %li= link_to "Academic Commons Home", "https://academiccommons.columbia.edu"
+          %li= link_to "Self Deposit Page", "https://academiccommons.columbia.edu/deposit"
           %li= link_to "Frequently Asked Questions", "https://academiccommons.columbia.edu/faq"
