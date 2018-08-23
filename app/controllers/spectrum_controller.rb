@@ -314,7 +314,9 @@ class SpectrumController < ApplicationController
       when 'lweb'
         Spectrum::SearchEngines::GoogleCustomSearch.new(fixed_params)
 
-      when 'ac', 'ac_dissertations', 'ac_data'
+      when 'ac', 'ac_dissertations', 'ac_data', 'academic_commons'
+        # temporary support for 8/18 cutover to AC4
+        source = 'ac' if source == 'academic_commons' 
         Spectrum::SearchEngines::Ac.new(fixed_params)
 
       else
