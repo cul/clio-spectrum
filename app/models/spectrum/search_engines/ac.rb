@@ -212,11 +212,23 @@ module Spectrum
         
         # *** remap params ***
         # "SEARCH FIELD" V.S. "SEARCH TYPE"
-        remaps = {
+        key_remaps = {
           'search_field' => 'search_type'
         }
-        remaps.each do |clio_key, api_key|
-          api_params[api_key] = options[clio_key] if options[clio_key].present?
+        value_remaps = {
+          'all_fields' => 'keyword'
+        }
+        key_remaps.each do |clio_key, api_key|
+          # api_params[api_key] = options[clio_key] if options[clio_key].present?
+
+          # We have a key that needs to be remapped
+          if options[clio_key].present?
+            # if the value is in our remap table, remap it before sending to api
+            clio_value = options[clio_key]
+            api_value = value_remaps[clio_value] || clio_value
+            api_params[api_key] = api_value
+          end
+
         end
         
         
