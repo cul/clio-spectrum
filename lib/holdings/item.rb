@@ -44,6 +44,10 @@ module Voyager
           # SCSB availability status may be:  Available, Unavailable, Not Available (?)
           case scsb_status[ barcode ]
 
+          # SCSB does not have a status for this item.  It's not offsite. 
+          when nil
+            # no-op.  do nothing.
+
           # Available, status code 1
           when 'Available'
             mfhd_status[item_id][:statusCode] = 1
