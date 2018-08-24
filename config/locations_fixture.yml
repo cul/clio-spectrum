@@ -96,66 +96,52 @@
 
 
 - :location_code: barnard
-  # :library_code: barnard
   :links: 
     Home Page: http://library.barnard.edu/
-    Floorplan: http://library.barnard.edu/LeFrak-Center-First-Floor-Floorplan
+    # Floorplan: http://library.barnard.edu/LeFrak-Center-First-Floor-Floorplan
   :category: physical
   :location: Barnard
   :found_in: |-
     Barnard College Library
     
-    LeFrak Center, Barnard Hall
+    The Milstein Center for Teaching and Learning
 
 - :location_code: barnard
-  # :library_code: barnard-archives
   :links: 
     Home Page: http://library.barnard.edu/
-    Floorplan: http://library.barnard.edu/using-library/floorplan
-    Stacks Guide: http://library.barnard.edu/find-books/stacks
+    # Floorplan: http://library.barnard.edu/using-library/floorplan
+    # Stacks Guide: http://library.barnard.edu/find-books/stacks
   :category: physical
   :location: Barnard Archives
   :found_in: |-
     Barnard College Library
 
-    Lehman Hall
+    The Milstein Center for Teaching and Learning
 
 - :location_code: barnard
-  # :library_code: barnard-archives
   :links: 
     Home Page: http://library.barnard.edu/
-    Floorplan: http://library.barnard.edu/using-library/floorplan
-    Stacks Guide: http://library.barnard.edu/find-books/stacks
+    # Floorplan: http://library.barnard.edu/using-library/floorplan
+    # Stacks Guide: http://library.barnard.edu/find-books/stacks
   :category: physical
   :location: Barnard Rare
   :found_in: |-
     Barnard College Library
 
-    Lehman Hall
+    The Milstein Center for Teaching and Learning
 
 - :location_code: barnard
-  # :library_code: barnard-archives
   :links: 
     Home Page: http://library.barnard.edu/
-    Floorplan: http://library.barnard.edu/using-library/floorplan
-    Stacks Guide: http://library.barnard.edu/find-books/stacks
+    # Floorplan: http://library.barnard.edu/using-library/floorplan
+    # Stacks Guide: http://library.barnard.edu/find-books/stacks
   :category: physical
   :location: Barnard Special
   :found_in: |-
     Barnard College Library
 
-    Lehman Hall
+    The Milstein Center for Teaching and Learning
 
-# - :library_code: barnard-bcrw
-#   :location_code: barnard-bcrw
-#   :links: 
-#     Home Page: http://bcrw.barnard.edu/
-#   :category: physical
-#   :location: Barnard Center For Research On Women
-#   :found_in: |-
-#     Barnard Center For Research On Women
-#     
-#     101 Barnard Hall
 
 - :library_code: burke
   :location_code: burke
