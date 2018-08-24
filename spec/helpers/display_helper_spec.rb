@@ -3,7 +3,7 @@ require 'spec_helper'
 describe DisplayHelper do
 
   it 'should return top-level Pegasus Link', type: :helper do
-    pegasus_url = 'http://pegasus.law.columbia.edu'
+    pegasus_url = 'https://pegasus.law.columbia.edu'
 
     link = pegasus_item_link(nil)
     expect(link).to have_text(pegasus_url)

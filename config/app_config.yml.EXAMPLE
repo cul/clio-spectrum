@@ -11,17 +11,17 @@ _all_environments:
   extract_home: /libraries/clio/spectrum
 
   # URL to the Solr search engine for Academic Commons, Columbia's 
-  # institutional repository, available at http://academiccommons.columbia.edu, 
+  # institutional repository, available at https://academiccommons.columbia.edu, 
   # and used by CLIO for the AC datasource 
   # (https://clio.columbia.edu/academic_commons)
-  ac2_solr_url: http://ac2.cul.columbia.edu:1234/solr-4.0/ac2_prod
+  ac2_solr_url: https://ac2.cul.columbia.edu:1234/solr-4.0/ac2_prod
 
   # URL to Columbia University's Google Search Appliance, used by the 
   # search box on Columbia University's home-page 
-  # (e.g., http://search.columbia.edu/search?proxystylesheet=columbia2&q=test),
+  # (e.g., https://search.columbia.edu/search?proxystylesheet=columbia2&q=test),
   # and used by CLIO for the Library Web datasource
   # (https://clio.columbia.edu/library_web)
-  google_appliance_url: http://search.columbia.edu/search
+  google_appliance_url: https://search.columbia.edu/search
 
 
   # Authorization credentials for SerialSolutions Summon Search API
@@ -39,7 +39,7 @@ _all_environments:
   location_notes:
     'Avery Classics ': >
         By appointment only.  See the
-        <a href="http://library.columbia.edu/locations/avery/classics.html">
+        <a href="https://library.columbia.edu/locations/avery/classics.html">
         Avery Classics Collection webpage
         </a>
     'Mathematics (Currently Closed': >
@@ -101,7 +101,7 @@ development:
   # The "clio-backend" endpoint is middleware supplying real-time
   # status information and additional holdings details from our
   # ILMS (Voyager) and our digital asset repository (Fedora)
-  clio_backend_url: http://backend-dev.cul.columbia.edu/status_dev
+  clio_backend_url: https://backend-dev.cul.columbia.edu/status_dev
 
 
 # Settings within the test block will be used by 
@@ -116,5 +116,5 @@ test:
   # status information and additional holdings details from our
   # ILMS (Voyager) and our digital asset repository (Fedora)
   # Use the "dev" installation of this middleware for development and test.
-  clio_backend_url: http://backend-dev.cul.columbia.edu/status_dev
+  clio_backend_url: https://backend-dev.cul.columbia.edu/status_dev
 

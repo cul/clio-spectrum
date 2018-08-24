@@ -227,7 +227,7 @@ module DisplayHelper
   end
 
   def pegasus_item_link(document, context = '')
-    url = 'http://pegasus.law.columbia.edu'
+    url = 'https://pegasus.law.columbia.edu'
     if document && document.id
       # NEXT-996 - Rename "Pegasus" link
       return link_to t('blacklight.law.check_message'),

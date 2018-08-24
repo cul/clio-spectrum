@@ -444,7 +444,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   it "Titles should include dates from 245 $f" do
     visit solr_document_path('8540370')
     # expect( find('.show-document .title')).to have_text "Composers' Forum concert [electronic resource], 1958 January 18"
-    expect( find('.show-document .title')).to have_text "Composers Forum concert, 1958 January 18"
+    expect( find('.show-document .title')).to have_text "Composers' Forum concert, 1958 January 18"
 
     visit solr_document_path('4079060')
     expect( find('.show-document .title')).to have_text "Papers, 1958-1968"

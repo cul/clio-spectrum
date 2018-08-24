@@ -28,7 +28,7 @@ describe BackendController, :vcr do
   #   bibs = [5951061, 6703227, 9020317, 10654375, 4584787]
   #   location_note = 'By appointment only. See the Burke Library special collections page'
   #   link_text = 'Burke Library special collections page'
-  #   link_href = 'http://library.columbia.edu/locations/burke/access_circulation/special-collections-access.html'
+  #   link_href = 'https://library.columbia.edu/locations/burke/access_circulation/special-collections-access.html'
   # 
   #   bibs.each do |bib|
   #     get 'holdings', :id => bib

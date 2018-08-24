@@ -10,7 +10,7 @@ _all_environments:
   cas_validate_url: https://cas.columbia.edu/cas/serviceValidate
   cas_destination_url: https://cliobeta.columbia.edu:3000
 
-  google_appliance_url: http://search.columbia.edu/search
+  google_appliance_url: https://search.columbia.edu/search
 
   library_api_path: <%= ENV['LIBRARY_API_PATH'] %>
 

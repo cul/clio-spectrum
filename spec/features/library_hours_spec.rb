@@ -45,7 +45,7 @@ describe 'Item Locations should show correct library hours', :vcr, :skip_travis 
 
     # Check out the Location page...
     expect(page).to have_text('Avery Classics')
-    expect(page).to have_link('Floorplans', href: 'http://library.columbia.edu/locations/avery/floorplans.html')
+    expect(page).to have_link('Floorplans', href: 'https://library.columbia.edu/locations/avery/floorplans.html')
     expect(page).to have_link('Full Hours Info', href: 'https://hours.library.columbia.edu/locations/avery-classics')
   end
 
@@ -71,8 +71,8 @@ describe 'Item Locations should show correct library hours', :vcr, :skip_travis 
 
     # Check out the Location page...
     expect(page).to have_text(target)
-    expect(page).to have_link('Home Page', href: 'http://library.columbia.edu/locations/avery/art-properties.html')
-    expect(page).to have_link('Floorplans', href: 'http://library.columbia.edu/locations/avery/floorplans.html')
+    expect(page).to have_link('Home Page', href: 'https://library.columbia.edu/locations/avery/art-properties.html')
+    expect(page).to have_link('Floorplans', href: 'https://library.columbia.edu/locations/avery/floorplans.html')
     expect(page).to have_link('Full Hours Info', href: 'https://hours.library.columbia.edu/locations/avery-art-properties')
     expect(page).to have_css('.gmap_container')
   end
@@ -85,7 +85,7 @@ describe 'Item Locations should show correct library hours', :vcr, :skip_travis 
     expect(page).to have_text('Arthur W. Diamond')
     expect(page).to have_text('Jerome Greene Hall')
     # page.save_and_open_page # debug
-    expect(page).to have_link('Home Page', href: 'http://web.law.columbia.edu/library')
+    expect(page).to have_link('Home Page', href: 'https://web.law.columbia.edu/library')
     expect(page).to have_link('Full Hours Info', href: 'https://hours.library.columbia.edu/locations/law')
   end
 

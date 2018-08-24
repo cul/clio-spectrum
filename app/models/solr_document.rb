@@ -38,7 +38,7 @@ class SolrDocument
     return ! id.start_with?('SCSB')
   end
 
-  # Detect Law records, cataloged in Pegasus (http://pegasus.law.columbia.edu/)
+  # Detect Law records, cataloged in Pegasus (https://pegasus.law.columbia.edu/)
   def in_pegasus?
     # Document must have an id, which must be a "b" followed by a number...
     return false unless id and id.match /^b\d{3,9}$/

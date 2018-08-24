@@ -34,8 +34,6 @@ class LocationsController < ApplicationController
   def library_api_path
     if APP_CONFIG.has_key?('library_api_path') && APP_CONFIG['library_api_path']
       APP_CONFIG['library_api_path']
-    # elsif APP_CONFIG.has_key?('use_test_api') && APP_CONFIG['use_test_api']
-    #   "http://test-api.library.columbia.edu/query.json"
     else
       "https://api.library.columbia.edu/query.json"
     end

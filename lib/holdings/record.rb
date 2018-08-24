@@ -440,20 +440,20 @@ module Voyager
 
         # Avery Art Properties (NEXT-1318)
         if location_code == 'avap'
-          location_note = 'By appointment only. See the <a href="http://library.columbia.edu/locations/avery/art-properties.html" target="_blank">Avery Art Properties webpage</a>'
+          location_note = 'By appointment only. See the <a href="https://library.columbia.edu/locations/avery/art-properties.html" target="_blank">Avery Art Properties webpage</a>'
           return location_note
         end
 
         # Avery Classics
         if ['avr', 'avr,cage', 'avr,rrm', 'avr,stor', 'far', 'far,cage', 'far,rrm',
             'far,stor', 'off,avr', 'off,far'].include?(location_code)
-          location_note = 'By appointment only. See the <a href="http://library.columbia.edu/locations/avery/classics.html" target="_blank">Avery Classics Collection webpage</a>'
+          location_note = 'By appointment only. See the <a href="https://library.columbia.edu/locations/avery/classics.html" target="_blank">Avery Classics Collection webpage</a>'
           return location_note
         end
 
         # Avery Drawings & Archives (NEXT-1318)
         if ['avda', 'ava', 'off,avda'].include?(location_code)
-          location_note = 'By appointment only. See the <a href="http://library.columbia.edu/locations/avery/da.html" target="_blank">Avery Drawings & Archives webpage</a>'
+          location_note = 'By appointment only. See the <a href="https://library.columbia.edu/locations/avery/da.html" target="_blank">Avery Drawings & Archives webpage</a>'
           return location_note
         end
 
@@ -469,7 +469,7 @@ module Voyager
             'uts,mrlor', 'uts,mrloxf', 'uts,mrls', 'uts,mrlxxp', 'uts,mss', 'uts,perr',
             'uts,perrxf', 'uts,reled', 'uts,tms', 'uts,twr', 'uts,twrxxf',
             'uts,unnr', 'uts,unnrxf', 'uts,unnrxp'].include?(location_code)
-          location_note = 'By appointment only. See the <a href="http://library.columbia.edu/locations/burke/using-special-collections.html" target="_blank">Burke Library special collections page</a>'
+          location_note = 'By appointment only. See the <a href="https://library.columbia.edu/locations/burke/using-special-collections.html" target="_blank">Burke Library special collections page</a>'
           return location_note
         end
 

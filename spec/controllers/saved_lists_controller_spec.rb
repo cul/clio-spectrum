@@ -21,15 +21,10 @@ describe SavedListsController do
     delete :destroy,  params: { id: 1 }
     # page.save_and_open_page # debug
     expect(response.status).to be(302)
-    # Can't figure this out....
-    # expect(response).to redirect_to location: 'http://wind.columbia.edu/login'
-    # expect(response).to redirect_to %r(\Ahttp://wind.columbia.edu/login)
 
     put :update,  params: { id: 1 }
     # page.save_and_open_page # debug
     expect(response.status).to be(302)
-    # Can't figure this out....
-    # expect(response).to redirect_to %r(\Ahttp://wind.columbia.edu/login)
   end
 
   it 'authenticated users can interact...' do

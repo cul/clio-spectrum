@@ -121,7 +121,7 @@ module Spectrum
       #     'y'       => '0',
       #   }
       # 
-      #   # url = "http://search.columbia.edu/search?#{default_params.to_query}"
+      #   # url = "https://search.columbia.edu/search?#{default_params.to_query}"
       #   url = "#{@ga_url}?#{default_params.to_query}"
       #   url += "&sitesearch=#{@sitesearch}"
       #   url += "&num=#{@rows}"

@@ -162,7 +162,7 @@ module CulCatalogHelper
 
   def law_requests_blurb
     text = "Requests serviced by the ".html_safe
-    link = link_to("Arthur W. Diamond Law Library", 'http://web.law.columbia.edu/library', :target => "_blank")
+    link = link_to("Arthur W. Diamond Law Library", 'https://web.law.columbia.edu/library', :target => "_blank")
     blurb = content_tag(:div, "#{text}<nobr>#{link}</nobr>".html_safe, class: 'law_blurb')
 
   end
