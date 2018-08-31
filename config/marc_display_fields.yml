@@ -253,11 +253,21 @@ notes:
         display: abcdg3
     -   tag: 536
         display: abcdefgh
+    -   tag: 541
+        ind1: ' 1'
+        ind2: :all
+        display: a
     -   tag: 547
         display: a
     -   tag: 550
         display: a
     -   tag: 556
+        display: a
+    -   tag: 561
+        ind1: ' 1'
+        ind2: :all
+        display: a
+    -   tag: 563
         display: a
     -   tag: 565
         display: abcde3
@@ -273,124 +283,126 @@ notes:
         display: a3
     -   tag: 590
         display: a
-notes_book:
-    -   tag: 500
-        display: a
-    -   tag: 501
-        display: a
-    -   tag: 502
-        display: a
-    -   tag: 504
-        display: ab
-    -   tag: 513
-        display: ab
-    -   tag: 515
-        display: a
-    -   tag: 521
-        display: ab3
-    -   tag: 522
-        display: a
-    -   tag: 525
-        display: a
-    -   tag: 530
-        display: abcd3
-    -   tag: 534
-        display: abcefklmnopt
-    -   tag: 586
-        display: a3
-    -   tag: 590
-        display: a
-notes_manuscript_archive:
-    -   tag: 500
-        display: a
-    -   tag: 580
-        display: a
-    -   tag: 581
-        display: a3
-    -   tag: 586
-        display: a3
-    -   tag: 590
-        display: a
-notes_map_globe:
-    -   tag: 500
-        display: a
-    -   tag: 501
-        display: a
-    -   tag: 504
-        display: ab
-    -   tag: 515
-        display: a
-    -   tag: 521
-        display: ab3
-    -   tag: 522
-        display: a
-    -   tag: 525
-        display: a
-    -   tag: 530
-        display: abcd3
-    -   tag: 534
-        display: abcefklmnopt
-    -   tag: 580
-        display: a
-    -   tag: 581
-        display: a3
-    -   tag: 586
-        display: a3
-    -   tag: 590
-        display: a
-notes_music_recording:
-    -   tag: 254
-        display: a
-    -   tag: 500
-        display: a
-    -   tag: 518
-        display: a3
-    -   tag: 590
-        display: a
-notes_serial:
-    -   tag: 500
-        display: a
-    -   tag: 501
-        display: a
-    -   tag: 504
-        display: ab
-    -   tag: 515
-        display: a
-    -   tag: 521
-        display: ab3
-    -   tag: 525
-        display: a
-    -   tag: 530
-        display: abcd3
-    -   tag: 534
-        display: abcefklmnopt
-    -   tag: 535
-        display: abcdg3
-    -   tag: 547
-        display: a
-    -   tag: 550
-        display: a
-    -   tag: 580
-        display: a
-    -   tag: 590
-        display: a
-notes_video:
-    -   tag: 500
-        display: a
-    -   tag: 518
-        display: a3
-    -   tag: 521
-        display: ab3
-    -   tag: 530
-        display: abcd3
-    -   tag: 534
-        display: abcefklmnopt
-    -   tag: 550
-        display: a
-    -   tag: 586
-        display: a3
-    -   tag: 590
-        display: a
+
+# notes_book:
+#     -   tag: 500
+#         display: a
+#     -   tag: 501
+#         display: a
+#     -   tag: 502
+#         display: a
+#     -   tag: 504
+#         display: ab
+#     -   tag: 513
+#         display: ab
+#     -   tag: 515
+#         display: a
+#     -   tag: 521
+#         display: ab3
+#     -   tag: 522
+#         display: a
+#     -   tag: 525
+#         display: a
+#     -   tag: 530
+#         display: abcd3
+#     -   tag: 534
+#         display: abcefklmnopt
+#     -   tag: 586
+#         display: a3
+#     -   tag: 590
+#         display: a
+# notes_manuscript_archive:
+#     -   tag: 500
+#         display: a
+#     -   tag: 580
+#         display: a
+#     -   tag: 581
+#         display: a3
+#     -   tag: 586
+#         display: a3
+#     -   tag: 590
+#         display: a
+# notes_map_globe:
+#     -   tag: 500
+#         display: a
+#     -   tag: 501
+#         display: a
+#     -   tag: 504
+#         display: ab
+#     -   tag: 515
+#         display: a
+#     -   tag: 521
+#         display: ab3
+#     -   tag: 522
+#         display: a
+#     -   tag: 525
+#         display: a
+#     -   tag: 530
+#         display: abcd3
+#     -   tag: 534
+#         display: abcefklmnopt
+#     -   tag: 580
+#         display: a
+#     -   tag: 581
+#         display: a3
+#     -   tag: 586
+#         display: a3
+#     -   tag: 590
+#         display: a
+# notes_music_recording:
+#     -   tag: 254
+#         display: a
+#     -   tag: 500
+#         display: a
+#     -   tag: 518
+#         display: a3
+#     -   tag: 590
+#         display: a
+# notes_serial:
+#     -   tag: 500
+#         display: a
+#     -   tag: 501
+#         display: a
+#     -   tag: 504
+#         display: ab
+#     -   tag: 515
+#         display: a
+#     -   tag: 521
+#         display: ab3
+#     -   tag: 525
+#         display: a
+#     -   tag: 530
+#         display: abcd3
+#     -   tag: 534
+#         display: abcefklmnopt
+#     -   tag: 535
+#         display: abcdg3
+#     -   tag: 547
+#         display: a
+#     -   tag: 550
+#         display: a
+#     -   tag: 580
+#         display: a
+#     -   tag: 590
+#         display: a
+# notes_video:
+#     -   tag: 500
+#         display: a
+#     -   tag: 518
+#         display: a3
+#     -   tag: 521
+#         display: ab3
+#     -   tag: 530
+#         display: abcd3
+#     -   tag: 534
+#         display: abcefklmnopt
+#     -   tag: 550
+#         display: a
+#     -   tag: 586
+#         display: a3
+#     -   tag: 590
+#         display: a
+
 performers:
     -   tag: 511
         ind1: '0'
