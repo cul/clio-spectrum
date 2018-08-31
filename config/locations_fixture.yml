@@ -98,7 +98,7 @@
 - :location_code: barnard
   :links: 
     Home Page: http://library.barnard.edu/
-    # Floorplan: http://library.barnard.edu/LeFrak-Center-First-Floor-Floorplan
+    Stacks Guide: https://library.barnard.edu/stacks-guide
   :category: physical
   :location: Barnard
   :found_in: |-
@@ -109,8 +109,7 @@
 - :location_code: barnard
   :links: 
     Home Page: http://library.barnard.edu/
-    # Floorplan: http://library.barnard.edu/using-library/floorplan
-    # Stacks Guide: http://library.barnard.edu/find-books/stacks
+    Stacks Guide: https://library.barnard.edu/stacks-guide
   :category: physical
   :location: Barnard Archives
   :found_in: |-
@@ -121,8 +120,7 @@
 - :location_code: barnard
   :links: 
     Home Page: http://library.barnard.edu/
-    # Floorplan: http://library.barnard.edu/using-library/floorplan
-    # Stacks Guide: http://library.barnard.edu/find-books/stacks
+    Stacks Guide: https://library.barnard.edu/stacks-guide
   :category: physical
   :location: Barnard Rare
   :found_in: |-
@@ -133,8 +131,7 @@
 - :location_code: barnard
   :links: 
     Home Page: http://library.barnard.edu/
-    # Floorplan: http://library.barnard.edu/using-library/floorplan
-    # Stacks Guide: http://library.barnard.edu/find-books/stacks
+    Stacks Guide: https://library.barnard.edu/stacks-guide
   :category: physical
   :location: Barnard Special
   :found_in: |-
