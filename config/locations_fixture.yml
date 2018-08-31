@@ -95,7 +95,8 @@
     Avery Hall
 
 
-- :location_code: barnard
+- :library_code: barnard
+  :location_code: barnard
   :links: 
     Home Page: http://library.barnard.edu/
     Stacks Guide: https://library.barnard.edu/stacks-guide
@@ -106,39 +107,42 @@
     
     The Milstein Center for Teaching and Learning
 
-- :location_code: barnard
-  :links: 
-    Home Page: http://library.barnard.edu/
-    Stacks Guide: https://library.barnard.edu/stacks-guide
-  :category: physical
-  :location: Barnard Archives
-  :found_in: |-
-    Barnard College Library
-
-    The Milstein Center for Teaching and Learning
-
-- :location_code: barnard
-  :links: 
-    Home Page: http://library.barnard.edu/
-    Stacks Guide: https://library.barnard.edu/stacks-guide
-  :category: physical
-  :location: Barnard Rare
-  :found_in: |-
-    Barnard College Library
-
-    The Milstein Center for Teaching and Learning
-
-- :location_code: barnard
-  :links: 
-    Home Page: http://library.barnard.edu/
-    Stacks Guide: https://library.barnard.edu/stacks-guide
-  :category: physical
-  :location: Barnard Special
-  :found_in: |-
-    Barnard College Library
-
-    The Milstein Center for Teaching and Learning
-
+# - :library_code: barnard
+#   :location_code: barnard
+#   :links: 
+#     Home Page: http://library.barnard.edu/
+#     Stacks Guide: https://library.barnard.edu/stacks-guide
+#   :category: physical
+#   :location: Barnard Archives
+#   :found_in: |-
+#     Barnard College Library
+# 
+#     The Milstein Center for Teaching and Learning
+# 
+# - :library_code: barnard
+#   :location_code: barnard
+#   :links: 
+#     Home Page: http://library.barnard.edu/
+#     Stacks Guide: https://library.barnard.edu/stacks-guide
+#   :category: physical
+#   :location: Barnard Rare
+#   :found_in: |-
+#     Barnard College Library
+# 
+#     The Milstein Center for Teaching and Learning
+# 
+# - :library_code: barnard
+#   :location_code: barnard
+#   :links: 
+#     Home Page: http://library.barnard.edu/
+#     Stacks Guide: https://library.barnard.edu/stacks-guide
+#   :category: physical
+#   :location: Barnard Special
+#   :found_in: |-
+#     Barnard College Library
+# 
+#     The Milstein Center for Teaching and Learning
+# 
 
 - :library_code: burke
   :location_code: burke
