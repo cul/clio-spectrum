@@ -531,8 +531,8 @@ module Voyager
         else
         end
 
-        if location_code == APP_CONFIG['barnard_offsite_location']
-          services << 'barnard_offsite'
+        if location_code == APP_CONFIG['barnard_remote_location']
+          services << 'barnard_remote'
         end
 
         # cleanup the list

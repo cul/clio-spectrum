@@ -166,7 +166,7 @@ module HoldingsHelper
   # end
   
 
-  SERVICE_ORDER = %w(offsite barnard_offsite spec_coll precat on_order borrow_direct borrow_direct_test recall_hold ill ill_valet in_process doc_delivery)
+  SERVICE_ORDER = %w(offsite barnard_remote spec_coll precat on_order borrow_direct borrow_direct_test recall_hold ill ill_valet in_process doc_delivery)
 
   # parameters: title, link (url or javascript), optional extra param
   # When 2nd param is a JS function, 
@@ -178,7 +178,7 @@ module HoldingsHelper
     {
     'offsite' => [ 'Offsite', 'OpenURL', offsite_link() ],
 
-    'barnard_offsite' => [ 'Offsite', 'OpenURL', barnard_offsite_link() ],
+    'barnard_remote' => [ 'BearStor', 'OpenURL', barnard_remote_link() ],
 
     'spec_coll' => ['Special Collections',
                     'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
@@ -489,12 +489,9 @@ module HoldingsHelper
     #   "https://valet.cul.columbia.edu/offsite_requests/bib?bib_id="
   end
   
-  def barnard_offsite_link
+  def barnard_remote_link
     valet_url = APP_CONFIG['valet_url'] || "https://valet.cul.columbia.edu"
-    return "#{valet_url}/barnard_offsite_requests/bib?bib_id="
-
-    # APP_CONFIG['valet_link'] ||
-    #   "https://valet.cul.columbia.edu/offsite_requests/bib?bib_id="
+    return "#{valet_url}/barnard_remote_requests/bib?bib_id="
   end
 
   def offsite_bound_with_url(title, enum_chron, barcode)
