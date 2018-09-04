@@ -54,19 +54,19 @@ module Spectrum
       SUMMON_DEFAULT_PARAMS = {
 
         'articles' =>  { 
-          's.ho' => 'f',
+          's.ho' => (Rails.env == 'clio_prod') ? 'f' : 't',
           # 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)'
           's.fvf' => ['ContentType, Newspaper Article,t']
         }.freeze,
 
         'summon_ebooks' => { 
-          's.ho' => 'f',
+          's.ho' => (Rails.env == 'clio_prod') ? 'f' : 't',
           's.cmd' => 'addFacetValueFilters(IsFullText, true)',
           's.fvf' => ['ContentType,eBook']
         }.freeze,
 
         'summon_dissertations' => {
-          's.ho' => 'f',
+          's.ho' => (Rails.env == 'clio_prod') ? 'f' : 't',
           's.fvf' => ['ContentType,Dissertation']
         }.freeze
       }.freeze
