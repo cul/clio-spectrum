@@ -254,7 +254,7 @@ notes:
     -   tag: 536
         display: abcdefgh
     -   tag: 541
-        ind1: ' 1'
+        ind1: '1'
         ind2: :all
         display: a
     -   tag: 547
@@ -264,7 +264,7 @@ notes:
     -   tag: 556
         display: a
     -   tag: 561
-        ind1: ' 1'
+        ind1: '1'
         ind2: :all
         display: a
     -   tag: 563
