@@ -62,10 +62,8 @@ class SolrDocument
     # mfhd_id is a repeated field, once per holding.
     # we only care if it's present at all.
     return false unless self.has_key?(:mfhd_id)
-    # Online resources have a single Holdings record & no Item records
-    return false if self[:location_txt].size == 1 && 
-                    self[:location_txt].first.starts_with?("Online")
-    # We have a Holding and we're not Online -- return true
+
+    # We have a Holding -- return true
     return true
   end
 
@@ -75,6 +73,11 @@ class SolrDocument
     return false unless self.columbia?
     # Pegasys (Law) will not have circ status
     return false if self.in_pegasus?
+
+    # Online resources have a single Holdings record & no Item records
+    # They won't have any circulation status in Voyager
+    return false if self[:location_txt].size == 1 && 
+                    self[:location_txt].first.starts_with?("Online")
 
     # If we hit a document w/out MARC holdings, it won't have circ status either.
     # This shouldn't happen anymore.
