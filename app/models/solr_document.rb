@@ -41,7 +41,7 @@ class SolrDocument
   # Detect Law records, cataloged in Pegasus (https://pegasus.law.columbia.edu/)
   def in_pegasus?
     # Document must have an id, which must be a "b" followed by a number...
-    return false unless id and id.match /^b\d{3,9}$/
+    return false unless id and id.match /^b\d{2,9}$/
   
     # And, confirm that the Location is "Law"
   
@@ -61,7 +61,12 @@ class SolrDocument
   def has_marc_holdings?
     # mfhd_id is a repeated field, once per holding.
     # we only care if it's present at all.
-    return self.has_key?(:mfhd_id)
+    return false unless self.has_key?(:mfhd_id)
+    # Online resources have a single Holdings record & no Item records
+    return false if self[:location_txt].size == 1 && 
+                    self[:location_txt].first.starts_with?("Online")
+    # We have a Holding and we're not Online -- return true
+    return true
   end
 
   # Does Voyager have live circ status for this document?

@@ -49,7 +49,8 @@ class BackendController < ApplicationController
   #   }
   # }
   def self.circ_status(id)
-    unless id.match(/^\d+$/)
+    # We should only have Voyager IDs, or timestamp records (99i, 99c, etc.)
+    unless id.match(/^\d+$/) || id.match(/^99\w$/)
       logger.error "BackendController#circ_status passed non-numeric id: #{id}"
       return nil
     end
