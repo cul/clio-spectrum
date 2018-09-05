@@ -76,7 +76,8 @@ class SolrDocument
 
     # Online resources have a single Holdings record & no Item records
     # They won't have any circulation status in Voyager
-    return false if self[:location_txt].size == 1 && 
+    return false if self.has_key?(:location_txt) &&
+                    self[:location_txt].size == 1 && 
                     self[:location_txt].first.starts_with?("Online")
 
     # If we hit a document w/out MARC holdings, it won't have circ status either.
