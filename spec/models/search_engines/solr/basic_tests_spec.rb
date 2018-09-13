@@ -108,7 +108,7 @@ describe 'Spectrum::SearchEngines::Solr', :vcr do
 
       found_naturA = false
       eng.results.each do |result|
-        if result.fetch('title_display').first && result.fetch('title_display').first.match(/naturA/i)
+        if result.fetch('title_display').first && result.fetch('title_display').first.match(/naturALIZ/i)
           found_naturA = true
         end
 
