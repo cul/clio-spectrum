@@ -47,7 +47,7 @@ namespace :bibliographic do
       puts "ERROR: Skipping prune_index step."
       next
     end
-    stale = (ENV['STALE_DAYS'] || 90).to_i
+    stale = (ENV['STALE_DAYS'] || 70).to_i
     Rails.logger.info("-- pruning records older than [ #{stale} ] days.")
     # TODO - SOLR RECORDS SHOULD SELF-IDENTIFY AS VOYAGER FEED RECORDS
     query = "timestamp:[* TO NOW/DAY-#{stale}DAYS] AND id:[0 TO 999999]"
@@ -57,27 +57,25 @@ namespace :bibliographic do
     response = solr_connection.get 'select', params: { q: query, rows: 0}
     numFound = response['response']['numFound'].to_i
 
+    Rails.logger.info("-- found #{numFound} stale records.")
     
-    prune_limit = (ENV['PRUNE_LIMIT'] || 1000).to_i
+    prune_limit = (ENV['PRUNE_LIMIT'] || 10000).to_i
     if numFound > prune_limit
-      message = "ERROR:  prune limit set to #{prune_limit}, found [#{numFound}] stale records!"
+      message = "ERROR:  prune limit set to #{prune_limit}, found [#{numFound}] stale records - skipping!"
       Rails.logger.error("-- #{message}")
       puts message
-      abort "aborting!"
-      next
-    end
-
-    Rails.logger.info("-- found #{numFound} stale records.")
-
-    if numFound > 0
-      Rails.logger.info("-- pruning...")
-      solr_connection.delete_by_query query
-      solr_connection.commit
+    else
+      if numFound > 0
+        Rails.logger.info("-- pruning...")
+        solr_connection.delete_by_query query
+        solr_connection.commit
+      end
     end
 
     # Oh wait - we need to prune Law too (bib keys look like: b\d+)
     # Just delete, don't be so worried about mistakes.  All Law bibs
     # get automatically reloaded weekly anyway.
+    Rails.logger.info("-- pruning law...")
     query = "timestamp:[* TO NOW/DAY-#{stale}DAYS] AND id:[b0 TO b999999]"
     solr_connection.delete_by_query query
     solr_connection.commit
