@@ -283,7 +283,66 @@ notes:
         display: a3
     -   tag: 590
         display: a
-
+# Exactly like 'notes', but the 541 needs to display as
+# a separate "Credit Line" field.
+notes_art_work:
+    -   tag: 500
+        display: a
+    -   tag: 501
+        display: a
+    -   tag: 502
+        display: a
+    -   tag: 504
+        display: ab
+    -   tag: 513
+        display: ab
+    -   tag: 515
+        display: a
+    -   tag: 516
+        display: a
+    -   tag: 518
+        display: a3
+    -   tag: 521
+        display: ab3
+    -   tag: 522
+        display: a
+    -   tag: 525
+        display: a
+    -   tag: 530
+        display: abcd3
+    -   tag: 534
+        display: abcefklmnopt
+    -   tag: 535
+        display: abcdg3
+    -   tag: 536
+        display: abcdefgh
+    -   tag: 547
+        display: a
+    -   tag: 550
+        display: a
+    -   tag: 556
+        display: a
+    -   tag: 561
+        ind1: '1'
+        ind2: :all
+        display: a
+    -   tag: 563
+        display: a
+    -   tag: 565
+        display: abcde3
+    -   tag: 567
+        display: a
+    -   tag: 580
+        display: a
+    -   tag: 581
+        display: a3
+    -   tag: 584
+        display: ab
+    -   tag: 586
+        display: a3
+    -   tag: 590
+        display: a
+  
 # notes_book:
 #     -   tag: 500
 #         display: a
