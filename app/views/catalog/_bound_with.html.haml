@@ -25,7 +25,9 @@
       
         %span.bound_with_link
           - if requestable && offsite_bound_with_url.present?
-            = link_to "request barcode #{barcode}", offsite_bound_with_url
+            -# = link_to "request barcode #{barcode}", offsite_bound_with_url
+            = link_to "request barcode #{barcode}", '#', onclick: "OpenWindow('#{offsite_bound_with_url}'); return false;"
+            
           - else
             = link_to "search barcode #{barcode}", catalog_index_path(q: barcode)
 
