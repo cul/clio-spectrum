@@ -19,20 +19,11 @@ module Spectrum
         @start = ((@page - 1) * @rows) + 1
         @errors = nil
 
-        # SCSB calls use Faraday, and can get both response codes and content.
-        # @conn = Faraday.new(url: url)
-        # raise "Faraday.new(#{url}) failed!" unless @conn
-        # @conn.headers['Content-Type'] = 'application/json'
-        # @conn.headers['api_key'] = @scsb_args[:api_key]
-        # response = conn.post path, params.to_json
-        # response_data = JSON.parse(response.body)
-
         client = HTTPClient.new
         response = client.get search_url
         status = response.status
         body = response.body
 
-        # @results = HTTPClient.new.get_content(search_url)raise
         results = JSON.parse(response.body).with_indifferent_access
 
         @documents = Array(results[:records]).map { |item| AcDocument.new(item) }
@@ -203,11 +194,27 @@ module Spectrum
         search_url = "#{url}#{search_path}"
 
         api_params = Hash.new
-        
+      
         # basic query params
         basics = [ 'q', 'page', 'per_page', 'sort', 'order']
         basics.each do |key|
-            api_params[key] = options[key] if options[key].present?
+          api_params[key] = options[key] if options[key].present?
+        end
+
+        # If we get non-AC sort params, either fix or ignore
+        sort_key = options['sort']
+        order_key = options['order']
+
+        # combined, e.g.:  sort=pub_date_sort+desc
+        if sort_key.present? && sort_key.match(/\w+ \w+sc/)
+          sort_key, order_key = sort_key.match(/(\w+) (\w+sc)/).captures
+        end
+        sort_key = 'date' if sort_key == 'pub_date_sort'
+        if ['best_match', 'date', 'title'].include? sort_key
+          api_params['sort'] = sort_key
+          if ['asc', 'desc'].include? order_key
+            api_params['order'] = order_key
+          end
         end
         
         # *** remap params ***
@@ -216,14 +223,13 @@ module Spectrum
           'search_field' => 'search_type'
         }
         value_remaps = {
-          'all_fields' => 'keyword'
+          'all_fields' => 'keyword',
+          'all' => 'keyword',
         }
         key_remaps.each do |clio_key, api_key|
-          # api_params[api_key] = options[clio_key] if options[clio_key].present?
-
           # We have a key that needs to be remapped
           if options[clio_key].present?
-            # if the value is in our remap table, remap it before sending to api
+            # if the value is in our remap table, remap value also
             clio_value = options[clio_key]
             api_value = value_remaps[clio_value] || clio_value
             api_params[api_key] = api_value

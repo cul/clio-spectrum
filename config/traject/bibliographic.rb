@@ -243,23 +243,6 @@ end
 
 to_field "language_facet", extract_marc("008[35-37]:041a:041d", translation_map: 'language_map')
 
-# # Look for format in CUL custom 993 field.
-# # If not found, classify using Traject macro.
-# to_field "format", extract_marc("993a") do |record, accumulator|
-#   # If we didn't find any CUL-custom 993$a format, use Traject's format
-#   if accumulator.empty?
-#     MarcFormats.marc_formats do |format|
-#       accumulator << format
-#     end
-#   end
-# end
-
-# # Store Traject's format classification too, for comparison
-# to_field 'traject_format_facet', marc_formats
-# 
-# # U.Mich's more detailed format classifier
-# to_field 'umich_format_facet', umich_format
-# to_field 'umich_type_facet', umich_types
 
 # Rails rewrite of Columbia format classificaiton rules from the original Perl
 # (found in lib/format_macro.rb)

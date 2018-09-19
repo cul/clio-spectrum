@@ -14,7 +14,11 @@ class SpectrumController < ApplicationController
   layout 'quicksearch'
   
   def search
-# raise
+    # don't support alternative formats for non-catalog datasources
+    if params['format']
+      return render body: nil, status: :not_found 
+    end
+
     @results = []
 
     # process any Filter Queries - turn Summon API Array of key:value pairs into
