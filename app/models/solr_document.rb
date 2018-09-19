@@ -87,6 +87,10 @@ class SolrDocument
       return false
     end
 
+    # Even if the bib has holding(s), there may be no item records.
+    # If there are no items at all, we can't fetch circ status.
+    return false if self.has_key?(:items_i) && self[:items_i] == 0
+
     # But the circ_status SQL code will still work for non-barcoded items,
     # and report items as 'Available'.
     # So why not just let it run?  We have no evidence of unavailability,
