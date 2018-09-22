@@ -79,7 +79,7 @@ end
 # end
 
 def clean_ingest_file(filename)
-  raise "clean_ingest_file() passed empty filename!" if filename.empty?
+  raise "clean_ingest_file() passed empty filename!" if filename.blank?
   raise "clean_ingest_file() passed non-existent filename '#{filename}'!" unless File.exists?(filename)
 
   File.open("#{filename}.clean", 'w') do |tempfile|

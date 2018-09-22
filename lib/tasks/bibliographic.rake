@@ -357,6 +357,8 @@ namespace :bibliographic do
     # setup_ingest_logger
     filename = args[:filename]
     puts("- Cleaning #{filename}...")
+    raise "filename blank!" if filename.blank?
+    raise "no such file '#{filename}'!" unless File.exists?(filename)
     clean_ingest_file(filename)
   end
 
