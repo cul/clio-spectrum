@@ -45,7 +45,7 @@ class Location < ApplicationRecord
   def self.get_app_config_location_notes(location = nil)
     return nil unless location
 
-    location_notes = ''
+    location_notes = ''.html_safe
     app_config_location_notes = APP_CONFIG['location_notes'] || {}
     app_config_location_notes.keys.each { |location_note_key|
       if location.starts_with? location_note_key
