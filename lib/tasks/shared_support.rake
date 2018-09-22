@@ -56,30 +56,31 @@ def solr_delete_ids(solr_connection, ids)
   end
 end
 
-def puts_and_log(msg, level = :info, params = {})
-  time = Time.now.to_formatted_s(:time)
-  full_msg = time + " " + level.to_s + ": " + msg.to_s
-  puts full_msg
-  unless @logger
-    @logger = Logger.new(File.join(Rails.root, "log", "#{Rails.env}_ingest.log"))
-    @logger.formatter = Logger::Formatter.new
-  end
-
-  # This writes to the app's regular log file
-  if defined?(Rails) && Rails.logger
-    Rails.logger.send(level, msg)
-  end
-
-  @logger.send(level, msg)
-
-  if params[:alarm]
-    raise full_msg
-  end
-
-end
+# def puts_and_log(msg, level = :info, params = {})
+#   time = Time.now.to_formatted_s(:time)
+#   full_msg = time + " " + level.to_s + ": " + msg.to_s
+#   puts full_msg
+#   unless @logger
+#     @logger = Logger.new(File.join(Rails.root, "log", "#{Rails.env}_ingest.log"))
+#     @logger.formatter = Logger::Formatter.new
+#   end
+# 
+#   # This writes to the app's regular log file
+#   if defined?(Rails) && Rails.logger
+#     Rails.logger.send(level, msg)
+#   end
+# 
+#   @logger.send(level, msg)
+# 
+#   if params[:alarm]
+#     raise full_msg
+#   end
+# 
+# end
 
 def clean_ingest_file(filename)
   raise "clean_ingest_file() passed empty filename!" if filename.empty?
+  raise "clean_ingest_file() passed non-existent filename '#{filename}'!" unless File.exists?(filename)
 
   File.open("#{filename}.clean", 'w') do |tempfile|
     File.open(filename).each do |line|

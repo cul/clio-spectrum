@@ -283,6 +283,7 @@ namespace :bibliographic do
     end
 
 
+
     desc "download and ingest latest files"
     task :process => :environment do
       setup_ingest_logger
@@ -347,6 +348,16 @@ namespace :bibliographic do
 
 
   # end 'extract'
+  end
+
+  # Just clean a file, not really in the context of
+  # processing an extract.  Useful utility.
+  desc "Clean a single MARC XML file of invalid bytes"
+  task :clean_file, [:filename] => :environment do |t, args|
+    # setup_ingest_logger
+    filename = args[:filename]
+    puts("- Cleaning #{filename}...")
+    clean_ingest_file(filename)
   end
 
 # end 'bibliographic'

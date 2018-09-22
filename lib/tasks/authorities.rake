@@ -77,7 +77,7 @@ namespace :authorities do
     task :ingest => :environment do
       setup_ingest_logger
       extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
-      puts_and_log("Unknown extract: #{ENV['EXTRACT']}", :error) unless extract
+      Rails.logger.error("Unknown extract: #{ENV['EXTRACT']}", :error) unless extract
 
       extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.{mrc,xml}")) if extract
       files_to_read = (ENV["INGEST_FILE"] || extract_files).listify.sort
