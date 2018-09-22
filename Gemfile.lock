@@ -225,6 +225,7 @@ GEM
     kaminari-core (1.1.1)
     launchy (2.4.3)
       addressable (~> 2.3)
+    lcsort (0.9.1)
     library_stdnums (1.6.0)
     libv8 (3.16.14.19)
     loofah (2.2.2)
@@ -480,6 +481,7 @@ DEPENDENCIES
   json
   kaminari
   launchy
+  lcsort
   library_stdnums
   marc
   mysql2

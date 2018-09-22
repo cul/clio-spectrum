@@ -96,6 +96,11 @@ module Voyager
           @location_note = note if note.present?
         end
 
+        # East Asian Flood!
+        if soggy?
+          # @item_status = {status: "not_available", messages: [{status_code: "98n", short_message: 'Unavailable'}]}
+          @item_status = {status: "not_available", messages: [{status_code: "98n", short_message: 'Soggy'}]}
+        end
 
         # flag for services processing (doc_delivery assignment)
         # NEXT-1234: revised logic
@@ -653,6 +658,81 @@ module Voyager
         # # ReCAP Partners
         # # out << 'offsite_valet'  if message =~ /scsb/
         out
+      end
+
+      def soggy?
+        # Ignore unless it's an East Asian holding
+        return false unless ['eal', 'eax'].include? @location_code
+
+        call_number_normalized = Lcsort.normalize(@call_number)
+        # Some call-numbers cannot be normalized, usually because
+        # they have qualifying prefixes.
+        #   e.g., "SPECIAL COLL. JQ1629.E8 S56 1900 SCROLLJ"
+        return if call_number_normalized.blank?
+
+        @@wet_ranges ||= get_wet_ranges
+        @@wet_ranges.each { |range|
+          # we may be > or >=, depending on the operator
+          if range[:from_operator] == 'at'
+            next if call_number_normalized < range[:from_callno]
+          else
+            next if call_number_normalized <= range[:from_callno]
+          end
+          # we may be < or <=, depending on the operator
+          if range[:to_operator] == 'at'
+            next if call_number_normalized > range[:to_callno]
+          else
+            next if call_number_normalized >= range[:to_callno]
+          end
+          # if we ever get here, then YES, we think it's wet!
+          return true
+        }
+        # Nope, never fell within any of our wet ranges
+        return false
+      end
+      
+      def get_wet_ranges
+        # Rails.logger.debug "W W W W W W W W W W W W W  called get_wet_ranges()"
+        raw = YAML.load(File.read(Rails.root.to_s + '/config/wet_ranges.yml'))
+        # Rails.logger.debug "WWWWWWWWWWWWW  raw.keys=[#{raw.keys}]"
+
+        # Accumulate ranges in this array
+        wet_ranges = Array.new
+      
+        raw['wet_ranges'].each { |raw|
+          raw_from, raw_to = raw.split(/\|/)
+          # Rails.logger.debug "WWWWWWWWWWWWW  raw_from=[#{raw_from}] raw_to=[#{raw_to}]"
+
+          # normalize 'From'
+          from_operator = 'at'
+          from_callno = Lcsort.normalize(raw_from)
+          if raw_from.start_with?('After')
+            from_callno = Lcsort.normalize(raw_from.sub(/After /, ''))
+            from_operator = 'after'
+          end
+          # normalize 'To'
+          to_operator = 'at'
+          to_callno = Lcsort.normalize(raw_to)
+          if raw_to.start_with?('Before')
+            to_callno = Lcsort.normalize(raw_to.sub(/Before /, ''))
+            to_operator = 'before'
+          end
+
+          if from_callno.blank? || to_callno.blank?
+            Rails.logger.error "Unparseable call-numbers: raw_from=[#{raw_from}] raw_to=[#{raw_to}]"
+            next;
+          end
+
+          range = {
+            from_callno:     from_callno,
+            from_operator:   from_operator,
+            to_callno:       to_callno,
+            to_operator:     to_operator,
+          }
+          wet_ranges.push(range)
+        }
+
+        return wet_ranges
       end
 
     end

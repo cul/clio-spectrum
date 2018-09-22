@@ -174,6 +174,9 @@ gem "recaptcha", require: "recaptcha/rails"
 # works with Traject to extract id numbers from MARC
 gem 'library_stdnums'
 
+# normalize call-numbers for sorting
+gem 'lcsort'
+
 # keep cron scheduling within application
 gem 'whenever', require: false
 
