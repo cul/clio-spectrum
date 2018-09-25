@@ -180,8 +180,9 @@
     <a href="https://library.columbia.edu/find/request/ill.html">Interlibrary loan</a>,
     or <a href="mailto:ill@library.columbia.edu">contact ILL staff</a>.'
     services:
-        -   borrow_direct
         -   ill
+        # BD won't work until Voyager marks items as unavailable
+        # -   borrow_direct
 
 # ReCAP Partner item.  No due-date available.  No Recall/Hold available.
 # Artificial CLIO status-code, not found in Voyager's ITEM_STATUS_TYPE table.

@@ -206,11 +206,12 @@ module HoldingsHelper
   def service_links(services, clio_id)
     return [] unless services && clio_id
 
-    if Rails.env != 'clio_prod'
-      if services.include?('ill')
-        services << 'ill_valet'
-      end
-    end
+    # nobody's actually testing this.  suspend test link.
+    # if Rails.env != 'clio_prod'
+    #   if services.include?('ill')
+    #     services << 'ill_valet'
+    #   end
+    # end
 
     services.select { |svc| SERVICE_ORDER.index(svc) }.sort_by { |svc| SERVICE_ORDER.index(svc) }.map do |svc|
       # title, link, extra = SERVICES[svc]

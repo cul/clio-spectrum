@@ -97,9 +97,14 @@ module Voyager
         end
 
         # East Asian Flood!
-        if soggy?
-          # @item_status = {status: "not_available", messages: [{status_code: "98n", short_message: 'Unavailable'}]}
-          @item_status = {status: "not_available", messages: [{status_code: "98n", short_message: 'Soggy'}]}
+        if APP_CONFIG['east_asian_flood'].present? && @location_name.match(/^East Asian/)
+          if soggy?
+            @item_status = {status: "not_available", messages: [{status_code: "98n", short_message: 'Temporarily unavailable. Try ILL'}]}
+          end
+          if @item_status[:status] == 'available'
+            @item_status[:messages].each do |m| m[:short_message] = 'Please contact Starr East Asian Library staff for assistance in paging this item.
+            ' end
+          end
         end
 
         # flag for services processing (doc_delivery assignment)
