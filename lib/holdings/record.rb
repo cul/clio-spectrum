@@ -105,7 +105,9 @@ module Voyager
             if soggy?
               @item_status = {status: "not_available", messages: [{status_code: "98n", short_message: 'Temporarily unavailable. Try ILL'}]}
             else
-              @item_status[:messages].each do |m| m[:short_message] = 'Please contact Starr East Asian Library staff for assistance in paging this item.' 
+              @item_status[:messages].each { |m| 
+                m[:short_message] = 'Please contact Starr East Asian Library staff for assistance in paging this item.' 
+              }
             end
           end
         end
