@@ -143,17 +143,23 @@ $('.best-bets-typeahead').on("input", function(e) {
 
 
     // DEBUGGING
-    // $('.best-bets-typeahead').bind('typeahead:close', function(ev, suggestion) {
-    //   console.log('>> typeahead:close');
-    // });
-    // $('.best-bets-typeahead').bind('typeahead:active', function(ev, suggestion) {
-    //   console.log('>> typeahead:active');
-    //   ev.preventDefault();
-    // });
-
+    // $('.best-bets-typeahead').bind('typeahead:render', function(ev, suggestion) {  console.log('>> typeahead:render'); });
+    // $('.best-bets-typeahead').bind('typeahead:active', function(ev, suggestion) {  console.log('>> typeahead:active'); });
+    // $('.best-bets-typeahead').bind('typeahead:idle', function(ev, suggestion) {  console.log('>> typeahead:idle'); });
     // $('.best-bets-typeahead').bind('typeahead:open', function(ev, suggestion) {  console.log('>> typeahead:open'); });
+    // $('.best-bets-typeahead').bind('typeahead:close', function(ev, suggestion) { console.log('>> typeahead:close'); });
     // $('.best-bets-typeahead').bind('typeahead:change', function(ev, suggestion) {  console.log('>> typeahead:change'); });
 
+    // "beforeXYZ" events fire before each XYZ event.
+    $('.best-bets-typeahead').bind('typeahead:beforeautocomplete', function(ev, suggestion) {
+      // console.log('>> typeahead:beforeautocomplete');
+      // console.log('ev.target.value=' + ev.target.value);
+      // console.log('$(this).typeahead("val")=' + $(this).typeahead('val'));
+      // Prevent regular autocomplete from replacing input query
+      return false;
+    });
+
+    // $('.best-bets-typeahead').bind('typeahead:autocomplete', function(ev, suggestion) {  console.log('>> typeahead:autocomplete'); });
 
     // Initializing the Typeahead looses element focus
     setTimeout(function(){
