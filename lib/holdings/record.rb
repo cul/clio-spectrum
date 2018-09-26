@@ -97,13 +97,16 @@ module Voyager
         end
 
         # East Asian Flood!
+        # If the app-config key is set, we'll do some overrides
         if APP_CONFIG['east_asian_flood'].present? && @location_name.match(/^East Asian/)
-          if soggy?
-            @item_status = {status: "not_available", messages: [{status_code: "98n", short_message: 'Temporarily unavailable. Try ILL'}]}
-          end
+          # Only do overrides for 'Available' items.
+          # Unavailable (checked-out, in-process, etc.), display true Voyager status
           if @item_status[:status] == 'available'
-            @item_status[:messages].each do |m| m[:short_message] = 'Please contact Starr East Asian Library staff for assistance in paging this item.
-            ' end
+            if soggy?
+              @item_status = {status: "not_available", messages: [{status_code: "98n", short_message: 'Temporarily unavailable. Try ILL'}]}
+            else
+              @item_status[:messages].each do |m| m[:short_message] = 'Please contact Starr East Asian Library staff for assistance in paging this item.' 
+            end
           end
         end
 
@@ -658,6 +661,8 @@ module Voyager
         out << 'borrow_direct'  if message =~ /Borrow/
         out << 'ill'            if message =~ /ILL/
         out << 'in_process'     if message =~ /In Process/
+
+        out << 'ill'            if message =~ /Interlibrary Loan/
         
         # No, don't depend on the location_name including "scsb"
         # # ReCAP Partners
