@@ -103,8 +103,11 @@ module Voyager
           # Unavailable (checked-out, in-process, etc.), display true Voyager status
           if @item_status[:status] == 'available'
             if soggy?
-              @item_status = {status: "not_available", messages: [{status_code: "98n", short_message: 'Temporarily unavailable. Try ILL'}]}
+              # Soggy items have been checked out to a status patron,
+              # so we'll just let the status-patron message display.
+              # @item_status = {status: "not_available", messages: [{status_code: "98n", short_message: 'Temporarily unavailable. Try ILL'}]}
             else
+              # Dry items should continue to direct patrons to staff paging
               @item_status[:messages].each { |m| 
                 m[:short_message] = 'Please contact Starr East Asian Library staff for assistance in paging this item.' 
               }
