@@ -97,6 +97,8 @@
               %li= law_requests_blurb
             - else
               %li= link_to "Borrow Direct", "http://www.columbia.edu/cgi-bin/cul/borrowdirect?#{clio_id}", :target => "_blank"
+              - if Rails.env != 'clio_prod'
+                %li= link_to "Borrow Direct Test", "http://www.columbia.edu/cgi-bin/cul/borrowdirect.test?#{clio_id}", :target => "_blank"
               %li= link_to "Place a Recall / Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId=#{clio_id}", :target => "_blank"
               %li= link_to "ILL", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?#{clio_id}", :target => "_blank"
               - if Rails.env != 'clio_prod'
