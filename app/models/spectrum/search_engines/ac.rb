@@ -19,12 +19,18 @@ module Spectrum
         @start = ((@page - 1) * @rows) + 1
         @errors = nil
 
-        client = HTTPClient.new
-        response = client.get search_url
-        status = response.status
-        body = response.body
+        begin
+          client = HTTPClient.new
+          response = client.get search_url
+          status = response.status
+          body = response.body
 
-        results = JSON.parse(response.body).with_indifferent_access
+          results = JSON.parse(response.body).with_indifferent_access
+        rescue => ex
+          Rails.logger.error "[Spectrum][AC] error: #{ex.message}"
+          @errors = ex.message
+          return
+        end
 
         @documents = Array(results[:records]).map { |item| AcDocument.new(item) }
         @count = results[:total_number_of_results]
