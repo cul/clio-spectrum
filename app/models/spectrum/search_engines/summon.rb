@@ -153,7 +153,7 @@ module Spectrum
         begin
           # This turns on a huge amount of logging, including
           # the full response JSON
-          @config.merge!(log: Rails.logger)
+          # @config.merge!(log: Rails.logger)
 
           Rails.logger.debug "[Spectrum][Summon] config: #{@config}"
           @service = ::Summon::Service.new(@config)
