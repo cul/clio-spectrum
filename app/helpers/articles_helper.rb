@@ -154,4 +154,25 @@ module ArticlesHelper
     hash
   end
 
+  def iso2american(range)
+    return ['', ''] if range.blank?
+    min = iso2american_single_date(range.min_value)
+    max = iso2american_single_date(range.max_value)
+    return min, max
+  end
+
+  # Inverse of SpectrumController#parse_single_dates
+  # turn summon's internal date format back into
+  # american display date format MM/DD/YYYY
+  def iso2american_single_date(date)
+    return '' if date.blank?
+    return date if date.match /^\d+$/
+
+    parts = date.split('-')
+    # 1999-12 --> 12/1999
+    return [parts[1], parts[0]].join('/') if parts.size == 2
+    # 1999-12-20 --> 12/20/1999
+    return [parts[1], parts[2], parts[0]].join('/') if parts.size == 3
+  end
+
 end

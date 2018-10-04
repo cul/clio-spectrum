@@ -153,7 +153,7 @@ module Spectrum
         begin
           # This turns on a huge amount of logging, including
           # the full response JSON
-          # @config.merge!(log: Rails.logger)
+          @config.merge!(log: Rails.logger)
 
           Rails.logger.debug "[Spectrum][Summon] config: #{@config}"
           @service = ::Summon::Service.new(@config)
@@ -299,7 +299,8 @@ module Spectrum
 
         # add in Range Filters
         @search.query.range_filters.each do |rf|
-          facet_text = "#{rf.field_name.titleize}: #{rf.range.min_value}-#{rf.range.max_value}"
+          min, max = ApplicationController.helpers.iso2american(rf.range)
+          facet_text = "#{rf.field_name.titleize}: #{min} to #{max}"
           constraints << [facet_text, summon_search_cmd(rf.remove_command)]
         end
 

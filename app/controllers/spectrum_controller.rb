@@ -275,13 +275,39 @@ class SpectrumController < ApplicationController
     end
 
     if params['pub_date']
-      params['s.cmd'] = "setRangeFilter(PublicationDate,#{params['pub_date']['min_value']}:#{params['pub_date']['max_value']})"
+      min, max = parse_pub_date(params['pub_date'])
+      params['s.cmd'] = "setRangeFilter(PublicationDate,#{min}:#{max})"
     end
 
     # Rails.logger.debug "fix_summon_params() out params=#{params.inspect}"
     params
   end
 
+  def parse_pub_date(pub_date)
+    min = parse_single_date( pub_date['min_value'] )
+    max = parse_single_date( pub_date['max_value'] )
+    return min, max
+  end
+  
+  def parse_single_date(date)
+    return '' if date.blank?
+    # "2001"
+    return date if date.match /^\d+$/
+    parts = date.split('/')
+    # 12/1999 --> 1999-12
+    if parts.size == 2
+      month = sprintf '%02s', parts[0]
+      year = (parts[1].length == 2) ? "20" + parts[1] : parts[1]
+      return [year, month].join('-') 
+    end
+    # 12/20/1999 --> 1999-12-20
+    if parts.size == 3
+      month = sprintf '%02s', parts[0]
+      day = sprintf '%02s', parts[1]
+      year = (parts[2].length == 2) ? "20" + parts[2] : parts[2]
+      return [year, month, day].join('-')
+    end
+  end
 
   def get_results(source)
     @result_hash = {}
