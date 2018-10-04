@@ -25,7 +25,7 @@ describe 'Archives Search', :vcr do
 
     expect(page).to have_css '#documents .result.document'
     within all('.result.document').first do
-      find('a', text: 'Files').click
+      find('a', text: /files/i).click
     end
 
     expect(find('#search_info')).to have_text("1 of")

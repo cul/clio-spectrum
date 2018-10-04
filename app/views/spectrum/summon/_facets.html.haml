@@ -38,8 +38,9 @@
 
       .panel-collapse.facet-content{id: "facet-pub_range_filter", class: "#{should_collapse_facet?(pub_range_filter || "pub_range_filter") ? 'collapse' : 'in'}"}
         .panel-body
-          - min, max = iso2american(pub_range_filter.range)
+          - min, max = ['', '']
           - if pub_range_filter
+            - min, max = iso2american(pub_range_filter.range)
             %span.selected
               #{pub_range_filter.field_name.titleize}: #{min} to #{max}
             %a.remove{:href => result.summon_search_cmd(pub_range_filter.remove_command)}
