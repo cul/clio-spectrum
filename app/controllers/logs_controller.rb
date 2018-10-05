@@ -40,9 +40,6 @@ class LogsController < ApplicationController
   # Bounce the user to a destination URL,
   # while logging the event
   def bounce
-
-raise
-    
     url = log_params[:url]
     # can't redirect, go to root
     if url.blank?
