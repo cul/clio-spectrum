@@ -1,0 +1,28 @@
+Logs are available for the following:
+
+<table class='table table-striped table-hover table-condensed xlog-datatable'>
+
+  <thead>
+    <tr>
+      <th></th>      
+      <th>total log entries</th>      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @set_counts.each do |set, count| %>
+      <tr>
+        <td>
+          <%= link_to set, logs_path(set: set) %>
+        </td>
+        <td>
+          <%= count%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+
+  

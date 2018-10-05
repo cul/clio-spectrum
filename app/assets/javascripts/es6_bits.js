@@ -2,6 +2,7 @@
 
 function bestBetModal(suggestion) {
   bounce_url = "/r.html#" + encodeURIComponent(suggestion.url);
+  // bounce_url = logging_bouce_url(suggestion);
   
   // Build the html for a bootstrap modal
   modalDialog = `
