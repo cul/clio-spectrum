@@ -477,7 +477,7 @@ module Voyager
 
         # Barnard Archives
         if ['bar,bda', 'bar,spec', 'bara'].include?(location_code)
-          location_note = 'In off-site storage - Request from <a href="http://archives.barnard.edu/about-us/contact-us">Barnard Archives</a>'
+          location_note = 'Available by appointment. <a href="https://archives.barnard.edu/about-us/contact-us">Contact Barnard Archives.</a>'
           return location_note
         end
 
