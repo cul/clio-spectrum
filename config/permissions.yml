@@ -17,12 +17,12 @@ site:
     - slt0
     # spectrum planning --> columbia unified discovery
     - asb2154
+    - bw12
     - cak2158
     - fd2102
     - hhb2119
     - jc2120
     - shs4
-    - witte
 
 best_bets:
   manage:
