@@ -183,9 +183,11 @@ gem 'whenever', require: false
 # DataTables, for pretty log screens
 gem 'jquery-datatables-rails'
 
-# wait - maybe we don't need this
-# # For log slicing - find ActiveRecord rows by year, month, etc.
-# gem 'by_star'
+# For working with dates in logs, in cross-DB ways
+# grouping by date-parts
+gem 'groupdate'
+# find ActiveRecord rows by year, month, etc.
+gem 'by_star'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators

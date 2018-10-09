@@ -1,5 +1,7 @@
 class LogsController < ApplicationController
 
+  require 'csv'
+  
   layout 'no_sidebar'
 
 # /logs/set=XXX
@@ -18,22 +20,45 @@ class LogsController < ApplicationController
       @set_counts = Log.group('set').distinct.count
       return render action: 'set_list'
     end
-    # 
-    # @year_month = log_params[:year_month]
-    # if @year_month.blank?
-    #   
-    #   @year_month_counts = 
-    # end
+
+    # Have they asked to download a year of logs for a given log set?
+    @download = log_params[:download]
+    if @download.present?
+      @rows = Log.where(set: @set).by_year(@download).order(:created_at)
+      
+      # This set's keys, derived from the JSON logdata of an example row
+      @logdata_keys = get_keys_from_logdata(@rows.last)
+      # standard keys for any logged requests (ip, user-agent, etc.)
+      @request_keys = request_keys
+      
+      filename = "#{@set} #{@download}".parameterize.underscore + '.csv'
+      
+      response.headers['Content-Type'] = 'text/csv'
+      response.headers['Content-Disposition'] = "attachment; filename=#{filename}"
+      return render template: 'logs/index.csv.erb'
+    end
     
-    @rows = Log.where(set: @set).order(:created_at)
+    @year_month = log_params[:year_month]
+
+    # If they haven't told us which year/month to display,
+    # ask them.
+    if @year_month.blank?
+      @year_counts = Log.where(set: @set).group_by_year(:created_at, format: '%Y', time_zone: false).count
+      @month_counts = Log.where(set: @set).group_by_month(:created_at, format: '%Y-%m', time_zone: false).count
+      return render action: 'month_list'
+    end
+
+    # OK, we're going to move forward and display an interactive JS datatable
+    # of a given year/month for a given log set.
+    year, month = @year_month.split(/\-/)
     
-    @request_keys = request_keys
-    # Figure out appropriate keys for this log set by looking
-    # at the JSON logdata of a single retrieved row.
-    # Choose the last -- it'll have the most recent updates
-    # to the group of fields being logged.
+    @rows = Log.where(set: @set).by_month(month.to_i, year: year).order(:created_at)
+    
+    # This set's keys, derived from the JSON logdata of an example row
     @logdata_keys = get_keys_from_logdata(@rows.last)
 
+    # standard keys for any logged requests (ip, user-agent, etc.)
+    @request_keys = request_keys
     
   end
   
@@ -71,7 +96,7 @@ class LogsController < ApplicationController
   private
 
   def log_params
-    params.permit(:set, :logdata, :url, :year_month)
+    params.permit(:set, :logdata, :url, :year_month, :download, :format)
   end
 
   # Return a hash with a set of attributes

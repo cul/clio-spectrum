@@ -1,6 +1,6 @@
-Logs are available for the following:
+<h3>The following logs are available.</h3>
 
-<table class='table table-striped table-hover table-condensed xlog-datatable'>
+<table class='table table-striped table-hover table-condensed'>
 
   <thead>
     <tr>
@@ -13,7 +13,9 @@ Logs are available for the following:
     <% @set_counts.each do |set, count| %>
       <tr>
         <td>
-          <%= link_to set, logs_path(set: set) %>
+          <h4>
+            <%= link_to set, logs_path(set: set) %>
+          </h4>
         </td>
         <td>
           <%= count%>

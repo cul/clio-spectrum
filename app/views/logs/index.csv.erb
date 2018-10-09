@@ -1,0 +1,12 @@
+<% headers = @logdata_keys + @request_keys %>
+<%= CSV.generate_line(headers, row_sep: nil) %>
+<% @rows.each do |row| %>
+<% fields = [] %>
+<% @logdata_keys.each do |key| %>
+  <%fields << get_logdata_field(row['logdata'], key) %>
+<% end %>
+<% @request_keys.each do |key| %>
+  <% fields << row[key] %>
+<% end %>
+<%= fields.to_csv(row_sep: nil).html_safe  %>
+<% end %>
