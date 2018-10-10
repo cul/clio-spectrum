@@ -102,11 +102,10 @@ module Spectrum
         @params.merge!(summon_fixed_params)
 
         @config = options.delete('config') || APP_CONFIG['summon']
-
-        @config.merge!(url: 'http://api.summon.serialssolutions.com/2.0.0')
-
-
         @config.symbolize_keys!
+
+        # URL can be in app_config, or fill in with default value
+        @config[:url] ||= 'http://api.summon.serialssolutions.com/2.0.0'
 
         @search_url = options.delete('search_url')
 

@@ -475,8 +475,10 @@ class ApplicationController < ActionController::Base
     }
 
     @config = APP_CONFIG['summon']
-    @config.merge!(url: 'http://api.summon.serialssolutions.com/2.0.0')
     @config.symbolize_keys!
+
+    # URL can be in app_config, or fill in with default value
+    @config[:url] ||= 'http://api.summon.serialssolutions.com/2.0.0'
 
     @params['s.cmd'] ||= "setFetchIDs(#{id_array.join(',')})"
 
