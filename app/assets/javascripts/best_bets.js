@@ -6,7 +6,7 @@ var bestBetsBloodhound;
 // gather up anything we'd like to submit to logging,
 // package it into a logdata json param,
 // and return full URL to log-bounce endpoint
-function logging_bouce_url(suggestion) {
+function logging_bounce_url(suggestion) {
   var datasource = $('#best_bets').data('datasource');
   var search     = $('#best_bets').data('q');
   var title      = suggestion.title;
@@ -165,7 +165,7 @@ $('.best-bets-typeahead').on("input", function(e) {
 
         // ELSE, anything else, just a simple window.open
         // window.open(suggestion.url, '_blank');
-        bounce_url = logging_bouce_url(suggestion);
+        bounce_url = logging_bounce_url(suggestion);
         window.open(bounce_url, '_blank');
       }
 
