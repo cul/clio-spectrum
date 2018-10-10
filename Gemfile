@@ -184,10 +184,12 @@ gem 'whenever', require: false
 gem 'jquery-datatables-rails'
 
 # For working with dates in logs, in cross-DB ways
-# grouping by date-parts
-gem 'groupdate'
 # find ActiveRecord rows by year, month, etc.
 gem 'by_star'
+# Enables date-part grouping, but needs MySQL server configuration.
+# Skip the gem, branch SQL on adapater_name.
+# # grouping by date-parts
+# gem 'groupdate'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators

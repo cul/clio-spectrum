@@ -43,8 +43,8 @@ class LogsController < ApplicationController
     # If they haven't told us which year/month to display,
     # ask them.
     if @year_month.blank?
-      @year_counts = Log.where(set: @set).group_by_year(:created_at, format: '%Y', time_zone: false).count
-      @month_counts = Log.where(set: @set).group_by_month(:created_at, format: '%Y-%m', time_zone: false).count
+      @year_counts = get_year_counts
+      @month_counts = get_month_counts
       return render action: 'month_list'
     end
 
@@ -130,4 +130,31 @@ class LogsController < ApplicationController
     return []
   end
   
+  def get_year_counts
+    # default clause works in MySQL
+    where_clause = 'year(created_at)'
+
+    # SQLite needs something special
+    if ActiveRecord::Base.connection.adapter_name.match /sqlite/i
+      where_clause = 'strftime("%Y", created_at)'
+    end
+
+    return Log.where(set: @set).order(:created_at).group(where_clause).count
+  end
+  
+  def get_month_counts
+    # default clause works in MySQL
+    where_clause = "concat( year(created_at), '-', month(created_at) )"
+
+    # SQLite needs something special
+    if ActiveRecord::Base.connection.adapter_name.match /sqlite/i
+      where_clause = 'strftime("%Y-%m", created_at)'
+    end
+
+    return Log.where(set: @set).order(:created_at).group(where_clause).count
+  end
+    
+  
+  
 end
+
