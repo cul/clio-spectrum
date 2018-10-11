@@ -1,0 +1,53 @@
+<%= link_to "back", logs_path %>
+<h3>
+<%= @set%> Logs are available for the following months
+</h3>
+
+
+<!-- Print a table for each year -->
+<% @year_counts.each do |year, count| %>
+  <table class='table table-striped table-hover table-condensed log-datatable'>
+    <thead>
+      <tr>
+        <th colspan='6'>
+          <span class='h4'><%= year%></span>
+          - overall log entries: <%= count%>, monthly breakdown below
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <%= link_to '( download csv )', logs_path(set: @set, download: year, format: 'csv') %>
+          
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <% ('01'..'06').each do |month| %>
+          <td>
+            <% next unless @month_counts["#{year}-#{month}"]%>
+            <%= "#{year}-#{month}"%>
+            &mdash;
+            <%= @month_counts["#{year}-#{month}"]%>
+          </td>
+        <% end %>
+      </tr>
+      <tr>
+        <% ('07'..'12').each do |month| %>
+          <td>
+            <% next unless @month_counts["#{year}-#{month}"]%>
+            <% year_month = "#{year}-#{month}"%>
+            <% link_label = "#{year_month} - #{@month_counts["#{year}-#{month}"]}" %>
+            <h4>
+              <%= link_to link_label, logs_path(set: @set, year_month: year_month) %>
+            </h4>
+          </td>
+        <% end %>
+      </tr>
+    </tbody>
+
+  </table>
+<% end %>
+
+

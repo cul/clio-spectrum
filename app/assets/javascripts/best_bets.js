@@ -2,6 +2,37 @@
 var bestBetsBloodhound;
 
 
+// Given a URL to bounce to, 
+// gather up anything we'd like to submit to logging,
+// package it into a logdata json param,
+// and return full URL to log-bounce endpoint
+function logging_bounce_url(suggestion) {
+  var datasource = $('#best_bets').data('datasource');
+  var search     = $('#best_bets').data('q');
+  var title      = suggestion.title;
+  var keywords   = suggestion.keywords;
+  var url        = suggestion.url;
+  
+  var logdata    = {
+    "Datasource": datasource,
+    "Search":     search,
+    "Title":      title,
+    "Keywords":   keywords,
+    "URL":        url,
+  };
+  logdata = JSON.stringify(logdata);
+
+  bounce_url = "/logs/bounce?" + 
+               "set=" + encodeURIComponent("Best Bets") +
+               "&url=" + encodeURIComponent(suggestion.url) +
+               "&logdata=" + encodeURIComponent(logdata);
+
+  // console.log("bounce_url=" + bounce_url);
+
+  return bounce_url;
+};
+
+
 $(document).ready(function() {
 
   // retrieve data embedded on page
@@ -97,6 +128,13 @@ $('.best-bets-typeahead').on("input", function(e) {
       }
     );  // .typeahead()
 
+    // Before the destructive 'select' callback is called,
+    // preserve the original search value in a data attribute.
+    $('.best-bets-typeahead').bind('typeahead:beforeselect', function(ev, suggestion) {
+      // console.log('>> typeahead:beforeselect triggered');
+      $('#best_bets').data('q', ev.target.value);
+    });
+
     // SELECT - OPEN URL IN NEW WINDOW
     $('.best-bets-typeahead').bind('typeahead:select', function(ev, suggestion) {
       // console.log('>> typeahead:select triggered');
@@ -113,7 +151,7 @@ $('.best-bets-typeahead').on("input", function(e) {
         $(this).typeahead('val', '');
 
         // (2) jump to the URL in a new window
-        // IF this is a Firefox Keyboard event...
+        // IF this is a FIREBOX KEYBOARD event...
         // console.log('one');
         if (navigator.userAgent.indexOf("Firefox") !== -1){
           // console.log('two: mouse_click=['+mouse_click+']');
@@ -126,7 +164,9 @@ $('.best-bets-typeahead').on("input", function(e) {
         };
 
         // ELSE, anything else, just a simple window.open
-        window.open(suggestion.url, '_blank');
+        // window.open(suggestion.url, '_blank');
+        bounce_url = logging_bounce_url(suggestion);
+        window.open(bounce_url, '_blank');
       }
 
     }  );

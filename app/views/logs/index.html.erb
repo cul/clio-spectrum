@@ -1,0 +1,36 @@
+<%= link_to 'back', logs_path(set: @set) %>
+<h3><%= @set %> logs for <%= @year_month %></h3>
+
+
+<table class='table table-striped table-hover table-condensed log-datatable'>
+  <thead>
+    <tr>
+      <!-- set-specific log fields -->
+      <% @logdata_keys.each do |key| %>
+        <th><%= key.to_s.titleize %></th>
+      <% end %>
+      <!-- common log fields -->
+      <% @request_keys.each do |key| %>
+        <th><%= key.to_s.titleize %></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rows.each do |row| %>
+      <tr>
+        <!-- set-specific log fields -->
+        <% @logdata_keys.each do |key| %>
+          <td><%= get_logdata_field(row['logdata'], key) %></td>
+        <% end %>
+        <!-- common log fields -->
+        <% @request_keys.each do |key| %>
+          <td class='bg-warning'><%= row[key] %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+

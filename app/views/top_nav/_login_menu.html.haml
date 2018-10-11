@@ -28,6 +28,8 @@
       -#   %li= link_to "CLIO Preferences", preferences_path
       - if current_user.has_role?('best_bets', 'manage')
         %li= link_to "Manage Best Bets", best_bets_path
+      - if current_user.has_role?('site', 'pilot')
+        %li= link_to "Best Bets Logs", logs_path(set: 'Best Bets')
 
       %li= link_to "Logout", destroy_user_session_path, :method => :delete
 
