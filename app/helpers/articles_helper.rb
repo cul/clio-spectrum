@@ -1,8 +1,8 @@
 module ArticlesHelper
-  EBOOKS_TO_LINK_FOLLOW = [
-    'hdl.handle.net',
-    'hathitrust.org'
-  ]
+  # EBOOKS_TO_LINK_FOLLOW = [
+  #   'hdl.handle.net',
+  #   'hathitrust.org'
+  # ]
 
   def link_to_article(article, link_title = nil)
     link_title ||= article.title.html_safe
