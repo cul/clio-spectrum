@@ -10,7 +10,7 @@ class BestBetsController < ApplicationController
   layout 'no_sidebar'
 
   def hits
-    q = params['q']
+    q = params['q'] || ''
 
     if ActiveRecord::Base.connection.adapter_name.match /sqlite/i
       wildcard = '%' + q.gsub(/ +/, '%') + '%'

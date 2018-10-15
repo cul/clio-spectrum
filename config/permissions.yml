@@ -19,9 +19,10 @@ site:
     - asb2154
     - bw12
     - cak2158
-    - fd2102
+    - cmm2169
     - hhb2119
     - jc2120
+    - sem2166
     - shs4
 
 best_bets:
@@ -54,7 +55,6 @@ item_alerts:
       - ead1
       - ecg2
       - erg2104
-      - fd2102
       - fh2238
       - fj73
       - hk368

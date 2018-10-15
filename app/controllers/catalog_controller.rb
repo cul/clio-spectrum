@@ -241,6 +241,7 @@ class CatalogController < ApplicationController
   def facet
     # raise
     @facet = blacklight_config.facet_fields[params[:id]]
+    return render json: nil, status: :bad_request unless @facet
 
     # Allow callers to pass in extra params, that won't be sanitized-out by
     # the processing that 'params' undergoes

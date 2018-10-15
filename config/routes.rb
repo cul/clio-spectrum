@@ -230,6 +230,16 @@ Rails.application.routes.draw do
       get 'hits'
     end
   end
+  
+  resources :logs do
+    collection do
+      # bounce the user to another URL, and log it
+      get 'bounce'
+      # List known log sets
+      get 'sets'
+    end
+  end
+  
 
 end
 

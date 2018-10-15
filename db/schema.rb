@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180401010101) do
+ActiveRecord::Schema.define(version: 2018_10_01_010101) do
 
   create_table "best_bets", force: :cascade do |t|
     t.string "title", null: false
@@ -82,6 +82,16 @@ ActiveRecord::Schema.define(version: 20180401010101) do
     t.index ["library_code"], name: "index_locations_on_library_code"
     t.index ["library_id"], name: "index_locations_on_library_id"
     t.index ["name"], name: "index_locations_on_name"
+  end
+
+  create_table "logs", force: :cascade do |t|
+    t.string "user_agent"
+    t.string "referrer"
+    t.string "remote_ip"
+    t.string "set", null: false
+    t.text "logdata"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "options", force: :cascade do |t|

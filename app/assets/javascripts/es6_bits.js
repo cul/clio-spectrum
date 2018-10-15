@@ -1,7 +1,8 @@
 
 
 function bestBetModal(suggestion) {
-  bounce_url = "/r.html#" + encodeURIComponent(suggestion.url);
+  // bounce_url = "/r.html#" + encodeURIComponent(suggestion.url);
+  bounce_url = logging_bounce_url(suggestion);
   
   // Build the html for a bootstrap modal
   modalDialog = `
@@ -12,7 +13,7 @@ function bestBetModal(suggestion) {
           <p>Follow link to resource:</p>
   
           <form action="${bounce_url}" target="_blank" onsubmit="$('#best-bets-modal').modal('toggle');">
-            <input id="best_bets_goto" type="submit" value="${suggestion.url}" />
+            <input id="best_bets_goto" type="submit" value="${suggestion.url}" onclick="window.open('${bounce_url}'); $('#best-bets-modal').modal('toggle'); return false" />
           </form>
   
           <p>Links will open in a new window.</p>
