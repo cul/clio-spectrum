@@ -12,7 +12,8 @@ module Spectrum
         search_url = build_search_url(options)
 
         @params = options
-        @q = options['q'] || ''
+        # truncate to length that the AC API can handle
+        @q = (options['q'] || '')[0,1000]
         @search_field = options['search_field']
         @rows = (options['per_page'] || 10).to_i
         @page = (options['page'] || 1).to_i
@@ -21,9 +22,17 @@ module Spectrum
 
         begin
           client = HTTPClient.new
+          client.connect_timeout = 10 # default 60
+          client.send_timeout    = 10 # default 120
+          client.receive_timeout = 10 # default 60
           response = client.get search_url
-          status = response.status
-          body = response.body
+
+          # Did the server respond with a non-OK status?
+          if response.status != 200
+            @errors = ActionController::Base.helpers.strip_tags(response.body)
+            Rails.logger.error "AC get(#{search_url}) returned #{response.status}: #{@errors}"
+            return
+          end
 
           results = JSON.parse(response.body).with_indifferent_access
         rescue => ex
