@@ -364,7 +364,7 @@ class ApplicationController < ActionController::Base
         url_gen_params = { host: request.host_with_port, protocol: request.protocol }
 
         if mail_to.match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/)
-          # IDs may be Catalog Bib keys or Summon FETCH IDs...
+          # IDs may be Catalog Bib keys or Summon BookMarks...
           @documents = ids_to_documents(params[:id])
           if @documents.nil? || @documents.empty?
             flash[:error] = I18n.t('blacklight.email.errors.invalid')
@@ -415,11 +415,11 @@ class ApplicationController < ActionController::Base
     return document_array if id_array.empty?
 
     # First, split into per-source lists,
-    # (depend on Summon IDs to start with "FETCH"...)
+    # (depend on Summon BookMarks to be very long...)
     catalog_item_ids = []
     articles_item_ids = []
     Array.wrap(id_array).each do |item_id|
-      if item_id.start_with?('FETCH')
+      if item_id.length > 50
         articles_item_ids.push item_id
       else
         catalog_item_ids.push item_id
@@ -463,16 +463,16 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def get_summon_docs_for_id_values(id_array)
-    return [] unless id_array.kind_of?(Array)
-    return [] if id_array.empty?
+  def get_summon_docs_for_bookmark_values(bookmark_array)
+    return [] unless bookmark_array.kind_of?(Array)
+    return [] if bookmark_array.empty?
 
-    @params = {
-      'spellcheck' => true,
-      's.ho' => true,
-      # 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)',
-      # 's.ff' => ['ContentType,and,1,5', 'SubjectTerms,and,1,10', 'Language,and,1,5']
-    }
+    # @params = {
+    #   'spellcheck' => true,
+    #   's.ho' => true,
+    #   # 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)',
+    #   # 's.ff' => ['ContentType,and,1,5', 'SubjectTerms,and,1,10', 'Language,and,1,5']
+    # }
 
     @config = APP_CONFIG['summon']
     @config.symbolize_keys!
@@ -480,7 +480,7 @@ class ApplicationController < ActionController::Base
     # URL can be in app_config, or fill in with default value
     @config[:url] ||= 'http://api.summon.serialssolutions.com/2.0.0'
 
-    @params['s.cmd'] ||= "setFetchIDs(#{id_array.join(',')})"
+    # @params['s.cmd'] ||= "setFetchIDs(#{id_array.join(',')})"
 
     # @params['s.q'] ||= ''
     @params['s.fq'] ||= ''

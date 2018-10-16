@@ -5,7 +5,7 @@
   .row
     .title.col-sm-12
       .item_anchor
-        = render :partial => '/saved_lists/item_select_checkbox', :locals => {:item_id => document.id, :counter => counter ||= 0}
+        = render partial: '/saved_lists/item_select_checkbox', locals: {item_id: document.src['BookMark'], counter: counter ||= 0}
       .item_select_allowance= link_to_article document
 
 
@@ -23,13 +23,13 @@
       / COinS
       %span.Z3988{ :title => document.src['openUrl'] }
 
-    -# - if @debug_mode
+    - if @debug_mode && Rails.env == 'development'
+      -# =add_row("*DEV* Bookmark *DEV*", document.src['BookMark'])
+      -# =add_row("methods", document.interesting_methods.inspect)
     -#   =add_row("* URI *", link_to(document.uri, document.uri))
     -#   =add_row("* SRC-ID *", document.src['ID'], :html_safe => true)
     -#   =add_row("* URL *", link_to(document.url, document.url)) unless document.url.to_s.empty?
     -#   =add_row("* Link *", link_to(document.link, document.link))
-    -#   =add_row("* ISBN *", document.isbn)
-    -#   -# =add_row("methods", document.interesting_methods.inspect)
 
   / main container for doc partial view
 
