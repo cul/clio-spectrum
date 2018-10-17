@@ -85,8 +85,8 @@ ActiveRecord::Schema.define(version: 2018_10_01_010101) do
   end
 
   create_table "logs", force: :cascade do |t|
-    t.string "user_agent"
-    t.string "referrer"
+    t.text "user_agent"
+    t.text "referrer"
     t.string "remote_ip"
     t.string "set", null: false
     t.text "logdata"

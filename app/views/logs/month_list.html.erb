@@ -16,7 +16,9 @@
           &nbsp;
           &nbsp;
           &nbsp;
-          <%= link_to '( download csv )', logs_path(set: @set, download: year, format: 'csv') %>
+          <% label = "( download csv #{download_glyph})"%>
+          <%#= link_to '( download csv )', logs_path(set: @set, download: year, format: 'csv') %>
+          <%= link_to download_label, logs_path(set: @set, download: year, format: 'csv') %>
           
         </th>
       </tr>
@@ -36,12 +38,15 @@
       <tr>
         <% ('07'..'12').each do |month| %>
           <td>
+            <%#= "#{year}-#{month}"%>
             <% next unless @month_counts["#{year}-#{month}"]%>
             <% year_month = "#{year}-#{month}"%>
             <% link_label = "#{year_month} - #{@month_counts["#{year}-#{month}"]}" %>
-            <h4>
+            <span class='h5'>
               <%= link_to link_label, logs_path(set: @set, year_month: year_month) %>
-            </h4>
+            </span>
+            &nbsp;
+            <%= link_to download_label(''), logs_path(set: @set, download: year_month, format: 'csv') %>
           </td>
         <% end %>
       </tr>

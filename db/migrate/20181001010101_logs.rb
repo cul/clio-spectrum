@@ -5,8 +5,8 @@ class Logs < ActiveRecord::Migration[5.1]
     create_table :logs do |t|
 
       # request data
-      t.string :user_agent, null: true
-      t.string :referrer, null: true
+      t.text :user_agent, null: true
+      t.test :referrer, null: true
       t.string :remote_ip, null: true
 
       # log data
