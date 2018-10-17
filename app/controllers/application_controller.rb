@@ -417,10 +417,10 @@ class ApplicationController < ActionController::Base
     # First, split into per-source lists,
     # (depend on Summon BookMarks to be very long...)
     catalog_item_ids = []
-    articles_item_ids = []
+    article_bookmarks = []
     Array.wrap(id_array).each do |item_id|
       if item_id.length > 50
-        articles_item_ids.push item_id
+        article_bookmarks.push item_id
       else
         catalog_item_ids.push item_id
       end
@@ -443,22 +443,24 @@ class ApplicationController < ActionController::Base
     end
 
     article_document_list = []
-    if articles_item_ids.any?
-      article_document_list = get_summon_docs_for_id_values(articles_item_ids)
+    if article_bookmarks.any?
+      article_document_list = get_summon_docs_for_bookmark_values(article_bookmarks)
     end
-
     # Then, merge back, in original order
     key_to_doc_hash = {}
     catalog_document_list.each do |doc|
       key_to_doc_hash[ doc[:id]] = doc
     end
     article_document_list.each do |doc|
-      key_to_doc_hash[ doc.id] = doc
+      # key_to_doc_hash[ doc.id] = doc
+      key_to_doc_hash[ Array(doc.src['BookMark']).first ] = doc
     end
 
+    # intermix the two lists in original order
     id_array.each do |id|
       document_array.push key_to_doc_hash[id]
     end
+raise
     document_array
   end
 
@@ -467,38 +469,35 @@ class ApplicationController < ActionController::Base
     return [] unless bookmark_array.kind_of?(Array)
     return [] if bookmark_array.empty?
 
-    # @params = {
-    #   'spellcheck' => true,
-    #   's.ho' => true,
-    #   # 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)',
-    #   # 's.ff' => ['ContentType,and,1,5', 'SubjectTerms,and,1,10', 'Language,and,1,5']
-    # }
-
-    @config = APP_CONFIG['summon']
-    @config.symbolize_keys!
-
+    config = APP_CONFIG['summon']
+    config.symbolize_keys!
     # URL can be in app_config, or fill in with default value
-    @config[:url] ||= 'http://api.summon.serialssolutions.com/2.0.0'
+    config[:url] ||= 'http://api.summon.serialssolutions.com/2.0.0'
 
-    # @params['s.cmd'] ||= "setFetchIDs(#{id_array.join(',')})"
-
-    # @params['s.q'] ||= ''
-    @params['s.fq'] ||= ''
-    @params['s.role'] ||= ''
-
+    docs = Array.new
     @errors = nil
-    begin
-      @service = ::Summon::Service.new(@config)
-      ### THIS is the actual call to the Summon service to do the search
-      @search = @service.search(@params)
 
-    rescue => ex
-      # Rails.logger.error "[Spectrum][Summon] error: #{e.message}"
-      @errors = ex.message
+    service = ::Summon::Service.new(config)
+    bookmark_array.each do |bookmark|
+      Rails.logger.debug "bookmark #{bookmark}..."
+      params = {'s.bookMark' => bookmark }
+      search = nil
+
+      begin
+        search = service.search(params)
+      rescue Summon::Transport::RequestError => ex
+        Rails.logger.warn "Summon::Transport::RequestError - #{ex}"
+        next
+      rescue => ex
+        Rails.logger.error "[Spectrum][Summon] error: #{e.message}"
+        @errors = ex.message
+      end
+
+      next unless search && search.documents.present?
+      docs << search.documents.first
     end
 
-    # we choose to return empty list instead of nil
-    @search ? @search.documents : []
+    return docs
   end
 
   # Render a true or false, for if the user is logged in
