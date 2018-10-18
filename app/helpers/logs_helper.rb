@@ -12,4 +12,23 @@ module LogsHelper
     return ''
   end
   
+  # <%= link_to '( download csv )', logs_path(set: @set, download: year, format: 'csv') %>
+
+  def download_label(text = nil)
+    return "( #{text} #{download_glyph}".html_safe + ' )' unless text.nil?
+    # return '( '.html_safe + text + '&nbsp;' + download_glyph if text.present?
+    return '( download csv '.html_safe + download_glyph + ')'
+  end
+  
+  def download_glyph
+    # https://getbootstrap.com/docs/3.3/components/#glyphicons-glyphs
+    # which download glyph?
+    #   glyphicon glyphicon-download
+    # or 
+    #   glyphicon glyphicon-download-alt
+    return '<span class="glyphicon glyphicon-download-alt"></span>'.html_safe
+    # glyph = tag('span', class: ['glyphicon', 'glyphicon-download-alt'])
+    # return glyph.html_safe
+  end
+
 end

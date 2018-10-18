@@ -208,6 +208,8 @@ class CatalogController < ApplicationController
         render locals: { warning: warning }, layout: 'no_sidebar'
       end
 
+      format.json { render json: { response: { document: @document } } }
+
       # Add all dynamically added (such as by document extensions)
       # export formats.
       @document.export_formats.each_key do | format_name |

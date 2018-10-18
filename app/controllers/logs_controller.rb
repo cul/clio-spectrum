@@ -22,16 +22,18 @@ class LogsController < ApplicationController
     end
 
     # Have they asked to download a year of logs for a given log set?
-    @download = log_params[:download]
-    if @download.present?
-      @rows = Log.where(set: @set).by_year(@download).order(:created_at)
+    # download param may be a year (YYYY) or year/month (YYYY-MM).
+    download = log_params[:download]
+    if download.present?
+      # @rows = Log.where(set: @set).by_year(download).order(:created_at)
+      @rows = logs_by_date(download).order(created_at: :asc)
       
       # This set's keys, derived from the JSON logdata of an example row
       @logdata_keys = get_keys_from_logdata(@rows.last)
       # standard keys for any logged requests (ip, user-agent, etc.)
       @request_keys = request_keys
       
-      filename = "#{@set} #{@download}".parameterize.underscore + '.csv'
+      filename = "#{@set} #{download}".parameterize.underscore + '.csv'
       
       response.headers['Content-Type'] = 'text/csv'
       response.headers['Content-Disposition'] = "attachment; filename=#{filename}"
@@ -48,11 +50,13 @@ class LogsController < ApplicationController
       return render action: 'month_list'
     end
 
-    # OK, we're going to move forward and display an interactive JS datatable
-    # of a given year/month for a given log set.
-    year, month = @year_month.split(/\-/)
-    
-    @rows = Log.where(set: @set).by_month(month.to_i, year: year).order(:created_at)
+    # # OK, we're going to move forward and display an interactive JS datatable
+    # # of a given year/month for a given log set.
+    # year, month = @year_month.split(/\-/)
+    # 
+    # @rows = Log.where(set: @set).by_month(month.to_i, year: year).order(:created_at)
+
+    @rows = logs_by_date(@year_month).order(created_at: :desc)
     
     # This set's keys, derived from the JSON logdata of an example row
     @logdata_keys = get_keys_from_logdata(@rows.last)
@@ -78,7 +82,13 @@ class LogsController < ApplicationController
       # logdata is a serial
       logdata = log_params[:logdata] || ''
       all_data = request_data.merge(set: set, logdata: logdata)
-      Log.create(all_data)
+      begin
+        # If the database save fails, log it, continue the redirect
+        Log.create(all_data)
+      rescue => ex
+        Rails.logger.error "LogsController#bounce error: #{ex.message}"
+        Rails.logger.error all_data.inspect
+      end
     else
       Rails.logger.error "LogsController#bounce(#{url}) called w/out 'set' param"
     end
@@ -153,7 +163,41 @@ class LogsController < ApplicationController
 
     return Log.where(set: @set).order(:created_at).group(where_clause).count
   end
-    
+
+  # @rows = log_by_download(download)
+  # download param may be a year (YYYY) or year/month (YYYY-MM).
+  def logs_by_date(download = nil)
+    return ActiveRecord::NullRelation unless download.present?
+    return log_by_year(download) if download.match(/^\d\d\d\d$/)
+    return log_by_month(download) if download.match(/^\d\d\d\d\-\d\d$/)
+    # Any bad data, return null set
+    return ActiveRecord::NullRelation
+  end
+  
+  def log_by_year(download)
+    # default clause works in MySQL
+    where_clause = "year(created_at) = '#{download}'"
+
+    # SQLite needs something special
+    if ActiveRecord::Base.connection.adapter_name.match /sqlite/i
+      where_clause = "strftime('%Y', created_at) = '#{download}'"
+    end
+
+    return Log.where(set: @set).where(where_clause)
+  end
+
+  def log_by_month(download)
+    year, month = download.split(/-/)
+    # default clause works in MySQL
+    where_clause = "year(created_at) = '#{year}' AND month(created_at) = '#{month}'"
+
+    # SQLite needs something special
+    if ActiveRecord::Base.connection.adapter_name.match /sqlite/i
+      where_clause = "strftime('%Y', created_at) = '#{year}' AND strftime('%m', created_at) = '#{month}'"
+    end
+
+    return Log.where(set: @set).where(where_clause)
+  end
   
   
 end
