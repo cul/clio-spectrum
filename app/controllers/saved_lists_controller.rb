@@ -256,7 +256,7 @@ class SavedListsController < ApplicationController
 
      # To be sure about what we're doing, require the following params:
      # to_list       -- the Name of the destination list
-     # item_key_list -- an array of item keys (bib keys or Summon BookMarks)
+     # item_key_list -- an array of item keys (bib keys or Summon FETCH ids)
     # unless params[:from_owner] && params[:from_list] && params[:to_list]
     unless params[:to_list]
       return redirect_to root_path,
@@ -323,7 +323,7 @@ class SavedListsController < ApplicationController
     # To be sure about what we're doing, require the following params:
     # from_list     -- the Name of the source list
     # to_list       -- the Name of the destination list
-    # item_key_list -- an array of item keys (bib keys or Summon BookMarks)
+    # item_key_list -- an array of item keys (bib keys or Summon FETCH ids)
     unless params[:from_owner] && params[:from_list] && params[:to_list]
       return redirect_to root_path,
                          flash: { error: 'Invalid input parameters - unspecified' }
