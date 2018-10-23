@@ -9,7 +9,7 @@ class PreferencesController < ApplicationController
   
   # GET /preferences
   def index
-    @preference = Preference.find_by(login: current_user.login )
+    @preference = Preference.find_by(login: current_user.uid )
   end
   
   # There's only ever a single preference for each user,
@@ -74,7 +74,7 @@ class PreferencesController < ApplicationController
     def set_preference
       return nil unless current_user
       
-      @preference = Preference.find_by(login: current_user.login )
+      @preference = Preference.find_by(login: current_user.uid )
       # @settings = YAML.parse(@preference['settings']) || {}
 
       # make available throughout view forms
@@ -94,7 +94,7 @@ class PreferencesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def preference_params
-      saved_preferences = Preference.find_by(login: current_user.login ) || ''
+      saved_preferences = Preference.find_by(login: current_user.uid ) || ''
       settings_string = saved_preferences['settings'] || ''
       settings_hash = YAML.load(settings_string) || {}
 
@@ -119,7 +119,7 @@ settings_hash.delete('search_layouts')
       end
 # raise
 
-      ActionController::Parameters.new.permit(:login, :settings).merge(login: current_user.login).merge(settings: settings_hash.to_yaml)
+      ActionController::Parameters.new.permit(:login, :settings).merge(login: current_user.uid).merge(settings: settings_hash.to_yaml)
     end
 
 

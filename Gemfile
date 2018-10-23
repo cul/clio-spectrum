@@ -41,17 +41,28 @@ gem 'gmaps4rails'
 # pagination
 gem 'kaminari'
 
-# Auth
-# gem 'devise', '4.4.1'
-gem 'devise', '~>4.4.1'
-gem 'devise-encryptable'
+# # Auth
+# # gem 'devise', '4.4.1'
+# gem 'devise', '~>4.4.1'
+# gem 'devise-encryptable'
+# 
+# # CAS is ready.
+# # gem 'devise_cas_authenticatable', path: '/Users/marquis/src/devise_cas_authenticatable'
+# gem 'devise_cas_authenticatable'
+
+
+# Authentication
+gem 'devise', '~> 4.4.0'
+
+# gem 'cul_omniauth'
+gem 'cul_omniauth', github: "cul/cul_omniauth", branch: 'rails-5'
 
 # Client-side JS timeouts
 gem 'auto-session-timeout'
 
-# CAS is ready.
-# gem 'devise_cas_authenticatable', path: '/Users/marquis/src/devise_cas_authenticatable'
-gem 'devise_cas_authenticatable'
+# Authorization
+# gem 'cancan'
+gem 'cancancan'
 
 gem 'json'
 
@@ -103,9 +114,6 @@ gem 'summon', git: 'https://github.com/cul/summon.git'
 # Point to local copy during development...
 # gem 'summon', :path => "/Users/marquis/src/summon"
 
-# auth library
-# gem 'cancan'
-gem 'cancancan'
 
 gem 'exception_notification'
 

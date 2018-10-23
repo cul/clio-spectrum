@@ -11,6 +11,6 @@ class CreateUsers < ActiveRecord::Migration[5.1]
   end
 
   def self.down
-    drop_table :locations
+    drop_table :users
   end
 end

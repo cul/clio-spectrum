@@ -4,7 +4,7 @@ module PreferenceSupport
   def get_user_summon_facets
     # raise
     return nil unless current_user
-    preference = Preference.find_by(login: current_user.login )
+    preference = Preference.find_by(login: current_user.uid )
     return nil unless preference
     settings = YAML.load(preference['settings']) || {}
     return nil unless settings
@@ -40,7 +40,7 @@ module PreferenceSupport
 
   def get_user_search_layout(layout)
     return nil unless current_user
-    preference = Preference.find_by(login: current_user.login )
+    preference = Preference.find_by(login: current_user.uid )
     return nil unless preference
     settings = YAML.load(preference['settings']).with_indifferent_access || {}
     return nil unless settings

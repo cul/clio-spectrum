@@ -16,7 +16,7 @@ class SavedListsController < ApplicationController
 # If no list ID is passed, the default list is shown.
   # def index
   #   # Default index, show only your own lists
-  #   @lists = List.where(:created_by => current_user.login)
+  #   @lists = List.where(:created_by => current_user.uid)
   #
   #   respond_to do |format|
   #     format.html # index.html.erb
@@ -32,7 +32,7 @@ class SavedListsController < ApplicationController
 
     # Default to your own lists, if you don't specify an owner
     if owner.blank? and current_user.present?
-      owner = current_user.login
+      owner = current_user.uid
     end
 
     # # If request is for just "/lists", then MUST be logged in
@@ -44,13 +44,13 @@ class SavedListsController < ApplicationController
     # logged-in users can see all their own lists.
     # loggin-in users can see anybody's public lists.
     # anonymous users can see anybody's public lists.
-    if current_user.present? and owner == current_user.login
+    if current_user.present? and owner == current_user.uid
       # find one of my own lists
       @list = SavedList.find_by_owner_and_slug(owner, slug)
       # Special-case: if we're trying to pull up the user's default list,
       # auto-create it for them.
       if @list.blank? and slug == SavedList::DEFAULT_LIST_SLUG
-        @list = SavedList.new(owner: current_user.login,
+        @list = SavedList.new(owner: current_user.uid,
                               name: SavedList::DEFAULT_LIST_NAME)
         @list.save!
       end
@@ -77,7 +77,7 @@ class SavedListsController < ApplicationController
     # The single-list "show" page will want to give a menu of all other lists
     @all_current_user_lists = []
     if current_user
-      @all_current_user_lists = SavedList.where(owner: current_user.login).order('slug')
+      @all_current_user_lists = SavedList.where(owner: current_user.uid).order('slug')
     end
 
     respond_to do |format|
@@ -93,7 +93,7 @@ class SavedListsController < ApplicationController
 # which will automatically create the new list.
   # def new
   #   raise "don't use this method!"
-  #   # @list = List.new(:created_by => current_user.login)
+  #   # @list = List.new(:created_by => current_user.uid)
   #   @list = List.new()
   #
   #   respond_to do |format|
@@ -105,7 +105,7 @@ class SavedListsController < ApplicationController
 
   # GET /lists/1/edit
   def edit
-    @list = SavedList.find_by_owner_and_id(current_user.login, params[:id])
+    @list = SavedList.find_by_owner_and_id(current_user.uid, params[:id])
     unless @list
       return redirect_to root_path,
                          flash: { error: 'Cannot access list' }
@@ -123,7 +123,7 @@ class SavedListsController < ApplicationController
   #   end
   #
   #   values = params[:list]
-  #   values[:created_by] = current_user.login
+  #   values[:created_by] = current_user.uid
   #   @list = SavedList.new(values)
   #
   #   respond_to do |format|
@@ -139,7 +139,7 @@ class SavedListsController < ApplicationController
 
 
   def update
-    @list = SavedList.find_by_owner_and_id(current_user.login, params[:id])
+    @list = SavedList.find_by_owner_and_id(current_user.uid, params[:id])
     unless @list
       return redirect_to root_path,
                          flash: { error: 'Cannot access list' }
@@ -159,7 +159,7 @@ class SavedListsController < ApplicationController
 
 
   def destroy
-    @list = SavedList.find_by_owner_and_id(current_user.login, params[:id])
+    @list = SavedList.find_by_owner_and_id(current_user.uid, params[:id])
     unless @list
       return redirect_to root_path,
                          flash: { error: 'Cannot access list' }
@@ -203,9 +203,9 @@ class SavedListsController < ApplicationController
     end
 
     # Find -- or CREATE -- a list with the right name
-    @list = SavedList.where(owner: current_user.login, name: list_name).first
+    @list = SavedList.where(owner: current_user.uid, name: list_name).first
     unless @list
-      @list = SavedList.new(owner: current_user.login,
+      @list = SavedList.new(owner: current_user.uid,
                             name: list_name)
       @list.save!
     end
@@ -265,15 +265,15 @@ class SavedListsController < ApplicationController
 
     # # Can't copy from a list to itself
     # if params[:from_list] == params[:to_list] &&
-    #    params[:from_owner] == current_user.login
+    #    params[:from_owner] == current_user.uid
     #   return redirect_to root_path,
     #                      flash: { error: 'Invalid input parameters - cannot copy a list to itself' }
     # end
 
     #  # Fetch the source list, we'll need it's ID
-    # if params[:from_owner] == current_user.login
+    # if params[:from_owner] == current_user.uid
     #   # Our own list
-    #   from_list = SavedList.where(owner: current_user.login, name: params[:from_list]).first
+    #   from_list = SavedList.where(owner: current_user.uid, name: params[:from_list]).first
     # else
     #   # Someone else's list - it must be public!
     #   from_list = SavedList.where(owner: params[:from_owner],
@@ -282,9 +282,9 @@ class SavedListsController < ApplicationController
     # end
 
      # Find - or create - a destination list with the "to_list" Name
-    @list = SavedList.where(owner: current_user.login, name: params[:to_list]).first
+    @list = SavedList.where(owner: current_user.uid, name: params[:to_list]).first
     unless @list
-      @list = SavedList.new(owner: current_user.login,
+      @list = SavedList.new(owner: current_user.uid,
                             name: params[:to_list])
       @list.save!
     end
@@ -336,7 +336,7 @@ class SavedListsController < ApplicationController
     end
 
     # move() is ONLY for moving items between your own lists
-    if params[:from_owner] != current_user.login
+    if params[:from_owner] != current_user.uid
       return redirect_to root_path,
                          flash: { error: 'Invalid input parameters - can only move your own items' }
     end
@@ -346,9 +346,9 @@ class SavedListsController < ApplicationController
 
 
     # Find - or create - a destination list with the "to_list" Name
-    @list = SavedList.where(owner: current_user.login, name: params[:to_list]).first
+    @list = SavedList.where(owner: current_user.uid, name: params[:to_list]).first
     unless @list
-      @list = SavedList.new(owner: current_user.login,
+      @list = SavedList.new(owner: current_user.uid,
                             name: params[:to_list])
       @list.save!
     end
@@ -357,7 +357,7 @@ class SavedListsController < ApplicationController
 
 
     # Fetch the source list, we'll need it's ID
-    @from_list = SavedList.where(owner: current_user.login, name: params[:from_list]).first
+    @from_list = SavedList.where(owner: current_user.uid, name: params[:from_list]).first
 
     # loop over the passed-in items, set their owning list to Named list
     for item_key in Array(params[:item_key_list]) do
@@ -383,7 +383,7 @@ class SavedListsController < ApplicationController
     end
 
     # You have to own the list
-    @list = SavedList.find_by_owner_and_id(current_user.login, params[:list_id])
+    @list = SavedList.find_by_owner_and_id(current_user.uid, params[:list_id])
     unless @list
       return redirect_to root_path,
                          flash: { error: 'Cannot access list' }

@@ -6,8 +6,8 @@ describe 'Saved List Interface', :vcr do
 
   before(:each) do
     User.delete_all
-    @autodidact = FactoryBot.create(:user, login: 'autodidact')
-    @blatteroon = FactoryBot.create(:user, login: 'blatteroon')
+    @autodidact = FactoryBot.create(:user, uid: 'autodidact')
+    @blatteroon = FactoryBot.create(:user, uid: 'blatteroon')
   end
 
   it 'Capybara should let us login and logout and login again' do
@@ -19,7 +19,7 @@ describe 'Saved List Interface', :vcr do
     feature_login @autodidact
 
     visit catalog_index_path
-    expect(find('#topnavbar')).to have_text @autodidact.login
+    expect(find('#topnavbar')).to have_text @autodidact.uid
 
     # Logout - navbar shows un-authenticated message
     feature_logout
@@ -29,7 +29,7 @@ describe 'Saved List Interface', :vcr do
     # Login as the second user, verify the (second user's) name shows in the nav bar
     feature_login @blatteroon
     visit catalog_index_path
-    expect(find('#topnavbar')).to have_text @blatteroon.login
+    expect(find('#topnavbar')).to have_text @blatteroon.uid
 
     # Logout - navbar shows un-authenticated message
     feature_logout
@@ -137,7 +137,7 @@ describe 'Saved List Interface', :vcr do
     # expect(page).to have_text('Cannot access list')
 
     # # Try to visit the first user's public list
-    # visit "/lists/#{@audodidact.login}/aardvark"
+    # visit "/lists/#{@audodidact.uid}/aardvark"
     # within('.savedlist_header') do
     #   expect(page).to have_text('aardvark')
     #   first('span.label', :text => 'public')

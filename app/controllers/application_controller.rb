@@ -5,6 +5,9 @@ require 'mail'
 class ApplicationController < ActionController::Base
   helper_method :set_browser_option, :get_browser_option, :debug_timestamp, :active_source
 
+  include Devise::Controllers::Helpers
+  devise_group :user, contains: [:user]
+
   # Adds a few additional behaviors into the application controller
   include Blacklight::Controller
   include Blacklight::Catalog
@@ -567,6 +570,26 @@ class ApplicationController < ActionController::Base
   #     How-To:-Redirect-to-a-specific-page-on-successful-sign-in-and-sign-out
   def after_sign_in_path_for(resource = nil)
     session[:previous_url] || root_path
+  end
+
+  # Overwriting the sign_out redirect path method
+  def after_sign_out_path_for(resource_or_scope)
+    cas_opts = YAML.load_file(File.join(Rails.root,'config','cas.yml'))[Rails.env] || {}
+
+    # If CAS options are absent, we can only do application-level logout,
+    # not CAS logout.  Warn, and proceed.
+    unless cas_opts['host'] && cas_opts['logout_url']
+      Rails.logger.error "CAS options missing - skipping CAS logout!"
+      return root_path
+    end
+    
+    # Full CAS logout + application logout page looks like this:
+    # https://cas.columbia.edu/cas/logout?service=https://helpdesk.cul.columbia.edu/welcome/logout
+    cas_logout_url = 'https://' + cas_opts['host'] + cas_opts['logout_url']
+    service = request.base_url + root_path
+    after_sign_out_path = "#{cas_logout_url}?service=#{service}"
+    Rails.logger.debug "after_sign_out_path = #{after_sign_out_path}"
+    return after_sign_out_path
   end
 
   protected

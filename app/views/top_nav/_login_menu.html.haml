@@ -4,10 +4,10 @@
 
     - if current_user
       %span.visible-xs
-        #{current_user.login}
+        #{current_user.uid}
         %b.caret
       %span.hidden-xs
-        #{current_user.name} (#{current_user.login})
+        #{current_user.name} (#{current_user.uid})
         %b.caret
     - else
       %span
@@ -20,8 +20,7 @@
     - if current_user
       %li= link_to "My Checked Out Items", checked_out_items_path
     - else
-      %li= link_to "My CLIO", new_user_session_path
-    -# %li= link_to "CLIO Legacy Saved Lists", "http://clio.cul.columbia.edu:7018/vwebv/myList", :target => "_blank"
+      %li= link_to "My CLIO", user_saml_omniauth_authorize_path
     - if current_user
       %li.nav-divider
       -# - if current_user.has_role?('site', 'pilot')
@@ -31,7 +30,7 @@
       - if current_user.has_role?('site', 'pilot')
         %li= link_to "Best Bets Logs", logs_path(set: 'Best Bets')
 
-      %li= link_to "Logout", destroy_user_session_path, :method => :delete
+      %li= link_to "Logout", destroy_user_session_path
 
 
 

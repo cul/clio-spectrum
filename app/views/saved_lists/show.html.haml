@@ -14,7 +14,7 @@
         .col-sm-10
           %span.lead= @list.display_name
           &nbsp; &nbsp;
-          - if current_user && current_user.login == @list.owner
+          - if current_user && current_user.uid == @list.owner
             %span=link_to "edit list details", edit_saved_list_path(@list)
           -# - else
           -#   (owner: #{@list.owner})
@@ -38,7 +38,7 @@
     -#   %span.saved_list_key
     -#     %strong List Name:
     -#   %span.lead= @list.display_name
-    -#   - if current_user && current_user.login == @list.owner
+    -#   - if current_user && current_user.uid == @list.owner
     -#     %span.saved_list_header=link_to "edit list details", edit_saved_list_path(@list)
     -#
     -# - if @list.description
@@ -54,12 +54,12 @@
 
 
     .sortAndPerPage.btn-toolbar
-      -# - if current_user.login == @list.owner
+      -# - if current_user.uid == @list.owner
       -#   = render 'move_or_copy_items', :list => @list, :verb => 'move'
       -# - elsif current_user
       -#   = render 'move_or_copy_items', :list => @list, :verb => 'copy'
       - if current_user
-        - if current_user.login == @list.owner
+        - if current_user.uid == @list.owner
           -# Owner can move items to a different list
           = render 'move_or_copy_items', :list => @list, :verb => 'move'
         - else

@@ -2,23 +2,27 @@ require 'ipaddr'
 require 'resolv'
 
 class User < ApplicationRecord
-  include Devise::Models::DatabaseAuthenticatable
+  include Cul::Omniauth::Users
 
-  include Devise::Models::Timeoutable
+  # cul_omniauth includes several options (:registerable, 
+  # :recoverable, :rememberable, :trackable, :validatable, ...)
+  # but we also want...
+  devise :timeoutable
 
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
+  serialize :affils, Array
 
-  if APP_CONFIG['web_authentication'] == 'cas'
-    # devise :cas_authenticatable, :encryptable, authentication_keys: [:login]
-    devise :cas_authenticatable, authentication_keys: [:login]
-  end
+  # cul_omniauth sets "devise :recoverable", and that requires
+  # that the following user attributes be available.
+  attr_accessor :reset_password_token, :reset_password_sent_at
 
-  validates :login, uniqueness: true, presence: true
+  # devise requires that a password getter and setter be defined
+  # instead of defining bogus methods below, just use this.
+  attr_accessor :password
+
+  validates :uid, uniqueness: true, presence: true
 
   before_validation(:default_email, on: :create)
-  before_validation(:generate_password, on: :create)
+  # before_validation(:generate_password, on: :create)
   before_create :set_personal_info_via_ldap
 
   def self.on_campus?(ip_addr)
@@ -31,20 +35,20 @@ class User < ApplicationRecord
   end
 
   def has_role?(area, role, admin_okay = true)
-    login && login.in?(PERMISSIONS_CONFIG[area][role]) ||
+    uid && uid.in?(PERMISSIONS_CONFIG[area][role]) ||
       (admin_okay && self.admin?)
   end
 
   # developers and sysadmins
   def admin?
-    login.in?(PERMISSIONS_CONFIG['site']['manage'])
+    uid.in?(PERMISSIONS_CONFIG['site']['manage'])
   end
 
   # application-level admin permissions
   def valet_admin?
     return true if self.admin?
     valet_admins = Array(APP_CONFIG['valet_admins']) || []
-    return valet_admins.include? login
+    return valet_admins.include? uid
   end
 
   def to_s
@@ -55,34 +59,29 @@ class User < ApplicationRecord
     [first_name, last_name].join(' ')
   end
 
-  # This method is private, below.
-  # def default_email
-  #   raise
-  #   login = send User.wind_login_field
-  #   mail = "#{login}@columbia.edu"
-  #   self.email = mail
+  # # Password methods required by Devise.
+  # def password
+  #   Devise.friendly_token[0,20]
+  # end
+  # 
+  # def password=(*val)
+  #   # NOOP
   # end
 
   private
 
   def default_email
-    # raise
-    # login = send User.wind_login_field
-    login = self.login
-    mail = "#{login}@columbia.edu"
+    mail = "#{self.uid}@columbia.edu"
     self.email = mail
    end
 
-  def generate_password
-    self.password = SecureRandom.base64(8)
-  end
+  # def generate_password
+  #   self.password = SecureRandom.base64(8)
+  # end
 
   def set_personal_info_via_ldap
-    # raise
-    # if wind_login
-    if login
-      # entry = Net::LDAP.new(host: 'ldap.columbia.edu', port: 389).search(base: 'o=Columbia University, c=US', filter: Net::LDAP::Filter.eq('uid', wind_login)) || []
-      entry = Net::LDAP.new(host: 'ldap.columbia.edu', port: 389).search(base: 'o=Columbia University, c=US', filter: Net::LDAP::Filter.eq('uid', login)) || []
+    if uid
+      entry = Net::LDAP.new(host: 'ldap.columbia.edu', port: 389).search(base: 'o=Columbia University, c=US', filter: Net::LDAP::Filter.eq('uid', uid)) || []
       entry = entry.first
 
       if entry
@@ -90,8 +89,7 @@ class User < ApplicationRecord
         if _mail.length > 6 and _mail.match(/^.+@.+$/)
           self.email = _mail
         else
-          # self.email = wind_login + '@columbia.edu'
-          self.email = login + '@columbia.edu'
+          self.email = uid + '@columbia.edu'
         end
         if User.column_names.include? 'last_name'
           self.last_name = entry[:sn].to_s.gsub('[', '').gsub(']', '').gsub(/\"/, '')

@@ -6,8 +6,8 @@ describe ItemAlertsController do
 
     before(:all) do
       User.delete_all
-      @priv_user = FactoryBot.create(:user, login: 'test_mngr')
-      @unpriv_user = FactoryBot.create(:user, login: 'stranger')
+      @priv_user = FactoryBot.create(:user, uid: 'test_mngr')
+      @unpriv_user = FactoryBot.create(:user, uid: 'stranger')
     end
     
     after(:each) do

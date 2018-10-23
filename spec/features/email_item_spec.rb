@@ -6,7 +6,7 @@ describe 'Share by Email', vcr: true, focus: false do
   ['solr_document', 'savedlist'].each do |path|
     context 'when user is logged in' do
       before do
-        @autodidact = FactoryBot.build(:user, login: 'autodidact',
+        @autodidact = FactoryBot.build(:user, uid: 'autodidact',
                                          first_name: 'Auto',
                                          last_name: 'Didact'
                                         )

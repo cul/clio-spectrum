@@ -6,7 +6,7 @@ class Logs < ActiveRecord::Migration[5.1]
 
       # request data
       t.text :user_agent, null: true
-      t.test :referrer, null: true
+      t.text :referrer, null: true
       t.string :remote_ip, null: true
 
       # log data

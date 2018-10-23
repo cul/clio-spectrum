@@ -10,7 +10,7 @@ describe SavedListsController do
     # DatabaseCleaner.clean
     User.delete_all
     @first_user_name = 'user_alpha'
-    @first_user = FactoryBot.create(:user, login: @first_user_name)
+    @first_user = FactoryBot.create(:user, uid: @first_user_name)
   end
   
   # after(:all) do
