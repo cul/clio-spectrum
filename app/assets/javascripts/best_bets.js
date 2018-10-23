@@ -89,7 +89,7 @@ $(document).ready(function() {
 
 
 
-$('.best-bets-typeahead').on("input", function(e) {
+$('.best-bets-typeahead').on('focus', function(e) {
 
   inputBox = e.target;
 
