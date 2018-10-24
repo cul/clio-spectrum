@@ -201,10 +201,10 @@ $('.best-bets-typeahead').on('focus', function(e) {
 
     // $('.best-bets-typeahead').bind('typeahead:autocomplete', function(ev, suggestion) {  console.log('>> typeahead:autocomplete'); });
 
-    // // Initializing the Typeahead looses element focus
-    // setTimeout(function(){
-    //     $('.best-bets-typeahead.tt-input').focus();
-    // }, 1);
+    // Initializing the Typeahead looses element focus
+    setTimeout(function(){
+        $('.best-bets-typeahead.tt-input').focus();
+    }, 1);
 
   }  // if typeof(best_bets_url...
 
