@@ -80,13 +80,13 @@ end
 
 
 # to_field "text", extract_all_marc_values(from: '050', to: '850')
-to_field "text", extract_all_marc_values(from: '050', to: '850') do |record, accumulator|
+to_field "text", extract_all_marc_values(from: '010', to: '852') do |record, accumulator|
   extra_fields = []
 
-  # 035$a - System Control Number
-  extra_fields << Marc21.extract_marc_from(record, '035a')
-  # 852$x - Staff Note
-  extra_fields << Marc21.extract_marc_from(record, '852x')
+  # # 035$a - System Control Number
+  # extra_fields << Marc21.extract_marc_from(record, '035a')
+  # # 852$x - Staff Note
+  # extra_fields << Marc21.extract_marc_from(record, '852x')
   # 876$p - Barcode
   extra_fields << Marc21.extract_marc_from(record, '876p')
   # 891$c, $a, $e - Donor Info ('Gift', donor name, donor code)
@@ -99,6 +99,8 @@ to_field "text", extract_all_marc_values(from: '050', to: '850') do |record, acc
   extra_fields << Marc21.extract_marc_from(record, '960f')
   # 960$u - Fund Code
   extra_fields << Marc21.extract_marc_from(record, '960u')
+  # 992$a - Normalized Location Name (location facet term)
+  extra_fields << Marc21.extract_marc_from(record, '992a')
   
 
   accumulator << extra_fields.flatten.join(' ')
@@ -354,20 +356,16 @@ CALL_NUMBER_ONLY = /^.* \>\> (.*)\|DELIM\|.*/
 # e.g.
 # Offsite - Place Request for delivery within 2 business days >> GR359 .G64 1999g|DELIM|3507870
 to_field "location_call_number_id_display", extract_marc("992b", trim_punctuation: true) do |record, accumulator|
-  # If no local CUL location, try to find a SCSB partner location
-  if accumulator.empty?  && recap_location_code.present?
-    accumulator << recap_location_name
-  end
+  # Add SCSB partner location name, if there is one
+  accumulator << recap_location_name if recap_location_name.present?
 end
 
 to_field "location_call_number_txt", extract_marc("992b", trim_punctuation: true) do |record, accumulator|
   accumulator.map!{ |value|
     value.split('|DELIM|').first
   }
-  # If no local CUL location, try to find a SCSB partner location
-  if accumulator.empty?  && recap_location_code.present?
-    accumulator << recap_location_name
-  end
+  # Add SCSB partner location name, if there is one
+  accumulator << recap_location_name if recap_location_name.present?
 end
 
 to_field "call_number_txt", extract_marc("992b", trim_punctuation: true) do |record, accumulator|
@@ -387,21 +385,17 @@ end
 
 
 to_field "location_facet", extract_marc("992a", trim_punctuation: true) do |record, accumulator|
-  # If no local CUL location, try to find a SCSB partner location
-  if accumulator.empty?  && recap_location_name.present?
-    accumulator << recap_location_name
-  end
+  # Add SCSB partner location name, if there is one
+  accumulator << recap_location_name if recap_location_name.present?
 end
 
-to_field "location_txt", extract_marc("992b", trim_punctuation: true) do |record, accumulator|
+to_field "location_txt", extract_marc("852ab:992ab", trim_punctuation: true) do |record, accumulator|
   accumulator.map!{ |value|
     value.split('|DELIM|').first
   }
 
-  # If no local CUL location, try to find a SCSB partner location
-  if accumulator.empty?  && recap_location_name.present?
-    accumulator << recap_location_name
-  end
+  # Add SCSB partner location name, if there is one
+  accumulator << recap_location_name if recap_location_name.present?
 end
 
 to_field "url_munged_display" do |record, accumulator|
