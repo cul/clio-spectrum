@@ -44,7 +44,7 @@ end
 # NEXT-1036 - Quoted Subject search fails
 # bib 2354899 is "Pennsylvania Station (New York, N.Y.)", an exact match
 # bibs 3460633 and 3460619 are a near match that should be returned,
-#   "Pennsylvania Railroad Station (New York, N.Y.)"
+#                "Pennsylvania Railroad Station (New York, N.Y.)"
 # 7/21/2008 - UPDATE - Catalogers have corrected 3460633 and 3460619,
 # they are now the same as 2354899.  Update expectations accordingly.
 # We have no other exmples of near-misses - we're not really testing
@@ -56,32 +56,32 @@ describe 'Searching of N.Y. Subject Strings', :skip_travis do
     resp = solr_resp_doc_ids_only( subject_search_args("#{baseTerm} N.Y.") )
     expect(resp.size).to be >= 15
     expect(rank(resp, 2354899)).to be <= 3
-    expect(rank(resp, 3460633)).to be <= 35
-    expect(rank(resp, 3460619)).to be <= 35
+    expect(rank(resp, 3460633)).to be <= 50
+    expect(rank(resp, 3460619)).to be <= 50
   end
 
   it "should work for:  N. Y., unquoted" do
     resp = solr_resp_doc_ids_only( subject_search_args("#{baseTerm} N. Y.") )
     expect(resp.size).to be >= 15
     expect(rank(resp, 2354899)).to be <= 3
-    expect(rank(resp, 3460633)).to be <= 35
-    expect(rank(resp, 3460619)).to be <= 35
+    expect(rank(resp, 3460633)).to be <= 50
+    expect(rank(resp, 3460619)).to be <= 50
   end
 
   it "should work for:  NY, unquoted" do
     resp = solr_resp_doc_ids_only( subject_search_args("#{baseTerm} NY") )
     expect(resp.size).to be >= 15
     expect(rank(resp, 2354899)).to be <= 3
-    expect(rank(resp, 3460633)).to be <= 35
-    expect(rank(resp, 3460619)).to be <= 35
+    expect(rank(resp, 3460633)).to be <= 50
+    expect(rank(resp, 3460619)).to be <= 50
   end
 
   it "should work for:  N Y, unquoted" do
     resp = solr_resp_doc_ids_only( subject_search_args("#{baseTerm} N Y") )
     expect(resp.size).to be >= 15
     expect(rank(resp, 2354899)).to be <= 3
-    expect(rank(resp, 3460633)).to be <= 35
-    expect(rank(resp, 3460619)).to be <= 35
+    expect(rank(resp, 3460633)).to be <= 50
+    expect(rank(resp, 3460619)).to be <= 50
   end
 
 
@@ -89,8 +89,8 @@ describe 'Searching of N.Y. Subject Strings', :skip_travis do
     resp = solr_resp_doc_ids_only( subject_search_args("\"#{baseTerm} N. Y.\"") )
     expect(resp.size).to be >= 15
     expect(rank(resp, 2354899)).to be <= 3
-    expect(rank(resp, 3460633)).to be <= 35
-    expect(rank(resp, 3460619)).to be <= 35
+    expect(rank(resp, 3460633)).to be <= 50
+    expect(rank(resp, 3460619)).to be <= 50
   end
 
 end
