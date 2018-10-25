@@ -30,13 +30,13 @@ module Spectrum
           # Did the server respond with a non-OK status?
           if response.status != 200
             @errors = ActionController::Base.helpers.strip_tags(response.body)
-            Rails.logger.error "AC get(#{search_url}) returned #{response.status}: #{@errors}"
+            Rails.logger.error "Spectrum::SearchEngines::Ac get(#{search_url}) returned #{response.status}: #{@errors}"
             return
           end
 
           results = JSON.parse(response.body).with_indifferent_access
         rescue => ex
-          Rails.logger.error "[Spectrum][AC] error: #{ex.message}"
+          Rails.logger.error "Spectrum::SearchEngines::Ac error: #{ex.message}"
           @errors = ex.message
           return
         end
