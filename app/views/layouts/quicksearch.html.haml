@@ -3,7 +3,8 @@
 %html{:xmlns => "http://www.w3.org/1999/xhtml", :lang => "en"}
   %head
     = render :partial => "/layouts/common_head"
-  %body{onload: "focusIfInViewport($('.search_q'));", data: {'environment' => "#{ENV['RAILS_ENV']}"} }
+  - onload = 'focusIfInViewport($(".search_q"));'.html_safe
+  %body{onload: onload, data: {'environment' => "#{ENV['RAILS_ENV']}"} }
     / Layout:  quicksearch
     - add_datasources
 
