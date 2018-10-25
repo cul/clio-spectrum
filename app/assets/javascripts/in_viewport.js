@@ -23,8 +23,17 @@ function isElementInViewport (el) {
 // To replace this:
 // %body{onload: "$('.search_q').focus();"}
 
-function focusIfInViewport (el) {
-  if (isElementInViewport(el)) {
-    el.focus();
+// function focusIfInViewport (el) {
+//   if (isElementInViewport(el)) {
+//     el.focus();
+//   }
+// }
+
+function focusIfInViewport (selector) {
+  if ($(selector).length) {
+    el = $(selector);
+    if (isElementInViewport(el)) {
+      el.focus();
+    }
   }
 }
