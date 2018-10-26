@@ -364,7 +364,7 @@ class ApplicationController < ActionController::Base
         url_gen_params = { host: request.host_with_port, protocol: request.protocol }
 
         if mail_to.match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/)
-          # IDs may be Catalog Bib keys or Summon FETCH IDs...
+          # IDs may be Catalog Bib keys or Summon BookMarks...
           @documents = ids_to_documents(params[:id])
           if @documents.nil? || @documents.empty?
             flash[:error] = I18n.t('blacklight.email.errors.invalid')
@@ -410,96 +410,155 @@ class ApplicationController < ActionController::Base
   def ids_to_documents(id_array = [])
     # Array-ize single id inputs: '123' --> [ '123' ] 
     id_array = Array.wrap(id_array)
-    document_array = []
-    return document_array unless id_array.kind_of?(Array)
-    return document_array if id_array.empty?
+    return [] if id_array.empty?
 
     # First, split into per-source lists,
-    # (depend on Summon IDs to start with "FETCH"...)
-    catalog_item_ids = []
-    articles_item_ids = []
+    # (depend on Summon BookMarks to be very long...)
+    catalog_ids = []
+    article_bookmarks = []
     Array.wrap(id_array).each do |item_id|
-      if item_id.start_with?('FETCH')
-        articles_item_ids.push item_id
+      if item_id.length > 50
+        article_bookmarks.push item_id
       else
-        catalog_item_ids.push item_id
+        catalog_ids.push item_id
+      end
+    end
+    
+    # Next, lookup each list in it's own way,
+    # to get hashes of key-to-document
+    catalog_docs_hash = get_catalog_docs_for_ids(catalog_ids) || {}
+    article_docs_hash = get_summon_docs_for_bookmarks(article_bookmarks) || {}
+    
+    # Finally, merge the hashes, preserving doc id order,
+    # and return the array of documents
+    document_array = []
+    Array.wrap(id_array).each do |item_id|
+      if catalog_docs_hash.has_key? item_id
+        document_array.push catalog_docs_hash[item_id]
+      elsif article_docs_hash.has_key? item_id
+        document_array.push article_docs_hash[item_id]
       end
     end
 
-    catalog_document_list = []
-    if catalog_item_ids.any?
-      # Then, do two source-specific set-of-id lookups
+    return document_array.compact
+    
+#     catalog_document_list = []
+#     if catalog_item_ids.any?
+#       # Then, do two source-specific set-of-id lookups
+# 
+#       extra_solr_params = {
+#         rows: catalog_item_ids.size
+#       }
+# 
+#       # NEXT-1067 - Saved Lists broken for very large lists (~400)
+#       # fix by breaking into slices
+#       catalog_item_ids.each_slice(100) { |slice|
+#         response, slice_document_list = fetch(slice, extra_solr_params)
+#         catalog_document_list += slice_document_list
+#       }
+#     end
+# 
+#     article_document_list = []
+#     if article_bookmarks.any?
+#       article_document_list = get_summon_docs_for_bookmark_values(article_bookmarks)
+#     end
+#     # Then, merge back, in original order
+#     key_to_doc_hash = {}
+#     catalog_document_list.each do |doc|
+#       key_to_doc_hash[ doc[:id]] = doc
+#     end
+#     article_document_list.each do |doc|
+#       # key_to_doc_hash[ doc.id] = doc
+#       key_to_doc_hash[ Array(doc.src['BookMark']).first ] = doc
+#     end
+# 
+#     # intermix the two lists in original order
+#     id_array.each do |id|
+#       document_array.push key_to_doc_hash[id]
+#     end
+# raise
+#     document_array
 
-      extra_solr_params = {
-        rows: catalog_item_ids.size
-      }
-
-      # NEXT-1067 - Saved Lists broken for very large lists (~400)
-      # fix by breaking into slices
-      catalog_item_ids.each_slice(100) { |slice|
-        response, slice_document_list = fetch(slice, extra_solr_params)
-        catalog_document_list += slice_document_list
-      }
-    end
-
-    article_document_list = []
-    if articles_item_ids.any?
-      article_document_list = get_summon_docs_for_id_values(articles_item_ids)
-    end
-
-    # Then, merge back, in original order
-    key_to_doc_hash = {}
-    catalog_document_list.each do |doc|
-      key_to_doc_hash[ doc[:id]] = doc
-    end
-    article_document_list.each do |doc|
-      key_to_doc_hash[ doc.id] = doc
-    end
-
-    id_array.each do |id|
-      document_array.push key_to_doc_hash[id]
-    end
-    document_array
   end
 
 
-  def get_summon_docs_for_id_values(id_array)
-    return [] unless id_array.kind_of?(Array)
-    return [] if id_array.empty?
+  # passed an array of catalog document ids, 
+  # return a hash of { id => Catalog-Document-Object }
+  def get_catalog_docs_for_ids(id_array = [])
+    return {} if not id_array.kind_of?(Array) || id_array.empty?
 
-    @params = {
-      'spellcheck' => true,
-      's.ho' => true,
-      # 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article)',
-      # 's.ff' => ['ContentType,and,1,5', 'SubjectTerms,and,1,10', 'Language,and,1,5']
+    docs = Hash.new
+
+    # NEXT-1067 - Saved Lists broken for very large lists, query by slice
+    id_array.each_slice(100) { |slice|
+      extra_solr_params = { rows: slice.size }
+      response, slice_document_list = fetch(slice, extra_solr_params)
+      slice_document_list.each { |doc|
+        docs[doc.id] = doc
+      }
     }
+    
+    return docs
 
-    @config = APP_CONFIG['summon']
-    @config.symbolize_keys!
+    #       extra_solr_params = {
+    #         rows: catalog_item_ids.size
+    #       }
+    # 
+    #       # NEXT-1067 - Saved Lists broken for very large lists (~400)
+    #       # fix by breaking into slices
+    #       catalog_item_ids.each_slice(100) { |slice|
+    #         response, slice_document_list = fetch(slice, extra_solr_params)
+    #         catalog_document_list += slice_document_list
+    #       }
 
+
+  end
+
+  # passed an array of bookmarks, 
+  # return a hash of { bookmark => Summon-Document-Object }
+  def get_summon_docs_for_bookmarks(bookmark_array = [])
+    return {} if not bookmark_array.kind_of?(Array) || bookmark_array.empty?
+
+    config = APP_CONFIG['summon']
+    config.symbolize_keys!
     # URL can be in app_config, or fill in with default value
-    @config[:url] ||= 'http://api.summon.serialssolutions.com/2.0.0'
+    config[:url] ||= 'http://api.summon.serialssolutions.com/2.0.0'
 
-    @params['s.cmd'] ||= "setFetchIDs(#{id_array.join(',')})"
-
-    # @params['s.q'] ||= ''
-    @params['s.fq'] ||= ''
-    @params['s.role'] ||= ''
-
+    docs = Hash.new
     @errors = nil
-    begin
-      @service = ::Summon::Service.new(@config)
-      ### THIS is the actual call to the Summon service to do the search
-      @search = @service.search(@params)
 
-    rescue => ex
-      # Rails.logger.error "[Spectrum][Summon] error: #{e.message}"
-      @errors = ex.message
+    service = ::Summon::Service.new(config)
+    bookmark_array.each do |bookmark|
+      Rails.logger.debug "bookmark #{bookmark}..."
+      params = {'s.bookMark' => bookmark }
+      search = nil
+
+      begin
+        search = service.search(params)
+      rescue Summon::Transport::RequestError => ex
+        Rails.logger.warn "Summon::Transport::RequestError - #{ex}"
+        next
+      rescue => ex
+        Rails.logger.error "[Spectrum][Summon] error: #{e.message}"
+        @errors = ex.message
+      end
+
+      next unless search && search.documents.present?
+      summon_doc = search.documents.first
+      next unless summon_doc.present?
+
+      # Summon gives you back different BookMarks for the same item!!
+      # (depending on the query?)
+      # This utterly confuses our list-management logic.  
+      # So, replace the new BookMark with the one we used for retrieval
+      summon_doc.src['BookMark'] = bookmark
+
+      docs[bookmark] = summon_doc
     end
 
-    # we choose to return empty list instead of nil
-    @search ? @search.documents : []
+    return docs
   end
+
 
   # Render a true or false, for if the user is logged in
   def render_session_status
