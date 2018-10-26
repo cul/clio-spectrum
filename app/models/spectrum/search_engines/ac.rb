@@ -5,22 +5,25 @@ module Spectrum
       # include ActionView::Helpers::NumberHelper
       include Rails.application.routes.url_helpers
 
-      # Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
       attr_reader  :documents, :search, :count, :errors, :filters, :facets, :facet_config
 
       def initialize(options = {})
-        search_url = build_search_url(options)
+        # (1) clean up some of the input options
+        # - truncate q to length that the AC API can handle
+        options['q'] = (options['q'] || '')[0,1000]
 
+        # (2) setup instance variables, used througout for logic and display
         @params = options
-        # truncate to length that the AC API can handle
-        @q = (options['q'] || '')[0,1000]
+        @q = options['q']
         @search_field = options['search_field']
         @rows = (options['per_page'] || 10).to_i
         @page = (options['page'] || 1).to_i
         @start = ((@page - 1) * @rows) + 1
         @errors = nil
 
+        # (3) make the query to the AC API
         begin
+          search_url = build_search_url(options)
           client = HTTPClient.new
           client.connect_timeout = 10 # default 60
           client.send_timeout    = 10 # default 120
@@ -41,6 +44,7 @@ module Spectrum
           return
         end
 
+        # (4) parse out the query results
         @documents = Array(results[:records]).map { |item| AcDocument.new(item) }
         @count = results[:total_number_of_results]
  
@@ -50,8 +54,8 @@ module Spectrum
         @facets = results['facets']
         # complex facet structure, including active flags, enable/disable links, etc.
         @facet_config = build_facet_config(@facets, @filters)
-      
       end
+
 
       def current_page
         @page
