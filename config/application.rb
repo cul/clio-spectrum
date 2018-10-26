@@ -67,6 +67,7 @@ module Clio
     config.assets.precompile += %w(.svg .eot .woff .ttf)
     config.assets.precompile += %w(
       location.js
+      es6_bits.js
     )
 
     # Configure the default encoding used in templates for Ruby 1.9.

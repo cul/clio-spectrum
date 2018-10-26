@@ -183,6 +183,9 @@ gem 'whenever', require: false
 # DataTables, for pretty log screens
 gem 'jquery-datatables-rails'
 
+# Browser Detection - used to exclude IE from ES6
+gem 'browser'
+
 # try to do it all in native rails
 # # For working with dates in logs, in cross-DB ways
 # # find ActiveRecord rows by year, month, etc.
