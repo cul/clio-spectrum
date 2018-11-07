@@ -63,14 +63,16 @@ class SearchBuilder < Blacklight::SearchBuilder
     # If they filled non-numeric into the date input boxes
     unless range_begin.present? && range_begin.match( /^\-?\d+$/ )
       blacklight_params['range']['pub_date_sort'].delete('begin')
+      range_begin = nil
     end
 
     unless range_end.present? && range_end.match( /^\-?\d+$/ )
       blacklight_params['range']['pub_date_sort'].delete('end')
+      range_end = nil
     end
     
     # If they filled the inputs boxes in the wrong order
-    if range_begin > range_end
+    if range_begin.present? && range_end.present? && range_begin > range_end
       blacklight_params['range']['pub_date_sort']['begin'] = range_begin
       blacklight_params['range']['pub_date_sort']['end']   = range_begin
     end
