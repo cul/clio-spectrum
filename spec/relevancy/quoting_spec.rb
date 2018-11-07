@@ -55,7 +55,7 @@ describe 'Searching of N.Y. Subject Strings', :skip_travis do
   it "should work for:  N.Y., unquoted" do
     resp = solr_resp_doc_ids_only( subject_search_args("#{baseTerm} N.Y.") )
     expect(resp.size).to be >= 15
-    expect(rank(resp, 2354899)).to be <= 3
+    expect(rank(resp, 2354899)).to be <= 5
     expect(rank(resp, 3460633)).to be <= 50
     expect(rank(resp, 3460619)).to be <= 50
   end
@@ -63,7 +63,7 @@ describe 'Searching of N.Y. Subject Strings', :skip_travis do
   it "should work for:  N. Y., unquoted" do
     resp = solr_resp_doc_ids_only( subject_search_args("#{baseTerm} N. Y.") )
     expect(resp.size).to be >= 15
-    expect(rank(resp, 2354899)).to be <= 3
+    expect(rank(resp, 2354899)).to be <= 5
     expect(rank(resp, 3460633)).to be <= 50
     expect(rank(resp, 3460619)).to be <= 50
   end
@@ -71,7 +71,7 @@ describe 'Searching of N.Y. Subject Strings', :skip_travis do
   it "should work for:  NY, unquoted" do
     resp = solr_resp_doc_ids_only( subject_search_args("#{baseTerm} NY") )
     expect(resp.size).to be >= 15
-    expect(rank(resp, 2354899)).to be <= 3
+    expect(rank(resp, 2354899)).to be <= 5
     expect(rank(resp, 3460633)).to be <= 50
     expect(rank(resp, 3460619)).to be <= 50
   end
@@ -79,7 +79,7 @@ describe 'Searching of N.Y. Subject Strings', :skip_travis do
   it "should work for:  N Y, unquoted" do
     resp = solr_resp_doc_ids_only( subject_search_args("#{baseTerm} N Y") )
     expect(resp.size).to be >= 15
-    expect(rank(resp, 2354899)).to be <= 3
+    expect(rank(resp, 2354899)).to be <= 5
     expect(rank(resp, 3460633)).to be <= 50
     expect(rank(resp, 3460619)).to be <= 50
   end
@@ -88,7 +88,7 @@ describe 'Searching of N.Y. Subject Strings', :skip_travis do
   it "should work for:  N. Y., quoted" do
     resp = solr_resp_doc_ids_only( subject_search_args("\"#{baseTerm} N. Y.\"") )
     expect(resp.size).to be >= 15
-    expect(rank(resp, 2354899)).to be <= 3
+    expect(rank(resp, 2354899)).to be <= 5
     expect(rank(resp, 3460633)).to be <= 50
     expect(rank(resp, 3460619)).to be <= 50
   end
