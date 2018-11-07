@@ -61,7 +61,7 @@ xml.feed("xmlns" => "http://www.w3.org/2005/Atom",
       # ERROR xml << render_link_rel_alternates(doc, :unique => true)
       xml << show_presenter(doc).link_rel_alternates(unique: true)      
 
-      xml.id      solr_document_url(doc[:id])
+      xml.id      solr_document_url(doc[:id] || doc.id)
 
 
       if doc.to_semantic_values[:author][0]

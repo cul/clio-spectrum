@@ -9,6 +9,9 @@ class SearchBuilder < Blacklight::SearchBuilder
   self.default_processor_chain += [:trim_long_queries]
   self.default_processor_chain += [:clear_mm_for_boolean_or]
   self.default_processor_chain += [:validate_qt]
+  # add to the beginning of the processing chain
+  self.default_processor_chain.unshift(:validate_sort)
+  self.default_processor_chain.unshift(:validate_pub_date)
 
   # These methods are passed a hash, which will
   # become the Solr request parameters.
@@ -40,6 +43,38 @@ class SearchBuilder < Blacklight::SearchBuilder
       end
       solr_parameters[:qt] = 'search'
     end
+  end
+
+  def validate_sort(solr_parameters)
+    return unless blacklight_params['sort']
+    
+    blacklight_params.delete('sort') unless
+      blacklight_params['sort'].match(/.* asc$/) or
+      blacklight_params['sort'].match(/.* desc$/)
+  end
+
+  def validate_pub_date(solr_parameters)
+    return unless blacklight_params['range'] &&
+                  blacklight_params['range']['pub_date_sort']
+                  
+    range_begin = blacklight_params['range']['pub_date_sort']['begin']
+    range_end   = blacklight_params['range']['pub_date_sort']['end']
+
+    # If they filled non-numeric into the date input boxes
+    unless range_begin.present? && range_begin.match( /^\-?\d+$/ )
+      blacklight_params['range']['pub_date_sort'].delete('begin')
+    end
+
+    unless range_end.present? && range_end.match( /^\-?\d+$/ )
+      blacklight_params['range']['pub_date_sort'].delete('end')
+    end
+    
+    # If they filled the inputs boxes in the wrong order
+    if range_begin > range_end
+      blacklight_params['range']['pub_date_sort']['begin'] = range_begin
+      blacklight_params['range']['pub_date_sort']['end']   = range_begin
+    end
+    # raise
   end
 
   # NEXT-1412 - Solr OOM error

@@ -353,7 +353,9 @@ class SpectrumController < ApplicationController
         Spectrum::SearchEngines::Ac.new(fixed_params)
 
       else
-        fail "SpectrumController#get_results() unhandled source: '#{source}'"
+        # bad input?  log and return nil results
+        Rails.logger.error "SpectrumController#get_results() unhandled source: '#{source}'"
+        return @result_hash
       end
 
     @result_hash[source] = results
