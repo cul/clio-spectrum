@@ -73,25 +73,6 @@ module HoldingsHelper
     false
   end
 
-  # # Detect Law records, cataloged in Pegasus (https://pegasus.law.columbia.edu/)
-  # def document.in_pegasus?
-  #   # raise
-  #   # Document must have an id, which must be a "b" followed by a number...
-  #   return false unless document.id and document.id.match /^b\d{3,9}$/
-  # 
-  #   # And, confirm that the Location is "Law"
-  # 
-  #   # pull out the Location/call-number/holdings-id field...
-  #   return false unless location_call_number_id = document[:location_call_number_id_display]
-  #   # unpack, and confirm each occurrance ()
-  #   Array.wrap(location_call_number_id).each do |portmanteau|
-  #     location = portmanteau.partition(' >>').first
-  #     # If we find any location that's not Law, this is NOT pegasus
-  #     return false if location and location != 'Law'
-  #   end
-  # 
-  #   true
-  # end
 
   def online_link_hash(document)
     links = []
@@ -145,28 +126,10 @@ module HoldingsHelper
 #    links.sort { |x,y| x.first <=> y.first }
   end
 
-  # def self.valet_label()
-  #   APP_CONFIG['valet_label'] ||
-  #     'Offsite'
-  # end
 
-  # def valet_label
-  #   # HoldingsHelper.valet_label()
-  #   APP_CONFIG['valet_label'] || 'Offsite'
-  # end
-
-  # def self.valet_link(bib_id = '')
-  #   valet_url = APP_CONFIG['valet_link'] ||
-  #     "https://valet.cul.columbia.edu/offsite_requests/bib?bib_id="
-  #   return valet_url + bib_id
-  # end
-  # 
-  # def valet_link(bib_id = '')
-  #   HoldingsHelper.valet_link(bib_id)
-  # end
   
 
-  SERVICE_ORDER = %w(offsite barnard_remote spec_coll precat on_order borrow_direct borrow_direct_test recall_hold ill ill_valet in_process doc_delivery)
+  SERVICE_ORDER = %w(offsite barnard_remote spec_coll precat on_order borrow_direct borrow_direct_test recall_hold ill in_process doc_delivery)
 
   # parameters: title, link (url or javascript), optional extra param
   # When 2nd param is a JS function, 
@@ -176,26 +139,25 @@ module HoldingsHelper
     # just return a hash, the same as the constant did, but
     # now we can call methods as we build the config.
     {
-    'offsite' => [ 'Offsite', 'OpenURL', offsite_link() ],
+    'offsite' => [ 'Offsite', 'OpenURLinWindow', offsite_link() ],
 
-    'barnard_remote' => [ 'BearStor', 'OpenURL', barnard_remote_link() ],
+    'barnard_remote' => [ 'BearStor', 'OpenURLinWindow', barnard_remote_link() ],
 
     'spec_coll' => ['Special Collections',
                     'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
     'precat' => %w(Precataloging OpenPrecatRequest),
-    'recall_hold' => ['Recall / Hold',
-                      'http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId='],
+    # 'recall_hold' => ['Recall / Hold',
+    #                   'http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId='],
+    'recall_hold' => ['Recall / Hold', recall_hold_link() ],
+
     'on_order' => ['On Order',
                    'OpenInprocessRequest'],
-    'borrow_direct' => ['Borrow Direct',
-                        'http://www.columbia.edu/cgi-bin/cul/borrowdirect?'],
-    # 'borrow_direct_test' => ['Borrow Direct [TEST]',
-    #                     'https://www1.columbia.edu/sec-cgi-bin/cul/bd/BDauth_test?'],
-
-    'ill' => ['ILL',
-              'https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?'],
-    'ill_valet' => ['ILL (Valet)',
-                    'https://valet-test.cul.columbia.edu/ill_requests/new?bib_id='],
+    # 'borrow_direct' => ['Borrow Direct',
+    #                     'http://www.columbia.edu/cgi-bin/cul/borrowdirect?'],
+    'borrow_direct' => [ 'Borrow Direct', borrow_direct_link() ],
+    # 'ill' => ['ILL',
+    #           'https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?'],
+    'ill' => [ 'ILL', ill_link() ],
     'in_process' => ['In Process',
                      'OpenInprocessRequest'],
     'doc_delivery' => ['Scan & Deliver',
@@ -205,13 +167,6 @@ module HoldingsHelper
 
   def service_links(services, clio_id)
     return [] unless services && clio_id
-
-    # nobody's actually testing this.  suspend test link.
-    # if Rails.env != 'clio_prod'
-    #   if services.include?('ill')
-    #     services << 'ill_valet'
-    #   end
-    # end
 
     services.select { |svc| SERVICE_ORDER.index(svc) }.sort_by { |svc| SERVICE_ORDER.index(svc) }.map do |svc|
       # title, link, extra = SERVICES[svc]
@@ -481,13 +436,45 @@ module HoldingsHelper
     return location_link
   end
 
+  def borrow_direct_link
+    if Rails.env == 'clio_prod' 
+      'http://www.columbia.edu/cgi-bin/cul/borrowdirect?'
+    else
+      valet_url = APP_CONFIG['valet_url'] || "https://valet.cul.columbia.edu"
+      return "#{valet_url}/borrowdirect/"
+    end
+  end
+
+  def recall_hold_link
+    if Rails.env == 'clio_prod' 
+      'http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId='
+    else
+      valet_url = APP_CONFIG['valet_url'] || "https://valet.cul.columbia.edu"
+      return "#{valet_url}/recall_hold/"
+    end
+  end
+
+  def ill_link
+    if Rails.env == 'clio_prod' 
+      'https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?'
+    else
+      valet_url = APP_CONFIG['valet_url'] || "https://valet.cul.columbia.edu"
+      return "#{valet_url}/ill/"
+    end
+  end
+
+  def intercampus_link
+    if Rails.env == 'clio_prod' 
+      'http://www.columbia.edu/cgi-bin/cul/resolve?lweb0013'
+    else
+      valet_url = APP_CONFIG['valet_url'] || "https://valet.cul.columbia.edu"
+      return "#{valet_url}/intercampus/"
+    end
+  end
 
   def offsite_link
     valet_url = APP_CONFIG['valet_url'] || "https://valet.cul.columbia.edu"
     return "#{valet_url}/offsite_requests/bib?bib_id="
-    
-    # APP_CONFIG['valet_link'] ||
-    #   "https://valet.cul.columbia.edu/offsite_requests/bib?bib_id="
   end
   
   def barnard_remote_link
