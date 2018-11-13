@@ -14,7 +14,7 @@ describe HoldingsHelper do
       definition = serviceConfig[ non_http_services[i]]
       expected_text = definition[0]
       # back-slash the parens, so we can use as regexp text within match()
-      expected_href = definition[1] + '\(\'' + fake_bib + '\'\)'
+      expected_href = definition[1] + '\(\'' + fake_bib + '\''
 
       # the link returned from the helper method should match expectations
       link       = linkset[i]

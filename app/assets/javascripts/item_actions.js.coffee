@@ -11,9 +11,9 @@
   url = 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/search?' + bibid
   OpenWindow(url)
 
-@OpenPrecatRequest = (bibid) ->
-  url = 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/precat?' + bibid
-  OpenWindow(url)
+# @OpenPrecatRequest = (bibid) ->
+#   url = 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/precat?' + bibid
+#   OpenWindow(url)
 
 @OpenItemFeedback = (bibid) ->
   url = 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/itemfeedback?' + bibid

@@ -145,7 +145,8 @@ module HoldingsHelper
 
     'spec_coll' => ['Special Collections',
                     'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
-    'precat' => %w(Precataloging OpenPrecatRequest),
+    # 'precat' => %w(Precataloging OpenPrecatRequest),
+    'precat' => [ 'Precataloging', 'OpenURLinWindow', precat_link() ],
     # 'recall_hold' => ['Recall / Hold',
     #                   'http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId='],
     'recall_hold' => ['Recall / Hold', recall_hold_link() ],
@@ -454,6 +455,15 @@ module HoldingsHelper
     end
   end
 
+  def precat_link
+    if Rails.env == 'clio_prod' 
+      'https://www1.columbia.edu/sec-cgi-bin/cul/forms/precat?'
+    else
+      valet_url = APP_CONFIG['valet_url'] || "https://valet.cul.columbia.edu"
+      return "#{valet_url}/precat/"
+    end
+  end
+  
   def ill_link
     if Rails.env == 'clio_prod' 
       'https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?'
