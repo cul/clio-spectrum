@@ -479,7 +479,8 @@ module HoldingsHelper
   
   def barnard_remote_link
     valet_url = APP_CONFIG['valet_url'] || "https://valet.cul.columbia.edu"
-    return "#{valet_url}/barnard_remote_requests/bib?bib_id="
+    # return "#{valet_url}/barnard_remote_requests/bib?bib_id="
+    return "#{valet_url}/bearstor/"
   end
 
   def offsite_bound_with_url(title, enum_chron, barcode)
