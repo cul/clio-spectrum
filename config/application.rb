@@ -14,7 +14,7 @@ Bundler.require(*Rails.groups)
 
 
 
-RELEASE_STAMP = IO.read('VERSION').strip
+CLIO_VERSION = IO.read('VERSION').strip
 
 # explicitly require, so that "config.middleware.use" works below during
 # capistrano's assets:precompile step
@@ -79,7 +79,7 @@ module Clio
     config.assets.enabled = true
     # Default SASS Configuration, check out https://github.com/rails/sass-rails for details
 
-    config.assets.version = RELEASE_STAMP
+    config.assets.version = CLIO_VERSION
 
     # see https://github.com/vidibus/vidibus-routing_error
     # This isn't great, since it doesn't tell us or them that anything
