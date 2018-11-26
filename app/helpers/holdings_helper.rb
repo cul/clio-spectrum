@@ -475,7 +475,7 @@ module HoldingsHelper
 
   def intercampus_link
     if Rails.env == 'clio_prod' 
-      'http://www.columbia.edu/cgi-bin/cul/resolve?lweb0013'
+      'http://www.columbia.edu/cgi-bin/cul/resolve?lweb0013#'
     else
       valet_url = APP_CONFIG['valet_url'] || "https://valet.cul.columbia.edu"
       return "#{valet_url}/intercampus/"
