@@ -549,7 +549,10 @@ module Voyager
         else
         end
 
-        if location_code == APP_CONFIG['barnard_remote_location']
+        # If this is a BearStor holding and some items are available,
+        # enable the BearStor request link (barnard_remote)
+        if location_code == APP_CONFIG['barnard_remote_location'] &&
+           ['available', 'some_available'].include?(item_status[:status])
           services << 'barnard_remote'
         end
 

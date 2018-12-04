@@ -27,11 +27,14 @@ module Voyager
         # }
         
         @item_count = 0
+        item_id_list = []
         holdings_marc.each_by_tag('876') do |t876|
           @item_count = @item_count + 1
 
           item_id = t876['a']
           barcode = t876['p']
+          
+          item_id_list << item_id
 
           # If Voyager holdings status doesn't yet have an entry for this item id, 
           # create it.  (This shouldn't happen.)  
@@ -81,6 +84,12 @@ module Voyager
 
         end
 
+        # Sometimes circ_status (mfhd_status) includes status for 
+        # items not in the MARC (e.g., Withdrawn items).
+        # Remove any unwanted status details
+        mfhd_status.each do |item_id, item|
+          mfhd_status.delete(item_id) unless item_id_list.include?(item_id)
+        end
 
         @temp_locations = parse_for_temp_locations(holdings_marc)  # array
         @use_restrictions = parse_for_use_restrictions(holdings_marc)  # array
