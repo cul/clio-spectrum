@@ -1,16 +1,15 @@
 module Spectrum
   module SearchEngines
     class Ac
-
       # include ActionView::Helpers::NumberHelper
       include Rails.application.routes.url_helpers
 
-      attr_reader  :documents, :search, :count, :errors, :filters, :facets, :facet_config
+      attr_reader :documents, :search, :count, :errors, :filters, :facets, :facet_config
 
       def initialize(options = {})
         # (1) clean up some of the input options
         # - truncate q to length that the AC API can handle
-        options['q'] = (options['q'] || '')[0,1000]
+        options['q'] = (options['q'] || '')[0, 1000]
 
         # (2) setup instance variables, used througout for logic and display
         @params = options
@@ -47,7 +46,7 @@ module Spectrum
         # (4) parse out the query results
         @documents = Array(results[:records]).map { |item| AcDocument.new(item) }
         @count = results[:total_number_of_results]
- 
+
         # These are the applied facets
         @filters = results['params']['filters']
         # These are the facet values/counts from the full set of result docs
@@ -55,7 +54,6 @@ module Spectrum
         # complex facet structure, including active flags, enable/disable links, etc.
         @facet_config = build_facet_config(@facets, @filters)
       end
-
 
       def current_page
         @page
@@ -79,9 +77,9 @@ module Spectrum
 
         # Add the basic query term, possibly fielded.
         query = @q.dup
-        query = "#{@search_field.titleize}: #{query}" if @search_field.in?(['title', 'subject'])
+        query = "#{@search_field.titleize}: #{query}" if @search_field.in?(%w(title subject))
         constraints << [query, ac_index_path]
-        
+
         # Add any facet filter contraints.
         # Zero or more filter fields, each with possibly multiple values, e.g.:
         #     "filters": {
@@ -103,9 +101,8 @@ module Spectrum
             # constraints << ["#{filter_name.titleize}: #{value}", ac_index_path(new_params)]
           end
         end
-        
-        
-        return constraints
+
+        constraints
       end
 
       def start_item
@@ -160,14 +157,14 @@ module Spectrum
           [search_merge(sort: 'date', order: 'desc', page: '1'), 'Published Latest'],
 
           [search_merge(sort: 'title', order: 'asc', page: '1'), 'Title A-Z'],
-          [search_merge(sort: 'title', order: 'desc', page: '1'), 'Title Z-A'],
+          [search_merge(sort: 'title', order: 'desc', page: '1'), 'Title Z-A']
         ]
       end
 
       def current_sort_name
         sort = @params['sort'] || 'best_match'
         order = @params['order'] || 'desc'
-        
+
         case sort
 
         # default case - relevancy sort, descending
@@ -183,7 +180,7 @@ module Spectrum
             return 'Published Latest'
           end
 
-        # Title Sort - 
+        # Title Sort -
         when 'title'
           case order
           when 'asc'
@@ -196,26 +193,24 @@ module Spectrum
         else
           return "#{sort} #{order}".titleize
         end
+      end
 
-      end 
-      
-      
       private
 
       # https://academiccommons-dev.cdrs.columbia.edu/api/v1/search?
       #   search_type=keyword&q=test&page=1&per_page=25&sort=best_match&order=desc
-      
+
       # Build a search URL for querying the AC API
       # Translate options (CGI params) to API params
       def build_search_url(options = {})
-        url  = APP_CONFIG['ac']['api_url']
+        url = APP_CONFIG['ac']['api_url']
         search_path = APP_CONFIG['ac']['api_search_path']
         search_url = "#{url}#{search_path}"
 
-        api_params = Hash.new
-      
+        api_params = {}
+
         # basic query params
-        basics = [ 'q', 'page', 'per_page', 'sort', 'order']
+        basics = %w(q page per_page sort order)
         basics.each do |key|
           api_params[key] = options[key] if options[key].present?
         end
@@ -229,13 +224,11 @@ module Spectrum
           sort_key, order_key = sort_key.match(/(\w+) (\w+sc)/).captures
         end
         sort_key = 'date' if sort_key == 'pub_date_sort'
-        if ['best_match', 'date', 'title'].include? sort_key
+        if %w(best_match date title).include? sort_key
           api_params['sort'] = sort_key
-          if ['asc', 'desc'].include? order_key
-            api_params['order'] = order_key
-          end
+          api_params['order'] = order_key if %w(asc desc).include? order_key
         end
-        
+
         # *** remap params ***
         # "SEARCH FIELD" V.S. "SEARCH TYPE"
         key_remaps = {
@@ -243,25 +236,22 @@ module Spectrum
         }
         value_remaps = {
           'all_fields' => 'keyword',
-          'all' => 'keyword',
+          'all' => 'keyword'
         }
         key_remaps.each do |clio_key, api_key|
           # We have a key that needs to be remapped
-          if options[clio_key].present?
-            # if the value is in our remap table, remap value also
-            clio_value = options[clio_key]
-            api_value = value_remaps[clio_value] || clio_value
-            api_params[api_key] = api_value
-          end
-
+          next unless options[clio_key].present?
+          # if the value is in our remap table, remap value also
+          clio_value = options[clio_key]
+          api_value = value_remaps[clio_value] || clio_value
+          api_params[api_key] = api_value
         end
-        
-        
+
         # facet filter params
-        filters = ['author', 'date', 'department', 'subject', 'type', 'columbia_series']
+        filters = %w(author date department subject type columbia_series)
         filters.each do |key|
           api_params[key] = options[key] if options[key].present?
-        end 
+        end
 
         # DISSERTATIONS
         # hardcode filter to show only dissertations if we're in that datasource
@@ -269,9 +259,8 @@ module Spectrum
 
         search_url = "#{search_url}?#{api_params.to_query}" if api_params.present?
         Rails.logger.debug "Spectrum::SearchEngines::Ac build_search_url(options)\n    #{search_url}"
-        return search_url
+        search_url
       end
-
 
       def search_merge(params = {})
         ac_index_path(@params.merge(params))
@@ -279,69 +268,64 @@ module Spectrum
 
       # complex facet structure, including active flags, enable/disable links, etc.
       AC_FACET_LIMIT = 10
-      def build_facet_config(facets, filters)
-        
-        config = Hash.new
-        
-        config = facets.map { |facet_name, facet_value_list|
+      def build_facet_config(facets, _filters)
+        config = {}
+
+        config = facets.map do |facet_name, facet_value_list|
           facet_active = @filters.key?(facet_name)
-          
+
           new_value_list = []
-          facet_value_list.map { |value, count|
+          facet_value_list.map do |value, count|
             break if new_value_list.size > AC_FACET_LIMIT
-            
+
             # each facet-value needs the following attribute fields:
-            new_value_list << { 
+            new_value_list << {
               name:       value,
               count:      count,
               active:     facet_active && value.in?(@filters[facet_name]),
               add_url:    build_add_facet_url(facet_name, value),
               remove_url: build_remove_facet_url(facet_name, value)
             }
-          }
-         
+          end
+
           #  Return this hash structure for each facet filter
           { name:    facet_name,
             active:  facet_active,
-            values:  new_value_list
-          }
-          
-        }
+            values:  new_value_list }
+        end
 
-        return config
+        config
       end
 
       def build_add_facet_url(facet_name, value)
-        applied_values = Array( @filters[facet_name] )
+        applied_values = Array(@filters[facet_name])
         # Don't add if it's already applied
         return if value.in?(applied_values)
-        
+
         new_params = @params.dup.except(facet_name)
-        new_params.merge!( facet_name => applied_values + Array(value) )
+        new_params[facet_name] = applied_values + Array(value)
 
         restart_ac_index_path(new_params)
       end
-    
+
       def build_remove_facet_url(facet_name, value)
         return unless facet_name.in?(@filters)
 
-        applied_values = Array( @filters.dup[facet_name] )
+        applied_values = Array(@filters.dup[facet_name])
         # Don't remove if it's not applied
         return unless value.in?(applied_values)
 
         new_params = @params.dup.except(facet_name)
-        new_params.merge!( facet_name => applied_values - Array(value) ) if applied_values.size > 1
+        new_params[facet_name] = applied_values - Array(value) if applied_values.size > 1
 
         restart_ac_index_path(new_params)
       end
-
 
       def restart_ac_index_path(params)
         # reset page number for new searches
         params.delete('page')
         ac_index_path(params)
       end
-    
     end
   end
 end

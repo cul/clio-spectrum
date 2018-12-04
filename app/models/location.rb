@@ -25,20 +25,19 @@ class Location < ApplicationRecord
     # unescaped_location = CGI.unescape(location)
     # # logger.debug("match_location_text: looking for " + location)
 
-    if connection.adapter_name.downcase.include?('mysql')
-      # matches = find(:all, conditions: ["? LIKE CONCAT(locations.name, '%')", location], include: :library)
-      # matches = where("? LIKE CONCAT(locations.name, '%')", location_text).joins('LEFT OUTER JOIN libraries ON libraries.id = locations.library_id')
-      matches = where("? LIKE CONCAT(locations.name, '%')", location_text)
-    else
-      # matches = find(:all, conditions: ["? LIKE locations.name || '%'", location], include: :library)
-      # matches = where("? LIKE locations.name || '%'", location_text).joins('LEFT OUTER JOIN libraries ON libraries.id = locations.library_id')
-      matches = where("? LIKE locations.name || '%'", location_text)
-    end
+    matches = if connection.adapter_name.downcase.include?('mysql')
+                # matches = find(:all, conditions: ["? LIKE CONCAT(locations.name, '%')", location], include: :library)
+                # matches = where("? LIKE CONCAT(locations.name, '%')", location_text).joins('LEFT OUTER JOIN libraries ON libraries.id = locations.library_id')
+                where("? LIKE CONCAT(locations.name, '%')", location_text)
+              else
+                # matches = find(:all, conditions: ["? LIKE locations.name || '%'", location], include: :library)
+                # matches = where("? LIKE locations.name || '%'", location_text).joins('LEFT OUTER JOIN libraries ON libraries.id = locations.library_id')
+                where("? LIKE locations.name || '%'", location_text)
+              end
 
     max_length = matches.map { |m| m.name.length }.max
     matches.find { |m| m.name.length == max_length }
   end
-
 
   # Location Note, used for a special add-on text/link message
   # location_note = Location.get_location_note(entry['location_name'])
@@ -47,14 +46,14 @@ class Location < ApplicationRecord
 
     location_notes = ''.html_safe
     app_config_location_notes = APP_CONFIG['location_notes'] || {}
-    app_config_location_notes.keys.each { |location_note_key|
+    app_config_location_notes.keys.each do |location_note_key|
       if location.starts_with? location_note_key
         location_notes << app_config_location_notes[location_note_key].html_safe
       end
-    }
+    end
 
-    return location_notes if location_notes.length > 0
-    return nil
+    return location_notes unless location_notes.empty?
+    nil
   end
 
   def self.clear_and_load_fixtures!
@@ -80,12 +79,10 @@ class Location < ApplicationRecord
       )
 
       # Add links to this location, if they exist
-      if location && location_hash[:links]
-        location_hash[:links].each_pair do |name, url|
-          location.links.create(name: name, value: url)
-        end
+      next unless location && location_hash[:links]
+      location_hash[:links].each_pair do |name, url|
+        location.links.create(name: name, value: url)
       end
-
     end
   end
 end

@@ -68,11 +68,11 @@ module Spectrum
       #   value = Book
       # Return:
       #   @params = {"f"=>{"-format"=>["Book"], "format"=>["Online"]}, ...etc... }
-      # 
+      #
       def invert_facet_value(facet_field, value)
         # # start with our current params...
         # new_params = @params.deep_clone
-        # 
+        #
         # # remove what we don't want...
         # new_params.delete(:page)
         # new_params.delete(:id)
@@ -81,9 +81,9 @@ module Spectrum
         # end
         # # send them to the index (search results)
         # new_params[:action] = 'index'
-        # 
-        # # Remove 
-        # 
+        #
+        # # Remove
+        #
         # deprecated
         # new_params = remove_facet_params(facet_field, value, new_params)
         search_state = Blacklight::SearchState.new(@params, blacklight_config)
@@ -101,7 +101,7 @@ module Spectrum
 
       # Each invert_link is an array of [label, link]
       def facet_value_invert_links(facet_field, value)
-        if  is_inverted?(facet_field)
+        if is_inverted?(facet_field)
           [
             ['Is Not', '#'],
             ['Is', catalog_index_path(invert_facet_value(facet_field, value))]
@@ -150,10 +150,9 @@ module Spectrum
       def parse_filters
         @filters = HashWithIndifferentAccess.new
         (@params[:f] || {}).each_pair do |facet_field, values|
-
           # values has to be an array, and cannot be empty, or don't process this filter
           next unless values.is_a? Array
-          next if values.nil? or (not values.is_a? Array) or values.join.empty?
+          next if values.nil? || (!values.is_a? Array) || values.join.empty?
 
           base_facet_field = facet_field.gsub(/^-/, '').to_s
 
@@ -185,7 +184,7 @@ module Spectrum
             # # new_params = remove_facet_params(facet_field, value, new_params)
             # search_state = Blacklight::SearchState.new(@params, blacklight_config)
             # new_params = search_state.remove_facet_params(facet_field, value)
-            # 
+            #
             # search_state.remove_facet_params(facet_field, value)
             # ... trying to cleanup deprecation ...
             search_state = Blacklight::SearchState.new(@params, blacklight_config)
@@ -204,27 +203,26 @@ module Spectrum
         @queries = []
 
         if @params[:search_field] == 'advanced'
-          (@params['adv'] || {}).each_pair  do |i, attrs|
-            field, value = attrs['field'], attrs['value']
-            unless value.to_s.empty?
-              remove_params = @params.deep_clone
-              # remove_params[:action] = 'index'
-              # "Calling URL helpers with string keys controller, action is deprecated"
-              remove_params.delete(:controller)
-              remove_params.delete(:action)
-              # let controller / action be handled by rails
+          (@params['adv'] || {}).each_pair do |i, attrs|
+            field = attrs['field']
+            value = attrs['value']
+            next if value.to_s.empty?
+            remove_params = @params.deep_clone
+            # remove_params[:action] = 'index'
+            # "Calling URL helpers with string keys controller, action is deprecated"
+            remove_params.delete(:controller)
+            remove_params.delete(:action)
+            # let controller / action be handled by rails
 
-              remove_params[:adv][i] = nil
-              remove_params.delete(:page)
-              remove_params.delete(:id)
+            remove_params[:adv][i] = nil
+            remove_params.delete(:page)
+            remove_params.delete(:id)
 
-              @queries << {
-                field: field,
-                value: value,
-                remove: catalog_index_path(remove_params)
-              }
-            end
-
+            @queries << {
+              field: field,
+              value: value,
+              remove: catalog_index_path(remove_params)
+            }
           end
         else
           unless @params[:q].to_s.empty?
@@ -244,11 +242,11 @@ module Spectrum
 
         @queries.each do |query|
           field_key = query[:field]
-          if search_field = @config.search_fields[field_key]
-            query[:label] = search_field.label
-          else
-            query[:label] = field_key
-          end
+          query[:label] = if search_field = @config.search_fields[field_key]
+                            search_field.label
+                          else
+                            field_key
+                          end
         end
 
         @query_operator = @params[:advanced_operator] || 'AND'
@@ -259,7 +257,7 @@ module Spectrum
 
         (@params[:range] || {}).each_pair do |range_key, range|
           # defend against bad input
-          next unless range_key and range and @config.facet_fields[range_key]
+          next unless range_key && range && @config.facet_fields[range_key]
           @ranges[range_key] = {
             label: @config.facet_fields[range_key].label || range_key,
             value: "#{range['begin']} to #{range['end']}",

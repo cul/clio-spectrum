@@ -1,11 +1,8 @@
 require 'spec_helper'
 
 describe 'coins encoding for zotero', :vcr do
-
   context 'search results' do
-
     context 'catalog' do
-
       context 'music recording' do
         it 'has the correct coins format' do
           visit catalog_index_path('q' => 'psalm 21 meyerbeer', 'f[format][]' => 'Music Recording')
@@ -15,7 +12,6 @@ describe 'coins encoding for zotero', :vcr do
           end
         end
       end
-
 
       context 'printed book' do
         it 'has the correct coins format' do
@@ -39,7 +35,6 @@ describe 'coins encoding for zotero', :vcr do
     end
 
     context 'academic commons' do
-
       context 'music recording' do
         it 'has the correct coins format' do
           visit academic_commons_index_path('q' => 'Chorale Labyrinth', 'search_field' => 'title')
@@ -53,19 +48,17 @@ describe 'coins encoding for zotero', :vcr do
       context 'video recording' do
         it 'has the correct coins format' do
           visit academic_commons_index_path('q' => 'Video for the cases A9 to A12 for a still observer',
-                                           'rows' => 5)
+                                            'rows' => 5)
           coins = all "//span[@class='Z3988']"
           coins.each do |coin|
             expect(coin[:title]).to have_text 'fmt:kev:mtx:dc&rft.type=videoRecording'
           end
         end
       end
-
     end
   end
 
   context 'single item' do
-
     context 'music recording' do
       it 'has the correct coins format' do
         visit solr_document_path 10922430
@@ -105,6 +98,5 @@ describe 'coins encoding for zotero', :vcr do
         expect(coins).to have_text 'fmt:kev:mtx:dc&rft.type=audioRecording'
       end
     end
-
   end
 end

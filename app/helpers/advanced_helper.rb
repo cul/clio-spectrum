@@ -28,15 +28,15 @@ module AdvancedHelper
 
     # BL 6
     render_hash_as_hidden_fields(search_state.params_for_search.except(:q, :search_field, :qt, :page, :utf8, :categories,
-            :advanced_operator, :adv, :advanced))
+                                                                       :advanced_operator, :adv, :advanced))
   end
 
-# Unused?
-#   def selected_values_for_facet(facet, localized_parms = params)
-#     Array.wrap(params[:f] && params[:f][facet])
-#   end
+  # Unused?
+  #   def selected_values_for_facet(facet, localized_parms = params)
+  #     Array.wrap(params[:f] && params[:f][facet])
+  #   end
 
-  def selected_negative_values_for_facet(facet, localized_params = params)
+  def selected_negative_values_for_facet(facet, _localized_params = params)
     Array.wrap(params[:f] && params[:f]["-#{facet}"])
   end
 
@@ -45,18 +45,18 @@ module AdvancedHelper
   def render_selected_facet_value_on_facet(facet_solr_field, item)
     # Updated class for Bootstrap Blacklight
     content_tag(:span, render_facet_value(facet_solr_field, item, suppress_link: true), class: 'selected') +
-      link_to(content_tag(:span, '', class: 'glyphicon glyphicon-remove') +  content_tag(:span, '[remove]', class: 'hide-text'), catalog_index_path(remove_facet_params(facet_solr_field, item, params)), class: 'remove')
+      link_to(content_tag(:span, '', class: 'glyphicon glyphicon-remove') + content_tag(:span, '[remove]', class: 'hide-text'), catalog_index_path(remove_facet_params(facet_solr_field, item, params)), class: 'remove')
   end
 
-  def advanced_field_text_field(blacklight_config, index, par = params)
+  def advanced_field_text_field(_blacklight_config, index, _par = params)
     index = index.to_s
     default_value = params['adv'] && params['adv'][index] && (!params['adv'][index]['field'].to_s.empty? && params['adv'][index]['value'])
 
-    text_field_tag("adv[#{index}][value]", default_value,  class: 'form-control')
+    text_field_tag("adv[#{index}][value]", default_value, class: 'form-control')
   end
 
   # builds the field select-tag for each Advanced Search field/value pair (for Catalog)
-  def advanced_field_select_option(blacklight_config, index, par = params)
+  def advanced_field_select_option(blacklight_config, index, _par = params)
     index = index.to_s
     field_list = blacklight_config.search_fields.map do |field_key, field|
       [field.label, field_key]
@@ -75,7 +75,7 @@ module AdvancedHelper
 
   def has_advanced_params?
     # Catalog
-    return true if params[:adv].kind_of?(Hash) && !params[:adv].empty?
+    return true if params[:adv].is_a?(Hash) && !params[:adv].empty?
     # Summon
     return true if params[:form] == 'advanced'
     # If we didn't detect any advanced search...

@@ -2,7 +2,6 @@
 require 'spec_helper'
 
 describe 'Spectrum::SearchEngines::GoogleAppliance', :vcr do
-
   describe 'Libraries Website search for "books"' do
     before(:each) do
       @search_engine = Spectrum::SearchEngines::GoogleAppliance.new('q' => 'books')
@@ -17,17 +16,13 @@ describe 'Spectrum::SearchEngines::GoogleAppliance', :vcr do
       expect(@search_engine.previous_page?).to be false
       expect(@search_engine.next_page?).to be true
     end
-
   end
 
   describe 'Libraries Website error handling' do
-
     it 'should raise an error if not query specified' do
       expect do
         Spectrum::SearchEngines::GoogleAppliance.new
       end.to raise_error(RuntimeError)
     end
-
   end
-
 end

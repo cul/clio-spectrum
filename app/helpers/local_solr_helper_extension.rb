@@ -20,9 +20,7 @@ module LocalSolrHelperExtension
   # removes the field if there are no more values in params[:f][field]
   # removes additional params (page, id, etc..)
   def remove_facet_params(field, item, source_params = params)
-    if item.respond_to? :field
-      field = item.field
-    end
+    field = item.field if item.respond_to? :field
 
     value = facet_value_for_facet_item(item)
 
@@ -37,27 +35,23 @@ module LocalSolrHelperExtension
     p.delete :counter
     p.delete :commit
     p[:f][field] = p[:f][field] - [value]
-    p[:f].delete(field) if p[:f][field].size == 0
+    p[:f].delete(field) if p[:f][field].size.zero?
     p
   end
 
-
   # This is getting deprecated from Blacklight
   def get_solr_response_for_field_values(field, values, extra_controller_params = {})
-
     # solr_response = query_solr(params, extra_controller_params.merge(solr_documents_by_field_values_params(field, values)))
-    # 
+    #
     # [solr_response, solr_response.documents]
 
     # Updated Blacklight 5.10.x version of this deprecated function...
 
     query =
-search_builder.with(params).merge(extra_controller_params).merge(solr_documents_by_field_values_params(field, values))
+      search_builder.with(params).merge(extra_controller_params).merge(solr_documents_by_field_values_params(field, values))
 
     solr_response = repository.search(query)
 
     [solr_response, solr_response.documents]
-
   end
-
 end

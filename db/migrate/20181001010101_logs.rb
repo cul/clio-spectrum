@@ -1,9 +1,6 @@
 class Logs < ActiveRecord::Migration[5.1]
-
   def change
-
     create_table :logs do |t|
-
       # request data
       t.text :user_agent, null: true
       t.text :referrer, null: true
@@ -14,10 +11,6 @@ class Logs < ActiveRecord::Migration[5.1]
       t.text :logdata, null: true
 
       t.timestamps null: false
-
     end
-
   end
-
 end
-

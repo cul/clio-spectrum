@@ -2,8 +2,6 @@
 module Spectrum
   module SearchEngines
     class Summon
-
-
       include ActionView::Helpers::NumberHelper
       include Rails.application.routes.url_helpers
       Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
@@ -15,51 +13,51 @@ module Spectrum
         # # 's.ff' => ['ContentType,and,1,10', 'SubjectTerms,and,1,10', 'Language,and,1,5']
         # # Use helper function, to configure more flexibly
         # 's.ff' => summon_facets_to_params(get_summon_facets)
-        # 
-          # [
-          # THESE DON'T SHOW UP
-          # 'Audience,and,1,10',
-          # 'Author,and,1,10',
-          # 'CorporateAuthor,and,1,10',
-          # 'Genre,and,1,10',
-          # 'GeographicLocations,and,1,10',
-          # 'Institution,and,1,10',
-          # 'Library,and,1,10',
-          # 'SourceType,and,1,10',
-          # 'TemporalSubjectTerms,and,1,10'
+        #
+        # [
+        # THESE DON'T SHOW UP
+        # 'Audience,and,1,10',
+        # 'Author,and,1,10',
+        # 'CorporateAuthor,and,1,10',
+        # 'Genre,and,1,10',
+        # 'GeographicLocations,and,1,10',
+        # 'Institution,and,1,10',
+        # 'Library,and,1,10',
+        # 'SourceType,and,1,10',
+        # 'TemporalSubjectTerms,and,1,10'
 
-          # THESE DO SHOW UP
-          # 'SubjectTerms,and,1,10',
-          # 'ContentType,and,1,10',
-          # 'Language,and,1,10',
-          # 'SourceName,and,1,10',
-          # 'PublicationTitle,and,1,10',
-          # 'Discipline,and,1,10',
-          # 'DatabaseName,and,1,10',
+        # THESE DO SHOW UP
+        # 'SubjectTerms,and,1,10',
+        # 'ContentType,and,1,10',
+        # 'Language,and,1,10',
+        # 'SourceName,and,1,10',
+        # 'PublicationTitle,and,1,10',
+        # 'Discipline,and,1,10',
+        # 'DatabaseName,and,1,10',
 
-          # These are IDs, not appropriate for patron display
-          # 'SourcePackageID,and,1,10',
-          # 'SourceID,and,1,10',
-          # 'PackageID,and,1,10',
+        # These are IDs, not appropriate for patron display
+        # 'SourcePackageID,and,1,10',
+        # 'SourceID,and,1,10',
+        # 'PackageID,and,1,10',
 
-          # These we control via checkboxes, not facets
-          # 'IsPeerReviewed,and,1,10',
-          # 'IsScholarly,and,1,10',
-          # ]
+        # These we control via checkboxes, not facets
+        # 'IsPeerReviewed,and,1,10',
+        # 'IsScholarly,and,1,10',
+        # ]
 
-     }.freeze
+      }.freeze
 
       # These source-specific params are ONLY FOR NEW SEARCHES
       # s.ho=<boolean>     Holdings Only Parameter, a.k.a., "Columbia's collection only"
       SUMMON_DEFAULT_PARAMS = {
 
-        'articles' =>  { 
+        'articles' => {
           's.ho' => 't',
           # 's.cmd' => 'addFacetValueFilters(ContentType, Newspaper Article:t)'
           's.fvf' => ['ContentType, Newspaper Article,t']
         }.freeze,
 
-        'summon_ebooks' => { 
+        'summon_ebooks' => {
           's.ho' => 't',
           's.cmd' => 'addFacetValueFilters(IsFullText, true)',
           's.fvf' => ['ContentType,eBook']
@@ -137,7 +135,7 @@ module Spectrum
         # (see inverse transform in SpectrumController#search)
         #  BEFORE: params[s.fq]={"AuthorCombined"=>"eric foner"}
         #  AFTER:  params[s.fq]="AuthorCombined:eric foner"
-        if @params['s.fq'].kind_of?(Hash)
+        if @params['s.fq'].is_a?(Hash)
           new_fq = []
           @params['s.fq'].each_pair do |name, value|
             next if value.to_s.strip.empty?
@@ -148,7 +146,7 @@ module Spectrum
         end
 
         @errors = nil
-# raise
+        # raise
         begin
           # This turns on a huge amount of logging, including
           # the full response JSON
@@ -212,8 +210,8 @@ module Spectrum
         # third checkbox, "Exclude Newspaper Articles"
         exclude_newspapers = @search.query.facet_value_filters.any? do |fvf|
           fvf.field_name == 'ContentType' &&
-          fvf.value == 'Newspaper Article' &&
-          fvf.negated?
+            fvf.value == 'Newspaper Article' &&
+            fvf.negated?
         end
         exclude_cmd = !exclude_newspapers ?
               'addFacetValueFilters(ContentType, Newspaper Article:t)' :
@@ -258,7 +256,7 @@ module Spectrum
       # Return an array of ad-hoc structures, parsed by summon's constraints partial
       def constraints_with_links
         constraints = []
-# raise
+        # raise
         # add in the basic search query
         @search.query.text_queries.each do |q|
           constraints << [q['textQuery'], summon_search_cmd(q['removeCommand'])]
@@ -279,11 +277,11 @@ module Spectrum
           displayField, displayValue = q['textFilter'].to_s.split(':')
           next unless displayField && displayValue
           displayField = displayField.
-            # strip "Combined" off the back of labels (TitleCombined --> Title)
-            sub(/^(.+)Combined$/, '\1').
-            # NEXT-581 - articles search by publication title
-            # search for embedded capitals, insert a space (PublicationTitle --> Publication Title)
-            sub(/([a-z])([A-Z])/, '\1 \2')
+                         # strip "Combined" off the back of labels (TitleCombined --> Title)
+                         sub(/^(.+)Combined$/, '\1').
+                         # NEXT-581 - articles search by publication title
+                         # search for embedded capitals, insert a space (PublicationTitle --> Publication Title)
+                         sub(/([a-z])([A-Z])/, '\1 \2')
           displayValue = displayValue.sub(/^\((.+)\)$/, '\1')
           constraints << ["#{displayField}: #{displayValue}", summon_search_cmd(q['removeCommand'])]
         end
@@ -291,7 +289,7 @@ module Spectrum
         # add in Facet limits
         @search.query.facet_value_filters.each do |fvf|
           unless fvf.field_name.titleize.in?('Is Scholarly', 'Is Full Text')
-            facet_text = "#{fvf.negated? ? "Not " : ""}#{fvf.field_name.titleize}: #{fvf.value}"
+            facet_text = "#{fvf.negated? ? 'Not ' : ''}#{fvf.field_name.titleize}: #{fvf.value}"
             constraints << [facet_text, summon_search_cmd(fvf.remove_command)]
           end
         end
@@ -414,11 +412,11 @@ module Spectrum
       end
 
       def summon_facet_cmd(cmdText)
-      #   summon_facet_modify('s.cmd' => cmdText)
-      # end
-      # 
-      # def summon_facet_modify(extra_params = {})
-      #   params = summon_params_modify(extra_params)
+        #   summon_facet_modify('s.cmd' => cmdText)
+        # end
+        #
+        # def summon_facet_modify(extra_params = {})
+        #   params = summon_params_modify(extra_params)
         params = summon_params_modify('s.cmd' => cmdText)
         # pass along the built-up params to a source-specific URL builder
         summon_facet_link(params)
@@ -435,16 +433,16 @@ module Spectrum
         # NEXT-903 - ALWAYS reset to seeing page number 1.
         # The only exception is the Next/Prev page links, which will
         # reset s.pn via the passed input param cmd, below
-        params.merge!('s.pn' => 1)
+        params['s.pn'] = 1
         # Re-include page-size - this is sometimes dropped by the Summon API
-        params.merge!('s.ps' => @search.query.page_size)
+        params['s.ps'] = @search.query.page_size
         # merge in whatever new command overlays current summon state
         params.merge!(extra_params)
         # raise
         # add-in our CLIO interface-level params
-        params.merge!('form' => @params['form']) if @params['form']
-        params.merge!('search_field' => @search_field) if @search_field
-        params.merge!('q' => @params['q']) if @params['q']
+        params['form'] = @params['form'] if @params['form']
+        params['search_field'] = @search_field if @search_field
+        params['q'] = @params['q'] if @params['q']
         # # pass along the built-up params to a source-specific URL builder
         # summon_search_link(params)
 
@@ -467,8 +465,8 @@ module Spectrum
 
         # These we control via checkboxes, not facets
         'IsPeerReviewed',
-        'IsScholarly',
-      ]
+        'IsScholarly'
+      ].freeze
       # DEFAULT_SUMMON_FACETS = {
       #   'ContentType' => 10, 'SubjectTerms' => 10, 'Language' => 10
       # }
@@ -485,9 +483,7 @@ module Spectrum
       #   []
       # end
 
-
       private
-
 
       def facet_value(field_name)
         fvf = @search.query.facet_value_filters.find { |x| x.field_name == field_name }
@@ -521,18 +517,14 @@ module Spectrum
         }
       end
 
-
       # { ContentType: 10, SubjectTerms: 10, Language: 10 }
       # to
       # ['ContentType,and,1,10', 'SubjectTerms,and,1,10', 'Language,and,1,5']
       def summon_facets_to_params(facets)
-        facets.map { |facet_name, facet_count|
+        facets.map do |facet_name, facet_count|
           "#{facet_name},and,1,#{facet_count}"
-        }
+        end
       end
-
-
-
     end
   end
 end

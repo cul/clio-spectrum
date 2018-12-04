@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe ItemAlertsController do
   describe 'routing' do
-
     it 'routes to #index' do
       expect(get('/item_alerts')).to route_to('item_alerts#index')
     end
@@ -30,6 +29,5 @@ describe ItemAlertsController do
     it 'routes to #destroy' do
       expect(delete('/item_alerts/1')).to route_to('item_alerts#destroy', id: '1')
     end
-
   end
 end

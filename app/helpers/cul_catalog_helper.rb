@@ -5,7 +5,7 @@ module CulCatalogHelper
     text.to_s.gsub('/catalog', "/#{source}").html_safe
   end
 
-  def build_link_back(id = nil)
+  def build_link_back(_id = nil)
     # 1) EITHER start basic - just go back to where we came from... even if
     # it was a link found on a web page or in search-engine results...
     # link_back = request.referer.path
@@ -21,7 +21,7 @@ module CulCatalogHelper
       # current_search_session.query_params.merge!(anchor: id)
 
       # add some extra info to the "Back to Results" link
-      opts = {class: 'link_back'}
+      opts = { class: 'link_back' }
 
       # I don't think we use this at this time - might be handy someday.
       # opts['data'] = {bib: id} if id
@@ -39,7 +39,7 @@ module CulCatalogHelper
   end
 
   # Local version of Blacklight::UrlHelperBehavior.link_to_document,
-  # which preserves datasource within the route 
+  # which preserves datasource within the route
   def link_to_source_document(doc, opts = { label: nil, counter: nil, results_view: true, source: nil })
     # Rails.logger.debug "link_to_source_document() opts=[#{opts.inspect}]"
     blacklight_link = link_to_document(doc, opts[:label], counter: opts[:counter])
@@ -55,18 +55,15 @@ module CulCatalogHelper
   #   link_to label, url, document_link_params(doc, opts)
   # end
 
-
-# WHY????
+  # WHY????
   # def catalog_index_path(options = {})
   #   filtered_options = options.reject do |key, value|
   #     key.in?('controller', 'action', 'source_override')
   #   end
   #   source = options['source_override'] || active_source
-  # 
+  #
   #   "/#{source}?#{filtered_options.to_query}"
   # end
-
-
 
   def render_document_index_label(doc, opts)
     label = nil
@@ -100,10 +97,10 @@ module CulCatalogHelper
     label = "#{per_page} per page"
 
     if per_page == current_per_page
-      checkmark = content_tag(:span, '', :class => 'glyphicon glyphicon-ok')
+      checkmark = content_tag(:span, '', class: 'glyphicon glyphicon-ok')
       content_tag(:a, (checkmark + ' ' + label), href: '#')
     else
-      checkmark = content_tag(:span, '', :class => 'glyphicon glyphicon-spacer')
+      checkmark = content_tag(:span, '', class: 'glyphicon glyphicon-spacer')
       content_tag(:a, (checkmark + ' ' + label), href: href, per_page: per_page, class: 'per_page_link')
     end
   end
@@ -129,17 +126,17 @@ module CulCatalogHelper
                         'standard_list'
 
     if viewstyle == current_viewstyle
-      checkmark = content_tag(:span, '', :class => 'glyphicon glyphicon-ok')
+      checkmark = content_tag(:span, '', class: 'glyphicon glyphicon-ok')
       content_tag(:a, (checkmark + ' ' + label), href: '#')
     else
-      checkmark = content_tag(:span, '', :class => 'glyphicon glyphicon-spacer')
+      checkmark = content_tag(:span, '', class: 'glyphicon glyphicon-spacer')
       content_tag(:a, (checkmark + ' ' + label), href: '#', viewstyle: viewstyle, class: 'viewstyle_link')
     end
   end
 
   def database_link_label(links)
     label = 'Search Database:'
-    if links and links.first and links.first[:url]
+    if links && links.first && links.first[:url]
       content_tag(:a, label, href: links.first[:url], class: 'database_link')
     else
       content_tag(:span, label, class: 'database_link')
@@ -153,38 +150,36 @@ module CulCatalogHelper
     return true if params.fetch('search_field', '') == 'series_title'
 
     # Advanced Search
-    return true if params[:adv] && params[:adv].values.any?{ |adv_clause|
-      adv_clause["field"] == "series_title"
-    }
+    return true if params[:adv] && params[:adv].values.any? do |adv_clause|
+      adv_clause['field'] == 'series_title'
+    end
 
-    return false
+    false
   end
 
   def law_requests_blurb
-    text = "Requests serviced by the ".html_safe
-    link = link_to("Arthur W. Diamond Law Library", 'https://web.law.columbia.edu/library', :target => "_blank")
+    text = 'Requests serviced by the '.html_safe
+    link = link_to('Arthur W. Diamond Law Library', 'https://web.law.columbia.edu/library', target: '_blank')
     blurb = content_tag(:div, "#{text}<nobr>#{link}</nobr>".html_safe, class: 'law_blurb')
-
   end
 
   def get_badge_html(document)
     return nil unless document && document.id
     # begin
-      badges = APP_CONFIG['badges']
-      return nil unless badges && badges['bibs']
-      # Lookup this doc to see if it's got a badge
-      return nil unless badge_id = badges['bibs'][document.id.to_s]
-      # use the badge id (e.g., "dcg") to fetch badge details
-      badge = badges[badge_id]
-      extra = {size: '50x80'}
-      if badge['tooltip'].present?
-        extra['data'] = {toggle: 'tooltip', placement: 'top'}
-        extra['title'] = badge['tooltip']
-      end
-      badge_html = image_tag('icons/' + badge['icon'], extra)
+    badges = APP_CONFIG['badges']
+    return nil unless badges && badges['bibs']
+    # Lookup this doc to see if it's got a badge
+    return nil unless badge_id = badges['bibs'][document.id.to_s]
+    # use the badge id (e.g., "dcg") to fetch badge details
+    badge = badges[badge_id]
+    extra = { size: '50x80' }
+    if badge['tooltip'].present?
+      extra['data'] = { toggle: 'tooltip', placement: 'top' }
+      extra['title'] = badge['tooltip']
+    end
+    badge_html = image_tag('icons/' + badge['icon'], extra)
     # rescue
     #   return nil
     # end
   end
-
 end

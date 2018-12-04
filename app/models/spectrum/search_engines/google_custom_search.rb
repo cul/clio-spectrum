@@ -1,19 +1,18 @@
 module Spectrum
   module SearchEngines
     class GoogleCustomSearch
-
       require 'google/apis/customsearch_v1'
       Customsearch = Google::Apis::CustomsearchV1
 
       # include ActionView::Helpers::NumberHelper
       include Rails.application.routes.url_helpers
       # Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
-      attr_reader  :documents, :search, :count, :errors
+      attr_reader :documents, :search, :count, :errors
 
       def initialize(options = {})
         @params = options
 
-        q = options['q'] || fail('No query string specified')
+        q = options['q'] || raise('No query string specified')
         @rows = (options['rows'] || 10).to_i
         @start = (options['start'] || 1).to_i
         cs_id  = APP_CONFIG['google']['custom_search_id']
@@ -29,7 +28,7 @@ module Spectrum
         # raise
         @documents = Array(results.items).map { |item| LwebDocument.new(item) }
         @count = results.search_information.total_results
-# raise
+        # raise
         # begin
         #   # @raw_xml = Nokogiri::XML(HTTPClient.new.get_content(@search_url))
         #   # @documents = @raw_xml.css('R').map { |xml_node| LibraryWeb::Document.new(xml_node) }
@@ -120,7 +119,7 @@ module Spectrum
       #     'x'       => '0',
       #     'y'       => '0',
       #   }
-      # 
+      #
       #   # url = "https://search.columbia.edu/search?#{default_params.to_query}"
       #   url = "#{@ga_url}?#{default_params.to_query}"
       #   url += "&sitesearch=#{@sitesearch}"

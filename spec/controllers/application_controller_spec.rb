@@ -1,11 +1,8 @@
 require 'spec_helper'
 
 describe ApplicationController do
-
   describe 'Browser Options Set/Get' do
-
     it 'should fail appropriately' do
-
       # Calling "set" without both name and value is a bad request (400)
 
       get :set_browser_option_handler
@@ -35,17 +32,16 @@ describe ApplicationController do
       expect(response.status).to be(400)
 
       # new, unique name should not be found (404)
-      name = "name__#{DateTime.now.to_s}"
+      name = "name__#{DateTime.now}"
       get :get_browser_option_handler, params: { name: name }
       expect(response).not_to be_successful
       expect(response.status).to be(404)
-
     end
 
     it 'should persist data' do
       # bild a new, unique, name and value pair
-      name = "name__#{DateTime.now.to_s}"
-      value = "value__#{DateTime.now.to_s}"
+      name = "name__#{DateTime.now}"
+      value = "value__#{DateTime.now}"
 
       get :set_browser_option_handler, params: { name: name, value: value }
       expect(response).to be_successful
@@ -55,7 +51,5 @@ describe ApplicationController do
       expect(response.header['Content-Type']).to match(/application\/json/)
       expect(response.body).to eq(value)
     end
-
   end
-
 end

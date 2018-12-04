@@ -2,7 +2,6 @@
 # holdings information.  The Backend Controller in turn makes calls to
 # a different web application, clio_backend, to get this data.
 class BackendController < ApplicationController
-
   def url_for_id(id)
     BackendController.url_for_id(id)
   end
@@ -11,7 +10,7 @@ class BackendController < ApplicationController
     if clio_backend_url = APP_CONFIG['clio_backend_url']
       return "#{clio_backend_url}/#{action}/#{id}"
     else
-      fail 'clio_backend_url not found in APP_CONFIG'
+      raise 'clio_backend_url not found in APP_CONFIG'
     end
   end
 
@@ -32,7 +31,7 @@ class BackendController < ApplicationController
 
   # Need to support this kind of call:
   # @circ_status = BackendController.circ_status(params[:id])
-  # 
+  #
   # The circ_status hash ("backend_results") looks like this (bib/holding(s)/item(s)):
   # {
   #   123: {
@@ -64,15 +63,14 @@ class BackendController < ApplicationController
       return nil
     end
 
-    if backend_results.nil? or backend_results.empty?
+    if backend_results.nil? || backend_results.empty?
       logger.warn "BackendController#circ_status URL: #{backend_url} nothing returned"
       return nil
     end
 
     # data retrieved successfully...
-    return backend_results
+    backend_results
   end
-
 
   # The SCSB status API returns an array looks like this:
   # [
@@ -85,17 +83,17 @@ class BackendController < ApplicationController
   # ]
   def self.scsb_status(id)
     if id.empty?
-      logger.error "BackendController#scsb_status passed empty id"
+      logger.error 'BackendController#scsb_status passed empty id'
       return nil
     end
-    
+
     bibliographicId = id.to_s
 
     # Default - assume Columbia material
     institutionId = 'CUL'
 
     # But if it's a SCSB Id...
-    if bibliographicId.match /^SCSB\-/
+    if bibliographicId =~ /^SCSB\-/
       institutionId, dash, bibliographicId = bibliographicId.partition('-')
     end
 
@@ -106,9 +104,9 @@ class BackendController < ApplicationController
       Recap::ScsbRest.get_bib_availability(bibliographicId, institutionId) || []
     end
 
-    return scsb_status
+    scsb_status
   end
-  
+
   # The SCSB status API returns an array looks like this:
   # [
   #   {
@@ -124,18 +122,18 @@ class BackendController < ApplicationController
   # }
   def self.scsb_availabilities(id)
     if id.empty?
-      logger.error "BackendController#scsb_availabilities passed empty id"
+      logger.error 'BackendController#scsb_availabilities passed empty id'
       return nil
     end
     scsb_status = BackendController.scsb_status(id)
 
-    availabilities = Hash.new
+    availabilities = {}
     scsb_status.each do |item|
-      availabilities[ item['itemBarcode'] ] = item['itemAvailabilityStatus']
+      availabilities[item['itemBarcode']] = item['itemAvailabilityStatus']
       # for testing...
       # availabilities[ item['itemBarcode'] ] = 'Unavailable'
     end
-    return availabilities
+    availabilities
   end
 
   # Called with multiple ids, slash-separated:
@@ -149,7 +147,7 @@ class BackendController < ApplicationController
   # (Librarians also don't like the word "Unavailable" for material that
   # is not available, so they might not like the img alt text.)
   def offsite
-    bibids = params['id'].to_s.split('/').collect { |bibid| bibid.strip }
+    bibids = params['id'].to_s.split('/').collect(&:strip)
     statuses = {}
 
     bibids.each do |bib|
@@ -160,21 +158,20 @@ class BackendController < ApplicationController
         statuses[bib] = 'unavailable'
         next
       end
-      scsb_status.each { |barcode, availability|
+      scsb_status.each do |_barcode, availability|
         if availability == 'Available'
           availables += 1
         else
           unavailables += 1
         end
-      }
+      end
 
-      bib_status = case
-        when availables > 0 && unavailables > 0
-          'some_available'
-        when availables > 0 && unavailables == 0
-          'available'
-        else
-          'unavailable'
+      bib_status = if availables > 0 && unavailables > 0
+                     'some_available'
+                   elsif availables > 0 && unavailables.zero?
+                     'available'
+                   else
+                     'unavailable'
       end
 
       statuses[bib] = bib_status
@@ -191,18 +188,18 @@ class BackendController < ApplicationController
     #   logger.error "Error calling BackendController#offsite(#{@bibids}): #{e}"
     # end
   end
-  
+
   def holdings
     # LEGACY
     # LEGACY
     # LEGACY
     @id = params[:id]
- 
+
     logger.error "Legacy BackendController#holdings called for id: #{@id}"
 
-    unless @id.match(/^\d+$/)
+    unless @id =~ /^\d+$/
       logger.error "BackendController#holdings passed non-numeric id: #{@id}"
-      render body: nil and return
+      render(body: nil) && return
     end
 
     backend_url = url_for_id(@id)
@@ -211,22 +208,22 @@ class BackendController < ApplicationController
       backend_holdings = JSON.parse(json_holdings)[@id]
     rescue HTTPClient::BadResponseError => ex
       logger.error "BackendController#holdings HTTPClient::BadResponseError URL: #{backend_url}  Exception: #{ex}"
-      head :bad_request and return
+      head(:bad_request) && return
     rescue HTTPClient::ReceiveTimeoutError => ex
       logger.error "HTTPClient::ReceiveTimeoutError URL: #{backend_url}"
-      head :bad_request and return
+      head(:bad_request) && return
     rescue => ex
       logger.error "BackendController error fetching holdings from #{backend_url}: #{ex.message}"
-      head :bad_request and return
+      head(:bad_request) && return
     end
 
     if backend_holdings.nil?
       logger.error "BackendController#holdings failed to fetch holdings for id: #{@id}"
-      render body: nil and return
+      render(body: nil) && return
     end
 
     # data retrieved successfully!  render an html snippet.
-    render 'backend/holdings', locals: {holdings: backend_holdings}, layout: false
+    render 'backend/holdings', locals: { holdings: backend_holdings }, layout: false
 
     # # HOLDINGS REVISION PROJECT
     # # fetch holdings from solr document
@@ -235,7 +232,7 @@ class BackendController < ApplicationController
     # if solr_holdings.nil?
     #   logger.debug "BackendController#holdings: no solr holdings for id: #{@id}"
     # end
-    # 
+    #
     # # Render BOTH holdings blocks, one on top of the other
     # render 'backend/holdings', locals: {backend_holdings: backend_holdings, solr_holdings: solr_holdings}, layout: false
 
@@ -246,16 +243,15 @@ class BackendController < ApplicationController
     # end
   end
 
-
   # https://clio-backend-dev.cul.columbia.edu/voyager/checked_out_items/ma3179
   def self.getCheckedOutItems(uni = '')
     unless uni.present?
-      logger.error "BackendController#getCheckedOutItems() called with no uni!"
+      logger.error 'BackendController#getCheckedOutItems() called with no uni!'
       return []
     end
 
-# DEBUG   
-# uni = 'ma3179'
+    # DEBUG
+    # uni = 'ma3179'
 
     backend_url = url_for_id(uni, 'voyager/checked_out_items')
 
@@ -267,47 +263,43 @@ class BackendController < ApplicationController
       return nil
     end
 
-    items.map! { |item| item.with_indifferent_access }
-    return items
+    items.map!(&:with_indifferent_access)
+    items
   end
-  
-#   def self.getCheckedOutBibs(uni = '')
-#     items = BackendController.getCheckedOutItems(uni) || []
-#     
-#     bibs = []
-#     bibs_seen = []
-#     items.each do |item|
-#       bib_id = item[:bib_id]
-#       next if bibs_seen.include?(bib_id)
-#       
-#       # For ReCAP Partner items, lookup bib details in Solr by barcode
-#       if item[:title].present?  && item[:title].include?('[RECAP]')
-#         barcode = item[:barcode]
-#         params = {q: 'barcode_txt:33433074813555'}
-#         response, documents = search_results(params)
-#         if documents.present? && documents.size > 0
-# 
-# raise
-#           # item[:bib_id]    = row['BIB_ID'] || 0
-#           # item[:barcode]   = row['ITEM_BARCODE'] || 0
-#           # item[:author]    = documents.first.['AUTHOR'] || ''
-#           # item[:title]     = row['TITLE_BRIEF'] || ''
-#           # item[:author]    = row['AUTHOR'] || ''
-#           # item[:pub_name]  = row['PUBLISHER'] || ''
-#           # item[:pub_date]  = row['PUBLISHER_DATE'] || ''
-#           # item[:pub_place] = row['PUB_PLACE'] || ''
-#           # item[:isbn]      = row['ISBN'] || ''
-#           # item[:issn]      = row['ISSN'] || ''
-#         end
-#       end
-# 
-#       bibs << item
-#       bibs_seen << bib_id
-# 
-#     end
-#     
-    
 
+  #   def self.getCheckedOutBibs(uni = '')
+  #     items = BackendController.getCheckedOutItems(uni) || []
+  #
+  #     bibs = []
+  #     bibs_seen = []
+  #     items.each do |item|
+  #       bib_id = item[:bib_id]
+  #       next if bibs_seen.include?(bib_id)
+  #
+  #       # For ReCAP Partner items, lookup bib details in Solr by barcode
+  #       if item[:title].present?  && item[:title].include?('[RECAP]')
+  #         barcode = item[:barcode]
+  #         params = {q: 'barcode_txt:33433074813555'}
+  #         response, documents = search_results(params)
+  #         if documents.present? && documents.size > 0
+  #
+  # raise
+  #           # item[:bib_id]    = row['BIB_ID'] || 0
+  #           # item[:barcode]   = row['ITEM_BARCODE'] || 0
+  #           # item[:author]    = documents.first.['AUTHOR'] || ''
+  #           # item[:title]     = row['TITLE_BRIEF'] || ''
+  #           # item[:author]    = row['AUTHOR'] || ''
+  #           # item[:pub_name]  = row['PUBLISHER'] || ''
+  #           # item[:pub_date]  = row['PUBLISHER_DATE'] || ''
+  #           # item[:pub_place] = row['PUB_PLACE'] || ''
+  #           # item[:isbn]      = row['ISBN'] || ''
+  #           # item[:issn]      = row['ISSN'] || ''
+  #         end
+  #       end
+  #
+  #       bibs << item
+  #       bibs_seen << bib_id
+  #
+  #     end
+  #
 end
-
-

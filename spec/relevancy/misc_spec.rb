@@ -10,7 +10,7 @@ describe 'WorldCat link support', :skip_travis do
 
     # there aren't Rails 4 compatible ways to get at what I need
     # without this very specific digging into the internal structure.
-    first = resp["response"]["docs"].first
+    first = resp['response']['docs'].first
 
     # This fails:
     #

@@ -1,11 +1,10 @@
 require 'spec_helper'
 
 # require 'database_cleaner'
-# 
+#
 # DatabaseCleaner.strategy = :truncation
 
 describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
-
   # NEXT-779 - Some 880 fields not showing up
   it 'MARC 880 note field should display' do
     # visit this specific item
@@ -62,7 +61,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
       # within '.dropdown-menu' do
       #   click_link('Call Number')
       # end
-      select 'Call Number', :from => "search_field"
+      select 'Call Number', from: 'search_field'
       find('button[type=submit]').click
     end
     within 'div.blacklight-format .facet-content .panel-body' do
@@ -78,7 +77,6 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   #  Full View examples:  513297, 1862548, 2081553
   #  Limited examples:  70744 (?), 4043762, 2517624
   it "Should show CLIO, Google, and 'Full' (only) Hathi Trust links", :js do
-
     # visit this specific item
     visit solr_document_path('513297')
 
@@ -101,7 +99,6 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     expect(page).not_to have_css('#hathi_holdings #hathi_data')
     # expect(find('#hathi_holdings #hathi_data')).to_not have_content('Limited (search-only)')
   end
-
 
   # NEXT-931 - Online Links in Holdings (not in the Bib) should display
   it 'Online links from Bib or Holdings should show up within correct block', :js do
@@ -165,7 +162,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   end
 
   it "supports alternative viewstyle options ('Standard' or 'Compact')", :js do
-    visit catalog_index_path('q' => "the aardvark and the caravan")
+    visit catalog_index_path('q' => 'the aardvark and the caravan')
 
     click_link 'Display Options'
     click_link 'Standard View'
@@ -222,7 +219,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
         find('button[type=submit]').click
       end
 
-      expect(find('#main-flashes')).to have_text "Email sent"
+      expect(find('#main-flashes')).to have_text 'Email sent'
     end
   end
 
@@ -254,7 +251,7 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     # within('div.debug_instruction') do
     #   click_link 'off'
     # end
-    # 
+    #
     # # clicking "off" should reload the page automatically
     # expect(page).to_not have_css('div.debug_instruction')
     # expect(page).to_not have_css('div.debug_entries')
@@ -262,9 +259,8 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     feature_logout
   end
 
-    # NEXT-1015 - next from MARC
+  # NEXT-1015 - next from MARC
   it 'should support next/previous navigation from MARC view', :js do
-
     # locate a fairly static set of records for a stable test suite
     visit catalog_index_path('q' => 'maigret simenon')
     within '#facets' do
@@ -293,18 +289,15 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     click_link('Return to Patron View')
     expect(page).to have_text 'Back to Results | « Previous | 2 of 12 | Next »'
     expect(page).to have_text 'Title The patience of Maigret'
-
   end
-
 
   # NEXT-1054 - In the single item display menu, change "Services" to "Requests"
   it 'should show menu-option "Request(s)"', :js do
     visit solr_document_path('10905238')
     # Should use consistent language
-    expect(find('#show_toolbar')).to have_text "Requests"
-    expect(find('#clio_holdings')).to have_text "Request"
+    expect(find('#show_toolbar')).to have_text 'Requests'
+    expect(find('#clio_holdings')).to have_text 'Request'
   end
-
 
   # NEXT-1081 - Apostrophe in the title bar renders incorrectly
   it 'shows apostrophes within title element in patron view' do
@@ -342,34 +335,34 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   it 'shows series statements, from 490 and 8X0 fields' do
     # 490
     visit solr_document_path(10735763)
-    expect(page).to have_text "Series Bullettino della Commissione archeologica comunale di Roma. Supplementi ; 21"
+    expect(page).to have_text 'Series Bullettino della Commissione archeologica comunale di Roma. Supplementi ; 21'
     # 800
     visit solr_document_path(10840)
-    expect(page).to have_text "Series Abusch, Alexander. Works. Selections ; Bd. 1."
+    expect(page).to have_text 'Series Abusch, Alexander. Works. Selections ; Bd. 1.'
     # 810
     visit solr_document_path(11638)
-    expect(page).to have_text "Series Freemasons. Quatuor Coronati-Loge (Bayreuth, Germany). Quellenkundliche Arbeit der Freimaurerischen Forschungsgesellschaft Quatuor Coronati e.V., Bayreuth ; Nr. 8."
+    expect(page).to have_text 'Series Freemasons. Quatuor Coronati-Loge (Bayreuth, Germany). Quellenkundliche Arbeit der Freimaurerischen Forschungsgesellschaft Quatuor Coronati e.V., Bayreuth ; Nr. 8.'
     # 811
     visit solr_document_path(6974)
-    expect(page).to have_text "Series Sagamore Army Materials Research Conference. Sagamore Army Materials Research Conference proceedings ; 21st."
+    expect(page).to have_text 'Series Sagamore Army Materials Research Conference. Sagamore Army Materials Research Conference proceedings ; 21st.'
     # 830
     visit solr_document_path(8887)
-    expect(page).to have_text "Series Studi risorgimentali ; 12."
-# I have not yet found any example bibs for this test...
+    expect(page).to have_text 'Series Studi risorgimentali ; 12.'
+    # I have not yet found any example bibs for this test...
     # # 840
     # visit solr_document_path(99)
     # expect(page).to have_text "xx"
   end
 
   # NEXT-977 - Series Title does not display via basic search
-  it "should show Series Title when searching by Series Title" do
+  it 'should show Series Title when searching by Series Title' do
     # Basic Search
     visit catalog_index_path('q' => 'Black Sea', 'search_field' => 'series_title')
     expect(page).to have_text('Series Black Sea studies')
 
     # Advanced Search
-    series_title_clause = {"field" => "series_title", "value" => "black sea"}
-    adv_search_fields = {"1" => series_title_clause}
+    series_title_clause = { 'field' => 'series_title', 'value' => 'black sea' }
+    adv_search_fields = { '1' => series_title_clause }
     visit catalog_index_path('search_field' => 'advanced', 'adv' => adv_search_fields)
     # save_and_open_page
     expect(page).to have_text('Series Black Sea studies')
@@ -377,31 +370,31 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
   # NEXT-1043 - Better handling of extremely long queries
   # CatalogController.index() has maxLetters = 200
-  it "should truncate queries with too many letters" do
-    # This will be 10 x 20 = 200, plus 1 == 201 
-    too_long = "123456789 " * 20 + "X"
+  it 'should truncate queries with too many letters' do
+    # This will be 10 x 20 = 200, plus 1 == 201
+    too_long = '123456789 ' * 20 + 'X'
     visit catalog_index_path(q: too_long)
-    expect(page).to have_text ("You searched for: #{too_long}")
+    expect(page).to have_text "You searched for: #{too_long}"
   end
 
   # NEXT-1043 - Better handling of extremely long queries
   # CatalogController.index() has maxTerms = 30
-  it "should truncate queries with too many words" do
-    # This will be 1 x 30 = 30, plus 1 == 31 
-    too_long = "asdf " * 30 + "X"
+  it 'should truncate queries with too many words' do
+    # This will be 1 x 30 = 30, plus 1 == 31
+    too_long = 'asdf ' * 30 + 'X'
     visit catalog_index_path(q: too_long)
-    expect(page).to have_text ("You searched for: #{too_long}")
+    expect(page).to have_text "You searched for: #{too_long}"
   end
 
   # it "supports 'random query' feature", vcr: false, :skip_travis do
   it "supports 'random query' feature", :skip_travis, vcr: false do
     visit catalog_index_path(random_q: true)
     expect(page).to have_css('li.datasource_link.selected[source="catalog"]')
-    expect(page).to have_css('span.constraints-label', text: "You searched for:")
+    expect(page).to have_css('span.constraints-label', text: 'You searched for:')
   end
 
   #   NEXT-1140 - Special character not sorting properly
-  it "Title sort should disregard diacritics" do
+  it 'Title sort should disregard diacritics' do
     rizq = 'Rizq, Yūnān Labīb'.mb_chars.normalize(:d)
     yahud = 'al-Yahūd fī Miṣr'.mb_chars.normalize(:d)
 
@@ -410,11 +403,11 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
 
     # The title-sort of this record begins with "Yahud".
     # It should be alphabetically second-to-last of the Rizq titles.
-    expect( all('#documents .document.result').first ).to have_text yahud
+    expect(all('#documents .document.result').first).to have_text yahud
   end
 
   #   NEXT-1140 - Special character not sorting properly
-  it "Author sort should disregard diacritics" do
+  it 'Author sort should disregard diacritics' do
     ahmad = 'ʻAbd "al-ʻĀl, Aḥmad Muḥammad "'.mb_chars.normalize(:d)
     # Hooray, there are alternative unicode forms returned!
     # Use an either/or "satisfy" block below.
@@ -427,33 +420,31 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     all('#documents .document.result .row .details').each do |details|
       expect(details.text).to satisfy { |detail_text|
         detail_text.match(/#{abd1}/) ||
-        detail_text.match(/#{abd2}/)
+          detail_text.match(/#{abd2}/)
       }
     end
   end
 
-
   # NEXT-1157 - Quotation mark not sorting properly
-  it "Title sort should disregard punctuation" do
+  it 'Title sort should disregard punctuation' do
     visit catalog_index_path(q: 'Cairo papers in social science', search_field: 'title', sort: 'title_sort asc', rows: 10)
     expect(page).to have_css('#documents .document.result')
-    expect( all('#documents .document.result').first ).to_not have_text "Just a gaze"
+    expect(all('#documents .document.result').first).to_not have_text 'Just a gaze'
   end
 
   # NEXT-1163 - Add subfield f to title display
-  it "Titles should include dates from 245 $f" do
+  it 'Titles should include dates from 245 $f' do
     visit solr_document_path('8540370')
     # expect( find('.show-document .title')).to have_text "Composers' Forum concert [electronic resource], 1958 January 18"
-    expect( find('.show-document .title')).to have_text "Composers' Forum concert, 1958 January 18"
+    expect(find('.show-document .title')).to have_text "Composers' Forum concert, 1958 January 18"
 
     visit solr_document_path('4079060')
-    expect( find('.show-document .title')).to have_text "Papers, 1958-1968"
+    expect(find('.show-document .title')).to have_text 'Papers, 1958-1968'
   end
-
 
   # NEXT-934 - question/not improvement: old key symbol?
   it "shows 'Restricted' note in any datasource" do
-    restricted = "This resource is available only to current faculty, staff and students of Columbia University"
+    restricted = 'This resource is available only to current faculty, staff and students of Columbia University'
 
     visit solr_document_path(7000423)
     expect(page).to have_text restricted
@@ -471,11 +462,10 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     expect(page).to have_text restricted
   end
 
-
   # NEXT-1099 - Acquisition Date facet cannot be negated
   # For this one, both "facet.query=acq_dt" and "fq=acq_dt" need
   # to be ignored by the VCR cassette matcher.
-  it "allows acquisition date to be negated", :vcr => {:match_requests_on => [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')]} do
+  it 'allows acquisition date to be negated', vcr: { match_requests_on: [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')] } do
     visit catalog_index_path(q: 'text', 'f[acq_dt][]' => 'years_1')
     expect(page).to have_css('#documents .document.result')
     recent_title = all('#documents .document.result .row .title').first.text
@@ -508,9 +498,6 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   # NEXT-911 - Display uniform title in serial records
   it 'shows 773 ("In") in non-archival records' do
     visit solr_document_path(10139859)
-    expect(page).to have_text "In Meg McLagan Collection"
+    expect(page).to have_text 'In Meg McLagan Collection'
   end
-
 end
-
-

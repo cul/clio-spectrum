@@ -3,9 +3,9 @@ class SavedList < ApplicationRecord
   has_many :saved_list_items, dependent: :destroy
   has_paper_trail
 
-  SERVICE_URL_PREFIX = '/lists'
-  DEFAULT_LIST_NAME = 'Bookbag'
-  DEFAULT_LIST_SLUG = 'bookbag'
+  SERVICE_URL_PREFIX = '/lists'.freeze
+  DEFAULT_LIST_NAME = 'Bookbag'.freeze
+  DEFAULT_LIST_SLUG = 'bookbag'.freeze
 
   # stringex
   acts_as_url :name, url_attribute: :slug, scope: :owner, sync_url: true
@@ -28,26 +28,20 @@ class SavedList < ApplicationRecord
     name
   end
 
-
   def add_items_by_key(item_key_list)
     # Force to Array
     item_key_list = Array(item_key_list)
     # What items are already in this list?
-    current_item_keys = self.saved_list_items.map { |item| item.item_key }
+    current_item_keys = saved_list_items.map(&:item_key)
     # Add any new items, count as we go
     add_count = 0
-    (item_key_list - current_item_keys).each { |item_key|
-      new_item = SavedListItem.new(item_key: item_key, saved_list_id: self.id)
+    (item_key_list - current_item_keys).each do |item_key|
+      new_item = SavedListItem.new(item_key: item_key, saved_list_id: id)
       new_item.save!
       add_count += 1
-      # touch this list to update timestamps, etc. 
-      self.touch
-    }
-    return add_count
+      # touch this list to update timestamps, etc.
+      touch
+    end
+    add_count
   end
-
-
 end
-
-
-

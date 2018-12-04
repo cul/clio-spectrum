@@ -5,7 +5,6 @@ require 'spec_helper'
 # NEXT-824 - Apostrophe character
 # NEXT-941 - Problems displaying parallel titles (e.g., Tibetan)
 describe 'Testing tibetan support', :skip_travis do
-
   it "q of \"krung go'i bod ljongs\" should retrieve correct record" do
     # unquoted
     resp = solr_resp_doc_ids_only('q' => 'krung go\'i bod ljongs')
@@ -46,7 +45,5 @@ describe 'Testing tibetan support', :skip_travis do
 
     normalized = 'gsal me loṅ = 藏族部落曼秀族谱明镜'.mb_chars.normalize(:d)
     expect(first['title_vern_display'].first).to match /#{normalized}/
-
   end
-
 end

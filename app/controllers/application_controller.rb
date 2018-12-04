@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
   # Polling for logged-in-status shouldn't update the devise last-activity tracker
   prepend_before_action :skip_timeout, only: [:render_session_status, :render_session_timeout]
   def skip_timeout
-    request.env["devise.skip_trackable"] = true
+    request.env['devise.skip_trackable'] = true
   end
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -62,7 +62,7 @@ class ApplicationController < ActionController::Base
       redirect_to root_url, alert: exception.message
     else
       Rails.logger.warn "request.format = #{request.format}"
-      Rails.logger.warn "#{exception}"
+      Rails.logger.warn exception.to_s
       render body: nil
     end
   end
@@ -86,8 +86,7 @@ class ApplicationController < ActionController::Base
     advanced_search_params = {} if advanced_search_params == '{}'
     new_hash = {}
     counter = 1
-    advanced_search_params.each_pair do |adv_field_number, attrs|
-
+    advanced_search_params.each_pair do |_adv_field_number, attrs|
       if attrs && !attrs['field'].to_s.empty? && !attrs['value'].to_s.empty?
         new_hash[counter.to_s] = attrs
         counter += 1
@@ -103,18 +102,17 @@ class ApplicationController < ActionController::Base
     client_ip = request.remote_addr
     is_on_campus = User.on_campus?(client_ip)
     @user_characteristics =
-    {
-      ip: client_ip,
-      on_campus: is_on_campus
-    }
+      {
+        ip: client_ip,
+        on_campus: is_on_campus
+      }
     @debug_entries[:user_characteristics] = @user_characteristics
   end
-
 
   # AJAX handler for browser-option setting/getting
   def set_browser_option_handler
     unless params.key?('name') && params.key?('value')
-      render json: nil, status: :bad_request and return
+      render(json: nil, status: :bad_request) && return
     end
 
     set_browser_option(params['name'], params['value'])
@@ -133,7 +131,7 @@ class ApplicationController < ActionController::Base
   # AJAX handler for browser-option setting/getting
   def get_browser_option_handler
     if params.key?('value') || !params.key?('name')
-      render json: nil, status: :bad_request and return
+      render(json: nil, status: :bad_request) && return
     end
 
     if value = get_browser_option(params['name'])
@@ -151,10 +149,7 @@ class ApplicationController < ActionController::Base
 
   # AJAX handler for persistence of selected-items
   def selected_items_handler
-
-    unless params.key?('verb')
-      render json: nil, status: :bad_request and return
-    end
+    render(json: nil, status: :bad_request) && return unless params.key?('verb')
 
     verb = params['verb']
     id_param = params['id_param']
@@ -177,14 +172,13 @@ class ApplicationController < ActionController::Base
       id_param = [] unless id_param
       selected_item_list = id_param if id_param
     else
-      render json: nil, status: :bad_request and return
+      render(json: nil, status: :bad_request) && return
     end
 
     session[:selected_items] = selected_item_list
 
     render json: nil, status: :ok
   end
-
 
   # Called from SpectrumController.get_results()
   # and from CatalogController.index()
@@ -199,9 +193,9 @@ class ApplicationController < ActionController::Base
     # this new() actually runs the search.
     # [ the Solr engine call perform_search() within it's initialize() ]
     debug_timestamp('blacklight_search() calling Solr.new()')
-# puts "QQQQ   blacklight_search(#{options['source']})"
+    # puts "QQQQ   blacklight_search(#{options['source']})"
     search_engine = Spectrum::SearchEngines::Solr.new(options)
-# puts "QQQQ   done(#{options['source']})"
+    # puts "QQQQ   done(#{options['source']})"
     debug_timestamp('blacklight_search() Solr.new() complete.')
 
     if search_engine.successful?
@@ -250,9 +244,7 @@ class ApplicationController < ActionController::Base
 
     params.delete('debug_mode')
 
-    unless current_user
-      @debug_mode = false
-    end
+    @debug_mode = false unless current_user
 
     # 11/2017 - CUD wants to see debug details
     @debug_mode = true if current_user && current_user.has_role?('site', 'pilot')
@@ -284,22 +276,21 @@ class ApplicationController < ActionController::Base
     @debug_entries['timestamps'] << { label => "#{elapsed.round(0)} ms" }
   end
 
-
   def active_source
     # puts "MMMM  active_source() Thread #{Thread.current.object_id}"
     # Figure out the active source, then stash it into
     # thread storage for access in non-CLIO-application contexts
-    Thread.current[:active_source] = determine_active_source()
+    Thread.current[:active_source] = determine_active_source
   end
 
   def determine_active_source
     # Try to find the datasource,
     # first in the params,
     # second in the path
-    source = if params.has_key? 'datasource'
-      params['datasource']
-    else
-      request.path.to_s.gsub(/^\//, '').gsub(/\/.*/, '')
+    source = if params.key? 'datasource'
+               params['datasource']
+             else
+               request.path.to_s.gsub(/^\//, '').gsub(/\/.*/, '')
     end
 
     # Remap as necessary...
@@ -308,21 +299,21 @@ class ApplicationController < ActionController::Base
 
     # If what we found is a real source, use it.
     # Otherwise, fall back to quicksearch as a default.
-    if DATASOURCES_CONFIG['datasources'].has_key?(source)
-      # Some pseudo-sources (e.g., 'catalog_dissertations') are just 
+    if DATASOURCES_CONFIG['datasources'].key?(source)
+      # Some pseudo-sources (e.g., 'catalog_dissertations') are just
       # customizations of their super-sources.  Check for that.
-      if DATASOURCES_CONFIG['datasources'][source].has_key?('supersource')
+      if DATASOURCES_CONFIG['datasources'][source].key?('supersource')
         return DATASOURCES_CONFIG['datasources'][source]['supersource']
       else
         return source
       end
     end
 
-    return 'quicksearch'
+    'quicksearch'
   end
 
   def repository_class
-    Rails.logger.debug "ApplicationController#repository_class"
+    Rails.logger.debug 'ApplicationController#repository_class'
     Spectrum::SolrRepository
   end
 
@@ -353,7 +344,7 @@ class ApplicationController < ActionController::Base
   # Email Action (this will render the appropriate view on GET requests and process the form and send the email on POST requests)
   def email
     mail_to = params[:to]
-    #allow user to enter email address and name to include in email (NEXT-910)
+    # allow user to enter email address and name to include in email (NEXT-910)
     if params[:reply_to]
       reply_to = Mail::Address.new params[:reply_to]
       reply_to.display_name = params[:name]
@@ -363,7 +354,7 @@ class ApplicationController < ActionController::Base
       if mail_to
         url_gen_params = { host: request.host_with_port, protocol: request.protocol }
 
-        if mail_to.match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/)
+        if mail_to =~ /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/
           # IDs may be Catalog Bib keys or Summon BookMarks...
           @documents = ids_to_documents(params[:id])
           if @documents.nil? || @documents.empty?
@@ -389,7 +380,7 @@ class ApplicationController < ActionController::Base
         redirect_to solr_document_path(params['id']) unless request.xhr?
       end
     else
-      #pre-fill email form with user's email and name (NEXT-810)
+      # pre-fill email form with user's email and name (NEXT-810)
       if current_user
         reply_to = Mail::Address.new current_user.email
         reply_to.display_name = "#{current_user.first_name} #{current_user.last_name}"
@@ -408,7 +399,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ids_to_documents(id_array = [])
-    # Array-ize single id inputs: '123' --> [ '123' ] 
+    # Array-ize single id inputs: '123' --> [ '123' ]
     id_array = Array.wrap(id_array)
     return [] if id_array.empty?
 
@@ -423,114 +414,110 @@ class ApplicationController < ActionController::Base
         catalog_ids.push item_id
       end
     end
-    
+
     # Next, lookup each list in it's own way,
     # to get hashes of key-to-document
     catalog_docs_hash = get_catalog_docs_for_ids(catalog_ids) || {}
     article_docs_hash = get_summon_docs_for_bookmarks(article_bookmarks) || {}
-    
+
     # Finally, merge the hashes, preserving doc id order,
     # and return the array of documents
     document_array = []
     Array.wrap(id_array).each do |item_id|
-      if catalog_docs_hash.has_key? item_id
+      if catalog_docs_hash.key? item_id
         document_array.push catalog_docs_hash[item_id]
-      elsif article_docs_hash.has_key? item_id
+      elsif article_docs_hash.key? item_id
         document_array.push article_docs_hash[item_id]
       end
     end
 
-    return document_array.compact
-    
-#     catalog_document_list = []
-#     if catalog_item_ids.any?
-#       # Then, do two source-specific set-of-id lookups
-# 
-#       extra_solr_params = {
-#         rows: catalog_item_ids.size
-#       }
-# 
-#       # NEXT-1067 - Saved Lists broken for very large lists (~400)
-#       # fix by breaking into slices
-#       catalog_item_ids.each_slice(100) { |slice|
-#         response, slice_document_list = fetch(slice, extra_solr_params)
-#         catalog_document_list += slice_document_list
-#       }
-#     end
-# 
-#     article_document_list = []
-#     if article_bookmarks.any?
-#       article_document_list = get_summon_docs_for_bookmark_values(article_bookmarks)
-#     end
-#     # Then, merge back, in original order
-#     key_to_doc_hash = {}
-#     catalog_document_list.each do |doc|
-#       key_to_doc_hash[ doc[:id]] = doc
-#     end
-#     article_document_list.each do |doc|
-#       # key_to_doc_hash[ doc.id] = doc
-#       key_to_doc_hash[ Array(doc.src['BookMark']).first ] = doc
-#     end
-# 
-#     # intermix the two lists in original order
-#     id_array.each do |id|
-#       document_array.push key_to_doc_hash[id]
-#     end
-# raise
-#     document_array
+    document_array.compact
 
-  end
-
-
-  # passed an array of catalog document ids, 
-  # return a hash of { id => Catalog-Document-Object }
-  def get_catalog_docs_for_ids(id_array = [])
-    return {} if not id_array.kind_of?(Array) || id_array.empty?
-
-    docs = Hash.new
-
-    # NEXT-1067 - Saved Lists broken for very large lists, query by slice
-    id_array.each_slice(100) { |slice|
-      extra_solr_params = { rows: slice.size }
-      response, slice_document_list = fetch(slice, extra_solr_params)
-      slice_document_list.each { |doc|
-        docs[doc.id] = doc
-      }
-    }
-    
-    return docs
-
+    #     catalog_document_list = []
+    #     if catalog_item_ids.any?
+    #       # Then, do two source-specific set-of-id lookups
+    #
     #       extra_solr_params = {
     #         rows: catalog_item_ids.size
     #       }
-    # 
+    #
     #       # NEXT-1067 - Saved Lists broken for very large lists (~400)
     #       # fix by breaking into slices
     #       catalog_item_ids.each_slice(100) { |slice|
     #         response, slice_document_list = fetch(slice, extra_solr_params)
     #         catalog_document_list += slice_document_list
     #       }
-
-
+    #     end
+    #
+    #     article_document_list = []
+    #     if article_bookmarks.any?
+    #       article_document_list = get_summon_docs_for_bookmark_values(article_bookmarks)
+    #     end
+    #     # Then, merge back, in original order
+    #     key_to_doc_hash = {}
+    #     catalog_document_list.each do |doc|
+    #       key_to_doc_hash[ doc[:id]] = doc
+    #     end
+    #     article_document_list.each do |doc|
+    #       # key_to_doc_hash[ doc.id] = doc
+    #       key_to_doc_hash[ Array(doc.src['BookMark']).first ] = doc
+    #     end
+    #
+    #     # intermix the two lists in original order
+    #     id_array.each do |id|
+    #       document_array.push key_to_doc_hash[id]
+    #     end
+    # raise
+    #     document_array
   end
 
-  # passed an array of bookmarks, 
+  # passed an array of catalog document ids,
+  # return a hash of { id => Catalog-Document-Object }
+  def get_catalog_docs_for_ids(id_array = [])
+    return {} unless id_array.is_a?(Array) || id_array.empty?
+
+    docs = {}
+
+    # NEXT-1067 - Saved Lists broken for very large lists, query by slice
+    id_array.each_slice(100) do |slice|
+      extra_solr_params = { rows: slice.size }
+      response, slice_document_list = fetch(slice, extra_solr_params)
+      slice_document_list.each do |doc|
+        docs[doc.id] = doc
+      end
+    end
+
+    docs
+
+    #       extra_solr_params = {
+    #         rows: catalog_item_ids.size
+    #       }
+    #
+    #       # NEXT-1067 - Saved Lists broken for very large lists (~400)
+    #       # fix by breaking into slices
+    #       catalog_item_ids.each_slice(100) { |slice|
+    #         response, slice_document_list = fetch(slice, extra_solr_params)
+    #         catalog_document_list += slice_document_list
+    #       }
+  end
+
+  # passed an array of bookmarks,
   # return a hash of { bookmark => Summon-Document-Object }
   def get_summon_docs_for_bookmarks(bookmark_array = [])
-    return {} if not bookmark_array.kind_of?(Array) || bookmark_array.empty?
+    return {} unless bookmark_array.is_a?(Array) || bookmark_array.empty?
 
     config = APP_CONFIG['summon']
     config.symbolize_keys!
     # URL can be in app_config, or fill in with default value
     config[:url] ||= 'http://api.summon.serialssolutions.com/2.0.0'
 
-    docs = Hash.new
+    docs = {}
     @errors = nil
 
     service = ::Summon::Service.new(config)
     bookmark_array.each do |bookmark|
       Rails.logger.debug "bookmark #{bookmark}..."
-      params = {'s.bookMark' => bookmark }
+      params = { 's.bookMark' => bookmark }
       search = nil
 
       begin
@@ -549,26 +536,25 @@ class ApplicationController < ActionController::Base
 
       # Summon gives you back different BookMarks for the same item!!
       # (depending on the query?)
-      # This utterly confuses our list-management logic.  
+      # This utterly confuses our list-management logic.
       # So, replace the new BookMark with the one we used for retrieval
       summon_doc.src['BookMark'] = bookmark
 
       docs[bookmark] = summon_doc
     end
 
-    return docs
+    docs
   end
-
 
   # Render a true or false, for if the user is logged in
   def render_session_status
     Rails.logger.debug "status=#{!!current_user}"
-    response.headers["Etag"] = ""  # clear etags to prevent caching
+    response.headers['Etag'] = '' # clear etags to prevent caching
     render plain: !!current_user, status: 200
   end
 
   def render_session_timeout
-    flash[:notice] = "Authenticated session been has timed out.  Now browsing anonymously."
+    flash[:notice] = 'Authenticated session been has timed out.  Now browsing anonymously.'
     # redirect_to "/login"
     redirect_to root_path
   end
@@ -577,12 +563,11 @@ class ApplicationController < ActionController::Base
 
   def set_cache_headers
     if current_user
-      response.headers["Cache-Control"] = "no-cache, no-store"
-      response.headers["Pragma"] = "no-cache"
-      response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+      response.headers['Cache-Control'] = 'no-cache, no-store'
+      response.headers['Pragma'] = 'no-cache'
+      response.headers['Expires'] = 'Fri, 01 Jan 1990 00:00:00 GMT'
     end
   end
-
 
   # def by_source_config
   #   active_source = determine_active_source
@@ -599,32 +584,32 @@ class ApplicationController < ActionController::Base
 
     session[:previous_url] = fullpath unless
       # No AJAX ever
-      request.xhr? or
+      request.xhr? ||
       # exclude /users paths, which reflect the login process
-      fullpath =~ /\/users/ or
-      fullpath =~ /\/backend/ or
-      fullpath =~ /\/catalog\/unapi/ or
-      fullpath =~ /\/catalog\/.*\.endnote/ or
-      fullpath =~ /\/catalog\/email/ or
+      fullpath =~ /\/users/ ||
+      fullpath =~ /\/backend/ ||
+      fullpath =~ /\/catalog\/unapi/ ||
+      fullpath =~ /\/catalog\/.*\.endnote/ ||
+      fullpath =~ /\/catalog\/email/ ||
       # exclude lists VERBS, but don't wildcare /lists or viewing will break
-      fullpath =~ /\/lists\/add/ or
-      fullpath =~ /\/lists\/move/ or
-      fullpath =~ /\/lists\/remove/ or
-      fullpath =~ /\/lists\/email/ or
+      fullpath =~ /\/lists\/add/ ||
+      fullpath =~ /\/lists\/move/ ||
+      fullpath =~ /\/lists\/remove/ ||
+      fullpath =~ /\/lists\/email/ ||
       # /spectrum/fetch - loading subpanels of bento-box aggregate
-      fullpath =~ /\/spectrum/ or
+      fullpath =~ /\/spectrum/ ||
       # old-style async ajax holdings lookups - obsolete?
-      fullpath =~ /\/holdings/ or
+      fullpath =~ /\/holdings/ ||
       # Persistent selected-item lists
-      fullpath =~ /\/selected/ or
+      fullpath =~ /\/selected/ ||
       # auto-timeout polling
       fullpath =~ /\/active/
   end
 
   # DEVISE callback
-  # https://github.com/plataformatec/devise/wiki/ ... 
+  # https://github.com/plataformatec/devise/wiki/ ...
   #     How-To:-Redirect-to-a-specific-page-on-successful-sign-in-and-sign-out
-  def after_sign_in_path_for(resource = nil)
+  def after_sign_in_path_for(_resource = nil)
     session[:previous_url] || root_path
   end
 
@@ -638,7 +623,7 @@ class ApplicationController < ActionController::Base
 
   def add_alerts_to_documents(documents)
     documents = Array.wrap(documents)
-    return if documents.length == 0
+    return if documents.length.zero?
 
     # # initialize
     # documents.each do |doc|
@@ -668,7 +653,6 @@ class ApplicationController < ActionController::Base
 
       document['_active_item_alert_count'] ||= 0
       document['_active_item_alert_count'] += 1 if alert.active?
-
     end
   end
 end

@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'An articles search', :vcr do
-
   it 'will have a next link that links to articles' do
     visit articles_index_path('q' => 'test')
     expect(page).to have_css('.index_toolbar a', text: 'Next')
@@ -14,10 +13,10 @@ describe 'An articles search', :vcr do
 
     expect(page).to_not have_css('.index_toolbar a', text: 'Previous')
     expect(page).to have_css('.index_toolbar a', text: 'Next')
-# save_and_open_page
+    # save_and_open_page
 
     all('.index_toolbar a', text: 'Next').first.click
-# save_and_open_page
+    # save_and_open_page
     expect(page).to have_css('.index_toolbar a', text: 'Previous')
     expect(page).to have_css('.index_toolbar a', text: 'Next')
 
@@ -26,7 +25,6 @@ describe 'An articles search', :vcr do
     expect(page).to_not have_css('.index_toolbar a', text: 'Previous')
     expect(page).to have_css('.index_toolbar a', text: 'Next')
   end
-
 
   # NEXT-1078 - CLIO Articles limit 500 records, Summon 1,000
   it 'can paginate through 1000 total items' do
@@ -40,8 +38,5 @@ describe 'An articles search', :vcr do
 
     visit articles_index_path('q' => 'Aardvark', 's.pn' => 20, 's.ps' => 51)
     expect(page).to have_text('There was an error searching this datasource. (Maximum supported page size is 50 (provided size is 51).)')
-
   end
-
 end
-

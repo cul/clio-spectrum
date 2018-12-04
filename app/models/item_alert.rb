@@ -12,15 +12,15 @@ class ItemAlert < ApplicationRecord
 
   ALERT_TYPES = {
     'access_requirements' => 'Access Requirements',
-    'alert' =>  'Alert',
+    'alert' => 'Alert',
     # 'alternate_connect' => 'Alternate Connect',
     # 'elink_enabled' =>  'eLink Enabled',
     # 'related_resources' => 'Related Resources'
-  }
+  }.freeze
 
   def active?
     # puts "====  start_date=#{start_date} end_date=#{end_date}  DateTime.now=#{DateTime.now}"
     (start_date.nil? || start_date < DateTime.now) &&
-    (end_date.nil? || end_date > DateTime.now)
+      (end_date.nil? || end_date > DateTime.now)
   end
 end

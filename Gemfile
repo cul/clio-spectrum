@@ -9,16 +9,13 @@ gem 'activerecord-session_store'
 gem 'blacklight', '~>6.10.0'
 # gem 'blacklight', path: '/Users/marquis/src/blacklight'
 
-
 gem 'blacklight-marc'
 
 # local testing...
 # gem 'blacklight_range_limit', path: '/Users/marquis/src/blacklight_range_limit'
 gem 'blacklight_range_limit'
 
-
-
- ###  BLACKLIGHT (end)  ###
+###  BLACKLIGHT (end)  ###
 
 gem 'rsolr', '>= 1.0'
 # gem 'rsolr', path: "/Users/marquis/src/rsolr"
@@ -66,17 +63,14 @@ group :clio_dev, :clio_app_dev, :clio_test, :clio_app_test, :clio_prod do
   gem 'mysql2'
 end
 
-# Some things we want to see in development and in-action on 
+# Some things we want to see in development and in-action on
 # the LERP servers, but not in production.
 group :development, :clio_dev do
-
   # "MiniProfiler allows you to see the speed of a request on the page"
   # http://railscasts.com/episodes/368-miniprofiler
-# Disable while we straighten out the Bootstrap 3 style issues.
+  # Disable while we straighten out the Bootstrap 3 style issues.
   # gem 'rack-mini-profiler'
-
 end
-
 
 # include JS runtime via bundler - server environment is unreliable
 gem 'therubyracer'
@@ -94,7 +88,6 @@ gem 'sass'
 # nope, not ready for this
 # # use Redis for our cache store
 # gem 'redis-rails'
-
 
 # fork local branch, to add network timeouts
 # gem 'summon'
@@ -138,7 +131,6 @@ gem 'jquery-rails'
 # JQuery UI gives extra functionality, including draggable
 gem 'jquery-ui-rails'
 
-
 # Assets processing
 gem 'sass-rails'
 gem 'coffee-rails'
@@ -167,9 +159,8 @@ gem 'rack'
 # A DSL for blocking & throttling abusive clients
 gem 'rack-attack'
 
-
 # Too much spam using our record emailer
-gem "recaptcha", require: "recaptcha/rails"
+gem 'recaptcha', require: 'recaptcha/rails'
 
 # works with Traject to extract id numbers from MARC
 gem 'library_stdnums'
@@ -199,7 +190,6 @@ gem 'browser'
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development do
-
   # Upgrade to Capistrano 3.x
   # http://capistranorb.com/documentation/upgrading/
   gem 'capistrano', '~> 3.0', require: false
@@ -226,14 +216,12 @@ group :development do
   # Profiling experiments
   # https://www.coffeepowered.net/2013/08/02/ruby-prof-for-rails/
   # gem 'request_profiler', :git => "git://github.com/justinweiss/request_profiler.git"
-
 end
 
 group :test, :development do
-
   gem 'thin'
 
-  # why in test and dev both instead of just test?  
+  # why in test and dev both instead of just test?
   # because is says to: https://github.com/rspec/rspec-rails
   gem 'rspec-rails'
   # rspec mocks are externalized in an another gem rspec-activemodel-mocks
@@ -256,7 +244,7 @@ group :test do
   # dependent on localhost's browser configs
   gem 'selenium-webdriver'
 
-  # "A helper for launching cross-platform applications 
+  # "A helper for launching cross-platform applications
   #  in a fire and forget manner."
   # Required to enable capybara's save_and_open_page() method
   gem 'launchy'
@@ -273,7 +261,7 @@ group :test do
 
   # CI servers want XML output from rspecs
   # gem 'ci_reporter'
-  
+
   # Travis needs this.
   #  http://docs.travis-ci.com/user/languages/ruby/
   gem 'rake'
@@ -286,7 +274,7 @@ group :test do
   # # Coveralls for Code Coverage
   # # https://coveralls.zendesk.com/hc/en-us/articles/201769485-Ruby-Rails
   # gem 'coveralls', require: false
-  
+
   # Record API responses, use saved responses for tests
   gem 'vcr'
   gem 'webmock'
@@ -295,4 +283,3 @@ group :test do
   #         add `gem 'rails-controller-testing'` to your Gemfile.
   gem 'rails-controller-testing'
 end
-

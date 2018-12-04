@@ -1,10 +1,10 @@
 module MarcHelper
-  DELIM = '|DELIM|'
+  DELIM = '|DELIM|'.freeze
 
   def display_marc_field(marc, field_name)
     config = MARC_FIELDS[field_name]
 
-    fail "Field name '#{field_name}' not found in config/marc_display_fields.yml" unless config
+    raise "Field name '#{field_name}' not found in config/marc_display_fields.yml" unless config
 
     # field_name is a label used to identify a field group in the MARC_FIELDS hash
     #     (maintained in config/marc_display_fields.yml)
@@ -35,21 +35,15 @@ module MarcHelper
       if field.key?('ind1') && field.key?('ind2')
         options[:indicators] = [field['ind1'], field['ind2']]
       end
-      if field.key?('search')
-        options[:search_subfields] = field['search']
-      end
-      if field.key?('split')
-        options[:split] = field['split']
-      end
+      options[:search_subfields] = field['search'] if field.key?('search')
+      options[:split] = field['split'] if field.key?('split')
       if field.key?('require_sf')
         options[:require_sf] = field['require_sf'].to_s
       end
       if field.key?('require_sf_value')
         options[:require_sf_value] = field['require_sf_value'].to_s
       end
-      if field_name.match(/^subject/)
-        options[:subject] = true
-      end
+      options[:subject] = true if field_name =~ /^subject/
       # process marc tag
       out << clio_get_field_values(marc, field['tag'].to_s, field['display'], options)
     end
@@ -66,25 +60,24 @@ module MarcHelper
                            require_sf: nil,
                            require_sf_value: nil)
     # get options
-    ind1, ind2  = options[:indicators]
+    ind1, ind2 = options[:indicators]
     search_subfields = options[:search_subfields]
 
     values = []
     marc.each_by_tag(tag) do |field|
-
       # test for indicators
       next unless ind1 == :all || ind1.include?(field.indicator1)
       next unless ind2 == :all || ind2.include?(field.indicator2)
 
       # test for required subfield, subfield value
       if options[:require_sf]
-        next unless field[ options[:require_sf] ].present?
-        next unless field[ options[:require_sf] ] == options[:require_sf_value]
+        next unless field[options[:require_sf]].present?
+        next unless field[options[:require_sf]] == options[:require_sf_value]
       end
 
       display = process_field(field, display_subfields, search_subfields, options[:subject])
       unless display.empty?
-        options[:split] ? values << display.split(options[:split]) : values << display
+        values << (options[:split] ? display.split(options[:split]) : display)
       end
       # get matching script field if there is a subfield 6 (watch for missing subfields)
       if options[:vernacular] &&
@@ -92,10 +85,9 @@ module MarcHelper
          field.subfields.first.code == '6'
         display = process_vernacular(marc, field, display_subfields, search_subfields, options[:subject])
         unless display.empty?
-          options[:split] ? values << display.split(options[:split]) : values << display
+          values << (options[:split] ? display.split(options[:split]) : display)
         end
       end
-
     end
 
     values.flatten
@@ -109,23 +101,22 @@ module MarcHelper
     marc.each_by_tag('880') do |t880|
       sub6 = t880.subfields.first
       # sequesnce number match
-      if (sub6.code == '6') && (sub6.value[4..5] == seq)
-        display = process_field(t880, display_subfields, search_subfields, subject_option)
-        # if there is a search field defined, tag the entry
-        # currently used to suppress link for author redirection until we can get 880 authors into the author facet
-        display += DELIM + 't880' if display.match(/DELIM/)
-        break
-      end
+      next unless (sub6.code == '6') && (sub6.value[4..5] == seq)
+      display = process_field(t880, display_subfields, search_subfields, subject_option)
+      # if there is a search field defined, tag the entry
+      # currently used to suppress link for author redirection until we can get 880 authors into the author facet
+      display += DELIM + 't880' if display =~ /DELIM/
+      break
     end
     display
   end
 
   def process_field(field, display_subfields, search_subfields, subject_option)
-    if subject_option
-      display = select_subfields_subject_heading(field, display_subfields)
-    else
-      display = select_subfields(field, display_subfields)
-    end
+    display = if subject_option
+                select_subfields_subject_heading(field, display_subfields)
+              else
+                select_subfields(field, display_subfields)
+              end
     # field has search redirection
     # NOTE: subject search redirection uses all subfields and is handled in generate_value_links_subject;
     #       a subject heading should never use the following
@@ -148,9 +139,7 @@ module MarcHelper
   def select_subfields(field, subfields_to_select)
     value = ''
     subflds = field.subfields.select { |sf| subfields_to_select == :all || subfields_to_select.include?(sf.code) }
-    unless subflds.empty?
-      value = subflds.map { |sf| sf.value }.join(' ')
-    end
+    value = subflds.map(&:value).join(' ') unless subflds.empty?
     value
   end
 
@@ -161,11 +150,11 @@ module MarcHelper
     unless subflds.empty?
       out = subflds.shift.value
       subflds.each do |s|
-        if 'vxyz'.include?(s.code)
-          out += ' - ' + s.value
-        else
-          out += ' ' + s.value
-        end
+        out += if 'vxyz'.include?(s.code)
+                 ' - ' + s.value
+               else
+                 ' ' + s.value
+               end
       end
     end
     out

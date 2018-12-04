@@ -13,7 +13,7 @@ require 'rspec-solr'
 # Not yet
 # require 'support/shared_examples_cjk'
 
-RSpec.configure do |config|
+RSpec.configure do |_config|
   # baseurl = ENV["URL"]
   # if baseurl
   #   solr_config = {:url => baseurl}
@@ -28,13 +28,12 @@ RSpec.configure do |config|
   SOLR = RSolr.connect(connection_config)
 end
 
-
 # Quick function to make simpler syntax in specs
 def rank(resp, bib)
   position = resp.get_first_doc_index(bib.to_s)
   # not-found, pretend it's just really, really low ranking
   return 999999 if position.nil?
-  return position +1
+  position + 1
 end
 
 # send a GET request to the default Solr request handler with the indicated query
@@ -96,7 +95,7 @@ end
 #   { 'q' => "{!qf=$author_qf pf=$pf_author pf3=$pf3_author pf2=$pf2_author}#{query_str}", 'qt' => 'search' }
 # end
 def author_search_args(query_str)
-  { 'q' => "{!qf=$author_qf pf=$pf_author}#{query_str}"}
+  { 'q' => "{!qf=$author_qf pf=$pf_author}#{query_str}" }
 end
 
 def title_search_args(query_str)
@@ -105,7 +104,7 @@ end
 
 # fixed for CLIO
 def subject_search_args(query_str)
-  { 'q' => "{!qf=$subject_qf pf=$subject_pf}#{query_str}"}
+  { 'q' => "{!qf=$subject_qf pf=$subject_pf}#{query_str}" }
 end
 
 def series_search_args(query_str)
@@ -113,7 +112,7 @@ def series_search_args(query_str)
 end
 
 def callnum_search_args(query_str)
-  { 'q' => "#{query_str}", 'defType' => 'lucene', 'df' => 'callnum_search', 'qt' => 'search' }
+  { 'q' => query_str.to_s, 'defType' => 'lucene', 'df' => 'callnum_search', 'qt' => 'search' }
 end
 
 def author_title_search_args(query_str)
@@ -123,15 +122,15 @@ end
 # def cjk_everything_q_arg(query_str)
 #   "{!qf=$qf_cjk pf=$pf_cjk pf3=$pf3_cjk pf2=$pf2_cjk}#{query_str}"
 # end
-# 
+#
 # def cjk_author_q_arg(query_str)
 #   "{!qf=$author_qf_cjk pf=$pf_author_cjk pf3=$pf3_author_cjk pf2=$pf2_author_cjk}#{query_str}"
 # end
-# 
+#
 # def cjk_title_q_arg(query_str)
 #   "{!qf=$title_qf_cjk pf=$pf_title_cjk pf3=$pf3_title_cjk pf2=$pf2_title_cjk}#{query_str}"
 # end
-# 
+#
 # def cjk_subject_q_arg(query_str)
 #   "{!qf=$subject_qf_cjk pf=$pf_subject_cjk pf3=$pf3_subject_cjk pf2=$pf2_subject_cjk}#{query_str}"
 # end
@@ -139,7 +138,7 @@ end
 # def cjk_series_q_arg(query_str)
 #   "{!qf=$qf_series_cjk pf=$pf_series_cjk pf3=$pf3_series_cjk pf2=$pf2_series_cjk}#{query_str}"
 # end
-# 
+#
 # return the number of CJK unigrams in the str
 def num_cjk_uni(str)
   if str
@@ -164,7 +163,7 @@ end
 #     nil
 #   end
 # end
-# 
+#
 # # the Solr mm value if it is to be adjusted due to CJK chars in the query string
 # @cjk_mm_val = '3<86%'
 # def cjk_mm_val
@@ -187,7 +186,7 @@ end
 #     {}
 #   end
 # end
-# 
+#
 # # @param query_type [String] the type of query:  title, author, ...
 # # @param query [String] the query string to be used against cjk-expecting qf, pf, pf3, pf2 args
 # # @param solr_params [Hash<String>,<String>] any additional parameters to send to Solr
@@ -222,7 +221,7 @@ end
 # @return [RSpecSolr::SolrResponseHash] object for rspec-solr testing the Solr response
 def solr_response(solr_params, req_handler = 'select')
   q_val = solr_params['q']
-  if num_cjk_uni(q_val) == 0
+  if num_cjk_uni(q_val).zero?
     RSpecSolr::SolrResponseHash.new(SOLR.send_and_receive(req_handler, method: :get, params: solr_params.merge('testing' => 'clio_index_test')))
   else
     # we have CJK - separate user query string out from local params
@@ -232,14 +231,14 @@ def solr_response(solr_params, req_handler = 'select')
       # use CJK local params
       if qf_pf_args && q_val
         case qf_pf_args
-          when /author_qf/
-            solr_params['q'] = cjk_author_q_arg q_val
-          when /title_qf/
-            solr_params['q'] = cjk_title_q_arg q_val
-          when /subject_qf/
-            solr_params['q'] = cjk_subject_q_arg q_val
-          when /qf_series/
-            solr_params['q'] = cjk_series_q_arg q_val
+        when /author_qf/
+          solr_params['q'] = cjk_author_q_arg q_val
+        when /title_qf/
+          solr_params['q'] = cjk_title_q_arg q_val
+        when /subject_qf/
+          solr_params['q'] = cjk_subject_q_arg q_val
+        when /qf_series/
+          solr_params['q'] = cjk_series_q_arg q_val
         end
       end
     else
@@ -252,8 +251,8 @@ end
 
 # use these Solr HTTP params to reduce the size of the Solr responses
 # response documents will only have id fields, and there will be no facets in the response
-DOC_IDS_ONLY = { 'fl' => 'id', 'facet' => 'false', 'rows' => '200' }
-DOC_IDS_TITLES = { 'fl' => 'id,title_display', 'facet' => 'false', 'rows' => '50' }
+DOC_IDS_ONLY = { 'fl' => 'id', 'facet' => 'false', 'rows' => '200' }.freeze
+DOC_IDS_TITLES = { 'fl' => 'id,title_display', 'facet' => 'false', 'rows' => '50' }.freeze
 # DOC_IDS_FULL_TITLES = {'fl'=>'id,title_full_display', 'facet'=>'false'}
 
 # response documents will only have id fields, and there will be no facets in the response
@@ -293,11 +292,11 @@ end
 # def solr_conn
 #   SOLR
 # end
-# 
+#
 # def solr_schema
 #   @schema_xml ||= SOLR.send_and_receive('admin/file/', method: :get, params: { 'file' => 'schema.xml', :wt => 'xml' })
 # end
-# 
+#
 # def solr_config_xml
 #   @solrconfig_xml = SOLR.send_and_receive('admin/file/', method: :get, params: { 'file' => 'solrconfig.xml', :wt => 'xml' })
 # end

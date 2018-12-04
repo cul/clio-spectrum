@@ -12,12 +12,11 @@ set :recipient, 'clio-dev@library.columbia.edu'
 set :job_template, "/usr/local/bin/mailifoutput -s ':subject (:environment)' :recipient  /bin/bash -c ':job'"
 
 # TODO
-# We need to do some time offsets, so that our three server environments 
+# We need to do some time offsets, so that our three server environments
 # don't fire off the same job at the same moment
 
 # Our batch processing environments
-if ['clio_app_dev', 'clio_app_test', 'clio_prod'].include?(@environment)
-
+if %w(clio_app_dev clio_app_test clio_prod).include?(@environment)
 
   # Run all daily ingest tasks, together within one rake task
   every :day, at: '1am' do
@@ -36,7 +35,7 @@ if ['clio_app_dev', 'clio_app_test', 'clio_prod'].include?(@environment)
   end
 
   # # == BIBLIOGRAPHIC ==
-  # 
+  #
   # # Nightly incremental
   # every :day, at: '3am' do
   #   rake 'bibliographic:extract:process EXTRACT=incremental', subject: 'daily incremental'
@@ -48,8 +47,8 @@ if ['clio_app_dev', 'clio_app_test', 'clio_prod'].include?(@environment)
 
   # We've moved Authority variant lookups into the bibliographic ingest
   # #  ===  AUTHORITIES  ===
-  # 
-  # #  Add authority variants after each daily load 
+  #
+  # #  Add authority variants after each daily load
   # every :day, at: '2am' do
   #   rake 'authorities:add_to_bib:by_extract[incremental]', subject: 'daily authorities'
   # end
@@ -59,14 +58,14 @@ if ['clio_app_dev', 'clio_app_test', 'clio_prod'].include?(@environment)
   # end
 
   # == RECAP ==
-  #  Add authority variants after each daily load 
+  #  Add authority variants after each daily load
   every :day, at: '5am' do
     rake 'recap:delete_new[2]', subject: 'daily recap delete'
   end
   every :day, at: '6am' do
     rake 'recap:ingest_new[2]', subject: 'daily recap ingest'
   end
-  # #  Add authority variants after each daily load 
+  # #  Add authority variants after each daily load
   # every :day, at: '4am' do
   #   rake 'authorities:add_to_bib:by_extract[recap]', subject: 'daily recap authorities'
   # end
@@ -89,7 +88,6 @@ if ['clio_app_dev', 'clio_app_test', 'clio_prod'].include?(@environment)
   #   command '/usr/bin/curl --silent "http://lito-solr-dev1.cul.columbia.edu:8983/solr/clio_dev/update?commit=true" -H "Content-Type: text/xml" --data-binary "<delete><query>timestamp:[* TO NOW/DAY-21DAYS] AND location_facet:Law</query></delete>"', subject: 'law purge'
   # end
 
-
   # # Fetch a fresh "full" extract, daily, so that it's always ready to go.
   # # We'll run this in bits througout the month.
   # every :day, at: '1pm' do
@@ -107,8 +105,5 @@ if ['clio_prod'].include?(@environment)
   every :day, at: '11:30pm' do
     rake 'recap:download', subject: 'recap download'
   end
-  
+
 end
-
-
-

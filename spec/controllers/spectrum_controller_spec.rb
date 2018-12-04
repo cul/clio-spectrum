@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe SpectrumController do
-
   describe "GET 'search'" do
     it 'returns http success' do
       get 'search'
@@ -18,14 +17,14 @@ describe SpectrumController do
 
   describe "GET 'searchjson'" do
     it 'returns http success' do
-    #   get 'fetch', layout: 'qucksearch', datasource: 'catalog'
-    #   expect(response).to be_successful
-    # end
-    # 
-    # it 'errors on bad input' do
-    #   get 'fetch', layout: 'No Such Layout', datasource: 'catalog'
-    #   expect(response).to be_successful
-    #   expect(response.body).to match(/search layout invalid/i)
+      #   get 'fetch', layout: 'qucksearch', datasource: 'catalog'
+      #   expect(response).to be_successful
+      # end
+      #
+      # it 'errors on bad input' do
+      #   get 'fetch', layout: 'No Such Layout', datasource: 'catalog'
+      #   expect(response).to be_successful
+      #   expect(response.body).to match(/search layout invalid/i)
       get 'searchjson', params: { layout: 'quicksearch', datasource: 'catalog' }
       expect(response).to be_successful
     end
@@ -67,5 +66,4 @@ describe SpectrumController do
   #
   #
   # end
-
 end

@@ -26,7 +26,6 @@
 # Coveralls.wear!('rails')
 # CodeClimate::TestReporter.start
 
-
 # shouldn't be necessary?
 ENV['RAILS_ENV'] ||= 'test'
 
@@ -101,38 +100,36 @@ RSpec.configure do |config|
   # specs, etc.  No longer automatic with new rspec?
   config.infer_spec_type_from_file_location!
 
-  config.example_status_persistence_file_path = "spec/examples.txt"
+  config.example_status_persistence_file_path = 'spec/examples.txt'
 end
 
 Capybara::Webkit.configure do |config|
   config.block_unknown_urls
 
   # We test response data from these sites
-  config.allow_url("hathitrust.org")
-  config.allow_url("books.google.com")
+  config.allow_url('hathitrust.org')
+  config.allow_url('books.google.com')
 
   # OLD - WAS PART OF RSPEC CONFIG BLOCK ABOVE
-   # # Turn this block on when we upgrade capybara-webkit
-   # # from https://github.com/thoughtbot/capybara-webkit/issues/717
-   # config.before(:each, :js) do
-   #   page.driver.block_unknown_urls
-   #   # page.driver.allow_url("hathitrust.org")
-   #   # page.driver.allow_url("books.google.com")
-   #   # page.driver.allow_url("bronte.cul.columbia.edu")
-   # 
-   #   # We reliably get "Errno::EPIPE: Broken pipe" unless
-   #   # we allow connections to here.  Annoying, mysterious.
-   #   # page.driver.allow_url("google-analytics.com")
-   # 
-   #   # All this, just for the maps on the location pages.
-   #   # But leaving these URLs blocked doesn't interfere
-   #   # with Selenium testing - so don't whitelist.
-   #   # page.driver.allow_url("maps.google.com")
-   #   # page.driver.allow_url("maps.googleapis.com")
-   #   # page.driver.allow_url("gstatic.com")
-   #   # page.driver.allow_url("googlecode.com")
-   #   # page.driver.allow_url("googleapis.com")
-   # end
-
+  # # Turn this block on when we upgrade capybara-webkit
+  # # from https://github.com/thoughtbot/capybara-webkit/issues/717
+  # config.before(:each, :js) do
+  #   page.driver.block_unknown_urls
+  #   # page.driver.allow_url("hathitrust.org")
+  #   # page.driver.allow_url("books.google.com")
+  #   # page.driver.allow_url("bronte.cul.columbia.edu")
+  #
+  #   # We reliably get "Errno::EPIPE: Broken pipe" unless
+  #   # we allow connections to here.  Annoying, mysterious.
+  #   # page.driver.allow_url("google-analytics.com")
+  #
+  #   # All this, just for the maps on the location pages.
+  #   # But leaving these URLs blocked doesn't interfere
+  #   # with Selenium testing - so don't whitelist.
+  #   # page.driver.allow_url("maps.google.com")
+  #   # page.driver.allow_url("maps.googleapis.com")
+  #   # page.driver.allow_url("gstatic.com")
+  #   # page.driver.allow_url("googlecode.com")
+  #   # page.driver.allow_url("googleapis.com")
+  # end
 end
-

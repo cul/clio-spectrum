@@ -10,10 +10,9 @@ class SavedListsController < ApplicationController
   # Because we need "add_range_limit_params" when we lookup Solr records
   include LocalSolrHelperExtension
 
-
-# INDEX is never called.  routes.rb redirects '/lists/' to show.
-# Users are always viewing an active list, via show().
-# If no list ID is passed, the default list is shown.
+  # INDEX is never called.  routes.rb redirects '/lists/' to show.
+  # Users are always viewing an active list, via show().
+  # If no list ID is passed, the default list is shown.
   # def index
   #   # Default index, show only your own lists
   #   @lists = List.where(:created_by => current_user.login)
@@ -24,16 +23,13 @@ class SavedListsController < ApplicationController
   #   end
   # end
 
-
   def show
     # Determine search parameters to locate the list
     owner = params[:owner]
-    slug  = params[:slug]  ||= SavedList::DEFAULT_LIST_SLUG
+    slug  = params[:slug] ||= SavedList::DEFAULT_LIST_SLUG
 
     # Default to your own lists, if you don't specify an owner
-    if owner.blank? and current_user.present?
-      owner = current_user.login
-    end
+    owner = current_user.login if owner.blank? && current_user.present?
 
     # # If request is for just "/lists", then MUST be logged in
     # if owner.blank? and current_user.blank?
@@ -44,23 +40,23 @@ class SavedListsController < ApplicationController
     # logged-in users can see all their own lists.
     # loggin-in users can see anybody's public lists.
     # anonymous users can see anybody's public lists.
-    if current_user.present? and owner == current_user.login
+    if current_user.present? && owner == current_user.login
       # find one of my own lists
       @list = SavedList.find_by_owner_and_slug(owner, slug)
       # Special-case: if we're trying to pull up the user's default list,
       # auto-create it for them.
-      if @list.blank? and slug == SavedList::DEFAULT_LIST_SLUG
+      if @list.blank? && slug == SavedList::DEFAULT_LIST_SLUG
         @list = SavedList.new(owner: current_user.login,
                               name: SavedList::DEFAULT_LIST_NAME)
         @list.save!
       end
     else
       # find someone else's list
-      if current_user.present? and current_user.has_role?('site', 'admin')
-        @list = SavedList.find_by_owner_and_slug(owner, slug)
-      else
-        @list = SavedList.find_by_owner_and_slug_and_permissions(owner, slug, 'public')
-      end
+      @list = if current_user.present? && current_user.has_role?('site', 'admin')
+                SavedList.find_by_owner_and_slug(owner, slug)
+              else
+                SavedList.find_by_owner_and_slug_and_permissions(owner, slug, 'public')
+              end
     end
 
     if @list.blank?
@@ -71,7 +67,7 @@ class SavedListsController < ApplicationController
 
     # We have a list to display.
     # Turn the item-keys into full documents.
-    item_key_array = @list.saved_list_items.order('updated_at').map { |item| item.item_key }
+    item_key_array = @list.saved_list_items.order('updated_at').map(&:item_key)
     @document_list = ids_to_documents(item_key_array)
 
     # The single-list "show" page will want to give a menu of all other lists
@@ -87,10 +83,9 @@ class SavedListsController < ApplicationController
     end
   end
 
-
-# Lists are not "New"'d explicitly.
-# Instead, items are added to a non-existant list name,
-# which will automatically create the new list.
+  # Lists are not "New"'d explicitly.
+  # Instead, items are added to a non-existant list name,
+  # which will automatically create the new list.
   # def new
   #   raise "don't use this method!"
   #   # @list = List.new(:created_by => current_user.login)
@@ -102,7 +97,6 @@ class SavedListsController < ApplicationController
   #   end
   # end
 
-
   # GET /lists/1/edit
   def edit
     @list = SavedList.find_by_owner_and_id(current_user.login, params[:id])
@@ -112,10 +106,9 @@ class SavedListsController < ApplicationController
     end
   end
 
-
-# Lists are not "Create"'d explicitly.
-# Instead, items are added to a non-existant list name,
-# which will automatically create the new list.
+  # Lists are not "Create"'d explicitly.
+  # Instead, items are added to a non-existant list name,
+  # which will automatically create the new list.
   # def create
   #   if current_user.blank?
   #     return redirect_to root_path,
@@ -137,7 +130,6 @@ class SavedListsController < ApplicationController
   #   end
   # end
 
-
   def update
     @list = SavedList.find_by_owner_and_id(current_user.login, params[:id])
     unless @list
@@ -157,7 +149,6 @@ class SavedListsController < ApplicationController
     end
   end
 
-
   def destroy
     @list = SavedList.find_by_owner_and_id(current_user.login, params[:id])
     unless @list
@@ -173,10 +164,8 @@ class SavedListsController < ApplicationController
     end
   end
 
-
   # Add items to a named list. (And Create the list if it does not yet exist)
   def add
-
     # # We're either passed a list of item-keys,
     # # OR we'll just add whatever's currently selected.
     # items_to_add = Array(params[:item_key_list] || session[:selected_items]).uniq
@@ -185,11 +174,11 @@ class SavedListsController < ApplicationController
     items_to_add_cookie = cookies[:items_to_add] || ''
     items_to_add = Array(items_to_add_cookie.split('/'))
 
-    if items_to_add.size == 0
+    if items_to_add.size.zero?
       message = 'Must specify items to be added'
       # "referrer" was sometimes failing - revert.
       # redirect_to request.referrer , :flash => { :error => message } and return
-      redirect_to after_sign_in_path_for, :flash => { :error => message } and return
+      redirect_to(after_sign_in_path_for, flash: { error: message }) && return
       # render plain: 'Must specify items to be added', status: :bad_request and return
     end
 
@@ -198,7 +187,7 @@ class SavedListsController < ApplicationController
       message = 'Cannot add to unnamed list'
       # "referrer" was sometimes failing - revert.
       # redirect_to request.referrer , :flash => { :error => message } and return
-      redirect_to after_sign_in_path_for, :flash => { :error => message } and return
+      redirect_to(after_sign_in_path_for, flash: { error: message }) && return
       # render plain: 'Cannot add to unnamed list', status: :unprocessable_entity and return
     end
 
@@ -212,7 +201,7 @@ class SavedListsController < ApplicationController
 
     # redundant, move to model method
     # current_item_keys = @list.saved_list_items.map { |item| item.item_key }
-    # 
+    #
     # new_item_adds = 0
     # (items_to_add - current_item_keys).each { |item_key|
     #   new_item = SavedListItem.new(item_key: item_key, saved_list_id: @list[:id])
@@ -240,23 +229,21 @@ class SavedListsController < ApplicationController
     respond_to do |format|
       # "referrer" was sometimes failing - revert.
       # format.html { redirect_to request.referrer, :flash => { :notice => message } }
-      format.html { redirect_to after_sign_in_path_for, :flash => { :notice => message } }
+      format.html { redirect_to after_sign_in_path_for, flash: { notice: message } }
       format.json { render plain: message, status: :ok }
     end
   end
 
-
   # You MOVE your own items from list to list,
   # You COPY another user's items from their list to yours.
   def copy
-
     # We're either passed a list of item-keys,
     # OR we'll just add whatever's currently selected.
     items_to_add = Array(params[:item_key_list] || session[:selected_items]).uniq
 
-     # To be sure about what we're doing, require the following params:
-     # to_list       -- the Name of the destination list
-     # item_key_list -- an array of item keys (bib keys or Summon FETCH ids)
+    # To be sure about what we're doing, require the following params:
+    # to_list       -- the Name of the destination list
+    # item_key_list -- an array of item keys (bib keys or Summon FETCH ids)
     # unless params[:from_owner] && params[:from_list] && params[:to_list]
     unless params[:to_list]
       return redirect_to root_path,
@@ -281,7 +268,7 @@ class SavedListsController < ApplicationController
     #                               permissions: 'public').first
     # end
 
-     # Find - or create - a destination list with the "to_list" Name
+    # Find - or create - a destination list with the "to_list" Name
     @list = SavedList.where(owner: current_user.login, name: params[:to_list]).first
     unless @list
       @list = SavedList.new(owner: current_user.login,
@@ -293,7 +280,7 @@ class SavedListsController < ApplicationController
 
     #  # List of what items are already in the list - don't add something twice!
     # current_item_keys = @list.saved_list_items.map { |item| item.item_key }
-    # 
+    #
     #  # loop over the passed-in items, COPYING THEM to NEW saved-list-items
     # for item_key in Array.wrap(params[:item_key_list]) do
     #   next if current_item_keys.include? item_key
@@ -303,7 +290,7 @@ class SavedListsController < ApplicationController
     #     return redirect_to root_path,
     #                        flash: { error: "Item Key #{item_key} not found in #{params[:from_list]}" }
     #   end
-    # 
+    #
     #   new_item = item.dup
     #   new_item.saved_list_id = @list.id
     #   new_item.save!
@@ -311,7 +298,6 @@ class SavedListsController < ApplicationController
 
     redirect_to @list.url, notice: "#{params[:item_key_list].size} items copied to list #{view_context.link_to @list.name, @list.url}".html_safe
   end
-
 
   # You MOVE your own items from list to list,
   # You COPY another user's items from their list to yours.
@@ -341,9 +327,7 @@ class SavedListsController < ApplicationController
                          flash: { error: 'Invalid input parameters - can only move your own items' }
     end
 
-
     # Implement "move" as "copy" followed by "delete"
-
 
     # Find - or create - a destination list with the "to_list" Name
     @list = SavedList.where(owner: current_user.login, name: params[:to_list]).first
@@ -354,7 +338,6 @@ class SavedListsController < ApplicationController
     end
 
     new_item_adds = @list.add_items_by_key(items_to_add)
-
 
     # Fetch the source list, we'll need it's ID
     @from_list = SavedList.where(owner: current_user.login, name: params[:from_list]).first
@@ -372,8 +355,6 @@ class SavedListsController < ApplicationController
 
     redirect_to @list.url, notice: "#{params[:item_key_list].size} items moved to list #{view_context.link_to @list.name, @list.url}".html_safe
   end
-
-
 
   def remove
     unless params[:item_key_list]
@@ -418,5 +399,4 @@ class SavedListsController < ApplicationController
     params.require(:saved_list).permit(:owner, :name, :slug, :description, :sort_by, :permissions)
     # parms.permit(:owner, :name, :slug, :description, :sort_by, :permissions)
   end
-
 end

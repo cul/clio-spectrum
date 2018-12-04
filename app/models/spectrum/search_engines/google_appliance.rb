@@ -4,11 +4,11 @@ module Spectrum
       include ActionView::Helpers::NumberHelper
       include Rails.application.routes.url_helpers
       Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
-      attr_reader  :documents, :search, :count, :errors
+      attr_reader :documents, :search, :count, :errors
 
       def initialize(options = {})
         @params = options
-        @q = options['q'] || fail('No query string specified')
+        @q = options['q'] || raise('No query string specified')
         @rows = (options['rows'] || 10).to_i
         @start = (options['start'] || 0).to_i
         @sitesearch = options['sitesearch'] || ''
@@ -102,7 +102,7 @@ module Spectrum
           'filter'  => '0',
           'sort'    => 'date:D:L:dl',
           'x'       => '0',
-          'y'       => '0',
+          'y'       => '0'
         }
 
         # url = "https://search.columbia.edu/search?#{default_params.to_query}"

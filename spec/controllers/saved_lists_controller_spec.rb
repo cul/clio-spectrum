@@ -5,14 +5,13 @@ require 'spec_helper'
 # DatabaseCleaner.strategy = :truncation
 
 describe SavedListsController do
-
   before(:each) do
     # DatabaseCleaner.clean
     User.delete_all
     @first_user_name = 'user_alpha'
     @first_user = FactoryBot.create(:user, login: @first_user_name)
   end
-  
+
   # after(:all) do
   #   DatabaseCleaner.clean
   # end
@@ -22,7 +21,7 @@ describe SavedListsController do
     # page.save_and_open_page # debug
     expect(response.status).to be(302)
 
-    put :update,  params: { id: 1 }
+    put :update, params: { id: 1 }
     # page.save_and_open_page # debug
     expect(response.status).to be(302)
   end
@@ -31,16 +30,15 @@ describe SavedListsController do
     spec_login @first_user
 
     # Try to delete a non-existant list
-    delete :destroy,  params: { id: 9_999_999 }
+    delete :destroy, params: { id: 9_999_999 }
     expect(response.status).to be(302)
     expect(response).to redirect_to(root_path)
     expect(flash[:error]).to match(/Cannot access list/i)
 
     # Try to update a non-existant list
-    put :update,  params: { id: 9_999_999 }
+    put :update, params: { id: 9_999_999 }
     expect(response.status).to be(302)
     expect(response).to redirect_to(root_path)
     expect(flash[:error]).to match(/Cannot access list/i)
   end
-
 end

@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'User' do
-
   before(:each) do
     # @user = User.new
   end
@@ -26,8 +25,8 @@ describe 'User' do
     '209.2.208.1',
     '209.2.223.1',
     '209.2.224.1',
-    '209.2.239.1',
-  ]
+    '209.2.239.1'
+  ].freeze
 
   # Extend this list of examples as needed to assure correctness.
   OFF_CAMPUS_EXAMPLES = [
@@ -35,11 +34,10 @@ describe 'User' do
     '10.0.0.1',
     '172.16.0.1',
     '192.168.1.1',
-    '240.0.0.1',
-  ]
+    '240.0.0.1'
+  ].freeze
 
   describe 'IP-addr lookups' do
-
     OFF_CAMPUS_EXAMPLES.each do |ip|
       it 'when checking an off-campus IP (' + ip + ')' do
         expect(Benchmark.realtime do
@@ -58,5 +56,4 @@ describe 'User' do
   end
 
   # end
-
 end

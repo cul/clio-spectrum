@@ -32,7 +32,7 @@ class User < ApplicationRecord
 
   def has_role?(area, role, admin_okay = true)
     login && login.in?(PERMISSIONS_CONFIG[area][role]) ||
-      (admin_okay && self.admin?)
+      (admin_okay && admin?)
   end
 
   # developers and sysadmins
@@ -42,9 +42,9 @@ class User < ApplicationRecord
 
   # application-level admin permissions
   def valet_admin?
-    return true if self.admin?
+    return true if admin?
     valet_admins = Array(APP_CONFIG['valet_admins']) || []
-    return valet_admins.include? login
+    valet_admins.include? login
   end
 
   def to_s
@@ -87,17 +87,17 @@ class User < ApplicationRecord
 
       if entry
         _mail = entry[:mail].to_s
-        if _mail.length > 6 and _mail.match(/^.+@.+$/)
-          self.email = _mail
-        else
-          # self.email = wind_login + '@columbia.edu'
-          self.email = login + '@columbia.edu'
-        end
+        self.email = if _mail.length > 6 && _mail.match(/^.+@.+$/)
+                       _mail
+                     else
+                       # self.email = wind_login + '@columbia.edu'
+                       login + '@columbia.edu'
+                     end
         if User.column_names.include? 'last_name'
-          self.last_name = entry[:sn].to_s.gsub('[', '').gsub(']', '').gsub(/\"/, '')
+          self.last_name = entry[:sn].to_s.delete('[').delete(']').delete('"')
         end
         if User.column_names.include? 'first_name'
-          self.first_name = entry[:givenname].to_s.gsub('[', '').gsub(']', '').gsub(/\"/, '')
+          self.first_name = entry[:givenname].to_s.delete('[').delete(']').delete('"')
         end
       end
     end

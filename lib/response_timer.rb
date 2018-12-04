@@ -16,8 +16,8 @@ class ResponseTimer
   end
 
   def each(&block)
-    if @headers && @headers['Content-Type'] and @headers['Content-Type'].include? 'text/html'
-      block.call("<!-- #{@message}: #{@elapsed.round(0)} ms -->\n")
+    if @headers && @headers['Content-Type'] && @headers['Content-Type'].include?('text/html')
+      yield("<!-- #{@message}: #{@elapsed.round(0)} ms -->\n")
     end
 
     @response.each(&block)

@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   resources :preferences do
     collection do
       post 'bentos'
@@ -25,7 +23,6 @@ Rails.application.routes.draw do
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
     concerns :searchable
     concerns :range_searchable
-
   end
 
   devise_for :users
@@ -48,14 +45,14 @@ Rails.application.routes.draw do
 
   # blacklight-marc gem gives endnote as an action, not just format of 'show',
   # to allow endnote export of multiple records at once
-  get "catalog/endnote", :as => "endnote_catalog"
+  get 'catalog/endnote', as: 'endnote_catalog'
 
   # special admin pages
   get 'admin/system'
   get 'admin/format_icons'
 
   # and this..
-  get 'catalog/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_catalog"
+  get 'catalog/:id/librarian_view', to: 'catalog#librarian_view', as: 'librarian_view_catalog'
   # Again, blacklight inserts this as GET, we need to support PUT
   # (due to Blacklight's mechanism of preserving search context.)
   # match 'catalog/:id/librarian_view', via: [:put], to: 'catalog#librarian_view_update'
@@ -102,19 +99,18 @@ Rails.application.routes.draw do
   # Support for persisent selected-item lists
   match 'selected_items', via: [:get, :post], to: 'application#selected_items_handler'
 
-
   get 'databases', to: 'catalog#index', as: :databases_index
   get 'databases/:id(.:format)', via: [:get], to: 'catalog#show', as: :databases_show
   get 'databases/facet/:id(.format)', to: 'catalog#facet', as: :databases_facet
   post 'databases/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :databases_track
-  get 'databases/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_databases"
+  get 'databases/:id/librarian_view', to: 'catalog#librarian_view', as: 'librarian_view_databases'
   match 'databases/:id/librarian_view_track', via: [:post], to: 'databases#librarian_view_track'
 
   get 'journals', to: 'catalog#index', as: :journals_index
   get 'journals/:id(.:format)', via: [:get], to: 'catalog#show', as: :journals_show
   get 'journals/facet/:id(.format)', to: 'catalog#facet', as: :journals_facet
   post 'journals/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :journals_track
-  get 'journals/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_journals"
+  get 'journals/:id/librarian_view', to: 'catalog#librarian_view', as: 'librarian_view_journals'
   match 'journals/:id/librarian_view_track', via: [:post], to: 'journals#librarian_view_track'
 
   get 'library_web', to: 'spectrum#search', as: :library_web_index, defaults: { layout: 'library_web' }
@@ -142,7 +138,7 @@ Rails.application.routes.draw do
   get 'archives/:id(.:format)', via: [:get], to: 'catalog#show', as: :archives_show
   get 'archives/facet/:id(.format)', to: 'catalog#facet', as: :archives_facet
   post 'archives/:id/track(.:format)', to: 'catalog#track', as: :archives_track
-  get 'archives/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_archives"
+  get 'archives/:id/librarian_view', to: 'catalog#librarian_view', as: 'librarian_view_archives'
   match 'archives/:id/librarian_view_track', via: [:post], to: 'archives#librarian_view_track'
 
   # NEXT-483 A user should be able to browse results using previous/next
@@ -152,11 +148,11 @@ Rails.application.routes.draw do
   get 'new_arrivals/:id(.:format)', via: [:get], to: 'catalog#show', as: :new_arrivals_show
   get 'new_arrivals/facet/:id(.format)', to: 'catalog#facet', as: :new_arrivals_facet
   post 'new_arrivals/:id/track(.:format)', via: [:post], to: 'catalog#track', as: :new_arrivals_track
-  get 'new_arrivals/:id/librarian_view', :to => "catalog#librarian_view", :as => "librarian_view_new_arrivals"
+  get 'new_arrivals/:id/librarian_view', to: 'catalog#librarian_view', as: 'librarian_view_new_arrivals'
   match 'new_arrivals/:id/librarian_view_track', via: [:post], to: 'new_arrivals#librarian_view_track'
 
   get 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
-  get 'backend/offsite/:id' => 'backend#offsite', :as => 'backend_offsite', constraints: { :id => /.+/}
+  get 'backend/offsite/:id' => 'backend#offsite', :as => 'backend_offsite', constraints: { id: /.+/ }
 
   get 'catalog/hathi_holdings/:id' => 'catalog#hathi_holdings', :as => 'hathi_holdings'
 
@@ -196,12 +192,11 @@ Rails.application.routes.draw do
   # (due to Blacklight's mechanism of preserving search context.)
   post 'catalog/:id/librarian_view_track', via: [:post], to: 'catalog#librarian_view_track'
 
-
   # Call-Number Browse, based on Stanford Searchworks
   resources :browse, only: :index
   # Use distinct URLs for xhr v.s. html, to avoid cached-page problems, to customize html
-  get 'browse/shelfkey_mini/:shelfkey(/:bib)', to: 'browse#shelfkey_mini', as: :browse_shelfkey_mini, :constraints => { :shelfkey => /[^\/]*/, :bib => /[^\/]*/ }
-  get 'browse/shelfkey_full/:shelfkey(/:bib)', to: 'browse#shelfkey_full', as: :browse_shelfkey_full, :constraints => { :shelfkey => /[^\/]*/, :bib => /[^\/]*/ }
+  get 'browse/shelfkey_mini/:shelfkey(/:bib)', to: 'browse#shelfkey_mini', as: :browse_shelfkey_mini, constraints: { shelfkey: /[^\/]*/, bib: /[^\/]*/ }
+  get 'browse/shelfkey_full/:shelfkey(/:bib)', to: 'browse#shelfkey_full', as: :browse_shelfkey_full, constraints: { shelfkey: /[^\/]*/, bib: /[^\/]*/ }
 
   # Rails 4 - move this to bottom, so it doesn't override other
   # routes that also go to 'catalog#index'
@@ -230,7 +225,7 @@ Rails.application.routes.draw do
       get 'hits'
     end
   end
-  
+
   resources :logs do
     collection do
       # bounce the user to another URL, and log it
@@ -239,8 +234,4 @@ Rails.application.routes.draw do
       get 'sets'
     end
   end
-  
-
 end
-
-

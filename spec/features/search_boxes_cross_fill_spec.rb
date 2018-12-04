@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'The home page' do
-
   # This behavior was eliminated when we switched to static
   # links between datasources.  "q" values are caried between
   # data-sources, but not text that's been entered in the gui

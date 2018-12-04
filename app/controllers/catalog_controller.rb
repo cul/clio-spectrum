@@ -85,21 +85,22 @@ class CatalogController < ApplicationController
     # reach into search config to find possible source-specific service alert warning
     search_config = DATASOURCES_CONFIG['datasources'][@source]
     warning = search_config ? search_config['warning'] : nil
-# raise
+    # raise
     respond_to do |format|
-      format.html do render locals: { warning: warning, response: @response },
-                            layout: 'quicksearch' end
+      format.html do
+        render locals: { warning: warning, response: @response },
+               layout: 'quicksearch'
+      end
       format.rss  { render layout: false }
       format.atom { render layout: false }
     end
   end
 
-
   # updates the search counter (allows the show view to paginate)
   def track
     # session[:search] = {} unless session[:search].is_a?(Hash)
     # session[:search]['counter'] = params[:counter]
-    # 
+    #
     # # Blacklight wants this....
     # # session[:search]['per_page'] = params[:per_page]
     # # But our per-page/rows value is persisted here:
@@ -110,27 +111,26 @@ class CatalogController < ApplicationController
     search_session['per_page'] = get_browser_option('catalog_per_page')
 
     path = case active_source
-    when 'databases'
-       databases_show_path
-    when 'journals'
-       journals_show_path
-    when 'archives'
-       archives_show_path
-    when 'new_arrivals'
-       new_arrivals_show_path
-    else
-      { action: 'show' }
+           when 'databases'
+             databases_show_path
+           when 'journals'
+             journals_show_path
+           when 'archives'
+             archives_show_path
+           when 'new_arrivals'
+             new_arrivals_show_path
+           else
+             { action: 'show' }
     end
 
-    # If there's a 'redirect' param (the original 'href' of the clicked link), 
+    # If there's a 'redirect' param (the original 'href' of the clicked link),
     # respect that instead.
-    if params[:redirect] and (params[:redirect].starts_with?("/") or params[:redirect] =~ URI::regexp)
+    if params[:redirect] && (params[:redirect].starts_with?('/') || params[:redirect] =~ URI.regexp)
       path = URI.parse(params[:redirect]).path
     end
 
-    redirect_to path, :status => 303
+    redirect_to path, status: 303
   end
-
 
   def librarian_view_track
     session[:search]['counter'] = params[:counter]
@@ -165,11 +165,11 @@ class CatalogController < ApplicationController
       # Documents may look different depending on who you are.  Pass in current_user.
       @collection = Voyager::Holdings::Collection.new(@document, circ_status, scsb_status, current_user)
 
-      @holdings = @collection.to_holdings()
+      @holdings = @collection.to_holdings
 
-   else
-     # Pegasus (Law) documents have no MARC holdings.
-     # Everything else is supposed to.
+    else
+      # Pegasus (Law) documents have no MARC holdings.
+      # Everything else is supposed to.
       unless @document.in_pegasus?
         Rails.logger.error "Document #{@document.id} has no MARC holdings!"
       end
@@ -184,7 +184,6 @@ class CatalogController < ApplicationController
     active_item_display = Array(@document['item_display']).first
     session[:browse]['call_number'] = get_call_number(active_item_display)
     session[:browse]['shelfkey'] = get_shelfkey(active_item_display)
-
 
     # this does not execute a query - it only organizes query parameters
     # conveniently for use by the view in echoing back to the user.
@@ -212,7 +211,7 @@ class CatalogController < ApplicationController
 
       # Add all dynamically added (such as by document extensions)
       # export formats.
-      @document.export_formats.each_key do | format_name |
+      @document.export_formats.each_key do |format_name|
         # It's important that the argument to send be a symbol;
         # if it's a string, it makes Rails unhappy for unclear reasons.
         format.send(format_name.to_sym) do
@@ -220,7 +219,6 @@ class CatalogController < ApplicationController
                  layout: false
         end
       end
-
     end
   end
 
@@ -231,12 +229,11 @@ class CatalogController < ApplicationController
 
     # For .xml, .endnote, etc., don't return a webpage
     if params['format']
-      render body: nil, status: :not_found 
+      render body: nil, status: :not_found
     else
-      render 'spectrum/search' , status: :not_found
+      render 'spectrum/search', status: :not_found
     end
   end
-
 
   # Override Blacklight::Catalog.facet()
   #   [ Why do we need to ??? ]
@@ -266,11 +263,9 @@ class CatalogController < ApplicationController
       format.json { render json: render_facet_list_as_json }
 
       # Draw the partial for the "more" facet modal window:
-      format.js { render :layout => false }
+      format.js { render layout: false }
     end
   end
-
-
 
   def preprocess_search_params
     # clean up any search params if necessary, possibly only for specific search fields.
@@ -289,30 +284,29 @@ class CatalogController < ApplicationController
       if params['search_field'] == 'title_starts_with'
         unless q =~ /^".*"$/
           # q.gsub!(/"/, '\"')    # escape any double-quotes instead?
-          q.gsub!(/"/, '')    # strip any double-quotes
-          q = "\"#{ q }\""
+          q.delete!('"') # strip any double-quotes
+          q = "\"#{q}\""
         end
       end
-      q.gsub!(/(\w+)-(\w+\*)/, '\1 \2')     # remove hyphen from wildcarded phrase
+      q.gsub!(/(\w+)-(\w+\*)/, '\1 \2') # remove hyphen from wildcarded phrase
       params['q'] = q
     end
 
     # 2) cleanup for advanced searches
-    if params['adv'] && params['adv'].kind_of?(Hash)
-      params['adv'].each do |rank, advanced_param|
-        if val = advanced_param['value']
-          if advanced_param['field'] == 'title_starts_with'
-            unless val =~ /^".*"$/
-              # advanced_param['value'].gsub!(/"/, '\"')    # escape any double-quotes instead?
-              val.gsub!(/"/, '')    # strip any double-quotes
-              val = "\"#{ val }\""
-           end
-          end
-          val.gsub!(/\?\s+/, ' ')  # remove trailing question-marks
-          val.gsub!(/\?$/, '')  # remove trailing question-marks (end of line)
-          val.gsub!(/(\w+)-(\w+\*)/, '\1 \2')     # remove hyphen from wildcarded phrase
-          advanced_param['value'] = val
+    if params['adv'] && params['adv'].is_a?(Hash)
+      params['adv'].each do |_rank, advanced_param|
+        next unless val = advanced_param['value']
+        if advanced_param['field'] == 'title_starts_with'
+          unless val =~ /^".*"$/
+            # advanced_param['value'].gsub!(/"/, '\"')    # escape any double-quotes instead?
+            val.delete!('"') # strip any double-quotes
+            val = "\"#{val}\""
+         end
         end
+        val.gsub!(/\?\s+/, ' ') # remove trailing question-marks
+        val.gsub!(/\?$/, '') # remove trailing question-marks (end of line)
+        val.gsub!(/(\w+)-(\w+\*)/, '\1 \2') # remove hyphen from wildcarded phrase
+        advanced_param['value'] = val
       end
     end
   end
@@ -322,19 +316,18 @@ class CatalogController < ApplicationController
     @response, @document = fetch params[:id]
 
     # Staff want to see Collection Group Designation in the librarian view
-    @barcode2cgd = Hash.new()
+    @barcode2cgd = {}
     if @document.has_offsite_holdings?
       # Fetch full array of status hashes
       scsb_status = BackendController.scsb_status(params[:id])
-      scsb_status.each { |item|
-        @barcode2cgd[ item['itemBarcode'] ] = item['collectionGroupDesignation']
-      }
+      scsb_status.each do |item|
+        @barcode2cgd[item['itemBarcode']] = item['collectionGroupDesignation']
+      end
       # Simple hash to map barcode to "Open"/"Shared"/"Closed"
       # {
       #   "CU18799175"  =>  "Available"
       # }
     end
-
 
     respond_to do |format|
       format.html do
@@ -363,20 +356,18 @@ class CatalogController < ApplicationController
   # Override BL6 Blacklight::Catalog concern
   def validate_sms_params
     # raise
-    case
-    when params[:to].blank?
+    if params[:to].blank?
       flash[:error] = I18n.t('blacklight.sms.errors.to.blank')
-    when params[:carrier].blank?
+    elsif params[:carrier].blank?
       flash[:error] = I18n.t('blacklight.sms.errors.carrier.blank')
-    when params[:to].gsub(/[^\d]/, '').length != 10
-      flash[:error] = I18n.t('blacklight.sms.errors.to.invalid', :to => params[:to])
-    when !sms_mappings.values.include?(params[:carrier])
+    elsif params[:to].gsub(/[^\d]/, '').length != 10
+      flash[:error] = I18n.t('blacklight.sms.errors.to.invalid', to: params[:to])
+    elsif !sms_mappings.values.include?(params[:carrier])
       flash[:error] = I18n.t('blacklight.sms.errors.carrier.invalid')
-    when current_user.blank? && !@user_characteristics[:on_campus] && !verify_recaptcha
-      flash[:error] = "reCAPTCHA verify error"
+    elsif current_user.blank? && !@user_characteristics[:on_campus] && !verify_recaptcha
+      flash[:error] = 'reCAPTCHA verify error'
     end
 
     flash[:error].blank?
   end
-
 end

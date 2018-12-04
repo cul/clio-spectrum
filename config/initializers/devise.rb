@@ -2,7 +2,6 @@
 # Many of these configuration options can be set straight in your model.
 
 Devise.setup do |config|
-
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
@@ -233,7 +232,6 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = "/my_engine/users/auth"
 
-
   # CAS is ready.
   # Initializer configuration per:
   #     https://github.com/nbudin/devise_cas_authenticatable
@@ -243,7 +241,7 @@ Devise.setup do |config|
   config.cas_validate_url = APP_CONFIG['cas_validate_url']
 
   # And, we don't use the default 'username'
-  config.cas_username_column = "login"
+  config.cas_username_column = 'login'
 
   # More options from devise_cas_authenticatable...
 
@@ -287,12 +285,7 @@ Devise.setup do |config|
   # config.cas_client_config_options = {
   #     logger: Rails.logger
   # }
-
-
-
 end
-
-
 
 # http://stackoverflow.com/questions/6547087/update-attributes-after-sign-in-devise
 
@@ -315,7 +308,3 @@ end
 #   # This is getting called.
 #   raise
 # end
-
-
-
-

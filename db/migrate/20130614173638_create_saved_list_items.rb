@@ -12,6 +12,5 @@ class CreateSavedListItems < ActiveRecord::Migration[5.1]
     # add_index :saved_list_items, [:saved_list_id, :item_key], unique: true
 
     add_index :saved_list_items, [:saved_list_id, :item_key], unique: true, length: { item_key: 200 }
-
   end
 end

@@ -9,17 +9,14 @@ module ApplicationHelper
     @alternating_line[id] = @alternating_line[id] == 'even' ? 'odd' : 'even'
   end
 
-
   def determine_search_params
     # raise
     if params['action'] == 'show'
-      return session['save_search']  if session['save_search']
+      return session['save_search'] if session['save_search']
       return session['search'] || {}
     end
-    if params['q']
-      session['save_search'] = params
-    end
-    return params
+    session['save_search'] = params if params['q']
+    params
   end
 
   # Copy functionality of BlackLight's sidebar_items,
@@ -28,5 +25,4 @@ module ApplicationHelper
   def clio_sidebar_items
     @clio_sidebar_items ||= []
   end
-
 end
