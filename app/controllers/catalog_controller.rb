@@ -309,6 +309,28 @@ class CatalogController < ApplicationController
         advanced_param['value'] = val
       end
     end
+    
+    # Some browsers interact with facet input elements oddly, 
+    # injecting positional keys:  'alpha' becomes ['0' => 'alpha']
+    # We need to undo this.
+    if params['f']
+      clean_f = {}
+      # loop over each facet key (author, language, etc.)
+      params['f'].each_pair do |facet_key, facet_value|
+        # the normal case - pass-through value as-is
+        if facet_value.is_a?(Array)
+          clean_f[facet_key] = facet_value
+        elsif facet_value.class == ActionController::Parameters &&         
+              facet_value.keys.count == 1 &&
+              facet_value.values.count == 1 &&
+              facet_value.keys.first.match(/^\d$/)
+          # Found a postional key!  Use the value of the value
+          clean_f[facet_key] = facet_value.values
+        end
+      end
+      params['f'] = clean_f
+    end
+
   end
 
   # Override Blacklight's definition, to assign custom layout
