@@ -26,14 +26,14 @@ module Voyager
         # }
 
         @item_count = 0
-        item_id_list = []
+        # item_id_list = []
         holdings_marc.each_by_tag('876') do |t876|
           @item_count += 1
 
           item_id = t876['a']
           barcode = t876['p']
 
-          item_id_list << item_id
+          # item_id_list << item_id
 
           # If Voyager holdings status doesn't yet have an entry for this item id,
           # create it.  (This shouldn't happen.)
@@ -77,11 +77,19 @@ module Voyager
           end
         end
 
-        # Sometimes circ_status (mfhd_status) includes status for
-        # items not in the MARC (e.g., Withdrawn items).
-        # Remove any unwanted status details
-        mfhd_status.each do |item_id, _item|
-          mfhd_status.delete(item_id) unless item_id_list.include?(item_id)
+        # items with particular statuses aren't supposed to be in the OPAC,
+        # and should be suppressed by both extract and clio_backend.
+        # But if they pass through, delete them here.
+        bad_statuses = [15, 16, 17, 19, 20, 21]
+        # bad_statuses = [22] # for testing.  22 == In Process
+        # Old logic - but this hid our non-MARC in-process circ statuses, 
+        # which we want, to turn on the "in process" message.
+        # # Sometimes circ_status (mfhd_status) includes status for
+        # # items not in the MARC (e.g., Withdrawn items).
+        # # Remove any unwanted status details
+        mfhd_status.each do |item_id, item_status|
+          # mfhd_status.delete(item_id) unless item_id_list.include?(item_id)
+          mfhd_status.delete(item_id) if bad_statuses.include?(item_status['statusCode'])
         end
 
         @temp_locations = parse_for_temp_locations(holdings_marc) # array
