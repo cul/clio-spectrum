@@ -565,9 +565,11 @@ module Voyager
 
         # NEXT-1470 - Suppress BD and ILL links for Partner ReCAP items,
         # but leave enabled for CUL offsite.
-        if %w(scsbnypl scsbpul).include? location_code
-          services.delete('borrow_direct')
-          services.delete('ill')
+        if ['scsbnypl', 'scsbpul'].include? location_code
+          if Rails.env == 'clio_prod'
+            services.delete('borrow_direct')
+            services.delete('ill')
+          end
         end
 
         # 8/2018 - not being actively tested, turn this off
