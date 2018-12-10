@@ -423,6 +423,8 @@ module HoldingsHelper
   end
 
   def borrow_direct_link
+    return APP_CONFIG['service_links']['borrow_direct'] if APP_CONFIG['service_links'] && APP_CONFIG['service_links']['borrow_direct']
+    
     if Rails.env == 'clio_prod'
       'http://www.columbia.edu/cgi-bin/cul/borrowdirect?'
     else
