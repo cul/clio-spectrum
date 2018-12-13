@@ -253,7 +253,8 @@ namespace :bibliographic do
             # output, status = Open3.capture2e("xmllint --noout #{filename}")
             command = "xmlwf -r #{filename}"
             output, status = Open3.capture2e(command)
-            if status.nonzero?
+            # if status.nonzero?
+            if ! status.success?
               Rails.logger.error('XML file failed well-formedness check -- aborting!')
               Rails.logger.error("command: #{command}")
               Rails.logger.error("output: #{output}")
