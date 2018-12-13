@@ -270,16 +270,16 @@ class CatalogController < ApplicationController
   def preprocess_search_params
     # clean up any search params if necessary, possibly only for specific search fields.
 
-    # First Case:  left-anchored-title must be searched as quoted phrase.
+    # left-anchored-title must be searched as quoted phrase.
     # strip any quotes the user put in, wrap in our own double-quotes
 
-    # Second Case:  remove question marks at ends of words/phrases
+    # remove question marks at ends of words/phrases
     # (searches like "what is calculus?" don't expect Solr wildcard treatment )
 
-    # Third Case:  Remove hyphen from wildcarded phrase (foo-bar*  =>  foo bar*)
+    # Remove hyphen from wildcarded phrase (foo-bar*  =>  foo bar*)
     # NEXT-421 - quicksearch, catalog, and databases search: african-american* fails
 
-    # 1) cleanup for basic searches
+    # cleanup for basic searches
     if q = params['q']
       if params['search_field'] == 'title_starts_with'
         unless q =~ /^".*"$/
@@ -292,7 +292,7 @@ class CatalogController < ApplicationController
       params['q'] = q
     end
 
-    # 2) cleanup for advanced searches
+    # cleanup for advanced searches
     if params['adv'] && params['adv'].is_a?(Hash)
       params['adv'].each do |_rank, advanced_param|
         next unless val = advanced_param['value']
@@ -329,6 +329,17 @@ class CatalogController < ApplicationController
         end
       end
       params['f'] = clean_f
+    end
+    
+    # If user mixes up min and max years for pub-date search, flip them
+    if params[:range] && params[:range][:pub_date_sort]
+      if (range_begin = params[:range][:pub_date_sort][:begin]) &&
+         (range_end   = params[:range][:pub_date_sort][:end])
+         if range_begin.to_i > range_end.to_i
+           params[:range][:pub_date_sort][:begin] = range_end
+           params[:range][:pub_date_sort][:end]   = range_begin
+         end
+      end
     end
 
   end
