@@ -41,4 +41,4 @@
     %li
       %a.dropdown-link{:href => "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0031", :target => "_blank"} Ask a Librarian
     %li
-      %a.dropdown-link{href: '#', class: 'feedback-popup'} Suggestions &amp; Feedback
+      %a.dropdown-link{href: '#', class: 'feedback-popup', data: {mobile: "#{browser.device.mobile?}" }} Suggestions &amp; Feedback

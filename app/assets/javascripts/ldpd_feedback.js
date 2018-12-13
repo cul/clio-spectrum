@@ -1,7 +1,12 @@
 $(document).ready(function() {
 
 
-    $('.feedback-popup').bind('click', function(){
+    $('.feedback-popup').bind('click', function(ev){
+        if ($(this).data('mobile') == true) {
+          // alert("Mobile Detected");
+          feedback_url = 'https://feedback.cul.columbia.edu/feedback_submission/clio?submitted_from_page=' + window.location.href
+          window.open(feedback_url);
+        }
         if(!LWEB.feedbackDialogIsSetup) {
           LWEB.setupFeedbackDialog();
           LWEB.feedbackDialogIsSetup = true;
