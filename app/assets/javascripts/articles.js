@@ -13,8 +13,8 @@ $(document).ready(function() {
     window.location.href = $(this).attr('href');
   });
 
-
-  $( ".validate-date-format" ).change(function() {
+  // hardcode with ids from catalog pub-date facet
+  $( ".validate-date-format, #range_pub_date_sort_begin, #range_pub_date_sort_end" ).change(function() {
     raw = $(this).val()
     if (raw.length == 0) {
       $(this).removeClass('invalid-input');
@@ -23,6 +23,13 @@ $(document).ready(function() {
     // MM/YYYY is ok, although it won't pass the JS test below
     if ( raw.match( /^\d{1,2}\/\d\d\d\d$/ ) ) {
       $(this).removeClass('invalid-input');
+      return;
+    }
+    
+    // The JS date test will accept any integer as a year.
+    // We want to reject years of 5-digits or more.
+    if ( raw.match( /^\d{5,}$/ ) ) {
+      $(this).addClass('invalid-input');
       return;
     }
 
