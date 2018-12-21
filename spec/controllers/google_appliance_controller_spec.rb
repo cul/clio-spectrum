@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Spectrum::SearchEngines::GoogleAppliance, :vcr do
-
   it "should raise RuntimeError if no 'q' param passed" do
     expect do
       Spectrum::SearchEngines::GoogleAppliance.new
@@ -24,5 +23,4 @@ describe Spectrum::SearchEngines::GoogleAppliance, :vcr do
     # Restore our real GA URL so that subsequent tests work
     APP_CONFIG['google_appliance_url'] = saved_ga_url
   end
-
 end

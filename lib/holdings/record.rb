@@ -4,14 +4,13 @@ module Voyager
       attr_reader :holding_id, :location_name, :call_number,
                   :summary_holdings, :public_notes,
                   :shelving_title, :supplements, :indexes,
-                  :reproduction_note, :urls, :item_count, 
+                  :reproduction_note, :urls, :item_count,
                   :temp_locations, :use_restrictions, :bound_withs,
                   :item_status, :orders, :current_issues, :services,
                   :bibid, :donor_info, :location_note, :temp_loc_flag
 
-
       # Documents may look different depending on who you are.  Pass in current_user.
-      def initialize(mfhd_id, marc, mfhd_status, scsb_status, current_user=nil)
+      def initialize(mfhd_id, marc, mfhd_status, scsb_status, current_user = nil)
         @current_user = current_user
         mfhd_status ||= {}
 
@@ -36,9 +35,9 @@ module Voyager
         @location_name = tag852['a'] || tag852['b']
 
         @location_code = tag852['b']
-        
+
         # ReCAP partner records don't have an 852$a
-        if @location_name.match /^scsb/i
+        if @location_name =~ /^scsb/i
           @location_name = TrajectUtility.recap_location_code_to_label(@location_name)
         end
 
@@ -47,31 +46,31 @@ module Voyager
         @public_notes     = parse_public_notes(tag890list)      # array
         @shelving_title   = parse_shelving_title(tag852)        # string
 
-        holdings_tags = ['867', '868',
-                         '876',
-                         '891', '892', '893', '894', '895']
+        holdings_tags = %w(867 868
+                           876
+                           891 892 893 894 895)
 
-        holdings_marc = MARC::Record.new()
+        holdings_marc = MARC::Record.new
         marc.each_by_tag(holdings_tags) do |tag|
           holdings_marc.append(tag) if tag['0'] == mfhd_id
         end
 
         # 867$a
-        @supplements = parse_supplements(holdings_marc)    # array
-        # 868$a	
-        @indexes = parse_indexes(holdings_marc)    # array
+        @supplements = parse_supplements(holdings_marc) # array
+        # 868$a
+        @indexes = parse_indexes(holdings_marc) # array
         # 892
-        @reproduction_note = parse_reproduction_note(holdings_marc)    #string
+        @reproduction_note = parse_reproduction_note(holdings_marc) # string
         # 893
-        @urls = parse_urls(holdings_marc)    # array of hashes
+        @urls = parse_urls(holdings_marc) # array of hashes
         # 891
-        @donor_info = parse_donor_info(holdings_marc)  # array of hashes
+        @donor_info = parse_donor_info(holdings_marc) # array of hashes
         # 894$a
         @orders = parse_orders(holdings_marc)
         # 895$a
         @current_issues = parse_current_issues(holdings_marc)
 
-        @location_note = assign_location_note(@location_code)  #string
+        @location_note = assign_location_note(@location_code) # string
 
         # information from item level records
         item = Item.new(mfhd_id, holdings_marc, mfhd_status, scsb_status)
@@ -90,7 +89,7 @@ module Voyager
         unavailable_name = unavailable_locations.select { |loc| @location_name.match(/^#{loc}/) }.first
         if unavailable_name.present?
           # Hardcode the full item status data-structure
-          @item_status = {status: "not_available", messages: [{status_code: "14n", short_message: "Unavailable"}]}
+          @item_status = { status: 'not_available', messages: [{ status_code: '14n', short_message: 'Unavailable' }] }
           all_notes = APP_CONFIG['unavailable_notes'] || []
           note = all_notes[unavailable_name]
           @location_note = note if note.present?
@@ -108,9 +107,9 @@ module Voyager
               # @item_status = {status: "not_available", messages: [{status_code: "98n", short_message: 'Temporarily unavailable. Try ILL'}]}
             else
               # Dry items should continue to direct patrons to staff paging
-              @item_status[:messages].each { |m| 
-                m[:short_message] = 'Please contact Starr East Asian Library staff for assistance in paging this item.' 
-              }
+              @item_status[:messages].each do |m|
+                m[:short_message] = 'Please contact Starr East Asian Library staff for assistance in paging this item.'
+              end
             end
           end
         end
@@ -118,9 +117,9 @@ module Voyager
         # flag for services processing (doc_delivery assignment)
         # NEXT-1234: revised logic
         @temp_loc_flag = 'N'
-        if @temp_locations.size > 0
+        unless @temp_locations.empty?
 
-          # if all items have temp locations we can't determine doc delivery status (no location codes available in item information) 
+          # if all items have temp locations we can't determine doc delivery status (no location codes available in item information)
           @temp_loc_flag = 'Y' if @temp_locations.length == @item_count
           # special case for single temp location
           if @item_count == 1
@@ -140,11 +139,10 @@ module Voyager
         end
 
         # set item status for online items
-        if @location_name.match(/^Online/)
+        if @location_name =~ /^Online/
           @item_status[:status] = 'online'
           @item_status[:messages].clear
         end
-
 
         # get format codes from leader
         fmt = marc.leader[6..7]
@@ -153,32 +151,31 @@ module Voyager
         @services = determine_services(@location_name, @location_code, @temp_loc_flag, @call_number, @item_status, @orders, @bibid, fmt)
       end
 
-
       # Collect data from all variables into a hash
       def to_hash
         {
-          :bibid => @bibid,
-          :holding_id => @holding_id,
-          :location_name => @location_name,
-          :location_code => @location_code,
-          :location_note => @location_note,
-          :call_number => @call_number,
-          :shelving_title => @shelving_title,
-          :summary_holdings => @summary_holdings,
-          :supplements => @supplements,
-          :indexes => @indexes,
-          :public_notes => @public_notes,
-          :reproduction_note => @reproduction_note,
-          :urls => @urls,
-          :donor_info => @donor_info,
-          :item_count => @item_count,
-          :temp_locations => @temp_locations,
-          :use_restrictions => @use_restrictions,
-          :bound_withs => @bound_withs,
-          :item_status => @item_status,
-          :services => @services,
-          :current_issues => @current_issues,
-          :orders => @orders
+          bibid: @bibid,
+          holding_id: @holding_id,
+          location_name: @location_name,
+          location_code: @location_code,
+          location_note: @location_note,
+          call_number: @call_number,
+          shelving_title: @shelving_title,
+          summary_holdings: @summary_holdings,
+          supplements: @supplements,
+          indexes: @indexes,
+          public_notes: @public_notes,
+          reproduction_note: @reproduction_note,
+          urls: @urls,
+          donor_info: @donor_info,
+          item_count: @item_count,
+          temp_locations: @temp_locations,
+          use_restrictions: @use_restrictions,
+          bound_withs: @bound_withs,
+          item_status: @item_status,
+          services: @services,
+          current_issues: @current_issues,
+          orders: @orders
         }
       end
 
@@ -192,46 +189,44 @@ module Voyager
       #   - Call number string
       #
       def parse_call_number(tag852)
-        g = tag852.subfields.collect {|s| s.value if s.code == 'g'}
-        h = tag852.subfields.collect {|s| s.value if s.code == 'h'}
-        i = tag852.subfields.collect {|s| s.value if s.code == 'i'}
-        k = tag852.subfields.collect {|s| s.value if s.code == 'k'}
-        m = tag852.subfields.collect {|s| s.value if s.code == 'm'}
+        g = tag852.subfields.collect { |s| s.value if s.code == 'g' }
+        h = tag852.subfields.collect { |s| s.value if s.code == 'h' }
+        i = tag852.subfields.collect { |s| s.value if s.code == 'i' }
+        k = tag852.subfields.collect { |s| s.value if s.code == 'k' }
+        m = tag852.subfields.collect { |s| s.value if s.code == 'm' }
 
         # subfields need to be output in this order even though they may not appear in this order
-        call_number = [k,g,h,i,m].flatten.join(' ').strip
+        call_number = [k, g, h, i, m].flatten.join(' ').strip
 
         # NEXT-1416 - Suppress "no call number" message
-        return '' if call_number.match /no.*call.*num/i
+        return '' if call_number =~ /no.*call.*num/i
 
-        return call_number
+        call_number
       end
 
       # Extract summary holdings from 866 field
       #
       # * *Args*    :
-      #   - +tag866list+ -> Array of 866 field nodes, 
+      #   - +tag866list+ -> Array of 866 field nodes,
       # * *Returns* :
       #   - Array of summary holdings statements
       #   - Empty array if there are no summary holdings
       #
       def parse_summary_holdings(tag866list)
-        return [] unless tag866list && tag866list.size > 0
+        return [] unless tag866list && !tag866list.empty?
 
-        summary = tag866list.collect { |tag866|
-          tag866.subfields.select {|s| s.code == 'a'  && ! s.value.empty?}.collect{|s| s.value }
-        }.flatten
+        summary = tag866list.collect do |tag866|
+          tag866.subfields.select { |s| s.code == 'a'  && !s.value.empty? }.collect(&:value)
+        end.flatten
       end
-
 
       def parse_public_notes(tag890list)
-        return [] unless tag890list && tag890list.size > 0
+        return [] unless tag890list && !tag890list.empty?
 
-        public_notes = tag890list.collect { |tag890|
-          tag890.subfields.select {|s| s.code == 'a'  && ! s.value.empty?}.collect{|s| s.value }
-        }.flatten
+        public_notes = tag890list.collect do |tag890|
+          tag890.subfields.select { |s| s.code == 'a'  && !s.value.empty? }.collect(&:value)
+        end.flatten
       end
-
 
       # # Extract public notes from 852 field, subfield z
       # #
@@ -243,15 +238,15 @@ module Voyager
       # #
       # def parse_notes_852(tag852)
       #   return [] unless tag852 && tag852['z']
-      # 
+      #
       #   notes = tag852.subfields.collect {|s| s.value if s.code == 'z'}
       #   notes.compact.collect { |subfield| subfield.strip }
-      # 
+      #
       #   # subz = tag852.css("slim|subfield[@code='z']")
       #   # # there can be multiple z's
       #   # subz.collect { |subfield| subfield.content }
       # end
-      # 
+      #
       # # Extract public notes from 866 fields, subfield z
       # #
       # # * *Args*    :
@@ -262,24 +257,24 @@ module Voyager
       # #
       # def parse_notes_866(tag866list)
       #   return [] unless tag866list && tag866list.size > 0
-      # 
+      #
       #   summary = tag866list.collect { |tag866|
       #     tag866.subfields.select {|s| s.code == 'z'  && ! s.value.empty?}.collect{|s| s.value }
       #   }.flatten
-      # 
+      #
       #   # return [] unless tag866 && tag866['z']
-      #   # 
+      #   #
       #   # notes = tag866.subfields.collect {|s| s.value if s.code == 'z'}
       #   # notes.compact.collect { |subfield| subfield.strip }
-      # 
+      #
       #   # return [] unless tag866
-      #   # 
+      #   #
       #   # notes = tag866.collect do |field|
       #   #   field.at_css("slim|subfield[@code='z']")
       #   # end
-      #   # 
+      #   #
       #   # notes.compact.collect { |subfield| subfield.content }
-      # 
+      #
       # end
 
       # Extract shelving title
@@ -292,7 +287,7 @@ module Voyager
       def parse_shelving_title(tag852)
         return '' unless tag852 && tag852['l']
 
-        return tag852['l'].strip
+        tag852['l'].strip
       end
 
       # Extract supplement holdings from field 867
@@ -302,7 +297,7 @@ module Voyager
       # * *Returns* :
       #   - Array of supplement holdings statements
       #   - Empty array if there are no summary holdings
-      #      
+      #
       def parse_supplements(marc)
         tag867 = marc['867']
         return [] unless tag867
@@ -310,7 +305,7 @@ module Voyager
         supplements = []
 
         marc.each_by_tag('867') do |t867|
-          supplements.push( t867.subfields.collect {|s| s.value if ['a', 'z'].include? s.code}.join(' ').strip )
+          supplements.push(t867.subfields.collect { |s| s.value if %w(a z).include? s.code }.join(' ').strip)
         end
 
         supplements
@@ -323,7 +318,7 @@ module Voyager
       # * *Returns* :
       #   - Array of index holdings statements
       #   - Empty array if there are no summary holdings
-      #      
+      #
       def parse_indexes(marc)
         tag868 = marc['868']
         return [] unless tag868
@@ -331,7 +326,7 @@ module Voyager
         indexes = []
 
         marc.each_by_tag('868') do |t868|
-          indexes.push( t868.subfields.collect {|s| s.value if s.code == 'a'}.join(' ').strip )
+          indexes.push(t868.subfields.collect { |s| s.value if s.code == 'a' }.join(' ').strip)
         end
 
         indexes
@@ -343,13 +338,13 @@ module Voyager
       #   - +marc+ -> mfhd:marcRecord node
       # * *Returns* :
       #   - Reproduction note string
-      #      
+      #
       def parse_reproduction_note(marc)
         tag892 = marc['892']
         return '' unless tag892
 
         # collect subfields in input order; only ouput certain subfields
-        tag892.subfields.collect {|s| s.value if 'abcdefmn3'.include? s.code}.join(' ').strip
+        tag892.subfields.collect { |s| s.value if 'abcdefmn3'.include? s.code }.join(' ').strip
       end
 
       # Extract URLs from 856 fields in the marc holdings record
@@ -376,13 +371,12 @@ module Voyager
           subz = t893['z']
           sub3 = t893['3']
 
-          if subu
-            url = subu
-            # link_text = [sub3, subz].compact.collect { |subfield| subfield.value }.join(' ')
-            link_text = [sub3, subz].compact.join(' ')
-            link_text = url if link_text.empty?
-            urls << {ind1: ind1, ind2: ind2, url: url, link_text: link_text}
-          end
+          next unless subu
+          url = subu
+          # link_text = [sub3, subz].compact.collect { |subfield| subfield.value }.join(' ')
+          link_text = [sub3, subz].compact.join(' ')
+          link_text = url if link_text.empty?
+          urls << { ind1: ind1, ind2: ind2, url: url, link_text: link_text }
         end
 
         urls
@@ -396,7 +390,7 @@ module Voyager
       #   - Array of hashes for donor information
       #     { :message => message, :code => code }
       #   - Empty array if there are no donor notes
-      #      
+      #
       def parse_donor_info(marc)
         tag891 = marc['891']
         return [] unless tag891
@@ -407,14 +401,14 @@ module Voyager
 
           # collect subfields in input order; only ouput certain subfields
           # do not include subfield c and 3 in brief message (use with gift icon)
-          message = t891.subfields.collect {|s| s.value if 'acd3'.include? s.code}.compact.join(' ').strip
-          message_brief = t891.subfields.collect {|s| s.value if 'ad'.include? s.code}.compact.join(' ').strip
+          message = t891.subfields.collect { |s| s.value if 'acd3'.include? s.code }.compact.join(' ').strip
+          message_brief = t891.subfields.collect { |s| s.value if 'ad'.include? s.code }.compact.join(' ').strip
           sube = t891['e']
           code = ''
           code = sube.strip if sube
           # get the name coded after 'plate:'
           name = ''
-          name = $1.strip if code.downcase.match(/^plate:(.+)/)
+          name = Regexp.last_match(1).strip if code.downcase =~ /^plate:(.+)/
           # use name to see if there is a url to a donor page or a special text
           url = ''
           unless name.empty?
@@ -451,7 +445,6 @@ module Voyager
 
         orders
       end
-
 
       def assign_location_note(location_code)
         location_note = ''
@@ -493,15 +486,14 @@ module Voyager
 
         # LIBSYS-1365 - Geology Library closure
         unless APP_CONFIG['geology_not_yet'].present?
-          if ['glg','glg,fol'].include?(location_code)
+          if ['glg', 'glg,fol'].include?(location_code)
             location_note = "Geology collection: to request this item <em><a href='https://library.columbia.edu/find/request/geology-collection-paging/form.html'>click here</a></em>"
             return location_note
           end
         end
-        
+
         location_note
       end
-
 
       def determine_services(location_name, location_code, temp_loc_flag, call_number, item_status, orders, bibid, fmt)
         services = []
@@ -510,22 +502,22 @@ module Voyager
         # special collections request service [only service available for items from these locations]
         if ['rbx', 'off,rbx', 'rbms', 'off,rbms', 'rbi', 'uacl', 'off,uacl',
             'clm', 'dic', 'dic4off', 'gax', 'oral', 'rbx4off', 'off,dic',
-            'off,oral' ].include?(location_code)
+            'off,oral'].include?(location_code)
           return ['spec_coll']
         end
 
-        # Orders such as "Pre-Order", "On-Order", etc.  
+        # Orders such as "Pre-Order", "On-Order", etc.
         # List of available services per order status hardcoded into yml config file.
         if orders.present?
           orders.each do |order|
             # order_config = ORDER_STATUS_CODES[order[:status_code]]
             # We no longer have the status as lookup key.
             # Do string match againt message found in MARC field to find config.
-            order_config = ORDER_STATUS_CODES.values.select { |status_config|
-              status_config['short_message'][0,5] == order[0,5]
-            }.first
+            order_config = ORDER_STATUS_CODES.values.select do |status_config|
+              status_config['short_message'][0, 5] == order[0, 5]
+            end.first
 
-            raise "Status code not found in config/order_status_codes.yml" unless order_config
+            raise 'Status code not found in config/order_status_codes.yml' unless order_config
             services << order_config['services'] unless order_config['services'].nil?
           end
           return services.flatten.uniq
@@ -539,17 +531,19 @@ module Voyager
         case item_status[:status]
         when 'online'
         when 'none'
-          services << 'in_process' if call_number.match(/in process/i)
+          services << 'in_process' if call_number =~ /in process/i
         when 'available'
-          services << process_for_services(location_name,location_code,temp_loc_flag,bibid,messages)
+          services << process_for_services(location_name, location_code, temp_loc_flag, bibid, messages)
         when 'some_available'
-          services << process_for_services(location_name,location_code,temp_loc_flag,bibid,messages)
+          services << process_for_services(location_name, location_code, temp_loc_flag, bibid, messages)
         when 'not_available'
           services << scan_messages(messages) if messages.present?
-        else
         end
 
-        if location_code == APP_CONFIG['barnard_remote_location']
+        # If this is a BearStor holding and some items are available,
+        # enable the BearStor request link (barnard_remote)
+        if location_code == APP_CONFIG['barnard_remote_location'] &&
+           %w(available some_available).include?(item_status[:status])
           services << 'barnard_remote'
         end
 
@@ -567,15 +561,15 @@ module Voyager
         # leader 07 - Bibliographic level
         # m = Monograph/Item
         # unless fmt == 'am' || fmt == 'cm'
-        unless ['am', 'cm', 'gm', 'jm'].include?(fmt)
-          services.delete('borrow_direct')
-        end
+        services.delete('borrow_direct') unless %w(am cm gm jm).include?(fmt)
 
         # NEXT-1470 - Suppress BD and ILL links for Partner ReCAP items,
         # but leave enabled for CUL offsite.
         if ['scsbnypl', 'scsbpul'].include? location_code
-          services.delete('borrow_direct')
-          services.delete('ill')
+          if Rails.env == 'clio_prod'
+            services.delete('borrow_direct')
+            services.delete('ill')
+          end
         end
 
         # 8/2018 - not being actively tested, turn this off
@@ -591,7 +585,7 @@ module Voyager
         #   services.delete('recall_hold')
         # end
 
-        # Unnecessary - just omit location codes from hardcoded list 
+        # Unnecessary - just omit location codes from hardcoded list
         #     in process_for_services(), below
         # # LIBSYS-1365 - Geology is closing, some services are no longer offered
         # if location_name.match(/Geology/i) || location_code.starts_with?('geo')
@@ -603,11 +597,10 @@ module Voyager
         # end
 
         # return the cleaned up list
-        return services
+        services
       end
 
-
-      def process_for_services(location_name,location_code,temp_loc_flag,bibid,messages)
+      def process_for_services(location_name, location_code, temp_loc_flag, _bibid, messages)
         services = []
         # offsite
         if OFFSITE_CONFIG['offsite_locations'].include?(location_code)
@@ -618,8 +611,8 @@ module Voyager
           services << 'offsite'
 
         # precat
-        elsif location_name.match(/^Precat/)
-           services << 'precat'
+        elsif location_name =~ /^Precat/
+          services << 'precat'
 
         # doc delivery
         # LIBSYS-1365 - Geology is closing, some services are no longer offered
@@ -632,8 +625,8 @@ module Voyager
         elsif ['ave', 'avelc', 'bus', 'eal', 'eax', 'eng',
                'fax', 'faxlc', 'glx', 'glxn', 'gsc', 'jou',
                'leh', 'leh,bdis', 'mat', 'mil', 'mus', 'sci', 'swx',
-               'uts', 'uts,per', 'uts,unn', 'war' ].include?(location_code) &&
-               temp_loc_flag == 'N'
+               'uts', 'uts,per', 'uts,unn', 'war'].include?(location_code) &&
+              temp_loc_flag == 'N'
           services << 'doc_delivery'
         end
 
@@ -641,7 +634,6 @@ module Voyager
 
         services
       end
-
 
       def scan_messages(messages)
         services = []
@@ -651,7 +643,7 @@ module Voyager
             services << scan_message(message[:long_message])
           else
             status_code_config = ITEM_STATUS_CODES[message[:status_code]]
-            raise "Status code not found in config/order_status_codes.yml" unless status_code_config
+            raise 'Status code not found in config/order_status_codes.yml' unless status_code_config
             services << status_code_config['services'] unless status_code_config['services'].nil?
           end
         end
@@ -668,7 +660,7 @@ module Voyager
         out << 'in_process'     if message =~ /In Process/
 
         out << 'ill'            if message =~ /Interlibrary Loan/
-        
+
         # No, don't depend on the location_name including "scsb"
         # # ReCAP Partners
         # # out << 'offsite_valet'  if message =~ /scsb/
@@ -677,7 +669,7 @@ module Voyager
 
       def soggy?
         # Ignore unless it's an East Asian holding
-        return false unless ['eal', 'eax'].include? @location_code
+        return false unless %w(eal eax).include? @location_code
 
         call_number_normalized = Lcsort.normalize(@call_number)
         # Some call-numbers cannot be normalized, usually because
@@ -686,7 +678,7 @@ module Voyager
         return if call_number_normalized.blank?
 
         @@wet_ranges ||= get_wet_ranges
-        @@wet_ranges.each { |range|
+        @@wet_ranges.each do |range|
           # we may be > or >=, depending on the operator
           if range[:from_operator] == 'at'
             next if call_number_normalized < range[:from_callno]
@@ -701,20 +693,20 @@ module Voyager
           end
           # if we ever get here, then YES, we think it's wet!
           return true
-        }
+        end
         # Nope, never fell within any of our wet ranges
-        return false
+        false
       end
-      
+
       def get_wet_ranges
         # Rails.logger.debug "W W W W W W W W W W W W W  called get_wet_ranges()"
         raw = YAML.load(File.read(Rails.root.to_s + '/config/wet_ranges.yml'))
         # Rails.logger.debug "WWWWWWWWWWWWW  raw.keys=[#{raw.keys}]"
 
         # Accumulate ranges in this array
-        wet_ranges = Array.new
-      
-        raw['wet_ranges'].each { |raw|
+        wet_ranges = []
+
+        raw['wet_ranges'].each do |raw|
           raw_from, raw_to = raw.split(/\|/)
           # Rails.logger.debug "WWWWWWWWWWWWW  raw_from=[#{raw_from}] raw_to=[#{raw_to}]"
 
@@ -735,22 +727,20 @@ module Voyager
 
           if from_callno.blank? || to_callno.blank?
             Rails.logger.error "Unparseable call-numbers: raw_from=[#{raw_from}] raw_to=[#{raw_to}]"
-            next;
+            next
           end
 
           range = {
             from_callno:     from_callno,
             from_operator:   from_operator,
             to_callno:       to_callno,
-            to_operator:     to_operator,
+            to_operator:     to_operator
           }
           wet_ranges.push(range)
-        }
+        end
 
-        return wet_ranges
+        wet_ranges
       end
-
     end
-
   end
 end

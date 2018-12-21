@@ -1,5 +1,4 @@
 class RecordMailer < ApplicationMailer
-
   default from: 'CLIO <noreply@library.columbia.edu>'
 
   add_template_helper(ApplicationHelper)
@@ -12,14 +11,18 @@ class RecordMailer < ApplicationMailer
   def email_record(documents, details, url_gen_params, active_source)
     # raise
     if documents.size == 1 && documents.first
-      title_for_subject = if documents.first.kind_of?(Summon::Document)
-        documents.first.title
-      elsif documents.first.has_key?('title_display')
-        documents.first['title_display'].first
-      else
-        'Single Item'
+      title_for_subject = if documents.first.is_a?(Summon::Document)
+                            documents.first.title
+                          elsif documents.first.key?('title_display')
+                            documents.first['title_display'].first
+                          else
+                            'Single Item'
       end
-      subject = "CLIO: #{title_for_subject rescue 'N/A'}"
+      subject = "CLIO: #{begin
+                           title_for_subject
+                         rescue
+                           'N/A'
+                         end}"
     else
       subject = "CLIO: #{documents.size} Item Records"
     end
@@ -37,11 +40,11 @@ class RecordMailer < ApplicationMailer
   #   if sms_mapping[details[:carrier]]
   #     to = "#{details[:to]}@#{sms_mapping[details[:carrier]]}"
   #   end
-  # 
+  #
   #   @documents      = documents
   #   @host           = 'libraries.cul.columbia.edu'
   #   @url_gen_params = url_gen_params
-  # 
+  #
   #   mail(to: to, subject: '')
   # end
 
@@ -49,11 +52,11 @@ class RecordMailer < ApplicationMailer
   def sms_record(documents, details, url_gen_params)
     @documents      = documents
     @url_gen_params = url_gen_params
-    mail(:to => details[:to], :subject => "")
+    mail(to: details[:to], subject: '')
   end
 
   # protected
-  # 
+  #
   # def OLD_sms_mapping
   #   { 'virgin' => 'vmobl.com',
   #     'att'     => 'txt.att.net',

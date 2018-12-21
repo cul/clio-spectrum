@@ -12,9 +12,7 @@ Bundler.require(*Rails.groups)
 #   Bundler.require *Rails.groups(assets: %w(development test))
 # end
 
-
-
-RELEASE_STAMP = IO.read('VERSION').strip
+CLIO_VERSION = IO.read('VERSION').strip
 
 # explicitly require, so that "config.middleware.use" works below during
 # capistrano's assets:precompile step
@@ -36,16 +34,15 @@ module Clio
     # config.autoload_paths += %W(#{config.root}/extras #{config.root}/lib)
     config.autoload_paths += %W(#{config.root}/lib)
 
-
     # require File.expand_path('../../lib/monkey_patches', __FILE__)
     require 'monkey_patches'
     # require File.expand_path('../../lib/rsolr_notifications', __FILE__)
     # require 'rsolr_notifications'
     require 'browse_support'
 
-    require "holdings/collection"
-    require "holdings/record"
-    require "holdings/item"
+    require 'holdings/collection'
+    require 'holdings/record'
+    require 'holdings/item'
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -60,8 +57,8 @@ module Clio
     config.time_zone = 'Eastern Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-     # config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
-     # config.i18n.default_locale = :en
+    # config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
+    # config.i18n.default_locale = :en
 
     # JavaScript files you want as :defaults (application.js is always included).
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
@@ -69,6 +66,7 @@ module Clio
     config.assets.precompile += %w(.svg .eot .woff .ttf)
     config.assets.precompile += %w(
       location.js
+      es6_bits.js
     )
 
     # Configure the default encoding used in templates for Ruby 1.9.
@@ -80,7 +78,7 @@ module Clio
     config.assets.enabled = true
     # Default SASS Configuration, check out https://github.com/rails/sass-rails for details
 
-    config.assets.version = RELEASE_STAMP
+    config.assets.version = CLIO_VERSION
 
     # see https://github.com/vidibus/vidibus-routing_error
     # This isn't great, since it doesn't tell us or them that anything

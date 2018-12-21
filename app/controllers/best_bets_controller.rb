@@ -1,7 +1,6 @@
 class BestBetsController < ApplicationController
-
-  before_action :authenticate_user!, except: [ :index ]
-  before_action :confirm_best_bets_admin!, except: [ :index ]
+  before_action :authenticate_user!, except: [:index]
+  before_action :confirm_best_bets_admin!, except: [:index]
 
   before_action :set_best_bet, only: [:show, :edit, :update, :destroy]
 
@@ -12,16 +11,15 @@ class BestBetsController < ApplicationController
   def hits
     q = params['q'] || ''
 
-    if ActiveRecord::Base.connection.adapter_name.match /sqlite/i
+    if ActiveRecord::Base.connection.adapter_name =~ /sqlite/i
       wildcard = '%' + q.gsub(/ +/, '%') + '%'
       @hits = BestBet.where('title || url || description || keywords LIKE ?', wildcard)
     end
-    
-    if ActiveRecord::Base.connection.adapter_name.match /mysql/i
+
+    if ActiveRecord::Base.connection.adapter_name =~ /mysql/i
       wildcard = '+' + q.gsub(/ /, ' +')
       @hits = BestBet.where('match(title,url,description,keywords) against (? IN BOOLEAN MODE)', wildcard)
     end
-
   end
 
   # GET /best_bets
@@ -85,19 +83,19 @@ class BestBetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_best_bet
-      @best_bet = BestBet.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def best_bet_params
-      params.require(:best_bet).permit(:title, :url, :description, :keywords)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_best_bet
+    @best_bet = BestBet.find(params[:id])
+  end
 
-    def confirm_best_bets_admin!
-      return redirect_to(root_path) unless current_user
-      return redirect_to(root_path) unless current_user.has_role?('item_alerts', 'manage')
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def best_bet_params
+    params.require(:best_bet).permit(:title, :url, :description, :keywords)
+  end
 
+  def confirm_best_bets_admin!
+    return redirect_to(root_path) unless current_user
+    return redirect_to(root_path) unless current_user.has_role?('item_alerts', 'manage')
+  end
 end

@@ -1,11 +1,10 @@
 module FormatMacro
-
   # shortcut
   Marc21 = Traject::Macros::Marc21
 
   FORMAT_ORDER = [
-    :book, :score, :map, :mss, :video, :sound, :music, :image, 
-    :data, :prog, :serial, :news, :lleaf, 
+    :book, :score, :map, :mss, :video, :sound, :music, :image,
+    :data, :prog, :serial, :news, :lleaf,
     :usdoc, :nydoc, :conf, :thesis, :micro, :art, :other, :online
   ].freeze
 
@@ -33,13 +32,11 @@ module FormatMacro
     art:    'Art Work (Original)'
   }.freeze
 
-
-
-  def columbia_format()
-    return lambda do |record, accumulator, context|
+  def columbia_format
+    lambda do |record, accumulator, _context|
       # accumulate format values
-      formats = Array.new
-      
+      formats = []
+
       # pull out the field values we need
       leader06 = record.leader.byteslice(6)
       leader07 = record.leader.byteslice(7)
@@ -49,11 +46,11 @@ module FormatMacro
       f008 = Marc21.extract_marc_from(record, '008').first
       f245h = Marc21.extract_marc_from(record, '245h')
       f502 = Marc21.extract_marc_from(record, '502')
-      
+
       # Branch on leader 06, 'Type of record'
       case leader06
       # a == Language material
-      when /a/ 
+      when /a/
         # for language material, consider leader 07, 'Bibliographic level'
         case leader07
         when /[acdm]/
@@ -73,36 +70,30 @@ module FormatMacro
       when /[ef]/
         formats << :map
       when /g/
-        if f008 && f008[33] && 'mv'.include?( f008[33] )
-          formats << :video
-        end
+        formats << :video if f008 && f008[33] && 'mv'.include?(f008[33])
       when /i/
         formats << :sound
       when /j/
         formats << :music
       when /k/
-        if f008 && f008[33] == 'a'
-          formats << :art
-        end
-        if f008 && f008[33] && 'ciklnoz'.include?( f008[33] )
-          formats << :image
-        end
+        formats << :art if f008 && f008[33] == 'a'
+        formats << :image if f008 && f008[33] && 'ciklnoz'.include?(f008[33])
       when /m/
         if f008.present?
-          if f008 && f008[26] == 'b'
-            formats << :prog
-          else
-            formats << :data
-          end
+          formats << if f008 && f008[26] == 'b'
+                       :prog
+                     else
+                       :data
+                     end
         end
       when /o/
         formats << :other
       when /r/
-        if f008 && f008[33] == 'a'
-          formats << :art
-        else
-          formats << :other
-        end
+        formats << if f008 && f008[33] == 'a'
+                     :art
+                   else
+                     :other
+                   end
       when /t/
         case leader07
         when /[am]/
@@ -120,14 +111,10 @@ module FormatMacro
       #  * 'tb', 'ti', 'ts'
 
       ## check for serials if no format has been set up to now
-      if formats.empty? && leader07 == 's'&& f008.present?
+      if formats.empty? && leader07 == 's' && f008.present?
         type = f008[21]
-        if type && ' mnp|'.include?(type)
-          formats << :serial
-        end
-        if type == 'n'
-          formats << :news
-        end
+        formats << :serial if type && ' mnp|'.include?(type)
+        formats << :news if type == 'n'
       end
 
       ## check for serial from 006 if no format has been set up to now
@@ -135,12 +122,8 @@ module FormatMacro
         f006.each do |this006|
           next unless this006[0] == 's'
           type = this006[4]
-          if type && ' mnp|'.include?(type)
-            formats << :serial
-          end
-          if type == 'n'
-            formats << :news
-          end
+          formats << :serial if type && ' mnp|'.include?(type)
+          formats << :news if type == 'n'
         end
       end
 
@@ -167,11 +150,11 @@ module FormatMacro
           if gdcode == 'f' && cpcode[2] == 'u'
             formats << :usdoc
           # local or state document published in New York
-          elsif 'clmos'.include?(gdcode) && cpcode =='nyu'
+          elsif 'clmos'.include?(gdcode) && cpcode == 'nyu'
             # complex logic, hide within method
             f260b = Marc21.extract_marc_from(record, '260b')
             f264b = Marc21.extract_marc_from(record, '264b')
-            
+
             formats << :nydoc if FormatMacro.isNYgovdoc?(f260b, f264b)
           end
         end
@@ -183,9 +166,9 @@ module FormatMacro
       # end
       record.find do |field|
         next unless field.tag.slice(0) == '6'
-        field.subfields.find do |subfield| 
-          next unless 'xv'.include?(subfield.code) 
-          if subfield.value.match(/congresses/i)
+        field.subfields.find do |subfield|
+          next unless 'xv'.include?(subfield.code)
+          if subfield.value =~ /congresses/i
             formats << :conf
             break
           end
@@ -193,16 +176,14 @@ module FormatMacro
       end
 
       ## thesis
-      if f502.present?
-        formats << :thesis
-      end
+      formats << :thesis if f502.present?
 
       ## microforms / manuscripts
       if f245h.present?
         f245h.each do |medium|
-          if medium.match(/microform/i)
+          if medium =~ /microform/i
             formats << :micro
-          elsif medium.match(/manuscript/i)
+          elsif medium =~ /manuscript/i
             formats << :mss
           end
         end
@@ -215,14 +196,12 @@ module FormatMacro
       formats.uniq.each do |format|
         accumulator << FORMAT_LABELS[format]
       end
-
     end
   end
 
-
   def self.isNYgovdoc?(f260b, f264b)
     publishers = []
-    
+
     f260b.each do |field|
       publishers << field.downcase
     end
@@ -232,63 +211,56 @@ module FormatMacro
     end
 
     return true if publishers.empty?
-    
+
     publishers.each do |publisher|
       # Not govdoc if any of these words found
-      return false if publisher.match /press/        
-      return false if publisher.match /university/        
-      return false if publisher.match /library/        
-      return false if publisher.match /museum/        
-      return false if publisher.match /school/        
-      return false if publisher.match /conference/        
-      return false if publisher.match /hospital/        
-      return false if publisher.match /united nations/       
-      return false if publisher.match /text studies/       
+      return false if publisher =~ /press/
+      return false if publisher =~ /university/
+      return false if publisher =~ /library/
+      return false if publisher =~ /museum/
+      return false if publisher =~ /school/
+      return false if publisher =~ /conference/
+      return false if publisher =~ /hospital/
+      return false if publisher =~ /united nations/
+      return false if publisher =~ /text studies/
       #  Not govdoc if name begins with any of these
-      return false if publisher.starts_with? 'american' 
-      return false if publisher.starts_with? 'new york agricultural experiment' 
-      return false if publisher.starts_with? 'excelsior edition' 
-      return false if publisher.starts_with? 'center for medieval' 
-      return false if publisher.starts_with? 'wiley' 
-      return false if publisher.starts_with? 'springer' 
-      return false if publisher.starts_with? 'praeger' 
-      return false if publisher.starts_with? 'penguin' 
-      return false if publisher.starts_with? 'elsevier' 
-      return false if publisher.starts_with? 'bantam' 
+      return false if publisher.starts_with? 'american'
+      return false if publisher.starts_with? 'new york agricultural experiment'
+      return false if publisher.starts_with? 'excelsior edition'
+      return false if publisher.starts_with? 'center for medieval'
+      return false if publisher.starts_with? 'wiley'
+      return false if publisher.starts_with? 'springer'
+      return false if publisher.starts_with? 'praeger'
+      return false if publisher.starts_with? 'penguin'
+      return false if publisher.starts_with? 'elsevier'
+      return false if publisher.starts_with? 'bantam'
     end
-    
-    return true    
+
+    true
   end
-
-
 end
-
-
-
 
 # Original Perl source code below
 
-
-
 # package Utils::CLIO_formats;
-# 
+#
 # use strict;
 # use warnings;
-# 
+#
 # ## 2015.03.02 GB -- NEXT-892 update "sound"
 # #                   'Sound Recording' --> 'Audio Recording (Non-musical)'
 # ## 2015.04.30 GB -- Add facets for US and NYS/NYC government documents
 # ## 2016.04.05 GB -- Add facet for original art works
-# 
+#
 # BEGIN {
 #     require Exporter;
 #     our $VERSION = 1.00;
 #     our @ISA = qw(Exporter);
 #     our @EXPORT = qw(setFormat);
 # }
-# 
+#
 # my @format_order = (qw/book score map mss video sound music image data prog serial news lleaf usdoc nydoc conf thesis micro art other online/);
-# 
+#
 # my %format_labels = (
 #          book => 'Book',
 #          data => 'Computer File',
@@ -312,11 +284,11 @@ end
 #          nydoc => 'NY State/City Government Document',
 #          art => 'Art Work (Original)'
 #          );
-# 
+#
 # sub setFormat {
-# 
+#
 #     my $rec = shift;
-# 
+#
 #     my %formats = (
 #        book   => 0,
 #        mss    => 0,
@@ -340,7 +312,7 @@ end
 #        nydoc  => 0,
 #        art    => 0
 #        );
-# 
+#
 #     my $leader = $rec->leader();
 #     my $ldr6 = substr($leader,6,1);
 #     my $ldr7 = substr($leader,7,1);
@@ -348,7 +320,7 @@ end
 #     if (my $t008 = $rec->field('008')) {
 #   $t008data = $t008->data();
 #     }
-#     
+#
 #     # ldr6 values : a [b] c d e f g i j k m o p r t
 #     # ldr7 values : a b c d i m s
 #     # type of material codes:
@@ -362,8 +334,8 @@ end
 #     #   } else {
 #     #       $form = substr($t008data,23,1);
 #     #   }
-# 
-# 
+#
+#
 #   CASE: {
 #       if ($ldr6 =~ /[a]/) {
 #     if ($ldr7 =~ /[acdm]/) {
@@ -444,18 +416,18 @@ end
 #     }
 #     last CASE;
 #       }
-# 
+#
 #       last CASE;
-# 
+#
 #   }
-# 
+#
 #     # What passes through the above filter without a format assignment:
 #     #  * 'ai' unless type = 'l' (loose-leafs)
 #     #  * 'as' (all language materials serials)
 #     #  * 'g' unless type = 'm' or 'v' (films or videos)
 #     #  * 'k' unless type is one of these: c i k l n o z (images) or type = a (original art)
 #     #  * 'tb', 'ti', 'ts'
-# 
+#
 #     ## check for serials if no format has been set up to now
 #     if (! formatSet(\%formats)) {
 #   if ($ldr7 eq 's') {
@@ -497,7 +469,7 @@ end
 #       }
 #   }
 #     }
-# 
+#
 #     ## check for serial from 006 if no format has been set up to now
 #     if (! formatSet(\%formats)) {
 #   if (my @t006 = $rec->field('006')) {
@@ -543,7 +515,7 @@ end
 #       }
 #   }
 #     }
-# 
+#
 #     ## set online / microformats
 #     if (my @t007 = $rec->field('007')) {
 #       foreach (@t007) {
@@ -559,7 +531,7 @@ end
 #         }
 #       }
 #     }
-# 
+#
 #     ## government documents
 #     #  formats with gov doc codes
 #     if ($ldr6 =~ /[aefgkmort]/) {
@@ -578,7 +550,7 @@ end
 #       }
 #   }
 #     }
-# 
+#
 #     ## conference proceedings
 #     if (my @t6xx = $rec->field('6..')) {
 #   TAG: foreach (@t6xx) {
@@ -593,12 +565,12 @@ end
 #       }
 #   }
 #     }
-# 
+#
 #     ## thesis
 #     if ($rec->field('502')) {
 #   $formats{thesis} = 1;
 #     }
-# 
+#
 #     ## microforms / manuscripts
 #     if (my $t245 = $rec->field('245')) {
 #   if (my $subh = $t245->subfield('h')) {
@@ -609,39 +581,39 @@ end
 #       }
 #   }
 #     }
-# 
+#
 #     ## default if no formats by now
 #     if (! formatSet(\%formats)) {
 #   $formats{other} = 1;
 #     }
-# 
+#
 #     my @formats = ();
 #     foreach (@format_order) {
 #   if ($formats{$_} == 1) {
 #       push(@formats,$format_labels{$_});
 #   }
 #     }
-# 
+#
 #     return \@formats;
-# 
+#
 # }
-# 
+#
 # sub formatSet {
-# 
+#
 #     my $formats = shift;
-# 
+#
 #     foreach (values %$formats) {
 #   if ($_ == 1) {return 1};
 #     }
-# 
+#
 #     return 0;
-# 
+#
 # }
-# 
+#
 # sub isNYgovdoc {
-# 
+#
 #     my $rec = shift;
-# 
+#
 #     # extract publisher information
 #     my @pub = ();
 #     if (my $field = $rec->field('260')) {
@@ -671,9 +643,9 @@ end
 #     }
 #     # no publisher is gov doc
 #     return 1 unless (@pub);
-# 
+#
 #     foreach my $pub (@pub) {
-# 
+#
 #   if ($pub =~ /press/) {return 0};
 #   if ($pub =~ /university/) {return 0};
 #   if ($pub =~ /library/) {return 0};
@@ -694,10 +666,10 @@ end
 #   if ($pub =~ /^penguin/) {return 0};
 #   if ($pub =~ /^elsevier/) {return 0};
 #   if ($pub =~ /^bantam book/) {return 0};
-# 
+#
 #     }
-# 
+#
 #     return 1;
-# 
+#
 # }
-# 
+#

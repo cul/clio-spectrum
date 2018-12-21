@@ -39,14 +39,10 @@ Rack::Attack.blocklist('block all Java User Agents') do |req|
 end
 
 # Rate-Limit to a certain number of requests per minute
-Rack::Attack.throttle('req/minute', limit: APP_CONFIG['THROTTLE_LIMIT_PER_MINUTE'], period: 1.minute) do |req|
-  req.ip
-end
+Rack::Attack.throttle('req/minute', limit: APP_CONFIG['THROTTLE_LIMIT_PER_MINUTE'], period: 1.minute, &:ip)
 
 # Rate-Limit to a certain number of requests per hour
-Rack::Attack.throttle('req/hour', limit: APP_CONFIG['THROTTLE_LIMIT_PER_HOUR'], period: 1.hour) do |req|
-  req.ip
-end
+Rack::Attack.throttle('req/hour', limit: APP_CONFIG['THROTTLE_LIMIT_PER_HOUR'], period: 1.hour, &:ip)
 
 # Use Fail2Ban to lock out penetration-testers based on defined rules.
 #
@@ -54,11 +50,12 @@ end
 # block the source IP on FIRST attempt, and for a long time.
 Rack::Attack.blocklist('pentest') do |request|
   Rack::Attack::Fail2Ban.filter(
-      # "pentest",                  # namespace for cache key
-      request.ip,                 # count matching requests based on IP
-      maxretry: 1,             # allow up to X bad requests...
-      findtime: 1.minutes,    # to occur within Y minutes...
-      bantime: 60.minutes) do  # and ban the IP address for Z minutes if exceeded
+    # "pentest",                  # namespace for cache key
+    request.ip, # count matching requests based on IP
+    maxretry: 1, # allow up to X bad requests...
+    findtime: 1.minutes, # to occur within Y minutes...
+    bantime: 60.minutes
+  ) do # and ban the IP address for Z minutes if exceeded
 
     # Remember to OR the different clauses below (with trailing ||)
 
@@ -66,14 +63,13 @@ Rack::Attack.blocklist('pentest') do |request|
     # request.path =~ %r{scripts/setup.php} ||
 
     # Actually, any path which ends in any of these extensions is a pentest
-    request.path =~ %r{\.(php|asp|aspx)$} ||
+    request.path =~ /\.(php|asp|aspx)$/ ||
 
-    # Any WordPress access attempts
-    # (wp-login, wp-admin, wp-signup, wp-content, wp-cache, etc.)
-    request.path =~ %r{/wp-}
+      # Any WordPress access attempts
+      # (wp-login, wp-admin, wp-signup, wp-content, wp-cache, etc.)
+      request.path =~ %r{/wp-}
   end
 end
-
 
 # Lockout IP addresses that are abusing CLIO's email facility.
 # After X requests in Y minutes, block all requests from that IP for Z hours.
@@ -81,14 +77,11 @@ Rack::Attack.blocklist('allow2ban email abusers') do |req|
   # `filter` returns false value if request is to your login page (but still
   # increments the count) so request below the limit are not blocked until
   # they hit the limit.  At that point, filter will return true and block.
-  Rack::Attack::Allow2Ban.filter(req.ip, :maxretry => 10, :findtime => 10.minute, :bantime => 1.hour) do
+  Rack::Attack::Allow2Ban.filter(req.ip, maxretry: 10, findtime: 10.minute, bantime: 1.hour) do
     # The count for the IP is incremented if the return value is truthy.
-    req.path == '/catalog/email' and req.post?
+    req.path == '/catalog/email' && req.post?
   end
 end
-
-
-
 
 # Rack::Attack.blocklist('fail2ban pentesters') do |req|
 #   # `filter` returns truthy value if request fails, or if it's from a previously banned IP

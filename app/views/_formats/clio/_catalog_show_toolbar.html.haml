@@ -96,23 +96,24 @@
             - if document.in_pegasus?
               %li= law_requests_blurb
             - else
-              %li= link_to "Borrow Direct", "http://www.columbia.edu/cgi-bin/cul/borrowdirect?#{clio_id}", :target => "_blank"
-              - if Rails.env != 'clio_prod'
-                %li= link_to "Borrow Direct Test", "http://www.columbia.edu/cgi-bin/cul/borrowdirect.test?#{clio_id}", :target => "_blank"
-              %li= link_to "Place a Recall / Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId=#{clio_id}", :target => "_blank"
-              %li= link_to "ILL", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?#{clio_id}", :target => "_blank"
-              - if Rails.env != 'clio_prod'
-                %li= link_to "ILL (Valet)", "https://valet-test.cul.columbia.edu/ill_requests/new?bib_id=#{clio_id}",  :target => "_blank"
+              -# %li= link_to "Borrow Direct", "http://www.columbia.edu/cgi-bin/cul/borrowdirect?#{clio_id}", :target => "_blank"
+              %li= link_to "Borrow Direct", "#{borrow_direct_link}#{clio_id}", target: "_blank"
+              -# %li= link_to "Place a Recall / Hold", "http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId=#{clio_id}", :target => "_blank"
+              %li= link_to "Place a Recall / Hold", "#{recall_hold_link}#{clio_id}", target: "_blank"
+              -# %li= link_to "ILL", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?#{clio_id}", :target => "_blank"
+              %li= link_to "ILL", "#{ill_link}#{clio_id}", target: "_blank"
               %li= link_to "Scan & Deliver", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?#{clio_id}", :target => "_blank"
-              %li= link_to "Inter-Campus Delivery", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0013", :target => "_blank"
+              -# %li= link_to "Inter-Campus Delivery", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0013", :target => "_blank"
+              %li= link_to "Inter-Campus Delivery", "#{intercampus_link}#{clio_id}", target: "_blank"
               %li= link_to "In-Process / On Order", "#", :onclick => "OpenInprocessRequest('#{clio_id}'); return false;"
-              %li= link_to "Precataloging", "#", :onclick => "OpenPrecatRequest('#{clio_id}'); return false;"
+              -# %li= link_to "Precataloging", "#", :onclick => "OpenPrecatRequest('#{clio_id}'); return false;"
+              %li= link_to 'Precataloging', '#', :onclick => "OpenURLinWindow('#{clio_id}', '#{precat_link()}'); return false;"
               -# NewRelic shows that calling this CGI script is taking 4% of total server cpu.
               -# Just show this for everyone.
               -# if HTTPClient.new.get_content("http://www.columbia.edu/cgi-bin/cul/lookupNBX?" + clio_id) == "1"
 
               -# Offsite requests via Valet
-              %li= link_to 'Offsite', '#', :onclick => "OpenURL('#{clio_id}', '#{offsite_link()}'); return false;"
+              %li= link_to 'Offsite', '#', :onclick => "OpenURLinWindow('#{clio_id}', '#{offsite_link()}'); return false;"
               
   
               %li= link_to "Item Feedback", "#", :onclick => "OpenItemFeedback('#{clio_id}'); return false;"

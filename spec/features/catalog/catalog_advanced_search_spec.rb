@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'Catalog Advanced Search', :vcr do
-
   it 'should be accessible from the home page' do
     # NEXT-713, NEXT-891 - A Journal Title search should find Newspapers
 
@@ -28,8 +27,7 @@ describe 'Catalog Advanced Search', :vcr do
     # (struggling to make a regexp work, to do case-insensitive match...)
     # expect(page.body).to match(%r{#{string}}i)
     # page.find 'li.line-item', text: %r{Awesome Line Item}i
-    all('.result.document').first.find 'a', text: %r{#{search_text}}i
-
+    all('.result.document').first.find 'a', text: /#{search_text}/i
   end
 
   # NEXT-705 - "All Fields" should be default, and should be first option
@@ -44,7 +42,6 @@ describe 'Catalog Advanced Search', :vcr do
     expect(find('.landing_page.catalog .advanced_search')).to be_visible
 
     within '.landing_page.catalog .advanced_search' do
-
       # For each of our five advanced-search fields...
       (1..5).each do |i|
         select_id = "adv_#{i}_field"
@@ -56,15 +53,12 @@ describe 'Catalog Advanced Search', :vcr do
         within("select##{select_id}") do
           expect(first('option').text).to eq 'All Fields'
         end
-
       end
-
     end
-
   end
 
   # Test each individual advanced-search option
-  { 
+  {
     'Title' => 'smith',
     'Journal Title' => 'Journal',
     'Author' => 'Smith',
@@ -83,20 +77,19 @@ describe 'Catalog Advanced Search', :vcr do
     'ISBN' => '13',
     'ISSN' => '2372',
     'Call Number' => 'PN1995.9.P7',
-    'Location' => 'Dakhla Library',
+    'Location' => 'Dakhla Library'
   }.each_pair do |searchField, searchValue|
 
     it "supports fielded search by #{searchField}", :js do
       visit catalog_index_path
 
-      select searchField, :from => "search_field"
+      select searchField, from: 'search_field'
       fill_in 'q', with: searchValue
       find('button[type=submit]').click
 
       expect(find('.constraint-box')).to have_content("#{searchField}: #{searchValue}")
-      expect(page).to have_text "« Previous | 1 - 25 of"
+      expect(page).to have_text '« Previous | 1 - 25 of'
     end
-
 
     it "supports advanced search by #{searchField}" do
       visit catalog_index_path
@@ -108,14 +101,12 @@ describe 'Catalog Advanced Search', :vcr do
         find('button[type=submit]').click
       end
       expect(find('.constraint-box')).to have_content("#{searchField}: #{searchValue}")
-      expect(page).to have_text "« Previous | 1 - 25 of"
+      expect(page).to have_text '« Previous | 1 - 25 of'
     end
-
-
   end
 
   # NEXT-1113 - location search
-  # Specifically, test the ability to search beyond "base" location to 
+  # Specifically, test the ability to search beyond "base" location to
   # sublocation text.
   [ # Not that many items located at Barnard Reference at the moment.
     # 'Barnard Reference',
@@ -134,14 +125,13 @@ describe 'Catalog Advanced Search', :vcr do
       # within('.search_row') do
       #   find('li', text: 'Location').click
       # end
-      select 'Location', :from => "search_field"
+      select 'Location', from: 'search_field'
       fill_in 'q', with: locationSearch
       find('button[type=submit]').click
 
       expect(find('.constraint-box')).to have_content("Location: #{locationSearch}")
-      expect(page).to have_text "« Previous | 1 - 25 of"
+      expect(page).to have_text '« Previous | 1 - 25 of'
     end
-
 
     it "supports advanced Location search for #{locationSearch}" do
       visit catalog_index_path
@@ -152,11 +142,9 @@ describe 'Catalog Advanced Search', :vcr do
         find('button[type=submit]').click
       end
       expect(find('.constraint-box')).to have_content("Location: #{locationSearch}")
-      expect(page).to have_text "« Previous | 1 - 25 of"
+      expect(page).to have_text '« Previous | 1 - 25 of'
     end
   end
-
-
 
   # Bug - Dismissing the last advanced-search field should WORK
   # (CatalogController#preprocess_search_params:  undefined method `gsub!' for nil:NilClass)
@@ -186,7 +174,6 @@ describe 'Catalog Advanced Search', :vcr do
 
     expect(page).to have_css('.result.document')
   end
-
 
   # Support advanced/fielded ISBN searches to hit on 020$z, "Canceled/invalid ISBN"
   # NEXT-1050 - Search for invalid ISBN
@@ -222,15 +209,13 @@ describe 'Catalog Advanced Search', :vcr do
     # within('.search_row') do
     #   find('li', text: "ISBN").click
     # end
-    select 'ISBN', :from => "search_field"
+    select 'ISBN', from: 'search_field'
     fill_in 'q', with: isbn_z
 
     # this time, click the little "search" icon
     find('span.glyphicon.glyphicon-search').click
 
     expect(find('.constraint-box')).to have_content('ISBN: ' + isbn_z)
-    expect(page).to have_text "Géographie du Territoire de Belfort".mb_chars.normalize(:d)
+    expect(page).to have_text 'Géographie du Territoire de Belfort'.mb_chars.normalize(:d)
   end
-
-
 end

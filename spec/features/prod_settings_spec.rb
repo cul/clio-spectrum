@@ -6,7 +6,6 @@ require 'spec_helper'
 #   http://ionrails.com/2009/09/19/ruby_require-vs-load-vs-include-vs-extend/
 #
 describe 'Prod Environment' do
-
   it 'Google Analytics has correct per-environment setting' do
     # should start as nil
     expect(GoogleAnalytics.web_property_id).to be_nil
@@ -30,5 +29,4 @@ describe 'Prod Environment' do
     # reset
     Rails.env = 'test'
   end
-
 end

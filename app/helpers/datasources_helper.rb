@@ -1,6 +1,5 @@
 # encoding: UTF-8
 module DatasourcesHelper
-
   def get_datasource_bar
     APP_CONFIG['datasource_bar'] ||
       DATASOURCES_CONFIG['default_datasource_bar'] || []
@@ -15,13 +14,12 @@ module DatasourcesHelper
   end
 
   def active_query?
-    !( params['q'].to_s.empty? &&
+    !(params['q'].to_s.empty? &&
        params.keys.all? { |k| !k.include?('s.') } &&
        params['f'].to_s.empty? &&
        params['commit'].to_s.empty?
-    )
+     )
   end
-
 
   # Output the HTML of a single landing page for the passed data-source
   def datasource_landing_page(datasource = active_source)
@@ -34,8 +32,7 @@ module DatasourcesHelper
                   render(partial: "/landing_pages/#{datasource}",
                          locals: { warning: warning }),
                   class: classes.join(' '),
-                  data: { 'ga-action' => 'Landing Page Click' }
-                  )
+                  data: { 'ga-action' => 'Landing Page Click' })
     end
   end
 
@@ -44,7 +41,7 @@ module DatasourcesHelper
       datasource_list(:all)
     else
       datasource_list(:major) |
-      datasource_list(:minor).select { |source| source == options[:active_source] }
+        datasource_list(:minor).select { |source| source == options[:active_source] }
     end
   end
 
@@ -78,7 +75,7 @@ module DatasourcesHelper
 
     # If there are hidden data-sources, gather them up wrapped w/ expand/contract links
     unless (hidden_datasources = datasources_hidden_list(options)).empty?
-      result << content_tag(:li, link_to('More...', '#'),  id: 'datasource_expand')
+      result << content_tag(:li, link_to('More...', '#'), id: 'datasource_expand')
 
       sub_results = hidden_datasources.map do |src|
         single_datasource_list_item(src, options)
@@ -96,11 +93,11 @@ module DatasourcesHelper
     )
   end
 
-  def sidebar_span(source = active_source)
+  def sidebar_span(_source = active_source)
     'col-sm-3'
   end
 
-  def main_span(source = active_source)
+  def main_span(_source = active_source)
     'col-sm-9'
   end
 
@@ -146,28 +143,24 @@ module DatasourcesHelper
     # -- Any facets?  Drop them, clear all filtering when switching datasources.
     # NEXT-954 - Improve Landing Page access
 
-    fail "no source data found for #{datasource}" unless DATASOURCES_CONFIG['datasources'][datasource]
+    raise "no source data found for #{datasource}" unless DATASOURCES_CONFIG['datasources'][datasource]
 
     content_tag(:li,
                 datasource_link + datasource_hits,
                 source: datasource,
-                class: li_classes.join(' ')
-    )
+                class: li_classes.join(' '))
   end
-
-
 
   def single_datasource_link(datasource, href, link_classes)
     link = link_to(DATASOURCES_CONFIG['datasources'][datasource]['name'],
-            href,
-            class: link_classes.join(' ')
-    )
+                   href,
+                   class: link_classes.join(' '))
     content_tag(:span, link, class: 'datasource-label')
   end
 
   def single_datasource_hits(datasource, query)
     hits_class = datasource + ' datasource-hits'
-    hits_data = {source: datasource}
+    hits_data = { source: datasource }
 
     # Set default based on app_config control.  If unset, disable feature.
     fetch_hits = APP_CONFIG['fetch_datasource_hits'] || false
@@ -182,15 +175,14 @@ module DatasourcesHelper
     fetch_hits = false if get_datasource_bar['minor_sources'].include?(datasource)
     fetch_hits = false if get_datasource_bar['subsources'].include?(datasource)
 
-
     # NEXT-1368 - suppress data source hit counts in certain situations
     # If the params have any of the no-hits keys, don't do hits.
-    no_hits = [ 'f', 'range', ]
+    no_hits = %w(f range)
     fetch_hits = false if no_hits.any? { |nope| params.key? nope }
 
     # # Breck asks that we display hit-count for current source
     # # fetch_hits = false if datasource == active_source
-    # 
+    #
     # # I'm having trouble generating accurate hit-counts for Summon queries.
     # # Disable for now - show no hitcounts within Summon
     # fetch_hits = false if active_source == 'articles'
@@ -211,36 +203,34 @@ module DatasourcesHelper
     end
 
     # NEXT-1366 - zero hit count for website null search
-    # fetch_hits = false 
-    if (datasource == 'library_web' && (query.nil? || query.empty?))
+    # fetch_hits = false
+    if datasource == 'library_web' && (query.nil? || query.empty?)
       fetch_hits = false
       fill_in = false
     end
 
     if fill_in
       fetch_hits = false
-      hits_class = hits_class + ' fill_in'
+      hits_class += ' fill_in'
     end
 
     if fetch_hits
       hits_url = spectrum_hits_path(datasource: datasource, q: query, new_search: true)
       # hits_data = { hits_url: hits_url }
       hits_data['hits_url'] = hits_url
-      hits_class = hits_class + ' fetch'
+      hits_class += ' fetch'
     end
 
     content_tag(:span, '', class: hits_class, data: hits_data)
   end
 
-
   # Nope, moved to _result_header.html.haml, no helper method needed
   # def datasource_explore_link(source)
   #   return '' unless source
-  # 
+  #
   #   content_tag(:a, "Explore #{source['name']}",
   #               href: datasource_landing_page_path(active_source) )
   # end
-
 
   def datasource_landing_page_path(source, query = nil)
     # What parts of a query should we carry-over between data-sources?
@@ -263,7 +253,7 @@ module DatasourcesHelper
       return articles_index_path('q' => query, 'new_search' => true)
     end
 
-    return "/#{source}?" + {q: query}.to_query
+    "/#{source}?" + { q: query }.to_query
   end
 
   def datasource_switch_link(title, source, *args)
@@ -282,7 +272,7 @@ module DatasourcesHelper
   # cached version of landing page with (invalid) embedded hidden query params.
   def params_digest
     # return Digest::SHA1.hexdigest(params.sort.flatten.join("_"))
-    return Digest::SHA1.hexdigest(params.to_s)
+    Digest::SHA1.hexdigest(params.to_s)
   end
 
   private
@@ -291,7 +281,7 @@ module DatasourcesHelper
     return nil unless source.present?
     return nil unless DATASOURCES_CONFIG['datasources'][source].present?
 
-    if DATASOURCES_CONFIG['datasources'][source].has_key?('supersource')
+    if DATASOURCES_CONFIG['datasources'][source].key?('supersource')
       return DATASOURCES_CONFIG['datasources'][source]['supersource']
     else
       return source
@@ -299,21 +289,20 @@ module DatasourcesHelper
   end
 
   def is_aggregate(layout = nil)
-    return false unless layout.present? && layout.has_key?('style')
-    return false unless layout.has_key?('style') && layout['style'].present?
+    return false unless layout.present? && layout.key?('style')
+    return false unless layout.key?('style') && layout['style'].present?
 
-    return layout['style'] == 'aggregate'
+    layout['style'] == 'aggregate'
   end
 
   def get_aggregate_sources(layout = nil)
     sources = []
-    return sources unless layout and layout.has_key?('columns')
-    layout['columns'].each { |column|
-      column['searches'].each { |search|
-        sources << base_source( search['source'] )
-      }
-    }
-    return sources
+    return sources unless layout && layout.key?('columns')
+    layout['columns'].each do |column|
+      column['searches'].each do |search|
+        sources << base_source(search['source'])
+      end
+    end
+    sources
   end
-
 end

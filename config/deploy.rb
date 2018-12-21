@@ -46,13 +46,17 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # #   https://github.com/capistrano/passenger/blob/master/README.md
 # set :passenger_environment_variables, { :path => '$PATH:/opt/nginx/passenger/passenger-5.0.7/bin' }
 
+# Defaults to nil (no asset cleanup is performed)
+# If you use Rails 4+ and you'd like to clean up old assets after each deploy,
+# set this to the number of versions to keep
+set :keep_assets, 2
+
 # can't get "passenger-config restart-app" working
 set :passenger_restart_with_touch, true
 
-set :whenever_identifier, ->{ fetch(:stage) }
+set :whenever_identifier, -> { fetch(:stage) }
 
 namespace :deploy do
-
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
@@ -61,5 +65,4 @@ namespace :deploy do
       # end
     end
   end
-
 end

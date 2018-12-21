@@ -2,7 +2,7 @@ class Object
   # lets you use  "a".in?(alphabet) instead of alphabet.include?("a")
   # pure syntactic sugar, but we're diabetics over here.
   def in?(*args)
-    return false if self.nil?
+    return false if nil?
     collection = (args.length == 1 ? args.first : args)
     collection ? collection.include?(self) : false
   end
@@ -23,7 +23,7 @@ class Object
   # returns a sorted list of methods that are unique to an object compared to some other object
   # compares to Object by default
   def interesting_methods(compare_to = Object)
-    compare_to = compare_to.class unless compare_to.kind_of?(Class)
+    compare_to = compare_to.class unless compare_to.is_a?(Class)
     (methods - compare_to.new.methods).sort
   end
 end
@@ -41,13 +41,11 @@ class String
   end
 end
 
-
 # class DateTime
 #   def to_solr_s
 #     to_s.gsub('+00:00', 'Z')
 #   end
 # end
-
 
 # module Enumerable
 #   # checks to see if any of the values in the enumerable are in
@@ -61,7 +59,7 @@ end
 class Hash
   # creates a hash of arbitrary depth: you can refer to nested hashes without initialization.
   def self.arbitrary_depth
-    Hash.new(&(p=lambda{|h, k| h[k] = Hash.new(&p)}))
+    Hash.new(&(p = ->(h, k) { h[k] = Hash.new(&p) }))
   end
 
   # def recursive_symbolize_keys!
@@ -77,7 +75,7 @@ class Hash
   def recursive_merge(hash = nil)
     return self unless hash.is_a?(Hash)
     base = self
-    hash.each do |key, v|
+    hash.each do |key, _v|
       if base[key].is_a?(Hash) && hash[key].is_a?(Hash)
         base[key].recursive_merge(hash[key])
       else
@@ -91,16 +89,13 @@ end
 # Override default logging format via monkey patch,
 # (instead of writing & using new custom class)
 class Logger
-  def format_message(severity, timestamp, program, message)
+  def format_message(severity, timestamp, _program, message)
     "#{timestamp.to_formatted_s(:db)} [#{severity}] #{message}\n"
   end
 end
 
-
-
 # class ActiveSupport::Cache::MemoryStore
 class ActiveSupport::Cache::Store
-
   def clio_key_count
     return @data.keys.size if defined? @data
     'unknown'
@@ -108,7 +103,7 @@ class ActiveSupport::Cache::Store
 
   def clio_cache_size
     return @cache_size.to_s(:human_size) if defined? @cache_size
-    return self.stats['used_memory_human'] if self.respond_to?(:stats)
+    return stats['used_memory_human'] if respond_to?(:stats)
     'unknown'
   end
 end
@@ -120,14 +115,14 @@ end
 # module ActionView
 #   module Helpers
 #     module CacheHelper
-# 
+#
 #       def cache(name = {}, options = nil, &block)
 #         if controller.respond_to?(:perform_caching) && controller.perform_caching
 #           safe_concat(fragment_for(cache_fragment_name(name, options), options, &block))
 #         else
 #           yield
 #         end
-# 
+#
 #         nil
 #       end
 #     end
@@ -147,8 +142,6 @@ end
 #   end
 # end
 
-
-
 # class RSolr::Connection
 #   def http uri, proxy = nil, read_timeout = nil, open_timeout = nil
 #     @http ||= (
@@ -161,10 +154,10 @@ end
 #       http.use_ssl = uri.port == 443 || uri.instance_of?(URI::HTTPS)
 #       http.read_timeout = read_timeout if read_timeout
 #       http.open_timeout = open_timeout if open_timeout
-# 
+#
 #       # TURN ON DEBUGGING
 #       http.set_debug_output $stderr
-# 
+#
 #       http
 #     )
 #   end
@@ -175,11 +168,11 @@ class Traject::DebugWriter
     h       = context.output_hash
     rec_key = record_number(context)
     # lines   = h.keys.sort.map { |k| @format % [rec_key, k, h[k].join(' | ')] }
-    lines   = h.keys.sort.map { |k|
-      Array(h[k]).map { |v|
+    lines   = h.keys.sort.map do |k|
+      Array(h[k]).map do |v|
         @format % [rec_key, k, v]
-      }
-    }
+      end
+    end
     lines.push "\n"
     lines.join("\n")
   end
@@ -192,7 +185,7 @@ module Traject::Macros
       # str = str.sub(/(.+\p{L}\p{L})\. *\Z/, '\1')
       str = str.sub(/(.+\p{Alnum}\p{M}?\p{Alnum}\p{M}?)\. *\Z/, '\1')
       str = str.sub(/(.+\p{Punct})\. *\Z/, '\1')
-      return str
+      str
     end
 
     def self.trim_punctuation(str)
@@ -213,15 +206,15 @@ module Traject::Macros
       # trim any leading or trailing whitespace
       str.strip!
 
-      return str
+      str
     end
   end
 end
 
-# # Override for debugging... 
+# # Override for debugging...
 # module MARC
 #   class Reader
-# 
+#
 #     def each_raw
 #       unless block_given?
 #         return self.enum_for(:each_raw)
@@ -232,20 +225,20 @@ end
 #           if rec_length_i == 0
 #             puts "rec_length_s=[#{rec_length_s}]"
 #             puts "rec_length_s.length=[#{rec_length_s.length}]"
-# 
+#
 #             puts "rec_length_s[0]=[#{rec_length_s[0]}]"
 #             puts "rec_length_s[1]=[#{rec_length_s[1]}]"
 #             puts "rec_length_s[2]=[#{rec_length_s[2]}]"
 #             puts "rec_length_s[3]=[#{rec_length_s[3]}]"
 #             puts "rec_length_s[4]=[#{rec_length_s[4]}]"
-# 
+#
 #             puts "rec_length_s.bytes.inspect=[#{rec_length_s.bytes.inspect}]"
-# 
+#
 #             puts "rec_length_i=[#{rec_length_i}]"
 #             puts "@handle.eof?=[#{@handle.eof?}]"
 #             raise MARC::Exception.new("invalid record length: #{rec_length_s}")
 #           end
-# 
+#
 #           # get the raw MARC21 for a record back from the file
 #           # using the record length
 #           raw = rec_length_s + @handle.read(rec_length_i-5)
@@ -253,31 +246,29 @@ end
 #         end
 #       end
 #     end
-# 
+#
 #   end
 # end
 
 class Resolv
+  TRACKER = {}.freeze
 
-    TRACKER = Hash.new()
+  def self.getaddress(name)
+    TRACKER[name] = 1 + (TRACKER[name] || 0)
+    puts "\n===> Resolve#getaddress(#{name}) #{TRACKER[name]}"
 
-    def self.getaddress(name)
-      TRACKER[name] = 1 + (TRACKER[name] || 0)
-      puts "\n===> Resolve#getaddress(#{name}) #{TRACKER[name]}"
-
-      if TRACKER[name] > 10
-        begin
-          raise "monkey"
-        rescue => e
-          puts e.message
-          puts e.backtrace.join("\n")
-          raise
-        end
+    if TRACKER[name] > 10
+      begin
+        raise 'monkey'
+      rescue => e
+        puts e.message
+        puts e.backtrace.join("\n")
+        raise
       end
-
-      DefaultResolver.getaddress(name)
     end
 
+    DefaultResolver.getaddress(name)
+  end
 end
 
 # Turn on Faraday Debugging - different block depending on adapter
@@ -290,7 +281,7 @@ end
 #     conn
 #   end
 # end
-# 
+#
 # class Faraday::Adapter::NetHttpPersistent
 #   alias_method :old_net_http_connection, :net_http_connection
 #    def net_http_connection(env)
@@ -299,6 +290,3 @@ end
 #     conn
 #   end
 # end
-
-
-

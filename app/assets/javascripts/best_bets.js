@@ -84,21 +84,21 @@ $(document).ready(function() {
     // local: [{title: 'dog'}, {title: 'pig'}, {title: 'moose'}],
   });  // new Bloodhound()
 
-});  // document.ready
 
 
+// });  // document.ready
+// 
+// $('.best-bets-typeahead').on('focus', function(e) {
 
 
-$('.best-bets-typeahead').on("input", function(e) {
+  // inputBox = e.target;
 
-  inputBox = e.target;
-
-  if (inputBox.classList.contains('tt-input')) {
-    // alert('tt-input already');
-    return;
-  } else {
-    // alert('no tt-input, adding...');
-  };
+  // if (inputBox.classList.contains('tt-input')) {
+  //   // alert('tt-input already');
+  //   return;
+  // } else {
+  //   // alert('no tt-input, adding...');
+  // };
 
   // retrieve data embedded on page
   var best_bets_url = $('#best_bets').data('url')
@@ -201,10 +201,10 @@ $('.best-bets-typeahead').on("input", function(e) {
 
     // $('.best-bets-typeahead').bind('typeahead:autocomplete', function(ev, suggestion) {  console.log('>> typeahead:autocomplete'); });
 
-    // Initializing the Typeahead looses element focus
-    setTimeout(function(){
-        $('.best-bets-typeahead.tt-input').focus();
-    }, 1);
+    // // Initializing the Typeahead looses element focus
+    // setTimeout(function(){
+    //     $('.best-bets-typeahead.tt-input').focus();
+    // }, 1);
 
   }  // if typeof(best_bets_url...
 

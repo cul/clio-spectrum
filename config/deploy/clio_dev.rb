@@ -7,9 +7,8 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
-
 # server 'bronte.cul.columbia.edu', user: 'deployer', roles: %w{app db web}
-server 'clio-dev.cul.columbia.edu', user: 'clioserv', roles: %w{app db web}
+server 'clio-dev.cul.columbia.edu', user: 'clioserv', roles: %w(app db web)
 
 # set :deploy_to, '/var/www/my_app_name'
 set :deploy_to, '/opt/passenger/clio/clio_dev'
@@ -19,7 +18,6 @@ set :deploy_to, '/opt/passenger/clio/clio_dev'
 # set :rvm_ruby_version, '2.0.0-p247'      # Defaults to: 'default'
 # set :rvm_custom_path, '~/.myveryownrvm'  # only needed if not detected
 set :rvm_ruby_version, 'clio_dev'
-
 
 # role-based syntax
 # ==================
@@ -33,8 +31,6 @@ set :rvm_ruby_version, 'clio_dev'
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
 
-
-
 # Configuration
 # =============
 # You can set any configuration variable like in config/deploy.rb
@@ -42,8 +38,6 @@ set :rvm_ruby_version, 'clio_dev'
 # For available Capistrano configuration variables see the documentation page.
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
-
-
 
 # Custom SSH Options
 # ==================

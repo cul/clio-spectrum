@@ -11,5 +11,4 @@ class AdminController < ApplicationController
   def system
     redirect_to root_path unless current_user.has_role?('site', 'admin')
   end
-
 end

@@ -9,7 +9,7 @@ class LwebDocument
       # @title   = content_or_nil.call(xml_node.at_css('T'))
       # @summary = content_or_nil.call(xml_node.at_css('S'))
       # @mime    = content_or_nil.call(xml_node.attribute('MIME'))
-      
+
       @url     = item.link
       @title   = item.title
       @summary = item.html_snippet

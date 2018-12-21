@@ -1,5 +1,4 @@
 module ItemAlertHelper
-
   # Not so clever - using Bootstrap alert-type labels to mean 'future', 'past', etc.
   def alert_status(alert)
     right_now = DateTime.now
@@ -32,9 +31,7 @@ module ItemAlertHelper
     if raw_start_date
       pretty_start_date = raw_start_date.to_formatted_s(:item_alert)
     end
-    if raw_end_date
-      pretty_end_date = raw_end_date.to_formatted_s(:item_alert)
-    end
+    pretty_end_date = raw_end_date.to_formatted_s(:item_alert) if raw_end_date
 
     if raw_start_date
       if raw_end_date
@@ -47,7 +44,7 @@ module ItemAlertHelper
         end
       end
 
-    else    # no start-date given...
+    else # no start-date given...
       if raw_end_date
         if raw_end_date > right_now
           "Ends #{pretty_end_date}"

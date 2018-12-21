@@ -126,23 +126,22 @@ class ItemAlertsController < ApplicationController
 
   private
 
-    def item_alert_params
-      # # Unpermitted keys are logged at DEBUG in test and development.
-      # # If this bothers you, delete them from params hash here.
-      # params.delete(:adv)
-      # params.delete(:format)
-    
-      params.require(:item_alert).permit(:source, :item_key, :author_id, :alert_type, :start_date, :end_date, :message)
-    
-      # params = params[:item_alert]
-      # params.permit(:source, :item_key, :author_id, :alert_type, :start_date, :end_date, :message)
-    
-      # This is built to return nulled out objects in case of omissions, 
-      # but if we want to raise exceptions, do this:
-            # .require(:author_id)
-            # .require(:message)
-            # .require(:source)
-            # .require(:item_key)
-    end
+  def item_alert_params
+    # # Unpermitted keys are logged at DEBUG in test and development.
+    # # If this bothers you, delete them from params hash here.
+    # params.delete(:adv)
+    # params.delete(:format)
 
+    params.require(:item_alert).permit(:source, :item_key, :author_id, :alert_type, :start_date, :end_date, :message)
+
+    # params = params[:item_alert]
+    # params.permit(:source, :item_key, :author_id, :alert_type, :start_date, :end_date, :message)
+
+    # This is built to return nulled out objects in case of omissions,
+    # but if we want to raise exceptions, do this:
+    # .require(:author_id)
+    # .require(:message)
+    # .require(:source)
+    # .require(:item_key)
+  end
 end

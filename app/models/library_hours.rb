@@ -15,13 +15,13 @@ class LibraryHours < ApplicationRecord
       return '24 Hours'
     end
 
-    return "#{opens_display} - #{closes_display}"
+    "#{opens_display} - #{closes_display}"
   end
 
   def self.hours_for_range(library_code, startdate, enddate)
     return nil unless library_code && startdate && enddate
     # hours.find(:all, conditions: ['library_hours.date BETWEEN ? and ?', startdate.to_date, enddate.to_date]).sort { |x, y| x.date <=> y.date }
-    self.where(library_code: library_code).where('library_hours.date BETWEEN ? and ?', startdate.to_date, enddate.to_date).sort { |x, y| x.date <=> y.date }
+    where(library_code: library_code).where('library_hours.date BETWEEN ? and ?', startdate.to_date, enddate.to_date).sort { |x, y| x.date <=> y.date }
   end
 
   private
@@ -31,9 +31,6 @@ class LibraryHours < ApplicationRecord
     label.gsub!(':00', '')
     return 'Noon' if label == '12pm'
     return 'Midnight' if label == '12am'
-    return label
+    label
   end
-
 end
-
-

@@ -7,7 +7,6 @@ require 'spec_helper'
 # NEXT-867 - The journal reproduction is not retrieved when searching for reproduction
 # and also:  Gut, Nature, Heart, Science, Neurology, Circulation
 describe 'Searching for one-word titles: ', :skip_travis do
-
   it 'Reproduction' do
     resp = solr_resp_ids_from_query('Reproduction')
     # expect(resp.get_first_doc_index({"id" => "4843265"})).to be < 1
@@ -129,11 +128,9 @@ describe 'Searching for one-word titles: ', :skip_travis do
     resp = solr_resp_ejournal_ids_only('q' => 'Nation')
     expect(rank(resp, 3327456)).to be <= 20
   end
-
 end
 
 describe 'Searching for other one-word titles: ', :skip_travis do
-
   it 'JSTOR' do
     resp = solr_resp_ids_from_query('JSTOR')
     expect(rank(resp, 1959655)).to be <= 1
@@ -145,5 +142,4 @@ describe 'Searching for other one-word titles: ', :skip_travis do
     expect(rank(resp, 4066287)).to be <= 1
     expect(rank(resp, 8088762)).to be <= 3
   end
-
 end

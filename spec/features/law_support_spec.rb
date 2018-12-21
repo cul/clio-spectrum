@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'CLIO support for Law records', :vcr do
-
   it 'should include Law in Location facet', :js do
     visit catalog_index_path('q' => 'supr* cour*')
     within '.facets.sidenav' do
@@ -41,7 +40,6 @@ describe 'CLIO support for Law records', :vcr do
     # confirm
     expect(find('.blacklight-location_facet .facet-content')).to have_css('li', maximum: 1)
     expect(find('.blacklight-location_facet .facet-content')).to have_text('Law')
-
   end
 
   it 'should link to precise bib for known item' do
@@ -64,5 +62,4 @@ describe 'CLIO support for Law records', :vcr do
       expect(page).to have_text law_text
     end
   end
-
 end

@@ -46,7 +46,7 @@ class User < ApplicationRecord
 
   # application-level admin permissions
   def valet_admin?
-    return true if self.admin?
+    return true if admin?
     valet_admins = Array(APP_CONFIG['valet_admins']) || []
     return valet_admins.include? uid
   end
@@ -92,10 +92,10 @@ class User < ApplicationRecord
           self.email = uid + '@columbia.edu'
         end
         if User.column_names.include? 'last_name'
-          self.last_name = entry[:sn].to_s.gsub('[', '').gsub(']', '').gsub(/\"/, '')
+          self.last_name = entry[:sn].to_s.delete('[').delete(']').delete('"')
         end
         if User.column_names.include? 'first_name'
-          self.first_name = entry[:givenname].to_s.gsub('[', '').gsub(']', '').gsub(/\"/, '')
+          self.first_name = entry[:givenname].to_s.delete('[').delete(']').delete('"')
         end
       end
     end

@@ -9,10 +9,8 @@ RSpec::Matchers.define :contain_in_fields do |target, *field_list|
 
   failure_message do |doc|
     doc_data = field_list.map do |field_name|
-      "#{field_name}=#{ doc.fetch(field_name, nil).first }"
+      "#{field_name}=#{doc.fetch(field_name, nil).first}"
     end.join(', ')
     "expected that #{target} would be contained in doc fields (#{doc_data})"
   end
-
 end
-

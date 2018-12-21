@@ -3,7 +3,6 @@
 require 'spec_helper'
 
 describe 'Academic Commons', :vcr do
-
   it 'fielded search should work' do
     # Use this string within the below tests
     search_title_text = 'Structural and Functional Microbial Ecology'
@@ -22,7 +21,7 @@ describe 'Academic Commons', :vcr do
       #   # save_and_open_page()
       #   click_link('Title')
       # end
-      select 'Title', :from => "search_field"
+      select 'Title', from: 'search_field'
       find('button[type=submit]').click
     end
 
@@ -62,14 +61,9 @@ describe 'Academic Commons', :vcr do
       # and each one we find must satisfy this assertion.
       all('.result_title a').each do |link|
         expect(link['href']).to satisfy { |url|
-          url.match(/http:\/\/dx.doi.org\//)  || url.match(/https:\/\/doi.org\//)  || url.match(/http:\/\/hdl.handle.net\//) || url.match(/http:\/\/academiccommons.columbia.edu\//)
+          url.match(/http:\/\/dx.doi.org\//) || url.match(/https:\/\/doi.org\//) || url.match(/http:\/\/hdl.handle.net\//) || url.match(/http:\/\/academiccommons.columbia.edu\//)
         }
       end
     end
   end
-
-
 end
-
-
-

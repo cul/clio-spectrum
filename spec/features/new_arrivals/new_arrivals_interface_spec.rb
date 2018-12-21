@@ -3,11 +3,10 @@ require 'spec_helper'
 # NEXT-845 - New Arrivals timeframe (6 month count == 1 year count)
 # Every time we hit new-arrivals, we need to tell the VCR
 # request matcher to ignore 'fq', to get stable cassettes
-describe 'New Arrivals Search', :vcr => {:match_requests_on => [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')]} do
-
+describe 'New Arrivals Search', vcr: { match_requests_on: [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')] } do
   # This test is bound very tightly to the current date.
   # I can't figure out how to work with a recorded VCR cassette.
-  # It can also been seen as, partially, an index-quality check 
+  # It can also been seen as, partially, an index-quality check
   # rather than a code-correctness check - I'm ok skipping CI for this.
   it 'should show 4 distinct acquisition-date facet options', :skip_travis, vcr: false do
     visit root_path
@@ -22,17 +21,17 @@ describe 'New Arrivals Search', :vcr => {:match_requests_on => [:method, VCR.req
     # Find the <li> with this text, as a Capybara node...
     within1week = find('li', text: /within 1 week/i)
     # Extract from that the full-text, strip away the label to leave the count
-    within1week_count =  within1week.text.gsub(/within 1 week/i, '').gsub(/\D/, '').to_i
+    within1week_count = within1week.text.gsub(/within 1 week/i, '').gsub(/\D/, '').to_i
 
     # And so on, for the other facet categories
     within1month = find('li', text: /within 1 month/i)
-    within1month_count =  within1month.text.gsub(/within 1 month/i, '').gsub(/\D/, '').to_i
+    within1month_count = within1month.text.gsub(/within 1 month/i, '').gsub(/\D/, '').to_i
 
     within6months = find('li', text: /within 6 months/i)
-    within6months_count =  within6months.text.gsub(/within 6 months/i, '').gsub(/\D/, '').to_i
+    within6months_count = within6months.text.gsub(/within 6 months/i, '').gsub(/\D/, '').to_i
 
     within1year = find('li', text: /within 1 year/i)
-    within1year_count =  within1year.text.gsub(/within 1 year/i, '').gsub(/\D/, '').to_i
+    within1year_count = within1year.text.gsub(/within 1 year/i, '').gsub(/\D/, '').to_i
 
     # Now, assert some basic sanity checks on sizes and relationships
 
@@ -44,7 +43,6 @@ describe 'New Arrivals Search', :vcr => {:match_requests_on => [:method, VCR.req
     expect(within1month_count).to be > within1week_count
     expect(within6months_count).to be > within1month_count
     expect(within1year_count).to be > within6months_count
-
   end
 
   it 'will be able to traverse next and previous links' do
@@ -92,7 +90,5 @@ describe 'New Arrivals Search', :vcr => {:match_requests_on => [:method, VCR.req
     find('#search_info a', text: 'Back to Results').click
 
     expect(find('.constraints-container')).to have_text 'You searched for: man'
-
   end
-
 end

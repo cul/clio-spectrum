@@ -3,7 +3,6 @@
 require 'spec_helper'
 
 describe 'Databases', :vcr do
-
   # NEXT-843 - Database Alpha jump-list should respect non-filing indicator
   it "First-Letter facet should ignore leading 'The'", :js do
     visit databases_index_path
@@ -53,104 +52,101 @@ describe 'Databases', :vcr do
   end
 
   it 'should search by pairs of Discipline/Resource-Type filters correctly' do
-   visit root_path
+    visit root_path
     # We should now be on QUICKSEARCH page
-   expect(find('.landing_main .title')).to have_text('Quicksearch')
+    expect(find('.landing_main .title')).to have_text('Quicksearch')
     # page.save_and_open_page # debug
 
-   within('li.datasource_link[source="databases"]') do
-     click_link('Databases')
-   end
+    within('li.datasource_link[source="databases"]') do
+      click_link('Databases')
+    end
     # We should now be on DATABASES page
-   expect(find('.landing_main .title')).to have_text('Databases')
+    expect(find('.landing_main .title')).to have_text('Databases')
 
     # Databases landing page...
-   within 'div.databases_browse_by' do
-     expect(page).to have_text('Browse by discipline')
-     expect(page).to have_text('Browse by resource type')
+    within 'div.databases_browse_by' do
+      expect(page).to have_text('Browse by discipline')
+      expect(page).to have_text('Browse by resource type')
 
-     find('select#f_database_discipline_facet_', text: 'All Disciplines').click
-     select('Social Sciences', from: 'f_database_discipline_facet_')
+      find('select#f_database_discipline_facet_', text: 'All Disciplines').click
+      select('Social Sciences', from: 'f_database_discipline_facet_')
 
-     find('select#f_database_resource_type_facet_', text: 'All Resource Types').click
-     select('Text Collections', from: 'f_database_resource_type_facet_')
+      find('select#f_database_resource_type_facet_', text: 'All Resource Types').click
+      select('Text Collections', from: 'f_database_resource_type_facet_')
 
-     find('button', text: 'Browse').click
-   end
+      find('button', text: 'Browse').click
+    end
 
-   within 'div.constraints-container' do
-     # Unfortunately, the drop-down "Is"/"Is Not" menu is not really hidden to rspec...
-     find('.constraint-box', text: %r{Discipline: Is .* Social Sciences})
-     find('.constraint-box', text: %r{Resource Type: Is .* Text Collections})
-   end
+    within 'div.constraints-container' do
+      # Unfortunately, the drop-down "Is"/"Is Not" menu is not really hidden to rspec...
+      find('.constraint-box', text: /Discipline: Is .* Social Sciences/)
+      find('.constraint-box', text: /Resource Type: Is .* Text Collections/)
+    end
 
-   expect(page).to have_css('.result.document', minimum: 10)
+    expect(page).to have_css('.result.document', minimum: 10)
 
-   # click_link('Start Over')
-   first(:link, 'Start Over').click
+    # click_link('Start Over')
+    first(:link, 'Start Over').click
 
     # Use the
 
-   within 'div.databases_browse_by' do
-     expect(page).to have_text('Browse by discipline')
-     expect(page).to have_text('Browse by resource type')
+    within 'div.databases_browse_by' do
+      expect(page).to have_text('Browse by discipline')
+      expect(page).to have_text('Browse by resource type')
 
-     find('select#f_database_discipline_facet_', text: 'All Disciplines').click
-     select('Sciences', from: 'f_database_discipline_facet_')
+      find('select#f_database_discipline_facet_', text: 'All Disciplines').click
+      select('Sciences', from: 'f_database_discipline_facet_')
 
-     find('select#f_database_resource_type_facet_', text: 'All Resource Types').click
-     select('Music Scores', from: 'f_database_resource_type_facet_')
+      find('select#f_database_resource_type_facet_', text: 'All Resource Types').click
+      select('Music Scores', from: 'f_database_resource_type_facet_')
 
-     find('button', text: 'Browse').click
-   end
+      find('button', text: 'Browse').click
+    end
 
-   within 'div.constraints-container' do
-     # Unfortunately, the drop-down "Is"/"Is Not" menu is not really hidden to rspec...
-     find('.constraint-box', text: %r{Discipline: Is .* Sciences})
-     find('.constraint-box', text: %r{Resource Type: Is .* Music Scores})
-   end
-   expect(page).to have_text('No results found for your search')
+    within 'div.constraints-container' do
+      # Unfortunately, the drop-down "Is"/"Is Not" menu is not really hidden to rspec...
+      find('.constraint-box', text: /Discipline: Is .* Sciences/)
+      find('.constraint-box', text: /Resource Type: Is .* Music Scores/)
+    end
+    expect(page).to have_text('No results found for your search')
   end
 
   # NEXT-1211 - When I do a blank ejournals search, view a title, and view the MARC record, my results revert back to the full catalog results
   it 'should preserve active_source through MARC view', :js do
-   firstTitle = '17th-18th century'
-   visit databases_index_path( q: '', sort: 'title_sort asc')
-   expect(page).to have_text firstTitle
+    firstTitle = '17th-18th century'
+    visit databases_index_path(q: '', sort: 'title_sort asc')
+    expect(page).to have_text firstTitle
 
+    click_link(firstTitle)
+    expect(page).to have_text 'Back to Results | 1 of '
+    expect(page).to have_text 'Title ' + firstTitle
 
-   click_link(firstTitle)
-   expect(page).to have_text 'Back to Results | 1 of '
-   expect(page).to have_text "Title " + firstTitle
+    click_link('Display In')
+    click_link('MARC View')
+    expect(page).to have_text 'Back to Results | 1 of '
+    expect(page).to have_text '245 0 0 |a ' + firstTitle
 
-   click_link('Display In')
-   click_link('MARC View')
-   expect(page).to have_text 'Back to Results | 1 of '
-   expect(page).to have_text '245 0 0 |a ' + firstTitle
+    # Nav links should preserve active datasource
+    href = find_link('Back to Results')[:href]
+    expect(href).to match(/\/databases\?/)
+    href = find_link('Next')[:href]
+    expect(href).to match(/\/databases\//)
+    href = find_link('Return to Patron View')[:href]
+    expect(href).to match(/\/databases\//)
 
-   # Nav links should preserve active datasource
-   href = find_link('Back to Results')[:href]
-   expect(href).to match( /\/databases\?/)
-   href = find_link('Next')[:href]
-   expect(href).to match( /\/databases\//)
-   href = find_link('Return to Patron View')[:href]
-   expect(href).to match( /\/databases\//)
+    within '#show_toolbar' do
+      click_link('Next')
+    end
+    expect(page).to have_text 'Back to Results | « Previous | 2 of '
 
-   within '#show_toolbar' do
-     click_link('Next')
-   end
-   expect(page).to have_text 'Back to Results | « Previous | 2 of '
-
-   # Nav links should preserve active datasource
-   href = find_link('Back to Results')[:href]
-   expect(href).to match( /\/databases\?/)
-   href = find_link('Previous')[:href]
-   expect(href).to match( /\/databases\//)
-   href = find_link('Next')[:href]
-   expect(href).to match( /\/databases\//)
-   href = find_link('Return to Patron View')[:href]
-   expect(href).to match( /\/databases\//)
+    # Nav links should preserve active datasource
+    href = find_link('Back to Results')[:href]
+    expect(href).to match(/\/databases\?/)
+    href = find_link('Previous')[:href]
+    expect(href).to match(/\/databases\//)
+    href = find_link('Next')[:href]
+    expect(href).to match(/\/databases\//)
+    href = find_link('Return to Patron View')[:href]
+    expect(href).to match(/\/databases\//)
   end
-
-
 end

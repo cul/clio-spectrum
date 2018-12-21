@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'E-Journals Search', :vcr do
-
   it 'will be able to traverse next and previous links' do
     visit journals_index_path('q' => 'notes')
 
@@ -47,7 +46,5 @@ describe 'E-Journals Search', :vcr do
     find('#search_info a', text: 'Back to Results').click
 
     expect(find('.constraints-container')).to have_text 'You searched for: letters'
-
   end
-
 end

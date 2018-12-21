@@ -1,8 +1,4 @@
 
-
-
-
-
 # guard 'spork',:rspec_env => { 'RAILS_ENV' => 'test' } do
 #   watch('config/application.rb')
 #   watch('config/environment.rb')
@@ -14,25 +10,24 @@
 #   watch('test/test_helper.rb') { :test_unit }
 # end
 
-
 # 10/2014 - NEW guard rspec clause, as found in https://github.com/guard/guard-rspec
 
 guard :rspec, cmd: 'bundle exec rspec' do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
-  watch('spec/spec_helper.rb')  { "spec" }
+  watch('spec/spec_helper.rb')  { 'spec' }
 end
 
 # OLD guard rspec clause - it's been there forever, untouched.
 
 # guard 'rspec', :cli => "--drb --format progress ", :all_after_pass => false do
-# 
+#
 #   # Capybara request specs
 #   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
 #   watch(%r{^spec/.+_spec\.rb$})
 #   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
 #   watch('spec/spec_helper.rb')  { "spec" }
-# 
+#
 #   # Rails example
 #   watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
 #   watch(%r{^app/(.*)(\.erb|\.haml)$})                 { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }
@@ -40,10 +35,8 @@ end
 #   watch(%r{^spec/support/(.+)\.rb$})                  { "spec" }
 #   watch('config/routes.rb')                           { "spec/routing" }
 #   watch('app/controllers/application_controller.rb')  { "spec/controllers" }
-# 
+#
 # end
-
-
 
 ## Sample template for guard-unicorn
 #
@@ -55,9 +48,8 @@ end
 # * :config_file (default is "config/unicorn.rb") - the path to the unicorn file
 # * :pid_file (default is "tmp/pids/unicorn.pid") - the path to the unicorn pid file
 
-guard 'rails', :port => 3030 do
+guard 'rails', port: 3030 do
   watch('Gemfile.lock')
   watch('tmp/restart.txt')
   watch(%r{^(config|lib)/.*})
 end
-

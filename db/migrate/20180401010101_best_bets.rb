@@ -1,9 +1,6 @@
 class BestBets < ActiveRecord::Migration[5.1]
-
   def change
-
     create_table :best_bets do |t|
-
       t.string :title, null: false
       t.string :url, null: false
       t.string :description, null: false
@@ -15,11 +12,8 @@ class BestBets < ActiveRecord::Migration[5.1]
 
     add_index :best_bets, :title, unique: true
 
-    if ActiveRecord::Base.connection.adapter_name.match /mysql/i
+    if ActiveRecord::Base.connection.adapter_name =~ /mysql/i
       add_index :best_bets, [:title, :url, :description, :keywords], name: 'fulltext', type: :fulltext
     end
-
   end
-
 end
-

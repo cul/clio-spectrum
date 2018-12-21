@@ -2,7 +2,6 @@
 require 'spec_helper'
 
 describe 'Spectrum::SearchEngines::Solr', :vcr do
-
   solr_url = nil
   solr_url = SOLR_CONFIG['test']['url']
   # solr_url = SOLR_CONFIG['spectrum_subset']['url']
@@ -88,11 +87,9 @@ describe 'Spectrum::SearchEngines::Solr', :vcr do
   # NEXT-452
   describe 'catalog all-field searches for Judith Butler' do
     before(:each) do
-
     end
 
     it 'should return full-phrase title/author matches before split-field matches' do
-
       eng = Spectrum::SearchEngines::Solr.new(:source => 'catalog', :q => 'Judith Butler', :search_field => 'all_fields', :rows => @result_count, 'solr_url' => solr_url)
       expect(eng.results).not_to be_empty
       eng.results.each do |result|
@@ -119,5 +116,4 @@ describe 'Spectrum::SearchEngines::Solr', :vcr do
       end
     end
   end
-
 end

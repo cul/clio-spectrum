@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'Libraries Website DAM search', :vcr do
-
   it 'should show DAM filenames and format icons for XLS' do
     visit library_web_index_path('q' => 'dam sheet1 xlsx')
     within all('.result.document').first do
@@ -25,13 +24,10 @@ describe 'Libraries Website DAM search', :vcr do
       expect(find('.lweb_dam_document')).to have_text '.pdf'
     end
   end
-
 end
 
 describe 'Libraries Website searches', :vcr do
-
   it 'should remember items-per-page' do
-
     # SET initial page-size to 100 items
     visit library_web_index_path('q' => 'room')
     within all('.index_toolbar.navbar').first do
@@ -58,7 +54,5 @@ describe 'Libraries Website searches', :vcr do
     within all('.index_toolbar.navbar').first do
       expect(find('#current_item_info')).to have_text '1 - 25 of'
     end
-
   end
-
 end

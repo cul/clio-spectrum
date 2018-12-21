@@ -3,7 +3,7 @@
 class AddPolymorphicTypeToBookmarks < ActiveRecord::Migration[5.1]
   def change
     add_column(:bookmarks, :document_type, :string)
-    
+
     add_index :bookmarks, :user_id
   end
 end

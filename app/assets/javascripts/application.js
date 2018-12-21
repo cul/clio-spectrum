@@ -73,7 +73,8 @@
 //= require preferences
 
 // capybara-webkit doesn't support ES6 syntax
-<% require_asset 'es6_bits' unless Rails.env.test? %>
+// To use code (like this) in this file, rename from .js to .js.erb
+// moved to common_head  require_asset 'es6_bits' unless Rails.env.test? or browser.ie? 
 
 
 

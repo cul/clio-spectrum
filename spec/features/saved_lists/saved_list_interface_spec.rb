@@ -3,7 +3,6 @@ require 'spec_helper'
 include Warden::Test::Helpers
 
 describe 'Saved List Interface', :vcr do
-
   before(:each) do
     User.delete_all
     @autodidact = FactoryBot.create(:user, uid: 'autodidact')
@@ -44,7 +43,7 @@ describe 'Saved List Interface', :vcr do
     # In this context, the auth redirect happens against the local
     # server, giving a 404.
     # login_path = '/login'      # wind
-    login_path = '/cas/login'  # cas
+    login_path = '/cas/login' # cas
     expect(page).to have_text("Invalid URL: #{login_path}")
 
     visit '/saved_lists/1/edit'
@@ -54,7 +53,6 @@ describe 'Saved List Interface', :vcr do
   end
 
   it 'should protect private lists and share public lists', :js do
-
     # Use Warden::Test::Helpers for Feature testing
     feature_login @autodidact
 
@@ -150,33 +148,31 @@ describe 'Saved List Interface', :vcr do
     feature_logout
   end
 
-  # This test triggers a file-download of the endnote file, then 
+  # This test triggers a file-download of the endnote file, then
   # tries to interact with the webpage afterwards.
-  # This fails with Capybara - When the file-download occurs, Capybara-Webkit 
+  # This fails with Capybara - When the file-download occurs, Capybara-Webkit
   # loses the original webpage and loads the downloaded content instead.
-  context "item can be added to bookbag after exporting to EndNote", :selenium do
-
+  context 'item can be added to bookbag after exporting to EndNote', :selenium do
     it 'uses selenium driver' do
       expect(Capybara.current_driver).to be(:selenium)
     end
 
-    it "adds to saved list afer EndNote export" do
+    it 'adds to saved list afer EndNote export' do
       expect(Capybara.current_driver).to be(:selenium)
-      visit solr_document_path("4359539")
+      visit solr_document_path('4359539')
       login_as @blatteroon
       click_on('Export')
       click_on('Export Citation(s)')
       click_on('Add to My Saved List')
-      expect(page).to have_css(".alert", :text => "1 item added to list Bookbag")
+      expect(page).to have_css('.alert', text: '1 item added to list Bookbag')
     end
-  # it "item can be added to bookbag after exporting to EndNote", type: :selenium do
-  #   Capybara.current_driver = :selenium
-  #   visit solr_document_path("4359539")
-  #   login_as @blatteroon
-  #   click_link('Export')
-  #   click_link('Export to EndNote')
-  #   click_link('Add to My Saved List')
-  #   expect(page).to have_css(".alert", :text => "1 item added to list Bookbag")
+    # it "item can be added to bookbag after exporting to EndNote", type: :selenium do
+    #   Capybara.current_driver = :selenium
+    #   visit solr_document_path("4359539")
+    #   login_as @blatteroon
+    #   click_link('Export')
+    #   click_link('Export to EndNote')
+    #   click_link('Add to My Saved List')
+    #   expect(page).to have_css(".alert", :text => "1 item added to list Bookbag")
   end
-
 end

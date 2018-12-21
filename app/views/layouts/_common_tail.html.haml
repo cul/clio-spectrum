@@ -10,7 +10,10 @@
   clio_backend_url = "#{APP_CONFIG['clio_backend_url']}";
   google_analytics_web_property_id = "#{GoogleAnalytics.web_property_id}";
 
-= javascript_include_tag "application"
+= javascript_include_tag 'application'
+
+-# ECMAScript 6 syntax breaks in capybara-webkit testing and in any IE browser
+= javascript_include_tag 'es6_bits' unless Rails.env.test? or browser.ie?
 
 = yield(:jstemplates)
 

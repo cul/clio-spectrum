@@ -1,13 +1,10 @@
 
-set :bundle_without, %w{development test clio_dev clio_test clio_prod}.join(' ')
+set :bundle_without, %w(development test clio_dev clio_test clio_prod).join(' ')
 
-set :bundle_env_variables, { 
-  'http_proxy'  => 'http://lito-squid-prod1.cul.columbia.edu:3131',
-  'https_proxy' => 'https://lito-squid-prod1.cul.columbia.edu:3131'
-  }
+set :bundle_env_variables, 'http_proxy' => 'http://lito-squid-prod1.cul.columbia.edu:3131',
+                           'https_proxy' => 'https://lito-squid-prod1.cul.columbia.edu:3131'
 
-
-server 'clio-service-dev1.cul.columbia.edu', user: 'clioserv', roles: %w{app db web}
+server 'clio-service-dev1.cul.columbia.edu', user: 'clioserv', roles: %w(app db web)
 
 # set :deploy_to, '/var/www/my_app_name'
 # set :deploy_to, '/opt/passenger/clio_prod'
@@ -18,6 +15,3 @@ set :deploy_to, '/opt/app/clio_dev'
 # set :rvm_ruby_version, '2.0.0-p247'      # Defaults to: 'default'
 # set :rvm_custom_path, '~/.myveryownrvm'  # only needed if not detected
 set :rvm_ruby_version, 'clio_dev'
-
-
-

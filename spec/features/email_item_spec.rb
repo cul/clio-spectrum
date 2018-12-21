@@ -3,7 +3,7 @@ require 'spec_helper'
 include Warden::Test::Helpers
 
 describe 'Share by Email', vcr: true, focus: false do
-  ['solr_document', 'savedlist'].each do |path|
+  %w(solr_document savedlist).each do |path|
     context 'when user is logged in' do
       before do
         @autodidact = FactoryBot.build(:user, uid: 'autodidact',
@@ -11,15 +11,15 @@ describe 'Share by Email', vcr: true, focus: false do
                                          last_name: 'Didact'
                                         )
         feature_login @autodidact
-        visit self.send("email_#{path}_path", id: 12345)
+        visit send("email_#{path}_path", id: 12345)
       end
-      
-      context "#{path}" do
+
+      context path.to_s do
         it 'should have some instructions for the user' do
-          expect(page).to have_text("Send to (comma-separated list of emails):")
-          expect(page).to have_text("Your email (optional):")
-          expect(page).to have_text("Your name (optional):")
-          expect(page).to have_text("Message:")
+          expect(page).to have_text('Send to (comma-separated list of emails):')
+          expect(page).to have_text('Your email (optional):')
+          expect(page).to have_text('Your name (optional):')
+          expect(page).to have_text('Message:')
         end
 
         it 'should email record' do
@@ -43,8 +43,8 @@ describe 'Share by Email', vcr: true, focus: false do
         end
 
         it 'should pre-fill text fields with user email and name' do
-          expect(page.find("#reply_to").value).to eq('autodidact@example.com')
-          expect(page.find("#name").value).to eq("Auto Didact")
+          expect(page.find('#reply_to').value).to eq('autodidact@example.com')
+          expect(page.find('#name').value).to eq('Auto Didact')
         end
 
         it 'should include default reply-to and name if user does nothing' do
@@ -99,5 +99,4 @@ describe 'Share by Email', vcr: true, focus: false do
       end
     end
   end
-
 end

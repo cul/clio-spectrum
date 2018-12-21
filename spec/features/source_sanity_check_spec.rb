@@ -1,14 +1,12 @@
 require 'spec_helper'
 
 describe 'Datasource Sanity', :vcr do
-
   it "LWeb should be labeled 'Libraries Website'" do
     visit root_path
     expect(find('#datasources')).to have_text('Libraries Website')
   end
 
   context 'direct datasources links go to landing pages' do
-
     it 'quicksearch' do
       visit '/quicksearch'
       expect(find('.landing_main .title')).to have_text('Quicksearch')
@@ -63,13 +61,10 @@ describe 'Datasource Sanity', :vcr do
       visit '/new_arrivals'
       expect(find('.landing_main .title')).to have_text('New Arrivals')
     end
-
   end
-
 end
 
 describe 'Simple query should retrieve results', :vcr do
-
   it 'in quicksearch datasource', :js do
     visit quicksearch_index_path(q: 'test')
     expect(page).to have_css('.result_set', count: 5)
@@ -127,26 +122,23 @@ describe 'Simple query should retrieve results', :vcr do
     visit ebooks_index_path('q' => 'test')
     expect(page).to have_css('.result_set', count: 2)
     expect(page).to have_css('.nested_result_set', count: 2)
-    all('.result_set').each do |result_set|
+    all('.result_set').each do |_result_set|
       expect(page).to have_css('.result')
     end
   end
 
   # Every time we hit new-arrivals, we need to tell the VCR
   # request matcher to ignore 'fq', to get stable cassettes
-  it 'in new arrivals datasource', :vcr => {:match_requests_on => [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')]} do
+  it 'in new arrivals datasource', vcr: { match_requests_on: [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')] } do
     visit new_arrivals_index_path('q' => 'test')
     expect(page).to have_css('.result')
   end
-
 end
 
-
 describe 'Switching between data-source', :vcr do
-
   # Every time we hit new-arrivals, we need to tell the VCR
   # request matcher to ignore 'fq', to get stable cassettes
-  it 'should carry forward simple search to each datasource', :js, :vcr => {:match_requests_on => [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')]} do
+  it 'should carry forward simple search to each datasource', :js, vcr: { match_requests_on: [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')] } do
     visit root_path
 
     # terminal newline submits form
@@ -206,8 +198,8 @@ describe 'Switching between data-source', :vcr do
 
     expect(page).to have_css('.result_set', count: 3)
     expect(page).to have_css('.nested_result_set', count: 3)
-# page.save_and_open_screenshot
-# page.save_and_open_page
+    # page.save_and_open_screenshot
+    # page.save_and_open_page
     all('.result_set').each do |result_set|
       expect(result_set).to have_css('.result')
     end
@@ -225,9 +217,7 @@ describe 'Switching between data-source', :vcr do
     expect(find('.constraint-box')).to have_text('test')
     expect(page).to have_css('.result')
     expect(all('#documents .result').first['source']).to eq 'catalog'
-
   end
-
 
   # NEXT-978 - "Back" button broken in CLIO
   it 'should allow back/forward navigation', :js do
@@ -261,6 +251,4 @@ describe 'Switching between data-source', :vcr do
     page.evaluate_script('window.history.forward()')
     expect(find('.landing_main .title')).to have_text('Databases')
   end
-
 end
-

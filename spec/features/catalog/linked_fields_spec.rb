@@ -3,7 +3,6 @@
 require 'spec_helper'
 
 describe 'Linked field-values in single-item display', vcr: { allow_playback_repeats: true } do
-
   it 'should work for links with diacritics and trailing punctuation' do
     # setup UTF-8 Decomposed form string constants for our various targets
     # the title:
@@ -102,7 +101,7 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
       'Darvīshʹpūr, Mihrdād.'.mb_chars.normalize(:d),
       'Jahānʹshāhlū Afshār, Nuṣrat Allāh.'.mb_chars.normalize(:d),
       'Banī Ṣadr, Abū al-Ḥasan.'.mb_chars.normalize(:d),
-      'Ibrāhīmʹzādah, Rāz̤iyah.'.mb_chars.normalize(:d),
+      'Ibrāhīmʹzādah, Rāz̤iyah.'.mb_chars.normalize(:d)
     ]
 
     # pull up the specific record, by bib key
@@ -169,24 +168,24 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
   end
 
   # NEXT-1011 - Inconsistent search results from series links.
-  it "should support linking to Series Title" do
+  it 'should support linking to Series Title' do
     visit solr_document_path '9646827'
-    expect(page).to have_text "Lo specchio acceso : narrativa italiana"
+    expect(page).to have_text 'Lo specchio acceso : narrativa italiana'
     # field-label, white-space, field-value
-    expect(page).to have_text "Series Collezione Confronti/consensi ; 15."
+    expect(page).to have_text 'Series Collezione Confronti/consensi ; 15.'
 
-    click_link "Collezione Confronti/consensi ; 15."
-    expect(find('.constraints-container')).to have_text("Collezione Confronti/consensi")
+    click_link 'Collezione Confronti/consensi ; 15.'
+    expect(find('.constraints-container')).to have_text('Collezione Confronti/consensi')
     expect(page).to_not have_text('No results')
     expect(page).to_not have_text('1 of 5')
     expect(find('#documents')).to have_text 'Lo specchio acceso : narrativa italiana'
   end
 
   # NEXT-1066 - Series link on this record does not retrieve other records in CLIO.
-  it "should support Series links with apostrophe-like characters" do
+  it 'should support Series links with apostrophe-like characters' do
     visit solr_document_path(2754188)
-    expect(page).to have_text "Palestine > History"
-    expect(page).to have_text "Jerusalem, Magnes Press, Hebrew University"
+    expect(page).to have_text 'Palestine > History'
+    expect(page).to have_text 'Jerusalem, Magnes Press, Hebrew University'
 
     # field-label, white-space, field-value
     series_decomposed = 'Sidrat meḥḳarim ʻal shem Uriʼel Hed.'.mb_chars.normalize(:d)
@@ -207,14 +206,14 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
   # NEXT-1107 - Pre-composed characters in facets
   # These two bib records (10322893, 10551688) encode the name Cipa differently,
   # both should link correctly, and "author" facet should be combined.
-  it "should work equivalently with pre-composed or de-composed unicode forms" do
+  it 'should work equivalently with pre-composed or de-composed unicode forms' do
     visit solr_document_path(10322893)
     # "Also Listed Under Çıpa, H. Erdem, 1971-"
     click_link('H. Erdem, 1971')
     expect(page).to have_text('1 - 8  of 8')
     within('#facet-author li', text: 'Erdem') do
-      expect(find('.facet-label')).to have_text "Çıpa, H. Erdem, 1971"
-      expect(find('.facet-count')).to have_text "8"
+      expect(find('.facet-label')).to have_text 'Çıpa, H. Erdem, 1971'
+      expect(find('.facet-count')).to have_text '8'
     end
 
     visit solr_document_path(10551688)
@@ -222,13 +221,13 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
     click_link('H. Erdem, 1971')
     expect(page).to have_text('1 - 8 of 8')
     within('#facet-author li', text: 'Erdem') do
-      expect(find('.facet-label')).to have_text "Çıpa, H. Erdem, 1971"
-      expect(find('.facet-count')).to have_text "8"
+      expect(find('.facet-label')).to have_text 'Çıpa, H. Erdem, 1971'
+      expect(find('.facet-count')).to have_text '8'
     end
   end
 
   # NEXT-1317 - Incorrect search results for series with parenthesis.
-  it "should handle parens within series title" do
+  it 'should handle parens within series title' do
     target = 'Monograph (British Institute of Archaeology at Ankara)'
     visit solr_document_path(10904345)
     # Click a series with parenthesized words...
@@ -240,7 +239,4 @@ describe 'Linked field-values in single-item display', vcr: { allow_playback_rep
     shown, of, total = page_entries.partition(/ of /)
     expect(total.to_i).to be < 50
   end
-
 end
-
-

@@ -2,15 +2,14 @@ require 'spec_helper'
 require 'rake'
 
 describe 'Item Locations should show correct library hours', :vcr, :skip_travis do
-
   # before(:all) do
   #   Location.clear_and_load_fixtures!
-  # 
+  #
   #   Rake.application.rake_require 'tasks/solr_ingest'
   #   Rake.application.rake_require 'tasks/sync_hours'
   #   Rake::Task.define_task(:environment)
   #   Rake.application.invoke_task 'hours:sync'
-  # 
+  #
   #   Location.clear_and_load_fixtures!
   # end
 
@@ -53,7 +52,7 @@ describe 'Item Locations should show correct library hours', :vcr, :skip_travis 
   it 'for Art Properties', :js do
     target = 'Avery Art Properties'
 
-    visit catalog_index_path( {q: target, search_field: 'location'} )
+    visit catalog_index_path(q: target, search_field: 'location')
 
     # Now on search-results page.  Click first title link.
     all('#documents .document .title a').first.click
@@ -88,5 +87,4 @@ describe 'Item Locations should show correct library hours', :vcr, :skip_travis 
     expect(page).to have_link('Home Page', href: 'https://web.law.columbia.edu/library')
     expect(page).to have_link('Full Hours Info', href: 'https://hours.library.columbia.edu/locations/law')
   end
-
 end

@@ -19,12 +19,8 @@
     %li= link_to "Send to Email", email_path(), {:id => "emailLink", :name => "email", :class => "lightboxLink", :onclick => "return appendSelectedToURL(this);"}
     %li= link_to "Export Citation(s)", endnote_solr_document_path(:format => 'endnote'), {:id => "endnoteLink", :onclick => "return appendSelectedToURL(this);"}
 
-    -# %li.nav-divider
-    -# -# %li= link_to "Save to #{SavedList::DEFAULT_LIST_NAME}", "#", :onclick => "saveSelectedToNamedList('#{SavedList::DEFAULT_LIST_NAME}'); return false;"
-    -# %li= link_to "Add to My Saved List", "#", :onclick => "saveSelectedToNamedList('#{SavedList::DEFAULT_LIST_NAME}'); return false;"
-
-    -# Only CLIO has saved lists
-    - if render_options['format'] == 'clio'
+    -# Only CLIO or Summon have saved lists
+    - if ['clio', 'article'].include?(render_options['format'])
       %li.nav-divider
       %li= link_to "Add to My Saved List", "#", class: 'saved_list_add'
 

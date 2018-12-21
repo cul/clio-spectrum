@@ -1,5 +1,4 @@
 FactoryBot.define do
-
   factory :item_alert do
     item_key { '123' }
     alert_type { 'alert' }
@@ -7,5 +6,4 @@ FactoryBot.define do
     author_id { 1 }
     source { 'catalog' }
   end
-
 end

@@ -1,14 +1,13 @@
 require 'spec_helper'
 
 describe 'Articles Search', :vcr do
-
   it 'should support range facets' do
     visit articles_index_path('s.q' => 'zebra')
     find('.facet_limit h5', text: 'Publication Date').click
     fill_in 'pub_date_min_value',   with: 1890
     fill_in 'pub_date_max_value',   with: 1910
     click_button 'Limit'
-# save_and_open_page # debug
+    # save_and_open_page # debug
     find('#documents')
     expect(page.all('#documents .result').count).to be >= 10
   end
@@ -48,7 +47,6 @@ describe 'Articles Search', :vcr do
       fill_in 'publicationtitle', with: 'test'
 
       find('button[type=submit]').click
-
     end
 
     expect(find('.well-constraints')).to have_content('Publication Title')
@@ -66,25 +64,25 @@ describe 'Articles Search', :vcr do
         # within '.dropdown-menu' do
         #   find("a[data-value='s.fq[AuthorCombined]']").click
         # end
-        select 'Author', :from => "search_field"
+        select 'Author', from: 'search_field'
         find('button[type=submit]').click
       end
     end
 
-    it "Search string and search field should be preserved" do
+    it 'Search string and search field should be preserved' do
       expect(find('#articles_q').value).to eq 'catmull, ed'
       expect(page).to have_select('search_field', selected: 'Author')
     end
 
-    it "the entered fielded search should be echoed on the results page" do
+    it 'the entered fielded search should be echoed on the results page' do
       expect(find('.well-constraints')).to have_content('Author: catmull, ed')
     end
 
-    it "and the search results too" do
+    it 'and the search results too' do
       expect(find('#documents')).to have_content('Author Catmull')
     end
 
-    it "add in some test related to pub-date sorting...", :js do
+    it 'add in some test related to pub-date sorting...', :js do
       expect(first('.index_toolbar')).to have_content('Sort by Relevance')
       first(:link, 'Sort by Relevance').click
 
@@ -105,5 +103,4 @@ describe 'Articles Search', :vcr do
       expect(page).to have_link('Published Latest')
     end
   end
-
 end
