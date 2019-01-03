@@ -15,9 +15,9 @@ class User < ApplicationRecord
   # that the following user attributes be available.
   attr_accessor :reset_password_token, :reset_password_sent_at
 
-  # devise requires that a password getter and setter be defined
-  # instead of defining bogus methods below, just use this.
-  attr_accessor :password
+  # # devise requires that a password getter and setter be defined
+  # # instead of defining bogus methods below, just use this.
+  # attr_accessor :password
 
   validates :uid, uniqueness: true, presence: true
 
@@ -59,14 +59,14 @@ class User < ApplicationRecord
     [first_name, last_name].join(' ')
   end
 
-  # # Password methods required by Devise.
-  # def password
-  #   Devise.friendly_token[0,20]
-  # end
-  # 
-  # def password=(*val)
-  #   # NOOP
-  # end
+  # Password methods required by Devise.
+  def password
+    Devise.friendly_token[0,20]
+  end
+  
+  def password=(*val)
+    # NOOP
+  end
 
   private
 
