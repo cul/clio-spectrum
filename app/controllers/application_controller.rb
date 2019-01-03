@@ -588,6 +588,8 @@ class ApplicationController < ActionController::Base
     session[:previous_url] = fullpath unless
       # No AJAX ever
       request.xhr? ||
+      # sign-in/out, part of the login process
+      fullpath =~ /\/sign/ ||
       # exclude /users paths, which reflect the login process
       fullpath =~ /\/users/ ||
       fullpath =~ /\/backend/ ||
