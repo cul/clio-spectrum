@@ -113,6 +113,8 @@ module Voyager
           record.services.delete('doc_delivery') if offsite_copy == 'Y'
           record.services.delete('borrow_direct') if available_copy == 'Y'
           record.services.delete('ill') if available_copy == 'Y'
+          # NEXT-1559 - don't display bearstor request link if copy is available
+          record.services.delete('barnard_remote') if available_copy == 'Y'
         end
       end
 
