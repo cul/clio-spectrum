@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/cul/cul_omniauth.git
+  remote: https://github.com/cul/cul_omniauth.git
   revision: 935af1141f0afab230d6d164189eaaa555969f68
   branch: rails-5
   specs:
@@ -275,8 +275,8 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
-    omniauth (1.4.3)
-      hashie (>= 1.2, < 4)
+    omniauth (1.9.0)
+      hashie (>= 3.4.6, < 3.7.0)
       rack (>= 1.6.2, < 3)
     omniauth-cas (1.1.1)
       addressable (~> 2.3)
