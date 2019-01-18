@@ -1,5 +1,12 @@
 source 'https://rubygems.org'
 
+# 1/2019 - git protocol doesn't get out of CUL private net anymore.
+# Try this (https) instead.  Plus it's secure.
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
+
 gem 'rails', '~>5.2.0'
 
 gem 'activerecord-session_store'
