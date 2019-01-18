@@ -104,7 +104,7 @@ module Voyager
         records.each do |record|
           offsite_copy = 'Y' if record.services.include?('offsite')
           if record.item_status[:status] == 'available'
-            available_copy = 'Y' unless record.location_name =~ /Reserve|Non\-Circ/
+            available_copy = 'Y' unless record.location_name =~ /Reserve|Non\-Circ/ || record.location_name =~ /BearStor/
           end
         end
 
