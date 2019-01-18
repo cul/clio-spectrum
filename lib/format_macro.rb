@@ -2,11 +2,11 @@ module FormatMacro
   # shortcut
   Marc21 = Traject::Macros::Marc21
 
-  FORMAT_ORDER = [
-    :book, :score, :map, :mss, :video, :sound, :music, :image,
-    :data, :prog, :serial, :news, :lleaf,
-    :usdoc, :nydoc, :conf, :thesis, :micro, :art, :other, :online
-  ].freeze
+  # FORMAT_ORDER = [
+  #   :book, :score, :map, :mss, :video, :sound, :music, :image,
+  #   :data, :prog, :serial, :news, :lleaf,
+  #   :usdoc, :nydoc, :conf, :thesis, :micro, :art, :other, :online
+  # ].freeze
 
   FORMAT_LABELS = {
     book:   'Book',
@@ -44,7 +44,9 @@ module FormatMacro
       f007 = Marc21.extract_marc_from(record, '007')
       # control field 008 is non-repeatable, but this call returns an array
       f008 = Marc21.extract_marc_from(record, '008').first
+      f245b = Marc21.extract_marc_from(record, '245b')
       f245h = Marc21.extract_marc_from(record, '245h')
+      f245k = Marc21.extract_marc_from(record, '245k')
       f502 = Marc21.extract_marc_from(record, '502')
 
       # Branch on leader 06, 'Type of record'
@@ -65,10 +67,16 @@ module FormatMacro
         end
       when /[bp]/
         formats << :mss
-      when /[cd]/
+      when /c/
         formats << :score
-      when /[ef]/
+      when /d/
+        formats << :score
+        formats << :mss
+      when /e/
         formats << :map
+      when /f/
+        formats << :map
+        formats << :mss
       when /g/
         formats << :video if f008 && f008[33] && 'mv'.include?(f008[33])
       when /i/
@@ -98,6 +106,7 @@ module FormatMacro
         case leader07
         when /[am]/
           formats << :book
+          formats << :mss
         when /[cd]/
           formats << :mss
         end
@@ -179,6 +188,12 @@ module FormatMacro
       formats << :thesis if f502.present?
 
       ## microforms / manuscripts
+      # NEXT-1560 - Format faceting for Manuscript
+      if f245b.present?
+        f245b.each do |remainder|
+          formats << :mss if remainder =~ /\[manuscript\]/
+        end
+      end
       if f245h.present?
         f245h.each do |medium|
           if medium =~ /microform/i
@@ -188,6 +203,12 @@ module FormatMacro
           end
         end
       end
+      if f245k.present?
+        f245k.each do |form|
+          formats << :mss if remainder =~ /manuscript/
+        end
+      end
+
 
       ## default if no formats by now
       formats << :other if formats.empty?
