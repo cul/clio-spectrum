@@ -567,7 +567,8 @@ module Voyager
         # but leave enabled for CUL offsite.
         if ['scsbnypl', 'scsbpul'].include? location_code
           if Rails.env == 'clio_prod'
-            services.delete('borrow_direct')
+            # NEXT-1555 - Valet Borrow Direct
+            # services.delete('borrow_direct')
             services.delete('ill')
           end
         end
