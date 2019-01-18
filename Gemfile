@@ -143,7 +143,7 @@ gem 'jquery-ui-rails'
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.3.0'
 
 # JSON APIs, for Best Bets, etc.
 gem 'jbuilder'
