@@ -205,7 +205,7 @@ module FormatMacro
       end
       if f245k.present?
         f245k.each do |form|
-          formats << :mss if remainder =~ /manuscript/
+          formats << :mss if form =~ /manuscript/
         end
       end
 
