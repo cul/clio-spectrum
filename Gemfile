@@ -1,12 +1,5 @@
 source 'https://rubygems.org'
 
-# 1/2019 - git protocol doesn't get out of CUL private net anymore.
-# Try this (https) instead.  Plus it's secure.
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
-
 gem 'rails', '~>5.2.0'
 
 gem 'activerecord-session_store'
@@ -59,7 +52,8 @@ gem 'kaminari'
 gem 'devise', '~> 4.4.0'
 
 # gem 'cul_omniauth'
-gem 'cul_omniauth', github: "cul/cul_omniauth", branch: 'rails-5'
+# gem 'cul_omniauth', github: "cul/cul_omniauth", branch: 'rails-5'
+gem 'cul_omniauth', git: 'https://github.com/cul/cul_omniauth', branch: 'rails-5'
 
 # Client-side JS timeouts
 gem 'auto-session-timeout'
