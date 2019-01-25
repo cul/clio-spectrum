@@ -227,14 +227,12 @@ group :development do
   # gem 'request_profiler', :git => "git://github.com/justinweiss/request_profiler.git"
 end
 
+# We would put this in just Dev and Test, except for !@#$ cul-omniauth,
+# which throws errors in prod unless this is included
+gem 'rspec-rails'
+
 group :test, :development do
   gem 'thin'
-
-  # why in test and dev both instead of just test?
-  # because is says to: https://github.com/rspec/rspec-rails
-  gem 'rspec-rails'
-  # rspec mocks are externalized in an another gem rspec-activemodel-mocks
-  # http://stackoverflow.com/a/24060582/1343906
   gem 'rspec-activemodel-mocks'
 end
 
