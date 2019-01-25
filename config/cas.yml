@@ -21,3 +21,7 @@ clio_dev: *SAML
 clio_test: *SAML
 clio_prod: *SAML
 
+clio_app_dev: *SAML
+clio_app_test: *SAML
+clio_app_prod: *SAML
+
