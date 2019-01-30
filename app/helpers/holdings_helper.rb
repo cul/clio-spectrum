@@ -1,18 +1,5 @@
 # encoding: utf-8
 module HoldingsHelper
-  # unused function
-  #   def build_holdings_hash(document)
-  #     results = Hash.new { |h,k| h[k] = []}
-  #     Holding.new(document["clio_id_display"]).fetch_from_opac!.
-  #       results["holdings"].each_pair do |holding_id, holding_hash|
-  #           results[[holding_hash["location_name"],holding_hash["call_number"]]] << holding_hash
-  #     end
-  #
-  #     if document["url_munged_display"] && !results.keys.any? { |k| k.first.strip == "Online" }
-  #       results[["Online", "ONLINE"]] = [{"call_number" => "ONLINE", "status" => "noncirc", "location_name" => "Online"}]
-  #     end
-  #     results
-  #   end
 
   SHORTER_LOCATIONS = {
     'Temporarily unavailable. Try Borrow Direct or ILL' =>

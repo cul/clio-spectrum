@@ -1,7 +1,8 @@
 
 -# _catalog_show_holdings.html.haml
 
-- clio_id = h(document["clio_id_display"].to_s)
+-# - clio_id = h(document["clio_id_display"].to_s)
+- clio_id = document.fetch('id', nil)
 
 .holdings.well{:data => {'ga-action' => 'Item Detail Click'} }
 
