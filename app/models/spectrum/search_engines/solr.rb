@@ -211,7 +211,9 @@ module Spectrum
         if fields.include?('title')
           config.add_search_field('title') do |field|
             field.show_in_dropdown = true
+            field.solr_parameters = { defType: 'lucene' }
             field.solr_local_parameters = {
+              type: 'edismax',
               qf: '$title_qf',
               pf: '$title_pf'
             }
@@ -222,7 +224,9 @@ module Spectrum
           config.add_search_field('title_start') do |field|
             field.show_in_dropdown = true
             field.label = 'Title Begins With'
+            field.solr_parameters = { defType: 'lucene' }
             field.solr_local_parameters = {
+              type: 'edismax',
               qf: '$title_start_qf',
               pf: '$title_start_pf'
             }
@@ -243,9 +247,10 @@ module Spectrum
             field_fq += config.default_solr_params[:fq] if
                 config.default_solr_params[:fq]
 
-            field.solr_parameters = { fq: field_fq }
+            field.solr_parameters = { defType: 'lucene', fq: field_fq }
 
             field.solr_local_parameters = {
+              type: 'edismax',
               qf: '$title_qf',
               pf: '$title_pf'
             }
@@ -256,7 +261,9 @@ module Spectrum
           config.add_search_field('series_title') do |field|
             field.show_in_dropdown = true
             field.label = 'Series'
+            field.solr_parameters = { defType: 'lucene' }
             field.solr_local_parameters = {
+              type: 'edismax',
               qf: 'title_series_txt',
               pf: 'title_series_txt'
             }
@@ -267,7 +274,9 @@ module Spectrum
           config.add_search_field('title_starts_with') do |field|
             field.show_in_dropdown = true
             field.label = 'Title Begins With'
+            field.solr_parameters = { defType: 'lucene' }
             field.solr_local_parameters = {
+              type: 'edismax',
               qf: '$title_start_qf',
               pf: '$title_start_pf'
             }
@@ -277,7 +286,9 @@ module Spectrum
         if fields.include?('author')
           config.add_search_field('author') do |field|
             field.show_in_dropdown = true
+            field.solr_parameters = { defType: 'lucene' }
             field.solr_local_parameters = {
+              type: 'edismax',
               qf: '$author_qf',
               pf: '$author_pf'
             }
@@ -288,7 +299,9 @@ module Spectrum
           config.add_search_field('subject') do |field|
             field.show_in_dropdown = true
             field.qt = 'search'
+            field.solr_parameters = { defType: 'lucene' }
             field.solr_local_parameters = {
+              type: 'edismax',
               qf: '$subject_qf',
               pf: '$subject_pf'
             }
@@ -300,7 +313,9 @@ module Spectrum
             field.show_in_dropdown = true
             field.qt = 'search'
             field.label = 'Form/Genre'
+            field.solr_parameters = { defType: 'lucene' }
             field.solr_local_parameters = {
+              type: 'edismax',
               qf: 'subject_form_txt',
               pf: 'subject_form_txt'
             }
@@ -311,7 +326,9 @@ module Spectrum
           config.add_search_field('publication_place') do |field|
             field.show_in_dropdown = true
             field.qt = 'search'
+            field.solr_parameters = { defType: 'lucene' }
             field.solr_local_parameters = {
+              type: 'edismax',
               qf: 'pub_place_txt',
               pf: 'pub_place_txt'
             }
@@ -322,7 +339,9 @@ module Spectrum
           config.add_search_field('publisher') do |field|
             field.show_in_dropdown = true
             field.qt = 'search'
+            field.solr_parameters = { defType: 'lucene' }
             field.solr_local_parameters = {
+              type: 'edismax',
               qf: 'pub_name_txt',
               pf: 'pub_name_txt'
             }
@@ -333,7 +352,9 @@ module Spectrum
           config.add_search_field('publication_year') do |field|
             field.show_in_dropdown = true
             field.qt = 'search'
+            field.solr_parameters = { defType: 'lucene' }
             field.solr_local_parameters = {
+              type: 'edismax',
               qf: 'pub_year_txt',
               pf: 'pub_year_txt'
             }
@@ -345,7 +366,9 @@ module Spectrum
             field.show_in_dropdown = true
             field.qt = 'search'
             field.label = 'ISBN'
+            field.solr_parameters = { defType: 'lucene' }
             field.solr_local_parameters = {
+              type: 'edismax',
               qf: 'isbn_txt',
               pf: 'isbn_txt'
             }
@@ -357,7 +380,9 @@ module Spectrum
             field.show_in_dropdown = true
             field.qt = 'search'
             field.label = 'ISSN'
+            field.solr_parameters = { defType: 'lucene' }
             field.solr_local_parameters = {
+              type: 'edismax',
               qf: 'issn_txt',
               pf: 'issn_txt'
             }
@@ -368,7 +393,9 @@ module Spectrum
           config.add_search_field('call_number') do |field|
             field.show_in_dropdown = true
             field.qt = 'search'
+            field.solr_parameters = { defType: 'lucene' }
             field.solr_local_parameters = {
+              type: 'edismax',
               qf: 'location_call_number_txt',
               pf: 'location_call_number_txt'
             }
@@ -379,7 +406,9 @@ module Spectrum
           config.add_search_field('location') do |field|
             field.show_in_dropdown = true
             field.qt = 'search'
+            field.solr_parameters = { defType: 'lucene' }
             field.solr_local_parameters = {
+              type: 'edismax',
               qf: 'location_txt',
               pf: 'location_txt'
             }
@@ -936,7 +965,7 @@ module Spectrum
         blacklight_config.default_more_limit = 500
 
         blacklight_config.source = source
-
+        
         # Finally, return the config object
         blacklight_config
       end # self.generate_config
