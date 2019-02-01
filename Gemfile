@@ -186,6 +186,9 @@ gem 'jquery-datatables-rails'
 # Browser Detection - used to exclude IE from ES6
 gem 'browser'
 
+# UNIX-5942 - work around spotty CUIT DNS
+gem 'resolv-hosts-dynamic'
+
 # try to do it all in native rails
 # # For working with dates in logs, in cross-DB ways
 # # find ActiveRecord rows by year, month, etc.
