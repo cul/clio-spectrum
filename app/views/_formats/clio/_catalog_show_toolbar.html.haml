@@ -88,7 +88,7 @@
               %li= link_to "Display in CLIO Classic", "http://clio.cul.columbia.edu/cgi-bin/Pwebrecon.cgi?BBID=#{clio_id}"
   
             - if @document.respond_to?(:to_marc)
-              %li= link_to "MARC View", fix_catalog_links(librarian_view_solr_document_path(id)), {:id => "librarianLink", :name => "librarian_view" }
+              %li= link_to "MARC View", fix_catalog_links(librarian_view_solr_document_path(clio_id)), {:id => "librarianLink", :name => "librarian_view" }
   
         %li.dropdown
           =link_to "Requests <span class='caret'></span>".html_safe, "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown"

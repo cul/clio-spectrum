@@ -2,6 +2,11 @@
 # filters, authentication, methods used throughout multiple
 # classes, etc.
 require 'mail'
+
+# UNIX-5942 - work around spotty CUIT DNS
+require 'resolv-hosts-dynamic'
+require 'resolv-replace'
+
 class ApplicationController < ActionController::Base
   helper_method :set_browser_option, :get_browser_option, :debug_timestamp, :active_source
 
@@ -53,6 +58,9 @@ class ApplicationController < ActionController::Base
   def skip_timeout
     request.env['devise.skip_trackable'] = true
   end
+
+  # UNIX-5942 - work around spotty CUIT DNS
+  prepend_before_action :cache_dns_lookups
 
   rescue_from CanCan::AccessDenied do |exception|
     # note - access denied gives a 302 redirect, not 403 forbidden.
@@ -680,4 +688,39 @@ class ApplicationController < ActionController::Base
       document['_active_item_alert_count'] += 1 if alert.active?
     end
   end
+
+  # UNIX-5942 - work around spotty CUIT DNS
+  def cache_dns_lookups
+    dns_cache = []
+    hostnames = [ 'ldap.columbia.edu', 'cas.columbia.edu' ]
+    hostnames.each { |hostname|
+      addr = getaddress_retry(hostname)
+      dns_cache << { 'hostname' => hostname, 'addr' => addr } if addr.present?
+    }
+    return unless dns_cache.size > 0
+    
+    Rails.logger.debug "cache_dns_lookups() dns_cache=#{dns_cache}"
+    
+    cached_resolver = Resolv::Hosts::Dynamic.new(dns_cache)
+    Resolv::DefaultResolver.replace_resolvers( [cached_resolver, Resolv::DNS.new] )
+  end
+  
+  def getaddress_retry(hostname = nil)
+    return unless hostname.present?
+
+    addr = nil
+    (1..3).each do |try|
+      begin
+        addr = Resolv.getaddress(hostname)
+        break if addr.present?
+      rescue => ex
+        # failed?  log, pause, and try again
+        Rails.logger.error "Resolv.getaddress(#{hostname}) failed on try #{try}: #{ex.message}, retrying..."
+        sleep 1
+      end
+    end
+
+    return addr
+  end
+
 end

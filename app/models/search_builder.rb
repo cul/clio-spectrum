@@ -164,7 +164,7 @@ class SearchBuilder < Blacklight::SearchBuilder
       if search_field_def && search_field_def.solr_parameters
         search_field_def.solr_parameters.map do |key, value|
           solr_parameters[key] ||= []
-          solr_parameters[key] |= value
+          solr_parameters[key] |= Array(value)
         end
         # solr_parameters.merge!(search_field_def.solr_parameters)
       end

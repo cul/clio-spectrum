@@ -250,26 +250,6 @@ end
 #   end
 # end
 
-class Resolv
-  TRACKER = {}.freeze
-
-  def self.getaddress(name)
-    TRACKER[name] = 1 + (TRACKER[name] || 0)
-    puts "\n===> Resolve#getaddress(#{name}) #{TRACKER[name]}"
-
-    if TRACKER[name] > 10
-      begin
-        raise 'monkey'
-      rescue => e
-        puts e.message
-        puts e.backtrace.join("\n")
-        raise
-      end
-    end
-
-    DefaultResolver.getaddress(name)
-  end
-end
 
 # Turn on Faraday Debugging - different block depending on adapter
 

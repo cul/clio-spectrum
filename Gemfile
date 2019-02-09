@@ -4,7 +4,7 @@ gem 'rails', '~>5.2.0'
 
 gem 'activerecord-session_store'
 
-#  ###  BLACKLIGHT (begin)  ###
+###  BLACKLIGHT (begin)  ###
 
 gem 'blacklight', '~>6.10.0'
 # gem 'blacklight', path: '/Users/marquis/src/blacklight'
@@ -38,21 +38,10 @@ gem 'gmaps4rails'
 # pagination
 gem 'kaminari'
 
-# # Auth
-# # gem 'devise', '4.4.1'
-# gem 'devise', '~>4.4.1'
-# gem 'devise-encryptable'
-# 
-# # CAS is ready.
-# # gem 'devise_cas_authenticatable', path: '/Users/marquis/src/devise_cas_authenticatable'
-# gem 'devise_cas_authenticatable'
-
-
 # Authentication
 gem 'devise', '~> 4.4.0'
 
 # gem 'cul_omniauth'
-# gem 'cul_omniauth', github: "cul/cul_omniauth", branch: 'rails-5'
 gem 'cul_omniauth', git: 'https://github.com/cul/cul_omniauth', branch: 'rails-5'
 
 # Client-side JS timeouts
@@ -103,7 +92,6 @@ gem 'sass'
 
 # fork local branch, to add network timeouts
 # gem 'summon'
-# gem 'summon', :git => 'git://github.com/cul/summon.git'
 gem 'summon', git: 'https://github.com/cul/summon.git'
 # Point to local copy during development...
 # gem 'summon', :path => "/Users/marquis/src/summon"
@@ -186,14 +174,9 @@ gem 'jquery-datatables-rails'
 # Browser Detection - used to exclude IE from ES6
 gem 'browser'
 
-# try to do it all in native rails
-# # For working with dates in logs, in cross-DB ways
-# # find ActiveRecord rows by year, month, etc.
-# gem 'by_star'
-# # Enables date-part grouping, but needs MySQL server configuration.
-# # Skip the gem, branch SQL on adapater_name.
-# # # grouping by date-parts
-# # gem 'groupdate'
+# UNIX-5942 - work around spotty CUIT DNS
+gem 'resolv-hosts-dynamic'
+
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
