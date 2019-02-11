@@ -177,6 +177,8 @@ gem 'browser'
 # UNIX-5942 - work around spotty CUIT DNS
 gem 'resolv-hosts-dynamic'
 
+# Code profiling, and we want to do this on the servers
+gem 'ruby-prof'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
