@@ -53,13 +53,10 @@ gem 'cancancan'
 
 gem 'json'
 
-# Always include sqlite, deploy to all servers, so that we can use dummy databases
-#  for simplified rails environments used in index rake cronjobs
-gem 'sqlite3'
-
 # # Rails 5 requirement
 # gem 'listen'
 
+# Only in server environments - not localhost desktop
 group :clio_dev, :clio_app_dev, :clio_test, :clio_app_test, :clio_prod do
   gem 'mysql2'
 end
@@ -219,6 +216,11 @@ gem 'rspec-rails'
 group :test, :development do
   gem 'thin'
   gem 'rspec-activemodel-mocks'
+
+  # Nope - no more dummy env. for indexing, so only use this on localhost
+  # # Always include sqlite, deploy to all servers, so that we can use dummy databases
+  # #  for simplified rails environments used in index rake cronjobs
+  gem 'sqlite3'
 end
 
 group :test do
