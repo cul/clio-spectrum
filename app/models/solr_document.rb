@@ -149,6 +149,13 @@ class SolrDocument
     document.key?(:marc_display)
   end
 
+  # temporary testing in CLIO Test environment ONLY
+  def backstage?
+    return false unless ['development', 'clio_test'].include?(Rails.env)
+    return false unless tag = self.to_marc['965']
+    return tag.value == 'BACKSTAGE_TEST'
+  end
+
   # At Columbia, these are replaced by code within the record_mailer views
   # # Email uses the semantic field mappings below to generate the body of an email.
   # SolrDocument.use_extension( Blacklight::Solr::Document::Email )

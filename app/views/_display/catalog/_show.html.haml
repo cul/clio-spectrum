@@ -8,6 +8,8 @@
 
 = render :partial => "_formats/clio/catalog_show_toolbar", :locals => { :document => document }
 
+= render("/link_to_prod", id: @document.id, view: 'patron') if @document.backstage?
+
 .show-document{:class => ("database_record" if document.is_database?)}
   .title
     %h4= document_heading.listify.join("").html_safe

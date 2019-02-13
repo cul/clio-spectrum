@@ -1,0 +1,9 @@
+
+- return unless ['development', 'clio_test'].include?(Rails.env)
+
+
+- link = "https://clio.columbia.edu/catalog/#{id}"
+- link += "/librarian_view" if (view.present? && view == 'xml')
+
+%h4
+  =link_to "(BACKSTAGE_TEST -- open prod in new window/tab)", link, target: '_blank'
