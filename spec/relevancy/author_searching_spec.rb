@@ -22,7 +22,7 @@ describe 'Testing Author Searching', :skip_travis do
   it 'subfield 100$d (dates associated with a name)' do
     resp = solr_resp_doc_ids_only(author_search_args('steve reich 1936'))
     expect(resp.size).to be <= 300
-    expect(rank(resp, 195395)).to be <= 100
+    expect(rank(resp, 12918947)).to be <= 50
     expect(rank(resp, 12028590)).to be <= 50
   end
 
