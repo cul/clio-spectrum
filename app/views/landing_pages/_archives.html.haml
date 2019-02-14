@@ -6,9 +6,10 @@
 
     = render partial: '/datasource_warning', locals: {warning: warning}
 
-    %p This searches catalog records for archival collections in six repositories:
+    %p This searches catalog records for archival collections from several repositories:
     %ul
       %li=link_to "Avery Library, Department of Drawing & Archives", "https://archivesportal.cul.columbia.edu/repository.php?r=nnc-a"
+      %li=link_to "Barnard Archives and Special Collections", "https://archives.barnard.edu/"
       %li=link_to "Burke Library Archives at Union Theological Seminary", "https://archivesportal.cul.columbia.edu/repository.php?r=nnc-ut"
       %li=link_to "Columbia University Archives", "https://archivesportal.cul.columbia.edu/repository.php?r=nnc-ua"
       %li=link_to "Health Sciences Library Archives & Special Collections", "https://archivesportal.cul.columbia.edu/repository.php?r=nnc-m"
