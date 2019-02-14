@@ -175,7 +175,8 @@ gem 'browser'
 gem 'resolv-hosts-dynamic'
 
 # Code profiling, and we want to do this on the servers
-gem 'ruby-prof'
+# "This gem is MRI-specific. It does not support jruby"
+gem 'ruby-prof', platforms: :mri
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
