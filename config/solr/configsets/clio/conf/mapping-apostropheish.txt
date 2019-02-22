@@ -1,0 +1,30 @@
+# 
+# We found that either input documents or queries would
+# sometimes contain apostrophe-like characters instead of
+# actual apostrophes (single-quotes).
+# 
+# Solr has some default tokenizing related to apostrophes,
+# which doesn't happen for non-apostrophes.
+# 
+# Since we want all these chars to be treated equivalently,
+# we'll simply map them to the same value.
+# 
+# See details in NEXT-824 - Apostrophe character
+# 
+
+# Unicode Character 'MODIFIER LETTER PRIME' (U+02B9)
+"\u02B9" => "'"
+
+# Unicode Character 'MODIFIER LETTER TURNED COMMA' (U+02BB)
+"\u02BB" => "'"
+
+# Unicode Character 'MODIFIER LETTER APOSTROPHE' (U+02BC)
+"\u02BC" => "'"
+
+# Unicode Character 'MODIFIER LETTER RIGHT HALF RING' (U+02BE)
+"\u02BE" => "'"
+
+# Unicode Character 'MODIFIER LETTER LEFT HALF RING' (U+02BF)
+"\u02BF" => "'"
+
+
