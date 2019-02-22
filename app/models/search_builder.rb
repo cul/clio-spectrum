@@ -200,7 +200,8 @@ class SearchBuilder < Blacklight::SearchBuilder
         # It doesn't do well with boolean
 
       else
-        value.to_s
+        # value.to_s
+        "_query_:\"{!dismax mm=-10%}#{value}\""
       end
 
       # TODO:  process the solr_parameters (e.g., :fq)
