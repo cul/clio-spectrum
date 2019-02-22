@@ -593,7 +593,9 @@ module Spectrum
 
               config.default_solr_params = {
                 qt: 'search',
-                fq: ['{!raw f=source_facet}database']
+                # fq: ['{!raw f=source_facet}database']
+                # simplify:
+                fq: 'source_facet:database'
               }
 
               config.add_facet_field 'database_discipline_facet',
