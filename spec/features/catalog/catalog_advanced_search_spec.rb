@@ -104,6 +104,25 @@ describe 'Catalog Advanced Search', :vcr do
       expect(page).to have_text '« Previous | 1 - 25 of'
     end
   end
+  
+  it "supports searching multiple fields at once", :js, :focus do
+    visit catalog_index_path
+    find('.search_box.catalog .advanced_search_toggle').click
+
+    within '.landing_page.catalog .advanced_search' do
+      # first field
+      select('All Fields', from: 'adv_1_field')
+      fill_in 'adv_1_value', with: 'test'
+      # second field
+      select('Title', from: 'adv_2_field')
+      fill_in 'adv_2_value', with: 'test'
+      # search!
+      find('button[type=submit]').click
+    end
+
+    # Should be a bunch of hits
+    expect(page).to have_text '« Previous | 1 - 25 of'
+  end
 
   # NEXT-1113 - location search
   # Specifically, test the ability to search beyond "base" location to
