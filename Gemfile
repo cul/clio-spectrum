@@ -218,10 +218,10 @@ group :test, :development do
   gem 'thin'
   gem 'rspec-activemodel-mocks'
 
-  # Nope - no more dummy env. for indexing, so only use this on localhost
-  # # Always include sqlite, deploy to all servers, so that we can use dummy databases
-  # #  for simplified rails environments used in index rake cronjobs
-  gem 'sqlite3'
+  # Only use this on localhost, mysql in server envirohnments
+  # gem 'sqlite3'
+  # pin to 1.3.x - Rails 5.2.2 can't talk to sqlite3 1.4, when Rails moves up, remove constraint
+  gem "sqlite3", "~> 1.3.6"
 end
 
 group :test do
