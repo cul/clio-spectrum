@@ -253,21 +253,33 @@ class BrowseController < ApplicationController
     # create array of one element hashes with key=term and value=count
     result = []
     terms ||= solr_response['terms'] || []
-    field_terms ||= if terms.is_a?(Array)
-                      terms[1] || [] # solr 1.4 returns array
-                    else
-                      terms[field] || [] # solr 3.5 returns hash
-                    end
-    # field_terms is an array of value, then num hits, then next value, then hits ...
-    i = 0
-    until result.length == how_many || i >= field_terms.length
-      # marquis - do we need to know count of hits per term at this point?
-      # term_hash = {field_terms[i] => field_terms[i+1]}
-      # result << term_hash
-      # marquis - let's try simple array of values:
-      result << field_terms[i]
-      i += 2
-    end
+    # field should equal "shelfkey", 
+    # so 'field_terms' is a list of shelf-key strings, plus integer num hits
+    field_terms ||= terms[field] 
+    
+    # But...
+    # Solr 6 returns Array [ "key1",   1, "key2",   1, ...]
+    # Solr 7 returns Hash  { "key1" => 1, "key2" => 1, ... }
+    # So...
+    shelfkeys = []
+    # pluck out any strings, for Solr 6
+    shelfkeys = field_terms.select { |element| element.is_a? String} if field_terms.is_a? Array
+    # grab all keyes, ignore values, for Solr 7
+    shelfkeys = field_terms.keys if field_terms.is_a? Hash
+    
+    # Do I need to filter/limit results further in any way?
+    result = shelfkeys
+    
+    # # field_terms is an array of value, then num hits, then next value, then hits ...
+    # i = 0
+    # until result.length == how_many || i >= field_terms.length
+    #   # marquis - do we need to know count of hits per term at this point?
+    #   # term_hash = {field_terms[i] => field_terms[i+1]}
+    #   # result << term_hash
+    #   # marquis - let's try simple array of values:
+    #   result << field_terms[i]
+    #   i += 2
+    # end
 
     Rails.logger.debug "get_next_terms returning result:  #{result.inspect}"
 

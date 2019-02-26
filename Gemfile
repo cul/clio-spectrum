@@ -53,15 +53,10 @@ gem 'cancancan'
 
 gem 'json'
 
-# Always include sqlite, deploy to all servers, so that we can use dummy databases
-#  for simplified rails environments used in index rake cronjobs
-# gem 'sqlite3'
-# pin to 1.3.x - Rails 5.2.2 can't talk to sqlite3 1.4, when Rails moves up, remove constraint
-gem "sqlite3", "~> 1.3.6"
-
 # # Rails 5 requirement
 # gem 'listen'
 
+# Only in server environments - not localhost desktop
 group :clio_dev, :clio_app_dev, :clio_test, :clio_app_test, :clio_prod do
   gem 'mysql2'
 end
@@ -179,6 +174,9 @@ gem 'browser'
 # UNIX-5942 - work around spotty CUIT DNS
 gem 'resolv-hosts-dynamic'
 
+# Code profiling, and we want to do this on the servers
+# "This gem is MRI-specific. It does not support jruby"
+gem 'ruby-prof', platforms: :mri
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
@@ -219,6 +217,11 @@ gem 'rspec-rails'
 group :test, :development do
   gem 'thin'
   gem 'rspec-activemodel-mocks'
+
+  # Only use this on localhost, mysql in server envirohnments
+  # gem 'sqlite3'
+  # pin to 1.3.x - Rails 5.2.2 can't talk to sqlite3 1.4, when Rails moves up, remove constraint
+  gem "sqlite3", "~> 1.3.6"
 end
 
 group :test do

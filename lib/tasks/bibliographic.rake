@@ -206,6 +206,10 @@ namespace :bibliographic do
       setup_ingest_logger
       Rails.logger.info('---- begin task bibliographic:extract:ingest_file')
 
+      Rails.logger.debug('---- turning off http(s)_proxy (squid)')
+      ENV.delete('http_proxy')
+      ENV.delete('https_proxy')
+
       filename = args[:filename]
       abort('bibliographic:extract:ingest_file[:filename] not passed filename!') unless filename
       abort("bibliographic:extract:ingest_file[:filename] passed non-existant filename #{filename}") unless File.exist?(filename)
@@ -223,7 +227,9 @@ namespace :bibliographic do
         provide 'log.level', 'info'
         # match our default application log format
         provide 'log.format', ['%d [%L] %m', '%Y-%m-%d %H:%M:%S']
-        provide 'processing_thread_pool', '0'
+        # timings show that a huge thread pool increases records/second,
+        # even on MRI.  Maybe too much IO.
+        provide 'processing_thread_pool', '100'
         provide 'solr_writer.commit_on_close', 'true'
         # How many records skipped due to errors before we
         #   bail out with a fatal error?

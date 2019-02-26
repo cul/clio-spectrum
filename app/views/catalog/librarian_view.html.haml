@@ -6,6 +6,7 @@
 
 = render "_formats/clio/catalog_show_toolbar", :document => @document
 
+= render("/link_to_prod", id: @document.id, view: 'xml') if @document.backstage?
 
 .row
 

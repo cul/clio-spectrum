@@ -379,6 +379,7 @@ GEM
       rspec (~> 3.5)
       rspec-collection_matchers
     rspec-support (3.8.0)
+    ruby-prof (0.17.0)
     rubyzip (1.2.2)
     safe_yaml (1.0.5)
     sass (3.7.3)
@@ -523,6 +524,7 @@ DEPENDENCIES
   rspec-activemodel-mocks
   rspec-rails
   rspec-solr
+  ruby-prof
   sass
   sass-rails
   selenium-webdriver
