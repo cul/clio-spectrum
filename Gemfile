@@ -55,7 +55,9 @@ gem 'json'
 
 # Always include sqlite, deploy to all servers, so that we can use dummy databases
 #  for simplified rails environments used in index rake cronjobs
-gem 'sqlite3'
+# gem 'sqlite3'
+# pin to 1.3.x - Rails 5.2.2 can't talk to sqlite3 1.4, when Rails moves up, remove constraint
+gem "sqlite3", "~> 1.3.6"
 
 # # Rails 5 requirement
 # gem 'listen'
