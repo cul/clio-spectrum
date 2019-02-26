@@ -25,6 +25,7 @@
   :found_in: |-
     Comp Lit & Society Reading Room
     615 Butler (Non-Circ)
+
 - :library_code: butler
   :location_code: butler
   :links: 
@@ -43,6 +44,15 @@
     Ancient/Medieval Reading Room
     603 Butler Library
 
+- :library_code: butler
+  :location_code: butler
+  :links: 
+  :category: physical
+  :location: Graphic Novels Collection
+  :found_in: |-
+    Milstein 406a, 406, and 409
+    Butler, 4th Floor, West
+    
 - :library_code: avery
   :location_code: avery
   :links: 
