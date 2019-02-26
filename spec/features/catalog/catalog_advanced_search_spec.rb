@@ -105,7 +105,7 @@ describe 'Catalog Advanced Search', :vcr do
     end
   end
   
-  it "supports searching multiple fields at once", :js, :focus do
+  it "supports searching multiple fields at once", :js do
     visit catalog_index_path
     find('.search_box.catalog .advanced_search_toggle').click
 
