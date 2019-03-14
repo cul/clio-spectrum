@@ -28,7 +28,7 @@ module PreferenceSupport
 
   # list of all datasources known to work within bentos
   BENTO_DATASOURCES = %w(
-    catalog articles academic_commons library_web
+    catalog articles academic_commons lweb
     geo dlc
   ).freeze
 

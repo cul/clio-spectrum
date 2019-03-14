@@ -315,8 +315,8 @@ datasources:
       placeholder: Libraries Website
 
   lweb:
-    name: Libraries Website (demo)
-    title: Libraries Website (demo)
+    name: Libraries Website
+    title: Libraries Website
     description: Information about the libraries from the Libraries Website
     render_options:
       format: lweb
@@ -476,7 +476,8 @@ default_datasource_bar:
     - articles
     # - academic_commons
     - ac
-    - library_web
+    # - library_web
+    - lweb
     - geo
   minor_sources:
     - dissertations

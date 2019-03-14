@@ -120,7 +120,7 @@ Rails.application.routes.draw do
   get 'journals/:id/librarian_view', to: 'catalog#librarian_view', as: 'librarian_view_journals'
   match 'journals/:id/librarian_view_track', via: [:post], to: 'journals#librarian_view_track'
 
-  get 'library_web', to: 'spectrum#search', as: :library_web_index, defaults: { layout: 'library_web' }
+  # get 'library_web', to: 'spectrum#search', as: :library_web_index, defaults: { layout: 'library_web' }
 
   # Library Web via Custom Search API
   get 'lweb', to: 'spectrum#search', as: :lweb_index, defaults: { layout: 'lweb' }

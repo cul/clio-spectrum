@@ -38,7 +38,8 @@ describe 'Datasource Sanity', :vcr do
     end
 
     it 'lweb' do
-      visit '/library_web'
+      # visit '/library_web'
+      visit '/lweb'
       expect(find('.landing_main .title')).to have_text('Libraries Website')
     end
 
@@ -100,7 +101,7 @@ describe 'Simple query should retrieve results', :vcr do
   end
 
   it 'in lweb datasource' do
-    visit library_web_index_path('q' => 'test')
+    visit lweb_index_path('q' => 'test')
     expect(page).to have_css('.result')
   end
 
@@ -181,7 +182,7 @@ describe 'Switching between data-source', :vcr do
     expect(all('#documents .result').first['source']).to eq 'ac'
 
     click_link('Libraries Website')
-    expect(find('input#library_web_q').value).to eq 'test'
+    expect(find('input#lweb_q').value).to eq 'test'
     expect(find('.constraint-box')).to have_text('test')
     expect(page).to have_css('.result')
 

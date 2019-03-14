@@ -56,7 +56,7 @@ class PreferencesController < ApplicationController
   end
   
   # Parameters look like: 
-  # { "left"=>["geo=2", "library_web=2"], 
+  # { "left"=>["geo=2", "lweb=2"], 
   #   "right"=>["dlc=1", "articles=1"] }
   # Map this to search_layout YAML
   def bentos

@@ -68,10 +68,6 @@ module Spectrum
         ac_index_path(@params)
       end
 
-      # def start_over_link
-      #   library_web_index_path()
-      # end_item
-
       def constraints_with_links
         constraints = []
 

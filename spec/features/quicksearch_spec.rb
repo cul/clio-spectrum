@@ -69,7 +69,7 @@ describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
     expect(page).to have_css('.result_set', count: 5)
     expect(page).to have_css('.nested_result_set', count: 5)
 
-    within('.result_set[data-source=library_web]') do
+    within('.result_set[data-source=lweb]') do
       expect(page).to have_css('.results_header', text: 'Libraries Website')
       expect(page).to have_css('.results_header', text: 'View all', wait: 5)
       expect(page).not_to have_css('.results_header', text: 'View and filter all')
@@ -99,7 +99,7 @@ describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
       find('img').click
       # expect(find('.category_title')).to have_text "Publications and other research output from Columbia University's digital repository"
     end
-    within('.results_header[data-source=library_web]') do
+    within('.results_header[data-source=lweb]') do
       find('img').click
       expect(page).to have_css('.category_title')
       expect(find('.category_title')).to have_text 'Information about the libraries from the Libraries Website'

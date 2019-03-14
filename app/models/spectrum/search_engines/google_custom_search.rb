@@ -12,7 +12,7 @@ module Spectrum
       def initialize(options = {})
         @params = options
 
-        q = options['q'] || raise('No query string specified')
+        @q = options['q'] || raise('No query string specified')
         @rows = (options['rows'] || 10).to_i
         @start = (options['start'] || 1).to_i
         cs_id  = APP_CONFIG['google']['custom_search_id']
@@ -24,7 +24,7 @@ module Spectrum
 
         service = Customsearch::CustomsearchService.new
         service.key = cs_key
-        results = service.list_cses(q, cx: cs_id, start: @start, num: @rows)
+        results = service.list_cses(@q, cx: cs_id, start: @start, num: @rows)
         # raise
         @documents = Array(results.items).map { |item| LwebDocument.new(item) }
         @count = results.search_information.total_results
@@ -44,17 +44,13 @@ module Spectrum
       end
 
       def page_size
-        @rows || 10
+        @rows || 100
       end
 
       # used by QuickSearch for "All Results" link
       def search_path
         lweb_index_path(@params)
       end
-
-      # def start_over_link
-      #   library_web_index_path()
-      # end
 
       def constraints_with_links
         [[@q, lweb_index_path]]
