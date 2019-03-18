@@ -182,10 +182,6 @@ module DatasourcesHelper
 
     # # Breck asks that we display hit-count for current source
     # # fetch_hits = false if datasource == active_source
-    #
-    # # I'm having trouble generating accurate hit-counts for Summon queries.
-    # # Disable for now - show no hitcounts within Summon
-    # fetch_hits = false if active_source == 'articles'
 
     # If a datasource is being directly queried, don't fetch hits
     # with a redundant second query.
@@ -204,14 +200,12 @@ module DatasourcesHelper
 
     # NEXT-1366 - zero hit count for website null search
     # fetch_hits = false
-    if datasource == 'library_web' && (query.nil? || query.empty?)
+    # NEXT-1570 - Cutover from Seach Appliance to Custom Search
+    # LWeb searches no longer free - disable hitcounts
+    if datasource == 'library_web'
       fetch_hits = false
       fill_in = false
     end
-
-    # NEXT-1570 - Cutover from Seach Appliance to Custom Search
-    # LWeb searches no longer free - disable hitcounts
-    fetch_hits = false if active_source == 'library_web'
 
     if fill_in
       fetch_hits = false
