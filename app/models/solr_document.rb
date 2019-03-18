@@ -155,6 +155,41 @@ class SolrDocument
     return false unless tag = self.to_marc['965']
     return tag.value == 'BACKSTAGE_TEST'
   end
+  
+  # # CSV DOWNLOAD SUPPORT
+  # 
+  # # mapping of column headers to SolrDocument field names
+  # CSV_BIB_FIELDS = {
+  #   'title'      =>  'title_display',
+  #   'author'     =>  'author_display',
+  #   'publisher'  =>  'full_publisher_display',
+  # }
+  # 
+  # # To get a simple array of strings to use for CSV header row:
+  # #   SolrDocument.csv_headers
+  # def self.csv_headers
+  #   bib_headers = CSV_BIB_FIELDS.keys.map { |header| header.titleize }
+  #   return bib_headers
+  # end
+  # 
+  # # Customize the mapping of a SolrDocument to CSV output.
+  # # Initially, a single fixed row per document.
+  # # Potentially, customizable data fields, and a rows for each holding or item.
+  # # RETURN  An array of strings, each a valid CSV row of data, newline-terminated.
+  # def to_csv
+  #   # return an array of rows for the CSV report output
+  #   rows = []
+  # 
+  #   # for now, a simple single row of bib data
+  #   values = []
+  #   CSV_BIB_FIELDS.each do |field_header, field_name|
+  #     field_value = Array(self[field_name]).join('; ')
+  #     values << field_value
+  #   end
+  #   rows << values.to_csv.html_safe
+  # 
+  #   return rows
+  # end
 
   # At Columbia, these are replaced by code within the record_mailer views
   # # Email uses the semantic field mappings below to generate the body of an email.

@@ -1,0 +1,19 @@
+-# 
+-# # - raise
+-# 
+-# What's available?
+-# 
+-# >> @response.documents.first.keys
+-# => ["id", "author_facet", "title_display", "subject_topic_facet", "subject_era_facet", "subject_geo_facet", "pub_place_display", "pub_name_display", "pub_year_display", "language_facet", "format", "source_display", "isbn_display", "oclc_display", "full_publisher_display", "location_call_number_id_display", "location_facet", "shelfkey", "reverse_shelfkey", "item_display", "score"]
+-# 
+-# We could use document.to_semantic_values, 
+-# but we might also want to fully customize the CSV output.
+-# 
+-# 
+= CSV.generate_line(SolrDocument.csv_headers, row_sep: nil)
+-# 
+- @response.documents.each do |document|
+  -# each document might become multiple rows (per holding, per item)
+  - rows = document.to_csv
+  - rows.each do |row|
+    = row.to_csv(row_sep: nil).html_safe
