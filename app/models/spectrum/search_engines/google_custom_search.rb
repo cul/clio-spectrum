@@ -24,7 +24,7 @@ module Spectrum
 
         service = Customsearch::CustomsearchService.new
         service.key = cs_key
-        results = service.list_cses(@q, cx: cs_id, start: @start, num: @rows)
+        results = service.list_cse_siterestricts(@q, cx: cs_id, start: @start, num: @rows)
         # raise
         @documents = Array(results.items).map { |item| LwebDocument.new(item) }
         @count = results.search_information.total_results

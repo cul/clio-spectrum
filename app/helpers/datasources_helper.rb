@@ -209,6 +209,10 @@ module DatasourcesHelper
       fill_in = false
     end
 
+    # NEXT-1570 - Cutover from Seach Appliance to Custom Search
+    # LWeb searches no longer free - disable hitcounts
+    fetch_hits = false if active_source == 'library_web'
+
     if fill_in
       fetch_hits = false
       hits_class += ' fill_in'
