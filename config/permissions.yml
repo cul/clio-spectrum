@@ -5,7 +5,7 @@ site:
     - sam119
     - slt0
     # SysAdmins
-    - ttp2113
+    # - ttp2113
     # Pseudo-user for use in Specs
     - test_mngr
 

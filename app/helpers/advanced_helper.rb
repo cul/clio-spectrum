@@ -31,6 +31,10 @@ module AdvancedHelper
                                                                        :advanced_operator, :adv, :advanced))
   end
 
+  def hidden_keys_for_xls
+    render_hash_as_hidden_fields(search_state.params_for_search.except(:rows, :page, :action))
+  end
+  
   # Unused?
   #   def selected_values_for_facet(facet, localized_parms = params)
   #     Array.wrap(params[:f] && params[:f][facet])

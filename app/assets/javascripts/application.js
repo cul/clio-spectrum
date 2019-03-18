@@ -71,6 +71,7 @@
 //= require saved_lists
 //= require scroll_memory
 //= require preferences
+//= require xls
 
 // capybara-webkit doesn't support ES6 syntax
 // To use code (like this) in this file, rename from .js to .js.erb

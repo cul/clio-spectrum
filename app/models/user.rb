@@ -39,6 +39,16 @@ class User < ApplicationRecord
       (admin_okay && self.admin?)
   end
 
+  def has_affil(affil = nil)
+    return false if affil.blank?
+    return false unless affils
+    affils.include?(affil)
+  end
+
+  def culstaff?
+    self.has_affil('CUL_allstaff')
+  end
+
   # developers and sysadmins
   def admin?
     uid.in?(PERMISSIONS_CONFIG['site']['manage'])

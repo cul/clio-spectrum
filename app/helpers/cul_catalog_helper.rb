@@ -133,7 +133,11 @@ module CulCatalogHelper
       content_tag(:a, (checkmark + ' ' + label), href: '#', viewstyle: viewstyle, class: 'viewstyle_link')
     end
   end
-
+  
+  def xls_form_link()
+    url_for(search_state.params_for_search.merge(action: 'xls'))
+  end
+  
   def database_link_label(links)
     label = 'Search Database:'
     if links && links.first && links.first[:url]
@@ -182,4 +186,5 @@ module CulCatalogHelper
     #   return nil
     # end
   end
+
 end

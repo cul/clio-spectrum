@@ -91,8 +91,18 @@ class CatalogController < ApplicationController
         render locals: { warning: warning, response: @response },
                layout: 'quicksearch'
       end
+      # format.csv do
+      #   # render locals: {response: @response, errors: @errors},
+      #   #        layout: false,
+      #   #        filename: 'foo'
+      #   send_data results_as_csv(@response), filename: csv_filename()
+      # end
       format.rss  { render layout: false }
       format.atom { render layout: false }
+      format.xls  {
+        render locals: {response: @response}, layout: false
+        response.headers['Content-Disposition'] = "attachment; filename=foo.xls"
+      }
     end
   end
 
@@ -403,4 +413,42 @@ class CatalogController < ApplicationController
 
     flash[:error].blank?
   end
+
+  # Authenticated CUL Staff can download search results as XLS
+  def xls()  
+    # build a form to collect details for the XLS format.
+    # pass through all query params as hidden form elements.
+
+    respond_to do |format|
+      format.js { render layout: false }
+      format.html
+    end
+  end
+  
+  # def results_as_csv(response)
+  #   rows = []
+  #   
+  #   # add header row
+  #   rows <<  CSV.generate_line(SolrDocument.csv_headers)
+  #   
+  #   # row or rows for each document in the result set
+  #   @response.documents.each do |document|
+  #     # each document might become multiple rows (per holding, per item)
+  #     # Whatever we get back, append to our growing array of lines of CSV output
+  #     rows += document.to_csv
+  #   end
+  # 
+  #   # final join of all individual string rows into a single very long multi-line string 
+  #   return rows.join
+  # end
+  
+  # # Generate an appropriate filename for each downloaded CSV result set.
+  # # Something generated based on query conditions would be complex, and collide.
+  # # Instead, just do date/timestamp
+  # def csv_filename()
+  #   now = Time.now.strftime("%Y-%m-%d_%H%M")
+  #   filename = "CLIO_#{now}.csv"
+  #   return filename
+  # end
+
 end

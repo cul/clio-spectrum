@@ -1,0 +1,27 @@
+<% fields = {'title' => 'title_display', 'author' => 'author_display', 'publisher' => 'full_publisher_display'} %>
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <% # One row for the column headers %>
+      <Row>
+        <% fields.keys.each do |field_display_name| %>
+        <Cell><Data ss:Type="String"><%= field_display_name %></Data></Cell>
+        <% end %>
+      </Row>
+      <% # One row each for the documents in the result set %>
+      <% @response.documents.each do |document| %>
+      <Row>
+        <% # One cell each for the field values %>
+        <% fields.values.each do |field_name| %>
+        <Cell><Data ss:Type="String"><%= Array(document[field_name]).join('; ') %></Data></Cell>
+        <% end %>
+      </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

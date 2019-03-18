@@ -17,3 +17,9 @@
       %li.nav-divider
       -viewstyles.each do |viewstyle, label|
         %li= viewstyle_link(viewstyle, label)
+
+    -# Authenticated CUL Staff can download search results as XLS
+    -if current_user && current_user.culstaff? && current_user.has_role?('site', 'pilot')
+      %li.nav-divider
+      %li=link_to "XLS Download", xls_form_link(), {id: "xlsLink", name: "xls", class: "XlightboxLink"}
+      
