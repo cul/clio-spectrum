@@ -415,16 +415,114 @@ class CatalogController < ApplicationController
   end
 
   # Authenticated CUL Staff can download search results as XLS
-  def xls()  
+  def xls_form()  
     # build a form to collect details for the XLS format.
     # pass through all query params as hidden form elements.
 
+    # respond_to do |format|
+    #   format.js { render layout: false }
+    #   format.html
+    # end
+  end
+
+  def xls_download()
+    params['format'] = 'xls'
+    params['source'] = active_source
+    search_engine = blacklight_search(params.to_unsafe_h)
+    @response = search_engine.search
+
     respond_to do |format|
-      format.js { render layout: false }
-      format.html
+      format.xls do
+        # render locals: {response: @response}, layout: false
+        # response.headers['Content-Disposition'] = "attachment; filename=foo.xlsx"
+        headers["Content-Type"] = "application/xls"
+        headers["Content-Disposition"] =
+           %(attachment; filename="foo.xls")
+        self.response_body = build_xls_enumerator()
+      end
     end
   end
+
+# Example from:
+#   https://thoughtbot.com/blog/modeling-a-paginated-api-as-a-lazy-stream
+# def fetch_paginated_data(path)
+#   Enumerator.new do |yielder|
+#     page = 1
+# 
+#     loop do
+#       results = fetch_data("#{path}?page=#{page}")
+# 
+#       if results.success?
+#         results.map { |item| yielder << item }
+#         page += 1
+#       else
+#         raise StopIteration
+#       end
+#     end
+#   end.lazy
+# end
+
+  def build_xls_enumerator
+    Enumerator.new do |yielder|
+      # initialize params for Solr query
+      params['page'] = '1'
+      params['rows'] = '10'
+
+      yielder << xsl_header
+
+      loop do
+        # fetch one page of records from Solr
+        Rails.logger.debug "==== page=#{params['page']}"
+        search_engine = blacklight_search(params.to_unsafe_h)
+        response = search_engine.search
+        document_list = search_engine.documents
+
+        # We've encountered some kind of problem
+        raise StopIteration if search_engine.errors
+
+        # We've read all docs for this query
+        if response.total == 0 || document_list.size == 0
+          yielder << xsl_footer
+          raise StopIteration
+        end
+        # raise StopIteration if response.total == 0
+        # raise StopIteration if document_list.size == 0
+
+        # convert SolrDocument objects to XSL, feed to enumerator
+        search_engine.documents.each do |solr_doc|
+          yielder << solr_doc.to_xsl
+        end
+        
+        # advance pagination
+        params['page'] = (params['page'].to_i + 1).to_s
+        # params['page'] += 1
+        
+      end
+
+    end
+  end
+
+  def xsl_header
+    header = <<-FOO
+<?xml version="1.0" encoding="UTF-8"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="https://www.w3.org/TR/html401/">
+<Worksheet ss:Name="CLIO XLS Download">
+<Table>
+<Column ss:Index="1" ss:AutoFitWidth="0" ss:Width="110"/>
+FOO
+    return header
+  end
   
+  def xsl_footer
+    footer = <<-FOO
+</Table>
+</Worksheet>
+</Workbook>
+    FOO
+    return footer
+  end
+      
   # def results_as_csv(response)
   #   rows = []
   #   

@@ -3,11 +3,11 @@
   <h4 class="modal-title">XLS Download</h4>
 </div>
 
-<%= form_tag url_for(:controller => "catalog", :action => "index"), :id => 'xls_form', :class => "form-horizontal Xajax_form", :method => :get, taget: 'xls_download' do %>
+<%= form_tag url_for(controller: 'catalog', action: 'xls_download'), id: 'xls_form', class: "form-horizontal", method: :get, target: 'xls_download' do %>
 
   <!-- Pass through all query parameters, to re-execute the search -->
   <%= hidden_keys_for_xls %>
-  <!-- Also, tell the catalog index action that the output should be in XLS format -->
+  <!-- Output format should be in XLS format -->
   <%= hidden_field_tag 'format', 'xls' %>
   
 
@@ -48,7 +48,9 @@
     </div>
 
   </div>
+
   <div class="modal-footer">
     <button type="submit" class="btn btn-primary" id='xls_download'>Download</button>
   </div>
+
 <% end %>

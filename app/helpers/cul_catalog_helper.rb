@@ -135,7 +135,7 @@ module CulCatalogHelper
   end
   
   def xls_form_link()
-    url_for(search_state.params_for_search.merge(action: 'xls'))
+    url_for(search_state.params_for_search.merge(action: 'xls_form'))
   end
   
   def database_link_label(links)

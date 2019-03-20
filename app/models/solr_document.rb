@@ -190,6 +190,19 @@ class SolrDocument
   # 
   #   return rows
   # end
+  
+  def to_xsl
+    fields = {'title' => 'title_display', 'author' => 'author_display', 'publisher' => 'full_publisher_display'}
+    
+    output = "<Row>\n"
+    fields.values.each do |field_name|
+      output += "<Cell><Data ss:Type='String'>\n"
+      output += Array(self[field_name]).join('; ')
+      output += "</Data></Cell>\n"
+    end
+    
+    output += "</Row>\n"
+  end
 
   # At Columbia, these are replaced by code within the record_mailer views
   # # Email uses the semantic field mappings below to generate the body of an email.

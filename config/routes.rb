@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
 
   # Authenticated CUL Staff can download search results as XLS
-  get 'catalog/xls'
+  get 'catalog/xls_form'
+  get 'catalog/xls_download'
 
   ##### COPIED FROM VANILLA BLACKLIGHT 6.0 APP
   mount Blacklight::Engine => '/'
