@@ -191,7 +191,7 @@ class SolrDocument
   #   return rows
   # end
   
-  def to_xsl
+  def to_xls
     fields = {'title' => 'title_display', 'author' => 'author_display', 'publisher' => 'full_publisher_display'}
     
     output = "<Row>\n"
@@ -202,6 +202,47 @@ class SolrDocument
     end
     
     output += "</Row>\n"
+  end
+
+  def to_xlsx(level = 'bib')
+    # level is one of:  bib, holding, item
+    
+    bib_fields = {
+      'title'       => 'title_display',
+      'author'      => 'author_display',
+      'publisher'   => 'full_publisher_display',
+      'ISBN'        => 'isbn_display',
+    }
+    holding_fields = {
+      
+    }
+    item_fields = {
+      
+    }
+
+    # 1 or more rows, depending on level (bib, holding, item)
+    doc_rows = []
+
+    # value accumulator arrays
+    bib_values = holding_values = item_values =  []
+
+    # gather bib_values - bib-level metadata
+    bib_fields.each do |field_header, field_name|
+      field_value = Array(self[field_name]).join("; ")
+      bib_values << field_value
+    end
+    
+    # first column is always a link to the CLIO page
+    bib_values.unshift("https://clio.columbia.edu/catalog/#{self.id}")
+    
+    if level == 'bib'
+      doc_rows << bib_values
+    elsif level == 'holding' || level == 'item'
+      # loop over each holding 
+      # Solr data doesn't support this kind of detail
+    end
+
+    return doc_rows
   end
 
   # At Columbia, these are replaced by code within the record_mailer views

@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   # Authenticated CUL Staff can download search results as XLS
   get 'catalog/xls_form'
   get 'catalog/xls_download'
+  get 'catalog/xlsx_form'
+  get 'catalog/xlsx_download'
 
   ##### COPIED FROM VANILLA BLACKLIGHT 6.0 APP
   mount Blacklight::Engine => '/'
@@ -128,6 +130,8 @@ Rails.application.routes.draw do
 
   # Library Web via Custom Search API
   get 'lweb', to: 'spectrum#search', as: :lweb_index, defaults: { layout: 'lweb' }
+  # redirect old url to new url
+  get '/library_web', to: redirect('/lweb')
 
   # Academic Commons via API
   # new url

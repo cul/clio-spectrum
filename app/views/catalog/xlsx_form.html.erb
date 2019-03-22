@@ -1,0 +1,73 @@
+<div class="modal-header">
+  <button type="button" class="ajax-modal-close close" data-dismiss="modal" aria-hidden="true">×</button>
+  <h4 class="modal-title">XLSX Download</h4>
+</div>
+
+<%= form_tag url_for(controller: 'catalog', action: 'xlsx_download'), id: 'xlsx_form', class: "form-horizontal", method: :get, target: 'xlsx_download' do %>
+
+  <!-- Pass through all query parameters, to re-execute the search -->
+  <%= hidden_keys_for_xlsx %>
+  <!-- Output format should be in XLSX format -->
+  <%= hidden_field_tag 'format', 'xlsx' %>
+  
+
+  <div class="modal-body">
+    <div class="container">
+      <%= render :partial=>'/flash_msg' %>
+
+      <div class="form-group row">
+        <div class="col-xs-12">
+          <%=radio_button_tag :level, 'bib', checked: true %>
+          <%=label_tag :level_bib, 'One line per Bibliographic Record' %>
+          <div class="input-block-level">
+            Title, Author, Publisher, etc.
+            <br>
+            
+          </div>
+        </div>
+      </div>
+
+      <h4>
+        <p>
+        Note:
+        <p>
+        The XLSX Download pilot is only opened to selected staff.
+        <p>
+        During pilot, only the first 10,000 rows of any query will be returned.
+        <p>
+        Currently only bib-level reporting is available.
+      </h4>
+
+      <!--
+
+      <div class="form-group row">
+        <div class="col-xs-12">
+          <%=radio_button_tag :level, 'holding' %>
+          <%=label_tag :level_holding, 'One line per Holding' %>
+          <div class="input-block-level">
+            Bib details, plus Call Number, Location
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-xs-12">
+          <%=radio_button_tag :level, 'item' %>
+          <%=label_tag :level_item, 'One line per Item' %>
+          <div class="input-block-level">
+            Bib and Holdings, plus Barcode
+          </div>
+        </div>
+      </div>
+      
+      -->
+
+    </div>
+
+  </div>
+
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary" id='xlsx_download'>Download</button>
+  </div>
+
+<% end %>

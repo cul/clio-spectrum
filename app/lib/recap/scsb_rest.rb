@@ -109,7 +109,7 @@ module Recap
     def self.get_bib_availability(bibliographicId = nil, institutionId = nil, conn = nil)
       raise 'Recap::ScsbRest.get_bib_availability() got nil bibliographicId' if bibliographicId.blank?
       raise 'Recap::ScsbRest.get_bib_availability() got nil institutionId' if institutionId.blank?
-      Rails.logger.debug "- get_bib_availability(#{bibliographicId}, #{institutionId})"
+      # Rails.logger.debug "- get_bib_availability(#{bibliographicId}, #{institutionId})"
 
       conn ||= open_connection
       raise "get_bib_availability() bad connection [#{conn.inspect}]" unless conn

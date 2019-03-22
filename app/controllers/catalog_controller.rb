@@ -4,6 +4,8 @@
 # This was originally based on the Blacklight CatalogController.
 
 class CatalogController < ApplicationController
+  include ActionController::Live
+
   attr_accessor :source
 
   include BlacklightRangeLimit::ControllerOverride
@@ -99,10 +101,10 @@ class CatalogController < ApplicationController
       # end
       format.rss  { render layout: false }
       format.atom { render layout: false }
-      format.xls  {
-        render locals: {response: @response}, layout: false
-        response.headers['Content-Disposition'] = "attachment; filename=foo.xls"
-      }
+      # format.xls  {
+      #   render locals: {response: @response}, layout: false
+      #   response.headers['Content-Disposition'] = "attachment; filename=foo.xls"
+      # }
     end
   end
 
@@ -172,8 +174,7 @@ class CatalogController < ApplicationController
         # }
       end
 
-      # Documents may look different depending on who you are.  Pass in current_user.
-      @collection = Voyager::Holdings::Collection.new(@document, circ_status, scsb_status, current_user)
+      @collection = Voyager::Holdings::Collection.new(@document, circ_status, scsb_status)
 
       @holdings = @collection.to_holdings
 
@@ -425,6 +426,7 @@ class CatalogController < ApplicationController
     # end
   end
 
+  # "XML Spreadsheet 2003"
   def xls_download()
     params['format'] = 'xls'
     params['source'] = active_source
@@ -435,9 +437,9 @@ class CatalogController < ApplicationController
       format.xls do
         # render locals: {response: @response}, layout: false
         # response.headers['Content-Disposition'] = "attachment; filename=foo.xlsx"
-        headers["Content-Type"] = "application/xls"
+        headers["Content-Type"] = "application/vnd.ms-excel"
         headers["Content-Disposition"] =
-           %(attachment; filename="foo.xls")
+           %(attachment; filename="foo.xml")
         self.response_body = build_xls_enumerator()
       end
     end
@@ -468,7 +470,7 @@ class CatalogController < ApplicationController
       params['page'] = '1'
       params['rows'] = '10'
 
-      yielder << xsl_header
+      yielder << x_header
 
       loop do
         # fetch one page of records from Solr
@@ -482,7 +484,7 @@ class CatalogController < ApplicationController
 
         # We've read all docs for this query
         if response.total == 0 || document_list.size == 0
-          yielder << xsl_footer
+          yielder << xls_footer
           raise StopIteration
         end
         # raise StopIteration if response.total == 0
@@ -490,7 +492,7 @@ class CatalogController < ApplicationController
 
         # convert SolrDocument objects to XSL, feed to enumerator
         search_engine.documents.each do |solr_doc|
-          yielder << solr_doc.to_xsl
+          yielder << solr_doc.to_xls
         end
         
         # advance pagination
@@ -502,7 +504,7 @@ class CatalogController < ApplicationController
     end
   end
 
-  def xsl_header
+  def xls_header
     header = <<-FOO
 <?xml version="1.0" encoding="UTF-8"?>
 <?mso-application progid="Excel.Sheet"?>
@@ -514,7 +516,7 @@ FOO
     return header
   end
   
-  def xsl_footer
+  def xls_footer
     footer = <<-FOO
 </Table>
 </Worksheet>
@@ -540,13 +542,92 @@ FOO
   #   return rows.join
   # end
   
-  # # Generate an appropriate filename for each downloaded CSV result set.
-  # # Something generated based on query conditions would be complex, and collide.
-  # # Instead, just do date/timestamp
-  # def csv_filename()
-  #   now = Time.now.strftime("%Y-%m-%d_%H%M")
-  #   filename = "CLIO_#{now}.csv"
-  #   return filename
-  # end
+  # Generate an appropriate filename for each downloaded result set.
+  # Something generated based on query conditions would be complex, and collide.
+  # Instead, just do date/timestamp
+  def download_filename(suffix = 'txt')
+    now = Time.now.strftime("%Y-%m-%d_%H%M")
+    filename = "CLIO_#{now}.#{suffix}"
+    return filename
+  end
+
+  # Use xlsxtream for streaming download of XLSX (not Spreadsheet XML, as in 'xls_download')
+  def xlsx_download()
+
+    # headers for streaming suggested by:
+    #   https://coderwall.com/p/kad56a/streaming-large-data-responses-with-rails
+    # and
+    #   https://github.com/felixbuenemann/xlsxtream/issues/14
+    response.headers.delete("Content-Length") # See one line above
+    response.headers['X-Accel-Buffering'] = 'no' # Stop NGINX from buffering
+    response.headers['Content-Type'] = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    response.headers['Content-Disposition'] = "attachment; filename=#{download_filename('xlsx')}"                 
+    response.headers['Cache-Control'] = 'no-cache'                                                                
+
+    # fails during localhost testing.
+    # response.headers["Transfer-Encoding"] = "chunked" # Chunked response header
+
+    # initialize params for Solr query
+    params['page'] = '1'
+
+    params['rows'] = '1000'
+    # Blacklight's config is set to 100-record max rows.
+    # We need to override this for reporting - but doing
+    # this here doesn't work.
+    # blacklight_config.max_per_page = 1000
+
+    params['source'] = active_source
+    search_engine = blacklight_search(params.to_unsafe_h)
+    @response = search_engine.search
+
+    stream = response.stream
+    stream.define_singleton_method(:<<) { |value| write(value) }
+    
+    begin
+      xlsx = Xlsxtream::Workbook.new(stream)
+      xlsx.write_worksheet 'Sheet1' do |sheet|
+
+        # testing...
+        # 3.times do |i|
+        #   sheet << ["asdf", "aaa", "aligator"]
+        # end
+
+        total = 0
+        hits = 999
+        while hits > 0 && total < 10_000
+          search_engine = blacklight_search(params.to_unsafe_h)
+          hits = search_engine.documents.count
+          total += hits
+
+          search_engine.documents.each do |solr_doc|
+            # 1 or more rows, depending on level (bib, holding, item)
+            doc_rows = solr_doc.to_xlsx(params['level'])
+            doc_rows.each { |row| sheet << row }
+            # # sheet << solr_doc.to_xlsx(params['level'])
+          end
+
+          # increment page
+          params['page'] = (params['page'].to_i + 1).to_s
+        end
+
+      end
+      xlsx.close
+    ensure
+      stream.close
+    end
+
+    # respond_to do |format|
+    #   format.xls do
+    #     # render locals: {response: @response}, layout: false
+    #     # response.headers['Content-Disposition'] = "attachment; filename=foo.xlsx"
+    #     headers["Content-Type"] = "application/xls"
+    #     headers["Content-Disposition"] =
+    #        %(attachment; filename="foo.xls")
+    #     self.response_body = build_xls_enumerator()
+    #   end
+    # end
+
+
+  end
 
 end

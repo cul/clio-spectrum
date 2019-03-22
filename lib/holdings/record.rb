@@ -9,9 +9,7 @@ module Voyager
                   :item_status, :orders, :current_issues, :services,
                   :bibid, :donor_info, :location_note, :temp_loc_flag
 
-      # Documents may look different depending on who you are.  Pass in current_user.
-      def initialize(mfhd_id, marc, mfhd_status, scsb_status, current_user = nil)
-        @current_user = current_user
+      def initialize(mfhd_id, marc, mfhd_status, scsb_status)
         mfhd_status ||= {}
 
         @bibid = marc['001'].value
@@ -605,10 +603,6 @@ module Voyager
         services = []
         # offsite
         if OFFSITE_CONFIG['offsite_locations'].include?(location_code)
-          # # Valet Admins get pre-release access to Valet
-          # if @current_user && @current_user.valet_admin?
-          #   services << 'offsite_valet'  unless services.include? 'offsite_valet'
-          # end
           services << 'offsite'
 
         # precat

@@ -1,10 +1,10 @@
 # encoding: utf-8
 require 'spec_helper'
 
-describe 'Spectrum::SearchEngines::GoogleAppliance', :vcr do
+describe 'Spectrum::SearchEngines::GoogleCustomSearch', :vcr do
   describe 'Libraries Website search for "books"' do
     before(:each) do
-      @search_engine = Spectrum::SearchEngines::GoogleAppliance.new('q' => 'books')
+      @search_engine = Spectrum::SearchEngines::GoogleCustomSearch.new('q' => 'books')
     end
 
     it 'should get many items, successfully' do
@@ -21,7 +21,7 @@ describe 'Spectrum::SearchEngines::GoogleAppliance', :vcr do
   describe 'Libraries Website error handling' do
     it 'should raise an error if not query specified' do
       expect do
-        Spectrum::SearchEngines::GoogleAppliance.new
+        Spectrum::SearchEngines::GoogleCustomSearch.new
       end.to raise_error(RuntimeError)
     end
   end

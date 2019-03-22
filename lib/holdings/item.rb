@@ -124,6 +124,7 @@ module Voyager
         tempLocations
       end
 
+
       def parse_for_use_restrictions(holdings_marc)
         useRestrictions = []
 
@@ -147,14 +148,6 @@ module Voyager
           else
             notes[note] = 1
           end
-
-          # next unless t876['h']
-          # if t876['h'] == 'FRGL'
-          #   notes['In library use only'] != notes['In library use only']
-          #   useRestrictions << 'In library use only.'
-          # else
-          #   useRestrictions << t876['h']
-          # end
         end
 
         notes.each do |note, note_count|
@@ -272,12 +265,6 @@ module Voyager
           long_message = item[:statusPatronMessage]
           short_message = long_message.gsub(/(Try|Place).+/, '').strip
           short_message = short_message.gsub(/\W$/, '')
-        # if record[:patronGroupCode].strip.match(/^(IND|MIS|ACO)/)
-        #   code = 'sp'
-        #   long_message = record[:lastName].strip + ' ' + record[:firstName].strip
-        #   # done in two steps in case ending puctuation is missing
-        #   short_message = long_message.gsub(/(Try|Place).+/, '').strip
-        #   short_message = short_message.gsub(/\W$/, '')
         else
           code = item[:statusCode].to_s
           # append suffix to indicate whether there are requests - n = no requests, r = requests
@@ -293,23 +280,16 @@ module Voyager
           raise "Status code [#{code}] not found in config/item_status_codes.yml" unless parms
 
           short_message = make_substitutions(parms['short_message'], item)
-          # long_message = make_substitutions(parms['long_message'], item)
-
         end
 
         # add labels - but not for "Available" items
         short_message = add_label(short_message, item) unless short_message == 'Available'
-        # long_message = add_label(long_message, item)
-
-        # if Rails.env == 'clio_dev'
-        #   short_message = short_message + " (status code #{code})"
-        #   long_message = long_message + " (status code #{code})"
-        # end
 
         { status_code: code,
           short_message: short_message,
           long_message: long_message }
       end
+
 
       def format_datetime(item)
         # format date / time
@@ -336,6 +316,7 @@ module Voyager
         datetime
       end
 
+
       def make_substitutions(message, item)
         # substitute values for tokens in message strings
 
@@ -355,14 +336,9 @@ module Voyager
         message
       end
 
+
       def add_label(message, item)
         # label is descriptive information for items; optional
-
-        # labels = []
-        # [:enumeration, :chronology, :year, :caption, :text].each do |type|
-        #   labels << item[type] if item[type]
-        # end
-        # labels.empty? ? label = '' : label = labels.join(' ') + ' '
 
         label = item[:itemLabel] || ''
         if label.empty?
@@ -370,12 +346,9 @@ module Voyager
         else
           "#{label} #{message}"
         end
-
-        # # add label
-        # message.insert(0, "#{label} ") unless label.empty?
-        #
-        # message
       end
+      
+      
     end
   end
 end

@@ -137,6 +137,10 @@ module CulCatalogHelper
   def xls_form_link()
     url_for(search_state.params_for_search.merge(action: 'xls_form'))
   end
+
+  def xlsx_form_link()
+    url_for(search_state.params_for_search.merge(action: 'xlsx_form'))
+  end
   
   def database_link_label(links)
     label = 'Search Database:'
