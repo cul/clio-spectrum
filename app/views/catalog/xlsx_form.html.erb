@@ -1,14 +1,14 @@
 <div class="modal-header">
   <button type="button" class="ajax-modal-close close" data-dismiss="modal" aria-hidden="true">×</button>
-  <h4 class="modal-title">XLS Download</h4>
+  <h4 class="modal-title">XLSX Download</h4>
 </div>
 
-<%= form_tag url_for(:controller => "catalog", :action => "index"), :id => 'xls_form', :class => "form-horizontal Xajax_form", :method => :get, taget: 'xls_download' do %>
+<%= form_tag url_for(controller: 'catalog', action: 'xlsx_download'), id: 'xlsx_form', class: "form-horizontal", method: :get, target: 'xlsx_download' do %>
 
   <!-- Pass through all query parameters, to re-execute the search -->
-  <%= hidden_keys_for_xls %>
-  <!-- Also, tell the catalog index action that the output should be in XLS format -->
-  <%= hidden_field_tag 'format', 'xls' %>
+  <%= hidden_keys_for_xlsx %>
+  <!-- Output format should be in XLSX format -->
+  <%= hidden_field_tag 'format', 'xlsx' %>
   
 
   <div class="modal-body">
@@ -20,10 +20,25 @@
           <%=radio_button_tag :level, 'bib', checked: true %>
           <%=label_tag :level_bib, 'One line per Bibliographic Record' %>
           <div class="input-block-level">
-            Title, Author, Publisher
+            Title, Author, Publisher, etc.
+            <br>
+            
           </div>
         </div>
       </div>
+
+      <h4>
+        <p>
+        Note:
+        <p>
+        The XLSX Download pilot is only opened to selected staff.
+        <p>
+        During pilot, only the first 10,000 rows of any query will be returned.
+        <p>
+        Currently only bib-level reporting is available.
+      </h4>
+
+      <!--
 
       <div class="form-group row">
         <div class="col-xs-12">
@@ -44,11 +59,15 @@
           </div>
         </div>
       </div>
+      
+      -->
 
     </div>
 
   </div>
+
   <div class="modal-footer">
-    <button type="submit" class="btn btn-primary" id='xls_download'>Download</button>
+    <button type="submit" class="btn btn-primary" id='xlsx_download'>Download</button>
   </div>
+
 <% end %>

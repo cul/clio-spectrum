@@ -179,6 +179,9 @@ gem 'browser'
 # "This gem is MRI-specific. It does not support jruby"
 gem 'ruby-prof', platforms: :mri
 
+# Streaming download of XLSX
+gem 'xlsxtream'
+
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:

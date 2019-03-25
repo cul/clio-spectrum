@@ -3,12 +3,9 @@ module Voyager
     class Collection
       attr_reader :records
 
-      # Documents may look different depending on who you are.  Pass in current_user.
-      def initialize(document, circ_status, scsb_status, current_user = nil)
+      def initialize(document, circ_status, scsb_status)
         raise 'Voyager::Holdings::Collection got nil/empty document' unless document
         # raise "Voyager::Holdings::Collection got nil/empty circ_status" unless circ_status
-
-        @current_user = current_user
 
         circ_status ||= {}
         scsb_status ||= {}
@@ -22,7 +19,7 @@ module Voyager
           mfhd_id = t852['0']
           mfhd_status = document_status[mfhd_id] || {}
           # Rails.logger.debug "parse_marc:  mfhd_id=[#{mfhd_id}]"
-          @records << Record.new(mfhd_id, document_marc, mfhd_status, scsb_status, @current_user)
+          @records << Record.new(mfhd_id, document_marc, mfhd_status, scsb_status)
         end
 
         adjust_services(@records) if @records.length > 1
