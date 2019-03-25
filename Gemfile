@@ -171,8 +171,9 @@ gem 'jquery-datatables-rails'
 # Browser Detection - used to exclude IE from ES6
 gem 'browser'
 
-# UNIX-5942 - work around spotty CUIT DNS
-gem 'resolv-hosts-dynamic'
+# appears fixed, as of 2/19/2019
+# # UNIX-5942 - work around spotty CUIT DNS
+# gem 'resolv-hosts-dynamic'
 
 # Code profiling, and we want to do this on the servers
 # "This gem is MRI-specific. It does not support jruby"

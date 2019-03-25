@@ -337,7 +337,6 @@ GEM
       uber (< 0.2.0)
     request_store (1.4.1)
       rack (>= 1.4)
-    resolv-hosts-dynamic (0.0.2)
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
       railties (>= 4.2.0, < 6.0)
@@ -518,7 +517,6 @@ DEPENDENCIES
   rails-controller-testing
   rake
   recaptcha
-  resolv-hosts-dynamic
   rest-client
   rsolr (>= 1.0)
   rspec-activemodel-mocks
