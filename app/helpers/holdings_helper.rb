@@ -483,4 +483,28 @@ module HoldingsHelper
 
     offsite_bound_with_url
   end
+
+  def worldcat_link(document)
+    return '' unless document
+ 
+    lookups = { 'oclc' => 'no', 'isbn' => 'bn', 'issn' => 'is' }
+    lookups.each_pair do |key, field|
+      # extract_by_key will return nil or an array of ids
+      next unless (ids = extract_by_key(document, key))
+      # ids have prefixes and hyphens, which need to be stripped
+      # oclc:000123, isbn:1886-4805  ==>  000123, 18864805
+      first_id = ids.first.gsub("#{key}:", '').gsub(/\-/, '')
+      return worldcat_query_link("#{field}:#{first_id}")
+    end
+ 
+    # No usable keys found?  Then no link.
+    return ''
+  end
+ 
+  def worldcat_query_link(query)
+    return '' unless query
+    link = "https://worldcat.org/search?q=#{query}"
+    link = content_tag(:a, 'Search for title in WorldCat', href: link, class: 'worldcat_link')
+  end
+
 end
