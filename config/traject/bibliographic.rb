@@ -30,10 +30,10 @@ lookups = 0
 
 ATOZ = ('a'..'z').to_a.join('')
 
-# Authority counter variables
-author_variant_count = 0
-subject_variant_count = 0
-geo_variant_count = 0
+# # Authority counter variables
+# author_variant_count = 0
+# subject_variant_count = 0
+# geo_variant_count = 0
 
 # Pre-load translation maps once, not once per record
 country_map = Traject::TranslationMap.new('country_map')
@@ -60,10 +60,11 @@ each_record do |record, _context|
     recap_location_code = first_location_code
     recap_location_name = TrajectUtility.recap_location_code_to_label(recap_location_code)
   end
-  # Reset authorities counter variables for each new record
-  author_variant_count = 0
-  subject_variant_count = 0
-  geo_variant_count = 0
+  # broken during multi-threaded indexing
+  # # Reset authorities counter variables for each new record
+  # author_variant_count = 0
+  # subject_variant_count = 0
+  # geo_variant_count = 0
 end
 
 to_field 'id', extract_marc('001', first: true)
@@ -127,7 +128,7 @@ to_field 'author_variant_txt' do |record, accumulator|
   end
 
   all_variants.flatten.uniq.each do |variant|
-    author_variant_count += 1
+    # author_variant_count += 1
     accumulator << variant
   end
 end
@@ -174,11 +175,8 @@ to_field 'subject_variant_txt' do |record, accumulator|
   end
 
   all_variants.flatten.uniq.each do |variant|
-    next unless variant.present?
-    subject_variant_count += 1
+    # subject_variant_count += 1
     accumulator << variant
-    # DEBUG
-    # puts "subject_variant_count=#{subject_variant_count} variant=#{variant}"
   end
 end
 
@@ -212,7 +210,7 @@ to_field 'geo_variant_txt' do |record, accumulator|
   end
 
   all_variants.flatten.uniq.each do |variant|
-    geo_variant_count += 1
+    # geo_variant_count += 1
     accumulator << variant
   end
 end
@@ -434,6 +432,17 @@ to_field 'urls_i' do |record, accumulator|
   accumulator << count
 end
 
+# Raw data from holdings fields within this record
+to_field 'holdings_ss' do |record, accumulator|
+  record.fields('852').each do |field852|
+    serialized = ""
+    field852.subfields.each do |subfield|
+      serialized.concat("|#{subfield.code}|#{subfield.value}")
+    end
+    accumulator << serialized
+  end
+end
+
 # Count of Holdings (852$0) within this record
 to_field 'holdings_i' do |record, accumulator|
   count = 0
@@ -442,6 +451,17 @@ to_field 'holdings_i' do |record, accumulator|
     count += 1
   end
   accumulator << count
+end
+
+# Raw data from holdings fields within this record
+to_field 'items_ss' do |record, accumulator|
+  record.fields('876').each do |field876|
+    serialized = ""
+    field876.subfields.each do |subfield|
+      serialized.concat("|#{subfield.code}|#{subfield.value}")
+    end
+    accumulator << serialized
+  end
 end
 
 # Count of Items (876$a) within this record
@@ -459,13 +479,15 @@ end
 to_field 'authorities_dt' do |_record, accumulator|
   accumulator << Time.now.utc.iso8601
 end
-# Authority Counts
-to_field 'author_variants_i' do |_record, accumulator|
-  accumulator << author_variant_count
-end
-to_field 'subject_variants_i' do |_record, accumulator|
-  accumulator << subject_variant_count
-end
-to_field 'geo_variants_i' do |_record, accumulator|
-  accumulator << geo_variant_count
-end
+
+# Broken during multi-threaded indexing
+# # Authority Counts
+# to_field 'author_variants_i' do |_record, accumulator|
+#   accumulator << author_variant_count
+# end
+# to_field 'subject_variants_i' do |_record, accumulator|
+#   accumulator << subject_variant_count
+# end
+# to_field 'geo_variants_i' do |_record, accumulator|
+#   accumulator << geo_variant_count
+# end
