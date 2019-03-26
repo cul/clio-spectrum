@@ -51,7 +51,7 @@ GEM
       activemodel (= 5.2.2.1)
       activesupport (= 5.2.2.1)
       arel (>= 9.0)
-    activerecord-session_store (1.1.1)
+    activerecord-session_store (1.1.3)
       actionpack (>= 4.0)
       activerecord (>= 4.0)
       multi_json (~> 1.11, >= 1.11.2)
@@ -72,7 +72,7 @@ GEM
       sshkit (>= 1.6.1, != 1.7.0)
     arel (9.0.0)
     auto-session-timeout (0.9.5)
-    autoprefixer-rails (9.4.9)
+    autoprefixer-rails (9.5.0)
       execjs
     bcrypt (3.1.12)
     better_errors (2.5.1)
@@ -273,7 +273,7 @@ GEM
     net-ssh (5.2.0)
     netrc (0.11.0)
     nio4r (2.3.1)
-    nokogiri (1.10.1)
+    nokogiri (1.10.2)
       mini_portile2 (~> 2.4.0)
     omniauth (1.9.0)
       hashie (>= 3.4.6, < 3.7.0)
@@ -291,7 +291,7 @@ GEM
     rack (2.0.6)
     rack-attack (5.4.2)
       rack (>= 1.0, < 3)
-    rack-cors (1.0.2)
+    rack-cors (1.0.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rack-utf8_sanitizer (1.6.0)
@@ -328,7 +328,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    recaptcha (4.13.1)
+    recaptcha (4.13.2)
       json
     ref (2.0.0)
     representable (3.0.4)
@@ -463,7 +463,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     yell (2.1.0)
-    zip_tricks (4.7.1)
+    zip_tricks (4.7.2)
 
 PLATFORMS
   ruby
@@ -543,4 +543,4 @@ DEPENDENCIES
   xlsxtream
 
 BUNDLED WITH
-   1.16.6
+   1.17.2

@@ -93,7 +93,7 @@ gem 'summon', git: 'https://github.com/cul/summon.git'
 # Point to local copy during development...
 # gem 'summon', :path => "/Users/marquis/src/summon"
 
-
+# used to email exceptions to developers
 gem 'exception_notification'
 
 # Lookup Columbia user details
