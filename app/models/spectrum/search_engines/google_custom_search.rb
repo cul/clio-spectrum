@@ -13,6 +13,9 @@ module Spectrum
         @params = options
 
         @q = options['q'] || raise('No query string specified')
+        # We don't support web searches of over X characters
+        @q.truncate(200)
+
         @rows = (options['rows'] || 10).to_i
         @start = (options['start'] || 1).to_i
         cs_id  = APP_CONFIG['google']['custom_search_id']
@@ -24,7 +27,16 @@ module Spectrum
 
         service = Customsearch::CustomsearchService.new
         service.key = cs_key
-        results = service.list_cse_siterestricts(@q, cx: cs_id, start: @start, num: @rows)
+
+        # Fetch results
+        # results = service.list_cse_siterestricts(@q, cx: cs_id, start: @start, num: @rows)
+
+        # Cache to avoid redundant searches - needs to include all dynamic params
+        cache_key = "gcs:#{@q};#{@rows};#{@start}"
+        results = Rails.cache.fetch(cache_key, expires_in: 1.day) do
+          service.list_cse_siterestricts(@q, cx: cs_id, start: @start, num: @rows)
+        end
+
         # raise
         @documents = Array(results.items).map { |item| LwebDocument.new(item) }
         @count = results.search_information.total_results
