@@ -189,7 +189,7 @@ class SpectrumController < ApplicationController
   end
 
   def doc_field(doc = nil, field = nil)
-    return '' if doc.blank? || field.blank?
+    return '' unless doc && field
     doc = doc.first if doc.is_a? Array
     value = doc[field] || ''
     value = value.join(', ') if value.is_a? Array

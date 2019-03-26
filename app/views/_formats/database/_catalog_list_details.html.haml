@@ -2,7 +2,7 @@
 -# CONTROLS HOW DATABASE RECORDS SHOW IN SEARCH RESULTS LIST
 
 -# Database note/alerts of type "alert" show up w/out key, with special styling
-- if document.fetch('_active_item_alert_count', nil) && document.fetch('_active_item_alert_count', nil) > 0
+- if document.active_item_alert_count > 0
   - Array.wrap(document.item_alerts[:alert]).each do | alert |
     - if alert.active?
       .col-sm-12.alert_alert

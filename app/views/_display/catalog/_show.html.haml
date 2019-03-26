@@ -36,7 +36,7 @@
 
       -# Database Notes and Alerts
       -# html_safe true, so that ERC can embed HTML links in their alert msgs
-      - if document.fetch('_active_item_alert_count', nil) && document.fetch('_active_item_alert_count', nil) > 0
+      - if document.active_item_alert_count > 0
         .well
           -# "alert" alerts
           - document.item_alerts[:alert].each do | alert |

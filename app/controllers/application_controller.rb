@@ -213,15 +213,9 @@ class ApplicationController < ActionController::Base
     if search_engine.successful?
       @response = search_engine.search
       @results = search_engine.documents
-      if search_engine.total_items > 0
-        # No, leave this to happen via async AJAX onload
-        # look_up_clio_holdings(@results)
-
-        # Currently, item-alerts only show within the Databases data source.
-        # Why?
-        if active_source.present? && active_source == 'databases'
-          add_alerts_to_documents(@results)
-        end
+      # Currently, item-alerts only show within the Databases data source. (Why?)
+      if active_source.present? && active_source == 'databases'
+        add_alerts_to_documents(@results)
       end
     end
 
@@ -234,14 +228,6 @@ class ApplicationController < ActionController::Base
 
     search_engine
   end
-
-  # def trigger_async_mode
-  #   if params.delete('async_off') == 'true'
-  #     session[:async_off] = true
-  #   elsif params.delete('async_on') == 'true'
-  #     session[:async_off] = nil
-  #   end
-  # end
 
   def trigger_debug_mode
     params_debug_mode = params['debug_mode']
@@ -289,7 +275,6 @@ class ApplicationController < ActionController::Base
   end
 
   def active_source
-    # puts "MMMM  active_source() Thread #{Thread.current.object_id}"
     # Figure out the active source, then stash it into
     # thread storage for access in non-CLIO-application contexts
     Thread.current[:active_source] = determine_active_source
@@ -445,42 +430,6 @@ class ApplicationController < ActionController::Base
 
     document_array.compact
 
-    #     catalog_document_list = []
-    #     if catalog_item_ids.any?
-    #       # Then, do two source-specific set-of-id lookups
-    #
-    #       extra_solr_params = {
-    #         rows: catalog_item_ids.size
-    #       }
-    #
-    #       # NEXT-1067 - Saved Lists broken for very large lists (~400)
-    #       # fix by breaking into slices
-    #       catalog_item_ids.each_slice(100) { |slice|
-    #         response, slice_document_list = fetch(slice, extra_solr_params)
-    #         catalog_document_list += slice_document_list
-    #       }
-    #     end
-    #
-    #     article_document_list = []
-    #     if article_bookmarks.any?
-    #       article_document_list = get_summon_docs_for_bookmark_values(article_bookmarks)
-    #     end
-    #     # Then, merge back, in original order
-    #     key_to_doc_hash = {}
-    #     catalog_document_list.each do |doc|
-    #       key_to_doc_hash[ doc[:id]] = doc
-    #     end
-    #     article_document_list.each do |doc|
-    #       # key_to_doc_hash[ doc.id] = doc
-    #       key_to_doc_hash[ Array(doc.src['BookMark']).first ] = doc
-    #     end
-    #
-    #     # intermix the two lists in original order
-    #     id_array.each do |id|
-    #       document_array.push key_to_doc_hash[id]
-    #     end
-    # raise
-    #     document_array
   end
 
   # passed an array of catalog document ids,
@@ -501,16 +450,6 @@ class ApplicationController < ActionController::Base
 
     docs
 
-    #       extra_solr_params = {
-    #         rows: catalog_item_ids.size
-    #       }
-    #
-    #       # NEXT-1067 - Saved Lists broken for very large lists (~400)
-    #       # fix by breaking into slices
-    #       catalog_item_ids.each_slice(100) { |slice|
-    #         response, slice_document_list = fetch(slice, extra_solr_params)
-    #         catalog_document_list += slice_document_list
-    #       }
   end
 
   # passed an array of bookmarks,
@@ -659,15 +598,6 @@ class ApplicationController < ActionController::Base
     documents = Array.wrap(documents)
     return if documents.length.zero?
 
-    # # initialize
-    # documents.each do |doc|
-    #   raise
-    #   doc.to_h['_item_alerts'] = {}
-    #   ItemAlert::ALERT_TYPES.each do |alert_type, label|
-    #     doc['_item_alerts'][alert_type] = []
-    #   end
-    # end
-
     # fetch all alerts for current doc-set, in single query
     alerts = ItemAlert.where(source: 'catalog',
                              item_key: documents.map(&:id)).includes(:author)
@@ -685,8 +615,8 @@ class ApplicationController < ActionController::Base
 
       document.item_alerts[this_alert_type] << alert
 
-      document['_active_item_alert_count'] ||= 0
-      document['_active_item_alert_count'] += 1 if alert.active?
+      document.active_item_alert_count ||= 0
+      document.active_item_alert_count += 1 if alert.active?
     end
   end
 

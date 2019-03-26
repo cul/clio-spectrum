@@ -1,11 +1,12 @@
 class SolrDocument
-  attr_accessor :item_alerts
+  attr_accessor :item_alerts, :active_item_alert_count
 
   # method signiture copied from module Blacklight::Document
   def initialize(source_doc = {}, response = nil)
     super(source_doc, response)
 
     # item_alert hash has to be ready for access by type
+    self.active_item_alert_count = 0
     self.item_alerts = HashWithIndifferentAccess.new
     ItemAlert::ALERT_TYPES.each do |alert_type, _label|
       item_alerts[alert_type] = []
