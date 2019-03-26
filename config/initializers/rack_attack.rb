@@ -21,9 +21,14 @@ Rack::Attack.safelist('allow from CLIO') do |req|
   '128.59.222.208' == req.ip
 end
 
-# Deny all access to IP Addresses in our bad-address list
-Rack::Attack.blocklist('block bad IPs') do |req|
-  APP_CONFIG['BAD_IP_LIST'].include? req.ip
+# # Deny all access to IP Addresses in our bad-address list
+# Rack::Attack.blocklist('block bad IPs') do |req|
+#   APP_CONFIG['BAD_IP_LIST'].include? req.ip
+# end
+
+# New, simpler way to block, supports CIDR with no extra code
+APP_CONFIG['BAD_IP_LIST'].each do |badguy|
+  Rack::Attack.blocklist_ip(badguy)
 end
 
 # Deny all access to User Agents in our bad-agent list
