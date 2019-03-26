@@ -34,6 +34,7 @@ module Spectrum
         # Cache to avoid redundant searches - needs to include all dynamic params
         cache_key = "gcs:#{@q};#{@rows};#{@start}"
         results = Rails.cache.fetch(cache_key, expires_in: 1.day) do
+          Rails.logger.debug "GoogleCustomSearch cache miss for cache_key #{cache_key}"
           service.list_cse_siterestricts(@q, cx: cs_id, start: @start, num: @rows)
         end
 
