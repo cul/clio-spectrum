@@ -33,7 +33,7 @@
   = render "/_formats/clio/catalog_show_holdings_hathi", clio_id: clio_id
 
   -# WORLDCAT LINK
-  - if APP_CONFIG['show_worldcat_links'] && worldcat_link = worldcat_link(document)
+  - if APP_CONFIG['show_worldcat_links'] && (worldcat_link = worldcat_link(document)).present?
     = render "/_formats/clio/catalog_show_worldcat_link", worldcat_link: worldcat_link
 
   -# expand vertical height of div.holdings to encompass the 
