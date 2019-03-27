@@ -245,17 +245,18 @@ module HoldingsHelper
     display_values = document[key + '_display']
     return unless display_values
 
-    Array.wrap(display_values).map do |value|
+    bibkeys = Array.wrap(display_values).map do |value|
       # always remove all white-space from any key
       value.gsub!(/\s/, '')
       # LCCN sometimes has a strange suffix.  Remove it.
       # e.g., "84162131 /HE" or "78309771 //r83"
-      value.gsub!(/\/.+$/, '') if value == 'lccn'
+      value.gsub!(/\/.+$/, '') if key == 'lccn'
       # For OCLC numbers, strip away the prefix ('ocm' or 'ocn')
-      value.gsub!(/^oc[mn]/, '') if value == 'oclc'
+      value.gsub!(/^oc[mn]/, '') if key == 'oclc'
       # Here's what we want returned - key:value, e.g.
       "#{key}:#{value}"
     end
+    return bibkeys.uniq
   end
 
   def extract_standard_bibkeys(document)
