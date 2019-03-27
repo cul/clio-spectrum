@@ -557,6 +557,8 @@ class ApplicationController < ActionController::Base
       fullpath =~ /\/selected/ ||
       # auto-timeout polling
       fullpath =~ /\/active/
+      # any kind of downloads
+      fullpath =~ /\/download/
   end
 
   # DEVISE callback
