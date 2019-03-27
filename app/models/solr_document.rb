@@ -229,7 +229,7 @@ class SolrDocument
 
     # gather bib_values - bib-level metadata
     bib_fields.each do |field_header, field_name|
-      field_value = Array(self[field_name]).join("; ")
+      field_value = Array(self[field_name]).join("\r\n")
       bib_values << field_value
     end
     
