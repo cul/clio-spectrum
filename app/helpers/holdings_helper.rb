@@ -487,25 +487,38 @@ module HoldingsHelper
 
   def worldcat_link(document)
     return '' unless document
- 
-    lookups = { 'oclc' => 'no', 'isbn' => 'bn', 'issn' => 'is' }
-    lookups.each_pair do |key, field|
+
+    # relied on reverse-engineering of WorldCat advanced search form,
+    # and has proven unstable.
+    # lookups = { 'oclc' => 'no', 'isbn' => 'bn', 'issn' => 'n2' }
+    # lookups.each_pair do |key, field|
+
+    # Use linking as documented at https://www.worldcat.org/wcpa/content/links
+    ['oclc', 'isbn', 'issn'].each do |key|
       # extract_by_key will return nil or an array of ids
       next unless (ids = extract_by_key(document, key))
-      # ids have prefixes and hyphens, which need to be stripped
+      # ids may have prefixes and hyphens, which need to be stripped
       # oclc:000123, isbn:1886-4805  ==>  000123, 18864805
-      first_id = ids.first.gsub("#{key}:", '').gsub(/\-/, '')
-      return worldcat_query_link("#{field}:#{first_id}")
+      id = ids.first.gsub("#{key}:", '').gsub(/\-/, '')
+      worldcat_url = get_worldcat_url(key, id)
+      return content_tag(:a, 'Search for title in WorldCat', href: worldcat_url, class: 'worldcat_link')
     end
  
     # No usable keys found?  Then no link.
     return ''
   end
- 
-  def worldcat_query_link(query)
-    return '' unless query
-    link = "https://worldcat.org/search?q=#{query}"
-    link = content_tag(:a, 'Search for title in WorldCat', href: link, class: 'worldcat_link')
+
+  # 
+  # def worldcat_query_link(query)
+  #   return '' unless query
+  #   link = "https://worldcat.org/search?q=#{query}"
+  #   link = content_tag(:a, 'Search for title in WorldCat', href: link, class: 'worldcat_link')
+  # end
+  
+  def get_worldcat_url(key, id)
+    return unless key && id
+    return unless ['oclc', 'isbn', 'issn'].include? key
+    return "https://www.worldcat.org/#{key}/#{id}"
   end
 
 end

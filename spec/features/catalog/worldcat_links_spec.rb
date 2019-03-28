@@ -6,20 +6,34 @@ describe 'WorldCat links' do
     # A very sparse catalog record
     visit solr_document_path('123')
     within '.holdings' do
-      expect(page).to have_link('WorldCat', href: 'https://worldcat.org/search?q=no:3777209')
+      expect(page).to have_link('WorldCat', href: 'https://www.worldcat.org/oclc/3777209')
     end
 
     # A document with Hathi links - WorldCat shouls still show up the same
     visit solr_document_path('513297')
     within '.holdings' do
-      expect(page).to have_link('WorldCat', href: 'https://worldcat.org/search?q=no:2218446')
+      expect(page).to have_link('WorldCat', href: 'https://www.worldcat.org/oclc/2218446')
     end
   end
 
   it 'should link for prefixed OCLC numbers' do
     visit solr_document_path('12605255')
     within '.holdings' do
-      expect(page).to have_link('WorldCat', href: 'https://worldcat.org/search?q=no:133167834')
+      expect(page).to have_link('WorldCat', href: 'https://www.worldcat.org/oclc/133167834')
+    end
+  end
+
+  it 'should work with ISBN' do
+    visit solr_document_path('')
+    within '.holdings' do
+      expect(page).to have_link('WorldCat', href: 'https://www.worldcat.org/isbn/ASDF')
+    end
+  end
+
+  it 'should work with ISSN' do
+    visit solr_document_path('10106073')
+    within '.holdings' do
+      expect(page).to have_link('WorldCat', href: 'https://www.worldcat.org/issn/20782489')
     end
   end
 
