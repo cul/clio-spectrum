@@ -4,7 +4,7 @@
 # This was originally based on the Blacklight CatalogController.
 
 class CatalogController < ApplicationController
-  include ActionController::Live
+  # include ActionController::Live
 
   attr_accessor :source
 
