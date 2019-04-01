@@ -4,7 +4,7 @@
 
 cas: &CAS
   # host: cas.columbia.edu
-  host: casdev.columbia.edu
+  host: casdev.cc.columbia.edu
   login_url: /cas/login
   logout_url: /cas/logout
   service_validate_url: /cas/serviceValidate
