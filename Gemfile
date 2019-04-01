@@ -42,7 +42,8 @@ gem 'kaminari'
 gem 'devise', '~> 4.4.0'
 
 # gem 'cul_omniauth'
-gem 'cul_omniauth', git: 'https://github.com/cul/cul_omniauth', branch: 'rails-5'
+# gem 'cul_omniauth', git: 'https://github.com/cul/cul_omniauth', branch: 'rails-5'
+gem 'cul_omniauth', git: 'https://github.com/cul/cul_omniauth', branch: 'cas-5.3'
 
 # Client-side JS timeouts
 gem 'auto-session-timeout'
