@@ -134,12 +134,22 @@ module CulCatalogHelper
     end
   end
   
-  def xls_form_link()
-    url_for(search_state.params_for_search.merge(action: 'xls_form'))
-  end
+  # def xls_form_link()
+  #   url_for(search_state.params_for_search.merge(action: 'xls_form'))
+  # end
 
   def xlsx_form_link()
     url_for(search_state.params_for_search.merge(action: 'xlsx_form'))
+  end
+  
+  # link to either 
+  def download_link(format)
+    params = {
+      format:     format,
+      datasource: active_source,
+      action:     'download'
+    }
+    url_for(search_state.params_for_search.merge(params))
   end
   
   def database_link_label(links)

@@ -415,35 +415,35 @@ class CatalogController < ApplicationController
     flash[:error].blank?
   end
 
-  # Authenticated CUL Staff can download search results as XLS
-  def xls_form()  
-    # build a form to collect details for the XLS format.
-    # pass through all query params as hidden form elements.
+  # # Authenticated CUL Staff can download search results as XLS
+  # def xls_form()  
+  #   # build a form to collect details for the XLS format.
+  #   # pass through all query params as hidden form elements.
+  # 
+  #   # respond_to do |format|
+  #   #   format.js { render layout: false }
+  #   #   format.html
+  #   # end
+  # end
 
-    # respond_to do |format|
-    #   format.js { render layout: false }
-    #   format.html
-    # end
-  end
-
-  # "XML Spreadsheet 2003"
-  def xls_download()
-    params['format'] = 'xls'
-    params['source'] = active_source
-    search_engine = blacklight_search(params.to_unsafe_h)
-    @response = search_engine.search
-
-    respond_to do |format|
-      format.xls do
-        # render locals: {response: @response}, layout: false
-        # response.headers['Content-Disposition'] = "attachment; filename=foo.xlsx"
-        headers["Content-Type"] = "application/vnd.ms-excel"
-        headers["Content-Disposition"] =
-           %(attachment; filename="foo.xml")
-        self.response_body = build_xls_enumerator()
-      end
-    end
-  end
+  # # "XML Spreadsheet 2003"
+  # def xls_download()
+  #   params['format'] = 'xls'
+  #   params['source'] = active_source
+  #   search_engine = blacklight_search(params.to_unsafe_h)
+  #   @response = search_engine.search
+  # 
+  #   respond_to do |format|
+  #     format.xls do
+  #       # render locals: {response: @response}, layout: false
+  #       # response.headers['Content-Disposition'] = "attachment; filename=foo.xlsx"
+  #       headers["Content-Type"] = "application/vnd.ms-excel"
+  #       headers["Content-Disposition"] =
+  #          %(attachment; filename="foo.xml")
+  #       self.response_body = build_xls_enumerator()
+  #     end
+  #   end
+  # end
 
 # Example from:
 #   https://thoughtbot.com/blog/modeling-a-paginated-api-as-a-lazy-stream
@@ -464,66 +464,66 @@ class CatalogController < ApplicationController
 #   end.lazy
 # end
 
-  def build_xls_enumerator
-    Enumerator.new do |yielder|
-      # initialize params for Solr query
-      params['page'] = '1'
-      params['rows'] = '10'
+  # def build_xls_enumerator
+  #   Enumerator.new do |yielder|
+  #     # initialize params for Solr query
+  #     params['page'] = '1'
+  #     params['rows'] = '10'
+  # 
+  #     yielder << x_header
+  # 
+  #     loop do
+  #       # fetch one page of records from Solr
+  #       Rails.logger.debug "==== page=#{params['page']}"
+  #       search_engine = blacklight_search(params.to_unsafe_h)
+  #       response = search_engine.search
+  #       document_list = search_engine.documents
+  # 
+  #       # We've encountered some kind of problem
+  #       raise StopIteration if search_engine.errors
+  # 
+  #       # We've read all docs for this query
+  #       if response.total == 0 || document_list.size == 0
+  #         yielder << xls_footer
+  #         raise StopIteration
+  #       end
+  #       # raise StopIteration if response.total == 0
+  #       # raise StopIteration if document_list.size == 0
+  # 
+  #       # convert SolrDocument objects to XSL, feed to enumerator
+  #       search_engine.documents.each do |solr_doc|
+  #         yielder << solr_doc.to_xls
+  #       end
+  #       
+  #       # advance pagination
+  #       params['page'] = (params['page'].to_i + 1).to_s
+  #       # params['page'] += 1
+  #       
+  #     end
+  # 
+  #   end
+  # end
 
-      yielder << x_header
-
-      loop do
-        # fetch one page of records from Solr
-        Rails.logger.debug "==== page=#{params['page']}"
-        search_engine = blacklight_search(params.to_unsafe_h)
-        response = search_engine.search
-        document_list = search_engine.documents
-
-        # We've encountered some kind of problem
-        raise StopIteration if search_engine.errors
-
-        # We've read all docs for this query
-        if response.total == 0 || document_list.size == 0
-          yielder << xls_footer
-          raise StopIteration
-        end
-        # raise StopIteration if response.total == 0
-        # raise StopIteration if document_list.size == 0
-
-        # convert SolrDocument objects to XSL, feed to enumerator
-        search_engine.documents.each do |solr_doc|
-          yielder << solr_doc.to_xls
-        end
-        
-        # advance pagination
-        params['page'] = (params['page'].to_i + 1).to_s
-        # params['page'] += 1
-        
-      end
-
-    end
-  end
-
-  def xls_header
-    header = <<-FOO
-<?xml version="1.0" encoding="UTF-8"?>
-<?mso-application progid="Excel.Sheet"?>
-<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="https://www.w3.org/TR/html401/">
-<Worksheet ss:Name="CLIO XLS Download">
-<Table>
-<Column ss:Index="1" ss:AutoFitWidth="0" ss:Width="110"/>
-FOO
-    return header
-  end
+#   def xls_header
+#     header = <<-FOO
+# <?xml version="1.0" encoding="UTF-8"?>
+# <?mso-application progid="Excel.Sheet"?>
+# <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="https://www.w3.org/TR/html401/">
+# <Worksheet ss:Name="CLIO XLS Download">
+# <Table>
+# <Column ss:Index="1" ss:AutoFitWidth="0" ss:Width="110"/>
+# FOO
+#     return header
+#   end
   
-  def xls_footer
-    footer = <<-FOO
-</Table>
-</Worksheet>
-</Workbook>
-    FOO
-    return footer
-  end
+#   def xls_footer
+#     footer = <<-FOO
+# </Table>
+# </Worksheet>
+# </Workbook>
+#     FOO
+#     return footer
+#   end
       
   # def results_as_csv(response)
   #   rows = []
@@ -560,9 +560,10 @@ FOO
     #   https://github.com/felixbuenemann/xlsxtream/issues/14
     response.headers.delete("Content-Length") # See one line above
     response.headers['X-Accel-Buffering'] = 'no' # Stop NGINX from buffering
+    response.headers['Cache-Control'] = 'no-cache'                                                                
+
     response.headers['Content-Type'] = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     response.headers['Content-Disposition'] = "attachment; filename=#{download_filename('xlsx')}"                 
-    response.headers['Cache-Control'] = 'no-cache'                                                                
 
     # fails during localhost testing.
     # response.headers["Transfer-Encoding"] = "chunked" # Chunked response header
@@ -626,8 +627,97 @@ FOO
     #     self.response_body = build_xls_enumerator()
     #   end
     # end
-
-
   end
 
+  def download
+    # headers for streaming suggested by:
+    #   https://coderwall.com/p/kad56a/streaming-large-data-responses-with-rails
+    # and
+    #   https://github.com/felixbuenemann/xlsxtream/issues/14
+    response.headers.delete("Content-Length") # See one line above
+    response.headers['X-Accel-Buffering'] = 'no' # Stop NGINX from buffering
+    response.headers['Cache-Control'] = 'no-cache'
+    
+    # Setup Blacklight / Solr params
+    extra_params = {
+      'page'   => 1,
+      'rows'   => 1000,
+      'fl'     => 'id,marc_display',
+      'facet'  => false
+    }
+    # params['page'] = '1'
+    # params['rows'] = '1000'
+    # params['fl']   = 'id,marc_display'
+    # params['facet'] = 'false'
+
+    # Stream response
+    stream = response.stream
+
+    begin
+      # XML Header, open collection tag
+      stream.write marcxml_header
+
+      total = 0
+      hits = 999
+      while hits > 0 && total < 10_000
+        # CLIO-level query
+        # search_engine = blacklight_search(params.to_unsafe_h)
+        # hits = search_engine.documents.count
+
+        # approved Blacklight-level query
+        # search, documents = search_results(params)
+        # hits = documents.count
+        
+        # unapproved lower-level querying..
+        # builder = search_builder.with(params)
+        # builder.page = 1
+        # builder.rows = 1000
+        # response = repository.search(builder)
+
+        query = search_builder.with(params).merge(extra_params)
+        solr_response = repository.search(query)
+        documents = solr_response.documents
+
+        hits = documents.count
+        total += hits
+
+        documents.each do |solr_doc|
+          stream.write "\n"
+          stream.write solr_doc['marc_display']
+          stream.write "\n"
+        end
+
+        # increment page
+        params['page'] = (params['page'].to_i + 1).to_s
+      end
+
+      # close collection tag
+      stream.write marcxml_footer
+
+    ensure
+      stream.close
+    end
+    
+  end
+
+  def marcxml_header
+    header = <<EOS
+<?xml version="1.0" encoding="UTF-8"?>
+<collection
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd"
+  xmlns="http://www.loc.gov/MARC21/slim">
+EOS
+   return header
+ end
+  
+  def marcxml_footer
+    footer = <<EOS
+    </collection>
+EOS
+    return footer
+  end
+  
+
 end
+

@@ -1,7 +1,10 @@
 site:
   manage:
-    # CLIO dev team
+    # LibSys staff
     - ak4338
+    - bw12
+    - eo33
+    - jlc62
     - sam119
     - slt0
     # SysAdmins
