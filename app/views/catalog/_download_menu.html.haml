@@ -1,0 +1,20 @@
+
+-# _download_menu.html.haml
+
+%li.dropdown#display-dropdown
+
+  %a.dropdown-toggle{:href=>"#", :data=>{:toggle => "dropdown"}}
+    Download
+    %b.caret
+
+  %ul.dropdown-menu
+    %li
+      %blockquote.small
+        %p
+          Download Search Results
+        %p
+          Restricted to authenticated library staff
+
+    %li=link_to "XLSX Download", xlsx_form_link()
+    %li=link_to "MARC XML Download", download_link('marcxml'), target: '_blank'
+      

@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get 'catalog/xls_download'
   get 'catalog/xlsx_form'
   get 'catalog/xlsx_download'
+  # multi-format download handler
+  get 'catalog/download'
 
   ##### COPIED FROM VANILLA BLACKLIGHT 6.0 APP
   mount Blacklight::Engine => '/'

@@ -31,6 +31,9 @@
 
           = fix_catalog_links(render 'per_page_widget')
           = fix_catalog_links(render 'sort_widget')
+          -# Authenticated CUL Staff can download search results as XLS
+          -if current_user && current_user.culstaff? && current_user.has_role?('site', 'pilot')
+            = render 'download_menu'
       
           -# Allow "selections" for any Catalog-based data source, but NOT for Academic Commons
           - if active_source != 'academic_commons'
