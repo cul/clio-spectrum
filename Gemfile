@@ -224,9 +224,9 @@ group :test, :development do
   gem 'rspec-activemodel-mocks'
 
   # Only use this on localhost, mysql in server envirohnments
-  # gem 'sqlite3'
+  gem 'sqlite3'
   # pin to 1.3.x - Rails 5.2.2 can't talk to sqlite3 1.4, when Rails moves up, remove constraint
-  gem "sqlite3", "~> 1.3.6"
+  # gem "sqlite3", "~> 1.3.6"
 end
 
 group :test do
