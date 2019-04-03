@@ -154,7 +154,7 @@ class SolrDocument
   def backstage?
     return false if Rails.env == 'clio_prod'
     return false unless tag = self.to_marc['965']
-    return tag.value.match /backstage/
+    return tag.value.match /backstage/i
   end
   
   # # CSV DOWNLOAD SUPPORT
