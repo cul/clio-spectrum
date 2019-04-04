@@ -106,6 +106,7 @@ describe 'Catalog Advanced Search', :vcr do
   end
   
   it "supports searching multiple fields at once", :js do
+    # test #1
     visit catalog_index_path
     find('.search_box.catalog .advanced_search_toggle').click
 
@@ -122,6 +123,24 @@ describe 'Catalog Advanced Search', :vcr do
 
     # Should be a bunch of hits
     expect(page).to have_text '« Previous | 1 - 25 of'
+
+    # test #2 - from NEXT-1569 - only a few hits
+    visit catalog_index_path
+    find('.search_box.catalog .advanced_search_toggle').click
+
+    within '.landing_page.catalog .advanced_search' do
+      # first field
+      select('Subject', from: 'adv_1_field')
+      fill_in 'adv_1_value', with: 'hunger united states'
+      # second field
+      select('All Fields', from: 'adv_2_field')
+      fill_in 'adv_2_value', with: 'philanthropy'
+      # search!
+      find('button[type=submit]').click
+    end
+
+    # Should be a few hits.  At least 1.
+    expect(page).not_to have_text 'No results found'
   end
 
   # NEXT-1113 - location search

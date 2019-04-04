@@ -152,9 +152,9 @@ class SolrDocument
 
   # temporary testing in CLIO Test environment ONLY
   def backstage?
-    return false unless ['development', 'clio_test'].include?(Rails.env)
+    return false if Rails.env == 'clio_prod'
     return false unless tag = self.to_marc['965']
-    return tag.value == 'BACKSTAGE_TEST'
+    return tag.value.match /backstage/i
   end
   
   # # CSV DOWNLOAD SUPPORT
