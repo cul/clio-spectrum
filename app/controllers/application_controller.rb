@@ -482,7 +482,7 @@ class ApplicationController < ActionController::Base
         Rails.logger.warn "Summon::Transport::RequestError - #{ex}"
         next
       rescue => ex
-        Rails.logger.error "[Spectrum][Summon] error: #{e.message}"
+        Rails.logger.error "[Spectrum][Summon] error: #{ex.message}"
         @errors = ex.message
       end
 
