@@ -27,7 +27,7 @@ module Spectrum
       # Invoked when ApplicationController::blacklight_search() calls:
       #     search_engine = Spectrum::SearchEngines::Solr.new(options)
       def initialize(original_options = {})
-        Rails.logger.debug "Spectrum::Search::Engine#initialize(original_options=#{original_options.inspect})"
+        Rails.logger.debug "Spectrum::Search::Engine#initialize()"
 
         options = original_options.to_hash.deep_clone
         @source = options.delete('source') || options.delete(:source) || raise('Must specify source')
