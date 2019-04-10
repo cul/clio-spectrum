@@ -422,6 +422,9 @@ to_field 'mfhd_id', extract_marc('8520')
 # 876$p - Barcode, if physical.  Repeated field.
 to_field 'barcode_txt', extract_marc('876p')
 
+# Add Physical Description, for reporting
+to_field 'physical_description_display', extract_marc('300abcefg3')
+
 # Count of URLs (856 fields) within this record
 to_field 'urls_i' do |record, accumulator|
   count = 0

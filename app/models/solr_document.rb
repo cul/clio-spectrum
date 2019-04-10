@@ -57,6 +57,50 @@ class SolrDocument
     true
   end
 
+  # Access our holdings, from the holdings_ss Solr field
+  # subfields serialized as:   |code|value
+  # concatenated together, e.g.:  
+  #   |0|144|a|Butler Stacks (Enter at the Butler Circulation Desk)|b|glx|h|PG7178.O45 P5
+  #
+  # >> solr_doc['holdings_ss']
+  # => ["|0|144|a|Butler Stacks (Enter at the Butler Circulation Desk)|b|glx|h|PG7178.O45 P5"]
+  # 
+  # >> solr_doc.holdings
+  # => [{"0"=>"144", "a"=>"Butler Stacks (Enter at the Butler Circulation Desk)", "b"=>"glx", "h"=>"PG7178.O45 P5"}]
+
+  def holdings
+    holdings = []
+    Array(self['holdings_ss']).each do |serialized|
+      holding = Hash.new()
+      serialized.scan(/\|(\w)\|([^\|]*)/) { |code, value|
+        holding[code] = value
+      }
+      holdings << holding
+    end
+    return holdings
+  end
+
+  # Return the list of all items for this solr document,
+  # or, if holding_id is passed in, return all items for that holding
+  #
+  # >> solr_doc.items
+  # => [{"0"=>"144", "a"=>"540", "p"=>"0109179160"}]
+  # >> solr_doc.items('144')
+  # => [{"0"=>"144", "a"=>"540", "p"=>"0109179160"}]
+  # 
+  def items(holding_id)
+    holding_id = holding_id.to_s
+    items = []
+    Array(self['items_ss']).each do |serialized|
+      item = Hash.new()
+      serialized.scan(/\|(\w)\|([^\|]*)/) { |code, value|
+        item[code] = value
+      }
+      items << item if holding_id.blank? || holding_id == item['0']
+    end
+    return items
+  end
+
   # Does this Solr Document have Holdings data within it's MARC fields?
   def has_marc_holdings?
     # mfhd_id is a repeated field, once per holding.
@@ -192,59 +236,244 @@ class SolrDocument
   #   return rows
   # end
   
-  def to_xls
-    fields = {'title' => 'title_display', 'author' => 'author_display', 'publisher' => 'full_publisher_display'}
+  # def to_xls
+  #   fields = {'title' => 'title_display', 'author' => 'author_display', 'publisher' => 'full_publisher_display'}
+  #   
+  #   output = "<Row>\n"
+  #   fields.values.each do |field_name|
+  #     output += "<Cell><Data ss:Type='String'>\n"
+  #     output += Array(self[field_name]).join('; ')
+  #     output += "</Data></Cell>\n"
+  #   end
+  #   
+  #   output += "</Row>\n"
+  # end
+
+  # level is one of:  bib, holding, item
+  def to_xlsx(level = 'bib')
+
+    rows = []
     
-    output = "<Row>\n"
-    fields.values.each do |field_name|
-      output += "<Cell><Data ss:Type='String'>\n"
-      output += Array(self[field_name]).join('; ')
-      output += "</Data></Cell>\n"
+    if level == 'bib'
+      rows << bib_column_data
+      return rows
     end
     
-    output += "</Row>\n"
+    # Pull out our Holdings list, for 'holding' or 'item' reporting.
+    holding_list = self.holdings
+
+    # When bib has no holdings data, use a dummy value.
+    holding_list << {'h' => "no holding data"} if holding_list.size == 0
+    
+
+    if level == 'holding'
+
+      holding_list.each do |holding|
+        # build up a row for this holding
+        row = []
+        row += bib_column_data
+        row += holding_column_data(holding)
+        # add this holding's row to the set of rows
+        rows << row
+      end
+
+    end
+      
+    if level == 'item'
+
+      holding_list.each do |holding|
+        holding_id = holding[0]
+
+        # fetch items for this holding
+        item_list = self.items(holding_id)
+        # use dummy value if no data present
+        item_list << {'p' => "no item data"} if item_list.size == 0
+
+        item_list.each do |item|
+
+          # build up a row for this item
+          row = []
+          row += bib_column_data
+          row += holding_column_data(holding)
+          row += item_column_data(item)
+
+          # add this items's row to the set of rows
+          rows << row
+        end
+      end
+    end
+
+
+    return rows
+
+
+    # holdings.each do |holding|
+    #   holding_id = holding['0']
+    # 
+    #   items(holding_id).each do |item|
+    #     
+    #   end
+    # end
+    # 
+    # # This doc will output to 1 or more rows, depending on level (bib, holding, item)
+    # doc_rows = []
+    # 
+    # # value accumulator arrays
+    # bib_values = holding_values = item_values =  []
+    # 
+    # # gather bib_values - bib-level metadata
+    # bib_columns.each do |field_header, solr_field_name|
+    #   field_value = Array(self[solr_field_name]).join("\r\n")
+    #   bib_values << field_value
+    # end
+    # 
+    # # first column is always a link to the CLIO page
+    # bib_values.unshift("https://clio.columbia.edu/catalog/#{self.id}")
+    # 
+    # if level == 'bib'
+    #   doc_rows << bib_values
+    # elsif level == 'holding' || level == 'item'
+    #   raise
+    #   # loop over each holding 
+    #   # Solr data doesn't support this kind of detail
+    # end
+    # 
+    # return doc_rows
   end
 
-  def to_xlsx(level = 'bib')
-    # level is one of:  bib, holding, item
-    
+  def bib_column_data
+    data = []
+    SolrDocument.bib_columns.each do |column_header, column_key|
+      data << Array(self[column_key]).join("\r\n")
+    end
+    return data
+  end
+  
+  def holding_column_data(holding)
+    data = []
+    SolrDocument.holding_columns.each do |column_header, column_key|
+      # computed column values...
+      if column_key[0] == '#'
+        compute_function = column_key[1..-1]
+        data << self.send(compute_function, holding)
+        next
+      end
+      # direct subfield columns values...
+      data << Array(holding[column_key]).join("\r\n")
+    end
+    return data
+  end
+
+  def item_column_data(item)
+    data = []
+    SolrDocument.item_columns.each do |column_header, column_key|
+      data << Array(item[column_key]).join("\r\n")
+    end
+    return data
+  end
+  def self.column_headers(level = 'bib')
+    headers = []
+    headers += bib_columns.keys
+    headers += holding_columns.keys if level == 'holding' || level == 'item'
+    headers += item_columns.keys if level == 'item'
+    return headers
+  end
+  def self.bib_columns
+    {
+      'Bib ID'               => 'id',
+      'Title'                => 'title_display',
+      'Author'               => 'author_display',
+      'Publisher'            => 'full_publisher_display',
+      'Publication Year'     => 'pub_year_display',
+      'ISBN'                 => 'isbn_display',
+      'Physical Description' => 'physical_description_display',
+    }
+  end
+  def self.holding_columns
+    { 
+      'Holding ID'    =>   '0',
+      'Location'      =>   'a',
+      'Location Code' =>   'b',
+      'Call Number'   =>   'h',
+      'Sortable Call Number'   =>   '#sortable_call_number',
+    }
+  end
+  def self.item_columns
+    { 
+      'Barcode'                  =>   'p',
+      'Enum / Chron'             =>   '3',
+      'Item Temp Location'       =>   'l',
+      'Item Temp Location Code'  =>   'm',
+    }
+  end
+  
+  def sortable_call_number(holding)
+    return '' unless holding
+    call_number = holding['h']
+    return '' unless call_number
+    normalized_call_number = Lcsort.normalize(call_number)
+    return normalized_call_number if normalized_call_number
+    return call_number
+  end
+
+  def to_rows(level = 'bib')
+    case level
+    when 'bib'
+     to_bib_row
+    when 'holding'
+     to_holding_rows
+    when 'item'
+     to_item_rows 
+    end
+  end
+
+  def to_bib_row
     bib_fields = {
       'title'       => 'title_display',
       'author'      => 'author_display',
       'publisher'   => 'full_publisher_display',
       'ISBN'        => 'isbn_display',
     }
-    holding_fields = {
-      
-    }
-    item_fields = {
-      
-    }
 
-    # 1 or more rows, depending on level (bib, holding, item)
-    doc_rows = []
-
-    # value accumulator arrays
-    bib_values = holding_values = item_values =  []
-
-    # gather bib_values - bib-level metadata
+    bib_row = []
     bib_fields.each do |field_header, field_name|
       field_value = Array(self[field_name]).join("\r\n")
-      bib_values << field_value
+      bib_row << field_value
     end
     
     # first column is always a link to the CLIO page
     bib_values.unshift("https://clio.columbia.edu/catalog/#{self.id}")
-    
-    if level == 'bib'
-      doc_rows << bib_values
-    elsif level == 'holding' || level == 'item'
-      # loop over each holding 
-      # Solr data doesn't support this kind of detail
-    end
-
-    return doc_rows
+    return bib_row
   end
+
+  def to_holding_rows
+    bib_row = self.to_bib_row
+    holdings = self.holdings
+    # handle records w/out holdings data
+    return bib_row.shift('No holdings data') if holdings.count == 0
+    
+    holdings.each do |holding|
+      row = []
+      rows << bib_row
+      row << holding
+      
+    end
+    return holding_rows
+  end
+    
+    
+    
+    
+  #   bib_data = hold
+  #   bib_data = self.bib_data
+  #   
+  #   if level == 'holding' || level == 'item'
+  #     self.holdings.each do |holding|
+  #       holding_data = 
+  #     end
+  #   end
+  #   
+  # end
 
   # At Columbia, these are replaced by code within the record_mailer views
   # # Email uses the semantic field mappings below to generate the body of an email.

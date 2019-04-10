@@ -8,13 +8,11 @@
     %b.caret
 
   %ul.dropdown-menu
-    %li
-      %blockquote.small
-        %p
-          Download Search Results
-        %p
-          Restricted to authenticated library staff
-
     %li=link_to "XLSX Download", xlsx_form_link()
     %li=link_to "MARC XML Download", download_link('marcxml'), target: '_blank'
+    %li
+      %hr
+      %p.small.text-center
+        Downloading search results<br>is restricted to library staff.
+
       

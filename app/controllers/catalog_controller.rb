@@ -553,7 +553,6 @@ class CatalogController < ApplicationController
 
   # Use xlsxtream for streaming download of XLSX (not Spreadsheet XML, as in 'xls_download')
   def xlsx_download()
-
     # headers for streaming suggested by:
     #   https://coderwall.com/p/kad56a/streaming-large-data-responses-with-rails
     # and
@@ -565,46 +564,40 @@ class CatalogController < ApplicationController
     response.headers['Content-Type'] = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     response.headers['Content-Disposition'] = "attachment; filename=#{download_filename('xlsx')}"                 
 
-    # fails during localhost testing.
-    # response.headers["Transfer-Encoding"] = "chunked" # Chunked response header
-
     # initialize params for Solr query
-    params['page'] = '1'
-
-    params['rows'] = '1000'
-    # Blacklight's config is set to 100-record max rows.
-    # We need to override this for reporting - but doing
-    # this here doesn't work.
-    # blacklight_config.max_per_page = 1000
+    params['page'] = 1
+    params['rows'] = 100
+    # Blacklight's config is set to 100-record max rows, can't figure out override.
 
     params['source'] = active_source
-    search_engine = blacklight_search(params.to_unsafe_h)
-    @response = search_engine.search
 
     stream = response.stream
     stream.define_singleton_method(:<<) { |value| write(value) }
-    
+
+# search_engine = blacklight_search(params.to_unsafe_h)
+# d = search_engine.documents.first
+# raise
+# d.to_xlsx('bib')
+# d.to_xlsx('holding')
+# d.to_xlsx('item')
     begin
       xlsx = Xlsxtream::Workbook.new(stream)
       xlsx.write_worksheet 'Sheet1' do |sheet|
-
-        # testing...
-        # 3.times do |i|
-        #   sheet << ["asdf", "aaa", "aligator"]
-        # end
+        
+        headers = SolrDocument.column_headers(params['level'])
+        sheet << headers
 
         total = 0
-        hits = 999
-        while hits > 0 && total < 10_000
+        hits = params['rows']
+        while hits >= params['rows'] && total < 10_000
           search_engine = blacklight_search(params.to_unsafe_h)
           hits = search_engine.documents.count
           total += hits
 
           search_engine.documents.each do |solr_doc|
-            # 1 or more rows, depending on level (bib, holding, item)
+            # Maybe 1 or more rows, depending on level (bib, holding, item)
             doc_rows = solr_doc.to_xlsx(params['level'])
             doc_rows.each { |row| sheet << row }
-            # # sheet << solr_doc.to_xlsx(params['level'])
           end
 
           # increment page
@@ -616,19 +609,9 @@ class CatalogController < ApplicationController
     ensure
       stream.close
     end
-
-    # respond_to do |format|
-    #   format.xls do
-    #     # render locals: {response: @response}, layout: false
-    #     # response.headers['Content-Disposition'] = "attachment; filename=foo.xlsx"
-    #     headers["Content-Type"] = "application/xls"
-    #     headers["Content-Disposition"] =
-    #        %(attachment; filename="foo.xls")
-    #     self.response_body = build_xls_enumerator()
-    #   end
-    # end
   end
 
+  # For MARC XML downloads
   def download
     # headers for streaming suggested by:
     #   https://coderwall.com/p/kad56a/streaming-large-data-responses-with-rails
@@ -638,56 +621,74 @@ class CatalogController < ApplicationController
     response.headers['X-Accel-Buffering'] = 'no' # Stop NGINX from buffering
     response.headers['Cache-Control'] = 'no-cache'
     
+    # Headers for browser-handling
+    response.headers['Content-Type'] = 'application/marcxml+xml'
+    response.headers['Content-Disposition'] = "attachment; filename=#{download_filename('xml')}"                 
+    
     # Setup Blacklight / Solr params
-    extra_params = {
-      'page'   => 1,
-      'rows'   => 1000,
-      'fl'     => 'id,marc_display',
-      'facet'  => false
-    }
-    # params['page'] = '1'
-    # params['rows'] = '1000'
-    # params['fl']   = 'id,marc_display'
-    # params['facet'] = 'false'
+    params['page'] = 1
+    params['rows'] = 100
+    # params['fl'] = 'id,marc_display'
+    params['source'] = active_source
 
+    extra_params = {
+      'fl'    =>  'id,marc_display',
+      'sort'  =>  'id asc',
+      'stats' => false,
+      'facet' => false,
+    }
+    
     # Stream response
     stream = response.stream
 
     begin
-      # XML Header, open collection tag
+      # XML Header - MARC XML collection open tag
       stream.write marcxml_header
 
       total = 0
-      hits = 999
-      while hits > 0 && total < 10_000
-        # CLIO-level query
-        # search_engine = blacklight_search(params.to_unsafe_h)
-        # hits = search_engine.documents.count
-
-        # approved Blacklight-level query
-        # search, documents = search_results(params)
-        # hits = documents.count
+      hits = params['rows']
+      while hits >= params['rows'] && total < 10_000
+        # # CLIO-level query
+        # # search_engine = blacklight_search(params.to_unsafe_h)
+        # # hits = search_engine.documents.count
+        # # search_engine = blacklight_search(params.to_unsafe_h)
+        # # hits = search_engine.documents.count
+        # # total += hits
+        # 
+        # # Blacklight-level query
+        # # - doesn't include marc_display
+        # # - doesn't allow over-riding 'fl' param
+        # # search, documents = search_results(params)
+        # # hits = documents.count
+        # 
+        # # unapproved lower-level querying..
+        # # builder = search_builder.with(params)
+        # # builder.page = 1
+        # # builder.rows = 1000
+        # # response = repository.search(builder)
         
-        # unapproved lower-level querying..
-        # builder = search_builder.with(params)
-        # builder.page = 1
-        # builder.rows = 1000
-        # response = repository.search(builder)
-
+        # Need to use lower-level "search_builder", so that we 
+        # can override 'fl' param, to include marc_display
         query = search_builder.with(params).merge(extra_params)
         solr_response = repository.search(query)
-        documents = solr_response.documents
-
-        hits = documents.count
+        
+        hits = solr_response.documents.count
         total += hits
 
-        documents.each do |solr_doc|
-          stream.write "\n"
-          stream.write solr_doc['marc_display']
+        solr_response.documents.each do |solr_doc|
+          # stream.write solr_doc['marc_display']
+          # pretty-print - does this make reporting too slow?
+          stream.write solr_doc['marc_display'].
+                         gsub(/<leader/, "\n    <leader").
+                         gsub(/<controlfield/, "\n    <controlfield").
+                         gsub(/<\/?datafield/, "\n  <datafield").
+                         gsub(/<subfield/, "\n    <subfield").
+                         gsub(/<\/record/, "\n</record")
           stream.write "\n"
         end
 
         # increment page
+        # extra_params['page'] = (extra_params['page'].to_i + 1).to_s
         params['page'] = (params['page'].to_i + 1).to_s
       end
 
@@ -713,7 +714,7 @@ EOS
   
   def marcxml_footer
     footer = <<EOS
-    </collection>
+</collection>
 EOS
     return footer
   end
