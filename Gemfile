@@ -160,7 +160,7 @@ gem 'recaptcha', require: 'recaptcha/rails'
 # works with Traject to extract id numbers from MARC
 gem 'library_stdnums'
 
-# normalize call-numbers for sorting
+# normalize call-numbers for sorting - soggy starr, xlsx download
 gem 'lcsort'
 
 # keep cron scheduling within application
@@ -176,9 +176,9 @@ gem 'browser'
 # # UNIX-5942 - work around spotty CUIT DNS
 # gem 'resolv-hosts-dynamic'
 
-# Code profiling, and we want to do this on the servers
-# "This gem is MRI-specific. It does not support jruby"
-gem 'ruby-prof', platforms: :mri
+# # Code profiling, and we want to do this on the servers
+# # "This gem is MRI-specific. It does not support jruby"
+# gem 'ruby-prof', platforms: :mri
 
 # Streaming download of XLSX
 gem 'xlsxtream'
@@ -215,18 +215,16 @@ group :development do
   # gem 'request_profiler', :git => "git://github.com/justinweiss/request_profiler.git"
 end
 
-# We would put this in just Dev and Test, except for !@#$ cul-omniauth,
-# which throws errors in prod unless this is included
-gem 'rspec-rails'
 
 group :test, :development do
   gem 'thin'
-  gem 'rspec-activemodel-mocks'
 
   # Only use this on localhost, mysql in server envirohnments
   gem 'sqlite3'
-  # pin to 1.3.x - Rails 5.2.2 can't talk to sqlite3 1.4, when Rails moves up, remove constraint
-  # gem "sqlite3", "~> 1.3.6"
+
+  # Rspec for testing
+  gem 'rspec-rails'
+  gem 'rspec-activemodel-mocks'
 end
 
 group :test do

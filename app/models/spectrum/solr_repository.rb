@@ -27,8 +27,6 @@ module Spectrum
       # @connection ||= RSolr::Custom::Client.new :user => current_user.id
       # @connection ||= build_connection(@source, @solr_url)
       @connection ||= build_connection
-      Rails.logger.debug "REPO  after(@blacklight_config.source):  @connection=#{@connection.inspect}"
-      @connection
     end
 
     protected
