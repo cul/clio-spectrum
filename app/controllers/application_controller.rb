@@ -63,9 +63,12 @@ class ApplicationController < ActionController::Base
   # # UNIX-5942 - work around spotty CUIT DNS
   # prepend_before_action :cache_dns_lookups
 
+  # ActionController::Live threading interferes w/warden
+  #   https://bugs.ruby-lang.org/issues/10480
+  #   https://github.com/rails/rails/issues/13873
   rescue_from UncaughtThrowError do |exception|
-    Rails.logger.error "UncaughtThrowError: #{exception.to_s}"
-    redirect_to root_url
+    Rails.logger.debug "UncaughtThrowError: #{exception.to_s}"
+    # redirect_to root_url
   end
 
   rescue_from CanCan::AccessDenied do |exception|
