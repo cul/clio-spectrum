@@ -10,11 +10,13 @@ module Spectrum
       attr_reader :documents, :search, :count, :errors
 
       def initialize(options = {})
-        @params = options
+        raise('No query string specified') unless options['q']
 
-        @q = options['q'] || raise('No query string specified')
         # We don't support web searches of over X characters
-        @q.truncate(200)
+        options['q'] = options['q'].truncate(200)
+
+        @params = options
+        @q = options['q']
 
         @rows = (options['rows'] || 10).to_i
         @start = (options['start'] || 1).to_i
