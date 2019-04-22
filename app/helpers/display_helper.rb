@@ -417,7 +417,9 @@ module DisplayHelper
       end
 
       searches.join(' > ')
-    end
+      
+    # uniq, because different vocabularies may offer same subject term
+    end.uniq
   end
 
   def build_subject_url(display, search) #, title)

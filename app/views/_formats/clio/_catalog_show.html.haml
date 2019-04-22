@@ -22,8 +22,9 @@
 
   = add_row("In", display_marc_field(marc, 'in'))
 
-  - subjects = display_marc_field(marc, 'subject_LC')
-  - subjects = display_marc_field(marc, 'subject_fast') if subjects.blank?
+  -# - subjects = display_marc_field(marc, 'subject_LC')
+  -# - subjects = display_marc_field(marc, 'subject_fast') if subjects.blank?
+  - subjects = display_marc_field(marc, 'subject_LC') + display_marc_field(marc, 'subject_fast')
   = add_row("Subjects", generate_value_links_subject(subjects))
   = add_row("Medical Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_mesh')))
   = add_row("Subjects (Genre)", generate_value_links_subject(display_marc_field(marc, 'subject_genre')))
