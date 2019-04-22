@@ -317,8 +317,6 @@ module DisplayHelper
         # t880_indicator is not nil when data is from an 880 field (vernacular)
         # temp workaround until we can get 880 authors into the author facet
         if t880_indicator
-          # q = '"' + search_value + '"'
-          # out << link_to(display_value, url_for(:controller => "catalog", :action => "index", :q => q, :search_field => "author", :commit => "search"))
           out << display_value
 
         else
@@ -340,9 +338,6 @@ module DisplayHelper
 
       when :serial
         q = search_value
-        # out << link_to(display_value, url_for(controller: 'journals', action: 'index', q: q, search_field: 'title', commit: 'search'))
-        # out << link_to(display_value, catalog_index_path( {q: q, search_field: 'journal_title'} ))
-        # NEXT-1345 - Continued by link here misleads researchers
         out << link_to(display_value, catalog_index_path(q: q, search_field: 'title'))
 
       else
@@ -399,53 +394,46 @@ module DisplayHelper
     #   c             "a b c"
 
     values.listify.map do |value|
-      #    values.listify.select { |x| x.respond_to?(:split)}.collect do |value|
+      # Detect vernacular subjects - those won't link
+      value, t880_indicator = value.split(DELIM)
+      next value if t880_indicator
 
+      # For "text", just return the value as-is, with no links
+      next value if @add_row_style == :text
+      
+      # For subjects w/linking, walk through the subheadings...
       searches = []
       subheads = value.split(' - ')
+
       first = subheads.shift
       display = first
       search = first
-      title = first
+      searches << build_subject_url(display, search)
 
-      searches << build_subject_url(display, search, title)
-
-      unless subheads.empty?
-        subheads.each do |subhead|
-          display = subhead
-          search += ' ' + subhead
-          title += ' - ' + subhead
-          searches << build_subject_url(display, search, title)
-        end
+      subheads.each do |subhead|
+        display = subhead
+        search += ' ' + subhead
+        searches << build_subject_url(display, search)
       end
 
-      if @add_row_style == :text
-        searches.join(' - ')
-      else
-        searches.join(' > ')
-      end
+      searches.join(' > ')
     end
   end
 
-  def build_subject_url(display, search, title)
+  def build_subject_url(display, search) #, title)
     display = display.html_safe
 
     search = CGI.unescapeHTML(search)
 
-    if @add_row_style == :text
-      display
-    else
-      link_to(display, url_for(controller: 'catalog',
-                               action: 'index',
-                               q: '"' + search + '"',
-                               search_field: 'subject',
-                               commit: 'search'),
-              title: title)
-    end
+    link_to(display, url_for(controller: 'catalog',
+                             action: 'index',
+                             q: '"' + search + '"',
+                             search_field: 'subject',
+                             commit: 'search')
+            )
   end
 
   def add_row(title, value, options = {})
-    # options.reverse_merge!(@add_row_options) if @add_row_options.kind_of?(Hash)
     options.reverse_merge!(
       join: nil,
       abbreviate: nil,

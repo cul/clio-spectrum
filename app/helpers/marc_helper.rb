@@ -100,12 +100,11 @@ module MarcHelper
     # lookup vernacular
     marc.each_by_tag('880') do |t880|
       sub6 = t880.subfields.first
-      # sequesnce number match
+      # sequence number match
       next unless (sub6.code == '6') && (sub6.value[4..5] == seq)
       display = process_field(t880, display_subfields, search_subfields, subject_option)
-      # if there is a search field defined, tag the entry
-      # currently used to suppress link for author redirection until we can get 880 authors into the author facet
-      display += DELIM + 't880' if display =~ /DELIM/
+      # Tag as vernacular if there's a search field, or if we're in a subject field
+      display += DELIM + 't880' if display =~ /DELIM/ || subject_option
       break
     end
     display
@@ -120,12 +119,12 @@ module MarcHelper
     # field has search redirection
     # NOTE: subject search redirection uses all subfields and is handled in generate_value_links_subject;
     #       a subject heading should never use the following
-    unless display.empty?
+    if display.present?
 
       # HTML-escape all MARC data retrieved for display purposes
       display = CGI.escapeHTML(display)
 
-      unless search_subfields.empty?
+      if search_subfields.present?
         search = select_subfields(field, search_subfields)
 
         # The display field is html-escaped. the search data should be as-is.
