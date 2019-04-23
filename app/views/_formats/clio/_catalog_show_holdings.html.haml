@@ -6,7 +6,7 @@
 
 .holdings.well{:data => {'ga-action' => 'Item Detail Click'} }
 
-  %h5 Available from:
+  .holdings_title Available from:
 
   -# ONLINE HOLDINGS
   = render "/_formats/clio/catalog_show_holdings_online", online_links: online_link_hash(document), is_database: document.is_database?
