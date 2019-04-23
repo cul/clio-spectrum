@@ -88,19 +88,19 @@ datasources:
         s.fq[ISBN]: ISBN
         s.fq[ISSN]: ISSN
 
-  ebooks:
-    name: E-Books
-    no_facets: true
-    search_box:
-      route: ebooks_index_path
-      placeholder: E-Books 
-
   dissertations:
     name: Dissertations
     no_facets: true
     search_box:
       route: dissertations_index_path
       placeholder: Dissertations
+
+  ebooks:
+    name: E-Books
+    no_facets: true
+    search_box:
+      route: ebooks_index_path
+      placeholder: E-Books 
 
   research_data:
     name: Research Data
@@ -480,8 +480,8 @@ default_datasource_bar:
     - lweb
     - geo
   minor_sources:
-    - dissertations
     - ebooks
+    - dissertations
   # NEXT-1145 - Deemphasize sub-sources of Catalog datasource
   subsources:
     - databases
