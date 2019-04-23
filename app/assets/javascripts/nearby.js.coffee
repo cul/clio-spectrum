@@ -5,7 +5,7 @@ $ ->
 
   # OFF
   $('.hide_mini_browse').click ->
-    ga('send', 'event', 'Shelf Browse', 'Item Detail Click', 'Hide');
+    ga('send', 'event', 'Shelf Browse', 'Item Detail Click', 'Hide Shelf Browse');
     $('#mini_browse_list').hide()
     $('.hide_mini_browse').toggleClass('disabled')
     $('.show_mini_browse').toggleClass('disabled')
@@ -13,7 +13,7 @@ $ ->
 
   # ON
   $('.show_mini_browse').click ->
-    ga('send', 'event', 'Shelf Browse', 'Item Detail Click', 'Show');
+    ga('send', 'event', 'Shelf Browse', 'Item Detail Click', 'Show Shelf Browse');
     # First, make sure that some call-number is active.
     # If nothing is currently active, make the first one active.
     if ( $('.call_number_toggle.active').length == 0)
@@ -29,6 +29,7 @@ $ ->
 
   # Toggle between multiple call-numbers
   $('.call_number_toggle').click ->
+    ga('send', 'event', 'Shelf Browse', 'Item Detail Click', 'Call Number Toggle');
     # We always allow clicking on call-numbers, and this click
     # should assert Hide/Show button state to "Show"
     $('.hide_mini_browse').removeClass('disabled')
