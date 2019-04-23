@@ -1,5 +1,5 @@
 #google_holdings.gbs_cover.clearfix
-  .holding_section
+  .holdings_section
 
     -# Jacket - load spacer, tag with bibkeys via classes
     - bibkeys = extract_standard_bibkeys(document).listify.collect { |i| "id_" + i.to_s.gsub(':','')}.join(" ")
