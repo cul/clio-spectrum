@@ -68,7 +68,11 @@ class ApplicationController < ActionController::Base
   #   https://github.com/rails/rails/issues/13873
   rescue_from UncaughtThrowError do |exception|
     Rails.logger.debug "UncaughtThrowError: #{exception.to_s}"
-    # redirect_to root_url
+    if exception.tag == :warden
+      # Not sure - is this the right thing to do?
+      flash[:notice] = 'Authenticated session been has timed out.  Now browsing anonymously.'
+      redirect_to root_path
+    end
   end
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -514,7 +518,6 @@ class ApplicationController < ActionController::Base
 
   def render_session_timeout
     flash[:notice] = 'Authenticated session been has timed out.  Now browsing anonymously.'
-    # redirect_to "/login"
     redirect_to root_path
   end
 
@@ -564,7 +567,7 @@ class ApplicationController < ActionController::Base
       # Persistent selected-item lists
       fullpath =~ /\/selected/ ||
       # auto-timeout polling
-      fullpath =~ /\/active/
+      fullpath =~ /\/active/ ||
       # any kind of downloads
       fullpath =~ /\/download/
   end
