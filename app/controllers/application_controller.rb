@@ -69,9 +69,8 @@ class ApplicationController < ActionController::Base
   rescue_from UncaughtThrowError do |exception|
     Rails.logger.debug "UncaughtThrowError: #{exception.to_s}"
     if exception.tag == :warden
-      # Not sure - is this the right thing to do?
-      flash[:notice] = 'Authenticated session been has timed out.  Now browsing anonymously.'
-      redirect_to root_path
+      flash[:alert] = t('devise.failure.timeout')
+      redirect_to request.fullpath || root_path
     end
   end
 
