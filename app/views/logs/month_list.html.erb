@@ -26,7 +26,7 @@
 
     <tbody>
       <tr>
-        <% ('01'..'06').each do |month| %>
+        <% ('1'..'6').each do |month| %>
           <td>
             <% next unless @month_counts["#{year}-#{month}"]%>
             <% year_month = "#{year}-#{month}"%>
@@ -40,7 +40,7 @@
         <% end %>
       </tr>
       <tr>
-        <% ('07'..'12').each do |month| %>
+        <% ('7'..'12').each do |month| %>
           <td>
             <% next unless @month_counts["#{year}-#{month}"]%>
             <% year_month = "#{year}-#{month}"%>

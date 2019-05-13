@@ -154,7 +154,8 @@ class LogsController < ApplicationController
 
     # SQLite needs something special
     if ActiveRecord::Base.connection.adapter_name =~ /sqlite/i
-      where_clause = 'strftime("%Y-%m", created_at)'
+      # where_clause = 'strftime("%Y-%m", created_at)'
+      where_clause = 'replace( strftime("%Y-%m", created_at), "-0", "-")'
     end
 
     Log.where(set: @set).order(:created_at).group(where_clause).count
