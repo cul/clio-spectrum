@@ -29,16 +29,19 @@
         <% ('01'..'06').each do |month| %>
           <td>
             <% next unless @month_counts["#{year}-#{month}"]%>
-            <%= "#{year}-#{month}"%>
-            &mdash;
-            <%= @month_counts["#{year}-#{month}"]%>
+            <% year_month = "#{year}-#{month}"%>
+            <% link_label = "#{year_month} - #{@month_counts["#{year}-#{month}"]}" %>
+            <span class='h5'>
+              <%= link_to link_label, logs_path(set: @set, year_month: year_month) %>
+            </span>
+            &nbsp;
+            <%= link_to download_label(''), logs_path(set: @set, download: year_month, format: 'csv') %>
           </td>
         <% end %>
       </tr>
       <tr>
         <% ('07'..'12').each do |month| %>
           <td>
-            <%#= "#{year}-#{month}"%>
             <% next unless @month_counts["#{year}-#{month}"]%>
             <% year_month = "#{year}-#{month}"%>
             <% link_label = "#{year_month} - #{@month_counts["#{year}-#{month}"]}" %>
