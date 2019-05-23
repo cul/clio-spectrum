@@ -60,7 +60,7 @@ module Voyager
         original_holdings.each do |holding|
           # If this holding matches the first, consolidate
           if nypl_holding_match(first, holding)
-            first[:item_count] = first[:item_count] + 1
+            first[:item_count] = first[:item_count] + holding[:item_count]
           else
             holdings << holding
           end
@@ -68,6 +68,8 @@ module Voyager
         holdings
       end
 
+      # Are these two holdings really just two items within
+      # the same holding?
       def nypl_holding_match(a, b)
         return false unless a.present? && b.present?
 
@@ -77,15 +79,12 @@ module Voyager
           return false if a[key] != b[key]
         end
 
-        # Summary Holdings may or may not be blank, but must match
-        return false if a[:summary_holdings] != b[:summary_holdings]
-
-        # These fields should be blank in both holdings
+        # These other fields may or may not be blank, but must match
         [:supplements, :indexes, :public_notes, :reproduction_note,
          :current_issues, :temp_locations, :use_restrictions, :bound_withs,
-         :orders, :donor_info, :urls,
+         :orders, :donor_info, :urls, :summary_holdings,
          :shelving_title, :location_note].each do |key|
-          return false if a[key].present? || b[key].present?
+          return false if a[key] != b[key]
         end
 
         true
