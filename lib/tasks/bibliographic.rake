@@ -1,6 +1,7 @@
 
 
 namespace :bibliographic do
+
   desc 'Invoke a set of other rake tasks, to be executed daily'
   task daily: :environment do
     startTime = Time.now
@@ -21,8 +22,9 @@ namespace :bibliographic do
     puts_datestamp '---- bibliographic:prune_index ----'
     Rake::Task['bibliographic:prune_index'].invoke
 
-    puts_datestamp '---- bibliographic:optimize ----'
-    Rake::Task['bibliographic:optimize'].invoke
+    # Skip the optimize, rely on segment merging
+    # puts_datestamp '---- bibliographic:optimize ----'
+    # Rake::Task['bibliographic:optimize'].invoke
 
     elapsed_minutes = (Time.now - startTime).div(60).round
     hrs, min = elapsed_minutes.divmod(60)
@@ -91,7 +93,7 @@ namespace :bibliographic do
                  Blacklight.connection_config[:url]
       solr_connection = RSolr.connect(url: solr_url)
       solr_connection.optimize
-    rescue Net::ReadTimeout
+    rescue Faraday::TimeoutError, Net::ReadTimeout
       # Do nothing - we expect our client call to timeout
       # while the server does an optimize of a 50GB+ index.
     end
@@ -223,7 +225,7 @@ namespace :bibliographic do
       indexer.settings do
         provide 'solr.url', Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
         provide 'debug_ascii_progress', true
-        # 'debug' to echo full options
+        # 'debug' to see full traject options
         provide 'log.level', 'info'
         # match our default application log format
         provide 'log.format', ['%d [%L] %m', '%Y-%m-%d %H:%M:%S']
@@ -244,7 +246,7 @@ namespace :bibliographic do
         end
       end
 
-      # load Traject config file (indexing rules)
+      # load Traject bibliographic config file (indexing rules)
       indexer.load_config_file(File.join(Rails.root, 'config/traject/bibliographic.rb'))
 
       begin

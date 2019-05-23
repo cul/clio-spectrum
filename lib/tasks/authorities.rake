@@ -1,14 +1,73 @@
 
 namespace :authorities do
+
+  desc 'Invoke a set of other rake tasks, to be executed daily'
+  task daily: :environment do
+    startTime = Time.now
+    puts_datestamp '==== START authorities:daily ===='
+
+    puts_datestamp '---- authorities:extract:fetch ----'
+    Rake::Task['authorities:extract:fetch'].invoke
+
+    puts_datestamp '---- authorities:extract:ingest ----'
+    Rake::Task['authorities:extract:ingest'].invoke
+
+    puts_datestamp '---- authorities:prune_index ----'
+    Rake::Task['authorities:prune_index'].invoke
+
+    elapsed_minutes = (Time.now - startTime).div(60).round
+    hrs, min = elapsed_minutes.divmod(60)
+    elapsed_note = "(#{hrs} hrs, #{min} min)"
+    puts_datestamp "==== END authorities:daily #{elapsed_note} ===="
+  end
+
+  desc 'delete stale records from the solr index'
+  task prune_index: :environment do
+    setup_ingest_logger
+    Rails.logger.info('-- pruning index...')
+
+    solr_connection = RSolr.connect(url: APP_CONFIG['authorities_solr_url'])
+
+    if ENV['STALE_DAYS'] && ENV['STALE_DAYS'].to_i < 30
+      puts "ERROR: Environment variable STALE_DAYS set to [#{ENV['STALE_DAYS']}]"
+      puts 'ERROR: Should be > 30, or unset to allow default setting.'
+      puts 'ERROR: Skipping prune_index step.'
+      next
+    end
+    stale = (ENV['STALE_DAYS'] || 70).to_i
+    Rails.logger.info("-- pruning records older than [ #{stale} ] days.")
+    query = "timestamp:[* TO NOW/DAY-#{stale}DAYS]"
+    puts "DEBUG query=#{query}" if ENV['DEBUG']
+
+    # To be safe, refuse to delete over N records
+    response = solr_connection.get 'select', params: { q: query, rows: 0 }
+    numFound = response['response']['numFound'].to_i
+
+    Rails.logger.info("-- found #{numFound} stale records.")
+
+    prune_limit = (ENV['PRUNE_LIMIT'] || 10000).to_i
+    if numFound > prune_limit
+      message = "ERROR:  prune limit set to #{prune_limit}, found [#{numFound}] stale records - skipping!"
+      Rails.logger.error("-- #{message}")
+      puts message
+    else
+      if numFound > 0
+        Rails.logger.info('-- pruning...')
+        solr_connection.delete_by_query query
+        solr_connection.commit
+      end
+    end
+
+    Rails.logger.info('-- pruning complete.')
+  end
+
+
   namespace :extract do
+
     desc 'fetch the latest authorities extract from EXTRACT_HOME'
     task :fetch do
       setup_ingest_logger
-      extract = EXTRACTS.find { |x| x == ENV['EXTRACT'] }
-      unless extract
-        Rails.logger.error('Extract not specified')
-        raise
-      end
+      extract = 'auth'
       extract_dir = APP_CONFIG['extract_home'] + '/' + extract
 
       temp_dir_name = File.join(Rails.root, "tmp/extracts/#{extract}/current/")
@@ -26,58 +85,13 @@ namespace :authorities do
         Rails.logger.error('Fetch unsucessful')
         raise 'Fetch unsucessful'
       end
-      # scp_command = "scp #{EXTRACT_SCP_SOURCE}/#{extract}/* " + temp_dir_name
-      # puts scp_command
-      # if system(scp_command)
-      #   Rails.logger.info("Download successful.")
-      # else
-      #   puts_and_log("Download unsucessful", :error, alarm: true)
-      # end
-
-      # # We don't expect .gz files, but if found, unzip them.
-      # if system("gunzip " + temp_dir_name + "*.gz")
-      #   Rails.logger.info("Gunzip successful")
-      # end
     end
-
-    # desc "rewrite marc files to marcxml"
-    # task :to_xml do
-    #   setup_ingest_logger
-    #
-    #   extract = EXTRACTS.find { |x| x == ENV["EXTRACT"] }
-    #   puts_and_log("Unknown extract: #{ENV['EXTRACT']}", :error) unless extract
-    #
-    #   extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.mrc")) if extract
-    #   files_to_read = (ENV["INGEST_FILE"] || extract_files).listify.sort
-    #   puts "transforming #{files_to_read.size} files from MARC to MARCXML"
-    #
-    #   xmldir = File.join(Rails.root, "tmp/extracts/#{extract}/xml")
-    #   FileUtils.rm_rf(xmldir)
-    #   FileUtils.mkdir_p(xmldir)
-    #
-    #   files_to_read.each do |filename|
-    #     puts "- transforming #{filename}..."
-    #     xmlfile = File.join(xmldir, File.basename(filename, '.mrc') + ".xml")
-    #
-    #     reader = MARC::Reader.new(filename)
-    #     writer = MARC::XMLWriter.new(xmlfile)
-    #
-    #     for record in reader
-    #       writer.write(record)
-    #     end
-    #
-    #     writer.close()
-    #   end
-    #   puts "done."
-    # end
 
     desc 'ingest latest authority records'
     task ingest: :environment do
       setup_ingest_logger
-      extract = EXTRACTS.find { |x| x == ENV['EXTRACT'] }
-      Rails.logger.error("Unknown extract: #{ENV['EXTRACT']}", :error) unless extract
-
-      extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.{mrc,xml}")) if extract
+      extract = 'auth'
+      extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.xml")) if extract
       files_to_read = (ENV['INGEST_FILE'] || extract_files).listify.sort
 
       # create new traject indexer
@@ -91,20 +105,24 @@ namespace :authorities do
         provide 'log.level', 'info'
         # match our default application log format
         provide 'log.format', ['%d [%L] %m', '%Y-%m-%d %H:%M:%S']
+        # thread pool boosts throughput, even on MRI
+        provide 'processing_thread_pool', '10'
         provide 'solr_writer.commit_on_close', 'true'
         # How many records skipped due to errors before we
         #   bail out with a fatal error?
         provide 'solr_writer.max_skipped', '100'
         # 10 x default batch sizes, sees some gains
         provide 'solr_writer.batch_size', '1000'
+        # 12/2017 - drop support for .mrc, only .xml henceforth
+        provide 'marc_source.type', 'xml'
 
         if ENV['DEBUG']
-          Rails.logger.info('- DEBUG set, writing to stdout')
+          Rails.logger.info('---- *** DEBUG set, writing to stdout ***')
           provide 'writer_class_name', 'Traject::DebugWriter'
         end
       end
 
-      # load authorities config file (indexing rules)
+      # load Traject authorities config file (indexing rules)
       indexer.load_config_file(File.join(Rails.root, 'config/traject/authorities.rb'))
 
       Rails.logger.info("- processing #{files_to_read.size} files...")
@@ -115,13 +133,6 @@ namespace :authorities do
           Rails.logger.info("--- processing #{filename}...")
 
           File.open(filename) do |file|
-            case File.extname(file)
-            when '.mrc'
-              indexer.settings['marc_source.type'] = 'binary'
-            when '.xml'
-              indexer.settings['marc_source.type'] = 'xml'
-            end
-
             Rails.logger.debug("----- indexing #{filename}...")
             indexer.process(file)
           end
@@ -136,15 +147,17 @@ namespace :authorities do
       Rails.logger.info("- finished processing #{files_to_read.size} files.")
     end
 
-    desc 'fetch and ingest latest authority files'
-    task process: :environment do
-      setup_ingest_logger
-      Rake::Task['authorities:extract:fetch'].execute
-      Rails.logger.info('Fetch successful.')
+    # XXX replaced by :daily
+    # desc 'fetch and ingest latest authority files'
+    # task process: :environment do
+    #   setup_ingest_logger
+    #   Rake::Task['authorities:extract:fetch'].execute
+    #   Rails.logger.info('Fetch successful.')
+    # 
+    #   Rake::Task['authorities:extract:ingest'].execute
+    #   Rails.logger.info('Ingest successful.')
+    # end
 
-      Rake::Task['authorities:extract:ingest'].execute
-      Rails.logger.info('Ingest successful.')
-    end
   end
 
   # namespace :add_to_bib do
@@ -572,7 +585,7 @@ def lookup_variants(authorized_forms)
              fl: 'id,authorized_ss,variant_t',
              facet: 'off' }
   if ENV['AUTHORITIES_DEBUG']
-    puts "AUTHORITIES_DEBUG: >>>  lookup_variants() params=#{params}"
+    # Rails.logger.debug "lookup_variants(#{authorized_forms}) params=#{params}"
   end
 
   # timing metrics...
@@ -588,6 +601,12 @@ def lookup_variants(authorized_forms)
   # key = "#{authorized_field_name} lookups count"
   key = 'authorized_ss lookups count'
   @stats[key] = (@stats[key] || 0) + 1
+
+  if ENV['AUTHORITIES_DEBUG']
+    if response && response['response']['docs'].empty?
+      Rails.logger.debug "found no variants for:  #{authorized_forms}"
+    end
+  end
 
   # puts "DEBUG: response=#{response}"
   # return nil unless we at least got something

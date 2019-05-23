@@ -107,8 +107,6 @@ class SpectrumController < ApplicationController
                 fixed_params = fix_summon_params(hit_params)
                 fixed_params['new_search'] = 'true'
                 Spectrum::SearchEngines::Summon.new(fixed_params, get_summon_facets)
-              when 'library_web'
-                Spectrum::SearchEngines::GoogleAppliance.new(fix_ga_params(hit_params))
               when 'lweb'
                 Spectrum::SearchEngines::GoogleCustomSearch.new(hit_params)
               when 'ac'
