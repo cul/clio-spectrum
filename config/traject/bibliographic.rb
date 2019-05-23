@@ -164,8 +164,8 @@ to_field 'subject_form_txt', extract_marc('600v:610v:611v:630v:650v:651v:655ab:6
 
 # Lookup subject variants, using the same subject terms as used for subject_topic_facet,
 to_field 'subject_variant_txt' do |record, accumulator|
-  # fetch all subject (topic) forms from the various MARC fields
-  subject_fields = '600abcdq:600x:610ab:610x:611ab:611x:630a:630x:650a:650x:651x:655x'
+  # fetch all subject (topic) forms from the various MARC fields, but no sub-division 'x'
+  subject_fields = '600abcdq:610ab:611ab:630a:650a'
   all_subjects = Marc21.extract_marc_from(record, subject_fields, trim_punctuation: true, alternate_script: false).flatten.uniq
 
   # Lookup variants for each subject
