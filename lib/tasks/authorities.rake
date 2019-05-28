@@ -132,6 +132,22 @@ namespace :authorities do
         begin
           Rails.logger.info("--- processing #{filename}...")
 
+          Rails.logger.debug("---- cleaning #{filename}...")
+          clean_ingest_file(filename)
+          if File.exist?('/usr/bin/xmlwf')
+            Rails.logger.debug('---- XML well-formedness check...')
+            command = "xmlwf -r #{filename}"
+            output, status = Open3.capture2e(command)
+            if ! status.success?
+              Rails.logger.error('XML file failed well-formedness check -- aborting!')
+              Rails.logger.error("command: #{command}")
+              Rails.logger.error("output: #{output}")
+              abort
+            end
+          else
+            Rails.logger.debug('---- xmlwf not found - skipping well-formedness check!')
+          end
+
           File.open(filename) do |file|
             Rails.logger.debug("----- indexing #{filename}...")
             indexer.process(file)
