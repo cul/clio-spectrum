@@ -659,12 +659,6 @@ subject_fast:
         display: abcdefghjklmnopqrstuvxyz
         require_sf: 2
         require_sf_value: fast
-    -   tag: 655
-        ind1: :all
-        ind2: '7'
-        display: abcdefghjklmnopqrstuvxyz
-        require_sf: 2
-        require_sf_value: fast
 summary:
     -   tag: 520
         display: abc
