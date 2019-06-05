@@ -344,7 +344,12 @@ class SolrDocument
   def bib_column_data
     data = []
     SolrDocument.bib_columns.each do |column_header, column_key|
-      data << Array(self[column_key]).join("\r\n")
+      # Handle single-value or multi-value fields.
+      # Evelyn reports that embedded newlines break downstream 
+      # use of the export file.  Not surprising.  Remove.
+      # Just use a single space instead?
+      # data << Array(self[column_key]).join("\r\n")
+      data << Array(self[column_key]).join(' ')
     end
     return data
   end
