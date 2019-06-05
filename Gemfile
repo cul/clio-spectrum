@@ -220,7 +220,9 @@ group :test, :development do
   gem 'thin'
 
   # Only use this on localhost, mysql in server envirohnments
-  gem 'sqlite3'
+  # gem 'sqlite3'
+  # pin to 1.3.x - Rails 5.2.2 can't talk to sqlite3 1.4, when Rails moves up, remove constraint
+  gem "sqlite3", "~> 1.3.6"
 
   # Rspec for testing
   gem 'rspec-rails'
@@ -239,8 +241,10 @@ group :test do
   # Which Capybara driver for JS support?
   gem 'capybara-webkit'
 
-  # dependent on localhost's browser configs
-  gem 'selenium-webdriver'
+  # Used for some Javascript testing that fails w/WebKit
+  # but... we don't care much about those bits actually.
+  # # dependent on localhost's browser configs
+  # gem 'selenium-webdriver'
 
   # "A helper for launching cross-platform applications
   #  in a fire and forget manner."
