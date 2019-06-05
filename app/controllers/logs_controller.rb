@@ -166,7 +166,8 @@ class LogsController < ApplicationController
   def logs_by_date(download = nil)
     return ActiveRecord::NullRelation unless download.present?
     return log_by_year(download) if download =~ /^\d\d\d\d$/
-    return log_by_month(download) if download =~ /^\d\d\d\d\-\d\d$/
+    # Support 1 or 2 digit months
+    return log_by_month(download) if (download =~ /^\d\d\d\d\-\d\d$/ || download =~ /^\d\d\d\d\-\d$/)
     # Any bad data, return null set
     ActiveRecord::NullRelation
   end
@@ -185,11 +186,12 @@ class LogsController < ApplicationController
 
   def log_by_month(download)
     year, month = download.split(/-/)
-    # default clause works in MySQL
-    where_clause = "year(created_at) = '#{year}' AND month(created_at) = '#{month}'"
+    # default clause works in MySQL (trim any leading zeros with .to_i)
+    where_clause = "year(created_at) = '#{year}' AND month(created_at) = '#{month.to_i}'"
 
-    # SQLite needs something special
+    # SQLite needs something special (month padding to two digits)
     if ActiveRecord::Base.connection.adapter_name =~ /sqlite/i
+      month = '0' + month if month.length == 1
       where_clause = "strftime('%Y', created_at) = '#{year}' AND strftime('%m', created_at) = '#{month}'"
     end
 
