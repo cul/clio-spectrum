@@ -421,50 +421,50 @@ class SolrDocument
     return call_number
   end
 
-  def to_rows(level = 'bib')
-    case level
-    when 'bib'
-     to_bib_row
-    when 'holding'
-     to_holding_rows
-    when 'item'
-     to_item_rows 
-    end
-  end
+  # def to_rows(level = 'bib')
+  #   case level
+  #   when 'bib'
+  #    to_bib_row
+  #   when 'holding'
+  #    to_holding_rows
+  #   when 'item'
+  #    to_item_rows 
+  #   end
+  # end
 
-  def to_bib_row
-    bib_fields = {
-      'title'       => 'title_display',
-      'author'      => 'author_display',
-      'publisher'   => 'full_publisher_display',
-      'ISBN'        => 'isbn_display',
-    }
+  # def to_bib_row
+  #   bib_fields = {
+  #     'title'       => 'title_display',
+  #     'author'      => 'author_display',
+  #     'publisher'   => 'full_publisher_display',
+  #     'ISBN'        => 'isbn_display',
+  #   }
+  # 
+  #   bib_row = []
+  #   bib_fields.each do |field_header, field_name|
+  #     field_value = Array(self[field_name]).join("\r\n")
+  #     bib_row << field_value
+  #   end
+  #   
+  #   # first column is always a link to the CLIO page
+  #   bib_values.unshift("https://clio.columbia.edu/catalog/#{self.id}")
+  #   return bib_row
+  # end
 
-    bib_row = []
-    bib_fields.each do |field_header, field_name|
-      field_value = Array(self[field_name]).join("\r\n")
-      bib_row << field_value
-    end
-    
-    # first column is always a link to the CLIO page
-    bib_values.unshift("https://clio.columbia.edu/catalog/#{self.id}")
-    return bib_row
-  end
-
-  def to_holding_rows
-    bib_row = self.to_bib_row
-    holdings = self.holdings
-    # handle records w/out holdings data
-    return bib_row.shift('No holdings data') if holdings.count == 0
-    
-    holdings.each do |holding|
-      row = []
-      rows << bib_row
-      row << holding
-      
-    end
-    return holding_rows
-  end
+  # def to_holding_rows
+  #   bib_row = self.to_bib_row
+  #   holdings = self.holdings
+  #   # handle records w/out holdings data
+  #   return bib_row.shift('No holdings data') if holdings.count == 0
+  #   
+  #   holdings.each do |holding|
+  #     row = []
+  #     rows << bib_row
+  #     row << holding
+  #     
+  #   end
+  #   return holding_rows
+  # end
     
     
     
