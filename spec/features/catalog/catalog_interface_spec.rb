@@ -4,7 +4,7 @@ require 'spec_helper'
 #
 # DatabaseCleaner.strategy = :truncation
 
-describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
+describe 'Catalog Interface' do
   # NEXT-779 - Some 880 fields not showing up
   it 'MARC 880 note field should display' do
     # visit this specific item
@@ -386,8 +386,8 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
     expect(page).to have_text "You searched for: #{too_long}"
   end
 
-  # it "supports 'random query' feature", vcr: false, :skip_travis do
-  it "supports 'random query' feature", :skip_travis, vcr: false do
+  # it "supports 'random query' feature" , :skip_travis do
+  it "supports 'random query' feature", :skip_travis  do
     visit catalog_index_path(random_q: true)
     expect(page).to have_css('li.datasource_link.selected[source="catalog"]')
     expect(page).to have_css('span.constraints-label', text: 'You searched for:')
@@ -465,7 +465,8 @@ describe 'Catalog Interface', vcr: { allow_playback_repeats: true } do
   # NEXT-1099 - Acquisition Date facet cannot be negated
   # For this one, both "facet.query=acq_dt" and "fq=acq_dt" need
   # to be ignored by the VCR cassette matcher.
-  it 'allows acquisition date to be negated', vcr: { match_requests_on: [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')] } do
+  # it 'allows acquisition date to be negated', vcr: { match_requests_on: [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')] } do
+  it 'allows acquisition date to be negated' do
     visit catalog_index_path(q: 'text', 'f[acq_dt][]' => 'years_1')
     expect(page).to have_css('#documents .document.result')
     recent_title = all('#documents .document.result .row .title').first.text

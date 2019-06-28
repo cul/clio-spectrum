@@ -3,12 +3,13 @@ require 'spec_helper'
 # NEXT-845 - New Arrivals timeframe (6 month count == 1 year count)
 # Every time we hit new-arrivals, we need to tell the VCR
 # request matcher to ignore 'fq', to get stable cassettes
-describe 'New Arrivals Search', vcr: { match_requests_on: [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')] } do
+# describe 'New Arrivals Search', vcr: { match_requests_on: [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')] } do
+describe 'New Arrivals Search' do
   # This test is bound very tightly to the current date.
   # I can't figure out how to work with a recorded VCR cassette.
   # It can also been seen as, partially, an index-quality check
   # rather than a code-correctness check - I'm ok skipping CI for this.
-  it 'should show 4 distinct acquisition-date facet options', :skip_travis, vcr: false do
+  it 'should show 4 distinct acquisition-date facet options', :skip_travis  do
     visit root_path
 
     within 'div#sources' do

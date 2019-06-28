@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Datasource Sanity', :vcr do
+describe 'Datasource Sanity' do
   it "LWeb should be labeled 'Libraries Website'" do
     visit root_path
     expect(find('#datasources')).to have_text('Libraries Website')
@@ -65,7 +65,7 @@ describe 'Datasource Sanity', :vcr do
   end
 end
 
-describe 'Simple query should retrieve results', :vcr do
+describe 'Simple query should retrieve results' do
   it 'in quicksearch datasource', :js do
     visit quicksearch_index_path(q: 'test')
     expect(page).to have_css('.result_set', count: 5)
@@ -130,16 +130,18 @@ describe 'Simple query should retrieve results', :vcr do
 
   # Every time we hit new-arrivals, we need to tell the VCR
   # request matcher to ignore 'fq', to get stable cassettes
-  it 'in new arrivals datasource', vcr: { match_requests_on: [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')] } do
+  # it 'in new arrivals datasource', vcr: { match_requests_on: [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')] } do
+  it 'in new arrivals datasource' do
     visit new_arrivals_index_path('q' => 'test')
     expect(page).to have_css('.result')
   end
 end
 
-describe 'Switching between data-source', :vcr do
+describe 'Switching between data-source' do
   # Every time we hit new-arrivals, we need to tell the VCR
   # request matcher to ignore 'fq', to get stable cassettes
-  it 'should carry forward simple search to each datasource', :js, vcr: { match_requests_on: [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')] } do
+  # it 'should carry forward simple search to each datasource', :js, vcr: { match_requests_on: [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')] } do
+  it 'should carry forward simple search to each datasource', :js do
     visit root_path
 
     # terminal newline submits form
