@@ -36,6 +36,13 @@ Rack::Attack.blocklist('block bad User Agents') do |req|
   APP_CONFIG['BAD_USER_AGENT_LIST'].include? req.user_agent
 end
 
+# Filter by URL - specific params or path components may identify bad guys
+Rack::Attack.blocklist('block bad URL substring') do |req|
+  bad_url_substrings = APP_CONFIG['BAD_URL_SUBSTRING_LIST'] || []
+  bad_url_substrings.any? { |bad_substring| req.url.match(bad_substring) }
+end
+
+
 # Deny all access to ANY "Java/1.x.y" User Agent - looking at the logs,
 # these are predominately phishing or spidering.  If we find examples of
 # legitimate use, we can fine-tune these rules.
