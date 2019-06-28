@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe BackendController, :vcr do
+describe BackendController do
   # BackendController doesn't have an interface that can be excercised
   #  with feature tests.  We'll test html content here with controller
   #  specs although we maybe should setup request-specs for this.

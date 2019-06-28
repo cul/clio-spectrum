@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Virtual Shelf Browse', vcr: { allow_playback_repeats: true } do
+describe 'Virtual Shelf Browse' do
   # NEXT-995 - Something like "shelf view"
   it 'should show basic controls on first load of simple item', :js do
     # pull up a simple item-detail page

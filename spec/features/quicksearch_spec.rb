@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'QuickSearch landing page', vcr: { allow_playback_repeats: true } do
+describe 'QuickSearch landing page' do
   # NEXT-612 - Quick search page doesn't let you start over
   it "should have a 'Start Over' link", :js do
     visit quicksearch_index_path('q' => 'asia')

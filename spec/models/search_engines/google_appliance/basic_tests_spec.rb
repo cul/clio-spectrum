@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'spec_helper'
 
-describe 'Spectrum::SearchEngines::GoogleCustomSearch', :vcr do
+describe 'Spectrum::SearchEngines::GoogleCustomSearch' do
   describe 'Libraries Website search for "books"' do
     before(:each) do
       @search_engine = Spectrum::SearchEngines::GoogleCustomSearch.new('q' => 'books')

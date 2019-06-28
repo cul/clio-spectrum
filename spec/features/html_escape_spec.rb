@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Special HTML characters in MARC data should be escaped', :vcr do
+describe 'Special HTML characters in MARC data should be escaped' do
   # NEXT-658
   # The Voyager record 6315882 (Auszug aus dem Lager), has
   # HTML embedded in it's 260c ("<font color=red>")

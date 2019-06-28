@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Spectrum::SearchEngines::GoogleAppliance, :vcr do
+describe Spectrum::SearchEngines::GoogleAppliance do
   it "should raise RuntimeError if no 'q' param passed" do
     expect do
       Spectrum::SearchEngines::GoogleAppliance.new

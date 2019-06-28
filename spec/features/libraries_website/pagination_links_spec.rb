@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'A Libraries Website search', :vcr do
+describe 'A Libraries Website search' do
   it 'will have a next link that links to lweb' do
     visit lweb_index_path('q' => 'books')
     expect(page).to have_css('.index_toolbar a', text: 'Next')

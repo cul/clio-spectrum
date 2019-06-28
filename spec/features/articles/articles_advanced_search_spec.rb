@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Articles Search', :vcr do
+describe 'Articles Search' do
   it 'should support range facets' do
     visit articles_index_path('s.q' => 'zebra')
     find('.facet_limit h5', text: 'Publication Date').click

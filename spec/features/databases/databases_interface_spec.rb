@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'Databases', :vcr do
+describe 'Databases' do
   # NEXT-843 - Database Alpha jump-list should respect non-filing indicator
   it "First-Letter facet should ignore leading 'The'", :js do
     visit databases_index_path

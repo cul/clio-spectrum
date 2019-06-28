@@ -2,7 +2,7 @@ require 'spec_helper'
 
 include Warden::Test::Helpers
 
-describe 'Share by Email', vcr: true, focus: false do
+describe 'Share by Email' do
   %w(solr_document savedlist).each do |path|
     context 'when user is logged in' do
       before do

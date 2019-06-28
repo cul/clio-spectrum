@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'record tests', vcr: { allow_playback_repeats: true } do
+describe 'record tests' do
   it 'test call number', :js do
     visit solr_document_path('7686002')
 

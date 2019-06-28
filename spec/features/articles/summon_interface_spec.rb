@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Summon Interface', :vcr do
+describe 'Summon Interface' do
   context 'use appropriate language in the links to full text' do
     # Turn this URL (multiple s.fvf) into Rails code
     # http://localhost:3000/articles?s.fvf[]=IsFullText,true&s.fvf[]=ContentType,Audio+Recording&q=
@@ -66,7 +66,7 @@ describe 'Summon Interface', :vcr do
   end
 end
 
-describe 'Summon searches', :vcr do
+describe 'Summon searches' do
   it 'should remember items-per-page' do
     # SET initial page-size to 50 items
     visit articles_index_path('q' => 'frog')

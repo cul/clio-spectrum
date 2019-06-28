@@ -3,7 +3,7 @@ require 'spec_helper'
 # Test that the correct default filter values are always applied
 # when begining new searches, from any possible starting-point.
 # NEXT-1079 - Articles searches from landing-page not receiving default params
-describe 'Summon Search Option Filter Settings', :vcr do
+describe 'Summon Search Option Filter Settings' do
   # Summon will give different total-result values upon re-querying with the same
   # parameters (server pool not in sync?).  For stable specs, pick a search term
   # that's not that common, hoping for more search-results stability.

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'CLIO support for Law records', :vcr do
+describe 'CLIO support for Law records' do
   it 'should include Law in Location facet', :js do
     visit catalog_index_path('q' => 'supr* cour*')
     within '.facets.sidenav' do

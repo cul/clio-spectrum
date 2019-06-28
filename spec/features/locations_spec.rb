@@ -2,7 +2,7 @@ require 'spec_helper'
 
 require 'rake'
 
-describe 'Locations', vcr: { allow_playback_repeats: true } do
+describe 'Locations' do
   context "\nYou may need to run 'rake hours:update_all RAILS_ENV=test' and 'rake locations:load RAILS_ENV=test'.  See README.\n" do
     before(:all) do
       # DatabaseCleaner.clean

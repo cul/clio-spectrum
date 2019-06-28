@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Archives Search', :vcr do
+describe 'Archives Search' do
   it 'will be able to traverse next and previous links' do
     visit archives_index_path('q' => 'papers')
 

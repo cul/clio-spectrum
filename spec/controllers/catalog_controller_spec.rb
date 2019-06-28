@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CatalogController, :vcr do
+describe CatalogController do
   describe "GET 'endnote.endnote'" do
     it 'should work for single ids' do
       #     {"id"=>["323033", "5417238"], "controller"=>"catalog", "action"=>"endnote", "format"=>"endnote", "adv"=>{}}

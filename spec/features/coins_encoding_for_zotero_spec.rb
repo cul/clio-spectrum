@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'coins encoding for zotero', :vcr do
+describe 'coins encoding for zotero' do
   context 'search results' do
     context 'catalog' do
       context 'music recording' do

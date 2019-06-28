@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'spec_helper'
 
-describe 'Spectrum::SearchEngines::Solr', :vcr do
+describe 'Spectrum::SearchEngines::Solr' do
   solr_url = nil
   solr_url = SOLR_CONFIG['test']['url']
   # solr_url = SOLR_CONFIG['spectrum_subset']['url']

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 include Warden::Test::Helpers
 
-describe 'Saved List Interface', :vcr do
+describe 'Saved List Interface' do
   before(:each) do
     User.delete_all
     @autodidact = FactoryBot.create(:user, uid: 'autodidact')

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Libraries Website DAM search', :vcr do
+describe 'Libraries Website DAM search' do
   it 'should show DAM filenames and format icons for XLS' do
     visit lweb_index_path('q' => 'dam sheet1 xlsx')
     within all('.result.document').first do
@@ -26,7 +26,7 @@ describe 'Libraries Website DAM search', :vcr do
   end
 end
 
-describe 'Libraries Website searches', :vcr do
+describe 'Libraries Website searches' do
   # 3/2019 - NEXT-1570 - Cutover to Google Custom Search
   # Google Custom Search only allows max 10 page of 10 results,
   # so this test is not really meaningful anymore.

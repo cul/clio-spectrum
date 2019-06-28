@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Catalog Advanced Search', :vcr do
+describe 'Catalog Advanced Search' do
   it 'should be accessible from the home page' do
     # NEXT-713, NEXT-891 - A Journal Title search should find Newspapers
 

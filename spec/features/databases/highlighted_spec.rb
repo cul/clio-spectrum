@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Database Highlights', :vcr do
+describe 'Database Highlights' do
   it 'Should show highlighting in QuickSearch', :js do
     visit quicksearch_index_path('q' => 'medline ipswich')
     expect(page).to have_css('.result_set', count: 5)

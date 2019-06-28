@@ -277,9 +277,10 @@ group :test do
   # # https://coveralls.zendesk.com/hc/en-us/articles/201769485-Ruby-Rails
   # gem 'coveralls', require: false
 
-  # Record API responses, use saved responses for tests
-  gem 'vcr'
-  gem 'webmock'
+  # We stopped using this a while ago
+  # # # Record API responses, use saved responses for tests
+  # # gem 'vcr'
+  # # gem 'webmock'
 
   # assert_template has been extracted to a gem. To continue using it,
   #         add `gem 'rails-controller-testing'` to your Gemfile.

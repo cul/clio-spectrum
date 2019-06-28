@@ -5,7 +5,7 @@ SUMMON_FACETS_FOR_SPECS = {
   'ContentType' => 10, 'SubjectTerms' => 10, 'Language' => 10
 }.freeze
 
-describe 'Spectrum::SearchEngines::Summon', :vcr do
+describe 'Spectrum::SearchEngines::Summon' do
   describe 'with parameters' do
     it 'should default to a clean search' do
       sum = Spectrum::SearchEngines::Summon.new({}, SUMMON_FACETS_FOR_SPECS)
