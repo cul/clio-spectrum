@@ -485,8 +485,7 @@ describe 'Catalog Interface' do
   # NEXT-1218 - Display label for MARC 545 - Biographical or Historical Data
   it 'shows Biographical / Historical Note appropriately' do
     visit solr_document_path(7755896)
-    expect(page).to have_text "Biographical / Historical Note
-      Makino Mamoru (1930-) was born"
+    expect(page).to have_text "born in a small town on the northern island of Karafuto, Japan, where he lived until his family moved to Tokyo"
   end
 
   # NEXT-911 - Display uniform title in serial records
