@@ -24,8 +24,16 @@ class BestBetsController < ApplicationController
 
   # GET /best_bets
   # GET /best_bets.json
+  # def index
+  #   @best_bets = BestBet.all
+  # end
+
   def index
-    @best_bets = BestBet.all
+    if params[:tag]
+      @best_bets = BestBet.where("tags like ?", "%#{params[:tag]}%")
+    else
+      @best_bets = BestBet.all
+    end
   end
 
   # GET /best_bets/1
@@ -91,7 +99,7 @@ class BestBetsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def best_bet_params
-    params.require(:best_bet).permit(:title, :url, :description, :keywords)
+    params.require(:best_bet).permit(:title, :url, :description, :keywords, :tags)
   end
 
   def confirm_best_bets_admin!

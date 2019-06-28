@@ -9,6 +9,7 @@
       <th>Url</th>
       <th>Description</th>
       <th>Keywords</th>
+      <th>Tags</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
         <td><%= best_bet.url %></td>
         <td><%= best_bet.description %></td>
         <td><%= best_bet.keywords %></td>
+        <td><%= best_bet.tags %></td>
         <% if can?(:manage, ItemAlert) %>
           <td><%= link_to 'Show', best_bet %></td>
           <td><%= link_to 'Edit', edit_best_bet_path(best_bet) %></td>

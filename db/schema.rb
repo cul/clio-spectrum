@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_01_010101) do
+ActiveRecord::Schema.define(version: 2019_06_01_010101) do
 
   create_table "best_bets", force: :cascade do |t|
     t.string "title", null: false
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2018_11_01_010101) do
     t.text "keywords"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "tags"
     t.index ["title"], name: "index_best_bets_on_title", unique: true
   end
 
