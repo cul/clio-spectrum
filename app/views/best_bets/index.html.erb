@@ -22,7 +22,7 @@
         <td><%= best_bet.description %></td>
         <td><%= best_bet.keywords %></td>
         <td><%= best_bet.tags %></td>
-        <% if can?(:manage, ItemAlert) %>
+        <% if current_user.best_bets_admin? %>
           <td><%= link_to 'Show', best_bet %></td>
           <td><%= link_to 'Edit', edit_best_bet_path(best_bet) %></td>
           <td><%= link_to 'Destroy', best_bet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -34,7 +34,7 @@
 
 <br>
 
-<% if can?(:manage, ItemAlert) %>
+<% if current_user.best_bets_admin? %>
   <%= link_to 'New Best Bet', new_best_bet_path %>
 <% end %>
 

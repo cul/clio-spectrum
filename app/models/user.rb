@@ -61,6 +61,13 @@ class User < ApplicationRecord
     return valet_admins.include? uid
   end
 
+  def best_bets_admin?
+    # NEXT-1584 - Best Best admins goes of app_config
+    return true if admin?
+    best_bets_admins = Array(APP_CONFIG['best_bets_admins']) || []
+    return best_bets_admins.include? uid
+  end
+
   def to_s
     email
   end

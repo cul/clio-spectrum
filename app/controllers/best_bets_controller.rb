@@ -104,6 +104,6 @@ class BestBetsController < ApplicationController
 
   def confirm_best_bets_admin!
     return redirect_to(root_path) unless current_user
-    return redirect_to(root_path) unless current_user.has_role?('item_alerts', 'manage')
+    return redirect_to(root_path) unless current_user.best_bets_admin?
   end
 end
