@@ -223,16 +223,22 @@ module DisplayHelper
   end
 
   def pegasus_item_link(document, context = '')
-    url = 'https://pegasus.law.columbia.edu'
+    site_url = 'https://pegasus.law.columbia.edu'
     if document && document.id
+      # NEXT-1585 - temp URL until TIND data gets 
+      bib_url = site_url + 
+                '/search?ln=en&p=907%3A' +
+                document.id +
+                '*&f=&action_search=Search&c=All+Resources'
+      
       # NEXT-996 - Rename "Pegasus" link
       return link_to t('blacklight.law.check_message'),
-                     "#{url}/record=#{document.id}",
+                     bib_url,
                      :'data-ga-category' => 'Pegasus Link',
                      :'data-ga-action' => context,
                      :'data-ga-label' => document['title_display'] || document.id
     else
-      return link_to url, url
+      return link_to site_url, site_url
     end
   end
 
