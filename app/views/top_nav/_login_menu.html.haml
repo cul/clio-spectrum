@@ -25,7 +25,7 @@
       %li.nav-divider
       -# - if current_user.has_role?('site', 'pilot')
       -#   %li= link_to "CLIO Preferences", preferences_path
-      - if current_user.best_bets_admin?
+      - if current_user && current_user.best_bets_admin?
         %li= link_to "Manage Best Bets", best_bets_path
       - if current_user.has_role?('site', 'pilot') || current_user.best_bets_admin?
         %li= link_to "Best Bets Logs", logs_path(set: 'Best Bets')
