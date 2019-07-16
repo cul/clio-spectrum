@@ -4,9 +4,8 @@ module Spectrum
       require 'google/apis/customsearch_v1'
       Customsearch = Google::Apis::CustomsearchV1
 
-      # include ActionView::Helpers::NumberHelper
       include Rails.application.routes.url_helpers
-      # Rails.application.routes.default_url_options = ActionMailer::Base.default_url_options
+
       attr_reader :documents, :search, :count, :errors
 
       def initialize(options = {})
@@ -18,40 +17,42 @@ module Spectrum
         @params = options
         @q = options['q']
 
+        # NEXT-1587 - support sitesearch for LWeb
+        site_search = options['site_search'] || ''
+        site_search_filter = options['site_search_filter'] || 'i'
+
         @rows = (options['rows'] || 10).to_i
         @start = (options['start'] || 1).to_i
         cs_id  = APP_CONFIG['google']['custom_search_id']
         cs_key = APP_CONFIG['google']['custom_search_key']
 
-        # @search_url = build_search_url
+        service_params = {
+          cx:    cs_id,
+          start: @start,
+          num:   @rows
+        }
+
+        if site_search.present?
+          service_params[:site_search] = site_search
+          service_params[:site_search_filter] = site_search_filter
+        end
+
         @errors = nil
-        Rails.logger.debug "[Spectrum][GoogleCustomSearch] params: #{@search_url}"
+        Rails.logger.debug "[Spectrum][GoogleCustomSearch] service_params: #{service_params}"
 
         service = Customsearch::CustomsearchService.new
         service.key = cs_key
-
-        # Fetch results
-        # results = service.list_cse_siterestricts(@q, cx: cs_id, start: @start, num: @rows)
-
+          
         # Cache to avoid redundant searches - needs to include all dynamic params
-        cache_key = "gcs:#{@q};#{@rows};#{@start}"
+        cache_key = "gcs:#{@q};#{@rows};#{@start};#{site_search};#{site_search_filter}"
         results = Rails.cache.fetch(cache_key, expires_in: 1.day) do
           Rails.logger.debug "GoogleCustomSearch cache miss for cache_key #{cache_key}"
-          service.list_cse_siterestricts(@q, cx: cs_id, start: @start, num: @rows)
+          # service.list_cse_siterestricts(@q, cx: cs_id, start: @start, num: @rows)
+          service.list_cse_siterestricts(@q, service_params)
         end
 
-        # raise
         @documents = Array(results.items).map { |item| LwebDocument.new(item) }
         @count = results.search_information.total_results
-        # raise
-        # begin
-        #   # @raw_xml = Nokogiri::XML(HTTPClient.new.get_content(@search_url))
-        #   # @documents = @raw_xml.css('R').map { |xml_node| LibraryWeb::Document.new(xml_node) }
-        #   # @count = @raw_xml.at_css('M') ? @raw_xml.at_css('M').content.to_i : 0
-        # rescue => ex
-        #   Rails.logger.error "[Spectrum][GoogleCustomSearch] error: #{ex.message}"
-        #   @errors = ex.message
-        # end
       end
 
       def current_page
@@ -107,7 +108,6 @@ module Spectrum
       # List of paging options, turned into a drop-down in sorting/paging partial
       def page_size_with_links
         # server-side limit of 10 results per page
-        # [10, 25, 50, 100].map do |page_size|
         [10].map do |page_size|
           # do math so that current first item is still on screen.
           # (use zero-based params for talking to GA)
@@ -116,29 +116,6 @@ module Spectrum
           [search_merge('rows' => page_size, 'start' => new_start_item), page_size]
         end
       end
-
-      # def build_search_url
-      #   default_params = {
-      #     'site'    => 'CUL_LibraryWeb',
-      #     'as_dt'   => 'i',
-      #     'client'  => 'cul_libraryweb',
-      #     'output'  => 'xml',
-      #     'ie'      => 'UTF-8',
-      #     'oe'      => 'UTF-8',
-      #     'filter'  => '0',
-      #     'sort'    => 'date:D:L:dl',
-      #     'x'       => '0',
-      #     'y'       => '0',
-      #   }
-      #
-      #   # url = "https://search.columbia.edu/search?#{default_params.to_query}"
-      #   url = "#{@ga_url}?#{default_params.to_query}"
-      #   url += "&sitesearch=#{@sitesearch}"
-      #   url += "&num=#{@rows}"
-      #   url += "&start=#{@start}"
-      #   url += "&q=#{CGI.escape(@q)}"
-      #   url
-      # end
 
       private
 
