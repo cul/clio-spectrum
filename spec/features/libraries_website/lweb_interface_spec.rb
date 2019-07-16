@@ -10,7 +10,7 @@ describe 'Libraries Website DAM search' do
   end
 
   it 'should show DAM filenames and format icons for DOC' do
-    visit lweb_index_path('q' => 'hints on researching doc dam')
+    visit lweb_index_path('q' => 'Recalling Boxes for Processing doc dam')
     within all('.result.document').first do
       expect(find('img')['src']).to have_content 'doc.png'
       expect(find('.lweb_dam_document')).to have_text '.doc'
