@@ -694,7 +694,7 @@ module Voyager
         return true if @location_code == 'leh,ref'
 
         return false unless @call_number
-        return true if @location_code == 'leh' && @call_number.first.match(/[A-Z]/)
+        return true if @location_code == 'leh' && @call_number.first.match(/[A-E]/)
 
         return false
       end
