@@ -112,6 +112,30 @@ module Voyager
           end
         end
 
+        # LIBSYS-2219 - Lehman Mold Bloom!
+        # If the app-config key is set, do some overrides to display of item status
+        if APP_CONFIG['lehman_mold'].present? && @location_name.match(/^Lehman/)
+          # Only do overrides for 'Available' items.
+          # Unavailable (checked-out, in-process, etc.), display true Voyager status
+          if @item_status[:status] == 'available'
+            if moldy?
+              # NO Voyager changes have been done in this case.
+              # Override the full @item_status in CLIO code
+              @item_status = {
+                status: 'not_available', 
+                messages: [
+                  {
+                    status_code:   'sp', 
+                    short_message: 'Temporarily unavailable. Try Borrow Direct or ILL',
+                    long_message:  'Temporarily unavailable. Try Borrow Direct or ILL'
+                  }
+                ]
+              }
+            end
+          end
+        end
+
+
         # flag for services processing (doc_delivery assignment)
         # NEXT-1234: revised logic
         @temp_loc_flag = 'N'
@@ -662,6 +686,19 @@ module Voyager
         out
       end
 
+      # LIBSYS-2219
+      # "Materials in the leh,ref and parts of leh (call numbers A* – E*) will be unavailable"
+      def moldy?
+        return false unless @location_code 
+
+        return true if @location_code == 'leh,ref'
+
+        return false unless @call_number
+        return true if @location_code == 'leh' && @call_number.first.match(/[A-Z]/)
+
+        return false
+      end
+      
       def soggy?
         # Ignore unless it's an East Asian holding
         return false unless %w(eal eax).include? @location_code

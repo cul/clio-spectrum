@@ -421,6 +421,30 @@ class SolrDocument
     return call_number
   end
 
+  # NEXT-2219 - Lehman Mold Bloom!
+  def moldy?
+    return false unless location_call_number_id = self[:location_call_number_id_display]
+    
+    # And non-Reference Lehman?  Determine by call-number...
+    # >> document[:location_call_number_id_display]
+    # => ["Lehman >> DA28.1 .L642 1993|DELIM|1687713"]
+    Array.wrap(location_call_number_id).each do |portmanteau|
+
+      # All non-Lehman are NOT moldy
+      return false unless portmanteau.match(/^Lehman/)
+
+      # All Lehman Reference are moldy
+      return true if portmanteau.match(/^Lehman Ref/i)
+
+      next unless portmanteau.match(/ >> /)
+      call_number = portmanteau.partition(' >>').last
+      return true if call_number.first.match(/[A-E]/)
+    end
+
+    # If it's Lehman and the call-number doesn't start with A through E, it's NOT moldy
+    return false
+  end
+  
   # def to_rows(level = 'bib')
   #   case level
   #   when 'bib'

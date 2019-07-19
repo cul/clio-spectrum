@@ -187,6 +187,12 @@ module DisplayHelper
         image_url = '/static-icons/unavailable.png'
       end
 
+      # NEXT-2219 - Lehman Mold Bloom!  Suppress availability by both location + call-number
+      if APP_CONFIG['lehman_mold'].present? && document.moldy?
+        lookup_availability = '' # nope
+        image_url = '/static-icons/unavailable.png'
+      end
+      
       image_tag(image_url,
                 class: "#{lookup_availability} bib_#{document.id} holding_#{hold_id} #{offsite_indicator}") +
         process_holdings_location(loc_display) +
