@@ -59,7 +59,9 @@ describe 'Summon Interface' do
 
   # CERN LHC CMS Collaboration
   it 'will cut-off the list of authors at a certain point' do
-    visit articles_index_path('q' => 'CERN LHC CMS Collaboration')
+    title = 'The CMS experiment at the CERN LHC'
+    title_field = 's.fq[TitleCombined]'
+    visit articles_index_path(q: title, search_field: title_field)
     # The "more" note is at the end of the Author field - just before
     # the Citation field
     expect(all('div.details').first).to have_text('(more...) Citation')

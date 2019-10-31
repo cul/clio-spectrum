@@ -30,15 +30,20 @@ default_search_layouts:
       - searches:
         - source: catalog
           count: 5
+          display_footer: true
         - source: geo
           count: 3
+          display_footer: true
       - searches:
         - source: articles
           count: 3
+          display_footer: true
         - source: ac
           count: 3
+          display_footer: true
         - source: lweb
           count: 3
+          display_footer: true
 
   dissertations:
     style: aggregate

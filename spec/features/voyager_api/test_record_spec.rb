@@ -85,6 +85,15 @@ describe 'record tests' do
     end
   end
 
+  it 'special collections link for uacl,low', :js do
+    visit solr_document_path('12954047')
+    expect(page).to have_css('#clio_holdings .holding')
+    within ('div#clio_holdings') do
+      expect(page).to have_link('Special Collections',
+                                href: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey=12954047')
+    end
+  end
+
   it 'special collections services', :js do
     visit solr_document_path('6201975')
     expect(page).to have_css('#clio_holdings .holding')
