@@ -522,7 +522,7 @@ module Voyager
 
         # NEXT-1229 - make this the first test
         # special collections request service [only service available for items from these locations]
-        if ['rbx', 'off,rbx', 'rbms', 'off,rbms', 'rbi', 'uacl', 'off,uacl',
+        if ['rbx', 'off,rbx', 'rbms', 'off,rbms', 'rbi', 'uacl', 'uacl,low', 'off,uacl',
             'clm', 'dic', 'dic4off', 'gax', 'oral', 'rbx4off', 'off,dic',
             'off,oral'].include?(location_code)
           return ['spec_coll']
