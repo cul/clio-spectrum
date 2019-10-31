@@ -11,7 +11,7 @@
     - if access_requirement.active?
       = add_row('Access Requirements', access_requirement[:message])
 
--# = add_row('Restricted', document.fetch('database_restrictions_display', nil))
+-# = add_row("Access and Use", display_marc_field(marc, 'restrictions'))
 = add_row('Author', document.fetch('author_display', nil))
 = add_row('Published', document.fetch('full_publisher_display', nil))
 

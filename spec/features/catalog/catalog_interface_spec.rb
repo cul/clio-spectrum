@@ -262,33 +262,33 @@ describe 'Catalog Interface' do
   # NEXT-1015 - next from MARC
   it 'should support next/previous navigation from MARC view', :js do
     # locate a fairly static set of records for a stable test suite
-    visit catalog_index_path('q' => 'maigret simenon')
+    visit catalog_index_path('q' => 'maigret simenon', 'f[location_facet][]' => 'Offsite')
     within '#facets' do
       find('.panel-heading', text: 'Publication Date').click
       fill_in 'range[pub_date_sort][end]', with: '1950'
       find('input.btn.submit').click
     end
 
-    expect(page).to have_text '1 - 12 of 12'
+    expect(page).to have_text '1 - 4 of 4'
 
-    click_link('Maigret mystified')
-    expect(page).to have_text 'Back to Results | 1 of 12 | Next'
-    expect(page).to have_text 'Title Maigret mystified'
+    click_link('Maigret sits it out')
+    expect(page).to have_text 'Back to Results | 1 of 4 | Next'
+    expect(page).to have_text 'Title Maigret sits it out'
 
     click_link('Display In')
     click_link('MARC View')
-    expect(page).to have_text 'Back to Results | 1 of 12 | Next'
-    expect(page).to have_text '245 1 0 |a Maigret mystified'
+    expect(page).to have_text 'Back to Results | 1 of 4 | Next'
+    expect(page).to have_text '245 1 0 |a Maigret sits it out'
 
     within '#show_toolbar' do
       click_link('Next')
     end
-    expect(page).to have_text 'Back to Results | « Previous | 2 of 12 | Next »'
-    expect(page).to have_text '245 1 4 |a The patience of Maigret'
+    expect(page).to have_text 'Back to Results | « Previous | 2 of 4 | Next »'
+    expect(page).to have_text '245 1 0 |a Maigret keeps a rendezvous'
 
     click_link('Return to Patron View')
-    expect(page).to have_text 'Back to Results | « Previous | 2 of 12 | Next »'
-    expect(page).to have_text 'Title The patience of Maigret'
+    expect(page).to have_text 'Back to Results | « Previous | 2 of 4 | Next »'
+    expect(page).to have_text 'Title Maigret keeps a rendezvous'
   end
 
   # NEXT-1054 - In the single item display menu, change "Services" to "Requests"
@@ -413,14 +413,16 @@ describe 'Catalog Interface' do
     # Use an either/or "satisfy" block below.
     abd1 = 'ʻAbd al-ʻĀl, Aḥmad Muḥammad'.mb_chars.normalize(:d)
     abd2 = 'ʼAbd al-ʼĀl, Aḥmad Muḥammad'.mb_chars.normalize(:d)
+
     # There should be at least 10 records with this author, and they
     # should be first alphabetically.
-    visit catalog_index_path(q: ahmad, search_field: 'author', sort: 'author_sort asc', rows: 30)
+    
+    visit catalog_index_path(q: ahmad, search_field: 'author', 'f[location_facet][]' => 'Online', sort: 'author_sort asc', rows: 30)
     expect(page).to have_css('#documents .document.result')
     all('#documents .document.result .row .details').each do |details|
       expect(details.text).to satisfy { |detail_text|
         detail_text.match(/#{abd1}/) ||
-          detail_text.match(/#{abd2}/)
+        detail_text.match(/#{abd2}/)
       }
     end
   end
@@ -443,7 +445,7 @@ describe 'Catalog Interface' do
   end
 
   # NEXT-934 - question/not improvement: old key symbol?
-  it "shows 'Restricted' note in any datasource" do
+  it "shows restricted note for database record in any datasource" do
     restricted = 'This resource is available only to current faculty, staff and students of Columbia University'
 
     visit solr_document_path(7000423)
@@ -460,6 +462,32 @@ describe 'Catalog Interface' do
 
     visit new_arrivals_show_path(7000423)
     expect(page).to have_text restricted
+  end
+  
+  # NEXT-1590 - Show Restrictions (506 / 540)
+  it "shows restricted note regardless of format" do
+    # We'll just confirm that the label is included on-page
+    restricted_label = 'Access and Use'
+
+    visit solr_document_path(13547640)
+    expect(page).to have_text restricted_label
+
+    visit solr_document_path(13534674)
+    expect(page).to have_text restricted_label
+
+    visit solr_document_path(6344127)
+    expect(page).to have_text restricted_label
+
+    visit solr_document_path(8423790)
+    expect(page).to have_text restricted_label
+
+    # Under the database path...
+    visit databases_show_path(6344127)
+    expect(page).to have_text restricted_label
+
+    # Under the archives path...
+    visit archives_show_path(8423790)
+    expect(page).to have_text restricted_label
   end
 
   # NEXT-1099 - Acquisition Date facet cannot be negated

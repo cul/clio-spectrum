@@ -185,7 +185,7 @@ describe 'Linked field-values in single-item display' do
   it 'should support Series links with apostrophe-like characters' do
     visit solr_document_path(2754188)
     expect(page).to have_text 'Palestine > History'
-    expect(page).to have_text 'Jerusalem, Magnes Press, Hebrew University'
+    expect(page).to have_text 'Jerusalem : Magnes Press, Hebrew University'
 
     # field-label, white-space, field-value
     series_decomposed = 'Sidrat meḥḳarim ʻal shem Uriʼel Hed.'.mb_chars.normalize(:d)
@@ -197,9 +197,10 @@ describe 'Linked field-values in single-item display' do
     expect(page).to have_text('1 - 4 of 4')
     # list out four title snippets to look for...
     expect(find('#documents')).to have_text 'Hityashvut ha-Germanim'
-    expect(find('#documents')).to have_text '18th century; patterns of government'
+    expect(find('#documents')).to have_text '18th century ; patterns of government'
     expect(find('#documents')).to have_text '1918-1929'
-    title_4 = 'ha-ʻUlama u-veʻayot dat ba-ʻolam ha-Muslemi : meḥḳarim le-zekher Uriʾel Hed'
+    # title_4 = 'ha-ʻUlama u-veʻayot dat ba-ʻolam ha-Muslemi : meḥḳarim le-zekher Uriʾel Hed'
+    title_4 = 'ha-ʻUlama u-veʻayot dat ba-ʻolam ha-Muslemi : meḥḳarim le-zekher Uriʼel Hed' 
     expect(find('#documents')).to have_text title_4.mb_chars.normalize(:d)
   end
 
@@ -210,19 +211,19 @@ describe 'Linked field-values in single-item display' do
     visit solr_document_path(10322893)
     # "Also Listed Under Çıpa, H. Erdem, 1971-"
     click_link('H. Erdem, 1971')
-    expect(page).to have_text('1 - 7  of 7')
+    expect(page).to have_text('1 - 8  of 8')
     within('#facet-author li', text: 'Erdem') do
       expect(find('.facet-label')).to have_text 'Çıpa, H. Erdem, 1971'
-      expect(find('.facet-count')).to have_text '7'
+      expect(find('.facet-count')).to have_text '8'
     end
 
     visit solr_document_path(10551688)
     # "Also Listed Under Çıpa, H. Erdem, 1971-"
     click_link('H. Erdem, 1971')
-    expect(page).to have_text('1 - 7 of 7')
+    expect(page).to have_text('1 - 8 of 8')
     within('#facet-author li', text: 'Erdem') do
       expect(find('.facet-label')).to have_text 'Çıpa, H. Erdem, 1971'
-      expect(find('.facet-count')).to have_text '7'
+      expect(find('.facet-count')).to have_text '8'
     end
   end
 

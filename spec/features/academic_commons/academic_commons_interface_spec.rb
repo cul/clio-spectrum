@@ -3,6 +3,7 @@
 require 'spec_helper'
 
 describe 'Academic Commons' do
+
   it 'fielded search should work' do
     # Use this string within the below tests
     search_title_text = 'Structural and Functional Microbial Ecology'
@@ -16,11 +17,6 @@ describe 'Academic Commons' do
     within '.search_box.ac' do
       expect(find('#ac_q')).to be_visible
       fill_in 'q', with: search_title_text
-      # find('btn.dropdown-toggle').click
-      # within '.dropdown-menu' do
-      #   # save_and_open_page()
-      #   click_link('Title')
-      # end
       select 'Title', from: 'search_field'
       find('button[type=submit]').click
     end
@@ -31,6 +27,7 @@ describe 'Academic Commons' do
     expect(page).to have_select('search_field', selected: 'Title')
 
     # The entered fielded search should be echoed on the results page
+    expect(page).to have_text('You searched for:')
     expect(find('.constraint-box')).to have_content('Title: ' + search_title_text)
 
     # And the search results too
