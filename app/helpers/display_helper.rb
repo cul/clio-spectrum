@@ -145,8 +145,7 @@ module DisplayHelper
 
     'Video' => 'video',
     'Map/Globe' => 'map_globe',
-    # The 'book' render template is identical with the 'clio' template - consolidate.
-    'Book' => 'clio',
+    'Book' => 'book',
     'Art Work (Original)' => 'art_work'
   }.freeze
 

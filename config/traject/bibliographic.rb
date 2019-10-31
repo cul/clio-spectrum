@@ -268,8 +268,7 @@ to_field 'repository_display', extract_marc('996a', trim_punctuation: true)
 
 to_field 'boost_exact', extract_marc('999a', trim_punctuation: true)
 
-# Removed 10/2019 in NEXT-1590, use marc_display_field restrictions instead
-# to_field 'database_restrictions_display', extract_marc('506a', trim_punctuation: false)
+to_field 'database_restrictions_display', extract_marc('506a', trim_punctuation: false)
 to_field 'database_discipline_facet', extract_marc('967a', translation_map: 'database_discipline_map')
 to_field 'database_resource_type_facet', extract_marc('966a', translation_map: 'database_resource_type_map')
 

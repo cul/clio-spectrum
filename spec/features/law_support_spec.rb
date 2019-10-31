@@ -45,11 +45,7 @@ describe 'CLIO support for Law records' do
   it 'should link to precise bib for known item' do
     visit catalog_index_path('q' => 'supr* cour* felix colliard aime legoux')
     expect(find('.result.document')).to have_text 'Law Trials C5453'
-    # expect(find('.result.document')).to have_link(I18n.t('blacklight.law.check_message'), href: 'https://pegasus.law.columbia.edu/record=b402660')
-    # 2019 - Law catalog is under transition - use this ridiculous URL to query by bib key
-    law_url = 'https://pegasus.law.columbia.edu/search?ln=en&p=907%3Ab402660*&f=&action_search=Search&c=All+Resources'
-    expect(find('.result.document')).to have_link(I18n.t('blacklight.law.check_message'), href: law_url)
-    
+    expect(find('.result.document')).to have_link(I18n.t('blacklight.law.check_message'), href: 'https://pegasus.law.columbia.edu/record=b402660')
   end
 
   it 'should replace "Requests" menu with link to Law Library' do
