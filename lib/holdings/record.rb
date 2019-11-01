@@ -522,6 +522,9 @@ module Voyager
 
         # NEXT-1229 - make this the first test
         # special collections request service [only service available for items from these locations]
+        # LIBSYS-2505 - Any new locations need to be added in two places - keep them in sync!
+        # - the CLIO OPAC: https://github.com/cul/clio-spectrum/blob/master/lib/holdings/record.rb
+        # - the Aeon request script:  /www/data/cu/lso/lib/aeondata.pm
         if ['rbx', 'off,rbx', 'rbms', 'off,rbms', 'rbi', 'uacl', 'uacl,low', 'off,uacl',
             'clm', 'dic', 'dic4off', 'gax', 'oral', 'rbx4off', 'off,dic',
             'off,oral'].include?(location_code)
