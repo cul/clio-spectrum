@@ -104,10 +104,11 @@ describe 'Boosts', :skip_travis do
     expect(rank(resp, 11528023)).to be <= 1
   end
 
-  it 'gartner' do
-    resp = solr_resp_doc_ids_only('q' => 'gartner')
-    expect(rank(resp, 4759811)).to be <= 1
-  end
+  # NEXT-1605 - CUL no longer has Gartner access
+  # it 'gartner' do
+  #   resp = solr_resp_doc_ids_only('q' => 'gartner')
+  #   expect(rank(resp, 4759811)).to be <= 1
+  # end
 
   it 'agricola' do
     resp = solr_resp_doc_ids_only('q' => 'agricola')
