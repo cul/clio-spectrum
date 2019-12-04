@@ -5,21 +5,25 @@ namespace :bibliographic do
   desc 'Invoke a set of other rake tasks, to be executed daily'
   task daily: :environment do
     startTime = Time.now
-    puts_datestamp '==== START bibliographic:daily ===='
+    puts_datestamp '====>>>  START bibliographic:daily  <<<===='
 
-    puts_datestamp '---- bibliographic:extract:fetch (full) ----'
+    puts_datestamp '==== bibliographic:extract:fetch (full) ===='
     ENV['EXTRACT'] = 'full'
     Rake::Task['bibliographic:extract:fetch'].invoke
     Rake::Task['bibliographic:extract:fetch'].reenable
 
-    puts_datestamp '---- bibliographic:extract:ingest_full_slice ----'
+    puts_datestamp '==== bibliographic:extract:ingest_full_slice ===='
     Rake::Task['bibliographic:extract:ingest_full_slice'].invoke
 
-    puts_datestamp '---- bibliographic:extract:process (cumulative) ----'
+    puts_datestamp '==== bibliographic:extract:process (cumulative) ===='
     ENV['EXTRACT'] = 'cumulative'
     Rake::Task['bibliographic:extract:process'].invoke
 
-    puts_datestamp '---- bibliographic:prune_index ----'
+    puts_datestamp '==== bibliographic:extract:process (incremental) ===='
+    ENV['EXTRACT'] = 'incremental'
+    Rake::Task['bibliographic:extract:process'].invoke
+
+    puts_datestamp '==== bibliographic:prune_index ===='
     Rake::Task['bibliographic:prune_index'].invoke
 
     # Skip the optimize, rely on segment merging
@@ -29,7 +33,7 @@ namespace :bibliographic do
     elapsed_minutes = (Time.now - startTime).div(60).round
     hrs, min = elapsed_minutes.divmod(60)
     elapsed_note = "(#{hrs} hrs, #{min} min)"
-    puts_datestamp "==== END bibliographic:daily #{elapsed_note} ===="
+    puts_datestamp "====>>>  END bibliographic:daily #{elapsed_note}  <<<===="
   end
 
   desc 'delete stale records from the solr index'
