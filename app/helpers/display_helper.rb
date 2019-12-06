@@ -429,7 +429,15 @@ module DisplayHelper
         searches << build_subject_url(display, search)
       end
 
-      searches.join(' > ')
+      output = searches.join(' > ')
+      
+      if Rails.env == 'clio_dev'  || Rails.env == 'development'
+        if (output.match(/Illegal/)) 
+          output = output + " INFO LINK"
+        end
+      end
+      
+      output
       
     # uniq, because different vocabularies may offer same subject term
     end.uniq
