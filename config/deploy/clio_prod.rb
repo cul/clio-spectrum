@@ -8,7 +8,7 @@
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
 # server 'bruckner.cul.columbia.edu', user: 'deployer', roles: %w{app db web}
-server 'lito-nginx-clio-prod1.cul.columbia.edu', user: 'clioserv', roles: %w(app db web)
+server 'clio-nginx-prod1.cul.columbia.edu', user: 'clioserv', roles: %w(app db web)
 
 # set :deploy_to, '/var/www/my_app_name'
 # set :deploy_to, '/opt/passenger/clio_prod'
