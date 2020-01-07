@@ -50,4 +50,16 @@ describe 'Archives Search' do
 
     expect(find('.constraints-container')).to have_text 'You searched for: files'
   end
+
+  # LIBSYS-2686 - should display provenance
+  it "displays provenance" do
+    # visit specific items, look for provenance data
+    visit solr_document_path('11375009')
+    expect(find('.info')).to have_content('Provenance Possibly written for D. T. Stoddard')
+
+    visit solr_document_path('14439340')
+    expect(find('.info')).to have_content('Provenance Stephen Desroches was immediate source of acquisition')
+  end
+
+
 end

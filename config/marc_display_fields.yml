@@ -263,10 +263,6 @@ notes:
         display: a
     -   tag: 556
         display: a
-    -   tag: 561
-        ind1: '1'
-        ind2: :all
-        display: a
     -   tag: 563
         display: a
     -   tag: 565
@@ -321,10 +317,6 @@ notes_art_work:
     -   tag: 550
         display: a
     -   tag: 556
-        display: a
-    -   tag: 561
-        ind1: '1'
-        ind2: :all
         display: a
     -   tag: 563
         display: a
@@ -472,6 +464,8 @@ performers:
         display: a
 provenance:
     -   tag: 561
+        ind1: '1'
+        ind2: :all
         display: a3
 publish:
     -   tag: 260
