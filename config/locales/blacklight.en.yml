@@ -99,7 +99,7 @@ en:
         # title: 'Email This'
         title: 'Share selected item(s) via email'
         to: 'Email:'
-        message: 'Message:'
+        message: 'Message (optional):'
         submit: 'Send'
       text:
         title: 'Title: %{value}'

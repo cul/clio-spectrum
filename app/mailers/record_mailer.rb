@@ -33,7 +33,7 @@ class RecordMailer < ApplicationMailer
     @active_source  = active_source
 
     # Action Mailer base method, uses corresponding view to generate text of the messgae
-    mail(to: details[:to], reply_to: details[:reply_to], subject: subject)
+    mail(to: details[:to], subject: subject)
   end
 
   # def OLD_sms_record(documents, details, url_gen_params)

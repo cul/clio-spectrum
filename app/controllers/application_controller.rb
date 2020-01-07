@@ -352,11 +352,6 @@ class ApplicationController < ActionController::Base
   # Email Action (this will render the appropriate view on GET requests and process the form and send the email on POST requests)
   def email
     mail_to = params[:to]
-    # allow user to enter email address and name to include in email (NEXT-910)
-    if params[:reply_to]
-      reply_to = Mail::Address.new params[:reply_to]
-      reply_to.display_name = params[:name]
-    end
     # We got a post - that is, a submitted form, with a "To" - send the email!
     if request.post? && (current_user.present? || @user_characteristics[:on_campus] || verify_recaptcha)
       if mail_to
@@ -369,7 +364,7 @@ class ApplicationController < ActionController::Base
             flash[:error] = I18n.t('blacklight.email.errors.invalid')
           else
             message_text = params[:message]
-            email = RecordMailer.email_record(@documents, { to: mail_to, reply_to: reply_to.format, message: message_text }, url_gen_params, active_source)
+            email = RecordMailer.email_record(@documents, { to: mail_to, message: message_text }, url_gen_params, active_source)
           end
         else
           flash[:error] = I18n.t('blacklight.email.errors.to.invalid', to: mail_to)
@@ -386,14 +381,6 @@ class ApplicationController < ActionController::Base
         email.deliver_now
         flash[:success] = 'Email sent'
         redirect_to solr_document_path(params['id']) unless request.xhr?
-      end
-    else
-      # pre-fill email form with user's email and name (NEXT-810)
-      if current_user
-        reply_to = Mail::Address.new current_user.email
-        reply_to.display_name = "#{current_user.first_name} #{current_user.last_name}"
-        @display_name = reply_to.display_name if reply_to
-        @reply_to = reply_to.address if reply_to
       end
     end
 
