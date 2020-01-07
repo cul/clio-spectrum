@@ -15,10 +15,10 @@ describe 'collection output tests' do
   end
 
   it 'test condensed holdings output brief', :js do
-    visit solr_document_path('8430339')
+    visit solr_document_path('2033')
     within ('div#clio_holdings') do
       expect(page).to have_text('Butler Stacks (Enter at the Butler Circulation Desk)')
-      expect(page).to have_text('BL80.3 .D74 2011')
+      expect(page).to have_text('PQ6046.B5 S25')
       expect(page).to have_text('Scan & Deliver')
     end
   end
