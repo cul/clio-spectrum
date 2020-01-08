@@ -237,11 +237,12 @@ Rails.application.routes.draw do
   get 'active', to: 'application#render_session_status'
   get 'timeout', to: 'application#render_session_timeout'
 
-  resources :best_bets do
-    collection do
-      get 'hits'
-    end
-  end
+  # NEXT-1594 - BestBets CRUD functionality externalized
+  # resources :best_bets do
+  #   collection do
+  #     get 'hits'
+  #   end
+  # end
 
   resources :logs do
     collection do
