@@ -1,25 +1,28 @@
 site:
   manage:
-    # LibSys staff
+    # LibSys staff (CLIO group, USG)
+    - aes2340
     - ak4338
+    - avk2126
     - bw12
-    - eo33
     - jlc62
     - sam119
     - slt0
-    # SysAdmins
-    # - ttp2113
+    - yz2524
     # Pseudo-user for use in Specs
     - test_mngr
 
-  # for any pre-production features we want to play with
+  # for any pre-production features we want to play with,
+  # and for advanced admin-ish features
   pilot:
     # CLIO dev team
+    - aes2340
     - ak4338
-    - eo33
+    - avk2126
     - jlc62
     - sam119
     - slt0
+    - yz2524
     # spectrum planning --> columbia unified discovery
     - asb2154
     - bw12
@@ -29,14 +32,6 @@ site:
     - jc2120
     - sem2166
     - shs4
-
-best_bets:
-  manage:
-    - bar2147
-    - bw12
-    - cak2158
-    - cjc2260
-    - rc13
 
 item_alerts:
   manage:

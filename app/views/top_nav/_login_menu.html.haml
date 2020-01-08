@@ -15,7 +15,7 @@
         %b.caret
 
   %ul.dropdown-menu.menu-dropdown
-    %li= link_to "My Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087", :target => "_blank"
+    %li= link_to "My Library Account", "http://www.columbia.edu/cgi-bin/cul/resolve?lweb0087", target: "_blank"
     %li= link_to "My Saved Lists", lists_path
     - if current_user
       %li= link_to "My Checked Out Items", checked_out_items_path
@@ -23,12 +23,8 @@
       %li= link_to "My CLIO", user_saml_omniauth_authorize_path
     - if current_user
       %li.nav-divider
-      -# - if current_user.has_role?('site', 'pilot')
-      -#   %li= link_to "CLIO Preferences", preferences_path
-      - if current_user && current_user.best_bets_admin?
-        %li= link_to "Manage Best Bets", best_bets_path
       - if current_user.has_role?('site', 'pilot') || current_user.best_bets_admin?
-        %li= link_to "Best Bets Logs", logs_path(set: 'Best Bets')
+        %li= link_to "CLIO Best Bets Logs", logs_path(set: 'Best Bets')
 
       %li= link_to "Logout", destroy_user_session_path
 
