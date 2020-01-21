@@ -168,8 +168,9 @@ module CulCatalogHelper
     return true if params.fetch('search_field', '') == 'series_title'
 
     # Advanced Search
-    return true if params[:adv] && params[:adv].values.any? do |adv_clause|
-      adv_clause['field'] == 'series_title'
+    return false unless params.key?(:adv) and params[:adv].is_a?(Hash)
+    return true if params[:adv].values.any? do |adv_clause|
+      adv_clause.present? && adv_clause['field'] == 'series_title'
     end
 
     false

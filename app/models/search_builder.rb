@@ -231,7 +231,8 @@ class SearchBuilder < Blacklight::SearchBuilder
       facet_list = f_request_params.keys.map { |ff| ff.gsub(/^-/, '') }.uniq.sort
 
       facet_list.each do |facet_key|
-        values = Array(f_request_params[facet_key]).reject(&:empty?)
+        # values = Array(f_request_params[facet_key]).reject(&:empty?)
+        values = Array(f_request_params[facet_key]).reject(&:blank?)
 
         excluded_values = Array(f_request_params["-#{facet_key}"])
         operator = blacklight_params[:f_operator] && blacklight_params[:f_operator][facet_key] || 'AND'

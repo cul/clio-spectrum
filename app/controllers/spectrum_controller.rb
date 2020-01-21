@@ -121,9 +121,15 @@ class SpectrumController < ApplicationController
 
   def facet
     # render values of a facet, nothing else.
-
     # This is only used for Summon article facets
     @results = get_results('articles')
+
+    # the search failed? log the error, return null to the browser.
+    # (don't show client details of the error they caused)
+    if @search.nil?
+      Rails.logger.error "SpectrumController#facets() failed search: #{@results['articles'].errors}"
+      render(body: nil) && return
+    end
 
     respond_to do |format|
       # regular full-page view
