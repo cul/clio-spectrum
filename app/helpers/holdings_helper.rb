@@ -104,20 +104,21 @@ module HoldingsHelper
       links.reject! { |link| link[:title].to_s.strip == 'Google' }
     end
     
-    # LIBSYS-2405 - create link from 776$w in some cases
-    if document.has_key?(:marc_display) and Rails.env != 'clio_prod'
-      document.to_marc.each_by_tag('776') do |t776|
-        next unless t776.indicator1 == '0'
-        next unless t776['i'] and t776['w']
-        # Sequence - MFHD ID used to gather all associated fields
-        record_control_number = t776['w']
-        next unless record_control_number.starts_with? '(NNC)'
-        record_control_number.gsub!(/\D/, '')
-        next unless record_control_number.length > 0
-        # url = "https://clio.columbia.edu/catalog/#{record_control_number}"
-        links << { title: t776['i'], url: solr_document_path(record_control_number) }
-      end
-    end
+    # Nope, this doesn't belong here.  776 isn't an "online" link.
+    # # LIBSYS-2405 - create link to "original analog" from 776$w
+    # if document.has_key?(:marc_display) and Rails.env != 'clio_prod'
+    #   document.to_marc.each_by_tag('776') do |t776|
+    #     next unless t776.indicator1 == '0'
+    #     next unless t776['i'] and t776['w']
+    #     # Sequence - MFHD ID used to gather all associated fields
+    #     record_control_number = t776['w']
+    #     next unless record_control_number.starts_with? '(NNC)'
+    #     record_control_number.gsub!(/\D/, '')
+    #     next unless record_control_number.length > 0
+    #     # url = "https://clio.columbia.edu/catalog/#{record_control_number}"
+    #     links << { title: t776['i'], url: solr_document_path(record_control_number) }
+    #   end
+    # end
 
     links
     #    links.sort { |x,y| x.first <=> y.first }
