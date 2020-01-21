@@ -9,13 +9,14 @@ describe 'Libraries Website DAM search' do
     end
   end
 
-  it 'should show DAM filenames and format icons for DOC' do
-    visit lweb_index_path('q' => 'Recalling Boxes for Processing doc dam')
-    within all('.result.document').first do
-      expect(find('img')['src']).to have_content 'doc.png'
-      expect(find('.lweb_dam_document')).to have_text '.doc'
-    end
-  end
+  # Can't find a reliable example document for this format icon
+  # it 'should show DAM filenames and format icons for DOC' do
+  #   visit lweb_index_path('q' => 'Recalling Boxes for Processing doc dam')
+  #   within all('.result.document').first do
+  #     expect(find('img')['src']).to have_content 'doc.png'
+  #     expect(find('.lweb_dam_document')).to have_text '.doc'
+  #   end
+  # end
 
   it 'should show DAM filenames and format icons for PDF' do
     visit lweb_index_path('q' => 'dam pdf guide')
