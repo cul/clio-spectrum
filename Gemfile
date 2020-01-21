@@ -107,7 +107,7 @@ gem 'net-sftp'
 gem 'faraday'
 
 # For, e.g., Google Custom Search API
-gem 'google-api-client'
+gem 'google-api-client', '~> 0.36'
 
 # 10/15 - not giving us insight beyond our debug_timestamp info
 # # 3/15, comment out for now to simplify output,
@@ -127,7 +127,10 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 # Assets processing
-gem 'sass-rails'
+# gem 'sass-rails'
+# sass-rails 6.x uses sassc, which won't build on our CentOS 6 VMs
+gem 'sass-rails', '~> 5.0'
+
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'bootstrap-sass', '~> 3.3.0'
