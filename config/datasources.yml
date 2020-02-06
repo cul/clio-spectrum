@@ -282,6 +282,22 @@ datasources:
         author: Author
         subject: Subject
 
+  govdocs:
+    name: U.S. Government Information
+    render_options:
+      format: clio
+    search_box:
+      advanced: false
+      route: govdocs_index_path
+      placeholder: U.S. Government Information
+      search_type: blacklight
+      search_fields:
+        all_fields: All Fields
+        title: Title
+        author: Author
+        subject: Subject
+
+
   journals:
     name: E-Journal Titles
     title: Journal Titles
@@ -487,6 +503,8 @@ default_datasource_bar:
     - databases
     - journals
     - archives
+    # NEXT-1616 - uncomment to make public
+    # - govdoc
     - new_arrivals
 
 

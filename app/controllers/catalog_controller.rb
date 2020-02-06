@@ -129,6 +129,8 @@ class CatalogController < ApplicationController
              journals_show_path
            when 'archives'
              archives_show_path
+           when 'govdocs'
+             govdocs_show_path
            when 'new_arrivals'
              new_arrivals_show_path
            else

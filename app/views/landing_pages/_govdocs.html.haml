@@ -1,0 +1,35 @@
+= display_search_boxes('govdocs')
+
+.row
+  .landing_main.col-sm-8
+    .title U.S. Government Information
+
+    = render partial: '/datasource_warning', locals: {warning: warning}
+
+    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Aliquam faucibus purus in massa tempor nec feugiat nisl.
+
+  .landing_side.col-sm-4
+    .well.sidebar-nav
+      .nav
+      %ul.nav.nav-list
+        %li.nav-header Guide
+        %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/clio/guides/catalog-guide/", :target => "_blank"
+        %li.nav-divider
+
+      %ul.nav.nav-list
+        %li.nav-header Related Links
+
+        %li= link_to "Lorem ipsum",
+            "http://www.history-lab.org/"
+
+        %li= link_to "Freedom of Information Archive (FOIA)",
+            "http://www.history-lab.org/"
+
+        %li= link_to "U.S. Government Documents",
+            "https://library.columbia.edu/libraries/usgd.html"
+
+        %li= link_to "Lorem ipsum",
+            "http://www.history-lab.org/"
+

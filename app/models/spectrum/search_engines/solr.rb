@@ -152,6 +152,8 @@ module Spectrum
           new_arrivals_index_path(params)
         when 'archives'
           archives_index_path(params)
+        when 'govdocs'
+          govdocs_index_path(params)
         end
       end
 
@@ -639,6 +641,44 @@ module Spectrum
               config.default_solr_params = {
                 qt: 'search',
                 fq: ['{!raw f=source_facet}archive']
+              }
+
+              config.add_facet_field 'format',
+                                     # label: 'Format', limit: 3, open: true
+                                     label: 'Format', limit: 3, collapse: false
+              config.add_facet_field 'pub_date_sort',
+                                     label: 'Publication Date', limit: 3,
+                                     range: { segments: false }
+              config.add_facet_field 'author_facet',
+                                     label: 'Author', limit: 3
+              config.add_facet_field 'repository_facet',
+                                     label: 'Repository', limit: 5
+              config.add_facet_field 'location_facet',
+                                     label: 'Location', limit: 5
+              config.add_facet_field 'language_facet',
+                                     label: 'Language', limit: 5
+              config.add_facet_field 'subject_topic_facet',
+                                     label: 'Subject', limit: 10
+              config.add_facet_field 'subject_geo_facet',
+                                     label: 'Subject (Region)', limit: 10
+              config.add_facet_field 'subject_era_facet',
+                                     label: 'Subject (Era)', limit: 10
+              config.add_facet_field 'subject_form_facet',
+                                     label: 'Subject (Genre)', limit: 10
+              config.add_facet_field 'lc_1letter_facet',
+                                     # label: 'Call Number', limit: 26, open: false
+                                     label: 'Call Number', limit: 30, collapse: true
+              config.add_facet_field 'lc_subclass_facet',
+                                     label: 'Refine Call Number', limit: 500
+
+              add_search_fields(config, 'title', 'author', 'subject')
+
+            when 'govdocs'
+              default_catalog_config(config, :display_fields, :sorts)
+
+              config.default_solr_params = {
+                qt: 'search',
+                fq: ['{!raw f=format}US Government Document']
               }
 
               config.add_facet_field 'format',

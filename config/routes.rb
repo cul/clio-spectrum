@@ -158,6 +158,13 @@ Rails.application.routes.draw do
   get 'archives/:id/librarian_view', to: 'catalog#librarian_view', as: 'librarian_view_archives'
   match 'archives/:id/librarian_view_track', via: [:post], to: 'archives#librarian_view_track'
 
+  get 'govdocs', to: 'catalog#index', as: :govdocs_index
+  get 'govdocs/:id(.:format)', via: [:get], to: 'catalog#show', as: :govdocs_show
+  get 'govdocs/facet/:id(.format)', to: 'catalog#facet', as: :govdocs_facet
+  post 'govdocs/:id/track(.:format)', to: 'catalog#track', as: :govdocs_track
+  get 'govdocs/:id/librarian_view', to: 'catalog#librarian_view', as: 'librarian_view_govdocs'
+  match 'govdocs/:id/librarian_view_track', via: [:post], to: 'govdocs#librarian_view_track'
+
   # NEXT-483 A user should be able to browse results using previous/next
   # this requires GET ==> show, and POST ==> update, for reasons
   # explained in the ticket.
