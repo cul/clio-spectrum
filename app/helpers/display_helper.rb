@@ -64,8 +64,8 @@ module DisplayHelper
     'Image' => 'image',
     'Computer Program' => 'computer-file',
     'Loose-leaf' => 'journal',
-    'US Government Document' => 'govdoc2',
-    'NY State/City Government Document' => 'govdoc2',
+    'US Government Document' => 'govdoc',
+    'NY State/City Government Document' => 'govdoc',
     'Art Work (Original)' => 'art-work'
   }.freeze
 
