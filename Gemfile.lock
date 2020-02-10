@@ -205,8 +205,6 @@ GEM
     httpclient (2.8.3)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
-    jbuilder (2.9.1)
-      activesupport (>= 4.2.0)
     jquery-datatables-rails (3.4.0)
       actionpack (>= 3.1)
       jquery-rails
@@ -284,7 +282,7 @@ GEM
       activerecord (>= 4.2)
       request_store (~> 1.1)
     public_suffix (4.0.3)
-    rack (2.1.2)
+    rack (2.2.1)
     rack-attack (6.2.2)
       rack (>= 1.0, < 3)
     rack-cors (1.1.1)
@@ -486,7 +484,6 @@ DEPENDENCIES
   google-api-client (~> 0.36)
   haml
   httpclient
-  jbuilder
   jquery-datatables-rails
   jquery-rails
   jquery-ui-rails

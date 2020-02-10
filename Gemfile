@@ -135,8 +135,9 @@ gem 'coffee-rails'
 gem 'uglifier'
 gem 'bootstrap-sass', '~> 3.3.0'
 
-# JSON APIs, for Best Bets, etc.
-gem 'jbuilder'
+# Best Bets CRUD externalized
+# # JSON APIs, for Best Bets, etc.
+# gem 'jbuilder'
 
 # Typeahead - for Best Bets, etc.
 gem 'twitter-typeahead-rails'
