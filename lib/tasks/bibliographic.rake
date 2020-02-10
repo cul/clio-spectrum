@@ -173,10 +173,11 @@ namespace :bibliographic do
         Rails.logger.info("#{id_count} ids to delete.")
         Rails.logger.info("(deleting in slices of #{DELETES_SLICE} ids)") if id_count > DELETES_SLICE
 
+        solr_url = Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
+        solr_connection = RSolr.connect(url: solr_url)
+
         ids_to_delete.each_slice(DELETES_SLICE) do |slice|
           begin
-            solr_url = Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
-            solr_connection = RSolr.connect(url: solr_url)
             solr_delete_ids(solr_connection, slice)
             Rails.logger.info("#{slice.size} ids deleted (if in index)")
           rescue => e
@@ -184,6 +185,7 @@ namespace :bibliographic do
             raise e
           end
         end
+        solr_connection.commit
       end
     end
 
