@@ -18,10 +18,12 @@ namespace :bibliographic do
     puts_datestamp '==== bibliographic:extract:process (cumulative) ===='
     ENV['EXTRACT'] = 'cumulative'
     Rake::Task['bibliographic:extract:process'].invoke
+    Rake::Task['bibliographic:extract:process'].reenable
 
     puts_datestamp '==== bibliographic:extract:process (incremental) ===='
     ENV['EXTRACT'] = 'incremental'
     Rake::Task['bibliographic:extract:process'].invoke
+    Rake::Task['bibliographic:extract:process'].reenable
 
     puts_datestamp '==== bibliographic:prune_index ===='
     Rake::Task['bibliographic:prune_index'].invoke
