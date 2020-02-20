@@ -141,7 +141,7 @@ creator:
         search: abcdefghklmnoprstu
 credit_line:
     -   tag: 541
-        ind1: '1'
+        ind1: ' 1'
         ind2: :all
         display: abcdefhno3
 credits:
@@ -254,7 +254,7 @@ notes:
     -   tag: 536
         display: abcdefgh
     -   tag: 541
-        ind1: '1'
+        ind1: ' 1'
         ind2: :all
         display: a
     -   tag: 547
@@ -464,7 +464,7 @@ performers:
         display: a
 provenance:
     -   tag: 561
-        ind1: '1'
+        ind1: ' 1'
         ind2: :all
         display: a3
 publish:
