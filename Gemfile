@@ -133,6 +133,7 @@ gem 'sass-rails', '~> 5.0'
 
 gem 'coffee-rails'
 gem 'uglifier'
+# pin to 3.3, because 3.4 requires sassc, which won't build on our CenTOS 6 VMs
 gem 'bootstrap-sass', '~> 3.3.0'
 
 # Best Bets CRUD externalized
