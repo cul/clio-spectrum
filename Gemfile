@@ -36,7 +36,7 @@ gem 'rest-client'
 gem 'gmaps4rails'
 
 # pagination
-gem 'kaminari'
+gem 'kaminari', '~> 1.1.0'
 
 # Authentication
 gem 'devise', '~> 4.4.0'
