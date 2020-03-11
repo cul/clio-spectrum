@@ -23,9 +23,9 @@ class BackendController < ApplicationController
     # The default is to wait 60/120 seconds - but we expect an instant response,
     # anything else means trouble, and we should give up immediately so as not
     # to not sit on resources.
-    hc.connect_timeout = 10 # default 60
-    hc.send_timeout    = 10 # default 120
-    hc.receive_timeout = 10 # default 60
+    hc.connect_timeout = 5 # default 60
+    hc.send_timeout    = 5 # default 120
+    hc.receive_timeout = 5 # default 60
     hc
   end
 
