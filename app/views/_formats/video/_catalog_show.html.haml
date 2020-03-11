@@ -28,7 +28,7 @@
   = add_row("System Details", display_marc_field(marc, 'system_details'))
   = add_row("Credits", display_marc_field(marc, 'credits'))
   = add_row("Cast", display_marc_field(marc, 'cast'))
-  = add_row("Language", display_marc_field(marc, 'language'))
+  = add_row("Language", document["language_facet"], :join => '; ')
   = add_row("Language Note", display_marc_field(marc, 'language'))
 
   = add_row("Summary", display_marc_field(marc, 'summary'))
