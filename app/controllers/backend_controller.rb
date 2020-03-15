@@ -121,6 +121,9 @@ class BackendController < ApplicationController
   #   "CU18799175"  =>  "Available"
   # }
   def self.scsb_availabilities(id)
+    # LIBSYS-2892 - Suspend all Offsite ReCAP borrowing - it's all Unavailable
+    return nil
+    
     if id.empty?
       logger.error 'BackendController#scsb_availabilities passed empty id'
       return nil
@@ -158,11 +161,13 @@ class BackendController < ApplicationController
         statuses[bib] = 'unavailable'
         next
       end
-      scsb_status.each do |_barcode, availability|
-        if availability == 'Available'
-          availables += 1
-        else
-          unavailables += 1
+      if scsb_status.present?
+        scsb_status.each do |_barcode, availability|
+          if availability == 'Available'
+            availables += 1
+          else
+            unavailables += 1
+          end
         end
       end
 
