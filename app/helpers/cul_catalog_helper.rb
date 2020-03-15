@@ -179,8 +179,16 @@ module CulCatalogHelper
   def law_requests_blurb
     text = 'Requests serviced by the '.html_safe
     link = link_to('Arthur W. Diamond Law Library', 'https://web.law.columbia.edu/library', target: '_blank')
-    blurb = content_tag(:div, "#{text}<nobr>#{link}</nobr>".html_safe, class: 'law_blurb')
+    blurb = content_tag(:div, "#{text}<nobr>#{link}</nobr>".html_safe, class: 'service_menu_blurb')
   end
+
+  def covid_19_blurb
+    text = '<font color="darkred" weight="bold"><small>Interlibrary Loan, Borrow Direct, and Offsite ReCAP requests suspended until further notice.</small></font>'.html_safe
+    # link = link_to('Read More...', 'https://library.columbia.edu/about/news/alert.html', target: '_blank')
+    # blurb = content_tag(:div, "#{text}<nobr>#{link}</nobr>".html_safe, class: 'service_menu_blurb')
+    blurb = content_tag(:div, "#{text}".html_safe, class: 'service_menu_blurb')
+  end
+
 
   def get_badge_html(document)
     return nil unless document && document.id

@@ -164,9 +164,13 @@ module HoldingsHelper
   def service_links(services, clio_id)
     return [] unless services && clio_id
 
-    services.select { |svc| SERVICE_ORDER.index(svc) }.sort_by { |svc| SERVICE_ORDER.index(svc) }.map do |svc|
+    service_links = services.select { |svc| SERVICE_ORDER.index(svc) }.sort_by { |svc| SERVICE_ORDER.index(svc) }.map do |svc|
       # title, link, extra = SERVICES[svc]
       title, link, extra = serviceConfig[svc]
+      
+      # LIBSYS-2892 - ILL, BD, Offsite services suspended
+      next if ['ill','borrow_direct','offsite'].include?(svc)
+      
       bibid = clio_id.to_s
       # URL services
       if link =~ /^http/
@@ -180,6 +184,10 @@ module HoldingsHelper
         link_to title, '#', onclick: onclick_js.html_safe
       end
     end
+    
+    service_links = service_links.compact
+
+    return service_links.compact
   end
 
   def process_online_title(title)
