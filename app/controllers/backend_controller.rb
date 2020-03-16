@@ -48,6 +48,9 @@ class BackendController < ApplicationController
   #   }
   # }
   def self.circ_status(id)
+    # LIBSYS-2891 / LIBSYS-2892 - ALL libraries closed - all circulating material unavailable
+    return nil
+    
     # We should only have Voyager IDs, or timestamp records (99i, 99c, etc.)
     unless id.match(/^\d+$/) || id.match(/^99\w$/)
       logger.warn "BackendController#circ_status passed non-numeric id: #{id}"

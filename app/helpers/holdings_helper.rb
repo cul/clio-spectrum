@@ -163,13 +163,16 @@ module HoldingsHelper
 
   def service_links(services, clio_id)
     return [] unless services && clio_id
+    
+    # LIBSYS-2891 / LIBSYS-2892 - libraries closed, suspend ALL services
+    return []
 
     service_links = services.select { |svc| SERVICE_ORDER.index(svc) }.sort_by { |svc| SERVICE_ORDER.index(svc) }.map do |svc|
       # title, link, extra = SERVICES[svc]
       title, link, extra = serviceConfig[svc]
       
-      # LIBSYS-2892 - ILL, BD, Offsite services suspended
-      next if ['ill','borrow_direct','offsite'].include?(svc)
+      # # LIBSYS-2892 - ILL, BD, Offsite services suspended
+      # next if ['ill','borrow_direct','offsite'].include?(svc)
       
       bibid = clio_id.to_s
       # URL services

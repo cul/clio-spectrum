@@ -121,6 +121,10 @@ $ ->
   $.getJSON url, (data) ->
     for bib, holdings of data
       for holding_id, status of data[bib].statuses
+        
+        # LIBSYS-2891 / LIBSYS-2892 - All libraries CLOSED - all items UNAVAILABLE
+        status = 'unavailable'
+        
         selector = "img.availability.holding_" + holding_id + ":not(.offsite)"
         status_upcase = status.charAt(0).toUpperCase() + status.slice(1)
         $(selector).attr("src", "/static-icons/" + status + ".png")
