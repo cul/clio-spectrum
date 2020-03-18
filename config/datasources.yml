@@ -16,7 +16,7 @@ datasources:
   quicksearch:
     name: Quicksearch
     no_facets: true
-    warning:  <strong>Library locations are closed until further notice due to the COVID-19 health emergency.&nbsp; <a href="https://library.columbia.edu/about/news/alert.html">Read More...</a></strong>
+    Xwarning:  <strong>Library locations are closed until further notice due to the COVID-19 health emergency.&nbsp; <a href="https://library.columbia.edu/about/news/alert.html">Read More...</a></strong>
     search_box:
       route: quicksearch_index_path
       placeholder: Catalog, Articles, Academic Commons, Library Web 
@@ -114,7 +114,7 @@ datasources:
     name: Catalog
     title: Catalog
     description: Library books, journals, music, videos, databases, archival collections, and online resources
-    warning:  <strong>Library locations are closed until further notice due to the COVID-19 health emergency.&nbsp; <a href="https://library.columbia.edu/about/news/alert.html">Read More...</a></strong>
+    Xwarning:  <strong>Library locations are closed until further notice due to the COVID-19 health emergency.&nbsp; <a href="https://library.columbia.edu/about/news/alert.html">Read More...</a></strong>
     Xwarning:  Due to system maintenance, certain CLIO services will be unavailable beginning at 7pm, Friday, January 3rd.  We expect full service to be restored by Monday morning, January 6th.
     # warning: "Please note: Due to a service upgrade, it will not be possible to place Offsite requests (for both electronic and physical delivery) between 8/9 and 8/13.<br>If you plan to pickup or use Offsite materials between those dates please place any requests by <b>2:00pm on Monday, August 7.</b>"
     render_options:
@@ -336,7 +336,7 @@ datasources:
   lweb:
     name: Libraries Website
     title: Libraries Website
-    warning:  <strong>Library locations are closed until further notice due to the COVID-19 health emergency.&nbsp; <a href="https://library.columbia.edu/about/news/alert.html">Read More...</a></strong>
+    Xwarning:  <strong>Library locations are closed until further notice due to the COVID-19 health emergency.&nbsp; <a href="https://library.columbia.edu/about/news/alert.html">Read More...</a></strong>
     description: Information about the libraries from the Libraries Website
     render_options:
       format: lweb

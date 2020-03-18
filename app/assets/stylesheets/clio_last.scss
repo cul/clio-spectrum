@@ -19,7 +19,7 @@ body {
 }
 /* on blank_layout, UNDO the 60px top navbar padding inserted by ldpd toolkit */
 body.blank_layout {
-  padding-top: 10px;
+  padding-top: 0px;
 }
 
 #outer-container {

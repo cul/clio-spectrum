@@ -41,6 +41,8 @@ class ApplicationController < ActionController::Base
   # https://github.com/airblade/paper_trail/#4a-finding-out-who-was-responsible-for-a-change
   before_action :set_paper_trail_whodunnit
 
+  before_action :set_top_banner_content
+
   # Access to the current ApplicationController instance from anywhere
   # https://stackoverflow.com/a/33774123/1343906
   cattr_accessor :current
@@ -619,6 +621,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_top_banner_content
+    @top_bannner_content = APP_CONFIG['top_banner'] || ''
+  end
+  
   # # UNIX-5942 - work around spotty CUIT DNS
   # def cache_dns_lookups
   #   dns_cache = []
