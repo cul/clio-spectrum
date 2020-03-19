@@ -622,7 +622,53 @@ class ApplicationController < ActionController::Base
   end
 
   def set_top_banner_content
-    @top_bannner_content = APP_CONFIG['top_banner'] || ''
+    # Don't run 'set' if we've already set the value.
+    # We don't want to fetch on every page 
+    return if $top_banner_content.present?
+    
+    Rails.logger.debug "set_top_banner_content() - $top_banner_content not set"
+
+    # the top-banner config must be defined
+    top_banner_config = APP_CONFIG['top_banner']
+    return unless top_banner_config.present?
+    return unless top_banner_config.is_a?(Hash)
+    
+    # the top-banner must be enabled
+    return unless top_banner_config['enabled'].present?
+    return unless top_banner_config['enabled']
+
+    # Grab our hard-coded content
+    $top_bannner_content = top_banner_config['content'] || ''
+    
+    # Are we supposed to attempt to fetch LWeb JSON alert?
+    return unless top_banner_config['fetch_enabled'].present?
+    return unless top_banner_config['fetch_enabled']
+    return unless top_banner_config['url'].present?
+
+    hc = HTTPClient.new
+    # Expect instant response.  Anything else, don't stall CLIO.
+    hc.connect_timeout = 1 # default 60
+    hc.send_timeout    = 1 # default 120
+    hc.receive_timeout = 1 # default 60
+    begin
+      # Complex fetch/parse of remote system's data structure.
+      # If any of this fails, just fallback to hardcoded content.
+      json_results = hc.get_content(top_banner_config['url'])
+      lweb_alerts = JSON.parse(json_results).with_indifferent_access
+      return unless lweb_alerts.present? && lweb_alerts.is_a?(Hash)
+      return unless lweb_alerts.key?('alerts') && lweb_alerts['alerts'].is_a?(Array)
+      Array(lweb_alerts['alerts']).each do |alert|
+        next unless alert && alert.is_a?(Hash)
+        next unless alert.key?('type') && alert['type'] == 'critical'
+        next unless alert.key?('targets') && alert['targets'].is_a?(Array)
+        next unless alert['targets'].include?('all-sites')
+        next unless alert.key?('html')
+        Rails.logger.debug "set_top_banner_content() - setting from json"
+        $top_bannner_content = alert['html']
+      end
+    rescue
+      return
+    end
   end
   
   # # UNIX-5942 - work around spotty CUIT DNS
