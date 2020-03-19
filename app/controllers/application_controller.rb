@@ -622,6 +622,9 @@ class ApplicationController < ActionController::Base
   end
 
   def set_top_banner_content
+    # top banner doesn't apply to ajax/xhr requests
+    return if request.xhr?
+    
     # Don't run 'set' if we've already set the value.
     # We don't want to fetch on every page 
     return if $top_banner_content.present?
