@@ -77,7 +77,7 @@ Columbia Libraries Unified Search &amp; Discovery
  - load the Locations, Libraries and Library Hours 
  
         ````
-        rake hours:sync
+        rake hours:update_all
         rake locations:load
         ````
 6. Start the server `rails s`
