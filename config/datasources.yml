@@ -485,6 +485,7 @@ datasources:
 
 # This is the _default_ sidebar.
 # It can be overridden in app_config, and eventually by user preference.
+#NEXT-1610 ebooks moved up for emphasis
 default_datasource_bar:
   major_sources:
     - quicksearch
@@ -493,6 +494,7 @@ default_datasource_bar:
     - journals
     - archives
     - new_arrivals
+    - ebooks
     - articles
     # - academic_commons
     - ac
@@ -500,16 +502,11 @@ default_datasource_bar:
     - lweb
     - geo
   minor_sources:
-    - ebooks
     - dissertations
   # NEXT-1145 - Deemphasize sub-sources of Catalog datasource
   subsources:
     - databases
     - journals
     - archives
-    # NEXT-1616 - uncomment to make public
-    # - govdoc
     - new_arrivals
-
-
 
