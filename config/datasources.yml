@@ -47,7 +47,7 @@ datasources:
     supersource: articles
     name: Articles
     title: Summon
-    description: Dissertations and theses from the Articles database. Many are full-text.
+    description: Dissertations and theses from the Articles+ database. Many are full-text.
     warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.
     render_options:
       format: article
@@ -69,8 +69,8 @@ datasources:
   summon_ebooks:
     supersource: articles
     name: Articles
-    title: Summon
-    description: E-books from the Articles database
+    title: Articles+
+    description: E-books from the Articles+ database
     warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.  eboo.
     render_options:
       format: article
