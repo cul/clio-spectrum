@@ -131,6 +131,11 @@ module DatasourcesHelper
     li_classes << 'selected' if datasource == options[:active_source]
     li_classes << 'subsource' if get_datasource_bar['subsources'].include?(datasource)
 
+    # NEXT-1630 raising visibility of ebook resources by enlarging font
+    if datasource == 'ebooks' 
+        li_classes << ['ebooks']
+    end
+
     # li_classes << 'subsource' if options[:subsource]
     # li_classes << 'subsource' if get_datasource_bar['subsources'].include?(source)
 
