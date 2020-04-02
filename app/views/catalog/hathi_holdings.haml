@@ -35,7 +35,8 @@
           -# be hidden inside a hide/show expander.
           - visibility = (i >= show_count) ? 'expander_more' : ''
           %tr.hathi_holdings_row{class: visibility}
-            -# %td.hathi_holdings_cell
+            -# NEXT-1633 - COVID - restore Limited View Hathi links
+            %td.hathi_holdings_cell
               -# %a{href: "#{item['itemURL']}"}= item['usRightsString']
               %a{href: hathi_item_link(item)}= item['usRightsString'].gsub(/ \(search-only\)/, '')
               &nbsp;
