@@ -356,11 +356,14 @@ module HoldingsHelper
     hathi_holdings_data
   end
 
+  # hathi urls look like:
+  #   http://catalog.hathitrust.org/api/volumes/brief/oclc/2912401.json
   def fetch_hathi_brief(id_type, id_value)
     return nil unless id_type && id_value
 
     hathi_brief_url = 'http://catalog.hathitrust.org/api/volumes' \
                       "/brief/#{id_type}/#{id_value}.json"
+    Rails.logger.debug "hathi_brief_url=#{hathi_brief_url}"
     http_client = HTTPClient.new
     http_client.connect_timeout = 5 # default 60
     http_client.send_timeout    = 5 # default 120
@@ -378,10 +381,11 @@ module HoldingsHelper
                         hathi_holdings_data['records'] &&
                         !hathi_holdings_data['records'].empty?
 
-      # NEXT-1357 - Only display 'Full View' Hathi Trust records
-      hathi_holdings_data['items'].delete_if do |item|
-        item['usRightsString'].downcase.include?('limited')
-      end
+      ### NEXT-1633 - COVID - stop suppressing Limited View Hathi links
+      ### # NEXT-1357 - Only display 'Full View' Hathi Trust records
+      ### hathi_holdings_data['items'].delete_if do |item|
+      ###   item['usRightsString'].downcase.include?('limited')
+      ### end
 
       # Only display Hathi 'Full view' holdings.
       # If there are none, supress any Hathi data.
@@ -394,6 +398,32 @@ module HoldingsHelper
       Rails.logger.error "Error fetching #{hathi_brief_url}: #{error.message}"
       return nil
     end
+  end
+
+  def hathi_item_link(item)
+    link = nil
+
+    # if the 'item' we get isn't parsable for any reason,
+    # we'll just return nil
+    begin
+      # For Full View items, just return the direct itemURL
+      if (item['usRightsString'].downcase.include?('full'))
+        return item['itemURL']
+      end
+      # For any other rights ("Limited", or any unexpected value),
+      # we'll construct a shib sso shortcut URL.
+      shibURL  = 'https://babel.hathitrust.org/Shibboleth.sso/Login?' +
+                 'entityID=urn:mace:incommon:columbia.edu&target='
+      babelURL = 'https://babel.hathitrust.org/cgi/pt?id='
+      # do we want this?
+      # checkoutParam = ';a=checkout'
+      # encodedURL = CGI.escape( babelURL + item['htid'] + checkoutParam)
+      encodedURL = CGI.escape( babelURL + item['htid'])
+      link = shibURL + encodedURL
+          rescue
+      return nil
+    end
+    return link
   end
 
   def format_temp_location_note(temp_location)

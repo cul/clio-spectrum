@@ -58,7 +58,7 @@
 //= require datasources
 //= require dropdown_select
 //= require google_analytics
-//= require hathi
+// UNUSED //= require hathi
 //= require holdings
 //= require ie_warnings
 //= require in_viewport

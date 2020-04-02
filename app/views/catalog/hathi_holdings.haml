@@ -17,7 +17,9 @@
         %a{href: "#{recordURL}"} Summary Page
 
       .holdings_subtitle
-        Full View Items
+        -# NEXT-1633 - COVID - restore Limited View Hathi links
+        -# Full View Items
+        Viewability
       
       - item_count = hathi_holdings_data['items'].size
       - show_count = 25
@@ -34,10 +36,15 @@
           - visibility = (i >= show_count) ? 'expander_more' : ''
           %tr.hathi_holdings_row{class: visibility}
             -# %td.hathi_holdings_cell
-            -#   %a{href: "#{item['itemURL']}"}= item['usRightsString']
+              -# %a{href: "#{item['itemURL']}"}= item['usRightsString']
+              %a{href: hathi_item_link(item)}= item['usRightsString'].gsub(/ \(search-only\)/, '')
+              &nbsp;
+              %a{href: hathi_item_link(item) + ';a=checkout'}
+                [auto-checkout-link]
             %td.hathi_holdings_cell
               -# enum-cron is 'false' for bookish items
-              %a{href: "#{item['itemURL']}"}= item['enumcron'] || 'Full view'
+              -# NEXT-1633 - COVID - restore Limited View Hathi links
+              %a{href: "#{item['itemURL']}"}= item['enumcron'] || ''
             %td.hathi_holdings_cell
               - if item['orig']
                 %em= "(original from #{item['orig']})"
