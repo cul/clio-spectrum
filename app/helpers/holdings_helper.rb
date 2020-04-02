@@ -403,7 +403,7 @@ module HoldingsHelper
   
   def hathi_item_link_label(item)
     if (item['usRightsString'].downcase.include?('full'))
-      return item['itemURL']
+      return item['usRightsString']
     elsif (item['usRightsString'].downcase.include?('limited'))
       return 'Log in for temporary access'
     else
