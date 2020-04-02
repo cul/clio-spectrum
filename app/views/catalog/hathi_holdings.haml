@@ -38,14 +38,11 @@
             -# NEXT-1633 - COVID - restore Limited View Hathi links
             %td.hathi_holdings_cell
               -# %a{href: "#{item['itemURL']}"}= item['usRightsString']
-              %a{href: hathi_item_link(item)}= item['usRightsString'].gsub(/ \(search-only\)/, '')
-              &nbsp;
-              %a{href: hathi_item_link(item) + ';a=checkout'}
-                [auto-checkout-link]
+              %a{href: hathi_item_url(item)}= hathi_item_link_label(item)
             %td.hathi_holdings_cell
               -# enum-cron is 'false' for bookish items
               -# NEXT-1633 - COVID - restore Limited View Hathi links
-              %a{href: "#{item['itemURL']}"}= item['enumcron'] || ''
+              %a{href: hathi_item_url(item)}= item['enumcron'] || ''
             %td.hathi_holdings_cell
               - if item['orig']
                 %em= "(original from #{item['orig']})"

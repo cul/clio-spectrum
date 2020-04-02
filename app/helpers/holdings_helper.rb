@@ -400,9 +400,18 @@ module HoldingsHelper
     end
   end
 
-  def hathi_item_link(item)
-    link = nil
-
+  
+  def hathi_item_link_label(item)
+    if (item['usRightsString'].downcase.include?('full'))
+      return item['itemURL']
+    elsif (item['usRightsString'].downcase.include?('limited'))
+      return 'Log in for temporary access'
+    else
+      return item['usRightsString']
+    end
+  end
+  
+  def hathi_item_url(item)
     # if the 'item' we get isn't parsable for any reason,
     # we'll just return nil
     begin
@@ -414,16 +423,17 @@ module HoldingsHelper
       # we'll construct a shib sso shortcut URL.
       shibURL  = 'https://babel.hathitrust.org/Shibboleth.sso/Login?' +
                  'entityID=urn:mace:incommon:columbia.edu&target='
+
       babelURL = 'https://babel.hathitrust.org/cgi/pt?id='
-      # do we want this?
-      # checkoutParam = ';a=checkout'
-      # encodedURL = CGI.escape( babelURL + item['htid'] + checkoutParam)
-      encodedURL = CGI.escape( babelURL + item['htid'])
-      link = shibURL + encodedURL
-          rescue
+      # encodedURL = CGI.escape( babelURL + item['htid'])
+      # automatically checkout - do we want this?  turn on for now.
+      checkoutParam = ';a=checkout'
+      encodedURL = CGI.escape( babelURL + item['htid'] + checkoutParam)
+
+      return shibURL + encodedURL
+    rescue
       return nil
     end
-    return link
   end
 
   def format_temp_location_note(temp_location)
