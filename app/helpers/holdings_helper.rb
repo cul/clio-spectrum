@@ -420,17 +420,25 @@ module HoldingsHelper
         return item['itemURL']
       end
       # For any other rights ("Limited", or any unexpected value),
-      # we'll construct a shib sso shortcut URL.
-      shibURL  = 'https://babel.hathitrust.org/Shibboleth.sso/Login?' +
-                 'entityID=urn:mace:incommon:columbia.edu&target='
-
-      babelURL = 'https://babel.hathitrust.org/cgi/pt?id='
+      # use Automatic Login: https://www.hathitrust.org/automatic_login
+      id = item['htid']
+      entity_id = 'urn:mace:incommon:columbia.edu'
+      link = "http://hdl.handle.net/2027/#{id}?urlappend=%3Bsignon=swle:#{entity_id}"
+      return link
+      
+      # reverse-engineered Shib auto-login work below, 
+      # superceded by automatic login
+      # # we'll construct a shib sso shortcut URL.
+      # shibURL  = 'https://babel.hathitrust.org/Shibboleth.sso/Login?' +
+      #            'entityID=urn:mace:incommon:columbia.edu&target='
+      # 
+      # babelURL = 'https://babel.hathitrust.org/cgi/pt?id='
+      # # automatically checkout - do we want this?
+      # # no, we don't, it blocks other patrons for using the book.
+      # checkoutParam = ';a=checkout'
+      # encodedURL = CGI.escape( babelURL + item['htid'] + checkoutParam)
       # encodedURL = CGI.escape( babelURL + item['htid'])
-      # automatically checkout - do we want this?  turn on for now.
-      checkoutParam = ';a=checkout'
-      encodedURL = CGI.escape( babelURL + item['htid'] + checkoutParam)
-
-      return shibURL + encodedURL
+      # return shibURL + encodedURL
     rescue
       return nil
     end

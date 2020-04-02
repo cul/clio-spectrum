@@ -24,10 +24,6 @@
       - item_count = hathi_holdings_data['items'].size
       - show_count = 25
 
-
-      -# (I tried to do this with display:table/table-row/table-cell, 
-      -# but there's no way to do colspan, so the expander note was
-      -# affecting column flow.  Switched to <table>, all ok.)
       %table.hathi_holdings_table
         - hathi_holdings_data['items'].each_with_index do |item, i|
       
