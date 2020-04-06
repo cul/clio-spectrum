@@ -352,10 +352,52 @@ module HoldingsHelper
       hathi_holdings_data = fetch_hathi_brief(id_type, id_value)
       break unless hathi_holdings_data.nil?
     end
+    
+    # nothing found, no further processing
+    return nil if hathi_holdings_data.empty?
+
+    # NEXT-1633 - COVID - We've fetched Hathi bib availability data.
+    # Now, suppress any "Limited" items, 
+    # unless this bib record is in our ETAS lookup table
+    etas_status = lookup_etas_status(document)
+    unless (etas_status.present?)
+      hathi_holdings_data['items'].delete_if do |item|
+        item['usRightsString'].downcase.include?('limited')
+      end
+    end
+    
+    # Did we strip away the last item?
+    # If so, there's no Hathi availability.
+    return nil unless hathi_holdings_data['items'].present?
 
     hathi_holdings_data
   end
 
+  def lookup_etas_status(document)
+    begin
+      # Lookup by bib id (this will work for Voyager items)
+      id = document.id
+      sql = "select * from hathi_etas where local_id = '#{id}'"
+      records = ActiveRecord::Base.connection.execute(sql)
+      return records if records.size > 0
+    
+      # Lookup by OCLC number (this will work for Law, ReCAP)
+      oclc_keys = extract_by_key(document, 'oclc')
+      oclc_keys.each do |oclc_key|
+        oclc_tag, oclc_value = oclc_key.split(':')
+        next unless oclc_tag.eql?('oclc') && oclc_value
+        sql = "select * from hathi_etas where oclc = '#{oclc_value}'"
+        records = ActiveRecord::Base.connection.execute(sql)
+        return records if records.size > 0
+      end
+    rescue
+      # If anything went wrong, just return failure
+      return nil
+    end
+    
+    return nil
+  end
+  
   # hathi urls look like:
   #   http://catalog.hathitrust.org/api/volumes/brief/oclc/2912401.json
   def fetch_hathi_brief(id_type, id_value)

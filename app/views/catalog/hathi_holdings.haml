@@ -33,6 +33,7 @@
           %tr.hathi_holdings_row{class: visibility}
             -# NEXT-1633 - COVID - restore Limited View Hathi links
             %td.hathi_holdings_cell
+              = image_tag("icons/online.png")
               -# %a{href: "#{item['itemURL']}"}= item['usRightsString']
               %a{href: hathi_item_url(item)}= hathi_item_link_label(item)
             %td.hathi_holdings_cell
