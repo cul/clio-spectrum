@@ -354,7 +354,7 @@ module HoldingsHelper
     end
     
     # nothing found, no further processing
-    return nil if hathi_holdings_data.empty?
+    return nil if hathi_holdings_data.blank?
 
     # NEXT-1633 - COVID - We've fetched Hathi bib availability data.
     # Now, suppress any "Limited" items, 
