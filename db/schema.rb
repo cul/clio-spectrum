@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_01_010101) do
+ActiveRecord::Schema.define(version: 2020_04_01_010101) do
 
   create_table "best_bets", force: :cascade do |t|
     t.string "title", null: false
@@ -32,6 +32,18 @@ ActiveRecord::Schema.define(version: 2019_06_01_010101) do
     t.string "user_type"
     t.string "document_type"
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
+  create_table "hathi_etas", force: :cascade do |t|
+    t.string "oclc", null: false
+    t.string "local_id", null: false
+    t.string "item_type", null: false
+    t.string "access"
+    t.string "rights"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["local_id"], name: "index_hathi_etas_on_local_id", unique: true
+    t.index ["oclc"], name: "index_hathi_etas_on_oclc"
   end
 
   create_table "item_alerts", force: :cascade do |t|
