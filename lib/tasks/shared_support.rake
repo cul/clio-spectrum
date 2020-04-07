@@ -10,12 +10,21 @@ require File.join(Rails.root.to_s, 'config', 'initializers/aaa_load_app_config.r
 EXTRACTS = %w(full incremental cumulative subset law auth recap).freeze
 
 # process large 'deletes' files in batches of this many
-DELETES_SLICE = 2000
+DELETES_SLICE = 1000
 
 # BIB_SOLR_URL = Blacklight.connection_config[:url]
 # BIB_SOLR = RSolr.connect(url: BIB_SOLR_URL)
 
 AUTHORITIES_SOLR = RSolr.connect(url: APP_CONFIG['authorities_solr_url'])
+AUTHORITIES_SOLR_FAILURES = 0
+
+def reset_authorities_solr
+  # backoff
+  sleep 1
+  AUTHORITIES_SOLR_FAILURES = AUTHORITIES_SOLR_FAILURES + 1
+  AUTHORITIES_SOLR.close unless AUTHORITIES_SOLR.blank?
+  AUTHORITIES_SOLR = RSolr.connect(url: APP_CONFIG['authorities_solr_url'])
+end
 
 def setup_ingest_logger
   # Redirect logger to stderr for our ingest tasks tasks

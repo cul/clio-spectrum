@@ -607,7 +607,13 @@ def lookup_variants(authorized_forms)
   # timing metrics...
   startTime = Time.now
 
-  response = AUTHORITIES_SOLR.get 'select', params: params
+  begin
+    response = AUTHORITIES_SOLR.get 'select', params: params
+  rescue => e
+    reset_authorities_solr
+    Rails.logger.debug("Error during lookup_variants(): " + e.inspect)
+    return nil
+  end
 
   # timing metrics...
   elapsed = Time.now - startTime
