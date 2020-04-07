@@ -610,7 +610,7 @@ def lookup_variants(authorized_forms)
   begin
     response = AUTHORITIES_SOLR.get 'select', params: params
   rescue => e
-    reset_authorities_solr
+    sleep 1
     Rails.logger.debug("Error during lookup_variants(): " + e.inspect)
     return nil
   end
