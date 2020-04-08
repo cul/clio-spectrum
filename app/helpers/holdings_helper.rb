@@ -359,8 +359,11 @@ module HoldingsHelper
     # NEXT-1633 - COVID - We've fetched Hathi bib availability data.
     # Now, suppress any "Limited" items, 
     # unless this bib record is in our ETAS lookup table
-    etas_status = lookup_etas_status(document)
-    unless (etas_status.present?)
+    # etas_status = lookup_etas_status(document)
+    # unless (etas_status.present?)
+    # NEXT-1635 - Hathi status now in Solr record,
+    # "allow" means full view, "deny" means etas, suppress otherwise
+    if (document['hathi_access_s'].blank?)
       hathi_holdings_data['items'].delete_if do |item|
         item['usRightsString'].downcase.include?('limited')
       end
@@ -373,30 +376,30 @@ module HoldingsHelper
     hathi_holdings_data
   end
 
-  def lookup_etas_status(document)
-    begin
-      # Lookup by bib id (this will work for Voyager items)
-      id = document.id
-      sql = "select * from hathi_etas where local_id = '#{id}'"
-      records = ActiveRecord::Base.connection.execute(sql)
-      return records if records.size > 0
-    
-      # Lookup by OCLC number (this will work for Law, ReCAP)
-      oclc_keys = extract_by_key(document, 'oclc')
-      oclc_keys.each do |oclc_key|
-        oclc_tag, oclc_value = oclc_key.split(':')
-        next unless oclc_tag.eql?('oclc') && oclc_value
-        sql = "select * from hathi_etas where oclc = '#{oclc_value}'"
-        records = ActiveRecord::Base.connection.execute(sql)
-        return records if records.size > 0
-      end
-    rescue
-      # If anything went wrong, just return failure
-      return nil
-    end
-    
-    return nil
-  end
+  # def lookup_etas_status(document)
+  #   begin
+  #     # Lookup by bib id (this will work for Voyager items)
+  #     id = document.id
+  #     sql = "select * from hathi_etas where local_id = '#{id}'"
+  #     records = ActiveRecord::Base.connection.execute(sql)
+  #     return records if records.size > 0
+  #   
+  #     # Lookup by OCLC number (this will work for Law, ReCAP)
+  #     oclc_keys = extract_by_key(document, 'oclc')
+  #     oclc_keys.each do |oclc_key|
+  #       oclc_tag, oclc_value = oclc_key.split(':')
+  #       next unless oclc_tag.eql?('oclc') && oclc_value
+  #       sql = "select * from hathi_etas where oclc = '#{oclc_value}'"
+  #       records = ActiveRecord::Base.connection.execute(sql)
+  #       return records if records.size > 0
+  #     end
+  #   rescue
+  #     # If anything went wrong, just return failure
+  #     return nil
+  #   end
+  #   
+  #   return nil
+  # end
   
   # hathi urls look like:
   #   http://catalog.hathitrust.org/api/volumes/brief/oclc/2912401.json
@@ -442,15 +445,58 @@ module HoldingsHelper
     end
   end
 
-  
-  def hathi_item_link_label(item)
-    if (item['usRightsString'].downcase.include?('full'))
-      return item['usRightsString']
-    elsif (item['usRightsString'].downcase.include?('limited'))
-      return 'Log in for temporary access'
-    else
-      return item['usRightsString']
+  # polymorphic:
+  # - build label based on passed string ('access' value in overlap report)
+  # - build label based on item rights (field 'usRightsString' of passed hash)
+  def hathi_link_label(access_or_item)
+    test_value = access_or_item if access_or_item.is_a?(String)
+    test_value = access_or_item['usRightsString'] if access_or_item.is_a?(Hash)
+    test_value ||= ''
+    
+    # Forms of full-view language
+    return 'Full view' if test_value.match(/full/i)
+    return 'Full view' if test_value.match(/allow/i)
+
+    # While ETAS is active, override limited-view/deny
+    if APP_CONFIG['hathi_etas']
+      return 'Log in for temporary access' if test_value.match(/deny/i)
+      return 'Log in for temporary access' if test_value.match(/limited/i)
     end
+
+    # normal language for limited-view items
+    return 'Limited (search-only)'  if test_value.match(/deny/i)
+    return 'Limited (search-only)'  if test_value.match(/limited/i)
+
+    # default case - return the language as given
+    return test_value
+  end
+  # def hathi_item_link_label(item)
+  #   if (item['usRightsString'].downcase.include?('full'))
+  #     return item['usRightsString']
+  #   elsif (item['usRightsString'].downcase.include?('limited'))
+  #     return 'Log in for temporary access'
+  #   else
+  #     return item['usRightsString']
+  #   end
+  # end
+
+  # Return the
+  def format_hathi_search_result_link(document)
+    # show-links feature must be toggled on
+    return nil unless APP_CONFIG['hathi_search_results_links']
+    # document must have a hathi access value
+    return nil unless document['hathi_access_s']
+    
+    green_check = image_tag('icons/online.png', class: 'availability')
+    label = hathi_link_label(document['hathi_access_s'])
+    
+    return green_check + label
+    
+    # TODO - real-time defered JS lookup of URL, for live linking
+    # = image_tag("icons/online.png")
+    # 
+    # -# %a{href: "#{item['itemURL']}"}= item['usRightsString']
+    # %a{href: hathi_item_url(item)}= hathi_link_label(item)
   end
   
   def hathi_item_url(item)
