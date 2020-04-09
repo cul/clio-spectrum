@@ -7,7 +7,7 @@ module HathiMacro
   def hathi_access
     lambda do |record, accumulator, _context|
 
-      local_id = extract_marc('001', first: true)
+      local_id = Marc21.extract_marc_from(record, '001', first: true).first
       
       oclc_numbers = []
       oclc_raw = Marc21.extract_marc_from(record, '035a').flatten.uniq
@@ -16,8 +16,11 @@ module HathiMacro
           oclc_numbers << clean_oclc[1].gsub(/^[a-z0]/, '')
         end
       end
-      
-      accumulator << lookup_hathi_access(local_id, oclc_numbers)
+
+      # - lookup access level in database table
+      hathi_access = lookup_hathi_access(local_id, oclc_numbers)
+      # - add to Solr record if present - skip nils/empty-strings
+      accumulator << hathi_access if hathi_access.present?
 
     end
   end
@@ -31,7 +34,7 @@ module HathiMacro
     # sql = "select access from hathi_etas where local_id = '#{local_id}'"
     sql = "select access from hathi_overlap where local_id = '#{local_id}'"
     sql += oclc_clause if oclc_clause.present?
-    records = ActiveRecord::Base.connection.execute(sql)
+    records = ActiveRecord::Base.connection.exec_query(sql)
     ActiveRecord::Base.clear_active_connections!
 
     # Search all returned records for highest level of access (allow)
@@ -47,17 +50,3 @@ module HathiMacro
 end
 
 
-
-# to_field 'hathi_access' do |record, accumulator|
-#   local_id = extract_marc('001', first: true)
-#   
-#   oclc_numbers = []
-#   oclc_raw = Marc21.extract_marc_from(record, '035a').flatten.uniq
-#   oclc_raw.each do |oclc|
-#     if clean_oclc = oclc.match(OCLC_CLEAN)
-#       oclc_numbers << clean_oclc[1]
-#     end
-#   end
-#   
-#   accumulator << lookup_hathi_access(local_id, oclc_numbers)
-# end
