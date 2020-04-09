@@ -315,21 +315,48 @@ $ ->
 # NEXT-1635 - update Hathi link fetch/display logic
 @retrieve_hathi_links = (bibids) ->
   for bibid in bibids
-    # re-use our existing hathi-holdings method
-    url =  '/catalog/hathi_holdings/' + bibid
+    retrieve_single_hathi_link(bibid)
 
-    $.get url, (data) ->
+@retrieve_single_hathi_link = (bibid) ->
+  console.log("bibid="+bibid)
+  $.ajax
+    # re-use our existing hathi-holdings method
+    url: '/catalog/hathi_holdings/' + bibid
+      
+    success: (data) ->
       # parse out the URL to the Hathi book landing page
       holdings_html = $.parseHTML( data )
       landing_page_url = $( holdings_html ).find('a.landing_page').attr('href')
+
+      # build auto-login link to landing page
+      entity_id = 'urn:mace:incommon:columbia.edu'
+      link = landing_page_url + "?urlappend=%3Bsignon=swle:" + entity_id
+      
       # Fetch the current Hathi label to re-use
       label = $("span.hathi_label.bib_" + bibid).text()
       # Build the new link, with correct label and url
-      link = "<a href='" + landing_page_url + "'>" + label + "</a>"
+      link = "<a href='" + link + "'>" + label + "</a>"
       # Find where the live link should go
       link_span = $("span.hathi_link.bib_" + bibid)
       # and shove it in
       link_span.html(link)
+          
+          
+
+# $.get url, (data) ->
+#   # parse out the URL to the Hathi book landing page
+#   holdings_html = $.parseHTML( data )
+#   landing_page_url = $( holdings_html ).find('a.landing_page').attr('href')
+#   console.log(bibid + ") landing_page_url="+landing_page_url)
+#   # Fetch the current Hathi label to re-use
+#   label = $("span.hathi_label.bib_" + bibid).text()
+#   console.log(bibid + ") label="+label)
+#   # Build the new link, with correct label and url
+#   link = "<a href='" + landing_page_url + "'>" + label + "</a>"
+#   # Find where the live link should go
+#   link_span = $("span.hathi_link.bib_" + bibid)
+#   # and shove it in
+#   link_span.html(link)
       
 
 
