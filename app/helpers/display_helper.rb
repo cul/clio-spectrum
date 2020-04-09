@@ -860,6 +860,11 @@ module DisplayHelper
 
     attr['onsite']  = 'true' if document.has_onsite_holdings?
     attr['offsite'] = 'true' if document.has_offsite_holdings?
+    
+    # NEXT-1635 - mark search-results docs with Hathi access status
+    if (APP_CONFIG['hathi_search_results_links'])
+      attr['hathi_access'] = document['hathi_access_s'] if document['hathi_access_s']
+    end
 
     attr
   end

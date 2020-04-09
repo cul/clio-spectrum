@@ -28,7 +28,8 @@ module HathiMacro
       oclc_clause += " or oclc = '#{oclc}'"
     end
     
-    sql = "select access from hathi_etas where local_id = '#{local_id}'"
+    # sql = "select access from hathi_etas where local_id = '#{local_id}'"
+    sql = "select access from hathi_overlap where local_id = '#{local_id}'"
     sql += oclc_clause if oclc_clause.present?
     records = ActiveRecord::Base.connection.execute(sql)
     ActiveRecord::Base.clear_active_connections!

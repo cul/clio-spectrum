@@ -8,13 +8,12 @@
   - if hathi_holdings_data && hathi_holdings_data['records'] && hathi_holdings_data['records'].size > 0
     - key, value = hathi_holdings_data['records'].first
     - recordURL = value['recordURL']
-
     #hathi_data.holdings_section
 
       .holdings_title Hathi Trust
       
       .hathi_info
-        %a{href: "#{recordURL}"} Summary Page
+        %a{href: "#{recordURL}", class: 'landing_page'} Summary Page
 
       .holdings_subtitle
         -# NEXT-1633 - COVID - restore Limited View Hathi links

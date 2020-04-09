@@ -359,11 +359,12 @@ module HoldingsHelper
     # NEXT-1633 - COVID - We've fetched Hathi bib availability data.
     # Now, suppress any "Limited" items, 
     # unless this bib record is in our ETAS lookup table
-    # etas_status = lookup_etas_status(document)
-    # unless (etas_status.present?)
-    # NEXT-1635 - Hathi status now in Solr record,
-    # "allow" means full view, "deny" means etas, suppress otherwise
-    if (document['hathi_access_s'].blank?)
+    etas_status = lookup_etas_status(document)
+    unless (etas_status.present?)
+    # WAIT until Solr index update is pretty good before doing this
+    # # NEXT-1635 - Hathi status now in Solr record,
+    # # "allow" means full view, "deny" means etas, suppress otherwise
+    # # if (document['hathi_access_s'].blank?)
       hathi_holdings_data['items'].delete_if do |item|
         item['usRightsString'].downcase.include?('limited')
       end
@@ -376,30 +377,32 @@ module HoldingsHelper
     hathi_holdings_data
   end
 
-  # def lookup_etas_status(document)
-  #   begin
-  #     # Lookup by bib id (this will work for Voyager items)
-  #     id = document.id
-  #     sql = "select * from hathi_etas where local_id = '#{id}'"
-  #     records = ActiveRecord::Base.connection.execute(sql)
-  #     return records if records.size > 0
-  #   
-  #     # Lookup by OCLC number (this will work for Law, ReCAP)
-  #     oclc_keys = extract_by_key(document, 'oclc')
-  #     oclc_keys.each do |oclc_key|
-  #       oclc_tag, oclc_value = oclc_key.split(':')
-  #       next unless oclc_tag.eql?('oclc') && oclc_value
-  #       sql = "select * from hathi_etas where oclc = '#{oclc_value}'"
-  #       records = ActiveRecord::Base.connection.execute(sql)
-  #       return records if records.size > 0
-  #     end
-  #   rescue
-  #     # If anything went wrong, just return failure
-  #     return nil
-  #   end
-  #   
-  #   return nil
-  # end
+  def lookup_etas_status(document)
+    begin
+      # Lookup by bib id (this will work for Voyager items)
+      id = document.id
+      # sql = "select * from hathi_etas where local_id = '#{id}'"
+      sql = "select * from hathi_overlap where local_id = '#{id}'"
+      records = ActiveRecord::Base.connection.execute(sql)
+      return records if records.size > 0
+    
+      # Lookup by OCLC number (this will work for Law, ReCAP)
+      oclc_keys = extract_by_key(document, 'oclc')
+      oclc_keys.each do |oclc_key|
+        oclc_tag, oclc_value = oclc_key.split(':')
+        next unless oclc_tag.eql?('oclc') && oclc_value
+        # sql = "select * from hathi_etas where oclc = '#{oclc_value}'"
+        sql = "select * from hathi_overlap where oclc = '#{oclc_value}'"
+        records = ActiveRecord::Base.connection.execute(sql)
+        return records if records.size > 0
+      end
+    rescue
+      # If anything went wrong, just return failure
+      return nil
+    end
+    
+    return nil
+  end
   
   # hathi urls look like:
   #   http://catalog.hathitrust.org/api/volumes/brief/oclc/2912401.json
@@ -490,7 +493,13 @@ module HoldingsHelper
     green_check = image_tag('icons/online.png', class: 'availability')
     label = hathi_link_label(document['hathi_access_s'])
     
-    return green_check + label
+    # mark with spans so that onload JS can manipulate link DOM
+    # (add bib_#{document.id} as shortcut for JavaScript)
+    bib_class = "bib_#{document.id}"
+    label_span = content_tag(:span, label, class: "hathi_label #{bib_class}")
+    link_span = content_tag(:span, label_span, class: "hathi_link #{bib_class}")
+    
+    return green_check + link_span
     
     # TODO - real-time defered JS lookup of URL, for live linking
     # = image_tag("icons/online.png")

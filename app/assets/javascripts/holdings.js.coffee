@@ -12,6 +12,7 @@ $ ->
   onsite_catalog_items = []
   offsite_catalog_items = []
   standard_id_sets = []
+  hathi_catalog_items = []
   $(element).find('.result').each ->
     res = $(this)
     source = res.attr('source')
@@ -20,7 +21,14 @@ $ ->
     onsite  = res.data('onsite')
     offsite = res.data('offsite')
 
+    # NEXT-1635 - hathi links on search results page
+    hathi = res.data('hathi-access')
+
     if source == 'catalog'
+      # Hathi links, for Law, ReCAP, and Voyager
+      if (hathi)
+        # console.log "hathi_catalog_items.push " + item_id
+        hathi_catalog_items.push(item_id)
       # exclude Law records from the catalog holdings check
       # (but leave them in standard_id_set_csv, for Google, et.al.)
       # if $.isNumeric(item_id)
@@ -44,6 +52,9 @@ $ ->
 
   if offsite_catalog_items.length
     retrieve_offsite_availability(offsite_catalog_items)
+
+  if hathi_catalog_items.length
+    retrieve_hathi_links(hathi_catalog_items)
 
   if standard_id_sets.length
     retrieve_google_jackets(standard_id_sets)
@@ -301,6 +312,25 @@ $ ->
 #   # )
 # 
 
+# NEXT-1635 - update Hathi link fetch/display logic
+@retrieve_hathi_links = (bibids) ->
+  for bibid in bibids
+    # re-use our existing hathi-holdings method
+    url =  '/catalog/hathi_holdings/' + bibid
+
+    $.get url, (data) ->
+      # parse out the URL to the Hathi book landing page
+      holdings_html = $.parseHTML( data )
+      landing_page_url = $( holdings_html ).find('a.landing_page').attr('href')
+      # Fetch the current Hathi label to re-use
+      label = $("span.hathi_label.bib_" + bibid).text()
+      # Build the new link, with correct label and url
+      link = "<a href='" + landing_page_url + "'>" + label + "</a>"
+      # Find where the live link should go
+      link_span = $("span.hathi_link.bib_" + bibid)
+      # and shove it in
+      link_span.html(link)
+      
 
 
 
