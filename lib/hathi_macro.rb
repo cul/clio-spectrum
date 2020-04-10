@@ -13,7 +13,7 @@ module HathiMacro
       oclc_raw = Marc21.extract_marc_from(record, '035a').flatten.uniq
       oclc_raw.each do |oclc|
         if clean_oclc = oclc.match(OCLC_CLEAN)
-          oclc_numbers << clean_oclc[1].gsub(/^[a-z0]/, '')
+          oclc_numbers << clean_oclc[1].gsub(/^[a-z0]+/, '')
         end
       end
 

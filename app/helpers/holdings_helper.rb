@@ -430,7 +430,7 @@ module HoldingsHelper
                         !hathi_holdings_data['records'].empty?
 
       ### NEXT-1633 - COVID - stop suppressing Limited View Hathi links
-      ### # NEXT-1357 - Only display 'Full View' Hathi Trust records
+      ### # NEXT-1357 - Only display 'Full view' Hathi Trust records
       ### hathi_holdings_data['items'].delete_if do |item|
       ###   item['usRightsString'].downcase.include?('limited')
       ### end
@@ -512,7 +512,7 @@ module HoldingsHelper
     # if the 'item' we get isn't parsable for any reason,
     # we'll just return nil
     begin
-      # For Full View items, just return the direct itemURL
+      # For Full view items, just return the direct itemURL
       if (item['usRightsString'].downcase.include?('full'))
         return item['itemURL']
       end

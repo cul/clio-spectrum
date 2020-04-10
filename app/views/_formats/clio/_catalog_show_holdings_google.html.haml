@@ -14,7 +14,7 @@
       .gbs_preview_partial
         =link_to "Partial View", "#", :class => "gbs_preview_link", :target => "_blank"
       .gbs_preview_full
-        =link_to "Full View", "#", :class => "gbs_preview_link", :target => "_blank"
+        =link_to "Full view", "#", :class => "gbs_preview_link", :target => "_blank"
       = form_tag('https://far.away.com/form', :authenticity_token => false, :class => 'gbs_search_form', :method => :get) do
         = text_field_tag 'q', nil, :placeholder => "Search in this book"
         = hidden_field_tag 'id', ''

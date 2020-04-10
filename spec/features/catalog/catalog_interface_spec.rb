@@ -74,7 +74,7 @@ describe 'Catalog Interface' do
   end
 
   # NEXT-640 - Records in CLIO should include links to Hathi Trust
-  #  Full View examples:  513297, 1862548, 2081553
+  #  Full view examples:  513297, 1862548, 2081553
   #  Limited examples:  70744 (?), 4043762, 2517624
   it "Should show CLIO, Google, and 'Full' (only) Hathi Trust links", :js do
     # visit this specific item
@@ -84,9 +84,9 @@ describe 'Catalog Interface' do
     expect(page).to have_css('.holdings-container .holdings #google_holdings', visible: false)
     expect(page).to have_css('.holdings-container .holdings #hathi_holdings')
 
-    # Should see the 'Full View' message in the Hathi Holdings box
+    # Should see the 'Full view' message in the Hathi Holdings box
     expect(page).to have_css('#hathi_holdings #hathi_data')
-    expect(find('#hathi_holdings #hathi_data')).to have_content('Full View')
+    expect(find('#hathi_holdings #hathi_data')).to have_content('Full view')
     expect(find('#hathi_holdings #hathi_data')).not_to have_content('Limited')
 
     # visit this specific item
