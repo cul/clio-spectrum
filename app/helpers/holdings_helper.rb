@@ -356,15 +356,25 @@ module HoldingsHelper
     # nothing found, no further processing
     return nil if hathi_holdings_data.blank?
 
-    # NEXT-1633 - COVID - We've fetched Hathi bib availability data.
-    # Now, suppress any "Limited" items, 
-    # unless this bib record is in our ETAS lookup table
-    etas_status = lookup_etas_status(document)
-    unless (etas_status.present?)
-    # WAIT until Solr index update is pretty good before doing this
-    # # NEXT-1635 - Hathi status now in Solr record,
-    # # "allow" means full view, "deny" means etas, suppress otherwise
-    # # if (document['hathi_access_s'].blank?)
+    # NEXT-1633, NEXT-1635 - COVID - We've fetched Hathi bib availability data.
+    # Now - check the Hathi "holdings overlap" status from the Solr record.
+    # - "allow" means Full-View
+    # - "deny" means Limited View, but temporary ETAS access
+    
+    # If either Hathi Access code is FOUND, return full hathi holdings data
+    if (document['hathi_access_s'].present?)
+      return hathi_holdings_data
+    end
+
+    # If NO HATHI ACCESS FOUND...
+    # - "Full view" means we have access, allow it
+    # - "Limited" or Blank means we don't have full-access - suppress it
+    # - blank means NO holdings overlap: pass-thru "Full View", suppress "Limited"
+    if (document['hathi_access_s'].blank?)
+      # Look at the Rights of each Item in the Hathi API response,
+      # If the item has limited-view, we'll suppress it from patron display,
+      #   because search-only access to a Hathi pageturner is useless.
+      # (Otherwise, the item has full-view and we'll leave it in for patrons)
       hathi_holdings_data['items'].delete_if do |item|
         item['usRightsString'].downcase.include?('limited')
       end
