@@ -289,9 +289,10 @@ module HoldingsHelper
   def extract_standard_bibkeys(document)
     bibkeys = []
 
+    # NEXT-1633, NEXT-1635 - COVID - Hathi match by OCLC preferred
+    bibkeys << extract_by_key(document, 'oclc')
     bibkeys << extract_by_key(document, 'isbn')
     bibkeys << extract_by_key(document, 'issn')
-    bibkeys << extract_by_key(document, 'oclc')
     bibkeys << extract_by_key(document, 'lccn')
 
     # Some Hathi records were directly loaded into Voyager.
@@ -348,6 +349,14 @@ module HoldingsHelper
     bibkeys.each do |bibkey|
       id_type, id_value = bibkey.split(':')
       next unless id_type && id_value
+      
+      # NEXT-1633, NEXT-1635 - COVID
+      # If this record is in our holdings-overlap report as "deny"
+      # (i.e., Limited-View but ETAS-accessible)
+      # then we ONLY want to do lookups by OCLC number
+      if (document['hathi_access_s'].present? && document['hathi_access_s'] == 'deny')
+        next unless id_type == 'oclc'
+      end
 
       hathi_holdings_data = fetch_hathi_brief(id_type, id_value)
       break unless hathi_holdings_data.nil?
