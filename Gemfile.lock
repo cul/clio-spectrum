@@ -477,7 +477,7 @@ DEPENDENCIES
   devise (~> 4.4.0)
   exception_notification
   factory_bot_rails
-  faraday
+  faraday (= 1.0.0)
   gmaps4rails
   google-api-client (~> 0.36)
   haml
