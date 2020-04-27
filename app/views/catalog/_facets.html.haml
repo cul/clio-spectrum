@@ -9,6 +9,20 @@
         Refine your search
 
     #facet-panel-collapse.collapse.panel-group
+    
+      - if APP_CONFIG['catalog_search_options']
+        .panel.panel-default.facet_limit
+          .panel-heading
+            %h5.panel-title.twiddle.twiddle-open
+              Search Options
+
+          .panel-body
+            %ul.list-unstyled
+              %div.search_option
+                Available Online
+              %div.search_option
+                Include FOIA documents
+      
 
       - facet_field_names.reject { |name| facet = facet_by_field_name(name); facet.nil? || facet.items.empty? }.each do |solr_fname|
 

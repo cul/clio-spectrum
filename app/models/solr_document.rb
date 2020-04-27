@@ -200,6 +200,10 @@ class SolrDocument
     return false unless tag = self.to_marc['965']
     return tag.value.match /backstage/i
   end
+
+  def foia?
+    id.start_with?('FOIA')
+  end
   
   # # CSV DOWNLOAD SUPPORT
   # 
