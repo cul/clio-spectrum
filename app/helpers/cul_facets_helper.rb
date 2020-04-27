@@ -201,21 +201,21 @@ module CulFacetsHelper
   # Another of CLIO's Search Options toggles controls 
   # whether or not FOIA docs are included in search-results
   def render_foia_toggle
-    trueFacetItem = Blacklight::Solr::Response::Facets::FacetItem.new(value: '1')
+    foiaFacetItem = Blacklight::Solr::Response::Facets::FacetItem.new(value: 'foia')
 
     # Is format:Online already selected?
-    if facet_in_params?('foia_', 'Online')
+    if facet_in_params?('collection', 'foia')
       # the "remove facet" url
-      url = search_action_path(search_state.remove_facet_params('format', trueFacetItem))
+      url = search_action_path(search_state.remove_facet_params('collection', foiaFacetItem))
       icon = content_tag(:span, '', class: 'glyphicon glyphicon-check')
     # Is format:Online not yet selected?
     else
       # the "add facet" url
-      url = path_for_facet('format', trueFacetItem)
+      url = path_for_facet('collection', foiaFacetItem)
       icon = content_tag(:span, '', class: 'glyphicon glyphicon-unchecked')
     end
     
-    content_tag(:div, link_to(icon, url) + ' Online only')
+    content_tag(:div, link_to(icon, url) + ' Include FOIA documents')
   end
   
 end
