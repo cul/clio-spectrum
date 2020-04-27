@@ -10,6 +10,19 @@
 
     #facet-panel-collapse.collapse.panel-group
 
+      - if APP_CONFIG['catalog_search_options']
+        .panel.panel-default.facet_limit
+          .panel-heading
+            %h5.panel-title.twiddle.twiddle-open
+              Search Options
+
+          .panel-body
+            %ul.list-unstyled
+              %div.search_option
+                = render_online_toggle
+              %div.search_option
+                = render_foia_toggle      
+
       - facet_field_names.reject { |name| facet = facet_by_field_name(name); facet.nil? || facet.items.empty? }.each do |solr_fname|
 
         -# %div.panel.panel-default{:class => "facet_limit blacklight-#{solr_fname.parameterize}"}
