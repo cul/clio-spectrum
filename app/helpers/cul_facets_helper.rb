@@ -215,7 +215,11 @@ module CulFacetsHelper
       icon = content_tag(:span, '', class: 'glyphicon glyphicon-unchecked')
     end
     
-    content_tag(:div, link_to(icon, url) + ' Include FOIA documents')
+    # label = 'Include FOIA documents'
+    label = 'Exclude Online U.S. Government Information'
+    
+    
+    content_tag(:div, link_to(icon, url) + ' ' + label)
   end
   
 end
