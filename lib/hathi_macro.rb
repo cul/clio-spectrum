@@ -11,7 +11,7 @@ module HathiMacro
 
       # We're directly loading Hathi public domain records.
       # These don't need a Hathi Access indicator.
-      return if local_id starts_with? 'ht'
+      return if local_id.starts_with? 'ht'
 
       oclc_numbers = []
       oclc_raw = Marc21.extract_marc_from(record, '035a').flatten.uniq

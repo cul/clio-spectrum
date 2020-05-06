@@ -622,6 +622,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_top_banner_content
+    Rails.logger.debug "entered set_top_banner_content()"
     # top banner doesn't apply to ajax/xhr requests
     return if request.xhr?
     
@@ -667,11 +668,29 @@ class ApplicationController < ActionController::Base
         next unless alert['targets'].include?('all-sites')
         next unless alert.key?('html')
         Rails.logger.debug "set_top_banner_content() - setting from json"
-        $top_bannner_content = alert['html']
+        # $top_bannner_content = alert['html']
+
+        # NEXT-1648 - correct relative links within hrefs within JSON
+        raw_content = alert['html']
+        Rails.logger.debug "set_top_banner_content() - raw_content=#{raw_content}"
+        fixed_content = fix_banner_relative_links(raw_content)
+        $top_bannner_content = fixed_content
       end
     rescue
       return
     end
+  end
+  
+  def fix_banner_relative_links(raw_content)
+    lweb = 'https://library.columbia.edu'
+    doc = Nokogiri::HTML.parse(raw_content)
+    doc.css("a").each do |link|
+      href = link.attributes["href"].value
+      if href.starts_with?('/')
+        link.attributes["href"].value = lweb + href
+      end
+    end    
+    return doc.to_s
   end
   
   # # UNIX-5942 - work around spotty CUIT DNS
