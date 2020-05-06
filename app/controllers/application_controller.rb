@@ -682,7 +682,7 @@ class ApplicationController < ActionController::Base
   end
   
   def fix_banner_relative_links(raw_content)
-    lweb = 'https://library.columbia.edu/'
+    lweb = 'https://library.columbia.edu'
     doc = Nokogiri::HTML.parse(raw_content)
     doc.css("a").each do |link|
       href = link.attributes["href"].value

@@ -8,7 +8,11 @@ module HathiMacro
     lambda do |record, accumulator, _context|
 
       local_id = Marc21.extract_marc_from(record, '001', first: true).first
-      
+
+      # We're directly loading Hathi public domain records.
+      # These don't need a Hathi Access indicator.
+      return if local_id.starts_with? 'ht'
+
       oclc_numbers = []
       oclc_raw = Marc21.extract_marc_from(record, '035a').flatten.uniq
       oclc_raw.each do |oclc|
