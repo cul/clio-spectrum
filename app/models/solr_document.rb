@@ -61,7 +61,7 @@ class SolrDocument
   # that we loaded directly into Solr?  (NEXT-1644)
   def hathi_public_domain?
     # Bib ids of HathiTrust direct-loaded records have an "ht" prefix  
-    return true if id && id.starts_with? 'ht'
+    return true if id && id.starts_with?('ht')
     # Anthing else is NOT a HathiTrust public domain record
     return false
   end
