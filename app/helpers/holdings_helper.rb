@@ -449,7 +449,7 @@ module HoldingsHelper
                         !hathi_holdings_data['records'].empty?
 
       ### NEXT-1633 - COVID - stop suppressing Limited View Hathi links
-      ### # NEXT-1357 - Only display 'Full view' Hathi Trust records
+      ### # NEXT-1357 - Only display 'Full view' HathiTrust records
       ### hathi_holdings_data['items'].delete_if do |item|
       ###   item['usRightsString'].downcase.include?('limited')
       ### end
