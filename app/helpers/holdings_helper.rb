@@ -351,10 +351,10 @@ module HoldingsHelper
       next unless id_type && id_value
       
       # NEXT-1633, NEXT-1635 - COVID
-      # If this record is in our holdings-overlap report as "deny"
-      # (i.e., Limited-View but ETAS-accessible)
+      # If this record is in our holdings-overlap report
+      # (as Limited-View but ETAS-accessible OR as full-view)
       # then we ONLY want to do lookups by OCLC number
-      if (document['hathi_access_s'].present? && document['hathi_access_s'] == 'deny')
+      if (document['hathi_access_s'].present?)
         next unless id_type == 'oclc'
       end
 
@@ -396,7 +396,7 @@ module HoldingsHelper
     hathi_holdings_data
   end
 
-  def lookup_etas_status(document)
+  def lookup_etas_status_NO_LONGER_CALLED(document)
     begin
       # Lookup by bib id (this will work for Voyager items)
       id = document.id
