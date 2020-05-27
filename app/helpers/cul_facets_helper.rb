@@ -151,4 +151,75 @@ module CulFacetsHelper
   #   # Nothing told us to render this facet as open, so it'll be closed.
   #   false
   # end
+  
+  # CLIO includes a Search Options with quick-select toggles.
+  # One of them replicates the format:Online facet, 
+  # but with a check-mark GUI widget
+  def render_online_toggle
+    onlineFacetItem = Blacklight::Solr::Response::Facets::FacetItem.new(value: 'Online')
+
+    # Is format:Online already selected?
+    if facet_in_params?('format', 'Online')
+      # the "remove facet" url
+      url = search_action_path(search_state.remove_facet_params('format', onlineFacetItem))
+      icon = content_tag(:span, '', class: 'glyphicon glyphicon-check')
+    # Is format:Online not yet selected?
+    else
+      # the "add facet" url
+      url = path_for_facet('format', onlineFacetItem)
+      icon = content_tag(:span, '', class: 'glyphicon glyphicon-unchecked')
+    end
+    
+    content_tag(:div, 
+    link_to(icon, url) + ' Online only'
+    )
+            
+  end
+
+  # CLIO includes a Search Options with quick-select toggles.
+
+  # One of CLIO's Search Options toggles replicates the format:Online facet, 
+  # but with a check-mark GUI widget
+  def render_online_toggle
+    onlineFacetItem = Blacklight::Solr::Response::Facets::FacetItem.new(value: 'Online')
+
+    # Is format:Online already selected?
+    if facet_in_params?('format', 'Online')
+      # the "remove facet" url
+      url = search_action_path(search_state.remove_facet_params('format', onlineFacetItem))
+      icon = content_tag(:span, '', class: 'glyphicon glyphicon-check')
+    # Is format:Online not yet selected?
+    else
+      # the "add facet" url
+      url = path_for_facet('format', onlineFacetItem)
+      icon = content_tag(:span, '', class: 'glyphicon glyphicon-unchecked')
+    end
+    
+    content_tag(:div, link_to(icon, url) + ' Online only')
+  end
+
+  # Another of CLIO's Search Options toggles controls 
+  # whether or not FOIA docs are included in search-results
+  def render_foia_toggle
+    foiaFacetItem = Blacklight::Solr::Response::Facets::FacetItem.new(value: 'foia')
+
+    # Is format:Online already selected?
+    if facet_in_params?('collection', 'foia')
+      # the "remove facet" url
+      url = search_action_path(search_state.remove_facet_params('collection', foiaFacetItem))
+      icon = content_tag(:span, '', class: 'glyphicon glyphicon-check')
+    # Is format:Online not yet selected?
+    else
+      # the "add facet" url
+      url = path_for_facet('collection', foiaFacetItem)
+      icon = content_tag(:span, '', class: 'glyphicon glyphicon-unchecked')
+    end
+    
+    # label = 'Include FOIA documents'
+    label = 'Exclude Online U.S. Government Information'
+    
+    
+    content_tag(:div, link_to(icon, url) + ' ' + label)
+  end
+  
 end

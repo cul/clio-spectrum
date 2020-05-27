@@ -8,7 +8,7 @@
   = add_row("Creator", generate_value_links(display_marc_field(marc, 'creator'), :author))
   = add_row("Title", display_marc_field(marc, 'title'))
 
-  -# NEXT-1423 - various kinds of titles
+  -# TITLE BLOCK
   = add_row("Former Title", display_marc_field(marc, 'title_former'))
   = add_row("Other Titles", display_marc_field(marc, 'title_other'))
   = add_row("Distinctive Title", display_marc_field(marc, 'title_distinctive'))
@@ -23,12 +23,17 @@
   = add_row("Inscription", display_marc_field(marc, 'inscription'))
   = add_row("Description", display_marc_field(marc, 'summary'))
 
+  -# NOTES BLOCK
   = add_row("Access and Use", display_marc_field(marc, 'restrictions'))
   = add_row("Notes", display_marc_field(marc, 'notes_art_work'))
+  = add_row("Related Materials", display_marc_field(marc, 'related_materials'))
   = add_row("Other Editions:", display_marc_field(marc, 'other_editions'))
+  = add_row("Other Information:", display_unlinked_880_field(marc))
   = add_row("Provenance", display_marc_field(marc, 'provenance'))
+
   = add_row("Credit Line", display_marc_field(marc, 'credit_line'))
   = add_row("In", display_marc_field(marc, 'in'))
+
   = add_row("Subjects", generate_value_links_subject(display_marc_field(marc, 'subject_LC')))
   = add_row("Subjects (Genre)", generate_value_links_subject(display_marc_field(marc, 'subject_genre')))
   = add_row('Format', formats_with_icons(document))

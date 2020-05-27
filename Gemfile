@@ -104,7 +104,8 @@ gem 'net-ldap'
 gem 'net-sftp'
 
 # Talk to SCSB REST API
-gem 'faraday'
+# pin faraday (LIBSYS-2941)
+gem 'faraday', '1.0.0'
 
 # For, e.g., Google Custom Search API
 gem 'google-api-client', '~> 0.36'
