@@ -6,12 +6,24 @@
 
     = render partial: '/datasource_warning', locals: {warning: warning}
 
-    %p This searches:
+
+    -# NEXT-1653 modify E-books landing page to include COVID-19 related information
+    %h4 Online Resources Temporarily Available During COVID-19:
+
+    %p Due to temporary access provided in response to the COVID-19 emergency 40% of our print collections are now available digitally. We suggest starting with a general #{link_to "catalog search", "clio.columbia.edu"}; if you do not find what you need there please proceed to an e-book search from this page.
+
+
+    %p This page searches:
     %ul
       %li citations and some full text for our growing collection of recently published e-books
       %li a much larger collection of mostly full-text e-books that are out of copyright, e.g. published before 1925 or a U.S. government document
 
-    %p To search other full-text collections of recently published e-books in the humanities and social sciences, try #{link_to "Ebrary", "http://www.columbia.edu/cgi-bin/cul/resolve?clio5325422"} or the #{link_to "Ebsco E-book Collection", "http://www.columbia.edu/cgi-bin/cul/resolve?APX1061"}; for e-books in the sciences, try #{link_to "SpringerLink", "http://www.columbia.edu/cgi-bin/cul/resolve?APU3478"}.
+
+    %p To search other full-text collections of recently published e-books in the humanities and social sciences, try the individual resources listed in the sidebar to the right. These collections have different strengths but are interdisciplinary.
+
+    %p In addition, please also see the #{link_to "Temporary E-Resources Guide", "https://guides.library.columbia.edu/FreeCovid-19Offers"} for other e-book options.
+
+   
 
     -# NEXT-1169 - Missing link on E-Books landing page
     -# %p See a complete list of our E-Book databases.
@@ -26,6 +38,11 @@
 
         %ul.nav.nav-list
           %li.nav-header Related Links
-          %li=link_to "Ebrary", "http://www.columbia.edu/cgi-bin/cul/resolve?clio5325422"
+          %li=link_to "Ebook  Central", "http://www.columbia.edu/cgi-bin/cul/resolve?clio5325422"
           %li=link_to "Ebsco eBook Collection", "http://www.columbia.edu/cgi-bin/cul/resolve?APX1061"
+          %li=link_to "Hathi Trust", "http://www.columbia.edu/cgi-bin/cul/resolve?clio8498670"
+          %li=link_to "JSTOR", "http://www.columbia.edu/cgi-bin/cul/resolve?AMG1286"
+          %li=link_to "Oxford Scholarship Online", "http://www.columbia.edu/cgi-bin/cul/resolve?clio5267739"
+          %li=link_to "Project Muse", "http://www.columbia.edu/cgi-bin/cul/resolve?AMF5799"
           %li=link_to "Springer Link", "http://www.columbia.edu/cgi-bin/cul/resolve?APU3478"
+          %li=link_to "Taylor & Francis", "http://www.columbia.edu/cgi-bin/cul/resolve?clio14240841"
