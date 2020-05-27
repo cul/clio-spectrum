@@ -141,10 +141,10 @@ describe 'NEXT-1034: Queries with embedded single-quotes', :skip_travis do
 
   it "should work for unquoted #{query}" do
     resp = solr_resp_doc_ids_only('q' => query)
-    expect(rank(resp, 3108332)).to be == 1
+    expect(rank(resp, 3108332)).to be <= 10
   end
   it "should work for quoted #{query}" do
     resp = solr_resp_doc_ids_only('q' => '"' + query + '"')
-    expect(rank(resp, 3108332)).to be == 1
+    expect(rank(resp, 3108332)).to be <= 10
   end
 end

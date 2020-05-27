@@ -19,7 +19,11 @@ describe 'collection output tests' do
     within ('div#clio_holdings') do
       expect(page).to have_text('Butler Stacks (Enter at the Butler Circulation Desk)')
       expect(page).to have_text('PQ6046.B5 S25')
-      expect(page).to have_text('Scan & Deliver')
+      
+      # COVID OVERRIDE SPEC
+      expect(page).not_to have_text('Scan & Deliver')
+      # restore the following:
+      # # expect(page).to have_text('Scan & Deliver')
     end
   end
 end
