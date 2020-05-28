@@ -35,7 +35,11 @@ describe 'record tests' do
     visit solr_document_path('6249927')
     expect(page).to have_css('#clio_holdings .holding', wait: 20)
     within ('div#clio_holdings') do
-      expect(page).to have_link('Offsite')
+      # COVID OVERRIDE SPEC
+      expect(page).not_to have_link('Offsite')
+      # restore the following:
+      # # expect(page).to have_link('Offsite')
+
       # The href is blank - the Valet URL is in the onclick JS code
       # href: 'https://valet.cul.columbia.edu/offsite_requests/bib?bib_id=6249927')
     end
@@ -80,8 +84,10 @@ describe 'record tests' do
     visit solr_document_path('10104738')
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do
-      expect(page).to have_link('Special Collections',
-                                href: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey=10104738')
+      # COVID OVERRIDE SPEC
+      expect(page).not_to have_link('Special Collections', href: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey=10104738')
+      # restore the following:
+      # # expect(page).to have_link('Special Collections', href: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey=10104738')
     end
   end
 
@@ -89,8 +95,10 @@ describe 'record tests' do
     visit solr_document_path('12954047')
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do
-      expect(page).to have_link('Special Collections',
-                                href: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey=12954047')
+      # COVID OVERRIDE SPEC
+      expect(page).not_to have_link('Special Collections', href: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey=12954047')
+      # restore the following:
+      # # expect(page).to have_link('Special Collections', href: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey=12954047')
     end
   end
 
@@ -98,8 +106,10 @@ describe 'record tests' do
     visit solr_document_path('6201975')
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do
-      expect(page).to have_link('Scan & Deliver',
-                                href: 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?6201975')
+      # COVID OVERRIDE SPEC
+      expect(page).not_to have_link('Scan & Deliver', href: 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?6201975')
+      # restore the following:
+      # # expect(page).to have_link('Scan & Deliver', href: 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?6201975')
     end
 
     # visit solr_document_path('6871895')
