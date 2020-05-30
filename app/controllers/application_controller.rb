@@ -661,21 +661,26 @@ class ApplicationController < ActionController::Base
       lweb_alerts = JSON.parse(json_results).with_indifferent_access
       return unless lweb_alerts.present? && lweb_alerts.is_a?(Hash)
       return unless lweb_alerts.key?('alerts') && lweb_alerts['alerts'].is_a?(Array)
+      raw_content = ''
       Array(lweb_alerts['alerts']).each do |alert|
         next unless alert && alert.is_a?(Hash)
-        next unless alert.key?('type') && alert['type'] == 'critical'
+        # Check to see if this alert is meant for "all-sites"
         next unless alert.key?('targets') && alert['targets'].is_a?(Array)
         next unless alert['targets'].include?('all-sites')
+
+        # Let's display any severity level, as long as it's targetted to "all-sites"
+        # next unless alert.key?('type') && alert['type'] == 'critical'
+
         next unless alert.key?('html')
         Rails.logger.debug "set_top_banner_content() - setting from json"
         # $top_bannner_content = alert['html']
 
         # NEXT-1648 - correct relative links within hrefs within JSON
-        raw_content = alert['html']
-        Rails.logger.debug "set_top_banner_content() - raw_content=#{raw_content}"
-        fixed_content = fix_banner_relative_links(raw_content)
-        $top_bannner_content = fixed_content
+        raw_content += alert['html']
       end
+      Rails.logger.debug "set_top_banner_content() - raw_content=#{raw_content}"
+      fixed_content = fix_banner_relative_links(raw_content)
+      $top_bannner_content = fixed_content
     rescue
       return
     end
