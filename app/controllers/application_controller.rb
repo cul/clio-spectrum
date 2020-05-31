@@ -672,7 +672,7 @@ class ApplicationController < ActionController::Base
         # next unless alert.key?('type') && alert['type'] == 'critical'
 
         next unless alert.key?('html')
-        Rails.logger.debug "set_top_banner_content() - setting from json"
+        Rails.logger.debug "set_top_banner_content() - setting from json: #{alert['html']}"
         # $top_bannner_content = alert['html']
 
         # NEXT-1648 - correct relative links within hrefs within JSON
@@ -681,7 +681,8 @@ class ApplicationController < ActionController::Base
       Rails.logger.debug "set_top_banner_content() - raw_content=#{raw_content}"
       fixed_content = fix_banner_relative_links(raw_content)
       $top_bannner_content = fixed_content
-    rescue
+    rescue => ex
+      Rails.logger.error "set_top_banner_content() error: #{ex.message}"
       return
     end
   end
