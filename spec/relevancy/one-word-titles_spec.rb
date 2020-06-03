@@ -15,7 +15,7 @@ describe 'Searching for one-word titles: ', :skip_travis do
     # expect(resp.get_first_doc_index('4843265')).to be < 1
     # expect(resp.has_document?('4843265') ).to eq true
     # expect(rank(resp, 4843265)).to be <= 1
-    expect(rank(resp, 13329740)).to be <= 1
+    expect(rank(resp, 13329740)).to be <= 3
   end
 
   it 'Gut' do
