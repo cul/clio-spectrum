@@ -164,8 +164,17 @@ module HoldingsHelper
   def service_links(services, clio_id)
     return [] unless services && clio_id
     
-    # LIBSYS-2891 / LIBSYS-2892 - libraries closed, suspend ALL services
-    return []
+    # # LIBSYS-2891 / LIBSYS-2892 - libraries closed, suspend ALL services
+    # return []
+    
+    # 6/2020 - Suspended services are beginning to be reinstated.
+    # Which services are reinstated?
+    reinstated = APP_CONFIG['reinstated_services'] || []
+    # Which of this bib's services have now been reinstated? 
+    services.select! { |service| reinstated.include?(service) }
+    # If none, give up.  Immediately return empty service list.
+    return [] unless services
+    # If some, proceed as we did pre-COVID.
 
     service_links = services.select { |svc| SERVICE_ORDER.index(svc) }.sort_by { |svc| SERVICE_ORDER.index(svc) }.map do |svc|
       # title, link, extra = SERVICES[svc]
