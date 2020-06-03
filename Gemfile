@@ -36,6 +36,7 @@ gem 'rest-client'
 gem 'gmaps4rails'
 
 # pagination
+# pinned - see NEXT-1626
 gem 'kaminari', '~> 1.1.0'
 
 # Authentication
