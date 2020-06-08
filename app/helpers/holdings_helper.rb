@@ -412,7 +412,7 @@ module HoldingsHelper
 
   def lookup_db_etas_status(id)
     begin
-      sql = "select access from hathi_etas where local_id = '#{id}'"
+      sql = "select access from hathi_overlap where local_id = '#{id}'"
       records = ActiveRecord::Base.connection.execute(sql)
       return records.first['access']
     rescue

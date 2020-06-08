@@ -128,7 +128,8 @@ class BackendController < ApplicationController
     # return nil
     # Pretend this id is unavailable (nil) unless we've
     # reinstated the 'offsite' service.
-    return nil unless APP_CONFIG['reinstated_services'].include?('offsite')
+    reinstated = APP_CONFIG['reinstated_services'] || []
+    return nil unless reinstated.include?('offsite')
     
     if id.empty?
       logger.error 'BackendController#scsb_availabilities passed empty id'
