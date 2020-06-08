@@ -413,7 +413,8 @@ module HoldingsHelper
   def lookup_db_etas_status(id)
     begin
       sql = "select access from hathi_overlap where local_id = '#{id}'"
-      records = ActiveRecord::Base.connection.execute(sql)
+      records = ActiveRecord::Base.connection.exec_query(sql)
+      ActiveRecord::Base.clear_active_connections!
       return records.first['access']
     rescue
       return nil
@@ -421,32 +422,33 @@ module HoldingsHelper
     return nil
   end
 
-  def lookup_etas_status_NO_LONGER_CALLED(document)
-    begin
-      # Lookup by bib id (this will work for Voyager items)
-      id = document.id
-      # sql = "select * from hathi_etas where local_id = '#{id}'"
-      sql = "select * from hathi_overlap where local_id = '#{id}'"
-      records = ActiveRecord::Base.connection.execute(sql)
-      return records if records.size > 0
-    
-      # Lookup by OCLC number (this will work for Law, ReCAP)
-      oclc_keys = extract_by_key(document, 'oclc')
-      oclc_keys.each do |oclc_key|
-        oclc_tag, oclc_value = oclc_key.split(':')
-        next unless oclc_tag.eql?('oclc') && oclc_value
-        # sql = "select * from hathi_etas where oclc = '#{oclc_value}'"
-        sql = "select * from hathi_overlap where oclc = '#{oclc_value}'"
-        records = ActiveRecord::Base.connection.execute(sql)
-        return records if records.size > 0
-      end
-    rescue
-      # If anything went wrong, just return failure
-      return nil
-    end
-    
-    return nil
-  end
+  # def lookup_etas_status_NO_LONGER_CALLED(document)
+  #   begin
+  #     # Lookup by bib id (this will work for Voyager items)
+  #     id = document.id
+  #     # sql = "select * from hathi_etas where local_id = '#{id}'"
+  #     sql = "select * from hathi_overlap where local_id = '#{id}'"
+  # THIS IS SQLITE ONLY:
+  #     BROKEN:   records = ActiveRecord::Base.connection.execute(sql)
+  #     return records if records.size > 0
+  #   
+  #     # Lookup by OCLC number (this will work for Law, ReCAP)
+  #     oclc_keys = extract_by_key(document, 'oclc')
+  #     oclc_keys.each do |oclc_key|
+  #       oclc_tag, oclc_value = oclc_key.split(':')
+  #       next unless oclc_tag.eql?('oclc') && oclc_value
+  #       # sql = "select * from hathi_etas where oclc = '#{oclc_value}'"
+  #       sql = "select * from hathi_overlap where oclc = '#{oclc_value}'"
+  #       records = ActiveRecord::Base.connection.execute(sql)
+  #       return records if records.size > 0
+  #     end
+  #   rescue
+  #     # If anything went wrong, just return failure
+  #     return nil
+  #   end
+  #   
+  #   return nil
+  # end
   
   # hathi urls look like:
   #   http://catalog.hathitrust.org/api/volumes/brief/oclc/2912401.json
