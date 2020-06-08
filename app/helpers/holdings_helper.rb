@@ -172,6 +172,11 @@ module HoldingsHelper
     reinstated = APP_CONFIG['reinstated_services'] || []
     # Which of this bib's services have now been reinstated? 
     services.select! { |service| reinstated.include?(service) }
+
+    # NEXT-1660 - COVID - Don't offer offsite requests for Hathi ETAS
+    etas_status = lookup_db_etas_status(clio_id)
+    services.delete('offsite') if (etas_status == 'deny')
+
     # If none, give up.  Immediately return empty service list.
     return [] unless services
     # If some, proceed as we did pre-COVID.
@@ -403,6 +408,17 @@ module HoldingsHelper
     return nil unless hathi_holdings_data['items'].present?
 
     hathi_holdings_data
+  end
+
+  def lookup_db_etas_status(id)
+    begin
+      sql = "select access from hathi_etas where local_id = '#{id}'"
+      records = ActiveRecord::Base.connection.execute(sql)
+      return records.first['access']
+    rescue
+      return nil
+    end
+    return nil
   end
 
   def lookup_etas_status_NO_LONGER_CALLED(document)

@@ -37,7 +37,11 @@ $ ->
         if (onsite)
           onsite_catalog_items.push(item_id)
         if (offsite)
-          offsite_catalog_items.push(item_id)
+          # NEXT-1660 - COVID - Don't show offsite availability for Hathi ETAS
+          if (hathi && hathi == 'deny')
+            # alert(hathi)
+          else
+            offsite_catalog_items.push(item_id)
       # a set of zero or more IDs (ISBN, OCLC, or LCCN)
       standard_id_set_csv = res.attr('standard_ids')
       if (standard_id_set_csv)
