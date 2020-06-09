@@ -1,0 +1,11 @@
+.result_set
+
+  - link_label = 'View all results'
+  - link_url   = '/lweb?q=' + params['q']
+  - right_result_header_content = link_to link_label, link_url
+  = render partial: "/spectrum/aggregate/result_header_async", locals: {source: 'lweb', result: {}, title: source['title'], description: source['description'], right_result_header_content: right_result_header_content}
+
+  = render partial: '/datasource_warning', locals: {warning: warning}
+  
+  %script{async: true, src: 'https://cse.google.com/cse.js?cx=018287035770092225683:e5fndanduvm'}
+  .gcse-searchresults-only{data: {resultSetSize: 3, enableOrderBy: 'false'}}
