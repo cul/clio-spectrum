@@ -21,6 +21,8 @@ class ApplicationController < ActionController::Base
   include BrowseSupport
   include PreferenceSupport
 
+  include Covid
+
   # Please be sure to implement current_user and user_session. Blacklight depends on
   # these methods in order to perform user specific actions.
   check_authorization
@@ -622,7 +624,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_top_banner_content
-    Rails.logger.debug "entered set_top_banner_content()"
+    # Rails.logger.debug "entered set_top_banner_content()"
     # top banner doesn't apply to ajax/xhr requests
     return if request.xhr?
     
@@ -630,7 +632,7 @@ class ApplicationController < ActionController::Base
     # We don't want to fetch on every page 
     return if $top_banner_content.present?
     
-    Rails.logger.debug "set_top_banner_content() - $top_banner_content not set"
+    # Rails.logger.debug "set_top_banner_content() - $top_banner_content not set"
 
     # the top-banner config must be defined
     top_banner_config = APP_CONFIG['top_banner']
@@ -672,13 +674,13 @@ class ApplicationController < ActionController::Base
         # next unless alert.key?('type') && alert['type'] == 'critical'
 
         next unless alert.key?('html')
-        Rails.logger.debug "set_top_banner_content() - setting from json: #{alert['html']}"
+        # Rails.logger.debug "set_top_banner_content() - setting from json: #{alert['html']}"
         # $top_bannner_content = alert['html']
 
         # NEXT-1648 - correct relative links within hrefs within JSON
         raw_content += alert['html']
       end
-      Rails.logger.debug "set_top_banner_content() - raw_content=#{raw_content}"
+      # Rails.logger.debug "set_top_banner_content() - raw_content=#{raw_content}"
       fixed_content = fix_banner_relative_links(raw_content)
       $top_bannner_content = fixed_content
     rescue => ex
