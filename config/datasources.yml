@@ -289,7 +289,7 @@ datasources:
     render_options:
       format: clio
     search_box:
-      advanced: false
+      advanced: true
       route: govdocs_index_path
       placeholder: U.S. Government Information
       search_type: blacklight
