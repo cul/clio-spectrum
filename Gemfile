@@ -208,7 +208,7 @@ group :development do
 
   # browser-based live debugger and REPL
   # http://railscasts.com/episodes/402-better-errors-railspanel
-  gem 'better_errors'
+  gem 'better_errors', '~> 2.6.0'
   gem 'binding_of_caller'
 
   # For code-level debugging in console
