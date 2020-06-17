@@ -17,11 +17,8 @@
               Search Options
 
           .panel-body
-            -# %ul.list-unstyled
-            -#   %div.search_option
-            -#     = render_online_toggle
-              %div.search_option
-                = render_foia_toggle      
+            %div.search_option
+              = render_govdocs_toggle      
 
       - facet_field_names.reject { |name| facet = facet_by_field_name(name); facet.nil? || facet.items.empty? }.each do |solr_fname|
 
