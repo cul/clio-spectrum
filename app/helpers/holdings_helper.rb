@@ -174,7 +174,7 @@ module HoldingsHelper
     services.select! { |service| reinstated.include?(service) }
 
     # NEXT-1660 - COVID - Don't offer offsite requests for Hathi ETAS
-    etas_status = lookup_db_etas_status(clio_id)
+    etas_status = Covid.lookup_db_etas_status(clio_id)
     services.delete('offsite') if (etas_status == 'deny')
 
     # If none, give up.  Immediately return empty service list.
@@ -410,17 +410,6 @@ module HoldingsHelper
     hathi_holdings_data
   end
 
-  def lookup_db_etas_status(id)
-    begin
-      sql = "select access from hathi_overlap where local_id = '#{id}'"
-      records = ActiveRecord::Base.connection.exec_query(sql)
-      ActiveRecord::Base.clear_active_connections!
-      return records.first['access']
-    rescue
-      return nil
-    end
-    return nil
-  end
 
   # def lookup_etas_status_NO_LONGER_CALLED(document)
   #   begin
@@ -620,6 +609,15 @@ module HoldingsHelper
     # end
 
     location = Location.match_location_text(location_name)
+    
+    replacements = APP_CONFIG['location_name_replacements'] || {}
+    replacements.each_pair do |from, to|
+Rails.logger.debug "location_name=#{location_name} from=#{from} to=#{to}"
+      location_name.gsub!(/#{from}/, to)
+    end
+    # (APP_CONFIG['location_name_replacements'] || {}).each_pair do |from, to|
+    #   location_name.gsub(/#{from}/, to)
+    # end
     return location_name unless location && location.category == 'physical'
 
     map_marker = content_tag(:span, ''.html_safe, class: 'glyphicon glyphicon-map-marker text-primary').html_safe
@@ -659,6 +657,7 @@ module HoldingsHelper
   end
 
   def ill_link
+    return APP_CONFIG['ill_link'] if APP_CONFIG['ill_link']
     if Rails.env == 'clio_prod'
       'https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?'
     else

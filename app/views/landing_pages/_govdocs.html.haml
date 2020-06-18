@@ -6,30 +6,56 @@
 
     = render partial: '/datasource_warning', locals: {warning: warning}
 
-    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-    eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Aliquam faucibus purus in massa tempor nec feugiat nisl.
+    %p Search over 4 million items of U.S. Government Information including:
+    %ul
+      %li Bills and legislation
+      %li Scientific, health, education and economic research
+      %li Census data
+      %li Agency reports
+      %li Congressional hearings
+      %li Declassified documents
+      %li Executive orders
+      %li Maps
+    %p From the results page, refine your search by any combination of format, publication date, author, country of publication, language, or subject. To view these options before searching, enter a blank search.
+    
+    %p
+      To find government data, visit 
+      = link_to 'Research Data Services',       'https://library.columbia.edu/services/research-data-services.html'
+      \.
+
+    %p
+      To see a list of government resources by subject, consult our
+      = link_to 'research guides', 'https://library.columbia.edu/services/subject-guides.html.html.html#accordion_content-heading-26'
+      \. 
+
+    %p
+      To discover foreign government collections at Columbia University, contact a 
+      =link_to 'subject specialist', 'https://library.columbia.edu/about/staff/subject-specialists-by-subject.html'
+      \.
+
 
   .landing_side.col-sm-4
     .well.sidebar-nav
       .nav
       %ul.nav.nav-list
         %li.nav-header Guide
-        %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/clio/guides/catalog-guide/", :target => "_blank"
+        %li=link_to 'Search Tips', 'https://blogs.cul.columbia.edu/clio/guides/catalog-guide/'
+        %li.nav-divider
+
+      %ul.nav.nav-list
+        %li.nav-header Explore
+        %li=link_to 'Federal/State Depository Collection', 'https://library.columbia.edu/libraries/usgd.html'
+        %li=link_to 'NYS/NYC Government Information', 'https://clio.columbia.edu/catalog?f%5Bformat%5D%5B%5D=NY+State%2FCity+Government+Document&q='
+        %li=link_to 'Politics and Government Databases', 'https://clio.columbia.edu/databases?f%5Bsubject_topic_facet%5D%5B%5D=Politics+and+government'
         %li.nav-divider
 
       %ul.nav.nav-list
         %li.nav-header Related Links
-
-        %li= link_to "Lorem ipsum",
-            "http://www.history-lab.org/"
-
-        %li= link_to "Freedom of Information Archive (FOIA)",
-            "http://www.history-lab.org/"
-
-        %li= link_to "U.S. Government Documents",
-            "https://library.columbia.edu/libraries/usgd.html"
-
-        %li= link_to "Lorem ipsum",
-            "http://www.history-lab.org/"
+        
+        %li=link_to 'govinfo', 'https://www.govinfo.gov/'
+        %li=link_to 'National Archives and Records Administration', 'https://www.archives.gov/'
+        %li=link_to 'WorldCat', 'https://www.worldcat.org/'
+        %li=link_to 'Freedom of Information Archive (FOIArchive)', 'http://history-lab.org/search'
+        %li=link_to 'Federal Depository Library Program', 'https://www.fdlp.gov/'
+        %li=link_to 'New York State Library', 'http://www.nysl.nysed.gov/'
 

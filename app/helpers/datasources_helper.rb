@@ -256,7 +256,13 @@ module DatasourcesHelper
       return articles_index_path('q' => query, 'new_search' => true)
     end
 
-    "/#{source}?" + { q: query }.to_query
+    exclude_govdocs = '' 
+    if (['catalog','new_arrivals'].include?(source))
+      exclude_govdocs = '&f[-format][]=US+Government+Document'
+    end
+
+
+    "/#{source}?" + { q: query }.to_query + exclude_govdocs
   end
 
   def datasource_switch_link(title, source, *args)

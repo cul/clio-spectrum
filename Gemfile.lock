@@ -282,7 +282,7 @@ GEM
       activerecord (>= 4.2)
       request_store (~> 1.1)
     public_suffix (4.0.5)
-    rack (2.2.2)
+    rack (2.2.3)
     rack-attack (6.3.1)
       rack (>= 1.0, < 3)
     rack-test (1.1.0)
@@ -456,7 +456,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-session_store
   auto-session-timeout
-  better_errors (= 2.6.0)
+  better_errors (~> 2.6.0)
   binding_of_caller
   blacklight (~> 6.10.0)
   blacklight-marc

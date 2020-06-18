@@ -208,7 +208,7 @@ group :development do
 
   # browser-based live debugger and REPL
   # HAML REPL breaks in 2.7.0/2.7.1 ???
-  gem 'better_errors', '2.6.0'
+  gem 'better_errors', '~> 2.6.0'
   gem 'binding_of_caller'
 
   # For code-level debugging in console
