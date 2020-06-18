@@ -311,6 +311,9 @@ class SpectrumController < ApplicationController
 
     fixed_params['source'] = source
 
+    # Exclude GovDocs for catalog queries via Quicksearch JSON
+    fixed_params['f'] = {'-format' => ['US Government Document']} if source == 'catalog'
+
     # "results" is not the search results, it's the Search Engine object, in a
     # post-search-execution state.
     # TODO: drive this case statement off yml config files

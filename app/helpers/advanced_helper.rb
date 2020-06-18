@@ -26,9 +26,21 @@ module AdvancedHelper
     # # http://apidock.com/rails/Hash/except#1507-Passing-an-array-of-keys-to-exclude-
     # render_hash_as_hidden_fields(params_for_search.except(*omit))
 
+    pass_thru_params = search_state.params_for_search.except(:q, :search_field, :qt, :page, :utf8, :categories, :advanced_operator, :adv, :advanced)
+
+    # Default to Exclude GovDocs
+    # 1) if 'q' and 'f' are blank, add GovDocs exclusion
+    if (['catalog','new_arrivals'].include?(@source))
+      unless search_state.to_h.key?('q') or search_state.to_h.key?('f')
+        pass_thru_params['f'] = {'-format' => ['US Government Document']}
+      end
+    end
+
     # BL 6
-    render_hash_as_hidden_fields(search_state.params_for_search.except(:q, :search_field, :qt, :page, :utf8, :categories,
-                                                                       :advanced_operator, :adv, :advanced))
+    # render_hash_as_hidden_fields(search_state.params_for_search.except(:q, :search_field, :qt, :page, :utf8, :categories,
+    #  :advanced_operator, :adv, :advanced))
+    
+    render_hash_as_hidden_fields(pass_thru_params)
   end
 
   def hidden_keys_for_xls
