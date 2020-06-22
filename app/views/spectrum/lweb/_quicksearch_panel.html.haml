@@ -7,7 +7,8 @@
 
   = render partial: '/datasource_warning', locals: {warning: warning}
   
-  %script{async: true, src: 'https://cse.google.com/cse.js?cx=018287035770092225683:e5fndanduvm'}
+  - cs_id  = APP_CONFIG['google']['custom_search_id'] || ''
+  %script{async: true, src: "https://cse.google.com/cse.js?cx=#{cs_id}"}
   .gcse-searchresults-only{data: {resultSetSize: 3, enableOrderBy: 'false'}}
   
   :javascript
