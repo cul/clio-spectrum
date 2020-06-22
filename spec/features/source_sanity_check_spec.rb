@@ -156,7 +156,7 @@ describe 'Switching between data-source' do
     within('#datasources') do
       click_link('Catalog')
     end
-    expect(find('div.constraint-box')).to have_text('test')
+    expect(find('div.constraints-container')).to have_text('test')
     expect(page).to have_css('.result')
     expect(all('#documents .result').first['source']).to eq 'catalog'
 
@@ -167,13 +167,13 @@ describe 'Switching between data-source' do
 
     click_link('E-Journal Titles')
     expect(find('input#journals_q').value).to eq 'test'
-    expect(find('.constraint-box')).to have_text('test')
+    expect(find('.constraints-container')).to have_text('test')
     expect(page).to have_css('.result')
     expect(all('#documents .result').first['source']).to eq 'catalog'
 
     click_link('Databases')
     expect(find('input#databases_q').value).to eq 'test'
-    expect(find('.constraint-box')).to have_text('test')
+    expect(find('.constraints-container')).to have_text('test')
     expect(page).to have_css('.result')
     expect(all('#documents .result').first['source']).to eq 'catalog'
 
@@ -183,14 +183,15 @@ describe 'Switching between data-source' do
     expect(page).to have_css('.result')
     expect(all('#documents .result').first['source']).to eq 'ac'
 
-    click_link('Libraries Website')
-    expect(find('input#lweb_q').value).to eq 'test'
-    expect(find('.constraint-box')).to have_text('test')
-    expect(page).to have_css('.result')
+    # LIBSYS-3061 - Google Custom Search Widget doesn't do this
+    # click_link('Libraries Website')
+    # expect(find('input#lweb_q').value).to eq 'test'
+    # expect(find('.constraints-container')).to have_text('test')
+    # expect(page).to have_css('.result')
 
     click_link('Archives')
     expect(find('input#archives_q').value).to eq 'test'
-    expect(find('.constraint-box')).to have_text('test')
+    expect(find('.constraints-container')).to have_text('test')
     expect(page).to have_css('.result')
     expect(all('#documents .result').first['source']).to eq 'catalog'
 
@@ -217,7 +218,7 @@ describe 'Switching between data-source' do
 
     click_link('New Arrivals')
     expect(find('input#new_arrivals_q').value).to eq 'test'
-    expect(find('.constraint-box')).to have_text('test')
+    expect(find('.constraints-container')).to have_text('test')
     expect(page).to have_css('.result')
     expect(all('#documents .result').first['source']).to eq 'catalog'
   end

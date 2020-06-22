@@ -75,7 +75,12 @@ describe 'QuickSearch landing page' do
       expect(page).not_to have_css('.results_header', text: 'View and filter all')
       click_link 'View all'
     end
-    expect(page).to have_text 'You searched for: public'
+
+    # LIBSYS-3061 - Google Custom Search Widget doesn't echo back
+    # search term - instead, just verify we landed on the lweb page
+    # expect(page).to have_text 'You searched for: public'
+    expect(page).to have_css('li.datasource_link.selected[source="lweb"]')
+
   end
 
   # NEXT-849 - Quicksearch & Other Data Sources: "i" Information Content
