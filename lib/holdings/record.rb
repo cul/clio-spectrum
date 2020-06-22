@@ -563,6 +563,11 @@ module Voyager
           services << process_for_services(location_name, location_code, temp_loc_flag, bibid, messages)
         when 'not_available'
           services << scan_messages(messages) if messages.present?
+
+          # LIBSYS-3075 - COVID - enable Scan & Deliver for UNAVAILABLE items
+          # (because availability is always "no" for currently closed stacks)
+          services << 'doc_delivery' if (doc_delivery_locations.include?(location_code) && temp_loc_flag == 'N')
+
         end
 
         # If this is a BearStor holding and some items are available,
@@ -644,17 +649,30 @@ module Voyager
         #        'leh', 'leh,bdis', 'mat', 'mil', 'mus', 'sci', 'swx',
         #        'uts', 'uts,per', 'uts,unn', 'war' ].include?(location_code) &&
         #        temp_loc_flag == 'N'
-        elsif ['ave', 'avelc', 'bus', 'eal', 'eax', 'eng',
-               'fax', 'faxlc', 'glx', 'glxn', 'gsc', 'jou',
-               'leh', 'leh,bdis', 'mat', 'mil', 'mus', 'sci', 'swx',
-               'uts', 'uts,per', 'uts,unn', 'war'].include?(location_code) &&
+        elsif Array(doc_delivery_locations).include?(location_code) &&
               temp_loc_flag == 'N'
           services << 'doc_delivery'
         end
-
+raise
         services << scan_messages(messages) if messages.present?
 
         services
+      end
+      
+      def doc_delivery_locations
+        # If an override list of doc_delivery_locations was 
+        # defined in app_config, use that.
+        if APP_CONFIG['doc_delivery_locations'] &&
+           APP_CONFIG['doc_delivery_locations'].is_a?(Array) &&
+           APP_CONFIG['doc_delivery_locations'].size > 0
+          return APP_CONFIG['doc_delivery_locations']
+        end
+        
+        # Otherwise, use the default list.
+        return ['ave', 'avelc', 'bus', 'eal', 'eax', 'eng',
+                'fax', 'faxlc', 'glx', 'glxn', 'gsc', 'jou',
+                'leh', 'leh,bdis', 'mat', 'mil', 'mus', 'sci', 'swx',
+                'uts', 'uts,per', 'uts,unn', 'war']
       end
 
       def scan_messages(messages)
