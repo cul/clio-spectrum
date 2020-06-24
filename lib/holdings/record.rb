@@ -563,11 +563,6 @@ module Voyager
           services << process_for_services(location_name, location_code, temp_loc_flag, bibid, messages)
         when 'not_available'
           services << scan_messages(messages) if messages.present?
-
-          # LIBSYS-3075 - COVID - enable Scan & Deliver for UNAVAILABLE items
-          # (because availability is always "no" for currently closed stacks)
-          services << 'doc_delivery' if (doc_delivery_locations.include?(location_code) && temp_loc_flag == 'N')
-
         end
 
         # If this is a BearStor holding and some items are available,
