@@ -648,7 +648,7 @@ module Voyager
               temp_loc_flag == 'N'
           services << 'doc_delivery'
         end
-raise
+
         services << scan_messages(messages) if messages.present?
 
         services

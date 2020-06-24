@@ -135,29 +135,18 @@ module HoldingsHelper
     # now we can call methods as we build the config.
     {
       'offsite' => ['Offsite', 'OpenURLinWindow', offsite_link],
-
       'barnard_remote' => ['BearStor', 'OpenURLinWindow', barnard_remote_link],
-
       'spec_coll' => ['Special Collections',
-                      'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
-      # 'precat' => %w(Precataloging OpenPrecatRequest),
+'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
       'precat' => ['Precataloging', 'OpenURLinWindow', precat_link],
-      # 'recall_hold' => ['Recall / Hold',
-      #                   'http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId='],
       'recall_hold' => ['Recall / Hold', recall_hold_link],
-
-      'on_order' => ['On Order',
-                     'OpenInprocessRequest'],
-      # 'borrow_direct' => ['Borrow Direct',
-      #                     'http://www.columbia.edu/cgi-bin/cul/borrowdirect?'],
+      'on_order' => ['On Order', 'OpenInprocessRequest'],
       'borrow_direct' => ['Borrow Direct', borrow_direct_link],
-      # 'ill' => ['ILL',
-      #           'https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?'],
-      'ill' => ['ILL', ill_link],
-      'in_process' => ['In Process',
-                       'OpenInprocessRequest'],
-      'doc_delivery' => ['Scan & Deliver',
-                         'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?']
+      # LIBSYS-3083 - rename 'ILL' to 'Scan'
+      # 'ill' => ['ILL', ill_link],
+      'ill' => ['Scan', ill_link],
+      'in_process' => ['In Process', 'OpenInprocessRequest'],
+      'doc_delivery' => ['Scan & Deliver', 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?']
     }
   end
 
