@@ -84,7 +84,7 @@ describe 'Searching of N.Y. Subject Strings', :skip_travis do
   it 'should work for:  N. Y., quoted' do
     resp = solr_resp_doc_ids_only(subject_search_args("\"#{baseTerm} N. Y.\""))
     expect(resp.size).to be >= 15
-    expect(rank(resp, 2354899)).to be <= 5
+    expect(rank(resp, 2354899)).to be <= 10
     expect(rank(resp, 3460633)).to be <= 50
     expect(rank(resp, 3460619)).to be <= 50
   end
@@ -141,10 +141,10 @@ describe 'NEXT-1034: Queries with embedded single-quotes', :skip_travis do
 
   it "should work for unquoted #{query}" do
     resp = solr_resp_doc_ids_only('q' => query)
-    expect(rank(resp, 3108332)).to be == 1
+    expect(rank(resp, 3108332)).to be <= 10
   end
   it "should work for quoted #{query}" do
     resp = solr_resp_doc_ids_only('q' => '"' + query + '"')
-    expect(rank(resp, 3108332)).to be == 1
+    expect(rank(resp, 3108332)).to be <= 10
   end
 end

@@ -15,14 +15,14 @@ describe 'Searching for one-word titles: ', :skip_travis do
     # expect(resp.get_first_doc_index('4843265')).to be < 1
     # expect(resp.has_document?('4843265') ).to eq true
     # expect(rank(resp, 4843265)).to be <= 1
-    expect(rank(resp, 13329740)).to be <= 1
+    expect(rank(resp, 13329740)).to be <= 3
   end
 
   it 'Gut' do
     resp = solr_resp_ids_from_query('Gut')
     resp.inspect
-    expect(rank(resp, 4842087)).to be <= 3
-    expect(rank(resp, 3942290)).to be <= 3
+    expect(rank(resp, 4842087)).to be <= 5
+    expect(rank(resp, 3942290)).to be <= 5
 
     resp = solr_resp_ids_from_journal_title_query('Gut')
     expect(rank(resp, 4842087)).to be <= 2
@@ -33,13 +33,13 @@ describe 'Searching for one-word titles: ', :skip_travis do
 
   it 'Nature' do
     resp = solr_resp_ids_from_query('Nature')
-    expect(rank(resp, 3385138)).to be <= 5
+    expect(rank(resp, 3385138)).to be <= 10
 
     resp = solr_resp_ids_from_journal_title_query('Nature')
-    expect(rank(resp, 3385138)).to be <= 5
+    expect(rank(resp, 3385138)).to be <= 10
 
     resp = solr_resp_ejournal_ids_only('q' => 'Nature')
-    expect(rank(resp, 3385138)).to be <= 5
+    expect(rank(resp, 3385138)).to be <= 10
   end
 
   it 'Heart' do
@@ -47,10 +47,10 @@ describe 'Searching for one-word titles: ', :skip_travis do
     expect(rank(resp, 4842107)).to be <= 10
 
     resp = solr_resp_ids_from_journal_title_query('Heart')
-    expect(rank(resp, 4842107)).to be <= 2
+    expect(rank(resp, 4842107)).to be <= 10
 
     resp = solr_resp_ejournal_ids_only('q' => 'Heart')
-    expect(rank(resp, 4842107)).to be <= 1
+    expect(rank(resp, 4842107)).to be <= 10
   end
 
   it 'Science' do
@@ -110,13 +110,13 @@ describe 'Searching for one-word titles: ', :skip_travis do
 
   it 'Lancet' do
     resp = solr_resp_ids_from_query('Lancet')
-    expect(rank(resp, 3429912)).to be <= 5
+    expect(rank(resp, 3429912)).to be <= 10
 
     resp = solr_resp_ids_from_journal_title_query('Lancet')
-    expect(rank(resp, 3429912)).to be <= 5
+    expect(rank(resp, 3429912)).to be <= 10
 
     resp = solr_resp_ejournal_ids_only('q' => 'Lancet')
-    expect(rank(resp, 3429912)).to be <= 5
+    expect(rank(resp, 3429912)).to be <= 10
   end
 
   it 'Nation' do

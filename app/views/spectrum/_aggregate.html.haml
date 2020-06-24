@@ -8,11 +8,14 @@
           - source = DATASOURCES_CONFIG['datasources'][search['source']]
           - warning = source ? source['warning'] : nil;
 
-          .result_set.async_result_set{:"data-result-set" => spectrum_searchjson_path(Blacklight::Parameters.sanitize(params.to_unsafe_h).to_hash.merge(:datasource => search['source'] )), :"data-source" => search['source']}
-            = render partial: "/spectrum/aggregate/result_header_async", locals: {source: search['source'], result: result, title: source['title'], description: source['description']}
-            = render partial: '/datasource_warning', locals: {warning: warning}
+          - if search['source'] == 'lweb'
+            = render partial: '/spectrum/lweb/quicksearch_panel.html.haml', locals: {source: source, warning: warning}
+          - else
+            .result_set.async_result_set{:"data-result-set" => spectrum_searchjson_path(Blacklight::Parameters.sanitize(params.to_unsafe_h).to_hash.merge(:datasource => search['source'] )), :"data-source" => search['source']}
+              = render partial: "/spectrum/aggregate/result_header_async", locals: {source: search['source'], result: result, title: source['title'], description: source['description']}
+              = render partial: '/datasource_warning', locals: {warning: warning}
 
-            .loading_block
-              Loading...
-              =image_tag('ajax-indicator.gif')
+              .loading_block
+                Loading...
+                =image_tag('ajax-indicator.gif')
 

@@ -1,6 +1,11 @@
 .results_header{:data => {'source' => source}}
+
+
   .category_title
     #{title}
     - if defined?(description)
       %a.source-info.btn.btn-link{:href => '#', :rel => 'popover', :'data-placement' => 'bottom', :'data-content' => description}
         = image_tag('information_icon.png', :size => "20x20")
+  .result_count
+    - right_result_header_content ||= ''
+    = right_result_header_content.html_safe

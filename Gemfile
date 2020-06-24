@@ -36,6 +36,7 @@ gem 'rest-client'
 gem 'gmaps4rails'
 
 # pagination
+# pinned - see NEXT-1626
 gem 'kaminari', '~> 1.1.0'
 
 # Authentication
@@ -206,8 +207,8 @@ group :development do
   gem 'capistrano-passenger', require: false
 
   # browser-based live debugger and REPL
-  # http://railscasts.com/episodes/402-better-errors-railspanel
-  gem 'better_errors'
+  # HAML REPL breaks in 2.7.0/2.7.1 ???
+  gem 'better_errors', '~> 2.6.0'
   gem 'binding_of_caller'
 
   # For code-level debugging in console

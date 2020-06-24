@@ -87,7 +87,7 @@ describe 'Catalog Advanced Search' do
       fill_in 'q', with: searchValue
       find('button[type=submit]').click
 
-      expect(find('.constraint-box')).to have_content("#{searchField}: #{searchValue}")
+      expect(find('.constraints-container')).to have_content("#{searchField}: #{searchValue}")
       expect(page).to have_text '« Previous | 1 - 25 of'
     end
 
@@ -100,7 +100,7 @@ describe 'Catalog Advanced Search' do
         fill_in 'adv_1_value', with: searchValue
         find('button[type=submit]').click
       end
-      expect(find('.constraint-box')).to have_content("#{searchField}: #{searchValue}")
+      expect(find('.constraints-container')).to have_content("#{searchField}: #{searchValue}")
       expect(page).to have_text '« Previous | 1 - 25 of'
     end
   end
@@ -167,7 +167,7 @@ describe 'Catalog Advanced Search' do
       fill_in 'q', with: locationSearch
       find('button[type=submit]').click
 
-      expect(find('.constraint-box')).to have_content("Location: #{locationSearch}")
+      expect(find('.constraints-container')).to have_content("Location: #{locationSearch}")
       expect(page).to have_text '« Previous | 1 - 25 of'
     end
 
@@ -179,7 +179,7 @@ describe 'Catalog Advanced Search' do
         fill_in 'adv_1_value', with: locationSearch
         find('button[type=submit]').click
       end
-      expect(find('.constraint-box')).to have_content("Location: #{locationSearch}")
+      expect(find('.constraints-container')).to have_content("Location: #{locationSearch}")
       expect(page).to have_text '« Previous | 1 - 25 of'
     end
   end
@@ -204,10 +204,10 @@ describe 'Catalog Advanced Search' do
       find('button[type=submit]').click
     end
 
-    expect(find('.constraint-box')).to have_content('ISBN: ' + search_isbn)
+    expect(find('.constraints-container')).to have_content('ISBN: ' + search_isbn)
 
-    within '.constraint-box' do
-      find('span.glyphicon.glyphicon-remove').click
+    within '.constraints-container' do
+      find('span.glyphicon.glyphicon-remove', match: :first).click
     end
 
     expect(page).to have_css('.result.document')
@@ -232,7 +232,7 @@ describe 'Catalog Advanced Search' do
       find('button[type=submit]').click
     end
 
-    expect(find('.constraint-box')).to have_content('ISBN: ' + isbn_z)
+    expect(find('.constraints-container')).to have_content('ISBN: ' + isbn_z)
 
     title = 'اليوم السابع : الحرب المستحيلة .. حرب الاستنزاف'
     expect(page).to have_text "Title #{title}"
@@ -253,7 +253,7 @@ describe 'Catalog Advanced Search' do
     # this time, click the little "search" icon
     find('span.glyphicon.glyphicon-search').click
 
-    expect(find('.constraint-box')).to have_content('ISBN: ' + isbn_z)
+    expect(find('.constraints-container')).to have_content('ISBN: ' + isbn_z)
     expect(page).to have_text 'Géographie du Territoire de Belfort'.mb_chars.normalize(:d)
   end
 end

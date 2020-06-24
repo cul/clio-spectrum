@@ -211,19 +211,19 @@ describe 'Linked field-values in single-item display' do
     visit solr_document_path(10322893)
     # "Also Listed Under Çıpa, H. Erdem, 1971-"
     click_link('H. Erdem, 1971')
-    expect(page).to have_text('1 - 8  of 8')
+    expect(find('.index_toolbar')).to have_text('1 - 9  of 9')
     within('#facet-author li', text: 'Erdem') do
       expect(find('.facet-label')).to have_text 'Çıpa, H. Erdem, 1971'
-      expect(find('.facet-count')).to have_text '8'
+      expect(find('.facet-count')).to have_text '9'
     end
 
     visit solr_document_path(10551688)
     # "Also Listed Under Çıpa, H. Erdem, 1971-"
     click_link('H. Erdem, 1971')
-    expect(page).to have_text('1 - 8 of 8')
+    expect(find('.index_toolbar')).to have_text('1 - 9  of 9')
     within('#facet-author li', text: 'Erdem') do
       expect(find('.facet-label')).to have_text 'Çıpa, H. Erdem, 1971'
-      expect(find('.facet-count')).to have_text '8'
+      expect(find('.facet-count')).to have_text '9'
     end
   end
 
@@ -238,6 +238,6 @@ describe 'Linked field-values in single-item display' do
     page_entries = find('.page_links .page_entries').text
     # page_entries should be something like "1 - 25 of 37"
     shown, of, total = page_entries.partition(/ of /)
-    expect(total.to_i).to be < 50
+    expect(total.to_i).to be < 80
   end
 end

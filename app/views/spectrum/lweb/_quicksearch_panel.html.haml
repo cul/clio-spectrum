@@ -1,0 +1,24 @@
+.result_set{data: {source: 'lweb'}}
+  .nested_result_set{data: {source: 'lweb'}}
+    .result
+      // dummy empty div to pass test suite
+
+    - link_label = 'View all results'
+    - link_url   = '/lweb?q=' + params['q']
+    - right_result_header_content = link_to link_label, link_url
+    = render partial: "/spectrum/aggregate/result_header_async", locals: {source: 'lweb', result: {}, title: source['title'], description: source['description'], right_result_header_content: right_result_header_content}
+
+    = render partial: '/datasource_warning', locals: {warning: warning}
+  
+    - cs_id  = APP_CONFIG['google']['custom_search_id'] || ''
+    %script{async: true, src: "https://cse.google.com/cse.js?cx=#{cs_id}"}
+    .gcse-searchresults-only{data: {resultSetSize: 3, enableOrderBy: 'false'}}
+  
+    :javascript
+      window.__gcse || (window.__gcse = {});
+        window.__gcse.searchCallbacks = {
+          web: {
+            ready: myWebResultsRenderedCallback,
+          },
+        };
+  

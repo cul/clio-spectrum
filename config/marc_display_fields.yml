@@ -508,6 +508,9 @@ references:
       ind1: :all
       ind2: :all
       display: abcux368
+related_materials:
+    -   tag: 544
+        display: dn
 related_to:
     -   tag: 787
         display: abcdghikmnorst

@@ -73,10 +73,10 @@ describe 'Catalog Interface' do
     expect(page).to have_text('1 - 25 of 1')
   end
 
-  # NEXT-640 - Records in CLIO should include links to Hathi Trust
+  # NEXT-640 - Records in CLIO should include links to HathiTrust
   #  Full view examples:  513297, 1862548, 2081553
   #  Limited examples:  70744 (?), 4043762, 2517624
-  it "Should show CLIO, Google, and 'Full' (only) Hathi Trust links", :js do
+  it "Should show CLIO, Google, and 'Full' (only) HathiTrust links", :js do
     # visit this specific item
     visit solr_document_path('513297')
 

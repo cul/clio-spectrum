@@ -135,37 +135,40 @@ module HoldingsHelper
     # now we can call methods as we build the config.
     {
       'offsite' => ['Offsite', 'OpenURLinWindow', offsite_link],
-
       'barnard_remote' => ['BearStor', 'OpenURLinWindow', barnard_remote_link],
-
       'spec_coll' => ['Special Collections',
-                      'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
-      # 'precat' => %w(Precataloging OpenPrecatRequest),
+'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
       'precat' => ['Precataloging', 'OpenURLinWindow', precat_link],
-      # 'recall_hold' => ['Recall / Hold',
-      #                   'http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId='],
       'recall_hold' => ['Recall / Hold', recall_hold_link],
-
-      'on_order' => ['On Order',
-                     'OpenInprocessRequest'],
-      # 'borrow_direct' => ['Borrow Direct',
-      #                     'http://www.columbia.edu/cgi-bin/cul/borrowdirect?'],
+      'on_order' => ['On Order', 'OpenInprocessRequest'],
       'borrow_direct' => ['Borrow Direct', borrow_direct_link],
-      # 'ill' => ['ILL',
-      #           'https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?'],
-      'ill' => ['ILL', ill_link],
-      'in_process' => ['In Process',
-                       'OpenInprocessRequest'],
-      'doc_delivery' => ['Scan & Deliver',
-                         'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?']
+      # LIBSYS-3083 - rename 'ILL' to 'Scan'
+      # 'ill' => ['ILL', ill_link],
+      'ill' => ['Scan', ill_link],
+      'in_process' => ['In Process', 'OpenInprocessRequest'],
+      'doc_delivery' => ['Scan & Deliver', 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?']
     }
   end
 
   def service_links(services, clio_id)
     return [] unless services && clio_id
     
-    # LIBSYS-2891 / LIBSYS-2892 - libraries closed, suspend ALL services
-    return []
+    # # LIBSYS-2891 / LIBSYS-2892 - libraries closed, suspend ALL services
+    # return []
+    
+    # 6/2020 - Suspended services are beginning to be reinstated.
+    # Which services are reinstated?
+    reinstated = APP_CONFIG['reinstated_services'] || []
+    # Which of this bib's services have now been reinstated? 
+    services.select! { |service| reinstated.include?(service) }
+
+    # NEXT-1660 - COVID - Don't offer offsite requests for Hathi ETAS
+    etas_status = Covid.lookup_db_etas_status(clio_id)
+    services.delete('offsite') if (etas_status == 'deny')
+
+    # If none, give up.  Immediately return empty service list.
+    return [] unless services
+    # If some, proceed as we did pre-COVID.
 
     service_links = services.select { |svc| SERVICE_ORDER.index(svc) }.sort_by { |svc| SERVICE_ORDER.index(svc) }.map do |svc|
       # title, link, extra = SERVICES[svc]
@@ -351,10 +354,10 @@ module HoldingsHelper
       next unless id_type && id_value
       
       # NEXT-1633, NEXT-1635 - COVID
-      # If this record is in our holdings-overlap report as "deny"
-      # (i.e., Limited-View but ETAS-accessible)
+      # If this record is in our holdings-overlap report
+      # (as Limited-View but ETAS-accessible OR as full-view)
       # then we ONLY want to do lookups by OCLC number
-      if (document['hathi_access_s'].present? && document['hathi_access_s'] == 'deny')
+      if (document['hathi_access_s'].present?)
         next unless id_type == 'oclc'
       end
 
@@ -396,32 +399,34 @@ module HoldingsHelper
     hathi_holdings_data
   end
 
-  def lookup_etas_status(document)
-    begin
-      # Lookup by bib id (this will work for Voyager items)
-      id = document.id
-      # sql = "select * from hathi_etas where local_id = '#{id}'"
-      sql = "select * from hathi_overlap where local_id = '#{id}'"
-      records = ActiveRecord::Base.connection.execute(sql)
-      return records if records.size > 0
-    
-      # Lookup by OCLC number (this will work for Law, ReCAP)
-      oclc_keys = extract_by_key(document, 'oclc')
-      oclc_keys.each do |oclc_key|
-        oclc_tag, oclc_value = oclc_key.split(':')
-        next unless oclc_tag.eql?('oclc') && oclc_value
-        # sql = "select * from hathi_etas where oclc = '#{oclc_value}'"
-        sql = "select * from hathi_overlap where oclc = '#{oclc_value}'"
-        records = ActiveRecord::Base.connection.execute(sql)
-        return records if records.size > 0
-      end
-    rescue
-      # If anything went wrong, just return failure
-      return nil
-    end
-    
-    return nil
-  end
+
+  # def lookup_etas_status_NO_LONGER_CALLED(document)
+  #   begin
+  #     # Lookup by bib id (this will work for Voyager items)
+  #     id = document.id
+  #     # sql = "select * from hathi_etas where local_id = '#{id}'"
+  #     sql = "select * from hathi_overlap where local_id = '#{id}'"
+  # THIS IS SQLITE ONLY:
+  #     BROKEN:   records = ActiveRecord::Base.connection.execute(sql)
+  #     return records if records.size > 0
+  #   
+  #     # Lookup by OCLC number (this will work for Law, ReCAP)
+  #     oclc_keys = extract_by_key(document, 'oclc')
+  #     oclc_keys.each do |oclc_key|
+  #       oclc_tag, oclc_value = oclc_key.split(':')
+  #       next unless oclc_tag.eql?('oclc') && oclc_value
+  #       # sql = "select * from hathi_etas where oclc = '#{oclc_value}'"
+  #       sql = "select * from hathi_overlap where oclc = '#{oclc_value}'"
+  #       records = ActiveRecord::Base.connection.execute(sql)
+  #       return records if records.size > 0
+  #     end
+  #   rescue
+  #     # If anything went wrong, just return failure
+  #     return nil
+  #   end
+  #   
+  #   return nil
+  # end
   
   # hathi urls look like:
   #   http://catalog.hathitrust.org/api/volumes/brief/oclc/2912401.json
@@ -430,13 +435,13 @@ module HoldingsHelper
 
     hathi_brief_url = 'http://catalog.hathitrust.org/api/volumes' \
                       "/brief/#{id_type}/#{id_value}.json"
-    Rails.logger.debug "hathi_brief_url=#{hathi_brief_url}"
+    # Rails.logger.debug "hathi_brief_url=#{hathi_brief_url}"
     http_client = HTTPClient.new
     http_client.connect_timeout = 5 # default 60
     http_client.send_timeout    = 5 # default 120
     http_client.receive_timeout = 5 # default 60
 
-    Rails.logger.debug "fetch_hathi_brief() get_content(#{hathi_brief_url})"
+    # Rails.logger.debug "fetch_hathi_brief() get_content(#{hathi_brief_url})"
     begin
       json_data = http_client.get_content(hathi_brief_url)
       hathi_holdings_data = JSON.parse(json_data)
@@ -449,7 +454,7 @@ module HoldingsHelper
                         !hathi_holdings_data['records'].empty?
 
       ### NEXT-1633 - COVID - stop suppressing Limited View Hathi links
-      ### # NEXT-1357 - Only display 'Full view' Hathi Trust records
+      ### # NEXT-1357 - Only display 'Full view' HathiTrust records
       ### hathi_holdings_data['items'].delete_if do |item|
       ###   item['usRightsString'].downcase.include?('limited')
       ### end
@@ -593,6 +598,15 @@ module HoldingsHelper
     # end
 
     location = Location.match_location_text(location_name)
+    
+    replacements = APP_CONFIG['location_name_replacements'] || {}
+    replacements.each_pair do |from, to|
+Rails.logger.debug "location_name=#{location_name} from=#{from} to=#{to}"
+      location_name.gsub!(/#{from}/, to)
+    end
+    # (APP_CONFIG['location_name_replacements'] || {}).each_pair do |from, to|
+    #   location_name.gsub(/#{from}/, to)
+    # end
     return location_name unless location && location.category == 'physical'
 
     map_marker = content_tag(:span, ''.html_safe, class: 'glyphicon glyphicon-map-marker text-primary').html_safe
@@ -632,6 +646,7 @@ module HoldingsHelper
   end
 
   def ill_link
+    return APP_CONFIG['ill_link'] if APP_CONFIG['ill_link']
     if Rails.env == 'clio_prod'
       'https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?'
     else

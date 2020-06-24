@@ -183,7 +183,7 @@ module CulCatalogHelper
   end
 
   def covid_19_blurb
-    text = '<font color="darkred" weight="bold"><small>All library request services are suspended until further notice.</small></font>'.html_safe
+    text = '<font color="darkred" weight="bold"><small>Library request services are suspended until further notice.</small></font>'.html_safe
     # link = link_to('Read More...', 'https://library.columbia.edu/about/news/alert.html', target: '_blank')
     # blurb = content_tag(:div, "#{text}<nobr>#{link}</nobr>".html_safe, class: 'service_menu_blurb')
     blurb = content_tag(:div, "#{text}".html_safe, class: 'service_menu_blurb')

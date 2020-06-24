@@ -21,6 +21,8 @@ class ApplicationController < ActionController::Base
   include BrowseSupport
   include PreferenceSupport
 
+  include Covid
+
   # Please be sure to implement current_user and user_session. Blacklight depends on
   # these methods in order to perform user specific actions.
   check_authorization
@@ -622,6 +624,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_top_banner_content
+    # Rails.logger.debug "entered set_top_banner_content()"
     # top banner doesn't apply to ajax/xhr requests
     return if request.xhr?
     
@@ -629,7 +632,7 @@ class ApplicationController < ActionController::Base
     # We don't want to fetch on every page 
     return if $top_banner_content.present?
     
-    Rails.logger.debug "set_top_banner_content() - $top_banner_content not set"
+    # Rails.logger.debug "set_top_banner_content() - $top_banner_content not set"
 
     # the top-banner config must be defined
     top_banner_config = APP_CONFIG['top_banner']
@@ -660,18 +663,42 @@ class ApplicationController < ActionController::Base
       lweb_alerts = JSON.parse(json_results).with_indifferent_access
       return unless lweb_alerts.present? && lweb_alerts.is_a?(Hash)
       return unless lweb_alerts.key?('alerts') && lweb_alerts['alerts'].is_a?(Array)
+      raw_content = ''
       Array(lweb_alerts['alerts']).each do |alert|
         next unless alert && alert.is_a?(Hash)
-        next unless alert.key?('type') && alert['type'] == 'critical'
+        # Check to see if this alert is meant for "all-sites"
         next unless alert.key?('targets') && alert['targets'].is_a?(Array)
         next unless alert['targets'].include?('all-sites')
+
+        # Let's display any severity level, as long as it's targetted to "all-sites"
+        # next unless alert.key?('type') && alert['type'] == 'critical'
+
         next unless alert.key?('html')
-        Rails.logger.debug "set_top_banner_content() - setting from json"
-        $top_bannner_content = alert['html']
+        # Rails.logger.debug "set_top_banner_content() - setting from json: #{alert['html']}"
+        # $top_bannner_content = alert['html']
+
+        # NEXT-1648 - correct relative links within hrefs within JSON
+        raw_content += alert['html']
       end
-    rescue
+      # Rails.logger.debug "set_top_banner_content() - raw_content=#{raw_content}"
+      fixed_content = fix_banner_relative_links(raw_content)
+      $top_bannner_content = fixed_content
+    rescue => ex
+      Rails.logger.error "set_top_banner_content() error: #{ex.message}"
       return
     end
+  end
+  
+  def fix_banner_relative_links(raw_content)
+    lweb = 'https://library.columbia.edu'
+    doc = Nokogiri::HTML.parse(raw_content)
+    doc.css("a").each do |link|
+      href = link.attributes["href"].value
+      if href.starts_with?('/')
+        link.attributes["href"].value = lweb + href
+      end
+    end    
+    return doc.to_s
   end
   
   # # UNIX-5942 - work around spotty CUIT DNS
