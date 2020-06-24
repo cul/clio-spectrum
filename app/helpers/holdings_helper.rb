@@ -435,13 +435,13 @@ module HoldingsHelper
 
     hathi_brief_url = 'http://catalog.hathitrust.org/api/volumes' \
                       "/brief/#{id_type}/#{id_value}.json"
-    Rails.logger.debug "hathi_brief_url=#{hathi_brief_url}"
+    # Rails.logger.debug "hathi_brief_url=#{hathi_brief_url}"
     http_client = HTTPClient.new
     http_client.connect_timeout = 5 # default 60
     http_client.send_timeout    = 5 # default 120
     http_client.receive_timeout = 5 # default 60
 
-    Rails.logger.debug "fetch_hathi_brief() get_content(#{hathi_brief_url})"
+    # Rails.logger.debug "fetch_hathi_brief() get_content(#{hathi_brief_url})"
     begin
       json_data = http_client.get_content(hathi_brief_url)
       hathi_holdings_data = JSON.parse(json_data)
