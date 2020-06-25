@@ -7,7 +7,7 @@ require 'rake'
 require File.join(Rails.root.to_s, 'config', 'initializers/aaa_load_app_config.rb')
 
 
-EXTRACTS = %w(full incremental cumulative subset law auth recap).freeze
+EXTRACTS = %w(full incremental cumulative subset law auth recap foia).freeze
 
 # process large 'deletes' files in batches of this many
 DELETES_SLICE = 1000
