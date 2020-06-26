@@ -29,10 +29,12 @@ module AdvancedHelper
     pass_thru_params = search_state.params_for_search.except(:q, :search_field, :qt, :page, :utf8, :categories, :advanced_operator, :adv, :advanced)
 
     # Default to Exclude GovDocs
-    # 1) if 'q' and 'f' are blank, add GovDocs exclusion
-    if (['catalog','new_arrivals'].include?(@source))
-      unless search_state.to_h.key?('q') or search_state.to_h.key?('f')
-        pass_thru_params['f'] = {'-format' => ['US Government Document']}
+    if APP_CONFIG['govdocs_exclusion']
+      # if 'q' and 'f' are blank, add GovDocs exclusion
+      if (['catalog','new_arrivals'].include?(@source))
+        unless search_state.to_h.key?('q') or search_state.to_h.key?('f')
+          pass_thru_params['f'] = {'-format' => ['US Government Document']}
+        end
       end
     end
 
