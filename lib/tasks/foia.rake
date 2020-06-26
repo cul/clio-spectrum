@@ -10,7 +10,7 @@ namespace :foia do
 
   ##############################################################
   desc 'list FOIA files available for download from S3 bucket'
-  task :list do
+  task :list_bucket do
     setup_ingest_logger
     Rails.logger.info('- listing remote files from S3 bucket')
     
@@ -28,6 +28,24 @@ namespace :foia do
     Rails.logger.info("- list complete, #{list.contents.size} files found.")
   end
 
+  ##############################################################
+  desc 'list already-downloaded FOIA files from extract directory'
+  task :list do
+    setup_ingest_logger
+    Rails.logger.info('- listing already-downloaded FOIA files')
+    Rails.logger.info('-   (use foia:list_bucket to list files in AWS S3 bucket)')
+    
+    extract_dir = APP_CONFIG['extract_home'] + '/' + 'foia'
+
+    Rails.logger.info("- listing files from #{extract_dir}")
+    file_list = Dir.glob("#{extract_dir}/*.xml").sort
+    file_list.each do |filename|
+      bytes = File.size(filename)
+      mbs = bytes / (1024 * 1024)
+      Rails.logger.info sprintf("    %-20s %5dM", File.basename(filename), mbs.round(0))
+    end
+    Rails.logger.info("- list complete, #{file_list.size} files found.")
+  end
 
   ##############################################################
   desc 'download all FOIA files from S3 bucket to local storage'
