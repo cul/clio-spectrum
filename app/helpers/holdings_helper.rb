@@ -136,7 +136,7 @@ module HoldingsHelper
     {
       # LIBSYS-3086 - COVID - rename 'Offsite' to 'Scan', since only Scans are available now
       # 'offsite' => ['Offsite', 'OpenURLinWindow', offsite_link],
-      'offsite' => ['Scane', 'OpenURLinWindow', offsite_link],
+      'offsite' => ['Scan', 'OpenURLinWindow', offsite_link],
       'barnard_remote' => ['BearStor', 'OpenURLinWindow', barnard_remote_link],
       'spec_coll' => ['Special Collections',
 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
