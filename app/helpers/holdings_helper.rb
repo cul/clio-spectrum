@@ -134,7 +134,9 @@ module HoldingsHelper
     # just return a hash, the same as the constant did, but
     # now we can call methods as we build the config.
     {
-      'offsite' => ['Offsite', 'OpenURLinWindow', offsite_link],
+      # LIBSYS-3086 - COVID - rename 'Offsite' to 'Scan', since only Scans are available now
+      # 'offsite' => ['Offsite', 'OpenURLinWindow', offsite_link],
+      'offsite' => ['Scane', 'OpenURLinWindow', offsite_link],
       'barnard_remote' => ['BearStor', 'OpenURLinWindow', barnard_remote_link],
       'spec_coll' => ['Special Collections',
 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
@@ -142,7 +144,7 @@ module HoldingsHelper
       'recall_hold' => ['Recall / Hold', recall_hold_link],
       'on_order' => ['On Order', 'OpenInprocessRequest'],
       'borrow_direct' => ['Borrow Direct', borrow_direct_link],
-      # LIBSYS-3083 - rename 'ILL' to 'Scan'
+      # LIBSYS-3083 - COVID - rename 'ILL' to 'Scan', since we're only doing Scanning now
       # 'ill' => ['ILL', ill_link],
       'ill' => ['Scan', ill_link],
       'in_process' => ['In Process', 'OpenInprocessRequest'],
