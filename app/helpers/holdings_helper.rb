@@ -124,7 +124,7 @@ module HoldingsHelper
     #    links.sort { |x,y| x.first <=> y.first }
   end
 
-  SERVICE_ORDER = %w(offsite barnard_remote spec_coll precat on_order borrow_direct borrow_direct_test recall_hold ill in_process doc_delivery).freeze
+  SERVICE_ORDER = %w(offsite barnard_remote spec_coll precat on_order borrow_direct borrow_direct_test recall_hold ill in_process doc_delivery paging).freeze
 
   # parameters: title, link (url or javascript), optional extra param
   # When 2nd param is a JS function,
@@ -138,6 +138,7 @@ module HoldingsHelper
       # 'offsite' => ['Offsite', 'OpenURLinWindow', offsite_link],
       'offsite' => ['Scan', 'OpenURLinWindow', offsite_link],
       'barnard_remote' => ['BearStor', 'OpenURLinWindow', barnard_remote_link],
+      'paging' => ['Page', 'OpenURLinWindow', paging_link],
       'spec_coll' => ['Special Collections',
 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
       'precat' => ['Precataloging', 'OpenURLinWindow', precat_link],
@@ -675,6 +676,11 @@ Rails.logger.debug "location_name=#{location_name} from=#{from} to=#{to}"
     valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
     # return "#{valet_url}/barnard_remote_requests/bib?bib_id="
     "#{valet_url}/bearstor/"
+  end
+
+  def paging_link
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    "#{valet_url}/paging/"
   end
 
   def offsite_bound_with_url(title, enum_chron, barcode)

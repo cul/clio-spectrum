@@ -571,6 +571,11 @@ module Voyager
            %w(available some_available).include?(item_status[:status])
           services << 'barnard_remote'
         end
+        
+        # NEXT-1664 - new Paging service
+        if location_code == (APP_CONFIG['paging_location'] || 'glx')
+          services << 'paging'
+        end
 
         # cleanup the list
         services = services.flatten.uniq
