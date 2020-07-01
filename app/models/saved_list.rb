@@ -35,9 +35,14 @@ class SavedList < ApplicationRecord
     current_item_keys = saved_list_items.map(&:item_key)
     # Add any new items, count as we go
     add_count = 0
-    (item_key_list - current_item_keys).each do |item_key|
+    (item_key_list - current_item_keys).uniq.each do |item_key|
       new_item = SavedListItem.new(item_key: item_key, saved_list_id: id)
-      new_item.save!
+      begin
+        new_item.save!
+      rescue ActiveRecord::RecordNotUnique
+        # Sometimes, somehow, we try to save an item which has already
+        # been saved.  Ignore this when it happens.
+      end
       add_count += 1
       # touch this list to update timestamps, etc.
       touch

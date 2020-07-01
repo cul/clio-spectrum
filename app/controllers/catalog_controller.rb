@@ -228,8 +228,14 @@ class CatalogController < ApplicationController
         # It's important that the argument to send be a symbol;
         # if it's a string, it makes Rails unhappy for unclear reasons.
         format.send(format_name.to_sym) do
-          render plain: @document.export_as(format_name),
-                 layout: false
+          begin
+            render plain: @document.export_as(format_name),
+                   layout: false
+           rescue MARC::Exception
+             # We get MARC::Exception when clients try to do a MARC format
+             # download of a record of greater than 100,000 bytes.
+             # There's no solution, we just let this fail silently.
+           end
         end
       end
     end
