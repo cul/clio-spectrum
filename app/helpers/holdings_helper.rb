@@ -519,7 +519,9 @@ module HoldingsHelper
     # document must have a hathi access value
     return nil unless document['hathi_access_s']
     
-    green_check = image_tag('icons/online.png', class: 'availability')
+    # REDGREEN - turn off colored indicators
+    # green_check = image_tag('icons/online.png', class: 'availability')
+    green_check = image_tag('icons/none.png', class: 'availability')
     label = hathi_link_label(document['hathi_access_s'])
     
     # mark with spans so that onload JS can manipulate link DOM
