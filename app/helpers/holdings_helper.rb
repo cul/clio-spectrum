@@ -242,7 +242,7 @@ module HoldingsHelper
       # add status icons
       entry['copies'].each do |copy|
         copy['items'].each_pair do |_message, details|
-          # REDGREEN - turn off colored indicators
+          # NEXT-1668 - turn off colored indicators
           # status_image = 'icons/' + details['status'] + '.png'
           status_image = 'icons/' + 'none' + '.png'
           status_label = details['status'].humanize
@@ -519,7 +519,7 @@ module HoldingsHelper
     # document must have a hathi access value
     return nil unless document['hathi_access_s']
     
-    # REDGREEN - turn off colored indicators
+    # NEXT-1668 - turn off colored indicators
     # green_check = image_tag('icons/online.png', class: 'availability')
     green_check = image_tag('icons/none.png', class: 'availability')
     label = hathi_link_label(document['hathi_access_s'])

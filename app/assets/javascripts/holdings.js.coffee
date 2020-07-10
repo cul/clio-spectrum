@@ -138,7 +138,7 @@ $ ->
         
         selector = "img.availability.holding_" + holding_id + ":not(.offsite)"
         status_upcase = status.charAt(0).toUpperCase() + status.slice(1)
-        # REDGREEN - turn off colored indicators
+        # NEXT-1668 - turn off colored indicators
         # $(selector).attr("src", "/static-icons/" + status + ".png")
         $(selector).attr("title", status_upcase)
         $(selector).attr("alt", status_upcase)
@@ -156,7 +156,7 @@ $ ->
       # - within that, find any img.availability for OFFSITE holdings
       # - ignore any img.availability NOT for offsite items (how?)
       selector = "img.availability.offsite.bib_" + bib
-      # REDGREEN - turn off colored indicators
+      # NEXT-1668 - turn off colored indicators
       # $(selector).attr("src", "/static-icons/" + status + ".png")
       status_upcase = status.charAt(0).toUpperCase() + status.slice(1)
       $(selector).attr("title", status_upcase)
