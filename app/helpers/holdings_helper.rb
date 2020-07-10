@@ -138,7 +138,7 @@ module HoldingsHelper
       # 'offsite' => ['Offsite', 'OpenURLinWindow', offsite_link],
       'offsite' => ['Scan', 'OpenURLinWindow', offsite_link],
       'barnard_remote' => ['BearStor', 'OpenURLinWindow', barnard_remote_link],
-      'paging' => ['Page', 'OpenURLinWindow', paging_link],
+      'paging' => ['Pick-up', 'OpenURLinWindow', paging_link],
       'spec_coll' => ['Special Collections',
 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
       'precat' => ['Precataloging', 'OpenURLinWindow', precat_link],
