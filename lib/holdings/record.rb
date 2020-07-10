@@ -571,7 +571,7 @@ module Voyager
            %w(available some_available).include?(item_status[:status])
           services << 'barnard_remote'
         end
-        
+
         # NEXT-1664 - new Paging service
         # NEXT-1666 - criteria for offering the paging service
         if location_code == (APP_CONFIG['paging_location'] || 'glx') &&
@@ -580,9 +580,7 @@ module Voyager
           # emergency online access - and thus shouldn't offer physical paging.
           # (folks prefer ETAS online page-by-page access to physical access?)
           etas_status = Covid.lookup_db_etas_status(bibid)
-          if (etas_status == 'deny')
-            services << 'paging'
-          end
+          services << 'paging' unless etas_status == 'deny'
         end
 
         # cleanup the list
