@@ -91,10 +91,10 @@ describe 'Searching for one-word titles: ', :skip_travis do
     expect(rank(resp, 3429848)).to be <= 10
 
     resp = solr_resp_ids_from_journal_title_query('JAMA')
-    expect(rank(resp, 3429848)).to be <= 2
+    expect(rank(resp, 3429848)).to be <= 5
 
     resp = solr_resp_ejournal_ids_only('q' => 'JAMA')
-    expect(rank(resp, 3429848)).to be <= 2
+    expect(rank(resp, 3429848)).to be <= 5
   end
 
   it 'Brain' do
