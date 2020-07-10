@@ -149,7 +149,7 @@ module HoldingsHelper
       # 'ill' => ['ILL', ill_link],
       'ill' => ['Scan', ill_link],
       'in_process' => ['In Process', 'OpenInprocessRequest'],
-      'doc_delivery' => ['Scan & Deliver', 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?']
+      'doc_delivery' => ['Scan', 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?']
     }
   end
 
