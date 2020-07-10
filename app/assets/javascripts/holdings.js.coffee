@@ -138,7 +138,8 @@ $ ->
         
         selector = "img.availability.holding_" + holding_id + ":not(.offsite)"
         status_upcase = status.charAt(0).toUpperCase() + status.slice(1)
-        $(selector).attr("src", "/static-icons/" + status + ".png")
+        # REDGREEN - turn off colored indicators
+        # $(selector).attr("src", "/static-icons/" + status + ".png")
         $(selector).attr("title", status_upcase)
         $(selector).attr("alt", status_upcase)
 
@@ -155,7 +156,8 @@ $ ->
       # - within that, find any img.availability for OFFSITE holdings
       # - ignore any img.availability NOT for offsite items (how?)
       selector = "img.availability.offsite.bib_" + bib
-      $(selector).attr("src", "/static-icons/" + status + ".png")
+      # REDGREEN - turn off colored indicators
+      # $(selector).attr("src", "/static-icons/" + status + ".png")
       status_upcase = status.charAt(0).toUpperCase() + status.slice(1)
       $(selector).attr("title", status_upcase)
       $(selector).attr("alt", status_upcase)
@@ -240,13 +242,13 @@ $ ->
 #   # https://www.googleapis.com/books/v1/volumes?q=lccn:2006921508
 #   # https://www.googleapis.com/books/v1/volumes?q=oclc:70850767
 #   # Google Books account for spectrum-tech@libraries.cul.columbia.edu
-#   # API Key: AIzaSyDSEgQqa-dByStBpuRHjrFOGQoonPYs2KU
+#   # API Key: ASDF-12345
 #   base_url = "https://www.googleapis.com/books/v1/volumes?"
 #   base_url = base_url + "q=" + current_search_id.toUpperCase()
 # 
 #   # use an API key for non-anonymous tracked usage... but only after our
 #   # API key has been allocated a very large quota
-#   base_url = base_url + "&key=AIzaSyDSEgQqa-dByStBpuRHjrFOGQoonPYs2KU"
+#   base_url = base_url + "&key=ASDF-12345"
 # 
 #   $.getJSON(base_url, (data) ->
 #     jacket_thumbnail_url = ''

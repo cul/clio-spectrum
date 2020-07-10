@@ -242,7 +242,9 @@ module HoldingsHelper
       # add status icons
       entry['copies'].each do |copy|
         copy['items'].each_pair do |_message, details|
-          status_image = 'icons/' + details['status'] + '.png'
+          # REDGREEN - turn off colored indicators
+          # status_image = 'icons/' + details['status'] + '.png'
+          status_image = 'icons/' + 'none' + '.png'
           status_label = details['status'].humanize
           # details['image_link'] = image_tag('icons/' + details['status'] + '.png')
           details['image_link'] = image_tag(status_image, title: status_label, alt: status_label)
@@ -517,7 +519,9 @@ module HoldingsHelper
     # document must have a hathi access value
     return nil unless document['hathi_access_s']
     
-    green_check = image_tag('icons/online.png', class: 'availability')
+    # REDGREEN - turn off colored indicators
+    # green_check = image_tag('icons/online.png', class: 'availability')
+    green_check = image_tag('icons/none.png', class: 'availability')
     label = hathi_link_label(document['hathi_access_s'])
     
     # mark with spans so that onload JS can manipulate link DOM
