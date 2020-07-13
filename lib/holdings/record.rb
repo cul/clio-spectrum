@@ -519,7 +519,6 @@ module Voyager
 
       def determine_services(location_name, location_code, temp_loc_flag, call_number, item_status, orders, bibid, fmt)
         services = []
-
         # NEXT-1229 - make this the first test
         # special collections request service [only service available for items from these locations]
         # LIBSYS-2505 - Any new locations need to be added in two places - keep them in sync!
@@ -555,7 +554,9 @@ module Voyager
 
         case item_status[:status]
         when 'online'
+          # do nothing - add no services for online records
         when 'none'
+          # status "none"?  Something's odd, not a regular holding.
           services << 'in_process' if call_number =~ /in process/i
         when 'available'
           services << process_for_services(location_name, location_code, temp_loc_flag, bibid, messages)
@@ -564,6 +565,7 @@ module Voyager
         when 'not_available'
           services << scan_messages(messages) if messages.present?
         end
+
 
         # If this is a BearStor holding and some items are available,
         # enable the BearStor request link (barnard_remote)
@@ -576,15 +578,21 @@ module Voyager
         # NEXT-1666 - criteria for offering the paging service
         if location_code == (APP_CONFIG['paging_location'] || 'glx') &&
            %w(available some_available).include?(item_status[:status])
-          # If the bibid is in the ETAS database, marked as 'deny', then we have
-          # emergency online access - and thus shouldn't offer physical paging.
-          # (folks prefer ETAS online page-by-page access to physical access?)
-          etas_status = Covid.lookup_db_etas_status(bibid)
-          services << 'paging' unless etas_status == 'deny'
+          services << 'paging'
         end
 
         # cleanup the list
         services = services.flatten.uniq
+
+        # NEXT-1664 - Criteria for Page/Scan service links
+        # If the bibid is in the ETAS database, marked as 'deny', then we have
+        # emergency online access - and thus can't offer Scan or Page
+        etas_status = Covid.lookup_db_etas_status(bibid)
+        if etas_status == 'deny'
+          # Service "ill" is actually Chapter/Article-Scan right now...
+          services.delete('ill')
+          services.delete('paging')
+        end
 
         # only provide borrow direct request for printed books and scores
         # and CDs and DVDS (LIBSYS-1327)
@@ -639,6 +647,7 @@ module Voyager
 
       def process_for_services(location_name, location_code, temp_loc_flag, _bibid, messages)
         services = []
+
         # offsite
         if OFFSITE_CONFIG['offsite_locations'].include?(location_code)
           services << 'offsite'
@@ -647,18 +656,31 @@ module Voyager
         elsif location_name =~ /^Precat/
           services << 'precat'
 
-        # doc delivery
-        # LIBSYS-1365 - Geology is closing, some services are no longer offered
-        # NEXT-1502 - Barnard is moving this summer, all items are unavailable
-        # elsif ['ave', 'avelc', 'bar', 'bar,mil', 'bus', 'eal', 'eax', 'eng',
-        #        'fax', 'faxlc', 'glg', 'glx', 'glxn', 'gsc', 'jou',
-        #        'leh', 'leh,bdis', 'mat', 'mil', 'mus', 'sci', 'swx',
-        #        'uts', 'uts,per', 'uts,unn', 'war' ].include?(location_code) &&
-        #        temp_loc_flag == 'N'
-        elsif Array(doc_delivery_locations).include?(location_code) &&
-              temp_loc_flag == 'N'
-          services << 'doc_delivery'
+        # LIBSYS-3075 - Scan & Deliver ("doc_delivery") is going away forever
+        # # doc delivery
+        # # LIBSYS-1365 - Geology is closing, some services are no longer offered
+        # # NEXT-1502 - Barnard is moving this summer, all items are unavailable
+        # # elsif ['ave', 'avelc', 'bar', 'bar,mil', 'bus', 'eal', 'eax', 'eng',
+        # #        'fax', 'faxlc', 'glg', 'glx', 'glxn', 'gsc', 'jou',
+        # #        'leh', 'leh,bdis', 'mat', 'mil', 'mus', 'sci', 'swx',
+        # #        'uts', 'uts,per', 'uts,unn', 'war' ].include?(location_code) &&
+        # #        temp_loc_flag == 'N'
+        # elsif Array(doc_delivery_locations).include?(location_code) &&
+        #       temp_loc_flag == 'N'
+        #   services << 'doc_delivery'
+
+        # TODO
+        # This is in-transition, and it's pretty ugly rignt now.
+        # The service known within CLIO code as 'ill' is actually
+        # Chapter/Article Scan.
+        # And this service should be added to ALL physical items,
+        else
+          services << 'ill'
+
         end
+
+
+   
 
         services << scan_messages(messages) if messages.present?
 

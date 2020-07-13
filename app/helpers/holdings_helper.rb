@@ -605,15 +605,13 @@ module HoldingsHelper
     # end
 
     location = Location.match_location_text(location_name)
-    
+
+    # For some Location Names, do simple regexp string replacements
     replacements = APP_CONFIG['location_name_replacements'] || {}
     replacements.each_pair do |from, to|
-Rails.logger.debug "location_name=#{location_name} from=#{from} to=#{to}"
+      # Rails.logger.debug "location_name=#{location_name} from=#{from} to=#{to}"
       location_name.gsub!(/#{from}/, to)
     end
-    # (APP_CONFIG['location_name_replacements'] || {}).each_pair do |from, to|
-    #   location_name.gsub(/#{from}/, to)
-    # end
     return location_name unless location && location.category == 'physical'
 
     map_marker = content_tag(:span, ''.html_safe, class: 'glyphicon glyphicon-map-marker text-primary').html_safe
