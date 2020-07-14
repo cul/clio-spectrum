@@ -640,6 +640,8 @@ module Voyager
         # if location_name.match(/Barnard/i) || location_code == 'bar,mil'
         #   services.delete('doc_delivery')
         # end
+        
+        Rails.logger.debug("determine_services(#{location_name}, #{location_code}, #{temp_loc_flag}, #{call_number}, #{item_status}, #{orders}, #{bibid}, #{fmt}) found: #{services}")
 
         # return the cleaned up list
         services
