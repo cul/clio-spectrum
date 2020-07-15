@@ -566,6 +566,16 @@ module Voyager
           services << scan_messages(messages) if messages.present?
         end
 
+        # TODO
+        # This is in-transition, and it's pretty ugly rignt now.
+        # The service known within CLIO code as 'ill' is actually Chapter/Article Scan.
+        # And this service should be added to ALL physical items (not _online_)
+        # no matter their status.
+        # Available onsite?  We'll try scan it here.
+        # Unavailable? Or indeterminable ("none")?  We'll send it out to ILL for scanning.
+        # Either way, CLIO will link out to CGI (or Valet) for Illiad submission
+        services << 'ill' unless item_status[:status] == 'online'
+
 
         # If this is a BearStor holding and some items are available,
         # enable the BearStor request link (barnard_remote)
@@ -588,8 +598,7 @@ module Voyager
         # NEXT-1664 - Criteria for Page/Scan service links
         # If the bibid is in the ETAS database, marked as 'deny', then we have
         # emergency online access - and thus can't offer Scan or Page
-        etas_status = Covid.lookup_db_etas_status(bibid)
-        if etas_status == 'deny'
+        if Covid.lookup_db_etas_status(bibid) == 'deny'
           # Service "ill" is actually Chapter/Article-Scan right now...
           services.delete('ill')
           services.delete('paging')
@@ -671,14 +680,6 @@ module Voyager
         # elsif Array(doc_delivery_locations).include?(location_code) &&
         #       temp_loc_flag == 'N'
         #   services << 'doc_delivery'
-
-        # TODO
-        # This is in-transition, and it's pretty ugly rignt now.
-        # The service known within CLIO code as 'ill' is actually
-        # Chapter/Article Scan.
-        # And this service should be added to ALL physical items,
-        else
-          services << 'ill'
 
         end
 

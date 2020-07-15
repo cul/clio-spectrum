@@ -96,6 +96,7 @@ module Voyager
 
       # Some qualities of the bib record affect services offered
       def adjust_services_for_bib(document, holdings_records)
+
         # NEXT-1673 - only offer "Scan" (i.e., 'ill') for certain formats
         scan_formats = APP_CONFIG['scan_formats'] || ['book']
         # If there's no intersection between this bib's formats and the scannable list,
@@ -105,6 +106,7 @@ module Voyager
             record.services.delete('ill') # internal code 'ill' is actuall "Scan"
           end
         end
+
       end
 
       # For records with multiple holdings, based on the overall content, adjust as follows:
@@ -123,7 +125,8 @@ module Voyager
 
         # adjust services
         holdings_records.each do |record|
-          record.services.delete('doc_delivery') if offsite_copy == 'Y'
+          # doc_delivery ("Scan & Deliver") is going away forever
+          # record.services.delete('doc_delivery') if offsite_copy == 'Y'
           record.services.delete('borrow_direct') if available_copy == 'Y'
           # NEXT-1670 - Scan service (internally: ill) for ALL records
           # record.services.delete('ill') if available_copy == 'Y'
