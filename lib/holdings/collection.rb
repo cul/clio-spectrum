@@ -13,23 +13,27 @@ module Voyager
         document_marc = document.to_marc
 
         # collect mfhd records
-        @records = []
+        @holdings_records = []
         document_marc.each_by_tag('852') do |t852|
           # Sequence - MFHD ID used to gather all associated fields
           mfhd_id = t852['0']
           mfhd_status = document_status[mfhd_id] || {}
           # Rails.logger.debug "parse_marc:  mfhd_id=[#{mfhd_id}]"
-          @records << Record.new(mfhd_id, document_marc, mfhd_status, scsb_status)
+          @holdings_records << Record.new(mfhd_id, document_marc, mfhd_status, scsb_status)
         end
 
-        adjust_services(@records) if @records.length > 1
+        # Looking over all holdings copies may affect offered services
+        adjust_services_across_holdings(@holdings_records) if @holdings_records.length > 1
+
+        # Some qualities of the bib record affect services offered on the holdings records
+        adjust_services_for_bib(document, @holdings_records)
       end
 
       # Generate output holdings data structure from array of Record objects
       def to_holdings
         output = {}
 
-        holdings = @records.collect(&:to_hash)
+        holdings = @holdings_records.collect(&:to_hash)
         # raise
 
         # The SCSB MARC sometimes puts each item of an NYPL serial in it's own
@@ -90,14 +94,27 @@ module Voyager
         true
       end
 
+      # Some qualities of the bib record affect services offered
+      def adjust_services_for_bib(document, holdings_records)
+        # NEXT-1673 - only offer "Scan" (i.e., 'ill') for certain formats
+        scan_formats = APP_CONFIG['scan_formats'] || ['book']
+        # If there's no intersection between this bib's formats and the scannable list,
+        # Then remove all 'ill' service links
+        if (document['format'] & scan_formats).empty?
+          holdings_records.each do |record|
+            record.services.delete('ill') # internal code 'ill' is actuall "Scan"
+          end
+        end
+      end
+
       # For records with multiple holdings, based on the overall content, adjust as follows:
       # -- remove document delivery options if there is an available offsite copy
       # -- remove borrowdirect and ill options if there is an available non-reserve, circulating copy
-      def adjust_services(records)
+      def adjust_services_across_holdings(holdings_records)
         # set flags
         offsite_copy = 'N'
         available_copy = 'N'
-        records.each do |record|
+        holdings_records.each do |record|
           offsite_copy = 'Y' if record.services.include?('offsite')
           if record.item_status[:status] == 'available'
             available_copy = 'Y' unless record.location_name =~ /Reserve|Non\-Circ/ || record.location_name =~ /BearStor/
@@ -105,7 +122,7 @@ module Voyager
         end
 
         # adjust services
-        records.each do |record|
+        holdings_records.each do |record|
           record.services.delete('doc_delivery') if offsite_copy == 'Y'
           record.services.delete('borrow_direct') if available_copy == 'Y'
           # NEXT-1670 - Scan service (internally: ill) for ALL records
