@@ -576,7 +576,8 @@ module Voyager
 
         # NEXT-1664 - new Paging service
         # NEXT-1666 - criteria for offering the paging service
-        if location_code == (APP_CONFIG['paging_location'] || 'glx') &&
+        paging_locations = APP_CONFIG['paging_locations'] || ['glx']
+        if paging_locations.include?(location_code) &&
            %w(available some_available).include?(item_status[:status])
           services << 'paging'
         end
@@ -688,7 +689,7 @@ module Voyager
 
         services
       end
-      
+            
       def doc_delivery_locations
         # If an override list of doc_delivery_locations was 
         # defined in app_config, use that.
