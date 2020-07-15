@@ -109,7 +109,8 @@ gem 'net-sftp'
 gem 'faraday', '1.0.0'
 
 # For, e.g., Google Custom Search API
-gem 'google-api-client', '~> 0.36'
+# Our code seems to break beyond 0.36?
+gem 'google-api-client', '0.36'
 
 # 10/15 - not giving us insight beyond our debug_timestamp info
 # # 3/15, comment out for now to simplify output,
