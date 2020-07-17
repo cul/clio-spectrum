@@ -574,8 +574,13 @@ module Voyager
         # Available onsite?  We'll try scan it here.
         # Unavailable? Or indeterminable ("none")?  We'll send it out to ILL for scanning.
         # Either way, CLIO will link out to CGI (or Valet) for Illiad submission
-        services << 'ill' unless item_status[:status] == 'online'
-
+        # services << 'ill' unless item_status[:status] == 'online' or
+        # - NO ill/scan for ONLINE records
+        # - NO ill/scan if we're already offering offsite/scan service
+        if item_status[:status] != 'online' && ! services.flatten.include?('offsite')
+          services << 'ill'
+        end
+        
 
         # If this is a BearStor holding and some items are available,
         # enable the BearStor request link (barnard_remote)
@@ -626,30 +631,6 @@ module Voyager
             services.delete('ill')
           end
         end
-
-        # 8/2018 - not being actively tested, turn this off
-        # # TESTING new Borrow Direct rules in non-prod environments
-        # if ['clio_test', 'clio_dev', 'development'].include? Rails.env
-        #   if services.include?('borrow_direct')
-        #     services << 'borrow_direct_test'
-        #   end
-        # end
-
-        # # We don't know how to recall PUL or NYPL ReCAP items
-        # if ['scsbpul', 'scsbnypl'].include?(location_code)
-        #   services.delete('recall_hold')
-        # end
-
-        # Unnecessary - just omit location codes from hardcoded list
-        #     in process_for_services(), below
-        # # LIBSYS-1365 - Geology is closing, some services are no longer offered
-        # if location_name.match(/Geology/i) || location_code.starts_with?('geo')
-        #   services.delete('doc_delivery')
-        # end
-        # # NEXT-1502 - Barnard is moving this summer, all items are unavailable
-        # if location_name.match(/Barnard/i) || location_code == 'bar,mil'
-        #   services.delete('doc_delivery')
-        # end
         
         Rails.logger.debug("determine_services(#{location_name}, #{location_code}, #{temp_loc_flag}, #{call_number}, #{item_status}, #{orders}, #{bibid}, #{fmt}) found: #{services}")
 
@@ -682,9 +663,6 @@ module Voyager
         #   services << 'doc_delivery'
 
         end
-
-
-   
 
         services << scan_messages(messages) if messages.present?
 
