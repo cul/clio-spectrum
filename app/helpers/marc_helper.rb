@@ -149,7 +149,7 @@ module MarcHelper
     unless subflds.empty?
       out = subflds.shift.value
       subflds.each do |s|
-        out += if 'vxyz'.include?(s.code)
+        out += if 'tvxyz'.include?(s.code)
                  ' - ' + s.value
                else
                  ' ' + s.value

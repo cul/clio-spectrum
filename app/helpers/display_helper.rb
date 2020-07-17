@@ -405,8 +405,7 @@ module DisplayHelper
     #   a             "a"
     #   b             "a b"
     #   c             "a b c"
-
-    values.listify.map do |value|
+    Array(values).map do |value|
       # Detect vernacular subjects - those won't link
       value, t880_indicator = value.split(DELIM)
       next value if t880_indicator
