@@ -8,25 +8,28 @@
 
 namespace :foia do
 
+  ##############################################################
   desc 'list FOIA files available for download from S3 bucket'
   task :list do
     setup_ingest_logger
     Rails.logger.info('- listing remote files from S3 bucket')
     
-    Rails.logger.info('--- creating S3 client connection')
+    Rails.logger.info('- creating S3 client connection')
     s3 = get_s3
 
-    Rails.logger.info('--- list objects')
+    Rails.logger.info("- list objects in bucket #{FOIA_BUCKET}")
     list = s3.list_objects(bucket: FOIA_BUCKET)
     list.contents.each do |object|
       filename = object.key
       bytes = object.size
       mbs = bytes / (1024 * 1024)
-      Rails.logger.info sprintf("  %-20s %5dM", filename, mbs.round(0))
+      Rails.logger.info sprintf("    %-20s %5dM", filename, mbs.round(0))
     end
+    Rails.logger.info("- list complete, #{list.contents.size} files found.")
   end
 
 
+  ##############################################################
   desc 'download all FOIA files from S3 bucket to local storage'
   task :download_all do
     setup_ingest_logger
@@ -34,13 +37,13 @@ namespace :foia do
     # Just pull everything down, sort it out locally.
     Rails.logger.info('- downloading ALL remote FOIA files')
     
-    Rails.logger.info('--- creating S3 client connection')
+    Rails.logger.info('- creating S3 client connection')
     s3 = get_s3
     
-    Rails.logger.info('--- getting list of files')
+    Rails.logger.info('- getting list of files')
     list = s3.list_objects(bucket: FOIA_BUCKET)
   
-    Rails.logger.info("--- downloading #{list.size} files...")
+    Rails.logger.info("- downloading #{list.contents.size} files...")
     
     list.contents.each do |object|
       filename = object.key
@@ -50,11 +53,11 @@ namespace :foia do
     end
     Rails.logger.info('-' * 60)
     
-    Rails.logger.info("- finished processing #{list.size} files.")
+    Rails.logger.info("- finished processing #{list.contents.size} files.")
   end
     
 
-
+  ##############################################################
   desc 'download a single specified FOIA file from S3'
   task :download_file, [:filename, :s3] => :environment do |_t, args|
     setup_ingest_logger
@@ -74,32 +77,116 @@ namespace :foia do
       s3 = get_s3
     end
     
+    downloaded_file = "#{extract_dir}/#{filename}"
+    
     # validate passed filename
+    Rails.logger.info("--- verifying filename #{filename}")
     objectsize = nil
-    params = {bucket: FOIA_BUCKET, prefix: filename}
     begin
-      response = s3.list_objects(params)
+      response = s3.list_objects(bucket: FOIA_BUCKET, prefix: filename)
       objectsize = response.contents.first.size
     rescue
-      abort("Unable to verify filename #{filename}") unless size
+      abort("Unable to find file '#{filename}' in s3 bucket '#{FOIA_BUCKET}'")
     end
     
-    Rails.logger.info("---- downloading filename: #{filename}")
+    # download the file
+    Rails.logger.info("--- downloading file: #{filename} from s3 bucket")
+    Rails.logger.info("--- saving to extract diretory #{extract_dir}")
     response = s3.get_object(
-        response_target: "#{extract_dir}/#{filename}",
-        bucket: 'cul-s3-clio-foia', 
+        response_target: downloaded_file,
+        bucket: FOIA_BUCKET, 
         key: filename,
     )
     Rails.logger.info("--- download of #{filename} complete.")
     
-    filesize = File.size("#{extract_dir}/#{filename}")
-    if (objectsize != filesize)
+    # verify the downloaded file
+    filesize = File.size(downloaded_file)
+    if (objectsize == filesize)
+      Rails.logger.info("--- verified that bytesize of download matches s3")
+      Rails.logger.info("---   (objectsize = #{objectsize} / filesize = #{filesize})")
+    else
       abort("ERROR:  downloaded filesize doesn't match object size")
     end
+    
+    # delete the file from the s3 bucket
+    Rails.logger.info("--- deleting #{filename} from s3 bucket...")
+    
+    response = s3.delete_object(bucket: FOIA_BUCKET, key: filename)
+    # Rails.logger.debug(response.inspect)
+    
+    # verify that the object is no longer found in the S3 bucket
+    response = s3.list_objects(bucket: FOIA_BUCKET, prefix: filename)
+    abort("ERROR:  file #{filename} still found in s3 bucket after delete") unless response && response.contents && response.contents.size == 0
+    
+    Rails.logger.info("--- deleted.")
     
   end
 
 
+  ##############################################################
+  desc 'Ingest all available FOIA MARC XML files'
+  task :ingest_all do
+    setup_ingest_logger
+    Rails.logger.info('-- ingesting all available FOIA files to Solr...')
+    
+    extract_dir = APP_CONFIG['extract_home'] + '/' + 'foia'
+    
+    # Get list of all FOIA files
+    all_files = Dir.glob("#{extract_dir}/*.xml").map { |f| File.basename(f) }.sort
+    if (all_files.size > 0)
+      Rails.logger.info("-- found #{all_files.size} FOIA XML files to ingest")
+    else      
+      abort("ERROR: can't find any xml files under #{extract_dir}") 
+    end
+
+    all_files.each do |filename|
+      Rails.logger.info('-' * 60)
+      Rake::Task['foia:ingest_file'].reenable
+      Rake::Task['foia:ingest_file'].invoke(filename)
+    end
+    Rails.logger.info('-' * 60)
+    
+    Rails.logger.info('-- ingest of all files complete.')
+    
+  end
+  
+
+  ##############################################################
+  desc 'ingest a single FOIA MARC XML file'
+  task :ingest_file, [:filename] do |_t, args|
+    setup_ingest_logger
+
+    filename = args[:filename]
+    extract_dir = APP_CONFIG['extract_home'] + '/' + 'foia'
+
+    abort('ERROR: foia:ingest_file[:filename] not passed filename') unless filename
+    abort("ERROR: foia:ingest_file[:filename] passed non-existant filename #{filename}") unless File.exist?("#{extract_dir}/#{filename}")
+    abort('ERROR: foia:ingest_file[:filename] not an XML file') unless filename.ends_with?('.xml')
+
+    Rails.logger.info("--- ingesting FOIA file #{filename}")
+
+    # get the environment-specific file-ingest directory in shape
+    current_dir = File.join(Rails.root, 'tmp/extracts/foia/current/')
+    old_dir = File.join(Rails.root, 'tmp/extracts/foia/old')
+    FileUtils.mkdir_p(current_dir)
+    FileUtils.mkdir_p(old_dir)
+
+    # roll previous-load of same filename aside, copy in newest version
+    FileUtils.rm("#{old_dir}/#{filename}") if File.exist?("#{old_dir}/#{filename}")
+    FileUtils.mv("#{current_dir}/#{filename}", "#{old_dir}/#{filename}") if File.exist?("#{current_dir}/#{filename}")
+    FileUtils.cp("#{extract_dir}/#{filename}", current_dir)
+
+    Rails.logger.info('--- calling bibliographic:extract:ingest')
+    ENV['EXTRACT'] = 'foia'
+    # re-enable, in case we're calling this task repeatedly in a loop
+    Rake::Task['bibliographic:extract:ingest'].reenable
+    Rake::Task['bibliographic:extract:ingest'].invoke
+
+    Rails.logger.info("--- ingest #{filename} done.")
+  end
+  
+
+  ##############################################################
   desc 'delete stale FOIA records from the solr index'
   task prune_index: :environment do
     setup_ingest_logger

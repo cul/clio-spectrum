@@ -7,7 +7,7 @@ require 'rake'
 require File.join(Rails.root.to_s, 'config', 'initializers/aaa_load_app_config.rb')
 
 
-EXTRACTS = %w(full incremental cumulative subset law auth recap).freeze
+EXTRACTS = %w(full incremental cumulative subset law auth recap foia).freeze
 
 # process large 'deletes' files in batches of this many
 DELETES_SLICE = 1000
@@ -19,7 +19,7 @@ AUTHORITIES_SOLR = RSolr.connect(url: APP_CONFIG['authorities_solr_url'])
 
 
 # Name of the AWS S3 bucket where we retreive FOIA files
-FOIA_BUCKET = APP_CONFIG['aws']['foia_bucket']
+FOIA_BUCKET = (APP_CONFIG['aws'] || Hash.new())['foia_bucket']
 
 # totally doesn't work - "dynamic constant assignment"
 # AUTHORITIES_SOLR_FAILURES = 0
