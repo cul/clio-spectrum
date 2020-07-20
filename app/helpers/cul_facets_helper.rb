@@ -204,7 +204,7 @@ module CulFacetsHelper
     # Are we currently excluding GovDocs?
     # If so, (1) render toggle as checked, (2) link to un-exclude
     excluded_format_field = '-format'
-    govdocs_item = 'US Government Document'
+    govdocs_item = 'FOIA Document'
 
     if params['f'] && params['f'][excluded_format_field] && params['f'][excluded_format_field].include?(govdocs_item)
       icon = content_tag(:span, '', class: 'glyphicon glyphicon-check')
