@@ -35,6 +35,9 @@ module HathiMacro
       oclc_clause += " or oclc = '#{oclc}'"
     end
     
+    # Turn off DEBUG-level logging for SQL
+    ActiveRecord::Base.logger.level = Logger::INFO
+    
     # sql = "select access from hathi_etas where local_id = '#{local_id}'"
     sql = "select access from hathi_overlap where local_id = '#{local_id}'"
     sql += oclc_clause if oclc_clause.present?

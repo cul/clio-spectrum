@@ -124,7 +124,7 @@ module HoldingsHelper
     #    links.sort { |x,y| x.first <=> y.first }
   end
 
-  SERVICE_ORDER = %w(offsite barnard_remote spec_coll precat on_order borrow_direct borrow_direct_test recall_hold ill in_process doc_delivery).freeze
+  SERVICE_ORDER = %w(offsite barnard_remote spec_coll precat on_order borrow_direct borrow_direct_test recall_hold ill in_process doc_delivery paging).freeze
 
   # parameters: title, link (url or javascript), optional extra param
   # When 2nd param is a JS function,
@@ -134,19 +134,22 @@ module HoldingsHelper
     # just return a hash, the same as the constant did, but
     # now we can call methods as we build the config.
     {
-      'offsite' => ['Offsite', 'OpenURLinWindow', offsite_link],
+      # LIBSYS-3086 - COVID - rename 'Offsite' to 'Scan', since only Scans are available now
+      # 'offsite' => ['Offsite', 'OpenURLinWindow', offsite_link],
+      'offsite' => ['Scan', 'OpenURLinWindow', offsite_link],
       'barnard_remote' => ['BearStor', 'OpenURLinWindow', barnard_remote_link],
+      'paging' => ['Pick-up', 'OpenURLinWindow', paging_link],
       'spec_coll' => ['Special Collections',
 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
       'precat' => ['Precataloging', 'OpenURLinWindow', precat_link],
       'recall_hold' => ['Recall / Hold', recall_hold_link],
       'on_order' => ['On Order', 'OpenInprocessRequest'],
       'borrow_direct' => ['Borrow Direct', borrow_direct_link],
-      # LIBSYS-3083 - rename 'ILL' to 'Scan'
+      # LIBSYS-3083 - COVID - rename 'ILL' to 'Scan', since we're only doing Scanning now
       # 'ill' => ['ILL', ill_link],
       'ill' => ['Scan', ill_link],
       'in_process' => ['In Process', 'OpenInprocessRequest'],
-      'doc_delivery' => ['Scan & Deliver', 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?']
+      'doc_delivery' => ['Scan', 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?']
     }
   end
 
@@ -239,7 +242,9 @@ module HoldingsHelper
       # add status icons
       entry['copies'].each do |copy|
         copy['items'].each_pair do |_message, details|
-          status_image = 'icons/' + details['status'] + '.png'
+          # NEXT-1668 - turn off colored indicators
+          # status_image = 'icons/' + details['status'] + '.png'
+          status_image = 'icons/' + 'none' + '.png'
           status_label = details['status'].humanize
           # details['image_link'] = image_tag('icons/' + details['status'] + '.png')
           details['image_link'] = image_tag(status_image, title: status_label, alt: status_label)
@@ -514,7 +519,9 @@ module HoldingsHelper
     # document must have a hathi access value
     return nil unless document['hathi_access_s']
     
-    green_check = image_tag('icons/online.png', class: 'availability')
+    # NEXT-1668 - turn off colored indicators
+    # green_check = image_tag('icons/online.png', class: 'availability')
+    green_check = image_tag('icons/none.png', class: 'availability')
     label = hathi_link_label(document['hathi_access_s'])
     
     # mark with spans so that onload JS can manipulate link DOM
@@ -598,15 +605,13 @@ module HoldingsHelper
     # end
 
     location = Location.match_location_text(location_name)
-    
+
+    # For some Location Names, do simple regexp string replacements
     replacements = APP_CONFIG['location_name_replacements'] || {}
     replacements.each_pair do |from, to|
-Rails.logger.debug "location_name=#{location_name} from=#{from} to=#{to}"
+      # Rails.logger.debug "location_name=#{location_name} from=#{from} to=#{to}"
       location_name.gsub!(/#{from}/, to)
     end
-    # (APP_CONFIG['location_name_replacements'] || {}).each_pair do |from, to|
-    #   location_name.gsub(/#{from}/, to)
-    # end
     return location_name unless location && location.category == 'physical'
 
     map_marker = content_tag(:span, ''.html_safe, class: 'glyphicon glyphicon-map-marker text-primary').html_safe
@@ -673,6 +678,11 @@ Rails.logger.debug "location_name=#{location_name} from=#{from} to=#{to}"
     valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
     # return "#{valet_url}/barnard_remote_requests/bib?bib_id="
     "#{valet_url}/bearstor/"
+  end
+
+  def paging_link
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    "#{valet_url}/paging/"
   end
 
   def offsite_bound_with_url(title, enum_chron, barcode)

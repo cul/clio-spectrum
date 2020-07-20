@@ -35,10 +35,10 @@ describe 'record tests' do
     visit solr_document_path('6249927')
     expect(page).to have_css('#clio_holdings .holding', wait: 20)
     within ('div#clio_holdings') do
-      # # COVID OVERRIDE SPEC
+      # # COVID OVERRIDE SPEC - link logic flipped, link label changed
       # expect(page).not_to have_link('Offsite')
       # # restore the following:
-      expect(page).to have_link('Offsite')
+      expect(page).to have_link('Scan')
 
       # The href is blank - the Valet URL is in the onclick JS code
       # href: 'https://valet.cul.columbia.edu/offsite_requests/bib?bib_id=6249927')

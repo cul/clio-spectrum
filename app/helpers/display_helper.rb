@@ -298,21 +298,27 @@ module DisplayHelper
     # one per input value.
     out = []
 
-    values.listify.each do |v|
+    Array(values).each do |value|
       # Fields intended for for search links will have distinct
       # display/search values delimited within the field.
-      display_value, search_value, t880_indicator = v.split(DELIM)
+      display_value, search_value, t880_indicator = value.split(DELIM)
 
       # If the split didn't find us a search_value, this field was
       # not setup for searching - return the value for display, no link.
       unless search_value
-        out << v
+        out << value
         next
       end
 
       # the display value has already been made html-escaped by MarcHelper.
       # mark it as html-safe to avoid double-encoding
       display_value = display_value.html_safe
+
+      # NEXT-1671 - don't use vernacular to build query links, it's unreliable
+      if t880_indicator && Rails.env != 'clio_prod'
+        out << display_value
+        next
+      end
 
       # if we're displaying plain text, do not include links
       if @add_row_style == :text
@@ -405,8 +411,7 @@ module DisplayHelper
     #   a             "a"
     #   b             "a b"
     #   c             "a b c"
-
-    values.listify.map do |value|
+    Array(values).map do |value|
       # Detect vernacular subjects - those won't link
       value, t880_indicator = value.split(DELIM)
       next value if t880_indicator

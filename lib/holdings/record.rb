@@ -519,7 +519,6 @@ module Voyager
 
       def determine_services(location_name, location_code, temp_loc_flag, call_number, item_status, orders, bibid, fmt)
         services = []
-
         # NEXT-1229 - make this the first test
         # special collections request service [only service available for items from these locations]
         # LIBSYS-2505 - Any new locations need to be added in two places - keep them in sync!
@@ -555,7 +554,9 @@ module Voyager
 
         case item_status[:status]
         when 'online'
+          # do nothing - add no services for online records
         when 'none'
+          # status "none"?  Something's odd, not a regular holding.
           services << 'in_process' if call_number =~ /in process/i
         when 'available'
           services << process_for_services(location_name, location_code, temp_loc_flag, bibid, messages)
@@ -565,6 +566,22 @@ module Voyager
           services << scan_messages(messages) if messages.present?
         end
 
+        # TODO
+        # This is in-transition, and it's pretty ugly rignt now.
+        # The service known within CLIO code as 'ill' is actually Chapter/Article Scan.
+        # And this service should be added to ALL physical items (not _online_)
+        # no matter their status.
+        # Available onsite?  We'll try scan it here.
+        # Unavailable? Or indeterminable ("none")?  We'll send it out to ILL for scanning.
+        # Either way, CLIO will link out to CGI (or Valet) for Illiad submission
+        # services << 'ill' unless item_status[:status] == 'online' or
+        # - NO ill/scan for ONLINE records
+        # - NO ill/scan if we're already offering offsite/scan service
+        if item_status[:status] != 'online' && ! services.flatten.include?('offsite')
+          services << 'ill'
+        end
+        
+
         # If this is a BearStor holding and some items are available,
         # enable the BearStor request link (barnard_remote)
         if location_code == APP_CONFIG['barnard_remote_location'] &&
@@ -572,8 +589,25 @@ module Voyager
           services << 'barnard_remote'
         end
 
+        # NEXT-1664 - new Paging service
+        # NEXT-1666 - criteria for offering the paging service
+        paging_locations = APP_CONFIG['paging_locations'] || ['glx']
+        if paging_locations.include?(location_code) &&
+           %w(available some_available).include?(item_status[:status])
+          services << 'paging'
+        end
+
         # cleanup the list
         services = services.flatten.uniq
+
+        # NEXT-1664 - Criteria for Page/Scan service links
+        # If the bibid is in the ETAS database, marked as 'deny', then we have
+        # emergency online access - and thus can't offer Scan or Page
+        if Covid.lookup_db_etas_status(bibid) == 'deny'
+          # Service "ill" is actually Chapter/Article-Scan right now...
+          services.delete('ill')
+          services.delete('paging')
+        end
 
         # only provide borrow direct request for printed books and scores
         # and CDs and DVDS (LIBSYS-1327)
@@ -597,30 +631,8 @@ module Voyager
             services.delete('ill')
           end
         end
-
-        # 8/2018 - not being actively tested, turn this off
-        # # TESTING new Borrow Direct rules in non-prod environments
-        # if ['clio_test', 'clio_dev', 'development'].include? Rails.env
-        #   if services.include?('borrow_direct')
-        #     services << 'borrow_direct_test'
-        #   end
-        # end
-
-        # # We don't know how to recall PUL or NYPL ReCAP items
-        # if ['scsbpul', 'scsbnypl'].include?(location_code)
-        #   services.delete('recall_hold')
-        # end
-
-        # Unnecessary - just omit location codes from hardcoded list
-        #     in process_for_services(), below
-        # # LIBSYS-1365 - Geology is closing, some services are no longer offered
-        # if location_name.match(/Geology/i) || location_code.starts_with?('geo')
-        #   services.delete('doc_delivery')
-        # end
-        # # NEXT-1502 - Barnard is moving this summer, all items are unavailable
-        # if location_name.match(/Barnard/i) || location_code == 'bar,mil'
-        #   services.delete('doc_delivery')
-        # end
+        
+        Rails.logger.debug("determine_services(#{location_name}, #{location_code}, #{temp_loc_flag}, #{call_number}, #{item_status}, #{orders}, #{bibid}, #{fmt}) found: #{services}")
 
         # return the cleaned up list
         services
@@ -628,6 +640,7 @@ module Voyager
 
       def process_for_services(location_name, location_code, temp_loc_flag, _bibid, messages)
         services = []
+
         # offsite
         if OFFSITE_CONFIG['offsite_locations'].include?(location_code)
           services << 'offsite'
@@ -636,24 +649,26 @@ module Voyager
         elsif location_name =~ /^Precat/
           services << 'precat'
 
-        # doc delivery
-        # LIBSYS-1365 - Geology is closing, some services are no longer offered
-        # NEXT-1502 - Barnard is moving this summer, all items are unavailable
-        # elsif ['ave', 'avelc', 'bar', 'bar,mil', 'bus', 'eal', 'eax', 'eng',
-        #        'fax', 'faxlc', 'glg', 'glx', 'glxn', 'gsc', 'jou',
-        #        'leh', 'leh,bdis', 'mat', 'mil', 'mus', 'sci', 'swx',
-        #        'uts', 'uts,per', 'uts,unn', 'war' ].include?(location_code) &&
-        #        temp_loc_flag == 'N'
-        elsif Array(doc_delivery_locations).include?(location_code) &&
-              temp_loc_flag == 'N'
-          services << 'doc_delivery'
+        # LIBSYS-3075 - Scan & Deliver ("doc_delivery") is going away forever
+        # # doc delivery
+        # # LIBSYS-1365 - Geology is closing, some services are no longer offered
+        # # NEXT-1502 - Barnard is moving this summer, all items are unavailable
+        # # elsif ['ave', 'avelc', 'bar', 'bar,mil', 'bus', 'eal', 'eax', 'eng',
+        # #        'fax', 'faxlc', 'glg', 'glx', 'glxn', 'gsc', 'jou',
+        # #        'leh', 'leh,bdis', 'mat', 'mil', 'mus', 'sci', 'swx',
+        # #        'uts', 'uts,per', 'uts,unn', 'war' ].include?(location_code) &&
+        # #        temp_loc_flag == 'N'
+        # elsif Array(doc_delivery_locations).include?(location_code) &&
+        #       temp_loc_flag == 'N'
+        #   services << 'doc_delivery'
+
         end
 
         services << scan_messages(messages) if messages.present?
 
         services
       end
-      
+            
       def doc_delivery_locations
         # If an override list of doc_delivery_locations was 
         # defined in app_config, use that.
