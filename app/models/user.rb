@@ -46,7 +46,9 @@ class User < ApplicationRecord
   end
 
   def culstaff?
-    self.has_affil('CUL_allstaff')
+    return true if self.has_affil('CUL_allstaff')
+    return true if self.has_affil('CUL_culis')
+    return false
   end
 
   # developers and sysadmins
