@@ -257,8 +257,10 @@ module DatasourcesHelper
     end
 
     exclude_govdocs = '' 
-    if (['catalog','new_arrivals'].include?(source))
-      exclude_govdocs = '&f[-format][]=US+Government+Document'
+    if APP_CONFIG['govdocs_exclusion']
+      if (['catalog','new_arrivals'].include?(source))
+        exclude_govdocs = '&f[-format][]=US+Government+Document'
+      end
     end
 
 
