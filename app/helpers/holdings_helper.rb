@@ -136,20 +136,24 @@ module HoldingsHelper
     {
       # LIBSYS-3086 - COVID - rename 'Offsite' to 'Scan', since only Scans are available now
       # 'offsite' => ['Offsite', 'OpenURLinWindow', offsite_link],
-      'offsite' => ['Scan', 'OpenURLinWindow', offsite_link],
-      'barnard_remote' => ['BearStor', 'OpenURLinWindow', barnard_remote_link],
-      'paging' => ['Pick-up', 'OpenURLinWindow', paging_link],
-      'spec_coll' => ['Special Collections',
-'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='],
-      'precat' => ['Precataloging', 'OpenURLinWindow', precat_link],
-      'recall_hold' => ['Recall / Hold', recall_hold_link],
-      'on_order' => ['On Order', 'OpenInprocessRequest'],
-      'borrow_direct' => ['Borrow Direct', borrow_direct_link],
-      # LIBSYS-3083 - COVID - rename 'ILL' to 'Scan', since we're only doing Scanning now
-      # 'ill' => ['ILL', ill_link],
-      'ill' => ['Scan', ill_link],
-      'in_process' => ['In Process', 'OpenInprocessRequest'],
-      'doc_delivery' => ['Scan', 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?']
+      'ill'            => {link_label: 'Scan',          service_url: ill_link,
+                           tooltip:    'Illiad Book/Article Scan'},
+      'borrow_direct'  => {link_label: 'Borrow Direct', service_url: borrow_direct_link},
+      'offsite'        => {link_label: 'Scan',          service_url: offsite_link, 
+                           tooltip:    'ReCAP Scan',    js_function: 'OpenWindow'},
+      'barnard_remote' => {link_label: 'BearStor',      service_url: barnard_remote_link, 
+                           js_function: 'OpenWindow'},
+      'paging'         => {link_label: 'Pick-up',       service_url: paging_link, 
+                           tooltip:    'Illiad Paging', js_function: 'OpenWindow'},
+      'precat'         => {link_label: 'Precataloging', service_url: precat_link, 
+                           js_function: 'OpenWindow'},
+      'recall_hold'    => {link_label: 'Recall / Hold', service_url: recall_hold_link},
+      'on_order'       => {link_label: 'On Order',      service_url: on_order_link,
+                           js_function: 'OpenWindow'},
+      'in_process'     => {link_label: 'In Process',    service_url: in_process_link,
+                           js_function: 'OpenWindow'},
+      'spec_coll'      => {link_label: 'Special Collections', service_url: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='},
+      # 'doc_delivery'   => {link_label: 'Scan', 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?'}
     }
   end
 
@@ -157,8 +161,6 @@ module HoldingsHelper
     return [] unless services && clio_id
     
     # # LIBSYS-2891 / LIBSYS-2892 - libraries closed, suspend ALL services
-    # return []
-    
     # 6/2020 - Suspended services are beginning to be reinstated.
     # Which services are reinstated?
     reinstated = APP_CONFIG['reinstated_services'] || []
@@ -174,24 +176,55 @@ module HoldingsHelper
     # If some, proceed as we did pre-COVID.
 
     service_links = services.select { |svc| SERVICE_ORDER.index(svc) }.sort_by { |svc| SERVICE_ORDER.index(svc) }.map do |svc|
-      # title, link, extra = SERVICES[svc]
-      title, link, extra = serviceConfig[svc]
-      
-      # # LIBSYS-2892 - ILL, BD, Offsite services suspended
-      # next if ['ill','borrow_direct','offsite'].include?(svc)
+      # title, link, extra = serviceConfig[svc]
+
+      service_config = serviceConfig[svc]
+      link_label  = service_config[:link_label]
+      service_url = service_config[:service_url]
+      js_function = service_config[:js_function]
+      tooltip     = service_config[:tooltip]
       
       bibid = clio_id.to_s
-      # URL services
-      if link =~ /^http/
-        link += bibid
-        link_to title, link, target: '_blank'
-      else
-        # JavaScript services (open url in pop-up window)
-        # Some functions (e.g., Valet) accept additional arg to pass along to the JS function
-        js_function = extra.present? ? "#{link}('#{bibid}', '#{extra}')" : "#{link}('#{bibid}')"
-        onclick_js = "#{js_function}; return false;"
-        link_to title, '#', onclick: onclick_js.html_safe
+      
+      link_target = service_url + bibid
+
+      link_options = {}
+      
+      # If we're supposed to wrap the link in a JS function...
+      if js_function
+        onclick_js = "#{js_function}('#{link_target}'); return false;"
+        link_options['onclick'] = onclick_js.html_safe
+        link_target = '#'
       end
+      
+      # If we've got a tooltip to display...
+      # (feature only currently enabled for CUD)
+      if tooltip && current_user && current_user.has_role?('site', 'pilot')
+        link_options['data-toggle'] = 'tooltip'
+        link_options['data-placement'] = 'right'
+        link_options['title'] = tooltip
+      end
+
+      link_to link_label, link_target, link_options
+      
+      # link = js_function.present? ? '#' : service_url
+      # onclick = js_function.present? ? "#{js_function}('#{bibid})" : ''
+      # onclick = onclick.
+      #
+      # if js_function
+      # link_to link_label,
+      #
+      # # URL services
+      # if link =~ /^http/
+      #   link += bibid
+      #   link_to title, link, target: '_blank'
+      # else
+      #   # JavaScript services (open url in pop-up window)
+      #   # Some functions (e.g., Valet) accept additional arg to pass along to the JS function
+      #   js_function = extra.present? ? "#{link}('#{bibid}', '#{extra}')" : "#{link}('#{bibid}')"
+      #   onclick_js = "#{js_function}; return false;"
+      #   link_to title, '#', onclick: onclick_js.html_safe
+      # end
     end
     
     service_links = service_links.compact
@@ -678,6 +711,14 @@ module HoldingsHelper
     valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
     # return "#{valet_url}/barnard_remote_requests/bib?bib_id="
     "#{valet_url}/bearstor/"
+  end
+  
+  def on_order_link
+    'https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?'
+  end
+  
+  def in_process_link
+    'https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?'
   end
 
   def paging_link
