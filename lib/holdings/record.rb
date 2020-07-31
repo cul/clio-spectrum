@@ -608,8 +608,14 @@ module Voyager
             # old-generation Valet service
             services << 'offsite'
             # new-generation Valet services
+            # -- recap_loan --
             services << 'recap_loan'
-            services << 'recap_scan'
+            # -- recap_scan --  but not for MICROFORM, CD-ROM, etc.!
+            unscannable = APP_CONFIG['unscannable_offsite_call_numbers'] || ['none']
+            # raise unless call_number.starts_with? "LD1237.5D"
+            services << 'recap_scan' unless unscannable.any? { |bad| call_number.starts_with?(bad) }
+            # TODO - transitional, cleanup old-gen 'offsite'
+            services.delete('offsite') if unscannable.any? { |bad| call_number.starts_with?(bad) }
           end
           
           # ------ BEAR-STOR ------
