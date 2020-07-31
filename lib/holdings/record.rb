@@ -519,6 +519,8 @@ module Voyager
 
       def determine_services(location_name, location_code, temp_loc_flag, call_number, item_status, orders, bibid, fmt)
         services = []
+
+        # ====== SPECIAL COLLECTIONS ======
         # NEXT-1229 - make this the first test
         # special collections request service [only service available for items from these locations]
         # LIBSYS-2505 - Any new locations need to be added in two places - keep them in sync!
@@ -530,6 +532,7 @@ module Voyager
           return ['spec_coll']
         end
 
+        # ====== ORDERS ======
         # Orders such as "Pre-Order", "On-Order", etc.
         # List of available services per order status hardcoded into yml config file.
         if orders.present?
@@ -547,24 +550,80 @@ module Voyager
           return services.flatten.uniq
         end
 
+        # ====== ONLINE ======
+        # Is this an Online resource?  Do nothing - add no services for online records.
+        if item_status[:status] == 'online'
+          return services.flatten.uniq
+        end
+
         # Scan for things like "Recall", "Hold", etc.
         services << scan_message(location_name)
-
-        messages = item_status[:messages]
-
-        case item_status[:status]
-        when 'online'
-          # do nothing - add no services for online records
-        when 'none'
-          # status "none"?  Something's odd, not a regular holding.
+        
+        # ====== ITEM STATUS "NONE"?? ======
+        # Item Status is "none"?  Something's odd, this is not a regular holding.  Might be In-Process.
+        if item_status[:status] == 'none'
           services << 'in_process' if call_number =~ /in process/i
-        when 'available'
-          services << process_for_services(location_name, location_code, temp_loc_flag, bibid, messages)
-        when 'some_available'
-          services << process_for_services(location_name, location_code, temp_loc_flag, bibid, messages)
-        when 'not_available'
-          services << scan_messages(messages) if messages.present?
+          return services.flatten.uniq
         end
+
+        # Scan item-status messages for any mention of "Borrow Direct", "ILL", etc.
+        services << scan_messages( item_status[:messages] )
+     
+        # messages = item_status[:messages]
+        #
+        # case item_status[:status]
+        # # when 'online'
+        # #   # do nothing - add no services for online records
+        # # when 'none'
+        # #   # status "none"?  Something's odd, not a regular holding.
+        # #   services << 'in_process' if call_number =~ /in process/i
+        # when 'available'
+        #   services << process_for_services(location_name, location_code, temp_loc_flag, bibid, messages)
+        # when 'some_available'
+        #   services << process_for_services(location_name, location_code, temp_loc_flag, bibid, messages)
+        # # when 'not_available'
+        # #   services << scan_messages(messages) if messages.present?
+        # end
+
+
+
+        # # ====== NO COPY AVAILABLE ======
+        # if item_status[:status] == 'not_available'
+        #   services << scan_messages( item_status[:messages] )
+        # end
+
+        # ====== COPY AVAILABLE ======
+        # - LOTS of different services are possible when we have an available copy
+        if item_status[:status] == 'available' || item_status[:status] == 'some_available'
+
+          # ------ CAMPUS PAGING ------
+          # NEXT-1664 / NEXT-1666 - new Paging/Pickup service for available on-campus material
+          paging_locations = APP_CONFIG['paging_locations'] || ['none']
+          services << 'paging' if paging_locations.include?(location_code)
+
+          # ------ RECAP / OFFSITE ------
+          # offsite
+          offsite_locations = OFFSITE_CONFIG['offsite_locations'] || []
+          if offsite_locations.include?(location_code)
+            # old-generation Valet service
+            services << 'offsite'
+            # new-generation Valet services
+            services << 'recap_loan'
+            services << 'recap_scan'
+          end
+          
+          # ------ BEAR-STOR ------
+          # If this is a BearStor holding and some items are available,
+          # enable the BearStor request link (barnard_remote)
+          bearstor_location = APP_CONFIG['barnard_remote_location'] || 'none'
+          services << 'barnard_remote' if location_code == bearstor_location
+          
+          # ------ PRE-CAT ------
+          services << 'precat' if location_name =~ /^Precat/
+          
+        end
+        
+
 
         # TODO
         # This is in-transition, and it's pretty ugly rignt now.
@@ -582,20 +641,20 @@ module Voyager
         end
         
 
-        # If this is a BearStor holding and some items are available,
-        # enable the BearStor request link (barnard_remote)
-        if location_code == APP_CONFIG['barnard_remote_location'] &&
-           %w(available some_available).include?(item_status[:status])
-          services << 'barnard_remote'
-        end
+        # # If this is a BearStor holding and some items are available,
+        # # enable the BearStor request link (barnard_remote)
+        # if location_code == APP_CONFIG['barnard_remote_location'] &&
+        #    %w(available some_available).include?(item_status[:status])
+        #   services << 'barnard_remote'
+        # end
 
-        # NEXT-1664 - new Paging service
-        # NEXT-1666 - criteria for offering the paging service
-        paging_locations = APP_CONFIG['paging_locations'] || ['glx']
-        if paging_locations.include?(location_code) &&
-           %w(available some_available).include?(item_status[:status])
-          services << 'paging'
-        end
+        # # NEXT-1664 - new Paging service
+        # # NEXT-1666 - criteria for offering the paging service
+        # paging_locations = APP_CONFIG['paging_locations'] || ['glx']
+        # if paging_locations.include?(location_code) &&
+        #    %w(available some_available).include?(item_status[:status])
+        #   services << 'paging'
+        # end
 
         # cleanup the list
         services = services.flatten.uniq
@@ -607,6 +666,8 @@ module Voyager
           # Service "ill" is actually Chapter/Article-Scan right now...
           services.delete('ill')
           services.delete('paging')
+          # Wait a second - for ETAS we can't offer ANY service, right?
+          services = []
         end
 
         # only provide borrow direct request for printed books and scores
@@ -638,54 +699,59 @@ module Voyager
         services
       end
 
-      def process_for_services(location_name, location_code, temp_loc_flag, _bibid, messages)
-        services = []
-
-        # offsite
-        if OFFSITE_CONFIG['offsite_locations'].include?(location_code)
-          services << 'offsite'
-
-        # precat
-        elsif location_name =~ /^Precat/
-          services << 'precat'
-
-        # LIBSYS-3075 - Scan & Deliver ("doc_delivery") is going away forever
-        # # doc delivery
-        # # LIBSYS-1365 - Geology is closing, some services are no longer offered
-        # # NEXT-1502 - Barnard is moving this summer, all items are unavailable
-        # # elsif ['ave', 'avelc', 'bar', 'bar,mil', 'bus', 'eal', 'eax', 'eng',
-        # #        'fax', 'faxlc', 'glg', 'glx', 'glxn', 'gsc', 'jou',
-        # #        'leh', 'leh,bdis', 'mat', 'mil', 'mus', 'sci', 'swx',
-        # #        'uts', 'uts,per', 'uts,unn', 'war' ].include?(location_code) &&
-        # #        temp_loc_flag == 'N'
-        # elsif Array(doc_delivery_locations).include?(location_code) &&
-        #       temp_loc_flag == 'N'
-        #   services << 'doc_delivery'
-
-        end
-
-        services << scan_messages(messages) if messages.present?
-
-        services
-      end
+      # def process_for_services(location_name, location_code, temp_loc_flag, _bibid, messages)
+      #   services = []
+      #
+      #   # offsite
+      #   if OFFSITE_CONFIG['offsite_locations'].include?(location_code)
+      #     # old-generation Valet service
+      #     services << 'offsite'
+      #     # new-generation Valet services
+      #     services << 'recap_loan'
+      #     services << 'recap_scan'
+      #
+      #   # precat
+      #   elsif location_name =~ /^Precat/
+      #     services << 'precat'
+      #
+      #   # LIBSYS-3075 - Scan & Deliver ("doc_delivery") is going away forever
+      #   # # doc delivery
+      #   # # LIBSYS-1365 - Geology is closing, some services are no longer offered
+      #   # # NEXT-1502 - Barnard is moving this summer, all items are unavailable
+      #   # # elsif ['ave', 'avelc', 'bar', 'bar,mil', 'bus', 'eal', 'eax', 'eng',
+      #   # #        'fax', 'faxlc', 'glg', 'glx', 'glxn', 'gsc', 'jou',
+      #   # #        'leh', 'leh,bdis', 'mat', 'mil', 'mus', 'sci', 'swx',
+      #   # #        'uts', 'uts,per', 'uts,unn', 'war' ].include?(location_code) &&
+      #   # #        temp_loc_flag == 'N'
+      #   # elsif Array(doc_delivery_locations).include?(location_code) &&
+      #   #       temp_loc_flag == 'N'
+      #   #   services << 'doc_delivery'
+      #
+      #   end
+      #
+      #   services << scan_messages(messages) if messages.present?
+      #
+      #   services
+      # end
             
-      def doc_delivery_locations
-        # If an override list of doc_delivery_locations was 
-        # defined in app_config, use that.
-        if APP_CONFIG['doc_delivery_locations'] &&
-           APP_CONFIG['doc_delivery_locations'].is_a?(Array) &&
-           APP_CONFIG['doc_delivery_locations'].size > 0
-          return APP_CONFIG['doc_delivery_locations']
-        end
-        
-        # Otherwise, use the default list.
-        return ['ave', 'avelc', 'bus', 'eal', 'eax', 'eng',
-                'fax', 'faxlc', 'glx', 'glxn', 'gsc', 'jou',
-                'leh', 'leh,bdis', 'mat', 'mil', 'mus', 'sci', 'swx',
-                'uts', 'uts,per', 'uts,unn', 'war']
-      end
+      # def doc_delivery_locations
+      #   # If an override list of doc_delivery_locations was
+      #   # defined in app_config, use that.
+      #   if APP_CONFIG['doc_delivery_locations'] &&
+      #      APP_CONFIG['doc_delivery_locations'].is_a?(Array) &&
+      #      APP_CONFIG['doc_delivery_locations'].size > 0
+      #     return APP_CONFIG['doc_delivery_locations']
+      #   end
+      #
+      #   # Otherwise, use the default list.
+      #   return ['ave', 'avelc', 'bus', 'eal', 'eax', 'eng',
+      #           'fax', 'faxlc', 'glx', 'glxn', 'gsc', 'jou',
+      #           'leh', 'leh,bdis', 'mat', 'mil', 'mus', 'sci', 'swx',
+      #           'uts', 'uts,per', 'uts,unn', 'war']
+      # end
 
-      def scan_messages(messages)
+      def scan_messages(messages = [])
+        return [] unless messages
         services = []
         messages.each do |message|
           # status patrons
@@ -701,109 +767,110 @@ module Voyager
       end
 
       # Scan item message string for things like "Recall", "Hold", etc.
-      def scan_message(message)
+      def scan_message(message = '')
+        return [] unless message
         out = []
         out << 'recall_hold'    if message =~ /Recall/i
         out << 'recall_hold'    if message =~ /hold /
         out << 'borrow_direct'  if message =~ /Borrow/
         out << 'ill'            if message =~ /ILL/
         out << 'in_process'     if message =~ /In Process/
-
         out << 'ill'            if message =~ /Interlibrary Loan/
-
-        # No, don't depend on the location_name including "scsb"
-        # # ReCAP Partners
-        # # out << 'offsite_valet'  if message =~ /scsb/
         out
       end
 
-      # LIBSYS-2219
-      # "Materials in the leh,ref and parts of leh (call numbers A* – E*) will be unavailable"
-      def moldy?
-        return false unless @location_code 
 
-        return true if @location_code == 'leh,ref'
-
-        return false unless @call_number
-        return true if @location_code == 'leh' && @call_number.first.match(/[A-E]/)
-
-        return false
-      end
+      # # LIBSYS-2219
+      # # "Materials in the leh,ref and parts of leh (call numbers A* – E*) will be unavailable"
+      # def moldy?
+      #   return false unless @location_code
+      #
+      #   return true if @location_code == 'leh,ref'
+      #
+      #   return false unless @call_number
+      #   return true if @location_code == 'leh' && @call_number.first.match(/[A-E]/)
+      #
+      #   return false
+      # end
       
-      def soggy?
-        # Ignore unless it's an East Asian holding
-        return false unless %w(eal eax).include? @location_code
 
-        call_number_normalized = Lcsort.normalize(@call_number)
-        # Some call-numbers cannot be normalized, usually because
-        # they have qualifying prefixes.
-        #   e.g., "SPECIAL COLL. JQ1629.E8 S56 1900 SCROLLJ"
-        return if call_number_normalized.blank?
+      # def soggy?
+      #   # Ignore unless it's an East Asian holding
+      #   return false unless %w(eal eax).include? @location_code
+      #
+      #   call_number_normalized = Lcsort.normalize(@call_number)
+      #   # Some call-numbers cannot be normalized, usually because
+      #   # they have qualifying prefixes.
+      #   #   e.g., "SPECIAL COLL. JQ1629.E8 S56 1900 SCROLLJ"
+      #   return if call_number_normalized.blank?
+      #
+      #   @@wet_ranges ||= get_wet_ranges
+      #   @@wet_ranges.each do |range|
+      #     # we may be > or >=, depending on the operator
+      #     if range[:from_operator] == 'at'
+      #       next if call_number_normalized < range[:from_callno]
+      #     else
+      #       next if call_number_normalized <= range[:from_callno]
+      #     end
+      #     # we may be < or <=, depending on the operator
+      #     if range[:to_operator] == 'at'
+      #       next if call_number_normalized > range[:to_callno]
+      #     else
+      #       next if call_number_normalized >= range[:to_callno]
+      #     end
+      #     # if we ever get here, then YES, we think it's wet!
+      #     return true
+      #   end
+      #   # Nope, never fell within any of our wet ranges
+      #   false
+      # end
 
-        @@wet_ranges ||= get_wet_ranges
-        @@wet_ranges.each do |range|
-          # we may be > or >=, depending on the operator
-          if range[:from_operator] == 'at'
-            next if call_number_normalized < range[:from_callno]
-          else
-            next if call_number_normalized <= range[:from_callno]
-          end
-          # we may be < or <=, depending on the operator
-          if range[:to_operator] == 'at'
-            next if call_number_normalized > range[:to_callno]
-          else
-            next if call_number_normalized >= range[:to_callno]
-          end
-          # if we ever get here, then YES, we think it's wet!
-          return true
-        end
-        # Nope, never fell within any of our wet ranges
-        false
-      end
 
-      def get_wet_ranges
-        # Rails.logger.debug "W W W W W W W W W W W W W  called get_wet_ranges()"
-        raw = YAML.load(File.read(Rails.root.to_s + '/config/wet_ranges.yml'))
-        # Rails.logger.debug "WWWWWWWWWWWWW  raw.keys=[#{raw.keys}]"
-
-        # Accumulate ranges in this array
-        wet_ranges = []
-
-        raw['wet_ranges'].each do |raw|
-          raw_from, raw_to = raw.split(/\|/)
-          # Rails.logger.debug "WWWWWWWWWWWWW  raw_from=[#{raw_from}] raw_to=[#{raw_to}]"
-
-          # normalize 'From'
-          from_operator = 'at'
-          from_callno = Lcsort.normalize(raw_from)
-          if raw_from.start_with?('After')
-            from_callno = Lcsort.normalize(raw_from.sub(/After /, ''))
-            from_operator = 'after'
-          end
-          # normalize 'To'
-          to_operator = 'at'
-          to_callno = Lcsort.normalize(raw_to)
-          if raw_to.start_with?('Before')
-            to_callno = Lcsort.normalize(raw_to.sub(/Before /, ''))
-            to_operator = 'before'
-          end
-
-          if from_callno.blank? || to_callno.blank?
-            Rails.logger.error "Unparseable call-numbers: raw_from=[#{raw_from}] raw_to=[#{raw_to}]"
-            next
-          end
-
-          range = {
-            from_callno:     from_callno,
-            from_operator:   from_operator,
-            to_callno:       to_callno,
-            to_operator:     to_operator
-          }
-          wet_ranges.push(range)
-        end
-
-        wet_ranges
-      end
+      # def get_wet_ranges
+      #   # Rails.logger.debug "W W W W W W W W W W W W W  called get_wet_ranges()"
+      #   raw = YAML.load(File.read(Rails.root.to_s + '/config/wet_ranges.yml'))
+      #   # Rails.logger.debug "WWWWWWWWWWWWW  raw.keys=[#{raw.keys}]"
+      #
+      #   # Accumulate ranges in this array
+      #   wet_ranges = []
+      #
+      #   raw['wet_ranges'].each do |raw|
+      #     raw_from, raw_to = raw.split(/\|/)
+      #     # Rails.logger.debug "WWWWWWWWWWWWW  raw_from=[#{raw_from}] raw_to=[#{raw_to}]"
+      #
+      #     # normalize 'From'
+      #     from_operator = 'at'
+      #     from_callno = Lcsort.normalize(raw_from)
+      #     if raw_from.start_with?('After')
+      #       from_callno = Lcsort.normalize(raw_from.sub(/After /, ''))
+      #       from_operator = 'after'
+      #     end
+      #     # normalize 'To'
+      #     to_operator = 'at'
+      #     to_callno = Lcsort.normalize(raw_to)
+      #     if raw_to.start_with?('Before')
+      #       to_callno = Lcsort.normalize(raw_to.sub(/Before /, ''))
+      #       to_operator = 'before'
+      #     end
+      #
+      #     if from_callno.blank? || to_callno.blank?
+      #       Rails.logger.error "Unparseable call-numbers: raw_from=[#{raw_from}] raw_to=[#{raw_to}]"
+      #       next
+      #     end
+      #
+      #     range = {
+      #       from_callno:     from_callno,
+      #       from_operator:   from_operator,
+      #       to_callno:       to_callno,
+      #       to_operator:     to_operator
+      #     }
+      #     wet_ranges.push(range)
+      #   end
+      #
+      #   wet_ranges
+      # end
+      
+      
     end
   end
 end
