@@ -560,10 +560,10 @@ module Voyager
         services << scan_message(location_name)
         
         # ====== ITEM STATUS "NONE"?? ======
-        # Item Status is "none"?  Something's odd, this is not a regular holding.  Might be In-Process.
+        # Item Status is "none"?  Something's odd, this is not a regular holding.
+        # Might be In-Process?
         if item_status[:status] == 'none'
           services << 'in_process' if call_number =~ /in process/i
-          return services.flatten.uniq
         end
 
         # Scan item-status messages for any mention of "Borrow Direct", "ILL", etc.
@@ -622,7 +622,6 @@ module Voyager
           services << 'precat' if location_name =~ /^Precat/
           
         end
-        
 
 
         # TODO
