@@ -124,7 +124,7 @@ module HoldingsHelper
     #    links.sort { |x,y| x.first <=> y.first }
   end
 
-  SERVICE_ORDER = %w(offsite barnard_remote spec_coll precat on_order borrow_direct borrow_direct_test recall_hold ill in_process doc_delivery paging).freeze
+  SERVICE_ORDER = %w(offsite recap_loan recap_scan barnard_remote spec_coll precat on_order borrow_direct borrow_direct_test recall_hold ill in_process doc_delivery paging).freeze
 
   # parameters: title, link (url or javascript), optional extra param
   # When 2nd param is a JS function,
@@ -161,7 +161,10 @@ module HoldingsHelper
 
   def service_links(services, clio_id, holding_id = nil)
     return [] unless services && clio_id
-    
+
+    # For some reason, this singleton value is stored in an array.  :(
+    holding_id = holding_id.first if holding_id.is_a?(Array)
+
     # # LIBSYS-2891 / LIBSYS-2892 - libraries closed, suspend ALL services
     # 6/2020 - Suspended services are beginning to be reinstated.
     # Which services are reinstated?
@@ -191,7 +194,7 @@ module HoldingsHelper
       # Some links need more than bib.  ReCAP needs holdings id too.  For example:
       #     https://valet.cul.columbia.edu/recap_loan/2929292/10086
       #     https://valet.cul.columbia.edu/recap_scan/2929292/10086
-      link_target += '/' + holding_id if ['recap_loan', 'recap_scan'].include?(svc)
+      link_target += '/' + holding_id.to_s if ['recap_loan', 'recap_scan'].include?(svc)
 
       link_options = {}
       
