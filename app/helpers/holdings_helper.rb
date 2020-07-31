@@ -141,6 +141,8 @@ module HoldingsHelper
       'borrow_direct'  => {link_label: 'Borrow Direct', service_url: borrow_direct_link},
       'offsite'        => {link_label: 'Scan',          service_url: offsite_link, 
                            tooltip:    'ReCAP Scan',    js_function: 'OpenWindow'},
+      'recap_loan'     => {link_label: 'Pick-Up',       service_url: recap_loan_link, 
+                           tooltip:    'ReCAP Loan',    js_function: 'OpenWindow'},
       'barnard_remote' => {link_label: 'BearStor',      service_url: barnard_remote_link, 
                            js_function: 'OpenWindow'},
       'paging'         => {link_label: 'Pick-up',       service_url: paging_link, 
@@ -157,7 +159,7 @@ module HoldingsHelper
     }
   end
 
-  def service_links(services, clio_id)
+  def service_links(services, clio_id, holding_id = nil)
     return [] unless services && clio_id
     
     # # LIBSYS-2891 / LIBSYS-2892 - libraries closed, suspend ALL services
@@ -184,9 +186,12 @@ module HoldingsHelper
       js_function = service_config[:js_function]
       tooltip     = service_config[:tooltip]
       
-      bibid = clio_id.to_s
+      link_target = service_url + clio_id.to_s
       
-      link_target = service_url + bibid
+      # Some links need more than bib.  ReCAP needs holdings id too.  For example:
+      #     https://valet.cul.columbia.edu/recap_loan/2929292/10086
+      #     https://valet.cul.columbia.edu/recap_scan/2929292/10086
+      link_target += '/' + holding_id if ['recap_loan', 'recap_scan'].include?(svc)
 
       link_options = {}
       
@@ -705,6 +710,20 @@ module HoldingsHelper
   def offsite_link
     valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
     "#{valet_url}/offsite_requests/bib?bib_id="
+  end
+
+  # *** Valet service recap_loan needs both bib_id AND holding_id
+  #     https://valet.cul.columbia.edu/recap_loan/2929292/10086
+  def recap_loan_link
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    "#{valet_url}/recap_loan/"
+  end
+
+  # *** Valet service recap_scan needs both bib_id AND holding_id
+  #     https://valet.cul.columbia.edu/recap_scan/2929292/10086
+  def recap_scan_link
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    "#{valet_url}/recap_scan/="
   end
 
   def barnard_remote_link
