@@ -691,7 +691,7 @@ module Voyager
             services.delete('ill')
           end
         end
-        
+
         Rails.logger.debug("determine_services(#{location_name}, #{location_code}, #{temp_loc_flag}, #{call_number}, #{item_status}, #{orders}, #{bibid}, #{fmt}) found: #{services}")
 
         # return the cleaned up list
@@ -753,12 +753,14 @@ module Voyager
         return [] unless messages
         services = []
         messages.each do |message|
+          # status code 0 == "status unknown"
+          next if message[:status_code] == '0'
           # status patrons
           if message[:status_code] == 'sp'
             services << scan_message(message[:long_message])
           else
             status_code_config = ITEM_STATUS_CODES[message[:status_code]]
-            raise 'Status code not found in config/order_status_codes.yml' unless status_code_config
+            raise "Status code '#{message[:status_code]}' not found in ITEM_STATUS_CODES" unless status_code_config
             services << status_code_config['services'] unless status_code_config['services'].nil?
           end
         end
