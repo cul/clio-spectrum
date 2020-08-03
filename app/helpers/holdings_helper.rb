@@ -134,19 +134,22 @@ module HoldingsHelper
     # just return a hash, the same as the constant did, but
     # now we can call methods as we build the config.
     {
-      # LIBSYS-3086 - COVID - rename 'Offsite' to 'Scan', since only Scans are available now
-      # 'offsite' => ['Offsite', 'OpenURLinWindow', offsite_link],
-      'ill'            => {link_label: 'Scan',          service_url: ill_link,
-                           tooltip:    'Illiad Book/Article Scan'},
-      'borrow_direct'  => {link_label: 'Borrow Direct', service_url: borrow_direct_link},
+      # ====  SCAN SERVICES  ====
+      'campus_scan'    => {link_label: 'Scan',          service_url: campus_scan_link, 
+                           tooltip:    'Campus Scan',   js_function: 'OpenWindow'},
       'offsite'        => {link_label: 'Scan',          service_url: offsite_link, 
                            tooltip:    'ReCAP Scan',    js_function: 'OpenWindow'},
+      'ill'            => {link_label: 'Scan',          service_url: ill_link,
+                           tooltip:    'Illiad Book/Article Scan'},
+      # ====  PICK-UP SERVICES  ====
+      'campus_paging'  => {link_label: 'Pick-up',       service_url: campus_paging_link, 
+                           tooltip:    'Campus Paging', js_function: 'OpenWindow'},
       'recap_loan'     => {link_label: 'Pick-Up',       service_url: recap_loan_link, 
                            tooltip:    'ReCAP Loan',    js_function: 'OpenWindow'},
+      'borrow_direct'  => {link_label: 'Borrow Direct', service_url: borrow_direct_link},
+      # ====  OTHER SERVICES  ====
       'barnard_remote' => {link_label: 'BearStor',      service_url: barnard_remote_link, 
                            js_function: 'OpenWindow'},
-      'paging'         => {link_label: 'Pick-up',       service_url: paging_link, 
-                           tooltip:    'Illiad Paging', js_function: 'OpenWindow'},
       'precat'         => {link_label: 'Precataloging', service_url: precat_link, 
                            js_function: 'OpenWindow'},
       'recall_hold'    => {link_label: 'Recall / Hold', service_url: recall_hold_link},
@@ -661,15 +664,65 @@ module HoldingsHelper
     location_link
   end
 
+
+  # ====  SCAN SERVICES  ====
+  def campus_scan_link
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    "#{valet_url}/campus_scan/"
+  end
+
+
+  # *** Valet service recap_scan needs both bib_id AND holding_id
+  #     https://valet.cul.columbia.edu/recap_scan/2929292/10086
+  def recap_scan_link
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    "#{valet_url}/recap_scan/="
+  end
+  
+  def offsite_link
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    "#{valet_url}/offsite_requests/bib?bib_id="
+  end
+  
+  def ill_link
+    return APP_CONFIG['ill_link'] if APP_CONFIG['ill_link']
+    'https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?'
+  end
+  
+  # ====  PICK-UP SERVICES  ====
+
+  def campus_paging_link
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    "#{valet_url}/paging/"
+  end
+
+  # *** Valet service recap_loan needs both bib_id AND holding_id
+  #     https://valet.cul.columbia.edu/recap_loan/2929292/10086
+  def recap_loan_link
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    "#{valet_url}/recap_loan/"
+  end
+
   def borrow_direct_link
     # new simplified config approach
     return APP_CONFIG['service_links']['borrow_direct'] if APP_CONFIG['service_links'] && APP_CONFIG['service_links']['borrow_direct']
     # old config approach:
+    'http://www.columbia.edu/cgi-bin/cul/borrowdirect?'
+  end
+
+  # ====  OTHER SERVICES  ====
+  def barnard_remote_link
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    # return "#{valet_url}/barnard_remote_requests/bib?bib_id="
+    "#{valet_url}/bearstor/"
+  end
+
+  def precat_link
     if Rails.env == 'clio_prod'
-      'http://www.columbia.edu/cgi-bin/cul/borrowdirect?'
+      'https://www1.columbia.edu/sec-cgi-bin/cul/forms/precat?'
     else
       valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-      return "#{valet_url}/borrowdirect/"
+      return "#{valet_url}/precat/"
     end
   end
 
@@ -682,59 +735,6 @@ module HoldingsHelper
     end
   end
 
-  def precat_link
-    if Rails.env == 'clio_prod'
-      'https://www1.columbia.edu/sec-cgi-bin/cul/forms/precat?'
-    else
-      valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-      return "#{valet_url}/precat/"
-    end
-  end
-
-  def ill_link
-    return APP_CONFIG['ill_link'] if APP_CONFIG['ill_link']
-    if Rails.env == 'clio_prod'
-      'https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?'
-    else
-      valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-      return "#{valet_url}/ill/"
-    end
-  end
-
-  def intercampus_link
-    if Rails.env == 'clio_prod' 
-      'http://www.columbia.edu/cgi-bin/cul/resolve?lweb0013#'
-    else
-      valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-      return "#{valet_url}/intercampus/"
-    end
-  end
-
-  def offsite_link
-    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-    "#{valet_url}/offsite_requests/bib?bib_id="
-  end
-
-  # *** Valet service recap_loan needs both bib_id AND holding_id
-  #     https://valet.cul.columbia.edu/recap_loan/2929292/10086
-  def recap_loan_link
-    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-    "#{valet_url}/recap_loan/"
-  end
-
-  # *** Valet service recap_scan needs both bib_id AND holding_id
-  #     https://valet.cul.columbia.edu/recap_scan/2929292/10086
-  def recap_scan_link
-    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-    "#{valet_url}/recap_scan/="
-  end
-
-  def barnard_remote_link
-    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-    # return "#{valet_url}/barnard_remote_requests/bib?bib_id="
-    "#{valet_url}/bearstor/"
-  end
-  
   def on_order_link
     'https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?'
   end
@@ -743,9 +743,16 @@ module HoldingsHelper
     'https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?'
   end
 
-  def paging_link
-    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-    "#{valet_url}/paging/"
+
+  # ====  SERVICES NOT MANAGED BY determine_services()/service_links()  ====
+  
+  def intercampus_link
+    if Rails.env == 'clio_prod' 
+      'http://www.columbia.edu/cgi-bin/cul/resolve?lweb0013#'
+    else
+      valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+      return "#{valet_url}/intercampus/"
+    end
   end
 
   def offsite_bound_with_url(title, enum_chron, barcode)

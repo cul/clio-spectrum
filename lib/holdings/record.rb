@@ -586,20 +586,25 @@ module Voyager
         # end
 
 
-
-        # # ====== NO COPY AVAILABLE ======
-        # if item_status[:status] == 'not_available'
-        #   services << scan_messages( item_status[:messages] )
-        # end
-
         # ====== COPY AVAILABLE ======
         # - LOTS of different services are possible when we have an available copy
         if item_status[:status] == 'available' || item_status[:status] == 'some_available'
 
+          # ------ CAMPUS SCAN ------
+          # We might soon limit this service by location.
+          # But until that's done - add the service regardless of location
+          campus_scan_locations = APP_CONFIG['campus_scan_locations'] || []
+          if campus_scan_locations.present?
+            services << 'campus_scan' if campus_scan_locations.include?(location_code)
+          else
+            services << 'campus_scan'
+          end
+          
+
           # ------ CAMPUS PAGING ------
           # NEXT-1664 / NEXT-1666 - new Paging/Pickup service for available on-campus material
-          paging_locations = APP_CONFIG['paging_locations'] || ['none']
-          services << 'paging' if paging_locations.include?(location_code)
+          campus_paging_locations = APP_CONFIG['campus_paging_locations'] || APP_CONFIG['paging_locations'] || ['none']
+          services << 'campus_paging' if campus_paging_locations.include?(location_code)
 
           # ------ RECAP / OFFSITE ------
           # offsite
@@ -629,6 +634,9 @@ module Voyager
           
         end
 
+        # cleanup the list
+        services = services.flatten.uniq
+
 
         # TODO
         # This is in-transition, and it's pretty ugly rignt now.
@@ -641,10 +649,16 @@ module Voyager
         # services << 'ill' unless item_status[:status] == 'online' or
         # - NO ill/scan for ONLINE records
         # - NO ill/scan if we're already offering offsite/scan service
-        if item_status[:status] != 'online' && ! services.flatten.include?('offsite')
+        if item_status[:status] != 'online' && ! services.include?('offsite')
           services << 'ill'
         end
         
+
+        # We can only ever have ONE "Scan" service.
+        services.delete('ill') if services.include?('campus_scan')
+        # 8/3 - recap_scan is currently "offsite"
+        services.delete('ill') if services.include?('offsite')
+        # 8/3 - recap_scan is currently "offsite"
 
         # # If this is a BearStor holding and some items are available,
         # # enable the BearStor request link (barnard_remote)
@@ -658,11 +672,9 @@ module Voyager
         # paging_locations = APP_CONFIG['paging_locations'] || ['glx']
         # if paging_locations.include?(location_code) &&
         #    %w(available some_available).include?(item_status[:status])
-        #   services << 'paging'
+        #   services << 'campus_paging'
         # end
 
-        # cleanup the list
-        services = services.flatten.uniq
 
         # NEXT-1664 - Criteria for Page/Scan service links
         # If the bibid is in the ETAS database, marked as 'deny', then we have
@@ -670,7 +682,7 @@ module Voyager
         if Covid.lookup_db_etas_status(bibid) == 'deny'
           # Service "ill" is actually Chapter/Article-Scan right now...
           services.delete('ill')
-          services.delete('paging')
+          services.delete('campus_paging')
           # Wait a second - for ETAS we can't offer ANY service, right?
           services = []
         end
