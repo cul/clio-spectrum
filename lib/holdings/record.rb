@@ -592,12 +592,13 @@ module Voyager
 
           # ------ CAMPUS SCAN ------
           # We might soon limit this service by location.
-          # But until that's done - add the service regardless of location
           campus_scan_locations = APP_CONFIG['campus_scan_locations'] || []
           if campus_scan_locations.present?
             services << 'campus_scan' if campus_scan_locations.include?(location_code)
           else
-            services << 'campus_scan'
+            # But until that's done - add the service for any non-offsite location
+            offsite_locations = OFFSITE_CONFIG['offsite_locations'] || []
+            services << 'campus_scan' unless offsite_locations.include?(location_code)
           end
           
 
