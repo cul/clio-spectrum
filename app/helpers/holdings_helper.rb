@@ -124,7 +124,7 @@ module HoldingsHelper
     #    links.sort { |x,y| x.first <=> y.first }
   end
 
-  SERVICE_ORDER = %w(offsite recap_loan recap_scan barnard_remote spec_coll precat on_order borrow_direct borrow_direct_test recall_hold ill in_process doc_delivery paging).freeze
+  SERVICE_ORDER = %w(campus_scan recap_scan offsite ill campus_paging recap_loan barnard_remote spec_coll precat on_order borrow_direct  recall_hold in_process doc_delivery ).freeze
 
   # parameters: title, link (url or javascript), optional extra param
   # When 2nd param is a JS function,
@@ -210,10 +210,15 @@ module HoldingsHelper
       
       # If we've got a tooltip to display...
       # (feature only currently enabled for CUD)
-      if tooltip && current_user && current_user.has_role?('site', 'pilot')
-        link_options['data-toggle'] = 'tooltip'
-        link_options['data-placement'] = 'right'
-        link_options['title'] = tooltip
+      if tooltip
+        show_tooltips = false
+        show_tooltips = true if current_user && current_user.has_role?('site', 'pilot')
+        show_tooltips = true if APP_CONFIG['admin_ips'] && APP_CONFIG['admin_ips'].include?(request.remote_ip)
+        if show_tooltips
+          link_options['data-toggle'] = 'tooltip'
+          link_options['data-placement'] = 'right'
+          link_options['title'] = tooltip
+        end
       end
 
       link_to link_label, link_target, link_options
