@@ -137,7 +137,7 @@ module HoldingsHelper
       # ====  SCAN SERVICES  ====
       'campus_scan'    => {link_label: 'Scan',          service_url: campus_scan_link, 
                            tooltip:    'Campus Scan',   js_function: 'OpenWindow'},
-      'recap_scan'     => {link_label: 'Scan',          service_url: offsite_link, 
+      'recap_scan'     => {link_label: 'Scan',          service_url: recap_scan_link, 
                            tooltip:    'ReCAP Scan',    js_function: 'OpenWindow'},
       'offsite'        => {link_label: 'Scan',          service_url: offsite_link, 
                            tooltip:    'Offsite',       js_function: 'OpenWindow'},
